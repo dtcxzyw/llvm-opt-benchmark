@@ -1032,9 +1032,8 @@ rb_array_const_ptr.exit:                          ; preds = %.thread, %13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @console_cursor_up(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #13
@@ -1066,9 +1065,8 @@ console_move.exit:                                ; preds = %rb_num2int_inline.e
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @console_cursor_down(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #13
@@ -1100,9 +1098,8 @@ console_move.exit:                                ; preds = %rb_num2int_inline.e
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @console_cursor_left(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #13
@@ -1115,8 +1112,8 @@ define internal noundef i64 @console_cursor_left(i64 noundef returned %0, i64 no
 rb_num2int_inline.exit:                           ; preds = %4, %6
   %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
   %8 = trunc i64 %.0.i to i32
-  %.not.i2 = icmp eq i32 %8, 0
-  br i1 %.not.i2, label %console_move.exit, label %9
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %console_move.exit, label %9
 
 9:                                                ; preds = %rb_num2int_inline.exit
   %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.59, i64 noundef 0) #13
@@ -1134,9 +1131,8 @@ console_move.exit:                                ; preds = %rb_num2int_inline.e
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @console_cursor_right(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #13
@@ -1149,8 +1145,8 @@ define internal noundef i64 @console_cursor_right(i64 noundef returned %0, i64 n
 rb_num2int_inline.exit:                           ; preds = %4, %6
   %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
   %8 = trunc i64 %.0.i to i32
-  %.not.i2 = icmp eq i32 %8, 0
-  br i1 %.not.i2, label %console_move.exit, label %9
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %console_move.exit, label %9
 
 9:                                                ; preds = %rb_num2int_inline.exit
   %10 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.59, i64 noundef 0) #13
@@ -1182,25 +1178,24 @@ define internal noundef i64 @console_erase_line(i64 noundef returned %0, i64 nou
   br i1 %3, label %mode_in_range.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = and i64 %1, 1
-  %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %6, label %16
+  %5 = trunc i64 %1 to i1
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq i64 %1, 0
   %8 = and i64 %1, 6
   %9 = icmp ne i64 %8, 0
   %10 = or i1 %7, %9
-  br i1 %10, label %rb_integer_type_p.exit.thread12.i, label %rb_integer_type_p.exit.i
+  br i1 %10, label %rb_integer_type_p.exit.thread11.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %6
   %11 = inttoptr i64 %1 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !34
   %13 = and i64 %12, 31
   %14 = icmp eq i64 %13, 10
-  br i1 %14, label %18, label %rb_integer_type_p.exit.thread12.i
+  br i1 %14, label %18, label %rb_integer_type_p.exit.thread11.i
 
-rb_integer_type_p.exit.thread12.i:                ; preds = %rb_num2int_inline.exit.i, %rb_integer_type_p.exit.i, %6
+rb_integer_type_p.exit.thread11.i:                ; preds = %rb_num2int_inline.exit.i, %rb_integer_type_p.exit.i, %6
   %15 = load i64, ptr @rb_eArgError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.62, i64 noundef %1) #14
   unreachable
@@ -1214,10 +1209,10 @@ rb_integer_type_p.exit.thread12.i:                ; preds = %rb_num2int_inline.e
   br label %rb_num2int_inline.exit.i
 
 rb_num2int_inline.exit.i:                         ; preds = %18, %16
-  %.0.i10.i = phi i64 [ %17, %16 ], [ %19, %18 ]
-  %20 = trunc i64 %.0.i10.i to i32
+  %.0.i9.i = phi i64 [ %17, %16 ], [ %19, %18 ]
+  %20 = trunc i64 %.0.i9.i to i32
   %or.cond.i = icmp ugt i32 %20, 2
-  br i1 %or.cond.i, label %rb_integer_type_p.exit.thread12.i, label %mode_in_range.exit
+  br i1 %or.cond.i, label %rb_integer_type_p.exit.thread11.i, label %mode_in_range.exit
 
 mode_in_range.exit:                               ; preds = %2, %rb_num2int_inline.exit.i
   %.0.i = phi i32 [ 0, %2 ], [ %20, %rb_num2int_inline.exit.i ]
@@ -1232,25 +1227,24 @@ define internal noundef i64 @console_erase_screen(i64 noundef returned %0, i64 n
   br i1 %3, label %mode_in_range.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = and i64 %1, 1
-  %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %6, label %16
+  %5 = trunc i64 %1 to i1
+  br i1 %5, label %16, label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq i64 %1, 0
   %8 = and i64 %1, 6
   %9 = icmp ne i64 %8, 0
   %10 = or i1 %7, %9
-  br i1 %10, label %rb_integer_type_p.exit.thread12.i, label %rb_integer_type_p.exit.i
+  br i1 %10, label %rb_integer_type_p.exit.thread11.i, label %rb_integer_type_p.exit.i
 
 rb_integer_type_p.exit.i:                         ; preds = %6
   %11 = inttoptr i64 %1 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !34
   %13 = and i64 %12, 31
   %14 = icmp eq i64 %13, 10
-  br i1 %14, label %18, label %rb_integer_type_p.exit.thread12.i
+  br i1 %14, label %18, label %rb_integer_type_p.exit.thread11.i
 
-rb_integer_type_p.exit.thread12.i:                ; preds = %rb_num2int_inline.exit.i, %rb_integer_type_p.exit.i, %6
+rb_integer_type_p.exit.thread11.i:                ; preds = %rb_num2int_inline.exit.i, %rb_integer_type_p.exit.i, %6
   %15 = load i64, ptr @rb_eArgError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i64 noundef %1) #14
   unreachable
@@ -1264,10 +1258,10 @@ rb_integer_type_p.exit.thread12.i:                ; preds = %rb_num2int_inline.e
   br label %rb_num2int_inline.exit.i
 
 rb_num2int_inline.exit.i:                         ; preds = %18, %16
-  %.0.i10.i = phi i64 [ %17, %16 ], [ %19, %18 ]
-  %20 = trunc i64 %.0.i10.i to i32
+  %.0.i9.i = phi i64 [ %17, %16 ], [ %19, %18 ]
+  %20 = trunc i64 %.0.i9.i to i32
   %or.cond.i = icmp ugt i32 %20, 3
-  br i1 %or.cond.i, label %rb_integer_type_p.exit.thread12.i, label %mode_in_range.exit
+  br i1 %or.cond.i, label %rb_integer_type_p.exit.thread11.i, label %mode_in_range.exit
 
 mode_in_range.exit:                               ; preds = %2, %rb_num2int_inline.exit.i
   %.0.i = phi i32 [ 0, %2 ], [ %20, %rb_num2int_inline.exit.i ]
@@ -1278,9 +1272,8 @@ mode_in_range.exit:                               ; preds = %2, %rb_num2int_inli
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @console_scroll_forward(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #13
@@ -1293,8 +1286,8 @@ define internal noundef i64 @console_scroll_forward(i64 noundef returned %0, i64
 rb_num2int_inline.exit:                           ; preds = %4, %6
   %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
   %8 = trunc i64 %.0.i to i32
-  %.not.i2 = icmp eq i32 %8, 0
-  br i1 %.not.i2, label %console_scroll.exit, label %9
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %console_scroll.exit, label %9
 
 9:                                                ; preds = %rb_num2int_inline.exit
   %10 = icmp slt i32 %8, 0
@@ -1310,9 +1303,8 @@ console_scroll.exit:                              ; preds = %rb_num2int_inline.e
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @console_scroll_backward(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #13
@@ -1325,8 +1317,8 @@ define internal noundef i64 @console_scroll_backward(i64 noundef returned %0, i6
 rb_num2int_inline.exit:                           ; preds = %4, %6
   %.0.i = phi i64 [ %5, %4 ], [ %7, %6 ]
   %8 = trunc i64 %.0.i to i32
-  %.not.i2 = icmp eq i32 %8, 0
-  br i1 %.not.i2, label %console_scroll.exit, label %9
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %console_scroll.exit, label %9
 
 9:                                                ; preds = %rb_num2int_inline.exit
   %10 = icmp sgt i32 %8, 0
@@ -1345,9 +1337,9 @@ define internal noundef i64 @console_clear_screen(i64 noundef returned %0) #0 {
   %2 = tail call i64 @rb_fix2int(i64 noundef 5) #13
   %3 = trunc i64 %2 to i32
   %or.cond.i.i = icmp ugt i32 %3, 3
-  br i1 %or.cond.i.i, label %rb_integer_type_p.exit.thread12.i.i, label %console_erase_screen.exit
+  br i1 %or.cond.i.i, label %rb_integer_type_p.exit.thread11.i.i, label %console_erase_screen.exit
 
-rb_integer_type_p.exit.thread12.i.i:              ; preds = %1
+rb_integer_type_p.exit.thread11.i.i:              ; preds = %1
   %4 = load i64, ptr @rb_eArgError, align 8, !tbaa !11
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i64 noundef 5) #14
   unreachable
@@ -1953,9 +1945,8 @@ rb_check_arity.exit:                              ; preds = %13, %.thread13
   ]
 
 30:                                               ; preds = %22
-  %31 = and i64 %23, 1
-  %.not.i32 = icmp eq i64 %31, 0
-  br i1 %.not.i32, label %34, label %32
+  %31 = trunc i64 %23 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
   %33 = call i64 @rb_fix2int(i64 noundef %23) #13
@@ -1966,8 +1957,8 @@ rb_check_arity.exit:                              ; preds = %13, %.thread13
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %32, %34
-  %.0.i33 = phi i64 [ %33, %32 ], [ %35, %34 ]
-  %36 = trunc i64 %.0.i33 to i32
+  %.0.i32 = phi i64 [ %33, %32 ], [ %35, %34 ]
+  %36 = trunc i64 %.0.i32 to i32
   store i32 %36, ptr %2, align 4, !tbaa !17
   br label %37
 
@@ -1982,27 +1973,26 @@ rb_num2int_inline.exit:                           ; preds = %32, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 21, ptr %5, align 8, !tbaa !11
   %39 = call i64 @rb_funcallv_public(i64 noundef %25, i64 noundef 42, i32 noundef 1, ptr noundef nonnull %5) #13
-  %40 = and i64 %39, 1
-  %.not.i34 = icmp eq i64 %40, 0
-  br i1 %.not.i34, label %43, label %41
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
   %42 = call i64 @rb_fix2int(i64 noundef %39) #13
-  br label %rb_num2int_inline.exit36
+  br label %rb_num2int_inline.exit34
 
 43:                                               ; preds = %38
   %44 = call i64 @rb_num2int(i64 noundef %39) #13
-  br label %rb_num2int_inline.exit36
+  br label %rb_num2int_inline.exit34
 
-rb_num2int_inline.exit36:                         ; preds = %41, %43
-  %.0.i35 = phi i64 [ %42, %41 ], [ %44, %43 ]
-  %45 = trunc i64 %.0.i35 to i32
+rb_num2int_inline.exit34:                         ; preds = %41, %43
+  %.0.i33 = phi i64 [ %42, %41 ], [ %44, %43 ]
+  %45 = trunc i64 %.0.i33 to i32
   store i32 %45, ptr %28, align 4, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
-46:                                               ; preds = %37, %37, %rb_num2int_inline.exit36
-  %.2 = phi ptr [ %.1, %37 ], [ %2, %rb_num2int_inline.exit36 ], [ %.1, %37 ]
+46:                                               ; preds = %37, %37, %rb_num2int_inline.exit34
+  %.2 = phi ptr [ %.1, %37 ], [ %2, %rb_num2int_inline.exit34 ], [ %.1, %37 ]
   %47 = call i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 62)
   switch i64 %47, label %49 [
     i64 5, label %.sink.split

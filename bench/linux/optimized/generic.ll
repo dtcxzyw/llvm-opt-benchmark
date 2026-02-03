@@ -1767,7 +1767,7 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_validate_add_page(i64 no
 
 18:                                               ; preds = %15
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i64 noundef %0) #18
-  br label %49
+  br label %48
 
 20:                                               ; preds = %15
   %21 = add i64 %1, %0
@@ -1784,43 +1784,42 @@ define dso_local noundef range(i32 -22, 1) i32 @generic_validate_add_page(i64 no
 
 26:                                               ; preds = %25, %25
   %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #18
-  br label %49
+  br label %48
 
 28:                                               ; preds = %._crit_edge, %25, %20
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %21, %25 ], [ %21, %20 ]
   %29 = add i64 %.pre-phi, -1
   %30 = and i64 %0, 1
   %31 = icmp eq i64 %30, 0
-  %32 = and i64 %29, 1
-  %33 = icmp ne i64 %32, 0
-  %34 = and i1 %31, %33
-  br i1 %34, label %.preheader, label %.loopexit
+  %32 = trunc i64 %29 to i1
+  %33 = and i1 %31, %32
+  br i1 %33, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %28, %.preheader
-  %35 = phi i64 [ %37, %.preheader ], [ %0, %28 ]
-  %36 = phi i64 [ %38, %.preheader ], [ %29, %28 ]
-  %37 = lshr exact i64 %35, 1
-  %38 = lshr i64 %36, 1
-  %39 = and i64 %35, 2
-  %40 = icmp eq i64 %39, 0
-  %41 = and i64 %36, 2
-  %42 = icmp ne i64 %41, 0
-  %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !39
+  %34 = phi i64 [ %36, %.preheader ], [ %0, %28 ]
+  %35 = phi i64 [ %37, %.preheader ], [ %29, %28 ]
+  %36 = lshr exact i64 %34, 1
+  %37 = lshr i64 %35, 1
+  %38 = and i64 %34, 2
+  %39 = icmp eq i64 %38, 0
+  %40 = and i64 %35, 2
+  %41 = icmp ne i64 %40, 0
+  %42 = select i1 %39, i1 %41, i1 false
+  br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.preheader, %28
-  %44 = phi i64 [ %29, %28 ], [ %38, %.preheader ]
-  %45 = phi i64 [ %0, %28 ], [ %37, %.preheader ]
-  %46 = icmp eq i64 %45, %44
-  br i1 %46, label %49, label %47
+  %43 = phi i64 [ %29, %28 ], [ %37, %.preheader ]
+  %44 = phi i64 [ %0, %28 ], [ %36, %.preheader ]
+  %45 = icmp eq i64 %44, %43
+  br i1 %45, label %48, label %46
 
-47:                                               ; preds = %.loopexit
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i64 noundef %0, i64 noundef %1) #18
-  br label %49
+46:                                               ; preds = %.loopexit
+  %47 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i64 noundef %0, i64 noundef %1) #18
+  br label %48
 
-49:                                               ; preds = %47, %.loopexit, %26, %18
-  %50 = phi i32 [ -22, %18 ], [ -22, %47 ], [ -22, %26 ], [ 0, %.loopexit ]
-  ret i32 %50
+48:                                               ; preds = %46, %.loopexit, %26, %18
+  %49 = phi i32 [ -22, %18 ], [ -22, %46 ], [ -22, %26 ], [ 0, %.loopexit ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)

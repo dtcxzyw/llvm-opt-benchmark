@@ -324,15 +324,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vlse16_vP1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %143 = lshr i64 %142, 12
-  %144 = and i64 %140, 1
-  %.not124 = icmp eq i64 %144, 0
+  %144 = trunc i64 %140 to i1
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 39056
   %146 = and i64 %143, 255
   %147 = getelementptr inbounds nuw i64, ptr %145, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !144
-  %149 = icmp eq i64 %148, %143
-  %or.cond.i = select i1 %.not124, i1 %149, i1 false, !prof !155
-  br i1 %or.cond.i, label %150, label %.critedge.i, !prof !155
+  %149 = icmp ne i64 %148, %143
+  %or.cond.i.not = select i1 %144, i1 true, i1 %149
+  br i1 %or.cond.i.not, label %.critedge.i, label %150, !prof !155
 
 150:                                              ; preds = %136
   %151 = getelementptr inbounds nuw i8, ptr %137, i64 32912
@@ -764,15 +763,14 @@ define noundef i64 @_Z19fast_rv64i_vlse16_vP11processor_t6insn_tm(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %141 = lshr i64 %140, 12
-  %142 = and i64 %138, 1
-  %.not124 = icmp eq i64 %142, 0
+  %142 = trunc i64 %138 to i1
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 39056
   %144 = and i64 %141, 255
   %145 = getelementptr inbounds nuw i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !144
-  %147 = icmp eq i64 %146, %141
-  %or.cond.i = select i1 %.not124, i1 %147, i1 false, !prof !155
-  br i1 %or.cond.i, label %148, label %.critedge.i, !prof !155
+  %147 = icmp ne i64 %146, %141
+  %or.cond.i.not = select i1 %142, i1 true, i1 %147
+  br i1 %or.cond.i.not, label %.critedge.i, label %148, !prof !155
 
 148:                                              ; preds = %134
   %149 = getelementptr inbounds nuw i8, ptr %135, i64 32912
@@ -1094,15 +1092,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vlse16_v
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %143 = lshr i64 %142, 12
-  %144 = and i64 %140, 1
-  %.not124 = icmp eq i64 %144, 0
+  %144 = trunc i64 %140 to i1
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 39056
   %146 = and i64 %143, 255
   %147 = getelementptr inbounds nuw i64, ptr %145, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !144
-  %149 = icmp eq i64 %148, %143
-  %or.cond.i = select i1 %.not124, i1 %149, i1 false, !prof !155
-  br i1 %or.cond.i, label %150, label %.critedge.i, !prof !155
+  %149 = icmp ne i64 %148, %143
+  %or.cond.i.not = select i1 %144, i1 true, i1 %149
+  br i1 %or.cond.i.not, label %.critedge.i, label %150, !prof !155
 
 150:                                              ; preds = %136
   %151 = getelementptr inbounds nuw i8, ptr %137, i64 32912
@@ -1422,15 +1419,14 @@ define noundef i64 @_Z21logged_rv64i_vlse16_vP11processor_t6insn_tm(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %141 = lshr i64 %140, 12
-  %142 = and i64 %138, 1
-  %.not124 = icmp eq i64 %142, 0
+  %142 = trunc i64 %138 to i1
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 39056
   %144 = and i64 %141, 255
   %145 = getelementptr inbounds nuw i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !144
-  %147 = icmp eq i64 %146, %141
-  %or.cond.i = select i1 %.not124, i1 %147, i1 false, !prof !155
-  br i1 %or.cond.i, label %148, label %.critedge.i, !prof !155
+  %147 = icmp ne i64 %146, %141
+  %or.cond.i.not = select i1 %142, i1 true, i1 %147
+  br i1 %or.cond.i.not, label %.critedge.i, label %148, !prof !155
 
 148:                                              ; preds = %134
   %149 = getelementptr inbounds nuw i8, ptr %135, i64 32912
@@ -1829,15 +1825,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vlse16_vP1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %179 = lshr i64 %178, 12
-  %180 = and i64 %176, 1
-  %.not135 = icmp eq i64 %180, 0
+  %180 = trunc i64 %176 to i1
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 39056
   %182 = and i64 %179, 255
   %183 = getelementptr inbounds nuw i64, ptr %181, i64 %182
   %184 = load i64, ptr %183, align 8, !tbaa !144
-  %185 = icmp eq i64 %184, %179
-  %or.cond.i = select i1 %.not135, i1 %185, i1 false, !prof !155
-  br i1 %or.cond.i, label %186, label %.critedge.i, !prof !155
+  %185 = icmp ne i64 %184, %179
+  %or.cond.i.not = select i1 %180, i1 true, i1 %185
+  br i1 %or.cond.i.not, label %.critedge.i, label %186, !prof !155
 
 186:                                              ; preds = %172
   %187 = getelementptr inbounds nuw i8, ptr %173, i64 32912
@@ -2234,15 +2229,14 @@ define noundef i64 @_Z19fast_rv64e_vlse16_vP11processor_t6insn_tm(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %177 = lshr i64 %176, 12
-  %178 = and i64 %174, 1
-  %.not135 = icmp eq i64 %178, 0
+  %178 = trunc i64 %174 to i1
   %179 = getelementptr inbounds nuw i8, ptr %171, i64 39056
   %180 = and i64 %177, 255
   %181 = getelementptr inbounds nuw i64, ptr %179, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !144
-  %183 = icmp eq i64 %182, %177
-  %or.cond.i = select i1 %.not135, i1 %183, i1 false, !prof !155
-  br i1 %or.cond.i, label %184, label %.critedge.i, !prof !155
+  %183 = icmp ne i64 %182, %177
+  %or.cond.i.not = select i1 %178, i1 true, i1 %183
+  br i1 %or.cond.i.not, label %.critedge.i, label %184, !prof !155
 
 184:                                              ; preds = %170
   %185 = getelementptr inbounds nuw i8, ptr %171, i64 32912
@@ -2641,15 +2635,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vlse16_v
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %179 = lshr i64 %178, 12
-  %180 = and i64 %176, 1
-  %.not135 = icmp eq i64 %180, 0
+  %180 = trunc i64 %176 to i1
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 39056
   %182 = and i64 %179, 255
   %183 = getelementptr inbounds nuw i64, ptr %181, i64 %182
   %184 = load i64, ptr %183, align 8, !tbaa !144
-  %185 = icmp eq i64 %184, %179
-  %or.cond.i = select i1 %.not135, i1 %185, i1 false, !prof !155
-  br i1 %or.cond.i, label %186, label %.critedge.i, !prof !155
+  %185 = icmp ne i64 %184, %179
+  %or.cond.i.not = select i1 %180, i1 true, i1 %185
+  br i1 %or.cond.i.not, label %.critedge.i, label %186, !prof !155
 
 186:                                              ; preds = %172
   %187 = getelementptr inbounds nuw i8, ptr %173, i64 32912
@@ -3046,15 +3039,14 @@ define noundef i64 @_Z21logged_rv64e_vlse16_vP11processor_t6insn_tm(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !152
   %177 = lshr i64 %176, 12
-  %178 = and i64 %174, 1
-  %.not135 = icmp eq i64 %178, 0
+  %178 = trunc i64 %174 to i1
   %179 = getelementptr inbounds nuw i8, ptr %171, i64 39056
   %180 = and i64 %177, 255
   %181 = getelementptr inbounds nuw i64, ptr %179, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !144
-  %183 = icmp eq i64 %182, %177
-  %or.cond.i = select i1 %.not135, i1 %183, i1 false, !prof !155
-  br i1 %or.cond.i, label %184, label %.critedge.i, !prof !155
+  %183 = icmp ne i64 %182, %177
+  %or.cond.i.not = select i1 %178, i1 true, i1 %183
+  br i1 %or.cond.i.not, label %.critedge.i, label %184, !prof !155
 
 184:                                              ; preds = %170
   %185 = getelementptr inbounds nuw i8, ptr %171, i64 32912
@@ -3745,7 +3737,7 @@ attributes #22 = { nounwind willreturn memory(read) }
 !152 = !{!153, !154, i64 0}
 !153 = !{!"_ZTS11base_endianIsE", !154, i64 0}
 !154 = !{!"short", !7, i64 0}
-!155 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!155 = !{!"branch_weights", i32 6003000, i32 -294967296}
 !156 = !{!157, !17, i64 0}
 !157 = !{!"_ZTS11tlb_entry_t", !17, i64 0, !12, i64 8}
 !158 = !{!159, !121, i64 80}

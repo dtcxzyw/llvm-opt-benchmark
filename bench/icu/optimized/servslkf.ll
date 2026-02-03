@@ -613,9 +613,8 @@ define noundef ptr @_ZNK6icu_7722SimpleLocaleKeyFactory6createERKNS_13ICUService
 
 29:                                               ; preds = %24
   %30 = load i16, ptr %19, align 8, !tbaa !26
-  %31 = and i16 %30, 1
-  %.not = icmp eq i16 %31, 0
-  br i1 %.not, label %.thread.sink.split, label %55
+  %31 = trunc i16 %30 to i1
+  br i1 %31, label %55, label %.thread.sink.split
 
 32:                                               ; preds = %24
   %33 = icmp slt i16 %27, 0
@@ -648,8 +647,8 @@ define noundef ptr @_ZNK6icu_7722SimpleLocaleKeyFactory6createERKNS_13ICUService
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %62
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %48
-  %.not21 = icmp eq i8 %54, 0
-  br i1 %.not21, label %.thread.sink.split, label %55
+  %.not = icmp eq i8 %54, 0
+  br i1 %.not, label %.thread.sink.split, label %55
 
 55:                                               ; preds = %29, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80

@@ -126,18 +126,17 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %33, 0
-  %.sroa.026.0.copyload = load ptr, ptr %5, align 8, !tbaa !16
-  %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.227.0.copyload = load ptr, ptr %.sroa.227.0..sroa_idx, align 8, !tbaa !16
-  %.sroa.328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.328.0.copyload = load i64, ptr %.sroa.328.0..sroa_idx, align 8, !tbaa !18
+  %33 = trunc i8 %32 to i1
+  %.sroa.021.0.copyload = load ptr, ptr %5, align 8, !tbaa !16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = tail call noundef zeroext i1 @_ZN4llvm16MachObjectWriter16isFixupKindPCRelERKNS_11MCAssemblerEj(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(364) %2, i32 noundef %35) #16
   %37 = load i32, ptr %34, align 4, !tbaa !20
-  br i1 %.not, label %340, label %38
+  br i1 %33, label %38, label %340
 
 38:                                               ; preds = %7
   %39 = add i32 %37, -128
@@ -154,9 +153,9 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
   %49 = zext nneg i32 %40 to i64
   %50 = shl nuw nsw i64 1, %49
   %51 = select i1 %36, i64 %50, i64 0
-  %.0163.i = add nsw i64 %51, %.sroa.328.0.copyload
-  %.not.i.i = icmp eq ptr %.sroa.026.0.copyload, null
-  %.not1.i.i = icmp eq ptr %.sroa.227.0.copyload, null
+  %.0163.i = add nsw i64 %51, %.sroa.3.0.copyload
+  %.not.i.i = icmp eq ptr %.sroa.021.0.copyload, null
+  %.not1.i.i = icmp eq ptr %.sroa.2.0.copyload, null
   %52 = select i1 %.not.i.i, i1 %.not1.i.i, i1 false
   br i1 %52, label %53, label %55
 
@@ -167,7 +166,7 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
   br label %.thread38.i
 
 55:                                               ; preds = %38
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8
@@ -185,7 +184,7 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
 64:                                               ; preds = %62, %61
   %.0183.i = phi ptr [ %63, %62 ], [ %57, %61 ]
   %65 = tail call noundef ptr @_ZNK4llvm16MachObjectWriter7getAtomERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0183.i) #16
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.227.0.copyload, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !28
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8
@@ -200,7 +199,7 @@ define internal void @_ZN12_GLOBAL__N_119X86MachObjectWriter16recordRelocationEP
 73:                                               ; preds = %71, %64
   %.0184.i = phi ptr [ %72, %71 ], [ %67, %64 ]
   %74 = tail call noundef ptr @_ZNK4llvm16MachObjectWriter7getAtomERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(32) %.0184.i) #16
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 1
   %76 = load i32, ptr %75, align 1
   %77 = and i32 %76, 65535
   %.not201.i = icmp eq i32 %77, 0
@@ -379,9 +378,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvmplERKNS_5Tw
 
 145:                                              ; preds = %143, %140
   %146 = phi i64 [ %144, %143 ], [ 0, %140 ]
-  %.neg38 = add i64 %137, %.sroa.328.0.copyload
+  %.neg39 = add i64 %137, %.sroa.3.0.copyload
   %147 = add i64 %141, %142
-  %148 = sub i64 %.neg38, %147
+  %148 = sub i64 %.neg39, %147
   %149 = add i64 %148, %146
   br i1 %91, label %157, label %150
 
@@ -559,7 +558,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit232.i:      ; preds = %_ZNK4llvm8MCSymbol9
   br i1 %36, label %.thread23.i, label %.thread30.i
 
 .thread30.i:                                      ; preds = %222
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 1
   %232 = load i32, ptr %231, align 1
   %233 = trunc i32 %232 to i16
   br label %311
@@ -570,7 +569,7 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit232.i:      ; preds = %_ZNK4llvm8MCSymbol9
   %236 = add i32 %235, %47
   %237 = zext i32 %236 to i64
   %238 = sub nsw i64 %230, %237
-  %239 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 1
+  %239 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 1
   %240 = load i32, ptr %239, align 1
   %241 = trunc i32 %240 to i16
   br label %290
@@ -686,7 +685,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit261.i:             ; preds = %274, %270
 
 286:                                              ; preds = %208, %207
   %.3166.i = phi i64 [ %212, %208 ], [ %.0163.i, %207 ]
-  %287 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 1
+  %287 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 1
   %288 = load i32, ptr %287, align 1
   %289 = trunc i32 %288 to i16
   br i1 %36, label %290, label %311
@@ -727,7 +726,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit261.i:             ; preds = %274, %270
 
 301:                                              ; preds = %292
   %.neg.i = shl nsw i64 -1, %49
-  %.neg200.i = sub i64 %.neg.i, %.sroa.328.0.copyload
+  %.neg200.i = sub i64 %.neg.i, %.sroa.3.0.copyload
   switch i64 %.neg200.i, label %.thread38.i [
     i64 1, label %302
     i64 2, label %303
@@ -848,11 +847,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit261.i:             ; preds = %274, %270
 
 340:                                              ; preds = %7
   %341 = tail call fastcc noundef i32 @_ZL20getFixupKindLog2Sizej(i32 noundef %37)
-  %.not.i12 = icmp eq ptr %.sroa.026.0.copyload, null
+  %.not.i12 = icmp eq ptr %.sroa.021.0.copyload, null
   br i1 %.not.i12, label %375, label %342
 
 342:                                              ; preds = %340
-  %343 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 1
+  %343 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 1
   %344 = load i32, ptr %343, align 1
   %345 = and i32 %344, 65535
   %346 = icmp eq i32 %345, 21
@@ -862,7 +861,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit261.i:             ; preds = %274, %270
   %348 = tail call noundef i64 @_ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE(ptr noundef nonnull align 8 dereferenceable(364) %2, ptr noundef nonnull align 8 dereferenceable(30) %3) #16
   %349 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %350 = load i32, ptr %349, align 8, !tbaa !27
-  %.not.i.i20 = icmp eq ptr %.sroa.227.0.copyload, null
+  %.not.i.i20 = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not.i.i20, label %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit.i, label %351
 
 351:                                              ; preds = %347
@@ -871,12 +870,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit261.i:             ; preds = %274, %270
   %354 = trunc i64 %352 to i32
   %355 = add i32 %353, %354
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw i8, ptr %.sroa.227.0.copyload, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload, i64 16
   %358 = load ptr, ptr %357, align 8, !tbaa !28
   %359 = tail call noundef i64 @_ZNK4llvm16MachObjectWriter16getSymbolAddressERKNS_8MCSymbolERKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef nonnull align 8 dereferenceable(32) %358, ptr noundef nonnull align 8 dereferenceable(364) %2) #16
   %360 = zext nneg i32 %341 to i64
   %361 = shl nuw nsw i64 1, %360
-  %362 = add i64 %361, %.sroa.328.0.copyload
+  %362 = add i64 %361, %.sroa.3.0.copyload
   %363 = sub i64 %362, %359
   %364 = add i64 %363, %356
   br label %_ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit.i
@@ -894,7 +893,7 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
   %369 = or disjoint i32 %368, 1342177280
   %370 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %369, ptr %370, align 4, !tbaa !111
-  %371 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 16
   %372 = load ptr, ptr %371, align 8, !tbaa !28
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %374 = load ptr, ptr %373, align 8, !tbaa !92
@@ -903,21 +902,21 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
   br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
 
 375:                                              ; preds = %340
-  %.not68.i = icmp eq ptr %.sroa.227.0.copyload, null
+  %.not68.i = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not68.i, label %390, label %376
 
 .thread.i13:                                      ; preds = %342
-  %.not689.i = icmp eq ptr %.sroa.227.0.copyload, null
+  %.not689.i = icmp eq ptr %.sroa.2.0.copyload, null
   br i1 %.not689.i, label %378, label %376
 
 376:                                              ; preds = %.thread.i13, %375
-  %377 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(364) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr %.sroa.026.0.copyload, ptr nonnull %.sroa.227.0.copyload, i32 noundef %341, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %377 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(364) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr %.sroa.021.0.copyload, ptr nonnull %.sroa.2.0.copyload, i32 noundef %341, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit
 
 378:                                              ; preds = %.thread.i13
-  %379 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.copyload, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 16
   %380 = load ptr, ptr %379, align 8, !tbaa !28
-  %381 = trunc i64 %.sroa.328.0.copyload to i32
+  %381 = trunc i64 %.sroa.3.0.copyload to i32
   %382 = shl nuw nsw i32 1, %341
   %383 = select i1 %36, i32 %382, i32 0
   %.067.i = sub i32 0, %381
@@ -931,7 +930,7 @@ _ZN12_GLOBAL__N_119X86MachObjectWriter20recordTLVPRelocationEPN4llvm16MachObject
   br i1 %387, label %396, label %388
 
 388:                                              ; preds = %386
-  %389 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(364) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nonnull %.sroa.026.0.copyload, ptr null, i32 noundef %341, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %389 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119X86MachObjectWriter25recordScatteredRelocationEPN4llvm16MachObjectWriterERKNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueEjRm(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(364) %2, ptr noundef %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nonnull %.sroa.021.0.copyload, ptr null, i32 noundef %341, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br i1 %389, label %_ZN12_GLOBAL__N_119X86MachObjectWriter22RecordX86_64RelocationEPN4llvm16MachObjectWriterERNS1_11MCAssemblerEPKNS1_10MCFragmentERKNS1_7MCFixupENS1_7MCValueERm.exit, label %396
 
 390:                                              ; preds = %375

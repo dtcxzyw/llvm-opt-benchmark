@@ -496,9 +496,8 @@ rb_long2num_inline.exit:                          ; preds = %8, %11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509req_set_version(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = ashr i64 %1, 1

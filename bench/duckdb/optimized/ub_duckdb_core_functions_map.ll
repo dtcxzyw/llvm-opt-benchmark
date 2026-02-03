@@ -14971,7 +14971,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -14988,23 +14988,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -15014,53 +15012,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i8, ptr %17, align 1, !tbaa !57
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i8, ptr %17, align 1, !tbaa !57
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i8 %31, ptr %7, align 1, !tbaa !57
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i8 %29, ptr %7, align 1, !tbaa !57
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKaRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -15077,28 +15075,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -15115,28 +15112,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEaiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIaLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKaRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -17407,7 +17403,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -17424,23 +17420,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -17450,53 +17444,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i16, ptr %17, align 2, !tbaa !330
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i16, ptr %17, align 2, !tbaa !330
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i16 %31, ptr %7, align 2, !tbaa !330
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 2 dereferenceable(2) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i16 %29, ptr %7, align 2, !tbaa !330
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKsRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 2 dereferenceable(2) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -17513,28 +17507,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -17551,28 +17544,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEsiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIsLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKsRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.193) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -19489,7 +19481,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -19506,23 +19498,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -19532,53 +19522,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i32, ptr %17, align 4, !tbaa !58
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i32, ptr %17, align 4, !tbaa !58
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i32 %31, ptr %7, align 4, !tbaa !58
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i32 %29, ptr %7, align 4, !tbaa !58
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKiRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -19595,28 +19585,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -19633,28 +19622,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEiiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIiLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKiRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.194) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -21571,7 +21559,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -21588,23 +21576,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -21614,53 +21600,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i64, ptr %17, align 8, !tbaa !106
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i64, ptr %17, align 8, !tbaa !106
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i64 %31, ptr %7, align 8, !tbaa !106
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i64 %29, ptr %7, align 8, !tbaa !106
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKlRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -21677,28 +21663,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -21715,28 +21700,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEliNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIlLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKlRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.195) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -23653,7 +23637,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -23670,23 +23654,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i13.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i13.i = icmp eq ptr %25, null
   br i1 %.not.i.i13.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
@@ -23699,54 +23681,54 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.01.0.copyload.i, ptr %6, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.22.0.copyload.i, ptr %32, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.22.0.copyload.i, ptr %30, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpINS_9hugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpINS_9hugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb0EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -23763,28 +23745,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -23801,28 +23782,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_9hugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.196) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -25105,7 +25085,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -25122,23 +25102,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -25148,53 +25126,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i8, ptr %17, align 1, !tbaa !57
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i8, ptr %17, align 1, !tbaa !57
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i8 %31, ptr %7, align 1, !tbaa !57
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i8 %29, ptr %7, align 1, !tbaa !57
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKhRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -25211,28 +25189,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -25249,28 +25226,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEhiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIhLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKhRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.197) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -27187,7 +27163,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -27204,23 +27180,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -27230,53 +27204,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i16, ptr %17, align 2, !tbaa !330
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i16, ptr %17, align 2, !tbaa !330
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i16 %31, ptr %7, align 2, !tbaa !330
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 2 dereferenceable(2) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i16 %29, ptr %7, align 2, !tbaa !330
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpItLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKtRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 2 dereferenceable(2) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -27293,28 +27267,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -27331,28 +27304,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEtiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpItLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKtRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.198) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -29269,7 +29241,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -29286,23 +29258,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -29312,53 +29282,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i32, ptr %17, align 4, !tbaa !58
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i32, ptr %17, align 4, !tbaa !58
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i32 %31, ptr %7, align 4, !tbaa !58
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i32 %29, ptr %7, align 4, !tbaa !58
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKjRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -29375,28 +29345,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -29413,28 +29382,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEjiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIjLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKjRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.199) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -31351,7 +31319,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -31368,23 +31336,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i11.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i11.i = icmp eq ptr %25, null
   br i1 %.not.i.i11.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
@@ -31394,53 +31360,53 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = load i64, ptr %17, align 8, !tbaa !106
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = load i64, ptr %17, align 8, !tbaa !106
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  store i64 %31, ptr %7, align 8, !tbaa !106
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  store i64 %29, ptr %7, align 8, !tbaa !106
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpImLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKmRNS_12ValidityMaskEmE_clES5_S7_S9_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb0ELb1EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb1ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb0ELb0EEEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_EEvS6_S6_S6_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -31457,28 +31423,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -31495,28 +31460,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEmiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpImLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKmRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.200) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -33488,25 +33452,23 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %4
   %14 = load i64, ptr %13, align 8, !tbaa !106
-  %15 = and i64 %14, 1
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %22, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %20
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %4, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
-  %.not.i.i13 = icmp eq ptr %18, null
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !105
+  %.not.i.i13 = icmp eq ptr %17, null
   br i1 %.not.i.i13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
-  %19 = load i64, ptr %18, align 8, !tbaa !106
-  %20 = and i64 %19, 1
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread
+  %18 = load i64, ptr %17, align 8, !tbaa !106
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread, label %20
 
-22:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %68
+  br label %66
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16
   %.sroa.019.0.copyload = load ptr, ptr %3, align 8, !tbaa !480
@@ -33520,117 +33482,117 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread: ; preds = %_ZN6du
   %.sroa.0.0.copyload = load i64, ptr %9, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !106
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %24, align 8
-  %25 = icmp eq i64 %.sroa.22.0.copyload, 0
-  br i1 %25, label %26, label %34
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.2.0.copyload, ptr %22, align 8
+  %23 = icmp eq i64 %.sroa.22.0.copyload, 0
+  br i1 %23, label %24, label %32
 
-26:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread
-  %27 = load ptr, ptr %23, align 8, !tbaa !105
-  %.not.i.i17 = icmp eq ptr %27, null
-  br i1 %.not.i.i17, label %28, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
+24:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread
+  %25 = load ptr, ptr %21, align 8, !tbaa !105
+  %.not.i.i17 = icmp eq ptr %25, null
+  br i1 %.not.i.i17, label %26, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %30 = load i64, ptr %29, align 8, !tbaa !107
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %30)
-  %.pre.i.i = load ptr, ptr %23, align 8, !tbaa !105
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %28 = load i64, ptr %27, align 8, !tbaa !107
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %28)
+  %.pre.i.i = load ptr, ptr %21, align 8, !tbaa !105
   br label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
 
-_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i: ; preds = %28, %26
-  %31 = phi ptr [ %.pre.i.i, %28 ], [ %27, %26 ]
-  %32 = load i64, ptr %31, align 8, !tbaa !106
-  %33 = and i64 %32, -2
-  store i64 %33, ptr %31, align 8, !tbaa !106
+_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i: ; preds = %26, %24
+  %29 = phi ptr [ %.pre.i.i, %26 ], [ %25, %24 ]
+  %30 = load i64, ptr %29, align 8, !tbaa !106
+  %31 = and i64 %30, -2
+  store i64 %31, ptr %29, align 8, !tbaa !106
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
-34:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread
-  %35 = add i64 %.sroa.22.0.copyload, %.sroa.01.0.copyload
-  %36 = icmp ult i64 %.sroa.01.0.copyload, %35
-  br i1 %36, label %.lr.ph.i.preheader, label %._crit_edge.i
+32:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread
+  %33 = add i64 %.sroa.22.0.copyload, %.sroa.01.0.copyload
+  %34 = icmp ult i64 %.sroa.01.0.copyload, %33
+  br i1 %34, label %.lr.ph.i.preheader, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
+.lr.ph.i.preheader:                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
-  %.02135.i = phi i64 [ %55, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i ], [ %.sroa.01.0.copyload, %.lr.ph.i.preheader ]
-  %38 = load ptr, ptr %.sroa.019.0.copyload, align 8, !tbaa !103
-  %39 = load ptr, ptr %38, align 8, !tbaa !104
-  %.not.i22.i = icmp eq ptr %39, null
-  br i1 %.not.i22.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %40
+  %.02135.i = phi i64 [ %53, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i ], [ %.sroa.01.0.copyload, %.lr.ph.i.preheader ]
+  %36 = load ptr, ptr %.sroa.019.0.copyload, align 8, !tbaa !103
+  %37 = load ptr, ptr %36, align 8, !tbaa !104
+  %.not.i22.i = icmp eq ptr %37, null
+  br i1 %.not.i22.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %38
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %.02135.i
-  %42 = load i32, ptr %41, align 4, !tbaa !58
-  %43 = zext i32 %42 to i64
+38:                                               ; preds = %.lr.ph.i
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %.02135.i
+  %40 = load i32, ptr %39, align 4, !tbaa !58
+  %41 = zext i32 %40 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %40, %.lr.ph.i
-  %44 = phi i64 [ %43, %40 ], [ %.02135.i, %.lr.ph.i ]
-  %45 = load ptr, ptr %37, align 8, !tbaa !105
-  %.not.i23.i = icmp eq ptr %45, null
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %38, %.lr.ph.i
+  %42 = phi i64 [ %41, %38 ], [ %.02135.i, %.lr.ph.i ]
+  %43 = load ptr, ptr %35, align 8, !tbaa !105
+  %.not.i23.i = icmp eq ptr %43, null
   br i1 %.not.i23.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %46 = lshr i64 %44, 6
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !106
-  %49 = and i64 %44, 63
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %48, %50
-  %.not.i = icmp eq i64 %51, 0
+  %44 = lshr i64 %42, 6
+  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !106
+  %47 = and i64 %42, 63
+  %48 = shl nuw i64 1, %47
+  %49 = and i64 %46, %48
+  %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %52 = load ptr, ptr %.sroa.2.0.copyload21, align 8, !tbaa !285
-  %53 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %52, i64 %44
-  %54 = call noundef zeroext i1 @_ZNK6duckdb10uhugeint_teqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br i1 %54, label %56, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
+  %50 = load ptr, ptr %.sroa.2.0.copyload21, align 8, !tbaa !285
+  %51 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %50, i64 %42
+  %52 = call noundef zeroext i1 @_ZNK6duckdb10uhugeint_teqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  br i1 %52, label %54, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
-  %55 = add i64 %.02135.i, 1
-  %exitcond.not = icmp eq i64 %55, %35
+  %53 = add i64 %.02135.i, 1
+  %exitcond.not = icmp eq i64 %53, %33
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !483
 
-56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  %57 = load i64, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
+54:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
+  %55 = load i64, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
   %reass.sub = sub i64 %.02135.i, %.sroa.01.0.copyload
-  %59 = trunc i64 %reass.sub to i32
-  %60 = add i32 %59, 1
+  %57 = trunc i64 %reass.sub to i32
+  %58 = add i32 %57, 1
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
-._crit_edge.i:                                    ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, %34
-  %61 = load ptr, ptr %23, align 8, !tbaa !105
-  %.not.i24.i = icmp eq ptr %61, null
-  br i1 %.not.i24.i, label %62, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
+._crit_edge.i:                                    ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, %32
+  %59 = load ptr, ptr %21, align 8, !tbaa !105
+  %.not.i24.i = icmp eq ptr %59, null
+  br i1 %.not.i24.i, label %60, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
 
-62:                                               ; preds = %._crit_edge.i
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %64 = load i64, ptr %63, align 8, !tbaa !107
-  call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %23, i64 noundef %64)
-  %.pre.i25.i = load ptr, ptr %23, align 8, !tbaa !105
+60:                                               ; preds = %._crit_edge.i
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %62 = load i64, ptr %61, align 8, !tbaa !107
+  call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef %62)
+  %.pre.i25.i = load ptr, ptr %21, align 8, !tbaa !105
   br label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
 
-_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %62, %._crit_edge.i
-  %65 = phi ptr [ %.pre.i25.i, %62 ], [ %61, %._crit_edge.i ]
-  %66 = load i64, ptr %65, align 8, !tbaa !106
-  %67 = and i64 %66, -2
-  store i64 %67, ptr %65, align 8, !tbaa !106
+_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %60, %._crit_edge.i
+  %63 = phi ptr [ %.pre.i25.i, %60 ], [ %59, %._crit_edge.i ]
+  %64 = load i64, ptr %63, align 8, !tbaa !106
+  %65 = and i64 %64, -2
+  store i64 %65, ptr %63, align 8, !tbaa !106
   br label %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit
 
-_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %60, %56 ]
+_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
+  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %58, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.0.i, ptr %11, align 4, !tbaa !58
-  br label %68
+  br label %66
 
-68:                                               ; preds = %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit, %22
+66:                                               ; preds = %_ZZN6duckdb18ListSearchSimpleOpINS_10uhugeint_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m.exit, %20
   ret void
 }
 
@@ -33647,28 +33609,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10uhugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.201) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10uhugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.201) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -33685,28 +33646,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10uhugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.201) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10uhugeint_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.201) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -35583,25 +35543,23 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %4
   %14 = load i64, ptr %13, align 8, !tbaa !106
-  %15 = and i64 %14, 1
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %22, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %20
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %4, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
-  %.not.i.i11 = icmp eq ptr %18, null
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !105
+  %.not.i.i11 = icmp eq ptr %17, null
   br i1 %.not.i.i11, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
-  %19 = load i64, ptr %18, align 8, !tbaa !106
-  %20 = and i64 %19, 1
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
+  %18 = load i64, ptr %17, align 8, !tbaa !106
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread, label %20
 
-22:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %68
+  br label %66
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14
   %.sroa.017.0.copyload = load ptr, ptr %3, align 8, !tbaa !480
@@ -35612,116 +35570,116 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread: ; preds = %_ZN6du
   %.sroa.0.0.copyload = load i64, ptr %7, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !106
-  %23 = load float, ptr %9, align 4, !tbaa !504
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %21 = load float, ptr %9, align 4, !tbaa !504
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store float %23, ptr %5, align 4, !tbaa !504
-  %25 = icmp eq i64 %.sroa.2.0.copyload, 0
-  br i1 %25, label %26, label %34
+  store float %21, ptr %5, align 4, !tbaa !504
+  %23 = icmp eq i64 %.sroa.2.0.copyload, 0
+  br i1 %23, label %24, label %32
 
-26:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
-  %27 = load ptr, ptr %24, align 8, !tbaa !105
-  %.not.i.i15 = icmp eq ptr %27, null
-  br i1 %.not.i.i15, label %28, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
+24:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
+  %25 = load ptr, ptr %22, align 8, !tbaa !105
+  %.not.i.i15 = icmp eq ptr %25, null
+  br i1 %.not.i.i15, label %26, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %30 = load i64, ptr %29, align 8, !tbaa !107
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %30)
-  %.pre.i.i = load ptr, ptr %24, align 8, !tbaa !105
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %28 = load i64, ptr %27, align 8, !tbaa !107
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %28)
+  %.pre.i.i = load ptr, ptr %22, align 8, !tbaa !105
   br label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
 
-_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i: ; preds = %28, %26
-  %31 = phi ptr [ %.pre.i.i, %28 ], [ %27, %26 ]
-  %32 = load i64, ptr %31, align 8, !tbaa !106
-  %33 = and i64 %32, -2
-  store i64 %33, ptr %31, align 8, !tbaa !106
+_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i: ; preds = %26, %24
+  %29 = phi ptr [ %.pre.i.i, %26 ], [ %25, %24 ]
+  %30 = load i64, ptr %29, align 8, !tbaa !106
+  %31 = and i64 %30, -2
+  store i64 %31, ptr %29, align 8, !tbaa !106
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
-34:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
-  %35 = add i64 %.sroa.2.0.copyload, %.sroa.0.0.copyload
-  %36 = icmp ult i64 %.sroa.0.0.copyload, %35
-  br i1 %36, label %.lr.ph.i.preheader, label %._crit_edge.i
+32:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
+  %33 = add i64 %.sroa.2.0.copyload, %.sroa.0.0.copyload
+  %34 = icmp ult i64 %.sroa.0.0.copyload, %33
+  br i1 %34, label %.lr.ph.i.preheader, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 16
+.lr.ph.i.preheader:                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
-  %.02135.i = phi i64 [ %55, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i ], [ %.sroa.0.0.copyload, %.lr.ph.i.preheader ]
-  %38 = load ptr, ptr %.sroa.017.0.copyload, align 8, !tbaa !103
-  %39 = load ptr, ptr %38, align 8, !tbaa !104
-  %.not.i22.i = icmp eq ptr %39, null
-  br i1 %.not.i22.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %40
+  %.02135.i = phi i64 [ %53, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i ], [ %.sroa.0.0.copyload, %.lr.ph.i.preheader ]
+  %36 = load ptr, ptr %.sroa.017.0.copyload, align 8, !tbaa !103
+  %37 = load ptr, ptr %36, align 8, !tbaa !104
+  %.not.i22.i = icmp eq ptr %37, null
+  br i1 %.not.i22.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %38
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %.02135.i
-  %42 = load i32, ptr %41, align 4, !tbaa !58
-  %43 = zext i32 %42 to i64
+38:                                               ; preds = %.lr.ph.i
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %.02135.i
+  %40 = load i32, ptr %39, align 4, !tbaa !58
+  %41 = zext i32 %40 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %40, %.lr.ph.i
-  %44 = phi i64 [ %43, %40 ], [ %.02135.i, %.lr.ph.i ]
-  %45 = load ptr, ptr %37, align 8, !tbaa !105
-  %.not.i23.i = icmp eq ptr %45, null
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %38, %.lr.ph.i
+  %42 = phi i64 [ %41, %38 ], [ %.02135.i, %.lr.ph.i ]
+  %43 = load ptr, ptr %35, align 8, !tbaa !105
+  %.not.i23.i = icmp eq ptr %43, null
   br i1 %.not.i23.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %46 = lshr i64 %44, 6
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !106
-  %49 = and i64 %44, 63
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %48, %50
-  %.not.i = icmp eq i64 %51, 0
+  %44 = lshr i64 %42, 6
+  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !106
+  %47 = and i64 %42, 63
+  %48 = shl nuw i64 1, %47
+  %49 = and i64 %46, %48
+  %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %52 = load ptr, ptr %.sroa.2.0.copyload19, align 8, !tbaa !287
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %44
-  %54 = call noundef zeroext i1 @_ZN6duckdb6Equals9OperationIfEEbRKT_S4_(ptr noundef nonnull align 4 dereferenceable(4) %53, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br i1 %54, label %56, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
+  %50 = load ptr, ptr %.sroa.2.0.copyload19, align 8, !tbaa !287
+  %51 = getelementptr inbounds nuw float, ptr %50, i64 %42
+  %52 = call noundef zeroext i1 @_ZN6duckdb6Equals9OperationIfEEbRKT_S4_(ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br i1 %52, label %54, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
-  %55 = add i64 %.02135.i, 1
-  %exitcond.not = icmp eq i64 %55, %35
+  %53 = add i64 %.02135.i, 1
+  %exitcond.not = icmp eq i64 %53, %33
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !505
 
-56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  %57 = load i64, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
+54:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
+  %55 = load i64, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
   %reass.sub = sub i64 %.02135.i, %.sroa.0.0.copyload
-  %59 = trunc i64 %reass.sub to i32
-  %60 = add i32 %59, 1
+  %57 = trunc i64 %reass.sub to i32
+  %58 = add i32 %57, 1
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
-._crit_edge.i:                                    ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, %34
-  %61 = load ptr, ptr %24, align 8, !tbaa !105
-  %.not.i24.i = icmp eq ptr %61, null
-  br i1 %.not.i24.i, label %62, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
+._crit_edge.i:                                    ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, %32
+  %59 = load ptr, ptr %22, align 8, !tbaa !105
+  %.not.i24.i = icmp eq ptr %59, null
+  br i1 %.not.i24.i, label %60, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
 
-62:                                               ; preds = %._crit_edge.i
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %64 = load i64, ptr %63, align 8, !tbaa !107
-  call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %64)
-  %.pre.i25.i = load ptr, ptr %24, align 8, !tbaa !105
+60:                                               ; preds = %._crit_edge.i
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %62 = load i64, ptr %61, align 8, !tbaa !107
+  call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %62)
+  %.pre.i25.i = load ptr, ptr %22, align 8, !tbaa !105
   br label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
 
-_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %62, %._crit_edge.i
-  %65 = phi ptr [ %.pre.i25.i, %62 ], [ %61, %._crit_edge.i ]
-  %66 = load i64, ptr %65, align 8, !tbaa !106
-  %67 = and i64 %66, -2
-  store i64 %67, ptr %65, align 8, !tbaa !106
+_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %60, %._crit_edge.i
+  %63 = phi ptr [ %.pre.i25.i, %60 ], [ %59, %._crit_edge.i ]
+  %64 = load i64, ptr %63, align 8, !tbaa !106
+  %65 = and i64 %64, -2
+  store i64 %65, ptr %63, align 8, !tbaa !106
   br label %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
-_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %60, %56 ]
+_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
+  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %58, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.0.i, ptr %11, align 4, !tbaa !58
-  br label %68
+  br label %66
 
-68:                                               ; preds = %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit, %22
+66:                                               ; preds = %_ZZN6duckdb18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKfRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit, %20
   ret void
 }
 
@@ -35738,28 +35696,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEfiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKfRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.202) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEfiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKfRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.202) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -35776,28 +35733,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEfiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKfRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.202) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEfiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIfLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKfRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.202) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -37622,25 +37578,23 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %4
   %14 = load i64, ptr %13, align 8, !tbaa !106
-  %15 = and i64 %14, 1
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %22, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %20
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %4, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
-  %.not.i.i11 = icmp eq ptr %18, null
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !105
+  %.not.i.i11 = icmp eq ptr %17, null
   br i1 %.not.i.i11, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
-  %19 = load i64, ptr %18, align 8, !tbaa !106
-  %20 = and i64 %19, 1
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
+  %18 = load i64, ptr %17, align 8, !tbaa !106
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread, label %20
 
-22:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %68
+  br label %66
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14
   %.sroa.017.0.copyload = load ptr, ptr %3, align 8, !tbaa !480
@@ -37651,116 +37605,116 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread: ; preds = %_ZN6du
   %.sroa.0.0.copyload = load i64, ptr %7, align 8, !tbaa !106
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !106
-  %23 = load double, ptr %9, align 8, !tbaa !526
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %21 = load double, ptr %9, align 8, !tbaa !526
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store double %23, ptr %5, align 8, !tbaa !526
-  %25 = icmp eq i64 %.sroa.2.0.copyload, 0
-  br i1 %25, label %26, label %34
+  store double %21, ptr %5, align 8, !tbaa !526
+  %23 = icmp eq i64 %.sroa.2.0.copyload, 0
+  br i1 %23, label %24, label %32
 
-26:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
-  %27 = load ptr, ptr %24, align 8, !tbaa !105
-  %.not.i.i15 = icmp eq ptr %27, null
-  br i1 %.not.i.i15, label %28, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
+24:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
+  %25 = load ptr, ptr %22, align 8, !tbaa !105
+  %.not.i.i15 = icmp eq ptr %25, null
+  br i1 %.not.i.i15, label %26, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %30 = load i64, ptr %29, align 8, !tbaa !107
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %30)
-  %.pre.i.i = load ptr, ptr %24, align 8, !tbaa !105
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %28 = load i64, ptr %27, align 8, !tbaa !107
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %28)
+  %.pre.i.i = load ptr, ptr %22, align 8, !tbaa !105
   br label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
 
-_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i: ; preds = %28, %26
-  %31 = phi ptr [ %.pre.i.i, %28 ], [ %27, %26 ]
-  %32 = load i64, ptr %31, align 8, !tbaa !106
-  %33 = and i64 %32, -2
-  store i64 %33, ptr %31, align 8, !tbaa !106
+_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i: ; preds = %26, %24
+  %29 = phi ptr [ %.pre.i.i, %26 ], [ %25, %24 ]
+  %30 = load i64, ptr %29, align 8, !tbaa !106
+  %31 = and i64 %30, -2
+  store i64 %31, ptr %29, align 8, !tbaa !106
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
-34:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
-  %35 = add i64 %.sroa.2.0.copyload, %.sroa.0.0.copyload
-  %36 = icmp ult i64 %.sroa.0.0.copyload, %35
-  br i1 %36, label %.lr.ph.i.preheader, label %._crit_edge.i
+32:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit14.thread
+  %33 = add i64 %.sroa.2.0.copyload, %.sroa.0.0.copyload
+  %34 = icmp ult i64 %.sroa.0.0.copyload, %33
+  br i1 %34, label %.lr.ph.i.preheader, label %._crit_edge.i
 
-.lr.ph.i.preheader:                               ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 16
+.lr.ph.i.preheader:                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
-  %.02135.i = phi i64 [ %55, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i ], [ %.sroa.0.0.copyload, %.lr.ph.i.preheader ]
-  %38 = load ptr, ptr %.sroa.017.0.copyload, align 8, !tbaa !103
-  %39 = load ptr, ptr %38, align 8, !tbaa !104
-  %.not.i22.i = icmp eq ptr %39, null
-  br i1 %.not.i22.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %40
+  %.02135.i = phi i64 [ %53, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i ], [ %.sroa.0.0.copyload, %.lr.ph.i.preheader ]
+  %36 = load ptr, ptr %.sroa.017.0.copyload, align 8, !tbaa !103
+  %37 = load ptr, ptr %36, align 8, !tbaa !104
+  %.not.i22.i = icmp eq ptr %37, null
+  br i1 %.not.i22.i, label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i, label %38
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %.02135.i
-  %42 = load i32, ptr %41, align 4, !tbaa !58
-  %43 = zext i32 %42 to i64
+38:                                               ; preds = %.lr.ph.i
+  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %.02135.i
+  %40 = load i32, ptr %39, align 4, !tbaa !58
+  %41 = zext i32 %40 to i64
   br label %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
 
-_ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %40, %.lr.ph.i
-  %44 = phi i64 [ %43, %40 ], [ %.02135.i, %.lr.ph.i ]
-  %45 = load ptr, ptr %37, align 8, !tbaa !105
-  %.not.i23.i = icmp eq ptr %45, null
+_ZNK6duckdb15SelectionVector9get_indexEm.exit.i:  ; preds = %38, %.lr.ph.i
+  %42 = phi i64 [ %41, %38 ], [ %.02135.i, %.lr.ph.i ]
+  %43 = load ptr, ptr %35, align 8, !tbaa !105
+  %.not.i23.i = icmp eq ptr %43, null
   br i1 %.not.i23.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i: ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %46 = lshr i64 %44, 6
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !106
-  %49 = and i64 %44, 63
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %48, %50
-  %.not.i = icmp eq i64 %51, 0
+  %44 = lshr i64 %42, 6
+  %45 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !106
+  %47 = and i64 %42, 63
+  %48 = shl nuw i64 1, %47
+  %49 = and i64 %46, %48
+  %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit.i
-  %52 = load ptr, ptr %.sroa.2.0.copyload19, align 8, !tbaa !289
-  %53 = getelementptr inbounds nuw double, ptr %52, i64 %44
-  %54 = call noundef zeroext i1 @_ZN6duckdb6Equals9OperationIdEEbRKT_S4_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %54, label %56, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
+  %50 = load ptr, ptr %.sroa.2.0.copyload19, align 8, !tbaa !289
+  %51 = getelementptr inbounds nuw double, ptr %50, i64 %42
+  %52 = call noundef zeroext i1 @_ZN6duckdb6Equals9OperationIdEEbRKT_S4_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %52, label %54, label %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i
 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
-  %55 = add i64 %.02135.i, 1
-  %exitcond.not = icmp eq i64 %55, %35
+  %53 = add i64 %.02135.i, 1
+  %exitcond.not = icmp eq i64 %53, %33
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !528
 
-56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  %57 = load i64, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
-  %58 = add i64 %57, 1
-  store i64 %58, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
+54:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
+  %55 = load i64, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %.sroa.3.0.copyload, align 8, !tbaa !106
   %reass.sub = sub i64 %.02135.i, %.sroa.0.0.copyload
-  %59 = trunc i64 %reass.sub to i32
-  %60 = add i32 %59, 1
+  %57 = trunc i64 %reass.sub to i32
+  %58 = add i32 %57, 1
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
-._crit_edge.i:                                    ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, %34
-  %61 = load ptr, ptr %24, align 8, !tbaa !105
-  %.not.i24.i = icmp eq ptr %61, null
-  br i1 %.not.i24.i, label %62, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
+._crit_edge.i:                                    ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread._crit_edge.i, %32
+  %59 = load ptr, ptr %22, align 8, !tbaa !105
+  %.not.i24.i = icmp eq ptr %59, null
+  br i1 %.not.i24.i, label %60, label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
 
-62:                                               ; preds = %._crit_edge.i
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %64 = load i64, ptr %63, align 8, !tbaa !107
-  call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %64)
-  %.pre.i25.i = load ptr, ptr %24, align 8, !tbaa !105
+60:                                               ; preds = %._crit_edge.i
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %62 = load i64, ptr %61, align 8, !tbaa !107
+  call void @_ZN6duckdb21TemplatedValidityMaskImE10InitializeEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %62)
+  %.pre.i25.i = load ptr, ptr %22, align 8, !tbaa !105
   br label %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
 
-_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %62, %._crit_edge.i
-  %65 = phi ptr [ %.pre.i25.i, %62 ], [ %61, %._crit_edge.i ]
-  %66 = load i64, ptr %65, align 8, !tbaa !106
-  %67 = and i64 %66, -2
-  store i64 %67, ptr %65, align 8, !tbaa !106
+_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i: ; preds = %60, %._crit_edge.i
+  %63 = phi ptr [ %.pre.i25.i, %60 ], [ %59, %._crit_edge.i ]
+  %64 = load i64, ptr %63, align 8, !tbaa !106
+  %65 = and i64 %64, -2
+  store i64 %65, ptr %63, align 8, !tbaa !106
   br label %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit
 
-_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %56, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
-  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %60, %56 ]
+_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit: ; preds = %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i, %54, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i
+  %.0.i = phi i32 [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i ], [ 0, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit26.i ], [ %58, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.0.i, ptr %11, align 4, !tbaa !58
-  br label %68
+  br label %66
 
-68:                                               ; preds = %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit, %22
+66:                                               ; preds = %_ZZN6duckdb18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES2_S2_S2_mENKUlRKNS_12list_entry_tERKdRNS_12ValidityMaskEmE_clES5_S7_S9_m.exit, %20
   ret void
 }
 
@@ -37777,28 +37731,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEdiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKdRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.203) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEdiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKdRNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.203) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -37815,28 +37768,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEdiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKdRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.203) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tEdiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIdLb1EEEmRNS_6VectorES6_S6_S6_mEUlRKS2_RKdRNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSC_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.203) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -39606,7 +39558,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -39623,23 +39575,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i13.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i13.i = icmp eq ptr %25, null
   br i1 %.not.i.i13.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
@@ -39652,54 +39602,54 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !57
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.01.0.copyload.i, ptr %6, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.22.0.copyload.i, ptr %32, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.22.0.copyload.i, ptr %30, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.2.0.copyload.i, ptr %33, align 8
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpINS_8string_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.sroa.2.0.copyload.i, ptr %31, align 8
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpINS_8string_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb0EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -39716,28 +39666,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -39754,28 +39703,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_8string_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.204) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -41113,7 +41061,7 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
   %11 = icmp eq i8 %9, 2
   %12 = icmp eq i8 %10, 2
   %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %13, label %35
+  br i1 %or.cond, label %13, label %33
 
 13:                                               ; preds = %5
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
@@ -41130,23 +41078,21 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchINS_12list_en
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i: ; preds = %13
   %22 = load i64, ptr %21, align 8, !tbaa !106
-  %23 = and i64 %22, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i, label %28
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i, %13
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
-  %.not.i.i13.i = icmp eq ptr %26, null
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %.not.i.i13.i = icmp eq ptr %25, null
   br i1 %.not.i.i13.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread.i
-  %27 = load i64, ptr %26, align 8, !tbaa !106
-  %28 = and i64 %27, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i
+  %26 = load i64, ptr %25, align 8, !tbaa !106
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, label %28
 
-30:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
+28:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.i
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
@@ -41159,54 +41105,54 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i: ; preds = %_ZN6
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.01.0.copyload.i, ptr %6, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.22.0.copyload.i, ptr %32, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.22.0.copyload.i, ptr %30, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %7, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %33, align 8
-  %34 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 noundef 0)
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %31, align 8
+  %32 = call noundef i32 @_ZZN6duckdb18ListSearchSimpleOpINS_10interval_tELb1EEEmRNS_6VectorES3_S3_S3_mENKUlRKNS_12list_entry_tERKS1_RNS_12ValidityMaskEmE_clES6_S8_SA_m(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i32 %34, ptr %19, align 4, !tbaa !58
+  store i32 %32, ptr %19, align 4, !tbaa !58
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-35:                                               ; preds = %5
-  %36 = icmp eq i8 %9, 0
-  %or.cond3 = and i1 %36, %12
-  br i1 %or.cond3, label %37, label %38
+33:                                               ; preds = %5
+  %34 = icmp eq i8 %9, 0
+  %or.cond3 = and i1 %34, %12
+  br i1 %or.cond3, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-38:                                               ; preds = %35
-  %39 = icmp eq i8 %10, 0
-  %or.cond5 = and i1 %11, %39
-  br i1 %or.cond5, label %40, label %41
+36:                                               ; preds = %33
+  %37 = icmp eq i8 %10, 0
+  %or.cond5 = and i1 %11, %37
+  br i1 %or.cond5, label %38, label %39
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-41:                                               ; preds = %38
-  %42 = or i8 %10, %9
-  %or.cond7 = icmp eq i8 %42, 0
-  br i1 %or.cond7, label %43, label %44
+39:                                               ; preds = %36
+  %40 = or i8 %10, %9
+  %or.cond7 = icmp eq i8 %40, 0
+  br i1 %or.cond7, label %41, label %42
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb0EEEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
   tail call void @_ZN6duckdb14BinaryExecutor14ExecuteGenericINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
   br label %_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit
 
-_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, %30, %37, %43, %44, %40
+_ZN6duckdb14BinaryExecutor15ExecuteConstantINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_EEvS7_S7_S7_T4_.exit: ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit16.thread.i, %28, %35, %41, %42, %38
   ret void
 }
 
@@ -41223,28 +41169,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %0)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb0ELb1EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 
@@ -41261,28 +41206,27 @@ define linkonce_odr void @_ZN6duckdb14BinaryExecutor11ExecuteFlatINS_12list_entr
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit: ; preds = %5
   %12 = load i64, ptr %11, align 8, !tbaa !106
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, label %14
 
-15:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
+14:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 2)
   tail call void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104) %2, i1 noundef zeroext true)
-  br label %20
+  br label %19
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %5, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 noundef zeroext 0)
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %2)
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_ZN6duckdb10FlatVector16VerifyFlatVectorERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %3)
-  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %17, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  tail call void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef %3)
+  tail call void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopINS_12list_entry_tENS_10interval_tEiNS_28BinaryLambdaWrapperWithNullsEbZNS_18ListSearchSimpleOpIS3_Lb1EEEmRNS_6VectorES7_S7_S7_mEUlRKS2_RKS3_RNS_12ValidityMaskEmE_Lb1ELb0EEEvPKT_PKT0_PT1_mSD_T4_(ptr noundef %7, ptr noundef %9, ptr noundef %16, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull byval(%class.anon.208) align 8 %4)
+  br label %19
 
-20:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %15
+19:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread, %14
   ret void
 }
 

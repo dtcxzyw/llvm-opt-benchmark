@@ -1014,8 +1014,8 @@ define hidden void @_ZN19ResolvedMethodTable4growEP10JavaThread(ptr noundef %0) 
 
 24:                                               ; preds = %17, %23
   %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE81ELS1_157ELS1_112ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not11 = icmp eq ptr %25, null
-  %26 = select i1 %.not11, ptr null, ptr @_ZN7LogImplILN6LogTag4typeE81ELS1_157ELS1_112ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz
+  %.not12 = icmp eq ptr %25, null
+  %26 = select i1 %.not12, ptr null, ptr @_ZN7LogImplILN6LogTag4typeE81ELS1_157ELS1_112ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz
   call void @_ZN9TraceTimeC1EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, ptr noundef %26) #13
   %27 = load volatile i64, ptr %5, align 8
   %28 = load i64, ptr %8, align 8
@@ -1054,14 +1054,13 @@ define hidden void @_ZN19ResolvedMethodTable4growEP10JavaThread(ptr noundef %0) 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %47 = load volatile i64, ptr %32, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %48 = and i64 %47, 1
-  %.not.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
 49:                                               ; preds = %39
   %50 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %50, 0
-  br i1 %.not5.i.i, label %51, label %56
+  %.not.i.i.i = icmp eq i32 %50, 0
+  br i1 %.not.i.i.i, label %51, label %56
 
 51:                                               ; preds = %49
   %52 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %33, i1 noundef zeroext false, i1 noundef zeroext false) #13
@@ -1073,30 +1072,29 @@ define hidden void @_ZN19ResolvedMethodTable4growEP10JavaThread(ptr noundef %0) 
 
 55:                                               ; preds = %53
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #13
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader
+  br label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
 56:                                               ; preds = %53, %51, %49
   %57 = load volatile i64, ptr %32, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %58 = and i64 %57, 1
-  %.not.i1.i = icmp eq i64 %58, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader, label %59
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %59, label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
 59:                                               ; preds = %56
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #13
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader
+  br label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader: ; preds = %39, %55, %56, %59
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+_ZN15ThreadBlockInVMD2Ev.exit.preheader:          ; preds = %39, %55, %56, %59
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN15ThreadBlockInVMD2Ev.exit.preheader, %_ZN15ThreadBlockInVMD2Ev.exit
   %60 = load ptr, ptr %2, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %62) #13
-  br i1 %63, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, !llvm.loop !13
+  br i1 %63, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit, label %_ZN15ThreadBlockInVMD2Ev.exit, !llvm.loop !13
 
-_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit: ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit: ; preds = %_ZN15ThreadBlockInVMD2Ev.exit
   %64 = load volatile i64, ptr %5, align 8
   %65 = load i64, ptr %8, align 8
   %66 = icmp ult i64 %64, %65
@@ -1148,8 +1146,8 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i: ; preds = %85, %
   %89 = getelementptr inbounds nuw i8, ptr %78, i64 80
   %90 = load volatile ptr, ptr %89, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %.not.i.i.i = icmp eq ptr %90, null
-  br i1 %.not.i.i.i, label %_ZN19ResolvedMethodTable10table_sizeEv.exit, label %91
+  %.not.i.i.i6 = icmp eq ptr %90, null
+  br i1 %.not.i.i.i6, label %_ZN19ResolvedMethodTable10table_sizeEv.exit, label %91
 
 91:                                               ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i.i.i
   %92 = call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %89) #13, !srcloc !9
@@ -1165,8 +1163,8 @@ _ZN19ResolvedMethodTable10table_sizeEv.exit:      ; preds = %_ZN13GlobalCounter2
   %97 = shl nuw i64 1, %96
   store i64 %97, ptr @_ZL13_current_size, align 8
   %98 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE81ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not12 = icmp eq ptr %98, null
-  br i1 %.not12, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8GrowTask7prepareEP6Thread.exit, label %99
+  %.not13 = icmp eq ptr %98, null
+  br i1 %.not13, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8GrowTask7prepareEP6Thread.exit, label %99
 
 99:                                               ; preds = %_ZN19ResolvedMethodTable10table_sizeEv.exit
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE81ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.11, i64 noundef %97)
@@ -1269,14 +1267,13 @@ define hidden void @_ZN19ResolvedMethodTable18clean_dead_entriesEP10JavaThread(p
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %54 = load volatile i64, ptr %37, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %55 = and i64 %54, 1
-  %.not.i.i6 = icmp eq i64 %55, 0
-  br i1 %.not.i.i6, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader, label %56
+  %55 = trunc i64 %54 to i1
+  br i1 %55, label %56, label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
 56:                                               ; preds = %44
   %57 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %57, 0
-  br i1 %.not5.i.i, label %58, label %63
+  %.not.i.i.i = icmp eq i32 %57, 0
+  br i1 %.not.i.i.i, label %58, label %63
 
 58:                                               ; preds = %56
   %59 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %38, i1 noundef zeroext false, i1 noundef zeroext false) #13
@@ -1288,30 +1285,29 @@ define hidden void @_ZN19ResolvedMethodTable18clean_dead_entriesEP10JavaThread(p
 
 62:                                               ; preds = %60
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #13
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader
+  br label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
 63:                                               ; preds = %60, %58, %56
   %64 = load volatile i64, ptr %37, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %65 = and i64 %64, 1
-  %.not.i1.i = icmp eq i64 %65, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader, label %66
+  %65 = trunc i64 %64 to i1
+  br i1 %65, label %66, label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
 66:                                               ; preds = %63
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #13
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader
+  br label %_ZN15ThreadBlockInVMD2Ev.exit.preheader
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader: ; preds = %44, %62, %63, %66
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+_ZN15ThreadBlockInVMD2Ev.exit.preheader:          ; preds = %44, %62, %63, %66
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit.preheader, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN15ThreadBlockInVMD2Ev.exit.preheader, %_ZN15ThreadBlockInVMD2Ev.exit
   %67 = load ptr, ptr %2, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %69 = load ptr, ptr %68, align 8
   %70 = call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #13
-  br i1 %70, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, !llvm.loop !13
+  br i1 %70, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit, label %_ZN15ThreadBlockInVMD2Ev.exit, !llvm.loop !13
 
-_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit: ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperation4contEP6Thread.exit: ; preds = %_ZN15ThreadBlockInVMD2Ev.exit
   %71 = load volatile i64, ptr %7, align 8
   %72 = load i64, ptr %10, align 8
   %73 = icmp ult i64 %71, %72
@@ -1326,8 +1322,8 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE16BucketsOperat
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %77) #13
   call void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   %78 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE81ELS1_157ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not13 = icmp eq ptr %78, null
-  br i1 %.not13, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE14BulkDeleteTask7prepareEP6Thread.exit.thread, label %79
+  %.not12 = icmp eq ptr %78, null
+  br i1 %.not12, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE14BulkDeleteTask7prepareEP6Thread.exit.thread, label %79
 
 79:                                               ; preds = %._crit_edge
   %80 = load i64, ptr %3, align 8
@@ -2278,9 +2274,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -2314,8 +2309,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3733,7 +3728,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI25Resolv
   br label %19
 
 19:                                               ; preds = %.backedge, %7
-  %.056 = phi i8 [ 0, %7 ], [ %.462, %.backedge ]
+  %.055 = phi i8 [ 0, %7 ], [ %.461, %.backedge ]
   %.039 = phi i64 [ 0, %7 ], [ %105, %.backedge ]
   %20 = load volatile i64, ptr %14, align 8
   %21 = and i64 %20, 1
@@ -3801,7 +3796,7 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm
   br label %54
 
 54:                                               ; preds = %92, %.lr.ph.i
-  %.2 = phi i8 [ %.056, %.lr.ph.i ], [ %.3, %92 ]
+  %.2 = phi i8 [ %.055, %.lr.ph.i ], [ %.3, %92 ]
   %.023.i = phi ptr [ %53, %.lr.ph.i ], [ %93, %92 ]
   %.01322.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %92 ]
   %55 = add i64 %.01322.i, 1
@@ -3875,15 +3870,14 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i.i: ; preds = %83, %81
   br i1 %.not.i48, label %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread, label %54, !llvm.loop !23
 
 _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread: ; preds = %92, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit
-  %.1.i64 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %55, %92 ]
-  %.462 = phi i8 [ %.056, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %.3, %92 ]
+  %.1.i63 = phi i64 [ 0, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %55, %92 ]
+  %.461 = phi i8 [ %.055, %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit ], [ %.3, %92 ]
   store volatile ptr %49, ptr %11, align 8
   %94 = load volatile ptr, ptr %.0.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %95 = ptrtoint ptr %94 to i64
-  %96 = and i64 %95, 1
-  %.not.i49 = icmp eq i64 %96, 0
-  br i1 %.not.i49, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
+  %96 = trunc i64 %95 to i1
+  br i1 %96, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8get_nodeI25ResolvedMethodTableLookupEEPNS2_4NodeEPKNS2_6BucketERT_PbPm.exit.thread
   %97 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %11, ptr %49, ptr nonnull align 8 dereferenceable(8) %.0.i) #13, !srcloc !20
@@ -3892,8 +3886,8 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
 
 99:                                               ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
   %100 = load ptr, ptr %0, align 8
-  %.not.i51 = icmp eq ptr %100, null
-  br i1 %.not.i51, label %.thread, label %101
+  %.not.i50 = icmp eq ptr %100, null
+  br i1 %.not.i50, label %.thread, label %101
 
 101:                                              ; preds = %99
   tail call void @_ZN19TableRateStatistics3addEv(ptr noundef nonnull align 8 dereferenceable(64) %100) #13
@@ -3903,12 +3897,11 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
   %102 = load volatile ptr, ptr %.0.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %103 = ptrtoint ptr %102 to i64
-  %104 = and i64 %103, 1
-  %.not = icmp eq i64 %104, 0
+  %104 = trunc i64 %103 to i1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store volatile i64 %20, ptr %14, align 8
   %105 = add i64 %.039, 1
-  br i1 %.not, label %107, label %106
+  br i1 %104, label %106, label %107
 
 106:                                              ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_firstEPNS2_4NodeES5_.exit.thread
   tail call void @_ZN2os11naked_yieldEv() #13
@@ -3925,7 +3918,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store volatile i64 %20, ptr %14, align 8
   %109 = icmp eq i64 %.039, 0
-  %110 = trunc nuw i8 %.462 to i1
+  %110 = trunc nuw i8 %.461 to i1
   %or.cond = select i1 %109, i1 %110, i1 false
   br i1 %or.cond, label %117, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
 
@@ -3961,16 +3954,16 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
   br label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %116, %111, %.thread, %117
-  %.1.ph90 = phi i1 [ true, %117 ], [ true, %.thread ], [ false, %111 ], [ false, %116 ]
-  %.1.i63.ph87 = phi i64 [ %.1.i64, %117 ], [ %.1.i64, %.thread ], [ %55, %111 ], [ %55, %116 ]
-  %.157 = phi i8 [ 0, %117 ], [ %.462, %.thread ], [ %.2, %111 ], [ %.2, %116 ]
+  %.1.ph89 = phi i1 [ true, %117 ], [ true, %.thread ], [ false, %111 ], [ false, %116 ]
+  %.1.i62.ph86 = phi i64 [ %.1.i63, %117 ], [ %.1.i63, %.thread ], [ %55, %111 ], [ %55, %116 ]
+  %.156 = phi i8 [ 0, %117 ], [ %.461, %.thread ], [ %.2, %111 ], [ %.2, %116 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %129, label %124
 
 124:                                              ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %126 = load i64, ptr %125, align 8
-  %127 = icmp ugt i64 %.1.i63.ph87, %126
+  %127 = icmp ugt i64 %.1.i62.ph86, %126
   %128 = zext i1 %127 to i8
   store i8 %128, ptr %5, align 1
   br label %129
@@ -3980,11 +3973,11 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_
   br i1 %.not46, label %131, label %130
 
 130:                                              ; preds = %129
-  store i8 %.157, ptr %6, align 1
+  store i8 %.156, ptr %6, align 1
   br label %131
 
 131:                                              ; preds = %130, %129
-  ret i1 %.1.ph90
+  ret i1 %.1.ph89
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #1
@@ -4053,9 +4046,8 @@ _ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm
   %35 = load volatile ptr, ptr %.0.i, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %36 = ptrtoint ptr %35 to i64
-  %37 = and i64 %36, 1
-  %.not.i9 = icmp eq i64 %37, 0
-  br i1 %.not.i9, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread: ; preds = %_ZNK19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE10get_bucketEm.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
@@ -4324,9 +4316,8 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI25ResolvedMethodTableC
   %13 = load volatile ptr, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread.i
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.i
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.i: ; preds = %12
   %16 = load volatile ptr, ptr %11, align 8
@@ -4731,9 +4722,8 @@ _ZN30ResolvedMethodTableDeleteCheckclEP10WeakHandle.exit.i: ; preds = %30
   %43 = load volatile ptr, ptr %24, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %44 = ptrtoint ptr %43 to i64
-  %45 = and i64 %44, 1
-  %.not.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread.i
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.thread.i, label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.i
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket7trylockEv.exit.i: ; preds = %42
   %46 = load volatile ptr, ptr %24, align 8

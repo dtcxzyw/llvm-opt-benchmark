@@ -2319,10 +2319,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3sls10smt_solver10solver_ctx7i
   %9 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %7, i64 %8
   %10 = load i8, ptr %9, align 8, !tbaa !212, !range !203, !noundef !204
   %11 = trunc nuw i8 %10 to i1
-  %12 = and i32 %1, 1
-  %13 = icmp ne i32 %12, 0
-  %14 = xor i1 %13, %11
-  ret i1 %14
+  %12 = trunc i32 %1 to i1
+  %13 = xor i1 %12, %11
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2574,10 +2573,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn8_N3sls10smt_solver10solver_
   %9 = getelementptr inbounds nuw %"struct.sat::ddfw::var_info", ptr %7, i64 %8
   %10 = load i8, ptr %9, align 8, !tbaa !212, !range !203, !noundef !204
   %11 = trunc nuw i8 %10 to i1
-  %12 = and i32 %1, 1
-  %13 = icmp ne i32 %12, 0
-  %14 = xor i1 %13, %11
-  ret i1 %14
+  %12 = trunc i32 %1 to i1
+  %13 = xor i1 %12, %11
+  ret i1 %13
 }
 
 ; Function Attrs: uwtable

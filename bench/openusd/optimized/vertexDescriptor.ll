@@ -35,9 +35,8 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor10Initial
   %18 = and i8 %.sink, -127
   %19 = or disjoint i8 %17, %18
   store i8 %19, ptr %0, align 8
-  %20 = and i8 %.sink, 1
-  %21 = icmp ne i8 %20, 0
-  ret i1 %21
+  %20 = trunc i8 %.sink to i1
+  ret i1 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

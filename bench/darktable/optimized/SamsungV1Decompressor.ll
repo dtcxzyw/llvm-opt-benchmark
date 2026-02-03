@@ -115,7 +115,7 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %14, %11, %4
 28:                                               ; preds = %31, %26
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %50
 
 30:                                               ; preds = %23
   %.not24 = icmp eq i32 %3, 12
@@ -139,34 +139,33 @@ _ZN8rawspeed8RawImageD2Ev.exit:                   ; preds = %14, %11, %4
   %40 = and i32 %35, 31
   %.not25 = icmp eq i32 %40, 0
   %or.cond27 = and i1 %.not25, %or.cond.not32
-  br i1 %or.cond27, label %41, label %46
+  br i1 %or.cond27, label %41, label %45
 
 41:                                               ; preds = %33
-  %42 = and i32 %37, 1
-  %43 = icmp ne i32 %42, 0
-  %44 = icmp ugt i32 %35, 5664
-  %or.cond3 = or i1 %44, %43
-  %45 = icmp ugt i32 %37, 3714
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %45
-  br i1 %or.cond5, label %46, label %50
+  %42 = trunc i32 %37 to i1
+  %43 = icmp ugt i32 %35, 5664
+  %or.cond3 = or i1 %43, %42
+  %44 = icmp ugt i32 %37, 3714
+  %or.cond5 = or i1 %44, %or.cond3
+  br i1 %or.cond5, label %45, label %49
 
-46:                                               ; preds = %41, %33
+45:                                               ; preds = %41, %33
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed21SamsungV1DecompressorC2ERKNS_8RawImageENS_10ByteStreamEi, i32 noundef %35, i32 noundef %37) #13
-          to label %47 unwind label %48
+          to label %46 unwind label %47
 
-47:                                               ; preds = %46
+46:                                               ; preds = %45
   unreachable
 
-48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %50
 
-50:                                               ; preds = %41
+49:                                               ; preds = %41
   ret void
 
-51:                                               ; preds = %48, %28
-  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %49, %48 ]
+50:                                               ; preds = %47, %28
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %48, %47 ]
   tail call void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   resume { ptr, i32 } %.pn
 }

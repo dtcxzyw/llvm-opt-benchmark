@@ -5554,9 +5554,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_
   %299 = and i64 %296, -8
   %300 = inttoptr i64 %299 to ptr
   %301 = atomicrmw add ptr %300, i32 2 monotonic, align 4
-  %302 = and i32 %301, 1
-  %.not1.i.i = icmp eq i32 %302, 0
-  br i1 %.not1.i.i, label %303, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %302 = trunc i32 %301 to i1
+  br i1 %302, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %303
 
 303:                                              ; preds = %298
   %304 = load ptr, ptr %23, align 8

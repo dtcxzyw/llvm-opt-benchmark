@@ -6339,19 +6339,18 @@ _ZN10z3_log_ctxD2Ev.exit:                         ; preds = %7, %9
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %26 = load i8, ptr %25, align 2
-  %27 = and i8 %26, 1
-  %28 = icmp ne i8 %27, 0
+  %27 = trunc i8 %26 to i1
   br label %_Z9is_groundPK4expr.exit
 
 _Z9is_groundPK4expr.exit:                         ; preds = %24, %22, %21
-  %.0 = phi i1 [ false, %21 ], [ false, %22 ], [ %28, %24 ]
-  br i1 %4, label %29, label %_ZN10z3_log_ctxD2Ev.exit10, !prof !159
+  %.0 = phi i1 [ false, %21 ], [ false, %22 ], [ %27, %24 ]
+  br i1 %4, label %28, label %_ZN10z3_log_ctxD2Ev.exit10, !prof !159
 
-29:                                               ; preds = %_Z9is_groundPK4expr.exit
+28:                                               ; preds = %_Z9is_groundPK4expr.exit
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %_ZN10z3_log_ctxD2Ev.exit10
 
-_ZN10z3_log_ctxD2Ev.exit10:                       ; preds = %_Z9is_groundPK4expr.exit, %29
+_ZN10z3_log_ctxD2Ev.exit10:                       ; preds = %_Z9is_groundPK4expr.exit, %28
   ret i1 %.0
 }
 

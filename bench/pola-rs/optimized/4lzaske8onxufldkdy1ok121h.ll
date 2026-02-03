@@ -3576,9 +3576,8 @@ _ZN11polars_core9datatypes9any_value8AnyValue11into_static17hf9d4d20c14e42da2E.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN10polars_ffi9version_013CallerContext8parallel17hbdc2c9b10517018eE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %.val = load i64, ptr %0, align 8, !noundef !4
-  %2 = and i64 %.val, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %.val to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

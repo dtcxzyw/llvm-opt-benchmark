@@ -499,269 +499,267 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
   %6 = icmp eq i32 %5, 0
   %7 = icmp sgt i64 %1, -1
   %or.cond = or i1 %7, %6
-  br i1 %or.cond, label %8, label %11
+  %8 = trunc i32 %2 to i1
+  %9 = icmp ult i64 %1, 1073741824
+  %or.cond3 = or i1 %9, %8
+  %or.cond87 = and i1 %or.cond3, %or.cond
+  br i1 %or.cond87, label %13, label %10
 
-8:                                                ; preds = %3
-  %9 = icmp ne i32 %5, 0
-  %10 = icmp ult i64 %1, 1073741824
-  %or.cond3 = or i1 %10, %9
-  br i1 %or.cond3, label %14, label %11
-
-11:                                               ; preds = %8, %3
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i64 noundef %1) #11
+10:                                               ; preds = %3
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 683, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
 
-14:                                               ; preds = %8
-  %15 = icmp ugt i64 %1, 8192
-  br i1 %15, label %16, label %101
+13:                                               ; preds = %3
+  %14 = icmp ugt i64 %1, 8192
+  br i1 %14, label %15, label %100
 
-16:                                               ; preds = %14
-  %17 = add i64 %1, 4095
-  %18 = lshr i64 %17, 12
+15:                                               ; preds = %13
+  %16 = add i64 %1, 4095
+  %17 = lshr i64 %16, 12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4336
-  %21 = tail call fastcc i64 @alloc_object(ptr noundef nonnull %0, i32 noundef 0)
-  %.not84 = icmp eq i64 %21, 0
-  br i1 %.not84, label %22, label %30
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4336
+  %20 = tail call fastcc i64 @alloc_object(ptr noundef nonnull %0, i32 noundef 0)
+  %.not84 = icmp eq i64 %20, 0
+  br i1 %.not84, label %21, label %29
 
-22:                                               ; preds = %16
-  %23 = and i32 %2, 2
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %100
+21:                                               ; preds = %15
+  %22 = and i32 %2, 2
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %99
 
-25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %27 = tail call i32 @errcode(i32 noundef 8389) #11
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
-  %29 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
+24:                                               ; preds = %21
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %26 = tail call i32 @errcode(i32 noundef 8389) #11
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  %28 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 709, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
 
-30:                                               ; preds = %16
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 6172
-  %33 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %32, i32 noundef 0) #11
-  %34 = tail call fastcc ptr @get_best_segment(ptr noundef nonnull %0, i64 noundef %18)
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %.thread
+29:                                               ; preds = %15
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 6172
+  %32 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %31, i32 noundef 0) #11
+  %33 = tail call fastcc ptr @get_best_segment(ptr noundef nonnull %0, i64 noundef %17)
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %.thread
 
-36:                                               ; preds = %30
-  %37 = tail call fastcc ptr @make_new_segment(ptr noundef nonnull %0, i64 noundef %18)
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %.thread
+35:                                               ; preds = %29
+  %36 = tail call fastcc ptr @make_new_segment(ptr noundef nonnull %0, i64 noundef %17)
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %.thread
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 6172
-  tail call void @LWLockRelease(ptr noundef nonnull %41) #11
-  tail call void @dsa_free(ptr noundef nonnull %0, i64 noundef %21)
-  %42 = and i32 %2, 2
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %100
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 6172
+  tail call void @LWLockRelease(ptr noundef nonnull %40) #11
+  tail call void @dsa_free(ptr noundef nonnull %0, i64 noundef %20)
+  %41 = and i32 %2, 2
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %99
 
-44:                                               ; preds = %39
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %46 = tail call i32 @errcode(i32 noundef 8389) #11
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
-  %48 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
+43:                                               ; preds = %38
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %45 = tail call i32 @errcode(i32 noundef 8389) #11
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  %47 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
 
-.thread:                                          ; preds = %30, %36
-  %.07593 = phi ptr [ %37, %36 ], [ %34, %30 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.07593, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = call zeroext i1 @FreePageManagerGet(ptr noundef %50, i64 noundef %18, ptr noundef nonnull %4) #11
-  br i1 %51, label %55, label %52
+.thread:                                          ; preds = %29, %35
+  %.07595 = phi ptr [ %36, %35 ], [ %33, %29 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.07595, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = call zeroext i1 @FreePageManagerGet(ptr noundef %49, i64 noundef %17, ptr noundef nonnull %4) #11
+  br i1 %50, label %54, label %51
 
-52:                                               ; preds = %.thread
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i64 noundef %18) #11
+51:                                               ; preds = %.thread
+  %52 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i64 noundef %17) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
 
-55:                                               ; preds = %.thread
-  %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 6172
-  call void @LWLockRelease(ptr noundef nonnull %57) #11
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = ptrtoint ptr %.07593 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = sdiv exact i64 %61, 40
-  %63 = shl i64 %62, 40
-  %64 = load i64, ptr %4, align 8
-  %65 = shl i64 %64, 12
-  %66 = or i64 %65, %63
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4336
-  %69 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 0) #11
-  call fastcc void @init_span(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %20, i64 noundef %66, i64 noundef %18, i16 noundef zeroext 1)
-  %70 = getelementptr inbounds nuw i8, ptr %.07593, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i64, ptr %4, align 8
-  %73 = getelementptr inbounds nuw i64, ptr %71, i64 %72
-  store i64 %21, ptr %73, align 8
-  %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4336
-  call void @LWLockRelease(ptr noundef nonnull %75) #11
-  %76 = and i32 %2, 4
-  %.not85 = icmp eq i32 %76, 0
-  br i1 %.not85, label %100, label %77
+54:                                               ; preds = %.thread
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 6172
+  call void @LWLockRelease(ptr noundef nonnull %56) #11
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %58 = ptrtoint ptr %.07595 to i64
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = sdiv exact i64 %60, 40
+  %62 = shl i64 %61, 40
+  %63 = load i64, ptr %4, align 8
+  %64 = shl i64 %63, 12
+  %65 = or i64 %64, %62
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4336
+  %68 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %67, i32 noundef 0) #11
+  call fastcc void @init_span(ptr noundef nonnull %0, i64 noundef %20, ptr noundef nonnull %19, i64 noundef %65, i64 noundef %17, i16 noundef zeroext 1)
+  %69 = getelementptr inbounds nuw i8, ptr %.07595, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %71 = load i64, ptr %4, align 8
+  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %71
+  store i64 %20, ptr %72, align 8
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4336
+  call void @LWLockRelease(ptr noundef nonnull %74) #11
+  %75 = and i32 %2, 4
+  %.not85 = icmp eq i32 %75, 0
+  br i1 %.not85, label %99, label %76
 
-77:                                               ; preds = %55
-  %.not.i = icmp eq i64 %66, 0
-  br i1 %.not.i, label %dsa_get_address.exit, label %78
+76:                                               ; preds = %54
+  %.not.i = icmp eq i64 %65, 0
+  br i1 %.not.i, label %dsa_get_address.exit, label %77
 
-78:                                               ; preds = %77
+77:                                               ; preds = %76
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 6160
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40984
-  %83 = load i64, ptr %82, align 8
-  %.not.i.i = icmp eq i64 %83, %81
-  br i1 %.not.i.i, label %check_for_freed_segments.exit.i, label %84, !prof !10
+  %78 = load ptr, ptr %0, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 6160
+  %80 = load i64, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40984
+  %82 = load i64, ptr %81, align 8
+  %.not.i.i = icmp eq i64 %82, %80
+  br i1 %.not.i.i, label %check_for_freed_segments.exit.i, label %83, !prof !10
 
-84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 6172
-  %86 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %85, i32 noundef 0) #11
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 6172
+  %85 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %84, i32 noundef 0) #11
   call fastcc void @check_for_freed_segments_locked(ptr noundef nonnull %0)
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 6172
-  call void @LWLockRelease(ptr noundef nonnull %88) #11
+  %86 = load ptr, ptr %0, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 6172
+  call void @LWLockRelease(ptr noundef nonnull %87) #11
   br label %check_for_freed_segments.exit.i
 
-check_for_freed_segments.exit.i:                  ; preds = %84, %78
-  %89 = lshr i64 %66, 40
-  %90 = and i64 %65, 1099511623680
-  %91 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %0, i64 %89
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %95, label %97, !prof !11
+check_for_freed_segments.exit.i:                  ; preds = %83, %77
+  %88 = lshr i64 %65, 40
+  %89 = and i64 %64, 1099511623680
+  %90 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %0, i64 %88
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %96, !prof !11
 
-95:                                               ; preds = %check_for_freed_segments.exit.i
-  %96 = call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %89)
-  %.pre.i = load ptr, ptr %92, align 8
-  br label %97
+94:                                               ; preds = %check_for_freed_segments.exit.i
+  %95 = call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %88)
+  %.pre.i = load ptr, ptr %91, align 8
+  br label %96
 
-97:                                               ; preds = %95, %check_for_freed_segments.exit.i
-  %98 = phi ptr [ %.pre.i, %95 ], [ %93, %check_for_freed_segments.exit.i ]
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %90
+96:                                               ; preds = %94, %check_for_freed_segments.exit.i
+  %97 = phi ptr [ %.pre.i, %94 ], [ %92, %check_for_freed_segments.exit.i ]
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %89
   br label %dsa_get_address.exit
 
-dsa_get_address.exit:                             ; preds = %77, %97
-  %.0.i = phi ptr [ %99, %97 ], [ null, %77 ]
+dsa_get_address.exit:                             ; preds = %76, %96
+  %.0.i = phi ptr [ %98, %96 ], [ null, %76 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.0.i, i8 0, i64 %1, i1 false)
-  br label %100
+  br label %99
 
-100:                                              ; preds = %55, %dsa_get_address.exit, %39, %22
-  %.0 = phi i64 [ 0, %22 ], [ 0, %39 ], [ %66, %dsa_get_address.exit ], [ %66, %55 ]
+99:                                               ; preds = %54, %dsa_get_address.exit, %38, %21
+  %.0 = phi i64 [ 0, %21 ], [ 0, %38 ], [ %65, %dsa_get_address.exit ], [ %65, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %154
+  br label %153
 
-101:                                              ; preds = %14
-  %102 = icmp samesign ult i64 %1, 1024
-  br i1 %102, label %103, label %.preheader
+100:                                              ; preds = %13
+  %101 = icmp samesign ult i64 %1, 1024
+  br i1 %101, label %102, label %.preheader
 
-103:                                              ; preds = %101
-  %104 = shl nuw nsw i64 %1, 29
-  %sext = add nsw i64 %104, -536870912
-  %105 = ashr i64 %sext, 32
-  %106 = getelementptr inbounds i8, ptr @dsa_size_class_map, i64 %105
-  %107 = load i8, ptr %106, align 1
-  %108 = zext i8 %107 to i16
+102:                                              ; preds = %100
+  %103 = shl nuw nsw i64 %1, 29
+  %sext = add nsw i64 %103, -536870912
+  %104 = ashr i64 %sext, 32
+  %105 = getelementptr inbounds i8, ptr @dsa_size_class_map, i64 %104
+  %106 = load i8, ptr %105, align 1
+  %107 = zext i8 %106 to i16
   br label %.loopexit
 
-.preheader:                                       ; preds = %101, %.preheader
-  %.07195 = phi i16 [ %.172, %.preheader ], [ 37, %101 ]
-  %.07394 = phi i16 [ %.174, %.preheader ], [ 25, %101 ]
-  %109 = zext i16 %.07195 to i32
-  %110 = zext i16 %.07394 to i32
-  %111 = add nuw nsw i32 %109, %110
-  %112 = lshr i32 %111, 1
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %113
-  %115 = load i16, ptr %114, align 2
-  %116 = zext i16 %115 to i64
-  %117 = icmp samesign ugt i64 %1, %116
-  %118 = trunc nuw i32 %112 to i16
-  %119 = add nuw i16 %118, 1
-  %.174 = select i1 %117, i16 %119, i16 %.07394
-  %.172 = select i1 %117, i16 %.07195, i16 %118
-  %120 = icmp ult i16 %.174, %.172
-  br i1 %120, label %.preheader, label %.loopexit, !llvm.loop !12
+.preheader:                                       ; preds = %100, %.preheader
+  %.07197 = phi i16 [ %.172, %.preheader ], [ 37, %100 ]
+  %.07396 = phi i16 [ %.174, %.preheader ], [ 25, %100 ]
+  %108 = zext i16 %.07197 to i32
+  %109 = zext i16 %.07396 to i32
+  %110 = add nuw nsw i32 %108, %109
+  %111 = lshr i32 %110, 1
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw i16, ptr @dsa_size_classes, i64 %112
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i64
+  %116 = icmp samesign ugt i64 %1, %115
+  %117 = trunc nuw i32 %111 to i16
+  %118 = add nuw i16 %117, 1
+  %.174 = select i1 %116, i16 %118, i16 %.07396
+  %.172 = select i1 %116, i16 %.07197, i16 %117
+  %119 = icmp ult i16 %.174, %.172
+  br i1 %119, label %.preheader, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.preheader, %103
-  %.070 = phi i16 [ %108, %103 ], [ %.174, %.preheader ]
-  %121 = zext i16 %.070 to i32
-  %122 = tail call fastcc i64 @alloc_object(ptr noundef %0, i32 noundef %121)
-  %.not = icmp eq i64 %122, 0
-  br i1 %.not, label %123, label %131
+.loopexit:                                        ; preds = %.preheader, %102
+  %.070 = phi i16 [ %107, %102 ], [ %.174, %.preheader ]
+  %120 = zext i16 %.070 to i32
+  %121 = tail call fastcc i64 @alloc_object(ptr noundef %0, i32 noundef %120)
+  %.not = icmp eq i64 %121, 0
+  br i1 %.not, label %122, label %130
 
-123:                                              ; preds = %.loopexit
-  %124 = and i32 %2, 2
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %154
+122:                                              ; preds = %.loopexit
+  %123 = and i32 %2, 2
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %153
 
-126:                                              ; preds = %123
-  %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  %128 = tail call i32 @errcode(i32 noundef 8389) #11
-  %129 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
-  %130 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
+125:                                              ; preds = %122
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %127 = tail call i32 @errcode(i32 noundef 8389) #11
+  %128 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
+  %129 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 811, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
 
-131:                                              ; preds = %.loopexit
-  %132 = and i32 %2, 4
-  %.not83 = icmp eq i32 %132, 0
-  br i1 %.not83, label %154, label %133
+130:                                              ; preds = %.loopexit
+  %131 = and i32 %2, 4
+  %.not83 = icmp eq i32 %131, 0
+  br i1 %.not83, label %153, label %132
 
-133:                                              ; preds = %131
+132:                                              ; preds = %130
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
-  %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 6160
-  %136 = load i64, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 40984
-  %138 = load i64, ptr %137, align 8
-  %.not.i.i87 = icmp eq i64 %138, %136
-  br i1 %.not.i.i87, label %check_for_freed_segments.exit.i88, label %139, !prof !10
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 6160
+  %135 = load i64, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 40984
+  %137 = load i64, ptr %136, align 8
+  %.not.i.i89 = icmp eq i64 %137, %135
+  br i1 %.not.i.i89, label %check_for_freed_segments.exit.i90, label %138, !prof !10
 
-139:                                              ; preds = %133
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 6172
-  %141 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %140, i32 noundef 0) #11
+138:                                              ; preds = %132
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 6172
+  %140 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %139, i32 noundef 0) #11
   tail call fastcc void @check_for_freed_segments_locked(ptr noundef nonnull %0)
-  %142 = load ptr, ptr %0, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 6172
-  tail call void @LWLockRelease(ptr noundef nonnull %143) #11
-  br label %check_for_freed_segments.exit.i88
+  %141 = load ptr, ptr %0, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 6172
+  tail call void @LWLockRelease(ptr noundef nonnull %142) #11
+  br label %check_for_freed_segments.exit.i90
 
-check_for_freed_segments.exit.i88:                ; preds = %139, %133
-  %144 = lshr i64 %122, 40
-  %145 = and i64 %122, 1099511627775
-  %146 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %0, i64 %144
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %148 = load ptr, ptr %147, align 8
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %150, label %dsa_get_address.exit91, !prof !11
+check_for_freed_segments.exit.i90:                ; preds = %138, %132
+  %143 = lshr i64 %121, 40
+  %144 = and i64 %121, 1099511627775
+  %145 = getelementptr inbounds nuw %struct.dsa_segment_map, ptr %0, i64 %143
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  %147 = load ptr, ptr %146, align 8
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %149, label %dsa_get_address.exit93, !prof !11
 
-150:                                              ; preds = %check_for_freed_segments.exit.i88
-  %151 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %144)
-  %.pre.i90 = load ptr, ptr %147, align 8
-  br label %dsa_get_address.exit91
+149:                                              ; preds = %check_for_freed_segments.exit.i90
+  %150 = tail call fastcc ptr @get_segment_by_index(ptr noundef nonnull %0, i64 noundef %143)
+  %.pre.i92 = load ptr, ptr %146, align 8
+  br label %dsa_get_address.exit93
 
-dsa_get_address.exit91:                           ; preds = %check_for_freed_segments.exit.i88, %150
-  %152 = phi ptr [ %.pre.i90, %150 ], [ %148, %check_for_freed_segments.exit.i88 ]
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %145
-  tail call void @llvm.memset.p0.i64(ptr align 1 %153, i8 0, i64 %1, i1 false)
-  br label %154
+dsa_get_address.exit93:                           ; preds = %check_for_freed_segments.exit.i90, %149
+  %151 = phi ptr [ %.pre.i92, %149 ], [ %147, %check_for_freed_segments.exit.i90 ]
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %144
+  tail call void @llvm.memset.p0.i64(ptr align 1 %152, i8 0, i64 %1, i1 false)
+  br label %153
 
-154:                                              ; preds = %131, %dsa_get_address.exit91, %123, %100
-  %.1 = phi i64 [ %.0, %100 ], [ 0, %123 ], [ %122, %dsa_get_address.exit91 ], [ %122, %131 ]
+153:                                              ; preds = %130, %dsa_get_address.exit93, %122, %99
+  %.1 = phi i64 [ %.0, %99 ], [ 0, %122 ], [ %121, %dsa_get_address.exit93 ], [ %121, %130 ]
   ret i64 %.1
 }
 

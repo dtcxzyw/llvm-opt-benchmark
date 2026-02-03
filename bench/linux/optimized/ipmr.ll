@@ -2013,39 +2013,38 @@ define internal fastcc void @mroute_clean_tables(ptr noundef %0, i32 noundef %1)
   %56 = load ptr, ptr %54, align 8
   %57 = getelementptr i8, ptr %54, i64 -92
   %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 1
-  %60 = icmp ne i32 %59, 0
-  %61 = and i1 %47, %60
-  br i1 %61, label %.thread, label %62
+  %59 = trunc i32 %58 to i1
+  %60 = and i1 %47, %59
+  br i1 %60, label %.thread, label %61
 
-62:                                               ; preds = %53
-  %63 = or i32 %58, %1
-  %64 = and i32 %63, 1
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.thread, label %66
+61:                                               ; preds = %53
+  %62 = or i32 %58, %1
+  %63 = and i32 %62, 1
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %.thread, label %65
 
-66:                                               ; preds = %62
+65:                                               ; preds = %61
   call fastcc void @rhltable_remove(ptr noundef nonnull %48, ptr noundef %55, ptr noundef nonnull byval(%struct.rhashtable_params) align 8 @ipmr_rht_params)
-  %67 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %54, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %68, ptr %70, align 8
-  store volatile ptr %69, ptr %68, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %67, align 8
-  %71 = load i32, ptr %49, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %54, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %67, ptr %69, align 8
+  store volatile ptr %68, ptr %67, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %66, align 8
+  %70 = load i32, ptr %49, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !6
   store i32 128, ptr %3, align 8
   store ptr %55, ptr %50, align 8
-  store i32 %71, ptr %51, align 8
-  %72 = call i32 @rtnl_is_locked() #17
-  %73 = icmp ne i32 %72, 0
-  %74 = load i1, ptr @mr_call_mfc_notifiers.__already_done, align 1
-  %75 = select i1 %73, i1 true, i1 %74
-  br i1 %75, label %77, label %76, !prof !13
+  store i32 %70, ptr %51, align 8
+  %71 = call i32 @rtnl_is_locked() #17
+  %72 = icmp ne i32 %71, 0
+  %73 = load i1, ptr @mr_call_mfc_notifiers.__already_done, align 1
+  %74 = select i1 %72, i1 true, i1 %73
+  br i1 %74, label %76, label %75, !prof !13
 
-76:                                               ; preds = %66
+75:                                               ; preds = %65
   store i1 true, ptr @mr_call_mfc_notifiers.__already_done, align 1
   call void asm sideeffect "715: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 715b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 715) #17, !srcloc !30
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 211) #17
@@ -2053,79 +2052,79 @@ define internal fastcc void @mroute_clean_tables(ptr noundef %0, i32 noundef %1)
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.10, i32 211, i32 2313, i64 12) #17, !srcloc !32
   call void asm sideeffect "717: nop\0A\09.pushsection .discard.instr_end\0A\09.long 717b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 717) #17, !srcloc !33
   call void asm sideeffect "718: nop\0A\09.pushsection .discard.instr_end\0A\09.long 718b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 718) #17, !srcloc !34
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %66
-  %78 = load i32, ptr %52, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %52, align 4
-  %80 = call i32 @call_fib_notifiers(ptr noundef %6, i32 noundef 3, ptr noundef nonnull %3) #17
+76:                                               ; preds = %75, %65
+  %77 = load i32, ptr %52, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %52, align 4
+  %79 = call i32 @call_fib_notifiers(ptr noundef %6, i32 noundef 3, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call fastcc void @mroute_netlink_event(ptr noundef %0, ptr noundef %55, i32 noundef 25)
-  %81 = getelementptr i8, ptr %54, i64 -8
-  %82 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %81, i32 -1, ptr elementtype(i32) %81) #17, !srcloc !35
-  %83 = icmp eq i32 %82, 1
-  br i1 %83, label %87, label %84
+  %80 = getelementptr i8, ptr %54, i64 -8
+  %81 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %80, i32 -1, ptr elementtype(i32) %80) #17, !srcloc !35
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %86, label %83
 
-84:                                               ; preds = %77
-  %85 = icmp sgt i32 %82, 0
-  br i1 %85, label %.thread, label %86, !prof !13
+83:                                               ; preds = %76
+  %84 = icmp sgt i32 %81, 0
+  br i1 %84, label %.thread, label %85, !prof !13
 
-86:                                               ; preds = %84
-  call void @refcount_warn_saturate(ptr noundef %81, i32 noundef 3) #17
+85:                                               ; preds = %83
+  call void @refcount_warn_saturate(ptr noundef %80, i32 noundef 3) #17
   br label %.thread
 
-87:                                               ; preds = %77
+86:                                               ; preds = %76
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !36
-  %88 = getelementptr i8, ptr %54, i64 16
-  %89 = getelementptr i8, ptr %54, i64 32
-  %90 = load ptr, ptr %89, align 8
-  call void @call_rcu(ptr noundef %88, ptr noundef %90) #17
+  %87 = getelementptr i8, ptr %54, i64 16
+  %88 = getelementptr i8, ptr %54, i64 32
+  %89 = load ptr, ptr %88, align 8
+  call void @call_rcu(ptr noundef %87, ptr noundef %89) #17
   br label %.thread
 
-.thread:                                          ; preds = %84, %86, %87, %62, %53
-  %91 = icmp eq ptr %56, %42
-  br i1 %91, label %.loopexit6, label %53, !llvm.loop !67
+.thread:                                          ; preds = %83, %85, %86, %61, %53
+  %90 = icmp eq ptr %56, %42
+  br i1 %90, label %.loopexit6, label %53, !llvm.loop !67
 
 .loopexit6:                                       ; preds = %.thread, %41, %38
-  %92 = and i32 %1, 1
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %109, label %94
+  %91 = and i32 %1, 1
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %108, label %93
 
-94:                                               ; preds = %.loopexit6
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 3596
-  %96 = load volatile i32, ptr %95, align 4
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %109, label %98
+93:                                               ; preds = %.loopexit6
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 3596
+  %95 = load volatile i32, ptr %94, align 4
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %108, label %97
 
-98:                                               ; preds = %94
+97:                                               ; preds = %93
   call void @_raw_spin_lock_bh(ptr noundef nonnull @mfc_unres_lock) #17
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %100 = load ptr, ptr %99, align 8
-  %101 = icmp eq ptr %100, %99
-  br i1 %101, label %.loopexit, label %.preheader
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %99 = load ptr, ptr %98, align 8
+  %100 = icmp eq ptr %99, %98
+  br i1 %100, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %98, %.preheader
-  %102 = phi ptr [ %104, %.preheader ], [ %100, %98 ]
-  %103 = getelementptr i8, ptr %102, i64 -112
-  %104 = load ptr, ptr %102, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr %106, ptr %107, align 8
-  store volatile ptr %104, ptr %106, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %102, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %105, align 8
-  call fastcc void @mroute_netlink_event(ptr noundef %0, ptr noundef %103, i32 noundef 25)
-  call fastcc void @ipmr_destroy_unres(ptr noundef %0, ptr noundef %103)
-  %108 = icmp eq ptr %104, %99
-  br i1 %108, label %.loopexit, label %.preheader, !llvm.loop !68
+.preheader:                                       ; preds = %97, %.preheader
+  %101 = phi ptr [ %103, %.preheader ], [ %99, %97 ]
+  %102 = getelementptr i8, ptr %101, i64 -112
+  %103 = load ptr, ptr %101, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store ptr %105, ptr %106, align 8
+  store volatile ptr %103, ptr %105, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %101, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %104, align 8
+  call fastcc void @mroute_netlink_event(ptr noundef %0, ptr noundef %102, i32 noundef 25)
+  call fastcc void @ipmr_destroy_unres(ptr noundef %0, ptr noundef %102)
+  %107 = icmp eq ptr %103, %98
+  br i1 %107, label %.loopexit, label %.preheader, !llvm.loop !68
 
-.loopexit:                                        ; preds = %.preheader, %98
+.loopexit:                                        ; preds = %.preheader, %97
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @mfc_unres_lock) #17
-  br label %109
+  br label %108
 
-109:                                              ; preds = %.loopexit, %94, %.loopexit6
+108:                                              ; preds = %.loopexit, %93, %.loopexit6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -12751,9 +12751,8 @@ define linkonce_odr hidden void @_ZN5boost15program_options11typed_valueIbcED2Ev
 
 5:                                                ; preds = %1
   %6 = ptrtoint ptr %4 to i64
-  %7 = and i64 %6, 1
-  %.not1.i.i = icmp eq i64 %7, 0
-  br i1 %.not1.i.i, label %8, label %_ZNK5boost6detail8function12basic_vtableIvJRKbEE5clearERNS1_15function_bufferE.exit.i.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZNK5boost6detail8function12basic_vtableIvJRKbEE5clearERNS1_15function_bufferE.exit.i.i, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %4, align 8, !tbaa !212

@@ -125,56 +125,55 @@ define i32 @ssl3_send_alert(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %or.cond = select i1 %30, i1 %31, i1 false
   %spec.store.select = select i1 %or.cond, i32 40, i32 %.032
   %32 = icmp slt i32 %spec.store.select, 0
-  br i1 %32, label %61, label %33
+  br i1 %32, label %60, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %35 = load i32, ptr %34, align 4, !tbaa !90
-  %36 = and i32 %35, 1
-  %37 = icmp ne i32 %36, 0
-  %38 = icmp ne i32 %spec.store.select, 0
-  %or.cond3 = and i1 %38, %37
-  br i1 %or.cond3, label %61, label %39
+  %36 = trunc i32 %35 to i1
+  %37 = icmp ne i32 %spec.store.select, 0
+  %or.cond3 = and i1 %37, %36
+  br i1 %or.cond3, label %60, label %38
 
-39:                                               ; preds = %33
-  %40 = icmp eq i32 %1, 2
-  br i1 %40, label %41, label %48
+38:                                               ; preds = %33
+  %39 = icmp eq i32 %1, 2
+  br i1 %39, label %40, label %47
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %43 = load ptr, ptr %42, align 8, !tbaa !70
-  %.not37 = icmp eq ptr %43, null
-  br i1 %.not37, label %48, label %44
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %42 = load ptr, ptr %41, align 8, !tbaa !70
+  %.not37 = icmp eq ptr %42, null
+  br i1 %.not37, label %47, label %43
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2952
-  %46 = load ptr, ptr %45, align 8, !tbaa !91
-  %47 = tail call i32 @SSL_CTX_remove_session(ptr noundef %46, ptr noundef nonnull %43) #3
-  br label %48
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2952
+  %45 = load ptr, ptr %44, align 8, !tbaa !91
+  %46 = tail call i32 @SSL_CTX_remove_session(ptr noundef %45, ptr noundef nonnull %42) #3
+  br label %47
 
-48:                                               ; preds = %44, %41, %39
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 1, ptr %49, align 4, !tbaa !92
-  %50 = trunc i32 %1 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store i8 %50, ptr %51, align 8, !tbaa !93
-  %52 = trunc i32 %spec.store.select to i8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 457
-  store i8 %52, ptr %53, align 1, !tbaa !93
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 3160
-  %55 = tail call i32 @RECORD_LAYER_write_pending(ptr noundef nonnull %54) #3
-  %.not38 = icmp eq i32 %55, 0
-  br i1 %.not38, label %56, label %61
+47:                                               ; preds = %43, %40, %38
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 452
+  store i32 1, ptr %48, align 4, !tbaa !92
+  %49 = trunc i32 %1 to i8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store i8 %49, ptr %50, align 8, !tbaa !93
+  %51 = trunc i32 %spec.store.select to i8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 457
+  store i8 %51, ptr %52, align 1, !tbaa !93
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3160
+  %54 = tail call i32 @RECORD_LAYER_write_pending(ptr noundef nonnull %53) #3
+  %.not38 = icmp eq i32 %54, 0
+  br i1 %.not38, label %55, label %60
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %4, align 8, !tbaa !76
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 144
-  %59 = load ptr, ptr %58, align 8, !tbaa !94
-  %60 = tail call i32 %59(ptr noundef nonnull %0) #3
-  br label %61
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %4, align 8, !tbaa !76
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 144
+  %58 = load ptr, ptr %57, align 8, !tbaa !94
+  %59 = tail call i32 %58(ptr noundef nonnull %0) #3
+  br label %60
 
-61:                                               ; preds = %48, %33, %27, %56
-  %.0 = phi i32 [ %60, %56 ], [ -1, %27 ], [ -1, %33 ], [ -1, %48 ]
+60:                                               ; preds = %47, %33, %27, %55
+  %.0 = phi i32 [ %59, %55 ], [ -1, %27 ], [ -1, %33 ], [ -1, %47 ]
   ret i32 %.0
 }
 

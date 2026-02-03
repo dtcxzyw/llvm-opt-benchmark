@@ -1150,9 +1150,8 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8alloca
   %22 = and i64 %19, -8
   %23 = inttoptr i64 %22 to ptr
   %24 = atomicrmw add ptr %23, i32 2 monotonic, align 4
-  %25 = and i32 %24, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %26, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
+  %25 = trunc i32 %24 to i1
+  br i1 %25, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, label %26
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %.09.i.i.i.i, align 8

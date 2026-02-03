@@ -2585,9 +2585,8 @@ define internal i32 @ctrl_dumpfamily(ptr noundef %0, ptr noundef captures(none) 
   %35 = phi i32 [ %52, %51 ], [ 0, %13 ]
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, 1
-  %.not = icmp eq i8 %38, 0
-  br i1 %.not, label %51, label %39
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %51
 
 39:                                               ; preds = %.split
   %40 = add i32 %35, 1
@@ -3781,7 +3780,7 @@ define internal i32 @genl_rcv_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = zext i16 %6 to i64
   %8 = tail call ptr @idr_find(ptr noundef nonnull @genl_fam_idr, i64 noundef %7) #15
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %88, label %10
+  br i1 %9, label %87, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -3804,124 +3803,123 @@ define internal i32 @genl_rcv_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %22 = getelementptr i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !18
-  %23 = and i8 %17, 1
-  %24 = icmp ne i8 %23, 0
-  %25 = icmp eq ptr %21, @init_net
-  %26 = select i1 %24, i1 true, i1 %25
-  br i1 %26, label %27, label %82
+  %23 = trunc i8 %17 to i1
+  %24 = icmp eq ptr %21, @init_net
+  %25 = select i1 %23, i1 true, i1 %24
+  br i1 %25, label %26, label %81
 
-27:                                               ; preds = %16
-  %28 = load i32, ptr %8, align 8
-  %29 = add i32 %28, 4
-  %30 = load i32, ptr %1, align 4
-  %31 = add i32 %28, 20
-  %32 = icmp ult i32 %30, %31
-  br i1 %32, label %82, label %33
+26:                                               ; preds = %16
+  %27 = load i32, ptr %8, align 8
+  %28 = add i32 %27, 4
+  %29 = load i32, ptr %1, align 4
+  %30 = add i32 %27, 20
+  %31 = icmp ult i32 %29, %30
+  br i1 %31, label %81, label %32
 
-33:                                               ; preds = %27
-  %34 = load i8, ptr %22, align 2
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp ult i8 %34, %36
-  br i1 %37, label %._crit_edge, label %38
+32:                                               ; preds = %26
+  %33 = load i8, ptr %22, align 2
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp ult i8 %33, %35
+  br i1 %36, label %._crit_edge, label %37
 
-._crit_edge:                                      ; preds = %33
+._crit_edge:                                      ; preds = %32
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.pre2 = load i16, ptr %.phi.trans.insert, align 2
-  br label %55
+  br label %54
 
-38:                                               ; preds = %33
-  %39 = getelementptr i8, ptr %1, i64 18
-  %40 = load i16, ptr %39, align 2
-  %41 = icmp eq i16 %40, 0
-  br i1 %41, label %45, label %42
+37:                                               ; preds = %32
+  %38 = getelementptr i8, ptr %1, i64 18
+  %39 = load i16, ptr %38, align 2
+  %40 = icmp eq i16 %39, 0
+  br i1 %40, label %44, label %41
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @genl_header_check.__msg) #15
-  %43 = icmp eq ptr %2, null
-  br i1 %43, label %82, label %44
+  %42 = icmp eq ptr %2, null
+  br i1 %42, label %81, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   store ptr @genl_header_check.__msg, ptr %2, align 8
-  br label %82
+  br label %81
 
-45:                                               ; preds = %38
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %47 = load i16, ptr %46, align 2
-  %48 = and i16 %47, 768
-  %49 = icmp eq i16 %48, 768
-  %.v = select i1 %49, i16 -782, i16 -14
-  %50 = and i16 %.v, %47
-  %51 = icmp eq i16 %50, 0
-  br i1 %51, label %55, label %52
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %46 = load i16, ptr %45, align 2
+  %47 = and i16 %46, 768
+  %48 = icmp eq i16 %47, 768
+  %.v = select i1 %48, i16 -782, i16 -14
+  %49 = and i16 %.v, %46
+  %50 = icmp eq i16 %49, 0
+  br i1 %50, label %54, label %51
 
-52:                                               ; preds = %45
+51:                                               ; preds = %44
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @genl_header_check.__msg.11) #15
-  %53 = icmp eq ptr %2, null
-  br i1 %53, label %82, label %54
+  %52 = icmp eq ptr %2, null
+  br i1 %52, label %81, label %53
 
-54:                                               ; preds = %52
+53:                                               ; preds = %51
   store ptr @genl_header_check.__msg.11, ptr %2, align 8
-  br label %82
+  br label %81
 
-55:                                               ; preds = %._crit_edge, %45
-  %56 = phi i16 [ %.pre2, %._crit_edge ], [ %47, %45 ]
-  %57 = and i16 %56, 768
-  %58 = icmp eq i16 %57, 768
-  %59 = select i1 %58, i8 4, i8 2
-  %60 = zext i8 %34 to i32
-  %61 = call fastcc i32 @genl_get_cmd(i32 noundef %60, i8 noundef zeroext %59, ptr noundef nonnull %8, ptr noundef nonnull %4), !range !97
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %82
+54:                                               ; preds = %._crit_edge, %44
+  %55 = phi i16 [ %.pre2, %._crit_edge ], [ %46, %44 ]
+  %56 = and i16 %55, 768
+  %57 = icmp eq i16 %56, 768
+  %58 = select i1 %57, i8 4, i8 2
+  %59 = zext i8 %33 to i32
+  %60 = call fastcc i32 @genl_get_cmd(i32 noundef %59, i8 noundef zeroext %58, ptr noundef nonnull %8, ptr noundef nonnull %4), !range !97
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %81
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 38
-  %65 = load i8, ptr %64, align 2
-  %66 = and i8 %65, 1
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %70, label %68
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 38
+  %64 = load i8, ptr %63, align 2
+  %65 = and i8 %64, 1
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %69, label %67
 
-68:                                               ; preds = %63
-  %69 = tail call zeroext i1 @netlink_capable(ptr noundef %0, i32 noundef 12) #15
-  br i1 %69, label %70, label %82
+67:                                               ; preds = %62
+  %68 = tail call zeroext i1 @netlink_capable(ptr noundef %0, i32 noundef 12) #15
+  br i1 %68, label %69, label %81
 
-70:                                               ; preds = %68, %63
-  %71 = and i8 %65, 16
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %77, label %73
+69:                                               ; preds = %67, %62
+  %70 = and i8 %64, 16
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %76, label %72
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  %75 = load ptr, ptr %74, align 16
-  %76 = tail call zeroext i1 @netlink_ns_capable(ptr noundef %0, ptr noundef %75, i32 noundef 12) #15
-  br i1 %76, label %77, label %82
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %74 = load ptr, ptr %73, align 16
+  %75 = tail call zeroext i1 @netlink_ns_capable(ptr noundef %0, ptr noundef %74, i32 noundef 12) #15
+  br i1 %75, label %76, label %81
 
-77:                                               ; preds = %73, %70
-  br i1 %58, label %78, label %80
+76:                                               ; preds = %72, %69
+  br i1 %57, label %77, label %79
 
-78:                                               ; preds = %77
-  %79 = call fastcc i32 @genl_family_rcv_msg_dumpit(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %29, ptr noundef %21)
-  br label %82
+77:                                               ; preds = %76
+  %78 = call fastcc i32 @genl_family_rcv_msg_dumpit(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %28, ptr noundef %21)
+  br label %81
 
-80:                                               ; preds = %77
-  %81 = call fastcc i32 @genl_family_rcv_msg_doit(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %29, ptr noundef %21)
-  br label %82
+79:                                               ; preds = %76
+  %80 = call fastcc i32 @genl_family_rcv_msg_doit(ptr noundef nonnull %8, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %28, ptr noundef %21)
+  br label %81
 
-82:                                               ; preds = %80, %78, %73, %68, %55, %54, %52, %44, %42, %27, %16
-  %83 = phi i32 [ %79, %78 ], [ %81, %80 ], [ -22, %27 ], [ -95, %55 ], [ -1, %68 ], [ -1, %73 ], [ -2, %16 ], [ -22, %42 ], [ -22, %44 ], [ -22, %52 ], [ -22, %54 ]
+81:                                               ; preds = %79, %77, %72, %67, %54, %53, %51, %43, %41, %26, %16
+  %82 = phi i32 [ %78, %77 ], [ %80, %79 ], [ -22, %26 ], [ -95, %54 ], [ -1, %67 ], [ -1, %72 ], [ -2, %16 ], [ -22, %41 ], [ -22, %43 ], [ -22, %51 ], [ -22, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %84 = load i8, ptr %11, align 4
-  %85 = and i8 %84, 2
-  %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %88
+  %83 = load i8, ptr %11, align 4
+  %84 = and i8 %83, 2
+  %85 = icmp eq i8 %84, 0
+  br i1 %85, label %86, label %87
 
-87:                                               ; preds = %82
+86:                                               ; preds = %81
   call void @mutex_unlock(ptr noundef nonnull @genl_mutex) #15
-  br label %88
+  br label %87
 
-88:                                               ; preds = %87, %82, %3
-  %89 = phi i32 [ -2, %3 ], [ %83, %82 ], [ %83, %87 ]
-  ret i32 %89
+87:                                               ; preds = %86, %81, %3
+  %88 = phi i32 [ -2, %3 ], [ %82, %81 ], [ %82, %86 ]
+  ret i32 %88
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -429,24 +429,24 @@ define hidden void @_ZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneratio
   %23 = icmp ne i64 %22, 0
   %.idx = sext i1 %23 to i64
   %24 = getelementptr inbounds i8, ptr %16, i64 %.idx
-  %.not103 = icmp sgt i64 %11, %15
-  br i1 %.not103, label %_ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit.thread, label %.lr.ph.preheader
+  %.not101 = icmp sgt i64 %11, %15
+  br i1 %.not101, label %_ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
   %25 = getelementptr inbounds i8, ptr %7, i64 %11
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %417
-  %.0101 = phi ptr [ %418, %417 ], [ %25, %.lr.ph.preheader ]
-  %.sroa.5.0100 = phi ptr [ %.sroa.5.488, %417 ], [ %2, %.lr.ph.preheader ]
-  %.sroa.0.099 = phi ptr [ %.sroa.0.486, %417 ], [ null, %.lr.ph.preheader ]
-  %26 = ptrtoint ptr %.0101 to i64
+  %.099 = phi ptr [ %418, %417 ], [ %25, %.lr.ph.preheader ]
+  %.sroa.5.098 = phi ptr [ %.sroa.5.486, %417 ], [ %2, %.lr.ph.preheader ]
+  %.sroa.0.097 = phi ptr [ %.sroa.0.484, %417 ], [ null, %.lr.ph.preheader ]
+  %26 = ptrtoint ptr %.099 to i64
   %27 = and i64 %26, 7
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %.preheader.i.preheader, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %31
-  %.02031.i = phi ptr [ %32, %31 ], [ %.0101, %.lr.ph ]
+  %.02031.i = phi ptr [ %32, %31 ], [ %.099, %.lr.ph ]
   %.not25.i = icmp ult ptr %.02031.i, %17
   br i1 %.not25.i, label %29, label %_ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit.thread
 
@@ -463,7 +463,7 @@ define hidden void @_ZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneratio
   br i1 %35, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !6
 
 .preheader.i.preheader:                           ; preds = %31, %.lr.ph
-  %.1.i.ph = phi ptr [ %.0101, %.lr.ph ], [ %32, %31 ]
+  %.1.i.ph = phi ptr [ %.099, %.lr.ph ], [ %32, %31 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %37
@@ -506,7 +506,7 @@ _ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit: ; preds = %29, %.lr.ph33.i
   %52 = zext nneg i32 %51 to i64
   %53 = shl i64 %50, %52
   %54 = inttoptr i64 %53 to ptr
-  %55 = icmp ugt ptr %.sroa.5.0100, %54
+  %55 = icmp ugt ptr %.sroa.5.098, %54
   br i1 %55, label %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit", label %56
 
 56:                                               ; preds = %46
@@ -540,9 +540,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %71, %61
   br i1 %75, label %76, label %86
 
 76:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %77 = and i32 %74, 1
-  %.not.i.i.i = icmp eq i32 %77, 0
-  br i1 %.not.i.i.i, label %78, label %81
+  %77 = trunc i32 %74 to i1
+  br i1 %77, label %81, label %78
 
 78:                                               ; preds = %76
   %79 = lshr i32 %74, 3
@@ -595,8 +594,8 @@ _ZN7oopDesc4sizeEv.exit.i:                        ; preds = %108, %88, %81, %78
   br label %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit"
 
 "_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit": ; preds = %46, %_ZN7oopDesc4sizeEv.exit.i
-  %.sroa.0.1 = phi ptr [ %57, %_ZN7oopDesc4sizeEv.exit.i ], [ %.sroa.0.099, %46 ]
-  %.sroa.5.1 = phi ptr [ %113, %_ZN7oopDesc4sizeEv.exit.i ], [ %.sroa.5.0100, %46 ]
+  %.sroa.0.1 = phi ptr [ %57, %_ZN7oopDesc4sizeEv.exit.i ], [ %.sroa.0.097, %46 ]
+  %.sroa.5.1 = phi ptr [ %113, %_ZN7oopDesc4sizeEv.exit.i ], [ %.sroa.5.098, %46 ]
   %114 = icmp ult ptr %.0.i, %16
   br i1 %114, label %.lr.ph.i44, label %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit.thread"
 
@@ -626,7 +625,7 @@ _ZN7oopDesc4sizeEv.exit.i:                        ; preds = %108, %88, %81, %78
   %124 = shl i64 %121, %123
   %125 = inttoptr i64 %124 to ptr
   %126 = icmp ugt ptr %.sroa.5.2, %125
-  br i1 %126, label %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit65", label %127
+  br i1 %126, label %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit63", label %127
 
 127:                                              ; preds = %117
   %128 = tail call noundef ptr @_ZNK17TenuredGeneration11block_startEPKv(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %125) #11
@@ -645,37 +644,36 @@ _ZN7oopDesc4sizeEv.exit.i:                        ; preds = %108, %88, %81, %78
   %139 = shl i64 %137, %138
   %140 = add i64 %139, %136
   %141 = inttoptr i64 %140 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit.i.i59
+  br label %_ZNK7oopDesc5klassEv.exit.i.i58
 
 142:                                              ; preds = %127
   %143 = load ptr, ptr %131, align 8
-  br label %_ZNK7oopDesc5klassEv.exit.i.i59
+  br label %_ZNK7oopDesc5klassEv.exit.i.i58
 
-_ZNK7oopDesc5klassEv.exit.i.i59:                  ; preds = %142, %132
-  %.0.i.i.i60 = phi ptr [ %141, %132 ], [ %143, %142 ]
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i60, i64 8
+_ZNK7oopDesc5klassEv.exit.i.i58:                  ; preds = %142, %132
+  %.0.i.i.i59 = phi ptr [ %141, %132 ], [ %143, %142 ]
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i59, i64 8
   %145 = load i32, ptr %144, align 8
   %146 = icmp sgt i32 %145, 0
   br i1 %146, label %147, label %157
 
-147:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i59
-  %148 = and i32 %145, 1
-  %.not.i.i.i64 = icmp eq i32 %148, 0
-  br i1 %.not.i.i.i64, label %149, label %152
+147:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i58
+  %148 = trunc i32 %145 to i1
+  br i1 %148, label %152, label %149
 
 149:                                              ; preds = %147
   %150 = lshr i32 %145, 3
   %151 = zext nneg i32 %150 to i64
-  br label %_ZN7oopDesc4sizeEv.exit.i61
+  br label %_ZN7oopDesc4sizeEv.exit.i60
 
 152:                                              ; preds = %147
-  %153 = load ptr, ptr %.0.i.i.i60, align 8
+  %153 = load ptr, ptr %.0.i.i.i59, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 256
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i60, ptr noundef nonnull align 8 dereferenceable(16) %128) #11
-  br label %_ZN7oopDesc4sizeEv.exit.i61
+  %156 = tail call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %128) #11
+  br label %_ZN7oopDesc4sizeEv.exit.i60
 
-157:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i59
+157:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i58
   %158 = icmp slt i32 %145, 0
   br i1 %158, label %159, label %179
 
@@ -699,27 +697,27 @@ _ZNK7oopDesc5klassEv.exit.i.i59:                  ; preds = %142, %132
   %176 = sext i32 %175 to i64
   %177 = and i64 %174, %176
   %178 = lshr i64 %177, 3
-  br label %_ZN7oopDesc4sizeEv.exit.i61
+  br label %_ZN7oopDesc4sizeEv.exit.i60
 
 179:                                              ; preds = %157
-  %180 = load ptr, ptr %.0.i.i.i60, align 8
+  %180 = load ptr, ptr %.0.i.i.i59, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 256
   %182 = load ptr, ptr %181, align 8
-  %183 = tail call noundef i64 %182(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i60, ptr noundef nonnull align 8 dereferenceable(16) %128) #11
-  br label %_ZN7oopDesc4sizeEv.exit.i61
+  %183 = tail call noundef i64 %182(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %128) #11
+  br label %_ZN7oopDesc4sizeEv.exit.i60
 
-_ZN7oopDesc4sizeEv.exit.i61:                      ; preds = %179, %159, %152, %149
-  %.0.i1.i.i62 = phi i64 [ %156, %152 ], [ %151, %149 ], [ %178, %159 ], [ %183, %179 ]
-  %184 = getelementptr inbounds ptr, ptr %128, i64 %.0.i1.i.i62
-  br label %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit65"
+_ZN7oopDesc4sizeEv.exit.i60:                      ; preds = %179, %159, %152, %149
+  %.0.i1.i.i61 = phi i64 [ %156, %152 ], [ %151, %149 ], [ %178, %159 ], [ %183, %179 ]
+  %184 = getelementptr inbounds ptr, ptr %128, i64 %.0.i1.i.i61
+  br label %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit63"
 
-"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit65": ; preds = %117, %_ZN7oopDesc4sizeEv.exit.i61
-  %.sroa.0.5 = phi ptr [ %128, %_ZN7oopDesc4sizeEv.exit.i61 ], [ %.sroa.0.2, %117 ]
-  %.sroa.5.5 = phi ptr [ %184, %_ZN7oopDesc4sizeEv.exit.i61 ], [ %.sroa.5.2, %117 ]
+"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit63": ; preds = %117, %_ZN7oopDesc4sizeEv.exit.i60
+  %.sroa.0.5 = phi ptr [ %128, %_ZN7oopDesc4sizeEv.exit.i60 ], [ %.sroa.0.2, %117 ]
+  %.sroa.5.5 = phi ptr [ %184, %_ZN7oopDesc4sizeEv.exit.i60 ], [ %.sroa.5.2, %117 ]
   %185 = icmp eq ptr %.sroa.0.5, %125
   br i1 %185, label %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit", label %186
 
-186:                                              ; preds = %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit65"
+186:                                              ; preds = %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit63"
   %187 = load i8, ptr @UseCompressedClassPointers, align 1
   %188 = trunc i8 %187 to i1
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.0.5, i64 8
@@ -755,9 +753,8 @@ _ZNK7oopDesc5klassEv.exit.i.i46:                  ; preds = %_ZNK7oopDesc11is_ob
   br i1 %208, label %209, label %219
 
 209:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i46
-  %210 = and i32 %207, 1
-  %.not.i.i.i49 = icmp eq i32 %210, 0
-  br i1 %.not.i.i.i49, label %211, label %214
+  %210 = trunc i32 %207 to i1
+  br i1 %210, label %214, label %211
 
 211:                                              ; preds = %209
   %212 = lshr i32 %207, 3
@@ -818,8 +815,8 @@ _ZN7oopDesc4sizeEv.exit.i47:                      ; preds = %241, %221, %214, %2
   %255 = icmp eq i8 %254, -1
   br i1 %255, label %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit", label %.backedge.i
 
-"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit": ; preds = %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit65", %_ZNK7oopDesc11is_objArrayEv.exit.i, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i, %_ZN7oopDesc4sizeEv.exit.i47
-  %.0.i43 = phi ptr [ %.02227.i, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ], [ %.02227.i, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit65" ], [ %.02227.i, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %253, %_ZN7oopDesc4sizeEv.exit.i47 ]
+"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit": ; preds = %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit63", %_ZNK7oopDesc11is_objArrayEv.exit.i, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i, %_ZN7oopDesc4sizeEv.exit.i47
+  %.0.i43 = phi ptr [ %.02227.i, %_ZNK7oopDesc11is_objArrayEv.exit.thread.i ], [ %.02227.i, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit63" ], [ %.02227.i, %_ZNK7oopDesc11is_objArrayEv.exit.i ], [ %253, %_ZN7oopDesc4sizeEv.exit.i47 ]
   %256 = icmp eq ptr %.0.i43, %17
   br i1 %256, label %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit.thread", label %257
 
@@ -836,14 +833,14 @@ _ZN7oopDesc4sizeEv.exit.i47:                      ; preds = %241, %221, %214, %2
 
 "_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit.thread": ; preds = %.backedge.i, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit", %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit", %257
   %.pre-phi = phi i64 [ %264, %257 ], [ %19, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %19, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %19, %.backedge.i ]
-  %.0.i4390 = phi ptr [ %.0.i43, %257 ], [ %17, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %.0.i43, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %17, %.backedge.i ]
-  %.sroa.5.488 = phi ptr [ %.sroa.5.5, %257 ], [ %.sroa.5.1, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %.sroa.5.5, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %.sroa.5.3, %.backedge.i ]
-  %.sroa.0.486 = phi ptr [ %.sroa.0.5, %257 ], [ %.sroa.0.1, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %.sroa.0.5, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %.sroa.0.3, %.backedge.i ]
+  %.0.i4388 = phi ptr [ %.0.i43, %257 ], [ %17, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %.0.i43, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %17, %.backedge.i ]
+  %.sroa.5.486 = phi ptr [ %.sroa.5.5, %257 ], [ %.sroa.5.1, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %.sroa.5.5, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %.sroa.5.3, %.backedge.i ]
+  %.sroa.0.484 = phi ptr [ %.sroa.0.5, %257 ], [ %.sroa.0.1, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %.sroa.0.5, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %.sroa.0.3, %.backedge.i ]
   %266 = phi ptr [ %265, %257 ], [ %12, %"_ZZN11CardTableRS22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureENK3$_0clEPKP12HeapWordImpl.exit" ], [ %12, %"_ZN11CardTableRS21find_first_clean_cardIZNS_22non_clean_card_iterateEP17TenuredGeneration9MemRegionP17OldGenScanClosureE3$_0EEPhS7_S7_RT_.exit" ], [ %12, %.backedge.i ]
   %267 = icmp ult ptr %.0.i, %24
   %268 = select i1 %267, ptr %.0.i, ptr %24
-  %269 = icmp ult ptr %.0.i4390, %24
-  %270 = select i1 %269, ptr %.0.i4390, ptr %24
+  %269 = icmp ult ptr %.0.i4388, %24
+  %270 = select i1 %269, ptr %.0.i4388, ptr %24
   %271 = ptrtoint ptr %270 to i64
   %272 = ptrtoint ptr %268 to i64
   %273 = sub i64 %271, %272
@@ -886,9 +883,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %290, %280
   br i1 %295, label %296, label %306
 
 296:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %297 = and i32 %294, 1
-  %.not.i.i = icmp eq i32 %297, 0
-  br i1 %.not.i.i, label %298, label %301
+  %297 = trunc i32 %294 to i1
+  br i1 %297, label %301, label %298
 
 298:                                              ; preds = %296
   %299 = lshr i32 %294, 3
@@ -962,8 +958,8 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %298, %301, %308, %3
   br label %_ZNK7oopDesc12is_typeArrayEv.exit.i
 
 _ZNK7oopDesc12is_typeArrayEv.exit.i:              ; preds = %347, %337
-  %.0.i.i.i51 = phi ptr [ %346, %337 ], [ %348, %347 ]
-  %349 = getelementptr inbounds nuw i8, ptr %.0.i.i.i51, i64 12
+  %.0.i.i.i50 = phi ptr [ %346, %337 ], [ %348, %347 ]
+  %349 = getelementptr inbounds nuw i8, ptr %.0.i.i.i50, i64 12
   %350 = load i32, ptr %349, align 4
   %351 = icmp eq i32 %350, 5
   br i1 %351, label %_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit, label %352
@@ -1022,38 +1018,38 @@ _ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i: ; preds = %
   %383 = shl i64 %381, %382
   %384 = add i64 %383, %380
   %385 = inttoptr i64 %384 to ptr
-  br label %_ZNK7oopDesc12is_typeArrayEv.exit.i52
+  br label %_ZNK7oopDesc12is_typeArrayEv.exit.i51
 
 386:                                              ; preds = %375
   %387 = load ptr, ptr %279, align 8
-  br label %_ZNK7oopDesc12is_typeArrayEv.exit.i52
+  br label %_ZNK7oopDesc12is_typeArrayEv.exit.i51
 
-_ZNK7oopDesc12is_typeArrayEv.exit.i52:            ; preds = %386, %376
-  %.0.i.i.i53 = phi ptr [ %385, %376 ], [ %387, %386 ]
-  %388 = getelementptr inbounds nuw i8, ptr %.0.i.i.i53, i64 12
+_ZNK7oopDesc12is_typeArrayEv.exit.i51:            ; preds = %386, %376
+  %.0.i.i.i52 = phi ptr [ %385, %376 ], [ %387, %386 ]
+  %388 = getelementptr inbounds nuw i8, ptr %.0.i.i.i52, i64 12
   %389 = load i32, ptr %388, align 4
   %390 = icmp eq i32 %389, 5
   br i1 %390, label %_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit, label %391
 
-391:                                              ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit.i52
+391:                                              ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit.i51
   %392 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
   %393 = icmp sgt i64 %392, -1
-  br i1 %393, label %394, label %_ZL14prefetch_writePv.exit.i54
+  br i1 %393, label %394, label %_ZL14prefetch_writePv.exit.i53
 
 394:                                              ; preds = %391
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %54, i64 %392) #11, !srcloc !11
-  %.pre.i57 = load i8, ptr @UseCompressedClassPointers, align 1
-  br label %_ZL14prefetch_writePv.exit.i54
+  %.pre.i56 = load i8, ptr @UseCompressedClassPointers, align 1
+  br label %_ZL14prefetch_writePv.exit.i53
 
-_ZL14prefetch_writePv.exit.i54:                   ; preds = %394, %391
-  %395 = phi i8 [ %334, %391 ], [ %.pre.i57, %394 ]
+_ZL14prefetch_writePv.exit.i53:                   ; preds = %394, %391
+  %395 = phi i8 [ %334, %391 ], [ %.pre.i56, %394 ]
   %396 = ptrtoint ptr %333 to i64
   %397 = sub i64 %396, %53
   %398 = lshr i64 %397, 3
   %399 = trunc i8 %395 to i1
   br i1 %399, label %400, label %410
 
-400:                                              ; preds = %_ZL14prefetch_writePv.exit.i54
+400:                                              ; preds = %_ZL14prefetch_writePv.exit.i53
   %401 = load i32, ptr %279, align 8
   %402 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %403 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
@@ -1063,29 +1059,29 @@ _ZL14prefetch_writePv.exit.i54:                   ; preds = %394, %391
   %407 = shl i64 %405, %406
   %408 = add i64 %407, %404
   %409 = inttoptr i64 %408 to ptr
-  br label %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i55
+  br label %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i54
 
-410:                                              ; preds = %_ZL14prefetch_writePv.exit.i54
+410:                                              ; preds = %_ZL14prefetch_writePv.exit.i53
   %411 = load ptr, ptr %279, align 8
-  br label %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i55
+  br label %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i54
 
-_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i55: ; preds = %410, %400
-  %.0.i.i6.i56 = phi ptr [ %409, %400 ], [ %411, %410 ]
-  %412 = getelementptr inbounds nuw i8, ptr %.0.i.i6.i56, i64 12
+_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i54: ; preds = %410, %400
+  %.0.i.i6.i55 = phi ptr [ %409, %400 ], [ %411, %410 ]
+  %412 = getelementptr inbounds nuw i8, ptr %.0.i.i6.i55, i64 12
   %413 = load i32, ptr %412, align 4
   %414 = sext i32 %413 to i64
   %415 = getelementptr inbounds ptr, ptr @_ZN28OopOopIterateBoundedDispatchI17OldGenScanClosureE6_tableE, i64 %414
   %416 = load ptr, ptr %415, align 8
-  tail call void %416(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %.037, ptr noundef %.0.i.i6.i56, ptr %54, i64 %398) #11
+  tail call void %416(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %.037, ptr noundef %.0.i.i6.i55, ptr %54, i64 %398) #11
   br label %_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit
 
-_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit: ; preds = %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i55, %_ZNK7oopDesc12is_typeArrayEv.exit.i52, %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i, %_ZNK7oopDesc12is_typeArrayEv.exit.i
+_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit: ; preds = %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i54, %_ZNK7oopDesc12is_typeArrayEv.exit.i51, %_ZN7oopDesc11oop_iterateI17OldGenScanClosureEEvPT_9MemRegion.exit.i, %_ZNK7oopDesc12is_typeArrayEv.exit.i
   %.not = icmp ult ptr %333, %266
   br i1 %.not, label %276, label %417, !llvm.loop !12
 
 417:                                              ; preds = %_ZL19scan_obj_with_limitP7oopDescP17OldGenScanClosurePP12HeapWordImplS5_.exit
-  %418 = getelementptr inbounds nuw i8, ptr %.0.i4390, i64 1
-  %419 = icmp ult ptr %.0.i4390, %16
+  %418 = getelementptr inbounds nuw i8, ptr %.0.i4388, i64 1
+  %419 = icmp ult ptr %.0.i4388, %16
   br i1 %419, label %.lr.ph, label %_ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit.thread, !llvm.loop !13
 
 _ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit.thread: ; preds = %417, %_ZN11CardTableRS21find_first_dirty_cardEPhS0_.exit, %39, %.lr.ph.i, %42, %5
@@ -2812,9 +2808,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -2848,8 +2843,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5044,9 +5039,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3
@@ -5412,9 +5406,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %107, %97
   br i1 %111, label %112, label %122
 
 112:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %113 = and i32 %110, 1
-  %.not.i.i.i = icmp eq i32 %113, 0
-  br i1 %.not.i.i.i, label %114, label %117
+  %113 = trunc i32 %110 to i1
+  br i1 %113, label %117, label %114
 
 114:                                              ; preds = %112
   %115 = lshr i32 %110, 3

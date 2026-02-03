@@ -449,9 +449,8 @@ define hidden noundef zeroext i1 @SDL_IsAudioDevicePhysical_REAL(i32 noundef %0)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @SDL_IsAudioDevicePlayback_REAL(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = and i32 %0, 1
-  %3 = icmp ne i32 %2, 0
-  ret i1 %3
+  %2 = trunc i32 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable

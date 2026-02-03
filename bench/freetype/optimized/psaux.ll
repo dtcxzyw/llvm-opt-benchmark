@@ -16693,190 +16693,190 @@ define internal fastcc void @cf2_doStems(ptr noundef readonly captures(none) %0,
   %12 = sub i64 %10, %11
   %13 = lshr exact i64 %12, 3
   %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i8, ptr %16, align 4, !tbaa !286
-  %18 = icmp eq i8 %17, 0
-  %19 = icmp ne i32 %15, 0
-  %or.cond = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %39
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %16 = load i8, ptr %15, align 4, !tbaa !286
+  %17 = icmp eq i8 %16, 0
+  %18 = trunc i64 %13 to i1
+  %or.cond = select i1 %17, i1 %18, i1 false
+  br i1 %or.cond, label %19, label %38
 
-20:                                               ; preds = %6
-  %21 = load i8, ptr %4, align 1, !tbaa !37
-  %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %22, label %39
+19:                                               ; preds = %6
+  %20 = load i8, ptr %4, align 1, !tbaa !37
+  %.not = icmp eq i8 %20, 0
+  br i1 %.not, label %21, label %38
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.val27, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !620
-  %25 = load i32, ptr %.val27, align 4, !tbaa !37
-  switch i32 %24, label %cf2_stack_getReal.exit [
-    i32 2, label %26
-    i32 1, label %28
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %.val27, i64 4
+  %23 = load i32, ptr %22, align 4, !tbaa !620
+  %24 = load i32, ptr %.val27, align 4, !tbaa !37
+  switch i32 %23, label %cf2_stack_getReal.exit [
+    i32 2, label %25
+    i32 1, label %27
   ]
 
-26:                                               ; preds = %22
-  %27 = shl i32 %25, 16
+25:                                               ; preds = %21
+  %26 = shl i32 %24, 16
   br label %cf2_stack_getReal.exit
 
-28:                                               ; preds = %22
-  %29 = add nsw i32 %25, 8192
-  %.lobit.neg.i = ashr i32 %25, 31
-  %30 = add nsw i32 %29, %.lobit.neg.i
-  %31 = ashr i32 %30, 14
+27:                                               ; preds = %21
+  %28 = add nsw i32 %24, 8192
+  %.lobit.neg.i = ashr i32 %24, 31
+  %29 = add nsw i32 %28, %.lobit.neg.i
+  %30 = ashr i32 %29, 14
   br label %cf2_stack_getReal.exit
 
-cf2_stack_getReal.exit:                           ; preds = %22, %26, %28
-  %.0.i = phi i32 [ %31, %28 ], [ %25, %22 ], [ %27, %26 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %33 = load ptr, ptr %32, align 8, !tbaa !239
-  %34 = getelementptr i8, ptr %33, i64 1056
-  %.val = load ptr, ptr %34, align 8, !tbaa !202
-  %35 = getelementptr i8, ptr %.val, i64 1032
-  %.val.val = load i64, ptr %35, align 8, !tbaa !449
-  %36 = trunc i64 %.val.val to i32
-  %37 = shl i32 %36, 16
-  %38 = add i32 %37, %.0.i
-  store i32 %38, ptr %3, align 4, !tbaa !16
-  br label %39
+cf2_stack_getReal.exit:                           ; preds = %21, %25, %27
+  %.0.i = phi i32 [ %30, %27 ], [ %24, %21 ], [ %26, %25 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %32 = load ptr, ptr %31, align 8, !tbaa !239
+  %33 = getelementptr i8, ptr %32, i64 1056
+  %.val = load ptr, ptr %33, align 8, !tbaa !202
+  %34 = getelementptr i8, ptr %.val, i64 1032
+  %.val.val = load i64, ptr %34, align 8, !tbaa !449
+  %35 = trunc i64 %.val.val to i32
+  %36 = shl i32 %35, 16
+  %37 = add i32 %36, %.0.i
+  store i32 %37, ptr %3, align 4, !tbaa !16
+  br label %38
 
-39:                                               ; preds = %cf2_stack_getReal.exit, %20, %6
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %41 = load ptr, ptr %40, align 8, !tbaa !239
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1080
-  %43 = load i8, ptr %42, align 8, !tbaa !516
-  %.not26 = icmp eq i8 %43, 0
-  br i1 %.not26, label %.preheader, label %95
+38:                                               ; preds = %cf2_stack_getReal.exit, %19, %6
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %40 = load ptr, ptr %39, align 8, !tbaa !239
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1080
+  %42 = load i8, ptr %41, align 8, !tbaa !516
+  %.not26 = icmp eq i8 %42, 0
+  br i1 %.not26, label %43, label %96
 
-.preheader:                                       ; preds = %39
+43:                                               ; preds = %38
   %.not47 = icmp ult i32 %14, 2
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %49
+.lr.ph:                                           ; preds = %43
+  %44 = and i32 %14, 1
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br label %50
 
-49:                                               ; preds = %.lr.ph, %cf2_stack_getReal.exit44
-  %.046 = phi i32 [ %5, %.lr.ph ], [ %91, %cf2_stack_getReal.exit44 ]
-  %.02545 = phi i32 [ %15, %.lr.ph ], [ %92, %cf2_stack_getReal.exit44 ]
+50:                                               ; preds = %.lr.ph, %cf2_stack_getReal.exit44
+  %.046 = phi i32 [ %5, %.lr.ph ], [ %92, %cf2_stack_getReal.exit44 ]
+  %.02545 = phi i32 [ %44, %.lr.ph ], [ %93, %cf2_stack_getReal.exit44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val.i29 = load ptr, ptr %8, align 8, !tbaa !615
   %.val14.i30 = load ptr, ptr %9, align 8, !tbaa !617
-  %50 = ptrtoint ptr %.val14.i30 to i64
-  %51 = ptrtoint ptr %.val.i29 to i64
-  %52 = sub i64 %50, %51
-  %53 = lshr exact i64 %52, 3
-  %54 = trunc i64 %53 to i32
-  %.not.i31 = icmp ult i32 %.02545, %54
-  br i1 %.not.i31, label %60, label %55
+  %51 = ptrtoint ptr %.val14.i30 to i64
+  %52 = ptrtoint ptr %.val.i29 to i64
+  %53 = sub i64 %51, %52
+  %54 = lshr exact i64 %53, 3
+  %55 = trunc i64 %54 to i32
+  %.not.i31 = icmp ult i32 %.02545, %55
+  br i1 %.not.i31, label %61, label %56
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %44, align 8, !tbaa !614
-  %.not.i.i32 = icmp eq ptr %56, null
-  br i1 %.not.i.i32, label %cf2_stack_getReal.exit36, label %57
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %45, align 8, !tbaa !614
+  %.not.i.i32 = icmp eq ptr %57, null
+  br i1 %.not.i.i32, label %cf2_stack_getReal.exit36, label %58
 
-57:                                               ; preds = %55
-  %58 = load i32, ptr %56, align 4, !tbaa !16
-  %.not3.i.i33 = icmp eq i32 %58, 0
-  br i1 %.not3.i.i33, label %59, label %cf2_stack_getReal.exit36
+58:                                               ; preds = %56
+  %59 = load i32, ptr %57, align 4, !tbaa !16
+  %.not3.i.i33 = icmp eq i32 %59, 0
+  br i1 %.not3.i.i33, label %60, label %cf2_stack_getReal.exit36
 
-59:                                               ; preds = %57
-  store i32 130, ptr %56, align 4, !tbaa !16
+60:                                               ; preds = %58
+  store i32 130, ptr %57, align 4, !tbaa !16
   br label %cf2_stack_getReal.exit36
 
-60:                                               ; preds = %49
-  %61 = zext i32 %.02545 to i64
-  %62 = getelementptr inbounds nuw %struct.CF2_StackNumber_, ptr %.val.i29, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !620
-  %65 = load i32, ptr %62, align 4, !tbaa !37
-  switch i32 %64, label %cf2_stack_getReal.exit36 [
-    i32 2, label %66
-    i32 1, label %68
+61:                                               ; preds = %50
+  %62 = zext i32 %.02545 to i64
+  %63 = getelementptr inbounds nuw %struct.CF2_StackNumber_, ptr %.val.i29, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !620
+  %66 = load i32, ptr %63, align 4, !tbaa !37
+  switch i32 %65, label %cf2_stack_getReal.exit36 [
+    i32 2, label %67
+    i32 1, label %69
   ]
 
-66:                                               ; preds = %60
-  %67 = shl i32 %65, 16
+67:                                               ; preds = %61
+  %68 = shl i32 %66, 16
   br label %cf2_stack_getReal.exit36
 
-68:                                               ; preds = %60
-  %69 = add nsw i32 %65, 8192
-  %.lobit.neg.i35 = ashr i32 %65, 31
-  %70 = add nsw i32 %69, %.lobit.neg.i35
-  %71 = ashr i32 %70, 14
+69:                                               ; preds = %61
+  %70 = add nsw i32 %66, 8192
+  %.lobit.neg.i35 = ashr i32 %66, 31
+  %71 = add nsw i32 %70, %.lobit.neg.i35
+  %72 = ashr i32 %71, 14
   br label %cf2_stack_getReal.exit36
 
-cf2_stack_getReal.exit36:                         ; preds = %55, %57, %59, %60, %66, %68
-  %.0.i34 = phi i32 [ %71, %68 ], [ 0, %59 ], [ %67, %66 ], [ 0, %55 ], [ 0, %57 ], [ %65, %60 ]
-  %72 = add i32 %.0.i34, %.046
-  store i32 %72, ptr %45, align 4, !tbaa !683
-  %73 = add nuw i32 %.02545, 1
-  %.not.i39 = icmp ult i32 %73, %54
-  br i1 %.not.i39, label %79, label %74
+cf2_stack_getReal.exit36:                         ; preds = %56, %58, %60, %61, %67, %69
+  %.0.i34 = phi i32 [ %72, %69 ], [ 0, %60 ], [ %68, %67 ], [ 0, %56 ], [ 0, %58 ], [ %66, %61 ]
+  %73 = add i32 %.0.i34, %.046
+  store i32 %73, ptr %46, align 4, !tbaa !683
+  %74 = add nuw i32 %.02545, 1
+  %.not.i39 = icmp ult i32 %74, %55
+  br i1 %.not.i39, label %80, label %75
 
-74:                                               ; preds = %cf2_stack_getReal.exit36
-  %75 = load ptr, ptr %44, align 8, !tbaa !614
-  %.not.i.i40 = icmp eq ptr %75, null
-  br i1 %.not.i.i40, label %cf2_stack_getReal.exit44, label %76
+75:                                               ; preds = %cf2_stack_getReal.exit36
+  %76 = load ptr, ptr %45, align 8, !tbaa !614
+  %.not.i.i40 = icmp eq ptr %76, null
+  br i1 %.not.i.i40, label %cf2_stack_getReal.exit44, label %77
 
-76:                                               ; preds = %74
-  %77 = load i32, ptr %75, align 4, !tbaa !16
-  %.not3.i.i41 = icmp eq i32 %77, 0
-  br i1 %.not3.i.i41, label %78, label %cf2_stack_getReal.exit44
+77:                                               ; preds = %75
+  %78 = load i32, ptr %76, align 4, !tbaa !16
+  %.not3.i.i41 = icmp eq i32 %78, 0
+  br i1 %.not3.i.i41, label %79, label %cf2_stack_getReal.exit44
 
-78:                                               ; preds = %76
-  store i32 130, ptr %75, align 4, !tbaa !16
+79:                                               ; preds = %77
+  store i32 130, ptr %76, align 4, !tbaa !16
   br label %cf2_stack_getReal.exit44
 
-79:                                               ; preds = %cf2_stack_getReal.exit36
-  %80 = zext i32 %73 to i64
-  %81 = getelementptr inbounds nuw %struct.CF2_StackNumber_, ptr %.val.i29, i64 %80
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !620
-  %84 = load i32, ptr %81, align 4, !tbaa !37
-  switch i32 %83, label %cf2_stack_getReal.exit44 [
-    i32 2, label %85
-    i32 1, label %87
+80:                                               ; preds = %cf2_stack_getReal.exit36
+  %81 = zext i32 %74 to i64
+  %82 = getelementptr inbounds nuw %struct.CF2_StackNumber_, ptr %.val.i29, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4, !tbaa !620
+  %85 = load i32, ptr %82, align 4, !tbaa !37
+  switch i32 %84, label %cf2_stack_getReal.exit44 [
+    i32 2, label %86
+    i32 1, label %88
   ]
 
-85:                                               ; preds = %79
-  %86 = shl i32 %84, 16
+86:                                               ; preds = %80
+  %87 = shl i32 %85, 16
   br label %cf2_stack_getReal.exit44
 
-87:                                               ; preds = %79
-  %88 = add nsw i32 %84, 8192
-  %.lobit.neg.i43 = ashr i32 %84, 31
-  %89 = add nsw i32 %88, %.lobit.neg.i43
-  %90 = ashr i32 %89, 14
+88:                                               ; preds = %80
+  %89 = add nsw i32 %85, 8192
+  %.lobit.neg.i43 = ashr i32 %85, 31
+  %90 = add nsw i32 %89, %.lobit.neg.i43
+  %91 = ashr i32 %90, 14
   br label %cf2_stack_getReal.exit44
 
-cf2_stack_getReal.exit44:                         ; preds = %74, %76, %78, %79, %85, %87
-  %.0.i42 = phi i32 [ %90, %87 ], [ 0, %78 ], [ %86, %85 ], [ 0, %74 ], [ 0, %76 ], [ %84, %79 ]
-  %91 = add i32 %.0.i42, %72
-  store i32 %91, ptr %46, align 4, !tbaa !685
+cf2_stack_getReal.exit44:                         ; preds = %75, %77, %79, %80, %86, %88
+  %.0.i42 = phi i32 [ %91, %88 ], [ 0, %79 ], [ %87, %86 ], [ 0, %75 ], [ 0, %77 ], [ %85, %80 ]
+  %92 = add i32 %.0.i42, %73
+  store i32 %92, ptr %47, align 4, !tbaa !685
   store i8 0, ptr %7, align 4, !tbaa !686
-  store i32 0, ptr %47, align 4, !tbaa !687
-  store i32 0, ptr %48, align 4, !tbaa !688
+  store i32 0, ptr %48, align 4, !tbaa !687
+  store i32 0, ptr %49, align 4, !tbaa !688
   call fastcc void @cf2_arrstack_push(ptr noundef nonnull %2, ptr noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %92 = add i32 %.02545, 2
-  %93 = icmp ult i32 %92, %14
-  br i1 %93, label %49, label %._crit_edge.loopexit, !llvm.loop !689
+  %93 = add i32 %.02545, 2
+  %94 = icmp ult i32 %93, %14
+  br i1 %94, label %50, label %._crit_edge.loopexit, !llvm.loop !689
 
 ._crit_edge.loopexit:                             ; preds = %cf2_stack_getReal.exit44
   %.pre = load ptr, ptr %8, align 8, !tbaa !615
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %94 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val27, %.preheader ]
-  store ptr %94, ptr %9, align 8, !tbaa !617
-  br label %95
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
+  %95 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val27, %43 ]
+  store ptr %95, ptr %9, align 8, !tbaa !617
+  br label %96
 
-95:                                               ; preds = %39, %._crit_edge
+96:                                               ; preds = %38, %._crit_edge
   store i8 1, ptr %4, align 1, !tbaa !37
   ret void
 }

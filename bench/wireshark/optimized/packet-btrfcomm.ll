@@ -848,7 +848,7 @@ switch.early.test:                                ; preds = %90
 
 252:                                              ; preds = %231
   %253 = icmp eq i8 %66, -17
-  %254 = icmp ne i8 %.lobit.i237, 0
+  %254 = trunc i8 %65 to i1
   %255 = and i1 %253, %254
   %or.cond19 = and i1 %236, %255
   br i1 %or.cond19, label %256, label %263

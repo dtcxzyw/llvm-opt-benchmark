@@ -332,8 +332,8 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
   %12 = or i32 %11, 64
   store i32 %12, ptr %1, align 8
   %13 = and i32 %11, 768
-  %or.cond = icmp eq i32 %13, 256
-  br i1 %or.cond, label %14, label %18
+  %or.cond40 = icmp eq i32 %13, 256
+  br i1 %or.cond40, label %14, label %18
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -344,62 +344,62 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
 
 18:                                               ; preds = %10, %14, %9
   %19 = call ptr @prio_queue_get(ptr noundef nonnull %5) #5
-  %.not3344 = icmp eq ptr %19, null
-  br i1 %.not3344, label %._crit_edge, label %.lr.ph45
+  %.not3345 = icmp eq ptr %19, null
+  br i1 %.not3345, label %._crit_edge, label %.lr.ph46
 
-.lr.ph45:                                         ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %21
+.lr.ph46:                                         ; preds = %18
+  %20 = icmp ne i32 %3, 0
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %22
 
-21:                                               ; preds = %.lr.ph45, %.critedge
-  %22 = phi ptr [ %19, %.lr.ph45 ], [ %56, %.critedge ]
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 256
-  %.not34 = icmp eq i32 %24, 0
-  br i1 %.not34, label %25, label %35
+22:                                               ; preds = %.lr.ph46, %.critedge
+  %23 = phi ptr [ %19, %.lr.ph46 ], [ %56, %.critedge ]
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 256
+  %.not34 = icmp eq i32 %25, 0
+  br i1 %.not34, label %26, label %36
 
-25:                                               ; preds = %21
-  %26 = or disjoint i32 %23, 256
-  store i32 %26, ptr %22, align 8
-  %27 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %28 = call i32 @repo_parse_commit_gently(ptr noundef %27, ptr noundef nonnull %22, i32 noundef 0) #5
-  %.not8.i = icmp eq i32 %28, 0
-  br i1 %.not8.i, label %29, label %.critedge
+26:                                               ; preds = %22
+  %27 = or disjoint i32 %24, 256
+  store i32 %27, ptr %23, align 8
+  %28 = load ptr, ptr @the_repository, align 8, !tbaa !20
+  %29 = call i32 @repo_parse_commit_gently(ptr noundef %28, ptr noundef nonnull %23, i32 noundef 0) #5
+  %.not8.i = icmp eq i32 %29, 0
+  br i1 %.not8.i, label %30, label %.critedge
 
-29:                                               ; preds = %25
-  call void @prio_queue_put(ptr noundef %0, ptr noundef nonnull %22) #5
-  %30 = load i32, ptr %22, align 8
-  %31 = and i32 %30, 64
-  %.not9.i = icmp eq i32 %31, 0
-  br i1 %.not9.i, label %32, label %.critedge
+30:                                               ; preds = %26
+  call void @prio_queue_put(ptr noundef %0, ptr noundef nonnull %23) #5
+  %31 = load i32, ptr %23, align 8
+  %32 = and i32 %31, 64
+  %.not9.i = icmp eq i32 %32, 0
+  br i1 %.not9.i, label %33, label %.critedge
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %20, align 8, !tbaa !22
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %20, align 8, !tbaa !22
+33:                                               ; preds = %30
+  %34 = load i32, ptr %21, align 8, !tbaa !22
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %21, align 8, !tbaa !22
   br label %.critedge
 
-35:                                               ; preds = %21
-  %36 = and i32 %23, 1
-  %37 = or i32 %36, %3
-  %or.cond.not = icmp eq i32 %37, 0
-  br i1 %or.cond.not, label %38, label %41
+36:                                               ; preds = %22
+  %37 = trunc i32 %24 to i1
+  %or.cond = or i1 %20, %37
+  br i1 %or.cond, label %41, label %38
 
-38:                                               ; preds = %35
+38:                                               ; preds = %36
   %39 = load ptr, ptr @the_repository, align 8, !tbaa !20
-  %40 = call i32 @repo_parse_commit_gently(ptr noundef %39, ptr noundef nonnull %22, i32 noundef 0) #5
+  %40 = call i32 @repo_parse_commit_gently(ptr noundef %39, ptr noundef nonnull %23, i32 noundef 0) #5
   %.not35 = icmp eq i32 %40, 0
   br i1 %.not35, label %41, label %.critedge, !llvm.loop !37
 
-41:                                               ; preds = %38, %35
-  %42 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %.041 = load ptr, ptr %42, align 8, !tbaa !38
-  %.not3642 = icmp eq ptr %.041, null
-  br i1 %.not3642, label %.critedge, label %.lr.ph
+41:                                               ; preds = %38, %36
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %.042 = load ptr, ptr %42, align 8, !tbaa !38
+  %.not3643 = icmp eq ptr %.042, null
+  br i1 %.not3643, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %54
-  %.043 = phi ptr [ %.0, %54 ], [ %.041, %41 ]
-  %43 = load ptr, ptr %.043, align 8, !tbaa !32
+  %.044 = phi ptr [ %.0, %54 ], [ %.042, %41 ]
+  %43 = load ptr, ptr %.044, align 8, !tbaa !32
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 64
   %.not37 = icmp eq i32 %45, 0
@@ -409,30 +409,30 @@ define internal fastcc void @mark_common(ptr noundef %0, ptr noundef %1, i32 nou
   %47 = or disjoint i32 %44, 64
   store i32 %47, ptr %43, align 8
   %48 = and i32 %44, 768
-  %or.cond40 = icmp eq i32 %48, 256
-  br i1 %or.cond40, label %49, label %52
+  %or.cond41 = icmp eq i32 %48, 256
+  br i1 %or.cond41, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr %20, align 8, !tbaa !22
+  %50 = load i32, ptr %21, align 8, !tbaa !22
   %51 = add nsw i32 %50, -1
-  store i32 %51, ptr %20, align 8, !tbaa !22
+  store i32 %51, ptr %21, align 8, !tbaa !22
   br label %52
 
 52:                                               ; preds = %49, %46
-  %53 = load ptr, ptr %.043, align 8, !tbaa !32
+  %53 = load ptr, ptr %.044, align 8, !tbaa !32
   call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef %53) #5
   br label %54
 
 54:                                               ; preds = %.lr.ph, %52
-  %55 = getelementptr inbounds nuw i8, ptr %.043, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %.0 = load ptr, ptr %55, align 8, !tbaa !38
   %.not36 = icmp eq ptr %.0, null
   br i1 %.not36, label %.critedge, label %.lr.ph, !llvm.loop !39
 
-.critedge:                                        ; preds = %54, %41, %32, %29, %25, %38
+.critedge:                                        ; preds = %54, %41, %33, %30, %26, %38
   %56 = call ptr @prio_queue_get(ptr noundef nonnull %5) #5
   %.not33 = icmp eq ptr %56, null
-  br i1 %.not33, label %._crit_edge, label %21
+  br i1 %.not33, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %.critedge, %18
   call void @clear_prio_queue(ptr noundef nonnull %5) #5

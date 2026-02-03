@@ -13789,7 +13789,7 @@ default.unreachable:                              ; preds = %.noexc
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN12tracing_core10dispatcher8Dispatch4exit17h4e9fe31d76afa51cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %30)
-          to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h5f5b49045ed7041eE.exit" unwind label %38
+          to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h5f5b49045ed7041eE.exit" unwind label %37
 
 31:                                               ; preds = %25, %"_ZN80_$LT$hyper..proto..h2..SendBuf$LT$B$GT$$u20$as$u20$bytes..buf..buf_impl..Buf$GT$9remaining17he3c572fa0300344bE.exit.i", %.noexc
   br i1 %.not, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h5f5b49045ed7041eE.exit6", label %32
@@ -13800,14 +13800,13 @@ default.unreachable:                              ; preds = %.noexc
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h5f5b49045ed7041eE.exit6"
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h5f5b49045ed7041eE.exit6": ; preds = %31, %32
-  %34 = and i8 %12, 1
-  %35 = icmp ne i8 %34, 0
-  %36 = insertvalue { i1, i64 } poison, i1 %35, 0
-  %37 = insertvalue { i1, i64 } %36, i64 %14, 1
-  ret { i1, i64 } %37
+  %34 = trunc i8 %12 to i1
+  %35 = insertvalue { i1, i64 } poison, i1 %34, 0
+  %36 = insertvalue { i1, i64 } %35, i64 %14, 1
+  ret { i1, i64 } %36
 
-38:                                               ; preds = %29
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %29
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
   unreachable

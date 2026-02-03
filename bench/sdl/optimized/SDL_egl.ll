@@ -172,100 +172,99 @@ define hidden noundef zeroext i1 @SDL_EGL_HasExtension(ptr noundef readonly capt
 9:                                                ; preds = %7
   %10 = tail call ptr @SDL_GetHint_REAL(ptr noundef nonnull %2) #7
   %.not47 = icmp eq ptr %10, null
-  br i1 %.not47, label %20, label %11
+  br i1 %.not47, label %19, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @SDL_atoi_REAL(ptr noundef nonnull %10) #7
-  %13 = and i32 %12, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = icmp eq i32 %1, 0
-  %or.cond = and i1 %15, %14
-  br i1 %or.cond, label %.critedge54, label %16
+  %13 = trunc i32 %12 to i1
+  %14 = icmp eq i32 %1, 0
+  %or.cond = and i1 %14, %13
+  br i1 %or.cond, label %.critedge54, label %15
 
-16:                                               ; preds = %11
-  %17 = and i32 %12, 2
-  %18 = icmp eq i32 %17, 0
-  %19 = icmp ne i32 %1, 1
-  %or.cond3.not = or i1 %19, %18
-  br i1 %or.cond3.not, label %20, label %.critedge54
+15:                                               ; preds = %11
+  %16 = and i32 %12, 2
+  %17 = icmp eq i32 %16, 0
+  %18 = icmp ne i32 %1, 1
+  %or.cond3.not = or i1 %18, %17
+  br i1 %or.cond3.not, label %19, label %.critedge54
 
-20:                                               ; preds = %16, %9
-  %21 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %2) #7
+19:                                               ; preds = %15, %9
+  %20 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %2) #7
   switch i32 %1, label %.critedge54 [
-    i32 0, label %22
-    i32 1, label %30
+    i32 0, label %21
+    i32 1, label %29
   ]
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr %26(ptr noundef %28, i32 noundef 12373) #7
-  br label %36
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr %25(ptr noundef %27, i32 noundef 12373) #7
+  br label %35
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 168
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr %34(ptr noundef null, i32 noundef 12373) #7
-  br label %36
+29:                                               ; preds = %19
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call ptr %33(ptr noundef null, i32 noundef 12373) #7
+  br label %35
 
-36:                                               ; preds = %30, %22
-  %.040 = phi ptr [ %29, %22 ], [ %35, %30 ]
+35:                                               ; preds = %29, %21
+  %.040 = phi ptr [ %28, %21 ], [ %34, %29 ]
   %.not48 = icmp eq ptr %.040, null
   br i1 %.not48, label %.critedge54, label %.preheader
 
-.preheader:                                       ; preds = %36
-  %37 = load i8, ptr %.040, align 1
-  %.not4957 = icmp eq i8 %37, 0
+.preheader:                                       ; preds = %35
+  %36 = load i8, ptr %.040, align 1
+  %.not4957 = icmp eq i8 %36, 0
   br i1 %.not4957, label %.critedge54, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50, %.preheader
-  %.03858 = phi ptr [ %.040, %.preheader ], [ %.139, %50 ]
-  %38 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %.03858, ptr noundef nonnull %2) #7
-  %.not50 = icmp ne ptr %38, null
-  br i1 %.not50, label %39, label %.critedge54
+.lr.ph:                                           ; preds = %49, %.preheader
+  %.03858 = phi ptr [ %.040, %.preheader ], [ %.139, %49 ]
+  %37 = tail call ptr @SDL_strstr_REAL(ptr noundef nonnull %.03858, ptr noundef nonnull %2) #7
+  %.not50 = icmp ne ptr %37, null
+  br i1 %.not50, label %38, label %.critedge54
 
-39:                                               ; preds = %.lr.ph
-  %40 = icmp eq ptr %38, %.040
-  br i1 %40, label %45, label %41
+38:                                               ; preds = %.lr.ph
+  %39 = icmp eq ptr %37, %.040
+  br i1 %39, label %44, label %40
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %38, i64 -1
-  %43 = load i8, ptr %42, align 1
-  %44 = icmp eq i8 %43, 32
-  br i1 %44, label %45, label %48
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %37, i64 -1
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 32
+  br i1 %43, label %44, label %47
 
-45:                                               ; preds = %41, %39
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %21
-  %47 = load i8, ptr %46, align 1
-  switch i8 %47, label %48 [
+44:                                               ; preds = %40, %38
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %20
+  %46 = load i8, ptr %45, align 1
+  switch i8 %46, label %47 [
     i8 32, label %.critedge54
     i8 0, label %.critedge54
   ]
 
-48:                                               ; preds = %45, %41
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 %21
-  br label %50
+47:                                               ; preds = %44, %40
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 %20
+  br label %49
 
-50:                                               ; preds = %52, %48
-  %.139 = phi ptr [ %49, %48 ], [ %53, %52 ]
-  %51 = load i8, ptr %.139, align 1
-  switch i8 %51, label %52 [
+49:                                               ; preds = %51, %47
+  %.139 = phi ptr [ %48, %47 ], [ %52, %51 ]
+  %50 = load i8, ptr %.139, align 1
+  switch i8 %50, label %51 [
     i8 0, label %.critedge54
     i8 32, label %.lr.ph
   ]
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %.139, i64 1
-  br label %50, !llvm.loop !3
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %.139, i64 1
+  br label %49, !llvm.loop !3
 
-.critedge54:                                      ; preds = %.lr.ph, %45, %45, %50, %.preheader, %11, %36, %20, %3, %4, %7, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %36 ], [ false, %3 ], [ false, %20 ], [ false, %11 ], [ false, %7 ], [ false, %4 ], [ false, %.preheader ], [ false, %50 ], [ %.not50, %45 ], [ %.not50, %45 ], [ %.not50, %.lr.ph ]
+.critedge54:                                      ; preds = %.lr.ph, %44, %44, %49, %.preheader, %11, %35, %19, %3, %4, %7, %15
+  %.0 = phi i1 [ false, %15 ], [ false, %35 ], [ false, %3 ], [ false, %19 ], [ false, %11 ], [ false, %7 ], [ false, %4 ], [ false, %.preheader ], [ false, %49 ], [ %.not50, %44 ], [ %.not50, %44 ], [ %.not50, %.lr.ph ]
   ret i1 %.0
 }
 

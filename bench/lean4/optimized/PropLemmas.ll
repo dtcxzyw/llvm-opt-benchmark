@@ -12,9 +12,8 @@ define ptr @l_Or_by__cases___rarg(i8 noundef zeroext %0, ptr noundef readnone ca
 
 7:                                                ; preds = %5
   %8 = ptrtoint ptr %3 to i64
-  %9 = and i64 %8, 1
-  %.not10 = icmp eq i64 %9, 0
-  br i1 %.not10, label %10, label %lean_dec.exit
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %lean_dec.exit, label %10
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %3, align 4, !tbaa !4
@@ -36,9 +35,8 @@ define ptr @l_Or_by__cases___rarg(i8 noundef zeroext %0, ptr noundef readnone ca
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %4 to i64
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %lean_dec.exit
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_dec.exit, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %4, align 4, !tbaa !4
@@ -93,9 +91,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Or_by__cases___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 4, !tbaa !4
@@ -122,9 +119,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %5
 
 17:                                               ; preds = %lean_dec.exit
   %18 = ptrtoint ptr %3 to i64
-  %19 = and i64 %18, 1
-  %.not10.i = icmp eq i64 %19, 0
-  br i1 %.not10.i, label %20, label %l_Or_by__cases___rarg.exit
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %l_Or_by__cases___rarg.exit, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %3, align 4, !tbaa !4
@@ -146,9 +142,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %5
 
 27:                                               ; preds = %lean_dec.exit
   %28 = ptrtoint ptr %4 to i64
-  %29 = and i64 %28, 1
-  %.not.i7 = icmp eq i64 %29, 0
-  br i1 %.not.i7, label %30, label %l_Or_by__cases___rarg.exit
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %l_Or_by__cases___rarg.exit, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %4, align 4, !tbaa !4
@@ -181,9 +176,8 @@ define ptr @l_Or_by__cases_x27___rarg(i8 noundef zeroext %0, ptr noundef readnon
 
 7:                                                ; preds = %5
   %8 = ptrtoint ptr %4 to i64
-  %9 = and i64 %8, 1
-  %.not10 = icmp eq i64 %9, 0
-  br i1 %.not10, label %10, label %lean_dec.exit7
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %lean_dec.exit7, label %10
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %4, align 4, !tbaa !4
@@ -205,9 +199,8 @@ define ptr @l_Or_by__cases_x27___rarg(i8 noundef zeroext %0, ptr noundef readnon
 
 17:                                               ; preds = %5
   %18 = ptrtoint ptr %3 to i64
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %20, label %lean_dec.exit7
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_dec.exit7, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %3, align 4, !tbaa !4
@@ -260,9 +253,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Or_by__cases_x27___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 4, !tbaa !4
@@ -289,9 +281,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %5
 
 17:                                               ; preds = %lean_dec.exit
   %18 = ptrtoint ptr %4 to i64
-  %19 = and i64 %18, 1
-  %.not10.i = icmp eq i64 %19, 0
-  br i1 %.not10.i, label %20, label %l_Or_by__cases_x27___rarg.exit
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %l_Or_by__cases_x27___rarg.exit, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %4, align 4, !tbaa !4
@@ -313,9 +304,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %5
 
 27:                                               ; preds = %lean_dec.exit
   %28 = ptrtoint ptr %3 to i64
-  %29 = and i64 %28, 1
-  %.not.i7 = icmp eq i64 %29, 0
-  br i1 %.not.i7, label %30, label %l_Or_by__cases_x27___rarg.exit
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %l_Or_by__cases_x27___rarg.exit, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %3, align 4, !tbaa !4
@@ -348,9 +338,8 @@ define ptr @l_exists__prop__decidable___rarg(i8 noundef zeroext %0, ptr noundef 
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -406,9 +395,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_exists__prop__decidable___rarg___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -435,9 +423,8 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %2
 
 14:                                               ; preds = %lean_dec.exit
   %15 = ptrtoint ptr %1 to i64
-  %16 = and i64 %15, 1
-  %.not.i4 = icmp eq i64 %16, 0
-  br i1 %.not.i4, label %17, label %l_exists__prop__decidable___rarg.exit
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %l_exists__prop__decidable___rarg.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %1, align 4, !tbaa !4
@@ -473,9 +460,8 @@ define ptr @l_forall__prop__decidable___rarg(i8 noundef zeroext %0, ptr noundef 
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -531,9 +517,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_forall__prop__decidable___rarg___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -560,9 +545,8 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %2
 
 14:                                               ; preds = %lean_dec.exit
   %15 = ptrtoint ptr %1 to i64
-  %16 = and i64 %15, 1
-  %.not.i4 = icmp eq i64 %16, 0
-  br i1 %.not.i4, label %17, label %l_forall__prop__decidable___rarg.exit
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %l_forall__prop__decidable___rarg.exit, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %1, align 4, !tbaa !4
@@ -623,9 +607,8 @@ lean_alloc_closure.exit:                          ; preds = %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_decidable__of__iff___rarg___boxed(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -684,9 +667,8 @@ lean_alloc_closure.exit:                          ; preds = %3
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_decidable__of__iff_x27___rarg___boxed(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -806,9 +788,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_decidable__of__bool___rarg___boxed(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4

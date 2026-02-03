@@ -17047,9 +17047,8 @@ _ZN5clang4Decl8getAttrsEv.exit:                   ; preds = %12, %._crit_edge.i.
   %41 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clang10ASTContext12getDeclAttrsEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(23216) %40, ptr noundef nonnull align 8 dereferenceable(33) %0) #31
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %43 = load i8, ptr %42, align 2
-  %44 = and i8 %43, 1
-  %.not15 = icmp eq i8 %44, 0
-  br i1 %.not15, label %45, label %61
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %61, label %45
 
 45:                                               ; preds = %_ZN5clang4Decl8getAttrsEv.exit
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -17086,20 +17085,19 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4AttrELb1EE9push_backES3_.exit: ; pred
   %65 = zext i32 %64 to i64
   %.idx = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
-  %.not18 = icmp eq i32 %64, 0
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not16 = icmp eq i32 %64, 0
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61, %71
-  %.019 = phi ptr [ %72, %71 ], [ %62, %61 ]
-  %67 = load ptr, ptr %.019, align 8, !tbaa !673
+  %.017 = phi ptr [ %72, %71 ], [ %62, %61 ]
+  %67 = load ptr, ptr %.017, align 8, !tbaa !673
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 34
   %69 = load i8, ptr %68, align 2
-  %70 = and i8 %69, 1
-  %.not16 = icmp eq i8 %70, 0
-  br i1 %.not16, label %83, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %83
 
 71:                                               ; preds = %.lr.ph
-  %72 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not = icmp eq ptr %72, %66
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !746
 
@@ -17130,7 +17128,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4AttrELb1EE9push_backES3_.exit.i.i: ; 
   br label %_ZN4llvm15SmallVectorImplIPN5clang4AttrEE6insertEPS3_RKS3_.exit
 
 83:                                               ; preds = %.lr.ph
-  %84 = ptrtoint ptr %.019 to i64
+  %84 = ptrtoint ptr %.017 to i64
   %85 = ptrtoint ptr %62 to i64
   %86 = sub i64 %84, %85
   %87 = getelementptr inbounds nuw i8, ptr %41, i64 12

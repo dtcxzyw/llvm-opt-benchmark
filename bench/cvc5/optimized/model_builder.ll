@@ -460,8 +460,8 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %70, %74, %80
           to label %.preheader unwind label %100
 
 .preheader:                                       ; preds = %92
-  %.not101 = icmp eq i64 %95, 0
-  br i1 %.not101, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %95, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -828,10 +828,9 @@ _ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTy
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %259 ], [ %274, %273 ], [ %288, %282 ]
   %293 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %294 = load i64, ptr %293, align 8, !tbaa !425
-  %295 = shl nuw i64 1, %253
-  %296 = and i64 %294, %295
-  %.not = icmp eq i64 %296, 0
-  br i1 %.not, label %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread, label %297
+  %295 = lshr i64 %294, %253
+  %296 = trunc i64 %295 to i1
+  br i1 %296, label %297, label %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread
 
 297:                                              ; preds = %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit
   %298 = load ptr, ptr %26, align 8, !tbaa !289

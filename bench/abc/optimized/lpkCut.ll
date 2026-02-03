@@ -212,7 +212,7 @@ declare void @Hop_ObjCleanData_rec(ptr noundef) local_unnamed_addr #1
 define ptr @Lpk_CutTruth_rec(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %94
+  br i1 %.not, label %7, label %93
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %4, align 4, !tbaa !45
@@ -260,125 +260,124 @@ select.unfold.preheader.i:                        ; preds = %16
   %34 = ptrtoint ptr %.val30 to i64
   %.val31 = load ptr, ptr %29, align 8, !tbaa !15
   %35 = ptrtoint ptr %.val31 to i64
-  %36 = and i64 %35, 1
-  %37 = icmp ne i64 %36, 0
-  %38 = and i64 %34, 1
-  %39 = and i64 %38, %35
-  %or.cond.i.not = icmp eq i64 %39, 0
-  br i1 %or.cond.i.not, label %54, label %40
+  %36 = trunc i64 %35 to i1
+  %37 = and i64 %34, 1
+  %38 = and i64 %37, %35
+  %or.cond.i.not = icmp eq i64 %38, 0
+  br i1 %or.cond.i.not, label %53, label %39
 
-40:                                               ; preds = %23
-  %41 = icmp slt i32 %2, 6
-  %42 = add nsw i32 %2, -5
-  %43 = shl nuw i32 1, %42
-  %spec.select.i33 = select i1 %41, i32 1, i32 %43
-  %44 = icmp sgt i32 %spec.select.i33, 0
-  br i1 %44, label %select.unfold.preheader.i34, label %Kit_TruthFill.exit
+39:                                               ; preds = %23
+  %40 = icmp slt i32 %2, 6
+  %41 = add nsw i32 %2, -5
+  %42 = shl nuw i32 1, %41
+  %spec.select.i33 = select i1 %40, i32 1, i32 %42
+  %43 = icmp sgt i32 %spec.select.i33, 0
+  br i1 %43, label %select.unfold.preheader.i34, label %Kit_TruthFill.exit
 
-select.unfold.preheader.i34:                      ; preds = %40
-  %45 = zext nneg i32 %spec.select.i33 to i64
+select.unfold.preheader.i34:                      ; preds = %39
+  %44 = zext nneg i32 %spec.select.i33 to i64
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i34
-  %indvars.iv72.i = phi i64 [ %45, %select.unfold.preheader.i34 ], [ %indvars.iv.next73.i, %select.unfold.i ]
+  %indvars.iv72.i = phi i64 [ %44, %select.unfold.preheader.i34 ], [ %indvars.iv.next73.i, %select.unfold.i ]
   %indvars.iv.next73.i = add nsw i64 %indvars.iv72.i, -1
-  %46 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next73.i
-  %47 = load i32, ptr %46, align 4, !tbaa !45
-  %48 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next73.i
-  %49 = load i32, ptr %48, align 4, !tbaa !45
-  %50 = or i32 %49, %47
-  %51 = xor i32 %50, -1
-  %52 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next73.i
-  store i32 %51, ptr %52, align 4, !tbaa !45
-  %53 = icmp samesign ugt i64 %indvars.iv72.i, 1
-  br i1 %53, label %select.unfold.i, label %Kit_TruthFill.exit, !llvm.loop !63
+  %45 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next73.i
+  %46 = load i32, ptr %45, align 4, !tbaa !45
+  %47 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next73.i
+  %48 = load i32, ptr %47, align 4, !tbaa !45
+  %49 = or i32 %48, %46
+  %50 = xor i32 %49, -1
+  %51 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next73.i
+  store i32 %50, ptr %51, align 4, !tbaa !45
+  %52 = icmp samesign ugt i64 %indvars.iv72.i, 1
+  br i1 %52, label %select.unfold.i, label %Kit_TruthFill.exit, !llvm.loop !63
 
-54:                                               ; preds = %23
-  %55 = icmp eq i64 %38, 0
-  %or.cond3.i = or i1 %55, %37
-  br i1 %or.cond3.i, label %70, label %56
+53:                                               ; preds = %23
+  %54 = icmp eq i64 %37, 0
+  %or.cond3.i = or i1 %54, %36
+  br i1 %or.cond3.i, label %69, label %55
 
-56:                                               ; preds = %54
-  %57 = icmp slt i32 %2, 6
-  %58 = add nsw i32 %2, -5
-  %59 = shl nuw i32 1, %58
-  %spec.select49.i = select i1 %57, i32 1, i32 %59
-  %60 = icmp sgt i32 %spec.select49.i, 0
-  br i1 %60, label %select.unfold46.preheader.i, label %Kit_TruthFill.exit
+55:                                               ; preds = %53
+  %56 = icmp slt i32 %2, 6
+  %57 = add nsw i32 %2, -5
+  %58 = shl nuw i32 1, %57
+  %spec.select49.i = select i1 %56, i32 1, i32 %58
+  %59 = icmp sgt i32 %spec.select49.i, 0
+  br i1 %59, label %select.unfold46.preheader.i, label %Kit_TruthFill.exit
 
-select.unfold46.preheader.i:                      ; preds = %56
-  %61 = zext nneg i32 %spec.select49.i to i64
+select.unfold46.preheader.i:                      ; preds = %55
+  %60 = zext nneg i32 %spec.select49.i to i64
   br label %select.unfold46.i
 
 select.unfold46.i:                                ; preds = %select.unfold46.i, %select.unfold46.preheader.i
-  %indvars.iv.i = phi i64 [ %61, %select.unfold46.preheader.i ], [ %indvars.iv.next.i, %select.unfold46.i ]
+  %indvars.iv.i = phi i64 [ %60, %select.unfold46.preheader.i ], [ %indvars.iv.next.i, %select.unfold46.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %62 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next.i
-  %63 = load i32, ptr %62, align 4, !tbaa !45
-  %64 = xor i32 %63, -1
-  %65 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next.i
-  %66 = load i32, ptr %65, align 4, !tbaa !45
-  %67 = and i32 %66, %64
-  %68 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next.i
-  store i32 %67, ptr %68, align 4, !tbaa !45
-  %69 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %69, label %select.unfold46.i, label %Kit_TruthFill.exit, !llvm.loop !64
+  %61 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next.i
+  %62 = load i32, ptr %61, align 4, !tbaa !45
+  %63 = xor i32 %62, -1
+  %64 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next.i
+  %65 = load i32, ptr %64, align 4, !tbaa !45
+  %66 = and i32 %65, %63
+  %67 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next.i
+  store i32 %66, ptr %67, align 4, !tbaa !45
+  %68 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %68, label %select.unfold46.i, label %Kit_TruthFill.exit, !llvm.loop !64
 
-70:                                               ; preds = %54
-  %or.cond5.i = and i1 %55, %37
-  %71 = icmp slt i32 %2, 6
-  %72 = add nsw i32 %2, -5
-  %73 = shl nuw i32 1, %72
-  %spec.select50.i = select i1 %71, i32 1, i32 %73
-  %74 = icmp sgt i32 %spec.select50.i, 0
-  br i1 %or.cond5.i, label %75, label %85
+69:                                               ; preds = %53
+  %or.cond5.i = and i1 %54, %36
+  %70 = icmp slt i32 %2, 6
+  %71 = add nsw i32 %2, -5
+  %72 = shl nuw i32 1, %71
+  %spec.select50.i = select i1 %70, i32 1, i32 %72
+  %73 = icmp sgt i32 %spec.select50.i, 0
+  br i1 %or.cond5.i, label %74, label %84
 
-75:                                               ; preds = %70
-  br i1 %74, label %select.unfold47.preheader.i, label %Kit_TruthFill.exit
+74:                                               ; preds = %69
+  br i1 %73, label %select.unfold47.preheader.i, label %Kit_TruthFill.exit
 
-select.unfold47.preheader.i:                      ; preds = %75
-  %76 = zext nneg i32 %spec.select50.i to i64
+select.unfold47.preheader.i:                      ; preds = %74
+  %75 = zext nneg i32 %spec.select50.i to i64
   br label %select.unfold47.i
 
 select.unfold47.i:                                ; preds = %select.unfold47.i, %select.unfold47.preheader.i
-  %indvars.iv69.i = phi i64 [ %76, %select.unfold47.preheader.i ], [ %indvars.iv.next70.i, %select.unfold47.i ]
+  %indvars.iv69.i = phi i64 [ %75, %select.unfold47.preheader.i ], [ %indvars.iv.next70.i, %select.unfold47.i ]
   %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, -1
-  %77 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next70.i
-  %78 = load i32, ptr %77, align 4, !tbaa !45
-  %79 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next70.i
-  %80 = load i32, ptr %79, align 4, !tbaa !45
-  %81 = xor i32 %80, -1
-  %82 = and i32 %78, %81
-  %83 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next70.i
-  store i32 %82, ptr %83, align 4, !tbaa !45
-  %84 = icmp samesign ugt i64 %indvars.iv69.i, 1
-  br i1 %84, label %select.unfold47.i, label %Kit_TruthFill.exit, !llvm.loop !65
+  %76 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next70.i
+  %77 = load i32, ptr %76, align 4, !tbaa !45
+  %78 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next70.i
+  %79 = load i32, ptr %78, align 4, !tbaa !45
+  %80 = xor i32 %79, -1
+  %81 = and i32 %77, %80
+  %82 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next70.i
+  store i32 %81, ptr %82, align 4, !tbaa !45
+  %83 = icmp samesign ugt i64 %indvars.iv69.i, 1
+  br i1 %83, label %select.unfold47.i, label %Kit_TruthFill.exit, !llvm.loop !65
 
-85:                                               ; preds = %70
-  br i1 %74, label %select.unfold48.preheader.i, label %Kit_TruthFill.exit
+84:                                               ; preds = %69
+  br i1 %73, label %select.unfold48.preheader.i, label %Kit_TruthFill.exit
 
-select.unfold48.preheader.i:                      ; preds = %85
-  %86 = zext nneg i32 %spec.select50.i to i64
+select.unfold48.preheader.i:                      ; preds = %84
+  %85 = zext nneg i32 %spec.select50.i to i64
   br label %select.unfold48.i
 
 select.unfold48.i:                                ; preds = %select.unfold48.i, %select.unfold48.preheader.i
-  %indvars.iv66.i = phi i64 [ %86, %select.unfold48.preheader.i ], [ %indvars.iv.next67.i, %select.unfold48.i ]
+  %indvars.iv66.i = phi i64 [ %85, %select.unfold48.preheader.i ], [ %indvars.iv.next67.i, %select.unfold48.i ]
   %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
-  %87 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next67.i
-  %88 = load i32, ptr %87, align 4, !tbaa !45
-  %89 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next67.i
-  %90 = load i32, ptr %89, align 4, !tbaa !45
-  %91 = and i32 %90, %88
-  %92 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next67.i
-  store i32 %91, ptr %92, align 4, !tbaa !45
-  %93 = icmp samesign ugt i64 %indvars.iv66.i, 1
-  br i1 %93, label %select.unfold48.i, label %Kit_TruthFill.exit, !llvm.loop !66
+  %86 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.next67.i
+  %87 = load i32, ptr %86, align 4, !tbaa !45
+  %88 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.next67.i
+  %89 = load i32, ptr %88, align 4, !tbaa !45
+  %90 = and i32 %89, %87
+  %91 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next67.i
+  store i32 %90, ptr %91, align 4, !tbaa !45
+  %92 = icmp samesign ugt i64 %indvars.iv66.i, 1
+  br i1 %92, label %select.unfold48.i, label %Kit_TruthFill.exit, !llvm.loop !66
 
-Kit_TruthFill.exit:                               ; preds = %select.unfold.i, %select.unfold46.i, %select.unfold48.i, %select.unfold47.i, %85, %75, %56, %40, %select.unfold.preheader.i, %16
+Kit_TruthFill.exit:                               ; preds = %select.unfold.i, %select.unfold46.i, %select.unfold48.i, %select.unfold47.i, %84, %74, %55, %39, %select.unfold.preheader.i, %16
   store ptr %13, ptr %1, align 8, !tbaa !3
-  br label %94
+  br label %93
 
-94:                                               ; preds = %5, %Kit_TruthFill.exit
+93:                                               ; preds = %5, %Kit_TruthFill.exit
   %.0 = phi ptr [ %13, %Kit_TruthFill.exit ], [ %6, %5 ]
   ret ptr %.0
 }

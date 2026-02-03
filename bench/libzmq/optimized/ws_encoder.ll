@@ -265,85 +265,85 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
   %98 = phi i8 [ %.pre, %78 ], [ %27, %75 ]
   %.2 = phi i32 [ %96, %78 ], [ %.1, %75 ]
   %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %114
+  br i1 %99, label %100, label %113
 
 100:                                              ; preds = %97
   %101 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %.pre44)
-  %102 = and i8 %101, 1
-  %103 = load ptr, ptr %3, align 8, !tbaa !16
-  %104 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %103)
-  %105 = and i8 %104, 2
-  %.138 = or disjoint i8 %105, %102
-  %106 = load i8, ptr %20, align 8, !tbaa !20, !range !27, !noundef !28
-  %107 = trunc nuw i8 %106 to i1
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %109 = load i8, ptr %108, align 1
-  %.140 = zext nneg i8 %106 to i64
-  %110 = select i1 %107, i8 %109, i8 0
-  %.in = xor i8 %110, %.138
-  %111 = add nuw nsw i32 %.2, 1
-  %112 = zext nneg i32 %.2 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %23, i64 %112
-  store i8 %.in, ptr %113, align 1, !tbaa !26
+  %spec.select42 = and i8 %101, 1
+  %102 = load ptr, ptr %3, align 8, !tbaa !16
+  %103 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %102)
+  %104 = and i8 %103, 2
+  %.138 = or disjoint i8 %104, %spec.select42
+  %105 = load i8, ptr %20, align 8, !tbaa !20, !range !27, !noundef !28
+  %106 = trunc nuw i8 %105 to i1
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  %108 = load i8, ptr %107, align 1
+  %.140 = zext nneg i8 %105 to i64
+  %109 = select i1 %106, i8 %108, i8 0
+  %.in = xor i8 %109, %.138
+  %110 = add nuw nsw i32 %.2, 1
+  %111 = zext nneg i32 %.2 to i64
+  %112 = getelementptr inbounds nuw i8, ptr %23, i64 %111
+  store i8 %.in, ptr %112, align 1, !tbaa !26
   %.pre43 = load ptr, ptr %3, align 8, !tbaa !16
-  br label %114
+  br label %113
 
-114:                                              ; preds = %100, %97
-  %115 = phi ptr [ %.pre43, %100 ], [ %.pre44, %97 ]
+113:                                              ; preds = %100, %97
+  %114 = phi ptr [ %.pre43, %100 ], [ %.pre44, %97 ]
   %.039 = phi i64 [ %.140, %100 ], [ 0, %97 ]
-  %.3 = phi i32 [ %111, %100 ], [ %.2, %97 ]
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 43
-  %117 = load i8, ptr %116, align 1, !tbaa !26
-  %118 = and i8 %117, 28
-  switch i8 %118, label %137 [
-    i8 12, label %119
-    i8 16, label %127
+  %.3 = phi i32 [ %110, %100 ], [ %.2, %97 ]
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 43
+  %116 = load i8, ptr %115, align 1, !tbaa !26
+  %117 = and i8 %116, 28
+  switch i8 %117, label %136 [
+    i8 12, label %118
+    i8 16, label %126
   ]
 
-119:                                              ; preds = %114
-  %120 = load i8, ptr %20, align 8, !tbaa !20, !range !27, !noundef !28
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %.sink.split
+118:                                              ; preds = %113
+  %119 = load i8, ptr %20, align 8, !tbaa !20, !range !27, !noundef !28
+  %120 = trunc nuw i8 %119 to i1
+  br i1 %120, label %121, label %.sink.split
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.039
-  %125 = load i8, ptr %124, align 1, !tbaa !26
-  %126 = xor i8 %125, 1
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.039
+  %124 = load i8, ptr %123, align 1, !tbaa !26
+  %125 = xor i8 %124, 1
   br label %.sink.split
 
-127:                                              ; preds = %114
-  %128 = load i8, ptr %20, align 8, !tbaa !20, !range !27, !noundef !28
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %130, label %.sink.split
+126:                                              ; preds = %113
+  %127 = load i8, ptr %20, align 8, !tbaa !20, !range !27, !noundef !28
+  %128 = trunc nuw i8 %127 to i1
+  br i1 %128, label %129, label %.sink.split
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %.039
-  %133 = load i8, ptr %132, align 1, !tbaa !26
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %.039
+  %132 = load i8, ptr %131, align 1, !tbaa !26
   br label %.sink.split
 
-.sink.split:                                      ; preds = %130, %127, %122, %119
-  %.sink = phi i8 [ 1, %119 ], [ %126, %122 ], [ %133, %130 ], [ 0, %127 ]
-  %134 = add nuw nsw i32 %.3, 1
-  %135 = zext nneg i32 %.3 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %23, i64 %135
-  store i8 %.sink, ptr %136, align 1, !tbaa !26
-  br label %137
+.sink.split:                                      ; preds = %129, %126, %121, %118
+  %.sink = phi i8 [ 1, %118 ], [ %125, %121 ], [ %132, %129 ], [ 0, %126 ]
+  %133 = add nuw nsw i32 %.3, 1
+  %134 = zext nneg i32 %.3 to i64
+  %135 = getelementptr inbounds nuw i8, ptr %23, i64 %134
+  store i8 %.sink, ptr %135, align 1, !tbaa !26
+  br label %136
 
-137:                                              ; preds = %.sink.split, %114
-  %.4 = phi i32 [ %.3, %114 ], [ %134, %.sink.split ]
-  %138 = zext nneg i32 %.4 to i64
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %139, align 8, !tbaa !29
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %138, ptr %140, align 8, !tbaa !30
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 ptrtoint (ptr @_ZN3zmq12ws_encoder_t10size_readyEv to i64), ptr %141, align 8, !tbaa !23
+136:                                              ; preds = %.sink.split, %113
+  %.4 = phi i32 [ %.3, %113 ], [ %133, %.sink.split ]
+  %137 = zext nneg i32 %.4 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %138, align 8, !tbaa !29
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %137, ptr %139, align 8, !tbaa !30
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 ptrtoint (ptr @_ZN3zmq12ws_encoder_t10size_readyEv to i64), ptr %140, align 8, !tbaa !23
   %.repack9.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.repack9.i, align 8, !tbaa !23
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %142, align 8, !tbaa !24
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 0, ptr %141, align 8, !tbaa !24
   ret void
 }
 

@@ -3140,7 +3140,7 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
   br label %135
 
 135:                                              ; preds = %104, %96
-  %136 = icmp ne i32 %102, 0
+  %136 = trunc i64 %indvars.iv181 to i1
   %137 = getelementptr inbounds i32, ptr %26, i64 %98
   %138 = load float, ptr %43, align 8, !tbaa !96
   %139 = load float, ptr %44, align 4, !tbaa !96

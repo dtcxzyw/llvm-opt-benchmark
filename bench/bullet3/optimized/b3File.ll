@@ -1049,9 +1049,8 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 define dso_local noundef zeroext i1 @_ZN6bParse5bFile2okEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load i32, ptr %2, align 8, !tbaa !56
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable

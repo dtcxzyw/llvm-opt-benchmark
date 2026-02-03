@@ -17,9 +17,8 @@ define ptr @l_Lean_RBNode_findCore___at_Lean_Expr_fvarsSubset___spec__1(ptr noun
 3:                                                ; preds = %.backedge, %2
   %.021 = phi ptr [ %0, %2 ], [ %.021.be, %.backedge ]
   %4 = ptrtoint ptr %.021 to i64
-  %5 = and i64 %4, 1
-  %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 1
@@ -58,9 +57,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 23:                                               ; preds = %13
   %24 = ptrtoint ptr %19 to i64
-  %25 = and i64 %24, 1
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %26, label %lean_inc.exit
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %lean_inc.exit, label %26
 
 26:                                               ; preds = %23
   %.val.i25 = load i32, ptr %19, align 4, !tbaa !8
@@ -73,8 +71,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   br label %lean_inc.exit
 
 30:                                               ; preds = %26
-  %.not.i26 = icmp eq i32 %.val.i25, 0
-  br i1 %.not.i26, label %lean_inc.exit, label %31
+  %.not.i = icmp eq i32 %.val.i25, 0
+  br i1 %.not.i, label %lean_inc.exit, label %31
 
 31:                                               ; preds = %30
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %19) #3
@@ -82,23 +80,22 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 lean_inc.exit:                                    ; preds = %31, %30, %28, %23
   %32 = ptrtoint ptr %17 to i64
-  %33 = and i64 %32, 1
-  %.not34 = icmp eq i64 %33, 0
-  br i1 %.not34, label %34, label %lean_inc.exit24
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %lean_inc.exit24, label %34
 
 34:                                               ; preds = %lean_inc.exit
-  %.val.i27 = load i32, ptr %17, align 4, !tbaa !8
-  %35 = icmp sgt i32 %.val.i27, 0
+  %.val.i26 = load i32, ptr %17, align 4, !tbaa !8
+  %35 = icmp sgt i32 %.val.i26, 0
   br i1 %35, label %36, label %38, !prof !11
 
 36:                                               ; preds = %34
-  %37 = add nuw i32 %.val.i27, 1
+  %37 = add nuw i32 %.val.i26, 1
   store i32 %37, ptr %17, align 4, !tbaa !8
   br label %lean_inc.exit24
 
 38:                                               ; preds = %34
-  %.not.i28 = icmp eq i32 %.val.i27, 0
-  br i1 %.not.i28, label %lean_inc.exit24, label %39
+  %.not.i27 = icmp eq i32 %.val.i26, 0
+  br i1 %.not.i27, label %lean_inc.exit24, label %39
 
 39:                                               ; preds = %38
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %17) #3
@@ -166,9 +163,8 @@ define zeroext range(i8 0, 3) i8 @l_Lean_Expr_fvarsSubset___lambda__1(ptr nounde
   %11 = tail call ptr @l_Lean_Expr_fvarId_x21(ptr noundef %1) #3
   %12 = tail call ptr @l_Lean_RBNode_findCore___at_Lean_Expr_fvarsSubset___spec__1(ptr noundef %10, ptr noundef %11)
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %8
   %16 = load i32, ptr %11, align 4, !tbaa !8
@@ -190,9 +186,8 @@ define zeroext range(i8 0, 3) i8 @l_Lean_Expr_fvarsSubset___lambda__1(ptr nounde
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %8
   %22 = ptrtoint ptr %12 to i64
-  %23 = and i64 %22, 1
-  %.not.i18 = icmp eq i64 %23, 0
-  br i1 %.not.i18, label %lean_obj_tag.exit.thread, label %lean_obj_tag.exit
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %lean_obj_tag.exit, label %lean_obj_tag.exit.thread
 
 lean_obj_tag.exit:                                ; preds = %lean_dec.exit
   %24 = and i64 %22, 8589934590
@@ -243,9 +238,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Expr_fvarsSubset(ptr noundef %0, ptr no
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not31 = icmp eq i64 %7, 0
-  br i1 %.not31, label %8, label %lean_dec.exit21
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit21, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %1, align 4, !tbaa !8
@@ -272,9 +266,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Expr_fvarsSubset(ptr noundef %0, ptr no
 
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %1 to i64
-  %20 = and i64 %19, 1
-  %.not30 = icmp eq i64 %20, 0
-  br i1 %.not30, label %21, label %lean_dec.exit21
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %lean_dec.exit21, label %21
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %1, align 4, !tbaa !8
@@ -338,9 +331,8 @@ lean_alloc_closure.exit:                          ; preds = %28
 
 lean_dec.exit19:                                  ; preds = %45, %44, %42
   %46 = ptrtoint ptr %39 to i64
-  %47 = and i64 %46, 1
-  %.not.i28 = icmp eq i64 %47, 0
-  br i1 %.not.i28, label %lean_obj_tag.exit.thread, label %lean_obj_tag.exit
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %lean_obj_tag.exit, label %lean_obj_tag.exit.thread
 
 lean_obj_tag.exit:                                ; preds = %lean_dec.exit19
   %48 = and i64 %46, 8589934590
@@ -383,9 +375,8 @@ declare ptr @l_Lean_CollectFVars_main(ptr noundef, ptr noundef) local_unnamed_ad
 define nonnull ptr @l_Lean_Expr_fvarsSubset___lambda__1___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i8 @l_Lean_Expr_fvarsSubset___lambda__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8
@@ -407,9 +398,8 @@ define nonnull ptr @l_Lean_Expr_fvarsSubset___lambda__1___boxed(ptr noundef %0, 
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !8
@@ -443,9 +433,8 @@ declare ptr @lean_find_ext_expr(ptr noundef, ptr noundef) local_unnamed_addr #1
 define ptr @l_Lean_RBNode_findCore___at_Lean_Expr_fvarsSubset___spec__1___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @l_Lean_RBNode_findCore___at_Lean_Expr_fvarsSubset___spec__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8
@@ -467,9 +456,8 @@ define ptr @l_Lean_RBNode_findCore___at_Lean_Expr_fvarsSubset___spec__1___boxed(
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !8
@@ -497,9 +485,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 define nonnull ptr @l_Lean_Expr_fvarsSubset___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @l_Lean_Expr_fvarsSubset(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 4, !tbaa !8

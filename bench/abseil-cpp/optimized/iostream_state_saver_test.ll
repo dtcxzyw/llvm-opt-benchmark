@@ -4336,12 +4336,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i34.i: ; preds = %_
   %173 = getelementptr inbounds i8, ptr %2, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = load i32, ptr %174, align 8, !tbaa !7
-  %176 = and i32 %175, 1
-  %.not68.i = icmp eq i32 %176, 0
-  %177 = select i1 %.not68.i, ptr @.str.34, ptr @.str.45
+  %176 = trunc i32 %175 to i1
+  %177 = select i1 %176, ptr @.str.45, ptr @.str.34
   %178 = load ptr, ptr %6, align 8, !tbaa !58
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %180 = select i1 %.not68.i, i64 0, i64 4
+  %180 = select i1 %176, i64 4, i64 0
   %181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %179, ptr noundef nonnull %177, i64 noundef %180)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i38.i unwind label %228
 
@@ -4353,11 +4352,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i38.i: ; preds = %_
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %187 = load i32, ptr %186, align 8, !tbaa !7
   %188 = and i32 %187, 2
-  %.not69.i = icmp eq i32 %188, 0
-  %189 = select i1 %.not69.i, ptr @.str.34, ptr @.str.46
+  %.not68.i = icmp eq i32 %188, 0
+  %189 = select i1 %.not68.i, ptr @.str.34, ptr @.str.46
   %190 = load ptr, ptr %6, align 8, !tbaa !58
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %192 = select i1 %.not69.i, i64 0, i64 4
+  %192 = select i1 %.not68.i, i64 0, i64 4
   %193 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %191, ptr noundef nonnull %189, i64 noundef %192)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i42.i unwind label %230
 
@@ -4369,11 +4368,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i42.i: ; preds = %_
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 32
   %199 = load i32, ptr %198, align 8, !tbaa !7
   %200 = and i32 %199, 5
-  %.not70.i = icmp eq i32 %200, 0
-  %201 = select i1 %.not70.i, ptr @.str.34, ptr @.str.47
+  %.not69.i = icmp eq i32 %200, 0
+  %201 = select i1 %.not69.i, ptr @.str.34, ptr @.str.47
   %202 = load ptr, ptr %6, align 8, !tbaa !58
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %204 = select i1 %.not70.i, i64 0, i64 5
+  %204 = select i1 %.not69.i, i64 0, i64 5
   %205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %203, ptr noundef nonnull %201, i64 noundef %204)
           to label %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit45.i unwind label %232
 
@@ -5373,12 +5372,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i34: ; preds = %_ZS
   %134 = getelementptr inbounds i8, ptr %2, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load i32, ptr %135, align 8, !tbaa !7
-  %137 = and i32 %136, 1
-  %.not68 = icmp eq i32 %137, 0
-  %138 = select i1 %.not68, ptr @.str.34, ptr @.str.45
+  %137 = trunc i32 %136 to i1
+  %138 = select i1 %137, ptr @.str.45, ptr @.str.34
   %139 = load ptr, ptr %6, align 8, !tbaa !58
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = select i1 %.not68, i64 0, i64 4
+  %141 = select i1 %137, i64 4, i64 0
   %142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull %138, i64 noundef %141)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i38 unwind label %190
 
@@ -5390,11 +5388,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i38: ; preds = %_ZS
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load i32, ptr %147, align 8, !tbaa !7
   %149 = and i32 %148, 2
-  %.not69 = icmp eq i32 %149, 0
-  %150 = select i1 %.not69, ptr @.str.34, ptr @.str.46
+  %.not68 = icmp eq i32 %149, 0
+  %150 = select i1 %.not68, ptr @.str.34, ptr @.str.46
   %151 = load ptr, ptr %6, align 8, !tbaa !58
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %153 = select i1 %.not69, i64 0, i64 4
+  %153 = select i1 %.not68, i64 0, i64 4
   %154 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull %150, i64 noundef %153)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i42 unwind label %192
 
@@ -5406,11 +5404,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i42: ; preds = %_ZS
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %160 = load i32, ptr %159, align 8, !tbaa !7
   %161 = and i32 %160, 5
-  %.not70 = icmp eq i32 %161, 0
-  %162 = select i1 %.not70, ptr @.str.34, ptr @.str.47
+  %.not69 = icmp eq i32 %161, 0
+  %162 = select i1 %.not69, ptr @.str.34, ptr @.str.47
   %163 = load ptr, ptr %6, align 8, !tbaa !58
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %165 = select i1 %.not70, i64 0, i64 5
+  %165 = select i1 %.not69, i64 0, i64 5
   %166 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef nonnull %162, i64 noundef %165)
           to label %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit45 unwind label %194
 
@@ -5927,12 +5925,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i39: ; preds = %_ZS
   %147 = getelementptr inbounds i8, ptr %3, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %149 = load i32, ptr %148, align 8, !tbaa !7
-  %150 = and i32 %149, 1
-  %.not73 = icmp eq i32 %150, 0
-  %151 = select i1 %.not73, ptr @.str.34, ptr @.str.45
+  %150 = trunc i32 %149 to i1
+  %151 = select i1 %150, ptr @.str.45, ptr @.str.34
   %152 = load ptr, ptr %6, align 8, !tbaa !58
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = select i1 %.not73, i64 0, i64 4
+  %154 = select i1 %150, i64 4, i64 0
   %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull %151, i64 noundef %154)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i43 unwind label %203
 
@@ -5944,11 +5941,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i43: ; preds = %_ZS
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load i32, ptr %160, align 8, !tbaa !7
   %162 = and i32 %161, 2
-  %.not74 = icmp eq i32 %162, 0
-  %163 = select i1 %.not74, ptr @.str.34, ptr @.str.46
+  %.not73 = icmp eq i32 %162, 0
+  %163 = select i1 %.not73, ptr @.str.34, ptr @.str.46
   %164 = load ptr, ptr %6, align 8, !tbaa !58
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %166 = select i1 %.not74, i64 0, i64 4
+  %166 = select i1 %.not73, i64 0, i64 4
   %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull %163, i64 noundef %166)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i47 unwind label %205
 
@@ -5960,11 +5957,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i47: ; preds = %_ZS
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 32
   %173 = load i32, ptr %172, align 8, !tbaa !7
   %174 = and i32 %173, 5
-  %.not75 = icmp eq i32 %174, 0
-  %175 = select i1 %.not75, ptr @.str.34, ptr @.str.47
+  %.not74 = icmp eq i32 %174, 0
+  %175 = select i1 %.not74, ptr @.str.34, ptr @.str.47
   %176 = load ptr, ptr %6, align 8, !tbaa !58
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = select i1 %.not75, i64 0, i64 5
+  %178 = select i1 %.not74, i64 0, i64 5
   %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull %175, i64 noundef %178)
           to label %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit50 unwind label %207
 
@@ -6343,11 +6340,11 @@ _ZSt10fpclassifyf.exit.i:                         ; preds = %75, %72
   %.pre.i33 = load float, ptr %2, align 4, !tbaa !140
   %.pre = load ptr, ptr %3, align 8, !tbaa !4
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre76 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre75 = load i64, ptr %.phi.trans.insert, align 8
   br label %77
 
 77:                                               ; preds = %.noexc, %75, %.noexc34
-  %78 = phi i64 [ %67, %75 ], [ %.pre76, %.noexc34 ], [ %67, %.noexc ]
+  %78 = phi i64 [ %67, %75 ], [ %.pre75, %.noexc34 ], [ %67, %.noexc ]
   %79 = phi ptr [ %65, %75 ], [ %.pre, %.noexc34 ], [ %65, %.noexc ]
   %80 = phi float [ %.pre6.i, %75 ], [ %.pre.i33, %.noexc34 ], [ %.pre6.i, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -6477,12 +6474,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i39: ; preds = %_ZS
   %148 = getelementptr inbounds i8, ptr %3, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load i32, ptr %149, align 8, !tbaa !7
-  %151 = and i32 %150, 1
-  %.not73 = icmp eq i32 %151, 0
-  %152 = select i1 %.not73, ptr @.str.34, ptr @.str.45
+  %151 = trunc i32 %150 to i1
+  %152 = select i1 %151, ptr @.str.45, ptr @.str.34
   %153 = load ptr, ptr %6, align 8, !tbaa !58
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = select i1 %.not73, i64 0, i64 4
+  %155 = select i1 %151, i64 4, i64 0
   %156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull %152, i64 noundef %155)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i43 unwind label %204
 
@@ -6494,11 +6490,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i43: ; preds = %_ZS
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %162 = load i32, ptr %161, align 8, !tbaa !7
   %163 = and i32 %162, 2
-  %.not74 = icmp eq i32 %163, 0
-  %164 = select i1 %.not74, ptr @.str.34, ptr @.str.46
+  %.not73 = icmp eq i32 %163, 0
+  %164 = select i1 %.not73, ptr @.str.34, ptr @.str.46
   %165 = load ptr, ptr %6, align 8, !tbaa !58
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = select i1 %.not74, i64 0, i64 4
+  %167 = select i1 %.not73, i64 0, i64 4
   %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %166, ptr noundef nonnull %164, i64 noundef %167)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i47 unwind label %206
 
@@ -6510,11 +6506,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i47: ; preds = %_ZS
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load i32, ptr %173, align 8, !tbaa !7
   %175 = and i32 %174, 5
-  %.not75 = icmp eq i32 %175, 0
-  %176 = select i1 %.not75, ptr @.str.34, ptr @.str.47
+  %.not74 = icmp eq i32 %175, 0
+  %176 = select i1 %.not74, ptr @.str.34, ptr @.str.47
   %177 = load ptr, ptr %6, align 8, !tbaa !58
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  %179 = select i1 %.not75, i64 0, i64 5
+  %179 = select i1 %.not74, i64 0, i64 5
   %180 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %178, ptr noundef nonnull %176, i64 noundef %179)
           to label %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit50 unwind label %208
 
@@ -10131,12 +10127,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i39: ; preds = %_ZS
   %147 = getelementptr inbounds i8, ptr %3, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %149 = load i32, ptr %148, align 8, !tbaa !7
-  %150 = and i32 %149, 1
-  %.not73 = icmp eq i32 %150, 0
-  %151 = select i1 %.not73, ptr @.str.34, ptr @.str.45
+  %150 = trunc i32 %149 to i1
+  %151 = select i1 %150, ptr @.str.45, ptr @.str.34
   %152 = load ptr, ptr %6, align 8, !tbaa !58
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = select i1 %.not73, i64 0, i64 4
+  %154 = select i1 %150, i64 4, i64 0
   %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull %151, i64 noundef %154)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i43 unwind label %203
 
@@ -10148,11 +10143,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i43: ; preds = %_ZS
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load i32, ptr %160, align 8, !tbaa !7
   %162 = and i32 %161, 2
-  %.not74 = icmp eq i32 %162, 0
-  %163 = select i1 %.not74, ptr @.str.34, ptr @.str.46
+  %.not73 = icmp eq i32 %162, 0
+  %163 = select i1 %.not73, ptr @.str.34, ptr @.str.46
   %164 = load ptr, ptr %6, align 8, !tbaa !58
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %166 = select i1 %.not74, i64 0, i64 4
+  %166 = select i1 %.not73, i64 0, i64 4
   %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %165, ptr noundef nonnull %163, i64 noundef %166)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i47 unwind label %205
 
@@ -10164,11 +10159,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i47: ; preds = %_ZS
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 32
   %173 = load i32, ptr %172, align 8, !tbaa !7
   %174 = and i32 %173, 5
-  %.not75 = icmp eq i32 %174, 0
-  %175 = select i1 %.not75, ptr @.str.34, ptr @.str.47
+  %.not74 = icmp eq i32 %174, 0
+  %175 = select i1 %.not74, ptr @.str.34, ptr @.str.47
   %176 = load ptr, ptr %6, align 8, !tbaa !58
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = select i1 %.not75, i64 0, i64 5
+  %178 = select i1 %.not74, i64 0, i64 5
   %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull %175, i64 noundef %178)
           to label %_ZN7testing7MessagelsIKcEERS0_RKPT_.exit50 unwind label %207
 

@@ -836,7 +836,7 @@ define ptr @Cudd_Decreasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !15
-  br label %69
+  br label %68
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -845,7 +845,7 @@ define ptr @Cudd_Decreasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Decreasing, ptr noundef %1, ptr noundef %25) #10
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %27, label %69
+  br i1 %.not, label %27, label %68
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -862,60 +862,59 @@ define ptr @Cudd_Decreasing(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %.050 = select i1 %.not56, ptr %29, ptr %34
   %.049 = select i1 %.not56, ptr %31, ptr %37
   %38 = icmp eq i32 %13, %16
-  br i1 %38, label %39, label %58
+  br i1 %38, label %39, label %57
 
 39:                                               ; preds = %27
   %40 = ptrtoint ptr %.050 to i64
-  %41 = and i64 %40, 1
-  %.not57 = icmp ne i64 %41, 0
-  %42 = ptrtoint ptr %.049 to i64
-  %43 = and i64 %42, 1
-  %.not58 = icmp eq i64 %43, 0
+  %.not57 = trunc i64 %40 to i1
+  %41 = ptrtoint ptr %.049 to i64
+  %42 = and i64 %41, 1
+  %.not58 = icmp eq i64 %42, 0
   %or.cond = select i1 %.not57, i1 true, i1 %.not58
-  br i1 %or.cond, label %50, label %44
+  br i1 %or.cond, label %49, label %43
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !15
-  %47 = ptrtoint ptr %46 to i64
-  %48 = xor i64 %47, 1
-  %49 = inttoptr i64 %48 to ptr
-  br label %69
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %45 = load ptr, ptr %44, align 8, !tbaa !15
+  %46 = ptrtoint ptr %45 to i64
+  %47 = xor i64 %46, 1
+  %48 = inttoptr i64 %47 to ptr
+  br label %68
 
-50:                                               ; preds = %39
-  %51 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.050, ptr noundef %.049) #10
-  %.not59 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !15
-  br i1 %.not59, label %54, label %65
+49:                                               ; preds = %39
+  %50 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.050, ptr noundef %.049) #10
+  %.not59 = icmp eq i32 %50, 0
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %52 = load ptr, ptr %51, align 8, !tbaa !15
+  br i1 %.not59, label %53, label %64
 
-54:                                               ; preds = %50
-  %55 = ptrtoint ptr %53 to i64
-  %56 = xor i64 %55, 1
-  %57 = inttoptr i64 %56 to ptr
-  br label %65
+53:                                               ; preds = %49
+  %54 = ptrtoint ptr %52 to i64
+  %55 = xor i64 %54, 1
+  %56 = inttoptr i64 %55 to ptr
+  br label %64
 
-58:                                               ; preds = %27
-  %59 = tail call ptr @Cudd_Decreasing(ptr noundef nonnull %0, ptr noundef %.050, i32 noundef %2)
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !15
-  %62 = icmp eq ptr %59, %61
-  br i1 %62, label %63, label %65
+57:                                               ; preds = %27
+  %58 = tail call ptr @Cudd_Decreasing(ptr noundef nonnull %0, ptr noundef %.050, i32 noundef %2)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = load ptr, ptr %59, align 8, !tbaa !15
+  %61 = icmp eq ptr %58, %60
+  br i1 %61, label %62, label %64
 
-63:                                               ; preds = %58
-  %64 = tail call ptr @Cudd_Decreasing(ptr noundef nonnull %0, ptr noundef %.049, i32 noundef %2)
-  br label %65
+62:                                               ; preds = %57
+  %63 = tail call ptr @Cudd_Decreasing(ptr noundef nonnull %0, ptr noundef %.049, i32 noundef %2)
+  br label %64
 
-65:                                               ; preds = %50, %54, %58, %63
-  %.048 = phi ptr [ %59, %58 ], [ %64, %63 ], [ %57, %54 ], [ %53, %50 ]
-  %66 = load ptr, ptr %22, align 8, !tbaa !40
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %14
-  %68 = load ptr, ptr %67, align 8, !tbaa !29
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Decreasing, ptr noundef %1, ptr noundef %68, ptr noundef %.048) #10
-  br label %69
+64:                                               ; preds = %49, %53, %57, %62
+  %.048 = phi ptr [ %58, %57 ], [ %63, %62 ], [ %56, %53 ], [ %52, %49 ]
+  %65 = load ptr, ptr %22, align 8, !tbaa !40
+  %66 = getelementptr inbounds ptr, ptr %65, i64 %14
+  %67 = load ptr, ptr %66, align 8, !tbaa !29
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_Decreasing, ptr noundef %1, ptr noundef %67, ptr noundef %.048) #10
+  br label %68
 
-69:                                               ; preds = %21, %65, %44, %18
-  %.0 = phi ptr [ %20, %18 ], [ %49, %44 ], [ %.048, %65 ], [ %26, %21 ]
+68:                                               ; preds = %21, %64, %43, %18
+  %.0 = phi ptr [ %20, %18 ], [ %48, %43 ], [ %.048, %64 ], [ %26, %21 ]
   ret ptr %.0
 }
 

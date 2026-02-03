@@ -782,9 +782,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonn
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !29
@@ -2091,12 +2090,11 @@ define internal void @_GLOBAL__sub_I_utf8.cpp() #15 section ".text.startup" pers
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %1, align 8, !tbaa !27
-  %.not.i.i.i = icmp ne ptr %16, null
+  %.not.i.i.i = icmp eq ptr %16, null
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 1
-  %.not1.i.i.i = icmp eq i64 %18, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %19, label %__cxx_global_var_init.2.exit
+  %18 = trunc i64 %17 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %18
+  br i1 %or.cond.i, label %__cxx_global_var_init.2.exit, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8, !tbaa !29

@@ -72,19 +72,18 @@ define dso_local zeroext i1 @io_wq_worker_stopped() local_unnamed_addr #0 align 
   tail call void asm sideeffect "730: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 730b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 730) #17, !srcloc !8
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 181, i32 2307, i64 12) #17, !srcloc !9
   tail call void asm sideeffect "731: nop\0A\09.pushsection .discard.instr_end\0A\09.long 731b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 731) #17, !srcloc !10
-  br label %22
+  br label %21
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load volatile i64, ptr %18, align 8
-  %20 = and i64 %19, 1
-  %21 = icmp ne i64 %20, 0
-  br label %22
+  %20 = trunc i64 %19 to i1
+  br label %21
 
-22:                                               ; preds = %16, %15
-  %23 = phi i1 [ true, %15 ], [ %21, %16 ]
-  ret i1 %23
+21:                                               ; preds = %16, %15
+  %22 = phi i1 [ true, %15 ], [ %20, %16 ]
+  ret i1 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

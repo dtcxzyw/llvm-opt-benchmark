@@ -704,24 +704,23 @@ define dso_local zeroext i1 @i2c_acpi_waive_d0_probe(ptr noundef readonly captur
   %8 = select i1 %6, ptr %7, ptr null
   %9 = getelementptr i8, ptr %3, i64 184
   %10 = load i32, ptr %9, align 8
-  %11 = and i32 %10, 1
-  %12 = icmp ne i32 %11, 0
-  %13 = icmp ne ptr %8, null
-  %14 = and i1 %13, %12
-  br i1 %14, label %15, label %22
+  %11 = trunc i32 %10 to i1
+  %12 = icmp ne ptr %8, null
+  %13 = and i1 %12, %11
+  br i1 %13, label %14, label %21
 
-15:                                               ; preds = %1
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 408
-  %18 = load i8, ptr %17, align 8
-  %19 = zext i8 %18 to i32
-  %20 = load i32, ptr %16, align 8
-  %21 = icmp sle i32 %20, %19
-  br label %22
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 408
+  %17 = load i8, ptr %16, align 8
+  %18 = zext i8 %17 to i32
+  %19 = load i32, ptr %15, align 8
+  %20 = icmp sle i32 %19, %18
+  br label %21
 
-22:                                               ; preds = %15, %1
-  %23 = phi i1 [ false, %1 ], [ %21, %15 ]
-  ret i1 %23
+21:                                               ; preds = %14, %1
+  %22 = phi i1 [ false, %1 ], [ %20, %14 ]
+  ret i1 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

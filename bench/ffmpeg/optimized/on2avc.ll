@@ -2122,7 +2122,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @on2avc_decode_subframe(ptr
   %62 = and i32 %61, 1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %62, ptr %63, align 8, !tbaa !96
-  %.not.i = icmp ne i32 %62, 0
+  %.not.i = trunc i32 %61 to i1
   %64 = icmp sgt i32 %29, 0
   %or.cond = and i1 %64, %.not.i
   br i1 %or.cond, label %.lr.ph31.i, label %on2avc_read_ms_info.exit

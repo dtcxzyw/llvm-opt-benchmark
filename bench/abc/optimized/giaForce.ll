@@ -2040,43 +2040,42 @@ define range(i32 0, 2) i32 @Frc_ManCrossCut_rec(ptr noundef captures(none) %0, p
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %12)
   store i32 %15, ptr %13, align 4, !tbaa !73
   %.val = load i32, ptr %1, align 4
-  %16 = and i32 %.val, 1
-  %.not = icmp ne i32 %16, 0
+  %.not = trunc i32 %.val to i1
   %.not18 = icmp ult i32 %.val, 16
-  %or.cond = or i1 %.not, %.not18
+  %or.cond = or i1 %.not18, %.not
   br i1 %or.cond, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %18
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %17
 
-18:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4, !tbaa !9
-  %21 = sext i32 %20 to i64
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i32, ptr %1, i64 %22
-  %24 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %23)
-  %25 = load i32, ptr %10, align 8, !tbaa !72
-  %26 = sub nsw i32 %25, %24
-  store i32 %26, ptr %10, align 8, !tbaa !72
+17:                                               ; preds = %.lr.ph, %17
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = sext i32 %19 to i64
+  %21 = sub nsw i64 0, %20
+  %22 = getelementptr inbounds i32, ptr %1, i64 %21
+  %23 = tail call i32 @Frc_ManCrossCut_rec(ptr noundef nonnull %0, ptr noundef nonnull %22)
+  %24 = load i32, ptr %10, align 8, !tbaa !72
+  %25 = sub nsw i32 %24, %23
+  store i32 %25, ptr %10, align 8, !tbaa !72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = load i32, ptr %1, align 4
-  %28 = lshr i32 %27, 4
-  %29 = zext nneg i32 %28 to i64
-  %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %18, label %.critedge.loopexit, !llvm.loop !74
+  %26 = load i32, ptr %1, align 4
+  %27 = lshr i32 %26, 4
+  %28 = zext nneg i32 %27 to i64
+  %29 = icmp samesign ult i64 %indvars.iv.next, %28
+  br i1 %29, label %17, label %.critedge.loopexit, !llvm.loop !74
 
-.critedge.loopexit:                               ; preds = %18
+.critedge.loopexit:                               ; preds = %17
   %.pre = load i32, ptr %3, align 4, !tbaa !10
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %9, %2
-  %31 = phi i32 [ %.pre, %.critedge.loopexit ], [ %5, %2 ], [ %5, %9 ]
-  %32 = icmp eq i32 %31, 0
-  %33 = zext i1 %32 to i32
-  ret i32 %33
+  %30 = phi i32 [ %.pre, %.critedge.loopexit ], [ %5, %2 ], [ %5, %9 ]
+  %31 = icmp eq i32 %30, 0
+  %32 = zext i1 %31 to i32
+  ret i32 %32
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
@@ -2100,42 +2099,41 @@ define range(i32 0, 2) i32 @Frc_ManCrossCut2_rec(ptr noundef captures(none) %0, 
   %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %12)
   store i32 %15, ptr %13, align 4, !tbaa !73
   %.val = load i32, ptr %1, align 4
-  %16 = and i32 %.val, 1
-  %.not = icmp ne i32 %16, 0
+  %.not = trunc i32 %.val to i1
   %.not18 = icmp ult i32 %.val, 16
-  %or.cond = or i1 %.not, %.not18
+  %or.cond = or i1 %.not18, %.not
   br i1 %or.cond, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = lshr i32 %.val, 4
-  %19 = zext nneg i32 %18 to i64
-  br label %20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = lshr i32 %.val, 4
+  %18 = zext nneg i32 %17 to i64
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %20 ]
+19:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.next
-  %22 = load i32, ptr %21, align 4, !tbaa !9
-  %23 = sext i32 %22 to i64
-  %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds i32, ptr %1, i64 %24
-  %26 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %25)
-  %27 = load i32, ptr %10, align 8, !tbaa !72
-  %28 = sub nsw i32 %27, %26
-  store i32 %28, ptr %10, align 8, !tbaa !72
-  %29 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %29, label %20, label %.critedge.loopexit, !llvm.loop !75
+  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.next
+  %21 = load i32, ptr %20, align 4, !tbaa !9
+  %22 = sext i32 %21 to i64
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i32, ptr %1, i64 %23
+  %25 = tail call i32 @Frc_ManCrossCut2_rec(ptr noundef nonnull %0, ptr noundef nonnull %24)
+  %26 = load i32, ptr %10, align 8, !tbaa !72
+  %27 = sub nsw i32 %26, %25
+  store i32 %27, ptr %10, align 8, !tbaa !72
+  %28 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %28, label %19, label %.critedge.loopexit, !llvm.loop !75
 
-.critedge.loopexit:                               ; preds = %20
+.critedge.loopexit:                               ; preds = %19
   %.pre = load i32, ptr %3, align 4, !tbaa !10
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %9, %2
-  %30 = phi i32 [ %.pre, %.critedge.loopexit ], [ %5, %2 ], [ %5, %9 ]
-  %31 = icmp eq i32 %30, 0
-  %32 = zext i1 %31 to i32
-  ret i32 %32
+  %29 = phi i32 [ %.pre, %.critedge.loopexit ], [ %5, %2 ], [ %5, %9 ]
+  %30 = icmp eq i32 %29, 0
+  %31 = zext i1 %30 to i32
+  ret i32 %31
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -2869,44 +2867,43 @@ define void @Frc_ManPlaceDfs_rec(ptr noundef readnone captures(none) %0, ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !50
   %9 = icmp eq i32 %5, %8
-  br i1 %9, label %10, label %26
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %3
   %.val = load i32, ptr %1, align 4
-  %11 = and i32 %.val, 1
-  %.not = icmp ne i32 %11, 0
+  %.not = trunc i32 %.val to i1
   %.not15 = icmp ult i32 %.val, 16
-  %or.cond = or i1 %.not, %.not15
+  %or.cond = or i1 %.not15, %.not
   br i1 %or.cond, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %13
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !9
-  %16 = sext i32 %15 to i64
-  %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds i32, ptr %1, i64 %17
-  tail call void @Frc_ManPlaceDfs_rec(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %2)
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !9
+  %15 = sext i32 %14 to i64
+  %16 = sub nsw i64 0, %15
+  %17 = getelementptr inbounds i32, ptr %1, i64 %16
+  tail call void @Frc_ManPlaceDfs_rec(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load i32, ptr %1, align 4
-  %20 = lshr i32 %19, 4
-  %21 = zext nneg i32 %20 to i64
-  %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %13, label %.critedge, !llvm.loop !85
+  %18 = load i32, ptr %1, align 4
+  %19 = lshr i32 %18, 4
+  %20 = zext nneg i32 %19 to i64
+  %21 = icmp samesign ult i64 %indvars.iv.next, %20
+  br i1 %21, label %12, label %.critedge, !llvm.loop !85
 
-.critedge:                                        ; preds = %13, %10
-  %23 = load i32, ptr %2, align 4, !tbaa !9
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %2, align 4, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %23, ptr %25, align 4, !tbaa !82
-  br label %26
+.critedge:                                        ; preds = %12, %10
+  %22 = load i32, ptr %2, align 4, !tbaa !9
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %2, align 4, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %22, ptr %24, align 4, !tbaa !82
+  br label %25
 
-26:                                               ; preds = %.critedge, %3
+25:                                               ; preds = %.critedge, %3
   ret void
 }
 

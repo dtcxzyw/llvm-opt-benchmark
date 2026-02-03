@@ -71,152 +71,152 @@ _ZL26expandKernelSanitizerMasksN5clang13SanitizerMaskE.exit: ; preds = %8
 30:                                               ; preds = %27, %_ZL26expandKernelSanitizerMasksN5clang13SanitizerMaskE.exit
   %31 = phi ptr [ %.pre, %27 ], [ %14, %_ZL26expandKernelSanitizerMasksN5clang13SanitizerMaskE.exit ]
   %.sroa.0126.0 = phi i8 [ %29, %27 ], [ 0, %_ZL26expandKernelSanitizerMasksN5clang13SanitizerMaskE.exit ]
-  %32 = trunc i64 %23 to i8
-  %33 = and i8 %32, 1
-  %34 = and i64 %spec.select, 1
+  %.not.i.i = trunc i64 %23 to i8
+  %32 = and i8 %.not.i.i, 1
+  %33 = and i64 %spec.select, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %35 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %31, i64 %34, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9) #8
-  %36 = zext i1 %35 to i8
-  %37 = and i64 %23, 16
-  %.not.i.i94.not = icmp ne i64 %37, 0
+  %34 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %31, i64 %33, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9) #8
+  %35 = zext i1 %34 to i8
+  %36 = and i64 %23, 16
+  %.not.i.i94.not = icmp ne i64 %36, 0
   %.mask = and i8 %.sroa.0126.0, 2
   %.sroa.0126.0.masked = and i8 %.sroa.0126.0, -3
-  %38 = load ptr, ptr %0, align 8, !tbaa !8
-  %39 = and i64 %spec.select, 16
+  %37 = load ptr, ptr %0, align 8, !tbaa !8
+  %38 = and i64 %spec.select, 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %40 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %38, i64 %39, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #8
-  %41 = or i1 %40, %.not.i.i94.not
-  %42 = select i1 %41, i8 2, i8 %.mask
-  %43 = or i8 %.sroa.0126.0.masked, %33
-  %44 = or i8 %43, %36
-  %45 = or disjoint i8 %44, %42
-  %46 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %1) #8
-  %47 = extractvalue { ptr, i64 } %46, 1
-  %.not.i.i97 = icmp ult i64 %47, 5
+  %39 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %37, i64 %38, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10) #8
+  %40 = or i1 %39, %.not.i.i94.not
+  %41 = select i1 %40, i8 2, i8 %.mask
+  %42 = or i8 %.sroa.0126.0.masked, %32
+  %43 = or i8 %42, %35
+  %44 = or disjoint i8 %43, %41
+  %45 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(81) %1) #8
+  %46 = extractvalue { ptr, i64 } %45, 1
+  %.not.i.i97 = icmp ult i64 %46, 5
   br i1 %.not.i.i97, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %30
-  %48 = extractvalue { ptr, i64 } %46, 0
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %48, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
-  %49 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %49, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
+  %47 = extractvalue { ptr, i64 } %45, 0
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %47, ptr noundef nonnull dereferenceable(5) @.str.3, i64 5)
+  %48 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %48, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %30
-  %50 = load i32, ptr %24, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %52 = load i8, ptr %51, align 8
-  %53 = trunc i8 %52 to i1
-  %54 = and i32 %50, 67116032
-  %55 = icmp ne i32 %54, 0
-  %or.cond.not = select i1 %55, i1 true, i1 %53
-  br i1 %or.cond.not, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %56
+  %49 = load i32, ptr %24, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %51 = load i8, ptr %50, align 8
+  %52 = trunc i8 %51 to i1
+  %53 = and i32 %49, 67116032
+  %54 = icmp ne i32 %53, 0
+  %or.cond.not = select i1 %54, i1 true, i1 %52
+  br i1 %or.cond.not, label %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, label %55
 
-56:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
-  %57 = and i64 %spec.select, 256
-  %.not.i100.not = icmp eq i64 %57, 0
+55:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i
+  %56 = and i64 %spec.select, 256
+  %.not.i100.not = icmp eq i64 %56, 0
   %.mask69 = and i8 %.sroa.0126.0, 4
-  %58 = select i1 %.not.i100.not, i8 %.mask69, i8 4
-  %59 = and i8 %45, -5
-  %60 = and i64 %23, 448
-  %.not.i.i104.not = icmp ne i64 %60, 0
-  %61 = load ptr, ptr %0, align 8, !tbaa !8
-  %62 = and i64 %spec.select, 448
+  %57 = select i1 %.not.i100.not, i8 %.mask69, i8 4
+  %58 = and i8 %44, -5
+  %59 = and i64 %23, 448
+  %.not.i.i104.not = icmp ne i64 %59, 0
+  %60 = load ptr, ptr %0, align 8, !tbaa !8
+  %61 = and i64 %spec.select, 448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %63 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %61, i64 %62, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #8
-  %64 = or i1 %63, %.not.i.i104.not
-  %65 = select i1 %64, i8 0, i8 %58
-  %66 = or disjoint i8 %65, %59
-  br label %68
+  %62 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %60, i64 %61, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #8
+  %63 = or i1 %62, %.not.i.i104.not
+  %64 = select i1 %63, i8 0, i8 %57
+  %65 = or disjoint i8 %64, %58
+  br label %67
 
 _ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread6.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %67 = and i8 %45, -5
-  br label %68
+  %66 = and i8 %44, -5
+  br label %67
 
-68:                                               ; preds = %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, %56
-  %storemerge = phi i8 [ %67, %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread ], [ %66, %56 ]
-  %69 = and i8 %storemerge, 1
-  %.not = icmp eq i8 %69, 0
+67:                                               ; preds = %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread, %55
+  %storemerge = phi i8 [ %66, %_ZL15shouldTagGlobalRKN4llvm14GlobalVariableE.exit.thread ], [ %65, %55 ]
+  %68 = and i8 %storemerge, 1
+  %.not = icmp eq i8 %68, 0
   %or.cond157 = select i1 %7, i1 %.not, i1 false
-  %.not.i.i110 = icmp ne i64 %34, 0
+  %.not.i.i110 = trunc i64 %spec.select to i1
   %or.cond158 = and i1 %or.cond157, %.not.i.i110
-  br i1 %or.cond158, label %70, label %75
+  br i1 %or.cond158, label %69, label %74
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %0, align 8, !tbaa !8
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %0, align 8, !tbaa !8
   store ptr @.str, ptr %12, align 8, !tbaa !349
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 4, ptr %72, align 8, !tbaa !351
-  %73 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %71, i64 9, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %12) #8
-  %74 = select i1 %73, i8 0, i8 8
-  br label %75
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 4, ptr %71, align 8, !tbaa !351
+  %72 = tail call noundef zeroext i1 @_ZNK5clang7CodeGen13CodeGenModule18isInNoSanitizeListENS_13SanitizerMaskEPN4llvm14GlobalVariableENS_14SourceLocationENS_8QualTypeENS3_9StringRefE(ptr noundef nonnull align 8 dereferenceable(3608) %70, i64 9, i64 0, ptr noundef nonnull %1, i32 %2, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %12) #8
+  %73 = select i1 %72, i8 0, i8 8
+  br label %74
 
-75:                                               ; preds = %70, %68
-  %76 = phi i8 [ 0, %68 ], [ %74, %70 ]
-  %77 = and i8 %storemerge, -9
-  %78 = or disjoint i8 %76, %77
-  %.sroa.0126.0.insert.ext = zext i8 %78 to i32
+74:                                               ; preds = %69, %67
+  %75 = phi i8 [ 0, %67 ], [ %73, %69 ]
+  %76 = and i8 %storemerge, -9
+  %77 = or disjoint i8 %75, %76
+  %.sroa.0126.0.insert.ext = zext i8 %77 to i32
   tail call void @_ZN4llvm11GlobalValue20setSanitizerMetadataENS0_17SanitizerMetadataE(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 %.sroa.0126.0.insert.ext) #8
   %.not.i.i111 = icmp ult i64 %5, 16
-  br i1 %.not.i.i111, label %.critedge, label %79
+  br i1 %.not.i.i111, label %.critedge, label %78
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %0, align 8, !tbaa !8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 152
-  %82 = load ptr, ptr %81, align 8, !tbaa !10
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 216
-  %.sroa.0.0.copyload.i112 = load i64, ptr %83, align 8
-  %84 = and i64 %.sroa.0.0.copyload.i112, 16384
-  %.not.i.i115.not = icmp ne i64 %84, 0
-  %85 = and i64 %.sroa.014.0..sroa.014.0..sroa.014.0..sroa.05.0.copyload.i83, 16384
-  %.not.i118.not = icmp eq i64 %85, 0
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %0, align 8, !tbaa !8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 152
+  %81 = load ptr, ptr %80, align 8, !tbaa !10
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 216
+  %.sroa.0.0.copyload.i112 = load i64, ptr %82, align 8
+  %83 = and i64 %.sroa.0.0.copyload.i112, 16384
+  %.not.i.i115.not = icmp ne i64 %83, 0
+  %84 = and i64 %.sroa.014.0..sroa.014.0..sroa.014.0..sroa.05.0.copyload.i83, 16384
+  %.not.i118.not = icmp eq i64 %84, 0
   %or.cond = and i1 %.not.i.i115.not, %.not.i118.not
-  br i1 %or.cond, label %86, label %.critedge
+  br i1 %or.cond, label %85, label %.critedge
 
-86:                                               ; preds = %79
-  %87 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %80, i64 %5) #8
-  %.not70 = icmp eq ptr %87, null
-  br i1 %.not70, label %.critedge, label %88
+85:                                               ; preds = %78
+  %86 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %79, i64 %5) #8
+  %.not70 = icmp eq ptr %86, null
+  br i1 %.not70, label %.critedge, label %87
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr %0, align 8, !tbaa !8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 144
-  %91 = load ptr, ptr %90, align 8, !tbaa !352
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 18488
-  %.sroa.0.0.copyload.i119 = load i64, ptr %92, align 8, !tbaa !348
-  %93 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %89, i64 %.sroa.0.0.copyload.i119) #8
-  %94 = icmp eq ptr %87, %93
-  br i1 %94, label %.critedge, label %95
+87:                                               ; preds = %85
+  %88 = load ptr, ptr %0, align 8, !tbaa !8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 144
+  %90 = load ptr, ptr %89, align 8, !tbaa !352
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 18488
+  %.sroa.0.0.copyload.i119 = load i64, ptr %91, align 8, !tbaa !348
+  %92 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule15getTBAATypeInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %88, i64 %.sroa.0.0.copyload.i119) #8
+  %93 = icmp eq ptr %86, %92
+  br i1 %93, label %.critedge, label %94
 
-95:                                               ; preds = %88
+94:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %96 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %1) #8
-  store ptr %96, ptr %13, align 16, !tbaa !353
-  %97 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %87, ptr %97, align 8, !tbaa !353
-  %98 = load ptr, ptr %0, align 8, !tbaa !8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 232
-  %100 = load ptr, ptr %99, align 8, !tbaa !355
-  %101 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr nonnull %13, i64 2, i32 noundef 0, i1 noundef zeroext false) #8
-  %.not71 = icmp eq ptr %101, null
-  br i1 %.not71, label %102, label %111
+  %95 = tail call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %1) #8
+  store ptr %95, ptr %13, align 16, !tbaa !353
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %86, ptr %96, align 8, !tbaa !353
+  %97 = load ptr, ptr %0, align 8, !tbaa !8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 232
+  %99 = load ptr, ptr %98, align 8, !tbaa !355
+  %100 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr nonnull %13, i64 2, i32 noundef 0, i1 noundef zeroext false) #8
+  %.not71 = icmp eq ptr %100, null
+  br i1 %.not71, label %101, label %110
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %0, align 8, !tbaa !8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 232
-  %105 = load ptr, ptr %104, align 8, !tbaa !355
-  %106 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr nonnull %13, i64 2, i32 noundef 0, i1 noundef zeroext true) #8
-  %107 = load ptr, ptr %0, align 8, !tbaa !8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 200
-  %109 = load ptr, ptr %108, align 8, !tbaa !356
-  %110 = call noundef ptr @_ZN4llvm6Module24getOrInsertNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %109, ptr nonnull @.str.1, i64 18) #8
-  call void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64) %110, ptr noundef %106) #8
-  br label %111
+101:                                              ; preds = %94
+  %102 = load ptr, ptr %0, align 8, !tbaa !8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 232
+  %104 = load ptr, ptr %103, align 8, !tbaa !355
+  %105 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr nonnull %13, i64 2, i32 noundef 0, i1 noundef zeroext true) #8
+  %106 = load ptr, ptr %0, align 8, !tbaa !8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 200
+  %108 = load ptr, ptr %107, align 8, !tbaa !356
+  %109 = call noundef ptr @_ZN4llvm6Module24getOrInsertNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(841) %108, ptr nonnull @.str.1, i64 18) #8
+  call void @_ZN4llvm11NamedMDNode10addOperandEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(64) %109, ptr noundef %105) #8
+  br label %110
 
-111:                                              ; preds = %95, %102
+110:                                              ; preds = %94, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge
 
-.critedge:                                        ; preds = %86, %88, %111, %75, %79, %8
+.critedge:                                        ; preds = %85, %87, %110, %74, %78, %8
   ret void
 }
 

@@ -3068,271 +3068,270 @@ get_version_traits.exit434:                       ; preds = %720, %730, %732, %7
   %.5380 = phi i32 [ 17, %830 ], [ %.4379, %794 ]
   %.0363 = phi ptr [ %826, %830 ], [ %0, %794 ]
   %837 = load i8, ptr %763, align 2
-  %838 = and i8 %837, 1
-  %.not398 = icmp ne i8 %838, 0
-  %839 = and i32 %.pre450, 256
-  %.not399 = icmp eq i32 %839, 0
+  %.not398 = trunc i8 %837 to i1
+  %838 = and i32 %.pre450, 256
+  %.not399 = icmp eq i32 %838, 0
   %or.cond482 = select i1 %.not398, i1 true, i1 %.not399
-  br i1 %or.cond482, label %844, label %840
+  br i1 %or.cond482, label %843, label %839
 
-840:                                              ; preds = %836
-  %841 = load i32, ptr @hf_tibia_loginflags_gm, align 4
-  %842 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %841, ptr noundef %.0363, i32 noundef %.5380, i32 noundef 1, i32 noundef 0)
-  %843 = add nuw nsw i32 %.5380, 1
+839:                                              ; preds = %836
+  %840 = load i32, ptr @hf_tibia_loginflags_gm, align 4
+  %841 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %840, ptr noundef %.0363, i32 noundef %.5380, i32 noundef 1, i32 noundef 0)
+  %842 = add nuw nsw i32 %.5380, 1
   %.pre449 = load i32, ptr %62, align 8
-  br label %844
+  br label %843
 
-844:                                              ; preds = %840, %836
-  %845 = phi i32 [ %.pre450, %836 ], [ %.pre449, %840 ]
-  %.10 = phi i32 [ %.5380, %836 ], [ %843, %840 ]
+843:                                              ; preds = %839, %836
+  %844 = phi i32 [ %.pre450, %836 ], [ %.pre449, %839 ]
+  %.10 = phi i32 [ %.5380, %836 ], [ %842, %839 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %846 = and i32 %845, 131072
-  %.not400 = icmp eq i32 %846, 0
-  br i1 %.not400, label %864, label %847
+  %845 = and i32 %844, 131072
+  %.not400 = icmp eq i32 %845, 0
+  br i1 %.not400, label %863, label %846
 
-847:                                              ; preds = %844
-  %848 = load i8, ptr %763, align 2
-  %849 = and i8 %848, 1
-  %.not401 = icmp eq i8 %849, 0
-  br i1 %.not401, label %850, label %864
+846:                                              ; preds = %843
+  %847 = load i8, ptr %763, align 2
+  %848 = and i8 %847, 1
+  %.not401 = icmp eq i8 %848, 0
+  br i1 %.not401, label %849, label %863
 
-850:                                              ; preds = %847
-  %851 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %852 = load ptr, ptr %851, align 8
-  %.not402 = icmp eq ptr %852, null
-  %853 = load i32, ptr @hf_tibia_session_key, align 4
-  %854 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %855 = load i32, ptr %854, align 4
-  %856 = or i32 %855, -2147483648
-  br i1 %.not402, label %859, label %857
+849:                                              ; preds = %846
+  %850 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  %851 = load ptr, ptr %850, align 8
+  %.not402 = icmp eq ptr %851, null
+  %852 = load i32, ptr @hf_tibia_session_key, align 4
+  %853 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %854 = load i32, ptr %853, align 4
+  %855 = or i32 %854, -2147483648
+  br i1 %.not402, label %858, label %856
 
-857:                                              ; preds = %850
-  %858 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %853, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %856, ptr noundef nonnull %9)
-  br label %862
+856:                                              ; preds = %849
+  %857 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %852, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %855, ptr noundef nonnull %9)
+  br label %861
 
-859:                                              ; preds = %850
-  %860 = call ptr @wmem_file_scope()
-  %861 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %853, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %856, ptr noundef %860, ptr noundef nonnull %851, ptr noundef nonnull %9)
-  br label %862
+858:                                              ; preds = %849
+  %859 = call ptr @wmem_file_scope()
+  %860 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %852, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %855, ptr noundef %859, ptr noundef nonnull %850, ptr noundef nonnull %9)
+  br label %861
 
-862:                                              ; preds = %859, %857
-  %863 = load i32, ptr %9, align 4
-  br label %892
+861:                                              ; preds = %858, %856
+  %862 = load i32, ptr %9, align 4
+  br label %891
 
-864:                                              ; preds = %847, %844
-  %865 = and i32 %845, 32
-  %.not403 = icmp eq i32 %865, 0
-  br i1 %.not403, label %880, label %866
+863:                                              ; preds = %846, %843
+  %864 = and i32 %844, 32
+  %.not403 = icmp eq i32 %864, 0
+  br i1 %.not403, label %879, label %865
 
-866:                                              ; preds = %864
-  %867 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %868 = load ptr, ptr %867, align 8
-  %.not405 = icmp eq ptr %868, null
-  %869 = load i32, ptr @hf_tibia_acc_name, align 4
-  %870 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %871 = load i32, ptr %870, align 4
-  %872 = or i32 %871, -2147483648
-  br i1 %.not405, label %875, label %873
+865:                                              ; preds = %863
+  %866 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %867 = load ptr, ptr %866, align 8
+  %.not405 = icmp eq ptr %867, null
+  %868 = load i32, ptr @hf_tibia_acc_name, align 4
+  %869 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %870 = load i32, ptr %869, align 4
+  %871 = or i32 %870, -2147483648
+  br i1 %.not405, label %874, label %872
 
-873:                                              ; preds = %866
-  %874 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %869, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %872, ptr noundef nonnull %9)
-  br label %878
+872:                                              ; preds = %865
+  %873 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %868, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %871, ptr noundef nonnull %9)
+  br label %877
 
-875:                                              ; preds = %866
-  %876 = call ptr @wmem_file_scope()
-  %877 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %869, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %872, ptr noundef %876, ptr noundef nonnull %867, ptr noundef nonnull %9)
-  br label %878
+874:                                              ; preds = %865
+  %875 = call ptr @wmem_file_scope()
+  %876 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %868, ptr noundef %.0363, i32 noundef %.10, i32 noundef 2, i32 noundef %871, ptr noundef %875, ptr noundef nonnull %866, ptr noundef nonnull %9)
+  br label %877
 
-878:                                              ; preds = %875, %873
-  %879 = load i32, ptr %9, align 4
-  br label %892
+877:                                              ; preds = %874, %872
+  %878 = load i32, ptr %9, align 4
+  br label %891
 
-880:                                              ; preds = %864
-  %881 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %882 = load ptr, ptr %881, align 8
-  %883 = call i32 @tvb_get_letohl(ptr noundef %.0363, i32 noundef %.10)
-  %884 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %882, ptr noundef nonnull @.str.381, i32 noundef %883)
-  %885 = load i32, ptr @hf_tibia_acc_number, align 4
-  %886 = call ptr @proto_tree_add_string(ptr noundef %173, i32 noundef %885, ptr noundef %.0363, i32 noundef %.10, i32 noundef 4, ptr noundef %884)
-  %887 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %888 = load ptr, ptr %887, align 8
-  %.not404 = icmp eq ptr %888, null
-  br i1 %.not404, label %889, label %892
+879:                                              ; preds = %863
+  %880 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %881 = load ptr, ptr %880, align 8
+  %882 = call i32 @tvb_get_letohl(ptr noundef %.0363, i32 noundef %.10)
+  %883 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %881, ptr noundef nonnull @.str.381, i32 noundef %882)
+  %884 = load i32, ptr @hf_tibia_acc_number, align 4
+  %885 = call ptr @proto_tree_add_string(ptr noundef %173, i32 noundef %884, ptr noundef %.0363, i32 noundef %.10, i32 noundef 4, ptr noundef %883)
+  %886 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %887 = load ptr, ptr %886, align 8
+  %.not404 = icmp eq ptr %887, null
+  br i1 %.not404, label %888, label %891
 
-889:                                              ; preds = %880
-  %890 = call ptr @wmem_file_scope()
-  %891 = call noalias ptr @wmem_strdup(ptr noundef %890, ptr noundef %884)
-  store ptr %891, ptr %887, align 8
-  br label %892
+888:                                              ; preds = %879
+  %889 = call ptr @wmem_file_scope()
+  %890 = call noalias ptr @wmem_strdup(ptr noundef %889, ptr noundef %883)
+  store ptr %890, ptr %886, align 8
+  br label %891
 
-892:                                              ; preds = %880, %889, %878, %862
-  %.pn = phi i32 [ %879, %878 ], [ %863, %862 ], [ 4, %889 ], [ 4, %880 ]
+891:                                              ; preds = %879, %888, %877, %861
+  %.pn = phi i32 [ %878, %877 ], [ %862, %861 ], [ 4, %888 ], [ 4, %879 ]
   %.11 = add i32 %.pn, %.10
-  %893 = load i8, ptr %763, align 2
-  %894 = and i8 %893, 1
-  %.not406 = icmp eq i8 %894, 0
-  br i1 %.not406, label %895, label %910
+  %892 = load i8, ptr %763, align 2
+  %893 = and i8 %892, 1
+  %.not406 = icmp eq i8 %893, 0
+  br i1 %.not406, label %894, label %909
 
-895:                                              ; preds = %892
-  %896 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %897 = load ptr, ptr %896, align 8
-  %.not407 = icmp eq ptr %897, null
-  %898 = load i32, ptr @hf_tibia_char_name, align 4
-  %899 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %900 = load i32, ptr %899, align 4
-  %901 = or i32 %900, -2147483648
-  br i1 %.not407, label %904, label %902
+894:                                              ; preds = %891
+  %895 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %896 = load ptr, ptr %895, align 8
+  %.not407 = icmp eq ptr %896, null
+  %897 = load i32, ptr @hf_tibia_char_name, align 4
+  %898 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %899 = load i32, ptr %898, align 4
+  %900 = or i32 %899, -2147483648
+  br i1 %.not407, label %903, label %901
 
-902:                                              ; preds = %895
-  %903 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %898, ptr noundef %.0363, i32 noundef %.11, i32 noundef 2, i32 noundef %901, ptr noundef nonnull %9)
-  br label %907
+901:                                              ; preds = %894
+  %902 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %897, ptr noundef %.0363, i32 noundef %.11, i32 noundef 2, i32 noundef %900, ptr noundef nonnull %9)
+  br label %906
 
-904:                                              ; preds = %895
-  %905 = call ptr @wmem_file_scope()
-  %906 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %898, ptr noundef %.0363, i32 noundef %.11, i32 noundef 2, i32 noundef %901, ptr noundef %905, ptr noundef nonnull %896, ptr noundef nonnull %9)
-  br label %907
+903:                                              ; preds = %894
+  %904 = call ptr @wmem_file_scope()
+  %905 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %897, ptr noundef %.0363, i32 noundef %.11, i32 noundef 2, i32 noundef %900, ptr noundef %904, ptr noundef nonnull %895, ptr noundef nonnull %9)
+  br label %906
 
-907:                                              ; preds = %904, %902
-  %908 = load i32, ptr %9, align 4
-  %909 = add i32 %908, %.11
-  br label %910
+906:                                              ; preds = %903, %901
+  %907 = load i32, ptr %9, align 4
+  %908 = add i32 %907, %.11
+  br label %909
 
-910:                                              ; preds = %907, %892
-  %.12 = phi i32 [ %.11, %892 ], [ %909, %907 ]
-  %911 = load i32, ptr %62, align 8
-  %912 = and i32 %911, 131072
-  %.not408 = icmp eq i32 %912, 0
-  br i1 %.not408, label %916, label %913
+909:                                              ; preds = %906, %891
+  %.12 = phi i32 [ %.11, %891 ], [ %908, %906 ]
+  %910 = load i32, ptr %62, align 8
+  %911 = and i32 %910, 131072
+  %.not408 = icmp eq i32 %911, 0
+  br i1 %.not408, label %915, label %912
 
-913:                                              ; preds = %910
-  %914 = load i8, ptr %763, align 2
-  %915 = and i8 %914, 1
-  %.not409 = icmp eq i8 %915, 0
-  br i1 %.not409, label %931, label %916
+912:                                              ; preds = %909
+  %913 = load i8, ptr %763, align 2
+  %914 = and i8 %913, 1
+  %.not409 = icmp eq i8 %914, 0
+  br i1 %.not409, label %930, label %915
 
-916:                                              ; preds = %913, %910
-  %917 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %918 = load ptr, ptr %917, align 8
-  %.not410 = icmp eq ptr %918, null
-  %919 = load i32, ptr @hf_tibia_acc_pass, align 4
-  %920 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %921 = load i32, ptr %920, align 4
-  %922 = or i32 %921, -2147483648
-  br i1 %.not410, label %925, label %923
+915:                                              ; preds = %912, %909
+  %916 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %917 = load ptr, ptr %916, align 8
+  %.not410 = icmp eq ptr %917, null
+  %918 = load i32, ptr @hf_tibia_acc_pass, align 4
+  %919 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %920 = load i32, ptr %919, align 4
+  %921 = or i32 %920, -2147483648
+  br i1 %.not410, label %924, label %922
 
-923:                                              ; preds = %916
-  %924 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %919, ptr noundef %.0363, i32 noundef %.12, i32 noundef 2, i32 noundef %922, ptr noundef nonnull %9)
-  br label %928
+922:                                              ; preds = %915
+  %923 = call ptr @proto_tree_add_item_ret_length(ptr noundef %173, i32 noundef %918, ptr noundef %.0363, i32 noundef %.12, i32 noundef 2, i32 noundef %921, ptr noundef nonnull %9)
+  br label %927
 
-925:                                              ; preds = %916
-  %926 = call ptr @wmem_file_scope()
-  %927 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %919, ptr noundef %.0363, i32 noundef %.12, i32 noundef 2, i32 noundef %922, ptr noundef %926, ptr noundef nonnull %917, ptr noundef nonnull %9)
-  br label %928
+924:                                              ; preds = %915
+  %925 = call ptr @wmem_file_scope()
+  %926 = call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %173, i32 noundef %918, ptr noundef %.0363, i32 noundef %.12, i32 noundef 2, i32 noundef %921, ptr noundef %925, ptr noundef nonnull %916, ptr noundef nonnull %9)
+  br label %927
 
-928:                                              ; preds = %925, %923
-  %929 = load i32, ptr %9, align 4
-  %930 = add i32 %929, %.12
+927:                                              ; preds = %924, %922
+  %928 = load i32, ptr %9, align 4
+  %929 = add i32 %928, %.12
   %.pre451 = load i8, ptr %763, align 2
-  br label %931
+  br label %930
 
-931:                                              ; preds = %928, %913
-  %932 = phi i8 [ %.pre451, %928 ], [ %914, %913 ]
-  %.13 = phi i32 [ %930, %928 ], [ %.12, %913 ]
-  %933 = and i8 %932, 1
-  %.not411 = icmp eq i8 %933, 0
-  %934 = load i32, ptr %62, align 8
-  br i1 %.not411, label %1011, label %935
+930:                                              ; preds = %927, %912
+  %931 = phi i8 [ %.pre451, %927 ], [ %913, %912 ]
+  %.13 = phi i32 [ %929, %927 ], [ %.12, %912 ]
+  %932 = and i8 %931, 1
+  %.not411 = icmp eq i8 %932, 0
+  %933 = load i32, ptr %62, align 8
+  br i1 %.not411, label %1010, label %934
 
-935:                                              ; preds = %931
-  %936 = and i32 %934, 512
-  %.not412 = icmp eq i32 %936, 0
-  br i1 %.not412, label %1017, label %937
+934:                                              ; preds = %930
+  %935 = and i32 %933, 512
+  %.not412 = icmp eq i32 %935, 0
+  br i1 %.not412, label %1016, label %936
 
-937:                                              ; preds = %935
-  %938 = load i32, ptr @hf_tibia_client_info, align 4
-  %939 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %938, ptr noundef %.0363, i32 noundef %.13, i32 noundef 47, i32 noundef 0)
-  %940 = load i32, ptr @ett_client_info, align 4
-  %941 = call ptr @proto_item_add_subtree(ptr noundef %939, i32 noundef %940)
+936:                                              ; preds = %934
+  %937 = load i32, ptr @hf_tibia_client_info, align 4
+  %938 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %937, ptr noundef %.0363, i32 noundef %.13, i32 noundef 47, i32 noundef 0)
+  %939 = load i32, ptr @ett_client_info, align 4
+  %940 = call ptr @proto_item_add_subtree(ptr noundef %938, i32 noundef %939)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %942 = load i32, ptr @hf_tibia_client_locale, align 4
-  %943 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %942, ptr noundef %.0363, i32 noundef %.13, i32 noundef 4, i32 noundef 0)
-  %944 = load i32, ptr @ett_locale, align 4
-  %945 = call ptr @proto_item_add_subtree(ptr noundef %943, i32 noundef %944)
-  %946 = load i32, ptr @hf_tibia_client_locale_id, align 4
-  %947 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %945, i32 noundef %946, ptr noundef %.0363, i32 noundef %.13, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
-  %948 = add i32 %.13, 1
-  %949 = load i32, ptr @hf_tibia_client_locale_name, align 4
-  %950 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
-  %951 = load i32, ptr %950, align 4
-  %952 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %953 = load ptr, ptr %952, align 8
-  %954 = call ptr @proto_tree_add_item_ret_string(ptr noundef %945, i32 noundef %949, ptr noundef %.0363, i32 noundef %948, i32 noundef 3, i32 noundef %951, ptr noundef %953, ptr noundef nonnull %11)
-  %955 = add i32 %.13, 4
-  %956 = load ptr, ptr %11, align 8
-  %957 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %943, ptr noundef nonnull @.str.388, ptr noundef %956, i32 noundef %957)
-  %958 = load i32, ptr @hf_tibia_client_ram, align 4
-  %959 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %958, ptr noundef %.0363, i32 noundef %955, i32 noundef 2, i32 noundef -2147483648)
-  %960 = add i32 %.13, 6
-  %961 = load i32, ptr @hf_tibia_unknown, align 4
-  %962 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %961, ptr noundef %.0363, i32 noundef %960, i32 noundef 6, i32 noundef 0)
-  %963 = add i32 %.13, 12
+  %941 = load i32, ptr @hf_tibia_client_locale, align 4
+  %942 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %941, ptr noundef %.0363, i32 noundef %.13, i32 noundef 4, i32 noundef 0)
+  %943 = load i32, ptr @ett_locale, align 4
+  %944 = call ptr @proto_item_add_subtree(ptr noundef %942, i32 noundef %943)
+  %945 = load i32, ptr @hf_tibia_client_locale_id, align 4
+  %946 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %944, i32 noundef %945, ptr noundef %.0363, i32 noundef %.13, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
+  %947 = add i32 %.13, 1
+  %948 = load i32, ptr @hf_tibia_client_locale_name, align 4
+  %949 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
+  %950 = load i32, ptr %949, align 4
+  %951 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %952 = load ptr, ptr %951, align 8
+  %953 = call ptr @proto_tree_add_item_ret_string(ptr noundef %944, i32 noundef %948, ptr noundef %.0363, i32 noundef %947, i32 noundef 3, i32 noundef %950, ptr noundef %952, ptr noundef nonnull %11)
+  %954 = add i32 %.13, 4
+  %955 = load ptr, ptr %11, align 8
+  %956 = load i32, ptr %10, align 4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %942, ptr noundef nonnull @.str.388, ptr noundef %955, i32 noundef %956)
+  %957 = load i32, ptr @hf_tibia_client_ram, align 4
+  %958 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %957, ptr noundef %.0363, i32 noundef %954, i32 noundef 2, i32 noundef -2147483648)
+  %959 = add i32 %.13, 6
+  %960 = load i32, ptr @hf_tibia_unknown, align 4
+  %961 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %960, ptr noundef %.0363, i32 noundef %959, i32 noundef 6, i32 noundef 0)
+  %962 = add i32 %.13, 12
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %964 = load i32, ptr @hf_tibia_client_cpu, align 4
-  %965 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %964, ptr noundef %.0363, i32 noundef %963, i32 noundef 15, i32 noundef 0)
-  %966 = load i32, ptr @ett_cpu, align 4
-  %967 = call ptr @proto_item_add_subtree(ptr noundef %965, i32 noundef %966)
-  %968 = load i32, ptr @hf_tibia_client_cpu_name, align 4
-  %969 = load i32, ptr %950, align 4
-  %970 = load ptr, ptr %952, align 8
-  %971 = call ptr @proto_tree_add_item_ret_string(ptr noundef %967, i32 noundef %968, ptr noundef %.0363, i32 noundef %963, i32 noundef 9, i32 noundef %969, ptr noundef %970, ptr noundef nonnull %14)
-  %972 = add i32 %.13, 21
-  %973 = load i32, ptr @hf_tibia_unknown, align 4
-  %974 = call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %973, ptr noundef %.0363, i32 noundef %972, i32 noundef 2, i32 noundef 0)
-  %975 = add i32 %.13, 23
-  %976 = load i32, ptr @hf_tibia_client_clock, align 4
-  %977 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %967, i32 noundef %976, ptr noundef %.0363, i32 noundef %975, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %12)
-  %978 = add i32 %.13, 25
-  %979 = load i32, ptr @hf_tibia_client_clock2, align 4
-  %980 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %967, i32 noundef %979, ptr noundef %.0363, i32 noundef %978, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %13)
-  %981 = add i32 %.13, 27
-  %982 = load ptr, ptr %14, align 8
-  %983 = load i32, ptr %13, align 4
-  %984 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %965, ptr noundef nonnull @.str.389, ptr noundef %982, i32 noundef %983, i32 noundef %984)
-  %985 = load i32, ptr @hf_tibia_unknown, align 4
-  %986 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %985, ptr noundef %.0363, i32 noundef %981, i32 noundef 4, i32 noundef 0)
-  %987 = add i32 %.13, 31
-  %988 = load i32, ptr @hf_tibia_client_gpu, align 4
-  %989 = load i32, ptr %950, align 4
-  %990 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %988, ptr noundef %.0363, i32 noundef %987, i32 noundef 9, i32 noundef %989)
-  %991 = add i32 %.13, 40
-  %992 = load i32, ptr @hf_tibia_client_vram, align 4
-  %993 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %992, ptr noundef %.0363, i32 noundef %991, i32 noundef 2, i32 noundef -2147483648)
-  %994 = add i32 %.13, 42
+  %963 = load i32, ptr @hf_tibia_client_cpu, align 4
+  %964 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %963, ptr noundef %.0363, i32 noundef %962, i32 noundef 15, i32 noundef 0)
+  %965 = load i32, ptr @ett_cpu, align 4
+  %966 = call ptr @proto_item_add_subtree(ptr noundef %964, i32 noundef %965)
+  %967 = load i32, ptr @hf_tibia_client_cpu_name, align 4
+  %968 = load i32, ptr %949, align 4
+  %969 = load ptr, ptr %951, align 8
+  %970 = call ptr @proto_tree_add_item_ret_string(ptr noundef %966, i32 noundef %967, ptr noundef %.0363, i32 noundef %962, i32 noundef 9, i32 noundef %968, ptr noundef %969, ptr noundef nonnull %14)
+  %971 = add i32 %.13, 21
+  %972 = load i32, ptr @hf_tibia_unknown, align 4
+  %973 = call ptr @proto_tree_add_item(ptr noundef %966, i32 noundef %972, ptr noundef %.0363, i32 noundef %971, i32 noundef 2, i32 noundef 0)
+  %974 = add i32 %.13, 23
+  %975 = load i32, ptr @hf_tibia_client_clock, align 4
+  %976 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %966, i32 noundef %975, ptr noundef %.0363, i32 noundef %974, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %12)
+  %977 = add i32 %.13, 25
+  %978 = load i32, ptr @hf_tibia_client_clock2, align 4
+  %979 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %966, i32 noundef %978, ptr noundef %.0363, i32 noundef %977, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %13)
+  %980 = add i32 %.13, 27
+  %981 = load ptr, ptr %14, align 8
+  %982 = load i32, ptr %13, align 4
+  %983 = load i32, ptr %12, align 4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %964, ptr noundef nonnull @.str.389, ptr noundef %981, i32 noundef %982, i32 noundef %983)
+  %984 = load i32, ptr @hf_tibia_unknown, align 4
+  %985 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %984, ptr noundef %.0363, i32 noundef %980, i32 noundef 4, i32 noundef 0)
+  %986 = add i32 %.13, 31
+  %987 = load i32, ptr @hf_tibia_client_gpu, align 4
+  %988 = load i32, ptr %949, align 4
+  %989 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %987, ptr noundef %.0363, i32 noundef %986, i32 noundef 9, i32 noundef %988)
+  %990 = add i32 %.13, 40
+  %991 = load i32, ptr @hf_tibia_client_vram, align 4
+  %992 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %991, ptr noundef %.0363, i32 noundef %990, i32 noundef 2, i32 noundef -2147483648)
+  %993 = add i32 %.13, 42
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %995 = load i32, ptr @hf_tibia_client_resolution, align 4
-  %996 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %995, ptr noundef %.0363, i32 noundef %994, i32 noundef 5, i32 noundef 0)
-  %997 = load i32, ptr @ett_resolution, align 4
-  %998 = call ptr @proto_item_add_subtree(ptr noundef %996, i32 noundef %997)
-  %999 = load i32, ptr @hf_tibia_client_resolution_x, align 4
-  %1000 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %998, i32 noundef %999, ptr noundef %.0363, i32 noundef %994, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15)
-  %1001 = add i32 %.13, 44
-  %1002 = load i32, ptr @hf_tibia_client_resolution_y, align 4
-  %1003 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %998, i32 noundef %1002, ptr noundef %.0363, i32 noundef %1001, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %16)
-  %1004 = add i32 %.13, 46
-  %1005 = load i32, ptr @hf_tibia_client_resolution_hz, align 4
-  %1006 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %998, i32 noundef %1005, ptr noundef %.0363, i32 noundef %1004, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %17)
-  %1007 = add i32 %.13, 47
-  %1008 = load i32, ptr %15, align 4
-  %1009 = load i32, ptr %16, align 4
-  %1010 = load i32, ptr %17, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %996, ptr noundef nonnull @.str.390, i32 noundef %1008, i32 noundef %1009, i32 noundef %1010)
+  %994 = load i32, ptr @hf_tibia_client_resolution, align 4
+  %995 = call ptr @proto_tree_add_item(ptr noundef %940, i32 noundef %994, ptr noundef %.0363, i32 noundef %993, i32 noundef 5, i32 noundef 0)
+  %996 = load i32, ptr @ett_resolution, align 4
+  %997 = call ptr @proto_item_add_subtree(ptr noundef %995, i32 noundef %996)
+  %998 = load i32, ptr @hf_tibia_client_resolution_x, align 4
+  %999 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %997, i32 noundef %998, ptr noundef %.0363, i32 noundef %993, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15)
+  %1000 = add i32 %.13, 44
+  %1001 = load i32, ptr @hf_tibia_client_resolution_y, align 4
+  %1002 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %997, i32 noundef %1001, ptr noundef %.0363, i32 noundef %1000, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %16)
+  %1003 = add i32 %.13, 46
+  %1004 = load i32, ptr @hf_tibia_client_resolution_hz, align 4
+  %1005 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %997, i32 noundef %1004, ptr noundef %.0363, i32 noundef %1003, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %17)
+  %1006 = add i32 %.13, 47
+  %1007 = load i32, ptr %15, align 4
+  %1008 = load i32, ptr %16, align 4
+  %1009 = load i32, ptr %17, align 4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %995, ptr noundef nonnull @.str.390, i32 noundef %1007, i32 noundef %1008, i32 noundef %1009)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -3341,50 +3340,50 @@ get_version_traits.exit434:                       ; preds = %720, %730, %732, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %1017
+  br label %1016
 
-1011:                                             ; preds = %931
-  %1012 = and i32 %934, 64
-  %.not414 = icmp eq i32 %1012, 0
-  br i1 %.not414, label %1017, label %1013
+1010:                                             ; preds = %930
+  %1011 = and i32 %933, 64
+  %.not414 = icmp eq i32 %1011, 0
+  br i1 %.not414, label %1016, label %1012
 
-1013:                                             ; preds = %1011
-  %1014 = load i32, ptr @hf_tibia_nonce, align 4
-  %1015 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %1014, ptr noundef %.0363, i32 noundef %.13, i32 noundef 5, i32 noundef 0)
-  %1016 = add i32 %.13, 5
-  br label %1017
+1012:                                             ; preds = %1010
+  %1013 = load i32, ptr @hf_tibia_nonce, align 4
+  %1014 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %1013, ptr noundef %.0363, i32 noundef %.13, i32 noundef 5, i32 noundef 0)
+  %1015 = add i32 %.13, 5
+  br label %1016
 
-1017:                                             ; preds = %935, %1011, %1013, %937
-  %.14 = phi i32 [ %1007, %937 ], [ %.13, %1011 ], [ %1016, %1013 ], [ %.13, %935 ]
-  %1018 = load i32, ptr %62, align 8
-  %1019 = and i32 %1018, 2
-  %.not415 = icmp eq i32 %1019, 0
-  br i1 %.not415, label %1024, label %1020
+1016:                                             ; preds = %934, %1010, %1012, %936
+  %.14 = phi i32 [ %1006, %936 ], [ %.13, %1010 ], [ %1015, %1012 ], [ %.13, %934 ]
+  %1017 = load i32, ptr %62, align 8
+  %1018 = and i32 %1017, 2
+  %.not415 = icmp eq i32 %1018, 0
+  br i1 %.not415, label %1023, label %1019
 
-1020:                                             ; preds = %1017
-  %1021 = sub i32 128, %.14
-  %1022 = call ptr @tvb_new_subset_length(ptr noundef %.0363, i32 noundef %.14, i32 noundef %1021)
-  %1023 = call i32 @call_data_dissector(ptr noundef %1022, ptr noundef %1, ptr noundef %173)
-  br label %1024
+1019:                                             ; preds = %1016
+  %1020 = sub i32 128, %.14
+  %1021 = call ptr @tvb_new_subset_length(ptr noundef %.0363, i32 noundef %.14, i32 noundef %1020)
+  %1022 = call i32 @call_data_dissector(ptr noundef %1021, ptr noundef %1, ptr noundef %173)
+  br label %1023
 
-1024:                                             ; preds = %1020, %1017
+1023:                                             ; preds = %1019, %1016
   %.not416 = icmp eq i32 %.0382, 0
   %spec.select419 = select i1 %.not416, i32 %.14, i32 %.0382
   %.not417 = icmp eq i32 %spec.select419, %20
-  br i1 %.not417, label %1029, label %1025
+  br i1 %.not417, label %1028, label %1024
 
-1025:                                             ; preds = %1024
-  %1026 = sub i32 %20, %spec.select419
-  %1027 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %spec.select419, i32 noundef %1026)
-  %1028 = call i32 @call_data_dissector(ptr noundef %1027, ptr noundef %1, ptr noundef %173)
-  br label %1029
+1024:                                             ; preds = %1023
+  %1025 = sub i32 %20, %spec.select419
+  %1026 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %spec.select419, i32 noundef %1025)
+  %1027 = call i32 @call_data_dissector(ptr noundef %1026, ptr noundef %1, ptr noundef %173)
+  br label %1028
 
-1029:                                             ; preds = %1025, %1024
+1028:                                             ; preds = %1024, %1023
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_game_packet.exit
 
-dissect_game_packet.exit:                         ; preds = %811, %804, %.thread442, %dissect_client_packet.exit.i, %dissect_gameserv_packet.exit.i, %451, %dissect_loginserv_packet.exit.i, %288, %274, %proto_item_set_generated.exit138.i, %1029, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.4379, %.thread442 ], [ %20, %1029 ], [ %285, %288 ], [ %445, %dissect_loginserv_packet.exit.i ], [ %674, %dissect_gameserv_packet.exit.i ], [ %719, %dissect_client_packet.exit.i ], [ %454, %451 ], [ -1, %proto_item_set_generated.exit138.i ], [ %.1376, %274 ], [ %.4379, %804 ], [ %.4379, %811 ]
+dissect_game_packet.exit:                         ; preds = %811, %804, %.thread442, %dissect_client_packet.exit.i, %dissect_gameserv_packet.exit.i, %451, %dissect_loginserv_packet.exit.i, %288, %274, %proto_item_set_generated.exit138.i, %1028, %4
+  %.0 = phi i32 [ 0, %4 ], [ %.4379, %.thread442 ], [ %20, %1028 ], [ %285, %288 ], [ %445, %dissect_loginserv_packet.exit.i ], [ %674, %dissect_gameserv_packet.exit.i ], [ %719, %dissect_client_packet.exit.i ], [ %454, %451 ], [ -1, %proto_item_set_generated.exit138.i ], [ %.1376, %274 ], [ %.4379, %804 ], [ %.4379, %811 ]
   ret i32 %.0
 }
 

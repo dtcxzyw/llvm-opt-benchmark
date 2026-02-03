@@ -7377,206 +7377,206 @@ define void @Gia_ManFindUnatePairsInt(ptr noundef readonly captures(none) %0, pt
 28:                                               ; preds = %.lr.ph, %Abc_TtIntersectTwo.exit
   %.0104 = phi i32 [ 0, %.lr.ph ], [ %146, %Abc_TtIntersectTwo.exit ]
   %29 = and i32 %.0104, 1
-  %30 = lshr i32 %.0104, 1
-  %31 = icmp ne i32 %30, 0
-  %32 = icmp ne i32 %29, 0
-  %or.cond.i = and i1 %31, %32
-  br i1 %or.cond.i, label %.preheader.i, label %42
+  %30 = or disjoint i32 %29, %26
+  %31 = lshr i32 %.0104, 1
+  %32 = icmp ne i32 %31, 0
+  %33 = trunc i32 %.0104 to i1
+  %or.cond.i = and i1 %32, %33
+  br i1 %or.cond.i, label %.preheader.i, label %43
 
 .preheader.i:                                     ; preds = %28
   br i1 %11, label %.lr.ph108.i, label %Abc_TtIntersectTwo.exit
 
-33:                                               ; preds = %.lr.ph108.i
+34:                                               ; preds = %.lr.ph108.i
   %indvars.iv.next130.i = add nuw nsw i64 %indvars.iv129.i, 1
   %exitcond133.not.i = icmp eq i64 %indvars.iv.next130.i, %wide.trip.count.i
   br i1 %exitcond133.not.i, label %.loopexit, label %.lr.ph108.i, !llvm.loop !143
 
-.lr.ph108.i:                                      ; preds = %.preheader.i, %33
-  %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %33 ], [ 0, %.preheader.i ]
-  %34 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv129.i
-  %35 = load i64, ptr %34, align 8, !tbaa !94
-  %36 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv129.i
-  %37 = load i64, ptr %36, align 8, !tbaa !94
-  %.demorgan.i = or i64 %37, %35
-  %38 = xor i64 %.demorgan.i, -1
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv129.i
-  %40 = load i64, ptr %39, align 8, !tbaa !94
-  %41 = and i64 %40, %38
-  %.not84.i = icmp eq i64 %41, 0
-  br i1 %.not84.i, label %33, label %Abc_TtIntersectTwo.exit
+.lr.ph108.i:                                      ; preds = %.preheader.i, %34
+  %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %34 ], [ 0, %.preheader.i ]
+  %35 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv129.i
+  %36 = load i64, ptr %35, align 8, !tbaa !94
+  %37 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv129.i
+  %38 = load i64, ptr %37, align 8, !tbaa !94
+  %.demorgan.i = or i64 %38, %36
+  %39 = xor i64 %.demorgan.i, -1
+  %40 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv129.i
+  %41 = load i64, ptr %40, align 8, !tbaa !94
+  %42 = and i64 %41, %39
+  %.not84.i = icmp eq i64 %42, 0
+  br i1 %.not84.i, label %34, label %Abc_TtIntersectTwo.exit
 
-42:                                               ; preds = %28
-  br i1 %31, label %.preheader85.i, label %53
+43:                                               ; preds = %28
+  br i1 %32, label %.preheader85.i, label %54
 
-.preheader85.i:                                   ; preds = %42
+.preheader85.i:                                   ; preds = %43
   br i1 %11, label %.lr.ph103.i, label %Abc_TtIntersectTwo.exit
 
-43:                                               ; preds = %.lr.ph103.i
+44:                                               ; preds = %.lr.ph103.i
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %exitcond128.not.i = icmp eq i64 %indvars.iv.next125.i, %wide.trip.count.i
   br i1 %exitcond128.not.i, label %.loopexit, label %.lr.ph103.i, !llvm.loop !144
 
-.lr.ph103.i:                                      ; preds = %.preheader85.i, %43
-  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %43 ], [ 0, %.preheader85.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv124.i
-  %45 = load i64, ptr %44, align 8, !tbaa !94
-  %46 = xor i64 %45, -1
-  %47 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv124.i
-  %48 = load i64, ptr %47, align 8, !tbaa !94
-  %49 = and i64 %48, %46
-  %50 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv124.i
-  %51 = load i64, ptr %50, align 8, !tbaa !94
-  %52 = and i64 %49, %51
-  %.not83.i = icmp eq i64 %52, 0
-  br i1 %.not83.i, label %43, label %Abc_TtIntersectTwo.exit
+.lr.ph103.i:                                      ; preds = %.preheader85.i, %44
+  %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %44 ], [ 0, %.preheader85.i ]
+  %45 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv124.i
+  %46 = load i64, ptr %45, align 8, !tbaa !94
+  %47 = xor i64 %46, -1
+  %48 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv124.i
+  %49 = load i64, ptr %48, align 8, !tbaa !94
+  %50 = and i64 %49, %47
+  %51 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv124.i
+  %52 = load i64, ptr %51, align 8, !tbaa !94
+  %53 = and i64 %50, %52
+  %.not83.i = icmp eq i64 %53, 0
+  br i1 %.not83.i, label %44, label %Abc_TtIntersectTwo.exit
 
-53:                                               ; preds = %42
-  br i1 %32, label %.preheader88.i, label %.preheader91.i
+54:                                               ; preds = %43
+  br i1 %33, label %.preheader88.i, label %.preheader91.i
 
-.preheader91.i:                                   ; preds = %53
+.preheader91.i:                                   ; preds = %54
   br i1 %11, label %.lr.ph.i, label %Abc_TtIntersectTwo.exit
 
-.preheader88.i:                                   ; preds = %53
+.preheader88.i:                                   ; preds = %54
   br i1 %11, label %.lr.ph98.i, label %Abc_TtIntersectTwo.exit
 
-54:                                               ; preds = %.lr.ph98.i
+55:                                               ; preds = %.lr.ph98.i
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count.i
   br i1 %exitcond123.not.i, label %.loopexit, label %.lr.ph98.i, !llvm.loop !145
 
-.lr.ph98.i:                                       ; preds = %.preheader88.i, %54
-  %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %54 ], [ 0, %.preheader88.i ]
-  %55 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv119.i
-  %56 = load i64, ptr %55, align 8, !tbaa !94
-  %57 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv119.i
-  %58 = load i64, ptr %57, align 8, !tbaa !94
-  %59 = xor i64 %58, -1
-  %60 = and i64 %56, %59
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv119.i
-  %62 = load i64, ptr %61, align 8, !tbaa !94
-  %63 = and i64 %60, %62
-  %.not82.i = icmp eq i64 %63, 0
-  br i1 %.not82.i, label %54, label %Abc_TtIntersectTwo.exit
+.lr.ph98.i:                                       ; preds = %.preheader88.i, %55
+  %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %55 ], [ 0, %.preheader88.i ]
+  %56 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv119.i
+  %57 = load i64, ptr %56, align 8, !tbaa !94
+  %58 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv119.i
+  %59 = load i64, ptr %58, align 8, !tbaa !94
+  %60 = xor i64 %59, -1
+  %61 = and i64 %57, %60
+  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv119.i
+  %63 = load i64, ptr %62, align 8, !tbaa !94
+  %64 = and i64 %61, %63
+  %.not82.i = icmp eq i64 %64, 0
+  br i1 %.not82.i, label %55, label %Abc_TtIntersectTwo.exit
 
-64:                                               ; preds = %.lr.ph.i
+65:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !146
 
-.lr.ph.i:                                         ; preds = %.preheader91.i, %64
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %64 ], [ 0, %.preheader91.i ]
-  %65 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i
-  %66 = load i64, ptr %65, align 8, !tbaa !94
-  %67 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
-  %68 = load i64, ptr %67, align 8, !tbaa !94
-  %69 = and i64 %68, %66
-  %70 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
-  %71 = load i64, ptr %70, align 8, !tbaa !94
-  %72 = and i64 %69, %71
-  %.not.i = icmp eq i64 %72, 0
-  br i1 %.not.i, label %64, label %Abc_TtIntersectTwo.exit
+.lr.ph.i:                                         ; preds = %.preheader91.i, %65
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %.preheader91.i ]
+  %66 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i
+  %67 = load i64, ptr %66, align 8, !tbaa !94
+  %68 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
+  %69 = load i64, ptr %68, align 8, !tbaa !94
+  %70 = and i64 %69, %67
+  %71 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %72 = load i64, ptr %71, align 8, !tbaa !94
+  %73 = and i64 %70, %72
+  %.not.i = icmp eq i64 %73, 0
+  br i1 %.not.i, label %65, label %Abc_TtIntersectTwo.exit
 
-.loopexit:                                        ; preds = %64, %54, %43, %33
-  br i1 %or.cond.i, label %.preheader.i74, label %82
+.loopexit:                                        ; preds = %65, %55, %44, %34
+  br i1 %or.cond.i, label %.preheader.i74, label %83
 
 .preheader.i74:                                   ; preds = %.loopexit
   br i1 %11, label %.lr.ph108.i77, label %Abc_TtIntersectTwo.exit
 
-73:                                               ; preds = %.lr.ph108.i77
+74:                                               ; preds = %.lr.ph108.i77
   %indvars.iv.next130.i81 = add nuw nsw i64 %indvars.iv129.i78, 1
   %exitcond133.not.i82 = icmp eq i64 %indvars.iv.next130.i81, %wide.trip.count.i
   br i1 %exitcond133.not.i82, label %Abc_TtIntersectTwo.exit, label %.lr.ph108.i77, !llvm.loop !143
 
-.lr.ph108.i77:                                    ; preds = %.preheader.i74, %73
-  %indvars.iv129.i78 = phi i64 [ %indvars.iv.next130.i81, %73 ], [ 0, %.preheader.i74 ]
-  %74 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv129.i78
-  %75 = load i64, ptr %74, align 8, !tbaa !94
-  %76 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv129.i78
-  %77 = load i64, ptr %76, align 8, !tbaa !94
-  %.demorgan.i79 = or i64 %77, %75
-  %78 = xor i64 %.demorgan.i79, -1
-  %79 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv129.i78
-  %80 = load i64, ptr %79, align 8, !tbaa !94
-  %81 = and i64 %80, %78
-  %.not84.i80 = icmp eq i64 %81, 0
-  br i1 %.not84.i80, label %73, label %Abc_TtIntersectTwo.exit83
+.lr.ph108.i77:                                    ; preds = %.preheader.i74, %74
+  %indvars.iv129.i78 = phi i64 [ %indvars.iv.next130.i81, %74 ], [ 0, %.preheader.i74 ]
+  %75 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv129.i78
+  %76 = load i64, ptr %75, align 8, !tbaa !94
+  %77 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv129.i78
+  %78 = load i64, ptr %77, align 8, !tbaa !94
+  %.demorgan.i79 = or i64 %78, %76
+  %79 = xor i64 %.demorgan.i79, -1
+  %80 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv129.i78
+  %81 = load i64, ptr %80, align 8, !tbaa !94
+  %82 = and i64 %81, %79
+  %.not84.i80 = icmp eq i64 %82, 0
+  br i1 %.not84.i80, label %74, label %Abc_TtIntersectTwo.exit83
 
-82:                                               ; preds = %.loopexit
-  br i1 %31, label %.preheader85.i66, label %93
+83:                                               ; preds = %.loopexit
+  br i1 %32, label %.preheader85.i66, label %94
 
-.preheader85.i66:                                 ; preds = %82
+.preheader85.i66:                                 ; preds = %83
   br i1 %11, label %.lr.ph103.i69, label %Abc_TtIntersectTwo.exit
 
-83:                                               ; preds = %.lr.ph103.i69
+84:                                               ; preds = %.lr.ph103.i69
   %indvars.iv.next125.i72 = add nuw nsw i64 %indvars.iv124.i70, 1
   %exitcond128.not.i73 = icmp eq i64 %indvars.iv.next125.i72, %wide.trip.count.i
   br i1 %exitcond128.not.i73, label %Abc_TtIntersectTwo.exit, label %.lr.ph103.i69, !llvm.loop !144
 
-.lr.ph103.i69:                                    ; preds = %.preheader85.i66, %83
-  %indvars.iv124.i70 = phi i64 [ %indvars.iv.next125.i72, %83 ], [ 0, %.preheader85.i66 ]
-  %84 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv124.i70
-  %85 = load i64, ptr %84, align 8, !tbaa !94
-  %86 = xor i64 %85, -1
-  %87 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv124.i70
-  %88 = load i64, ptr %87, align 8, !tbaa !94
-  %89 = and i64 %88, %86
-  %90 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv124.i70
-  %91 = load i64, ptr %90, align 8, !tbaa !94
-  %92 = and i64 %89, %91
-  %.not83.i71 = icmp eq i64 %92, 0
-  br i1 %.not83.i71, label %83, label %Abc_TtIntersectTwo.exit83
+.lr.ph103.i69:                                    ; preds = %.preheader85.i66, %84
+  %indvars.iv124.i70 = phi i64 [ %indvars.iv.next125.i72, %84 ], [ 0, %.preheader85.i66 ]
+  %85 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv124.i70
+  %86 = load i64, ptr %85, align 8, !tbaa !94
+  %87 = xor i64 %86, -1
+  %88 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv124.i70
+  %89 = load i64, ptr %88, align 8, !tbaa !94
+  %90 = and i64 %89, %87
+  %91 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv124.i70
+  %92 = load i64, ptr %91, align 8, !tbaa !94
+  %93 = and i64 %90, %92
+  %.not83.i71 = icmp eq i64 %93, 0
+  br i1 %.not83.i71, label %84, label %Abc_TtIntersectTwo.exit83
 
-93:                                               ; preds = %82
-  br i1 %32, label %.preheader88.i58, label %.preheader91.i49
+94:                                               ; preds = %83
+  br i1 %33, label %.preheader88.i58, label %.preheader91.i49
 
-.preheader91.i49:                                 ; preds = %93
+.preheader91.i49:                                 ; preds = %94
   br i1 %11, label %.lr.ph.i53, label %Abc_TtIntersectTwo.exit
 
-.preheader88.i58:                                 ; preds = %93
+.preheader88.i58:                                 ; preds = %94
   br i1 %11, label %.lr.ph98.i61, label %Abc_TtIntersectTwo.exit
 
-94:                                               ; preds = %.lr.ph98.i61
+95:                                               ; preds = %.lr.ph98.i61
   %indvars.iv.next120.i64 = add nuw nsw i64 %indvars.iv119.i62, 1
   %exitcond123.not.i65 = icmp eq i64 %indvars.iv.next120.i64, %wide.trip.count.i
   br i1 %exitcond123.not.i65, label %Abc_TtIntersectTwo.exit, label %.lr.ph98.i61, !llvm.loop !145
 
-.lr.ph98.i61:                                     ; preds = %.preheader88.i58, %94
-  %indvars.iv119.i62 = phi i64 [ %indvars.iv.next120.i64, %94 ], [ 0, %.preheader88.i58 ]
-  %95 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv119.i62
-  %96 = load i64, ptr %95, align 8, !tbaa !94
-  %97 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv119.i62
-  %98 = load i64, ptr %97, align 8, !tbaa !94
-  %99 = xor i64 %98, -1
-  %100 = and i64 %96, %99
-  %101 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv119.i62
-  %102 = load i64, ptr %101, align 8, !tbaa !94
-  %103 = and i64 %100, %102
-  %.not82.i63 = icmp eq i64 %103, 0
-  br i1 %.not82.i63, label %94, label %Abc_TtIntersectTwo.exit83
+.lr.ph98.i61:                                     ; preds = %.preheader88.i58, %95
+  %indvars.iv119.i62 = phi i64 [ %indvars.iv.next120.i64, %95 ], [ 0, %.preheader88.i58 ]
+  %96 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv119.i62
+  %97 = load i64, ptr %96, align 8, !tbaa !94
+  %98 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv119.i62
+  %99 = load i64, ptr %98, align 8, !tbaa !94
+  %100 = xor i64 %99, -1
+  %101 = and i64 %97, %100
+  %102 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv119.i62
+  %103 = load i64, ptr %102, align 8, !tbaa !94
+  %104 = and i64 %101, %103
+  %.not82.i63 = icmp eq i64 %104, 0
+  br i1 %.not82.i63, label %95, label %Abc_TtIntersectTwo.exit83
 
-104:                                              ; preds = %.lr.ph.i53
+105:                                              ; preds = %.lr.ph.i53
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i
   br i1 %exitcond.not.i57, label %Abc_TtIntersectTwo.exit, label %.lr.ph.i53, !llvm.loop !146
 
-.lr.ph.i53:                                       ; preds = %.preheader91.i49, %104
-  %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i56, %104 ], [ 0, %.preheader91.i49 ]
-  %105 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i54
-  %106 = load i64, ptr %105, align 8, !tbaa !94
-  %107 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i54
-  %108 = load i64, ptr %107, align 8, !tbaa !94
-  %109 = and i64 %108, %106
-  %110 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i54
-  %111 = load i64, ptr %110, align 8, !tbaa !94
-  %112 = and i64 %109, %111
-  %.not.i55 = icmp eq i64 %112, 0
-  br i1 %.not.i55, label %104, label %Abc_TtIntersectTwo.exit83
+.lr.ph.i53:                                       ; preds = %.preheader91.i49, %105
+  %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i56, %105 ], [ 0, %.preheader91.i49 ]
+  %106 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i54
+  %107 = load i64, ptr %106, align 8, !tbaa !94
+  %108 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i54
+  %109 = load i64, ptr %108, align 8, !tbaa !94
+  %110 = and i64 %109, %107
+  %111 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i54
+  %112 = load i64, ptr %111, align 8, !tbaa !94
+  %113 = and i64 %110, %112
+  %.not.i55 = icmp eq i64 %113, 0
+  br i1 %.not.i55, label %105, label %Abc_TtIntersectTwo.exit83
 
 Abc_TtIntersectTwo.exit83:                        ; preds = %.lr.ph.i53, %.lr.ph98.i61, %.lr.ph103.i69, %.lr.ph108.i77
-  %113 = shl nuw nsw i32 %30, 15
-  %114 = add nuw nsw i32 %113, %27
-  %115 = or i32 %26, %114
-  %116 = or disjoint i32 %115, %29
+  %114 = shl nuw nsw i32 %31, 15
+  %115 = add nuw nsw i32 %114, %27
+  %116 = or i32 %115, %30
   %117 = shl nsw i32 %116, 1
   %118 = load i32, ptr %12, align 4, !tbaa !28
   %119 = load i32, ptr %5, align 8, !tbaa !29
@@ -7642,7 +7642,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %117, ptr %145, align 4, !tbaa !31
   br label %Abc_TtIntersectTwo.exit
 
-Abc_TtIntersectTwo.exit:                          ; preds = %.lr.ph.i, %.lr.ph98.i, %.lr.ph103.i, %.lr.ph108.i, %104, %94, %83, %73, %.preheader91.i, %.preheader88.i, %.preheader85.i, %.preheader.i, %.preheader85.i66, %.preheader.i74, %.preheader91.i49, %.preheader88.i58, %Vec_IntPush.exit
+Abc_TtIntersectTwo.exit:                          ; preds = %.lr.ph.i, %.lr.ph98.i, %.lr.ph103.i, %.lr.ph108.i, %105, %95, %84, %74, %.preheader91.i, %.preheader88.i, %.preheader85.i, %.preheader.i, %.preheader85.i66, %.preheader.i74, %.preheader91.i49, %.preheader88.i58, %Vec_IntPush.exit
   %146 = add nuw nsw i32 %.0104, 1
   %exitcond.not = icmp eq i32 %146, 4
   br i1 %exitcond.not, label %147, label %28, !llvm.loop !154
@@ -9110,64 +9110,64 @@ Vec_WecInit.exit:                                 ; preds = %7, %19
   br i1 %47, label %48, label %175
 
 48:                                               ; preds = %33
-  %49 = and i32 %36, 1
-  %50 = and i32 %38, 1
-  %51 = icmp ne i32 %50, 0
-  %52 = or i32 %50, %49
-  %or.cond.not.i = icmp eq i32 %52, 0
-  br i1 %or.cond.not.i, label %.preheader.i, label %82
+  %49 = trunc i32 %38 to i1
+  %50 = or i32 %38, %36
+  %51 = and i32 %50, 1
+  %or.cond.not.i = icmp eq i32 %51, 0
+  br i1 %or.cond.not.i, label %.preheader.i, label %81
 
 .preheader.i:                                     ; preds = %48
   br i1 %32, label %.lr.ph79.i, label %Abc_TtCountOnesVecMask2.exit
 
 .lr.ph79.i:                                       ; preds = %.preheader.i, %Abc_TtCountOnes2.exit.i
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %Abc_TtCountOnes2.exit.i ], [ 0, %.preheader.i ]
-  %.078.i = phi i32 [ %81, %Abc_TtCountOnes2.exit.i ], [ 0, %.preheader.i ]
-  %53 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv98.i
-  %54 = load i64, ptr %53, align 8, !tbaa !94
-  %55 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv98.i
-  %56 = load i64, ptr %55, align 8, !tbaa !94
-  %57 = and i64 %56, %54
-  %58 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv98.i
-  %59 = load i64, ptr %58, align 8, !tbaa !94
-  %60 = and i64 %57, %59
-  %.not.i.i61 = icmp eq i64 %60, 0
-  br i1 %.not.i.i61, label %Abc_TtCountOnes2.exit.i, label %61
+  %.078.i = phi i32 [ %80, %Abc_TtCountOnes2.exit.i ], [ 0, %.preheader.i ]
+  %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv98.i
+  %53 = load i64, ptr %52, align 8, !tbaa !94
+  %54 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv98.i
+  %55 = load i64, ptr %54, align 8, !tbaa !94
+  %56 = and i64 %55, %53
+  %57 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv98.i
+  %58 = load i64, ptr %57, align 8, !tbaa !94
+  %59 = and i64 %56, %58
+  %.not.i.i61 = icmp eq i64 %59, 0
+  br i1 %.not.i.i61, label %Abc_TtCountOnes2.exit.i, label %60
 
-61:                                               ; preds = %.lr.ph79.i
-  %62 = lshr i64 %60, 1
-  %63 = and i64 %62, 6148914691236517205
-  %64 = sub i64 %60, %63
-  %65 = and i64 %64, 3689348814741910323
-  %66 = lshr i64 %64, 2
-  %67 = and i64 %66, 3689348814741910323
-  %68 = add nuw nsw i64 %67, %65
-  %69 = lshr i64 %68, 4
-  %70 = add nuw nsw i64 %69, %68
-  %71 = and i64 %70, 1085102592571150095
-  %72 = lshr i64 %71, 8
-  %73 = add nuw nsw i64 %72, %71
-  %74 = lshr i64 %73, 16
-  %75 = add nuw nsw i64 %74, %73
-  %76 = lshr i64 %75, 32
-  %77 = add nuw nsw i64 %76, %75
-  %78 = trunc i64 %77 to i32
-  %79 = and i32 %78, 255
+60:                                               ; preds = %.lr.ph79.i
+  %61 = lshr i64 %59, 1
+  %62 = and i64 %61, 6148914691236517205
+  %63 = sub i64 %59, %62
+  %64 = and i64 %63, 3689348814741910323
+  %65 = lshr i64 %63, 2
+  %66 = and i64 %65, 3689348814741910323
+  %67 = add nuw nsw i64 %66, %64
+  %68 = lshr i64 %67, 4
+  %69 = add nuw nsw i64 %68, %67
+  %70 = and i64 %69, 1085102592571150095
+  %71 = lshr i64 %70, 8
+  %72 = add nuw nsw i64 %71, %70
+  %73 = lshr i64 %72, 16
+  %74 = add nuw nsw i64 %73, %72
+  %75 = lshr i64 %74, 32
+  %76 = add nuw nsw i64 %75, %74
+  %77 = trunc i64 %76 to i32
+  %78 = and i32 %77, 255
   br label %Abc_TtCountOnes2.exit.i
 
-Abc_TtCountOnes2.exit.i:                          ; preds = %61, %.lr.ph79.i
-  %80 = phi i32 [ %79, %61 ], [ 0, %.lr.ph79.i ]
-  %81 = add nuw nsw i32 %80, %.078.i
+Abc_TtCountOnes2.exit.i:                          ; preds = %60, %.lr.ph79.i
+  %79 = phi i32 [ %78, %60 ], [ 0, %.lr.ph79.i ]
+  %80 = add nuw nsw i32 %79, %.078.i
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count.i64
   br i1 %exitcond102.not.i, label %Abc_TtCountOnesVecMask2.exit, label %.lr.ph79.i, !llvm.loop !169
 
-82:                                               ; preds = %48
-  %83 = icmp eq i32 %49, 0
-  %or.cond3.i = or i1 %83, %51
+81:                                               ; preds = %48
+  %82 = and i32 %35, 2
+  %83 = icmp eq i32 %82, 0
+  %or.cond3.i = or i1 %83, %49
   br i1 %or.cond3.i, label %114, label %.preheader65.i
 
-.preheader65.i:                                   ; preds = %82
+.preheader65.i:                                   ; preds = %81
   br i1 %32, label %.lr.ph.i, label %Abc_TtCountOnesVecMask2.exit
 
 .lr.ph.i:                                         ; preds = %.preheader65.i, %Abc_TtCountOnes2.exit56.i
@@ -9213,8 +9213,8 @@ Abc_TtCountOnes2.exit56.i:                        ; preds = %93, %.lr.ph.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i64
   br i1 %exitcond.not.i, label %Abc_TtCountOnesVecMask2.exit, label %.lr.ph.i, !llvm.loop !170
 
-114:                                              ; preds = %82
-  %or.cond5.i = and i1 %83, %51
+114:                                              ; preds = %81
+  %or.cond5.i = and i1 %83, %49
   br i1 %or.cond5.i, label %.preheader61.i, label %.preheader63.i
 
 .preheader63.i:                                   ; preds = %114
@@ -9406,7 +9406,7 @@ Abc_TtCountOnes2.exit24.i:                        ; preds = %215, %.lr.ph31.i
   br i1 %exitcond40.not.i, label %Abc_TtCountOnesVecMask2.exit, label %.lr.ph31.i, !llvm.loop !174
 
 Abc_TtCountOnesVecMask2.exit:                     ; preds = %Abc_TtCountOnes2.exit.i68, %Abc_TtCountOnes2.exit24.i, %Abc_TtCountOnes2.exit56.i, %Abc_TtCountOnes2.exit60.i, %Abc_TtCountOnes2.exit58.i, %Abc_TtCountOnes2.exit.i, %.preheader.i71, %.preheader25.i, %.preheader61.i, %.preheader63.i, %.preheader65.i, %.preheader.i
-  %.1.i62.sink = phi i32 [ %235, %Abc_TtCountOnes2.exit24.i ], [ %174, %Abc_TtCountOnes2.exit60.i ], [ %113, %Abc_TtCountOnes2.exit56.i ], [ %144, %Abc_TtCountOnes2.exit58.i ], [ 0, %.preheader.i ], [ 0, %.preheader61.i ], [ 0, %.preheader63.i ], [ 0, %.preheader65.i ], [ %81, %Abc_TtCountOnes2.exit.i ], [ 0, %.preheader.i71 ], [ 0, %.preheader25.i ], [ %206, %Abc_TtCountOnes2.exit.i68 ]
+  %.1.i62.sink = phi i32 [ %235, %Abc_TtCountOnes2.exit24.i ], [ %174, %Abc_TtCountOnes2.exit60.i ], [ %113, %Abc_TtCountOnes2.exit56.i ], [ %144, %Abc_TtCountOnes2.exit58.i ], [ 0, %.preheader.i ], [ 0, %.preheader61.i ], [ 0, %.preheader63.i ], [ 0, %.preheader65.i ], [ %80, %Abc_TtCountOnes2.exit.i ], [ 0, %.preheader.i71 ], [ 0, %.preheader25.i ], [ %206, %Abc_TtCountOnes2.exit.i68 ]
   tail call fastcc void @Vec_WecPush(ptr noundef nonnull %6, i32 noundef %.1.i62.sink, i32 noundef %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val54 = load i32, ptr %28, align 4, !tbaa !28
@@ -12349,15 +12349,15 @@ Vec_IntStartFull.exit:                            ; preds = %2, %11
   %22 = and i32 %21, 1
   %23 = getelementptr inbounds nuw i64, ptr %7, i64 %15
   %24 = load i64, ptr %23, align 8, !tbaa !94
-  %25 = shl nuw i64 1, %19
-  %26 = and i64 %24, %25
-  %27 = icmp ne i64 %26, 0
-  %28 = icmp ne i32 %22, 0
-  %or.cond = select i1 %27, i1 true, i1 %28
+  %25 = lshr i64 %24, %19
+  %26 = trunc i64 %25 to i1
+  %27 = trunc i64 %20 to i1
+  %or.cond = select i1 %26, i1 true, i1 %27
   br i1 %or.cond, label %.preheader, label %50
 
 .preheader:                                       ; preds = %.lr.ph
   %.val34 = load ptr, ptr %6, align 8, !tbaa !76
+  %28 = shl nuw i64 1, %19
   br label %29
 
 29:                                               ; preds = %.preheader, %29
@@ -12370,7 +12370,7 @@ Vec_IntStartFull.exit:                            ; preds = %2, %11
   %34 = load ptr, ptr %33, align 8, !tbaa !93
   %35 = getelementptr inbounds nuw i64, ptr %34, i64 %15
   %36 = load i64, ptr %35, align 8, !tbaa !94
-  %37 = and i64 %36, %25
+  %37 = and i64 %36, %28
   %.not31 = icmp eq i64 %37, 0
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = shl nuw nsw i32 1, %38

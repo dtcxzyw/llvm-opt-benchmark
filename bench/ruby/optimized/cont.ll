@@ -3347,9 +3347,8 @@ define dso_local void @ruby_Init_Continuation_body() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %3, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %3 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %3, 254

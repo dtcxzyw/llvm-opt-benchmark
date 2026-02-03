@@ -669,14 +669,13 @@ lg4ff_effect_slot_valid_active.exit:              ; preds = %2
 12:                                               ; preds = %lg4ff_effect_slot_valid_active.exit
   %13 = getelementptr i8, ptr %8, i64 104
   %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 1
-  %.not = icmp ne i32 %15, 0
+  %.not = trunc i32 %14 to i1
   br label %lg4ff_effect_slot_valid_active.exit.thread
 
 lg4ff_effect_slot_valid_active.exit.thread:       ; preds = %lg4ff_effect_slot_valid_active.exit, %2, %12
   %.09 = phi i1 [ %.not, %12 ], [ false, %2 ], [ false, %lg4ff_effect_slot_valid_active.exit ]
-  %16 = load ptr, ptr %5, align 8
-  tail call void @SDL_UnlockMutex_REAL(ptr noundef %16) #9
+  %15 = load ptr, ptr %5, align 8
+  tail call void @SDL_UnlockMutex_REAL(ptr noundef %15) #9
   ret i1 %.09
 }
 

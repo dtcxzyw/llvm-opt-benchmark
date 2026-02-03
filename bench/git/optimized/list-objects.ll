@@ -617,7 +617,7 @@ define internal fastcc void @process_tree(ptr noundef nonnull captures(none) %0,
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 16384
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %141, label %11
+  br i1 %.not, label %140, label %11
 
 11:                                               ; preds = %4
   %.not56 = icmp eq ptr %1, null
@@ -631,7 +631,7 @@ define internal fastcc void @process_tree(ptr noundef nonnull captures(none) %0,
   %14 = load i32, ptr %1, align 4
   %15 = and i32 %14, 48
   %.not57 = icmp eq i32 %15, 0
-  br i1 %.not57, label %16, label %141
+  br i1 %.not57, label %16, label %140
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 1456
@@ -644,7 +644,7 @@ define internal fastcc void @process_tree(ptr noundef nonnull captures(none) %0,
   %21 = load ptr, ptr %20, align 8, !tbaa !96
   %22 = tail call i32 %18(ptr noundef nonnull %1, ptr noundef %21) #9
   %.not59 = icmp eq i32 %22, 0
-  br i1 %.not59, label %141, label %23
+  br i1 %.not59, label %140, label %23
 
 23:                                               ; preds = %19, %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -666,7 +666,7 @@ define internal fastcc void @process_tree(ptr noundef nonnull captures(none) %0,
   %32 = load i64, ptr %8, align 8
   %33 = and i64 %32, 2
   %.not61 = icmp eq i64 %33, 0
-  br i1 %.not61, label %34, label %141
+  br i1 %.not61, label %34, label %140
 
 34:                                               ; preds = %31
   %35 = and i64 %32, 8796093022208
@@ -679,7 +679,7 @@ define internal fastcc void @process_tree(ptr noundef nonnull captures(none) %0,
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = tail call i32 @is_promisor_object(ptr noundef %38, ptr noundef nonnull %39) #9
   %.not63 = icmp eq i32 %40, 0
-  br i1 %.not63, label %._crit_edge, label %141
+  br i1 %.not63, label %._crit_edge, label %140
 
 ._crit_edge:                                      ; preds = %36
   %.pre = load i64, ptr %8, align 8
@@ -795,112 +795,111 @@ strbuf_addch.exit:                                ; preds = %84, %strbuf_avail.e
 92:                                               ; preds = %strbuf_addch.exit, %show_object.exit
   %93 = and i32 %58, 4
   %.not68 = icmp eq i32 %93, 0
-  br i1 %.not68, label %100, label %94
+  br i1 %.not68, label %99, label %94
 
 94:                                               ; preds = %92
   %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !99
   %.not.i74 = icmp eq i32 %95, 0
   %96 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
-  %97 = and i8 %96, 1
-  %.not6982 = icmp ne i8 %97, 0
+  %.not6982 = trunc i8 %96 to i1
   %.not69 = select i1 %.not.i74, i1 %.not6982, i1 false
-  br i1 %.not69, label %102, label %98
+  br i1 %.not69, label %101, label %97
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %52, align 8, !tbaa !97
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.6, i32 noundef 203, ptr noundef nonnull @trace_default_key, ptr noundef nonnull @.str.7, ptr noundef %99) #9
-  br label %102
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %52, align 8, !tbaa !97
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.6, i32 noundef 203, ptr noundef nonnull @trace_default_key, ptr noundef nonnull @.str.7, ptr noundef %98) #9
+  br label %101
 
-100:                                              ; preds = %92
-  br i1 %.not60, label %101, label %102
+99:                                               ; preds = %92
+  br i1 %.not60, label %100, label %101
 
-101:                                              ; preds = %100
+100:                                              ; preds = %99
   tail call fastcc void @process_tree_contents(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %102
+  br label %101
 
-102:                                              ; preds = %100, %101, %94, %98
-  %103 = load ptr, ptr %0, align 8, !tbaa !74
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !17
-  %106 = load ptr, ptr %52, align 8, !tbaa !97
-  %107 = getelementptr inbounds i8, ptr %106, i64 %54
-  %108 = load ptr, ptr %56, align 8, !tbaa !82
-  %109 = tail call i32 @list_objects_filter__filter_object(ptr noundef %105, i32 noundef 3, ptr noundef nonnull %1, ptr noundef %106, ptr noundef %107, ptr noundef %108) #9
-  %110 = and i32 %109, 1
-  %.not70 = icmp eq i32 %110, 0
-  br i1 %.not70, label %114, label %111
+101:                                              ; preds = %99, %100, %94, %97
+  %102 = load ptr, ptr %0, align 8, !tbaa !74
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %104 = load ptr, ptr %103, align 8, !tbaa !17
+  %105 = load ptr, ptr %52, align 8, !tbaa !97
+  %106 = getelementptr inbounds i8, ptr %105, i64 %54
+  %107 = load ptr, ptr %56, align 8, !tbaa !82
+  %108 = tail call i32 @list_objects_filter__filter_object(ptr noundef %104, i32 noundef 3, ptr noundef nonnull %1, ptr noundef %105, ptr noundef %106, ptr noundef %107) #9
+  %109 = and i32 %108, 1
+  %.not70 = icmp eq i32 %109, 0
+  br i1 %.not70, label %113, label %110
 
-111:                                              ; preds = %102
-  %112 = load i32, ptr %1, align 4
-  %113 = or i32 %112, 16
-  store i32 %113, ptr %1, align 4
-  br label %114
+110:                                              ; preds = %101
+  %111 = load i32, ptr %1, align 4
+  %112 = or i32 %111, 16
+  store i32 %112, ptr %1, align 4
+  br label %113
 
-114:                                              ; preds = %111, %102
-  %115 = and i32 %109, 2
-  %.not71 = icmp eq i32 %115, 0
-  br i1 %.not71, label %show_object.exit80, label %116
+113:                                              ; preds = %110, %101
+  %114 = and i32 %108, 2
+  %.not71 = icmp eq i32 %114, 0
+  br i1 %.not71, label %show_object.exit80, label %115
 
-116:                                              ; preds = %114
-  %117 = load ptr, ptr %52, align 8, !tbaa !97
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !78
-  %.not.i75 = icmp eq ptr %119, null
-  br i1 %.not.i75, label %show_object.exit80, label %120
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %52, align 8, !tbaa !97
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !78
+  %.not.i75 = icmp eq ptr %118, null
+  br i1 %.not.i75, label %show_object.exit80, label %119
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %0, align 8, !tbaa !74
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 288
-  %123 = load i64, ptr %122, align 8
-  %124 = and i64 %123, 1048576
-  %.not8.i76 = icmp eq i64 %124, 0
-  br i1 %.not8.i76, label %130, label %125
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %0, align 8, !tbaa !74
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 288
+  %122 = load i64, ptr %121, align 8
+  %123 = and i64 %122, 1048576
+  %.not8.i76 = icmp eq i64 %123, 0
+  br i1 %.not8.i76, label %129, label %124
 
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !17
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %129 = tail call i32 @has_object_pack(ptr noundef %127, ptr noundef nonnull %128) #9
-  %.not9.i77 = icmp eq i32 %129, 0
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %126 = load ptr, ptr %125, align 8, !tbaa !17
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %128 = tail call i32 @has_object_pack(ptr noundef %126, ptr noundef nonnull %127) #9
+  %.not9.i77 = icmp eq i32 %128, 0
   br i1 %.not9.i77, label %._crit_edge.i78, label %show_object.exit80
 
-._crit_edge.i78:                                  ; preds = %125
-  %.pre.i79 = load ptr, ptr %118, align 8, !tbaa !78
-  br label %130
+._crit_edge.i78:                                  ; preds = %124
+  %.pre.i79 = load ptr, ptr %117, align 8, !tbaa !78
+  br label %129
 
-130:                                              ; preds = %._crit_edge.i78, %120
-  %131 = phi ptr [ %.pre.i79, %._crit_edge.i78 ], [ %119, %120 ]
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !80
-  tail call void %131(ptr noundef nonnull %1, ptr noundef %117, ptr noundef %133) #9
+129:                                              ; preds = %._crit_edge.i78, %119
+  %130 = phi ptr [ %.pre.i79, %._crit_edge.i78 ], [ %118, %119 ]
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %132 = load ptr, ptr %131, align 8, !tbaa !80
+  tail call void %130(ptr noundef nonnull %1, ptr noundef %116, ptr noundef %132) #9
   br label %show_object.exit80
 
-show_object.exit80:                               ; preds = %130, %125, %116, %114
-  %134 = load i64, ptr %2, align 8, !tbaa !98
-  %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %134, i64 1)
-  %135 = icmp ugt i64 %54, %spec.select.i
-  br i1 %135, label %136, label %137
+show_object.exit80:                               ; preds = %129, %124, %115, %113
+  %133 = load i64, ptr %2, align 8, !tbaa !98
+  %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %133, i64 1)
+  %134 = icmp ugt i64 %54, %spec.select.i
+  br i1 %134, label %135, label %136
 
-136:                                              ; preds = %show_object.exit80
+135:                                              ; preds = %show_object.exit80
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.10, i32 noundef 167, ptr noundef nonnull @.str.11) #10
   unreachable
 
-137:                                              ; preds = %show_object.exit80
+136:                                              ; preds = %show_object.exit80
   store i64 %54, ptr %6, align 8, !tbaa !94
-  %138 = load ptr, ptr %52, align 8, !tbaa !97
-  %.not9.i81 = icmp eq ptr %138, @strbuf_slopbuf
-  br i1 %.not9.i81, label %strbuf_setlen.exit, label %139
+  %137 = load ptr, ptr %52, align 8, !tbaa !97
+  %.not9.i81 = icmp eq ptr %137, @strbuf_slopbuf
+  br i1 %.not9.i81, label %strbuf_setlen.exit, label %138
 
-139:                                              ; preds = %137
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %54
-  store i8 0, ptr %140, align 1, !tbaa !84
+138:                                              ; preds = %136
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %54
+  store i8 0, ptr %139, align 1, !tbaa !84
   br label %strbuf_setlen.exit
 
-strbuf_setlen.exit:                               ; preds = %137, %139
+strbuf_setlen.exit:                               ; preds = %136, %138
   tail call void @free_tree_buffer(ptr noundef nonnull %1) #9
-  br label %141
+  br label %140
 
-141:                                              ; preds = %36, %31, %19, %13, %4, %strbuf_setlen.exit
+140:                                              ; preds = %36, %31, %19, %13, %4, %strbuf_setlen.exit
   ret void
 }
 

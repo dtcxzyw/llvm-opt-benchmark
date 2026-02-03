@@ -1205,158 +1205,158 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
 
 103:                                              ; preds = %.preheader387, %_php_dns_free_res.exit247
   %.0171368 = phi i32 [ %.1172, %_php_dns_free_res.exit247 ], [ 1, %.preheader387 ]
-  %.1175367 = phi i32 [ %249, %_php_dns_free_res.exit247 ], [ %spec.select, %.preheader387 ]
+  %.1175367 = phi i32 [ %248, %_php_dns_free_res.exit247 ], [ %spec.select, %.preheader387 ]
   switch i32 %.1175367, label %.thread335 [
     i32 -1, label %104
     i32 0, label %107
-    i32 1, label %111
-    i32 2, label %115
-    i32 3, label %118
-    i32 4, label %121
-    i32 5, label %124
-    i32 6, label %127
-    i32 7, label %130
-    i32 8, label %135
-    i32 9, label %138
-    i32 10, label %141
-    i32 11, label %144
-    i32 12, label %147
+    i32 1, label %110
+    i32 2, label %114
+    i32 3, label %117
+    i32 4, label %120
+    i32 5, label %123
+    i32 6, label %126
+    i32 7, label %129
+    i32 8, label %134
+    i32 9, label %137
+    i32 10, label %140
+    i32 11, label %143
+    i32 12, label %146
     i32 13, label %_php_dns_free_res.exit247
   ]
 
 104:                                              ; preds = %103
   %105 = load i64, ptr %4, align 8, !tbaa !35
   %106 = trunc i64 %105 to i32
-  br label %150
+  br label %149
 
 107:                                              ; preds = %103
   %108 = load i64, ptr %4, align 8, !tbaa !35
-  %109 = trunc i64 %108 to i32
-  %110 = and i32 %109, 1
-  br label %150
+  %.not205 = trunc i64 %108 to i32
+  %109 = and i32 %.not205, 1
+  br label %149
 
-111:                                              ; preds = %103
-  %112 = load i64, ptr %4, align 8, !tbaa !35
-  %113 = trunc i64 %112 to i32
-  %114 = and i32 %113, 2
-  br label %150
+110:                                              ; preds = %103
+  %111 = load i64, ptr %4, align 8, !tbaa !35
+  %112 = trunc i64 %111 to i32
+  %113 = and i32 %112, 2
+  br label %149
 
-115:                                              ; preds = %103
-  %116 = load i64, ptr %4, align 8, !tbaa !35
-  %117 = and i64 %116, 16
-  %.not203 = icmp eq i64 %117, 0
+114:                                              ; preds = %103
+  %115 = load i64, ptr %4, align 8, !tbaa !35
+  %116 = and i64 %115, 16
+  %.not203 = icmp eq i64 %116, 0
   br i1 %.not203, label %_php_dns_free_res.exit247, label %.thread335
 
-118:                                              ; preds = %103
-  %119 = load i64, ptr %4, align 8, !tbaa !35
-  %120 = and i64 %119, 32
-  %.not202 = icmp eq i64 %120, 0
+117:                                              ; preds = %103
+  %118 = load i64, ptr %4, align 8, !tbaa !35
+  %119 = and i64 %118, 32
+  %.not202 = icmp eq i64 %119, 0
   br i1 %.not202, label %_php_dns_free_res.exit247, label %.thread335
 
-121:                                              ; preds = %103
-  %122 = load i64, ptr %4, align 8, !tbaa !35
-  %123 = and i64 %122, 2048
-  %.not201 = icmp eq i64 %123, 0
+120:                                              ; preds = %103
+  %121 = load i64, ptr %4, align 8, !tbaa !35
+  %122 = and i64 %121, 2048
+  %.not201 = icmp eq i64 %122, 0
   br i1 %.not201, label %_php_dns_free_res.exit247, label %.thread335
 
-124:                                              ; preds = %103
-  %125 = load i64, ptr %4, align 8, !tbaa !35
-  %126 = and i64 %125, 4096
-  %.not200 = icmp eq i64 %126, 0
+123:                                              ; preds = %103
+  %124 = load i64, ptr %4, align 8, !tbaa !35
+  %125 = and i64 %124, 4096
+  %.not200 = icmp eq i64 %125, 0
   br i1 %.not200, label %_php_dns_free_res.exit247, label %.thread335
 
-127:                                              ; preds = %103
-  %128 = load i64, ptr %4, align 8, !tbaa !35
-  %129 = and i64 %128, 16384
-  %.not199 = icmp eq i64 %129, 0
+126:                                              ; preds = %103
+  %127 = load i64, ptr %4, align 8, !tbaa !35
+  %128 = and i64 %127, 16384
+  %.not199 = icmp eq i64 %128, 0
   br i1 %.not199, label %_php_dns_free_res.exit247, label %.thread335
 
-130:                                              ; preds = %103
-  %131 = load i64, ptr %4, align 8, !tbaa !35
-  %132 = trunc i64 %131 to i32
-  %133 = lshr i32 %132, 11
-  %134 = and i32 %133, 16
-  br label %150
+129:                                              ; preds = %103
+  %130 = load i64, ptr %4, align 8, !tbaa !35
+  %131 = trunc i64 %130 to i32
+  %132 = lshr i32 %131, 11
+  %133 = and i32 %132, 16
+  br label %149
 
-135:                                              ; preds = %103
-  %136 = load i64, ptr %4, align 8, !tbaa !35
-  %137 = and i64 %136, 134217728
-  %.not197 = icmp eq i64 %137, 0
+134:                                              ; preds = %103
+  %135 = load i64, ptr %4, align 8, !tbaa !35
+  %136 = and i64 %135, 134217728
+  %.not197 = icmp eq i64 %136, 0
   br i1 %.not197, label %_php_dns_free_res.exit247, label %.thread335
 
-138:                                              ; preds = %103
-  %139 = load i64, ptr %4, align 8, !tbaa !35
-  %140 = and i64 %139, 33554432
-  %.not196 = icmp eq i64 %140, 0
+137:                                              ; preds = %103
+  %138 = load i64, ptr %4, align 8, !tbaa !35
+  %139 = and i64 %138, 33554432
+  %.not196 = icmp eq i64 %139, 0
   br i1 %.not196, label %_php_dns_free_res.exit247, label %.thread335
 
-141:                                              ; preds = %103
-  %142 = load i64, ptr %4, align 8, !tbaa !35
-  %143 = and i64 %142, 67108864
-  %.not195 = icmp eq i64 %143, 0
+140:                                              ; preds = %103
+  %141 = load i64, ptr %4, align 8, !tbaa !35
+  %142 = and i64 %141, 67108864
+  %.not195 = icmp eq i64 %142, 0
   br i1 %.not195, label %_php_dns_free_res.exit247, label %.thread335
 
-144:                                              ; preds = %103
-  %145 = load i64, ptr %4, align 8, !tbaa !35
-  %146 = and i64 %145, 16777216
-  %.not194 = icmp eq i64 %146, 0
+143:                                              ; preds = %103
+  %144 = load i64, ptr %4, align 8, !tbaa !35
+  %145 = and i64 %144, 16777216
+  %.not194 = icmp eq i64 %145, 0
   br i1 %.not194, label %_php_dns_free_res.exit247, label %.thread335
 
-147:                                              ; preds = %103
-  %148 = load i64, ptr %4, align 8, !tbaa !35
-  %149 = and i64 %148, 8192
-  %.not193 = icmp eq i64 %149, 0
+146:                                              ; preds = %103
+  %147 = load i64, ptr %4, align 8, !tbaa !35
+  %148 = and i64 %147, 8192
+  %.not193 = icmp eq i64 %148, 0
   br i1 %.not193, label %_php_dns_free_res.exit247, label %.thread335
 
-150:                                              ; preds = %130, %111, %107, %104
-  %.2176 = phi i32 [ 7, %130 ], [ 12, %104 ], [ 0, %107 ], [ 1, %111 ]
-  %.0 = phi i32 [ %134, %130 ], [ %106, %104 ], [ %110, %107 ], [ %114, %111 ]
+149:                                              ; preds = %129, %110, %107, %104
+  %.2176 = phi i32 [ 7, %129 ], [ 12, %104 ], [ 0, %107 ], [ 1, %110 ]
+  %.0 = phi i32 [ %133, %129 ], [ %106, %104 ], [ %109, %107 ], [ %113, %110 ]
   %.not206 = icmp eq i32 %.0, 0
   br i1 %.not206, label %_php_dns_free_res.exit247, label %.thread335
 
-.thread335:                                       ; preds = %103, %144, %141, %138, %135, %127, %124, %121, %118, %115, %147, %150
-  %.0340 = phi i32 [ %.0, %150 ], [ 255, %103 ], [ 38, %144 ], [ 35, %141 ], [ 33, %138 ], [ 28, %135 ], [ 15, %127 ], [ 13, %124 ], [ 12, %121 ], [ 6, %118 ], [ 5, %115 ], [ 257, %147 ]
-  %.2176339 = phi i32 [ %.2176, %150 ], [ %.1175367, %103 ], [ 11, %144 ], [ 10, %141 ], [ 9, %138 ], [ 8, %135 ], [ 6, %127 ], [ 5, %124 ], [ 4, %121 ], [ 3, %118 ], [ 2, %115 ], [ 12, %147 ]
+.thread335:                                       ; preds = %103, %143, %140, %137, %134, %126, %123, %120, %117, %114, %146, %149
+  %.0340 = phi i32 [ %.0, %149 ], [ 255, %103 ], [ 38, %143 ], [ 35, %140 ], [ 33, %137 ], [ 28, %134 ], [ 15, %126 ], [ 13, %123 ], [ 12, %120 ], [ 6, %117 ], [ 5, %114 ], [ 257, %146 ]
+  %.2176339 = phi i32 [ %.2176, %149 ], [ %.1175367, %103 ], [ 11, %143 ], [ 10, %140 ], [ 9, %137 ], [ 8, %134 ], [ 6, %126 ], [ 5, %123 ], [ 4, %120 ], [ 3, %117 ], [ 2, %114 ], [ 12, %146 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %5, i8 0, i64 568, i1 false)
-  %151 = call i32 @__res_ninit(ptr noundef nonnull %5) #11
-  %.not207 = icmp eq i32 %151, 0
-  br i1 %.not207, label %154, label %152
+  %150 = call i32 @__res_ninit(ptr noundef nonnull %5) #11
+  %.not207 = icmp eq i32 %150, 0
+  br i1 %.not207, label %153, label %151
 
-152:                                              ; preds = %.thread335
-  %153 = load ptr, ptr %1, align 8, !tbaa !4
-  call void @zend_array_destroy(ptr noundef %153) #11
+151:                                              ; preds = %.thread335
+  %152 = load ptr, ptr %1, align 8, !tbaa !4
+  call void @zend_array_destroy(ptr noundef %152) #11
   store i32 2, ptr %87, align 8, !tbaa !4
   br label %.loopexit
 
-154:                                              ; preds = %.thread335
-  %155 = call i32 @res_nsearch(ptr noundef nonnull %5, ptr noundef nonnull %22, i32 noundef 1, i32 noundef %.0340, ptr noundef nonnull %6, i32 noundef 65536) #11
-  %156 = icmp slt i32 %155, 0
-  br i1 %156, label %157, label %166
+153:                                              ; preds = %.thread335
+  %154 = call i32 @res_nsearch(ptr noundef nonnull %5, ptr noundef nonnull %22, i32 noundef 1, i32 noundef %.0340, ptr noundef nonnull %6, i32 noundef 65536) #11
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %156, label %165
 
-157:                                              ; preds = %154
-  %158 = load i32, ptr %102, align 8, !tbaa !41
+156:                                              ; preds = %153
+  %157 = load i32, ptr %102, align 8, !tbaa !41
   call void @__res_nclose(ptr noundef nonnull %5) #11
-  br label %159
+  br label %158
 
-159:                                              ; preds = %163, %157
-  %indvars.iv.i = phi i64 [ 0, %157 ], [ %indvars.iv.next.i, %163 ]
-  %160 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
-  %161 = load ptr, ptr %160, align 8, !tbaa !4
-  %.not.i234 = icmp eq ptr %161, null
-  br i1 %.not.i234, label %163, label %162
+158:                                              ; preds = %162, %156
+  %indvars.iv.i = phi i64 [ 0, %156 ], [ %indvars.iv.next.i, %162 ]
+  %159 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
+  %160 = load ptr, ptr %159, align 8, !tbaa !4
+  %.not.i234 = icmp eq ptr %160, null
+  br i1 %.not.i234, label %162, label %161
 
-162:                                              ; preds = %159
-  call void @free(ptr noundef nonnull %161) #11
-  store ptr null, ptr %160, align 8, !tbaa !4
-  br label %163
+161:                                              ; preds = %158
+  call void @free(ptr noundef nonnull %160) #11
+  store ptr null, ptr %159, align 8, !tbaa !4
+  br label %162
 
-163:                                              ; preds = %162, %159
+162:                                              ; preds = %161, %158
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_php_dns_free_res.exit, label %159
+  br i1 %exitcond.not.i, label %_php_dns_free_res.exit, label %158
 
-_php_dns_free_res.exit:                           ; preds = %163
-  switch i32 %158, label %164 [
+_php_dns_free_res.exit:                           ; preds = %162
+  switch i32 %157, label %163 [
     i32 4, label %_php_dns_free_res.exit247
     i32 1, label %_php_dns_free_res.exit247
     i32 3, label %.loopexit391
@@ -1364,231 +1364,231 @@ _php_dns_free_res.exit:                           ; preds = %163
   ]
 
 .loopexit391:                                     ; preds = %_php_dns_free_res.exit
-  br label %164
+  br label %163
 
 .loopexit394:                                     ; preds = %_php_dns_free_res.exit
-  br label %164
+  br label %163
 
-164:                                              ; preds = %_php_dns_free_res.exit, %.loopexit394, %.loopexit391
+163:                                              ; preds = %_php_dns_free_res.exit, %.loopexit394, %.loopexit391
   %.str.22.sink = phi ptr [ @.str.21, %.loopexit394 ], [ @.str.20, %.loopexit391 ], [ @.str.22, %_php_dns_free_res.exit ]
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.22.sink) #11
-  %165 = load ptr, ptr %1, align 8, !tbaa !4
-  call void @zend_array_destroy(ptr noundef %165) #11
+  %164 = load ptr, ptr %1, align 8, !tbaa !4
+  call void @zend_array_destroy(ptr noundef %164) #11
   store i32 2, ptr %87, align 8, !tbaa !4
   br label %.loopexit
 
-166:                                              ; preds = %154
-  %167 = zext nneg i32 %155 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %6, i64 %167
-  %169 = load i64, ptr %6, align 8
-  %170 = lshr i64 %169, 32
-  %171 = trunc i64 %170 to i16
-  %172 = lshr i64 %169, 48
-  %173 = trunc nuw i64 %172 to i16
-  %rev.i235 = call noundef i16 @llvm.bswap.i16(i16 %173)
-  %174 = zext i16 %rev.i235 to i32
-  %175 = load i32, ptr %94, align 8
-  %176 = trunc i32 %175 to i16
-  %rev.i236 = call noundef i16 @llvm.bswap.i16(i16 %176)
-  %177 = zext i16 %rev.i236 to i32
-  %178 = lshr i32 %175, 16
-  %179 = trunc nuw i32 %178 to i16
-  %rev.i237 = call noundef i16 @llvm.bswap.i16(i16 %179)
-  %180 = zext i16 %rev.i237 to i32
-  %.not369 = icmp eq i16 %171, 0
+165:                                              ; preds = %153
+  %166 = zext nneg i32 %154 to i64
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 %166
+  %168 = load i64, ptr %6, align 8
+  %169 = lshr i64 %168, 32
+  %170 = trunc i64 %169 to i16
+  %171 = lshr i64 %168, 48
+  %172 = trunc nuw i64 %171 to i16
+  %rev.i235 = call noundef i16 @llvm.bswap.i16(i16 %172)
+  %173 = zext i16 %rev.i235 to i32
+  %174 = load i32, ptr %94, align 8
+  %175 = trunc i32 %174 to i16
+  %rev.i236 = call noundef i16 @llvm.bswap.i16(i16 %175)
+  %176 = zext i16 %rev.i236 to i32
+  %177 = lshr i32 %174, 16
+  %178 = trunc nuw i32 %177 to i16
+  %rev.i237 = call noundef i16 @llvm.bswap.i16(i16 %178)
+  %179 = zext i16 %rev.i237 to i32
+  %.not369 = icmp eq i16 %170, 0
   br i1 %.not369, label %.preheader351, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %166
-  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %171)
-  %181 = zext i16 %rev.i to i32
+.lr.ph.preheader:                                 ; preds = %165
+  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %170)
+  %180 = zext i16 %rev.i to i32
   br label %.lr.ph
 
-.preheader351:                                    ; preds = %194, %166
-  %.0162.lcssa = phi ptr [ %93, %166 ], [ %198, %194 ]
-  %182 = icmp ne i64 %172, 0
-  %183 = icmp ult ptr %.0162.lcssa, %168
-  %or.cond217354 = select i1 %182, i1 %183, i1 false
+.preheader351:                                    ; preds = %193, %165
+  %.0162.lcssa = phi ptr [ %93, %165 ], [ %197, %193 ]
+  %181 = icmp ne i64 %171, 0
+  %182 = icmp ult ptr %.0162.lcssa, %167
+  %or.cond217354 = select i1 %181, i1 %182, i1 false
   br i1 %or.cond217354, label %.lr.ph356, label %.critedge
 
 .lr.ph356:                                        ; preds = %.preheader351
-  %184 = icmp ne i32 %.0171368, 0
-  br label %200
+  %183 = icmp ne i32 %.0171368, 0
+  br label %199
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %194
-  %.in = phi i32 [ %195, %194 ], [ %181, %.lr.ph.preheader ]
-  %.0162353 = phi ptr [ %198, %194 ], [ %93, %.lr.ph.preheader ]
-  %185 = call i32 @dn_skipname(ptr noundef nonnull %.0162353, ptr noundef nonnull %168) #11
-  %186 = icmp slt i32 %185, 0
-  br i1 %186, label %187, label %194
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %193
+  %.in = phi i32 [ %194, %193 ], [ %180, %.lr.ph.preheader ]
+  %.0162353 = phi ptr [ %197, %193 ], [ %93, %.lr.ph.preheader ]
+  %184 = call i32 @dn_skipname(ptr noundef nonnull %.0162353, ptr noundef nonnull %167) #11
+  %185 = icmp slt i32 %184, 0
+  br i1 %185, label %186, label %193
 
-187:                                              ; preds = %.lr.ph
+186:                                              ; preds = %.lr.ph
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.23) #11
-  %188 = load ptr, ptr %1, align 8, !tbaa !4
-  call void @zend_array_destroy(ptr noundef %188) #11
+  %187 = load ptr, ptr %1, align 8, !tbaa !4
+  call void @zend_array_destroy(ptr noundef %187) #11
   call void @__res_nclose(ptr noundef nonnull %5) #11
-  br label %189
+  br label %188
 
-189:                                              ; preds = %193, %187
-  %indvars.iv.i238 = phi i64 [ 0, %187 ], [ %indvars.iv.next.i240, %193 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i238
-  %191 = load ptr, ptr %190, align 8, !tbaa !4
-  %.not.i239 = icmp eq ptr %191, null
-  br i1 %.not.i239, label %193, label %192
+188:                                              ; preds = %192, %186
+  %indvars.iv.i238 = phi i64 [ 0, %186 ], [ %indvars.iv.next.i240, %192 ]
+  %189 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i238
+  %190 = load ptr, ptr %189, align 8, !tbaa !4
+  %.not.i239 = icmp eq ptr %190, null
+  br i1 %.not.i239, label %192, label %191
 
-192:                                              ; preds = %189
-  call void @free(ptr noundef nonnull %191) #11
-  store ptr null, ptr %190, align 8, !tbaa !4
-  br label %193
+191:                                              ; preds = %188
+  call void @free(ptr noundef nonnull %190) #11
+  store ptr null, ptr %189, align 8, !tbaa !4
+  br label %192
 
-193:                                              ; preds = %192, %189
+192:                                              ; preds = %191, %188
   %indvars.iv.next.i240 = add nuw nsw i64 %indvars.iv.i238, 1
   %exitcond.not.i241 = icmp eq i64 %indvars.iv.next.i240, 3
-  br i1 %exitcond.not.i241, label %_php_dns_free_res.exit242, label %189
+  br i1 %exitcond.not.i241, label %_php_dns_free_res.exit242, label %188
 
-_php_dns_free_res.exit242:                        ; preds = %193
+_php_dns_free_res.exit242:                        ; preds = %192
   store i32 2, ptr %87, align 8, !tbaa !4
   br label %.loopexit
 
-194:                                              ; preds = %.lr.ph
-  %195 = add nsw i32 %.in, -1
-  %196 = zext nneg i32 %185 to i64
-  %197 = getelementptr inbounds nuw i8, ptr %.0162353, i64 %196
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 4
-  %199 = icmp sgt i32 %.in, 1
-  br i1 %199, label %.lr.ph, label %.preheader351
+193:                                              ; preds = %.lr.ph
+  %194 = add nsw i32 %.in, -1
+  %195 = zext nneg i32 %184 to i64
+  %196 = getelementptr inbounds nuw i8, ptr %.0162353, i64 %195
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
+  %198 = icmp sgt i32 %.in, 1
+  br i1 %198, label %.lr.ph, label %.preheader351
 
-200:                                              ; preds = %.lr.ph356, %210
-  %.in370 = phi i32 [ %174, %.lr.ph356 ], [ %201, %210 ]
-  %.1355 = phi ptr [ %.0162.lcssa, %.lr.ph356 ], [ %204, %210 ]
-  %201 = add nsw i32 %.in370, -1
+199:                                              ; preds = %.lr.ph356, %209
+  %.in370 = phi i32 [ %173, %.lr.ph356 ], [ %200, %209 ]
+  %.1355 = phi ptr [ %.0162.lcssa, %.lr.ph356 ], [ %203, %209 ]
+  %200 = add nsw i32 %.in370, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %202 = load i8, ptr %7, align 1, !tbaa !36, !range !39, !noundef !40
-  %203 = trunc nuw i8 %202 to i1
-  %204 = call fastcc ptr @php_parserr(ptr noundef %.1355, ptr noundef %168, ptr noundef %6, i32 noundef %.0340, i32 noundef %.0171368, i1 noundef zeroext %203, ptr noundef %8)
-  %205 = load i8, ptr %95, align 8, !tbaa !4
-  %206 = icmp ne i8 %205, 0
-  %or.cond7 = select i1 %206, i1 %184, i1 false
-  br i1 %or.cond7, label %207, label %210
+  %201 = load i8, ptr %7, align 1, !tbaa !36, !range !39, !noundef !40
+  %202 = trunc nuw i8 %201 to i1
+  %203 = call fastcc ptr @php_parserr(ptr noundef %.1355, ptr noundef %167, ptr noundef %6, i32 noundef %.0340, i32 noundef %.0171368, i1 noundef zeroext %202, ptr noundef %8)
+  %204 = load i8, ptr %95, align 8, !tbaa !4
+  %205 = icmp ne i8 %204, 0
+  %or.cond7 = select i1 %205, i1 %183, i1 false
+  br i1 %or.cond7, label %206, label %209
 
-207:                                              ; preds = %200
-  %208 = load ptr, ptr %1, align 8, !tbaa !4
-  %209 = call ptr @zend_hash_next_index_insert(ptr noundef %208, ptr noundef nonnull %8) #11
-  br label %210
+206:                                              ; preds = %199
+  %207 = load ptr, ptr %1, align 8, !tbaa !4
+  %208 = call ptr @zend_hash_next_index_insert(ptr noundef %207, ptr noundef nonnull %8) #11
+  br label %209
 
-210:                                              ; preds = %207, %200
+209:                                              ; preds = %206, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %211 = icmp ne i32 %201, 0
-  %212 = icmp ne ptr %204, null
-  %or.cond5 = select i1 %211, i1 %212, i1 false
-  %213 = icmp ult ptr %204, %168
-  %or.cond217 = select i1 %or.cond5, i1 %213, i1 false
-  br i1 %or.cond217, label %200, label %.critedge
+  %210 = icmp ne i32 %200, 0
+  %211 = icmp ne ptr %203, null
+  %or.cond5 = select i1 %210, i1 %211, i1 false
+  %212 = icmp ult ptr %203, %167
+  %or.cond217 = select i1 %or.cond5, i1 %212, i1 false
+  br i1 %or.cond217, label %199, label %.critedge
 
-.critedge:                                        ; preds = %210, %.preheader351
-  %.1.lcssa = phi ptr [ %.0162.lcssa, %.preheader351 ], [ %204, %210 ]
+.critedge:                                        ; preds = %209, %.preheader351
+  %.1.lcssa = phi ptr [ %.0162.lcssa, %.preheader351 ], [ %203, %209 ]
   br i1 %or.cond9, label %.preheader350, label %.critedge17
 
 .preheader350:                                    ; preds = %.critedge
-  %214 = icmp ne i16 %176, 0
-  %215 = icmp ne ptr %.1.lcssa, null
-  %or.cond11358 = select i1 %214, i1 %215, i1 false
-  %216 = icmp ult ptr %.1.lcssa, %168
-  %or.cond218359 = select i1 %or.cond11358, i1 %216, i1 false
+  %213 = icmp ne i16 %175, 0
+  %214 = icmp ne ptr %.1.lcssa, null
+  %or.cond11358 = select i1 %213, i1 %214, i1 false
+  %215 = icmp ult ptr %.1.lcssa, %167
+  %or.cond218359 = select i1 %or.cond11358, i1 %215, i1 false
   br i1 %or.cond218359, label %.lr.ph361, label %.critedge13
 
-.lr.ph361:                                        ; preds = %.preheader350, %225
-  %.in371 = phi i32 [ %217, %225 ], [ %177, %.preheader350 ]
-  %.3360 = phi ptr [ %220, %225 ], [ %.1.lcssa, %.preheader350 ]
-  %217 = add nsw i32 %.in371, -1
+.lr.ph361:                                        ; preds = %.preheader350, %224
+  %.in371 = phi i32 [ %216, %224 ], [ %176, %.preheader350 ]
+  %.3360 = phi ptr [ %219, %224 ], [ %.1.lcssa, %.preheader350 ]
+  %216 = add nsw i32 %.in371, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %218 = load i8, ptr %7, align 1, !tbaa !36, !range !39, !noundef !40
-  %219 = trunc nuw i8 %218 to i1
-  %220 = call fastcc ptr @php_parserr(ptr noundef %.3360, ptr noundef %168, ptr noundef %6, i32 noundef 255, i32 noundef %98, i1 noundef zeroext %219, ptr noundef %9)
-  %221 = load i8, ptr %99, align 8, !tbaa !4
-  %.not210 = icmp eq i8 %221, 0
-  br i1 %.not210, label %225, label %222
+  %217 = load i8, ptr %7, align 1, !tbaa !36, !range !39, !noundef !40
+  %218 = trunc nuw i8 %217 to i1
+  %219 = call fastcc ptr @php_parserr(ptr noundef %.3360, ptr noundef %167, ptr noundef %6, i32 noundef 255, i32 noundef %98, i1 noundef zeroext %218, ptr noundef %9)
+  %220 = load i8, ptr %99, align 8, !tbaa !4
+  %.not210 = icmp eq i8 %220, 0
+  br i1 %.not210, label %224, label %221
 
-222:                                              ; preds = %.lr.ph361
-  %223 = load ptr, ptr %.1264317, align 8, !tbaa !4
-  %224 = call ptr @zend_hash_next_index_insert(ptr noundef %223, ptr noundef nonnull %9) #11
-  br label %225
+221:                                              ; preds = %.lr.ph361
+  %222 = load ptr, ptr %.1264317, align 8, !tbaa !4
+  %223 = call ptr @zend_hash_next_index_insert(ptr noundef %222, ptr noundef nonnull %9) #11
+  br label %224
 
-225:                                              ; preds = %222, %.lr.ph361
+224:                                              ; preds = %221, %.lr.ph361
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %226 = icmp sgt i32 %.in371, 1
-  %227 = icmp ne ptr %220, null
-  %or.cond11 = select i1 %226, i1 %227, i1 false
-  %228 = icmp ult ptr %220, %168
-  %or.cond218 = select i1 %or.cond11, i1 %228, i1 false
+  %225 = icmp sgt i32 %.in371, 1
+  %226 = icmp ne ptr %219, null
+  %or.cond11 = select i1 %225, i1 %226, i1 false
+  %227 = icmp ult ptr %219, %167
+  %or.cond218 = select i1 %or.cond11, i1 %227, i1 false
   br i1 %or.cond218, label %.lr.ph361, label %.critedge13
 
-.critedge13:                                      ; preds = %225, %.preheader350
-  %.3.lcssa = phi ptr [ %.1.lcssa, %.preheader350 ], [ %220, %225 ]
+.critedge13:                                      ; preds = %224, %.preheader350
+  %.3.lcssa = phi ptr [ %.1.lcssa, %.preheader350 ], [ %219, %224 ]
   br i1 %.not192, label %.critedge17, label %.preheader
 
 .preheader:                                       ; preds = %.critedge13
-  %229 = icmp ne i32 %178, 0
-  %230 = icmp ne ptr %.3.lcssa, null
-  %or.cond15363 = select i1 %229, i1 %230, i1 false
-  %231 = icmp ult ptr %.3.lcssa, %168
-  %or.cond219364 = select i1 %or.cond15363, i1 %231, i1 false
+  %228 = icmp ne i32 %177, 0
+  %229 = icmp ne ptr %.3.lcssa, null
+  %or.cond15363 = select i1 %228, i1 %229, i1 false
+  %230 = icmp ult ptr %.3.lcssa, %167
+  %or.cond219364 = select i1 %or.cond15363, i1 %230, i1 false
   br i1 %or.cond219364, label %.lr.ph366, label %.critedge17
 
-.lr.ph366:                                        ; preds = %.preheader, %240
-  %.in372 = phi i32 [ %232, %240 ], [ %180, %.preheader ]
-  %.4365 = phi ptr [ %235, %240 ], [ %.3.lcssa, %.preheader ]
-  %232 = add nsw i32 %.in372, -1
+.lr.ph366:                                        ; preds = %.preheader, %239
+  %.in372 = phi i32 [ %231, %239 ], [ %179, %.preheader ]
+  %.4365 = phi ptr [ %234, %239 ], [ %.3.lcssa, %.preheader ]
+  %231 = add nsw i32 %.in372, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %233 = load i8, ptr %7, align 1, !tbaa !36, !range !39, !noundef !40
-  %234 = trunc nuw i8 %233 to i1
-  %235 = call fastcc ptr @php_parserr(ptr noundef %.4365, ptr noundef %168, ptr noundef %6, i32 noundef 255, i32 noundef 1, i1 noundef zeroext %234, ptr noundef %10)
-  %236 = load i8, ptr %100, align 8, !tbaa !4
-  %.not209 = icmp eq i8 %236, 0
-  br i1 %.not209, label %240, label %237
+  %232 = load i8, ptr %7, align 1, !tbaa !36, !range !39, !noundef !40
+  %233 = trunc nuw i8 %232 to i1
+  %234 = call fastcc ptr @php_parserr(ptr noundef %.4365, ptr noundef %167, ptr noundef %6, i32 noundef 255, i32 noundef 1, i1 noundef zeroext %233, ptr noundef %10)
+  %235 = load i8, ptr %100, align 8, !tbaa !4
+  %.not209 = icmp eq i8 %235, 0
+  br i1 %.not209, label %239, label %236
 
-237:                                              ; preds = %.lr.ph366
-  %238 = load ptr, ptr %.1261, align 8, !tbaa !4
-  %239 = call ptr @zend_hash_next_index_insert(ptr noundef %238, ptr noundef nonnull %10) #11
-  br label %240
+236:                                              ; preds = %.lr.ph366
+  %237 = load ptr, ptr %.1261, align 8, !tbaa !4
+  %238 = call ptr @zend_hash_next_index_insert(ptr noundef %237, ptr noundef nonnull %10) #11
+  br label %239
 
-240:                                              ; preds = %237, %.lr.ph366
+239:                                              ; preds = %236, %.lr.ph366
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %241 = icmp sgt i32 %.in372, 1
-  %242 = icmp ne ptr %235, null
-  %or.cond15 = select i1 %241, i1 %242, i1 false
-  %243 = icmp ult ptr %235, %168
-  %or.cond219 = select i1 %or.cond15, i1 %243, i1 false
+  %240 = icmp sgt i32 %.in372, 1
+  %241 = icmp ne ptr %234, null
+  %or.cond15 = select i1 %240, i1 %241, i1 false
+  %242 = icmp ult ptr %234, %167
+  %or.cond219 = select i1 %or.cond15, i1 %242, i1 false
   br i1 %or.cond219, label %.lr.ph366, label %.critedge17
 
-.critedge17:                                      ; preds = %240, %.preheader, %.critedge, %.critedge13
+.critedge17:                                      ; preds = %239, %.preheader, %.critedge, %.critedge13
   call void @__res_nclose(ptr noundef nonnull %5) #11
-  br label %244
+  br label %243
 
-244:                                              ; preds = %248, %.critedge17
-  %indvars.iv.i243 = phi i64 [ 0, %.critedge17 ], [ %indvars.iv.next.i245, %248 ]
-  %245 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i243
-  %246 = load ptr, ptr %245, align 8, !tbaa !4
-  %.not.i244 = icmp eq ptr %246, null
-  br i1 %.not.i244, label %248, label %247
+243:                                              ; preds = %247, %.critedge17
+  %indvars.iv.i243 = phi i64 [ 0, %.critedge17 ], [ %indvars.iv.next.i245, %247 ]
+  %244 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i243
+  %245 = load ptr, ptr %244, align 8, !tbaa !4
+  %.not.i244 = icmp eq ptr %245, null
+  br i1 %.not.i244, label %247, label %246
 
-247:                                              ; preds = %244
-  call void @free(ptr noundef nonnull %246) #11
-  store ptr null, ptr %245, align 8, !tbaa !4
-  br label %248
+246:                                              ; preds = %243
+  call void @free(ptr noundef nonnull %245) #11
+  store ptr null, ptr %244, align 8, !tbaa !4
+  br label %247
 
-248:                                              ; preds = %247, %244
+247:                                              ; preds = %246, %243
   %indvars.iv.next.i245 = add nuw nsw i64 %indvars.iv.i243, 1
   %exitcond.not.i246 = icmp eq i64 %indvars.iv.next.i245, 3
-  br i1 %exitcond.not.i246, label %_php_dns_free_res.exit247, label %244
+  br i1 %exitcond.not.i246, label %_php_dns_free_res.exit247, label %243
 
-_php_dns_free_res.exit247:                        ; preds = %248, %144, %141, %138, %135, %127, %124, %121, %118, %115, %147, %103, %150, %_php_dns_free_res.exit, %_php_dns_free_res.exit
-  %.3177 = phi i32 [ %.2176339, %_php_dns_free_res.exit ], [ %.2176339, %_php_dns_free_res.exit ], [ 11, %144 ], [ %.2176, %150 ], [ %.1175367, %103 ], [ 9, %138 ], [ 8, %135 ], [ 6, %127 ], [ 5, %124 ], [ 4, %121 ], [ 3, %118 ], [ 2, %115 ], [ 12, %147 ], [ 10, %141 ], [ %.2176339, %248 ]
-  %.1172 = phi i32 [ %.0171368, %_php_dns_free_res.exit ], [ %.0171368, %_php_dns_free_res.exit ], [ %.0171368, %144 ], [ %.0171368, %150 ], [ 0, %103 ], [ %.0171368, %138 ], [ %.0171368, %135 ], [ %.0171368, %127 ], [ %.0171368, %124 ], [ %.0171368, %121 ], [ %.0171368, %118 ], [ %.0171368, %115 ], [ %.0171368, %147 ], [ %.0171368, %141 ], [ %.0171368, %248 ]
-  %249 = add nsw i32 %.3177, 1
-  %250 = icmp slt i32 %249, %92
-  br i1 %250, label %103, label %.loopexit
+_php_dns_free_res.exit247:                        ; preds = %247, %143, %140, %137, %134, %126, %123, %120, %117, %114, %146, %103, %149, %_php_dns_free_res.exit, %_php_dns_free_res.exit
+  %.3177 = phi i32 [ %.2176339, %_php_dns_free_res.exit ], [ %.2176339, %_php_dns_free_res.exit ], [ 11, %143 ], [ %.2176, %149 ], [ %.1175367, %103 ], [ 9, %137 ], [ 8, %134 ], [ 6, %126 ], [ 5, %123 ], [ 4, %120 ], [ 3, %117 ], [ 2, %114 ], [ 12, %146 ], [ 10, %140 ], [ %.2176339, %247 ]
+  %.1172 = phi i32 [ %.0171368, %_php_dns_free_res.exit ], [ %.0171368, %_php_dns_free_res.exit ], [ %.0171368, %143 ], [ %.0171368, %149 ], [ 0, %103 ], [ %.0171368, %137 ], [ %.0171368, %134 ], [ %.0171368, %126 ], [ %.0171368, %123 ], [ %.0171368, %120 ], [ %.0171368, %117 ], [ %.0171368, %114 ], [ %.0171368, %146 ], [ %.0171368, %140 ], [ %.0171368, %247 ]
+  %248 = add nsw i32 %.3177, 1
+  %249 = icmp slt i32 %248, %92
+  br i1 %249, label %103, label %.loopexit
 
-.loopexit:                                        ; preds = %_php_dns_free_res.exit247, %69, %53, %.thread283, %_php_dns_free_res.exit242, %164, %152, %85, %82
+.loopexit:                                        ; preds = %_php_dns_free_res.exit247, %69, %53, %.thread283, %_php_dns_free_res.exit242, %163, %151, %85, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

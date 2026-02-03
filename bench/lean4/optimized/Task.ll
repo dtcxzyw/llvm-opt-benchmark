@@ -156,9 +156,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 define ptr @l_Lake_instMonadTask__lake___lambda__6___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @lean_task_pure(ptr noundef %0) #4
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8
@@ -254,9 +253,8 @@ lean_alloc_closure.exit:                          ; preds = %4
 define ptr @l_Lake_instMonadTask__lake___lambda__9___boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8

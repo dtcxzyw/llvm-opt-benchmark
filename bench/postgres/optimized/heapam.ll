@@ -1395,9 +1395,8 @@ BufferGetPage.exit54:                             ; preds = %58, %64
   store i8 0, ptr %5, align 1
   %119 = getelementptr i8, ptr %111, i64 20
   %.val.val.i.i = load i16, ptr %119, align 4
-  %120 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %120, 0
-  br i1 %.not.i.i.i, label %121, label %162
+  %120 = trunc i16 %.val.val.i.i to i1
+  br i1 %120, label %162, label %121
 
 121:                                              ; preds = %118
   %122 = zext nneg i32 %108 to i64
@@ -1480,8 +1479,8 @@ BufferGetPage.exit54:                             ; preds = %58, %64
   %170 = and i32 %163, 7
   %171 = shl nuw nsw i32 1, %170
   %172 = and i32 %171, %169
-  %.not.i20.i.i = icmp eq i32 %172, 0
-  br i1 %.not.i20.i.i, label %173, label %174
+  %.not.i.i.i = icmp eq i32 %172, 0
+  br i1 %.not.i.i.i, label %173, label %174
 
 173:                                              ; preds = %162
   store i8 1, ptr %5, align 1
@@ -1909,9 +1908,8 @@ HeapKeyTest.exit.us74:                            ; preds = %136, %.lr.ph.split.
   store i8 0, ptr %5, align 1
   %198 = getelementptr i8, ptr %190, i64 20
   %.val.val.i.i = load i16, ptr %198, align 4
-  %199 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %199, 0
-  br i1 %.not.i.i.i, label %200, label %241
+  %199 = trunc i16 %.val.val.i.i to i1
+  br i1 %199, label %241, label %200
 
 200:                                              ; preds = %197
   %201 = zext nneg i32 %187 to i64
@@ -1994,8 +1992,8 @@ HeapKeyTest.exit.us74:                            ; preds = %136, %.lr.ph.split.
   %249 = and i32 %242, 7
   %250 = shl nuw nsw i32 1, %249
   %251 = and i32 %250, %248
-  %.not.i20.i.i = icmp eq i32 %251, 0
-  br i1 %.not.i20.i.i, label %252, label %253
+  %.not.i.i.i = icmp eq i32 %251, 0
+  br i1 %.not.i.i.i, label %252, label %253
 
 252:                                              ; preds = %241
   store i8 1, ptr %5, align 1
@@ -12387,9 +12385,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   %.val.i = load ptr, ptr %7, align 8
   %17 = getelementptr i8, ptr %.val.i, i64 20
   %.val.val.i = load i16, ptr %17, align 4
-  %18 = and i16 %.val.val.i, 1
-  %.not.i.i = icmp eq i16 %18, 0
-  br i1 %.not.i.i, label %19, label %60
+  %18 = trunc i16 %.val.val.i to i1
+  br i1 %18, label %60, label %19
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
@@ -12472,8 +12469,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   %68 = and i32 %61, 7
   %69 = shl nuw nsw i32 1, %68
   %70 = and i32 %69, %67
-  %.not.i20.i = icmp eq i32 %70, 0
-  br i1 %.not.i20.i, label %71, label %72
+  %.not.i.i = icmp eq i32 %70, 0
+  br i1 %.not.i.i, label %71, label %72
 
 71:                                               ; preds = %60
   store i8 1, ptr %3, align 1

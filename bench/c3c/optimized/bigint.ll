@@ -1196,14 +1196,13 @@ define dso_local zeroext i1 @i128_get_bit(ptr noundef readonly captures(none) %0
   %3 = icmp sgt i32 %1, 63
   %4 = sub nsw i32 64, %1
   %5 = add nsw i32 %1, -64
-  %.sink9 = select i1 %3, i32 %5, i32 %4
+  %.sink8 = select i1 %3, i32 %5, i32 %4
   %.sink.in.idx = select i1 %3, i64 0, i64 8
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.idx
   %.sink = load i64, ptr %.sink.in, align 8
-  %6 = zext nneg i32 %.sink9 to i64
-  %7 = shl nuw i64 1, %6
-  %8 = and i64 %.sink, %7
-  %.0 = icmp ne i64 %8, 0
+  %6 = zext nneg i32 %.sink8 to i64
+  %7 = lshr i64 %.sink, %6
+  %.0 = trunc i64 %7 to i1
   ret i1 %.0
 }
 

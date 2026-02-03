@@ -46746,10 +46746,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
   br label %_ZlsIN3sat7literalEjERSoS2_RKSt4pairIT_T0_E.exit
 
 10:                                               ; preds = %3
-  %11 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i.i = icmp eq i32 %11, 0
-  %12 = select i1 %.not.not.i.i, ptr @.str.28, ptr @.str.27
-  %13 = zext nneg i32 %11 to i64
+  %11 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %12 = select i1 %11, ptr @.str.27, ptr @.str.28
+  %.mask.i.i = and i32 %.sroa.0.0.copyload.i, 1
+  %13 = zext nneg i32 %.mask.i.i to i64
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12, i64 noundef %13)
   %15 = lshr i32 %.sroa.0.0.copyload.i, 1
   %16 = zext nneg i32 %15 to i64
@@ -52246,10 +52246,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8
   br label %_ZlsIN3sat7literalEjERSoS2_RKSt4pairIT_T0_E.exit
 
 10:                                               ; preds = %3
-  %11 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i.i = icmp eq i32 %11, 0
-  %12 = select i1 %.not.not.i.i, ptr @.str.28, ptr @.str.27
-  %13 = zext nneg i32 %11 to i64
+  %11 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %12 = select i1 %11, ptr @.str.27, ptr @.str.28
+  %.mask.i.i = and i32 %.sroa.0.0.copyload.i, 1
+  %13 = zext nneg i32 %.mask.i.i to i64
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %12, i64 noundef %13)
   %15 = lshr i32 %.sroa.0.0.copyload.i, 1
   %16 = zext nneg i32 %15 to i64

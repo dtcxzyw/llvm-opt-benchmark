@@ -3740,7 +3740,7 @@ if.then9:                                         ; preds = %if.else
 if.else13:                                        ; preds = %land.lhs.true, %if.else
   %3 = add nsw i64 %val.coerce, 1688849860263936
   %4 = lshr i64 %3, 47
-  switch i64 %4, label %return.fold.split34 [
+  switch i64 %4, label %return.fold.split33 [
     i64 3, label %land.rhs
     i64 0, label %return
     i64 1, label %return.fold.split
@@ -3758,20 +3758,19 @@ if.then19:                                        ; preds = %land.rhs
   br label %return
 
 if.then38:                                        ; preds = %if.else13
-  %and.i16 = and i64 %val.coerce, 1
-  %tobool.i.not = icmp eq i64 %and.i16, 0
-  %cond43 = select i1 %tobool.i.not, i32 57, i32 55
+  %tobool.i = trunc i64 %val.coerce to i1
+  %cond43 = select i1 %tobool.i, i32 55, i32 57
   br label %return
 
 return.fold.split:                                ; preds = %if.else13
   br label %return
 
-return.fold.split34:                              ; preds = %if.else13
+return.fold.split33:                              ; preds = %if.else13
   br label %return
 
-return:                                           ; preds = %if.else13, %return.fold.split34, %return.fold.split, %land.rhs, %if.then38, %if.then19, %if.then9, %cond.end
-  %retval.sroa.0.0 = phi i32 [ %call12, %if.then9 ], [ %call25, %if.then19 ], [ %call.i.i, %cond.end ], [ 51, %if.else13 ], [ %cond43, %if.then38 ], [ undef, %land.rhs ], [ 53, %return.fold.split ], [ undef, %return.fold.split34 ]
-  %retval.sroa.7.0 = phi i64 [ 4294967296, %if.then9 ], [ 4294967296, %if.then19 ], [ 4294967296, %cond.end ], [ 4294967296, %if.else13 ], [ 4294967296, %if.then38 ], [ 0, %land.rhs ], [ 4294967296, %return.fold.split ], [ 0, %return.fold.split34 ]
+return:                                           ; preds = %if.else13, %return.fold.split33, %return.fold.split, %land.rhs, %if.then38, %if.then19, %if.then9, %cond.end
+  %retval.sroa.0.0 = phi i32 [ %call12, %if.then9 ], [ %call25, %if.then19 ], [ %call.i.i, %cond.end ], [ 51, %if.else13 ], [ %cond43, %if.then38 ], [ undef, %land.rhs ], [ 53, %return.fold.split ], [ undef, %return.fold.split33 ]
+  %retval.sroa.7.0 = phi i64 [ 4294967296, %if.then9 ], [ 4294967296, %if.then19 ], [ 4294967296, %cond.end ], [ 4294967296, %if.else13 ], [ 4294967296, %if.then38 ], [ 0, %land.rhs ], [ 4294967296, %return.fold.split ], [ 0, %return.fold.split33 ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.7.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert

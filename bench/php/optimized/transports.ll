@@ -945,49 +945,48 @@ define dso_local i32 @php_stream_xport_recvfrom(ptr noundef %0, ptr noundef %1, 
 define dso_local i32 @php_stream_xport_sendto(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct._php_stream_xport_param, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = and i32 %3, 1
-  %9 = icmp ne i32 %8, 0
-  %10 = icmp ne ptr %4, null
-  %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %11, label %15
+  %8 = trunc i32 %3 to i1
+  %9 = icmp ne ptr %4, null
+  %or.cond = or i1 %9, %8
+  br i1 %or.cond, label %10, label %14
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !102
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %15, label %14
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !102
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %14, label %13
 
-14:                                               ; preds = %11
+13:                                               ; preds = %10
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13) #14
-  br label %28
+  br label %27
 
-15:                                               ; preds = %6, %11
+14:                                               ; preds = %6, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   store i32 8, ptr %7, align 8, !tbaa !68
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %17 = zext i1 %10 to i8
-  store i8 %17, ptr %16, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %1, ptr %18, align 8, !tbaa !99
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 %2, ptr %19, align 8, !tbaa !100
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i32 %3, ptr %20, align 8, !tbaa !101
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %4, ptr %21, align 8, !tbaa !103
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 %5, ptr %22, align 8, !tbaa !104
-  %23 = call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %7) #14
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %28
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %16 = zext i1 %9 to i8
+  store i8 %16, ptr %15, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %1, ptr %17, align 8, !tbaa !99
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store i64 %2, ptr %18, align 8, !tbaa !100
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store i32 %3, ptr %19, align 8, !tbaa !101
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %4, ptr %20, align 8, !tbaa !103
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store i32 %5, ptr %21, align 8, !tbaa !104
+  %22 = call i32 @_php_stream_set_option(ptr noundef %0, i32 noundef 7, i32 noundef 0, ptr noundef nonnull %7) #14
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %27
 
-25:                                               ; preds = %15
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %27 = load i32, ptr %26, align 8, !tbaa !80
-  br label %28
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %26 = load i32, ptr %25, align 8, !tbaa !80
+  br label %27
 
-28:                                               ; preds = %15, %25, %14
-  %.0 = phi i32 [ -1, %14 ], [ %27, %25 ], [ -1, %15 ]
+27:                                               ; preds = %14, %24, %13
+  %.0 = phi i32 [ -1, %13 ], [ %26, %24 ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

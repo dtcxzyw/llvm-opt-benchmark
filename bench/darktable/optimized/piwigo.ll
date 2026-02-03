@@ -286,7 +286,7 @@ define internal fastcc range(i32 0, 2) i32 @_piwigo_refresh_albums(ptr noundef c
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !45
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %30, label %129
+  br i1 %20, label %30, label %128
 
 21:                                               ; preds = %2
   %22 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #15
@@ -438,223 +438,222 @@ define internal fastcc range(i32 0, 2) i32 @_piwigo_refresh_albums(ptr noundef c
 
 113:                                              ; preds = %107, %98, %65
   %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !52
-  %115 = and i32 %114, 1
-  %116 = icmp ne i32 %115, 0
-  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3316), align 4
-  %118 = icmp ne i32 %117, 0
-  %or.cond.i = select i1 %116, i1 %118, i1 false
-  br i1 %or.cond.i, label %119, label %_piwigo_authenticate.exit
+  %115 = trunc i32 %114 to i1
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3316), align 4
+  %117 = icmp ne i32 %116, 0
+  %or.cond.i = select i1 %115, i1 %117, i1 false
+  br i1 %or.cond.i, label %118, label %_piwigo_authenticate.exit
 
-119:                                              ; preds = %113
-  %120 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
-  %121 = and i32 %120, 1048576
-  %.not29.i = icmp eq i32 %121, 0
-  br i1 %.not29.i, label %_piwigo_authenticate.exit, label %122
+118:                                              ; preds = %113
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
+  %120 = and i32 %119, 1048576
+  %.not29.i = icmp eq i32 %120, 0
+  br i1 %.not29.i, label %_piwigo_authenticate.exit, label %121
 
-122:                                              ; preds = %119
+121:                                              ; preds = %118
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.24, i32 noundef 604, ptr noundef nonnull @__FUNCTION__._piwigo_authenticate) #16
   br label %_piwigo_authenticate.exit
 
-_piwigo_authenticate.exit:                        ; preds = %113, %119, %122
-  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %123, i32 noundef 46) #16
-  %124 = load ptr, ptr %14, align 8, !tbaa !44
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %219, label %126
+_piwigo_authenticate.exit:                        ; preds = %113, %118, %121
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %122, i32 noundef 46) #16
+  %123 = load ptr, ptr %14, align 8, !tbaa !44
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %218, label %125
 
-126:                                              ; preds = %_piwigo_authenticate.exit
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %128 = load i32, ptr %127, align 8, !tbaa !45
-  %.not = icmp eq i32 %128, 0
-  br i1 %.not, label %219, label %129
+125:                                              ; preds = %_piwigo_authenticate.exit
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %127 = load i32, ptr %126, align 8, !tbaa !45
+  %.not = icmp eq i32 %127, 0
+  br i1 %.not, label %218, label %128
 
-129:                                              ; preds = %126, %17
-  %130 = load ptr, ptr %7, align 8, !tbaa !37
+128:                                              ; preds = %125, %17
+  %129 = load ptr, ptr %7, align 8, !tbaa !37
+  call void @dt_bauhaus_combobox_clear(ptr noundef %129) #16
+  %130 = load ptr, ptr %11, align 8, !tbaa !43
   call void @dt_bauhaus_combobox_clear(ptr noundef %130) #16
-  %131 = load ptr, ptr %11, align 8, !tbaa !43
-  call void @dt_bauhaus_combobox_clear(ptr noundef %131) #16
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %133 = load ptr, ptr %132, align 8, !tbaa !88
-  call void @g_list_free(ptr noundef %133) #16
-  store ptr null, ptr %132, align 8, !tbaa !88
-  %134 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #15
-  %135 = call i64 @g_strlcpy(ptr noundef %134, ptr noundef nonnull @.str.59, i64 noundef 100) #16
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 100
-  %137 = call i64 @g_strlcpy(ptr noundef nonnull %136, ptr noundef nonnull @.str.60, i64 noundef 512) #16
-  %138 = call ptr @g_list_append(ptr noundef null, ptr noundef %134) #16
-  %139 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #15
-  %140 = call i64 @g_strlcpy(ptr noundef %139, ptr noundef nonnull @.str.61, i64 noundef 100) #16
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 100
-  %142 = call i64 @g_strlcpy(ptr noundef nonnull %141, ptr noundef nonnull @.str.62, i64 noundef 512) #16
-  %143 = call ptr @g_list_append(ptr noundef %138, ptr noundef %139) #16
-  %144 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #15
-  %145 = call i64 @g_strlcpy(ptr noundef %144, ptr noundef nonnull @.str.63, i64 noundef 100) #16
-  %146 = getelementptr inbounds nuw i8, ptr %144, i64 100
-  %147 = call i64 @g_strlcpy(ptr noundef nonnull %146, ptr noundef nonnull @.str.64, i64 noundef 512) #16
-  %148 = call ptr @g_list_append(ptr noundef %143, ptr noundef %144) #16
-  %149 = load ptr, ptr %14, align 8, !tbaa !44
-  %150 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %149, ptr noundef readonly %148, ptr noundef null, i32 noundef 0)
-  switch i32 %150, label %_piwigo_api_post.exit [
-    i32 35, label %151
-    i32 7, label %151
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %132 = load ptr, ptr %131, align 8, !tbaa !88
+  call void @g_list_free(ptr noundef %132) #16
+  store ptr null, ptr %131, align 8, !tbaa !88
+  %133 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #15
+  %134 = call i64 @g_strlcpy(ptr noundef %133, ptr noundef nonnull @.str.59, i64 noundef 100) #16
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 100
+  %136 = call i64 @g_strlcpy(ptr noundef nonnull %135, ptr noundef nonnull @.str.60, i64 noundef 512) #16
+  %137 = call ptr @g_list_append(ptr noundef null, ptr noundef %133) #16
+  %138 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #15
+  %139 = call i64 @g_strlcpy(ptr noundef %138, ptr noundef nonnull @.str.61, i64 noundef 100) #16
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 100
+  %141 = call i64 @g_strlcpy(ptr noundef nonnull %140, ptr noundef nonnull @.str.62, i64 noundef 512) #16
+  %142 = call ptr @g_list_append(ptr noundef %137, ptr noundef %138) #16
+  %143 = call noalias dereferenceable_or_null(612) ptr @malloc(i64 noundef 612) #15
+  %144 = call i64 @g_strlcpy(ptr noundef %143, ptr noundef nonnull @.str.63, i64 noundef 100) #16
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 100
+  %146 = call i64 @g_strlcpy(ptr noundef nonnull %145, ptr noundef nonnull @.str.64, i64 noundef 512) #16
+  %147 = call ptr @g_list_append(ptr noundef %142, ptr noundef %143) #16
+  %148 = load ptr, ptr %14, align 8, !tbaa !44
+  %149 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef %148, ptr noundef readonly %147, ptr noundef null, i32 noundef 0)
+  switch i32 %149, label %_piwigo_api_post.exit [
+    i32 35, label %150
+    i32 7, label %150
   ]
 
-151:                                              ; preds = %129, %129
-  %152 = load ptr, ptr %149, align 8, !tbaa !26
-  call void @curl_easy_cleanup(ptr noundef %152) #16
-  %153 = call ptr @curl_easy_init() #16
-  store ptr %153, ptr %149, align 8, !tbaa !26
-  %154 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  store i32 0, ptr %154, align 8, !tbaa !45
-  call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %149)
-  %155 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !50
-  %.not18.i = icmp eq ptr %156, null
-  br i1 %.not18.i, label %_piwigo_api_post.exit, label %157
+150:                                              ; preds = %128, %128
+  %151 = load ptr, ptr %148, align 8, !tbaa !26
+  call void @curl_easy_cleanup(ptr noundef %151) #16
+  %152 = call ptr @curl_easy_init() #16
+  store ptr %152, ptr %148, align 8, !tbaa !26
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  store i32 0, ptr %153, align 8, !tbaa !45
+  call fastcc void @_piwigo_api_authenticate(ptr noundef nonnull %148)
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %155 = load ptr, ptr %154, align 8, !tbaa !50
+  %.not18.i = icmp eq ptr %155, null
+  br i1 %.not18.i, label %_piwigo_api_post.exit, label %156
 
-157:                                              ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %149, i64 80
-  %159 = load i32, ptr %158, align 8, !tbaa !46
-  %.not19.i = icmp eq i32 %159, 0
-  br i1 %.not19.i, label %160, label %_piwigo_api_post.exit
+156:                                              ; preds = %150
+  %157 = getelementptr inbounds nuw i8, ptr %148, i64 80
+  %158 = load i32, ptr %157, align 8, !tbaa !46
+  %.not19.i = icmp eq i32 %158, 0
+  br i1 %.not19.i, label %159, label %_piwigo_api_post.exit
 
-160:                                              ; preds = %157
-  store i32 1, ptr %154, align 8, !tbaa !45
-  %161 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %149, ptr noundef readonly %148, ptr noundef null, i32 noundef 0)
+159:                                              ; preds = %156
+  store i32 1, ptr %153, align 8, !tbaa !45
+  %160 = call fastcc i32 @_piwigo_api_post_internal(ptr noundef nonnull %148, ptr noundef readonly %147, ptr noundef null, i32 noundef 0)
   br label %_piwigo_api_post.exit
 
-_piwigo_api_post.exit:                            ; preds = %129, %151, %157, %160
-  call void @g_list_free(ptr noundef %148) #16
-  %162 = load ptr, ptr %14, align 8, !tbaa !44
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %164 = load ptr, ptr %163, align 8, !tbaa !50
-  %.not76 = icmp eq ptr %164, null
-  br i1 %.not76, label %211, label %165
+_piwigo_api_post.exit:                            ; preds = %128, %150, %156, %159
+  call void @g_list_free(ptr noundef %147) #16
+  %161 = load ptr, ptr %14, align 8, !tbaa !44
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  %163 = load ptr, ptr %162, align 8, !tbaa !50
+  %.not76 = icmp eq ptr %163, null
+  br i1 %.not76, label %210, label %164
 
-165:                                              ; preds = %_piwigo_api_post.exit
-  %166 = getelementptr inbounds nuw i8, ptr %162, i64 80
-  %167 = load i32, ptr %166, align 8, !tbaa !46
-  %.not77 = icmp eq i32 %167, 0
-  br i1 %.not77, label %168, label %211
+164:                                              ; preds = %_piwigo_api_post.exit
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 80
+  %166 = load i32, ptr %165, align 8, !tbaa !46
+  %.not77 = icmp eq i32 %166, 0
+  br i1 %.not77, label %167, label %210
 
-168:                                              ; preds = %165
-  %169 = load ptr, ptr %7, align 8, !tbaa !37
-  %170 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
-  call void @dt_bauhaus_combobox_add(ptr noundef %169, ptr noundef %170) #16
-  %171 = load ptr, ptr %11, align 8, !tbaa !43
-  %172 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #16
-  call void @dt_bauhaus_combobox_add(ptr noundef %171, ptr noundef %172) #16
-  %173 = load ptr, ptr %14, align 8, !tbaa !44
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %175 = load ptr, ptr %174, align 8, !tbaa !50
-  %176 = call ptr @json_object_get_member(ptr noundef %175, ptr noundef nonnull @.str.67) #16
-  %177 = call ptr @json_node_get_object(ptr noundef %176) #16
-  %178 = call ptr @json_object_get_array_member(ptr noundef %177, ptr noundef nonnull @.str.68) #16
-  %179 = call i32 @json_array_get_length(ptr noundef %178) #16
-  %180 = icmp sgt i32 %179, 0
-  %spec.store.select = zext i1 %180 to i32
-  %181 = add nsw i32 %179, -1
-  %spec.select = call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %181)
-  br i1 %180, label %.lr.ph91, label %.loopexit
+167:                                              ; preds = %164
+  %168 = load ptr, ptr %7, align 8, !tbaa !37
+  %169 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
+  call void @dt_bauhaus_combobox_add(ptr noundef %168, ptr noundef %169) #16
+  %170 = load ptr, ptr %11, align 8, !tbaa !43
+  %171 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #16
+  call void @dt_bauhaus_combobox_add(ptr noundef %170, ptr noundef %171) #16
+  %172 = load ptr, ptr %14, align 8, !tbaa !44
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %174 = load ptr, ptr %173, align 8, !tbaa !50
+  %175 = call ptr @json_object_get_member(ptr noundef %174, ptr noundef nonnull @.str.67) #16
+  %176 = call ptr @json_node_get_object(ptr noundef %175) #16
+  %177 = call ptr @json_object_get_array_member(ptr noundef %176, ptr noundef nonnull @.str.68) #16
+  %178 = call i32 @json_array_get_length(ptr noundef %177) #16
+  %179 = icmp sgt i32 %178, 0
+  %spec.store.select = zext i1 %179 to i32
+  %180 = add nsw i32 %178, -1
+  %spec.select = call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %180)
+  br i1 %179, label %.lr.ph91, label %.loopexit
 
-.lr.ph91:                                         ; preds = %168
+.lr.ph91:                                         ; preds = %167
   %.not81 = icmp eq ptr %1, null
-  br label %182
+  br label %181
 
-182:                                              ; preds = %.lr.ph91, %204
-  %.16989 = phi i32 [ %spec.select, %.lr.ph91 ], [ %.270, %204 ]
-  %.07188 = phi i32 [ 0, %.lr.ph91 ], [ %.pre-phi, %204 ]
+181:                                              ; preds = %.lr.ph91, %203
+  %.16989 = phi i32 [ %spec.select, %.lr.ph91 ], [ %.270, %203 ]
+  %.07188 = phi i32 [ 0, %.lr.ph91 ], [ %.pre-phi, %203 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %6, i8 0, i64 100, i1 false)
-  %183 = call ptr @json_array_get_object_element(ptr noundef %178, i32 noundef %.07188) #16
-  %184 = call noalias dereferenceable_or_null(216) ptr @g_malloc0(i64 noundef 216) #15
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %186 = call ptr @json_object_get_string_member(ptr noundef %183, ptr noundef nonnull @.str.69) #16
-  %187 = call i64 @g_strlcpy(ptr noundef nonnull %185, ptr noundef %186, i64 noundef 100) #16
-  %188 = call i64 @json_object_get_int_member(ptr noundef %183, ptr noundef nonnull @.str.70) #16
-  store i64 %188, ptr %184, align 8, !tbaa !89
-  %189 = call i64 @json_object_get_int_member(ptr noundef %183, ptr noundef nonnull @.str.71) #16
-  %190 = getelementptr inbounds nuw i8, ptr %184, i64 208
-  store i64 %189, ptr %190, align 8, !tbaa !91
-  %191 = call i32 @json_object_get_null_member(ptr noundef %183, ptr noundef nonnull @.str.72) #16
-  %.not79 = icmp eq i32 %191, 0
-  br i1 %.not79, label %192, label %._crit_edge
+  %182 = call ptr @json_array_get_object_element(ptr noundef %177, i32 noundef %.07188) #16
+  %183 = call noalias dereferenceable_or_null(216) ptr @g_malloc0(i64 noundef 216) #15
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  %185 = call ptr @json_object_get_string_member(ptr noundef %182, ptr noundef nonnull @.str.69) #16
+  %186 = call i64 @g_strlcpy(ptr noundef nonnull %184, ptr noundef %185, i64 noundef 100) #16
+  %187 = call i64 @json_object_get_int_member(ptr noundef %182, ptr noundef nonnull @.str.70) #16
+  store i64 %187, ptr %183, align 8, !tbaa !89
+  %188 = call i64 @json_object_get_int_member(ptr noundef %182, ptr noundef nonnull @.str.71) #16
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 208
+  store i64 %188, ptr %189, align 8, !tbaa !91
+  %190 = call i32 @json_object_get_null_member(ptr noundef %182, ptr noundef nonnull @.str.72) #16
+  %.not79 = icmp eq i32 %190, 0
+  br i1 %.not79, label %191, label %._crit_edge
 
-192:                                              ; preds = %182
-  %193 = call ptr @json_object_get_string_member(ptr noundef %183, ptr noundef nonnull @.str.73) #16
-  %.pr = load i8, ptr %193, align 1, !tbaa !6
+191:                                              ; preds = %181
+  %192 = call ptr @json_object_get_string_member(ptr noundef %182, ptr noundef nonnull @.str.73) #16
+  %.pr = load i8, ptr %192, align 1, !tbaa !6
   %.not8085 = icmp eq i8 %.pr, 0
   br i1 %.not8085, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %192, %.lr.ph
-  %.087 = phi ptr [ %194, %.lr.ph ], [ %193, %192 ]
-  %.186 = phi i32 [ %spec.select83, %.lr.ph ], [ 0, %192 ]
-  %194 = getelementptr inbounds nuw i8, ptr %.087, i64 1
-  %195 = load i8, ptr %194, align 1, !tbaa !6
-  %196 = icmp eq i8 %195, 44
-  %197 = zext i1 %196 to i32
-  %spec.select83 = add nuw nsw i32 %.186, %197
-  %.not80 = icmp eq i8 %195, 0
+.lr.ph:                                           ; preds = %191, %.lr.ph
+  %.087 = phi ptr [ %193, %.lr.ph ], [ %192, %191 ]
+  %.186 = phi i32 [ %spec.select83, %.lr.ph ], [ 0, %191 ]
+  %193 = getelementptr inbounds nuw i8, ptr %.087, i64 1
+  %194 = load i8, ptr %193, align 1, !tbaa !6
+  %195 = icmp eq i8 %194, 44
+  %196 = zext i1 %195 to i32
+  %spec.select83 = add nuw nsw i32 %.186, %196
+  %.not80 = icmp eq i8 %194, 0
   br i1 %.not80, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %198 = mul nuw nsw i32 %spec.select83, 3
+  %197 = mul nuw nsw i32 %spec.select83, 3
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %192, %._crit_edge.loopexit, %182
-  %.067 = phi i32 [ 0, %182 ], [ 0, %192 ], [ %198, %._crit_edge.loopexit ]
-  %199 = load i64, ptr %190, align 8, !tbaa !91
-  %200 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.74, i32 noundef %.067, i32 noundef 32, ptr noundef nonnull %185, i64 noundef %199) #16
-  br i1 %.not81, label %._crit_edge93, label %201
+._crit_edge:                                      ; preds = %191, %._crit_edge.loopexit, %181
+  %.067 = phi i32 [ 0, %181 ], [ 0, %191 ], [ %197, %._crit_edge.loopexit ]
+  %198 = load i64, ptr %189, align 8, !tbaa !91
+  %199 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.74, i32 noundef %.067, i32 noundef 32, ptr noundef nonnull %184, i64 noundef %198) #16
+  br i1 %.not81, label %._crit_edge93, label %200
 
 ._crit_edge93:                                    ; preds = %._crit_edge
   %.pre = add nuw nsw i32 %.07188, 1
-  br label %204
+  br label %203
 
-201:                                              ; preds = %._crit_edge
-  %202 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) %1) #18
-  %.not82 = icmp eq i32 %202, 0
-  %203 = add nuw nsw i32 %.07188, 1
-  %spec.select84 = select i1 %.not82, i32 %203, i32 %.16989
-  br label %204
+200:                                              ; preds = %._crit_edge
+  %201 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(1) %1) #18
+  %.not82 = icmp eq i32 %201, 0
+  %202 = add nuw nsw i32 %.07188, 1
+  %spec.select84 = select i1 %.not82, i32 %202, i32 %.16989
+  br label %203
 
-204:                                              ; preds = %._crit_edge93, %201
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge93 ], [ %203, %201 ]
-  %.270 = phi i32 [ %.16989, %._crit_edge93 ], [ %spec.select84, %201 ]
-  %205 = getelementptr inbounds nuw i8, ptr %184, i64 108
-  %206 = call i64 @g_strlcpy(ptr noundef nonnull %205, ptr noundef nonnull %6, i64 noundef 100) #16
-  %207 = load ptr, ptr %132, align 8, !tbaa !88
-  %208 = call ptr @g_list_append(ptr noundef %207, ptr noundef nonnull %184) #16
-  store ptr %208, ptr %132, align 8, !tbaa !88
-  %209 = load ptr, ptr %7, align 8, !tbaa !37
+203:                                              ; preds = %._crit_edge93, %200
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge93 ], [ %202, %200 ]
+  %.270 = phi i32 [ %.16989, %._crit_edge93 ], [ %spec.select84, %200 ]
+  %204 = getelementptr inbounds nuw i8, ptr %183, i64 108
+  %205 = call i64 @g_strlcpy(ptr noundef nonnull %204, ptr noundef nonnull %6, i64 noundef 100) #16
+  %206 = load ptr, ptr %131, align 8, !tbaa !88
+  %207 = call ptr @g_list_append(ptr noundef %206, ptr noundef nonnull %183) #16
+  store ptr %207, ptr %131, align 8, !tbaa !88
+  %208 = load ptr, ptr %7, align 8, !tbaa !37
+  call void @dt_bauhaus_combobox_add_aligned(ptr noundef %208, ptr noundef nonnull %6, i32 noundef 0) #16
+  %209 = load ptr, ptr %11, align 8, !tbaa !43
   call void @dt_bauhaus_combobox_add_aligned(ptr noundef %209, ptr noundef nonnull %6, i32 noundef 0) #16
-  %210 = load ptr, ptr %11, align 8, !tbaa !43
-  call void @dt_bauhaus_combobox_add_aligned(ptr noundef %210, ptr noundef nonnull %6, i32 noundef 0) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %exitcond.not = icmp eq i32 %.pre-phi, %179
-  br i1 %exitcond.not, label %.loopexit, label %182
+  %exitcond.not = icmp eq i32 %.pre-phi, %178
+  br i1 %exitcond.not, label %.loopexit, label %181
 
-211:                                              ; preds = %165, %_piwigo_api_post.exit
-  %212 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef 5) #16
-  call void (ptr, ...) @dt_control_log(ptr noundef %212) #16
+210:                                              ; preds = %164, %_piwigo_api_post.exit
+  %211 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.75, i32 noundef 5) #16
+  call void (ptr, ...) @dt_control_log(ptr noundef %211) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %204, %168, %211
-  %.3 = phi i32 [ 0, %211 ], [ %spec.select, %168 ], [ %.270, %204 ]
-  %213 = load ptr, ptr %7, align 8, !tbaa !37
-  %214 = call ptr @g_type_check_instance_cast(ptr noundef %213, i64 noundef %9) #16
-  call void @gtk_widget_set_sensitive(ptr noundef %214, i32 noundef 1) #16
-  %215 = load ptr, ptr %11, align 8, !tbaa !43
-  %216 = call ptr @g_type_check_instance_cast(ptr noundef %215, i64 noundef %9) #16
-  call void @gtk_widget_set_sensitive(ptr noundef %216, i32 noundef 1) #16
-  %217 = load ptr, ptr %7, align 8, !tbaa !37
-  call void @dt_bauhaus_combobox_set(ptr noundef %217, i32 noundef %.3) #16
-  %218 = load ptr, ptr %11, align 8, !tbaa !43
-  call void @dt_bauhaus_combobox_set(ptr noundef %218, i32 noundef 0) #16
-  br label %219
+.loopexit:                                        ; preds = %203, %167, %210
+  %.3 = phi i32 [ 0, %210 ], [ %spec.select, %167 ], [ %.270, %203 ]
+  %212 = load ptr, ptr %7, align 8, !tbaa !37
+  %213 = call ptr @g_type_check_instance_cast(ptr noundef %212, i64 noundef %9) #16
+  call void @gtk_widget_set_sensitive(ptr noundef %213, i32 noundef 1) #16
+  %214 = load ptr, ptr %11, align 8, !tbaa !43
+  %215 = call ptr @g_type_check_instance_cast(ptr noundef %214, i64 noundef %9) #16
+  call void @gtk_widget_set_sensitive(ptr noundef %215, i32 noundef 1) #16
+  %216 = load ptr, ptr %7, align 8, !tbaa !37
+  call void @dt_bauhaus_combobox_set(ptr noundef %216, i32 noundef %.3) #16
+  %217 = load ptr, ptr %11, align 8, !tbaa !43
+  call void @dt_bauhaus_combobox_set(ptr noundef %217, i32 noundef 0) #16
+  br label %218
 
-219:                                              ; preds = %_piwigo_authenticate.exit, %126, %.loopexit
-  %.066 = phi i32 [ 1, %.loopexit ], [ 0, %126 ], [ 0, %_piwigo_authenticate.exit ]
+218:                                              ; preds = %_piwigo_authenticate.exit, %125, %.loopexit
+  %.066 = phi i32 [ 1, %.loopexit ], [ 0, %125 ], [ 0, %_piwigo_authenticate.exit ]
   ret i32 %.066
 }
 
@@ -1194,26 +1193,25 @@ define internal void @_piwigo_server_entry_changed(ptr readnone captures(none) %
 
 16:                                               ; preds = %2, %6
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !52
-  %18 = and i32 %17, 1
-  %19 = icmp ne i32 %18, 0
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3316), align 4
-  %21 = icmp ne i32 %20, 0
-  %or.cond = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %26
+  %18 = trunc i32 %17 to i1
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3316), align 4
+  %20 = icmp ne i32 %19, 0
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %25
 
-22:                                               ; preds = %16
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
-  %24 = and i32 %23, 1048576
-  %.not6 = icmp eq i32 %24, 0
-  br i1 %.not6, label %26, label %25
+21:                                               ; preds = %16
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
+  %23 = and i32 %22, 1048576
+  %.not6 = icmp eq i32 %23, 0
+  br i1 %.not6, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.24, i32 noundef 632, ptr noundef nonnull @__FUNCTION__._piwigo_server_entry_changed) #16
-  br label %26
+  br label %25
 
-26:                                               ; preds = %22, %25, %16
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %27, i32 noundef 46) #16
+25:                                               ; preds = %21, %24, %16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %26, i32 noundef 46) #16
   ret void
 }
 
@@ -1252,26 +1250,25 @@ define internal void @_piwigo_entry_changed(ptr readnone captures(none) %0, ptr 
 
 16:                                               ; preds = %2, %15
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !52
-  %18 = and i32 %17, 1
-  %19 = icmp ne i32 %18, 0
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3316), align 4
-  %21 = icmp ne i32 %20, 0
-  %or.cond = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %26
+  %18 = trunc i32 %17 to i1
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3316), align 4
+  %20 = icmp ne i32 %19, 0
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %25
 
-22:                                               ; preds = %16
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
-  %24 = and i32 %23, 1048576
-  %.not6 = icmp eq i32 %24, 0
-  br i1 %.not6, label %26, label %25
+21:                                               ; preds = %16
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
+  %23 = and i32 %22, 1048576
+  %.not6 = icmp eq i32 %23, 0
+  br i1 %.not6, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.24, i32 noundef 617, ptr noundef nonnull @__FUNCTION__._piwigo_entry_changed) #16
-  br label %26
+  br label %25
 
-26:                                               ; preds = %22, %25, %16
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %27, i32 noundef 46) #16
+25:                                               ; preds = %21, %24, %16
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %26, i32 noundef 46) #16
   ret void
 }
 

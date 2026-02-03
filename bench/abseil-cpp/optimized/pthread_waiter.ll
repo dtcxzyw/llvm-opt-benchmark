@@ -61,10 +61,9 @@ define dso_local noundef i32 @_ZN4absl24synchronization_internal13PthreadWaiter9
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   store i64 %1, ptr %3, align 8
-  %6 = and i64 %1, 1
-  %.not = icmp eq i64 %6, 0
+  %6 = trunc i64 %1 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %.not, label %14, label %8
+  br i1 %6, label %8, label %14
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -108,7 +107,7 @@ define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal13Pthread
   %3 = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
-  %.fr = freeze i64 %1
+  %.fr80 = freeze i64 %1
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #7
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit, label %7
@@ -128,11 +127,11 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %.not35 = icmp eq i64 %.fr, -1
+  %.not34 = icmp eq i64 %.fr80, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %.not35, label %.lr.ph.split.us, label %.lr.ph.split
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .critedge:                                        ; preds = %18
   invoke void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv()
@@ -140,11 +139,11 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge
   %16 = invoke i32 @pthread_cond_wait(ptr noundef nonnull %13, ptr noundef nonnull %0)
-          to label %17 unwind label %.split61.us
+          to label %17 unwind label %.split60.us
 
 17:                                               ; preds = %.lr.ph.split.us
   %.not.us = icmp eq i32 %16, 0
-  br i1 %.not.us, label %18, label %.split64.us
+  br i1 %.not.us, label %18, label %.split63.us
 
 18:                                               ; preds = %17
   %19 = load i32, ptr %11, align 4, !tbaa !9
@@ -156,15 +155,14 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
           cleanup
   br label %.split
 
-.split61.us:                                      ; preds = %.lr.ph.split.us
+.split60.us:                                      ; preds = %.lr.ph.split.us
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %22 = and i64 %.fr, 1
-  %.not.i28 = icmp eq i64 %22, 0
-  br i1 %.not.i28, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %22 = trunc i64 %.fr80 to i1
+  br i1 %22, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .critedge132:                                     ; preds = %27
   invoke void @_ZN4absl24synchronization_internal10WaiterBase15MaybeBecomeIdleEv()
@@ -172,28 +170,28 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge132
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.fr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = invoke { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.noexc30.us unwind label %.split71.us
+  store i64 %.fr80, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %23 = invoke { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1)
+          to label %.noexc.us unwind label %.split70.us
 
-.noexc30.us:                                      ; preds = %.lr.ph.split.split.us
+.noexc.us:                                        ; preds = %.lr.ph.split.split.us
   %24 = extractvalue { i64, i64 } %23, 0
-  store i64 %24, ptr %5, align 8
+  store i64 %24, ptr %4, align 8
   %25 = extractvalue { i64, i64 } %23, 1
   store i64 %25, ptr %15, align 8
-  %26 = invoke i32 @pthread_cond_timedwait(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %5)
-          to label %.noexc31.us unwind label %.split71.us
+  %26 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 1, ptr noundef nonnull %4)
+          to label %.noexc28.us unwind label %.split70.us
 
-.noexc31.us:                                      ; preds = %.noexc30.us
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+.noexc28.us:                                      ; preds = %.noexc.us
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %26, label %.split74.us [
+  switch i32 %26, label %.split73.us [
     i32 110, label %.thread
     i32 0, label %27
   ]
 
-27:                                               ; preds = %.noexc31.us
+27:                                               ; preds = %.noexc28.us
   %28 = load i32, ptr %11, align 4, !tbaa !9
   %.not82 = icmp eq i32 %28, 0
   br i1 %.not82, label %.critedge132, label %._crit_edge, !llvm.loop !10
@@ -203,7 +201,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
           cleanup
   br label %.split
 
-.split71.us:                                      ; preds = %.noexc30.us, %.lr.ph.split.split.us
+.split70.us:                                      ; preds = %.noexc.us, %.lr.ph.split.split.us
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %.split
@@ -219,76 +217,76 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge133
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.fr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %32 = invoke { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1)
-          to label %.noexc unwind label %.split71
+  store i64 %.fr80, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %32 = invoke { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %.noexc29 unwind label %.split70
 
-.split64.us:                                      ; preds = %17
+.split63.us:                                      ; preds = %17
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 123, ptr noundef nonnull @.str.3, i32 noundef %16)
           to label %33 unwind label %34
 
-33:                                               ; preds = %.split64.us
+33:                                               ; preds = %.split63.us
   unreachable
 
-34:                                               ; preds = %.split64.us
+34:                                               ; preds = %.split63.us
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
-.noexc:                                           ; preds = %.lr.ph.split.split
+.noexc29:                                         ; preds = %.lr.ph.split.split
   %36 = extractvalue { i64, i64 } %32, 0
-  store i64 %36, ptr %4, align 8
+  store i64 %36, ptr %5, align 8
   %37 = extractvalue { i64, i64 } %32, 1
   store i64 %37, ptr %14, align 8
-  %38 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 1, ptr noundef nonnull %4)
-          to label %.noexc29 unwind label %.split71
+  %38 = invoke i32 @pthread_cond_timedwait(ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %5)
+          to label %.noexc30 unwind label %.split70
 
-.noexc29:                                         ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+.noexc30:                                         ; preds = %.noexc29
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %38, label %.split74.us [
+  switch i32 %38, label %.split73.us [
     i32 110, label %.thread
     i32 0, label %43
   ]
 
-.split71:                                         ; preds = %.noexc, %.lr.ph.split.split
+.split70:                                         ; preds = %.noexc29, %.lr.ph.split.split
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
-.split74.us:                                      ; preds = %.noexc29, %.noexc31.us
-  %.us-phi75 = phi i32 [ %26, %.noexc31.us ], [ %38, %.noexc29 ]
-  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 132, ptr noundef nonnull @.str.4, i32 noundef %.us-phi75)
+.split73.us:                                      ; preds = %.noexc30, %.noexc28.us
+  %.us-phi74 = phi i32 [ %26, %.noexc28.us ], [ %38, %.noexc30 ]
+  invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 132, ptr noundef nonnull @.str.4, i32 noundef %.us-phi74)
           to label %40 unwind label %41
 
-40:                                               ; preds = %.split74.us
+40:                                               ; preds = %.split73.us
   unreachable
 
-41:                                               ; preds = %.split74.us
+41:                                               ; preds = %.split73.us
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
-43:                                               ; preds = %.noexc29
+43:                                               ; preds = %.noexc30
   %44 = load i32, ptr %11, align 4, !tbaa !9
   %.not81 = icmp eq i32 %44, 0
   br i1 %.not81, label %.critedge133, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %43, %27, %18, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit
-  %.lcssa43 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %19, %18 ], [ %28, %27 ], [ %44, %43 ]
-  %45 = add nsw i32 %.lcssa43, -1
+  %.lcssa42 = phi i32 [ %12, %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthread_mutex_t.exit ], [ %19, %18 ], [ %28, %27 ], [ %44, %43 ]
+  %45 = add nsw i32 %.lcssa42, -1
   store i32 %45, ptr %11, align 4, !tbaa !9
   br label %.thread
 
-.thread:                                          ; preds = %.noexc29, %.noexc31.us, %._crit_edge
-  %46 = phi i1 [ true, %._crit_edge ], [ false, %.noexc31.us ], [ false, %.noexc29 ]
+.thread:                                          ; preds = %.noexc30, %.noexc28.us, %._crit_edge
+  %46 = phi i1 [ true, %._crit_edge ], [ false, %.noexc28.us ], [ false, %.noexc30 ]
   %storemerge.in = load i32, ptr %8, align 8, !tbaa !4
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %8, align 8, !tbaa !4
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #7
-  %.not.i32 = icmp eq i32 %47, 0
-  br i1 %.not.i32, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %48
+  %.not.i31 = icmp eq i32 %47, 0
+  br i1 %.not.i31, label %_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit, label %48
 
 48:                                               ; preds = %.thread
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 129), i32 noundef 52, ptr noundef nonnull @.str.7, i32 noundef %47)
@@ -307,8 +305,8 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderC2EP15pthrea
 _ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev.exit: ; preds = %.thread
   ret i1 %46
 
-.split:                                           ; preds = %.split71, %.split71.us, %.split.us, %.split.split.us, %.split.split, %41, %.split61.us, %34
-  %.pn23.pn = phi { ptr, i32 } [ %21, %.split61.us ], [ %29, %.split.split.us ], [ %35, %34 ], [ %42, %41 ], [ %20, %.split.us ], [ %31, %.split.split ], [ %39, %.split71 ], [ %30, %.split71.us ]
+.split:                                           ; preds = %.split70, %.split70.us, %.split.us, %.split.split.us, %.split.split, %41, %.split60.us, %34
+  %.pn23.pn = phi { ptr, i32 } [ %21, %.split60.us ], [ %29, %.split.split.us ], [ %35, %34 ], [ %42, %41 ], [ %20, %.split.us ], [ %31, %.split.split ], [ %39, %.split70 ], [ %30, %.split70.us ]
   call fastcc void @_ZN4absl24synchronization_internal12_GLOBAL__N_118PthreadMutexHolderD2Ev(ptr nonnull %0) #7
   resume { ptr, i32 } %.pn23.pn
 }

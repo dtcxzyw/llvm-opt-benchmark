@@ -583,11 +583,10 @@ _ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %15, %17, %19
   %35 = ptrtoint ptr %32 to i64
   %36 = trunc i64 %35 to i32
   %37 = sub i32 %36, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %38 = icmp uge i32 %37, %..i.i
-  %.0.in.i = and i32 %37, 1
-  %.0.i5 = icmp eq i32 %.0.in.i, 0
-  %or.cond = or i1 %.0.i5, %38
-  br i1 %or.cond, label %.critedge, label %12, !llvm.loop !6
+  %38 = icmp ult i32 %37, %..i.i
+  %39 = trunc i32 %37 to i1
+  %or.cond.not = and i1 %38, %39
+  br i1 %or.cond.not, label %12, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
   ret void

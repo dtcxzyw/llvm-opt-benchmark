@@ -175,10 +175,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local zeroext i1 @is_encoding_supported_by_icu(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %0, 35
   %2 = zext nneg i32 %0 to i64
-  %3 = shl nuw i64 1, %2
-  %4 = and i64 %3, 34357509982
-  %5 = icmp ne i64 %4, 0
-  %.0 = select i1 %or.cond, i1 %5, i1 false
+  %3 = lshr i64 34357509982, %2
+  %4 = trunc i64 %3 to i1
+  %.0 = select i1 %or.cond, i1 %4, i1 false
   ret i1 %.0
 }
 

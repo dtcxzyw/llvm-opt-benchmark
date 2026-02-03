@@ -22909,47 +22909,46 @@ define internal fastcc i32 @dissect_file_data_maybe_dcerpc(ptr noundef %0, ptr n
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %32, label %14
+  br i1 %.not, label %31, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i16, ptr %15, align 8
-  %17 = and i16 %16, 1
-  %18 = icmp ne i16 %17, 0
-  %19 = icmp eq i32 %8, 0
-  %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %32
+  %17 = trunc i16 %16 to i1
+  %18 = icmp eq i32 %8, 0
+  %or.cond = and i1 %18, %17
+  br i1 %or.cond, label %19, label %31
 
-20:                                               ; preds = %14
-  %21 = icmp ugt i16 %5, %7
-  br i1 %21, label %22, label %dissect_file_data_dcerpc.exit
+19:                                               ; preds = %14
+  %20 = icmp ugt i16 %5, %7
+  br i1 %20, label %21, label %dissect_file_data_dcerpc.exit
 
-22:                                               ; preds = %20
-  %23 = load i32, ptr @hf_smb_padding, align 4
+21:                                               ; preds = %19
+  %22 = load i32, ptr @hf_smb_padding, align 4
   %narrow.i = sub nuw i16 %5, %7
-  %24 = zext i16 %narrow.i to i32
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %4, i32 noundef %24, i32 noundef 0)
-  %26 = add i32 %4, %24
+  %23 = zext i16 %narrow.i to i32
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %4, i32 noundef %23, i32 noundef 0)
+  %25 = add i32 %4, %23
   br label %dissect_file_data_dcerpc.exit
 
-dissect_file_data_dcerpc.exit:                    ; preds = %20, %22
-  %.029.i = phi i16 [ %7, %22 ], [ %5, %20 ]
-  %.0.i = phi i32 [ %26, %22 ], [ %4, %20 ]
-  %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
-  %28 = zext i16 %.029.i to i32
-  %29 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0.i, i32 noundef %27, i32 noundef %28)
-  %30 = zext i16 %9 to i32
-  %31 = tail call zeroext i1 @dissect_pipe_dcerpc(ptr noundef %29, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %30, ptr noundef nonnull %10)
-  %..i = tail call i32 @llvm.smin.i32(i32 %27, i32 %28)
+dissect_file_data_dcerpc.exit:                    ; preds = %19, %21
+  %.029.i = phi i16 [ %7, %21 ], [ %5, %19 ]
+  %.0.i = phi i32 [ %25, %21 ], [ %4, %19 ]
+  %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
+  %27 = zext i16 %.029.i to i32
+  %28 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0.i, i32 noundef %26, i32 noundef %27)
+  %29 = zext i16 %9 to i32
+  %30 = tail call zeroext i1 @dissect_pipe_dcerpc(ptr noundef %28, ptr noundef %1, ptr noundef %3, ptr noundef %2, i32 noundef %29, ptr noundef nonnull %10)
+  %..i = tail call i32 @llvm.smin.i32(i32 %26, i32 %27)
   %.1.i = add i32 %..i, %.0.i
-  br label %34
+  br label %33
 
-32:                                               ; preds = %14, %11
-  %33 = tail call i32 @dissect_file_data(ptr noundef %0, ptr noundef %2, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7)
-  br label %34
+31:                                               ; preds = %14, %11
+  %32 = tail call i32 @dissect_file_data(ptr noundef %0, ptr noundef %2, i32 noundef %4, i16 noundef zeroext %5, i32 noundef %6, i16 noundef zeroext %7)
+  br label %33
 
-34:                                               ; preds = %32, %dissect_file_data_dcerpc.exit
-  %.0 = phi i32 [ %.1.i, %dissect_file_data_dcerpc.exit ], [ %33, %32 ]
+33:                                               ; preds = %31, %dissect_file_data_dcerpc.exit
+  %.0 = phi i32 [ %.1.i, %dissect_file_data_dcerpc.exit ], [ %32, %31 ]
   ret i32 %.0
 }
 

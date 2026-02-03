@@ -637,10 +637,10 @@ default.unreachable38:                            ; preds = %27
   %43 = load i8, ptr %42, align 1, !noundef !4
   %44 = trunc i64 %39 to i8
   %45 = and i8 %44, 7
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %47 = lshr i8 %43, %45
-  %48 = and i8 %47, 1
-  store i8 %48, ptr %46, align 1
+  %46 = lshr i8 %43, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 1
   store i8 1, ptr %0, align 16
   br label %355
 

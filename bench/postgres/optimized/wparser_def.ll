@@ -1349,12 +1349,11 @@ newTParserPosition.exit:                          ; preds = %91, %92
 
 .thread:                                          ; preds = %150, %146, %._crit_edge135..thread_crit_edge
   %180 = phi i16 [ %.pre142, %._crit_edge135..thread_crit_edge ], [ %147, %146 ], [ %147, %150 ]
-  %181 = and i16 %180, 1
-  %182 = icmp ne i16 %181, 0
+  %181 = trunc i16 %180 to i1
   br label %._crit_edge135.thread
 
 ._crit_edge135.thread:                            ; preds = %10, %.thread, %4
-  %.0 = phi i1 [ false, %4 ], [ %182, %.thread ], [ false, %10 ]
+  %.0 = phi i1 [ false, %4 ], [ %181, %.thread ], [ false, %10 ]
   ret i1 %.0
 }
 

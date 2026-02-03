@@ -453,9 +453,8 @@ define void @_ZN4lean16object_compactor16save_max_sharingEP11lean_objectS2_m(ptr
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN4lean16object_compactor9to_offsetEP11lean_object(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %64
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %64, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1967,9 +1966,8 @@ _ZN4lean16object_compactor5allocEm.exit:          ; preds = %10, %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8, !tbaa !45
   %31 = ptrtoint ptr %1 to i64
-  %32 = and i64 %31, 1
-  %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %33, label %_ZNSt6vectorIP11lean_objectSaIS1_EE5clearEv.exit
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %_ZNSt6vectorIP11lean_objectSaIS1_EE5clearEv.exit, label %33
 
 33:                                               ; preds = %_ZN4lean16object_compactor5allocEm.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2385,15 +2383,14 @@ define noundef ptr @_ZN4lean16compacted_region4readEv(ptr noundef nonnull align 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8, !tbaa !63
   %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, 1
-  %.not.i = icmp eq i64 %10, 0
+  %10 = trunc i64 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %9, %14
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
-  %.0.i = select i1 %.not.i, ptr %16, ptr %8
+  %.0.i = select i1 %10, ptr %8, ptr %16
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %17, ptr %2, align 8, !tbaa !105
   %18 = icmp eq ptr %12, %13
@@ -2427,18 +2424,17 @@ define noundef ptr @_ZN4lean16compacted_region4readEv(ptr noundef nonnull align 
   %.011.i = phi ptr [ %37, %.lr.ph.i ], [ %25, %24 ]
   %29 = load ptr, ptr %.011.i, align 8, !tbaa !63
   %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, 1
-  %.not.i.i = icmp eq i64 %31, 0
+  %31 = trunc i64 %30 to i1
   %32 = load ptr, ptr %11, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %30, %34
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
-  %.0.i.i = select i1 %.not.i.i, ptr %36, ptr %29
+  %.0.i.i = select i1 %31, ptr %29, ptr %36
   store ptr %.0.i.i, ptr %.011.i, align 8, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %.not.i26 = icmp eq ptr %37, %28
-  br i1 %.not.i26, label %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit, label %.lr.ph.i, !llvm.loop !107
+  %.not.i = icmp eq ptr %37, %28
+  br i1 %.not.i, label %_ZN4lean16compacted_region15fix_constructorEP11lean_object.exit, label %.lr.ph.i, !llvm.loop !107
 
 _ZN4lean16compacted_region15fix_constructorEP11lean_object.exit: ; preds = %.lr.ph.i, %24
   %38 = tail call i64 @lean_object_byte_size(ptr noundef nonnull %21)
@@ -2479,35 +2475,34 @@ _ZN4lean16compacted_region15fix_constructorEP11lean_object.exit: ; preds = %.lr.
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %51 = getelementptr i8, ptr %21, i64 8
-  %.val.i27 = load i64, ptr %51, align 8, !tbaa !71
-  %.idx.i28 = shl nuw nsw i64 %.val.i27, 3
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i28
-  %.not10.i29 = icmp eq i64 %.val.i27, 0
-  br i1 %.not10.i29, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %.lr.ph.i30
+  %.val.i26 = load i64, ptr %51, align 8, !tbaa !71
+  %.idx.i27 = shl nuw nsw i64 %.val.i26, 3
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i27
+  %.not10.i28 = icmp eq i64 %.val.i26, 0
+  br i1 %.not10.i28, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %.lr.ph.i29
 
-.lr.ph.i30:                                       ; preds = %49, %.lr.ph.i30
-  %.011.i31 = phi ptr [ %61, %.lr.ph.i30 ], [ %50, %49 ]
-  %53 = load ptr, ptr %.011.i31, align 8, !tbaa !63
+.lr.ph.i29:                                       ; preds = %49, %.lr.ph.i29
+  %.011.i30 = phi ptr [ %61, %.lr.ph.i29 ], [ %50, %49 ]
+  %53 = load ptr, ptr %.011.i30, align 8, !tbaa !63
   %54 = ptrtoint ptr %53 to i64
-  %55 = and i64 %54, 1
-  %.not.i.i32 = icmp eq i64 %55, 0
+  %55 = trunc i64 %54 to i1
   %56 = load ptr, ptr %11, align 8
   %57 = load ptr, ptr %0, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %54, %58
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
-  %.0.i.i33 = select i1 %.not.i.i32, ptr %60, ptr %53
-  store ptr %.0.i.i33, ptr %.011.i31, align 8, !tbaa !63
-  %61 = getelementptr inbounds nuw i8, ptr %.011.i31, i64 8
-  %.not.i34 = icmp eq ptr %61, %52
-  br i1 %.not.i34, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %.lr.ph.i30, !llvm.loop !108
+  %.0.i.i31 = select i1 %55, ptr %53, ptr %60
+  store ptr %.0.i.i31, ptr %.011.i30, align 8, !tbaa !63
+  %61 = getelementptr inbounds nuw i8, ptr %.011.i30, i64 8
+  %.not.i32 = icmp eq ptr %61, %52
+  br i1 %.not.i32, label %_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit, label %.lr.ph.i29, !llvm.loop !108
 
-_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30, %49
+_ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i29, %49
   %62 = tail call i64 @lean_object_byte_size(ptr noundef nonnull %21)
-  %.biased.i.i.i35 = add i64 %62, 7
-  %.0.i.i.i36 = and i64 %.biased.i.i.i35, -8
+  %.biased.i.i.i33 = add i64 %62, 7
+  %.0.i.i.i34 = and i64 %.biased.i.i.i33, -8
   %63 = load ptr, ptr %2, align 8, !tbaa !105
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.0.i.i.i36
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.0.i.i.i34
   br label %149
 
 65:                                               ; preds = %41
@@ -2518,16 +2513,16 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %69 = zext nneg i32 %68 to i64
   %70 = mul i64 %.val24, %69
   %.biased.i = add i64 %70, 31
-  %.0.i37 = and i64 %.biased.i, -8
-  %71 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i37
+  %.0.i35 = and i64 %.biased.i, -8
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i35
   br label %149
 
 72:                                               ; preds = %41
   %73 = getelementptr i8, ptr %21, i64 16
   %.val25 = load i64, ptr %73, align 8, !tbaa !71
-  %.biased.i38 = add i64 %.val25, 39
-  %.0.i39 = and i64 %.biased.i38, -8
-  %74 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i39
+  %.biased.i36 = add i64 %.val25, 39
+  %.0.i37 = and i64 %.biased.i36, -8
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i37
   br label %149
 
 75:                                               ; preds = %41
@@ -2547,22 +2542,21 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %88 = zext nneg i32 %87 to i64
   %89 = shl nuw nsw i64 %88, 3
   %.biased.i.i = add nuw nsw i64 %89, 31
-  %.0.i.i40 = and i64 %.biased.i.i, 34359738360
-  %90 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i.i40
+  %.0.i.i38 = and i64 %.biased.i.i, 34359738360
+  %90 = getelementptr inbounds nuw i8, ptr %21, i64 %.0.i.i38
   br label %149
 
 91:                                               ; preds = %41
   %92 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %93 = load atomic i64, ptr %92 seq_cst, align 8
-  %94 = and i64 %93, 1
-  %.not.i.i41 = icmp eq i64 %94, 0
+  %94 = trunc i64 %93 to i1
   %95 = load ptr, ptr %11, align 8
   %96 = load ptr, ptr %0, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = sub i64 %93, %97
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
   %100 = ptrtoint ptr %99 to i64
-  %101 = select i1 %.not.i.i41, i64 %100, i64 %93
+  %101 = select i1 %94, i64 %93, i64 %100
   store atomic i64 %101, ptr %92 seq_cst, align 8
   %102 = load ptr, ptr %2, align 8, !tbaa !105
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
@@ -2572,30 +2566,28 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %105 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !76
   %107 = ptrtoint ptr %106 to i64
-  %108 = and i64 %107, 1
-  %.not.i.i42 = icmp eq i64 %108, 0
+  %108 = trunc i64 %107 to i1
   %109 = load ptr, ptr %11, align 8
   %110 = load ptr, ptr %0, align 8
   %111 = ptrtoint ptr %110 to i64
   %112 = sub i64 %107, %111
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 %112
-  %.0.i.i43 = select i1 %.not.i.i42, ptr %113, ptr %106
-  store ptr %.0.i.i43, ptr %105, align 8, !tbaa !76
+  %.0.i.i39 = select i1 %108, ptr %106, ptr %113
+  store ptr %.0.i.i39, ptr %105, align 8, !tbaa !76
   %114 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %149
 
 115:                                              ; preds = %41
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %117 = load atomic i64, ptr %116 seq_cst, align 8
-  %118 = and i64 %117, 1
-  %.not.i.i44 = icmp eq i64 %118, 0
+  %118 = trunc i64 %117 to i1
   %119 = load ptr, ptr %11, align 8
   %120 = load ptr, ptr %0, align 8
   %121 = ptrtoint ptr %120 to i64
   %122 = sub i64 %117, %121
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 %122
   %124 = ptrtoint ptr %123 to i64
-  %125 = select i1 %.not.i.i44, i64 %124, i64 %117
+  %125 = select i1 %118, i64 %117, i64 %124
   store atomic i64 %125, ptr %116 seq_cst, align 8
   %126 = load ptr, ptr %2, align 8, !tbaa !105
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
@@ -2605,15 +2597,14 @@ _ZN4lean16compacted_region9fix_arrayEP11lean_object.exit: ; preds = %.lr.ph.i30,
   %129 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !78
   %131 = ptrtoint ptr %130 to i64
-  %132 = and i64 %131, 1
-  %.not.i.i45 = icmp eq i64 %132, 0
+  %132 = trunc i64 %131 to i1
   %133 = load ptr, ptr %11, align 8
   %134 = load ptr, ptr %0, align 8
   %135 = ptrtoint ptr %134 to i64
   %136 = sub i64 %131, %135
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 %136
-  %.0.i.i46 = select i1 %.not.i.i45, ptr %137, ptr %130
-  store ptr %.0.i.i46, ptr %129, align 8, !tbaa !78
+  %.0.i.i40 = select i1 %132, ptr %130, ptr %137
+  store ptr %.0.i.i40, ptr %129, align 8, !tbaa !78
   %138 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %149
 

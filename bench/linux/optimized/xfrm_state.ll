@@ -7572,7 +7572,7 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %23 = load i8, ptr %22, align 4
   %24 = icmp ugt i8 %23, 4
-  br i1 %21, label %50, label %25
+  br i1 %21, label %49, label %25
 
 25:                                               ; preds = %18
   br i1 %24, label %.thread, label %26, !prof !6
@@ -7604,308 +7604,307 @@ define dso_local i32 @__xfrm_init_state(ptr noundef %0, i1 noundef zeroext %1, i
 .thread:                                          ; preds = %26, %27, %32, %25, %35
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__xfrm_init_state.__msg) #15
   %38 = icmp eq ptr %3, null
-  br i1 %38, label %169, label %39
+  br i1 %38, label %168, label %39
 
 39:                                               ; preds = %.thread
   store ptr @__xfrm_init_state.__msg, ptr %3, align 8
-  br label %169
+  br label %168
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %44 = icmp ne i8 %43, 0
-  %45 = icmp eq i16 %6, %20
-  %46 = or i1 %45, %44
-  br i1 %46, label %.thread27, label %47
+  %43 = trunc i8 %42 to i1
+  %44 = icmp eq i16 %6, %20
+  %45 = or i1 %44, %43
+  br i1 %45, label %.thread27, label %46
 
-47:                                               ; preds = %40
+46:                                               ; preds = %40
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__xfrm_init_state.__msg.5) #15
-  %48 = icmp eq ptr %3, null
-  br i1 %48, label %169, label %49
+  %47 = icmp eq ptr %3, null
+  br i1 %47, label %168, label %48
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   store ptr @__xfrm_init_state.__msg.5, ptr %3, align 8
-  br label %169
+  br label %168
 
-50:                                               ; preds = %18
-  br i1 %24, label %.thread24, label %51, !prof !6
+49:                                               ; preds = %18
+  br i1 %24, label %.thread24, label %50, !prof !6
 
-51:                                               ; preds = %50
+50:                                               ; preds = %49
   switch i16 %6, label %.thread24 [
-    i16 2, label %52
-    i16 10, label %57
+    i16 2, label %51
+    i16 10, label %56
   ]
 
-52:                                               ; preds = %51
-  %53 = zext nneg i8 %23 to i64
-  %54 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %53
-  %55 = add nsw i8 %23, -4
-  %56 = icmp ult i8 %55, -2
-  br i1 %56, label %60, label %.thread24
+51:                                               ; preds = %50
+  %52 = zext nneg i8 %23 to i64
+  %53 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %52
+  %54 = add nsw i8 %23, -4
+  %55 = icmp ult i8 %54, -2
+  br i1 %55, label %59, label %.thread24
 
-57:                                               ; preds = %51
-  %58 = zext nneg i8 %23 to i64
-  %59 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %58
+56:                                               ; preds = %50
+  %57 = zext nneg i8 %23 to i64
+  %58 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %57
   %.not20 = icmp eq i8 %23, 3
-  br i1 %.not20, label %.thread24, label %60
+  br i1 %.not20, label %.thread24, label %59
 
-60:                                               ; preds = %57, %52
-  %61 = phi ptr [ %54, %52 ], [ %59, %57 ]
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread24, label %65
+59:                                               ; preds = %56, %51
+  %60 = phi ptr [ %53, %51 ], [ %58, %56 ]
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %.thread24, label %64
 
-.thread24:                                        ; preds = %51, %52, %57, %50, %60
+.thread24:                                        ; preds = %50, %51, %56, %49, %59
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__xfrm_init_state.__msg.6) #15
-  %63 = icmp eq ptr %3, null
-  br i1 %63, label %169, label %64
+  %62 = icmp eq ptr %3, null
+  br i1 %62, label %168, label %63
 
-64:                                               ; preds = %.thread24
+63:                                               ; preds = %.thread24
   store ptr @__xfrm_init_state.__msg.6, ptr %3, align 8
-  br label %169
+  br label %168
 
-65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %66, ptr noundef nonnull align 1 dereferenceable(3) %61, i64 3, i1 false)
-  %67 = zext nneg i8 %23 to i64
-  br i1 %8, label %72, label %68
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %65, ptr noundef nonnull align 1 dereferenceable(3) %60, i64 3, i1 false)
+  %66 = zext nneg i8 %23 to i64
+  br i1 %8, label %71, label %67
 
-68:                                               ; preds = %65
-  %69 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %67
-  %70 = add nsw i8 %23, -4
-  %71 = icmp ult i8 %70, -2
-  br i1 %71, label %74, label %.lr.ph.split
+67:                                               ; preds = %64
+  %68 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %66
+  %69 = add nsw i8 %23, -4
+  %70 = icmp ult i8 %69, -2
+  br i1 %70, label %73, label %.lr.ph.split
 
-72:                                               ; preds = %65
-  %73 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %67
+71:                                               ; preds = %64
+  %72 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %66
   %.not21 = icmp eq i8 %23, 3
-  br i1 %.not21, label %.lr.ph.split, label %74
+  br i1 %.not21, label %.lr.ph.split, label %73
 
-74:                                               ; preds = %72, %68
-  %75 = phi ptr [ %69, %68 ], [ %73, %72 ]
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %.lr.ph.split, label %77
+73:                                               ; preds = %71, %67
+  %74 = phi ptr [ %68, %67 ], [ %72, %71 ]
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.lr.ph.split, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
-  %79 = load i8, ptr %78, align 1
-  %80 = and i8 %79, 1
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %.lr.ph.split, label %82
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 2
+  %78 = load i8, ptr %77, align 1
+  %79 = and i8 %78, 1
+  %80 = icmp eq i8 %79, 0
+  br i1 %80, label %.lr.ph.split, label %81
 
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 707
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %83, ptr noundef nonnull align 1 dereferenceable(3) %75, i64 3, i1 false)
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 707
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %82, ptr noundef nonnull align 1 dereferenceable(3) %74, i64 3, i1 false)
   br label %.lr.ph.split
 
 .thread27:                                        ; preds = %40
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %84, ptr noundef nonnull align 1 dereferenceable(3) %36, i64 3, i1 false)
-  %85 = icmp ugt i16 %6, 45
-  br i1 %85, label %.thread29, label %.lr.ph.split, !prof !140
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %83, ptr noundef nonnull align 1 dereferenceable(3) %36, i64 3, i1 false)
+  %84 = icmp ugt i16 %6, 45
+  br i1 %84, label %.thread29, label %.lr.ph.split, !prof !140
 
-.lr.ph.split:                                     ; preds = %82, %77, %74, %68, %72, %.thread27
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %87 = load i8, ptr %86, align 4
+.lr.ph.split:                                     ; preds = %81, %76, %73, %67, %71, %.thread27
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %86 = load i8, ptr %85, align 4
   %.pn = zext i16 %6 to i64
-  %88 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %.pn
-  %89 = zext i8 %87 to i32
+  %87 = getelementptr ptr, ptr @xfrm_state_afinfo, i64 %.pn
+  %88 = zext i8 %86 to i32
   tail call void @__rcu_read_lock() #15
-  %90 = load volatile ptr, ptr %88, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.split, label %.lr.ph42, !prof !141
+  %89 = load volatile ptr, ptr %87, align 8
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %.split, label %.lr.ph42, !prof !141
 
-.split:                                           ; preds = %108, %.lr.ph.split
+.split:                                           ; preds = %107, %.lr.ph.split
   tail call void @__rcu_read_unlock() #15
   br label %.thread29
 
-.lr.ph42:                                         ; preds = %.lr.ph.split, %108
-  %92 = phi ptr [ %110, %108 ], [ %90, %.lr.ph.split ]
-  %93 = phi i1 [ true, %108 ], [ false, %.lr.ph.split ]
-  switch i8 %87, label %.thread30 [
-    i8 108, label %100
-    i8 51, label %94
-    i8 50, label %95
-    i8 4, label %96
-    i8 60, label %97
-    i8 43, label %98
-    i8 41, label %99
+.lr.ph42:                                         ; preds = %.lr.ph.split, %107
+  %91 = phi ptr [ %109, %107 ], [ %89, %.lr.ph.split ]
+  %92 = phi i1 [ true, %107 ], [ false, %.lr.ph.split ]
+  switch i8 %86, label %.thread30 [
+    i8 108, label %99
+    i8 51, label %93
+    i8 50, label %94
+    i8 4, label %95
+    i8 60, label %96
+    i8 43, label %97
+    i8 41, label %98
   ]
 
+93:                                               ; preds = %.lr.ph42
+  br label %99
+
 94:                                               ; preds = %.lr.ph42
-  br label %100
+  br label %99
 
 95:                                               ; preds = %.lr.ph42
-  br label %100
+  br label %99
 
 96:                                               ; preds = %.lr.ph42
-  br label %100
+  br label %99
 
 97:                                               ; preds = %.lr.ph42
-  br label %100
+  br label %99
 
 98:                                               ; preds = %.lr.ph42
-  br label %100
+  br label %99
 
-99:                                               ; preds = %.lr.ph42
-  br label %100
+99:                                               ; preds = %.lr.ph42, %93, %94, %95, %96, %97, %98
+  %100 = phi i64 [ 32, %98 ], [ 56, %97 ], [ 64, %96 ], [ 24, %95 ], [ 16, %94 ], [ 48, %93 ], [ 40, %.lr.ph42 ]
+  %101 = getelementptr inbounds nuw i8, ptr %91, i64 %100
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %.thread30, label %104
 
-100:                                              ; preds = %.lr.ph42, %94, %95, %96, %97, %98, %99
-  %101 = phi i64 [ 32, %99 ], [ 56, %98 ], [ 64, %97 ], [ 24, %96 ], [ 16, %95 ], [ 48, %94 ], [ 40, %.lr.ph42 ]
-  %102 = getelementptr inbounds nuw i8, ptr %92, i64 %101
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp eq ptr %103, null
-  br i1 %104, label %.thread30, label %105
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %102, align 8
+  %106 = tail call zeroext i1 @try_module_get(ptr noundef %105) #15
+  br i1 %106, label %.split41, label %.thread30, !prof !7
 
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %103, align 8
-  %107 = tail call zeroext i1 @try_module_get(ptr noundef %106) #15
-  br i1 %107, label %.split41, label %.thread30, !prof !7
-
-.thread30:                                        ; preds = %105, %.lr.ph42, %100
+.thread30:                                        ; preds = %104, %.lr.ph42, %99
   tail call void @__rcu_read_unlock() #15
-  br i1 %93, label %.thread29, label %108
+  br i1 %92, label %.thread29, label %107
 
-108:                                              ; preds = %.thread30
-  %109 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.20, i32 noundef %7, i32 noundef %89) #15
+107:                                              ; preds = %.thread30
+  %108 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.20, i32 noundef %7, i32 noundef %88) #15
   tail call void @__rcu_read_lock() #15
-  %110 = load volatile ptr, ptr %88, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %.split, label %.lr.ph42, !prof !142
+  %109 = load volatile ptr, ptr %87, align 8
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %.split, label %.lr.ph42, !prof !142
 
 .thread29:                                        ; preds = %.thread30, %.thread27, %.split
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store ptr null, ptr %112, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  store ptr null, ptr %111, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__xfrm_init_state.__msg.7) #15
-  %113 = icmp eq ptr %3, null
-  br i1 %113, label %169, label %114
+  %112 = icmp eq ptr %3, null
+  br i1 %112, label %168, label %113
 
-114:                                              ; preds = %.thread29
+113:                                              ; preds = %.thread29
   store ptr @__xfrm_init_state.__msg.7, ptr %3, align 8
-  br label %169
+  br label %168
 
-.split41:                                         ; preds = %105
+.split41:                                         ; preds = %104
   tail call void @__rcu_read_unlock() #15
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store ptr %103, ptr %115, align 8
-  %116 = load i8, ptr %86, align 4
-  %117 = zext i8 %116 to i32
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  store ptr %102, ptr %114, align 8
+  %115 = load i8, ptr %85, align 4
+  %116 = zext i8 %115 to i32
   tail call void @__rcu_read_lock() #15
-  %118 = load volatile ptr, ptr %88, align 8
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %.loopexit.sink.split, label %.lr.ph43, !prof !141
+  %117 = load volatile ptr, ptr %87, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.loopexit.sink.split, label %.lr.ph43, !prof !141
 
 .lr.ph43:                                         ; preds = %.split41
-  %120 = icmp eq i8 %116, 50
-  br i1 %120, label %.lr.ph43.split.us.preheader, label %.thread36
+  %119 = icmp eq i8 %115, 50
+  br i1 %119, label %.lr.ph43.split.us.preheader, label %.thread36
 
 .lr.ph43.split.us.preheader:                      ; preds = %.lr.ph43
-  %121 = xor i1 %2, true
+  %120 = xor i1 %2, true
   br label %.lr.ph43.split.us
 
-.lr.ph43.split.us:                                ; preds = %.lr.ph43.split.us.preheader, %134
-  %122 = phi ptr [ %136, %134 ], [ %118, %.lr.ph43.split.us.preheader ]
-  %123 = phi i1 [ true, %134 ], [ %121, %.lr.ph43.split.us.preheader ]
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread36.us, label %127
+.lr.ph43.split.us:                                ; preds = %.lr.ph43.split.us.preheader, %133
+  %121 = phi ptr [ %135, %133 ], [ %117, %.lr.ph43.split.us.preheader ]
+  %122 = phi i1 [ true, %133 ], [ %120, %.lr.ph43.split.us.preheader ]
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %.thread36.us, label %126
 
-127:                                              ; preds = %.lr.ph43.split.us
-  %128 = load ptr, ptr %125, align 8
-  %129 = tail call zeroext i1 @try_module_get(ptr noundef %128) #15
-  %130 = select i1 %129, ptr %125, ptr null
+126:                                              ; preds = %.lr.ph43.split.us
+  %127 = load ptr, ptr %124, align 8
+  %128 = tail call zeroext i1 @try_module_get(ptr noundef %127) #15
+  %129 = select i1 %128, ptr %124, ptr null
   br label %.thread36.us
 
-.thread36.us:                                     ; preds = %127, %.lr.ph43.split.us
-  %131 = phi ptr [ null, %.lr.ph43.split.us ], [ %130, %127 ]
+.thread36.us:                                     ; preds = %126, %.lr.ph43.split.us
+  %130 = phi ptr [ null, %.lr.ph43.split.us ], [ %129, %126 ]
   tail call void @__rcu_read_unlock() #15
-  %132 = icmp ne ptr %131, null
-  %133 = or i1 %123, %132
-  br i1 %133, label %.loopexit, label %134
+  %131 = icmp ne ptr %130, null
+  %132 = or i1 %122, %131
+  br i1 %132, label %.loopexit, label %133
 
-134:                                              ; preds = %.thread36.us
-  %135 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.21, i32 noundef %7, i32 noundef %117) #15
+133:                                              ; preds = %.thread36.us
+  %134 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.21, i32 noundef %7, i32 noundef %116) #15
   tail call void @__rcu_read_lock() #15
-  %136 = load volatile ptr, ptr %88, align 8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit.sink.split, label %.lr.ph43.split.us, !prof !142
+  %135 = load volatile ptr, ptr %87, align 8
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.loopexit.sink.split, label %.lr.ph43.split.us, !prof !142
 
 .thread36:                                        ; preds = %.lr.ph43
   tail call void @__rcu_read_unlock() #15
-  br i1 %2, label %138, label %.loopexit
+  br i1 %2, label %137, label %.loopexit
 
-138:                                              ; preds = %.thread36
-  %139 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.21, i32 noundef %7, i32 noundef %117) #15
+137:                                              ; preds = %.thread36
+  %138 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.21, i32 noundef %7, i32 noundef %116) #15
   tail call void @__rcu_read_lock() #15
-  %140 = load volatile ptr, ptr %88, align 8
+  %139 = load volatile ptr, ptr %87, align 8
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %134, %138, %.split41
+.loopexit.sink.split:                             ; preds = %133, %137, %.split41
   tail call void @__rcu_read_unlock() #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread36.us, %.loopexit.sink.split, %.thread36
-  %141 = phi ptr [ null, %.thread36 ], [ null, %.loopexit.sink.split ], [ %131, %.thread36.us ]
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  store ptr %141, ptr %142, align 8
-  %143 = load ptr, ptr %115, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %145 = load ptr, ptr %144, align 8
-  %146 = tail call i32 %145(ptr noundef %0, ptr noundef %3) #15
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %169
+  %140 = phi ptr [ null, %.thread36 ], [ null, %.loopexit.sink.split ], [ %130, %.thread36.us ]
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  store ptr %140, ptr %141, align 8
+  %142 = load ptr, ptr %114, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
+  %144 = load ptr, ptr %143, align 8
+  %145 = tail call i32 %144(ptr noundef %0, ptr noundef %3) #15
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %168
 
-148:                                              ; preds = %.loopexit
-  %149 = load i8, ptr %22, align 4
-  %150 = icmp ugt i8 %149, 4
-  br i1 %150, label %.thread38, label %151, !prof !6
+147:                                              ; preds = %.loopexit
+  %148 = load i8, ptr %22, align 4
+  %149 = icmp ugt i8 %148, 4
+  br i1 %149, label %.thread38, label %150, !prof !6
 
-151:                                              ; preds = %148
+150:                                              ; preds = %147
   switch i16 %6, label %.thread38 [
-    i16 2, label %152
-    i16 10, label %157
+    i16 2, label %151
+    i16 10, label %156
   ]
 
-152:                                              ; preds = %151
-  %153 = zext nneg i8 %149 to i64
-  %154 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %153
-  %155 = add nsw i8 %149, -4
-  %156 = icmp ult i8 %155, -2
-  br i1 %156, label %160, label %.thread38
+151:                                              ; preds = %150
+  %152 = zext nneg i8 %148 to i64
+  %153 = getelementptr %struct.xfrm_mode, ptr @xfrm4_mode_map, i64 %152
+  %154 = add nsw i8 %148, -4
+  %155 = icmp ult i8 %154, -2
+  br i1 %155, label %159, label %.thread38
 
-157:                                              ; preds = %151
-  %158 = zext nneg i8 %149 to i64
-  %159 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %158
-  %.not22 = icmp eq i8 %149, 3
-  br i1 %.not22, label %.thread38, label %160
+156:                                              ; preds = %150
+  %157 = zext nneg i8 %148 to i64
+  %158 = getelementptr %struct.xfrm_mode, ptr @xfrm6_mode_map, i64 %157
+  %.not22 = icmp eq i8 %148, 3
+  br i1 %.not22, label %.thread38, label %159
 
-160:                                              ; preds = %157, %152
-  %161 = phi ptr [ %154, %152 ], [ %159, %157 ]
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %.thread38, label %165
+159:                                              ; preds = %156, %151
+  %160 = phi ptr [ %153, %151 ], [ %158, %156 ]
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %.thread38, label %164
 
-.thread38:                                        ; preds = %151, %152, %157, %148, %160
+.thread38:                                        ; preds = %150, %151, %156, %147, %159
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__xfrm_init_state.__msg.8) #15
-  %163 = icmp eq ptr %3, null
-  br i1 %163, label %169, label %164
+  %162 = icmp eq ptr %3, null
+  br i1 %162, label %168, label %163
 
-164:                                              ; preds = %.thread38
+163:                                              ; preds = %.thread38
   store ptr @__xfrm_init_state.__msg.8, ptr %3, align 8
-  br label %169
+  br label %168
 
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 710
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %166, ptr noundef nonnull align 1 dereferenceable(3) %161, i64 3, i1 false)
-  br i1 %1, label %167, label %169
+164:                                              ; preds = %159
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 710
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %165, ptr noundef nonnull align 1 dereferenceable(3) %160, i64 3, i1 false)
+  br i1 %1, label %166, label %168
 
-167:                                              ; preds = %165
-  %168 = tail call i32 @xfrm_init_replay(ptr noundef %0, ptr noundef %3) #15
-  br label %169
+166:                                              ; preds = %164
+  %167 = tail call i32 @xfrm_init_replay(ptr noundef %0, ptr noundef %3) #15
+  br label %168
 
-169:                                              ; preds = %.thread24, %64, %167, %165, %164, %.thread38, %.loopexit, %114, %.thread29, %49, %47, %39, %.thread
-  %170 = phi i32 [ %146, %.loopexit ], [ %168, %167 ], [ 0, %165 ], [ -93, %.thread38 ], [ -93, %39 ], [ -93, %.thread ], [ -93, %49 ], [ -93, %47 ], [ -93, %114 ], [ -93, %.thread29 ], [ -93, %164 ], [ -93, %64 ], [ -93, %.thread24 ]
-  ret i32 %170
+168:                                              ; preds = %.thread24, %63, %166, %164, %163, %.thread38, %.loopexit, %113, %.thread29, %48, %46, %39, %.thread
+  %169 = phi i32 [ %145, %.loopexit ], [ %167, %166 ], [ 0, %164 ], [ -93, %.thread38 ], [ -93, %39 ], [ -93, %.thread ], [ -93, %48 ], [ -93, %46 ], [ -93, %113 ], [ -93, %.thread29 ], [ -93, %163 ], [ -93, %63 ], [ -93, %.thread24 ]
+  ret i32 %169
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -225,7 +225,7 @@ define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, 
 
 .lr.ph:                                           ; preds = %9, %17
   %.020 = phi i32 [ %.1, %17 ], [ 0, %9 ]
-  %.01419 = phi ptr [ %19, %17 ], [ %0, %9 ]
+  %.01419 = phi ptr [ %18, %17 ], [ %0, %9 ]
   %12 = load i8, ptr %.01419, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr i32, ptr @_Py_ctype_table, i64 %13
@@ -236,20 +236,20 @@ define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, 
 
 17:                                               ; preds = %.lr.ph
   %.not16 = icmp eq i32 %.020, 0
-  %18 = and i32 %15, 1
-  %.1 = select i1 %.not16, i32 %18, i32 1
-  %19 = getelementptr i8, ptr %.01419, i64 1
-  %exitcond.not = icmp eq ptr %19, %10
+  %spec.select = and i32 %15, 1
+  %.1 = select i1 %.not16, i32 %spec.select, i32 1
+  %18 = getelementptr i8, ptr %.01419, i64 1
+  %exitcond.not = icmp eq ptr %18, %10
   br i1 %exitcond.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !14
 
 .loopexit.sink.split:                             ; preds = %17, %9, %3
   %.0.lcssa.sink.shrunk = phi i32 [ %8, %3 ], [ 0, %9 ], [ %.1, %17 ]
   %.0.lcssa.sink = zext i32 %.0.lcssa.sink.shrunk to i64
-  %20 = tail call ptr @PyBool_FromLong(i64 noundef %.0.lcssa.sink) #14
+  %19 = tail call ptr @PyBool_FromLong(i64 noundef %.0.lcssa.sink) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %2
-  %.013 = phi ptr [ @_Py_FalseStruct, %2 ], [ %20, %.loopexit.sink.split ], [ @_Py_FalseStruct, %.lr.ph ]
+  %.013 = phi ptr [ @_Py_FalseStruct, %2 ], [ %19, %.loopexit.sink.split ], [ @_Py_FalseStruct, %.lr.ph ]
   ret ptr %.013
 }
 

@@ -150,7 +150,7 @@ define hidden void @zif_net_get_interfaces(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #6
-  br label %87
+  br label %86
 
 10:                                               ; preds = %2
   %11 = call i32 @getifaddrs(ptr noundef nonnull %4) #6
@@ -164,7 +164,7 @@ define hidden void @zif_net_get_interfaces(ptr noundef readonly captures(none) %
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef %15) #6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %16, align 8, !tbaa !12
-  br label %87
+  br label %86
 
 17:                                               ; preds = %10
   %18 = call ptr @_zend_new_array_0() #6
@@ -181,8 +181,8 @@ define hidden void @zif_net_get_interfaces(ptr noundef readonly captures(none) %
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
-23:                                               ; preds = %.lr.ph, %85
-  %.049 = phi ptr [ %.047, %.lr.ph ], [ %.0, %85 ]
+23:                                               ; preds = %.lr.ph, %84
+  %.049 = phi ptr [ %.047, %.lr.ph ], [ %.0, %84 ]
   %24 = load ptr, ptr %1, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !22
@@ -305,30 +305,29 @@ iface_append_unicast.exit:                        ; preds = %74, %76
   %79 = load ptr, ptr %.036, align 8, !tbaa !12
   %80 = call ptr @zend_hash_str_find(ptr noundef %79, ptr noundef nonnull @.str.2, i64 noundef 2) #6
   %.not46 = icmp eq ptr %80, null
-  br i1 %.not46, label %81, label %85
+  br i1 %.not46, label %81, label %84
 
 81:                                               ; preds = %iface_append_unicast.exit
   %82 = load i32, ptr %43, align 8, !tbaa !26
-  %83 = and i32 %82, 1
-  %84 = icmp ne i32 %83, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %.036, ptr noundef nonnull @.str.2, i64 noundef 2, i1 noundef zeroext %84) #6
-  br label %85
+  %83 = trunc i32 %82 to i1
+  call void @add_assoc_bool_ex(ptr noundef nonnull %.036, ptr noundef nonnull @.str.2, i64 noundef 2, i1 noundef zeroext %83) #6
+  br label %84
 
-85:                                               ; preds = %81, %iface_append_unicast.exit
+84:                                               ; preds = %81, %iface_append_unicast.exit
   %.0 = load ptr, ptr %.049, align 8, !tbaa !17
   %.not41 = icmp eq ptr %.0, null
   br i1 %.not41, label %._crit_edge.loopexit, label %23
 
-._crit_edge.loopexit:                             ; preds = %85
+._crit_edge.loopexit:                             ; preds = %84
   %.pre = load ptr, ptr %4, align 8, !tbaa !17
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %17
-  %86 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %17 ]
-  call void @freeifaddrs(ptr noundef %86) #6
-  br label %87
+  %85 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %17 ]
+  call void @freeifaddrs(ptr noundef %85) #6
+  br label %86
 
-87:                                               ; preds = %._crit_edge, %12, %9
+86:                                               ; preds = %._crit_edge, %12, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

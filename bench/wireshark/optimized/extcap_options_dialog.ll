@@ -6714,9 +6714,8 @@ _Z12qobject_castIP11QGridLayoutET_P7QObject.exit: ; preds = %99
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
   %127 = load i32, ptr %126, align 8
-  %128 = and i32 %127, 1
-  %.not5.i = icmp eq i32 %128, 0
-  br i1 %.not5.i, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit.thread, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit
+  %128 = trunc i32 %127 to i1
+  br i1 %128, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit.thread
 
 129:                                              ; preds = %117, %115, %112
   %130 = landingpad { ptr, i32 }

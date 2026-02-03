@@ -10307,13 +10307,13 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEjEZL24countToEli
   br i1 %.not.i6.not.i.i.i30.i.i.i, label %"_ZSt10__invoke_rIvRZL24countToEliminateComparesRN4llvm4LoopEjRNS0_15ScalarEvolutionEE3$_0JPNS0_5ValueEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EES5_Lj29ELb0EEEEEbPT_RKT0_.exit.i.i.i
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EES5_Lj29ELb0EEEEEbPT_RKT0_.exit.i.i.i: ; preds = %28, %22
-  %.0135.i.i.i = phi ptr [ %21, %22 ], [ %27, %28 ]
+  %.0134.i.i.i = phi ptr [ %21, %22 ], [ %27, %28 ]
   %storemerge.i.i.i = phi ptr [ %24, %22 ], [ %30, %28 ]
   %31 = load ptr, ptr %.val, align 8, !tbaa !484
   %32 = add nuw nsw i32 %.val4, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %.0135.i.i.i, ptr %6, align 8, !tbaa !92
+  store ptr %.0134.i.i.i, ptr %6, align 8, !tbaa !92
   store i32 %32, ptr %7, align 4, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !43
@@ -10372,8 +10372,8 @@ _ZNKSt8functionIFvPN4llvm5ValueEjEEclES2_j.exit33.i.i.i: ; preds = %_ZNKSt8funct
   %55 = load ptr, ptr %52, align 8, !tbaa !486
   %56 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %55, ptr noundef nonnull %49) #17
   %57 = load ptr, ptr %52, align 8, !tbaa !486
-  %.sroa.0.0.insert.ext85.i.i.i = and i64 %51, 1099511627775
-  %58 = tail call i16 @_ZN4llvm15ScalarEvolution17evaluatePredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %57, i64 %.sroa.0.0.insert.ext85.i.i.i, ptr noundef %54, ptr noundef %56) #17
+  %.sroa.0.0.insert.ext84.i.i.i = and i64 %51, 1099511627775
+  %58 = tail call i16 @_ZN4llvm15ScalarEvolution17evaluatePredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %57, i64 %.sroa.0.0.insert.ext84.i.i.i, ptr noundef %54, ptr noundef %56) #17
   %59 = and i16 %58, 256
   %.not74.i.i.i = icmp eq i16 %59, 0
   br i1 %.not74.i.i.i, label %60, label %"_ZSt10__invoke_rIvRZL24countToEliminateComparesRN4llvm4LoopEjRNS0_15ScalarEvolutionEE3$_0JPNS0_5ValueEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
@@ -10394,11 +10394,11 @@ _ZNKSt8functionIFvPN4llvm5ValueEjEEclES2_j.exit33.i.i.i: ; preds = %_ZNKSt8funct
 69:                                               ; preds = %65
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %51 to i32
   %70 = tail call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc.i.i.i) #17
-  %.sroa.0.0.insert.ext117.i.i.i = zext i32 %70 to i40
+  %.sroa.0.0.insert.ext116.i.i.i = zext i32 %70 to i40
   br label %71
 
 71:                                               ; preds = %69, %60
-  %.sroa.0.0.i.i.i = phi i40 [ %61, %60 ], [ %.sroa.0.0.insert.ext117.i.i.i, %69 ]
+  %.sroa.0.0.i.i.i = phi i40 [ %61, %60 ], [ %.sroa.0.0.insert.ext116.i.i.i, %69 ]
   %.067.i.i.i = phi ptr [ %56, %60 ], [ %54, %69 ]
   %.0.i.i.i = phi ptr [ %54, %60 ], [ %56, %69 ]
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
@@ -10415,24 +10415,23 @@ _ZNKSt8functionIFvPN4llvm5ValueEjEEclES2_j.exit33.i.i.i: ; preds = %_ZNKSt8funct
   br i1 %.not.i.i.i, label %80, label %"_ZSt10__invoke_rIvRZL24countToEliminateComparesRN4llvm4LoopEjRNS0_15ScalarEvolutionEE3$_0JPNS0_5ValueEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 80:                                               ; preds = %75
-  %.sroa.0.0.extract.trunc107.i.i.i = trunc i40 %.sroa.0.0.i.i.i to i32
-  %81 = and i32 %.sroa.0.0.extract.trunc107.i.i.i, -2
+  %.sroa.0.0.extract.trunc106.i.i.i = trunc i40 %.sroa.0.0.i.i.i to i32
+  %81 = and i32 %.sroa.0.0.extract.trunc106.i.i.i, -2
   %82 = icmp eq i32 %81, 32
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 28
   %85 = load i16, ptr %84, align 4, !tbaa !162
-  %86 = and i16 %85, 1
-  %.not75.i.i.i = icmp eq i16 %86, 0
-  br i1 %.not75.i.i.i, label %87, label %.critedge3.i.i.i
+  %86 = trunc i16 %85 to i1
+  br i1 %86, label %.critedge3.i.i.i, label %87
 
 87:                                               ; preds = %83, %80
   %88 = load ptr, ptr %52, align 8, !tbaa !486
-  %89 = tail call i64 @_ZN4llvm15ScalarEvolution25getMonotonicPredicateTypeEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1344) %88, ptr noundef nonnull %.0.i.i.i, i32 noundef %.sroa.0.0.extract.trunc107.i.i.i) #17
+  %89 = tail call i64 @_ZN4llvm15ScalarEvolution25getMonotonicPredicateTypeEPKNS_14SCEVAddRecExprENS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(1344) %88, ptr noundef nonnull %.0.i.i.i, i32 noundef %.sroa.0.0.extract.trunc106.i.i.i) #17
   %90 = and i64 %89, 4294967296
-  %.not76.i.i.i = icmp eq i64 %90, 0
-  br i1 %.not76.i.i.i, label %"_ZSt10__invoke_rIvRZL24countToEliminateComparesRN4llvm4LoopEjRNS0_15ScalarEvolutionEE3$_0JPNS0_5ValueEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %.critedge3.i.i.i
+  %.not75.i.i.i = icmp eq i64 %90, 0
+  br i1 %.not75.i.i.i, label %"_ZSt10__invoke_rIvRZL24countToEliminateComparesRN4llvm4LoopEjRNS0_15ScalarEvolutionEE3$_0JPNS0_5ValueEjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %.critedge3.i.i.i
 
 .critedge3.i.i.i:                                 ; preds = %87, %83
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -10449,49 +10448,49 @@ _ZNKSt8functionIFvPN4llvm5ValueEjEEclES2_j.exit33.i.i.i: ; preds = %_ZNKSt8funct
   %99 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr19evaluateAtIterationEPKNS_4SCEVERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i, ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(1344) %98) #17
   store ptr %99, ptr %9, align 8, !tbaa !164
   %100 = load ptr, ptr %52, align 8, !tbaa !486
-  %.sroa.0.0.insert.ext82.i.i.i = zext i40 %.sroa.0.0.i.i.i to i64
-  %101 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %100, i64 %.sroa.0.0.insert.ext82.i.i.i, ptr noundef %99, ptr noundef %.067.i.i.i) #17
+  %.sroa.0.0.insert.ext81.i.i.i = zext i40 %.sroa.0.0.i.i.i to i64
+  %101 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %100, i64 %.sroa.0.0.insert.ext81.i.i.i, ptr noundef %99, ptr noundef %.067.i.i.i) #17
   br i1 %101, label %104, label %102
 
 102:                                              ; preds = %.critedge3.i.i.i
-  %103 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc107.i.i.i) #17
-  %.sroa.0.0.insert.ext113.i.i.i = zext i32 %103 to i40
+  %103 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc106.i.i.i) #17
+  %.sroa.0.0.insert.ext112.i.i.i = zext i32 %103 to i40
   br label %104
 
 104:                                              ; preds = %102, %.critedge3.i.i.i
-  %.sroa.0.0.extract.trunc111.pre-phi.i.i.i = phi i32 [ %103, %102 ], [ %.sroa.0.0.extract.trunc107.i.i.i, %.critedge3.i.i.i ]
-  %.sroa.0.1.i.i.i = phi i40 [ %.sroa.0.0.insert.ext113.i.i.i, %102 ], [ %.sroa.0.0.i.i.i, %.critedge3.i.i.i ]
+  %.sroa.0.0.extract.trunc110.pre-phi.i.i.i = phi i32 [ %103, %102 ], [ %.sroa.0.0.extract.trunc106.i.i.i, %.critedge3.i.i.i ]
+  %.sroa.0.1.i.i.i = phi i40 [ %.sroa.0.0.insert.ext112.i.i.i, %102 ], [ %.sroa.0.0.i.i.i, %.critedge3.i.i.i ]
   %105 = load ptr, ptr %52, align 8, !tbaa !486
   %106 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(1344) %105)
   %107 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %108 = load ptr, ptr %107, align 8, !tbaa !489
-  %109 = call fastcc noundef zeroext i1 @"_ZZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionEENK3$_1clERjRPKNS_4SCEVES8_S8_NS_7CmpInst9PredicateE"(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.067.i.i.i, ptr noundef %106, i32 noundef %.sroa.0.0.extract.trunc111.pre-phi.i.i.i)
+  %109 = call fastcc noundef zeroext i1 @"_ZZL24countToEliminateComparesRN4llvm4LoopEjRNS_15ScalarEvolutionEENK3$_1clERjRPKNS_4SCEVES8_S8_NS_7CmpInst9PredicateE"(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %.067.i.i.i, ptr noundef %106, i32 noundef %.sroa.0.0.extract.trunc110.pre-phi.i.i.i)
   br i1 %109, label %110, label %138
 
 110:                                              ; preds = %104
   %111 = load ptr, ptr %52, align 8, !tbaa !486
   %112 = load ptr, ptr %9, align 8, !tbaa !164
   %113 = tail call noundef ptr @_ZN4llvm15ScalarEvolution10getAddExprEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %111, ptr noundef %112, ptr noundef %106, i32 noundef 0, i32 noundef 0)
-  %114 = and i32 %.sroa.0.0.extract.trunc111.pre-phi.i.i.i, -2
+  %114 = and i32 %.sroa.0.0.extract.trunc110.pre-phi.i.i.i, -2
   %115 = icmp eq i32 %114, 32
   br i1 %115, label %116, label %133
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %52, align 8, !tbaa !486
-  %118 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc111.pre-phi.i.i.i) #17
+  %118 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc110.pre-phi.i.i.i) #17
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %118 to i64
   %119 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %117, i64 %.sroa.0.0.insert.ext.i.i.i, ptr noundef %113, ptr noundef %.067.i.i.i) #17
   br i1 %119, label %133, label %120
 
 120:                                              ; preds = %116
   %121 = load ptr, ptr %52, align 8, !tbaa !486
-  %.sroa.0.0.insert.ext81.i.i.i = zext i40 %.sroa.0.1.i.i.i to i64
-  %122 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %121, i64 %.sroa.0.0.insert.ext81.i.i.i, ptr noundef %112, ptr noundef %.067.i.i.i) #17
+  %.sroa.0.0.insert.ext80.i.i.i = zext i40 %.sroa.0.1.i.i.i to i64
+  %122 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %121, i64 %.sroa.0.0.insert.ext80.i.i.i, ptr noundef %112, ptr noundef %.067.i.i.i) #17
   br i1 %122, label %133, label %123
 
 123:                                              ; preds = %120
   %124 = load ptr, ptr %52, align 8, !tbaa !486
-  %125 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %124, i64 %.sroa.0.0.insert.ext81.i.i.i, ptr noundef %113, ptr noundef %.067.i.i.i) #17
+  %125 = tail call noundef zeroext i1 @_ZN4llvm15ScalarEvolution16isKnownPredicateENS_12CmpPredicateEPKNS_4SCEVES4_(ptr noundef nonnull align 8 dereferenceable(1344) %124, i64 %.sroa.0.0.insert.ext80.i.i.i, ptr noundef %113, ptr noundef %.067.i.i.i) #17
   br i1 %125, label %126, label %133
 
 126:                                              ; preds = %123

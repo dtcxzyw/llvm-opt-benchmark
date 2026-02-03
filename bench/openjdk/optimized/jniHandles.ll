@@ -1273,61 +1273,60 @@ tailrecurse:                                      ; preds = %2, %16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14JNIHandleBlock7oops_doEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  br label %.preheader24
+  br label %.preheader23
 
-.preheader24:                                     ; preds = %2, %._crit_edge.thread
-  %.027 = phi ptr [ %0, %2 ], [ %23, %._crit_edge.thread ]
+.preheader23:                                     ; preds = %2, %._crit_edge.thread
+  %.026 = phi ptr [ %0, %2 ], [ %22, %._crit_edge.thread ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader24, %19
-  %.01726 = phi ptr [ %.027, %.preheader24 ], [ %21, %19 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.01726, i64 256
+.preheader:                                       ; preds = %.preheader23, %18
+  %.01725 = phi ptr [ %.026, %.preheader23 ], [ %20, %18 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.01725, i64 256
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.preheader, %14
-  %6 = phi i32 [ %15, %14 ], [ %4, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds nuw i64, ptr %.01726, i64 %indvars.iv
+.lr.ph:                                           ; preds = %.preheader, %13
+  %6 = phi i32 [ %14, %13 ], [ %4, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
+  %7 = getelementptr inbounds nuw i64, ptr %.01725, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
   %.not22 = icmp eq i64 %8, 0
-  %9 = and i64 %8, 1
-  %10 = icmp ne i64 %9, 0
-  %or.cond = or i1 %.not22, %10
-  br i1 %or.cond, label %14, label %11
+  %9 = trunc i64 %8 to i1
+  %or.cond = or i1 %.not22, %9
+  br i1 %or.cond, label %13, label %10
 
-11:                                               ; preds = %.lr.ph
-  %12 = load ptr, ptr %1, align 8
-  %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7) #11
+10:                                               ; preds = %.lr.ph
+  %11 = load ptr, ptr %1, align 8
+  %12 = load ptr, ptr %11, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7) #11
   %.pre = load i32, ptr %3, align 8
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.lr.ph, %11
-  %15 = phi i32 [ %6, %.lr.ph ], [ %.pre, %11 ]
+13:                                               ; preds = %.lr.ph, %10
+  %14 = phi i32 [ %6, %.lr.ph ], [ %.pre, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  %15 = sext i32 %14 to i64
+  %16 = icmp slt i64 %indvars.iv.next, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %14
-  %18 = icmp slt i32 %15, 32
-  br i1 %18, label %._crit_edge.thread, label %19
+._crit_edge:                                      ; preds = %13
+  %17 = icmp slt i32 %14, 32
+  br i1 %17, label %._crit_edge.thread, label %18
 
-19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds nuw i8, ptr %.01726, i64 264
-  %21 = load ptr, ptr %20, align 8
-  %.not21 = icmp eq ptr %21, null
+18:                                               ; preds = %._crit_edge
+  %19 = getelementptr inbounds nuw i8, ptr %.01725, i64 264
+  %20 = load ptr, ptr %19, align 8
+  %.not21 = icmp eq ptr %20, null
   br i1 %.not21, label %._crit_edge.thread, label %.preheader, !llvm.loop !20
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %19
-  %22 = getelementptr inbounds nuw i8, ptr %.027, i64 280
-  %23 = load ptr, ptr %22, align 8
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %24, label %.preheader24, !llvm.loop !21
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %18
+  %21 = getelementptr inbounds nuw i8, ptr %.026, i64 280
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %23, label %.preheader23, !llvm.loop !21
 
-24:                                               ; preds = %._crit_edge.thread
+23:                                               ; preds = %._crit_edge.thread
   ret void
 }
 
@@ -2415,9 +2414,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -2451,8 +2449,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

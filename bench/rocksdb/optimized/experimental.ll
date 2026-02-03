@@ -27016,7 +27016,7 @@ define internal fastcc noundef zeroext i1 @_ZNK7rocksdb12experimental12_GLOBAL__
   br label %45
 
 45:                                               ; preds = %.lr.ph, %.backedge
-  %46 = phi i64 [ %22, %.lr.ph ], [ %264, %.backedge ]
+  %46 = phi i64 [ %22, %.lr.ph ], [ %263, %.backedge ]
   %.032109 = phi ptr [ %20, %.lr.ph ], [ %61, %.backedge ]
   %.038108 = phi i64 [ 0, %.lr.ph ], [ %47, %.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -27352,118 +27352,117 @@ _ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22Range
   %187 = icmp eq i8 %62, 17
   %188 = getelementptr inbounds nuw i8, ptr %.133, i64 1
   %189 = load i8, ptr %188, align 1, !tbaa !16
-  %190 = and i8 %189, 1
-  %.not.i50 = icmp ne i8 %190, 0
-  %191 = getelementptr inbounds nuw i8, ptr %.133, i64 2
-  %192 = getelementptr inbounds nuw i8, ptr %.133, i64 3
-  %193 = load i8, ptr %191, align 1, !tbaa !16
-  %.not35.i.i = icmp sgt i8 %193, -1
-  br i1 %.not35.i.i, label %194, label %.backedge.sink.split
+  %.not.i50 = trunc i8 %189 to i1
+  %190 = getelementptr inbounds nuw i8, ptr %.133, i64 2
+  %191 = getelementptr inbounds nuw i8, ptr %.133, i64 3
+  %192 = load i8, ptr %190, align 1, !tbaa !16
+  %.not35.i.i = icmp sgt i8 %192, -1
+  br i1 %.not35.i.i, label %193, label %.backedge.sink.split
 
-194:                                              ; preds = %186
-  %195 = lshr i8 %193, 4
-  switch i8 %195, label %.backedge.sink.split [
-    i8 0, label %196
+193:                                              ; preds = %186
+  %194 = lshr i8 %192, 4
+  switch i8 %194, label %.backedge.sink.split [
+    i8 0, label %195
     i8 1, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i
-    i8 2, label %200
+    i8 2, label %199
   ]
 
-196:                                              ; preds = %194
-  %197 = icmp ult i8 %193, 4
-  br i1 %197, label %switch.lookup, label %.backedge.sink.split
+195:                                              ; preds = %193
+  %196 = icmp ult i8 %192, 4
+  br i1 %196, label %switch.lookup, label %.backedge.sink.split
 
-_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i: ; preds = %194
-  %198 = and i8 %193, 15
-  %199 = zext nneg i8 %198 to i32
-  br label %214
+_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i: ; preds = %193
+  %197 = and i8 %192, 15
+  %198 = zext nneg i8 %197 to i32
+  br label %213
 
-200:                                              ; preds = %194
-  %201 = icmp samesign ult i8 %193, 6
-  br i1 %201, label %202, label %207
+199:                                              ; preds = %193
+  %200 = icmp samesign ult i8 %192, 6
+  br i1 %200, label %201, label %206
 
-202:                                              ; preds = %200
-  %203 = icmp samesign ugt i8 %193, 2
-  br i1 %203, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i, label %205
+201:                                              ; preds = %199
+  %202 = icmp samesign ugt i8 %192, 2
+  br i1 %202, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i, label %204
 
-_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i: ; preds = %202
-  %204 = add nsw i8 %193, -3
-  %.sink.i.in.i.i = zext nneg i8 %204 to i32
+_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i: ; preds = %201
+  %203 = add nsw i8 %192, -3
+  %.sink.i.in.i.i = zext nneg i8 %203 to i32
   %.sink.i.i.i = or disjoint i32 %.sink.i.in.i.i, 768
-  br label %214
+  br label %213
 
-205:                                              ; preds = %202
-  %.not36.i.i = icmp eq i8 %193, 0
-  br i1 %.not36.i.i, label %214, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i
+204:                                              ; preds = %201
+  %.not36.i.i = icmp eq i8 %192, 0
+  br i1 %.not36.i.i, label %213, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i
 
-_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i: ; preds = %205
-  %206 = add nsw i8 %193, -1
-  %.sink.i37.in.i.i = zext nneg i8 %206 to i32
+_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i: ; preds = %204
+  %205 = add nsw i8 %192, -1
+  %.sink.i37.in.i.i = zext nneg i8 %205 to i32
   %.sink.i37.i.i = or disjoint i32 %.sink.i37.in.i.i, 512
-  br label %214
+  br label %213
 
-207:                                              ; preds = %200
-  %208 = icmp samesign ult i8 %193, 10
-  br i1 %208, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i, label %210
+206:                                              ; preds = %199
+  %207 = icmp samesign ult i8 %192, 10
+  br i1 %207, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i, label %209
 
-_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i: ; preds = %207
-  %209 = add nsw i8 %193, -6
-  %.sink.i43.in.i.i = zext nneg i8 %209 to i32
+_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i: ; preds = %206
+  %208 = add nsw i8 %192, -6
+  %.sink.i43.in.i.i = zext nneg i8 %208 to i32
   %.sink.i43.i.i = or disjoint i32 %.sink.i43.in.i.i, 1024
-  br label %214
+  br label %213
 
-210:                                              ; preds = %207
-  %211 = icmp samesign ult i8 %193, 15
-  br i1 %211, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i, label %214
+209:                                              ; preds = %206
+  %210 = icmp samesign ult i8 %192, 15
+  br i1 %210, label %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i, label %213
 
-_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i: ; preds = %210
-  %212 = add nsw i8 %193, -10
-  %.sink.i46.in.i.i = zext nneg i8 %212 to i32
+_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i: ; preds = %209
+  %211 = add nsw i8 %192, -10
+  %.sink.i46.in.i.i = zext nneg i8 %211 to i32
   %.sink.i46.i.i = or disjoint i32 %.sink.i46.in.i.i, 1280
-  br label %214
+  br label %213
 
-switch.lookup:                                    ; preds = %196
-  %213 = zext nneg i8 %193 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader8MayMatchENS_5SliceEPNS3_5StateE, i64 %213
+switch.lookup:                                    ; preds = %195
+  %212 = zext nneg i8 %192 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader8MayMatchENS_5SliceEPNS3_5StateE, i64 %212
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %214
+  br label %213
 
-214:                                              ; preds = %switch.lookup, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i, %210, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i, %205, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i
-  %.sroa.07.0.ph.i = phi i32 [ 1536, %210 ], [ %.sink.i37.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i ], [ %.sink.i43.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i ], [ %.sink.i.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ %199, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ 256, %205 ], [ %.sink.i46.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i ], [ 0, %switch.lookup ]
-  %.sroa.11.7.ph.i = phi i32 [ 131072, %210 ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ 65536, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ 131072, %205 ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i ], [ %switch.load, %switch.lookup ]
+213:                                              ; preds = %switch.lookup, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i, %209, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i, %204, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i
+  %.sroa.07.0.ph.i = phi i32 [ 1536, %209 ], [ %.sink.i37.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i ], [ %.sink.i43.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i ], [ %.sink.i.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ %198, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ 256, %204 ], [ %.sink.i46.i.i, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i ], [ 0, %switch.lookup ]
+  %.sroa.11.7.ph.i = phi i32 [ 131072, %209 ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit39.i.i ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit45.i.i ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ 65536, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS3_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit.i.i ], [ 131072, %204 ], [ 131072, %_ZNSt7variantIJN7rocksdb12experimental14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEEaSIS4_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S4_S5_S6_S7_EE4typeEE18is_constructible_vISF_SC_E15is_assignable_vIRSF_SC_EERS8_E4typeESD_.exit48.i.i ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %215 = load i8, ptr %192, align 1, !tbaa !16
-  %216 = icmp sgt i8 %215, -1
-  br i1 %216, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
+  %214 = load i8, ptr %191, align 1, !tbaa !16
+  %215 = icmp sgt i8 %214, -1
+  br i1 %215, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
 
-_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i: ; preds = %214
-  %217 = zext nneg i8 %215 to i32
-  store i32 %217, ptr %5, align 4, !tbaa !102
-  %218 = getelementptr inbounds nuw i8, ptr %.133, i64 4
-  br label %221
+_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i: ; preds = %213
+  %216 = zext nneg i8 %214 to i32
+  store i32 %216, ptr %5, align 4, !tbaa !102
+  %217 = getelementptr inbounds nuw i8, ptr %.133, i64 4
+  br label %220
 
-_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i:      ; preds = %214
-  %219 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %192, ptr noundef nonnull %61, ptr noundef nonnull %5)
-  %220 = icmp eq ptr %219, null
-  br i1 %220, label %263, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i
+_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i:      ; preds = %213
+  %218 = call noundef ptr @_ZN7rocksdb22GetVarint32PtrFallbackEPKcS1_Pj(ptr noundef nonnull %191, ptr noundef nonnull %61, ptr noundef nonnull %5)
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %262, label %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i
 
 _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i: ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
   %.pre.i = load i32, ptr %5, align 4, !tbaa !102
-  br label %221
+  br label %220
 
-221:                                              ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i
-  %222 = phi i32 [ %217, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i ], [ %.pre.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i ]
-  %.1.i36.i = phi ptr [ %218, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i ], [ %219, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i ]
-  %223 = ptrtoint ptr %61 to i64
-  %224 = ptrtoint ptr %.1.i36.i to i64
-  %225 = sub i64 %223, %224
-  %226 = zext i32 %222 to i64
-  %.not29.i = icmp ugt i64 %225, %226
-  br i1 %.not29.i, label %227, label %263
+220:                                              ; preds = %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i
+  %221 = phi i32 [ %216, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i ], [ %.pre.i, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i ]
+  %.1.i36.i = phi ptr [ %217, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.thread.i ], [ %218, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i ]
+  %222 = ptrtoint ptr %61 to i64
+  %223 = ptrtoint ptr %.1.i36.i to i64
+  %224 = sub i64 %222, %223
+  %225 = zext i32 %221 to i64
+  %.not29.i = icmp ugt i64 %224, %225
+  br i1 %.not29.i, label %226, label %262
 
-227:                                              ; preds = %221
-  %228 = getelementptr inbounds nuw i8, ptr %.1.i36.i, i64 %226
-  %229 = ptrtoint ptr %228 to i64
-  %230 = sub i64 %223, %229
+226:                                              ; preds = %220
+  %227 = getelementptr inbounds nuw i8, ptr %.1.i36.i, i64 %225
+  %228 = ptrtoint ptr %227 to i64
+  %229 = sub i64 %222, %228
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @.str, ptr %6, align 8, !tbaa !17
   store i64 0, ptr %28, align 8, !tbaa !19
@@ -27479,76 +27478,76 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i: ; preds = %_ZN7rocksdb14
   %.sroa.07.0.insert.insert10.i = or disjoint i32 %.sroa.11.7.ph.i, %.sroa.07.0.ph.i
   call fastcc void @_ZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEERKNS_5SliceERKNS0_20KeySegmentsExtractor6ResultEPSA_SH_(i32 %.sroa.07.0.insert.insert10.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(25) %3, ptr noundef %6, ptr noundef %7)
   call fastcc void @_ZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEERKNS_5SliceERKNS0_20KeySegmentsExtractor6ResultEPSA_SH_(i32 %.sroa.07.0.insert.insert10.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %26, ptr noundef nonnull readonly align 8 dereferenceable(25) %27, ptr noundef %8, ptr noundef %9)
-  %231 = load i64, ptr %29, align 8, !tbaa !19
-  %232 = load i64, ptr %31, align 8, !tbaa !19
-  %..i.i = call i64 @llvm.umin.i64(i64 %231, i64 %232)
-  %233 = load ptr, ptr %7, align 8, !tbaa !17
-  %234 = load ptr, ptr %9, align 8, !tbaa !17
-  %bcmp.i = call i32 @bcmp(ptr %233, ptr %234, i64 %..i.i)
+  %230 = load i64, ptr %29, align 8, !tbaa !19
+  %231 = load i64, ptr %31, align 8, !tbaa !19
+  %..i.i = call i64 @llvm.umin.i64(i64 %230, i64 %231)
+  %232 = load ptr, ptr %7, align 8, !tbaa !17
+  %233 = load ptr, ptr %9, align 8, !tbaa !17
+  %bcmp.i = call i32 @bcmp(ptr %232, ptr %233, i64 %..i.i)
   %.not.i31.i = icmp eq i32 %bcmp.i, 0
-  %.not3038.i = icmp eq i64 %231, %232
+  %.not3038.i = icmp eq i64 %230, %231
   %.not30.i = select i1 %.not.i31.i, i1 %.not3038.i, i1 false
-  br i1 %.not30.i, label %235, label %262
+  br i1 %.not30.i, label %234, label %261
 
-235:                                              ; preds = %227
-  %236 = load i64, ptr %28, align 8
-  %237 = icmp eq i64 %236, 0
-  %or.cond.i54 = select i1 %.not.i50, i1 %237, i1 false
-  br i1 %or.cond.i54, label %262, label %238
+234:                                              ; preds = %226
+  %235 = load i64, ptr %28, align 8
+  %236 = icmp eq i64 %235, 0
+  %or.cond.i54 = select i1 %.not.i50, i1 %236, i1 false
+  br i1 %or.cond.i54, label %261, label %237
 
-238:                                              ; preds = %235
-  %239 = load i64, ptr %30, align 8, !tbaa !19
-  %..i33.i = call i64 @llvm.umin.i64(i64 %239, i64 %226)
-  %240 = load ptr, ptr %8, align 8, !tbaa !17
-  %241 = call i32 @memcmp(ptr noundef %240, ptr noundef nonnull %.1.i36.i, i64 noundef %..i33.i) #38
-  %.not.i34.i = icmp eq i32 %241, 0
-  br i1 %187, label %242, label %252
+237:                                              ; preds = %234
+  %238 = load i64, ptr %30, align 8, !tbaa !19
+  %..i33.i = call i64 @llvm.umin.i64(i64 %238, i64 %225)
+  %239 = load ptr, ptr %8, align 8, !tbaa !17
+  %240 = call i32 @memcmp(ptr noundef %239, ptr noundef nonnull %.1.i36.i, i64 noundef %..i33.i) #38
+  %.not.i34.i = icmp eq i32 %240, 0
+  br i1 %187, label %241, label %251
 
-242:                                              ; preds = %238
-  %243 = icmp ule i64 %239, %226
-  %244 = icmp slt i32 %241, 1
-  %245 = select i1 %.not.i34.i, i1 %243, i1 %244
-  br i1 %245, label %246, label %.thread92
+241:                                              ; preds = %237
+  %242 = icmp ule i64 %238, %225
+  %243 = icmp slt i32 %240, 1
+  %244 = select i1 %.not.i34.i, i1 %242, i1 %243
+  br i1 %244, label %245, label %.thread92
 
-246:                                              ; preds = %242
-  %..i37.i = call i64 @llvm.umin.i64(i64 %236, i64 %230)
-  %247 = load ptr, ptr %6, align 8, !tbaa !17
-  %248 = call i32 @memcmp(ptr noundef %247, ptr noundef nonnull %228, i64 noundef %..i37.i) #38
-  %.not.i38.i = icmp eq i32 %248, 0
-  %249 = icmp uge i64 %236, %230
-  %250 = icmp sgt i32 %248, -1
-  %251 = select i1 %.not.i38.i, i1 %249, i1 %250
+245:                                              ; preds = %241
+  %..i37.i = call i64 @llvm.umin.i64(i64 %235, i64 %229)
+  %246 = load ptr, ptr %6, align 8, !tbaa !17
+  %247 = call i32 @memcmp(ptr noundef %246, ptr noundef nonnull %227, i64 noundef %..i37.i) #38
+  %.not.i38.i = icmp eq i32 %247, 0
+  %248 = icmp uge i64 %235, %229
+  %249 = icmp sgt i32 %247, -1
+  %250 = select i1 %.not.i38.i, i1 %248, i1 %249
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %251, label %.backedge, label %.loopexit
+  br i1 %250, label %.backedge, label %.loopexit
 
-252:                                              ; preds = %238
-  %253 = icmp uge i64 %239, %226
-  %254 = icmp sgt i32 %241, -1
-  %255 = select i1 %.not.i34.i, i1 %253, i1 %254
-  br i1 %255, label %256, label %.thread92
+251:                                              ; preds = %237
+  %252 = icmp uge i64 %238, %225
+  %253 = icmp sgt i32 %240, -1
+  %254 = select i1 %.not.i34.i, i1 %252, i1 %253
+  br i1 %254, label %255, label %.thread92
 
-256:                                              ; preds = %252
-  %..i45.i = call i64 @llvm.umin.i64(i64 %236, i64 %230)
-  %257 = load ptr, ptr %6, align 8, !tbaa !17
-  %258 = call i32 @memcmp(ptr noundef %257, ptr noundef nonnull %228, i64 noundef %..i45.i) #38
-  %.not.i46.i = icmp eq i32 %258, 0
-  %259 = icmp ule i64 %236, %230
-  %260 = icmp slt i32 %258, 1
-  %261 = select i1 %.not.i46.i, i1 %259, i1 %260
+255:                                              ; preds = %251
+  %..i45.i = call i64 @llvm.umin.i64(i64 %235, i64 %229)
+  %256 = load ptr, ptr %6, align 8, !tbaa !17
+  %257 = call i32 @memcmp(ptr noundef %256, ptr noundef nonnull %227, i64 noundef %..i45.i) #38
+  %.not.i46.i = icmp eq i32 %257, 0
+  %258 = icmp ule i64 %235, %229
+  %259 = icmp slt i32 %257, 1
+  %260 = select i1 %.not.i46.i, i1 %258, i1 %259
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %261, label %.backedge, label %.loopexit
+  br i1 %260, label %.backedge, label %.loopexit
 
-.thread92:                                        ; preds = %242, %252
+.thread92:                                        ; preds = %241, %251
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -27556,7 +27555,7 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i: ; preds = %_ZN7rocksdb14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.sink.split
 
-262:                                              ; preds = %235, %227
+261:                                              ; preds = %234, %226
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -27564,17 +27563,17 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i: ; preds = %_ZN7rocksdb14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.sink.split
 
-263:                                              ; preds = %221, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
+262:                                              ; preds = %220, %_ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %196, %194, %186, %184, %164, %63, %thread-pre-split, %262, %.critedge40.i, %263, %182, %162
+.backedge.sink.split:                             ; preds = %195, %193, %186, %184, %164, %63, %thread-pre-split, %261, %.critedge40.i, %262, %182, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %177, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit, %246, %256
-  %264 = load i64, ptr %17, align 8, !tbaa !129
-  %.not.not = icmp ult i64 %47, %264
+.backedge:                                        ; preds = %.backedge.sink.split, %177, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit, %245, %255
+  %263 = load i64, ptr %17, align 8, !tbaa !129
+  %.not.not = icmp ult i64 %47, %263
   br i1 %.not.not, label %45, label %.loopexit, !llvm.loop !1201
 
 .loopexit.sink.split:                             ; preds = %163, %183, %52, %.thread92
@@ -27582,8 +27581,8 @@ _ZN7rocksdb14GetVarint32PtrEPKcS1_Pj.exit._crit_edge.i: ; preds = %_ZN7rocksdb14
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %256, %246, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit, %177, %.backedge, %.loopexit.sink.split, %4
-  %.0 = phi i1 [ true, %4 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %246 ], [ false, %256 ], [ true, %.backedge ], [ false, %177 ], [ false, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit ]
+.loopexit:                                        ; preds = %255, %245, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit, %177, %.backedge, %.loopexit.sink.split, %4
+  %.0 = phi i1 [ true, %4 ], [ %.0.ph, %.loopexit.sink.split ], [ false, %245 ], [ false, %255 ], [ true, %.backedge ], [ false, %177 ], [ false, %_ZN7rocksdb12experimental12_GLOBAL__N_132SstQueryFilterConfigsManagerImpl22RangeQueryFilterReader5StateD2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i1 %.0
 }

@@ -284,7 +284,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKN
   %.pn11.in.i = extractvalue { i64, i8 } %130, 1
   %.pn11.i = and i8 %.pn11.in.i, 1
   %.not.i71 = icmp ne i64 %.pn13.i, 1
-  %140 = icmp ne i8 %.pn11.i, 0
+  %140 = trunc i8 %.pn11.in.i to i1
   %141 = select i1 %.not.i71, i1 true, i1 %140
   br i1 %141, label %142, label %162
 

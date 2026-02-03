@@ -34639,8 +34639,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.end
-  %2 = and i8 %fov_spec.sroa.5.0.copyload, 1
-  %tobool5 = icmp ne i8 %2, 0
+  %tobool5 = trunc i8 %fov_spec.sroa.5.0.copyload to i1
   %call7 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEb(ptr noundef nonnull align 8 dereferenceable(36) %call4, i1 noundef zeroext %tobool5)
           to label %invoke.cont6 unwind label %lpad
 
@@ -34649,8 +34648,8 @@ invoke.cont6:                                     ; preds = %invoke.cont3
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %3 = load i16, ptr %m_peer_id.i, align 2, !tbaa !150
-  %cmp.i = icmp eq i16 %3, 0
+  %2 = load i16, ptr %m_peer_id.i, align 2, !tbaa !150
+  %cmp.i = icmp eq i16 %2, 0
   br i1 %cmp.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %invoke.cont8
@@ -34662,16 +34661,16 @@ cond.true.i:                                      ; preds = %invoke.cont8
 
 cond.end.i:                                       ; preds = %invoke.cont8
   %m_clients.i.i = getelementptr inbounds nuw i8, ptr %this, i64 768
-  invoke void @_ZN15ClientInterface4sendEtP13NetworkPacket(ptr noundef nonnull align 8 dereferenceable(152) %m_clients.i.i, i16 noundef zeroext %3, ptr noundef nonnull %pkt)
+  invoke void @_ZN15ClientInterface4sendEtP13NetworkPacket(ptr noundef nonnull align 8 dereferenceable(152) %m_clients.i.i, i16 noundef zeroext %2, ptr noundef nonnull %pkt)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %cond.end.i
-  %4 = load ptr, ptr %pkt, align 8, !tbaa !151
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %pkt, align 8, !tbaa !151
+  %tobool.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i, label %_ZN13NetworkPacketD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont10
-  call void @_ZdlPv(ptr noundef nonnull %4) #36
+  call void @_ZdlPv(ptr noundef nonnull %3) #36
   br label %_ZN13NetworkPacketD2Ev.exit
 
 _ZN13NetworkPacketD2Ev.exit:                      ; preds = %if.then.i.i.i.i, %invoke.cont10
@@ -34682,19 +34681,19 @@ cleanup:                                          ; preds = %_ZN13NetworkPacketD
   ret void
 
 lpad:                                             ; preds = %cond.end.i, %cond.true.i, %invoke.cont6, %invoke.cont3, %if.end
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %6 = load ptr, ptr %pkt, align 8, !tbaa !151
-  %tobool.not.i.i.i.i16 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %pkt, align 8, !tbaa !151
+  %tobool.not.i.i.i.i16 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i16, label %_ZN13NetworkPacketD2Ev.exit18, label %if.then.i.i.i.i17
 
 if.then.i.i.i.i17:                                ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %6) #36
+  call void @_ZdlPv(ptr noundef nonnull %5) #36
   br label %_ZN13NetworkPacketD2Ev.exit18
 
 _ZN13NetworkPacketD2Ev.exit18:                    ; preds = %if.then.i.i.i.i17, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %pkt)
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress uwtable

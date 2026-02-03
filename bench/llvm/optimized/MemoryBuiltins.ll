@@ -613,19 +613,18 @@ _ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i: ; preds = %_ZN4ll
 
 14:                                               ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i
   %15 = call noundef i64 @_ZNK4llvm9Attribute13getValueAsIntEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
-  %16 = and i64 %15, 1
-  %17 = icmp ne i64 %16, 0
+  %16 = trunc i64 %15 to i1
   br label %.thread.sink.split.i.i
 
 .thread.sink.split.i.i:                           ; preds = %14, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i
-  %.ph.i.i = phi i1 [ %17, %14 ], [ false, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i ]
+  %.ph.i.i = phi i1 [ %16, %14 ], [ false, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
 
 _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit: ; preds = %.thread.sink.split.i.i, %10, %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread, %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit
-  %18 = phi i1 [ true, %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit ], [ false, %10 ], [ false, %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread ], [ %.ph.i.i, %.thread.sink.split.i.i ]
+  %17 = phi i1 [ true, %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit ], [ false, %10 ], [ false, %_ZL17getAllocationDataPKN4llvm5ValueE9AllocTypePKNS_17TargetLibraryInfoE.exit.thread ], [ %.ph.i.i, %.thread.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %18
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

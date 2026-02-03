@@ -2805,9 +2805,8 @@ define dso_local void @_ZN5clang4Sema23ActOnPragmaOptionsAlignENS0_22PragmaOptio
   %12 = load ptr, ptr %11, align 8, !tbaa !938
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 384
   %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 1
-  %.not18 = icmp eq i32 %15, 0
-  br i1 %.not18, label %16, label %.thread
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8

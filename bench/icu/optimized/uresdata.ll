@@ -374,7 +374,7 @@ define internal fastcc void @_ZL8res_initP12ResourceDataPhPKviP10UErrorCode(ptr 
   br i1 %.not7483, label %.thread87, label %.thread84
 
 100:                                              ; preds = %79
-  %101 = icmp ne i8 %89, 0
+  %101 = trunc i8 %88 to i1
   %102 = icmp samesign ult i32 %45, 8
   %or.cond5 = select i1 %101, i1 %102, i1 false
   br i1 %or.cond5, label %.thread84, label %108

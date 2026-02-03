@@ -2711,9 +2711,8 @@ _ZNK8QPointerI15IOConsoleDialogEcvPS0_Ev.exit.thread: ; preds = %1, %6, %_ZNK8QP
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 1
-  %.not5.i = icmp eq i32 %22, 0
-  %spec.select.i = select i1 %.not5.i, ptr null, ptr %16
+  %22 = trunc i32 %21 to i1
+  %spec.select.i = select i1 %22, ptr %16, ptr null
   br label %_Z12qobject_castIP7QWidgetET_P7QObject.exit
 
 _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %17, %_ZNK8QPointerI15IOConsoleDialogEcvPS0_Ev.exit.thread
@@ -3179,9 +3178,8 @@ define internal noundef ptr @_ZL15text_window_newP16_funnel_ops_id_tPKc(ptr noun
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 1
-  %.not5.i = icmp eq i32 %15, 0
-  %spec.select.i = select i1 %.not5.i, ptr null, ptr %9
+  %15 = trunc i32 %14 to i1
+  %spec.select.i = select i1 %15, ptr %9, ptr null
   br label %_Z12qobject_castIP7QWidgetET_P7QObject.exit
 
 _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %2, %10
@@ -3323,9 +3321,8 @@ _ZN7QStringD2Ev.exit.i.lr.ph:                     ; preds = %7
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 1
-  %.not5.i = icmp eq i32 %39, 0
-  %spec.select.i = select i1 %.not5.i, ptr null, ptr %33
+  %39 = trunc i32 %38 to i1
+  %spec.select.i = select i1 %39, ptr %33, ptr null
   br label %_Z12qobject_castIP7QWidgetET_P7QObject.exit
 
 _ZN7QStringD2Ev.exit.i:                           ; preds = %_ZN7QStringD2Ev.exit.i.lr.ph, %_ZNSt4pairI7QStringS0_ED2Ev.exit

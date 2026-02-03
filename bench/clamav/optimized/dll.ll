@@ -134,10 +134,10 @@ _ZN7DataSetC2Ev.exit:                             ; preds = %11
 23:                                               ; preds = %_ZN7DataSetC2Ev.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i32, ptr %24, align 1, !tbaa !104
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 57500
-  %27 = trunc i32 %25 to i8
-  %28 = and i8 %27, 1
-  store i8 %28, ptr %26, align 4, !tbaa !105
+  %26 = trunc i32 %25 to i8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 57500
+  %28 = and i8 %26, 1
+  store i8 %28, ptr %27, align 4, !tbaa !105
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 0, ptr %2, align 16, !tbaa !106
   %29 = load ptr, ptr %0, align 1, !tbaa !10

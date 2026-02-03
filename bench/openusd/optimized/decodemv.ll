@@ -470,7 +470,7 @@ define hidden void @av1_read_mode_info(ptr noundef %0, ptr noundef %1, ptr nound
   %.val = load i8, ptr %11, align 16
   %18 = and i8 %.val, -3
   %narrow.i.not = icmp eq i8 %18, 0
-  br i1 %narrow.i.not, label %19, label %687
+  br i1 %narrow.i.not, label %19, label %686
 
 19:                                               ; preds = %5
   %20 = load ptr, ptr %12, align 8
@@ -1458,9 +1458,9 @@ read_angle_delta.exit156.i:                       ; preds = %._crit_edge.loopexi
   br label %632
 
 632:                                              ; preds = %read_angle_delta.exit156.i, %587, %586, %497, %492
-  %.sink204.i = phi i64 [ 97, %read_angle_delta.exit156.i ], [ 97, %586 ], [ 97, %587 ], [ 3, %497 ], [ 3, %492 ]
+  %.sink200.i = phi i64 [ 97, %read_angle_delta.exit156.i ], [ 97, %586 ], [ 97, %587 ], [ 3, %497 ], [ 3, %492 ]
   %.sink.i = phi i8 [ %631, %read_angle_delta.exit156.i ], [ 0, %586 ], [ 0, %587 ], [ 0, %497 ], [ 0, %492 ]
-  %633 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink204.i
+  %633 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink200.i
   store i8 %.sink.i, ptr %633, align 1
   %.val101.i = load i8, ptr %495, align 1
   %634 = load ptr, ptr %12, align 8
@@ -1501,103 +1501,102 @@ store_cfl_required.exit.i:                        ; preds = %646, %is_inter_bloc
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 49007
   %653 = load i8, ptr %652, align 1
   %.fr.i = freeze i8 %653
-  %654 = and i8 %.fr.i, 1
-  %.not.i160.i = icmp eq i8 %654, 0
-  br i1 %.not.i160.i, label %656, label %switch.early.test.i
+  %.not.i160.i = trunc i8 %.fr.i to i1
+  br i1 %.not.i160.i, label %switch.early.test.i, label %655
 
 switch.early.test.i:                              ; preds = %store_cfl_required.exit.i
-  switch i8 %26, label %655 [
-    i8 15, label %656
-    i8 14, label %656
-    i8 13, label %656
-    i8 2, label %656
-    i8 1, label %656
-    i8 0, label %656
+  switch i8 %26, label %654 [
+    i8 15, label %655
+    i8 14, label %655
+    i8 13, label %655
+    i8 2, label %655
+    i8 1, label %655
+    i8 0, label %655
   ]
 
-655:                                              ; preds = %switch.early.test.i
+654:                                              ; preds = %switch.early.test.i
   call fastcc void @read_palette_mode_info(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %2)
-  br label %656
+  br label %655
 
-656:                                              ; preds = %655, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %store_cfl_required.exit.i
+655:                                              ; preds = %654, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %store_cfl_required.exit.i
   call fastcc void @read_filter_intra_mode_info(ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef %2)
   br label %read_intra_frame_mode_info.exit
 
-read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.exit.i, %656
-  %657 = getelementptr inbounds nuw i8, ptr %0, i64 73204
-  %658 = load i32, ptr %657, align 4
-  %.not24 = icmp eq i32 %658, 0
-  br i1 %.not24, label %intra_copy_frame_mvs.exit, label %659
+read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.exit.i, %655
+  %656 = getelementptr inbounds nuw i8, ptr %0, i64 73204
+  %657 = load i32, ptr %656, align 4
+  %.not24 = icmp eq i32 %657, 0
+  br i1 %.not24, label %intra_copy_frame_mvs.exit, label %658
 
-659:                                              ; preds = %read_intra_frame_mode_info.exit
-  %660 = load i32, ptr %1, align 16
-  %661 = load i32, ptr %192, align 4
-  %662 = getelementptr i8, ptr %0, i64 48600
-  %.val25 = load ptr, ptr %662, align 8
-  %663 = getelementptr i8, ptr %.val25, i64 72
-  %.val25.val = load ptr, ptr %663, align 8
-  %664 = add nsw i32 %3, 1
-  %665 = ashr i32 %664, 1
-  %666 = add nsw i32 %4, 1
-  %667 = ashr i32 %666, 1
-  %668 = icmp sgt i32 %667, 0
-  br i1 %668, label %.preheader.lr.ph.i, label %intra_copy_frame_mvs.exit
+658:                                              ; preds = %read_intra_frame_mode_info.exit
+  %659 = load i32, ptr %1, align 16
+  %660 = load i32, ptr %192, align 4
+  %661 = getelementptr i8, ptr %0, i64 48600
+  %.val25 = load ptr, ptr %661, align 8
+  %662 = getelementptr i8, ptr %.val25, i64 72
+  %.val25.val = load ptr, ptr %662, align 8
+  %663 = add nsw i32 %3, 1
+  %664 = ashr i32 %663, 1
+  %665 = add nsw i32 %4, 1
+  %666 = ashr i32 %665, 1
+  %667 = icmp sgt i32 %666, 0
+  br i1 %667, label %.preheader.lr.ph.i, label %intra_copy_frame_mvs.exit
 
-.preheader.lr.ph.i:                               ; preds = %659
-  %669 = getelementptr i8, ptr %0, i64 49048
-  %.val26 = load i32, ptr %669, align 8
-  %670 = add nsw i32 %.val26, 1
-  %671 = ashr i32 %670, 1
-  %672 = icmp sgt i32 %665, 0
-  %673 = sext i32 %671 to i64
-  br i1 %672, label %.preheader.us.preheader.i, label %intra_copy_frame_mvs.exit
+.preheader.lr.ph.i:                               ; preds = %658
+  %668 = getelementptr i8, ptr %0, i64 49048
+  %.val26 = load i32, ptr %668, align 8
+  %669 = add nsw i32 %.val26, 1
+  %670 = ashr i32 %669, 1
+  %671 = icmp sgt i32 %664, 0
+  %672 = sext i32 %670 to i64
+  br i1 %671, label %.preheader.us.preheader.i, label %intra_copy_frame_mvs.exit
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %674 = ashr i32 %660, 1
-  %675 = mul nsw i32 %671, %674
-  %676 = sext i32 %675 to i64
-  %677 = getelementptr inbounds %struct.MV_REF, ptr %.val25.val, i64 %676
-  %678 = ashr i32 %661, 1
-  %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds %struct.MV_REF, ptr %677, i64 %679
+  %673 = ashr i32 %659, 1
+  %674 = mul nsw i32 %670, %673
+  %675 = sext i32 %674 to i64
+  %676 = getelementptr inbounds %struct.MV_REF, ptr %.val25.val, i64 %675
+  %677 = ashr i32 %660, 1
+  %678 = sext i32 %677 to i64
+  %679 = getelementptr inbounds %struct.MV_REF, ptr %676, i64 %678
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.0184.us.i = phi i32 [ %686, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
-  %.0193.us.i = phi ptr [ %685, %._crit_edge.us.i ], [ %680, %.preheader.us.preheader.i ]
-  br label %681
+  %.0184.us.i = phi i32 [ %685, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+  %.0193.us.i = phi ptr [ %684, %._crit_edge.us.i ], [ %679, %.preheader.us.preheader.i ]
+  br label %680
 
-681:                                              ; preds = %681, %.preheader.us.i
-  %.02.us.i = phi i32 [ 0, %.preheader.us.i ], [ %684, %681 ]
-  %.0171.us.i = phi ptr [ %.0193.us.i, %.preheader.us.i ], [ %683, %681 ]
-  %682 = getelementptr inbounds nuw i8, ptr %.0171.us.i, i64 4
-  store i8 -1, ptr %682, align 4
-  %683 = getelementptr inbounds nuw i8, ptr %.0171.us.i, i64 8
-  %684 = add nuw nsw i32 %.02.us.i, 1
-  %exitcond.not.i = icmp eq i32 %684, %665
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %681, !llvm.loop !8
+680:                                              ; preds = %680, %.preheader.us.i
+  %.02.us.i = phi i32 [ 0, %.preheader.us.i ], [ %683, %680 ]
+  %.0171.us.i = phi ptr [ %.0193.us.i, %.preheader.us.i ], [ %682, %680 ]
+  %681 = getelementptr inbounds nuw i8, ptr %.0171.us.i, i64 4
+  store i8 -1, ptr %681, align 4
+  %682 = getelementptr inbounds nuw i8, ptr %.0171.us.i, i64 8
+  %683 = add nuw nsw i32 %.02.us.i, 1
+  %exitcond.not.i = icmp eq i32 %683, %664
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %680, !llvm.loop !8
 
-._crit_edge.us.i:                                 ; preds = %681
-  %685 = getelementptr inbounds %struct.MV_REF, ptr %.0193.us.i, i64 %673
-  %686 = add nuw nsw i32 %.0184.us.i, 1
-  %exitcond7.not.i = icmp eq i32 %686, %667
+._crit_edge.us.i:                                 ; preds = %680
+  %684 = getelementptr inbounds %struct.MV_REF, ptr %.0193.us.i, i64 %672
+  %685 = add nuw nsw i32 %.0184.us.i, 1
+  %exitcond7.not.i = icmp eq i32 %685, %666
   br i1 %exitcond7.not.i, label %intra_copy_frame_mvs.exit, label %.preheader.us.i, !llvm.loop !9
 
-687:                                              ; preds = %5
+686:                                              ; preds = %5
   tail call fastcc void @read_inter_frame_mode_info(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  %688 = getelementptr inbounds nuw i8, ptr %0, i64 73204
-  %689 = load i32, ptr %688, align 4
-  %.not23 = icmp eq i32 %689, 0
-  br i1 %.not23, label %intra_copy_frame_mvs.exit, label %690
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 73204
+  %688 = load i32, ptr %687, align 4
+  %.not23 = icmp eq i32 %688, 0
+  br i1 %.not23, label %intra_copy_frame_mvs.exit, label %689
 
-690:                                              ; preds = %687
-  %691 = load i32, ptr %1, align 16
-  %692 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %693 = load i32, ptr %692, align 4
-  tail call void @av1_copy_frame_mvs(ptr noundef nonnull %11, ptr noundef nonnull %14, i32 noundef %691, i32 noundef %693, i32 noundef %3, i32 noundef %4) #9
+689:                                              ; preds = %686
+  %690 = load i32, ptr %1, align 16
+  %691 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %692 = load i32, ptr %691, align 4
+  tail call void @av1_copy_frame_mvs(ptr noundef nonnull %11, ptr noundef nonnull %14, i32 noundef %690, i32 noundef %692, i32 noundef %3, i32 noundef %4) #9
   br label %intra_copy_frame_mvs.exit
 
-intra_copy_frame_mvs.exit:                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %659, %687, %690, %read_intra_frame_mode_info.exit
+intra_copy_frame_mvs.exit:                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %658, %686, %689, %read_intra_frame_mode_info.exit
   ret void
 }
 
@@ -5628,7 +5627,7 @@ read_inter_block_mode_info.exit:                  ; preds = %2272, %2276, %2280,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %2550
+  br label %2549
 
 2292:                                             ; preds = %236
   %2293 = load i8, ptr %14, align 8
@@ -6007,9 +6006,9 @@ read_angle_delta.exit76.i:                        ; preds = %._crit_edge.loopexi
   br label %2524
 
 2524:                                             ; preds = %read_angle_delta.exit76.i, %2479, %2478, %2388, %2383
-  %.sink101.i = phi i64 [ 97, %read_angle_delta.exit76.i ], [ 97, %2478 ], [ 97, %2479 ], [ 3, %2388 ], [ 3, %2383 ]
+  %.sink98.i = phi i64 [ 97, %read_angle_delta.exit76.i ], [ 97, %2478 ], [ 97, %2479 ], [ 3, %2388 ], [ 3, %2383 ]
   %.sink.i92 = phi i8 [ %2523, %read_angle_delta.exit76.i ], [ 0, %2478 ], [ 0, %2479 ], [ 0, %2388 ], [ 0, %2383 ]
-  %2525 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink101.i
+  %2525 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink98.i
   store i8 %.sink.i92, ptr %2525, align 1
   %.val.i93 = load i8, ptr %2386, align 1
   %2526 = load ptr, ptr %12, align 8
@@ -6054,12 +6053,11 @@ store_cfl_required.exit.i:                        ; preds = %2538, %is_inter_blo
   %2546 = getelementptr inbounds nuw i8, ptr %0, i64 49007
   %2547 = load i8, ptr %2546, align 1
   %.fr.i = freeze i8 %2547
-  %2548 = and i8 %.fr.i, 1
-  %.not.i80.i = icmp eq i8 %2548, 0
-  br i1 %.not.i80.i, label %read_intra_block_mode_info.exit, label %switch.early.test.i
+  %.not.i80.i = trunc i8 %.fr.i to i1
+  br i1 %.not.i80.i, label %switch.early.test.i, label %read_intra_block_mode_info.exit
 
 switch.early.test.i:                              ; preds = %store_cfl_required.exit.i
-  switch i8 %2293, label %2549 [
+  switch i8 %2293, label %2548 [
     i8 15, label %read_intra_block_mode_info.exit
     i8 14, label %read_intra_block_mode_info.exit
     i8 13, label %read_intra_block_mode_info.exit
@@ -6068,15 +6066,15 @@ switch.early.test.i:                              ; preds = %store_cfl_required.
     i8 0, label %read_intra_block_mode_info.exit
   ]
 
-2549:                                             ; preds = %switch.early.test.i
+2548:                                             ; preds = %switch.early.test.i
   tail call fastcc void @read_palette_mode_info(ptr noundef nonnull readonly %11, ptr noundef nonnull %1, ptr noundef %2)
   br label %read_intra_block_mode_info.exit
 
-read_intra_block_mode_info.exit:                  ; preds = %store_cfl_required.exit.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %2549
+read_intra_block_mode_info.exit:                  ; preds = %store_cfl_required.exit.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %2548
   tail call fastcc void @read_filter_intra_mode_info(ptr noundef nonnull readonly %11, ptr noundef nonnull %1, ptr noundef %2)
-  br label %2550
+  br label %2549
 
-2550:                                             ; preds = %read_intra_block_mode_info.exit, %read_inter_block_mode_info.exit
+2549:                                             ; preds = %read_intra_block_mode_info.exit, %read_inter_block_mode_info.exit
   ret void
 }
 

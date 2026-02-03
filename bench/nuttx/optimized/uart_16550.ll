@@ -301,9 +301,8 @@ define internal zeroext i1 @u16550_rxavailable(ptr noundef readonly captures(non
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
   %4 = tail call zeroext i8 @uart_getreg(i16 noundef zeroext %.val, i32 noundef 5) #3
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable

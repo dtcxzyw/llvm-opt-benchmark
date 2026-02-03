@@ -3094,28 +3094,27 @@ hfieldPersist.exit:                               ; preds = %432, %421, %hfieldI
 443:                                              ; preds = %438, %440, %hashTypeConvert.exit154, %hashTypeConvert.exit143
   %.1106 = phi i32 [ %.0105163, %hashTypeConvert.exit143 ], [ %.2169, %hashTypeConvert.exit154 ], [ %.3, %440 ], [ %.3, %438 ]
   %.0 = phi i32 [ %4, %hashTypeConvert.exit143 ], [ %4, %hashTypeConvert.exit154 ], [ %4, %440 ], [ %439, %438 ]
-  %444 = and i32 %.0, 1
-  %445 = icmp ne i32 %444, 0
-  %446 = icmp ne ptr %2, null
-  %or.cond = and i1 %446, %445
-  br i1 %or.cond, label %447, label %448
+  %444 = trunc i32 %.0 to i1
+  %445 = icmp ne ptr %2, null
+  %or.cond = and i1 %445, %444
+  br i1 %or.cond, label %446, label %447
 
-447:                                              ; preds = %443
+446:                                              ; preds = %443
   call void @sdsfree(ptr noundef nonnull %2) #17
-  br label %448
+  br label %447
 
-448:                                              ; preds = %447, %443
-  %449 = and i32 %.0, 2
-  %450 = icmp ne i32 %449, 0
-  %451 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %451, %450
-  br i1 %or.cond3, label %452, label %453
+447:                                              ; preds = %446, %443
+  %448 = and i32 %.0, 2
+  %449 = icmp ne i32 %448, 0
+  %450 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %450, %449
+  br i1 %or.cond3, label %451, label %452
 
-452:                                              ; preds = %448
+451:                                              ; preds = %447
   call void @sdsfree(ptr noundef nonnull %3) #17
-  br label %453
+  br label %452
 
-453:                                              ; preds = %452, %448
+452:                                              ; preds = %451, %447
   ret i32 %.1106
 }
 

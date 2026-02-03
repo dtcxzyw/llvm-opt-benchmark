@@ -2222,19 +2222,16 @@ _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_
 281:                                              ; preds = %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit105, %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit
   %.0 = phi i32 [ %spec.select.i, %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit ], [ %spec.select.i104, %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit105 ]
   %282 = icmp slt i32 %.0, 0
-  br i1 %282, label %287, label %283
+  br i1 %282, label %285, label %283
 
 283:                                              ; preds = %281
-  %.not33 = icmp eq i32 %.0, 0
-  br i1 %.not33, label %284, label %287
+  %.not33 = icmp ne i32 %.0, 0
+  %284 = trunc i64 %0 to i1
+  %spec.select = or i1 %.not33, %284
+  br label %285
 
-284:                                              ; preds = %283
-  %285 = and i64 %0, 1
-  %286 = icmp ne i64 %285, 0
-  br label %287
-
-287:                                              ; preds = %283, %281, %284
-  %.028 = phi i1 [ %286, %284 ], [ false, %281 ], [ true, %283 ]
+285:                                              ; preds = %283, %281
+  %.028 = phi i1 [ %spec.select, %283 ], [ false, %281 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.028
 }

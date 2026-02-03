@@ -10,9 +10,8 @@ define ptr @l_UInt8_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -61,9 +60,8 @@ define ptr @l_UInt16_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i16
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -112,9 +110,8 @@ define ptr @l_UInt32_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i32
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4

@@ -8821,25 +8821,24 @@ declare zeroext i1 @HaveVirtualXIDsDelayingChkpt(ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CheckPointGuts(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
   tail call void @CheckPointRelationMap() #26
-  %3 = and i32 %1, 1
-  %4 = icmp ne i32 %3, 0
-  tail call void @CheckPointReplicationSlots(i1 noundef zeroext %4) #26
+  %3 = trunc i32 %1 to i1
+  tail call void @CheckPointReplicationSlots(i1 noundef zeroext %3) #26
   tail call void @CheckPointSnapBuild() #26
   tail call void @CheckPointLogicalRewriteHeap() #26
   tail call void @CheckPointReplicationOrigin() #26
-  %5 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 8), align 8
+  %4 = tail call i64 @GetCurrentTimestamp() #26
+  store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 8), align 8
   tail call void @CheckPointCLOG() #26
   tail call void @CheckPointCommitTs() #26
   tail call void @CheckPointSUBTRANS() #26
   tail call void @CheckPointMultiXact() #26
   tail call void @CheckPointPredicate() #26
   tail call void @CheckPointBuffers(i32 noundef %1) #26
-  %6 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 16), align 8
+  %5 = tail call i64 @GetCurrentTimestamp() #26
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 16), align 8
   tail call void @ProcessSyncRequests() #26
-  %7 = tail call i64 @GetCurrentTimestamp() #26
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 24), align 8
+  %6 = tail call i64 @GetCurrentTimestamp() #26
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 24), align 8
   tail call void @CheckPointTwoPhase(i64 noundef %0) #26
   ret void
 }

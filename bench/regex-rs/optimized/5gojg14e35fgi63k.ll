@@ -5928,9 +5928,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_ma
   %103 = load ptr, ptr %101, align 8, !noalias !874, !nonnull !7, !align !8, !noundef !7
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 60
   %105 = load i32, ptr %104, align 4, !noalias !874, !noundef !7
-  %106 = and i32 %105, 1
-  %.not.i.i = icmp eq i32 %106, 0
-  br i1 %.not.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hdfd0175cf2bfa3fbE.exit.i", label %97
+  %106 = trunc i32 %105 to i1
+  br i1 %106, label %97, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hdfd0175cf2bfa3fbE.exit.i"
 
 107:                                              ; preds = %87
   store i64 -9223372036854775803, ptr %0, align 8, !alias.scope !814, !noalias !822
@@ -7009,9 +7008,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler7compile17
   %89 = load ptr, ptr %88, align 8, !noalias !1073, !nonnull !7, !align !8, !noundef !7
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 60
   %91 = load i32, ptr %90, align 4, !noalias !1073, !noundef !7
-  %92 = and i32 %91, 1
-  %.not.i = icmp eq i32 %92, 0
-  br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h7d4b06360b6dcdb3E.exit", label %83
+  %92 = trunc i32 %91 to i1
+  br i1 %92, label %83, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h7d4b06360b6dcdb3E.exit"
 
 93:                                               ; preds = %73
   store i64 -9223372036854775803, ptr %0, align 8

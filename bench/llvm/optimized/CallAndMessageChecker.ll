@@ -3879,8 +3879,8 @@ _ZN4llvm16getOrdinalSuffixEj.exit.i.i.i.i:        ; preds = %639, %switch.lookup
 
 651:                                              ; preds = %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i.i
   %652 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %637, ptr noundef nonnull %.sroa.0.0.i.i.i.i.i, i64 noundef 2) #21, !noalias !822
-  %.phi.trans.insert20.i.i.i.i = getelementptr inbounds nuw i8, ptr %652, i64 32
-  %.pre21.i.i.i.i = load ptr, ptr %.phi.trans.insert20.i.i.i.i, align 8, !tbaa !774, !noalias !822
+  %.phi.trans.insert19.i.i.i.i = getelementptr inbounds nuw i8, ptr %652, i64 32
+  %.pre20.i.i.i.i = load ptr, ptr %.phi.trans.insert19.i.i.i.i, align 8, !tbaa !774, !noalias !822
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i.i
 
 653:                                              ; preds = %_ZN4llvm16getOrdinalSuffixEj.exit.i.i.i.i
@@ -3892,7 +3892,7 @@ _ZN4llvm16getOrdinalSuffixEj.exit.i.i.i.i:        ; preds = %639, %switch.lookup
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i.i
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i.i: ; preds = %653, %651
-  %657 = phi ptr [ %.pre21.i.i.i.i, %651 ], [ %656, %653 ]
+  %657 = phi ptr [ %.pre20.i.i.i.i, %651 ], [ %656, %653 ]
   %.0.i.i.i.i.i = phi ptr [ %652, %651 ], [ %637, %653 ]
   %658 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   %659 = load ptr, ptr %658, align 8, !tbaa !773, !noalias !822
@@ -3995,18 +3995,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %704, %702, %666, %6
   %709 = inttoptr i64 %708 to ptr
   %710 = load ptr, ptr %709, align 16, !tbaa !397, !noalias !822
   %711 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %710) #21, !noalias !822
-  %712 = and i64 %711, 1
-  %.not.i59.i.i.i.i = icmp eq i64 %712, 0
-  br i1 %.not.i59.i.i.i.i, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.i.i.i.i, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i
+  %712 = trunc i64 %711 to i1
+  br i1 %712, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.i.i.i.i
 
 _ZNK5clang8QualType16isConstQualifiedEv.exit.i.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i
   %713 = and i64 %711, -16
   %714 = inttoptr i64 %713 to ptr
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 8
   %.0.copyload.i.i.i.i.i1.i.i.i.i.i = load i64, ptr %715, align 8, !noalias !822
-  %716 = and i64 %.0.copyload.i.i.i.i.i1.i.i.i.i.i, 1
-  %.not19.i.i.i.i = icmp eq i64 %716, 0
-  br i1 %.not19.i.i.i.i, label %821, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i
+  %716 = trunc i64 %.0.copyload.i.i.i.i.i1.i.i.i.i.i to i1
+  br i1 %716, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i, label %821
 
 _ZNK5clang8QualType16isConstQualifiedEv.exit.thread.i.i.i.i: ; preds = %_ZNK5clang8QualType16isConstQualifiedEv.exit.i.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i
   %717 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %24) #21, !noalias !822
@@ -4033,7 +4031,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i113
   %728 = load ptr, ptr %727, align 8, !noalias !822
   %729 = call noundef nonnull align 8 dereferenceable(23216) ptr %728(ptr noundef nonnull align 8 dereferenceable(264) %725) #21, !noalias !822
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 18488
-  %.sroa.0.0.copyload.i60.i.i.i.i = load i64, ptr %730, align 8, !tbaa !246, !noalias !822
+  %.sroa.0.0.copyload.i59.i.i.i.i = load i64, ptr %730, align 8, !tbaa !246, !noalias !822
   %731 = getelementptr inbounds nuw i8, ptr %721, i64 8
   %732 = load ptr, ptr %731, align 8, !tbaa !791, !noalias !822
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 96
@@ -4043,7 +4041,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i113
   %737 = load ptr, ptr %734, align 8, !tbaa !7, !noalias !822
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 16
   %739 = load ptr, ptr %738, align 8, !noalias !822
-  %740 = call { ptr, i8 } %739(ptr noundef nonnull align 8 dereferenceable(40) %734, ptr noundef %736, ptr nonnull %717, i8 4, i64 %.sroa.0.0.copyload.i60.i.i.i.i) #21, !noalias !822
+  %740 = call { ptr, i8 } %739(ptr noundef nonnull align 8 dereferenceable(40) %734, ptr noundef %736, ptr nonnull %717, i8 4, i64 %.sroa.0.0.copyload.i59.i.i.i.i) #21, !noalias !822
   %.fca.1.extract.i.i.i.i = extractvalue { ptr, i8 } %740, 1
   %741 = icmp eq i8 %.fca.1.extract.i.i.i.i, 0
   br i1 %741, label %742, label %.sink.split.i.i.i.i
@@ -4083,8 +4081,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i.i: ; p
   %.val.i.i.i.i = load ptr, ptr %586, align 8, !noalias !822
   %.val41.i.i.i.i = load i64, ptr %587, align 8, !noalias !822
   %752 = load ptr, ptr %.0.i.i, align 8, !tbaa !199, !noalias !822
-  %.not.i63.i.i.i.i = icmp eq ptr %752, null
-  br i1 %.not.i63.i.i.i.i, label %753, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
+  %.not.i62.i.i.i.i = icmp eq ptr %752, null
+  br i1 %.not.i62.i.i.i.i, label %753, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
 
 753:                                              ; preds = %751
   %754 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #18, !noalias !822
@@ -4162,19 +4160,19 @@ _ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit63.i.i: 
   store i8 0, ptr %782, align 8, !tbaa !263, !noalias !822
   %783 = load ptr, ptr %.0.i.i, align 8, !tbaa !199, !noalias !822
   store ptr %754, ptr %.0.i.i, align 8, !tbaa !199, !noalias !822
-  %.not.i.i.i64.i.i.i.i = icmp eq ptr %783, null
-  br i1 %.not.i.i.i64.i.i.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i
+  %.not.i.i.i63.i.i.i.i = icmp eq ptr %783, null
+  br i1 %.not.i.i.i63.i.i.i.i, label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit63.i.i
   %784 = load ptr, ptr %783, align 8, !tbaa !7, !noalias !822
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 16
   %786 = load ptr, ptr %785, align 8, !noalias !822
   call void %786(ptr noundef nonnull align 8 dereferenceable(97) %783) #21, !noalias !822
-  %.pre22.i.i.i.i = load ptr, ptr %.0.i.i, align 8, !tbaa !199, !noalias !822
+  %.pre21.i.i.i.i = load ptr, ptr %.0.i.i, align 8, !tbaa !199, !noalias !822
   br label %_ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i
 
 _ZNK12_GLOBAL__N_121CallAndMessageChecker11LazyInit_BTEPKcRSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS6_EE.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i, %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit63.i.i, %751
-  %787 = phi ptr [ %752, %751 ], [ %754, %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit63.i.i ], [ %.pre22.i.i.i.i, %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i ]
+  %787 = phi ptr [ %752, %751 ], [ %754, %_ZN5clang4ento7BugTypeC2ENS0_14CheckerNameRefEN4llvm9StringRefES4_b.exit63.i.i ], [ %.pre21.i.i.i.i, %_ZNKSt14default_deleteIN5clang4ento7BugTypeEEclEPS2_.exit.i.i.i.i.i.i.i ]
   %788 = load ptr, ptr %584, align 8, !tbaa !781, !noalias !822
   %789 = load ptr, ptr %788, align 8, !tbaa !761, !noalias !822
   %790 = getelementptr inbounds nuw i8, ptr %788, i64 8
@@ -4231,8 +4229,8 @@ _ZN5clang4ento9BugReport8addRangeENS_11SourceRangeE.exit.i.i.i.i: ; preds = %798
   %816 = load ptr, ptr %815, align 8, !noalias !822
   call void %816(ptr noundef nonnull align 8 dereferenceable(120) %812, ptr noundef nonnull %21) #21, !noalias !822
   %817 = load ptr, ptr %21, align 8, !tbaa !243, !noalias !822
-  %.not.i.i68.i.i.i.i = icmp eq ptr %817, null
-  br i1 %.not.i.i68.i.i.i.i, label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i.i
+  %.not.i.i67.i.i.i.i = icmp eq ptr %817, null
+  br i1 %.not.i.i67.i.i.i.i, label %_ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED2Ev.exit.i.i.i.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %810
   %818 = load ptr, ptr %817, align 8, !tbaa !7, !noalias !822

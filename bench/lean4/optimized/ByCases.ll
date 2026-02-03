@@ -111,9 +111,8 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef nonnull ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @l_tacticBy__cases___x3a_____closed__2, align 8, !tbaa !4
   %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %3
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -140,9 +139,8 @@ lean_inc.exit:                                    ; preds = %12, %11, %9, %3
 
 15:                                               ; preds = %lean_inc.exit
   %16 = ptrtoint ptr %1 to i64
-  %17 = and i64 %16, 1
-  %.not131 = icmp eq i64 %17, 0
-  br i1 %.not131, label %18, label %lean_dec.exit
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %1, align 4, !tbaa !8
@@ -163,7 +161,7 @@ lean_inc.exit:                                    ; preds = %12, %11, %9, %3
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %24, %23, %21, %15
-  br i1 %.not, label %25, label %lean_dec.exit80
+  br i1 %6, label %lean_dec.exit80, label %25
 
 25:                                               ; preds = %lean_dec.exit
   %26 = load i32, ptr %0, align 4, !tbaa !8
@@ -201,9 +199,8 @@ lean_dec.exit80:                                  ; preds = %31, %30, %28, %lean
 
 39:                                               ; preds = %35
   %40 = ptrtoint ptr %1 to i64
-  %41 = and i64 %40, 1
-  %.not130 = icmp eq i64 %41, 0
-  br i1 %.not130, label %42, label %lean_dec.exit81
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %lean_dec.exit81, label %42
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %1, align 4, !tbaa !8
@@ -224,7 +221,7 @@ lean_dec.exit80:                                  ; preds = %31, %30, %28, %lean
   br label %lean_dec.exit81
 
 lean_dec.exit81:                                  ; preds = %48, %47, %45, %39
-  br i1 %.not, label %49, label %lean_dec.exit82
+  br i1 %6, label %lean_dec.exit82, label %49
 
 49:                                               ; preds = %lean_dec.exit81
   %50 = load i32, ptr %0, align 4, !tbaa !8
@@ -256,7 +253,7 @@ lean_dec.exit82:                                  ; preds = %55, %54, %52, %lean
 
 59:                                               ; preds = %35
   %60 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
-  br i1 %.not, label %61, label %lean_dec.exit83
+  br i1 %6, label %lean_dec.exit83, label %61
 
 61:                                               ; preds = %59
   %62 = load i32, ptr %0, align 4, !tbaa !8
@@ -280,9 +277,8 @@ lean_dec.exit83:                                  ; preds = %67, %66, %64, %59
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %69 = load ptr, ptr %68, align 8, !tbaa !4
   %70 = ptrtoint ptr %69 to i64
-  %71 = and i64 %70, 1
-  %.not125 = icmp eq i64 %71, 0
-  br i1 %.not125, label %72, label %lean_inc.exit73
+  %71 = trunc i64 %70 to i1
+  br i1 %71, label %lean_inc.exit73, label %72
 
 72:                                               ; preds = %lean_dec.exit83
   %.val.i100 = load i32, ptr %69, align 4, !tbaa !8
@@ -330,9 +326,8 @@ lean_dec.exit84:                                  ; preds = %86, %85, %83, %lean
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !4
   %90 = ptrtoint ptr %89 to i64
-  %91 = and i64 %90, 1
-  %.not126 = icmp eq i64 %91, 0
-  br i1 %.not126, label %92, label %lean_inc.exit74
+  %91 = trunc i64 %90 to i1
+  br i1 %91, label %lean_inc.exit74, label %92
 
 92:                                               ; preds = %lean_dec.exit84
   %.val.i103 = load i32, ptr %89, align 4, !tbaa !8
@@ -356,9 +351,8 @@ lean_inc.exit74:                                  ; preds = %97, %96, %94, %lean
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !4
   %100 = ptrtoint ptr %99 to i64
-  %101 = and i64 %100, 1
-  %.not127 = icmp eq i64 %101, 0
-  br i1 %.not127, label %102, label %lean_inc.exit75
+  %101 = trunc i64 %100 to i1
+  br i1 %101, label %lean_inc.exit75, label %102
 
 102:                                              ; preds = %lean_inc.exit74
   %.val.i106 = load i32, ptr %99, align 4, !tbaa !8
@@ -380,9 +374,8 @@ lean_inc.exit74:                                  ; preds = %97, %96, %94, %lean
 
 lean_inc.exit75:                                  ; preds = %107, %106, %104, %lean_inc.exit74
   %108 = ptrtoint ptr %1 to i64
-  %109 = and i64 %108, 1
-  %.not128 = icmp eq i64 %109, 0
-  br i1 %.not128, label %110, label %lean_dec.exit85
+  %109 = trunc i64 %108 to i1
+  br i1 %109, label %lean_dec.exit85, label %110
 
 110:                                              ; preds = %lean_inc.exit75
   %111 = load i32, ptr %1, align 4, !tbaa !8
@@ -405,9 +398,8 @@ lean_inc.exit75:                                  ; preds = %107, %106, %104, %l
 lean_dec.exit85:                                  ; preds = %116, %115, %113, %lean_inc.exit75
   %117 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1___closed__1, align 8, !tbaa !4
   %118 = ptrtoint ptr %87 to i64
-  %119 = and i64 %118, 1
-  %.not129 = icmp eq i64 %119, 0
-  br i1 %.not129, label %120, label %lean_inc.exit76
+  %119 = trunc i64 %118 to i1
+  br i1 %119, label %lean_inc.exit76, label %120
 
 120:                                              ; preds = %lean_dec.exit85
   %.val.i109 = load i32, ptr %87, align 4, !tbaa !8
@@ -448,7 +440,7 @@ lean_alloc_ctor.exit112:                          ; preds = %lean_inc.exit76
   %132 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1___closed__6, align 8, !tbaa !4
   %133 = tail call ptr @l_Lean_addMacroScope(ptr noundef %99, ptr noundef %132, ptr noundef %89) #3
   %134 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1___closed__5, align 8, !tbaa !4
-  br i1 %.not129, label %135, label %lean_inc.exit77
+  br i1 %119, label %lean_inc.exit77, label %135
 
 135:                                              ; preds = %lean_alloc_ctor.exit112
   %.val.i113 = load i32, ptr %87, align 4, !tbaa !8
@@ -491,7 +483,7 @@ lean_alloc_ctor.exit116:                          ; preds = %lean_inc.exit77
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 32
   store ptr inttoptr (i64 1 to ptr), ptr %148, align 8, !tbaa !4
   %149 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1___closed__7, align 8, !tbaa !4
-  br i1 %.not129, label %150, label %lean_inc.exit78
+  br i1 %119, label %lean_inc.exit78, label %150
 
 150:                                              ; preds = %lean_alloc_ctor.exit116
   %.val.i117 = load i32, ptr %87, align 4, !tbaa !8
@@ -530,7 +522,7 @@ lean_alloc_ctor.exit120:                          ; preds = %lean_inc.exit78
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store ptr %149, ptr %161, align 8, !tbaa !4
   %162 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1___closed__3, align 8, !tbaa !4
-  br i1 %.not129, label %163, label %lean_inc.exit79
+  br i1 %119, label %lean_inc.exit79, label %163
 
 163:                                              ; preds = %lean_alloc_ctor.exit120
   %.val.i121 = load i32, ptr %87, align 4, !tbaa !8
@@ -563,17 +555,17 @@ lean_inc.exit79:                                  ; preds = %168, %167, %165, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit79, %lean_dec.exit82, %lean_dec.exit80
-  %.sink157 = phi ptr [ %32, %lean_dec.exit80 ], [ %56, %lean_dec.exit82 ], [ %171, %lean_inc.exit79 ]
-  %.sink154 = phi i32 [ 16908312, %lean_dec.exit80 ], [ 16908312, %lean_dec.exit82 ], [ 131096, %lean_inc.exit79 ]
+  %.sink150 = phi ptr [ %32, %lean_dec.exit80 ], [ %56, %lean_dec.exit82 ], [ %171, %lean_inc.exit79 ]
+  %.sink147 = phi i32 [ 16908312, %lean_dec.exit80 ], [ 16908312, %lean_dec.exit82 ], [ 131096, %lean_inc.exit79 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit80 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit82 ], [ %170, %lean_inc.exit79 ]
-  %174 = getelementptr inbounds nuw i8, ptr %.sink157, i64 4
-  store i32 1, ptr %.sink157, align 4, !tbaa !8
-  store i32 %.sink154, ptr %174, align 4
-  %175 = getelementptr inbounds nuw i8, ptr %.sink157, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %.sink150, i64 4
+  store i32 1, ptr %.sink150, align 4, !tbaa !8
+  store i32 %.sink147, ptr %174, align 4
+  %175 = getelementptr inbounds nuw i8, ptr %.sink150, i64 8
   store ptr %.sink, ptr %175, align 8, !tbaa !4
-  %176 = getelementptr inbounds nuw i8, ptr %.sink157, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %.sink150, i64 16
   store ptr %2, ptr %176, align 8, !tbaa !4
-  ret ptr %.sink157
+  ret ptr %.sink150
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -594,9 +586,8 @@ declare ptr @l_Lean_Syntax_node3(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define noalias noundef nonnull ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @l_tacticBy__cases___x3a_____closed__2, align 8, !tbaa !4
   %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit212
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit212, label %7
 
 7:                                                ; preds = %3
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -623,9 +614,8 @@ lean_inc.exit212:                                 ; preds = %12, %11, %9, %3
 
 15:                                               ; preds = %lean_inc.exit212
   %16 = ptrtoint ptr %1 to i64
-  %17 = and i64 %16, 1
-  %.not350 = icmp eq i64 %17, 0
-  br i1 %.not350, label %18, label %lean_dec.exit220
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %lean_dec.exit220, label %18
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %1, align 4, !tbaa !8
@@ -646,7 +636,7 @@ lean_inc.exit212:                                 ; preds = %12, %11, %9, %3
   br label %lean_dec.exit220
 
 lean_dec.exit220:                                 ; preds = %24, %23, %21, %15
-  br i1 %.not, label %25, label %lean_dec.exit219
+  br i1 %6, label %lean_dec.exit219, label %25
 
 25:                                               ; preds = %lean_dec.exit220
   %26 = load i32, ptr %0, align 4, !tbaa !8
@@ -679,9 +669,8 @@ lean_dec.exit219:                                 ; preds = %31, %30, %28, %lean
 35:                                               ; preds = %lean_inc.exit212
   %36 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 3 to ptr)) #3
   %37 = ptrtoint ptr %36 to i64
-  %38 = and i64 %37, 1
-  %.not342 = icmp eq i64 %38, 0
-  br i1 %.not342, label %39, label %lean_inc.exit211.thread
+  %38 = trunc i64 %37 to i1
+  br i1 %38, label %lean_inc.exit211.thread, label %39
 
 39:                                               ; preds = %35
   %.val.i238 = load i32, ptr %36, align 4, !tbaa !8
@@ -735,9 +724,8 @@ lean_inc.exit211.thread:                          ; preds = %35
 
 lean_dec.exit218:                                 ; preds = %lean_inc.exit211.thread, %56, %55, %53
   %57 = ptrtoint ptr %1 to i64
-  %58 = and i64 %57, 1
-  %.not349 = icmp eq i64 %58, 0
-  br i1 %.not349, label %59, label %lean_dec.exit217
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %lean_dec.exit217, label %59
 
 59:                                               ; preds = %lean_dec.exit218
   %60 = load i32, ptr %1, align 4, !tbaa !8
@@ -758,7 +746,7 @@ lean_dec.exit218:                                 ; preds = %lean_inc.exit211.th
   br label %lean_dec.exit217
 
 lean_dec.exit217:                                 ; preds = %65, %64, %62, %lean_dec.exit218
-  br i1 %.not, label %66, label %lean_dec.exit216
+  br i1 %6, label %lean_dec.exit216, label %66
 
 66:                                               ; preds = %lean_dec.exit217
   %67 = load i32, ptr %0, align 4, !tbaa !8
@@ -810,7 +798,7 @@ lean_dec.exit216:                                 ; preds = %72, %71, %69, %lean
 lean_dec.exit215:                                 ; preds = %83, %82, %80, %.thread341
   %84 = phi ptr [ %49, %.thread341 ], [ %77, %83 ], [ %77, %80 ], [ %77, %82 ]
   %85 = tail call ptr @l_Lean_Syntax_getArg(ptr noundef %0, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
-  br i1 %.not, label %86, label %lean_dec.exit214
+  br i1 %6, label %lean_dec.exit214, label %86
 
 86:                                               ; preds = %lean_dec.exit215
   %87 = load i32, ptr %0, align 4, !tbaa !8
@@ -834,9 +822,8 @@ lean_dec.exit214:                                 ; preds = %92, %91, %89, %lean
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %94 = load ptr, ptr %93, align 8, !tbaa !4
   %95 = ptrtoint ptr %94 to i64
-  %96 = and i64 %95, 1
-  %.not343 = icmp eq i64 %96, 0
-  br i1 %.not343, label %97, label %lean_inc.exit210
+  %96 = trunc i64 %95 to i1
+  br i1 %96, label %lean_inc.exit210, label %97
 
 97:                                               ; preds = %lean_dec.exit214
   %.val.i242 = load i32, ptr %94, align 4, !tbaa !8
@@ -884,9 +871,8 @@ lean_dec.exit213:                                 ; preds = %111, %110, %108, %l
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %114 = load ptr, ptr %113, align 8, !tbaa !4
   %115 = ptrtoint ptr %114 to i64
-  %116 = and i64 %115, 1
-  %.not344 = icmp eq i64 %116, 0
-  br i1 %.not344, label %117, label %lean_inc.exit209
+  %116 = trunc i64 %115 to i1
+  br i1 %116, label %lean_inc.exit209, label %117
 
 117:                                              ; preds = %lean_dec.exit213
   %.val.i245 = load i32, ptr %114, align 4, !tbaa !8
@@ -910,9 +896,8 @@ lean_inc.exit209:                                 ; preds = %122, %121, %119, %l
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !4
   %125 = ptrtoint ptr %124 to i64
-  %126 = and i64 %125, 1
-  %.not345 = icmp eq i64 %126, 0
-  br i1 %.not345, label %127, label %lean_inc.exit208
+  %126 = trunc i64 %125 to i1
+  br i1 %126, label %lean_inc.exit208, label %127
 
 127:                                              ; preds = %lean_inc.exit209
   %.val.i248 = load i32, ptr %124, align 4, !tbaa !8
@@ -934,9 +919,8 @@ lean_inc.exit209:                                 ; preds = %122, %121, %119, %l
 
 lean_inc.exit208:                                 ; preds = %132, %131, %129, %lean_inc.exit209
   %133 = ptrtoint ptr %1 to i64
-  %134 = and i64 %133, 1
-  %.not346 = icmp eq i64 %134, 0
-  br i1 %.not346, label %135, label %lean_dec.exit
+  %134 = trunc i64 %133 to i1
+  br i1 %134, label %lean_dec.exit, label %135
 
 135:                                              ; preds = %lean_inc.exit208
   %136 = load i32, ptr %1, align 4, !tbaa !8
@@ -959,9 +943,8 @@ lean_inc.exit208:                                 ; preds = %132, %131, %129, %l
 lean_dec.exit:                                    ; preds = %141, %140, %138, %lean_inc.exit208
   %142 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__4, align 8, !tbaa !4
   %143 = ptrtoint ptr %112 to i64
-  %144 = and i64 %143, 1
-  %.not347 = icmp eq i64 %144, 0
-  br i1 %.not347, label %145, label %lean_inc.exit207
+  %144 = trunc i64 %143 to i1
+  br i1 %144, label %lean_inc.exit207, label %145
 
 145:                                              ; preds = %lean_dec.exit
   %.val.i251 = load i32, ptr %112, align 4, !tbaa !8
@@ -1000,7 +983,7 @@ lean_alloc_ctor.exit254:                          ; preds = %lean_inc.exit207
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store ptr %142, ptr %156, align 8, !tbaa !4
   %157 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__11, align 8, !tbaa !4
-  br i1 %.not344, label %158, label %lean_inc.exit206
+  br i1 %116, label %lean_inc.exit206, label %158
 
 158:                                              ; preds = %lean_alloc_ctor.exit254
   %.val.i255 = load i32, ptr %114, align 4, !tbaa !8
@@ -1021,7 +1004,7 @@ lean_alloc_ctor.exit254:                          ; preds = %lean_inc.exit207
   br label %lean_inc.exit206
 
 lean_inc.exit206:                                 ; preds = %163, %162, %160, %lean_alloc_ctor.exit254
-  br i1 %.not345, label %164, label %lean_inc.exit205
+  br i1 %126, label %lean_inc.exit205, label %164
 
 164:                                              ; preds = %lean_inc.exit206
   %.val.i258 = load i32, ptr %124, align 4, !tbaa !8
@@ -1045,7 +1028,7 @@ lean_inc.exit205:                                 ; preds = %169, %168, %166, %l
   %170 = tail call ptr @l_Lean_addMacroScope(ptr noundef %124, ptr noundef %157, ptr noundef %114) #3
   %171 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__10, align 8, !tbaa !4
   %172 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__13, align 8, !tbaa !4
-  br i1 %.not347, label %173, label %lean_inc.exit204
+  br i1 %144, label %lean_inc.exit204, label %173
 
 173:                                              ; preds = %lean_inc.exit205
   %.val.i261 = load i32, ptr %112, align 4, !tbaa !8
@@ -1088,7 +1071,7 @@ lean_alloc_ctor.exit264:                          ; preds = %lean_inc.exit204
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 32
   store ptr %172, ptr %186, align 8, !tbaa !4
   %187 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____1___closed__3, align 8, !tbaa !4
-  br i1 %.not347, label %188, label %lean_inc.exit202
+  br i1 %144, label %lean_inc.exit202, label %188
 
 188:                                              ; preds = %lean_alloc_ctor.exit264
   %.val.i265 = load i32, ptr %112, align 4, !tbaa !8
@@ -1176,7 +1159,7 @@ lean_alloc_ctor.exit274:                          ; preds = %lean_inc.exit201
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store ptr %214, ptr %221, align 8, !tbaa !4
   %222 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__19, align 8, !tbaa !4
-  br i1 %.not347, label %223, label %lean_inc.exit200
+  br i1 %144, label %lean_inc.exit200, label %223
 
 223:                                              ; preds = %lean_alloc_ctor.exit274
   %.val.i275 = load i32, ptr %112, align 4, !tbaa !8
@@ -1215,7 +1198,7 @@ lean_alloc_ctor.exit278:                          ; preds = %lean_inc.exit200
   %234 = getelementptr inbounds nuw i8, ptr %229, i64 16
   store ptr %222, ptr %234, align 8, !tbaa !4
   %235 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__23, align 8, !tbaa !4
-  br i1 %.not347, label %236, label %lean_inc.exit199
+  br i1 %144, label %lean_inc.exit199, label %236
 
 236:                                              ; preds = %lean_alloc_ctor.exit278
   %.val.i279 = load i32, ptr %112, align 4, !tbaa !8
@@ -1254,7 +1237,7 @@ lean_alloc_ctor.exit282:                          ; preds = %lean_inc.exit199
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store ptr %235, ptr %247, align 8, !tbaa !4
   %248 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__25, align 8, !tbaa !4
-  br i1 %.not347, label %249, label %lean_inc.exit198
+  br i1 %144, label %lean_inc.exit198, label %249
 
 249:                                              ; preds = %lean_alloc_ctor.exit282
   %.val.i283 = load i32, ptr %112, align 4, !tbaa !8
@@ -1320,7 +1303,7 @@ lean_alloc_ctor.exit289:                          ; preds = %lean_inc.exit197
   %272 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store ptr %265, ptr %272, align 8, !tbaa !4
   %273 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__26, align 8, !tbaa !4
-  br i1 %.not347, label %274, label %lean_inc.exit196
+  br i1 %144, label %lean_inc.exit196, label %274
 
 274:                                              ; preds = %lean_alloc_ctor.exit289
   %.val.i290 = load i32, ptr %112, align 4, !tbaa !8
@@ -1359,7 +1342,7 @@ lean_alloc_ctor.exit293:                          ; preds = %lean_inc.exit196
   %285 = getelementptr inbounds nuw i8, ptr %280, i64 16
   store ptr %273, ptr %285, align 8, !tbaa !4
   %286 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__30, align 8, !tbaa !4
-  br i1 %.not347, label %287, label %lean_inc.exit195
+  br i1 %144, label %lean_inc.exit195, label %287
 
 287:                                              ; preds = %lean_alloc_ctor.exit293
   %.val.i294 = load i32, ptr %112, align 4, !tbaa !8
@@ -1398,7 +1381,7 @@ lean_alloc_ctor.exit297:                          ; preds = %lean_inc.exit195
   %298 = getelementptr inbounds nuw i8, ptr %293, i64 16
   store ptr %286, ptr %298, align 8, !tbaa !4
   %299 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__33, align 8, !tbaa !4
-  br i1 %.not344, label %300, label %lean_inc.exit194
+  br i1 %116, label %lean_inc.exit194, label %300
 
 300:                                              ; preds = %lean_alloc_ctor.exit297
   %.val.i298 = load i32, ptr %114, align 4, !tbaa !8
@@ -1419,7 +1402,7 @@ lean_alloc_ctor.exit297:                          ; preds = %lean_inc.exit195
   br label %lean_inc.exit194
 
 lean_inc.exit194:                                 ; preds = %305, %304, %302, %lean_alloc_ctor.exit297
-  br i1 %.not345, label %306, label %lean_inc.exit193
+  br i1 %126, label %lean_inc.exit193, label %306
 
 306:                                              ; preds = %lean_inc.exit194
   %.val.i301 = load i32, ptr %124, align 4, !tbaa !8
@@ -1442,7 +1425,7 @@ lean_inc.exit194:                                 ; preds = %305, %304, %302, %l
 lean_inc.exit193:                                 ; preds = %311, %310, %308, %lean_inc.exit194
   %312 = tail call ptr @l_Lean_addMacroScope(ptr noundef %124, ptr noundef %299, ptr noundef %114) #3
   %313 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__32, align 8, !tbaa !4
-  br i1 %.not347, label %314, label %lean_inc.exit192
+  br i1 %144, label %lean_inc.exit192, label %314
 
 314:                                              ; preds = %lean_inc.exit193
   %.val.i304 = load i32, ptr %112, align 4, !tbaa !8
@@ -1486,9 +1469,8 @@ lean_alloc_ctor.exit307:                          ; preds = %lean_inc.exit192
   store ptr inttoptr (i64 1 to ptr), ptr %327, align 8, !tbaa !4
   %328 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__29, align 8, !tbaa !4
   %329 = ptrtoint ptr %293 to i64
-  %330 = and i64 %329, 1
-  %.not348 = icmp eq i64 %330, 0
-  br i1 %.not348, label %331, label %lean_inc.exit191
+  %330 = trunc i64 %329 to i1
+  br i1 %330, label %lean_inc.exit191, label %331
 
 331:                                              ; preds = %lean_alloc_ctor.exit307
   %.val.i308 = load i32, ptr %293, align 4, !tbaa !8
@@ -1509,7 +1491,7 @@ lean_alloc_ctor.exit307:                          ; preds = %lean_inc.exit192
   br label %lean_inc.exit191
 
 lean_inc.exit191:                                 ; preds = %336, %335, %333, %lean_alloc_ctor.exit307
-  br i1 %.not347, label %337, label %lean_inc.exit190
+  br i1 %144, label %lean_inc.exit190, label %337
 
 337:                                              ; preds = %lean_inc.exit191
   %.val.i311 = load i32, ptr %112, align 4, !tbaa !8
@@ -1577,7 +1559,7 @@ lean_alloc_ctor.exit317:                          ; preds = %lean_inc.exit189
   %361 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__37, align 8, !tbaa !4
   %362 = tail call ptr @l_Lean_addMacroScope(ptr noundef %124, ptr noundef %361, ptr noundef %114) #3
   %363 = load ptr, ptr @l___aux__Init__ByCases______macroRules__tacticBy__cases___x3a____2___closed__36, align 8, !tbaa !4
-  br i1 %.not347, label %364, label %lean_inc.exit188
+  br i1 %144, label %lean_inc.exit188, label %364
 
 364:                                              ; preds = %lean_alloc_ctor.exit317
   %.val.i318 = load i32, ptr %112, align 4, !tbaa !8
@@ -1619,7 +1601,7 @@ lean_alloc_ctor.exit321:                          ; preds = %lean_inc.exit188
   store ptr %362, ptr %376, align 8, !tbaa !4
   %377 = getelementptr inbounds nuw i8, ptr %370, i64 32
   store ptr inttoptr (i64 1 to ptr), ptr %377, align 8, !tbaa !4
-  br i1 %.not347, label %378, label %lean_inc.exit183
+  br i1 %144, label %lean_inc.exit183, label %378
 
 378:                                              ; preds = %lean_alloc_ctor.exit321
   %.val.i322 = load i32, ptr %112, align 4, !tbaa !8
@@ -1766,17 +1748,17 @@ lean_inc.exit:                                    ; preds = %431, %430, %428, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_dec.exit216, %lean_dec.exit219
-  %.sink388 = phi ptr [ %32, %lean_dec.exit219 ], [ %73, %lean_dec.exit216 ], [ %437, %lean_inc.exit ]
-  %.sink385 = phi i32 [ 16908312, %lean_dec.exit219 ], [ 16908312, %lean_dec.exit216 ], [ 131096, %lean_inc.exit ]
+  %.sink379 = phi ptr [ %32, %lean_dec.exit219 ], [ %73, %lean_dec.exit216 ], [ %437, %lean_inc.exit ]
+  %.sink376 = phi i32 [ 16908312, %lean_dec.exit219 ], [ 16908312, %lean_dec.exit216 ], [ 131096, %lean_inc.exit ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit219 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit216 ], [ %436, %lean_inc.exit ]
-  %440 = getelementptr inbounds nuw i8, ptr %.sink388, i64 4
-  store i32 1, ptr %.sink388, align 4, !tbaa !8
-  store i32 %.sink385, ptr %440, align 4
-  %441 = getelementptr inbounds nuw i8, ptr %.sink388, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %.sink379, i64 4
+  store i32 1, ptr %.sink379, align 4, !tbaa !8
+  store i32 %.sink376, ptr %440, align 4
+  %441 = getelementptr inbounds nuw i8, ptr %.sink379, i64 8
   store ptr %.sink, ptr %441, align 8, !tbaa !4
-  %442 = getelementptr inbounds nuw i8, ptr %.sink388, i64 16
+  %442 = getelementptr inbounds nuw i8, ptr %.sink379, i64 16
   store ptr %2, ptr %442, align 8, !tbaa !4
-  ret ptr %.sink388
+  ret ptr %.sink379
 }
 
 declare ptr @l_Lean_Syntax_node1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

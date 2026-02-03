@@ -186,12 +186,12 @@ BufferGetPage.exit:                               ; preds = %16, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
   store ptr %2, ptr %13, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %31 = trunc i32 %3 to i8
-  %32 = and i8 %31, 1
-  store i8 %32, ptr %30, align 8
+  %30 = trunc i32 %3 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %34 = lshr i8 %31, 1
+  %34 = lshr i8 %30, 1
   %35 = and i8 %34, 1
   store i8 %35, ptr %33, align 1
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -320,7 +320,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
   br label %163
 
 112:                                              ; preds = %103
-  %113 = load i8, ptr %30, align 8, !range !4, !noundef !5
+  %113 = load i8, ptr %31, align 8, !range !4, !noundef !5
   %114 = trunc nuw i8 %113 to i1
   store i8 1, ptr %106, align 1
   br i1 %114, label %115, label %121, !prof !6
@@ -620,7 +620,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %249, %247, %205
   br i1 %or.cond.i166, label %256, label %HeapTupleHeaderGetUpdateXid.exit.thread99.i
 
 256:                                              ; preds = %._crit_edge.i165
-  %257 = load i8, ptr %30, align 8, !range !4, !noundef !5
+  %257 = load i8, ptr %31, align 8, !range !4, !noundef !5
   %258 = trunc nuw i8 %257 to i1
   store i8 1, ptr %188, align 1
   br i1 %258, label %259, label %265, !prof !6
@@ -695,7 +695,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %237, %233, %223, %2
   %290 = load i32, ptr %192, align 4
   %291 = and i32 %290, 98304
   %292 = icmp eq i32 %291, 32768
-  %293 = load i8, ptr %30, align 8, !range !4, !noundef !5
+  %293 = load i8, ptr %31, align 8, !range !4, !noundef !5
   %294 = trunc nuw i8 %293 to i1
   store i8 1, ptr %188, align 1
   br i1 %294, label %295, label %301, !prof !6

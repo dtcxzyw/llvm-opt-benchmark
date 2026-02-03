@@ -193,8 +193,7 @@ if.then:                                          ; preds = %for.body8
   %add.i114 = add nsw i32 %mul.i113, %x.0373
   %idx.ext.i115 = sext i32 %add.i114 to i64
   %add.ptr.i116 = getelementptr inbounds i8, ptr %18, i64 %idx.ext.i115
-  %and.i = and i32 %call19, 1
-  %tobool.not.i = icmp ne i32 %and.i, 0
+  %tobool.not.i = trunc i32 %call19 to i1
   %cmp.i = fcmp une float %10, %cond.i8.i
   %or.cond = select i1 %tobool.not.i, i1 %cmp.i, i1 false
   br i1 %or.cond, label %if.then.i, label %lor.lhs.false.i
@@ -381,8 +380,7 @@ if.then62:                                        ; preds = %for.body49
   %add.i173 = add nsw i32 %mul.i172, %x45.0380
   %idx.ext.i174 = sext i32 %add.i173 to i64
   %add.ptr.i175 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i174
-  %and.i176 = and i32 %call64, 1
-  %tobool.not.i177 = icmp ne i32 %and.i176, 0
+  %tobool.not.i177 = trunc i32 %call64 to i1
   %cmp.i179 = fcmp une float %43, %cond.i8.i162
   %or.cond365 = select i1 %tobool.not.i177, i1 %cmp.i179, i1 false
   br i1 %or.cond365, label %if.then.i191, label %lor.lhs.false.i180
@@ -590,8 +588,7 @@ if.then125:                                       ; preds = %for.body104
   %add.i277 = add nsw i32 %mul.i276, %x99.0397
   %idx.ext.i278 = sext i32 %add.i277 to i64
   %add.ptr.i279 = getelementptr inbounds i8, ptr %89, i64 %idx.ext.i278
-  %and.i280 = and i32 %call127, 1
-  %tobool.not.i281 = icmp ne i32 %and.i280, 0
+  %tobool.not.i281 = trunc i32 %call127 to i1
   %cmp.i283 = fcmp une float %75, %cond.i8.i250
   %or.cond368 = select i1 %tobool.not.i281, i1 %cmp.i283, i1 false
   br i1 %or.cond368, label %if.then.i295, label %lor.lhs.false.i284
@@ -1040,8 +1037,7 @@ if.then:                                          ; preds = %for.body8
   %add.i114 = add nsw i32 %mul.i113, %x.0373
   %idx.ext.i115 = sext i32 %add.i114 to i64
   %add.ptr.i116 = getelementptr inbounds i8, ptr %18, i64 %idx.ext.i115
-  %and.i = and i32 %call19, 1
-  %tobool.not.i = icmp ne i32 %and.i, 0
+  %tobool.not.i = trunc i32 %call19 to i1
   %cmp.i = fcmp une float %10, %cond.i8.i
   %or.cond = select i1 %tobool.not.i, i1 %cmp.i, i1 false
   br i1 %or.cond, label %if.then.i, label %lor.lhs.false.i
@@ -1228,8 +1224,7 @@ if.then62:                                        ; preds = %for.body49
   %add.i173 = add nsw i32 %mul.i172, %x45.0380
   %idx.ext.i174 = sext i32 %add.i173 to i64
   %add.ptr.i175 = getelementptr inbounds i8, ptr %51, i64 %idx.ext.i174
-  %and.i176 = and i32 %call64, 1
-  %tobool.not.i177 = icmp ne i32 %and.i176, 0
+  %tobool.not.i177 = trunc i32 %call64 to i1
   %cmp.i179 = fcmp une float %43, %cond.i8.i162
   %or.cond365 = select i1 %tobool.not.i177, i1 %cmp.i179, i1 false
   br i1 %or.cond365, label %if.then.i191, label %lor.lhs.false.i180
@@ -1437,8 +1432,7 @@ if.then125:                                       ; preds = %for.body104
   %add.i277 = add nsw i32 %mul.i276, %x99.0397
   %idx.ext.i278 = sext i32 %add.i277 to i64
   %add.ptr.i279 = getelementptr inbounds i8, ptr %89, i64 %idx.ext.i278
-  %and.i280 = and i32 %call127, 1
-  %tobool.not.i281 = icmp ne i32 %and.i280, 0
+  %tobool.not.i281 = trunc i32 %call127 to i1
   %cmp.i283 = fcmp une float %75, %cond.i8.i250
   %or.cond368 = select i1 %tobool.not.i281, i1 %cmp.i283, i1 false
   br i1 %or.cond368, label %if.then.i295, label %lor.lhs.false.i284

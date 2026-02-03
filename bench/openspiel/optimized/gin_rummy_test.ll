@@ -17755,9 +17755,8 @@ define linkonce_odr dso_local void @_ZN10open_spiel11ObservationD2Ev(ptr noundef
   %.05.i.i.i.i = phi ptr [ %15, %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i, label %9
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %9, label %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i
 
 9:                                                ; preds = %.lr.ph.i.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40

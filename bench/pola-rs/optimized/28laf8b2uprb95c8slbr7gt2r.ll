@@ -57896,16 +57896,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.25.1 = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.25.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %76 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.23.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %77 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.21.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
-  %78 = lshr i64 %77, 1
-  %79 = add i64 %76, -1
-  %80 = trunc i64 %77 to i8
-  %81 = and i8 %80, 1
+  %78 = trunc i64 %77 to i8
+  %79 = lshr i64 %77, 1
+  %80 = add i64 %76, -1
+  %81 = and i8 %78, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %._crit_edge.i.i.i, %70
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %70 ], [ %.sroa.14.1, %._crit_edge.i.i.i ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %78, %._crit_edge.i.i.i ]
-  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i.i ]
   %.sroa.25.2 = phi i64 [ 0, %70 ], [ %.sroa.25.1, %._crit_edge.i.i.i ]
   %.sroa.0.0.i3.i.i = phi i8 [ 2, %70 ], [ %81, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5635
@@ -58374,16 +58374,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.25.1 = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.25.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %76 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.23.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %77 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.21.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
-  %78 = lshr i64 %77, 1
-  %79 = add i64 %76, -1
-  %80 = trunc i64 %77 to i8
-  %81 = and i8 %80, 1
+  %78 = trunc i64 %77 to i8
+  %79 = lshr i64 %77, 1
+  %80 = add i64 %76, -1
+  %81 = and i8 %78, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %._crit_edge.i.i.i, %70
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %70 ], [ %.sroa.14.1, %._crit_edge.i.i.i ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %78, %._crit_edge.i.i.i ]
-  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i.i ]
   %.sroa.25.2 = phi i64 [ 0, %70 ], [ %.sroa.25.1, %._crit_edge.i.i.i ]
   %.sroa.0.0.i3.i.i = phi i8 [ 2, %70 ], [ %81, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5697
@@ -58852,16 +58852,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.25.1 = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.25.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %76 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.23.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %77 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.21.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
-  %78 = lshr i64 %77, 1
-  %79 = add i64 %76, -1
-  %80 = trunc i64 %77 to i8
-  %81 = and i8 %80, 1
+  %78 = trunc i64 %77 to i8
+  %79 = lshr i64 %77, 1
+  %80 = add i64 %76, -1
+  %81 = and i8 %78, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %._crit_edge.i.i.i, %70
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %70 ], [ %.sroa.14.1, %._crit_edge.i.i.i ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %78, %._crit_edge.i.i.i ]
-  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i.i ]
   %.sroa.25.2 = phi i64 [ 0, %70 ], [ %.sroa.25.1, %._crit_edge.i.i.i ]
   %.sroa.0.0.i3.i.i = phi i8 [ 2, %70 ], [ %81, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5759
@@ -60332,16 +60332,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.25.1 = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.25.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %76 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.23.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %77 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.21.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
-  %78 = lshr i64 %77, 1
-  %79 = add i64 %76, -1
-  %80 = trunc i64 %77 to i8
-  %81 = and i8 %80, 1
+  %78 = trunc i64 %77 to i8
+  %79 = lshr i64 %77, 1
+  %80 = add i64 %76, -1
+  %81 = and i8 %78, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %._crit_edge.i.i.i, %70
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %70 ], [ %.sroa.14.1, %._crit_edge.i.i.i ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %78, %._crit_edge.i.i.i ]
-  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i.i ]
   %.sroa.25.2 = phi i64 [ 0, %70 ], [ %.sroa.25.1, %._crit_edge.i.i.i ]
   %.sroa.0.0.i3.i.i = phi i8 [ 2, %70 ], [ %81, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5938
@@ -61144,16 +61144,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.25.1 = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.25.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %76 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.23.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
   %77 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i" ], [ %.sroa.21.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i" ]
-  %78 = lshr i64 %77, 1
-  %79 = add i64 %76, -1
-  %80 = trunc i64 %77 to i8
-  %81 = and i8 %80, 1
+  %78 = trunc i64 %77 to i8
+  %79 = lshr i64 %77, 1
+  %80 = add i64 %76, -1
+  %81 = and i8 %78, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %._crit_edge.i.i.i, %70
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %70 ], [ %.sroa.14.1, %._crit_edge.i.i.i ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %78, %._crit_edge.i.i.i ]
-  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %79, %._crit_edge.i.i.i ]
+  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i.i ]
   %.sroa.25.2 = phi i64 [ 0, %70 ], [ %.sroa.25.1, %._crit_edge.i.i.i ]
   %.sroa.0.0.i3.i.i = phi i8 [ 2, %70 ], [ %81, %._crit_edge.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6039
@@ -61956,16 +61956,16 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
   %.sroa.25.1 = phi i64 [ %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i.i" ], [ %.sroa.25.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i.i" ]
   %76 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i.i" ], [ %.sroa.23.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i.i" ]
   %77 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd0b41a45590edaebE.exit.i.i.i.i" ], [ %.sroa.21.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h792769e574223fdfE.exit.i.i.i" ]
-  %78 = lshr i64 %77, 1
-  %79 = add i64 %76, -1
-  %80 = trunc i64 %77 to i8
-  %81 = and i8 %80, 1
+  %78 = trunc i64 %77 to i8
+  %79 = lshr i64 %77, 1
+  %80 = add i64 %76, -1
+  %81 = and i8 %78, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i": ; preds = %._crit_edge.i.i.i.i, %70
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %70 ], [ %.sroa.14.1, %._crit_edge.i.i.i.i ]
-  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %78, %._crit_edge.i.i.i.i ]
-  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %79, %._crit_edge.i.i.i.i ]
+  %.sroa.21.1 = phi i64 [ %.sroa.21.0, %70 ], [ %79, %._crit_edge.i.i.i.i ]
+  %.sroa.23.1 = phi i64 [ 0, %70 ], [ %80, %._crit_edge.i.i.i.i ]
   %.sroa.25.2 = phi i64 [ 0, %70 ], [ %.sroa.25.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %70 ], [ %81, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !6142

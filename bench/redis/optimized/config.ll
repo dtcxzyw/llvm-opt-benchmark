@@ -7554,8 +7554,8 @@ define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr readnone captures(n
   store ptr @.str.403, ptr %3, align 8, !tbaa !14
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !14
@@ -7566,85 +7566,82 @@ define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr readnone captures(n
   br i1 %.not35, label %19, label %.critedge
 
 19:                                               ; preds = %.lr.ph
-  %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = and i32 %20, 1
-  %22 = icmp eq i32 %21, 0
-  %23 = icmp slt i64 %16, 1
-  %or.cond = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond, label %.critedge, label %24
+  %20 = and i64 %indvars.iv, 1
+  %21 = icmp eq i64 %20, 0
+  %22 = icmp slt i64 %16, 1
+  %or.cond = select i1 %21, i1 %22, i1 false
+  %23 = trunc i64 %indvars.iv to i1
+  %24 = icmp slt i64 %16, 0
+  %or.cond3 = select i1 %23, i1 %24, i1 false
+  %or.cond37 = select i1 %or.cond, i1 true, i1 %or.cond3
+  br i1 %or.cond37, label %.critedge, label %25
 
-24:                                               ; preds = %19
-  %25 = icmp ne i32 %21, 0
-  %26 = icmp slt i64 %16, 0
-  %or.cond3 = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond3, label %.critedge, label %27
-
-.critedge:                                        ; preds = %24, %19, %.lr.ph
+.critedge:                                        ; preds = %19, %.lr.ph
   store ptr @.str.403, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-27:                                               ; preds = %24
+25:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !224
 
-._crit_edge:                                      ; preds = %27, %.preheader.thread, %.preheader
-  %28 = phi i1 [ false, %.preheader.thread ], [ false, %.preheader ], [ true, %27 ]
-  %.0275052 = phi i32 [ 0, %.preheader.thread ], [ %2, %.preheader ], [ %2, %27 ]
+._crit_edge:                                      ; preds = %25, %.preheader.thread, %.preheader
+  %26 = phi i1 [ false, %.preheader.thread ], [ false, %.preheader ], [ true, %25 ]
+  %.0275254 = phi i32 [ 0, %.preheader.thread ], [ %2, %.preheader ], [ %2, %25 ]
   %.b = load i1, ptr @reading_config_file, align 4
-  br i1 %.b, label %29, label %.sink.split
+  br i1 %.b, label %27, label %.sink.split
 
-29:                                               ; preds = %._crit_edge
+27:                                               ; preds = %._crit_edge
   %.b33 = load i1, ptr @setConfigSaveOption.save_loaded, align 4
-  br i1 %.b33, label %32, label %30
+  br i1 %.b33, label %30, label %28
 
-30:                                               ; preds = %29
+28:                                               ; preds = %27
   store i1 true, ptr @setConfigSaveOption.save_loaded, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %30
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
-  tail call void @zfree(ptr noundef %31) #26
+.sink.split:                                      ; preds = %._crit_edge, %28
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
+  tail call void @zfree(ptr noundef %29) #26
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.sink.split, %29
-  br i1 %28, label %.lr.ph41, label %.loopexit
+30:                                               ; preds = %.sink.split, %27
+  br i1 %26, label %.lr.ph43, label %.loopexit
 
-.lr.ph41:                                         ; preds = %32, %.lr.ph41
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph41 ], [ 0, %32 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv43
-  %34 = load ptr, ptr %33, align 8, !tbaa !14
-  %35 = tail call i64 @strtoll(ptr noundef captures(none) %34, ptr noundef null, i32 noundef 10) #26
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !14
-  %38 = tail call i64 @strtoll(ptr noundef captures(none) %37, ptr noundef null, i32 noundef 10) #26
-  %39 = trunc i64 %38 to i32
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
-  %42 = add nsw i32 %41, 1
-  %43 = sext i32 %42 to i64
-  %44 = shl nsw i64 %43, 4
-  %45 = tail call ptr @zrealloc(ptr noundef %40, i64 noundef %44) #28
-  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.saveparam, ptr %45, i64 %47
-  store i64 %35, ptr %48, align 8, !tbaa !48
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %39, ptr %49, align 8, !tbaa !50
-  %50 = add nsw i32 %46, 1
-  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 2
-  %51 = trunc nuw i64 %indvars.iv.next44 to i32
-  %52 = icmp sgt i32 %.0275052, %51
-  br i1 %52, label %.lr.ph41, label %.loopexit, !llvm.loop !225
+.lr.ph43:                                         ; preds = %30, %.lr.ph43
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.lr.ph43 ], [ 0, %30 ]
+  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv45
+  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %33 = tail call i64 @strtoll(ptr noundef captures(none) %32, ptr noundef null, i32 noundef 10) #26
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !14
+  %36 = tail call i64 @strtoll(ptr noundef captures(none) %35, ptr noundef null, i32 noundef 10) #26
+  %37 = trunc i64 %36 to i32
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
+  %40 = add nsw i32 %39, 1
+  %41 = sext i32 %40 to i64
+  %42 = shl nsw i64 %41, 4
+  %43 = tail call ptr @zrealloc(ptr noundef %38, i64 noundef %42) #28
+  store ptr %43, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds %struct.saveparam, ptr %43, i64 %45
+  store i64 %33, ptr %46, align 8, !tbaa !48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i32 %37, ptr %47, align 8, !tbaa !50
+  %48 = add nsw i32 %44, 1
+  store i32 %48, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 2
+  %49 = trunc nuw i64 %indvars.iv.next46 to i32
+  %50 = icmp sgt i32 %.0275254, %49
+  br i1 %50, label %.lr.ph43, label %.loopexit, !llvm.loop !225
 
-.loopexit:                                        ; preds = %.lr.ph41, %32, %.critedge, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %.critedge ], [ 1, %32 ], [ 1, %.lr.ph41 ]
+.loopexit:                                        ; preds = %.lr.ph43, %30, %.critedge, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ 0, %.critedge ], [ 1, %30 ], [ 1, %.lr.ph43 ]
   ret i32 %.0
 }
 

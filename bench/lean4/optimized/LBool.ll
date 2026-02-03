@@ -40,9 +40,8 @@ define noundef nonnull ptr @l_Lean_LBool_toCtorIdx___boxed(ptr noundef %0) local
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -82,9 +81,8 @@ l_Lean_LBool_toCtorIdx.exit:                      ; preds = %lean_dec.exit, %13,
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_LBool_noConfusion___rarg___lambda__1(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -141,9 +139,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_LBool_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit7
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit7, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -165,9 +162,8 @@ define ptr @l_Lean_LBool_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef 
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not10 = icmp eq i64 %14, 0
-  br i1 %.not10, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit7
   %16 = load i32, ptr %1, align 4, !tbaa !4
@@ -195,9 +191,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_LBool_noConfusion___rarg___lambda__1___boxed(ptr noundef returned %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -256,17 +251,17 @@ define zeroext range(i8 0, 2) i8 @l_Lean_beqLBool____x40_Lean_Data_LBool___hyg_1
 l_Lean_LBool_toCtorIdx.exit:                      ; preds = %2, %3, %4
   %.0.i9 = phi ptr [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %6 [
-    i8 0, label %lean_dec.exit
+    i8 0, label %l_Lean_LBool_toCtorIdx.exit11
     i8 1, label %5
   ]
 
 5:                                                ; preds = %l_Lean_LBool_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_LBool_toCtorIdx.exit11
 
 6:                                                ; preds = %l_Lean_LBool_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_LBool_toCtorIdx.exit11
 
-lean_dec.exit:                                    ; preds = %6, %5, %l_Lean_LBool_toCtorIdx.exit
+l_Lean_LBool_toCtorIdx.exit11:                    ; preds = %6, %5, %l_Lean_LBool_toCtorIdx.exit
   %.0.i10 = phi ptr [ inttoptr (i64 5 to ptr), %6 ], [ inttoptr (i64 3 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %l_Lean_LBool_toCtorIdx.exit ]
   %7 = icmp eq ptr %.0.i9, %.0.i10
   %8 = zext i1 %7 to i8
@@ -278,9 +273,8 @@ define noundef nonnull ptr @l_Lean_beqLBool____x40_Lean_Data_LBool___hyg_18____b
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i8
-  %6 = and i64 %3, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %6 = trunc i64 %3 to i1
+  br i1 %6, label %lean_dec.exit7, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -304,9 +298,8 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %1 to i64
   %15 = lshr i64 %14, 1
   %16 = trunc i64 %15 to i8
-  %17 = and i64 %14, 1
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %18, label %lean_dec.exit
+  %17 = trunc i64 %14 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_dec.exit7
   %19 = load i32, ptr %1, align 4, !tbaa !4
@@ -370,9 +363,8 @@ define noundef zeroext range(i8 0, 3) i8 @l_Lean_LBool_neg(i8 noundef zeroext %0
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lean_LBool_neg___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -404,7 +396,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext i8 @l_Lean_LBool_and(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-lean_dec.exit:
+lean_obj_tag.exit:
   %2 = icmp eq i8 %0, 1
   %spec.select = select i1 %2, i8 %1, i8 %0
   ret i8 %spec.select
@@ -413,9 +405,8 @@ lean_dec.exit:
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lean_LBool_and___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit7, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -437,9 +428,8 @@ define nonnull ptr @l_Lean_LBool_and___boxed(ptr noundef %0, ptr noundef %1) loc
 
 lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not10 = icmp eq i64 %13, 0
-  br i1 %.not10, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_dec.exit7
   %15 = load i32, ptr %1, align 4, !tbaa !4
@@ -484,9 +474,8 @@ define ptr @l_Lean_LBool_toString(i8 noundef zeroext %0) local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_LBool_toString___boxed(ptr noundef %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -529,9 +518,8 @@ define zeroext range(i8 0, 2) i8 @l_Bool_toLBool(i8 noundef zeroext %0) local_un
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Bool_toLBool___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -553,8 +541,8 @@ define noundef nonnull ptr @l_Bool_toLBool___boxed(ptr noundef %0) local_unnamed
 
 lean_dec.exit:                                    ; preds = %10, %9, %7, %1
   %11 = and i64 %2, 510
-  %.not4 = icmp eq i64 %11, 0
-  %12 = select i1 %.not4, i64 1, i64 3
+  %.not = icmp eq i64 %11, 0
+  %12 = select i1 %.not, i64 1, i64 3
   %13 = inttoptr i64 %12 to ptr
   ret ptr %13
 }
@@ -564,9 +552,8 @@ define ptr @l_toLBoolM___rarg___lambda__1(ptr noundef %0, i8 noundef zeroext %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit11
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit11, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !4
@@ -588,9 +575,8 @@ define ptr @l_toLBoolM___rarg___lambda__1(ptr noundef %0, i8 noundef zeroext %1)
 
 lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not18 = icmp eq i64 %14, 0
-  br i1 %.not18, label %15, label %lean_dec.exit10
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit10, label %15
 
 15:                                               ; preds = %lean_inc.exit11
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -614,9 +600,8 @@ lean_dec.exit10:                                  ; preds = %21, %20, %18, %lean
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
-  %25 = and i64 %24, 1
-  %.not19 = icmp eq i64 %25, 0
-  br i1 %.not19, label %26, label %lean_inc.exit
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %lean_inc.exit, label %26
 
 26:                                               ; preds = %lean_dec.exit10
   %.val.i15 = load i32, ptr %23, align 4, !tbaa !4
@@ -637,7 +622,7 @@ lean_dec.exit10:                                  ; preds = %21, %20, %18, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %31, %30, %28, %lean_dec.exit10
-  br i1 %.not, label %32, label %lean_dec.exit
+  br i1 %6, label %lean_dec.exit, label %32
 
 32:                                               ; preds = %lean_inc.exit
   %33 = load i32, ptr %4, align 4, !tbaa !4
@@ -658,8 +643,8 @@ lean_inc.exit:                                    ; preds = %31, %30, %28, %lean
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %38, %37, %35, %lean_inc.exit
-  %.not20 = icmp eq i8 %1, 0
-  %39 = select i1 %.not20, ptr inttoptr (i64 1 to ptr), ptr inttoptr (i64 3 to ptr)
+  %.not = icmp eq i8 %1, 0
+  %39 = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr inttoptr (i64 3 to ptr)
   %40 = tail call ptr @lean_apply_2(ptr noundef %23, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %39) #5
   ret ptr %40
 }
@@ -671,9 +656,8 @@ define ptr @l_toLBoolM___rarg(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !4
@@ -722,9 +706,8 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
 ; Function Attrs: nounwind uwtable
 define ptr @l_toLBoolM___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4, !tbaa !4

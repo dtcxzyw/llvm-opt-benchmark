@@ -563,8 +563,8 @@ _ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit.i.i: ; preds = %4
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !42
   %.pre.i.i = and i64 %.sroa.0.0.copyload.i.pre.i.i, -16
-  %.pre55.i.i = inttoptr i64 %.pre.i.i to ptr
-  %.pre.i = load ptr, ptr %.pre55.i.i, align 16, !tbaa !43
+  %.pre54.i.i = inttoptr i64 %.pre.i.i to ptr
+  %.pre.i = load ptr, ptr %.pre54.i.i, align 16, !tbaa !43
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !42
   %.pre2.i = and i64 %.sroa.0.0.copyload.i.i.i.i.i.pre.i, -16
@@ -630,16 +630,16 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %_ZNK4llvm9StringRef
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i16, ptr %44, align 8
   %46 = and i16 %45, 127
-  %.not52.i.i = icmp eq i16 %46, 18
-  br i1 %.not52.i.i, label %51, label %_ZNK5clang4Decl14getDeclContextEv.exit32.i.i
+  %.not51.i.i = icmp eq i16 %46, 18
+  br i1 %.not51.i.i, label %51, label %_ZNK5clang4Decl14getDeclContextEv.exit32.i.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread.i.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i.i
   %47 = load ptr, ptr %43, align 8, !tbaa !53
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i16, ptr %48, align 8
   %50 = and i16 %49, 127
-  %.not51.i.i = icmp eq i16 %50, 18
-  br i1 %.not51.i.i, label %51, label %_ZNK5clang4Decl14getDeclContextEv.exit32.i.i
+  %.not.i.i = icmp eq i16 %50, 18
+  br i1 %.not.i.i, label %51, label %_ZNK5clang4Decl14getDeclContextEv.exit32.i.i
 
 51:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i
   %.pn.i.i = phi ptr [ %47, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i.i ], [ %43, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ]
@@ -650,8 +650,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit32.i.i:     ; preds = %_ZNK5clang4Decl14ge
   %52 = phi i16 [ %45, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ], [ %49, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i.i ]
   %.0.i.i31.i.i = phi ptr [ %43, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ], [ %47, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i.i ]
   %53 = and i16 %52, 127
-  %.not53.i.i = icmp eq i16 %53, 21
-  br i1 %.not53.i.i, label %54, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43.i.i
+  %.not52.i.i = icmp eq i16 %53, 21
+  br i1 %.not52.i.i, label %54, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43.i.i
 
 54:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit32.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i31.i.i, i64 40

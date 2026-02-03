@@ -3531,10 +3531,9 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6th
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %21 ], [ %36, %35 ], [ %50, %44 ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !204
-  %57 = shl nuw i64 1, %15
-  %58 = and i64 %56, %57
-  %.not = icmp eq i64 %58, 0
-  br i1 %.not, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory28VirtualTermSkolemAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread, label %62
+  %57 = lshr i64 %56, %15
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %62, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory28VirtualTermSkolemAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread
 
 _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory28VirtualTermSkolemAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %20, %25, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory28VirtualTermSkolemAttributeIdEbEEEENT_10value_typeERKS9_.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16

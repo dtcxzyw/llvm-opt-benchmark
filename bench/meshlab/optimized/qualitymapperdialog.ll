@@ -10340,8 +10340,8 @@ _ZN3vcg9HistogramIfE5ClearEv.exit:                ; preds = %_ZNSt6vectorIfSaIfE
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
-  %.not11 = icmp eq ptr %21, %23
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %21, %23
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3vcg9HistogramIfE5ClearEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 68
@@ -10351,15 +10351,14 @@ _ZN3vcg9HistogramIfE5ClearEv.exit:                ; preds = %_ZNSt6vectorIfSaIfE
 
 27:                                               ; preds = %.lr.ph, %71
   %28 = phi ptr [ %23, %.lr.ph ], [ %72, %71 ]
-  %.sroa.06.012 = phi ptr [ %21, %.lr.ph ], [ %73, %71 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 20
+  %.sroa.06.011 = phi ptr [ %21, %.lr.ph ], [ %73, %71 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 20
   %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 1
-  %.not10 = icmp eq i32 %31, 0
-  br i1 %.not10, label %32, label %71
+  %31 = trunc i32 %30 to i1
+  br i1 %31, label %71, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 36
   %34 = load float, ptr %33, align 4
   %35 = load ptr, ptr %10, align 8
   %36 = load ptr, ptr %12, align 8
@@ -10433,7 +10432,7 @@ _ZN3vcg9HistogramIfE3AddEff.exit:                 ; preds = %53, %56
 
 71:                                               ; preds = %27, %_ZN3vcg9HistogramIfE3AddEff.exit
   %72 = phi ptr [ %28, %27 ], [ %.pre, %_ZN3vcg9HistogramIfE3AddEff.exit ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 48
   %.not = icmp eq ptr %73, %72
   br i1 %.not, label %._crit_edge, label %27, !llvm.loop !83
 
@@ -11932,20 +11931,20 @@ define noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(p
   %25 = sdiv exact i64 %24, 48
   %26 = trunc i64 %25 to i32
   %27 = icmp eq i32 %17, %26
-  %.not2025.i.i = icmp eq ptr %21, %20
-  br i1 %27, label %.preheader.i.i, label %.preheader21.i.i
+  %.not1924.i.i = icmp eq ptr %21, %20
+  br i1 %27, label %.preheader.i.i, label %.preheader20.i.i
 
-.preheader21.i.i:                                 ; preds = %12
-  br i1 %.not2025.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i
+.preheader20.i.i:                                 ; preds = %12
+  br i1 %.not1924.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %12
-  br i1 %.not2025.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i
+  br i1 %.not1924.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph26.i.i
 
-.lr.ph27.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph27.i.i
-  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
-  %28 = phi float [ %32, %.lr.ph27.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i ]
-  %.sroa.014.026.i.i = phi ptr [ %34, %.lr.ph27.i.i ], [ %21, %.preheader.i.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.026.i.i, i64 36
+.lr.ph26.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph26.i.i
+  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.5.i, %.lr.ph26.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
+  %28 = phi float [ %32, %.lr.ph26.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i ]
+  %.sroa.014.025.i.i = phi ptr [ %34, %.lr.ph26.i.i ], [ %21, %.preheader.i.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.025.i.i, i64 36
   %30 = load float, ptr %29, align 4
   %31 = fcmp olt float %30, %28
   %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.3.i, float %30, i64 0
@@ -11955,42 +11954,41 @@ define noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(p
   %33 = fcmp ogt float %30, %.sroa.0.4.vec.extract11.i
   %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.4.i, float %30, i64 1
   %.sroa.0.5.i = select i1 %33, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.4.i
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.026.i.i, i64 48
-  %.not20.i.i = icmp eq ptr %34, %20
-  br i1 %.not20.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i, !llvm.loop !120
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.025.i.i, i64 48
+  %.not19.i.i = icmp eq ptr %34, %20
+  br i1 %.not19.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph26.i.i, !llvm.loop !120
 
-.lr.ph.i.i:                                       ; preds = %.preheader21.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
-  %.sroa.09.024.i.i = phi ptr [ %44, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ %21, %.preheader21.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.09.024.i.i, i64 20
+.lr.ph.i.i:                                       ; preds = %.preheader20.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.2.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader20.i.i ]
+  %.sroa.09.023.i.i = phi ptr [ %44, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ %21, %.preheader20.i.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.09.023.i.i, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 1
-  %.not19.i.i = icmp eq i32 %37, 0
-  br i1 %.not19.i.i, label %38, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
+  %37 = trunc i32 %36 to i1
+  br i1 %37, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, label %38
 
 38:                                               ; preds = %.lr.ph.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.09.024.i.i, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.09.023.i.i, i64 36
   %40 = load float, ptr %39, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %41 = fcmp olt float %40, %.sroa.0.0.vec.extract.i
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> %.sroa.0.0.i, float %40, i64 0
-  %.sroa.0.2.i = select i1 %41, <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> %.sroa.0.0.i
-  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.2.i, i64 1
+  %.sroa.0.1.i = select i1 %41, <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> %.sroa.0.0.i
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.1.i, i64 1
   %42 = fcmp ogt float %40, %.sroa.0.4.vec.extract.i
   br i1 %42, label %43, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 43:                                               ; preds = %38
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.2.i, float %40, i64 1
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.1.i, float %40, i64 1
   br label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i: ; preds = %43, %38, %.lr.ph.i.i
-  %.sroa.0.1.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %43 ], [ %.sroa.0.2.i, %38 ], [ %.sroa.0.0.i, %.lr.ph.i.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.09.024.i.i, i64 48
+  %.sroa.0.2.i = phi <2 x float> [ %.sroa.0.0.i, %.lr.ph.i.i ], [ %.sroa.0.4.vec.insert.i, %43 ], [ %.sroa.0.1.i, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.09.023.i.i, i64 48
   %.not.i.i = icmp eq ptr %44, %20
   br i1 %.not.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !121
 
-_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph27.i.i, %.preheader21.i.i, %.preheader.i.i
-  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
+_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph26.i.i, %.preheader20.i.i, %.preheader.i.i
+  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ %.sroa.0.5.i, %.lr.ph26.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader20.i.i ], [ %.sroa.0.2.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
   %.sroa.0.0.vec.extract.i25 = extractelement <2 x float> %.sroa.0.6.i, i64 0
   %.sroa.0.4.vec.extract.i26 = extractelement <2 x float> %.sroa.0.6.i, i64 1
   tail call void @_ZN19QualityMapperDialog32ComputePerVertexQualityHistogramER6CMeshO6FrangePN3vcg9HistogramIfEEi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(1196) %15, <2 x float> %.sroa.0.6.i, ptr noundef nonnull %13, i32 noundef 50000)

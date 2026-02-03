@@ -594,10 +594,10 @@ _ZNK2lp10lar_solver17external_to_localEj.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 118:                                              ; preds = %.loopexit
-  %119 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i = icmp eq i32 %119, 0
-  %120 = select i1 %.not.not.i, ptr @.str.23, ptr @.str.22
-  %121 = zext nneg i32 %119 to i64
+  %119 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %120 = select i1 %119, ptr @.str.22, ptr @.str.23
+  %.mask.i = and i32 %.sroa.0.0.copyload.i, 1
+  %121 = zext nneg i32 %.mask.i to i64
   %122 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %120, i64 noundef %121)
   %123 = lshr i32 %.sroa.0.0.copyload.i, 1
   %124 = zext nneg i32 %123 to i64
@@ -3449,10 +3449,9 @@ _ZNK3euf6solver13bool_var2exprEj.exit.i:          ; preds = %_ZNK6vectorIP4exprL
   br label %_ZNK3euf6solver12literal2exprEN3sat7literalE.exit
 
 240:                                              ; preds = %_ZNK3euf6solver13bool_var2exprEj.exit.i
-  %241 = and i32 %.sroa.0.0.copyload, 1
-  %.not10.i = icmp eq i32 %241, 0
+  %241 = trunc i32 %.sroa.0.0.copyload to i1
   %242 = load ptr, ptr %14, align 8, !tbaa !271, !noalias !617
-  br i1 %.not10.i, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i, label %246
+  br i1 %241, label %246, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %240
   store ptr %.pre.i.then.val.i, ptr %12, align 8, !tbaa !620, !alias.scope !617
@@ -4287,11 +4286,10 @@ _ZNK3euf6solver13bool_var2exprEj.exit.i:          ; preds = %_ZNK6vectorIP4exprL
   br label %_ZNK3euf6solver12literal2exprEN3sat7literalE.exit
 
 44:                                               ; preds = %_ZNK3euf6solver13bool_var2exprEj.exit.i
-  %45 = and i32 %.sroa.08.0.copyload, 1
-  %.not10.i = icmp eq i32 %45, 0
+  %45 = trunc i32 %.sroa.08.0.copyload to i1
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 136
   %47 = load ptr, ptr %46, align 8, !tbaa !271, !noalias !685
-  br i1 %.not10.i, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i, label %51
+  br i1 %45, label %51, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %44
   store ptr %.pre.i.then.val.i, ptr %3, align 8, !tbaa !620, !alias.scope !685

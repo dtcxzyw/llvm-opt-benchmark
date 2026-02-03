@@ -469,13 +469,12 @@ define dso_local void @_ZN4llvm19ReachingDefAnalysis15enterBasicBlockEPNS_17Mach
 .lr.ph.i.i.i.i.i.i:                               ; preds = %24, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %34, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i ], [ %25, %24 ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i.i.i, align 8
-  %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %26, 0
+  %26 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i1
   %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -2
   %28 = inttoptr i64 %27 to ptr
-  %.not3.i.i.i.i.i.i.i.i = icmp eq i64 %27, 0
-  %.not.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i, %.not3.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i, label %29
+  %.not3.i.i.i.i.i.i.i.i = icmp ne i64 %27, 0
+  %.not.not.i.i.i.i.i.i.i.i = and i1 %.not3.i.i.i.i.i.i.i.i, %26
+  br i1 %.not.not.i.i.i.i.i.i.i.i, label %29, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %30 = load ptr, ptr %28, align 8, !tbaa !25
@@ -4066,13 +4065,12 @@ _ZN4llvm15SmallVectorImplISt6vectorIiSaIiEEE5clearEv.exit: ; preds = %_ZNSt6vect
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi ptr [ %34, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i.i.i.i, align 8
-  %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %26, 0
+  %26 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i to i1
   %27 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, -2
   %28 = inttoptr i64 %27 to ptr
-  %.not3.i.i.i.i.i.i.i.i.i = icmp eq i64 %27, 0
-  %.not.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i, %.not3.i.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i.i, label %29
+  %.not3.i.i.i.i.i.i.i.i.i = icmp ne i64 %27, 0
+  %.not.not.i.i.i.i.i.i.i.i.i = and i1 %.not3.i.i.i.i.i.i.i.i.i, %26
+  br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %29, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i.i
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %30 = load ptr, ptr %28, align 8, !tbaa !25
@@ -9350,13 +9348,12 @@ _ZNKSt6vectorIN4llvm13TinyPtrVectorINS0_11ReachingDefEEESaIS3_EE12_M_check_lenEm
   %.0810.i.i.i.i.i = phi ptr [ %50, %_ZSt10_ConstructIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNKSt6vectorIN4llvm13TinyPtrVectorINS0_11ReachingDefEEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %29 = load i64, ptr %.0810.i.i.i.i.i, align 8
   store i64 %29, ptr %.011.i.i.i.i.i, align 8
-  %30 = and i64 %29, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %30, 0
+  %30 = trunc i64 %29 to i1
   %31 = and i64 %29, -2
   %32 = inttoptr i64 %31 to ptr
-  %.not5.i.i.i.i.i.i.i = icmp eq i64 %31, 0
-  %.not.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i, %.not5.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %33
+  %.not4.i.i.i.i.i.i.i = icmp ne i64 %31, 0
+  %.not.not.i.i.i.i.i.i.i = and i1 %.not4.i.i.i.i.i.i.i, %30
+  br i1 %.not.not.i.i.i.i.i.i.i, label %33, label %_ZSt10_ConstructIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 33:                                               ; preds = %.lr.ph.i.i.i.i.i
   %34 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
@@ -9368,9 +9365,9 @@ _ZNKSt6vectorIN4llvm13TinyPtrVectorINS0_11ReachingDefEEESaIS3_EE12_M_check_lenEm
   store i32 4, ptr %37, align 4, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !26
-  %.not.i.i4.i.i.i.i.i.i.i = icmp eq i32 %39, 0
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %39, 0
   %40 = icmp eq ptr %34, %32
-  %or.cond.i.i.i.i.i.i.i.i = or i1 %40, %.not.i.i4.i.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i.i.i = or i1 %40, %.not.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorINS_11ReachingDefELj4EEC2ERKS2_.exit.i.i.i.i.i.i.i, label %41
 
 41:                                               ; preds = %33
@@ -9416,13 +9413,12 @@ _ZSt10_ConstructIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEJRKS3_EEvPT_DpOT0_.ex
 .lr.ph.i.i.i:                                     ; preds = %_ZSt10_ConstructIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %60, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt10_ConstructIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i, align 8
-  %52 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i33 = icmp eq i64 %52, 0
+  %52 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i to i1
   %53 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -2
   %54 = inttoptr i64 %53 to ptr
-  %.not3.i.i.i.i.i = icmp eq i64 %53, 0
-  %.not.i.i.i.i.i34 = or i1 %.not.i.i.i.i.i.i.i33, %.not3.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i34, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i, label %55
+  %.not3.i.i.i.i.i = icmp ne i64 %53, 0
+  %.not.not.i.i.i.i.i = and i1 %.not3.i.i.i.i.i, %52
+  br i1 %.not.not.i.i.i.i.i, label %55, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i
 
 55:                                               ; preds = %.lr.ph.i.i.i
   %56 = load ptr, ptr %54, align 8, !tbaa !25
@@ -9444,8 +9440,8 @@ _ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i: ; pred
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN4llvm13TinyPtrVectorINS0_11ReachingDefEEES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !150
 
 _ZSt8_DestroyIPN4llvm13TinyPtrVectorINS0_11ReachingDefEEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i, %_ZNKSt6vectorIN4llvm13TinyPtrVectorINS0_11ReachingDefEEESaIS3_EE12_M_check_lenEmPKc.exit
-  %.not.i35 = icmp eq ptr %6, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseIN4llvm13TinyPtrVectorINS0_11ReachingDefEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %61
+  %.not.i33 = icmp eq ptr %6, null
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN4llvm13TinyPtrVectorINS0_11ReachingDefEEESaIS3_EE13_M_deallocateEPS3_m.exit, label %61
 
 61:                                               ; preds = %_ZSt8_DestroyIPN4llvm13TinyPtrVectorINS0_11ReachingDefEEES3_EvT_S5_RSaIT0_E.exit
   %62 = load ptr, ptr %11, align 8, !tbaa !418
@@ -9612,13 +9608,12 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt6vectorINS_13TinyPt
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %25, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i ], [ %14, %.lr.ph.i.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i.i.i, align 8
-  %17 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
+  %17 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i to i1
   %18 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -2
   %19 = inttoptr i64 %18 to ptr
-  %.not3.i.i.i.i.i.i.i.i = icmp eq i64 %18, 0
-  %.not.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i, %.not3.i.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i, label %20
+  %.not3.i.i.i.i.i.i.i.i = icmp ne i64 %18, 0
+  %.not.not.i.i.i.i.i.i.i.i = and i1 %.not3.i.i.i.i.i.i.i.i, %17
+  br i1 %.not.not.i.i.i.i.i.i.i.i, label %20, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i.i
 
 20:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %21 = load ptr, ptr %19, align 8, !tbaa !25
@@ -9776,13 +9771,12 @@ _ZN4llvm23SmallVectorTemplateBaseISt6vectorINS_13TinyPtrVectorINS_11ReachingDefE
 .lr.ph.i.i.i.i.i2:                                ; preds = %.lr.ph.i, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %31, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i ], [ %20, %.lr.ph.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i.i, align 8
-  %23 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %23, 0
+  %23 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i to i1
   %24 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -2
   %25 = inttoptr i64 %24 to ptr
-  %.not3.i.i.i.i.i.i.i = icmp eq i64 %24, 0
-  %.not.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i, %.not3.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i, label %26
+  %.not3.i.i.i.i.i.i.i = icmp ne i64 %24, 0
+  %.not.not.i.i.i.i.i.i.i = and i1 %.not3.i.i.i.i.i.i.i, %23
+  br i1 %.not.not.i.i.i.i.i.i.i, label %26, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i2
   %27 = load ptr, ptr %25, align 8, !tbaa !25
@@ -10183,13 +10177,12 @@ define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt6vectorINS_13TinyPtrVec
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %19, %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i ], [ %8, %.lr.ph.i ]
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.05.i.i.i.i.i, align 8
-  %11 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %11, 0
+  %11 = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i to i1
   %12 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i, -2
   %13 = inttoptr i64 %12 to ptr
-  %.not3.i.i.i.i.i.i.i = icmp eq i64 %12, 0
-  %.not.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i, %.not3.i.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i, label %14
+  %.not3.i.i.i.i.i.i.i = icmp ne i64 %12, 0
+  %.not.not.i.i.i.i.i.i.i = and i1 %.not3.i.i.i.i.i.i.i, %11
+  br i1 %.not.not.i.i.i.i.i.i.i, label %14, label %_ZSt8_DestroyIN4llvm13TinyPtrVectorINS0_11ReachingDefEEEEvPT_.exit.i.i.i.i.i
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i
   %15 = load ptr, ptr %13, align 8, !tbaa !25

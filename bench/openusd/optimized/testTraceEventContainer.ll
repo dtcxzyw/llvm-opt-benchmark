@@ -1325,9 +1325,8 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1
   %531 = and i64 %525, -8
   %532 = inttoptr i64 %531 to ptr
   %533 = atomicrmw add ptr %532, i32 2 monotonic, align 4
-  %534 = and i32 %533, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %534, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %535, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit.i.i
+  %534 = trunc i32 %533 to i1
+  br i1 %534, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit.i.i, label %535
 
 535:                                              ; preds = %530
   store ptr %532, ptr %528, align 8
@@ -2414,9 +2413,8 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1
   %68 = and i64 %62, -8
   %69 = inttoptr i64 %68 to ptr
   %70 = atomicrmw add ptr %69, i32 2 monotonic, align 4
-  %71 = and i32 %70, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %71, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %72, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit
+  %71 = trunc i32 %70 to i1
+  br i1 %71, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, label %72
 
 72:                                               ; preds = %67
   store ptr %69, ptr %65, align 8

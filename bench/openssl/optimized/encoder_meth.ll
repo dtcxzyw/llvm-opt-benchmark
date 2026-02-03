@@ -168,11 +168,10 @@ define internal fastcc ptr @inner_ossl_encoder_fetch(ptr noundef nonnull %0, ptr
 39:                                               ; preds = %35, %.thread
   %.1 = phi i32 [ %.2, %35 ], [ %23, %.thread ]
   %40 = load i8, ptr %27, align 8
-  %41 = and i8 %40, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not61 = icmp eq i8 %41, 0
-  %42 = select i1 %.not61, i32 524556, i32 524557
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, i32 524557, i32 524556
   br label %43
 
 43:                                               ; preds = %39, %20
@@ -203,11 +202,11 @@ define internal fastcc ptr @inner_ossl_encoder_fetch(ptr noundef nonnull %0, ptr
   %55 = select i1 %54, ptr @.str.3, ptr %.050
   %56 = select i1 %.not, ptr @.str.3, ptr %2
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 59, i32 noundef %.049, ptr noundef nonnull @.str.2, ptr noundef %53, ptr noundef nonnull %55, i32 noundef %.048, ptr noundef nonnull %56) #8
-  %.pre62 = load ptr, ptr %4, align 8, !tbaa !22
+  %.pre61 = load ptr, ptr %4, align 8, !tbaa !22
   br label %57
 
 57:                                               ; preds = %51, %43, %14
-  %.0 = phi ptr [ null, %14 ], [ %45, %43 ], [ %.pre62, %51 ]
+  %.0 = phi ptr [ null, %14 ], [ %45, %43 ], [ %.pre61, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

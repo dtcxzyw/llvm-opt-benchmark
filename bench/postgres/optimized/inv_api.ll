@@ -317,9 +317,8 @@ open_lo_relation.exit.i:                          ; preds = %25, %9
   %.val.i = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %.val.i, i64 20
   %.val.val.i = load i16, ptr %36, align 4
-  %37 = and i16 %.val.val.i, 1
-  %.not13.i = icmp eq i16 %37, 0
-  br i1 %.not13.i, label %41, label %38
+  %37 = trunc i16 %.val.val.i to i1
+  br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -335,8 +334,8 @@ open_lo_relation.exit.i:                          ; preds = %25, %9
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 1
   %48 = and i8 %47, 3
-  %.not14.i = icmp eq i8 %48, 0
-  br i1 %.not14.i, label %51, label %49
+  %.not13.i = icmp eq i8 %48, 0
+  br i1 %.not13.i, label %51, label %49
 
 49:                                               ; preds = %41
   %50 = call ptr @detoast_attr(ptr noundef nonnull %46) #8
@@ -368,7 +367,7 @@ getdatafield.exit.i:                              ; preds = %51
   %66 = shl nsw i64 %65, 11
   %67 = sext i32 %54 to i64
   %68 = add nsw i64 %66, %67
-  br i1 %.not14.i, label %inv_getsize.exit, label %69
+  br i1 %.not13.i, label %inv_getsize.exit, label %69
 
 69:                                               ; preds = %getdatafield.exit.i
   call void @pfree(ptr noundef nonnull %.015.i.i) #8
@@ -503,9 +502,8 @@ open_lo_relation.exit:                            ; preds = %19, %35
   %.val = load ptr, ptr %51, align 8
   %52 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %52, align 4
-  %53 = and i16 %.val.val, 1
-  %.not94 = icmp eq i16 %53, 0
-  br i1 %.not94, label %57, label %54
+  %53 = trunc i16 %.val.val to i1
+  br i1 %53, label %54, label %57
 
 54:                                               ; preds = %50
   %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -546,8 +544,8 @@ open_lo_relation.exit:                            ; preds = %19, %35
   br i1 %or.cond3, label %81, label %.loopexit.sink.split
 
 81:                                               ; preds = %77
-  %.not100 = icmp eq i64 %., 0
-  br i1 %.not100, label %.loopexit, label %.lr.ph.preheader
+  %.not99 = icmp eq i64 %., 0
+  br i1 %.not99, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %81
   %82 = add i64 %., %4
@@ -586,8 +584,8 @@ open_lo_relation.exit:                            ; preds = %19, %35
   %99 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %100 = load i8, ptr %99, align 1
   %101 = and i8 %100, 3
-  %.not95 = icmp eq i8 %101, 0
-  br i1 %.not95, label %104, label %102
+  %.not94 = icmp eq i8 %101, 0
+  br i1 %.not94, label %104, label %102
 
 102:                                              ; preds = %96
   %103 = call ptr @detoast_attr(ptr noundef nonnull %99) #8
@@ -636,7 +634,7 @@ getdatafield.exit:                                ; preds = %104
 
 130:                                              ; preds = %118, %getdatafield.exit
   %.4 = phi i32 [ %127, %118 ], [ %.2, %getdatafield.exit ]
-  br i1 %.not95, label %132, label %131
+  br i1 %.not94, label %132, label %131
 
 131:                                              ; preds = %130
   call void @pfree(ptr noundef nonnull %.015.i) #8
@@ -727,7 +725,7 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr noundef captures(n
   %37 = load ptr, ptr @lo_index_r, align 8
   %38 = icmp ne ptr %37, null
   %or.cond.i = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond.i, label %.lr.ph169, label %39
+  br i1 %or.cond.i, label %.lr.ph168, label %39
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -743,7 +741,7 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr noundef captures(n
   br label %45
 
 45:                                               ; preds = %43, %39
-  %.pre174 = phi ptr [ %44, %43 ], [ %35, %39 ]
+  %.pre173 = phi ptr [ %44, %43 ], [ %35, %39 ]
   %46 = phi ptr [ %.pre.i, %43 ], [ %37, %39 ]
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
@@ -755,11 +753,11 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr noundef captures(n
   br label %50
 
 50:                                               ; preds = %48, %45
-  %.pre = phi ptr [ %.pre.pre, %48 ], [ %.pre174, %45 ]
+  %.pre = phi ptr [ %.pre.pre, %48 ], [ %.pre173, %45 ]
   store ptr %40, ptr @CurrentResourceOwner, align 8
-  br label %.lr.ph169
+  br label %.lr.ph168
 
-.lr.ph169:                                        ; preds = %50, %34
+.lr.ph168:                                        ; preds = %50, %34
   %51 = phi ptr [ %35, %34 ], [ %.pre, %50 ]
   %52 = tail call ptr @CatalogOpenIndexes(ptr noundef %51) #8
   %53 = load i32, ptr %0, align 8
@@ -786,13 +784,13 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr noundef captures(n
   %71 = add nuw i64 %6, 12
   br label %72
 
-72:                                               ; preds = %.lr.ph169, %189
-  %.0115168 = phi i32 [ 0, %.lr.ph169 ], [ %.1, %189 ]
-  %.0116167 = phi i32 [ %13, %.lr.ph169 ], [ %190, %189 ]
-  %.0118166 = phi ptr [ null, %.lr.ph169 ], [ %.2, %189 ]
-  %.0120165 = phi ptr [ null, %.lr.ph169 ], [ %.3, %189 ]
-  %.0123164 = phi i1 [ true, %.lr.ph169 ], [ %.2125, %189 ]
-  br i1 %.0123164, label %73, label %86
+72:                                               ; preds = %.lr.ph168, %189
+  %.0115167 = phi i32 [ 0, %.lr.ph168 ], [ %.1, %189 ]
+  %.0116166 = phi i32 [ %13, %.lr.ph168 ], [ %190, %189 ]
+  %.0118165 = phi ptr [ null, %.lr.ph168 ], [ %.2, %189 ]
+  %.0120164 = phi ptr [ null, %.lr.ph168 ], [ %.3, %189 ]
+  %.0123163 = phi i1 [ true, %.lr.ph168 ], [ %.2125, %189 ]
+  br i1 %.0123163, label %73, label %86
 
 73:                                               ; preds = %72
   %74 = call ptr @systable_getnext_ordered(ptr noundef %61, i32 noundef 1) #8
@@ -804,9 +802,8 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr noundef captures(n
   %.val = load ptr, ptr %76, align 8
   %77 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %77, align 4
-  %78 = and i16 %.val.val, 1
-  %.not154 = icmp eq i16 %78, 0
-  br i1 %.not154, label %.thread, label %79
+  %78 = trunc i16 %.val.val to i1
+  br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %75
   %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -822,24 +819,24 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr noundef captures(n
   br label %87
 
 86:                                               ; preds = %73, %72
-  %.1119 = phi ptr [ %.0118166, %72 ], [ null, %73 ]
-  %.not133 = icmp eq ptr %.0120165, null
+  %.1119 = phi ptr [ %.0118165, %72 ], [ null, %73 ]
+  %.not133 = icmp eq ptr %.0120164, null
   br i1 %.not133, label %156, label %87
 
 87:                                               ; preds = %.thread, %86
   %.1119152 = phi ptr [ %74, %.thread ], [ %.1119, %86 ]
-  %.1121150 = phi ptr [ %85, %.thread ], [ %.0120165, %86 ]
+  %.1121150 = phi ptr [ %85, %.thread ], [ %.0120164, %86 ]
   %88 = getelementptr inbounds nuw i8, ptr %.1121150, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = icmp eq i32 %89, %.0116167
+  %90 = icmp eq i32 %89, %.0116166
   br i1 %90, label %91, label %156
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %.1121150, i64 8
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 3
-  %.not155 = icmp eq i8 %94, 0
-  br i1 %.not155, label %97, label %95
+  %.not154 = icmp eq i8 %94, 0
+  br i1 %.not154, label %97, label %95
 
 95:                                               ; preds = %91
   %96 = call ptr @detoast_attr(ptr noundef nonnull %92) #8
@@ -868,7 +865,7 @@ getdatafield.exit:                                ; preds = %97
   %109 = getelementptr inbounds nuw i8, ptr %.015.i, i64 4
   %110 = sext i32 %100 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr nonnull align 4 %109, i64 %110, i1 false)
-  br i1 %.not155, label %112, label %111
+  br i1 %.not154, label %112, label %111
 
 111:                                              ; preds = %getdatafield.exit
   call void @pfree(ptr noundef nonnull %.015.i) #8
@@ -879,7 +876,7 @@ getdatafield.exit:                                ; preds = %97
   %114 = trunc i64 %113 to i32
   %115 = and i32 %114, 2047
   %116 = icmp sgt i32 %115, %100
-  br i1 %116, label %117, label %.loopexit156
+  br i1 %116, label %117, label %.loopexit155
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds i8, ptr %14, i64 %110
@@ -888,14 +885,14 @@ getdatafield.exit:                                ; preds = %97
   %121 = ptrtoint ptr %118 to i64
   %122 = and i64 %121, 7
   %123 = icmp eq i64 %122, 0
-  br i1 %123, label %124, label %.loopexit156.sink.split
+  br i1 %123, label %124, label %.loopexit155.sink.split
 
 124:                                              ; preds = %117
   %125 = and i32 %119, 7
   %126 = icmp eq i32 %125, 0
   %127 = icmp ult i32 %119, 1025
   %or.cond3 = and i1 %127, %126
-  br i1 %or.cond3, label %.lr.ph.preheader, label %.loopexit156.sink.split
+  br i1 %or.cond3, label %.lr.ph.preheader, label %.loopexit155.sink.split
 
 .lr.ph.preheader:                                 ; preds = %124
   %128 = lshr i32 %98, 2
@@ -908,20 +905,20 @@ getdatafield.exit:                                ; preds = %97
   %134 = sub i64 %133, %129
   %135 = and i64 %134, -8
   %136 = add i64 %135, 8
-  br label %.loopexit156.sink.split
+  br label %.loopexit155.sink.split
 
-.loopexit156.sink.split:                          ; preds = %117, %124, %.lr.ph.preheader
+.loopexit155.sink.split:                          ; preds = %117, %124, %.lr.ph.preheader
   %.sink = phi i64 [ %136, %.lr.ph.preheader ], [ %120, %124 ], [ %120, %117 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %118, i8 0, i64 %.sink, i1 false)
-  br label %.loopexit156
+  br label %.loopexit155
 
-.loopexit156:                                     ; preds = %.loopexit156.sink.split, %112
+.loopexit155:                                     ; preds = %.loopexit155.sink.split, %112
   %137 = sub nuw nsw i32 2048, %115
-  %138 = sub i32 %2, %.0115168
+  %138 = sub i32 %2, %.0115167
   %139 = call i32 @llvm.smin.i32(i32 %137, i32 %138)
   %140 = and i64 %113, 2047
   %141 = getelementptr inbounds nuw i8, ptr %14, i64 %140
-  %142 = sext i32 %.0115168 to i64
+  %142 = sext i32 %.0115167 to i64
   %143 = getelementptr inbounds i8, ptr %1, i64 %142
   %144 = sext i32 %139 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr align 1 %143, i64 %144, i1 false)
@@ -953,7 +950,7 @@ getdatafield.exit:                                ; preds = %97
   %158 = trunc i64 %157 to i32
   %159 = and i32 %158, 2047
   %.not134 = icmp eq i32 %159, 0
-  %.pre175 = and i64 %157, 2047
+  %.pre174 = and i64 %157, 2047
   br i1 %.not134, label %.loopexit, label %160
 
 160:                                              ; preds = %156
@@ -962,35 +959,35 @@ getdatafield.exit:                                ; preds = %97
 161:                                              ; preds = %160
   %162 = and i64 %157, 7
   %163 = icmp eq i64 %162, 0
-  %164 = icmp samesign ult i64 %.pre175, 1025
+  %164 = icmp samesign ult i64 %.pre174, 1025
   %or.cond7 = select i1 %163, i1 %164, i1 false
   br i1 %or.cond7, label %165, label %.loopexit.sink.split
 
 165:                                              ; preds = %161
-  %.not171 = icmp eq i64 %.pre175, 0
-  br i1 %.not171, label %.loopexit, label %.lr.ph162.preheader
+  %.not170 = icmp eq i64 %.pre174, 0
+  br i1 %.not170, label %.loopexit, label %.lr.ph161.preheader
 
-.lr.ph162.preheader:                              ; preds = %165
-  %166 = add i64 %70, %.pre175
-  %umax172 = call i64 @llvm.umax.i64(i64 %166, i64 %71)
-  %reass.sub = sub i64 %umax172, %6
+.lr.ph161.preheader:                              ; preds = %165
+  %166 = add i64 %70, %.pre174
+  %umax171 = call i64 @llvm.umax.i64(i64 %166, i64 %71)
+  %reass.sub = sub i64 %umax171, %6
   %167 = add i64 %reass.sub, -5
   %168 = and i64 %167, -8
   %169 = add i64 %168, 8
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %160, %161, %.lr.ph162.preheader
-  %.sink185 = phi i64 [ %169, %.lr.ph162.preheader ], [ %.pre175, %161 ], [ %.pre175, %160 ]
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %.sink185, i1 false)
+.loopexit.sink.split:                             ; preds = %160, %161, %.lr.ph161.preheader
+  %.sink184 = phi i64 [ %169, %.lr.ph161.preheader ], [ %.pre174, %161 ], [ %.pre174, %160 ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %.sink184, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %156, %165
-  %.pre-phi = phi i64 [ 0, %165 ], [ %.pre175, %156 ], [ %.pre175, %.loopexit.sink.split ]
+  %.pre-phi = phi i64 [ 0, %165 ], [ %.pre174, %156 ], [ %.pre174, %.loopexit.sink.split ]
   %170 = sub nuw nsw i32 2048, %159
-  %171 = sub i32 %2, %.0115168
+  %171 = sub i32 %2, %.0115167
   %172 = call i32 @llvm.smin.i32(i32 %170, i32 %171)
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 %.pre-phi
-  %174 = sext i32 %.0115168 to i64
+  %174 = sext i32 %.0115167 to i64
   %175 = getelementptr inbounds i8, ptr %1, i64 %174
   %176 = sext i32 %172 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %173, ptr align 1 %175, i64 %176, i1 false)
@@ -1004,7 +1001,7 @@ getdatafield.exit:                                ; preds = %97
   %181 = load i32, ptr %0, align 8
   %182 = zext i32 %181 to i64
   store i64 %182, ptr %7, align 16
-  %183 = sext i32 %.0116167 to i64
+  %183 = sext i32 %.0116166 to i64
   store i64 %183, ptr %67, align 8
   store i64 %6, ptr %62, align 16
   %184 = load ptr, ptr @lo_heap_r, align 8
@@ -1015,15 +1012,15 @@ getdatafield.exit:                                ; preds = %97
   call void @CatalogTupleInsertWithInfo(ptr noundef %188, ptr noundef %187, ptr noundef %52) #8
   br label %189
 
-189:                                              ; preds = %.loopexit, %.loopexit156
-  %.sink186 = phi ptr [ %187, %.loopexit ], [ %153, %.loopexit156 ]
-  %.2125 = phi i1 [ false, %.loopexit ], [ true, %.loopexit156 ]
-  %.3 = phi ptr [ %.1121151, %.loopexit ], [ null, %.loopexit156 ]
-  %.2 = phi ptr [ %.1119153, %.loopexit ], [ null, %.loopexit156 ]
-  %.pn = phi i32 [ %172, %.loopexit ], [ %139, %.loopexit156 ]
-  call void @heap_freetuple(ptr noundef %.sink186) #8
-  %.1 = add i32 %.pn, %.0115168
-  %190 = add i32 %.0116167, 1
+189:                                              ; preds = %.loopexit, %.loopexit155
+  %.sink185 = phi ptr [ %187, %.loopexit ], [ %153, %.loopexit155 ]
+  %.2125 = phi i1 [ false, %.loopexit ], [ true, %.loopexit155 ]
+  %.3 = phi ptr [ %.1121151, %.loopexit ], [ null, %.loopexit155 ]
+  %.2 = phi ptr [ %.1119153, %.loopexit ], [ null, %.loopexit155 ]
+  %.pn = phi i32 [ %172, %.loopexit ], [ %139, %.loopexit155 ]
+  call void @heap_freetuple(ptr noundef %.sink185) #8
+  %.1 = add i32 %.pn, %.0115167
+  %190 = add i32 %.0116166, 1
   %191 = icmp slt i32 %.1, %2
   br i1 %191, label %72, label %._crit_edge, !llvm.loop !5
 
@@ -1120,7 +1117,7 @@ define dso_local void @inv_truncate(ptr noundef readonly captures(none) %0, i64 
   br label %37
 
 37:                                               ; preds = %35, %31
-  %.pre113 = phi ptr [ %36, %35 ], [ %27, %31 ]
+  %.pre112 = phi ptr [ %36, %35 ], [ %27, %31 ]
   %38 = phi ptr [ %.pre.i, %35 ], [ %29, %31 ]
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42
@@ -1132,7 +1129,7 @@ define dso_local void @inv_truncate(ptr noundef readonly captures(none) %0, i64 
   br label %42
 
 42:                                               ; preds = %40, %37
-  %.pre = phi ptr [ %.pre.pre, %40 ], [ %.pre113, %37 ]
+  %.pre = phi ptr [ %.pre.pre, %40 ], [ %.pre112, %37 ]
   store ptr %32, ptr @CurrentResourceOwner, align 8
   br label %open_lo_relation.exit
 
@@ -1158,9 +1155,8 @@ open_lo_relation.exit:                            ; preds = %26, %42
   %.val = load ptr, ptr %55, align 8
   %56 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %56, align 4
-  %57 = and i16 %.val.val, 1
-  %.not100 = icmp eq i16 %57, 0
-  br i1 %.not100, label %61, label %58
+  %57 = trunc i16 %.val.val to i1
+  br i1 %57, label %58, label %61
 
 58:                                               ; preds = %54
   %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1182,8 +1178,8 @@ open_lo_relation.exit:                            ; preds = %26, %42
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %71 = load i8, ptr %70, align 1
   %72 = and i8 %71, 3
-  %.not101 = icmp eq i8 %72, 0
-  br i1 %.not101, label %75, label %73
+  %.not100 = icmp eq i8 %72, 0
+  br i1 %.not100, label %75, label %73
 
 73:                                               ; preds = %69
   %74 = call ptr @detoast_attr(ptr noundef nonnull %70) #8
@@ -1211,7 +1207,7 @@ getdatafield.exit:                                ; preds = %75
   %86 = getelementptr inbounds nuw i8, ptr %.015.i, i64 4
   %87 = sext i32 %78 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull align 4 %86, i64 %87, i1 false)
-  br i1 %.not101, label %89, label %88
+  br i1 %.not100, label %89, label %88
 
 88:                                               ; preds = %getdatafield.exit
   call void @pfree(ptr noundef nonnull %.015.i) #8
@@ -1221,7 +1217,7 @@ getdatafield.exit:                                ; preds = %75
   %90 = trunc i64 %1 to i32
   %91 = and i32 %90, 2047
   %92 = icmp sgt i32 %91, %78
-  br i1 %92, label %93, label %.loopexit103
+  br i1 %92, label %93, label %.loopexit102
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %11, i64 %87
@@ -1230,14 +1226,14 @@ getdatafield.exit:                                ; preds = %75
   %97 = ptrtoint ptr %94 to i64
   %98 = and i64 %97, 7
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %.loopexit103.sink.split
+  br i1 %99, label %100, label %.loopexit102.sink.split
 
 100:                                              ; preds = %93
   %101 = and i32 %95, 7
   %102 = icmp eq i32 %101, 0
   %103 = icmp ult i32 %95, 1025
   %or.cond5 = and i1 %103, %102
-  br i1 %or.cond5, label %.lr.ph.preheader, label %.loopexit103.sink.split
+  br i1 %or.cond5, label %.lr.ph.preheader, label %.loopexit102.sink.split
 
 .lr.ph.preheader:                                 ; preds = %100
   %104 = lshr i32 %76, 2
@@ -1251,7 +1247,7 @@ getdatafield.exit:                                ; preds = %75
   %111 = sub i64 %110, %105
   %112 = and i64 %111, -8
   %113 = add i64 %112, 8
-  br label %.loopexit103.sink.split
+  br label %.loopexit102.sink.split
 
 114:                                              ; preds = %61
   %115 = load ptr, ptr @lo_heap_r, align 8
@@ -1263,43 +1259,43 @@ getdatafield.exit:                                ; preds = %75
   %117 = trunc i64 %1 to i32
   %118 = and i32 %117, 2047
   %.not89 = icmp eq i32 %118, 0
-  br i1 %.not89, label %.loopexit102, label %119
+  br i1 %.not89, label %.loopexit101, label %119
 
 119:                                              ; preds = %.critedge
   %120 = and i64 %1, 2047
   %121 = ptrtoint ptr %11 to i64
   %122 = and i64 %121, 4
   %123 = icmp eq i64 %122, 0
-  br i1 %123, label %124, label %.loopexit102.sink.split
+  br i1 %123, label %124, label %.loopexit101.sink.split
 
 124:                                              ; preds = %119
   %125 = and i64 %1, 7
   %126 = icmp eq i64 %125, 0
   %127 = icmp samesign ult i64 %120, 1025
   %or.cond9 = select i1 %126, i1 %127, i1 false
-  br i1 %or.cond9, label %128, label %.loopexit102.sink.split
+  br i1 %or.cond9, label %128, label %.loopexit101.sink.split
 
 128:                                              ; preds = %124
-  %.not110 = icmp eq i64 %120, 0
-  br i1 %.not110, label %.loopexit102, label %.lr.ph106.preheader
+  %.not109 = icmp eq i64 %120, 0
+  br i1 %.not109, label %.loopexit101, label %.lr.ph105.preheader
 
-.lr.ph106.preheader:                              ; preds = %128
+.lr.ph105.preheader:                              ; preds = %128
   %129 = add i64 %120, %5
   %130 = add i64 %129, 4
   %131 = add nuw i64 %5, 12
-  %umax111 = call i64 @llvm.umax.i64(i64 %130, i64 %131)
-  %132 = add i64 %umax111, -5
+  %umax110 = call i64 @llvm.umax.i64(i64 %130, i64 %131)
+  %132 = add i64 %umax110, -5
   %133 = sub i64 %132, %5
   %134 = and i64 %133, -8
   %135 = add i64 %134, 8
-  br label %.loopexit102.sink.split
+  br label %.loopexit101.sink.split
 
-.loopexit102.sink.split:                          ; preds = %119, %124, %.lr.ph106.preheader
-  %.sink = phi i64 [ %135, %.lr.ph106.preheader ], [ %120, %124 ], [ %120, %119 ]
+.loopexit101.sink.split:                          ; preds = %119, %124, %.lr.ph105.preheader
+  %.sink = phi i64 [ %135, %.lr.ph105.preheader ], [ %120, %124 ], [ %120, %119 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %11, i8 0, i64 %.sink, i1 false)
-  br label %.loopexit102
+  br label %.loopexit101
 
-.loopexit102:                                     ; preds = %.loopexit102.sink.split, %128, %.critedge
+.loopexit101:                                     ; preds = %.loopexit101.sink.split, %128, %.critedge
   %136 = shl nuw nsw i32 %118, 2
   %137 = add nuw nsw i32 %136, 16
   store i32 %137, ptr %4, align 4
@@ -1320,12 +1316,12 @@ getdatafield.exit:                                ; preds = %75
   call void @heap_freetuple(ptr noundef %145) #8
   br i1 %.not, label %.loopexit, label %.preheader
 
-.loopexit103.sink.split:                          ; preds = %93, %100, %.lr.ph.preheader
-  %.sink121 = phi i64 [ %113, %.lr.ph.preheader ], [ %96, %100 ], [ %96, %93 ]
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %94, i8 0, i64 %.sink121, i1 false)
-  br label %.loopexit103
+.loopexit102.sink.split:                          ; preds = %93, %100, %.lr.ph.preheader
+  %.sink120 = phi i64 [ %113, %.lr.ph.preheader ], [ %96, %100 ], [ %96, %93 ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %94, i8 0, i64 %.sink120, i1 false)
+  br label %.loopexit102
 
-.loopexit103:                                     ; preds = %.loopexit103.sink.split, %89
+.loopexit102:                                     ; preds = %.loopexit102.sink.split, %89
   %147 = shl nuw nsw i32 %91, 2
   %148 = add nuw nsw i32 %147, 16
   store i32 %148, ptr %4, align 4
@@ -1346,21 +1342,21 @@ getdatafield.exit:                                ; preds = %75
   call void @heap_freetuple(ptr noundef %154) #8
   br label %.preheader
 
-.preheader:                                       ; preds = %.loopexit102, %.loopexit103
+.preheader:                                       ; preds = %.loopexit101, %.loopexit102
   %157 = call ptr @systable_getnext_ordered(ptr noundef %52, i32 noundef 1) #8
-  %.not90107 = icmp eq ptr %157, null
-  br i1 %.not90107, label %.loopexit, label %.lr.ph108
+  %.not90106 = icmp eq ptr %157, null
+  br i1 %.not90106, label %.loopexit, label %.lr.ph107
 
-.lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
-  %158 = phi ptr [ %161, %.lr.ph108 ], [ %157, %.preheader ]
+.lr.ph107:                                        ; preds = %.preheader, %.lr.ph107
+  %158 = phi ptr [ %161, %.lr.ph107 ], [ %157, %.preheader ]
   %159 = load ptr, ptr @lo_heap_r, align 8
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 4
   call void @CatalogTupleDelete(ptr noundef %159, ptr noundef nonnull %160) #8
   %161 = call ptr @systable_getnext_ordered(ptr noundef %52, i32 noundef 1) #8
   %.not90 = icmp eq ptr %161, null
-  br i1 %.not90, label %.loopexit, label %.lr.ph108, !llvm.loop !7
+  br i1 %.not90, label %.loopexit, label %.lr.ph107, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph108, %.preheader, %.loopexit102
+.loopexit:                                        ; preds = %.lr.ph107, %.preheader, %.loopexit101
   call void @systable_endscan_ordered(ptr noundef %52) #8
   call void @CatalogCloseIndexes(ptr noundef %44) #8
   call void @CommandCounterIncrement() #8

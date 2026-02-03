@@ -382,9 +382,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %9
 
 12:                                               ; preds = %rbimpl_intern_const.exit, %6
   %.0 = phi i64 [ %11, %rbimpl_intern_const.exit ], [ %1, %6 ]
-  %13 = and i64 %.0, 1
-  %.not.i10 = icmp eq i64 %13, 0
-  br i1 %.not.i10, label %16, label %14
+  %13 = trunc i64 %.0 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
   %15 = ashr i64 %.0, 1
@@ -444,9 +443,8 @@ define internal i64 @ossl_ssl_session_set_timeout(i64 noundef %0, i64 noundef %1
   unreachable
 
 6:                                                ; preds = %2
-  %7 = and i64 %1, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %10, label %8
+  %7 = trunc i64 %1 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = ashr i64 %1, 1
@@ -460,8 +458,8 @@ rb_num2long_inline.exit:                          ; preds = %8, %10
   %.0.i = phi i64 [ %9, %8 ], [ %11, %10 ]
   %12 = tail call i64 @SSL_SESSION_set_timeout(ptr noundef nonnull %3, i64 noundef %.0.i) #4
   %13 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_session_type) #4
-  %.not.i5 = icmp eq ptr %13, null
-  br i1 %.not.i5, label %14, label %16
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %14, label %16
 
 14:                                               ; preds = %rb_num2long_inline.exit
   %15 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6

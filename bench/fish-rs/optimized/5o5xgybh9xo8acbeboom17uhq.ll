@@ -26778,9 +26778,8 @@ define noundef zeroext i1 @_ZN4fish3env3var6EnvVar8is_empty17h1af4864eb3864edaE(
 define noundef zeroext i1 @_ZN4fish3env3var6EnvVar7exports17hac1ba51a7f7db753E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !noundef !17
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -27229,9 +27228,8 @@ define noundef align 8 dereferenceable_or_null(24) ptr @_ZN4fish3env3var11Electr
 define noundef zeroext i1 @_ZN4fish3env3var11ElectricVar8readonly17h2ea466de422d772dE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !noundef !17
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

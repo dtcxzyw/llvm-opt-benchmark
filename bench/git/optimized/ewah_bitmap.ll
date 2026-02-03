@@ -1194,9 +1194,9 @@ define dso_local void @ewah_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %17
 
-17:                                               ; preds = %.lr.ph79, %144
-  %.val4390 = phi i32 [ %.val4376, %.lr.ph79 ], [ %.val43, %144 ]
-  %.val87 = phi i32 [ %.val75, %.lr.ph79 ], [ %.val, %144 ]
+17:                                               ; preds = %.lr.ph79, %143
+  %.val4390 = phi i32 [ %.val4376, %.lr.ph79 ], [ %.val43, %143 ]
+  %.val87 = phi i32 [ %.val75, %.lr.ph79 ], [ %.val, %143 ]
   %.val44 = load i32, ptr %9, align 8, !tbaa !33
   %.val45 = load i32, ptr %10, align 4, !tbaa !36
   %18 = sub i32 0, %.val44
@@ -1262,10 +1262,10 @@ ewah_add_empty_words.exit:                        ; preds = %.lr.ph, %34
   %46 = call i32 @llvm.umin.i32(i32 %.val86, i32 %45)
   %47 = sext i32 %46 to i64
   %.not41 = icmp eq i32 %46, 0
-  br i1 %.not41, label %144, label %.preheader
+  br i1 %.not41, label %143, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %ewah_add.exit
-  %.074 = phi i64 [ %142, %ewah_add.exit ], [ 0, %._crit_edge ]
+  %.074 = phi i64 [ %141, %ewah_add.exit ], [ 0, %._crit_edge ]
   %48 = load ptr, ptr %4, align 8, !tbaa !39
   %49 = load i64, ptr %12, align 8, !tbaa !40
   %50 = getelementptr i64, ptr %48, i64 %49
@@ -1280,7 +1280,7 @@ ewah_add_empty_words.exit:                        ; preds = %.lr.ph, %34
   %59 = load i64, ptr %11, align 8, !tbaa !4
   %60 = add i64 %59, 64
   store i64 %60, ptr %11, align 8, !tbaa !4
-  switch i64 %58, label %140 [
+  switch i64 %58, label %139 [
     i64 0, label %61
     i64 -1, label %100
   ]
@@ -1380,104 +1380,103 @@ buffer_push_rlw.exit.i52:                         ; preds = %st_mult.exit.i.i.i.
   br label %107
 
 106:                                              ; preds = %100
-  br i1 %102, label %107, label %117
+  br i1 %102, label %107, label %116
 
 107:                                              ; preds = %106, %.thread.i
   %.val.i = phi i64 [ %storemerge.i.i, %.thread.i ], [ %.val21.i, %106 ]
-  %108 = and i64 %.val.i, 1
-  %109 = icmp ne i64 %108, 0
-  %110 = icmp ne i64 %104, 4294967295
-  %or.cond3.i = and i1 %110, %109
-  br i1 %or.cond3.i, label %111, label %117
+  %108 = trunc i64 %.val.i to i1
+  %109 = icmp ne i64 %104, 4294967295
+  %or.cond3.i = and i1 %109, %108
+  br i1 %or.cond3.i, label %110, label %116
 
-111:                                              ; preds = %107
-  %112 = or i64 %.val.i, 8589934590
-  %113 = shl nuw nsw i64 %104, 1
-  %114 = add nuw nsw i64 %113, 2
-  %115 = or i64 %114, -8589934591
-  %116 = and i64 %112, %115
-  store i64 %116, ptr %101, align 8, !tbaa !12
+110:                                              ; preds = %107
+  %111 = or i64 %.val.i, 8589934590
+  %112 = shl nuw nsw i64 %104, 1
+  %113 = add nuw nsw i64 %112, 2
+  %114 = or i64 %113, -8589934591
+  %115 = and i64 %111, %114
+  store i64 %115, ptr %101, align 8, !tbaa !12
   br label %ewah_add.exit
 
-117:                                              ; preds = %107, %106
-  %118 = load i64, ptr %15, align 8, !tbaa !13
-  %119 = add i64 %118, 1
-  %120 = load ptr, ptr %2, align 8, !tbaa !14
-  %121 = load i64, ptr %16, align 8, !tbaa !15
-  %122 = icmp ugt i64 %119, %121
-  br i1 %122, label %123, label %buffer_push_rlw.exit.i
+116:                                              ; preds = %107, %106
+  %117 = load i64, ptr %15, align 8, !tbaa !13
+  %118 = add i64 %117, 1
+  %119 = load ptr, ptr %2, align 8, !tbaa !14
+  %120 = load i64, ptr %16, align 8, !tbaa !15
+  %121 = icmp ugt i64 %118, %120
+  br i1 %121, label %122, label %buffer_push_rlw.exit.i
 
-123:                                              ; preds = %117
-  %124 = mul i64 %121, 3
-  %125 = add i64 %124, 48
-  %126 = lshr i64 %125, 1
-  %..i.i.i.i = call i64 @llvm.umax.i64(i64 %126, i64 %119)
+122:                                              ; preds = %116
+  %123 = mul i64 %120, 3
+  %124 = add i64 %123, 48
+  %125 = lshr i64 %124, 1
+  %..i.i.i.i = call i64 @llvm.umax.i64(i64 %125, i64 %118)
   store i64 %..i.i.i.i, ptr %16, align 8, !tbaa !15
-  %127 = icmp ugt i64 %..i.i.i.i, 2305843009213693951
-  br i1 %127, label %128, label %st_mult.exit.i.i.i.i
+  %126 = icmp ugt i64 %..i.i.i.i, 2305843009213693951
+  br i1 %126, label %127, label %st_mult.exit.i.i.i.i
 
-128:                                              ; preds = %123
+127:                                              ; preds = %122
   call void (ptr, ...) @die(ptr noundef nonnull @.str, i64 noundef 8, i64 noundef %..i.i.i.i) #11
   unreachable
 
-st_mult.exit.i.i.i.i:                             ; preds = %123
-  %129 = shl nuw i64 %..i.i.i.i, 3
-  %130 = call ptr @xrealloc(ptr noundef %120, i64 noundef %129) #12
-  store ptr %130, ptr %2, align 8, !tbaa !14
+st_mult.exit.i.i.i.i:                             ; preds = %122
+  %128 = shl nuw i64 %..i.i.i.i, 3
+  %129 = call ptr @xrealloc(ptr noundef %119, i64 noundef %128) #12
+  store ptr %129, ptr %2, align 8, !tbaa !14
   %.pre.i.i.i = load i64, ptr %15, align 8, !tbaa !13
   %.pre4.i.i.i = add i64 %.pre.i.i.i, 1
   br label %buffer_push_rlw.exit.i
 
-buffer_push_rlw.exit.i:                           ; preds = %st_mult.exit.i.i.i.i, %117
-  %.pre-phi.i.i.i = phi i64 [ %119, %117 ], [ %.pre4.i.i.i, %st_mult.exit.i.i.i.i ]
-  %131 = phi i64 [ %118, %117 ], [ %.pre.i.i.i, %st_mult.exit.i.i.i.i ]
-  %132 = phi ptr [ %120, %117 ], [ %130, %st_mult.exit.i.i.i.i ]
+buffer_push_rlw.exit.i:                           ; preds = %st_mult.exit.i.i.i.i, %116
+  %.pre-phi.i.i.i = phi i64 [ %118, %116 ], [ %.pre4.i.i.i, %st_mult.exit.i.i.i.i ]
+  %130 = phi i64 [ %117, %116 ], [ %.pre.i.i.i, %st_mult.exit.i.i.i.i ]
+  %131 = phi ptr [ %119, %116 ], [ %129, %st_mult.exit.i.i.i.i ]
   store i64 %.pre-phi.i.i.i, ptr %15, align 8, !tbaa !13
-  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %131
-  store i64 0, ptr %133, align 8, !tbaa !12
-  %134 = load i64, ptr %15, align 8, !tbaa !13
-  %135 = getelementptr inbounds nuw i64, ptr %132, i64 %134
-  %136 = getelementptr inbounds i8, ptr %135, i64 -8
-  store ptr %136, ptr %14, align 8, !tbaa !11
-  %137 = load i64, ptr %136, align 8, !tbaa !12
-  %138 = and i64 %137, -8589934592
-  %139 = or disjoint i64 %138, 3
-  store i64 %139, ptr %136, align 8, !tbaa !12
+  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %130
+  store i64 0, ptr %132, align 8, !tbaa !12
+  %133 = load i64, ptr %15, align 8, !tbaa !13
+  %134 = getelementptr inbounds nuw i64, ptr %131, i64 %133
+  %135 = getelementptr inbounds i8, ptr %134, i64 -8
+  store ptr %135, ptr %14, align 8, !tbaa !11
+  %136 = load i64, ptr %135, align 8, !tbaa !12
+  %137 = and i64 %136, -8589934592
+  %138 = or disjoint i64 %137, 3
+  store i64 %138, ptr %135, align 8, !tbaa !12
   br label %ewah_add.exit
 
-140:                                              ; preds = %.preheader
-  %141 = call fastcc i64 @add_literal(ptr noundef nonnull %2, i64 noundef %58)
+139:                                              ; preds = %.preheader
+  %140 = call fastcc i64 @add_literal(ptr noundef nonnull %2, i64 noundef %58)
   br label %ewah_add.exit
 
-ewah_add.exit:                                    ; preds = %buffer_push_rlw.exit.i, %111, %buffer_push_rlw.exit.i52, %73, %140
-  %142 = add nuw i64 %.074, 1
-  %exitcond.not = icmp eq i64 %142, %47
-  br i1 %exitcond.not, label %143, label %.preheader, !llvm.loop !41
+ewah_add.exit:                                    ; preds = %buffer_push_rlw.exit.i, %110, %buffer_push_rlw.exit.i52, %73, %139
+  %141 = add nuw i64 %.074, 1
+  %exitcond.not = icmp eq i64 %141, %47
+  br i1 %exitcond.not, label %142, label %.preheader, !llvm.loop !41
 
-143:                                              ; preds = %ewah_add.exit
+142:                                              ; preds = %ewah_add.exit
   call void @rlwit_discard_first_words(ptr noundef nonnull %4, i64 noundef %47) #12
   call void @rlwit_discard_first_words(ptr noundef nonnull %5, i64 noundef %47) #12
   %.val.pre = load i32, ptr %6, align 8, !tbaa !33
   %.val43.pre = load i32, ptr %7, align 4, !tbaa !36
-  br label %144
+  br label %143
 
-144:                                              ; preds = %143, %._crit_edge
-  %.val43 = phi i32 [ %.val43.pre, %143 ], [ %.val4389, %._crit_edge ]
-  %.val = phi i32 [ %.val.pre, %143 ], [ %.val86, %._crit_edge ]
-  %145 = sub i32 0, %.val
-  %.not = icmp eq i32 %.val43, %145
+143:                                              ; preds = %142, %._crit_edge
+  %.val43 = phi i32 [ %.val43.pre, %142 ], [ %.val4389, %._crit_edge ]
+  %.val = phi i32 [ %.val.pre, %142 ], [ %.val86, %._crit_edge ]
+  %144 = sub i32 0, %.val
+  %.not = icmp eq i32 %.val43, %144
   br i1 %.not, label %.critedge, label %17, !llvm.loop !42
 
-.critedge:                                        ; preds = %144, %17, %3
-  %.sink = phi ptr [ %5, %3 ], [ %4, %17 ], [ %5, %144 ]
-  %146 = call i64 @rlwit_discharge(ptr noundef nonnull %.sink, ptr noundef %2, i64 noundef -1, i32 noundef 0) #12
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %148 = load i64, ptr %147, align 8, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %150 = load i64, ptr %149, align 8, !tbaa !4
-  %151 = call noundef i64 @llvm.umax.i64(i64 %148, i64 %150)
-  %152 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %151, ptr %152, align 8, !tbaa !4
+.critedge:                                        ; preds = %143, %17, %3
+  %.sink = phi ptr [ %5, %3 ], [ %4, %17 ], [ %5, %143 ]
+  %145 = call i64 @rlwit_discharge(ptr noundef nonnull %.sink, ptr noundef %2, i64 noundef -1, i32 noundef 0) #12
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %147 = load i64, ptr %146, align 8, !tbaa !4
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %149 = load i64, ptr %148, align 8, !tbaa !4
+  %150 = call noundef i64 @llvm.umax.i64(i64 %147, i64 %149)
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %150, ptr %151, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

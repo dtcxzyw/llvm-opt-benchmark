@@ -186,7 +186,7 @@ $_ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueIN32pxrInternal_v
 
 $_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryaSERKS1_ = comdat any
 
-$_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_ = comdat any
+$_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS4_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS3_2d123cache_aligned_allocatorIS9_EEEES9_SC_EEPS9_EET0_T_SH_SG_ = comdat any
 
 $_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryaSEOS1_ = comdat any
 
@@ -1097,9 +1097,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
   %360 = and i64 %357, -8
   %361 = inttoptr i64 %360 to ptr
   %362 = atomicrmw add ptr %361, i32 2 monotonic, align 4
-  %363 = and i32 %362, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %363, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %364, label %369
+  %363 = trunc i32 %362 to i1
+  br i1 %363, label %369, label %364
 
 364:                                              ; preds = %359
   %365 = load ptr, ptr %356, align 8
@@ -2038,9 +2037,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
   %162 = and i64 %91, -8
   %163 = inttoptr i64 %162 to ptr
   %164 = atomicrmw add ptr %163, i32 2 monotonic, align 4
-  %165 = and i32 %164, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %165, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %166, label %171
+  %165 = trunc i32 %164 to i1
+  br i1 %165, label %171, label %166
 
 166:                                              ; preds = %161
   %167 = load ptr, ptr %159, align 8
@@ -2364,23 +2362,17 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher4WaitEv(ptr n
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE6insertIN3tbb6detail2d225concurrent_queue_iteratorINS7_16concurrent_queueIS2_NS6_2d123cache_aligned_allocatorIS2_EEEES2_SC_EEEEvPS2_T_SG_(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
   %6 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
-  %.sroa.59.i115 = alloca [8 x ptr], align 8
-  %.sroa.5.i116 = alloca [8 x ptr], align 8
   %7 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
   %8 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
-  %.sroa.59.i67 = alloca [8 x ptr], align 8
-  %.sroa.5.i68 = alloca [8 x ptr], align 8
   %9 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
   %10 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
-  %.sroa.59.i = alloca [8 x ptr], align 8
-  %.sroa.5.i = alloca [8 x ptr], align 8
   %11 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
-  %.sroa.5174 = alloca [8 x ptr], align 8
-  %.sroa.5170 = alloca [8 x ptr], align 8
-  %.sroa.5166 = alloca [8 x ptr], align 8
-  %.sroa.5162 = alloca [8 x ptr], align 8
-  %.sroa.5158 = alloca [8 x ptr], align 8
-  %.sroa.5154 = alloca [8 x ptr], align 8
+  %.sroa.5159 = alloca [8 x ptr], align 8
+  %.sroa.5155 = alloca [8 x ptr], align 8
+  %.sroa.5151 = alloca [8 x ptr], align 8
+  %.sroa.5147 = alloca [8 x ptr], align 8
+  %.sroa.5143 = alloca [8 x ptr], align 8
+  %.sroa.5139 = alloca [8 x ptr], align 8
   %.sroa.5 = alloca [8 x ptr], align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %13 = load i32, ptr %12, align 4
@@ -2392,7 +2384,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIN
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i, i64 %18
   %20 = icmp eq ptr %1, %19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5174, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5159, i8 0, i64 64, i1 false)
   %21 = load ptr, ptr %2, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -2403,11 +2395,11 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5174, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5159, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 64, i1 false)
   br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit
 
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit, %4
-  %.sroa.3173.0 = phi i64 [ 0, %4 ], [ %25, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit ]
+  %.sroa.3158.0 = phi i64 [ 0, %4 ], [ %25, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit ]
   %27 = load ptr, ptr %3, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2420,8 +2412,8 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   br i1 %.not.i.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i
 
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit
-  store i64 %.sroa.3173.0, ptr %30, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5174, i64 64, i1 false)
+  store i64 %.sroa.3158.0, ptr %30, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5159, i64 64, i1 false)
   br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i
 
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit
@@ -2489,13 +2481,13 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
 
 _ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i.i
   %.pre = load i32, ptr %16, align 8
-  %.pre175 = load i32, ptr %12, align 4
-  %.pre179 = zext i32 %.pre to i64
+  %.pre160 = load i32, ptr %12, align 4
+  %.pre164 = zext i32 %.pre to i64
   br label %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit
 
 _ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit: ; preds = %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i
-  %.pre-phi = phi i64 [ %.pre179, %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit ], [ %18, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i ]
-  %60 = phi i32 [ %.pre175, %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit ], [ %13, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i ]
+  %.pre-phi = phi i64 [ %.pre164, %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit ], [ %18, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i ]
+  %60 = phi i32 [ %.pre160, %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit ], [ %13, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i ]
   %.0.lcssa.i.i = phi i64 [ %59, %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit.loopexit ], [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %61 = add i64 %.0.lcssa.i.i, %.pre-phi
@@ -2503,7 +2495,7 @@ _ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueI
   %63 = lshr i64 %62, 1
   %64 = add nuw nsw i64 %62, 1
   %65 = add nuw nsw i64 %64, %63
-  %.sroa.speculated135 = tail call i64 @llvm.umax.i64(i64 %65, i64 %61)
+  %.sroa.speculated120 = tail call i64 @llvm.umax.i64(i64 %65, i64 %61)
   %66 = icmp ugt i64 %61, %62
   br i1 %20, label %67, label %91
 
@@ -2511,11 +2503,11 @@ _ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueI
   br i1 %66, label %68, label %69
 
 68:                                               ; preds = %67
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_GrowStorageEm(ptr noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %.sroa.speculated135)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_GrowStorageEm(ptr noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %.sroa.speculated120)
   br label %69
 
 69:                                               ; preds = %68, %67
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5170, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5155, i8 0, i64 64, i1 false)
   %70 = load ptr, ptr %2, align 8
   %71 = load ptr, ptr %22, align 8
   %.not.i.i.i41 = icmp eq ptr %71, null
@@ -2525,12 +2517,12 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5170, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5155, ptr noundef nonnull align 8 dereferenceable(64) %74, i64 64, i1 false)
   br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44
 
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44.loopexit, %69
-  %.sroa.3169.0 = phi i64 [ 0, %69 ], [ %73, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44.loopexit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5166, i8 0, i64 64, i1 false)
+  %.sroa.3154.0 = phi i64 [ 0, %69 ], [ %73, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44.loopexit ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5151, i8 0, i64 64, i1 false)
   %75 = load ptr, ptr %3, align 8
   %76 = load ptr, ptr %28, align 8
   %.not.i.i.i46 = icmp eq ptr %76, null
@@ -2540,11 +2532,11 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5166, ptr noundef nonnull align 8 dereferenceable(64) %79, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5151, ptr noundef nonnull align 8 dereferenceable(64) %79, i64 64, i1 false)
   br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49
 
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49.loopexit, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44
-  %.sroa.3165.0 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44 ], [ %78, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49.loopexit ]
+  %.sroa.3150.0 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit44 ], [ %78, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49.loopexit ]
   %80 = load i32, ptr %12, align 4
   %81 = icmp ult i32 %80, 17
   %82 = load ptr, ptr %0, align 8
@@ -2552,26 +2544,6 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   %83 = load i32, ptr %16, align 8
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i50, i64 %84
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.59.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i, i8 0, i64 64, i1 false)
-  br i1 %.not.i.i.i41, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i53, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5170, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i53
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i53: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49
-  %.sroa.38.0.i = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49 ], [ %.sroa.3169.0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i, i8 0, i64 64, i1 false)
-  br i1 %.not.i.i.i46, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5166, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i53
-  %.sroa.3.0.i = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i53 ], [ %.sroa.3165.0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2579,56 +2551,54 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %87, i8 0, i64 72, i1 false)
   store ptr %70, ptr %9, align 8
   store ptr %71, ptr %86, align 8
-  br i1 %.not.i.i.i41, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i
+  br i1 %.not.i.i.i41, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i54, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i
-  %scevgep.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %.sroa.38.0.i, ptr %87, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49
+  %scevgep.i.i.i53 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 %.sroa.3154.0, ptr %87, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i53, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5155, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i54
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i54: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i52, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit49
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %89, i8 0, i64 72, i1 false)
   store ptr %75, ptr %10, align 8
   store ptr %76, ptr %88, align 8
-  br i1 %.not.i.i.i46, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i
+  br i1 %.not.i.i.i46, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i
-  %scevgep.i.i1.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %.sroa.3.0.i, ptr %89, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i1.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i, i64 64, i1 false)
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i54
+  %scevgep.i.i1.i = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 %.sroa.3150.0, ptr %89, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i1.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5151, i64 64, i1 false)
   br label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit
 
-_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i
-  %90 = call noundef ptr @_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %85)
+_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i54, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i
+  %90 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS4_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS3_2d123cache_aligned_allocatorIS9_EEEES9_SC_EEPS9_EET0_T_SH_SG_(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %85)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.59.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   br label %259
 
 91:                                               ; preds = %_ZSt8distanceIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_.exit
   %92 = icmp ult i32 %60, 17
   %93 = load ptr, ptr %0, align 8
-  %spec.select.i.i54 = select i1 %92, ptr %0, ptr %93
+  %spec.select.i.i55 = select i1 %92, ptr %0, ptr %93
   br i1 %66, label %94, label %178
 
 94:                                               ; preds = %91
   %95 = ptrtoint ptr %1 to i64
-  %96 = ptrtoint ptr %spec.select.i.i54 to i64
+  %96 = ptrtoint ptr %spec.select.i.i55 to i64
   %97 = sub i64 %95, %96
-  %98 = shl i64 %.sroa.speculated135, 4
+  %98 = shl i64 %.sroa.speculated120, 4
   %99 = tail call noalias noundef ptr @malloc(i64 noundef %98) #22
   %100 = getelementptr inbounds i8, ptr %99, i64 %97
   %101 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %100, i64 %.0.lcssa.i.i
-  %.not11.i.i.i.i = icmp eq ptr %spec.select.i.i54, %1
+  %.not11.i.i.i.i = icmp eq ptr %spec.select.i.i55, %1
   br i1 %.not11.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %94, %.lr.ph.i.i.i.i
   %.013.i.i.i.i = phi ptr [ %110, %.lr.ph.i.i.i.i ], [ %99, %94 ]
-  %.sroa.08.012.i.i.i.i = phi ptr [ %109, %.lr.ph.i.i.i.i ], [ %spec.select.i.i54, %94 ]
+  %.sroa.08.012.i.i.i.i = phi ptr [ %109, %.lr.ph.i.i.i.i ], [ %spec.select.i.i55, %94 ]
   %102 = load i32, ptr %.sroa.08.012.i.i.i.i, align 4
   store i32 %102, ptr %.013.i.i.i.i, align 4
   store i32 0, ptr %.sroa.08.012.i.i.i.i, align 4
@@ -2644,60 +2614,40 @@ _ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concur
   store i64 0, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 16
-  %.not.i.i.i.i56 = icmp eq ptr %109, %1
-  br i1 %.not.i.i.i.i56, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !35
+  %.not.i.i.i.i57 = icmp eq ptr %109, %1
+  br i1 %.not.i.i.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 _ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit: ; preds = %.lr.ph.i.i.i.i, %94
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5162, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5147, i8 0, i64 64, i1 false)
   %111 = load ptr, ptr %2, align 8
   %112 = load ptr, ptr %22, align 8
-  %.not.i.i.i58 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i58, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61.loopexit
+  %.not.i.i.i59 = icmp eq ptr %112, null
+  br i1 %.not.i.i.i59, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62.loopexit
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61.loopexit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62.loopexit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5162, ptr noundef nonnull align 8 dereferenceable(64) %115, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5147, ptr noundef nonnull align 8 dereferenceable(64) %115, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit
-  %.sroa.3161.0 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit ], [ %114, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61.loopexit ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5158, i8 0, i64 64, i1 false)
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit
+  %.sroa.3146.0 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit ], [ %114, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62.loopexit ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5143, i8 0, i64 64, i1 false)
   %116 = load ptr, ptr %3, align 8
   %117 = load ptr, ptr %28, align 8
-  %.not.i.i.i63 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i63, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66.loopexit
+  %.not.i.i.i64 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i64, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67.loopexit
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66.loopexit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67.loopexit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5158, ptr noundef nonnull align 8 dereferenceable(64) %120, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5143, ptr noundef nonnull align 8 dereferenceable(64) %120, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66.loopexit, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61
-  %.sroa.3157.0 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit61 ], [ %119, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66.loopexit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.59.i67)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i68)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i67, i8 0, i64 64, i1 false)
-  br i1 %.not.i.i.i58, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i70
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i70: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i67, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5162, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i70, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66
-  %.sroa.38.0.i72 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit66 ], [ %.sroa.3161.0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i70 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i68, i8 0, i64 64, i1 false)
-  br i1 %.not.i.i.i63, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i75, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i74
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i74: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i68, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5158, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i75
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i75: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i74, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71
-  %.sroa.3.0.i76 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71 ], [ %.sroa.3157.0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i74 ]
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67.loopexit, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62
+  %.sroa.3142.0 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit62 ], [ %119, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2705,92 +2655,90 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %122, i8 0, i64 72, i1 false)
   store ptr %111, ptr %7, align 8
   store ptr %112, ptr %121, align 8
-  br i1 %.not.i.i.i58, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i77
+  br i1 %.not.i.i.i59, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i69
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i77: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i75
-  %scevgep.i.i.i.i78 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 %.sroa.38.0.i72, ptr %122, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i.i78, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i67, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i69: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67
+  %scevgep.i.i.i70 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 %.sroa.3146.0, ptr %122, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i70, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5147, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i77, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i75
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i69, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit67
   %123 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %124, i8 0, i64 72, i1 false)
   store ptr %116, ptr %8, align 8
   store ptr %117, ptr %123, align 8
-  br i1 %.not.i.i.i63, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i80
+  br i1 %.not.i.i.i64, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i73
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i80: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79
-  %scevgep.i.i1.i.i81 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %.sroa.3.0.i76, ptr %124, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i1.i.i81, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i68, i64 64, i1 false)
-  br label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i73: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71
+  %scevgep.i.i1.i74 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %.sroa.3142.0, ptr %124, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i1.i74, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5143, i64 64, i1 false)
+  br label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75
 
-_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i79, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i80
-  %125 = call noundef ptr @_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %100)
+_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i71, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i73
+  %125 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS4_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS3_2d123cache_aligned_allocatorIS9_EEEES9_SC_EEPS9_EET0_T_SH_SG_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.59.i67)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i68)
   %126 = load i32, ptr %12, align 4
   %127 = icmp ult i32 %126, 17
   %128 = load ptr, ptr %0, align 8
-  %spec.select.i.i83 = select i1 %127, ptr %0, ptr %128
+  %spec.select.i.i76 = select i1 %127, ptr %0, ptr %128
   %129 = load i32, ptr %16, align 8
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i83, i64 %130
-  %.not11.i.i.i.i84 = icmp eq ptr %1, %131
-  br i1 %.not11.i.i.i.i84, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90, label %.lr.ph.i.i.i.i85
+  %131 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i76, i64 %130
+  %.not11.i.i.i.i77 = icmp eq ptr %1, %131
+  br i1 %.not11.i.i.i.i77, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83, label %.lr.ph.i.i.i.i78
 
-.lr.ph.i.i.i.i85:                                 ; preds = %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82, %.lr.ph.i.i.i.i85
-  %.013.i.i.i.i86 = phi ptr [ %140, %.lr.ph.i.i.i.i85 ], [ %101, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82 ]
-  %.sroa.08.012.i.i.i.i87 = phi ptr [ %139, %.lr.ph.i.i.i.i85 ], [ %1, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82 ]
-  %132 = load i32, ptr %.sroa.08.012.i.i.i.i87, align 4
-  store i32 %132, ptr %.013.i.i.i.i86, align 4
-  store i32 0, ptr %.sroa.08.012.i.i.i.i87, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i86, i64 4
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i87, i64 4
+.lr.ph.i.i.i.i78:                                 ; preds = %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75, %.lr.ph.i.i.i.i78
+  %.013.i.i.i.i79 = phi ptr [ %140, %.lr.ph.i.i.i.i78 ], [ %101, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75 ]
+  %.sroa.08.012.i.i.i.i80 = phi ptr [ %139, %.lr.ph.i.i.i.i78 ], [ %1, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75 ]
+  %132 = load i32, ptr %.sroa.08.012.i.i.i.i80, align 4
+  store i32 %132, ptr %.013.i.i.i.i79, align 4
+  store i32 0, ptr %.sroa.08.012.i.i.i.i80, align 4
+  %133 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i79, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i80, i64 4
   %135 = load i32, ptr %134, align 4
   store i32 %135, ptr %133, align 4
   store i32 0, ptr %134, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i86, i64 8
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i87, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i79, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i80, i64 8
   %138 = load i64, ptr %137, align 8
   store i64 %138, ptr %136, align 8
   store i64 0, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i87, i64 16
-  %140 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i86, i64 16
-  %.not.i.i.i.i88 = icmp eq ptr %139, %131
-  br i1 %.not.i.i.i.i88, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split, label %.lr.ph.i.i.i.i85, !llvm.loop !35
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i80, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i79, i64 16
+  %.not.i.i.i.i81 = icmp eq ptr %139, %131
+  br i1 %.not.i.i.i.i81, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split, label %.lr.ph.i.i.i.i78, !llvm.loop !35
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split: ; preds = %.lr.ph.i.i.i.i85
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split: ; preds = %.lr.ph.i.i.i.i78
   %.pr = load i32, ptr %16, align 8
-  %.pre176 = load i32, ptr %12, align 4
-  %.pre177 = load ptr, ptr %0, align 8
-  %.pre180 = zext i32 %.pr to i64
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90
+  %.pre161 = load i32, ptr %12, align 4
+  %.pre162 = load ptr, ptr %0, align 8
+  %.pre165 = zext i32 %.pr to i64
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82
-  %.pre-phi181 = phi i64 [ %.pre180, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split ], [ %130, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82 ]
-  %141 = phi ptr [ %.pre177, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split ], [ %128, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82 ]
-  %142 = phi i32 [ %.pre176, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split ], [ %126, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82 ]
-  %143 = phi i32 [ %.pr, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90thread-pre-split ], [ %129, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit82 ]
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75
+  %.pre-phi166 = phi i64 [ %.pre165, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split ], [ %130, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75 ]
+  %141 = phi ptr [ %.pre162, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split ], [ %128, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75 ]
+  %142 = phi i32 [ %.pre161, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split ], [ %126, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75 ]
+  %143 = phi i32 [ %.pr, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83thread-pre-split ], [ %129, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit75 ]
   %144 = icmp ult i32 %142, 17
   %spec.select.i.i.i = select i1 %144, ptr %0, ptr %141
-  %.idx.i = shl nuw nsw i64 %.pre-phi181, 4
+  %.idx.i = shl nuw nsw i64 %.pre-phi166, 4
   %145 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 %.idx.i
   %.not7.i = icmp eq i32 %143, 0
   br i1 %.not7.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i
-  %.08.i = phi ptr [ %172, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i ], [ %spec.select.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90 ]
+.lr.ph.i:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i
+  %.08.i = phi ptr [ %172, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i ], [ %spec.select.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83 ]
   %146 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = ptrtoint ptr %147 to i64
   %149 = and i64 %148, 7
-  %.not.i.i.i.i91 = icmp eq i64 %149, 0
-  br i1 %.not.i.i.i.i91, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i, label %150
+  %.not.i.i.i.i84 = icmp eq i64 %149, 0
+  br i1 %.not.i.i.i.i84, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i, label %150
 
 150:                                              ; preds = %.lr.ph.i
   %151 = and i64 %148, -8
@@ -2835,11 +2783,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !32
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i
-  %.pre178 = load i32, ptr %12, align 4
+  %.pre163 = load i32, ptr %12, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90
-  %173 = phi i32 [ %.pre178, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit ], [ %142, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit90 ]
+_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83
+  %173 = phi i32 [ %.pre163, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit ], [ %142, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit83 ]
   %174 = icmp ult i32 %173, 17
   br i1 %174, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_FreeStorageEv.exit, label %175
 
@@ -2850,12 +2798,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_FreeStorageEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit, %175
   store ptr %99, ptr %0, align 8
-  %177 = trunc i64 %.sroa.speculated135 to i32
+  %177 = trunc i64 %.sroa.speculated120 to i32
   store i32 %177, ptr %12, align 4
   br label %259
 
 178:                                              ; preds = %91
-  %179 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i54, i64 %.pre-phi
+  %179 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i55, i64 %.pre-phi
   %180 = ptrtoint ptr %179 to i64
   %181 = ptrtoint ptr %1 to i64
   %182 = sub i64 %180, %181
@@ -2865,38 +2813,38 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14
   %185 = sub nsw i64 %.0.lcssa.i.i, %.sroa.speculated
   %186 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %1, i64 %184
   %187 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %179, i64 %185
-  %.not11.i.i.i.i96 = icmp eq ptr %186, %179
-  br i1 %.not11.i.i.i.i96, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102, label %.lr.ph.i.i.i.i97
+  %.not11.i.i.i.i89 = icmp eq ptr %186, %179
+  br i1 %.not11.i.i.i.i89, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95, label %.lr.ph.i.i.i.i90
 
-.lr.ph.i.i.i.i97:                                 ; preds = %178, %.lr.ph.i.i.i.i97
-  %.013.i.i.i.i98 = phi ptr [ %196, %.lr.ph.i.i.i.i97 ], [ %187, %178 ]
-  %.sroa.08.012.i.i.i.i99 = phi ptr [ %195, %.lr.ph.i.i.i.i97 ], [ %186, %178 ]
-  %188 = load i32, ptr %.sroa.08.012.i.i.i.i99, align 4
-  store i32 %188, ptr %.013.i.i.i.i98, align 4
-  store i32 0, ptr %.sroa.08.012.i.i.i.i99, align 4
-  %189 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i98, i64 4
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i99, i64 4
+.lr.ph.i.i.i.i90:                                 ; preds = %178, %.lr.ph.i.i.i.i90
+  %.013.i.i.i.i91 = phi ptr [ %196, %.lr.ph.i.i.i.i90 ], [ %187, %178 ]
+  %.sroa.08.012.i.i.i.i92 = phi ptr [ %195, %.lr.ph.i.i.i.i90 ], [ %186, %178 ]
+  %188 = load i32, ptr %.sroa.08.012.i.i.i.i92, align 4
+  store i32 %188, ptr %.013.i.i.i.i91, align 4
+  store i32 0, ptr %.sroa.08.012.i.i.i.i92, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i91, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i92, i64 4
   %191 = load i32, ptr %190, align 4
   store i32 %191, ptr %189, align 4
   store i32 0, ptr %190, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i98, i64 8
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i99, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i91, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i92, i64 8
   %194 = load i64, ptr %193, align 8
   store i64 %194, ptr %192, align 8
   store i64 0, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i99, i64 16
-  %196 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i98, i64 16
-  %.not.i.i.i.i100 = icmp eq ptr %195, %179
-  br i1 %.not.i.i.i.i100, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102, label %.lr.ph.i.i.i.i97, !llvm.loop !35
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i92, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i91, i64 16
+  %.not.i.i.i.i93 = icmp eq ptr %195, %179
+  br i1 %.not.i.i.i.i93, label %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95, label %.lr.ph.i.i.i.i90, !llvm.loop !35
 
-_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102: ; preds = %.lr.ph.i.i.i.i97, %178
+_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95: ; preds = %.lr.ph.i.i.i.i90, %178
   %197 = icmp sgt i64 %184, 0
   br i1 %197, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryES3_ET0_T_S5_S4_.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102, %.lr.ph.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %201, %.lr.ph.i.i.i.i.i ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102 ]
-  %.069.i.i.i.i.i = phi ptr [ %199, %.lr.ph.i.i.i.i.i ], [ %187, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102 ]
-  %.078.i.i.i.i.i = phi ptr [ %198, %.lr.ph.i.i.i.i.i ], [ %186, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95, %.lr.ph.i.i.i.i.i
+  %.010.i.i.i.i.i = phi i64 [ %201, %.lr.ph.i.i.i.i.i ], [ %184, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95 ]
+  %.069.i.i.i.i.i = phi ptr [ %199, %.lr.ph.i.i.i.i.i ], [ %187, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95 ]
+  %.078.i.i.i.i.i = phi ptr [ %198, %.lr.ph.i.i.i.i.i ], [ %186, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95 ]
   %198 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
   %199 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
   %200 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %198)
@@ -2904,7 +2852,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS
   %202 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
   br i1 %202, label %.lr.ph.i.i.i.i.i, label %_ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryES3_ET0_T_S5_S4_.exit, !llvm.loop !36
 
-_ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit102
+_ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryES3_ET0_T_S5_S4_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__17TfSmallVectorBase18_UninitializedMoveIPNS_20HdSceneIndexObserver14AddedPrimEntryEEET_S5_S5_S5_.exit95
   %203 = icmp sgt i64 %.sroa.speculated, 0
   br i1 %203, label %.lr.ph, label %._crit_edge
 
@@ -2914,11 +2862,11 @@ _ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14
   br label %206
 
 206:                                              ; preds = %.lr.ph, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit
-  %.0150 = phi i64 [ 0, %.lr.ph ], [ %209, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
-  %.033149 = phi ptr [ %1, %.lr.ph ], [ %237, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
+  %.0135 = phi i64 [ 0, %.lr.ph ], [ %209, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
+  %.033134 = phi ptr [ %1, %.lr.ph ], [ %237, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
   %207 = load ptr, ptr %2, align 8
-  %208 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %.033149, ptr noundef nonnull align 8 dereferenceable(16) %207)
-  %209 = add nuw nsw i64 %.0150, 1
+  %208 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryaSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %.033134, ptr noundef nonnull align 8 dereferenceable(16) %207)
+  %209 = add nuw nsw i64 %.0135, 1
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i, %206
@@ -2963,72 +2911,52 @@ _ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReser
   %234 = load atomic i64, ptr %233 seq_cst, align 8
   %235 = shl nuw nsw i64 1, %230
   %236 = and i64 %234, %235
-  %.not.i.i103 = icmp eq i64 %236, 0
-  br i1 %.not.i.i103, label %tailrecurse.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit
+  %.not.i.i96 = icmp eq i64 %236, 0
+  br i1 %.not.i.i96, label %tailrecurse.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit
 
 _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit: ; preds = %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i
-  %237 = getelementptr inbounds nuw i8, ptr %.033149, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %.033134, i64 16
   %exitcond.not = icmp eq i64 %209, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %206, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit, %_ZSt13copy_backwardIPN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryES3_ET0_T_S5_S4_.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5154, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5139, i8 0, i64 64, i1 false)
   %238 = load ptr, ptr %2, align 8
   %239 = load ptr, ptr %22, align 8
-  %.not.i.i.i105 = icmp eq ptr %239, null
-  br i1 %.not.i.i.i105, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108.loopexit
+  %.not.i.i.i98 = icmp eq ptr %239, null
+  br i1 %.not.i.i.i98, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101.loopexit
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108.loopexit: ; preds = %._crit_edge
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101.loopexit: ; preds = %._crit_edge
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %241 = load i64, ptr %240, align 8
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5154, ptr noundef nonnull align 8 dereferenceable(64) %242, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5139, ptr noundef nonnull align 8 dereferenceable(64) %242, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108.loopexit, %._crit_edge
-  %.sroa.3153.0 = phi i64 [ 0, %._crit_edge ], [ %241, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108.loopexit ]
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101.loopexit, %._crit_edge
+  %.sroa.3138.0 = phi i64 [ 0, %._crit_edge ], [ %241, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101.loopexit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i8 0, i64 64, i1 false)
   %243 = load ptr, ptr %3, align 8
   %244 = load ptr, ptr %28, align 8
-  %.not.i.i.i110 = icmp eq ptr %244, null
-  br i1 %.not.i.i.i110, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113.loopexit
+  %.not.i.i.i103 = icmp eq ptr %244, null
+  br i1 %.not.i.i.i103, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106.loopexit
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113.loopexit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106.loopexit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %246 = load i64, ptr %245, align 8
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(64) %247, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113.loopexit, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108
-  %.sroa.3.0 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit108 ], [ %246, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113.loopexit ]
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106.loopexit, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101
+  %.sroa.3.0 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit101 ], [ %246, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106.loopexit ]
   %248 = load i32, ptr %12, align 4
   %249 = icmp ult i32 %248, 17
   %250 = load ptr, ptr %0, align 8
-  %spec.select.i.i114 = select i1 %249, ptr %0, ptr %250
+  %spec.select.i.i107 = select i1 %249, ptr %0, ptr %250
   %251 = load i32, ptr %16, align 8
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i114, i64 %252
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.59.i115)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i116)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i115, i8 0, i64 64, i1 false)
-  br i1 %.not.i.i.i105, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i119, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i118
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i118: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i115, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5154, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i119
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i119: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i118, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113
-  %.sroa.38.0.i120 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit113 ], [ %.sroa.3153.0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i118 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i116, i8 0, i64 64, i1 false)
-  br i1 %.not.i.i.i110, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i123, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i122
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i122: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i119
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i116, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i123
-
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i123: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i122, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i119
-  %.sroa.3.0.i124 = phi i64 [ 0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i119 ], [ %.sroa.3.0, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i122 ]
+  %253 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i107, i64 %252
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %254 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3036,37 +2964,35 @@ _ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrIntern
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %255, i8 0, i64 72, i1 false)
   store ptr %238, ptr %5, align 8
   store ptr %239, ptr %254, align 8
-  br i1 %.not.i.i.i105, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i125
+  br i1 %.not.i.i.i98, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i111, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i109
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i125: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i123
-  %scevgep.i.i.i.i126 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.38.0.i120, ptr %255, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i.i126, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.59.i115, i64 64, i1 false)
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i109: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106
+  %scevgep.i.i.i110 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.3138.0, ptr %255, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i.i110, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5139, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i111
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i.i125, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.i123
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i111: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit.i109, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit106
   %256 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %257, i8 0, i64 72, i1 false)
   store ptr %243, ptr %6, align 8
   store ptr %244, ptr %256, align 8
-  br i1 %.not.i.i.i110, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit130, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i128
+  br i1 %.not.i.i.i103, label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit115, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i113
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i128: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127
-  %scevgep.i.i1.i.i129 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.sroa.3.0.i124, ptr %257, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i1.i.i129, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.i116, i64 64, i1 false)
-  br label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit130
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i113: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i111
+  %scevgep.i.i1.i114 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %.sroa.3.0, ptr %257, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i1.i114, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i64 64, i1 false)
+  br label %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit115
 
-_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit130: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i.i127, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i.i128
-  %258 = call noundef ptr @_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %253)
+_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit115: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.i111, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit5.loopexit.i113
+  %258 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS4_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS3_2d123cache_aligned_allocatorIS9_EEEES9_SC_EEPS9_EET0_T_SH_SG_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %253)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.59.i115)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i116)
   br label %259
 
-259:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_FreeStorageEv.exit, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit130, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit
+259:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_FreeStorageEv.exit, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit115, %_ZSt18uninitialized_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit
   %260 = load i32, ptr %16, align 8
   %261 = trunc i64 %.0.lcssa.i.i to i32
   %262 = add i32 %260, %261
@@ -3866,9 +3792,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %317, 
   %334 = and i64 %331, -8
   %335 = inttoptr i64 %334 to ptr
   %336 = atomicrmw add ptr %335, i32 2 monotonic, align 4
-  %337 = and i32 %336, 1
-  %.not1.i.i.i.i = icmp eq i32 %337, 0
-  br i1 %.not1.i.i.i.i, label %338, label %343
+  %337 = trunc i32 %336 to i1
+  br i1 %337, label %343, label %338
 
 338:                                              ; preds = %333
   %339 = load ptr, ptr %330, align 8
@@ -4965,9 +4890,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   %78 = and i64 %74, -8
   %79 = inttoptr i64 %78 to ptr
   %80 = atomicrmw add ptr %79, i32 2 monotonic, align 4
-  %81 = and i32 %80, 1
-  %.not1.i.i = icmp eq i32 %81, 0
-  br i1 %.not1.i.i, label %82, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit
+  %81 = trunc i32 %80 to i1
+  br i1 %81, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit, label %82
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %10, align 8
@@ -6410,50 +6334,50 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsA
   %27 = zext i32 %26 to i64
   %.idx = shl nuw nsw i64 %27, 4
   %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.idx
-  %.not112 = icmp eq i32 %26, 0
-  br i1 %.not112, label %._crit_edge116.thread, label %.lr.ph115
+  %.not109 = icmp eq i32 %26, 0
+  br i1 %.not109, label %._crit_edge113.thread, label %.lr.ph112
 
-.lr.ph115:                                        ; preds = %18
+.lr.ph112:                                        ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %30
 
-30:                                               ; preds = %.lr.ph115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit71
-  %.0113 = phi ptr [ %spec.select.i.i, %.lr.ph115 ], [ %300, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit71 ]
+30:                                               ; preds = %.lr.ph112, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68
+  %.0110 = phi ptr [ %spec.select.i.i, %.lr.ph112 ], [ %300, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68 ]
   %31 = load ptr, ptr %9, align 8
   %32 = load ptr, ptr %10, align 8
-  %.not93103 = icmp eq ptr %31, %32
-  br i1 %.not93103, label %._crit_edge, label %.lr.ph
+  %.not90100 = icmp eq ptr %31, %32
+  br i1 %.not90100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
   br label %34
 
-34:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53
-  %.sroa.082.0104 = phi ptr [ %31, %.lr.ph ], [ %133, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.082.0104, i64 8
-  %36 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %.0113, ptr noundef nonnull align 4 dereferenceable(8) %35)
+34:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51
+  %.sroa.079.0101 = phi ptr [ %31, %.lr.ph ], [ %133, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.079.0101, i64 8
+  %36 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %.0110, ptr noundef nonnull align 4 dereferenceable(8) %35)
           to label %37 unwind label %.loopexit.split-lp.loopexit
 
 37:                                               ; preds = %34
-  br i1 %36, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53
+  br i1 %36, label %46, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51
 
-38:                                               ; preds = %._crit_edge116.thread.invoke
+38:                                               ; preds = %._crit_edge113.thread.invoke
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-.loopexit94:                                      ; preds = %160
+.loopexit91:                                      ; preds = %160
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %63, %34
-  %lpad.loopexit95 = landingpad { ptr, i32 }
+  %lpad.loopexit92 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %147, %209, %252
-  %lpad.loopexit98 = landingpad { ptr, i32 }
+  %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -6462,10 +6386,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsA
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit94
-  %.sroa.085.2 = phi ptr [ %.sroa.085.1, %.loopexit94 ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.085.1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit94 ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit98, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %40 = ptrtoint ptr %.sroa.085.2 to i64
+.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit91
+  %.sroa.082.2 = phi ptr [ %.sroa.082.1, %.loopexit91 ], [ null, %.loopexit.split-lp.loopexit ], [ %.sroa.082.1, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit91 ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit95, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %40 = ptrtoint ptr %.sroa.082.2 to i64
   %41 = and i64 %40, 7
   %.not.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
@@ -6477,7 +6401,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsA
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
 46:                                               ; preds = %37
-  %47 = load ptr, ptr %.sroa.082.0104, align 8
+  %47 = load ptr, ptr %.sroa.079.0101, align 8
   %.not41 = icmp eq ptr %47, %1
   br i1 %.not41, label %48, label %57
 
@@ -6492,9 +6416,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsA
   %53 = and i64 %49, -8
   %54 = inttoptr i64 %53 to ptr
   %55 = atomicrmw add ptr %54, i32 2 monotonic, align 4
-  %56 = and i32 %55, 1
-  %.not1.i.i = icmp eq i32 %56, 0
-  %spec.select = select i1 %.not1.i.i, ptr %54, ptr %50
+  %56 = trunc i32 %55 to i1
+  %spec.select = select i1 %56, ptr %50, ptr %54
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit
 
 57:                                               ; preds = %46
@@ -6523,7 +6446,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsA
   %64 = load ptr, ptr %47, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  invoke void %66(ptr dead_on_unwind nonnull writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim") align 8 %6, ptr noundef nonnull align 8 dereferenceable(120) %47, ptr noundef nonnull align 4 dereferenceable(8) %.0113)
+  invoke void %66(ptr dead_on_unwind nonnull writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexPrim") align 8 %6, ptr noundef nonnull align 8 dereferenceable(120) %47, ptr noundef nonnull align 4 dereferenceable(8) %.0110)
           to label %67 unwind label %.loopexit.split-lp.loopexit
 
 67:                                               ; preds = %63
@@ -6537,13 +6460,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_PrimsA
   %72 = and i64 %68, -8
   %73 = inttoptr i64 %72 to ptr
   %74 = atomicrmw add ptr %73, i32 2 monotonic, align 4
-  %75 = and i32 %74, 1
-  %.not1.i.i47 = icmp eq i32 %75, 0
-  %spec.select91 = select i1 %.not1.i.i47, ptr %73, ptr %69
+  %75 = trunc i32 %74 to i1
+  %spec.select88 = select i1 %75, ptr %69, ptr %73
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %71, %67
-  %.sroa.0.0 = phi ptr [ %69, %67 ], [ %spec.select91, %71 ]
+  %.sroa.0.0 = phi ptr [ %69, %67 ], [ %spec.select88, %71 ]
   %76 = load ptr, ptr %29, align 8
   %.not.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i, label %77
@@ -6630,31 +6552,30 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit: ; preds = %52, %48, %114, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i
-  %.sroa.0.090 = phi ptr [ %.sroa.0.0, %114 ], [ %.sroa.0.0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i ], [ %spec.select, %52 ], [ %50, %48 ]
-  %118 = icmp eq ptr %.sroa.0.090, null
-  br i1 %118, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53, label %119
+  %.sroa.0.087 = phi ptr [ %.sroa.0.0, %114 ], [ %.sroa.0.0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit.i ], [ %spec.select, %52 ], [ %50, %48 ]
+  %118 = icmp eq ptr %.sroa.0.087, null
+  br i1 %118, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51, label %119
 
 119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit
-  %120 = ptrtoint ptr %.sroa.0.090 to i64
+  %120 = ptrtoint ptr %.sroa.0.087 to i64
   %121 = and i64 %120, 7
-  %.not.i.i50 = icmp eq i64 %121, 0
-  br i1 %.not.i.i50, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %122
+  %.not.i.i49 = icmp eq i64 %121, 0
+  br i1 %.not.i.i49, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %122
 
 122:                                              ; preds = %119
   %123 = and i64 %120, -8
   %124 = inttoptr i64 %123 to ptr
   %125 = atomicrmw add ptr %124, i32 2 monotonic, align 4
-  %126 = and i32 %125, 1
-  %.not1.i.i51 = icmp eq i32 %126, 0
-  %spec.select92 = select i1 %.not1.i.i51, ptr %124, ptr %.sroa.0.090
+  %126 = trunc i32 %125 to i1
+  %spec.select89 = select i1 %126, ptr %.sroa.0.087, ptr %124
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i: ; preds = %119, %122
-  %.sroa.0.4 = phi ptr [ %.sroa.0.090, %119 ], [ %spec.select92, %122 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.087, %119 ], [ %spec.select89, %122 ]
   %127 = ptrtoint ptr %.sroa.0.4 to i64
   %128 = and i64 %127, 7
-  %.not.i.i52 = icmp eq i64 %128, 0
-  br i1 %.not.i.i52, label %._crit_edge, label %129
+  %.not.i.i50 = icmp eq i64 %128, 0
+  br i1 %.not.i.i50, label %._crit_edge, label %129
 
 129:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
   %130 = and i64 %127, -8
@@ -6662,15 +6583,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i: ; preds = %119,
   %132 = atomicrmw sub ptr %131, i32 2 release, align 4
   br label %._crit_edge
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit, %37
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.082.0104, i64 16
-  %.not93 = icmp eq ptr %133, %32
-  br i1 %.not93, label %._crit_edge, label %34
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexPrimD2Ev.exit, %37
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.079.0101, i64 16
+  %.not90 = icmp eq ptr %133, %32
+  br i1 %.not90, label %._crit_edge, label %34
 
-._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53, %129, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, %30
-  %.sroa.085.1 = phi ptr [ null, %30 ], [ %.sroa.0.4, %129 ], [ %.sroa.0.4, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
-  %135 = ptrtoint ptr %.sroa.085.1 to i64
+._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51, %129, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, %30
+  %.sroa.082.1 = phi ptr [ null, %30 ], [ %.sroa.0.4, %129 ], [ %.sroa.0.4, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i ], [ null, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit51 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
+  %135 = ptrtoint ptr %.sroa.082.1 to i64
   %136 = load ptr, ptr %134, align 8
   %137 = ptrtoint ptr %136 to i64
   %138 = xor i64 %137, %135
@@ -6691,60 +6612,60 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53: ; preds = %_ZN32pxrInt
 147:                                              ; preds = %143
   %148 = zext i32 %144 to i64
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_GrowStorageEm(ptr noundef nonnull align 8 dereferenceable(264) %5, i64 noundef %148)
-          to label %._crit_edge122 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %._crit_edge119 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-._crit_edge122:                                   ; preds = %147
+._crit_edge119:                                   ; preds = %147
   %.pre = load i32, ptr %25, align 8
-  %.pre124.pre = load i32, ptr %19, align 8
+  %.pre121.pre = load i32, ptr %19, align 8
   br label %149
 
-149:                                              ; preds = %._crit_edge122, %143
-  %.pre124 = phi i32 [ %.pre124.pre, %._crit_edge122 ], [ 0, %143 ]
-  %150 = phi i32 [ %.pre, %._crit_edge122 ], [ %144, %143 ]
+149:                                              ; preds = %._crit_edge119, %143
+  %.pre121 = phi i32 [ %.pre121.pre, %._crit_edge119 ], [ 0, %143 ]
+  %150 = phi i32 [ %.pre, %._crit_edge119 ], [ %144, %143 ]
   %151 = load i32, ptr %21, align 4
   %152 = icmp ult i32 %151, 17
   %153 = load ptr, ptr %2, align 8
-  %spec.select.i.i55 = select i1 %152, ptr %2, ptr %153
+  %spec.select.i.i53 = select i1 %152, ptr %2, ptr %153
   %154 = zext i32 %150 to i64
-  %.idx117 = shl nuw nsw i64 %154, 4
-  %155 = getelementptr inbounds nuw i8, ptr %spec.select.i.i55, i64 %.idx117
-  %.not42107 = icmp eq i32 %150, 0
-  %156 = icmp eq ptr %spec.select.i.i55, %.0113
-  %or.cond108 = or i1 %.not42107, %156
-  br i1 %or.cond108, label %.loopexit, label %.lr.ph111
+  %.idx114 = shl nuw nsw i64 %154, 4
+  %155 = getelementptr inbounds nuw i8, ptr %spec.select.i.i53, i64 %.idx114
+  %.not42104 = icmp eq i32 %150, 0
+  %156 = icmp eq ptr %spec.select.i.i53, %.0110
+  %or.cond105 = or i1 %.not42104, %156
+  br i1 %or.cond105, label %.loopexit, label %.lr.ph108
 
-.lr.ph111:                                        ; preds = %149, %201
-  %157 = phi i32 [ %203, %201 ], [ %.pre124, %149 ]
-  %.037109 = phi ptr [ %204, %201 ], [ %spec.select.i.i55, %149 ]
+.lr.ph108:                                        ; preds = %149, %201
+  %157 = phi i32 [ %203, %201 ], [ %.pre121, %149 ]
+  %.037106 = phi ptr [ %204, %201 ], [ %spec.select.i.i53, %149 ]
   %158 = load i32, ptr %20, align 4
   %159 = icmp eq i32 %157, %158
   br i1 %159, label %160, label %165
 
-160:                                              ; preds = %.lr.ph111
+160:                                              ; preds = %.lr.ph108
   %161 = zext i32 %157 to i64
   %162 = lshr i64 %161, 1
   %163 = add nuw nsw i64 %161, 1
   %164 = add nuw nsw i64 %163, %162
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_GrowStorageEm(ptr noundef nonnull align 8 dereferenceable(264) %5, i64 noundef %164)
-          to label %.noexc58 unwind label %.loopexit94
+          to label %.noexc56 unwind label %.loopexit91
 
-.noexc58:                                         ; preds = %160
+.noexc56:                                         ; preds = %160
   %.pre.i.i = load i32, ptr %20, align 4
   %.pre2.i.i = load i32, ptr %19, align 8
   br label %165
 
-165:                                              ; preds = %.noexc58, %.lr.ph111
-  %166 = phi i32 [ %.pre2.i.i, %.noexc58 ], [ %157, %.lr.ph111 ]
-  %167 = phi i32 [ %.pre.i.i, %.noexc58 ], [ %158, %.lr.ph111 ]
+165:                                              ; preds = %.noexc56, %.lr.ph108
+  %166 = phi i32 [ %.pre2.i.i, %.noexc56 ], [ %157, %.lr.ph108 ]
+  %167 = phi i32 [ %.pre.i.i, %.noexc56 ], [ %158, %.lr.ph108 ]
   %168 = icmp ult i32 %167, 17
   %169 = load ptr, ptr %5, align 8
   %spec.select.i.i.i.i = select i1 %168, ptr %5, ptr %169
   %170 = zext i32 %166 to i64
   %171 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i.i.i, i64 %170
-  %172 = load i32, ptr %.037109, align 4
+  %172 = load i32, ptr %.037106, align 4
   store i32 %172, ptr %171, align 4
-  %.not.i.i.i.i.i57 = icmp eq i32 %172, 0
-  br i1 %.not.i.i.i.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, label %173
+  %.not.i.i.i.i.i55 = icmp eq i32 %172, 0
+  br i1 %.not.i.i.i.i.i55, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, label %173
 
 173:                                              ; preds = %165
   %174 = and i32 %172, 255
@@ -6761,11 +6682,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit53: ; preds = %_ZN32pxrInt
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %173, %165
   %184 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  %185 = getelementptr inbounds nuw i8, ptr %.037109, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %.037106, i64 4
   %186 = load i32, ptr %185, align 4
   store i32 %186, ptr %184, align 4
   %187 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %188 = getelementptr inbounds nuw i8, ptr %.037109, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.037106, i64 8
   %189 = load i64, ptr %188, align 8
   store i64 %189, ptr %187, align 8
   %190 = and i64 %189, 7
@@ -6776,9 +6697,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %173
   %192 = and i64 %189, -8
   %193 = inttoptr i64 %192 to ptr
   %194 = atomicrmw add ptr %193, i32 2 monotonic, align 4
-  %195 = and i32 %194, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %195, 0
-  br i1 %.not1.i.i.i.i.i, label %196, label %201
+  %195 = trunc i32 %194 to i1
+  br i1 %195, label %201, label %196
 
 196:                                              ; preds = %191
   %197 = load ptr, ptr %187, align 8
@@ -6792,14 +6712,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %173
   %202 = load i32, ptr %19, align 8
   %203 = add i32 %202, 1
   store i32 %203, ptr %19, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %.037109, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %.037106, i64 16
   %.not42 = icmp eq ptr %204, %155
-  %205 = icmp eq ptr %204, %.0113
+  %205 = icmp eq ptr %204, %.0110
   %or.cond = or i1 %.not42, %205
-  br i1 %or.cond, label %.loopexit, label %.lr.ph111
+  br i1 %or.cond, label %.loopexit, label %.lr.ph108
 
 .loopexit:                                        ; preds = %201, %149, %142
-  %206 = phi i32 [ %140, %142 ], [ %.pre124, %149 ], [ %203, %201 ]
+  %206 = phi i32 [ %140, %142 ], [ %.pre121, %149 ], [ %203, %201 ]
   %207 = load i32, ptr %20, align 4
   %208 = icmp eq i32 %206, %207
   br i1 %208, label %209, label %214
@@ -6810,25 +6730,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %173
   %212 = add nuw nsw i64 %210, 1
   %213 = add nuw nsw i64 %212, %211
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_GrowStorageEm(ptr noundef nonnull align 8 dereferenceable(264) %5, i64 noundef %213)
-          to label %.noexc60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc60:                                         ; preds = %209
+.noexc58:                                         ; preds = %209
   %.pre.i = load i32, ptr %20, align 4
   %.pre3.i = load i32, ptr %19, align 8
   br label %214
 
-214:                                              ; preds = %.noexc60, %.loopexit
-  %215 = phi i32 [ %.pre3.i, %.noexc60 ], [ %206, %.loopexit ]
-  %216 = phi i32 [ %.pre.i, %.noexc60 ], [ %207, %.loopexit ]
+214:                                              ; preds = %.noexc58, %.loopexit
+  %215 = phi i32 [ %.pre3.i, %.noexc58 ], [ %206, %.loopexit ]
+  %216 = phi i32 [ %.pre.i, %.noexc58 ], [ %207, %.loopexit ]
   %217 = icmp ult i32 %216, 17
   %218 = load ptr, ptr %5, align 8
   %spec.select.i.i.i = select i1 %217, ptr %5, ptr %218
   %219 = zext i32 %215 to i64
   %220 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i.i, i64 %219
-  %221 = load i32, ptr %.0113, align 4
+  %221 = load i32, ptr %.0110, align 4
   store i32 %221, ptr %220, align 4
-  %.not.i.i.i.i59 = icmp eq i32 %221, 0
-  br i1 %.not.i.i.i.i59, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %222
+  %.not.i.i.i.i57 = icmp eq i32 %221, 0
+  br i1 %.not.i.i.i.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %222
 
 222:                                              ; preds = %214
   %223 = and i32 %221, 255
@@ -6845,7 +6765,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %173
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %222, %214
   %233 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  %234 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %.0110, i64 4
   %235 = load i32, ptr %234, align 4
   store i32 %235, ptr %233, align 4
   %236 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -6858,9 +6778,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %222, 
   %239 = and i64 %135, -8
   %240 = inttoptr i64 %239 to ptr
   %241 = atomicrmw add ptr %240, i32 2 monotonic, align 4
-  %242 = and i32 %241, 1
-  %.not1.i.i.i.i = icmp eq i32 %242, 0
-  br i1 %.not1.i.i.i.i, label %243, label %.sink.split
+  %242 = trunc i32 %241 to i1
+  br i1 %242, label %.sink.split, label %243
 
 243:                                              ; preds = %238
   %244 = load ptr, ptr %236, align 8
@@ -6884,25 +6803,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %222, 
   %255 = add nuw nsw i64 %253, 1
   %256 = add nuw nsw i64 %255, %254
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE12_GrowStorageEm(ptr noundef nonnull align 8 dereferenceable(264) %5, i64 noundef %256)
-          to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc68:                                         ; preds = %252
-  %.pre.i.i66 = load i32, ptr %20, align 4
-  %.pre2.i.i67 = load i32, ptr %19, align 8
+.noexc65:                                         ; preds = %252
+  %.pre.i.i63 = load i32, ptr %20, align 4
+  %.pre2.i.i64 = load i32, ptr %19, align 8
   br label %257
 
-257:                                              ; preds = %.noexc68, %249
-  %258 = phi i32 [ %.pre2.i.i67, %.noexc68 ], [ %140, %249 ]
-  %259 = phi i32 [ %.pre.i.i66, %.noexc68 ], [ %250, %249 ]
+257:                                              ; preds = %.noexc65, %249
+  %258 = phi i32 [ %.pre2.i.i64, %.noexc65 ], [ %140, %249 ]
+  %259 = phi i32 [ %.pre.i.i63, %.noexc65 ], [ %250, %249 ]
   %260 = icmp ult i32 %259, 17
   %261 = load ptr, ptr %5, align 8
-  %spec.select.i.i.i.i61 = select i1 %260, ptr %5, ptr %261
+  %spec.select.i.i.i.i59 = select i1 %260, ptr %5, ptr %261
   %262 = zext i32 %258 to i64
-  %263 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i.i.i61, i64 %262
-  %264 = load i32, ptr %.0113, align 4
+  %263 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i.i.i59, i64 %262
+  %264 = load i32, ptr %.0110, align 4
   store i32 %264, ptr %263, align 4
-  %.not.i.i.i.i.i62 = icmp eq i32 %264, 0
-  br i1 %.not.i.i.i.i.i62, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63, label %265
+  %.not.i.i.i.i.i60 = icmp eq i32 %264, 0
+  br i1 %.not.i.i.i.i.i60, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i61, label %265
 
 265:                                              ; preds = %257
   %266 = and i32 %264, 255
@@ -6915,27 +6834,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %222, 
   %273 = getelementptr inbounds nuw i8, ptr %270, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = atomicrmw add ptr %274, i32 1 monotonic, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i61
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63: ; preds = %265, %257
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i61: ; preds = %265, %257
   %276 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  %277 = getelementptr inbounds nuw i8, ptr %.0113, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %.0110, i64 4
   %278 = load i32, ptr %277, align 4
   store i32 %278, ptr %276, align 4
   %279 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %280 = load i64, ptr %134, align 8
   store i64 %280, ptr %279, align 8
   %281 = and i64 %280, 7
-  %.not.i.i3.i.i.i64 = icmp eq i64 %281, 0
-  br i1 %.not.i.i3.i.i.i64, label %.sink.split, label %282
+  %.not.i.i3.i.i.i62 = icmp eq i64 %281, 0
+  br i1 %.not.i.i3.i.i.i62, label %.sink.split, label %282
 
-282:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63
+282:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i61
   %283 = and i64 %280, -8
   %284 = inttoptr i64 %283 to ptr
   %285 = atomicrmw add ptr %284, i32 2 monotonic, align 4
-  %286 = and i32 %285, 1
-  %.not1.i.i.i.i.i65 = icmp eq i32 %286, 0
-  br i1 %.not1.i.i.i.i.i65, label %287, label %.sink.split
+  %286 = trunc i32 %285 to i1
+  br i1 %286, label %.sink.split, label %287
 
 287:                                              ; preds = %282
   %288 = load ptr, ptr %279, align 8
@@ -6945,7 +6863,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63: ; preds = %2
   store ptr %291, ptr %279, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %287, %282, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63, %243, %238, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
+.sink.split:                                      ; preds = %287, %282, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i61, %243, %238, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
   %292 = load i32, ptr %19, align 8
   %293 = add i32 %292, 1
   store i32 %293, ptr %19, align 8
@@ -6953,53 +6871,53 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i63: ; preds = %2
 
 294:                                              ; preds = %.sink.split, %248
   %295 = and i64 %135, 7
-  %.not.i.i70 = icmp eq i64 %295, 0
-  br i1 %.not.i.i70, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit71, label %296
+  %.not.i.i67 = icmp eq i64 %295, 0
+  br i1 %.not.i.i67, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68, label %296
 
 296:                                              ; preds = %294
   %297 = and i64 %135, -8
   %298 = inttoptr i64 %297 to ptr
   %299 = atomicrmw sub ptr %298, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit71
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit71: ; preds = %294, %296
-  %300 = getelementptr inbounds nuw i8, ptr %.0113, i64 16
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68: ; preds = %294, %296
+  %300 = getelementptr inbounds nuw i8, ptr %.0110, i64 16
   %.not = icmp eq ptr %300, %28
-  br i1 %.not, label %._crit_edge116, label %30
+  br i1 %.not, label %._crit_edge113, label %30
 
-._crit_edge116:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit71
-  %.pre125 = load i32, ptr %19, align 8
-  %301 = icmp eq i32 %.pre125, 0
-  br i1 %301, label %._crit_edge116.thread, label %._crit_edge116.thread.invoke
+._crit_edge113:                                   ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68
+  %.pre122 = load i32, ptr %19, align 8
+  %301 = icmp eq i32 %.pre122, 0
+  br i1 %301, label %._crit_edge113.thread, label %._crit_edge113.thread.invoke
 
-._crit_edge116.thread:                            ; preds = %18, %._crit_edge116
-  br label %._crit_edge116.thread.invoke
+._crit_edge113.thread:                            ; preds = %18, %._crit_edge113
+  br label %._crit_edge113.thread.invoke
 
-._crit_edge116.thread.invoke:                     ; preds = %._crit_edge116, %._crit_edge116.thread
-  %302 = phi ptr [ %2, %._crit_edge116.thread ], [ %5, %._crit_edge116 ]
+._crit_edge113.thread.invoke:                     ; preds = %._crit_edge113, %._crit_edge113.thread
+  %302 = phi ptr [ %2, %._crit_edge113.thread ], [ %5, %._crit_edge113 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBase15_SendPrimsAddedERKNS_13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(264) %302)
           to label %303 unwind label %38
 
-303:                                              ; preds = %._crit_edge116.thread.invoke
+303:                                              ; preds = %._crit_edge113.thread.invoke
   %304 = load i32, ptr %20, align 4
   %305 = icmp ult i32 %304, 17
   %306 = load ptr, ptr %5, align 8
-  %spec.select.i.i.i.i72 = select i1 %305, ptr %5, ptr %306
+  %spec.select.i.i.i.i69 = select i1 %305, ptr %5, ptr %306
   %307 = load i32, ptr %19, align 8
   %308 = zext i32 %307 to i64
   %.idx.i.i = shl nuw nsw i64 %308, 4
-  %309 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i72, i64 %.idx.i.i
+  %309 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i69, i64 %.idx.i.i
   %.not7.i.i = icmp eq i32 %307, 0
   br i1 %.not7.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %303, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i.i
-  %.08.i.i = phi ptr [ %336, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i.i ], [ %spec.select.i.i.i.i72, %303 ]
+  %.08.i.i = phi ptr [ %336, %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i.i ], [ %spec.select.i.i.i.i69, %303 ]
   %310 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 8
   %311 = load ptr, ptr %310, align 8
   %312 = ptrtoint ptr %311 to i64
   %313 = and i64 %312, 7
-  %.not.i.i.i.i.i73 = icmp eq i64 %313, 0
-  br i1 %.not.i.i.i.i.i73, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i, label %314
+  %.not.i.i.i.i.i70 = icmp eq i64 %313, 0
+  br i1 %.not.i.i.i.i.i70, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i, label %314
 
 314:                                              ; preds = %.lr.ph.i.i
   %315 = and i64 %312, -8
@@ -7040,15 +6958,15 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i: ; preds = %314, %.
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i.i: ; preds = %332, %319, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i.i.i
   %336 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
-  %.not.i.i74 = icmp eq ptr %336, %309
-  br i1 %.not.i.i74, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !32
+  %.not.i.i71 = icmp eq ptr %336, %309
+  br i1 %.not.i.i71, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !32
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryD2Ev.exit.i.i
-  %.pre.i75 = load i32, ptr %20, align 4
+  %.pre.i72 = load i32, ptr %20, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit.i, %303
-  %337 = phi i32 [ %.pre.i75, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit.i ], [ %304, %303 ]
+  %337 = phi i32 [ %.pre.i72, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EE9_DestructEv.exit.loopexit.i ], [ %304, %303 ]
   %338 = icmp ult i32 %337, 17
   br i1 %338, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver14AddedPrimEntryELj16EED2Ev.exit, label %339
 
@@ -7926,9 +7844,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %392, 
   %410 = and i64 %407, -8
   %411 = inttoptr i64 %410 to ptr
   %412 = atomicrmw add ptr %411, i32 2 monotonic, align 4
-  %413 = and i32 %412, 1
-  %.not1.i.i.i.i = icmp eq i32 %413, 0
-  br i1 %.not1.i.i.i.i, label %414, label %419
+  %413 = trunc i32 %412 to i1
+  br i1 %413, label %419, label %414
 
 414:                                              ; preds = %409
   %415 = load ptr, ptr %406, align 8
@@ -11121,9 +11038,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %2, %_ZN32
   %46 = and i64 %43, -8
   %47 = inttoptr i64 %46 to ptr
   %48 = atomicrmw add ptr %47, i32 2 monotonic, align 4
-  %49 = and i32 %48, 1
-  %.not1.i.i = icmp eq i32 %49, 0
-  br i1 %.not1.i.i, label %50, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
+  %49 = trunc i32 %48 to i1
+  br i1 %49, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %40, align 8
@@ -11156,130 +11072,148 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit: ; preds = %_ZN32pxrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %4 = load ptr, ptr %0, align 8
-  %5 = load ptr, ptr %1, align 8
-  %.not8 = icmp eq ptr %4, %5
-  br i1 %.not8, label %._crit_edge, label %.lr.ph
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS4_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS3_2d123cache_aligned_allocatorIS9_EEEES9_SC_EEPS9_EET0_T_SH_SG_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.tbb::detail::d2::concurrent_queue_iterator", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
+  %7 = load ptr, ptr %0, align 8
+  store ptr %7, ptr %4, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %5, align 8
+  %.not.i.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit
 
-.lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %9
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit: ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8
+  store i64 %12, ptr %10, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %scevgep.i.i, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit
 
-9:                                                ; preds = %.lr.ph, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit
-  %10 = phi ptr [ %4, %.lr.ph ], [ %67, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
-  %.09 = phi ptr [ %2, %.lr.ph ], [ %68, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
-  %11 = load i32, ptr %10, align 4
-  store i32 %11, ptr %.09, align 4
-  %.not.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, label %12
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit.loopexit, %3
+  %14 = load ptr, ptr %1, align 8
+  %.not8.i = icmp eq ptr %7, %14
+  br i1 %.not8.i, label %_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit, label %.lr.ph.i
 
-12:                                               ; preds = %9
-  %13 = and i32 %11, 255
-  %14 = lshr i32 %11, 8
-  %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  %18 = mul nuw nsw i32 %14, 24
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = atomicrmw add ptr %21, i32 1 monotonic, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
+.lr.ph.i:                                         ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %16
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %12, %9
-  %23 = getelementptr inbounds nuw i8, ptr %.09, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %25 = load i32, ptr %24, align 4
-  store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %.09, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %28 = load i64, ptr %27, align 8
-  store i64 %28, ptr %26, align 8
-  %29 = and i64 %28, 7
-  %.not.i.i3.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i3.i.i, label %tailrecurse.i.i.preheader, label %30
+16:                                               ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i, %.lr.ph.i
+  %17 = phi ptr [ %7, %.lr.ph.i ], [ %74, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i ]
+  %.09.i = phi ptr [ %2, %.lr.ph.i ], [ %75, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i ]
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %.09.i, align 4
+  %.not.i.i.i.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, label %19
 
-30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i
-  %31 = and i64 %28, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = atomicrmw add ptr %32, i32 2 monotonic, align 4
-  %34 = and i32 %33, 1
-  %.not1.i.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not1.i.i.i.i, label %35, label %tailrecurse.i.i.preheader
+19:                                               ; preds = %16
+  %20 = and i32 %18, 255
+  %21 = lshr i32 %18, 8
+  %22 = zext nneg i32 %20 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %22
+  %24 = load ptr, ptr %23, align 8
+  %25 = mul nuw nsw i32 %21, 24
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = atomicrmw add ptr %28, i32 1 monotonic, align 4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %26, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = and i64 %37, -8
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %19, %16
+  %30 = getelementptr inbounds nuw i8, ptr %.09.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %32 = load i32, ptr %31, align 4
+  store i32 %32, ptr %30, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %35 = load i64, ptr %34, align 8
+  store i64 %35, ptr %33, align 8
+  %36 = and i64 %35, 7
+  %.not.i.i3.i.i.i = icmp eq i64 %36, 0
+  br i1 %.not.i.i3.i.i.i, label %tailrecurse.i.i.i.preheader, label %37
+
+37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
+  %38 = and i64 %35, -8
   %39 = inttoptr i64 %38 to ptr
-  store ptr %39, ptr %26, align 8
-  br label %tailrecurse.i.i.preheader
+  %40 = atomicrmw add ptr %39, i32 2 monotonic, align 4
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %tailrecurse.i.i.i.preheader, label %42
 
-tailrecurse.i.i.preheader:                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i, %30, %35
-  br label %tailrecurse.i.i
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %33, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %45 = and i64 %44, -8
+  %46 = inttoptr i64 %45 to ptr
+  store ptr %46, ptr %33, align 8
+  br label %tailrecurse.i.i.i.preheader
 
-tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i.preheader, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i
-  %40 = load i64, ptr %6, align 8
-  %41 = and i64 %40, 120
-  %42 = icmp eq i64 %41, 120
-  br i1 %42, label %43, label %49
+tailrecurse.i.i.i.preheader:                      ; preds = %42, %37, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i
+  br label %tailrecurse.i.i.i
 
-43:                                               ; preds = %tailrecurse.i.i
-  %44 = mul i64 %40, 3
-  %45 = and i64 %44, 7
-  %46 = getelementptr inbounds nuw ptr, ptr %8, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %46, align 8
-  br label %49
+tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i.preheader, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i
+  %47 = load i64, ptr %15, align 8
+  %48 = and i64 %47, 120
+  %49 = icmp eq i64 %48, 120
+  br i1 %49, label %50, label %56
 
-49:                                               ; preds = %43, %tailrecurse.i.i
-  %50 = add i64 %40, 1
-  store i64 %50, ptr %6, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 512
-  %53 = load atomic i64, ptr %52 monotonic, align 8
-  %54 = icmp eq i64 %50, %53
-  br i1 %54, label %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i, label %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i
+50:                                               ; preds = %tailrecurse.i.i.i
+  %51 = mul i64 %47, 3
+  %52 = and i64 %51, 7
+  %53 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i, i64 %52
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %53, align 8
+  br label %56
 
-_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i: ; preds = %49
-  store ptr null, ptr %0, align 8
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit
+56:                                               ; preds = %50, %tailrecurse.i.i.i
+  %57 = add i64 %47, 1
+  store i64 %57, ptr %15, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 512
+  %60 = load atomic i64, ptr %59 monotonic, align 8
+  %61 = icmp eq i64 %57, %60
+  br i1 %61, label %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i.i, label %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i
 
-_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i: ; preds = %49
-  %55 = mul i64 %50, 3
-  %56 = and i64 %55, 7
-  %57 = getelementptr inbounds nuw ptr, ptr %8, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %59 = lshr i64 %50, 3
-  %60 = and i64 %59, 15
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %62 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %61, i64 %60
-  store ptr %62, ptr %0, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %64 = load atomic i64, ptr %63 seq_cst, align 8
-  %65 = shl nuw nsw i64 1, %60
-  %66 = and i64 %64, %65
-  %.not.i.i = icmp eq i64 %66, 0
-  br i1 %.not.i.i, label %tailrecurse.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit
+_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i.i: ; preds = %56
+  store ptr null, ptr %4, align 8
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit: ; preds = %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i
-  %.pre = load ptr, ptr %0, align 8
-  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit
+_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i: ; preds = %56
+  %62 = mul i64 %57, 3
+  %63 = and i64 %62, 7
+  %64 = getelementptr inbounds nuw ptr, ptr %scevgep.i.i, i64 %63
+  %65 = load ptr, ptr %64, align 8
+  %66 = lshr i64 %57, 3
+  %67 = and i64 %66, 15
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %69 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %68, i64 %67
+  store ptr %69, ptr %4, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %71 = load atomic i64, ptr %70 seq_cst, align 8
+  %72 = shl nuw nsw i64 1, %67
+  %73 = and i64 %71, %72
+  %.not.i.i.i6 = icmp eq i64 %73, 0
+  br i1 %.not.i.i.i6, label %tailrecurse.i.i.i, label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit.i
 
-_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i
-  %67 = phi ptr [ %.pre, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit ], [ null, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %.09, i64 16
-  %69 = load ptr, ptr %1, align 8
-  %.not = icmp eq ptr %67, %69
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !77
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit.i: ; preds = %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i
+  %.pre.i = load ptr, ptr %4, align 8
+  br label %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i
 
-._crit_edge:                                      ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit, %3
-  %.0.lcssa = phi ptr [ %2, %3 ], [ %68, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit ]
-  ret ptr %.0.lcssa
+_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit.i, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i.i
+  %74 = phi ptr [ %.pre.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.loopexit.i ], [ null, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.thread.i.i.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
+  %.not.i = icmp eq ptr %74, %14
+  br i1 %.not.i, label %_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit, label %16, !llvm.loop !77
+
+_ZSt16__do_uninit_copyIN3tbb6detail2d225concurrent_queue_iteratorINS2_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS1_2d123cache_aligned_allocatorIS7_EEEES7_SA_EEPS7_ET0_T_SF_SE_.exit: ; preds = %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit
+  %.0.lcssa.i = phi ptr [ %2, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EC2ERKSB_.exit ], [ %75, %_ZN3tbb6detail2d225concurrent_queue_iteratorINS1_16concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS6_EEEES6_S9_EppEv.exit.i ]
+  ret ptr %.0.lcssa.i
 }
 
 ; Function Attrs: mustprogress uwtable

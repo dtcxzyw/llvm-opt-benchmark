@@ -178,7 +178,7 @@ declare noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 der
 define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12outputStreambb(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = load i8, ptr @_ZN20AbstractDisassembler11_show_bytesE, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %32
+  br i1 %8, label %9, label %31
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -205,25 +205,24 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
 
 ._crit_edge:                                      ; preds = %.preheader39, %9
   %.034.lcssa = phi ptr [ %0, %9 ], [ %19, %.preheader39 ]
-  %20 = and i32 %1, 1
-  %.not38 = icmp ne i32 %20, 0
-  %21 = icmp ult ptr %.034.lcssa, %13
-  %or.cond = select i1 %.not38, i1 %21, i1 false
+  %.not38 = trunc i32 %1 to i1
+  %20 = icmp ult ptr %.034.lcssa, %13
+  %or.cond = select i1 %.not38, i1 %20, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
-  %.144 = phi ptr [ %24, %.lr.ph ], [ %.034.lcssa, %._crit_edge ]
-  %22 = load i8, ptr %.144, align 1
-  %23 = zext i8 %22 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, i32 noundef %23) #5
-  %24 = getelementptr inbounds nuw i8, ptr %.144, i64 1
-  %25 = icmp ult ptr %24, %13
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  %.144 = phi ptr [ %23, %.lr.ph ], [ %.034.lcssa, %._crit_edge ]
+  %21 = load i8, ptr %.144, align 1
+  %22 = zext i8 %21 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.10, i32 noundef %22) #5
+  %23 = getelementptr inbounds nuw i8, ptr %.144, i64 1
+  %24 = icmp ult ptr %23, %13
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.03645 = add nsw i32 %1, 1
-  %26 = icmp slt i32 %.03645, %2
-  br i1 %26, label %.lr.ph48, label %._crit_edge49
+  %25 = icmp slt i32 %.03645, %2
+  br i1 %25, label %.lr.ph48, label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %.loopexit, %.lr.ph48
   %.03646 = phi i32 [ %.036, %.lr.ph48 ], [ %.03645, %.loopexit ]
@@ -234,32 +233,32 @@ define hidden noundef i32 @_ZN20AbstractDisassembler17print_instructionEPhiiP12o
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %.loopexit
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str) #5
-  %27 = load i8, ptr @_ZN20AbstractDisassembler12_align_instrE, align 1
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit
+  %26 = load i8, ptr @_ZN20AbstractDisassembler12_align_instrE, align 1
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit
 
-29:                                               ; preds = %._crit_edge49
+28:                                               ; preds = %._crit_edge49
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.28) #5
   br label %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit
 
-_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit: ; preds = %._crit_edge49, %29
-  %30 = load i32, ptr %10, align 8
-  %31 = sub nsw i32 %30, %11
-  br label %39
+_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit: ; preds = %._crit_edge49, %28
+  %29 = load i32, ptr %10, align 8
+  %30 = sub nsw i32 %29, %11
+  br label %38
 
-32:                                               ; preds = %6
-  br i1 %4, label %33, label %39
+31:                                               ; preds = %6
+  br i1 %4, label %32, label %38
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = add i32 %35, 7
-  %37 = and i32 %36, -8
-  %38 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %37) #5
-  br label %39
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %34 = load i32, ptr %33, align 8
+  %35 = add i32 %34, 7
+  %36 = and i32 %35, -8
+  %37 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %36) #5
+  br label %38
 
-39:                                               ; preds = %32, %33, %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit
-  %.0 = phi i32 [ %31, %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit ], [ 0, %33 ], [ 0, %32 ]
+38:                                               ; preds = %31, %32, %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit
+  %.0 = phi i32 [ %30, %_ZN20AbstractDisassembler15print_delimiterEP12outputStream.exit ], [ 0, %32 ], [ 0, %31 ]
   ret i32 %.0
 }
 

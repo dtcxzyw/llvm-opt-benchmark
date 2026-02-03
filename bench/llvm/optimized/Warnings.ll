@@ -69,14 +69,14 @@ define dso_local void @_ZN5clang21ProcessWarningOptionsERNS_17DiagnosticsEngineE
   store i8 %21, ptr %19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i64, ptr %22, align 4
-  %24 = load ptr, ptr %17, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %26 = trunc i64 %23 to i8
-  %27 = and i8 %26, 1
-  %28 = load i8, ptr %25, align 8
+  %24 = trunc i64 %23 to i8
+  %25 = load ptr, ptr %17, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = and i8 %24, 1
+  %28 = load i8, ptr %26, align 8
   %29 = and i8 %28, -2
   %30 = or disjoint i8 %29, %27
-  store i8 %30, ptr %25, align 8
+  store i8 %30, ptr %26, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %32 = load i8, ptr %31, align 4
   %33 = lshr i8 %32, 3

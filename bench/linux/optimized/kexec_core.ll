@@ -148,7 +148,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %9 = add i32 %14, 1
   %10 = sext i32 %9 to i64
   %11 = icmp ugt i64 %3, %10
-  br i1 %11, label %12, label %.preheader23, !llvm.loop !9
+  br i1 %11, label %12, label %.preheader22, !llvm.loop !9
 
 12:                                               ; preds = %8, %6
   %13 = phi i64 [ 0, %6 ], [ %10, %8 ]
@@ -180,14 +180,14 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %30 = icmp ult i64 %20, %29
   br i1 %30, label %8, label %.thread17
 
-.thread15:                                        ; preds = %.preheader23, %60
-  %31 = phi i32 [ %62, %60 ], [ %36, %.preheader23 ]
+.thread15:                                        ; preds = %.preheader22, %60
+  %31 = phi i32 [ %62, %60 ], [ %36, %.preheader22 ]
   %32 = add i32 %37, 1
   %33 = sext i32 %32 to i64
   %34 = icmp ugt i64 %3, %33
-  br i1 %34, label %.preheader23, label %.preheader51, !llvm.loop !13
+  br i1 %34, label %.preheader22, label %.preheader50, !llvm.loop !13
 
-.preheader23:                                     ; preds = %8, %.thread15
+.preheader22:                                     ; preds = %8, %.thread15
   %35 = phi i64 [ %33, %.thread15 ], [ 0, %8 ]
   %36 = phi i32 [ %31, %.thread15 ], [ -99, %8 ]
   %37 = phi i32 [ %32, %.thread15 ], [ 0, %8 ]
@@ -207,9 +207,9 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %48 = icmp eq i64 %46, %38
   br i1 %48, label %60, label %.preheader, !llvm.loop !14
 
-.preheader:                                       ; preds = %.preheader23, %45
-  %49 = phi i1 [ %47, %45 ], [ true, %.preheader23 ]
-  %50 = phi i64 [ %46, %45 ], [ 0, %.preheader23 ]
+.preheader:                                       ; preds = %.preheader22, %45
+  %49 = phi i1 [ %47, %45 ], [ true, %.preheader22 ]
+  %50 = phi i64 [ %46, %45 ], [ 0, %.preheader22 ]
   %51 = getelementptr %struct.kexec_segment, ptr %7, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
@@ -228,17 +228,17 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %62 = phi i32 [ -22, %55 ], [ %36, %45 ]
   br i1 %61, label %.thread17, label %.thread15
 
-63:                                               ; preds = %.preheader51
+63:                                               ; preds = %.preheader50
   %64 = add i32 %70, 1
   %65 = sext i32 %64 to i64
   %66 = icmp ugt i64 %3, %65
-  br i1 %66, label %.preheader51, label %67, !llvm.loop !15
+  br i1 %66, label %.preheader50, label %67, !llvm.loop !15
 
 67:                                               ; preds = %63
   %68 = lshr i64 %4, 1
   br label %77
 
-.preheader51:                                     ; preds = %.thread15, %63
+.preheader50:                                     ; preds = %.thread15, %63
   %69 = phi i64 [ %65, %63 ], [ 0, %.thread15 ]
   %70 = phi i32 [ %64, %63 ], [ 0, %.thread15 ]
   %71 = getelementptr %struct.kexec_segment, ptr %7, i64 %69
@@ -276,9 +276,8 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %96 = load i8, ptr %95, align 8
-  %97 = and i8 %96, 1
-  %.not19 = icmp eq i8 %97, 0
-  br i1 %.not19, label %.thread17, label %98
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %.thread17
 
 98:                                               ; preds = %94
   %99 = load i64, ptr @crashk_res, align 8
@@ -305,11 +304,11 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %114 = load i64, ptr %113, align 8
   %115 = add i64 %110, -1
   %116 = add i64 %115, %114
-  %.not20 = icmp ugt i64 %116, %100
-  br i1 %.not20, label %.thread17, label %101
+  %.not19 = icmp ugt i64 %116, %100
+  br i1 %.not19, label %.thread17, label %101
 
-.thread17:                                        ; preds = %28, %22, %12, %60, %.preheader51, %77, %105, %112, %101, %1, %94, %92
-  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ -22, %.preheader51 ], [ 0, %1 ], [ %62, %60 ], [ 0, %101 ], [ -22, %77 ], [ -99, %105 ], [ -99, %112 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
+.thread17:                                        ; preds = %28, %22, %12, %60, %.preheader50, %77, %105, %112, %101, %1, %94, %92
+  %117 = phi i32 [ -22, %92 ], [ 0, %94 ], [ -22, %.preheader50 ], [ 0, %1 ], [ %62, %60 ], [ 0, %101 ], [ -22, %77 ], [ -99, %105 ], [ -99, %112 ], [ -99, %12 ], [ -99, %22 ], [ -99, %28 ]
   ret i32 %117
 }
 

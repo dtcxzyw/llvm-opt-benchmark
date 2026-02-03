@@ -1250,7 +1250,7 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %109
+  br i1 %7, label %8, label %108
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1258,160 +1258,159 @@ define noundef zeroext i1 @_ZNK6icu_7712RegexPatterneqERKS0_(ptr noundef nonnull
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %12 = load i32, ptr %11, align 8, !tbaa !39
   %13 = icmp eq i32 %10, %12
-  br i1 %13, label %14, label %109
+  br i1 %13, label %14, label %108
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %54, label %17
+  br i1 %.not, label %53, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !40
   %.not26 = icmp eq ptr %19, null
-  br i1 %.not26, label %54, label %20
+  br i1 %.not26, label %53, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load i16, ptr %21, align 8, !tbaa !17
   %23 = and i16 %22, 1
   %.not.i = icmp eq i16 %23, 0
-  br i1 %.not.i, label %29, label %24
+  br i1 %.not.i, label %28, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load i16, ptr %25, align 8, !tbaa !17
-  %27 = and i16 %26, 1
-  %28 = icmp ne i16 %27, 0
+  %27 = trunc i16 %26 to i1
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-29:                                               ; preds = %20
-  %30 = icmp slt i16 %22, 0
-  %31 = ashr i16 %22, 5
-  %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %34 = load i32, ptr %33, align 4
-  %35 = select i1 %30, i32 %34, i32 %32
-  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %37 = load i16, ptr %36, align 8, !tbaa !17
-  %38 = icmp slt i16 %37, 0
-  %39 = ashr i16 %37, 5
-  %40 = sext i16 %39 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %42 = load i32, ptr %41, align 4
-  %43 = select i1 %38, i32 %42, i32 %40
-  %44 = and i16 %37, 1
-  %.not9.i = icmp eq i16 %44, 0
-  %45 = icmp eq i32 %35, %43
-  %or.cond.i = and i1 %.not9.i, %45
-  br i1 %or.cond.i, label %46, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+28:                                               ; preds = %20
+  %29 = icmp slt i16 %22, 0
+  %30 = ashr i16 %22, 5
+  %31 = sext i16 %30 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %33 = load i32, ptr %32, align 4
+  %34 = select i1 %29, i32 %33, i32 %31
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %36 = load i16, ptr %35, align 8, !tbaa !17
+  %37 = icmp slt i16 %36, 0
+  %38 = ashr i16 %36, 5
+  %39 = sext i16 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %41 = load i32, ptr %40, align 4
+  %42 = select i1 %37, i32 %41, i32 %39
+  %43 = and i16 %36, 1
+  %.not9.i = icmp eq i16 %43, 0
+  %44 = icmp eq i32 %34, %42
+  %or.cond.i = and i1 %.not9.i, %44
+  br i1 %or.cond.i, label %45, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-46:                                               ; preds = %29
-  %47 = and i16 %37, 2
-  %.not.i.i.i = icmp eq i16 %47, 0
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  %49 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = select i1 %.not.i.i.i, ptr %50, ptr %48
-  %52 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %51, i32 noundef %35)
-  %53 = icmp ne i8 %52, 0
+45:                                               ; preds = %28
+  %46 = and i16 %36, 2
+  %.not.i.i.i = icmp eq i16 %46, 0
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = select i1 %.not.i.i.i, ptr %49, ptr %47
+  %51 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %50, i32 noundef %34)
+  %52 = icmp ne i8 %51, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-54:                                               ; preds = %17, %14
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !41
-  %57 = icmp eq ptr %56, null
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !41
-  %60 = icmp eq ptr %59, null
-  br i1 %57, label %61, label %62
+53:                                               ; preds = %17, %14
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !41
+  %56 = icmp eq ptr %55, null
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !41
+  %59 = icmp eq ptr %58, null
+  br i1 %56, label %60, label %61
 
-61:                                               ; preds = %54
-  br i1 %60, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, label %109
+60:                                               ; preds = %53
+  br i1 %59, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, label %108
 
-62:                                               ; preds = %54
-  br i1 %60, label %109, label %63
+61:                                               ; preds = %53
+  br i1 %59, label %108, label %62
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %65 = load i64, ptr %64, align 8, !tbaa !55
-  %66 = sub nsw i64 0, %65
-  %67 = icmp slt i64 %65, 1
-  br i1 %67, label %68, label %82
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %64 = load i64, ptr %63, align 8, !tbaa !55
+  %65 = sub nsw i64 0, %64
+  %66 = icmp slt i64 %64, 1
+  br i1 %66, label %67, label %81
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %56, i64 28
-  %70 = load i32, ptr %69, align 4, !tbaa !60
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %66, %71
-  br i1 %72, label %73, label %82
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 28
+  %69 = load i32, ptr %68, align 4, !tbaa !60
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %65, %70
+  br i1 %71, label %72, label %81
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !61
-  %76 = getelementptr inbounds nuw i16, ptr %75, i64 %66
-  %77 = load i16, ptr %76, align 2, !tbaa !62
-  %78 = icmp ult i16 %77, -9216
-  br i1 %78, label %79, label %82
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  %74 = load ptr, ptr %73, align 8, !tbaa !61
+  %75 = getelementptr inbounds nuw i16, ptr %74, i64 %65
+  %76 = load i16, ptr %75, align 2, !tbaa !62
+  %77 = icmp ult i16 %76, -9216
+  br i1 %77, label %78, label %81
 
-79:                                               ; preds = %73
-  %80 = trunc nuw nsw i64 %66 to i32
-  %81 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store i32 %80, ptr %81, align 8, !tbaa !64
-  br label %83
+78:                                               ; preds = %72
+  %79 = trunc nuw nsw i64 %65 to i32
+  %80 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store i32 %79, ptr %80, align 8, !tbaa !64
+  br label %82
 
-82:                                               ; preds = %73, %68, %63
-  tail call void @utext_setNativeIndex_77(ptr noundef nonnull %56, i64 noundef 0)
-  %.pre = load ptr, ptr %58, align 8, !tbaa !41
-  br label %83
+81:                                               ; preds = %72, %67, %62
+  tail call void @utext_setNativeIndex_77(ptr noundef nonnull %55, i64 noundef 0)
+  %.pre = load ptr, ptr %57, align 8, !tbaa !41
+  br label %82
 
-83:                                               ; preds = %82, %79
-  %84 = phi ptr [ %.pre, %82 ], [ %59, %79 ]
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load i64, ptr %85, align 8, !tbaa !55
-  %87 = sub nsw i64 0, %86
-  %88 = icmp slt i64 %86, 1
-  br i1 %88, label %89, label %103
+82:                                               ; preds = %81, %78
+  %83 = phi ptr [ %.pre, %81 ], [ %58, %78 ]
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %85 = load i64, ptr %84, align 8, !tbaa !55
+  %86 = sub nsw i64 0, %85
+  %87 = icmp slt i64 %85, 1
+  br i1 %87, label %88, label %102
 
-89:                                               ; preds = %83
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 28
-  %91 = load i32, ptr %90, align 4, !tbaa !60
-  %92 = sext i32 %91 to i64
-  %93 = icmp slt i64 %87, %92
-  br i1 %93, label %94, label %103
+88:                                               ; preds = %82
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 28
+  %90 = load i32, ptr %89, align 4, !tbaa !60
+  %91 = sext i32 %90 to i64
+  %92 = icmp slt i64 %86, %91
+  br i1 %92, label %93, label %102
 
-94:                                               ; preds = %89
-  %95 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %96 = load ptr, ptr %95, align 8, !tbaa !61
-  %97 = getelementptr inbounds nuw i16, ptr %96, i64 %87
-  %98 = load i16, ptr %97, align 2, !tbaa !62
-  %99 = icmp ult i16 %98, -9216
-  br i1 %99, label %100, label %103
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %95 = load ptr, ptr %94, align 8, !tbaa !61
+  %96 = getelementptr inbounds nuw i16, ptr %95, i64 %86
+  %97 = load i16, ptr %96, align 2, !tbaa !62
+  %98 = icmp ult i16 %97, -9216
+  br i1 %98, label %99, label %102
 
-100:                                              ; preds = %94
-  %101 = trunc nuw nsw i64 %87 to i32
-  %102 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store i32 %101, ptr %102, align 8, !tbaa !64
-  br label %104
+99:                                               ; preds = %93
+  %100 = trunc nuw nsw i64 %86 to i32
+  %101 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  store i32 %100, ptr %101, align 8, !tbaa !64
+  br label %103
 
-103:                                              ; preds = %94, %89, %83
-  tail call void @utext_setNativeIndex_77(ptr noundef nonnull %84, i64 noundef 0)
-  %.pre28 = load ptr, ptr %58, align 8, !tbaa !41
-  br label %104
+102:                                              ; preds = %93, %88, %82
+  tail call void @utext_setNativeIndex_77(ptr noundef nonnull %83, i64 noundef 0)
+  %.pre28 = load ptr, ptr %57, align 8, !tbaa !41
+  br label %103
 
-104:                                              ; preds = %103, %100
-  %105 = phi ptr [ %.pre28, %103 ], [ %84, %100 ]
-  %106 = load ptr, ptr %55, align 8, !tbaa !41
-  %107 = tail call signext i8 @utext_equals_77(ptr noundef %106, ptr noundef %105)
-  %108 = icmp ne i8 %107, 0
+103:                                              ; preds = %102, %99
+  %104 = phi ptr [ %.pre28, %102 ], [ %83, %99 ]
+  %105 = load ptr, ptr %54, align 8, !tbaa !41
+  %106 = tail call signext i8 @utext_equals_77(ptr noundef %105, ptr noundef %104)
+  %107 = icmp ne i8 %106, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-109:                                              ; preds = %62, %61, %8, %2
+108:                                              ; preds = %61, %60, %8, %2
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %46, %29, %24, %61, %109, %104
-  %.0 = phi i1 [ true, %61 ], [ %108, %104 ], [ false, %109 ], [ %28, %24 ], [ %53, %46 ], [ false, %29 ]
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %45, %28, %24, %60, %108, %103
+  %.0 = phi i1 [ true, %60 ], [ %107, %103 ], [ false, %108 ], [ %27, %24 ], [ %52, %45 ], [ false, %28 ]
   ret i1 %.0
 }
 

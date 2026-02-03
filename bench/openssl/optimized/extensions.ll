@@ -647,7 +647,7 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 14:                                               ; preds = %11
   store i32 1, ptr %12, align 4, !tbaa !109
   %15 = icmp ult i32 %1, 29
-  br i1 %15, label %16, label %51
+  br i1 %15, label %16, label %48
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw %struct.extensions_definition_st, ptr @ext_defs, i64 %7
@@ -670,71 +670,67 @@ define i32 @tls_parse_extension(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %27 = icmp sgt i32 %26, 771
   %28 = icmp ne i32 %26, 65536
   %spec.select.i = and i1 %27, %28
-  br label %31
+  br label %30
 
 ._crit_edge.i:                                    ; preds = %16
   %.not21.mux.i = select i1 %.not.i, i1 %.not21.i, i1 false
-  %29 = shl nuw nsw i64 1, %7
-  %30 = and i64 %29, 243793919
-  %.not23.i = icmp ne i64 %30, 0
-  %or.cond29.i = or i1 %.not23.i, %.not21.mux.i
-  br i1 %or.cond29.i, label %31, label %.thread
+  %29 = lshr i64 243793919, %7
+  %.not23.i = trunc i64 %29 to i1
+  %or.cond29.i = or i1 %.not21.mux.i, %.not23.i
+  br i1 %or.cond29.i, label %30, label %.thread
 
-31:                                               ; preds = %._crit_edge.i, %.thread.i
+30:                                               ; preds = %._crit_edge.i, %.thread.i
   %.050.i = phi i1 [ %spec.select.i, %.thread.i ], [ %.not.i, %._crit_edge.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %33 = load i32, ptr %32, align 8, !tbaa !90
-  %34 = icmp eq i32 %33, 768
-  %35 = icmp ne i32 %1, 0
-  %or.cond31.i = and i1 %35, %34
-  br i1 %or.cond31.i, label %.thread, label %36
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %32 = load i32, ptr %31, align 8, !tbaa !90
+  %33 = icmp eq i32 %32, 768
+  %34 = icmp ne i32 %1, 0
+  %or.cond31.i = and i1 %34, %33
+  %35 = lshr i64 8399193, %7
+  %.not24.i = trunc i64 %35 to i1
+  %or.cond32.not.i = and i1 %.050.i, %.not24.i
+  %or.cond = select i1 %or.cond31.i, i1 true, i1 %or.cond32.not.i
+  br i1 %or.cond, label %.thread, label %36
 
-36:                                               ; preds = %31
-  %37 = shl nuw nsw i64 1, %7
-  %38 = and i64 %37, 8399193
-  %.not24.i = icmp ne i64 %38, 0
-  %or.cond32.not.i = and i1 %.not24.i, %.050.i
-  br i1 %or.cond32.not.i, label %.thread, label %39
+36:                                               ; preds = %30
+  %37 = lshr i64 143622143, %7
+  %.not25.i = trunc i64 %37 to i1
+  %38 = and i32 %2, 128
+  %39 = icmp ne i32 %38, 0
+  %40 = or i1 %39, %.not25.i
+  %or.cond35.not.i = or i1 %40, %.050.i
+  br i1 %or.cond35.not.i, label %41, label %.thread
 
-39:                                               ; preds = %36
-  %40 = and i64 %37, 143622143
-  %.not25.i = icmp ne i64 %40, 0
-  %41 = and i32 %2, 128
-  %42 = icmp ne i32 %41, 0
-  %43 = or i1 %42, %.not25.i
-  %or.cond35.not.i = or i1 %43, %.050.i
-  br i1 %or.cond35.not.i, label %44, label %.thread
-
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %46 = load i32, ptr %45, align 8, !tbaa !91
-  %47 = icmp eq i32 %46, 0
-  %or.cond.i = or i1 %.050.i, %47
-  %or.cond36.i = or i1 %.not25.i, %or.cond.i
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %43 = load i32, ptr %42, align 8, !tbaa !91
+  %44 = icmp eq i32 %43, 0
+  %or.cond.i = or i1 %.050.i, %44
+  %or.cond36.i = or i1 %or.cond.i, %.not25.i
   br i1 %or.cond36.i, label %extension_is_relevant.exit, label %.thread
 
-extension_is_relevant.exit:                       ; preds = %44
-  %.in.v = select i1 %47, i64 24, i64 16
+extension_is_relevant.exit:                       ; preds = %41
+  %.in.v = select i1 %44, i64 24, i64 16
   %.in = getelementptr inbounds nuw i8, ptr %17, i64 %.in.v
-  %48 = load ptr, ptr %.in, align 8, !tbaa !110
-  %.not34 = icmp eq ptr %48, null
-  br i1 %.not34, label %51, label %49
+  %45 = load ptr, ptr %.in, align 8, !tbaa !110
+  %.not34 = icmp eq ptr %45, null
+  br i1 %.not34, label %48, label %46
 
-49:                                               ; preds = %extension_is_relevant.exit
-  %50 = tail call i32 %48(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %2, ptr noundef %4, i64 noundef %5) #8
+46:                                               ; preds = %extension_is_relevant.exit
+  %47 = tail call i32 %45(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %2, ptr noundef %4, i64 noundef %5) #8
   br label %.thread
 
-51:                                               ; preds = %extension_is_relevant.exit, %14
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %53 = load i32, ptr %52, align 8, !tbaa !78
+48:                                               ; preds = %extension_is_relevant.exit, %14
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %50 = load i32, ptr %49, align 8, !tbaa !78
   %.val35 = load ptr, ptr %8, align 8, !tbaa !111
-  %54 = getelementptr i8, ptr %8, i64 8
-  %.val = load i64, ptr %54, align 8, !tbaa !112
-  %55 = tail call i32 @custom_ext_parse(ptr noundef %0, i32 noundef %2, i32 noundef %53, ptr noundef %.val35, i64 noundef %.val, ptr noundef %4, i64 noundef %5) #8
+  %51 = getelementptr i8, ptr %8, i64 8
+  %.val = load i64, ptr %51, align 8, !tbaa !112
+  %52 = tail call i32 @custom_ext_parse(ptr noundef %0, i32 noundef %2, i32 noundef %50, ptr noundef %.val35, i64 noundef %.val, ptr noundef %4, i64 noundef %5) #8
   br label %.thread
 
-.thread:                                          ; preds = %31, %36, %39, %44, %._crit_edge.i, %49, %11, %6, %51
-  %.0 = phi i32 [ 1, %6 ], [ %55, %51 ], [ 1, %11 ], [ %50, %49 ], [ 1, %31 ], [ 1, %._crit_edge.i ], [ 1, %44 ], [ 1, %39 ], [ 1, %36 ]
+.thread:                                          ; preds = %30, %36, %41, %._crit_edge.i, %46, %11, %6, %48
+  %.0 = phi i32 [ 1, %6 ], [ %52, %48 ], [ 1, %11 ], [ %47, %46 ], [ 1, %30 ], [ 1, %._crit_edge.i ], [ 1, %41 ], [ 1, %36 ]
   ret i32 %.0
 }
 

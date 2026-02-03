@@ -8646,24 +8646,24 @@ define internal fastcc void @dissect_cp(ptr noundef %0, i32 noundef %1, i32 noun
   %72 = add nsw i32 %11, -6
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 276
   %74 = load i8, ptr %73, align 4
-  %75 = and i8 %74, 1
-  %76 = or i8 %74, 1
-  store i8 %76, ptr %73, align 4
-  %77 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef %72)
-  %78 = load ptr, ptr @ppp_subdissector_table, align 8
-  %79 = zext i16 %71 to i32
-  %80 = tail call i32 @dissector_try_uint(ptr noundef %78, i32 noundef %79, ptr noundef %77, ptr noundef %6, ptr noundef %20)
-  %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %81, label %83
+  %75 = or i8 %74, 1
+  store i8 %75, ptr %73, align 4
+  %76 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef %72)
+  %77 = load ptr, ptr @ppp_subdissector_table, align 8
+  %78 = zext i16 %71 to i32
+  %79 = tail call i32 @dissector_try_uint(ptr noundef %77, i32 noundef %78, ptr noundef %76, ptr noundef %6, ptr noundef %20)
+  %.not = icmp eq i32 %79, 0
+  br i1 %.not, label %80, label %82
 
-81:                                               ; preds = %70
-  %82 = tail call i32 @call_data_dissector(ptr noundef %77, ptr noundef %6, ptr noundef %20)
-  br label %83
+80:                                               ; preds = %70
+  %81 = tail call i32 @call_data_dissector(ptr noundef %76, ptr noundef %6, ptr noundef %20)
+  br label %82
 
-83:                                               ; preds = %81, %70
+82:                                               ; preds = %80, %70
+  %83 = and i8 %74, 1
   %84 = load i8, ptr %73, align 4
   %85 = and i8 %84, -2
-  %86 = or disjoint i8 %85, %75
+  %86 = or disjoint i8 %85, %83
   store i8 %86, ptr %73, align 4
   br label %121
 
@@ -8717,7 +8717,7 @@ define internal fastcc void @dissect_cp(ptr noundef %0, i32 noundef %1, i32 noun
   %120 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %119, ptr noundef %0, i32 noundef 4, i32 noundef %28, i32 noundef 0)
   br label %121
 
-121:                                              ; preds = %116, %118, %103, %112, %95, %99, %87, %91, %66, %83, %56, %58, %50, %52, %42, %46
+121:                                              ; preds = %116, %118, %103, %112, %95, %99, %87, %91, %66, %82, %56, %58, %50, %52, %42, %46
   ret void
 }
 

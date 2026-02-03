@@ -47190,14 +47190,14 @@ _ZN3gsl7details13span_iteratorIcEppEv.exit13.us:  ; preds = %_ZN3gsl7details13sp
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
-  %49 = trunc i32 %45 to i8
-  %50 = and i8 %49, 1
+  %46 = trunc i32 %45 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
+  %50 = and i8 %46, 1
   store i8 %50, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %48, ptr %51, align 8
+  store ptr %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %.sroa.017.0.copyload, ptr %5, align 8
   %.sroa.7.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -48845,14 +48845,14 @@ _ZN3gsl7details13span_iteratorIcEppEv.exit13.us:  ; preds = %_ZN3gsl7details13sp
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
-  %49 = trunc i32 %45 to i8
-  %50 = and i8 %49, 1
+  %46 = trunc i32 %45 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
+  %50 = and i8 %46, 1
   store i8 %50, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %48, ptr %51, align 8
+  store ptr %49, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %.sroa.017.0.copyload, ptr %5, align 8
   %.sroa.7.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 8

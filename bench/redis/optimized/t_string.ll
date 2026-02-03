@@ -134,174 +134,173 @@ getGenericCommand.exit.thread:                    ; preds = %30, %44, %getExpire
   %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = call ptr @lookupKeyWriteWithDictEntry(ptr noundef %46, ptr noundef %2, ptr noundef nonnull %10) #11
   %48 = icmp ne ptr %47, null
-  %49 = and i32 %1, 1
-  %50 = icmp ne i32 %49, 0
-  %or.cond = select i1 %50, i1 %48, i1 false
-  br i1 %or.cond, label %54, label %51
+  %49 = trunc i32 %1 to i1
+  %or.cond = select i1 %49, i1 %48, i1 false
+  br i1 %or.cond, label %53, label %50
 
-51:                                               ; preds = %getGenericCommand.exit.thread
-  %52 = and i32 %1, 2
-  %53 = icmp eq i32 %52, 0
-  %or.cond3 = select i1 %53, i1 true, i1 %48
-  br i1 %or.cond3, label %64, label %54
+50:                                               ; preds = %getGenericCommand.exit.thread
+  %51 = and i32 %1, 2
+  %52 = icmp eq i32 %51, 0
+  %or.cond3 = select i1 %52, i1 true, i1 %48
+  br i1 %or.cond3, label %63, label %53
 
-54:                                               ; preds = %51, %getGenericCommand.exit.thread
-  br i1 %.not81, label %55, label %131
+53:                                               ; preds = %50, %getGenericCommand.exit.thread
+  br i1 %.not81, label %54, label %130
+
+54:                                               ; preds = %53
+  %.not84 = icmp eq ptr %7, null
+  br i1 %.not84, label %55, label %61
 
 55:                                               ; preds = %54
-  %.not84 = icmp eq ptr %7, null
-  br i1 %.not84, label %56, label %62
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %57 = load i32, ptr %56, align 4, !tbaa !30
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  br label %61
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %58 = load i32, ptr %57, align 4, !tbaa !30
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !29
-  br label %62
+61:                                               ; preds = %54, %55
+  %62 = phi ptr [ %60, %55 ], [ %7, %54 ]
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %62) #11
+  br label %130
 
-62:                                               ; preds = %55, %56
-  %63 = phi ptr [ %61, %56 ], [ %7, %55 ]
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %63) #11
-  br label %131
+63:                                               ; preds = %50
+  %64 = and i32 %1, 16
+  %65 = icmp ne i32 %64, 0
+  %66 = or i1 %65, %11
+  %67 = zext i1 %66 to i32
+  %68 = select i1 %48, i32 4, i32 8
+  %69 = or disjoint i32 %68, %67
+  %70 = load ptr, ptr %45, align 8, !tbaa !32
+  %71 = load ptr, ptr %10, align 8, !tbaa !31
+  call void @setKeyWithDictEntry(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %2, ptr noundef %3, i32 noundef %69, ptr noundef %71) #11
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !33
+  %73 = add nsw i64 %72, 1
+  store i64 %73, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !33
+  %74 = load ptr, ptr %45, align 8, !tbaa !32
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
+  %76 = load i32, ptr %75, align 8, !tbaa !54
+  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %76) #11
+  br i1 %11, label %77, label %.thread98
 
-64:                                               ; preds = %51
-  %65 = and i32 %1, 16
-  %66 = icmp ne i32 %65, 0
-  %67 = or i1 %66, %11
-  %68 = zext i1 %67 to i32
-  %69 = select i1 %48, i32 4, i32 8
-  %70 = or disjoint i32 %69, %68
-  %71 = load ptr, ptr %45, align 8, !tbaa !32
-  %72 = load ptr, ptr %10, align 8, !tbaa !31
-  call void @setKeyWithDictEntry(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %2, ptr noundef %3, i32 noundef %70, ptr noundef %72) #11
-  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !33
-  %74 = add nsw i64 %73, 1
-  store i64 %74, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !33
-  %75 = load ptr, ptr %45, align 8, !tbaa !32
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  %77 = load i32, ptr %76, align 8, !tbaa !54
-  call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef %77) #11
-  br i1 %11, label %78, label %.thread98
+77:                                               ; preds = %63
+  %78 = load ptr, ptr %45, align 8, !tbaa !32
+  %79 = load i64, ptr %9, align 8, !tbaa !5
+  %80 = load ptr, ptr %10, align 8, !tbaa !31
+  call void @setExpireWithDictEntry(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %2, i64 noundef %79, ptr noundef %80) #11
+  %81 = and i32 %1, 128
+  %.not82 = icmp eq i32 %81, 0
+  br i1 %.not82, label %82, label %87
 
-78:                                               ; preds = %64
-  %79 = load ptr, ptr %45, align 8, !tbaa !32
-  %80 = load i64, ptr %9, align 8, !tbaa !5
-  %81 = load ptr, ptr %10, align 8, !tbaa !31
-  call void @setExpireWithDictEntry(ptr noundef nonnull %0, ptr noundef %79, ptr noundef %2, i64 noundef %80, ptr noundef %81) #11
-  %82 = and i32 %1, 128
-  %.not82 = icmp eq i32 %82, 0
-  br i1 %.not82, label %83, label %88
+82:                                               ; preds = %77
+  %83 = load i64, ptr %9, align 8, !tbaa !5
+  %84 = call ptr @createStringObjectFromLongLong(i64 noundef %83) #11
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 584), align 8, !tbaa !56
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 640), align 8, !tbaa !58
+  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 5, ptr noundef %85, ptr noundef %2, ptr noundef %3, ptr noundef %86, ptr noundef %84) #11
+  call void @decrRefCount(ptr noundef %84) #11
+  br label %87
 
-83:                                               ; preds = %78
-  %84 = load i64, ptr %9, align 8, !tbaa !5
-  %85 = call ptr @createStringObjectFromLongLong(i64 noundef %84) #11
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 584), align 8, !tbaa !56
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 640), align 8, !tbaa !58
-  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 5, ptr noundef %86, ptr noundef %2, ptr noundef %3, ptr noundef %87, ptr noundef %85) #11
-  call void @decrRefCount(ptr noundef %85) #11
-  br label %88
+87:                                               ; preds = %77, %82
+  %88 = load ptr, ptr %45, align 8, !tbaa !32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
+  %90 = load i32, ptr %89, align 8, !tbaa !54
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %2, i32 noundef %90) #11
+  br i1 %.not81, label %.thread, label %130
 
-88:                                               ; preds = %78, %83
-  %89 = load ptr, ptr %45, align 8, !tbaa !32
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  %91 = load i32, ptr %90, align 8, !tbaa !54
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %2, i32 noundef %91) #11
-  br i1 %.not81, label %.thread, label %131
-
-.thread98:                                        ; preds = %64
+.thread98:                                        ; preds = %63
   br i1 %.not81, label %.thread, label %.thread99
 
-.thread:                                          ; preds = %.thread98, %88
+.thread:                                          ; preds = %.thread98, %87
   %.not83 = icmp eq ptr %6, null
-  %92 = load ptr, ptr @shared, align 8
-  %93 = select i1 %.not83, ptr %92, ptr %6
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %93) #11
-  br label %131
+  %91 = load ptr, ptr @shared, align 8
+  %92 = select i1 %.not83, ptr %91, ptr %6
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %92) #11
+  br label %130
 
 .thread99:                                        ; preds = %.thread98
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %95 = load i32, ptr %94, align 8, !tbaa !59
-  %96 = add nsw i32 %95, -1
-  %97 = sext i32 %96 to i64
-  %98 = shl nsw i64 %97, 3
-  %99 = call noalias ptr @zmalloc(i64 noundef %98) #12
-  %100 = load i32, ptr %94, align 8, !tbaa !59
-  %101 = icmp sgt i32 %100, 0
-  br i1 %101, label %.lr.ph, label %._crit_edge
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %94 = load i32, ptr %93, align 8, !tbaa !59
+  %95 = add nsw i32 %94, -1
+  %96 = sext i32 %95 to i64
+  %97 = shl nsw i64 %96, 3
+  %98 = call noalias ptr @zmalloc(i64 noundef %97) #12
+  %99 = load i32, ptr %93, align 8, !tbaa !59
+  %100 = icmp sgt i32 %99, 0
+  br i1 %100, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread99
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %103
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %102
 
-103:                                              ; preds = %.lr.ph, %127
-  %104 = phi i32 [ %100, %.lr.ph ], [ %128, %127 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
-  %.07591 = phi i32 [ 0, %.lr.ph ], [ %.1, %127 ]
-  %105 = load ptr, ptr %102, align 8, !tbaa !9
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
-  %107 = load ptr, ptr %106, align 8, !tbaa !29
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8, !tbaa !60
-  %110 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %110, label %111, label %123
+102:                                              ; preds = %.lr.ph, %126
+  %103 = phi i32 [ %99, %.lr.ph ], [ %127, %126 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
+  %.07591 = phi i32 [ 0, %.lr.ph ], [ %.1, %126 ]
+  %104 = load ptr, ptr %101, align 8, !tbaa !9
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %106 = load ptr, ptr %105, align 8, !tbaa !29
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !60
+  %109 = icmp samesign ugt i64 %indvars.iv, 2
+  br i1 %109, label %110, label %122
 
-111:                                              ; preds = %103
-  %112 = load i8, ptr %109, align 1, !tbaa !62
-  switch i8 %112, label %123 [
-    i8 103, label %113
-    i8 71, label %113
+110:                                              ; preds = %102
+  %111 = load i8, ptr %108, align 1, !tbaa !62
+  switch i8 %111, label %122 [
+    i8 103, label %112
+    i8 71, label %112
   ]
 
-113:                                              ; preds = %111, %111
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %115 = load i8, ptr %114, align 1, !tbaa !62
-  switch i8 %115, label %123 [
-    i8 101, label %116
-    i8 69, label %116
+112:                                              ; preds = %110, %110
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 1
+  %114 = load i8, ptr %113, align 1, !tbaa !62
+  switch i8 %114, label %122 [
+    i8 101, label %115
+    i8 69, label %115
   ]
 
-116:                                              ; preds = %113, %113
-  %117 = getelementptr inbounds nuw i8, ptr %109, i64 2
-  %118 = load i8, ptr %117, align 1, !tbaa !62
-  switch i8 %118, label %123 [
-    i8 116, label %119
-    i8 84, label %119
+115:                                              ; preds = %112, %112
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 2
+  %117 = load i8, ptr %116, align 1, !tbaa !62
+  switch i8 %117, label %122 [
+    i8 116, label %118
+    i8 84, label %118
   ]
 
-119:                                              ; preds = %116, %116
-  %120 = getelementptr inbounds nuw i8, ptr %109, i64 3
-  %121 = load i8, ptr %120, align 1, !tbaa !62
-  %122 = icmp eq i8 %121, 0
-  br i1 %122, label %127, label %123
+118:                                              ; preds = %115, %115
+  %119 = getelementptr inbounds nuw i8, ptr %108, i64 3
+  %120 = load i8, ptr %119, align 1, !tbaa !62
+  %121 = icmp eq i8 %120, 0
+  br i1 %121, label %126, label %122
 
-123:                                              ; preds = %116, %113, %111, %119, %103
-  %124 = add nsw i32 %.07591, 1
-  %125 = sext i32 %.07591 to i64
-  %126 = getelementptr inbounds ptr, ptr %99, i64 %125
-  store ptr %107, ptr %126, align 8, !tbaa !29
-  call void @incrRefCount(ptr noundef nonnull %107) #11
-  %.pre = load i32, ptr %94, align 8, !tbaa !59
-  br label %127
+122:                                              ; preds = %115, %112, %110, %118, %102
+  %123 = add nsw i32 %.07591, 1
+  %124 = sext i32 %.07591 to i64
+  %125 = getelementptr inbounds ptr, ptr %98, i64 %124
+  store ptr %106, ptr %125, align 8, !tbaa !29
+  call void @incrRefCount(ptr noundef nonnull %106) #11
+  %.pre = load i32, ptr %93, align 8, !tbaa !59
+  br label %126
 
-127:                                              ; preds = %119, %123
-  %128 = phi i32 [ %.pre, %123 ], [ %104, %119 ]
-  %.1 = phi i32 [ %124, %123 ], [ %.07591, %119 ]
+126:                                              ; preds = %118, %122
+  %127 = phi i32 [ %.pre, %122 ], [ %103, %118 ]
+  %.1 = phi i32 [ %123, %122 ], [ %.07591, %118 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %129 = sext i32 %128 to i64
-  %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %103, label %._crit_edge, !llvm.loop !63
+  %128 = sext i32 %127 to i64
+  %129 = icmp slt i64 %indvars.iv.next, %128
+  br i1 %129, label %102, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %127, %.thread99
-  %.075.lcssa = phi i32 [ 0, %.thread99 ], [ %.1, %127 ]
-  call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %.075.lcssa, ptr noundef %99) #11
-  br label %131
+._crit_edge:                                      ; preds = %126, %.thread99
+  %.075.lcssa = phi i32 [ 0, %.thread99 ], [ %.1, %126 ]
+  call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %.075.lcssa, ptr noundef %98) #11
+  br label %130
 
-131:                                              ; preds = %88, %.thread, %._crit_edge, %54, %62
+130:                                              ; preds = %87, %.thread, %._crit_edge, %53, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %getExpireMillisecondsOrReply.exit
 
-getExpireMillisecondsOrReply.exit:                ; preds = %42, %thread-pre-split.thread.sink.split.i, %12, %131
+getExpireMillisecondsOrReply.exit:                ; preds = %42, %thread-pre-split.thread.sink.split.i, %12, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

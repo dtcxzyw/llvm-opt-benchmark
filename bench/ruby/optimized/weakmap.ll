@@ -308,9 +308,8 @@ define internal i64 @wmap_inspect(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 13:                                               ; preds = %10
-  %14 = and i64 %0, 1
-  %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %rb_class_of.exit
+  %14 = trunc i64 %0 to i1
+  br i1 %14, label %rb_class_of.exit, label %15
 
 15:                                               ; preds = %13
   %16 = and i64 %0, 254
@@ -710,9 +709,8 @@ define internal i64 @wkmap_inspect(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 15:                                               ; preds = %12
-  %16 = and i64 %0, 1
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %17, label %rb_class_of.exit
+  %16 = trunc i64 %0 to i1
+  br i1 %16, label %rb_class_of.exit, label %17
 
 17:                                               ; preds = %15
   %18 = and i64 %0, 254

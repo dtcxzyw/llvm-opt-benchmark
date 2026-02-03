@@ -5159,8 +5159,7 @@ define noundef zeroext i1 @"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$a
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf50cf11c136b3762E.exit":
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   %2 = load i8, ptr %1, align 8, !range !91, !noundef !4
-  %3 = and i8 %2, 1
-  %.0.i = icmp ne i8 %3, 0
+  %.0.i = trunc i8 %2 to i1
   ret i1 %.0.i
 }
 

@@ -35560,14 +35560,13 @@ define hidden void @_ZN6winnow10combinator5multi11repeat_m_n_17h081f91ca65f8c745
   store i64 %17, ptr %12, align 8, !alias.scope !10377, !noalias !10384
   store i64 3, ptr %0, align 8
   invoke void @"_ZN4core3ptr48drop_in_place$LT$winnow..error..ContextError$GT$17haf777dd8b17cacedE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
-          to label %53 unwind label %49
+          to label %52 unwind label %49
 
 49:                                               ; preds = %48
   %50 = landingpad { ptr, i32 }
           cleanup
   %51 = load i64, ptr %9, align 8, !range !691, !noundef !4
-  %52 = and i64 %51, 1
-  %or.cond5.not = icmp ne i64 %52, 0
+  %or.cond5.not = trunc i64 %51 to i1
   %cond.i33 = icmp eq i64 %51, 0
   %or.cond54 = or i1 %cond.i33, %or.cond5.not
   br i1 %or.cond54, label %"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit35", label %.sink.split.i34
@@ -35579,32 +35578,31 @@ define hidden void @_ZN6winnow10combinator5multi11repeat_m_n_17h081f91ca65f8c745
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit"
 
-53:                                               ; preds = %48
+52:                                               ; preds = %48
   %.pre89.pre = load i64, ptr %9, align 8, !range !691
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %54 = and i64 %.pre89.pre, 1
-  %or.cond.not = icmp ne i64 %54, 0
+  %or.cond.not = trunc i64 %.pre89.pre to i1
   %cond.i = icmp eq i64 %.pre89.pre, 0
   %or.cond = or i1 %cond.i, %or.cond.not
   br i1 %or.cond, label %"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit", label %.sink.split.i
 
-"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit": ; preds = %.thread100, %.thread, %.sink.split.i, %53, %47
+"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit": ; preds = %.thread100, %.thread, %.sink.split.i, %52, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %34
 
-.sink.split.i:                                    ; preds = %53
+.sink.split.i:                                    ; preds = %52
   call void @"_ZN4core3ptr48drop_in_place$LT$winnow..error..ContextError$GT$17haf777dd8b17cacedE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sroa.213.0..sroa_idx.i)
   br label %"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit"
 
-55:                                               ; preds = %.sink.split.i34
-  %56 = landingpad { ptr, i32 }
+53:                                               ; preds = %.sink.split.i34
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #53
   unreachable
 
 .sink.split.i34:                                  ; preds = %49
   invoke void @"_ZN4core3ptr48drop_in_place$LT$winnow..error..ContextError$GT$17haf777dd8b17cacedE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %.sroa.213.0..sroa_idx.i)
-          to label %"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit35" unwind label %55
+          to label %"_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit35" unwind label %53
 
 "_ZN4core3ptr78drop_in_place$LT$winnow..error..ErrMode$LT$winnow..error..ContextError$GT$$GT$17h3c778e800c8c3d4eE.exit35": ; preds = %.sink.split.i34, %49
   resume { ptr, i32 } %50

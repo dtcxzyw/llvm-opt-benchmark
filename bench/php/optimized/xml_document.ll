@@ -658,10 +658,9 @@ define internal ptr @php_new_dom_dump_node_to_str(ptr readnone captures(none) %0
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @php_new_dom_dump_doc_to_str(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = and i32 %1, 1
-  %5 = icmp ne i32 %4, 0
-  %6 = tail call fastcc ptr @php_new_dom_dump_node_to_str_ex(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %5, ptr noundef %2)
-  ret ptr %6
+  %4 = trunc i32 %1 to i1
+  %5 = tail call fastcc ptr @php_new_dom_dump_node_to_str_ex(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %4, ptr noundef %2)
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable

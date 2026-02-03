@@ -1095,18 +1095,17 @@ move_pending_to_connect.exit:                     ; preds = %5, %12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @Curl_multiplex_wanted(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %7, label %2
+  br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 625
   %4 = load i8, ptr %3, align 1
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  br label %7
+  %5 = trunc i8 %4 to i1
+  br label %6
 
-7:                                                ; preds = %2, %1
-  %8 = phi i1 [ false, %1 ], [ %6, %2 ]
-  ret i1 %8
+6:                                                ; preds = %2, %1
+  %7 = phi i1 [ false, %1 ], [ %5, %2 ]
+  ret i1 %7
 }
 
 declare void @Curl_conn_ev_data_detach(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -6299,7 +6298,7 @@ Curl_detach_connection.exit:                      ; preds = %3, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %9 = tail call i64 @Curl_llist_count(ptr noundef nonnull %8) #20
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %71
+  br i1 %.not, label %10, label %70
 
 10:                                               ; preds = %Curl_detach_connection.exit
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4876
@@ -6350,75 +6349,74 @@ Curl_detach_connection.exit:                      ; preds = %3, %6
   %37 = load i8, ptr %2, align 4
   %38 = and i8 %37, 1
   %.not43 = icmp eq i8 %38, 0
-  br i1 %.not43, label %45, label %39
+  br i1 %.not43, label %44, label %39
 
 39:                                               ; preds = %36
   %40 = tail call zeroext i1 @Curl_conn_is_multiplex(ptr noundef nonnull %0, i32 noundef 0) #20
-  br i1 %40, label %45, label %41
+  br i1 %40, label %44, label %41
 
 41:                                               ; preds = %28, %32, %39
   tail call void @Curl_conncontrol(ptr noundef nonnull %0, i32 noundef 1) #20
   %42 = load i8, ptr %2, align 4
-  %43 = and i8 %42, 1
-  %44 = icmp ne i8 %43, 0
-  tail call void @Curl_cpool_disconnect(ptr noundef nonnull %1, ptr noundef nonnull %0, i1 noundef zeroext %44) #20
-  br label %71
+  %43 = trunc i8 %42 to i1
+  tail call void @Curl_cpool_disconnect(ptr noundef nonnull %1, ptr noundef nonnull %0, i1 noundef zeroext %43) #20
+  br label %70
 
-45:                                               ; preds = %39, %36
-  %46 = tail call zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef nonnull %1, ptr noundef nonnull %0) #20
-  br i1 %46, label %47, label %69
+44:                                               ; preds = %39, %36
+  %45 = tail call zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef nonnull %1, ptr noundef nonnull %0) #20
+  br i1 %45, label %46, label %68
 
-47:                                               ; preds = %45
-  %48 = load i64, ptr %33, align 8
-  %49 = and i64 %48, 2
-  %.not44 = icmp eq i64 %49, 0
-  br i1 %.not44, label %50, label %54
+46:                                               ; preds = %44
+  %47 = load i64, ptr %33, align 8
+  %48 = and i64 %47, 2
+  %.not44 = icmp eq i64 %48, 0
+  br i1 %.not44, label %49, label %53
 
-50:                                               ; preds = %47
-  %51 = and i64 %48, 1
-  %.not45 = icmp eq i64 %51, 0
-  br i1 %.not45, label %52, label %54
+49:                                               ; preds = %46
+  %50 = and i64 %47, 1
+  %.not45 = icmp eq i64 %50, 0
+  br i1 %.not45, label %51, label %53
 
-52:                                               ; preds = %50
-  %53 = and i64 %48, 256
-  %.not46 = icmp eq i64 %53, 0
+51:                                               ; preds = %49
+  %52 = and i64 %47, 256
+  %.not46 = icmp eq i64 %52, 0
   %. = select i1 %.not46, i64 112, i64 160
-  br label %54
+  br label %53
 
-54:                                               ; preds = %52, %50, %47
-  %.sink = phi i64 [ 192, %47 ], [ %., %52 ], [ 248, %50 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %56 = load ptr, ptr %55, align 8, !tbaa !174
-  %57 = load i64, ptr %14, align 8, !tbaa !240
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 3024
-  store i64 %57, ptr %58, align 8, !tbaa !113
-  %59 = load i64, ptr %21, align 2
-  %60 = and i64 %59, 134217728
-  %.not48 = icmp eq i64 %60, 0
-  br i1 %.not48, label %71, label %61
+53:                                               ; preds = %51, %49, %46
+  %.sink = phi i64 [ 192, %46 ], [ %., %51 ], [ 248, %49 ]
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %55 = load ptr, ptr %54, align 8, !tbaa !174
+  %56 = load i64, ptr %14, align 8, !tbaa !240
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 3024
+  store i64 %56, ptr %57, align 8, !tbaa !113
+  %58 = load i64, ptr %21, align 2
+  %59 = and i64 %58, 134217728
+  %.not48 = icmp eq i64 %59, 0
+  br i1 %.not48, label %70, label %60
 
-61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 4712
-  %63 = load ptr, ptr %62, align 8, !tbaa !132
-  %.not49 = icmp eq ptr %63, null
-  br i1 %.not49, label %68, label %64
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4712
+  %62 = load ptr, ptr %61, align 8, !tbaa !132
+  %.not49 = icmp eq ptr %62, null
+  br i1 %.not49, label %67, label %63
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !133
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %68, label %71
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %65 = load i32, ptr %64, align 8, !tbaa !133
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %67, label %70
 
-68:                                               ; preds = %64, %61
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef %57, ptr noundef %56) #20
-  br label %71
+67:                                               ; preds = %63, %60
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef %56, ptr noundef %55) #20
+  br label %70
 
-69:                                               ; preds = %45
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 3024
-  store i64 -1, ptr %70, align 8, !tbaa !113
-  br label %71
+68:                                               ; preds = %44
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 3024
+  store i64 -1, ptr %69, align 8, !tbaa !113
+  br label %70
 
-71:                                               ; preds = %41, %69, %68, %64, %54, %Curl_detach_connection.exit
+70:                                               ; preds = %41, %68, %67, %63, %53, %Curl_detach_connection.exit
   ret void
 }
 

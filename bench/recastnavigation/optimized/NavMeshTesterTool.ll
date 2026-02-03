@@ -1539,122 +1539,120 @@ define dso_local void @_ZN17NavMeshTesterTool10handleMenuEv(ptr noundef nonnull 
   call void @_Z11imguiIndentv()
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %165 = load i16, ptr %164, align 8
-  %166 = and i16 %165, 1
-  %167 = icmp ne i16 %166, 0
-  %168 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %167, i1 noundef zeroext true)
-  br i1 %168, label %169, label %172
+  %166 = trunc i16 %165 to i1
+  %167 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %166, i1 noundef zeroext true)
+  br i1 %167, label %168, label %171
 
-169:                                              ; preds = %.loopexit
-  %170 = load i16, ptr %164, align 8
-  %171 = xor i16 %170, 1
-  store i16 %171, ptr %164, align 8
+168:                                              ; preds = %.loopexit
+  %169 = load i16, ptr %164, align 8
+  %170 = xor i16 %169, 1
+  store i16 %170, ptr %164, align 8
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %172
+  br label %171
 
-172:                                              ; preds = %169, %.loopexit
-  %173 = load i16, ptr %164, align 8
-  %174 = and i16 %173, 2
-  %175 = icmp ne i16 %174, 0
-  %176 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %175, i1 noundef zeroext true)
-  br i1 %176, label %177, label %180
+171:                                              ; preds = %168, %.loopexit
+  %172 = load i16, ptr %164, align 8
+  %173 = and i16 %172, 2
+  %174 = icmp ne i16 %173, 0
+  %175 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %174, i1 noundef zeroext true)
+  br i1 %175, label %176, label %179
 
-177:                                              ; preds = %172
-  %178 = load i16, ptr %164, align 8
-  %179 = xor i16 %178, 2
-  store i16 %179, ptr %164, align 8
+176:                                              ; preds = %171
+  %177 = load i16, ptr %164, align 8
+  %178 = xor i16 %177, 2
+  store i16 %178, ptr %164, align 8
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %180
+  br label %179
 
-180:                                              ; preds = %177, %172
-  %181 = load i16, ptr %164, align 8
-  %182 = and i16 %181, 4
-  %183 = icmp ne i16 %182, 0
-  %184 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %183, i1 noundef zeroext true)
-  br i1 %184, label %185, label %188
+179:                                              ; preds = %176, %171
+  %180 = load i16, ptr %164, align 8
+  %181 = and i16 %180, 4
+  %182 = icmp ne i16 %181, 0
+  %183 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %182, i1 noundef zeroext true)
+  br i1 %183, label %184, label %187
 
-185:                                              ; preds = %180
-  %186 = load i16, ptr %164, align 8
-  %187 = xor i16 %186, 4
-  store i16 %187, ptr %164, align 8
+184:                                              ; preds = %179
+  %185 = load i16, ptr %164, align 8
+  %186 = xor i16 %185, 4
+  store i16 %186, ptr %164, align 8
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %188
+  br label %187
 
-188:                                              ; preds = %185, %180
-  %189 = load i16, ptr %164, align 8
-  %190 = and i16 %189, 8
-  %191 = icmp ne i16 %190, 0
-  %192 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.20, i1 noundef zeroext %191, i1 noundef zeroext true)
-  br i1 %192, label %193, label %196
+187:                                              ; preds = %184, %179
+  %188 = load i16, ptr %164, align 8
+  %189 = and i16 %188, 8
+  %190 = icmp ne i16 %189, 0
+  %191 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.20, i1 noundef zeroext %190, i1 noundef zeroext true)
+  br i1 %191, label %192, label %195
 
-193:                                              ; preds = %188
-  %194 = load i16, ptr %164, align 8
-  %195 = xor i16 %194, 8
-  store i16 %195, ptr %164, align 8
+192:                                              ; preds = %187
+  %193 = load i16, ptr %164, align 8
+  %194 = xor i16 %193, 8
+  store i16 %194, ptr %164, align 8
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %196
+  br label %195
 
-196:                                              ; preds = %193, %188
+195:                                              ; preds = %192, %187
   call void @_Z13imguiUnindentv()
   call void @_Z14imguiSeparatorv()
   call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.21)
   call void @_Z11imguiIndentv()
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %198 = load i16, ptr %197, align 2
-  %199 = and i16 %198, 1
-  %200 = icmp ne i16 %199, 0
-  %201 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %200, i1 noundef zeroext true)
-  br i1 %201, label %202, label %205
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 290
+  %197 = load i16, ptr %196, align 2
+  %198 = trunc i16 %197 to i1
+  %199 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %198, i1 noundef zeroext true)
+  br i1 %199, label %200, label %203
 
-202:                                              ; preds = %196
-  %203 = load i16, ptr %197, align 2
-  %204 = xor i16 %203, 1
-  store i16 %204, ptr %197, align 2
+200:                                              ; preds = %195
+  %201 = load i16, ptr %196, align 2
+  %202 = xor i16 %201, 1
+  store i16 %202, ptr %196, align 2
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %205
+  br label %203
 
-205:                                              ; preds = %202, %196
-  %206 = load i16, ptr %197, align 2
-  %207 = and i16 %206, 2
-  %208 = icmp ne i16 %207, 0
-  %209 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %208, i1 noundef zeroext true)
-  br i1 %209, label %210, label %213
+203:                                              ; preds = %200, %195
+  %204 = load i16, ptr %196, align 2
+  %205 = and i16 %204, 2
+  %206 = icmp ne i16 %205, 0
+  %207 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %206, i1 noundef zeroext true)
+  br i1 %207, label %208, label %211
 
-210:                                              ; preds = %205
-  %211 = load i16, ptr %197, align 2
-  %212 = xor i16 %211, 2
-  store i16 %212, ptr %197, align 2
+208:                                              ; preds = %203
+  %209 = load i16, ptr %196, align 2
+  %210 = xor i16 %209, 2
+  store i16 %210, ptr %196, align 2
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %213
+  br label %211
 
-213:                                              ; preds = %210, %205
-  %214 = load i16, ptr %197, align 2
-  %215 = and i16 %214, 4
-  %216 = icmp ne i16 %215, 0
-  %217 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %216, i1 noundef zeroext true)
-  br i1 %217, label %218, label %221
+211:                                              ; preds = %208, %203
+  %212 = load i16, ptr %196, align 2
+  %213 = and i16 %212, 4
+  %214 = icmp ne i16 %213, 0
+  %215 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %214, i1 noundef zeroext true)
+  br i1 %215, label %216, label %219
 
-218:                                              ; preds = %213
-  %219 = load i16, ptr %197, align 2
-  %220 = xor i16 %219, 4
-  store i16 %220, ptr %197, align 2
+216:                                              ; preds = %211
+  %217 = load i16, ptr %196, align 2
+  %218 = xor i16 %217, 4
+  store i16 %218, ptr %196, align 2
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %221
+  br label %219
 
-221:                                              ; preds = %218, %213
-  %222 = load i16, ptr %197, align 2
-  %223 = and i16 %222, 8
-  %224 = icmp ne i16 %223, 0
-  %225 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.20, i1 noundef zeroext %224, i1 noundef zeroext true)
-  br i1 %225, label %226, label %229
+219:                                              ; preds = %216, %211
+  %220 = load i16, ptr %196, align 2
+  %221 = and i16 %220, 8
+  %222 = icmp ne i16 %221, 0
+  %223 = call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.20, i1 noundef zeroext %222, i1 noundef zeroext true)
+  br i1 %223, label %224, label %227
 
-226:                                              ; preds = %221
-  %227 = load i16, ptr %197, align 2
-  %228 = xor i16 %227, 8
-  store i16 %228, ptr %197, align 2
+224:                                              ; preds = %219
+  %225 = load i16, ptr %196, align 2
+  %226 = xor i16 %225, 8
+  store i16 %226, ptr %196, align 2
   call void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align 8 dereferenceable(33408) %0)
-  br label %229
+  br label %227
 
-229:                                              ; preds = %226, %221
+227:                                              ; preds = %224, %219
   call void @_Z13imguiUnindentv()
   call void @_Z14imguiSeparatorv()
   ret void

@@ -747,7 +747,7 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 54:                                               ; preds = %51
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %411
+  br label %408
 
 56:                                               ; preds = %._crit_edge, %51
   %.pre-phi = phi i16 [ %.pre, %._crit_edge ], [ %47, %51 ]
@@ -758,7 +758,7 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 57:                                               ; preds = %56
   %58 = tail call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull @ei_isns_not_first_pdu, ptr noundef %0, i32 noundef %.077, i32 noundef -1)
   %59 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %411
+  br label %408
 
 60:                                               ; preds = %56
   %61 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -771,18 +771,18 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %64
 
 64:                                               ; preds = %.lr.ph, %AddAttribute.exit
-  %.279 = phi i32 [ %.077, %.lr.ph ], [ %.0.i, %AddAttribute.exit ]
+  %.281 = phi i32 [ %.077, %.lr.ph ], [ %.0.i, %AddAttribute.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = load i32, ptr @ett_isns_attribute, align 4
-  %66 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %0, i32 noundef %.279, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %5, ptr noundef nonnull @.str.371)
-  %67 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.279)
+  %66 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %0, i32 noundef %.281, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %5, ptr noundef nonnull @.str.371)
+  %67 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.281)
   %68 = load i32, ptr @hf_isns_attr_tag, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %68, ptr noundef %0, i32 noundef %.279, i32 noundef 4, i32 noundef 0)
-  %70 = add i32 %.279, 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %68, ptr noundef %0, i32 noundef %.281, i32 noundef 4, i32 noundef 0)
+  %70 = add i32 %.281, 4
   %71 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %70)
   %72 = load i32, ptr @hf_isns_attr_len, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %72, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0)
-  %74 = add i32 %.279, 8
+  %74 = add i32 %.281, 8
   %75 = load ptr, ptr %5, align 8
   %76 = call ptr @val_to_str_ext_const(i32 noundef %67, ptr noundef nonnull @isns_attribute_tags_ext, ptr noundef nonnull @.str.373)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.372, ptr noundef %76)
@@ -805,8 +805,8 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %AddAttribute.exit
 
 85:                                               ; preds = %64
-  switch i32 %67, label %402 [
-    i32 0, label %405
+  switch i32 %67, label %399 [
+    i32 0, label %402
     i32 1, label %86
     i32 2, label %89
     i32 3, label %95
@@ -816,63 +816,63 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
     i32 8, label %119
     i32 16, label %125
     i32 17, label %128
-    i32 18, label %139
-    i32 19, label %142
-    i32 20, label %145
-    i32 22, label %147
-    i32 23, label %150
-    i32 24, label %152
-    i32 27, label %155
-    i32 32, label %159
-    i32 33, label %162
-    i32 34, label %169
-    i32 35, label %172
-    i32 36, label %179
-    i32 37, label %185
-    i32 38, label %191
-    i32 42, label %197
-    i32 48, label %200
-    i32 49, label %203
-    i32 50, label %206
-    i32 51, label %220
-    i32 52, label %226
-    i32 53, label %232
-    i32 64, label %238
-    i32 65, label %244
-    i32 67, label %250
-    i32 68, label %253
-    i32 69, label %259
-    i32 70, label %265
-    i32 73, label %271
-    i32 77, label %274
-    i32 96, label %280
-    i32 97, label %286
-    i32 98, label %289
-    i32 99, label %295
-    i32 101, label %301
-    i32 128, label %304
-    i32 129, label %310
-    i32 130, label %316
-    i32 131, label %322
-    i32 256, label %325
-    i32 2049, label %331
-    i32 2050, label %337
-    i32 2052, label %340
-    i32 2065, label %346
-    i32 2066, label %352
-    i32 2067, label %355
-    i32 2068, label %361
-    i32 2069, label %364
-    i32 2070, label %370
-    i32 2071, label %376
-    i32 2072, label %382
-    i32 2079, label %396
+    i32 18, label %138
+    i32 19, label %141
+    i32 20, label %144
+    i32 22, label %146
+    i32 23, label %149
+    i32 24, label %151
+    i32 27, label %154
+    i32 32, label %158
+    i32 33, label %161
+    i32 34, label %168
+    i32 35, label %171
+    i32 36, label %178
+    i32 37, label %184
+    i32 38, label %190
+    i32 42, label %196
+    i32 48, label %199
+    i32 49, label %202
+    i32 50, label %205
+    i32 51, label %218
+    i32 52, label %224
+    i32 53, label %230
+    i32 64, label %236
+    i32 65, label %242
+    i32 67, label %248
+    i32 68, label %251
+    i32 69, label %257
+    i32 70, label %263
+    i32 73, label %269
+    i32 77, label %272
+    i32 96, label %278
+    i32 97, label %284
+    i32 98, label %287
+    i32 99, label %293
+    i32 101, label %299
+    i32 128, label %302
+    i32 129, label %308
+    i32 130, label %314
+    i32 131, label %320
+    i32 256, label %323
+    i32 2049, label %329
+    i32 2050, label %335
+    i32 2052, label %338
+    i32 2065, label %344
+    i32 2066, label %350
+    i32 2067, label %353
+    i32 2068, label %359
+    i32 2069, label %362
+    i32 2070, label %368
+    i32 2071, label %374
+    i32 2072, label %380
+    i32 2079, label %393
   ]
 
 86:                                               ; preds = %85
   %87 = load i32, ptr @hf_isns_entity_identifier, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %87, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+  br label %402
 
 89:                                               ; preds = %85
   %.not423.i = icmp eq i32 %71, 4
@@ -880,12 +880,12 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 90:                                               ; preds = %89
   %91 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+  br label %402
 
 92:                                               ; preds = %89
   %93 = load i32, ptr @hf_isns_entity_protocol, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %93, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+  br label %402
 
 95:                                               ; preds = %85
   %.not422.i = icmp eq i32 %71, 16
@@ -893,12 +893,12 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 96:                                               ; preds = %95
   %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
-  br label %405
+  br label %402
 
 98:                                               ; preds = %95
   %99 = load i32, ptr @hf_isns_mgmt_ip_addr, align 4
   %100 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %99, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
-  br label %405
+  br label %402
 
 101:                                              ; preds = %85
   %.not421.i = icmp eq i32 %71, 8
@@ -906,12 +906,12 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 102:                                              ; preds = %101
   %103 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+  br label %402
 
 104:                                              ; preds = %101
   %105 = load i32, ptr @hf_isns_timestamp, align 4
   %106 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %105, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+  br label %402
 
 107:                                              ; preds = %85
   %.not420.i = icmp eq i32 %71, 4
@@ -919,12 +919,12 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 108:                                              ; preds = %107
   %109 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+  br label %402
 
 110:                                              ; preds = %107
   %111 = load i32, ptr @hf_isns_registration_period, align 4
   %112 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %111, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+  br label %402
 
 113:                                              ; preds = %85
   %.not419.i = icmp eq i32 %71, 4
@@ -932,12 +932,12 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 114:                                              ; preds = %113
   %115 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+  br label %402
 
 116:                                              ; preds = %113
   %117 = load i32, ptr @hf_isns_entity_index, align 4
   %118 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %117, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+  br label %402
 
 119:                                              ; preds = %85
   %.not418.i = icmp eq i32 %71, 4
@@ -945,578 +945,578 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 120:                                              ; preds = %119
   %121 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+  br label %402
 
 122:                                              ; preds = %119
   %123 = load i32, ptr @hf_isns_entity_next_index, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %123, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+  br label %402
 
 125:                                              ; preds = %85
   %126 = load i32, ptr @hf_isns_portal_ip_addr, align 4
   %127 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %126, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+  br label %402
 
 128:                                              ; preds = %85
   %129 = load i32, ptr @hf_isns_portal_port, align 4
-  %130 = add i32 %.279, 10
+  %130 = add i32 %.281, 10
   %131 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %130)
   %132 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74)
-  %133 = and i16 %132, 1
-  %134 = zext i16 %131 to i32
-  %135 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %129, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %134)
-  %136 = load i32, ptr @hf_isns_port_type, align 4
-  %137 = zext nneg i16 %133 to i64
-  %138 = call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %136, ptr noundef %0, i32 noundef %74, i32 noundef 2, i64 noundef %137)
-  br label %405
+  %133 = zext i16 %131 to i32
+  %134 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %129, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %133)
+  %135 = load i32, ptr @hf_isns_port_type, align 4
+  %.mask.i80 = and i16 %132, 1
+  %136 = zext nneg i16 %.mask.i80 to i64
+  %137 = call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %135, ptr noundef %0, i32 noundef %74, i32 noundef 2, i64 noundef %136)
+  br label %402
 
-139:                                              ; preds = %85
-  %140 = load i32, ptr @hf_isns_portal_symbolic_name, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %140, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+138:                                              ; preds = %85
+  %139 = load i32, ptr @hf_isns_portal_symbolic_name, align 4
+  %140 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %139, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-142:                                              ; preds = %85
-  %143 = load i32, ptr @hf_isns_esi_interval, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %143, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+141:                                              ; preds = %85
+  %142 = load i32, ptr @hf_isns_esi_interval, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %142, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-145:                                              ; preds = %85
-  %146 = load i32, ptr @hf_isns_esi_port, align 4
-  call fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef %74, ptr noundef %66, i32 noundef %146, i16 noundef zeroext 1, ptr noundef %1)
-  br label %405
+144:                                              ; preds = %85
+  %145 = load i32, ptr @hf_isns_esi_port, align 4
+  call fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef %74, ptr noundef %66, i32 noundef %145, i16 noundef zeroext 1, ptr noundef %1)
+  br label %402
 
-147:                                              ; preds = %85
-  %148 = load i32, ptr @hf_isns_portal_index, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %148, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+146:                                              ; preds = %85
+  %147 = load i32, ptr @hf_isns_portal_index, align 4
+  %148 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %147, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-150:                                              ; preds = %85
-  %151 = load i32, ptr @hf_isns_scn_port, align 4
-  call fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef %74, ptr noundef %66, i32 noundef %151, i16 noundef zeroext 2, ptr noundef %1)
-  br label %405
+149:                                              ; preds = %85
+  %150 = load i32, ptr @hf_isns_scn_port, align 4
+  call fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef %74, ptr noundef %66, i32 noundef %150, i16 noundef zeroext 2, ptr noundef %1)
+  br label %402
 
-152:                                              ; preds = %85
-  %153 = load i32, ptr @hf_isns_portal_next_index, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %153, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+151:                                              ; preds = %85
+  %152 = load i32, ptr @hf_isns_portal_next_index, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %152, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-155:                                              ; preds = %85
-  %156 = load i32, ptr @hf_isns_psb, align 4
-  %157 = load i32, ptr @ett_isns_attribute, align 4
-  %158 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %74, i32 noundef %156, i32 noundef %157, ptr noundef nonnull @dissect_isns_attr_portal_security_bitmap.flags, i32 noundef 0)
-  br label %405
+154:                                              ; preds = %85
+  %155 = load i32, ptr @hf_isns_psb, align 4
+  %156 = load i32, ptr @ett_isns_attribute, align 4
+  %157 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %74, i32 noundef %155, i32 noundef %156, ptr noundef nonnull @dissect_isns_attr_portal_security_bitmap.flags, i32 noundef 0)
+  br label %402
 
-159:                                              ; preds = %85
-  %160 = load i32, ptr @hf_isns_iscsi_name, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %160, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+158:                                              ; preds = %85
+  %159 = load i32, ptr @hf_isns_iscsi_name, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %159, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-162:                                              ; preds = %85
+161:                                              ; preds = %85
   %.not417.i = icmp eq i32 %71, 4
-  br i1 %.not417.i, label %165, label %163
+  br i1 %.not417.i, label %164, label %162
 
-163:                                              ; preds = %162
-  %164 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+162:                                              ; preds = %161
+  %163 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-165:                                              ; preds = %162
-  %166 = load i32, ptr @hf_isns_iscsi_node_type, align 4
-  %167 = load i32, ptr @ett_isns_attribute, align 4
-  %168 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %74, i32 noundef %166, i32 noundef %167, ptr noundef nonnull @dissect_isns_attr_iscsi_node_type.flags, i32 noundef 0)
-  br label %405
+164:                                              ; preds = %161
+  %165 = load i32, ptr @hf_isns_iscsi_node_type, align 4
+  %166 = load i32, ptr @ett_isns_attribute, align 4
+  %167 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %74, i32 noundef %165, i32 noundef %166, ptr noundef nonnull @dissect_isns_attr_iscsi_node_type.flags, i32 noundef 0)
+  br label %402
 
-169:                                              ; preds = %85
-  %170 = load i32, ptr @hf_isns_iscsi_alias, align 4
-  %171 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %170, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+168:                                              ; preds = %85
+  %169 = load i32, ptr @hf_isns_iscsi_alias, align 4
+  %170 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %169, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-172:                                              ; preds = %85
+171:                                              ; preds = %85
   %.not416.i = icmp eq i32 %71, 4
-  br i1 %.not416.i, label %175, label %173
+  br i1 %.not416.i, label %174, label %172
 
-173:                                              ; preds = %172
-  %174 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+172:                                              ; preds = %171
+  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-175:                                              ; preds = %172
-  %176 = load i32, ptr @hf_isns_scn_bitmap, align 4
-  %177 = load i32, ptr @ett_isns_attribute, align 4
-  %178 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %74, i32 noundef %176, i32 noundef %177, ptr noundef nonnull @dissect_isns_attr_scn_bitmap.flags, i32 noundef 0)
-  br label %405
+174:                                              ; preds = %171
+  %175 = load i32, ptr @hf_isns_scn_bitmap, align 4
+  %176 = load i32, ptr @ett_isns_attribute, align 4
+  %177 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %0, i32 noundef %74, i32 noundef %175, i32 noundef %176, ptr noundef nonnull @dissect_isns_attr_scn_bitmap.flags, i32 noundef 0)
+  br label %402
 
-179:                                              ; preds = %85
+178:                                              ; preds = %85
   %.not415.i = icmp eq i32 %71, 4
-  br i1 %.not415.i, label %182, label %180
+  br i1 %.not415.i, label %181, label %179
 
-180:                                              ; preds = %179
-  %181 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+179:                                              ; preds = %178
+  %180 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-182:                                              ; preds = %179
-  %183 = load i32, ptr @hf_isns_node_index, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %183, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+181:                                              ; preds = %178
+  %182 = load i32, ptr @hf_isns_node_index, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %182, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-185:                                              ; preds = %85
+184:                                              ; preds = %85
   %.not414.i = icmp eq i32 %71, 8
-  br i1 %.not414.i, label %188, label %186
+  br i1 %.not414.i, label %187, label %185
 
-186:                                              ; preds = %185
-  %187 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+185:                                              ; preds = %184
+  %186 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-188:                                              ; preds = %185
-  %189 = load i32, ptr @hf_isns_wwnn_token, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %189, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+187:                                              ; preds = %184
+  %188 = load i32, ptr @hf_isns_wwnn_token, align 4
+  %189 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %188, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-191:                                              ; preds = %85
+190:                                              ; preds = %85
   %.not413.i = icmp eq i32 %71, 4
-  br i1 %.not413.i, label %194, label %192
+  br i1 %.not413.i, label %193, label %191
 
-192:                                              ; preds = %191
-  %193 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+191:                                              ; preds = %190
+  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-194:                                              ; preds = %191
-  %195 = load i32, ptr @hf_isns_node_next_index, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %195, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+193:                                              ; preds = %190
+  %194 = load i32, ptr @hf_isns_node_next_index, align 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %194, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-197:                                              ; preds = %85
-  %198 = load i32, ptr @hf_isns_iscsi_auth_method, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %198, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+196:                                              ; preds = %85
+  %197 = load i32, ptr @hf_isns_iscsi_auth_method, align 4
+  %198 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %197, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-200:                                              ; preds = %85
-  %201 = load i32, ptr @hf_isns_pg_iscsi_name, align 4
-  %202 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %201, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+199:                                              ; preds = %85
+  %200 = load i32, ptr @hf_isns_pg_iscsi_name, align 4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %200, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-203:                                              ; preds = %85
-  %204 = load i32, ptr @hf_isns_pg_portal_ip_addr, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %204, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+202:                                              ; preds = %85
+  %203 = load i32, ptr @hf_isns_pg_portal_ip_addr, align 4
+  %204 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %203, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-206:                                              ; preds = %85
+205:                                              ; preds = %85
   %.not412.i = icmp eq i32 %71, 4
-  br i1 %.not412.i, label %209, label %207
+  br i1 %.not412.i, label %208, label %206
 
-207:                                              ; preds = %206
-  %208 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+206:                                              ; preds = %205
+  %207 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-209:                                              ; preds = %206
-  %210 = load i32, ptr @hf_isns_pg_portal_port, align 4
-  %211 = add i32 %.279, 10
-  %212 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %211)
-  %213 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74)
-  %214 = and i16 %213, 1
-  %215 = zext i16 %212 to i32
-  %216 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %210, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %215)
-  %217 = load i32, ptr @hf_isns_port_type, align 4
-  %218 = zext nneg i16 %214 to i64
-  %219 = call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %217, ptr noundef %0, i32 noundef %74, i32 noundef 2, i64 noundef %218)
-  br label %405
+208:                                              ; preds = %205
+  %209 = load i32, ptr @hf_isns_pg_portal_port, align 4
+  %210 = add i32 %.281, 10
+  %211 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %210)
+  %212 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74)
+  %213 = zext i16 %211 to i32
+  %214 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %209, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %213)
+  %215 = load i32, ptr @hf_isns_port_type, align 4
+  %.mask.i79 = and i16 %212, 1
+  %216 = zext nneg i16 %.mask.i79 to i64
+  %217 = call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %215, ptr noundef %0, i32 noundef %74, i32 noundef 2, i64 noundef %216)
+  br label %402
 
-220:                                              ; preds = %85
+218:                                              ; preds = %85
   %.not411.i = icmp eq i32 %71, 4
-  br i1 %.not411.i, label %223, label %221
+  br i1 %.not411.i, label %221, label %219
 
-221:                                              ; preds = %220
-  %222 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+219:                                              ; preds = %218
+  %220 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-223:                                              ; preds = %220
-  %224 = load i32, ptr @hf_isns_portal_group_tag, align 4
-  %225 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %224, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+221:                                              ; preds = %218
+  %222 = load i32, ptr @hf_isns_portal_group_tag, align 4
+  %223 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %222, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-226:                                              ; preds = %85
+224:                                              ; preds = %85
   %.not410.i = icmp eq i32 %71, 4
-  br i1 %.not410.i, label %229, label %227
+  br i1 %.not410.i, label %227, label %225
 
-227:                                              ; preds = %226
-  %228 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+225:                                              ; preds = %224
+  %226 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-229:                                              ; preds = %226
-  %230 = load i32, ptr @hf_isns_pg_index, align 4
-  %231 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %230, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+227:                                              ; preds = %224
+  %228 = load i32, ptr @hf_isns_pg_index, align 4
+  %229 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %228, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-232:                                              ; preds = %85
+230:                                              ; preds = %85
   %.not409.i = icmp eq i32 %71, 4
-  br i1 %.not409.i, label %235, label %233
+  br i1 %.not409.i, label %233, label %231
 
-233:                                              ; preds = %232
-  %234 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+231:                                              ; preds = %230
+  %232 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-235:                                              ; preds = %232
-  %236 = load i32, ptr @hf_isns_pg_next_index, align 4
-  %237 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %236, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+233:                                              ; preds = %230
+  %234 = load i32, ptr @hf_isns_pg_next_index, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %234, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-238:                                              ; preds = %85
+236:                                              ; preds = %85
   %.not408.i = icmp eq i32 %71, 8
-  br i1 %.not408.i, label %241, label %239
+  br i1 %.not408.i, label %239, label %237
 
-239:                                              ; preds = %238
-  %240 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+237:                                              ; preds = %236
+  %238 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-241:                                              ; preds = %238
-  %242 = load i32, ptr @hf_isns_fc_port_name_wwpn, align 4
-  %243 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %242, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+239:                                              ; preds = %236
+  %240 = load i32, ptr @hf_isns_fc_port_name_wwpn, align 4
+  %241 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %240, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-244:                                              ; preds = %85
+242:                                              ; preds = %85
   %.not407.i = icmp eq i32 %71, 3
-  br i1 %.not407.i, label %247, label %245
+  br i1 %.not407.i, label %245, label %243
 
-245:                                              ; preds = %244
-  %246 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 3)
-  br label %405
+243:                                              ; preds = %242
+  %244 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 3)
+  br label %402
 
-247:                                              ; preds = %244
-  %248 = load i32, ptr @hf_isns_port_id, align 4
-  %249 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %248, ptr noundef %0, i32 noundef %74, i32 noundef 3, i32 noundef 0)
-  br label %405
+245:                                              ; preds = %242
+  %246 = load i32, ptr @hf_isns_port_id, align 4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %246, ptr noundef %0, i32 noundef %74, i32 noundef 3, i32 noundef 0)
+  br label %402
 
-250:                                              ; preds = %85
-  %251 = load i32, ptr @hf_isns_symbolic_port_name, align 4
-  %252 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %251, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+248:                                              ; preds = %85
+  %249 = load i32, ptr @hf_isns_symbolic_port_name, align 4
+  %250 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %249, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-253:                                              ; preds = %85
+251:                                              ; preds = %85
   %.not406.i = icmp eq i32 %71, 8
-  br i1 %.not406.i, label %256, label %254
+  br i1 %.not406.i, label %254, label %252
 
-254:                                              ; preds = %253
-  %255 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+252:                                              ; preds = %251
+  %253 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-256:                                              ; preds = %253
-  %257 = load i32, ptr @hf_isns_fabric_port_name, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %257, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+254:                                              ; preds = %251
+  %255 = load i32, ptr @hf_isns_fabric_port_name, align 4
+  %256 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %255, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-259:                                              ; preds = %85
+257:                                              ; preds = %85
   %.not405.i = icmp eq i32 %71, 3
-  br i1 %.not405.i, label %262, label %260
+  br i1 %.not405.i, label %260, label %258
 
-260:                                              ; preds = %259
-  %261 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 3)
-  br label %405
+258:                                              ; preds = %257
+  %259 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 3)
+  br label %402
 
-262:                                              ; preds = %259
-  %263 = load i32, ptr @hf_isns_hard_address, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %263, ptr noundef %0, i32 noundef %74, i32 noundef 3, i32 noundef 0)
-  br label %405
+260:                                              ; preds = %257
+  %261 = load i32, ptr @hf_isns_hard_address, align 4
+  %262 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %261, ptr noundef %0, i32 noundef %74, i32 noundef 3, i32 noundef 0)
+  br label %402
 
-265:                                              ; preds = %85
+263:                                              ; preds = %85
   %.not404.i = icmp eq i32 %71, 16
-  br i1 %.not404.i, label %268, label %266
+  br i1 %.not404.i, label %266, label %264
 
-266:                                              ; preds = %265
-  %267 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
-  br label %405
+264:                                              ; preds = %263
+  %265 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
+  br label %402
 
-268:                                              ; preds = %265
-  %269 = load i32, ptr @hf_isns_port_ip_addr, align 4
-  %270 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %269, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
-  br label %405
+266:                                              ; preds = %263
+  %267 = load i32, ptr @hf_isns_port_ip_addr, align 4
+  %268 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %267, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
+  br label %402
 
-271:                                              ; preds = %85
-  %272 = load i32, ptr @hf_isns_fc4_descriptor, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %272, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+269:                                              ; preds = %85
+  %270 = load i32, ptr @hf_isns_fc4_descriptor, align 4
+  %271 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %270, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-274:                                              ; preds = %85
+272:                                              ; preds = %85
   %.not403.i = icmp eq i32 %71, 8
-  br i1 %.not403.i, label %277, label %275
+  br i1 %.not403.i, label %275, label %273
 
-275:                                              ; preds = %274
-  %276 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+273:                                              ; preds = %272
+  %274 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-277:                                              ; preds = %274
-  %278 = load i32, ptr @hf_isns_permanent_port_name, align 4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %278, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+275:                                              ; preds = %272
+  %276 = load i32, ptr @hf_isns_permanent_port_name, align 4
+  %277 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %276, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-280:                                              ; preds = %85
+278:                                              ; preds = %85
   %.not402.i = icmp eq i32 %71, 8
-  br i1 %.not402.i, label %283, label %281
+  br i1 %.not402.i, label %281, label %279
 
-281:                                              ; preds = %280
-  %282 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+279:                                              ; preds = %278
+  %280 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-283:                                              ; preds = %280
-  %284 = load i32, ptr @hf_isns_fc_node_name_wwnn, align 4
-  %285 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %284, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+281:                                              ; preds = %278
+  %282 = load i32, ptr @hf_isns_fc_node_name_wwnn, align 4
+  %283 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %282, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-286:                                              ; preds = %85
-  %287 = load i32, ptr @hf_isns_symbolic_node_name, align 4
-  %288 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %287, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+284:                                              ; preds = %85
+  %285 = load i32, ptr @hf_isns_symbolic_node_name, align 4
+  %286 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %285, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-289:                                              ; preds = %85
+287:                                              ; preds = %85
   %.not401.i = icmp eq i32 %71, 16
-  br i1 %.not401.i, label %292, label %290
+  br i1 %.not401.i, label %290, label %288
 
-290:                                              ; preds = %289
-  %291 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
-  br label %405
+288:                                              ; preds = %287
+  %289 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
+  br label %402
 
-292:                                              ; preds = %289
-  %293 = load i32, ptr @hf_isns_node_ip_addr, align 4
-  %294 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %293, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
-  br label %405
+290:                                              ; preds = %287
+  %291 = load i32, ptr @hf_isns_node_ip_addr, align 4
+  %292 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %291, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
+  br label %402
 
-295:                                              ; preds = %85
+293:                                              ; preds = %85
   %.not400.i = icmp eq i32 %71, 8
-  br i1 %.not400.i, label %298, label %296
+  br i1 %.not400.i, label %296, label %294
 
-296:                                              ; preds = %295
-  %297 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+294:                                              ; preds = %293
+  %295 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-298:                                              ; preds = %295
-  %299 = load i32, ptr @hf_isns_node_ipa, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %299, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+296:                                              ; preds = %293
+  %297 = load i32, ptr @hf_isns_node_ipa, align 4
+  %298 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %297, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-301:                                              ; preds = %85
-  %302 = load i32, ptr @hf_isns_proxy_iscsi_name, align 4
-  %303 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %302, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+299:                                              ; preds = %85
+  %300 = load i32, ptr @hf_isns_proxy_iscsi_name, align 4
+  %301 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %300, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-304:                                              ; preds = %85
+302:                                              ; preds = %85
   %.not399.i = icmp eq i32 %71, 8
-  br i1 %.not399.i, label %307, label %305
+  br i1 %.not399.i, label %305, label %303
 
-305:                                              ; preds = %304
-  %306 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
-  br label %405
+303:                                              ; preds = %302
+  %304 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 8)
+  br label %402
 
-307:                                              ; preds = %304
-  %308 = load i32, ptr @hf_isns_switch_name, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %308, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
-  br label %405
+305:                                              ; preds = %302
+  %306 = load i32, ptr @hf_isns_switch_name, align 4
+  %307 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %306, ptr noundef %0, i32 noundef %74, i32 noundef 8, i32 noundef 0)
+  br label %402
 
-310:                                              ; preds = %85
+308:                                              ; preds = %85
   %.not398.i = icmp eq i32 %71, 4
-  br i1 %.not398.i, label %313, label %311
+  br i1 %.not398.i, label %311, label %309
 
-311:                                              ; preds = %310
-  %312 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+309:                                              ; preds = %308
+  %310 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-313:                                              ; preds = %310
-  %314 = load i32, ptr @hf_isns_preferred_id, align 4
-  %315 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %314, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+311:                                              ; preds = %308
+  %312 = load i32, ptr @hf_isns_preferred_id, align 4
+  %313 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %312, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-316:                                              ; preds = %85
+314:                                              ; preds = %85
   %.not397.i = icmp eq i32 %71, 4
-  br i1 %.not397.i, label %319, label %317
+  br i1 %.not397.i, label %317, label %315
 
-317:                                              ; preds = %316
-  %318 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+315:                                              ; preds = %314
+  %316 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-319:                                              ; preds = %316
-  %320 = load i32, ptr @hf_isns_assigned_id, align 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %320, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+317:                                              ; preds = %314
+  %318 = load i32, ptr @hf_isns_assigned_id, align 4
+  %319 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %318, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-322:                                              ; preds = %85
-  %323 = load i32, ptr @hf_isns_virtual_fabric_id, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %323, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+320:                                              ; preds = %85
+  %321 = load i32, ptr @hf_isns_virtual_fabric_id, align 4
+  %322 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %321, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-325:                                              ; preds = %85
+323:                                              ; preds = %85
   %.not396.i = icmp eq i32 %71, 4
-  br i1 %.not396.i, label %328, label %326
+  br i1 %.not396.i, label %326, label %324
 
-326:                                              ; preds = %325
-  %327 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+324:                                              ; preds = %323
+  %325 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-328:                                              ; preds = %325
-  %329 = load i32, ptr @hf_isns_vendor_oui, align 4
-  %330 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %329, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+326:                                              ; preds = %323
+  %327 = load i32, ptr @hf_isns_vendor_oui, align 4
+  %328 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %327, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-331:                                              ; preds = %85
+329:                                              ; preds = %85
   %.not395.i = icmp eq i32 %71, 4
-  br i1 %.not395.i, label %334, label %332
+  br i1 %.not395.i, label %332, label %330
 
-332:                                              ; preds = %331
-  %333 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+330:                                              ; preds = %329
+  %331 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-334:                                              ; preds = %331
-  %335 = load i32, ptr @hf_isns_dd_set_id, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %335, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+332:                                              ; preds = %329
+  %333 = load i32, ptr @hf_isns_dd_set_id, align 4
+  %334 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %333, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-337:                                              ; preds = %85
-  %338 = load i32, ptr @hf_isns_dd_set_symbolic_name, align 4
-  %339 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %338, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+335:                                              ; preds = %85
+  %336 = load i32, ptr @hf_isns_dd_set_symbolic_name, align 4
+  %337 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %336, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-340:                                              ; preds = %85
+338:                                              ; preds = %85
   %.not394.i = icmp eq i32 %71, 4
-  br i1 %.not394.i, label %343, label %341
+  br i1 %.not394.i, label %341, label %339
 
-341:                                              ; preds = %340
-  %342 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+339:                                              ; preds = %338
+  %340 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-343:                                              ; preds = %340
-  %344 = load i32, ptr @hf_isns_dd_set_next_id, align 4
-  %345 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %344, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+341:                                              ; preds = %338
+  %342 = load i32, ptr @hf_isns_dd_set_next_id, align 4
+  %343 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %342, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-346:                                              ; preds = %85
+344:                                              ; preds = %85
   %.not393.i = icmp eq i32 %71, 4
-  br i1 %.not393.i, label %349, label %347
+  br i1 %.not393.i, label %347, label %345
 
-347:                                              ; preds = %346
-  %348 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+345:                                              ; preds = %344
+  %346 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-349:                                              ; preds = %346
-  %350 = load i32, ptr @hf_isns_dd_id, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %350, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+347:                                              ; preds = %344
+  %348 = load i32, ptr @hf_isns_dd_id, align 4
+  %349 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %348, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-352:                                              ; preds = %85
-  %353 = load i32, ptr @hf_isns_dd_symbolic_name, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %353, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+350:                                              ; preds = %85
+  %351 = load i32, ptr @hf_isns_dd_symbolic_name, align 4
+  %352 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %351, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-355:                                              ; preds = %85
+353:                                              ; preds = %85
   %.not392.i = icmp eq i32 %71, 4
-  br i1 %.not392.i, label %358, label %356
+  br i1 %.not392.i, label %356, label %354
 
-356:                                              ; preds = %355
-  %357 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+354:                                              ; preds = %353
+  %355 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-358:                                              ; preds = %355
-  %359 = load i32, ptr @hf_isns_member_iscsi_index, align 4
-  %360 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %359, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+356:                                              ; preds = %353
+  %357 = load i32, ptr @hf_isns_member_iscsi_index, align 4
+  %358 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %357, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-361:                                              ; preds = %85
-  %362 = load i32, ptr @hf_isns_dd_member_iscsi_name, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %362, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+359:                                              ; preds = %85
+  %360 = load i32, ptr @hf_isns_dd_member_iscsi_name, align 4
+  %361 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %360, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-364:                                              ; preds = %85
+362:                                              ; preds = %85
   %.not391.i = icmp eq i32 %71, 4
-  br i1 %.not391.i, label %367, label %365
+  br i1 %.not391.i, label %365, label %363
 
-365:                                              ; preds = %364
-  %366 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+363:                                              ; preds = %362
+  %364 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-367:                                              ; preds = %364
-  %368 = load i32, ptr @hf_isns_member_fc_port_name, align 4
-  %369 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %368, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+365:                                              ; preds = %362
+  %366 = load i32, ptr @hf_isns_member_fc_port_name, align 4
+  %367 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %366, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-370:                                              ; preds = %85
+368:                                              ; preds = %85
   %.not390.i = icmp eq i32 %71, 4
-  br i1 %.not390.i, label %373, label %371
+  br i1 %.not390.i, label %371, label %369
 
-371:                                              ; preds = %370
-  %372 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+369:                                              ; preds = %368
+  %370 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-373:                                              ; preds = %370
-  %374 = load i32, ptr @hf_isns_member_portal_index, align 4
-  %375 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %374, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+371:                                              ; preds = %368
+  %372 = load i32, ptr @hf_isns_member_portal_index, align 4
+  %373 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %372, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-376:                                              ; preds = %85
+374:                                              ; preds = %85
   %.not389.i = icmp eq i32 %71, 16
-  br i1 %.not389.i, label %379, label %377
+  br i1 %.not389.i, label %377, label %375
 
-377:                                              ; preds = %376
-  %378 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
-  br label %405
+375:                                              ; preds = %374
+  %376 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 16)
+  br label %402
 
-379:                                              ; preds = %376
-  %380 = load i32, ptr @hf_isns_dd_member_portal_ip_addr, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %380, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
-  br label %405
+377:                                              ; preds = %374
+  %378 = load i32, ptr @hf_isns_dd_member_portal_ip_addr, align 4
+  %379 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %378, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
+  br label %402
 
-382:                                              ; preds = %85
+380:                                              ; preds = %85
   %.not388.i = icmp eq i32 %71, 4
-  br i1 %.not388.i, label %385, label %383
+  br i1 %.not388.i, label %383, label %381
 
-383:                                              ; preds = %382
-  %384 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+381:                                              ; preds = %380
+  %382 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-385:                                              ; preds = %382
-  %386 = load i32, ptr @hf_isns_dd_member_portal_port, align 4
-  %387 = add i32 %.279, 10
-  %388 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %387)
-  %389 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74)
-  %390 = and i16 %389, 1
-  %391 = zext i16 %388 to i32
-  %392 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %386, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %391)
-  %393 = load i32, ptr @hf_isns_port_type, align 4
-  %394 = zext nneg i16 %390 to i64
-  %395 = call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %393, ptr noundef %0, i32 noundef %74, i32 noundef 2, i64 noundef %394)
-  br label %405
+383:                                              ; preds = %380
+  %384 = load i32, ptr @hf_isns_dd_member_portal_port, align 4
+  %385 = add i32 %.281, 10
+  %386 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %385)
+  %387 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %74)
+  %388 = zext i16 %386 to i32
+  %389 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %384, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %388)
+  %390 = load i32, ptr @hf_isns_port_type, align 4
+  %.mask.i = and i16 %387, 1
+  %391 = zext nneg i16 %.mask.i to i64
+  %392 = call ptr @proto_tree_add_boolean(ptr noundef %66, i32 noundef %390, ptr noundef %0, i32 noundef %74, i32 noundef 2, i64 noundef %391)
+  br label %402
 
-396:                                              ; preds = %85
+393:                                              ; preds = %85
   %.not.i = icmp eq i32 %71, 4
-  br i1 %.not.i, label %399, label %397
+  br i1 %.not.i, label %396, label %394
 
-397:                                              ; preds = %396
-  %398 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
-  br label %405
+394:                                              ; preds = %393
+  %395 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %73, ptr noundef nonnull @ei_isns_invalid_attr_len, ptr noundef nonnull @.str.375, i32 noundef 4)
+  br label %402
 
-399:                                              ; preds = %396
-  %400 = load i32, ptr @hf_isns_dd_id_next_id, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %400, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
-  br label %405
+396:                                              ; preds = %393
+  %397 = load i32, ptr @hf_isns_dd_id_next_id, align 4
+  %398 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %397, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  br label %402
 
-402:                                              ; preds = %85
-  %403 = load i32, ptr @hf_isns_not_decoded_yet, align 4
-  %404 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %403, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
-  br label %405
+399:                                              ; preds = %85
+  %400 = load i32, ptr @hf_isns_not_decoded_yet, align 4
+  %401 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %400, ptr noundef %0, i32 noundef %74, i32 noundef %71, i32 noundef 0)
+  br label %402
 
-405:                                              ; preds = %402, %399, %397, %385, %383, %379, %377, %373, %371, %367, %365, %361, %358, %356, %352, %349, %347, %343, %341, %337, %334, %332, %328, %326, %322, %319, %317, %313, %311, %307, %305, %301, %298, %296, %292, %290, %286, %283, %281, %277, %275, %271, %268, %266, %262, %260, %256, %254, %250, %247, %245, %241, %239, %235, %233, %229, %227, %223, %221, %209, %207, %203, %200, %197, %194, %192, %188, %186, %182, %180, %175, %173, %169, %165, %163, %159, %155, %152, %150, %147, %145, %142, %139, %128, %125, %122, %120, %116, %114, %110, %108, %104, %102, %98, %96, %92, %90, %86, %85
+402:                                              ; preds = %399, %396, %394, %383, %381, %377, %375, %371, %369, %365, %363, %359, %356, %354, %350, %347, %345, %341, %339, %335, %332, %330, %326, %324, %320, %317, %315, %311, %309, %305, %303, %299, %296, %294, %290, %288, %284, %281, %279, %275, %273, %269, %266, %264, %260, %258, %254, %252, %248, %245, %243, %239, %237, %233, %231, %227, %225, %221, %219, %208, %206, %202, %199, %196, %193, %191, %187, %185, %181, %179, %174, %172, %168, %164, %162, %158, %154, %151, %149, %146, %144, %141, %138, %128, %125, %122, %120, %116, %114, %110, %108, %104, %102, %98, %96, %92, %90, %86, %85
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %74, i32 noundef %71)
-  %406 = load ptr, ptr %5, align 8
-  %407 = add i32 %71, 8
-  call void @proto_item_set_len(ptr noundef %406, i32 noundef %407)
-  %408 = add i32 %71, %74
+  %403 = load ptr, ptr %5, align 8
+  %404 = add i32 %71, 8
+  call void @proto_item_set_len(ptr noundef %403, i32 noundef %404)
+  %405 = add i32 %71, %74
   br label %AddAttribute.exit
 
-AddAttribute.exit:                                ; preds = %83, %405
-  %.0.i = phi i32 [ %74, %83 ], [ %408, %405 ]
+AddAttribute.exit:                                ; preds = %83, %402
+  %.0.i = phi i32 [ %74, %83 ], [ %405, %402 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %409 = icmp ult i32 %.0.i, %61
-  br i1 %409, label %64, label %.loopexit, !llvm.loop !8
+  %406 = icmp ult i32 %.0.i, %61
+  br i1 %406, label %64, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %AddAttribute.exit, %60, %35
-  %410 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %411
+  %407 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %408
 
-411:                                              ; preds = %.loopexit, %57, %54
-  %.0 = phi i32 [ %410, %.loopexit ], [ %59, %57 ], [ %55, %54 ]
+408:                                              ; preds = %.loopexit, %57, %54
+  %.0 = phi i32 [ %407, %.loopexit ], [ %59, %57 ], [ %55, %54 ]
   ret i32 %.0
 }
 
@@ -1576,36 +1576,36 @@ define internal fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef 
   %7 = add i32 %1, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7)
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1)
-  %10 = and i16 %9, 1
-  %11 = zext i16 %8 to i32
-  %12 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %11)
-  %13 = load i32, ptr @hf_isns_port_type, align 4
-  %14 = zext nneg i16 %10 to i64
-  %15 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef 2, i64 noundef %14)
-  %.not31 = icmp eq i16 %4, 0
-  br i1 %.not31, label %26, label %16
+  %10 = zext i16 %8 to i32
+  %11 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %10)
+  %12 = load i32, ptr @hf_isns_port_type, align 4
+  %.mask = and i16 %9, 1
+  %13 = zext nneg i16 %.mask to i64
+  %14 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %1, i32 noundef 2, i64 noundef %13)
+  %.not = icmp eq i16 %4, 0
+  br i1 %.not, label %26, label %15
 
-16:                                               ; preds = %6
-  %.not = icmp eq i16 %10, 0
-  %. = select i1 %.not, i32 2, i32 3
-  %isns_tcp_handle.val = load ptr, ptr @isns_tcp_handle, align 8
+15:                                               ; preds = %6
+  %16 = trunc i16 %9 to i1
+  %. = select i1 %16, i32 3, i32 2
   %isns_udp_handle.val = load ptr, ptr @isns_udp_handle, align 8
+  %isns_tcp_handle.val = load ptr, ptr @isns_tcp_handle, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %21 = tail call ptr @find_conversation(i32 noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 131072)
+  %21 = tail call ptr @find_conversation(i32 noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %., i32 noundef %10, i32 noundef 0, i32 noundef 131072)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
-23:                                               ; preds = %16
-  %.0 = select i1 %.not, ptr %isns_tcp_handle.val, ptr %isns_udp_handle.val
+23:                                               ; preds = %15
+  %.0 = select i1 %16, ptr %isns_udp_handle.val, ptr %isns_tcp_handle.val
   %24 = load i32, ptr %17, align 4
-  %25 = tail call ptr @conversation_new(i32 noundef %24, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 4)
+  %25 = tail call ptr @conversation_new(i32 noundef %24, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %., i32 noundef %10, i32 noundef 0, i32 noundef 4)
   tail call void @conversation_set_dissector(ptr noundef %25, ptr noundef %.0)
   br label %26
 
-26:                                               ; preds = %16, %23, %6
+26:                                               ; preds = %15, %23, %6
   ret void
 }
 

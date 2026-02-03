@@ -4285,9 +4285,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1215: ; preds = %76, %76
 2189:                                             ; preds = %2181
   %2190 = getelementptr inbounds nuw i8, ptr %2185, i64 24
   %2191 = load i64, ptr %2190, align 8, !tbaa !107
-  %2192 = and i64 %2191, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %2192, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i.i.i.i, label %2193, !prof !21
+  %2192 = trunc i64 %2191 to i1
+  br i1 %2192, label %2193, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i.i.i.i, !prof !23
 
 2193:                                             ; preds = %2189
   %2194 = getelementptr inbounds nuw i8, ptr %2185, i64 32
@@ -11077,9 +11076,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1219: ; preds = %89, %89
 2202:                                             ; preds = %2194
   %2203 = getelementptr inbounds nuw i8, ptr %2198, i64 24
   %2204 = load i64, ptr %2203, align 8, !tbaa !107
-  %2205 = and i64 %2204, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %2205, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i.i.i.i, label %2206, !prof !21
+  %2205 = trunc i64 %2204 to i1
+  br i1 %2205, label %2206, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i.i.i.i, !prof !23
 
 2206:                                             ; preds = %2202
   %2207 = getelementptr inbounds nuw i8, ptr %2198, i64 32
@@ -17869,9 +17867,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1219: ; preds = %89, %89
 2202:                                             ; preds = %2194
   %2203 = getelementptr inbounds nuw i8, ptr %2198, i64 24
   %2204 = load i64, ptr %2203, align 8, !tbaa !107
-  %2205 = and i64 %2204, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %2205, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i.i.i.i, label %2206, !prof !21
+  %2205 = trunc i64 %2204 to i1
+  br i1 %2205, label %2206, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i.i.i.i.i, !prof !23
 
 2206:                                             ; preds = %2202
   %2207 = getelementptr inbounds nuw i8, ptr %2198, i64 32
@@ -20745,9 +20742,8 @@ _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit: ; preds = %1, %5
 12:                                               ; preds = %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !107
-  %15 = and i64 %14, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %16, !prof !21
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, !prof !23
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32

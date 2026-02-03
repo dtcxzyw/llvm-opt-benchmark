@@ -1435,9 +1435,8 @@ define internal noundef i64 @ossl_ec_group_set_asn1_flag(i64 noundef %0, i64 nou
   unreachable
 
 7:                                                ; preds = %2
-  %8 = and i64 %1, 1
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %11, label %9
+  %8 = trunc i64 %1 to i1
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
   %10 = tail call i64 @rb_fix2int(i64 noundef %1) #8

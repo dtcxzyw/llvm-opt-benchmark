@@ -5176,10 +5176,10 @@ _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS
   %18 = lshr exact i64 %17, 3
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = and i64 %17, 34359738360
-  %.not36 = icmp eq i64 %20, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph38
+  %.not35 = icmp eq i64 %20, 0
+  br i1 %.not35, label %._crit_edge, label %.lr.ph37
 
-.lr.ph38:                                         ; preds = %_ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit
+.lr.ph37:                                         ; preds = %_ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit
   %21 = load ptr, ptr %19, align 8, !tbaa !363
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
@@ -5209,8 +5209,8 @@ _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %26
 
-34:                                               ; preds = %.lr.ph38, %.loopexit
-  %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %.loopexit ]
+34:                                               ; preds = %.lr.ph37, %.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %.loopexit ]
   %35 = xor i64 %indvars.iv, -1
   %36 = add nsw i64 %18, %35
   %37 = and i64 %36, 4294967295
@@ -5233,9 +5233,8 @@ _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS
 _ZN4llvm12InstrEmitter8EmitNodeEPNS_6SDNodeEbbRNS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE.exit: ; preds = %44, %45
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, 1
-  %.not33 = icmp eq i8 %48, 0
-  br i1 %.not33, label %.loopexit, label %49
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %.loopexit
 
 49:                                               ; preds = %_ZN4llvm12InstrEmitter8EmitNodeEPNS_6SDNodeEbbRNS_13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE.exit
   %.sroa.0.0.copyload.i30 = load ptr, ptr %22, align 8
@@ -5300,12 +5299,12 @@ _ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE.exit: ; preds = %_ZNK4llvm12
   %86 = zext i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 3
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 %87
-  %.not2834 = icmp eq i32 %85, 0
-  br i1 %.not2834, label %.loopexit, label %.lr.ph
+  %.not2833 = icmp eq i32 %85, 0
+  br i1 %.not2833, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE.exit, %105
-  %.02535 = phi ptr [ %106, %105 ], [ %83, %_ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE.exit ]
-  %89 = load ptr, ptr %.02535, align 8, !tbaa !378
+  %.02534 = phi ptr [ %106, %105 ], [ %83, %_ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE.exit ]
+  %89 = load ptr, ptr %.02534, align 8, !tbaa !378
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 63
   %91 = load i8, ptr %90, align 1, !tbaa !380, !range !178, !noundef !179
   %92 = trunc nuw i8 %91 to i1
@@ -5337,7 +5336,7 @@ _ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE.exit: ; preds = %_ZNK4llvm12
   br label %105
 
 105:                                              ; preds = %93, %95, %.lr.ph
-  %106 = getelementptr inbounds nuw i8, ptr %.02535, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
   %.not28 = icmp eq ptr %106, %88
   br i1 %.not28, label %.loopexit, label %.lr.ph
 

@@ -210,20 +210,17 @@ define zeroext i1 @df_func_register(ptr noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %2, i64 1
   %10 = load i8, ptr %9, align 1
   %.not1116.i = icmp eq i8 %10, 0
-  br i1 %.not1116.i, label %select.unfold, label %.lr.ph.i
+  %.not12.i = trunc i16 %7 to i1
+  %11 = or i1 %.not1116.i, %.not12.i
+  %or.cond = or i1 %.not10.i, %11
+  br i1 %or.cond, label %select.unfold, label %check_valid_func_name.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i
-  %11 = and i16 %7, 1
-  %.not12.i = icmp ne i16 %11, 0
-  %or.cond14.i = or i1 %.not10.i, %.not12.i
-  br i1 %or.cond14.i, label %select.unfold, label %check_valid_func_name.exit
-
-check_valid_func_name.exit:                       ; preds = %1, %.lr.ph.i
-  %.09.i = phi ptr [ @.str.30, %1 ], [ @.str.31, %.lr.ph.i ]
+check_valid_func_name.exit:                       ; preds = %.preheader.i, %1
+  %.09.i = phi ptr [ @.str.30, %1 ], [ @.str.31, %.preheader.i ]
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @.str.1, i64 noundef 714, ptr noundef nonnull @__func__.df_func_register, ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef nonnull %.09.i)
   br label %23
 
-select.unfold:                                    ; preds = %.lr.ph.i, %.preheader.i
+select.unfold:                                    ; preds = %.preheader.i
   %12 = load ptr, ptr @registered_functions, align 8
   %13 = tail call i32 @g_hash_table_contains(ptr noundef %12, ptr noundef %2)
   %.not10 = icmp eq i32 %13, 0

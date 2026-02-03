@@ -4696,36 +4696,29 @@ if.then:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %if.then, %entry
   %NewNumBuckets.0 = phi i32 [ %spec.store.select, %if.then ], [ 0, %entry ]
-  %bf.clear = and i32 %bf.load.i.i.i, 1
-  %tobool6 = icmp ne i32 %bf.clear, 0
+  %tobool6 = trunc i32 %bf.load.i.i.i to i1
   %cmp8 = icmp ult i32 %NewNumBuckets.0, 17
   %or.cond1 = select i1 %tobool6, i1 %cmp8, i1 false
-  br i1 %or.cond1, label %if.end5.if.then15_crit_edge, label %lor.lhs.false
-
-if.end5.if.then15_crit_edge:                      ; preds = %if.end5
   %NumBuckets.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre = load i32, ptr %NumBuckets.i.i.i.i.phi.trans.insert, align 8
-  br label %if.then15
+  br i1 %or.cond1, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  br i1 %tobool6, label %_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit, label %land.lhs.true12
+  %cmp14 = icmp ne i32 %NewNumBuckets.0, %.pre
+  %or.cond12.not = select i1 %tobool6, i1 true, i1 %cmp14
+  br i1 %or.cond12.not, label %if.end16, label %if.then15
 
-land.lhs.true12:                                  ; preds = %lor.lhs.false
-  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i32, ptr %NumBuckets, align 8
-  %cmp14 = icmp eq i32 %NewNumBuckets.0, %1
-  br i1 %cmp14, label %if.then15, label %if.end.i
-
-if.then15:                                        ; preds = %if.end5.if.then15_crit_edge, %land.lhs.true12
-  %2 = phi i32 [ %.pre, %if.end5.if.then15_crit_edge ], [ %NewNumBuckets.0, %land.lhs.true12 ]
-  store i32 %bf.clear, ptr %this, align 8
+if.then15:                                        ; preds = %if.end5, %lor.lhs.false
+  %1 = phi i32 [ %NewNumBuckets.0, %lor.lhs.false ], [ %.pre, %if.end5 ]
+  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 1
+  store i32 %bf.clear.i.i.i, ptr %this, align 8
   %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %NumTombstones.i.i.i, align 4
-  %tobool.not.i.i.i.i = icmp eq i32 %bf.clear, 0
+  %tobool.not.i.i.i.i = icmp eq i32 %bf.clear.i.i.i, 0
   %storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %storage.i.i.i.i.i, align 8
-  %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %3, ptr %storage.i.i.i.i.i
-  %cond.i.i.i3.i = select i1 %tobool.not.i.i.i.i, i32 %2, i32 16
+  %2 = load ptr, ptr %storage.i.i.i.i.i, align 8
+  %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %storage.i.i.i.i.i
+  %cond.i.i.i3.i = select i1 %tobool.not.i.i.i.i, i32 %1, i32 16
   %idx.ext.i.i = zext i32 %cond.i.i.i3.i to i64
   %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %add.ptr.i.idx.i
@@ -4739,21 +4732,25 @@ for.body.i:                                       ; preds = %if.then15, %for.bod
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !16
 
-if.end.i:                                         ; preds = %land.lhs.true12
+if.end16:                                         ; preds = %lor.lhs.false
+  %bf.clear.i = and i32 %bf.load.i.i.i, 1
+  %tobool.not.i = icmp eq i32 %bf.clear.i, 0
+  br i1 %tobool.not.i, label %if.end.i, label %_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit
+
+if.end.i:                                         ; preds = %if.end16
   %storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %4 = load ptr, ptr %storage.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #13
+  %3 = load ptr, ptr %storage.i.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %3) #13
   br label %_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit
 
-_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit: ; preds = %lor.lhs.false, %if.end.i
+_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit: ; preds = %if.end16, %if.end.i
   %cmp.i = icmp ugt i32 %NewNumBuckets.0, 16
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
 
 entry.if.end_crit_edge.i:                         ; preds = %_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit
   %storage.i.i.i.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre.i = load ptr, ptr %storage.i.i.i.i.i.phi.trans.insert.i, align 8
-  %NumBuckets.i.i.i.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %.pre3.i = load i32, ptr %NumBuckets.i.i.i.i.phi.trans.insert.i, align 8
+  %.pre3.i = load i32, ptr %NumBuckets.i.i.i.i.phi.trans.insert, align 8
   br label %if.end.i8
 
 if.then.i:                                        ; preds = %_ZN4llvh13SmallDenseMapIPN6hermes11InstructionENS_6detail13DenseSetEmptyELj16ENS_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEE17deallocateBucketsEv.exit
@@ -4765,23 +4762,22 @@ if.then.i:                                        ; preds = %_ZN4llvh13SmallDens
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 3
   %call.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i) #16
   store ptr %call.i.i, ptr %storage.i.i.i11, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %NewNumBuckets.0, ptr %5, align 8
+  store i32 %NewNumBuckets.0, ptr %NumBuckets.i.i.i.i.phi.trans.insert, align 8
   %bf.load.i.i.i.pre.i = load i32, ptr %this, align 8
-  %6 = and i32 %bf.load.i.i.i.pre.i, 1
+  %4 = and i32 %bf.load.i.i.i.pre.i, 1
   br label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.then.i, %entry.if.end_crit_edge.i
-  %7 = phi i32 [ %NewNumBuckets.0, %if.then.i ], [ %.pre3.i, %entry.if.end_crit_edge.i ]
-  %8 = phi ptr [ %call.i.i, %if.then.i ], [ %.pre.i, %entry.if.end_crit_edge.i ]
-  %bf.load.i.i.i.i = phi i32 [ %6, %if.then.i ], [ 1, %entry.if.end_crit_edge.i ]
+  %5 = phi i32 [ %NewNumBuckets.0, %if.then.i ], [ %.pre3.i, %entry.if.end_crit_edge.i ]
+  %6 = phi ptr [ %call.i.i, %if.then.i ], [ %.pre.i, %entry.if.end_crit_edge.i ]
+  %bf.load.i.i.i.i = phi i32 [ %4, %if.then.i ], [ 1, %entry.if.end_crit_edge.i ]
   store i32 %bf.load.i.i.i.i, ptr %this, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %tobool.not.i.i.i.i.i = icmp eq i32 %bf.load.i.i.i.i, 0
   %storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %8, ptr %storage.i.i.i.i.i.i
-  %cond.i.i.i3.i.i = select i1 %tobool.not.i.i.i.i.i, i32 %7, i32 16
+  %cond.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, ptr %6, ptr %storage.i.i.i.i.i.i
+  %cond.i.i.i3.i.i = select i1 %tobool.not.i.i.i.i.i, i32 %5, i32 16
   %idx.ext.i.i.i = zext i32 %cond.i.i.i3.i.i to i64
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 3
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %add.ptr.i.idx.i.i

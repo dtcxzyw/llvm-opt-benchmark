@@ -1007,9 +1007,8 @@ _ZN18elim_unconstrained8is_childERKNS_4nodeES2_.exit: ; preds = %"_ZZN18elim_unc
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 30
   %86 = load i8, ptr %85, align 2
-  %87 = and i8 %86, 1
-  %.not = icmp eq i8 %87, 0
-  br i1 %.not, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread, label %88, !llvm.loop !53
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread, !llvm.loop !53
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %12, align 8, !tbaa !27

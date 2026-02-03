@@ -1059,8 +1059,8 @@ _ZNKSt3mapImN4llvm22GlobalValueSummaryInfoESt4lessImESaISt4pairIKmS1_EEE4findERS
   %56 = trunc nuw i8 %55 to i1
   %57 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %57, 3
-  %or.cond132 = select i1 %56, i1 %.not, i1 false
-  br i1 %or.cond132, label %58, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread
+  %or.cond131 = select i1 %56, i1 %.not, i1 false
+  br i1 %or.cond131, label %58, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %0, align 8, !tbaa !163
@@ -1130,8 +1130,8 @@ _ZNK4llvm18ModuleSummaryIndex10isReadOnlyEPKNS_16GlobalVarSummaryE.exit: ; preds
 _ZNK4llvm18ModuleSummaryIndex11isWriteOnlyEPKNS_16GlobalVarSummaryE.exit49: ; preds = %89
   %97 = load i8, ptr %86, align 8
   %98 = and i8 %97, 2
-  %.not105 = icmp eq i8 %98, 0
-  br i1 %.not105, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %99
+  %.not104 = icmp eq i8 %98, 0
+  br i1 %.not104, label %_ZN4llvm16dyn_cast_or_nullINS_16GlobalVarSummaryENS_18GlobalValueSummaryEEEDaPT0_.exit.thread, label %99
 
 99:                                               ; preds = %_ZNK4llvm18ModuleSummaryIndex11isWriteOnlyEPKNS_16GlobalVarSummaryE.exit49
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1311,8 +1311,8 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit: ; preds = %_ZNK4llvm
   %178 = phi i32 [ %173, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i ], [ %177, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i ]
   %179 = and i32 %178, -49
   %180 = and i32 %178, 15
-  %.not106 = icmp eq i32 %180, 9
-  %spec.select.v = select i1 %.not106, i32 16, i32 16400
+  %.not105 = icmp eq i32 %180, 9
+  %spec.select.v = select i1 %.not105, i32 16, i32 16400
   %spec.select = or i32 %179, %spec.select.v
   store i32 %spec.select, ptr %103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1414,8 +1414,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit: ; preds = %215
 220:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %222 = load ptr, ptr %221, align 8, !tbaa !50
-  %.not107 = icmp eq ptr %222, null
-  br i1 %.not107, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit.thread, label %223
+  %.not106 = icmp eq ptr %222, null
+  br i1 %.not106, label %_ZN4llvm30FunctionImportGlobalProcessing20doImportAsDefinitionEPKNS_11GlobalValueE.exit.thread, label %223
 
 223:                                              ; preds = %220
   %224 = load ptr, ptr %222, align 8, !tbaa !59
@@ -1525,8 +1525,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77: ; preds = %_ZN4llvm8dyn
 _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77.thread: ; preds = %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77
   %276 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %277 = load ptr, ptr %276, align 8, !tbaa !186
-  %.not108 = icmp eq ptr %277, null
-  br i1 %.not108, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, label %278
+  %.not107 = icmp eq ptr %277, null
+  br i1 %.not107, label %_ZN4llvm8dyn_castINS_12GlobalObjectENS_11GlobalValueEEEDcPT0_.exit.thread, label %278
 
 278:                                              ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit77.thread
   call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef null) #17

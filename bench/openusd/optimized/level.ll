@@ -2654,9 +2654,9 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level25doesFaceF
   %7 = getelementptr inbounds ptr, ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i8 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel24getFaceCompositeValueTagEi(ptr noundef nonnull align 8 dereferenceable(216) %8, i32 noundef %1)
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  ret i1 %.not
+  %10 = trunc i8 %9 to i1
+  %11 = xor i1 %10, true
+  ret i1 %11
 }
 
 declare i8 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel24getFaceCompositeValueTagEi(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef) local_unnamed_addr #14
@@ -3240,9 +3240,8 @@ define i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVT
   %24 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %23, i64 %10
   %.sroa.06.0.copyload = load i16, ptr %24, align 2
   %25 = load i8, ptr %21, align 1
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
-  br i1 %.not, label %.loopexit, label %27
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %3
   %28 = and i16 %.sroa.06.0.copyload, -1921
@@ -3267,7 +3266,7 @@ define i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVT
   %39 = or disjoint i16 %38, %37
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit
 
-_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit: ; preds = %31, %36
+_ZNK10OpenSubdiv6v3_6_03Vtr8internal9FVarLevel8ValueTag20combineWithLevelVTagENS2_5Level4VTagE.exit: ; preds = %36, %31
   %.sroa.0.2.i = phi i16 [ %35, %31 ], [ %39, %36 ]
   %40 = lshr i8 %25, 7
   %41 = zext nneg i8 %40 to i16

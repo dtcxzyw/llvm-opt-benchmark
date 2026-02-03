@@ -1418,12 +1418,12 @@ define internal void @intel_sdvo_pre_enable(ptr readnone captures(none) %0, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 %195, ptr %13, align 2
   %196 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 17, ptr noundef nonnull %13, i32 noundef 2, i1 noundef zeroext true)
-  br i1 %196, label %197, label %584
+  br i1 %196, label %197, label %580
 
 197:                                              ; preds = %194
   %198 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %198, label %199, label %588
+  br i1 %198, label %199, label %584
 
 199:                                              ; preds = %197
   %200 = load i16, ptr %188, align 8
@@ -1528,521 +1528,509 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %203, %199
   %281 = select i1 %280, i8 24, i8 -104
   %282 = and i32 %278, 5
   %.not = icmp eq i32 %282, 0
-  br i1 %.not, label %289, label %283
-
-283:                                              ; preds = %intel_sdvo_get_dtd_from_mode.exit
-  %284 = trunc i32 %278 to i8
-  %285 = shl i8 %284, 1
-  %286 = and i8 %285, 2
-  %287 = and i8 %284, 4
-  %288 = or disjoint i8 %286, %287
-  %simplifycfg.merge = or disjoint i8 %288, %281
-  br label %289
-
-289:                                              ; preds = %intel_sdvo_get_dtd_from_mode.exit, %283
-  %storemerge = phi i8 [ %simplifycfg.merge, %283 ], [ %281, %intel_sdvo_get_dtd_from_mode.exit ]
+  %283 = trunc i32 %278 to i1
+  %284 = or disjoint i8 %281, 2
+  %285 = select i1 %283, i8 %284, i8 %281
+  %286 = trunc i32 %278 to i8
+  %287 = and i8 %286, 4
+  %simplifycfg.merge = or disjoint i8 %285, %287
+  %storemerge = select i1 %.not, i8 %281, i8 %simplifycfg.merge
   store i8 %storemerge, ptr %276, align 2
-  %290 = trunc i16 %228 to i8
-  %291 = and i8 %290, -64
-  %292 = getelementptr inbounds nuw i8, ptr %17, i64 14
-  store i8 %291, ptr %292, align 2
-  %293 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 22, ptr noundef nonnull %17, i32 noundef 8, i1 noundef zeroext true)
-  br i1 %293, label %294, label %300
+  %288 = trunc i16 %228 to i8
+  %289 = and i8 %288, -64
+  %290 = getelementptr inbounds nuw i8, ptr %17, i64 14
+  store i8 %289, ptr %290, align 2
+  %291 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 22, ptr noundef nonnull %17, i32 noundef 8, i1 noundef zeroext true)
+  br i1 %291, label %292, label %298
 
-294:                                              ; preds = %289
-  %295 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br i1 %295, label %296, label %300
+292:                                              ; preds = %intel_sdvo_get_dtd_from_mode.exit
+  %293 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br i1 %293, label %294, label %298
+
+294:                                              ; preds = %292
+  %295 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 23, ptr noundef nonnull %255, i32 noundef 8, i1 noundef zeroext true)
+  br i1 %295, label %296, label %298
 
 296:                                              ; preds = %294
-  %297 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 23, ptr noundef nonnull %255, i32 noundef 8, i1 noundef zeroext true)
-  br i1 %297, label %298, label %300
+  %297 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br i1 %297, label %309, label %298
 
-298:                                              ; preds = %296
-  %299 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br i1 %299, label %311, label %300
+298:                                              ; preds = %296, %294, %292, %intel_sdvo_get_dtd_from_mode.exit
+  %299 = icmp eq ptr %18, null
+  br i1 %299, label %303, label %300
 
-300:                                              ; preds = %298, %296, %294, %289
-  %301 = icmp eq ptr %18, null
-  br i1 %301, label %305, label %302
+300:                                              ; preds = %298
+  %301 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %302 = load ptr, ptr %301, align 8
+  br label %303
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %304 = load ptr, ptr %303, align 8
-  br label %305
+303:                                              ; preds = %300, %298
+  %304 = phi ptr [ %302, %300 ], [ null, %298 ]
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %306 = load i32, ptr %305, align 4
+  %307 = icmp eq i32 %306, 1
+  %308 = select i1 %307, ptr @.str.2, ptr @.str.3
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %304, ptr noundef nonnull @.str.141, ptr noundef nonnull %308) #17
+  br label %309
 
-305:                                              ; preds = %302, %300
-  %306 = phi ptr [ %304, %302 ], [ null, %300 ]
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %308 = load i32, ptr %307, align 4
-  %309 = icmp eq i32 %308, 1
-  %310 = select i1 %309, ptr @.str.2, ptr @.str.3
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %306, ptr noundef nonnull @.str.141, ptr noundef nonnull %310) #17
-  br label %311
-
-311:                                              ; preds = %305, %298
+309:                                              ; preds = %303, %296
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1
-  %312 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 16, ptr noundef nonnull %12, i32 noundef 1, i1 noundef zeroext true)
-  br i1 %312, label %313, label %585
+  %310 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 16, ptr noundef nonnull %12, i32 noundef 1, i1 noundef zeroext true)
+  br i1 %310, label %311, label %581
+
+311:                                              ; preds = %309
+  %312 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br i1 %312, label %313, label %584
 
 313:                                              ; preds = %311
-  %314 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %314, label %315, label %588
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 876
+  %315 = load i8, ptr %314, align 4, !range !16, !noundef !17
+  %316 = icmp eq i8 %315, 0
+  br i1 %316, label %379, label %317
 
-315:                                              ; preds = %313
-  %316 = getelementptr inbounds nuw i8, ptr %2, i64 876
-  %317 = load i8, ptr %316, align 4, !range !16, !noundef !17
-  %318 = icmp eq i8 %317, 0
-  br i1 %318, label %381, label %319
-
-319:                                              ; preds = %315
+317:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 1
-  %320 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -97, ptr noundef nonnull %11, i32 noundef 1, i1 noundef zeroext true)
-  br i1 %320, label %321, label %323
+  %318 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -97, ptr noundef nonnull %11, i32 noundef 1, i1 noundef zeroext true)
+  br i1 %318, label %319, label %321
 
-321:                                              ; preds = %319
-  %322 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br label %323
+319:                                              ; preds = %317
+  %320 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br label %321
 
-323:                                              ; preds = %321, %319
+321:                                              ; preds = %319, %317
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %324 = getelementptr inbounds nuw i8, ptr %2, i64 868
-  %325 = load i8, ptr %324, align 4, !range !16, !noundef !17
-  %326 = icmp eq i8 %325, 0
-  %327 = select i1 %326, i8 1, i8 2
+  %322 = getelementptr inbounds nuw i8, ptr %2, i64 868
+  %323 = load i8, ptr %322, align 4, !range !16, !noundef !17
+  %324 = icmp eq i8 %323, 0
+  %325 = select i1 %324, i8 1, i8 2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i8 %327, ptr %10, align 1
-  %328 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -114, ptr noundef nonnull %10, i32 noundef 1, i1 noundef zeroext true)
-  br i1 %328, label %329, label %331
+  store i8 %325, ptr %10, align 1
+  %326 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -114, ptr noundef nonnull %10, i32 noundef 1, i1 noundef zeroext true)
+  br i1 %326, label %327, label %329
 
-329:                                              ; preds = %323
-  %330 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br label %331
+327:                                              ; preds = %321
+  %328 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br label %329
 
-331:                                              ; preds = %329, %323
+329:                                              ; preds = %327, %321
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %332 = load ptr, ptr %1, align 8
+  %330 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %9, i8 0, i64 17, i1 false), !annotation !11
-  %333 = getelementptr inbounds nuw i8, ptr %2, i64 4340
-  %334 = getelementptr inbounds nuw i8, ptr %2, i64 4348
-  %335 = load i32, ptr %333, align 4
-  %336 = tail call i32 @intel_hdmi_infoframe_enable(i32 noundef 130) #15
-  %337 = and i32 %336, %335
-  %338 = icmp eq i32 %337, 0
-  br i1 %338, label %371, label %339
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 4340
+  %332 = getelementptr inbounds nuw i8, ptr %2, i64 4348
+  %333 = load i32, ptr %331, align 4
+  %334 = tail call i32 @intel_hdmi_infoframe_enable(i32 noundef 130) #15
+  %335 = and i32 %334, %333
+  %336 = icmp eq i32 %335, 0
+  br i1 %336, label %369, label %337
 
-339:                                              ; preds = %331
-  %340 = load i32, ptr %334, align 4
-  %341 = icmp eq i32 %340, 130
-  br i1 %341, label %354, label %342, !prof !5
+337:                                              ; preds = %329
+  %338 = load i32, ptr %332, align 4
+  %339 = icmp eq i32 %338, 130
+  br i1 %339, label %352, label %340, !prof !5
 
-342:                                              ; preds = %339
+340:                                              ; preds = %337
   tail call void asm sideeffect "938: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 938) #15, !srcloc !23
-  %343 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  %344 = load ptr, ptr %343, align 8
-  %345 = tail call ptr @dev_driver_string(ptr noundef %344) #15
-  %346 = load ptr, ptr %343, align 8
-  %347 = getelementptr inbounds nuw i8, ptr %346, i64 80
-  %348 = load ptr, ptr %347, align 8
-  %349 = icmp eq ptr %348, null
-  br i1 %349, label %350, label %352
+  %341 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %342 = load ptr, ptr %341, align 8
+  %343 = tail call ptr @dev_driver_string(ptr noundef %342) #15
+  %344 = load ptr, ptr %341, align 8
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 80
+  %346 = load ptr, ptr %345, align 8
+  %347 = icmp eq ptr %346, null
+  br i1 %347, label %348, label %350
 
-350:                                              ; preds = %342
-  %351 = load ptr, ptr %346, align 8
-  br label %352
+348:                                              ; preds = %340
+  %349 = load ptr, ptr %344, align 8
+  br label %350
 
-352:                                              ; preds = %350, %342
-  %353 = phi ptr [ %351, %350 ], [ %348, %342 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.19, ptr noundef %345, ptr noundef %353, ptr noundef nonnull @.str.144) #15
+350:                                              ; preds = %348, %340
+  %351 = phi ptr [ %349, %348 ], [ %346, %340 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.19, ptr noundef %343, ptr noundef %351, ptr noundef nonnull @.str.144) #15
   tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #15, !srcloc !24
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1138, i32 2313, i64 12) #15, !srcloc !25
   tail call void asm sideeffect "940: nop\0A\09.pushsection .discard.instr_end\0A\09.long 940b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 940) #15, !srcloc !26
   tail call void asm sideeffect "941: nop\0A\09.pushsection .discard.instr_end\0A\09.long 941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 941) #15, !srcloc !27
-  br label %371
+  br label %369
 
-354:                                              ; preds = %339
-  %355 = call i64 @hdmi_infoframe_pack_only(ptr noundef nonnull %334, ptr noundef nonnull %9, i64 noundef 17) #15
-  %356 = icmp slt i64 %355, 0
-  br i1 %356, label %357, label %369, !prof !28
+352:                                              ; preds = %337
+  %353 = call i64 @hdmi_infoframe_pack_only(ptr noundef nonnull %332, ptr noundef nonnull %9, i64 noundef 17) #15
+  %354 = icmp slt i64 %353, 0
+  br i1 %354, label %355, label %367, !prof !28
 
-357:                                              ; preds = %354
+355:                                              ; preds = %352
   call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #15, !srcloc !29
-  %358 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  %359 = load ptr, ptr %358, align 8
-  %360 = call ptr @dev_driver_string(ptr noundef %359) #15
-  %361 = load ptr, ptr %358, align 8
-  %362 = getelementptr inbounds nuw i8, ptr %361, i64 80
-  %363 = load ptr, ptr %362, align 8
-  %364 = icmp eq ptr %363, null
-  br i1 %364, label %365, label %367
+  %356 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %357 = load ptr, ptr %356, align 8
+  %358 = call ptr @dev_driver_string(ptr noundef %357) #15
+  %359 = load ptr, ptr %356, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 80
+  %361 = load ptr, ptr %360, align 8
+  %362 = icmp eq ptr %361, null
+  br i1 %362, label %363, label %365
 
-365:                                              ; preds = %357
-  %366 = load ptr, ptr %361, align 8
-  br label %367
+363:                                              ; preds = %355
+  %364 = load ptr, ptr %359, align 8
+  br label %365
 
-367:                                              ; preds = %365, %357
-  %368 = phi ptr [ %366, %365 ], [ %363, %357 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.19, ptr noundef %360, ptr noundef %368, ptr noundef nonnull @.str.145) #15
+365:                                              ; preds = %363, %355
+  %366 = phi ptr [ %364, %363 ], [ %361, %355 ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.19, ptr noundef %358, ptr noundef %366, ptr noundef nonnull @.str.145) #15
   call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #15, !srcloc !30
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1142, i32 2313, i64 12) #15, !srcloc !31
   call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_end\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #15, !srcloc !32
   call void asm sideeffect "945: nop\0A\09.pushsection .discard.instr_end\0A\09.long 945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 945) #15, !srcloc !33
-  br label %371
+  br label %369
 
-369:                                              ; preds = %354
-  %370 = trunc i64 %355 to i32
-  call fastcc void @intel_sdvo_write_infoframe(ptr noundef %1, i32 noundef 1, i8 noundef zeroext -64, ptr noundef nonnull %9, i32 noundef %370)
-  br label %371
+367:                                              ; preds = %352
+  %368 = trunc i64 %353 to i32
+  call fastcc void @intel_sdvo_write_infoframe(ptr noundef %1, i32 noundef 1, i8 noundef zeroext -64, ptr noundef nonnull %9, i32 noundef %368)
+  br label %369
 
-371:                                              ; preds = %369, %367, %352, %331
+369:                                              ; preds = %367, %365, %350, %329
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %372 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  %373 = load i32, ptr %372, align 8
-  %374 = lshr i32 %373, 12
-  %375 = trunc i32 %374 to i8
-  %376 = and i8 %375, 1
+  %370 = getelementptr inbounds nuw i8, ptr %2, i64 632
+  %371 = load i32, ptr %370, align 8
+  %372 = lshr i32 %371, 12
+  %373 = trunc i32 %372 to i8
+  %374 = and i8 %373, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i8 %376, ptr %8, align 1
-  %377 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -117, ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true)
-  br i1 %377, label %378, label %380
+  store i8 %374, ptr %8, align 1
+  %375 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -117, ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true)
+  br i1 %375, label %376, label %378
 
-378:                                              ; preds = %371
-  %379 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br label %380
+376:                                              ; preds = %369
+  %377 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br label %378
 
-380:                                              ; preds = %378, %371
+378:                                              ; preds = %376, %369
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %386
+  br label %384
 
-381:                                              ; preds = %315
+379:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
-  %382 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -97, ptr noundef nonnull %7, i32 noundef 1, i1 noundef zeroext true)
-  br i1 %382, label %383, label %385
+  %380 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext -97, ptr noundef nonnull %7, i32 noundef 1, i1 noundef zeroext true)
+  br i1 %380, label %381, label %383
 
-383:                                              ; preds = %381
-  %384 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br label %385
+381:                                              ; preds = %379
+  %382 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br label %383
 
-385:                                              ; preds = %383, %381
+383:                                              ; preds = %381, %379
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %386
+  br label %384
 
-386:                                              ; preds = %385, %380
-  %387 = load i16, ptr %188, align 8
-  %388 = and i16 %387, 28
-  %389 = icmp eq i16 %388, 0
-  br i1 %389, label %intel_sdvo_get_dtd_from_mode.exit7, label %390
+384:                                              ; preds = %383, %378
+  %385 = load i16, ptr %188, align 8
+  %386 = and i16 %385, 28
+  %387 = icmp eq i16 %386, 0
+  br i1 %387, label %intel_sdvo_get_dtd_from_mode.exit7, label %388
 
-390:                                              ; preds = %386
+388:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %391 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %392 = load i32, ptr %391, align 8
-  %393 = shl nuw i32 1, %392
-  %394 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i16 0, ptr %394, align 4
-  store i32 %393, ptr %6, align 4
-  %395 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 41, ptr noundef nonnull %6, i32 noundef 6, i1 noundef zeroext true)
-  br i1 %395, label %396, label %586
+  %389 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %390 = load i32, ptr %389, align 8
+  %391 = shl nuw i32 1, %390
+  %392 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i16 0, ptr %392, align 4
+  store i32 %391, ptr %6, align 4
+  %393 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 41, ptr noundef nonnull %6, i32 noundef 6, i1 noundef zeroext true)
+  br i1 %393, label %394, label %582
 
-396:                                              ; preds = %390
-  %397 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+394:                                              ; preds = %388
+  %395 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %397, label %intel_sdvo_get_dtd_from_mode.exit7, label %588
+  br i1 %395, label %intel_sdvo_get_dtd_from_mode.exit7, label %584
 
-intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %396, %386
-  %398 = getelementptr inbounds nuw i8, ptr %16, i64 13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %398, i8 0, i64 3, i1 false)
-  %399 = getelementptr inbounds nuw i8, ptr %2, i64 612
-  %400 = load i16, ptr %399, align 4
-  %401 = getelementptr inbounds nuw i8, ptr %2, i64 622
+intel_sdvo_get_dtd_from_mode.exit7:               ; preds = %394, %384
+  %396 = getelementptr inbounds nuw i8, ptr %16, i64 13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %396, i8 0, i64 3, i1 false)
+  %397 = getelementptr inbounds nuw i8, ptr %2, i64 612
+  %398 = load i16, ptr %397, align 4
+  %399 = getelementptr inbounds nuw i8, ptr %2, i64 622
+  %400 = load i16, ptr %399, align 2
+  %401 = getelementptr inbounds nuw i8, ptr %2, i64 618
   %402 = load i16, ptr %401, align 2
-  %403 = getelementptr inbounds nuw i8, ptr %2, i64 618
-  %404 = load i16, ptr %403, align 2
-  %405 = sub i16 %404, %400
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 616
-  %407 = load i16, ptr %406, align 8
-  %408 = getelementptr inbounds nuw i8, ptr %2, i64 614
-  %409 = load i16, ptr %408, align 2
-  %410 = sub i16 %407, %409
-  %411 = getelementptr inbounds nuw i8, ptr %2, i64 628
-  %412 = load i16, ptr %411, align 4
-  %413 = sub i16 %412, %402
-  %414 = getelementptr inbounds nuw i8, ptr %2, i64 626
-  %415 = load i16, ptr %414, align 2
-  %416 = getelementptr inbounds nuw i8, ptr %2, i64 624
-  %417 = load i16, ptr %416, align 8
-  %418 = sub i16 %415, %417
-  %419 = sub i16 %409, %400
-  %420 = sub i16 %417, %402
-  %421 = load i32, ptr %20, align 8
-  %422 = sdiv i32 %421, 10
-  %423 = trunc i32 %422 to i16
-  store i16 %423, ptr %16, align 2
-  %424 = trunc i16 %400 to i8
-  %425 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  store i8 %424, ptr %425, align 2
-  %426 = trunc i16 %405 to i8
-  %427 = getelementptr inbounds nuw i8, ptr %16, i64 3
-  store i8 %426, ptr %427, align 1
-  %428 = lshr i16 %400, 4
-  %429 = and i16 %428, 240
-  %430 = lshr i16 %405, 8
-  %431 = and i16 %430, 15
-  %432 = or disjoint i16 %431, %429
-  %433 = trunc nuw i16 %432 to i8
-  %434 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i8 %433, ptr %434, align 2
-  %435 = trunc i16 %402 to i8
-  %436 = getelementptr inbounds nuw i8, ptr %16, i64 5
-  store i8 %435, ptr %436, align 1
-  %437 = trunc i16 %413 to i8
-  %438 = getelementptr inbounds nuw i8, ptr %16, i64 6
-  store i8 %437, ptr %438, align 2
-  %439 = lshr i16 %402, 4
-  %440 = and i16 %439, 240
-  %441 = lshr i16 %413, 8
-  %442 = and i16 %441, 15
-  %443 = or disjoint i16 %442, %440
-  %444 = trunc nuw i16 %443 to i8
-  %445 = getelementptr inbounds nuw i8, ptr %16, i64 7
-  store i8 %444, ptr %445, align 1
-  %446 = trunc i16 %419 to i8
-  %447 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i8 %446, ptr %447, align 2
-  %448 = trunc i16 %410 to i8
-  %449 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  store i8 %448, ptr %449, align 1
-  %450 = shl i16 %420, 4
-  %451 = and i16 %418, 15
-  %452 = or disjoint i16 %450, %451
-  %453 = trunc i16 %452 to i8
-  %454 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  store i8 %453, ptr %454, align 2
-  %455 = lshr i16 %419, 2
-  %456 = and i16 %455, 192
-  %457 = lshr i16 %410, 4
-  %458 = and i16 %457, 48
-  %459 = or disjoint i16 %456, %458
-  %460 = lshr i16 %420, 2
-  %461 = and i16 %460, 12
-  %462 = or disjoint i16 %459, %461
-  %463 = lshr i16 %418, 4
-  %464 = and i16 %463, 3
-  %465 = or disjoint i16 %462, %464
-  %466 = trunc nuw i16 %465 to i8
-  %467 = getelementptr inbounds nuw i8, ptr %16, i64 11
-  store i8 %466, ptr %467, align 1
-  %468 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %469 = getelementptr inbounds nuw i8, ptr %2, i64 632
-  %470 = load i32, ptr %469, align 8
-  %471 = and i32 %470, 16
-  %472 = icmp eq i32 %471, 0
-  %473 = select i1 %472, i8 24, i8 -104
-  %474 = and i32 %470, 5
-  %.not10 = icmp eq i32 %474, 0
-  br i1 %.not10, label %481, label %475
+  %403 = sub i16 %402, %398
+  %404 = getelementptr inbounds nuw i8, ptr %2, i64 616
+  %405 = load i16, ptr %404, align 8
+  %406 = getelementptr inbounds nuw i8, ptr %2, i64 614
+  %407 = load i16, ptr %406, align 2
+  %408 = sub i16 %405, %407
+  %409 = getelementptr inbounds nuw i8, ptr %2, i64 628
+  %410 = load i16, ptr %409, align 4
+  %411 = sub i16 %410, %400
+  %412 = getelementptr inbounds nuw i8, ptr %2, i64 626
+  %413 = load i16, ptr %412, align 2
+  %414 = getelementptr inbounds nuw i8, ptr %2, i64 624
+  %415 = load i16, ptr %414, align 8
+  %416 = sub i16 %413, %415
+  %417 = sub i16 %407, %398
+  %418 = sub i16 %415, %400
+  %419 = load i32, ptr %20, align 8
+  %420 = sdiv i32 %419, 10
+  %421 = trunc i32 %420 to i16
+  store i16 %421, ptr %16, align 2
+  %422 = trunc i16 %398 to i8
+  %423 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  store i8 %422, ptr %423, align 2
+  %424 = trunc i16 %403 to i8
+  %425 = getelementptr inbounds nuw i8, ptr %16, i64 3
+  store i8 %424, ptr %425, align 1
+  %426 = lshr i16 %398, 4
+  %427 = and i16 %426, 240
+  %428 = lshr i16 %403, 8
+  %429 = and i16 %428, 15
+  %430 = or disjoint i16 %429, %427
+  %431 = trunc nuw i16 %430 to i8
+  %432 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i8 %431, ptr %432, align 2
+  %433 = trunc i16 %400 to i8
+  %434 = getelementptr inbounds nuw i8, ptr %16, i64 5
+  store i8 %433, ptr %434, align 1
+  %435 = trunc i16 %411 to i8
+  %436 = getelementptr inbounds nuw i8, ptr %16, i64 6
+  store i8 %435, ptr %436, align 2
+  %437 = lshr i16 %400, 4
+  %438 = and i16 %437, 240
+  %439 = lshr i16 %411, 8
+  %440 = and i16 %439, 15
+  %441 = or disjoint i16 %440, %438
+  %442 = trunc nuw i16 %441 to i8
+  %443 = getelementptr inbounds nuw i8, ptr %16, i64 7
+  store i8 %442, ptr %443, align 1
+  %444 = trunc i16 %417 to i8
+  %445 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i8 %444, ptr %445, align 2
+  %446 = trunc i16 %408 to i8
+  %447 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  store i8 %446, ptr %447, align 1
+  %448 = shl i16 %418, 4
+  %449 = and i16 %416, 15
+  %450 = or disjoint i16 %448, %449
+  %451 = trunc i16 %450 to i8
+  %452 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  store i8 %451, ptr %452, align 2
+  %453 = lshr i16 %417, 2
+  %454 = and i16 %453, 192
+  %455 = lshr i16 %408, 4
+  %456 = and i16 %455, 48
+  %457 = or disjoint i16 %454, %456
+  %458 = lshr i16 %418, 2
+  %459 = and i16 %458, 12
+  %460 = or disjoint i16 %457, %459
+  %461 = lshr i16 %416, 4
+  %462 = and i16 %461, 3
+  %463 = or disjoint i16 %460, %462
+  %464 = trunc nuw i16 %463 to i8
+  %465 = getelementptr inbounds nuw i8, ptr %16, i64 11
+  store i8 %464, ptr %465, align 1
+  %466 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %467 = getelementptr inbounds nuw i8, ptr %2, i64 632
+  %468 = load i32, ptr %467, align 8
+  %469 = and i32 %468, 16
+  %470 = icmp eq i32 %469, 0
+  %471 = select i1 %470, i8 24, i8 -104
+  %472 = and i32 %468, 5
+  %.not9 = icmp eq i32 %472, 0
+  %473 = trunc i32 %468 to i1
+  %474 = or disjoint i8 %471, 2
+  %475 = select i1 %473, i8 %474, i8 %471
+  %476 = trunc i32 %468 to i8
+  %477 = and i8 %476, 4
+  %simplifycfg.merge8 = or disjoint i8 %475, %477
+  %storemerge10 = select i1 %.not9, i8 %471, i8 %simplifycfg.merge8
+  store i8 %storemerge10, ptr %466, align 2
+  %478 = trunc i16 %418 to i8
+  %479 = and i8 %478, -64
+  %480 = getelementptr inbounds nuw i8, ptr %16, i64 14
+  store i8 %479, ptr %480, align 2
+  %481 = load i16, ptr %188, align 8
+  %482 = and i16 %481, 16476
+  %483 = icmp eq i16 %482, 0
+  br i1 %483, label %488, label %484
 
-475:                                              ; preds = %intel_sdvo_get_dtd_from_mode.exit7
-  %476 = trunc i32 %470 to i8
-  %477 = shl i8 %476, 1
-  %478 = and i8 %477, 2
-  %479 = and i8 %476, 4
-  %480 = or disjoint i8 %478, %479
-  %simplifycfg.merge8 = or disjoint i8 %480, %473
-  br label %481
+484:                                              ; preds = %intel_sdvo_get_dtd_from_mode.exit7
+  %485 = getelementptr inbounds nuw i8, ptr %1, i64 3546
+  %486 = load i8, ptr %485, align 2
+  %487 = getelementptr inbounds nuw i8, ptr %16, i64 13
+  store i8 %486, ptr %487, align 1
+  br label %488
 
-481:                                              ; preds = %intel_sdvo_get_dtd_from_mode.exit7, %475
-  %storemerge12 = phi i8 [ %simplifycfg.merge8, %475 ], [ %473, %intel_sdvo_get_dtd_from_mode.exit7 ]
-  store i8 %storemerge12, ptr %468, align 2
-  %482 = trunc i16 %420 to i8
-  %483 = and i8 %482, -64
-  %484 = getelementptr inbounds nuw i8, ptr %16, i64 14
-  store i8 %483, ptr %484, align 2
-  %485 = load i16, ptr %188, align 8
-  %486 = and i16 %485, 16476
-  %487 = icmp eq i16 %486, 0
-  br i1 %487, label %492, label %488
+488:                                              ; preds = %484, %intel_sdvo_get_dtd_from_mode.exit7
+  %489 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 20, ptr noundef nonnull %16, i32 noundef 8, i1 noundef zeroext true)
+  br i1 %489, label %490, label %496
 
-488:                                              ; preds = %481
-  %489 = getelementptr inbounds nuw i8, ptr %1, i64 3546
-  %490 = load i8, ptr %489, align 2
-  %491 = getelementptr inbounds nuw i8, ptr %16, i64 13
-  store i8 %490, ptr %491, align 1
-  br label %492
+490:                                              ; preds = %488
+  %491 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+  br i1 %491, label %492, label %496
 
-492:                                              ; preds = %488, %481
-  %493 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 20, ptr noundef nonnull %16, i32 noundef 8, i1 noundef zeroext true)
-  br i1 %493, label %494, label %500
+492:                                              ; preds = %490
+  %493 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 21, ptr noundef nonnull %445, i32 noundef 8, i1 noundef zeroext true)
+  br i1 %493, label %494, label %496
 
 494:                                              ; preds = %492
   %495 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br i1 %495, label %496, label %500
+  br i1 %495, label %507, label %496
 
-496:                                              ; preds = %494
-  %497 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 21, ptr noundef nonnull %447, i32 noundef 8, i1 noundef zeroext true)
-  br i1 %497, label %498, label %500
+496:                                              ; preds = %494, %492, %490, %488
+  %497 = icmp eq ptr %18, null
+  br i1 %497, label %501, label %498
 
 498:                                              ; preds = %496
-  %499 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
-  br i1 %499, label %511, label %500
+  %499 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %500 = load ptr, ptr %499, align 8
+  br label %501
 
-500:                                              ; preds = %498, %496, %494, %492
-  %501 = icmp eq ptr %18, null
-  br i1 %501, label %505, label %502
+501:                                              ; preds = %498, %496
+  %502 = phi ptr [ %500, %498 ], [ null, %496 ]
+  %503 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %504 = load i32, ptr %503, align 4
+  %505 = icmp eq i32 %504, 1
+  %506 = select i1 %505, ptr @.str.2, ptr @.str.3
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %502, ptr noundef nonnull @.str.142, ptr noundef nonnull %506) #17
+  br label %507
 
-502:                                              ; preds = %500
-  %503 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %504 = load ptr, ptr %503, align 8
-  br label %505
-
-505:                                              ; preds = %502, %500
-  %506 = phi ptr [ %504, %502 ], [ null, %500 ]
-  %507 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %508 = load i32, ptr %507, align 4
-  %509 = icmp eq i32 %508, 1
-  %510 = select i1 %509, ptr @.str.2, ptr @.str.3
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %506, ptr noundef nonnull @.str.142, ptr noundef nonnull %510) #17
-  br label %511
-
-511:                                              ; preds = %505, %498
-  %512 = getelementptr inbounds nuw i8, ptr %2, i64 1452
-  %513 = load i32, ptr %512, align 4
-  switch i32 %513, label %514 [
-    i32 1, label %528
-    i32 2, label %526
-    i32 4, label %527
+507:                                              ; preds = %501, %494
+  %508 = getelementptr inbounds nuw i8, ptr %2, i64 1452
+  %509 = load i32, ptr %508, align 4
+  switch i32 %509, label %510 [
+    i32 1, label %524
+    i32 2, label %522
+    i32 4, label %523
   ]
 
-514:                                              ; preds = %511
+510:                                              ; preds = %507
   call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #15, !srcloc !34
-  %515 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %512 = load ptr, ptr %511, align 8
+  %513 = call ptr @dev_driver_string(ptr noundef %512) #15
+  %514 = load ptr, ptr %511, align 8
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 80
   %516 = load ptr, ptr %515, align 8
-  %517 = call ptr @dev_driver_string(ptr noundef %516) #15
-  %518 = load ptr, ptr %515, align 8
-  %519 = getelementptr inbounds nuw i8, ptr %518, i64 80
-  %520 = load ptr, ptr %519, align 8
-  %521 = icmp eq ptr %520, null
-  br i1 %521, label %522, label %524
+  %517 = icmp eq ptr %516, null
+  br i1 %517, label %518, label %520
 
-522:                                              ; preds = %514
-  %523 = load ptr, ptr %518, align 8
-  br label %524
+518:                                              ; preds = %510
+  %519 = load ptr, ptr %514, align 8
+  br label %520
 
-524:                                              ; preds = %522, %514
-  %525 = phi ptr [ %523, %522 ], [ %520, %514 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.143, ptr noundef %517, ptr noundef %525) #15
+520:                                              ; preds = %518, %510
+  %521 = phi ptr [ %519, %518 ], [ %516, %510 ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.143, ptr noundef %513, ptr noundef %521) #15
   call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #15, !srcloc !35
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 1597, i32 2313, i64 12) #15, !srcloc !36
   call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_end\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #15, !srcloc !37
   call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #15, !srcloc !38
-  br label %528
+  br label %524
 
-526:                                              ; preds = %511
-  br label %528
+522:                                              ; preds = %507
+  br label %524
 
-527:                                              ; preds = %511
-  br label %528
+523:                                              ; preds = %507
+  br label %524
 
-528:                                              ; preds = %527, %526, %524, %511
-  %529 = phi i8 [ 8, %527 ], [ 2, %526 ], [ 1, %511 ], [ 1, %524 ]
+524:                                              ; preds = %523, %522, %520, %507
+  %525 = phi i8 [ 8, %523 ], [ 2, %522 ], [ 1, %507 ], [ 1, %520 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i8 %529, ptr %5, align 1
-  %530 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 33, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true)
-  br i1 %530, label %531, label %587
+  store i8 %525, ptr %5, align 1
+  %526 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %1, i8 noundef zeroext 33, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true)
+  br i1 %526, label %527, label %583
 
-531:                                              ; preds = %528
-  %532 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
+527:                                              ; preds = %524
+  %528 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %1, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %532, label %533, label %588
+  br i1 %528, label %529, label %584
 
-533:                                              ; preds = %531
-  %534 = getelementptr inbounds nuw i8, ptr %18, i64 2632
-  %535 = load i16, ptr %534, align 8
-  %536 = icmp ugt i16 %535, 3
-  br i1 %536, label %537, label %540
+529:                                              ; preds = %527
+  %530 = getelementptr inbounds nuw i8, ptr %18, i64 2632
+  %531 = load i16, ptr %530, align 8
+  %532 = icmp ugt i16 %531, 3
+  br i1 %532, label %533, label %536
 
-537:                                              ; preds = %533
-  %538 = icmp eq i16 %535, 4
-  %539 = select i1 %538, i32 152, i32 24
-  br label %553
+533:                                              ; preds = %529
+  %534 = icmp eq i16 %531, 4
+  %535 = select i1 %534, i32 152, i32 24
+  br label %549
 
-540:                                              ; preds = %533
-  %541 = getelementptr inbounds nuw i8, ptr %1, i64 3520
-  %542 = load i32, ptr %541, align 8
-  %543 = getelementptr inbounds nuw i8, ptr %18, i64 7368
-  %544 = getelementptr inbounds nuw i8, ptr %18, i64 7512
-  %545 = load ptr, ptr %544, align 8
-  %546 = call i32 %545(ptr noundef nonnull %543, i32 %542, i1 noundef zeroext true) #15
-  %547 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %548 = load i32, ptr %547, align 4
-  %549 = icmp eq i32 %548, 1
-  %550 = select i1 %549, i32 67321856, i32 67239936
-  %551 = and i32 %550, %546
-  %552 = or disjoint i32 %551, 4718720
-  %.pre = load i16, ptr %534, align 8
-  br label %553
+536:                                              ; preds = %529
+  %537 = getelementptr inbounds nuw i8, ptr %1, i64 3520
+  %538 = load i32, ptr %537, align 8
+  %539 = getelementptr inbounds nuw i8, ptr %18, i64 7368
+  %540 = getelementptr inbounds nuw i8, ptr %18, i64 7512
+  %541 = load ptr, ptr %540, align 8
+  %542 = call i32 %541(ptr noundef nonnull %539, i32 %538, i1 noundef zeroext true) #15
+  %543 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %544 = load i32, ptr %543, align 4
+  %545 = icmp eq i32 %544, 1
+  %546 = select i1 %545, i32 67321856, i32 67239936
+  %547 = and i32 %546, %542
+  %548 = or disjoint i32 %547, 4718720
+  %.pre = load i16, ptr %530, align 8
+  br label %549
 
-553:                                              ; preds = %540, %537
-  %554 = phi i16 [ %.pre, %540 ], [ %535, %537 ]
-  %555 = phi i32 [ %552, %540 ], [ %539, %537 ]
-  %556 = getelementptr inbounds nuw i8, ptr %18, i64 8112
-  %557 = load i32, ptr %556, align 8
-  %558 = icmp eq i32 %557, 2
-  %559 = getelementptr inbounds nuw i8, ptr %19, i64 1648
-  %560 = load i32, ptr %559, align 8
-  %561 = select i1 %558, i32 29, i32 30
-  %562 = shl i32 %560, %561
-  %563 = or i32 %562, %555
-  %564 = icmp ugt i16 %554, 3
-  br i1 %564, label %575, label %565
+549:                                              ; preds = %536, %533
+  %550 = phi i16 [ %.pre, %536 ], [ %531, %533 ]
+  %551 = phi i32 [ %548, %536 ], [ %535, %533 ]
+  %552 = getelementptr inbounds nuw i8, ptr %18, i64 8112
+  %553 = load i32, ptr %552, align 8
+  %554 = icmp eq i32 %553, 2
+  %555 = getelementptr inbounds nuw i8, ptr %19, i64 1648
+  %556 = load i32, ptr %555, align 8
+  %557 = select i1 %554, i32 29, i32 30
+  %558 = shl i32 %556, %557
+  %559 = or i32 %558, %551
+  %560 = icmp ugt i16 %550, 3
+  br i1 %560, label %571, label %561
 
-565:                                              ; preds = %553
-  %566 = getelementptr inbounds nuw i8, ptr %18, i64 7184
-  %567 = load i32, ptr %566, align 4
-  %568 = and i32 %567, 15360
-  %569 = icmp eq i32 %568, 0
-  br i1 %569, label %570, label %575
+561:                                              ; preds = %549
+  %562 = getelementptr inbounds nuw i8, ptr %18, i64 7184
+  %563 = load i32, ptr %562, align 4
+  %564 = and i32 %563, 15360
+  %565 = icmp eq i32 %564, 0
+  br i1 %565, label %566, label %571
 
-570:                                              ; preds = %565
-  %571 = load i32, ptr %512, align 4
-  %572 = shl i32 %571, 23
-  %573 = add i32 %572, -8388608
-  %574 = or i32 %573, %563
-  br label %575
+566:                                              ; preds = %561
+  %567 = load i32, ptr %508, align 4
+  %568 = shl i32 %567, 23
+  %569 = add i32 %568, -8388608
+  %570 = or i32 %569, %559
+  br label %571
 
-575:                                              ; preds = %570, %565, %553
-  %576 = phi i32 [ %563, %553 ], [ %563, %565 ], [ %574, %570 ]
-  %577 = getelementptr inbounds nuw i8, ptr %16, i64 13
-  %578 = load i8, ptr %577, align 1
-  %579 = icmp ult i16 %554, 5
-  %580 = or i32 %576, 536870912
-  %581 = icmp slt i8 %578, 0
-  %582 = and i1 %579, %581
-  %583 = select i1 %582, i32 %580, i32 %576
-  call fastcc void @intel_sdvo_write_sdvox(ptr noundef %1, i32 noundef %583)
-  br label %588
+571:                                              ; preds = %566, %561, %549
+  %572 = phi i32 [ %559, %549 ], [ %559, %561 ], [ %570, %566 ]
+  %573 = getelementptr inbounds nuw i8, ptr %16, i64 13
+  %574 = load i8, ptr %573, align 1
+  %575 = icmp ult i16 %550, 5
+  %576 = or i32 %572, 536870912
+  %577 = icmp slt i8 %574, 0
+  %578 = and i1 %575, %577
+  %579 = select i1 %578, i32 %576, i32 %572
+  call fastcc void @intel_sdvo_write_sdvox(ptr noundef %1, i32 noundef %579)
+  br label %584
 
-584:                                              ; preds = %194
+580:                                              ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %588
+  br label %584
 
-585:                                              ; preds = %311
+581:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %588
+  br label %584
 
-586:                                              ; preds = %390
+582:                                              ; preds = %388
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %588
+  br label %584
 
-587:                                              ; preds = %528
+583:                                              ; preds = %524
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %588
+  br label %584
 
-588:                                              ; preds = %587, %586, %585, %584, %575, %531, %396, %313, %197
+584:                                              ; preds = %583, %582, %581, %580, %571, %527, %394, %311, %197
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -3163,12 +3151,12 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_set_output_timings_from_mo
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %.2720.val, ptr %3, align 2
   %5 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %0, i8 noundef zeroext 17, ptr noundef nonnull %3, i32 noundef 2, i1 noundef zeroext true)
-  br i1 %5, label %6, label %102
+  br i1 %5, label %6, label %100
 
 6:                                                ; preds = %2
   %7 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %7, label %intel_sdvo_get_dtd_from_mode.exit, label %103
+  br i1 %7, label %intel_sdvo_get_dtd_from_mode.exit, label %101
 
 intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 13
@@ -3261,47 +3249,41 @@ intel_sdvo_get_dtd_from_mode.exit:                ; preds = %6
   %83 = select i1 %82, i8 24, i8 -104
   %84 = and i32 %80, 5
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %91, label %85
-
-85:                                               ; preds = %intel_sdvo_get_dtd_from_mode.exit
-  %86 = trunc i32 %80 to i8
-  %87 = shl i8 %86, 1
-  %88 = and i8 %87, 2
-  %89 = and i8 %86, 4
-  %90 = or disjoint i8 %88, %89
-  %simplifycfg.merge = or disjoint i8 %90, %83
-  br label %91
-
-91:                                               ; preds = %intel_sdvo_get_dtd_from_mode.exit, %85
-  %storemerge = phi i8 [ %simplifycfg.merge, %85 ], [ %83, %intel_sdvo_get_dtd_from_mode.exit ]
+  %85 = trunc i32 %80 to i1
+  %86 = or disjoint i8 %83, 2
+  %87 = select i1 %85, i8 %86, i8 %83
+  %88 = trunc i32 %80 to i8
+  %89 = and i8 %88, 4
+  %simplifycfg.merge = or disjoint i8 %87, %89
+  %storemerge = select i1 %.not, i8 %83, i8 %simplifycfg.merge
   store i8 %storemerge, ptr %78, align 2
-  %92 = trunc i16 %30 to i8
-  %93 = and i8 %92, -64
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i8 %93, ptr %94, align 2
-  %95 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %0, i8 noundef zeroext 22, ptr noundef nonnull %4, i32 noundef 8, i1 noundef zeroext true)
-  br i1 %95, label %96, label %103
+  %90 = trunc i16 %30 to i8
+  %91 = and i8 %90, -64
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  store i8 %91, ptr %92, align 2
+  %93 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %0, i8 noundef zeroext 22, ptr noundef nonnull %4, i32 noundef 8, i1 noundef zeroext true)
+  br i1 %93, label %94, label %101
 
-96:                                               ; preds = %91
-  %97 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef null, i32 noundef 0)
-  br i1 %97, label %98, label %103
+94:                                               ; preds = %intel_sdvo_get_dtd_from_mode.exit
+  %95 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef null, i32 noundef 0)
+  br i1 %95, label %96, label %101
+
+96:                                               ; preds = %94
+  %97 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %0, i8 noundef zeroext 23, ptr noundef nonnull %57, i32 noundef 8, i1 noundef zeroext true)
+  br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
-  %99 = call fastcc zeroext i1 @__intel_sdvo_write_cmd(ptr noundef %0, i8 noundef zeroext 23, ptr noundef nonnull %57, i32 noundef 8, i1 noundef zeroext true)
-  br i1 %99, label %100, label %103
+  %99 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef null, i32 noundef 0)
+  br label %101
 
-100:                                              ; preds = %98
-  %101 = tail call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef null, i32 noundef 0)
-  br label %103
-
-102:                                              ; preds = %2
+100:                                              ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %103
+  br label %101
 
-103:                                              ; preds = %102, %100, %98, %96, %91, %6
-  %104 = phi i1 [ false, %6 ], [ false, %102 ], [ false, %96 ], [ %101, %100 ], [ false, %98 ], [ false, %91 ]
+101:                                              ; preds = %100, %98, %96, %94, %intel_sdvo_get_dtd_from_mode.exit, %6
+  %102 = phi i1 [ false, %6 ], [ false, %100 ], [ false, %94 ], [ %99, %98 ], [ false, %96 ], [ false, %intel_sdvo_get_dtd_from_mode.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %104
+  ret i1 %102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

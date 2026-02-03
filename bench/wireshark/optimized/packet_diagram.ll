@@ -1166,16 +1166,16 @@ _ZN7QStringD2Ev.exit216:                          ; preds = %97, %_ZN17QArrayDat
   br label %550
 
 106:                                              ; preds = %.lr.ph, %111
-  %.0143308 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
+  %.0143307 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i32 %.0143308, ptr %13, align 4
+  store i32 %.0143307, ptr %13, align 4
   %107 = load i64, ptr %88, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIiE7emplaceIJRiEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %19, i64 noundef %107, ptr noundef nonnull align 4 dereferenceable(4) %13)
           to label %108 unwind label %104
 
 108:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %109 = or disjoint i32 %.0143308, 15
+  %109 = or disjoint i32 %.0143307, 15
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %109, ptr %12, align 4
   %110 = load i64, ptr %88, align 8
@@ -1184,7 +1184,7 @@ _ZN7QStringD2Ev.exit216:                          ; preds = %97, %_ZN17QArrayDat
 
 111:                                              ; preds = %108
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %112 = add i32 %.0143308, 16
+  %112 = add i32 %.0143307, 16
   %113 = load ptr, ptr %36, align 8
   %114 = load i32, ptr %113, align 8
   %115 = icmp slt i32 %112, %114
@@ -1228,13 +1228,13 @@ _ZNK13DiagramLayout9smallFontEv.exit:             ; preds = %124
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %22) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %128 = invoke noundef i32 @_ZNK12QFontMetrics17horizontalAdvanceE5QChar(ptr noundef nonnull align 8 dereferenceable_or_null(8) %21, i16 32)
-          to label %.preheader302 unwind label %168
+          to label %.preheader301 unwind label %168
 
-.preheader302:                                    ; preds = %127
+.preheader301:                                    ; preds = %127
   %129 = icmp sgt i32 %38, 0
-  br i1 %129, label %.lr.ph310, label %._crit_edge311
+  br i1 %129, label %.lr.ph309, label %._crit_edge310
 
-.lr.ph310:                                        ; preds = %.preheader302
+.lr.ph309:                                        ; preds = %.preheader301
   %130 = sdiv i32 %45, 2
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -1248,7 +1248,7 @@ _ZNK13DiagramLayout9smallFontEv.exit:             ; preds = %124
   %140 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %170
 
-._crit_edge311:                                   ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, %.preheader302
+._crit_edge310:                                   ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, %.preheader301
   store i32 %90, ptr %75, align 8
   %141 = load ptr, ptr %36, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 72
@@ -1261,11 +1261,11 @@ _ZNK13DiagramLayout9smallFontEv.exit:             ; preds = %124
   %149 = sitofp i32 %148 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %28, i8 0, i64 24, i1 false)
-  %.0151312 = load ptr, ptr %1, align 8
-  %.not313 = icmp eq ptr %.0151312, null
-  br i1 %.not313, label %._crit_edge318, label %.lr.ph317
+  %.0151311 = load ptr, ptr %1, align 8
+  %.not312 = icmp eq ptr %.0151311, null
+  br i1 %.not312, label %._crit_edge317, label %.lr.ph316
 
-.lr.ph317:                                        ; preds = %._crit_edge311
+.lr.ph316:                                        ; preds = %._crit_edge310
   %150 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %151 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %152 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1316,8 +1316,8 @@ _ZNK13DiagramLayout9smallFontEv.exit:             ; preds = %124
           cleanup
   br label %548
 
-170:                                              ; preds = %.lr.ph310, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
-  %storemerge309 = phi i32 [ 0, %.lr.ph310 ], [ %266, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread ]
+170:                                              ; preds = %.lr.ph309, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread
+  %storemerge308 = phi i32 [ 0, %.lr.ph309 ], [ %266, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread ]
   %171 = load ptr, ptr %36, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 72
   %173 = load i32, ptr %172, align 8
@@ -1326,17 +1326,17 @@ _ZNK13DiagramLayout9smallFontEv.exit:             ; preds = %124
   %176 = load double, ptr %175, align 8
   %177 = fmul double %176, %174
   %178 = fptosi double %177 to i32
-  %179 = mul i32 %storemerge309, %45
+  %179 = mul i32 %storemerge308, %45
   %180 = add i32 %179, %178
   %181 = sitofp i32 %180 to double
   %182 = load i32, ptr %75, align 8
-  %183 = and i32 %storemerge309, 7
+  %183 = and i32 %storemerge308, 7
   %184 = icmp eq i32 %183, 0
   %185 = select i1 %184, i32 0, i32 %130
   %186 = add i32 %182, %185
   %187 = sitofp i32 %186 to double
-  %.not360 = icmp eq i32 %storemerge309, 0
-  br i1 %.not360, label %201, label %188
+  %.not359 = icmp eq i32 %storemerge308, 0
+  br i1 %.not359, label %201, label %188
 
 188:                                              ; preds = %170
   %189 = invoke noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
@@ -1402,15 +1402,15 @@ _ZNK13DiagramLayout9smallFontEv.exit:             ; preds = %124
 
 210:                                              ; preds = %208
   %211 = load i32, ptr %209, align 4
-  %212 = icmp eq i32 %211, %storemerge309
+  %212 = icmp eq i32 %211, %storemerge308
   br i1 %212, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit, label %208, !llvm.loop !30
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %210
   %213 = ptrtoint ptr %209 to i64
   %214 = ptrtoint ptr %205 to i64
   %215 = sub i64 %213, %214
-  %.not301 = icmp eq i64 %215, -4
-  br i1 %.not301, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %216
+  %.not300 = icmp eq i64 %215, -4
+  br i1 %.not300, label %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread, label %216
 
 216:                                              ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
   %217 = invoke noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
@@ -1418,7 +1418,7 @@ _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit: ; preds = %210
 
 218:                                              ; preds = %216
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, i32 noundef %storemerge309, i32 noundef 10)
+  invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, i32 noundef %storemerge308, i32 noundef 10)
           to label %219 unwind label %236
 
 219:                                              ; preds = %218
@@ -1462,7 +1462,7 @@ _ZNK13DiagramLayout9smallFontEv.exit224:          ; preds = %_ZN7QStringD2Ev.exi
 229:                                              ; preds = %_ZNK13DiagramLayout9smallFontEv.exit224
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(12) %26) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %230 = and i32 %storemerge309, 1
+  %230 = and i32 %storemerge308, 1
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %252
 
@@ -1567,31 +1567,31 @@ _ZN7QStringD2Ev.exit228:                          ; preds = %245, %_ZN17QArrayDa
   br label %548
 
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit.thread: ; preds = %208, %201, %_ZN13QGraphicsItem6setPosEdd.exit, %263, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit
-  %266 = add nuw nsw i32 %storemerge309, 1
+  %266 = add nuw nsw i32 %storemerge308, 1
   %exitcond.not = icmp eq i32 %266, %38
-  br i1 %exitcond.not, label %._crit_edge311, label %170, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge310, label %170, !llvm.loop !31
 
-._crit_edge318:                                   ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, %._crit_edge311
+._crit_edge317:                                   ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, %._crit_edge310
   %267 = invoke noundef double @_ZNK13QGraphicsItem6zValueEv(ptr noundef align 8 dereferenceable_or_null(16) %123)
           to label %.preheader unwind label %335
 
-.preheader:                                       ; preds = %._crit_edge318
+.preheader:                                       ; preds = %._crit_edge317
   %268 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %269 = load i64, ptr %268, align 8
   %270 = icmp sgt i64 %269, 0
-  br i1 %270, label %.lr.ph322, label %333
+  br i1 %270, label %.lr.ph321, label %333
 
-.lr.ph322:                                        ; preds = %.preheader
+.lr.ph321:                                        ; preds = %.preheader
   %271 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %272 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %273 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %337
 
-275:                                              ; preds = %.lr.ph317, %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
-  %.0151315 = phi ptr [ %.0151312, %.lr.ph317 ], [ %.0151, %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread ]
-  %.0144314 = phi i32 [ -1, %.lr.ph317 ], [ %.1145, %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread ]
-  %276 = getelementptr i8, ptr %.0151315, i64 40
+275:                                              ; preds = %.lr.ph316, %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+  %.0151314 = phi ptr [ %.0151311, %.lr.ph316 ], [ %.0151, %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread ]
+  %.0144313 = phi i32 [ -1, %.lr.ph316 ], [ %.1145, %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread ]
+  %276 = getelementptr i8, ptr %.0151314, i64 40
   %.0151.val = load ptr, ptr %276, align 8
   %.not.i = icmp eq ptr %.0151.val, null
   br i1 %.not.i, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, label %_ZL23proto_item_is_generatedP11_proto_node.exit
@@ -1600,8 +1600,8 @@ _ZL23proto_item_is_generatedP11_proto_node.exit:  ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %.0151.val, i64 28
   %278 = load i32, ptr %277, align 4
   %279 = and i32 %278, 3
-  %or.cond365 = icmp eq i32 %279, 0
-  br i1 %or.cond365, label %280, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+  %or.cond364.not = icmp eq i32 %279, 0
+  br i1 %or.cond364.not, label %280, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
 
 280:                                              ; preds = %_ZL23proto_item_is_generatedP11_proto_node.exit
   %281 = getelementptr inbounds nuw i8, ptr %.0151.val, i64 8
@@ -1631,7 +1631,7 @@ _ZL23proto_item_is_generatedP11_proto_node.exit:  ; preds = %275
 
 299:                                              ; preds = %293, %.critedge
   %300 = phi i32 [ %298, %.critedge ], [ %295, %293 ]
-  %301 = icmp sle i32 %290, %.0144314
+  %301 = icmp sle i32 %290, %.0144313
   %302 = icmp slt i32 %300, 1
   %or.cond = select i1 %301, i1 true, i1 %302
   br i1 %or.cond, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, label %303
@@ -1656,11 +1656,11 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i: ;
           to label %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i._crit_edge unwind label %319
 
 _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i._crit_edge: ; preds = %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i
-  %.pre334 = load i64, ptr %150, align 8
+  %.pre333 = load i64, ptr %150, align 8
   br label %310
 
 310:                                              ; preds = %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i._crit_edge, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.i.i.i.i
-  %311 = phi i64 [ %.pre334, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i._crit_edge ], [ %304, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.i.i.i.i ]
+  %311 = phi i64 [ %.pre333, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i._crit_edge ], [ %304, %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.i.i.i.i ]
   %312 = load ptr, ptr %151, align 8
   %313 = getelementptr %struct.DiagramItemSpan, ptr %312, i64 %311
   %.sroa.4.0..sroa_idx = getelementptr i8, ptr %313, i64 -8
@@ -1691,7 +1691,7 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i._c
 
 _ZN5QListI15DiagramItemSpanElsERKS0_.exit:        ; preds = %321
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %.pre335 = load i64, ptr %150, align 8
+  %.pre334 = load i64, ptr %150, align 8
   br label %325
 
 323:                                              ; preds = %321
@@ -1701,7 +1701,7 @@ _ZN5QListI15DiagramItemSpanElsERKS0_.exit:        ; preds = %321
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit270
 
 325:                                              ; preds = %310, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit, %303
-  %326 = phi i64 [ %311, %310 ], [ %.pre335, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit ], [ %304, %303 ]
+  %326 = phi i64 [ %311, %310 ], [ %.pre334, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit ], [ %304, %303 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %327 = load ptr, ptr %276, align 8
   store ptr %327, ptr %30, align 8
@@ -1715,11 +1715,11 @@ _ZN5QListI15DiagramItemSpanElsERKS0_.exit233:     ; preds = %325
   br label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
 
 _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %275, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit233, %299, %_ZL23proto_item_is_generatedP11_proto_node.exit
-  %.1145 = phi i32 [ %.0144314, %_ZL23proto_item_is_generatedP11_proto_node.exit ], [ %.0144314, %275 ], [ %290, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit233 ], [ %.0144314, %299 ]
-  %328 = getelementptr inbounds nuw i8, ptr %.0151315, i64 16
+  %.1145 = phi i32 [ %.0144313, %_ZL23proto_item_is_generatedP11_proto_node.exit ], [ %.0144313, %275 ], [ %290, %_ZN5QListI15DiagramItemSpanElsERKS0_.exit233 ], [ %.0144313, %299 ]
+  %328 = getelementptr inbounds nuw i8, ptr %.0151314, i64 16
   %.0151 = load ptr, ptr %328, align 8
   %.not = icmp eq ptr %.0151, null
-  br i1 %.not, label %._crit_edge318, label %275, !llvm.loop !32
+  br i1 %.not, label %._crit_edge317, label %275, !llvm.loop !32
 
 329:                                              ; preds = %325
   %330 = landingpad { ptr, i32 }
@@ -1727,26 +1727,26 @@ _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %275, %_ZN5QListI
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit270
 
-._crit_edge323:                                   ; preds = %436
+._crit_edge322:                                   ; preds = %436
   %331 = extractvalue { double, double } %435, 1
   %332 = fptosi double %331 to i32
   br label %333
 
-333:                                              ; preds = %._crit_edge323, %.preheader
-  %.0150.lcssa = phi i32 [ %332, %._crit_edge323 ], [ %90, %.preheader ]
+333:                                              ; preds = %._crit_edge322, %.preheader
+  %.0150.lcssa = phi i32 [ %332, %._crit_edge322 ], [ %90, %.preheader ]
   %334 = invoke noundef ptr @_ZNK13QGraphicsView5sceneEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
           to label %447 unwind label %486
 
-335:                                              ; preds = %._crit_edge318
+335:                                              ; preds = %._crit_edge317
   %336 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit270
 
-337:                                              ; preds = %.lr.ph322, %436
-  %338 = phi i64 [ 0, %.lr.ph322 ], [ %438, %436 ]
-  %.0147321 = phi i32 [ 0, %.lr.ph322 ], [ %437, %436 ]
-  %.0148320 = phi i32 [ 0, %.lr.ph322 ], [ %372, %436 ]
-  %.0149319 = phi double [ %267, %.lr.ph322 ], [ %362, %436 ]
+337:                                              ; preds = %.lr.ph321, %436
+  %338 = phi i64 [ 0, %.lr.ph321 ], [ %438, %436 ]
+  %.0147320 = phi i32 [ 0, %.lr.ph321 ], [ %437, %436 ]
+  %.0148319 = phi i32 [ 0, %.lr.ph321 ], [ %372, %436 ]
+  %.0149318 = phi double [ %267, %.lr.ph321 ], [ %362, %436 ]
   %339 = load ptr, ptr %28, align 8
   %.not.i.i.i.i = icmp eq ptr %339, null
   br i1 %.not.i.i.i.i, label %_ZN5QListI15DiagramItemSpanE6detachEv.exit.i, label %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.i.i.i
@@ -1790,9 +1790,9 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i235
   %357 = fptosi double %356 to i32
   %358 = shl i32 %357, 1
   %359 = add i32 %358, %352
-  %360 = sdiv i32 %.0148320, %38
+  %360 = sdiv i32 %.0148319, %38
   %361 = mul i32 %359, %360
-  %362 = fadd double %.0149319, -1.000000e-02
+  %362 = fadd double %.0149318, -1.000000e-02
   %363 = invoke noalias noundef dereferenceable_or_null(192) ptr @_Znwm(i64 noundef 192) #20
           to label %364 unwind label %443
 
@@ -1801,13 +1801,13 @@ _ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i235
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 12
   %368 = load i32, ptr %367, align 4
-  invoke void @_ZN28FieldInformationGraphicsItemC2EP10field_infoiiPK13DiagramLayoutP13QGraphicsItem(ptr noundef align 8 dereferenceable_or_null(192) %363, ptr noundef %366, i32 noundef %.0148320, i32 noundef %368, ptr noundef %347, ptr noundef null)
+  invoke void @_ZN28FieldInformationGraphicsItemC2EP10field_infoiiPK13DiagramLayoutP13QGraphicsItem(ptr noundef align 8 dereferenceable_or_null(192) %363, ptr noundef %366, i32 noundef %.0148319, i32 noundef %368, ptr noundef %347, ptr noundef null)
           to label %369 unwind label %445
 
 369:                                              ; preds = %364
   %370 = getelementptr inbounds nuw i8, ptr %363, i64 64
   %371 = load i32, ptr %370, align 8
-  %372 = add i32 %371, %.0148320
+  %372 = add i32 %371, %.0148319
   %373 = sitofp i32 %361 to double
   %374 = fadd double %91, %373
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1911,11 +1911,11 @@ _ZN28FieldInformationGraphicsItem6setPosEdd.exit: ; preds = %.noexc239
 
 436:                                              ; preds = %408
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %437 = add i32 %.0147321, 1
+  %437 = add i32 %.0147320, 1
   %438 = sext i32 %437 to i64
   %439 = load i64, ptr %268, align 8
   %440 = icmp sgt i64 %439, %438
-  br i1 %440, label %337, label %._crit_edge323, !llvm.loop !35
+  br i1 %440, label %337, label %._crit_edge322, !llvm.loop !35
 
 441:                                              ; preds = %_ZNK17QArrayDataPointerI15DiagramItemSpanE11needsDetachEv.exit.thread.i.i.i.i235, %_ZN5QListI15DiagramItemSpanE6detachEv.exit.i
   %442 = landingpad { ptr, i32 }
@@ -2002,14 +2002,14 @@ _ZN5QListIP13QGraphicsItemED2Ev.exit:             ; preds = %469
   %.idx = shl i64 %474, 3
   %475 = getelementptr i8, ptr %472, i64 %.idx
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %.not300326 = icmp eq i64 %.idx, 0
-  br i1 %.not300326, label %._crit_edge329, label %.lr.ph328
+  %.not299325 = icmp eq i64 %.idx, 0
+  br i1 %.not299325, label %._crit_edge328, label %.lr.ph327
 
-._crit_edge329:                                   ; preds = %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread, %_ZN5QListIP13QGraphicsItemED2Ev.exit
+._crit_edge328:                                   ; preds = %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread, %_ZN5QListIP13QGraphicsItemED2Ev.exit
   %.not.i.i.i.i249 = icmp eq ptr %470, null
   br i1 %.not.i.i.i.i249, label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit, label %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i
 
-_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i: ; preds = %._crit_edge329
+_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i: ; preds = %._crit_edge328
   %476 = atomicrmw sub ptr %470, i32 1 seq_cst, align 4
   %.not.i.i.i250 = icmp eq i32 %476, 1
   br i1 %.not.i.i.i250, label %477, label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit
@@ -2018,7 +2018,7 @@ _ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i: ; preds = %._crit_e
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %470, i64 noundef 8, i64 noundef 8) #21
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit
 
-_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit: ; preds = %._crit_edge329, %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i, %477
+_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit: ; preds = %._crit_edge328, %_ZN17QArrayDataPointerIP13QGraphicsItemE5derefEv.exit.i.i.i, %477
   %478 = load ptr, ptr %28, align 8
   %.not.i.i.i251 = icmp eq ptr %478, null
   br i1 %.not.i.i.i251, label %_ZN5QListI15DiagramItemSpanED2Ev.exit, label %_ZN17QArrayDataPointerI15DiagramItemSpanE5derefEv.exit.i.i
@@ -2098,13 +2098,13 @@ _ZN5QListIiED2Ev.exit:                            ; preds = %_ZN5QListI15Diagram
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %_ZN9QtPrivate17QForeachContainerI5QListIP13QGraphicsItemEED2Ev.exit270
 
-.lr.ph328:                                        ; preds = %_ZN5QListIP13QGraphicsItemED2Ev.exit, %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread
-  %.sroa.10.0327 = phi ptr [ %540, %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread ], [ %472, %_ZN5QListIP13QGraphicsItemED2Ev.exit ]
-  %500 = load ptr, ptr %.sroa.10.0327, align 8
+.lr.ph327:                                        ; preds = %_ZN5QListIP13QGraphicsItemED2Ev.exit, %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread
+  %.sroa.10.0326 = phi ptr [ %540, %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread ], [ %472, %_ZN5QListIP13QGraphicsItemED2Ev.exit ]
+  %500 = load ptr, ptr %.sroa.10.0326, align 8
   %.not.i259 = icmp eq ptr %500, null
   br i1 %.not.i259, label %_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread, label %501
 
-501:                                              ; preds = %.lr.ph328
+501:                                              ; preds = %.lr.ph327
   %502 = load ptr, ptr %500, align 8
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 88
   %504 = load ptr, ptr %503, align 8
@@ -2216,10 +2216,10 @@ _ZNK8QPalette4textEv.exit266:                     ; preds = %527
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %541
 
-_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread: ; preds = %.lr.ph328, %.noexc264, %532
-  %540 = getelementptr i8, ptr %.sroa.10.0327, i64 8
-  %.not300 = icmp eq ptr %540, %475
-  br i1 %.not300, label %._crit_edge329, label %.lr.ph328, !llvm.loop !39
+_Z18qgraphicsitem_castIP17QGraphicsLineItemET_P13QGraphicsItem.exit.thread: ; preds = %.lr.ph327, %.noexc264, %532
+  %540 = getelementptr i8, ptr %.sroa.10.0326, i64 8
+  %.not299 = icmp eq ptr %540, %475
+  br i1 %.not299, label %._crit_edge328, label %.lr.ph327, !llvm.loop !39
 
 541:                                              ; preds = %533, %539, %519, %513
   %.pn177.pn.pn = phi { ptr, i32 } [ %514, %513 ], [ %.pn174, %519 ], [ %.pn177, %539 ], [ %534, %533 ]

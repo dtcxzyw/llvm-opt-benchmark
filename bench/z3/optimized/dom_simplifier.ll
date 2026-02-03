@@ -4047,9 +4047,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_128expr_substitution_simplifier19up
 _Z9is_groundPK4expr.exit:                         ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %8 = load i8, ptr %7, align 2
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %_Z9is_groundPK4expr.exit.thread
 
 10:                                               ; preds = %_Z9is_groundPK4expr.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8

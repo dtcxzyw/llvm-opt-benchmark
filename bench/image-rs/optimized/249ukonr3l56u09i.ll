@@ -35020,13 +35020,13 @@ define hidden void @_ZN5image6codecs4webp8extended15read_anim_frame17h54f4ccb9bd
   br label %190
 
 182:                                              ; preds = %173
-  %183 = and i8 %163, 1
-  %184 = icmp samesign ult i8 %163, 2
-  %185 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %183 = icmp samesign ult i8 %163, 2
+  %184 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.765.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.765, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %185, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %184, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %186 = zext i1 %184 to i8
+  %185 = zext i1 %183 to i8
+  %186 = and i8 %163, 1
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %187, ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, i64 40, i1 false)
   %.sroa.274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -35040,9 +35040,9 @@ define hidden void @_ZN5image6codecs4webp8extended15read_anim_frame17h54f4ccb9bd
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %160, ptr %.sroa.677.0..sroa_idx, align 8
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 %186, ptr %.sroa.778.0..sroa_idx, align 4
+  store i8 %185, ptr %.sroa.778.0..sroa_idx, align 4
   %.sroa.879.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 69
-  store i8 %183, ptr %.sroa.879.0..sroa_idx, align 1
+  store i8 %186, ptr %.sroa.879.0..sroa_idx, align 1
   store i64 0, ptr %0, align 8
   br label %190
 
@@ -35431,13 +35431,13 @@ define internal fastcc void @_ZN5image6codecs4webp8extended15read_anim_frame17hf
   br label %172
 
 164:                                              ; preds = %155
-  %165 = and i8 %145, 1
-  %166 = icmp samesign ult i8 %145, 2
-  %167 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %165 = icmp samesign ult i8 %145, 2
+  %166 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.765.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.765, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %167, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %166, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %168 = zext i1 %166 to i8
+  %167 = zext i1 %165 to i8
+  %168 = and i8 %145, 1
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %169, ptr noundef nonnull align 1 dereferenceable(40) %.sroa.765.8..sroa_idx, i64 40, i1 false)
   %.sroa.274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -35451,9 +35451,9 @@ define internal fastcc void @_ZN5image6codecs4webp8extended15read_anim_frame17hf
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %142, ptr %.sroa.677.0..sroa_idx, align 8
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 %168, ptr %.sroa.778.0..sroa_idx, align 4
+  store i8 %167, ptr %.sroa.778.0..sroa_idx, align 4
   %.sroa.879.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 69
-  store i8 %165, ptr %.sroa.879.0..sroa_idx, align 1
+  store i8 %168, ptr %.sroa.879.0..sroa_idx, align 1
   store i64 0, ptr %0, align 8
   br label %172
 

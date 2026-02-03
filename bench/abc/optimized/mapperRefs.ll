@@ -597,123 +597,121 @@ define void @Map_MappingSetRefs_rec(ptr noundef readonly captures(none) %0, ptr 
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
-  %6 = trunc i64 %3 to i32
-  %7 = and i32 %6, 1
-  %8 = xor i32 %7, 1
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !8
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %10, align 8, !tbaa !8
-  %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !8
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %14, align 4, !tbaa !8
-  %.not47 = icmp eq i32 %15, 0
-  br i1 %.not47, label %.lr.ph, label %.loopexit
+  %6 = trunc i64 %3 to i1
+  %7 = xor i1 %6, true
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %10 = load i32, ptr %9, align 8, !tbaa !8
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr %9, align 8, !tbaa !8
+  %12 = zext i1 %7 to i64
+  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %12
+  %14 = load i32, ptr %13, align 4, !tbaa !8
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %13, align 4, !tbaa !8
+  %.not46 = icmp eq i32 %14, 0
+  br i1 %.not46, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %17 = phi i64 [ %38, %tailrecurse ], [ %13, %2 ]
-  %18 = phi i32 [ %33, %tailrecurse ], [ %8, %2 ]
-  %19 = phi i32 [ %32, %tailrecurse ], [ %7, %2 ]
-  %20 = phi ptr [ %30, %tailrecurse ], [ %5, %2 ]
-  %21 = phi i64 [ %28, %tailrecurse ], [ %3, %2 ]
-  %22 = tail call i32 @Map_NodeIsVar(ptr noundef nonnull %20) #7
-  %.not32 = icmp eq i32 %22, 0
-  br i1 %.not32, label %23, label %.loopexit
+  %16 = phi i64 [ %36, %tailrecurse ], [ %12, %2 ]
+  %17 = phi i1 [ %31, %tailrecurse ], [ %7, %2 ]
+  %18 = phi ptr [ %29, %tailrecurse ], [ %5, %2 ]
+  %19 = phi i64 [ %27, %tailrecurse ], [ %3, %2 ]
+  %20 = and i64 %19, 1
+  %21 = tail call i32 @Map_NodeIsVar(ptr noundef nonnull %18) #7
+  %.not32 = icmp eq i32 %21, 0
+  br i1 %.not32, label %22, label %.loopexit
 
-23:                                               ; preds = %.lr.ph
-  %24 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %20) #7
-  %.not33 = icmp eq i32 %24, 0
-  br i1 %.not33, label %42, label %tailrecurse
+22:                                               ; preds = %.lr.ph
+  %23 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %18) #7
+  %.not33 = icmp eq i32 %23, 0
+  br i1 %.not33, label %40, label %tailrecurse
 
-tailrecurse:                                      ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !58
-  %27 = ptrtoint ptr %26 to i64
-  %28 = xor i64 %21, %27
-  %29 = and i64 %27, -2
-  %30 = inttoptr i64 %29 to ptr
-  %31 = trunc i64 %28 to i32
-  %32 = and i32 %31, 1
-  %33 = xor i32 %32, 1
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %36 = load i32, ptr %35, align 8, !tbaa !8
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 8, !tbaa !8
-  %38 = zext nneg i32 %33 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %34, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !8
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %39, align 4, !tbaa !8
-  %.not = icmp eq i32 %40, 0
+tailrecurse:                                      ; preds = %22
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %25 = load ptr, ptr %24, align 8, !tbaa !58
+  %26 = ptrtoint ptr %25 to i64
+  %27 = xor i64 %20, %26
+  %28 = and i64 %26, -2
+  %29 = inttoptr i64 %28 to ptr
+  %30 = trunc i64 %27 to i1
+  %31 = xor i1 %30, true
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %34 = load i32, ptr %33, align 8, !tbaa !8
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %33, align 8, !tbaa !8
+  %36 = zext i1 %31 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %36
+  %38 = load i32, ptr %37, align 4, !tbaa !8
+  %39 = add nsw i32 %38, 1
+  store i32 %39, ptr %37, align 4, !tbaa !8
+  %.not = icmp eq i32 %38, 0
   br i1 %.not, label %.lr.ph, label %.loopexit
 
-42:                                               ; preds = %23
-  %43 = getelementptr inbounds nuw i8, ptr %20, i64 144
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %17
-  %45 = load ptr, ptr %44, align 8, !tbaa !3
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %51
+40:                                               ; preds = %22
+  %41 = zext i1 %17 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 144
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %16
+  %44 = load ptr, ptr %43, align 8, !tbaa !3
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %50
 
-47:                                               ; preds = %42
-  %48 = and i64 %21, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !3
-  br label %51
+46:                                               ; preds = %40
+  %47 = and i64 %19, 1
+  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %20
+  %49 = load ptr, ptr %48, align 8, !tbaa !3
+  br label %50
 
-51:                                               ; preds = %47, %42
-  %.029 = phi i32 [ %19, %47 ], [ %18, %42 ]
-  %.0 = phi ptr [ %50, %47 ], [ %45, %42 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %53 = load i32, ptr %52, align 8, !tbaa !59
-  %.not35 = icmp eq i32 %53, 0
-  %.pre = zext nneg i32 %.029 to i64
-  br i1 %.not35, label %._crit_edge, label %54
+50:                                               ; preds = %46, %40
+  %.029 = phi i64 [ %47, %46 ], [ %41, %40 ]
+  %.0 = phi ptr [ %49, %46 ], [ %44, %40 ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %52 = load i32, ptr %51, align 8, !tbaa !59
+  %.not34 = icmp eq i32 %52, 0
+  br i1 %.not34, label %._crit_edge, label %53
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.0, i64 %.pre
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
-  %57 = load ptr, ptr %56, align 8, !tbaa !36
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = load ptr, ptr %58, align 8, !tbaa !48
-  tail call void @Mio_GateIncProfile2(ptr noundef %59) #7
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.0, i64 %.029
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
+  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %58 = load ptr, ptr %57, align 8, !tbaa !48
+  tail call void @Mio_GateIncProfile2(ptr noundef %58) #7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %51, %54
-  %60 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.0, i64 %.pre
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 92
-  %62 = load i32, ptr %61, align 4, !tbaa !40
-  %63 = getelementptr inbounds nuw i8, ptr %.0, i64 76
-  %64 = load i8, ptr %63, align 4, !tbaa !44
-  %65 = icmp sgt i8 %64, 0
-  br i1 %65, label %.lr.ph49, label %.loopexit
+._crit_edge:                                      ; preds = %50, %53
+  %59 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %.0, i64 %.029
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 92
+  %61 = load i32, ptr %60, align 4, !tbaa !40
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 76
+  %63 = load i8, ptr %62, align 4, !tbaa !44
+  %64 = icmp sgt i8 %63, 0
+  br i1 %64, label %.lr.ph48, label %.loopexit
 
-.lr.ph49:                                         ; preds = %._crit_edge
-  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  br label %67
+.lr.ph48:                                         ; preds = %._crit_edge
+  %65 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  br label %66
 
-67:                                               ; preds = %.lr.ph49, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %67 ]
-  %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = lshr i32 %62, %68
-  %70 = and i32 %69, 1
-  %71 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
-  %72 = load ptr, ptr %71, align 8, !tbaa !29
-  %73 = ptrtoint ptr %72 to i64
-  %74 = zext nneg i32 %70 to i64
-  %75 = xor i64 %73, %74
-  %76 = inttoptr i64 %75 to ptr
-  tail call void @Map_MappingSetRefs_rec(ptr noundef nonnull %0, ptr noundef %76)
+66:                                               ; preds = %.lr.ph48, %66
+  %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %66 ]
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
+  %68 = lshr i32 %61, %67
+  %69 = and i32 %68, 1
+  %70 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
+  %72 = ptrtoint ptr %71 to i64
+  %73 = zext nneg i32 %69 to i64
+  %74 = xor i64 %72, %73
+  %75 = inttoptr i64 %74 to ptr
+  tail call void @Map_MappingSetRefs_rec(ptr noundef nonnull %0, ptr noundef %75)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i8, ptr %63, align 4, !tbaa !44
-  %78 = sext i8 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %67, label %.loopexit, !llvm.loop !60
+  %76 = load i8, ptr %62, align 4, !tbaa !44
+  %77 = sext i8 %76 to i64
+  %78 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %78, label %66, label %.loopexit, !llvm.loop !60
 
-.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %67, %2, %._crit_edge
+.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %66, %2, %._crit_edge
   ret void
 }
 

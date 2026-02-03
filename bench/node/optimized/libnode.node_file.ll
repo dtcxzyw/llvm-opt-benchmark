@@ -3038,8 +3038,7 @@ entry:
   %or.cond.i = select i1 %tobool.i, i1 true, i1 %tobool2.i
   %closed_.i = getelementptr inbounds nuw i8, ptr %this, i64 125
   %2 = load i8, ptr %closed_.i, align 1
-  %3 = and i8 %2, 1
-  %cmp.not2 = icmp ne i8 %3, 0
+  %cmp.not2 = trunc i8 %2 to i1
   %cmp.not = select i1 %or.cond.i, i1 true, i1 %cmp.not2
   br i1 %cmp.not, label %do.body4, label %_ZNSt10unique_ptrIN4node2fs10FileHandle12TransferDataESt14default_deleteIS3_EED2Ev.exit
 
@@ -3051,10 +3050,10 @@ do.body4:                                         ; preds = %entry
 _ZNSt10unique_ptrIN4node2fs10FileHandle12TransferDataESt14default_deleteIS3_EED2Ev.exit: ; preds = %entry
   %fd_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34, !noalias !32
-  %4 = load i32, ptr %fd_, align 8, !noalias !32
+  %3 = load i32, ptr %fd_, align 8, !noalias !32
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node2fs10FileHandle12TransferDataE, i64 16), ptr %call.i, align 8, !noalias !32
   %fd_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 %4, ptr %fd_.i.i, align 8, !noalias !32
+  store i32 %3, ptr %fd_.i.i, align 8, !noalias !32
   store i8 1, ptr %closed_.i, align 1
   store ptr %call.i, ptr %agg.result, align 8
   ret void

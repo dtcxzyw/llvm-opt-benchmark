@@ -375,9 +375,7 @@ entry:
   %report_newlines_ = getelementptr inbounds nuw i8, ptr %this, i64 191
   %0 = load i8, ptr %report_newlines_, align 1
   %1 = and i8 %0, 1
-  %tobool63 = icmp ne i8 %1, 0
-  %tobool6 = select i1 %report, i1 %tobool63, i1 false
-  %frombool7 = zext i1 %tobool6 to i8
+  %frombool7 = select i1 %report, i8 %1, i8 0
   store i8 %frombool7, ptr %report_newlines_, align 1
   ret void
 }

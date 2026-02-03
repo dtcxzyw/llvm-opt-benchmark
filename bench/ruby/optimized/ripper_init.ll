@@ -235,11 +235,11 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
 15:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %29 ]
   %16 = phi i1 [ true, %.preheader ], [ false, %29 ]
-  %.185.i27 = phi i32 [ 1, %.preheader ], [ %.286.i, %29 ]
+  %.185.i26 = phi i32 [ 1, %.preheader ], [ %.286.i, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = icmp slt i32 %.185.i27, %0
+  %19 = icmp slt i32 %.185.i26, %0
   %.not103.i = icmp eq ptr %18, null
   br i1 %19, label %20, label %27
 
@@ -247,14 +247,14 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
   br i1 %.not103.i, label %25, label %21
 
 21:                                               ; preds = %20
-  %22 = sext i32 %.185.i27 to i64
+  %22 = sext i32 %.185.i26 to i64
   %23 = getelementptr inbounds i64, ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %18, align 8, !tbaa !6
   br label %25
 
 25:                                               ; preds = %21, %20
-  %26 = add nsw i32 %.185.i27, 1
+  %26 = add nsw i32 %.185.i26, 1
   br label %29
 
 27:                                               ; preds = %15
@@ -265,7 +265,7 @@ define internal noundef i64 @ripper_initialize(i32 noundef %0, ptr noundef reado
   br label %29
 
 29:                                               ; preds = %28, %27, %25
-  %.286.i = phi i32 [ %26, %25 ], [ %.185.i27, %28 ], [ %.185.i27, %27 ]
+  %.286.i = phi i32 [ %26, %25 ], [ %.185.i26, %28 ], [ %.185.i26, %27 ]
   br i1 %16, label %15, label %30, !llvm.loop !24
 
 30:                                               ; preds = %29
@@ -366,9 +366,8 @@ RSTRING_PTR.exit:                                 ; preds = %68, %74
   br i1 %76, label %85, label %77
 
 77:                                               ; preds = %RSTRING_PTR.exit
-  %78 = and i64 %75, 1
-  %.not.i20 = icmp eq i64 %78, 0
-  br i1 %.not.i20, label %81, label %79
+  %78 = trunc i64 %75 to i1
+  br i1 %78, label %79, label %81
 
 79:                                               ; preds = %77
   %80 = call i64 @rb_fix2int(i64 noundef %75) #5
@@ -379,8 +378,8 @@ RSTRING_PTR.exit:                                 ; preds = %68, %74
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %79, %81
-  %.0.i21 = phi i64 [ %80, %79 ], [ %82, %81 ]
-  %83 = trunc i64 %.0.i21 to i32
+  %.0.i20 = phi i64 [ %80, %79 ], [ %82, %81 ]
+  %83 = trunc i64 %.0.i20 to i32
   %84 = add nsw i32 %83, -1
   br label %85
 
@@ -680,9 +679,8 @@ declare extern_weak void @rb_define_private_method(i64 noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ripper_lex_state_name(i64 %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #5

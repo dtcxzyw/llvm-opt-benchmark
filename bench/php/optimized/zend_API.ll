@@ -18379,11 +18379,10 @@ define dso_local void @zend_declare_property_string(ptr noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   %8 = load i8, ptr %0, align 8, !tbaa !66
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = and i64 %7, -8
   %11 = add i64 %10, 32
-  br i1 %.not, label %14, label %12
+  br i1 %9, label %12, label %14
 
 12:                                               ; preds = %5
   %13 = tail call noalias ptr @__zend_malloc(i64 noundef %11) #38
@@ -18420,11 +18419,10 @@ define dso_local void @zend_declare_property_stringl(ptr noundef %0, ptr noundef
   %7 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i8, ptr %0, align 8, !tbaa !66
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = and i64 %4, -8
   %11 = add i64 %10, 32
-  br i1 %.not, label %14, label %12
+  br i1 %9, label %12, label %14
 
 12:                                               ; preds = %6
   %13 = tail call noalias ptr @__zend_malloc(i64 noundef %11) #38
@@ -18461,179 +18459,178 @@ define dso_local noundef ptr @zend_declare_typed_class_constant(ptr noundef %0, 
   %7 = alloca %struct._zval_struct, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4, !tbaa !67
-  %10 = and i32 %9, 1
-  %.not = icmp ne i32 %10, 0
-  %11 = and i32 %3, 1
-  %.not42 = icmp eq i32 %11, 0
+  %.not = trunc i32 %9 to i1
+  %10 = and i32 %3, 1
+  %.not42 = icmp eq i32 %10, 0
   %or.cond = and i1 %.not42, %.not
-  br i1 %or.cond, label %12, label %17
+  br i1 %or.cond, label %11, label %16
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.127, ptr noundef nonnull %15, ptr noundef nonnull %16) #37
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.127, ptr noundef nonnull %14, ptr noundef nonnull %15) #37
   unreachable
 
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !96
-  %20 = load ptr, ptr @zend_known_strings, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !63
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load i64, ptr %23, align 8, !tbaa !96
-  %25 = icmp eq i64 %19, %24
-  br i1 %25, label %26, label %34
+16:                                               ; preds = %6
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8, !tbaa !96
+  %19 = load ptr, ptr @zend_known_strings, align 8, !tbaa !61
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !63
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i64, ptr %22, align 8, !tbaa !96
+  %24 = icmp eq i64 %18, %23
+  br i1 %24, label %25, label %33
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %29 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %27, i64 noundef %19, ptr noundef nonnull %28, i64 noundef %19) #35
-  %.not43 = icmp eq i32 %29, 0
-  br i1 %.not43, label %30, label %34
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %28 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %26, i64 noundef %18, ptr noundef nonnull %27, i64 noundef %18) #35
+  %.not43 = icmp eq i32 %28, 0
+  br i1 %.not43, label %29, label %33
 
-30:                                               ; preds = %26
-  %31 = load i8, ptr %0, align 8, !tbaa !66
-  %32 = icmp eq i8 %31, 1
-  %33 = select i1 %32, i32 16, i32 64
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %33, ptr noundef nonnull @.str.128) #37
+29:                                               ; preds = %25
+  %30 = load i8, ptr %0, align 8, !tbaa !66
+  %31 = icmp eq i8 %30, 1
+  %32 = select i1 %31, i32 16, i32 64
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %32, ptr noundef nonnull @.str.128) #37
   unreachable
 
-34:                                               ; preds = %26, %17
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load i8, ptr %35, align 8, !tbaa !42
-  %37 = icmp eq i8 %36, 6
-  br i1 %37, label %38, label %45
+33:                                               ; preds = %25, %16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load i8, ptr %34, align 8, !tbaa !42
+  %36 = icmp eq i8 %35, 6
+  br i1 %36, label %37, label %44
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %2, align 8, !tbaa !42
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !42
-  %42 = and i32 %41, 64
-  %.not44 = icmp eq i32 %42, 0
-  br i1 %.not44, label %43, label %45
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %2, align 8, !tbaa !42
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !42
+  %41 = and i32 %40, 64
+  %.not44 = icmp eq i32 %41, 0
+  br i1 %.not44, label %42, label %44
 
-43:                                               ; preds = %38
-  %44 = tail call ptr @zval_make_interned_string(ptr noundef nonnull %2) #35
-  br label %45
+42:                                               ; preds = %37
+  %43 = tail call ptr @zval_make_interned_string(ptr noundef nonnull %2) #35
+  br label %44
 
-45:                                               ; preds = %43, %38, %34
-  %46 = load i8, ptr %0, align 8, !tbaa !66
-  %47 = icmp eq i8 %46, 1
-  br i1 %47, label %48, label %55
+44:                                               ; preds = %42, %37, %33
+  %45 = load i8, ptr %0, align 8, !tbaa !66
+  %46 = icmp eq i8 %45, 1
+  br i1 %46, label %47, label %54
 
-48:                                               ; preds = %45
-  %49 = tail call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #38
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !248
-  %52 = and i32 %51, 262143
-  %.not45 = icmp eq i32 %52, 1022
-  br i1 %.not45, label %zend_arena_alloc.exit, label %53
+47:                                               ; preds = %44
+  %48 = tail call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #38
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %50 = load i32, ptr %49, align 8, !tbaa !248
+  %51 = and i32 %50, 262143
+  %.not45 = icmp eq i32 %51, 1022
+  br i1 %.not45, label %zend_arena_alloc.exit, label %52
 
-53:                                               ; preds = %48
-  %54 = and i32 %51, 512
-  %.not46 = icmp eq i32 %54, 0
+52:                                               ; preds = %47
+  %53 = and i32 %50, 512
+  %.not46 = icmp eq i32 %53, 0
   tail call void @llvm.assume(i1 %.not46)
   br label %zend_arena_alloc.exit
 
-55:                                               ; preds = %45
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !127
-  %57 = load ptr, ptr %56, align 8, !tbaa !129
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !131
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %57 to i64
-  %62 = sub i64 %60, %61
-  %.not.i = icmp ult i64 %62, 56
-  br i1 %.not.i, label %65, label %63, !prof !46
+54:                                               ; preds = %44
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !127
+  %56 = load ptr, ptr %55, align 8, !tbaa !129
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !131
+  %59 = ptrtoint ptr %58 to i64
+  %60 = ptrtoint ptr %56 to i64
+  %61 = sub i64 %59, %60
+  %.not.i = icmp ult i64 %61, 56
+  br i1 %.not.i, label %64, label %62, !prof !46
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  store ptr %64, ptr %56, align 8, !tbaa !129
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 56
+  store ptr %63, ptr %55, align 8, !tbaa !129
   br label %zend_arena_alloc.exit
 
-65:                                               ; preds = %55
-  %66 = ptrtoint ptr %56 to i64
-  %67 = sub i64 %60, %66
-  %..i = tail call i64 @llvm.umax.i64(i64 %67, i64 80)
-  %68 = tail call noalias ptr @_emalloc(i64 noundef %..i) #38
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 80
-  store ptr %70, ptr %68, align 8, !tbaa !129
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %..i
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %71, ptr %72, align 8, !tbaa !131
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %56, ptr %73, align 8, !tbaa !132
-  store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !127
+64:                                               ; preds = %54
+  %65 = ptrtoint ptr %55 to i64
+  %66 = sub i64 %59, %65
+  %..i = tail call i64 @llvm.umax.i64(i64 %66, i64 80)
+  %67 = tail call noalias ptr @_emalloc(i64 noundef %..i) #38
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  store ptr %69, ptr %67, align 8, !tbaa !129
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %..i
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store ptr %70, ptr %71, align 8, !tbaa !131
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store ptr %55, ptr %72, align 8, !tbaa !132
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !127
   br label %zend_arena_alloc.exit
 
-zend_arena_alloc.exit:                            ; preds = %65, %63, %53, %48
-  %.0 = phi ptr [ %49, %53 ], [ %49, %48 ], [ %57, %63 ], [ %69, %65 ]
-  %74 = load ptr, ptr %2, align 8, !tbaa !42
-  %75 = load i32, ptr %35, align 8, !tbaa !42
-  store ptr %74, ptr %.0, align 8, !tbaa !42
-  %76 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i32 %75, ptr %76, align 8, !tbaa !42
-  %77 = getelementptr inbounds nuw i8, ptr %.0, i64 12
-  store i32 %3, ptr %77, align 4, !tbaa !42
-  %78 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %4, ptr %78, align 8, !tbaa !301
-  %79 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr null, ptr %79, align 8, !tbaa !302
-  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %0, ptr %80, align 8, !tbaa !134
-  %81 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !300
-  %82 = load i8, ptr %35, align 8, !tbaa !42
-  %83 = icmp eq i8 %82, 11
-  br i1 %83, label %84, label %95
+zend_arena_alloc.exit:                            ; preds = %64, %62, %52, %47
+  %.0 = phi ptr [ %48, %52 ], [ %48, %47 ], [ %56, %62 ], [ %68, %64 ]
+  %73 = load ptr, ptr %2, align 8, !tbaa !42
+  %74 = load i32, ptr %34, align 8, !tbaa !42
+  store ptr %73, ptr %.0, align 8, !tbaa !42
+  %75 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i32 %74, ptr %75, align 8, !tbaa !42
+  %76 = getelementptr inbounds nuw i8, ptr %.0, i64 12
+  store i32 %3, ptr %76, align 4, !tbaa !42
+  %77 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %4, ptr %77, align 8, !tbaa !301
+  %78 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store ptr null, ptr %78, align 8, !tbaa !302
+  %79 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  store ptr %0, ptr %79, align 8, !tbaa !134
+  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !300
+  %81 = load i8, ptr %34, align 8, !tbaa !42
+  %82 = icmp eq i8 %81, 11
+  br i1 %82, label %83, label %94
 
-84:                                               ; preds = %zend_arena_alloc.exit
-  %85 = load i32, ptr %8, align 4, !tbaa !67
-  %86 = and i32 %85, -16781313
-  %87 = or disjoint i32 %86, 16777216
-  store i32 %87, ptr %8, align 4, !tbaa !67
-  %88 = load i8, ptr %0, align 8, !tbaa !66
-  %89 = icmp eq i8 %88, 1
-  br i1 %89, label %90, label %95
+83:                                               ; preds = %zend_arena_alloc.exit
+  %84 = load i32, ptr %8, align 4, !tbaa !67
+  %85 = and i32 %84, -16781313
+  %86 = or disjoint i32 %85, 16777216
+  store i32 %86, ptr %8, align 4, !tbaa !67
+  %87 = load i8, ptr %0, align 8, !tbaa !66
+  %88 = icmp eq i8 %87, 1
+  br i1 %88, label %89, label %94
 
-90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %92 = load ptr, ptr %91, align 8, !tbaa !137
-  %.not47 = icmp eq ptr %92, null
-  br i1 %.not47, label %93, label %95
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %91 = load ptr, ptr %90, align 8, !tbaa !137
+  %.not47 = icmp eq ptr %91, null
+  br i1 %.not47, label %92, label %94
 
-93:                                               ; preds = %90
-  %94 = tail call ptr @zend_map_ptr_new() #35
-  store ptr %94, ptr %91, align 8, !tbaa !137
-  br label %95
+92:                                               ; preds = %89
+  %93 = tail call ptr @zend_map_ptr_new() #35
+  store ptr %93, ptr %90, align 8, !tbaa !137
+  br label %94
 
-95:                                               ; preds = %84, %90, %93, %zend_arena_alloc.exit
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 176
+94:                                               ; preds = %83, %89, %92, %zend_arena_alloc.exit
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.0, ptr %7, align 8, !tbaa !42
-  %97 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 13, ptr %97, align 8, !tbaa !42
-  %98 = call ptr @zend_hash_add(ptr noundef nonnull %96, ptr noundef nonnull %1, ptr noundef nonnull %7) #35
-  %.not.i49 = icmp eq ptr %98, null
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 13, ptr %96, align 8, !tbaa !42
+  %97 = call ptr @zend_hash_add(ptr noundef nonnull %95, ptr noundef nonnull %1, ptr noundef nonnull %7) #35
+  %.not.i49 = icmp eq ptr %97, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not.i49, label %99, label %107
+  br i1 %.not.i49, label %98, label %106
 
-99:                                               ; preds = %95
-  %100 = load i8, ptr %0, align 8, !tbaa !66
-  %101 = icmp eq i8 %100, 1
-  %102 = select i1 %101, i32 16, i32 64
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !50
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %102, ptr noundef nonnull @.str.130, ptr noundef nonnull %105, ptr noundef nonnull %106) #37
+98:                                               ; preds = %94
+  %99 = load i8, ptr %0, align 8, !tbaa !66
+  %100 = icmp eq i8 %99, 1
+  %101 = select i1 %100, i32 16, i32 64
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !50
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef %101, ptr noundef nonnull @.str.130, ptr noundef nonnull %104, ptr noundef nonnull %105) #37
   unreachable
 
-107:                                              ; preds = %95
+106:                                              ; preds = %94
   ret ptr %.0
 }
 
@@ -18764,11 +18761,10 @@ define dso_local void @zend_declare_class_constant_stringl(ptr noundef %0, ptr n
   %6 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr %0, align 8, !tbaa !66
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = and i64 %4, -8
   %10 = add i64 %9, 32
-  br i1 %.not, label %13, label %11
+  br i1 %8, label %11, label %13
 
 11:                                               ; preds = %5
   %12 = tail call noalias ptr @__zend_malloc(i64 noundef %10) #38
@@ -18806,11 +18802,10 @@ define dso_local void @zend_declare_class_constant_string(ptr noundef %0, ptr no
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load i8, ptr %0, align 8, !tbaa !66
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
+  %8 = trunc i8 %7 to i1
   %9 = and i64 %6, -8
   %10 = add i64 %9, 32
-  br i1 %.not.i, label %13, label %11
+  br i1 %8, label %11, label %13
 
 11:                                               ; preds = %4
   %12 = tail call noalias ptr @__zend_malloc(i64 noundef %10) #38

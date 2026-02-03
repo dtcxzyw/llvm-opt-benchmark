@@ -484,10 +484,10 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i: ; pr
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i:     ; preds = %.preheader.i.i.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i, %.lr.ph.i
   %.sroa.03.0.i.i.i = phi i32 [ %34, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i ], [ %34, %.lr.ph.i ], [ %.08.i.i.i.i, %.preheader.i.i.i ]
-  %43 = load i8, ptr %18, align 8, !tbaa !55, !range !56, !noundef !57
-  %44 = trunc i32 %.sroa.03.0.i.i.i to i8
-  %45 = and i8 %44, 1
-  %46 = icmp ne i8 %43, %45
+  %43 = trunc i32 %.sroa.03.0.i.i.i to i8
+  %44 = load i8, ptr %18, align 8, !tbaa !55, !range !56, !noundef !57
+  %45 = and i8 %43, 1
+  %46 = icmp ne i8 %44, %45
   %47 = zext i1 %46 to i8
   store i8 %47, ptr %18, align 8, !tbaa !55
   %48 = icmp eq ptr %31, null
@@ -1337,10 +1337,10 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i: ; pred
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit:       ; preds = %.preheader.i.i, %17, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i
   %.sroa.03.0.i.i = phi i32 [ %21, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i ], [ %21, %17 ], [ %.08.i.i.i, %.preheader.i.i ]
-  %30 = load i8, ptr %3, align 8, !tbaa !55, !range !56, !noundef !57
-  %31 = trunc i32 %.sroa.03.0.i.i to i8
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %30, %32
+  %30 = trunc i32 %.sroa.03.0.i.i to i8
+  %31 = load i8, ptr %3, align 8, !tbaa !55, !range !56, !noundef !57
+  %32 = and i8 %30, 1
+  %33 = icmp ne i8 %31, %32
   %34 = zext i1 %33 to i8
   store i8 %34, ptr %3, align 8, !tbaa !55
   %35 = icmp eq ptr %18, null
@@ -2369,10 +2369,10 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i: ; pr
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i:     ; preds = %.preheader.i.i.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i, %19
   %.sroa.03.0.i.i.i = phi i32 [ %23, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i ], [ %23, %19 ], [ %.08.i.i.i.i, %.preheader.i.i.i ]
-  %32 = load i8, ptr %5, align 8, !tbaa !55, !range !56, !noundef !57
-  %33 = trunc i32 %.sroa.03.0.i.i.i to i8
-  %34 = and i8 %33, 1
-  %35 = icmp ne i8 %32, %34
+  %32 = trunc i32 %.sroa.03.0.i.i.i to i8
+  %33 = load i8, ptr %5, align 8, !tbaa !55, !range !56, !noundef !57
+  %34 = and i8 %32, 1
+  %35 = icmp ne i8 %33, %34
   %36 = zext i1 %35 to i8
   store i8 %36, ptr %5, align 8, !tbaa !55
   %37 = icmp eq ptr %20, null
@@ -3533,10 +3533,10 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i: ; pr
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i:     ; preds = %.preheader.i.i.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i, %.lr.ph.i
   %.sroa.03.0.i.i.i = phi i32 [ %124, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i ], [ %124, %.lr.ph.i ], [ %.08.i.i.i.i, %.preheader.i.i.i ]
-  %133 = load i8, ptr %108, align 8, !tbaa !55, !range !56, !noundef !57
-  %134 = trunc i32 %.sroa.03.0.i.i.i to i8
-  %135 = and i8 %134, 1
-  %136 = icmp ne i8 %133, %135
+  %133 = trunc i32 %.sroa.03.0.i.i.i to i8
+  %134 = load i8, ptr %108, align 8, !tbaa !55, !range !56, !noundef !57
+  %135 = and i8 %133, 1
+  %136 = icmp ne i8 %134, %135
   %137 = zext i1 %136 to i8
   store i8 %137, ptr %108, align 8, !tbaa !55
   %138 = icmp eq ptr %121, null
@@ -4425,10 +4425,10 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i: ; pr
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i:     ; preds = %.preheader.i.i.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i, %62
   %.sroa.03.0.i.i.i = phi i32 [ %66, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i ], [ %66, %62 ], [ %.08.i.i.i.i, %.preheader.i.i.i ]
-  %75 = load i8, ptr %52, align 8, !tbaa !55, !range !56, !noundef !57
-  %76 = trunc i32 %.sroa.03.0.i.i.i to i8
-  %77 = and i8 %76, 1
-  %78 = icmp ne i8 %75, %77
+  %75 = trunc i32 %.sroa.03.0.i.i.i to i8
+  %76 = load i8, ptr %52, align 8, !tbaa !55, !range !56, !noundef !57
+  %77 = and i8 %75, 1
+  %78 = icmp ne i8 %76, %77
   %79 = zext i1 %78 to i8
   store i8 %79, ptr %52, align 8, !tbaa !55
   %80 = icmp eq ptr %63, null
@@ -4656,10 +4656,10 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i: ; pr
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i:     ; preds = %.preheader.i.i.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i, %.lr.ph.i
   %.sroa.03.0.i.i.i = phi i32 [ %30, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i ], [ %30, %.lr.ph.i ], [ %.08.i.i.i.i, %.preheader.i.i.i ]
-  %39 = load i8, ptr %14, align 8, !tbaa !55, !range !56, !noundef !57
-  %40 = trunc i32 %.sroa.03.0.i.i.i to i8
-  %41 = and i8 %40, 1
-  %42 = icmp ne i8 %39, %41
+  %39 = trunc i32 %.sroa.03.0.i.i.i to i8
+  %40 = load i8, ptr %14, align 8, !tbaa !55, !range !56, !noundef !57
+  %41 = and i8 %39, 1
+  %42 = icmp ne i8 %40, %41
   %43 = zext i1 %42 to i8
   store i8 %43, ptr %14, align 8, !tbaa !55
   %44 = icmp eq ptr %27, null
@@ -6299,8 +6299,8 @@ _ZNK6vectorI7svectorIN3nla7var_eqsINS1_7emonicsEE7eq_edgeEjELb1EjE3endEv.exit: ;
   ret ptr %1
 
 13:                                               ; preds = %.lr.ph38, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread
-  %.036 = phi i32 [ 0, %.lr.ph38 ], [ %58, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread ]
-  %.02235 = phi ptr [ %5, %.lr.ph38 ], [ %59, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread ]
+  %.036 = phi i32 [ 0, %.lr.ph38 ], [ %57, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread ]
+  %.02235 = phi ptr [ %5, %.lr.ph38 ], [ %58, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread ]
   %14 = load ptr, ptr %.02235, align 8, !tbaa !75
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit
@@ -6312,10 +6312,10 @@ _ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit: ; preds = 
   br i1 %18, label %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread, label %19
 
 19:                                               ; preds = %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit
-  %20 = and i32 %.036, 1
-  %.not.not.i.i = icmp eq i32 %20, 0
-  %21 = select i1 %.not.not.i.i, ptr @.str.17, ptr @.str.27
-  %22 = zext nneg i32 %20 to i64
+  %20 = trunc i32 %.036 to i1
+  %21 = select i1 %20, ptr @.str.27, ptr @.str.17
+  %.mask.i.i = and i32 %.036, 1
+  %22 = zext nneg i32 %.mask.i.i to i64
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %21, i64 noundef %22)
   %24 = lshr i32 %.036, 1
   %25 = zext nneg i32 %24 to i64
@@ -6340,59 +6340,59 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i: ; preds 
   br i1 %.not.i.i, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit, label %.preheader.i
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit: ; preds = %.preheader.i
-  %.pre = and i32 %.08.i.i, 1
-  %.pre40 = zext nneg i32 %.pre to i64
-  %.pre42 = lshr i32 %.08.i.i, 1
-  %.pre44 = zext nneg i32 %.pre42 to i64
+  %.pre = trunc i32 %.08.i.i to i1
+  %.pre40 = select i1 %.pre, ptr @.str.27, ptr @.str.17
+  %.pre42 = and i32 %.08.i.i, 1
+  %.pre43 = zext nneg i32 %.pre42 to i64
+  %.pre45 = lshr i32 %.08.i.i, 1
+  %.pre47 = zext nneg i32 %.pre45 to i64
   br label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit
 
 _ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit: ; preds = %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit, %19, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i
-  %.pre-phi45 = phi i64 [ %.pre44, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit ], [ %25, %19 ], [ %25, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
-  %.pre-phi41 = phi i64 [ %.pre40, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit ], [ %22, %19 ], [ %22, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
-  %.pre-phi = phi i32 [ %.pre, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit ], [ %20, %19 ], [ %20, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
-  %.not.not.i.i25 = icmp eq i32 %.pre-phi, 0
-  %35 = select i1 %.not.not.i.i25, ptr @.str.17, ptr @.str.27
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %35, i64 noundef %.pre-phi41)
-  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %.pre-phi45)
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.26, i64 noundef 3)
-  %39 = load ptr, ptr %.02235, align 8, !tbaa !75
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %._crit_edge, label %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit
+  %.pre-phi48 = phi i64 [ %.pre47, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit ], [ %25, %19 ], [ %25, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
+  %.pre-phi44 = phi i64 [ %.pre43, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit ], [ %22, %19 ], [ %22, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
+  %.pre-phi41 = phi ptr [ %.pre40, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit.loopexit ], [ %21, %19 ], [ %21, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %.pre-phi41, i64 noundef %.pre-phi44)
+  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef %.pre-phi48)
+  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull @.str.26, i64 noundef 3)
+  %38 = load ptr, ptr %.02235, align 8, !tbaa !75
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %._crit_edge, label %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit
 
 _ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit: ; preds = %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit
-  %41 = getelementptr inbounds i8, ptr %39, i64 -4
-  %42 = load i32, ptr %41, align 4, !tbaa !41
-  %43 = zext i32 %42 to i64
-  %44 = mul nuw nsw i64 %43, 40
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
-  %.not2432 = icmp eq i32 %42, 0
+  %40 = getelementptr inbounds i8, ptr %38, i64 -4
+  %41 = load i32, ptr %40, align 4, !tbaa !41
+  %42 = zext i32 %41 to i64
+  %43 = mul nuw nsw i64 %42, 40
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 %43
+  %.not2432 = icmp eq i32 %41, 0
   br i1 %.not2432, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit
-  %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 1)
+  %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   br label %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit, %.lr.ph
-  %.02333 = phi ptr [ %57, %.lr.ph ], [ %39, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit ]
-  %47 = load i32, ptr %.02333, align 4, !tbaa !73
-  %48 = and i32 %47, 1
-  %.not.not.i.i27 = icmp eq i32 %48, 0
-  %49 = select i1 %.not.not.i.i27, ptr @.str.17, ptr @.str.27
-  %50 = zext nneg i32 %48 to i64
-  %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %49, i64 noundef %50)
-  %52 = load i32, ptr %.02333, align 4, !tbaa !73
-  %53 = lshr i32 %52, 1
-  %54 = zext nneg i32 %53 to i64
-  %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %54)
-  %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.8, i64 noundef 1)
-  %57 = getelementptr inbounds nuw i8, ptr %.02333, i64 40
-  %.not24 = icmp eq ptr %57, %45
+  %.02333 = phi ptr [ %56, %.lr.ph ], [ %38, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE3endEv.exit ]
+  %46 = load i32, ptr %.02333, align 4, !tbaa !73
+  %47 = trunc i32 %46 to i1
+  %48 = select i1 %47, ptr @.str.27, ptr @.str.17
+  %.mask.i.i27 = and i32 %46, 1
+  %49 = zext nneg i32 %.mask.i.i27 to i64
+  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %48, i64 noundef %49)
+  %51 = load i32, ptr %.02333, align 4, !tbaa !73
+  %52 = lshr i32 %51, 1
+  %53 = zext nneg i32 %52 to i64
+  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %53)
+  %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @.str.8, i64 noundef 1)
+  %56 = getelementptr inbounds nuw i8, ptr %.02333, i64 40
+  %.not24 = icmp eq ptr %56, %44
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 _ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit.thread: ; preds = %13, %._crit_edge, %_ZNK6vectorIN3nla7var_eqsINS0_7emonicsEE7eq_edgeELb0EjE5emptyEv.exit
-  %58 = add nuw i32 %.036, 1
-  %59 = getelementptr inbounds nuw i8, ptr %.02235, i64 8
-  %.not = icmp eq ptr %59, %11
+  %57 = add nuw i32 %.036, 1
+  %58 = getelementptr inbounds nuw i8, ptr %.02235, i64 8
+  %.not = icmp eq ptr %58, %11
   br i1 %.not, label %._crit_edge39, label %13
 }
 

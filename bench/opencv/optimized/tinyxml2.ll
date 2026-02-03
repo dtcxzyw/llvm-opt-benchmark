@@ -631,7 +631,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %4 = load i32, ptr %0, align 8, !tbaa !3
   %5 = and i32 %4, 256
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %101, label %6
+  br i1 %.not, label %100, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -650,9 +650,9 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %15 = icmp ult ptr %13, %14
   br i1 %15, label %.lr.ph62, label %.loopexit88
 
-.lr.ph62:                                         ; preds = %11, %70
-  %.03960 = phi ptr [ %.1, %70 ], [ %13, %11 ]
-  %.04059 = phi ptr [ %.242, %70 ], [ %13, %11 ]
+.lr.ph62:                                         ; preds = %11, %69
+  %.03960 = phi ptr [ %.1, %69 ], [ %13, %11 ]
+  %.04059 = phi ptr [ %.242, %69 ], [ %13, %11 ]
   %16 = load i32, ptr %0, align 8, !tbaa !3
   %17 = and i32 %16, 2
   %.not47 = icmp eq i32 %17, 0
@@ -673,7 +673,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %.141 = select i1 %22, ptr %23, ptr %20
   %24 = getelementptr inbounds nuw i8, ptr %.03960, i64 1
   store i8 10, ptr %.03960, align 1, !tbaa !12
-  br label %70
+  br label %69
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.04059, i64 1
@@ -683,204 +683,203 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %.343 = select i1 %28, ptr %29, ptr %26
   %30 = getelementptr inbounds nuw i8, ptr %.03960, i64 1
   store i8 10, ptr %.03960, align 1, !tbaa !12
-  br label %70
+  br label %69
 
 .thread:                                          ; preds = %18, %.lr.ph62
-  %31 = and i32 %16, 1
-  %.not49 = icmp ne i32 %31, 0
-  %32 = icmp eq i8 %.pre.pre, 38
-  %or.cond = select i1 %.not49, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %67
+  %.not49 = trunc i32 %16 to i1
+  %31 = icmp eq i8 %.pre.pre, 38
+  %or.cond = select i1 %.not49, i1 %31, i1 false
+  br i1 %or.cond, label %32, label %66
 
-33:                                               ; preds = %.thread
-  %34 = getelementptr inbounds nuw i8, ptr %.04059, i64 1
-  %35 = load i8, ptr %34, align 1, !tbaa !12
-  %36 = icmp eq i8 %35, 35
-  br i1 %36, label %37, label %.preheader
+32:                                               ; preds = %.thread
+  %33 = getelementptr inbounds nuw i8, ptr %.04059, i64 1
+  %34 = load i8, ptr %33, align 1, !tbaa !12
+  %35 = icmp eq i8 %34, 35
+  br i1 %35, label %36, label %.preheader
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %2, i8 0, i64 10, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %38 = call noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef nonnull %.04059, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %39 = load i32, ptr %3, align 4, !tbaa !18
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph, label %._crit_edge
+  %37 = call noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef nonnull %.04059, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %38 = load i32, ptr %3, align 4, !tbaa !18
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %37
-  %.2.lcssa = phi ptr [ %.03960, %37 ], [ %43, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %36
+  %.2.lcssa = phi ptr [ %.03960, %36 ], [ %42, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %70
+  br label %69
 
-.lr.ph:                                           ; preds = %37, %.lr.ph
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph ], [ 0, %37 ]
-  %.257 = phi ptr [ %43, %.lr.ph ], [ %.03960, %37 ]
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv74
-  %42 = load i8, ptr %41, align 1, !tbaa !12
-  %43 = getelementptr inbounds nuw i8, ptr %.257, i64 1
-  store i8 %42, ptr %.257, align 1, !tbaa !12
+.lr.ph:                                           ; preds = %36, %.lr.ph
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph ], [ 0, %36 ]
+  %.257 = phi ptr [ %42, %.lr.ph ], [ %.03960, %36 ]
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv74
+  %41 = load i8, ptr %40, align 1, !tbaa !12
+  %42 = getelementptr inbounds nuw i8, ptr %.257, i64 1
+  store i8 %41, ptr %.257, align 1, !tbaa !12
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %44 = load i32, ptr %3, align 4, !tbaa !18
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next75, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  %43 = load i32, ptr %3, align 4, !tbaa !18
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next75, %44
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
-.preheader:                                       ; preds = %33, %66
-  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %33 ]
-  %47 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 16, !tbaa !20
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !22
-  %51 = sext i32 %50 to i64
-  %52 = tail call i32 @strncmp(ptr noundef nonnull %34, ptr noundef %48, i64 noundef %51) #26
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %66
+.preheader:                                       ; preds = %32, %65
+  %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %32 ]
+  %46 = getelementptr inbounds nuw %"struct.cv::tinyxml2::Entity", ptr @_ZN2cv8tinyxml2L8entitiesE, i64 %indvars.iv
+  %47 = load ptr, ptr %46, align 16, !tbaa !20
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load i32, ptr %48, align 8, !tbaa !22
+  %50 = sext i32 %49 to i64
+  %51 = tail call i32 @strncmp(ptr noundef nonnull %33, ptr noundef %47, i64 noundef %50) #26
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %65
 
-54:                                               ; preds = %.preheader
-  %55 = getelementptr inbounds i8, ptr %.04059, i64 %51
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  %57 = load i8, ptr %56, align 1, !tbaa !12
-  %58 = icmp eq i8 %57, 59
-  br i1 %58, label %59, label %66
+53:                                               ; preds = %.preheader
+  %54 = getelementptr inbounds i8, ptr %.04059, i64 %50
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %56 = load i8, ptr %55, align 1, !tbaa !12
+  %57 = icmp eq i8 %56, 59
+  br i1 %57, label %58, label %65
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %61 = load i8, ptr %60, align 4, !tbaa !23
-  store i8 %61, ptr %.03960, align 1, !tbaa !12
-  %62 = getelementptr inbounds nuw i8, ptr %.03960, i64 1
-  %63 = getelementptr i8, ptr %55, i64 2
-  %64 = icmp eq i64 %indvars.iv, 5
-  %65 = zext i1 %64 to i64
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %60 = load i8, ptr %59, align 4, !tbaa !23
+  store i8 %60, ptr %.03960, align 1, !tbaa !12
+  %61 = getelementptr inbounds nuw i8, ptr %.03960, i64 1
+  %62 = getelementptr i8, ptr %54, i64 2
+  %63 = icmp eq i64 %indvars.iv, 5
+  %64 = zext i1 %63 to i64
   br label %.loopexit
 
-66:                                               ; preds = %.preheader, %54
+65:                                               ; preds = %.preheader, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.loopexit:                                        ; preds = %66, %59
-  %.053 = phi i64 [ %65, %59 ], [ 1, %66 ]
-  %.444 = phi ptr [ %63, %59 ], [ %.04059, %66 ]
-  %.3 = phi ptr [ %62, %59 ], [ %.03960, %66 ]
+.loopexit:                                        ; preds = %65, %58
+  %.053 = phi i64 [ %64, %58 ], [ 1, %65 ]
+  %.444 = phi ptr [ %62, %58 ], [ %.04059, %65 ]
+  %.3 = phi ptr [ %61, %58 ], [ %.03960, %65 ]
   %.5 = getelementptr inbounds nuw i8, ptr %.444, i64 %.053
   %.4 = getelementptr inbounds nuw i8, ptr %.3, i64 %.053
-  br label %70
+  br label %69
 
-67:                                               ; preds = %.thread
+66:                                               ; preds = %.thread
   store i8 %.pre.pre, ptr %.03960, align 1, !tbaa !12
-  %68 = getelementptr inbounds nuw i8, ptr %.04059, i64 1
-  %69 = getelementptr inbounds nuw i8, ptr %.03960, i64 1
-  br label %70
+  %67 = getelementptr inbounds nuw i8, ptr %.04059, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.03960, i64 1
+  br label %69
 
-70:                                               ; preds = %25, %._crit_edge, %.loopexit, %67, %19
-  %.242 = phi ptr [ %.141, %19 ], [ %.343, %25 ], [ %38, %._crit_edge ], [ %.5, %.loopexit ], [ %68, %67 ]
-  %.1 = phi ptr [ %24, %19 ], [ %30, %25 ], [ %.2.lcssa, %._crit_edge ], [ %.4, %.loopexit ], [ %69, %67 ]
-  %71 = load ptr, ptr %7, align 8, !tbaa !11
-  %72 = icmp ult ptr %.242, %71
-  br i1 %72, label %.lr.ph62, label %.loopexit88, !llvm.loop !25
+69:                                               ; preds = %25, %._crit_edge, %.loopexit, %66, %19
+  %.242 = phi ptr [ %.141, %19 ], [ %.343, %25 ], [ %37, %._crit_edge ], [ %.5, %.loopexit ], [ %67, %66 ]
+  %.1 = phi ptr [ %24, %19 ], [ %30, %25 ], [ %.2.lcssa, %._crit_edge ], [ %.4, %.loopexit ], [ %68, %66 ]
+  %70 = load ptr, ptr %7, align 8, !tbaa !11
+  %71 = icmp ult ptr %.242, %70
+  br i1 %71, label %.lr.ph62, label %.loopexit88, !llvm.loop !25
 
-.loopexit88:                                      ; preds = %70, %11
-  %.039.lcssa = phi ptr [ %13, %11 ], [ %.1, %70 ]
+.loopexit88:                                      ; preds = %69, %11
+  %.039.lcssa = phi ptr [ %13, %11 ], [ %.1, %69 ]
   store i8 0, ptr %.039.lcssa, align 1, !tbaa !12
   %.pre77 = load i32, ptr %0, align 8, !tbaa !3
-  %73 = and i32 %.pre77, 4
-  %.not46 = icmp eq i32 %73, 0
-  br i1 %.not46, label %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit, label %74
+  %72 = and i32 %.pre77, 4
+  %.not46 = icmp eq i32 %72, 0
+  br i1 %.not46, label %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit, label %73
 
-74:                                               ; preds = %.loopexit88
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !10
-  %77 = load i8, ptr %76, align 1, !tbaa !12
-  %.not5.i.i = icmp sgt i8 %77, -1
+73:                                               ; preds = %.loopexit88
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !10
+  %76 = load i8, ptr %75, align 1, !tbaa !12
+  %.not5.i.i = icmp sgt i8 %76, -1
   br i1 %.not5.i.i, label %.lr.ph.i.i, label %.loopexit.i
 
-.lr.ph.i.i:                                       ; preds = %74, %81
-  %78 = phi i8 [ %83, %81 ], [ %77, %74 ]
-  %.06.i.i = phi ptr [ %82, %81 ], [ %76, %74 ]
-  %79 = zext nneg i8 %78 to i32
-  %80 = tail call i32 @isspace(i32 noundef %79) #26
-  %.not4.i.i = icmp eq i32 %80, 0
-  br i1 %.not4.i.i, label %.loopexit.i, label %81
+.lr.ph.i.i:                                       ; preds = %73, %80
+  %77 = phi i8 [ %82, %80 ], [ %76, %73 ]
+  %.06.i.i = phi ptr [ %81, %80 ], [ %75, %73 ]
+  %78 = zext nneg i8 %77 to i32
+  %79 = tail call i32 @isspace(i32 noundef %78) #26
+  %.not4.i.i = icmp eq i32 %79, 0
+  br i1 %.not4.i.i, label %.loopexit.i, label %80
 
-81:                                               ; preds = %.lr.ph.i.i
-  %82 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
-  %83 = load i8, ptr %82, align 1, !tbaa !12
-  %.not.i.i = icmp sgt i8 %83, -1
+80:                                               ; preds = %.lr.ph.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
+  %82 = load i8, ptr %81, align 1, !tbaa !12
+  %.not.i.i = icmp sgt i8 %82, -1
   br i1 %.not.i.i, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !16
 
-.loopexit.i:                                      ; preds = %81, %.lr.ph.i.i, %74
-  %.0.lcssa.i.i = phi ptr [ %76, %74 ], [ %82, %81 ], [ %.06.i.i, %.lr.ph.i.i ]
-  store ptr %.0.lcssa.i.i, ptr %75, align 8, !tbaa !10
-  %84 = load i8, ptr %.0.lcssa.i.i, align 1, !tbaa !12
-  %.not16.i = icmp eq i8 %84, 0
+.loopexit.i:                                      ; preds = %80, %.lr.ph.i.i, %73
+  %.0.lcssa.i.i = phi ptr [ %75, %73 ], [ %81, %80 ], [ %.06.i.i, %.lr.ph.i.i ]
+  store ptr %.0.lcssa.i.i, ptr %74, align 8, !tbaa !10
+  %83 = load i8, ptr %.0.lcssa.i.i, align 1, !tbaa !12
+  %.not16.i = icmp eq i8 %83, 0
   br i1 %.not16.i, label %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.loopexit.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i
-  %.031.i = phi ptr [ %96, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ], [ %.0.lcssa.i.i, %.loopexit.i ]
-  %.01230.i = phi ptr [ %97, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ], [ %.0.lcssa.i.i, %.loopexit.i ]
-  %85 = phi i8 [ %.pr.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ], [ %84, %.loopexit.i ]
-  %.not.i18.i = icmp sgt i8 %85, -1
+  %.031.i = phi ptr [ %95, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ], [ %.0.lcssa.i.i, %.loopexit.i ]
+  %.01230.i = phi ptr [ %96, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ], [ %.0.lcssa.i.i, %.loopexit.i ]
+  %84 = phi i8 [ %.pr.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ], [ %83, %.loopexit.i ]
+  %.not.i18.i = icmp sgt i8 %84, -1
   br i1 %.not.i18.i, label %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i, label %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i
 
 _ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i:   ; preds = %.preheader.i
-  %86 = zext nneg i8 %85 to i32
-  %87 = tail call i32 @isspace(i32 noundef %86) #26
-  %.not.i = icmp eq i32 %87, 0
+  %85 = zext nneg i8 %84 to i32
+  %86 = tail call i32 @isspace(i32 noundef %85) #26
+  %.not.i = icmp eq i32 %86, 0
   br i1 %.not.i, label %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i, label %.lr.ph.i21.i
 
-.lr.ph.i21.i:                                     ; preds = %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i, %90
-  %.pr26.i = phi i8 [ %92, %90 ], [ %85, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ]
-  %.06.i22.i = phi ptr [ %91, %90 ], [ %.01230.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ]
-  %88 = zext nneg i8 %.pr26.i to i32
-  %89 = tail call i32 @isspace(i32 noundef %88) #26
-  %.not4.i23.i = icmp eq i32 %89, 0
-  br i1 %.not4.i23.i, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i, label %90
+.lr.ph.i21.i:                                     ; preds = %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i, %89
+  %.pr26.i = phi i8 [ %91, %89 ], [ %84, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ]
+  %.06.i22.i = phi ptr [ %90, %89 ], [ %.01230.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ]
+  %87 = zext nneg i8 %.pr26.i to i32
+  %88 = tail call i32 @isspace(i32 noundef %87) #26
+  %.not4.i23.i = icmp eq i32 %88, 0
+  br i1 %.not4.i23.i, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i, label %89
 
-90:                                               ; preds = %.lr.ph.i21.i
-  %91 = getelementptr inbounds nuw i8, ptr %.06.i22.i, i64 1
-  %92 = load i8, ptr %91, align 1, !tbaa !12
-  %.not.i24.i = icmp sgt i8 %92, -1
+89:                                               ; preds = %.lr.ph.i21.i
+  %90 = getelementptr inbounds nuw i8, ptr %.06.i22.i, i64 1
+  %91 = load i8, ptr %90, align 1, !tbaa !12
+  %.not.i24.i = icmp sgt i8 %91, -1
   br i1 %.not.i24.i, label %.lr.ph.i21.i, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i, !llvm.loop !16
 
 _ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i: ; preds = %.lr.ph.i21.i
-  %93 = icmp eq i8 %.pr26.i, 0
-  br i1 %93, label %98, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i
+  %92 = icmp eq i8 %.pr26.i, 0
+  br i1 %92, label %97, label %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i
 
-_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i: ; preds = %90, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i
-  %.0.lcssa.i2028.i = phi ptr [ %.06.i22.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i ], [ %91, %90 ]
+_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i: ; preds = %89, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i
+  %.0.lcssa.i2028.i = phi ptr [ %.06.i22.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i ], [ %90, %89 ]
   store i8 32, ptr %.031.i, align 1, !tbaa !12
-  %94 = getelementptr inbounds nuw i8, ptr %.031.i, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.031.i, i64 1
   %.pre.i = load i8, ptr %.0.lcssa.i2028.i, align 1, !tbaa !12
   br label %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i
 
 _ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i: ; preds = %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i, %.preheader.i
-  %95 = phi i8 [ %.pre.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i ], [ %85, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ], [ %85, %.preheader.i ]
+  %94 = phi i8 [ %.pre.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i ], [ %84, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ], [ %84, %.preheader.i ]
   %.113.i = phi ptr [ %.0.lcssa.i2028.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i ], [ %.01230.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ], [ %.01230.i, %.preheader.i ]
-  %.1.i = phi ptr [ %94, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i ], [ %.031.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ], [ %.031.i, %.preheader.i ]
-  store i8 %95, ptr %.1.i, align 1, !tbaa !12
-  %96 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  %97 = getelementptr inbounds nuw i8, ptr %.113.i, i64 1
-  %.pr.i = load i8, ptr %97, align 1, !tbaa !12
+  %.1.i = phi ptr [ %93, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.thread.i ], [ %.031.i, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.i ], [ %.031.i, %.preheader.i ]
+  store i8 %94, ptr %.1.i, align 1, !tbaa !12
+  %95 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.113.i, i64 1
+  %.pr.i = load i8, ptr %96, align 1, !tbaa !12
   %.not17.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not17.i, label %98, label %.preheader.i, !llvm.loop !17
+  br i1 %.not17.i, label %97, label %.preheader.i, !llvm.loop !17
 
-98:                                               ; preds = %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i
-  %.0.lcssa.i = phi ptr [ %.031.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i ], [ %96, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ]
+97:                                               ; preds = %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i
+  %.0.lcssa.i = phi ptr [ %.031.i, %_ZN2cv8tinyxml27XMLUtil14SkipWhiteSpaceEPc.exit25.i ], [ %95, %_ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i ]
   store i8 0, ptr %.0.lcssa.i, align 1, !tbaa !12
   %.pre78 = load i32, ptr %0, align 8, !tbaa !3
   br label %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit
 
-_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit: ; preds = %6, %98, %.loopexit.i, %.loopexit88
-  %99 = phi i32 [ %.pre78, %98 ], [ %.pre77, %.loopexit.i ], [ %.pre77, %.loopexit88 ], [ 0, %6 ]
-  %100 = and i32 %99, 512
-  store i32 %100, ptr %0, align 8, !tbaa !3
-  br label %101
+_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit: ; preds = %6, %97, %.loopexit.i, %.loopexit88
+  %98 = phi i32 [ %.pre78, %97 ], [ %.pre77, %.loopexit.i ], [ %.pre77, %.loopexit88 ], [ 0, %6 ]
+  %99 = and i32 %98, 512
+  store i32 %99, ptr %0, align 8, !tbaa !3
+  br label %100
 
-101:                                              ; preds = %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit, %1
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !10
-  ret ptr %103
+100:                                              ; preds = %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit, %1
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !10
+  ret ptr %102
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -146,14 +146,14 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
   br label %57
 
 57:                                               ; preds = %51, %.loopexit203
-  %.1148216 = phi i16 [ 0, %51 ], [ %183, %.loopexit203 ]
+  %.1148216 = phi i16 [ 0, %51 ], [ %178, %.loopexit203 ]
   %.5165215 = phi i32 [ 0, %51 ], [ %.14, %.loopexit203 ]
   %58 = zext nneg i16 %.1148216 to i64
   %59 = getelementptr inbounds nuw i16, ptr %7, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !17
   %61 = zext i16 %60 to i32
   %62 = icmp samesign ult i32 %52, %61
-  br i1 %62, label %63, label %181
+  br i1 %62, label %63, label %176
 
 63:                                               ; preds = %57
   %64 = zext i16 %60 to i64
@@ -166,7 +166,7 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
   %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !27
   %.not177 = icmp eq i32 %68, 0
-  br i1 %.not177, label %179, label %69
+  br i1 %.not177, label %174, label %69
 
 69:                                               ; preds = %66
   %70 = and i32 %68, 65535
@@ -174,7 +174,7 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 %72
   %74 = lshr i32 %68, 16
-  switch i32 %3, label %178 [
+  switch i32 %3, label %173 [
     i32 0, label %.preheader
     i32 1, label %.preheader193
     i32 2, label %.preheader195
@@ -250,191 +250,186 @@ default.unreachable245:                           ; preds = %81
   %.not185 = icmp eq i32 %102, 0
   br i1 %.not185, label %.loopexit192, label %.preheader, !llvm.loop !29
 
-.preheader193:                                    ; preds = %69, %111
-  %.8168 = phi i32 [ %114, %111 ], [ %.6166213, %69 ]
-  %.5154 = phi ptr [ %113, %111 ], [ %73, %69 ]
-  %.1144 = phi i32 [ %112, %111 ], [ %74, %69 ]
-  %103 = and i32 %.1144, 1
-  %104 = icmp ne i32 %103, 0
-  %or.cond = or i1 %48, %104
-  br i1 %or.cond, label %105, label %111
+.preheader193:                                    ; preds = %69, %110
+  %.8168 = phi i32 [ %113, %110 ], [ %.6166213, %69 ]
+  %.5154 = phi ptr [ %112, %110 ], [ %73, %69 ]
+  %.1144 = phi i32 [ %111, %110 ], [ %74, %69 ]
+  %103 = trunc i32 %.1144 to i1
+  %or.cond = or i1 %48, %103
+  br i1 %or.cond, label %104, label %110
 
-105:                                              ; preds = %.preheader193
-  %106 = load i16, ptr %.5154, align 2, !tbaa !17
-  %107 = icmp ugt i16 %106, 255
-  br i1 %107, label %108, label %111
+104:                                              ; preds = %.preheader193
+  %105 = load i16, ptr %.5154, align 2, !tbaa !17
+  %106 = icmp ugt i16 %105, 255
+  br i1 %106, label %107, label %110
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %54, align 8, !tbaa !19
-  %110 = load ptr, ptr %1, align 8, !tbaa !22
-  tail call void %109(ptr noundef %110, i32 noundef %.8168)
-  br label %111
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %54, align 8, !tbaa !19
+  %109 = load ptr, ptr %1, align 8, !tbaa !22
+  tail call void %108(ptr noundef %109, i32 noundef %.8168)
+  br label %110
 
-111:                                              ; preds = %.preheader193, %108, %105
-  %112 = lshr i32 %.1144, 1
-  %113 = getelementptr inbounds nuw i8, ptr %.5154, i64 2
-  %114 = add nsw i32 %.8168, 1
-  %115 = and i32 %114, 15
-  %.not182 = icmp eq i32 %115, 0
+110:                                              ; preds = %.preheader193, %107, %104
+  %111 = lshr i32 %.1144, 1
+  %112 = getelementptr inbounds nuw i8, ptr %.5154, i64 2
+  %113 = add nsw i32 %.8168, 1
+  %114 = and i32 %113, 15
+  %.not182 = icmp eq i32 %114, 0
   br i1 %.not182, label %.loopexit192, label %.preheader193, !llvm.loop !30
 
-.preheader195:                                    ; preds = %69, %124
-  %.9169 = phi i32 [ %127, %124 ], [ %.6166213, %69 ]
-  %.6 = phi ptr [ %126, %124 ], [ %73, %69 ]
-  %.2145 = phi i32 [ %125, %124 ], [ %74, %69 ]
-  %116 = and i32 %.2145, 1
-  %117 = icmp ne i32 %116, 0
-  %or.cond3 = or i1 %48, %117
-  br i1 %or.cond3, label %118, label %124
+.preheader195:                                    ; preds = %69, %122
+  %.9169 = phi i32 [ %125, %122 ], [ %.6166213, %69 ]
+  %.6 = phi ptr [ %124, %122 ], [ %73, %69 ]
+  %.2145 = phi i32 [ %123, %122 ], [ %74, %69 ]
+  %115 = trunc i32 %.2145 to i1
+  %or.cond3 = or i1 %48, %115
+  br i1 %or.cond3, label %116, label %122
 
-118:                                              ; preds = %.preheader195
-  %119 = load i8, ptr %.6, align 1, !tbaa !28
-  %120 = add i8 %119, 127
-  %or.cond5 = icmp ult i8 %120, 2
-  br i1 %or.cond5, label %121, label %124
+116:                                              ; preds = %.preheader195
+  %117 = load i8, ptr %.6, align 1, !tbaa !28
+  %118 = add i8 %117, 127
+  %or.cond5 = icmp ult i8 %118, 2
+  br i1 %or.cond5, label %119, label %122
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %54, align 8, !tbaa !19
-  %123 = load ptr, ptr %1, align 8, !tbaa !22
-  tail call void %122(ptr noundef %123, i32 noundef %.9169)
-  br label %124
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %54, align 8, !tbaa !19
+  %121 = load ptr, ptr %1, align 8, !tbaa !22
+  tail call void %120(ptr noundef %121, i32 noundef %.9169)
+  br label %122
 
-124:                                              ; preds = %118, %.preheader195, %121
-  %125 = lshr i32 %.2145, 1
-  %126 = getelementptr inbounds nuw i8, ptr %.6, i64 3
-  %127 = add nsw i32 %.9169, 1
-  %128 = and i32 %127, 15
-  %.not181 = icmp eq i32 %128, 0
+122:                                              ; preds = %116, %.preheader195, %119
+  %123 = lshr i32 %.2145, 1
+  %124 = getelementptr inbounds nuw i8, ptr %.6, i64 3
+  %125 = add nsw i32 %.9169, 1
+  %126 = and i32 %125, 15
+  %.not181 = icmp eq i32 %126, 0
   br i1 %.not181, label %.loopexit192, label %.preheader195, !llvm.loop !31
 
-.preheader197:                                    ; preds = %69, %137
-  %.10 = phi i32 [ %140, %137 ], [ %.6166213, %69 ]
-  %.7 = phi ptr [ %139, %137 ], [ %73, %69 ]
-  %.3 = phi i32 [ %138, %137 ], [ %74, %69 ]
-  %129 = and i32 %.3, 1
-  %130 = icmp ne i32 %129, 0
-  %or.cond7 = or i1 %48, %130
-  br i1 %or.cond7, label %131, label %137
+.preheader197:                                    ; preds = %69, %134
+  %.10 = phi i32 [ %137, %134 ], [ %.6166213, %69 ]
+  %.7 = phi ptr [ %136, %134 ], [ %73, %69 ]
+  %.3 = phi i32 [ %135, %134 ], [ %74, %69 ]
+  %127 = trunc i32 %.3 to i1
+  %or.cond7 = or i1 %48, %127
+  br i1 %or.cond7, label %128, label %134
 
-131:                                              ; preds = %.preheader197
-  %132 = load i16, ptr %.7, align 2, !tbaa !17
-  %133 = add i16 %132, 32448
-  %or.cond9 = icmp ult i16 %133, 28349
-  br i1 %or.cond9, label %134, label %137
+128:                                              ; preds = %.preheader197
+  %129 = load i16, ptr %.7, align 2, !tbaa !17
+  %130 = add i16 %129, 32448
+  %or.cond9 = icmp ult i16 %130, 28349
+  br i1 %or.cond9, label %131, label %134
 
-134:                                              ; preds = %131
-  %135 = load ptr, ptr %54, align 8, !tbaa !19
-  %136 = load ptr, ptr %1, align 8, !tbaa !22
-  tail call void %135(ptr noundef %136, i32 noundef %.10)
-  br label %137
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %54, align 8, !tbaa !19
+  %133 = load ptr, ptr %1, align 8, !tbaa !22
+  tail call void %132(ptr noundef %133, i32 noundef %.10)
+  br label %134
 
-137:                                              ; preds = %.preheader197, %134, %131
-  %138 = lshr i32 %.3, 1
-  %139 = getelementptr inbounds nuw i8, ptr %.7, i64 2
-  %140 = add nsw i32 %.10, 1
-  %141 = and i32 %140, 15
-  %.not180 = icmp eq i32 %141, 0
+134:                                              ; preds = %.preheader197, %131, %128
+  %135 = lshr i32 %.3, 1
+  %136 = getelementptr inbounds nuw i8, ptr %.7, i64 2
+  %137 = add nsw i32 %.10, 1
+  %138 = and i32 %137, 15
+  %.not180 = icmp eq i32 %138, 0
   br i1 %.not180, label %.loopexit192, label %.preheader197, !llvm.loop !32
 
-.preheader199:                                    ; preds = %69, %155
-  %.11 = phi i32 [ %158, %155 ], [ %.6166213, %69 ]
-  %.8 = phi ptr [ %157, %155 ], [ %73, %69 ]
-  %.4 = phi i32 [ %156, %155 ], [ %74, %69 ]
-  %142 = and i32 %.4, 1
-  %143 = icmp ne i32 %142, 0
-  %or.cond11 = or i1 %48, %143
-  br i1 %or.cond11, label %144, label %155
+.preheader199:                                    ; preds = %69, %151
+  %.11 = phi i32 [ %154, %151 ], [ %.6166213, %69 ]
+  %.8 = phi ptr [ %153, %151 ], [ %73, %69 ]
+  %.4 = phi i32 [ %152, %151 ], [ %74, %69 ]
+  %139 = trunc i32 %.4 to i1
+  %or.cond11 = or i1 %48, %139
+  br i1 %or.cond11, label %140, label %151
 
-144:                                              ; preds = %.preheader199
-  %145 = load i16, ptr %.8, align 2, !tbaa !17
-  %146 = add i16 %145, 24159
-  %147 = icmp ult i16 %146, 23902
-  br i1 %147, label %148, label %155
+140:                                              ; preds = %.preheader199
+  %141 = load i16, ptr %.8, align 2, !tbaa !17
+  %142 = add i16 %141, 24159
+  %143 = icmp ult i16 %142, 23902
+  br i1 %143, label %144, label %151
+
+144:                                              ; preds = %140
+  %145 = add nuw nsw i16 %141, 95
+  %146 = and i16 %145, 254
+  %147 = icmp samesign ult i16 %146, 94
+  br i1 %147, label %148, label %151
 
 148:                                              ; preds = %144
-  %149 = add nuw nsw i16 %145, 95
-  %150 = and i16 %149, 254
-  %151 = icmp samesign ult i16 %150, 94
-  br i1 %151, label %152, label %155
+  %149 = load ptr, ptr %54, align 8, !tbaa !19
+  %150 = load ptr, ptr %1, align 8, !tbaa !22
+  tail call void %149(ptr noundef %150, i32 noundef %.11)
+  br label %151
 
-152:                                              ; preds = %148
-  %153 = load ptr, ptr %54, align 8, !tbaa !19
-  %154 = load ptr, ptr %1, align 8, !tbaa !22
-  tail call void %153(ptr noundef %154, i32 noundef %.11)
-  br label %155
-
-155:                                              ; preds = %.preheader199, %152, %148, %144
-  %156 = lshr i32 %.4, 1
-  %157 = getelementptr inbounds nuw i8, ptr %.8, i64 2
-  %158 = add nsw i32 %.11, 1
-  %159 = and i32 %158, 15
-  %.not179 = icmp eq i32 %159, 0
+151:                                              ; preds = %.preheader199, %148, %144, %140
+  %152 = lshr i32 %.4, 1
+  %153 = getelementptr inbounds nuw i8, ptr %.8, i64 2
+  %154 = add nsw i32 %.11, 1
+  %155 = and i32 %154, 15
+  %.not179 = icmp eq i32 %155, 0
   br i1 %.not179, label %.loopexit192, label %.preheader199, !llvm.loop !33
 
-.preheader201:                                    ; preds = %69, %173
-  %.12 = phi i32 [ %176, %173 ], [ %.6166213, %69 ]
-  %.9 = phi ptr [ %175, %173 ], [ %73, %69 ]
-  %.5 = phi i32 [ %174, %173 ], [ %74, %69 ]
-  %160 = and i32 %.5, 1
-  %161 = icmp ne i32 %160, 0
-  %or.cond13 = or i1 %48, %161
-  br i1 %or.cond13, label %162, label %173
+.preheader201:                                    ; preds = %69, %168
+  %.12 = phi i32 [ %171, %168 ], [ %.6166213, %69 ]
+  %.9 = phi ptr [ %170, %168 ], [ %73, %69 ]
+  %.5 = phi i32 [ %169, %168 ], [ %74, %69 ]
+  %156 = trunc i32 %.5 to i1
+  %or.cond13 = or i1 %48, %156
+  br i1 %or.cond13, label %157, label %168
 
-162:                                              ; preds = %.preheader201
-  %163 = load i16, ptr %.9, align 2, !tbaa !17
-  %164 = add i16 %163, 24159
-  %165 = icmp ult i16 %164, 23646
-  br i1 %165, label %166, label %173
+157:                                              ; preds = %.preheader201
+  %158 = load i16, ptr %.9, align 2, !tbaa !17
+  %159 = add i16 %158, 24159
+  %160 = icmp ult i16 %159, 23646
+  br i1 %160, label %161, label %168
 
-166:                                              ; preds = %162
-  %167 = add nuw nsw i16 %163, 95
-  %168 = and i16 %167, 254
-  %169 = icmp samesign ult i16 %168, 94
-  br i1 %169, label %170, label %173
+161:                                              ; preds = %157
+  %162 = add nuw nsw i16 %158, 95
+  %163 = and i16 %162, 254
+  %164 = icmp samesign ult i16 %163, 94
+  br i1 %164, label %165, label %168
 
-170:                                              ; preds = %166
-  %171 = load ptr, ptr %54, align 8, !tbaa !19
-  %172 = load ptr, ptr %1, align 8, !tbaa !22
-  tail call void %171(ptr noundef %172, i32 noundef %.12)
-  br label %173
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %54, align 8, !tbaa !19
+  %167 = load ptr, ptr %1, align 8, !tbaa !22
+  tail call void %166(ptr noundef %167, i32 noundef %.12)
+  br label %168
 
-173:                                              ; preds = %.preheader201, %170, %166, %162
-  %174 = lshr i32 %.5, 1
-  %175 = getelementptr inbounds nuw i8, ptr %.9, i64 2
-  %176 = add nsw i32 %.12, 1
-  %177 = and i32 %176, 15
-  %.not178 = icmp eq i32 %177, 0
+168:                                              ; preds = %.preheader201, %165, %161, %157
+  %169 = lshr i32 %.5, 1
+  %170 = getelementptr inbounds nuw i8, ptr %.9, i64 2
+  %171 = add nsw i32 %.12, 1
+  %172 = and i32 %171, 15
+  %.not178 = icmp eq i32 %172, 0
   br i1 %.not178, label %.loopexit192, label %.preheader201, !llvm.loop !34
 
-178:                                              ; preds = %69
+173:                                              ; preds = %69
   store i32 5, ptr %4, align 4, !tbaa !35
-  br label %184
+  br label %179
 
-179:                                              ; preds = %66
-  %180 = add nsw i32 %.6166213, 16
+174:                                              ; preds = %66
+  %175 = add nsw i32 %.6166213, 16
   br label %.loopexit192
 
-.loopexit192:                                     ; preds = %173, %155, %137, %124, %111, %99, %179
-  %.13 = phi i32 [ %180, %179 ], [ %114, %111 ], [ %127, %124 ], [ %140, %137 ], [ %158, %155 ], [ %101, %99 ], [ %176, %173 ]
+.loopexit192:                                     ; preds = %168, %151, %134, %122, %110, %99, %174
+  %.13 = phi i32 [ %175, %174 ], [ %113, %110 ], [ %125, %122 ], [ %137, %134 ], [ %154, %151 ], [ %101, %99 ], [ %171, %168 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit203, label %66, !llvm.loop !37
 
-181:                                              ; preds = %57
-  %182 = add nsw i32 %.5165215, 1024
+176:                                              ; preds = %57
+  %177 = add nsw i32 %.5165215, 1024
   br label %.loopexit203
 
-.loopexit203:                                     ; preds = %.loopexit192, %181
-  %.14 = phi i32 [ %182, %181 ], [ %.13, %.loopexit192 ]
-  %183 = add nuw nsw i16 %.1148216, 1
-  %.not186 = icmp samesign ult i16 %183, %56
+.loopexit203:                                     ; preds = %.loopexit192, %176
+  %.14 = phi i32 [ %177, %176 ], [ %.13, %.loopexit192 ]
+  %178 = add nuw nsw i16 %.1148216, 1
+  %.not186 = icmp samesign ult i16 %178, %56
   br i1 %.not186, label %57, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.loopexit203, %.loopexit191
   tail call void @ucnv_extGetUnicodeSet_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4)
-  br label %184
+  br label %179
 
-184:                                              ; preds = %178, %.critedge
+179:                                              ; preds = %173, %.critedge
   ret void
 }
 

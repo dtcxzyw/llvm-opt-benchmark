@@ -2455,10 +2455,10 @@ _ZNKSt8functionIFjvEEclEv.exit:                   ; preds = %._crit_edge
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !253
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %15 = trunc i32 %13 to i8
-  %16 = and i8 %15, 1
-  store i8 %16, ptr %14, align 4, !tbaa !294
+  %14 = trunc i32 %13 to i8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %16 = and i8 %14, 1
+  store i8 %16, ptr %15, align 4, !tbaa !294
   %17 = load ptr, ptr %1, align 8, !tbaa !215
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZSt4sortIPjZN3nla12cross_nested29fill_vars_from_occurences_mapER7svectorIjjEEUljjE_EvT_S7_T0_.exit, label %_ZN6vectorIjLb0EjE3endEv.exit

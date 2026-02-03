@@ -132,12 +132,11 @@ define hidden noalias noundef ptr @_Z20init_unit_test_suiteiPPc(i32 noundef %0, 
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not.i.i = icmp ne ptr %20, null
+  %.not.i.i = icmp eq ptr %20, null
   %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %21, 1
-  %.not1.i.i = icmp eq i64 %22, 0
-  %or.cond = and i1 %.not.i.i, %.not1.i.i
-  br i1 %or.cond, label %23, label %_ZN5boost10function_nIvJEED2Ev.exit
+  %22 = trunc i64 %21 to i1
+  %or.cond = or i1 %.not.i.i, %22
+  br i1 %or.cond, label %_ZN5boost10function_nIvJEED2Ev.exit, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %20, align 8, !tbaa !19
@@ -257,9 +256,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonn
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !19

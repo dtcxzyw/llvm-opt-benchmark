@@ -208,9 +208,8 @@ define hidden void @_ZN11StringDedup20forbid_deduplicationEP7oopDesc(ptr noundef
   %5 = add nsw i64 %4, %3
   %6 = inttoptr i64 %5 to ptr
   %7 = load volatile i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %10, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
@@ -243,9 +242,8 @@ define hidden void @_ZN11StringDedup13notify_internEP7oopDesc(ptr noundef %0) lo
   %5 = add nsw i64 %4, %3
   %6 = inttoptr i64 %5 to ptr
   %7 = load volatile i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %10, label %9
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6

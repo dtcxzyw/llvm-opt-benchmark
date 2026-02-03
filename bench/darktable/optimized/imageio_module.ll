@@ -851,26 +851,25 @@ dt_imageio_load_modules_format.exit:              ; preds = %1, %.outer._crit_ed
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr %353, ptr %355, align 8, !tbaa !78
   %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !98
-  %357 = and i32 %356, 1
-  %358 = icmp ne i32 %357, 0
-  %359 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
-  %360 = icmp ne i32 %359, 0
-  %or.cond.i.i = select i1 %358, i1 %360, i1 false
-  br i1 %or.cond.i.i, label %361, label %dt_imageio_insert_storage.exit.i
+  %357 = trunc i32 %356 to i1
+  %358 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
+  %359 = icmp ne i32 %358, 0
+  %or.cond.i.i = select i1 %357, i1 %359, i1 false
+  br i1 %or.cond.i.i, label %360, label %dt_imageio_insert_storage.exit.i
 
-361:                                              ; preds = %349
-  %362 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
-  %363 = and i32 %362, 1048576
-  %.not.i27.i = icmp eq i32 %363, 0
-  br i1 %.not.i27.i, label %dt_imageio_insert_storage.exit.i, label %364
+360:                                              ; preds = %349
+  %361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
+  %362 = and i32 %361, 1048576
+  %.not.i27.i = icmp eq i32 %362, 0
+  br i1 %.not.i27.i, label %dt_imageio_insert_storage.exit.i, label %363
 
-364:                                              ; preds = %361
+363:                                              ; preds = %360
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 397, ptr noundef nonnull @__FUNCTION__.dt_imageio_insert_storage) #13
   br label %dt_imageio_insert_storage.exit.i
 
-dt_imageio_insert_storage.exit.i:                 ; preds = %364, %361, %349
-  %365 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %365, i32 noundef 36) #13
+dt_imageio_insert_storage.exit.i:                 ; preds = %363, %360, %349
+  %364 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %364, i32 noundef 36) #13
   br label %.backedge.i11
 
 ._crit_edge.i:                                    ; preds = %.backedge.i11, %.preheader.i5
@@ -1213,26 +1212,25 @@ define void @dt_imageio_insert_storage(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8, !tbaa !78
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !98
-  %9 = and i32 %8, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
-  %12 = icmp ne i32 %11, 0
-  %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %17
+  %9 = trunc i32 %8 to i1
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
+  %11 = icmp ne i32 %10, 0
+  %or.cond = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %16
 
-13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
-  %15 = and i32 %14, 1048576
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %17, label %16
+12:                                               ; preds = %1
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
+  %14 = and i32 %13, 1048576
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %16, label %15
 
-16:                                               ; preds = %13
+15:                                               ; preds = %12
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 397, ptr noundef nonnull @__FUNCTION__.dt_imageio_insert_storage) #13
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %13, %1
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %18, i32 noundef 36) #13
+16:                                               ; preds = %15, %12, %1
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %17, i32 noundef 36) #13
   ret void
 }
 
@@ -1264,26 +1262,25 @@ define void @dt_imageio_remove_storage(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8, !tbaa !78
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !98
-  %9 = and i32 %8, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
-  %12 = icmp ne i32 %11, 0
-  %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %17
+  %9 = trunc i32 %8 to i1
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3276), align 4
+  %11 = icmp ne i32 %10, 0
+  %or.cond = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %16
 
-13:                                               ; preds = %1
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
-  %15 = and i32 %14, 1048576
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %17, label %16
+12:                                               ; preds = %1
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
+  %14 = and i32 %13, 1048576
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %16, label %15
 
-16:                                               ; preds = %13
+15:                                               ; preds = %12
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 403, ptr noundef nonnull @__FUNCTION__.dt_imageio_remove_storage) #13
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %13, %1
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %18, i32 noundef 36) #13
+16:                                               ; preds = %15, %12, %1
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !99
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %17, i32 noundef 36) #13
   ret void
 }
 

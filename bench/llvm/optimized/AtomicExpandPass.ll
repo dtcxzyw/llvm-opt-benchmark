@@ -703,9 +703,9 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl27getCorrespondingIntegerTypeEPN4llvm4TypeERK
   %192 = or disjoint i16 %191, %.tr.i.i.i.i.i.i.i
   store i16 %192, ptr %189, align 2, !tbaa !66
   %193 = load i16, ptr %127, align 2, !tbaa !66
-  %194 = and i16 %193, 1
-  %195 = and i16 %192, -2
-  %196 = or disjoint i16 %195, %194
+  %194 = and i16 %192, -2
+  %195 = and i16 %193, 1
+  %196 = or disjoint i16 %194, %195
   store i16 %196, ptr %189, align 2, !tbaa !66
   %197 = load i16, ptr %127, align 2, !tbaa !66
   %198 = and i16 %197, 896
@@ -890,9 +890,9 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl27getCorrespondingIntegerTypeEPN4llvm4TypeERK
   %297 = or disjoint i16 %296, %.tr.i.i.i.i.i.i144.i
   store i16 %297, ptr %294, align 2, !tbaa !66
   %298 = load i16, ptr %225, align 2, !tbaa !66
-  %299 = and i16 %298, 1
-  %300 = and i16 %297, -2
-  %301 = or disjoint i16 %300, %299
+  %299 = and i16 %297, -2
+  %300 = and i16 %298, 1
+  %301 = or disjoint i16 %299, %300
   store i16 %301, ptr %294, align 2, !tbaa !66
   %302 = load i16, ptr %225, align 2, !tbaa !66
   %303 = and i16 %302, 896
@@ -1145,12 +1145,12 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl27getCorrespondingIntegerTypeEPN4llvm4TypeERK
   %.sroa.0.0.insert.insert.i.i = or disjoint i16 %.sroa.0.0.insert.ext.i.i, 256
   %422 = call noundef ptr @_ZN4llvm13IRBuilderBase15CreateAtomicRMWENS_13AtomicRMWInst5BinOpEPNS_5ValueES4_NS_10MaybeAlignENS_14AtomicOrderingEh(ptr noundef nonnull align 8 dereferenceable(128) %23, i32 noundef 0, ptr noundef %401, ptr noundef %414, i16 %.sroa.0.0.insert.insert.i.i, i32 noundef %419, i8 noundef zeroext %421)
   %423 = load i16, ptr %326, align 2, !tbaa !66
-  %424 = and i16 %423, 1
-  %425 = getelementptr inbounds nuw i8, ptr %422, i64 2
-  %426 = load i16, ptr %425, align 2, !tbaa !66
-  %427 = and i16 %426, -2
-  %428 = or disjoint i16 %427, %424
-  store i16 %428, ptr %425, align 2, !tbaa !66
+  %424 = getelementptr inbounds nuw i8, ptr %422, i64 2
+  %425 = load i16, ptr %424, align 2, !tbaa !66
+  %426 = and i16 %425, -2
+  %427 = and i16 %423, 1
+  %428 = or disjoint i16 %426, %427
+  store i16 %428, ptr %424, align 2, !tbaa !66
   call fastcc void @_ZL21copyMetadataForAtomicRN4llvm11InstructionERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %422, ptr noundef nonnull align 8 dereferenceable(72) %113)
   %429 = load ptr, ptr %380, align 8, !tbaa !65
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
@@ -1322,17 +1322,17 @@ _ZN12_GLOBAL__N_116AtomicExpandImpl27getCorrespondingIntegerTypeEPN4llvm4TypeERK
   %.sroa.041.0.insert.insert.i = or disjoint i16 %.sroa.041.0.insert.ext.i, 256
   %516 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateAtomicCmpXchgEPNS_5ValueES2_S2_NS_10MaybeAlignENS_14AtomicOrderingES4_h(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef %500, ptr noundef %502, ptr noundef %505, i16 %.sroa.041.0.insert.insert.i, i32 noundef %510, i32 noundef %513, i8 noundef zeroext %515)
   %517 = load i16, ptr %457, align 2, !tbaa !66
-  %518 = and i16 %517, 1
-  %519 = getelementptr inbounds nuw i8, ptr %516, i64 2
-  %520 = load i16, ptr %519, align 2, !tbaa !66
-  %521 = and i16 %520, -2
-  %522 = or disjoint i16 %521, %518
-  store i16 %522, ptr %519, align 2, !tbaa !66
+  %518 = getelementptr inbounds nuw i8, ptr %516, i64 2
+  %519 = load i16, ptr %518, align 2, !tbaa !66
+  %520 = and i16 %519, -2
+  %521 = and i16 %517, 1
+  %522 = or disjoint i16 %520, %521
+  store i16 %522, ptr %518, align 2, !tbaa !66
   %523 = load i16, ptr %457, align 2, !tbaa !66
   %524 = and i16 %523, 2
   %525 = and i16 %522, -3
   %526 = or disjoint i16 %525, %524
-  store i16 %526, ptr %519, align 2, !tbaa !66
+  store i16 %526, ptr %518, align 2, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !123
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3851,12 +3851,12 @@ _ZN4llvm13IRBuilderBase9CreateShlEPNS_5ValueES2_RKNS_5TwineEbb.exit122.i: ; pred
   %272 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateAlignedLoadEPNS_4TypeEPNS_5ValueENS_10MaybeAlignEbRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %72, ptr noundef %162, ptr noundef %270, i16 0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(34) %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %273 = load i16, ptr %153, align 2, !tbaa !66
-  %274 = and i16 %273, 1
-  %275 = getelementptr inbounds nuw i8, ptr %272, i64 2
-  %276 = load i16, ptr %275, align 2, !tbaa !66
-  %277 = and i16 %276, -2
-  %278 = or disjoint i16 %277, %274
-  store i16 %278, ptr %275, align 2, !tbaa !66
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 2
+  %275 = load i16, ptr %274, align 2, !tbaa !66
+  %276 = and i16 %275, -2
+  %277 = and i16 %273, 1
+  %278 = or disjoint i16 %276, %277
+  store i16 %278, ptr %274, align 2, !tbaa !66
   %279 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %280 = load ptr, ptr %279, align 8, !tbaa !362
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -4141,17 +4141,17 @@ _ZN4llvm13IRBuilderBase8CreateOrEPNS_5ValueES2_RKNS_5TwineE.exit164.i: ; preds =
   %.sroa.0220.0.insert.insert.i = or disjoint i16 %.sroa.0220.0.insert.ext.i, 256
   %417 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateAtomicCmpXchgEPNS_5ValueES2_S2_NS_10MaybeAlignENS_14AtomicOrderingES4_h(ptr noundef nonnull align 8 dereferenceable(128) %72, ptr noundef %270, ptr noundef %.1.i154.i, ptr noundef %.1.i143.i, i16 %.sroa.0220.0.insert.insert.i, i32 noundef %411, i32 noundef %414, i8 noundef zeroext %416)
   %418 = load i16, ptr %153, align 2, !tbaa !66
-  %419 = and i16 %418, 1
-  %420 = getelementptr inbounds nuw i8, ptr %417, i64 2
-  %421 = load i16, ptr %420, align 2, !tbaa !66
-  %422 = and i16 %421, -2
-  %423 = or disjoint i16 %422, %419
-  store i16 %423, ptr %420, align 2, !tbaa !66
+  %419 = getelementptr inbounds nuw i8, ptr %417, i64 2
+  %420 = load i16, ptr %419, align 2, !tbaa !66
+  %421 = and i16 %420, -2
+  %422 = and i16 %418, 1
+  %423 = or disjoint i16 %421, %422
+  store i16 %423, ptr %419, align 2, !tbaa !66
   %424 = load i16, ptr %153, align 2, !tbaa !66
   %425 = and i16 %424, 2
   %426 = and i16 %423, -3
   %427 = or disjoint i16 %426, %425
-  store i16 %427, ptr %420, align 2, !tbaa !66
+  store i16 %427, ptr %419, align 2, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store i32 0, ptr %86, align 4, !tbaa !123
   call void @llvm.lifetime.start.p0(ptr nonnull %87)

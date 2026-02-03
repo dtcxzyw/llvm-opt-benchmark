@@ -8531,9 +8531,8 @@ define hidden noundef zeroext i1 @_ZN20non_auf_macro_solver15is_better_macroEP10
 _Z9is_groundPK4expr.exit:                         ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 30
   %21 = load i8, ptr %20, align 2
-  %22 = and i8 %21, 1
-  %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %23
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %_Z9is_groundPK4expr.exit.thread
 
 23:                                               ; preds = %_Z9is_groundPK4expr.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8547,9 +8546,8 @@ _Z9is_groundPK4expr.exit:                         ; preds = %13
 _Z9is_groundPK4expr.exit7:                        ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 30
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not8 = icmp eq i8 %32, 0
-  br i1 %.not8, label %_Z9is_groundPK4expr.exit7.thread, label %_Z9is_groundPK4expr.exit.thread
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %_Z9is_groundPK4expr.exit.thread, label %_Z9is_groundPK4expr.exit7.thread
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %13, %_Z9is_groundPK4expr.exit7, %_Z9is_groundPK4expr.exit
   br label %_Z9is_groundPK4expr.exit7.thread

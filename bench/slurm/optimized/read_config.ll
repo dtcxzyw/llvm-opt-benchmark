@@ -1892,379 +1892,378 @@ define dso_local noundef ptr @dump_config() local_unnamed_addr #0 {
   %4 = load ptr, ptr @slurmdbd_conf, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8
-  %7 = and i32 %6, 1
-  %8 = icmp ne i32 %7, 0
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.2, i1 noundef zeroext %8) #10
-  %9 = load ptr, ptr @slurmdbd_conf, align 8
-  %10 = load ptr, ptr %9, align 8
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.135, ptr noundef %10) #10
-  %11 = load ptr, ptr @slurmdbd_conf, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %13 = load i32, ptr %12, align 8
-  %.not = icmp ne i32 %13, -2
-  %14 = and i32 %13, 524288
-  %15 = icmp ne i32 %14, 0
-  %16 = and i1 %.not, %15
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.5, i1 noundef zeroext %16) #10
-  %17 = load ptr, ptr @slurmdbd_conf, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 116
-  %19 = load i32, ptr %18, align 4
-  %.not63 = icmp ne i32 %19, -2
-  %20 = and i32 %19, 524288
-  %21 = icmp ne i32 %20, 0
-  %22 = and i1 %.not63, %21
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.6, i1 noundef zeroext %22) #10
-  %23 = load ptr, ptr @slurmdbd_conf, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
-  %25 = load i32, ptr %24, align 8
-  %.not64 = icmp ne i32 %25, -2
-  %26 = and i32 %25, 524288
-  %27 = icmp ne i32 %26, 0
-  %28 = and i1 %.not64, %27
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.7, i1 noundef zeroext %28) #10
-  %29 = load ptr, ptr @slurmdbd_conf, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.135, ptr noundef %31) #10
-  %32 = load ptr, ptr @slurmdbd_conf, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 124
-  %34 = load i32, ptr %33, align 4
-  %.not65 = icmp ne i32 %34, -2
-  %35 = and i32 %34, 524288
-  %36 = icmp ne i32 %35, 0
-  %37 = and i1 %.not65, %36
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.9, i1 noundef zeroext %37) #10
-  %38 = load ptr, ptr @slurmdbd_conf, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
-  %40 = load i32, ptr %39, align 8
-  %.not66 = icmp ne i32 %40, -2
-  %41 = and i32 %40, 524288
-  %42 = icmp ne i32 %41, 0
-  %43 = and i1 %.not66, %42
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.10, i1 noundef zeroext %43) #10
-  %44 = load ptr, ptr @slurmdbd_conf, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 132
-  %46 = load i32, ptr %45, align 4
-  %.not67 = icmp ne i32 %46, -2
-  %47 = and i32 %46, 524288
-  %48 = icmp ne i32 %47, 0
-  %49 = and i1 %.not67, %48
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.11, i1 noundef zeroext %49) #10
-  %50 = load ptr, ptr @slurmdbd_conf, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 136
-  %52 = load i32, ptr %51, align 8
-  %.not68 = icmp ne i32 %52, -2
-  %53 = and i32 %52, 524288
-  %54 = icmp ne i32 %53, 0
-  %55 = and i1 %.not68, %54
-  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.12, i1 noundef zeroext %55) #10
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 136), align 8
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.135, ptr noundef %56) #10
-  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 152), align 8
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.135, ptr noundef %57) #10
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.135, ptr noundef %58) #10
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.135, ptr noundef %59) #10
-  %60 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 256, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 804, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %60, ptr %2, align 8
-  tail call void @slurm_make_time_str(ptr noundef nonnull @boot_time, ptr noundef %60, i32 noundef 256) #10
-  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.135, ptr noundef %60) #10
+  %7 = trunc i32 %6 to i1
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.2, i1 noundef zeroext %7) #10
+  %8 = load ptr, ptr @slurmdbd_conf, align 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.135, ptr noundef %9) #10
+  %10 = load ptr, ptr @slurmdbd_conf, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %12 = load i32, ptr %11, align 8
+  %.not = icmp ne i32 %12, -2
+  %13 = and i32 %12, 524288
+  %14 = icmp ne i32 %13, 0
+  %15 = and i1 %.not, %14
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.5, i1 noundef zeroext %15) #10
+  %16 = load ptr, ptr @slurmdbd_conf, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 116
+  %18 = load i32, ptr %17, align 4
+  %.not63 = icmp ne i32 %18, -2
+  %19 = and i32 %18, 524288
+  %20 = icmp ne i32 %19, 0
+  %21 = and i1 %.not63, %20
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.6, i1 noundef zeroext %21) #10
+  %22 = load ptr, ptr @slurmdbd_conf, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
+  %24 = load i32, ptr %23, align 8
+  %.not64 = icmp ne i32 %24, -2
+  %25 = and i32 %24, 524288
+  %26 = icmp ne i32 %25, 0
+  %27 = and i1 %.not64, %26
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.7, i1 noundef zeroext %27) #10
+  %28 = load ptr, ptr @slurmdbd_conf, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.135, ptr noundef %30) #10
+  %31 = load ptr, ptr @slurmdbd_conf, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 124
+  %33 = load i32, ptr %32, align 4
+  %.not65 = icmp ne i32 %33, -2
+  %34 = and i32 %33, 524288
+  %35 = icmp ne i32 %34, 0
+  %36 = and i1 %.not65, %35
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.9, i1 noundef zeroext %36) #10
+  %37 = load ptr, ptr @slurmdbd_conf, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
+  %39 = load i32, ptr %38, align 8
+  %.not66 = icmp ne i32 %39, -2
+  %40 = and i32 %39, 524288
+  %41 = icmp ne i32 %40, 0
+  %42 = and i1 %.not66, %41
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.10, i1 noundef zeroext %42) #10
+  %43 = load ptr, ptr @slurmdbd_conf, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 132
+  %45 = load i32, ptr %44, align 4
+  %.not67 = icmp ne i32 %45, -2
+  %46 = and i32 %45, 524288
+  %47 = icmp ne i32 %46, 0
+  %48 = and i1 %.not67, %47
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.11, i1 noundef zeroext %48) #10
+  %49 = load ptr, ptr @slurmdbd_conf, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 136
+  %51 = load i32, ptr %50, align 8
+  %.not68 = icmp ne i32 %51, -2
+  %52 = and i32 %51, 524288
+  %53 = icmp ne i32 %52, 0
+  %54 = and i1 %.not68, %53
+  tail call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.12, i1 noundef zeroext %54) #10
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 136), align 8
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.135, ptr noundef %55) #10
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 152), align 8
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.135, ptr noundef %56) #10
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 144), align 8
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.135, ptr noundef %57) #10
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.135, ptr noundef %58) #10
+  %59 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 256, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 804, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %59, ptr %2, align 8
+  tail call void @slurm_make_time_str(ptr noundef nonnull @boot_time, ptr noundef %59, i32 noundef 256) #10
+  tail call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.135, ptr noundef %59) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %61 = load ptr, ptr @slurmdbd_conf, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %63 = load i16, ptr %62, align 8
-  %64 = icmp ne i16 %63, 0
-  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.17, i1 noundef zeroext %64) #10
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.135, ptr noundef %65) #10
-  %66 = load ptr, ptr @slurmdbd_conf, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.135, ptr noundef %68) #10
-  %69 = load ptr, ptr @slurmdbd_conf, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = load ptr, ptr %70, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.135, ptr noundef %71) #10
-  %72 = load ptr, ptr @slurmdbd_conf, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  %74 = load ptr, ptr %73, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.135, ptr noundef %74) #10
-  %75 = load ptr, ptr @slurmdbd_conf, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  %77 = load i16, ptr %76, align 8
-  %78 = zext i16 %77 to i32
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.137, i32 noundef %78) #10
-  %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %80 = call ptr @debug_flags2str(i64 noundef %79) #10
-  call void @add_key_pair_own(ptr noundef %3, ptr noundef nonnull @.str.23, ptr noundef %80) #10
-  %81 = load ptr, ptr @slurmdbd_conf, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 50
-  %83 = load i16, ptr %82, align 2
-  %84 = call ptr @log_num2string(i16 noundef zeroext %83) #10
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.135, ptr noundef %84) #10
-  %85 = load ptr, ptr @slurmdbd_conf, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 152
-  %87 = load i16, ptr %86, align 8
-  %88 = call ptr @log_num2string(i16 noundef zeroext %87) #10
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.135, ptr noundef %88) #10
-  %89 = load ptr, ptr @slurmdbd_conf, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
-  %91 = load ptr, ptr %90, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.135, ptr noundef %91) #10
-  %92 = load ptr, ptr @slurmdbd_conf, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
-  %94 = load i32, ptr %93, align 8
-  %95 = and i32 %94, 4
-  %96 = icmp ne i32 %95, 0
-  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.27, i1 noundef zeroext %96) #10
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 432), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.135, ptr noundef %97) #10
-  %98 = load ptr, ptr @slurmdbd_conf, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 72
-  %100 = load ptr, ptr %99, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.135, ptr noundef %100) #10
-  %101 = load ptr, ptr @slurmdbd_conf, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
-  %103 = load i32, ptr %102, align 8
-  %104 = zext i32 %103 to i64
-  call void @secs2time_str(i64 noundef %104, ptr noundef nonnull %1, i32 noundef 32) #10
+  %60 = load ptr, ptr @slurmdbd_conf, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %62 = load i16, ptr %61, align 8
+  %63 = icmp ne i16 %62, 0
+  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.17, i1 noundef zeroext %63) #10
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 256), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.135, ptr noundef %64) #10
+  %65 = load ptr, ptr @slurmdbd_conf, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = load ptr, ptr %66, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.135, ptr noundef %67) #10
+  %68 = load ptr, ptr @slurmdbd_conf, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %70 = load ptr, ptr %69, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.135, ptr noundef %70) #10
+  %71 = load ptr, ptr @slurmdbd_conf, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %73 = load ptr, ptr %72, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.135, ptr noundef %73) #10
+  %74 = load ptr, ptr @slurmdbd_conf, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  %76 = load i16, ptr %75, align 8
+  %77 = zext i16 %76 to i32
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.137, i32 noundef %77) #10
+  %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %79 = call ptr @debug_flags2str(i64 noundef %78) #10
+  call void @add_key_pair_own(ptr noundef %3, ptr noundef nonnull @.str.23, ptr noundef %79) #10
+  %80 = load ptr, ptr @slurmdbd_conf, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 50
+  %82 = load i16, ptr %81, align 2
+  %83 = call ptr @log_num2string(i16 noundef zeroext %82) #10
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.135, ptr noundef %83) #10
+  %84 = load ptr, ptr @slurmdbd_conf, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 152
+  %86 = load i16, ptr %85, align 8
+  %87 = call ptr @log_num2string(i16 noundef zeroext %86) #10
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.135, ptr noundef %87) #10
+  %88 = load ptr, ptr @slurmdbd_conf, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
+  %90 = load ptr, ptr %89, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.135, ptr noundef %90) #10
+  %91 = load ptr, ptr @slurmdbd_conf, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
+  %93 = load i32, ptr %92, align 8
+  %94 = and i32 %93, 4
+  %95 = icmp ne i32 %94, 0
+  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.27, i1 noundef zeroext %95) #10
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 432), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.135, ptr noundef %96) #10
+  %97 = load ptr, ptr @slurmdbd_conf, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 72
+  %99 = load ptr, ptr %98, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.135, ptr noundef %99) #10
+  %100 = load ptr, ptr @slurmdbd_conf, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 80
+  %102 = load i32, ptr %101, align 8
+  %103 = zext i32 %102 to i64
+  call void @secs2time_str(i64 noundef %103, ptr noundef nonnull %1, i32 noundef 32) #10
   call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.135, ptr noundef nonnull %1) #10
-  %105 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 744), align 8
-  %106 = zext i16 %105 to i32
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.138, i32 noundef %106) #10
-  %107 = load ptr, ptr @slurmdbd_conf, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
-  %109 = load ptr, ptr %108, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.135, ptr noundef %109) #10
-  %110 = load ptr, ptr @slurmdbd_conf, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 104
-  %112 = load ptr, ptr %111, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.135, ptr noundef %112) #10
-  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 776), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.135, ptr noundef %113) #10
-  %114 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 854, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %114, ptr %2, align 8
-  %115 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
-  call void @private_data_string(i16 noundef zeroext %115, ptr noundef %114, i32 noundef 128) #10
-  %116 = load ptr, ptr %2, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.135, ptr noundef %116) #10
+  %104 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 744), align 8
+  %105 = zext i16 %104 to i32
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.138, i32 noundef %105) #10
+  %106 = load ptr, ptr @slurmdbd_conf, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 88
+  %108 = load ptr, ptr %107, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.135, ptr noundef %108) #10
+  %109 = load ptr, ptr @slurmdbd_conf, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 104
+  %111 = load ptr, ptr %110, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.135, ptr noundef %111) #10
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 776), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.135, ptr noundef %112) #10
+  %113 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 854, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %113, ptr %2, align 8
+  %114 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 904), align 8
+  call void @private_data_string(i16 noundef zeroext %114, ptr noundef %113, i32 noundef 128) #10
+  %115 = load ptr, ptr %2, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.135, ptr noundef %115) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %117 = load ptr, ptr @slurmdbd_conf, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 112
-  %119 = load i32, ptr %118, align 8
-  %.not69 = icmp eq i32 %119, -2
-  br i1 %.not69, label %126, label %120
+  %116 = load ptr, ptr @slurmdbd_conf, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 112
+  %118 = load i32, ptr %117, align 8
+  %.not69 = icmp eq i32 %118, -2
+  br i1 %.not69, label %125, label %119
 
-120:                                              ; preds = %0
-  %121 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 860, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %121, ptr %2, align 8
-  %122 = load ptr, ptr @slurmdbd_conf, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 112
-  %124 = load i32, ptr %123, align 8
-  %125 = call ptr @slurmdb_purge_string(i32 noundef %124, ptr noundef %121, i32 noundef 32, i1 noundef zeroext true) #10
+119:                                              ; preds = %0
+  %120 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 860, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %120, ptr %2, align 8
+  %121 = load ptr, ptr @slurmdbd_conf, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 112
+  %123 = load i32, ptr %122, align 8
+  %124 = call ptr @slurmdb_purge_string(i32 noundef %123, ptr noundef %120, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre = load ptr, ptr %2, align 8
-  br label %128
+  br label %127
 
-126:                                              ; preds = %0
-  %127 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %127, ptr %2, align 8
-  br label %128
+125:                                              ; preds = %0
+  %126 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %126, ptr %2, align 8
+  br label %127
 
-128:                                              ; preds = %126, %120
-  %129 = phi ptr [ %127, %126 ], [ %.pre, %120 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.135, ptr noundef %129) #10
+127:                                              ; preds = %125, %119
+  %128 = phi ptr [ %126, %125 ], [ %.pre, %119 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.135, ptr noundef %128) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %130 = load ptr, ptr @slurmdbd_conf, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 116
-  %132 = load i32, ptr %131, align 4
-  %.not70 = icmp eq i32 %132, -2
-  br i1 %.not70, label %139, label %133
+  %129 = load ptr, ptr @slurmdbd_conf, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 116
+  %131 = load i32, ptr %130, align 4
+  %.not70 = icmp eq i32 %131, -2
+  br i1 %.not70, label %138, label %132
 
-133:                                              ; preds = %128
-  %134 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 870, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %134, ptr %2, align 8
-  %135 = load ptr, ptr @slurmdbd_conf, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 116
-  %137 = load i32, ptr %136, align 4
-  %138 = call ptr @slurmdb_purge_string(i32 noundef %137, ptr noundef %134, i32 noundef 32, i1 noundef zeroext true) #10
+132:                                              ; preds = %127
+  %133 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 870, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %133, ptr %2, align 8
+  %134 = load ptr, ptr @slurmdbd_conf, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 116
+  %136 = load i32, ptr %135, align 4
+  %137 = call ptr @slurmdb_purge_string(i32 noundef %136, ptr noundef %133, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre76 = load ptr, ptr %2, align 8
-  br label %141
+  br label %140
 
-139:                                              ; preds = %128
-  %140 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %140, ptr %2, align 8
-  br label %141
+138:                                              ; preds = %127
+  %139 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %139, ptr %2, align 8
+  br label %140
 
-141:                                              ; preds = %139, %133
-  %142 = phi ptr [ %140, %139 ], [ %.pre76, %133 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.135, ptr noundef %142) #10
+140:                                              ; preds = %138, %132
+  %141 = phi ptr [ %139, %138 ], [ %.pre76, %132 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.135, ptr noundef %141) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %143 = load ptr, ptr @slurmdbd_conf, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 120
-  %145 = load i32, ptr %144, align 8
-  %.not71 = icmp eq i32 %145, -2
-  br i1 %.not71, label %152, label %146
+  %142 = load ptr, ptr @slurmdbd_conf, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 120
+  %144 = load i32, ptr %143, align 8
+  %.not71 = icmp eq i32 %144, -2
+  br i1 %.not71, label %151, label %145
 
-146:                                              ; preds = %141
-  %147 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 880, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %147, ptr %2, align 8
-  %148 = load ptr, ptr @slurmdbd_conf, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 120
-  %150 = load i32, ptr %149, align 8
-  %151 = call ptr @slurmdb_purge_string(i32 noundef %150, ptr noundef %147, i32 noundef 32, i1 noundef zeroext true) #10
+145:                                              ; preds = %140
+  %146 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 880, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %146, ptr %2, align 8
+  %147 = load ptr, ptr @slurmdbd_conf, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 120
+  %149 = load i32, ptr %148, align 8
+  %150 = call ptr @slurmdb_purge_string(i32 noundef %149, ptr noundef %146, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre77 = load ptr, ptr %2, align 8
-  br label %154
+  br label %153
 
-152:                                              ; preds = %141
-  %153 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %153, ptr %2, align 8
-  br label %154
+151:                                              ; preds = %140
+  %152 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %152, ptr %2, align 8
+  br label %153
 
-154:                                              ; preds = %152, %146
-  %155 = phi ptr [ %153, %152 ], [ %.pre77, %146 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.135, ptr noundef %155) #10
+153:                                              ; preds = %151, %145
+  %154 = phi ptr [ %152, %151 ], [ %.pre77, %145 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.135, ptr noundef %154) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %156 = load ptr, ptr @slurmdbd_conf, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 124
-  %158 = load i32, ptr %157, align 4
-  %.not72 = icmp eq i32 %158, -2
-  br i1 %.not72, label %165, label %159
+  %155 = load ptr, ptr @slurmdbd_conf, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 124
+  %157 = load i32, ptr %156, align 4
+  %.not72 = icmp eq i32 %157, -2
+  br i1 %.not72, label %164, label %158
 
-159:                                              ; preds = %154
-  %160 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 890, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %160, ptr %2, align 8
-  %161 = load ptr, ptr @slurmdbd_conf, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 124
-  %163 = load i32, ptr %162, align 4
-  %164 = call ptr @slurmdb_purge_string(i32 noundef %163, ptr noundef %160, i32 noundef 32, i1 noundef zeroext true) #10
+158:                                              ; preds = %153
+  %159 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 890, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %159, ptr %2, align 8
+  %160 = load ptr, ptr @slurmdbd_conf, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 124
+  %162 = load i32, ptr %161, align 4
+  %163 = call ptr @slurmdb_purge_string(i32 noundef %162, ptr noundef %159, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre78 = load ptr, ptr %2, align 8
-  br label %167
+  br label %166
 
-165:                                              ; preds = %154
-  %166 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %166, ptr %2, align 8
-  br label %167
+164:                                              ; preds = %153
+  %165 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %165, ptr %2, align 8
+  br label %166
 
-167:                                              ; preds = %165, %159
-  %168 = phi ptr [ %166, %165 ], [ %.pre78, %159 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.135, ptr noundef %168) #10
+166:                                              ; preds = %164, %158
+  %167 = phi ptr [ %165, %164 ], [ %.pre78, %158 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.135, ptr noundef %167) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %169 = load ptr, ptr @slurmdbd_conf, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 128
-  %171 = load i32, ptr %170, align 8
-  %.not73 = icmp eq i32 %171, -2
-  br i1 %.not73, label %178, label %172
+  %168 = load ptr, ptr @slurmdbd_conf, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 128
+  %170 = load i32, ptr %169, align 8
+  %.not73 = icmp eq i32 %170, -2
+  br i1 %.not73, label %177, label %171
 
-172:                                              ; preds = %167
-  %173 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 900, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %173, ptr %2, align 8
-  %174 = load ptr, ptr @slurmdbd_conf, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 128
-  %176 = load i32, ptr %175, align 8
-  %177 = call ptr @slurmdb_purge_string(i32 noundef %176, ptr noundef %173, i32 noundef 32, i1 noundef zeroext true) #10
+171:                                              ; preds = %166
+  %172 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 900, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %172, ptr %2, align 8
+  %173 = load ptr, ptr @slurmdbd_conf, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 128
+  %175 = load i32, ptr %174, align 8
+  %176 = call ptr @slurmdb_purge_string(i32 noundef %175, ptr noundef %172, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre79 = load ptr, ptr %2, align 8
-  br label %180
+  br label %179
 
-178:                                              ; preds = %167
-  %179 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %179, ptr %2, align 8
-  br label %180
+177:                                              ; preds = %166
+  %178 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %178, ptr %2, align 8
+  br label %179
 
-180:                                              ; preds = %178, %172
-  %181 = phi ptr [ %179, %178 ], [ %.pre79, %172 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.135, ptr noundef %181) #10
+179:                                              ; preds = %177, %171
+  %180 = phi ptr [ %178, %177 ], [ %.pre79, %171 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.135, ptr noundef %180) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %182 = load ptr, ptr @slurmdbd_conf, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 132
-  %184 = load i32, ptr %183, align 4
-  %.not74 = icmp eq i32 %184, -2
-  br i1 %.not74, label %191, label %185
+  %181 = load ptr, ptr @slurmdbd_conf, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 132
+  %183 = load i32, ptr %182, align 4
+  %.not74 = icmp eq i32 %183, -2
+  br i1 %.not74, label %190, label %184
 
-185:                                              ; preds = %180
-  %186 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 910, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %186, ptr %2, align 8
-  %187 = load ptr, ptr @slurmdbd_conf, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 132
-  %189 = load i32, ptr %188, align 4
-  %190 = call ptr @slurmdb_purge_string(i32 noundef %189, ptr noundef %186, i32 noundef 32, i1 noundef zeroext true) #10
+184:                                              ; preds = %179
+  %185 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 910, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %185, ptr %2, align 8
+  %186 = load ptr, ptr @slurmdbd_conf, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 132
+  %188 = load i32, ptr %187, align 4
+  %189 = call ptr @slurmdb_purge_string(i32 noundef %188, ptr noundef %185, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre80 = load ptr, ptr %2, align 8
-  br label %193
+  br label %192
 
-191:                                              ; preds = %180
-  %192 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %192, ptr %2, align 8
-  br label %193
+190:                                              ; preds = %179
+  %191 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %191, ptr %2, align 8
+  br label %192
 
-193:                                              ; preds = %191, %185
-  %194 = phi ptr [ %192, %191 ], [ %.pre80, %185 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.135, ptr noundef %194) #10
+192:                                              ; preds = %190, %184
+  %193 = phi ptr [ %191, %190 ], [ %.pre80, %184 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.135, ptr noundef %193) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %195 = load ptr, ptr @slurmdbd_conf, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 136
-  %197 = load i32, ptr %196, align 8
-  %.not75 = icmp eq i32 %197, -2
-  br i1 %.not75, label %204, label %198
+  %194 = load ptr, ptr @slurmdbd_conf, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 136
+  %196 = load i32, ptr %195, align 8
+  %.not75 = icmp eq i32 %196, -2
+  br i1 %.not75, label %203, label %197
 
-198:                                              ; preds = %193
-  %199 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 920, ptr noundef nonnull @__func__.dump_config) #10
-  store ptr %199, ptr %2, align 8
-  %200 = load ptr, ptr @slurmdbd_conf, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 136
-  %202 = load i32, ptr %201, align 8
-  %203 = call ptr @slurmdb_purge_string(i32 noundef %202, ptr noundef %199, i32 noundef 32, i1 noundef zeroext true) #10
+197:                                              ; preds = %192
+  %198 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.66, i32 noundef 920, ptr noundef nonnull @__func__.dump_config) #10
+  store ptr %198, ptr %2, align 8
+  %199 = load ptr, ptr @slurmdbd_conf, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 136
+  %201 = load i32, ptr %200, align 8
+  %202 = call ptr @slurmdb_purge_string(i32 noundef %201, ptr noundef %198, i32 noundef 32, i1 noundef zeroext true) #10
   %.pre81 = load ptr, ptr %2, align 8
-  br label %206
+  br label %205
 
-204:                                              ; preds = %193
-  %205 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
-  store ptr %205, ptr %2, align 8
-  br label %206
+203:                                              ; preds = %192
+  %204 = call ptr @xstrdup(ptr noundef nonnull @.str.139) #10
+  store ptr %204, ptr %2, align 8
+  br label %205
 
-206:                                              ; preds = %204, %198
-  %207 = phi ptr [ %205, %204 ], [ %.pre81, %198 ]
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.135, ptr noundef %207) #10
+205:                                              ; preds = %203, %197
+  %206 = phi ptr [ %204, %203 ], [ %.pre81, %197 ]
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.135, ptr noundef %206) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
-  %208 = call ptr @get_extra_conf_path(ptr noundef nonnull @.str.67) #10
-  call void @add_key_pair_own(ptr noundef %3, ptr noundef nonnull @.str.140, ptr noundef %208) #10
+  %207 = call ptr @get_extra_conf_path(ptr noundef nonnull @.str.67) #10
+  call void @add_key_pair_own(ptr noundef %3, ptr noundef nonnull @.str.140, ptr noundef %207) #10
   call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.142) #10
-  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), align 8
-  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.143, ptr noundef %209, i32 noundef %210) #10
-  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 24), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.135, ptr noundef %211) #10
-  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 40), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.135, ptr noundef %212) #10
-  %213 = load ptr, ptr @slurmdbd_conf, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 144
-  %215 = load ptr, ptr %214, align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.135, ptr noundef %215) #10
-  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 48), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.135, ptr noundef %216) #10
-  %217 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 64), align 8
-  %218 = zext i16 %217 to i32
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.137, i32 noundef %218) #10
-  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.135, ptr noundef %219) #10
-  %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 80), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.135, ptr noundef %220) #10
-  %221 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1456), align 8
-  %222 = zext i16 %221 to i32
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.138, i32 noundef %222) #10
-  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1440), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.135, ptr noundef %223) #10
-  %224 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1448), align 8
-  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.135, ptr noundef %224) #10
-  %225 = load ptr, ptr @slurmdbd_conf, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 154
-  %227 = load i16, ptr %226, align 2
-  %228 = icmp ne i16 %227, 0
-  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.64, i1 noundef zeroext %228) #10
-  %229 = load ptr, ptr @slurmdbd_conf, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 156
-  %231 = load i16, ptr %230, align 4
-  %232 = icmp ne i16 %231, 0
-  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.65, i1 noundef zeroext %232) #10
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1160), align 8
+  %209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1152), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.143, ptr noundef %208, i32 noundef %209) #10
+  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 24), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.135, ptr noundef %210) #10
+  %211 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 40), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.135, ptr noundef %211) #10
+  %212 = load ptr, ptr @slurmdbd_conf, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 144
+  %214 = load ptr, ptr %213, align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.135, ptr noundef %214) #10
+  %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 48), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.135, ptr noundef %215) #10
+  %216 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 64), align 8
+  %217 = zext i16 %216 to i32
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.137, i32 noundef %217) #10
+  %218 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 72), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.135, ptr noundef %218) #10
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 80), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.135, ptr noundef %219) #10
+  %220 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1456), align 8
+  %221 = zext i16 %220 to i32
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.138, i32 noundef %221) #10
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1440), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.135, ptr noundef %222) #10
+  %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1448), align 8
+  call void (ptr, ptr, ptr, ...) @add_key_pair(ptr noundef %3, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.135, ptr noundef %223) #10
+  %224 = load ptr, ptr @slurmdbd_conf, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 154
+  %226 = load i16, ptr %225, align 2
+  %227 = icmp ne i16 %226, 0
+  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.64, i1 noundef zeroext %227) #10
+  %228 = load ptr, ptr @slurmdbd_conf, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 156
+  %230 = load i16, ptr %229, align 4
+  %231 = icmp ne i16 %230, 0
+  call void @add_key_pair_bool(ptr noundef %3, ptr noundef nonnull @.str.65, i1 noundef zeroext %231) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %3

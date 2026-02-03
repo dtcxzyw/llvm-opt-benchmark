@@ -825,9 +825,8 @@ define dso_local ptr @rb_obj_classname(i64 noundef %0) local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 13:                                               ; preds = %10
-  %14 = and i64 %0, 1
-  %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %rb_class_of.exit
+  %14 = trunc i64 %0 to i1
+  br i1 %14, label %rb_class_of.exit, label %15
 
 15:                                               ; preds = %13
   %16 = and i64 %0, 254

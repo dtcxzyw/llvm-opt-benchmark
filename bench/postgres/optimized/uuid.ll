@@ -38,22 +38,22 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %12
 
-12:                                               ; preds = %46, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %46 ]
-  %.136.i = phi ptr [ %spec.select.i, %1 ], [ %.2.i, %46 ]
+12:                                               ; preds = %34, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %34 ]
+  %.137.i = phi ptr [ %spec.select.i, %1 ], [ %.3.i, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = load i8, ptr %.136.i, align 1
+  %13 = load i8, ptr %.137.i, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.thread.i, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.136.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.137.i, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread.i, label %19
 
 19:                                               ; preds = %15
-  %20 = load i16, ptr %.136.i, align 1
+  %20 = load i16, ptr %.137.i, align 1
   store i16 %20, ptr %2, align 2
   %21 = tail call ptr @__ctype_b_loc() #15
   %22 = load ptr, ptr %21, align 8
@@ -74,68 +74,61 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   %.not29.i = icmp eq i16 %33, 0
   br i1 %.not29.i, label %.thread.i, label %34
 
+.thread.i:                                        ; preds = %28, %19, %15, %12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %51
+
 34:                                               ; preds = %28
   store i8 0, ptr %11, align 2
   %35 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #14
   %36 = trunc i64 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %36, ptr %37, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %.136.i, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.137.i, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 45
-  br i1 %40, label %41, label %46
-
-41:                                               ; preds = %34
-  %42 = and i64 %indvars.iv.i, 1
-  %43 = icmp ne i64 %42, 0
-  %44 = icmp ne i64 %indvars.iv.i, 15
-  %or.cond.i = and i1 %44, %43
-  %45 = getelementptr inbounds nuw i8, ptr %.136.i, i64 3
-  %spec.select30.i = select i1 %or.cond.i, ptr %45, ptr %38
-  br label %46
-
-.thread.i:                                        ; preds = %28, %19, %15, %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %54
-
-46:                                               ; preds = %41, %34
-  %.2.i = phi ptr [ %38, %34 ], [ %spec.select30.i, %41 ]
+  %41 = trunc i64 %indvars.iv.i to i1
+  %42 = icmp ne i64 %indvars.iv.i, 15
+  %or.cond.i = and i1 %42, %41
+  %or.cond31.i = and i1 %or.cond.i, %40
+  %43 = getelementptr inbounds nuw i8, ptr %.137.i, i64 3
+  %.3.i = select i1 %or.cond31.i, ptr %43, ptr %38
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %47, label %12, !llvm.loop !4
+  br i1 %exitcond.not.i, label %44, label %12, !llvm.loop !4
 
-47:                                               ; preds = %46
-  br i1 %10, label %48, label %52
+44:                                               ; preds = %34
+  br i1 %10, label %45, label %49
 
-48:                                               ; preds = %47
-  %49 = load i8, ptr %.2.i, align 1
-  %.not.i = icmp eq i8 %49, 125
-  br i1 %.not.i, label %50, label %54
+45:                                               ; preds = %44
+  %46 = load i8, ptr %.3.i, align 1
+  %.not.i = icmp eq i8 %46, 125
+  br i1 %.not.i, label %47, label %51
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  br label %52
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
+  br label %49
 
-52:                                               ; preds = %50, %47
-  %.4.i = phi ptr [ %51, %50 ], [ %.2.i, %47 ]
-  %53 = load i8, ptr %.4.i, align 1
-  %.not27.i = icmp eq i8 %53, 0
-  br i1 %.not27.i, label %string_to_uuid.exit, label %54
+49:                                               ; preds = %47, %44
+  %.4.i = phi ptr [ %48, %47 ], [ %.3.i, %44 ]
+  %50 = load i8, ptr %.4.i, align 1
+  %.not27.i = icmp eq i8 %50, 0
+  br i1 %.not27.i, label %string_to_uuid.exit, label %51
 
-54:                                               ; preds = %52, %48, %.thread.i
-  %55 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
-  br i1 %55, label %56, label %string_to_uuid.exit
+51:                                               ; preds = %49, %45, %.thread.i
+  %52 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
+  br i1 %52, label %53, label %string_to_uuid.exit
 
-56:                                               ; preds = %54
-  %57 = tail call i32 @errcode(i32 noundef 33685634) #14
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #14
+53:                                               ; preds = %51
+  %54 = tail call i32 @errcode(i32 noundef 33685634) #14
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #14
   tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.string_to_uuid) #14
   br label %string_to_uuid.exit
 
-string_to_uuid.exit:                              ; preds = %52, %54, %56
-  %59 = ptrtoint ptr %6 to i64
-  ret i64 %59
+string_to_uuid.exit:                              ; preds = %49, %51, %53
+  %56 = ptrtoint ptr %6 to i64
+  ret i64 %56
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1

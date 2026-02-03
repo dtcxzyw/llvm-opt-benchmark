@@ -5966,26 +5966,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
   %.not12.not = or i1 %.not.not19, %15
-  br i1 %.not12.not, label %24, label %16
+  br i1 %.not12.not, label %23, label %16
 
 16:                                               ; preds = %14
   %17 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %5) #23
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 74
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %22, align 8
+  %20 = trunc i8 %19 to i1
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %21, align 8
   %.not.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i, 7
-  %23 = select i1 %21, i1 true, i1 %.not.i.i.i.i
+  %22 = select i1 %20, i1 true, i1 %.not.i.i.i.i
   br label %.thread
 
-24:                                               ; preds = %14
-  %25 = icmp eq i8 %7, 10
+23:                                               ; preds = %14
+  %24 = icmp eq i8 %7, 10
   br label %.thread
 
-.thread:                                          ; preds = %9, %16, %24
-  %.1 = phi i1 [ %25, %24 ], [ %23, %16 ], [ %spec.select, %9 ]
+.thread:                                          ; preds = %9, %16, %23
+  %.1 = phi i1 [ %24, %23 ], [ %22, %16 ], [ %spec.select, %9 ]
   ret i1 %.1
 }
 

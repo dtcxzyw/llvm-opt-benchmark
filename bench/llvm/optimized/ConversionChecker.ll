@@ -1138,91 +1138,90 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker
   %33 = and i32 %32, 511
   %34 = add nsw i32 %33, -435
   %spec.select.i = icmp ult i32 %34, 20
-  br i1 %spec.select.i, label %51, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+  br i1 %spec.select.i, label %50, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
 35:                                               ; preds = %19
   %36 = icmp ne i8 %28, 46
   %.not13.not.i = or i1 %.not.not21.i, %36
-  br i1 %.not13.not.i, label %45, label %37
+  br i1 %.not13.not.i, label %44, label %37
 
 37:                                               ; preds = %35
   %38 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %26) #17
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 74
   %40 = load i8, ptr %39, align 2
-  %41 = and i8 %40, 1
-  %42 = icmp ne i8 %41, 0
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %43, align 8
+  %41 = trunc i8 %40 to i1
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %44 = select i1 %42, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %44, label %_ZNK5clang4Type13isIntegerTypeEv.exit, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+  %43 = select i1 %41, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %43, label %_ZNK5clang4Type13isIntegerTypeEv.exit, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-45:                                               ; preds = %35
-  %46 = icmp eq i8 %28, 10
-  br i1 %46, label %51, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+44:                                               ; preds = %35
+  %45 = icmp eq i8 %28, 10
+  br i1 %45, label %50, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
 _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %37
-  %47 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %26) #17
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %49 = load i40, ptr %48, align 8
-  %50 = icmp sgt i40 %49, -1
-  br i1 %50, label %51, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+  %46 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %26) #17
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  %48 = load i40, ptr %47, align 8
+  %49 = icmp sgt i40 %48, -1
+  br i1 %49, label %50, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-51:                                               ; preds = %30, %45, %_ZNK5clang4Type13isIntegerTypeEv.exit
-  %52 = load ptr, ptr %16, align 16, !tbaa !54
-  %53 = tail call noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %52) #17
-  %54 = load ptr, ptr %2, align 8, !tbaa !80
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !81
-  %57 = load ptr, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef nonnull align 8 dereferenceable(23216) ptr %59(ptr noundef nonnull align 8 dereferenceable(264) %56) #17
-  br i1 %53, label %61, label %64
+50:                                               ; preds = %30, %44, %_ZNK5clang4Type13isIntegerTypeEv.exit
+  %51 = load ptr, ptr %16, align 16, !tbaa !54
+  %52 = tail call noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %51) #17
+  %53 = load ptr, ptr %2, align 8, !tbaa !80
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !81
+  %56 = load ptr, ptr %55, align 8, !tbaa !7
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef nonnull align 8 dereferenceable(23216) ptr %58(ptr noundef nonnull align 8 dereferenceable(264) %55) #17
+  br i1 %52, label %60, label %63
 
-61:                                               ; preds = %51
-  %62 = tail call noundef nonnull align 1 ptr @_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %60, i64 %1) #17
-  %63 = tail call noundef i32 @_ZN4llvm11APFloatBase18semanticsPrecisionERKNS_12fltSemanticsE(ptr noundef nonnull align 1 %62) #17
-  br label %71
+60:                                               ; preds = %50
+  %61 = tail call noundef nonnull align 1 ptr @_ZNK5clang10ASTContext21getFloatTypeSemanticsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %59, i64 %1) #17
+  %62 = tail call noundef i32 @_ZN4llvm11APFloatBase18semanticsPrecisionERKNS_12fltSemanticsE(ptr noundef nonnull align 1 %61) #17
+  br label %70
 
-64:                                               ; preds = %51
-  %65 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %60, i64 %1) #17
-  %66 = icmp eq i32 %65, 1
-  br i1 %66, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, label %67
+63:                                               ; preds = %50
+  %64 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %59, i64 %1) #17
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, label %66
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %16, align 16, !tbaa !54
-  %69 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %68) #17
-  %70 = sext i1 %69 to i32
-  %spec.select = add i32 %65, %70
-  br label %71
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %16, align 16, !tbaa !54
+  %68 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %67) #17
+  %69 = sext i1 %68 to i32
+  %spec.select = add i32 %64, %69
+  br label %70
 
-71:                                               ; preds = %67, %61
-  %.025 = phi i32 [ %63, %61 ], [ %spec.select, %67 ]
-  %72 = zext nneg i32 %.025 to i64
-  %73 = icmp ugt i32 %.025, 63
-  br i1 %73, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, label %74
+70:                                               ; preds = %66, %60
+  %.025 = phi i32 [ %62, %60 ], [ %spec.select, %66 ]
+  %71 = zext nneg i32 %.025 to i64
+  %72 = icmp ugt i32 %.025, 63
+  br i1 %72, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, label %73
 
-74:                                               ; preds = %71
-  %75 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %60, i64 %.sroa.0.0.copyload.i) #17
-  %76 = load ptr, ptr %21, align 16, !tbaa !54
-  %77 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %76) #17
-  %78 = sext i1 %77 to i32
-  %spec.select28 = add i32 %75, %78
+73:                                               ; preds = %70
+  %74 = tail call noundef i32 @_ZNK5clang10ASTContext11getIntWidthENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %59, i64 %.sroa.0.0.copyload.i) #17
+  %75 = load ptr, ptr %21, align 16, !tbaa !54
+  %76 = tail call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %75) #17
+  %77 = sext i1 %76 to i32
+  %spec.select28 = add i32 %74, %77
   %.not = icmp ult i32 %.025, %spec.select28
-  br i1 %.not, label %79, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
+  br i1 %.not, label %78, label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-79:                                               ; preds = %74
-  %80 = shl nuw i64 1, %72
-  %81 = zext i1 %53 to i64
-  %spec.select29 = add nuw i64 %80, %81
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !213
-  %84 = tail call noundef zeroext i1 @_ZN5clang4ento14CheckerContext16isGreaterOrEqualEPKNS_4ExprEy(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %83, i64 noundef %spec.select29) #17
+78:                                               ; preds = %73
+  %79 = shl nuw i64 1, %71
+  %80 = zext i1 %52 to i64
+  %spec.select29 = add nuw i64 %79, %80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !213
+  %83 = tail call noundef zeroext i1 @_ZN5clang4ento14CheckerContext16isGreaterOrEqualEPKNS_4ExprEy(ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %82, i64 noundef %spec.select29) #17
   br label %_ZNK5clang4Type13isIntegerTypeEv.exit.thread
 
-_ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %37, %_ZNK5clang4Type13isIntegerTypeEv.exit, %12, %79, %74, %71, %64, %45, %30, %3
-  %.023 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ false, %64 ], [ false, %71 ], [ %84, %79 ], [ false, %74 ], [ false, %30 ], [ false, %45 ], [ false, %37 ]
+_ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %37, %_ZNK5clang4Type13isIntegerTypeEv.exit, %12, %78, %73, %70, %63, %44, %30, %3
+  %.023 = phi i1 [ false, %3 ], [ false, %12 ], [ false, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ false, %63 ], [ false, %70 ], [ %83, %78 ], [ false, %73 ], [ false, %30 ], [ false, %44 ], [ false, %37 ]
   ret i1 %.023
 }
 

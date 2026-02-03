@@ -4156,9 +4156,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %57 = and i32 %54, 1
-  %.not.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i, label %58, label %61
+  %57 = trunc i32 %54 to i1
+  br i1 %57, label %61, label %58
 
 58:                                               ; preds = %56
   %59 = lshr i32 %54, 3
@@ -4345,9 +4344,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %168, %158
   br i1 %172, label %173, label %183
 
 173:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %174 = and i32 %171, 1
-  %.not.i.i.i = icmp eq i32 %174, 0
-  br i1 %.not.i.i.i, label %175, label %178
+  %174 = trunc i32 %171 to i1
+  br i1 %174, label %178, label %175
 
 175:                                              ; preds = %173
   %176 = lshr i32 %171, 3
@@ -4590,9 +4588,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %35, %25
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %41 = and i32 %38, 1
-  %.not.i.i = icmp eq i32 %41, 0
-  br i1 %.not.i.i, label %42, label %45
+  %41 = trunc i32 %38 to i1
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
   %43 = lshr i32 %38, 3
@@ -4770,9 +4767,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %46, %36
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %52 = and i32 %49, 1
-  %.not.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i.i, label %53, label %56
+  %52 = trunc i32 %49 to i1
+  br i1 %52, label %56, label %53
 
 53:                                               ; preds = %51
   %54 = lshr i32 %49, 3
@@ -6142,9 +6138,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -6178,8 +6173,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !31
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -8142,9 +8137,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %105, %95
   br i1 %109, label %110, label %120
 
 110:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %111 = and i32 %108, 1
-  %.not.i.i.i = icmp eq i32 %111, 0
-  br i1 %.not.i.i.i, label %112, label %115
+  %111 = trunc i32 %108 to i1
+  br i1 %111, label %115, label %112
 
 112:                                              ; preds = %110
   %113 = lshr i32 %108, 3
@@ -8362,9 +8356,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %95, %85
   br i1 %99, label %100, label %110
 
 100:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %101 = and i32 %98, 1
-  %.not.i.i.i = icmp eq i32 %101, 0
-  br i1 %.not.i.i.i, label %102, label %105
+  %101 = trunc i32 %98 to i1
+  br i1 %101, label %105, label %102
 
 102:                                              ; preds = %100
   %103 = lshr i32 %98, 3
@@ -12455,9 +12448,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %76, %66
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %82 = and i32 %79, 1
-  %.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i, label %83, label %86
+  %82 = trunc i32 %79 to i1
+  br i1 %82, label %86, label %83
 
 83:                                               ; preds = %81
   %84 = lshr i32 %79, 3
@@ -12951,9 +12943,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %76, %66
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %82 = and i32 %79, 1
-  %.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i, label %83, label %86
+  %82 = trunc i32 %79 to i1
+  br i1 %82, label %86, label %83
 
 83:                                               ; preds = %81
   %84 = lshr i32 %79, 3

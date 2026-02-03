@@ -1520,9 +1520,8 @@ check_string.exit:                                ; preds = %21, %24
   br i1 %37, label %119, label %38
 
 38:                                               ; preds = %36
-  %39 = and i64 %1, 1
-  %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %42, label %40
+  %39 = trunc i64 %1 to i1
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
   %41 = tail call i64 @rb_fix2int(i64 noundef %1) #9

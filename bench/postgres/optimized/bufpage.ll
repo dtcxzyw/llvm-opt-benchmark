@@ -381,28 +381,27 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
 51:                                               ; preds = %30
   %52 = getelementptr i8, ptr %0, i64 10
   %.val93 = load i16, ptr %52, align 2
-  %53 = and i16 %.val93, 1
-  %.not100 = icmp eq i16 %53, 0
-  br i1 %.not100, label %.thread94, label %.preheader
+  %53 = trunc i16 %.val93 to i1
+  br i1 %53, label %.preheader, label %.thread94
 
 .preheader:                                       ; preds = %51
-  %.not102 = icmp eq i16 %.0.i, 0
-  br i1 %.not102, label %._crit_edge, label %.lr.ph
+  %.not101 = icmp eq i16 %.0.i, 0
+  br i1 %.not101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %54 = getelementptr i8, ptr %0, i64 20
   br label %55
 
 55:                                               ; preds = %.lr.ph, %59
-  %.1103 = phi i16 [ 1, %.lr.ph ], [ %60, %59 ]
-  %56 = zext i16 %.1103 to i64
+  %.1102 = phi i16 [ 1, %.lr.ph ], [ %60, %59 ]
+  %56 = zext i16 %.1102 to i64
   %57 = getelementptr %struct.ItemIdData, ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4
   %or.cond92 = icmp ult i32 %58, 32768
   br i1 %or.cond92, label %.loopexit, label %59
 
 59:                                               ; preds = %55
-  %60 = add i16 %.1103, 1
+  %60 = add i16 %.1102, 1
   %.not = icmp ugt i16 %60, %.0.i
   br i1 %.not, label %._crit_edge, label %55, !llvm.loop !10
 
@@ -413,7 +412,7 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %50, %41, %._crit_edge, %40
-  %.074 = phi i16 [ %3, %41 ], [ %3, %40 ], [ %.1.lcssa, %._crit_edge ], [ %3, %50 ], [ %.1103, %55 ]
+  %.074 = phi i16 [ %3, %41 ], [ %3, %40 ], [ %.1.lcssa, %._crit_edge ], [ %3, %50 ], [ %.1102, %55 ]
   %.0 = phi i1 [ false, %41 ], [ false, %40 ], [ false, %._crit_edge ], [ %.not86, %50 ], [ false, %55 ]
   %62 = icmp ugt i16 %.074, %narrow
   br i1 %62, label %63, label %.thread94
@@ -1225,22 +1224,21 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef reado
 16:                                               ; preds = %10
   %17 = getelementptr i8, ptr %0, i64 10
   %.val22 = load i16, ptr %17, align 2
-  %18 = and i16 %.val22, 1
-  %.not24 = icmp eq i16 %18, 0
-  br i1 %.not24, label %.loopexit, label %.lr.ph
+  %18 = trunc i16 %.val22 to i1
+  br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16
   %19 = getelementptr i8, ptr %0, i64 20
   br label %22
 
 20:                                               ; preds = %22
-  %21 = add i16 %.01526, 1
+  %21 = add i16 %.01525, 1
   %.not20 = icmp ugt i16 %21, %.0.i23
   br i1 %.not20, label %.loopexit, label %22, !llvm.loop !19
 
 22:                                               ; preds = %.lr.ph, %20
-  %.01526 = phi i16 [ 1, %.lr.ph ], [ %21, %20 ]
-  %23 = zext i16 %.01526 to i64
+  %.01525 = phi i16 [ 1, %.lr.ph ], [ %21, %20 ]
+  %23 = zext i16 %.01525 to i64
   %24 = getelementptr %struct.ItemIdData, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 98304

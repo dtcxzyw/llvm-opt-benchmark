@@ -9878,9 +9878,8 @@ entry:
   %tmp = alloca %"struct.std::pair.240", align 8
   %0 = getelementptr inbounds nuw i8, ptr %desc_proto, i64 16
   %1 = load i32, ptr %0, align 8
-  %and.i = and i32 %1, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.false, label %cleanup.done
+  %cmp.i = trunc i32 %1 to i1
+  br i1 %cmp.i, label %cleanup.done, label %cond.false
 
 cond.false:                                       ; preds = %entry
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull @.str, i32 noundef 34, i64 21, ptr nonnull @.str.9) #27

@@ -873,9 +873,8 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE8alloca
   %33 = and i64 %30, -8
   %34 = inttoptr i64 %33 to ptr
   %35 = atomicrmw add ptr %34, i32 2 monotonic, align 4
-  %36 = and i32 %35, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %36, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %37, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %36 = trunc i32 %35 to i1
+  br i1 %36, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %.09.i.i.i.i.i, align 8
@@ -1199,9 +1198,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapte
   %195 = and i64 %192, -8
   %196 = inttoptr i64 %195 to ptr
   %197 = atomicrmw add ptr %196, i32 2 monotonic, align 4
-  %198 = and i32 %197, 1
-  %.not1.i.i.i.i = icmp eq i32 %198, 0
-  br i1 %.not1.i.i.i.i, label %199, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EE12emplace_backIJRKSt10shared_ptrINS_26UsdImagingAPISchemaAdapterEERKNS_7TfTokenEEEEvDpOT_.exit
+  %198 = trunc i32 %197 to i1
+  br i1 %198, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_25UsdImaging_AdapterManager12AdapterEntryELj8EE12emplace_backIJRKSt10shared_ptrINS_26UsdImagingAPISchemaAdapterEERKNS_7TfTokenEEEEvDpOT_.exit, label %199
 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %191, align 8
@@ -2164,9 +2162,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %45 = and i64 %42, -8
   %46 = inttoptr i64 %45 to ptr
   %47 = atomicrmw add ptr %46, i32 2 monotonic, align 4
-  %48 = and i32 %47, 1
-  %.not1.i.i.i = icmp eq i32 %48, 0
-  br i1 %.not1.i.i.i, label %49, label %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryEEC2IRS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  %48 = trunc i32 %47 to i1
+  br i1 %48, label %_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryEEC2IRS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, label %49
 
 49:                                               ; preds = %44
   store ptr %46, ptr %6, align 8
@@ -5634,9 +5631,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImagingAPISchemaAdapte
   %59 = and i64 %56, -8
   %60 = inttoptr i64 %59 to ptr
   %61 = atomicrmw add ptr %60, i32 2 monotonic, align 4
-  %62 = and i32 %61, 1
-  %.not1.i.i = icmp eq i32 %62, 0
-  br i1 %.not1.i.i, label %63, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
+  %62 = trunc i32 %61 to i1
+  br i1 %62, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %63
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %53, align 8
@@ -6210,9 +6206,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   %49 = and i64 %46, -8
   %50 = inttoptr i64 %49 to ptr
   %51 = atomicrmw add ptr %50, i32 2 monotonic, align 4
-  %52 = and i32 %51, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %53, label %_ZZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE21internal_insert_valueISE_EESC_INS1_15solist_iteratorISH_SE_EEbEOT_ENKUlmE_clEm.exit
+  %52 = trunc i32 %51 to i1
+  br i1 %52, label %_ZZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE21internal_insert_valueISE_EESC_INS1_15solist_iteratorISH_SE_EEbEOT_ENKUlmE_clEm.exit, label %53
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %45, align 8
@@ -6887,9 +6882,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %17, %
   %36 = and i64 %33, -8
   %37 = inttoptr i64 %36 to ptr
   %38 = atomicrmw add ptr %37, i32 2 monotonic, align 4
-  %39 = and i32 %38, 1
-  %.not1.i.i.i.i = icmp eq i32 %39, 0
-  br i1 %.not1.i.i.i.i, label %40, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit
+  %39 = trunc i32 %38 to i1
+  br i1 %39, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit, label %40
 
 40:                                               ; preds = %35
   store ptr %37, ptr %31, align 8
@@ -7854,9 +7848,8 @@ define linkonce_odr void @_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31con
   %17 = and i64 %14, -8
   %18 = inttoptr i64 %17 to ptr
   %19 = atomicrmw add ptr %18, i32 2 monotonic, align 4
-  %20 = and i32 %19, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %21, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSE_EESN_IJEEEEEPNS1_10value_nodeISF_mEEmDpOT_.exit
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE11create_nodeIJRKSt21piecewise_construct_tSt5tupleIJRSE_EESN_IJEEEEEPNS1_10value_nodeISF_mEEmDpOT_.exit, label %21
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %11, align 8

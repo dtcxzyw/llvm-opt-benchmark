@@ -30764,14 +30764,14 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iterato
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !859
   %32 = load i32, ptr %31, align 8, !tbaa !214
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !789
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = trunc i32 %32 to i8
-  %37 = and i8 %36, 1
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !789
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
+  %37 = and i8 %33, 1
   store i8 %37, ptr %4, align 8, !tbaa !860
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %35, ptr %38, align 8, !tbaa !250
+  store ptr %36, ptr %38, align 8, !tbaa !250
   %39 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %39, label %44, label %54
@@ -32179,14 +32179,14 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iterato
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !870
   %32 = load i32, ptr %31, align 8, !tbaa !214
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !789
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = trunc i32 %32 to i8
-  %37 = and i8 %36, 1
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !789
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
+  %37 = and i8 %33, 1
   store i8 %37, ptr %4, align 8, !tbaa !860
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %35, ptr %38, align 8, !tbaa !250
+  store ptr %36, ptr %38, align 8, !tbaa !250
   %39 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %39, label %44, label %54

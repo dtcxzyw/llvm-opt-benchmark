@@ -5354,7 +5354,7 @@ define internal i32 @dissect_dhcpopt_isns(ptr noundef %0, ptr noundef %1, ptr no
 
 8:                                                ; preds = %4
   %9 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2062)
-  br label %72
+  br label %70
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @hf_dhcp_option_isns_functions, align 4
@@ -5388,96 +5388,94 @@ define internal i32 @dissect_dhcpopt_isns(ptr noundef %0, ptr noundef %1, ptr no
 
 26:                                               ; preds = %24, %18
   %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
-  %28 = zext i16 %27 to i32
-  %29 = and i32 %28, 3
-  %or.cond83.not.not = icmp eq i32 %29, 3
-  %30 = icmp samesign ult i32 %6, 18
-  %or.cond85 = select i1 %or.cond83.not.not, i1 %30, i1 false
-  br i1 %or.cond85, label %31, label %33
+  %28 = and i16 %27, 3
+  %or.cond83.not.not = icmp eq i16 %28, 3
+  %29 = icmp samesign ult i32 %6, 18
+  %or.cond85 = select i1 %or.cond83.not.not, i1 %29, i1 false
+  br i1 %or.cond85, label %30, label %32
 
-31:                                               ; preds = %26
-  %32 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2063)
-  br label %72
+30:                                               ; preds = %26
+  %31 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2063)
+  br label %70
 
-33:                                               ; preds = %26
-  %34 = and i32 %28, 1
-  %.not76 = icmp ne i32 %34, 0
-  %35 = load i32, ptr @hf_dhcp_option_isns_administrative_flags, align 4
-  %36 = load i32, ptr @ett_dhcp_isns_administrative_flags, align 4
-  %37 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef %35, i32 noundef %36, ptr noundef nonnull @dissect_dhcpopt_isns.isns_administrative_flags, i32 noundef 0)
+32:                                               ; preds = %26
+  %.not76 = trunc i16 %27 to i1
+  %33 = load i32, ptr @hf_dhcp_option_isns_administrative_flags, align 4
+  %34 = load i32, ptr @ett_dhcp_isns_administrative_flags, align 4
+  %35 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef %33, i32 noundef %34, ptr noundef nonnull @dissect_dhcpopt_isns.isns_administrative_flags, i32 noundef 0)
   %.not78 = icmp eq i16 %27, 0
   %brmerge = or i1 %.not78, %.not76
-  br i1 %brmerge, label %40, label %38
+  br i1 %brmerge, label %38, label %36
 
-38:                                               ; preds = %33
-  %39 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_dhcp_option_isns_ignored_bitfield)
-  br label %40
+36:                                               ; preds = %32
+  %37 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %35, ptr noundef nonnull @ei_dhcp_option_isns_ignored_bitfield)
+  br label %38
 
-40:                                               ; preds = %33, %38
-  %41 = load i32, ptr @hf_dhcp_option_isns_server_security_bitmap, align 4
-  %42 = load i32, ptr @ett_dhcp_isns_server_security_bitmap, align 4
-  %43 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 6, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @dissect_dhcpopt_isns.isns_server_security_flags, i32 noundef 0)
-  store ptr %43, ptr %5, align 8
-  %44 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 6)
-  %.not79 = icmp ne i32 %44, 0
-  %45 = and i32 %44, 1
-  %.not80 = icmp eq i32 %45, 0
+38:                                               ; preds = %32, %36
+  %39 = load i32, ptr @hf_dhcp_option_isns_server_security_bitmap, align 4
+  %40 = load i32, ptr @ett_dhcp_isns_server_security_bitmap, align 4
+  %41 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 6, i32 noundef %39, i32 noundef %40, ptr noundef nonnull @dissect_dhcpopt_isns.isns_server_security_flags, i32 noundef 0)
+  store ptr %41, ptr %5, align 8
+  %42 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 6)
+  %.not79 = icmp ne i32 %42, 0
+  %43 = and i32 %42, 1
+  %.not80 = icmp eq i32 %43, 0
   %or.cond84 = and i1 %.not79, %.not80
-  br i1 %or.cond84, label %46, label %48
+  br i1 %or.cond84, label %44, label %46
 
-46:                                               ; preds = %40
-  %47 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %43, ptr noundef nonnull @ei_dhcp_option_isns_ignored_bitfield)
-  br label %48
+44:                                               ; preds = %38
+  %45 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %41, ptr noundef nonnull @ei_dhcp_option_isns_ignored_bitfield)
+  br label %46
 
-48:                                               ; preds = %46, %40
-  br i1 %or.cond83.not.not, label %49, label %52
+46:                                               ; preds = %44, %38
+  br i1 %or.cond83.not.not, label %47, label %50
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr @hf_dhcp_option_isns_heartbeat_originator_addr, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0)
-  br label %52
+47:                                               ; preds = %46
+  %48 = load i32, ptr @hf_dhcp_option_isns_heartbeat_originator_addr, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %48, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0)
+  br label %50
 
-52:                                               ; preds = %49, %48
-  %.067 = phi i32 [ 14, %49 ], [ 10, %48 ]
-  %53 = load i32, ptr @hf_dhcp_option_isns_primary_server_addr, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %.067, i32 noundef 4, i32 noundef 0)
-  %55 = add nuw nsw i32 %.067, 4
-  %56 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %55)
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %58, label %dhcp_handle_basic_types.exit
+50:                                               ; preds = %47, %46
+  %.067 = phi i32 [ 14, %47 ], [ 10, %46 ]
+  %51 = load i32, ptr @hf_dhcp_option_isns_primary_server_addr, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %.067, i32 noundef 4, i32 noundef 0)
+  %53 = add nuw nsw i32 %.067, 4
+  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %53)
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %56, label %dhcp_handle_basic_types.exit
 
-58:                                               ; preds = %52
-  %59 = load i32, ptr @ett_dhcp_isns_secondary_server_addr, align 4
-  %60 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %55, i32 noundef 0, i32 noundef %59, ptr noundef nonnull %5, ptr noundef nonnull @.str.2064)
-  %61 = load ptr, ptr %5, align 8
-  %62 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %55)
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph234.split.i, label %dhcp_handle_basic_types.exit
+56:                                               ; preds = %50
+  %57 = load i32, ptr @ett_dhcp_isns_secondary_server_addr, align 4
+  %58 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %53, i32 noundef 0, i32 noundef %57, ptr noundef nonnull %5, ptr noundef nonnull @.str.2064)
+  %59 = load ptr, ptr %5, align 8
+  %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %53)
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %.lr.ph234.split.i, label %dhcp_handle_basic_types.exit
 
-.lr.ph234.split.i:                                ; preds = %58, %66
-  %.0173232.i = phi i32 [ %70, %66 ], [ %62, %58 ]
-  %.0175231.i = phi i32 [ %69, %66 ], [ %55, %58 ]
-  %64 = icmp samesign ult i32 %.0173232.i, 4
-  br i1 %64, label %.split237.us.i, label %66
+.lr.ph234.split.i:                                ; preds = %56, %64
+  %.0173232.i = phi i32 [ %68, %64 ], [ %60, %56 ]
+  %.0175231.i = phi i32 [ %67, %64 ], [ %53, %56 ]
+  %62 = icmp samesign ult i32 %.0173232.i, 4
+  br i1 %62, label %.split237.us.i, label %64
 
 .split237.us.i:                                   ; preds = %.lr.ph234.split.i
-  %65 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %61, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2046)
+  %63 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %59, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2046)
   br label %dhcp_handle_basic_types.exit
 
-66:                                               ; preds = %.lr.ph234.split.i
-  %67 = load i32, ptr @hf_dhcp_option_isns_secondary_server_addr_list, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %67, ptr noundef %0, i32 noundef %.0175231.i, i32 noundef 4, i32 noundef 0)
-  %69 = add i32 %.0175231.i, 4
-  %70 = add nsw i32 %.0173232.i, -4
+64:                                               ; preds = %.lr.ph234.split.i
+  %65 = load i32, ptr @hf_dhcp_option_isns_secondary_server_addr_list, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %65, ptr noundef %0, i32 noundef %.0175231.i, i32 noundef 4, i32 noundef 0)
+  %67 = add i32 %.0175231.i, 4
+  %68 = add nsw i32 %.0173232.i, -4
   %.not280.i = icmp eq i32 %.0173232.i, 4
   br i1 %.not280.i, label %dhcp_handle_basic_types.exit, label %.lr.ph234.split.i, !llvm.loop !31
 
-dhcp_handle_basic_types.exit:                     ; preds = %66, %.split237.us.i, %58, %52
-  %71 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %72
+dhcp_handle_basic_types.exit:                     ; preds = %64, %.split237.us.i, %56, %50
+  %69 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %70
 
-72:                                               ; preds = %dhcp_handle_basic_types.exit, %31, %8
-  %.068 = phi i32 [ 1, %8 ], [ 4, %31 ], [ %71, %dhcp_handle_basic_types.exit ]
+70:                                               ; preds = %dhcp_handle_basic_types.exit, %30, %8
+  %.068 = phi i32 [ 1, %8 ], [ 4, %30 ], [ %69, %dhcp_handle_basic_types.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.068
 }

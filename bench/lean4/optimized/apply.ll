@@ -405,15 +405,13 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef ptr @lean_apply_1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x ptr], align 8
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not1085 = icmp eq i64 %5, 0
-  br i1 %.not1085, label %16, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
   %7 = ptrtoint ptr %1 to i64
-  %8 = and i64 %7, 1
-  %.not1207 = icmp eq i64 %8, 0
-  br i1 %.not1207, label %9, label %_ZL8lean_decP11lean_object.exit
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %_ZL8lean_decP11lean_object.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %1, align 4, !tbaa !16
@@ -866,9 +864,8 @@ define noundef ptr @lean_apply_1(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %326 = load ptr, ptr %325, align 8, !tbaa !15
   %327 = ptrtoint ptr %326 to i64
-  %328 = and i64 %327, 1
-  %.not1205 = icmp eq i64 %328, 0
-  br i1 %.not1205, label %329, label %_ZL8lean_incP11lean_object.exit
+  %328 = trunc i64 %327 to i1
+  br i1 %328, label %_ZL8lean_incP11lean_object.exit, label %329
 
 329:                                              ; preds = %324
   %.val.i = load i32, ptr %326, align 4, !tbaa !16
@@ -886,11 +883,11 @@ define noundef ptr @lean_apply_1(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 334:                                              ; preds = %333
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %326)
-  %.pre1224 = load ptr, ptr %325, align 8, !tbaa !15
+  %.pre1101 = load ptr, ptr %325, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit
 
 _ZL8lean_incP11lean_object.exit:                  ; preds = %334, %333, %331, %324
-  %335 = phi ptr [ %.pre1224, %334 ], [ %326, %333 ], [ %326, %331 ], [ %326, %324 ]
+  %335 = phi ptr [ %.pre1101, %334 ], [ %326, %333 ], [ %326, %331 ], [ %326, %324 ]
   %336 = getelementptr i8, ptr %0, i64 8
   %.val705 = load ptr, ptr %336, align 8, !tbaa !15
   %337 = tail call noundef ptr %.val705(ptr noundef %335, ptr noundef %1)
@@ -915,9 +912,8 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %334, %333, %331, %3
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %346 = load ptr, ptr %345, align 8, !tbaa !15
   %347 = ptrtoint ptr %346 to i64
-  %348 = and i64 %347, 1
-  %.not1203 = icmp eq i64 %348, 0
-  br i1 %.not1203, label %349, label %_ZL8lean_incP11lean_object.exit566
+  %348 = trunc i64 %347 to i1
+  br i1 %348, label %_ZL8lean_incP11lean_object.exit566, label %349
 
 349:                                              ; preds = %344
   %.val.i724 = load i32, ptr %346, align 4, !tbaa !16
@@ -941,9 +937,8 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %354, %353, %351, %3
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %356 = load ptr, ptr %355, align 8, !tbaa !15
   %357 = ptrtoint ptr %356 to i64
-  %358 = and i64 %357, 1
-  %.not1204 = icmp eq i64 %358, 0
-  br i1 %.not1204, label %359, label %_ZL8lean_incP11lean_object.exit567
+  %358 = trunc i64 %357 to i1
+  br i1 %358, label %_ZL8lean_incP11lean_object.exit567, label %359
 
 359:                                              ; preds = %_ZL8lean_incP11lean_object.exit566
   %.val.i727 = load i32, ptr %356, align 4, !tbaa !16
@@ -961,11 +956,11 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %354, %353, %351, %3
 
 364:                                              ; preds = %363
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %356)
-  %.pre1223 = load ptr, ptr %355, align 8, !tbaa !15
+  %.pre1100 = load ptr, ptr %355, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit567
 
 _ZL8lean_incP11lean_object.exit567:               ; preds = %364, %363, %361, %_ZL8lean_incP11lean_object.exit566
-  %365 = phi ptr [ %.pre1223, %364 ], [ %356, %363 ], [ %356, %361 ], [ %356, %_ZL8lean_incP11lean_object.exit566 ]
+  %365 = phi ptr [ %.pre1100, %364 ], [ %356, %363 ], [ %356, %361 ], [ %356, %_ZL8lean_incP11lean_object.exit566 ]
   %366 = getelementptr i8, ptr %0, i64 8
   %.val706 = load ptr, ptr %366, align 8, !tbaa !15
   %367 = load ptr, ptr %345, align 8, !tbaa !15
@@ -991,9 +986,8 @@ _ZL8lean_incP11lean_object.exit567:               ; preds = %364, %363, %361, %_
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %377 = load ptr, ptr %376, align 8, !tbaa !15
   %378 = ptrtoint ptr %377 to i64
-  %379 = and i64 %378, 1
-  %.not1200 = icmp eq i64 %379, 0
-  br i1 %.not1200, label %380, label %_ZL8lean_incP11lean_object.exit568
+  %379 = trunc i64 %378 to i1
+  br i1 %379, label %_ZL8lean_incP11lean_object.exit568, label %380
 
 380:                                              ; preds = %375
   %.val.i730 = load i32, ptr %377, align 4, !tbaa !16
@@ -1017,9 +1011,8 @@ _ZL8lean_incP11lean_object.exit568:               ; preds = %385, %384, %382, %3
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %387 = load ptr, ptr %386, align 8, !tbaa !15
   %388 = ptrtoint ptr %387 to i64
-  %389 = and i64 %388, 1
-  %.not1201 = icmp eq i64 %389, 0
-  br i1 %.not1201, label %390, label %_ZL8lean_incP11lean_object.exit569
+  %389 = trunc i64 %388 to i1
+  br i1 %389, label %_ZL8lean_incP11lean_object.exit569, label %390
 
 390:                                              ; preds = %_ZL8lean_incP11lean_object.exit568
   %.val.i733 = load i32, ptr %387, align 4, !tbaa !16
@@ -1043,9 +1036,8 @@ _ZL8lean_incP11lean_object.exit569:               ; preds = %395, %394, %392, %_
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %397 = load ptr, ptr %396, align 8, !tbaa !15
   %398 = ptrtoint ptr %397 to i64
-  %399 = and i64 %398, 1
-  %.not1202 = icmp eq i64 %399, 0
-  br i1 %.not1202, label %400, label %_ZL8lean_incP11lean_object.exit570
+  %399 = trunc i64 %398 to i1
+  br i1 %399, label %_ZL8lean_incP11lean_object.exit570, label %400
 
 400:                                              ; preds = %_ZL8lean_incP11lean_object.exit569
   %.val.i736 = load i32, ptr %397, align 4, !tbaa !16
@@ -1063,11 +1055,11 @@ _ZL8lean_incP11lean_object.exit569:               ; preds = %395, %394, %392, %_
 
 405:                                              ; preds = %404
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %397)
-  %.pre1222 = load ptr, ptr %396, align 8, !tbaa !15
+  %.pre1099 = load ptr, ptr %396, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit570
 
 _ZL8lean_incP11lean_object.exit570:               ; preds = %405, %404, %402, %_ZL8lean_incP11lean_object.exit569
-  %406 = phi ptr [ %.pre1222, %405 ], [ %397, %404 ], [ %397, %402 ], [ %397, %_ZL8lean_incP11lean_object.exit569 ]
+  %406 = phi ptr [ %.pre1099, %405 ], [ %397, %404 ], [ %397, %402 ], [ %397, %_ZL8lean_incP11lean_object.exit569 ]
   %407 = getelementptr i8, ptr %0, i64 8
   %.val707 = load ptr, ptr %407, align 8, !tbaa !15
   %408 = load ptr, ptr %376, align 8, !tbaa !15
@@ -1094,9 +1086,8 @@ _ZL8lean_incP11lean_object.exit570:               ; preds = %405, %404, %402, %_
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %419 = load ptr, ptr %418, align 8, !tbaa !15
   %420 = ptrtoint ptr %419 to i64
-  %421 = and i64 %420, 1
-  %.not1196 = icmp eq i64 %421, 0
-  br i1 %.not1196, label %422, label %_ZL8lean_incP11lean_object.exit571
+  %421 = trunc i64 %420 to i1
+  br i1 %421, label %_ZL8lean_incP11lean_object.exit571, label %422
 
 422:                                              ; preds = %417
   %.val.i739 = load i32, ptr %419, align 4, !tbaa !16
@@ -1120,9 +1111,8 @@ _ZL8lean_incP11lean_object.exit571:               ; preds = %427, %426, %424, %4
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %429 = load ptr, ptr %428, align 8, !tbaa !15
   %430 = ptrtoint ptr %429 to i64
-  %431 = and i64 %430, 1
-  %.not1197 = icmp eq i64 %431, 0
-  br i1 %.not1197, label %432, label %_ZL8lean_incP11lean_object.exit572
+  %431 = trunc i64 %430 to i1
+  br i1 %431, label %_ZL8lean_incP11lean_object.exit572, label %432
 
 432:                                              ; preds = %_ZL8lean_incP11lean_object.exit571
   %.val.i742 = load i32, ptr %429, align 4, !tbaa !16
@@ -1146,9 +1136,8 @@ _ZL8lean_incP11lean_object.exit572:               ; preds = %437, %436, %434, %_
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %439 = load ptr, ptr %438, align 8, !tbaa !15
   %440 = ptrtoint ptr %439 to i64
-  %441 = and i64 %440, 1
-  %.not1198 = icmp eq i64 %441, 0
-  br i1 %.not1198, label %442, label %_ZL8lean_incP11lean_object.exit573
+  %441 = trunc i64 %440 to i1
+  br i1 %441, label %_ZL8lean_incP11lean_object.exit573, label %442
 
 442:                                              ; preds = %_ZL8lean_incP11lean_object.exit572
   %.val.i745 = load i32, ptr %439, align 4, !tbaa !16
@@ -1172,9 +1161,8 @@ _ZL8lean_incP11lean_object.exit573:               ; preds = %447, %446, %444, %_
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %449 = load ptr, ptr %448, align 8, !tbaa !15
   %450 = ptrtoint ptr %449 to i64
-  %451 = and i64 %450, 1
-  %.not1199 = icmp eq i64 %451, 0
-  br i1 %.not1199, label %452, label %_ZL8lean_incP11lean_object.exit574
+  %451 = trunc i64 %450 to i1
+  br i1 %451, label %_ZL8lean_incP11lean_object.exit574, label %452
 
 452:                                              ; preds = %_ZL8lean_incP11lean_object.exit573
   %.val.i748 = load i32, ptr %449, align 4, !tbaa !16
@@ -1192,11 +1180,11 @@ _ZL8lean_incP11lean_object.exit573:               ; preds = %447, %446, %444, %_
 
 457:                                              ; preds = %456
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %449)
-  %.pre1221 = load ptr, ptr %448, align 8, !tbaa !15
+  %.pre1098 = load ptr, ptr %448, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit574
 
 _ZL8lean_incP11lean_object.exit574:               ; preds = %457, %456, %454, %_ZL8lean_incP11lean_object.exit573
-  %458 = phi ptr [ %.pre1221, %457 ], [ %449, %456 ], [ %449, %454 ], [ %449, %_ZL8lean_incP11lean_object.exit573 ]
+  %458 = phi ptr [ %.pre1098, %457 ], [ %449, %456 ], [ %449, %454 ], [ %449, %_ZL8lean_incP11lean_object.exit573 ]
   %459 = getelementptr i8, ptr %0, i64 8
   %.val708 = load ptr, ptr %459, align 8, !tbaa !15
   %460 = load ptr, ptr %418, align 8, !tbaa !15
@@ -1224,9 +1212,8 @@ _ZL8lean_incP11lean_object.exit574:               ; preds = %457, %456, %454, %_
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %472 = load ptr, ptr %471, align 8, !tbaa !15
   %473 = ptrtoint ptr %472 to i64
-  %474 = and i64 %473, 1
-  %.not1191 = icmp eq i64 %474, 0
-  br i1 %.not1191, label %475, label %_ZL8lean_incP11lean_object.exit575
+  %474 = trunc i64 %473 to i1
+  br i1 %474, label %_ZL8lean_incP11lean_object.exit575, label %475
 
 475:                                              ; preds = %470
   %.val.i751 = load i32, ptr %472, align 4, !tbaa !16
@@ -1250,9 +1237,8 @@ _ZL8lean_incP11lean_object.exit575:               ; preds = %480, %479, %477, %4
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %482 = load ptr, ptr %481, align 8, !tbaa !15
   %483 = ptrtoint ptr %482 to i64
-  %484 = and i64 %483, 1
-  %.not1192 = icmp eq i64 %484, 0
-  br i1 %.not1192, label %485, label %_ZL8lean_incP11lean_object.exit576
+  %484 = trunc i64 %483 to i1
+  br i1 %484, label %_ZL8lean_incP11lean_object.exit576, label %485
 
 485:                                              ; preds = %_ZL8lean_incP11lean_object.exit575
   %.val.i754 = load i32, ptr %482, align 4, !tbaa !16
@@ -1276,9 +1262,8 @@ _ZL8lean_incP11lean_object.exit576:               ; preds = %490, %489, %487, %_
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %492 = load ptr, ptr %491, align 8, !tbaa !15
   %493 = ptrtoint ptr %492 to i64
-  %494 = and i64 %493, 1
-  %.not1193 = icmp eq i64 %494, 0
-  br i1 %.not1193, label %495, label %_ZL8lean_incP11lean_object.exit577
+  %494 = trunc i64 %493 to i1
+  br i1 %494, label %_ZL8lean_incP11lean_object.exit577, label %495
 
 495:                                              ; preds = %_ZL8lean_incP11lean_object.exit576
   %.val.i757 = load i32, ptr %492, align 4, !tbaa !16
@@ -1302,9 +1287,8 @@ _ZL8lean_incP11lean_object.exit577:               ; preds = %500, %499, %497, %_
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %502 = load ptr, ptr %501, align 8, !tbaa !15
   %503 = ptrtoint ptr %502 to i64
-  %504 = and i64 %503, 1
-  %.not1194 = icmp eq i64 %504, 0
-  br i1 %.not1194, label %505, label %_ZL8lean_incP11lean_object.exit578
+  %504 = trunc i64 %503 to i1
+  br i1 %504, label %_ZL8lean_incP11lean_object.exit578, label %505
 
 505:                                              ; preds = %_ZL8lean_incP11lean_object.exit577
   %.val.i760 = load i32, ptr %502, align 4, !tbaa !16
@@ -1328,9 +1312,8 @@ _ZL8lean_incP11lean_object.exit578:               ; preds = %510, %509, %507, %_
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %512 = load ptr, ptr %511, align 8, !tbaa !15
   %513 = ptrtoint ptr %512 to i64
-  %514 = and i64 %513, 1
-  %.not1195 = icmp eq i64 %514, 0
-  br i1 %.not1195, label %515, label %_ZL8lean_incP11lean_object.exit579
+  %514 = trunc i64 %513 to i1
+  br i1 %514, label %_ZL8lean_incP11lean_object.exit579, label %515
 
 515:                                              ; preds = %_ZL8lean_incP11lean_object.exit578
   %.val.i763 = load i32, ptr %512, align 4, !tbaa !16
@@ -1348,11 +1331,11 @@ _ZL8lean_incP11lean_object.exit578:               ; preds = %510, %509, %507, %_
 
 520:                                              ; preds = %519
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %512)
-  %.pre1220 = load ptr, ptr %511, align 8, !tbaa !15
+  %.pre1097 = load ptr, ptr %511, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit579
 
 _ZL8lean_incP11lean_object.exit579:               ; preds = %520, %519, %517, %_ZL8lean_incP11lean_object.exit578
-  %521 = phi ptr [ %.pre1220, %520 ], [ %512, %519 ], [ %512, %517 ], [ %512, %_ZL8lean_incP11lean_object.exit578 ]
+  %521 = phi ptr [ %.pre1097, %520 ], [ %512, %519 ], [ %512, %517 ], [ %512, %_ZL8lean_incP11lean_object.exit578 ]
   %522 = getelementptr i8, ptr %0, i64 8
   %.val709 = load ptr, ptr %522, align 8, !tbaa !15
   %523 = load ptr, ptr %471, align 8, !tbaa !15
@@ -1381,9 +1364,8 @@ _ZL8lean_incP11lean_object.exit579:               ; preds = %520, %519, %517, %_
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %536 = load ptr, ptr %535, align 8, !tbaa !15
   %537 = ptrtoint ptr %536 to i64
-  %538 = and i64 %537, 1
-  %.not1185 = icmp eq i64 %538, 0
-  br i1 %.not1185, label %539, label %_ZL8lean_incP11lean_object.exit580
+  %538 = trunc i64 %537 to i1
+  br i1 %538, label %_ZL8lean_incP11lean_object.exit580, label %539
 
 539:                                              ; preds = %534
   %.val.i766 = load i32, ptr %536, align 4, !tbaa !16
@@ -1407,9 +1389,8 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %544, %543, %541, %5
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %546 = load ptr, ptr %545, align 8, !tbaa !15
   %547 = ptrtoint ptr %546 to i64
-  %548 = and i64 %547, 1
-  %.not1186 = icmp eq i64 %548, 0
-  br i1 %.not1186, label %549, label %_ZL8lean_incP11lean_object.exit581
+  %548 = trunc i64 %547 to i1
+  br i1 %548, label %_ZL8lean_incP11lean_object.exit581, label %549
 
 549:                                              ; preds = %_ZL8lean_incP11lean_object.exit580
   %.val.i769 = load i32, ptr %546, align 4, !tbaa !16
@@ -1433,9 +1414,8 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %554, %553, %551, %_
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %556 = load ptr, ptr %555, align 8, !tbaa !15
   %557 = ptrtoint ptr %556 to i64
-  %558 = and i64 %557, 1
-  %.not1187 = icmp eq i64 %558, 0
-  br i1 %.not1187, label %559, label %_ZL8lean_incP11lean_object.exit582
+  %558 = trunc i64 %557 to i1
+  br i1 %558, label %_ZL8lean_incP11lean_object.exit582, label %559
 
 559:                                              ; preds = %_ZL8lean_incP11lean_object.exit581
   %.val.i772 = load i32, ptr %556, align 4, !tbaa !16
@@ -1459,9 +1439,8 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %564, %563, %561, %_
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %566 = load ptr, ptr %565, align 8, !tbaa !15
   %567 = ptrtoint ptr %566 to i64
-  %568 = and i64 %567, 1
-  %.not1188 = icmp eq i64 %568, 0
-  br i1 %.not1188, label %569, label %_ZL8lean_incP11lean_object.exit583
+  %568 = trunc i64 %567 to i1
+  br i1 %568, label %_ZL8lean_incP11lean_object.exit583, label %569
 
 569:                                              ; preds = %_ZL8lean_incP11lean_object.exit582
   %.val.i775 = load i32, ptr %566, align 4, !tbaa !16
@@ -1485,9 +1464,8 @@ _ZL8lean_incP11lean_object.exit583:               ; preds = %574, %573, %571, %_
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %576 = load ptr, ptr %575, align 8, !tbaa !15
   %577 = ptrtoint ptr %576 to i64
-  %578 = and i64 %577, 1
-  %.not1189 = icmp eq i64 %578, 0
-  br i1 %.not1189, label %579, label %_ZL8lean_incP11lean_object.exit584
+  %578 = trunc i64 %577 to i1
+  br i1 %578, label %_ZL8lean_incP11lean_object.exit584, label %579
 
 579:                                              ; preds = %_ZL8lean_incP11lean_object.exit583
   %.val.i778 = load i32, ptr %576, align 4, !tbaa !16
@@ -1511,9 +1489,8 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %584, %583, %581, %_
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %586 = load ptr, ptr %585, align 8, !tbaa !15
   %587 = ptrtoint ptr %586 to i64
-  %588 = and i64 %587, 1
-  %.not1190 = icmp eq i64 %588, 0
-  br i1 %.not1190, label %589, label %_ZL8lean_incP11lean_object.exit585
+  %588 = trunc i64 %587 to i1
+  br i1 %588, label %_ZL8lean_incP11lean_object.exit585, label %589
 
 589:                                              ; preds = %_ZL8lean_incP11lean_object.exit584
   %.val.i781 = load i32, ptr %586, align 4, !tbaa !16
@@ -1531,11 +1508,11 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %584, %583, %581, %_
 
 594:                                              ; preds = %593
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %586)
-  %.pre1219 = load ptr, ptr %585, align 8, !tbaa !15
+  %.pre1096 = load ptr, ptr %585, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit585
 
 _ZL8lean_incP11lean_object.exit585:               ; preds = %594, %593, %591, %_ZL8lean_incP11lean_object.exit584
-  %595 = phi ptr [ %.pre1219, %594 ], [ %586, %593 ], [ %586, %591 ], [ %586, %_ZL8lean_incP11lean_object.exit584 ]
+  %595 = phi ptr [ %.pre1096, %594 ], [ %586, %593 ], [ %586, %591 ], [ %586, %_ZL8lean_incP11lean_object.exit584 ]
   %596 = getelementptr i8, ptr %0, i64 8
   %.val710 = load ptr, ptr %596, align 8, !tbaa !15
   %597 = load ptr, ptr %535, align 8, !tbaa !15
@@ -1565,9 +1542,8 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %594, %593, %591, %_
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %611 = load ptr, ptr %610, align 8, !tbaa !15
   %612 = ptrtoint ptr %611 to i64
-  %613 = and i64 %612, 1
-  %.not1178 = icmp eq i64 %613, 0
-  br i1 %.not1178, label %614, label %_ZL8lean_incP11lean_object.exit586
+  %613 = trunc i64 %612 to i1
+  br i1 %613, label %_ZL8lean_incP11lean_object.exit586, label %614
 
 614:                                              ; preds = %609
   %.val.i784 = load i32, ptr %611, align 4, !tbaa !16
@@ -1591,9 +1567,8 @@ _ZL8lean_incP11lean_object.exit586:               ; preds = %619, %618, %616, %6
   %620 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %621 = load ptr, ptr %620, align 8, !tbaa !15
   %622 = ptrtoint ptr %621 to i64
-  %623 = and i64 %622, 1
-  %.not1179 = icmp eq i64 %623, 0
-  br i1 %.not1179, label %624, label %_ZL8lean_incP11lean_object.exit587
+  %623 = trunc i64 %622 to i1
+  br i1 %623, label %_ZL8lean_incP11lean_object.exit587, label %624
 
 624:                                              ; preds = %_ZL8lean_incP11lean_object.exit586
   %.val.i787 = load i32, ptr %621, align 4, !tbaa !16
@@ -1617,9 +1592,8 @@ _ZL8lean_incP11lean_object.exit587:               ; preds = %629, %628, %626, %_
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %631 = load ptr, ptr %630, align 8, !tbaa !15
   %632 = ptrtoint ptr %631 to i64
-  %633 = and i64 %632, 1
-  %.not1180 = icmp eq i64 %633, 0
-  br i1 %.not1180, label %634, label %_ZL8lean_incP11lean_object.exit588
+  %633 = trunc i64 %632 to i1
+  br i1 %633, label %_ZL8lean_incP11lean_object.exit588, label %634
 
 634:                                              ; preds = %_ZL8lean_incP11lean_object.exit587
   %.val.i790 = load i32, ptr %631, align 4, !tbaa !16
@@ -1643,9 +1617,8 @@ _ZL8lean_incP11lean_object.exit588:               ; preds = %639, %638, %636, %_
   %640 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %641 = load ptr, ptr %640, align 8, !tbaa !15
   %642 = ptrtoint ptr %641 to i64
-  %643 = and i64 %642, 1
-  %.not1181 = icmp eq i64 %643, 0
-  br i1 %.not1181, label %644, label %_ZL8lean_incP11lean_object.exit589
+  %643 = trunc i64 %642 to i1
+  br i1 %643, label %_ZL8lean_incP11lean_object.exit589, label %644
 
 644:                                              ; preds = %_ZL8lean_incP11lean_object.exit588
   %.val.i793 = load i32, ptr %641, align 4, !tbaa !16
@@ -1669,9 +1642,8 @@ _ZL8lean_incP11lean_object.exit589:               ; preds = %649, %648, %646, %_
   %650 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %651 = load ptr, ptr %650, align 8, !tbaa !15
   %652 = ptrtoint ptr %651 to i64
-  %653 = and i64 %652, 1
-  %.not1182 = icmp eq i64 %653, 0
-  br i1 %.not1182, label %654, label %_ZL8lean_incP11lean_object.exit590
+  %653 = trunc i64 %652 to i1
+  br i1 %653, label %_ZL8lean_incP11lean_object.exit590, label %654
 
 654:                                              ; preds = %_ZL8lean_incP11lean_object.exit589
   %.val.i796 = load i32, ptr %651, align 4, !tbaa !16
@@ -1695,9 +1667,8 @@ _ZL8lean_incP11lean_object.exit590:               ; preds = %659, %658, %656, %_
   %660 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %661 = load ptr, ptr %660, align 8, !tbaa !15
   %662 = ptrtoint ptr %661 to i64
-  %663 = and i64 %662, 1
-  %.not1183 = icmp eq i64 %663, 0
-  br i1 %.not1183, label %664, label %_ZL8lean_incP11lean_object.exit591
+  %663 = trunc i64 %662 to i1
+  br i1 %663, label %_ZL8lean_incP11lean_object.exit591, label %664
 
 664:                                              ; preds = %_ZL8lean_incP11lean_object.exit590
   %.val.i799 = load i32, ptr %661, align 4, !tbaa !16
@@ -1721,9 +1692,8 @@ _ZL8lean_incP11lean_object.exit591:               ; preds = %669, %668, %666, %_
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %671 = load ptr, ptr %670, align 8, !tbaa !15
   %672 = ptrtoint ptr %671 to i64
-  %673 = and i64 %672, 1
-  %.not1184 = icmp eq i64 %673, 0
-  br i1 %.not1184, label %674, label %_ZL8lean_incP11lean_object.exit592
+  %673 = trunc i64 %672 to i1
+  br i1 %673, label %_ZL8lean_incP11lean_object.exit592, label %674
 
 674:                                              ; preds = %_ZL8lean_incP11lean_object.exit591
   %.val.i802 = load i32, ptr %671, align 4, !tbaa !16
@@ -1741,11 +1711,11 @@ _ZL8lean_incP11lean_object.exit591:               ; preds = %669, %668, %666, %_
 
 679:                                              ; preds = %678
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %671)
-  %.pre1218 = load ptr, ptr %670, align 8, !tbaa !15
+  %.pre1095 = load ptr, ptr %670, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit592
 
 _ZL8lean_incP11lean_object.exit592:               ; preds = %679, %678, %676, %_ZL8lean_incP11lean_object.exit591
-  %680 = phi ptr [ %.pre1218, %679 ], [ %671, %678 ], [ %671, %676 ], [ %671, %_ZL8lean_incP11lean_object.exit591 ]
+  %680 = phi ptr [ %.pre1095, %679 ], [ %671, %678 ], [ %671, %676 ], [ %671, %_ZL8lean_incP11lean_object.exit591 ]
   %681 = getelementptr i8, ptr %0, i64 8
   %.val711 = load ptr, ptr %681, align 8, !tbaa !15
   %682 = load ptr, ptr %610, align 8, !tbaa !15
@@ -1776,9 +1746,8 @@ _ZL8lean_incP11lean_object.exit592:               ; preds = %679, %678, %676, %_
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %697 = load ptr, ptr %696, align 8, !tbaa !15
   %698 = ptrtoint ptr %697 to i64
-  %699 = and i64 %698, 1
-  %.not1170 = icmp eq i64 %699, 0
-  br i1 %.not1170, label %700, label %_ZL8lean_incP11lean_object.exit593
+  %699 = trunc i64 %698 to i1
+  br i1 %699, label %_ZL8lean_incP11lean_object.exit593, label %700
 
 700:                                              ; preds = %695
   %.val.i805 = load i32, ptr %697, align 4, !tbaa !16
@@ -1802,9 +1771,8 @@ _ZL8lean_incP11lean_object.exit593:               ; preds = %705, %704, %702, %6
   %706 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %707 = load ptr, ptr %706, align 8, !tbaa !15
   %708 = ptrtoint ptr %707 to i64
-  %709 = and i64 %708, 1
-  %.not1171 = icmp eq i64 %709, 0
-  br i1 %.not1171, label %710, label %_ZL8lean_incP11lean_object.exit594
+  %709 = trunc i64 %708 to i1
+  br i1 %709, label %_ZL8lean_incP11lean_object.exit594, label %710
 
 710:                                              ; preds = %_ZL8lean_incP11lean_object.exit593
   %.val.i808 = load i32, ptr %707, align 4, !tbaa !16
@@ -1828,9 +1796,8 @@ _ZL8lean_incP11lean_object.exit594:               ; preds = %715, %714, %712, %_
   %716 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %717 = load ptr, ptr %716, align 8, !tbaa !15
   %718 = ptrtoint ptr %717 to i64
-  %719 = and i64 %718, 1
-  %.not1172 = icmp eq i64 %719, 0
-  br i1 %.not1172, label %720, label %_ZL8lean_incP11lean_object.exit595
+  %719 = trunc i64 %718 to i1
+  br i1 %719, label %_ZL8lean_incP11lean_object.exit595, label %720
 
 720:                                              ; preds = %_ZL8lean_incP11lean_object.exit594
   %.val.i811 = load i32, ptr %717, align 4, !tbaa !16
@@ -1854,9 +1821,8 @@ _ZL8lean_incP11lean_object.exit595:               ; preds = %725, %724, %722, %_
   %726 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %727 = load ptr, ptr %726, align 8, !tbaa !15
   %728 = ptrtoint ptr %727 to i64
-  %729 = and i64 %728, 1
-  %.not1173 = icmp eq i64 %729, 0
-  br i1 %.not1173, label %730, label %_ZL8lean_incP11lean_object.exit596
+  %729 = trunc i64 %728 to i1
+  br i1 %729, label %_ZL8lean_incP11lean_object.exit596, label %730
 
 730:                                              ; preds = %_ZL8lean_incP11lean_object.exit595
   %.val.i814 = load i32, ptr %727, align 4, !tbaa !16
@@ -1880,9 +1846,8 @@ _ZL8lean_incP11lean_object.exit596:               ; preds = %735, %734, %732, %_
   %736 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %737 = load ptr, ptr %736, align 8, !tbaa !15
   %738 = ptrtoint ptr %737 to i64
-  %739 = and i64 %738, 1
-  %.not1174 = icmp eq i64 %739, 0
-  br i1 %.not1174, label %740, label %_ZL8lean_incP11lean_object.exit597
+  %739 = trunc i64 %738 to i1
+  br i1 %739, label %_ZL8lean_incP11lean_object.exit597, label %740
 
 740:                                              ; preds = %_ZL8lean_incP11lean_object.exit596
   %.val.i817 = load i32, ptr %737, align 4, !tbaa !16
@@ -1906,9 +1871,8 @@ _ZL8lean_incP11lean_object.exit597:               ; preds = %745, %744, %742, %_
   %746 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %747 = load ptr, ptr %746, align 8, !tbaa !15
   %748 = ptrtoint ptr %747 to i64
-  %749 = and i64 %748, 1
-  %.not1175 = icmp eq i64 %749, 0
-  br i1 %.not1175, label %750, label %_ZL8lean_incP11lean_object.exit598
+  %749 = trunc i64 %748 to i1
+  br i1 %749, label %_ZL8lean_incP11lean_object.exit598, label %750
 
 750:                                              ; preds = %_ZL8lean_incP11lean_object.exit597
   %.val.i820 = load i32, ptr %747, align 4, !tbaa !16
@@ -1932,9 +1896,8 @@ _ZL8lean_incP11lean_object.exit598:               ; preds = %755, %754, %752, %_
   %756 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %757 = load ptr, ptr %756, align 8, !tbaa !15
   %758 = ptrtoint ptr %757 to i64
-  %759 = and i64 %758, 1
-  %.not1176 = icmp eq i64 %759, 0
-  br i1 %.not1176, label %760, label %_ZL8lean_incP11lean_object.exit599
+  %759 = trunc i64 %758 to i1
+  br i1 %759, label %_ZL8lean_incP11lean_object.exit599, label %760
 
 760:                                              ; preds = %_ZL8lean_incP11lean_object.exit598
   %.val.i823 = load i32, ptr %757, align 4, !tbaa !16
@@ -1958,9 +1921,8 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %765, %764, %762, %_
   %766 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %767 = load ptr, ptr %766, align 8, !tbaa !15
   %768 = ptrtoint ptr %767 to i64
-  %769 = and i64 %768, 1
-  %.not1177 = icmp eq i64 %769, 0
-  br i1 %.not1177, label %770, label %_ZL8lean_incP11lean_object.exit600
+  %769 = trunc i64 %768 to i1
+  br i1 %769, label %_ZL8lean_incP11lean_object.exit600, label %770
 
 770:                                              ; preds = %_ZL8lean_incP11lean_object.exit599
   %.val.i826 = load i32, ptr %767, align 4, !tbaa !16
@@ -1978,11 +1940,11 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %765, %764, %762, %_
 
 775:                                              ; preds = %774
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %767)
-  %.pre1217 = load ptr, ptr %766, align 8, !tbaa !15
+  %.pre1094 = load ptr, ptr %766, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit600
 
 _ZL8lean_incP11lean_object.exit600:               ; preds = %775, %774, %772, %_ZL8lean_incP11lean_object.exit599
-  %776 = phi ptr [ %.pre1217, %775 ], [ %767, %774 ], [ %767, %772 ], [ %767, %_ZL8lean_incP11lean_object.exit599 ]
+  %776 = phi ptr [ %.pre1094, %775 ], [ %767, %774 ], [ %767, %772 ], [ %767, %_ZL8lean_incP11lean_object.exit599 ]
   %777 = getelementptr i8, ptr %0, i64 8
   %.val712 = load ptr, ptr %777, align 8, !tbaa !15
   %778 = load ptr, ptr %696, align 8, !tbaa !15
@@ -2014,9 +1976,8 @@ _ZL8lean_incP11lean_object.exit600:               ; preds = %775, %774, %772, %_
   %793 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %794 = load ptr, ptr %793, align 8, !tbaa !15
   %795 = ptrtoint ptr %794 to i64
-  %796 = and i64 %795, 1
-  %.not1161 = icmp eq i64 %796, 0
-  br i1 %.not1161, label %797, label %_ZL8lean_incP11lean_object.exit601
+  %796 = trunc i64 %795 to i1
+  br i1 %796, label %_ZL8lean_incP11lean_object.exit601, label %797
 
 797:                                              ; preds = %792
   %.val.i829 = load i32, ptr %794, align 4, !tbaa !16
@@ -2040,9 +2001,8 @@ _ZL8lean_incP11lean_object.exit601:               ; preds = %802, %801, %799, %7
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %804 = load ptr, ptr %803, align 8, !tbaa !15
   %805 = ptrtoint ptr %804 to i64
-  %806 = and i64 %805, 1
-  %.not1162 = icmp eq i64 %806, 0
-  br i1 %.not1162, label %807, label %_ZL8lean_incP11lean_object.exit602
+  %806 = trunc i64 %805 to i1
+  br i1 %806, label %_ZL8lean_incP11lean_object.exit602, label %807
 
 807:                                              ; preds = %_ZL8lean_incP11lean_object.exit601
   %.val.i832 = load i32, ptr %804, align 4, !tbaa !16
@@ -2066,9 +2026,8 @@ _ZL8lean_incP11lean_object.exit602:               ; preds = %812, %811, %809, %_
   %813 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %814 = load ptr, ptr %813, align 8, !tbaa !15
   %815 = ptrtoint ptr %814 to i64
-  %816 = and i64 %815, 1
-  %.not1163 = icmp eq i64 %816, 0
-  br i1 %.not1163, label %817, label %_ZL8lean_incP11lean_object.exit603
+  %816 = trunc i64 %815 to i1
+  br i1 %816, label %_ZL8lean_incP11lean_object.exit603, label %817
 
 817:                                              ; preds = %_ZL8lean_incP11lean_object.exit602
   %.val.i835 = load i32, ptr %814, align 4, !tbaa !16
@@ -2092,9 +2051,8 @@ _ZL8lean_incP11lean_object.exit603:               ; preds = %822, %821, %819, %_
   %823 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %824 = load ptr, ptr %823, align 8, !tbaa !15
   %825 = ptrtoint ptr %824 to i64
-  %826 = and i64 %825, 1
-  %.not1164 = icmp eq i64 %826, 0
-  br i1 %.not1164, label %827, label %_ZL8lean_incP11lean_object.exit604
+  %826 = trunc i64 %825 to i1
+  br i1 %826, label %_ZL8lean_incP11lean_object.exit604, label %827
 
 827:                                              ; preds = %_ZL8lean_incP11lean_object.exit603
   %.val.i838 = load i32, ptr %824, align 4, !tbaa !16
@@ -2118,9 +2076,8 @@ _ZL8lean_incP11lean_object.exit604:               ; preds = %832, %831, %829, %_
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %834 = load ptr, ptr %833, align 8, !tbaa !15
   %835 = ptrtoint ptr %834 to i64
-  %836 = and i64 %835, 1
-  %.not1165 = icmp eq i64 %836, 0
-  br i1 %.not1165, label %837, label %_ZL8lean_incP11lean_object.exit605
+  %836 = trunc i64 %835 to i1
+  br i1 %836, label %_ZL8lean_incP11lean_object.exit605, label %837
 
 837:                                              ; preds = %_ZL8lean_incP11lean_object.exit604
   %.val.i841 = load i32, ptr %834, align 4, !tbaa !16
@@ -2144,9 +2101,8 @@ _ZL8lean_incP11lean_object.exit605:               ; preds = %842, %841, %839, %_
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %844 = load ptr, ptr %843, align 8, !tbaa !15
   %845 = ptrtoint ptr %844 to i64
-  %846 = and i64 %845, 1
-  %.not1166 = icmp eq i64 %846, 0
-  br i1 %.not1166, label %847, label %_ZL8lean_incP11lean_object.exit606
+  %846 = trunc i64 %845 to i1
+  br i1 %846, label %_ZL8lean_incP11lean_object.exit606, label %847
 
 847:                                              ; preds = %_ZL8lean_incP11lean_object.exit605
   %.val.i844 = load i32, ptr %844, align 4, !tbaa !16
@@ -2170,9 +2126,8 @@ _ZL8lean_incP11lean_object.exit606:               ; preds = %852, %851, %849, %_
   %853 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %854 = load ptr, ptr %853, align 8, !tbaa !15
   %855 = ptrtoint ptr %854 to i64
-  %856 = and i64 %855, 1
-  %.not1167 = icmp eq i64 %856, 0
-  br i1 %.not1167, label %857, label %_ZL8lean_incP11lean_object.exit607
+  %856 = trunc i64 %855 to i1
+  br i1 %856, label %_ZL8lean_incP11lean_object.exit607, label %857
 
 857:                                              ; preds = %_ZL8lean_incP11lean_object.exit606
   %.val.i847 = load i32, ptr %854, align 4, !tbaa !16
@@ -2196,9 +2151,8 @@ _ZL8lean_incP11lean_object.exit607:               ; preds = %862, %861, %859, %_
   %863 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %864 = load ptr, ptr %863, align 8, !tbaa !15
   %865 = ptrtoint ptr %864 to i64
-  %866 = and i64 %865, 1
-  %.not1168 = icmp eq i64 %866, 0
-  br i1 %.not1168, label %867, label %_ZL8lean_incP11lean_object.exit608
+  %866 = trunc i64 %865 to i1
+  br i1 %866, label %_ZL8lean_incP11lean_object.exit608, label %867
 
 867:                                              ; preds = %_ZL8lean_incP11lean_object.exit607
   %.val.i850 = load i32, ptr %864, align 4, !tbaa !16
@@ -2222,9 +2176,8 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %872, %871, %869, %_
   %873 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %874 = load ptr, ptr %873, align 8, !tbaa !15
   %875 = ptrtoint ptr %874 to i64
-  %876 = and i64 %875, 1
-  %.not1169 = icmp eq i64 %876, 0
-  br i1 %.not1169, label %877, label %_ZL8lean_incP11lean_object.exit609
+  %876 = trunc i64 %875 to i1
+  br i1 %876, label %_ZL8lean_incP11lean_object.exit609, label %877
 
 877:                                              ; preds = %_ZL8lean_incP11lean_object.exit608
   %.val.i853 = load i32, ptr %874, align 4, !tbaa !16
@@ -2242,11 +2195,11 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %872, %871, %869, %_
 
 882:                                              ; preds = %881
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %874)
-  %.pre1216 = load ptr, ptr %873, align 8, !tbaa !15
+  %.pre1093 = load ptr, ptr %873, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit609
 
 _ZL8lean_incP11lean_object.exit609:               ; preds = %882, %881, %879, %_ZL8lean_incP11lean_object.exit608
-  %883 = phi ptr [ %.pre1216, %882 ], [ %874, %881 ], [ %874, %879 ], [ %874, %_ZL8lean_incP11lean_object.exit608 ]
+  %883 = phi ptr [ %.pre1093, %882 ], [ %874, %881 ], [ %874, %879 ], [ %874, %_ZL8lean_incP11lean_object.exit608 ]
   %884 = getelementptr i8, ptr %0, i64 8
   %.val713 = load ptr, ptr %884, align 8, !tbaa !15
   %885 = load ptr, ptr %793, align 8, !tbaa !15
@@ -2279,9 +2232,8 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %882, %881, %879, %_
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %902 = load ptr, ptr %901, align 8, !tbaa !15
   %903 = ptrtoint ptr %902 to i64
-  %904 = and i64 %903, 1
-  %.not1151 = icmp eq i64 %904, 0
-  br i1 %.not1151, label %905, label %_ZL8lean_incP11lean_object.exit610
+  %904 = trunc i64 %903 to i1
+  br i1 %904, label %_ZL8lean_incP11lean_object.exit610, label %905
 
 905:                                              ; preds = %900
   %.val.i856 = load i32, ptr %902, align 4, !tbaa !16
@@ -2305,9 +2257,8 @@ _ZL8lean_incP11lean_object.exit610:               ; preds = %910, %909, %907, %9
   %911 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %912 = load ptr, ptr %911, align 8, !tbaa !15
   %913 = ptrtoint ptr %912 to i64
-  %914 = and i64 %913, 1
-  %.not1152 = icmp eq i64 %914, 0
-  br i1 %.not1152, label %915, label %_ZL8lean_incP11lean_object.exit611
+  %914 = trunc i64 %913 to i1
+  br i1 %914, label %_ZL8lean_incP11lean_object.exit611, label %915
 
 915:                                              ; preds = %_ZL8lean_incP11lean_object.exit610
   %.val.i859 = load i32, ptr %912, align 4, !tbaa !16
@@ -2331,9 +2282,8 @@ _ZL8lean_incP11lean_object.exit611:               ; preds = %920, %919, %917, %_
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %922 = load ptr, ptr %921, align 8, !tbaa !15
   %923 = ptrtoint ptr %922 to i64
-  %924 = and i64 %923, 1
-  %.not1153 = icmp eq i64 %924, 0
-  br i1 %.not1153, label %925, label %_ZL8lean_incP11lean_object.exit612
+  %924 = trunc i64 %923 to i1
+  br i1 %924, label %_ZL8lean_incP11lean_object.exit612, label %925
 
 925:                                              ; preds = %_ZL8lean_incP11lean_object.exit611
   %.val.i862 = load i32, ptr %922, align 4, !tbaa !16
@@ -2357,9 +2307,8 @@ _ZL8lean_incP11lean_object.exit612:               ; preds = %930, %929, %927, %_
   %931 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %932 = load ptr, ptr %931, align 8, !tbaa !15
   %933 = ptrtoint ptr %932 to i64
-  %934 = and i64 %933, 1
-  %.not1154 = icmp eq i64 %934, 0
-  br i1 %.not1154, label %935, label %_ZL8lean_incP11lean_object.exit613
+  %934 = trunc i64 %933 to i1
+  br i1 %934, label %_ZL8lean_incP11lean_object.exit613, label %935
 
 935:                                              ; preds = %_ZL8lean_incP11lean_object.exit612
   %.val.i865 = load i32, ptr %932, align 4, !tbaa !16
@@ -2383,9 +2332,8 @@ _ZL8lean_incP11lean_object.exit613:               ; preds = %940, %939, %937, %_
   %941 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %942 = load ptr, ptr %941, align 8, !tbaa !15
   %943 = ptrtoint ptr %942 to i64
-  %944 = and i64 %943, 1
-  %.not1155 = icmp eq i64 %944, 0
-  br i1 %.not1155, label %945, label %_ZL8lean_incP11lean_object.exit614
+  %944 = trunc i64 %943 to i1
+  br i1 %944, label %_ZL8lean_incP11lean_object.exit614, label %945
 
 945:                                              ; preds = %_ZL8lean_incP11lean_object.exit613
   %.val.i868 = load i32, ptr %942, align 4, !tbaa !16
@@ -2409,9 +2357,8 @@ _ZL8lean_incP11lean_object.exit614:               ; preds = %950, %949, %947, %_
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %952 = load ptr, ptr %951, align 8, !tbaa !15
   %953 = ptrtoint ptr %952 to i64
-  %954 = and i64 %953, 1
-  %.not1156 = icmp eq i64 %954, 0
-  br i1 %.not1156, label %955, label %_ZL8lean_incP11lean_object.exit615
+  %954 = trunc i64 %953 to i1
+  br i1 %954, label %_ZL8lean_incP11lean_object.exit615, label %955
 
 955:                                              ; preds = %_ZL8lean_incP11lean_object.exit614
   %.val.i871 = load i32, ptr %952, align 4, !tbaa !16
@@ -2435,9 +2382,8 @@ _ZL8lean_incP11lean_object.exit615:               ; preds = %960, %959, %957, %_
   %961 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %962 = load ptr, ptr %961, align 8, !tbaa !15
   %963 = ptrtoint ptr %962 to i64
-  %964 = and i64 %963, 1
-  %.not1157 = icmp eq i64 %964, 0
-  br i1 %.not1157, label %965, label %_ZL8lean_incP11lean_object.exit616
+  %964 = trunc i64 %963 to i1
+  br i1 %964, label %_ZL8lean_incP11lean_object.exit616, label %965
 
 965:                                              ; preds = %_ZL8lean_incP11lean_object.exit615
   %.val.i874 = load i32, ptr %962, align 4, !tbaa !16
@@ -2461,9 +2407,8 @@ _ZL8lean_incP11lean_object.exit616:               ; preds = %970, %969, %967, %_
   %971 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %972 = load ptr, ptr %971, align 8, !tbaa !15
   %973 = ptrtoint ptr %972 to i64
-  %974 = and i64 %973, 1
-  %.not1158 = icmp eq i64 %974, 0
-  br i1 %.not1158, label %975, label %_ZL8lean_incP11lean_object.exit617
+  %974 = trunc i64 %973 to i1
+  br i1 %974, label %_ZL8lean_incP11lean_object.exit617, label %975
 
 975:                                              ; preds = %_ZL8lean_incP11lean_object.exit616
   %.val.i877 = load i32, ptr %972, align 4, !tbaa !16
@@ -2487,9 +2432,8 @@ _ZL8lean_incP11lean_object.exit617:               ; preds = %980, %979, %977, %_
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %982 = load ptr, ptr %981, align 8, !tbaa !15
   %983 = ptrtoint ptr %982 to i64
-  %984 = and i64 %983, 1
-  %.not1159 = icmp eq i64 %984, 0
-  br i1 %.not1159, label %985, label %_ZL8lean_incP11lean_object.exit618
+  %984 = trunc i64 %983 to i1
+  br i1 %984, label %_ZL8lean_incP11lean_object.exit618, label %985
 
 985:                                              ; preds = %_ZL8lean_incP11lean_object.exit617
   %.val.i880 = load i32, ptr %982, align 4, !tbaa !16
@@ -2513,9 +2457,8 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %990, %989, %987, %_
   %991 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %992 = load ptr, ptr %991, align 8, !tbaa !15
   %993 = ptrtoint ptr %992 to i64
-  %994 = and i64 %993, 1
-  %.not1160 = icmp eq i64 %994, 0
-  br i1 %.not1160, label %995, label %_ZL8lean_incP11lean_object.exit619
+  %994 = trunc i64 %993 to i1
+  br i1 %994, label %_ZL8lean_incP11lean_object.exit619, label %995
 
 995:                                              ; preds = %_ZL8lean_incP11lean_object.exit618
   %.val.i883 = load i32, ptr %992, align 4, !tbaa !16
@@ -2533,11 +2476,11 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %990, %989, %987, %_
 
 1000:                                             ; preds = %999
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %992)
-  %.pre1215 = load ptr, ptr %991, align 8, !tbaa !15
+  %.pre1092 = load ptr, ptr %991, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit619
 
 _ZL8lean_incP11lean_object.exit619:               ; preds = %1000, %999, %997, %_ZL8lean_incP11lean_object.exit618
-  %1001 = phi ptr [ %.pre1215, %1000 ], [ %992, %999 ], [ %992, %997 ], [ %992, %_ZL8lean_incP11lean_object.exit618 ]
+  %1001 = phi ptr [ %.pre1092, %1000 ], [ %992, %999 ], [ %992, %997 ], [ %992, %_ZL8lean_incP11lean_object.exit618 ]
   %1002 = getelementptr i8, ptr %0, i64 8
   %.val714 = load ptr, ptr %1002, align 8, !tbaa !15
   %1003 = load ptr, ptr %901, align 8, !tbaa !15
@@ -2571,9 +2514,8 @@ _ZL8lean_incP11lean_object.exit619:               ; preds = %1000, %999, %997, %
   %1020 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1021 = load ptr, ptr %1020, align 8, !tbaa !15
   %1022 = ptrtoint ptr %1021 to i64
-  %1023 = and i64 %1022, 1
-  %.not1140 = icmp eq i64 %1023, 0
-  br i1 %.not1140, label %1024, label %_ZL8lean_incP11lean_object.exit620
+  %1023 = trunc i64 %1022 to i1
+  br i1 %1023, label %_ZL8lean_incP11lean_object.exit620, label %1024
 
 1024:                                             ; preds = %1019
   %.val.i886 = load i32, ptr %1021, align 4, !tbaa !16
@@ -2597,9 +2539,8 @@ _ZL8lean_incP11lean_object.exit620:               ; preds = %1029, %1028, %1026,
   %1030 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1031 = load ptr, ptr %1030, align 8, !tbaa !15
   %1032 = ptrtoint ptr %1031 to i64
-  %1033 = and i64 %1032, 1
-  %.not1141 = icmp eq i64 %1033, 0
-  br i1 %.not1141, label %1034, label %_ZL8lean_incP11lean_object.exit621
+  %1033 = trunc i64 %1032 to i1
+  br i1 %1033, label %_ZL8lean_incP11lean_object.exit621, label %1034
 
 1034:                                             ; preds = %_ZL8lean_incP11lean_object.exit620
   %.val.i889 = load i32, ptr %1031, align 4, !tbaa !16
@@ -2623,9 +2564,8 @@ _ZL8lean_incP11lean_object.exit621:               ; preds = %1039, %1038, %1036,
   %1040 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1041 = load ptr, ptr %1040, align 8, !tbaa !15
   %1042 = ptrtoint ptr %1041 to i64
-  %1043 = and i64 %1042, 1
-  %.not1142 = icmp eq i64 %1043, 0
-  br i1 %.not1142, label %1044, label %_ZL8lean_incP11lean_object.exit622
+  %1043 = trunc i64 %1042 to i1
+  br i1 %1043, label %_ZL8lean_incP11lean_object.exit622, label %1044
 
 1044:                                             ; preds = %_ZL8lean_incP11lean_object.exit621
   %.val.i892 = load i32, ptr %1041, align 4, !tbaa !16
@@ -2649,9 +2589,8 @@ _ZL8lean_incP11lean_object.exit622:               ; preds = %1049, %1048, %1046,
   %1050 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1051 = load ptr, ptr %1050, align 8, !tbaa !15
   %1052 = ptrtoint ptr %1051 to i64
-  %1053 = and i64 %1052, 1
-  %.not1143 = icmp eq i64 %1053, 0
-  br i1 %.not1143, label %1054, label %_ZL8lean_incP11lean_object.exit623
+  %1053 = trunc i64 %1052 to i1
+  br i1 %1053, label %_ZL8lean_incP11lean_object.exit623, label %1054
 
 1054:                                             ; preds = %_ZL8lean_incP11lean_object.exit622
   %.val.i895 = load i32, ptr %1051, align 4, !tbaa !16
@@ -2675,9 +2614,8 @@ _ZL8lean_incP11lean_object.exit623:               ; preds = %1059, %1058, %1056,
   %1060 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1061 = load ptr, ptr %1060, align 8, !tbaa !15
   %1062 = ptrtoint ptr %1061 to i64
-  %1063 = and i64 %1062, 1
-  %.not1144 = icmp eq i64 %1063, 0
-  br i1 %.not1144, label %1064, label %_ZL8lean_incP11lean_object.exit624
+  %1063 = trunc i64 %1062 to i1
+  br i1 %1063, label %_ZL8lean_incP11lean_object.exit624, label %1064
 
 1064:                                             ; preds = %_ZL8lean_incP11lean_object.exit623
   %.val.i898 = load i32, ptr %1061, align 4, !tbaa !16
@@ -2701,9 +2639,8 @@ _ZL8lean_incP11lean_object.exit624:               ; preds = %1069, %1068, %1066,
   %1070 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1071 = load ptr, ptr %1070, align 8, !tbaa !15
   %1072 = ptrtoint ptr %1071 to i64
-  %1073 = and i64 %1072, 1
-  %.not1145 = icmp eq i64 %1073, 0
-  br i1 %.not1145, label %1074, label %_ZL8lean_incP11lean_object.exit625
+  %1073 = trunc i64 %1072 to i1
+  br i1 %1073, label %_ZL8lean_incP11lean_object.exit625, label %1074
 
 1074:                                             ; preds = %_ZL8lean_incP11lean_object.exit624
   %.val.i901 = load i32, ptr %1071, align 4, !tbaa !16
@@ -2727,9 +2664,8 @@ _ZL8lean_incP11lean_object.exit625:               ; preds = %1079, %1078, %1076,
   %1080 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1081 = load ptr, ptr %1080, align 8, !tbaa !15
   %1082 = ptrtoint ptr %1081 to i64
-  %1083 = and i64 %1082, 1
-  %.not1146 = icmp eq i64 %1083, 0
-  br i1 %.not1146, label %1084, label %_ZL8lean_incP11lean_object.exit626
+  %1083 = trunc i64 %1082 to i1
+  br i1 %1083, label %_ZL8lean_incP11lean_object.exit626, label %1084
 
 1084:                                             ; preds = %_ZL8lean_incP11lean_object.exit625
   %.val.i904 = load i32, ptr %1081, align 4, !tbaa !16
@@ -2753,9 +2689,8 @@ _ZL8lean_incP11lean_object.exit626:               ; preds = %1089, %1088, %1086,
   %1090 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1091 = load ptr, ptr %1090, align 8, !tbaa !15
   %1092 = ptrtoint ptr %1091 to i64
-  %1093 = and i64 %1092, 1
-  %.not1147 = icmp eq i64 %1093, 0
-  br i1 %.not1147, label %1094, label %_ZL8lean_incP11lean_object.exit627
+  %1093 = trunc i64 %1092 to i1
+  br i1 %1093, label %_ZL8lean_incP11lean_object.exit627, label %1094
 
 1094:                                             ; preds = %_ZL8lean_incP11lean_object.exit626
   %.val.i907 = load i32, ptr %1091, align 4, !tbaa !16
@@ -2779,9 +2714,8 @@ _ZL8lean_incP11lean_object.exit627:               ; preds = %1099, %1098, %1096,
   %1100 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1101 = load ptr, ptr %1100, align 8, !tbaa !15
   %1102 = ptrtoint ptr %1101 to i64
-  %1103 = and i64 %1102, 1
-  %.not1148 = icmp eq i64 %1103, 0
-  br i1 %.not1148, label %1104, label %_ZL8lean_incP11lean_object.exit628
+  %1103 = trunc i64 %1102 to i1
+  br i1 %1103, label %_ZL8lean_incP11lean_object.exit628, label %1104
 
 1104:                                             ; preds = %_ZL8lean_incP11lean_object.exit627
   %.val.i910 = load i32, ptr %1101, align 4, !tbaa !16
@@ -2805,9 +2739,8 @@ _ZL8lean_incP11lean_object.exit628:               ; preds = %1109, %1108, %1106,
   %1110 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1111 = load ptr, ptr %1110, align 8, !tbaa !15
   %1112 = ptrtoint ptr %1111 to i64
-  %1113 = and i64 %1112, 1
-  %.not1149 = icmp eq i64 %1113, 0
-  br i1 %.not1149, label %1114, label %_ZL8lean_incP11lean_object.exit629
+  %1113 = trunc i64 %1112 to i1
+  br i1 %1113, label %_ZL8lean_incP11lean_object.exit629, label %1114
 
 1114:                                             ; preds = %_ZL8lean_incP11lean_object.exit628
   %.val.i913 = load i32, ptr %1111, align 4, !tbaa !16
@@ -2831,9 +2764,8 @@ _ZL8lean_incP11lean_object.exit629:               ; preds = %1119, %1118, %1116,
   %1120 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1121 = load ptr, ptr %1120, align 8, !tbaa !15
   %1122 = ptrtoint ptr %1121 to i64
-  %1123 = and i64 %1122, 1
-  %.not1150 = icmp eq i64 %1123, 0
-  br i1 %.not1150, label %1124, label %_ZL8lean_incP11lean_object.exit630
+  %1123 = trunc i64 %1122 to i1
+  br i1 %1123, label %_ZL8lean_incP11lean_object.exit630, label %1124
 
 1124:                                             ; preds = %_ZL8lean_incP11lean_object.exit629
   %.val.i916 = load i32, ptr %1121, align 4, !tbaa !16
@@ -2851,11 +2783,11 @@ _ZL8lean_incP11lean_object.exit629:               ; preds = %1119, %1118, %1116,
 
 1129:                                             ; preds = %1128
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1121)
-  %.pre1214 = load ptr, ptr %1120, align 8, !tbaa !15
+  %.pre1091 = load ptr, ptr %1120, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit630
 
 _ZL8lean_incP11lean_object.exit630:               ; preds = %1129, %1128, %1126, %_ZL8lean_incP11lean_object.exit629
-  %1130 = phi ptr [ %.pre1214, %1129 ], [ %1121, %1128 ], [ %1121, %1126 ], [ %1121, %_ZL8lean_incP11lean_object.exit629 ]
+  %1130 = phi ptr [ %.pre1091, %1129 ], [ %1121, %1128 ], [ %1121, %1126 ], [ %1121, %_ZL8lean_incP11lean_object.exit629 ]
   %1131 = getelementptr i8, ptr %0, i64 8
   %.val715 = load ptr, ptr %1131, align 8, !tbaa !15
   %1132 = load ptr, ptr %1020, align 8, !tbaa !15
@@ -2890,9 +2822,8 @@ _ZL8lean_incP11lean_object.exit630:               ; preds = %1129, %1128, %1126,
   %1150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1151 = load ptr, ptr %1150, align 8, !tbaa !15
   %1152 = ptrtoint ptr %1151 to i64
-  %1153 = and i64 %1152, 1
-  %.not1128 = icmp eq i64 %1153, 0
-  br i1 %.not1128, label %1154, label %_ZL8lean_incP11lean_object.exit631
+  %1153 = trunc i64 %1152 to i1
+  br i1 %1153, label %_ZL8lean_incP11lean_object.exit631, label %1154
 
 1154:                                             ; preds = %1149
   %.val.i919 = load i32, ptr %1151, align 4, !tbaa !16
@@ -2916,9 +2847,8 @@ _ZL8lean_incP11lean_object.exit631:               ; preds = %1159, %1158, %1156,
   %1160 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1161 = load ptr, ptr %1160, align 8, !tbaa !15
   %1162 = ptrtoint ptr %1161 to i64
-  %1163 = and i64 %1162, 1
-  %.not1129 = icmp eq i64 %1163, 0
-  br i1 %.not1129, label %1164, label %_ZL8lean_incP11lean_object.exit632
+  %1163 = trunc i64 %1162 to i1
+  br i1 %1163, label %_ZL8lean_incP11lean_object.exit632, label %1164
 
 1164:                                             ; preds = %_ZL8lean_incP11lean_object.exit631
   %.val.i922 = load i32, ptr %1161, align 4, !tbaa !16
@@ -2942,9 +2872,8 @@ _ZL8lean_incP11lean_object.exit632:               ; preds = %1169, %1168, %1166,
   %1170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1171 = load ptr, ptr %1170, align 8, !tbaa !15
   %1172 = ptrtoint ptr %1171 to i64
-  %1173 = and i64 %1172, 1
-  %.not1130 = icmp eq i64 %1173, 0
-  br i1 %.not1130, label %1174, label %_ZL8lean_incP11lean_object.exit633
+  %1173 = trunc i64 %1172 to i1
+  br i1 %1173, label %_ZL8lean_incP11lean_object.exit633, label %1174
 
 1174:                                             ; preds = %_ZL8lean_incP11lean_object.exit632
   %.val.i925 = load i32, ptr %1171, align 4, !tbaa !16
@@ -2968,9 +2897,8 @@ _ZL8lean_incP11lean_object.exit633:               ; preds = %1179, %1178, %1176,
   %1180 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1181 = load ptr, ptr %1180, align 8, !tbaa !15
   %1182 = ptrtoint ptr %1181 to i64
-  %1183 = and i64 %1182, 1
-  %.not1131 = icmp eq i64 %1183, 0
-  br i1 %.not1131, label %1184, label %_ZL8lean_incP11lean_object.exit634
+  %1183 = trunc i64 %1182 to i1
+  br i1 %1183, label %_ZL8lean_incP11lean_object.exit634, label %1184
 
 1184:                                             ; preds = %_ZL8lean_incP11lean_object.exit633
   %.val.i928 = load i32, ptr %1181, align 4, !tbaa !16
@@ -2994,9 +2922,8 @@ _ZL8lean_incP11lean_object.exit634:               ; preds = %1189, %1188, %1186,
   %1190 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1191 = load ptr, ptr %1190, align 8, !tbaa !15
   %1192 = ptrtoint ptr %1191 to i64
-  %1193 = and i64 %1192, 1
-  %.not1132 = icmp eq i64 %1193, 0
-  br i1 %.not1132, label %1194, label %_ZL8lean_incP11lean_object.exit635
+  %1193 = trunc i64 %1192 to i1
+  br i1 %1193, label %_ZL8lean_incP11lean_object.exit635, label %1194
 
 1194:                                             ; preds = %_ZL8lean_incP11lean_object.exit634
   %.val.i931 = load i32, ptr %1191, align 4, !tbaa !16
@@ -3020,9 +2947,8 @@ _ZL8lean_incP11lean_object.exit635:               ; preds = %1199, %1198, %1196,
   %1200 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1201 = load ptr, ptr %1200, align 8, !tbaa !15
   %1202 = ptrtoint ptr %1201 to i64
-  %1203 = and i64 %1202, 1
-  %.not1133 = icmp eq i64 %1203, 0
-  br i1 %.not1133, label %1204, label %_ZL8lean_incP11lean_object.exit636
+  %1203 = trunc i64 %1202 to i1
+  br i1 %1203, label %_ZL8lean_incP11lean_object.exit636, label %1204
 
 1204:                                             ; preds = %_ZL8lean_incP11lean_object.exit635
   %.val.i934 = load i32, ptr %1201, align 4, !tbaa !16
@@ -3046,9 +2972,8 @@ _ZL8lean_incP11lean_object.exit636:               ; preds = %1209, %1208, %1206,
   %1210 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1211 = load ptr, ptr %1210, align 8, !tbaa !15
   %1212 = ptrtoint ptr %1211 to i64
-  %1213 = and i64 %1212, 1
-  %.not1134 = icmp eq i64 %1213, 0
-  br i1 %.not1134, label %1214, label %_ZL8lean_incP11lean_object.exit637
+  %1213 = trunc i64 %1212 to i1
+  br i1 %1213, label %_ZL8lean_incP11lean_object.exit637, label %1214
 
 1214:                                             ; preds = %_ZL8lean_incP11lean_object.exit636
   %.val.i937 = load i32, ptr %1211, align 4, !tbaa !16
@@ -3072,9 +2997,8 @@ _ZL8lean_incP11lean_object.exit637:               ; preds = %1219, %1218, %1216,
   %1220 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1221 = load ptr, ptr %1220, align 8, !tbaa !15
   %1222 = ptrtoint ptr %1221 to i64
-  %1223 = and i64 %1222, 1
-  %.not1135 = icmp eq i64 %1223, 0
-  br i1 %.not1135, label %1224, label %_ZL8lean_incP11lean_object.exit638
+  %1223 = trunc i64 %1222 to i1
+  br i1 %1223, label %_ZL8lean_incP11lean_object.exit638, label %1224
 
 1224:                                             ; preds = %_ZL8lean_incP11lean_object.exit637
   %.val.i940 = load i32, ptr %1221, align 4, !tbaa !16
@@ -3098,9 +3022,8 @@ _ZL8lean_incP11lean_object.exit638:               ; preds = %1229, %1228, %1226,
   %1230 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1231 = load ptr, ptr %1230, align 8, !tbaa !15
   %1232 = ptrtoint ptr %1231 to i64
-  %1233 = and i64 %1232, 1
-  %.not1136 = icmp eq i64 %1233, 0
-  br i1 %.not1136, label %1234, label %_ZL8lean_incP11lean_object.exit639
+  %1233 = trunc i64 %1232 to i1
+  br i1 %1233, label %_ZL8lean_incP11lean_object.exit639, label %1234
 
 1234:                                             ; preds = %_ZL8lean_incP11lean_object.exit638
   %.val.i943 = load i32, ptr %1231, align 4, !tbaa !16
@@ -3124,9 +3047,8 @@ _ZL8lean_incP11lean_object.exit639:               ; preds = %1239, %1238, %1236,
   %1240 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1241 = load ptr, ptr %1240, align 8, !tbaa !15
   %1242 = ptrtoint ptr %1241 to i64
-  %1243 = and i64 %1242, 1
-  %.not1137 = icmp eq i64 %1243, 0
-  br i1 %.not1137, label %1244, label %_ZL8lean_incP11lean_object.exit640
+  %1243 = trunc i64 %1242 to i1
+  br i1 %1243, label %_ZL8lean_incP11lean_object.exit640, label %1244
 
 1244:                                             ; preds = %_ZL8lean_incP11lean_object.exit639
   %.val.i946 = load i32, ptr %1241, align 4, !tbaa !16
@@ -3150,9 +3072,8 @@ _ZL8lean_incP11lean_object.exit640:               ; preds = %1249, %1248, %1246,
   %1250 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1251 = load ptr, ptr %1250, align 8, !tbaa !15
   %1252 = ptrtoint ptr %1251 to i64
-  %1253 = and i64 %1252, 1
-  %.not1138 = icmp eq i64 %1253, 0
-  br i1 %.not1138, label %1254, label %_ZL8lean_incP11lean_object.exit641
+  %1253 = trunc i64 %1252 to i1
+  br i1 %1253, label %_ZL8lean_incP11lean_object.exit641, label %1254
 
 1254:                                             ; preds = %_ZL8lean_incP11lean_object.exit640
   %.val.i949 = load i32, ptr %1251, align 4, !tbaa !16
@@ -3176,9 +3097,8 @@ _ZL8lean_incP11lean_object.exit641:               ; preds = %1259, %1258, %1256,
   %1260 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1261 = load ptr, ptr %1260, align 8, !tbaa !15
   %1262 = ptrtoint ptr %1261 to i64
-  %1263 = and i64 %1262, 1
-  %.not1139 = icmp eq i64 %1263, 0
-  br i1 %.not1139, label %1264, label %_ZL8lean_incP11lean_object.exit642
+  %1263 = trunc i64 %1262 to i1
+  br i1 %1263, label %_ZL8lean_incP11lean_object.exit642, label %1264
 
 1264:                                             ; preds = %_ZL8lean_incP11lean_object.exit641
   %.val.i952 = load i32, ptr %1261, align 4, !tbaa !16
@@ -3196,11 +3116,11 @@ _ZL8lean_incP11lean_object.exit641:               ; preds = %1259, %1258, %1256,
 
 1269:                                             ; preds = %1268
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1261)
-  %.pre1213 = load ptr, ptr %1260, align 8, !tbaa !15
+  %.pre1090 = load ptr, ptr %1260, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit642
 
 _ZL8lean_incP11lean_object.exit642:               ; preds = %1269, %1268, %1266, %_ZL8lean_incP11lean_object.exit641
-  %1270 = phi ptr [ %.pre1213, %1269 ], [ %1261, %1268 ], [ %1261, %1266 ], [ %1261, %_ZL8lean_incP11lean_object.exit641 ]
+  %1270 = phi ptr [ %.pre1090, %1269 ], [ %1261, %1268 ], [ %1261, %1266 ], [ %1261, %_ZL8lean_incP11lean_object.exit641 ]
   %1271 = getelementptr i8, ptr %0, i64 8
   %.val716 = load ptr, ptr %1271, align 8, !tbaa !15
   %1272 = load ptr, ptr %1150, align 8, !tbaa !15
@@ -3236,9 +3156,8 @@ _ZL8lean_incP11lean_object.exit642:               ; preds = %1269, %1268, %1266,
   %1291 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1292 = load ptr, ptr %1291, align 8, !tbaa !15
   %1293 = ptrtoint ptr %1292 to i64
-  %1294 = and i64 %1293, 1
-  %.not1115 = icmp eq i64 %1294, 0
-  br i1 %.not1115, label %1295, label %_ZL8lean_incP11lean_object.exit643
+  %1294 = trunc i64 %1293 to i1
+  br i1 %1294, label %_ZL8lean_incP11lean_object.exit643, label %1295
 
 1295:                                             ; preds = %1290
   %.val.i955 = load i32, ptr %1292, align 4, !tbaa !16
@@ -3262,9 +3181,8 @@ _ZL8lean_incP11lean_object.exit643:               ; preds = %1300, %1299, %1297,
   %1301 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1302 = load ptr, ptr %1301, align 8, !tbaa !15
   %1303 = ptrtoint ptr %1302 to i64
-  %1304 = and i64 %1303, 1
-  %.not1116 = icmp eq i64 %1304, 0
-  br i1 %.not1116, label %1305, label %_ZL8lean_incP11lean_object.exit644
+  %1304 = trunc i64 %1303 to i1
+  br i1 %1304, label %_ZL8lean_incP11lean_object.exit644, label %1305
 
 1305:                                             ; preds = %_ZL8lean_incP11lean_object.exit643
   %.val.i958 = load i32, ptr %1302, align 4, !tbaa !16
@@ -3288,9 +3206,8 @@ _ZL8lean_incP11lean_object.exit644:               ; preds = %1310, %1309, %1307,
   %1311 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1312 = load ptr, ptr %1311, align 8, !tbaa !15
   %1313 = ptrtoint ptr %1312 to i64
-  %1314 = and i64 %1313, 1
-  %.not1117 = icmp eq i64 %1314, 0
-  br i1 %.not1117, label %1315, label %_ZL8lean_incP11lean_object.exit645
+  %1314 = trunc i64 %1313 to i1
+  br i1 %1314, label %_ZL8lean_incP11lean_object.exit645, label %1315
 
 1315:                                             ; preds = %_ZL8lean_incP11lean_object.exit644
   %.val.i961 = load i32, ptr %1312, align 4, !tbaa !16
@@ -3314,9 +3231,8 @@ _ZL8lean_incP11lean_object.exit645:               ; preds = %1320, %1319, %1317,
   %1321 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1322 = load ptr, ptr %1321, align 8, !tbaa !15
   %1323 = ptrtoint ptr %1322 to i64
-  %1324 = and i64 %1323, 1
-  %.not1118 = icmp eq i64 %1324, 0
-  br i1 %.not1118, label %1325, label %_ZL8lean_incP11lean_object.exit646
+  %1324 = trunc i64 %1323 to i1
+  br i1 %1324, label %_ZL8lean_incP11lean_object.exit646, label %1325
 
 1325:                                             ; preds = %_ZL8lean_incP11lean_object.exit645
   %.val.i964 = load i32, ptr %1322, align 4, !tbaa !16
@@ -3340,9 +3256,8 @@ _ZL8lean_incP11lean_object.exit646:               ; preds = %1330, %1329, %1327,
   %1331 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1332 = load ptr, ptr %1331, align 8, !tbaa !15
   %1333 = ptrtoint ptr %1332 to i64
-  %1334 = and i64 %1333, 1
-  %.not1119 = icmp eq i64 %1334, 0
-  br i1 %.not1119, label %1335, label %_ZL8lean_incP11lean_object.exit647
+  %1334 = trunc i64 %1333 to i1
+  br i1 %1334, label %_ZL8lean_incP11lean_object.exit647, label %1335
 
 1335:                                             ; preds = %_ZL8lean_incP11lean_object.exit646
   %.val.i967 = load i32, ptr %1332, align 4, !tbaa !16
@@ -3366,9 +3281,8 @@ _ZL8lean_incP11lean_object.exit647:               ; preds = %1340, %1339, %1337,
   %1341 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1342 = load ptr, ptr %1341, align 8, !tbaa !15
   %1343 = ptrtoint ptr %1342 to i64
-  %1344 = and i64 %1343, 1
-  %.not1120 = icmp eq i64 %1344, 0
-  br i1 %.not1120, label %1345, label %_ZL8lean_incP11lean_object.exit648
+  %1344 = trunc i64 %1343 to i1
+  br i1 %1344, label %_ZL8lean_incP11lean_object.exit648, label %1345
 
 1345:                                             ; preds = %_ZL8lean_incP11lean_object.exit647
   %.val.i970 = load i32, ptr %1342, align 4, !tbaa !16
@@ -3392,9 +3306,8 @@ _ZL8lean_incP11lean_object.exit648:               ; preds = %1350, %1349, %1347,
   %1351 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1352 = load ptr, ptr %1351, align 8, !tbaa !15
   %1353 = ptrtoint ptr %1352 to i64
-  %1354 = and i64 %1353, 1
-  %.not1121 = icmp eq i64 %1354, 0
-  br i1 %.not1121, label %1355, label %_ZL8lean_incP11lean_object.exit649
+  %1354 = trunc i64 %1353 to i1
+  br i1 %1354, label %_ZL8lean_incP11lean_object.exit649, label %1355
 
 1355:                                             ; preds = %_ZL8lean_incP11lean_object.exit648
   %.val.i973 = load i32, ptr %1352, align 4, !tbaa !16
@@ -3418,9 +3331,8 @@ _ZL8lean_incP11lean_object.exit649:               ; preds = %1360, %1359, %1357,
   %1361 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1362 = load ptr, ptr %1361, align 8, !tbaa !15
   %1363 = ptrtoint ptr %1362 to i64
-  %1364 = and i64 %1363, 1
-  %.not1122 = icmp eq i64 %1364, 0
-  br i1 %.not1122, label %1365, label %_ZL8lean_incP11lean_object.exit650
+  %1364 = trunc i64 %1363 to i1
+  br i1 %1364, label %_ZL8lean_incP11lean_object.exit650, label %1365
 
 1365:                                             ; preds = %_ZL8lean_incP11lean_object.exit649
   %.val.i976 = load i32, ptr %1362, align 4, !tbaa !16
@@ -3444,9 +3356,8 @@ _ZL8lean_incP11lean_object.exit650:               ; preds = %1370, %1369, %1367,
   %1371 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1372 = load ptr, ptr %1371, align 8, !tbaa !15
   %1373 = ptrtoint ptr %1372 to i64
-  %1374 = and i64 %1373, 1
-  %.not1123 = icmp eq i64 %1374, 0
-  br i1 %.not1123, label %1375, label %_ZL8lean_incP11lean_object.exit651
+  %1374 = trunc i64 %1373 to i1
+  br i1 %1374, label %_ZL8lean_incP11lean_object.exit651, label %1375
 
 1375:                                             ; preds = %_ZL8lean_incP11lean_object.exit650
   %.val.i979 = load i32, ptr %1372, align 4, !tbaa !16
@@ -3470,9 +3381,8 @@ _ZL8lean_incP11lean_object.exit651:               ; preds = %1380, %1379, %1377,
   %1381 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1382 = load ptr, ptr %1381, align 8, !tbaa !15
   %1383 = ptrtoint ptr %1382 to i64
-  %1384 = and i64 %1383, 1
-  %.not1124 = icmp eq i64 %1384, 0
-  br i1 %.not1124, label %1385, label %_ZL8lean_incP11lean_object.exit652
+  %1384 = trunc i64 %1383 to i1
+  br i1 %1384, label %_ZL8lean_incP11lean_object.exit652, label %1385
 
 1385:                                             ; preds = %_ZL8lean_incP11lean_object.exit651
   %.val.i982 = load i32, ptr %1382, align 4, !tbaa !16
@@ -3496,9 +3406,8 @@ _ZL8lean_incP11lean_object.exit652:               ; preds = %1390, %1389, %1387,
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1392 = load ptr, ptr %1391, align 8, !tbaa !15
   %1393 = ptrtoint ptr %1392 to i64
-  %1394 = and i64 %1393, 1
-  %.not1125 = icmp eq i64 %1394, 0
-  br i1 %.not1125, label %1395, label %_ZL8lean_incP11lean_object.exit653
+  %1394 = trunc i64 %1393 to i1
+  br i1 %1394, label %_ZL8lean_incP11lean_object.exit653, label %1395
 
 1395:                                             ; preds = %_ZL8lean_incP11lean_object.exit652
   %.val.i985 = load i32, ptr %1392, align 4, !tbaa !16
@@ -3522,9 +3431,8 @@ _ZL8lean_incP11lean_object.exit653:               ; preds = %1400, %1399, %1397,
   %1401 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1402 = load ptr, ptr %1401, align 8, !tbaa !15
   %1403 = ptrtoint ptr %1402 to i64
-  %1404 = and i64 %1403, 1
-  %.not1126 = icmp eq i64 %1404, 0
-  br i1 %.not1126, label %1405, label %_ZL8lean_incP11lean_object.exit654
+  %1404 = trunc i64 %1403 to i1
+  br i1 %1404, label %_ZL8lean_incP11lean_object.exit654, label %1405
 
 1405:                                             ; preds = %_ZL8lean_incP11lean_object.exit653
   %.val.i988 = load i32, ptr %1402, align 4, !tbaa !16
@@ -3548,9 +3456,8 @@ _ZL8lean_incP11lean_object.exit654:               ; preds = %1410, %1409, %1407,
   %1411 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1412 = load ptr, ptr %1411, align 8, !tbaa !15
   %1413 = ptrtoint ptr %1412 to i64
-  %1414 = and i64 %1413, 1
-  %.not1127 = icmp eq i64 %1414, 0
-  br i1 %.not1127, label %1415, label %_ZL8lean_incP11lean_object.exit655
+  %1414 = trunc i64 %1413 to i1
+  br i1 %1414, label %_ZL8lean_incP11lean_object.exit655, label %1415
 
 1415:                                             ; preds = %_ZL8lean_incP11lean_object.exit654
   %.val.i991 = load i32, ptr %1412, align 4, !tbaa !16
@@ -3568,11 +3475,11 @@ _ZL8lean_incP11lean_object.exit654:               ; preds = %1410, %1409, %1407,
 
 1420:                                             ; preds = %1419
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1412)
-  %.pre1212 = load ptr, ptr %1411, align 8, !tbaa !15
+  %.pre1089 = load ptr, ptr %1411, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit655
 
 _ZL8lean_incP11lean_object.exit655:               ; preds = %1420, %1419, %1417, %_ZL8lean_incP11lean_object.exit654
-  %1421 = phi ptr [ %.pre1212, %1420 ], [ %1412, %1419 ], [ %1412, %1417 ], [ %1412, %_ZL8lean_incP11lean_object.exit654 ]
+  %1421 = phi ptr [ %.pre1089, %1420 ], [ %1412, %1419 ], [ %1412, %1417 ], [ %1412, %_ZL8lean_incP11lean_object.exit654 ]
   %1422 = getelementptr i8, ptr %0, i64 8
   %.val717 = load ptr, ptr %1422, align 8, !tbaa !15
   %1423 = load ptr, ptr %1291, align 8, !tbaa !15
@@ -3609,9 +3516,8 @@ _ZL8lean_incP11lean_object.exit655:               ; preds = %1420, %1419, %1417,
   %1443 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1444 = load ptr, ptr %1443, align 8, !tbaa !15
   %1445 = ptrtoint ptr %1444 to i64
-  %1446 = and i64 %1445, 1
-  %.not1101 = icmp eq i64 %1446, 0
-  br i1 %.not1101, label %1447, label %_ZL8lean_incP11lean_object.exit656
+  %1446 = trunc i64 %1445 to i1
+  br i1 %1446, label %_ZL8lean_incP11lean_object.exit656, label %1447
 
 1447:                                             ; preds = %1442
   %.val.i994 = load i32, ptr %1444, align 4, !tbaa !16
@@ -3635,9 +3541,8 @@ _ZL8lean_incP11lean_object.exit656:               ; preds = %1452, %1451, %1449,
   %1453 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1454 = load ptr, ptr %1453, align 8, !tbaa !15
   %1455 = ptrtoint ptr %1454 to i64
-  %1456 = and i64 %1455, 1
-  %.not1102 = icmp eq i64 %1456, 0
-  br i1 %.not1102, label %1457, label %_ZL8lean_incP11lean_object.exit657
+  %1456 = trunc i64 %1455 to i1
+  br i1 %1456, label %_ZL8lean_incP11lean_object.exit657, label %1457
 
 1457:                                             ; preds = %_ZL8lean_incP11lean_object.exit656
   %.val.i997 = load i32, ptr %1454, align 4, !tbaa !16
@@ -3661,9 +3566,8 @@ _ZL8lean_incP11lean_object.exit657:               ; preds = %1462, %1461, %1459,
   %1463 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1464 = load ptr, ptr %1463, align 8, !tbaa !15
   %1465 = ptrtoint ptr %1464 to i64
-  %1466 = and i64 %1465, 1
-  %.not1103 = icmp eq i64 %1466, 0
-  br i1 %.not1103, label %1467, label %_ZL8lean_incP11lean_object.exit658
+  %1466 = trunc i64 %1465 to i1
+  br i1 %1466, label %_ZL8lean_incP11lean_object.exit658, label %1467
 
 1467:                                             ; preds = %_ZL8lean_incP11lean_object.exit657
   %.val.i1000 = load i32, ptr %1464, align 4, !tbaa !16
@@ -3687,9 +3591,8 @@ _ZL8lean_incP11lean_object.exit658:               ; preds = %1472, %1471, %1469,
   %1473 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1474 = load ptr, ptr %1473, align 8, !tbaa !15
   %1475 = ptrtoint ptr %1474 to i64
-  %1476 = and i64 %1475, 1
-  %.not1104 = icmp eq i64 %1476, 0
-  br i1 %.not1104, label %1477, label %_ZL8lean_incP11lean_object.exit659
+  %1476 = trunc i64 %1475 to i1
+  br i1 %1476, label %_ZL8lean_incP11lean_object.exit659, label %1477
 
 1477:                                             ; preds = %_ZL8lean_incP11lean_object.exit658
   %.val.i1003 = load i32, ptr %1474, align 4, !tbaa !16
@@ -3713,9 +3616,8 @@ _ZL8lean_incP11lean_object.exit659:               ; preds = %1482, %1481, %1479,
   %1483 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1484 = load ptr, ptr %1483, align 8, !tbaa !15
   %1485 = ptrtoint ptr %1484 to i64
-  %1486 = and i64 %1485, 1
-  %.not1105 = icmp eq i64 %1486, 0
-  br i1 %.not1105, label %1487, label %_ZL8lean_incP11lean_object.exit660
+  %1486 = trunc i64 %1485 to i1
+  br i1 %1486, label %_ZL8lean_incP11lean_object.exit660, label %1487
 
 1487:                                             ; preds = %_ZL8lean_incP11lean_object.exit659
   %.val.i1006 = load i32, ptr %1484, align 4, !tbaa !16
@@ -3739,9 +3641,8 @@ _ZL8lean_incP11lean_object.exit660:               ; preds = %1492, %1491, %1489,
   %1493 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1494 = load ptr, ptr %1493, align 8, !tbaa !15
   %1495 = ptrtoint ptr %1494 to i64
-  %1496 = and i64 %1495, 1
-  %.not1106 = icmp eq i64 %1496, 0
-  br i1 %.not1106, label %1497, label %_ZL8lean_incP11lean_object.exit661
+  %1496 = trunc i64 %1495 to i1
+  br i1 %1496, label %_ZL8lean_incP11lean_object.exit661, label %1497
 
 1497:                                             ; preds = %_ZL8lean_incP11lean_object.exit660
   %.val.i1009 = load i32, ptr %1494, align 4, !tbaa !16
@@ -3765,9 +3666,8 @@ _ZL8lean_incP11lean_object.exit661:               ; preds = %1502, %1501, %1499,
   %1503 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1504 = load ptr, ptr %1503, align 8, !tbaa !15
   %1505 = ptrtoint ptr %1504 to i64
-  %1506 = and i64 %1505, 1
-  %.not1107 = icmp eq i64 %1506, 0
-  br i1 %.not1107, label %1507, label %_ZL8lean_incP11lean_object.exit662
+  %1506 = trunc i64 %1505 to i1
+  br i1 %1506, label %_ZL8lean_incP11lean_object.exit662, label %1507
 
 1507:                                             ; preds = %_ZL8lean_incP11lean_object.exit661
   %.val.i1012 = load i32, ptr %1504, align 4, !tbaa !16
@@ -3791,9 +3691,8 @@ _ZL8lean_incP11lean_object.exit662:               ; preds = %1512, %1511, %1509,
   %1513 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1514 = load ptr, ptr %1513, align 8, !tbaa !15
   %1515 = ptrtoint ptr %1514 to i64
-  %1516 = and i64 %1515, 1
-  %.not1108 = icmp eq i64 %1516, 0
-  br i1 %.not1108, label %1517, label %_ZL8lean_incP11lean_object.exit663
+  %1516 = trunc i64 %1515 to i1
+  br i1 %1516, label %_ZL8lean_incP11lean_object.exit663, label %1517
 
 1517:                                             ; preds = %_ZL8lean_incP11lean_object.exit662
   %.val.i1015 = load i32, ptr %1514, align 4, !tbaa !16
@@ -3817,9 +3716,8 @@ _ZL8lean_incP11lean_object.exit663:               ; preds = %1522, %1521, %1519,
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1524 = load ptr, ptr %1523, align 8, !tbaa !15
   %1525 = ptrtoint ptr %1524 to i64
-  %1526 = and i64 %1525, 1
-  %.not1109 = icmp eq i64 %1526, 0
-  br i1 %.not1109, label %1527, label %_ZL8lean_incP11lean_object.exit664
+  %1526 = trunc i64 %1525 to i1
+  br i1 %1526, label %_ZL8lean_incP11lean_object.exit664, label %1527
 
 1527:                                             ; preds = %_ZL8lean_incP11lean_object.exit663
   %.val.i1018 = load i32, ptr %1524, align 4, !tbaa !16
@@ -3843,9 +3741,8 @@ _ZL8lean_incP11lean_object.exit664:               ; preds = %1532, %1531, %1529,
   %1533 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1534 = load ptr, ptr %1533, align 8, !tbaa !15
   %1535 = ptrtoint ptr %1534 to i64
-  %1536 = and i64 %1535, 1
-  %.not1110 = icmp eq i64 %1536, 0
-  br i1 %.not1110, label %1537, label %_ZL8lean_incP11lean_object.exit665
+  %1536 = trunc i64 %1535 to i1
+  br i1 %1536, label %_ZL8lean_incP11lean_object.exit665, label %1537
 
 1537:                                             ; preds = %_ZL8lean_incP11lean_object.exit664
   %.val.i1021 = load i32, ptr %1534, align 4, !tbaa !16
@@ -3869,9 +3766,8 @@ _ZL8lean_incP11lean_object.exit665:               ; preds = %1542, %1541, %1539,
   %1543 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1544 = load ptr, ptr %1543, align 8, !tbaa !15
   %1545 = ptrtoint ptr %1544 to i64
-  %1546 = and i64 %1545, 1
-  %.not1111 = icmp eq i64 %1546, 0
-  br i1 %.not1111, label %1547, label %_ZL8lean_incP11lean_object.exit666
+  %1546 = trunc i64 %1545 to i1
+  br i1 %1546, label %_ZL8lean_incP11lean_object.exit666, label %1547
 
 1547:                                             ; preds = %_ZL8lean_incP11lean_object.exit665
   %.val.i1024 = load i32, ptr %1544, align 4, !tbaa !16
@@ -3895,9 +3791,8 @@ _ZL8lean_incP11lean_object.exit666:               ; preds = %1552, %1551, %1549,
   %1553 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1554 = load ptr, ptr %1553, align 8, !tbaa !15
   %1555 = ptrtoint ptr %1554 to i64
-  %1556 = and i64 %1555, 1
-  %.not1112 = icmp eq i64 %1556, 0
-  br i1 %.not1112, label %1557, label %_ZL8lean_incP11lean_object.exit667
+  %1556 = trunc i64 %1555 to i1
+  br i1 %1556, label %_ZL8lean_incP11lean_object.exit667, label %1557
 
 1557:                                             ; preds = %_ZL8lean_incP11lean_object.exit666
   %.val.i1027 = load i32, ptr %1554, align 4, !tbaa !16
@@ -3921,9 +3816,8 @@ _ZL8lean_incP11lean_object.exit667:               ; preds = %1562, %1561, %1559,
   %1563 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1564 = load ptr, ptr %1563, align 8, !tbaa !15
   %1565 = ptrtoint ptr %1564 to i64
-  %1566 = and i64 %1565, 1
-  %.not1113 = icmp eq i64 %1566, 0
-  br i1 %.not1113, label %1567, label %_ZL8lean_incP11lean_object.exit668
+  %1566 = trunc i64 %1565 to i1
+  br i1 %1566, label %_ZL8lean_incP11lean_object.exit668, label %1567
 
 1567:                                             ; preds = %_ZL8lean_incP11lean_object.exit667
   %.val.i1030 = load i32, ptr %1564, align 4, !tbaa !16
@@ -3947,9 +3841,8 @@ _ZL8lean_incP11lean_object.exit668:               ; preds = %1572, %1571, %1569,
   %1573 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1574 = load ptr, ptr %1573, align 8, !tbaa !15
   %1575 = ptrtoint ptr %1574 to i64
-  %1576 = and i64 %1575, 1
-  %.not1114 = icmp eq i64 %1576, 0
-  br i1 %.not1114, label %1577, label %_ZL8lean_incP11lean_object.exit669
+  %1576 = trunc i64 %1575 to i1
+  br i1 %1576, label %_ZL8lean_incP11lean_object.exit669, label %1577
 
 1577:                                             ; preds = %_ZL8lean_incP11lean_object.exit668
   %.val.i1033 = load i32, ptr %1574, align 4, !tbaa !16
@@ -3967,11 +3860,11 @@ _ZL8lean_incP11lean_object.exit668:               ; preds = %1572, %1571, %1569,
 
 1582:                                             ; preds = %1581
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1574)
-  %.pre1211 = load ptr, ptr %1573, align 8, !tbaa !15
+  %.pre1088 = load ptr, ptr %1573, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit669
 
 _ZL8lean_incP11lean_object.exit669:               ; preds = %1582, %1581, %1579, %_ZL8lean_incP11lean_object.exit668
-  %1583 = phi ptr [ %.pre1211, %1582 ], [ %1574, %1581 ], [ %1574, %1579 ], [ %1574, %_ZL8lean_incP11lean_object.exit668 ]
+  %1583 = phi ptr [ %.pre1088, %1582 ], [ %1574, %1581 ], [ %1574, %1579 ], [ %1574, %_ZL8lean_incP11lean_object.exit668 ]
   %1584 = getelementptr i8, ptr %0, i64 8
   %.val718 = load ptr, ptr %1584, align 8, !tbaa !15
   %1585 = load ptr, ptr %1443, align 8, !tbaa !15
@@ -4009,9 +3902,8 @@ _ZL8lean_incP11lean_object.exit669:               ; preds = %1582, %1581, %1579,
   %1606 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1607 = load ptr, ptr %1606, align 8, !tbaa !15
   %1608 = ptrtoint ptr %1607 to i64
-  %1609 = and i64 %1608, 1
-  %.not1086 = icmp eq i64 %1609, 0
-  br i1 %.not1086, label %1610, label %_ZL8lean_incP11lean_object.exit670
+  %1609 = trunc i64 %1608 to i1
+  br i1 %1609, label %_ZL8lean_incP11lean_object.exit670, label %1610
 
 1610:                                             ; preds = %1605
   %.val.i1036 = load i32, ptr %1607, align 4, !tbaa !16
@@ -4035,9 +3927,8 @@ _ZL8lean_incP11lean_object.exit670:               ; preds = %1615, %1614, %1612,
   %1616 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1617 = load ptr, ptr %1616, align 8, !tbaa !15
   %1618 = ptrtoint ptr %1617 to i64
-  %1619 = and i64 %1618, 1
-  %.not1087 = icmp eq i64 %1619, 0
-  br i1 %.not1087, label %1620, label %_ZL8lean_incP11lean_object.exit671
+  %1619 = trunc i64 %1618 to i1
+  br i1 %1619, label %_ZL8lean_incP11lean_object.exit671, label %1620
 
 1620:                                             ; preds = %_ZL8lean_incP11lean_object.exit670
   %.val.i1039 = load i32, ptr %1617, align 4, !tbaa !16
@@ -4061,9 +3952,8 @@ _ZL8lean_incP11lean_object.exit671:               ; preds = %1625, %1624, %1622,
   %1626 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1627 = load ptr, ptr %1626, align 8, !tbaa !15
   %1628 = ptrtoint ptr %1627 to i64
-  %1629 = and i64 %1628, 1
-  %.not1088 = icmp eq i64 %1629, 0
-  br i1 %.not1088, label %1630, label %_ZL8lean_incP11lean_object.exit672
+  %1629 = trunc i64 %1628 to i1
+  br i1 %1629, label %_ZL8lean_incP11lean_object.exit672, label %1630
 
 1630:                                             ; preds = %_ZL8lean_incP11lean_object.exit671
   %.val.i1042 = load i32, ptr %1627, align 4, !tbaa !16
@@ -4087,9 +3977,8 @@ _ZL8lean_incP11lean_object.exit672:               ; preds = %1635, %1634, %1632,
   %1636 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1637 = load ptr, ptr %1636, align 8, !tbaa !15
   %1638 = ptrtoint ptr %1637 to i64
-  %1639 = and i64 %1638, 1
-  %.not1089 = icmp eq i64 %1639, 0
-  br i1 %.not1089, label %1640, label %_ZL8lean_incP11lean_object.exit673
+  %1639 = trunc i64 %1638 to i1
+  br i1 %1639, label %_ZL8lean_incP11lean_object.exit673, label %1640
 
 1640:                                             ; preds = %_ZL8lean_incP11lean_object.exit672
   %.val.i1045 = load i32, ptr %1637, align 4, !tbaa !16
@@ -4113,9 +4002,8 @@ _ZL8lean_incP11lean_object.exit673:               ; preds = %1645, %1644, %1642,
   %1646 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1647 = load ptr, ptr %1646, align 8, !tbaa !15
   %1648 = ptrtoint ptr %1647 to i64
-  %1649 = and i64 %1648, 1
-  %.not1090 = icmp eq i64 %1649, 0
-  br i1 %.not1090, label %1650, label %_ZL8lean_incP11lean_object.exit674
+  %1649 = trunc i64 %1648 to i1
+  br i1 %1649, label %_ZL8lean_incP11lean_object.exit674, label %1650
 
 1650:                                             ; preds = %_ZL8lean_incP11lean_object.exit673
   %.val.i1048 = load i32, ptr %1647, align 4, !tbaa !16
@@ -4139,9 +4027,8 @@ _ZL8lean_incP11lean_object.exit674:               ; preds = %1655, %1654, %1652,
   %1656 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1657 = load ptr, ptr %1656, align 8, !tbaa !15
   %1658 = ptrtoint ptr %1657 to i64
-  %1659 = and i64 %1658, 1
-  %.not1091 = icmp eq i64 %1659, 0
-  br i1 %.not1091, label %1660, label %_ZL8lean_incP11lean_object.exit675
+  %1659 = trunc i64 %1658 to i1
+  br i1 %1659, label %_ZL8lean_incP11lean_object.exit675, label %1660
 
 1660:                                             ; preds = %_ZL8lean_incP11lean_object.exit674
   %.val.i1051 = load i32, ptr %1657, align 4, !tbaa !16
@@ -4165,9 +4052,8 @@ _ZL8lean_incP11lean_object.exit675:               ; preds = %1665, %1664, %1662,
   %1666 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1667 = load ptr, ptr %1666, align 8, !tbaa !15
   %1668 = ptrtoint ptr %1667 to i64
-  %1669 = and i64 %1668, 1
-  %.not1092 = icmp eq i64 %1669, 0
-  br i1 %.not1092, label %1670, label %_ZL8lean_incP11lean_object.exit676
+  %1669 = trunc i64 %1668 to i1
+  br i1 %1669, label %_ZL8lean_incP11lean_object.exit676, label %1670
 
 1670:                                             ; preds = %_ZL8lean_incP11lean_object.exit675
   %.val.i1054 = load i32, ptr %1667, align 4, !tbaa !16
@@ -4191,9 +4077,8 @@ _ZL8lean_incP11lean_object.exit676:               ; preds = %1675, %1674, %1672,
   %1676 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1677 = load ptr, ptr %1676, align 8, !tbaa !15
   %1678 = ptrtoint ptr %1677 to i64
-  %1679 = and i64 %1678, 1
-  %.not1093 = icmp eq i64 %1679, 0
-  br i1 %.not1093, label %1680, label %_ZL8lean_incP11lean_object.exit677
+  %1679 = trunc i64 %1678 to i1
+  br i1 %1679, label %_ZL8lean_incP11lean_object.exit677, label %1680
 
 1680:                                             ; preds = %_ZL8lean_incP11lean_object.exit676
   %.val.i1057 = load i32, ptr %1677, align 4, !tbaa !16
@@ -4217,9 +4102,8 @@ _ZL8lean_incP11lean_object.exit677:               ; preds = %1685, %1684, %1682,
   %1686 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1687 = load ptr, ptr %1686, align 8, !tbaa !15
   %1688 = ptrtoint ptr %1687 to i64
-  %1689 = and i64 %1688, 1
-  %.not1094 = icmp eq i64 %1689, 0
-  br i1 %.not1094, label %1690, label %_ZL8lean_incP11lean_object.exit678
+  %1689 = trunc i64 %1688 to i1
+  br i1 %1689, label %_ZL8lean_incP11lean_object.exit678, label %1690
 
 1690:                                             ; preds = %_ZL8lean_incP11lean_object.exit677
   %.val.i1060 = load i32, ptr %1687, align 4, !tbaa !16
@@ -4243,9 +4127,8 @@ _ZL8lean_incP11lean_object.exit678:               ; preds = %1695, %1694, %1692,
   %1696 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1697 = load ptr, ptr %1696, align 8, !tbaa !15
   %1698 = ptrtoint ptr %1697 to i64
-  %1699 = and i64 %1698, 1
-  %.not1095 = icmp eq i64 %1699, 0
-  br i1 %.not1095, label %1700, label %_ZL8lean_incP11lean_object.exit679
+  %1699 = trunc i64 %1698 to i1
+  br i1 %1699, label %_ZL8lean_incP11lean_object.exit679, label %1700
 
 1700:                                             ; preds = %_ZL8lean_incP11lean_object.exit678
   %.val.i1063 = load i32, ptr %1697, align 4, !tbaa !16
@@ -4269,9 +4152,8 @@ _ZL8lean_incP11lean_object.exit679:               ; preds = %1705, %1704, %1702,
   %1706 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1707 = load ptr, ptr %1706, align 8, !tbaa !15
   %1708 = ptrtoint ptr %1707 to i64
-  %1709 = and i64 %1708, 1
-  %.not1096 = icmp eq i64 %1709, 0
-  br i1 %.not1096, label %1710, label %_ZL8lean_incP11lean_object.exit680
+  %1709 = trunc i64 %1708 to i1
+  br i1 %1709, label %_ZL8lean_incP11lean_object.exit680, label %1710
 
 1710:                                             ; preds = %_ZL8lean_incP11lean_object.exit679
   %.val.i1066 = load i32, ptr %1707, align 4, !tbaa !16
@@ -4295,9 +4177,8 @@ _ZL8lean_incP11lean_object.exit680:               ; preds = %1715, %1714, %1712,
   %1716 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1717 = load ptr, ptr %1716, align 8, !tbaa !15
   %1718 = ptrtoint ptr %1717 to i64
-  %1719 = and i64 %1718, 1
-  %.not1097 = icmp eq i64 %1719, 0
-  br i1 %.not1097, label %1720, label %_ZL8lean_incP11lean_object.exit681
+  %1719 = trunc i64 %1718 to i1
+  br i1 %1719, label %_ZL8lean_incP11lean_object.exit681, label %1720
 
 1720:                                             ; preds = %_ZL8lean_incP11lean_object.exit680
   %.val.i1069 = load i32, ptr %1717, align 4, !tbaa !16
@@ -4321,9 +4202,8 @@ _ZL8lean_incP11lean_object.exit681:               ; preds = %1725, %1724, %1722,
   %1726 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1727 = load ptr, ptr %1726, align 8, !tbaa !15
   %1728 = ptrtoint ptr %1727 to i64
-  %1729 = and i64 %1728, 1
-  %.not1098 = icmp eq i64 %1729, 0
-  br i1 %.not1098, label %1730, label %_ZL8lean_incP11lean_object.exit682
+  %1729 = trunc i64 %1728 to i1
+  br i1 %1729, label %_ZL8lean_incP11lean_object.exit682, label %1730
 
 1730:                                             ; preds = %_ZL8lean_incP11lean_object.exit681
   %.val.i1072 = load i32, ptr %1727, align 4, !tbaa !16
@@ -4347,9 +4227,8 @@ _ZL8lean_incP11lean_object.exit682:               ; preds = %1735, %1734, %1732,
   %1736 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1737 = load ptr, ptr %1736, align 8, !tbaa !15
   %1738 = ptrtoint ptr %1737 to i64
-  %1739 = and i64 %1738, 1
-  %.not1099 = icmp eq i64 %1739, 0
-  br i1 %.not1099, label %1740, label %_ZL8lean_incP11lean_object.exit683
+  %1739 = trunc i64 %1738 to i1
+  br i1 %1739, label %_ZL8lean_incP11lean_object.exit683, label %1740
 
 1740:                                             ; preds = %_ZL8lean_incP11lean_object.exit682
   %.val.i1075 = load i32, ptr %1737, align 4, !tbaa !16
@@ -4373,9 +4252,8 @@ _ZL8lean_incP11lean_object.exit683:               ; preds = %1745, %1744, %1742,
   %1746 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1747 = load ptr, ptr %1746, align 8, !tbaa !15
   %1748 = ptrtoint ptr %1747 to i64
-  %1749 = and i64 %1748, 1
-  %.not1100 = icmp eq i64 %1749, 0
-  br i1 %.not1100, label %1750, label %_ZL8lean_incP11lean_object.exit684
+  %1749 = trunc i64 %1748 to i1
+  br i1 %1749, label %_ZL8lean_incP11lean_object.exit684, label %1750
 
 1750:                                             ; preds = %_ZL8lean_incP11lean_object.exit683
   %.val.i1078 = load i32, ptr %1747, align 4, !tbaa !16
@@ -4436,8 +4314,8 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %1755, %1754, %1752,
   %1780 = shl nuw nsw i32 %18, 3
   %1781 = zext nneg i32 %1780 to i64
   %1782 = alloca i8, i64 %1781, align 16
-  %.not1209 = icmp eq i16 %.val686, 0
-  br i1 %.not1209, label %.preheader, label %.lr.ph
+  %.not1086 = icmp eq i16 %.val686, 0
+  br i1 %.not1086, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1779
   %1783 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4460,9 +4338,8 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %1755, %1754, %1752,
   %1791 = getelementptr inbounds nuw ptr, ptr %1783, i64 %indvars.iv
   %1792 = load ptr, ptr %1791, align 8, !tbaa !15
   %1793 = ptrtoint ptr %1792 to i64
-  %1794 = and i64 %1793, 1
-  %.not1206 = icmp eq i64 %1794, 0
-  br i1 %.not1206, label %1795, label %_ZL8lean_incP11lean_object.exit685
+  %1794 = trunc i64 %1793 to i1
+  br i1 %1794, label %_ZL8lean_incP11lean_object.exit685, label %1795
 
 1795:                                             ; preds = %1790
   %.val.i1081 = load i32, ptr %1792, align 4, !tbaa !16
@@ -4480,11 +4357,11 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %1755, %1754, %1752,
 
 1800:                                             ; preds = %1799
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1792)
-  %.pre1225 = load ptr, ptr %1791, align 8, !tbaa !15
+  %.pre1102 = load ptr, ptr %1791, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit685
 
 _ZL8lean_incP11lean_object.exit685:               ; preds = %1800, %1799, %1797, %1790
-  %1801 = phi ptr [ %.pre1225, %1800 ], [ %1792, %1799 ], [ %1792, %1797 ], [ %1792, %1790 ]
+  %1801 = phi ptr [ %.pre1102, %1800 ], [ %1792, %1799 ], [ %1792, %1797 ], [ %1792, %1790 ]
   %1802 = getelementptr inbounds nuw ptr, ptr %1782, i64 %indvars.iv
   store ptr %1801, ptr %1802, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4537,15 +4414,13 @@ define ptr @lean_apply_2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 8
   %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %27, label %8
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %27
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %1 to i64
-  %10 = and i64 %9, 1
-  %.not1148 = icmp eq i64 %10, 0
-  br i1 %.not1148, label %11, label %_ZL8lean_decP11lean_object.exit543
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %_ZL8lean_decP11lean_object.exit543, label %11
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %1, align 4, !tbaa !16
@@ -4567,9 +4442,8 @@ define ptr @lean_apply_2(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 _ZL8lean_decP11lean_object.exit543:               ; preds = %17, %16, %14, %8
   %18 = ptrtoint ptr %2 to i64
-  %19 = and i64 %18, 1
-  %.not1149 = icmp eq i64 %19, 0
-  br i1 %.not1149, label %20, label %_ZL8lean_decP11lean_object.exit
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZL8lean_decP11lean_object.exit, label %20
 
 20:                                               ; preds = %_ZL8lean_decP11lean_object.exit543
   %21 = load i32, ptr %2, align 4, !tbaa !16
@@ -4983,9 +4857,8 @@ _ZL8lean_decP11lean_object.exit543:               ; preds = %17, %16, %14, %8
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %304 = load ptr, ptr %303, align 8, !tbaa !15
   %305 = ptrtoint ptr %304 to i64
-  %306 = and i64 %305, 1
-  %.not1146 = icmp eq i64 %306, 0
-  br i1 %.not1146, label %307, label %_ZL8lean_incP11lean_object.exit685
+  %306 = trunc i64 %305 to i1
+  br i1 %306, label %_ZL8lean_incP11lean_object.exit685, label %307
 
 307:                                              ; preds = %302
   %.val.i = load i32, ptr %304, align 4, !tbaa !16
@@ -5003,11 +4876,11 @@ _ZL8lean_decP11lean_object.exit543:               ; preds = %17, %16, %14, %8
 
 312:                                              ; preds = %311
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %304)
-  %.pre1188 = load ptr, ptr %303, align 8, !tbaa !15
+  %.pre1078 = load ptr, ptr %303, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit685
 
 _ZL8lean_incP11lean_object.exit685:               ; preds = %312, %311, %309, %302
-  %313 = phi ptr [ %.pre1188, %312 ], [ %304, %311 ], [ %304, %309 ], [ %304, %302 ]
+  %313 = phi ptr [ %.pre1078, %312 ], [ %304, %311 ], [ %304, %309 ], [ %304, %302 ]
   %314 = getelementptr i8, ptr %0, i64 8
   %.val702 = load ptr, ptr %314, align 8, !tbaa !15
   %315 = tail call noundef ptr %.val702(ptr noundef %313, ptr noundef %1, ptr noundef %2)
@@ -5032,9 +4905,8 @@ _ZL8lean_incP11lean_object.exit685:               ; preds = %312, %311, %309, %3
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %324 = load ptr, ptr %323, align 8, !tbaa !15
   %325 = ptrtoint ptr %324 to i64
-  %326 = and i64 %325, 1
-  %.not1144 = icmp eq i64 %326, 0
-  br i1 %.not1144, label %327, label %_ZL8lean_incP11lean_object.exit684
+  %326 = trunc i64 %325 to i1
+  br i1 %326, label %_ZL8lean_incP11lean_object.exit684, label %327
 
 327:                                              ; preds = %322
   %.val.i723 = load i32, ptr %324, align 4, !tbaa !16
@@ -5058,9 +4930,8 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %332, %331, %329, %3
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %334 = load ptr, ptr %333, align 8, !tbaa !15
   %335 = ptrtoint ptr %334 to i64
-  %336 = and i64 %335, 1
-  %.not1145 = icmp eq i64 %336, 0
-  br i1 %.not1145, label %337, label %_ZL8lean_incP11lean_object.exit683
+  %336 = trunc i64 %335 to i1
+  br i1 %336, label %_ZL8lean_incP11lean_object.exit683, label %337
 
 337:                                              ; preds = %_ZL8lean_incP11lean_object.exit684
   %.val.i726 = load i32, ptr %334, align 4, !tbaa !16
@@ -5078,11 +4949,11 @@ _ZL8lean_incP11lean_object.exit684:               ; preds = %332, %331, %329, %3
 
 342:                                              ; preds = %341
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %334)
-  %.pre1187 = load ptr, ptr %333, align 8, !tbaa !15
+  %.pre1077 = load ptr, ptr %333, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit683
 
 _ZL8lean_incP11lean_object.exit683:               ; preds = %342, %341, %339, %_ZL8lean_incP11lean_object.exit684
-  %343 = phi ptr [ %.pre1187, %342 ], [ %334, %341 ], [ %334, %339 ], [ %334, %_ZL8lean_incP11lean_object.exit684 ]
+  %343 = phi ptr [ %.pre1077, %342 ], [ %334, %341 ], [ %334, %339 ], [ %334, %_ZL8lean_incP11lean_object.exit684 ]
   %344 = getelementptr i8, ptr %0, i64 8
   %.val701 = load ptr, ptr %344, align 8, !tbaa !15
   %345 = load ptr, ptr %323, align 8, !tbaa !15
@@ -5108,9 +4979,8 @@ _ZL8lean_incP11lean_object.exit683:               ; preds = %342, %341, %339, %_
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %355 = load ptr, ptr %354, align 8, !tbaa !15
   %356 = ptrtoint ptr %355 to i64
-  %357 = and i64 %356, 1
-  %.not1141 = icmp eq i64 %357, 0
-  br i1 %.not1141, label %358, label %_ZL8lean_incP11lean_object.exit682
+  %357 = trunc i64 %356 to i1
+  br i1 %357, label %_ZL8lean_incP11lean_object.exit682, label %358
 
 358:                                              ; preds = %353
   %.val.i729 = load i32, ptr %355, align 4, !tbaa !16
@@ -5134,9 +5004,8 @@ _ZL8lean_incP11lean_object.exit682:               ; preds = %363, %362, %360, %3
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %365 = load ptr, ptr %364, align 8, !tbaa !15
   %366 = ptrtoint ptr %365 to i64
-  %367 = and i64 %366, 1
-  %.not1142 = icmp eq i64 %367, 0
-  br i1 %.not1142, label %368, label %_ZL8lean_incP11lean_object.exit681
+  %367 = trunc i64 %366 to i1
+  br i1 %367, label %_ZL8lean_incP11lean_object.exit681, label %368
 
 368:                                              ; preds = %_ZL8lean_incP11lean_object.exit682
   %.val.i732 = load i32, ptr %365, align 4, !tbaa !16
@@ -5160,9 +5029,8 @@ _ZL8lean_incP11lean_object.exit681:               ; preds = %373, %372, %370, %_
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %375 = load ptr, ptr %374, align 8, !tbaa !15
   %376 = ptrtoint ptr %375 to i64
-  %377 = and i64 %376, 1
-  %.not1143 = icmp eq i64 %377, 0
-  br i1 %.not1143, label %378, label %_ZL8lean_incP11lean_object.exit680
+  %377 = trunc i64 %376 to i1
+  br i1 %377, label %_ZL8lean_incP11lean_object.exit680, label %378
 
 378:                                              ; preds = %_ZL8lean_incP11lean_object.exit681
   %.val.i735 = load i32, ptr %375, align 4, !tbaa !16
@@ -5180,11 +5048,11 @@ _ZL8lean_incP11lean_object.exit681:               ; preds = %373, %372, %370, %_
 
 383:                                              ; preds = %382
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %375)
-  %.pre1186 = load ptr, ptr %374, align 8, !tbaa !15
+  %.pre1076 = load ptr, ptr %374, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit680
 
 _ZL8lean_incP11lean_object.exit680:               ; preds = %383, %382, %380, %_ZL8lean_incP11lean_object.exit681
-  %384 = phi ptr [ %.pre1186, %383 ], [ %375, %382 ], [ %375, %380 ], [ %375, %_ZL8lean_incP11lean_object.exit681 ]
+  %384 = phi ptr [ %.pre1076, %383 ], [ %375, %382 ], [ %375, %380 ], [ %375, %_ZL8lean_incP11lean_object.exit681 ]
   %385 = getelementptr i8, ptr %0, i64 8
   %.val700 = load ptr, ptr %385, align 8, !tbaa !15
   %386 = load ptr, ptr %354, align 8, !tbaa !15
@@ -5211,9 +5079,8 @@ _ZL8lean_incP11lean_object.exit680:               ; preds = %383, %382, %380, %_
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %397 = load ptr, ptr %396, align 8, !tbaa !15
   %398 = ptrtoint ptr %397 to i64
-  %399 = and i64 %398, 1
-  %.not1137 = icmp eq i64 %399, 0
-  br i1 %.not1137, label %400, label %_ZL8lean_incP11lean_object.exit679
+  %399 = trunc i64 %398 to i1
+  br i1 %399, label %_ZL8lean_incP11lean_object.exit679, label %400
 
 400:                                              ; preds = %395
   %.val.i738 = load i32, ptr %397, align 4, !tbaa !16
@@ -5237,9 +5104,8 @@ _ZL8lean_incP11lean_object.exit679:               ; preds = %405, %404, %402, %3
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %407 = load ptr, ptr %406, align 8, !tbaa !15
   %408 = ptrtoint ptr %407 to i64
-  %409 = and i64 %408, 1
-  %.not1138 = icmp eq i64 %409, 0
-  br i1 %.not1138, label %410, label %_ZL8lean_incP11lean_object.exit678
+  %409 = trunc i64 %408 to i1
+  br i1 %409, label %_ZL8lean_incP11lean_object.exit678, label %410
 
 410:                                              ; preds = %_ZL8lean_incP11lean_object.exit679
   %.val.i741 = load i32, ptr %407, align 4, !tbaa !16
@@ -5263,9 +5129,8 @@ _ZL8lean_incP11lean_object.exit678:               ; preds = %415, %414, %412, %_
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %417 = load ptr, ptr %416, align 8, !tbaa !15
   %418 = ptrtoint ptr %417 to i64
-  %419 = and i64 %418, 1
-  %.not1139 = icmp eq i64 %419, 0
-  br i1 %.not1139, label %420, label %_ZL8lean_incP11lean_object.exit677
+  %419 = trunc i64 %418 to i1
+  br i1 %419, label %_ZL8lean_incP11lean_object.exit677, label %420
 
 420:                                              ; preds = %_ZL8lean_incP11lean_object.exit678
   %.val.i744 = load i32, ptr %417, align 4, !tbaa !16
@@ -5289,9 +5154,8 @@ _ZL8lean_incP11lean_object.exit677:               ; preds = %425, %424, %422, %_
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %427 = load ptr, ptr %426, align 8, !tbaa !15
   %428 = ptrtoint ptr %427 to i64
-  %429 = and i64 %428, 1
-  %.not1140 = icmp eq i64 %429, 0
-  br i1 %.not1140, label %430, label %_ZL8lean_incP11lean_object.exit676
+  %429 = trunc i64 %428 to i1
+  br i1 %429, label %_ZL8lean_incP11lean_object.exit676, label %430
 
 430:                                              ; preds = %_ZL8lean_incP11lean_object.exit677
   %.val.i747 = load i32, ptr %427, align 4, !tbaa !16
@@ -5309,11 +5173,11 @@ _ZL8lean_incP11lean_object.exit677:               ; preds = %425, %424, %422, %_
 
 435:                                              ; preds = %434
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %427)
-  %.pre1185 = load ptr, ptr %426, align 8, !tbaa !15
+  %.pre1075 = load ptr, ptr %426, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit676
 
 _ZL8lean_incP11lean_object.exit676:               ; preds = %435, %434, %432, %_ZL8lean_incP11lean_object.exit677
-  %436 = phi ptr [ %.pre1185, %435 ], [ %427, %434 ], [ %427, %432 ], [ %427, %_ZL8lean_incP11lean_object.exit677 ]
+  %436 = phi ptr [ %.pre1075, %435 ], [ %427, %434 ], [ %427, %432 ], [ %427, %_ZL8lean_incP11lean_object.exit677 ]
   %437 = getelementptr i8, ptr %0, i64 8
   %.val699 = load ptr, ptr %437, align 8, !tbaa !15
   %438 = load ptr, ptr %396, align 8, !tbaa !15
@@ -5341,9 +5205,8 @@ _ZL8lean_incP11lean_object.exit676:               ; preds = %435, %434, %432, %_
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %450 = load ptr, ptr %449, align 8, !tbaa !15
   %451 = ptrtoint ptr %450 to i64
-  %452 = and i64 %451, 1
-  %.not1132 = icmp eq i64 %452, 0
-  br i1 %.not1132, label %453, label %_ZL8lean_incP11lean_object.exit675
+  %452 = trunc i64 %451 to i1
+  br i1 %452, label %_ZL8lean_incP11lean_object.exit675, label %453
 
 453:                                              ; preds = %448
   %.val.i750 = load i32, ptr %450, align 4, !tbaa !16
@@ -5367,9 +5230,8 @@ _ZL8lean_incP11lean_object.exit675:               ; preds = %458, %457, %455, %4
   %459 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %460 = load ptr, ptr %459, align 8, !tbaa !15
   %461 = ptrtoint ptr %460 to i64
-  %462 = and i64 %461, 1
-  %.not1133 = icmp eq i64 %462, 0
-  br i1 %.not1133, label %463, label %_ZL8lean_incP11lean_object.exit674
+  %462 = trunc i64 %461 to i1
+  br i1 %462, label %_ZL8lean_incP11lean_object.exit674, label %463
 
 463:                                              ; preds = %_ZL8lean_incP11lean_object.exit675
   %.val.i753 = load i32, ptr %460, align 4, !tbaa !16
@@ -5393,9 +5255,8 @@ _ZL8lean_incP11lean_object.exit674:               ; preds = %468, %467, %465, %_
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %470 = load ptr, ptr %469, align 8, !tbaa !15
   %471 = ptrtoint ptr %470 to i64
-  %472 = and i64 %471, 1
-  %.not1134 = icmp eq i64 %472, 0
-  br i1 %.not1134, label %473, label %_ZL8lean_incP11lean_object.exit673
+  %472 = trunc i64 %471 to i1
+  br i1 %472, label %_ZL8lean_incP11lean_object.exit673, label %473
 
 473:                                              ; preds = %_ZL8lean_incP11lean_object.exit674
   %.val.i756 = load i32, ptr %470, align 4, !tbaa !16
@@ -5419,9 +5280,8 @@ _ZL8lean_incP11lean_object.exit673:               ; preds = %478, %477, %475, %_
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %480 = load ptr, ptr %479, align 8, !tbaa !15
   %481 = ptrtoint ptr %480 to i64
-  %482 = and i64 %481, 1
-  %.not1135 = icmp eq i64 %482, 0
-  br i1 %.not1135, label %483, label %_ZL8lean_incP11lean_object.exit672
+  %482 = trunc i64 %481 to i1
+  br i1 %482, label %_ZL8lean_incP11lean_object.exit672, label %483
 
 483:                                              ; preds = %_ZL8lean_incP11lean_object.exit673
   %.val.i759 = load i32, ptr %480, align 4, !tbaa !16
@@ -5445,9 +5305,8 @@ _ZL8lean_incP11lean_object.exit672:               ; preds = %488, %487, %485, %_
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %490 = load ptr, ptr %489, align 8, !tbaa !15
   %491 = ptrtoint ptr %490 to i64
-  %492 = and i64 %491, 1
-  %.not1136 = icmp eq i64 %492, 0
-  br i1 %.not1136, label %493, label %_ZL8lean_incP11lean_object.exit671
+  %492 = trunc i64 %491 to i1
+  br i1 %492, label %_ZL8lean_incP11lean_object.exit671, label %493
 
 493:                                              ; preds = %_ZL8lean_incP11lean_object.exit672
   %.val.i762 = load i32, ptr %490, align 4, !tbaa !16
@@ -5465,11 +5324,11 @@ _ZL8lean_incP11lean_object.exit672:               ; preds = %488, %487, %485, %_
 
 498:                                              ; preds = %497
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %490)
-  %.pre1184 = load ptr, ptr %489, align 8, !tbaa !15
+  %.pre1074 = load ptr, ptr %489, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit671
 
 _ZL8lean_incP11lean_object.exit671:               ; preds = %498, %497, %495, %_ZL8lean_incP11lean_object.exit672
-  %499 = phi ptr [ %.pre1184, %498 ], [ %490, %497 ], [ %490, %495 ], [ %490, %_ZL8lean_incP11lean_object.exit672 ]
+  %499 = phi ptr [ %.pre1074, %498 ], [ %490, %497 ], [ %490, %495 ], [ %490, %_ZL8lean_incP11lean_object.exit672 ]
   %500 = getelementptr i8, ptr %0, i64 8
   %.val698 = load ptr, ptr %500, align 8, !tbaa !15
   %501 = load ptr, ptr %449, align 8, !tbaa !15
@@ -5498,9 +5357,8 @@ _ZL8lean_incP11lean_object.exit671:               ; preds = %498, %497, %495, %_
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %514 = load ptr, ptr %513, align 8, !tbaa !15
   %515 = ptrtoint ptr %514 to i64
-  %516 = and i64 %515, 1
-  %.not1126 = icmp eq i64 %516, 0
-  br i1 %.not1126, label %517, label %_ZL8lean_incP11lean_object.exit670
+  %516 = trunc i64 %515 to i1
+  br i1 %516, label %_ZL8lean_incP11lean_object.exit670, label %517
 
 517:                                              ; preds = %512
   %.val.i765 = load i32, ptr %514, align 4, !tbaa !16
@@ -5524,9 +5382,8 @@ _ZL8lean_incP11lean_object.exit670:               ; preds = %522, %521, %519, %5
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %524 = load ptr, ptr %523, align 8, !tbaa !15
   %525 = ptrtoint ptr %524 to i64
-  %526 = and i64 %525, 1
-  %.not1127 = icmp eq i64 %526, 0
-  br i1 %.not1127, label %527, label %_ZL8lean_incP11lean_object.exit669
+  %526 = trunc i64 %525 to i1
+  br i1 %526, label %_ZL8lean_incP11lean_object.exit669, label %527
 
 527:                                              ; preds = %_ZL8lean_incP11lean_object.exit670
   %.val.i768 = load i32, ptr %524, align 4, !tbaa !16
@@ -5550,9 +5407,8 @@ _ZL8lean_incP11lean_object.exit669:               ; preds = %532, %531, %529, %_
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %534 = load ptr, ptr %533, align 8, !tbaa !15
   %535 = ptrtoint ptr %534 to i64
-  %536 = and i64 %535, 1
-  %.not1128 = icmp eq i64 %536, 0
-  br i1 %.not1128, label %537, label %_ZL8lean_incP11lean_object.exit668
+  %536 = trunc i64 %535 to i1
+  br i1 %536, label %_ZL8lean_incP11lean_object.exit668, label %537
 
 537:                                              ; preds = %_ZL8lean_incP11lean_object.exit669
   %.val.i771 = load i32, ptr %534, align 4, !tbaa !16
@@ -5576,9 +5432,8 @@ _ZL8lean_incP11lean_object.exit668:               ; preds = %542, %541, %539, %_
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %544 = load ptr, ptr %543, align 8, !tbaa !15
   %545 = ptrtoint ptr %544 to i64
-  %546 = and i64 %545, 1
-  %.not1129 = icmp eq i64 %546, 0
-  br i1 %.not1129, label %547, label %_ZL8lean_incP11lean_object.exit667
+  %546 = trunc i64 %545 to i1
+  br i1 %546, label %_ZL8lean_incP11lean_object.exit667, label %547
 
 547:                                              ; preds = %_ZL8lean_incP11lean_object.exit668
   %.val.i774 = load i32, ptr %544, align 4, !tbaa !16
@@ -5602,9 +5457,8 @@ _ZL8lean_incP11lean_object.exit667:               ; preds = %552, %551, %549, %_
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %554 = load ptr, ptr %553, align 8, !tbaa !15
   %555 = ptrtoint ptr %554 to i64
-  %556 = and i64 %555, 1
-  %.not1130 = icmp eq i64 %556, 0
-  br i1 %.not1130, label %557, label %_ZL8lean_incP11lean_object.exit666
+  %556 = trunc i64 %555 to i1
+  br i1 %556, label %_ZL8lean_incP11lean_object.exit666, label %557
 
 557:                                              ; preds = %_ZL8lean_incP11lean_object.exit667
   %.val.i777 = load i32, ptr %554, align 4, !tbaa !16
@@ -5628,9 +5482,8 @@ _ZL8lean_incP11lean_object.exit666:               ; preds = %562, %561, %559, %_
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %564 = load ptr, ptr %563, align 8, !tbaa !15
   %565 = ptrtoint ptr %564 to i64
-  %566 = and i64 %565, 1
-  %.not1131 = icmp eq i64 %566, 0
-  br i1 %.not1131, label %567, label %_ZL8lean_incP11lean_object.exit665
+  %566 = trunc i64 %565 to i1
+  br i1 %566, label %_ZL8lean_incP11lean_object.exit665, label %567
 
 567:                                              ; preds = %_ZL8lean_incP11lean_object.exit666
   %.val.i780 = load i32, ptr %564, align 4, !tbaa !16
@@ -5648,11 +5501,11 @@ _ZL8lean_incP11lean_object.exit666:               ; preds = %562, %561, %559, %_
 
 572:                                              ; preds = %571
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %564)
-  %.pre1183 = load ptr, ptr %563, align 8, !tbaa !15
+  %.pre1073 = load ptr, ptr %563, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit665
 
 _ZL8lean_incP11lean_object.exit665:               ; preds = %572, %571, %569, %_ZL8lean_incP11lean_object.exit666
-  %573 = phi ptr [ %.pre1183, %572 ], [ %564, %571 ], [ %564, %569 ], [ %564, %_ZL8lean_incP11lean_object.exit666 ]
+  %573 = phi ptr [ %.pre1073, %572 ], [ %564, %571 ], [ %564, %569 ], [ %564, %_ZL8lean_incP11lean_object.exit666 ]
   %574 = getelementptr i8, ptr %0, i64 8
   %.val697 = load ptr, ptr %574, align 8, !tbaa !15
   %575 = load ptr, ptr %513, align 8, !tbaa !15
@@ -5682,9 +5535,8 @@ _ZL8lean_incP11lean_object.exit665:               ; preds = %572, %571, %569, %_
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %589 = load ptr, ptr %588, align 8, !tbaa !15
   %590 = ptrtoint ptr %589 to i64
-  %591 = and i64 %590, 1
-  %.not1119 = icmp eq i64 %591, 0
-  br i1 %.not1119, label %592, label %_ZL8lean_incP11lean_object.exit664
+  %591 = trunc i64 %590 to i1
+  br i1 %591, label %_ZL8lean_incP11lean_object.exit664, label %592
 
 592:                                              ; preds = %587
   %.val.i783 = load i32, ptr %589, align 4, !tbaa !16
@@ -5708,9 +5560,8 @@ _ZL8lean_incP11lean_object.exit664:               ; preds = %597, %596, %594, %5
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %599 = load ptr, ptr %598, align 8, !tbaa !15
   %600 = ptrtoint ptr %599 to i64
-  %601 = and i64 %600, 1
-  %.not1120 = icmp eq i64 %601, 0
-  br i1 %.not1120, label %602, label %_ZL8lean_incP11lean_object.exit663
+  %601 = trunc i64 %600 to i1
+  br i1 %601, label %_ZL8lean_incP11lean_object.exit663, label %602
 
 602:                                              ; preds = %_ZL8lean_incP11lean_object.exit664
   %.val.i786 = load i32, ptr %599, align 4, !tbaa !16
@@ -5734,9 +5585,8 @@ _ZL8lean_incP11lean_object.exit663:               ; preds = %607, %606, %604, %_
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %609 = load ptr, ptr %608, align 8, !tbaa !15
   %610 = ptrtoint ptr %609 to i64
-  %611 = and i64 %610, 1
-  %.not1121 = icmp eq i64 %611, 0
-  br i1 %.not1121, label %612, label %_ZL8lean_incP11lean_object.exit662
+  %611 = trunc i64 %610 to i1
+  br i1 %611, label %_ZL8lean_incP11lean_object.exit662, label %612
 
 612:                                              ; preds = %_ZL8lean_incP11lean_object.exit663
   %.val.i789 = load i32, ptr %609, align 4, !tbaa !16
@@ -5760,9 +5610,8 @@ _ZL8lean_incP11lean_object.exit662:               ; preds = %617, %616, %614, %_
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %619 = load ptr, ptr %618, align 8, !tbaa !15
   %620 = ptrtoint ptr %619 to i64
-  %621 = and i64 %620, 1
-  %.not1122 = icmp eq i64 %621, 0
-  br i1 %.not1122, label %622, label %_ZL8lean_incP11lean_object.exit661
+  %621 = trunc i64 %620 to i1
+  br i1 %621, label %_ZL8lean_incP11lean_object.exit661, label %622
 
 622:                                              ; preds = %_ZL8lean_incP11lean_object.exit662
   %.val.i792 = load i32, ptr %619, align 4, !tbaa !16
@@ -5786,9 +5635,8 @@ _ZL8lean_incP11lean_object.exit661:               ; preds = %627, %626, %624, %_
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %629 = load ptr, ptr %628, align 8, !tbaa !15
   %630 = ptrtoint ptr %629 to i64
-  %631 = and i64 %630, 1
-  %.not1123 = icmp eq i64 %631, 0
-  br i1 %.not1123, label %632, label %_ZL8lean_incP11lean_object.exit660
+  %631 = trunc i64 %630 to i1
+  br i1 %631, label %_ZL8lean_incP11lean_object.exit660, label %632
 
 632:                                              ; preds = %_ZL8lean_incP11lean_object.exit661
   %.val.i795 = load i32, ptr %629, align 4, !tbaa !16
@@ -5812,9 +5660,8 @@ _ZL8lean_incP11lean_object.exit660:               ; preds = %637, %636, %634, %_
   %638 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %639 = load ptr, ptr %638, align 8, !tbaa !15
   %640 = ptrtoint ptr %639 to i64
-  %641 = and i64 %640, 1
-  %.not1124 = icmp eq i64 %641, 0
-  br i1 %.not1124, label %642, label %_ZL8lean_incP11lean_object.exit659
+  %641 = trunc i64 %640 to i1
+  br i1 %641, label %_ZL8lean_incP11lean_object.exit659, label %642
 
 642:                                              ; preds = %_ZL8lean_incP11lean_object.exit660
   %.val.i798 = load i32, ptr %639, align 4, !tbaa !16
@@ -5838,9 +5685,8 @@ _ZL8lean_incP11lean_object.exit659:               ; preds = %647, %646, %644, %_
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %649 = load ptr, ptr %648, align 8, !tbaa !15
   %650 = ptrtoint ptr %649 to i64
-  %651 = and i64 %650, 1
-  %.not1125 = icmp eq i64 %651, 0
-  br i1 %.not1125, label %652, label %_ZL8lean_incP11lean_object.exit658
+  %651 = trunc i64 %650 to i1
+  br i1 %651, label %_ZL8lean_incP11lean_object.exit658, label %652
 
 652:                                              ; preds = %_ZL8lean_incP11lean_object.exit659
   %.val.i801 = load i32, ptr %649, align 4, !tbaa !16
@@ -5858,11 +5704,11 @@ _ZL8lean_incP11lean_object.exit659:               ; preds = %647, %646, %644, %_
 
 657:                                              ; preds = %656
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %649)
-  %.pre1182 = load ptr, ptr %648, align 8, !tbaa !15
+  %.pre1072 = load ptr, ptr %648, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit658
 
 _ZL8lean_incP11lean_object.exit658:               ; preds = %657, %656, %654, %_ZL8lean_incP11lean_object.exit659
-  %658 = phi ptr [ %.pre1182, %657 ], [ %649, %656 ], [ %649, %654 ], [ %649, %_ZL8lean_incP11lean_object.exit659 ]
+  %658 = phi ptr [ %.pre1072, %657 ], [ %649, %656 ], [ %649, %654 ], [ %649, %_ZL8lean_incP11lean_object.exit659 ]
   %659 = getelementptr i8, ptr %0, i64 8
   %.val696 = load ptr, ptr %659, align 8, !tbaa !15
   %660 = load ptr, ptr %588, align 8, !tbaa !15
@@ -5893,9 +5739,8 @@ _ZL8lean_incP11lean_object.exit658:               ; preds = %657, %656, %654, %_
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %675 = load ptr, ptr %674, align 8, !tbaa !15
   %676 = ptrtoint ptr %675 to i64
-  %677 = and i64 %676, 1
-  %.not1111 = icmp eq i64 %677, 0
-  br i1 %.not1111, label %678, label %_ZL8lean_incP11lean_object.exit657
+  %677 = trunc i64 %676 to i1
+  br i1 %677, label %_ZL8lean_incP11lean_object.exit657, label %678
 
 678:                                              ; preds = %673
   %.val.i804 = load i32, ptr %675, align 4, !tbaa !16
@@ -5919,9 +5764,8 @@ _ZL8lean_incP11lean_object.exit657:               ; preds = %683, %682, %680, %6
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %685 = load ptr, ptr %684, align 8, !tbaa !15
   %686 = ptrtoint ptr %685 to i64
-  %687 = and i64 %686, 1
-  %.not1112 = icmp eq i64 %687, 0
-  br i1 %.not1112, label %688, label %_ZL8lean_incP11lean_object.exit656
+  %687 = trunc i64 %686 to i1
+  br i1 %687, label %_ZL8lean_incP11lean_object.exit656, label %688
 
 688:                                              ; preds = %_ZL8lean_incP11lean_object.exit657
   %.val.i807 = load i32, ptr %685, align 4, !tbaa !16
@@ -5945,9 +5789,8 @@ _ZL8lean_incP11lean_object.exit656:               ; preds = %693, %692, %690, %_
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %695 = load ptr, ptr %694, align 8, !tbaa !15
   %696 = ptrtoint ptr %695 to i64
-  %697 = and i64 %696, 1
-  %.not1113 = icmp eq i64 %697, 0
-  br i1 %.not1113, label %698, label %_ZL8lean_incP11lean_object.exit655
+  %697 = trunc i64 %696 to i1
+  br i1 %697, label %_ZL8lean_incP11lean_object.exit655, label %698
 
 698:                                              ; preds = %_ZL8lean_incP11lean_object.exit656
   %.val.i810 = load i32, ptr %695, align 4, !tbaa !16
@@ -5971,9 +5814,8 @@ _ZL8lean_incP11lean_object.exit655:               ; preds = %703, %702, %700, %_
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %705 = load ptr, ptr %704, align 8, !tbaa !15
   %706 = ptrtoint ptr %705 to i64
-  %707 = and i64 %706, 1
-  %.not1114 = icmp eq i64 %707, 0
-  br i1 %.not1114, label %708, label %_ZL8lean_incP11lean_object.exit654
+  %707 = trunc i64 %706 to i1
+  br i1 %707, label %_ZL8lean_incP11lean_object.exit654, label %708
 
 708:                                              ; preds = %_ZL8lean_incP11lean_object.exit655
   %.val.i813 = load i32, ptr %705, align 4, !tbaa !16
@@ -5997,9 +5839,8 @@ _ZL8lean_incP11lean_object.exit654:               ; preds = %713, %712, %710, %_
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %715 = load ptr, ptr %714, align 8, !tbaa !15
   %716 = ptrtoint ptr %715 to i64
-  %717 = and i64 %716, 1
-  %.not1115 = icmp eq i64 %717, 0
-  br i1 %.not1115, label %718, label %_ZL8lean_incP11lean_object.exit653
+  %717 = trunc i64 %716 to i1
+  br i1 %717, label %_ZL8lean_incP11lean_object.exit653, label %718
 
 718:                                              ; preds = %_ZL8lean_incP11lean_object.exit654
   %.val.i816 = load i32, ptr %715, align 4, !tbaa !16
@@ -6023,9 +5864,8 @@ _ZL8lean_incP11lean_object.exit653:               ; preds = %723, %722, %720, %_
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %725 = load ptr, ptr %724, align 8, !tbaa !15
   %726 = ptrtoint ptr %725 to i64
-  %727 = and i64 %726, 1
-  %.not1116 = icmp eq i64 %727, 0
-  br i1 %.not1116, label %728, label %_ZL8lean_incP11lean_object.exit652
+  %727 = trunc i64 %726 to i1
+  br i1 %727, label %_ZL8lean_incP11lean_object.exit652, label %728
 
 728:                                              ; preds = %_ZL8lean_incP11lean_object.exit653
   %.val.i819 = load i32, ptr %725, align 4, !tbaa !16
@@ -6049,9 +5889,8 @@ _ZL8lean_incP11lean_object.exit652:               ; preds = %733, %732, %730, %_
   %734 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %735 = load ptr, ptr %734, align 8, !tbaa !15
   %736 = ptrtoint ptr %735 to i64
-  %737 = and i64 %736, 1
-  %.not1117 = icmp eq i64 %737, 0
-  br i1 %.not1117, label %738, label %_ZL8lean_incP11lean_object.exit651
+  %737 = trunc i64 %736 to i1
+  br i1 %737, label %_ZL8lean_incP11lean_object.exit651, label %738
 
 738:                                              ; preds = %_ZL8lean_incP11lean_object.exit652
   %.val.i822 = load i32, ptr %735, align 4, !tbaa !16
@@ -6075,9 +5914,8 @@ _ZL8lean_incP11lean_object.exit651:               ; preds = %743, %742, %740, %_
   %744 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %745 = load ptr, ptr %744, align 8, !tbaa !15
   %746 = ptrtoint ptr %745 to i64
-  %747 = and i64 %746, 1
-  %.not1118 = icmp eq i64 %747, 0
-  br i1 %.not1118, label %748, label %_ZL8lean_incP11lean_object.exit650
+  %747 = trunc i64 %746 to i1
+  br i1 %747, label %_ZL8lean_incP11lean_object.exit650, label %748
 
 748:                                              ; preds = %_ZL8lean_incP11lean_object.exit651
   %.val.i825 = load i32, ptr %745, align 4, !tbaa !16
@@ -6095,11 +5933,11 @@ _ZL8lean_incP11lean_object.exit651:               ; preds = %743, %742, %740, %_
 
 753:                                              ; preds = %752
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %745)
-  %.pre1181 = load ptr, ptr %744, align 8, !tbaa !15
+  %.pre1071 = load ptr, ptr %744, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit650
 
 _ZL8lean_incP11lean_object.exit650:               ; preds = %753, %752, %750, %_ZL8lean_incP11lean_object.exit651
-  %754 = phi ptr [ %.pre1181, %753 ], [ %745, %752 ], [ %745, %750 ], [ %745, %_ZL8lean_incP11lean_object.exit651 ]
+  %754 = phi ptr [ %.pre1071, %753 ], [ %745, %752 ], [ %745, %750 ], [ %745, %_ZL8lean_incP11lean_object.exit651 ]
   %755 = getelementptr i8, ptr %0, i64 8
   %.val695 = load ptr, ptr %755, align 8, !tbaa !15
   %756 = load ptr, ptr %674, align 8, !tbaa !15
@@ -6131,9 +5969,8 @@ _ZL8lean_incP11lean_object.exit650:               ; preds = %753, %752, %750, %_
   %771 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %772 = load ptr, ptr %771, align 8, !tbaa !15
   %773 = ptrtoint ptr %772 to i64
-  %774 = and i64 %773, 1
-  %.not1102 = icmp eq i64 %774, 0
-  br i1 %.not1102, label %775, label %_ZL8lean_incP11lean_object.exit649
+  %774 = trunc i64 %773 to i1
+  br i1 %774, label %_ZL8lean_incP11lean_object.exit649, label %775
 
 775:                                              ; preds = %770
   %.val.i828 = load i32, ptr %772, align 4, !tbaa !16
@@ -6157,9 +5994,8 @@ _ZL8lean_incP11lean_object.exit649:               ; preds = %780, %779, %777, %7
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %782 = load ptr, ptr %781, align 8, !tbaa !15
   %783 = ptrtoint ptr %782 to i64
-  %784 = and i64 %783, 1
-  %.not1103 = icmp eq i64 %784, 0
-  br i1 %.not1103, label %785, label %_ZL8lean_incP11lean_object.exit648
+  %784 = trunc i64 %783 to i1
+  br i1 %784, label %_ZL8lean_incP11lean_object.exit648, label %785
 
 785:                                              ; preds = %_ZL8lean_incP11lean_object.exit649
   %.val.i831 = load i32, ptr %782, align 4, !tbaa !16
@@ -6183,9 +6019,8 @@ _ZL8lean_incP11lean_object.exit648:               ; preds = %790, %789, %787, %_
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %792 = load ptr, ptr %791, align 8, !tbaa !15
   %793 = ptrtoint ptr %792 to i64
-  %794 = and i64 %793, 1
-  %.not1104 = icmp eq i64 %794, 0
-  br i1 %.not1104, label %795, label %_ZL8lean_incP11lean_object.exit647
+  %794 = trunc i64 %793 to i1
+  br i1 %794, label %_ZL8lean_incP11lean_object.exit647, label %795
 
 795:                                              ; preds = %_ZL8lean_incP11lean_object.exit648
   %.val.i834 = load i32, ptr %792, align 4, !tbaa !16
@@ -6209,9 +6044,8 @@ _ZL8lean_incP11lean_object.exit647:               ; preds = %800, %799, %797, %_
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %802 = load ptr, ptr %801, align 8, !tbaa !15
   %803 = ptrtoint ptr %802 to i64
-  %804 = and i64 %803, 1
-  %.not1105 = icmp eq i64 %804, 0
-  br i1 %.not1105, label %805, label %_ZL8lean_incP11lean_object.exit646
+  %804 = trunc i64 %803 to i1
+  br i1 %804, label %_ZL8lean_incP11lean_object.exit646, label %805
 
 805:                                              ; preds = %_ZL8lean_incP11lean_object.exit647
   %.val.i837 = load i32, ptr %802, align 4, !tbaa !16
@@ -6235,9 +6069,8 @@ _ZL8lean_incP11lean_object.exit646:               ; preds = %810, %809, %807, %_
   %811 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %812 = load ptr, ptr %811, align 8, !tbaa !15
   %813 = ptrtoint ptr %812 to i64
-  %814 = and i64 %813, 1
-  %.not1106 = icmp eq i64 %814, 0
-  br i1 %.not1106, label %815, label %_ZL8lean_incP11lean_object.exit645
+  %814 = trunc i64 %813 to i1
+  br i1 %814, label %_ZL8lean_incP11lean_object.exit645, label %815
 
 815:                                              ; preds = %_ZL8lean_incP11lean_object.exit646
   %.val.i840 = load i32, ptr %812, align 4, !tbaa !16
@@ -6261,9 +6094,8 @@ _ZL8lean_incP11lean_object.exit645:               ; preds = %820, %819, %817, %_
   %821 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %822 = load ptr, ptr %821, align 8, !tbaa !15
   %823 = ptrtoint ptr %822 to i64
-  %824 = and i64 %823, 1
-  %.not1107 = icmp eq i64 %824, 0
-  br i1 %.not1107, label %825, label %_ZL8lean_incP11lean_object.exit644
+  %824 = trunc i64 %823 to i1
+  br i1 %824, label %_ZL8lean_incP11lean_object.exit644, label %825
 
 825:                                              ; preds = %_ZL8lean_incP11lean_object.exit645
   %.val.i843 = load i32, ptr %822, align 4, !tbaa !16
@@ -6287,9 +6119,8 @@ _ZL8lean_incP11lean_object.exit644:               ; preds = %830, %829, %827, %_
   %831 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %832 = load ptr, ptr %831, align 8, !tbaa !15
   %833 = ptrtoint ptr %832 to i64
-  %834 = and i64 %833, 1
-  %.not1108 = icmp eq i64 %834, 0
-  br i1 %.not1108, label %835, label %_ZL8lean_incP11lean_object.exit643
+  %834 = trunc i64 %833 to i1
+  br i1 %834, label %_ZL8lean_incP11lean_object.exit643, label %835
 
 835:                                              ; preds = %_ZL8lean_incP11lean_object.exit644
   %.val.i846 = load i32, ptr %832, align 4, !tbaa !16
@@ -6313,9 +6144,8 @@ _ZL8lean_incP11lean_object.exit643:               ; preds = %840, %839, %837, %_
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %842 = load ptr, ptr %841, align 8, !tbaa !15
   %843 = ptrtoint ptr %842 to i64
-  %844 = and i64 %843, 1
-  %.not1109 = icmp eq i64 %844, 0
-  br i1 %.not1109, label %845, label %_ZL8lean_incP11lean_object.exit642
+  %844 = trunc i64 %843 to i1
+  br i1 %844, label %_ZL8lean_incP11lean_object.exit642, label %845
 
 845:                                              ; preds = %_ZL8lean_incP11lean_object.exit643
   %.val.i849 = load i32, ptr %842, align 4, !tbaa !16
@@ -6339,9 +6169,8 @@ _ZL8lean_incP11lean_object.exit642:               ; preds = %850, %849, %847, %_
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %852 = load ptr, ptr %851, align 8, !tbaa !15
   %853 = ptrtoint ptr %852 to i64
-  %854 = and i64 %853, 1
-  %.not1110 = icmp eq i64 %854, 0
-  br i1 %.not1110, label %855, label %_ZL8lean_incP11lean_object.exit641
+  %854 = trunc i64 %853 to i1
+  br i1 %854, label %_ZL8lean_incP11lean_object.exit641, label %855
 
 855:                                              ; preds = %_ZL8lean_incP11lean_object.exit642
   %.val.i852 = load i32, ptr %852, align 4, !tbaa !16
@@ -6359,11 +6188,11 @@ _ZL8lean_incP11lean_object.exit642:               ; preds = %850, %849, %847, %_
 
 860:                                              ; preds = %859
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %852)
-  %.pre1180 = load ptr, ptr %851, align 8, !tbaa !15
+  %.pre1070 = load ptr, ptr %851, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit641
 
 _ZL8lean_incP11lean_object.exit641:               ; preds = %860, %859, %857, %_ZL8lean_incP11lean_object.exit642
-  %861 = phi ptr [ %.pre1180, %860 ], [ %852, %859 ], [ %852, %857 ], [ %852, %_ZL8lean_incP11lean_object.exit642 ]
+  %861 = phi ptr [ %.pre1070, %860 ], [ %852, %859 ], [ %852, %857 ], [ %852, %_ZL8lean_incP11lean_object.exit642 ]
   %862 = getelementptr i8, ptr %0, i64 8
   %.val694 = load ptr, ptr %862, align 8, !tbaa !15
   %863 = load ptr, ptr %771, align 8, !tbaa !15
@@ -6396,9 +6225,8 @@ _ZL8lean_incP11lean_object.exit641:               ; preds = %860, %859, %857, %_
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %880 = load ptr, ptr %879, align 8, !tbaa !15
   %881 = ptrtoint ptr %880 to i64
-  %882 = and i64 %881, 1
-  %.not1092 = icmp eq i64 %882, 0
-  br i1 %.not1092, label %883, label %_ZL8lean_incP11lean_object.exit640
+  %882 = trunc i64 %881 to i1
+  br i1 %882, label %_ZL8lean_incP11lean_object.exit640, label %883
 
 883:                                              ; preds = %878
   %.val.i855 = load i32, ptr %880, align 4, !tbaa !16
@@ -6422,9 +6250,8 @@ _ZL8lean_incP11lean_object.exit640:               ; preds = %888, %887, %885, %8
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %890 = load ptr, ptr %889, align 8, !tbaa !15
   %891 = ptrtoint ptr %890 to i64
-  %892 = and i64 %891, 1
-  %.not1093 = icmp eq i64 %892, 0
-  br i1 %.not1093, label %893, label %_ZL8lean_incP11lean_object.exit639
+  %892 = trunc i64 %891 to i1
+  br i1 %892, label %_ZL8lean_incP11lean_object.exit639, label %893
 
 893:                                              ; preds = %_ZL8lean_incP11lean_object.exit640
   %.val.i858 = load i32, ptr %890, align 4, !tbaa !16
@@ -6448,9 +6275,8 @@ _ZL8lean_incP11lean_object.exit639:               ; preds = %898, %897, %895, %_
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %900 = load ptr, ptr %899, align 8, !tbaa !15
   %901 = ptrtoint ptr %900 to i64
-  %902 = and i64 %901, 1
-  %.not1094 = icmp eq i64 %902, 0
-  br i1 %.not1094, label %903, label %_ZL8lean_incP11lean_object.exit638
+  %902 = trunc i64 %901 to i1
+  br i1 %902, label %_ZL8lean_incP11lean_object.exit638, label %903
 
 903:                                              ; preds = %_ZL8lean_incP11lean_object.exit639
   %.val.i861 = load i32, ptr %900, align 4, !tbaa !16
@@ -6474,9 +6300,8 @@ _ZL8lean_incP11lean_object.exit638:               ; preds = %908, %907, %905, %_
   %909 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %910 = load ptr, ptr %909, align 8, !tbaa !15
   %911 = ptrtoint ptr %910 to i64
-  %912 = and i64 %911, 1
-  %.not1095 = icmp eq i64 %912, 0
-  br i1 %.not1095, label %913, label %_ZL8lean_incP11lean_object.exit637
+  %912 = trunc i64 %911 to i1
+  br i1 %912, label %_ZL8lean_incP11lean_object.exit637, label %913
 
 913:                                              ; preds = %_ZL8lean_incP11lean_object.exit638
   %.val.i864 = load i32, ptr %910, align 4, !tbaa !16
@@ -6500,9 +6325,8 @@ _ZL8lean_incP11lean_object.exit637:               ; preds = %918, %917, %915, %_
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %920 = load ptr, ptr %919, align 8, !tbaa !15
   %921 = ptrtoint ptr %920 to i64
-  %922 = and i64 %921, 1
-  %.not1096 = icmp eq i64 %922, 0
-  br i1 %.not1096, label %923, label %_ZL8lean_incP11lean_object.exit636
+  %922 = trunc i64 %921 to i1
+  br i1 %922, label %_ZL8lean_incP11lean_object.exit636, label %923
 
 923:                                              ; preds = %_ZL8lean_incP11lean_object.exit637
   %.val.i867 = load i32, ptr %920, align 4, !tbaa !16
@@ -6526,9 +6350,8 @@ _ZL8lean_incP11lean_object.exit636:               ; preds = %928, %927, %925, %_
   %929 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %930 = load ptr, ptr %929, align 8, !tbaa !15
   %931 = ptrtoint ptr %930 to i64
-  %932 = and i64 %931, 1
-  %.not1097 = icmp eq i64 %932, 0
-  br i1 %.not1097, label %933, label %_ZL8lean_incP11lean_object.exit635
+  %932 = trunc i64 %931 to i1
+  br i1 %932, label %_ZL8lean_incP11lean_object.exit635, label %933
 
 933:                                              ; preds = %_ZL8lean_incP11lean_object.exit636
   %.val.i870 = load i32, ptr %930, align 4, !tbaa !16
@@ -6552,9 +6375,8 @@ _ZL8lean_incP11lean_object.exit635:               ; preds = %938, %937, %935, %_
   %939 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %940 = load ptr, ptr %939, align 8, !tbaa !15
   %941 = ptrtoint ptr %940 to i64
-  %942 = and i64 %941, 1
-  %.not1098 = icmp eq i64 %942, 0
-  br i1 %.not1098, label %943, label %_ZL8lean_incP11lean_object.exit634
+  %942 = trunc i64 %941 to i1
+  br i1 %942, label %_ZL8lean_incP11lean_object.exit634, label %943
 
 943:                                              ; preds = %_ZL8lean_incP11lean_object.exit635
   %.val.i873 = load i32, ptr %940, align 4, !tbaa !16
@@ -6578,9 +6400,8 @@ _ZL8lean_incP11lean_object.exit634:               ; preds = %948, %947, %945, %_
   %949 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %950 = load ptr, ptr %949, align 8, !tbaa !15
   %951 = ptrtoint ptr %950 to i64
-  %952 = and i64 %951, 1
-  %.not1099 = icmp eq i64 %952, 0
-  br i1 %.not1099, label %953, label %_ZL8lean_incP11lean_object.exit633
+  %952 = trunc i64 %951 to i1
+  br i1 %952, label %_ZL8lean_incP11lean_object.exit633, label %953
 
 953:                                              ; preds = %_ZL8lean_incP11lean_object.exit634
   %.val.i876 = load i32, ptr %950, align 4, !tbaa !16
@@ -6604,9 +6425,8 @@ _ZL8lean_incP11lean_object.exit633:               ; preds = %958, %957, %955, %_
   %959 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %960 = load ptr, ptr %959, align 8, !tbaa !15
   %961 = ptrtoint ptr %960 to i64
-  %962 = and i64 %961, 1
-  %.not1100 = icmp eq i64 %962, 0
-  br i1 %.not1100, label %963, label %_ZL8lean_incP11lean_object.exit632
+  %962 = trunc i64 %961 to i1
+  br i1 %962, label %_ZL8lean_incP11lean_object.exit632, label %963
 
 963:                                              ; preds = %_ZL8lean_incP11lean_object.exit633
   %.val.i879 = load i32, ptr %960, align 4, !tbaa !16
@@ -6630,9 +6450,8 @@ _ZL8lean_incP11lean_object.exit632:               ; preds = %968, %967, %965, %_
   %969 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %970 = load ptr, ptr %969, align 8, !tbaa !15
   %971 = ptrtoint ptr %970 to i64
-  %972 = and i64 %971, 1
-  %.not1101 = icmp eq i64 %972, 0
-  br i1 %.not1101, label %973, label %_ZL8lean_incP11lean_object.exit631
+  %972 = trunc i64 %971 to i1
+  br i1 %972, label %_ZL8lean_incP11lean_object.exit631, label %973
 
 973:                                              ; preds = %_ZL8lean_incP11lean_object.exit632
   %.val.i882 = load i32, ptr %970, align 4, !tbaa !16
@@ -6650,11 +6469,11 @@ _ZL8lean_incP11lean_object.exit632:               ; preds = %968, %967, %965, %_
 
 978:                                              ; preds = %977
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %970)
-  %.pre1179 = load ptr, ptr %969, align 8, !tbaa !15
+  %.pre1069 = load ptr, ptr %969, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit631
 
 _ZL8lean_incP11lean_object.exit631:               ; preds = %978, %977, %975, %_ZL8lean_incP11lean_object.exit632
-  %979 = phi ptr [ %.pre1179, %978 ], [ %970, %977 ], [ %970, %975 ], [ %970, %_ZL8lean_incP11lean_object.exit632 ]
+  %979 = phi ptr [ %.pre1069, %978 ], [ %970, %977 ], [ %970, %975 ], [ %970, %_ZL8lean_incP11lean_object.exit632 ]
   %980 = getelementptr i8, ptr %0, i64 8
   %.val693 = load ptr, ptr %980, align 8, !tbaa !15
   %981 = load ptr, ptr %879, align 8, !tbaa !15
@@ -6688,9 +6507,8 @@ _ZL8lean_incP11lean_object.exit631:               ; preds = %978, %977, %975, %_
   %998 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %999 = load ptr, ptr %998, align 8, !tbaa !15
   %1000 = ptrtoint ptr %999 to i64
-  %1001 = and i64 %1000, 1
-  %.not1081 = icmp eq i64 %1001, 0
-  br i1 %.not1081, label %1002, label %_ZL8lean_incP11lean_object.exit630
+  %1001 = trunc i64 %1000 to i1
+  br i1 %1001, label %_ZL8lean_incP11lean_object.exit630, label %1002
 
 1002:                                             ; preds = %997
   %.val.i885 = load i32, ptr %999, align 4, !tbaa !16
@@ -6714,9 +6532,8 @@ _ZL8lean_incP11lean_object.exit630:               ; preds = %1007, %1006, %1004,
   %1008 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1009 = load ptr, ptr %1008, align 8, !tbaa !15
   %1010 = ptrtoint ptr %1009 to i64
-  %1011 = and i64 %1010, 1
-  %.not1082 = icmp eq i64 %1011, 0
-  br i1 %.not1082, label %1012, label %_ZL8lean_incP11lean_object.exit629
+  %1011 = trunc i64 %1010 to i1
+  br i1 %1011, label %_ZL8lean_incP11lean_object.exit629, label %1012
 
 1012:                                             ; preds = %_ZL8lean_incP11lean_object.exit630
   %.val.i888 = load i32, ptr %1009, align 4, !tbaa !16
@@ -6740,9 +6557,8 @@ _ZL8lean_incP11lean_object.exit629:               ; preds = %1017, %1016, %1014,
   %1018 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1019 = load ptr, ptr %1018, align 8, !tbaa !15
   %1020 = ptrtoint ptr %1019 to i64
-  %1021 = and i64 %1020, 1
-  %.not1083 = icmp eq i64 %1021, 0
-  br i1 %.not1083, label %1022, label %_ZL8lean_incP11lean_object.exit628
+  %1021 = trunc i64 %1020 to i1
+  br i1 %1021, label %_ZL8lean_incP11lean_object.exit628, label %1022
 
 1022:                                             ; preds = %_ZL8lean_incP11lean_object.exit629
   %.val.i891 = load i32, ptr %1019, align 4, !tbaa !16
@@ -6766,9 +6582,8 @@ _ZL8lean_incP11lean_object.exit628:               ; preds = %1027, %1026, %1024,
   %1028 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1029 = load ptr, ptr %1028, align 8, !tbaa !15
   %1030 = ptrtoint ptr %1029 to i64
-  %1031 = and i64 %1030, 1
-  %.not1084 = icmp eq i64 %1031, 0
-  br i1 %.not1084, label %1032, label %_ZL8lean_incP11lean_object.exit627
+  %1031 = trunc i64 %1030 to i1
+  br i1 %1031, label %_ZL8lean_incP11lean_object.exit627, label %1032
 
 1032:                                             ; preds = %_ZL8lean_incP11lean_object.exit628
   %.val.i894 = load i32, ptr %1029, align 4, !tbaa !16
@@ -6792,9 +6607,8 @@ _ZL8lean_incP11lean_object.exit627:               ; preds = %1037, %1036, %1034,
   %1038 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1039 = load ptr, ptr %1038, align 8, !tbaa !15
   %1040 = ptrtoint ptr %1039 to i64
-  %1041 = and i64 %1040, 1
-  %.not1085 = icmp eq i64 %1041, 0
-  br i1 %.not1085, label %1042, label %_ZL8lean_incP11lean_object.exit626
+  %1041 = trunc i64 %1040 to i1
+  br i1 %1041, label %_ZL8lean_incP11lean_object.exit626, label %1042
 
 1042:                                             ; preds = %_ZL8lean_incP11lean_object.exit627
   %.val.i897 = load i32, ptr %1039, align 4, !tbaa !16
@@ -6818,9 +6632,8 @@ _ZL8lean_incP11lean_object.exit626:               ; preds = %1047, %1046, %1044,
   %1048 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1049 = load ptr, ptr %1048, align 8, !tbaa !15
   %1050 = ptrtoint ptr %1049 to i64
-  %1051 = and i64 %1050, 1
-  %.not1086 = icmp eq i64 %1051, 0
-  br i1 %.not1086, label %1052, label %_ZL8lean_incP11lean_object.exit625
+  %1051 = trunc i64 %1050 to i1
+  br i1 %1051, label %_ZL8lean_incP11lean_object.exit625, label %1052
 
 1052:                                             ; preds = %_ZL8lean_incP11lean_object.exit626
   %.val.i900 = load i32, ptr %1049, align 4, !tbaa !16
@@ -6844,9 +6657,8 @@ _ZL8lean_incP11lean_object.exit625:               ; preds = %1057, %1056, %1054,
   %1058 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1059 = load ptr, ptr %1058, align 8, !tbaa !15
   %1060 = ptrtoint ptr %1059 to i64
-  %1061 = and i64 %1060, 1
-  %.not1087 = icmp eq i64 %1061, 0
-  br i1 %.not1087, label %1062, label %_ZL8lean_incP11lean_object.exit624
+  %1061 = trunc i64 %1060 to i1
+  br i1 %1061, label %_ZL8lean_incP11lean_object.exit624, label %1062
 
 1062:                                             ; preds = %_ZL8lean_incP11lean_object.exit625
   %.val.i903 = load i32, ptr %1059, align 4, !tbaa !16
@@ -6870,9 +6682,8 @@ _ZL8lean_incP11lean_object.exit624:               ; preds = %1067, %1066, %1064,
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1069 = load ptr, ptr %1068, align 8, !tbaa !15
   %1070 = ptrtoint ptr %1069 to i64
-  %1071 = and i64 %1070, 1
-  %.not1088 = icmp eq i64 %1071, 0
-  br i1 %.not1088, label %1072, label %_ZL8lean_incP11lean_object.exit623
+  %1071 = trunc i64 %1070 to i1
+  br i1 %1071, label %_ZL8lean_incP11lean_object.exit623, label %1072
 
 1072:                                             ; preds = %_ZL8lean_incP11lean_object.exit624
   %.val.i906 = load i32, ptr %1069, align 4, !tbaa !16
@@ -6896,9 +6707,8 @@ _ZL8lean_incP11lean_object.exit623:               ; preds = %1077, %1076, %1074,
   %1078 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1079 = load ptr, ptr %1078, align 8, !tbaa !15
   %1080 = ptrtoint ptr %1079 to i64
-  %1081 = and i64 %1080, 1
-  %.not1089 = icmp eq i64 %1081, 0
-  br i1 %.not1089, label %1082, label %_ZL8lean_incP11lean_object.exit622
+  %1081 = trunc i64 %1080 to i1
+  br i1 %1081, label %_ZL8lean_incP11lean_object.exit622, label %1082
 
 1082:                                             ; preds = %_ZL8lean_incP11lean_object.exit623
   %.val.i909 = load i32, ptr %1079, align 4, !tbaa !16
@@ -6922,9 +6732,8 @@ _ZL8lean_incP11lean_object.exit622:               ; preds = %1087, %1086, %1084,
   %1088 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1089 = load ptr, ptr %1088, align 8, !tbaa !15
   %1090 = ptrtoint ptr %1089 to i64
-  %1091 = and i64 %1090, 1
-  %.not1090 = icmp eq i64 %1091, 0
-  br i1 %.not1090, label %1092, label %_ZL8lean_incP11lean_object.exit621
+  %1091 = trunc i64 %1090 to i1
+  br i1 %1091, label %_ZL8lean_incP11lean_object.exit621, label %1092
 
 1092:                                             ; preds = %_ZL8lean_incP11lean_object.exit622
   %.val.i912 = load i32, ptr %1089, align 4, !tbaa !16
@@ -6948,9 +6757,8 @@ _ZL8lean_incP11lean_object.exit621:               ; preds = %1097, %1096, %1094,
   %1098 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1099 = load ptr, ptr %1098, align 8, !tbaa !15
   %1100 = ptrtoint ptr %1099 to i64
-  %1101 = and i64 %1100, 1
-  %.not1091 = icmp eq i64 %1101, 0
-  br i1 %.not1091, label %1102, label %_ZL8lean_incP11lean_object.exit620
+  %1101 = trunc i64 %1100 to i1
+  br i1 %1101, label %_ZL8lean_incP11lean_object.exit620, label %1102
 
 1102:                                             ; preds = %_ZL8lean_incP11lean_object.exit621
   %.val.i915 = load i32, ptr %1099, align 4, !tbaa !16
@@ -6968,11 +6776,11 @@ _ZL8lean_incP11lean_object.exit621:               ; preds = %1097, %1096, %1094,
 
 1107:                                             ; preds = %1106
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1099)
-  %.pre1178 = load ptr, ptr %1098, align 8, !tbaa !15
+  %.pre1068 = load ptr, ptr %1098, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit620
 
 _ZL8lean_incP11lean_object.exit620:               ; preds = %1107, %1106, %1104, %_ZL8lean_incP11lean_object.exit621
-  %1108 = phi ptr [ %.pre1178, %1107 ], [ %1099, %1106 ], [ %1099, %1104 ], [ %1099, %_ZL8lean_incP11lean_object.exit621 ]
+  %1108 = phi ptr [ %.pre1068, %1107 ], [ %1099, %1106 ], [ %1099, %1104 ], [ %1099, %_ZL8lean_incP11lean_object.exit621 ]
   %1109 = getelementptr i8, ptr %0, i64 8
   %.val692 = load ptr, ptr %1109, align 8, !tbaa !15
   %1110 = load ptr, ptr %998, align 8, !tbaa !15
@@ -7007,9 +6815,8 @@ _ZL8lean_incP11lean_object.exit620:               ; preds = %1107, %1106, %1104,
   %1128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1129 = load ptr, ptr %1128, align 8, !tbaa !15
   %1130 = ptrtoint ptr %1129 to i64
-  %1131 = and i64 %1130, 1
-  %.not1069 = icmp eq i64 %1131, 0
-  br i1 %.not1069, label %1132, label %_ZL8lean_incP11lean_object.exit619
+  %1131 = trunc i64 %1130 to i1
+  br i1 %1131, label %_ZL8lean_incP11lean_object.exit619, label %1132
 
 1132:                                             ; preds = %1127
   %.val.i918 = load i32, ptr %1129, align 4, !tbaa !16
@@ -7033,9 +6840,8 @@ _ZL8lean_incP11lean_object.exit619:               ; preds = %1137, %1136, %1134,
   %1138 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1139 = load ptr, ptr %1138, align 8, !tbaa !15
   %1140 = ptrtoint ptr %1139 to i64
-  %1141 = and i64 %1140, 1
-  %.not1070 = icmp eq i64 %1141, 0
-  br i1 %.not1070, label %1142, label %_ZL8lean_incP11lean_object.exit618
+  %1141 = trunc i64 %1140 to i1
+  br i1 %1141, label %_ZL8lean_incP11lean_object.exit618, label %1142
 
 1142:                                             ; preds = %_ZL8lean_incP11lean_object.exit619
   %.val.i921 = load i32, ptr %1139, align 4, !tbaa !16
@@ -7059,9 +6865,8 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %1147, %1146, %1144,
   %1148 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1149 = load ptr, ptr %1148, align 8, !tbaa !15
   %1150 = ptrtoint ptr %1149 to i64
-  %1151 = and i64 %1150, 1
-  %.not1071 = icmp eq i64 %1151, 0
-  br i1 %.not1071, label %1152, label %_ZL8lean_incP11lean_object.exit617
+  %1151 = trunc i64 %1150 to i1
+  br i1 %1151, label %_ZL8lean_incP11lean_object.exit617, label %1152
 
 1152:                                             ; preds = %_ZL8lean_incP11lean_object.exit618
   %.val.i924 = load i32, ptr %1149, align 4, !tbaa !16
@@ -7085,9 +6890,8 @@ _ZL8lean_incP11lean_object.exit617:               ; preds = %1157, %1156, %1154,
   %1158 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1159 = load ptr, ptr %1158, align 8, !tbaa !15
   %1160 = ptrtoint ptr %1159 to i64
-  %1161 = and i64 %1160, 1
-  %.not1072 = icmp eq i64 %1161, 0
-  br i1 %.not1072, label %1162, label %_ZL8lean_incP11lean_object.exit616
+  %1161 = trunc i64 %1160 to i1
+  br i1 %1161, label %_ZL8lean_incP11lean_object.exit616, label %1162
 
 1162:                                             ; preds = %_ZL8lean_incP11lean_object.exit617
   %.val.i927 = load i32, ptr %1159, align 4, !tbaa !16
@@ -7111,9 +6915,8 @@ _ZL8lean_incP11lean_object.exit616:               ; preds = %1167, %1166, %1164,
   %1168 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1169 = load ptr, ptr %1168, align 8, !tbaa !15
   %1170 = ptrtoint ptr %1169 to i64
-  %1171 = and i64 %1170, 1
-  %.not1073 = icmp eq i64 %1171, 0
-  br i1 %.not1073, label %1172, label %_ZL8lean_incP11lean_object.exit615
+  %1171 = trunc i64 %1170 to i1
+  br i1 %1171, label %_ZL8lean_incP11lean_object.exit615, label %1172
 
 1172:                                             ; preds = %_ZL8lean_incP11lean_object.exit616
   %.val.i930 = load i32, ptr %1169, align 4, !tbaa !16
@@ -7137,9 +6940,8 @@ _ZL8lean_incP11lean_object.exit615:               ; preds = %1177, %1176, %1174,
   %1178 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1179 = load ptr, ptr %1178, align 8, !tbaa !15
   %1180 = ptrtoint ptr %1179 to i64
-  %1181 = and i64 %1180, 1
-  %.not1074 = icmp eq i64 %1181, 0
-  br i1 %.not1074, label %1182, label %_ZL8lean_incP11lean_object.exit614
+  %1181 = trunc i64 %1180 to i1
+  br i1 %1181, label %_ZL8lean_incP11lean_object.exit614, label %1182
 
 1182:                                             ; preds = %_ZL8lean_incP11lean_object.exit615
   %.val.i933 = load i32, ptr %1179, align 4, !tbaa !16
@@ -7163,9 +6965,8 @@ _ZL8lean_incP11lean_object.exit614:               ; preds = %1187, %1186, %1184,
   %1188 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1189 = load ptr, ptr %1188, align 8, !tbaa !15
   %1190 = ptrtoint ptr %1189 to i64
-  %1191 = and i64 %1190, 1
-  %.not1075 = icmp eq i64 %1191, 0
-  br i1 %.not1075, label %1192, label %_ZL8lean_incP11lean_object.exit613
+  %1191 = trunc i64 %1190 to i1
+  br i1 %1191, label %_ZL8lean_incP11lean_object.exit613, label %1192
 
 1192:                                             ; preds = %_ZL8lean_incP11lean_object.exit614
   %.val.i936 = load i32, ptr %1189, align 4, !tbaa !16
@@ -7189,9 +6990,8 @@ _ZL8lean_incP11lean_object.exit613:               ; preds = %1197, %1196, %1194,
   %1198 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1199 = load ptr, ptr %1198, align 8, !tbaa !15
   %1200 = ptrtoint ptr %1199 to i64
-  %1201 = and i64 %1200, 1
-  %.not1076 = icmp eq i64 %1201, 0
-  br i1 %.not1076, label %1202, label %_ZL8lean_incP11lean_object.exit612
+  %1201 = trunc i64 %1200 to i1
+  br i1 %1201, label %_ZL8lean_incP11lean_object.exit612, label %1202
 
 1202:                                             ; preds = %_ZL8lean_incP11lean_object.exit613
   %.val.i939 = load i32, ptr %1199, align 4, !tbaa !16
@@ -7215,9 +7015,8 @@ _ZL8lean_incP11lean_object.exit612:               ; preds = %1207, %1206, %1204,
   %1208 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1209 = load ptr, ptr %1208, align 8, !tbaa !15
   %1210 = ptrtoint ptr %1209 to i64
-  %1211 = and i64 %1210, 1
-  %.not1077 = icmp eq i64 %1211, 0
-  br i1 %.not1077, label %1212, label %_ZL8lean_incP11lean_object.exit611
+  %1211 = trunc i64 %1210 to i1
+  br i1 %1211, label %_ZL8lean_incP11lean_object.exit611, label %1212
 
 1212:                                             ; preds = %_ZL8lean_incP11lean_object.exit612
   %.val.i942 = load i32, ptr %1209, align 4, !tbaa !16
@@ -7241,9 +7040,8 @@ _ZL8lean_incP11lean_object.exit611:               ; preds = %1217, %1216, %1214,
   %1218 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1219 = load ptr, ptr %1218, align 8, !tbaa !15
   %1220 = ptrtoint ptr %1219 to i64
-  %1221 = and i64 %1220, 1
-  %.not1078 = icmp eq i64 %1221, 0
-  br i1 %.not1078, label %1222, label %_ZL8lean_incP11lean_object.exit610
+  %1221 = trunc i64 %1220 to i1
+  br i1 %1221, label %_ZL8lean_incP11lean_object.exit610, label %1222
 
 1222:                                             ; preds = %_ZL8lean_incP11lean_object.exit611
   %.val.i945 = load i32, ptr %1219, align 4, !tbaa !16
@@ -7267,9 +7065,8 @@ _ZL8lean_incP11lean_object.exit610:               ; preds = %1227, %1226, %1224,
   %1228 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1229 = load ptr, ptr %1228, align 8, !tbaa !15
   %1230 = ptrtoint ptr %1229 to i64
-  %1231 = and i64 %1230, 1
-  %.not1079 = icmp eq i64 %1231, 0
-  br i1 %.not1079, label %1232, label %_ZL8lean_incP11lean_object.exit609
+  %1231 = trunc i64 %1230 to i1
+  br i1 %1231, label %_ZL8lean_incP11lean_object.exit609, label %1232
 
 1232:                                             ; preds = %_ZL8lean_incP11lean_object.exit610
   %.val.i948 = load i32, ptr %1229, align 4, !tbaa !16
@@ -7293,9 +7090,8 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %1237, %1236, %1234,
   %1238 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1239 = load ptr, ptr %1238, align 8, !tbaa !15
   %1240 = ptrtoint ptr %1239 to i64
-  %1241 = and i64 %1240, 1
-  %.not1080 = icmp eq i64 %1241, 0
-  br i1 %.not1080, label %1242, label %_ZL8lean_incP11lean_object.exit608
+  %1241 = trunc i64 %1240 to i1
+  br i1 %1241, label %_ZL8lean_incP11lean_object.exit608, label %1242
 
 1242:                                             ; preds = %_ZL8lean_incP11lean_object.exit609
   %.val.i951 = load i32, ptr %1239, align 4, !tbaa !16
@@ -7313,11 +7109,11 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %1237, %1236, %1234,
 
 1247:                                             ; preds = %1246
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1239)
-  %.pre1177 = load ptr, ptr %1238, align 8, !tbaa !15
+  %.pre1067 = load ptr, ptr %1238, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit608
 
 _ZL8lean_incP11lean_object.exit608:               ; preds = %1247, %1246, %1244, %_ZL8lean_incP11lean_object.exit609
-  %1248 = phi ptr [ %.pre1177, %1247 ], [ %1239, %1246 ], [ %1239, %1244 ], [ %1239, %_ZL8lean_incP11lean_object.exit609 ]
+  %1248 = phi ptr [ %.pre1067, %1247 ], [ %1239, %1246 ], [ %1239, %1244 ], [ %1239, %_ZL8lean_incP11lean_object.exit609 ]
   %1249 = getelementptr i8, ptr %0, i64 8
   %.val691 = load ptr, ptr %1249, align 8, !tbaa !15
   %1250 = load ptr, ptr %1128, align 8, !tbaa !15
@@ -7353,9 +7149,8 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %1247, %1246, %1244,
   %1269 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1270 = load ptr, ptr %1269, align 8, !tbaa !15
   %1271 = ptrtoint ptr %1270 to i64
-  %1272 = and i64 %1271, 1
-  %.not1056 = icmp eq i64 %1272, 0
-  br i1 %.not1056, label %1273, label %_ZL8lean_incP11lean_object.exit607
+  %1272 = trunc i64 %1271 to i1
+  br i1 %1272, label %_ZL8lean_incP11lean_object.exit607, label %1273
 
 1273:                                             ; preds = %1268
   %.val.i954 = load i32, ptr %1270, align 4, !tbaa !16
@@ -7379,9 +7174,8 @@ _ZL8lean_incP11lean_object.exit607:               ; preds = %1278, %1277, %1275,
   %1279 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1280 = load ptr, ptr %1279, align 8, !tbaa !15
   %1281 = ptrtoint ptr %1280 to i64
-  %1282 = and i64 %1281, 1
-  %.not1057 = icmp eq i64 %1282, 0
-  br i1 %.not1057, label %1283, label %_ZL8lean_incP11lean_object.exit606
+  %1282 = trunc i64 %1281 to i1
+  br i1 %1282, label %_ZL8lean_incP11lean_object.exit606, label %1283
 
 1283:                                             ; preds = %_ZL8lean_incP11lean_object.exit607
   %.val.i957 = load i32, ptr %1280, align 4, !tbaa !16
@@ -7405,9 +7199,8 @@ _ZL8lean_incP11lean_object.exit606:               ; preds = %1288, %1287, %1285,
   %1289 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1290 = load ptr, ptr %1289, align 8, !tbaa !15
   %1291 = ptrtoint ptr %1290 to i64
-  %1292 = and i64 %1291, 1
-  %.not1058 = icmp eq i64 %1292, 0
-  br i1 %.not1058, label %1293, label %_ZL8lean_incP11lean_object.exit605
+  %1292 = trunc i64 %1291 to i1
+  br i1 %1292, label %_ZL8lean_incP11lean_object.exit605, label %1293
 
 1293:                                             ; preds = %_ZL8lean_incP11lean_object.exit606
   %.val.i960 = load i32, ptr %1290, align 4, !tbaa !16
@@ -7431,9 +7224,8 @@ _ZL8lean_incP11lean_object.exit605:               ; preds = %1298, %1297, %1295,
   %1299 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1300 = load ptr, ptr %1299, align 8, !tbaa !15
   %1301 = ptrtoint ptr %1300 to i64
-  %1302 = and i64 %1301, 1
-  %.not1059 = icmp eq i64 %1302, 0
-  br i1 %.not1059, label %1303, label %_ZL8lean_incP11lean_object.exit604
+  %1302 = trunc i64 %1301 to i1
+  br i1 %1302, label %_ZL8lean_incP11lean_object.exit604, label %1303
 
 1303:                                             ; preds = %_ZL8lean_incP11lean_object.exit605
   %.val.i963 = load i32, ptr %1300, align 4, !tbaa !16
@@ -7457,9 +7249,8 @@ _ZL8lean_incP11lean_object.exit604:               ; preds = %1308, %1307, %1305,
   %1309 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1310 = load ptr, ptr %1309, align 8, !tbaa !15
   %1311 = ptrtoint ptr %1310 to i64
-  %1312 = and i64 %1311, 1
-  %.not1060 = icmp eq i64 %1312, 0
-  br i1 %.not1060, label %1313, label %_ZL8lean_incP11lean_object.exit603
+  %1312 = trunc i64 %1311 to i1
+  br i1 %1312, label %_ZL8lean_incP11lean_object.exit603, label %1313
 
 1313:                                             ; preds = %_ZL8lean_incP11lean_object.exit604
   %.val.i966 = load i32, ptr %1310, align 4, !tbaa !16
@@ -7483,9 +7274,8 @@ _ZL8lean_incP11lean_object.exit603:               ; preds = %1318, %1317, %1315,
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1320 = load ptr, ptr %1319, align 8, !tbaa !15
   %1321 = ptrtoint ptr %1320 to i64
-  %1322 = and i64 %1321, 1
-  %.not1061 = icmp eq i64 %1322, 0
-  br i1 %.not1061, label %1323, label %_ZL8lean_incP11lean_object.exit602
+  %1322 = trunc i64 %1321 to i1
+  br i1 %1322, label %_ZL8lean_incP11lean_object.exit602, label %1323
 
 1323:                                             ; preds = %_ZL8lean_incP11lean_object.exit603
   %.val.i969 = load i32, ptr %1320, align 4, !tbaa !16
@@ -7509,9 +7299,8 @@ _ZL8lean_incP11lean_object.exit602:               ; preds = %1328, %1327, %1325,
   %1329 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1330 = load ptr, ptr %1329, align 8, !tbaa !15
   %1331 = ptrtoint ptr %1330 to i64
-  %1332 = and i64 %1331, 1
-  %.not1062 = icmp eq i64 %1332, 0
-  br i1 %.not1062, label %1333, label %_ZL8lean_incP11lean_object.exit601
+  %1332 = trunc i64 %1331 to i1
+  br i1 %1332, label %_ZL8lean_incP11lean_object.exit601, label %1333
 
 1333:                                             ; preds = %_ZL8lean_incP11lean_object.exit602
   %.val.i972 = load i32, ptr %1330, align 4, !tbaa !16
@@ -7535,9 +7324,8 @@ _ZL8lean_incP11lean_object.exit601:               ; preds = %1338, %1337, %1335,
   %1339 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1340 = load ptr, ptr %1339, align 8, !tbaa !15
   %1341 = ptrtoint ptr %1340 to i64
-  %1342 = and i64 %1341, 1
-  %.not1063 = icmp eq i64 %1342, 0
-  br i1 %.not1063, label %1343, label %_ZL8lean_incP11lean_object.exit600
+  %1342 = trunc i64 %1341 to i1
+  br i1 %1342, label %_ZL8lean_incP11lean_object.exit600, label %1343
 
 1343:                                             ; preds = %_ZL8lean_incP11lean_object.exit601
   %.val.i975 = load i32, ptr %1340, align 4, !tbaa !16
@@ -7561,9 +7349,8 @@ _ZL8lean_incP11lean_object.exit600:               ; preds = %1348, %1347, %1345,
   %1349 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1350 = load ptr, ptr %1349, align 8, !tbaa !15
   %1351 = ptrtoint ptr %1350 to i64
-  %1352 = and i64 %1351, 1
-  %.not1064 = icmp eq i64 %1352, 0
-  br i1 %.not1064, label %1353, label %_ZL8lean_incP11lean_object.exit599
+  %1352 = trunc i64 %1351 to i1
+  br i1 %1352, label %_ZL8lean_incP11lean_object.exit599, label %1353
 
 1353:                                             ; preds = %_ZL8lean_incP11lean_object.exit600
   %.val.i978 = load i32, ptr %1350, align 4, !tbaa !16
@@ -7587,9 +7374,8 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %1358, %1357, %1355,
   %1359 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1360 = load ptr, ptr %1359, align 8, !tbaa !15
   %1361 = ptrtoint ptr %1360 to i64
-  %1362 = and i64 %1361, 1
-  %.not1065 = icmp eq i64 %1362, 0
-  br i1 %.not1065, label %1363, label %_ZL8lean_incP11lean_object.exit598
+  %1362 = trunc i64 %1361 to i1
+  br i1 %1362, label %_ZL8lean_incP11lean_object.exit598, label %1363
 
 1363:                                             ; preds = %_ZL8lean_incP11lean_object.exit599
   %.val.i981 = load i32, ptr %1360, align 4, !tbaa !16
@@ -7613,9 +7399,8 @@ _ZL8lean_incP11lean_object.exit598:               ; preds = %1368, %1367, %1365,
   %1369 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1370 = load ptr, ptr %1369, align 8, !tbaa !15
   %1371 = ptrtoint ptr %1370 to i64
-  %1372 = and i64 %1371, 1
-  %.not1066 = icmp eq i64 %1372, 0
-  br i1 %.not1066, label %1373, label %_ZL8lean_incP11lean_object.exit597
+  %1372 = trunc i64 %1371 to i1
+  br i1 %1372, label %_ZL8lean_incP11lean_object.exit597, label %1373
 
 1373:                                             ; preds = %_ZL8lean_incP11lean_object.exit598
   %.val.i984 = load i32, ptr %1370, align 4, !tbaa !16
@@ -7639,9 +7424,8 @@ _ZL8lean_incP11lean_object.exit597:               ; preds = %1378, %1377, %1375,
   %1379 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1380 = load ptr, ptr %1379, align 8, !tbaa !15
   %1381 = ptrtoint ptr %1380 to i64
-  %1382 = and i64 %1381, 1
-  %.not1067 = icmp eq i64 %1382, 0
-  br i1 %.not1067, label %1383, label %_ZL8lean_incP11lean_object.exit596
+  %1382 = trunc i64 %1381 to i1
+  br i1 %1382, label %_ZL8lean_incP11lean_object.exit596, label %1383
 
 1383:                                             ; preds = %_ZL8lean_incP11lean_object.exit597
   %.val.i987 = load i32, ptr %1380, align 4, !tbaa !16
@@ -7665,9 +7449,8 @@ _ZL8lean_incP11lean_object.exit596:               ; preds = %1388, %1387, %1385,
   %1389 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1390 = load ptr, ptr %1389, align 8, !tbaa !15
   %1391 = ptrtoint ptr %1390 to i64
-  %1392 = and i64 %1391, 1
-  %.not1068 = icmp eq i64 %1392, 0
-  br i1 %.not1068, label %1393, label %_ZL8lean_incP11lean_object.exit595
+  %1392 = trunc i64 %1391 to i1
+  br i1 %1392, label %_ZL8lean_incP11lean_object.exit595, label %1393
 
 1393:                                             ; preds = %_ZL8lean_incP11lean_object.exit596
   %.val.i990 = load i32, ptr %1390, align 4, !tbaa !16
@@ -7685,11 +7468,11 @@ _ZL8lean_incP11lean_object.exit596:               ; preds = %1388, %1387, %1385,
 
 1398:                                             ; preds = %1397
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1390)
-  %.pre1176 = load ptr, ptr %1389, align 8, !tbaa !15
+  %.pre1066 = load ptr, ptr %1389, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit595
 
 _ZL8lean_incP11lean_object.exit595:               ; preds = %1398, %1397, %1395, %_ZL8lean_incP11lean_object.exit596
-  %1399 = phi ptr [ %.pre1176, %1398 ], [ %1390, %1397 ], [ %1390, %1395 ], [ %1390, %_ZL8lean_incP11lean_object.exit596 ]
+  %1399 = phi ptr [ %.pre1066, %1398 ], [ %1390, %1397 ], [ %1390, %1395 ], [ %1390, %_ZL8lean_incP11lean_object.exit596 ]
   %1400 = getelementptr i8, ptr %0, i64 8
   %.val690 = load ptr, ptr %1400, align 8, !tbaa !15
   %1401 = load ptr, ptr %1269, align 8, !tbaa !15
@@ -7726,9 +7509,8 @@ _ZL8lean_incP11lean_object.exit595:               ; preds = %1398, %1397, %1395,
   %1421 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1422 = load ptr, ptr %1421, align 8, !tbaa !15
   %1423 = ptrtoint ptr %1422 to i64
-  %1424 = and i64 %1423, 1
-  %.not1042 = icmp eq i64 %1424, 0
-  br i1 %.not1042, label %1425, label %_ZL8lean_incP11lean_object.exit594
+  %1424 = trunc i64 %1423 to i1
+  br i1 %1424, label %_ZL8lean_incP11lean_object.exit594, label %1425
 
 1425:                                             ; preds = %1420
   %.val.i993 = load i32, ptr %1422, align 4, !tbaa !16
@@ -7752,9 +7534,8 @@ _ZL8lean_incP11lean_object.exit594:               ; preds = %1430, %1429, %1427,
   %1431 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1432 = load ptr, ptr %1431, align 8, !tbaa !15
   %1433 = ptrtoint ptr %1432 to i64
-  %1434 = and i64 %1433, 1
-  %.not1043 = icmp eq i64 %1434, 0
-  br i1 %.not1043, label %1435, label %_ZL8lean_incP11lean_object.exit593
+  %1434 = trunc i64 %1433 to i1
+  br i1 %1434, label %_ZL8lean_incP11lean_object.exit593, label %1435
 
 1435:                                             ; preds = %_ZL8lean_incP11lean_object.exit594
   %.val.i996 = load i32, ptr %1432, align 4, !tbaa !16
@@ -7778,9 +7559,8 @@ _ZL8lean_incP11lean_object.exit593:               ; preds = %1440, %1439, %1437,
   %1441 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1442 = load ptr, ptr %1441, align 8, !tbaa !15
   %1443 = ptrtoint ptr %1442 to i64
-  %1444 = and i64 %1443, 1
-  %.not1044 = icmp eq i64 %1444, 0
-  br i1 %.not1044, label %1445, label %_ZL8lean_incP11lean_object.exit592
+  %1444 = trunc i64 %1443 to i1
+  br i1 %1444, label %_ZL8lean_incP11lean_object.exit592, label %1445
 
 1445:                                             ; preds = %_ZL8lean_incP11lean_object.exit593
   %.val.i999 = load i32, ptr %1442, align 4, !tbaa !16
@@ -7804,9 +7584,8 @@ _ZL8lean_incP11lean_object.exit592:               ; preds = %1450, %1449, %1447,
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1452 = load ptr, ptr %1451, align 8, !tbaa !15
   %1453 = ptrtoint ptr %1452 to i64
-  %1454 = and i64 %1453, 1
-  %.not1045 = icmp eq i64 %1454, 0
-  br i1 %.not1045, label %1455, label %_ZL8lean_incP11lean_object.exit591
+  %1454 = trunc i64 %1453 to i1
+  br i1 %1454, label %_ZL8lean_incP11lean_object.exit591, label %1455
 
 1455:                                             ; preds = %_ZL8lean_incP11lean_object.exit592
   %.val.i1002 = load i32, ptr %1452, align 4, !tbaa !16
@@ -7830,9 +7609,8 @@ _ZL8lean_incP11lean_object.exit591:               ; preds = %1460, %1459, %1457,
   %1461 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1462 = load ptr, ptr %1461, align 8, !tbaa !15
   %1463 = ptrtoint ptr %1462 to i64
-  %1464 = and i64 %1463, 1
-  %.not1046 = icmp eq i64 %1464, 0
-  br i1 %.not1046, label %1465, label %_ZL8lean_incP11lean_object.exit590
+  %1464 = trunc i64 %1463 to i1
+  br i1 %1464, label %_ZL8lean_incP11lean_object.exit590, label %1465
 
 1465:                                             ; preds = %_ZL8lean_incP11lean_object.exit591
   %.val.i1005 = load i32, ptr %1462, align 4, !tbaa !16
@@ -7856,9 +7634,8 @@ _ZL8lean_incP11lean_object.exit590:               ; preds = %1470, %1469, %1467,
   %1471 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1472 = load ptr, ptr %1471, align 8, !tbaa !15
   %1473 = ptrtoint ptr %1472 to i64
-  %1474 = and i64 %1473, 1
-  %.not1047 = icmp eq i64 %1474, 0
-  br i1 %.not1047, label %1475, label %_ZL8lean_incP11lean_object.exit589
+  %1474 = trunc i64 %1473 to i1
+  br i1 %1474, label %_ZL8lean_incP11lean_object.exit589, label %1475
 
 1475:                                             ; preds = %_ZL8lean_incP11lean_object.exit590
   %.val.i1008 = load i32, ptr %1472, align 4, !tbaa !16
@@ -7882,9 +7659,8 @@ _ZL8lean_incP11lean_object.exit589:               ; preds = %1480, %1479, %1477,
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1482 = load ptr, ptr %1481, align 8, !tbaa !15
   %1483 = ptrtoint ptr %1482 to i64
-  %1484 = and i64 %1483, 1
-  %.not1048 = icmp eq i64 %1484, 0
-  br i1 %.not1048, label %1485, label %_ZL8lean_incP11lean_object.exit588
+  %1484 = trunc i64 %1483 to i1
+  br i1 %1484, label %_ZL8lean_incP11lean_object.exit588, label %1485
 
 1485:                                             ; preds = %_ZL8lean_incP11lean_object.exit589
   %.val.i1011 = load i32, ptr %1482, align 4, !tbaa !16
@@ -7908,9 +7684,8 @@ _ZL8lean_incP11lean_object.exit588:               ; preds = %1490, %1489, %1487,
   %1491 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1492 = load ptr, ptr %1491, align 8, !tbaa !15
   %1493 = ptrtoint ptr %1492 to i64
-  %1494 = and i64 %1493, 1
-  %.not1049 = icmp eq i64 %1494, 0
-  br i1 %.not1049, label %1495, label %_ZL8lean_incP11lean_object.exit587
+  %1494 = trunc i64 %1493 to i1
+  br i1 %1494, label %_ZL8lean_incP11lean_object.exit587, label %1495
 
 1495:                                             ; preds = %_ZL8lean_incP11lean_object.exit588
   %.val.i1014 = load i32, ptr %1492, align 4, !tbaa !16
@@ -7934,9 +7709,8 @@ _ZL8lean_incP11lean_object.exit587:               ; preds = %1500, %1499, %1497,
   %1501 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1502 = load ptr, ptr %1501, align 8, !tbaa !15
   %1503 = ptrtoint ptr %1502 to i64
-  %1504 = and i64 %1503, 1
-  %.not1050 = icmp eq i64 %1504, 0
-  br i1 %.not1050, label %1505, label %_ZL8lean_incP11lean_object.exit586
+  %1504 = trunc i64 %1503 to i1
+  br i1 %1504, label %_ZL8lean_incP11lean_object.exit586, label %1505
 
 1505:                                             ; preds = %_ZL8lean_incP11lean_object.exit587
   %.val.i1017 = load i32, ptr %1502, align 4, !tbaa !16
@@ -7960,9 +7734,8 @@ _ZL8lean_incP11lean_object.exit586:               ; preds = %1510, %1509, %1507,
   %1511 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1512 = load ptr, ptr %1511, align 8, !tbaa !15
   %1513 = ptrtoint ptr %1512 to i64
-  %1514 = and i64 %1513, 1
-  %.not1051 = icmp eq i64 %1514, 0
-  br i1 %.not1051, label %1515, label %_ZL8lean_incP11lean_object.exit585
+  %1514 = trunc i64 %1513 to i1
+  br i1 %1514, label %_ZL8lean_incP11lean_object.exit585, label %1515
 
 1515:                                             ; preds = %_ZL8lean_incP11lean_object.exit586
   %.val.i1020 = load i32, ptr %1512, align 4, !tbaa !16
@@ -7986,9 +7759,8 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %1520, %1519, %1517,
   %1521 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1522 = load ptr, ptr %1521, align 8, !tbaa !15
   %1523 = ptrtoint ptr %1522 to i64
-  %1524 = and i64 %1523, 1
-  %.not1052 = icmp eq i64 %1524, 0
-  br i1 %.not1052, label %1525, label %_ZL8lean_incP11lean_object.exit584
+  %1524 = trunc i64 %1523 to i1
+  br i1 %1524, label %_ZL8lean_incP11lean_object.exit584, label %1525
 
 1525:                                             ; preds = %_ZL8lean_incP11lean_object.exit585
   %.val.i1023 = load i32, ptr %1522, align 4, !tbaa !16
@@ -8012,9 +7784,8 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %1530, %1529, %1527,
   %1531 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1532 = load ptr, ptr %1531, align 8, !tbaa !15
   %1533 = ptrtoint ptr %1532 to i64
-  %1534 = and i64 %1533, 1
-  %.not1053 = icmp eq i64 %1534, 0
-  br i1 %.not1053, label %1535, label %_ZL8lean_incP11lean_object.exit583
+  %1534 = trunc i64 %1533 to i1
+  br i1 %1534, label %_ZL8lean_incP11lean_object.exit583, label %1535
 
 1535:                                             ; preds = %_ZL8lean_incP11lean_object.exit584
   %.val.i1026 = load i32, ptr %1532, align 4, !tbaa !16
@@ -8038,9 +7809,8 @@ _ZL8lean_incP11lean_object.exit583:               ; preds = %1540, %1539, %1537,
   %1541 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1542 = load ptr, ptr %1541, align 8, !tbaa !15
   %1543 = ptrtoint ptr %1542 to i64
-  %1544 = and i64 %1543, 1
-  %.not1054 = icmp eq i64 %1544, 0
-  br i1 %.not1054, label %1545, label %_ZL8lean_incP11lean_object.exit582
+  %1544 = trunc i64 %1543 to i1
+  br i1 %1544, label %_ZL8lean_incP11lean_object.exit582, label %1545
 
 1545:                                             ; preds = %_ZL8lean_incP11lean_object.exit583
   %.val.i1029 = load i32, ptr %1542, align 4, !tbaa !16
@@ -8064,9 +7834,8 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %1550, %1549, %1547,
   %1551 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1552 = load ptr, ptr %1551, align 8, !tbaa !15
   %1553 = ptrtoint ptr %1552 to i64
-  %1554 = and i64 %1553, 1
-  %.not1055 = icmp eq i64 %1554, 0
-  br i1 %.not1055, label %1555, label %_ZL8lean_incP11lean_object.exit581
+  %1554 = trunc i64 %1553 to i1
+  br i1 %1554, label %_ZL8lean_incP11lean_object.exit581, label %1555
 
 1555:                                             ; preds = %_ZL8lean_incP11lean_object.exit582
   %.val.i1032 = load i32, ptr %1552, align 4, !tbaa !16
@@ -8084,11 +7853,11 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %1550, %1549, %1547,
 
 1560:                                             ; preds = %1559
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1552)
-  %.pre1175 = load ptr, ptr %1551, align 8, !tbaa !15
+  %.pre1065 = load ptr, ptr %1551, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit581
 
 _ZL8lean_incP11lean_object.exit581:               ; preds = %1560, %1559, %1557, %_ZL8lean_incP11lean_object.exit582
-  %1561 = phi ptr [ %.pre1175, %1560 ], [ %1552, %1559 ], [ %1552, %1557 ], [ %1552, %_ZL8lean_incP11lean_object.exit582 ]
+  %1561 = phi ptr [ %.pre1065, %1560 ], [ %1552, %1559 ], [ %1552, %1557 ], [ %1552, %_ZL8lean_incP11lean_object.exit582 ]
   %1562 = getelementptr i8, ptr %0, i64 8
   %.val689 = load ptr, ptr %1562, align 8, !tbaa !15
   %1563 = load ptr, ptr %1421, align 8, !tbaa !15
@@ -8126,12 +7895,12 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %1560, %1559, %1557,
   %1584 = shl nuw nsw i32 %29, 3
   %1585 = zext nneg i32 %1584 to i64
   %1586 = alloca i8, i64 %1585, align 16
-  %.not1160 = icmp eq i16 %.val686, 0
-  br i1 %.not1160, label %.preheader, label %.lr.ph1156
+  %.not1050 = icmp eq i16 %.val686, 0
+  br i1 %.not1050, label %.preheader, label %.lr.ph1047
 
-.lr.ph1156:                                       ; preds = %1583
+.lr.ph1047:                                       ; preds = %1583
   %1587 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count1170 = zext i16 %.val686 to i64
+  %wide.trip.count1060 = zext i16 %.val686 to i64
   br label %1594
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit580, %1583
@@ -8148,14 +7917,13 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %1560, %1559, %1557,
   %1593 = icmp sgt i32 %1592, 1
   br i1 %1593, label %1607, label %1609, !prof !19
 
-1594:                                             ; preds = %.lr.ph1156, %_ZL8lean_incP11lean_object.exit580
-  %indvars.iv1167 = phi i64 [ 0, %.lr.ph1156 ], [ %indvars.iv.next1168, %_ZL8lean_incP11lean_object.exit580 ]
-  %1595 = getelementptr inbounds nuw ptr, ptr %1587, i64 %indvars.iv1167
+1594:                                             ; preds = %.lr.ph1047, %_ZL8lean_incP11lean_object.exit580
+  %indvars.iv1057 = phi i64 [ 0, %.lr.ph1047 ], [ %indvars.iv.next1058, %_ZL8lean_incP11lean_object.exit580 ]
+  %1595 = getelementptr inbounds nuw ptr, ptr %1587, i64 %indvars.iv1057
   %1596 = load ptr, ptr %1595, align 8, !tbaa !15
   %1597 = ptrtoint ptr %1596 to i64
-  %1598 = and i64 %1597, 1
-  %.not1147 = icmp eq i64 %1598, 0
-  br i1 %.not1147, label %1599, label %_ZL8lean_incP11lean_object.exit580
+  %1598 = trunc i64 %1597 to i1
+  br i1 %1598, label %_ZL8lean_incP11lean_object.exit580, label %1599
 
 1599:                                             ; preds = %1594
   %.val.i1035 = load i32, ptr %1596, align 4, !tbaa !16
@@ -8173,16 +7941,16 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %1560, %1559, %1557,
 
 1604:                                             ; preds = %1603
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1596)
-  %.pre1189 = load ptr, ptr %1595, align 8, !tbaa !15
+  %.pre1079 = load ptr, ptr %1595, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit580
 
 _ZL8lean_incP11lean_object.exit580:               ; preds = %1604, %1603, %1601, %1594
-  %1605 = phi ptr [ %.pre1189, %1604 ], [ %1596, %1603 ], [ %1596, %1601 ], [ %1596, %1594 ]
-  %1606 = getelementptr inbounds nuw ptr, ptr %1586, i64 %indvars.iv1167
+  %1605 = phi ptr [ %.pre1079, %1604 ], [ %1596, %1603 ], [ %1596, %1601 ], [ %1596, %1594 ]
+  %1606 = getelementptr inbounds nuw ptr, ptr %1586, i64 %indvars.iv1057
   store ptr %1605, ptr %1606, align 8, !tbaa !15
-  %indvars.iv.next1168 = add nuw nsw i64 %indvars.iv1167, 1
-  %exitcond1171.not = icmp eq i64 %indvars.iv.next1168, %wide.trip.count1170
-  br i1 %exitcond1171.not, label %.preheader, label %1594, !llvm.loop !24
+  %indvars.iv.next1058 = add nuw nsw i64 %indvars.iv1057, 1
+  %exitcond1061.not = icmp eq i64 %indvars.iv.next1058, %wide.trip.count1060
+  br i1 %exitcond1061.not, label %.preheader, label %1594, !llvm.loop !24
 
 1607:                                             ; preds = %.preheader
   %1608 = add nsw i32 %1592, -1
@@ -8209,31 +7977,30 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %1604, %1603, %1601,
   %1615 = shl nuw nsw i32 %29, 3
   %1616 = zext nneg i32 %1615 to i64
   %1617 = alloca i8, i64 %1616, align 16
-  %.not1158 = icmp eq i16 %.val686, 0
-  br i1 %.not1158, label %.preheader1150, label %.lr.ph
+  %.not = icmp eq i16 %.val686, 0
+  br i1 %.not, label %.preheader1041, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1613
   %1618 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val686 to i64
   br label %1620
 
-.preheader1150:                                   ; preds = %_ZL8lean_incP11lean_object.exit, %1613
+.preheader1041:                                   ; preds = %_ZL8lean_incP11lean_object.exit, %1613
   %1619 = sub nsw i32 %29, %31
-  %.not1159 = icmp eq i16 %.val, %.val686
-  br i1 %.not1159, label %._crit_edge, label %.lr.ph1153.preheader
+  %.not1049 = icmp eq i16 %.val, %.val686
+  br i1 %.not1049, label %._crit_edge, label %.lr.ph1044.preheader
 
-.lr.ph1153.preheader:                             ; preds = %.preheader1150
-  %wide.trip.count1165 = zext i32 %1619 to i64
-  br label %.lr.ph1153
+.lr.ph1044.preheader:                             ; preds = %.preheader1041
+  %wide.trip.count1055 = zext i32 %1619 to i64
+  br label %.lr.ph1044
 
 1620:                                             ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %1621 = getelementptr inbounds nuw ptr, ptr %1618, i64 %indvars.iv
   %1622 = load ptr, ptr %1621, align 8, !tbaa !15
   %1623 = ptrtoint ptr %1622 to i64
-  %1624 = and i64 %1623, 1
-  %.not1041 = icmp eq i64 %1624, 0
-  br i1 %.not1041, label %1625, label %_ZL8lean_incP11lean_object.exit
+  %1624 = trunc i64 %1623 to i1
+  br i1 %1624, label %_ZL8lean_incP11lean_object.exit, label %1625
 
 1625:                                             ; preds = %1620
   %.val.i1038 = load i32, ptr %1622, align 4, !tbaa !16
@@ -8260,9 +8027,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1630, %1629, %1627,
   store ptr %1631, ptr %1632, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1150, label %1620, !llvm.loop !25
+  br i1 %exitcond.not, label %.preheader1041, label %1620, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %.lr.ph1153, %.preheader1150
+._crit_edge:                                      ; preds = %.lr.ph1044, %.preheader1041
   %1633 = getelementptr i8, ptr %0, i64 8
   %.val721 = load ptr, ptr %1633, align 8, !tbaa !15
   %1634 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val721, i32 noundef range(i32 0, 65536) %29, ptr noundef nonnull %1617)
@@ -8291,18 +8058,18 @@ _ZL12lean_dec_refP11lean_object.exit547:          ; preds = %1637, %1639, %1640
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph1153:                                       ; preds = %.lr.ph1153.preheader, %.lr.ph1153
-  %indvars.iv1162 = phi i64 [ 0, %.lr.ph1153.preheader ], [ %indvars.iv.next1163, %.lr.ph1153 ]
-  %1645 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv1162
+.lr.ph1044:                                       ; preds = %.lr.ph1044.preheader, %.lr.ph1044
+  %indvars.iv1052 = phi i64 [ 0, %.lr.ph1044.preheader ], [ %indvars.iv.next1053, %.lr.ph1044 ]
+  %1645 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv1052
   %1646 = load ptr, ptr %1645, align 8, !tbaa !15
-  %1647 = trunc nuw i64 %indvars.iv1162 to i32
+  %1647 = trunc nuw i64 %indvars.iv1052 to i32
   %1648 = add i32 %1647, %31
   %1649 = zext i32 %1648 to i64
   %1650 = getelementptr inbounds nuw ptr, ptr %1617, i64 %1649
   store ptr %1646, ptr %1650, align 8, !tbaa !15
-  %indvars.iv.next1163 = add nuw nsw i64 %indvars.iv1162, 1
-  %exitcond1166.not = icmp eq i64 %indvars.iv.next1163, %wide.trip.count1165
-  br i1 %exitcond1166.not, label %._crit_edge, label %.lr.ph1153, !llvm.loop !26
+  %indvars.iv.next1053 = add nuw nsw i64 %indvars.iv1052, 1
+  %exitcond1056.not = icmp eq i64 %indvars.iv.next1053, %wide.trip.count1055
+  br i1 %exitcond1056.not, label %._crit_edge, label %.lr.ph1044, !llvm.loop !26
 
 1651:                                             ; preds = %1611
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8686,15 +8453,13 @@ define ptr @lean_apply_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %5 = alloca [3 x ptr], align 16
   %6 = alloca [3 x ptr], align 8
   %7 = ptrtoint ptr %0 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %37, label %9
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %9, label %37
 
 9:                                                ; preds = %4
   %10 = ptrtoint ptr %1 to i64
-  %11 = and i64 %10, 1
-  %.not1057 = icmp eq i64 %11, 0
-  br i1 %.not1057, label %12, label %_ZL8lean_decP11lean_object.exit524
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %_ZL8lean_decP11lean_object.exit524, label %12
 
 12:                                               ; preds = %9
   %13 = load i32, ptr %1, align 4, !tbaa !16
@@ -8716,9 +8481,8 @@ define ptr @lean_apply_3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit524:               ; preds = %18, %17, %15, %9
   %19 = ptrtoint ptr %2 to i64
-  %20 = and i64 %19, 1
-  %.not1058 = icmp eq i64 %20, 0
-  br i1 %.not1058, label %21, label %_ZL8lean_decP11lean_object.exit523
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %_ZL8lean_decP11lean_object.exit523, label %21
 
 21:                                               ; preds = %_ZL8lean_decP11lean_object.exit524
   %22 = load i32, ptr %2, align 4, !tbaa !16
@@ -8740,9 +8504,8 @@ _ZL8lean_decP11lean_object.exit524:               ; preds = %18, %17, %15, %9
 
 _ZL8lean_decP11lean_object.exit523:               ; preds = %27, %26, %24, %_ZL8lean_decP11lean_object.exit524
   %28 = ptrtoint ptr %3 to i64
-  %29 = and i64 %28, 1
-  %.not1059 = icmp eq i64 %29, 0
-  br i1 %.not1059, label %30, label %_ZL8lean_decP11lean_object.exit
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZL8lean_decP11lean_object.exit, label %30
 
 30:                                               ; preds = %_ZL8lean_decP11lean_object.exit523
   %31 = load i32, ptr %3, align 4, !tbaa !16
@@ -9119,9 +8882,8 @@ _ZL8lean_decP11lean_object.exit523:               ; preds = %27, %26, %24, %_ZL8
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %283 = load ptr, ptr %282, align 8, !tbaa !15
   %284 = ptrtoint ptr %283 to i64
-  %285 = and i64 %284, 1
-  %.not1055 = icmp eq i64 %285, 0
-  br i1 %.not1055, label %286, label %_ZL8lean_incP11lean_object.exit652
+  %285 = trunc i64 %284 to i1
+  br i1 %285, label %_ZL8lean_incP11lean_object.exit652, label %286
 
 286:                                              ; preds = %281
   %.val.i = load i32, ptr %283, align 4, !tbaa !16
@@ -9139,11 +8901,11 @@ _ZL8lean_decP11lean_object.exit523:               ; preds = %27, %26, %24, %_ZL8
 
 291:                                              ; preds = %290
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %283)
-  %.pre1097 = load ptr, ptr %282, align 8, !tbaa !15
+  %.pre1000 = load ptr, ptr %282, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit652
 
 _ZL8lean_incP11lean_object.exit652:               ; preds = %291, %290, %288, %281
-  %292 = phi ptr [ %.pre1097, %291 ], [ %283, %290 ], [ %283, %288 ], [ %283, %281 ]
+  %292 = phi ptr [ %.pre1000, %291 ], [ %283, %290 ], [ %283, %288 ], [ %283, %281 ]
   %293 = getelementptr i8, ptr %0, i64 8
   %.val668 = load ptr, ptr %293, align 8, !tbaa !15
   %294 = tail call noundef ptr %.val668(ptr noundef %292, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -9168,9 +8930,8 @@ _ZL8lean_incP11lean_object.exit652:               ; preds = %291, %290, %288, %2
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %303 = load ptr, ptr %302, align 8, !tbaa !15
   %304 = ptrtoint ptr %303 to i64
-  %305 = and i64 %304, 1
-  %.not1053 = icmp eq i64 %305, 0
-  br i1 %.not1053, label %306, label %_ZL8lean_incP11lean_object.exit651
+  %305 = trunc i64 %304 to i1
+  br i1 %305, label %_ZL8lean_incP11lean_object.exit651, label %306
 
 306:                                              ; preds = %301
   %.val.i688 = load i32, ptr %303, align 4, !tbaa !16
@@ -9194,9 +8955,8 @@ _ZL8lean_incP11lean_object.exit651:               ; preds = %311, %310, %308, %3
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %313 = load ptr, ptr %312, align 8, !tbaa !15
   %314 = ptrtoint ptr %313 to i64
-  %315 = and i64 %314, 1
-  %.not1054 = icmp eq i64 %315, 0
-  br i1 %.not1054, label %316, label %_ZL8lean_incP11lean_object.exit650
+  %315 = trunc i64 %314 to i1
+  br i1 %315, label %_ZL8lean_incP11lean_object.exit650, label %316
 
 316:                                              ; preds = %_ZL8lean_incP11lean_object.exit651
   %.val.i691 = load i32, ptr %313, align 4, !tbaa !16
@@ -9214,11 +8974,11 @@ _ZL8lean_incP11lean_object.exit651:               ; preds = %311, %310, %308, %3
 
 321:                                              ; preds = %320
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %313)
-  %.pre1096 = load ptr, ptr %312, align 8, !tbaa !15
+  %.pre999 = load ptr, ptr %312, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit650
 
 _ZL8lean_incP11lean_object.exit650:               ; preds = %321, %320, %318, %_ZL8lean_incP11lean_object.exit651
-  %322 = phi ptr [ %.pre1096, %321 ], [ %313, %320 ], [ %313, %318 ], [ %313, %_ZL8lean_incP11lean_object.exit651 ]
+  %322 = phi ptr [ %.pre999, %321 ], [ %313, %320 ], [ %313, %318 ], [ %313, %_ZL8lean_incP11lean_object.exit651 ]
   %323 = getelementptr i8, ptr %0, i64 8
   %.val667 = load ptr, ptr %323, align 8, !tbaa !15
   %324 = load ptr, ptr %302, align 8, !tbaa !15
@@ -9244,9 +9004,8 @@ _ZL8lean_incP11lean_object.exit650:               ; preds = %321, %320, %318, %_
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %334 = load ptr, ptr %333, align 8, !tbaa !15
   %335 = ptrtoint ptr %334 to i64
-  %336 = and i64 %335, 1
-  %.not1050 = icmp eq i64 %336, 0
-  br i1 %.not1050, label %337, label %_ZL8lean_incP11lean_object.exit649
+  %336 = trunc i64 %335 to i1
+  br i1 %336, label %_ZL8lean_incP11lean_object.exit649, label %337
 
 337:                                              ; preds = %332
   %.val.i694 = load i32, ptr %334, align 4, !tbaa !16
@@ -9270,9 +9029,8 @@ _ZL8lean_incP11lean_object.exit649:               ; preds = %342, %341, %339, %3
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %344 = load ptr, ptr %343, align 8, !tbaa !15
   %345 = ptrtoint ptr %344 to i64
-  %346 = and i64 %345, 1
-  %.not1051 = icmp eq i64 %346, 0
-  br i1 %.not1051, label %347, label %_ZL8lean_incP11lean_object.exit648
+  %346 = trunc i64 %345 to i1
+  br i1 %346, label %_ZL8lean_incP11lean_object.exit648, label %347
 
 347:                                              ; preds = %_ZL8lean_incP11lean_object.exit649
   %.val.i697 = load i32, ptr %344, align 4, !tbaa !16
@@ -9296,9 +9054,8 @@ _ZL8lean_incP11lean_object.exit648:               ; preds = %352, %351, %349, %_
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %354 = load ptr, ptr %353, align 8, !tbaa !15
   %355 = ptrtoint ptr %354 to i64
-  %356 = and i64 %355, 1
-  %.not1052 = icmp eq i64 %356, 0
-  br i1 %.not1052, label %357, label %_ZL8lean_incP11lean_object.exit647
+  %356 = trunc i64 %355 to i1
+  br i1 %356, label %_ZL8lean_incP11lean_object.exit647, label %357
 
 357:                                              ; preds = %_ZL8lean_incP11lean_object.exit648
   %.val.i700 = load i32, ptr %354, align 4, !tbaa !16
@@ -9316,11 +9073,11 @@ _ZL8lean_incP11lean_object.exit648:               ; preds = %352, %351, %349, %_
 
 362:                                              ; preds = %361
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %354)
-  %.pre1095 = load ptr, ptr %353, align 8, !tbaa !15
+  %.pre998 = load ptr, ptr %353, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit647
 
 _ZL8lean_incP11lean_object.exit647:               ; preds = %362, %361, %359, %_ZL8lean_incP11lean_object.exit648
-  %363 = phi ptr [ %.pre1095, %362 ], [ %354, %361 ], [ %354, %359 ], [ %354, %_ZL8lean_incP11lean_object.exit648 ]
+  %363 = phi ptr [ %.pre998, %362 ], [ %354, %361 ], [ %354, %359 ], [ %354, %_ZL8lean_incP11lean_object.exit648 ]
   %364 = getelementptr i8, ptr %0, i64 8
   %.val666 = load ptr, ptr %364, align 8, !tbaa !15
   %365 = load ptr, ptr %333, align 8, !tbaa !15
@@ -9347,9 +9104,8 @@ _ZL8lean_incP11lean_object.exit647:               ; preds = %362, %361, %359, %_
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %376 = load ptr, ptr %375, align 8, !tbaa !15
   %377 = ptrtoint ptr %376 to i64
-  %378 = and i64 %377, 1
-  %.not1046 = icmp eq i64 %378, 0
-  br i1 %.not1046, label %379, label %_ZL8lean_incP11lean_object.exit646
+  %378 = trunc i64 %377 to i1
+  br i1 %378, label %_ZL8lean_incP11lean_object.exit646, label %379
 
 379:                                              ; preds = %374
   %.val.i703 = load i32, ptr %376, align 4, !tbaa !16
@@ -9373,9 +9129,8 @@ _ZL8lean_incP11lean_object.exit646:               ; preds = %384, %383, %381, %3
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %386 = load ptr, ptr %385, align 8, !tbaa !15
   %387 = ptrtoint ptr %386 to i64
-  %388 = and i64 %387, 1
-  %.not1047 = icmp eq i64 %388, 0
-  br i1 %.not1047, label %389, label %_ZL8lean_incP11lean_object.exit645
+  %388 = trunc i64 %387 to i1
+  br i1 %388, label %_ZL8lean_incP11lean_object.exit645, label %389
 
 389:                                              ; preds = %_ZL8lean_incP11lean_object.exit646
   %.val.i706 = load i32, ptr %386, align 4, !tbaa !16
@@ -9399,9 +9154,8 @@ _ZL8lean_incP11lean_object.exit645:               ; preds = %394, %393, %391, %_
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %396 = load ptr, ptr %395, align 8, !tbaa !15
   %397 = ptrtoint ptr %396 to i64
-  %398 = and i64 %397, 1
-  %.not1048 = icmp eq i64 %398, 0
-  br i1 %.not1048, label %399, label %_ZL8lean_incP11lean_object.exit644
+  %398 = trunc i64 %397 to i1
+  br i1 %398, label %_ZL8lean_incP11lean_object.exit644, label %399
 
 399:                                              ; preds = %_ZL8lean_incP11lean_object.exit645
   %.val.i709 = load i32, ptr %396, align 4, !tbaa !16
@@ -9425,9 +9179,8 @@ _ZL8lean_incP11lean_object.exit644:               ; preds = %404, %403, %401, %_
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %406 = load ptr, ptr %405, align 8, !tbaa !15
   %407 = ptrtoint ptr %406 to i64
-  %408 = and i64 %407, 1
-  %.not1049 = icmp eq i64 %408, 0
-  br i1 %.not1049, label %409, label %_ZL8lean_incP11lean_object.exit643
+  %408 = trunc i64 %407 to i1
+  br i1 %408, label %_ZL8lean_incP11lean_object.exit643, label %409
 
 409:                                              ; preds = %_ZL8lean_incP11lean_object.exit644
   %.val.i712 = load i32, ptr %406, align 4, !tbaa !16
@@ -9445,11 +9198,11 @@ _ZL8lean_incP11lean_object.exit644:               ; preds = %404, %403, %401, %_
 
 414:                                              ; preds = %413
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %406)
-  %.pre1094 = load ptr, ptr %405, align 8, !tbaa !15
+  %.pre997 = load ptr, ptr %405, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit643
 
 _ZL8lean_incP11lean_object.exit643:               ; preds = %414, %413, %411, %_ZL8lean_incP11lean_object.exit644
-  %415 = phi ptr [ %.pre1094, %414 ], [ %406, %413 ], [ %406, %411 ], [ %406, %_ZL8lean_incP11lean_object.exit644 ]
+  %415 = phi ptr [ %.pre997, %414 ], [ %406, %413 ], [ %406, %411 ], [ %406, %_ZL8lean_incP11lean_object.exit644 ]
   %416 = getelementptr i8, ptr %0, i64 8
   %.val665 = load ptr, ptr %416, align 8, !tbaa !15
   %417 = load ptr, ptr %375, align 8, !tbaa !15
@@ -9477,9 +9230,8 @@ _ZL8lean_incP11lean_object.exit643:               ; preds = %414, %413, %411, %_
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %429 = load ptr, ptr %428, align 8, !tbaa !15
   %430 = ptrtoint ptr %429 to i64
-  %431 = and i64 %430, 1
-  %.not1041 = icmp eq i64 %431, 0
-  br i1 %.not1041, label %432, label %_ZL8lean_incP11lean_object.exit642
+  %431 = trunc i64 %430 to i1
+  br i1 %431, label %_ZL8lean_incP11lean_object.exit642, label %432
 
 432:                                              ; preds = %427
   %.val.i715 = load i32, ptr %429, align 4, !tbaa !16
@@ -9503,9 +9255,8 @@ _ZL8lean_incP11lean_object.exit642:               ; preds = %437, %436, %434, %4
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %439 = load ptr, ptr %438, align 8, !tbaa !15
   %440 = ptrtoint ptr %439 to i64
-  %441 = and i64 %440, 1
-  %.not1042 = icmp eq i64 %441, 0
-  br i1 %.not1042, label %442, label %_ZL8lean_incP11lean_object.exit641
+  %441 = trunc i64 %440 to i1
+  br i1 %441, label %_ZL8lean_incP11lean_object.exit641, label %442
 
 442:                                              ; preds = %_ZL8lean_incP11lean_object.exit642
   %.val.i718 = load i32, ptr %439, align 4, !tbaa !16
@@ -9529,9 +9280,8 @@ _ZL8lean_incP11lean_object.exit641:               ; preds = %447, %446, %444, %_
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %449 = load ptr, ptr %448, align 8, !tbaa !15
   %450 = ptrtoint ptr %449 to i64
-  %451 = and i64 %450, 1
-  %.not1043 = icmp eq i64 %451, 0
-  br i1 %.not1043, label %452, label %_ZL8lean_incP11lean_object.exit640
+  %451 = trunc i64 %450 to i1
+  br i1 %451, label %_ZL8lean_incP11lean_object.exit640, label %452
 
 452:                                              ; preds = %_ZL8lean_incP11lean_object.exit641
   %.val.i721 = load i32, ptr %449, align 4, !tbaa !16
@@ -9555,9 +9305,8 @@ _ZL8lean_incP11lean_object.exit640:               ; preds = %457, %456, %454, %_
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %459 = load ptr, ptr %458, align 8, !tbaa !15
   %460 = ptrtoint ptr %459 to i64
-  %461 = and i64 %460, 1
-  %.not1044 = icmp eq i64 %461, 0
-  br i1 %.not1044, label %462, label %_ZL8lean_incP11lean_object.exit639
+  %461 = trunc i64 %460 to i1
+  br i1 %461, label %_ZL8lean_incP11lean_object.exit639, label %462
 
 462:                                              ; preds = %_ZL8lean_incP11lean_object.exit640
   %.val.i724 = load i32, ptr %459, align 4, !tbaa !16
@@ -9581,9 +9330,8 @@ _ZL8lean_incP11lean_object.exit639:               ; preds = %467, %466, %464, %_
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %469 = load ptr, ptr %468, align 8, !tbaa !15
   %470 = ptrtoint ptr %469 to i64
-  %471 = and i64 %470, 1
-  %.not1045 = icmp eq i64 %471, 0
-  br i1 %.not1045, label %472, label %_ZL8lean_incP11lean_object.exit638
+  %471 = trunc i64 %470 to i1
+  br i1 %471, label %_ZL8lean_incP11lean_object.exit638, label %472
 
 472:                                              ; preds = %_ZL8lean_incP11lean_object.exit639
   %.val.i727 = load i32, ptr %469, align 4, !tbaa !16
@@ -9601,11 +9349,11 @@ _ZL8lean_incP11lean_object.exit639:               ; preds = %467, %466, %464, %_
 
 477:                                              ; preds = %476
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %469)
-  %.pre1093 = load ptr, ptr %468, align 8, !tbaa !15
+  %.pre996 = load ptr, ptr %468, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit638
 
 _ZL8lean_incP11lean_object.exit638:               ; preds = %477, %476, %474, %_ZL8lean_incP11lean_object.exit639
-  %478 = phi ptr [ %.pre1093, %477 ], [ %469, %476 ], [ %469, %474 ], [ %469, %_ZL8lean_incP11lean_object.exit639 ]
+  %478 = phi ptr [ %.pre996, %477 ], [ %469, %476 ], [ %469, %474 ], [ %469, %_ZL8lean_incP11lean_object.exit639 ]
   %479 = getelementptr i8, ptr %0, i64 8
   %.val664 = load ptr, ptr %479, align 8, !tbaa !15
   %480 = load ptr, ptr %428, align 8, !tbaa !15
@@ -9634,9 +9382,8 @@ _ZL8lean_incP11lean_object.exit638:               ; preds = %477, %476, %474, %_
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %493 = load ptr, ptr %492, align 8, !tbaa !15
   %494 = ptrtoint ptr %493 to i64
-  %495 = and i64 %494, 1
-  %.not1035 = icmp eq i64 %495, 0
-  br i1 %.not1035, label %496, label %_ZL8lean_incP11lean_object.exit637
+  %495 = trunc i64 %494 to i1
+  br i1 %495, label %_ZL8lean_incP11lean_object.exit637, label %496
 
 496:                                              ; preds = %491
   %.val.i730 = load i32, ptr %493, align 4, !tbaa !16
@@ -9660,9 +9407,8 @@ _ZL8lean_incP11lean_object.exit637:               ; preds = %501, %500, %498, %4
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %503 = load ptr, ptr %502, align 8, !tbaa !15
   %504 = ptrtoint ptr %503 to i64
-  %505 = and i64 %504, 1
-  %.not1036 = icmp eq i64 %505, 0
-  br i1 %.not1036, label %506, label %_ZL8lean_incP11lean_object.exit636
+  %505 = trunc i64 %504 to i1
+  br i1 %505, label %_ZL8lean_incP11lean_object.exit636, label %506
 
 506:                                              ; preds = %_ZL8lean_incP11lean_object.exit637
   %.val.i733 = load i32, ptr %503, align 4, !tbaa !16
@@ -9686,9 +9432,8 @@ _ZL8lean_incP11lean_object.exit636:               ; preds = %511, %510, %508, %_
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %513 = load ptr, ptr %512, align 8, !tbaa !15
   %514 = ptrtoint ptr %513 to i64
-  %515 = and i64 %514, 1
-  %.not1037 = icmp eq i64 %515, 0
-  br i1 %.not1037, label %516, label %_ZL8lean_incP11lean_object.exit635
+  %515 = trunc i64 %514 to i1
+  br i1 %515, label %_ZL8lean_incP11lean_object.exit635, label %516
 
 516:                                              ; preds = %_ZL8lean_incP11lean_object.exit636
   %.val.i736 = load i32, ptr %513, align 4, !tbaa !16
@@ -9712,9 +9457,8 @@ _ZL8lean_incP11lean_object.exit635:               ; preds = %521, %520, %518, %_
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %523 = load ptr, ptr %522, align 8, !tbaa !15
   %524 = ptrtoint ptr %523 to i64
-  %525 = and i64 %524, 1
-  %.not1038 = icmp eq i64 %525, 0
-  br i1 %.not1038, label %526, label %_ZL8lean_incP11lean_object.exit634
+  %525 = trunc i64 %524 to i1
+  br i1 %525, label %_ZL8lean_incP11lean_object.exit634, label %526
 
 526:                                              ; preds = %_ZL8lean_incP11lean_object.exit635
   %.val.i739 = load i32, ptr %523, align 4, !tbaa !16
@@ -9738,9 +9482,8 @@ _ZL8lean_incP11lean_object.exit634:               ; preds = %531, %530, %528, %_
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %533 = load ptr, ptr %532, align 8, !tbaa !15
   %534 = ptrtoint ptr %533 to i64
-  %535 = and i64 %534, 1
-  %.not1039 = icmp eq i64 %535, 0
-  br i1 %.not1039, label %536, label %_ZL8lean_incP11lean_object.exit633
+  %535 = trunc i64 %534 to i1
+  br i1 %535, label %_ZL8lean_incP11lean_object.exit633, label %536
 
 536:                                              ; preds = %_ZL8lean_incP11lean_object.exit634
   %.val.i742 = load i32, ptr %533, align 4, !tbaa !16
@@ -9764,9 +9507,8 @@ _ZL8lean_incP11lean_object.exit633:               ; preds = %541, %540, %538, %_
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %543 = load ptr, ptr %542, align 8, !tbaa !15
   %544 = ptrtoint ptr %543 to i64
-  %545 = and i64 %544, 1
-  %.not1040 = icmp eq i64 %545, 0
-  br i1 %.not1040, label %546, label %_ZL8lean_incP11lean_object.exit632
+  %545 = trunc i64 %544 to i1
+  br i1 %545, label %_ZL8lean_incP11lean_object.exit632, label %546
 
 546:                                              ; preds = %_ZL8lean_incP11lean_object.exit633
   %.val.i745 = load i32, ptr %543, align 4, !tbaa !16
@@ -9784,11 +9526,11 @@ _ZL8lean_incP11lean_object.exit633:               ; preds = %541, %540, %538, %_
 
 551:                                              ; preds = %550
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %543)
-  %.pre1092 = load ptr, ptr %542, align 8, !tbaa !15
+  %.pre995 = load ptr, ptr %542, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit632
 
 _ZL8lean_incP11lean_object.exit632:               ; preds = %551, %550, %548, %_ZL8lean_incP11lean_object.exit633
-  %552 = phi ptr [ %.pre1092, %551 ], [ %543, %550 ], [ %543, %548 ], [ %543, %_ZL8lean_incP11lean_object.exit633 ]
+  %552 = phi ptr [ %.pre995, %551 ], [ %543, %550 ], [ %543, %548 ], [ %543, %_ZL8lean_incP11lean_object.exit633 ]
   %553 = getelementptr i8, ptr %0, i64 8
   %.val663 = load ptr, ptr %553, align 8, !tbaa !15
   %554 = load ptr, ptr %492, align 8, !tbaa !15
@@ -9818,9 +9560,8 @@ _ZL8lean_incP11lean_object.exit632:               ; preds = %551, %550, %548, %_
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %568 = load ptr, ptr %567, align 8, !tbaa !15
   %569 = ptrtoint ptr %568 to i64
-  %570 = and i64 %569, 1
-  %.not1028 = icmp eq i64 %570, 0
-  br i1 %.not1028, label %571, label %_ZL8lean_incP11lean_object.exit631
+  %570 = trunc i64 %569 to i1
+  br i1 %570, label %_ZL8lean_incP11lean_object.exit631, label %571
 
 571:                                              ; preds = %566
   %.val.i748 = load i32, ptr %568, align 4, !tbaa !16
@@ -9844,9 +9585,8 @@ _ZL8lean_incP11lean_object.exit631:               ; preds = %576, %575, %573, %5
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %578 = load ptr, ptr %577, align 8, !tbaa !15
   %579 = ptrtoint ptr %578 to i64
-  %580 = and i64 %579, 1
-  %.not1029 = icmp eq i64 %580, 0
-  br i1 %.not1029, label %581, label %_ZL8lean_incP11lean_object.exit630
+  %580 = trunc i64 %579 to i1
+  br i1 %580, label %_ZL8lean_incP11lean_object.exit630, label %581
 
 581:                                              ; preds = %_ZL8lean_incP11lean_object.exit631
   %.val.i751 = load i32, ptr %578, align 4, !tbaa !16
@@ -9870,9 +9610,8 @@ _ZL8lean_incP11lean_object.exit630:               ; preds = %586, %585, %583, %_
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %588 = load ptr, ptr %587, align 8, !tbaa !15
   %589 = ptrtoint ptr %588 to i64
-  %590 = and i64 %589, 1
-  %.not1030 = icmp eq i64 %590, 0
-  br i1 %.not1030, label %591, label %_ZL8lean_incP11lean_object.exit629
+  %590 = trunc i64 %589 to i1
+  br i1 %590, label %_ZL8lean_incP11lean_object.exit629, label %591
 
 591:                                              ; preds = %_ZL8lean_incP11lean_object.exit630
   %.val.i754 = load i32, ptr %588, align 4, !tbaa !16
@@ -9896,9 +9635,8 @@ _ZL8lean_incP11lean_object.exit629:               ; preds = %596, %595, %593, %_
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %598 = load ptr, ptr %597, align 8, !tbaa !15
   %599 = ptrtoint ptr %598 to i64
-  %600 = and i64 %599, 1
-  %.not1031 = icmp eq i64 %600, 0
-  br i1 %.not1031, label %601, label %_ZL8lean_incP11lean_object.exit628
+  %600 = trunc i64 %599 to i1
+  br i1 %600, label %_ZL8lean_incP11lean_object.exit628, label %601
 
 601:                                              ; preds = %_ZL8lean_incP11lean_object.exit629
   %.val.i757 = load i32, ptr %598, align 4, !tbaa !16
@@ -9922,9 +9660,8 @@ _ZL8lean_incP11lean_object.exit628:               ; preds = %606, %605, %603, %_
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %608 = load ptr, ptr %607, align 8, !tbaa !15
   %609 = ptrtoint ptr %608 to i64
-  %610 = and i64 %609, 1
-  %.not1032 = icmp eq i64 %610, 0
-  br i1 %.not1032, label %611, label %_ZL8lean_incP11lean_object.exit627
+  %610 = trunc i64 %609 to i1
+  br i1 %610, label %_ZL8lean_incP11lean_object.exit627, label %611
 
 611:                                              ; preds = %_ZL8lean_incP11lean_object.exit628
   %.val.i760 = load i32, ptr %608, align 4, !tbaa !16
@@ -9948,9 +9685,8 @@ _ZL8lean_incP11lean_object.exit627:               ; preds = %616, %615, %613, %_
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %618 = load ptr, ptr %617, align 8, !tbaa !15
   %619 = ptrtoint ptr %618 to i64
-  %620 = and i64 %619, 1
-  %.not1033 = icmp eq i64 %620, 0
-  br i1 %.not1033, label %621, label %_ZL8lean_incP11lean_object.exit626
+  %620 = trunc i64 %619 to i1
+  br i1 %620, label %_ZL8lean_incP11lean_object.exit626, label %621
 
 621:                                              ; preds = %_ZL8lean_incP11lean_object.exit627
   %.val.i763 = load i32, ptr %618, align 4, !tbaa !16
@@ -9974,9 +9710,8 @@ _ZL8lean_incP11lean_object.exit626:               ; preds = %626, %625, %623, %_
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %628 = load ptr, ptr %627, align 8, !tbaa !15
   %629 = ptrtoint ptr %628 to i64
-  %630 = and i64 %629, 1
-  %.not1034 = icmp eq i64 %630, 0
-  br i1 %.not1034, label %631, label %_ZL8lean_incP11lean_object.exit625
+  %630 = trunc i64 %629 to i1
+  br i1 %630, label %_ZL8lean_incP11lean_object.exit625, label %631
 
 631:                                              ; preds = %_ZL8lean_incP11lean_object.exit626
   %.val.i766 = load i32, ptr %628, align 4, !tbaa !16
@@ -9994,11 +9729,11 @@ _ZL8lean_incP11lean_object.exit626:               ; preds = %626, %625, %623, %_
 
 636:                                              ; preds = %635
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %628)
-  %.pre1091 = load ptr, ptr %627, align 8, !tbaa !15
+  %.pre994 = load ptr, ptr %627, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit625
 
 _ZL8lean_incP11lean_object.exit625:               ; preds = %636, %635, %633, %_ZL8lean_incP11lean_object.exit626
-  %637 = phi ptr [ %.pre1091, %636 ], [ %628, %635 ], [ %628, %633 ], [ %628, %_ZL8lean_incP11lean_object.exit626 ]
+  %637 = phi ptr [ %.pre994, %636 ], [ %628, %635 ], [ %628, %633 ], [ %628, %_ZL8lean_incP11lean_object.exit626 ]
   %638 = getelementptr i8, ptr %0, i64 8
   %.val662 = load ptr, ptr %638, align 8, !tbaa !15
   %639 = load ptr, ptr %567, align 8, !tbaa !15
@@ -10029,9 +9764,8 @@ _ZL8lean_incP11lean_object.exit625:               ; preds = %636, %635, %633, %_
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %654 = load ptr, ptr %653, align 8, !tbaa !15
   %655 = ptrtoint ptr %654 to i64
-  %656 = and i64 %655, 1
-  %.not1020 = icmp eq i64 %656, 0
-  br i1 %.not1020, label %657, label %_ZL8lean_incP11lean_object.exit624
+  %656 = trunc i64 %655 to i1
+  br i1 %656, label %_ZL8lean_incP11lean_object.exit624, label %657
 
 657:                                              ; preds = %652
   %.val.i769 = load i32, ptr %654, align 4, !tbaa !16
@@ -10055,9 +9789,8 @@ _ZL8lean_incP11lean_object.exit624:               ; preds = %662, %661, %659, %6
   %663 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %664 = load ptr, ptr %663, align 8, !tbaa !15
   %665 = ptrtoint ptr %664 to i64
-  %666 = and i64 %665, 1
-  %.not1021 = icmp eq i64 %666, 0
-  br i1 %.not1021, label %667, label %_ZL8lean_incP11lean_object.exit623
+  %666 = trunc i64 %665 to i1
+  br i1 %666, label %_ZL8lean_incP11lean_object.exit623, label %667
 
 667:                                              ; preds = %_ZL8lean_incP11lean_object.exit624
   %.val.i772 = load i32, ptr %664, align 4, !tbaa !16
@@ -10081,9 +9814,8 @@ _ZL8lean_incP11lean_object.exit623:               ; preds = %672, %671, %669, %_
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %674 = load ptr, ptr %673, align 8, !tbaa !15
   %675 = ptrtoint ptr %674 to i64
-  %676 = and i64 %675, 1
-  %.not1022 = icmp eq i64 %676, 0
-  br i1 %.not1022, label %677, label %_ZL8lean_incP11lean_object.exit622
+  %676 = trunc i64 %675 to i1
+  br i1 %676, label %_ZL8lean_incP11lean_object.exit622, label %677
 
 677:                                              ; preds = %_ZL8lean_incP11lean_object.exit623
   %.val.i775 = load i32, ptr %674, align 4, !tbaa !16
@@ -10107,9 +9839,8 @@ _ZL8lean_incP11lean_object.exit622:               ; preds = %682, %681, %679, %_
   %683 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %684 = load ptr, ptr %683, align 8, !tbaa !15
   %685 = ptrtoint ptr %684 to i64
-  %686 = and i64 %685, 1
-  %.not1023 = icmp eq i64 %686, 0
-  br i1 %.not1023, label %687, label %_ZL8lean_incP11lean_object.exit621
+  %686 = trunc i64 %685 to i1
+  br i1 %686, label %_ZL8lean_incP11lean_object.exit621, label %687
 
 687:                                              ; preds = %_ZL8lean_incP11lean_object.exit622
   %.val.i778 = load i32, ptr %684, align 4, !tbaa !16
@@ -10133,9 +9864,8 @@ _ZL8lean_incP11lean_object.exit621:               ; preds = %692, %691, %689, %_
   %693 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %694 = load ptr, ptr %693, align 8, !tbaa !15
   %695 = ptrtoint ptr %694 to i64
-  %696 = and i64 %695, 1
-  %.not1024 = icmp eq i64 %696, 0
-  br i1 %.not1024, label %697, label %_ZL8lean_incP11lean_object.exit620
+  %696 = trunc i64 %695 to i1
+  br i1 %696, label %_ZL8lean_incP11lean_object.exit620, label %697
 
 697:                                              ; preds = %_ZL8lean_incP11lean_object.exit621
   %.val.i781 = load i32, ptr %694, align 4, !tbaa !16
@@ -10159,9 +9889,8 @@ _ZL8lean_incP11lean_object.exit620:               ; preds = %702, %701, %699, %_
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %704 = load ptr, ptr %703, align 8, !tbaa !15
   %705 = ptrtoint ptr %704 to i64
-  %706 = and i64 %705, 1
-  %.not1025 = icmp eq i64 %706, 0
-  br i1 %.not1025, label %707, label %_ZL8lean_incP11lean_object.exit619
+  %706 = trunc i64 %705 to i1
+  br i1 %706, label %_ZL8lean_incP11lean_object.exit619, label %707
 
 707:                                              ; preds = %_ZL8lean_incP11lean_object.exit620
   %.val.i784 = load i32, ptr %704, align 4, !tbaa !16
@@ -10185,9 +9914,8 @@ _ZL8lean_incP11lean_object.exit619:               ; preds = %712, %711, %709, %_
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %714 = load ptr, ptr %713, align 8, !tbaa !15
   %715 = ptrtoint ptr %714 to i64
-  %716 = and i64 %715, 1
-  %.not1026 = icmp eq i64 %716, 0
-  br i1 %.not1026, label %717, label %_ZL8lean_incP11lean_object.exit618
+  %716 = trunc i64 %715 to i1
+  br i1 %716, label %_ZL8lean_incP11lean_object.exit618, label %717
 
 717:                                              ; preds = %_ZL8lean_incP11lean_object.exit619
   %.val.i787 = load i32, ptr %714, align 4, !tbaa !16
@@ -10211,9 +9939,8 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %722, %721, %719, %_
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %724 = load ptr, ptr %723, align 8, !tbaa !15
   %725 = ptrtoint ptr %724 to i64
-  %726 = and i64 %725, 1
-  %.not1027 = icmp eq i64 %726, 0
-  br i1 %.not1027, label %727, label %_ZL8lean_incP11lean_object.exit617
+  %726 = trunc i64 %725 to i1
+  br i1 %726, label %_ZL8lean_incP11lean_object.exit617, label %727
 
 727:                                              ; preds = %_ZL8lean_incP11lean_object.exit618
   %.val.i790 = load i32, ptr %724, align 4, !tbaa !16
@@ -10231,11 +9958,11 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %722, %721, %719, %_
 
 732:                                              ; preds = %731
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %724)
-  %.pre1090 = load ptr, ptr %723, align 8, !tbaa !15
+  %.pre993 = load ptr, ptr %723, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit617
 
 _ZL8lean_incP11lean_object.exit617:               ; preds = %732, %731, %729, %_ZL8lean_incP11lean_object.exit618
-  %733 = phi ptr [ %.pre1090, %732 ], [ %724, %731 ], [ %724, %729 ], [ %724, %_ZL8lean_incP11lean_object.exit618 ]
+  %733 = phi ptr [ %.pre993, %732 ], [ %724, %731 ], [ %724, %729 ], [ %724, %_ZL8lean_incP11lean_object.exit618 ]
   %734 = getelementptr i8, ptr %0, i64 8
   %.val661 = load ptr, ptr %734, align 8, !tbaa !15
   %735 = load ptr, ptr %653, align 8, !tbaa !15
@@ -10267,9 +9994,8 @@ _ZL8lean_incP11lean_object.exit617:               ; preds = %732, %731, %729, %_
   %750 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %751 = load ptr, ptr %750, align 8, !tbaa !15
   %752 = ptrtoint ptr %751 to i64
-  %753 = and i64 %752, 1
-  %.not1011 = icmp eq i64 %753, 0
-  br i1 %.not1011, label %754, label %_ZL8lean_incP11lean_object.exit616
+  %753 = trunc i64 %752 to i1
+  br i1 %753, label %_ZL8lean_incP11lean_object.exit616, label %754
 
 754:                                              ; preds = %749
   %.val.i793 = load i32, ptr %751, align 4, !tbaa !16
@@ -10293,9 +10019,8 @@ _ZL8lean_incP11lean_object.exit616:               ; preds = %759, %758, %756, %7
   %760 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %761 = load ptr, ptr %760, align 8, !tbaa !15
   %762 = ptrtoint ptr %761 to i64
-  %763 = and i64 %762, 1
-  %.not1012 = icmp eq i64 %763, 0
-  br i1 %.not1012, label %764, label %_ZL8lean_incP11lean_object.exit615
+  %763 = trunc i64 %762 to i1
+  br i1 %763, label %_ZL8lean_incP11lean_object.exit615, label %764
 
 764:                                              ; preds = %_ZL8lean_incP11lean_object.exit616
   %.val.i796 = load i32, ptr %761, align 4, !tbaa !16
@@ -10319,9 +10044,8 @@ _ZL8lean_incP11lean_object.exit615:               ; preds = %769, %768, %766, %_
   %770 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %771 = load ptr, ptr %770, align 8, !tbaa !15
   %772 = ptrtoint ptr %771 to i64
-  %773 = and i64 %772, 1
-  %.not1013 = icmp eq i64 %773, 0
-  br i1 %.not1013, label %774, label %_ZL8lean_incP11lean_object.exit614
+  %773 = trunc i64 %772 to i1
+  br i1 %773, label %_ZL8lean_incP11lean_object.exit614, label %774
 
 774:                                              ; preds = %_ZL8lean_incP11lean_object.exit615
   %.val.i799 = load i32, ptr %771, align 4, !tbaa !16
@@ -10345,9 +10069,8 @@ _ZL8lean_incP11lean_object.exit614:               ; preds = %779, %778, %776, %_
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %781 = load ptr, ptr %780, align 8, !tbaa !15
   %782 = ptrtoint ptr %781 to i64
-  %783 = and i64 %782, 1
-  %.not1014 = icmp eq i64 %783, 0
-  br i1 %.not1014, label %784, label %_ZL8lean_incP11lean_object.exit613
+  %783 = trunc i64 %782 to i1
+  br i1 %783, label %_ZL8lean_incP11lean_object.exit613, label %784
 
 784:                                              ; preds = %_ZL8lean_incP11lean_object.exit614
   %.val.i802 = load i32, ptr %781, align 4, !tbaa !16
@@ -10371,9 +10094,8 @@ _ZL8lean_incP11lean_object.exit613:               ; preds = %789, %788, %786, %_
   %790 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %791 = load ptr, ptr %790, align 8, !tbaa !15
   %792 = ptrtoint ptr %791 to i64
-  %793 = and i64 %792, 1
-  %.not1015 = icmp eq i64 %793, 0
-  br i1 %.not1015, label %794, label %_ZL8lean_incP11lean_object.exit612
+  %793 = trunc i64 %792 to i1
+  br i1 %793, label %_ZL8lean_incP11lean_object.exit612, label %794
 
 794:                                              ; preds = %_ZL8lean_incP11lean_object.exit613
   %.val.i805 = load i32, ptr %791, align 4, !tbaa !16
@@ -10397,9 +10119,8 @@ _ZL8lean_incP11lean_object.exit612:               ; preds = %799, %798, %796, %_
   %800 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %801 = load ptr, ptr %800, align 8, !tbaa !15
   %802 = ptrtoint ptr %801 to i64
-  %803 = and i64 %802, 1
-  %.not1016 = icmp eq i64 %803, 0
-  br i1 %.not1016, label %804, label %_ZL8lean_incP11lean_object.exit611
+  %803 = trunc i64 %802 to i1
+  br i1 %803, label %_ZL8lean_incP11lean_object.exit611, label %804
 
 804:                                              ; preds = %_ZL8lean_incP11lean_object.exit612
   %.val.i808 = load i32, ptr %801, align 4, !tbaa !16
@@ -10423,9 +10144,8 @@ _ZL8lean_incP11lean_object.exit611:               ; preds = %809, %808, %806, %_
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %811 = load ptr, ptr %810, align 8, !tbaa !15
   %812 = ptrtoint ptr %811 to i64
-  %813 = and i64 %812, 1
-  %.not1017 = icmp eq i64 %813, 0
-  br i1 %.not1017, label %814, label %_ZL8lean_incP11lean_object.exit610
+  %813 = trunc i64 %812 to i1
+  br i1 %813, label %_ZL8lean_incP11lean_object.exit610, label %814
 
 814:                                              ; preds = %_ZL8lean_incP11lean_object.exit611
   %.val.i811 = load i32, ptr %811, align 4, !tbaa !16
@@ -10449,9 +10169,8 @@ _ZL8lean_incP11lean_object.exit610:               ; preds = %819, %818, %816, %_
   %820 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %821 = load ptr, ptr %820, align 8, !tbaa !15
   %822 = ptrtoint ptr %821 to i64
-  %823 = and i64 %822, 1
-  %.not1018 = icmp eq i64 %823, 0
-  br i1 %.not1018, label %824, label %_ZL8lean_incP11lean_object.exit609
+  %823 = trunc i64 %822 to i1
+  br i1 %823, label %_ZL8lean_incP11lean_object.exit609, label %824
 
 824:                                              ; preds = %_ZL8lean_incP11lean_object.exit610
   %.val.i814 = load i32, ptr %821, align 4, !tbaa !16
@@ -10475,9 +10194,8 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %829, %828, %826, %_
   %830 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %831 = load ptr, ptr %830, align 8, !tbaa !15
   %832 = ptrtoint ptr %831 to i64
-  %833 = and i64 %832, 1
-  %.not1019 = icmp eq i64 %833, 0
-  br i1 %.not1019, label %834, label %_ZL8lean_incP11lean_object.exit608
+  %833 = trunc i64 %832 to i1
+  br i1 %833, label %_ZL8lean_incP11lean_object.exit608, label %834
 
 834:                                              ; preds = %_ZL8lean_incP11lean_object.exit609
   %.val.i817 = load i32, ptr %831, align 4, !tbaa !16
@@ -10495,11 +10213,11 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %829, %828, %826, %_
 
 839:                                              ; preds = %838
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %831)
-  %.pre1089 = load ptr, ptr %830, align 8, !tbaa !15
+  %.pre992 = load ptr, ptr %830, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit608
 
 _ZL8lean_incP11lean_object.exit608:               ; preds = %839, %838, %836, %_ZL8lean_incP11lean_object.exit609
-  %840 = phi ptr [ %.pre1089, %839 ], [ %831, %838 ], [ %831, %836 ], [ %831, %_ZL8lean_incP11lean_object.exit609 ]
+  %840 = phi ptr [ %.pre992, %839 ], [ %831, %838 ], [ %831, %836 ], [ %831, %_ZL8lean_incP11lean_object.exit609 ]
   %841 = getelementptr i8, ptr %0, i64 8
   %.val660 = load ptr, ptr %841, align 8, !tbaa !15
   %842 = load ptr, ptr %750, align 8, !tbaa !15
@@ -10532,9 +10250,8 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %839, %838, %836, %_
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %859 = load ptr, ptr %858, align 8, !tbaa !15
   %860 = ptrtoint ptr %859 to i64
-  %861 = and i64 %860, 1
-  %.not1001 = icmp eq i64 %861, 0
-  br i1 %.not1001, label %862, label %_ZL8lean_incP11lean_object.exit607
+  %861 = trunc i64 %860 to i1
+  br i1 %861, label %_ZL8lean_incP11lean_object.exit607, label %862
 
 862:                                              ; preds = %857
   %.val.i820 = load i32, ptr %859, align 4, !tbaa !16
@@ -10558,9 +10275,8 @@ _ZL8lean_incP11lean_object.exit607:               ; preds = %867, %866, %864, %8
   %868 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %869 = load ptr, ptr %868, align 8, !tbaa !15
   %870 = ptrtoint ptr %869 to i64
-  %871 = and i64 %870, 1
-  %.not1002 = icmp eq i64 %871, 0
-  br i1 %.not1002, label %872, label %_ZL8lean_incP11lean_object.exit606
+  %871 = trunc i64 %870 to i1
+  br i1 %871, label %_ZL8lean_incP11lean_object.exit606, label %872
 
 872:                                              ; preds = %_ZL8lean_incP11lean_object.exit607
   %.val.i823 = load i32, ptr %869, align 4, !tbaa !16
@@ -10584,9 +10300,8 @@ _ZL8lean_incP11lean_object.exit606:               ; preds = %877, %876, %874, %_
   %878 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %879 = load ptr, ptr %878, align 8, !tbaa !15
   %880 = ptrtoint ptr %879 to i64
-  %881 = and i64 %880, 1
-  %.not1003 = icmp eq i64 %881, 0
-  br i1 %.not1003, label %882, label %_ZL8lean_incP11lean_object.exit605
+  %881 = trunc i64 %880 to i1
+  br i1 %881, label %_ZL8lean_incP11lean_object.exit605, label %882
 
 882:                                              ; preds = %_ZL8lean_incP11lean_object.exit606
   %.val.i826 = load i32, ptr %879, align 4, !tbaa !16
@@ -10610,9 +10325,8 @@ _ZL8lean_incP11lean_object.exit605:               ; preds = %887, %886, %884, %_
   %888 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %889 = load ptr, ptr %888, align 8, !tbaa !15
   %890 = ptrtoint ptr %889 to i64
-  %891 = and i64 %890, 1
-  %.not1004 = icmp eq i64 %891, 0
-  br i1 %.not1004, label %892, label %_ZL8lean_incP11lean_object.exit604
+  %891 = trunc i64 %890 to i1
+  br i1 %891, label %_ZL8lean_incP11lean_object.exit604, label %892
 
 892:                                              ; preds = %_ZL8lean_incP11lean_object.exit605
   %.val.i829 = load i32, ptr %889, align 4, !tbaa !16
@@ -10636,9 +10350,8 @@ _ZL8lean_incP11lean_object.exit604:               ; preds = %897, %896, %894, %_
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %899 = load ptr, ptr %898, align 8, !tbaa !15
   %900 = ptrtoint ptr %899 to i64
-  %901 = and i64 %900, 1
-  %.not1005 = icmp eq i64 %901, 0
-  br i1 %.not1005, label %902, label %_ZL8lean_incP11lean_object.exit603
+  %901 = trunc i64 %900 to i1
+  br i1 %901, label %_ZL8lean_incP11lean_object.exit603, label %902
 
 902:                                              ; preds = %_ZL8lean_incP11lean_object.exit604
   %.val.i832 = load i32, ptr %899, align 4, !tbaa !16
@@ -10662,9 +10375,8 @@ _ZL8lean_incP11lean_object.exit603:               ; preds = %907, %906, %904, %_
   %908 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %909 = load ptr, ptr %908, align 8, !tbaa !15
   %910 = ptrtoint ptr %909 to i64
-  %911 = and i64 %910, 1
-  %.not1006 = icmp eq i64 %911, 0
-  br i1 %.not1006, label %912, label %_ZL8lean_incP11lean_object.exit602
+  %911 = trunc i64 %910 to i1
+  br i1 %911, label %_ZL8lean_incP11lean_object.exit602, label %912
 
 912:                                              ; preds = %_ZL8lean_incP11lean_object.exit603
   %.val.i835 = load i32, ptr %909, align 4, !tbaa !16
@@ -10688,9 +10400,8 @@ _ZL8lean_incP11lean_object.exit602:               ; preds = %917, %916, %914, %_
   %918 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %919 = load ptr, ptr %918, align 8, !tbaa !15
   %920 = ptrtoint ptr %919 to i64
-  %921 = and i64 %920, 1
-  %.not1007 = icmp eq i64 %921, 0
-  br i1 %.not1007, label %922, label %_ZL8lean_incP11lean_object.exit601
+  %921 = trunc i64 %920 to i1
+  br i1 %921, label %_ZL8lean_incP11lean_object.exit601, label %922
 
 922:                                              ; preds = %_ZL8lean_incP11lean_object.exit602
   %.val.i838 = load i32, ptr %919, align 4, !tbaa !16
@@ -10714,9 +10425,8 @@ _ZL8lean_incP11lean_object.exit601:               ; preds = %927, %926, %924, %_
   %928 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %929 = load ptr, ptr %928, align 8, !tbaa !15
   %930 = ptrtoint ptr %929 to i64
-  %931 = and i64 %930, 1
-  %.not1008 = icmp eq i64 %931, 0
-  br i1 %.not1008, label %932, label %_ZL8lean_incP11lean_object.exit600
+  %931 = trunc i64 %930 to i1
+  br i1 %931, label %_ZL8lean_incP11lean_object.exit600, label %932
 
 932:                                              ; preds = %_ZL8lean_incP11lean_object.exit601
   %.val.i841 = load i32, ptr %929, align 4, !tbaa !16
@@ -10740,9 +10450,8 @@ _ZL8lean_incP11lean_object.exit600:               ; preds = %937, %936, %934, %_
   %938 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %939 = load ptr, ptr %938, align 8, !tbaa !15
   %940 = ptrtoint ptr %939 to i64
-  %941 = and i64 %940, 1
-  %.not1009 = icmp eq i64 %941, 0
-  br i1 %.not1009, label %942, label %_ZL8lean_incP11lean_object.exit599
+  %941 = trunc i64 %940 to i1
+  br i1 %941, label %_ZL8lean_incP11lean_object.exit599, label %942
 
 942:                                              ; preds = %_ZL8lean_incP11lean_object.exit600
   %.val.i844 = load i32, ptr %939, align 4, !tbaa !16
@@ -10766,9 +10475,8 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %947, %946, %944, %_
   %948 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %949 = load ptr, ptr %948, align 8, !tbaa !15
   %950 = ptrtoint ptr %949 to i64
-  %951 = and i64 %950, 1
-  %.not1010 = icmp eq i64 %951, 0
-  br i1 %.not1010, label %952, label %_ZL8lean_incP11lean_object.exit598
+  %951 = trunc i64 %950 to i1
+  br i1 %951, label %_ZL8lean_incP11lean_object.exit598, label %952
 
 952:                                              ; preds = %_ZL8lean_incP11lean_object.exit599
   %.val.i847 = load i32, ptr %949, align 4, !tbaa !16
@@ -10786,11 +10494,11 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %947, %946, %944, %_
 
 957:                                              ; preds = %956
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %949)
-  %.pre1088 = load ptr, ptr %948, align 8, !tbaa !15
+  %.pre991 = load ptr, ptr %948, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit598
 
 _ZL8lean_incP11lean_object.exit598:               ; preds = %957, %956, %954, %_ZL8lean_incP11lean_object.exit599
-  %958 = phi ptr [ %.pre1088, %957 ], [ %949, %956 ], [ %949, %954 ], [ %949, %_ZL8lean_incP11lean_object.exit599 ]
+  %958 = phi ptr [ %.pre991, %957 ], [ %949, %956 ], [ %949, %954 ], [ %949, %_ZL8lean_incP11lean_object.exit599 ]
   %959 = getelementptr i8, ptr %0, i64 8
   %.val659 = load ptr, ptr %959, align 8, !tbaa !15
   %960 = load ptr, ptr %858, align 8, !tbaa !15
@@ -10824,9 +10532,8 @@ _ZL8lean_incP11lean_object.exit598:               ; preds = %957, %956, %954, %_
   %977 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %978 = load ptr, ptr %977, align 8, !tbaa !15
   %979 = ptrtoint ptr %978 to i64
-  %980 = and i64 %979, 1
-  %.not990 = icmp eq i64 %980, 0
-  br i1 %.not990, label %981, label %_ZL8lean_incP11lean_object.exit597
+  %980 = trunc i64 %979 to i1
+  br i1 %980, label %_ZL8lean_incP11lean_object.exit597, label %981
 
 981:                                              ; preds = %976
   %.val.i850 = load i32, ptr %978, align 4, !tbaa !16
@@ -10850,9 +10557,8 @@ _ZL8lean_incP11lean_object.exit597:               ; preds = %986, %985, %983, %9
   %987 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %988 = load ptr, ptr %987, align 8, !tbaa !15
   %989 = ptrtoint ptr %988 to i64
-  %990 = and i64 %989, 1
-  %.not991 = icmp eq i64 %990, 0
-  br i1 %.not991, label %991, label %_ZL8lean_incP11lean_object.exit596
+  %990 = trunc i64 %989 to i1
+  br i1 %990, label %_ZL8lean_incP11lean_object.exit596, label %991
 
 991:                                              ; preds = %_ZL8lean_incP11lean_object.exit597
   %.val.i853 = load i32, ptr %988, align 4, !tbaa !16
@@ -10876,9 +10582,8 @@ _ZL8lean_incP11lean_object.exit596:               ; preds = %996, %995, %993, %_
   %997 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %998 = load ptr, ptr %997, align 8, !tbaa !15
   %999 = ptrtoint ptr %998 to i64
-  %1000 = and i64 %999, 1
-  %.not992 = icmp eq i64 %1000, 0
-  br i1 %.not992, label %1001, label %_ZL8lean_incP11lean_object.exit595
+  %1000 = trunc i64 %999 to i1
+  br i1 %1000, label %_ZL8lean_incP11lean_object.exit595, label %1001
 
 1001:                                             ; preds = %_ZL8lean_incP11lean_object.exit596
   %.val.i856 = load i32, ptr %998, align 4, !tbaa !16
@@ -10902,9 +10607,8 @@ _ZL8lean_incP11lean_object.exit595:               ; preds = %1006, %1005, %1003,
   %1007 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1008 = load ptr, ptr %1007, align 8, !tbaa !15
   %1009 = ptrtoint ptr %1008 to i64
-  %1010 = and i64 %1009, 1
-  %.not993 = icmp eq i64 %1010, 0
-  br i1 %.not993, label %1011, label %_ZL8lean_incP11lean_object.exit594
+  %1010 = trunc i64 %1009 to i1
+  br i1 %1010, label %_ZL8lean_incP11lean_object.exit594, label %1011
 
 1011:                                             ; preds = %_ZL8lean_incP11lean_object.exit595
   %.val.i859 = load i32, ptr %1008, align 4, !tbaa !16
@@ -10928,9 +10632,8 @@ _ZL8lean_incP11lean_object.exit594:               ; preds = %1016, %1015, %1013,
   %1017 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1018 = load ptr, ptr %1017, align 8, !tbaa !15
   %1019 = ptrtoint ptr %1018 to i64
-  %1020 = and i64 %1019, 1
-  %.not994 = icmp eq i64 %1020, 0
-  br i1 %.not994, label %1021, label %_ZL8lean_incP11lean_object.exit593
+  %1020 = trunc i64 %1019 to i1
+  br i1 %1020, label %_ZL8lean_incP11lean_object.exit593, label %1021
 
 1021:                                             ; preds = %_ZL8lean_incP11lean_object.exit594
   %.val.i862 = load i32, ptr %1018, align 4, !tbaa !16
@@ -10954,9 +10657,8 @@ _ZL8lean_incP11lean_object.exit593:               ; preds = %1026, %1025, %1023,
   %1027 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1028 = load ptr, ptr %1027, align 8, !tbaa !15
   %1029 = ptrtoint ptr %1028 to i64
-  %1030 = and i64 %1029, 1
-  %.not995 = icmp eq i64 %1030, 0
-  br i1 %.not995, label %1031, label %_ZL8lean_incP11lean_object.exit592
+  %1030 = trunc i64 %1029 to i1
+  br i1 %1030, label %_ZL8lean_incP11lean_object.exit592, label %1031
 
 1031:                                             ; preds = %_ZL8lean_incP11lean_object.exit593
   %.val.i865 = load i32, ptr %1028, align 4, !tbaa !16
@@ -10980,9 +10682,8 @@ _ZL8lean_incP11lean_object.exit592:               ; preds = %1036, %1035, %1033,
   %1037 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1038 = load ptr, ptr %1037, align 8, !tbaa !15
   %1039 = ptrtoint ptr %1038 to i64
-  %1040 = and i64 %1039, 1
-  %.not996 = icmp eq i64 %1040, 0
-  br i1 %.not996, label %1041, label %_ZL8lean_incP11lean_object.exit591
+  %1040 = trunc i64 %1039 to i1
+  br i1 %1040, label %_ZL8lean_incP11lean_object.exit591, label %1041
 
 1041:                                             ; preds = %_ZL8lean_incP11lean_object.exit592
   %.val.i868 = load i32, ptr %1038, align 4, !tbaa !16
@@ -11006,9 +10707,8 @@ _ZL8lean_incP11lean_object.exit591:               ; preds = %1046, %1045, %1043,
   %1047 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1048 = load ptr, ptr %1047, align 8, !tbaa !15
   %1049 = ptrtoint ptr %1048 to i64
-  %1050 = and i64 %1049, 1
-  %.not997 = icmp eq i64 %1050, 0
-  br i1 %.not997, label %1051, label %_ZL8lean_incP11lean_object.exit590
+  %1050 = trunc i64 %1049 to i1
+  br i1 %1050, label %_ZL8lean_incP11lean_object.exit590, label %1051
 
 1051:                                             ; preds = %_ZL8lean_incP11lean_object.exit591
   %.val.i871 = load i32, ptr %1048, align 4, !tbaa !16
@@ -11032,9 +10732,8 @@ _ZL8lean_incP11lean_object.exit590:               ; preds = %1056, %1055, %1053,
   %1057 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1058 = load ptr, ptr %1057, align 8, !tbaa !15
   %1059 = ptrtoint ptr %1058 to i64
-  %1060 = and i64 %1059, 1
-  %.not998 = icmp eq i64 %1060, 0
-  br i1 %.not998, label %1061, label %_ZL8lean_incP11lean_object.exit589
+  %1060 = trunc i64 %1059 to i1
+  br i1 %1060, label %_ZL8lean_incP11lean_object.exit589, label %1061
 
 1061:                                             ; preds = %_ZL8lean_incP11lean_object.exit590
   %.val.i874 = load i32, ptr %1058, align 4, !tbaa !16
@@ -11058,9 +10757,8 @@ _ZL8lean_incP11lean_object.exit589:               ; preds = %1066, %1065, %1063,
   %1067 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1068 = load ptr, ptr %1067, align 8, !tbaa !15
   %1069 = ptrtoint ptr %1068 to i64
-  %1070 = and i64 %1069, 1
-  %.not999 = icmp eq i64 %1070, 0
-  br i1 %.not999, label %1071, label %_ZL8lean_incP11lean_object.exit588
+  %1070 = trunc i64 %1069 to i1
+  br i1 %1070, label %_ZL8lean_incP11lean_object.exit588, label %1071
 
 1071:                                             ; preds = %_ZL8lean_incP11lean_object.exit589
   %.val.i877 = load i32, ptr %1068, align 4, !tbaa !16
@@ -11084,9 +10782,8 @@ _ZL8lean_incP11lean_object.exit588:               ; preds = %1076, %1075, %1073,
   %1077 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1078 = load ptr, ptr %1077, align 8, !tbaa !15
   %1079 = ptrtoint ptr %1078 to i64
-  %1080 = and i64 %1079, 1
-  %.not1000 = icmp eq i64 %1080, 0
-  br i1 %.not1000, label %1081, label %_ZL8lean_incP11lean_object.exit587
+  %1080 = trunc i64 %1079 to i1
+  br i1 %1080, label %_ZL8lean_incP11lean_object.exit587, label %1081
 
 1081:                                             ; preds = %_ZL8lean_incP11lean_object.exit588
   %.val.i880 = load i32, ptr %1078, align 4, !tbaa !16
@@ -11104,11 +10801,11 @@ _ZL8lean_incP11lean_object.exit588:               ; preds = %1076, %1075, %1073,
 
 1086:                                             ; preds = %1085
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1078)
-  %.pre1087 = load ptr, ptr %1077, align 8, !tbaa !15
+  %.pre990 = load ptr, ptr %1077, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit587
 
 _ZL8lean_incP11lean_object.exit587:               ; preds = %1086, %1085, %1083, %_ZL8lean_incP11lean_object.exit588
-  %1087 = phi ptr [ %.pre1087, %1086 ], [ %1078, %1085 ], [ %1078, %1083 ], [ %1078, %_ZL8lean_incP11lean_object.exit588 ]
+  %1087 = phi ptr [ %.pre990, %1086 ], [ %1078, %1085 ], [ %1078, %1083 ], [ %1078, %_ZL8lean_incP11lean_object.exit588 ]
   %1088 = getelementptr i8, ptr %0, i64 8
   %.val658 = load ptr, ptr %1088, align 8, !tbaa !15
   %1089 = load ptr, ptr %977, align 8, !tbaa !15
@@ -11143,9 +10840,8 @@ _ZL8lean_incP11lean_object.exit587:               ; preds = %1086, %1085, %1083,
   %1107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1108 = load ptr, ptr %1107, align 8, !tbaa !15
   %1109 = ptrtoint ptr %1108 to i64
-  %1110 = and i64 %1109, 1
-  %.not978 = icmp eq i64 %1110, 0
-  br i1 %.not978, label %1111, label %_ZL8lean_incP11lean_object.exit586
+  %1110 = trunc i64 %1109 to i1
+  br i1 %1110, label %_ZL8lean_incP11lean_object.exit586, label %1111
 
 1111:                                             ; preds = %1106
   %.val.i883 = load i32, ptr %1108, align 4, !tbaa !16
@@ -11169,9 +10865,8 @@ _ZL8lean_incP11lean_object.exit586:               ; preds = %1116, %1115, %1113,
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1118 = load ptr, ptr %1117, align 8, !tbaa !15
   %1119 = ptrtoint ptr %1118 to i64
-  %1120 = and i64 %1119, 1
-  %.not979 = icmp eq i64 %1120, 0
-  br i1 %.not979, label %1121, label %_ZL8lean_incP11lean_object.exit585
+  %1120 = trunc i64 %1119 to i1
+  br i1 %1120, label %_ZL8lean_incP11lean_object.exit585, label %1121
 
 1121:                                             ; preds = %_ZL8lean_incP11lean_object.exit586
   %.val.i886 = load i32, ptr %1118, align 4, !tbaa !16
@@ -11195,9 +10890,8 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %1126, %1125, %1123,
   %1127 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1128 = load ptr, ptr %1127, align 8, !tbaa !15
   %1129 = ptrtoint ptr %1128 to i64
-  %1130 = and i64 %1129, 1
-  %.not980 = icmp eq i64 %1130, 0
-  br i1 %.not980, label %1131, label %_ZL8lean_incP11lean_object.exit584
+  %1130 = trunc i64 %1129 to i1
+  br i1 %1130, label %_ZL8lean_incP11lean_object.exit584, label %1131
 
 1131:                                             ; preds = %_ZL8lean_incP11lean_object.exit585
   %.val.i889 = load i32, ptr %1128, align 4, !tbaa !16
@@ -11221,9 +10915,8 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %1136, %1135, %1133,
   %1137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1138 = load ptr, ptr %1137, align 8, !tbaa !15
   %1139 = ptrtoint ptr %1138 to i64
-  %1140 = and i64 %1139, 1
-  %.not981 = icmp eq i64 %1140, 0
-  br i1 %.not981, label %1141, label %_ZL8lean_incP11lean_object.exit583
+  %1140 = trunc i64 %1139 to i1
+  br i1 %1140, label %_ZL8lean_incP11lean_object.exit583, label %1141
 
 1141:                                             ; preds = %_ZL8lean_incP11lean_object.exit584
   %.val.i892 = load i32, ptr %1138, align 4, !tbaa !16
@@ -11247,9 +10940,8 @@ _ZL8lean_incP11lean_object.exit583:               ; preds = %1146, %1145, %1143,
   %1147 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1148 = load ptr, ptr %1147, align 8, !tbaa !15
   %1149 = ptrtoint ptr %1148 to i64
-  %1150 = and i64 %1149, 1
-  %.not982 = icmp eq i64 %1150, 0
-  br i1 %.not982, label %1151, label %_ZL8lean_incP11lean_object.exit582
+  %1150 = trunc i64 %1149 to i1
+  br i1 %1150, label %_ZL8lean_incP11lean_object.exit582, label %1151
 
 1151:                                             ; preds = %_ZL8lean_incP11lean_object.exit583
   %.val.i895 = load i32, ptr %1148, align 4, !tbaa !16
@@ -11273,9 +10965,8 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %1156, %1155, %1153,
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1158 = load ptr, ptr %1157, align 8, !tbaa !15
   %1159 = ptrtoint ptr %1158 to i64
-  %1160 = and i64 %1159, 1
-  %.not983 = icmp eq i64 %1160, 0
-  br i1 %.not983, label %1161, label %_ZL8lean_incP11lean_object.exit581
+  %1160 = trunc i64 %1159 to i1
+  br i1 %1160, label %_ZL8lean_incP11lean_object.exit581, label %1161
 
 1161:                                             ; preds = %_ZL8lean_incP11lean_object.exit582
   %.val.i898 = load i32, ptr %1158, align 4, !tbaa !16
@@ -11299,9 +10990,8 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %1166, %1165, %1163,
   %1167 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1168 = load ptr, ptr %1167, align 8, !tbaa !15
   %1169 = ptrtoint ptr %1168 to i64
-  %1170 = and i64 %1169, 1
-  %.not984 = icmp eq i64 %1170, 0
-  br i1 %.not984, label %1171, label %_ZL8lean_incP11lean_object.exit580
+  %1170 = trunc i64 %1169 to i1
+  br i1 %1170, label %_ZL8lean_incP11lean_object.exit580, label %1171
 
 1171:                                             ; preds = %_ZL8lean_incP11lean_object.exit581
   %.val.i901 = load i32, ptr %1168, align 4, !tbaa !16
@@ -11325,9 +11015,8 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %1176, %1175, %1173,
   %1177 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1178 = load ptr, ptr %1177, align 8, !tbaa !15
   %1179 = ptrtoint ptr %1178 to i64
-  %1180 = and i64 %1179, 1
-  %.not985 = icmp eq i64 %1180, 0
-  br i1 %.not985, label %1181, label %_ZL8lean_incP11lean_object.exit579
+  %1180 = trunc i64 %1179 to i1
+  br i1 %1180, label %_ZL8lean_incP11lean_object.exit579, label %1181
 
 1181:                                             ; preds = %_ZL8lean_incP11lean_object.exit580
   %.val.i904 = load i32, ptr %1178, align 4, !tbaa !16
@@ -11351,9 +11040,8 @@ _ZL8lean_incP11lean_object.exit579:               ; preds = %1186, %1185, %1183,
   %1187 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1188 = load ptr, ptr %1187, align 8, !tbaa !15
   %1189 = ptrtoint ptr %1188 to i64
-  %1190 = and i64 %1189, 1
-  %.not986 = icmp eq i64 %1190, 0
-  br i1 %.not986, label %1191, label %_ZL8lean_incP11lean_object.exit578
+  %1190 = trunc i64 %1189 to i1
+  br i1 %1190, label %_ZL8lean_incP11lean_object.exit578, label %1191
 
 1191:                                             ; preds = %_ZL8lean_incP11lean_object.exit579
   %.val.i907 = load i32, ptr %1188, align 4, !tbaa !16
@@ -11377,9 +11065,8 @@ _ZL8lean_incP11lean_object.exit578:               ; preds = %1196, %1195, %1193,
   %1197 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1198 = load ptr, ptr %1197, align 8, !tbaa !15
   %1199 = ptrtoint ptr %1198 to i64
-  %1200 = and i64 %1199, 1
-  %.not987 = icmp eq i64 %1200, 0
-  br i1 %.not987, label %1201, label %_ZL8lean_incP11lean_object.exit577
+  %1200 = trunc i64 %1199 to i1
+  br i1 %1200, label %_ZL8lean_incP11lean_object.exit577, label %1201
 
 1201:                                             ; preds = %_ZL8lean_incP11lean_object.exit578
   %.val.i910 = load i32, ptr %1198, align 4, !tbaa !16
@@ -11403,9 +11090,8 @@ _ZL8lean_incP11lean_object.exit577:               ; preds = %1206, %1205, %1203,
   %1207 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1208 = load ptr, ptr %1207, align 8, !tbaa !15
   %1209 = ptrtoint ptr %1208 to i64
-  %1210 = and i64 %1209, 1
-  %.not988 = icmp eq i64 %1210, 0
-  br i1 %.not988, label %1211, label %_ZL8lean_incP11lean_object.exit576
+  %1210 = trunc i64 %1209 to i1
+  br i1 %1210, label %_ZL8lean_incP11lean_object.exit576, label %1211
 
 1211:                                             ; preds = %_ZL8lean_incP11lean_object.exit577
   %.val.i913 = load i32, ptr %1208, align 4, !tbaa !16
@@ -11429,9 +11115,8 @@ _ZL8lean_incP11lean_object.exit576:               ; preds = %1216, %1215, %1213,
   %1217 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1218 = load ptr, ptr %1217, align 8, !tbaa !15
   %1219 = ptrtoint ptr %1218 to i64
-  %1220 = and i64 %1219, 1
-  %.not989 = icmp eq i64 %1220, 0
-  br i1 %.not989, label %1221, label %_ZL8lean_incP11lean_object.exit575
+  %1220 = trunc i64 %1219 to i1
+  br i1 %1220, label %_ZL8lean_incP11lean_object.exit575, label %1221
 
 1221:                                             ; preds = %_ZL8lean_incP11lean_object.exit576
   %.val.i916 = load i32, ptr %1218, align 4, !tbaa !16
@@ -11449,11 +11134,11 @@ _ZL8lean_incP11lean_object.exit576:               ; preds = %1216, %1215, %1213,
 
 1226:                                             ; preds = %1225
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1218)
-  %.pre1086 = load ptr, ptr %1217, align 8, !tbaa !15
+  %.pre989 = load ptr, ptr %1217, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit575
 
 _ZL8lean_incP11lean_object.exit575:               ; preds = %1226, %1225, %1223, %_ZL8lean_incP11lean_object.exit576
-  %1227 = phi ptr [ %.pre1086, %1226 ], [ %1218, %1225 ], [ %1218, %1223 ], [ %1218, %_ZL8lean_incP11lean_object.exit576 ]
+  %1227 = phi ptr [ %.pre989, %1226 ], [ %1218, %1225 ], [ %1218, %1223 ], [ %1218, %_ZL8lean_incP11lean_object.exit576 ]
   %1228 = getelementptr i8, ptr %0, i64 8
   %.val657 = load ptr, ptr %1228, align 8, !tbaa !15
   %1229 = load ptr, ptr %1107, align 8, !tbaa !15
@@ -11489,9 +11174,8 @@ _ZL8lean_incP11lean_object.exit575:               ; preds = %1226, %1225, %1223,
   %1248 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1249 = load ptr, ptr %1248, align 8, !tbaa !15
   %1250 = ptrtoint ptr %1249 to i64
-  %1251 = and i64 %1250, 1
-  %.not965 = icmp eq i64 %1251, 0
-  br i1 %.not965, label %1252, label %_ZL8lean_incP11lean_object.exit574
+  %1251 = trunc i64 %1250 to i1
+  br i1 %1251, label %_ZL8lean_incP11lean_object.exit574, label %1252
 
 1252:                                             ; preds = %1247
   %.val.i919 = load i32, ptr %1249, align 4, !tbaa !16
@@ -11515,9 +11199,8 @@ _ZL8lean_incP11lean_object.exit574:               ; preds = %1257, %1256, %1254,
   %1258 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1259 = load ptr, ptr %1258, align 8, !tbaa !15
   %1260 = ptrtoint ptr %1259 to i64
-  %1261 = and i64 %1260, 1
-  %.not966 = icmp eq i64 %1261, 0
-  br i1 %.not966, label %1262, label %_ZL8lean_incP11lean_object.exit573
+  %1261 = trunc i64 %1260 to i1
+  br i1 %1261, label %_ZL8lean_incP11lean_object.exit573, label %1262
 
 1262:                                             ; preds = %_ZL8lean_incP11lean_object.exit574
   %.val.i922 = load i32, ptr %1259, align 4, !tbaa !16
@@ -11541,9 +11224,8 @@ _ZL8lean_incP11lean_object.exit573:               ; preds = %1267, %1266, %1264,
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1269 = load ptr, ptr %1268, align 8, !tbaa !15
   %1270 = ptrtoint ptr %1269 to i64
-  %1271 = and i64 %1270, 1
-  %.not967 = icmp eq i64 %1271, 0
-  br i1 %.not967, label %1272, label %_ZL8lean_incP11lean_object.exit572
+  %1271 = trunc i64 %1270 to i1
+  br i1 %1271, label %_ZL8lean_incP11lean_object.exit572, label %1272
 
 1272:                                             ; preds = %_ZL8lean_incP11lean_object.exit573
   %.val.i925 = load i32, ptr %1269, align 4, !tbaa !16
@@ -11567,9 +11249,8 @@ _ZL8lean_incP11lean_object.exit572:               ; preds = %1277, %1276, %1274,
   %1278 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1279 = load ptr, ptr %1278, align 8, !tbaa !15
   %1280 = ptrtoint ptr %1279 to i64
-  %1281 = and i64 %1280, 1
-  %.not968 = icmp eq i64 %1281, 0
-  br i1 %.not968, label %1282, label %_ZL8lean_incP11lean_object.exit571
+  %1281 = trunc i64 %1280 to i1
+  br i1 %1281, label %_ZL8lean_incP11lean_object.exit571, label %1282
 
 1282:                                             ; preds = %_ZL8lean_incP11lean_object.exit572
   %.val.i928 = load i32, ptr %1279, align 4, !tbaa !16
@@ -11593,9 +11274,8 @@ _ZL8lean_incP11lean_object.exit571:               ; preds = %1287, %1286, %1284,
   %1288 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1289 = load ptr, ptr %1288, align 8, !tbaa !15
   %1290 = ptrtoint ptr %1289 to i64
-  %1291 = and i64 %1290, 1
-  %.not969 = icmp eq i64 %1291, 0
-  br i1 %.not969, label %1292, label %_ZL8lean_incP11lean_object.exit570
+  %1291 = trunc i64 %1290 to i1
+  br i1 %1291, label %_ZL8lean_incP11lean_object.exit570, label %1292
 
 1292:                                             ; preds = %_ZL8lean_incP11lean_object.exit571
   %.val.i931 = load i32, ptr %1289, align 4, !tbaa !16
@@ -11619,9 +11299,8 @@ _ZL8lean_incP11lean_object.exit570:               ; preds = %1297, %1296, %1294,
   %1298 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1299 = load ptr, ptr %1298, align 8, !tbaa !15
   %1300 = ptrtoint ptr %1299 to i64
-  %1301 = and i64 %1300, 1
-  %.not970 = icmp eq i64 %1301, 0
-  br i1 %.not970, label %1302, label %_ZL8lean_incP11lean_object.exit569
+  %1301 = trunc i64 %1300 to i1
+  br i1 %1301, label %_ZL8lean_incP11lean_object.exit569, label %1302
 
 1302:                                             ; preds = %_ZL8lean_incP11lean_object.exit570
   %.val.i934 = load i32, ptr %1299, align 4, !tbaa !16
@@ -11645,9 +11324,8 @@ _ZL8lean_incP11lean_object.exit569:               ; preds = %1307, %1306, %1304,
   %1308 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1309 = load ptr, ptr %1308, align 8, !tbaa !15
   %1310 = ptrtoint ptr %1309 to i64
-  %1311 = and i64 %1310, 1
-  %.not971 = icmp eq i64 %1311, 0
-  br i1 %.not971, label %1312, label %_ZL8lean_incP11lean_object.exit568
+  %1311 = trunc i64 %1310 to i1
+  br i1 %1311, label %_ZL8lean_incP11lean_object.exit568, label %1312
 
 1312:                                             ; preds = %_ZL8lean_incP11lean_object.exit569
   %.val.i937 = load i32, ptr %1309, align 4, !tbaa !16
@@ -11671,9 +11349,8 @@ _ZL8lean_incP11lean_object.exit568:               ; preds = %1317, %1316, %1314,
   %1318 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1319 = load ptr, ptr %1318, align 8, !tbaa !15
   %1320 = ptrtoint ptr %1319 to i64
-  %1321 = and i64 %1320, 1
-  %.not972 = icmp eq i64 %1321, 0
-  br i1 %.not972, label %1322, label %_ZL8lean_incP11lean_object.exit567
+  %1321 = trunc i64 %1320 to i1
+  br i1 %1321, label %_ZL8lean_incP11lean_object.exit567, label %1322
 
 1322:                                             ; preds = %_ZL8lean_incP11lean_object.exit568
   %.val.i940 = load i32, ptr %1319, align 4, !tbaa !16
@@ -11697,9 +11374,8 @@ _ZL8lean_incP11lean_object.exit567:               ; preds = %1327, %1326, %1324,
   %1328 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1329 = load ptr, ptr %1328, align 8, !tbaa !15
   %1330 = ptrtoint ptr %1329 to i64
-  %1331 = and i64 %1330, 1
-  %.not973 = icmp eq i64 %1331, 0
-  br i1 %.not973, label %1332, label %_ZL8lean_incP11lean_object.exit566
+  %1331 = trunc i64 %1330 to i1
+  br i1 %1331, label %_ZL8lean_incP11lean_object.exit566, label %1332
 
 1332:                                             ; preds = %_ZL8lean_incP11lean_object.exit567
   %.val.i943 = load i32, ptr %1329, align 4, !tbaa !16
@@ -11723,9 +11399,8 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %1337, %1336, %1334,
   %1338 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1339 = load ptr, ptr %1338, align 8, !tbaa !15
   %1340 = ptrtoint ptr %1339 to i64
-  %1341 = and i64 %1340, 1
-  %.not974 = icmp eq i64 %1341, 0
-  br i1 %.not974, label %1342, label %_ZL8lean_incP11lean_object.exit565
+  %1341 = trunc i64 %1340 to i1
+  br i1 %1341, label %_ZL8lean_incP11lean_object.exit565, label %1342
 
 1342:                                             ; preds = %_ZL8lean_incP11lean_object.exit566
   %.val.i946 = load i32, ptr %1339, align 4, !tbaa !16
@@ -11749,9 +11424,8 @@ _ZL8lean_incP11lean_object.exit565:               ; preds = %1347, %1346, %1344,
   %1348 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1349 = load ptr, ptr %1348, align 8, !tbaa !15
   %1350 = ptrtoint ptr %1349 to i64
-  %1351 = and i64 %1350, 1
-  %.not975 = icmp eq i64 %1351, 0
-  br i1 %.not975, label %1352, label %_ZL8lean_incP11lean_object.exit564
+  %1351 = trunc i64 %1350 to i1
+  br i1 %1351, label %_ZL8lean_incP11lean_object.exit564, label %1352
 
 1352:                                             ; preds = %_ZL8lean_incP11lean_object.exit565
   %.val.i949 = load i32, ptr %1349, align 4, !tbaa !16
@@ -11775,9 +11449,8 @@ _ZL8lean_incP11lean_object.exit564:               ; preds = %1357, %1356, %1354,
   %1358 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1359 = load ptr, ptr %1358, align 8, !tbaa !15
   %1360 = ptrtoint ptr %1359 to i64
-  %1361 = and i64 %1360, 1
-  %.not976 = icmp eq i64 %1361, 0
-  br i1 %.not976, label %1362, label %_ZL8lean_incP11lean_object.exit563
+  %1361 = trunc i64 %1360 to i1
+  br i1 %1361, label %_ZL8lean_incP11lean_object.exit563, label %1362
 
 1362:                                             ; preds = %_ZL8lean_incP11lean_object.exit564
   %.val.i952 = load i32, ptr %1359, align 4, !tbaa !16
@@ -11801,9 +11474,8 @@ _ZL8lean_incP11lean_object.exit563:               ; preds = %1367, %1366, %1364,
   %1368 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1369 = load ptr, ptr %1368, align 8, !tbaa !15
   %1370 = ptrtoint ptr %1369 to i64
-  %1371 = and i64 %1370, 1
-  %.not977 = icmp eq i64 %1371, 0
-  br i1 %.not977, label %1372, label %_ZL8lean_incP11lean_object.exit562
+  %1371 = trunc i64 %1370 to i1
+  br i1 %1371, label %_ZL8lean_incP11lean_object.exit562, label %1372
 
 1372:                                             ; preds = %_ZL8lean_incP11lean_object.exit563
   %.val.i955 = load i32, ptr %1369, align 4, !tbaa !16
@@ -11821,11 +11493,11 @@ _ZL8lean_incP11lean_object.exit563:               ; preds = %1367, %1366, %1364,
 
 1377:                                             ; preds = %1376
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1369)
-  %.pre1085 = load ptr, ptr %1368, align 8, !tbaa !15
+  %.pre988 = load ptr, ptr %1368, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit562
 
 _ZL8lean_incP11lean_object.exit562:               ; preds = %1377, %1376, %1374, %_ZL8lean_incP11lean_object.exit563
-  %1378 = phi ptr [ %.pre1085, %1377 ], [ %1369, %1376 ], [ %1369, %1374 ], [ %1369, %_ZL8lean_incP11lean_object.exit563 ]
+  %1378 = phi ptr [ %.pre988, %1377 ], [ %1369, %1376 ], [ %1369, %1374 ], [ %1369, %_ZL8lean_incP11lean_object.exit563 ]
   %1379 = getelementptr i8, ptr %0, i64 8
   %.val656 = load ptr, ptr %1379, align 8, !tbaa !15
   %1380 = load ptr, ptr %1248, align 8, !tbaa !15
@@ -11862,12 +11534,12 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %1377, %1376, %1374,
   %1400 = shl nuw nsw i32 %39, 3
   %1401 = zext nneg i32 %1400 to i64
   %1402 = alloca i8, i64 %1401, align 16
-  %.not1070 = icmp eq i16 %.val653, 0
-  br i1 %.not1070, label %.preheader, label %.lr.ph1066
+  %.not973 = icmp eq i16 %.val653, 0
+  br i1 %.not973, label %.preheader, label %.lr.ph970
 
-.lr.ph1066:                                       ; preds = %1399
+.lr.ph970:                                        ; preds = %1399
   %1403 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count1080 = zext i16 %.val653 to i64
+  %wide.trip.count983 = zext i16 %.val653 to i64
   br label %1410
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit561, %1399
@@ -11886,14 +11558,13 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %1377, %1376, %1374,
   %1409 = icmp sgt i32 %1408, 1
   br i1 %1409, label %1423, label %1425, !prof !19
 
-1410:                                             ; preds = %.lr.ph1066, %_ZL8lean_incP11lean_object.exit561
-  %indvars.iv1077 = phi i64 [ 0, %.lr.ph1066 ], [ %indvars.iv.next1078, %_ZL8lean_incP11lean_object.exit561 ]
-  %1411 = getelementptr inbounds nuw ptr, ptr %1403, i64 %indvars.iv1077
+1410:                                             ; preds = %.lr.ph970, %_ZL8lean_incP11lean_object.exit561
+  %indvars.iv980 = phi i64 [ 0, %.lr.ph970 ], [ %indvars.iv.next981, %_ZL8lean_incP11lean_object.exit561 ]
+  %1411 = getelementptr inbounds nuw ptr, ptr %1403, i64 %indvars.iv980
   %1412 = load ptr, ptr %1411, align 8, !tbaa !15
   %1413 = ptrtoint ptr %1412 to i64
-  %1414 = and i64 %1413, 1
-  %.not1056 = icmp eq i64 %1414, 0
-  br i1 %.not1056, label %1415, label %_ZL8lean_incP11lean_object.exit561
+  %1414 = trunc i64 %1413 to i1
+  br i1 %1414, label %_ZL8lean_incP11lean_object.exit561, label %1415
 
 1415:                                             ; preds = %1410
   %.val.i958 = load i32, ptr %1412, align 4, !tbaa !16
@@ -11911,16 +11582,16 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %1377, %1376, %1374,
 
 1420:                                             ; preds = %1419
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1412)
-  %.pre1098 = load ptr, ptr %1411, align 8, !tbaa !15
+  %.pre1001 = load ptr, ptr %1411, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit561
 
 _ZL8lean_incP11lean_object.exit561:               ; preds = %1420, %1419, %1417, %1410
-  %1421 = phi ptr [ %.pre1098, %1420 ], [ %1412, %1419 ], [ %1412, %1417 ], [ %1412, %1410 ]
-  %1422 = getelementptr inbounds nuw ptr, ptr %1402, i64 %indvars.iv1077
+  %1421 = phi ptr [ %.pre1001, %1420 ], [ %1412, %1419 ], [ %1412, %1417 ], [ %1412, %1410 ]
+  %1422 = getelementptr inbounds nuw ptr, ptr %1402, i64 %indvars.iv980
   store ptr %1421, ptr %1422, align 8, !tbaa !15
-  %indvars.iv.next1078 = add nuw nsw i64 %indvars.iv1077, 1
-  %exitcond1081.not = icmp eq i64 %indvars.iv.next1078, %wide.trip.count1080
-  br i1 %exitcond1081.not, label %.preheader, label %1410, !llvm.loop !27
+  %indvars.iv.next981 = add nuw nsw i64 %indvars.iv980, 1
+  %exitcond984.not = icmp eq i64 %indvars.iv.next981, %wide.trip.count983
+  br i1 %exitcond984.not, label %.preheader, label %1410, !llvm.loop !27
 
 1423:                                             ; preds = %.preheader
   %1424 = add nsw i32 %1408, -1
@@ -11949,31 +11620,30 @@ _ZL8lean_incP11lean_object.exit561:               ; preds = %1420, %1419, %1417,
   %1432 = shl nuw nsw i32 %39, 3
   %1433 = zext nneg i32 %1432 to i64
   %1434 = alloca i8, i64 %1433, align 16
-  %.not1068 = icmp eq i16 %.val653, 0
-  br i1 %.not1068, label %.preheader1060, label %.lr.ph
+  %.not = icmp eq i16 %.val653, 0
+  br i1 %.not, label %.preheader964, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1429
   %1435 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val653 to i64
   br label %1437
 
-.preheader1060:                                   ; preds = %_ZL8lean_incP11lean_object.exit, %1429
+.preheader964:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %1429
   %1436 = sub nsw i32 %39, %41
-  %.not1069 = icmp eq i16 %.val, %.val653
-  br i1 %.not1069, label %._crit_edge, label %.lr.ph1063.preheader
+  %.not972 = icmp eq i16 %.val, %.val653
+  br i1 %.not972, label %._crit_edge, label %.lr.ph967.preheader
 
-.lr.ph1063.preheader:                             ; preds = %.preheader1060
-  %wide.trip.count1075 = zext i32 %1436 to i64
-  br label %.lr.ph1063
+.lr.ph967.preheader:                              ; preds = %.preheader964
+  %wide.trip.count978 = zext i32 %1436 to i64
+  br label %.lr.ph967
 
 1437:                                             ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %1438 = getelementptr inbounds nuw ptr, ptr %1435, i64 %indvars.iv
   %1439 = load ptr, ptr %1438, align 8, !tbaa !15
   %1440 = ptrtoint ptr %1439 to i64
-  %1441 = and i64 %1440, 1
-  %.not964 = icmp eq i64 %1441, 0
-  br i1 %.not964, label %1442, label %_ZL8lean_incP11lean_object.exit
+  %1441 = trunc i64 %1440 to i1
+  br i1 %1441, label %_ZL8lean_incP11lean_object.exit, label %1442
 
 1442:                                             ; preds = %1437
   %.val.i961 = load i32, ptr %1439, align 4, !tbaa !16
@@ -12000,9 +11670,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1447, %1446, %1444,
   store ptr %1448, ptr %1449, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader1060, label %1437, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader964, label %1437, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %.lr.ph1063, %.preheader1060
+._crit_edge:                                      ; preds = %.lr.ph967, %.preheader964
   %1450 = getelementptr i8, ptr %0, i64 8
   %.val686 = load ptr, ptr %1450, align 8, !tbaa !15
   %1451 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val686, i32 noundef range(i32 0, 65536) %39, ptr noundef nonnull %1434)
@@ -12031,18 +11701,18 @@ _ZL12lean_dec_refP11lean_object.exit530:          ; preds = %1454, %1456, %1457
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph1063:                                       ; preds = %.lr.ph1063.preheader, %.lr.ph1063
-  %indvars.iv1072 = phi i64 [ 0, %.lr.ph1063.preheader ], [ %indvars.iv.next1073, %.lr.ph1063 ]
-  %1462 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv1072
+.lr.ph967:                                        ; preds = %.lr.ph967.preheader, %.lr.ph967
+  %indvars.iv975 = phi i64 [ 0, %.lr.ph967.preheader ], [ %indvars.iv.next976, %.lr.ph967 ]
+  %1462 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv975
   %1463 = load ptr, ptr %1462, align 8, !tbaa !15
-  %1464 = trunc nuw i64 %indvars.iv1072 to i32
+  %1464 = trunc nuw i64 %indvars.iv975 to i32
   %1465 = add i32 %1464, %41
   %1466 = zext i32 %1465 to i64
   %1467 = getelementptr inbounds nuw ptr, ptr %1434, i64 %1466
   store ptr %1463, ptr %1467, align 8, !tbaa !15
-  %indvars.iv.next1073 = add nuw nsw i64 %indvars.iv1072, 1
-  %exitcond1076.not = icmp eq i64 %indvars.iv.next1073, %wide.trip.count1075
-  br i1 %exitcond1076.not, label %._crit_edge, label %.lr.ph1063, !llvm.loop !29
+  %indvars.iv.next976 = add nuw nsw i64 %indvars.iv975, 1
+  %exitcond979.not = icmp eq i64 %indvars.iv.next976, %wide.trip.count978
+  br i1 %exitcond979.not, label %._crit_edge, label %.lr.ph967, !llvm.loop !29
 
 1468:                                             ; preds = %1427
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -12065,15 +11735,13 @@ define ptr @lean_apply_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %6 = alloca [4 x ptr], align 16
   %7 = alloca [4 x ptr], align 8
   %8 = ptrtoint ptr %0 to i64
-  %9 = and i64 %8, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %47, label %10
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %10, label %47
 
 10:                                               ; preds = %5
   %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not970 = icmp eq i64 %12, 0
-  br i1 %.not970, label %13, label %_ZL8lean_decP11lean_object.exit504
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %_ZL8lean_decP11lean_object.exit504, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %1, align 4, !tbaa !16
@@ -12095,9 +11763,8 @@ define ptr @lean_apply_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit504:               ; preds = %19, %18, %16, %10
   %20 = ptrtoint ptr %2 to i64
-  %21 = and i64 %20, 1
-  %.not971 = icmp eq i64 %21, 0
-  br i1 %.not971, label %22, label %_ZL8lean_decP11lean_object.exit503
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %_ZL8lean_decP11lean_object.exit503, label %22
 
 22:                                               ; preds = %_ZL8lean_decP11lean_object.exit504
   %23 = load i32, ptr %2, align 4, !tbaa !16
@@ -12119,9 +11786,8 @@ _ZL8lean_decP11lean_object.exit504:               ; preds = %19, %18, %16, %10
 
 _ZL8lean_decP11lean_object.exit503:               ; preds = %28, %27, %25, %_ZL8lean_decP11lean_object.exit504
   %29 = ptrtoint ptr %3 to i64
-  %30 = and i64 %29, 1
-  %.not972 = icmp eq i64 %30, 0
-  br i1 %.not972, label %31, label %_ZL8lean_decP11lean_object.exit502
+  %30 = trunc i64 %29 to i1
+  br i1 %30, label %_ZL8lean_decP11lean_object.exit502, label %31
 
 31:                                               ; preds = %_ZL8lean_decP11lean_object.exit503
   %32 = load i32, ptr %3, align 4, !tbaa !16
@@ -12143,9 +11809,8 @@ _ZL8lean_decP11lean_object.exit503:               ; preds = %28, %27, %25, %_ZL8
 
 _ZL8lean_decP11lean_object.exit502:               ; preds = %37, %36, %34, %_ZL8lean_decP11lean_object.exit503
   %38 = ptrtoint ptr %4 to i64
-  %39 = and i64 %38, 1
-  %.not973 = icmp eq i64 %39, 0
-  br i1 %.not973, label %40, label %_ZL8lean_decP11lean_object.exit
+  %39 = trunc i64 %38 to i1
+  br i1 %39, label %_ZL8lean_decP11lean_object.exit, label %40
 
 40:                                               ; preds = %_ZL8lean_decP11lean_object.exit502
   %41 = load i32, ptr %4, align 4, !tbaa !16
@@ -12487,9 +12152,8 @@ _ZL8lean_decP11lean_object.exit502:               ; preds = %37, %36, %34, %_ZL8
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %264 = load ptr, ptr %263, align 8, !tbaa !15
   %265 = ptrtoint ptr %264 to i64
-  %266 = and i64 %265, 1
-  %.not968 = icmp eq i64 %266, 0
-  br i1 %.not968, label %267, label %_ZL8lean_incP11lean_object.exit619
+  %266 = trunc i64 %265 to i1
+  br i1 %266, label %_ZL8lean_incP11lean_object.exit619, label %267
 
 267:                                              ; preds = %262
   %.val.i = load i32, ptr %264, align 4, !tbaa !16
@@ -12507,11 +12171,11 @@ _ZL8lean_decP11lean_object.exit502:               ; preds = %37, %36, %34, %_ZL8
 
 272:                                              ; preds = %271
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %264)
-  %.pre1010 = load ptr, ptr %263, align 8, !tbaa !15
+  %.pre925 = load ptr, ptr %263, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit619
 
 _ZL8lean_incP11lean_object.exit619:               ; preds = %272, %271, %269, %262
-  %273 = phi ptr [ %.pre1010, %272 ], [ %264, %271 ], [ %264, %269 ], [ %264, %262 ]
+  %273 = phi ptr [ %.pre925, %272 ], [ %264, %271 ], [ %264, %269 ], [ %264, %262 ]
   %274 = getelementptr i8, ptr %0, i64 8
   %.val634 = load ptr, ptr %274, align 8, !tbaa !15
   %275 = tail call noundef ptr %.val634(ptr noundef %273, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -12536,9 +12200,8 @@ _ZL8lean_incP11lean_object.exit619:               ; preds = %272, %271, %269, %2
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %284 = load ptr, ptr %283, align 8, !tbaa !15
   %285 = ptrtoint ptr %284 to i64
-  %286 = and i64 %285, 1
-  %.not966 = icmp eq i64 %286, 0
-  br i1 %.not966, label %287, label %_ZL8lean_incP11lean_object.exit618
+  %286 = trunc i64 %285 to i1
+  br i1 %286, label %_ZL8lean_incP11lean_object.exit618, label %287
 
 287:                                              ; preds = %282
   %.val.i653 = load i32, ptr %284, align 4, !tbaa !16
@@ -12562,9 +12225,8 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %292, %291, %289, %2
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %294 = load ptr, ptr %293, align 8, !tbaa !15
   %295 = ptrtoint ptr %294 to i64
-  %296 = and i64 %295, 1
-  %.not967 = icmp eq i64 %296, 0
-  br i1 %.not967, label %297, label %_ZL8lean_incP11lean_object.exit617
+  %296 = trunc i64 %295 to i1
+  br i1 %296, label %_ZL8lean_incP11lean_object.exit617, label %297
 
 297:                                              ; preds = %_ZL8lean_incP11lean_object.exit618
   %.val.i656 = load i32, ptr %294, align 4, !tbaa !16
@@ -12582,11 +12244,11 @@ _ZL8lean_incP11lean_object.exit618:               ; preds = %292, %291, %289, %2
 
 302:                                              ; preds = %301
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %294)
-  %.pre1009 = load ptr, ptr %293, align 8, !tbaa !15
+  %.pre924 = load ptr, ptr %293, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit617
 
 _ZL8lean_incP11lean_object.exit617:               ; preds = %302, %301, %299, %_ZL8lean_incP11lean_object.exit618
-  %303 = phi ptr [ %.pre1009, %302 ], [ %294, %301 ], [ %294, %299 ], [ %294, %_ZL8lean_incP11lean_object.exit618 ]
+  %303 = phi ptr [ %.pre924, %302 ], [ %294, %301 ], [ %294, %299 ], [ %294, %_ZL8lean_incP11lean_object.exit618 ]
   %304 = getelementptr i8, ptr %0, i64 8
   %.val633 = load ptr, ptr %304, align 8, !tbaa !15
   %305 = load ptr, ptr %283, align 8, !tbaa !15
@@ -12612,9 +12274,8 @@ _ZL8lean_incP11lean_object.exit617:               ; preds = %302, %301, %299, %_
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %315 = load ptr, ptr %314, align 8, !tbaa !15
   %316 = ptrtoint ptr %315 to i64
-  %317 = and i64 %316, 1
-  %.not963 = icmp eq i64 %317, 0
-  br i1 %.not963, label %318, label %_ZL8lean_incP11lean_object.exit616
+  %317 = trunc i64 %316 to i1
+  br i1 %317, label %_ZL8lean_incP11lean_object.exit616, label %318
 
 318:                                              ; preds = %313
   %.val.i659 = load i32, ptr %315, align 4, !tbaa !16
@@ -12638,9 +12299,8 @@ _ZL8lean_incP11lean_object.exit616:               ; preds = %323, %322, %320, %3
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %325 = load ptr, ptr %324, align 8, !tbaa !15
   %326 = ptrtoint ptr %325 to i64
-  %327 = and i64 %326, 1
-  %.not964 = icmp eq i64 %327, 0
-  br i1 %.not964, label %328, label %_ZL8lean_incP11lean_object.exit615
+  %327 = trunc i64 %326 to i1
+  br i1 %327, label %_ZL8lean_incP11lean_object.exit615, label %328
 
 328:                                              ; preds = %_ZL8lean_incP11lean_object.exit616
   %.val.i662 = load i32, ptr %325, align 4, !tbaa !16
@@ -12664,9 +12324,8 @@ _ZL8lean_incP11lean_object.exit615:               ; preds = %333, %332, %330, %_
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %335 = load ptr, ptr %334, align 8, !tbaa !15
   %336 = ptrtoint ptr %335 to i64
-  %337 = and i64 %336, 1
-  %.not965 = icmp eq i64 %337, 0
-  br i1 %.not965, label %338, label %_ZL8lean_incP11lean_object.exit614
+  %337 = trunc i64 %336 to i1
+  br i1 %337, label %_ZL8lean_incP11lean_object.exit614, label %338
 
 338:                                              ; preds = %_ZL8lean_incP11lean_object.exit615
   %.val.i665 = load i32, ptr %335, align 4, !tbaa !16
@@ -12684,11 +12343,11 @@ _ZL8lean_incP11lean_object.exit615:               ; preds = %333, %332, %330, %_
 
 343:                                              ; preds = %342
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %335)
-  %.pre1008 = load ptr, ptr %334, align 8, !tbaa !15
+  %.pre923 = load ptr, ptr %334, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit614
 
 _ZL8lean_incP11lean_object.exit614:               ; preds = %343, %342, %340, %_ZL8lean_incP11lean_object.exit615
-  %344 = phi ptr [ %.pre1008, %343 ], [ %335, %342 ], [ %335, %340 ], [ %335, %_ZL8lean_incP11lean_object.exit615 ]
+  %344 = phi ptr [ %.pre923, %343 ], [ %335, %342 ], [ %335, %340 ], [ %335, %_ZL8lean_incP11lean_object.exit615 ]
   %345 = getelementptr i8, ptr %0, i64 8
   %.val632 = load ptr, ptr %345, align 8, !tbaa !15
   %346 = load ptr, ptr %314, align 8, !tbaa !15
@@ -12715,9 +12374,8 @@ _ZL8lean_incP11lean_object.exit614:               ; preds = %343, %342, %340, %_
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %357 = load ptr, ptr %356, align 8, !tbaa !15
   %358 = ptrtoint ptr %357 to i64
-  %359 = and i64 %358, 1
-  %.not959 = icmp eq i64 %359, 0
-  br i1 %.not959, label %360, label %_ZL8lean_incP11lean_object.exit613
+  %359 = trunc i64 %358 to i1
+  br i1 %359, label %_ZL8lean_incP11lean_object.exit613, label %360
 
 360:                                              ; preds = %355
   %.val.i668 = load i32, ptr %357, align 4, !tbaa !16
@@ -12741,9 +12399,8 @@ _ZL8lean_incP11lean_object.exit613:               ; preds = %365, %364, %362, %3
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %367 = load ptr, ptr %366, align 8, !tbaa !15
   %368 = ptrtoint ptr %367 to i64
-  %369 = and i64 %368, 1
-  %.not960 = icmp eq i64 %369, 0
-  br i1 %.not960, label %370, label %_ZL8lean_incP11lean_object.exit612
+  %369 = trunc i64 %368 to i1
+  br i1 %369, label %_ZL8lean_incP11lean_object.exit612, label %370
 
 370:                                              ; preds = %_ZL8lean_incP11lean_object.exit613
   %.val.i671 = load i32, ptr %367, align 4, !tbaa !16
@@ -12767,9 +12424,8 @@ _ZL8lean_incP11lean_object.exit612:               ; preds = %375, %374, %372, %_
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %377 = load ptr, ptr %376, align 8, !tbaa !15
   %378 = ptrtoint ptr %377 to i64
-  %379 = and i64 %378, 1
-  %.not961 = icmp eq i64 %379, 0
-  br i1 %.not961, label %380, label %_ZL8lean_incP11lean_object.exit611
+  %379 = trunc i64 %378 to i1
+  br i1 %379, label %_ZL8lean_incP11lean_object.exit611, label %380
 
 380:                                              ; preds = %_ZL8lean_incP11lean_object.exit612
   %.val.i674 = load i32, ptr %377, align 4, !tbaa !16
@@ -12793,9 +12449,8 @@ _ZL8lean_incP11lean_object.exit611:               ; preds = %385, %384, %382, %_
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %387 = load ptr, ptr %386, align 8, !tbaa !15
   %388 = ptrtoint ptr %387 to i64
-  %389 = and i64 %388, 1
-  %.not962 = icmp eq i64 %389, 0
-  br i1 %.not962, label %390, label %_ZL8lean_incP11lean_object.exit610
+  %389 = trunc i64 %388 to i1
+  br i1 %389, label %_ZL8lean_incP11lean_object.exit610, label %390
 
 390:                                              ; preds = %_ZL8lean_incP11lean_object.exit611
   %.val.i677 = load i32, ptr %387, align 4, !tbaa !16
@@ -12813,11 +12468,11 @@ _ZL8lean_incP11lean_object.exit611:               ; preds = %385, %384, %382, %_
 
 395:                                              ; preds = %394
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %387)
-  %.pre1007 = load ptr, ptr %386, align 8, !tbaa !15
+  %.pre922 = load ptr, ptr %386, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit610
 
 _ZL8lean_incP11lean_object.exit610:               ; preds = %395, %394, %392, %_ZL8lean_incP11lean_object.exit611
-  %396 = phi ptr [ %.pre1007, %395 ], [ %387, %394 ], [ %387, %392 ], [ %387, %_ZL8lean_incP11lean_object.exit611 ]
+  %396 = phi ptr [ %.pre922, %395 ], [ %387, %394 ], [ %387, %392 ], [ %387, %_ZL8lean_incP11lean_object.exit611 ]
   %397 = getelementptr i8, ptr %0, i64 8
   %.val631 = load ptr, ptr %397, align 8, !tbaa !15
   %398 = load ptr, ptr %356, align 8, !tbaa !15
@@ -12845,9 +12500,8 @@ _ZL8lean_incP11lean_object.exit610:               ; preds = %395, %394, %392, %_
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %410 = load ptr, ptr %409, align 8, !tbaa !15
   %411 = ptrtoint ptr %410 to i64
-  %412 = and i64 %411, 1
-  %.not954 = icmp eq i64 %412, 0
-  br i1 %.not954, label %413, label %_ZL8lean_incP11lean_object.exit609
+  %412 = trunc i64 %411 to i1
+  br i1 %412, label %_ZL8lean_incP11lean_object.exit609, label %413
 
 413:                                              ; preds = %408
   %.val.i680 = load i32, ptr %410, align 4, !tbaa !16
@@ -12871,9 +12525,8 @@ _ZL8lean_incP11lean_object.exit609:               ; preds = %418, %417, %415, %4
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %420 = load ptr, ptr %419, align 8, !tbaa !15
   %421 = ptrtoint ptr %420 to i64
-  %422 = and i64 %421, 1
-  %.not955 = icmp eq i64 %422, 0
-  br i1 %.not955, label %423, label %_ZL8lean_incP11lean_object.exit608
+  %422 = trunc i64 %421 to i1
+  br i1 %422, label %_ZL8lean_incP11lean_object.exit608, label %423
 
 423:                                              ; preds = %_ZL8lean_incP11lean_object.exit609
   %.val.i683 = load i32, ptr %420, align 4, !tbaa !16
@@ -12897,9 +12550,8 @@ _ZL8lean_incP11lean_object.exit608:               ; preds = %428, %427, %425, %_
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %430 = load ptr, ptr %429, align 8, !tbaa !15
   %431 = ptrtoint ptr %430 to i64
-  %432 = and i64 %431, 1
-  %.not956 = icmp eq i64 %432, 0
-  br i1 %.not956, label %433, label %_ZL8lean_incP11lean_object.exit607
+  %432 = trunc i64 %431 to i1
+  br i1 %432, label %_ZL8lean_incP11lean_object.exit607, label %433
 
 433:                                              ; preds = %_ZL8lean_incP11lean_object.exit608
   %.val.i686 = load i32, ptr %430, align 4, !tbaa !16
@@ -12923,9 +12575,8 @@ _ZL8lean_incP11lean_object.exit607:               ; preds = %438, %437, %435, %_
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %440 = load ptr, ptr %439, align 8, !tbaa !15
   %441 = ptrtoint ptr %440 to i64
-  %442 = and i64 %441, 1
-  %.not957 = icmp eq i64 %442, 0
-  br i1 %.not957, label %443, label %_ZL8lean_incP11lean_object.exit606
+  %442 = trunc i64 %441 to i1
+  br i1 %442, label %_ZL8lean_incP11lean_object.exit606, label %443
 
 443:                                              ; preds = %_ZL8lean_incP11lean_object.exit607
   %.val.i689 = load i32, ptr %440, align 4, !tbaa !16
@@ -12949,9 +12600,8 @@ _ZL8lean_incP11lean_object.exit606:               ; preds = %448, %447, %445, %_
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %450 = load ptr, ptr %449, align 8, !tbaa !15
   %451 = ptrtoint ptr %450 to i64
-  %452 = and i64 %451, 1
-  %.not958 = icmp eq i64 %452, 0
-  br i1 %.not958, label %453, label %_ZL8lean_incP11lean_object.exit605
+  %452 = trunc i64 %451 to i1
+  br i1 %452, label %_ZL8lean_incP11lean_object.exit605, label %453
 
 453:                                              ; preds = %_ZL8lean_incP11lean_object.exit606
   %.val.i692 = load i32, ptr %450, align 4, !tbaa !16
@@ -12969,11 +12619,11 @@ _ZL8lean_incP11lean_object.exit606:               ; preds = %448, %447, %445, %_
 
 458:                                              ; preds = %457
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %450)
-  %.pre1006 = load ptr, ptr %449, align 8, !tbaa !15
+  %.pre921 = load ptr, ptr %449, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit605
 
 _ZL8lean_incP11lean_object.exit605:               ; preds = %458, %457, %455, %_ZL8lean_incP11lean_object.exit606
-  %459 = phi ptr [ %.pre1006, %458 ], [ %450, %457 ], [ %450, %455 ], [ %450, %_ZL8lean_incP11lean_object.exit606 ]
+  %459 = phi ptr [ %.pre921, %458 ], [ %450, %457 ], [ %450, %455 ], [ %450, %_ZL8lean_incP11lean_object.exit606 ]
   %460 = getelementptr i8, ptr %0, i64 8
   %.val630 = load ptr, ptr %460, align 8, !tbaa !15
   %461 = load ptr, ptr %409, align 8, !tbaa !15
@@ -13002,9 +12652,8 @@ _ZL8lean_incP11lean_object.exit605:               ; preds = %458, %457, %455, %_
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %474 = load ptr, ptr %473, align 8, !tbaa !15
   %475 = ptrtoint ptr %474 to i64
-  %476 = and i64 %475, 1
-  %.not948 = icmp eq i64 %476, 0
-  br i1 %.not948, label %477, label %_ZL8lean_incP11lean_object.exit604
+  %476 = trunc i64 %475 to i1
+  br i1 %476, label %_ZL8lean_incP11lean_object.exit604, label %477
 
 477:                                              ; preds = %472
   %.val.i695 = load i32, ptr %474, align 4, !tbaa !16
@@ -13028,9 +12677,8 @@ _ZL8lean_incP11lean_object.exit604:               ; preds = %482, %481, %479, %4
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %484 = load ptr, ptr %483, align 8, !tbaa !15
   %485 = ptrtoint ptr %484 to i64
-  %486 = and i64 %485, 1
-  %.not949 = icmp eq i64 %486, 0
-  br i1 %.not949, label %487, label %_ZL8lean_incP11lean_object.exit603
+  %486 = trunc i64 %485 to i1
+  br i1 %486, label %_ZL8lean_incP11lean_object.exit603, label %487
 
 487:                                              ; preds = %_ZL8lean_incP11lean_object.exit604
   %.val.i698 = load i32, ptr %484, align 4, !tbaa !16
@@ -13054,9 +12702,8 @@ _ZL8lean_incP11lean_object.exit603:               ; preds = %492, %491, %489, %_
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %494 = load ptr, ptr %493, align 8, !tbaa !15
   %495 = ptrtoint ptr %494 to i64
-  %496 = and i64 %495, 1
-  %.not950 = icmp eq i64 %496, 0
-  br i1 %.not950, label %497, label %_ZL8lean_incP11lean_object.exit602
+  %496 = trunc i64 %495 to i1
+  br i1 %496, label %_ZL8lean_incP11lean_object.exit602, label %497
 
 497:                                              ; preds = %_ZL8lean_incP11lean_object.exit603
   %.val.i701 = load i32, ptr %494, align 4, !tbaa !16
@@ -13080,9 +12727,8 @@ _ZL8lean_incP11lean_object.exit602:               ; preds = %502, %501, %499, %_
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %504 = load ptr, ptr %503, align 8, !tbaa !15
   %505 = ptrtoint ptr %504 to i64
-  %506 = and i64 %505, 1
-  %.not951 = icmp eq i64 %506, 0
-  br i1 %.not951, label %507, label %_ZL8lean_incP11lean_object.exit601
+  %506 = trunc i64 %505 to i1
+  br i1 %506, label %_ZL8lean_incP11lean_object.exit601, label %507
 
 507:                                              ; preds = %_ZL8lean_incP11lean_object.exit602
   %.val.i704 = load i32, ptr %504, align 4, !tbaa !16
@@ -13106,9 +12752,8 @@ _ZL8lean_incP11lean_object.exit601:               ; preds = %512, %511, %509, %_
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %514 = load ptr, ptr %513, align 8, !tbaa !15
   %515 = ptrtoint ptr %514 to i64
-  %516 = and i64 %515, 1
-  %.not952 = icmp eq i64 %516, 0
-  br i1 %.not952, label %517, label %_ZL8lean_incP11lean_object.exit600
+  %516 = trunc i64 %515 to i1
+  br i1 %516, label %_ZL8lean_incP11lean_object.exit600, label %517
 
 517:                                              ; preds = %_ZL8lean_incP11lean_object.exit601
   %.val.i707 = load i32, ptr %514, align 4, !tbaa !16
@@ -13132,9 +12777,8 @@ _ZL8lean_incP11lean_object.exit600:               ; preds = %522, %521, %519, %_
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %524 = load ptr, ptr %523, align 8, !tbaa !15
   %525 = ptrtoint ptr %524 to i64
-  %526 = and i64 %525, 1
-  %.not953 = icmp eq i64 %526, 0
-  br i1 %.not953, label %527, label %_ZL8lean_incP11lean_object.exit599
+  %526 = trunc i64 %525 to i1
+  br i1 %526, label %_ZL8lean_incP11lean_object.exit599, label %527
 
 527:                                              ; preds = %_ZL8lean_incP11lean_object.exit600
   %.val.i710 = load i32, ptr %524, align 4, !tbaa !16
@@ -13152,11 +12796,11 @@ _ZL8lean_incP11lean_object.exit600:               ; preds = %522, %521, %519, %_
 
 532:                                              ; preds = %531
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %524)
-  %.pre1005 = load ptr, ptr %523, align 8, !tbaa !15
+  %.pre920 = load ptr, ptr %523, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit599
 
 _ZL8lean_incP11lean_object.exit599:               ; preds = %532, %531, %529, %_ZL8lean_incP11lean_object.exit600
-  %533 = phi ptr [ %.pre1005, %532 ], [ %524, %531 ], [ %524, %529 ], [ %524, %_ZL8lean_incP11lean_object.exit600 ]
+  %533 = phi ptr [ %.pre920, %532 ], [ %524, %531 ], [ %524, %529 ], [ %524, %_ZL8lean_incP11lean_object.exit600 ]
   %534 = getelementptr i8, ptr %0, i64 8
   %.val629 = load ptr, ptr %534, align 8, !tbaa !15
   %535 = load ptr, ptr %473, align 8, !tbaa !15
@@ -13186,9 +12830,8 @@ _ZL8lean_incP11lean_object.exit599:               ; preds = %532, %531, %529, %_
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %549 = load ptr, ptr %548, align 8, !tbaa !15
   %550 = ptrtoint ptr %549 to i64
-  %551 = and i64 %550, 1
-  %.not941 = icmp eq i64 %551, 0
-  br i1 %.not941, label %552, label %_ZL8lean_incP11lean_object.exit598
+  %551 = trunc i64 %550 to i1
+  br i1 %551, label %_ZL8lean_incP11lean_object.exit598, label %552
 
 552:                                              ; preds = %547
   %.val.i713 = load i32, ptr %549, align 4, !tbaa !16
@@ -13212,9 +12855,8 @@ _ZL8lean_incP11lean_object.exit598:               ; preds = %557, %556, %554, %5
   %558 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %559 = load ptr, ptr %558, align 8, !tbaa !15
   %560 = ptrtoint ptr %559 to i64
-  %561 = and i64 %560, 1
-  %.not942 = icmp eq i64 %561, 0
-  br i1 %.not942, label %562, label %_ZL8lean_incP11lean_object.exit597
+  %561 = trunc i64 %560 to i1
+  br i1 %561, label %_ZL8lean_incP11lean_object.exit597, label %562
 
 562:                                              ; preds = %_ZL8lean_incP11lean_object.exit598
   %.val.i716 = load i32, ptr %559, align 4, !tbaa !16
@@ -13238,9 +12880,8 @@ _ZL8lean_incP11lean_object.exit597:               ; preds = %567, %566, %564, %_
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %569 = load ptr, ptr %568, align 8, !tbaa !15
   %570 = ptrtoint ptr %569 to i64
-  %571 = and i64 %570, 1
-  %.not943 = icmp eq i64 %571, 0
-  br i1 %.not943, label %572, label %_ZL8lean_incP11lean_object.exit596
+  %571 = trunc i64 %570 to i1
+  br i1 %571, label %_ZL8lean_incP11lean_object.exit596, label %572
 
 572:                                              ; preds = %_ZL8lean_incP11lean_object.exit597
   %.val.i719 = load i32, ptr %569, align 4, !tbaa !16
@@ -13264,9 +12905,8 @@ _ZL8lean_incP11lean_object.exit596:               ; preds = %577, %576, %574, %_
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %579 = load ptr, ptr %578, align 8, !tbaa !15
   %580 = ptrtoint ptr %579 to i64
-  %581 = and i64 %580, 1
-  %.not944 = icmp eq i64 %581, 0
-  br i1 %.not944, label %582, label %_ZL8lean_incP11lean_object.exit595
+  %581 = trunc i64 %580 to i1
+  br i1 %581, label %_ZL8lean_incP11lean_object.exit595, label %582
 
 582:                                              ; preds = %_ZL8lean_incP11lean_object.exit596
   %.val.i722 = load i32, ptr %579, align 4, !tbaa !16
@@ -13290,9 +12930,8 @@ _ZL8lean_incP11lean_object.exit595:               ; preds = %587, %586, %584, %_
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %589 = load ptr, ptr %588, align 8, !tbaa !15
   %590 = ptrtoint ptr %589 to i64
-  %591 = and i64 %590, 1
-  %.not945 = icmp eq i64 %591, 0
-  br i1 %.not945, label %592, label %_ZL8lean_incP11lean_object.exit594
+  %591 = trunc i64 %590 to i1
+  br i1 %591, label %_ZL8lean_incP11lean_object.exit594, label %592
 
 592:                                              ; preds = %_ZL8lean_incP11lean_object.exit595
   %.val.i725 = load i32, ptr %589, align 4, !tbaa !16
@@ -13316,9 +12955,8 @@ _ZL8lean_incP11lean_object.exit594:               ; preds = %597, %596, %594, %_
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %599 = load ptr, ptr %598, align 8, !tbaa !15
   %600 = ptrtoint ptr %599 to i64
-  %601 = and i64 %600, 1
-  %.not946 = icmp eq i64 %601, 0
-  br i1 %.not946, label %602, label %_ZL8lean_incP11lean_object.exit593
+  %601 = trunc i64 %600 to i1
+  br i1 %601, label %_ZL8lean_incP11lean_object.exit593, label %602
 
 602:                                              ; preds = %_ZL8lean_incP11lean_object.exit594
   %.val.i728 = load i32, ptr %599, align 4, !tbaa !16
@@ -13342,9 +12980,8 @@ _ZL8lean_incP11lean_object.exit593:               ; preds = %607, %606, %604, %_
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %609 = load ptr, ptr %608, align 8, !tbaa !15
   %610 = ptrtoint ptr %609 to i64
-  %611 = and i64 %610, 1
-  %.not947 = icmp eq i64 %611, 0
-  br i1 %.not947, label %612, label %_ZL8lean_incP11lean_object.exit592
+  %611 = trunc i64 %610 to i1
+  br i1 %611, label %_ZL8lean_incP11lean_object.exit592, label %612
 
 612:                                              ; preds = %_ZL8lean_incP11lean_object.exit593
   %.val.i731 = load i32, ptr %609, align 4, !tbaa !16
@@ -13362,11 +12999,11 @@ _ZL8lean_incP11lean_object.exit593:               ; preds = %607, %606, %604, %_
 
 617:                                              ; preds = %616
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %609)
-  %.pre1004 = load ptr, ptr %608, align 8, !tbaa !15
+  %.pre919 = load ptr, ptr %608, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit592
 
 _ZL8lean_incP11lean_object.exit592:               ; preds = %617, %616, %614, %_ZL8lean_incP11lean_object.exit593
-  %618 = phi ptr [ %.pre1004, %617 ], [ %609, %616 ], [ %609, %614 ], [ %609, %_ZL8lean_incP11lean_object.exit593 ]
+  %618 = phi ptr [ %.pre919, %617 ], [ %609, %616 ], [ %609, %614 ], [ %609, %_ZL8lean_incP11lean_object.exit593 ]
   %619 = getelementptr i8, ptr %0, i64 8
   %.val628 = load ptr, ptr %619, align 8, !tbaa !15
   %620 = load ptr, ptr %548, align 8, !tbaa !15
@@ -13397,9 +13034,8 @@ _ZL8lean_incP11lean_object.exit592:               ; preds = %617, %616, %614, %_
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %635 = load ptr, ptr %634, align 8, !tbaa !15
   %636 = ptrtoint ptr %635 to i64
-  %637 = and i64 %636, 1
-  %.not933 = icmp eq i64 %637, 0
-  br i1 %.not933, label %638, label %_ZL8lean_incP11lean_object.exit591
+  %637 = trunc i64 %636 to i1
+  br i1 %637, label %_ZL8lean_incP11lean_object.exit591, label %638
 
 638:                                              ; preds = %633
   %.val.i734 = load i32, ptr %635, align 4, !tbaa !16
@@ -13423,9 +13059,8 @@ _ZL8lean_incP11lean_object.exit591:               ; preds = %643, %642, %640, %6
   %644 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %645 = load ptr, ptr %644, align 8, !tbaa !15
   %646 = ptrtoint ptr %645 to i64
-  %647 = and i64 %646, 1
-  %.not934 = icmp eq i64 %647, 0
-  br i1 %.not934, label %648, label %_ZL8lean_incP11lean_object.exit590
+  %647 = trunc i64 %646 to i1
+  br i1 %647, label %_ZL8lean_incP11lean_object.exit590, label %648
 
 648:                                              ; preds = %_ZL8lean_incP11lean_object.exit591
   %.val.i737 = load i32, ptr %645, align 4, !tbaa !16
@@ -13449,9 +13084,8 @@ _ZL8lean_incP11lean_object.exit590:               ; preds = %653, %652, %650, %_
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %655 = load ptr, ptr %654, align 8, !tbaa !15
   %656 = ptrtoint ptr %655 to i64
-  %657 = and i64 %656, 1
-  %.not935 = icmp eq i64 %657, 0
-  br i1 %.not935, label %658, label %_ZL8lean_incP11lean_object.exit589
+  %657 = trunc i64 %656 to i1
+  br i1 %657, label %_ZL8lean_incP11lean_object.exit589, label %658
 
 658:                                              ; preds = %_ZL8lean_incP11lean_object.exit590
   %.val.i740 = load i32, ptr %655, align 4, !tbaa !16
@@ -13475,9 +13109,8 @@ _ZL8lean_incP11lean_object.exit589:               ; preds = %663, %662, %660, %_
   %664 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %665 = load ptr, ptr %664, align 8, !tbaa !15
   %666 = ptrtoint ptr %665 to i64
-  %667 = and i64 %666, 1
-  %.not936 = icmp eq i64 %667, 0
-  br i1 %.not936, label %668, label %_ZL8lean_incP11lean_object.exit588
+  %667 = trunc i64 %666 to i1
+  br i1 %667, label %_ZL8lean_incP11lean_object.exit588, label %668
 
 668:                                              ; preds = %_ZL8lean_incP11lean_object.exit589
   %.val.i743 = load i32, ptr %665, align 4, !tbaa !16
@@ -13501,9 +13134,8 @@ _ZL8lean_incP11lean_object.exit588:               ; preds = %673, %672, %670, %_
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %675 = load ptr, ptr %674, align 8, !tbaa !15
   %676 = ptrtoint ptr %675 to i64
-  %677 = and i64 %676, 1
-  %.not937 = icmp eq i64 %677, 0
-  br i1 %.not937, label %678, label %_ZL8lean_incP11lean_object.exit587
+  %677 = trunc i64 %676 to i1
+  br i1 %677, label %_ZL8lean_incP11lean_object.exit587, label %678
 
 678:                                              ; preds = %_ZL8lean_incP11lean_object.exit588
   %.val.i746 = load i32, ptr %675, align 4, !tbaa !16
@@ -13527,9 +13159,8 @@ _ZL8lean_incP11lean_object.exit587:               ; preds = %683, %682, %680, %_
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %685 = load ptr, ptr %684, align 8, !tbaa !15
   %686 = ptrtoint ptr %685 to i64
-  %687 = and i64 %686, 1
-  %.not938 = icmp eq i64 %687, 0
-  br i1 %.not938, label %688, label %_ZL8lean_incP11lean_object.exit586
+  %687 = trunc i64 %686 to i1
+  br i1 %687, label %_ZL8lean_incP11lean_object.exit586, label %688
 
 688:                                              ; preds = %_ZL8lean_incP11lean_object.exit587
   %.val.i749 = load i32, ptr %685, align 4, !tbaa !16
@@ -13553,9 +13184,8 @@ _ZL8lean_incP11lean_object.exit586:               ; preds = %693, %692, %690, %_
   %694 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %695 = load ptr, ptr %694, align 8, !tbaa !15
   %696 = ptrtoint ptr %695 to i64
-  %697 = and i64 %696, 1
-  %.not939 = icmp eq i64 %697, 0
-  br i1 %.not939, label %698, label %_ZL8lean_incP11lean_object.exit585
+  %697 = trunc i64 %696 to i1
+  br i1 %697, label %_ZL8lean_incP11lean_object.exit585, label %698
 
 698:                                              ; preds = %_ZL8lean_incP11lean_object.exit586
   %.val.i752 = load i32, ptr %695, align 4, !tbaa !16
@@ -13579,9 +13209,8 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %703, %702, %700, %_
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %705 = load ptr, ptr %704, align 8, !tbaa !15
   %706 = ptrtoint ptr %705 to i64
-  %707 = and i64 %706, 1
-  %.not940 = icmp eq i64 %707, 0
-  br i1 %.not940, label %708, label %_ZL8lean_incP11lean_object.exit584
+  %707 = trunc i64 %706 to i1
+  br i1 %707, label %_ZL8lean_incP11lean_object.exit584, label %708
 
 708:                                              ; preds = %_ZL8lean_incP11lean_object.exit585
   %.val.i755 = load i32, ptr %705, align 4, !tbaa !16
@@ -13599,11 +13228,11 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %703, %702, %700, %_
 
 713:                                              ; preds = %712
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %705)
-  %.pre1003 = load ptr, ptr %704, align 8, !tbaa !15
+  %.pre918 = load ptr, ptr %704, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit584
 
 _ZL8lean_incP11lean_object.exit584:               ; preds = %713, %712, %710, %_ZL8lean_incP11lean_object.exit585
-  %714 = phi ptr [ %.pre1003, %713 ], [ %705, %712 ], [ %705, %710 ], [ %705, %_ZL8lean_incP11lean_object.exit585 ]
+  %714 = phi ptr [ %.pre918, %713 ], [ %705, %712 ], [ %705, %710 ], [ %705, %_ZL8lean_incP11lean_object.exit585 ]
   %715 = getelementptr i8, ptr %0, i64 8
   %.val627 = load ptr, ptr %715, align 8, !tbaa !15
   %716 = load ptr, ptr %634, align 8, !tbaa !15
@@ -13635,9 +13264,8 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %713, %712, %710, %_
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %732 = load ptr, ptr %731, align 8, !tbaa !15
   %733 = ptrtoint ptr %732 to i64
-  %734 = and i64 %733, 1
-  %.not924 = icmp eq i64 %734, 0
-  br i1 %.not924, label %735, label %_ZL8lean_incP11lean_object.exit583
+  %734 = trunc i64 %733 to i1
+  br i1 %734, label %_ZL8lean_incP11lean_object.exit583, label %735
 
 735:                                              ; preds = %730
   %.val.i758 = load i32, ptr %732, align 4, !tbaa !16
@@ -13661,9 +13289,8 @@ _ZL8lean_incP11lean_object.exit583:               ; preds = %740, %739, %737, %7
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %742 = load ptr, ptr %741, align 8, !tbaa !15
   %743 = ptrtoint ptr %742 to i64
-  %744 = and i64 %743, 1
-  %.not925 = icmp eq i64 %744, 0
-  br i1 %.not925, label %745, label %_ZL8lean_incP11lean_object.exit582
+  %744 = trunc i64 %743 to i1
+  br i1 %744, label %_ZL8lean_incP11lean_object.exit582, label %745
 
 745:                                              ; preds = %_ZL8lean_incP11lean_object.exit583
   %.val.i761 = load i32, ptr %742, align 4, !tbaa !16
@@ -13687,9 +13314,8 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %750, %749, %747, %_
   %751 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %752 = load ptr, ptr %751, align 8, !tbaa !15
   %753 = ptrtoint ptr %752 to i64
-  %754 = and i64 %753, 1
-  %.not926 = icmp eq i64 %754, 0
-  br i1 %.not926, label %755, label %_ZL8lean_incP11lean_object.exit581
+  %754 = trunc i64 %753 to i1
+  br i1 %754, label %_ZL8lean_incP11lean_object.exit581, label %755
 
 755:                                              ; preds = %_ZL8lean_incP11lean_object.exit582
   %.val.i764 = load i32, ptr %752, align 4, !tbaa !16
@@ -13713,9 +13339,8 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %760, %759, %757, %_
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %762 = load ptr, ptr %761, align 8, !tbaa !15
   %763 = ptrtoint ptr %762 to i64
-  %764 = and i64 %763, 1
-  %.not927 = icmp eq i64 %764, 0
-  br i1 %.not927, label %765, label %_ZL8lean_incP11lean_object.exit580
+  %764 = trunc i64 %763 to i1
+  br i1 %764, label %_ZL8lean_incP11lean_object.exit580, label %765
 
 765:                                              ; preds = %_ZL8lean_incP11lean_object.exit581
   %.val.i767 = load i32, ptr %762, align 4, !tbaa !16
@@ -13739,9 +13364,8 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %770, %769, %767, %_
   %771 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %772 = load ptr, ptr %771, align 8, !tbaa !15
   %773 = ptrtoint ptr %772 to i64
-  %774 = and i64 %773, 1
-  %.not928 = icmp eq i64 %774, 0
-  br i1 %.not928, label %775, label %_ZL8lean_incP11lean_object.exit579
+  %774 = trunc i64 %773 to i1
+  br i1 %774, label %_ZL8lean_incP11lean_object.exit579, label %775
 
 775:                                              ; preds = %_ZL8lean_incP11lean_object.exit580
   %.val.i770 = load i32, ptr %772, align 4, !tbaa !16
@@ -13765,9 +13389,8 @@ _ZL8lean_incP11lean_object.exit579:               ; preds = %780, %779, %777, %_
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %782 = load ptr, ptr %781, align 8, !tbaa !15
   %783 = ptrtoint ptr %782 to i64
-  %784 = and i64 %783, 1
-  %.not929 = icmp eq i64 %784, 0
-  br i1 %.not929, label %785, label %_ZL8lean_incP11lean_object.exit578
+  %784 = trunc i64 %783 to i1
+  br i1 %784, label %_ZL8lean_incP11lean_object.exit578, label %785
 
 785:                                              ; preds = %_ZL8lean_incP11lean_object.exit579
   %.val.i773 = load i32, ptr %782, align 4, !tbaa !16
@@ -13791,9 +13414,8 @@ _ZL8lean_incP11lean_object.exit578:               ; preds = %790, %789, %787, %_
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %792 = load ptr, ptr %791, align 8, !tbaa !15
   %793 = ptrtoint ptr %792 to i64
-  %794 = and i64 %793, 1
-  %.not930 = icmp eq i64 %794, 0
-  br i1 %.not930, label %795, label %_ZL8lean_incP11lean_object.exit577
+  %794 = trunc i64 %793 to i1
+  br i1 %794, label %_ZL8lean_incP11lean_object.exit577, label %795
 
 795:                                              ; preds = %_ZL8lean_incP11lean_object.exit578
   %.val.i776 = load i32, ptr %792, align 4, !tbaa !16
@@ -13817,9 +13439,8 @@ _ZL8lean_incP11lean_object.exit577:               ; preds = %800, %799, %797, %_
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %802 = load ptr, ptr %801, align 8, !tbaa !15
   %803 = ptrtoint ptr %802 to i64
-  %804 = and i64 %803, 1
-  %.not931 = icmp eq i64 %804, 0
-  br i1 %.not931, label %805, label %_ZL8lean_incP11lean_object.exit576
+  %804 = trunc i64 %803 to i1
+  br i1 %804, label %_ZL8lean_incP11lean_object.exit576, label %805
 
 805:                                              ; preds = %_ZL8lean_incP11lean_object.exit577
   %.val.i779 = load i32, ptr %802, align 4, !tbaa !16
@@ -13843,9 +13464,8 @@ _ZL8lean_incP11lean_object.exit576:               ; preds = %810, %809, %807, %_
   %811 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %812 = load ptr, ptr %811, align 8, !tbaa !15
   %813 = ptrtoint ptr %812 to i64
-  %814 = and i64 %813, 1
-  %.not932 = icmp eq i64 %814, 0
-  br i1 %.not932, label %815, label %_ZL8lean_incP11lean_object.exit575
+  %814 = trunc i64 %813 to i1
+  br i1 %814, label %_ZL8lean_incP11lean_object.exit575, label %815
 
 815:                                              ; preds = %_ZL8lean_incP11lean_object.exit576
   %.val.i782 = load i32, ptr %812, align 4, !tbaa !16
@@ -13863,11 +13483,11 @@ _ZL8lean_incP11lean_object.exit576:               ; preds = %810, %809, %807, %_
 
 820:                                              ; preds = %819
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %812)
-  %.pre1002 = load ptr, ptr %811, align 8, !tbaa !15
+  %.pre917 = load ptr, ptr %811, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit575
 
 _ZL8lean_incP11lean_object.exit575:               ; preds = %820, %819, %817, %_ZL8lean_incP11lean_object.exit576
-  %821 = phi ptr [ %.pre1002, %820 ], [ %812, %819 ], [ %812, %817 ], [ %812, %_ZL8lean_incP11lean_object.exit576 ]
+  %821 = phi ptr [ %.pre917, %820 ], [ %812, %819 ], [ %812, %817 ], [ %812, %_ZL8lean_incP11lean_object.exit576 ]
   %822 = getelementptr i8, ptr %0, i64 8
   %.val626 = load ptr, ptr %822, align 8, !tbaa !15
   %823 = load ptr, ptr %731, align 8, !tbaa !15
@@ -13900,9 +13520,8 @@ _ZL8lean_incP11lean_object.exit575:               ; preds = %820, %819, %817, %_
   %839 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %840 = load ptr, ptr %839, align 8, !tbaa !15
   %841 = ptrtoint ptr %840 to i64
-  %842 = and i64 %841, 1
-  %.not914 = icmp eq i64 %842, 0
-  br i1 %.not914, label %843, label %_ZL8lean_incP11lean_object.exit574
+  %842 = trunc i64 %841 to i1
+  br i1 %842, label %_ZL8lean_incP11lean_object.exit574, label %843
 
 843:                                              ; preds = %838
   %.val.i785 = load i32, ptr %840, align 4, !tbaa !16
@@ -13926,9 +13545,8 @@ _ZL8lean_incP11lean_object.exit574:               ; preds = %848, %847, %845, %8
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %850 = load ptr, ptr %849, align 8, !tbaa !15
   %851 = ptrtoint ptr %850 to i64
-  %852 = and i64 %851, 1
-  %.not915 = icmp eq i64 %852, 0
-  br i1 %.not915, label %853, label %_ZL8lean_incP11lean_object.exit573
+  %852 = trunc i64 %851 to i1
+  br i1 %852, label %_ZL8lean_incP11lean_object.exit573, label %853
 
 853:                                              ; preds = %_ZL8lean_incP11lean_object.exit574
   %.val.i788 = load i32, ptr %850, align 4, !tbaa !16
@@ -13952,9 +13570,8 @@ _ZL8lean_incP11lean_object.exit573:               ; preds = %858, %857, %855, %_
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %860 = load ptr, ptr %859, align 8, !tbaa !15
   %861 = ptrtoint ptr %860 to i64
-  %862 = and i64 %861, 1
-  %.not916 = icmp eq i64 %862, 0
-  br i1 %.not916, label %863, label %_ZL8lean_incP11lean_object.exit572
+  %862 = trunc i64 %861 to i1
+  br i1 %862, label %_ZL8lean_incP11lean_object.exit572, label %863
 
 863:                                              ; preds = %_ZL8lean_incP11lean_object.exit573
   %.val.i791 = load i32, ptr %860, align 4, !tbaa !16
@@ -13978,9 +13595,8 @@ _ZL8lean_incP11lean_object.exit572:               ; preds = %868, %867, %865, %_
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %870 = load ptr, ptr %869, align 8, !tbaa !15
   %871 = ptrtoint ptr %870 to i64
-  %872 = and i64 %871, 1
-  %.not917 = icmp eq i64 %872, 0
-  br i1 %.not917, label %873, label %_ZL8lean_incP11lean_object.exit571
+  %872 = trunc i64 %871 to i1
+  br i1 %872, label %_ZL8lean_incP11lean_object.exit571, label %873
 
 873:                                              ; preds = %_ZL8lean_incP11lean_object.exit572
   %.val.i794 = load i32, ptr %870, align 4, !tbaa !16
@@ -14004,9 +13620,8 @@ _ZL8lean_incP11lean_object.exit571:               ; preds = %878, %877, %875, %_
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %880 = load ptr, ptr %879, align 8, !tbaa !15
   %881 = ptrtoint ptr %880 to i64
-  %882 = and i64 %881, 1
-  %.not918 = icmp eq i64 %882, 0
-  br i1 %.not918, label %883, label %_ZL8lean_incP11lean_object.exit570
+  %882 = trunc i64 %881 to i1
+  br i1 %882, label %_ZL8lean_incP11lean_object.exit570, label %883
 
 883:                                              ; preds = %_ZL8lean_incP11lean_object.exit571
   %.val.i797 = load i32, ptr %880, align 4, !tbaa !16
@@ -14030,9 +13645,8 @@ _ZL8lean_incP11lean_object.exit570:               ; preds = %888, %887, %885, %_
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %890 = load ptr, ptr %889, align 8, !tbaa !15
   %891 = ptrtoint ptr %890 to i64
-  %892 = and i64 %891, 1
-  %.not919 = icmp eq i64 %892, 0
-  br i1 %.not919, label %893, label %_ZL8lean_incP11lean_object.exit569
+  %892 = trunc i64 %891 to i1
+  br i1 %892, label %_ZL8lean_incP11lean_object.exit569, label %893
 
 893:                                              ; preds = %_ZL8lean_incP11lean_object.exit570
   %.val.i800 = load i32, ptr %890, align 4, !tbaa !16
@@ -14056,9 +13670,8 @@ _ZL8lean_incP11lean_object.exit569:               ; preds = %898, %897, %895, %_
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %900 = load ptr, ptr %899, align 8, !tbaa !15
   %901 = ptrtoint ptr %900 to i64
-  %902 = and i64 %901, 1
-  %.not920 = icmp eq i64 %902, 0
-  br i1 %.not920, label %903, label %_ZL8lean_incP11lean_object.exit568
+  %902 = trunc i64 %901 to i1
+  br i1 %902, label %_ZL8lean_incP11lean_object.exit568, label %903
 
 903:                                              ; preds = %_ZL8lean_incP11lean_object.exit569
   %.val.i803 = load i32, ptr %900, align 4, !tbaa !16
@@ -14082,9 +13695,8 @@ _ZL8lean_incP11lean_object.exit568:               ; preds = %908, %907, %905, %_
   %909 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %910 = load ptr, ptr %909, align 8, !tbaa !15
   %911 = ptrtoint ptr %910 to i64
-  %912 = and i64 %911, 1
-  %.not921 = icmp eq i64 %912, 0
-  br i1 %.not921, label %913, label %_ZL8lean_incP11lean_object.exit567
+  %912 = trunc i64 %911 to i1
+  br i1 %912, label %_ZL8lean_incP11lean_object.exit567, label %913
 
 913:                                              ; preds = %_ZL8lean_incP11lean_object.exit568
   %.val.i806 = load i32, ptr %910, align 4, !tbaa !16
@@ -14108,9 +13720,8 @@ _ZL8lean_incP11lean_object.exit567:               ; preds = %918, %917, %915, %_
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %920 = load ptr, ptr %919, align 8, !tbaa !15
   %921 = ptrtoint ptr %920 to i64
-  %922 = and i64 %921, 1
-  %.not922 = icmp eq i64 %922, 0
-  br i1 %.not922, label %923, label %_ZL8lean_incP11lean_object.exit566
+  %922 = trunc i64 %921 to i1
+  br i1 %922, label %_ZL8lean_incP11lean_object.exit566, label %923
 
 923:                                              ; preds = %_ZL8lean_incP11lean_object.exit567
   %.val.i809 = load i32, ptr %920, align 4, !tbaa !16
@@ -14134,9 +13745,8 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %928, %927, %925, %_
   %929 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %930 = load ptr, ptr %929, align 8, !tbaa !15
   %931 = ptrtoint ptr %930 to i64
-  %932 = and i64 %931, 1
-  %.not923 = icmp eq i64 %932, 0
-  br i1 %.not923, label %933, label %_ZL8lean_incP11lean_object.exit565
+  %932 = trunc i64 %931 to i1
+  br i1 %932, label %_ZL8lean_incP11lean_object.exit565, label %933
 
 933:                                              ; preds = %_ZL8lean_incP11lean_object.exit566
   %.val.i812 = load i32, ptr %930, align 4, !tbaa !16
@@ -14154,11 +13764,11 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %928, %927, %925, %_
 
 938:                                              ; preds = %937
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %930)
-  %.pre1001 = load ptr, ptr %929, align 8, !tbaa !15
+  %.pre916 = load ptr, ptr %929, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit565
 
 _ZL8lean_incP11lean_object.exit565:               ; preds = %938, %937, %935, %_ZL8lean_incP11lean_object.exit566
-  %939 = phi ptr [ %.pre1001, %938 ], [ %930, %937 ], [ %930, %935 ], [ %930, %_ZL8lean_incP11lean_object.exit566 ]
+  %939 = phi ptr [ %.pre916, %938 ], [ %930, %937 ], [ %930, %935 ], [ %930, %_ZL8lean_incP11lean_object.exit566 ]
   %940 = getelementptr i8, ptr %0, i64 8
   %.val625 = load ptr, ptr %940, align 8, !tbaa !15
   %941 = load ptr, ptr %839, align 8, !tbaa !15
@@ -14192,9 +13802,8 @@ _ZL8lean_incP11lean_object.exit565:               ; preds = %938, %937, %935, %_
   %958 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %959 = load ptr, ptr %958, align 8, !tbaa !15
   %960 = ptrtoint ptr %959 to i64
-  %961 = and i64 %960, 1
-  %.not903 = icmp eq i64 %961, 0
-  br i1 %.not903, label %962, label %_ZL8lean_incP11lean_object.exit564
+  %961 = trunc i64 %960 to i1
+  br i1 %961, label %_ZL8lean_incP11lean_object.exit564, label %962
 
 962:                                              ; preds = %957
   %.val.i815 = load i32, ptr %959, align 4, !tbaa !16
@@ -14218,9 +13827,8 @@ _ZL8lean_incP11lean_object.exit564:               ; preds = %967, %966, %964, %9
   %968 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %969 = load ptr, ptr %968, align 8, !tbaa !15
   %970 = ptrtoint ptr %969 to i64
-  %971 = and i64 %970, 1
-  %.not904 = icmp eq i64 %971, 0
-  br i1 %.not904, label %972, label %_ZL8lean_incP11lean_object.exit563
+  %971 = trunc i64 %970 to i1
+  br i1 %971, label %_ZL8lean_incP11lean_object.exit563, label %972
 
 972:                                              ; preds = %_ZL8lean_incP11lean_object.exit564
   %.val.i818 = load i32, ptr %969, align 4, !tbaa !16
@@ -14244,9 +13852,8 @@ _ZL8lean_incP11lean_object.exit563:               ; preds = %977, %976, %974, %_
   %978 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %979 = load ptr, ptr %978, align 8, !tbaa !15
   %980 = ptrtoint ptr %979 to i64
-  %981 = and i64 %980, 1
-  %.not905 = icmp eq i64 %981, 0
-  br i1 %.not905, label %982, label %_ZL8lean_incP11lean_object.exit562
+  %981 = trunc i64 %980 to i1
+  br i1 %981, label %_ZL8lean_incP11lean_object.exit562, label %982
 
 982:                                              ; preds = %_ZL8lean_incP11lean_object.exit563
   %.val.i821 = load i32, ptr %979, align 4, !tbaa !16
@@ -14270,9 +13877,8 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %987, %986, %984, %_
   %988 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %989 = load ptr, ptr %988, align 8, !tbaa !15
   %990 = ptrtoint ptr %989 to i64
-  %991 = and i64 %990, 1
-  %.not906 = icmp eq i64 %991, 0
-  br i1 %.not906, label %992, label %_ZL8lean_incP11lean_object.exit561
+  %991 = trunc i64 %990 to i1
+  br i1 %991, label %_ZL8lean_incP11lean_object.exit561, label %992
 
 992:                                              ; preds = %_ZL8lean_incP11lean_object.exit562
   %.val.i824 = load i32, ptr %989, align 4, !tbaa !16
@@ -14296,9 +13902,8 @@ _ZL8lean_incP11lean_object.exit561:               ; preds = %997, %996, %994, %_
   %998 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %999 = load ptr, ptr %998, align 8, !tbaa !15
   %1000 = ptrtoint ptr %999 to i64
-  %1001 = and i64 %1000, 1
-  %.not907 = icmp eq i64 %1001, 0
-  br i1 %.not907, label %1002, label %_ZL8lean_incP11lean_object.exit560
+  %1001 = trunc i64 %1000 to i1
+  br i1 %1001, label %_ZL8lean_incP11lean_object.exit560, label %1002
 
 1002:                                             ; preds = %_ZL8lean_incP11lean_object.exit561
   %.val.i827 = load i32, ptr %999, align 4, !tbaa !16
@@ -14322,9 +13927,8 @@ _ZL8lean_incP11lean_object.exit560:               ; preds = %1007, %1006, %1004,
   %1008 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1009 = load ptr, ptr %1008, align 8, !tbaa !15
   %1010 = ptrtoint ptr %1009 to i64
-  %1011 = and i64 %1010, 1
-  %.not908 = icmp eq i64 %1011, 0
-  br i1 %.not908, label %1012, label %_ZL8lean_incP11lean_object.exit559
+  %1011 = trunc i64 %1010 to i1
+  br i1 %1011, label %_ZL8lean_incP11lean_object.exit559, label %1012
 
 1012:                                             ; preds = %_ZL8lean_incP11lean_object.exit560
   %.val.i830 = load i32, ptr %1009, align 4, !tbaa !16
@@ -14348,9 +13952,8 @@ _ZL8lean_incP11lean_object.exit559:               ; preds = %1017, %1016, %1014,
   %1018 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1019 = load ptr, ptr %1018, align 8, !tbaa !15
   %1020 = ptrtoint ptr %1019 to i64
-  %1021 = and i64 %1020, 1
-  %.not909 = icmp eq i64 %1021, 0
-  br i1 %.not909, label %1022, label %_ZL8lean_incP11lean_object.exit558
+  %1021 = trunc i64 %1020 to i1
+  br i1 %1021, label %_ZL8lean_incP11lean_object.exit558, label %1022
 
 1022:                                             ; preds = %_ZL8lean_incP11lean_object.exit559
   %.val.i833 = load i32, ptr %1019, align 4, !tbaa !16
@@ -14374,9 +13977,8 @@ _ZL8lean_incP11lean_object.exit558:               ; preds = %1027, %1026, %1024,
   %1028 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1029 = load ptr, ptr %1028, align 8, !tbaa !15
   %1030 = ptrtoint ptr %1029 to i64
-  %1031 = and i64 %1030, 1
-  %.not910 = icmp eq i64 %1031, 0
-  br i1 %.not910, label %1032, label %_ZL8lean_incP11lean_object.exit557
+  %1031 = trunc i64 %1030 to i1
+  br i1 %1031, label %_ZL8lean_incP11lean_object.exit557, label %1032
 
 1032:                                             ; preds = %_ZL8lean_incP11lean_object.exit558
   %.val.i836 = load i32, ptr %1029, align 4, !tbaa !16
@@ -14400,9 +14002,8 @@ _ZL8lean_incP11lean_object.exit557:               ; preds = %1037, %1036, %1034,
   %1038 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1039 = load ptr, ptr %1038, align 8, !tbaa !15
   %1040 = ptrtoint ptr %1039 to i64
-  %1041 = and i64 %1040, 1
-  %.not911 = icmp eq i64 %1041, 0
-  br i1 %.not911, label %1042, label %_ZL8lean_incP11lean_object.exit556
+  %1041 = trunc i64 %1040 to i1
+  br i1 %1041, label %_ZL8lean_incP11lean_object.exit556, label %1042
 
 1042:                                             ; preds = %_ZL8lean_incP11lean_object.exit557
   %.val.i839 = load i32, ptr %1039, align 4, !tbaa !16
@@ -14426,9 +14027,8 @@ _ZL8lean_incP11lean_object.exit556:               ; preds = %1047, %1046, %1044,
   %1048 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1049 = load ptr, ptr %1048, align 8, !tbaa !15
   %1050 = ptrtoint ptr %1049 to i64
-  %1051 = and i64 %1050, 1
-  %.not912 = icmp eq i64 %1051, 0
-  br i1 %.not912, label %1052, label %_ZL8lean_incP11lean_object.exit555
+  %1051 = trunc i64 %1050 to i1
+  br i1 %1051, label %_ZL8lean_incP11lean_object.exit555, label %1052
 
 1052:                                             ; preds = %_ZL8lean_incP11lean_object.exit556
   %.val.i842 = load i32, ptr %1049, align 4, !tbaa !16
@@ -14452,9 +14052,8 @@ _ZL8lean_incP11lean_object.exit555:               ; preds = %1057, %1056, %1054,
   %1058 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1059 = load ptr, ptr %1058, align 8, !tbaa !15
   %1060 = ptrtoint ptr %1059 to i64
-  %1061 = and i64 %1060, 1
-  %.not913 = icmp eq i64 %1061, 0
-  br i1 %.not913, label %1062, label %_ZL8lean_incP11lean_object.exit554
+  %1061 = trunc i64 %1060 to i1
+  br i1 %1061, label %_ZL8lean_incP11lean_object.exit554, label %1062
 
 1062:                                             ; preds = %_ZL8lean_incP11lean_object.exit555
   %.val.i845 = load i32, ptr %1059, align 4, !tbaa !16
@@ -14472,11 +14071,11 @@ _ZL8lean_incP11lean_object.exit555:               ; preds = %1057, %1056, %1054,
 
 1067:                                             ; preds = %1066
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1059)
-  %.pre1000 = load ptr, ptr %1058, align 8, !tbaa !15
+  %.pre915 = load ptr, ptr %1058, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit554
 
 _ZL8lean_incP11lean_object.exit554:               ; preds = %1067, %1066, %1064, %_ZL8lean_incP11lean_object.exit555
-  %1068 = phi ptr [ %.pre1000, %1067 ], [ %1059, %1066 ], [ %1059, %1064 ], [ %1059, %_ZL8lean_incP11lean_object.exit555 ]
+  %1068 = phi ptr [ %.pre915, %1067 ], [ %1059, %1066 ], [ %1059, %1064 ], [ %1059, %_ZL8lean_incP11lean_object.exit555 ]
   %1069 = getelementptr i8, ptr %0, i64 8
   %.val624 = load ptr, ptr %1069, align 8, !tbaa !15
   %1070 = load ptr, ptr %958, align 8, !tbaa !15
@@ -14511,9 +14110,8 @@ _ZL8lean_incP11lean_object.exit554:               ; preds = %1067, %1066, %1064,
   %1088 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1089 = load ptr, ptr %1088, align 8, !tbaa !15
   %1090 = ptrtoint ptr %1089 to i64
-  %1091 = and i64 %1090, 1
-  %.not891 = icmp eq i64 %1091, 0
-  br i1 %.not891, label %1092, label %_ZL8lean_incP11lean_object.exit553
+  %1091 = trunc i64 %1090 to i1
+  br i1 %1091, label %_ZL8lean_incP11lean_object.exit553, label %1092
 
 1092:                                             ; preds = %1087
   %.val.i848 = load i32, ptr %1089, align 4, !tbaa !16
@@ -14537,9 +14135,8 @@ _ZL8lean_incP11lean_object.exit553:               ; preds = %1097, %1096, %1094,
   %1098 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1099 = load ptr, ptr %1098, align 8, !tbaa !15
   %1100 = ptrtoint ptr %1099 to i64
-  %1101 = and i64 %1100, 1
-  %.not892 = icmp eq i64 %1101, 0
-  br i1 %.not892, label %1102, label %_ZL8lean_incP11lean_object.exit552
+  %1101 = trunc i64 %1100 to i1
+  br i1 %1101, label %_ZL8lean_incP11lean_object.exit552, label %1102
 
 1102:                                             ; preds = %_ZL8lean_incP11lean_object.exit553
   %.val.i851 = load i32, ptr %1099, align 4, !tbaa !16
@@ -14563,9 +14160,8 @@ _ZL8lean_incP11lean_object.exit552:               ; preds = %1107, %1106, %1104,
   %1108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1109 = load ptr, ptr %1108, align 8, !tbaa !15
   %1110 = ptrtoint ptr %1109 to i64
-  %1111 = and i64 %1110, 1
-  %.not893 = icmp eq i64 %1111, 0
-  br i1 %.not893, label %1112, label %_ZL8lean_incP11lean_object.exit551
+  %1111 = trunc i64 %1110 to i1
+  br i1 %1111, label %_ZL8lean_incP11lean_object.exit551, label %1112
 
 1112:                                             ; preds = %_ZL8lean_incP11lean_object.exit552
   %.val.i854 = load i32, ptr %1109, align 4, !tbaa !16
@@ -14589,9 +14185,8 @@ _ZL8lean_incP11lean_object.exit551:               ; preds = %1117, %1116, %1114,
   %1118 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1119 = load ptr, ptr %1118, align 8, !tbaa !15
   %1120 = ptrtoint ptr %1119 to i64
-  %1121 = and i64 %1120, 1
-  %.not894 = icmp eq i64 %1121, 0
-  br i1 %.not894, label %1122, label %_ZL8lean_incP11lean_object.exit550
+  %1121 = trunc i64 %1120 to i1
+  br i1 %1121, label %_ZL8lean_incP11lean_object.exit550, label %1122
 
 1122:                                             ; preds = %_ZL8lean_incP11lean_object.exit551
   %.val.i857 = load i32, ptr %1119, align 4, !tbaa !16
@@ -14615,9 +14210,8 @@ _ZL8lean_incP11lean_object.exit550:               ; preds = %1127, %1126, %1124,
   %1128 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1129 = load ptr, ptr %1128, align 8, !tbaa !15
   %1130 = ptrtoint ptr %1129 to i64
-  %1131 = and i64 %1130, 1
-  %.not895 = icmp eq i64 %1131, 0
-  br i1 %.not895, label %1132, label %_ZL8lean_incP11lean_object.exit549
+  %1131 = trunc i64 %1130 to i1
+  br i1 %1131, label %_ZL8lean_incP11lean_object.exit549, label %1132
 
 1132:                                             ; preds = %_ZL8lean_incP11lean_object.exit550
   %.val.i860 = load i32, ptr %1129, align 4, !tbaa !16
@@ -14641,9 +14235,8 @@ _ZL8lean_incP11lean_object.exit549:               ; preds = %1137, %1136, %1134,
   %1138 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1139 = load ptr, ptr %1138, align 8, !tbaa !15
   %1140 = ptrtoint ptr %1139 to i64
-  %1141 = and i64 %1140, 1
-  %.not896 = icmp eq i64 %1141, 0
-  br i1 %.not896, label %1142, label %_ZL8lean_incP11lean_object.exit548
+  %1141 = trunc i64 %1140 to i1
+  br i1 %1141, label %_ZL8lean_incP11lean_object.exit548, label %1142
 
 1142:                                             ; preds = %_ZL8lean_incP11lean_object.exit549
   %.val.i863 = load i32, ptr %1139, align 4, !tbaa !16
@@ -14667,9 +14260,8 @@ _ZL8lean_incP11lean_object.exit548:               ; preds = %1147, %1146, %1144,
   %1148 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1149 = load ptr, ptr %1148, align 8, !tbaa !15
   %1150 = ptrtoint ptr %1149 to i64
-  %1151 = and i64 %1150, 1
-  %.not897 = icmp eq i64 %1151, 0
-  br i1 %.not897, label %1152, label %_ZL8lean_incP11lean_object.exit547
+  %1151 = trunc i64 %1150 to i1
+  br i1 %1151, label %_ZL8lean_incP11lean_object.exit547, label %1152
 
 1152:                                             ; preds = %_ZL8lean_incP11lean_object.exit548
   %.val.i866 = load i32, ptr %1149, align 4, !tbaa !16
@@ -14693,9 +14285,8 @@ _ZL8lean_incP11lean_object.exit547:               ; preds = %1157, %1156, %1154,
   %1158 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1159 = load ptr, ptr %1158, align 8, !tbaa !15
   %1160 = ptrtoint ptr %1159 to i64
-  %1161 = and i64 %1160, 1
-  %.not898 = icmp eq i64 %1161, 0
-  br i1 %.not898, label %1162, label %_ZL8lean_incP11lean_object.exit546
+  %1161 = trunc i64 %1160 to i1
+  br i1 %1161, label %_ZL8lean_incP11lean_object.exit546, label %1162
 
 1162:                                             ; preds = %_ZL8lean_incP11lean_object.exit547
   %.val.i869 = load i32, ptr %1159, align 4, !tbaa !16
@@ -14719,9 +14310,8 @@ _ZL8lean_incP11lean_object.exit546:               ; preds = %1167, %1166, %1164,
   %1168 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1169 = load ptr, ptr %1168, align 8, !tbaa !15
   %1170 = ptrtoint ptr %1169 to i64
-  %1171 = and i64 %1170, 1
-  %.not899 = icmp eq i64 %1171, 0
-  br i1 %.not899, label %1172, label %_ZL8lean_incP11lean_object.exit545
+  %1171 = trunc i64 %1170 to i1
+  br i1 %1171, label %_ZL8lean_incP11lean_object.exit545, label %1172
 
 1172:                                             ; preds = %_ZL8lean_incP11lean_object.exit546
   %.val.i872 = load i32, ptr %1169, align 4, !tbaa !16
@@ -14745,9 +14335,8 @@ _ZL8lean_incP11lean_object.exit545:               ; preds = %1177, %1176, %1174,
   %1178 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1179 = load ptr, ptr %1178, align 8, !tbaa !15
   %1180 = ptrtoint ptr %1179 to i64
-  %1181 = and i64 %1180, 1
-  %.not900 = icmp eq i64 %1181, 0
-  br i1 %.not900, label %1182, label %_ZL8lean_incP11lean_object.exit544
+  %1181 = trunc i64 %1180 to i1
+  br i1 %1181, label %_ZL8lean_incP11lean_object.exit544, label %1182
 
 1182:                                             ; preds = %_ZL8lean_incP11lean_object.exit545
   %.val.i875 = load i32, ptr %1179, align 4, !tbaa !16
@@ -14771,9 +14360,8 @@ _ZL8lean_incP11lean_object.exit544:               ; preds = %1187, %1186, %1184,
   %1188 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1189 = load ptr, ptr %1188, align 8, !tbaa !15
   %1190 = ptrtoint ptr %1189 to i64
-  %1191 = and i64 %1190, 1
-  %.not901 = icmp eq i64 %1191, 0
-  br i1 %.not901, label %1192, label %_ZL8lean_incP11lean_object.exit543
+  %1191 = trunc i64 %1190 to i1
+  br i1 %1191, label %_ZL8lean_incP11lean_object.exit543, label %1192
 
 1192:                                             ; preds = %_ZL8lean_incP11lean_object.exit544
   %.val.i878 = load i32, ptr %1189, align 4, !tbaa !16
@@ -14797,9 +14385,8 @@ _ZL8lean_incP11lean_object.exit543:               ; preds = %1197, %1196, %1194,
   %1198 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1199 = load ptr, ptr %1198, align 8, !tbaa !15
   %1200 = ptrtoint ptr %1199 to i64
-  %1201 = and i64 %1200, 1
-  %.not902 = icmp eq i64 %1201, 0
-  br i1 %.not902, label %1202, label %_ZL8lean_incP11lean_object.exit542
+  %1201 = trunc i64 %1200 to i1
+  br i1 %1201, label %_ZL8lean_incP11lean_object.exit542, label %1202
 
 1202:                                             ; preds = %_ZL8lean_incP11lean_object.exit543
   %.val.i881 = load i32, ptr %1199, align 4, !tbaa !16
@@ -14817,11 +14404,11 @@ _ZL8lean_incP11lean_object.exit543:               ; preds = %1197, %1196, %1194,
 
 1207:                                             ; preds = %1206
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1199)
-  %.pre999 = load ptr, ptr %1198, align 8, !tbaa !15
+  %.pre914 = load ptr, ptr %1198, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit542
 
 _ZL8lean_incP11lean_object.exit542:               ; preds = %1207, %1206, %1204, %_ZL8lean_incP11lean_object.exit543
-  %1208 = phi ptr [ %.pre999, %1207 ], [ %1199, %1206 ], [ %1199, %1204 ], [ %1199, %_ZL8lean_incP11lean_object.exit543 ]
+  %1208 = phi ptr [ %.pre914, %1207 ], [ %1199, %1206 ], [ %1199, %1204 ], [ %1199, %_ZL8lean_incP11lean_object.exit543 ]
   %1209 = getelementptr i8, ptr %0, i64 8
   %.val623 = load ptr, ptr %1209, align 8, !tbaa !15
   %1210 = load ptr, ptr %1088, align 8, !tbaa !15
@@ -14857,12 +14444,12 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %1207, %1206, %1204,
   %1229 = shl nuw nsw i32 %49, 3
   %1230 = zext nneg i32 %1229 to i64
   %1231 = alloca i8, i64 %1230, align 16
-  %.not984 = icmp eq i16 %.val620, 0
-  br i1 %.not984, label %.preheader, label %.lr.ph980
+  %.not899 = icmp eq i16 %.val620, 0
+  br i1 %.not899, label %.preheader, label %.lr.ph896
 
-.lr.ph980:                                        ; preds = %1228
+.lr.ph896:                                        ; preds = %1228
   %1232 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count994 = zext i16 %.val620 to i64
+  %wide.trip.count909 = zext i16 %.val620 to i64
   br label %1239
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit541, %1228
@@ -14883,14 +14470,13 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %1207, %1206, %1204,
   %1238 = icmp sgt i32 %1237, 1
   br i1 %1238, label %1252, label %1254, !prof !19
 
-1239:                                             ; preds = %.lr.ph980, %_ZL8lean_incP11lean_object.exit541
-  %indvars.iv991 = phi i64 [ 0, %.lr.ph980 ], [ %indvars.iv.next992, %_ZL8lean_incP11lean_object.exit541 ]
-  %1240 = getelementptr inbounds nuw ptr, ptr %1232, i64 %indvars.iv991
+1239:                                             ; preds = %.lr.ph896, %_ZL8lean_incP11lean_object.exit541
+  %indvars.iv906 = phi i64 [ 0, %.lr.ph896 ], [ %indvars.iv.next907, %_ZL8lean_incP11lean_object.exit541 ]
+  %1240 = getelementptr inbounds nuw ptr, ptr %1232, i64 %indvars.iv906
   %1241 = load ptr, ptr %1240, align 8, !tbaa !15
   %1242 = ptrtoint ptr %1241 to i64
-  %1243 = and i64 %1242, 1
-  %.not969 = icmp eq i64 %1243, 0
-  br i1 %.not969, label %1244, label %_ZL8lean_incP11lean_object.exit541
+  %1243 = trunc i64 %1242 to i1
+  br i1 %1243, label %_ZL8lean_incP11lean_object.exit541, label %1244
 
 1244:                                             ; preds = %1239
   %.val.i884 = load i32, ptr %1241, align 4, !tbaa !16
@@ -14908,16 +14494,16 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %1207, %1206, %1204,
 
 1249:                                             ; preds = %1248
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1241)
-  %.pre1011 = load ptr, ptr %1240, align 8, !tbaa !15
+  %.pre926 = load ptr, ptr %1240, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit541
 
 _ZL8lean_incP11lean_object.exit541:               ; preds = %1249, %1248, %1246, %1239
-  %1250 = phi ptr [ %.pre1011, %1249 ], [ %1241, %1248 ], [ %1241, %1246 ], [ %1241, %1239 ]
-  %1251 = getelementptr inbounds nuw ptr, ptr %1231, i64 %indvars.iv991
+  %1250 = phi ptr [ %.pre926, %1249 ], [ %1241, %1248 ], [ %1241, %1246 ], [ %1241, %1239 ]
+  %1251 = getelementptr inbounds nuw ptr, ptr %1231, i64 %indvars.iv906
   store ptr %1250, ptr %1251, align 8, !tbaa !15
-  %indvars.iv.next992 = add nuw nsw i64 %indvars.iv991, 1
-  %exitcond995.not = icmp eq i64 %indvars.iv.next992, %wide.trip.count994
-  br i1 %exitcond995.not, label %.preheader, label %1239, !llvm.loop !30
+  %indvars.iv.next907 = add nuw nsw i64 %indvars.iv906, 1
+  %exitcond910.not = icmp eq i64 %indvars.iv.next907, %wide.trip.count909
+  br i1 %exitcond910.not, label %.preheader, label %1239, !llvm.loop !30
 
 1252:                                             ; preds = %.preheader
   %1253 = add nsw i32 %1237, -1
@@ -14948,31 +14534,30 @@ _ZL8lean_incP11lean_object.exit541:               ; preds = %1249, %1248, %1246,
   %1262 = shl nuw nsw i32 %49, 3
   %1263 = zext nneg i32 %1262 to i64
   %1264 = alloca i8, i64 %1263, align 16
-  %.not982 = icmp eq i16 %.val620, 0
-  br i1 %.not982, label %.preheader974, label %.lr.ph
+  %.not = icmp eq i16 %.val620, 0
+  br i1 %.not, label %.preheader890, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1258
   %1265 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val620 to i64
   br label %1267
 
-.preheader974:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %1258
+.preheader890:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %1258
   %1266 = sub nsw i32 %49, %51
-  %.not983 = icmp eq i16 %.val, %.val620
-  br i1 %.not983, label %._crit_edge, label %.lr.ph977.preheader
+  %.not898 = icmp eq i16 %.val, %.val620
+  br i1 %.not898, label %._crit_edge, label %.lr.ph893.preheader
 
-.lr.ph977.preheader:                              ; preds = %.preheader974
-  %wide.trip.count989 = zext i32 %1266 to i64
-  br label %.lr.ph977
+.lr.ph893.preheader:                              ; preds = %.preheader890
+  %wide.trip.count904 = zext i32 %1266 to i64
+  br label %.lr.ph893
 
 1267:                                             ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %1268 = getelementptr inbounds nuw ptr, ptr %1265, i64 %indvars.iv
   %1269 = load ptr, ptr %1268, align 8, !tbaa !15
   %1270 = ptrtoint ptr %1269 to i64
-  %1271 = and i64 %1270, 1
-  %.not890 = icmp eq i64 %1271, 0
-  br i1 %.not890, label %1272, label %_ZL8lean_incP11lean_object.exit
+  %1271 = trunc i64 %1270 to i1
+  br i1 %1271, label %_ZL8lean_incP11lean_object.exit, label %1272
 
 1272:                                             ; preds = %1267
   %.val.i887 = load i32, ptr %1269, align 4, !tbaa !16
@@ -14999,9 +14584,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1277, %1276, %1274,
   store ptr %1278, ptr %1279, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader974, label %1267, !llvm.loop !31
+  br i1 %exitcond.not, label %.preheader890, label %1267, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.lr.ph977, %.preheader974
+._crit_edge:                                      ; preds = %.lr.ph893, %.preheader890
   %1280 = getelementptr i8, ptr %0, i64 8
   %.val651 = load ptr, ptr %1280, align 8, !tbaa !15
   %1281 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val651, i32 noundef range(i32 0, 65536) %49, ptr noundef nonnull %1264)
@@ -15030,18 +14615,18 @@ _ZL12lean_dec_refP11lean_object.exit512:          ; preds = %1284, %1286, %1287
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph977:                                        ; preds = %.lr.ph977.preheader, %.lr.ph977
-  %indvars.iv986 = phi i64 [ 0, %.lr.ph977.preheader ], [ %indvars.iv.next987, %.lr.ph977 ]
-  %1292 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv986
+.lr.ph893:                                        ; preds = %.lr.ph893.preheader, %.lr.ph893
+  %indvars.iv901 = phi i64 [ 0, %.lr.ph893.preheader ], [ %indvars.iv.next902, %.lr.ph893 ]
+  %1292 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv901
   %1293 = load ptr, ptr %1292, align 8, !tbaa !15
-  %1294 = trunc nuw i64 %indvars.iv986 to i32
+  %1294 = trunc nuw i64 %indvars.iv901 to i32
   %1295 = add i32 %1294, %51
   %1296 = zext i32 %1295 to i64
   %1297 = getelementptr inbounds nuw ptr, ptr %1264, i64 %1296
   store ptr %1293, ptr %1297, align 8, !tbaa !15
-  %indvars.iv.next987 = add nuw nsw i64 %indvars.iv986, 1
-  %exitcond990.not = icmp eq i64 %indvars.iv.next987, %wide.trip.count989
-  br i1 %exitcond990.not, label %._crit_edge, label %.lr.ph977, !llvm.loop !32
+  %indvars.iv.next902 = add nuw nsw i64 %indvars.iv901, 1
+  %exitcond905.not = icmp eq i64 %indvars.iv.next902, %wide.trip.count904
+  br i1 %exitcond905.not, label %._crit_edge, label %.lr.ph893, !llvm.loop !32
 
 1298:                                             ; preds = %1256
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -15066,15 +14651,13 @@ define ptr @lean_apply_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %7 = alloca [5 x ptr], align 16
   %8 = alloca [5 x ptr], align 8
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %57, label %11
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %11, label %57
 
 11:                                               ; preds = %6
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not887 = icmp eq i64 %13, 0
-  br i1 %.not887, label %14, label %_ZL8lean_decP11lean_object.exit483
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZL8lean_decP11lean_object.exit483, label %14
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %1, align 4, !tbaa !16
@@ -15096,9 +14679,8 @@ define ptr @lean_apply_5(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit483:               ; preds = %20, %19, %17, %11
   %21 = ptrtoint ptr %2 to i64
-  %22 = and i64 %21, 1
-  %.not888 = icmp eq i64 %22, 0
-  br i1 %.not888, label %23, label %_ZL8lean_decP11lean_object.exit482
+  %22 = trunc i64 %21 to i1
+  br i1 %22, label %_ZL8lean_decP11lean_object.exit482, label %23
 
 23:                                               ; preds = %_ZL8lean_decP11lean_object.exit483
   %24 = load i32, ptr %2, align 4, !tbaa !16
@@ -15120,9 +14702,8 @@ _ZL8lean_decP11lean_object.exit483:               ; preds = %20, %19, %17, %11
 
 _ZL8lean_decP11lean_object.exit482:               ; preds = %29, %28, %26, %_ZL8lean_decP11lean_object.exit483
   %30 = ptrtoint ptr %3 to i64
-  %31 = and i64 %30, 1
-  %.not889 = icmp eq i64 %31, 0
-  br i1 %.not889, label %32, label %_ZL8lean_decP11lean_object.exit481
+  %31 = trunc i64 %30 to i1
+  br i1 %31, label %_ZL8lean_decP11lean_object.exit481, label %32
 
 32:                                               ; preds = %_ZL8lean_decP11lean_object.exit482
   %33 = load i32, ptr %3, align 4, !tbaa !16
@@ -15144,9 +14725,8 @@ _ZL8lean_decP11lean_object.exit482:               ; preds = %29, %28, %26, %_ZL8
 
 _ZL8lean_decP11lean_object.exit481:               ; preds = %38, %37, %35, %_ZL8lean_decP11lean_object.exit482
   %39 = ptrtoint ptr %4 to i64
-  %40 = and i64 %39, 1
-  %.not890 = icmp eq i64 %40, 0
-  br i1 %.not890, label %41, label %_ZL8lean_decP11lean_object.exit480
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %_ZL8lean_decP11lean_object.exit480, label %41
 
 41:                                               ; preds = %_ZL8lean_decP11lean_object.exit481
   %42 = load i32, ptr %4, align 4, !tbaa !16
@@ -15168,9 +14748,8 @@ _ZL8lean_decP11lean_object.exit481:               ; preds = %38, %37, %35, %_ZL8
 
 _ZL8lean_decP11lean_object.exit480:               ; preds = %47, %46, %44, %_ZL8lean_decP11lean_object.exit481
   %48 = ptrtoint ptr %5 to i64
-  %49 = and i64 %48, 1
-  %.not891 = icmp eq i64 %49, 0
-  br i1 %.not891, label %50, label %_ZL8lean_decP11lean_object.exit
+  %49 = trunc i64 %48 to i1
+  br i1 %49, label %_ZL8lean_decP11lean_object.exit, label %50
 
 50:                                               ; preds = %_ZL8lean_decP11lean_object.exit480
   %51 = load i32, ptr %5, align 4, !tbaa !16
@@ -15479,9 +15058,8 @@ _ZL8lean_decP11lean_object.exit480:               ; preds = %47, %46, %44, %_ZL8
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %247 = load ptr, ptr %246, align 8, !tbaa !15
   %248 = ptrtoint ptr %247 to i64
-  %249 = and i64 %248, 1
-  %.not885 = icmp eq i64 %249, 0
-  br i1 %.not885, label %250, label %_ZL8lean_incP11lean_object.exit586
+  %249 = trunc i64 %248 to i1
+  br i1 %249, label %_ZL8lean_incP11lean_object.exit586, label %250
 
 250:                                              ; preds = %245
   %.val.i = load i32, ptr %247, align 4, !tbaa !16
@@ -15499,11 +15077,11 @@ _ZL8lean_decP11lean_object.exit480:               ; preds = %47, %46, %44, %_ZL8
 
 255:                                              ; preds = %254
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %247)
-  %.pre927 = load ptr, ptr %246, align 8, !tbaa !15
+  %.pre853 = load ptr, ptr %246, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit586
 
 _ZL8lean_incP11lean_object.exit586:               ; preds = %255, %254, %252, %245
-  %256 = phi ptr [ %.pre927, %255 ], [ %247, %254 ], [ %247, %252 ], [ %247, %245 ]
+  %256 = phi ptr [ %.pre853, %255 ], [ %247, %254 ], [ %247, %252 ], [ %247, %245 ]
   %257 = getelementptr i8, ptr %0, i64 8
   %.val600 = load ptr, ptr %257, align 8, !tbaa !15
   %258 = tail call noundef ptr %.val600(ptr noundef %256, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
@@ -15528,9 +15106,8 @@ _ZL8lean_incP11lean_object.exit586:               ; preds = %255, %254, %252, %2
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %267 = load ptr, ptr %266, align 8, !tbaa !15
   %268 = ptrtoint ptr %267 to i64
-  %269 = and i64 %268, 1
-  %.not883 = icmp eq i64 %269, 0
-  br i1 %.not883, label %270, label %_ZL8lean_incP11lean_object.exit585
+  %269 = trunc i64 %268 to i1
+  br i1 %269, label %_ZL8lean_incP11lean_object.exit585, label %270
 
 270:                                              ; preds = %265
   %.val.i618 = load i32, ptr %267, align 4, !tbaa !16
@@ -15554,9 +15131,8 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %275, %274, %272, %2
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %277 = load ptr, ptr %276, align 8, !tbaa !15
   %278 = ptrtoint ptr %277 to i64
-  %279 = and i64 %278, 1
-  %.not884 = icmp eq i64 %279, 0
-  br i1 %.not884, label %280, label %_ZL8lean_incP11lean_object.exit584
+  %279 = trunc i64 %278 to i1
+  br i1 %279, label %_ZL8lean_incP11lean_object.exit584, label %280
 
 280:                                              ; preds = %_ZL8lean_incP11lean_object.exit585
   %.val.i621 = load i32, ptr %277, align 4, !tbaa !16
@@ -15574,11 +15150,11 @@ _ZL8lean_incP11lean_object.exit585:               ; preds = %275, %274, %272, %2
 
 285:                                              ; preds = %284
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %277)
-  %.pre926 = load ptr, ptr %276, align 8, !tbaa !15
+  %.pre852 = load ptr, ptr %276, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit584
 
 _ZL8lean_incP11lean_object.exit584:               ; preds = %285, %284, %282, %_ZL8lean_incP11lean_object.exit585
-  %286 = phi ptr [ %.pre926, %285 ], [ %277, %284 ], [ %277, %282 ], [ %277, %_ZL8lean_incP11lean_object.exit585 ]
+  %286 = phi ptr [ %.pre852, %285 ], [ %277, %284 ], [ %277, %282 ], [ %277, %_ZL8lean_incP11lean_object.exit585 ]
   %287 = getelementptr i8, ptr %0, i64 8
   %.val599 = load ptr, ptr %287, align 8, !tbaa !15
   %288 = load ptr, ptr %266, align 8, !tbaa !15
@@ -15604,9 +15180,8 @@ _ZL8lean_incP11lean_object.exit584:               ; preds = %285, %284, %282, %_
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %298 = load ptr, ptr %297, align 8, !tbaa !15
   %299 = ptrtoint ptr %298 to i64
-  %300 = and i64 %299, 1
-  %.not880 = icmp eq i64 %300, 0
-  br i1 %.not880, label %301, label %_ZL8lean_incP11lean_object.exit583
+  %300 = trunc i64 %299 to i1
+  br i1 %300, label %_ZL8lean_incP11lean_object.exit583, label %301
 
 301:                                              ; preds = %296
   %.val.i624 = load i32, ptr %298, align 4, !tbaa !16
@@ -15630,9 +15205,8 @@ _ZL8lean_incP11lean_object.exit583:               ; preds = %306, %305, %303, %2
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %308 = load ptr, ptr %307, align 8, !tbaa !15
   %309 = ptrtoint ptr %308 to i64
-  %310 = and i64 %309, 1
-  %.not881 = icmp eq i64 %310, 0
-  br i1 %.not881, label %311, label %_ZL8lean_incP11lean_object.exit582
+  %310 = trunc i64 %309 to i1
+  br i1 %310, label %_ZL8lean_incP11lean_object.exit582, label %311
 
 311:                                              ; preds = %_ZL8lean_incP11lean_object.exit583
   %.val.i627 = load i32, ptr %308, align 4, !tbaa !16
@@ -15656,9 +15230,8 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %316, %315, %313, %_
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %318 = load ptr, ptr %317, align 8, !tbaa !15
   %319 = ptrtoint ptr %318 to i64
-  %320 = and i64 %319, 1
-  %.not882 = icmp eq i64 %320, 0
-  br i1 %.not882, label %321, label %_ZL8lean_incP11lean_object.exit581
+  %320 = trunc i64 %319 to i1
+  br i1 %320, label %_ZL8lean_incP11lean_object.exit581, label %321
 
 321:                                              ; preds = %_ZL8lean_incP11lean_object.exit582
   %.val.i630 = load i32, ptr %318, align 4, !tbaa !16
@@ -15676,11 +15249,11 @@ _ZL8lean_incP11lean_object.exit582:               ; preds = %316, %315, %313, %_
 
 326:                                              ; preds = %325
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %318)
-  %.pre925 = load ptr, ptr %317, align 8, !tbaa !15
+  %.pre851 = load ptr, ptr %317, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit581
 
 _ZL8lean_incP11lean_object.exit581:               ; preds = %326, %325, %323, %_ZL8lean_incP11lean_object.exit582
-  %327 = phi ptr [ %.pre925, %326 ], [ %318, %325 ], [ %318, %323 ], [ %318, %_ZL8lean_incP11lean_object.exit582 ]
+  %327 = phi ptr [ %.pre851, %326 ], [ %318, %325 ], [ %318, %323 ], [ %318, %_ZL8lean_incP11lean_object.exit582 ]
   %328 = getelementptr i8, ptr %0, i64 8
   %.val598 = load ptr, ptr %328, align 8, !tbaa !15
   %329 = load ptr, ptr %297, align 8, !tbaa !15
@@ -15707,9 +15280,8 @@ _ZL8lean_incP11lean_object.exit581:               ; preds = %326, %325, %323, %_
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %340 = load ptr, ptr %339, align 8, !tbaa !15
   %341 = ptrtoint ptr %340 to i64
-  %342 = and i64 %341, 1
-  %.not876 = icmp eq i64 %342, 0
-  br i1 %.not876, label %343, label %_ZL8lean_incP11lean_object.exit580
+  %342 = trunc i64 %341 to i1
+  br i1 %342, label %_ZL8lean_incP11lean_object.exit580, label %343
 
 343:                                              ; preds = %338
   %.val.i633 = load i32, ptr %340, align 4, !tbaa !16
@@ -15733,9 +15305,8 @@ _ZL8lean_incP11lean_object.exit580:               ; preds = %348, %347, %345, %3
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %350 = load ptr, ptr %349, align 8, !tbaa !15
   %351 = ptrtoint ptr %350 to i64
-  %352 = and i64 %351, 1
-  %.not877 = icmp eq i64 %352, 0
-  br i1 %.not877, label %353, label %_ZL8lean_incP11lean_object.exit579
+  %352 = trunc i64 %351 to i1
+  br i1 %352, label %_ZL8lean_incP11lean_object.exit579, label %353
 
 353:                                              ; preds = %_ZL8lean_incP11lean_object.exit580
   %.val.i636 = load i32, ptr %350, align 4, !tbaa !16
@@ -15759,9 +15330,8 @@ _ZL8lean_incP11lean_object.exit579:               ; preds = %358, %357, %355, %_
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %360 = load ptr, ptr %359, align 8, !tbaa !15
   %361 = ptrtoint ptr %360 to i64
-  %362 = and i64 %361, 1
-  %.not878 = icmp eq i64 %362, 0
-  br i1 %.not878, label %363, label %_ZL8lean_incP11lean_object.exit578
+  %362 = trunc i64 %361 to i1
+  br i1 %362, label %_ZL8lean_incP11lean_object.exit578, label %363
 
 363:                                              ; preds = %_ZL8lean_incP11lean_object.exit579
   %.val.i639 = load i32, ptr %360, align 4, !tbaa !16
@@ -15785,9 +15355,8 @@ _ZL8lean_incP11lean_object.exit578:               ; preds = %368, %367, %365, %_
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %370 = load ptr, ptr %369, align 8, !tbaa !15
   %371 = ptrtoint ptr %370 to i64
-  %372 = and i64 %371, 1
-  %.not879 = icmp eq i64 %372, 0
-  br i1 %.not879, label %373, label %_ZL8lean_incP11lean_object.exit577
+  %372 = trunc i64 %371 to i1
+  br i1 %372, label %_ZL8lean_incP11lean_object.exit577, label %373
 
 373:                                              ; preds = %_ZL8lean_incP11lean_object.exit578
   %.val.i642 = load i32, ptr %370, align 4, !tbaa !16
@@ -15805,11 +15374,11 @@ _ZL8lean_incP11lean_object.exit578:               ; preds = %368, %367, %365, %_
 
 378:                                              ; preds = %377
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %370)
-  %.pre924 = load ptr, ptr %369, align 8, !tbaa !15
+  %.pre850 = load ptr, ptr %369, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit577
 
 _ZL8lean_incP11lean_object.exit577:               ; preds = %378, %377, %375, %_ZL8lean_incP11lean_object.exit578
-  %379 = phi ptr [ %.pre924, %378 ], [ %370, %377 ], [ %370, %375 ], [ %370, %_ZL8lean_incP11lean_object.exit578 ]
+  %379 = phi ptr [ %.pre850, %378 ], [ %370, %377 ], [ %370, %375 ], [ %370, %_ZL8lean_incP11lean_object.exit578 ]
   %380 = getelementptr i8, ptr %0, i64 8
   %.val597 = load ptr, ptr %380, align 8, !tbaa !15
   %381 = load ptr, ptr %339, align 8, !tbaa !15
@@ -15837,9 +15406,8 @@ _ZL8lean_incP11lean_object.exit577:               ; preds = %378, %377, %375, %_
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %393 = load ptr, ptr %392, align 8, !tbaa !15
   %394 = ptrtoint ptr %393 to i64
-  %395 = and i64 %394, 1
-  %.not871 = icmp eq i64 %395, 0
-  br i1 %.not871, label %396, label %_ZL8lean_incP11lean_object.exit576
+  %395 = trunc i64 %394 to i1
+  br i1 %395, label %_ZL8lean_incP11lean_object.exit576, label %396
 
 396:                                              ; preds = %391
   %.val.i645 = load i32, ptr %393, align 4, !tbaa !16
@@ -15863,9 +15431,8 @@ _ZL8lean_incP11lean_object.exit576:               ; preds = %401, %400, %398, %3
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %403 = load ptr, ptr %402, align 8, !tbaa !15
   %404 = ptrtoint ptr %403 to i64
-  %405 = and i64 %404, 1
-  %.not872 = icmp eq i64 %405, 0
-  br i1 %.not872, label %406, label %_ZL8lean_incP11lean_object.exit575
+  %405 = trunc i64 %404 to i1
+  br i1 %405, label %_ZL8lean_incP11lean_object.exit575, label %406
 
 406:                                              ; preds = %_ZL8lean_incP11lean_object.exit576
   %.val.i648 = load i32, ptr %403, align 4, !tbaa !16
@@ -15889,9 +15456,8 @@ _ZL8lean_incP11lean_object.exit575:               ; preds = %411, %410, %408, %_
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %413 = load ptr, ptr %412, align 8, !tbaa !15
   %414 = ptrtoint ptr %413 to i64
-  %415 = and i64 %414, 1
-  %.not873 = icmp eq i64 %415, 0
-  br i1 %.not873, label %416, label %_ZL8lean_incP11lean_object.exit574
+  %415 = trunc i64 %414 to i1
+  br i1 %415, label %_ZL8lean_incP11lean_object.exit574, label %416
 
 416:                                              ; preds = %_ZL8lean_incP11lean_object.exit575
   %.val.i651 = load i32, ptr %413, align 4, !tbaa !16
@@ -15915,9 +15481,8 @@ _ZL8lean_incP11lean_object.exit574:               ; preds = %421, %420, %418, %_
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %423 = load ptr, ptr %422, align 8, !tbaa !15
   %424 = ptrtoint ptr %423 to i64
-  %425 = and i64 %424, 1
-  %.not874 = icmp eq i64 %425, 0
-  br i1 %.not874, label %426, label %_ZL8lean_incP11lean_object.exit573
+  %425 = trunc i64 %424 to i1
+  br i1 %425, label %_ZL8lean_incP11lean_object.exit573, label %426
 
 426:                                              ; preds = %_ZL8lean_incP11lean_object.exit574
   %.val.i654 = load i32, ptr %423, align 4, !tbaa !16
@@ -15941,9 +15506,8 @@ _ZL8lean_incP11lean_object.exit573:               ; preds = %431, %430, %428, %_
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %433 = load ptr, ptr %432, align 8, !tbaa !15
   %434 = ptrtoint ptr %433 to i64
-  %435 = and i64 %434, 1
-  %.not875 = icmp eq i64 %435, 0
-  br i1 %.not875, label %436, label %_ZL8lean_incP11lean_object.exit572
+  %435 = trunc i64 %434 to i1
+  br i1 %435, label %_ZL8lean_incP11lean_object.exit572, label %436
 
 436:                                              ; preds = %_ZL8lean_incP11lean_object.exit573
   %.val.i657 = load i32, ptr %433, align 4, !tbaa !16
@@ -15961,11 +15525,11 @@ _ZL8lean_incP11lean_object.exit573:               ; preds = %431, %430, %428, %_
 
 441:                                              ; preds = %440
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %433)
-  %.pre923 = load ptr, ptr %432, align 8, !tbaa !15
+  %.pre849 = load ptr, ptr %432, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit572
 
 _ZL8lean_incP11lean_object.exit572:               ; preds = %441, %440, %438, %_ZL8lean_incP11lean_object.exit573
-  %442 = phi ptr [ %.pre923, %441 ], [ %433, %440 ], [ %433, %438 ], [ %433, %_ZL8lean_incP11lean_object.exit573 ]
+  %442 = phi ptr [ %.pre849, %441 ], [ %433, %440 ], [ %433, %438 ], [ %433, %_ZL8lean_incP11lean_object.exit573 ]
   %443 = getelementptr i8, ptr %0, i64 8
   %.val596 = load ptr, ptr %443, align 8, !tbaa !15
   %444 = load ptr, ptr %392, align 8, !tbaa !15
@@ -15994,9 +15558,8 @@ _ZL8lean_incP11lean_object.exit572:               ; preds = %441, %440, %438, %_
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %457 = load ptr, ptr %456, align 8, !tbaa !15
   %458 = ptrtoint ptr %457 to i64
-  %459 = and i64 %458, 1
-  %.not865 = icmp eq i64 %459, 0
-  br i1 %.not865, label %460, label %_ZL8lean_incP11lean_object.exit571
+  %459 = trunc i64 %458 to i1
+  br i1 %459, label %_ZL8lean_incP11lean_object.exit571, label %460
 
 460:                                              ; preds = %455
   %.val.i660 = load i32, ptr %457, align 4, !tbaa !16
@@ -16020,9 +15583,8 @@ _ZL8lean_incP11lean_object.exit571:               ; preds = %465, %464, %462, %4
   %466 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %467 = load ptr, ptr %466, align 8, !tbaa !15
   %468 = ptrtoint ptr %467 to i64
-  %469 = and i64 %468, 1
-  %.not866 = icmp eq i64 %469, 0
-  br i1 %.not866, label %470, label %_ZL8lean_incP11lean_object.exit570
+  %469 = trunc i64 %468 to i1
+  br i1 %469, label %_ZL8lean_incP11lean_object.exit570, label %470
 
 470:                                              ; preds = %_ZL8lean_incP11lean_object.exit571
   %.val.i663 = load i32, ptr %467, align 4, !tbaa !16
@@ -16046,9 +15608,8 @@ _ZL8lean_incP11lean_object.exit570:               ; preds = %475, %474, %472, %_
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %477 = load ptr, ptr %476, align 8, !tbaa !15
   %478 = ptrtoint ptr %477 to i64
-  %479 = and i64 %478, 1
-  %.not867 = icmp eq i64 %479, 0
-  br i1 %.not867, label %480, label %_ZL8lean_incP11lean_object.exit569
+  %479 = trunc i64 %478 to i1
+  br i1 %479, label %_ZL8lean_incP11lean_object.exit569, label %480
 
 480:                                              ; preds = %_ZL8lean_incP11lean_object.exit570
   %.val.i666 = load i32, ptr %477, align 4, !tbaa !16
@@ -16072,9 +15633,8 @@ _ZL8lean_incP11lean_object.exit569:               ; preds = %485, %484, %482, %_
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %487 = load ptr, ptr %486, align 8, !tbaa !15
   %488 = ptrtoint ptr %487 to i64
-  %489 = and i64 %488, 1
-  %.not868 = icmp eq i64 %489, 0
-  br i1 %.not868, label %490, label %_ZL8lean_incP11lean_object.exit568
+  %489 = trunc i64 %488 to i1
+  br i1 %489, label %_ZL8lean_incP11lean_object.exit568, label %490
 
 490:                                              ; preds = %_ZL8lean_incP11lean_object.exit569
   %.val.i669 = load i32, ptr %487, align 4, !tbaa !16
@@ -16098,9 +15658,8 @@ _ZL8lean_incP11lean_object.exit568:               ; preds = %495, %494, %492, %_
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %497 = load ptr, ptr %496, align 8, !tbaa !15
   %498 = ptrtoint ptr %497 to i64
-  %499 = and i64 %498, 1
-  %.not869 = icmp eq i64 %499, 0
-  br i1 %.not869, label %500, label %_ZL8lean_incP11lean_object.exit567
+  %499 = trunc i64 %498 to i1
+  br i1 %499, label %_ZL8lean_incP11lean_object.exit567, label %500
 
 500:                                              ; preds = %_ZL8lean_incP11lean_object.exit568
   %.val.i672 = load i32, ptr %497, align 4, !tbaa !16
@@ -16124,9 +15683,8 @@ _ZL8lean_incP11lean_object.exit567:               ; preds = %505, %504, %502, %_
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %507 = load ptr, ptr %506, align 8, !tbaa !15
   %508 = ptrtoint ptr %507 to i64
-  %509 = and i64 %508, 1
-  %.not870 = icmp eq i64 %509, 0
-  br i1 %.not870, label %510, label %_ZL8lean_incP11lean_object.exit566
+  %509 = trunc i64 %508 to i1
+  br i1 %509, label %_ZL8lean_incP11lean_object.exit566, label %510
 
 510:                                              ; preds = %_ZL8lean_incP11lean_object.exit567
   %.val.i675 = load i32, ptr %507, align 4, !tbaa !16
@@ -16144,11 +15702,11 @@ _ZL8lean_incP11lean_object.exit567:               ; preds = %505, %504, %502, %_
 
 515:                                              ; preds = %514
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %507)
-  %.pre922 = load ptr, ptr %506, align 8, !tbaa !15
+  %.pre848 = load ptr, ptr %506, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit566
 
 _ZL8lean_incP11lean_object.exit566:               ; preds = %515, %514, %512, %_ZL8lean_incP11lean_object.exit567
-  %516 = phi ptr [ %.pre922, %515 ], [ %507, %514 ], [ %507, %512 ], [ %507, %_ZL8lean_incP11lean_object.exit567 ]
+  %516 = phi ptr [ %.pre848, %515 ], [ %507, %514 ], [ %507, %512 ], [ %507, %_ZL8lean_incP11lean_object.exit567 ]
   %517 = getelementptr i8, ptr %0, i64 8
   %.val595 = load ptr, ptr %517, align 8, !tbaa !15
   %518 = load ptr, ptr %456, align 8, !tbaa !15
@@ -16178,9 +15736,8 @@ _ZL8lean_incP11lean_object.exit566:               ; preds = %515, %514, %512, %_
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %532 = load ptr, ptr %531, align 8, !tbaa !15
   %533 = ptrtoint ptr %532 to i64
-  %534 = and i64 %533, 1
-  %.not858 = icmp eq i64 %534, 0
-  br i1 %.not858, label %535, label %_ZL8lean_incP11lean_object.exit565
+  %534 = trunc i64 %533 to i1
+  br i1 %534, label %_ZL8lean_incP11lean_object.exit565, label %535
 
 535:                                              ; preds = %530
   %.val.i678 = load i32, ptr %532, align 4, !tbaa !16
@@ -16204,9 +15761,8 @@ _ZL8lean_incP11lean_object.exit565:               ; preds = %540, %539, %537, %5
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %542 = load ptr, ptr %541, align 8, !tbaa !15
   %543 = ptrtoint ptr %542 to i64
-  %544 = and i64 %543, 1
-  %.not859 = icmp eq i64 %544, 0
-  br i1 %.not859, label %545, label %_ZL8lean_incP11lean_object.exit564
+  %544 = trunc i64 %543 to i1
+  br i1 %544, label %_ZL8lean_incP11lean_object.exit564, label %545
 
 545:                                              ; preds = %_ZL8lean_incP11lean_object.exit565
   %.val.i681 = load i32, ptr %542, align 4, !tbaa !16
@@ -16230,9 +15786,8 @@ _ZL8lean_incP11lean_object.exit564:               ; preds = %550, %549, %547, %_
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %552 = load ptr, ptr %551, align 8, !tbaa !15
   %553 = ptrtoint ptr %552 to i64
-  %554 = and i64 %553, 1
-  %.not860 = icmp eq i64 %554, 0
-  br i1 %.not860, label %555, label %_ZL8lean_incP11lean_object.exit563
+  %554 = trunc i64 %553 to i1
+  br i1 %554, label %_ZL8lean_incP11lean_object.exit563, label %555
 
 555:                                              ; preds = %_ZL8lean_incP11lean_object.exit564
   %.val.i684 = load i32, ptr %552, align 4, !tbaa !16
@@ -16256,9 +15811,8 @@ _ZL8lean_incP11lean_object.exit563:               ; preds = %560, %559, %557, %_
   %561 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %562 = load ptr, ptr %561, align 8, !tbaa !15
   %563 = ptrtoint ptr %562 to i64
-  %564 = and i64 %563, 1
-  %.not861 = icmp eq i64 %564, 0
-  br i1 %.not861, label %565, label %_ZL8lean_incP11lean_object.exit562
+  %564 = trunc i64 %563 to i1
+  br i1 %564, label %_ZL8lean_incP11lean_object.exit562, label %565
 
 565:                                              ; preds = %_ZL8lean_incP11lean_object.exit563
   %.val.i687 = load i32, ptr %562, align 4, !tbaa !16
@@ -16282,9 +15836,8 @@ _ZL8lean_incP11lean_object.exit562:               ; preds = %570, %569, %567, %_
   %571 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %572 = load ptr, ptr %571, align 8, !tbaa !15
   %573 = ptrtoint ptr %572 to i64
-  %574 = and i64 %573, 1
-  %.not862 = icmp eq i64 %574, 0
-  br i1 %.not862, label %575, label %_ZL8lean_incP11lean_object.exit561
+  %574 = trunc i64 %573 to i1
+  br i1 %574, label %_ZL8lean_incP11lean_object.exit561, label %575
 
 575:                                              ; preds = %_ZL8lean_incP11lean_object.exit562
   %.val.i690 = load i32, ptr %572, align 4, !tbaa !16
@@ -16308,9 +15861,8 @@ _ZL8lean_incP11lean_object.exit561:               ; preds = %580, %579, %577, %_
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %582 = load ptr, ptr %581, align 8, !tbaa !15
   %583 = ptrtoint ptr %582 to i64
-  %584 = and i64 %583, 1
-  %.not863 = icmp eq i64 %584, 0
-  br i1 %.not863, label %585, label %_ZL8lean_incP11lean_object.exit560
+  %584 = trunc i64 %583 to i1
+  br i1 %584, label %_ZL8lean_incP11lean_object.exit560, label %585
 
 585:                                              ; preds = %_ZL8lean_incP11lean_object.exit561
   %.val.i693 = load i32, ptr %582, align 4, !tbaa !16
@@ -16334,9 +15886,8 @@ _ZL8lean_incP11lean_object.exit560:               ; preds = %590, %589, %587, %_
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %592 = load ptr, ptr %591, align 8, !tbaa !15
   %593 = ptrtoint ptr %592 to i64
-  %594 = and i64 %593, 1
-  %.not864 = icmp eq i64 %594, 0
-  br i1 %.not864, label %595, label %_ZL8lean_incP11lean_object.exit559
+  %594 = trunc i64 %593 to i1
+  br i1 %594, label %_ZL8lean_incP11lean_object.exit559, label %595
 
 595:                                              ; preds = %_ZL8lean_incP11lean_object.exit560
   %.val.i696 = load i32, ptr %592, align 4, !tbaa !16
@@ -16354,11 +15905,11 @@ _ZL8lean_incP11lean_object.exit560:               ; preds = %590, %589, %587, %_
 
 600:                                              ; preds = %599
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %592)
-  %.pre921 = load ptr, ptr %591, align 8, !tbaa !15
+  %.pre847 = load ptr, ptr %591, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit559
 
 _ZL8lean_incP11lean_object.exit559:               ; preds = %600, %599, %597, %_ZL8lean_incP11lean_object.exit560
-  %601 = phi ptr [ %.pre921, %600 ], [ %592, %599 ], [ %592, %597 ], [ %592, %_ZL8lean_incP11lean_object.exit560 ]
+  %601 = phi ptr [ %.pre847, %600 ], [ %592, %599 ], [ %592, %597 ], [ %592, %_ZL8lean_incP11lean_object.exit560 ]
   %602 = getelementptr i8, ptr %0, i64 8
   %.val594 = load ptr, ptr %602, align 8, !tbaa !15
   %603 = load ptr, ptr %531, align 8, !tbaa !15
@@ -16389,9 +15940,8 @@ _ZL8lean_incP11lean_object.exit559:               ; preds = %600, %599, %597, %_
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %618 = load ptr, ptr %617, align 8, !tbaa !15
   %619 = ptrtoint ptr %618 to i64
-  %620 = and i64 %619, 1
-  %.not850 = icmp eq i64 %620, 0
-  br i1 %.not850, label %621, label %_ZL8lean_incP11lean_object.exit558
+  %620 = trunc i64 %619 to i1
+  br i1 %620, label %_ZL8lean_incP11lean_object.exit558, label %621
 
 621:                                              ; preds = %616
   %.val.i699 = load i32, ptr %618, align 4, !tbaa !16
@@ -16415,9 +15965,8 @@ _ZL8lean_incP11lean_object.exit558:               ; preds = %626, %625, %623, %6
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %628 = load ptr, ptr %627, align 8, !tbaa !15
   %629 = ptrtoint ptr %628 to i64
-  %630 = and i64 %629, 1
-  %.not851 = icmp eq i64 %630, 0
-  br i1 %.not851, label %631, label %_ZL8lean_incP11lean_object.exit557
+  %630 = trunc i64 %629 to i1
+  br i1 %630, label %_ZL8lean_incP11lean_object.exit557, label %631
 
 631:                                              ; preds = %_ZL8lean_incP11lean_object.exit558
   %.val.i702 = load i32, ptr %628, align 4, !tbaa !16
@@ -16441,9 +15990,8 @@ _ZL8lean_incP11lean_object.exit557:               ; preds = %636, %635, %633, %_
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %638 = load ptr, ptr %637, align 8, !tbaa !15
   %639 = ptrtoint ptr %638 to i64
-  %640 = and i64 %639, 1
-  %.not852 = icmp eq i64 %640, 0
-  br i1 %.not852, label %641, label %_ZL8lean_incP11lean_object.exit556
+  %640 = trunc i64 %639 to i1
+  br i1 %640, label %_ZL8lean_incP11lean_object.exit556, label %641
 
 641:                                              ; preds = %_ZL8lean_incP11lean_object.exit557
   %.val.i705 = load i32, ptr %638, align 4, !tbaa !16
@@ -16467,9 +16015,8 @@ _ZL8lean_incP11lean_object.exit556:               ; preds = %646, %645, %643, %_
   %647 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %648 = load ptr, ptr %647, align 8, !tbaa !15
   %649 = ptrtoint ptr %648 to i64
-  %650 = and i64 %649, 1
-  %.not853 = icmp eq i64 %650, 0
-  br i1 %.not853, label %651, label %_ZL8lean_incP11lean_object.exit555
+  %650 = trunc i64 %649 to i1
+  br i1 %650, label %_ZL8lean_incP11lean_object.exit555, label %651
 
 651:                                              ; preds = %_ZL8lean_incP11lean_object.exit556
   %.val.i708 = load i32, ptr %648, align 4, !tbaa !16
@@ -16493,9 +16040,8 @@ _ZL8lean_incP11lean_object.exit555:               ; preds = %656, %655, %653, %_
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %658 = load ptr, ptr %657, align 8, !tbaa !15
   %659 = ptrtoint ptr %658 to i64
-  %660 = and i64 %659, 1
-  %.not854 = icmp eq i64 %660, 0
-  br i1 %.not854, label %661, label %_ZL8lean_incP11lean_object.exit554
+  %660 = trunc i64 %659 to i1
+  br i1 %660, label %_ZL8lean_incP11lean_object.exit554, label %661
 
 661:                                              ; preds = %_ZL8lean_incP11lean_object.exit555
   %.val.i711 = load i32, ptr %658, align 4, !tbaa !16
@@ -16519,9 +16065,8 @@ _ZL8lean_incP11lean_object.exit554:               ; preds = %666, %665, %663, %_
   %667 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %668 = load ptr, ptr %667, align 8, !tbaa !15
   %669 = ptrtoint ptr %668 to i64
-  %670 = and i64 %669, 1
-  %.not855 = icmp eq i64 %670, 0
-  br i1 %.not855, label %671, label %_ZL8lean_incP11lean_object.exit553
+  %670 = trunc i64 %669 to i1
+  br i1 %670, label %_ZL8lean_incP11lean_object.exit553, label %671
 
 671:                                              ; preds = %_ZL8lean_incP11lean_object.exit554
   %.val.i714 = load i32, ptr %668, align 4, !tbaa !16
@@ -16545,9 +16090,8 @@ _ZL8lean_incP11lean_object.exit553:               ; preds = %676, %675, %673, %_
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %678 = load ptr, ptr %677, align 8, !tbaa !15
   %679 = ptrtoint ptr %678 to i64
-  %680 = and i64 %679, 1
-  %.not856 = icmp eq i64 %680, 0
-  br i1 %.not856, label %681, label %_ZL8lean_incP11lean_object.exit552
+  %680 = trunc i64 %679 to i1
+  br i1 %680, label %_ZL8lean_incP11lean_object.exit552, label %681
 
 681:                                              ; preds = %_ZL8lean_incP11lean_object.exit553
   %.val.i717 = load i32, ptr %678, align 4, !tbaa !16
@@ -16571,9 +16115,8 @@ _ZL8lean_incP11lean_object.exit552:               ; preds = %686, %685, %683, %_
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %688 = load ptr, ptr %687, align 8, !tbaa !15
   %689 = ptrtoint ptr %688 to i64
-  %690 = and i64 %689, 1
-  %.not857 = icmp eq i64 %690, 0
-  br i1 %.not857, label %691, label %_ZL8lean_incP11lean_object.exit551
+  %690 = trunc i64 %689 to i1
+  br i1 %690, label %_ZL8lean_incP11lean_object.exit551, label %691
 
 691:                                              ; preds = %_ZL8lean_incP11lean_object.exit552
   %.val.i720 = load i32, ptr %688, align 4, !tbaa !16
@@ -16591,11 +16134,11 @@ _ZL8lean_incP11lean_object.exit552:               ; preds = %686, %685, %683, %_
 
 696:                                              ; preds = %695
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %688)
-  %.pre920 = load ptr, ptr %687, align 8, !tbaa !15
+  %.pre846 = load ptr, ptr %687, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit551
 
 _ZL8lean_incP11lean_object.exit551:               ; preds = %696, %695, %693, %_ZL8lean_incP11lean_object.exit552
-  %697 = phi ptr [ %.pre920, %696 ], [ %688, %695 ], [ %688, %693 ], [ %688, %_ZL8lean_incP11lean_object.exit552 ]
+  %697 = phi ptr [ %.pre846, %696 ], [ %688, %695 ], [ %688, %693 ], [ %688, %_ZL8lean_incP11lean_object.exit552 ]
   %698 = getelementptr i8, ptr %0, i64 8
   %.val593 = load ptr, ptr %698, align 8, !tbaa !15
   %699 = load ptr, ptr %617, align 8, !tbaa !15
@@ -16627,9 +16170,8 @@ _ZL8lean_incP11lean_object.exit551:               ; preds = %696, %695, %693, %_
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %715 = load ptr, ptr %714, align 8, !tbaa !15
   %716 = ptrtoint ptr %715 to i64
-  %717 = and i64 %716, 1
-  %.not841 = icmp eq i64 %717, 0
-  br i1 %.not841, label %718, label %_ZL8lean_incP11lean_object.exit550
+  %717 = trunc i64 %716 to i1
+  br i1 %717, label %_ZL8lean_incP11lean_object.exit550, label %718
 
 718:                                              ; preds = %713
   %.val.i723 = load i32, ptr %715, align 4, !tbaa !16
@@ -16653,9 +16195,8 @@ _ZL8lean_incP11lean_object.exit550:               ; preds = %723, %722, %720, %7
   %724 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %725 = load ptr, ptr %724, align 8, !tbaa !15
   %726 = ptrtoint ptr %725 to i64
-  %727 = and i64 %726, 1
-  %.not842 = icmp eq i64 %727, 0
-  br i1 %.not842, label %728, label %_ZL8lean_incP11lean_object.exit549
+  %727 = trunc i64 %726 to i1
+  br i1 %727, label %_ZL8lean_incP11lean_object.exit549, label %728
 
 728:                                              ; preds = %_ZL8lean_incP11lean_object.exit550
   %.val.i726 = load i32, ptr %725, align 4, !tbaa !16
@@ -16679,9 +16220,8 @@ _ZL8lean_incP11lean_object.exit549:               ; preds = %733, %732, %730, %_
   %734 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %735 = load ptr, ptr %734, align 8, !tbaa !15
   %736 = ptrtoint ptr %735 to i64
-  %737 = and i64 %736, 1
-  %.not843 = icmp eq i64 %737, 0
-  br i1 %.not843, label %738, label %_ZL8lean_incP11lean_object.exit548
+  %737 = trunc i64 %736 to i1
+  br i1 %737, label %_ZL8lean_incP11lean_object.exit548, label %738
 
 738:                                              ; preds = %_ZL8lean_incP11lean_object.exit549
   %.val.i729 = load i32, ptr %735, align 4, !tbaa !16
@@ -16705,9 +16245,8 @@ _ZL8lean_incP11lean_object.exit548:               ; preds = %743, %742, %740, %_
   %744 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %745 = load ptr, ptr %744, align 8, !tbaa !15
   %746 = ptrtoint ptr %745 to i64
-  %747 = and i64 %746, 1
-  %.not844 = icmp eq i64 %747, 0
-  br i1 %.not844, label %748, label %_ZL8lean_incP11lean_object.exit547
+  %747 = trunc i64 %746 to i1
+  br i1 %747, label %_ZL8lean_incP11lean_object.exit547, label %748
 
 748:                                              ; preds = %_ZL8lean_incP11lean_object.exit548
   %.val.i732 = load i32, ptr %745, align 4, !tbaa !16
@@ -16731,9 +16270,8 @@ _ZL8lean_incP11lean_object.exit547:               ; preds = %753, %752, %750, %_
   %754 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %755 = load ptr, ptr %754, align 8, !tbaa !15
   %756 = ptrtoint ptr %755 to i64
-  %757 = and i64 %756, 1
-  %.not845 = icmp eq i64 %757, 0
-  br i1 %.not845, label %758, label %_ZL8lean_incP11lean_object.exit546
+  %757 = trunc i64 %756 to i1
+  br i1 %757, label %_ZL8lean_incP11lean_object.exit546, label %758
 
 758:                                              ; preds = %_ZL8lean_incP11lean_object.exit547
   %.val.i735 = load i32, ptr %755, align 4, !tbaa !16
@@ -16757,9 +16295,8 @@ _ZL8lean_incP11lean_object.exit546:               ; preds = %763, %762, %760, %_
   %764 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %765 = load ptr, ptr %764, align 8, !tbaa !15
   %766 = ptrtoint ptr %765 to i64
-  %767 = and i64 %766, 1
-  %.not846 = icmp eq i64 %767, 0
-  br i1 %.not846, label %768, label %_ZL8lean_incP11lean_object.exit545
+  %767 = trunc i64 %766 to i1
+  br i1 %767, label %_ZL8lean_incP11lean_object.exit545, label %768
 
 768:                                              ; preds = %_ZL8lean_incP11lean_object.exit546
   %.val.i738 = load i32, ptr %765, align 4, !tbaa !16
@@ -16783,9 +16320,8 @@ _ZL8lean_incP11lean_object.exit545:               ; preds = %773, %772, %770, %_
   %774 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %775 = load ptr, ptr %774, align 8, !tbaa !15
   %776 = ptrtoint ptr %775 to i64
-  %777 = and i64 %776, 1
-  %.not847 = icmp eq i64 %777, 0
-  br i1 %.not847, label %778, label %_ZL8lean_incP11lean_object.exit544
+  %777 = trunc i64 %776 to i1
+  br i1 %777, label %_ZL8lean_incP11lean_object.exit544, label %778
 
 778:                                              ; preds = %_ZL8lean_incP11lean_object.exit545
   %.val.i741 = load i32, ptr %775, align 4, !tbaa !16
@@ -16809,9 +16345,8 @@ _ZL8lean_incP11lean_object.exit544:               ; preds = %783, %782, %780, %_
   %784 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %785 = load ptr, ptr %784, align 8, !tbaa !15
   %786 = ptrtoint ptr %785 to i64
-  %787 = and i64 %786, 1
-  %.not848 = icmp eq i64 %787, 0
-  br i1 %.not848, label %788, label %_ZL8lean_incP11lean_object.exit543
+  %787 = trunc i64 %786 to i1
+  br i1 %787, label %_ZL8lean_incP11lean_object.exit543, label %788
 
 788:                                              ; preds = %_ZL8lean_incP11lean_object.exit544
   %.val.i744 = load i32, ptr %785, align 4, !tbaa !16
@@ -16835,9 +16370,8 @@ _ZL8lean_incP11lean_object.exit543:               ; preds = %793, %792, %790, %_
   %794 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %795 = load ptr, ptr %794, align 8, !tbaa !15
   %796 = ptrtoint ptr %795 to i64
-  %797 = and i64 %796, 1
-  %.not849 = icmp eq i64 %797, 0
-  br i1 %.not849, label %798, label %_ZL8lean_incP11lean_object.exit542
+  %797 = trunc i64 %796 to i1
+  br i1 %797, label %_ZL8lean_incP11lean_object.exit542, label %798
 
 798:                                              ; preds = %_ZL8lean_incP11lean_object.exit543
   %.val.i747 = load i32, ptr %795, align 4, !tbaa !16
@@ -16855,11 +16389,11 @@ _ZL8lean_incP11lean_object.exit543:               ; preds = %793, %792, %790, %_
 
 803:                                              ; preds = %802
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %795)
-  %.pre919 = load ptr, ptr %794, align 8, !tbaa !15
+  %.pre845 = load ptr, ptr %794, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit542
 
 _ZL8lean_incP11lean_object.exit542:               ; preds = %803, %802, %800, %_ZL8lean_incP11lean_object.exit543
-  %804 = phi ptr [ %.pre919, %803 ], [ %795, %802 ], [ %795, %800 ], [ %795, %_ZL8lean_incP11lean_object.exit543 ]
+  %804 = phi ptr [ %.pre845, %803 ], [ %795, %802 ], [ %795, %800 ], [ %795, %_ZL8lean_incP11lean_object.exit543 ]
   %805 = getelementptr i8, ptr %0, i64 8
   %.val592 = load ptr, ptr %805, align 8, !tbaa !15
   %806 = load ptr, ptr %714, align 8, !tbaa !15
@@ -16892,9 +16426,8 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %803, %802, %800, %_
   %822 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %823 = load ptr, ptr %822, align 8, !tbaa !15
   %824 = ptrtoint ptr %823 to i64
-  %825 = and i64 %824, 1
-  %.not831 = icmp eq i64 %825, 0
-  br i1 %.not831, label %826, label %_ZL8lean_incP11lean_object.exit541
+  %825 = trunc i64 %824 to i1
+  br i1 %825, label %_ZL8lean_incP11lean_object.exit541, label %826
 
 826:                                              ; preds = %821
   %.val.i750 = load i32, ptr %823, align 4, !tbaa !16
@@ -16918,9 +16451,8 @@ _ZL8lean_incP11lean_object.exit541:               ; preds = %831, %830, %828, %8
   %832 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %833 = load ptr, ptr %832, align 8, !tbaa !15
   %834 = ptrtoint ptr %833 to i64
-  %835 = and i64 %834, 1
-  %.not832 = icmp eq i64 %835, 0
-  br i1 %.not832, label %836, label %_ZL8lean_incP11lean_object.exit540
+  %835 = trunc i64 %834 to i1
+  br i1 %835, label %_ZL8lean_incP11lean_object.exit540, label %836
 
 836:                                              ; preds = %_ZL8lean_incP11lean_object.exit541
   %.val.i753 = load i32, ptr %833, align 4, !tbaa !16
@@ -16944,9 +16476,8 @@ _ZL8lean_incP11lean_object.exit540:               ; preds = %841, %840, %838, %_
   %842 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %843 = load ptr, ptr %842, align 8, !tbaa !15
   %844 = ptrtoint ptr %843 to i64
-  %845 = and i64 %844, 1
-  %.not833 = icmp eq i64 %845, 0
-  br i1 %.not833, label %846, label %_ZL8lean_incP11lean_object.exit539
+  %845 = trunc i64 %844 to i1
+  br i1 %845, label %_ZL8lean_incP11lean_object.exit539, label %846
 
 846:                                              ; preds = %_ZL8lean_incP11lean_object.exit540
   %.val.i756 = load i32, ptr %843, align 4, !tbaa !16
@@ -16970,9 +16501,8 @@ _ZL8lean_incP11lean_object.exit539:               ; preds = %851, %850, %848, %_
   %852 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %853 = load ptr, ptr %852, align 8, !tbaa !15
   %854 = ptrtoint ptr %853 to i64
-  %855 = and i64 %854, 1
-  %.not834 = icmp eq i64 %855, 0
-  br i1 %.not834, label %856, label %_ZL8lean_incP11lean_object.exit538
+  %855 = trunc i64 %854 to i1
+  br i1 %855, label %_ZL8lean_incP11lean_object.exit538, label %856
 
 856:                                              ; preds = %_ZL8lean_incP11lean_object.exit539
   %.val.i759 = load i32, ptr %853, align 4, !tbaa !16
@@ -16996,9 +16526,8 @@ _ZL8lean_incP11lean_object.exit538:               ; preds = %861, %860, %858, %_
   %862 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %863 = load ptr, ptr %862, align 8, !tbaa !15
   %864 = ptrtoint ptr %863 to i64
-  %865 = and i64 %864, 1
-  %.not835 = icmp eq i64 %865, 0
-  br i1 %.not835, label %866, label %_ZL8lean_incP11lean_object.exit537
+  %865 = trunc i64 %864 to i1
+  br i1 %865, label %_ZL8lean_incP11lean_object.exit537, label %866
 
 866:                                              ; preds = %_ZL8lean_incP11lean_object.exit538
   %.val.i762 = load i32, ptr %863, align 4, !tbaa !16
@@ -17022,9 +16551,8 @@ _ZL8lean_incP11lean_object.exit537:               ; preds = %871, %870, %868, %_
   %872 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %873 = load ptr, ptr %872, align 8, !tbaa !15
   %874 = ptrtoint ptr %873 to i64
-  %875 = and i64 %874, 1
-  %.not836 = icmp eq i64 %875, 0
-  br i1 %.not836, label %876, label %_ZL8lean_incP11lean_object.exit536
+  %875 = trunc i64 %874 to i1
+  br i1 %875, label %_ZL8lean_incP11lean_object.exit536, label %876
 
 876:                                              ; preds = %_ZL8lean_incP11lean_object.exit537
   %.val.i765 = load i32, ptr %873, align 4, !tbaa !16
@@ -17048,9 +16576,8 @@ _ZL8lean_incP11lean_object.exit536:               ; preds = %881, %880, %878, %_
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %883 = load ptr, ptr %882, align 8, !tbaa !15
   %884 = ptrtoint ptr %883 to i64
-  %885 = and i64 %884, 1
-  %.not837 = icmp eq i64 %885, 0
-  br i1 %.not837, label %886, label %_ZL8lean_incP11lean_object.exit535
+  %885 = trunc i64 %884 to i1
+  br i1 %885, label %_ZL8lean_incP11lean_object.exit535, label %886
 
 886:                                              ; preds = %_ZL8lean_incP11lean_object.exit536
   %.val.i768 = load i32, ptr %883, align 4, !tbaa !16
@@ -17074,9 +16601,8 @@ _ZL8lean_incP11lean_object.exit535:               ; preds = %891, %890, %888, %_
   %892 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %893 = load ptr, ptr %892, align 8, !tbaa !15
   %894 = ptrtoint ptr %893 to i64
-  %895 = and i64 %894, 1
-  %.not838 = icmp eq i64 %895, 0
-  br i1 %.not838, label %896, label %_ZL8lean_incP11lean_object.exit534
+  %895 = trunc i64 %894 to i1
+  br i1 %895, label %_ZL8lean_incP11lean_object.exit534, label %896
 
 896:                                              ; preds = %_ZL8lean_incP11lean_object.exit535
   %.val.i771 = load i32, ptr %893, align 4, !tbaa !16
@@ -17100,9 +16626,8 @@ _ZL8lean_incP11lean_object.exit534:               ; preds = %901, %900, %898, %_
   %902 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %903 = load ptr, ptr %902, align 8, !tbaa !15
   %904 = ptrtoint ptr %903 to i64
-  %905 = and i64 %904, 1
-  %.not839 = icmp eq i64 %905, 0
-  br i1 %.not839, label %906, label %_ZL8lean_incP11lean_object.exit533
+  %905 = trunc i64 %904 to i1
+  br i1 %905, label %_ZL8lean_incP11lean_object.exit533, label %906
 
 906:                                              ; preds = %_ZL8lean_incP11lean_object.exit534
   %.val.i774 = load i32, ptr %903, align 4, !tbaa !16
@@ -17126,9 +16651,8 @@ _ZL8lean_incP11lean_object.exit533:               ; preds = %911, %910, %908, %_
   %912 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %913 = load ptr, ptr %912, align 8, !tbaa !15
   %914 = ptrtoint ptr %913 to i64
-  %915 = and i64 %914, 1
-  %.not840 = icmp eq i64 %915, 0
-  br i1 %.not840, label %916, label %_ZL8lean_incP11lean_object.exit532
+  %915 = trunc i64 %914 to i1
+  br i1 %915, label %_ZL8lean_incP11lean_object.exit532, label %916
 
 916:                                              ; preds = %_ZL8lean_incP11lean_object.exit533
   %.val.i777 = load i32, ptr %913, align 4, !tbaa !16
@@ -17146,11 +16670,11 @@ _ZL8lean_incP11lean_object.exit533:               ; preds = %911, %910, %908, %_
 
 921:                                              ; preds = %920
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %913)
-  %.pre918 = load ptr, ptr %912, align 8, !tbaa !15
+  %.pre844 = load ptr, ptr %912, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit532
 
 _ZL8lean_incP11lean_object.exit532:               ; preds = %921, %920, %918, %_ZL8lean_incP11lean_object.exit533
-  %922 = phi ptr [ %.pre918, %921 ], [ %913, %920 ], [ %913, %918 ], [ %913, %_ZL8lean_incP11lean_object.exit533 ]
+  %922 = phi ptr [ %.pre844, %921 ], [ %913, %920 ], [ %913, %918 ], [ %913, %_ZL8lean_incP11lean_object.exit533 ]
   %923 = getelementptr i8, ptr %0, i64 8
   %.val591 = load ptr, ptr %923, align 8, !tbaa !15
   %924 = load ptr, ptr %822, align 8, !tbaa !15
@@ -17184,9 +16708,8 @@ _ZL8lean_incP11lean_object.exit532:               ; preds = %921, %920, %918, %_
   %941 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %942 = load ptr, ptr %941, align 8, !tbaa !15
   %943 = ptrtoint ptr %942 to i64
-  %944 = and i64 %943, 1
-  %.not820 = icmp eq i64 %944, 0
-  br i1 %.not820, label %945, label %_ZL8lean_incP11lean_object.exit531
+  %944 = trunc i64 %943 to i1
+  br i1 %944, label %_ZL8lean_incP11lean_object.exit531, label %945
 
 945:                                              ; preds = %940
   %.val.i780 = load i32, ptr %942, align 4, !tbaa !16
@@ -17210,9 +16733,8 @@ _ZL8lean_incP11lean_object.exit531:               ; preds = %950, %949, %947, %9
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %952 = load ptr, ptr %951, align 8, !tbaa !15
   %953 = ptrtoint ptr %952 to i64
-  %954 = and i64 %953, 1
-  %.not821 = icmp eq i64 %954, 0
-  br i1 %.not821, label %955, label %_ZL8lean_incP11lean_object.exit530
+  %954 = trunc i64 %953 to i1
+  br i1 %954, label %_ZL8lean_incP11lean_object.exit530, label %955
 
 955:                                              ; preds = %_ZL8lean_incP11lean_object.exit531
   %.val.i783 = load i32, ptr %952, align 4, !tbaa !16
@@ -17236,9 +16758,8 @@ _ZL8lean_incP11lean_object.exit530:               ; preds = %960, %959, %957, %_
   %961 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %962 = load ptr, ptr %961, align 8, !tbaa !15
   %963 = ptrtoint ptr %962 to i64
-  %964 = and i64 %963, 1
-  %.not822 = icmp eq i64 %964, 0
-  br i1 %.not822, label %965, label %_ZL8lean_incP11lean_object.exit529
+  %964 = trunc i64 %963 to i1
+  br i1 %964, label %_ZL8lean_incP11lean_object.exit529, label %965
 
 965:                                              ; preds = %_ZL8lean_incP11lean_object.exit530
   %.val.i786 = load i32, ptr %962, align 4, !tbaa !16
@@ -17262,9 +16783,8 @@ _ZL8lean_incP11lean_object.exit529:               ; preds = %970, %969, %967, %_
   %971 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %972 = load ptr, ptr %971, align 8, !tbaa !15
   %973 = ptrtoint ptr %972 to i64
-  %974 = and i64 %973, 1
-  %.not823 = icmp eq i64 %974, 0
-  br i1 %.not823, label %975, label %_ZL8lean_incP11lean_object.exit528
+  %974 = trunc i64 %973 to i1
+  br i1 %974, label %_ZL8lean_incP11lean_object.exit528, label %975
 
 975:                                              ; preds = %_ZL8lean_incP11lean_object.exit529
   %.val.i789 = load i32, ptr %972, align 4, !tbaa !16
@@ -17288,9 +16808,8 @@ _ZL8lean_incP11lean_object.exit528:               ; preds = %980, %979, %977, %_
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %982 = load ptr, ptr %981, align 8, !tbaa !15
   %983 = ptrtoint ptr %982 to i64
-  %984 = and i64 %983, 1
-  %.not824 = icmp eq i64 %984, 0
-  br i1 %.not824, label %985, label %_ZL8lean_incP11lean_object.exit527
+  %984 = trunc i64 %983 to i1
+  br i1 %984, label %_ZL8lean_incP11lean_object.exit527, label %985
 
 985:                                              ; preds = %_ZL8lean_incP11lean_object.exit528
   %.val.i792 = load i32, ptr %982, align 4, !tbaa !16
@@ -17314,9 +16833,8 @@ _ZL8lean_incP11lean_object.exit527:               ; preds = %990, %989, %987, %_
   %991 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %992 = load ptr, ptr %991, align 8, !tbaa !15
   %993 = ptrtoint ptr %992 to i64
-  %994 = and i64 %993, 1
-  %.not825 = icmp eq i64 %994, 0
-  br i1 %.not825, label %995, label %_ZL8lean_incP11lean_object.exit526
+  %994 = trunc i64 %993 to i1
+  br i1 %994, label %_ZL8lean_incP11lean_object.exit526, label %995
 
 995:                                              ; preds = %_ZL8lean_incP11lean_object.exit527
   %.val.i795 = load i32, ptr %992, align 4, !tbaa !16
@@ -17340,9 +16858,8 @@ _ZL8lean_incP11lean_object.exit526:               ; preds = %1000, %999, %997, %
   %1001 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1002 = load ptr, ptr %1001, align 8, !tbaa !15
   %1003 = ptrtoint ptr %1002 to i64
-  %1004 = and i64 %1003, 1
-  %.not826 = icmp eq i64 %1004, 0
-  br i1 %.not826, label %1005, label %_ZL8lean_incP11lean_object.exit525
+  %1004 = trunc i64 %1003 to i1
+  br i1 %1004, label %_ZL8lean_incP11lean_object.exit525, label %1005
 
 1005:                                             ; preds = %_ZL8lean_incP11lean_object.exit526
   %.val.i798 = load i32, ptr %1002, align 4, !tbaa !16
@@ -17366,9 +16883,8 @@ _ZL8lean_incP11lean_object.exit525:               ; preds = %1010, %1009, %1007,
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1012 = load ptr, ptr %1011, align 8, !tbaa !15
   %1013 = ptrtoint ptr %1012 to i64
-  %1014 = and i64 %1013, 1
-  %.not827 = icmp eq i64 %1014, 0
-  br i1 %.not827, label %1015, label %_ZL8lean_incP11lean_object.exit524
+  %1014 = trunc i64 %1013 to i1
+  br i1 %1014, label %_ZL8lean_incP11lean_object.exit524, label %1015
 
 1015:                                             ; preds = %_ZL8lean_incP11lean_object.exit525
   %.val.i801 = load i32, ptr %1012, align 4, !tbaa !16
@@ -17392,9 +16908,8 @@ _ZL8lean_incP11lean_object.exit524:               ; preds = %1020, %1019, %1017,
   %1021 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1022 = load ptr, ptr %1021, align 8, !tbaa !15
   %1023 = ptrtoint ptr %1022 to i64
-  %1024 = and i64 %1023, 1
-  %.not828 = icmp eq i64 %1024, 0
-  br i1 %.not828, label %1025, label %_ZL8lean_incP11lean_object.exit523
+  %1024 = trunc i64 %1023 to i1
+  br i1 %1024, label %_ZL8lean_incP11lean_object.exit523, label %1025
 
 1025:                                             ; preds = %_ZL8lean_incP11lean_object.exit524
   %.val.i804 = load i32, ptr %1022, align 4, !tbaa !16
@@ -17418,9 +16933,8 @@ _ZL8lean_incP11lean_object.exit523:               ; preds = %1030, %1029, %1027,
   %1031 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1032 = load ptr, ptr %1031, align 8, !tbaa !15
   %1033 = ptrtoint ptr %1032 to i64
-  %1034 = and i64 %1033, 1
-  %.not829 = icmp eq i64 %1034, 0
-  br i1 %.not829, label %1035, label %_ZL8lean_incP11lean_object.exit522
+  %1034 = trunc i64 %1033 to i1
+  br i1 %1034, label %_ZL8lean_incP11lean_object.exit522, label %1035
 
 1035:                                             ; preds = %_ZL8lean_incP11lean_object.exit523
   %.val.i807 = load i32, ptr %1032, align 4, !tbaa !16
@@ -17444,9 +16958,8 @@ _ZL8lean_incP11lean_object.exit522:               ; preds = %1040, %1039, %1037,
   %1041 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1042 = load ptr, ptr %1041, align 8, !tbaa !15
   %1043 = ptrtoint ptr %1042 to i64
-  %1044 = and i64 %1043, 1
-  %.not830 = icmp eq i64 %1044, 0
-  br i1 %.not830, label %1045, label %_ZL8lean_incP11lean_object.exit521
+  %1044 = trunc i64 %1043 to i1
+  br i1 %1044, label %_ZL8lean_incP11lean_object.exit521, label %1045
 
 1045:                                             ; preds = %_ZL8lean_incP11lean_object.exit522
   %.val.i810 = load i32, ptr %1042, align 4, !tbaa !16
@@ -17464,11 +16977,11 @@ _ZL8lean_incP11lean_object.exit522:               ; preds = %1040, %1039, %1037,
 
 1050:                                             ; preds = %1049
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1042)
-  %.pre917 = load ptr, ptr %1041, align 8, !tbaa !15
+  %.pre843 = load ptr, ptr %1041, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit521
 
 _ZL8lean_incP11lean_object.exit521:               ; preds = %1050, %1049, %1047, %_ZL8lean_incP11lean_object.exit522
-  %1051 = phi ptr [ %.pre917, %1050 ], [ %1042, %1049 ], [ %1042, %1047 ], [ %1042, %_ZL8lean_incP11lean_object.exit522 ]
+  %1051 = phi ptr [ %.pre843, %1050 ], [ %1042, %1049 ], [ %1042, %1047 ], [ %1042, %_ZL8lean_incP11lean_object.exit522 ]
   %1052 = getelementptr i8, ptr %0, i64 8
   %.val590 = load ptr, ptr %1052, align 8, !tbaa !15
   %1053 = load ptr, ptr %941, align 8, !tbaa !15
@@ -17503,12 +17016,12 @@ _ZL8lean_incP11lean_object.exit521:               ; preds = %1050, %1049, %1047,
   %1071 = shl nuw nsw i32 %59, 3
   %1072 = zext nneg i32 %1071 to i64
   %1073 = alloca i8, i64 %1072, align 16
-  %.not902 = icmp eq i16 %.val587, 0
-  br i1 %.not902, label %.preheader, label %.lr.ph898
+  %.not828 = icmp eq i16 %.val587, 0
+  br i1 %.not828, label %.preheader, label %.lr.ph825
 
-.lr.ph898:                                        ; preds = %1070
+.lr.ph825:                                        ; preds = %1070
   %1074 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count912 = zext i16 %.val587 to i64
+  %wide.trip.count838 = zext i16 %.val587 to i64
   br label %1081
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit520, %1070
@@ -17531,14 +17044,13 @@ _ZL8lean_incP11lean_object.exit521:               ; preds = %1050, %1049, %1047,
   %1080 = icmp sgt i32 %1079, 1
   br i1 %1080, label %1094, label %1096, !prof !19
 
-1081:                                             ; preds = %.lr.ph898, %_ZL8lean_incP11lean_object.exit520
-  %indvars.iv909 = phi i64 [ 0, %.lr.ph898 ], [ %indvars.iv.next910, %_ZL8lean_incP11lean_object.exit520 ]
-  %1082 = getelementptr inbounds nuw ptr, ptr %1074, i64 %indvars.iv909
+1081:                                             ; preds = %.lr.ph825, %_ZL8lean_incP11lean_object.exit520
+  %indvars.iv835 = phi i64 [ 0, %.lr.ph825 ], [ %indvars.iv.next836, %_ZL8lean_incP11lean_object.exit520 ]
+  %1082 = getelementptr inbounds nuw ptr, ptr %1074, i64 %indvars.iv835
   %1083 = load ptr, ptr %1082, align 8, !tbaa !15
   %1084 = ptrtoint ptr %1083 to i64
-  %1085 = and i64 %1084, 1
-  %.not886 = icmp eq i64 %1085, 0
-  br i1 %.not886, label %1086, label %_ZL8lean_incP11lean_object.exit520
+  %1085 = trunc i64 %1084 to i1
+  br i1 %1085, label %_ZL8lean_incP11lean_object.exit520, label %1086
 
 1086:                                             ; preds = %1081
   %.val.i813 = load i32, ptr %1083, align 4, !tbaa !16
@@ -17556,16 +17068,16 @@ _ZL8lean_incP11lean_object.exit521:               ; preds = %1050, %1049, %1047,
 
 1091:                                             ; preds = %1090
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1083)
-  %.pre928 = load ptr, ptr %1082, align 8, !tbaa !15
+  %.pre854 = load ptr, ptr %1082, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit520
 
 _ZL8lean_incP11lean_object.exit520:               ; preds = %1091, %1090, %1088, %1081
-  %1092 = phi ptr [ %.pre928, %1091 ], [ %1083, %1090 ], [ %1083, %1088 ], [ %1083, %1081 ]
-  %1093 = getelementptr inbounds nuw ptr, ptr %1073, i64 %indvars.iv909
+  %1092 = phi ptr [ %.pre854, %1091 ], [ %1083, %1090 ], [ %1083, %1088 ], [ %1083, %1081 ]
+  %1093 = getelementptr inbounds nuw ptr, ptr %1073, i64 %indvars.iv835
   store ptr %1092, ptr %1093, align 8, !tbaa !15
-  %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
-  %exitcond913.not = icmp eq i64 %indvars.iv.next910, %wide.trip.count912
-  br i1 %exitcond913.not, label %.preheader, label %1081, !llvm.loop !33
+  %indvars.iv.next836 = add nuw nsw i64 %indvars.iv835, 1
+  %exitcond839.not = icmp eq i64 %indvars.iv.next836, %wide.trip.count838
+  br i1 %exitcond839.not, label %.preheader, label %1081, !llvm.loop !33
 
 1094:                                             ; preds = %.preheader
   %1095 = add nsw i32 %1079, -1
@@ -17598,31 +17110,30 @@ _ZL8lean_incP11lean_object.exit520:               ; preds = %1091, %1090, %1088,
   %1105 = shl nuw nsw i32 %59, 3
   %1106 = zext nneg i32 %1105 to i64
   %1107 = alloca i8, i64 %1106, align 16
-  %.not900 = icmp eq i16 %.val587, 0
-  br i1 %.not900, label %.preheader892, label %.lr.ph
+  %.not = icmp eq i16 %.val587, 0
+  br i1 %.not, label %.preheader819, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1100
   %1108 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val587 to i64
   br label %1110
 
-.preheader892:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %1100
+.preheader819:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %1100
   %1109 = sub nsw i32 %59, %61
-  %.not901 = icmp eq i16 %.val, %.val587
-  br i1 %.not901, label %._crit_edge, label %.lr.ph895.preheader
+  %.not827 = icmp eq i16 %.val, %.val587
+  br i1 %.not827, label %._crit_edge, label %.lr.ph822.preheader
 
-.lr.ph895.preheader:                              ; preds = %.preheader892
-  %wide.trip.count907 = zext i32 %1109 to i64
-  br label %.lr.ph895
+.lr.ph822.preheader:                              ; preds = %.preheader819
+  %wide.trip.count833 = zext i32 %1109 to i64
+  br label %.lr.ph822
 
 1110:                                             ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %1111 = getelementptr inbounds nuw ptr, ptr %1108, i64 %indvars.iv
   %1112 = load ptr, ptr %1111, align 8, !tbaa !15
   %1113 = ptrtoint ptr %1112 to i64
-  %1114 = and i64 %1113, 1
-  %.not819 = icmp eq i64 %1114, 0
-  br i1 %.not819, label %1115, label %_ZL8lean_incP11lean_object.exit
+  %1114 = trunc i64 %1113 to i1
+  br i1 %1114, label %_ZL8lean_incP11lean_object.exit, label %1115
 
 1115:                                             ; preds = %1110
   %.val.i816 = load i32, ptr %1112, align 4, !tbaa !16
@@ -17649,9 +17160,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %1120, %1119, %1117,
   store ptr %1121, ptr %1122, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader892, label %1110, !llvm.loop !34
+  br i1 %exitcond.not, label %.preheader819, label %1110, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph895, %.preheader892
+._crit_edge:                                      ; preds = %.lr.ph822, %.preheader819
   %1123 = getelementptr i8, ptr %0, i64 8
   %.val616 = load ptr, ptr %1123, align 8, !tbaa !15
   %1124 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val616, i32 noundef range(i32 0, 65536) %59, ptr noundef nonnull %1107)
@@ -17680,18 +17191,18 @@ _ZL12lean_dec_refP11lean_object.exit493:          ; preds = %1127, %1129, %1130
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
-  %indvars.iv904 = phi i64 [ 0, %.lr.ph895.preheader ], [ %indvars.iv.next905, %.lr.ph895 ]
-  %1135 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv904
+.lr.ph822:                                        ; preds = %.lr.ph822.preheader, %.lr.ph822
+  %indvars.iv830 = phi i64 [ 0, %.lr.ph822.preheader ], [ %indvars.iv.next831, %.lr.ph822 ]
+  %1135 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv830
   %1136 = load ptr, ptr %1135, align 8, !tbaa !15
-  %1137 = trunc nuw i64 %indvars.iv904 to i32
+  %1137 = trunc nuw i64 %indvars.iv830 to i32
   %1138 = add i32 %1137, %61
   %1139 = zext i32 %1138 to i64
   %1140 = getelementptr inbounds nuw ptr, ptr %1107, i64 %1139
   store ptr %1136, ptr %1140, align 8, !tbaa !15
-  %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
-  %exitcond908.not = icmp eq i64 %indvars.iv.next905, %wide.trip.count907
-  br i1 %exitcond908.not, label %._crit_edge, label %.lr.ph895, !llvm.loop !35
+  %indvars.iv.next831 = add nuw nsw i64 %indvars.iv830, 1
+  %exitcond834.not = icmp eq i64 %indvars.iv.next831, %wide.trip.count833
+  br i1 %exitcond834.not, label %._crit_edge, label %.lr.ph822, !llvm.loop !35
 
 1141:                                             ; preds = %1098
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -17718,15 +17229,13 @@ define ptr @lean_apply_6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %8 = alloca [6 x ptr], align 16
   %9 = alloca [6 x ptr], align 8
   %10 = ptrtoint ptr %0 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %67, label %12
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %12, label %67
 
 12:                                               ; preds = %7
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not808 = icmp eq i64 %14, 0
-  br i1 %.not808, label %15, label %_ZL8lean_decP11lean_object.exit461
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %_ZL8lean_decP11lean_object.exit461, label %15
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %1, align 4, !tbaa !16
@@ -17748,9 +17257,8 @@ define ptr @lean_apply_6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit461:               ; preds = %21, %20, %18, %12
   %22 = ptrtoint ptr %2 to i64
-  %23 = and i64 %22, 1
-  %.not809 = icmp eq i64 %23, 0
-  br i1 %.not809, label %24, label %_ZL8lean_decP11lean_object.exit460
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZL8lean_decP11lean_object.exit460, label %24
 
 24:                                               ; preds = %_ZL8lean_decP11lean_object.exit461
   %25 = load i32, ptr %2, align 4, !tbaa !16
@@ -17772,9 +17280,8 @@ _ZL8lean_decP11lean_object.exit461:               ; preds = %21, %20, %18, %12
 
 _ZL8lean_decP11lean_object.exit460:               ; preds = %30, %29, %27, %_ZL8lean_decP11lean_object.exit461
   %31 = ptrtoint ptr %3 to i64
-  %32 = and i64 %31, 1
-  %.not810 = icmp eq i64 %32, 0
-  br i1 %.not810, label %33, label %_ZL8lean_decP11lean_object.exit459
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %_ZL8lean_decP11lean_object.exit459, label %33
 
 33:                                               ; preds = %_ZL8lean_decP11lean_object.exit460
   %34 = load i32, ptr %3, align 4, !tbaa !16
@@ -17796,9 +17303,8 @@ _ZL8lean_decP11lean_object.exit460:               ; preds = %30, %29, %27, %_ZL8
 
 _ZL8lean_decP11lean_object.exit459:               ; preds = %39, %38, %36, %_ZL8lean_decP11lean_object.exit460
   %40 = ptrtoint ptr %4 to i64
-  %41 = and i64 %40, 1
-  %.not811 = icmp eq i64 %41, 0
-  br i1 %.not811, label %42, label %_ZL8lean_decP11lean_object.exit458
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %_ZL8lean_decP11lean_object.exit458, label %42
 
 42:                                               ; preds = %_ZL8lean_decP11lean_object.exit459
   %43 = load i32, ptr %4, align 4, !tbaa !16
@@ -17820,9 +17326,8 @@ _ZL8lean_decP11lean_object.exit459:               ; preds = %39, %38, %36, %_ZL8
 
 _ZL8lean_decP11lean_object.exit458:               ; preds = %48, %47, %45, %_ZL8lean_decP11lean_object.exit459
   %49 = ptrtoint ptr %5 to i64
-  %50 = and i64 %49, 1
-  %.not812 = icmp eq i64 %50, 0
-  br i1 %.not812, label %51, label %_ZL8lean_decP11lean_object.exit457
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %_ZL8lean_decP11lean_object.exit457, label %51
 
 51:                                               ; preds = %_ZL8lean_decP11lean_object.exit458
   %52 = load i32, ptr %5, align 4, !tbaa !16
@@ -17844,9 +17349,8 @@ _ZL8lean_decP11lean_object.exit458:               ; preds = %48, %47, %45, %_ZL8
 
 _ZL8lean_decP11lean_object.exit457:               ; preds = %57, %56, %54, %_ZL8lean_decP11lean_object.exit458
   %58 = ptrtoint ptr %6 to i64
-  %59 = and i64 %58, 1
-  %.not813 = icmp eq i64 %59, 0
-  br i1 %.not813, label %60, label %_ZL8lean_decP11lean_object.exit
+  %59 = trunc i64 %58 to i1
+  br i1 %59, label %_ZL8lean_decP11lean_object.exit, label %60
 
 60:                                               ; preds = %_ZL8lean_decP11lean_object.exit457
   %61 = load i32, ptr %6, align 4, !tbaa !16
@@ -18124,9 +17628,8 @@ _ZL8lean_decP11lean_object.exit457:               ; preds = %57, %56, %54, %_ZL8
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %232 = load ptr, ptr %231, align 8, !tbaa !15
   %233 = ptrtoint ptr %232 to i64
-  %234 = and i64 %233, 1
-  %.not806 = icmp eq i64 %234, 0
-  br i1 %.not806, label %235, label %_ZL8lean_incP11lean_object.exit553
+  %234 = trunc i64 %233 to i1
+  br i1 %234, label %_ZL8lean_incP11lean_object.exit553, label %235
 
 235:                                              ; preds = %230
   %.val.i = load i32, ptr %232, align 4, !tbaa !16
@@ -18144,11 +17647,11 @@ _ZL8lean_decP11lean_object.exit457:               ; preds = %57, %56, %54, %_ZL8
 
 240:                                              ; preds = %239
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %232)
-  %.pre848 = load ptr, ptr %231, align 8, !tbaa !15
+  %.pre784 = load ptr, ptr %231, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit553
 
 _ZL8lean_incP11lean_object.exit553:               ; preds = %240, %239, %237, %230
-  %241 = phi ptr [ %.pre848, %240 ], [ %232, %239 ], [ %232, %237 ], [ %232, %230 ]
+  %241 = phi ptr [ %.pre784, %240 ], [ %232, %239 ], [ %232, %237 ], [ %232, %230 ]
   %242 = getelementptr i8, ptr %0, i64 8
   %.val566 = load ptr, ptr %242, align 8, !tbaa !15
   %243 = tail call noundef ptr %.val566(ptr noundef %241, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
@@ -18173,9 +17676,8 @@ _ZL8lean_incP11lean_object.exit553:               ; preds = %240, %239, %237, %2
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %252 = load ptr, ptr %251, align 8, !tbaa !15
   %253 = ptrtoint ptr %252 to i64
-  %254 = and i64 %253, 1
-  %.not804 = icmp eq i64 %254, 0
-  br i1 %.not804, label %255, label %_ZL8lean_incP11lean_object.exit552
+  %254 = trunc i64 %253 to i1
+  br i1 %254, label %_ZL8lean_incP11lean_object.exit552, label %255
 
 255:                                              ; preds = %250
   %.val.i583 = load i32, ptr %252, align 4, !tbaa !16
@@ -18199,9 +17701,8 @@ _ZL8lean_incP11lean_object.exit552:               ; preds = %260, %259, %257, %2
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %262 = load ptr, ptr %261, align 8, !tbaa !15
   %263 = ptrtoint ptr %262 to i64
-  %264 = and i64 %263, 1
-  %.not805 = icmp eq i64 %264, 0
-  br i1 %.not805, label %265, label %_ZL8lean_incP11lean_object.exit551
+  %264 = trunc i64 %263 to i1
+  br i1 %264, label %_ZL8lean_incP11lean_object.exit551, label %265
 
 265:                                              ; preds = %_ZL8lean_incP11lean_object.exit552
   %.val.i586 = load i32, ptr %262, align 4, !tbaa !16
@@ -18219,11 +17720,11 @@ _ZL8lean_incP11lean_object.exit552:               ; preds = %260, %259, %257, %2
 
 270:                                              ; preds = %269
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %262)
-  %.pre847 = load ptr, ptr %261, align 8, !tbaa !15
+  %.pre783 = load ptr, ptr %261, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit551
 
 _ZL8lean_incP11lean_object.exit551:               ; preds = %270, %269, %267, %_ZL8lean_incP11lean_object.exit552
-  %271 = phi ptr [ %.pre847, %270 ], [ %262, %269 ], [ %262, %267 ], [ %262, %_ZL8lean_incP11lean_object.exit552 ]
+  %271 = phi ptr [ %.pre783, %270 ], [ %262, %269 ], [ %262, %267 ], [ %262, %_ZL8lean_incP11lean_object.exit552 ]
   %272 = getelementptr i8, ptr %0, i64 8
   %.val565 = load ptr, ptr %272, align 8, !tbaa !15
   %273 = load ptr, ptr %251, align 8, !tbaa !15
@@ -18249,9 +17750,8 @@ _ZL8lean_incP11lean_object.exit551:               ; preds = %270, %269, %267, %_
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %283 = load ptr, ptr %282, align 8, !tbaa !15
   %284 = ptrtoint ptr %283 to i64
-  %285 = and i64 %284, 1
-  %.not801 = icmp eq i64 %285, 0
-  br i1 %.not801, label %286, label %_ZL8lean_incP11lean_object.exit550
+  %285 = trunc i64 %284 to i1
+  br i1 %285, label %_ZL8lean_incP11lean_object.exit550, label %286
 
 286:                                              ; preds = %281
   %.val.i589 = load i32, ptr %283, align 4, !tbaa !16
@@ -18275,9 +17775,8 @@ _ZL8lean_incP11lean_object.exit550:               ; preds = %291, %290, %288, %2
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %293 = load ptr, ptr %292, align 8, !tbaa !15
   %294 = ptrtoint ptr %293 to i64
-  %295 = and i64 %294, 1
-  %.not802 = icmp eq i64 %295, 0
-  br i1 %.not802, label %296, label %_ZL8lean_incP11lean_object.exit549
+  %295 = trunc i64 %294 to i1
+  br i1 %295, label %_ZL8lean_incP11lean_object.exit549, label %296
 
 296:                                              ; preds = %_ZL8lean_incP11lean_object.exit550
   %.val.i592 = load i32, ptr %293, align 4, !tbaa !16
@@ -18301,9 +17800,8 @@ _ZL8lean_incP11lean_object.exit549:               ; preds = %301, %300, %298, %_
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %303 = load ptr, ptr %302, align 8, !tbaa !15
   %304 = ptrtoint ptr %303 to i64
-  %305 = and i64 %304, 1
-  %.not803 = icmp eq i64 %305, 0
-  br i1 %.not803, label %306, label %_ZL8lean_incP11lean_object.exit548
+  %305 = trunc i64 %304 to i1
+  br i1 %305, label %_ZL8lean_incP11lean_object.exit548, label %306
 
 306:                                              ; preds = %_ZL8lean_incP11lean_object.exit549
   %.val.i595 = load i32, ptr %303, align 4, !tbaa !16
@@ -18321,11 +17819,11 @@ _ZL8lean_incP11lean_object.exit549:               ; preds = %301, %300, %298, %_
 
 311:                                              ; preds = %310
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %303)
-  %.pre846 = load ptr, ptr %302, align 8, !tbaa !15
+  %.pre782 = load ptr, ptr %302, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit548
 
 _ZL8lean_incP11lean_object.exit548:               ; preds = %311, %310, %308, %_ZL8lean_incP11lean_object.exit549
-  %312 = phi ptr [ %.pre846, %311 ], [ %303, %310 ], [ %303, %308 ], [ %303, %_ZL8lean_incP11lean_object.exit549 ]
+  %312 = phi ptr [ %.pre782, %311 ], [ %303, %310 ], [ %303, %308 ], [ %303, %_ZL8lean_incP11lean_object.exit549 ]
   %313 = getelementptr i8, ptr %0, i64 8
   %.val564 = load ptr, ptr %313, align 8, !tbaa !15
   %314 = load ptr, ptr %282, align 8, !tbaa !15
@@ -18352,9 +17850,8 @@ _ZL8lean_incP11lean_object.exit548:               ; preds = %311, %310, %308, %_
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %325 = load ptr, ptr %324, align 8, !tbaa !15
   %326 = ptrtoint ptr %325 to i64
-  %327 = and i64 %326, 1
-  %.not797 = icmp eq i64 %327, 0
-  br i1 %.not797, label %328, label %_ZL8lean_incP11lean_object.exit547
+  %327 = trunc i64 %326 to i1
+  br i1 %327, label %_ZL8lean_incP11lean_object.exit547, label %328
 
 328:                                              ; preds = %323
   %.val.i598 = load i32, ptr %325, align 4, !tbaa !16
@@ -18378,9 +17875,8 @@ _ZL8lean_incP11lean_object.exit547:               ; preds = %333, %332, %330, %3
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %335 = load ptr, ptr %334, align 8, !tbaa !15
   %336 = ptrtoint ptr %335 to i64
-  %337 = and i64 %336, 1
-  %.not798 = icmp eq i64 %337, 0
-  br i1 %.not798, label %338, label %_ZL8lean_incP11lean_object.exit546
+  %337 = trunc i64 %336 to i1
+  br i1 %337, label %_ZL8lean_incP11lean_object.exit546, label %338
 
 338:                                              ; preds = %_ZL8lean_incP11lean_object.exit547
   %.val.i601 = load i32, ptr %335, align 4, !tbaa !16
@@ -18404,9 +17900,8 @@ _ZL8lean_incP11lean_object.exit546:               ; preds = %343, %342, %340, %_
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %345 = load ptr, ptr %344, align 8, !tbaa !15
   %346 = ptrtoint ptr %345 to i64
-  %347 = and i64 %346, 1
-  %.not799 = icmp eq i64 %347, 0
-  br i1 %.not799, label %348, label %_ZL8lean_incP11lean_object.exit545
+  %347 = trunc i64 %346 to i1
+  br i1 %347, label %_ZL8lean_incP11lean_object.exit545, label %348
 
 348:                                              ; preds = %_ZL8lean_incP11lean_object.exit546
   %.val.i604 = load i32, ptr %345, align 4, !tbaa !16
@@ -18430,9 +17925,8 @@ _ZL8lean_incP11lean_object.exit545:               ; preds = %353, %352, %350, %_
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %355 = load ptr, ptr %354, align 8, !tbaa !15
   %356 = ptrtoint ptr %355 to i64
-  %357 = and i64 %356, 1
-  %.not800 = icmp eq i64 %357, 0
-  br i1 %.not800, label %358, label %_ZL8lean_incP11lean_object.exit544
+  %357 = trunc i64 %356 to i1
+  br i1 %357, label %_ZL8lean_incP11lean_object.exit544, label %358
 
 358:                                              ; preds = %_ZL8lean_incP11lean_object.exit545
   %.val.i607 = load i32, ptr %355, align 4, !tbaa !16
@@ -18450,11 +17944,11 @@ _ZL8lean_incP11lean_object.exit545:               ; preds = %353, %352, %350, %_
 
 363:                                              ; preds = %362
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %355)
-  %.pre845 = load ptr, ptr %354, align 8, !tbaa !15
+  %.pre781 = load ptr, ptr %354, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit544
 
 _ZL8lean_incP11lean_object.exit544:               ; preds = %363, %362, %360, %_ZL8lean_incP11lean_object.exit545
-  %364 = phi ptr [ %.pre845, %363 ], [ %355, %362 ], [ %355, %360 ], [ %355, %_ZL8lean_incP11lean_object.exit545 ]
+  %364 = phi ptr [ %.pre781, %363 ], [ %355, %362 ], [ %355, %360 ], [ %355, %_ZL8lean_incP11lean_object.exit545 ]
   %365 = getelementptr i8, ptr %0, i64 8
   %.val563 = load ptr, ptr %365, align 8, !tbaa !15
   %366 = load ptr, ptr %324, align 8, !tbaa !15
@@ -18482,9 +17976,8 @@ _ZL8lean_incP11lean_object.exit544:               ; preds = %363, %362, %360, %_
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %378 = load ptr, ptr %377, align 8, !tbaa !15
   %379 = ptrtoint ptr %378 to i64
-  %380 = and i64 %379, 1
-  %.not792 = icmp eq i64 %380, 0
-  br i1 %.not792, label %381, label %_ZL8lean_incP11lean_object.exit543
+  %380 = trunc i64 %379 to i1
+  br i1 %380, label %_ZL8lean_incP11lean_object.exit543, label %381
 
 381:                                              ; preds = %376
   %.val.i610 = load i32, ptr %378, align 4, !tbaa !16
@@ -18508,9 +18001,8 @@ _ZL8lean_incP11lean_object.exit543:               ; preds = %386, %385, %383, %3
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %388 = load ptr, ptr %387, align 8, !tbaa !15
   %389 = ptrtoint ptr %388 to i64
-  %390 = and i64 %389, 1
-  %.not793 = icmp eq i64 %390, 0
-  br i1 %.not793, label %391, label %_ZL8lean_incP11lean_object.exit542
+  %390 = trunc i64 %389 to i1
+  br i1 %390, label %_ZL8lean_incP11lean_object.exit542, label %391
 
 391:                                              ; preds = %_ZL8lean_incP11lean_object.exit543
   %.val.i613 = load i32, ptr %388, align 4, !tbaa !16
@@ -18534,9 +18026,8 @@ _ZL8lean_incP11lean_object.exit542:               ; preds = %396, %395, %393, %_
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %398 = load ptr, ptr %397, align 8, !tbaa !15
   %399 = ptrtoint ptr %398 to i64
-  %400 = and i64 %399, 1
-  %.not794 = icmp eq i64 %400, 0
-  br i1 %.not794, label %401, label %_ZL8lean_incP11lean_object.exit541
+  %400 = trunc i64 %399 to i1
+  br i1 %400, label %_ZL8lean_incP11lean_object.exit541, label %401
 
 401:                                              ; preds = %_ZL8lean_incP11lean_object.exit542
   %.val.i616 = load i32, ptr %398, align 4, !tbaa !16
@@ -18560,9 +18051,8 @@ _ZL8lean_incP11lean_object.exit541:               ; preds = %406, %405, %403, %_
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %408 = load ptr, ptr %407, align 8, !tbaa !15
   %409 = ptrtoint ptr %408 to i64
-  %410 = and i64 %409, 1
-  %.not795 = icmp eq i64 %410, 0
-  br i1 %.not795, label %411, label %_ZL8lean_incP11lean_object.exit540
+  %410 = trunc i64 %409 to i1
+  br i1 %410, label %_ZL8lean_incP11lean_object.exit540, label %411
 
 411:                                              ; preds = %_ZL8lean_incP11lean_object.exit541
   %.val.i619 = load i32, ptr %408, align 4, !tbaa !16
@@ -18586,9 +18076,8 @@ _ZL8lean_incP11lean_object.exit540:               ; preds = %416, %415, %413, %_
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %418 = load ptr, ptr %417, align 8, !tbaa !15
   %419 = ptrtoint ptr %418 to i64
-  %420 = and i64 %419, 1
-  %.not796 = icmp eq i64 %420, 0
-  br i1 %.not796, label %421, label %_ZL8lean_incP11lean_object.exit539
+  %420 = trunc i64 %419 to i1
+  br i1 %420, label %_ZL8lean_incP11lean_object.exit539, label %421
 
 421:                                              ; preds = %_ZL8lean_incP11lean_object.exit540
   %.val.i622 = load i32, ptr %418, align 4, !tbaa !16
@@ -18606,11 +18095,11 @@ _ZL8lean_incP11lean_object.exit540:               ; preds = %416, %415, %413, %_
 
 426:                                              ; preds = %425
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %418)
-  %.pre844 = load ptr, ptr %417, align 8, !tbaa !15
+  %.pre780 = load ptr, ptr %417, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit539
 
 _ZL8lean_incP11lean_object.exit539:               ; preds = %426, %425, %423, %_ZL8lean_incP11lean_object.exit540
-  %427 = phi ptr [ %.pre844, %426 ], [ %418, %425 ], [ %418, %423 ], [ %418, %_ZL8lean_incP11lean_object.exit540 ]
+  %427 = phi ptr [ %.pre780, %426 ], [ %418, %425 ], [ %418, %423 ], [ %418, %_ZL8lean_incP11lean_object.exit540 ]
   %428 = getelementptr i8, ptr %0, i64 8
   %.val562 = load ptr, ptr %428, align 8, !tbaa !15
   %429 = load ptr, ptr %377, align 8, !tbaa !15
@@ -18639,9 +18128,8 @@ _ZL8lean_incP11lean_object.exit539:               ; preds = %426, %425, %423, %_
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %442 = load ptr, ptr %441, align 8, !tbaa !15
   %443 = ptrtoint ptr %442 to i64
-  %444 = and i64 %443, 1
-  %.not786 = icmp eq i64 %444, 0
-  br i1 %.not786, label %445, label %_ZL8lean_incP11lean_object.exit538
+  %444 = trunc i64 %443 to i1
+  br i1 %444, label %_ZL8lean_incP11lean_object.exit538, label %445
 
 445:                                              ; preds = %440
   %.val.i625 = load i32, ptr %442, align 4, !tbaa !16
@@ -18665,9 +18153,8 @@ _ZL8lean_incP11lean_object.exit538:               ; preds = %450, %449, %447, %4
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %452 = load ptr, ptr %451, align 8, !tbaa !15
   %453 = ptrtoint ptr %452 to i64
-  %454 = and i64 %453, 1
-  %.not787 = icmp eq i64 %454, 0
-  br i1 %.not787, label %455, label %_ZL8lean_incP11lean_object.exit537
+  %454 = trunc i64 %453 to i1
+  br i1 %454, label %_ZL8lean_incP11lean_object.exit537, label %455
 
 455:                                              ; preds = %_ZL8lean_incP11lean_object.exit538
   %.val.i628 = load i32, ptr %452, align 4, !tbaa !16
@@ -18691,9 +18178,8 @@ _ZL8lean_incP11lean_object.exit537:               ; preds = %460, %459, %457, %_
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %462 = load ptr, ptr %461, align 8, !tbaa !15
   %463 = ptrtoint ptr %462 to i64
-  %464 = and i64 %463, 1
-  %.not788 = icmp eq i64 %464, 0
-  br i1 %.not788, label %465, label %_ZL8lean_incP11lean_object.exit536
+  %464 = trunc i64 %463 to i1
+  br i1 %464, label %_ZL8lean_incP11lean_object.exit536, label %465
 
 465:                                              ; preds = %_ZL8lean_incP11lean_object.exit537
   %.val.i631 = load i32, ptr %462, align 4, !tbaa !16
@@ -18717,9 +18203,8 @@ _ZL8lean_incP11lean_object.exit536:               ; preds = %470, %469, %467, %_
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %472 = load ptr, ptr %471, align 8, !tbaa !15
   %473 = ptrtoint ptr %472 to i64
-  %474 = and i64 %473, 1
-  %.not789 = icmp eq i64 %474, 0
-  br i1 %.not789, label %475, label %_ZL8lean_incP11lean_object.exit535
+  %474 = trunc i64 %473 to i1
+  br i1 %474, label %_ZL8lean_incP11lean_object.exit535, label %475
 
 475:                                              ; preds = %_ZL8lean_incP11lean_object.exit536
   %.val.i634 = load i32, ptr %472, align 4, !tbaa !16
@@ -18743,9 +18228,8 @@ _ZL8lean_incP11lean_object.exit535:               ; preds = %480, %479, %477, %_
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %482 = load ptr, ptr %481, align 8, !tbaa !15
   %483 = ptrtoint ptr %482 to i64
-  %484 = and i64 %483, 1
-  %.not790 = icmp eq i64 %484, 0
-  br i1 %.not790, label %485, label %_ZL8lean_incP11lean_object.exit534
+  %484 = trunc i64 %483 to i1
+  br i1 %484, label %_ZL8lean_incP11lean_object.exit534, label %485
 
 485:                                              ; preds = %_ZL8lean_incP11lean_object.exit535
   %.val.i637 = load i32, ptr %482, align 4, !tbaa !16
@@ -18769,9 +18253,8 @@ _ZL8lean_incP11lean_object.exit534:               ; preds = %490, %489, %487, %_
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %492 = load ptr, ptr %491, align 8, !tbaa !15
   %493 = ptrtoint ptr %492 to i64
-  %494 = and i64 %493, 1
-  %.not791 = icmp eq i64 %494, 0
-  br i1 %.not791, label %495, label %_ZL8lean_incP11lean_object.exit533
+  %494 = trunc i64 %493 to i1
+  br i1 %494, label %_ZL8lean_incP11lean_object.exit533, label %495
 
 495:                                              ; preds = %_ZL8lean_incP11lean_object.exit534
   %.val.i640 = load i32, ptr %492, align 4, !tbaa !16
@@ -18789,11 +18272,11 @@ _ZL8lean_incP11lean_object.exit534:               ; preds = %490, %489, %487, %_
 
 500:                                              ; preds = %499
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %492)
-  %.pre843 = load ptr, ptr %491, align 8, !tbaa !15
+  %.pre779 = load ptr, ptr %491, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit533
 
 _ZL8lean_incP11lean_object.exit533:               ; preds = %500, %499, %497, %_ZL8lean_incP11lean_object.exit534
-  %501 = phi ptr [ %.pre843, %500 ], [ %492, %499 ], [ %492, %497 ], [ %492, %_ZL8lean_incP11lean_object.exit534 ]
+  %501 = phi ptr [ %.pre779, %500 ], [ %492, %499 ], [ %492, %497 ], [ %492, %_ZL8lean_incP11lean_object.exit534 ]
   %502 = getelementptr i8, ptr %0, i64 8
   %.val561 = load ptr, ptr %502, align 8, !tbaa !15
   %503 = load ptr, ptr %441, align 8, !tbaa !15
@@ -18823,9 +18306,8 @@ _ZL8lean_incP11lean_object.exit533:               ; preds = %500, %499, %497, %_
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %517 = load ptr, ptr %516, align 8, !tbaa !15
   %518 = ptrtoint ptr %517 to i64
-  %519 = and i64 %518, 1
-  %.not779 = icmp eq i64 %519, 0
-  br i1 %.not779, label %520, label %_ZL8lean_incP11lean_object.exit532
+  %519 = trunc i64 %518 to i1
+  br i1 %519, label %_ZL8lean_incP11lean_object.exit532, label %520
 
 520:                                              ; preds = %515
   %.val.i643 = load i32, ptr %517, align 4, !tbaa !16
@@ -18849,9 +18331,8 @@ _ZL8lean_incP11lean_object.exit532:               ; preds = %525, %524, %522, %5
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %527 = load ptr, ptr %526, align 8, !tbaa !15
   %528 = ptrtoint ptr %527 to i64
-  %529 = and i64 %528, 1
-  %.not780 = icmp eq i64 %529, 0
-  br i1 %.not780, label %530, label %_ZL8lean_incP11lean_object.exit531
+  %529 = trunc i64 %528 to i1
+  br i1 %529, label %_ZL8lean_incP11lean_object.exit531, label %530
 
 530:                                              ; preds = %_ZL8lean_incP11lean_object.exit532
   %.val.i646 = load i32, ptr %527, align 4, !tbaa !16
@@ -18875,9 +18356,8 @@ _ZL8lean_incP11lean_object.exit531:               ; preds = %535, %534, %532, %_
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %537 = load ptr, ptr %536, align 8, !tbaa !15
   %538 = ptrtoint ptr %537 to i64
-  %539 = and i64 %538, 1
-  %.not781 = icmp eq i64 %539, 0
-  br i1 %.not781, label %540, label %_ZL8lean_incP11lean_object.exit530
+  %539 = trunc i64 %538 to i1
+  br i1 %539, label %_ZL8lean_incP11lean_object.exit530, label %540
 
 540:                                              ; preds = %_ZL8lean_incP11lean_object.exit531
   %.val.i649 = load i32, ptr %537, align 4, !tbaa !16
@@ -18901,9 +18381,8 @@ _ZL8lean_incP11lean_object.exit530:               ; preds = %545, %544, %542, %_
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %547 = load ptr, ptr %546, align 8, !tbaa !15
   %548 = ptrtoint ptr %547 to i64
-  %549 = and i64 %548, 1
-  %.not782 = icmp eq i64 %549, 0
-  br i1 %.not782, label %550, label %_ZL8lean_incP11lean_object.exit529
+  %549 = trunc i64 %548 to i1
+  br i1 %549, label %_ZL8lean_incP11lean_object.exit529, label %550
 
 550:                                              ; preds = %_ZL8lean_incP11lean_object.exit530
   %.val.i652 = load i32, ptr %547, align 4, !tbaa !16
@@ -18927,9 +18406,8 @@ _ZL8lean_incP11lean_object.exit529:               ; preds = %555, %554, %552, %_
   %556 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %557 = load ptr, ptr %556, align 8, !tbaa !15
   %558 = ptrtoint ptr %557 to i64
-  %559 = and i64 %558, 1
-  %.not783 = icmp eq i64 %559, 0
-  br i1 %.not783, label %560, label %_ZL8lean_incP11lean_object.exit528
+  %559 = trunc i64 %558 to i1
+  br i1 %559, label %_ZL8lean_incP11lean_object.exit528, label %560
 
 560:                                              ; preds = %_ZL8lean_incP11lean_object.exit529
   %.val.i655 = load i32, ptr %557, align 4, !tbaa !16
@@ -18953,9 +18431,8 @@ _ZL8lean_incP11lean_object.exit528:               ; preds = %565, %564, %562, %_
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %567 = load ptr, ptr %566, align 8, !tbaa !15
   %568 = ptrtoint ptr %567 to i64
-  %569 = and i64 %568, 1
-  %.not784 = icmp eq i64 %569, 0
-  br i1 %.not784, label %570, label %_ZL8lean_incP11lean_object.exit527
+  %569 = trunc i64 %568 to i1
+  br i1 %569, label %_ZL8lean_incP11lean_object.exit527, label %570
 
 570:                                              ; preds = %_ZL8lean_incP11lean_object.exit528
   %.val.i658 = load i32, ptr %567, align 4, !tbaa !16
@@ -18979,9 +18456,8 @@ _ZL8lean_incP11lean_object.exit527:               ; preds = %575, %574, %572, %_
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %577 = load ptr, ptr %576, align 8, !tbaa !15
   %578 = ptrtoint ptr %577 to i64
-  %579 = and i64 %578, 1
-  %.not785 = icmp eq i64 %579, 0
-  br i1 %.not785, label %580, label %_ZL8lean_incP11lean_object.exit526
+  %579 = trunc i64 %578 to i1
+  br i1 %579, label %_ZL8lean_incP11lean_object.exit526, label %580
 
 580:                                              ; preds = %_ZL8lean_incP11lean_object.exit527
   %.val.i661 = load i32, ptr %577, align 4, !tbaa !16
@@ -18999,11 +18475,11 @@ _ZL8lean_incP11lean_object.exit527:               ; preds = %575, %574, %572, %_
 
 585:                                              ; preds = %584
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %577)
-  %.pre842 = load ptr, ptr %576, align 8, !tbaa !15
+  %.pre778 = load ptr, ptr %576, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit526
 
 _ZL8lean_incP11lean_object.exit526:               ; preds = %585, %584, %582, %_ZL8lean_incP11lean_object.exit527
-  %586 = phi ptr [ %.pre842, %585 ], [ %577, %584 ], [ %577, %582 ], [ %577, %_ZL8lean_incP11lean_object.exit527 ]
+  %586 = phi ptr [ %.pre778, %585 ], [ %577, %584 ], [ %577, %582 ], [ %577, %_ZL8lean_incP11lean_object.exit527 ]
   %587 = getelementptr i8, ptr %0, i64 8
   %.val560 = load ptr, ptr %587, align 8, !tbaa !15
   %588 = load ptr, ptr %516, align 8, !tbaa !15
@@ -19034,9 +18510,8 @@ _ZL8lean_incP11lean_object.exit526:               ; preds = %585, %584, %582, %_
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %603 = load ptr, ptr %602, align 8, !tbaa !15
   %604 = ptrtoint ptr %603 to i64
-  %605 = and i64 %604, 1
-  %.not771 = icmp eq i64 %605, 0
-  br i1 %.not771, label %606, label %_ZL8lean_incP11lean_object.exit525
+  %605 = trunc i64 %604 to i1
+  br i1 %605, label %_ZL8lean_incP11lean_object.exit525, label %606
 
 606:                                              ; preds = %601
   %.val.i664 = load i32, ptr %603, align 4, !tbaa !16
@@ -19060,9 +18535,8 @@ _ZL8lean_incP11lean_object.exit525:               ; preds = %611, %610, %608, %6
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %613 = load ptr, ptr %612, align 8, !tbaa !15
   %614 = ptrtoint ptr %613 to i64
-  %615 = and i64 %614, 1
-  %.not772 = icmp eq i64 %615, 0
-  br i1 %.not772, label %616, label %_ZL8lean_incP11lean_object.exit524
+  %615 = trunc i64 %614 to i1
+  br i1 %615, label %_ZL8lean_incP11lean_object.exit524, label %616
 
 616:                                              ; preds = %_ZL8lean_incP11lean_object.exit525
   %.val.i667 = load i32, ptr %613, align 4, !tbaa !16
@@ -19086,9 +18560,8 @@ _ZL8lean_incP11lean_object.exit524:               ; preds = %621, %620, %618, %_
   %622 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %623 = load ptr, ptr %622, align 8, !tbaa !15
   %624 = ptrtoint ptr %623 to i64
-  %625 = and i64 %624, 1
-  %.not773 = icmp eq i64 %625, 0
-  br i1 %.not773, label %626, label %_ZL8lean_incP11lean_object.exit523
+  %625 = trunc i64 %624 to i1
+  br i1 %625, label %_ZL8lean_incP11lean_object.exit523, label %626
 
 626:                                              ; preds = %_ZL8lean_incP11lean_object.exit524
   %.val.i670 = load i32, ptr %623, align 4, !tbaa !16
@@ -19112,9 +18585,8 @@ _ZL8lean_incP11lean_object.exit523:               ; preds = %631, %630, %628, %_
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %633 = load ptr, ptr %632, align 8, !tbaa !15
   %634 = ptrtoint ptr %633 to i64
-  %635 = and i64 %634, 1
-  %.not774 = icmp eq i64 %635, 0
-  br i1 %.not774, label %636, label %_ZL8lean_incP11lean_object.exit522
+  %635 = trunc i64 %634 to i1
+  br i1 %635, label %_ZL8lean_incP11lean_object.exit522, label %636
 
 636:                                              ; preds = %_ZL8lean_incP11lean_object.exit523
   %.val.i673 = load i32, ptr %633, align 4, !tbaa !16
@@ -19138,9 +18610,8 @@ _ZL8lean_incP11lean_object.exit522:               ; preds = %641, %640, %638, %_
   %642 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %643 = load ptr, ptr %642, align 8, !tbaa !15
   %644 = ptrtoint ptr %643 to i64
-  %645 = and i64 %644, 1
-  %.not775 = icmp eq i64 %645, 0
-  br i1 %.not775, label %646, label %_ZL8lean_incP11lean_object.exit521
+  %645 = trunc i64 %644 to i1
+  br i1 %645, label %_ZL8lean_incP11lean_object.exit521, label %646
 
 646:                                              ; preds = %_ZL8lean_incP11lean_object.exit522
   %.val.i676 = load i32, ptr %643, align 4, !tbaa !16
@@ -19164,9 +18635,8 @@ _ZL8lean_incP11lean_object.exit521:               ; preds = %651, %650, %648, %_
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %653 = load ptr, ptr %652, align 8, !tbaa !15
   %654 = ptrtoint ptr %653 to i64
-  %655 = and i64 %654, 1
-  %.not776 = icmp eq i64 %655, 0
-  br i1 %.not776, label %656, label %_ZL8lean_incP11lean_object.exit520
+  %655 = trunc i64 %654 to i1
+  br i1 %655, label %_ZL8lean_incP11lean_object.exit520, label %656
 
 656:                                              ; preds = %_ZL8lean_incP11lean_object.exit521
   %.val.i679 = load i32, ptr %653, align 4, !tbaa !16
@@ -19190,9 +18660,8 @@ _ZL8lean_incP11lean_object.exit520:               ; preds = %661, %660, %658, %_
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %663 = load ptr, ptr %662, align 8, !tbaa !15
   %664 = ptrtoint ptr %663 to i64
-  %665 = and i64 %664, 1
-  %.not777 = icmp eq i64 %665, 0
-  br i1 %.not777, label %666, label %_ZL8lean_incP11lean_object.exit519
+  %665 = trunc i64 %664 to i1
+  br i1 %665, label %_ZL8lean_incP11lean_object.exit519, label %666
 
 666:                                              ; preds = %_ZL8lean_incP11lean_object.exit520
   %.val.i682 = load i32, ptr %663, align 4, !tbaa !16
@@ -19216,9 +18685,8 @@ _ZL8lean_incP11lean_object.exit519:               ; preds = %671, %670, %668, %_
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %673 = load ptr, ptr %672, align 8, !tbaa !15
   %674 = ptrtoint ptr %673 to i64
-  %675 = and i64 %674, 1
-  %.not778 = icmp eq i64 %675, 0
-  br i1 %.not778, label %676, label %_ZL8lean_incP11lean_object.exit518
+  %675 = trunc i64 %674 to i1
+  br i1 %675, label %_ZL8lean_incP11lean_object.exit518, label %676
 
 676:                                              ; preds = %_ZL8lean_incP11lean_object.exit519
   %.val.i685 = load i32, ptr %673, align 4, !tbaa !16
@@ -19236,11 +18704,11 @@ _ZL8lean_incP11lean_object.exit519:               ; preds = %671, %670, %668, %_
 
 681:                                              ; preds = %680
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %673)
-  %.pre841 = load ptr, ptr %672, align 8, !tbaa !15
+  %.pre777 = load ptr, ptr %672, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit518
 
 _ZL8lean_incP11lean_object.exit518:               ; preds = %681, %680, %678, %_ZL8lean_incP11lean_object.exit519
-  %682 = phi ptr [ %.pre841, %681 ], [ %673, %680 ], [ %673, %678 ], [ %673, %_ZL8lean_incP11lean_object.exit519 ]
+  %682 = phi ptr [ %.pre777, %681 ], [ %673, %680 ], [ %673, %678 ], [ %673, %_ZL8lean_incP11lean_object.exit519 ]
   %683 = getelementptr i8, ptr %0, i64 8
   %.val559 = load ptr, ptr %683, align 8, !tbaa !15
   %684 = load ptr, ptr %602, align 8, !tbaa !15
@@ -19272,9 +18740,8 @@ _ZL8lean_incP11lean_object.exit518:               ; preds = %681, %680, %678, %_
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %700 = load ptr, ptr %699, align 8, !tbaa !15
   %701 = ptrtoint ptr %700 to i64
-  %702 = and i64 %701, 1
-  %.not762 = icmp eq i64 %702, 0
-  br i1 %.not762, label %703, label %_ZL8lean_incP11lean_object.exit517
+  %702 = trunc i64 %701 to i1
+  br i1 %702, label %_ZL8lean_incP11lean_object.exit517, label %703
 
 703:                                              ; preds = %698
   %.val.i688 = load i32, ptr %700, align 4, !tbaa !16
@@ -19298,9 +18765,8 @@ _ZL8lean_incP11lean_object.exit517:               ; preds = %708, %707, %705, %6
   %709 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %710 = load ptr, ptr %709, align 8, !tbaa !15
   %711 = ptrtoint ptr %710 to i64
-  %712 = and i64 %711, 1
-  %.not763 = icmp eq i64 %712, 0
-  br i1 %.not763, label %713, label %_ZL8lean_incP11lean_object.exit516
+  %712 = trunc i64 %711 to i1
+  br i1 %712, label %_ZL8lean_incP11lean_object.exit516, label %713
 
 713:                                              ; preds = %_ZL8lean_incP11lean_object.exit517
   %.val.i691 = load i32, ptr %710, align 4, !tbaa !16
@@ -19324,9 +18790,8 @@ _ZL8lean_incP11lean_object.exit516:               ; preds = %718, %717, %715, %_
   %719 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %720 = load ptr, ptr %719, align 8, !tbaa !15
   %721 = ptrtoint ptr %720 to i64
-  %722 = and i64 %721, 1
-  %.not764 = icmp eq i64 %722, 0
-  br i1 %.not764, label %723, label %_ZL8lean_incP11lean_object.exit515
+  %722 = trunc i64 %721 to i1
+  br i1 %722, label %_ZL8lean_incP11lean_object.exit515, label %723
 
 723:                                              ; preds = %_ZL8lean_incP11lean_object.exit516
   %.val.i694 = load i32, ptr %720, align 4, !tbaa !16
@@ -19350,9 +18815,8 @@ _ZL8lean_incP11lean_object.exit515:               ; preds = %728, %727, %725, %_
   %729 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %730 = load ptr, ptr %729, align 8, !tbaa !15
   %731 = ptrtoint ptr %730 to i64
-  %732 = and i64 %731, 1
-  %.not765 = icmp eq i64 %732, 0
-  br i1 %.not765, label %733, label %_ZL8lean_incP11lean_object.exit514
+  %732 = trunc i64 %731 to i1
+  br i1 %732, label %_ZL8lean_incP11lean_object.exit514, label %733
 
 733:                                              ; preds = %_ZL8lean_incP11lean_object.exit515
   %.val.i697 = load i32, ptr %730, align 4, !tbaa !16
@@ -19376,9 +18840,8 @@ _ZL8lean_incP11lean_object.exit514:               ; preds = %738, %737, %735, %_
   %739 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %740 = load ptr, ptr %739, align 8, !tbaa !15
   %741 = ptrtoint ptr %740 to i64
-  %742 = and i64 %741, 1
-  %.not766 = icmp eq i64 %742, 0
-  br i1 %.not766, label %743, label %_ZL8lean_incP11lean_object.exit513
+  %742 = trunc i64 %741 to i1
+  br i1 %742, label %_ZL8lean_incP11lean_object.exit513, label %743
 
 743:                                              ; preds = %_ZL8lean_incP11lean_object.exit514
   %.val.i700 = load i32, ptr %740, align 4, !tbaa !16
@@ -19402,9 +18865,8 @@ _ZL8lean_incP11lean_object.exit513:               ; preds = %748, %747, %745, %_
   %749 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %750 = load ptr, ptr %749, align 8, !tbaa !15
   %751 = ptrtoint ptr %750 to i64
-  %752 = and i64 %751, 1
-  %.not767 = icmp eq i64 %752, 0
-  br i1 %.not767, label %753, label %_ZL8lean_incP11lean_object.exit512
+  %752 = trunc i64 %751 to i1
+  br i1 %752, label %_ZL8lean_incP11lean_object.exit512, label %753
 
 753:                                              ; preds = %_ZL8lean_incP11lean_object.exit513
   %.val.i703 = load i32, ptr %750, align 4, !tbaa !16
@@ -19428,9 +18890,8 @@ _ZL8lean_incP11lean_object.exit512:               ; preds = %758, %757, %755, %_
   %759 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %760 = load ptr, ptr %759, align 8, !tbaa !15
   %761 = ptrtoint ptr %760 to i64
-  %762 = and i64 %761, 1
-  %.not768 = icmp eq i64 %762, 0
-  br i1 %.not768, label %763, label %_ZL8lean_incP11lean_object.exit511
+  %762 = trunc i64 %761 to i1
+  br i1 %762, label %_ZL8lean_incP11lean_object.exit511, label %763
 
 763:                                              ; preds = %_ZL8lean_incP11lean_object.exit512
   %.val.i706 = load i32, ptr %760, align 4, !tbaa !16
@@ -19454,9 +18915,8 @@ _ZL8lean_incP11lean_object.exit511:               ; preds = %768, %767, %765, %_
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %770 = load ptr, ptr %769, align 8, !tbaa !15
   %771 = ptrtoint ptr %770 to i64
-  %772 = and i64 %771, 1
-  %.not769 = icmp eq i64 %772, 0
-  br i1 %.not769, label %773, label %_ZL8lean_incP11lean_object.exit510
+  %772 = trunc i64 %771 to i1
+  br i1 %772, label %_ZL8lean_incP11lean_object.exit510, label %773
 
 773:                                              ; preds = %_ZL8lean_incP11lean_object.exit511
   %.val.i709 = load i32, ptr %770, align 4, !tbaa !16
@@ -19480,9 +18940,8 @@ _ZL8lean_incP11lean_object.exit510:               ; preds = %778, %777, %775, %_
   %779 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %780 = load ptr, ptr %779, align 8, !tbaa !15
   %781 = ptrtoint ptr %780 to i64
-  %782 = and i64 %781, 1
-  %.not770 = icmp eq i64 %782, 0
-  br i1 %.not770, label %783, label %_ZL8lean_incP11lean_object.exit509
+  %782 = trunc i64 %781 to i1
+  br i1 %782, label %_ZL8lean_incP11lean_object.exit509, label %783
 
 783:                                              ; preds = %_ZL8lean_incP11lean_object.exit510
   %.val.i712 = load i32, ptr %780, align 4, !tbaa !16
@@ -19500,11 +18959,11 @@ _ZL8lean_incP11lean_object.exit510:               ; preds = %778, %777, %775, %_
 
 788:                                              ; preds = %787
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %780)
-  %.pre840 = load ptr, ptr %779, align 8, !tbaa !15
+  %.pre776 = load ptr, ptr %779, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit509
 
 _ZL8lean_incP11lean_object.exit509:               ; preds = %788, %787, %785, %_ZL8lean_incP11lean_object.exit510
-  %789 = phi ptr [ %.pre840, %788 ], [ %780, %787 ], [ %780, %785 ], [ %780, %_ZL8lean_incP11lean_object.exit510 ]
+  %789 = phi ptr [ %.pre776, %788 ], [ %780, %787 ], [ %780, %785 ], [ %780, %_ZL8lean_incP11lean_object.exit510 ]
   %790 = getelementptr i8, ptr %0, i64 8
   %.val558 = load ptr, ptr %790, align 8, !tbaa !15
   %791 = load ptr, ptr %699, align 8, !tbaa !15
@@ -19537,9 +18996,8 @@ _ZL8lean_incP11lean_object.exit509:               ; preds = %788, %787, %785, %_
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %808 = load ptr, ptr %807, align 8, !tbaa !15
   %809 = ptrtoint ptr %808 to i64
-  %810 = and i64 %809, 1
-  %.not752 = icmp eq i64 %810, 0
-  br i1 %.not752, label %811, label %_ZL8lean_incP11lean_object.exit508
+  %810 = trunc i64 %809 to i1
+  br i1 %810, label %_ZL8lean_incP11lean_object.exit508, label %811
 
 811:                                              ; preds = %806
   %.val.i715 = load i32, ptr %808, align 4, !tbaa !16
@@ -19563,9 +19021,8 @@ _ZL8lean_incP11lean_object.exit508:               ; preds = %816, %815, %813, %8
   %817 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %818 = load ptr, ptr %817, align 8, !tbaa !15
   %819 = ptrtoint ptr %818 to i64
-  %820 = and i64 %819, 1
-  %.not753 = icmp eq i64 %820, 0
-  br i1 %.not753, label %821, label %_ZL8lean_incP11lean_object.exit507
+  %820 = trunc i64 %819 to i1
+  br i1 %820, label %_ZL8lean_incP11lean_object.exit507, label %821
 
 821:                                              ; preds = %_ZL8lean_incP11lean_object.exit508
   %.val.i718 = load i32, ptr %818, align 4, !tbaa !16
@@ -19589,9 +19046,8 @@ _ZL8lean_incP11lean_object.exit507:               ; preds = %826, %825, %823, %_
   %827 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %828 = load ptr, ptr %827, align 8, !tbaa !15
   %829 = ptrtoint ptr %828 to i64
-  %830 = and i64 %829, 1
-  %.not754 = icmp eq i64 %830, 0
-  br i1 %.not754, label %831, label %_ZL8lean_incP11lean_object.exit506
+  %830 = trunc i64 %829 to i1
+  br i1 %830, label %_ZL8lean_incP11lean_object.exit506, label %831
 
 831:                                              ; preds = %_ZL8lean_incP11lean_object.exit507
   %.val.i721 = load i32, ptr %828, align 4, !tbaa !16
@@ -19615,9 +19071,8 @@ _ZL8lean_incP11lean_object.exit506:               ; preds = %836, %835, %833, %_
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %838 = load ptr, ptr %837, align 8, !tbaa !15
   %839 = ptrtoint ptr %838 to i64
-  %840 = and i64 %839, 1
-  %.not755 = icmp eq i64 %840, 0
-  br i1 %.not755, label %841, label %_ZL8lean_incP11lean_object.exit505
+  %840 = trunc i64 %839 to i1
+  br i1 %840, label %_ZL8lean_incP11lean_object.exit505, label %841
 
 841:                                              ; preds = %_ZL8lean_incP11lean_object.exit506
   %.val.i724 = load i32, ptr %838, align 4, !tbaa !16
@@ -19641,9 +19096,8 @@ _ZL8lean_incP11lean_object.exit505:               ; preds = %846, %845, %843, %_
   %847 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %848 = load ptr, ptr %847, align 8, !tbaa !15
   %849 = ptrtoint ptr %848 to i64
-  %850 = and i64 %849, 1
-  %.not756 = icmp eq i64 %850, 0
-  br i1 %.not756, label %851, label %_ZL8lean_incP11lean_object.exit504
+  %850 = trunc i64 %849 to i1
+  br i1 %850, label %_ZL8lean_incP11lean_object.exit504, label %851
 
 851:                                              ; preds = %_ZL8lean_incP11lean_object.exit505
   %.val.i727 = load i32, ptr %848, align 4, !tbaa !16
@@ -19667,9 +19121,8 @@ _ZL8lean_incP11lean_object.exit504:               ; preds = %856, %855, %853, %_
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %858 = load ptr, ptr %857, align 8, !tbaa !15
   %859 = ptrtoint ptr %858 to i64
-  %860 = and i64 %859, 1
-  %.not757 = icmp eq i64 %860, 0
-  br i1 %.not757, label %861, label %_ZL8lean_incP11lean_object.exit503
+  %860 = trunc i64 %859 to i1
+  br i1 %860, label %_ZL8lean_incP11lean_object.exit503, label %861
 
 861:                                              ; preds = %_ZL8lean_incP11lean_object.exit504
   %.val.i730 = load i32, ptr %858, align 4, !tbaa !16
@@ -19693,9 +19146,8 @@ _ZL8lean_incP11lean_object.exit503:               ; preds = %866, %865, %863, %_
   %867 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %868 = load ptr, ptr %867, align 8, !tbaa !15
   %869 = ptrtoint ptr %868 to i64
-  %870 = and i64 %869, 1
-  %.not758 = icmp eq i64 %870, 0
-  br i1 %.not758, label %871, label %_ZL8lean_incP11lean_object.exit502
+  %870 = trunc i64 %869 to i1
+  br i1 %870, label %_ZL8lean_incP11lean_object.exit502, label %871
 
 871:                                              ; preds = %_ZL8lean_incP11lean_object.exit503
   %.val.i733 = load i32, ptr %868, align 4, !tbaa !16
@@ -19719,9 +19171,8 @@ _ZL8lean_incP11lean_object.exit502:               ; preds = %876, %875, %873, %_
   %877 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %878 = load ptr, ptr %877, align 8, !tbaa !15
   %879 = ptrtoint ptr %878 to i64
-  %880 = and i64 %879, 1
-  %.not759 = icmp eq i64 %880, 0
-  br i1 %.not759, label %881, label %_ZL8lean_incP11lean_object.exit501
+  %880 = trunc i64 %879 to i1
+  br i1 %880, label %_ZL8lean_incP11lean_object.exit501, label %881
 
 881:                                              ; preds = %_ZL8lean_incP11lean_object.exit502
   %.val.i736 = load i32, ptr %878, align 4, !tbaa !16
@@ -19745,9 +19196,8 @@ _ZL8lean_incP11lean_object.exit501:               ; preds = %886, %885, %883, %_
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %888 = load ptr, ptr %887, align 8, !tbaa !15
   %889 = ptrtoint ptr %888 to i64
-  %890 = and i64 %889, 1
-  %.not760 = icmp eq i64 %890, 0
-  br i1 %.not760, label %891, label %_ZL8lean_incP11lean_object.exit500
+  %890 = trunc i64 %889 to i1
+  br i1 %890, label %_ZL8lean_incP11lean_object.exit500, label %891
 
 891:                                              ; preds = %_ZL8lean_incP11lean_object.exit501
   %.val.i739 = load i32, ptr %888, align 4, !tbaa !16
@@ -19771,9 +19221,8 @@ _ZL8lean_incP11lean_object.exit500:               ; preds = %896, %895, %893, %_
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %898 = load ptr, ptr %897, align 8, !tbaa !15
   %899 = ptrtoint ptr %898 to i64
-  %900 = and i64 %899, 1
-  %.not761 = icmp eq i64 %900, 0
-  br i1 %.not761, label %901, label %_ZL8lean_incP11lean_object.exit499
+  %900 = trunc i64 %899 to i1
+  br i1 %900, label %_ZL8lean_incP11lean_object.exit499, label %901
 
 901:                                              ; preds = %_ZL8lean_incP11lean_object.exit500
   %.val.i742 = load i32, ptr %898, align 4, !tbaa !16
@@ -19791,11 +19240,11 @@ _ZL8lean_incP11lean_object.exit500:               ; preds = %896, %895, %893, %_
 
 906:                                              ; preds = %905
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %898)
-  %.pre839 = load ptr, ptr %897, align 8, !tbaa !15
+  %.pre775 = load ptr, ptr %897, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit499
 
 _ZL8lean_incP11lean_object.exit499:               ; preds = %906, %905, %903, %_ZL8lean_incP11lean_object.exit500
-  %907 = phi ptr [ %.pre839, %906 ], [ %898, %905 ], [ %898, %903 ], [ %898, %_ZL8lean_incP11lean_object.exit500 ]
+  %907 = phi ptr [ %.pre775, %906 ], [ %898, %905 ], [ %898, %903 ], [ %898, %_ZL8lean_incP11lean_object.exit500 ]
   %908 = getelementptr i8, ptr %0, i64 8
   %.val557 = load ptr, ptr %908, align 8, !tbaa !15
   %909 = load ptr, ptr %807, align 8, !tbaa !15
@@ -19829,12 +19278,12 @@ _ZL8lean_incP11lean_object.exit499:               ; preds = %906, %905, %903, %_
   %926 = shl nuw nsw i32 %69, 3
   %927 = zext nneg i32 %926 to i64
   %928 = alloca i8, i64 %927, align 16
-  %.not824 = icmp eq i16 %.val554, 0
-  br i1 %.not824, label %.preheader, label %.lr.ph820
+  %.not760 = icmp eq i16 %.val554, 0
+  br i1 %.not760, label %.preheader, label %.lr.ph757
 
-.lr.ph820:                                        ; preds = %925
+.lr.ph757:                                        ; preds = %925
   %929 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count834 = zext i16 %.val554 to i64
+  %wide.trip.count770 = zext i16 %.val554 to i64
   br label %936
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit498, %925
@@ -19859,14 +19308,13 @@ _ZL8lean_incP11lean_object.exit499:               ; preds = %906, %905, %903, %_
   %935 = icmp sgt i32 %934, 1
   br i1 %935, label %949, label %951, !prof !19
 
-936:                                              ; preds = %.lr.ph820, %_ZL8lean_incP11lean_object.exit498
-  %indvars.iv831 = phi i64 [ 0, %.lr.ph820 ], [ %indvars.iv.next832, %_ZL8lean_incP11lean_object.exit498 ]
-  %937 = getelementptr inbounds nuw ptr, ptr %929, i64 %indvars.iv831
+936:                                              ; preds = %.lr.ph757, %_ZL8lean_incP11lean_object.exit498
+  %indvars.iv767 = phi i64 [ 0, %.lr.ph757 ], [ %indvars.iv.next768, %_ZL8lean_incP11lean_object.exit498 ]
+  %937 = getelementptr inbounds nuw ptr, ptr %929, i64 %indvars.iv767
   %938 = load ptr, ptr %937, align 8, !tbaa !15
   %939 = ptrtoint ptr %938 to i64
-  %940 = and i64 %939, 1
-  %.not807 = icmp eq i64 %940, 0
-  br i1 %.not807, label %941, label %_ZL8lean_incP11lean_object.exit498
+  %940 = trunc i64 %939 to i1
+  br i1 %940, label %_ZL8lean_incP11lean_object.exit498, label %941
 
 941:                                              ; preds = %936
   %.val.i745 = load i32, ptr %938, align 4, !tbaa !16
@@ -19884,16 +19332,16 @@ _ZL8lean_incP11lean_object.exit499:               ; preds = %906, %905, %903, %_
 
 946:                                              ; preds = %945
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %938)
-  %.pre849 = load ptr, ptr %937, align 8, !tbaa !15
+  %.pre785 = load ptr, ptr %937, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit498
 
 _ZL8lean_incP11lean_object.exit498:               ; preds = %946, %945, %943, %936
-  %947 = phi ptr [ %.pre849, %946 ], [ %938, %945 ], [ %938, %943 ], [ %938, %936 ]
-  %948 = getelementptr inbounds nuw ptr, ptr %928, i64 %indvars.iv831
+  %947 = phi ptr [ %.pre785, %946 ], [ %938, %945 ], [ %938, %943 ], [ %938, %936 ]
+  %948 = getelementptr inbounds nuw ptr, ptr %928, i64 %indvars.iv767
   store ptr %947, ptr %948, align 8, !tbaa !15
-  %indvars.iv.next832 = add nuw nsw i64 %indvars.iv831, 1
-  %exitcond835.not = icmp eq i64 %indvars.iv.next832, %wide.trip.count834
-  br i1 %exitcond835.not, label %.preheader, label %936, !llvm.loop !36
+  %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
+  %exitcond771.not = icmp eq i64 %indvars.iv.next768, %wide.trip.count770
+  br i1 %exitcond771.not, label %.preheader, label %936, !llvm.loop !36
 
 949:                                              ; preds = %.preheader
   %950 = add nsw i32 %934, -1
@@ -19928,31 +19376,30 @@ _ZL8lean_incP11lean_object.exit498:               ; preds = %946, %945, %943, %9
   %961 = shl nuw nsw i32 %69, 3
   %962 = zext nneg i32 %961 to i64
   %963 = alloca i8, i64 %962, align 16
-  %.not822 = icmp eq i16 %.val554, 0
-  br i1 %.not822, label %.preheader814, label %.lr.ph
+  %.not = icmp eq i16 %.val554, 0
+  br i1 %.not, label %.preheader751, label %.lr.ph
 
 .lr.ph:                                           ; preds = %955
   %964 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val554 to i64
   br label %966
 
-.preheader814:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %955
+.preheader751:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %955
   %965 = sub nsw i32 %69, %71
-  %.not823 = icmp eq i16 %.val, %.val554
-  br i1 %.not823, label %._crit_edge, label %.lr.ph817.preheader
+  %.not759 = icmp eq i16 %.val, %.val554
+  br i1 %.not759, label %._crit_edge, label %.lr.ph754.preheader
 
-.lr.ph817.preheader:                              ; preds = %.preheader814
-  %wide.trip.count829 = zext i32 %965 to i64
-  br label %.lr.ph817
+.lr.ph754.preheader:                              ; preds = %.preheader751
+  %wide.trip.count765 = zext i32 %965 to i64
+  br label %.lr.ph754
 
 966:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %967 = getelementptr inbounds nuw ptr, ptr %964, i64 %indvars.iv
   %968 = load ptr, ptr %967, align 8, !tbaa !15
   %969 = ptrtoint ptr %968 to i64
-  %970 = and i64 %969, 1
-  %.not751 = icmp eq i64 %970, 0
-  br i1 %.not751, label %971, label %_ZL8lean_incP11lean_object.exit
+  %970 = trunc i64 %969 to i1
+  br i1 %970, label %_ZL8lean_incP11lean_object.exit, label %971
 
 971:                                              ; preds = %966
   %.val.i748 = load i32, ptr %968, align 4, !tbaa !16
@@ -19979,9 +19426,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %976, %975, %973, %9
   store ptr %977, ptr %978, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader814, label %966, !llvm.loop !37
+  br i1 %exitcond.not, label %.preheader751, label %966, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.lr.ph817, %.preheader814
+._crit_edge:                                      ; preds = %.lr.ph754, %.preheader751
   %979 = getelementptr i8, ptr %0, i64 8
   %.val581 = load ptr, ptr %979, align 8, !tbaa !15
   %980 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val581, i32 noundef range(i32 0, 65536) %69, ptr noundef nonnull %963)
@@ -20010,18 +19457,18 @@ _ZL12lean_dec_refP11lean_object.exit473:          ; preds = %983, %985, %986
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph817:                                        ; preds = %.lr.ph817.preheader, %.lr.ph817
-  %indvars.iv826 = phi i64 [ 0, %.lr.ph817.preheader ], [ %indvars.iv.next827, %.lr.ph817 ]
-  %991 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv826
+.lr.ph754:                                        ; preds = %.lr.ph754.preheader, %.lr.ph754
+  %indvars.iv762 = phi i64 [ 0, %.lr.ph754.preheader ], [ %indvars.iv.next763, %.lr.ph754 ]
+  %991 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv762
   %992 = load ptr, ptr %991, align 8, !tbaa !15
-  %993 = trunc nuw i64 %indvars.iv826 to i32
+  %993 = trunc nuw i64 %indvars.iv762 to i32
   %994 = add i32 %993, %71
   %995 = zext i32 %994 to i64
   %996 = getelementptr inbounds nuw ptr, ptr %963, i64 %995
   store ptr %992, ptr %996, align 8, !tbaa !15
-  %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
-  %exitcond830.not = icmp eq i64 %indvars.iv.next827, %wide.trip.count829
-  br i1 %exitcond830.not, label %._crit_edge, label %.lr.ph817, !llvm.loop !38
+  %indvars.iv.next763 = add nuw nsw i64 %indvars.iv762, 1
+  %exitcond766.not = icmp eq i64 %indvars.iv.next763, %wide.trip.count765
+  br i1 %exitcond766.not, label %._crit_edge, label %.lr.ph754, !llvm.loop !38
 
 997:                                              ; preds = %953
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -20050,15 +19497,13 @@ define ptr @lean_apply_7(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %9 = alloca [7 x ptr], align 16
   %10 = alloca [7 x ptr], align 8
   %11 = ptrtoint ptr %0 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %77, label %13
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %13, label %77
 
 13:                                               ; preds = %8
   %14 = ptrtoint ptr %1 to i64
-  %15 = and i64 %14, 1
-  %.not733 = icmp eq i64 %15, 0
-  br i1 %.not733, label %16, label %_ZL8lean_decP11lean_object.exit438
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %_ZL8lean_decP11lean_object.exit438, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %1, align 4, !tbaa !16
@@ -20080,9 +19525,8 @@ define ptr @lean_apply_7(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit438:               ; preds = %22, %21, %19, %13
   %23 = ptrtoint ptr %2 to i64
-  %24 = and i64 %23, 1
-  %.not734 = icmp eq i64 %24, 0
-  br i1 %.not734, label %25, label %_ZL8lean_decP11lean_object.exit437
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %_ZL8lean_decP11lean_object.exit437, label %25
 
 25:                                               ; preds = %_ZL8lean_decP11lean_object.exit438
   %26 = load i32, ptr %2, align 4, !tbaa !16
@@ -20104,9 +19548,8 @@ _ZL8lean_decP11lean_object.exit438:               ; preds = %22, %21, %19, %13
 
 _ZL8lean_decP11lean_object.exit437:               ; preds = %31, %30, %28, %_ZL8lean_decP11lean_object.exit438
   %32 = ptrtoint ptr %3 to i64
-  %33 = and i64 %32, 1
-  %.not735 = icmp eq i64 %33, 0
-  br i1 %.not735, label %34, label %_ZL8lean_decP11lean_object.exit436
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %_ZL8lean_decP11lean_object.exit436, label %34
 
 34:                                               ; preds = %_ZL8lean_decP11lean_object.exit437
   %35 = load i32, ptr %3, align 4, !tbaa !16
@@ -20128,9 +19571,8 @@ _ZL8lean_decP11lean_object.exit437:               ; preds = %31, %30, %28, %_ZL8
 
 _ZL8lean_decP11lean_object.exit436:               ; preds = %40, %39, %37, %_ZL8lean_decP11lean_object.exit437
   %41 = ptrtoint ptr %4 to i64
-  %42 = and i64 %41, 1
-  %.not736 = icmp eq i64 %42, 0
-  br i1 %.not736, label %43, label %_ZL8lean_decP11lean_object.exit435
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %_ZL8lean_decP11lean_object.exit435, label %43
 
 43:                                               ; preds = %_ZL8lean_decP11lean_object.exit436
   %44 = load i32, ptr %4, align 4, !tbaa !16
@@ -20152,9 +19594,8 @@ _ZL8lean_decP11lean_object.exit436:               ; preds = %40, %39, %37, %_ZL8
 
 _ZL8lean_decP11lean_object.exit435:               ; preds = %49, %48, %46, %_ZL8lean_decP11lean_object.exit436
   %50 = ptrtoint ptr %5 to i64
-  %51 = and i64 %50, 1
-  %.not737 = icmp eq i64 %51, 0
-  br i1 %.not737, label %52, label %_ZL8lean_decP11lean_object.exit434
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %_ZL8lean_decP11lean_object.exit434, label %52
 
 52:                                               ; preds = %_ZL8lean_decP11lean_object.exit435
   %53 = load i32, ptr %5, align 4, !tbaa !16
@@ -20176,9 +19617,8 @@ _ZL8lean_decP11lean_object.exit435:               ; preds = %49, %48, %46, %_ZL8
 
 _ZL8lean_decP11lean_object.exit434:               ; preds = %58, %57, %55, %_ZL8lean_decP11lean_object.exit435
   %59 = ptrtoint ptr %6 to i64
-  %60 = and i64 %59, 1
-  %.not738 = icmp eq i64 %60, 0
-  br i1 %.not738, label %61, label %_ZL8lean_decP11lean_object.exit433
+  %60 = trunc i64 %59 to i1
+  br i1 %60, label %_ZL8lean_decP11lean_object.exit433, label %61
 
 61:                                               ; preds = %_ZL8lean_decP11lean_object.exit434
   %62 = load i32, ptr %6, align 4, !tbaa !16
@@ -20200,9 +19640,8 @@ _ZL8lean_decP11lean_object.exit434:               ; preds = %58, %57, %55, %_ZL8
 
 _ZL8lean_decP11lean_object.exit433:               ; preds = %67, %66, %64, %_ZL8lean_decP11lean_object.exit434
   %68 = ptrtoint ptr %7 to i64
-  %69 = and i64 %68, 1
-  %.not739 = icmp eq i64 %69, 0
-  br i1 %.not739, label %70, label %_ZL8lean_decP11lean_object.exit
+  %69 = trunc i64 %68 to i1
+  br i1 %69, label %_ZL8lean_decP11lean_object.exit, label %70
 
 70:                                               ; preds = %_ZL8lean_decP11lean_object.exit433
   %71 = load i32, ptr %7, align 4, !tbaa !16
@@ -20451,9 +19890,8 @@ _ZL8lean_decP11lean_object.exit433:               ; preds = %67, %66, %64, %_ZL8
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %219 = load ptr, ptr %218, align 8, !tbaa !15
   %220 = ptrtoint ptr %219 to i64
-  %221 = and i64 %220, 1
-  %.not731 = icmp eq i64 %221, 0
-  br i1 %.not731, label %222, label %_ZL8lean_incP11lean_object.exit520
+  %221 = trunc i64 %220 to i1
+  br i1 %221, label %_ZL8lean_incP11lean_object.exit520, label %222
 
 222:                                              ; preds = %217
   %.val.i = load i32, ptr %219, align 4, !tbaa !16
@@ -20471,11 +19909,11 @@ _ZL8lean_decP11lean_object.exit433:               ; preds = %67, %66, %64, %_ZL8
 
 227:                                              ; preds = %226
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %219)
-  %.pre773 = load ptr, ptr %218, align 8, !tbaa !15
+  %.pre718 = load ptr, ptr %218, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit520
 
 _ZL8lean_incP11lean_object.exit520:               ; preds = %227, %226, %224, %217
-  %228 = phi ptr [ %.pre773, %227 ], [ %219, %226 ], [ %219, %224 ], [ %219, %217 ]
+  %228 = phi ptr [ %.pre718, %227 ], [ %219, %226 ], [ %219, %224 ], [ %219, %217 ]
   %229 = getelementptr i8, ptr %0, i64 8
   %.val532 = load ptr, ptr %229, align 8, !tbaa !15
   %230 = tail call noundef ptr %.val532(ptr noundef %228, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
@@ -20500,9 +19938,8 @@ _ZL8lean_incP11lean_object.exit520:               ; preds = %227, %226, %224, %2
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %239 = load ptr, ptr %238, align 8, !tbaa !15
   %240 = ptrtoint ptr %239 to i64
-  %241 = and i64 %240, 1
-  %.not729 = icmp eq i64 %241, 0
-  br i1 %.not729, label %242, label %_ZL8lean_incP11lean_object.exit519
+  %241 = trunc i64 %240 to i1
+  br i1 %241, label %_ZL8lean_incP11lean_object.exit519, label %242
 
 242:                                              ; preds = %237
   %.val.i548 = load i32, ptr %239, align 4, !tbaa !16
@@ -20526,9 +19963,8 @@ _ZL8lean_incP11lean_object.exit519:               ; preds = %247, %246, %244, %2
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %249 = load ptr, ptr %248, align 8, !tbaa !15
   %250 = ptrtoint ptr %249 to i64
-  %251 = and i64 %250, 1
-  %.not730 = icmp eq i64 %251, 0
-  br i1 %.not730, label %252, label %_ZL8lean_incP11lean_object.exit518
+  %251 = trunc i64 %250 to i1
+  br i1 %251, label %_ZL8lean_incP11lean_object.exit518, label %252
 
 252:                                              ; preds = %_ZL8lean_incP11lean_object.exit519
   %.val.i551 = load i32, ptr %249, align 4, !tbaa !16
@@ -20546,11 +19982,11 @@ _ZL8lean_incP11lean_object.exit519:               ; preds = %247, %246, %244, %2
 
 257:                                              ; preds = %256
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %249)
-  %.pre772 = load ptr, ptr %248, align 8, !tbaa !15
+  %.pre717 = load ptr, ptr %248, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit518
 
 _ZL8lean_incP11lean_object.exit518:               ; preds = %257, %256, %254, %_ZL8lean_incP11lean_object.exit519
-  %258 = phi ptr [ %.pre772, %257 ], [ %249, %256 ], [ %249, %254 ], [ %249, %_ZL8lean_incP11lean_object.exit519 ]
+  %258 = phi ptr [ %.pre717, %257 ], [ %249, %256 ], [ %249, %254 ], [ %249, %_ZL8lean_incP11lean_object.exit519 ]
   %259 = getelementptr i8, ptr %0, i64 8
   %.val531 = load ptr, ptr %259, align 8, !tbaa !15
   %260 = load ptr, ptr %238, align 8, !tbaa !15
@@ -20576,9 +20012,8 @@ _ZL8lean_incP11lean_object.exit518:               ; preds = %257, %256, %254, %_
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %270 = load ptr, ptr %269, align 8, !tbaa !15
   %271 = ptrtoint ptr %270 to i64
-  %272 = and i64 %271, 1
-  %.not726 = icmp eq i64 %272, 0
-  br i1 %.not726, label %273, label %_ZL8lean_incP11lean_object.exit517
+  %272 = trunc i64 %271 to i1
+  br i1 %272, label %_ZL8lean_incP11lean_object.exit517, label %273
 
 273:                                              ; preds = %268
   %.val.i554 = load i32, ptr %270, align 4, !tbaa !16
@@ -20602,9 +20037,8 @@ _ZL8lean_incP11lean_object.exit517:               ; preds = %278, %277, %275, %2
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %280 = load ptr, ptr %279, align 8, !tbaa !15
   %281 = ptrtoint ptr %280 to i64
-  %282 = and i64 %281, 1
-  %.not727 = icmp eq i64 %282, 0
-  br i1 %.not727, label %283, label %_ZL8lean_incP11lean_object.exit516
+  %282 = trunc i64 %281 to i1
+  br i1 %282, label %_ZL8lean_incP11lean_object.exit516, label %283
 
 283:                                              ; preds = %_ZL8lean_incP11lean_object.exit517
   %.val.i557 = load i32, ptr %280, align 4, !tbaa !16
@@ -20628,9 +20062,8 @@ _ZL8lean_incP11lean_object.exit516:               ; preds = %288, %287, %285, %_
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %290 = load ptr, ptr %289, align 8, !tbaa !15
   %291 = ptrtoint ptr %290 to i64
-  %292 = and i64 %291, 1
-  %.not728 = icmp eq i64 %292, 0
-  br i1 %.not728, label %293, label %_ZL8lean_incP11lean_object.exit515
+  %292 = trunc i64 %291 to i1
+  br i1 %292, label %_ZL8lean_incP11lean_object.exit515, label %293
 
 293:                                              ; preds = %_ZL8lean_incP11lean_object.exit516
   %.val.i560 = load i32, ptr %290, align 4, !tbaa !16
@@ -20648,11 +20081,11 @@ _ZL8lean_incP11lean_object.exit516:               ; preds = %288, %287, %285, %_
 
 298:                                              ; preds = %297
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %290)
-  %.pre771 = load ptr, ptr %289, align 8, !tbaa !15
+  %.pre716 = load ptr, ptr %289, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit515
 
 _ZL8lean_incP11lean_object.exit515:               ; preds = %298, %297, %295, %_ZL8lean_incP11lean_object.exit516
-  %299 = phi ptr [ %.pre771, %298 ], [ %290, %297 ], [ %290, %295 ], [ %290, %_ZL8lean_incP11lean_object.exit516 ]
+  %299 = phi ptr [ %.pre716, %298 ], [ %290, %297 ], [ %290, %295 ], [ %290, %_ZL8lean_incP11lean_object.exit516 ]
   %300 = getelementptr i8, ptr %0, i64 8
   %.val530 = load ptr, ptr %300, align 8, !tbaa !15
   %301 = load ptr, ptr %269, align 8, !tbaa !15
@@ -20679,9 +20112,8 @@ _ZL8lean_incP11lean_object.exit515:               ; preds = %298, %297, %295, %_
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %312 = load ptr, ptr %311, align 8, !tbaa !15
   %313 = ptrtoint ptr %312 to i64
-  %314 = and i64 %313, 1
-  %.not722 = icmp eq i64 %314, 0
-  br i1 %.not722, label %315, label %_ZL8lean_incP11lean_object.exit514
+  %314 = trunc i64 %313 to i1
+  br i1 %314, label %_ZL8lean_incP11lean_object.exit514, label %315
 
 315:                                              ; preds = %310
   %.val.i563 = load i32, ptr %312, align 4, !tbaa !16
@@ -20705,9 +20137,8 @@ _ZL8lean_incP11lean_object.exit514:               ; preds = %320, %319, %317, %3
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %322 = load ptr, ptr %321, align 8, !tbaa !15
   %323 = ptrtoint ptr %322 to i64
-  %324 = and i64 %323, 1
-  %.not723 = icmp eq i64 %324, 0
-  br i1 %.not723, label %325, label %_ZL8lean_incP11lean_object.exit513
+  %324 = trunc i64 %323 to i1
+  br i1 %324, label %_ZL8lean_incP11lean_object.exit513, label %325
 
 325:                                              ; preds = %_ZL8lean_incP11lean_object.exit514
   %.val.i566 = load i32, ptr %322, align 4, !tbaa !16
@@ -20731,9 +20162,8 @@ _ZL8lean_incP11lean_object.exit513:               ; preds = %330, %329, %327, %_
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %332 = load ptr, ptr %331, align 8, !tbaa !15
   %333 = ptrtoint ptr %332 to i64
-  %334 = and i64 %333, 1
-  %.not724 = icmp eq i64 %334, 0
-  br i1 %.not724, label %335, label %_ZL8lean_incP11lean_object.exit512
+  %334 = trunc i64 %333 to i1
+  br i1 %334, label %_ZL8lean_incP11lean_object.exit512, label %335
 
 335:                                              ; preds = %_ZL8lean_incP11lean_object.exit513
   %.val.i569 = load i32, ptr %332, align 4, !tbaa !16
@@ -20757,9 +20187,8 @@ _ZL8lean_incP11lean_object.exit512:               ; preds = %340, %339, %337, %_
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %342 = load ptr, ptr %341, align 8, !tbaa !15
   %343 = ptrtoint ptr %342 to i64
-  %344 = and i64 %343, 1
-  %.not725 = icmp eq i64 %344, 0
-  br i1 %.not725, label %345, label %_ZL8lean_incP11lean_object.exit511
+  %344 = trunc i64 %343 to i1
+  br i1 %344, label %_ZL8lean_incP11lean_object.exit511, label %345
 
 345:                                              ; preds = %_ZL8lean_incP11lean_object.exit512
   %.val.i572 = load i32, ptr %342, align 4, !tbaa !16
@@ -20777,11 +20206,11 @@ _ZL8lean_incP11lean_object.exit512:               ; preds = %340, %339, %337, %_
 
 350:                                              ; preds = %349
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %342)
-  %.pre770 = load ptr, ptr %341, align 8, !tbaa !15
+  %.pre715 = load ptr, ptr %341, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit511
 
 _ZL8lean_incP11lean_object.exit511:               ; preds = %350, %349, %347, %_ZL8lean_incP11lean_object.exit512
-  %351 = phi ptr [ %.pre770, %350 ], [ %342, %349 ], [ %342, %347 ], [ %342, %_ZL8lean_incP11lean_object.exit512 ]
+  %351 = phi ptr [ %.pre715, %350 ], [ %342, %349 ], [ %342, %347 ], [ %342, %_ZL8lean_incP11lean_object.exit512 ]
   %352 = getelementptr i8, ptr %0, i64 8
   %.val529 = load ptr, ptr %352, align 8, !tbaa !15
   %353 = load ptr, ptr %311, align 8, !tbaa !15
@@ -20809,9 +20238,8 @@ _ZL8lean_incP11lean_object.exit511:               ; preds = %350, %349, %347, %_
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %365 = load ptr, ptr %364, align 8, !tbaa !15
   %366 = ptrtoint ptr %365 to i64
-  %367 = and i64 %366, 1
-  %.not717 = icmp eq i64 %367, 0
-  br i1 %.not717, label %368, label %_ZL8lean_incP11lean_object.exit510
+  %367 = trunc i64 %366 to i1
+  br i1 %367, label %_ZL8lean_incP11lean_object.exit510, label %368
 
 368:                                              ; preds = %363
   %.val.i575 = load i32, ptr %365, align 4, !tbaa !16
@@ -20835,9 +20263,8 @@ _ZL8lean_incP11lean_object.exit510:               ; preds = %373, %372, %370, %3
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %375 = load ptr, ptr %374, align 8, !tbaa !15
   %376 = ptrtoint ptr %375 to i64
-  %377 = and i64 %376, 1
-  %.not718 = icmp eq i64 %377, 0
-  br i1 %.not718, label %378, label %_ZL8lean_incP11lean_object.exit509
+  %377 = trunc i64 %376 to i1
+  br i1 %377, label %_ZL8lean_incP11lean_object.exit509, label %378
 
 378:                                              ; preds = %_ZL8lean_incP11lean_object.exit510
   %.val.i578 = load i32, ptr %375, align 4, !tbaa !16
@@ -20861,9 +20288,8 @@ _ZL8lean_incP11lean_object.exit509:               ; preds = %383, %382, %380, %_
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %385 = load ptr, ptr %384, align 8, !tbaa !15
   %386 = ptrtoint ptr %385 to i64
-  %387 = and i64 %386, 1
-  %.not719 = icmp eq i64 %387, 0
-  br i1 %.not719, label %388, label %_ZL8lean_incP11lean_object.exit508
+  %387 = trunc i64 %386 to i1
+  br i1 %387, label %_ZL8lean_incP11lean_object.exit508, label %388
 
 388:                                              ; preds = %_ZL8lean_incP11lean_object.exit509
   %.val.i581 = load i32, ptr %385, align 4, !tbaa !16
@@ -20887,9 +20313,8 @@ _ZL8lean_incP11lean_object.exit508:               ; preds = %393, %392, %390, %_
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %395 = load ptr, ptr %394, align 8, !tbaa !15
   %396 = ptrtoint ptr %395 to i64
-  %397 = and i64 %396, 1
-  %.not720 = icmp eq i64 %397, 0
-  br i1 %.not720, label %398, label %_ZL8lean_incP11lean_object.exit507
+  %397 = trunc i64 %396 to i1
+  br i1 %397, label %_ZL8lean_incP11lean_object.exit507, label %398
 
 398:                                              ; preds = %_ZL8lean_incP11lean_object.exit508
   %.val.i584 = load i32, ptr %395, align 4, !tbaa !16
@@ -20913,9 +20338,8 @@ _ZL8lean_incP11lean_object.exit507:               ; preds = %403, %402, %400, %_
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %405 = load ptr, ptr %404, align 8, !tbaa !15
   %406 = ptrtoint ptr %405 to i64
-  %407 = and i64 %406, 1
-  %.not721 = icmp eq i64 %407, 0
-  br i1 %.not721, label %408, label %_ZL8lean_incP11lean_object.exit506
+  %407 = trunc i64 %406 to i1
+  br i1 %407, label %_ZL8lean_incP11lean_object.exit506, label %408
 
 408:                                              ; preds = %_ZL8lean_incP11lean_object.exit507
   %.val.i587 = load i32, ptr %405, align 4, !tbaa !16
@@ -20933,11 +20357,11 @@ _ZL8lean_incP11lean_object.exit507:               ; preds = %403, %402, %400, %_
 
 413:                                              ; preds = %412
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %405)
-  %.pre769 = load ptr, ptr %404, align 8, !tbaa !15
+  %.pre714 = load ptr, ptr %404, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit506
 
 _ZL8lean_incP11lean_object.exit506:               ; preds = %413, %412, %410, %_ZL8lean_incP11lean_object.exit507
-  %414 = phi ptr [ %.pre769, %413 ], [ %405, %412 ], [ %405, %410 ], [ %405, %_ZL8lean_incP11lean_object.exit507 ]
+  %414 = phi ptr [ %.pre714, %413 ], [ %405, %412 ], [ %405, %410 ], [ %405, %_ZL8lean_incP11lean_object.exit507 ]
   %415 = getelementptr i8, ptr %0, i64 8
   %.val528 = load ptr, ptr %415, align 8, !tbaa !15
   %416 = load ptr, ptr %364, align 8, !tbaa !15
@@ -20966,9 +20390,8 @@ _ZL8lean_incP11lean_object.exit506:               ; preds = %413, %412, %410, %_
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %429 = load ptr, ptr %428, align 8, !tbaa !15
   %430 = ptrtoint ptr %429 to i64
-  %431 = and i64 %430, 1
-  %.not711 = icmp eq i64 %431, 0
-  br i1 %.not711, label %432, label %_ZL8lean_incP11lean_object.exit505
+  %431 = trunc i64 %430 to i1
+  br i1 %431, label %_ZL8lean_incP11lean_object.exit505, label %432
 
 432:                                              ; preds = %427
   %.val.i590 = load i32, ptr %429, align 4, !tbaa !16
@@ -20992,9 +20415,8 @@ _ZL8lean_incP11lean_object.exit505:               ; preds = %437, %436, %434, %4
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %439 = load ptr, ptr %438, align 8, !tbaa !15
   %440 = ptrtoint ptr %439 to i64
-  %441 = and i64 %440, 1
-  %.not712 = icmp eq i64 %441, 0
-  br i1 %.not712, label %442, label %_ZL8lean_incP11lean_object.exit504
+  %441 = trunc i64 %440 to i1
+  br i1 %441, label %_ZL8lean_incP11lean_object.exit504, label %442
 
 442:                                              ; preds = %_ZL8lean_incP11lean_object.exit505
   %.val.i593 = load i32, ptr %439, align 4, !tbaa !16
@@ -21018,9 +20440,8 @@ _ZL8lean_incP11lean_object.exit504:               ; preds = %447, %446, %444, %_
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %449 = load ptr, ptr %448, align 8, !tbaa !15
   %450 = ptrtoint ptr %449 to i64
-  %451 = and i64 %450, 1
-  %.not713 = icmp eq i64 %451, 0
-  br i1 %.not713, label %452, label %_ZL8lean_incP11lean_object.exit503
+  %451 = trunc i64 %450 to i1
+  br i1 %451, label %_ZL8lean_incP11lean_object.exit503, label %452
 
 452:                                              ; preds = %_ZL8lean_incP11lean_object.exit504
   %.val.i596 = load i32, ptr %449, align 4, !tbaa !16
@@ -21044,9 +20465,8 @@ _ZL8lean_incP11lean_object.exit503:               ; preds = %457, %456, %454, %_
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %459 = load ptr, ptr %458, align 8, !tbaa !15
   %460 = ptrtoint ptr %459 to i64
-  %461 = and i64 %460, 1
-  %.not714 = icmp eq i64 %461, 0
-  br i1 %.not714, label %462, label %_ZL8lean_incP11lean_object.exit502
+  %461 = trunc i64 %460 to i1
+  br i1 %461, label %_ZL8lean_incP11lean_object.exit502, label %462
 
 462:                                              ; preds = %_ZL8lean_incP11lean_object.exit503
   %.val.i599 = load i32, ptr %459, align 4, !tbaa !16
@@ -21070,9 +20490,8 @@ _ZL8lean_incP11lean_object.exit502:               ; preds = %467, %466, %464, %_
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %469 = load ptr, ptr %468, align 8, !tbaa !15
   %470 = ptrtoint ptr %469 to i64
-  %471 = and i64 %470, 1
-  %.not715 = icmp eq i64 %471, 0
-  br i1 %.not715, label %472, label %_ZL8lean_incP11lean_object.exit501
+  %471 = trunc i64 %470 to i1
+  br i1 %471, label %_ZL8lean_incP11lean_object.exit501, label %472
 
 472:                                              ; preds = %_ZL8lean_incP11lean_object.exit502
   %.val.i602 = load i32, ptr %469, align 4, !tbaa !16
@@ -21096,9 +20515,8 @@ _ZL8lean_incP11lean_object.exit501:               ; preds = %477, %476, %474, %_
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %479 = load ptr, ptr %478, align 8, !tbaa !15
   %480 = ptrtoint ptr %479 to i64
-  %481 = and i64 %480, 1
-  %.not716 = icmp eq i64 %481, 0
-  br i1 %.not716, label %482, label %_ZL8lean_incP11lean_object.exit500
+  %481 = trunc i64 %480 to i1
+  br i1 %481, label %_ZL8lean_incP11lean_object.exit500, label %482
 
 482:                                              ; preds = %_ZL8lean_incP11lean_object.exit501
   %.val.i605 = load i32, ptr %479, align 4, !tbaa !16
@@ -21116,11 +20534,11 @@ _ZL8lean_incP11lean_object.exit501:               ; preds = %477, %476, %474, %_
 
 487:                                              ; preds = %486
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %479)
-  %.pre768 = load ptr, ptr %478, align 8, !tbaa !15
+  %.pre713 = load ptr, ptr %478, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit500
 
 _ZL8lean_incP11lean_object.exit500:               ; preds = %487, %486, %484, %_ZL8lean_incP11lean_object.exit501
-  %488 = phi ptr [ %.pre768, %487 ], [ %479, %486 ], [ %479, %484 ], [ %479, %_ZL8lean_incP11lean_object.exit501 ]
+  %488 = phi ptr [ %.pre713, %487 ], [ %479, %486 ], [ %479, %484 ], [ %479, %_ZL8lean_incP11lean_object.exit501 ]
   %489 = getelementptr i8, ptr %0, i64 8
   %.val527 = load ptr, ptr %489, align 8, !tbaa !15
   %490 = load ptr, ptr %428, align 8, !tbaa !15
@@ -21150,9 +20568,8 @@ _ZL8lean_incP11lean_object.exit500:               ; preds = %487, %486, %484, %_
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %504 = load ptr, ptr %503, align 8, !tbaa !15
   %505 = ptrtoint ptr %504 to i64
-  %506 = and i64 %505, 1
-  %.not704 = icmp eq i64 %506, 0
-  br i1 %.not704, label %507, label %_ZL8lean_incP11lean_object.exit499
+  %506 = trunc i64 %505 to i1
+  br i1 %506, label %_ZL8lean_incP11lean_object.exit499, label %507
 
 507:                                              ; preds = %502
   %.val.i608 = load i32, ptr %504, align 4, !tbaa !16
@@ -21176,9 +20593,8 @@ _ZL8lean_incP11lean_object.exit499:               ; preds = %512, %511, %509, %5
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %514 = load ptr, ptr %513, align 8, !tbaa !15
   %515 = ptrtoint ptr %514 to i64
-  %516 = and i64 %515, 1
-  %.not705 = icmp eq i64 %516, 0
-  br i1 %.not705, label %517, label %_ZL8lean_incP11lean_object.exit498
+  %516 = trunc i64 %515 to i1
+  br i1 %516, label %_ZL8lean_incP11lean_object.exit498, label %517
 
 517:                                              ; preds = %_ZL8lean_incP11lean_object.exit499
   %.val.i611 = load i32, ptr %514, align 4, !tbaa !16
@@ -21202,9 +20618,8 @@ _ZL8lean_incP11lean_object.exit498:               ; preds = %522, %521, %519, %_
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %524 = load ptr, ptr %523, align 8, !tbaa !15
   %525 = ptrtoint ptr %524 to i64
-  %526 = and i64 %525, 1
-  %.not706 = icmp eq i64 %526, 0
-  br i1 %.not706, label %527, label %_ZL8lean_incP11lean_object.exit497
+  %526 = trunc i64 %525 to i1
+  br i1 %526, label %_ZL8lean_incP11lean_object.exit497, label %527
 
 527:                                              ; preds = %_ZL8lean_incP11lean_object.exit498
   %.val.i614 = load i32, ptr %524, align 4, !tbaa !16
@@ -21228,9 +20643,8 @@ _ZL8lean_incP11lean_object.exit497:               ; preds = %532, %531, %529, %_
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %534 = load ptr, ptr %533, align 8, !tbaa !15
   %535 = ptrtoint ptr %534 to i64
-  %536 = and i64 %535, 1
-  %.not707 = icmp eq i64 %536, 0
-  br i1 %.not707, label %537, label %_ZL8lean_incP11lean_object.exit496
+  %536 = trunc i64 %535 to i1
+  br i1 %536, label %_ZL8lean_incP11lean_object.exit496, label %537
 
 537:                                              ; preds = %_ZL8lean_incP11lean_object.exit497
   %.val.i617 = load i32, ptr %534, align 4, !tbaa !16
@@ -21254,9 +20668,8 @@ _ZL8lean_incP11lean_object.exit496:               ; preds = %542, %541, %539, %_
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %544 = load ptr, ptr %543, align 8, !tbaa !15
   %545 = ptrtoint ptr %544 to i64
-  %546 = and i64 %545, 1
-  %.not708 = icmp eq i64 %546, 0
-  br i1 %.not708, label %547, label %_ZL8lean_incP11lean_object.exit495
+  %546 = trunc i64 %545 to i1
+  br i1 %546, label %_ZL8lean_incP11lean_object.exit495, label %547
 
 547:                                              ; preds = %_ZL8lean_incP11lean_object.exit496
   %.val.i620 = load i32, ptr %544, align 4, !tbaa !16
@@ -21280,9 +20693,8 @@ _ZL8lean_incP11lean_object.exit495:               ; preds = %552, %551, %549, %_
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %554 = load ptr, ptr %553, align 8, !tbaa !15
   %555 = ptrtoint ptr %554 to i64
-  %556 = and i64 %555, 1
-  %.not709 = icmp eq i64 %556, 0
-  br i1 %.not709, label %557, label %_ZL8lean_incP11lean_object.exit494
+  %556 = trunc i64 %555 to i1
+  br i1 %556, label %_ZL8lean_incP11lean_object.exit494, label %557
 
 557:                                              ; preds = %_ZL8lean_incP11lean_object.exit495
   %.val.i623 = load i32, ptr %554, align 4, !tbaa !16
@@ -21306,9 +20718,8 @@ _ZL8lean_incP11lean_object.exit494:               ; preds = %562, %561, %559, %_
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %564 = load ptr, ptr %563, align 8, !tbaa !15
   %565 = ptrtoint ptr %564 to i64
-  %566 = and i64 %565, 1
-  %.not710 = icmp eq i64 %566, 0
-  br i1 %.not710, label %567, label %_ZL8lean_incP11lean_object.exit493
+  %566 = trunc i64 %565 to i1
+  br i1 %566, label %_ZL8lean_incP11lean_object.exit493, label %567
 
 567:                                              ; preds = %_ZL8lean_incP11lean_object.exit494
   %.val.i626 = load i32, ptr %564, align 4, !tbaa !16
@@ -21326,11 +20737,11 @@ _ZL8lean_incP11lean_object.exit494:               ; preds = %562, %561, %559, %_
 
 572:                                              ; preds = %571
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %564)
-  %.pre767 = load ptr, ptr %563, align 8, !tbaa !15
+  %.pre712 = load ptr, ptr %563, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit493
 
 _ZL8lean_incP11lean_object.exit493:               ; preds = %572, %571, %569, %_ZL8lean_incP11lean_object.exit494
-  %573 = phi ptr [ %.pre767, %572 ], [ %564, %571 ], [ %564, %569 ], [ %564, %_ZL8lean_incP11lean_object.exit494 ]
+  %573 = phi ptr [ %.pre712, %572 ], [ %564, %571 ], [ %564, %569 ], [ %564, %_ZL8lean_incP11lean_object.exit494 ]
   %574 = getelementptr i8, ptr %0, i64 8
   %.val526 = load ptr, ptr %574, align 8, !tbaa !15
   %575 = load ptr, ptr %503, align 8, !tbaa !15
@@ -21361,9 +20772,8 @@ _ZL8lean_incP11lean_object.exit493:               ; preds = %572, %571, %569, %_
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %590 = load ptr, ptr %589, align 8, !tbaa !15
   %591 = ptrtoint ptr %590 to i64
-  %592 = and i64 %591, 1
-  %.not696 = icmp eq i64 %592, 0
-  br i1 %.not696, label %593, label %_ZL8lean_incP11lean_object.exit492
+  %592 = trunc i64 %591 to i1
+  br i1 %592, label %_ZL8lean_incP11lean_object.exit492, label %593
 
 593:                                              ; preds = %588
   %.val.i629 = load i32, ptr %590, align 4, !tbaa !16
@@ -21387,9 +20797,8 @@ _ZL8lean_incP11lean_object.exit492:               ; preds = %598, %597, %595, %5
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %600 = load ptr, ptr %599, align 8, !tbaa !15
   %601 = ptrtoint ptr %600 to i64
-  %602 = and i64 %601, 1
-  %.not697 = icmp eq i64 %602, 0
-  br i1 %.not697, label %603, label %_ZL8lean_incP11lean_object.exit491
+  %602 = trunc i64 %601 to i1
+  br i1 %602, label %_ZL8lean_incP11lean_object.exit491, label %603
 
 603:                                              ; preds = %_ZL8lean_incP11lean_object.exit492
   %.val.i632 = load i32, ptr %600, align 4, !tbaa !16
@@ -21413,9 +20822,8 @@ _ZL8lean_incP11lean_object.exit491:               ; preds = %608, %607, %605, %_
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %610 = load ptr, ptr %609, align 8, !tbaa !15
   %611 = ptrtoint ptr %610 to i64
-  %612 = and i64 %611, 1
-  %.not698 = icmp eq i64 %612, 0
-  br i1 %.not698, label %613, label %_ZL8lean_incP11lean_object.exit490
+  %612 = trunc i64 %611 to i1
+  br i1 %612, label %_ZL8lean_incP11lean_object.exit490, label %613
 
 613:                                              ; preds = %_ZL8lean_incP11lean_object.exit491
   %.val.i635 = load i32, ptr %610, align 4, !tbaa !16
@@ -21439,9 +20847,8 @@ _ZL8lean_incP11lean_object.exit490:               ; preds = %618, %617, %615, %_
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %620 = load ptr, ptr %619, align 8, !tbaa !15
   %621 = ptrtoint ptr %620 to i64
-  %622 = and i64 %621, 1
-  %.not699 = icmp eq i64 %622, 0
-  br i1 %.not699, label %623, label %_ZL8lean_incP11lean_object.exit489
+  %622 = trunc i64 %621 to i1
+  br i1 %622, label %_ZL8lean_incP11lean_object.exit489, label %623
 
 623:                                              ; preds = %_ZL8lean_incP11lean_object.exit490
   %.val.i638 = load i32, ptr %620, align 4, !tbaa !16
@@ -21465,9 +20872,8 @@ _ZL8lean_incP11lean_object.exit489:               ; preds = %628, %627, %625, %_
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %630 = load ptr, ptr %629, align 8, !tbaa !15
   %631 = ptrtoint ptr %630 to i64
-  %632 = and i64 %631, 1
-  %.not700 = icmp eq i64 %632, 0
-  br i1 %.not700, label %633, label %_ZL8lean_incP11lean_object.exit488
+  %632 = trunc i64 %631 to i1
+  br i1 %632, label %_ZL8lean_incP11lean_object.exit488, label %633
 
 633:                                              ; preds = %_ZL8lean_incP11lean_object.exit489
   %.val.i641 = load i32, ptr %630, align 4, !tbaa !16
@@ -21491,9 +20897,8 @@ _ZL8lean_incP11lean_object.exit488:               ; preds = %638, %637, %635, %_
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %640 = load ptr, ptr %639, align 8, !tbaa !15
   %641 = ptrtoint ptr %640 to i64
-  %642 = and i64 %641, 1
-  %.not701 = icmp eq i64 %642, 0
-  br i1 %.not701, label %643, label %_ZL8lean_incP11lean_object.exit487
+  %642 = trunc i64 %641 to i1
+  br i1 %642, label %_ZL8lean_incP11lean_object.exit487, label %643
 
 643:                                              ; preds = %_ZL8lean_incP11lean_object.exit488
   %.val.i644 = load i32, ptr %640, align 4, !tbaa !16
@@ -21517,9 +20922,8 @@ _ZL8lean_incP11lean_object.exit487:               ; preds = %648, %647, %645, %_
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %650 = load ptr, ptr %649, align 8, !tbaa !15
   %651 = ptrtoint ptr %650 to i64
-  %652 = and i64 %651, 1
-  %.not702 = icmp eq i64 %652, 0
-  br i1 %.not702, label %653, label %_ZL8lean_incP11lean_object.exit486
+  %652 = trunc i64 %651 to i1
+  br i1 %652, label %_ZL8lean_incP11lean_object.exit486, label %653
 
 653:                                              ; preds = %_ZL8lean_incP11lean_object.exit487
   %.val.i647 = load i32, ptr %650, align 4, !tbaa !16
@@ -21543,9 +20947,8 @@ _ZL8lean_incP11lean_object.exit486:               ; preds = %658, %657, %655, %_
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %660 = load ptr, ptr %659, align 8, !tbaa !15
   %661 = ptrtoint ptr %660 to i64
-  %662 = and i64 %661, 1
-  %.not703 = icmp eq i64 %662, 0
-  br i1 %.not703, label %663, label %_ZL8lean_incP11lean_object.exit485
+  %662 = trunc i64 %661 to i1
+  br i1 %662, label %_ZL8lean_incP11lean_object.exit485, label %663
 
 663:                                              ; preds = %_ZL8lean_incP11lean_object.exit486
   %.val.i650 = load i32, ptr %660, align 4, !tbaa !16
@@ -21563,11 +20966,11 @@ _ZL8lean_incP11lean_object.exit486:               ; preds = %658, %657, %655, %_
 
 668:                                              ; preds = %667
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %660)
-  %.pre766 = load ptr, ptr %659, align 8, !tbaa !15
+  %.pre711 = load ptr, ptr %659, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit485
 
 _ZL8lean_incP11lean_object.exit485:               ; preds = %668, %667, %665, %_ZL8lean_incP11lean_object.exit486
-  %669 = phi ptr [ %.pre766, %668 ], [ %660, %667 ], [ %660, %665 ], [ %660, %_ZL8lean_incP11lean_object.exit486 ]
+  %669 = phi ptr [ %.pre711, %668 ], [ %660, %667 ], [ %660, %665 ], [ %660, %_ZL8lean_incP11lean_object.exit486 ]
   %670 = getelementptr i8, ptr %0, i64 8
   %.val525 = load ptr, ptr %670, align 8, !tbaa !15
   %671 = load ptr, ptr %589, align 8, !tbaa !15
@@ -21599,9 +21002,8 @@ _ZL8lean_incP11lean_object.exit485:               ; preds = %668, %667, %665, %_
   %686 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %687 = load ptr, ptr %686, align 8, !tbaa !15
   %688 = ptrtoint ptr %687 to i64
-  %689 = and i64 %688, 1
-  %.not687 = icmp eq i64 %689, 0
-  br i1 %.not687, label %690, label %_ZL8lean_incP11lean_object.exit484
+  %689 = trunc i64 %688 to i1
+  br i1 %689, label %_ZL8lean_incP11lean_object.exit484, label %690
 
 690:                                              ; preds = %685
   %.val.i653 = load i32, ptr %687, align 4, !tbaa !16
@@ -21625,9 +21027,8 @@ _ZL8lean_incP11lean_object.exit484:               ; preds = %695, %694, %692, %6
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %697 = load ptr, ptr %696, align 8, !tbaa !15
   %698 = ptrtoint ptr %697 to i64
-  %699 = and i64 %698, 1
-  %.not688 = icmp eq i64 %699, 0
-  br i1 %.not688, label %700, label %_ZL8lean_incP11lean_object.exit483
+  %699 = trunc i64 %698 to i1
+  br i1 %699, label %_ZL8lean_incP11lean_object.exit483, label %700
 
 700:                                              ; preds = %_ZL8lean_incP11lean_object.exit484
   %.val.i656 = load i32, ptr %697, align 4, !tbaa !16
@@ -21651,9 +21052,8 @@ _ZL8lean_incP11lean_object.exit483:               ; preds = %705, %704, %702, %_
   %706 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %707 = load ptr, ptr %706, align 8, !tbaa !15
   %708 = ptrtoint ptr %707 to i64
-  %709 = and i64 %708, 1
-  %.not689 = icmp eq i64 %709, 0
-  br i1 %.not689, label %710, label %_ZL8lean_incP11lean_object.exit482
+  %709 = trunc i64 %708 to i1
+  br i1 %709, label %_ZL8lean_incP11lean_object.exit482, label %710
 
 710:                                              ; preds = %_ZL8lean_incP11lean_object.exit483
   %.val.i659 = load i32, ptr %707, align 4, !tbaa !16
@@ -21677,9 +21077,8 @@ _ZL8lean_incP11lean_object.exit482:               ; preds = %715, %714, %712, %_
   %716 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %717 = load ptr, ptr %716, align 8, !tbaa !15
   %718 = ptrtoint ptr %717 to i64
-  %719 = and i64 %718, 1
-  %.not690 = icmp eq i64 %719, 0
-  br i1 %.not690, label %720, label %_ZL8lean_incP11lean_object.exit481
+  %719 = trunc i64 %718 to i1
+  br i1 %719, label %_ZL8lean_incP11lean_object.exit481, label %720
 
 720:                                              ; preds = %_ZL8lean_incP11lean_object.exit482
   %.val.i662 = load i32, ptr %717, align 4, !tbaa !16
@@ -21703,9 +21102,8 @@ _ZL8lean_incP11lean_object.exit481:               ; preds = %725, %724, %722, %_
   %726 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %727 = load ptr, ptr %726, align 8, !tbaa !15
   %728 = ptrtoint ptr %727 to i64
-  %729 = and i64 %728, 1
-  %.not691 = icmp eq i64 %729, 0
-  br i1 %.not691, label %730, label %_ZL8lean_incP11lean_object.exit480
+  %729 = trunc i64 %728 to i1
+  br i1 %729, label %_ZL8lean_incP11lean_object.exit480, label %730
 
 730:                                              ; preds = %_ZL8lean_incP11lean_object.exit481
   %.val.i665 = load i32, ptr %727, align 4, !tbaa !16
@@ -21729,9 +21127,8 @@ _ZL8lean_incP11lean_object.exit480:               ; preds = %735, %734, %732, %_
   %736 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %737 = load ptr, ptr %736, align 8, !tbaa !15
   %738 = ptrtoint ptr %737 to i64
-  %739 = and i64 %738, 1
-  %.not692 = icmp eq i64 %739, 0
-  br i1 %.not692, label %740, label %_ZL8lean_incP11lean_object.exit479
+  %739 = trunc i64 %738 to i1
+  br i1 %739, label %_ZL8lean_incP11lean_object.exit479, label %740
 
 740:                                              ; preds = %_ZL8lean_incP11lean_object.exit480
   %.val.i668 = load i32, ptr %737, align 4, !tbaa !16
@@ -21755,9 +21152,8 @@ _ZL8lean_incP11lean_object.exit479:               ; preds = %745, %744, %742, %_
   %746 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %747 = load ptr, ptr %746, align 8, !tbaa !15
   %748 = ptrtoint ptr %747 to i64
-  %749 = and i64 %748, 1
-  %.not693 = icmp eq i64 %749, 0
-  br i1 %.not693, label %750, label %_ZL8lean_incP11lean_object.exit478
+  %749 = trunc i64 %748 to i1
+  br i1 %749, label %_ZL8lean_incP11lean_object.exit478, label %750
 
 750:                                              ; preds = %_ZL8lean_incP11lean_object.exit479
   %.val.i671 = load i32, ptr %747, align 4, !tbaa !16
@@ -21781,9 +21177,8 @@ _ZL8lean_incP11lean_object.exit478:               ; preds = %755, %754, %752, %_
   %756 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %757 = load ptr, ptr %756, align 8, !tbaa !15
   %758 = ptrtoint ptr %757 to i64
-  %759 = and i64 %758, 1
-  %.not694 = icmp eq i64 %759, 0
-  br i1 %.not694, label %760, label %_ZL8lean_incP11lean_object.exit477
+  %759 = trunc i64 %758 to i1
+  br i1 %759, label %_ZL8lean_incP11lean_object.exit477, label %760
 
 760:                                              ; preds = %_ZL8lean_incP11lean_object.exit478
   %.val.i674 = load i32, ptr %757, align 4, !tbaa !16
@@ -21807,9 +21202,8 @@ _ZL8lean_incP11lean_object.exit477:               ; preds = %765, %764, %762, %_
   %766 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %767 = load ptr, ptr %766, align 8, !tbaa !15
   %768 = ptrtoint ptr %767 to i64
-  %769 = and i64 %768, 1
-  %.not695 = icmp eq i64 %769, 0
-  br i1 %.not695, label %770, label %_ZL8lean_incP11lean_object.exit476
+  %769 = trunc i64 %768 to i1
+  br i1 %769, label %_ZL8lean_incP11lean_object.exit476, label %770
 
 770:                                              ; preds = %_ZL8lean_incP11lean_object.exit477
   %.val.i677 = load i32, ptr %767, align 4, !tbaa !16
@@ -21827,11 +21221,11 @@ _ZL8lean_incP11lean_object.exit477:               ; preds = %765, %764, %762, %_
 
 775:                                              ; preds = %774
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %767)
-  %.pre765 = load ptr, ptr %766, align 8, !tbaa !15
+  %.pre710 = load ptr, ptr %766, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit476
 
 _ZL8lean_incP11lean_object.exit476:               ; preds = %775, %774, %772, %_ZL8lean_incP11lean_object.exit477
-  %776 = phi ptr [ %.pre765, %775 ], [ %767, %774 ], [ %767, %772 ], [ %767, %_ZL8lean_incP11lean_object.exit477 ]
+  %776 = phi ptr [ %.pre710, %775 ], [ %767, %774 ], [ %767, %772 ], [ %767, %_ZL8lean_incP11lean_object.exit477 ]
   %777 = getelementptr i8, ptr %0, i64 8
   %.val524 = load ptr, ptr %777, align 8, !tbaa !15
   %778 = load ptr, ptr %686, align 8, !tbaa !15
@@ -21864,12 +21258,12 @@ _ZL8lean_incP11lean_object.exit476:               ; preds = %775, %774, %772, %_
   %794 = shl nuw nsw i32 %79, 3
   %795 = zext nneg i32 %794 to i64
   %796 = alloca i8, i64 %795, align 16
-  %.not750 = icmp eq i16 %.val521, 0
-  br i1 %.not750, label %.preheader, label %.lr.ph746
+  %.not695 = icmp eq i16 %.val521, 0
+  br i1 %.not695, label %.preheader, label %.lr.ph692
 
-.lr.ph746:                                        ; preds = %793
+.lr.ph692:                                        ; preds = %793
   %797 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count760 = zext i16 %.val521 to i64
+  %wide.trip.count705 = zext i16 %.val521 to i64
   br label %804
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit475, %793
@@ -21896,14 +21290,13 @@ _ZL8lean_incP11lean_object.exit476:               ; preds = %775, %774, %772, %_
   %803 = icmp sgt i32 %802, 1
   br i1 %803, label %817, label %819, !prof !19
 
-804:                                              ; preds = %.lr.ph746, %_ZL8lean_incP11lean_object.exit475
-  %indvars.iv757 = phi i64 [ 0, %.lr.ph746 ], [ %indvars.iv.next758, %_ZL8lean_incP11lean_object.exit475 ]
-  %805 = getelementptr inbounds nuw ptr, ptr %797, i64 %indvars.iv757
+804:                                              ; preds = %.lr.ph692, %_ZL8lean_incP11lean_object.exit475
+  %indvars.iv702 = phi i64 [ 0, %.lr.ph692 ], [ %indvars.iv.next703, %_ZL8lean_incP11lean_object.exit475 ]
+  %805 = getelementptr inbounds nuw ptr, ptr %797, i64 %indvars.iv702
   %806 = load ptr, ptr %805, align 8, !tbaa !15
   %807 = ptrtoint ptr %806 to i64
-  %808 = and i64 %807, 1
-  %.not732 = icmp eq i64 %808, 0
-  br i1 %.not732, label %809, label %_ZL8lean_incP11lean_object.exit475
+  %808 = trunc i64 %807 to i1
+  br i1 %808, label %_ZL8lean_incP11lean_object.exit475, label %809
 
 809:                                              ; preds = %804
   %.val.i680 = load i32, ptr %806, align 4, !tbaa !16
@@ -21921,16 +21314,16 @@ _ZL8lean_incP11lean_object.exit476:               ; preds = %775, %774, %772, %_
 
 814:                                              ; preds = %813
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %806)
-  %.pre774 = load ptr, ptr %805, align 8, !tbaa !15
+  %.pre719 = load ptr, ptr %805, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit475
 
 _ZL8lean_incP11lean_object.exit475:               ; preds = %814, %813, %811, %804
-  %815 = phi ptr [ %.pre774, %814 ], [ %806, %813 ], [ %806, %811 ], [ %806, %804 ]
-  %816 = getelementptr inbounds nuw ptr, ptr %796, i64 %indvars.iv757
+  %815 = phi ptr [ %.pre719, %814 ], [ %806, %813 ], [ %806, %811 ], [ %806, %804 ]
+  %816 = getelementptr inbounds nuw ptr, ptr %796, i64 %indvars.iv702
   store ptr %815, ptr %816, align 8, !tbaa !15
-  %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
-  %exitcond761.not = icmp eq i64 %indvars.iv.next758, %wide.trip.count760
-  br i1 %exitcond761.not, label %.preheader, label %804, !llvm.loop !39
+  %indvars.iv.next703 = add nuw nsw i64 %indvars.iv702, 1
+  %exitcond706.not = icmp eq i64 %indvars.iv.next703, %wide.trip.count705
+  br i1 %exitcond706.not, label %.preheader, label %804, !llvm.loop !39
 
 817:                                              ; preds = %.preheader
   %818 = add nsw i32 %802, -1
@@ -21967,31 +21360,30 @@ _ZL8lean_incP11lean_object.exit475:               ; preds = %814, %813, %811, %8
   %830 = shl nuw nsw i32 %79, 3
   %831 = zext nneg i32 %830 to i64
   %832 = alloca i8, i64 %831, align 16
-  %.not748 = icmp eq i16 %.val521, 0
-  br i1 %.not748, label %.preheader740, label %.lr.ph
+  %.not = icmp eq i16 %.val521, 0
+  br i1 %.not, label %.preheader686, label %.lr.ph
 
 .lr.ph:                                           ; preds = %823
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val521 to i64
   br label %835
 
-.preheader740:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %823
+.preheader686:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %823
   %834 = sub nsw i32 %79, %81
-  %.not749 = icmp eq i16 %.val, %.val521
-  br i1 %.not749, label %._crit_edge, label %.lr.ph743.preheader
+  %.not694 = icmp eq i16 %.val, %.val521
+  br i1 %.not694, label %._crit_edge, label %.lr.ph689.preheader
 
-.lr.ph743.preheader:                              ; preds = %.preheader740
-  %wide.trip.count755 = zext i32 %834 to i64
-  br label %.lr.ph743
+.lr.ph689.preheader:                              ; preds = %.preheader686
+  %wide.trip.count700 = zext i32 %834 to i64
+  br label %.lr.ph689
 
 835:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %836 = getelementptr inbounds nuw ptr, ptr %833, i64 %indvars.iv
   %837 = load ptr, ptr %836, align 8, !tbaa !15
   %838 = ptrtoint ptr %837 to i64
-  %839 = and i64 %838, 1
-  %.not686 = icmp eq i64 %839, 0
-  br i1 %.not686, label %840, label %_ZL8lean_incP11lean_object.exit
+  %839 = trunc i64 %838 to i1
+  br i1 %839, label %_ZL8lean_incP11lean_object.exit, label %840
 
 840:                                              ; preds = %835
   %.val.i683 = load i32, ptr %837, align 4, !tbaa !16
@@ -22018,9 +21410,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %845, %844, %842, %8
   store ptr %846, ptr %847, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader740, label %835, !llvm.loop !40
+  br i1 %exitcond.not, label %.preheader686, label %835, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %.lr.ph743, %.preheader740
+._crit_edge:                                      ; preds = %.lr.ph689, %.preheader686
   %848 = getelementptr i8, ptr %0, i64 8
   %.val546 = load ptr, ptr %848, align 8, !tbaa !15
   %849 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val546, i32 noundef range(i32 0, 65536) %79, ptr noundef nonnull %832)
@@ -22049,18 +21441,18 @@ _ZL12lean_dec_refP11lean_object.exit452:          ; preds = %852, %854, %855
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph743:                                        ; preds = %.lr.ph743.preheader, %.lr.ph743
-  %indvars.iv752 = phi i64 [ 0, %.lr.ph743.preheader ], [ %indvars.iv.next753, %.lr.ph743 ]
-  %860 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv752
+.lr.ph689:                                        ; preds = %.lr.ph689.preheader, %.lr.ph689
+  %indvars.iv697 = phi i64 [ 0, %.lr.ph689.preheader ], [ %indvars.iv.next698, %.lr.ph689 ]
+  %860 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv697
   %861 = load ptr, ptr %860, align 8, !tbaa !15
-  %862 = trunc nuw i64 %indvars.iv752 to i32
+  %862 = trunc nuw i64 %indvars.iv697 to i32
   %863 = add i32 %862, %81
   %864 = zext i32 %863 to i64
   %865 = getelementptr inbounds nuw ptr, ptr %832, i64 %864
   store ptr %861, ptr %865, align 8, !tbaa !15
-  %indvars.iv.next753 = add nuw nsw i64 %indvars.iv752, 1
-  %exitcond756.not = icmp eq i64 %indvars.iv.next753, %wide.trip.count755
-  br i1 %exitcond756.not, label %._crit_edge, label %.lr.ph743, !llvm.loop !41
+  %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
+  %exitcond701.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count700
+  br i1 %exitcond701.not, label %._crit_edge, label %.lr.ph689, !llvm.loop !41
 
 866:                                              ; preds = %821
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -22091,15 +21483,13 @@ define ptr @lean_apply_8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %10 = alloca [8 x ptr], align 16
   %11 = alloca [8 x ptr], align 8
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %87, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %87
 
 14:                                               ; preds = %9
   %15 = ptrtoint ptr %1 to i64
-  %16 = and i64 %15, 1
-  %.not662 = icmp eq i64 %16, 0
-  br i1 %.not662, label %17, label %_ZL8lean_decP11lean_object.exit414
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %_ZL8lean_decP11lean_object.exit414, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %1, align 4, !tbaa !16
@@ -22121,9 +21511,8 @@ define ptr @lean_apply_8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit414:               ; preds = %23, %22, %20, %14
   %24 = ptrtoint ptr %2 to i64
-  %25 = and i64 %24, 1
-  %.not663 = icmp eq i64 %25, 0
-  br i1 %.not663, label %26, label %_ZL8lean_decP11lean_object.exit413
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %_ZL8lean_decP11lean_object.exit413, label %26
 
 26:                                               ; preds = %_ZL8lean_decP11lean_object.exit414
   %27 = load i32, ptr %2, align 4, !tbaa !16
@@ -22145,9 +21534,8 @@ _ZL8lean_decP11lean_object.exit414:               ; preds = %23, %22, %20, %14
 
 _ZL8lean_decP11lean_object.exit413:               ; preds = %32, %31, %29, %_ZL8lean_decP11lean_object.exit414
   %33 = ptrtoint ptr %3 to i64
-  %34 = and i64 %33, 1
-  %.not664 = icmp eq i64 %34, 0
-  br i1 %.not664, label %35, label %_ZL8lean_decP11lean_object.exit412
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %_ZL8lean_decP11lean_object.exit412, label %35
 
 35:                                               ; preds = %_ZL8lean_decP11lean_object.exit413
   %36 = load i32, ptr %3, align 4, !tbaa !16
@@ -22169,9 +21557,8 @@ _ZL8lean_decP11lean_object.exit413:               ; preds = %32, %31, %29, %_ZL8
 
 _ZL8lean_decP11lean_object.exit412:               ; preds = %41, %40, %38, %_ZL8lean_decP11lean_object.exit413
   %42 = ptrtoint ptr %4 to i64
-  %43 = and i64 %42, 1
-  %.not665 = icmp eq i64 %43, 0
-  br i1 %.not665, label %44, label %_ZL8lean_decP11lean_object.exit411
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %_ZL8lean_decP11lean_object.exit411, label %44
 
 44:                                               ; preds = %_ZL8lean_decP11lean_object.exit412
   %45 = load i32, ptr %4, align 4, !tbaa !16
@@ -22193,9 +21580,8 @@ _ZL8lean_decP11lean_object.exit412:               ; preds = %41, %40, %38, %_ZL8
 
 _ZL8lean_decP11lean_object.exit411:               ; preds = %50, %49, %47, %_ZL8lean_decP11lean_object.exit412
   %51 = ptrtoint ptr %5 to i64
-  %52 = and i64 %51, 1
-  %.not666 = icmp eq i64 %52, 0
-  br i1 %.not666, label %53, label %_ZL8lean_decP11lean_object.exit410
+  %52 = trunc i64 %51 to i1
+  br i1 %52, label %_ZL8lean_decP11lean_object.exit410, label %53
 
 53:                                               ; preds = %_ZL8lean_decP11lean_object.exit411
   %54 = load i32, ptr %5, align 4, !tbaa !16
@@ -22217,9 +21603,8 @@ _ZL8lean_decP11lean_object.exit411:               ; preds = %50, %49, %47, %_ZL8
 
 _ZL8lean_decP11lean_object.exit410:               ; preds = %59, %58, %56, %_ZL8lean_decP11lean_object.exit411
   %60 = ptrtoint ptr %6 to i64
-  %61 = and i64 %60, 1
-  %.not667 = icmp eq i64 %61, 0
-  br i1 %.not667, label %62, label %_ZL8lean_decP11lean_object.exit409
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %_ZL8lean_decP11lean_object.exit409, label %62
 
 62:                                               ; preds = %_ZL8lean_decP11lean_object.exit410
   %63 = load i32, ptr %6, align 4, !tbaa !16
@@ -22241,9 +21626,8 @@ _ZL8lean_decP11lean_object.exit410:               ; preds = %59, %58, %56, %_ZL8
 
 _ZL8lean_decP11lean_object.exit409:               ; preds = %68, %67, %65, %_ZL8lean_decP11lean_object.exit410
   %69 = ptrtoint ptr %7 to i64
-  %70 = and i64 %69, 1
-  %.not668 = icmp eq i64 %70, 0
-  br i1 %.not668, label %71, label %_ZL8lean_decP11lean_object.exit408
+  %70 = trunc i64 %69 to i1
+  br i1 %70, label %_ZL8lean_decP11lean_object.exit408, label %71
 
 71:                                               ; preds = %_ZL8lean_decP11lean_object.exit409
   %72 = load i32, ptr %7, align 4, !tbaa !16
@@ -22265,9 +21649,8 @@ _ZL8lean_decP11lean_object.exit409:               ; preds = %68, %67, %65, %_ZL8
 
 _ZL8lean_decP11lean_object.exit408:               ; preds = %77, %76, %74, %_ZL8lean_decP11lean_object.exit409
   %78 = ptrtoint ptr %8 to i64
-  %79 = and i64 %78, 1
-  %.not669 = icmp eq i64 %79, 0
-  br i1 %.not669, label %80, label %_ZL8lean_decP11lean_object.exit
+  %79 = trunc i64 %78 to i1
+  br i1 %79, label %_ZL8lean_decP11lean_object.exit, label %80
 
 80:                                               ; preds = %_ZL8lean_decP11lean_object.exit408
   %81 = load i32, ptr %8, align 4, !tbaa !16
@@ -22489,9 +21872,8 @@ _ZL8lean_decP11lean_object.exit408:               ; preds = %77, %76, %74, %_ZL8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %208 = load ptr, ptr %207, align 8, !tbaa !15
   %209 = ptrtoint ptr %208 to i64
-  %210 = and i64 %209, 1
-  %.not660 = icmp eq i64 %210, 0
-  br i1 %.not660, label %211, label %_ZL8lean_incP11lean_object.exit487
+  %210 = trunc i64 %209 to i1
+  br i1 %210, label %_ZL8lean_incP11lean_object.exit487, label %211
 
 211:                                              ; preds = %206
   %.val.i = load i32, ptr %208, align 4, !tbaa !16
@@ -22509,11 +21891,11 @@ _ZL8lean_decP11lean_object.exit408:               ; preds = %77, %76, %74, %_ZL8
 
 216:                                              ; preds = %215
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %208)
-  %.pre702 = load ptr, ptr %207, align 8, !tbaa !15
+  %.pre655 = load ptr, ptr %207, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit487
 
 _ZL8lean_incP11lean_object.exit487:               ; preds = %216, %215, %213, %206
-  %217 = phi ptr [ %.pre702, %216 ], [ %208, %215 ], [ %208, %213 ], [ %208, %206 ]
+  %217 = phi ptr [ %.pre655, %216 ], [ %208, %215 ], [ %208, %213 ], [ %208, %206 ]
   %218 = getelementptr i8, ptr %0, i64 8
   %.val498 = load ptr, ptr %218, align 8, !tbaa !15
   %219 = tail call noundef ptr %.val498(ptr noundef %217, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
@@ -22538,9 +21920,8 @@ _ZL8lean_incP11lean_object.exit487:               ; preds = %216, %215, %213, %2
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %228 = load ptr, ptr %227, align 8, !tbaa !15
   %229 = ptrtoint ptr %228 to i64
-  %230 = and i64 %229, 1
-  %.not658 = icmp eq i64 %230, 0
-  br i1 %.not658, label %231, label %_ZL8lean_incP11lean_object.exit486
+  %230 = trunc i64 %229 to i1
+  br i1 %230, label %_ZL8lean_incP11lean_object.exit486, label %231
 
 231:                                              ; preds = %226
   %.val.i513 = load i32, ptr %228, align 4, !tbaa !16
@@ -22564,9 +21945,8 @@ _ZL8lean_incP11lean_object.exit486:               ; preds = %236, %235, %233, %2
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %238 = load ptr, ptr %237, align 8, !tbaa !15
   %239 = ptrtoint ptr %238 to i64
-  %240 = and i64 %239, 1
-  %.not659 = icmp eq i64 %240, 0
-  br i1 %.not659, label %241, label %_ZL8lean_incP11lean_object.exit485
+  %240 = trunc i64 %239 to i1
+  br i1 %240, label %_ZL8lean_incP11lean_object.exit485, label %241
 
 241:                                              ; preds = %_ZL8lean_incP11lean_object.exit486
   %.val.i516 = load i32, ptr %238, align 4, !tbaa !16
@@ -22584,11 +21964,11 @@ _ZL8lean_incP11lean_object.exit486:               ; preds = %236, %235, %233, %2
 
 246:                                              ; preds = %245
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %238)
-  %.pre701 = load ptr, ptr %237, align 8, !tbaa !15
+  %.pre654 = load ptr, ptr %237, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit485
 
 _ZL8lean_incP11lean_object.exit485:               ; preds = %246, %245, %243, %_ZL8lean_incP11lean_object.exit486
-  %247 = phi ptr [ %.pre701, %246 ], [ %238, %245 ], [ %238, %243 ], [ %238, %_ZL8lean_incP11lean_object.exit486 ]
+  %247 = phi ptr [ %.pre654, %246 ], [ %238, %245 ], [ %238, %243 ], [ %238, %_ZL8lean_incP11lean_object.exit486 ]
   %248 = getelementptr i8, ptr %0, i64 8
   %.val497 = load ptr, ptr %248, align 8, !tbaa !15
   %249 = load ptr, ptr %227, align 8, !tbaa !15
@@ -22614,9 +21994,8 @@ _ZL8lean_incP11lean_object.exit485:               ; preds = %246, %245, %243, %_
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %259 = load ptr, ptr %258, align 8, !tbaa !15
   %260 = ptrtoint ptr %259 to i64
-  %261 = and i64 %260, 1
-  %.not655 = icmp eq i64 %261, 0
-  br i1 %.not655, label %262, label %_ZL8lean_incP11lean_object.exit484
+  %261 = trunc i64 %260 to i1
+  br i1 %261, label %_ZL8lean_incP11lean_object.exit484, label %262
 
 262:                                              ; preds = %257
   %.val.i519 = load i32, ptr %259, align 4, !tbaa !16
@@ -22640,9 +22019,8 @@ _ZL8lean_incP11lean_object.exit484:               ; preds = %267, %266, %264, %2
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %269 = load ptr, ptr %268, align 8, !tbaa !15
   %270 = ptrtoint ptr %269 to i64
-  %271 = and i64 %270, 1
-  %.not656 = icmp eq i64 %271, 0
-  br i1 %.not656, label %272, label %_ZL8lean_incP11lean_object.exit483
+  %271 = trunc i64 %270 to i1
+  br i1 %271, label %_ZL8lean_incP11lean_object.exit483, label %272
 
 272:                                              ; preds = %_ZL8lean_incP11lean_object.exit484
   %.val.i522 = load i32, ptr %269, align 4, !tbaa !16
@@ -22666,9 +22044,8 @@ _ZL8lean_incP11lean_object.exit483:               ; preds = %277, %276, %274, %_
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %279 = load ptr, ptr %278, align 8, !tbaa !15
   %280 = ptrtoint ptr %279 to i64
-  %281 = and i64 %280, 1
-  %.not657 = icmp eq i64 %281, 0
-  br i1 %.not657, label %282, label %_ZL8lean_incP11lean_object.exit482
+  %281 = trunc i64 %280 to i1
+  br i1 %281, label %_ZL8lean_incP11lean_object.exit482, label %282
 
 282:                                              ; preds = %_ZL8lean_incP11lean_object.exit483
   %.val.i525 = load i32, ptr %279, align 4, !tbaa !16
@@ -22686,11 +22063,11 @@ _ZL8lean_incP11lean_object.exit483:               ; preds = %277, %276, %274, %_
 
 287:                                              ; preds = %286
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %279)
-  %.pre700 = load ptr, ptr %278, align 8, !tbaa !15
+  %.pre653 = load ptr, ptr %278, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit482
 
 _ZL8lean_incP11lean_object.exit482:               ; preds = %287, %286, %284, %_ZL8lean_incP11lean_object.exit483
-  %288 = phi ptr [ %.pre700, %287 ], [ %279, %286 ], [ %279, %284 ], [ %279, %_ZL8lean_incP11lean_object.exit483 ]
+  %288 = phi ptr [ %.pre653, %287 ], [ %279, %286 ], [ %279, %284 ], [ %279, %_ZL8lean_incP11lean_object.exit483 ]
   %289 = getelementptr i8, ptr %0, i64 8
   %.val496 = load ptr, ptr %289, align 8, !tbaa !15
   %290 = load ptr, ptr %258, align 8, !tbaa !15
@@ -22717,9 +22094,8 @@ _ZL8lean_incP11lean_object.exit482:               ; preds = %287, %286, %284, %_
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %301 = load ptr, ptr %300, align 8, !tbaa !15
   %302 = ptrtoint ptr %301 to i64
-  %303 = and i64 %302, 1
-  %.not651 = icmp eq i64 %303, 0
-  br i1 %.not651, label %304, label %_ZL8lean_incP11lean_object.exit481
+  %303 = trunc i64 %302 to i1
+  br i1 %303, label %_ZL8lean_incP11lean_object.exit481, label %304
 
 304:                                              ; preds = %299
   %.val.i528 = load i32, ptr %301, align 4, !tbaa !16
@@ -22743,9 +22119,8 @@ _ZL8lean_incP11lean_object.exit481:               ; preds = %309, %308, %306, %2
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %311 = load ptr, ptr %310, align 8, !tbaa !15
   %312 = ptrtoint ptr %311 to i64
-  %313 = and i64 %312, 1
-  %.not652 = icmp eq i64 %313, 0
-  br i1 %.not652, label %314, label %_ZL8lean_incP11lean_object.exit480
+  %313 = trunc i64 %312 to i1
+  br i1 %313, label %_ZL8lean_incP11lean_object.exit480, label %314
 
 314:                                              ; preds = %_ZL8lean_incP11lean_object.exit481
   %.val.i531 = load i32, ptr %311, align 4, !tbaa !16
@@ -22769,9 +22144,8 @@ _ZL8lean_incP11lean_object.exit480:               ; preds = %319, %318, %316, %_
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %321 = load ptr, ptr %320, align 8, !tbaa !15
   %322 = ptrtoint ptr %321 to i64
-  %323 = and i64 %322, 1
-  %.not653 = icmp eq i64 %323, 0
-  br i1 %.not653, label %324, label %_ZL8lean_incP11lean_object.exit479
+  %323 = trunc i64 %322 to i1
+  br i1 %323, label %_ZL8lean_incP11lean_object.exit479, label %324
 
 324:                                              ; preds = %_ZL8lean_incP11lean_object.exit480
   %.val.i534 = load i32, ptr %321, align 4, !tbaa !16
@@ -22795,9 +22169,8 @@ _ZL8lean_incP11lean_object.exit479:               ; preds = %329, %328, %326, %_
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %331 = load ptr, ptr %330, align 8, !tbaa !15
   %332 = ptrtoint ptr %331 to i64
-  %333 = and i64 %332, 1
-  %.not654 = icmp eq i64 %333, 0
-  br i1 %.not654, label %334, label %_ZL8lean_incP11lean_object.exit478
+  %333 = trunc i64 %332 to i1
+  br i1 %333, label %_ZL8lean_incP11lean_object.exit478, label %334
 
 334:                                              ; preds = %_ZL8lean_incP11lean_object.exit479
   %.val.i537 = load i32, ptr %331, align 4, !tbaa !16
@@ -22815,11 +22188,11 @@ _ZL8lean_incP11lean_object.exit479:               ; preds = %329, %328, %326, %_
 
 339:                                              ; preds = %338
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %331)
-  %.pre699 = load ptr, ptr %330, align 8, !tbaa !15
+  %.pre652 = load ptr, ptr %330, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit478
 
 _ZL8lean_incP11lean_object.exit478:               ; preds = %339, %338, %336, %_ZL8lean_incP11lean_object.exit479
-  %340 = phi ptr [ %.pre699, %339 ], [ %331, %338 ], [ %331, %336 ], [ %331, %_ZL8lean_incP11lean_object.exit479 ]
+  %340 = phi ptr [ %.pre652, %339 ], [ %331, %338 ], [ %331, %336 ], [ %331, %_ZL8lean_incP11lean_object.exit479 ]
   %341 = getelementptr i8, ptr %0, i64 8
   %.val495 = load ptr, ptr %341, align 8, !tbaa !15
   %342 = load ptr, ptr %300, align 8, !tbaa !15
@@ -22847,9 +22220,8 @@ _ZL8lean_incP11lean_object.exit478:               ; preds = %339, %338, %336, %_
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %354 = load ptr, ptr %353, align 8, !tbaa !15
   %355 = ptrtoint ptr %354 to i64
-  %356 = and i64 %355, 1
-  %.not646 = icmp eq i64 %356, 0
-  br i1 %.not646, label %357, label %_ZL8lean_incP11lean_object.exit477
+  %356 = trunc i64 %355 to i1
+  br i1 %356, label %_ZL8lean_incP11lean_object.exit477, label %357
 
 357:                                              ; preds = %352
   %.val.i540 = load i32, ptr %354, align 4, !tbaa !16
@@ -22873,9 +22245,8 @@ _ZL8lean_incP11lean_object.exit477:               ; preds = %362, %361, %359, %3
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %364 = load ptr, ptr %363, align 8, !tbaa !15
   %365 = ptrtoint ptr %364 to i64
-  %366 = and i64 %365, 1
-  %.not647 = icmp eq i64 %366, 0
-  br i1 %.not647, label %367, label %_ZL8lean_incP11lean_object.exit476
+  %366 = trunc i64 %365 to i1
+  br i1 %366, label %_ZL8lean_incP11lean_object.exit476, label %367
 
 367:                                              ; preds = %_ZL8lean_incP11lean_object.exit477
   %.val.i543 = load i32, ptr %364, align 4, !tbaa !16
@@ -22899,9 +22270,8 @@ _ZL8lean_incP11lean_object.exit476:               ; preds = %372, %371, %369, %_
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %374 = load ptr, ptr %373, align 8, !tbaa !15
   %375 = ptrtoint ptr %374 to i64
-  %376 = and i64 %375, 1
-  %.not648 = icmp eq i64 %376, 0
-  br i1 %.not648, label %377, label %_ZL8lean_incP11lean_object.exit475
+  %376 = trunc i64 %375 to i1
+  br i1 %376, label %_ZL8lean_incP11lean_object.exit475, label %377
 
 377:                                              ; preds = %_ZL8lean_incP11lean_object.exit476
   %.val.i546 = load i32, ptr %374, align 4, !tbaa !16
@@ -22925,9 +22295,8 @@ _ZL8lean_incP11lean_object.exit475:               ; preds = %382, %381, %379, %_
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %384 = load ptr, ptr %383, align 8, !tbaa !15
   %385 = ptrtoint ptr %384 to i64
-  %386 = and i64 %385, 1
-  %.not649 = icmp eq i64 %386, 0
-  br i1 %.not649, label %387, label %_ZL8lean_incP11lean_object.exit474
+  %386 = trunc i64 %385 to i1
+  br i1 %386, label %_ZL8lean_incP11lean_object.exit474, label %387
 
 387:                                              ; preds = %_ZL8lean_incP11lean_object.exit475
   %.val.i549 = load i32, ptr %384, align 4, !tbaa !16
@@ -22951,9 +22320,8 @@ _ZL8lean_incP11lean_object.exit474:               ; preds = %392, %391, %389, %_
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %394 = load ptr, ptr %393, align 8, !tbaa !15
   %395 = ptrtoint ptr %394 to i64
-  %396 = and i64 %395, 1
-  %.not650 = icmp eq i64 %396, 0
-  br i1 %.not650, label %397, label %_ZL8lean_incP11lean_object.exit473
+  %396 = trunc i64 %395 to i1
+  br i1 %396, label %_ZL8lean_incP11lean_object.exit473, label %397
 
 397:                                              ; preds = %_ZL8lean_incP11lean_object.exit474
   %.val.i552 = load i32, ptr %394, align 4, !tbaa !16
@@ -22971,11 +22339,11 @@ _ZL8lean_incP11lean_object.exit474:               ; preds = %392, %391, %389, %_
 
 402:                                              ; preds = %401
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %394)
-  %.pre698 = load ptr, ptr %393, align 8, !tbaa !15
+  %.pre651 = load ptr, ptr %393, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit473
 
 _ZL8lean_incP11lean_object.exit473:               ; preds = %402, %401, %399, %_ZL8lean_incP11lean_object.exit474
-  %403 = phi ptr [ %.pre698, %402 ], [ %394, %401 ], [ %394, %399 ], [ %394, %_ZL8lean_incP11lean_object.exit474 ]
+  %403 = phi ptr [ %.pre651, %402 ], [ %394, %401 ], [ %394, %399 ], [ %394, %_ZL8lean_incP11lean_object.exit474 ]
   %404 = getelementptr i8, ptr %0, i64 8
   %.val494 = load ptr, ptr %404, align 8, !tbaa !15
   %405 = load ptr, ptr %353, align 8, !tbaa !15
@@ -23004,9 +22372,8 @@ _ZL8lean_incP11lean_object.exit473:               ; preds = %402, %401, %399, %_
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %418 = load ptr, ptr %417, align 8, !tbaa !15
   %419 = ptrtoint ptr %418 to i64
-  %420 = and i64 %419, 1
-  %.not640 = icmp eq i64 %420, 0
-  br i1 %.not640, label %421, label %_ZL8lean_incP11lean_object.exit472
+  %420 = trunc i64 %419 to i1
+  br i1 %420, label %_ZL8lean_incP11lean_object.exit472, label %421
 
 421:                                              ; preds = %416
   %.val.i555 = load i32, ptr %418, align 4, !tbaa !16
@@ -23030,9 +22397,8 @@ _ZL8lean_incP11lean_object.exit472:               ; preds = %426, %425, %423, %4
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %428 = load ptr, ptr %427, align 8, !tbaa !15
   %429 = ptrtoint ptr %428 to i64
-  %430 = and i64 %429, 1
-  %.not641 = icmp eq i64 %430, 0
-  br i1 %.not641, label %431, label %_ZL8lean_incP11lean_object.exit471
+  %430 = trunc i64 %429 to i1
+  br i1 %430, label %_ZL8lean_incP11lean_object.exit471, label %431
 
 431:                                              ; preds = %_ZL8lean_incP11lean_object.exit472
   %.val.i558 = load i32, ptr %428, align 4, !tbaa !16
@@ -23056,9 +22422,8 @@ _ZL8lean_incP11lean_object.exit471:               ; preds = %436, %435, %433, %_
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %438 = load ptr, ptr %437, align 8, !tbaa !15
   %439 = ptrtoint ptr %438 to i64
-  %440 = and i64 %439, 1
-  %.not642 = icmp eq i64 %440, 0
-  br i1 %.not642, label %441, label %_ZL8lean_incP11lean_object.exit470
+  %440 = trunc i64 %439 to i1
+  br i1 %440, label %_ZL8lean_incP11lean_object.exit470, label %441
 
 441:                                              ; preds = %_ZL8lean_incP11lean_object.exit471
   %.val.i561 = load i32, ptr %438, align 4, !tbaa !16
@@ -23082,9 +22447,8 @@ _ZL8lean_incP11lean_object.exit470:               ; preds = %446, %445, %443, %_
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %448 = load ptr, ptr %447, align 8, !tbaa !15
   %449 = ptrtoint ptr %448 to i64
-  %450 = and i64 %449, 1
-  %.not643 = icmp eq i64 %450, 0
-  br i1 %.not643, label %451, label %_ZL8lean_incP11lean_object.exit469
+  %450 = trunc i64 %449 to i1
+  br i1 %450, label %_ZL8lean_incP11lean_object.exit469, label %451
 
 451:                                              ; preds = %_ZL8lean_incP11lean_object.exit470
   %.val.i564 = load i32, ptr %448, align 4, !tbaa !16
@@ -23108,9 +22472,8 @@ _ZL8lean_incP11lean_object.exit469:               ; preds = %456, %455, %453, %_
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %458 = load ptr, ptr %457, align 8, !tbaa !15
   %459 = ptrtoint ptr %458 to i64
-  %460 = and i64 %459, 1
-  %.not644 = icmp eq i64 %460, 0
-  br i1 %.not644, label %461, label %_ZL8lean_incP11lean_object.exit468
+  %460 = trunc i64 %459 to i1
+  br i1 %460, label %_ZL8lean_incP11lean_object.exit468, label %461
 
 461:                                              ; preds = %_ZL8lean_incP11lean_object.exit469
   %.val.i567 = load i32, ptr %458, align 4, !tbaa !16
@@ -23134,9 +22497,8 @@ _ZL8lean_incP11lean_object.exit468:               ; preds = %466, %465, %463, %_
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %468 = load ptr, ptr %467, align 8, !tbaa !15
   %469 = ptrtoint ptr %468 to i64
-  %470 = and i64 %469, 1
-  %.not645 = icmp eq i64 %470, 0
-  br i1 %.not645, label %471, label %_ZL8lean_incP11lean_object.exit467
+  %470 = trunc i64 %469 to i1
+  br i1 %470, label %_ZL8lean_incP11lean_object.exit467, label %471
 
 471:                                              ; preds = %_ZL8lean_incP11lean_object.exit468
   %.val.i570 = load i32, ptr %468, align 4, !tbaa !16
@@ -23154,11 +22516,11 @@ _ZL8lean_incP11lean_object.exit468:               ; preds = %466, %465, %463, %_
 
 476:                                              ; preds = %475
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %468)
-  %.pre697 = load ptr, ptr %467, align 8, !tbaa !15
+  %.pre650 = load ptr, ptr %467, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit467
 
 _ZL8lean_incP11lean_object.exit467:               ; preds = %476, %475, %473, %_ZL8lean_incP11lean_object.exit468
-  %477 = phi ptr [ %.pre697, %476 ], [ %468, %475 ], [ %468, %473 ], [ %468, %_ZL8lean_incP11lean_object.exit468 ]
+  %477 = phi ptr [ %.pre650, %476 ], [ %468, %475 ], [ %468, %473 ], [ %468, %_ZL8lean_incP11lean_object.exit468 ]
   %478 = getelementptr i8, ptr %0, i64 8
   %.val493 = load ptr, ptr %478, align 8, !tbaa !15
   %479 = load ptr, ptr %417, align 8, !tbaa !15
@@ -23188,9 +22550,8 @@ _ZL8lean_incP11lean_object.exit467:               ; preds = %476, %475, %473, %_
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %493 = load ptr, ptr %492, align 8, !tbaa !15
   %494 = ptrtoint ptr %493 to i64
-  %495 = and i64 %494, 1
-  %.not633 = icmp eq i64 %495, 0
-  br i1 %.not633, label %496, label %_ZL8lean_incP11lean_object.exit466
+  %495 = trunc i64 %494 to i1
+  br i1 %495, label %_ZL8lean_incP11lean_object.exit466, label %496
 
 496:                                              ; preds = %491
   %.val.i573 = load i32, ptr %493, align 4, !tbaa !16
@@ -23214,9 +22575,8 @@ _ZL8lean_incP11lean_object.exit466:               ; preds = %501, %500, %498, %4
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %503 = load ptr, ptr %502, align 8, !tbaa !15
   %504 = ptrtoint ptr %503 to i64
-  %505 = and i64 %504, 1
-  %.not634 = icmp eq i64 %505, 0
-  br i1 %.not634, label %506, label %_ZL8lean_incP11lean_object.exit465
+  %505 = trunc i64 %504 to i1
+  br i1 %505, label %_ZL8lean_incP11lean_object.exit465, label %506
 
 506:                                              ; preds = %_ZL8lean_incP11lean_object.exit466
   %.val.i576 = load i32, ptr %503, align 4, !tbaa !16
@@ -23240,9 +22600,8 @@ _ZL8lean_incP11lean_object.exit465:               ; preds = %511, %510, %508, %_
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %513 = load ptr, ptr %512, align 8, !tbaa !15
   %514 = ptrtoint ptr %513 to i64
-  %515 = and i64 %514, 1
-  %.not635 = icmp eq i64 %515, 0
-  br i1 %.not635, label %516, label %_ZL8lean_incP11lean_object.exit464
+  %515 = trunc i64 %514 to i1
+  br i1 %515, label %_ZL8lean_incP11lean_object.exit464, label %516
 
 516:                                              ; preds = %_ZL8lean_incP11lean_object.exit465
   %.val.i579 = load i32, ptr %513, align 4, !tbaa !16
@@ -23266,9 +22625,8 @@ _ZL8lean_incP11lean_object.exit464:               ; preds = %521, %520, %518, %_
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %523 = load ptr, ptr %522, align 8, !tbaa !15
   %524 = ptrtoint ptr %523 to i64
-  %525 = and i64 %524, 1
-  %.not636 = icmp eq i64 %525, 0
-  br i1 %.not636, label %526, label %_ZL8lean_incP11lean_object.exit463
+  %525 = trunc i64 %524 to i1
+  br i1 %525, label %_ZL8lean_incP11lean_object.exit463, label %526
 
 526:                                              ; preds = %_ZL8lean_incP11lean_object.exit464
   %.val.i582 = load i32, ptr %523, align 4, !tbaa !16
@@ -23292,9 +22650,8 @@ _ZL8lean_incP11lean_object.exit463:               ; preds = %531, %530, %528, %_
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %533 = load ptr, ptr %532, align 8, !tbaa !15
   %534 = ptrtoint ptr %533 to i64
-  %535 = and i64 %534, 1
-  %.not637 = icmp eq i64 %535, 0
-  br i1 %.not637, label %536, label %_ZL8lean_incP11lean_object.exit462
+  %535 = trunc i64 %534 to i1
+  br i1 %535, label %_ZL8lean_incP11lean_object.exit462, label %536
 
 536:                                              ; preds = %_ZL8lean_incP11lean_object.exit463
   %.val.i585 = load i32, ptr %533, align 4, !tbaa !16
@@ -23318,9 +22675,8 @@ _ZL8lean_incP11lean_object.exit462:               ; preds = %541, %540, %538, %_
   %542 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %543 = load ptr, ptr %542, align 8, !tbaa !15
   %544 = ptrtoint ptr %543 to i64
-  %545 = and i64 %544, 1
-  %.not638 = icmp eq i64 %545, 0
-  br i1 %.not638, label %546, label %_ZL8lean_incP11lean_object.exit461
+  %545 = trunc i64 %544 to i1
+  br i1 %545, label %_ZL8lean_incP11lean_object.exit461, label %546
 
 546:                                              ; preds = %_ZL8lean_incP11lean_object.exit462
   %.val.i588 = load i32, ptr %543, align 4, !tbaa !16
@@ -23344,9 +22700,8 @@ _ZL8lean_incP11lean_object.exit461:               ; preds = %551, %550, %548, %_
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %553 = load ptr, ptr %552, align 8, !tbaa !15
   %554 = ptrtoint ptr %553 to i64
-  %555 = and i64 %554, 1
-  %.not639 = icmp eq i64 %555, 0
-  br i1 %.not639, label %556, label %_ZL8lean_incP11lean_object.exit460
+  %555 = trunc i64 %554 to i1
+  br i1 %555, label %_ZL8lean_incP11lean_object.exit460, label %556
 
 556:                                              ; preds = %_ZL8lean_incP11lean_object.exit461
   %.val.i591 = load i32, ptr %553, align 4, !tbaa !16
@@ -23364,11 +22719,11 @@ _ZL8lean_incP11lean_object.exit461:               ; preds = %551, %550, %548, %_
 
 561:                                              ; preds = %560
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %553)
-  %.pre696 = load ptr, ptr %552, align 8, !tbaa !15
+  %.pre649 = load ptr, ptr %552, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit460
 
 _ZL8lean_incP11lean_object.exit460:               ; preds = %561, %560, %558, %_ZL8lean_incP11lean_object.exit461
-  %562 = phi ptr [ %.pre696, %561 ], [ %553, %560 ], [ %553, %558 ], [ %553, %_ZL8lean_incP11lean_object.exit461 ]
+  %562 = phi ptr [ %.pre649, %561 ], [ %553, %560 ], [ %553, %558 ], [ %553, %_ZL8lean_incP11lean_object.exit461 ]
   %563 = getelementptr i8, ptr %0, i64 8
   %.val492 = load ptr, ptr %563, align 8, !tbaa !15
   %564 = load ptr, ptr %492, align 8, !tbaa !15
@@ -23399,9 +22754,8 @@ _ZL8lean_incP11lean_object.exit460:               ; preds = %561, %560, %558, %_
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %579 = load ptr, ptr %578, align 8, !tbaa !15
   %580 = ptrtoint ptr %579 to i64
-  %581 = and i64 %580, 1
-  %.not625 = icmp eq i64 %581, 0
-  br i1 %.not625, label %582, label %_ZL8lean_incP11lean_object.exit459
+  %581 = trunc i64 %580 to i1
+  br i1 %581, label %_ZL8lean_incP11lean_object.exit459, label %582
 
 582:                                              ; preds = %577
   %.val.i594 = load i32, ptr %579, align 4, !tbaa !16
@@ -23425,9 +22779,8 @@ _ZL8lean_incP11lean_object.exit459:               ; preds = %587, %586, %584, %5
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %589 = load ptr, ptr %588, align 8, !tbaa !15
   %590 = ptrtoint ptr %589 to i64
-  %591 = and i64 %590, 1
-  %.not626 = icmp eq i64 %591, 0
-  br i1 %.not626, label %592, label %_ZL8lean_incP11lean_object.exit458
+  %591 = trunc i64 %590 to i1
+  br i1 %591, label %_ZL8lean_incP11lean_object.exit458, label %592
 
 592:                                              ; preds = %_ZL8lean_incP11lean_object.exit459
   %.val.i597 = load i32, ptr %589, align 4, !tbaa !16
@@ -23451,9 +22804,8 @@ _ZL8lean_incP11lean_object.exit458:               ; preds = %597, %596, %594, %_
   %598 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %599 = load ptr, ptr %598, align 8, !tbaa !15
   %600 = ptrtoint ptr %599 to i64
-  %601 = and i64 %600, 1
-  %.not627 = icmp eq i64 %601, 0
-  br i1 %.not627, label %602, label %_ZL8lean_incP11lean_object.exit457
+  %601 = trunc i64 %600 to i1
+  br i1 %601, label %_ZL8lean_incP11lean_object.exit457, label %602
 
 602:                                              ; preds = %_ZL8lean_incP11lean_object.exit458
   %.val.i600 = load i32, ptr %599, align 4, !tbaa !16
@@ -23477,9 +22829,8 @@ _ZL8lean_incP11lean_object.exit457:               ; preds = %607, %606, %604, %_
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %609 = load ptr, ptr %608, align 8, !tbaa !15
   %610 = ptrtoint ptr %609 to i64
-  %611 = and i64 %610, 1
-  %.not628 = icmp eq i64 %611, 0
-  br i1 %.not628, label %612, label %_ZL8lean_incP11lean_object.exit456
+  %611 = trunc i64 %610 to i1
+  br i1 %611, label %_ZL8lean_incP11lean_object.exit456, label %612
 
 612:                                              ; preds = %_ZL8lean_incP11lean_object.exit457
   %.val.i603 = load i32, ptr %609, align 4, !tbaa !16
@@ -23503,9 +22854,8 @@ _ZL8lean_incP11lean_object.exit456:               ; preds = %617, %616, %614, %_
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %619 = load ptr, ptr %618, align 8, !tbaa !15
   %620 = ptrtoint ptr %619 to i64
-  %621 = and i64 %620, 1
-  %.not629 = icmp eq i64 %621, 0
-  br i1 %.not629, label %622, label %_ZL8lean_incP11lean_object.exit455
+  %621 = trunc i64 %620 to i1
+  br i1 %621, label %_ZL8lean_incP11lean_object.exit455, label %622
 
 622:                                              ; preds = %_ZL8lean_incP11lean_object.exit456
   %.val.i606 = load i32, ptr %619, align 4, !tbaa !16
@@ -23529,9 +22879,8 @@ _ZL8lean_incP11lean_object.exit455:               ; preds = %627, %626, %624, %_
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %629 = load ptr, ptr %628, align 8, !tbaa !15
   %630 = ptrtoint ptr %629 to i64
-  %631 = and i64 %630, 1
-  %.not630 = icmp eq i64 %631, 0
-  br i1 %.not630, label %632, label %_ZL8lean_incP11lean_object.exit454
+  %631 = trunc i64 %630 to i1
+  br i1 %631, label %_ZL8lean_incP11lean_object.exit454, label %632
 
 632:                                              ; preds = %_ZL8lean_incP11lean_object.exit455
   %.val.i609 = load i32, ptr %629, align 4, !tbaa !16
@@ -23555,9 +22904,8 @@ _ZL8lean_incP11lean_object.exit454:               ; preds = %637, %636, %634, %_
   %638 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %639 = load ptr, ptr %638, align 8, !tbaa !15
   %640 = ptrtoint ptr %639 to i64
-  %641 = and i64 %640, 1
-  %.not631 = icmp eq i64 %641, 0
-  br i1 %.not631, label %642, label %_ZL8lean_incP11lean_object.exit453
+  %641 = trunc i64 %640 to i1
+  br i1 %641, label %_ZL8lean_incP11lean_object.exit453, label %642
 
 642:                                              ; preds = %_ZL8lean_incP11lean_object.exit454
   %.val.i612 = load i32, ptr %639, align 4, !tbaa !16
@@ -23581,9 +22929,8 @@ _ZL8lean_incP11lean_object.exit453:               ; preds = %647, %646, %644, %_
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %649 = load ptr, ptr %648, align 8, !tbaa !15
   %650 = ptrtoint ptr %649 to i64
-  %651 = and i64 %650, 1
-  %.not632 = icmp eq i64 %651, 0
-  br i1 %.not632, label %652, label %_ZL8lean_incP11lean_object.exit452
+  %651 = trunc i64 %650 to i1
+  br i1 %651, label %_ZL8lean_incP11lean_object.exit452, label %652
 
 652:                                              ; preds = %_ZL8lean_incP11lean_object.exit453
   %.val.i615 = load i32, ptr %649, align 4, !tbaa !16
@@ -23601,11 +22948,11 @@ _ZL8lean_incP11lean_object.exit453:               ; preds = %647, %646, %644, %_
 
 657:                                              ; preds = %656
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %649)
-  %.pre695 = load ptr, ptr %648, align 8, !tbaa !15
+  %.pre648 = load ptr, ptr %648, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit452
 
 _ZL8lean_incP11lean_object.exit452:               ; preds = %657, %656, %654, %_ZL8lean_incP11lean_object.exit453
-  %658 = phi ptr [ %.pre695, %657 ], [ %649, %656 ], [ %649, %654 ], [ %649, %_ZL8lean_incP11lean_object.exit453 ]
+  %658 = phi ptr [ %.pre648, %657 ], [ %649, %656 ], [ %649, %654 ], [ %649, %_ZL8lean_incP11lean_object.exit453 ]
   %659 = getelementptr i8, ptr %0, i64 8
   %.val491 = load ptr, ptr %659, align 8, !tbaa !15
   %660 = load ptr, ptr %578, align 8, !tbaa !15
@@ -23637,12 +22984,12 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %657, %656, %654, %_
   %675 = shl nuw nsw i32 %89, 3
   %676 = zext nneg i32 %675 to i64
   %677 = alloca i8, i64 %676, align 16
-  %.not680 = icmp eq i16 %.val488, 0
-  br i1 %.not680, label %.preheader, label %.lr.ph676
+  %.not633 = icmp eq i16 %.val488, 0
+  br i1 %.not633, label %.preheader, label %.lr.ph630
 
-.lr.ph676:                                        ; preds = %674
+.lr.ph630:                                        ; preds = %674
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count690 = zext i16 %.val488 to i64
+  %wide.trip.count643 = zext i16 %.val488 to i64
   br label %685
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit451, %674
@@ -23671,14 +23018,13 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %657, %656, %654, %_
   %684 = icmp sgt i32 %683, 1
   br i1 %684, label %698, label %700, !prof !19
 
-685:                                              ; preds = %.lr.ph676, %_ZL8lean_incP11lean_object.exit451
-  %indvars.iv687 = phi i64 [ 0, %.lr.ph676 ], [ %indvars.iv.next688, %_ZL8lean_incP11lean_object.exit451 ]
-  %686 = getelementptr inbounds nuw ptr, ptr %678, i64 %indvars.iv687
+685:                                              ; preds = %.lr.ph630, %_ZL8lean_incP11lean_object.exit451
+  %indvars.iv640 = phi i64 [ 0, %.lr.ph630 ], [ %indvars.iv.next641, %_ZL8lean_incP11lean_object.exit451 ]
+  %686 = getelementptr inbounds nuw ptr, ptr %678, i64 %indvars.iv640
   %687 = load ptr, ptr %686, align 8, !tbaa !15
   %688 = ptrtoint ptr %687 to i64
-  %689 = and i64 %688, 1
-  %.not661 = icmp eq i64 %689, 0
-  br i1 %.not661, label %690, label %_ZL8lean_incP11lean_object.exit451
+  %689 = trunc i64 %688 to i1
+  br i1 %689, label %_ZL8lean_incP11lean_object.exit451, label %690
 
 690:                                              ; preds = %685
   %.val.i618 = load i32, ptr %687, align 4, !tbaa !16
@@ -23696,16 +23042,16 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %657, %656, %654, %_
 
 695:                                              ; preds = %694
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %687)
-  %.pre703 = load ptr, ptr %686, align 8, !tbaa !15
+  %.pre656 = load ptr, ptr %686, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit451
 
 _ZL8lean_incP11lean_object.exit451:               ; preds = %695, %694, %692, %685
-  %696 = phi ptr [ %.pre703, %695 ], [ %687, %694 ], [ %687, %692 ], [ %687, %685 ]
-  %697 = getelementptr inbounds nuw ptr, ptr %677, i64 %indvars.iv687
+  %696 = phi ptr [ %.pre656, %695 ], [ %687, %694 ], [ %687, %692 ], [ %687, %685 ]
+  %697 = getelementptr inbounds nuw ptr, ptr %677, i64 %indvars.iv640
   store ptr %696, ptr %697, align 8, !tbaa !15
-  %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
-  %exitcond691.not = icmp eq i64 %indvars.iv.next688, %wide.trip.count690
-  br i1 %exitcond691.not, label %.preheader, label %685, !llvm.loop !42
+  %indvars.iv.next641 = add nuw nsw i64 %indvars.iv640, 1
+  %exitcond644.not = icmp eq i64 %indvars.iv.next641, %wide.trip.count643
+  br i1 %exitcond644.not, label %.preheader, label %685, !llvm.loop !42
 
 698:                                              ; preds = %.preheader
   %699 = add nsw i32 %683, -1
@@ -23744,31 +23090,30 @@ _ZL8lean_incP11lean_object.exit451:               ; preds = %695, %694, %692, %6
   %712 = shl nuw nsw i32 %89, 3
   %713 = zext nneg i32 %712 to i64
   %714 = alloca i8, i64 %713, align 16
-  %.not678 = icmp eq i16 %.val488, 0
-  br i1 %.not678, label %.preheader670, label %.lr.ph
+  %.not = icmp eq i16 %.val488, 0
+  br i1 %.not, label %.preheader624, label %.lr.ph
 
 .lr.ph:                                           ; preds = %704
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val488 to i64
   br label %717
 
-.preheader670:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %704
+.preheader624:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %704
   %716 = sub nsw i32 %89, %91
-  %.not679 = icmp eq i16 %.val, %.val488
-  br i1 %.not679, label %._crit_edge, label %.lr.ph673.preheader
+  %.not632 = icmp eq i16 %.val, %.val488
+  br i1 %.not632, label %._crit_edge, label %.lr.ph627.preheader
 
-.lr.ph673.preheader:                              ; preds = %.preheader670
-  %wide.trip.count685 = zext i32 %716 to i64
-  br label %.lr.ph673
+.lr.ph627.preheader:                              ; preds = %.preheader624
+  %wide.trip.count638 = zext i32 %716 to i64
+  br label %.lr.ph627
 
 717:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %718 = getelementptr inbounds nuw ptr, ptr %715, i64 %indvars.iv
   %719 = load ptr, ptr %718, align 8, !tbaa !15
   %720 = ptrtoint ptr %719 to i64
-  %721 = and i64 %720, 1
-  %.not624 = icmp eq i64 %721, 0
-  br i1 %.not624, label %722, label %_ZL8lean_incP11lean_object.exit
+  %721 = trunc i64 %720 to i1
+  br i1 %721, label %_ZL8lean_incP11lean_object.exit, label %722
 
 722:                                              ; preds = %717
   %.val.i621 = load i32, ptr %719, align 4, !tbaa !16
@@ -23795,9 +23140,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %727, %726, %724, %7
   store ptr %728, ptr %729, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader670, label %717, !llvm.loop !43
+  br i1 %exitcond.not, label %.preheader624, label %717, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %.lr.ph673, %.preheader670
+._crit_edge:                                      ; preds = %.lr.ph627, %.preheader624
   %730 = getelementptr i8, ptr %0, i64 8
   %.val511 = load ptr, ptr %730, align 8, !tbaa !15
   %731 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val511, i32 noundef range(i32 0, 65536) %89, ptr noundef nonnull %714)
@@ -23826,18 +23171,18 @@ _ZL12lean_dec_refP11lean_object.exit430:          ; preds = %734, %736, %737
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph673:                                        ; preds = %.lr.ph673.preheader, %.lr.ph673
-  %indvars.iv682 = phi i64 [ 0, %.lr.ph673.preheader ], [ %indvars.iv.next683, %.lr.ph673 ]
-  %742 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv682
+.lr.ph627:                                        ; preds = %.lr.ph627.preheader, %.lr.ph627
+  %indvars.iv635 = phi i64 [ 0, %.lr.ph627.preheader ], [ %indvars.iv.next636, %.lr.ph627 ]
+  %742 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv635
   %743 = load ptr, ptr %742, align 8, !tbaa !15
-  %744 = trunc nuw i64 %indvars.iv682 to i32
+  %744 = trunc nuw i64 %indvars.iv635 to i32
   %745 = add i32 %744, %91
   %746 = zext i32 %745 to i64
   %747 = getelementptr inbounds nuw ptr, ptr %714, i64 %746
   store ptr %743, ptr %747, align 8, !tbaa !15
-  %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
-  %exitcond686.not = icmp eq i64 %indvars.iv.next683, %wide.trip.count685
-  br i1 %exitcond686.not, label %._crit_edge, label %.lr.ph673, !llvm.loop !44
+  %indvars.iv.next636 = add nuw nsw i64 %indvars.iv635, 1
+  %exitcond639.not = icmp eq i64 %indvars.iv.next636, %wide.trip.count638
+  br i1 %exitcond639.not, label %._crit_edge, label %.lr.ph627, !llvm.loop !44
 
 748:                                              ; preds = %702
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -23870,15 +23215,13 @@ define ptr @lean_apply_9(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %11 = alloca [9 x ptr], align 16
   %12 = alloca [9 x ptr], align 8
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %97, label %15
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %15, label %97
 
 15:                                               ; preds = %10
   %16 = ptrtoint ptr %1 to i64
-  %17 = and i64 %16, 1
-  %.not595 = icmp eq i64 %17, 0
-  br i1 %.not595, label %18, label %_ZL8lean_decP11lean_object.exit389
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %_ZL8lean_decP11lean_object.exit389, label %18
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %1, align 4, !tbaa !16
@@ -23900,9 +23243,8 @@ define ptr @lean_apply_9(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 _ZL8lean_decP11lean_object.exit389:               ; preds = %24, %23, %21, %15
   %25 = ptrtoint ptr %2 to i64
-  %26 = and i64 %25, 1
-  %.not596 = icmp eq i64 %26, 0
-  br i1 %.not596, label %27, label %_ZL8lean_decP11lean_object.exit388
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %_ZL8lean_decP11lean_object.exit388, label %27
 
 27:                                               ; preds = %_ZL8lean_decP11lean_object.exit389
   %28 = load i32, ptr %2, align 4, !tbaa !16
@@ -23924,9 +23266,8 @@ _ZL8lean_decP11lean_object.exit389:               ; preds = %24, %23, %21, %15
 
 _ZL8lean_decP11lean_object.exit388:               ; preds = %33, %32, %30, %_ZL8lean_decP11lean_object.exit389
   %34 = ptrtoint ptr %3 to i64
-  %35 = and i64 %34, 1
-  %.not597 = icmp eq i64 %35, 0
-  br i1 %.not597, label %36, label %_ZL8lean_decP11lean_object.exit387
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %_ZL8lean_decP11lean_object.exit387, label %36
 
 36:                                               ; preds = %_ZL8lean_decP11lean_object.exit388
   %37 = load i32, ptr %3, align 4, !tbaa !16
@@ -23948,9 +23289,8 @@ _ZL8lean_decP11lean_object.exit388:               ; preds = %33, %32, %30, %_ZL8
 
 _ZL8lean_decP11lean_object.exit387:               ; preds = %42, %41, %39, %_ZL8lean_decP11lean_object.exit388
   %43 = ptrtoint ptr %4 to i64
-  %44 = and i64 %43, 1
-  %.not598 = icmp eq i64 %44, 0
-  br i1 %.not598, label %45, label %_ZL8lean_decP11lean_object.exit386
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %_ZL8lean_decP11lean_object.exit386, label %45
 
 45:                                               ; preds = %_ZL8lean_decP11lean_object.exit387
   %46 = load i32, ptr %4, align 4, !tbaa !16
@@ -23972,9 +23312,8 @@ _ZL8lean_decP11lean_object.exit387:               ; preds = %42, %41, %39, %_ZL8
 
 _ZL8lean_decP11lean_object.exit386:               ; preds = %51, %50, %48, %_ZL8lean_decP11lean_object.exit387
   %52 = ptrtoint ptr %5 to i64
-  %53 = and i64 %52, 1
-  %.not599 = icmp eq i64 %53, 0
-  br i1 %.not599, label %54, label %_ZL8lean_decP11lean_object.exit385
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %_ZL8lean_decP11lean_object.exit385, label %54
 
 54:                                               ; preds = %_ZL8lean_decP11lean_object.exit386
   %55 = load i32, ptr %5, align 4, !tbaa !16
@@ -23996,9 +23335,8 @@ _ZL8lean_decP11lean_object.exit386:               ; preds = %51, %50, %48, %_ZL8
 
 _ZL8lean_decP11lean_object.exit385:               ; preds = %60, %59, %57, %_ZL8lean_decP11lean_object.exit386
   %61 = ptrtoint ptr %6 to i64
-  %62 = and i64 %61, 1
-  %.not600 = icmp eq i64 %62, 0
-  br i1 %.not600, label %63, label %_ZL8lean_decP11lean_object.exit384
+  %62 = trunc i64 %61 to i1
+  br i1 %62, label %_ZL8lean_decP11lean_object.exit384, label %63
 
 63:                                               ; preds = %_ZL8lean_decP11lean_object.exit385
   %64 = load i32, ptr %6, align 4, !tbaa !16
@@ -24020,9 +23358,8 @@ _ZL8lean_decP11lean_object.exit385:               ; preds = %60, %59, %57, %_ZL8
 
 _ZL8lean_decP11lean_object.exit384:               ; preds = %69, %68, %66, %_ZL8lean_decP11lean_object.exit385
   %70 = ptrtoint ptr %7 to i64
-  %71 = and i64 %70, 1
-  %.not601 = icmp eq i64 %71, 0
-  br i1 %.not601, label %72, label %_ZL8lean_decP11lean_object.exit383
+  %71 = trunc i64 %70 to i1
+  br i1 %71, label %_ZL8lean_decP11lean_object.exit383, label %72
 
 72:                                               ; preds = %_ZL8lean_decP11lean_object.exit384
   %73 = load i32, ptr %7, align 4, !tbaa !16
@@ -24044,9 +23381,8 @@ _ZL8lean_decP11lean_object.exit384:               ; preds = %69, %68, %66, %_ZL8
 
 _ZL8lean_decP11lean_object.exit383:               ; preds = %78, %77, %75, %_ZL8lean_decP11lean_object.exit384
   %79 = ptrtoint ptr %8 to i64
-  %80 = and i64 %79, 1
-  %.not602 = icmp eq i64 %80, 0
-  br i1 %.not602, label %81, label %_ZL8lean_decP11lean_object.exit382
+  %80 = trunc i64 %79 to i1
+  br i1 %80, label %_ZL8lean_decP11lean_object.exit382, label %81
 
 81:                                               ; preds = %_ZL8lean_decP11lean_object.exit383
   %82 = load i32, ptr %8, align 4, !tbaa !16
@@ -24068,9 +23404,8 @@ _ZL8lean_decP11lean_object.exit383:               ; preds = %78, %77, %75, %_ZL8
 
 _ZL8lean_decP11lean_object.exit382:               ; preds = %87, %86, %84, %_ZL8lean_decP11lean_object.exit383
   %88 = ptrtoint ptr %9 to i64
-  %89 = and i64 %88, 1
-  %.not603 = icmp eq i64 %89, 0
-  br i1 %.not603, label %90, label %_ZL8lean_decP11lean_object.exit
+  %89 = trunc i64 %88 to i1
+  br i1 %89, label %_ZL8lean_decP11lean_object.exit, label %90
 
 90:                                               ; preds = %_ZL8lean_decP11lean_object.exit382
   %91 = load i32, ptr %9, align 4, !tbaa !16
@@ -24267,9 +23602,8 @@ _ZL8lean_decP11lean_object.exit382:               ; preds = %87, %86, %84, %_ZL8
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %199 = load ptr, ptr %198, align 8, !tbaa !15
   %200 = ptrtoint ptr %199 to i64
-  %201 = and i64 %200, 1
-  %.not593 = icmp eq i64 %201, 0
-  br i1 %.not593, label %202, label %_ZL8lean_incP11lean_object.exit454
+  %201 = trunc i64 %200 to i1
+  br i1 %201, label %_ZL8lean_incP11lean_object.exit454, label %202
 
 202:                                              ; preds = %197
   %.val.i = load i32, ptr %199, align 4, !tbaa !16
@@ -24287,11 +23621,11 @@ _ZL8lean_decP11lean_object.exit382:               ; preds = %87, %86, %84, %_ZL8
 
 207:                                              ; preds = %206
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %199)
-  %.pre635 = load ptr, ptr %198, align 8, !tbaa !15
+  %.pre595 = load ptr, ptr %198, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit454
 
 _ZL8lean_incP11lean_object.exit454:               ; preds = %207, %206, %204, %197
-  %208 = phi ptr [ %.pre635, %207 ], [ %199, %206 ], [ %199, %204 ], [ %199, %197 ]
+  %208 = phi ptr [ %.pre595, %207 ], [ %199, %206 ], [ %199, %204 ], [ %199, %197 ]
   %209 = getelementptr i8, ptr %0, i64 8
   %.val464 = load ptr, ptr %209, align 8, !tbaa !15
   %210 = tail call noundef ptr %.val464(ptr noundef %208, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
@@ -24316,9 +23650,8 @@ _ZL8lean_incP11lean_object.exit454:               ; preds = %207, %206, %204, %1
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %219 = load ptr, ptr %218, align 8, !tbaa !15
   %220 = ptrtoint ptr %219 to i64
-  %221 = and i64 %220, 1
-  %.not591 = icmp eq i64 %221, 0
-  br i1 %.not591, label %222, label %_ZL8lean_incP11lean_object.exit453
+  %221 = trunc i64 %220 to i1
+  br i1 %221, label %_ZL8lean_incP11lean_object.exit453, label %222
 
 222:                                              ; preds = %217
   %.val.i478 = load i32, ptr %219, align 4, !tbaa !16
@@ -24342,9 +23675,8 @@ _ZL8lean_incP11lean_object.exit453:               ; preds = %227, %226, %224, %2
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %229 = load ptr, ptr %228, align 8, !tbaa !15
   %230 = ptrtoint ptr %229 to i64
-  %231 = and i64 %230, 1
-  %.not592 = icmp eq i64 %231, 0
-  br i1 %.not592, label %232, label %_ZL8lean_incP11lean_object.exit452
+  %231 = trunc i64 %230 to i1
+  br i1 %231, label %_ZL8lean_incP11lean_object.exit452, label %232
 
 232:                                              ; preds = %_ZL8lean_incP11lean_object.exit453
   %.val.i481 = load i32, ptr %229, align 4, !tbaa !16
@@ -24362,11 +23694,11 @@ _ZL8lean_incP11lean_object.exit453:               ; preds = %227, %226, %224, %2
 
 237:                                              ; preds = %236
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %229)
-  %.pre634 = load ptr, ptr %228, align 8, !tbaa !15
+  %.pre594 = load ptr, ptr %228, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit452
 
 _ZL8lean_incP11lean_object.exit452:               ; preds = %237, %236, %234, %_ZL8lean_incP11lean_object.exit453
-  %238 = phi ptr [ %.pre634, %237 ], [ %229, %236 ], [ %229, %234 ], [ %229, %_ZL8lean_incP11lean_object.exit453 ]
+  %238 = phi ptr [ %.pre594, %237 ], [ %229, %236 ], [ %229, %234 ], [ %229, %_ZL8lean_incP11lean_object.exit453 ]
   %239 = getelementptr i8, ptr %0, i64 8
   %.val463 = load ptr, ptr %239, align 8, !tbaa !15
   %240 = load ptr, ptr %218, align 8, !tbaa !15
@@ -24392,9 +23724,8 @@ _ZL8lean_incP11lean_object.exit452:               ; preds = %237, %236, %234, %_
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %250 = load ptr, ptr %249, align 8, !tbaa !15
   %251 = ptrtoint ptr %250 to i64
-  %252 = and i64 %251, 1
-  %.not588 = icmp eq i64 %252, 0
-  br i1 %.not588, label %253, label %_ZL8lean_incP11lean_object.exit451
+  %252 = trunc i64 %251 to i1
+  br i1 %252, label %_ZL8lean_incP11lean_object.exit451, label %253
 
 253:                                              ; preds = %248
   %.val.i484 = load i32, ptr %250, align 4, !tbaa !16
@@ -24418,9 +23749,8 @@ _ZL8lean_incP11lean_object.exit451:               ; preds = %258, %257, %255, %2
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %260 = load ptr, ptr %259, align 8, !tbaa !15
   %261 = ptrtoint ptr %260 to i64
-  %262 = and i64 %261, 1
-  %.not589 = icmp eq i64 %262, 0
-  br i1 %.not589, label %263, label %_ZL8lean_incP11lean_object.exit450
+  %262 = trunc i64 %261 to i1
+  br i1 %262, label %_ZL8lean_incP11lean_object.exit450, label %263
 
 263:                                              ; preds = %_ZL8lean_incP11lean_object.exit451
   %.val.i487 = load i32, ptr %260, align 4, !tbaa !16
@@ -24444,9 +23774,8 @@ _ZL8lean_incP11lean_object.exit450:               ; preds = %268, %267, %265, %_
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %270 = load ptr, ptr %269, align 8, !tbaa !15
   %271 = ptrtoint ptr %270 to i64
-  %272 = and i64 %271, 1
-  %.not590 = icmp eq i64 %272, 0
-  br i1 %.not590, label %273, label %_ZL8lean_incP11lean_object.exit449
+  %272 = trunc i64 %271 to i1
+  br i1 %272, label %_ZL8lean_incP11lean_object.exit449, label %273
 
 273:                                              ; preds = %_ZL8lean_incP11lean_object.exit450
   %.val.i490 = load i32, ptr %270, align 4, !tbaa !16
@@ -24464,11 +23793,11 @@ _ZL8lean_incP11lean_object.exit450:               ; preds = %268, %267, %265, %_
 
 278:                                              ; preds = %277
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %270)
-  %.pre633 = load ptr, ptr %269, align 8, !tbaa !15
+  %.pre593 = load ptr, ptr %269, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit449
 
 _ZL8lean_incP11lean_object.exit449:               ; preds = %278, %277, %275, %_ZL8lean_incP11lean_object.exit450
-  %279 = phi ptr [ %.pre633, %278 ], [ %270, %277 ], [ %270, %275 ], [ %270, %_ZL8lean_incP11lean_object.exit450 ]
+  %279 = phi ptr [ %.pre593, %278 ], [ %270, %277 ], [ %270, %275 ], [ %270, %_ZL8lean_incP11lean_object.exit450 ]
   %280 = getelementptr i8, ptr %0, i64 8
   %.val462 = load ptr, ptr %280, align 8, !tbaa !15
   %281 = load ptr, ptr %249, align 8, !tbaa !15
@@ -24495,9 +23824,8 @@ _ZL8lean_incP11lean_object.exit449:               ; preds = %278, %277, %275, %_
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %292 = load ptr, ptr %291, align 8, !tbaa !15
   %293 = ptrtoint ptr %292 to i64
-  %294 = and i64 %293, 1
-  %.not584 = icmp eq i64 %294, 0
-  br i1 %.not584, label %295, label %_ZL8lean_incP11lean_object.exit448
+  %294 = trunc i64 %293 to i1
+  br i1 %294, label %_ZL8lean_incP11lean_object.exit448, label %295
 
 295:                                              ; preds = %290
   %.val.i493 = load i32, ptr %292, align 4, !tbaa !16
@@ -24521,9 +23849,8 @@ _ZL8lean_incP11lean_object.exit448:               ; preds = %300, %299, %297, %2
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %302 = load ptr, ptr %301, align 8, !tbaa !15
   %303 = ptrtoint ptr %302 to i64
-  %304 = and i64 %303, 1
-  %.not585 = icmp eq i64 %304, 0
-  br i1 %.not585, label %305, label %_ZL8lean_incP11lean_object.exit447
+  %304 = trunc i64 %303 to i1
+  br i1 %304, label %_ZL8lean_incP11lean_object.exit447, label %305
 
 305:                                              ; preds = %_ZL8lean_incP11lean_object.exit448
   %.val.i496 = load i32, ptr %302, align 4, !tbaa !16
@@ -24547,9 +23874,8 @@ _ZL8lean_incP11lean_object.exit447:               ; preds = %310, %309, %307, %_
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %312 = load ptr, ptr %311, align 8, !tbaa !15
   %313 = ptrtoint ptr %312 to i64
-  %314 = and i64 %313, 1
-  %.not586 = icmp eq i64 %314, 0
-  br i1 %.not586, label %315, label %_ZL8lean_incP11lean_object.exit446
+  %314 = trunc i64 %313 to i1
+  br i1 %314, label %_ZL8lean_incP11lean_object.exit446, label %315
 
 315:                                              ; preds = %_ZL8lean_incP11lean_object.exit447
   %.val.i499 = load i32, ptr %312, align 4, !tbaa !16
@@ -24573,9 +23899,8 @@ _ZL8lean_incP11lean_object.exit446:               ; preds = %320, %319, %317, %_
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %322 = load ptr, ptr %321, align 8, !tbaa !15
   %323 = ptrtoint ptr %322 to i64
-  %324 = and i64 %323, 1
-  %.not587 = icmp eq i64 %324, 0
-  br i1 %.not587, label %325, label %_ZL8lean_incP11lean_object.exit445
+  %324 = trunc i64 %323 to i1
+  br i1 %324, label %_ZL8lean_incP11lean_object.exit445, label %325
 
 325:                                              ; preds = %_ZL8lean_incP11lean_object.exit446
   %.val.i502 = load i32, ptr %322, align 4, !tbaa !16
@@ -24593,11 +23918,11 @@ _ZL8lean_incP11lean_object.exit446:               ; preds = %320, %319, %317, %_
 
 330:                                              ; preds = %329
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %322)
-  %.pre632 = load ptr, ptr %321, align 8, !tbaa !15
+  %.pre592 = load ptr, ptr %321, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit445
 
 _ZL8lean_incP11lean_object.exit445:               ; preds = %330, %329, %327, %_ZL8lean_incP11lean_object.exit446
-  %331 = phi ptr [ %.pre632, %330 ], [ %322, %329 ], [ %322, %327 ], [ %322, %_ZL8lean_incP11lean_object.exit446 ]
+  %331 = phi ptr [ %.pre592, %330 ], [ %322, %329 ], [ %322, %327 ], [ %322, %_ZL8lean_incP11lean_object.exit446 ]
   %332 = getelementptr i8, ptr %0, i64 8
   %.val461 = load ptr, ptr %332, align 8, !tbaa !15
   %333 = load ptr, ptr %291, align 8, !tbaa !15
@@ -24625,9 +23950,8 @@ _ZL8lean_incP11lean_object.exit445:               ; preds = %330, %329, %327, %_
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %345 = load ptr, ptr %344, align 8, !tbaa !15
   %346 = ptrtoint ptr %345 to i64
-  %347 = and i64 %346, 1
-  %.not579 = icmp eq i64 %347, 0
-  br i1 %.not579, label %348, label %_ZL8lean_incP11lean_object.exit444
+  %347 = trunc i64 %346 to i1
+  br i1 %347, label %_ZL8lean_incP11lean_object.exit444, label %348
 
 348:                                              ; preds = %343
   %.val.i505 = load i32, ptr %345, align 4, !tbaa !16
@@ -24651,9 +23975,8 @@ _ZL8lean_incP11lean_object.exit444:               ; preds = %353, %352, %350, %3
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %355 = load ptr, ptr %354, align 8, !tbaa !15
   %356 = ptrtoint ptr %355 to i64
-  %357 = and i64 %356, 1
-  %.not580 = icmp eq i64 %357, 0
-  br i1 %.not580, label %358, label %_ZL8lean_incP11lean_object.exit443
+  %357 = trunc i64 %356 to i1
+  br i1 %357, label %_ZL8lean_incP11lean_object.exit443, label %358
 
 358:                                              ; preds = %_ZL8lean_incP11lean_object.exit444
   %.val.i508 = load i32, ptr %355, align 4, !tbaa !16
@@ -24677,9 +24000,8 @@ _ZL8lean_incP11lean_object.exit443:               ; preds = %363, %362, %360, %_
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %365 = load ptr, ptr %364, align 8, !tbaa !15
   %366 = ptrtoint ptr %365 to i64
-  %367 = and i64 %366, 1
-  %.not581 = icmp eq i64 %367, 0
-  br i1 %.not581, label %368, label %_ZL8lean_incP11lean_object.exit442
+  %367 = trunc i64 %366 to i1
+  br i1 %367, label %_ZL8lean_incP11lean_object.exit442, label %368
 
 368:                                              ; preds = %_ZL8lean_incP11lean_object.exit443
   %.val.i511 = load i32, ptr %365, align 4, !tbaa !16
@@ -24703,9 +24025,8 @@ _ZL8lean_incP11lean_object.exit442:               ; preds = %373, %372, %370, %_
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %375 = load ptr, ptr %374, align 8, !tbaa !15
   %376 = ptrtoint ptr %375 to i64
-  %377 = and i64 %376, 1
-  %.not582 = icmp eq i64 %377, 0
-  br i1 %.not582, label %378, label %_ZL8lean_incP11lean_object.exit441
+  %377 = trunc i64 %376 to i1
+  br i1 %377, label %_ZL8lean_incP11lean_object.exit441, label %378
 
 378:                                              ; preds = %_ZL8lean_incP11lean_object.exit442
   %.val.i514 = load i32, ptr %375, align 4, !tbaa !16
@@ -24729,9 +24050,8 @@ _ZL8lean_incP11lean_object.exit441:               ; preds = %383, %382, %380, %_
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %385 = load ptr, ptr %384, align 8, !tbaa !15
   %386 = ptrtoint ptr %385 to i64
-  %387 = and i64 %386, 1
-  %.not583 = icmp eq i64 %387, 0
-  br i1 %.not583, label %388, label %_ZL8lean_incP11lean_object.exit440
+  %387 = trunc i64 %386 to i1
+  br i1 %387, label %_ZL8lean_incP11lean_object.exit440, label %388
 
 388:                                              ; preds = %_ZL8lean_incP11lean_object.exit441
   %.val.i517 = load i32, ptr %385, align 4, !tbaa !16
@@ -24749,11 +24069,11 @@ _ZL8lean_incP11lean_object.exit441:               ; preds = %383, %382, %380, %_
 
 393:                                              ; preds = %392
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %385)
-  %.pre631 = load ptr, ptr %384, align 8, !tbaa !15
+  %.pre591 = load ptr, ptr %384, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit440
 
 _ZL8lean_incP11lean_object.exit440:               ; preds = %393, %392, %390, %_ZL8lean_incP11lean_object.exit441
-  %394 = phi ptr [ %.pre631, %393 ], [ %385, %392 ], [ %385, %390 ], [ %385, %_ZL8lean_incP11lean_object.exit441 ]
+  %394 = phi ptr [ %.pre591, %393 ], [ %385, %392 ], [ %385, %390 ], [ %385, %_ZL8lean_incP11lean_object.exit441 ]
   %395 = getelementptr i8, ptr %0, i64 8
   %.val460 = load ptr, ptr %395, align 8, !tbaa !15
   %396 = load ptr, ptr %344, align 8, !tbaa !15
@@ -24782,9 +24102,8 @@ _ZL8lean_incP11lean_object.exit440:               ; preds = %393, %392, %390, %_
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %409 = load ptr, ptr %408, align 8, !tbaa !15
   %410 = ptrtoint ptr %409 to i64
-  %411 = and i64 %410, 1
-  %.not573 = icmp eq i64 %411, 0
-  br i1 %.not573, label %412, label %_ZL8lean_incP11lean_object.exit439
+  %411 = trunc i64 %410 to i1
+  br i1 %411, label %_ZL8lean_incP11lean_object.exit439, label %412
 
 412:                                              ; preds = %407
   %.val.i520 = load i32, ptr %409, align 4, !tbaa !16
@@ -24808,9 +24127,8 @@ _ZL8lean_incP11lean_object.exit439:               ; preds = %417, %416, %414, %4
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %419 = load ptr, ptr %418, align 8, !tbaa !15
   %420 = ptrtoint ptr %419 to i64
-  %421 = and i64 %420, 1
-  %.not574 = icmp eq i64 %421, 0
-  br i1 %.not574, label %422, label %_ZL8lean_incP11lean_object.exit438
+  %421 = trunc i64 %420 to i1
+  br i1 %421, label %_ZL8lean_incP11lean_object.exit438, label %422
 
 422:                                              ; preds = %_ZL8lean_incP11lean_object.exit439
   %.val.i523 = load i32, ptr %419, align 4, !tbaa !16
@@ -24834,9 +24152,8 @@ _ZL8lean_incP11lean_object.exit438:               ; preds = %427, %426, %424, %_
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %429 = load ptr, ptr %428, align 8, !tbaa !15
   %430 = ptrtoint ptr %429 to i64
-  %431 = and i64 %430, 1
-  %.not575 = icmp eq i64 %431, 0
-  br i1 %.not575, label %432, label %_ZL8lean_incP11lean_object.exit437
+  %431 = trunc i64 %430 to i1
+  br i1 %431, label %_ZL8lean_incP11lean_object.exit437, label %432
 
 432:                                              ; preds = %_ZL8lean_incP11lean_object.exit438
   %.val.i526 = load i32, ptr %429, align 4, !tbaa !16
@@ -24860,9 +24177,8 @@ _ZL8lean_incP11lean_object.exit437:               ; preds = %437, %436, %434, %_
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %439 = load ptr, ptr %438, align 8, !tbaa !15
   %440 = ptrtoint ptr %439 to i64
-  %441 = and i64 %440, 1
-  %.not576 = icmp eq i64 %441, 0
-  br i1 %.not576, label %442, label %_ZL8lean_incP11lean_object.exit436
+  %441 = trunc i64 %440 to i1
+  br i1 %441, label %_ZL8lean_incP11lean_object.exit436, label %442
 
 442:                                              ; preds = %_ZL8lean_incP11lean_object.exit437
   %.val.i529 = load i32, ptr %439, align 4, !tbaa !16
@@ -24886,9 +24202,8 @@ _ZL8lean_incP11lean_object.exit436:               ; preds = %447, %446, %444, %_
   %448 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %449 = load ptr, ptr %448, align 8, !tbaa !15
   %450 = ptrtoint ptr %449 to i64
-  %451 = and i64 %450, 1
-  %.not577 = icmp eq i64 %451, 0
-  br i1 %.not577, label %452, label %_ZL8lean_incP11lean_object.exit435
+  %451 = trunc i64 %450 to i1
+  br i1 %451, label %_ZL8lean_incP11lean_object.exit435, label %452
 
 452:                                              ; preds = %_ZL8lean_incP11lean_object.exit436
   %.val.i532 = load i32, ptr %449, align 4, !tbaa !16
@@ -24912,9 +24227,8 @@ _ZL8lean_incP11lean_object.exit435:               ; preds = %457, %456, %454, %_
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %459 = load ptr, ptr %458, align 8, !tbaa !15
   %460 = ptrtoint ptr %459 to i64
-  %461 = and i64 %460, 1
-  %.not578 = icmp eq i64 %461, 0
-  br i1 %.not578, label %462, label %_ZL8lean_incP11lean_object.exit434
+  %461 = trunc i64 %460 to i1
+  br i1 %461, label %_ZL8lean_incP11lean_object.exit434, label %462
 
 462:                                              ; preds = %_ZL8lean_incP11lean_object.exit435
   %.val.i535 = load i32, ptr %459, align 4, !tbaa !16
@@ -24932,11 +24246,11 @@ _ZL8lean_incP11lean_object.exit435:               ; preds = %457, %456, %454, %_
 
 467:                                              ; preds = %466
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %459)
-  %.pre630 = load ptr, ptr %458, align 8, !tbaa !15
+  %.pre590 = load ptr, ptr %458, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit434
 
 _ZL8lean_incP11lean_object.exit434:               ; preds = %467, %466, %464, %_ZL8lean_incP11lean_object.exit435
-  %468 = phi ptr [ %.pre630, %467 ], [ %459, %466 ], [ %459, %464 ], [ %459, %_ZL8lean_incP11lean_object.exit435 ]
+  %468 = phi ptr [ %.pre590, %467 ], [ %459, %466 ], [ %459, %464 ], [ %459, %_ZL8lean_incP11lean_object.exit435 ]
   %469 = getelementptr i8, ptr %0, i64 8
   %.val459 = load ptr, ptr %469, align 8, !tbaa !15
   %470 = load ptr, ptr %408, align 8, !tbaa !15
@@ -24966,9 +24280,8 @@ _ZL8lean_incP11lean_object.exit434:               ; preds = %467, %466, %464, %_
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %484 = load ptr, ptr %483, align 8, !tbaa !15
   %485 = ptrtoint ptr %484 to i64
-  %486 = and i64 %485, 1
-  %.not566 = icmp eq i64 %486, 0
-  br i1 %.not566, label %487, label %_ZL8lean_incP11lean_object.exit433
+  %486 = trunc i64 %485 to i1
+  br i1 %486, label %_ZL8lean_incP11lean_object.exit433, label %487
 
 487:                                              ; preds = %482
   %.val.i538 = load i32, ptr %484, align 4, !tbaa !16
@@ -24992,9 +24305,8 @@ _ZL8lean_incP11lean_object.exit433:               ; preds = %492, %491, %489, %4
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %494 = load ptr, ptr %493, align 8, !tbaa !15
   %495 = ptrtoint ptr %494 to i64
-  %496 = and i64 %495, 1
-  %.not567 = icmp eq i64 %496, 0
-  br i1 %.not567, label %497, label %_ZL8lean_incP11lean_object.exit432
+  %496 = trunc i64 %495 to i1
+  br i1 %496, label %_ZL8lean_incP11lean_object.exit432, label %497
 
 497:                                              ; preds = %_ZL8lean_incP11lean_object.exit433
   %.val.i541 = load i32, ptr %494, align 4, !tbaa !16
@@ -25018,9 +24330,8 @@ _ZL8lean_incP11lean_object.exit432:               ; preds = %502, %501, %499, %_
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %504 = load ptr, ptr %503, align 8, !tbaa !15
   %505 = ptrtoint ptr %504 to i64
-  %506 = and i64 %505, 1
-  %.not568 = icmp eq i64 %506, 0
-  br i1 %.not568, label %507, label %_ZL8lean_incP11lean_object.exit431
+  %506 = trunc i64 %505 to i1
+  br i1 %506, label %_ZL8lean_incP11lean_object.exit431, label %507
 
 507:                                              ; preds = %_ZL8lean_incP11lean_object.exit432
   %.val.i544 = load i32, ptr %504, align 4, !tbaa !16
@@ -25044,9 +24355,8 @@ _ZL8lean_incP11lean_object.exit431:               ; preds = %512, %511, %509, %_
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %514 = load ptr, ptr %513, align 8, !tbaa !15
   %515 = ptrtoint ptr %514 to i64
-  %516 = and i64 %515, 1
-  %.not569 = icmp eq i64 %516, 0
-  br i1 %.not569, label %517, label %_ZL8lean_incP11lean_object.exit430
+  %516 = trunc i64 %515 to i1
+  br i1 %516, label %_ZL8lean_incP11lean_object.exit430, label %517
 
 517:                                              ; preds = %_ZL8lean_incP11lean_object.exit431
   %.val.i547 = load i32, ptr %514, align 4, !tbaa !16
@@ -25070,9 +24380,8 @@ _ZL8lean_incP11lean_object.exit430:               ; preds = %522, %521, %519, %_
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %524 = load ptr, ptr %523, align 8, !tbaa !15
   %525 = ptrtoint ptr %524 to i64
-  %526 = and i64 %525, 1
-  %.not570 = icmp eq i64 %526, 0
-  br i1 %.not570, label %527, label %_ZL8lean_incP11lean_object.exit429
+  %526 = trunc i64 %525 to i1
+  br i1 %526, label %_ZL8lean_incP11lean_object.exit429, label %527
 
 527:                                              ; preds = %_ZL8lean_incP11lean_object.exit430
   %.val.i550 = load i32, ptr %524, align 4, !tbaa !16
@@ -25096,9 +24405,8 @@ _ZL8lean_incP11lean_object.exit429:               ; preds = %532, %531, %529, %_
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %534 = load ptr, ptr %533, align 8, !tbaa !15
   %535 = ptrtoint ptr %534 to i64
-  %536 = and i64 %535, 1
-  %.not571 = icmp eq i64 %536, 0
-  br i1 %.not571, label %537, label %_ZL8lean_incP11lean_object.exit428
+  %536 = trunc i64 %535 to i1
+  br i1 %536, label %_ZL8lean_incP11lean_object.exit428, label %537
 
 537:                                              ; preds = %_ZL8lean_incP11lean_object.exit429
   %.val.i553 = load i32, ptr %534, align 4, !tbaa !16
@@ -25122,9 +24430,8 @@ _ZL8lean_incP11lean_object.exit428:               ; preds = %542, %541, %539, %_
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %544 = load ptr, ptr %543, align 8, !tbaa !15
   %545 = ptrtoint ptr %544 to i64
-  %546 = and i64 %545, 1
-  %.not572 = icmp eq i64 %546, 0
-  br i1 %.not572, label %547, label %_ZL8lean_incP11lean_object.exit427
+  %546 = trunc i64 %545 to i1
+  br i1 %546, label %_ZL8lean_incP11lean_object.exit427, label %547
 
 547:                                              ; preds = %_ZL8lean_incP11lean_object.exit428
   %.val.i556 = load i32, ptr %544, align 4, !tbaa !16
@@ -25142,11 +24449,11 @@ _ZL8lean_incP11lean_object.exit428:               ; preds = %542, %541, %539, %_
 
 552:                                              ; preds = %551
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %544)
-  %.pre629 = load ptr, ptr %543, align 8, !tbaa !15
+  %.pre589 = load ptr, ptr %543, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit427
 
 _ZL8lean_incP11lean_object.exit427:               ; preds = %552, %551, %549, %_ZL8lean_incP11lean_object.exit428
-  %553 = phi ptr [ %.pre629, %552 ], [ %544, %551 ], [ %544, %549 ], [ %544, %_ZL8lean_incP11lean_object.exit428 ]
+  %553 = phi ptr [ %.pre589, %552 ], [ %544, %551 ], [ %544, %549 ], [ %544, %_ZL8lean_incP11lean_object.exit428 ]
   %554 = getelementptr i8, ptr %0, i64 8
   %.val458 = load ptr, ptr %554, align 8, !tbaa !15
   %555 = load ptr, ptr %483, align 8, !tbaa !15
@@ -25177,12 +24484,12 @@ _ZL8lean_incP11lean_object.exit427:               ; preds = %552, %551, %549, %_
   %569 = shl nuw nsw i32 %99, 3
   %570 = zext nneg i32 %569 to i64
   %571 = alloca i8, i64 %570, align 16
-  %.not614 = icmp eq i16 %.val455, 0
-  br i1 %.not614, label %.preheader, label %.lr.ph610
+  %.not574 = icmp eq i16 %.val455, 0
+  br i1 %.not574, label %.preheader, label %.lr.ph571
 
-.lr.ph610:                                        ; preds = %568
+.lr.ph571:                                        ; preds = %568
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count624 = zext i16 %.val455 to i64
+  %wide.trip.count584 = zext i16 %.val455 to i64
   br label %579
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit426, %568
@@ -25213,14 +24520,13 @@ _ZL8lean_incP11lean_object.exit427:               ; preds = %552, %551, %549, %_
   %578 = icmp sgt i32 %577, 1
   br i1 %578, label %592, label %594, !prof !19
 
-579:                                              ; preds = %.lr.ph610, %_ZL8lean_incP11lean_object.exit426
-  %indvars.iv621 = phi i64 [ 0, %.lr.ph610 ], [ %indvars.iv.next622, %_ZL8lean_incP11lean_object.exit426 ]
-  %580 = getelementptr inbounds nuw ptr, ptr %572, i64 %indvars.iv621
+579:                                              ; preds = %.lr.ph571, %_ZL8lean_incP11lean_object.exit426
+  %indvars.iv581 = phi i64 [ 0, %.lr.ph571 ], [ %indvars.iv.next582, %_ZL8lean_incP11lean_object.exit426 ]
+  %580 = getelementptr inbounds nuw ptr, ptr %572, i64 %indvars.iv581
   %581 = load ptr, ptr %580, align 8, !tbaa !15
   %582 = ptrtoint ptr %581 to i64
-  %583 = and i64 %582, 1
-  %.not594 = icmp eq i64 %583, 0
-  br i1 %.not594, label %584, label %_ZL8lean_incP11lean_object.exit426
+  %583 = trunc i64 %582 to i1
+  br i1 %583, label %_ZL8lean_incP11lean_object.exit426, label %584
 
 584:                                              ; preds = %579
   %.val.i559 = load i32, ptr %581, align 4, !tbaa !16
@@ -25238,16 +24544,16 @@ _ZL8lean_incP11lean_object.exit427:               ; preds = %552, %551, %549, %_
 
 589:                                              ; preds = %588
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %581)
-  %.pre636 = load ptr, ptr %580, align 8, !tbaa !15
+  %.pre596 = load ptr, ptr %580, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit426
 
 _ZL8lean_incP11lean_object.exit426:               ; preds = %589, %588, %586, %579
-  %590 = phi ptr [ %.pre636, %589 ], [ %581, %588 ], [ %581, %586 ], [ %581, %579 ]
-  %591 = getelementptr inbounds nuw ptr, ptr %571, i64 %indvars.iv621
+  %590 = phi ptr [ %.pre596, %589 ], [ %581, %588 ], [ %581, %586 ], [ %581, %579 ]
+  %591 = getelementptr inbounds nuw ptr, ptr %571, i64 %indvars.iv581
   store ptr %590, ptr %591, align 8, !tbaa !15
-  %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
-  %exitcond625.not = icmp eq i64 %indvars.iv.next622, %wide.trip.count624
-  br i1 %exitcond625.not, label %.preheader, label %579, !llvm.loop !45
+  %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
+  %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
+  br i1 %exitcond585.not, label %.preheader, label %579, !llvm.loop !45
 
 592:                                              ; preds = %.preheader
   %593 = add nsw i32 %577, -1
@@ -25288,31 +24594,30 @@ _ZL8lean_incP11lean_object.exit426:               ; preds = %589, %588, %586, %5
   %607 = shl nuw nsw i32 %99, 3
   %608 = zext nneg i32 %607 to i64
   %609 = alloca i8, i64 %608, align 16
-  %.not612 = icmp eq i16 %.val455, 0
-  br i1 %.not612, label %.preheader604, label %.lr.ph
+  %.not = icmp eq i16 %.val455, 0
+  br i1 %.not, label %.preheader565, label %.lr.ph
 
 .lr.ph:                                           ; preds = %598
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val455 to i64
   br label %612
 
-.preheader604:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %598
+.preheader565:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %598
   %611 = sub nsw i32 %99, %101
-  %.not613 = icmp eq i16 %.val, %.val455
-  br i1 %.not613, label %._crit_edge, label %.lr.ph607.preheader
+  %.not573 = icmp eq i16 %.val, %.val455
+  br i1 %.not573, label %._crit_edge, label %.lr.ph568.preheader
 
-.lr.ph607.preheader:                              ; preds = %.preheader604
-  %wide.trip.count619 = zext i32 %611 to i64
-  br label %.lr.ph607
+.lr.ph568.preheader:                              ; preds = %.preheader565
+  %wide.trip.count579 = zext i32 %611 to i64
+  br label %.lr.ph568
 
 612:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %613 = getelementptr inbounds nuw ptr, ptr %610, i64 %indvars.iv
   %614 = load ptr, ptr %613, align 8, !tbaa !15
   %615 = ptrtoint ptr %614 to i64
-  %616 = and i64 %615, 1
-  %.not565 = icmp eq i64 %616, 0
-  br i1 %.not565, label %617, label %_ZL8lean_incP11lean_object.exit
+  %616 = trunc i64 %615 to i1
+  br i1 %616, label %_ZL8lean_incP11lean_object.exit, label %617
 
 617:                                              ; preds = %612
   %.val.i562 = load i32, ptr %614, align 4, !tbaa !16
@@ -25339,9 +24644,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %622, %621, %619, %6
   store ptr %623, ptr %624, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader604, label %612, !llvm.loop !46
+  br i1 %exitcond.not, label %.preheader565, label %612, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %.lr.ph607, %.preheader604
+._crit_edge:                                      ; preds = %.lr.ph568, %.preheader565
   %625 = getelementptr i8, ptr %0, i64 8
   %.val476 = load ptr, ptr %625, align 8, !tbaa !15
   %626 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val476, i32 noundef range(i32 0, 65536) %99, ptr noundef nonnull %609)
@@ -25370,18 +24675,18 @@ _ZL12lean_dec_refP11lean_object.exit407:          ; preds = %629, %631, %632
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph607:                                        ; preds = %.lr.ph607.preheader, %.lr.ph607
-  %indvars.iv616 = phi i64 [ 0, %.lr.ph607.preheader ], [ %indvars.iv.next617, %.lr.ph607 ]
-  %637 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv616
+.lr.ph568:                                        ; preds = %.lr.ph568.preheader, %.lr.ph568
+  %indvars.iv576 = phi i64 [ 0, %.lr.ph568.preheader ], [ %indvars.iv.next577, %.lr.ph568 ]
+  %637 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv576
   %638 = load ptr, ptr %637, align 8, !tbaa !15
-  %639 = trunc nuw i64 %indvars.iv616 to i32
+  %639 = trunc nuw i64 %indvars.iv576 to i32
   %640 = add i32 %639, %101
   %641 = zext i32 %640 to i64
   %642 = getelementptr inbounds nuw ptr, ptr %609, i64 %641
   store ptr %638, ptr %642, align 8, !tbaa !15
-  %indvars.iv.next617 = add nuw nsw i64 %indvars.iv616, 1
-  %exitcond620.not = icmp eq i64 %indvars.iv.next617, %wide.trip.count619
-  br i1 %exitcond620.not, label %._crit_edge, label %.lr.ph607, !llvm.loop !47
+  %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
+  %exitcond580.not = icmp eq i64 %indvars.iv.next577, %wide.trip.count579
+  br i1 %exitcond580.not, label %._crit_edge, label %.lr.ph568, !llvm.loop !47
 
 643:                                              ; preds = %596
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -25416,15 +24721,13 @@ define ptr @lean_apply_10(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %12 = alloca [10 x ptr], align 16
   %13 = alloca [10 x ptr], align 8
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %107, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %107
 
 16:                                               ; preds = %11
   %17 = ptrtoint ptr %1 to i64
-  %18 = and i64 %17, 1
-  %.not532 = icmp eq i64 %18, 0
-  br i1 %.not532, label %19, label %_ZL8lean_decP11lean_object.exit363
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %_ZL8lean_decP11lean_object.exit363, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %1, align 4, !tbaa !16
@@ -25446,9 +24749,8 @@ define ptr @lean_apply_10(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit363:               ; preds = %25, %24, %22, %16
   %26 = ptrtoint ptr %2 to i64
-  %27 = and i64 %26, 1
-  %.not533 = icmp eq i64 %27, 0
-  br i1 %.not533, label %28, label %_ZL8lean_decP11lean_object.exit362
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZL8lean_decP11lean_object.exit362, label %28
 
 28:                                               ; preds = %_ZL8lean_decP11lean_object.exit363
   %29 = load i32, ptr %2, align 4, !tbaa !16
@@ -25470,9 +24772,8 @@ _ZL8lean_decP11lean_object.exit363:               ; preds = %25, %24, %22, %16
 
 _ZL8lean_decP11lean_object.exit362:               ; preds = %34, %33, %31, %_ZL8lean_decP11lean_object.exit363
   %35 = ptrtoint ptr %3 to i64
-  %36 = and i64 %35, 1
-  %.not534 = icmp eq i64 %36, 0
-  br i1 %.not534, label %37, label %_ZL8lean_decP11lean_object.exit361
+  %36 = trunc i64 %35 to i1
+  br i1 %36, label %_ZL8lean_decP11lean_object.exit361, label %37
 
 37:                                               ; preds = %_ZL8lean_decP11lean_object.exit362
   %38 = load i32, ptr %3, align 4, !tbaa !16
@@ -25494,9 +24795,8 @@ _ZL8lean_decP11lean_object.exit362:               ; preds = %34, %33, %31, %_ZL8
 
 _ZL8lean_decP11lean_object.exit361:               ; preds = %43, %42, %40, %_ZL8lean_decP11lean_object.exit362
   %44 = ptrtoint ptr %4 to i64
-  %45 = and i64 %44, 1
-  %.not535 = icmp eq i64 %45, 0
-  br i1 %.not535, label %46, label %_ZL8lean_decP11lean_object.exit360
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %_ZL8lean_decP11lean_object.exit360, label %46
 
 46:                                               ; preds = %_ZL8lean_decP11lean_object.exit361
   %47 = load i32, ptr %4, align 4, !tbaa !16
@@ -25518,9 +24818,8 @@ _ZL8lean_decP11lean_object.exit361:               ; preds = %43, %42, %40, %_ZL8
 
 _ZL8lean_decP11lean_object.exit360:               ; preds = %52, %51, %49, %_ZL8lean_decP11lean_object.exit361
   %53 = ptrtoint ptr %5 to i64
-  %54 = and i64 %53, 1
-  %.not536 = icmp eq i64 %54, 0
-  br i1 %.not536, label %55, label %_ZL8lean_decP11lean_object.exit359
+  %54 = trunc i64 %53 to i1
+  br i1 %54, label %_ZL8lean_decP11lean_object.exit359, label %55
 
 55:                                               ; preds = %_ZL8lean_decP11lean_object.exit360
   %56 = load i32, ptr %5, align 4, !tbaa !16
@@ -25542,9 +24841,8 @@ _ZL8lean_decP11lean_object.exit360:               ; preds = %52, %51, %49, %_ZL8
 
 _ZL8lean_decP11lean_object.exit359:               ; preds = %61, %60, %58, %_ZL8lean_decP11lean_object.exit360
   %62 = ptrtoint ptr %6 to i64
-  %63 = and i64 %62, 1
-  %.not537 = icmp eq i64 %63, 0
-  br i1 %.not537, label %64, label %_ZL8lean_decP11lean_object.exit358
+  %63 = trunc i64 %62 to i1
+  br i1 %63, label %_ZL8lean_decP11lean_object.exit358, label %64
 
 64:                                               ; preds = %_ZL8lean_decP11lean_object.exit359
   %65 = load i32, ptr %6, align 4, !tbaa !16
@@ -25566,9 +24864,8 @@ _ZL8lean_decP11lean_object.exit359:               ; preds = %61, %60, %58, %_ZL8
 
 _ZL8lean_decP11lean_object.exit358:               ; preds = %70, %69, %67, %_ZL8lean_decP11lean_object.exit359
   %71 = ptrtoint ptr %7 to i64
-  %72 = and i64 %71, 1
-  %.not538 = icmp eq i64 %72, 0
-  br i1 %.not538, label %73, label %_ZL8lean_decP11lean_object.exit357
+  %72 = trunc i64 %71 to i1
+  br i1 %72, label %_ZL8lean_decP11lean_object.exit357, label %73
 
 73:                                               ; preds = %_ZL8lean_decP11lean_object.exit358
   %74 = load i32, ptr %7, align 4, !tbaa !16
@@ -25590,9 +24887,8 @@ _ZL8lean_decP11lean_object.exit358:               ; preds = %70, %69, %67, %_ZL8
 
 _ZL8lean_decP11lean_object.exit357:               ; preds = %79, %78, %76, %_ZL8lean_decP11lean_object.exit358
   %80 = ptrtoint ptr %8 to i64
-  %81 = and i64 %80, 1
-  %.not539 = icmp eq i64 %81, 0
-  br i1 %.not539, label %82, label %_ZL8lean_decP11lean_object.exit356
+  %81 = trunc i64 %80 to i1
+  br i1 %81, label %_ZL8lean_decP11lean_object.exit356, label %82
 
 82:                                               ; preds = %_ZL8lean_decP11lean_object.exit357
   %83 = load i32, ptr %8, align 4, !tbaa !16
@@ -25614,9 +24910,8 @@ _ZL8lean_decP11lean_object.exit357:               ; preds = %79, %78, %76, %_ZL8
 
 _ZL8lean_decP11lean_object.exit356:               ; preds = %88, %87, %85, %_ZL8lean_decP11lean_object.exit357
   %89 = ptrtoint ptr %9 to i64
-  %90 = and i64 %89, 1
-  %.not540 = icmp eq i64 %90, 0
-  br i1 %.not540, label %91, label %_ZL8lean_decP11lean_object.exit355
+  %90 = trunc i64 %89 to i1
+  br i1 %90, label %_ZL8lean_decP11lean_object.exit355, label %91
 
 91:                                               ; preds = %_ZL8lean_decP11lean_object.exit356
   %92 = load i32, ptr %9, align 4, !tbaa !16
@@ -25638,9 +24933,8 @@ _ZL8lean_decP11lean_object.exit356:               ; preds = %88, %87, %85, %_ZL8
 
 _ZL8lean_decP11lean_object.exit355:               ; preds = %97, %96, %94, %_ZL8lean_decP11lean_object.exit356
   %98 = ptrtoint ptr %10 to i64
-  %99 = and i64 %98, 1
-  %.not541 = icmp eq i64 %99, 0
-  br i1 %.not541, label %100, label %_ZL8lean_decP11lean_object.exit
+  %99 = trunc i64 %98 to i1
+  br i1 %99, label %_ZL8lean_decP11lean_object.exit, label %100
 
 100:                                              ; preds = %_ZL8lean_decP11lean_object.exit355
   %101 = load i32, ptr %10, align 4, !tbaa !16
@@ -25814,9 +25108,8 @@ _ZL8lean_decP11lean_object.exit355:               ; preds = %97, %96, %94, %_ZL8
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %192 = load ptr, ptr %191, align 8, !tbaa !15
   %193 = ptrtoint ptr %192 to i64
-  %194 = and i64 %193, 1
-  %.not530 = icmp eq i64 %194, 0
-  br i1 %.not530, label %195, label %_ZL8lean_incP11lean_object.exit421
+  %194 = trunc i64 %193 to i1
+  br i1 %194, label %_ZL8lean_incP11lean_object.exit421, label %195
 
 195:                                              ; preds = %190
   %.val.i = load i32, ptr %192, align 4, !tbaa !16
@@ -25834,11 +25127,11 @@ _ZL8lean_decP11lean_object.exit355:               ; preds = %97, %96, %94, %_ZL8
 
 200:                                              ; preds = %199
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %192)
-  %.pre572 = load ptr, ptr %191, align 8, !tbaa !15
+  %.pre538 = load ptr, ptr %191, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit421
 
 _ZL8lean_incP11lean_object.exit421:               ; preds = %200, %199, %197, %190
-  %201 = phi ptr [ %.pre572, %200 ], [ %192, %199 ], [ %192, %197 ], [ %192, %190 ]
+  %201 = phi ptr [ %.pre538, %200 ], [ %192, %199 ], [ %192, %197 ], [ %192, %190 ]
   %202 = getelementptr i8, ptr %0, i64 8
   %.val430 = load ptr, ptr %202, align 8, !tbaa !15
   %203 = tail call noundef ptr %.val430(ptr noundef %201, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
@@ -25863,9 +25156,8 @@ _ZL8lean_incP11lean_object.exit421:               ; preds = %200, %199, %197, %1
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %212 = load ptr, ptr %211, align 8, !tbaa !15
   %213 = ptrtoint ptr %212 to i64
-  %214 = and i64 %213, 1
-  %.not528 = icmp eq i64 %214, 0
-  br i1 %.not528, label %215, label %_ZL8lean_incP11lean_object.exit420
+  %214 = trunc i64 %213 to i1
+  br i1 %214, label %_ZL8lean_incP11lean_object.exit420, label %215
 
 215:                                              ; preds = %210
   %.val.i443 = load i32, ptr %212, align 4, !tbaa !16
@@ -25889,9 +25181,8 @@ _ZL8lean_incP11lean_object.exit420:               ; preds = %220, %219, %217, %2
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %222 = load ptr, ptr %221, align 8, !tbaa !15
   %223 = ptrtoint ptr %222 to i64
-  %224 = and i64 %223, 1
-  %.not529 = icmp eq i64 %224, 0
-  br i1 %.not529, label %225, label %_ZL8lean_incP11lean_object.exit419
+  %224 = trunc i64 %223 to i1
+  br i1 %224, label %_ZL8lean_incP11lean_object.exit419, label %225
 
 225:                                              ; preds = %_ZL8lean_incP11lean_object.exit420
   %.val.i446 = load i32, ptr %222, align 4, !tbaa !16
@@ -25909,11 +25200,11 @@ _ZL8lean_incP11lean_object.exit420:               ; preds = %220, %219, %217, %2
 
 230:                                              ; preds = %229
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %222)
-  %.pre571 = load ptr, ptr %221, align 8, !tbaa !15
+  %.pre537 = load ptr, ptr %221, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit419
 
 _ZL8lean_incP11lean_object.exit419:               ; preds = %230, %229, %227, %_ZL8lean_incP11lean_object.exit420
-  %231 = phi ptr [ %.pre571, %230 ], [ %222, %229 ], [ %222, %227 ], [ %222, %_ZL8lean_incP11lean_object.exit420 ]
+  %231 = phi ptr [ %.pre537, %230 ], [ %222, %229 ], [ %222, %227 ], [ %222, %_ZL8lean_incP11lean_object.exit420 ]
   %232 = getelementptr i8, ptr %0, i64 8
   %.val429 = load ptr, ptr %232, align 8, !tbaa !15
   %233 = load ptr, ptr %211, align 8, !tbaa !15
@@ -25939,9 +25230,8 @@ _ZL8lean_incP11lean_object.exit419:               ; preds = %230, %229, %227, %_
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %243 = load ptr, ptr %242, align 8, !tbaa !15
   %244 = ptrtoint ptr %243 to i64
-  %245 = and i64 %244, 1
-  %.not525 = icmp eq i64 %245, 0
-  br i1 %.not525, label %246, label %_ZL8lean_incP11lean_object.exit418
+  %245 = trunc i64 %244 to i1
+  br i1 %245, label %_ZL8lean_incP11lean_object.exit418, label %246
 
 246:                                              ; preds = %241
   %.val.i449 = load i32, ptr %243, align 4, !tbaa !16
@@ -25965,9 +25255,8 @@ _ZL8lean_incP11lean_object.exit418:               ; preds = %251, %250, %248, %2
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %253 = load ptr, ptr %252, align 8, !tbaa !15
   %254 = ptrtoint ptr %253 to i64
-  %255 = and i64 %254, 1
-  %.not526 = icmp eq i64 %255, 0
-  br i1 %.not526, label %256, label %_ZL8lean_incP11lean_object.exit417
+  %255 = trunc i64 %254 to i1
+  br i1 %255, label %_ZL8lean_incP11lean_object.exit417, label %256
 
 256:                                              ; preds = %_ZL8lean_incP11lean_object.exit418
   %.val.i452 = load i32, ptr %253, align 4, !tbaa !16
@@ -25991,9 +25280,8 @@ _ZL8lean_incP11lean_object.exit417:               ; preds = %261, %260, %258, %_
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %263 = load ptr, ptr %262, align 8, !tbaa !15
   %264 = ptrtoint ptr %263 to i64
-  %265 = and i64 %264, 1
-  %.not527 = icmp eq i64 %265, 0
-  br i1 %.not527, label %266, label %_ZL8lean_incP11lean_object.exit416
+  %265 = trunc i64 %264 to i1
+  br i1 %265, label %_ZL8lean_incP11lean_object.exit416, label %266
 
 266:                                              ; preds = %_ZL8lean_incP11lean_object.exit417
   %.val.i455 = load i32, ptr %263, align 4, !tbaa !16
@@ -26011,11 +25299,11 @@ _ZL8lean_incP11lean_object.exit417:               ; preds = %261, %260, %258, %_
 
 271:                                              ; preds = %270
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %263)
-  %.pre570 = load ptr, ptr %262, align 8, !tbaa !15
+  %.pre536 = load ptr, ptr %262, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit416
 
 _ZL8lean_incP11lean_object.exit416:               ; preds = %271, %270, %268, %_ZL8lean_incP11lean_object.exit417
-  %272 = phi ptr [ %.pre570, %271 ], [ %263, %270 ], [ %263, %268 ], [ %263, %_ZL8lean_incP11lean_object.exit417 ]
+  %272 = phi ptr [ %.pre536, %271 ], [ %263, %270 ], [ %263, %268 ], [ %263, %_ZL8lean_incP11lean_object.exit417 ]
   %273 = getelementptr i8, ptr %0, i64 8
   %.val428 = load ptr, ptr %273, align 8, !tbaa !15
   %274 = load ptr, ptr %242, align 8, !tbaa !15
@@ -26042,9 +25330,8 @@ _ZL8lean_incP11lean_object.exit416:               ; preds = %271, %270, %268, %_
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %285 = load ptr, ptr %284, align 8, !tbaa !15
   %286 = ptrtoint ptr %285 to i64
-  %287 = and i64 %286, 1
-  %.not521 = icmp eq i64 %287, 0
-  br i1 %.not521, label %288, label %_ZL8lean_incP11lean_object.exit415
+  %287 = trunc i64 %286 to i1
+  br i1 %287, label %_ZL8lean_incP11lean_object.exit415, label %288
 
 288:                                              ; preds = %283
   %.val.i458 = load i32, ptr %285, align 4, !tbaa !16
@@ -26068,9 +25355,8 @@ _ZL8lean_incP11lean_object.exit415:               ; preds = %293, %292, %290, %2
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %295 = load ptr, ptr %294, align 8, !tbaa !15
   %296 = ptrtoint ptr %295 to i64
-  %297 = and i64 %296, 1
-  %.not522 = icmp eq i64 %297, 0
-  br i1 %.not522, label %298, label %_ZL8lean_incP11lean_object.exit414
+  %297 = trunc i64 %296 to i1
+  br i1 %297, label %_ZL8lean_incP11lean_object.exit414, label %298
 
 298:                                              ; preds = %_ZL8lean_incP11lean_object.exit415
   %.val.i461 = load i32, ptr %295, align 4, !tbaa !16
@@ -26094,9 +25380,8 @@ _ZL8lean_incP11lean_object.exit414:               ; preds = %303, %302, %300, %_
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %305 = load ptr, ptr %304, align 8, !tbaa !15
   %306 = ptrtoint ptr %305 to i64
-  %307 = and i64 %306, 1
-  %.not523 = icmp eq i64 %307, 0
-  br i1 %.not523, label %308, label %_ZL8lean_incP11lean_object.exit413
+  %307 = trunc i64 %306 to i1
+  br i1 %307, label %_ZL8lean_incP11lean_object.exit413, label %308
 
 308:                                              ; preds = %_ZL8lean_incP11lean_object.exit414
   %.val.i464 = load i32, ptr %305, align 4, !tbaa !16
@@ -26120,9 +25405,8 @@ _ZL8lean_incP11lean_object.exit413:               ; preds = %313, %312, %310, %_
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %315 = load ptr, ptr %314, align 8, !tbaa !15
   %316 = ptrtoint ptr %315 to i64
-  %317 = and i64 %316, 1
-  %.not524 = icmp eq i64 %317, 0
-  br i1 %.not524, label %318, label %_ZL8lean_incP11lean_object.exit412
+  %317 = trunc i64 %316 to i1
+  br i1 %317, label %_ZL8lean_incP11lean_object.exit412, label %318
 
 318:                                              ; preds = %_ZL8lean_incP11lean_object.exit413
   %.val.i467 = load i32, ptr %315, align 4, !tbaa !16
@@ -26140,11 +25424,11 @@ _ZL8lean_incP11lean_object.exit413:               ; preds = %313, %312, %310, %_
 
 323:                                              ; preds = %322
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %315)
-  %.pre569 = load ptr, ptr %314, align 8, !tbaa !15
+  %.pre535 = load ptr, ptr %314, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit412
 
 _ZL8lean_incP11lean_object.exit412:               ; preds = %323, %322, %320, %_ZL8lean_incP11lean_object.exit413
-  %324 = phi ptr [ %.pre569, %323 ], [ %315, %322 ], [ %315, %320 ], [ %315, %_ZL8lean_incP11lean_object.exit413 ]
+  %324 = phi ptr [ %.pre535, %323 ], [ %315, %322 ], [ %315, %320 ], [ %315, %_ZL8lean_incP11lean_object.exit413 ]
   %325 = getelementptr i8, ptr %0, i64 8
   %.val427 = load ptr, ptr %325, align 8, !tbaa !15
   %326 = load ptr, ptr %284, align 8, !tbaa !15
@@ -26172,9 +25456,8 @@ _ZL8lean_incP11lean_object.exit412:               ; preds = %323, %322, %320, %_
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %338 = load ptr, ptr %337, align 8, !tbaa !15
   %339 = ptrtoint ptr %338 to i64
-  %340 = and i64 %339, 1
-  %.not516 = icmp eq i64 %340, 0
-  br i1 %.not516, label %341, label %_ZL8lean_incP11lean_object.exit411
+  %340 = trunc i64 %339 to i1
+  br i1 %340, label %_ZL8lean_incP11lean_object.exit411, label %341
 
 341:                                              ; preds = %336
   %.val.i470 = load i32, ptr %338, align 4, !tbaa !16
@@ -26198,9 +25481,8 @@ _ZL8lean_incP11lean_object.exit411:               ; preds = %346, %345, %343, %3
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %348 = load ptr, ptr %347, align 8, !tbaa !15
   %349 = ptrtoint ptr %348 to i64
-  %350 = and i64 %349, 1
-  %.not517 = icmp eq i64 %350, 0
-  br i1 %.not517, label %351, label %_ZL8lean_incP11lean_object.exit410
+  %350 = trunc i64 %349 to i1
+  br i1 %350, label %_ZL8lean_incP11lean_object.exit410, label %351
 
 351:                                              ; preds = %_ZL8lean_incP11lean_object.exit411
   %.val.i473 = load i32, ptr %348, align 4, !tbaa !16
@@ -26224,9 +25506,8 @@ _ZL8lean_incP11lean_object.exit410:               ; preds = %356, %355, %353, %_
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %358 = load ptr, ptr %357, align 8, !tbaa !15
   %359 = ptrtoint ptr %358 to i64
-  %360 = and i64 %359, 1
-  %.not518 = icmp eq i64 %360, 0
-  br i1 %.not518, label %361, label %_ZL8lean_incP11lean_object.exit409
+  %360 = trunc i64 %359 to i1
+  br i1 %360, label %_ZL8lean_incP11lean_object.exit409, label %361
 
 361:                                              ; preds = %_ZL8lean_incP11lean_object.exit410
   %.val.i476 = load i32, ptr %358, align 4, !tbaa !16
@@ -26250,9 +25531,8 @@ _ZL8lean_incP11lean_object.exit409:               ; preds = %366, %365, %363, %_
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %368 = load ptr, ptr %367, align 8, !tbaa !15
   %369 = ptrtoint ptr %368 to i64
-  %370 = and i64 %369, 1
-  %.not519 = icmp eq i64 %370, 0
-  br i1 %.not519, label %371, label %_ZL8lean_incP11lean_object.exit408
+  %370 = trunc i64 %369 to i1
+  br i1 %370, label %_ZL8lean_incP11lean_object.exit408, label %371
 
 371:                                              ; preds = %_ZL8lean_incP11lean_object.exit409
   %.val.i479 = load i32, ptr %368, align 4, !tbaa !16
@@ -26276,9 +25556,8 @@ _ZL8lean_incP11lean_object.exit408:               ; preds = %376, %375, %373, %_
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %378 = load ptr, ptr %377, align 8, !tbaa !15
   %379 = ptrtoint ptr %378 to i64
-  %380 = and i64 %379, 1
-  %.not520 = icmp eq i64 %380, 0
-  br i1 %.not520, label %381, label %_ZL8lean_incP11lean_object.exit407
+  %380 = trunc i64 %379 to i1
+  br i1 %380, label %_ZL8lean_incP11lean_object.exit407, label %381
 
 381:                                              ; preds = %_ZL8lean_incP11lean_object.exit408
   %.val.i482 = load i32, ptr %378, align 4, !tbaa !16
@@ -26296,11 +25575,11 @@ _ZL8lean_incP11lean_object.exit408:               ; preds = %376, %375, %373, %_
 
 386:                                              ; preds = %385
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %378)
-  %.pre568 = load ptr, ptr %377, align 8, !tbaa !15
+  %.pre534 = load ptr, ptr %377, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit407
 
 _ZL8lean_incP11lean_object.exit407:               ; preds = %386, %385, %383, %_ZL8lean_incP11lean_object.exit408
-  %387 = phi ptr [ %.pre568, %386 ], [ %378, %385 ], [ %378, %383 ], [ %378, %_ZL8lean_incP11lean_object.exit408 ]
+  %387 = phi ptr [ %.pre534, %386 ], [ %378, %385 ], [ %378, %383 ], [ %378, %_ZL8lean_incP11lean_object.exit408 ]
   %388 = getelementptr i8, ptr %0, i64 8
   %.val426 = load ptr, ptr %388, align 8, !tbaa !15
   %389 = load ptr, ptr %337, align 8, !tbaa !15
@@ -26329,9 +25608,8 @@ _ZL8lean_incP11lean_object.exit407:               ; preds = %386, %385, %383, %_
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %402 = load ptr, ptr %401, align 8, !tbaa !15
   %403 = ptrtoint ptr %402 to i64
-  %404 = and i64 %403, 1
-  %.not510 = icmp eq i64 %404, 0
-  br i1 %.not510, label %405, label %_ZL8lean_incP11lean_object.exit406
+  %404 = trunc i64 %403 to i1
+  br i1 %404, label %_ZL8lean_incP11lean_object.exit406, label %405
 
 405:                                              ; preds = %400
   %.val.i485 = load i32, ptr %402, align 4, !tbaa !16
@@ -26355,9 +25633,8 @@ _ZL8lean_incP11lean_object.exit406:               ; preds = %410, %409, %407, %4
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %412 = load ptr, ptr %411, align 8, !tbaa !15
   %413 = ptrtoint ptr %412 to i64
-  %414 = and i64 %413, 1
-  %.not511 = icmp eq i64 %414, 0
-  br i1 %.not511, label %415, label %_ZL8lean_incP11lean_object.exit405
+  %414 = trunc i64 %413 to i1
+  br i1 %414, label %_ZL8lean_incP11lean_object.exit405, label %415
 
 415:                                              ; preds = %_ZL8lean_incP11lean_object.exit406
   %.val.i488 = load i32, ptr %412, align 4, !tbaa !16
@@ -26381,9 +25658,8 @@ _ZL8lean_incP11lean_object.exit405:               ; preds = %420, %419, %417, %_
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %422 = load ptr, ptr %421, align 8, !tbaa !15
   %423 = ptrtoint ptr %422 to i64
-  %424 = and i64 %423, 1
-  %.not512 = icmp eq i64 %424, 0
-  br i1 %.not512, label %425, label %_ZL8lean_incP11lean_object.exit404
+  %424 = trunc i64 %423 to i1
+  br i1 %424, label %_ZL8lean_incP11lean_object.exit404, label %425
 
 425:                                              ; preds = %_ZL8lean_incP11lean_object.exit405
   %.val.i491 = load i32, ptr %422, align 4, !tbaa !16
@@ -26407,9 +25683,8 @@ _ZL8lean_incP11lean_object.exit404:               ; preds = %430, %429, %427, %_
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %432 = load ptr, ptr %431, align 8, !tbaa !15
   %433 = ptrtoint ptr %432 to i64
-  %434 = and i64 %433, 1
-  %.not513 = icmp eq i64 %434, 0
-  br i1 %.not513, label %435, label %_ZL8lean_incP11lean_object.exit403
+  %434 = trunc i64 %433 to i1
+  br i1 %434, label %_ZL8lean_incP11lean_object.exit403, label %435
 
 435:                                              ; preds = %_ZL8lean_incP11lean_object.exit404
   %.val.i494 = load i32, ptr %432, align 4, !tbaa !16
@@ -26433,9 +25708,8 @@ _ZL8lean_incP11lean_object.exit403:               ; preds = %440, %439, %437, %_
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %442 = load ptr, ptr %441, align 8, !tbaa !15
   %443 = ptrtoint ptr %442 to i64
-  %444 = and i64 %443, 1
-  %.not514 = icmp eq i64 %444, 0
-  br i1 %.not514, label %445, label %_ZL8lean_incP11lean_object.exit402
+  %444 = trunc i64 %443 to i1
+  br i1 %444, label %_ZL8lean_incP11lean_object.exit402, label %445
 
 445:                                              ; preds = %_ZL8lean_incP11lean_object.exit403
   %.val.i497 = load i32, ptr %442, align 4, !tbaa !16
@@ -26459,9 +25733,8 @@ _ZL8lean_incP11lean_object.exit402:               ; preds = %450, %449, %447, %_
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %452 = load ptr, ptr %451, align 8, !tbaa !15
   %453 = ptrtoint ptr %452 to i64
-  %454 = and i64 %453, 1
-  %.not515 = icmp eq i64 %454, 0
-  br i1 %.not515, label %455, label %_ZL8lean_incP11lean_object.exit401
+  %454 = trunc i64 %453 to i1
+  br i1 %454, label %_ZL8lean_incP11lean_object.exit401, label %455
 
 455:                                              ; preds = %_ZL8lean_incP11lean_object.exit402
   %.val.i500 = load i32, ptr %452, align 4, !tbaa !16
@@ -26479,11 +25752,11 @@ _ZL8lean_incP11lean_object.exit402:               ; preds = %450, %449, %447, %_
 
 460:                                              ; preds = %459
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %452)
-  %.pre567 = load ptr, ptr %451, align 8, !tbaa !15
+  %.pre533 = load ptr, ptr %451, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit401
 
 _ZL8lean_incP11lean_object.exit401:               ; preds = %460, %459, %457, %_ZL8lean_incP11lean_object.exit402
-  %461 = phi ptr [ %.pre567, %460 ], [ %452, %459 ], [ %452, %457 ], [ %452, %_ZL8lean_incP11lean_object.exit402 ]
+  %461 = phi ptr [ %.pre533, %460 ], [ %452, %459 ], [ %452, %457 ], [ %452, %_ZL8lean_incP11lean_object.exit402 ]
   %462 = getelementptr i8, ptr %0, i64 8
   %.val425 = load ptr, ptr %462, align 8, !tbaa !15
   %463 = load ptr, ptr %401, align 8, !tbaa !15
@@ -26513,12 +25786,12 @@ _ZL8lean_incP11lean_object.exit401:               ; preds = %460, %459, %457, %_
   %476 = shl nuw nsw i32 %109, 3
   %477 = zext nneg i32 %476 to i64
   %478 = alloca i8, i64 %477, align 16
-  %.not552 = icmp eq i16 %.val422, 0
-  br i1 %.not552, label %.preheader, label %.lr.ph548
+  %.not518 = icmp eq i16 %.val422, 0
+  br i1 %.not518, label %.preheader, label %.lr.ph515
 
-.lr.ph548:                                        ; preds = %475
+.lr.ph515:                                        ; preds = %475
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count562 = zext i16 %.val422 to i64
+  %wide.trip.count528 = zext i16 %.val422 to i64
   br label %486
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit400, %475
@@ -26551,14 +25824,13 @@ _ZL8lean_incP11lean_object.exit401:               ; preds = %460, %459, %457, %_
   %485 = icmp sgt i32 %484, 1
   br i1 %485, label %499, label %501, !prof !19
 
-486:                                              ; preds = %.lr.ph548, %_ZL8lean_incP11lean_object.exit400
-  %indvars.iv559 = phi i64 [ 0, %.lr.ph548 ], [ %indvars.iv.next560, %_ZL8lean_incP11lean_object.exit400 ]
-  %487 = getelementptr inbounds nuw ptr, ptr %479, i64 %indvars.iv559
+486:                                              ; preds = %.lr.ph515, %_ZL8lean_incP11lean_object.exit400
+  %indvars.iv525 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next526, %_ZL8lean_incP11lean_object.exit400 ]
+  %487 = getelementptr inbounds nuw ptr, ptr %479, i64 %indvars.iv525
   %488 = load ptr, ptr %487, align 8, !tbaa !15
   %489 = ptrtoint ptr %488 to i64
-  %490 = and i64 %489, 1
-  %.not531 = icmp eq i64 %490, 0
-  br i1 %.not531, label %491, label %_ZL8lean_incP11lean_object.exit400
+  %490 = trunc i64 %489 to i1
+  br i1 %490, label %_ZL8lean_incP11lean_object.exit400, label %491
 
 491:                                              ; preds = %486
   %.val.i503 = load i32, ptr %488, align 4, !tbaa !16
@@ -26576,16 +25848,16 @@ _ZL8lean_incP11lean_object.exit401:               ; preds = %460, %459, %457, %_
 
 496:                                              ; preds = %495
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %488)
-  %.pre573 = load ptr, ptr %487, align 8, !tbaa !15
+  %.pre539 = load ptr, ptr %487, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit400
 
 _ZL8lean_incP11lean_object.exit400:               ; preds = %496, %495, %493, %486
-  %497 = phi ptr [ %.pre573, %496 ], [ %488, %495 ], [ %488, %493 ], [ %488, %486 ]
-  %498 = getelementptr inbounds nuw ptr, ptr %478, i64 %indvars.iv559
+  %497 = phi ptr [ %.pre539, %496 ], [ %488, %495 ], [ %488, %493 ], [ %488, %486 ]
+  %498 = getelementptr inbounds nuw ptr, ptr %478, i64 %indvars.iv525
   store ptr %497, ptr %498, align 8, !tbaa !15
-  %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
-  %exitcond563.not = icmp eq i64 %indvars.iv.next560, %wide.trip.count562
-  br i1 %exitcond563.not, label %.preheader, label %486, !llvm.loop !48
+  %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
+  %exitcond529.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count528
+  br i1 %exitcond529.not, label %.preheader, label %486, !llvm.loop !48
 
 499:                                              ; preds = %.preheader
   %500 = add nsw i32 %484, -1
@@ -26628,31 +25900,30 @@ _ZL8lean_incP11lean_object.exit400:               ; preds = %496, %495, %493, %4
   %515 = shl nuw nsw i32 %109, 3
   %516 = zext nneg i32 %515 to i64
   %517 = alloca i8, i64 %516, align 16
-  %.not550 = icmp eq i16 %.val422, 0
-  br i1 %.not550, label %.preheader542, label %.lr.ph
+  %.not = icmp eq i16 %.val422, 0
+  br i1 %.not, label %.preheader509, label %.lr.ph
 
 .lr.ph:                                           ; preds = %505
   %518 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val422 to i64
   br label %520
 
-.preheader542:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %505
+.preheader509:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %505
   %519 = sub nsw i32 %109, %111
-  %.not551 = icmp eq i16 %.val, %.val422
-  br i1 %.not551, label %._crit_edge, label %.lr.ph545.preheader
+  %.not517 = icmp eq i16 %.val, %.val422
+  br i1 %.not517, label %._crit_edge, label %.lr.ph512.preheader
 
-.lr.ph545.preheader:                              ; preds = %.preheader542
-  %wide.trip.count557 = zext i32 %519 to i64
-  br label %.lr.ph545
+.lr.ph512.preheader:                              ; preds = %.preheader509
+  %wide.trip.count523 = zext i32 %519 to i64
+  br label %.lr.ph512
 
 520:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %521 = getelementptr inbounds nuw ptr, ptr %518, i64 %indvars.iv
   %522 = load ptr, ptr %521, align 8, !tbaa !15
   %523 = ptrtoint ptr %522 to i64
-  %524 = and i64 %523, 1
-  %.not509 = icmp eq i64 %524, 0
-  br i1 %.not509, label %525, label %_ZL8lean_incP11lean_object.exit
+  %524 = trunc i64 %523 to i1
+  br i1 %524, label %_ZL8lean_incP11lean_object.exit, label %525
 
 525:                                              ; preds = %520
   %.val.i506 = load i32, ptr %522, align 4, !tbaa !16
@@ -26679,9 +25950,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %530, %529, %527, %5
   store ptr %531, ptr %532, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader542, label %520, !llvm.loop !49
+  br i1 %exitcond.not, label %.preheader509, label %520, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %.lr.ph545, %.preheader542
+._crit_edge:                                      ; preds = %.lr.ph512, %.preheader509
   %533 = getelementptr i8, ptr %0, i64 8
   %.val441 = load ptr, ptr %533, align 8, !tbaa !15
   %534 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val441, i32 noundef range(i32 0, 65536) %109, ptr noundef nonnull %517)
@@ -26710,18 +25981,18 @@ _ZL12lean_dec_refP11lean_object.exit383:          ; preds = %537, %539, %540
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph545:                                        ; preds = %.lr.ph545.preheader, %.lr.ph545
-  %indvars.iv554 = phi i64 [ 0, %.lr.ph545.preheader ], [ %indvars.iv.next555, %.lr.ph545 ]
-  %545 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv554
+.lr.ph512:                                        ; preds = %.lr.ph512.preheader, %.lr.ph512
+  %indvars.iv520 = phi i64 [ 0, %.lr.ph512.preheader ], [ %indvars.iv.next521, %.lr.ph512 ]
+  %545 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv520
   %546 = load ptr, ptr %545, align 8, !tbaa !15
-  %547 = trunc nuw i64 %indvars.iv554 to i32
+  %547 = trunc nuw i64 %indvars.iv520 to i32
   %548 = add i32 %547, %111
   %549 = zext i32 %548 to i64
   %550 = getelementptr inbounds nuw ptr, ptr %517, i64 %549
   store ptr %546, ptr %550, align 8, !tbaa !15
-  %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
-  %exitcond558.not = icmp eq i64 %indvars.iv.next555, %wide.trip.count557
-  br i1 %exitcond558.not, label %._crit_edge, label %.lr.ph545, !llvm.loop !50
+  %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
+  %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
+  br i1 %exitcond524.not, label %._crit_edge, label %.lr.ph512, !llvm.loop !50
 
 551:                                              ; preds = %503
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -26758,15 +26029,13 @@ define ptr @lean_apply_11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %13 = alloca [11 x ptr], align 16
   %14 = alloca [11 x ptr], align 8
   %15 = ptrtoint ptr %0 to i64
-  %16 = and i64 %15, 1
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %117, label %17
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %17, label %117
 
 17:                                               ; preds = %12
   %18 = ptrtoint ptr %1 to i64
-  %19 = and i64 %18, 1
-  %.not473 = icmp eq i64 %19, 0
-  br i1 %.not473, label %20, label %_ZL8lean_decP11lean_object.exit336
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZL8lean_decP11lean_object.exit336, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %1, align 4, !tbaa !16
@@ -26788,9 +26057,8 @@ define ptr @lean_apply_11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit336:               ; preds = %26, %25, %23, %17
   %27 = ptrtoint ptr %2 to i64
-  %28 = and i64 %27, 1
-  %.not474 = icmp eq i64 %28, 0
-  br i1 %.not474, label %29, label %_ZL8lean_decP11lean_object.exit335
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %_ZL8lean_decP11lean_object.exit335, label %29
 
 29:                                               ; preds = %_ZL8lean_decP11lean_object.exit336
   %30 = load i32, ptr %2, align 4, !tbaa !16
@@ -26812,9 +26080,8 @@ _ZL8lean_decP11lean_object.exit336:               ; preds = %26, %25, %23, %17
 
 _ZL8lean_decP11lean_object.exit335:               ; preds = %35, %34, %32, %_ZL8lean_decP11lean_object.exit336
   %36 = ptrtoint ptr %3 to i64
-  %37 = and i64 %36, 1
-  %.not475 = icmp eq i64 %37, 0
-  br i1 %.not475, label %38, label %_ZL8lean_decP11lean_object.exit334
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %_ZL8lean_decP11lean_object.exit334, label %38
 
 38:                                               ; preds = %_ZL8lean_decP11lean_object.exit335
   %39 = load i32, ptr %3, align 4, !tbaa !16
@@ -26836,9 +26103,8 @@ _ZL8lean_decP11lean_object.exit335:               ; preds = %35, %34, %32, %_ZL8
 
 _ZL8lean_decP11lean_object.exit334:               ; preds = %44, %43, %41, %_ZL8lean_decP11lean_object.exit335
   %45 = ptrtoint ptr %4 to i64
-  %46 = and i64 %45, 1
-  %.not476 = icmp eq i64 %46, 0
-  br i1 %.not476, label %47, label %_ZL8lean_decP11lean_object.exit333
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %_ZL8lean_decP11lean_object.exit333, label %47
 
 47:                                               ; preds = %_ZL8lean_decP11lean_object.exit334
   %48 = load i32, ptr %4, align 4, !tbaa !16
@@ -26860,9 +26126,8 @@ _ZL8lean_decP11lean_object.exit334:               ; preds = %44, %43, %41, %_ZL8
 
 _ZL8lean_decP11lean_object.exit333:               ; preds = %53, %52, %50, %_ZL8lean_decP11lean_object.exit334
   %54 = ptrtoint ptr %5 to i64
-  %55 = and i64 %54, 1
-  %.not477 = icmp eq i64 %55, 0
-  br i1 %.not477, label %56, label %_ZL8lean_decP11lean_object.exit332
+  %55 = trunc i64 %54 to i1
+  br i1 %55, label %_ZL8lean_decP11lean_object.exit332, label %56
 
 56:                                               ; preds = %_ZL8lean_decP11lean_object.exit333
   %57 = load i32, ptr %5, align 4, !tbaa !16
@@ -26884,9 +26149,8 @@ _ZL8lean_decP11lean_object.exit333:               ; preds = %53, %52, %50, %_ZL8
 
 _ZL8lean_decP11lean_object.exit332:               ; preds = %62, %61, %59, %_ZL8lean_decP11lean_object.exit333
   %63 = ptrtoint ptr %6 to i64
-  %64 = and i64 %63, 1
-  %.not478 = icmp eq i64 %64, 0
-  br i1 %.not478, label %65, label %_ZL8lean_decP11lean_object.exit331
+  %64 = trunc i64 %63 to i1
+  br i1 %64, label %_ZL8lean_decP11lean_object.exit331, label %65
 
 65:                                               ; preds = %_ZL8lean_decP11lean_object.exit332
   %66 = load i32, ptr %6, align 4, !tbaa !16
@@ -26908,9 +26172,8 @@ _ZL8lean_decP11lean_object.exit332:               ; preds = %62, %61, %59, %_ZL8
 
 _ZL8lean_decP11lean_object.exit331:               ; preds = %71, %70, %68, %_ZL8lean_decP11lean_object.exit332
   %72 = ptrtoint ptr %7 to i64
-  %73 = and i64 %72, 1
-  %.not479 = icmp eq i64 %73, 0
-  br i1 %.not479, label %74, label %_ZL8lean_decP11lean_object.exit330
+  %73 = trunc i64 %72 to i1
+  br i1 %73, label %_ZL8lean_decP11lean_object.exit330, label %74
 
 74:                                               ; preds = %_ZL8lean_decP11lean_object.exit331
   %75 = load i32, ptr %7, align 4, !tbaa !16
@@ -26932,9 +26195,8 @@ _ZL8lean_decP11lean_object.exit331:               ; preds = %71, %70, %68, %_ZL8
 
 _ZL8lean_decP11lean_object.exit330:               ; preds = %80, %79, %77, %_ZL8lean_decP11lean_object.exit331
   %81 = ptrtoint ptr %8 to i64
-  %82 = and i64 %81, 1
-  %.not480 = icmp eq i64 %82, 0
-  br i1 %.not480, label %83, label %_ZL8lean_decP11lean_object.exit329
+  %82 = trunc i64 %81 to i1
+  br i1 %82, label %_ZL8lean_decP11lean_object.exit329, label %83
 
 83:                                               ; preds = %_ZL8lean_decP11lean_object.exit330
   %84 = load i32, ptr %8, align 4, !tbaa !16
@@ -26956,9 +26218,8 @@ _ZL8lean_decP11lean_object.exit330:               ; preds = %80, %79, %77, %_ZL8
 
 _ZL8lean_decP11lean_object.exit329:               ; preds = %89, %88, %86, %_ZL8lean_decP11lean_object.exit330
   %90 = ptrtoint ptr %9 to i64
-  %91 = and i64 %90, 1
-  %.not481 = icmp eq i64 %91, 0
-  br i1 %.not481, label %92, label %_ZL8lean_decP11lean_object.exit328
+  %91 = trunc i64 %90 to i1
+  br i1 %91, label %_ZL8lean_decP11lean_object.exit328, label %92
 
 92:                                               ; preds = %_ZL8lean_decP11lean_object.exit329
   %93 = load i32, ptr %9, align 4, !tbaa !16
@@ -26980,9 +26241,8 @@ _ZL8lean_decP11lean_object.exit329:               ; preds = %89, %88, %86, %_ZL8
 
 _ZL8lean_decP11lean_object.exit328:               ; preds = %98, %97, %95, %_ZL8lean_decP11lean_object.exit329
   %99 = ptrtoint ptr %10 to i64
-  %100 = and i64 %99, 1
-  %.not482 = icmp eq i64 %100, 0
-  br i1 %.not482, label %101, label %_ZL8lean_decP11lean_object.exit327
+  %100 = trunc i64 %99 to i1
+  br i1 %100, label %_ZL8lean_decP11lean_object.exit327, label %101
 
 101:                                              ; preds = %_ZL8lean_decP11lean_object.exit328
   %102 = load i32, ptr %10, align 4, !tbaa !16
@@ -27004,9 +26264,8 @@ _ZL8lean_decP11lean_object.exit328:               ; preds = %98, %97, %95, %_ZL8
 
 _ZL8lean_decP11lean_object.exit327:               ; preds = %107, %106, %104, %_ZL8lean_decP11lean_object.exit328
   %108 = ptrtoint ptr %11 to i64
-  %109 = and i64 %108, 1
-  %.not483 = icmp eq i64 %109, 0
-  br i1 %.not483, label %110, label %_ZL8lean_decP11lean_object.exit
+  %109 = trunc i64 %108 to i1
+  br i1 %109, label %_ZL8lean_decP11lean_object.exit, label %110
 
 110:                                              ; preds = %_ZL8lean_decP11lean_object.exit327
   %111 = load i32, ptr %11, align 4, !tbaa !16
@@ -27159,9 +26418,8 @@ _ZL8lean_decP11lean_object.exit327:               ; preds = %107, %106, %104, %_
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %187 = load ptr, ptr %186, align 8, !tbaa !15
   %188 = ptrtoint ptr %187 to i64
-  %189 = and i64 %188, 1
-  %.not471 = icmp eq i64 %189, 0
-  br i1 %.not471, label %190, label %_ZL8lean_incP11lean_object.exit388
+  %189 = trunc i64 %188 to i1
+  br i1 %189, label %_ZL8lean_incP11lean_object.exit388, label %190
 
 190:                                              ; preds = %185
   %.val.i = load i32, ptr %187, align 4, !tbaa !16
@@ -27179,11 +26437,11 @@ _ZL8lean_decP11lean_object.exit327:               ; preds = %107, %106, %104, %_
 
 195:                                              ; preds = %194
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %187)
-  %.pre513 = load ptr, ptr %186, align 8, !tbaa !15
+  %.pre484 = load ptr, ptr %186, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit388
 
 _ZL8lean_incP11lean_object.exit388:               ; preds = %195, %194, %192, %185
-  %196 = phi ptr [ %.pre513, %195 ], [ %187, %194 ], [ %187, %192 ], [ %187, %185 ]
+  %196 = phi ptr [ %.pre484, %195 ], [ %187, %194 ], [ %187, %192 ], [ %187, %185 ]
   %197 = getelementptr i8, ptr %0, i64 8
   %.val396 = load ptr, ptr %197, align 8, !tbaa !15
   %198 = tail call noundef ptr %.val396(ptr noundef %196, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
@@ -27208,9 +26466,8 @@ _ZL8lean_incP11lean_object.exit388:               ; preds = %195, %194, %192, %1
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %207 = load ptr, ptr %206, align 8, !tbaa !15
   %208 = ptrtoint ptr %207 to i64
-  %209 = and i64 %208, 1
-  %.not469 = icmp eq i64 %209, 0
-  br i1 %.not469, label %210, label %_ZL8lean_incP11lean_object.exit387
+  %209 = trunc i64 %208 to i1
+  br i1 %209, label %_ZL8lean_incP11lean_object.exit387, label %210
 
 210:                                              ; preds = %205
   %.val.i408 = load i32, ptr %207, align 4, !tbaa !16
@@ -27234,9 +26491,8 @@ _ZL8lean_incP11lean_object.exit387:               ; preds = %215, %214, %212, %2
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %217 = load ptr, ptr %216, align 8, !tbaa !15
   %218 = ptrtoint ptr %217 to i64
-  %219 = and i64 %218, 1
-  %.not470 = icmp eq i64 %219, 0
-  br i1 %.not470, label %220, label %_ZL8lean_incP11lean_object.exit386
+  %219 = trunc i64 %218 to i1
+  br i1 %219, label %_ZL8lean_incP11lean_object.exit386, label %220
 
 220:                                              ; preds = %_ZL8lean_incP11lean_object.exit387
   %.val.i411 = load i32, ptr %217, align 4, !tbaa !16
@@ -27254,11 +26510,11 @@ _ZL8lean_incP11lean_object.exit387:               ; preds = %215, %214, %212, %2
 
 225:                                              ; preds = %224
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %217)
-  %.pre512 = load ptr, ptr %216, align 8, !tbaa !15
+  %.pre483 = load ptr, ptr %216, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit386
 
 _ZL8lean_incP11lean_object.exit386:               ; preds = %225, %224, %222, %_ZL8lean_incP11lean_object.exit387
-  %226 = phi ptr [ %.pre512, %225 ], [ %217, %224 ], [ %217, %222 ], [ %217, %_ZL8lean_incP11lean_object.exit387 ]
+  %226 = phi ptr [ %.pre483, %225 ], [ %217, %224 ], [ %217, %222 ], [ %217, %_ZL8lean_incP11lean_object.exit387 ]
   %227 = getelementptr i8, ptr %0, i64 8
   %.val395 = load ptr, ptr %227, align 8, !tbaa !15
   %228 = load ptr, ptr %206, align 8, !tbaa !15
@@ -27284,9 +26540,8 @@ _ZL8lean_incP11lean_object.exit386:               ; preds = %225, %224, %222, %_
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %238 = load ptr, ptr %237, align 8, !tbaa !15
   %239 = ptrtoint ptr %238 to i64
-  %240 = and i64 %239, 1
-  %.not466 = icmp eq i64 %240, 0
-  br i1 %.not466, label %241, label %_ZL8lean_incP11lean_object.exit385
+  %240 = trunc i64 %239 to i1
+  br i1 %240, label %_ZL8lean_incP11lean_object.exit385, label %241
 
 241:                                              ; preds = %236
   %.val.i414 = load i32, ptr %238, align 4, !tbaa !16
@@ -27310,9 +26565,8 @@ _ZL8lean_incP11lean_object.exit385:               ; preds = %246, %245, %243, %2
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %248 = load ptr, ptr %247, align 8, !tbaa !15
   %249 = ptrtoint ptr %248 to i64
-  %250 = and i64 %249, 1
-  %.not467 = icmp eq i64 %250, 0
-  br i1 %.not467, label %251, label %_ZL8lean_incP11lean_object.exit384
+  %250 = trunc i64 %249 to i1
+  br i1 %250, label %_ZL8lean_incP11lean_object.exit384, label %251
 
 251:                                              ; preds = %_ZL8lean_incP11lean_object.exit385
   %.val.i417 = load i32, ptr %248, align 4, !tbaa !16
@@ -27336,9 +26590,8 @@ _ZL8lean_incP11lean_object.exit384:               ; preds = %256, %255, %253, %_
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %258 = load ptr, ptr %257, align 8, !tbaa !15
   %259 = ptrtoint ptr %258 to i64
-  %260 = and i64 %259, 1
-  %.not468 = icmp eq i64 %260, 0
-  br i1 %.not468, label %261, label %_ZL8lean_incP11lean_object.exit383
+  %260 = trunc i64 %259 to i1
+  br i1 %260, label %_ZL8lean_incP11lean_object.exit383, label %261
 
 261:                                              ; preds = %_ZL8lean_incP11lean_object.exit384
   %.val.i420 = load i32, ptr %258, align 4, !tbaa !16
@@ -27356,11 +26609,11 @@ _ZL8lean_incP11lean_object.exit384:               ; preds = %256, %255, %253, %_
 
 266:                                              ; preds = %265
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %258)
-  %.pre511 = load ptr, ptr %257, align 8, !tbaa !15
+  %.pre482 = load ptr, ptr %257, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit383
 
 _ZL8lean_incP11lean_object.exit383:               ; preds = %266, %265, %263, %_ZL8lean_incP11lean_object.exit384
-  %267 = phi ptr [ %.pre511, %266 ], [ %258, %265 ], [ %258, %263 ], [ %258, %_ZL8lean_incP11lean_object.exit384 ]
+  %267 = phi ptr [ %.pre482, %266 ], [ %258, %265 ], [ %258, %263 ], [ %258, %_ZL8lean_incP11lean_object.exit384 ]
   %268 = getelementptr i8, ptr %0, i64 8
   %.val394 = load ptr, ptr %268, align 8, !tbaa !15
   %269 = load ptr, ptr %237, align 8, !tbaa !15
@@ -27387,9 +26640,8 @@ _ZL8lean_incP11lean_object.exit383:               ; preds = %266, %265, %263, %_
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %280 = load ptr, ptr %279, align 8, !tbaa !15
   %281 = ptrtoint ptr %280 to i64
-  %282 = and i64 %281, 1
-  %.not462 = icmp eq i64 %282, 0
-  br i1 %.not462, label %283, label %_ZL8lean_incP11lean_object.exit382
+  %282 = trunc i64 %281 to i1
+  br i1 %282, label %_ZL8lean_incP11lean_object.exit382, label %283
 
 283:                                              ; preds = %278
   %.val.i423 = load i32, ptr %280, align 4, !tbaa !16
@@ -27413,9 +26665,8 @@ _ZL8lean_incP11lean_object.exit382:               ; preds = %288, %287, %285, %2
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %290 = load ptr, ptr %289, align 8, !tbaa !15
   %291 = ptrtoint ptr %290 to i64
-  %292 = and i64 %291, 1
-  %.not463 = icmp eq i64 %292, 0
-  br i1 %.not463, label %293, label %_ZL8lean_incP11lean_object.exit381
+  %292 = trunc i64 %291 to i1
+  br i1 %292, label %_ZL8lean_incP11lean_object.exit381, label %293
 
 293:                                              ; preds = %_ZL8lean_incP11lean_object.exit382
   %.val.i426 = load i32, ptr %290, align 4, !tbaa !16
@@ -27439,9 +26690,8 @@ _ZL8lean_incP11lean_object.exit381:               ; preds = %298, %297, %295, %_
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %300 = load ptr, ptr %299, align 8, !tbaa !15
   %301 = ptrtoint ptr %300 to i64
-  %302 = and i64 %301, 1
-  %.not464 = icmp eq i64 %302, 0
-  br i1 %.not464, label %303, label %_ZL8lean_incP11lean_object.exit380
+  %302 = trunc i64 %301 to i1
+  br i1 %302, label %_ZL8lean_incP11lean_object.exit380, label %303
 
 303:                                              ; preds = %_ZL8lean_incP11lean_object.exit381
   %.val.i429 = load i32, ptr %300, align 4, !tbaa !16
@@ -27465,9 +26715,8 @@ _ZL8lean_incP11lean_object.exit380:               ; preds = %308, %307, %305, %_
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %310 = load ptr, ptr %309, align 8, !tbaa !15
   %311 = ptrtoint ptr %310 to i64
-  %312 = and i64 %311, 1
-  %.not465 = icmp eq i64 %312, 0
-  br i1 %.not465, label %313, label %_ZL8lean_incP11lean_object.exit379
+  %312 = trunc i64 %311 to i1
+  br i1 %312, label %_ZL8lean_incP11lean_object.exit379, label %313
 
 313:                                              ; preds = %_ZL8lean_incP11lean_object.exit380
   %.val.i432 = load i32, ptr %310, align 4, !tbaa !16
@@ -27485,11 +26734,11 @@ _ZL8lean_incP11lean_object.exit380:               ; preds = %308, %307, %305, %_
 
 318:                                              ; preds = %317
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %310)
-  %.pre510 = load ptr, ptr %309, align 8, !tbaa !15
+  %.pre481 = load ptr, ptr %309, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit379
 
 _ZL8lean_incP11lean_object.exit379:               ; preds = %318, %317, %315, %_ZL8lean_incP11lean_object.exit380
-  %319 = phi ptr [ %.pre510, %318 ], [ %310, %317 ], [ %310, %315 ], [ %310, %_ZL8lean_incP11lean_object.exit380 ]
+  %319 = phi ptr [ %.pre481, %318 ], [ %310, %317 ], [ %310, %315 ], [ %310, %_ZL8lean_incP11lean_object.exit380 ]
   %320 = getelementptr i8, ptr %0, i64 8
   %.val393 = load ptr, ptr %320, align 8, !tbaa !15
   %321 = load ptr, ptr %279, align 8, !tbaa !15
@@ -27517,9 +26766,8 @@ _ZL8lean_incP11lean_object.exit379:               ; preds = %318, %317, %315, %_
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %333 = load ptr, ptr %332, align 8, !tbaa !15
   %334 = ptrtoint ptr %333 to i64
-  %335 = and i64 %334, 1
-  %.not457 = icmp eq i64 %335, 0
-  br i1 %.not457, label %336, label %_ZL8lean_incP11lean_object.exit378
+  %335 = trunc i64 %334 to i1
+  br i1 %335, label %_ZL8lean_incP11lean_object.exit378, label %336
 
 336:                                              ; preds = %331
   %.val.i435 = load i32, ptr %333, align 4, !tbaa !16
@@ -27543,9 +26791,8 @@ _ZL8lean_incP11lean_object.exit378:               ; preds = %341, %340, %338, %3
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %343 = load ptr, ptr %342, align 8, !tbaa !15
   %344 = ptrtoint ptr %343 to i64
-  %345 = and i64 %344, 1
-  %.not458 = icmp eq i64 %345, 0
-  br i1 %.not458, label %346, label %_ZL8lean_incP11lean_object.exit377
+  %345 = trunc i64 %344 to i1
+  br i1 %345, label %_ZL8lean_incP11lean_object.exit377, label %346
 
 346:                                              ; preds = %_ZL8lean_incP11lean_object.exit378
   %.val.i438 = load i32, ptr %343, align 4, !tbaa !16
@@ -27569,9 +26816,8 @@ _ZL8lean_incP11lean_object.exit377:               ; preds = %351, %350, %348, %_
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %353 = load ptr, ptr %352, align 8, !tbaa !15
   %354 = ptrtoint ptr %353 to i64
-  %355 = and i64 %354, 1
-  %.not459 = icmp eq i64 %355, 0
-  br i1 %.not459, label %356, label %_ZL8lean_incP11lean_object.exit376
+  %355 = trunc i64 %354 to i1
+  br i1 %355, label %_ZL8lean_incP11lean_object.exit376, label %356
 
 356:                                              ; preds = %_ZL8lean_incP11lean_object.exit377
   %.val.i441 = load i32, ptr %353, align 4, !tbaa !16
@@ -27595,9 +26841,8 @@ _ZL8lean_incP11lean_object.exit376:               ; preds = %361, %360, %358, %_
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %363 = load ptr, ptr %362, align 8, !tbaa !15
   %364 = ptrtoint ptr %363 to i64
-  %365 = and i64 %364, 1
-  %.not460 = icmp eq i64 %365, 0
-  br i1 %.not460, label %366, label %_ZL8lean_incP11lean_object.exit375
+  %365 = trunc i64 %364 to i1
+  br i1 %365, label %_ZL8lean_incP11lean_object.exit375, label %366
 
 366:                                              ; preds = %_ZL8lean_incP11lean_object.exit376
   %.val.i444 = load i32, ptr %363, align 4, !tbaa !16
@@ -27621,9 +26866,8 @@ _ZL8lean_incP11lean_object.exit375:               ; preds = %371, %370, %368, %_
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %373 = load ptr, ptr %372, align 8, !tbaa !15
   %374 = ptrtoint ptr %373 to i64
-  %375 = and i64 %374, 1
-  %.not461 = icmp eq i64 %375, 0
-  br i1 %.not461, label %376, label %_ZL8lean_incP11lean_object.exit374
+  %375 = trunc i64 %374 to i1
+  br i1 %375, label %_ZL8lean_incP11lean_object.exit374, label %376
 
 376:                                              ; preds = %_ZL8lean_incP11lean_object.exit375
   %.val.i447 = load i32, ptr %373, align 4, !tbaa !16
@@ -27641,11 +26885,11 @@ _ZL8lean_incP11lean_object.exit375:               ; preds = %371, %370, %368, %_
 
 381:                                              ; preds = %380
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %373)
-  %.pre509 = load ptr, ptr %372, align 8, !tbaa !15
+  %.pre480 = load ptr, ptr %372, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit374
 
 _ZL8lean_incP11lean_object.exit374:               ; preds = %381, %380, %378, %_ZL8lean_incP11lean_object.exit375
-  %382 = phi ptr [ %.pre509, %381 ], [ %373, %380 ], [ %373, %378 ], [ %373, %_ZL8lean_incP11lean_object.exit375 ]
+  %382 = phi ptr [ %.pre480, %381 ], [ %373, %380 ], [ %373, %378 ], [ %373, %_ZL8lean_incP11lean_object.exit375 ]
   %383 = getelementptr i8, ptr %0, i64 8
   %.val392 = load ptr, ptr %383, align 8, !tbaa !15
   %384 = load ptr, ptr %332, align 8, !tbaa !15
@@ -27674,12 +26918,12 @@ _ZL8lean_incP11lean_object.exit374:               ; preds = %381, %380, %378, %_
   %396 = shl nuw nsw i32 %119, 3
   %397 = zext nneg i32 %396 to i64
   %398 = alloca i8, i64 %397, align 16
-  %.not494 = icmp eq i16 %.val389, 0
-  br i1 %.not494, label %.preheader, label %.lr.ph490
+  %.not465 = icmp eq i16 %.val389, 0
+  br i1 %.not465, label %.preheader, label %.lr.ph462
 
-.lr.ph490:                                        ; preds = %395
+.lr.ph462:                                        ; preds = %395
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count504 = zext i16 %.val389 to i64
+  %wide.trip.count475 = zext i16 %.val389 to i64
   br label %406
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit373, %395
@@ -27714,14 +26958,13 @@ _ZL8lean_incP11lean_object.exit374:               ; preds = %381, %380, %378, %_
   %405 = icmp sgt i32 %404, 1
   br i1 %405, label %419, label %421, !prof !19
 
-406:                                              ; preds = %.lr.ph490, %_ZL8lean_incP11lean_object.exit373
-  %indvars.iv501 = phi i64 [ 0, %.lr.ph490 ], [ %indvars.iv.next502, %_ZL8lean_incP11lean_object.exit373 ]
-  %407 = getelementptr inbounds nuw ptr, ptr %399, i64 %indvars.iv501
+406:                                              ; preds = %.lr.ph462, %_ZL8lean_incP11lean_object.exit373
+  %indvars.iv472 = phi i64 [ 0, %.lr.ph462 ], [ %indvars.iv.next473, %_ZL8lean_incP11lean_object.exit373 ]
+  %407 = getelementptr inbounds nuw ptr, ptr %399, i64 %indvars.iv472
   %408 = load ptr, ptr %407, align 8, !tbaa !15
   %409 = ptrtoint ptr %408 to i64
-  %410 = and i64 %409, 1
-  %.not472 = icmp eq i64 %410, 0
-  br i1 %.not472, label %411, label %_ZL8lean_incP11lean_object.exit373
+  %410 = trunc i64 %409 to i1
+  br i1 %410, label %_ZL8lean_incP11lean_object.exit373, label %411
 
 411:                                              ; preds = %406
   %.val.i450 = load i32, ptr %408, align 4, !tbaa !16
@@ -27739,16 +26982,16 @@ _ZL8lean_incP11lean_object.exit374:               ; preds = %381, %380, %378, %_
 
 416:                                              ; preds = %415
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %408)
-  %.pre514 = load ptr, ptr %407, align 8, !tbaa !15
+  %.pre485 = load ptr, ptr %407, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit373
 
 _ZL8lean_incP11lean_object.exit373:               ; preds = %416, %415, %413, %406
-  %417 = phi ptr [ %.pre514, %416 ], [ %408, %415 ], [ %408, %413 ], [ %408, %406 ]
-  %418 = getelementptr inbounds nuw ptr, ptr %398, i64 %indvars.iv501
+  %417 = phi ptr [ %.pre485, %416 ], [ %408, %415 ], [ %408, %413 ], [ %408, %406 ]
+  %418 = getelementptr inbounds nuw ptr, ptr %398, i64 %indvars.iv472
   store ptr %417, ptr %418, align 8, !tbaa !15
-  %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
-  %exitcond505.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count504
-  br i1 %exitcond505.not, label %.preheader, label %406, !llvm.loop !51
+  %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472, 1
+  %exitcond476.not = icmp eq i64 %indvars.iv.next473, %wide.trip.count475
+  br i1 %exitcond476.not, label %.preheader, label %406, !llvm.loop !51
 
 419:                                              ; preds = %.preheader
   %420 = add nsw i32 %404, -1
@@ -27793,31 +27036,30 @@ _ZL8lean_incP11lean_object.exit373:               ; preds = %416, %415, %413, %4
   %436 = shl nuw nsw i32 %119, 3
   %437 = zext nneg i32 %436 to i64
   %438 = alloca i8, i64 %437, align 16
-  %.not492 = icmp eq i16 %.val389, 0
-  br i1 %.not492, label %.preheader484, label %.lr.ph
+  %.not = icmp eq i16 %.val389, 0
+  br i1 %.not, label %.preheader456, label %.lr.ph
 
 .lr.ph:                                           ; preds = %425
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val389 to i64
   br label %441
 
-.preheader484:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %425
+.preheader456:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %425
   %440 = sub nsw i32 %119, %121
-  %.not493 = icmp eq i16 %.val, %.val389
-  br i1 %.not493, label %._crit_edge, label %.lr.ph487.preheader
+  %.not464 = icmp eq i16 %.val, %.val389
+  br i1 %.not464, label %._crit_edge, label %.lr.ph459.preheader
 
-.lr.ph487.preheader:                              ; preds = %.preheader484
-  %wide.trip.count499 = zext i32 %440 to i64
-  br label %.lr.ph487
+.lr.ph459.preheader:                              ; preds = %.preheader456
+  %wide.trip.count470 = zext i32 %440 to i64
+  br label %.lr.ph459
 
 441:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %442 = getelementptr inbounds nuw ptr, ptr %439, i64 %indvars.iv
   %443 = load ptr, ptr %442, align 8, !tbaa !15
   %444 = ptrtoint ptr %443 to i64
-  %445 = and i64 %444, 1
-  %.not456 = icmp eq i64 %445, 0
-  br i1 %.not456, label %446, label %_ZL8lean_incP11lean_object.exit
+  %445 = trunc i64 %444 to i1
+  br i1 %445, label %_ZL8lean_incP11lean_object.exit, label %446
 
 446:                                              ; preds = %441
   %.val.i453 = load i32, ptr %443, align 4, !tbaa !16
@@ -27844,9 +27086,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %451, %450, %448, %4
   store ptr %452, ptr %453, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader484, label %441, !llvm.loop !52
+  br i1 %exitcond.not, label %.preheader456, label %441, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %.lr.ph487, %.preheader484
+._crit_edge:                                      ; preds = %.lr.ph459, %.preheader456
   %454 = getelementptr i8, ptr %0, i64 8
   %.val406 = load ptr, ptr %454, align 8, !tbaa !15
   %455 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val406, i32 noundef range(i32 0, 65536) %119, ptr noundef nonnull %438)
@@ -27875,18 +27117,18 @@ _ZL12lean_dec_refP11lean_object.exit358:          ; preds = %458, %460, %461
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph487:                                        ; preds = %.lr.ph487.preheader, %.lr.ph487
-  %indvars.iv496 = phi i64 [ 0, %.lr.ph487.preheader ], [ %indvars.iv.next497, %.lr.ph487 ]
-  %466 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv496
+.lr.ph459:                                        ; preds = %.lr.ph459.preheader, %.lr.ph459
+  %indvars.iv467 = phi i64 [ 0, %.lr.ph459.preheader ], [ %indvars.iv.next468, %.lr.ph459 ]
+  %466 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv467
   %467 = load ptr, ptr %466, align 8, !tbaa !15
-  %468 = trunc nuw i64 %indvars.iv496 to i32
+  %468 = trunc nuw i64 %indvars.iv467 to i32
   %469 = add i32 %468, %121
   %470 = zext i32 %469 to i64
   %471 = getelementptr inbounds nuw ptr, ptr %438, i64 %470
   store ptr %467, ptr %471, align 8, !tbaa !15
-  %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
-  %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count499
-  br i1 %exitcond500.not, label %._crit_edge, label %.lr.ph487, !llvm.loop !53
+  %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 1
+  %exitcond471.not = icmp eq i64 %indvars.iv.next468, %wide.trip.count470
+  br i1 %exitcond471.not, label %._crit_edge, label %.lr.ph459, !llvm.loop !53
 
 472:                                              ; preds = %423
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -27925,15 +27167,13 @@ define ptr @lean_apply_12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %14 = alloca [12 x ptr], align 16
   %15 = alloca [12 x ptr], align 8
   %16 = ptrtoint ptr %0 to i64
-  %17 = and i64 %16, 1
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %127, label %18
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %18, label %127
 
 18:                                               ; preds = %13
   %19 = ptrtoint ptr %1 to i64
-  %20 = and i64 %19, 1
-  %.not418 = icmp eq i64 %20, 0
-  br i1 %.not418, label %21, label %_ZL8lean_decP11lean_object.exit308
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %_ZL8lean_decP11lean_object.exit308, label %21
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %1, align 4, !tbaa !16
@@ -27955,9 +27195,8 @@ define ptr @lean_apply_12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit308:               ; preds = %27, %26, %24, %18
   %28 = ptrtoint ptr %2 to i64
-  %29 = and i64 %28, 1
-  %.not419 = icmp eq i64 %29, 0
-  br i1 %.not419, label %30, label %_ZL8lean_decP11lean_object.exit307
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZL8lean_decP11lean_object.exit307, label %30
 
 30:                                               ; preds = %_ZL8lean_decP11lean_object.exit308
   %31 = load i32, ptr %2, align 4, !tbaa !16
@@ -27979,9 +27218,8 @@ _ZL8lean_decP11lean_object.exit308:               ; preds = %27, %26, %24, %18
 
 _ZL8lean_decP11lean_object.exit307:               ; preds = %36, %35, %33, %_ZL8lean_decP11lean_object.exit308
   %37 = ptrtoint ptr %3 to i64
-  %38 = and i64 %37, 1
-  %.not420 = icmp eq i64 %38, 0
-  br i1 %.not420, label %39, label %_ZL8lean_decP11lean_object.exit306
+  %38 = trunc i64 %37 to i1
+  br i1 %38, label %_ZL8lean_decP11lean_object.exit306, label %39
 
 39:                                               ; preds = %_ZL8lean_decP11lean_object.exit307
   %40 = load i32, ptr %3, align 4, !tbaa !16
@@ -28003,9 +27241,8 @@ _ZL8lean_decP11lean_object.exit307:               ; preds = %36, %35, %33, %_ZL8
 
 _ZL8lean_decP11lean_object.exit306:               ; preds = %45, %44, %42, %_ZL8lean_decP11lean_object.exit307
   %46 = ptrtoint ptr %4 to i64
-  %47 = and i64 %46, 1
-  %.not421 = icmp eq i64 %47, 0
-  br i1 %.not421, label %48, label %_ZL8lean_decP11lean_object.exit305
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %_ZL8lean_decP11lean_object.exit305, label %48
 
 48:                                               ; preds = %_ZL8lean_decP11lean_object.exit306
   %49 = load i32, ptr %4, align 4, !tbaa !16
@@ -28027,9 +27264,8 @@ _ZL8lean_decP11lean_object.exit306:               ; preds = %45, %44, %42, %_ZL8
 
 _ZL8lean_decP11lean_object.exit305:               ; preds = %54, %53, %51, %_ZL8lean_decP11lean_object.exit306
   %55 = ptrtoint ptr %5 to i64
-  %56 = and i64 %55, 1
-  %.not422 = icmp eq i64 %56, 0
-  br i1 %.not422, label %57, label %_ZL8lean_decP11lean_object.exit304
+  %56 = trunc i64 %55 to i1
+  br i1 %56, label %_ZL8lean_decP11lean_object.exit304, label %57
 
 57:                                               ; preds = %_ZL8lean_decP11lean_object.exit305
   %58 = load i32, ptr %5, align 4, !tbaa !16
@@ -28051,9 +27287,8 @@ _ZL8lean_decP11lean_object.exit305:               ; preds = %54, %53, %51, %_ZL8
 
 _ZL8lean_decP11lean_object.exit304:               ; preds = %63, %62, %60, %_ZL8lean_decP11lean_object.exit305
   %64 = ptrtoint ptr %6 to i64
-  %65 = and i64 %64, 1
-  %.not423 = icmp eq i64 %65, 0
-  br i1 %.not423, label %66, label %_ZL8lean_decP11lean_object.exit303
+  %65 = trunc i64 %64 to i1
+  br i1 %65, label %_ZL8lean_decP11lean_object.exit303, label %66
 
 66:                                               ; preds = %_ZL8lean_decP11lean_object.exit304
   %67 = load i32, ptr %6, align 4, !tbaa !16
@@ -28075,9 +27310,8 @@ _ZL8lean_decP11lean_object.exit304:               ; preds = %63, %62, %60, %_ZL8
 
 _ZL8lean_decP11lean_object.exit303:               ; preds = %72, %71, %69, %_ZL8lean_decP11lean_object.exit304
   %73 = ptrtoint ptr %7 to i64
-  %74 = and i64 %73, 1
-  %.not424 = icmp eq i64 %74, 0
-  br i1 %.not424, label %75, label %_ZL8lean_decP11lean_object.exit302
+  %74 = trunc i64 %73 to i1
+  br i1 %74, label %_ZL8lean_decP11lean_object.exit302, label %75
 
 75:                                               ; preds = %_ZL8lean_decP11lean_object.exit303
   %76 = load i32, ptr %7, align 4, !tbaa !16
@@ -28099,9 +27333,8 @@ _ZL8lean_decP11lean_object.exit303:               ; preds = %72, %71, %69, %_ZL8
 
 _ZL8lean_decP11lean_object.exit302:               ; preds = %81, %80, %78, %_ZL8lean_decP11lean_object.exit303
   %82 = ptrtoint ptr %8 to i64
-  %83 = and i64 %82, 1
-  %.not425 = icmp eq i64 %83, 0
-  br i1 %.not425, label %84, label %_ZL8lean_decP11lean_object.exit301
+  %83 = trunc i64 %82 to i1
+  br i1 %83, label %_ZL8lean_decP11lean_object.exit301, label %84
 
 84:                                               ; preds = %_ZL8lean_decP11lean_object.exit302
   %85 = load i32, ptr %8, align 4, !tbaa !16
@@ -28123,9 +27356,8 @@ _ZL8lean_decP11lean_object.exit302:               ; preds = %81, %80, %78, %_ZL8
 
 _ZL8lean_decP11lean_object.exit301:               ; preds = %90, %89, %87, %_ZL8lean_decP11lean_object.exit302
   %91 = ptrtoint ptr %9 to i64
-  %92 = and i64 %91, 1
-  %.not426 = icmp eq i64 %92, 0
-  br i1 %.not426, label %93, label %_ZL8lean_decP11lean_object.exit300
+  %92 = trunc i64 %91 to i1
+  br i1 %92, label %_ZL8lean_decP11lean_object.exit300, label %93
 
 93:                                               ; preds = %_ZL8lean_decP11lean_object.exit301
   %94 = load i32, ptr %9, align 4, !tbaa !16
@@ -28147,9 +27379,8 @@ _ZL8lean_decP11lean_object.exit301:               ; preds = %90, %89, %87, %_ZL8
 
 _ZL8lean_decP11lean_object.exit300:               ; preds = %99, %98, %96, %_ZL8lean_decP11lean_object.exit301
   %100 = ptrtoint ptr %10 to i64
-  %101 = and i64 %100, 1
-  %.not427 = icmp eq i64 %101, 0
-  br i1 %.not427, label %102, label %_ZL8lean_decP11lean_object.exit299
+  %101 = trunc i64 %100 to i1
+  br i1 %101, label %_ZL8lean_decP11lean_object.exit299, label %102
 
 102:                                              ; preds = %_ZL8lean_decP11lean_object.exit300
   %103 = load i32, ptr %10, align 4, !tbaa !16
@@ -28171,9 +27402,8 @@ _ZL8lean_decP11lean_object.exit300:               ; preds = %99, %98, %96, %_ZL8
 
 _ZL8lean_decP11lean_object.exit299:               ; preds = %108, %107, %105, %_ZL8lean_decP11lean_object.exit300
   %109 = ptrtoint ptr %11 to i64
-  %110 = and i64 %109, 1
-  %.not428 = icmp eq i64 %110, 0
-  br i1 %.not428, label %111, label %_ZL8lean_decP11lean_object.exit298
+  %110 = trunc i64 %109 to i1
+  br i1 %110, label %_ZL8lean_decP11lean_object.exit298, label %111
 
 111:                                              ; preds = %_ZL8lean_decP11lean_object.exit299
   %112 = load i32, ptr %11, align 4, !tbaa !16
@@ -28195,9 +27425,8 @@ _ZL8lean_decP11lean_object.exit299:               ; preds = %108, %107, %105, %_
 
 _ZL8lean_decP11lean_object.exit298:               ; preds = %117, %116, %114, %_ZL8lean_decP11lean_object.exit299
   %118 = ptrtoint ptr %12 to i64
-  %119 = and i64 %118, 1
-  %.not429 = icmp eq i64 %119, 0
-  br i1 %.not429, label %120, label %_ZL8lean_decP11lean_object.exit
+  %119 = trunc i64 %118 to i1
+  br i1 %119, label %_ZL8lean_decP11lean_object.exit, label %120
 
 120:                                              ; preds = %_ZL8lean_decP11lean_object.exit298
   %121 = load i32, ptr %12, align 4, !tbaa !16
@@ -28331,9 +27560,8 @@ _ZL8lean_decP11lean_object.exit298:               ; preds = %117, %116, %114, %_
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %184 = load ptr, ptr %183, align 8, !tbaa !15
   %185 = ptrtoint ptr %184 to i64
-  %186 = and i64 %185, 1
-  %.not416 = icmp eq i64 %186, 0
-  br i1 %.not416, label %187, label %_ZL8lean_incP11lean_object.exit355
+  %186 = trunc i64 %185 to i1
+  br i1 %186, label %_ZL8lean_incP11lean_object.exit355, label %187
 
 187:                                              ; preds = %182
   %.val.i = load i32, ptr %184, align 4, !tbaa !16
@@ -28351,11 +27579,11 @@ _ZL8lean_decP11lean_object.exit298:               ; preds = %117, %116, %114, %_
 
 192:                                              ; preds = %191
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %184)
-  %.pre458 = load ptr, ptr %183, align 8, !tbaa !15
+  %.pre433 = load ptr, ptr %183, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit355
 
 _ZL8lean_incP11lean_object.exit355:               ; preds = %192, %191, %189, %182
-  %193 = phi ptr [ %.pre458, %192 ], [ %184, %191 ], [ %184, %189 ], [ %184, %182 ]
+  %193 = phi ptr [ %.pre433, %192 ], [ %184, %191 ], [ %184, %189 ], [ %184, %182 ]
   %194 = getelementptr i8, ptr %0, i64 8
   %.val362 = load ptr, ptr %194, align 8, !tbaa !15
   %195 = tail call noundef ptr %.val362(ptr noundef %193, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
@@ -28380,9 +27608,8 @@ _ZL8lean_incP11lean_object.exit355:               ; preds = %192, %191, %189, %1
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %204 = load ptr, ptr %203, align 8, !tbaa !15
   %205 = ptrtoint ptr %204 to i64
-  %206 = and i64 %205, 1
-  %.not414 = icmp eq i64 %206, 0
-  br i1 %.not414, label %207, label %_ZL8lean_incP11lean_object.exit354
+  %206 = trunc i64 %205 to i1
+  br i1 %206, label %_ZL8lean_incP11lean_object.exit354, label %207
 
 207:                                              ; preds = %202
   %.val.i373 = load i32, ptr %204, align 4, !tbaa !16
@@ -28406,9 +27633,8 @@ _ZL8lean_incP11lean_object.exit354:               ; preds = %212, %211, %209, %2
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %214 = load ptr, ptr %213, align 8, !tbaa !15
   %215 = ptrtoint ptr %214 to i64
-  %216 = and i64 %215, 1
-  %.not415 = icmp eq i64 %216, 0
-  br i1 %.not415, label %217, label %_ZL8lean_incP11lean_object.exit353
+  %216 = trunc i64 %215 to i1
+  br i1 %216, label %_ZL8lean_incP11lean_object.exit353, label %217
 
 217:                                              ; preds = %_ZL8lean_incP11lean_object.exit354
   %.val.i376 = load i32, ptr %214, align 4, !tbaa !16
@@ -28426,11 +27652,11 @@ _ZL8lean_incP11lean_object.exit354:               ; preds = %212, %211, %209, %2
 
 222:                                              ; preds = %221
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %214)
-  %.pre457 = load ptr, ptr %213, align 8, !tbaa !15
+  %.pre432 = load ptr, ptr %213, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit353
 
 _ZL8lean_incP11lean_object.exit353:               ; preds = %222, %221, %219, %_ZL8lean_incP11lean_object.exit354
-  %223 = phi ptr [ %.pre457, %222 ], [ %214, %221 ], [ %214, %219 ], [ %214, %_ZL8lean_incP11lean_object.exit354 ]
+  %223 = phi ptr [ %.pre432, %222 ], [ %214, %221 ], [ %214, %219 ], [ %214, %_ZL8lean_incP11lean_object.exit354 ]
   %224 = getelementptr i8, ptr %0, i64 8
   %.val361 = load ptr, ptr %224, align 8, !tbaa !15
   %225 = load ptr, ptr %203, align 8, !tbaa !15
@@ -28456,9 +27682,8 @@ _ZL8lean_incP11lean_object.exit353:               ; preds = %222, %221, %219, %_
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %235 = load ptr, ptr %234, align 8, !tbaa !15
   %236 = ptrtoint ptr %235 to i64
-  %237 = and i64 %236, 1
-  %.not411 = icmp eq i64 %237, 0
-  br i1 %.not411, label %238, label %_ZL8lean_incP11lean_object.exit352
+  %237 = trunc i64 %236 to i1
+  br i1 %237, label %_ZL8lean_incP11lean_object.exit352, label %238
 
 238:                                              ; preds = %233
   %.val.i379 = load i32, ptr %235, align 4, !tbaa !16
@@ -28482,9 +27707,8 @@ _ZL8lean_incP11lean_object.exit352:               ; preds = %243, %242, %240, %2
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %245 = load ptr, ptr %244, align 8, !tbaa !15
   %246 = ptrtoint ptr %245 to i64
-  %247 = and i64 %246, 1
-  %.not412 = icmp eq i64 %247, 0
-  br i1 %.not412, label %248, label %_ZL8lean_incP11lean_object.exit351
+  %247 = trunc i64 %246 to i1
+  br i1 %247, label %_ZL8lean_incP11lean_object.exit351, label %248
 
 248:                                              ; preds = %_ZL8lean_incP11lean_object.exit352
   %.val.i382 = load i32, ptr %245, align 4, !tbaa !16
@@ -28508,9 +27732,8 @@ _ZL8lean_incP11lean_object.exit351:               ; preds = %253, %252, %250, %_
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %255 = load ptr, ptr %254, align 8, !tbaa !15
   %256 = ptrtoint ptr %255 to i64
-  %257 = and i64 %256, 1
-  %.not413 = icmp eq i64 %257, 0
-  br i1 %.not413, label %258, label %_ZL8lean_incP11lean_object.exit350
+  %257 = trunc i64 %256 to i1
+  br i1 %257, label %_ZL8lean_incP11lean_object.exit350, label %258
 
 258:                                              ; preds = %_ZL8lean_incP11lean_object.exit351
   %.val.i385 = load i32, ptr %255, align 4, !tbaa !16
@@ -28528,11 +27751,11 @@ _ZL8lean_incP11lean_object.exit351:               ; preds = %253, %252, %250, %_
 
 263:                                              ; preds = %262
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %255)
-  %.pre456 = load ptr, ptr %254, align 8, !tbaa !15
+  %.pre431 = load ptr, ptr %254, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit350
 
 _ZL8lean_incP11lean_object.exit350:               ; preds = %263, %262, %260, %_ZL8lean_incP11lean_object.exit351
-  %264 = phi ptr [ %.pre456, %263 ], [ %255, %262 ], [ %255, %260 ], [ %255, %_ZL8lean_incP11lean_object.exit351 ]
+  %264 = phi ptr [ %.pre431, %263 ], [ %255, %262 ], [ %255, %260 ], [ %255, %_ZL8lean_incP11lean_object.exit351 ]
   %265 = getelementptr i8, ptr %0, i64 8
   %.val360 = load ptr, ptr %265, align 8, !tbaa !15
   %266 = load ptr, ptr %234, align 8, !tbaa !15
@@ -28559,9 +27782,8 @@ _ZL8lean_incP11lean_object.exit350:               ; preds = %263, %262, %260, %_
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %277 = load ptr, ptr %276, align 8, !tbaa !15
   %278 = ptrtoint ptr %277 to i64
-  %279 = and i64 %278, 1
-  %.not407 = icmp eq i64 %279, 0
-  br i1 %.not407, label %280, label %_ZL8lean_incP11lean_object.exit349
+  %279 = trunc i64 %278 to i1
+  br i1 %279, label %_ZL8lean_incP11lean_object.exit349, label %280
 
 280:                                              ; preds = %275
   %.val.i388 = load i32, ptr %277, align 4, !tbaa !16
@@ -28585,9 +27807,8 @@ _ZL8lean_incP11lean_object.exit349:               ; preds = %285, %284, %282, %2
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %287 = load ptr, ptr %286, align 8, !tbaa !15
   %288 = ptrtoint ptr %287 to i64
-  %289 = and i64 %288, 1
-  %.not408 = icmp eq i64 %289, 0
-  br i1 %.not408, label %290, label %_ZL8lean_incP11lean_object.exit348
+  %289 = trunc i64 %288 to i1
+  br i1 %289, label %_ZL8lean_incP11lean_object.exit348, label %290
 
 290:                                              ; preds = %_ZL8lean_incP11lean_object.exit349
   %.val.i391 = load i32, ptr %287, align 4, !tbaa !16
@@ -28611,9 +27832,8 @@ _ZL8lean_incP11lean_object.exit348:               ; preds = %295, %294, %292, %_
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %297 = load ptr, ptr %296, align 8, !tbaa !15
   %298 = ptrtoint ptr %297 to i64
-  %299 = and i64 %298, 1
-  %.not409 = icmp eq i64 %299, 0
-  br i1 %.not409, label %300, label %_ZL8lean_incP11lean_object.exit347
+  %299 = trunc i64 %298 to i1
+  br i1 %299, label %_ZL8lean_incP11lean_object.exit347, label %300
 
 300:                                              ; preds = %_ZL8lean_incP11lean_object.exit348
   %.val.i394 = load i32, ptr %297, align 4, !tbaa !16
@@ -28637,9 +27857,8 @@ _ZL8lean_incP11lean_object.exit347:               ; preds = %305, %304, %302, %_
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %307 = load ptr, ptr %306, align 8, !tbaa !15
   %308 = ptrtoint ptr %307 to i64
-  %309 = and i64 %308, 1
-  %.not410 = icmp eq i64 %309, 0
-  br i1 %.not410, label %310, label %_ZL8lean_incP11lean_object.exit346
+  %309 = trunc i64 %308 to i1
+  br i1 %309, label %_ZL8lean_incP11lean_object.exit346, label %310
 
 310:                                              ; preds = %_ZL8lean_incP11lean_object.exit347
   %.val.i397 = load i32, ptr %307, align 4, !tbaa !16
@@ -28657,11 +27876,11 @@ _ZL8lean_incP11lean_object.exit347:               ; preds = %305, %304, %302, %_
 
 315:                                              ; preds = %314
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %307)
-  %.pre455 = load ptr, ptr %306, align 8, !tbaa !15
+  %.pre430 = load ptr, ptr %306, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit346
 
 _ZL8lean_incP11lean_object.exit346:               ; preds = %315, %314, %312, %_ZL8lean_incP11lean_object.exit347
-  %316 = phi ptr [ %.pre455, %315 ], [ %307, %314 ], [ %307, %312 ], [ %307, %_ZL8lean_incP11lean_object.exit347 ]
+  %316 = phi ptr [ %.pre430, %315 ], [ %307, %314 ], [ %307, %312 ], [ %307, %_ZL8lean_incP11lean_object.exit347 ]
   %317 = getelementptr i8, ptr %0, i64 8
   %.val359 = load ptr, ptr %317, align 8, !tbaa !15
   %318 = load ptr, ptr %276, align 8, !tbaa !15
@@ -28689,12 +27908,12 @@ _ZL8lean_incP11lean_object.exit346:               ; preds = %315, %314, %312, %_
   %329 = shl nuw nsw i32 %129, 3
   %330 = zext nneg i32 %329 to i64
   %331 = alloca i8, i64 %330, align 16
-  %.not440 = icmp eq i16 %.val356, 0
-  br i1 %.not440, label %.preheader, label %.lr.ph436
+  %.not415 = icmp eq i16 %.val356, 0
+  br i1 %.not415, label %.preheader, label %.lr.ph412
 
-.lr.ph436:                                        ; preds = %328
+.lr.ph412:                                        ; preds = %328
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count450 = zext i16 %.val356 to i64
+  %wide.trip.count425 = zext i16 %.val356 to i64
   br label %339
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit345, %328
@@ -28731,14 +27950,13 @@ _ZL8lean_incP11lean_object.exit346:               ; preds = %315, %314, %312, %_
   %338 = icmp sgt i32 %337, 1
   br i1 %338, label %352, label %354, !prof !19
 
-339:                                              ; preds = %.lr.ph436, %_ZL8lean_incP11lean_object.exit345
-  %indvars.iv447 = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next448, %_ZL8lean_incP11lean_object.exit345 ]
-  %340 = getelementptr inbounds nuw ptr, ptr %332, i64 %indvars.iv447
+339:                                              ; preds = %.lr.ph412, %_ZL8lean_incP11lean_object.exit345
+  %indvars.iv422 = phi i64 [ 0, %.lr.ph412 ], [ %indvars.iv.next423, %_ZL8lean_incP11lean_object.exit345 ]
+  %340 = getelementptr inbounds nuw ptr, ptr %332, i64 %indvars.iv422
   %341 = load ptr, ptr %340, align 8, !tbaa !15
   %342 = ptrtoint ptr %341 to i64
-  %343 = and i64 %342, 1
-  %.not417 = icmp eq i64 %343, 0
-  br i1 %.not417, label %344, label %_ZL8lean_incP11lean_object.exit345
+  %343 = trunc i64 %342 to i1
+  br i1 %343, label %_ZL8lean_incP11lean_object.exit345, label %344
 
 344:                                              ; preds = %339
   %.val.i400 = load i32, ptr %341, align 4, !tbaa !16
@@ -28756,16 +27974,16 @@ _ZL8lean_incP11lean_object.exit346:               ; preds = %315, %314, %312, %_
 
 349:                                              ; preds = %348
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %341)
-  %.pre459 = load ptr, ptr %340, align 8, !tbaa !15
+  %.pre434 = load ptr, ptr %340, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit345
 
 _ZL8lean_incP11lean_object.exit345:               ; preds = %349, %348, %346, %339
-  %350 = phi ptr [ %.pre459, %349 ], [ %341, %348 ], [ %341, %346 ], [ %341, %339 ]
-  %351 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv447
+  %350 = phi ptr [ %.pre434, %349 ], [ %341, %348 ], [ %341, %346 ], [ %341, %339 ]
+  %351 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv422
   store ptr %350, ptr %351, align 8, !tbaa !15
-  %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
-  %exitcond451.not = icmp eq i64 %indvars.iv.next448, %wide.trip.count450
-  br i1 %exitcond451.not, label %.preheader, label %339, !llvm.loop !54
+  %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
+  %exitcond426.not = icmp eq i64 %indvars.iv.next423, %wide.trip.count425
+  br i1 %exitcond426.not, label %.preheader, label %339, !llvm.loop !54
 
 352:                                              ; preds = %.preheader
   %353 = add nsw i32 %337, -1
@@ -28812,31 +28030,30 @@ _ZL8lean_incP11lean_object.exit345:               ; preds = %349, %348, %346, %3
   %370 = shl nuw nsw i32 %129, 3
   %371 = zext nneg i32 %370 to i64
   %372 = alloca i8, i64 %371, align 16
-  %.not438 = icmp eq i16 %.val356, 0
-  br i1 %.not438, label %.preheader430, label %.lr.ph
+  %.not = icmp eq i16 %.val356, 0
+  br i1 %.not, label %.preheader406, label %.lr.ph
 
 .lr.ph:                                           ; preds = %358
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val356 to i64
   br label %375
 
-.preheader430:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %358
+.preheader406:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %358
   %374 = sub nsw i32 %129, %131
-  %.not439 = icmp eq i16 %.val, %.val356
-  br i1 %.not439, label %._crit_edge, label %.lr.ph433.preheader
+  %.not414 = icmp eq i16 %.val, %.val356
+  br i1 %.not414, label %._crit_edge, label %.lr.ph409.preheader
 
-.lr.ph433.preheader:                              ; preds = %.preheader430
-  %wide.trip.count445 = zext i32 %374 to i64
-  br label %.lr.ph433
+.lr.ph409.preheader:                              ; preds = %.preheader406
+  %wide.trip.count420 = zext i32 %374 to i64
+  br label %.lr.ph409
 
 375:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %376 = getelementptr inbounds nuw ptr, ptr %373, i64 %indvars.iv
   %377 = load ptr, ptr %376, align 8, !tbaa !15
   %378 = ptrtoint ptr %377 to i64
-  %379 = and i64 %378, 1
-  %.not406 = icmp eq i64 %379, 0
-  br i1 %.not406, label %380, label %_ZL8lean_incP11lean_object.exit
+  %379 = trunc i64 %378 to i1
+  br i1 %379, label %_ZL8lean_incP11lean_object.exit, label %380
 
 380:                                              ; preds = %375
   %.val.i403 = load i32, ptr %377, align 4, !tbaa !16
@@ -28863,9 +28080,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %385, %384, %382, %3
   store ptr %386, ptr %387, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader430, label %375, !llvm.loop !55
+  br i1 %exitcond.not, label %.preheader406, label %375, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %.lr.ph433, %.preheader430
+._crit_edge:                                      ; preds = %.lr.ph409, %.preheader406
   %388 = getelementptr i8, ptr %0, i64 8
   %.val371 = load ptr, ptr %388, align 8, !tbaa !15
   %389 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val371, i32 noundef range(i32 0, 65536) %129, ptr noundef nonnull %372)
@@ -28894,18 +28111,18 @@ _ZL12lean_dec_refP11lean_object.exit332:          ; preds = %392, %394, %395
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph433:                                        ; preds = %.lr.ph433.preheader, %.lr.ph433
-  %indvars.iv442 = phi i64 [ 0, %.lr.ph433.preheader ], [ %indvars.iv.next443, %.lr.ph433 ]
-  %400 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv442
+.lr.ph409:                                        ; preds = %.lr.ph409.preheader, %.lr.ph409
+  %indvars.iv417 = phi i64 [ 0, %.lr.ph409.preheader ], [ %indvars.iv.next418, %.lr.ph409 ]
+  %400 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv417
   %401 = load ptr, ptr %400, align 8, !tbaa !15
-  %402 = trunc nuw i64 %indvars.iv442 to i32
+  %402 = trunc nuw i64 %indvars.iv417 to i32
   %403 = add i32 %402, %131
   %404 = zext i32 %403 to i64
   %405 = getelementptr inbounds nuw ptr, ptr %372, i64 %404
   store ptr %401, ptr %405, align 8, !tbaa !15
-  %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
-  %exitcond446.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count445
-  br i1 %exitcond446.not, label %._crit_edge, label %.lr.ph433, !llvm.loop !56
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
+  %exitcond421.not = icmp eq i64 %indvars.iv.next418, %wide.trip.count420
+  br i1 %exitcond421.not, label %._crit_edge, label %.lr.ph409, !llvm.loop !56
 
 406:                                              ; preds = %356
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -28946,15 +28163,13 @@ define ptr @lean_apply_13(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %15 = alloca [13 x ptr], align 16
   %16 = alloca [13 x ptr], align 8
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %137, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %137
 
 19:                                               ; preds = %14
   %20 = ptrtoint ptr %1 to i64
-  %21 = and i64 %20, 1
-  %.not367 = icmp eq i64 %21, 0
-  br i1 %.not367, label %22, label %_ZL8lean_decP11lean_object.exit279
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %_ZL8lean_decP11lean_object.exit279, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %1, align 4, !tbaa !16
@@ -28976,9 +28191,8 @@ define ptr @lean_apply_13(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit279:               ; preds = %28, %27, %25, %19
   %29 = ptrtoint ptr %2 to i64
-  %30 = and i64 %29, 1
-  %.not368 = icmp eq i64 %30, 0
-  br i1 %.not368, label %31, label %_ZL8lean_decP11lean_object.exit278
+  %30 = trunc i64 %29 to i1
+  br i1 %30, label %_ZL8lean_decP11lean_object.exit278, label %31
 
 31:                                               ; preds = %_ZL8lean_decP11lean_object.exit279
   %32 = load i32, ptr %2, align 4, !tbaa !16
@@ -29000,9 +28214,8 @@ _ZL8lean_decP11lean_object.exit279:               ; preds = %28, %27, %25, %19
 
 _ZL8lean_decP11lean_object.exit278:               ; preds = %37, %36, %34, %_ZL8lean_decP11lean_object.exit279
   %38 = ptrtoint ptr %3 to i64
-  %39 = and i64 %38, 1
-  %.not369 = icmp eq i64 %39, 0
-  br i1 %.not369, label %40, label %_ZL8lean_decP11lean_object.exit277
+  %39 = trunc i64 %38 to i1
+  br i1 %39, label %_ZL8lean_decP11lean_object.exit277, label %40
 
 40:                                               ; preds = %_ZL8lean_decP11lean_object.exit278
   %41 = load i32, ptr %3, align 4, !tbaa !16
@@ -29024,9 +28237,8 @@ _ZL8lean_decP11lean_object.exit278:               ; preds = %37, %36, %34, %_ZL8
 
 _ZL8lean_decP11lean_object.exit277:               ; preds = %46, %45, %43, %_ZL8lean_decP11lean_object.exit278
   %47 = ptrtoint ptr %4 to i64
-  %48 = and i64 %47, 1
-  %.not370 = icmp eq i64 %48, 0
-  br i1 %.not370, label %49, label %_ZL8lean_decP11lean_object.exit276
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %_ZL8lean_decP11lean_object.exit276, label %49
 
 49:                                               ; preds = %_ZL8lean_decP11lean_object.exit277
   %50 = load i32, ptr %4, align 4, !tbaa !16
@@ -29048,9 +28260,8 @@ _ZL8lean_decP11lean_object.exit277:               ; preds = %46, %45, %43, %_ZL8
 
 _ZL8lean_decP11lean_object.exit276:               ; preds = %55, %54, %52, %_ZL8lean_decP11lean_object.exit277
   %56 = ptrtoint ptr %5 to i64
-  %57 = and i64 %56, 1
-  %.not371 = icmp eq i64 %57, 0
-  br i1 %.not371, label %58, label %_ZL8lean_decP11lean_object.exit275
+  %57 = trunc i64 %56 to i1
+  br i1 %57, label %_ZL8lean_decP11lean_object.exit275, label %58
 
 58:                                               ; preds = %_ZL8lean_decP11lean_object.exit276
   %59 = load i32, ptr %5, align 4, !tbaa !16
@@ -29072,9 +28283,8 @@ _ZL8lean_decP11lean_object.exit276:               ; preds = %55, %54, %52, %_ZL8
 
 _ZL8lean_decP11lean_object.exit275:               ; preds = %64, %63, %61, %_ZL8lean_decP11lean_object.exit276
   %65 = ptrtoint ptr %6 to i64
-  %66 = and i64 %65, 1
-  %.not372 = icmp eq i64 %66, 0
-  br i1 %.not372, label %67, label %_ZL8lean_decP11lean_object.exit274
+  %66 = trunc i64 %65 to i1
+  br i1 %66, label %_ZL8lean_decP11lean_object.exit274, label %67
 
 67:                                               ; preds = %_ZL8lean_decP11lean_object.exit275
   %68 = load i32, ptr %6, align 4, !tbaa !16
@@ -29096,9 +28306,8 @@ _ZL8lean_decP11lean_object.exit275:               ; preds = %64, %63, %61, %_ZL8
 
 _ZL8lean_decP11lean_object.exit274:               ; preds = %73, %72, %70, %_ZL8lean_decP11lean_object.exit275
   %74 = ptrtoint ptr %7 to i64
-  %75 = and i64 %74, 1
-  %.not373 = icmp eq i64 %75, 0
-  br i1 %.not373, label %76, label %_ZL8lean_decP11lean_object.exit273
+  %75 = trunc i64 %74 to i1
+  br i1 %75, label %_ZL8lean_decP11lean_object.exit273, label %76
 
 76:                                               ; preds = %_ZL8lean_decP11lean_object.exit274
   %77 = load i32, ptr %7, align 4, !tbaa !16
@@ -29120,9 +28329,8 @@ _ZL8lean_decP11lean_object.exit274:               ; preds = %73, %72, %70, %_ZL8
 
 _ZL8lean_decP11lean_object.exit273:               ; preds = %82, %81, %79, %_ZL8lean_decP11lean_object.exit274
   %83 = ptrtoint ptr %8 to i64
-  %84 = and i64 %83, 1
-  %.not374 = icmp eq i64 %84, 0
-  br i1 %.not374, label %85, label %_ZL8lean_decP11lean_object.exit272
+  %84 = trunc i64 %83 to i1
+  br i1 %84, label %_ZL8lean_decP11lean_object.exit272, label %85
 
 85:                                               ; preds = %_ZL8lean_decP11lean_object.exit273
   %86 = load i32, ptr %8, align 4, !tbaa !16
@@ -29144,9 +28352,8 @@ _ZL8lean_decP11lean_object.exit273:               ; preds = %82, %81, %79, %_ZL8
 
 _ZL8lean_decP11lean_object.exit272:               ; preds = %91, %90, %88, %_ZL8lean_decP11lean_object.exit273
   %92 = ptrtoint ptr %9 to i64
-  %93 = and i64 %92, 1
-  %.not375 = icmp eq i64 %93, 0
-  br i1 %.not375, label %94, label %_ZL8lean_decP11lean_object.exit271
+  %93 = trunc i64 %92 to i1
+  br i1 %93, label %_ZL8lean_decP11lean_object.exit271, label %94
 
 94:                                               ; preds = %_ZL8lean_decP11lean_object.exit272
   %95 = load i32, ptr %9, align 4, !tbaa !16
@@ -29168,9 +28375,8 @@ _ZL8lean_decP11lean_object.exit272:               ; preds = %91, %90, %88, %_ZL8
 
 _ZL8lean_decP11lean_object.exit271:               ; preds = %100, %99, %97, %_ZL8lean_decP11lean_object.exit272
   %101 = ptrtoint ptr %10 to i64
-  %102 = and i64 %101, 1
-  %.not376 = icmp eq i64 %102, 0
-  br i1 %.not376, label %103, label %_ZL8lean_decP11lean_object.exit270
+  %102 = trunc i64 %101 to i1
+  br i1 %102, label %_ZL8lean_decP11lean_object.exit270, label %103
 
 103:                                              ; preds = %_ZL8lean_decP11lean_object.exit271
   %104 = load i32, ptr %10, align 4, !tbaa !16
@@ -29192,9 +28398,8 @@ _ZL8lean_decP11lean_object.exit271:               ; preds = %100, %99, %97, %_ZL
 
 _ZL8lean_decP11lean_object.exit270:               ; preds = %109, %108, %106, %_ZL8lean_decP11lean_object.exit271
   %110 = ptrtoint ptr %11 to i64
-  %111 = and i64 %110, 1
-  %.not377 = icmp eq i64 %111, 0
-  br i1 %.not377, label %112, label %_ZL8lean_decP11lean_object.exit269
+  %111 = trunc i64 %110 to i1
+  br i1 %111, label %_ZL8lean_decP11lean_object.exit269, label %112
 
 112:                                              ; preds = %_ZL8lean_decP11lean_object.exit270
   %113 = load i32, ptr %11, align 4, !tbaa !16
@@ -29216,9 +28421,8 @@ _ZL8lean_decP11lean_object.exit270:               ; preds = %109, %108, %106, %_
 
 _ZL8lean_decP11lean_object.exit269:               ; preds = %118, %117, %115, %_ZL8lean_decP11lean_object.exit270
   %119 = ptrtoint ptr %12 to i64
-  %120 = and i64 %119, 1
-  %.not378 = icmp eq i64 %120, 0
-  br i1 %.not378, label %121, label %_ZL8lean_decP11lean_object.exit268
+  %120 = trunc i64 %119 to i1
+  br i1 %120, label %_ZL8lean_decP11lean_object.exit268, label %121
 
 121:                                              ; preds = %_ZL8lean_decP11lean_object.exit269
   %122 = load i32, ptr %12, align 4, !tbaa !16
@@ -29240,9 +28444,8 @@ _ZL8lean_decP11lean_object.exit269:               ; preds = %118, %117, %115, %_
 
 _ZL8lean_decP11lean_object.exit268:               ; preds = %127, %126, %124, %_ZL8lean_decP11lean_object.exit269
   %128 = ptrtoint ptr %13 to i64
-  %129 = and i64 %128, 1
-  %.not379 = icmp eq i64 %129, 0
-  br i1 %.not379, label %130, label %_ZL8lean_decP11lean_object.exit
+  %129 = trunc i64 %128 to i1
+  br i1 %129, label %_ZL8lean_decP11lean_object.exit, label %130
 
 130:                                              ; preds = %_ZL8lean_decP11lean_object.exit268
   %131 = load i32, ptr %13, align 4, !tbaa !16
@@ -29359,9 +28562,8 @@ _ZL8lean_decP11lean_object.exit268:               ; preds = %127, %126, %124, %_
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %183 = load ptr, ptr %182, align 8, !tbaa !15
   %184 = ptrtoint ptr %183 to i64
-  %185 = and i64 %184, 1
-  %.not365 = icmp eq i64 %185, 0
-  br i1 %.not365, label %186, label %_ZL8lean_incP11lean_object.exit322
+  %185 = trunc i64 %184 to i1
+  br i1 %185, label %_ZL8lean_incP11lean_object.exit322, label %186
 
 186:                                              ; preds = %181
   %.val.i = load i32, ptr %183, align 4, !tbaa !16
@@ -29379,11 +28581,11 @@ _ZL8lean_decP11lean_object.exit268:               ; preds = %127, %126, %124, %_
 
 191:                                              ; preds = %190
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %183)
-  %.pre407 = load ptr, ptr %182, align 8, !tbaa !15
+  %.pre385 = load ptr, ptr %182, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit322
 
 _ZL8lean_incP11lean_object.exit322:               ; preds = %191, %190, %188, %181
-  %192 = phi ptr [ %.pre407, %191 ], [ %183, %190 ], [ %183, %188 ], [ %183, %181 ]
+  %192 = phi ptr [ %.pre385, %191 ], [ %183, %190 ], [ %183, %188 ], [ %183, %181 ]
   %193 = getelementptr i8, ptr %0, i64 8
   %.val328 = load ptr, ptr %193, align 8, !tbaa !15
   %194 = tail call noundef ptr %.val328(ptr noundef %192, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
@@ -29408,9 +28610,8 @@ _ZL8lean_incP11lean_object.exit322:               ; preds = %191, %190, %188, %1
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %203 = load ptr, ptr %202, align 8, !tbaa !15
   %204 = ptrtoint ptr %203 to i64
-  %205 = and i64 %204, 1
-  %.not363 = icmp eq i64 %205, 0
-  br i1 %.not363, label %206, label %_ZL8lean_incP11lean_object.exit321
+  %205 = trunc i64 %204 to i1
+  br i1 %205, label %_ZL8lean_incP11lean_object.exit321, label %206
 
 206:                                              ; preds = %201
   %.val.i338 = load i32, ptr %203, align 4, !tbaa !16
@@ -29434,9 +28635,8 @@ _ZL8lean_incP11lean_object.exit321:               ; preds = %211, %210, %208, %2
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %213 = load ptr, ptr %212, align 8, !tbaa !15
   %214 = ptrtoint ptr %213 to i64
-  %215 = and i64 %214, 1
-  %.not364 = icmp eq i64 %215, 0
-  br i1 %.not364, label %216, label %_ZL8lean_incP11lean_object.exit320
+  %215 = trunc i64 %214 to i1
+  br i1 %215, label %_ZL8lean_incP11lean_object.exit320, label %216
 
 216:                                              ; preds = %_ZL8lean_incP11lean_object.exit321
   %.val.i341 = load i32, ptr %213, align 4, !tbaa !16
@@ -29454,11 +28654,11 @@ _ZL8lean_incP11lean_object.exit321:               ; preds = %211, %210, %208, %2
 
 221:                                              ; preds = %220
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %213)
-  %.pre406 = load ptr, ptr %212, align 8, !tbaa !15
+  %.pre384 = load ptr, ptr %212, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit320
 
 _ZL8lean_incP11lean_object.exit320:               ; preds = %221, %220, %218, %_ZL8lean_incP11lean_object.exit321
-  %222 = phi ptr [ %.pre406, %221 ], [ %213, %220 ], [ %213, %218 ], [ %213, %_ZL8lean_incP11lean_object.exit321 ]
+  %222 = phi ptr [ %.pre384, %221 ], [ %213, %220 ], [ %213, %218 ], [ %213, %_ZL8lean_incP11lean_object.exit321 ]
   %223 = getelementptr i8, ptr %0, i64 8
   %.val327 = load ptr, ptr %223, align 8, !tbaa !15
   %224 = load ptr, ptr %202, align 8, !tbaa !15
@@ -29484,9 +28684,8 @@ _ZL8lean_incP11lean_object.exit320:               ; preds = %221, %220, %218, %_
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %234 = load ptr, ptr %233, align 8, !tbaa !15
   %235 = ptrtoint ptr %234 to i64
-  %236 = and i64 %235, 1
-  %.not360 = icmp eq i64 %236, 0
-  br i1 %.not360, label %237, label %_ZL8lean_incP11lean_object.exit319
+  %236 = trunc i64 %235 to i1
+  br i1 %236, label %_ZL8lean_incP11lean_object.exit319, label %237
 
 237:                                              ; preds = %232
   %.val.i344 = load i32, ptr %234, align 4, !tbaa !16
@@ -29510,9 +28709,8 @@ _ZL8lean_incP11lean_object.exit319:               ; preds = %242, %241, %239, %2
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %244 = load ptr, ptr %243, align 8, !tbaa !15
   %245 = ptrtoint ptr %244 to i64
-  %246 = and i64 %245, 1
-  %.not361 = icmp eq i64 %246, 0
-  br i1 %.not361, label %247, label %_ZL8lean_incP11lean_object.exit318
+  %246 = trunc i64 %245 to i1
+  br i1 %246, label %_ZL8lean_incP11lean_object.exit318, label %247
 
 247:                                              ; preds = %_ZL8lean_incP11lean_object.exit319
   %.val.i347 = load i32, ptr %244, align 4, !tbaa !16
@@ -29536,9 +28734,8 @@ _ZL8lean_incP11lean_object.exit318:               ; preds = %252, %251, %249, %_
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %254 = load ptr, ptr %253, align 8, !tbaa !15
   %255 = ptrtoint ptr %254 to i64
-  %256 = and i64 %255, 1
-  %.not362 = icmp eq i64 %256, 0
-  br i1 %.not362, label %257, label %_ZL8lean_incP11lean_object.exit317
+  %256 = trunc i64 %255 to i1
+  br i1 %256, label %_ZL8lean_incP11lean_object.exit317, label %257
 
 257:                                              ; preds = %_ZL8lean_incP11lean_object.exit318
   %.val.i350 = load i32, ptr %254, align 4, !tbaa !16
@@ -29556,11 +28753,11 @@ _ZL8lean_incP11lean_object.exit318:               ; preds = %252, %251, %249, %_
 
 262:                                              ; preds = %261
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %254)
-  %.pre405 = load ptr, ptr %253, align 8, !tbaa !15
+  %.pre383 = load ptr, ptr %253, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit317
 
 _ZL8lean_incP11lean_object.exit317:               ; preds = %262, %261, %259, %_ZL8lean_incP11lean_object.exit318
-  %263 = phi ptr [ %.pre405, %262 ], [ %254, %261 ], [ %254, %259 ], [ %254, %_ZL8lean_incP11lean_object.exit318 ]
+  %263 = phi ptr [ %.pre383, %262 ], [ %254, %261 ], [ %254, %259 ], [ %254, %_ZL8lean_incP11lean_object.exit318 ]
   %264 = getelementptr i8, ptr %0, i64 8
   %.val326 = load ptr, ptr %264, align 8, !tbaa !15
   %265 = load ptr, ptr %233, align 8, !tbaa !15
@@ -29587,12 +28784,12 @@ _ZL8lean_incP11lean_object.exit317:               ; preds = %262, %261, %259, %_
   %275 = shl nuw nsw i32 %139, 3
   %276 = zext nneg i32 %275 to i64
   %277 = alloca i8, i64 %276, align 16
-  %.not390 = icmp eq i16 %.val323, 0
-  br i1 %.not390, label %.preheader, label %.lr.ph386
+  %.not368 = icmp eq i16 %.val323, 0
+  br i1 %.not368, label %.preheader, label %.lr.ph365
 
-.lr.ph386:                                        ; preds = %274
+.lr.ph365:                                        ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count400 = zext i16 %.val323 to i64
+  %wide.trip.count378 = zext i16 %.val323 to i64
   br label %285
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit316, %274
@@ -29631,14 +28828,13 @@ _ZL8lean_incP11lean_object.exit317:               ; preds = %262, %261, %259, %_
   %284 = icmp sgt i32 %283, 1
   br i1 %284, label %298, label %300, !prof !19
 
-285:                                              ; preds = %.lr.ph386, %_ZL8lean_incP11lean_object.exit316
-  %indvars.iv397 = phi i64 [ 0, %.lr.ph386 ], [ %indvars.iv.next398, %_ZL8lean_incP11lean_object.exit316 ]
-  %286 = getelementptr inbounds nuw ptr, ptr %278, i64 %indvars.iv397
+285:                                              ; preds = %.lr.ph365, %_ZL8lean_incP11lean_object.exit316
+  %indvars.iv375 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next376, %_ZL8lean_incP11lean_object.exit316 ]
+  %286 = getelementptr inbounds nuw ptr, ptr %278, i64 %indvars.iv375
   %287 = load ptr, ptr %286, align 8, !tbaa !15
   %288 = ptrtoint ptr %287 to i64
-  %289 = and i64 %288, 1
-  %.not366 = icmp eq i64 %289, 0
-  br i1 %.not366, label %290, label %_ZL8lean_incP11lean_object.exit316
+  %289 = trunc i64 %288 to i1
+  br i1 %289, label %_ZL8lean_incP11lean_object.exit316, label %290
 
 290:                                              ; preds = %285
   %.val.i353 = load i32, ptr %287, align 4, !tbaa !16
@@ -29656,16 +28852,16 @@ _ZL8lean_incP11lean_object.exit317:               ; preds = %262, %261, %259, %_
 
 295:                                              ; preds = %294
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %287)
-  %.pre408 = load ptr, ptr %286, align 8, !tbaa !15
+  %.pre386 = load ptr, ptr %286, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit316
 
 _ZL8lean_incP11lean_object.exit316:               ; preds = %295, %294, %292, %285
-  %296 = phi ptr [ %.pre408, %295 ], [ %287, %294 ], [ %287, %292 ], [ %287, %285 ]
-  %297 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv397
+  %296 = phi ptr [ %.pre386, %295 ], [ %287, %294 ], [ %287, %292 ], [ %287, %285 ]
+  %297 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv375
   store ptr %296, ptr %297, align 8, !tbaa !15
-  %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
-  %exitcond401.not = icmp eq i64 %indvars.iv.next398, %wide.trip.count400
-  br i1 %exitcond401.not, label %.preheader, label %285, !llvm.loop !57
+  %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
+  %exitcond379.not = icmp eq i64 %indvars.iv.next376, %wide.trip.count378
+  br i1 %exitcond379.not, label %.preheader, label %285, !llvm.loop !57
 
 298:                                              ; preds = %.preheader
   %299 = add nsw i32 %283, -1
@@ -29714,31 +28910,30 @@ _ZL8lean_incP11lean_object.exit316:               ; preds = %295, %294, %292, %2
   %317 = shl nuw nsw i32 %139, 3
   %318 = zext nneg i32 %317 to i64
   %319 = alloca i8, i64 %318, align 16
-  %.not388 = icmp eq i16 %.val323, 0
-  br i1 %.not388, label %.preheader380, label %.lr.ph
+  %.not = icmp eq i16 %.val323, 0
+  br i1 %.not, label %.preheader359, label %.lr.ph
 
 .lr.ph:                                           ; preds = %304
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val323 to i64
   br label %322
 
-.preheader380:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %304
+.preheader359:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %304
   %321 = sub nsw i32 %139, %141
-  %.not389 = icmp eq i16 %.val, %.val323
-  br i1 %.not389, label %._crit_edge, label %.lr.ph383.preheader
+  %.not367 = icmp eq i16 %.val, %.val323
+  br i1 %.not367, label %._crit_edge, label %.lr.ph362.preheader
 
-.lr.ph383.preheader:                              ; preds = %.preheader380
-  %wide.trip.count395 = zext i32 %321 to i64
-  br label %.lr.ph383
+.lr.ph362.preheader:                              ; preds = %.preheader359
+  %wide.trip.count373 = zext i32 %321 to i64
+  br label %.lr.ph362
 
 322:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %323 = getelementptr inbounds nuw ptr, ptr %320, i64 %indvars.iv
   %324 = load ptr, ptr %323, align 8, !tbaa !15
   %325 = ptrtoint ptr %324 to i64
-  %326 = and i64 %325, 1
-  %.not359 = icmp eq i64 %326, 0
-  br i1 %.not359, label %327, label %_ZL8lean_incP11lean_object.exit
+  %326 = trunc i64 %325 to i1
+  br i1 %326, label %_ZL8lean_incP11lean_object.exit, label %327
 
 327:                                              ; preds = %322
   %.val.i356 = load i32, ptr %324, align 4, !tbaa !16
@@ -29765,9 +28960,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %332, %331, %329, %3
   store ptr %333, ptr %334, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader380, label %322, !llvm.loop !58
+  br i1 %exitcond.not, label %.preheader359, label %322, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %.lr.ph383, %.preheader380
+._crit_edge:                                      ; preds = %.lr.ph362, %.preheader359
   %335 = getelementptr i8, ptr %0, i64 8
   %.val336 = load ptr, ptr %335, align 8, !tbaa !15
   %336 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val336, i32 noundef range(i32 0, 65536) %139, ptr noundef nonnull %319)
@@ -29796,18 +28991,18 @@ _ZL12lean_dec_refP11lean_object.exit305:          ; preds = %339, %341, %342
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph383:                                        ; preds = %.lr.ph383.preheader, %.lr.ph383
-  %indvars.iv392 = phi i64 [ 0, %.lr.ph383.preheader ], [ %indvars.iv.next393, %.lr.ph383 ]
-  %347 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv392
+.lr.ph362:                                        ; preds = %.lr.ph362.preheader, %.lr.ph362
+  %indvars.iv370 = phi i64 [ 0, %.lr.ph362.preheader ], [ %indvars.iv.next371, %.lr.ph362 ]
+  %347 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv370
   %348 = load ptr, ptr %347, align 8, !tbaa !15
-  %349 = trunc nuw i64 %indvars.iv392 to i32
+  %349 = trunc nuw i64 %indvars.iv370 to i32
   %350 = add i32 %349, %141
   %351 = zext i32 %350 to i64
   %352 = getelementptr inbounds nuw ptr, ptr %319, i64 %351
   store ptr %348, ptr %352, align 8, !tbaa !15
-  %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
-  %exitcond396.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count395
-  br i1 %exitcond396.not, label %._crit_edge, label %.lr.ph383, !llvm.loop !59
+  %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
+  %exitcond374.not = icmp eq i64 %indvars.iv.next371, %wide.trip.count373
+  br i1 %exitcond374.not, label %._crit_edge, label %.lr.ph362, !llvm.loop !59
 
 353:                                              ; preds = %302
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -29850,15 +29045,13 @@ define ptr @lean_apply_14(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %16 = alloca [14 x ptr], align 16
   %17 = alloca [14 x ptr], align 8
   %18 = ptrtoint ptr %0 to i64
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %147, label %20
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %20, label %147
 
 20:                                               ; preds = %15
   %21 = ptrtoint ptr %1 to i64
-  %22 = and i64 %21, 1
-  %.not320 = icmp eq i64 %22, 0
-  br i1 %.not320, label %23, label %_ZL8lean_decP11lean_object.exit249
+  %22 = trunc i64 %21 to i1
+  br i1 %22, label %_ZL8lean_decP11lean_object.exit249, label %23
 
 23:                                               ; preds = %20
   %24 = load i32, ptr %1, align 4, !tbaa !16
@@ -29880,9 +29073,8 @@ define ptr @lean_apply_14(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit249:               ; preds = %29, %28, %26, %20
   %30 = ptrtoint ptr %2 to i64
-  %31 = and i64 %30, 1
-  %.not321 = icmp eq i64 %31, 0
-  br i1 %.not321, label %32, label %_ZL8lean_decP11lean_object.exit248
+  %31 = trunc i64 %30 to i1
+  br i1 %31, label %_ZL8lean_decP11lean_object.exit248, label %32
 
 32:                                               ; preds = %_ZL8lean_decP11lean_object.exit249
   %33 = load i32, ptr %2, align 4, !tbaa !16
@@ -29904,9 +29096,8 @@ _ZL8lean_decP11lean_object.exit249:               ; preds = %29, %28, %26, %20
 
 _ZL8lean_decP11lean_object.exit248:               ; preds = %38, %37, %35, %_ZL8lean_decP11lean_object.exit249
   %39 = ptrtoint ptr %3 to i64
-  %40 = and i64 %39, 1
-  %.not322 = icmp eq i64 %40, 0
-  br i1 %.not322, label %41, label %_ZL8lean_decP11lean_object.exit247
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %_ZL8lean_decP11lean_object.exit247, label %41
 
 41:                                               ; preds = %_ZL8lean_decP11lean_object.exit248
   %42 = load i32, ptr %3, align 4, !tbaa !16
@@ -29928,9 +29119,8 @@ _ZL8lean_decP11lean_object.exit248:               ; preds = %38, %37, %35, %_ZL8
 
 _ZL8lean_decP11lean_object.exit247:               ; preds = %47, %46, %44, %_ZL8lean_decP11lean_object.exit248
   %48 = ptrtoint ptr %4 to i64
-  %49 = and i64 %48, 1
-  %.not323 = icmp eq i64 %49, 0
-  br i1 %.not323, label %50, label %_ZL8lean_decP11lean_object.exit246
+  %49 = trunc i64 %48 to i1
+  br i1 %49, label %_ZL8lean_decP11lean_object.exit246, label %50
 
 50:                                               ; preds = %_ZL8lean_decP11lean_object.exit247
   %51 = load i32, ptr %4, align 4, !tbaa !16
@@ -29952,9 +29142,8 @@ _ZL8lean_decP11lean_object.exit247:               ; preds = %47, %46, %44, %_ZL8
 
 _ZL8lean_decP11lean_object.exit246:               ; preds = %56, %55, %53, %_ZL8lean_decP11lean_object.exit247
   %57 = ptrtoint ptr %5 to i64
-  %58 = and i64 %57, 1
-  %.not324 = icmp eq i64 %58, 0
-  br i1 %.not324, label %59, label %_ZL8lean_decP11lean_object.exit245
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %_ZL8lean_decP11lean_object.exit245, label %59
 
 59:                                               ; preds = %_ZL8lean_decP11lean_object.exit246
   %60 = load i32, ptr %5, align 4, !tbaa !16
@@ -29976,9 +29165,8 @@ _ZL8lean_decP11lean_object.exit246:               ; preds = %56, %55, %53, %_ZL8
 
 _ZL8lean_decP11lean_object.exit245:               ; preds = %65, %64, %62, %_ZL8lean_decP11lean_object.exit246
   %66 = ptrtoint ptr %6 to i64
-  %67 = and i64 %66, 1
-  %.not325 = icmp eq i64 %67, 0
-  br i1 %.not325, label %68, label %_ZL8lean_decP11lean_object.exit244
+  %67 = trunc i64 %66 to i1
+  br i1 %67, label %_ZL8lean_decP11lean_object.exit244, label %68
 
 68:                                               ; preds = %_ZL8lean_decP11lean_object.exit245
   %69 = load i32, ptr %6, align 4, !tbaa !16
@@ -30000,9 +29188,8 @@ _ZL8lean_decP11lean_object.exit245:               ; preds = %65, %64, %62, %_ZL8
 
 _ZL8lean_decP11lean_object.exit244:               ; preds = %74, %73, %71, %_ZL8lean_decP11lean_object.exit245
   %75 = ptrtoint ptr %7 to i64
-  %76 = and i64 %75, 1
-  %.not326 = icmp eq i64 %76, 0
-  br i1 %.not326, label %77, label %_ZL8lean_decP11lean_object.exit243
+  %76 = trunc i64 %75 to i1
+  br i1 %76, label %_ZL8lean_decP11lean_object.exit243, label %77
 
 77:                                               ; preds = %_ZL8lean_decP11lean_object.exit244
   %78 = load i32, ptr %7, align 4, !tbaa !16
@@ -30024,9 +29211,8 @@ _ZL8lean_decP11lean_object.exit244:               ; preds = %74, %73, %71, %_ZL8
 
 _ZL8lean_decP11lean_object.exit243:               ; preds = %83, %82, %80, %_ZL8lean_decP11lean_object.exit244
   %84 = ptrtoint ptr %8 to i64
-  %85 = and i64 %84, 1
-  %.not327 = icmp eq i64 %85, 0
-  br i1 %.not327, label %86, label %_ZL8lean_decP11lean_object.exit242
+  %85 = trunc i64 %84 to i1
+  br i1 %85, label %_ZL8lean_decP11lean_object.exit242, label %86
 
 86:                                               ; preds = %_ZL8lean_decP11lean_object.exit243
   %87 = load i32, ptr %8, align 4, !tbaa !16
@@ -30048,9 +29234,8 @@ _ZL8lean_decP11lean_object.exit243:               ; preds = %83, %82, %80, %_ZL8
 
 _ZL8lean_decP11lean_object.exit242:               ; preds = %92, %91, %89, %_ZL8lean_decP11lean_object.exit243
   %93 = ptrtoint ptr %9 to i64
-  %94 = and i64 %93, 1
-  %.not328 = icmp eq i64 %94, 0
-  br i1 %.not328, label %95, label %_ZL8lean_decP11lean_object.exit241
+  %94 = trunc i64 %93 to i1
+  br i1 %94, label %_ZL8lean_decP11lean_object.exit241, label %95
 
 95:                                               ; preds = %_ZL8lean_decP11lean_object.exit242
   %96 = load i32, ptr %9, align 4, !tbaa !16
@@ -30072,9 +29257,8 @@ _ZL8lean_decP11lean_object.exit242:               ; preds = %92, %91, %89, %_ZL8
 
 _ZL8lean_decP11lean_object.exit241:               ; preds = %101, %100, %98, %_ZL8lean_decP11lean_object.exit242
   %102 = ptrtoint ptr %10 to i64
-  %103 = and i64 %102, 1
-  %.not329 = icmp eq i64 %103, 0
-  br i1 %.not329, label %104, label %_ZL8lean_decP11lean_object.exit240
+  %103 = trunc i64 %102 to i1
+  br i1 %103, label %_ZL8lean_decP11lean_object.exit240, label %104
 
 104:                                              ; preds = %_ZL8lean_decP11lean_object.exit241
   %105 = load i32, ptr %10, align 4, !tbaa !16
@@ -30096,9 +29280,8 @@ _ZL8lean_decP11lean_object.exit241:               ; preds = %101, %100, %98, %_Z
 
 _ZL8lean_decP11lean_object.exit240:               ; preds = %110, %109, %107, %_ZL8lean_decP11lean_object.exit241
   %111 = ptrtoint ptr %11 to i64
-  %112 = and i64 %111, 1
-  %.not330 = icmp eq i64 %112, 0
-  br i1 %.not330, label %113, label %_ZL8lean_decP11lean_object.exit239
+  %112 = trunc i64 %111 to i1
+  br i1 %112, label %_ZL8lean_decP11lean_object.exit239, label %113
 
 113:                                              ; preds = %_ZL8lean_decP11lean_object.exit240
   %114 = load i32, ptr %11, align 4, !tbaa !16
@@ -30120,9 +29303,8 @@ _ZL8lean_decP11lean_object.exit240:               ; preds = %110, %109, %107, %_
 
 _ZL8lean_decP11lean_object.exit239:               ; preds = %119, %118, %116, %_ZL8lean_decP11lean_object.exit240
   %120 = ptrtoint ptr %12 to i64
-  %121 = and i64 %120, 1
-  %.not331 = icmp eq i64 %121, 0
-  br i1 %.not331, label %122, label %_ZL8lean_decP11lean_object.exit238
+  %121 = trunc i64 %120 to i1
+  br i1 %121, label %_ZL8lean_decP11lean_object.exit238, label %122
 
 122:                                              ; preds = %_ZL8lean_decP11lean_object.exit239
   %123 = load i32, ptr %12, align 4, !tbaa !16
@@ -30144,9 +29326,8 @@ _ZL8lean_decP11lean_object.exit239:               ; preds = %119, %118, %116, %_
 
 _ZL8lean_decP11lean_object.exit238:               ; preds = %128, %127, %125, %_ZL8lean_decP11lean_object.exit239
   %129 = ptrtoint ptr %13 to i64
-  %130 = and i64 %129, 1
-  %.not332 = icmp eq i64 %130, 0
-  br i1 %.not332, label %131, label %_ZL8lean_decP11lean_object.exit237
+  %130 = trunc i64 %129 to i1
+  br i1 %130, label %_ZL8lean_decP11lean_object.exit237, label %131
 
 131:                                              ; preds = %_ZL8lean_decP11lean_object.exit238
   %132 = load i32, ptr %13, align 4, !tbaa !16
@@ -30168,9 +29349,8 @@ _ZL8lean_decP11lean_object.exit238:               ; preds = %128, %127, %125, %_
 
 _ZL8lean_decP11lean_object.exit237:               ; preds = %137, %136, %134, %_ZL8lean_decP11lean_object.exit238
   %138 = ptrtoint ptr %14 to i64
-  %139 = and i64 %138, 1
-  %.not333 = icmp eq i64 %139, 0
-  br i1 %.not333, label %140, label %_ZL8lean_decP11lean_object.exit
+  %139 = trunc i64 %138 to i1
+  br i1 %139, label %_ZL8lean_decP11lean_object.exit, label %140
 
 140:                                              ; preds = %_ZL8lean_decP11lean_object.exit237
   %141 = load i32, ptr %14, align 4, !tbaa !16
@@ -30272,9 +29452,8 @@ _ZL8lean_decP11lean_object.exit237:               ; preds = %137, %136, %134, %_
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %184 = load ptr, ptr %183, align 8, !tbaa !15
   %185 = ptrtoint ptr %184 to i64
-  %186 = and i64 %185, 1
-  %.not318 = icmp eq i64 %186, 0
-  br i1 %.not318, label %187, label %_ZL8lean_incP11lean_object.exit289
+  %186 = trunc i64 %185 to i1
+  br i1 %186, label %_ZL8lean_incP11lean_object.exit289, label %187
 
 187:                                              ; preds = %182
   %.val.i = load i32, ptr %184, align 4, !tbaa !16
@@ -30292,11 +29471,11 @@ _ZL8lean_decP11lean_object.exit237:               ; preds = %137, %136, %134, %_
 
 192:                                              ; preds = %191
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %184)
-  %.pre360 = load ptr, ptr %183, align 8, !tbaa !15
+  %.pre340 = load ptr, ptr %183, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit289
 
 _ZL8lean_incP11lean_object.exit289:               ; preds = %192, %191, %189, %182
-  %193 = phi ptr [ %.pre360, %192 ], [ %184, %191 ], [ %184, %189 ], [ %184, %182 ]
+  %193 = phi ptr [ %.pre340, %192 ], [ %184, %191 ], [ %184, %189 ], [ %184, %182 ]
   %194 = getelementptr i8, ptr %0, i64 8
   %.val294 = load ptr, ptr %194, align 8, !tbaa !15
   %195 = tail call noundef ptr %.val294(ptr noundef %193, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
@@ -30321,9 +29500,8 @@ _ZL8lean_incP11lean_object.exit289:               ; preds = %192, %191, %189, %1
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %204 = load ptr, ptr %203, align 8, !tbaa !15
   %205 = ptrtoint ptr %204 to i64
-  %206 = and i64 %205, 1
-  %.not316 = icmp eq i64 %206, 0
-  br i1 %.not316, label %207, label %_ZL8lean_incP11lean_object.exit288
+  %206 = trunc i64 %205 to i1
+  br i1 %206, label %_ZL8lean_incP11lean_object.exit288, label %207
 
 207:                                              ; preds = %202
   %.val.i303 = load i32, ptr %204, align 4, !tbaa !16
@@ -30347,9 +29525,8 @@ _ZL8lean_incP11lean_object.exit288:               ; preds = %212, %211, %209, %2
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %214 = load ptr, ptr %213, align 8, !tbaa !15
   %215 = ptrtoint ptr %214 to i64
-  %216 = and i64 %215, 1
-  %.not317 = icmp eq i64 %216, 0
-  br i1 %.not317, label %217, label %_ZL8lean_incP11lean_object.exit287
+  %216 = trunc i64 %215 to i1
+  br i1 %216, label %_ZL8lean_incP11lean_object.exit287, label %217
 
 217:                                              ; preds = %_ZL8lean_incP11lean_object.exit288
   %.val.i306 = load i32, ptr %214, align 4, !tbaa !16
@@ -30367,11 +29544,11 @@ _ZL8lean_incP11lean_object.exit288:               ; preds = %212, %211, %209, %2
 
 222:                                              ; preds = %221
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %214)
-  %.pre359 = load ptr, ptr %213, align 8, !tbaa !15
+  %.pre339 = load ptr, ptr %213, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit287
 
 _ZL8lean_incP11lean_object.exit287:               ; preds = %222, %221, %219, %_ZL8lean_incP11lean_object.exit288
-  %223 = phi ptr [ %.pre359, %222 ], [ %214, %221 ], [ %214, %219 ], [ %214, %_ZL8lean_incP11lean_object.exit288 ]
+  %223 = phi ptr [ %.pre339, %222 ], [ %214, %221 ], [ %214, %219 ], [ %214, %_ZL8lean_incP11lean_object.exit288 ]
   %224 = getelementptr i8, ptr %0, i64 8
   %.val293 = load ptr, ptr %224, align 8, !tbaa !15
   %225 = load ptr, ptr %203, align 8, !tbaa !15
@@ -30397,12 +29574,12 @@ _ZL8lean_incP11lean_object.exit287:               ; preds = %222, %221, %219, %_
   %234 = shl nuw nsw i32 %149, 3
   %235 = zext nneg i32 %234 to i64
   %236 = alloca i8, i64 %235, align 16
-  %.not344 = icmp eq i16 %.val290, 0
-  br i1 %.not344, label %.preheader, label %.lr.ph340
+  %.not324 = icmp eq i16 %.val290, 0
+  br i1 %.not324, label %.preheader, label %.lr.ph321
 
-.lr.ph340:                                        ; preds = %233
+.lr.ph321:                                        ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count354 = zext i16 %.val290 to i64
+  %wide.trip.count334 = zext i16 %.val290 to i64
   br label %244
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit286, %233
@@ -30443,14 +29620,13 @@ _ZL8lean_incP11lean_object.exit287:               ; preds = %222, %221, %219, %_
   %243 = icmp sgt i32 %242, 1
   br i1 %243, label %257, label %259, !prof !19
 
-244:                                              ; preds = %.lr.ph340, %_ZL8lean_incP11lean_object.exit286
-  %indvars.iv351 = phi i64 [ 0, %.lr.ph340 ], [ %indvars.iv.next352, %_ZL8lean_incP11lean_object.exit286 ]
-  %245 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv351
+244:                                              ; preds = %.lr.ph321, %_ZL8lean_incP11lean_object.exit286
+  %indvars.iv331 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next332, %_ZL8lean_incP11lean_object.exit286 ]
+  %245 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv331
   %246 = load ptr, ptr %245, align 8, !tbaa !15
   %247 = ptrtoint ptr %246 to i64
-  %248 = and i64 %247, 1
-  %.not319 = icmp eq i64 %248, 0
-  br i1 %.not319, label %249, label %_ZL8lean_incP11lean_object.exit286
+  %248 = trunc i64 %247 to i1
+  br i1 %248, label %_ZL8lean_incP11lean_object.exit286, label %249
 
 249:                                              ; preds = %244
   %.val.i309 = load i32, ptr %246, align 4, !tbaa !16
@@ -30468,16 +29644,16 @@ _ZL8lean_incP11lean_object.exit287:               ; preds = %222, %221, %219, %_
 
 254:                                              ; preds = %253
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %246)
-  %.pre361 = load ptr, ptr %245, align 8, !tbaa !15
+  %.pre341 = load ptr, ptr %245, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit286
 
 _ZL8lean_incP11lean_object.exit286:               ; preds = %254, %253, %251, %244
-  %255 = phi ptr [ %.pre361, %254 ], [ %246, %253 ], [ %246, %251 ], [ %246, %244 ]
-  %256 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv351
+  %255 = phi ptr [ %.pre341, %254 ], [ %246, %253 ], [ %246, %251 ], [ %246, %244 ]
+  %256 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv331
   store ptr %255, ptr %256, align 8, !tbaa !15
-  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
-  %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
-  br i1 %exitcond355.not, label %.preheader, label %244, !llvm.loop !60
+  %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
+  %exitcond335.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count334
+  br i1 %exitcond335.not, label %.preheader, label %244, !llvm.loop !60
 
 257:                                              ; preds = %.preheader
   %258 = add nsw i32 %242, -1
@@ -30528,31 +29704,30 @@ _ZL8lean_incP11lean_object.exit286:               ; preds = %254, %253, %251, %2
   %277 = shl nuw nsw i32 %149, 3
   %278 = zext nneg i32 %277 to i64
   %279 = alloca i8, i64 %278, align 16
-  %.not342 = icmp eq i16 %.val290, 0
-  br i1 %.not342, label %.preheader334, label %.lr.ph
+  %.not = icmp eq i16 %.val290, 0
+  br i1 %.not, label %.preheader315, label %.lr.ph
 
 .lr.ph:                                           ; preds = %263
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val290 to i64
   br label %282
 
-.preheader334:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %263
+.preheader315:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %263
   %281 = sub nsw i32 %149, %151
-  %.not343 = icmp eq i16 %.val, %.val290
-  br i1 %.not343, label %._crit_edge, label %.lr.ph337.preheader
+  %.not323 = icmp eq i16 %.val, %.val290
+  br i1 %.not323, label %._crit_edge, label %.lr.ph318.preheader
 
-.lr.ph337.preheader:                              ; preds = %.preheader334
-  %wide.trip.count349 = zext i32 %281 to i64
-  br label %.lr.ph337
+.lr.ph318.preheader:                              ; preds = %.preheader315
+  %wide.trip.count329 = zext i32 %281 to i64
+  br label %.lr.ph318
 
 282:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %283 = getelementptr inbounds nuw ptr, ptr %280, i64 %indvars.iv
   %284 = load ptr, ptr %283, align 8, !tbaa !15
   %285 = ptrtoint ptr %284 to i64
-  %286 = and i64 %285, 1
-  %.not315 = icmp eq i64 %286, 0
-  br i1 %.not315, label %287, label %_ZL8lean_incP11lean_object.exit
+  %286 = trunc i64 %285 to i1
+  br i1 %286, label %_ZL8lean_incP11lean_object.exit, label %287
 
 287:                                              ; preds = %282
   %.val.i312 = load i32, ptr %284, align 4, !tbaa !16
@@ -30579,9 +29754,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %292, %291, %289, %2
   store ptr %293, ptr %294, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader334, label %282, !llvm.loop !61
+  br i1 %exitcond.not, label %.preheader315, label %282, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %.lr.ph337, %.preheader334
+._crit_edge:                                      ; preds = %.lr.ph318, %.preheader315
   %295 = getelementptr i8, ptr %0, i64 8
   %.val301 = load ptr, ptr %295, align 8, !tbaa !15
   %296 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val301, i32 noundef range(i32 0, 65536) %149, ptr noundef nonnull %279)
@@ -30610,18 +29785,18 @@ _ZL12lean_dec_refP11lean_object.exit277:          ; preds = %299, %301, %302
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
-  %indvars.iv346 = phi i64 [ 0, %.lr.ph337.preheader ], [ %indvars.iv.next347, %.lr.ph337 ]
-  %307 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv346
+.lr.ph318:                                        ; preds = %.lr.ph318.preheader, %.lr.ph318
+  %indvars.iv326 = phi i64 [ 0, %.lr.ph318.preheader ], [ %indvars.iv.next327, %.lr.ph318 ]
+  %307 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv326
   %308 = load ptr, ptr %307, align 8, !tbaa !15
-  %309 = trunc nuw i64 %indvars.iv346 to i32
+  %309 = trunc nuw i64 %indvars.iv326 to i32
   %310 = add i32 %309, %151
   %311 = zext i32 %310 to i64
   %312 = getelementptr inbounds nuw ptr, ptr %279, i64 %311
   store ptr %308, ptr %312, align 8, !tbaa !15
-  %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
-  %exitcond350.not = icmp eq i64 %indvars.iv.next347, %wide.trip.count349
-  br i1 %exitcond350.not, label %._crit_edge, label %.lr.ph337, !llvm.loop !62
+  %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
+  %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
+  br i1 %exitcond330.not, label %._crit_edge, label %.lr.ph318, !llvm.loop !62
 
 313:                                              ; preds = %261
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -30666,15 +29841,13 @@ define ptr @lean_apply_15(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %17 = alloca [15 x ptr], align 16
   %18 = alloca [15 x ptr], align 8
   %19 = ptrtoint ptr %0 to i64
-  %20 = and i64 %19, 1
-  %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %157, label %21
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %21, label %157
 
 21:                                               ; preds = %16
   %22 = ptrtoint ptr %1 to i64
-  %23 = and i64 %22, 1
-  %.not277 = icmp eq i64 %23, 0
-  br i1 %.not277, label %24, label %_ZL8lean_decP11lean_object.exit218
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %_ZL8lean_decP11lean_object.exit218, label %24
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %1, align 4, !tbaa !16
@@ -30696,9 +29869,8 @@ define ptr @lean_apply_15(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit218:               ; preds = %30, %29, %27, %21
   %31 = ptrtoint ptr %2 to i64
-  %32 = and i64 %31, 1
-  %.not278 = icmp eq i64 %32, 0
-  br i1 %.not278, label %33, label %_ZL8lean_decP11lean_object.exit217
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %_ZL8lean_decP11lean_object.exit217, label %33
 
 33:                                               ; preds = %_ZL8lean_decP11lean_object.exit218
   %34 = load i32, ptr %2, align 4, !tbaa !16
@@ -30720,9 +29892,8 @@ _ZL8lean_decP11lean_object.exit218:               ; preds = %30, %29, %27, %21
 
 _ZL8lean_decP11lean_object.exit217:               ; preds = %39, %38, %36, %_ZL8lean_decP11lean_object.exit218
   %40 = ptrtoint ptr %3 to i64
-  %41 = and i64 %40, 1
-  %.not279 = icmp eq i64 %41, 0
-  br i1 %.not279, label %42, label %_ZL8lean_decP11lean_object.exit216
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %_ZL8lean_decP11lean_object.exit216, label %42
 
 42:                                               ; preds = %_ZL8lean_decP11lean_object.exit217
   %43 = load i32, ptr %3, align 4, !tbaa !16
@@ -30744,9 +29915,8 @@ _ZL8lean_decP11lean_object.exit217:               ; preds = %39, %38, %36, %_ZL8
 
 _ZL8lean_decP11lean_object.exit216:               ; preds = %48, %47, %45, %_ZL8lean_decP11lean_object.exit217
   %49 = ptrtoint ptr %4 to i64
-  %50 = and i64 %49, 1
-  %.not280 = icmp eq i64 %50, 0
-  br i1 %.not280, label %51, label %_ZL8lean_decP11lean_object.exit215
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %_ZL8lean_decP11lean_object.exit215, label %51
 
 51:                                               ; preds = %_ZL8lean_decP11lean_object.exit216
   %52 = load i32, ptr %4, align 4, !tbaa !16
@@ -30768,9 +29938,8 @@ _ZL8lean_decP11lean_object.exit216:               ; preds = %48, %47, %45, %_ZL8
 
 _ZL8lean_decP11lean_object.exit215:               ; preds = %57, %56, %54, %_ZL8lean_decP11lean_object.exit216
   %58 = ptrtoint ptr %5 to i64
-  %59 = and i64 %58, 1
-  %.not281 = icmp eq i64 %59, 0
-  br i1 %.not281, label %60, label %_ZL8lean_decP11lean_object.exit214
+  %59 = trunc i64 %58 to i1
+  br i1 %59, label %_ZL8lean_decP11lean_object.exit214, label %60
 
 60:                                               ; preds = %_ZL8lean_decP11lean_object.exit215
   %61 = load i32, ptr %5, align 4, !tbaa !16
@@ -30792,9 +29961,8 @@ _ZL8lean_decP11lean_object.exit215:               ; preds = %57, %56, %54, %_ZL8
 
 _ZL8lean_decP11lean_object.exit214:               ; preds = %66, %65, %63, %_ZL8lean_decP11lean_object.exit215
   %67 = ptrtoint ptr %6 to i64
-  %68 = and i64 %67, 1
-  %.not282 = icmp eq i64 %68, 0
-  br i1 %.not282, label %69, label %_ZL8lean_decP11lean_object.exit213
+  %68 = trunc i64 %67 to i1
+  br i1 %68, label %_ZL8lean_decP11lean_object.exit213, label %69
 
 69:                                               ; preds = %_ZL8lean_decP11lean_object.exit214
   %70 = load i32, ptr %6, align 4, !tbaa !16
@@ -30816,9 +29984,8 @@ _ZL8lean_decP11lean_object.exit214:               ; preds = %66, %65, %63, %_ZL8
 
 _ZL8lean_decP11lean_object.exit213:               ; preds = %75, %74, %72, %_ZL8lean_decP11lean_object.exit214
   %76 = ptrtoint ptr %7 to i64
-  %77 = and i64 %76, 1
-  %.not283 = icmp eq i64 %77, 0
-  br i1 %.not283, label %78, label %_ZL8lean_decP11lean_object.exit212
+  %77 = trunc i64 %76 to i1
+  br i1 %77, label %_ZL8lean_decP11lean_object.exit212, label %78
 
 78:                                               ; preds = %_ZL8lean_decP11lean_object.exit213
   %79 = load i32, ptr %7, align 4, !tbaa !16
@@ -30840,9 +30007,8 @@ _ZL8lean_decP11lean_object.exit213:               ; preds = %75, %74, %72, %_ZL8
 
 _ZL8lean_decP11lean_object.exit212:               ; preds = %84, %83, %81, %_ZL8lean_decP11lean_object.exit213
   %85 = ptrtoint ptr %8 to i64
-  %86 = and i64 %85, 1
-  %.not284 = icmp eq i64 %86, 0
-  br i1 %.not284, label %87, label %_ZL8lean_decP11lean_object.exit211
+  %86 = trunc i64 %85 to i1
+  br i1 %86, label %_ZL8lean_decP11lean_object.exit211, label %87
 
 87:                                               ; preds = %_ZL8lean_decP11lean_object.exit212
   %88 = load i32, ptr %8, align 4, !tbaa !16
@@ -30864,9 +30030,8 @@ _ZL8lean_decP11lean_object.exit212:               ; preds = %84, %83, %81, %_ZL8
 
 _ZL8lean_decP11lean_object.exit211:               ; preds = %93, %92, %90, %_ZL8lean_decP11lean_object.exit212
   %94 = ptrtoint ptr %9 to i64
-  %95 = and i64 %94, 1
-  %.not285 = icmp eq i64 %95, 0
-  br i1 %.not285, label %96, label %_ZL8lean_decP11lean_object.exit210
+  %95 = trunc i64 %94 to i1
+  br i1 %95, label %_ZL8lean_decP11lean_object.exit210, label %96
 
 96:                                               ; preds = %_ZL8lean_decP11lean_object.exit211
   %97 = load i32, ptr %9, align 4, !tbaa !16
@@ -30888,9 +30053,8 @@ _ZL8lean_decP11lean_object.exit211:               ; preds = %93, %92, %90, %_ZL8
 
 _ZL8lean_decP11lean_object.exit210:               ; preds = %102, %101, %99, %_ZL8lean_decP11lean_object.exit211
   %103 = ptrtoint ptr %10 to i64
-  %104 = and i64 %103, 1
-  %.not286 = icmp eq i64 %104, 0
-  br i1 %.not286, label %105, label %_ZL8lean_decP11lean_object.exit209
+  %104 = trunc i64 %103 to i1
+  br i1 %104, label %_ZL8lean_decP11lean_object.exit209, label %105
 
 105:                                              ; preds = %_ZL8lean_decP11lean_object.exit210
   %106 = load i32, ptr %10, align 4, !tbaa !16
@@ -30912,9 +30076,8 @@ _ZL8lean_decP11lean_object.exit210:               ; preds = %102, %101, %99, %_Z
 
 _ZL8lean_decP11lean_object.exit209:               ; preds = %111, %110, %108, %_ZL8lean_decP11lean_object.exit210
   %112 = ptrtoint ptr %11 to i64
-  %113 = and i64 %112, 1
-  %.not287 = icmp eq i64 %113, 0
-  br i1 %.not287, label %114, label %_ZL8lean_decP11lean_object.exit208
+  %113 = trunc i64 %112 to i1
+  br i1 %113, label %_ZL8lean_decP11lean_object.exit208, label %114
 
 114:                                              ; preds = %_ZL8lean_decP11lean_object.exit209
   %115 = load i32, ptr %11, align 4, !tbaa !16
@@ -30936,9 +30099,8 @@ _ZL8lean_decP11lean_object.exit209:               ; preds = %111, %110, %108, %_
 
 _ZL8lean_decP11lean_object.exit208:               ; preds = %120, %119, %117, %_ZL8lean_decP11lean_object.exit209
   %121 = ptrtoint ptr %12 to i64
-  %122 = and i64 %121, 1
-  %.not288 = icmp eq i64 %122, 0
-  br i1 %.not288, label %123, label %_ZL8lean_decP11lean_object.exit207
+  %122 = trunc i64 %121 to i1
+  br i1 %122, label %_ZL8lean_decP11lean_object.exit207, label %123
 
 123:                                              ; preds = %_ZL8lean_decP11lean_object.exit208
   %124 = load i32, ptr %12, align 4, !tbaa !16
@@ -30960,9 +30122,8 @@ _ZL8lean_decP11lean_object.exit208:               ; preds = %120, %119, %117, %_
 
 _ZL8lean_decP11lean_object.exit207:               ; preds = %129, %128, %126, %_ZL8lean_decP11lean_object.exit208
   %130 = ptrtoint ptr %13 to i64
-  %131 = and i64 %130, 1
-  %.not289 = icmp eq i64 %131, 0
-  br i1 %.not289, label %132, label %_ZL8lean_decP11lean_object.exit206
+  %131 = trunc i64 %130 to i1
+  br i1 %131, label %_ZL8lean_decP11lean_object.exit206, label %132
 
 132:                                              ; preds = %_ZL8lean_decP11lean_object.exit207
   %133 = load i32, ptr %13, align 4, !tbaa !16
@@ -30984,9 +30145,8 @@ _ZL8lean_decP11lean_object.exit207:               ; preds = %129, %128, %126, %_
 
 _ZL8lean_decP11lean_object.exit206:               ; preds = %138, %137, %135, %_ZL8lean_decP11lean_object.exit207
   %139 = ptrtoint ptr %14 to i64
-  %140 = and i64 %139, 1
-  %.not290 = icmp eq i64 %140, 0
-  br i1 %.not290, label %141, label %_ZL8lean_decP11lean_object.exit205
+  %140 = trunc i64 %139 to i1
+  br i1 %140, label %_ZL8lean_decP11lean_object.exit205, label %141
 
 141:                                              ; preds = %_ZL8lean_decP11lean_object.exit206
   %142 = load i32, ptr %14, align 4, !tbaa !16
@@ -31008,9 +30168,8 @@ _ZL8lean_decP11lean_object.exit206:               ; preds = %138, %137, %135, %_
 
 _ZL8lean_decP11lean_object.exit205:               ; preds = %147, %146, %144, %_ZL8lean_decP11lean_object.exit206
   %148 = ptrtoint ptr %15 to i64
-  %149 = and i64 %148, 1
-  %.not291 = icmp eq i64 %149, 0
-  br i1 %.not291, label %150, label %_ZL8lean_decP11lean_object.exit
+  %149 = trunc i64 %148 to i1
+  br i1 %149, label %_ZL8lean_decP11lean_object.exit, label %150
 
 150:                                              ; preds = %_ZL8lean_decP11lean_object.exit205
   %151 = load i32, ptr %15, align 4, !tbaa !16
@@ -31099,9 +30258,8 @@ _ZL8lean_decP11lean_object.exit205:               ; preds = %147, %146, %144, %_
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %187 = load ptr, ptr %186, align 8, !tbaa !15
   %188 = ptrtoint ptr %187 to i64
-  %189 = and i64 %188, 1
-  %.not275 = icmp eq i64 %189, 0
-  br i1 %.not275, label %190, label %_ZL8lean_incP11lean_object.exit256
+  %189 = trunc i64 %188 to i1
+  br i1 %189, label %_ZL8lean_incP11lean_object.exit256, label %190
 
 190:                                              ; preds = %185
   %.val.i = load i32, ptr %187, align 4, !tbaa !16
@@ -31119,11 +30277,11 @@ _ZL8lean_decP11lean_object.exit205:               ; preds = %147, %146, %144, %_
 
 195:                                              ; preds = %194
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %187)
-  %.pre317 = load ptr, ptr %186, align 8, !tbaa !15
+  %.pre298 = load ptr, ptr %186, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit256
 
 _ZL8lean_incP11lean_object.exit256:               ; preds = %195, %194, %192, %185
-  %196 = phi ptr [ %.pre317, %195 ], [ %187, %194 ], [ %187, %192 ], [ %187, %185 ]
+  %196 = phi ptr [ %.pre298, %195 ], [ %187, %194 ], [ %187, %192 ], [ %187, %185 ]
   %197 = getelementptr i8, ptr %0, i64 8
   %.val260 = load ptr, ptr %197, align 8, !tbaa !15
   %198 = tail call noundef ptr %.val260(ptr noundef %196, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15)
@@ -31148,12 +30306,12 @@ _ZL8lean_incP11lean_object.exit256:               ; preds = %195, %194, %192, %1
   %206 = shl nuw nsw i32 %159, 3
   %207 = zext nneg i32 %206 to i64
   %208 = alloca i8, i64 %207, align 16
-  %.not302 = icmp eq i16 %.val257, 0
-  br i1 %.not302, label %.preheader, label %.lr.ph298
+  %.not283 = icmp eq i16 %.val257, 0
+  br i1 %.not283, label %.preheader, label %.lr.ph280
 
-.lr.ph298:                                        ; preds = %205
+.lr.ph280:                                        ; preds = %205
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count312 = zext i16 %.val257 to i64
+  %wide.trip.count293 = zext i16 %.val257 to i64
   br label %216
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit255, %205
@@ -31196,14 +30354,13 @@ _ZL8lean_incP11lean_object.exit256:               ; preds = %195, %194, %192, %1
   %215 = icmp sgt i32 %214, 1
   br i1 %215, label %229, label %231, !prof !19
 
-216:                                              ; preds = %.lr.ph298, %_ZL8lean_incP11lean_object.exit255
-  %indvars.iv309 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next310, %_ZL8lean_incP11lean_object.exit255 ]
-  %217 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv309
+216:                                              ; preds = %.lr.ph280, %_ZL8lean_incP11lean_object.exit255
+  %indvars.iv290 = phi i64 [ 0, %.lr.ph280 ], [ %indvars.iv.next291, %_ZL8lean_incP11lean_object.exit255 ]
+  %217 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv290
   %218 = load ptr, ptr %217, align 8, !tbaa !15
   %219 = ptrtoint ptr %218 to i64
-  %220 = and i64 %219, 1
-  %.not276 = icmp eq i64 %220, 0
-  br i1 %.not276, label %221, label %_ZL8lean_incP11lean_object.exit255
+  %220 = trunc i64 %219 to i1
+  br i1 %220, label %_ZL8lean_incP11lean_object.exit255, label %221
 
 221:                                              ; preds = %216
   %.val.i268 = load i32, ptr %218, align 4, !tbaa !16
@@ -31221,16 +30378,16 @@ _ZL8lean_incP11lean_object.exit256:               ; preds = %195, %194, %192, %1
 
 226:                                              ; preds = %225
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %218)
-  %.pre318 = load ptr, ptr %217, align 8, !tbaa !15
+  %.pre299 = load ptr, ptr %217, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit255
 
 _ZL8lean_incP11lean_object.exit255:               ; preds = %226, %225, %223, %216
-  %227 = phi ptr [ %.pre318, %226 ], [ %218, %225 ], [ %218, %223 ], [ %218, %216 ]
-  %228 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv309
+  %227 = phi ptr [ %.pre299, %226 ], [ %218, %225 ], [ %218, %223 ], [ %218, %216 ]
+  %228 = getelementptr inbounds nuw ptr, ptr %208, i64 %indvars.iv290
   store ptr %227, ptr %228, align 8, !tbaa !15
-  %indvars.iv.next310 = add nuw nsw i64 %indvars.iv309, 1
-  %exitcond313.not = icmp eq i64 %indvars.iv.next310, %wide.trip.count312
-  br i1 %exitcond313.not, label %.preheader, label %216, !llvm.loop !63
+  %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
+  %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
+  br i1 %exitcond294.not, label %.preheader, label %216, !llvm.loop !63
 
 229:                                              ; preds = %.preheader
   %230 = add nsw i32 %214, -1
@@ -31283,31 +30440,30 @@ _ZL8lean_incP11lean_object.exit255:               ; preds = %226, %225, %223, %2
   %250 = shl nuw nsw i32 %159, 3
   %251 = zext nneg i32 %250 to i64
   %252 = alloca i8, i64 %251, align 16
-  %.not300 = icmp eq i16 %.val257, 0
-  br i1 %.not300, label %.preheader292, label %.lr.ph
+  %.not = icmp eq i16 %.val257, 0
+  br i1 %.not, label %.preheader274, label %.lr.ph
 
 .lr.ph:                                           ; preds = %235
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val257 to i64
   br label %255
 
-.preheader292:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %235
+.preheader274:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %235
   %254 = sub nsw i32 %159, %161
-  %.not301 = icmp eq i16 %.val, %.val257
-  br i1 %.not301, label %._crit_edge, label %.lr.ph295.preheader
+  %.not282 = icmp eq i16 %.val, %.val257
+  br i1 %.not282, label %._crit_edge, label %.lr.ph277.preheader
 
-.lr.ph295.preheader:                              ; preds = %.preheader292
-  %wide.trip.count307 = zext i32 %254 to i64
-  br label %.lr.ph295
+.lr.ph277.preheader:                              ; preds = %.preheader274
+  %wide.trip.count288 = zext i32 %254 to i64
+  br label %.lr.ph277
 
 255:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %256 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv
   %257 = load ptr, ptr %256, align 8, !tbaa !15
   %258 = ptrtoint ptr %257 to i64
-  %259 = and i64 %258, 1
-  %.not274 = icmp eq i64 %259, 0
-  br i1 %.not274, label %260, label %_ZL8lean_incP11lean_object.exit
+  %259 = trunc i64 %258 to i1
+  br i1 %259, label %_ZL8lean_incP11lean_object.exit, label %260
 
 260:                                              ; preds = %255
   %.val.i271 = load i32, ptr %257, align 4, !tbaa !16
@@ -31334,9 +30490,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %265, %264, %262, %2
   store ptr %266, ptr %267, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader292, label %255, !llvm.loop !64
+  br i1 %exitcond.not, label %.preheader274, label %255, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %.lr.ph295, %.preheader292
+._crit_edge:                                      ; preds = %.lr.ph277, %.preheader274
   %268 = getelementptr i8, ptr %0, i64 8
   %.val266 = load ptr, ptr %268, align 8, !tbaa !15
   %269 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val266, i32 noundef range(i32 0, 65536) %159, ptr noundef nonnull %252)
@@ -31365,18 +30521,18 @@ _ZL12lean_dec_refP11lean_object.exit248:          ; preds = %272, %274, %275
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph295:                                        ; preds = %.lr.ph295.preheader, %.lr.ph295
-  %indvars.iv304 = phi i64 [ 0, %.lr.ph295.preheader ], [ %indvars.iv.next305, %.lr.ph295 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv304
+.lr.ph277:                                        ; preds = %.lr.ph277.preheader, %.lr.ph277
+  %indvars.iv285 = phi i64 [ 0, %.lr.ph277.preheader ], [ %indvars.iv.next286, %.lr.ph277 ]
+  %280 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv285
   %281 = load ptr, ptr %280, align 8, !tbaa !15
-  %282 = trunc nuw i64 %indvars.iv304 to i32
+  %282 = trunc nuw i64 %indvars.iv285 to i32
   %283 = add i32 %282, %161
   %284 = zext i32 %283 to i64
   %285 = getelementptr inbounds nuw ptr, ptr %252, i64 %284
   store ptr %281, ptr %285, align 8, !tbaa !15
-  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
-  %exitcond308.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count307
-  br i1 %exitcond308.not, label %._crit_edge, label %.lr.ph295, !llvm.loop !65
+  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
+  %exitcond289.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count288
+  br i1 %exitcond289.not, label %._crit_edge, label %.lr.ph277, !llvm.loop !65
 
 286:                                              ; preds = %233
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -31423,15 +30579,13 @@ define ptr @lean_apply_16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %18 = alloca [16 x ptr], align 16
   %19 = alloca [16 x ptr], align 8
   %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %167, label %22
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %22, label %167
 
 22:                                               ; preds = %17
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not237 = icmp eq i64 %24, 0
-  br i1 %.not237, label %25, label %_ZL8lean_decP11lean_object.exit185
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %_ZL8lean_decP11lean_object.exit185, label %25
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %1, align 4, !tbaa !16
@@ -31453,9 +30607,8 @@ define ptr @lean_apply_16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 _ZL8lean_decP11lean_object.exit185:               ; preds = %31, %30, %28, %22
   %32 = ptrtoint ptr %2 to i64
-  %33 = and i64 %32, 1
-  %.not238 = icmp eq i64 %33, 0
-  br i1 %.not238, label %34, label %_ZL8lean_decP11lean_object.exit184
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %_ZL8lean_decP11lean_object.exit184, label %34
 
 34:                                               ; preds = %_ZL8lean_decP11lean_object.exit185
   %35 = load i32, ptr %2, align 4, !tbaa !16
@@ -31477,9 +30630,8 @@ _ZL8lean_decP11lean_object.exit185:               ; preds = %31, %30, %28, %22
 
 _ZL8lean_decP11lean_object.exit184:               ; preds = %40, %39, %37, %_ZL8lean_decP11lean_object.exit185
   %41 = ptrtoint ptr %3 to i64
-  %42 = and i64 %41, 1
-  %.not239 = icmp eq i64 %42, 0
-  br i1 %.not239, label %43, label %_ZL8lean_decP11lean_object.exit183
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %_ZL8lean_decP11lean_object.exit183, label %43
 
 43:                                               ; preds = %_ZL8lean_decP11lean_object.exit184
   %44 = load i32, ptr %3, align 4, !tbaa !16
@@ -31501,9 +30653,8 @@ _ZL8lean_decP11lean_object.exit184:               ; preds = %40, %39, %37, %_ZL8
 
 _ZL8lean_decP11lean_object.exit183:               ; preds = %49, %48, %46, %_ZL8lean_decP11lean_object.exit184
   %50 = ptrtoint ptr %4 to i64
-  %51 = and i64 %50, 1
-  %.not240 = icmp eq i64 %51, 0
-  br i1 %.not240, label %52, label %_ZL8lean_decP11lean_object.exit182
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %_ZL8lean_decP11lean_object.exit182, label %52
 
 52:                                               ; preds = %_ZL8lean_decP11lean_object.exit183
   %53 = load i32, ptr %4, align 4, !tbaa !16
@@ -31525,9 +30676,8 @@ _ZL8lean_decP11lean_object.exit183:               ; preds = %49, %48, %46, %_ZL8
 
 _ZL8lean_decP11lean_object.exit182:               ; preds = %58, %57, %55, %_ZL8lean_decP11lean_object.exit183
   %59 = ptrtoint ptr %5 to i64
-  %60 = and i64 %59, 1
-  %.not241 = icmp eq i64 %60, 0
-  br i1 %.not241, label %61, label %_ZL8lean_decP11lean_object.exit181
+  %60 = trunc i64 %59 to i1
+  br i1 %60, label %_ZL8lean_decP11lean_object.exit181, label %61
 
 61:                                               ; preds = %_ZL8lean_decP11lean_object.exit182
   %62 = load i32, ptr %5, align 4, !tbaa !16
@@ -31549,9 +30699,8 @@ _ZL8lean_decP11lean_object.exit182:               ; preds = %58, %57, %55, %_ZL8
 
 _ZL8lean_decP11lean_object.exit181:               ; preds = %67, %66, %64, %_ZL8lean_decP11lean_object.exit182
   %68 = ptrtoint ptr %6 to i64
-  %69 = and i64 %68, 1
-  %.not242 = icmp eq i64 %69, 0
-  br i1 %.not242, label %70, label %_ZL8lean_decP11lean_object.exit180
+  %69 = trunc i64 %68 to i1
+  br i1 %69, label %_ZL8lean_decP11lean_object.exit180, label %70
 
 70:                                               ; preds = %_ZL8lean_decP11lean_object.exit181
   %71 = load i32, ptr %6, align 4, !tbaa !16
@@ -31573,9 +30722,8 @@ _ZL8lean_decP11lean_object.exit181:               ; preds = %67, %66, %64, %_ZL8
 
 _ZL8lean_decP11lean_object.exit180:               ; preds = %76, %75, %73, %_ZL8lean_decP11lean_object.exit181
   %77 = ptrtoint ptr %7 to i64
-  %78 = and i64 %77, 1
-  %.not243 = icmp eq i64 %78, 0
-  br i1 %.not243, label %79, label %_ZL8lean_decP11lean_object.exit179
+  %78 = trunc i64 %77 to i1
+  br i1 %78, label %_ZL8lean_decP11lean_object.exit179, label %79
 
 79:                                               ; preds = %_ZL8lean_decP11lean_object.exit180
   %80 = load i32, ptr %7, align 4, !tbaa !16
@@ -31597,9 +30745,8 @@ _ZL8lean_decP11lean_object.exit180:               ; preds = %76, %75, %73, %_ZL8
 
 _ZL8lean_decP11lean_object.exit179:               ; preds = %85, %84, %82, %_ZL8lean_decP11lean_object.exit180
   %86 = ptrtoint ptr %8 to i64
-  %87 = and i64 %86, 1
-  %.not244 = icmp eq i64 %87, 0
-  br i1 %.not244, label %88, label %_ZL8lean_decP11lean_object.exit178
+  %87 = trunc i64 %86 to i1
+  br i1 %87, label %_ZL8lean_decP11lean_object.exit178, label %88
 
 88:                                               ; preds = %_ZL8lean_decP11lean_object.exit179
   %89 = load i32, ptr %8, align 4, !tbaa !16
@@ -31621,9 +30768,8 @@ _ZL8lean_decP11lean_object.exit179:               ; preds = %85, %84, %82, %_ZL8
 
 _ZL8lean_decP11lean_object.exit178:               ; preds = %94, %93, %91, %_ZL8lean_decP11lean_object.exit179
   %95 = ptrtoint ptr %9 to i64
-  %96 = and i64 %95, 1
-  %.not245 = icmp eq i64 %96, 0
-  br i1 %.not245, label %97, label %_ZL8lean_decP11lean_object.exit177
+  %96 = trunc i64 %95 to i1
+  br i1 %96, label %_ZL8lean_decP11lean_object.exit177, label %97
 
 97:                                               ; preds = %_ZL8lean_decP11lean_object.exit178
   %98 = load i32, ptr %9, align 4, !tbaa !16
@@ -31645,9 +30791,8 @@ _ZL8lean_decP11lean_object.exit178:               ; preds = %94, %93, %91, %_ZL8
 
 _ZL8lean_decP11lean_object.exit177:               ; preds = %103, %102, %100, %_ZL8lean_decP11lean_object.exit178
   %104 = ptrtoint ptr %10 to i64
-  %105 = and i64 %104, 1
-  %.not246 = icmp eq i64 %105, 0
-  br i1 %.not246, label %106, label %_ZL8lean_decP11lean_object.exit176
+  %105 = trunc i64 %104 to i1
+  br i1 %105, label %_ZL8lean_decP11lean_object.exit176, label %106
 
 106:                                              ; preds = %_ZL8lean_decP11lean_object.exit177
   %107 = load i32, ptr %10, align 4, !tbaa !16
@@ -31669,9 +30814,8 @@ _ZL8lean_decP11lean_object.exit177:               ; preds = %103, %102, %100, %_
 
 _ZL8lean_decP11lean_object.exit176:               ; preds = %112, %111, %109, %_ZL8lean_decP11lean_object.exit177
   %113 = ptrtoint ptr %11 to i64
-  %114 = and i64 %113, 1
-  %.not247 = icmp eq i64 %114, 0
-  br i1 %.not247, label %115, label %_ZL8lean_decP11lean_object.exit175
+  %114 = trunc i64 %113 to i1
+  br i1 %114, label %_ZL8lean_decP11lean_object.exit175, label %115
 
 115:                                              ; preds = %_ZL8lean_decP11lean_object.exit176
   %116 = load i32, ptr %11, align 4, !tbaa !16
@@ -31693,9 +30837,8 @@ _ZL8lean_decP11lean_object.exit176:               ; preds = %112, %111, %109, %_
 
 _ZL8lean_decP11lean_object.exit175:               ; preds = %121, %120, %118, %_ZL8lean_decP11lean_object.exit176
   %122 = ptrtoint ptr %12 to i64
-  %123 = and i64 %122, 1
-  %.not248 = icmp eq i64 %123, 0
-  br i1 %.not248, label %124, label %_ZL8lean_decP11lean_object.exit174
+  %123 = trunc i64 %122 to i1
+  br i1 %123, label %_ZL8lean_decP11lean_object.exit174, label %124
 
 124:                                              ; preds = %_ZL8lean_decP11lean_object.exit175
   %125 = load i32, ptr %12, align 4, !tbaa !16
@@ -31717,9 +30860,8 @@ _ZL8lean_decP11lean_object.exit175:               ; preds = %121, %120, %118, %_
 
 _ZL8lean_decP11lean_object.exit174:               ; preds = %130, %129, %127, %_ZL8lean_decP11lean_object.exit175
   %131 = ptrtoint ptr %13 to i64
-  %132 = and i64 %131, 1
-  %.not249 = icmp eq i64 %132, 0
-  br i1 %.not249, label %133, label %_ZL8lean_decP11lean_object.exit173
+  %132 = trunc i64 %131 to i1
+  br i1 %132, label %_ZL8lean_decP11lean_object.exit173, label %133
 
 133:                                              ; preds = %_ZL8lean_decP11lean_object.exit174
   %134 = load i32, ptr %13, align 4, !tbaa !16
@@ -31741,9 +30883,8 @@ _ZL8lean_decP11lean_object.exit174:               ; preds = %130, %129, %127, %_
 
 _ZL8lean_decP11lean_object.exit173:               ; preds = %139, %138, %136, %_ZL8lean_decP11lean_object.exit174
   %140 = ptrtoint ptr %14 to i64
-  %141 = and i64 %140, 1
-  %.not250 = icmp eq i64 %141, 0
-  br i1 %.not250, label %142, label %_ZL8lean_decP11lean_object.exit172
+  %141 = trunc i64 %140 to i1
+  br i1 %141, label %_ZL8lean_decP11lean_object.exit172, label %142
 
 142:                                              ; preds = %_ZL8lean_decP11lean_object.exit173
   %143 = load i32, ptr %14, align 4, !tbaa !16
@@ -31765,9 +30906,8 @@ _ZL8lean_decP11lean_object.exit173:               ; preds = %139, %138, %136, %_
 
 _ZL8lean_decP11lean_object.exit172:               ; preds = %148, %147, %145, %_ZL8lean_decP11lean_object.exit173
   %149 = ptrtoint ptr %15 to i64
-  %150 = and i64 %149, 1
-  %.not251 = icmp eq i64 %150, 0
-  br i1 %.not251, label %151, label %_ZL8lean_decP11lean_object.exit171
+  %150 = trunc i64 %149 to i1
+  br i1 %150, label %_ZL8lean_decP11lean_object.exit171, label %151
 
 151:                                              ; preds = %_ZL8lean_decP11lean_object.exit172
   %152 = load i32, ptr %15, align 4, !tbaa !16
@@ -31789,9 +30929,8 @@ _ZL8lean_decP11lean_object.exit172:               ; preds = %148, %147, %145, %_
 
 _ZL8lean_decP11lean_object.exit171:               ; preds = %157, %156, %154, %_ZL8lean_decP11lean_object.exit172
   %158 = ptrtoint ptr %16 to i64
-  %159 = and i64 %158, 1
-  %.not252 = icmp eq i64 %159, 0
-  br i1 %.not252, label %160, label %_ZL8lean_decP11lean_object.exit
+  %159 = trunc i64 %158 to i1
+  br i1 %159, label %_ZL8lean_decP11lean_object.exit, label %160
 
 160:                                              ; preds = %_ZL8lean_decP11lean_object.exit171
   %161 = load i32, ptr %16, align 4, !tbaa !16
@@ -31864,12 +31003,12 @@ _ZL8lean_decP11lean_object.exit171:               ; preds = %157, %156, %154, %_
   %190 = shl nuw nsw i32 %169, 3
   %191 = zext nneg i32 %190 to i64
   %192 = alloca i8, i64 %191, align 16
-  %.not263 = icmp eq i16 %.val223, 0
-  br i1 %.not263, label %.preheader, label %.lr.ph259
+  %.not244 = icmp eq i16 %.val223, 0
+  br i1 %.not244, label %.preheader, label %.lr.ph241
 
-.lr.ph259:                                        ; preds = %189
+.lr.ph241:                                        ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count273 = zext i16 %.val223 to i64
+  %wide.trip.count254 = zext i16 %.val223 to i64
   br label %200
 
 .preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit222, %189
@@ -31914,14 +31053,13 @@ _ZL8lean_decP11lean_object.exit171:               ; preds = %157, %156, %154, %_
   %199 = icmp sgt i32 %198, 1
   br i1 %199, label %213, label %215, !prof !19
 
-200:                                              ; preds = %.lr.ph259, %_ZL8lean_incP11lean_object.exit222
-  %indvars.iv270 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next271, %_ZL8lean_incP11lean_object.exit222 ]
-  %201 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv270
+200:                                              ; preds = %.lr.ph241, %_ZL8lean_incP11lean_object.exit222
+  %indvars.iv251 = phi i64 [ 0, %.lr.ph241 ], [ %indvars.iv.next252, %_ZL8lean_incP11lean_object.exit222 ]
+  %201 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv251
   %202 = load ptr, ptr %201, align 8, !tbaa !15
   %203 = ptrtoint ptr %202 to i64
-  %204 = and i64 %203, 1
-  %.not236 = icmp eq i64 %204, 0
-  br i1 %.not236, label %205, label %_ZL8lean_incP11lean_object.exit222
+  %204 = trunc i64 %203 to i1
+  br i1 %204, label %_ZL8lean_incP11lean_object.exit222, label %205
 
 205:                                              ; preds = %200
   %.val.i = load i32, ptr %202, align 4, !tbaa !16
@@ -31939,16 +31077,16 @@ _ZL8lean_decP11lean_object.exit171:               ; preds = %157, %156, %154, %_
 
 210:                                              ; preds = %209
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %202)
-  %.pre278 = load ptr, ptr %201, align 8, !tbaa !15
+  %.pre259 = load ptr, ptr %201, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit222
 
 _ZL8lean_incP11lean_object.exit222:               ; preds = %210, %209, %207, %200
-  %211 = phi ptr [ %.pre278, %210 ], [ %202, %209 ], [ %202, %207 ], [ %202, %200 ]
-  %212 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv270
+  %211 = phi ptr [ %.pre259, %210 ], [ %202, %209 ], [ %202, %207 ], [ %202, %200 ]
+  %212 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv251
   store ptr %211, ptr %212, align 8, !tbaa !15
-  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
-  %exitcond274.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count273
-  br i1 %exitcond274.not, label %.preheader, label %200, !llvm.loop !66
+  %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
+  %exitcond255.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count254
+  br i1 %exitcond255.not, label %.preheader, label %200, !llvm.loop !66
 
 213:                                              ; preds = %.preheader
   %214 = add nsw i32 %198, -1
@@ -32003,31 +31141,30 @@ _ZL8lean_incP11lean_object.exit222:               ; preds = %210, %209, %207, %2
   %235 = shl nuw nsw i32 %169, 3
   %236 = zext nneg i32 %235 to i64
   %237 = alloca i8, i64 %236, align 16
-  %.not261 = icmp eq i16 %.val223, 0
-  br i1 %.not261, label %.preheader253, label %.lr.ph
+  %.not = icmp eq i16 %.val223, 0
+  br i1 %.not, label %.preheader235, label %.lr.ph
 
 .lr.ph:                                           ; preds = %219
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext i16 %.val223 to i64
   br label %240
 
-.preheader253:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %219
+.preheader235:                                    ; preds = %_ZL8lean_incP11lean_object.exit, %219
   %239 = sub nsw i32 %169, %171
-  %.not262 = icmp eq i16 %.val, %.val223
-  br i1 %.not262, label %._crit_edge, label %.lr.ph256.preheader
+  %.not243 = icmp eq i16 %.val, %.val223
+  br i1 %.not243, label %._crit_edge, label %.lr.ph238.preheader
 
-.lr.ph256.preheader:                              ; preds = %.preheader253
-  %wide.trip.count268 = zext i32 %239 to i64
-  br label %.lr.ph256
+.lr.ph238.preheader:                              ; preds = %.preheader235
+  %wide.trip.count249 = zext i32 %239 to i64
+  br label %.lr.ph238
 
 240:                                              ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
   %241 = getelementptr inbounds nuw ptr, ptr %238, i64 %indvars.iv
   %242 = load ptr, ptr %241, align 8, !tbaa !15
   %243 = ptrtoint ptr %242 to i64
-  %244 = and i64 %243, 1
-  %.not235 = icmp eq i64 %244, 0
-  br i1 %.not235, label %245, label %_ZL8lean_incP11lean_object.exit
+  %244 = trunc i64 %243 to i1
+  br i1 %244, label %_ZL8lean_incP11lean_object.exit, label %245
 
 245:                                              ; preds = %240
   %.val.i232 = load i32, ptr %242, align 4, !tbaa !16
@@ -32054,9 +31191,9 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %250, %249, %247, %2
   store ptr %251, ptr %252, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader253, label %240, !llvm.loop !67
+  br i1 %exitcond.not, label %.preheader235, label %240, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %.lr.ph256, %.preheader253
+._crit_edge:                                      ; preds = %.lr.ph238, %.preheader235
   %253 = getelementptr i8, ptr %0, i64 8
   %.val230 = load ptr, ptr %253, align 8, !tbaa !15
   %254 = call noundef ptr @_ZN4lean5curryEPvjPP11lean_object(ptr noundef readonly %.val230, i32 noundef range(i32 0, 65536) %169, ptr noundef nonnull %237)
@@ -32085,18 +31222,18 @@ _ZL12lean_dec_refP11lean_object.exit217:          ; preds = %257, %259, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZL8lean_decP11lean_object.exit
 
-.lr.ph256:                                        ; preds = %.lr.ph256.preheader, %.lr.ph256
-  %indvars.iv265 = phi i64 [ 0, %.lr.ph256.preheader ], [ %indvars.iv.next266, %.lr.ph256 ]
-  %265 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv265
+.lr.ph238:                                        ; preds = %.lr.ph238.preheader, %.lr.ph238
+  %indvars.iv246 = phi i64 [ 0, %.lr.ph238.preheader ], [ %indvars.iv.next247, %.lr.ph238 ]
+  %265 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv246
   %266 = load ptr, ptr %265, align 8, !tbaa !15
-  %267 = trunc nuw i64 %indvars.iv265 to i32
+  %267 = trunc nuw i64 %indvars.iv246 to i32
   %268 = add i32 %267, %171
   %269 = zext i32 %268 to i64
   %270 = getelementptr inbounds nuw ptr, ptr %237, i64 %269
   store ptr %266, ptr %270, align 8, !tbaa !15
-  %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
-  %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
-  br i1 %exitcond269.not, label %._crit_edge, label %.lr.ph256, !llvm.loop !68
+  %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
+  %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
+  br i1 %exitcond250.not, label %._crit_edge, label %.lr.ph238, !llvm.loop !68
 
 271:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -32143,28 +31280,26 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %216, %215, %213, %1
 ; Function Attrs: mustprogress uwtable
 define ptr @lean_apply_m(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %17, label %.preheader96
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %.preheader, label %17
 
-.preheader96:                                     ; preds = %3
+.preheader:                                       ; preds = %3
   %.not108 = icmp eq i32 %1, 0
-  br i1 %.not108, label %_ZL12lean_dec_refP11lean_object.exit83, label %.lr.ph.preheader
+  br i1 %.not108, label %_ZL12lean_dec_refP11lean_object.exit83, label %.lr.ph104.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader96
-  %wide.trip.count = zext i32 %1 to i64
-  br label %.lr.ph
+.lr.ph104.preheader:                              ; preds = %.preheader
+  %wide.trip.count128 = zext i32 %1 to i64
+  br label %.lr.ph104
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL8lean_decP11lean_object.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL8lean_decP11lean_object.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+.lr.ph104:                                        ; preds = %.lr.ph104.preheader, %_ZL8lean_decP11lean_object.exit
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph104.preheader ], [ %indvars.iv.next126, %_ZL8lean_decP11lean_object.exit ]
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv125
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = ptrtoint ptr %7 to i64
-  %9 = and i64 %8, 1
-  %.not94 = icmp eq i64 %9, 0
-  br i1 %.not94, label %10, label %_ZL8lean_decP11lean_object.exit
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %_ZL8lean_decP11lean_object.exit, label %10
 
-10:                                               ; preds = %.lr.ph
+10:                                               ; preds = %.lr.ph104
   %11 = load i32, ptr %7, align 4, !tbaa !16
   %12 = icmp sgt i32 %11, 1
   br i1 %12, label %13, label %15, !prof !19
@@ -32182,10 +31317,10 @@ define ptr @lean_apply_m(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %7)
   br label %_ZL8lean_decP11lean_object.exit
 
-_ZL8lean_decP11lean_object.exit:                  ; preds = %16, %15, %13, %.lr.ph
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZL12lean_dec_refP11lean_object.exit83, label %.lr.ph, !llvm.loop !69
+_ZL8lean_decP11lean_object.exit:                  ; preds = %16, %15, %13, %.lr.ph104
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
+  br i1 %exitcond129.not, label %_ZL12lean_dec_refP11lean_object.exit83, label %.lr.ph104, !llvm.loop !69
 
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %0, i64 16
@@ -32202,30 +31337,29 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %16, %15, %13, %.lr.
   %25 = shl nuw nsw i32 %19, 3
   %26 = zext nneg i32 %25 to i64
   %27 = alloca i8, i64 %26, align 16
-  %.not111 = icmp eq i16 %.val85, 0
-  br i1 %.not111, label %.preheader, label %.lr.ph104
+  %.not106 = icmp eq i16 %.val85, 0
+  br i1 %.not106, label %.preheader92, label %.lr.ph99
 
-.lr.ph104:                                        ; preds = %24
+.lr.ph99:                                         ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count127 = zext i16 %.val85 to i64
+  %wide.trip.count118 = zext i16 %.val85 to i64
   br label %29
 
-.preheader:                                       ; preds = %_ZL8lean_incP11lean_object.exit84, %24
-  %.not112 = icmp eq i32 %1, 0
-  br i1 %.not112, label %._crit_edge107, label %.lr.ph106.preheader
+.preheader92:                                     ; preds = %_ZL8lean_incP11lean_object.exit84, %24
+  %.not107 = icmp eq i32 %1, 0
+  br i1 %.not107, label %._crit_edge102, label %.lr.ph101.preheader
 
-.lr.ph106.preheader:                              ; preds = %.preheader
-  %wide.trip.count132 = zext i32 %1 to i64
-  br label %.lr.ph106
+.lr.ph101.preheader:                              ; preds = %.preheader92
+  %wide.trip.count123 = zext i32 %1 to i64
+  br label %.lr.ph101
 
-29:                                               ; preds = %.lr.ph104, %_ZL8lean_incP11lean_object.exit84
-  %indvars.iv124 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next125, %_ZL8lean_incP11lean_object.exit84 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv124
+29:                                               ; preds = %.lr.ph99, %_ZL8lean_incP11lean_object.exit84
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next116, %_ZL8lean_incP11lean_object.exit84 ]
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv115
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 1
-  %.not93 = icmp eq i64 %33, 0
-  br i1 %.not93, label %34, label %_ZL8lean_incP11lean_object.exit84
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %_ZL8lean_incP11lean_object.exit84, label %34
 
 34:                                               ; preds = %29
   %.val.i = load i32, ptr %31, align 4, !tbaa !16
@@ -32243,18 +31377,18 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %16, %15, %13, %.lr.
 
 39:                                               ; preds = %38
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %31)
-  %.pre134 = load ptr, ptr %30, align 8, !tbaa !15
+  %.pre130 = load ptr, ptr %30, align 8, !tbaa !15
   br label %_ZL8lean_incP11lean_object.exit84
 
 _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
-  %40 = phi ptr [ %.pre134, %39 ], [ %31, %38 ], [ %31, %36 ], [ %31, %29 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv124
+  %40 = phi ptr [ %.pre130, %39 ], [ %31, %38 ], [ %31, %36 ], [ %31, %29 ]
+  %41 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv115
   store ptr %40, ptr %41, align 8, !tbaa !15
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %.preheader, label %29, !llvm.loop !70
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %.preheader92, label %29, !llvm.loop !70
 
-._crit_edge107:                                   ; preds = %.lr.ph106, %.preheader
+._crit_edge102:                                   ; preds = %.lr.ph101, %.preheader92
   %42 = getelementptr i8, ptr %0, i64 8
   %.val87 = load ptr, ptr %42, align 8, !tbaa !15
   %43 = call noundef ptr %.val87(ptr noundef nonnull %27)
@@ -32262,12 +31396,12 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
   %45 = icmp sgt i32 %44, 1
   br i1 %45, label %46, label %48, !prof !19
 
-46:                                               ; preds = %._crit_edge107
+46:                                               ; preds = %._crit_edge102
   %47 = add nsw i32 %44, -1
   store i32 %47, ptr %0, align 4, !tbaa !16
   br label %_ZL12lean_dec_refP11lean_object.exit83
 
-48:                                               ; preds = %._crit_edge107
+48:                                               ; preds = %._crit_edge102
   %.not.i82 = icmp eq i32 %44, 0
   br i1 %.not.i82, label %_ZL12lean_dec_refP11lean_object.exit83, label %49
 
@@ -32275,18 +31409,18 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
   call void @lean_dec_ref_cold(ptr noundef nonnull %0)
   br label %_ZL12lean_dec_refP11lean_object.exit83
 
-.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next130, %.lr.ph106 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv129
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next121, %.lr.ph101 ]
+  %50 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv120
   %51 = load ptr, ptr %50, align 8, !tbaa !15
-  %52 = trunc nuw i64 %indvars.iv129 to i32
+  %52 = trunc nuw i64 %indvars.iv120 to i32
   %53 = add i32 %52, %21
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %27, i64 %54
   store ptr %51, ptr %55, align 8, !tbaa !15
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !71
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
+  br i1 %exitcond124.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !71
 
 56:                                               ; preds = %17
   %57 = icmp ugt i32 %22, %19
@@ -32296,31 +31430,30 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
   %59 = shl nuw nsw i32 %19, 3
   %60 = zext nneg i32 %59 to i64
   %61 = alloca i8, i64 %60, align 16
-  %.not109 = icmp eq i16 %.val85, 0
-  br i1 %.not109, label %.preheader95, label %.lr.ph99
+  %.not = icmp eq i16 %.val85, 0
+  br i1 %.not, label %.preheader93, label %.lr.ph
 
-.lr.ph99:                                         ; preds = %58
+.lr.ph:                                           ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count117 = zext i16 %.val85 to i64
+  %wide.trip.count = zext i16 %.val85 to i64
   br label %64
 
-.preheader95:                                     ; preds = %_ZL8lean_incP11lean_object.exit, %58
+.preheader93:                                     ; preds = %_ZL8lean_incP11lean_object.exit, %58
   %63 = sub nsw i32 %19, %21
-  %.not110 = icmp eq i16 %.val, %.val85
-  br i1 %.not110, label %._crit_edge, label %.lr.ph101.preheader
+  %.not105 = icmp eq i16 %.val, %.val85
+  br i1 %.not105, label %._crit_edge, label %.lr.ph96.preheader
 
-.lr.ph101.preheader:                              ; preds = %.preheader95
-  %wide.trip.count122 = zext i32 %63 to i64
-  br label %.lr.ph101
+.lr.ph96.preheader:                               ; preds = %.preheader93
+  %wide.trip.count113 = zext i32 %63 to i64
+  br label %.lr.ph96
 
-64:                                               ; preds = %.lr.ph99, %_ZL8lean_incP11lean_object.exit
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next115, %_ZL8lean_incP11lean_object.exit ]
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv114
+64:                                               ; preds = %.lr.ph, %_ZL8lean_incP11lean_object.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8lean_incP11lean_object.exit ]
+  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !15
   %67 = ptrtoint ptr %66 to i64
-  %68 = and i64 %67, 1
-  %.not92 = icmp eq i64 %68, 0
-  br i1 %.not92, label %69, label %_ZL8lean_incP11lean_object.exit
+  %68 = trunc i64 %67 to i1
+  br i1 %68, label %_ZL8lean_incP11lean_object.exit, label %69
 
 69:                                               ; preds = %64
   %.val.i89 = load i32, ptr %66, align 4, !tbaa !16
@@ -32343,13 +31476,13 @@ _ZL8lean_incP11lean_object.exit84:                ; preds = %39, %38, %36, %29
 
 _ZL8lean_incP11lean_object.exit:                  ; preds = %74, %73, %71, %64
   %75 = phi ptr [ %.pre, %74 ], [ %66, %73 ], [ %66, %71 ], [ %66, %64 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv114
+  %76 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   store ptr %75, ptr %76, align 8, !tbaa !15
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.preheader95, label %64, !llvm.loop !72
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader93, label %64, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %.lr.ph101, %.preheader95
+._crit_edge:                                      ; preds = %.lr.ph96, %.preheader93
   %77 = getelementptr i8, ptr %0, i64 8
   %.val86 = load ptr, ptr %77, align 8, !tbaa !15
   %78 = call noundef ptr %.val86(ptr noundef nonnull %61)
@@ -32377,25 +31510,25 @@ _ZL12lean_dec_refP11lean_object.exit81:           ; preds = %81, %83, %84
   %88 = call ptr @lean_apply_n(ptr noundef %78, i32 noundef %85, ptr noundef %87)
   br label %_ZL12lean_dec_refP11lean_object.exit83
 
-.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
-  %indvars.iv119 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next120, %.lr.ph101 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv119
+.lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.lr.ph96
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph96.preheader ], [ %indvars.iv.next111, %.lr.ph96 ]
+  %89 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv110
   %90 = load ptr, ptr %89, align 8, !tbaa !15
-  %91 = trunc nuw i64 %indvars.iv119 to i32
+  %91 = trunc nuw i64 %indvars.iv110 to i32
   %92 = add i32 %91, %21
   %93 = zext i32 %92 to i64
   %94 = getelementptr inbounds nuw ptr, ptr %61, i64 %93
   store ptr %90, ptr %94, align 8, !tbaa !15
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph101, !llvm.loop !73
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
+  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph96, !llvm.loop !73
 
 95:                                               ; preds = %56
   %96 = tail call fastcc noundef ptr @_ZN4leanL8fix_argsEP11lean_objectjPKS1_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2)
   br label %_ZL12lean_dec_refP11lean_object.exit83
 
-_ZL12lean_dec_refP11lean_object.exit83:           ; preds = %_ZL8lean_decP11lean_object.exit, %.preheader96, %49, %48, %46, %_ZL12lean_dec_refP11lean_object.exit81, %95
-  %.0 = phi ptr [ %43, %49 ], [ %96, %95 ], [ %88, %_ZL12lean_dec_refP11lean_object.exit81 ], [ %43, %46 ], [ %43, %48 ], [ %0, %.preheader96 ], [ %0, %_ZL8lean_decP11lean_object.exit ]
+_ZL12lean_dec_refP11lean_object.exit83:           ; preds = %_ZL8lean_decP11lean_object.exit, %.preheader, %49, %48, %46, %_ZL12lean_dec_refP11lean_object.exit81, %95
+  %.0 = phi ptr [ %43, %49 ], [ %96, %95 ], [ %88, %_ZL12lean_dec_refP11lean_object.exit81 ], [ %43, %46 ], [ %43, %48 ], [ %0, %.preheader ], [ %0, %_ZL8lean_decP11lean_object.exit ]
   ret ptr %.0
 }
 
@@ -32438,14 +31571,14 @@ _ZL18lean_alloc_closurePvjj.exit:                 ; preds = %3
   %23 = getelementptr i8, ptr %12, i64 24
   %.val41 = load i32, ptr %0, align 4, !tbaa !16
   %24 = icmp eq i32 %.val41, 1
-  %.not60 = icmp eq i16 %.val40, 0
+  %.not59 = icmp eq i16 %.val40, 0
   br i1 %24, label %.preheader, label %.preheader44
 
 .preheader44:                                     ; preds = %_ZL18lean_alloc_closurePvjj.exit
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZL18lean_alloc_closurePvjj.exit
-  br i1 %.not60, label %._crit_edge52, label %.lr.ph51.preheader
+  br i1 %.not59, label %._crit_edge52, label %.lr.ph51.preheader
 
 .lr.ph51.preheader:                               ; preds = %.preheader
   %25 = zext i16 %.val40 to i64
@@ -32488,9 +31621,8 @@ _ZL18lean_alloc_closurePvjj.exit:                 ; preds = %3
   %37 = load ptr, ptr %.03745, align 8, !tbaa !15
   store ptr %37, ptr %.03646, align 8, !tbaa !15
   %38 = ptrtoint ptr %37 to i64
-  %39 = and i64 %38, 1
-  %.not = icmp eq i64 %39, 0
-  br i1 %.not, label %40, label %_ZL8lean_incP11lean_object.exit
+  %39 = trunc i64 %38 to i1
+  br i1 %39, label %_ZL8lean_incP11lean_object.exit, label %40
 
 40:                                               ; preds = %.lr.ph
   %.val.i = load i32, ptr %37, align 4, !tbaa !16
@@ -32524,8 +31656,8 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %45, %44, %42, %.lr.
 
 _ZL12lean_dec_refP11lean_object.exit:             ; preds = %36, %35, %33, %._crit_edge52
   %.1 = phi ptr [ %.2.lcssa, %._crit_edge52 ], [ %.036.lcssa, %33 ], [ %.036.lcssa, %35 ], [ %.036.lcssa, %36 ]
-  %.not61 = icmp eq i32 %1, 0
-  br i1 %.not61, label %._crit_edge58, label %.lr.ph57
+  %.not60 = icmp eq i32 %1, 0
+  br i1 %.not60, label %._crit_edge58, label %.lr.ph57
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %_ZL12lean_dec_refP11lean_object.exit
   ret ptr %12
@@ -32539,8 +31671,8 @@ _ZL12lean_dec_refP11lean_object.exit:             ; preds = %36, %35, %33, %._cr
   %50 = add nuw i32 %.056, 1
   %51 = getelementptr inbounds nuw i8, ptr %.03954, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.355, i64 8
-  %exitcond63.not = icmp eq i32 %50, %1
-  br i1 %exitcond63.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !75
+  %exitcond62.not = icmp eq i32 %50, %1
+  br i1 %exitcond62.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

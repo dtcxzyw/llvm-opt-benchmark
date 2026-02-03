@@ -1699,12 +1699,11 @@ land.lhs.true19:                                  ; preds = %if.end
   br i1 %cmp.not, label %if.end47, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true19
-  %bf.clear34 = and i16 %desc.0.val, 1
-  %tobool36.not.not.not = icmp eq i16 %bf.clear34, 0
+  %tobool36.not = trunc i16 %desc.0.val to i1
   store ptr @.str.27, ptr %ref.tmp30, align 8
-  %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
-  store i32 3, ptr %leftKind_.i22.i.i, align 8
-  br i1 %tobool36.not.not.not, label %if.end.i.i.thread, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103
+  %ref.tmp31.sroa.3.0.ref.tmp30.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 8
+  store i32 3, ptr %ref.tmp31.sroa.3.0.ref.tmp30.sroa_idx, align 8
+  br i1 %tobool36.not, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit103, label %if.end.i.i.thread
 
 if.end.i.i.thread:                                ; preds = %if.then26
   %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp30, i64 16

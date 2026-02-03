@@ -3640,13 +3640,13 @@ define hidden void @zif_realpath_cache_get(ptr noundef readonly captures(none) %
   br label %15
 
 15:                                               ; preds = %.lr.ph32, %._crit_edge
-  %.030 = phi ptr [ %4, %.lr.ph32 ], [ %44, %._crit_edge ]
+  %.030 = phi ptr [ %4, %.lr.ph32 ], [ %43, %._crit_edge ]
   %16 = load ptr, ptr %.030, align 8, !tbaa !91
   %.not2728 = icmp eq ptr %16, null
   br i1 %.not2728, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %23
-  %.02529 = phi ptr [ %43, %23 ], [ %16, %15 ]
+  %.02529 = phi ptr [ %42, %23 ], [ %16, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = call ptr @_zend_new_array_0() #16
   store ptr %17, ptr %3, align 8, !tbaa !34
@@ -3667,35 +3667,34 @@ define hidden void @zif_realpath_cache_get(ptr noundef readonly captures(none) %
 23:                                               ; preds = %21, %20
   %24 = getelementptr inbounds nuw i8, ptr %.02529, i64 44
   %25 = load i8, ptr %24, align 4
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  call void @add_assoc_bool_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.36, i64 noundef 6, i1 noundef zeroext %27) #16
-  %28 = getelementptr inbounds nuw i8, ptr %.02529, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !96
-  %30 = getelementptr inbounds nuw i8, ptr %.02529, i64 42
-  %31 = load i16, ptr %30, align 2, !tbaa !97
-  %32 = zext i16 %31 to i64
-  call void @add_assoc_stringl_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.37, i64 noundef 8, ptr noundef %29, i64 noundef %32) #16
-  %33 = getelementptr inbounds nuw i8, ptr %.02529, i64 32
-  %34 = load i64, ptr %33, align 8, !tbaa !98
-  call void @add_assoc_long_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.38, i64 noundef 7, i64 noundef %34) #16
-  %35 = load ptr, ptr %1, align 8, !tbaa !34
-  %36 = getelementptr inbounds nuw i8, ptr %.02529, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !99
-  %38 = getelementptr inbounds nuw i8, ptr %.02529, i64 40
-  %39 = load i16, ptr %38, align 8, !tbaa !100
-  %40 = zext i16 %39 to i64
-  %41 = call ptr @zend_hash_str_update(ptr noundef %35, ptr noundef %37, i64 noundef %40, ptr noundef nonnull %3) #16
-  %42 = getelementptr inbounds nuw i8, ptr %.02529, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !101
+  %26 = trunc i8 %25 to i1
+  call void @add_assoc_bool_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.36, i64 noundef 6, i1 noundef zeroext %26) #16
+  %27 = getelementptr inbounds nuw i8, ptr %.02529, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !96
+  %29 = getelementptr inbounds nuw i8, ptr %.02529, i64 42
+  %30 = load i16, ptr %29, align 2, !tbaa !97
+  %31 = zext i16 %30 to i64
+  call void @add_assoc_stringl_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.37, i64 noundef 8, ptr noundef %28, i64 noundef %31) #16
+  %32 = getelementptr inbounds nuw i8, ptr %.02529, i64 32
+  %33 = load i64, ptr %32, align 8, !tbaa !98
+  call void @add_assoc_long_ex(ptr noundef nonnull %3, ptr noundef nonnull @.str.38, i64 noundef 7, i64 noundef %33) #16
+  %34 = load ptr, ptr %1, align 8, !tbaa !34
+  %35 = getelementptr inbounds nuw i8, ptr %.02529, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !99
+  %37 = getelementptr inbounds nuw i8, ptr %.02529, i64 40
+  %38 = load i16, ptr %37, align 8, !tbaa !100
+  %39 = zext i16 %38 to i64
+  %40 = call ptr @zend_hash_str_update(ptr noundef %34, ptr noundef %36, i64 noundef %39, ptr noundef nonnull %3) #16
+  %41 = getelementptr inbounds nuw i8, ptr %.02529, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !101
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not27 = icmp eq ptr %43, null
+  %.not27 = icmp eq ptr %42, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %23, %15
-  %44 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %45 = icmp ult ptr %44, %6
-  br i1 %45, label %15, label %.loopexit
+  %43 = getelementptr inbounds nuw i8, ptr %.030, i64 8
+  %44 = icmp ult ptr %43, %6
+  br i1 %44, label %15, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %10, %9
   ret void

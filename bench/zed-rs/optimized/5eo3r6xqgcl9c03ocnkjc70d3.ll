@@ -126,9 +126,8 @@ define hidden noundef align 8 ptr @"_ZN100_$LT$futures_util..lock..mutex..MutexL
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = atomicrmw or ptr %9, i64 1 acquire, align 8
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17h47e159de3e3bffa0E.exit"
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17h47e159de3e3bffa0E.exit", label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -163,8 +162,8 @@ define hidden noundef align 8 ptr @"_ZN100_$LT$futures_util..lock..mutex..MutexL
   %.sroa.01.0.i.i = phi i8 [ %26, %23 ], [ 0, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17h17e0d67fe91ab6b4E.llvm.302656264734468722(ptr noundef nonnull align 1 %27, i8 noundef 0), !noalias !6
-  %.not29 = icmp eq i8 %28, 0
-  br i1 %.not29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc2e18ab5290184d9E.llvm.5086258882527994251.exit", label %29
+  %.not = icmp eq i8 %28, 0
+  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc2e18ab5290184d9E.llvm.5086258882527994251.exit", label %29
 
 29:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h630f04981c30359fE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !9
@@ -298,9 +297,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5086258882527994251.exit.
 "_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$slab..Slab$LT$futures_util..lock..mutex..Waiter$GT$$GT$$GT$17hf7a492f94dfae87eE.llvm.5086258882527994251.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5086258882527994251.exit.i.i, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = atomicrmw or ptr %9, i64 1 acquire, align 8
-  %77 = and i64 %76, 1
-  %.not30 = icmp eq i64 %77, 0
-  br i1 %.not30, label %127, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17h47e159de3e3bffa0E.exit18"
+  %77 = trunc i64 %76 to i1
+  br i1 %77, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17h47e159de3e3bffa0E.exit18", label %127
 
 78:                                               ; preds = %53
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8

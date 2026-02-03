@@ -22589,10 +22589,10 @@ _ZNKSt8functionIFjvEEclEv.exit:                   ; preds = %._crit_edge
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !472
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(32) %10)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %15 = trunc i32 %13 to i8
-  %16 = and i8 %15, 1
-  store i8 %16, ptr %14, align 4, !tbaa !602
+  %14 = trunc i32 %13 to i8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %16 = and i8 %14, 1
+  store i8 %16, ptr %15, align 4, !tbaa !602
   %17 = load ptr, ptr %1, align 8, !tbaa !193
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZSt4sortIPjZN3nla12cross_nested29fill_vars_from_occurences_mapER7svectorIjjEEUljjE_EvT_S7_T0_.exit, label %_ZN6vectorIjLb0EjE3endEv.exit
@@ -29723,21 +29723,20 @@ declare void @_ZN16interval_managerIN13dep_intervals9im_configEE3mulERKNS1_8inte
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalES3_s(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i16 noundef signext %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = and i16 %3, 1
-  %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %.thread, label %6
+  %5 = trunc i16 %3 to i1
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !492
   %9 = and i16 %3, 4
-  %.not36 = icmp eq i16 %9, 0
-  br i1 %.not36, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, label %13
+  %.not35 = icmp eq i16 %9, 0
+  br i1 %.not35, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, label %13
 
 .thread:                                          ; preds = %4
   %10 = and i16 %3, 4
-  %.not33 = icmp eq i16 %10, 0
-  br i1 %.not33, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, label %.thread23
+  %.not = icmp eq i16 %10, 0
+  br i1 %.not, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, label %.thread23
 
 .thread23:                                        ; preds = %.thread
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -29784,13 +29783,13 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i, %19, %13, %.thread23, %6
   %.1 = phi ptr [ %12, %.thread23 ], [ %8, %6 ], [ %24, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ], [ %17, %13 ], [ %8, %19 ]
   %37 = and i16 %3, 2
-  %.not37 = icmp eq i16 %37, 0
-  br i1 %.not37, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16, label %41
+  %.not36 = icmp eq i16 %37, 0
+  br i1 %.not36, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16, label %41
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread: ; preds = %.thread
   %38 = and i16 %3, 2
-  %.not34 = icmp eq i16 %38, 0
-  br i1 %.not34, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread, label %.thread27
+  %.not33 = icmp eq i16 %38, 0
+  br i1 %.not33, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread, label %.thread27
 
 .thread27:                                        ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -29837,13 +29836,13 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14, %47, %41, %.thread27, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
   %.2 = phi ptr [ %40, %.thread27 ], [ %.1, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %52, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14 ], [ %45, %41 ], [ %.1, %47 ]
   %65 = and i16 %3, 8
-  %.not38 = icmp eq i16 %65, 0
-  br i1 %.not38, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %69
+  %.not37 = icmp eq i16 %65, 0
+  br i1 %.not37, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %69
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread: ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread
   %66 = and i16 %3, 8
-  %.not35 = icmp eq i16 %66, 0
-  br i1 %.not35, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %.thread31
+  %.not34 = icmp eq i16 %66, 0
+  br i1 %.not34, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %.thread31
 
 .thread31:                                        ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 80

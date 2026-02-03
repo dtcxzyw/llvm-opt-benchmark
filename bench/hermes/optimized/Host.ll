@@ -2387,745 +2387,740 @@ if.end:                                           ; preds = %entry
   %17 = trunc nuw nsw i32 %16 to i8
   %frombool24 = and i8 %17, 1
   store i8 %frombool24, ptr %second.i315, align 1
+  %tobool27 = trunc i32 %asmresult2.i308 to i8
   %call.i316 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.159, i64 4)
   %18 = extractvalue { ptr, i8 } %call.i316, 0
   %19 = load ptr, ptr %18, align 8
   %second.i317 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %20 = trunc i32 %asmresult2.i308 to i8
-  %frombool30 = and i8 %20, 1
+  %frombool30 = and i8 %tobool27, 1
   store i8 %frombool30, ptr %second.i317, align 1
   %call.i318 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.160, i64 6)
-  %21 = extractvalue { ptr, i8 } %call.i318, 0
-  %22 = load ptr, ptr %21, align 8
-  %second.i319 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %23 = lshr i8 %20, 1
-  %frombool36 = and i8 %23, 1
+  %20 = extractvalue { ptr, i8 } %call.i318, 0
+  %21 = load ptr, ptr %20, align 8
+  %second.i319 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %22 = lshr i8 %tobool27, 1
+  %frombool36 = and i8 %22, 1
   store i8 %frombool36, ptr %second.i319, align 1
   %call.i320 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.161, i64 5)
-  %24 = extractvalue { ptr, i8 } %call.i320, 0
-  %25 = load ptr, ptr %24, align 8
-  %second.i321 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %26 = lshr i32 %asmresult2.i308, 9
-  %27 = trunc i32 %26 to i8
-  %frombool42 = and i8 %27, 1
+  %23 = extractvalue { ptr, i8 } %call.i320, 0
+  %24 = load ptr, ptr %23, align 8
+  %second.i321 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %25 = lshr i32 %asmresult2.i308, 9
+  %26 = trunc i32 %25 to i8
+  %frombool42 = and i8 %26, 1
   store i8 %frombool42, ptr %second.i321, align 1
   %call.i322 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.162, i64 4)
-  %28 = extractvalue { ptr, i8 } %call.i322, 0
-  %29 = load ptr, ptr %28, align 8
-  %second.i323 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %30 = lshr i32 %asmresult2.i308, 13
-  %31 = trunc i32 %30 to i8
-  %frombool48 = and i8 %31, 1
+  %27 = extractvalue { ptr, i8 } %call.i322, 0
+  %28 = load ptr, ptr %27, align 8
+  %second.i323 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %29 = lshr i32 %asmresult2.i308, 13
+  %30 = trunc i32 %29 to i8
+  %frombool48 = and i8 %30, 1
   store i8 %frombool48, ptr %second.i323, align 1
   %call.i324 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.163, i64 6)
-  %32 = extractvalue { ptr, i8 } %call.i324, 0
-  %33 = load ptr, ptr %32, align 8
-  %second.i325 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %34 = lshr i32 %asmresult2.i308, 19
-  %35 = trunc i32 %34 to i8
-  %frombool54 = and i8 %35, 1
+  %31 = extractvalue { ptr, i8 } %call.i324, 0
+  %32 = load ptr, ptr %31, align 8
+  %second.i325 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %33 = lshr i32 %asmresult2.i308, 19
+  %34 = trunc i32 %33 to i8
+  %frombool54 = and i8 %34, 1
   store i8 %frombool54, ptr %second.i325, align 1
   %call.i326 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.164, i64 6)
-  %36 = extractvalue { ptr, i8 } %call.i326, 0
-  %37 = load ptr, ptr %36, align 8
-  %second.i327 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %38 = lshr i32 %asmresult2.i308, 20
-  %39 = trunc i32 %38 to i8
-  %frombool60 = and i8 %39, 1
+  %35 = extractvalue { ptr, i8 } %call.i326, 0
+  %36 = load ptr, ptr %35, align 8
+  %second.i327 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %37 = lshr i32 %asmresult2.i308, 20
+  %38 = trunc i32 %37 to i8
+  %frombool60 = and i8 %38, 1
   store i8 %frombool60, ptr %second.i327, align 1
   %call.i328 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.165, i64 5)
-  %40 = extractvalue { ptr, i8 } %call.i328, 0
-  %41 = load ptr, ptr %40, align 8
-  %second.i329 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %42 = lshr i32 %asmresult2.i308, 22
-  %43 = trunc i32 %42 to i8
-  %frombool66 = and i8 %43, 1
+  %39 = extractvalue { ptr, i8 } %call.i328, 0
+  %40 = load ptr, ptr %39, align 8
+  %second.i329 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %41 = lshr i32 %asmresult2.i308, 22
+  %42 = trunc i32 %41 to i8
+  %frombool66 = and i8 %42, 1
   store i8 %frombool66, ptr %second.i329, align 1
   %call.i330 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.166, i64 6)
-  %44 = extractvalue { ptr, i8 } %call.i330, 0
-  %45 = load ptr, ptr %44, align 8
-  %second.i331 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %46 = lshr i32 %asmresult2.i308, 23
-  %47 = trunc i32 %46 to i8
-  %frombool72 = and i8 %47, 1
+  %43 = extractvalue { ptr, i8 } %call.i330, 0
+  %44 = load ptr, ptr %43, align 8
+  %second.i331 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %45 = lshr i32 %asmresult2.i308, 23
+  %46 = trunc i32 %45 to i8
+  %frombool72 = and i8 %46, 1
   store i8 %frombool72, ptr %second.i331, align 1
   %call.i332 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.167, i64 3)
-  %48 = extractvalue { ptr, i8 } %call.i332, 0
-  %49 = load ptr, ptr %48, align 8
-  %second.i333 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %50 = lshr i32 %asmresult2.i308, 25
-  %51 = trunc nuw nsw i32 %50 to i8
-  %frombool78 = and i8 %51, 1
+  %47 = extractvalue { ptr, i8 } %call.i332, 0
+  %48 = load ptr, ptr %47, align 8
+  %second.i333 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %49 = lshr i32 %asmresult2.i308, 25
+  %50 = trunc nuw nsw i32 %49 to i8
+  %frombool78 = and i8 %50, 1
   store i8 %frombool78, ptr %second.i333, align 1
   %call.i334 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.168, i64 5)
-  %52 = extractvalue { ptr, i8 } %call.i334, 0
-  %53 = load ptr, ptr %52, align 8
-  %second.i335 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %54 = lshr i32 %asmresult2.i308, 30
-  %55 = trunc nuw nsw i32 %54 to i8
-  %frombool84 = and i8 %55, 1
+  %51 = extractvalue { ptr, i8 } %call.i334, 0
+  %52 = load ptr, ptr %51, align 8
+  %second.i335 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %53 = lshr i32 %asmresult2.i308, 30
+  %54 = trunc nuw nsw i32 %53 to i8
+  %frombool84 = and i8 %54, 1
   store i8 %frombool84, ptr %second.i335, align 1
-  %56 = and i32 %asmresult2.i308, 402653184
-  %or.cond.not = icmp eq i32 %56, 402653184
+  %55 = and i32 %asmresult2.i308, 402653184
+  %or.cond.not = icmp eq i32 %55, 402653184
   br i1 %or.cond.not, label %land.lhs.true91, label %land.end
 
 land.lhs.true91:                                  ; preds = %if.end
-  %57 = tail call { i32, i32 } asm ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !18
-  %asmresult.i336 = extractvalue { i32, i32 } %57, 0
+  %56 = tail call { i32, i32 } asm ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !18
+  %asmresult.i336 = extractvalue { i32, i32 } %56, 0
   %and93 = and i32 %asmresult.i336, 6
   %cmp94 = icmp eq i32 %and93, 6
   br label %land.end
 
 land.end:                                         ; preds = %land.lhs.true91, %if.end
   %EAX.0 = phi i32 [ %asmresult.i306, %if.end ], [ %asmresult.i336, %land.lhs.true91 ]
-  %58 = phi i1 [ false, %if.end ], [ %cmp94, %land.lhs.true91 ]
-  %frombool95 = zext i1 %58 to i8
+  %57 = phi i1 [ false, %if.end ], [ %cmp94, %land.lhs.true91 ]
+  %frombool95 = zext i1 %57 to i8
   %and98 = and i32 %EAX.0, 224
   %cmp99 = icmp eq i32 %and98, 224
-  %59 = select i1 %58, i1 %cmp99, i1 false
+  %58 = select i1 %57, i1 %cmp99, i1 false
   %call.i338 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.169, i64 3)
-  %60 = extractvalue { ptr, i8 } %call.i338, 0
-  %61 = load ptr, ptr %60, align 8
-  %second.i339 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %59 = extractvalue { ptr, i8 } %call.i338, 0
+  %60 = load ptr, ptr %59, align 8
+  %second.i339 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i8 %frombool95, ptr %second.i339, align 1
-  %62 = and i32 %asmresult2.i308, 4096
-  %tobool108 = icmp ne i32 %62, 0
-  %63 = select i1 %tobool108, i1 %58, i1 false
+  %61 = and i32 %asmresult2.i308, 4096
+  %tobool108 = icmp ne i32 %61, 0
+  %62 = select i1 %tobool108, i1 %57, i1 false
   %call.i340 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.170, i64 3)
-  %64 = extractvalue { ptr, i8 } %call.i340, 0
-  %65 = load ptr, ptr %64, align 8
-  %second.i341 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %frombool114 = zext i1 %63 to i8
+  %63 = extractvalue { ptr, i8 } %call.i340, 0
+  %64 = load ptr, ptr %63, align 8
+  %second.i341 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %frombool114 = zext i1 %62 to i8
   store i8 %frombool114, ptr %second.i341, align 1
-  %66 = and i32 %asmresult2.i308, 67108864
-  %tobool117 = icmp ne i32 %66, 0
-  %67 = select i1 %tobool117, i1 %58, i1 false
+  %65 = and i32 %asmresult2.i308, 67108864
+  %tobool117 = icmp ne i32 %65, 0
+  %66 = select i1 %tobool117, i1 %57, i1 false
   %call.i342 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.171, i64 5)
-  %68 = extractvalue { ptr, i8 } %call.i342, 0
-  %69 = load ptr, ptr %68, align 8
-  %second.i343 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %frombool123 = zext i1 %67 to i8
+  %67 = extractvalue { ptr, i8 } %call.i342, 0
+  %68 = load ptr, ptr %67, align 8
+  %second.i343 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %frombool123 = zext i1 %66 to i8
   store i8 %frombool123, ptr %second.i343, align 1
-  %70 = and i32 %asmresult2.i308, 536870912
-  %tobool126 = icmp ne i32 %70, 0
-  %71 = select i1 %tobool126, i1 %58, i1 false
+  %69 = and i32 %asmresult2.i308, 536870912
+  %tobool126 = icmp ne i32 %69, 0
+  %70 = select i1 %tobool126, i1 %57, i1 false
   %call.i344 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.172, i64 4)
-  %72 = extractvalue { ptr, i8 } %call.i344, 0
-  %73 = load ptr, ptr %72, align 8
-  %second.i345 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %frombool132 = zext i1 %71 to i8
+  %71 = extractvalue { ptr, i8 } %call.i344, 0
+  %72 = load ptr, ptr %71, align 8
+  %second.i345 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %frombool132 = zext i1 %70 to i8
   store i8 %frombool132, ptr %second.i345, align 1
-  %74 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
-  %asmresult.i346 = extractvalue { i32, i32, i32, i32 } %74, 0
+  %73 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
+  %asmresult.i346 = extractvalue { i32, i32, i32, i32 } %73, 0
   %cmp134 = icmp ugt i32 %asmresult.i346, -2147483648
   br i1 %cmp134, label %land.rhs135, label %land.end137
 
 land.rhs135:                                      ; preds = %land.end
-  %75 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #21, !srcloc !17
+  %74 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #21, !srcloc !17
   br label %land.end137
 
 land.end137:                                      ; preds = %land.rhs135, %land.end
-  %.pn = phi { i32, i32, i32, i32 } [ %75, %land.rhs135 ], [ %74, %land.end ]
+  %.pn = phi { i32, i32, i32, i32 } [ %74, %land.rhs135 ], [ %73, %land.end ]
   %ECX.0 = extractvalue { i32, i32, i32, i32 } %.pn, 2
   %EDX.0 = extractvalue { i32, i32, i32, i32 } %.pn, 3
-  %and142 = and i32 %ECX.0, 1
-  %tobool143 = icmp ne i32 %and142, 0
-  %76 = select i1 %cmp134, i1 %tobool143, i1 false
+  %tobool143 = trunc i32 %ECX.0 to i8
   %call.i354 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.173, i64 4)
-  %77 = extractvalue { ptr, i8 } %call.i354, 0
-  %78 = load ptr, ptr %77, align 8
-  %second.i355 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %frombool147 = zext i1 %76 to i8
+  %75 = extractvalue { ptr, i8 } %call.i354, 0
+  %76 = load ptr, ptr %75, align 8
+  %second.i355 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %77 = and i8 %tobool143, 1
+  %frombool147 = select i1 %cmp134, i8 %77, i8 0
   store i8 %frombool147, ptr %second.i355, align 1
-  %79 = and i32 %ECX.0, 32
-  %tobool152 = icmp ne i32 %79, 0
-  %80 = select i1 %cmp134, i1 %tobool152, i1 false
+  %78 = and i32 %ECX.0, 32
+  %tobool152 = icmp ne i32 %78, 0
+  %79 = select i1 %cmp134, i1 %tobool152, i1 false
   %call.i356 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.174, i64 5)
-  %81 = extractvalue { ptr, i8 } %call.i356, 0
-  %82 = load ptr, ptr %81, align 8
-  %second.i357 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %frombool156 = zext i1 %80 to i8
+  %80 = extractvalue { ptr, i8 } %call.i356, 0
+  %81 = load ptr, ptr %80, align 8
+  %second.i357 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %frombool156 = zext i1 %79 to i8
   store i8 %frombool156, ptr %second.i357, align 1
-  %83 = and i32 %ECX.0, 64
-  %tobool161 = icmp ne i32 %83, 0
-  %84 = select i1 %cmp134, i1 %tobool161, i1 false
+  %82 = and i32 %ECX.0, 64
+  %tobool161 = icmp ne i32 %82, 0
+  %83 = select i1 %cmp134, i1 %tobool161, i1 false
   %call.i358 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.175, i64 5)
-  %85 = extractvalue { ptr, i8 } %call.i358, 0
-  %86 = load ptr, ptr %85, align 8
-  %second.i359 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %frombool165 = zext i1 %84 to i8
+  %84 = extractvalue { ptr, i8 } %call.i358, 0
+  %85 = load ptr, ptr %84, align 8
+  %second.i359 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %frombool165 = zext i1 %83 to i8
   store i8 %frombool165, ptr %second.i359, align 1
-  %87 = and i32 %ECX.0, 256
-  %tobool170 = icmp ne i32 %87, 0
-  %88 = select i1 %cmp134, i1 %tobool170, i1 false
+  %86 = and i32 %ECX.0, 256
+  %tobool170 = icmp ne i32 %86, 0
+  %87 = select i1 %cmp134, i1 %tobool170, i1 false
   %call.i360 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.176, i64 6)
-  %89 = extractvalue { ptr, i8 } %call.i360, 0
-  %90 = load ptr, ptr %89, align 8
-  %second.i361 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %frombool174 = zext i1 %88 to i8
+  %88 = extractvalue { ptr, i8 } %call.i360, 0
+  %89 = load ptr, ptr %88, align 8
+  %second.i361 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %frombool174 = zext i1 %87 to i8
   store i8 %frombool174, ptr %second.i361, align 1
   br i1 %cmp134, label %land.lhs.true176, label %_ZN4llvh9StringRefC2EPKc.exit921.critedge
 
 land.lhs.true176:                                 ; preds = %land.end137
-  %91 = and i32 %ECX.0, 2048
-  %tobool179.not = icmp eq i32 %91, 0
+  %90 = and i32 %ECX.0, 2048
+  %tobool179.not = icmp eq i32 %90, 0
   %spec.select = select i1 %tobool179.not, i8 0, i8 %frombool95
   %call.i362 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.177, i64 3)
-  %92 = extractvalue { ptr, i8 } %call.i362, 0
-  %93 = load ptr, ptr %92, align 8
-  %second.i363 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %91 = extractvalue { ptr, i8 } %call.i362, 0
+  %92 = load ptr, ptr %91, align 8
+  %second.i363 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i8 %spec.select, ptr %second.i363, align 1
   %call.i364 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.178, i64 3)
-  %94 = extractvalue { ptr, i8 } %call.i364, 0
-  %95 = load ptr, ptr %94, align 8
-  %second.i365 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %96 = lshr i32 %ECX.0, 15
-  %97 = trunc i32 %96 to i8
-  %frombool194 = and i8 %97, 1
+  %93 = extractvalue { ptr, i8 } %call.i364, 0
+  %94 = load ptr, ptr %93, align 8
+  %second.i365 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %95 = lshr i32 %ECX.0, 15
+  %96 = trunc i32 %95 to i8
+  %frombool194 = and i8 %96, 1
   store i8 %frombool194, ptr %second.i365, align 1
-  %98 = and i32 %ECX.0, 65536
-  %tobool199.not = icmp eq i32 %98, 0
+  %97 = and i32 %ECX.0, 65536
+  %tobool199.not = icmp eq i32 %97, 0
   %spec.select285 = select i1 %tobool199.not, i8 0, i8 %frombool95
   br label %_ZN4llvh9StringRefC2EPKc.exit921
 
 _ZN4llvh9StringRefC2EPKc.exit921.critedge:        ; preds = %land.end137
   %call.i366 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.177, i64 3)
-  %99 = extractvalue { ptr, i8 } %call.i366, 0
-  %100 = load ptr, ptr %99, align 8
-  %second.i367 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %98 = extractvalue { ptr, i8 } %call.i366, 0
+  %99 = load ptr, ptr %98, align 8
+  %second.i367 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i8 0, ptr %second.i367, align 1
   %call.i368 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.178, i64 3)
-  %101 = extractvalue { ptr, i8 } %call.i368, 0
-  %102 = load ptr, ptr %101, align 8
-  %second.i369 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %100 = extractvalue { ptr, i8 } %call.i368, 0
+  %101 = load ptr, ptr %100, align 8
+  %second.i369 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i8 0, ptr %second.i369, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit921
 
 _ZN4llvh9StringRefC2EPKc.exit921:                 ; preds = %land.lhs.true176, %_ZN4llvh9StringRefC2EPKc.exit921.critedge
   %frombool205 = phi i8 [ 0, %_ZN4llvh9StringRefC2EPKc.exit921.critedge ], [ %spec.select285, %land.lhs.true176 ]
   %call.i370 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.179, i64 4)
-  %103 = extractvalue { ptr, i8 } %call.i370, 0
-  %104 = load ptr, ptr %103, align 8
-  %second.i371 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %102 = extractvalue { ptr, i8 } %call.i370, 0
+  %103 = load ptr, ptr %102, align 8
+  %second.i371 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i8 %frombool205, ptr %second.i371, align 1
-  %105 = and i32 %ECX.0, 2097152
-  %tobool210 = icmp ne i32 %105, 0
-  %106 = select i1 %cmp134, i1 %tobool210, i1 false
+  %104 = and i32 %ECX.0, 2097152
+  %tobool210 = icmp ne i32 %104, 0
+  %105 = select i1 %cmp134, i1 %tobool210, i1 false
   %call.i372 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.180, i64 3)
-  %107 = extractvalue { ptr, i8 } %call.i372, 0
-  %108 = load ptr, ptr %107, align 8
-  %second.i373 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %frombool214 = zext i1 %106 to i8
+  %106 = extractvalue { ptr, i8 } %call.i372, 0
+  %107 = load ptr, ptr %106, align 8
+  %second.i373 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %frombool214 = zext i1 %105 to i8
   store i8 %frombool214, ptr %second.i373, align 1
-  %109 = and i32 %ECX.0, 536870912
-  %tobool219 = icmp ne i32 %109, 0
-  %110 = select i1 %cmp134, i1 %tobool219, i1 false
+  %108 = and i32 %ECX.0, 536870912
+  %tobool219 = icmp ne i32 %108, 0
+  %109 = select i1 %cmp134, i1 %tobool219, i1 false
   %call.i374 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.181, i64 6)
-  %111 = extractvalue { ptr, i8 } %call.i374, 0
-  %112 = load ptr, ptr %111, align 8
-  %second.i375 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %frombool223 = zext i1 %110 to i8
+  %110 = extractvalue { ptr, i8 } %call.i374, 0
+  %111 = load ptr, ptr %110, align 8
+  %second.i375 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %frombool223 = zext i1 %109 to i8
   store i8 %frombool223, ptr %second.i375, align 1
-  %113 = and i32 %EDX.0, 536870912
-  %tobool228 = icmp ne i32 %113, 0
-  %114 = select i1 %cmp134, i1 %tobool228, i1 false
+  %112 = and i32 %EDX.0, 536870912
+  %tobool228 = icmp ne i32 %112, 0
+  %113 = select i1 %cmp134, i1 %tobool228, i1 false
   %call.i376 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.182, i64 5)
-  %115 = extractvalue { ptr, i8 } %call.i376, 0
-  %116 = load ptr, ptr %115, align 8
-  %second.i377 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %frombool232 = zext i1 %114 to i8
+  %114 = extractvalue { ptr, i8 } %call.i376, 0
+  %115 = load ptr, ptr %114, align 8
+  %second.i377 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %frombool232 = zext i1 %113 to i8
   store i8 %frombool232, ptr %second.i377, align 1
   %cmp233 = icmp ugt i32 %asmresult.i346, -2147483641
   br i1 %cmp233, label %land.rhs234, label %land.end237
 
 land.rhs234:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit921
-  %117 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483640) #21, !srcloc !17
-  %asmresult2.i380 = extractvalue { i32, i32, i32, i32 } %117, 2
-  %asmresult3.i381 = extractvalue { i32, i32, i32, i32 } %117, 3
+  %116 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483640) #21, !srcloc !17
+  %asmresult2.i380 = extractvalue { i32, i32, i32, i32 } %116, 2
+  %asmresult3.i381 = extractvalue { i32, i32, i32, i32 } %116, 3
   br label %land.end237
 
 land.end237:                                      ; preds = %land.rhs234, %_ZN4llvh9StringRefC2EPKc.exit921
   %EDX.1 = phi i32 [ %asmresult3.i381, %land.rhs234 ], [ %EDX.0, %_ZN4llvh9StringRefC2EPKc.exit921 ]
   %ECX.1 = phi i32 [ %asmresult2.i380, %land.rhs234 ], [ %ECX.0, %_ZN4llvh9StringRefC2EPKc.exit921 ]
-  %.pn590 = phi { i32, i32, i32, i32 } [ %117, %land.rhs234 ], [ %.pn, %_ZN4llvh9StringRefC2EPKc.exit921 ]
+  %.pn590 = phi { i32, i32, i32, i32 } [ %116, %land.rhs234 ], [ %.pn, %_ZN4llvh9StringRefC2EPKc.exit921 ]
   %EBX.1 = extractvalue { i32, i32, i32, i32 } %.pn590, 1
-  %and242 = and i32 %EBX.1, 1
-  %tobool243 = icmp ne i32 %and242, 0
-  %118 = select i1 %cmp233, i1 %tobool243, i1 false
+  %tobool243 = trunc i32 %EBX.1 to i8
   %call.i382 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.183, i64 6)
-  %119 = extractvalue { ptr, i8 } %call.i382, 0
-  %120 = load ptr, ptr %119, align 8
-  %second.i383 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %frombool247 = zext i1 %118 to i8
+  %117 = extractvalue { ptr, i8 } %call.i382, 0
+  %118 = load ptr, ptr %117, align 8
+  %second.i383 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %119 = and i8 %tobool243, 1
+  %frombool247 = select i1 %cmp233, i8 %119, i8 0
   store i8 %frombool247, ptr %second.i383, align 1
-  %121 = and i32 %EBX.1, 512
-  %tobool252 = icmp ne i32 %121, 0
-  %122 = select i1 %cmp233, i1 %tobool252, i1 false
+  %120 = and i32 %EBX.1, 512
+  %tobool252 = icmp ne i32 %120, 0
+  %121 = select i1 %cmp233, i1 %tobool252, i1 false
   %call.i384 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.184, i64 8)
-  %123 = extractvalue { ptr, i8 } %call.i384, 0
-  %124 = load ptr, ptr %123, align 8
-  %second.i385 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %frombool256 = zext i1 %122 to i8
+  %122 = extractvalue { ptr, i8 } %call.i384, 0
+  %123 = load ptr, ptr %122, align 8
+  %second.i385 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %frombool256 = zext i1 %121 to i8
   store i8 %frombool256, ptr %second.i385, align 1
   %cmp257 = icmp ugt i32 %asmresult.i, 6
   br i1 %cmp257, label %land.rhs258, label %land.end261
 
 land.rhs258:                                      ; preds = %land.end237
-  %125 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #21, !srcloc !19
-  %asmresult1.i387 = extractvalue { i32, i32, i32, i32 } %125, 1
-  %asmresult2.i388 = extractvalue { i32, i32, i32, i32 } %125, 2
-  %asmresult3.i389 = extractvalue { i32, i32, i32, i32 } %125, 3
-  %.pre = and i32 %asmresult1.i387, 1
+  %124 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #21, !srcloc !19
+  %asmresult1.i387 = extractvalue { i32, i32, i32, i32 } %124, 1
+  %asmresult2.i388 = extractvalue { i32, i32, i32, i32 } %124, 2
+  %asmresult3.i389 = extractvalue { i32, i32, i32, i32 } %124, 3
+  %.pre = trunc i32 %asmresult1.i387 to i8
+  %.pre594 = and i8 %.pre, 1
   br label %land.end261
 
 land.end261:                                      ; preds = %land.rhs258, %land.end237
-  %and266.pre-phi = phi i32 [ %.pre, %land.rhs258 ], [ %and242, %land.end237 ]
+  %frombool271 = phi i8 [ %.pre594, %land.rhs258 ], [ 0, %land.end237 ]
   %EDX.2 = phi i32 [ %asmresult3.i389, %land.rhs258 ], [ %EDX.1, %land.end237 ]
   %ECX.2 = phi i32 [ %asmresult2.i388, %land.rhs258 ], [ %ECX.1, %land.end237 ]
   %EBX.2 = phi i32 [ %asmresult1.i387, %land.rhs258 ], [ %EBX.1, %land.end237 ]
-  %tobool267 = icmp ne i32 %and266.pre-phi, 0
-  %126 = select i1 %cmp257, i1 %tobool267, i1 false
   %call.i390 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.185, i64 8)
-  %127 = extractvalue { ptr, i8 } %call.i390, 0
-  %128 = load ptr, ptr %127, align 8
-  %second.i391 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %frombool271 = zext i1 %126 to i8
+  %125 = extractvalue { ptr, i8 } %call.i390, 0
+  %126 = load ptr, ptr %125, align 8
+  %second.i391 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i8 %frombool271, ptr %second.i391, align 1
-  %129 = and i32 %EBX.2, 4
-  %tobool276 = icmp ne i32 %129, 0
-  %130 = select i1 %cmp257, i1 %tobool276, i1 false
+  %127 = and i32 %EBX.2, 4
+  %tobool276 = icmp ne i32 %127, 0
+  %128 = select i1 %cmp257, i1 %tobool276, i1 false
   %call.i392 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.186, i64 3)
-  %131 = extractvalue { ptr, i8 } %call.i392, 0
-  %132 = load ptr, ptr %131, align 8
-  %second.i393 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %frombool280 = zext i1 %130 to i8
+  %129 = extractvalue { ptr, i8 } %call.i392, 0
+  %130 = load ptr, ptr %129, align 8
+  %second.i393 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %frombool280 = zext i1 %128 to i8
   store i8 %frombool280, ptr %second.i393, align 1
-  %133 = and i32 %EBX.2, 8
-  %tobool285 = icmp ne i32 %133, 0
-  %134 = select i1 %cmp257, i1 %tobool285, i1 false
+  %131 = and i32 %EBX.2, 8
+  %tobool285 = icmp ne i32 %131, 0
+  %132 = select i1 %cmp257, i1 %tobool285, i1 false
   %call.i394 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.187, i64 3)
-  %135 = extractvalue { ptr, i8 } %call.i394, 0
-  %136 = load ptr, ptr %135, align 8
-  %second.i395 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %frombool289 = zext i1 %134 to i8
+  %133 = extractvalue { ptr, i8 } %call.i394, 0
+  %134 = load ptr, ptr %133, align 8
+  %second.i395 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %frombool289 = zext i1 %132 to i8
   store i8 %frombool289, ptr %second.i395, align 1
-  %137 = and i32 %EBX.2, 32
-  %tobool294.not = icmp ne i32 %137, 0
-  %138 = select i1 %cmp257, i1 %tobool294.not, i1 false
-  %frombool300 = select i1 %138, i8 %frombool95, i8 0
+  %135 = and i32 %EBX.2, 32
+  %tobool294.not = icmp ne i32 %135, 0
+  %136 = select i1 %cmp257, i1 %tobool294.not, i1 false
+  %frombool300 = select i1 %136, i8 %frombool95, i8 0
   %call.i396 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.188, i64 4)
-  %139 = extractvalue { ptr, i8 } %call.i396, 0
-  %140 = load ptr, ptr %139, align 8
-  %second.i397 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %137 = extractvalue { ptr, i8 } %call.i396, 0
+  %138 = load ptr, ptr %137, align 8
+  %second.i397 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i8 %frombool300, ptr %second.i397, align 1
-  %141 = and i32 %EBX.2, 256
-  %tobool305 = icmp ne i32 %141, 0
-  %142 = select i1 %cmp257, i1 %tobool305, i1 false
+  %139 = and i32 %EBX.2, 256
+  %tobool305 = icmp ne i32 %139, 0
+  %140 = select i1 %cmp257, i1 %tobool305, i1 false
   %call.i398 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.189, i64 4)
-  %143 = extractvalue { ptr, i8 } %call.i398, 0
-  %144 = load ptr, ptr %143, align 8
-  %second.i399 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %frombool309 = zext i1 %142 to i8
+  %141 = extractvalue { ptr, i8 } %call.i398, 0
+  %142 = load ptr, ptr %141, align 8
+  %second.i399 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %frombool309 = zext i1 %140 to i8
   store i8 %frombool309, ptr %second.i399, align 1
-  %145 = and i32 %EBX.2, 1024
-  %tobool314 = icmp ne i32 %145, 0
-  %146 = select i1 %cmp257, i1 %tobool314, i1 false
+  %143 = and i32 %EBX.2, 1024
+  %tobool314 = icmp ne i32 %143, 0
+  %144 = select i1 %cmp257, i1 %tobool314, i1 false
   %call.i400 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.190, i64 7)
-  %147 = extractvalue { ptr, i8 } %call.i400, 0
-  %148 = load ptr, ptr %147, align 8
-  %second.i401 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %frombool318 = zext i1 %146 to i8
+  %145 = extractvalue { ptr, i8 } %call.i400, 0
+  %146 = load ptr, ptr %145, align 8
+  %second.i401 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %frombool318 = zext i1 %144 to i8
   store i8 %frombool318, ptr %second.i401, align 1
-  %149 = and i32 %EBX.2, 2048
-  %tobool323 = icmp ne i32 %149, 0
-  %150 = select i1 %cmp257, i1 %tobool323, i1 false
+  %147 = and i32 %EBX.2, 2048
+  %tobool323 = icmp ne i32 %147, 0
+  %148 = select i1 %cmp257, i1 %tobool323, i1 false
   %call.i402 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.191, i64 3)
-  %151 = extractvalue { ptr, i8 } %call.i402, 0
-  %152 = load ptr, ptr %151, align 8
-  %second.i403 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %frombool327 = zext i1 %150 to i8
+  %149 = extractvalue { ptr, i8 } %call.i402, 0
+  %150 = load ptr, ptr %149, align 8
+  %second.i403 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %frombool327 = zext i1 %148 to i8
   store i8 %frombool327, ptr %second.i403, align 1
   br i1 %cmp257, label %land.lhs.true329, label %land.end346.critedge
 
 land.lhs.true329:                                 ; preds = %land.end261
-  %153 = and i32 %EBX.2, 65536
-  %tobool332.not = icmp eq i32 %153, 0
-  %154 = zext i1 %59 to i8
-  %spec.select287 = select i1 %tobool332.not, i8 0, i8 %154
+  %151 = and i32 %EBX.2, 65536
+  %tobool332.not = icmp eq i32 %151, 0
+  %152 = zext i1 %58 to i8
+  %spec.select287 = select i1 %tobool332.not, i8 0, i8 %152
   %call.i404 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.192, i64 7)
-  %155 = extractvalue { ptr, i8 } %call.i404, 0
-  %156 = load ptr, ptr %155, align 8
-  %second.i405 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %153 = extractvalue { ptr, i8 } %call.i404, 0
+  %154 = load ptr, ptr %153, align 8
+  %second.i405 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i8 %spec.select287, ptr %second.i405, align 1
-  %157 = and i32 %EBX.2, 131072
-  %tobool343.not = icmp eq i32 %157, 0
-  %spec.select288 = select i1 %tobool343.not, i8 0, i8 %154
+  %155 = and i32 %EBX.2, 131072
+  %tobool343.not = icmp eq i32 %155, 0
+  %spec.select288 = select i1 %tobool343.not, i8 0, i8 %152
   br label %_ZN4llvh9StringRefC2EPKc.exit1061
 
 land.end346.critedge:                             ; preds = %land.end261
   %call.i406 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.192, i64 7)
-  %158 = extractvalue { ptr, i8 } %call.i406, 0
-  %159 = load ptr, ptr %158, align 8
-  %second.i407 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %156 = extractvalue { ptr, i8 } %call.i406, 0
+  %157 = load ptr, ptr %156, align 8
+  %second.i407 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i8 0, ptr %second.i407, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1061
 
 _ZN4llvh9StringRefC2EPKc.exit1061:                ; preds = %land.lhs.true329, %land.end346.critedge
   %frombool349 = phi i8 [ 0, %land.end346.critedge ], [ %spec.select288, %land.lhs.true329 ]
   %call.i408 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.193, i64 8)
-  %160 = extractvalue { ptr, i8 } %call.i408, 0
-  %161 = load ptr, ptr %160, align 8
-  %second.i409 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %158 = extractvalue { ptr, i8 } %call.i408, 0
+  %159 = load ptr, ptr %158, align 8
+  %second.i409 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i8 %frombool349, ptr %second.i409, align 1
-  %162 = and i32 %EBX.2, 262144
-  %tobool354 = icmp ne i32 %162, 0
-  %163 = select i1 %cmp257, i1 %tobool354, i1 false
+  %160 = and i32 %EBX.2, 262144
+  %tobool354 = icmp ne i32 %160, 0
+  %161 = select i1 %cmp257, i1 %tobool354, i1 false
   %call.i410 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.194, i64 6)
-  %164 = extractvalue { ptr, i8 } %call.i410, 0
-  %165 = load ptr, ptr %164, align 8
-  %second.i411 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %frombool358 = zext i1 %163 to i8
+  %162 = extractvalue { ptr, i8 } %call.i410, 0
+  %163 = load ptr, ptr %162, align 8
+  %second.i411 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %frombool358 = zext i1 %161 to i8
   store i8 %frombool358, ptr %second.i411, align 1
-  %166 = and i32 %EBX.2, 524288
-  %tobool363 = icmp ne i32 %166, 0
-  %167 = select i1 %cmp257, i1 %tobool363, i1 false
+  %164 = and i32 %EBX.2, 524288
+  %tobool363 = icmp ne i32 %164, 0
+  %165 = select i1 %cmp257, i1 %tobool363, i1 false
   %call.i412 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.195, i64 3)
-  %168 = extractvalue { ptr, i8 } %call.i412, 0
-  %169 = load ptr, ptr %168, align 8
-  %second.i413 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %frombool367 = zext i1 %167 to i8
+  %166 = extractvalue { ptr, i8 } %call.i412, 0
+  %167 = load ptr, ptr %166, align 8
+  %second.i413 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %frombool367 = zext i1 %165 to i8
   store i8 %frombool367, ptr %second.i413, align 1
-  %170 = and i32 %EBX.2, 2097152
-  %tobool372.not = icmp ne i32 %170, 0
-  %171 = select i1 %cmp257, i1 %tobool372.not, i1 false
-  %narrow591 = select i1 %171, i1 %59, i1 false
+  %168 = and i32 %EBX.2, 2097152
+  %tobool372.not = icmp ne i32 %168, 0
+  %169 = select i1 %cmp257, i1 %tobool372.not, i1 false
+  %narrow591 = select i1 %169, i1 %58, i1 false
   %frombool378 = zext i1 %narrow591 to i8
   %call.i414 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.196, i64 10)
-  %172 = extractvalue { ptr, i8 } %call.i414, 0
-  %173 = load ptr, ptr %172, align 8
-  %second.i415 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %170 = extractvalue { ptr, i8 } %call.i414, 0
+  %171 = load ptr, ptr %170, align 8
+  %second.i415 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i8 %frombool378, ptr %second.i415, align 1
-  %174 = and i32 %EBX.2, 8388608
-  %tobool383 = icmp ne i32 %174, 0
-  %175 = select i1 %cmp257, i1 %tobool383, i1 false
+  %172 = and i32 %EBX.2, 8388608
+  %tobool383 = icmp ne i32 %172, 0
+  %173 = select i1 %cmp257, i1 %tobool383, i1 false
   %call.i416 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.197, i64 10)
-  %176 = extractvalue { ptr, i8 } %call.i416, 0
-  %177 = load ptr, ptr %176, align 8
-  %second.i417 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %frombool387 = zext i1 %175 to i8
+  %174 = extractvalue { ptr, i8 } %call.i416, 0
+  %175 = load ptr, ptr %174, align 8
+  %second.i417 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %frombool387 = zext i1 %173 to i8
   store i8 %frombool387, ptr %second.i417, align 1
-  %178 = and i32 %EBX.2, 16777216
-  %tobool392 = icmp ne i32 %178, 0
-  %179 = select i1 %cmp257, i1 %tobool392, i1 false
+  %176 = and i32 %EBX.2, 16777216
+  %tobool392 = icmp ne i32 %176, 0
+  %177 = select i1 %cmp257, i1 %tobool392, i1 false
   %call.i418 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.198, i64 4)
-  %180 = extractvalue { ptr, i8 } %call.i418, 0
-  %181 = load ptr, ptr %180, align 8
-  %second.i419 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  %frombool396 = zext i1 %179 to i8
+  %178 = extractvalue { ptr, i8 } %call.i418, 0
+  %179 = load ptr, ptr %178, align 8
+  %second.i419 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %frombool396 = zext i1 %177 to i8
   store i8 %frombool396, ptr %second.i419, align 1
   br i1 %cmp257, label %land.lhs.true420, label %land.end457.critedge.critedge
 
 land.lhs.true420:                                 ; preds = %_ZN4llvh9StringRefC2EPKc.exit1061
-  %182 = and i32 %EBX.2, 67108864
-  %tobool401.not = icmp eq i32 %182, 0
-  %183 = zext i1 %59 to i8
-  %spec.select290 = select i1 %tobool401.not, i8 0, i8 %183
+  %180 = and i32 %EBX.2, 67108864
+  %tobool401.not = icmp eq i32 %180, 0
+  %181 = zext i1 %58 to i8
+  %spec.select290 = select i1 %tobool401.not, i8 0, i8 %181
   %call.i420 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.199, i64 8)
-  %184 = extractvalue { ptr, i8 } %call.i420, 0
-  %185 = load ptr, ptr %184, align 8
-  %second.i421 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %182 = extractvalue { ptr, i8 } %call.i420, 0
+  %183 = load ptr, ptr %182, align 8
+  %second.i421 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i8 %spec.select290, ptr %second.i421, align 1
-  %186 = and i32 %EBX.2, 134217728
-  %tobool412.not = icmp eq i32 %186, 0
-  %spec.select291 = select i1 %tobool412.not, i8 0, i8 %183
+  %184 = and i32 %EBX.2, 134217728
+  %tobool412.not = icmp eq i32 %184, 0
+  %spec.select291 = select i1 %tobool412.not, i8 0, i8 %181
   %call.i424572 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.200, i64 8)
-  %187 = extractvalue { ptr, i8 } %call.i424572, 0
-  %188 = load ptr, ptr %187, align 8
-  %second.i425573 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %185 = extractvalue { ptr, i8 } %call.i424572, 0
+  %186 = load ptr, ptr %185, align 8
+  %second.i425573 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i8 %spec.select291, ptr %second.i425573, align 1
-  %189 = and i32 %EBX.2, 268435456
-  %tobool423.not = icmp eq i32 %189, 0
-  %spec.select292 = select i1 %tobool423.not, i8 0, i8 %183
+  %187 = and i32 %EBX.2, 268435456
+  %tobool423.not = icmp eq i32 %187, 0
+  %spec.select292 = select i1 %tobool423.not, i8 0, i8 %181
   %call.i426 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.201, i64 8)
-  %190 = extractvalue { ptr, i8 } %call.i426, 0
-  %191 = load ptr, ptr %190, align 8
-  %second.i427 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %188 = extractvalue { ptr, i8 } %call.i426, 0
+  %189 = load ptr, ptr %188, align 8
+  %second.i427 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i8 %spec.select292, ptr %second.i427, align 1
   %call.i428 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.202, i64 3)
-  %192 = extractvalue { ptr, i8 } %call.i428, 0
-  %193 = load ptr, ptr %192, align 8
-  %second.i429 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %194 = lshr i32 %EBX.2, 29
-  %195 = trunc nuw nsw i32 %194 to i8
-  %frombool438 = and i8 %195, 1
+  %190 = extractvalue { ptr, i8 } %call.i428, 0
+  %191 = load ptr, ptr %190, align 8
+  %second.i429 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  %192 = lshr i32 %EBX.2, 29
+  %193 = trunc nuw nsw i32 %192 to i8
+  %frombool438 = and i8 %193, 1
   store i8 %frombool438, ptr %second.i429, align 1
-  %196 = and i32 %EBX.2, 1073741824
-  %tobool443.not = icmp eq i32 %196, 0
-  %spec.select293 = select i1 %tobool443.not, i8 0, i8 %183
+  %194 = and i32 %EBX.2, 1073741824
+  %tobool443.not = icmp eq i32 %194, 0
+  %spec.select293 = select i1 %tobool443.not, i8 0, i8 %181
   %call.i430 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.203, i64 8)
-  %197 = extractvalue { ptr, i8 } %call.i430, 0
-  %198 = load ptr, ptr %197, align 8
-  %second.i431 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %195 = extractvalue { ptr, i8 } %call.i430, 0
+  %196 = load ptr, ptr %195, align 8
+  %second.i431 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store i8 %spec.select293, ptr %second.i431, align 1
   %tobool454.not = icmp sgt i32 %EBX.2, -1
-  %spec.select305 = select i1 %tobool454.not, i8 0, i8 %183
+  %spec.select305 = select i1 %tobool454.not, i8 0, i8 %181
   br label %_ZN4llvh9StringRefC2EPKc.exit1171
 
 land.end457.critedge.critedge:                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit1061
   %call.i422 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.199, i64 8)
-  %199 = extractvalue { ptr, i8 } %call.i422, 0
-  %200 = load ptr, ptr %199, align 8
-  %second.i423 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %197 = extractvalue { ptr, i8 } %call.i422, 0
+  %198 = load ptr, ptr %197, align 8
+  %second.i423 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i8 0, ptr %second.i423, align 1
   %call.i424 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.200, i64 8)
-  %201 = extractvalue { ptr, i8 } %call.i424, 0
-  %202 = load ptr, ptr %201, align 8
-  %second.i425 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %199 = extractvalue { ptr, i8 } %call.i424, 0
+  %200 = load ptr, ptr %199, align 8
+  %second.i425 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i8 0, ptr %second.i425, align 1
   %call.i432 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.201, i64 8)
-  %203 = extractvalue { ptr, i8 } %call.i432, 0
-  %204 = load ptr, ptr %203, align 8
-  %second.i433 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  %201 = extractvalue { ptr, i8 } %call.i432, 0
+  %202 = load ptr, ptr %201, align 8
+  %second.i433 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i8 0, ptr %second.i433, align 1
   %call.i434 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.202, i64 3)
-  %205 = extractvalue { ptr, i8 } %call.i434, 0
-  %206 = load ptr, ptr %205, align 8
-  %second.i435 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  %203 = extractvalue { ptr, i8 } %call.i434, 0
+  %204 = load ptr, ptr %203, align 8
+  %second.i435 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i8 0, ptr %second.i435, align 1
   %call.i436 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.203, i64 8)
-  %207 = extractvalue { ptr, i8 } %call.i436, 0
-  %208 = load ptr, ptr %207, align 8
-  %second.i437 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %205 = extractvalue { ptr, i8 } %call.i436, 0
+  %206 = load ptr, ptr %205, align 8
+  %second.i437 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i8 0, ptr %second.i437, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1171
 
 _ZN4llvh9StringRefC2EPKc.exit1171:                ; preds = %land.lhs.true420, %land.end457.critedge.critedge
   %frombool460 = phi i8 [ 0, %land.end457.critedge.critedge ], [ %spec.select305, %land.lhs.true420 ]
   %call.i438 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.204, i64 8)
-  %209 = extractvalue { ptr, i8 } %call.i438, 0
-  %210 = load ptr, ptr %209, align 8
-  %second.i439 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %207 = extractvalue { ptr, i8 } %call.i438, 0
+  %208 = load ptr, ptr %207, align 8
+  %second.i439 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i8 %frombool460, ptr %second.i439, align 1
-  %and464 = and i32 %ECX.2, 1
-  %tobool465 = icmp ne i32 %and464, 0
-  %211 = select i1 %cmp257, i1 %tobool465, i1 false
+  %tobool465 = trunc i32 %ECX.2 to i8
   %call.i440 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.205, i64 11)
-  %212 = extractvalue { ptr, i8 } %call.i440, 0
-  %213 = load ptr, ptr %212, align 8
-  %second.i441 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %frombool469 = zext i1 %211 to i8
+  %209 = extractvalue { ptr, i8 } %call.i440, 0
+  %210 = load ptr, ptr %209, align 8
+  %second.i441 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %211 = and i8 %tobool465, 1
+  %frombool469 = select i1 %cmp257, i8 %211, i8 0
   store i8 %frombool469, ptr %second.i441, align 1
-  %214 = and i32 %ECX.2, 2
-  %tobool474.not = icmp ne i32 %214, 0
-  %215 = select i1 %cmp257, i1 %tobool474.not, i1 false
-  %narrow592 = select i1 %215, i1 %59, i1 false
+  %212 = and i32 %ECX.2, 2
+  %tobool474.not = icmp ne i32 %212, 0
+  %213 = select i1 %cmp257, i1 %tobool474.not, i1 false
+  %narrow592 = select i1 %213, i1 %58, i1 false
   %frombool480 = zext i1 %narrow592 to i8
   %call.i442 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.206, i64 10)
-  %216 = extractvalue { ptr, i8 } %call.i442, 0
-  %217 = load ptr, ptr %216, align 8
-  %second.i443 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %214 = extractvalue { ptr, i8 } %call.i442, 0
+  %215 = load ptr, ptr %214, align 8
+  %second.i443 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i8 %frombool480, ptr %second.i443, align 1
-  %218 = and i32 %ECX.2, 16
-  %tobool485 = icmp ne i32 %218, 0
-  %219 = select i1 %cmp257, i1 %tobool485, i1 false
+  %216 = and i32 %ECX.2, 16
+  %tobool485 = icmp ne i32 %216, 0
+  %217 = select i1 %cmp257, i1 %tobool485, i1 false
   %call.i444 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.207, i64 3)
-  %220 = extractvalue { ptr, i8 } %call.i444, 0
-  %221 = load ptr, ptr %220, align 8
-  %second.i445 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %frombool489 = zext i1 %219 to i8
+  %218 = extractvalue { ptr, i8 } %call.i444, 0
+  %219 = load ptr, ptr %218, align 8
+  %second.i445 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %frombool489 = zext i1 %217 to i8
   store i8 %frombool489, ptr %second.i445, align 1
-  %222 = and i32 %ECX.2, 32
-  %tobool494 = icmp ne i32 %222, 0
-  %223 = select i1 %cmp257, i1 %tobool494, i1 false
+  %220 = and i32 %ECX.2, 32
+  %tobool494 = icmp ne i32 %220, 0
+  %221 = select i1 %cmp257, i1 %tobool494, i1 false
   %call.i446 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.208, i64 7)
-  %224 = extractvalue { ptr, i8 } %call.i446, 0
-  %225 = load ptr, ptr %224, align 8
-  %second.i447 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  %frombool498 = zext i1 %223 to i8
+  %222 = extractvalue { ptr, i8 } %call.i446, 0
+  %223 = load ptr, ptr %222, align 8
+  %second.i447 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %frombool498 = zext i1 %221 to i8
   store i8 %frombool498, ptr %second.i447, align 1
-  %226 = and i32 %ECX.2, 64
-  %tobool503.not = icmp ne i32 %226, 0
-  %227 = select i1 %cmp257, i1 %tobool503.not, i1 false
-  %narrow593 = select i1 %227, i1 %59, i1 false
+  %224 = and i32 %ECX.2, 64
+  %tobool503.not = icmp ne i32 %224, 0
+  %225 = select i1 %cmp257, i1 %tobool503.not, i1 false
+  %narrow593 = select i1 %225, i1 %58, i1 false
   %frombool509 = zext i1 %narrow593 to i8
   %call.i448 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.209, i64 11)
-  %228 = extractvalue { ptr, i8 } %call.i448, 0
-  %229 = load ptr, ptr %228, align 8
-  %second.i449 = getelementptr inbounds nuw i8, ptr %229, i64 8
+  %226 = extractvalue { ptr, i8 } %call.i448, 0
+  %227 = load ptr, ptr %226, align 8
+  %second.i449 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i8 %frombool509, ptr %second.i449, align 1
-  %230 = and i32 %ECX.2, 128
-  %tobool514 = icmp ne i32 %230, 0
-  %231 = select i1 %cmp257, i1 %tobool514, i1 false
+  %228 = and i32 %ECX.2, 128
+  %tobool514 = icmp ne i32 %228, 0
+  %229 = select i1 %cmp257, i1 %tobool514, i1 false
   %call.i450 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.210, i64 5)
-  %232 = extractvalue { ptr, i8 } %call.i450, 0
-  %233 = load ptr, ptr %232, align 8
-  %second.i451 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %frombool518 = zext i1 %231 to i8
+  %230 = extractvalue { ptr, i8 } %call.i450, 0
+  %231 = load ptr, ptr %230, align 8
+  %second.i451 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %frombool518 = zext i1 %229 to i8
   store i8 %frombool518, ptr %second.i451, align 1
-  %234 = and i32 %ECX.2, 256
-  %tobool523 = icmp ne i32 %234, 0
-  %235 = select i1 %cmp257, i1 %tobool523, i1 false
+  %232 = and i32 %ECX.2, 256
+  %tobool523 = icmp ne i32 %232, 0
+  %233 = select i1 %cmp257, i1 %tobool523, i1 false
   %call.i452 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.211, i64 4)
-  %236 = extractvalue { ptr, i8 } %call.i452, 0
-  %237 = load ptr, ptr %236, align 8
-  %second.i453 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %frombool527 = zext i1 %235 to i8
+  %234 = extractvalue { ptr, i8 } %call.i452, 0
+  %235 = load ptr, ptr %234, align 8
+  %second.i453 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  %frombool527 = zext i1 %233 to i8
   store i8 %frombool527, ptr %second.i453, align 1
   br i1 %cmp257, label %land.lhs.true573, label %_ZN4llvh9StringRefC2EPKc.exit1281
 
 _ZN4llvh9StringRefC2EPKc.exit1281:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit1171
   %call.i456 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.212, i64 4)
-  %238 = extractvalue { ptr, i8 } %call.i456, 0
-  %239 = load ptr, ptr %238, align 8
-  %second.i457 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %236 = extractvalue { ptr, i8 } %call.i456, 0
+  %237 = load ptr, ptr %236, align 8
+  %second.i457 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i8 0, ptr %second.i457, align 1
   %call.i458 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.213, i64 10)
-  %240 = extractvalue { ptr, i8 } %call.i458, 0
-  %241 = load ptr, ptr %240, align 8
-  %second.i459 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %238 = extractvalue { ptr, i8 } %call.i458, 0
+  %239 = load ptr, ptr %238, align 8
+  %second.i459 = getelementptr inbounds nuw i8, ptr %239, i64 8
   store i8 0, ptr %second.i459, align 1
   %call.i462 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.214, i64 10)
-  %242 = extractvalue { ptr, i8 } %call.i462, 0
-  %243 = load ptr, ptr %242, align 8
-  %second.i463 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %240 = extractvalue { ptr, i8 } %call.i462, 0
+  %241 = load ptr, ptr %240, align 8
+  %second.i463 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i8 0, ptr %second.i463, align 1
   %call.i464 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.215, i64 12)
-  %244 = extractvalue { ptr, i8 } %call.i464, 0
-  %245 = load ptr, ptr %244, align 8
-  %second.i465 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %242 = extractvalue { ptr, i8 } %call.i464, 0
+  %243 = load ptr, ptr %242, align 8
+  %second.i465 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store i8 0, ptr %second.i465, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1291
 
 land.lhs.true573:                                 ; preds = %_ZN4llvh9StringRefC2EPKc.exit1171
-  %246 = and i32 %ECX.2, 512
-  %tobool532.not = icmp eq i32 %246, 0
+  %244 = and i32 %ECX.2, 512
+  %tobool532.not = icmp eq i32 %244, 0
   %spec.select297 = select i1 %tobool532.not, i8 0, i8 %frombool95
   %call.i454 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.212, i64 4)
-  %247 = extractvalue { ptr, i8 } %call.i454, 0
-  %248 = load ptr, ptr %247, align 8
-  %second.i455 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %245 = extractvalue { ptr, i8 } %call.i454, 0
+  %246 = load ptr, ptr %245, align 8
+  %second.i455 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i8 %spec.select297, ptr %second.i455, align 1
-  %249 = and i32 %ECX.2, 1024
-  %tobool543.not = icmp eq i32 %249, 0
+  %247 = and i32 %ECX.2, 1024
+  %tobool543.not = icmp eq i32 %247, 0
   %spec.select298 = select i1 %tobool543.not, i8 0, i8 %frombool95
   %call.i458575 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.213, i64 10)
-  %250 = extractvalue { ptr, i8 } %call.i458575, 0
-  %251 = load ptr, ptr %250, align 8
-  %second.i459576 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %248 = extractvalue { ptr, i8 } %call.i458575, 0
+  %249 = load ptr, ptr %248, align 8
+  %second.i459576 = getelementptr inbounds nuw i8, ptr %249, i64 8
   store i8 %spec.select298, ptr %second.i459576, align 1
-  %252 = and i32 %ECX.2, 2048
-  %tobool554.not = icmp eq i32 %252, 0
-  %253 = zext i1 %59 to i8
-  %spec.select299 = select i1 %tobool554.not, i8 0, i8 %253
+  %250 = and i32 %ECX.2, 2048
+  %tobool554.not = icmp eq i32 %250, 0
+  %251 = zext i1 %58 to i8
+  %spec.select299 = select i1 %tobool554.not, i8 0, i8 %251
   %call.i460 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.214, i64 10)
-  %254 = extractvalue { ptr, i8 } %call.i460, 0
-  %255 = load ptr, ptr %254, align 8
-  %second.i461 = getelementptr inbounds nuw i8, ptr %255, i64 8
+  %252 = extractvalue { ptr, i8 } %call.i460, 0
+  %253 = load ptr, ptr %252, align 8
+  %second.i461 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store i8 %spec.select299, ptr %second.i461, align 1
-  %256 = and i32 %ECX.2, 4096
-  %tobool565.not = icmp eq i32 %256, 0
-  %spec.select300 = select i1 %tobool565.not, i8 0, i8 %253
+  %254 = and i32 %ECX.2, 4096
+  %tobool565.not = icmp eq i32 %254, 0
+  %spec.select300 = select i1 %tobool565.not, i8 0, i8 %251
   %call.i464578 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.215, i64 12)
-  %257 = extractvalue { ptr, i8 } %call.i464578, 0
-  %258 = load ptr, ptr %257, align 8
-  %second.i465579 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %255 = extractvalue { ptr, i8 } %call.i464578, 0
+  %256 = load ptr, ptr %255, align 8
+  %second.i465579 = getelementptr inbounds nuw i8, ptr %256, i64 8
   store i8 %spec.select300, ptr %second.i465579, align 1
-  %259 = and i32 %ECX.2, 16384
-  %tobool576.not = icmp ne i32 %259, 0
-  %narrow = select i1 %tobool576.not, i1 %59, i1 false
+  %257 = and i32 %ECX.2, 16384
+  %tobool576.not = icmp ne i32 %257, 0
+  %narrow = select i1 %tobool576.not, i1 %58, i1 false
   %spec.select301 = zext i1 %narrow to i8
   br label %_ZN4llvh9StringRefC2EPKc.exit1291
 
 _ZN4llvh9StringRefC2EPKc.exit1291:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit1281, %land.lhs.true573
   %frombool582 = phi i8 [ %spec.select301, %land.lhs.true573 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit1281 ]
   %call.i466 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.216, i64 15)
-  %260 = extractvalue { ptr, i8 } %call.i466, 0
-  %261 = load ptr, ptr %260, align 8
-  %second.i467 = getelementptr inbounds nuw i8, ptr %261, i64 8
+  %258 = extractvalue { ptr, i8 } %call.i466, 0
+  %259 = load ptr, ptr %258, align 8
+  %second.i467 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i8 %frombool582, ptr %second.i467, align 1
-  %262 = and i32 %ECX.2, 4194304
-  %tobool587 = icmp ne i32 %262, 0
-  %263 = select i1 %cmp257, i1 %tobool587, i1 false
+  %260 = and i32 %ECX.2, 4194304
+  %tobool587 = icmp ne i32 %260, 0
+  %261 = select i1 %cmp257, i1 %tobool587, i1 false
   %call.i468 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.217, i64 5)
-  %264 = extractvalue { ptr, i8 } %call.i468, 0
-  %265 = load ptr, ptr %264, align 8
-  %second.i469 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %frombool591 = zext i1 %263 to i8
+  %262 = extractvalue { ptr, i8 } %call.i468, 0
+  %263 = load ptr, ptr %262, align 8
+  %second.i469 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %frombool591 = zext i1 %261 to i8
   store i8 %frombool591, ptr %second.i469, align 1
-  %266 = and i32 %ECX.2, 33554432
-  %tobool596 = icmp ne i32 %266, 0
-  %267 = select i1 %cmp257, i1 %tobool596, i1 false
+  %264 = and i32 %ECX.2, 33554432
+  %tobool596 = icmp ne i32 %264, 0
+  %265 = select i1 %cmp257, i1 %tobool596, i1 false
   %call.i470 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.218, i64 8)
-  %268 = extractvalue { ptr, i8 } %call.i470, 0
-  %269 = load ptr, ptr %268, align 8
-  %second.i471 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %frombool600 = zext i1 %267 to i8
+  %266 = extractvalue { ptr, i8 } %call.i470, 0
+  %267 = load ptr, ptr %266, align 8
+  %second.i471 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %frombool600 = zext i1 %265 to i8
   store i8 %frombool600, ptr %second.i471, align 1
-  %270 = and i32 %ECX.2, 134217728
-  %tobool605 = icmp ne i32 %270, 0
-  %271 = select i1 %cmp257, i1 %tobool605, i1 false
+  %268 = and i32 %ECX.2, 134217728
+  %tobool605 = icmp ne i32 %268, 0
+  %269 = select i1 %cmp257, i1 %tobool605, i1 false
   %call.i472 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.219, i64 7)
-  %272 = extractvalue { ptr, i8 } %call.i472, 0
-  %273 = load ptr, ptr %272, align 8
-  %second.i473 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %frombool609 = zext i1 %271 to i8
+  %270 = extractvalue { ptr, i8 } %call.i472, 0
+  %271 = load ptr, ptr %270, align 8
+  %second.i473 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  %frombool609 = zext i1 %269 to i8
   store i8 %frombool609, ptr %second.i473, align 1
-  %274 = and i32 %ECX.2, 268435456
-  %tobool614 = icmp ne i32 %274, 0
-  %275 = select i1 %cmp257, i1 %tobool614, i1 false
+  %272 = and i32 %ECX.2, 268435456
+  %tobool614 = icmp ne i32 %272, 0
+  %273 = select i1 %cmp257, i1 %tobool614, i1 false
   %call.i474 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.220, i64 9)
-  %276 = extractvalue { ptr, i8 } %call.i474, 0
-  %277 = load ptr, ptr %276, align 8
-  %second.i475 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %frombool618 = zext i1 %275 to i8
+  %274 = extractvalue { ptr, i8 } %call.i474, 0
+  %275 = load ptr, ptr %274, align 8
+  %second.i475 = getelementptr inbounds nuw i8, ptr %275, i64 8
+  %frombool618 = zext i1 %273 to i8
   store i8 %frombool618, ptr %second.i475, align 1
-  %278 = and i32 %EDX.2, 262144
-  %tobool623 = icmp ne i32 %278, 0
-  %279 = select i1 %cmp257, i1 %tobool623, i1 false
+  %276 = and i32 %EDX.2, 262144
+  %tobool623 = icmp ne i32 %276, 0
+  %277 = select i1 %cmp257, i1 %tobool623, i1 false
   %call.i476 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.221, i64 7)
-  %280 = extractvalue { ptr, i8 } %call.i476, 0
-  %281 = load ptr, ptr %280, align 8
-  %second.i477 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  %frombool627 = zext i1 %279 to i8
+  %278 = extractvalue { ptr, i8 } %call.i476, 0
+  %279 = load ptr, ptr %278, align 8
+  %second.i477 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %frombool627 = zext i1 %277 to i8
   store i8 %frombool627, ptr %second.i477, align 1
   %cmp628 = icmp ugt i32 %asmresult.i, 12
   br i1 %cmp628, label %land.lhs.true657, label %_ZN4llvh9StringRefC2EPKc.exit1361
 
 _ZN4llvh9StringRefC2EPKc.exit1361:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit1291
   %call.i484 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.222, i64 8)
-  %282 = extractvalue { ptr, i8 } %call.i484, 0
-  %283 = load ptr, ptr %282, align 8
-  %second.i485 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %280 = extractvalue { ptr, i8 } %call.i484, 0
+  %281 = load ptr, ptr %280, align 8
+  %second.i485 = getelementptr inbounds nuw i8, ptr %281, i64 8
   store i8 0, ptr %second.i485, align 1
   %call.i486 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.223, i64 6)
-  %284 = extractvalue { ptr, i8 } %call.i486, 0
-  %285 = load ptr, ptr %284, align 8
-  %second.i487 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %282 = extractvalue { ptr, i8 } %call.i486, 0
+  %283 = load ptr, ptr %282, align 8
+  %second.i487 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store i8 0, ptr %second.i487, align 1
   br label %_ZN4llvh9StringRefC2EPKc.exit1371
 
 land.lhs.true657:                                 ; preds = %_ZN4llvh9StringRefC2EPKc.exit1291
-  %286 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #21, !srcloc !19
-  %asmresult.i478 = extractvalue { i32, i32, i32, i32 } %286, 0
-  %asmresult1.i479 = extractvalue { i32, i32, i32, i32 } %286, 1
+  %284 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #21, !srcloc !19
+  %asmresult.i478 = extractvalue { i32, i32, i32, i32 } %284, 0
+  %asmresult1.i479 = extractvalue { i32, i32, i32, i32 } %284, 1
   %and637 = and i32 %asmresult.i478, 1
   %tobool638.not = icmp eq i32 %and637, 0
   %spec.select302 = select i1 %tobool638.not, i8 0, i8 %frombool95
   %call.i482 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.222, i64 8)
-  %287 = extractvalue { ptr, i8 } %call.i482, 0
-  %288 = load ptr, ptr %287, align 8
-  %second.i483 = getelementptr inbounds nuw i8, ptr %288, i64 8
+  %285 = extractvalue { ptr, i8 } %call.i482, 0
+  %286 = load ptr, ptr %285, align 8
+  %second.i483 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store i8 %spec.select302, ptr %second.i483, align 1
-  %289 = and i32 %asmresult.i478, 2
-  %tobool649.not = icmp eq i32 %289, 0
+  %287 = and i32 %asmresult.i478, 2
+  %tobool649.not = icmp eq i32 %287, 0
   %spec.select303 = select i1 %tobool649.not, i8 0, i8 %frombool95
   %call.i486583 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.223, i64 6)
-  %290 = extractvalue { ptr, i8 } %call.i486583, 0
-  %291 = load ptr, ptr %290, align 8
-  %second.i487584 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %288 = extractvalue { ptr, i8 } %call.i486583, 0
+  %289 = load ptr, ptr %288, align 8
+  %second.i487584 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i8 %spec.select303, ptr %second.i487584, align 1
-  %292 = and i32 %asmresult.i478, 8
-  %tobool660.not = icmp eq i32 %292, 0
+  %290 = and i32 %asmresult.i478, 8
+  %tobool660.not = icmp eq i32 %290, 0
   %spec.select304 = select i1 %tobool660.not, i8 0, i8 %frombool95
   br label %_ZN4llvh9StringRefC2EPKc.exit1371
 
@@ -3133,28 +3128,28 @@ _ZN4llvh9StringRefC2EPKc.exit1371:                ; preds = %_ZN4llvh9StringRefC
   %EBX.3585 = phi i32 [ %asmresult1.i479, %land.lhs.true657 ], [ %EBX.2, %_ZN4llvh9StringRefC2EPKc.exit1361 ]
   %frombool666 = phi i8 [ %spec.select304, %land.lhs.true657 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit1361 ]
   %call.i488 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.224, i64 6)
-  %293 = extractvalue { ptr, i8 } %call.i488, 0
-  %294 = load ptr, ptr %293, align 8
-  %second.i489 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %291 = extractvalue { ptr, i8 } %call.i488, 0
+  %292 = load ptr, ptr %291, align 8
+  %second.i489 = getelementptr inbounds nuw i8, ptr %292, i64 8
   store i8 %frombool666, ptr %second.i489, align 1
   %cmp667 = icmp ugt i32 %asmresult.i, 19
   br i1 %cmp667, label %land.rhs668, label %land.end671
 
 land.rhs668:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit1371
-  %295 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 20, i32 0) #21, !srcloc !19
-  %asmresult1.i491 = extractvalue { i32, i32, i32, i32 } %295, 1
+  %293 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 20, i32 0) #21, !srcloc !19
+  %asmresult1.i491 = extractvalue { i32, i32, i32, i32 } %293, 1
   br label %land.end671
 
 land.end671:                                      ; preds = %land.rhs668, %_ZN4llvh9StringRefC2EPKc.exit1371
   %EBX.4 = phi i32 [ %asmresult1.i491, %land.rhs668 ], [ %EBX.3585, %_ZN4llvh9StringRefC2EPKc.exit1371 ]
-  %296 = and i32 %EBX.4, 16
-  %tobool677 = icmp ne i32 %296, 0
-  %297 = select i1 %cmp667, i1 %tobool677, i1 false
+  %294 = and i32 %EBX.4, 16
+  %tobool677 = icmp ne i32 %294, 0
+  %295 = select i1 %cmp667, i1 %tobool677, i1 false
   %call.i494 = tail call { ptr, i8 } @_ZN4llvh9StringMapIbNS_15MallocAllocatorEE11try_emplaceIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEDpOT_(ptr noundef nonnull align 8 dereferenceable(25) %Features, ptr nonnull @.str.225, i64 7)
-  %298 = extractvalue { ptr, i8 } %call.i494, 0
-  %299 = load ptr, ptr %298, align 8
-  %second.i495 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %frombool681 = zext i1 %297 to i8
+  %296 = extractvalue { ptr, i8 } %call.i494, 0
+  %297 = load ptr, ptr %296, align 8
+  %second.i495 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  %frombool681 = zext i1 %295 to i8
   store i8 %frombool681, ptr %second.i495, align 1
   br label %return
 

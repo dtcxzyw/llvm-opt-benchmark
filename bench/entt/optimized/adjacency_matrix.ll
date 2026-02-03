@@ -17192,7 +17192,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %143 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 1, ptr %143, align 8
   %144 = icmp eq i64 %140, 0
-  %145 = icmp ne i64 %141, 0
+  %145 = trunc i64 %.sroa.311.1.i81 to i1
   %146 = and i1 %144, %145
   br i1 %146, label %147, label %148
 

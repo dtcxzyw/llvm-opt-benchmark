@@ -23052,9 +23052,8 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN11V3LexerBase10LexerInputEPci(
   br i1 %.not, label %21, label %23
 
 21:                                               ; preds = %12
-  %22 = and i32 %19, 1
-  %.not3 = icmp eq i32 %22, 0
-  %. = select i1 %.not3, i32 1, i32 -1
+  %22 = trunc i32 %19 to i1
+  %. = select i1 %22, i32 -1, i32 1
   br label %23
 
 23:                                               ; preds = %21, %12, %3

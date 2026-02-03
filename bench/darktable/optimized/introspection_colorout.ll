@@ -1540,7 +1540,7 @@ define internal void @output_profile_changed(ptr noundef %0, ptr noundef %1) #1 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !178
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %36
+  br i1 %.not, label %6, label %35
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 680
@@ -1574,36 +1574,35 @@ define internal void @output_profile_changed(ptr noundef %0, ptr noundef %1) #1 
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !183
   tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef %1, i32 noundef 1) #17
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !174
-  %23 = and i32 %22, 1
-  %24 = icmp ne i32 %23, 0
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3264), align 8
-  %26 = icmp ne i32 %25, 0
-  %or.cond = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %31
+  %23 = trunc i32 %22 to i1
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3264), align 8
+  %25 = icmp ne i32 %24, 0
+  %or.cond = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond, label %26, label %30
 
-27:                                               ; preds = %16
-  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !175
-  %29 = and i32 %28, 1048576
-  %.not20 = icmp eq i32 %29, 0
-  br i1 %.not20, label %31, label %30
+26:                                               ; preds = %16
+  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !175
+  %28 = and i32 %27, 1048576
+  %.not20 = icmp eq i32 %28, 0
+  br i1 %.not20, label %30, label %29
 
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.35, i32 noundef 270, ptr noundef nonnull @__FUNCTION__.output_profile_changed) #17
-  br label %31
+  br label %30
 
-31:                                               ; preds = %16, %30, %27
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %32, i32 noundef 33, i32 noundef 3) #17
-  br label %36
+30:                                               ; preds = %16, %29, %26
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %31, i32 noundef 33, i32 noundef 3) #17
+  br label %35
 
 .critedge23:                                      ; preds = %11, %6
-  %33 = load i32, ptr %8, align 4, !tbaa !89
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %35 = tail call ptr @dt_colorspaces_get_name(i32 noundef %33, ptr noundef nonnull %34) #17
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.78, ptr noundef %35) #17
-  br label %36
+  %32 = load i32, ptr %8, align 4, !tbaa !89
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %34 = tail call ptr @dt_colorspaces_get_name(i32 noundef %32, ptr noundef nonnull %33) #17
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.78, ptr noundef %34) #17
+  br label %35
 
-36:                                               ; preds = %31, %.critedge23, %2
+35:                                               ; preds = %30, %.critedge23, %2
   ret void
 }
 

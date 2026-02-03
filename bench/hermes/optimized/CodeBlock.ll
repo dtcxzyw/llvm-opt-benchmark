@@ -24,44 +24,43 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noalias noundef nonnull ptr @_ZN6hermes2vm9CodeBlock15createCodeBlockEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhj(ptr noundef %runtimeModule, ptr %header.coerce, ptr noundef %bytecode, i32 noundef %functionID) local_unnamed_addr #0 align 2 {
 entry:
   %0 = ptrtoint ptr %header.coerce to i64
-  %and.i.i = and i64 %0, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i6, label %if.then.i4
+  %tobool.i.i = trunc i64 %0 to i1
+  br i1 %tobool.i.i, label %if.then.i8, label %if.else.i3
 
-if.then.i4:                                       ; preds = %entry
+if.then.i8:                                       ; preds = %entry
   %highestReadCacheIndex.i = getelementptr inbounds nuw i8, ptr %header.coerce, i64 27
   %1 = load i8, ptr %highestReadCacheIndex.i, align 1
-  %conv.i = zext i8 %1 to i32
-  %cmp.i = icmp eq i8 %1, 0
-  %add.i = add nuw nsw i32 %conv.i, 1
-  %cond.i = select i1 %cmp.i, i32 0, i32 %add.i
+  %conv.i16 = zext i8 %1 to i32
+  %cmp.i17 = icmp eq i8 %1, 0
+  %add.i18 = add nuw nsw i32 %conv.i16, 1
+  %cond.i19 = select i1 %cmp.i17, i32 0, i32 %add.i18
   %highestWriteCacheIndex.i = getelementptr inbounds nuw i8, ptr %header.coerce, i64 28
   %2 = load i8, ptr %highestWriteCacheIndex.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit
 
-if.else.i6:                                       ; preds = %entry
+if.else.i3:                                       ; preds = %entry
   %bf.load.i = load i120, ptr %header.coerce, align 1
   %bf.lshr.i = lshr i120 %bf.load.i, 104
   %bf.cast.i = trunc i120 %bf.lshr.i to i8
   %3 = trunc nuw nsw i120 %bf.lshr.i to i32
-  %conv.i17 = and i32 %3, 255
-  %cmp.i18 = icmp eq i8 %bf.cast.i, 0
-  %add.i19 = add nuw nsw i32 %conv.i17, 1
-  %cond.i20 = select i1 %cmp.i18, i32 0, i32 %add.i19
-  %bf.lshr.i8 = lshr i120 %bf.load.i, 112
-  %bf.cast.i9 = trunc nuw i120 %bf.lshr.i8 to i8
+  %conv.i = and i32 %3, 255
+  %cmp.i = icmp eq i8 %bf.cast.i, 0
+  %add.i = add nuw nsw i32 %conv.i, 1
+  %cond.i = select i1 %cmp.i, i32 0, i32 %add.i
+  %bf.lshr.i5 = lshr i120 %bf.load.i, 112
+  %bf.cast.i6 = trunc nuw i120 %bf.lshr.i5 to i8
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit: ; preds = %if.then.i4, %if.else.i6
-  %cond.i21 = phi i32 [ %cond.i, %if.then.i4 ], [ %cond.i20, %if.else.i6 ]
-  %retval.0.i5 = phi i8 [ %2, %if.then.i4 ], [ %bf.cast.i9, %if.else.i6 ]
-  %conv.i10 = zext i8 %retval.0.i5 to i32
-  %cmp.i11 = icmp eq i8 %retval.0.i5, 0
-  %add.i12 = add nuw nsw i32 %conv.i10, 1
-  %cond.i13 = select i1 %cmp.i11, i32 0, i32 %add.i12
-  %add = add nuw nsw i32 %cond.i13, %cond.i21
-  %conv.i14 = zext nneg i32 %add to i64
-  %mul.i.i.i = shl nuw nsw i64 %conv.i14, 3
+_ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit: ; preds = %if.then.i8, %if.else.i3
+  %cond.i20 = phi i32 [ %cond.i19, %if.then.i8 ], [ %cond.i, %if.else.i3 ]
+  %retval.0.i7 = phi i8 [ %2, %if.then.i8 ], [ %bf.cast.i6, %if.else.i3 ]
+  %conv.i9 = zext i8 %retval.0.i7 to i32
+  %cmp.i10 = icmp eq i8 %retval.0.i7, 0
+  %add.i11 = add nuw nsw i32 %conv.i9, 1
+  %cond.i12 = select i1 %cmp.i10, i32 0, i32 %add.i11
+  %add = add nuw nsw i32 %cond.i12, %cond.i20
+  %conv.i13 = zext nneg i32 %add to i64
+  %mul.i.i.i = shl nuw nsw i64 %conv.i13, 3
   %add.i.i = add nuw nsw i64 %mul.i.i.i, 40
   %call1.i = tail call noalias noundef nonnull ptr @_ZN6hermes13checkedMallocEm(i64 noundef %add.i.i) #7
   store ptr %runtimeModule, ptr %call1.i, align 8
@@ -74,7 +73,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader22highestWriteCacheIndexEv.exit: ; preds =
   %propertyCacheSize_.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 28
   store i32 %add, ptr %propertyCacheSize_.i.i, align 4
   %writePropCacheOffset_.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
-  store i32 %cond.i21, ptr %writePropCacheOffset_.i.i, align 8
+  store i32 %cond.i20, ptr %writePropCacheOffset_.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq i32 %add, 0
   br i1 %cmp.not4.i.i.i.i.i, label %_ZN6hermes2vm9CodeBlock6createEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhjjj.exit, label %for.body.i.i.i.preheader.i.i
 
@@ -186,9 +185,8 @@ entry:
   %functionHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %functionHeader_, align 8
   %2 = ptrtoint ptr %1 to i64
-  %and.i.i = and i64 %2, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i64 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %functionName.i = getelementptr inbounds nuw i8, ptr %1, i64 11
@@ -267,9 +265,8 @@ entry:
   %functionHeader_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %functionHeader_, align 8
   %2 = ptrtoint ptr %1 to i64
-  %and.i.i = and i64 %2, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i64 %2 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %functionName.i = getelementptr inbounds nuw i8, ptr %1, i64 11

@@ -74,40 +74,39 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
 ._crit_edge88:                                    ; preds = %._crit_edge.us, %.lr.ph87.split.preheader, %7
   %.075.lcssa = phi ptr [ %6, %7 ], [ %6, %.lr.ph87.split.preheader ], [ %37, %._crit_edge.us ]
   %.069.lcssa = phi i64 [ %4, %7 ], [ %14, %.lr.ph87.split.preheader ], [ %41, %._crit_edge.us ]
-  %44 = and i64 %1, 1
-  %.not = icmp ne i64 %44, 0
-  %45 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not, %45
+  %.not = trunc i64 %1 to i1
+  %44 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %44, %.not
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge88
-  %46 = sub nsw i64 %.069.lcssa, %5
-  %47 = icmp sgt i64 %46, 0
-  %48 = getelementptr inbounds double, ptr %2, i64 %5
-  %49 = mul nsw i64 %.069.lcssa, %3
-  %50 = getelementptr inbounds double, ptr %48, i64 %49
-  %51 = getelementptr inbounds double, ptr %2, i64 %.069.lcssa
-  %52 = mul nsw i64 %5, %3
-  %53 = getelementptr inbounds double, ptr %51, i64 %52
-  %.3 = select i1 %47, ptr %50, ptr %53
+  %45 = sub nsw i64 %.069.lcssa, %5
+  %46 = icmp sgt i64 %45, 0
+  %47 = getelementptr inbounds double, ptr %2, i64 %5
+  %48 = mul nsw i64 %.069.lcssa, %3
+  %49 = getelementptr inbounds double, ptr %47, i64 %48
+  %50 = getelementptr inbounds double, ptr %2, i64 %.069.lcssa
+  %51 = mul nsw i64 %5, %3
+  %52 = getelementptr inbounds double, ptr %50, i64 %51
+  %.3 = select i1 %46, ptr %49, ptr %52
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.495 = phi ptr [ %.5, %.lr.ph ], [ %.3, %.lr.ph.preheader ]
-  %.17194 = phi i64 [ %59, %.lr.ph ], [ %46, %.lr.ph.preheader ]
-  %.17493 = phi i64 [ %60, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.27792 = phi ptr [ %58, %.lr.ph ], [ %.075.lcssa, %.lr.ph.preheader ]
-  %54 = load double, ptr %.495, align 8, !tbaa !3
-  %55 = icmp sgt i64 %.17194, 0
-  %56 = getelementptr inbounds nuw i8, ptr %.495, i64 8
-  %57 = getelementptr inbounds double, ptr %.495, i64 %3
-  %.5 = select i1 %55, ptr %56, ptr %57
-  store double %54, ptr %.27792, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw i8, ptr %.27792, i64 8
-  %59 = add nsw i64 %.17194, -1
-  %60 = add nsw i64 %.17493, -1
-  %61 = icmp samesign ugt i64 %.17493, 1
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  %.17194 = phi i64 [ %58, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.17493 = phi i64 [ %59, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.27792 = phi ptr [ %57, %.lr.ph ], [ %.075.lcssa, %.lr.ph.preheader ]
+  %53 = load double, ptr %.495, align 8, !tbaa !3
+  %54 = icmp sgt i64 %.17194, 0
+  %55 = getelementptr inbounds nuw i8, ptr %.495, i64 8
+  %56 = getelementptr inbounds double, ptr %.495, i64 %3
+  %.5 = select i1 %54, ptr %55, ptr %56
+  store double %53, ptr %.27792, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %.27792, i64 8
+  %58 = add nsw i64 %.17194, -1
+  %59 = add nsw i64 %.17493, -1
+  %60 = icmp samesign ugt i64 %.17493, 1
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge88
   ret i32 0

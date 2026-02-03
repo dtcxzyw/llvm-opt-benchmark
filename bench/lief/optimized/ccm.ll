@@ -217,105 +217,104 @@ define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 n
   %6 = icmp eq i64 %3, 2
   %7 = icmp ugt i64 %3, 16
   %or.cond.not20.not24 = or i1 %6, %7
-  %8 = and i64 %3, 1
-  %.not = icmp ne i64 %8, 0
+  %.not = trunc i64 %3 to i1
   %or.cond16.not21 = or i1 %or.cond.not20.not24, %.not
-  %9 = icmp ugt i64 %1, 65279
-  %or.cond17 = or i1 %9, %or.cond16.not21
-  br i1 %or.cond17, label %53, label %10
+  %8 = icmp ugt i64 %1, 65279
+  %or.cond17 = or i1 %8, %or.cond16.not21
+  br i1 %or.cond17, label %52, label %9
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %11, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %1, ptr %12, align 8, !tbaa !18
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %3, ptr %13, align 8, !tbaa !16
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 0, ptr %14, align 8, !tbaa !21
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = load i32, ptr %15, align 8, !tbaa !15
-  %17 = or i32 %16, 2
-  store i32 %17, ptr %15, align 8, !tbaa !15
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %10, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %1, ptr %11, align 8, !tbaa !18
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %3, ptr %12, align 8, !tbaa !16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 0, ptr %13, align 8, !tbaa !21
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %15 = load i32, ptr %14, align 8, !tbaa !15
+  %16 = or i32 %15, 2
+  store i32 %16, ptr %14, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %18 = and i32 %17, 3
-  %or.cond.not.i = icmp eq i32 %18, 3
-  br i1 %or.cond.not.i, label %19, label %ccm_calculate_first_block_if_ready.exit
+  %17 = and i32 %16, 3
+  %or.cond.not.i = icmp eq i32 %17, 3
+  br i1 %or.cond.not.i, label %18, label %ccm_calculate_first_block_if_ready.exit
 
-19:                                               ; preds = %10
-  %20 = icmp eq i64 %3, 0
-  br i1 %20, label %21, label %._crit_edge39.i
+18:                                               ; preds = %9
+  %19 = icmp eq i64 %3, 0
+  br i1 %19, label %20, label %._crit_edge39.i
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %23 = load i32, ptr %22, align 4, !tbaa !3
-  %24 = and i32 %23, -2
-  %switch.i = icmp eq i32 %24, 2
-  br i1 %switch.i, label %25, label %ccm_calculate_first_block_if_ready.exit
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %22 = load i32, ptr %21, align 4, !tbaa !3
+  %23 = and i32 %22, -2
+  %switch.i = icmp eq i32 %23, 2
+  br i1 %switch.i, label %24, label %ccm_calculate_first_block_if_ready.exit
 
-25:                                               ; preds = %21
-  store i64 0, ptr %11, align 8, !tbaa !17
+24:                                               ; preds = %20
+  store i64 0, ptr %10, align 8, !tbaa !17
   br label %._crit_edge39.i
 
-._crit_edge39.i:                                  ; preds = %19, %25
-  %26 = phi i64 [ 0, %25 ], [ %2, %19 ]
+._crit_edge39.i:                                  ; preds = %18, %24
+  %25 = phi i64 [ 0, %24 ], [ %2, %18 ]
   %.not34.i = icmp eq i64 %1, 0
-  %27 = select i1 %.not34.i, i8 0, i8 64
-  %28 = load i8, ptr %0, align 8, !tbaa !14
+  %26 = select i1 %.not34.i, i8 0, i8 64
+  %27 = load i8, ptr %0, align 8, !tbaa !14
   %.tr.i = trunc nuw nsw i64 %3 to i8
-  %29 = shl nuw nsw i8 %.tr.i, 2
-  %30 = add nsw i8 %29, -8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %32 = load i32, ptr %31, align 8, !tbaa !13
-  %33 = trunc i32 %32 to i8
-  %34 = add i8 %33, -1
-  %35 = or i8 %30, %27
-  %36 = or i8 %35, %28
-  %37 = or i8 %36, %34
-  store i8 %37, ptr %0, align 8, !tbaa !14
-  %.not.i = icmp eq i32 %32, 0
+  %28 = shl nuw nsw i8 %.tr.i, 2
+  %29 = add nsw i8 %28, -8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %31 = load i32, ptr %30, align 8, !tbaa !13
+  %32 = trunc i32 %31 to i8
+  %33 = add i8 %32, -1
+  %34 = or i8 %29, %26
+  %35 = or i8 %34, %27
+  %36 = or i8 %35, %33
+  store i8 %36, ptr %0, align 8, !tbaa !14
+  %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge39.i, %.lr.ph.i
-  %38 = phi i32 [ %45, %.lr.ph.i ], [ 0, %._crit_edge39.i ]
-  %.038.i = phi i64 [ %44, %.lr.ph.i ], [ %26, %._crit_edge39.i ]
-  %.02837.i = phi i8 [ %43, %.lr.ph.i ], [ 0, %._crit_edge39.i ]
-  %39 = trunc i64 %.038.i to i8
-  %40 = sub nsw i32 15, %38
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 %41
-  store i8 %39, ptr %42, align 1, !tbaa !14
-  %43 = add i8 %.02837.i, 1
-  %44 = lshr i64 %.038.i, 8
-  %45 = zext i8 %43 to i32
-  %46 = load i32, ptr %31, align 8, !tbaa !13
-  %47 = icmp ugt i32 %46, %45
-  br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
+  %37 = phi i32 [ %44, %.lr.ph.i ], [ 0, %._crit_edge39.i ]
+  %.038.i = phi i64 [ %43, %.lr.ph.i ], [ %25, %._crit_edge39.i ]
+  %.02837.i = phi i8 [ %42, %.lr.ph.i ], [ 0, %._crit_edge39.i ]
+  %38 = trunc i64 %.038.i to i8
+  %39 = sub nsw i32 15, %37
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %0, i64 %40
+  store i8 %38, ptr %41, align 1, !tbaa !14
+  %42 = add i8 %.02837.i, 1
+  %43 = lshr i64 %.038.i, 8
+  %44 = zext i8 %42 to i32
+  %45 = load i32, ptr %30, align 8, !tbaa !13
+  %46 = icmp ugt i32 %45, %44
+  br i1 %46, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge39.i
-  %.0.lcssa.i = phi i64 [ %26, %._crit_edge39.i ], [ %44, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ %25, %._crit_edge39.i ], [ %43, %.lr.ph.i ]
   %.not35.i = icmp eq i64 %.0.lcssa.i, 0
-  br i1 %.not35.i, label %48, label %.sink.split.i
+  br i1 %.not35.i, label %47, label %.sink.split.i
 
-48:                                               ; preds = %._crit_edge.i
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %50 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %49, ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull %0, ptr noundef nonnull %5) #10
-  %.not36.i = icmp eq i32 %50, 0
+47:                                               ; preds = %._crit_edge.i
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %49 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %48, ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull %0, ptr noundef nonnull %5) #10
+  %.not36.i = icmp eq i32 %49, 0
   br i1 %.not36.i, label %ccm_calculate_first_block_if_ready.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %48, %._crit_edge.i
-  %.029.ph.i = phi i32 [ -13, %._crit_edge.i ], [ %50, %48 ]
-  %51 = load i32, ptr %15, align 8, !tbaa !15
-  %52 = or i32 %51, 16
-  store i32 %52, ptr %15, align 8, !tbaa !15
+.sink.split.i:                                    ; preds = %47, %._crit_edge.i
+  %.029.ph.i = phi i32 [ -13, %._crit_edge.i ], [ %49, %47 ]
+  %50 = load i32, ptr %14, align 8, !tbaa !15
+  %51 = or i32 %50, 16
+  store i32 %51, ptr %14, align 8, !tbaa !15
   br label %ccm_calculate_first_block_if_ready.exit
 
-ccm_calculate_first_block_if_ready.exit:          ; preds = %10, %21, %48, %.sink.split.i
-  %.029.i = phi i32 [ 0, %10 ], [ 0, %48 ], [ -13, %21 ], [ %.029.ph.i, %.sink.split.i ]
+ccm_calculate_first_block_if_ready.exit:          ; preds = %9, %20, %47, %.sink.split.i
+  %.029.i = phi i32 [ 0, %9 ], [ 0, %47 ], [ -13, %20 ], [ %.029.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %53
+  br label %52
 
-53:                                               ; preds = %4, %ccm_calculate_first_block_if_ready.exit
+52:                                               ; preds = %4, %ccm_calculate_first_block_if_ready.exit
   %.0 = phi i32 [ %.029.i, %ccm_calculate_first_block_if_ready.exit ], [ -13, %4 ]
   ret i32 %.0
 }

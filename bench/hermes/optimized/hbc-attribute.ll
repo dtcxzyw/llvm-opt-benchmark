@@ -837,11 +837,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapP
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 4
   store i32 %virtualOffset.09.i.i, ptr %second.i.i.i, align 4
   %65 = ptrtoint ptr %call5.i.i to i64
-  %and.i.i.i.i = and i64 %65, 1
-  %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i33.i
+  %tobool.i.i.i.i = trunc i64 %65 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i34.i, label %if.else.i.i.i
 
-if.then.i.i33.i:                                  ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit.i.i
+if.then.i.i34.i:                                  ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit.i.i
   %bytecodeSizeInBytes.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 7
   %66 = load i32, ptr %bytecodeSizeInBytes.i.i.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit.i.i
@@ -853,13 +852,13 @@ if.else.i.i.i:                                    ; preds = %_ZN4llvh12DenseMapB
   %bf.cast.i.i.i = and i32 %67, 32767
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit.i.i
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i33.i
-  %retval.0.i.i.i = phi i32 [ %66, %if.then.i.i33.i ], [ %bf.cast.i.i.i, %if.else.i.i.i ]
+_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i34.i
+  %retval.0.i.i.i = phi i32 [ %66, %if.then.i.i34.i ], [ %bf.cast.i.i.i, %if.else.i.i.i ]
   %add.i.i = add i32 %retval.0.i.i.i, %virtualOffset.09.i.i
   %inc.i.i = add i32 %64, 1
   store i32 %inc.i.i, ptr %i.i.i, align 4, !noalias !14
-  %cmp.i34.i = icmp ult i32 %inc.i.i, %.pr8.i
-  br i1 %cmp.i34.i, label %for.body.i.i, label %_ZN12_GLOBAL__N_117getVirtualOffsetsESt10shared_ptrIN6hermes3hbc14BCProviderBaseEE.exit.i, !llvm.loop !20
+  %cmp.i33.i = icmp ult i32 %inc.i.i, %.pr8.i
+  br i1 %cmp.i33.i, label %for.body.i.i, label %_ZN12_GLOBAL__N_117getVirtualOffsetsESt10shared_ptrIN6hermes3hbc14BCProviderBaseEE.exit.i, !llvm.loop !20
 
 _ZN12_GLOBAL__N_117getVirtualOffsetsESt10shared_ptrIN6hermes3hbc14BCProviderBaseEE.exit.i: ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit.i.i, %_ZN4llvh8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEC2Ej.exit.i.i, %_ZN4llvh8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEC2Ej.exit.i.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %i.i.i)
@@ -2487,9 +2486,8 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS
   %6 = load ptr, ptr %vfn, align 8
   %call2 = tail call ptr %6(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef %funcId) #22
   %7 = ptrtoint ptr %call2 to i64
-  %and.i.i = and i64 %7, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i64 %7 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E5clearEv.exit
   %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %call2, i64 7
@@ -2558,8 +2556,8 @@ if.then.i7:                                       ; preds = %land.lhs.true.i6
   call void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr nonnull sret(%"class.hermes::OptValue") align 4 %pos.i, ptr noundef nonnull align 8 dereferenceable(136) %16, i32 noundef %21, i32 noundef 0) #22
   %hasValue_.i.i = getelementptr inbounds nuw i8, ptr %pos.i, i64 32
   %22 = load i8, ptr %hasValue_.i.i, align 4
-  %tobool.i.i = trunc i8 %22 to i1
-  br i1 %tobool.i.i, label %if.then9.i, label %if.end19.i
+  %tobool.i.i8 = trunc i8 %22 to i1
+  br i1 %tobool.i.i8, label %if.then9.i, label %if.end19.i
 
 if.then9.i:                                       ; preds = %if.then.i7
   %23 = load ptr, ptr %emitter_, align 8
@@ -2654,9 +2652,8 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapP
   %41 = load ptr, ptr %vfn32.i, align 8
   %call33.i = call ptr %41(ptr noundef nonnull align 8 dereferenceable(280) %39, i32 noundef %40) #22
   %42 = ptrtoint ptr %call33.i to i64
-  %and.i.i.i = and i64 %42, 1
-  %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool.i.not.i.i, label %if.else.i.i, label %if.then.i16.i
+  %tobool.i.i.i = trunc i64 %42 to i1
+  br i1 %tobool.i.i.i, label %if.then.i16.i, label %if.else.i.i
 
 if.then.i16.i:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixERKj.exit.i
   %bytecodeSizeInBytes.i.i = getelementptr inbounds nuw i8, ptr %call33.i, i64 7
@@ -2714,9 +2711,8 @@ entry:
   %7 = load i32, ptr %currentFuncId_, align 8
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.22, i64 22, i32 noundef %7, i32 noundef 16)
   %8 = ptrtoint ptr %call2 to i64
-  %and.i.i = and i64 %8, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  %retval.sroa.0.0.in.v.i = select i1 %tobool.i.not.i, i64 15, i64 29
+  %tobool.i.i = trunc i64 %8 to i1
+  %retval.sroa.0.0.in.v.i = select i1 %tobool.i.i, i64 29, i64 15
   %retval.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %call2, i64 %retval.sroa.0.0.in.v.i
   %retval.sroa.0.0.i = load i8, ptr %retval.sroa.0.0.in.i, align 1
   %9 = and i8 %retval.sroa.0.0.i, 32
@@ -2729,7 +2725,7 @@ _ZN4llvh9StringRefC2EPKc.exit54:                  ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit54, %entry
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
   %functionName.i = getelementptr inbounds nuw i8, ptr %call2, i64 11
@@ -2746,8 +2742,8 @@ if.else.i:                                        ; preds = %if.end
 _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i32 [ %11, %if.then.i ], [ %bf.cast.i, %if.else.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter18countStringLiteralEj(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %retval.0.i)
-  %retval.sroa.0.0.i19 = load i8, ptr %retval.sroa.0.0.in.i, align 1
-  %13 = and i8 %retval.sroa.0.0.i19, 8
+  %retval.sroa.0.0.i17 = load i8, ptr %retval.sroa.0.0.in.i, align 1
+  %13 = and i8 %retval.sroa.0.0.i17, 8
   %bf.cast23.not = icmp eq i8 %13, 0
   br i1 %bf.cast23.not, label %_ZN4llvh9StringRefC2EPKc.exit84, label %_ZN4llvh9StringRefC2EPKc.exit64
 
@@ -2761,49 +2757,49 @@ _ZN4llvh9StringRefC2EPKc.exit64:                  ; preds = %_ZNK6hermes3hbc21Ru
   br label %_ZN4llvh9StringRefC2EPKc.exit84
 
 _ZN4llvh9StringRefC2EPKc.exit84:                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit64, %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit
-  br i1 %tobool.i.not.i, label %if.else.i24, label %if.then.i22
+  br i1 %tobool.i.i, label %if.then.i23, label %if.else.i19
 
-if.then.i22:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit84
+if.then.i23:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit84
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call2, i64 -1
   %17 = load i32, ptr %add.ptr.i.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
 
-if.else.i24:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit84
-  %bf.load.i25 = load i120, ptr %call2, align 1
-  %18 = trunc i120 %bf.load.i25 to i32
-  %bf.cast.i26 = and i32 %18, 33554431
+if.else.i19:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit84
+  %bf.load.i20 = load i120, ptr %call2, align 1
+  %18 = trunc i120 %bf.load.i20 to i32
+  %bf.cast.i21 = and i32 %18, 33554431
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit: ; preds = %if.then.i22, %if.else.i24
-  %retval.0.i23 = phi i32 [ %17, %if.then.i22 ], [ %bf.cast.i26, %if.else.i24 ]
+_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit: ; preds = %if.then.i23, %if.else.i19
+  %retval.0.i22 = phi i32 [ %17, %if.then.i23 ], [ %bf.cast.i21, %if.else.i19 ]
   %opcodeEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %19 = load i64, ptr %opcodeEnd_, align 8
   %opcodeStart_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %20 = load i64, ptr %opcodeStart_, align 8
   %sub = sub i64 %19, %20
   %conv = trunc i64 %sub to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.26, i64 21, i32 noundef %retval.0.i23, i32 noundef %conv)
-  br i1 %tobool.i.not.i, label %if.else.i32, label %if.then.i29
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.26, i64 21, i32 noundef %retval.0.i22, i32 noundef %conv)
+  br i1 %tobool.i.i, label %if.then.i29, label %if.else.i25
 
 if.then.i29:                                      ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
   %add.ptr.i.i30 = getelementptr inbounds i8, ptr %call2, i64 -1
   %21 = load i32, ptr %add.ptr.i.i30, align 1
-  br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit35
+  br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit31
 
-if.else.i32:                                      ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
-  %bf.load.i33 = load i120, ptr %call2, align 1
-  %22 = trunc i120 %bf.load.i33 to i32
-  %bf.cast.i34 = and i32 %22, 33554431
-  br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit35
+if.else.i25:                                      ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
+  %bf.load.i26 = load i120, ptr %call2, align 1
+  %22 = trunc i120 %bf.load.i26 to i32
+  %bf.cast.i27 = and i32 %22, 33554431
+  br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit31
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit35: ; preds = %if.then.i29, %if.else.i32
-  %retval.0.i31 = phi i32 [ %21, %if.then.i29 ], [ %bf.cast.i34, %if.else.i32 ]
+_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit31: ; preds = %if.then.i29, %if.else.i25
+  %retval.0.i28 = phi i32 [ %21, %if.then.i29 ], [ %bf.cast.i27, %if.else.i25 ]
   %functionEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %23 = load i64, ptr %functionEnd_, align 8
   %24 = load i64, ptr %opcodeEnd_, align 8
   %sub37 = sub i64 %23, %24
   %conv38 = trunc i64 %sub37 to i32
-  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.27, i64 20, i32 noundef %retval.0.i31, i32 noundef %conv38)
+  tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.27, i64 20, i32 noundef %retval.0.i28, i32 noundef %conv38)
   call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %trash.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %trash51.i)
@@ -2821,7 +2817,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit35: ; preds = %if.then.i29, 
   %tobool.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool.not.i, label %_ZN12_GLOBAL__N_112UsageCounter14countDebugInfoEv.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit35
+if.end.i:                                         ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit31
   %28 = load i32, ptr %call2.i, align 4
   %cmp.not.i = icmp eq i32 %28, -1
   br i1 %cmp.not.i, label %if.end33.i, label %if.then3.i
@@ -3059,7 +3055,7 @@ _ZN4llvh9StringRefC2EPKc.exit141.i:               ; preds = %for.body104.i, %_ZN
   call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.38, i64 22, i32 noundef %63, i32 noundef %sub120.i)
   br label %_ZN12_GLOBAL__N_112UsageCounter14countDebugInfoEv.exit
 
-_ZN12_GLOBAL__N_112UsageCounter14countDebugInfoEv.exit: ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit35, %if.end76.i, %_ZN4llvh9StringRefC2EPKc.exit141.i
+_ZN12_GLOBAL__N_112UsageCounter14countDebugInfoEv.exit: ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit31, %if.end76.i, %_ZN4llvh9StringRefC2EPKc.exit141.i
   call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %trash.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %trash51.i)
@@ -3079,20 +3075,20 @@ if.then43:                                        ; preds = %_ZN12_GLOBAL__N_112
   call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.39, i64 21, i32 noundef 0, i32 noundef 128)
   call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.40, i64 24, i32 noundef 0, i32 noundef 28)
   %67 = load ptr, ptr %bcProvider_, align 8
-  %debugInfo_.i.i37 = getelementptr inbounds nuw i8, ptr %67, i64 240
-  %68 = load ptr, ptr %debugInfo_.i.i37, align 8
-  %tobool.not.i.i38 = icmp eq ptr %68, null
-  br i1 %tobool.not.i.i38, label %if.then.i.i40, label %_ZN12_GLOBAL__N_112UsageCounter14emitGlobalInfoEv.exit
+  %debugInfo_.i.i33 = getelementptr inbounds nuw i8, ptr %67, i64 240
+  %68 = load ptr, ptr %debugInfo_.i.i33, align 8
+  %tobool.not.i.i34 = icmp eq ptr %68, null
+  br i1 %tobool.not.i.i34, label %if.then.i.i36, label %_ZN12_GLOBAL__N_112UsageCounter14emitGlobalInfoEv.exit
 
-if.then.i.i40:                                    ; preds = %if.then43
-  %vtable.i.i41 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %vtable.i.i41, align 8
+if.then.i.i36:                                    ; preds = %if.then43
+  %vtable.i.i37 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %vtable.i.i37, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(280) %67) #22
-  %.pre.i.i42 = load ptr, ptr %debugInfo_.i.i37, align 8
+  %.pre.i.i38 = load ptr, ptr %debugInfo_.i.i33, align 8
   br label %_ZN12_GLOBAL__N_112UsageCounter14emitGlobalInfoEv.exit
 
-_ZN12_GLOBAL__N_112UsageCounter14emitGlobalInfoEv.exit: ; preds = %if.then43, %if.then.i.i40
-  %70 = phi ptr [ %.pre.i.i42, %if.then.i.i40 ], [ %68, %if.then43 ]
+_ZN12_GLOBAL__N_112UsageCounter14emitGlobalInfoEv.exit: ; preds = %if.then43, %if.then.i.i36
+  %70 = phi ptr [ %.pre.i.i38, %if.then.i.i36 ], [ %68, %if.then43 ]
   %Length.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 128
   %71 = load i64, ptr %Length.i.i.i.i, align 8
   %stringTableOffset_.i.i = getelementptr inbounds nuw i8, ptr %70, i64 88

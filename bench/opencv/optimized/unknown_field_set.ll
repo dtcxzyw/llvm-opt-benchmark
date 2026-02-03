@@ -706,9 +706,8 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE5clearEv.exit: ; preds = %_
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf15UnknownFieldSet23MergeToInternalMetadataERKS1_PNS0_8internal16InternalMetadataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !33
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %9, label %5, !prof !35
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %9, !prof !35
 
 5:                                                ; preds = %2
   %6 = and i64 %3, -4
@@ -1876,7 +1875,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %sext = shl i64 %27, 32
   %32 = ashr exact i64 %sext, 32
   %33 = icmp slt i64 %31, %32
-  br i1 %33, label %34, label %37, !prof !35
+  br i1 %33, label %34, label %37, !prof !58
 
 34:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
   %35 = trunc i64 %27 to i32
@@ -1897,7 +1896,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh.exit: ; preds = %34,
 define hidden noundef ptr @_ZN6google8protobuf8internal17UnknownGroupParseEPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca %"class.google::protobuf::internal::UnknownFieldParserHelper", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %0, ptr %4, align 8, !tbaa !58
+  store ptr %0, ptr %4, align 8, !tbaa !59
   %5 = call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_24UnknownFieldParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
@@ -1912,10 +1911,10 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16WireFormat
 
 7:                                                ; preds = %46, %3
   %.015 = phi ptr [ %1, %3 ], [ %48, %46 ]
-  %8 = load i32, ptr %4, align 4, !tbaa !60
-  %9 = load ptr, ptr %2, align 8, !tbaa !65
+  %8 = load i32, ptr %4, align 4, !tbaa !61
+  %9 = load ptr, ptr %2, align 8, !tbaa !66
   %10 = icmp ult ptr %.015, %9
-  br i1 %10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21, label %11, !prof !66
+  br i1 %10, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21, label %11, !prof !35
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %5, align 8, !tbaa !67
@@ -2001,7 +2000,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 define hidden noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca %"class.google::protobuf::internal::UnknownFieldParserHelper", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %1, ptr %5, align 8, !tbaa !58
+  store ptr %1, ptr %5, align 8, !tbaa !59
   %6 = call noundef ptr @_ZN6google8protobuf8internal11FieldParserINS1_24UnknownFieldParserHelperEEEPKcmRT_S5_PNS1_12ParseContextE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %6
@@ -2063,7 +2062,7 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %17
 _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread: ; preds = %24, %15, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
   %.0.i72 = phi ptr [ %28, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %26, %24 ], [ %14, %15 ]
   %.06771 = phi i64 [ %29, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ], [ %25, %24 ], [ %16, %15 ]
-  %30 = load ptr, ptr %1, align 8, !tbaa !58
+  %30 = load ptr, ptr %1, align 8, !tbaa !59
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !9
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -2137,7 +2136,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
 58:                                               ; preds = %10
   %.0.copyload.i.i = load i64, ptr %2, align 1
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %60 = load ptr, ptr %1, align 8, !tbaa !58
+  %60 = load ptr, ptr %1, align 8, !tbaa !59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !9
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -2209,7 +2208,7 @@ _ZNSt6vectorIN6google8protobuf12UnknownFieldESaIS2_EE17_M_realloc_insertIJRKS2_E
   br label %_ZN6google8protobuf8internal24UnknownFieldParserHelper9AddVarintEjm.exit
 
 88:                                               ; preds = %10
-  %89 = load ptr, ptr %1, align 8, !tbaa !58
+  %89 = load ptr, ptr %1, align 8, !tbaa !59
   %90 = tail call noundef ptr @_ZN6google8protobuf15UnknownFieldSet18AddLengthDelimitedB5cxx11Ei(ptr noundef nonnull align 8 dereferenceable(24) %89, i32 noundef %9)
   %91 = load i8, ptr %2, align 1, !tbaa !16
   %92 = zext i8 %91 to i32
@@ -2254,9 +2253,9 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPK
 
 109:                                              ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %110 = load ptr, ptr %1, align 8, !tbaa !58
+  %110 = load ptr, ptr %1, align 8, !tbaa !59
   %111 = tail call noundef ptr @_ZN6google8protobuf15UnknownFieldSet8AddGroupEi(ptr noundef nonnull align 8 dereferenceable(24) %110, i32 noundef %9)
-  store ptr %111, ptr %5, align 8, !tbaa !58
+  store ptr %111, ptr %5, align 8, !tbaa !59
   %112 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %113 = load i32, ptr %112, align 8, !tbaa !70
   %114 = add nsw i32 %113, -1
@@ -2268,13 +2267,13 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPK
   %117 = shl i32 %9, 3
   %118 = or disjoint i32 %117, 3
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  %120 = load i32, ptr %119, align 4, !tbaa !60
+  %120 = load i32, ptr %119, align 4, !tbaa !61
   %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %119, align 4, !tbaa !60
+  store i32 %121, ptr %119, align 4, !tbaa !61
   %122 = call noundef ptr @_ZN6google8protobuf8internal16WireFormatParserINS1_24UnknownFieldParserHelperEEEPKcRT_S5_PNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(120) %3)
-  %123 = load i32, ptr %119, align 4, !tbaa !60
+  %123 = load i32, ptr %119, align 4, !tbaa !61
   %124 = add nsw i32 %123, -1
-  store i32 %124, ptr %119, align 4, !tbaa !60
+  store i32 %124, ptr %119, align 4, !tbaa !61
   %125 = load i32, ptr %112, align 8, !tbaa !70
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %112, align 8, !tbaa !70
@@ -2282,7 +2281,7 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper20ParseLengthDelimitedEjPK
   %128 = load i32, ptr %127, align 8, !tbaa !69
   %129 = icmp eq i32 %128, %118
   store i32 0, ptr %127, align 8, !tbaa !69
-  br i1 %129, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, !prof !66
+  br i1 %129, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit, label %_ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread, !prof !35
 
 _ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12ParseContextE.exit.thread: ; preds = %109, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2330,7 +2329,7 @@ _ZN6google8protobuf8internal24UnknownFieldParserHelper10ParseGroupEjPKcPNS1_12Pa
 139:                                              ; preds = %10
   %.0.copyload.i.i55 = load i32, ptr %2, align 1
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %141 = load ptr, ptr %1, align 8, !tbaa !58
+  %141 = load ptr, ptr %1, align 8, !tbaa !59
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !9
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
@@ -2617,11 +2616,10 @@ _ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf12U
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !33
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
+  %3 = trunc i64 %2 to i1
   %4 = and i64 %2, -4
   %5 = inttoptr i64 %4 to ptr
-  br i1 %.not, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, label %6, !prof !66
+  br i1 %3, label %6, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, !prof !58
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %5, align 8, !tbaa !71
@@ -2897,7 +2895,7 @@ attributes #20 = { noreturn }
 !32 = distinct !{!32, !24}
 !33 = !{!34, !21, i64 0}
 !34 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !21, i64 0}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !36 = distinct !{!36, !24}
 !37 = distinct !{!37, !24}
 !38 = !{!14, !15, i64 0}
@@ -2920,21 +2918,21 @@ attributes #20 = { noreturn }
 !55 = !{!56, !20, i64 0}
 !56 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !20, i64 0, !20, i64 8, !7, i64 16, !57, i64 48, !43, i64 56, !43, i64 57, !43, i64 58}
 !57 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !6, i64 0}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"_ZTSN6google8protobuf8internal24UnknownFieldParserHelperE", !5, i64 0}
-!60 = !{!61, !15, i64 92}
-!61 = !{!"_ZTSN6google8protobuf8internal12ParseContextE", !62, i64 0, !15, i64 88, !15, i64 92, !63, i64 96}
-!62 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !20, i64 0, !20, i64 8, !20, i64 16, !15, i64 24, !15, i64 28, !42, i64 32, !7, i64 40, !21, i64 72, !15, i64 80, !15, i64 84}
-!63 = !{!"_ZTSN6google8protobuf8internal12ParseContext4DataE", !44, i64 0, !45, i64 8, !64, i64 16}
-!64 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !6, i64 0}
-!65 = !{!62, !20, i64 0}
-!66 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!67 = !{!62, !20, i64 8}
-!68 = !{!62, !15, i64 28}
-!69 = !{!62, !15, i64 80}
-!70 = !{!61, !15, i64 88}
-!71 = !{!72, !64, i64 0}
-!72 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !64, i64 0}
+!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"_ZTSN6google8protobuf8internal24UnknownFieldParserHelperE", !5, i64 0}
+!61 = !{!62, !15, i64 92}
+!62 = !{!"_ZTSN6google8protobuf8internal12ParseContextE", !63, i64 0, !15, i64 88, !15, i64 92, !64, i64 96}
+!63 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !20, i64 0, !20, i64 8, !20, i64 16, !15, i64 24, !15, i64 28, !42, i64 32, !7, i64 40, !21, i64 72, !15, i64 80, !15, i64 84}
+!64 = !{!"_ZTSN6google8protobuf8internal12ParseContext4DataE", !44, i64 0, !45, i64 8, !65, i64 16}
+!65 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !6, i64 0}
+!66 = !{!63, !20, i64 0}
+!67 = !{!63, !20, i64 8}
+!68 = !{!63, !15, i64 28}
+!69 = !{!63, !15, i64 80}
+!70 = !{!62, !15, i64 88}
+!71 = !{!72, !65, i64 0}
+!72 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !65, i64 0}
 !73 = !{!74, !6, i64 0}
 !74 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !6, i64 0, !6, i64 8}
 !75 = !{!74, !6, i64 8}

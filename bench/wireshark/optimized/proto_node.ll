@@ -67,117 +67,116 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef align 8 dereferenceab
   %8 = zext nneg i8 %7 to i32
   br label %10
 
-._crit_edge.loopexit:                             ; preds = %19
+._crit_edge.loopexit:                             ; preds = %18
   %9 = sext i32 %spec.select to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.017.lcssa = phi i64 [ 0, %.preheader ], [ %9, %._crit_edge.loopexit ]
   invoke void @_ZN5QListIP9ProtoNodeE7reserveEx(ptr noundef nonnull align 8 dereferenceable_or_null(24) %5, i64 noundef %.017.lcssa)
-          to label %21 unwind label %24
+          to label %20 unwind label %23
 
-10:                                               ; preds = %.lr.ph, %19
-  %.01633 = phi ptr [ %.01630, %.lr.ph ], [ %.016, %19 ]
-  %.01732 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %19 ]
+10:                                               ; preds = %.lr.ph, %18
+  %.01633 = phi ptr [ %.01630, %.lr.ph ], [ %.016, %18 ]
+  %.01732 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %18 ]
   %11 = getelementptr inbounds nuw i8, ptr %.01633, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not7.i.i = icmp eq ptr %12, null
-  br i1 %.not7.i.i, label %19, label %13
+  br i1 %.not7.i.i, label %18, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
-  %16 = and i32 %15, 1
-  %17 = icmp eq i32 %16, 0
-  %18 = select i1 %17, i32 1, i32 %8
-  br label %19
+  %16 = trunc i32 %15 to i1
+  %17 = select i1 %16, i32 %8, i32 1
+  br label %18
 
-19:                                               ; preds = %13, %10
-  %.0.i.i = phi i32 [ %18, %13 ], [ %8, %10 ]
+18:                                               ; preds = %13, %10
+  %.0.i.i = phi i32 [ %17, %13 ], [ %8, %10 ]
   %spec.select = add i32 %.0.i.i, %.01732
-  %20 = getelementptr inbounds nuw i8, ptr %.01633, i64 16
-  %.016 = load ptr, ptr %20, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %.01633, i64 16
+  %.016 = load ptr, ptr %19, align 8
   %.not20 = icmp eq ptr %.016, null
   br i1 %.not20, label %._crit_edge.loopexit, label %10, !llvm.loop !7
 
-21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr %0, align 8
-  %.034 = load ptr, ptr %22, align 8
+20:                                               ; preds = %._crit_edge
+  %21 = load ptr, ptr %0, align 8
+  %.034 = load ptr, ptr %21, align 8
   %.not2135 = icmp eq ptr %.034, null
   br i1 %.not2135, label %.loopexit, label %.lr.ph38
 
-.lr.ph38:                                         ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %26
+.lr.ph38:                                         ; preds = %20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %25
 
-24:                                               ; preds = %._crit_edge
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %._crit_edge
+  %24 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
-26:                                               ; preds = %.lr.ph38, %47
-  %.036 = phi ptr [ %.034, %.lr.ph38 ], [ %.0, %47 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.036, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %.not7.i.i26 = icmp eq ptr %28, null
-  br i1 %.not7.i.i26, label %34, label %29
+25:                                               ; preds = %.lr.ph38, %46
+  %.036 = phi ptr [ %.034, %.lr.ph38 ], [ %.0, %46 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.036, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %.not7.i.i26 = icmp eq ptr %27, null
+  br i1 %.not7.i.i26, label %33, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 1
-  %33 = icmp eq i32 %32, 0
-  br label %34
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %30 = load i32, ptr %29, align 4
+  %31 = trunc i32 %30 to i1
+  %32 = xor i1 %31, true
+  br label %33
 
-34:                                               ; preds = %29, %26
-  %.0.i.i27 = phi i1 [ %33, %29 ], [ false, %26 ]
-  %35 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 380), align 4, !range !6
-  %36 = trunc nuw i8 %35 to i1
-  %37 = select i1 %.0.i.i27, i1 true, i1 %36
-  br i1 %37, label %38, label %47
+33:                                               ; preds = %28, %25
+  %.0.i.i27 = phi i1 [ %32, %28 ], [ false, %25 ]
+  %34 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 380), align 4, !range !6
+  %35 = trunc nuw i8 %34 to i1
+  %36 = select i1 %.0.i.i27, i1 true, i1 %35
+  br i1 %36, label %37, label %46
 
-38:                                               ; preds = %34
-  %39 = invoke noalias noundef dereferenceable_or_null(40) ptr @_Znwm(i64 noundef 40) #19
-          to label %40 unwind label %43
+37:                                               ; preds = %33
+  %38 = invoke noalias noundef dereferenceable_or_null(40) ptr @_Znwm(i64 noundef 40) #19
+          to label %39 unwind label %42
 
-40:                                               ; preds = %38
-  invoke void @_ZN9ProtoNodeC1EP11_proto_nodePS_(ptr noundef align 8 dereferenceable_or_null(40) %39, ptr noundef nonnull %.036, ptr noundef %0)
-          to label %41 unwind label %45
+39:                                               ; preds = %37
+  invoke void @_ZN9ProtoNodeC1EP11_proto_nodePS_(ptr noundef align 8 dereferenceable_or_null(40) %38, ptr noundef nonnull %.036, ptr noundef %0)
+          to label %40 unwind label %44
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %39, ptr %4, align 8
-  %42 = load i64, ptr %23, align 8
-  invoke void @_ZN9QtPrivate12QPodArrayOpsIP9ProtoNodeE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %5, i64 noundef %42, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN5QListIP9ProtoNodeE6appendES1_.exit unwind label %43
+  store ptr %38, ptr %4, align 8
+  %41 = load i64, ptr %22, align 8
+  invoke void @_ZN9QtPrivate12QPodArrayOpsIP9ProtoNodeE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %5, i64 noundef %41, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZN5QListIP9ProtoNodeE6appendES1_.exit unwind label %42
 
-_ZN5QListIP9ProtoNodeE6appendES1_.exit:           ; preds = %41
+_ZN5QListIP9ProtoNodeE6appendES1_.exit:           ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %46
 
-43:                                               ; preds = %41, %38
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %40, %37
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %49
+  br label %48
 
-45:                                               ; preds = %40
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %39
+  %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef 40) #20
-  br label %49
+  call void @_ZdlPvm(ptr noundef %38, i64 noundef 40) #20
+  br label %48
 
-47:                                               ; preds = %_ZN5QListIP9ProtoNodeE6appendES1_.exit, %34
-  %48 = getelementptr inbounds nuw i8, ptr %.036, i64 16
-  %.0 = load ptr, ptr %48, align 8
+46:                                               ; preds = %_ZN5QListIP9ProtoNodeE6appendES1_.exit, %33
+  %47 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %.0 = load ptr, ptr %47, align 8
   %.not21 = icmp eq ptr %.0, null
-  br i1 %.not21, label %.loopexit, label %26, !llvm.loop !9
+  br i1 %.not21, label %.loopexit, label %25, !llvm.loop !9
 
-49:                                               ; preds = %43, %45, %24
-  %.pn23 = phi { ptr, i32 } [ %46, %45 ], [ %25, %24 ], [ %44, %43 ]
+48:                                               ; preds = %42, %44, %23
+  %.pn23 = phi { ptr, i32 } [ %45, %44 ], [ %24, %23 ], [ %43, %42 ]
   call void @_ZN5QListIP9ProtoNodeED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %5) #21
   resume { ptr, i32 } %.pn23
 
-.loopexit:                                        ; preds = %47, %21, %3
+.loopexit:                                        ; preds = %46, %20, %3
   ret void
 }
 
@@ -195,17 +194,16 @@ define noundef zeroext i1 @_ZN9ProtoNode8isHiddenEP11_proto_node(ptr noundef rea
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 1
-  %9 = icmp ne i32 %8, 0
+  %8 = trunc i32 %7 to i1
   br label %_ZL20proto_item_is_hiddenP11_proto_node.exit
 
 _ZL20proto_item_is_hiddenP11_proto_node.exit:     ; preds = %1, %2, %5
-  %.0.i = phi i1 [ %9, %5 ], [ true, %2 ], [ true, %1 ]
-  %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 380), align 4, !range !6
-  %11 = trunc nuw i8 %10 to i1
-  %12 = xor i1 %11, true
-  %13 = select i1 %.0.i, i1 %12, i1 false
-  ret i1 %13
+  %.0.i = phi i1 [ %8, %5 ], [ true, %2 ], [ true, %1 ]
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 380), align 4, !range !6
+  %10 = trunc nuw i8 %9 to i1
+  %11 = xor i1 %10, true
+  %12 = select i1 %.0.i, i1 %11, i1 false
+  ret i1 %12
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -656,8 +654,8 @@ _ZL23proto_item_is_generatedP11_proto_node.exit.thread: ; preds = %82, %_ZN17QAr
   br i1 %.not.i43, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, label %_ZL23proto_item_is_generatedP11_proto_node.exit.thread.thread
 
 _ZL23proto_item_is_generatedP11_proto_node.exit.thread.thread: ; preds = %_ZL23proto_item_is_generatedP11_proto_node.exit, %55, %_ZL23proto_item_is_generatedP11_proto_node.exit.thread
-  %.pr99 = phi ptr [ %.pr.pre, %_ZL23proto_item_is_generatedP11_proto_node.exit.thread ], [ %54, %55 ], [ %54, %_ZL23proto_item_is_generatedP11_proto_node.exit ]
-  %90 = getelementptr inbounds nuw i8, ptr %.pr99, i64 40
+  %.pr98 = phi ptr [ %.pr.pre, %_ZL23proto_item_is_generatedP11_proto_node.exit.thread ], [ %54, %55 ], [ %54, %_ZL23proto_item_is_generatedP11_proto_node.exit ]
+  %90 = getelementptr inbounds nuw i8, ptr %.pr98, i64 40
   %91 = load ptr, ptr %90, align 8
   %.not7.i = icmp eq ptr %91, null
   br i1 %.not7.i, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, label %_ZL20proto_item_is_hiddenP11_proto_node.exit
@@ -665,9 +663,8 @@ _ZL23proto_item_is_generatedP11_proto_node.exit.thread.thread: ; preds = %_ZL23p
 _ZL20proto_item_is_hiddenP11_proto_node.exit:     ; preds = %_ZL23proto_item_is_generatedP11_proto_node.exit.thread.thread
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %93 = load i32, ptr %92, align 4
-  %94 = and i32 %93, 1
-  %.not80 = icmp eq i32 %94, 0
-  br i1 %.not80, label %123, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+  %94 = trunc i32 %93 to i1
+  br i1 %94, label %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread, label %123
 
 _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %53, %_ZL23proto_item_is_generatedP11_proto_node.exit.thread, %_ZL23proto_item_is_generatedP11_proto_node.exit.thread.thread, %_ZL20proto_item_is_hiddenP11_proto_node.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -958,21 +955,20 @@ define ptr @_ZNK9ProtoNode8childrenEv(ptr noundef readonly align 8 captures(none
 _ZN9ProtoNode8isHiddenEP11_proto_node.exit:       ; preds = %.lr.ph.split
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.critedge, label %.critedge9
+  %10 = trunc i32 %9 to i1
+  br i1 %10, label %.critedge9, label %.critedge
 
 .critedge9:                                       ; preds = %.lr.ph.split, %_ZN9ProtoNode8isHiddenEP11_proto_node.exit
-  %12 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %.0 = load ptr, ptr %12, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07, i64 16
+  %.0 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !12
 
 .critedge:                                        ; preds = %_ZN9ProtoNode8isHiddenEP11_proto_node.exit, %.critedge9, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.05, %.lr.ph ], [ null, %.critedge9 ], [ %.07, %_ZN9ProtoNode8isHiddenEP11_proto_node.exit ]
   call void @_ZN9ProtoNode13ChildIteratorC1EP11_proto_node(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2, ptr noundef %.0.lcssa)
-  %13 = load ptr, ptr %2, align 8
-  ret ptr %13
+  %12 = load ptr, ptr %2, align 8
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
@@ -1020,8 +1016,8 @@ define ptr @_ZN9ProtoNode13ChildIterator4nextEv(ptr noundef align 8 captures(non
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1
-  %13 = icmp eq i32 %12, 0
+  %12 = trunc i32 %11 to i1
+  %13 = xor i1 %12, true
   br label %_ZN9ProtoNode8isHiddenEP11_proto_node.exit
 
 _ZN9ProtoNode8isHiddenEP11_proto_node.exit:       ; preds = %6, %9

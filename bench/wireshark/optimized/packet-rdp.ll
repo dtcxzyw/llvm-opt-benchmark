@@ -5301,10 +5301,10 @@ define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef 
   call void @col_append_sep_str(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.1032, ptr noundef nonnull @.str.1052)
   %35 = add i32 %31, 4
   %36 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %35, i32 noundef -2147483648)
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 26
-  %38 = trunc i16 %36 to i8
-  %39 = and i8 %38, 1
-  store i8 %39, ptr %37, align 2
+  %37 = trunc i16 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 26
+  %39 = and i8 %37, 1
+  store i8 %39, ptr %38, align 2
   %40 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %31, i32 noundef -2147483648)
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %40, ptr %41, align 4

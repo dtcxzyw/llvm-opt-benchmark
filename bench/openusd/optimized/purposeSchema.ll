@@ -141,9 +141,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__37HdPurposeSchemaTokens_Static
   %6 = and i64 %3, -8
   %7 = inttoptr i64 %6 to ptr
   %8 = atomicrmw add ptr %7, i32 2 monotonic, align 4
-  %9 = and i32 %8, 1
-  %.not1.i.i = icmp eq i32 %9, 0
-  %spec.select = select i1 %.not1.i.i, i64 %6, i64 %3
+  %9 = trunc i32 %8 to i1
+  %spec.select = select i1 %9, i64 %3, i64 %6
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %5, %1
@@ -166,9 +165,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %5, %1
   %15 = and i64 %.sroa.0.0, -8
   %16 = inttoptr i64 %15 to ptr
   %17 = atomicrmw add ptr %16, i32 2 monotonic, align 4
-  %18 = and i32 %17, 1
-  %.not1.i.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i, label %19, label %25
+  %18 = trunc i32 %17 to i1
+  br i1 %18, label %25, label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %10, align 8
@@ -276,9 +274,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPurposeSchemaTokens_
   %20 = and i64 %17, -8
   %21 = inttoptr i64 %20 to ptr
   %22 = atomicrmw add ptr %21, i32 2 monotonic, align 4
-  %23 = and i32 %22, 1
-  %.not1.i.i = icmp eq i32 %23, 0
-  br i1 %.not1.i.i, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %23 = trunc i32 %22 to i1
+  br i1 %23, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %24
 
 24:                                               ; preds = %19
   store ptr %21, ptr %3, align 8
@@ -514,9 +511,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPurposeSchemaTokens_
   %24 = and i64 %21, -8
   %25 = inttoptr i64 %24 to ptr
   %26 = atomicrmw add ptr %25, i32 2 monotonic, align 4
-  %27 = and i32 %26, 1
-  %.not1.i.i = icmp eq i32 %27, 0
-  br i1 %.not1.i.i, label %28, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
+  %27 = trunc i32 %26 to i1
+  br i1 %27, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %28
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %19, align 8

@@ -4220,7 +4220,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   %45 = load i32, ptr %44, align 4
   %.not.i.not.i = icmp eq i32 %45, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not.i.not.i, label %158, label %46
+  br i1 %.not.i.not.i, label %157, label %46
 
 46:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4243,8 +4243,8 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
 
 56:                                               ; preds = %52
   switch i32 %3, label %.thread.i [
-    i32 2, label %156
-    i32 0, label %156
+    i32 2, label %155
+    i32 0, label %155
   ]
 
 57:                                               ; preds = %52
@@ -4314,7 +4314,7 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   br label %94
 
 94:                                               ; preds = %91, %71
-  br i1 %38, label %95, label %137
+  br i1 %38, label %95, label %136
 
 95:                                               ; preds = %94
   %96 = call i32 @SDL_GetDisplayForWindowPosition(ptr noundef nonnull %1) #12
@@ -4356,105 +4356,104 @@ define hidden range(i32 0, 3) i32 @X11_SetWindowFullscreen(ptr noundef %0, ptr n
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 480
   store i32 %121, ptr %122, align 4
   %123 = load i64, ptr %53, align 8
-  %124 = and i64 %123, 1
-  %125 = icmp ne i64 %124, 0
-  %126 = icmp ne i32 %96, 0
-  %or.cond3.i = select i1 %125, i1 %126, i1 false
-  br i1 %or.cond3.i, label %127, label %129
+  %124 = trunc i64 %123 to i1
+  %125 = icmp ne i32 %96, 0
+  %or.cond3.i = select i1 %124, i1 %125, i1 false
+  br i1 %or.cond3.i, label %126, label %128
 
-127:                                              ; preds = %107
-  %128 = load i32, ptr %2, align 8
-  %.not109.i = icmp eq i32 %96, %128
-  br i1 %.not109.i, label %.thread113.i, label %129
+126:                                              ; preds = %107
+  %127 = load i32, ptr %2, align 8
+  %.not109.i = icmp eq i32 %96, %127
+  br i1 %.not109.i, label %.thread113.i, label %128
 
-129:                                              ; preds = %127, %107
-  %130 = load ptr, ptr @X11_XMoveWindow, align 8
-  %131 = load i64, ptr %41, align 8
-  %132 = load i32, ptr %108, align 8
-  %133 = load i32, ptr %111, align 4
-  %134 = call i32 %130(ptr noundef nonnull %30, i64 noundef %131, i32 noundef %132, i32 noundef %133) #12
-  %135 = load i32, ptr %47, align 8
-  %136 = or i32 %135, 16
-  store i32 %136, ptr %47, align 8
+128:                                              ; preds = %126, %107
+  %129 = load ptr, ptr @X11_XMoveWindow, align 8
+  %130 = load i64, ptr %41, align 8
+  %131 = load i32, ptr %108, align 8
+  %132 = load i32, ptr %111, align 4
+  %133 = call i32 %129(ptr noundef nonnull %30, i64 noundef %130, i32 noundef %131, i32 noundef %132) #12
+  %134 = load i32, ptr %47, align 8
+  %135 = or i32 %134, 16
+  store i32 %135, ptr %47, align 8
   br label %.thread113.i
 
-137:                                              ; preds = %94
-  %138 = getelementptr inbounds nuw i8, ptr %13, i64 488
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %138, i8 0, i64 40, i1 false)
+136:                                              ; preds = %94
+  %137 = getelementptr inbounds nuw i8, ptr %13, i64 488
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   store i32 33, ptr %6, align 8
   store i64 %32, ptr %72, align 8
   store i32 32, ptr %73, align 8
-  %139 = load i64, ptr %41, align 8
-  store i64 %139, ptr %75, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %13, i64 538
-  %141 = load i8, ptr %140, align 2, !range !5, !noundef !6
-  %..i = zext nneg i8 %141 to i64
+  %138 = load i64, ptr %41, align 8
+  store i64 %138, ptr %75, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %13, i64 538
+  %140 = load i8, ptr %139, align 2, !range !5, !noundef !6
+  %..i = zext nneg i8 %140 to i64
   store i64 %..i, ptr %77, align 8
-  %142 = load ptr, ptr %28, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 256
-  %144 = load i64, ptr %143, align 8
-  store i64 %144, ptr %78, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 264
-  %146 = load i64, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i64 %146, ptr %147, align 8
-  %148 = load ptr, ptr @X11_XSendEvent, align 8
-  %149 = load ptr, ptr %80, align 8
-  %150 = load i32, ptr %23, align 8
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds %struct.Screen, ptr %149, i64 %151
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  %154 = load i64, ptr %153, align 8
-  %155 = call i32 %148(ptr noundef nonnull %30, i64 noundef %154, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
+  %141 = load ptr, ptr %28, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 256
+  %143 = load i64, ptr %142, align 8
+  store i64 %143, ptr %78, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 264
+  %145 = load i64, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i64 %145, ptr %146, align 8
+  %147 = load ptr, ptr @X11_XSendEvent, align 8
+  %148 = load ptr, ptr %80, align 8
+  %149 = load i32, ptr %23, align 8
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds %struct.Screen, ptr %148, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load i64, ptr %152, align 8
+  %154 = call i32 %147(ptr noundef nonnull %30, i64 noundef %153, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #12
   br label %.thread113.i
 
-.thread113.i:                                     ; preds = %137, %129, %127
+.thread113.i:                                     ; preds = %136, %128, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %163
+  br label %162
 
-156:                                              ; preds = %56, %56
-  %157 = icmp ne i32 %3, 2
-  %.mux.i = zext i1 %157 to i32
+155:                                              ; preds = %56, %56
+  %156 = icmp ne i32 %3, 2
+  %.mux.i = zext i1 %156 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %X11_SetWindowFullscreenViaWM.exit
 
-158:                                              ; preds = %39
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %160 = load i64, ptr %159, align 8
-  %161 = and i64 %160, -2
+157:                                              ; preds = %39
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %159 = load i64, ptr %158, align 8
+  %160 = and i64 %159, -2
   %masksel.i = zext i1 %38 to i64
-  %.0.i = or disjoint i64 %161, %masksel.i
-  %162 = load i64, ptr %41, align 8
-  call void @X11_SetNetWMState(ptr noundef nonnull %0, i64 noundef %162, i64 noundef %.0.i)
-  br label %163
+  %.0.i = or disjoint i64 %160, %masksel.i
+  %161 = load i64, ptr %41, align 8
+  call void @X11_SetNetWMState(ptr noundef nonnull %0, i64 noundef %161, i64 noundef %.0.i)
+  br label %162
 
-163:                                              ; preds = %158, %.thread113.i
-  %164 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = load i32, ptr %166, align 8
-  %168 = icmp eq i32 %167, 5
-  br i1 %168, label %169, label %X11_SetWindowFullscreenViaWM.exit
+162:                                              ; preds = %157, %.thread113.i
+  %163 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %166 = load i32, ptr %165, align 8
+  %167 = icmp eq i32 %166, 5
+  br i1 %167, label %168, label %X11_SetWindowFullscreenViaWM.exit
 
-169:                                              ; preds = %163
+168:                                              ; preds = %162
   %.not110.i = icmp eq i32 %3, 0
-  %170 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %171 = load i64, ptr %170, align 8
-  br i1 %.not110.i, label %175, label %172
+  %169 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %170 = load i64, ptr %169, align 8
+  br i1 %.not110.i, label %174, label %171
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr @X11_XInstallColormap, align 8
-  %174 = call i32 %173(ptr noundef %30, i64 noundef %171) #12
+171:                                              ; preds = %168
+  %172 = load ptr, ptr @X11_XInstallColormap, align 8
+  %173 = call i32 %172(ptr noundef %30, i64 noundef %170) #12
   br label %X11_SetWindowFullscreenViaWM.exit
 
-175:                                              ; preds = %169
-  %176 = load ptr, ptr @X11_XUninstallColormap, align 8
-  %177 = call i32 %176(ptr noundef %30, i64 noundef %171) #12
+174:                                              ; preds = %168
+  %175 = load ptr, ptr @X11_XUninstallColormap, align 8
+  %176 = call i32 %175(ptr noundef %30, i64 noundef %170) #12
   br label %X11_SetWindowFullscreenViaWM.exit
 
-X11_SetWindowFullscreenViaWM.exit:                ; preds = %8, %14, %18, %24, %27, %156, %163, %172, %175
-  %.090.i = phi i32 [ %10, %8 ], [ %26, %24 ], [ %20, %18 ], [ %16, %14 ], [ %.mux.i, %156 ], [ 1, %27 ], [ 2, %172 ], [ 2, %175 ], [ 2, %163 ]
+X11_SetWindowFullscreenViaWM.exit:                ; preds = %8, %14, %18, %24, %27, %155, %162, %171, %174
+  %.090.i = phi i32 [ %10, %8 ], [ %26, %24 ], [ %20, %18 ], [ %16, %14 ], [ %.mux.i, %155 ], [ 1, %27 ], [ 2, %171 ], [ 2, %174 ], [ 2, %162 ]
   ret i32 %.090.i
 }
 

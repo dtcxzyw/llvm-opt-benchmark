@@ -1528,15 +1528,14 @@ Ivy_FraigAssignRandom.exit:                       ; preds = %Ivy_NodeAssignRando
   %55 = getelementptr inbounds nuw i32, ptr %41, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !38
   %57 = and i32 %52, 31
+  %58 = lshr i32 %56, %57
   %.val19.i = load ptr, ptr %47, align 8, !tbaa !49
-  %58 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i27
-  %59 = load ptr, ptr %58, align 8, !tbaa !51
-  %60 = getelementptr i8, ptr %59, i64 32
-  %.val.i.i31 = load ptr, ptr %60, align 8, !tbaa !103
-  %61 = shl nuw i32 1, %57
-  %62 = and i32 %56, %61
-  %.not.i.i = icmp ne i32 %62, 0
-  %63 = sext i1 %.not.i.i to i32
+  %59 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i27
+  %60 = load ptr, ptr %59, align 8, !tbaa !51
+  %61 = getelementptr i8, ptr %60, i64 32
+  %.val.i.i31 = load ptr, ptr %61, align 8, !tbaa !103
+  %62 = and i32 %58, 1
+  %63 = sub nsw i32 0, %62
   %64 = getelementptr inbounds nuw i8, ptr %.val.i.i31, i64 32
   br label %65
 
@@ -1646,35 +1645,34 @@ Ivy_FraigAssignDist1.exit:                        ; preds = %79, %.critedge.i
   %115 = getelementptr inbounds nuw i32, ptr %102, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !38
   %117 = and i32 %112, 31
+  %118 = lshr i32 %116, %117
   %.val19.i55 = load ptr, ptr %107, align 8, !tbaa !49
-  %118 = getelementptr inbounds nuw ptr, ptr %.val19.i55, i64 %indvars.iv.i50
-  %119 = load ptr, ptr %118, align 8, !tbaa !51
-  %120 = getelementptr i8, ptr %119, i64 32
-  %.val.i.i56 = load ptr, ptr %120, align 8, !tbaa !103
-  %121 = shl nuw i32 1, %117
-  %122 = and i32 %116, %121
-  %.not.i.i57 = icmp ne i32 %122, 0
-  %123 = sext i1 %.not.i.i57 to i32
+  %119 = getelementptr inbounds nuw ptr, ptr %.val19.i55, i64 %indvars.iv.i50
+  %120 = load ptr, ptr %119, align 8, !tbaa !51
+  %121 = getelementptr i8, ptr %120, i64 32
+  %.val.i.i56 = load ptr, ptr %121, align 8, !tbaa !103
+  %122 = and i32 %118, 1
+  %123 = sub nsw i32 0, %122
   %124 = getelementptr inbounds nuw i8, ptr %.val.i.i56, i64 32
   br label %125
 
 125:                                              ; preds = %125, %.lr.ph.i.i54
-  %indvars.iv.i.i58 = phi i64 [ 0, %.lr.ph.i.i54 ], [ %indvars.iv.next.i.i59, %125 ]
-  %126 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i.i58
+  %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.i.i54 ], [ %indvars.iv.next.i.i58, %125 ]
+  %126 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i.i57
   store i32 %123, ptr %126, align 4, !tbaa !38
-  %indvars.iv.next.i.i59 = add nuw nsw i64 %indvars.iv.i.i58, 1
+  %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %127 = load i32, ptr %46, align 8, !tbaa !96
   %128 = sext i32 %127 to i64
-  %129 = icmp slt i64 %indvars.iv.next.i.i59, %128
-  br i1 %129, label %125, label %Ivy_NodeAssignConst.exit.loopexit.i60, !llvm.loop !115
+  %129 = icmp slt i64 %indvars.iv.next.i.i58, %128
+  br i1 %129, label %125, label %Ivy_NodeAssignConst.exit.loopexit.i59, !llvm.loop !115
 
-Ivy_NodeAssignConst.exit.loopexit.i60:            ; preds = %125
-  %.val.pre.i61 = load i32, ptr %105, align 4, !tbaa !47
+Ivy_NodeAssignConst.exit.loopexit.i59:            ; preds = %125
+  %.val.pre.i60 = load i32, ptr %105, align 4, !tbaa !47
   br label %Ivy_NodeAssignConst.exit.i51
 
-Ivy_NodeAssignConst.exit.i51:                     ; preds = %Ivy_NodeAssignConst.exit.loopexit.i60, %.lr.ph.split.i48
-  %.val.i52 = phi i32 [ %.val.pre.i61, %Ivy_NodeAssignConst.exit.loopexit.i60 ], [ %.val36.i49, %.lr.ph.split.i48 ]
-  %130 = phi i32 [ %127, %Ivy_NodeAssignConst.exit.loopexit.i60 ], [ %110, %.lr.ph.split.i48 ]
+Ivy_NodeAssignConst.exit.i51:                     ; preds = %Ivy_NodeAssignConst.exit.loopexit.i59, %.lr.ph.split.i48
+  %.val.i52 = phi i32 [ %.val.pre.i60, %Ivy_NodeAssignConst.exit.loopexit.i59 ], [ %.val36.i49, %.lr.ph.split.i48 ]
+  %130 = phi i32 [ %127, %Ivy_NodeAssignConst.exit.loopexit.i59 ], [ %110, %.lr.ph.split.i48 ]
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 1
   %131 = sext i32 %.val.i52 to i64
   %132 = icmp slt i64 %indvars.iv.next.i53, %131
@@ -1688,7 +1686,7 @@ Ivy_NodeAssignConst.exit.i51:                     ; preds = %Ivy_NodeAssignConst
   %136 = add nsw i32 %135, -1
   %spec.select.i39 = tail call i32 @llvm.smin.i32(i32 %.val21.i38, i32 %136)
   %137 = icmp sgt i32 %spec.select.i39, 0
-  br i1 %137, label %.lr.ph30.i40, label %Ivy_FraigAssignDist1.exit62
+  br i1 %137, label %.lr.ph30.i40, label %Ivy_FraigAssignDist1.exit61
 
 .lr.ph30.i40:                                     ; preds = %.critedge.i37
   %138 = getelementptr i8, ptr %104, i64 8
@@ -1714,9 +1712,9 @@ Ivy_NodeAssignConst.exit.i51:                     ; preds = %Ivy_NodeAssignConst
   %151 = xor i32 %146, %150
   store i32 %151, ptr %149, align 4, !tbaa !38
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next34.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %Ivy_FraigAssignDist1.exit62, label %139, !llvm.loop !117
+  br i1 %exitcond.not.i46, label %Ivy_FraigAssignDist1.exit61, label %139, !llvm.loop !117
 
-Ivy_FraigAssignDist1.exit62:                      ; preds = %139, %.critedge.i37
+Ivy_FraigAssignDist1.exit61:                      ; preds = %139, %.critedge.i37
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   %152 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef %0)
   %153 = load ptr, ptr %93, align 8, !tbaa !69
@@ -1725,7 +1723,7 @@ Ivy_FraigAssignDist1.exit62:                      ; preds = %139, %.critedge.i37
   %.not22 = icmp eq ptr %155, null
   br i1 %.not22, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %Ivy_FraigAssignDist1.exit62
+.preheader:                                       ; preds = %Ivy_FraigAssignDist1.exit61
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %157
 
@@ -1733,34 +1731,34 @@ Ivy_FraigAssignDist1.exit62:                      ; preds = %139, %.critedge.i37
   %158 = load ptr, ptr %2, align 8, !tbaa !86
   %159 = load ptr, ptr %158, align 8, !tbaa !111
   %160 = getelementptr i8, ptr %159, i64 4
-  %.val7.i63 = load i32, ptr %160, align 4, !tbaa !47
-  %161 = icmp sgt i32 %.val7.i63, 0
-  br i1 %161, label %.lr.ph.i65, label %Ivy_FraigAssignRandom.exit79
+  %.val7.i62 = load i32, ptr %160, align 4, !tbaa !47
+  %161 = icmp sgt i32 %.val7.i62, 0
+  br i1 %161, label %.lr.ph.i64, label %Ivy_FraigAssignRandom.exit78
 
-.lr.ph.i65:                                       ; preds = %157
+.lr.ph.i64:                                       ; preds = %157
   %162 = load i32, ptr %46, align 8, !tbaa !96
   %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %.lr.ph.split.i66, label %Ivy_FraigAssignRandom.exit79
+  br i1 %163, label %.lr.ph.split.i65, label %Ivy_FraigAssignRandom.exit78
 
-.lr.ph.split.i66:                                 ; preds = %.lr.ph.i65, %Ivy_NodeAssignRandom.exit.i68
-  %164 = phi ptr [ %184, %Ivy_NodeAssignRandom.exit.i68 ], [ %159, %.lr.ph.i65 ]
-  %165 = phi i32 [ %185, %Ivy_NodeAssignRandom.exit.i68 ], [ %162, %.lr.ph.i65 ]
-  %indvars.iv.i67 = phi i64 [ %indvars.iv.next.i69, %Ivy_NodeAssignRandom.exit.i68 ], [ 0, %.lr.ph.i65 ]
+.lr.ph.split.i65:                                 ; preds = %.lr.ph.i64, %Ivy_NodeAssignRandom.exit.i67
+  %164 = phi ptr [ %184, %Ivy_NodeAssignRandom.exit.i67 ], [ %159, %.lr.ph.i64 ]
+  %165 = phi i32 [ %185, %Ivy_NodeAssignRandom.exit.i67 ], [ %162, %.lr.ph.i64 ]
+  %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i68, %Ivy_NodeAssignRandom.exit.i67 ], [ 0, %.lr.ph.i64 ]
   %166 = icmp sgt i32 %165, 0
-  br i1 %166, label %.lr.ph.i.i71, label %Ivy_NodeAssignRandom.exit.i68
+  br i1 %166, label %.lr.ph.i.i70, label %Ivy_NodeAssignRandom.exit.i67
 
-.lr.ph.i.i71:                                     ; preds = %.lr.ph.split.i66
+.lr.ph.i.i70:                                     ; preds = %.lr.ph.split.i65
   %167 = getelementptr i8, ptr %164, i64 8
-  %.val6.i72 = load ptr, ptr %167, align 8, !tbaa !49
-  %168 = getelementptr inbounds nuw ptr, ptr %.val6.i72, i64 %indvars.iv.i67
+  %.val6.i71 = load ptr, ptr %167, align 8, !tbaa !49
+  %168 = getelementptr inbounds nuw ptr, ptr %.val6.i71, i64 %indvars.iv.i66
   %169 = load ptr, ptr %168, align 8, !tbaa !51
   %170 = getelementptr i8, ptr %169, i64 32
-  %.val.i.i73 = load ptr, ptr %170, align 8, !tbaa !103
-  %171 = getelementptr inbounds nuw i8, ptr %.val.i.i73, i64 32
+  %.val.i.i72 = load ptr, ptr %170, align 8, !tbaa !103
+  %171 = getelementptr inbounds nuw i8, ptr %.val.i.i72, i64 32
   br label %172
 
-172:                                              ; preds = %172, %.lr.ph.i.i71
-  %indvars.iv.i.i74 = phi i64 [ 0, %.lr.ph.i.i71 ], [ %indvars.iv.next.i.i75, %172 ]
+172:                                              ; preds = %172, %.lr.ph.i.i70
+  %indvars.iv.i.i73 = phi i64 [ 0, %.lr.ph.i.i70 ], [ %indvars.iv.next.i.i74, %172 ]
   %173 = tail call i32 @rand() #28
   %174 = shl i32 %173, 24
   %175 = tail call i32 @rand() #28
@@ -1768,30 +1766,30 @@ Ivy_FraigAssignDist1.exit62:                      ; preds = %139, %.critedge.i37
   %177 = xor i32 %176, %174
   %178 = tail call i32 @rand() #28
   %179 = xor i32 %177, %178
-  %180 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.i.i74
+  %180 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.i.i73
   store i32 %179, ptr %180, align 4, !tbaa !38
-  %indvars.iv.next.i.i75 = add nuw nsw i64 %indvars.iv.i.i74, 1
+  %indvars.iv.next.i.i74 = add nuw nsw i64 %indvars.iv.i.i73, 1
   %181 = load i32, ptr %46, align 8, !tbaa !96
   %182 = sext i32 %181 to i64
-  %183 = icmp slt i64 %indvars.iv.next.i.i75, %182
-  br i1 %183, label %172, label %Ivy_NodeAssignRandom.exit.loopexit.i76, !llvm.loop !112
+  %183 = icmp slt i64 %indvars.iv.next.i.i74, %182
+  br i1 %183, label %172, label %Ivy_NodeAssignRandom.exit.loopexit.i75, !llvm.loop !112
 
-Ivy_NodeAssignRandom.exit.loopexit.i76:           ; preds = %172
-  %.pre.i77 = load ptr, ptr %2, align 8, !tbaa !86
-  %.pre11.i78 = load ptr, ptr %.pre.i77, align 8, !tbaa !111
-  br label %Ivy_NodeAssignRandom.exit.i68
+Ivy_NodeAssignRandom.exit.loopexit.i75:           ; preds = %172
+  %.pre.i76 = load ptr, ptr %2, align 8, !tbaa !86
+  %.pre11.i77 = load ptr, ptr %.pre.i76, align 8, !tbaa !111
+  br label %Ivy_NodeAssignRandom.exit.i67
 
-Ivy_NodeAssignRandom.exit.i68:                    ; preds = %Ivy_NodeAssignRandom.exit.loopexit.i76, %.lr.ph.split.i66
-  %184 = phi ptr [ %.pre11.i78, %Ivy_NodeAssignRandom.exit.loopexit.i76 ], [ %164, %.lr.ph.split.i66 ]
-  %185 = phi i32 [ %181, %Ivy_NodeAssignRandom.exit.loopexit.i76 ], [ %165, %.lr.ph.split.i66 ]
-  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i67, 1
+Ivy_NodeAssignRandom.exit.i67:                    ; preds = %Ivy_NodeAssignRandom.exit.loopexit.i75, %.lr.ph.split.i65
+  %184 = phi ptr [ %.pre11.i77, %Ivy_NodeAssignRandom.exit.loopexit.i75 ], [ %164, %.lr.ph.split.i65 ]
+  %185 = phi i32 [ %181, %Ivy_NodeAssignRandom.exit.loopexit.i75 ], [ %165, %.lr.ph.split.i65 ]
+  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i66, 1
   %186 = getelementptr i8, ptr %184, i64 4
-  %.val.i70 = load i32, ptr %186, align 4, !tbaa !47
-  %187 = sext i32 %.val.i70 to i64
-  %188 = icmp slt i64 %indvars.iv.next.i69, %187
-  br i1 %188, label %.lr.ph.split.i66, label %Ivy_FraigAssignRandom.exit79, !llvm.loop !113
+  %.val.i69 = load i32, ptr %186, align 4, !tbaa !47
+  %187 = sext i32 %.val.i69 to i64
+  %188 = icmp slt i64 %indvars.iv.next.i68, %187
+  br i1 %188, label %.lr.ph.split.i65, label %Ivy_FraigAssignRandom.exit78, !llvm.loop !113
 
-Ivy_FraigAssignRandom.exit79:                     ; preds = %Ivy_NodeAssignRandom.exit.i68, %157, %.lr.ph.i65
+Ivy_FraigAssignRandom.exit78:                     ; preds = %Ivy_NodeAssignRandom.exit.i67, %157, %.lr.ph.i64
   tail call void @Ivy_FraigSimulateOne(ptr noundef %0)
   %189 = load i32, ptr %156, align 8, !tbaa !118
   %190 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef %0)
@@ -1801,7 +1799,7 @@ Ivy_FraigAssignRandom.exit79:                     ; preds = %Ivy_NodeAssignRando
   %.not23 = icmp eq ptr %193, null
   br i1 %.not23, label %194, label %.loopexit
 
-194:                                              ; preds = %Ivy_FraigAssignRandom.exit79
+194:                                              ; preds = %Ivy_FraigAssignRandom.exit78
   %195 = sitofp i32 %190 to double
   %196 = sitofp i32 %189 to double
   %197 = fdiv double %195, %196
@@ -1811,7 +1809,7 @@ Ivy_FraigAssignRandom.exit79:                     ; preds = %Ivy_NodeAssignRando
   %201 = fcmp ogt double %197, %200
   br i1 %201, label %157, label %.loopexit, !llvm.loop !119
 
-.loopexit:                                        ; preds = %194, %Ivy_FraigAssignRandom.exit79, %Ivy_FraigAssignDist1.exit62, %Ivy_FraigAssignDist1.exit
+.loopexit:                                        ; preds = %194, %Ivy_FraigAssignRandom.exit78, %Ivy_FraigAssignDist1.exit61, %Ivy_FraigAssignDist1.exit
   ret void
 }
 
@@ -3591,15 +3589,14 @@ define void @Ivy_FraigAssignDist1(ptr noundef readonly captures(none) %0, ptr no
   %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !38
   %19 = and i32 %14, 31
+  %20 = lshr i32 %18, %19
   %.val19 = load ptr, ptr %9, align 8, !tbaa !49
-  %20 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !51
-  %22 = getelementptr i8, ptr %21, i64 32
-  %.val.i = load ptr, ptr %22, align 8, !tbaa !103
-  %23 = shl nuw i32 1, %19
-  %24 = and i32 %18, %23
-  %.not.i = icmp ne i32 %24, 0
-  %25 = sext i1 %.not.i to i32
+  %21 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8, !tbaa !51
+  %23 = getelementptr i8, ptr %22, i64 32
+  %.val.i = load ptr, ptr %23, align 8, !tbaa !103
+  %24 = and i32 %20, 1
+  %25 = sub nsw i32 0, %24
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
   br label %27
 
@@ -6042,15 +6039,14 @@ define void @Ivy_FraigResimulate(ptr noundef captures(none) %0) local_unnamed_ad
   %18 = getelementptr inbounds nuw i32, ptr %3, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !38
   %20 = and i32 %15, 31
+  %21 = lshr i32 %19, %20
   %.val19.i = load ptr, ptr %10, align 8, !tbaa !49
-  %21 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
-  %22 = load ptr, ptr %21, align 8, !tbaa !51
-  %23 = getelementptr i8, ptr %22, i64 32
-  %.val.i.i = load ptr, ptr %23, align 8, !tbaa !103
-  %24 = shl nuw i32 1, %20
-  %25 = and i32 %19, %24
-  %.not.i.i = icmp ne i32 %25, 0
-  %26 = sext i1 %.not.i.i to i32
+  %22 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %23 = load ptr, ptr %22, align 8, !tbaa !51
+  %24 = getelementptr i8, ptr %23, i64 32
+  %.val.i.i = load ptr, ptr %24, align 8, !tbaa !103
+  %25 = and i32 %21, 1
+  %26 = sub nsw i32 0, %25
   %27 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   br label %28
 
@@ -6164,7 +6160,7 @@ Ivy_FraigCleanPatScores.exit:                     ; preds = %.lr.ph.i20, %58, %I
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %80
 
-80:                                               ; preds = %.preheader, %Ivy_FraigCleanPatScores.exit64
+80:                                               ; preds = %.preheader, %Ivy_FraigCleanPatScores.exit63
   %81 = load i32, ptr %9, align 8, !tbaa !96
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %.lr.ph.i22, label %Ivy_FraigSelectBestPat.exit
@@ -6292,35 +6288,34 @@ Ivy_FraigSelectBestPat.exit:                      ; preds = %123, %80, %._crit_e
   %144 = getelementptr inbounds nuw i32, ptr %131, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !38
   %146 = and i32 %141, 31
+  %147 = lshr i32 %145, %146
   %.val19.i53 = load ptr, ptr %136, align 8, !tbaa !49
-  %147 = getelementptr inbounds nuw ptr, ptr %.val19.i53, i64 %indvars.iv.i48
-  %148 = load ptr, ptr %147, align 8, !tbaa !51
-  %149 = getelementptr i8, ptr %148, i64 32
-  %.val.i.i54 = load ptr, ptr %149, align 8, !tbaa !103
-  %150 = shl nuw i32 1, %146
-  %151 = and i32 %145, %150
-  %.not.i.i55 = icmp ne i32 %151, 0
-  %152 = sext i1 %.not.i.i55 to i32
+  %148 = getelementptr inbounds nuw ptr, ptr %.val19.i53, i64 %indvars.iv.i48
+  %149 = load ptr, ptr %148, align 8, !tbaa !51
+  %150 = getelementptr i8, ptr %149, i64 32
+  %.val.i.i54 = load ptr, ptr %150, align 8, !tbaa !103
+  %151 = and i32 %147, 1
+  %152 = sub nsw i32 0, %151
   %153 = getelementptr inbounds nuw i8, ptr %.val.i.i54, i64 32
   br label %154
 
 154:                                              ; preds = %154, %.lr.ph.i.i52
-  %indvars.iv.i.i56 = phi i64 [ 0, %.lr.ph.i.i52 ], [ %indvars.iv.next.i.i57, %154 ]
-  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv.i.i56
+  %indvars.iv.i.i55 = phi i64 [ 0, %.lr.ph.i.i52 ], [ %indvars.iv.next.i.i56, %154 ]
+  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv.i.i55
   store i32 %152, ptr %155, align 4, !tbaa !38
-  %indvars.iv.next.i.i57 = add nuw nsw i64 %indvars.iv.i.i56, 1
+  %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i55, 1
   %156 = load i32, ptr %9, align 8, !tbaa !96
   %157 = sext i32 %156 to i64
-  %158 = icmp slt i64 %indvars.iv.next.i.i57, %157
-  br i1 %158, label %154, label %Ivy_NodeAssignConst.exit.loopexit.i58, !llvm.loop !115
+  %158 = icmp slt i64 %indvars.iv.next.i.i56, %157
+  br i1 %158, label %154, label %Ivy_NodeAssignConst.exit.loopexit.i57, !llvm.loop !115
 
-Ivy_NodeAssignConst.exit.loopexit.i58:            ; preds = %154
-  %.val.pre.i59 = load i32, ptr %134, align 4, !tbaa !47
+Ivy_NodeAssignConst.exit.loopexit.i57:            ; preds = %154
+  %.val.pre.i58 = load i32, ptr %134, align 4, !tbaa !47
   br label %Ivy_NodeAssignConst.exit.i49
 
-Ivy_NodeAssignConst.exit.i49:                     ; preds = %Ivy_NodeAssignConst.exit.loopexit.i58, %.lr.ph.split.i46
-  %.val.i50 = phi i32 [ %.val.pre.i59, %Ivy_NodeAssignConst.exit.loopexit.i58 ], [ %.val36.i47, %.lr.ph.split.i46 ]
-  %159 = phi i32 [ %156, %Ivy_NodeAssignConst.exit.loopexit.i58 ], [ %139, %.lr.ph.split.i46 ]
+Ivy_NodeAssignConst.exit.i49:                     ; preds = %Ivy_NodeAssignConst.exit.loopexit.i57, %.lr.ph.split.i46
+  %.val.i50 = phi i32 [ %.val.pre.i58, %Ivy_NodeAssignConst.exit.loopexit.i57 ], [ %.val36.i47, %.lr.ph.split.i46 ]
+  %159 = phi i32 [ %156, %Ivy_NodeAssignConst.exit.loopexit.i57 ], [ %139, %.lr.ph.split.i46 ]
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %160 = sext i32 %.val.i50 to i64
   %161 = icmp slt i64 %indvars.iv.next.i51, %160
@@ -6334,7 +6329,7 @@ Ivy_NodeAssignConst.exit.i49:                     ; preds = %Ivy_NodeAssignConst
   %165 = add nsw i32 %164, -1
   %spec.select.i36 = tail call i32 @llvm.smin.i32(i32 %.val21.i35, i32 %165)
   %166 = icmp sgt i32 %spec.select.i36, 0
-  br i1 %166, label %.lr.ph30.i38, label %Ivy_FraigAssignDist1.exit60
+  br i1 %166, label %.lr.ph30.i38, label %Ivy_FraigAssignDist1.exit59
 
 .lr.ph30.i38:                                     ; preds = %.critedge.i34
   %167 = getelementptr i8, ptr %133, i64 8
@@ -6360,24 +6355,24 @@ Ivy_NodeAssignConst.exit.i49:                     ; preds = %Ivy_NodeAssignConst
   %180 = xor i32 %175, %179
   store i32 %180, ptr %178, align 4, !tbaa !38
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next34.i43, %wide.trip.count.i40
-  br i1 %exitcond.not.i44, label %Ivy_FraigAssignDist1.exit60, label %168, !llvm.loop !117
+  br i1 %exitcond.not.i44, label %Ivy_FraigAssignDist1.exit59, label %168, !llvm.loop !117
 
-Ivy_FraigAssignDist1.exit60:                      ; preds = %168, %.critedge.i34
+Ivy_FraigAssignDist1.exit59:                      ; preds = %168, %.critedge.i34
   tail call void @Ivy_FraigSimulateOne(ptr noundef nonnull %0)
   %181 = load i32, ptr %9, align 8, !tbaa !96
   %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph.i62, label %Ivy_FraigCleanPatScores.exit64
+  br i1 %182, label %.lr.ph.i61, label %Ivy_FraigCleanPatScores.exit63
 
-.lr.ph.i62:                                       ; preds = %Ivy_FraigAssignDist1.exit60
+.lr.ph.i61:                                       ; preds = %Ivy_FraigAssignDist1.exit59
   %183 = shl i32 %181, 5
   %184 = load ptr, ptr %78, align 8, !tbaa !110
-  %smax.i63 = tail call i32 @llvm.smax.i32(i32 %183, i32 1)
-  %185 = zext nneg i32 %smax.i63 to i64
+  %smax.i62 = tail call i32 @llvm.smax.i32(i32 %183, i32 1)
+  %185 = zext nneg i32 %smax.i62 to i64
   %186 = shl nuw nsw i64 %185, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %184, i8 0, i64 %186, i1 false), !tbaa !38
-  br label %Ivy_FraigCleanPatScores.exit64
+  br label %Ivy_FraigCleanPatScores.exit63
 
-Ivy_FraigCleanPatScores.exit64:                   ; preds = %Ivy_FraigAssignDist1.exit60, %.lr.ph.i62
+Ivy_FraigCleanPatScores.exit63:                   ; preds = %Ivy_FraigAssignDist1.exit59, %.lr.ph.i61
   %187 = tail call i32 @Ivy_FraigRefineClasses(ptr noundef nonnull %0)
   %188 = load ptr, ptr %67, align 8, !tbaa !69
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 200
@@ -6387,7 +6382,7 @@ Ivy_FraigCleanPatScores.exit64:                   ; preds = %Ivy_FraigAssignDist
   %or.cond = select i1 %.not19, i1 true, i1 %191
   br i1 %or.cond, label %.loopexit, label %80, !llvm.loop !205
 
-.loopexit:                                        ; preds = %Ivy_FraigSelectBestPat.exit, %Ivy_FraigCleanPatScores.exit64, %74, %Ivy_FraigCleanPatScores.exit
+.loopexit:                                        ; preds = %Ivy_FraigSelectBestPat.exit, %Ivy_FraigCleanPatScores.exit63, %74, %Ivy_FraigCleanPatScores.exit
   ret void
 }
 

@@ -157,16 +157,14 @@ define hidden range(i32 -1, 1) i32 @av1_add_film_grain(ptr noundef %0, ptr nound
 copy_rect.exit.loopexit:                          ; preds = %81
   %.pre = load i32, ptr %27, align 8
   %.pre110 = load i32, ptr %30, align 4
-  %.pre111 = and i32 %.pre, 1
   br label %copy_rect.exit
 
 copy_rect.exit:                                   ; preds = %copy_rect.exit.loopexit, %17
-  %.pre-phi = phi i32 [ %.pre111, %copy_rect.exit.loopexit ], [ %63, %17 ]
   %85 = phi i32 [ %.pre110, %copy_rect.exit.loopexit ], [ 0, %17 ]
   %86 = phi i32 [ %.pre, %copy_rect.exit.loopexit ], [ %62, %17 ]
   %87 = load ptr, ptr %68, align 8
   %88 = load i32, ptr %69, align 8
-  %89 = icmp ne i32 %.pre-phi, 0
+  %89 = trunc i32 %86 to i1
   %90 = and i32 %85, 1
   %91 = icmp eq i32 %90, 0
   %92 = or i32 %85, %86
@@ -180,7 +178,7 @@ copy_rect.exit:                                   ; preds = %copy_rect.exit.loop
 95:                                               ; preds = %94
   %96 = sdiv i32 %88, 2
   %97 = icmp sgt i32 %85, 0
-  %or.cond58.i = and i1 %89, %97
+  %or.cond58.i = and i1 %97, %89
   br i1 %or.cond58.i, label %.lr.ph.i95.lver.check, label %.loopexit53.i
 
 .lr.ph.i95.lver.check:                            ; preds = %95
@@ -189,8 +187,8 @@ copy_rect.exit:                                   ; preds = %copy_rect.exit.loop
   %wide.trip.count.i = zext nneg i32 %85 to i64
   %invariant.gep.i = getelementptr i16, ptr %87, i64 %99
   %100 = and i32 %88, -2
-  %ident.check116.not = icmp eq i32 %100, 2
-  br i1 %ident.check116.not, label %.lr.ph.i95.ph, label %.lr.ph.i95.lver.orig
+  %ident.check115.not = icmp eq i32 %100, 2
+  br i1 %ident.check115.not, label %.lr.ph.i95.ph, label %.lr.ph.i95.lver.orig
 
 .lr.ph.i95.lver.orig:                             ; preds = %.lr.ph.i95.lver.check, %.lr.ph.i95.lver.orig
   %indvars.iv.i.lver.orig = phi i64 [ %indvars.iv.next.i.lver.orig, %.lr.ph.i95.lver.orig ], [ 0, %.lr.ph.i95.lver.check ]
@@ -206,15 +204,15 @@ copy_rect.exit:                                   ; preds = %copy_rect.exit.loop
 .lr.ph.i95.ph:                                    ; preds = %.lr.ph.i95.lver.check
   %104 = shl nsw i64 %99, 1
   %105 = getelementptr i8, ptr %87, i64 %104
-  %scevgep118 = getelementptr i8, ptr %105, i64 -2
-  %load_initial119 = load i16, ptr %scevgep118, align 2
+  %scevgep117 = getelementptr i8, ptr %105, i64 -2
+  %load_initial118 = load i16, ptr %scevgep117, align 2
   br label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %.lr.ph.i95, %.lr.ph.i95.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i95.ph ], [ %indvars.iv.next.i, %.lr.ph.i95 ]
   %106 = mul nuw nsw i64 %indvars.iv.i, %98
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %106
-  store i16 %load_initial119, ptr %gep.i, align 2
+  store i16 %load_initial118, ptr %gep.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit53.i, label %.lr.ph.i95, !llvm.loop !6
@@ -239,7 +237,7 @@ copy_rect.exit:                                   ; preds = %copy_rect.exit.loop
 
 119:                                              ; preds = %94
   %120 = icmp sgt i32 %85, 0
-  %or.cond60.i = and i1 %89, %120
+  %or.cond60.i = and i1 %120, %89
   br i1 %or.cond60.i, label %.lr.ph56.i.lver.check, label %.loopexit.i
 
 .lr.ph56.i.lver.check:                            ; preds = %119

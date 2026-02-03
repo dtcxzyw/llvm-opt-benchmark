@@ -8792,9 +8792,8 @@ define noundef zeroext i1 @_ZNK11llama_vocab4impl10is_unknownEi(ptr noundef nonn
   %10 = getelementptr inbounds nuw %"struct.llama_vocab::token_data", ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4, !tbaa !111
-  %13 = and i32 %12, 1
-  %14 = icmp ne i32 %13, 0
-  ret i1 %14
+  %13 = trunc i32 %12 to i1
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15640,9 +15639,8 @@ _ZNK11llama_vocab4impl10is_unknownEi.exit:        ; preds = %2
   %10 = getelementptr inbounds nuw %"struct.llama_vocab::token_data", ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %12 = load i32, ptr %11, align 4, !tbaa !111
-  %13 = and i32 %12, 1
-  %14 = icmp ne i32 %13, 0
-  ret i1 %14
+  %13 = trunc i32 %12 to i1
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable

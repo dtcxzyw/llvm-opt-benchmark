@@ -10073,9 +10073,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20iden
 _ZNSt8optionalIN4llvm13FastMathFlagsEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %27
   store i8 1, ptr %25, align 4, !tbaa !234
   store i32 %28, ptr %5, align 8, !tbaa !184
-  %31 = and i32 %28, 1
-  %.not58 = icmp eq i32 %31, 0
-  br i1 %.not58, label %32, label %33
+  %31 = trunc i32 %28 to i1
+  br i1 %31, label %33, label %32
 
 32:                                               ; preds = %_ZNSt8optionalIN4llvm13FastMathFlagsEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -10178,8 +10177,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val9) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.val21 = load ptr, ptr %10, align 8, !tbaa !198
-  %.not59 = icmp eq ptr %.val21, null
-  br i1 %.not59, label %67, label %68
+  %.not58 = icmp eq ptr %.val21, null
+  br i1 %.not58, label %67, label %68
 
 67:                                               ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -10230,8 +10229,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   call fastcc void @_ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val20 = load ptr, ptr %10, align 8, !tbaa !198
-  %.not60 = icmp eq ptr %.val20, null
-  br i1 %.not60, label %86, label %87
+  %.not59 = icmp eq ptr %.val20, null
+  br i1 %.not59, label %86, label %87
 
 86:                                               ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -10266,11 +10265,11 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 98:                                               ; preds = %92
   %99 = atomicrmw volatile add ptr %93, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %10, align 8, !tbaa !198
-  %.pre63 = load ptr, ptr %90, align 8, !tbaa !204
+  %.pre62 = load ptr, ptr %90, align 8, !tbaa !204
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit39
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit39: ; preds = %87, %95, %98
-  %100 = phi ptr [ null, %87 ], [ %.val5, %95 ], [ %.pre63, %98 ]
+  %100 = phi ptr [ null, %87 ], [ %.val5, %95 ], [ %.pre62, %98 ]
   %101 = phi ptr [ %.val11, %87 ], [ %.val11, %95 ], [ %.pre, %98 ]
   call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %17)
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 8

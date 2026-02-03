@@ -178,7 +178,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 define void @dt_selection_invert(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %87, label %3
+  br i1 %.not, label %86, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @dt_collection_get_query(ptr noundef nonnull %2) #8
@@ -312,31 +312,30 @@ define void @dt_selection_invert(ptr noundef readonly captures(none) %0) local_u
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %77 = and i32 %76, 1
-  %78 = icmp ne i32 %77, 0
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %80 = icmp ne i32 %79, 0
-  %or.cond.i = select i1 %78, i1 %80, i1 false
-  br i1 %or.cond.i, label %81, label %_selection_raise_signal.exit
+  %77 = trunc i32 %76 to i1
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %79 = icmp ne i32 %78, 0
+  %or.cond.i = select i1 %77, i1 %79, i1 false
+  br i1 %or.cond.i, label %80, label %_selection_raise_signal.exit
 
-81:                                               ; preds = %75
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %83 = and i32 %82, 1048576
-  %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %84
+80:                                               ; preds = %75
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %82 = and i32 %81, 1048576
+  %.not.i = icmp eq i32 %82, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %83
 
-84:                                               ; preds = %81
+83:                                               ; preds = %80
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %75, %81, %84
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %85, i32 noundef 8) #8
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %86) #8
-  br label %87
+_selection_raise_signal.exit:                     ; preds = %75, %80, %83
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %84, i32 noundef 8) #8
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %85) #8
+  br label %86
 
-87:                                               ; preds = %1, %_selection_raise_signal.exit
+86:                                               ; preds = %1, %_selection_raise_signal.exit
   ret void
 }
 
@@ -385,35 +384,34 @@ define void @dt_selection_clear(ptr noundef readnone captures(none) %0) local_un
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %17 = and i32 %16, 1
-  %18 = icmp ne i32 %17, 0
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %20 = icmp ne i32 %19, 0
-  %or.cond.i = select i1 %18, i1 %20, i1 false
-  br i1 %or.cond.i, label %21, label %_selection_raise_signal.exit
+  %17 = trunc i32 %16 to i1
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %19 = icmp ne i32 %18, 0
+  %or.cond.i = select i1 %17, i1 %19, i1 false
+  br i1 %or.cond.i, label %20, label %_selection_raise_signal.exit
 
-21:                                               ; preds = %15
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %23 = and i32 %22, 1048576
-  %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %24
+20:                                               ; preds = %15
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %22 = and i32 %21, 1048576
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %23
 
-24:                                               ; preds = %21
+23:                                               ; preds = %20
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %15, %21, %24
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %25, i32 noundef 8) #8
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %26) #8
+_selection_raise_signal.exit:                     ; preds = %15, %20, %23
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %24, i32 noundef 8) #8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %25) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_selection_select(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
-  br i1 %3, label %4, label %54
+  br i1 %3, label %4, label %53
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !59
@@ -490,33 +488,32 @@ define void @dt_selection_select(ptr noundef captures(none) %0, i32 noundef %1) 
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %43 = and i32 %42, 1
-  %44 = icmp ne i32 %43, 0
-  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %46 = icmp ne i32 %45, 0
-  %or.cond.i.i = select i1 %44, i1 %46, i1 false
-  br i1 %or.cond.i.i, label %47, label %_selection_select.exit
+  %43 = trunc i32 %42 to i1
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %45 = icmp ne i32 %44, 0
+  %or.cond.i.i = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond.i.i, label %46, label %_selection_select.exit
 
-47:                                               ; preds = %41
-  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %49 = and i32 %48, 1048576
-  %.not.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i.i, label %_selection_select.exit, label %50
+46:                                               ; preds = %41
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %48 = and i32 %47, 1048576
+  %.not.i.i = icmp eq i32 %48, 0
+  br i1 %.not.i.i, label %_selection_select.exit, label %49
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_select.exit
 
-_selection_select.exit:                           ; preds = %41, %47, %50
-  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %51, i32 noundef 8) #8
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %52) #8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %53, align 8, !tbaa !50
-  br label %54
+_selection_select.exit:                           ; preds = %41, %46, %49
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %50, i32 noundef 8) #8
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %51) #8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %52, align 8, !tbaa !50
+  br label %53
 
-54:                                               ; preds = %2, %_selection_select.exit
+53:                                               ; preds = %2, %_selection_select.exit
   ret void
 }
 
@@ -596,28 +593,27 @@ define void @dt_selection_deselect(ptr noundef writeonly captures(none) initiali
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %41 = and i32 %40, 1
-  %42 = icmp ne i32 %41, 0
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %44 = icmp ne i32 %43, 0
-  %or.cond.i = select i1 %42, i1 %44, i1 false
-  br i1 %or.cond.i, label %45, label %_selection_raise_signal.exit
+  %41 = trunc i32 %40 to i1
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %43 = icmp ne i32 %42, 0
+  %or.cond.i = select i1 %41, i1 %43, i1 false
+  br i1 %or.cond.i, label %44, label %_selection_raise_signal.exit
 
-45:                                               ; preds = %39
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %47 = and i32 %46, 1048576
-  %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %48
+44:                                               ; preds = %39
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %46 = and i32 %45, 1048576
+  %.not.i = icmp eq i32 %46, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %47
 
-48:                                               ; preds = %45
+47:                                               ; preds = %44
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %39, %45, %48
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %49, i32 noundef 8) #8
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %50) #8
+_selection_raise_signal.exit:                     ; preds = %39, %44, %47
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %48, i32 noundef 8) #8
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %49) #8
   ret void
 }
 
@@ -663,7 +659,7 @@ define void @dt_selection_toggle(ptr noundef captures(none) %0, i32 noundef %1) 
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %5, label %48
+  br i1 %4, label %5, label %47
 
 5:                                                ; preds = %2
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
@@ -726,31 +722,30 @@ define void @dt_selection_toggle(ptr noundef captures(none) %0, i32 noundef %1) 
   call void @dt_act_on_reset_cache(i32 noundef 1) #8
   call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %38 = and i32 %37, 1
-  %39 = icmp ne i32 %38, 0
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %41 = icmp ne i32 %40, 0
-  %or.cond.i = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond.i, label %42, label %_selection_raise_signal.exit
+  %38 = trunc i32 %37 to i1
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %40 = icmp ne i32 %39, 0
+  %or.cond.i = select i1 %38, i1 %40, i1 false
+  br i1 %or.cond.i, label %41, label %_selection_raise_signal.exit
 
-42:                                               ; preds = %36
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %44 = and i32 %43, 1048576
-  %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %45
+41:                                               ; preds = %36
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %43 = and i32 %42, 1048576
+  %.not.i = icmp eq i32 %43, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %41
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %36, %42, %45
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %46, i32 noundef 8) #8
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  call void @dt_collection_hint_message(ptr noundef %47) #8
-  br label %48
+_selection_raise_signal.exit:                     ; preds = %36, %41, %44
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %45, i32 noundef 8) #8
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  call void @dt_collection_hint_message(ptr noundef %46) #8
+  br label %47
 
-48:                                               ; preds = %2, %_selection_raise_signal.exit
+47:                                               ; preds = %2, %_selection_raise_signal.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -767,7 +762,7 @@ declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #3
 define void @dt_selection_select_all(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %46, label %3
+  br i1 %.not, label %45, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @dt_collection_get_query_no_group(ptr noundef nonnull %2) #8
@@ -828,31 +823,30 @@ define void @dt_selection_select_all(ptr noundef captures(none) %0) local_unname
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %36 = and i32 %35, 1
-  %37 = icmp ne i32 %36, 0
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %39 = icmp ne i32 %38, 0
-  %or.cond.i = select i1 %37, i1 %39, i1 false
-  br i1 %or.cond.i, label %40, label %_selection_raise_signal.exit
+  %36 = trunc i32 %35 to i1
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %38 = icmp ne i32 %37, 0
+  %or.cond.i = select i1 %36, i1 %38, i1 false
+  br i1 %or.cond.i, label %39, label %_selection_raise_signal.exit
 
-40:                                               ; preds = %33
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %42 = and i32 %41, 1048576
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %43
+39:                                               ; preds = %33
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %41 = and i32 %40, 1048576
+  %.not.i = icmp eq i32 %41, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %42
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %33, %40, %43
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %44, i32 noundef 8) #8
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %45) #8
-  br label %46
+_selection_raise_signal.exit:                     ; preds = %33, %39, %42
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %43, i32 noundef 8) #8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %44) #8
+  br label %45
 
-46:                                               ; preds = %1, %_selection_raise_signal.exit
+45:                                               ; preds = %1, %_selection_raise_signal.exit
   ret void
 }
 
@@ -1224,28 +1218,27 @@ define void @dt_selection_select_filmroll(ptr noundef captures(none) initializes
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %76 = and i32 %75, 1
-  %77 = icmp ne i32 %76, 0
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %79 = icmp ne i32 %78, 0
-  %or.cond.i = select i1 %77, i1 %79, i1 false
-  br i1 %or.cond.i, label %80, label %_selection_raise_signal.exit
+  %76 = trunc i32 %75 to i1
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %78 = icmp ne i32 %77, 0
+  %or.cond.i = select i1 %76, i1 %78, i1 false
+  br i1 %or.cond.i, label %79, label %_selection_raise_signal.exit
 
-80:                                               ; preds = %71
-  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %82 = and i32 %81, 1048576
-  %.not.i = icmp eq i32 %82, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %83
+79:                                               ; preds = %71
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %81 = and i32 %80, 1048576
+  %.not.i = icmp eq i32 %81, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %82
 
-83:                                               ; preds = %80
+82:                                               ; preds = %79
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %71, %80, %83
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %84, i32 noundef 8) #8
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %85) #8
+_selection_raise_signal.exit:                     ; preds = %71, %79, %82
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %83, i32 noundef 8) #8
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %84) #8
   ret void
 }
 
@@ -1253,7 +1246,7 @@ _selection_raise_signal.exit:                     ; preds = %71, %80, %83
 define void @dt_selection_select_unaltered(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %44, label %3
+  br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
@@ -1311,31 +1304,30 @@ define void @dt_selection_select_unaltered(ptr noundef captures(none) %0) local_
   tail call void @dt_act_on_reset_cache(i32 noundef 1) #8
   tail call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %34 = and i32 %33, 1
-  %35 = icmp ne i32 %34, 0
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %37 = icmp ne i32 %36, 0
-  %or.cond.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond.i, label %38, label %_selection_raise_signal.exit
+  %34 = trunc i32 %33 to i1
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %36 = icmp ne i32 %35, 0
+  %or.cond.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond.i, label %37, label %_selection_raise_signal.exit
 
-38:                                               ; preds = %31
-  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %40 = and i32 %39, 1048576
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %41
+37:                                               ; preds = %31
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %39 = and i32 %38, 1048576
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %40
 
-41:                                               ; preds = %38
+40:                                               ; preds = %37
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %31, %38, %41
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %42, i32 noundef 8) #8
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  tail call void @dt_collection_hint_message(ptr noundef %43) #8
-  br label %44
+_selection_raise_signal.exit:                     ; preds = %31, %37, %40
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %41, i32 noundef 8) #8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  tail call void @dt_collection_hint_message(ptr noundef %42) #8
+  br label %43
 
-44:                                               ; preds = %1, %_selection_raise_signal.exit
+43:                                               ; preds = %1, %_selection_raise_signal.exit
   ret void
 }
 
@@ -1343,7 +1335,7 @@ _selection_raise_signal.exit:                     ; preds = %31, %38, %41
 define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %47, label %.preheader
+  br i1 %.not, label %46, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1419,31 +1411,30 @@ define void @dt_selection_select_list(ptr noundef writeonly captures(none) %0, p
   call void @dt_act_on_reset_cache(i32 noundef 1) #8
   call void @dt_act_on_reset_cache(i32 noundef 0) #8
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !53
-  %37 = and i32 %36, 1
-  %38 = icmp ne i32 %37, 0
-  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %40 = icmp ne i32 %39, 0
-  %or.cond.i = select i1 %38, i1 %40, i1 false
-  br i1 %or.cond.i, label %41, label %_selection_raise_signal.exit
+  %37 = trunc i32 %36 to i1
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %39 = icmp ne i32 %38, 0
+  %or.cond.i = select i1 %37, i1 %39, i1 false
+  br i1 %or.cond.i, label %40, label %_selection_raise_signal.exit
 
-41:                                               ; preds = %35
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %43 = and i32 %42, 1048576
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %_selection_raise_signal.exit, label %44
+40:                                               ; preds = %35
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %42 = and i32 %41, 1048576
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %_selection_raise_signal.exit, label %43
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__FUNCTION__._selection_raise_signal) #8
   br label %_selection_raise_signal.exit
 
-_selection_raise_signal.exit:                     ; preds = %35, %41, %44
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %45, i32 noundef 8) #8
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
-  call void @dt_collection_hint_message(ptr noundef %46) #8
-  br label %47
+_selection_raise_signal.exit:                     ; preds = %35, %40, %43
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !55
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %44, i32 noundef 8) #8
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !13
+  call void @dt_collection_hint_message(ptr noundef %45) #8
+  br label %46
 
-47:                                               ; preds = %2, %_selection_raise_signal.exit
+46:                                               ; preds = %2, %_selection_raise_signal.exit
   ret void
 }
 

@@ -808,11 +808,11 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
 
 43:                                               ; preds = %41
   %44 = icmp ne i8 %28, 2
-  %45 = icmp ne i64 %31, 0
-  %or.cond3.i = or i1 %45, %44
+  %45 = trunc nuw i64 %31 to i1
+  %or.cond3.i = select i1 %44, i1 true, i1 %45
   %or.cond3.not.i = xor i1 %or.cond3.i, true
   %46 = icmp eq i8 %28, 3
-  %or.cond5.i = and i1 %45, %46
+  %or.cond5.i = select i1 %46, i1 %45, i1 false
   %or.cond65.i = select i1 %or.cond3.not.i, i1 true, i1 %or.cond5.i
   %spec.select = select i1 %or.cond65.i, i32 2139095039, i32 2139095040
   br label %66

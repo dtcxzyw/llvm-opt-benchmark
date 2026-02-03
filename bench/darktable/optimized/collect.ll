@@ -3089,7 +3089,7 @@ define internal fastcc void @_populate_collect_combo(ptr noundef %0) unnamed_add
   tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %7, i32 noundef 1, ptr noundef nonnull inttoptr (i64 18 to ptr), ptr noundef null, i32 noundef 1) #16
   br label %38
 
-8:                                                ; preds = %54
+8:                                                ; preds = %53
   %9 = tail call ptr @dt_collection_name(i32 noundef 35) #16
   tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %9, i32 noundef 1, ptr noundef nonnull inttoptr (i64 36 to ptr), ptr noundef null, i32 noundef 1) #16
   %10 = tail call ptr @dt_collection_name(i32 noundef 18) #16
@@ -3150,31 +3150,30 @@ define internal fastcc void @_populate_collect_combo(ptr noundef %0) unnamed_add
   tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %37, i32 noundef 1, ptr noundef nonnull inttoptr (i64 33 to ptr), ptr noundef null, i32 noundef 1) #16
   ret void
 
-38:                                               ; preds = %1, %54
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %54 ]
+38:                                               ; preds = %1, %53
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %53 ]
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = tail call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef %39) #16
   %41 = tail call ptr @dt_metadata_get_name(i32 noundef %40) #16
   %42 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.145, ptr noundef %41) #16
   %43 = tail call i32 @dt_conf_get_int(ptr noundef %42) #16
-  %44 = and i32 %43, 1
   tail call void @g_free(ptr noundef %42) #16
-  %45 = tail call i32 @dt_metadata_get_type(i32 noundef %40) #16
-  %46 = icmp eq i32 %45, 2
-  %47 = icmp ne i32 %44, 0
-  %or.cond = select i1 %46, i1 true, i1 %47
-  br i1 %or.cond, label %54, label %48
+  %44 = tail call i32 @dt_metadata_get_type(i32 noundef %40) #16
+  %45 = icmp eq i32 %44, 2
+  %46 = trunc i32 %43 to i1
+  %or.cond = select i1 %45, i1 true, i1 %46
+  br i1 %or.cond, label %53, label %47
 
-48:                                               ; preds = %38
-  %49 = trunc i64 %indvars.iv to i32
-  %50 = add i32 %49, 19
-  %51 = tail call ptr @dt_collection_name(i32 noundef %50) #16
-  %52 = add nuw nsw i64 %indvars.iv, 20
-  %53 = inttoptr i64 %52 to ptr
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %51, i32 noundef 1, ptr noundef nonnull %53, ptr noundef null, i32 noundef 1) #16
-  br label %54
+47:                                               ; preds = %38
+  %48 = trunc i64 %indvars.iv to i32
+  %49 = add i32 %48, 19
+  %50 = tail call ptr @dt_collection_name(i32 noundef %49) #16
+  %51 = add nuw nsw i64 %indvars.iv, 20
+  %52 = inttoptr i64 %51 to ptr
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %50, i32 noundef 1, ptr noundef nonnull %52, ptr noundef null, i32 noundef 1) #16
+  br label %53
 
-54:                                               ; preds = %48, %38
+53:                                               ; preds = %47, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %8, label %38
@@ -3190,7 +3189,7 @@ define internal void @combo_changed(ptr readnone captures(none) %0, ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !67
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %75
+  br i1 %.not, label %8, label %74
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3288,38 +3287,37 @@ define internal void @combo_changed(ptr readnone captures(none) %0, ptr noundef 
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 1136
   store i32 -1, ptr %60, align 8, !tbaa !65
   %.not35 = icmp eq ptr %.0, null
-  br i1 %.not35, label %73, label %61
+  br i1 %.not35, label %72, label %61
 
 61:                                               ; preds = %47
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !162
-  %63 = and i32 %62, 1
-  %64 = icmp ne i32 %63, 0
-  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3188), align 4
-  %66 = icmp ne i32 %65, 0
-  %or.cond11 = select i1 %64, i1 %66, i1 false
-  br i1 %or.cond11, label %67, label %71
+  %63 = trunc i32 %62 to i1
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3188), align 4
+  %65 = icmp ne i32 %64, 0
+  %or.cond11 = select i1 %63, i1 %65, i1 false
+  br i1 %or.cond11, label %66, label %70
 
-67:                                               ; preds = %61
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
-  %69 = and i32 %68, 1048576
-  %.not36 = icmp eq i32 %69, 0
-  br i1 %.not36, label %71, label %70
+66:                                               ; preds = %61
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
+  %68 = and i32 %67, 1048576
+  %.not36 = icmp eq i32 %68, 0
+  br i1 %.not36, label %70, label %69
 
-70:                                               ; preds = %67
+69:                                               ; preds = %66
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.41, i32 noundef 2711, ptr noundef nonnull @__FUNCTION__.combo_changed) #16
-  br label %71
+  br label %70
 
-71:                                               ; preds = %67, %70, %61
-  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %72, i32 noundef 14, ptr noundef nonnull %.0) #16
-  br label %73
+70:                                               ; preds = %66, %69, %61
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %71, i32 noundef 14, ptr noundef nonnull %.0) #16
+  br label %72
 
-73:                                               ; preds = %71, %47
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
-  call void @dt_collection_update_query(ptr noundef %74, i32 noundef 1, i32 noundef 43, ptr noundef null) #16
-  br label %75
+72:                                               ; preds = %70, %47
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !64
+  call void @dt_collection_update_query(ptr noundef %73, i32 noundef 1, i32 noundef 43, ptr noundef null) #16
+  br label %74
 
-75:                                               ; preds = %2, %73
+74:                                               ; preds = %2, %72
   ret void
 }
 
@@ -6515,7 +6513,7 @@ define internal void @view_popup_menu_onSearchFilmroll(ptr readnone captures(non
   %19 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %18) #16
   %20 = call i32 @gtk_tree_selection_get_selected(ptr noundef %19, ptr noundef nonnull %6, ptr noundef nonnull %4) #16
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %207, label %21
+  br i1 %.not, label %205, label %21
 
 21:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !138
@@ -6531,7 +6529,7 @@ define internal void @view_popup_menu_onSearchFilmroll(ptr readnone captures(non
   %30 = call ptr @gtk_file_chooser_native_new(ptr noundef %25, ptr noundef %27, i32 noundef 2, ptr noundef %28, ptr noundef %29) #16
   %31 = load ptr, ptr %7, align 8, !tbaa !98
   %.not39 = icmp eq ptr %31, null
-  br i1 %.not39, label %203, label %32
+  br i1 %.not39, label %201, label %32
 
 32:                                               ; preds = %21
   %33 = tail call i64 @gtk_file_chooser_get_type() #18
@@ -6542,7 +6540,7 @@ define internal void @view_popup_menu_onSearchFilmroll(ptr readnone captures(non
   %38 = call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %37) #16
   %39 = call i32 @gtk_native_dialog_run(ptr noundef %38) #16
   %40 = icmp eq i32 %39, -3
-  br i1 %40, label %41, label %201
+  br i1 %40, label %41, label %199
 
 41:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6551,7 +6549,7 @@ define internal void @view_popup_menu_onSearchFilmroll(ptr readnone captures(non
   %44 = call noalias ptr @g_filename_from_uri(ptr noundef %43, ptr noundef null, ptr noundef null) #16
   call void @g_free(ptr noundef %43) #16
   %.not40 = icmp eq ptr %44, null
-  br i1 %.not40, label %200, label %45
+  br i1 %.not40, label %198, label %45
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %7, align 8, !tbaa !98
@@ -6787,77 +6785,75 @@ define internal void @view_popup_menu_onSearchFilmroll(ptr readnone captures(non
 178:                                              ; preds = %175
   call void (...) @dt_collection_memory_update() #16
   %179 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !162
-  %180 = and i32 %179, 1
-  %181 = icmp ne i32 %180, 0
-  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
-  %183 = icmp ne i32 %182, 0
-  %or.cond.i = select i1 %181, i1 %183, i1 false
-  br i1 %or.cond.i, label %184, label %188
+  %180 = trunc i32 %179 to i1
+  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
+  %182 = icmp ne i32 %181, 0
+  %or.cond.i = select i1 %180, i1 %182, i1 false
+  br i1 %or.cond.i, label %183, label %187
 
-184:                                              ; preds = %178
-  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
-  %186 = and i32 %185, 1048576
-  %.not16.i = icmp eq i32 %186, 0
-  br i1 %.not16.i, label %188, label %187
+183:                                              ; preds = %178
+  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
+  %185 = and i32 %184, 1048576
+  %.not16.i = icmp eq i32 %185, 0
+  br i1 %.not16.i, label %187, label %186
 
-187:                                              ; preds = %184
+186:                                              ; preds = %183
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 1113, ptr noundef nonnull @__FUNCTION__._lib_folders_update_collection) #16
-  br label %188
+  br label %187
 
-188:                                              ; preds = %187, %184, %178
-  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %189, i32 noundef 7, i32 noundef 1, i32 noundef 43, ptr noundef null, i32 noundef -1) #16
+187:                                              ; preds = %186, %183, %178
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %188, i32 noundef 7, i32 noundef 1, i32 noundef 43, ptr noundef null, i32 noundef -1) #16
   br label %_lib_folders_update_collection.exit
 
-_lib_folders_update_collection.exit:              ; preds = %175, %188
+_lib_folders_update_collection.exit:              ; preds = %175, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !162
-  %191 = and i32 %190, 1
+  %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !162
+  %190 = trunc i32 %189 to i1
+  %191 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
   %192 = icmp ne i32 %191, 0
-  %193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %194 = icmp ne i32 %193, 0
-  %or.cond = select i1 %192, i1 %194, i1 false
-  br i1 %or.cond, label %195, label %.thread
+  %or.cond = select i1 %190, i1 %192, i1 false
+  br i1 %or.cond, label %193, label %.thread
 
-195:                                              ; preds = %_lib_folders_update_collection.exit
-  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
-  %197 = and i32 %196, 1048576
-  %.not44 = icmp eq i32 %197, 0
-  br i1 %.not44, label %.thread, label %198
+193:                                              ; preds = %_lib_folders_update_collection.exit
+  %194 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
+  %195 = and i32 %194, 1048576
+  %.not44 = icmp eq i32 %195, 0
+  br i1 %.not44, label %.thread, label %196
 
-198:                                              ; preds = %195
+196:                                              ; preds = %193
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.41, i32 noundef 504, ptr noundef nonnull @__FUNCTION__.view_popup_menu_onSearchFilmroll) #16
   br label %.thread
 
-.thread:                                          ; preds = %_lib_folders_update_collection.exit, %198, %195
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %199, i32 noundef 15) #16
+.thread:                                          ; preds = %_lib_folders_update_collection.exit, %196, %193
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %197, i32 noundef 15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %199
+
+198:                                              ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %201
 
-200:                                              ; preds = %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %203
-
-201:                                              ; preds = %.thread, %32
+199:                                              ; preds = %.thread, %32
   %.1 = phi ptr [ %44, %.thread ], [ null, %32 ]
-  %202 = load ptr, ptr %7, align 8, !tbaa !98
-  call void @g_free(ptr noundef %202) #16
+  %200 = load ptr, ptr %7, align 8, !tbaa !98
+  call void @g_free(ptr noundef %200) #16
   call void @g_free(ptr noundef %.1) #16
   call void @g_object_unref(ptr noundef %30) #16
-  br label %207
+  br label %205
 
-203:                                              ; preds = %200, %21
+201:                                              ; preds = %198, %21
   call void @g_object_unref(ptr noundef %30) #16
-  %204 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.191, i32 noundef 5) #16
-  %205 = load ptr, ptr %7, align 8, !tbaa !98
-  call void (ptr, ...) @dt_control_log(ptr noundef %204, ptr noundef %205) #16
-  %206 = load ptr, ptr %7, align 8, !tbaa !98
-  call void @g_free(ptr noundef %206) #16
+  %202 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.191, i32 noundef 5) #16
+  %203 = load ptr, ptr %7, align 8, !tbaa !98
+  call void (ptr, ...) @dt_control_log(ptr noundef %202, ptr noundef %203) #16
+  %204 = load ptr, ptr %7, align 8, !tbaa !98
+  call void @g_free(ptr noundef %204) #16
   call void @g_free(ptr noundef null) #16
-  br label %207
+  br label %205
 
-207:                                              ; preds = %201, %203, %2
+205:                                              ; preds = %199, %201, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7044,12 +7040,12 @@ define internal void @_history_apply(ptr noundef %0, ptr readnone captures(none)
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %43, label %10
+  br i1 %9, label %42, label %10
 
 10:                                               ; preds = %2
   %11 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.196) #16
   %.not = icmp sgt i32 %11, %8
-  br i1 %.not, label %12, label %43
+  br i1 %.not, label %12, label %42
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7098,33 +7094,32 @@ define internal void @_history_apply(ptr noundef %0, ptr readnone captures(none)
 
 31:                                               ; preds = %28
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !162
-  %33 = and i32 %32, 1
-  %34 = icmp ne i32 %33, 0
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3188), align 4
-  %36 = icmp ne i32 %35, 0
-  %or.cond5 = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond5, label %37, label %41
+  %33 = trunc i32 %32 to i1
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3188), align 4
+  %35 = icmp ne i32 %34, 0
+  %or.cond5 = select i1 %33, i1 %35, i1 false
+  br i1 %or.cond5, label %36, label %40
 
-37:                                               ; preds = %31
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
-  %39 = and i32 %38, 1048576
-  %.not24 = icmp eq i32 %39, 0
-  br i1 %.not24, label %41, label %40
+36:                                               ; preds = %31
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !122
+  %38 = and i32 %37, 1048576
+  %.not24 = icmp eq i32 %38, 0
+  br i1 %.not24, label %40, label %39
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.41, i32 noundef 3515, ptr noundef nonnull @__FUNCTION__._history_apply) #16
-  br label %41
+  br label %40
 
-41:                                               ; preds = %37, %40, %31
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %42, i32 noundef 14, ptr noundef nonnull %29) #16
+40:                                               ; preds = %36, %39, %31
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !163
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %41, i32 noundef 14, ptr noundef nonnull %29) #16
   br label %.thread
 
-.thread:                                          ; preds = %25, %24, %28, %41, %17, %12
+.thread:                                          ; preds = %25, %24, %28, %40, %17, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %2, %10, %.thread
+42:                                               ; preds = %2, %10, %.thread
   ret void
 }
 

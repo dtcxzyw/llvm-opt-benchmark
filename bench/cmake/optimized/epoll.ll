@@ -247,46 +247,49 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
 ._crit_edge:                                      ; preds = %39, %9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load i64, ptr %42, align 8, !tbaa !36
-  %44 = and i64 %43, 1
-  %.not146 = icmp ne i64 %44, 0
-  br i1 %.not146, label %45, label %48
+  %.not146 = trunc i64 %43 to i1
+  br i1 %.not146, label %44, label %47
 
-45:                                               ; preds = %._crit_edge
-  %46 = call i32 @sigemptyset(ptr noundef nonnull %5) #7
-  %47 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef 27) #7
-  br label %48
+44:                                               ; preds = %._crit_edge
+  %45 = call i32 @sigemptyset(ptr noundef nonnull %5) #7
+  %46 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef 27) #7
+  br label %47
 
-48:                                               ; preds = %45, %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %50 = load i64, ptr %49, align 8, !tbaa !37
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !38
-  %53 = load i32, ptr %52, align 8, !tbaa !39
-  %54 = and i32 %53, 1
-  %.not147.not = icmp eq i32 %54, 0
+47:                                               ; preds = %44, %._crit_edge
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %49 = load i64, ptr %48, align 8, !tbaa !37
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !38
+  %52 = load i32, ptr %51, align 8, !tbaa !39
+  %.not147 = trunc i32 %52 to i1
+  %.163 = select i1 %.not147, i32 %1, i32 0
   %.b = load i1, ptr @uv__io_poll.no_epoll_pwait_cached, align 4
-  %55 = zext i1 %.b to i32
+  %53 = zext i1 %.b to i32
   %.b145 = load i1, ptr @uv__io_poll.no_epoll_wait_cached, align 4
-  %56 = zext i1 %.b145 to i32
-  %spec.select172 = select i1 %.not147.not, i32 %1, i32 0
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %54 = zext i1 %.b145 to i32
+  %spec.select171 = and i32 %52, 1
+  %spec.select172 = select i1 %.not147, i32 0, i32 %1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %59 = icmp eq i32 %spec.select171, 0
+  %60 = select i1 %59, i32 %spec.select172, i32 %.163
   br label %select.unfold.outer
 
-select.unfold.outer:                              ; preds = %split, %48
-  %.0133.ph = phi i32 [ %169, %split ], [ %1, %48 ]
-  %.0127.ph = phi i32 [ %.0127.ph174, %split ], [ 48, %48 ]
-  %.0124.ph = phi i32 [ %.1125, %split ], [ %56, %48 ]
-  %.0114.ph = phi i32 [ %.1115, %split ], [ %55, %48 ]
-  %.1.ph = phi i32 [ %169, %split ], [ %spec.select172, %48 ]
+select.unfold.outer:                              ; preds = %split, %47
+  %.0133.ph = phi i32 [ %169, %split ], [ %1, %47 ]
+  %.0127.ph = phi i32 [ %.0127.ph174, %split ], [ 48, %47 ]
+  %.0124.ph = phi i32 [ %.1125, %split ], [ %54, %47 ]
+  %.1117.ph = phi i32 [ %169, %split ], [ %60, %47 ]
+  %.0114.ph = phi i32 [ %.1115, %split ], [ %53, %47 ]
+  %.1.ph = phi i32 [ %169, %split ], [ %spec.select172, %47 ]
   br label %select.unfold.outer173
 
 select.unfold.outer173:                           ; preds = %select.unfold.outer, %163
   %.0127.ph174 = phi i32 [ %.0127.ph, %select.unfold.outer ], [ %165, %163 ]
   %.0124.ph175 = phi i32 [ %.0124.ph, %select.unfold.outer ], [ %.1125, %163 ]
-  %.1117.ph176 = phi i32 [ %.0133.ph, %select.unfold.outer ], [ 0, %163 ]
+  %.1117.ph176 = phi i32 [ %.1117.ph, %select.unfold.outer ], [ 0, %163 ]
   %.0114.ph177 = phi i32 [ %.0114.ph, %select.unfold.outer ], [ %.1115, %163 ]
   %.1.ph178 = phi i32 [ %.1.ph, %select.unfold.outer ], [ 0, %163 ]
   br label %select.unfold.outer179
@@ -326,7 +329,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %68 = icmp eq i32 %.0114, 0
   %or.cond3 = select i1 %.not146, i1 %68, i1 false
   %or.cond166 = select i1 %.not150, i1 true, i1 %or.cond3
-  %69 = load i32, ptr %57, align 8, !tbaa !8
+  %69 = load i32, ptr %55, align 8, !tbaa !8
   br i1 %or.cond166, label %70, label %77
 
 70:                                               ; preds = %67
@@ -380,7 +383,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %91 = load i32, ptr %90, align 4, !tbaa !4
   %92 = call i64 @uv__hrtime(i32 noundef 1) #7
   %93 = udiv i64 %92, 1000000
-  store i64 %93, ptr %49, align 8, !tbaa !37
+  store i64 %93, ptr %48, align 8, !tbaa !37
   store i32 %91, ptr %90, align 4, !tbaa !4
   switch i32 %.0126, label %98 [
     i32 0, label %94
@@ -410,8 +413,8 @@ select.unfold:                                    ; preds = %select.unfold.outer
   ]
 
 98:                                               ; preds = %89
-  %99 = load ptr, ptr %58, align 8, !tbaa !21
-  %100 = load i32, ptr %59, align 8, !tbaa !22
+  %99 = load ptr, ptr %56, align 8, !tbaa !21
+  %100 = load i32, ptr %57, align 8, !tbaa !22
   %101 = zext i32 %100 to i64
   %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %101
   store ptr %3, ptr %102, align 8, !tbaa !23
@@ -425,8 +428,8 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %108, label %.lr.ph219.preheader, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %98
-  %109 = load ptr, ptr %58, align 8, !tbaa !21
-  %110 = load i32, ptr %59, align 8, !tbaa !22
+  %109 = load ptr, ptr %56, align 8, !tbaa !21
+  %110 = load i32, ptr %57, align 8, !tbaa !22
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw ptr, ptr %109, i64 %111
   store ptr null, ptr %112, align 8, !tbaa !23
@@ -451,7 +454,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %119, label %144, label %120
 
 120:                                              ; preds = %.lr.ph219
-  %121 = load ptr, ptr %58, align 8, !tbaa !21
+  %121 = load ptr, ptr %56, align 8, !tbaa !21
   %122 = sext i32 %118 to i64
   %123 = getelementptr inbounds ptr, ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !23
@@ -459,7 +462,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %120
-  %127 = load i32, ptr %57, align 8, !tbaa !8
+  %127 = load i32, ptr %55, align 8, !tbaa !8
   %128 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 2, i32 noundef %118, ptr noundef nonnull %116) #7
   br label %144
 
@@ -483,7 +486,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br label %137
 
 137:                                              ; preds = %129, %.thread
-  %138 = icmp eq ptr %124, %60
+  %138 = icmp eq ptr %124, %58
   br i1 %138, label %142, label %139
 
 139:                                              ; preds = %137
@@ -511,10 +514,10 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 146:                                              ; preds = %._crit_edge220
   call void @uv__metrics_update_idle_time(ptr noundef %0) #7
-  %147 = load ptr, ptr %60, align 8, !tbaa !44
-  call void %147(ptr noundef %0, ptr noundef nonnull %60, i32 noundef 1) #7
-  %148 = load ptr, ptr %58, align 8, !tbaa !21
-  %149 = load i32, ptr %59, align 8, !tbaa !22
+  %147 = load ptr, ptr %58, align 8, !tbaa !44
+  call void %147(ptr noundef %0, ptr noundef nonnull %58, i32 noundef 1) #7
+  %148 = load ptr, ptr %56, align 8, !tbaa !21
+  %149 = load i32, ptr %57, align 8, !tbaa !22
   %150 = zext i32 %149 to i64
   %151 = getelementptr inbounds nuw ptr, ptr %148, i64 %150
   store ptr null, ptr %151, align 8, !tbaa !23
@@ -526,8 +529,8 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 .critedge:                                        ; preds = %._crit_edge220
   %155 = icmp eq i32 %.1129, 0
-  %156 = load ptr, ptr %58, align 8, !tbaa !21
-  %157 = load i32, ptr %59, align 8, !tbaa !22
+  %156 = load ptr, ptr %56, align 8, !tbaa !21
+  %157 = load i32, ptr %57, align 8, !tbaa !22
   %158 = zext i32 %157 to i64
   %159 = getelementptr inbounds nuw ptr, ptr %156, i64 %158
   store ptr null, ptr %159, align 8, !tbaa !23
@@ -554,12 +557,12 @@ select.unfold.outer179.backedge:                  ; preds = %166, %94, %97
   br label %select.unfold.outer179
 
 ._crit_edge254:                                   ; preds = %166
-  %.pre = load i64, ptr %49, align 8, !tbaa !37
+  %.pre = load i64, ptr %48, align 8, !tbaa !37
   br label %split
 
 split:                                            ; preds = %97, %94, %._crit_edge254
   %167 = phi i64 [ %.pre, %._crit_edge254 ], [ %93, %94 ], [ %93, %97 ]
-  %.neg = sub i64 %50, %167
+  %.neg = sub i64 %49, %167
   %168 = trunc i64 %.neg to i32
   %169 = add i32 %.0133.ph, %168
   %170 = icmp slt i32 %169, 1

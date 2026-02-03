@@ -3538,9 +3538,8 @@ define dso_local range(i32 0, 32) i32 @drm_dp_lttpr_max_lane_count(ptr noundef r
 define dso_local zeroext i1 @drm_dp_lttpr_voltage_swing_level_3_supported(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
@@ -4140,11 +4139,10 @@ define dso_local zeroext i1 @drm_dp_pcon_hdmi_link_active(ptr noundef %0) #2 ali
   %4 = and i64 %3, 2147483648
   %5 = icmp eq i64 %4, 0
   %6 = load i8, ptr %2, align 1
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  %9 = select i1 %5, i1 %8, i1 false
+  %7 = trunc i8 %6 to i1
+  %8 = select i1 %5, i1 %7, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %9
+  ret i1 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4162,7 +4160,7 @@ define dso_local range(i32 -2147483648, 2) i32 @drm_dp_pcon_hdmi_link_mode(ptr n
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i32
   %11 = icmp ne ptr %1, null
-  %12 = icmp ne i8 %9, 0
+  %12 = trunc i8 %8 to i1
   %13 = select i1 %11, i1 %12, i1 false
   br i1 %13, label %14, label %17
 
@@ -4173,7 +4171,7 @@ define dso_local range(i32 -2147483648, 2) i32 @drm_dp_pcon_hdmi_link_mode(ptr n
   br label %17
 
 17:                                               ; preds = %14, %7, %2
-  %18 = phi i32 [ %5, %2 ], [ 1, %14 ], [ %10, %7 ]
+  %18 = phi i32 [ %5, %2 ], [ %10, %14 ], [ %10, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
 }

@@ -3031,10 +3031,10 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %65 = trunc i32 %64 to i16
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %67 = load i16, ptr %66, align 8, !tbaa !63
-  %sext70 = shl i32 %64, 16
-  %68 = ashr exact i32 %sext70, 16
-  %.not5468 = icmp sgt i16 %67, %65
-  br i1 %.not5468, label %._crit_edge, label %.lr.ph
+  %sext69 = shl i32 %64, 16
+  %68 = ashr exact i32 %sext69, 16
+  %.not5467 = icmp sgt i16 %67, %65
+  br i1 %.not5467, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -3048,8 +3048,8 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 
 75:                                               ; preds = %.lr.ph, %114
   %76 = phi i32 [ %68, %.lr.ph ], [ %116, %114 ]
-  %.04569 = phi i16 [ %65, %.lr.ph ], [ %115, %114 ]
-  %77 = icmp slt i16 %.04569, %56
+  %.04568 = phi i16 [ %65, %.lr.ph ], [ %115, %114 ]
+  %77 = icmp slt i16 %.04568, %56
   br i1 %77, label %78, label %89
 
 78:                                               ; preds = %75
@@ -3066,7 +3066,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   br label %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
 
 89:                                               ; preds = %75
-  %90 = sub i16 %.04569, %56
+  %90 = sub i16 %.04568, %56
   %91 = icmp slt i16 %90, %58
   br i1 %91, label %92, label %97
 
@@ -3103,7 +3103,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   br i1 %.not63, label %114, label %.thread
 
 114:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
-  %115 = add i16 %.04569, -1
+  %115 = add i16 %.04568, -1
   %116 = sext i16 %115 to i32
   %.not54 = icmp slt i16 %115, %67
   br i1 %.not54, label %._crit_edge, label %75, !llvm.loop !68
@@ -3143,7 +3143,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   %135 = zext i8 %134 to i64
   %136 = getelementptr inbounds nuw ptr, ptr %53, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !56
-  %138 = sext i16 %.04569 to i64
+  %138 = sext i16 %.04568 to i64
   %139 = getelementptr inbounds i8, ptr %130, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !45
   %141 = zext i8 %140 to i64
@@ -3221,9 +3221,8 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
 
 189:                                              ; preds = %186
   %190 = load i16, ptr %182, align 8, !tbaa !45
-  %191 = and i16 %190, 1
-  %.not = icmp eq i16 %191, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %215
+  %191 = trunc i16 %190 to i1
+  br i1 %191, label %215, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 192:                                              ; preds = %186
   %193 = icmp slt i16 %187, 0
@@ -3256,8 +3255,8 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %232
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %208
-  %.not65 = icmp eq i8 %214, 0
-  br i1 %.not65, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %215
+  %.not = icmp eq i8 %214, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %215
 
 215:                                              ; preds = %189, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %216 = invoke noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %143)
@@ -3621,9 +3620,8 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
 
 178:                                              ; preds = %175
   %179 = load i16, ptr %171, align 8, !tbaa !45
-  %180 = and i16 %179, 1
-  %.not = icmp eq i16 %180, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %204
+  %180 = trunc i16 %179 to i1
+  br i1 %180, label %204, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 181:                                              ; preds = %175
   %182 = icmp slt i16 %176, 0
@@ -3656,8 +3654,8 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %221
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %197
-  %.not61 = icmp eq i8 %203, 0
-  br i1 %.not61, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %204
+  %.not = icmp eq i8 %203, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %204
 
 204:                                              ; preds = %178, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %205 = invoke noundef i32 @_ZNK6icu_7712TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %133)

@@ -839,7 +839,7 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
   %567 = and i32 %566, 1
   %568 = getelementptr inbounds nuw i8, ptr %1, i64 4036
   store i32 %567, ptr %568, align 4, !tbaa !64
-  %.not111 = icmp ne i32 %567, 0
+  %.not111 = trunc i32 %566 to i1
   %569 = icmp eq i32 %40, 0
   %or.cond140 = and i1 %569, %.not111
   br i1 %or.cond140, label %570, label %571
@@ -1056,7 +1056,7 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
   %718 = and i32 %717, 1
   %719 = getelementptr inbounds nuw i8, ptr %1, i64 6408
   store i32 %718, ptr %719, align 8, !tbaa !107
-  %.not117 = icmp ne i32 %718, 0
+  %.not117 = trunc i32 %717 to i1
   %brmerge.not = and i1 %.not112, %.not117
   br i1 %brmerge.not, label %720, label %721
 

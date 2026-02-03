@@ -484,9 +484,8 @@ define zeroext i1 @lv_line_get_y_invert(ptr noundef readonly captures(address_is
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -63,9 +63,8 @@ define nonnull ptr @l_Lake_BuildConfig_showProgress___boxed(ptr noundef %0) loca
 l_Lake_BuildConfig_showProgress.exit:             ; preds = %7, %.sink.split.i
   %.1.shrunk.i = phi i64 [ 3, %7 ], [ %12, %.sink.split.i ]
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %l_Lake_BuildConfig_showProgress.exit
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -95,9 +94,8 @@ define ptr @l_Lake_instMonadLiftLakeMBuildTOfPure___rarg(ptr noundef %0, ptr rea
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = ptrtoint ptr %6 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %lean_inc.exit
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %lean_inc.exit, label %9
 
 9:                                                ; preds = %4
   %.val.i = load i32, ptr %6, align 4, !tbaa !7
@@ -119,9 +117,8 @@ define ptr @l_Lake_instMonadLiftLakeMBuildTOfPure___rarg(ptr noundef %0, ptr rea
 
 lean_inc.exit:                                    ; preds = %14, %13, %11, %4
   %15 = ptrtoint ptr %3 to i64
-  %16 = and i64 %15, 1
-  %.not9 = icmp eq i64 %16, 0
-  br i1 %.not9, label %17, label %lean_dec.exit
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %lean_dec.exit, label %17
 
 17:                                               ; preds = %lean_inc.exit
   %18 = load i32, ptr %3, align 4, !tbaa !7
@@ -178,9 +175,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lake_getBuildContext___rarg(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !7
@@ -231,9 +227,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lake_getBuildContext___rarg___boxed(ptr noundef returned %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !7
@@ -281,9 +276,8 @@ define ptr @l_Lake_getLeanTrace___rarg___lambda__1(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !7
@@ -312,9 +306,8 @@ define ptr @l_Lake_getLeanTrace___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -336,9 +329,8 @@ define ptr @l_Lake_getLeanTrace___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit:                                    ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -395,9 +387,8 @@ define ptr @l_Lake_getLeanTrace___rarg___lambda__1___boxed(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lake_getLeanTrace___rarg___lambda__1.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lake_getLeanTrace___rarg___lambda__1.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !7
@@ -419,9 +410,8 @@ define ptr @l_Lake_getLeanTrace___rarg___lambda__1___boxed(ptr noundef %0) #0 {
 
 l_Lake_getLeanTrace___rarg___lambda__1.exit:      ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lake_getLeanTrace___rarg___lambda__1.exit
   %15 = load i32, ptr %0, align 4, !tbaa !7
@@ -450,9 +440,8 @@ define ptr @l_Lake_getBuildConfig___rarg___lambda__1(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !7
@@ -481,9 +470,8 @@ define ptr @l_Lake_getBuildConfig___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -505,9 +493,8 @@ define ptr @l_Lake_getBuildConfig___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit:                                    ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -562,9 +549,8 @@ define ptr @l_Lake_getBuildConfig___rarg___lambda__1___boxed(ptr noundef %0) #0 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lake_getBuildConfig___rarg___lambda__1.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lake_getBuildConfig___rarg___lambda__1.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !7
@@ -586,9 +572,8 @@ define ptr @l_Lake_getBuildConfig___rarg___lambda__1___boxed(ptr noundef %0) #0 
 
 l_Lake_getBuildConfig___rarg___lambda__1.exit:    ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lake_getBuildConfig___rarg___lambda__1.exit
   %15 = load i32, ptr %0, align 4, !tbaa !7
@@ -624,9 +609,8 @@ define ptr @l_Lake_getIsOldMode___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit11
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit11, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -648,9 +632,8 @@ define ptr @l_Lake_getIsOldMode___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not16 = icmp eq i64 %14, 0
-  br i1 %.not16, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit11
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -672,7 +655,7 @@ lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_inc.exit11
   %22 = load ptr, ptr @l_Lake_getBuildConfig___rarg___closed__1, align 8, !tbaa !11
-  br i1 %.not, label %23, label %lean_inc.exit
+  br i1 %6, label %lean_inc.exit, label %23
 
 23:                                               ; preds = %lean_dec.exit
   %.val.i13 = load i32, ptr %4, align 4, !tbaa !7
@@ -728,9 +711,8 @@ define nonnull ptr @l_Lake_getIsOldMode___rarg___lambda__1___boxed(ptr noundef %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 1, !tbaa !4
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !7
@@ -770,9 +752,8 @@ define ptr @l_Lake_getTrustHash___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit11
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit11, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -794,9 +775,8 @@ define ptr @l_Lake_getTrustHash___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not16 = icmp eq i64 %14, 0
-  br i1 %.not16, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit11
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -818,7 +798,7 @@ lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_inc.exit11
   %22 = load ptr, ptr @l_Lake_getBuildConfig___rarg___closed__1, align 8, !tbaa !11
-  br i1 %.not, label %23, label %lean_inc.exit
+  br i1 %6, label %lean_inc.exit, label %23
 
 23:                                               ; preds = %lean_dec.exit
   %.val.i13 = load i32, ptr %4, align 4, !tbaa !7
@@ -874,9 +854,8 @@ define nonnull ptr @l_Lake_getTrustHash___rarg___lambda__1___boxed(ptr noundef %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1, !tbaa !4
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !7
@@ -916,9 +895,8 @@ define ptr @l_Lake_getNoBuild___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit11
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit11, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -940,9 +918,8 @@ define ptr @l_Lake_getNoBuild___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not16 = icmp eq i64 %14, 0
-  br i1 %.not16, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit11
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -964,7 +941,7 @@ lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_inc.exit11
   %22 = load ptr, ptr @l_Lake_getBuildConfig___rarg___closed__1, align 8, !tbaa !11
-  br i1 %.not, label %23, label %lean_inc.exit
+  br i1 %6, label %lean_inc.exit, label %23
 
 23:                                               ; preds = %lean_dec.exit
   %.val.i13 = load i32, ptr %4, align 4, !tbaa !7
@@ -1020,9 +997,8 @@ define nonnull ptr @l_Lake_getNoBuild___rarg___lambda__1___boxed(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 1, !tbaa !4
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !7
@@ -1062,9 +1038,8 @@ define ptr @l_Lake_getVerbosity___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit11
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit11, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -1086,9 +1061,8 @@ define ptr @l_Lake_getVerbosity___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not16 = icmp eq i64 %14, 0
-  br i1 %.not16, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit11
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -1110,7 +1084,7 @@ lean_inc.exit11:                                  ; preds = %12, %11, %9, %2
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_inc.exit11
   %22 = load ptr, ptr @l_Lake_getBuildConfig___rarg___closed__1, align 8, !tbaa !11
-  br i1 %.not, label %23, label %lean_inc.exit
+  br i1 %6, label %lean_inc.exit, label %23
 
 23:                                               ; preds = %lean_dec.exit
   %.val.i13 = load i32, ptr %4, align 4, !tbaa !7
@@ -1166,9 +1140,8 @@ define nonnull ptr @l_Lake_getVerbosity___rarg___lambda__1___boxed(ptr noundef %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %3 = load i8, ptr %2, align 1, !tbaa !4
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !7
@@ -1207,9 +1180,8 @@ define ptr @l_Lake_getIsVerbose___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit16
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit16, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -1231,9 +1203,8 @@ define ptr @l_Lake_getIsVerbose___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit16:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not24 = icmp eq i64 %14, 0
-  br i1 %.not24, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit16
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -1255,7 +1226,7 @@ lean_inc.exit16:                                  ; preds = %12, %11, %9, %2
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_inc.exit16
   %22 = load ptr, ptr @l_Lake_getBuildConfig___rarg___closed__1, align 8, !tbaa !11
-  br i1 %.not, label %23, label %lean_inc.exit15
+  br i1 %6, label %lean_inc.exit15, label %23
 
 23:                                               ; preds = %lean_dec.exit
   %.val.i18 = load i32, ptr %4, align 4, !tbaa !7
@@ -1336,9 +1307,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lake_getIsVerbose___rarg___lambda__1___boxed(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !7
@@ -1380,9 +1350,8 @@ define ptr @l_Lake_getIsQuiet___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit16
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit16, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !7
@@ -1404,9 +1373,8 @@ define ptr @l_Lake_getIsQuiet___rarg(ptr noundef %0, ptr noundef %1) #0 {
 
 lean_inc.exit16:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not24 = icmp eq i64 %14, 0
-  br i1 %.not24, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit16
   %16 = load i32, ptr %0, align 4, !tbaa !7
@@ -1428,7 +1396,7 @@ lean_inc.exit16:                                  ; preds = %12, %11, %9, %2
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %lean_inc.exit16
   %22 = load ptr, ptr @l_Lake_getBuildConfig___rarg___closed__1, align 8, !tbaa !11
-  br i1 %.not, label %23, label %lean_inc.exit15
+  br i1 %6, label %lean_inc.exit15, label %23
 
 23:                                               ; preds = %lean_dec.exit
   %.val.i18 = load i32, ptr %4, align 4, !tbaa !7
@@ -1509,9 +1477,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lake_getIsQuiet___rarg___lambda__1___boxed(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !7

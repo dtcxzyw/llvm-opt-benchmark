@@ -2735,17 +2735,17 @@ _ZN12_GLOBAL__N_112ModuleLinker17getLinkedToGlobalEPKN4llvm11GlobalValueE.exit: 
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 15
   %69 = icmp eq i32 %68, 10
-  %.pre132 = load i32, ptr %38, align 8
-  %70 = and i32 %.pre132, 15
+  %.pre131 = load i32, ptr %38, align 8
+  %70 = and i32 %.pre131, 15
   %71 = icmp eq i32 %70, 10
-  %or.cond146 = select i1 %69, i1 %71, i1 false
-  br i1 %or.cond146, label %72, label %86
+  %or.cond145 = select i1 %69, i1 %71, i1 false
+  br i1 %or.cond145, label %72, label %86
 
 72:                                               ; preds = %65
   %73 = lshr i32 %67, 17
   %74 = and i32 %73, 63
   %.not.i.i = icmp ne i32 %74, 0
-  %75 = lshr i32 %.pre132, 17
+  %75 = lshr i32 %.pre131, 17
   %76 = and i32 %75, 63
   %.not.i.i72 = icmp ne i32 %76, 0
   %or.cond120 = select i1 %.not.i.i, i1 true, i1 %.not.i.i72
@@ -2771,7 +2771,7 @@ _ZN12_GLOBAL__N_112ModuleLinker17getLinkedToGlobalEPKN4llvm11GlobalValueE.exit: 
   br label %86
 
 86:                                               ; preds = %65, %85, %43
-  %87 = phi i32 [ %.pre132, %65 ], [ %39, %43 ], [ %.pre, %85 ]
+  %87 = phi i32 [ %.pre131, %65 ], [ %39, %43 ], [ %.pre, %85 ]
   %88 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %89 = load i32, ptr %88, align 8
   %90 = lshr i32 %89, 4
@@ -2851,9 +2851,8 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit84: ; preds = %_
   br label %134
 
 .critedge:                                        ; preds = %37
-  %128 = and i32 %.val65, 1
-  %.not125 = icmp eq i32 %128, 0
-  br i1 %.not125, label %129, label %134
+  %128 = trunc i32 %.val65 to i1
+  br i1 %128, label %134, label %129
 
 129:                                              ; preds = %.critedge
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3011,11 +3010,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12
 
 192:                                              ; preds = %190
   %193 = icmp eq i32 %.0116, 2
-  %.pre133 = load i8, ptr %7, align 1, !tbaa !266, !range !249
+  %.pre132 = load i8, ptr %7, align 1, !tbaa !266, !range !249
   br i1 %193, label %194, label %.thread117
 
 194:                                              ; preds = %192
-  %195 = trunc nuw i8 %.pre133 to i1
+  %195 = trunc nuw i8 %.pre132 to i1
   %196 = select i1 %195, ptr %.0.i, ptr %1
   %197 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %198 = load i32, ptr %197, align 8, !tbaa !19
@@ -3045,7 +3044,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit: ; 
   br label %.thread117
 
 .thread117:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit, %192
-  %212 = trunc nuw i8 %.pre133 to i1
+  %212 = trunc nuw i8 %.pre132 to i1
   br i1 %212, label %.thread117.thread, label %234
 
 .thread117.thread:                                ; preds = %.critedge64, %.thread117
@@ -3203,9 +3202,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ModuleLinker20shou
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val44 = load i32, ptr %10, align 8, !tbaa !21
-  %11 = and i32 %.val44, 1
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %13, label %12
+  %11 = trunc i32 %.val44 to i1
+  br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
   store i8 1, ptr %1, align 1, !tbaa !266

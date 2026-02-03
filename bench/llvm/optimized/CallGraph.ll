@@ -3278,34 +3278,33 @@ _ZN5clang9CallGraph14includeInGraphEPKNS_4DeclE.exit: ; preds = %16, %22, %_ZNK4
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %40 = load i8, ptr %39, align 8, !tbaa !92
-  %41 = and i8 %40, 1
-  %42 = icmp ne i8 %41, 0
-  %43 = load ptr, ptr %39, align 8
-  %44 = icmp ne ptr %43, null
-  %45 = select i1 %42, i1 true, i1 %44
-  %46 = and i32 %31, 16384
-  %47 = icmp ne i32 %46, 0
-  %or.cond3.i = or i1 %47, %45
-  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %48
+  %41 = trunc i8 %40 to i1
+  %42 = load ptr, ptr %39, align 8
+  %43 = icmp ne ptr %42, null
+  %44 = select i1 %41, i1 true, i1 %43
+  %45 = and i32 %31, 16384
+  %46 = icmp ne i32 %45, 0
+  %or.cond3.i = or i1 %46, %44
+  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %47
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i: ; preds = %36
   %.old.i = and i32 %31, 16384
   %.old2.not.i = icmp eq i32 %.old.i, 0
-  br i1 %.old2.not.i, label %48, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
+  br i1 %.old2.not.i, label %47, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
-48:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %38
-  %49 = and i32 %31, 3145728
-  %or.cond6.not.i = icmp eq i32 %49, 0
+47:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %38
+  %48 = and i32 %31, 3145728
+  %or.cond6.not.i = icmp eq i32 %48, 0
   br i1 %or.cond6.not.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
-_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %48
-  %50 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
-  br i1 %50, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %_ZN5clang9CallGraph14includeInGraphEPKNS_4DeclE.exit.thread
+_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %47
+  %49 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
+  br i1 %49, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %_ZN5clang9CallGraph14includeInGraphEPKNS_4DeclE.exit.thread
 
-_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %_ZN5clang9CallGraph14includeInGraphEPKNS_4DeclE.exit, %38, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %48, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  tail call void @_ZN5clang9CallGraph17addNodesForBlocksEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %51)
-  %52 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl8isGlobalEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
+_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %_ZN5clang9CallGraph14includeInGraphEPKNS_4DeclE.exit, %38, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %47, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  tail call void @_ZN5clang9CallGraph17addNodesForBlocksEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %50)
+  %51 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl8isGlobalEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #18
   tail call void @_ZN5clang9CallGraph14addNodeForDeclEPNS_4DeclEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, i1 zeroext poison)
   br label %_ZN5clang9CallGraph14includeInGraphEPKNS_4DeclE.exit.thread
 

@@ -476,22 +476,21 @@ define internal noundef i32 @au_write_trailer(ptr noundef readonly captures(none
   %7 = load ptr, ptr %2, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load i32, ptr %8, align 8, !tbaa !65
-  %10 = and i32 %9, 1
-  %11 = icmp ne i32 %10, 0
-  %12 = icmp slt i64 %6, 2147483647
-  %or.cond = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %19
+  %10 = trunc i32 %9 to i1
+  %11 = icmp slt i64 %6, 2147483647
+  %or.cond = select i1 %10, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %18
 
-13:                                               ; preds = %1
-  %14 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 8, i32 noundef 0) #6
-  %15 = load i32, ptr %5, align 4, !tbaa !62
-  %16 = trunc i64 %6 to i32
-  %17 = sub i32 %16, %15
-  tail call void @avio_wb32(ptr noundef %3, i32 noundef %17) #6
-  %18 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef %6, i32 noundef 0) #6
-  br label %19
+12:                                               ; preds = %1
+  %13 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 8, i32 noundef 0) #6
+  %14 = load i32, ptr %5, align 4, !tbaa !62
+  %15 = trunc i64 %6 to i32
+  %16 = sub i32 %15, %14
+  tail call void @avio_wb32(ptr noundef %3, i32 noundef %16) #6
+  %17 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef %6, i32 noundef 0) #6
+  br label %18
 
-19:                                               ; preds = %13, %1
+18:                                               ; preds = %12, %1
   ret i32 0
 }
 

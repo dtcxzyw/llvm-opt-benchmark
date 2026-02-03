@@ -412,255 +412,253 @@ define internal i32 @heapam_tuple_lock(ptr noundef %0, ptr noundef captures(none
   %11 = alloca %struct.SnapshotData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %13 = zext i8 %7 to i32
-  %14 = and i32 %13, 1
-  %15 = icmp ne i32 %14, 0
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  %18 = and i32 %13, 2
-  %.not = icmp ne i32 %18, 0
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %20 = getelementptr i8, ptr %1, i64 4
-  %21 = getelementptr i8, ptr %1, i64 2
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %25 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %15, ptr noundef nonnull %10, ptr noundef nonnull %8) #10
-  %.not123 = icmp eq i32 %25, 3
+  %13 = trunc i8 %7 to i1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 0, ptr %14, align 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 84
+  %16 = and i8 %7, 2
+  %.not = icmp ne i8 %16, 0
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %18 = getelementptr i8, ptr %1, i64 4
+  %19 = getelementptr i8, ptr %1, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  %23 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %13, ptr noundef nonnull %10, ptr noundef nonnull %8) #10
+  %.not123 = icmp eq i32 %23, 3
   %or.cond = select i1 %.not, i1 %.not123, i1 false
   br i1 %or.cond, label %.lr.ph, label %.split122
 
-.lr.ph:                                           ; preds = %9, %120
-  %26 = load i32, ptr %10, align 4
-  call void @ReleaseBuffer(i32 noundef %26) #10
-  %27 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %8, ptr noundef nonnull %17) #10
-  br i1 %27, label %.loopexit, label %28
+.lr.ph:                                           ; preds = %9, %118
+  %24 = load i32, ptr %10, align 4
+  call void @ReleaseBuffer(i32 noundef %24) #10
+  %25 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %8, ptr noundef nonnull %15) #10
+  br i1 %25, label %.loopexit, label %26
 
-28:                                               ; preds = %.lr.ph
+26:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %1, ptr noundef nonnull align 4 dereferenceable(6) %8, i64 6, i1 false)
-  %29 = load i32, ptr %19, align 4
-  store i8 1, ptr %16, align 4
+  %27 = load i32, ptr %17, align 4
+  store i8 1, ptr %14, align 4
   store i32 4, ptr %11, align 8
   br label %.outer
 
-.outer:                                           ; preds = %HeapTupleHeaderGetUpdateXid.exit, %28
-  %.058.ph = phi i32 [ %.0.i, %HeapTupleHeaderGetUpdateXid.exit ], [ %29, %28 ]
-  br label %30
+.outer:                                           ; preds = %HeapTupleHeaderGetUpdateXid.exit, %26
+  %.058.ph = phi i32 [ %.0.i, %HeapTupleHeaderGetUpdateXid.exit ], [ %27, %26 ]
+  br label %28
 
-30:                                               ; preds = %.backedge, %.outer
-  %.val.i = load i16, ptr %20, align 2
-  %31 = icmp eq i16 %.val.i, -3
-  br i1 %31, label %ItemPointerIndicatesMovedPartitions.exit, label %ItemPointerIndicatesMovedPartitions.exit.thread
+28:                                               ; preds = %.backedge, %.outer
+  %.val.i = load i16, ptr %18, align 2
+  %29 = icmp eq i16 %.val.i, -3
+  br i1 %29, label %ItemPointerIndicatesMovedPartitions.exit, label %ItemPointerIndicatesMovedPartitions.exit.thread
 
-ItemPointerIndicatesMovedPartitions.exit:         ; preds = %30
+ItemPointerIndicatesMovedPartitions.exit:         ; preds = %28
   %.val2.i = load i16, ptr %1, align 2
-  %.val3.i = load i16, ptr %21, align 2
-  %32 = zext i16 %.val2.i to i32
-  %33 = shl nuw i32 %32, 16
-  %34 = zext i16 %.val3.i to i32
-  %35 = or disjoint i32 %33, %34
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %37, label %ItemPointerIndicatesMovedPartitions.exit.thread
+  %.val3.i = load i16, ptr %19, align 2
+  %30 = zext i16 %.val2.i to i32
+  %31 = shl nuw i32 %30, 16
+  %32 = zext i16 %.val3.i to i32
+  %33 = or disjoint i32 %31, %32
+  %34 = icmp eq i32 %33, -1
+  br i1 %34, label %35, label %ItemPointerIndicatesMovedPartitions.exit.thread
 
-37:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %39 = call i32 @errcode(i32 noundef 16777220) #10
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
+35:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit
+  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %37 = call i32 @errcode(i32 noundef 16777220) #10
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 411, ptr noundef nonnull @__func__.heapam_tuple_lock) #10
   unreachable
 
-ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %30, %ItemPointerIndicatesMovedPartitions.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %41 = call zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10, i1 noundef zeroext true) #10
-  %42 = load ptr, ptr %22, align 8
-  br i1 %41, label %43, label %95
+ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %28, %ItemPointerIndicatesMovedPartitions.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  %39 = call zeroext i1 @heap_fetch(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10, i1 noundef zeroext true) #10
+  %40 = load ptr, ptr %20, align 8
+  br i1 %39, label %41, label %93
 
-43:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
-  %44 = getelementptr i8, ptr %42, i64 20
-  %.val.i66 = load i16, ptr %44, align 4
-  %45 = and i16 %.val.i66, 768
-  %46 = icmp eq i16 %45, 768
-  br i1 %46, label %HeapTupleHeaderGetXmin.exit, label %47
+41:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
+  %42 = getelementptr i8, ptr %40, i64 20
+  %.val.i66 = load i16, ptr %42, align 4
+  %43 = and i16 %.val.i66, 768
+  %44 = icmp eq i16 %43, 768
+  br i1 %44, label %HeapTupleHeaderGetXmin.exit, label %45
 
-47:                                               ; preds = %43
-  %.val2.i67 = load i32, ptr %42, align 4
+45:                                               ; preds = %41
+  %.val2.i67 = load i32, ptr %40, align 4
   br label %HeapTupleHeaderGetXmin.exit
 
-HeapTupleHeaderGetXmin.exit:                      ; preds = %43, %47
-  %48 = phi i32 [ %.val2.i67, %47 ], [ 2, %43 ]
-  %49 = icmp eq i32 %48, %.058.ph
-  br i1 %49, label %50, label %.thread.sink.split
+HeapTupleHeaderGetXmin.exit:                      ; preds = %41, %45
+  %46 = phi i32 [ %.val2.i67, %45 ], [ 2, %41 ]
+  %47 = icmp eq i32 %46, %.058.ph
+  br i1 %47, label %48, label %.thread.sink.split
 
-50:                                               ; preds = %HeapTupleHeaderGetXmin.exit
-  %51 = load i32, ptr %23, align 4
-  %.not61 = icmp eq i32 %51, 0
-  br i1 %.not61, label %67, label %52
+48:                                               ; preds = %HeapTupleHeaderGetXmin.exit
+  %49 = load i32, ptr %21, align 4
+  %.not61 = icmp eq i32 %49, 0
+  br i1 %.not61, label %65, label %50
 
-52:                                               ; preds = %50
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %54 = call i32 @errcode(i32 noundef 16779816) #10
-  %55 = load i32, ptr %23, align 4
-  %.val64 = load i16, ptr %17, align 2
-  %56 = getelementptr i8, ptr %3, i64 86
-  %.val65 = load i16, ptr %56, align 2
-  %57 = zext i16 %.val64 to i32
-  %58 = shl nuw i32 %57, 16
-  %59 = zext i16 %.val65 to i32
-  %60 = or disjoint i32 %58, %59
-  %61 = getelementptr i8, ptr %3, i64 88
-  %.val = load i16, ptr %61, align 2
-  %62 = zext i16 %.val to i32
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %55, i32 noundef %60, i32 noundef %62, ptr noundef nonnull %65) #10
+50:                                               ; preds = %48
+  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %52 = call i32 @errcode(i32 noundef 16779816) #10
+  %53 = load i32, ptr %21, align 4
+  %.val64 = load i16, ptr %15, align 2
+  %54 = getelementptr i8, ptr %3, i64 86
+  %.val65 = load i16, ptr %54, align 2
+  %55 = zext i16 %.val64 to i32
+  %56 = shl nuw i32 %55, 16
+  %57 = zext i16 %.val65 to i32
+  %58 = or disjoint i32 %56, %57
+  %59 = getelementptr i8, ptr %3, i64 88
+  %.val = load i16, ptr %59, align 2
+  %60 = zext i16 %.val to i32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %53, i32 noundef %58, i32 noundef %60, ptr noundef nonnull %63) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 441, ptr noundef nonnull @__func__.heapam_tuple_lock) #10
   unreachable
 
-67:                                               ; preds = %50
-  %68 = load i32, ptr %24, align 8
-  %.not62 = icmp eq i32 %68, 0
-  br i1 %.not62, label %86, label %69
+65:                                               ; preds = %48
+  %66 = load i32, ptr %22, align 8
+  %.not62 = icmp eq i32 %66, 0
+  br i1 %.not62, label %84, label %67
 
-69:                                               ; preds = %67
-  %70 = load i32, ptr %10, align 4
-  call void @ReleaseBuffer(i32 noundef %70) #10
+67:                                               ; preds = %65
+  %68 = load i32, ptr %10, align 4
+  call void @ReleaseBuffer(i32 noundef %68) #10
   switch i32 %6, label %.backedge [
-    i32 0, label %71
-    i32 1, label %73
-    i32 2, label %76
+    i32 0, label %69
+    i32 1, label %71
+    i32 2, label %74
   ]
 
-71:                                               ; preds = %69
-  %72 = load i32, ptr %24, align 8
-  call void @XactLockTableWait(i32 noundef %72, ptr noundef %0, ptr noundef nonnull %17, i32 noundef 7) #10
+69:                                               ; preds = %67
+  %70 = load i32, ptr %22, align 8
+  call void @XactLockTableWait(i32 noundef %70, ptr noundef %0, ptr noundef nonnull %15, i32 noundef 7) #10
   br label %.backedge
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %24, align 8
-  %75 = call zeroext i1 @ConditionalXactLockTableWait(i32 noundef %74) #10
-  br i1 %75, label %.backedge, label %.thread
+71:                                               ; preds = %67
+  %72 = load i32, ptr %22, align 8
+  %73 = call zeroext i1 @ConditionalXactLockTableWait(i32 noundef %72) #10
+  br i1 %73, label %.backedge, label %.thread
 
-76:                                               ; preds = %69
-  %77 = load i32, ptr %24, align 8
-  %78 = call zeroext i1 @ConditionalXactLockTableWait(i32 noundef %77) #10
-  br i1 %78, label %.backedge, label %79
+74:                                               ; preds = %67
+  %75 = load i32, ptr %22, align 8
+  %76 = call zeroext i1 @ConditionalXactLockTableWait(i32 noundef %75) #10
+  br i1 %76, label %.backedge, label %77
 
-.backedge:                                        ; preds = %76, %73, %71, %69
-  br label %30
+.backedge:                                        ; preds = %74, %71, %69, %67
+  br label %28
 
-79:                                               ; preds = %76
-  %80 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %81 = call i32 @errcode(i32 noundef 50463045) #10
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %85 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %84) #10
+77:                                               ; preds = %74
+  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %79 = call i32 @errcode(i32 noundef 50463045) #10
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %83 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %82) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 467, ptr noundef nonnull @__func__.heapam_tuple_lock) #10
   unreachable
 
-86:                                               ; preds = %67
-  %87 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.058.ph) #10
-  br i1 %87, label %88, label %120
+84:                                               ; preds = %65
+  %85 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.058.ph) #10
+  br i1 %85, label %86, label %118
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr %22, align 8
-  %90 = call i32 @HeapTupleHeaderGetCmin(ptr noundef %89) #10
-  %.not63 = icmp ult i32 %90, %4
-  br i1 %.not63, label %120, label %91
+86:                                               ; preds = %84
+  %87 = load ptr, ptr %20, align 8
+  %88 = call i32 @HeapTupleHeaderGetCmin(ptr noundef %87) #10
+  %.not63 = icmp ult i32 %88, %4
+  br i1 %.not63, label %118, label %89
 
-91:                                               ; preds = %88
-  store i32 %.058.ph, ptr %19, align 4
-  %92 = load ptr, ptr %22, align 8
-  %93 = call i32 @HeapTupleHeaderGetCmin(ptr noundef %92) #10
-  %94 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %93, ptr %94, align 4
+89:                                               ; preds = %86
+  store i32 %.058.ph, ptr %17, align 4
+  %90 = load ptr, ptr %20, align 8
+  %91 = call i32 @HeapTupleHeaderGetCmin(ptr noundef %90) #10
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 %91, ptr %92, align 4
   br label %.thread.sink.split
 
-95:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
-  %96 = icmp eq ptr %42, null
-  br i1 %96, label %.thread, label %97
+93:                                               ; preds = %ItemPointerIndicatesMovedPartitions.exit.thread
+  %94 = icmp eq ptr %40, null
+  br i1 %94, label %.thread, label %95
 
-97:                                               ; preds = %95
-  %98 = getelementptr i8, ptr %42, i64 20
-  %.val.i68 = load i16, ptr %98, align 4
-  %99 = and i16 %.val.i68, 768
-  %100 = icmp eq i16 %99, 768
-  br i1 %100, label %HeapTupleHeaderGetXmin.exit70, label %101
+95:                                               ; preds = %93
+  %96 = getelementptr i8, ptr %40, i64 20
+  %.val.i68 = load i16, ptr %96, align 4
+  %97 = and i16 %.val.i68, 768
+  %98 = icmp eq i16 %97, 768
+  br i1 %98, label %HeapTupleHeaderGetXmin.exit70, label %99
 
-101:                                              ; preds = %97
-  %.val2.i69 = load i32, ptr %42, align 4
+99:                                               ; preds = %95
+  %.val2.i69 = load i32, ptr %40, align 4
   br label %HeapTupleHeaderGetXmin.exit70
 
-HeapTupleHeaderGetXmin.exit70:                    ; preds = %97, %101
-  %102 = phi i32 [ %.val2.i69, %101 ], [ 2, %97 ]
-  %103 = icmp eq i32 %102, %.058.ph
-  br i1 %103, label %104, label %.thread.sink.split
+HeapTupleHeaderGetXmin.exit70:                    ; preds = %95, %99
+  %100 = phi i32 [ %.val2.i69, %99 ], [ 2, %95 ]
+  %101 = icmp eq i32 %100, %.058.ph
+  br i1 %101, label %102, label %.thread.sink.split
 
-104:                                              ; preds = %HeapTupleHeaderGetXmin.exit70
-  %105 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %106 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %17, ptr noundef nonnull %105) #10
-  br i1 %106, label %.thread.sink.split, label %107
+102:                                              ; preds = %HeapTupleHeaderGetXmin.exit70
+  %103 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %104 = call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %15, ptr noundef nonnull %103) #10
+  br i1 %104, label %.thread.sink.split, label %105
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %22, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %1, ptr noundef nonnull align 4 dereferenceable(6) %109, i64 6, i1 false)
-  %110 = load ptr, ptr %22, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 20
-  %112 = load i16, ptr %111, align 4
-  %113 = and i16 %112, 6272
-  %or.cond7.i = icmp eq i16 %113, 4096
-  br i1 %or.cond7.i, label %114, label %116
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %20, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %1, ptr noundef nonnull align 4 dereferenceable(6) %107, i64 6, i1 false)
+  %108 = load ptr, ptr %20, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 20
+  %110 = load i16, ptr %109, align 4
+  %111 = and i16 %110, 6272
+  %or.cond7.i = icmp eq i16 %111, 4096
+  br i1 %or.cond7.i, label %112, label %114
 
-114:                                              ; preds = %107
-  %115 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %110) #10
+112:                                              ; preds = %105
+  %113 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %108) #10
   br label %HeapTupleHeaderGetUpdateXid.exit
 
-116:                                              ; preds = %107
-  %117 = getelementptr i8, ptr %110, i64 4
-  %.val.i71 = load i32, ptr %117, align 4
+114:                                              ; preds = %105
+  %115 = getelementptr i8, ptr %108, i64 4
+  %.val.i71 = load i32, ptr %115, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit
 
-HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %114, %116
-  %.0.i = phi i32 [ %.val.i71, %116 ], [ %115, %114 ]
-  %118 = load i32, ptr %10, align 4
-  call void @ReleaseBuffer(i32 noundef %118) #10
+HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %112, %114
+  %.0.i = phi i32 [ %.val.i71, %114 ], [ %113, %112 ]
+  %116 = load i32, ptr %10, align 4
+  call void @ReleaseBuffer(i32 noundef %116) #10
   br label %.outer
 
-.thread.sink.split:                               ; preds = %104, %HeapTupleHeaderGetXmin.exit70, %HeapTupleHeaderGetXmin.exit, %91
-  %.1.ph.ph = phi i32 [ 2, %91 ], [ 4, %HeapTupleHeaderGetXmin.exit ], [ 4, %HeapTupleHeaderGetXmin.exit70 ], [ 4, %104 ]
-  %119 = load i32, ptr %10, align 4
-  call void @ReleaseBuffer(i32 noundef %119) #10
+.thread.sink.split:                               ; preds = %102, %HeapTupleHeaderGetXmin.exit70, %HeapTupleHeaderGetXmin.exit, %89
+  %.1.ph.ph = phi i32 [ 2, %89 ], [ 4, %HeapTupleHeaderGetXmin.exit ], [ 4, %HeapTupleHeaderGetXmin.exit70 ], [ 4, %102 ]
+  %117 = load i32, ptr %10, align 4
+  call void @ReleaseBuffer(i32 noundef %117) #10
   br label %.thread
 
-.thread:                                          ; preds = %95, %73, %.thread.sink.split
-  %.1.ph = phi i32 [ %.1.ph.ph, %.thread.sink.split ], [ 6, %73 ], [ 4, %95 ]
+.thread:                                          ; preds = %93, %71, %.thread.sink.split
+  %.1.ph = phi i32 [ %.1.ph.ph, %.thread.sink.split ], [ 6, %71 ], [ 4, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-120:                                              ; preds = %86, %88
-  %121 = load i32, ptr %10, align 4
-  call void @ReleaseBuffer(i32 noundef %121) #10
+118:                                              ; preds = %84, %86
+  %119 = load i32, ptr %10, align 4
+  call void @ReleaseBuffer(i32 noundef %119) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %17, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %122 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %15, ptr noundef nonnull %10, ptr noundef nonnull %8) #10
-  %.not124 = icmp eq i32 %122, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
+  %120 = call i32 @heap_lock_tuple(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %13, ptr noundef nonnull %10, ptr noundef nonnull %8) #10
+  %.not124 = icmp eq i32 %120, 3
   br i1 %.not124, label %.lr.ph, label %.split122
 
-.split122:                                        ; preds = %120, %9
-  %.us-phi = phi i32 [ %25, %9 ], [ %122, %120 ]
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %124 = load i32, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 %124, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i32 %124, ptr %126, align 4
-  %127 = load i32, ptr %10, align 4
-  %128 = call ptr @ExecStorePinnedBufferHeapTuple(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef %127) #10
+.split122:                                        ; preds = %118, %9
+  %.us-phi = phi i32 [ %23, %9 ], [ %120, %118 ]
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %122 = load i32, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i32 %122, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 92
+  store i32 %122, ptr %124, align 4
+  %125 = load i32, ptr %10, align 4
+  %126 = call ptr @ExecStorePinnedBufferHeapTuple(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef %125) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread, %.split122

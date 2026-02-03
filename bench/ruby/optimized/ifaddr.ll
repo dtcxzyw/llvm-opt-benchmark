@@ -136,9 +136,8 @@ get_ifaddrs.exit:                                 ; preds = %1
   br label %rb_class_of.exit
 
 18:                                               ; preds = %15
-  %19 = and i64 %0, 1
-  %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %20, label %rb_class_of.exit
+  %19 = trunc i64 %0 to i1
+  br i1 %19, label %rb_class_of.exit, label %20
 
 20:                                               ; preds = %18
   %21 = and i64 %0, 254
@@ -163,8 +162,8 @@ rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, 
 31:                                               ; preds = %rb_class_of.exit
   %32 = zext i32 %30 to i64
   %33 = and i64 %32, 1
-  %.not.i38 = icmp eq i64 %33, 0
-  br i1 %.not.i38, label %37, label %34
+  %.not.i = icmp eq i64 %33, 0
+  br i1 %.not.i, label %37, label %34
 
 34:                                               ; preds = %31
   %35 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.11) #7
@@ -173,19 +172,19 @@ rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, 
 
 37:                                               ; preds = %34, %31
   %.067.i = phi i64 [ %36, %34 ], [ %32, %31 ]
-  %.0.i39 = phi ptr [ @.str.19, %34 ], [ @.str.11, %31 ]
+  %.0.i38 = phi ptr [ @.str.19, %34 ], [ @.str.11, %31 ]
   %38 = and i64 %.067.i, 2
   %.not83.i = icmp eq i64 %38, 0
   br i1 %.not83.i, label %42, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0.i39) #7
+  %40 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %7, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0.i38) #7
   %41 = and i64 %.067.i, 4294967293
   br label %42
 
 42:                                               ; preds = %39, %37
   %.168.i = phi i64 [ %41, %39 ], [ %.067.i, %37 ]
-  %.1.i = phi ptr [ @.str.19, %39 ], [ %.0.i39, %37 ]
+  %.1.i = phi ptr [ @.str.19, %39 ], [ %.0.i38, %37 ]
   %43 = and i64 %.168.i, 4
   %.not84.i = icmp eq i64 %43, 0
   br i1 %.not84.i, label %47, label %44

@@ -386,15 +386,13 @@ define hidden noundef zeroext i1 @upb_Arena_Fuse(ptr noundef %0, ptr noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !17
-  %7 = and i64 %.val, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %_upb_Arena_FixupRefs.exit.thread
+  %7 = trunc i64 %.val to i1
+  br i1 %7, label %_upb_Arena_FixupRefs.exit.thread, label %8
 
 8:                                                ; preds = %4
   %.val15 = load i64, ptr %6, align 8, !tbaa !17
-  %9 = and i64 %.val15, 1
-  %.not26 = icmp eq i64 %9, 0
-  br i1 %.not26, label %.preheader, label %_upb_Arena_FixupRefs.exit.thread
+  %9 = trunc i64 %.val15 to i1
+  br i1 %9, label %_upb_Arena_FixupRefs.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -564,9 +562,8 @@ _upb_Arena_FixupRefs.exit.thread:                 ; preds = %_upb_Arena_DoFuse.e
 define hidden noundef zeroext i1 @upb_Arena_IncRefFor(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val = load i64, ptr %3, align 8, !tbaa !17
-  %4 = and i64 %.val, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %.preheader, label %.loopexit
+  %4 = trunc i64 %.val to i1
+  br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -610,7 +607,8 @@ _upb_Arena_FindRoot.exit:                         ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %27, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %_upb_Arena_FindRoot.exit, %2
-  ret i1 %.not
+  %.0 = xor i1 %4, true
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

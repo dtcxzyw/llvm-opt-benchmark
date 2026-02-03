@@ -816,9 +816,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndex
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = atomicrmw add ptr %9, i32 2 monotonic, align 4
-  %11 = and i32 %10, 1
-  %.not1.i.i = icmp eq i32 %11, 0
-  br i1 %.not1.i.i, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %11 = trunc i32 %10 to i1
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %12
 
 12:                                               ; preds = %7
   store ptr %9, ptr %4, align 8
@@ -867,9 +866,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %_ZN32pxrI
   %37 = and i64 %13, -8
   %38 = inttoptr i64 %37 to ptr
   %39 = atomicrmw add ptr %38, i32 2 monotonic, align 4
-  %40 = and i32 %39, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not1.i.i.i.i.i.i, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %31, align 8
@@ -1068,9 +1066,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %18, %
   %37 = and i64 %34, -8
   %38 = inttoptr i64 %37 to ptr
   %39 = atomicrmw add ptr %38, i32 2 monotonic, align 4
-  %40 = and i32 %39, 1
-  %.not1.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not1.i.i.i.i, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimC2ERKS0_.exit, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %32, align 8
@@ -1424,9 +1421,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdImagingFieldAdapter3GetE
   %19 = and i64 %16, -8
   %20 = inttoptr i64 %19 to ptr
   %21 = atomicrmw add ptr %20, i32 2 monotonic, align 4
-  %22 = and i32 %21, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %22, 0
-  %spec.select.i.i.i.i.i = select i1 %.not1.i.i.i.i.i.i.i, i64 %19, i64 %16
+  %22 = trunc i32 %21 to i1
+  %spec.select.i.i.i.i.i = select i1 %22, i64 %16, i64 %19
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i: ; preds = %18, %.noexc.i.i.i.i
@@ -1449,9 +1445,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i: ; preds = 
   %28 = and i64 %.sroa.0.0.i.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
   %30 = atomicrmw add ptr %29, i32 2 monotonic, align 4
-  %31 = and i32 %30, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %32, label %38
+  %31 = trunc i32 %30 to i1
+  br i1 %31, label %38, label %32
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %23, align 8
@@ -2281,9 +2276,8 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__20UsdImagingIndexProxy12_TypeAn
   %25 = and i64 %22, -8
   %26 = inttoptr i64 %25 to ptr
   %27 = atomicrmw add ptr %26, i32 2 monotonic, align 4
-  %28 = and i32 %27, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not1.i.i.i.i.i, label %29, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i
+  %28 = trunc i32 %27 to i1
+  br i1 %28, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i, label %29
 
 29:                                               ; preds = %24
   store ptr %26, ptr %21, align 8

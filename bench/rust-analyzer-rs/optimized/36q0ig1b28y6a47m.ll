@@ -1314,9 +1314,8 @@ _ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit: ; pred
 
 81:                                               ; preds = %_ZN17crossbeam_channel5waker9SyncWaker8register17h650c3f5d7dc7a75fE.exit
   %82 = load atomic i64, ptr %75 seq_cst, align 128
-  %83 = and i64 %82, 1
-  %.not = icmp eq i64 %83, 0
-  br i1 %.not, label %84, label %78
+  %83 = trunc i64 %82 to i1
+  br i1 %83, label %78, label %84
 
 84:                                               ; preds = %81, %78
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16

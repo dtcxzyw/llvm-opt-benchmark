@@ -839,77 +839,77 @@ _queue_unmark_waiter.exit.i:                      ; preds = %55, %51
 60:                                               ; preds = %58
   %61 = call ptr @_PyXIData_NewObject(ptr noundef nonnull %.05.i) #6
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %67
+  br i1 %62, label %63, label %68
 
 63:                                               ; preds = %60
   %64 = call ptr @PyErr_GetRaisedException() #6
   %65 = call i32 @_PyXIData_ReleaseAndRawFree(ptr noundef nonnull %.05.i) #6
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread.i.i, label %_release_xid_data.exit.i
+  br i1 %66, label %67, label %_release_xid_data.exit.i
 
-.thread.i.i:                                      ; preds = %63
+67:                                               ; preds = %63
   call void @PyErr_Clear() #6
   br label %_release_xid_data.exit.i
 
-_release_xid_data.exit.i:                         ; preds = %.thread.i.i, %63
+_release_xid_data.exit.i:                         ; preds = %67, %63
   call void @PyErr_SetRaisedException(ptr noundef %64) #6
   br label %queue_get.exit
 
-67:                                               ; preds = %60
-  %68 = call i32 @_PyXIData_ReleaseAndRawFree(ptr noundef nonnull %.05.i) #6
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %queue_get.exit
+68:                                               ; preds = %60
+  %69 = call i32 @_PyXIData_ReleaseAndRawFree(ptr noundef nonnull %.05.i) #6
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %queue_get.exit
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %61, align 8, !tbaa !55
-  %.not.i.i = icmp sgt i32 %71, -1
-  br i1 %.not.i.i, label %72, label %queue_get.exit
+71:                                               ; preds = %68
+  %72 = load i32, ptr %61, align 8, !tbaa !55
+  %.not.i.i = icmp sgt i32 %72, -1
+  br i1 %.not.i.i, label %73, label %queue_get.exit
 
-72:                                               ; preds = %70
-  %73 = add nsw i32 %71, -1
-  store i32 %73, ptr %61, align 8, !tbaa !55
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %queue_get.exit
+73:                                               ; preds = %71
+  %74 = add nsw i32 %72, -1
+  store i32 %74, ptr %61, align 8, !tbaa !55
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %queue_get.exit
 
-75:                                               ; preds = %72
+76:                                               ; preds = %73
   call void @_Py_Dealloc(ptr noundef nonnull %61) #6
   br label %queue_get.exit
 
-queue_get.exit:                                   ; preds = %67, %_queues_lookup.exit.i, %_queue_unmark_waiter.exit.i, %58, %_release_xid_data.exit.i, %70, %72, %75
-  %.016 = phi ptr [ null, %_queues_lookup.exit.i ], [ null, %58 ], [ null, %_release_xid_data.exit.i ], [ null, %75 ], [ null, %72 ], [ null, %70 ], [ null, %_queue_unmark_waiter.exit.i ], [ %61, %67 ]
-  %.115 = phi i32 [ 0, %_queues_lookup.exit.i ], [ %.014, %58 ], [ %.014, %_release_xid_data.exit.i ], [ %.014, %75 ], [ %.014, %72 ], [ %.014, %70 ], [ %.014, %_queue_unmark_waiter.exit.i ], [ %.014, %67 ]
-  %.113 = phi i32 [ 0, %_queues_lookup.exit.i ], [ %.012, %58 ], [ %.012, %_release_xid_data.exit.i ], [ %.012, %75 ], [ %.012, %72 ], [ %.012, %70 ], [ %.012, %_queue_unmark_waiter.exit.i ], [ %.012, %67 ]
-  %.0.i = phi i32 [ -14, %_queues_lookup.exit.i ], [ 0, %58 ], [ -1, %_release_xid_data.exit.i ], [ -1, %75 ], [ -1, %72 ], [ -1, %70 ], [ %.0.i21.i, %_queue_unmark_waiter.exit.i ], [ 0, %67 ]
-  %76 = call fastcc i32 @handle_queue_error(i32 noundef %.0.i, ptr noundef %0, i64 noundef %8)
-  %.not8 = icmp eq i32 %76, 0
-  br i1 %.not8, label %77, label %Py_DECREF.exit
+queue_get.exit:                                   ; preds = %68, %_queues_lookup.exit.i, %_queue_unmark_waiter.exit.i, %58, %_release_xid_data.exit.i, %71, %73, %76
+  %.016 = phi ptr [ null, %_queues_lookup.exit.i ], [ null, %58 ], [ null, %_release_xid_data.exit.i ], [ null, %76 ], [ null, %73 ], [ null, %71 ], [ null, %_queue_unmark_waiter.exit.i ], [ %61, %68 ]
+  %.115 = phi i32 [ 0, %_queues_lookup.exit.i ], [ %.014, %58 ], [ %.014, %_release_xid_data.exit.i ], [ %.014, %76 ], [ %.014, %73 ], [ %.014, %71 ], [ %.014, %_queue_unmark_waiter.exit.i ], [ %.014, %68 ]
+  %.113 = phi i32 [ 0, %_queues_lookup.exit.i ], [ %.012, %58 ], [ %.012, %_release_xid_data.exit.i ], [ %.012, %76 ], [ %.012, %73 ], [ %.012, %71 ], [ %.012, %_queue_unmark_waiter.exit.i ], [ %.012, %68 ]
+  %.0.i = phi i32 [ -14, %_queues_lookup.exit.i ], [ 0, %58 ], [ -1, %_release_xid_data.exit.i ], [ -1, %76 ], [ -1, %73 ], [ -1, %71 ], [ %.0.i21.i, %_queue_unmark_waiter.exit.i ], [ 0, %68 ]
+  %77 = call fastcc i32 @handle_queue_error(i32 noundef %.0.i, ptr noundef %0, i64 noundef %8)
+  %.not8 = icmp eq i32 %77, 0
+  br i1 %.not8, label %78, label %Py_DECREF.exit
 
-77:                                               ; preds = %queue_get.exit
-  %78 = icmp eq ptr %.016, null
-  br i1 %78, label %79, label %81
+78:                                               ; preds = %queue_get.exit
+  %79 = icmp eq ptr %.016, null
+  br i1 %79, label %80, label %82
 
-79:                                               ; preds = %77
-  %80 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %.115, i32 noundef %.113) #6
+80:                                               ; preds = %78
+  %81 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, ptr noundef nonnull @_Py_NoneStruct, i32 noundef %.115, i32 noundef %.113) #6
   br label %Py_DECREF.exit
 
-81:                                               ; preds = %77
-  %82 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.40, ptr noundef nonnull %.016, i32 noundef %.115, ptr noundef nonnull @_Py_NoneStruct) #6
-  %83 = load i32, ptr %.016, align 8, !tbaa !55
-  %.not.i = icmp sgt i32 %83, -1
-  br i1 %.not.i, label %84, label %Py_DECREF.exit
+82:                                               ; preds = %78
+  %83 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.40, ptr noundef nonnull %.016, i32 noundef %.115, ptr noundef nonnull @_Py_NoneStruct) #6
+  %84 = load i32, ptr %.016, align 8, !tbaa !55
+  %.not.i = icmp sgt i32 %84, -1
+  br i1 %.not.i, label %85, label %Py_DECREF.exit
 
-84:                                               ; preds = %81
-  %85 = add nsw i32 %83, -1
-  store i32 %85, ptr %.016, align 8, !tbaa !55
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %Py_DECREF.exit
+85:                                               ; preds = %82
+  %86 = add nsw i32 %84, -1
+  store i32 %86, ptr %.016, align 8, !tbaa !55
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %Py_DECREF.exit
 
-87:                                               ; preds = %84
+88:                                               ; preds = %85
   call void @_Py_Dealloc(ptr noundef nonnull %.016) #6
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %79, %queue_get.exit, %81, %84, %87, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %queue_get.exit ], [ %80, %79 ], [ %82, %81 ], [ %82, %84 ], [ %82, %87 ]
+Py_DECREF.exit:                                   ; preds = %80, %queue_get.exit, %82, %85, %88, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %queue_get.exit ], [ %81, %80 ], [ %83, %82 ], [ %83, %85 ], [ %83, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -2365,9 +2365,9 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %25 = lshr i8 %17, 2
   %.lobit110 = and i8 %25, 1
   store i8 %.lobit110, ptr %24, align 1
-  %26 = and i8 %17, 1
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %26, ptr %27, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %27 = and i8 %17, 1
+  store i8 %27, ptr %26, align 4
   %28 = trunc i8 %19 to i1
   %29 = load i32, ptr @proto_canfd, align 4
   %30 = load i32, ptr @proto_can, align 4
@@ -2405,7 +2405,7 @@ define internal fastcc i32 @dissect_1722_acf_can_common(ptr noundef %0, ptr noun
   %.lobit9.i = and i32 %52, 1
   %53 = lshr i32 %48, 1
   %.lobit10.i = and i32 %53, 1
-  %54 = and i32 %48, 1
+  %54 = zext nneg i8 %27 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.431, i32 noundef %47, i32 noundef %.lobit.i, i32 noundef %.lobit7.i, i32 noundef %.lobit8.i, i32 noundef %.lobit9.i, i32 noundef %.lobit10.i, i32 noundef %54)
   call void @proto_tree_add_bitmask_list(ptr noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %39, i32 noundef 0)
   %55 = load i32, ptr @ett_1722_can_bus_id, align 4

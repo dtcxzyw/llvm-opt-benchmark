@@ -4027,9 +4027,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9DbiStream21isIncrementallyLin
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
-  %5 = and i16 %.0.copyload.i.i.i, 1
-  %6 = icmp ne i16 %5, 0
-  ret i1 %6
+  %5 = trunc i16 %.0.copyload.i.i.i to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

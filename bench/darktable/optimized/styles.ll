@@ -1719,7 +1719,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 5:                                                ; preds = %1
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !112
   tail call void @dt_database_release_transaction(ptr noundef %6) #14
-  br label %32
+  br label %31
 
 7:                                                ; preds = %1
   %8 = tail call i32 @g_list_length(ptr noundef nonnull %3) #14
@@ -1736,50 +1736,49 @@ _ask_before_delete_style.exit:                    ; preds = %7
   %12 = tail call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %10, i32 noundef 5) #14
   %13 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %11, ptr noundef %12, i32 noundef %8) #14
   %.not15 = icmp eq i32 %13, 0
-  br i1 %.not15, label %30, label %.critedge.preheader
+  br i1 %.not15, label %29, label %.critedge.preheader
 
 14:                                               ; preds = %.critedge
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !79
-  %16 = and i32 %15, 1
-  %17 = icmp ne i32 %16, 0
-  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3184), align 8
-  %19 = icmp ne i32 %18, 0
-  %or.cond = select i1 %17, i1 %19, i1 false
-  br i1 %or.cond, label %24, label %28
+  %16 = trunc i32 %15 to i1
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3184), align 8
+  %18 = icmp ne i32 %17, 0
+  %or.cond = select i1 %16, i1 %18, i1 false
+  br i1 %or.cond, label %23, label %27
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
-  %.016 = phi ptr [ %23, %.critedge ], [ %3, %.critedge.preheader ]
-  %20 = load ptr, ptr %.016, align 8, !tbaa !53
-  %21 = load ptr, ptr %20, align 8, !tbaa !123
-  tail call void @dt_styles_delete_by_name_adv(ptr noundef %21, i32 noundef 0, i32 noundef 1) #14
-  %22 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !57
-  %.not13 = icmp eq ptr %23, null
+  %.016 = phi ptr [ %22, %.critedge ], [ %3, %.critedge.preheader ]
+  %19 = load ptr, ptr %.016, align 8, !tbaa !53
+  %20 = load ptr, ptr %19, align 8, !tbaa !123
+  tail call void @dt_styles_delete_by_name_adv(ptr noundef %20, i32 noundef 0, i32 noundef 1) #14
+  %21 = getelementptr inbounds nuw i8, ptr %.016, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %14, label %.critedge
 
-24:                                               ; preds = %14
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !80
-  %26 = and i32 %25, 1048576
-  %.not14 = icmp eq i32 %26, 0
-  br i1 %.not14, label %28, label %27
+23:                                               ; preds = %14
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !80
+  %25 = and i32 %24, 1048576
+  %.not14 = icmp eq i32 %25, 0
+  br i1 %.not14, label %27, label %26
 
-27:                                               ; preds = %24
+26:                                               ; preds = %23
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.35, i32 noundef 969, ptr noundef nonnull @__FUNCTION__.gui_reset) #14
-  br label %28
+  br label %27
 
-28:                                               ; preds = %24, %27, %14
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !81
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %29, i32 noundef 13) #14
-  br label %30
+27:                                               ; preds = %23, %26, %14
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !81
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %28, i32 noundef 13) #14
+  br label %29
 
-30:                                               ; preds = %28, %_ask_before_delete_style.exit
+29:                                               ; preds = %27, %_ask_before_delete_style.exit
   tail call void @g_list_free_full(ptr noundef nonnull %3, ptr noundef nonnull @dt_style_free) #14
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !112
-  tail call void @dt_database_release_transaction(ptr noundef %31) #14
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !112
+  tail call void @dt_database_release_transaction(ptr noundef %30) #14
   tail call void @dt_lib_gui_queue_update(ptr noundef %0) #14
-  br label %32
+  br label %31
 
-32:                                               ; preds = %30, %5
+31:                                               ; preds = %29, %5
   ret void
 }
 

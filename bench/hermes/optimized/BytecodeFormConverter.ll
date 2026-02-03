@@ -631,19 +631,19 @@ define internal void @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12By
 entry:
   %bcProvider_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %bcProvider_, align 8
-  %functionCount_.i53 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %1 = load i32, ptr %functionCount_.i53, align 4
-  %cmp54.not = icmp eq i32 %1, 0
-  br i1 %cmp54.not, label %for.end, label %for.body
+  %functionCount_.i52 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %1 = load i32, ptr %functionCount_.i52, align 4
+  %cmp53.not = icmp eq i32 %1, 0
+  br i1 %cmp53.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %19, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %adjDeclareGlobalVar.sroa.0.059 = phi i32 [ %adjDeclareGlobalVar.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjNewArrayWithBufferLong.sroa.0.058 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjNewArrayWithBuffer.sroa.0.057 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjCreateClosureLong.sroa.0.056 = phi i32 [ %adjCreateClosureLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjCreateClosure.sroa.0.055 = phi i16 [ %adjCreateClosure.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjDeclareGlobalVar.sroa.0.058 = phi i32 [ %adjDeclareGlobalVar.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjNewArrayWithBufferLong.sroa.0.057 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjNewArrayWithBuffer.sroa.0.056 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjCreateClosureLong.sroa.0.055 = phi i32 [ %adjCreateClosureLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjCreateClosure.sroa.0.054 = phi i16 [ %adjCreateClosure.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %2, i64 296
   %3 = load ptr, ptr %functionHeaders_.i, align 8
   %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %3, i64 %indvars.iv
@@ -670,45 +670,44 @@ if.then.i:                                        ; preds = %for.body
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit: ; preds = %for.body, %if.then.i
   %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %arrayidx.i, %for.body ]
   %7 = ptrtoint ptr %retval.sroa.0.0.i to i64
-  %and.i.i = and i64 %7, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
+  %tobool.i.i = trunc i64 %7 to i1
   %8 = load ptr, ptr %this, align 8
-  br i1 %tobool.i.not.i, label %if.else.i25, label %if.then.i23
+  br i1 %tobool.i.i, label %if.then.i26, label %if.else.i22
 
-if.then.i23:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 -1
-  %9 = load i32, ptr %add.ptr.i.i18, align 1
-  %conv = zext i32 %9 to i64
+if.then.i26:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
+  %add.ptr.i.i19 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 -1
+  %9 = load i32, ptr %add.ptr.i.i19, align 1
+  %conv37 = zext i32 %9 to i64
   %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i, i64 7
   %10 = load i32, ptr %bytecodeSizeInBytes.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
-if.else.i25:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %bf.load.i19 = load i120, ptr %retval.sroa.0.0.i, align 1
-  %11 = trunc i120 %bf.load.i19 to i64
+if.else.i22:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
+  %bf.load.i17 = load i120, ptr %retval.sroa.0.0.i, align 1
+  %11 = trunc i120 %bf.load.i17 to i64
   %bf.cast.i = and i64 %11, 33554431
-  %bf.lshr.i = lshr i120 %bf.load.i19, 32
+  %bf.lshr.i = lshr i120 %bf.load.i17, 32
   %12 = trunc i120 %bf.lshr.i to i32
-  %bf.cast.i27 = and i32 %12, 32767
+  %bf.cast.i24 = and i32 %12, 32767
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i23, %if.else.i25
-  %conv.pn = phi i64 [ %conv, %if.then.i23 ], [ %bf.cast.i, %if.else.i25 ]
-  %retval.0.i24 = phi i32 [ %10, %if.then.i23 ], [ %bf.cast.i27, %if.else.i25 ]
-  %arrayidx.i2040 = getelementptr inbounds nuw i8, ptr %8, i64 %conv.pn
-  %idx.ext = zext i32 %retval.0.i24 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx.i2040, i64 %idx.ext
-  %cmp942.not = icmp eq i32 %retval.0.i24, 0
-  br i1 %cmp942.not, label %for.inc, label %while.body
+_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i26, %if.else.i22
+  %conv37.pn = phi i64 [ %conv37, %if.then.i26 ], [ %bf.cast.i, %if.else.i22 ]
+  %retval.0.i25 = phi i32 [ %10, %if.then.i26 ], [ %bf.cast.i24, %if.else.i22 ]
+  %arrayidx.i2039 = getelementptr inbounds nuw i8, ptr %8, i64 %conv37.pn
+  %idx.ext = zext i32 %retval.0.i25 to i64
+  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx.i2039, i64 %idx.ext
+  %cmp941.not = icmp eq i32 %retval.0.i25, 0
+  br i1 %cmp941.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit, %sw.epilog
-  %cursor.048 = phi ptr [ %add.ptr29, %sw.epilog ], [ %arrayidx.i2040, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjDeclareGlobalVar.sroa.0.147 = phi i32 [ %adjDeclareGlobalVar.sroa.0.2, %sw.epilog ], [ %adjDeclareGlobalVar.sroa.0.059, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjNewArrayWithBufferLong.sroa.0.146 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBufferLong.sroa.0.058, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjNewArrayWithBuffer.sroa.0.145 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBuffer.sroa.0.057, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjCreateClosureLong.sroa.0.144 = phi i32 [ %adjCreateClosureLong.sroa.0.2, %sw.epilog ], [ %adjCreateClosureLong.sroa.0.056, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjCreateClosure.sroa.0.143 = phi i16 [ %adjCreateClosure.sroa.0.2, %sw.epilog ], [ %adjCreateClosure.sroa.0.055, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %13 = load i8, ptr %cursor.048, align 1
+  %cursor.047 = phi ptr [ %add.ptr29, %sw.epilog ], [ %arrayidx.i2039, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjDeclareGlobalVar.sroa.0.146 = phi i32 [ %adjDeclareGlobalVar.sroa.0.2, %sw.epilog ], [ %adjDeclareGlobalVar.sroa.0.058, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjNewArrayWithBufferLong.sroa.0.145 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBufferLong.sroa.0.057, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjNewArrayWithBuffer.sroa.0.144 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBuffer.sroa.0.056, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjCreateClosureLong.sroa.0.143 = phi i32 [ %adjCreateClosureLong.sroa.0.2, %sw.epilog ], [ %adjCreateClosureLong.sroa.0.055, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjCreateClosure.sroa.0.142 = phi i16 [ %adjCreateClosure.sroa.0.2, %sw.epilog ], [ %adjCreateClosure.sroa.0.054, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %13 = load i8, ptr %cursor.047, align 1
   switch i8 %13, label %sw.epilog [
     i8 5, label %sw.bb
     i8 6, label %sw.bb12
@@ -718,49 +717,49 @@ while.body:                                       ; preds = %_ZNK6hermes3hbc21Ru
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %op4 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 6
+  %op4 = getelementptr inbounds nuw i8, ptr %cursor.047, i64 6
   %14 = load i16, ptr %op4, align 1
-  %conv4.i = sub i16 %14, %adjNewArrayWithBuffer.sroa.0.145
+  %conv4.i = sub i16 %14, %adjNewArrayWithBuffer.sroa.0.144
   store i16 %conv4.i, ptr %op4, align 1
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %while.body
-  %op413 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 6
+  %op413 = getelementptr inbounds nuw i8, ptr %cursor.047, i64 6
   %15 = load i32, ptr %op413, align 1
-  %conv4.i29 = sub i32 %15, %adjNewArrayWithBufferLong.sroa.0.146
-  store i32 %conv4.i29, ptr %op413, align 1
+  %conv4.i28 = sub i32 %15, %adjNewArrayWithBufferLong.sroa.0.145
+  store i32 %conv4.i28, ptr %op413, align 1
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %while.body
-  %op3 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 3
+  %op3 = getelementptr inbounds nuw i8, ptr %cursor.047, i64 3
   %16 = load i16, ptr %op3, align 1
-  %conv4.i31 = sub i16 %16, %adjCreateClosure.sroa.0.143
-  store i16 %conv4.i31, ptr %op3, align 1
+  %conv4.i30 = sub i16 %16, %adjCreateClosure.sroa.0.142
+  store i16 %conv4.i30, ptr %op3, align 1
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %while.body
-  %op320 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 3
+  %op320 = getelementptr inbounds nuw i8, ptr %cursor.047, i64 3
   %17 = load i32, ptr %op320, align 1
-  %conv4.i33 = sub i32 %17, %adjCreateClosureLong.sroa.0.144
-  store i32 %conv4.i33, ptr %op320, align 1
+  %conv4.i32 = sub i32 %17, %adjCreateClosureLong.sroa.0.143
+  store i32 %conv4.i32, ptr %op320, align 1
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %while.body
-  %op1 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 1
+  %op1 = getelementptr inbounds nuw i8, ptr %cursor.047, i64 1
   %18 = load i32, ptr %op1, align 1
-  %conv4.i35 = sub i32 %18, %adjDeclareGlobalVar.sroa.0.147
-  store i32 %conv4.i35, ptr %op1, align 1
+  %conv4.i34 = sub i32 %18, %adjDeclareGlobalVar.sroa.0.146
+  store i32 %conv4.i34, ptr %op1, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.body, %sw.bb23, %sw.bb19, %sw.bb16, %sw.bb12, %sw.bb
-  %adjCreateClosure.sroa.0.2 = phi i16 [ %adjCreateClosure.sroa.0.143, %while.body ], [ %adjCreateClosure.sroa.0.143, %sw.bb ], [ %adjCreateClosure.sroa.0.143, %sw.bb12 ], [ %16, %sw.bb16 ], [ %adjCreateClosure.sroa.0.143, %sw.bb19 ], [ %adjCreateClosure.sroa.0.143, %sw.bb23 ]
-  %adjCreateClosureLong.sroa.0.2 = phi i32 [ %adjCreateClosureLong.sroa.0.144, %while.body ], [ %adjCreateClosureLong.sroa.0.144, %sw.bb ], [ %adjCreateClosureLong.sroa.0.144, %sw.bb12 ], [ %adjCreateClosureLong.sroa.0.144, %sw.bb16 ], [ %17, %sw.bb19 ], [ %adjCreateClosureLong.sroa.0.144, %sw.bb23 ]
-  %adjNewArrayWithBuffer.sroa.0.2 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.145, %while.body ], [ %14, %sw.bb ], [ %adjNewArrayWithBuffer.sroa.0.145, %sw.bb12 ], [ %adjNewArrayWithBuffer.sroa.0.145, %sw.bb16 ], [ %adjNewArrayWithBuffer.sroa.0.145, %sw.bb19 ], [ %adjNewArrayWithBuffer.sroa.0.145, %sw.bb23 ]
-  %adjNewArrayWithBufferLong.sroa.0.2 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.146, %while.body ], [ %adjNewArrayWithBufferLong.sroa.0.146, %sw.bb ], [ %15, %sw.bb12 ], [ %adjNewArrayWithBufferLong.sroa.0.146, %sw.bb16 ], [ %adjNewArrayWithBufferLong.sroa.0.146, %sw.bb19 ], [ %adjNewArrayWithBufferLong.sroa.0.146, %sw.bb23 ]
-  %adjDeclareGlobalVar.sroa.0.2 = phi i32 [ %adjDeclareGlobalVar.sroa.0.147, %while.body ], [ %adjDeclareGlobalVar.sroa.0.147, %sw.bb ], [ %adjDeclareGlobalVar.sroa.0.147, %sw.bb12 ], [ %adjDeclareGlobalVar.sroa.0.147, %sw.bb16 ], [ %adjDeclareGlobalVar.sroa.0.147, %sw.bb19 ], [ %18, %sw.bb23 ]
+  %adjCreateClosure.sroa.0.2 = phi i16 [ %adjCreateClosure.sroa.0.142, %while.body ], [ %adjCreateClosure.sroa.0.142, %sw.bb ], [ %adjCreateClosure.sroa.0.142, %sw.bb12 ], [ %16, %sw.bb16 ], [ %adjCreateClosure.sroa.0.142, %sw.bb19 ], [ %adjCreateClosure.sroa.0.142, %sw.bb23 ]
+  %adjCreateClosureLong.sroa.0.2 = phi i32 [ %adjCreateClosureLong.sroa.0.143, %while.body ], [ %adjCreateClosureLong.sroa.0.143, %sw.bb ], [ %adjCreateClosureLong.sroa.0.143, %sw.bb12 ], [ %adjCreateClosureLong.sroa.0.143, %sw.bb16 ], [ %17, %sw.bb19 ], [ %adjCreateClosureLong.sroa.0.143, %sw.bb23 ]
+  %adjNewArrayWithBuffer.sroa.0.2 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.144, %while.body ], [ %14, %sw.bb ], [ %adjNewArrayWithBuffer.sroa.0.144, %sw.bb12 ], [ %adjNewArrayWithBuffer.sroa.0.144, %sw.bb16 ], [ %adjNewArrayWithBuffer.sroa.0.144, %sw.bb19 ], [ %adjNewArrayWithBuffer.sroa.0.144, %sw.bb23 ]
+  %adjNewArrayWithBufferLong.sroa.0.2 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.145, %while.body ], [ %adjNewArrayWithBufferLong.sroa.0.145, %sw.bb ], [ %15, %sw.bb12 ], [ %adjNewArrayWithBufferLong.sroa.0.145, %sw.bb16 ], [ %adjNewArrayWithBufferLong.sroa.0.145, %sw.bb19 ], [ %adjNewArrayWithBufferLong.sroa.0.145, %sw.bb23 ]
+  %adjDeclareGlobalVar.sroa.0.2 = phi i32 [ %adjDeclareGlobalVar.sroa.0.146, %while.body ], [ %adjDeclareGlobalVar.sroa.0.146, %sw.bb ], [ %adjDeclareGlobalVar.sroa.0.146, %sw.bb12 ], [ %adjDeclareGlobalVar.sroa.0.146, %sw.bb16 ], [ %adjDeclareGlobalVar.sroa.0.146, %sw.bb19 ], [ %18, %sw.bb23 ]
   %call26 = tail call noundef zeroext i8 @_ZN6hermes4inst11getInstSizeENS0_6OpCodeE(i8 noundef zeroext %13) #14
   %idx.ext28 = zext i8 %call26 to i64
-  %add.ptr29 = getelementptr inbounds nuw i8, ptr %cursor.048, i64 %idx.ext28
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %cursor.047, i64 %idx.ext28
   %cmp9 = icmp ult ptr %add.ptr29, %add.ptr
   br i1 %cmp9, label %while.body, label %for.inc.loopexit, !llvm.loop !13
 
@@ -770,11 +769,11 @@ for.inc.loopexit:                                 ; preds = %sw.epilog
 
 for.inc:                                          ; preds = %for.inc.loopexit, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
   %19 = phi ptr [ %2, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %.pre, %for.inc.loopexit ]
-  %adjCreateClosure.sroa.0.1.lcssa = phi i16 [ %adjCreateClosure.sroa.0.055, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosure.sroa.0.2, %for.inc.loopexit ]
-  %adjCreateClosureLong.sroa.0.1.lcssa = phi i32 [ %adjCreateClosureLong.sroa.0.056, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosureLong.sroa.0.2, %for.inc.loopexit ]
-  %adjNewArrayWithBuffer.sroa.0.1.lcssa = phi i16 [ %adjNewArrayWithBuffer.sroa.0.057, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBuffer.sroa.0.2, %for.inc.loopexit ]
-  %adjNewArrayWithBufferLong.sroa.0.1.lcssa = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.058, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBufferLong.sroa.0.2, %for.inc.loopexit ]
-  %adjDeclareGlobalVar.sroa.0.1.lcssa = phi i32 [ %adjDeclareGlobalVar.sroa.0.059, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjDeclareGlobalVar.sroa.0.2, %for.inc.loopexit ]
+  %adjCreateClosure.sroa.0.1.lcssa = phi i16 [ %adjCreateClosure.sroa.0.054, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosure.sroa.0.2, %for.inc.loopexit ]
+  %adjCreateClosureLong.sroa.0.1.lcssa = phi i32 [ %adjCreateClosureLong.sroa.0.055, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosureLong.sroa.0.2, %for.inc.loopexit ]
+  %adjNewArrayWithBuffer.sroa.0.1.lcssa = phi i16 [ %adjNewArrayWithBuffer.sroa.0.056, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBuffer.sroa.0.2, %for.inc.loopexit ]
+  %adjNewArrayWithBufferLong.sroa.0.1.lcssa = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.057, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBufferLong.sroa.0.2, %for.inc.loopexit ]
+  %adjDeclareGlobalVar.sroa.0.1.lcssa = phi i32 [ %adjDeclareGlobalVar.sroa.0.058, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjDeclareGlobalVar.sroa.0.2, %for.inc.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %functionCount_.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   %20 = load i32, ptr %functionCount_.i, align 4
@@ -939,19 +938,19 @@ define internal void @_ZN12_GLOBAL__N_121BytecodeFormConverterILN6hermes3hbc12By
 entry:
   %bcProvider_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %bcProvider_, align 8
-  %functionCount_.i57 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %1 = load i32, ptr %functionCount_.i57, align 4
-  %cmp58.not = icmp eq i32 %1, 0
-  br i1 %cmp58.not, label %for.end, label %for.body
+  %functionCount_.i56 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %1 = load i32, ptr %functionCount_.i56, align 4
+  %cmp57.not = icmp eq i32 %1, 0
+  br i1 %cmp57.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %19, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %adjDeclareGlobalVar.sroa.0.063 = phi i32 [ %adjDeclareGlobalVar.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjNewArrayWithBufferLong.sroa.0.062 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjNewArrayWithBuffer.sroa.0.061 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjCreateClosureLong.sroa.0.060 = phi i32 [ %adjCreateClosureLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
-  %adjCreateClosure.sroa.0.059 = phi i16 [ %adjCreateClosure.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjDeclareGlobalVar.sroa.0.062 = phi i32 [ %adjDeclareGlobalVar.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjNewArrayWithBufferLong.sroa.0.061 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjNewArrayWithBuffer.sroa.0.060 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjCreateClosureLong.sroa.0.059 = phi i32 [ %adjCreateClosureLong.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
+  %adjCreateClosure.sroa.0.058 = phi i16 [ %adjCreateClosure.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %2, i64 296
   %3 = load ptr, ptr %functionHeaders_.i, align 8
   %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %3, i64 %indvars.iv
@@ -978,45 +977,44 @@ if.then.i:                                        ; preds = %for.body
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit: ; preds = %for.body, %if.then.i
   %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %arrayidx.i, %for.body ]
   %7 = ptrtoint ptr %retval.sroa.0.0.i to i64
-  %and.i.i = and i64 %7, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
+  %tobool.i.i = trunc i64 %7 to i1
   %8 = load ptr, ptr %this, align 8
-  br i1 %tobool.i.not.i, label %if.else.i25, label %if.then.i23
+  br i1 %tobool.i.i, label %if.then.i26, label %if.else.i22
 
-if.then.i23:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %add.ptr.i.i18 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 -1
-  %9 = load i32, ptr %add.ptr.i.i18, align 1
-  %conv = zext i32 %9 to i64
+if.then.i26:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
+  %add.ptr.i.i19 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 -1
+  %9 = load i32, ptr %add.ptr.i.i19, align 1
+  %conv41 = zext i32 %9 to i64
   %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i, i64 7
   %10 = load i32, ptr %bytecodeSizeInBytes.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
-if.else.i25:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %bf.load.i19 = load i120, ptr %retval.sroa.0.0.i, align 1
-  %11 = trunc i120 %bf.load.i19 to i64
+if.else.i22:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
+  %bf.load.i17 = load i120, ptr %retval.sroa.0.0.i, align 1
+  %11 = trunc i120 %bf.load.i17 to i64
   %bf.cast.i = and i64 %11, 33554431
-  %bf.lshr.i = lshr i120 %bf.load.i19, 32
+  %bf.lshr.i = lshr i120 %bf.load.i17, 32
   %12 = trunc i120 %bf.lshr.i to i32
-  %bf.cast.i27 = and i32 %12, 32767
+  %bf.cast.i24 = and i32 %12, 32767
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i23, %if.else.i25
-  %conv.pn = phi i64 [ %conv, %if.then.i23 ], [ %bf.cast.i, %if.else.i25 ]
-  %retval.0.i24 = phi i32 [ %10, %if.then.i23 ], [ %bf.cast.i27, %if.else.i25 ]
-  %arrayidx.i2044 = getelementptr inbounds nuw i8, ptr %8, i64 %conv.pn
-  %idx.ext = zext i32 %retval.0.i24 to i64
-  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx.i2044, i64 %idx.ext
-  %cmp946.not = icmp eq i32 %retval.0.i24, 0
-  br i1 %cmp946.not, label %for.inc, label %while.body
+_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i26, %if.else.i22
+  %conv41.pn = phi i64 [ %conv41, %if.then.i26 ], [ %bf.cast.i, %if.else.i22 ]
+  %retval.0.i25 = phi i32 [ %10, %if.then.i26 ], [ %bf.cast.i24, %if.else.i22 ]
+  %arrayidx.i2043 = getelementptr inbounds nuw i8, ptr %8, i64 %conv41.pn
+  %idx.ext = zext i32 %retval.0.i25 to i64
+  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx.i2043, i64 %idx.ext
+  %cmp945.not = icmp eq i32 %retval.0.i25, 0
+  br i1 %cmp945.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit, %sw.epilog
-  %cursor.052 = phi ptr [ %add.ptr29, %sw.epilog ], [ %arrayidx.i2044, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjDeclareGlobalVar.sroa.0.151 = phi i32 [ %adjDeclareGlobalVar.sroa.0.2, %sw.epilog ], [ %adjDeclareGlobalVar.sroa.0.063, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjNewArrayWithBufferLong.sroa.0.150 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBufferLong.sroa.0.062, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjNewArrayWithBuffer.sroa.0.149 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBuffer.sroa.0.061, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjCreateClosureLong.sroa.0.148 = phi i32 [ %adjCreateClosureLong.sroa.0.2, %sw.epilog ], [ %adjCreateClosureLong.sroa.0.060, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %adjCreateClosure.sroa.0.147 = phi i16 [ %adjCreateClosure.sroa.0.2, %sw.epilog ], [ %adjCreateClosure.sroa.0.059, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
-  %13 = load i8, ptr %cursor.052, align 1
+  %cursor.051 = phi ptr [ %add.ptr29, %sw.epilog ], [ %arrayidx.i2043, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjDeclareGlobalVar.sroa.0.150 = phi i32 [ %adjDeclareGlobalVar.sroa.0.2, %sw.epilog ], [ %adjDeclareGlobalVar.sroa.0.062, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjNewArrayWithBufferLong.sroa.0.149 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBufferLong.sroa.0.061, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjNewArrayWithBuffer.sroa.0.148 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.2, %sw.epilog ], [ %adjNewArrayWithBuffer.sroa.0.060, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjCreateClosureLong.sroa.0.147 = phi i32 [ %adjCreateClosureLong.sroa.0.2, %sw.epilog ], [ %adjCreateClosureLong.sroa.0.059, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %adjCreateClosure.sroa.0.146 = phi i16 [ %adjCreateClosure.sroa.0.2, %sw.epilog ], [ %adjCreateClosure.sroa.0.058, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ]
+  %13 = load i8, ptr %cursor.051, align 1
   switch i8 %13, label %sw.epilog [
     i8 5, label %sw.bb
     i8 6, label %sw.bb12
@@ -1026,49 +1024,49 @@ while.body:                                       ; preds = %_ZNK6hermes3hbc21Ru
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %op4 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 6
+  %op4 = getelementptr inbounds nuw i8, ptr %cursor.051, i64 6
   %14 = load i16, ptr %op4, align 1
-  %add.i = add i16 %14, %adjNewArrayWithBuffer.sroa.0.149
+  %add.i = add i16 %14, %adjNewArrayWithBuffer.sroa.0.148
   store i16 %add.i, ptr %op4, align 1
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %while.body
-  %op413 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 6
+  %op413 = getelementptr inbounds nuw i8, ptr %cursor.051, i64 6
   %15 = load i32, ptr %op413, align 1
-  %add.i29 = add i32 %15, %adjNewArrayWithBufferLong.sroa.0.150
-  store i32 %add.i29, ptr %op413, align 1
+  %add.i28 = add i32 %15, %adjNewArrayWithBufferLong.sroa.0.149
+  store i32 %add.i28, ptr %op413, align 1
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %while.body
-  %op3 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 3
+  %op3 = getelementptr inbounds nuw i8, ptr %cursor.051, i64 3
   %16 = load i16, ptr %op3, align 1
-  %add.i32 = add i16 %16, %adjCreateClosure.sroa.0.147
-  store i16 %add.i32, ptr %op3, align 1
+  %add.i31 = add i16 %16, %adjCreateClosure.sroa.0.146
+  store i16 %add.i31, ptr %op3, align 1
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %while.body
-  %op320 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 3
+  %op320 = getelementptr inbounds nuw i8, ptr %cursor.051, i64 3
   %17 = load i32, ptr %op320, align 1
-  %add.i35 = add i32 %17, %adjCreateClosureLong.sroa.0.148
-  store i32 %add.i35, ptr %op320, align 1
+  %add.i34 = add i32 %17, %adjCreateClosureLong.sroa.0.147
+  store i32 %add.i34, ptr %op320, align 1
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %while.body
-  %op1 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 1
+  %op1 = getelementptr inbounds nuw i8, ptr %cursor.051, i64 1
   %18 = load i32, ptr %op1, align 1
-  %add.i38 = add i32 %18, %adjDeclareGlobalVar.sroa.0.151
-  store i32 %add.i38, ptr %op1, align 1
+  %add.i37 = add i32 %18, %adjDeclareGlobalVar.sroa.0.150
+  store i32 %add.i37, ptr %op1, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.body, %sw.bb23, %sw.bb19, %sw.bb16, %sw.bb12, %sw.bb
-  %adjCreateClosure.sroa.0.2 = phi i16 [ %adjCreateClosure.sroa.0.147, %while.body ], [ %adjCreateClosure.sroa.0.147, %sw.bb ], [ %adjCreateClosure.sroa.0.147, %sw.bb12 ], [ %add.i32, %sw.bb16 ], [ %adjCreateClosure.sroa.0.147, %sw.bb19 ], [ %adjCreateClosure.sroa.0.147, %sw.bb23 ]
-  %adjCreateClosureLong.sroa.0.2 = phi i32 [ %adjCreateClosureLong.sroa.0.148, %while.body ], [ %adjCreateClosureLong.sroa.0.148, %sw.bb ], [ %adjCreateClosureLong.sroa.0.148, %sw.bb12 ], [ %adjCreateClosureLong.sroa.0.148, %sw.bb16 ], [ %add.i35, %sw.bb19 ], [ %adjCreateClosureLong.sroa.0.148, %sw.bb23 ]
-  %adjNewArrayWithBuffer.sroa.0.2 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.149, %while.body ], [ %add.i, %sw.bb ], [ %adjNewArrayWithBuffer.sroa.0.149, %sw.bb12 ], [ %adjNewArrayWithBuffer.sroa.0.149, %sw.bb16 ], [ %adjNewArrayWithBuffer.sroa.0.149, %sw.bb19 ], [ %adjNewArrayWithBuffer.sroa.0.149, %sw.bb23 ]
-  %adjNewArrayWithBufferLong.sroa.0.2 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.150, %while.body ], [ %adjNewArrayWithBufferLong.sroa.0.150, %sw.bb ], [ %add.i29, %sw.bb12 ], [ %adjNewArrayWithBufferLong.sroa.0.150, %sw.bb16 ], [ %adjNewArrayWithBufferLong.sroa.0.150, %sw.bb19 ], [ %adjNewArrayWithBufferLong.sroa.0.150, %sw.bb23 ]
-  %adjDeclareGlobalVar.sroa.0.2 = phi i32 [ %adjDeclareGlobalVar.sroa.0.151, %while.body ], [ %adjDeclareGlobalVar.sroa.0.151, %sw.bb ], [ %adjDeclareGlobalVar.sroa.0.151, %sw.bb12 ], [ %adjDeclareGlobalVar.sroa.0.151, %sw.bb16 ], [ %adjDeclareGlobalVar.sroa.0.151, %sw.bb19 ], [ %add.i38, %sw.bb23 ]
+  %adjCreateClosure.sroa.0.2 = phi i16 [ %adjCreateClosure.sroa.0.146, %while.body ], [ %adjCreateClosure.sroa.0.146, %sw.bb ], [ %adjCreateClosure.sroa.0.146, %sw.bb12 ], [ %add.i31, %sw.bb16 ], [ %adjCreateClosure.sroa.0.146, %sw.bb19 ], [ %adjCreateClosure.sroa.0.146, %sw.bb23 ]
+  %adjCreateClosureLong.sroa.0.2 = phi i32 [ %adjCreateClosureLong.sroa.0.147, %while.body ], [ %adjCreateClosureLong.sroa.0.147, %sw.bb ], [ %adjCreateClosureLong.sroa.0.147, %sw.bb12 ], [ %adjCreateClosureLong.sroa.0.147, %sw.bb16 ], [ %add.i34, %sw.bb19 ], [ %adjCreateClosureLong.sroa.0.147, %sw.bb23 ]
+  %adjNewArrayWithBuffer.sroa.0.2 = phi i16 [ %adjNewArrayWithBuffer.sroa.0.148, %while.body ], [ %add.i, %sw.bb ], [ %adjNewArrayWithBuffer.sroa.0.148, %sw.bb12 ], [ %adjNewArrayWithBuffer.sroa.0.148, %sw.bb16 ], [ %adjNewArrayWithBuffer.sroa.0.148, %sw.bb19 ], [ %adjNewArrayWithBuffer.sroa.0.148, %sw.bb23 ]
+  %adjNewArrayWithBufferLong.sroa.0.2 = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.149, %while.body ], [ %adjNewArrayWithBufferLong.sroa.0.149, %sw.bb ], [ %add.i28, %sw.bb12 ], [ %adjNewArrayWithBufferLong.sroa.0.149, %sw.bb16 ], [ %adjNewArrayWithBufferLong.sroa.0.149, %sw.bb19 ], [ %adjNewArrayWithBufferLong.sroa.0.149, %sw.bb23 ]
+  %adjDeclareGlobalVar.sroa.0.2 = phi i32 [ %adjDeclareGlobalVar.sroa.0.150, %while.body ], [ %adjDeclareGlobalVar.sroa.0.150, %sw.bb ], [ %adjDeclareGlobalVar.sroa.0.150, %sw.bb12 ], [ %adjDeclareGlobalVar.sroa.0.150, %sw.bb16 ], [ %adjDeclareGlobalVar.sroa.0.150, %sw.bb19 ], [ %add.i37, %sw.bb23 ]
   %call26 = tail call noundef zeroext i8 @_ZN6hermes4inst11getInstSizeENS0_6OpCodeE(i8 noundef zeroext %13) #14
   %idx.ext28 = zext i8 %call26 to i64
-  %add.ptr29 = getelementptr inbounds nuw i8, ptr %cursor.052, i64 %idx.ext28
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %cursor.051, i64 %idx.ext28
   %cmp9 = icmp ult ptr %add.ptr29, %add.ptr
   br i1 %cmp9, label %while.body, label %for.inc.loopexit, !llvm.loop !15
 
@@ -1078,11 +1076,11 @@ for.inc.loopexit:                                 ; preds = %sw.epilog
 
 for.inc:                                          ; preds = %for.inc.loopexit, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
   %19 = phi ptr [ %2, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %.pre, %for.inc.loopexit ]
-  %adjCreateClosure.sroa.0.1.lcssa = phi i16 [ %adjCreateClosure.sroa.0.059, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosure.sroa.0.2, %for.inc.loopexit ]
-  %adjCreateClosureLong.sroa.0.1.lcssa = phi i32 [ %adjCreateClosureLong.sroa.0.060, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosureLong.sroa.0.2, %for.inc.loopexit ]
-  %adjNewArrayWithBuffer.sroa.0.1.lcssa = phi i16 [ %adjNewArrayWithBuffer.sroa.0.061, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBuffer.sroa.0.2, %for.inc.loopexit ]
-  %adjNewArrayWithBufferLong.sroa.0.1.lcssa = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.062, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBufferLong.sroa.0.2, %for.inc.loopexit ]
-  %adjDeclareGlobalVar.sroa.0.1.lcssa = phi i32 [ %adjDeclareGlobalVar.sroa.0.063, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjDeclareGlobalVar.sroa.0.2, %for.inc.loopexit ]
+  %adjCreateClosure.sroa.0.1.lcssa = phi i16 [ %adjCreateClosure.sroa.0.058, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosure.sroa.0.2, %for.inc.loopexit ]
+  %adjCreateClosureLong.sroa.0.1.lcssa = phi i32 [ %adjCreateClosureLong.sroa.0.059, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjCreateClosureLong.sroa.0.2, %for.inc.loopexit ]
+  %adjNewArrayWithBuffer.sroa.0.1.lcssa = phi i16 [ %adjNewArrayWithBuffer.sroa.0.060, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBuffer.sroa.0.2, %for.inc.loopexit ]
+  %adjNewArrayWithBufferLong.sroa.0.1.lcssa = phi i32 [ %adjNewArrayWithBufferLong.sroa.0.061, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjNewArrayWithBufferLong.sroa.0.2, %for.inc.loopexit ]
+  %adjDeclareGlobalVar.sroa.0.1.lcssa = phi i32 [ %adjDeclareGlobalVar.sroa.0.062, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ %adjDeclareGlobalVar.sroa.0.2, %for.inc.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %functionCount_.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   %20 = load i32, ptr %functionCount_.i, align 4

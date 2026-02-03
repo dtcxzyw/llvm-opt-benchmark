@@ -107,65 +107,64 @@ define i32 @Intb_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unn
   br i1 %.not51, label %.critedge2, label %28
 
 28:                                               ; preds = %24
-  %29 = and i32 %26, 1
-  %.not52 = icmp ne i32 %29, 0
-  %30 = and i32 %26, 134217720
-  %.not77 = icmp eq i32 %30, 0
-  %or.cond = or i1 %.not52, %.not77
+  %.not52 = trunc i32 %26 to i1
+  %29 = and i32 %26, 134217720
+  %.not77 = icmp eq i32 %29, 0
+  %or.cond = or i1 %.not77, %.not52
   br i1 %or.cond, label %.loopexit, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.14768, i64 32
-  %32 = load ptr, ptr %23, align 8, !tbaa !25
-  br label %33
+  %30 = getelementptr inbounds nuw i8, ptr %.14768, i64 32
+  %31 = load ptr, ptr %23, align 8, !tbaa !25
+  br label %32
 
-33:                                               ; preds = %.lr.ph64, %43
-  %34 = phi i32 [ %26, %.lr.ph64 ], [ %44, %43 ]
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next80, %43 ]
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv79
-  %36 = load i32, ptr %35, align 4, !tbaa !26
-  %37 = ashr i32 %36, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %32, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !26
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %42, label %43
+32:                                               ; preds = %.lr.ph64, %42
+  %33 = phi i32 [ %26, %.lr.ph64 ], [ %43, %42 ]
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next80, %42 ]
+  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv79
+  %35 = load i32, ptr %34, align 4, !tbaa !26
+  %36 = ashr i32 %35, 1
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %31, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !26
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %33
-  store i32 -100000000, ptr %39, align 4, !tbaa !26
+41:                                               ; preds = %32
+  store i32 -100000000, ptr %38, align 4, !tbaa !26
   %.pre = load i32, ptr %25, align 4
-  br label %43
+  br label %42
 
-43:                                               ; preds = %33, %42
-  %44 = phi i32 [ %.pre, %42 ], [ %34, %33 ]
+42:                                               ; preds = %32, %41
+  %43 = phi i32 [ %.pre, %41 ], [ %33, %32 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %45 = lshr i32 %44, 3
-  %46 = and i32 %45, 16777215
-  %47 = zext nneg i32 %46 to i64
-  %48 = icmp samesign ult i64 %indvars.iv.next80, %47
-  br i1 %48, label %33, label %.loopexit, !llvm.loop !28
+  %44 = lshr i32 %43, 3
+  %45 = and i32 %44, 16777215
+  %46 = zext nneg i32 %45 to i64
+  %47 = icmp samesign ult i64 %indvars.iv.next80, %46
+  br i1 %47, label %32, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %43, %28
+.loopexit:                                        ; preds = %42, %28
   %.147 = load ptr, ptr %.14768, align 8, !tbaa !21
   %.not50 = icmp eq ptr %.147, null
   br i1 %.not50, label %.critedge2, label %24, !llvm.loop !29
 
 .critedge2:                                       ; preds = %24, %.loopexit, %1
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !30
-  %51 = getelementptr i8, ptr %50, i64 4
-  %.val71 = load i32, ptr %51, align 4, !tbaa !31
-  %52 = icmp sgt i32 %.val71, 0
-  br i1 %52, label %.lr.ph74, label %.critedge4.preheader
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !30
+  %50 = getelementptr i8, ptr %49, i64 4
+  %.val71 = load i32, ptr %50, align 4, !tbaa !31
+  %51 = icmp sgt i32 %.val71, 0
+  br i1 %51, label %.lr.ph74, label %.critedge4.preheader
 
 .lr.ph74:                                         ; preds = %.critedge2
-  %53 = getelementptr i8, ptr %50, i64 8
-  %.val53 = load ptr, ptr %53, align 8, !tbaa !33
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %55 = load ptr, ptr %54, align 8, !tbaa !25
-  br label %56
+  %52 = getelementptr i8, ptr %49, i64 8
+  %.val53 = load ptr, ptr %52, align 8, !tbaa !33
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  br label %55
 
-.critedge4.preheader.loopexit:                    ; preds = %56
+.critedge4.preheader.loopexit:                    ; preds = %55
   %indvars85 = trunc nsw i64 %indvars.iv.next83 to i32
   br label %.critedge4.preheader
 
@@ -173,20 +172,20 @@ define i32 @Intb_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unn
   %.4.lcssa = phi i32 [ 0, %.critedge2 ], [ %indvars85, %.critedge4.preheader.loopexit ]
   ret i32 %.4.lcssa
 
-56:                                               ; preds = %.lr.ph74, %56
-  %indvars.iv82 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next83, %56 ]
+55:                                               ; preds = %.lr.ph74, %55
+  %indvars.iv82 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next83, %55 ]
   %indvars86 = trunc i64 %indvars.iv82 to i32
-  %57 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv82
-  %58 = load i32, ptr %57, align 4, !tbaa !26
+  %56 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv82
+  %57 = load i32, ptr %56, align 4, !tbaa !26
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %59 = xor i32 %indvars86, -1
-  %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds i32, ptr %55, i64 %60
-  store i32 %59, ptr %61, align 4, !tbaa !26
-  %.val = load i32, ptr %51, align 4, !tbaa !31
-  %62 = sext i32 %.val to i64
-  %63 = icmp slt i64 %indvars.iv.next83, %62
-  br i1 %63, label %56, label %.critedge4.preheader.loopexit, !llvm.loop !34
+  %58 = xor i32 %indvars86, -1
+  %59 = sext i32 %57 to i64
+  %60 = getelementptr inbounds i32, ptr %54, i64 %59
+  store i32 %58, ptr %60, align 4, !tbaa !26
+  %.val = load i32, ptr %50, align 4, !tbaa !31
+  %61 = sext i32 %.val to i64
+  %62 = icmp slt i64 %indvars.iv.next83, %61
+  br i1 %62, label %55, label %.critedge4.preheader.loopexit, !llvm.loop !34
 }
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable

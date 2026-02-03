@@ -2777,49 +2777,48 @@ blf_read_bytes.exit:                              ; preds = %15
   store i8 %23, ptr %21, align 1
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 13
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
-  %.not = icmp ne i8 %26, 0
-  %27 = zext nneg i8 %23 to i64
-  %28 = lshr i8 %25, 1
-  %29 = and i8 %28, 3
-  %30 = or disjoint i8 %29, 4
+  %.not = trunc i8 %25 to i1
+  %26 = zext nneg i8 %23 to i64
+  %27 = lshr i8 %25, 1
+  %28 = and i8 %27, 3
+  %29 = or disjoint i8 %28, 4
   %.033.in.v = select i1 %.not, ptr @canfd_dlc_to_length, ptr @can_dlc_to_length
-  %.033.in = getelementptr i8, ptr %.033.in.v, i64 %27
-  %.0 = select i1 %.not, i8 %30, i8 0
+  %.033.in = getelementptr i8, ptr %.033.in.v, i64 %26
+  %.0 = select i1 %.not, i8 %29, i8 0
   %.033 = load i8, ptr %.033.in, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  %32 = load i8, ptr %31, align 2
-  %spec.select = call i8 @llvm.umin.i8(i8 %.033, i8 %32)
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %36 = load i8, ptr %35, align 2
-  %.not38 = icmp sgt i8 %36, -1
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 14
+  %31 = load i8, ptr %30, align 2
+  %spec.select = call i8 @llvm.umin.i8(i8 %.033, i8 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %35 = load i8, ptr %34, align 2
+  %.not38 = icmp sgt i8 %35, -1
   %or.cond = select i1 %.not, i1 true, i1 %.not38
-  %37 = or i32 %34, 1073741824
-  %.034 = select i1 %or.cond, i32 %34, i32 %37
+  %36 = or i32 %33, 1073741824
+  %.034 = select i1 %or.cond, i32 %33, i32 %36
   %.2 = select i1 %or.cond, i8 %spec.select, i8 0
-  %38 = zext i8 %.2 to i64
-  %39 = sub i64 %5, %10
-  %40 = add i64 %39, 20
-  %41 = icmp ult i64 %40, %38
-  %42 = trunc i64 %39 to i8
-  %.032 = select i1 %41, i8 %42, i8 %.2
-  %43 = add i64 %4, 20
-  %44 = load i16, ptr %9, align 4
-  %45 = call fastcc zeroext i1 @blf_can_fill_buf_and_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.034, i8 noundef zeroext %.2, i8 noundef zeroext %.032, i64 noundef %43, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %44, i8 noundef zeroext %.0)
-  br i1 %45, label %blf_add_direction_option.exit, label %blf_read_bytes.exit.thread
+  %37 = zext i8 %.2 to i64
+  %38 = sub i64 %5, %10
+  %39 = add i64 %38, 20
+  %40 = icmp ult i64 %39, %37
+  %41 = trunc i64 %38 to i8
+  %.032 = select i1 %40, i8 %41, i8 %.2
+  %42 = add i64 %4, 20
+  %43 = load i16, ptr %9, align 4
+  %44 = call fastcc zeroext i1 @blf_can_fill_buf_and_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.034, i8 noundef zeroext %.2, i8 noundef zeroext %.032, i64 noundef %42, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %43, i8 noundef zeroext %.0)
+  br i1 %44, label %blf_add_direction_option.exit, label %blf_read_bytes.exit.thread
 
 blf_add_direction_option.exit:                    ; preds = %blf_read_bytes.exit
-  %46 = load i8, ptr %35, align 2
-  %47 = and i8 %46, 1
-  %48 = icmp eq i8 %47, 0
-  %. = select i1 %48, i32 1, i32 2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 232
-  %52 = load ptr, ptr %51, align 8
-  %53 = call i32 @wtap_block_add_uint32_option(ptr noundef %52, i32 noundef 2, i32 noundef %.)
+  %45 = load i8, ptr %34, align 2
+  %46 = and i8 %45, 1
+  %47 = icmp eq i8 %46, 0
+  %. = select i1 %47, i32 1, i32 2
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 232
+  %51 = load ptr, ptr %50, align 8
+  %52 = call i32 @wtap_block_add_uint32_option(ptr noundef %51, i32 noundef 2, i32 noundef %.)
   br label %blf_read_bytes.exit.thread
 
 blf_read_bytes.exit.thread:                       ; preds = %20, %17, %blf_read_bytes.exit, %blf_add_direction_option.exit, %13
@@ -3274,117 +3273,116 @@ blf_read_bytes.exit:                              ; preds = %16
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %36 = load i16, ptr %35, align 4
   %37 = and i16 %36, 27
-  %.not = icmp eq i16 %37, 8
-  br i1 %.not, label %52, label %38
+  %.not52 = icmp eq i16 %37, 8
+  br i1 %.not52, label %50, label %38
 
 38:                                               ; preds = %blf_read_bytes.exit
   %39 = and i16 %36, 8
   %.not44.not = icmp eq i16 %39, 0
-  %40 = trunc i16 %36 to i8
-  %41 = shl i8 %40, 6
-  %42 = and i8 %41, 64
-  %43 = trunc i16 %36 to i8
-  %44 = shl i8 %43, 3
-  %45 = and i8 %44, 16
-  %46 = or disjoint i8 %42, %45
-  %47 = or disjoint i8 %46, %33
-  %48 = or disjoint i8 %47, 32
-  %spec.select = select i1 %.not44.not, i8 %48, i8 %47
-  %49 = trunc i16 %36 to i8
-  %50 = lshr i8 %49, 1
-  %51 = and i8 %50, 8
-  %spec.select51 = or disjoint i8 %spec.select, %51
+  %.not = trunc i16 %36 to i1
+  %40 = or disjoint i8 %33, 64
+  %41 = select i1 %.not, i8 %40, i8 %33
+  %42 = trunc i16 %36 to i8
+  %43 = shl i8 %42, 3
+  %44 = and i8 %43, 16
+  %45 = or disjoint i8 %41, %44
+  %46 = or disjoint i8 %45, 32
+  %spec.select = select i1 %.not44.not, i8 %46, i8 %45
+  %47 = trunc i16 %36 to i8
+  %48 = lshr i8 %47, 1
+  %49 = and i8 %48, 8
+  %spec.select51 = or i8 %spec.select, %49
   store i8 %spec.select51, ptr %34, align 1
-  br label %52
+  br label %50
 
-52:                                               ; preds = %blf_read_bytes.exit, %38
-  %53 = trunc i16 %30 to i8
-  %54 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %53, ptr %54, align 1
-  %55 = and i8 %23, -2
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 22
-  %57 = load i16, ptr %56, align 2
-  %58 = lshr i16 %57, 10
-  %59 = trunc nuw nsw i16 %58 to i8
-  %60 = and i8 %59, 1
-  %61 = or disjoint i8 %60, %55
-  %62 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 %61, ptr %62, align 1
-  %63 = lshr i16 %57, 2
-  %64 = trunc i16 %63 to i8
-  %65 = getelementptr inbounds nuw i8, ptr %10, i64 5
-  store i8 %64, ptr %65, align 1
-  %66 = getelementptr inbounds nuw i8, ptr %9, i64 27
-  %67 = load i8, ptr %66, align 1
-  %68 = and i8 %67, 63
-  %.tr = trunc i16 %57 to i8
-  %69 = shl i8 %.tr, 6
-  %70 = or disjoint i8 %68, %69
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  store i8 %70, ptr %71, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 280
-  %75 = add nuw nsw i64 %spec.select49, 7
-  call void @ws_buffer_assure_space(ptr noundef nonnull %74, i64 noundef %75)
-  %76 = load ptr, ptr %72, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 280
-  call void @ws_buffer_append(ptr noundef nonnull %77, ptr noundef nonnull %10, i64 noundef 7)
-  %78 = trunc nuw nsw i64 %75 to i32
-  %79 = zext i8 %23 to i32
-  %80 = add nuw nsw i32 %79, 7
+50:                                               ; preds = %blf_read_bytes.exit, %38
+  %51 = trunc i16 %30 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  store i8 %51, ptr %52, align 1
+  %53 = and i8 %23, -2
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 22
+  %55 = load i16, ptr %54, align 2
+  %56 = lshr i16 %55, 10
+  %57 = trunc nuw nsw i16 %56 to i8
+  %58 = and i8 %57, 1
+  %59 = or disjoint i8 %58, %53
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i8 %59, ptr %60, align 1
+  %61 = lshr i16 %55, 2
+  %62 = trunc i16 %61 to i8
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 5
+  store i8 %62, ptr %63, align 1
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 27
+  %65 = load i8, ptr %64, align 1
+  %66 = and i8 %65, 63
+  %.tr = trunc i16 %55 to i8
+  %67 = shl i8 %.tr, 6
+  %68 = or disjoint i8 %66, %67
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  store i8 %68, ptr %69, align 1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 280
+  %73 = add nuw nsw i64 %spec.select49, 7
+  call void @ws_buffer_assure_space(ptr noundef nonnull %72, i64 noundef %73)
+  %74 = load ptr, ptr %70, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 280
+  call void @ws_buffer_append(ptr noundef nonnull %75, ptr noundef nonnull %10, i64 noundef 7)
+  %76 = trunc nuw nsw i64 %73 to i32
+  %77 = zext i8 %23 to i32
+  %78 = add nuw nsw i32 %77, 7
   %.not46 = icmp eq i64 %spec.select49, 0
-  br i1 %.not46, label %blf_read_bytes.exit48, label %81
+  br i1 %.not46, label %blf_read_bytes.exit48, label %79
 
-81:                                               ; preds = %52
-  %82 = add i64 %4, 32
-  %83 = load ptr, ptr %72, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 280
-  %.val = load ptr, ptr %84, align 8
-  %85 = getelementptr i8, ptr %83, i64 304
-  %.val47 = load i64, ptr %85, align 8
-  %86 = getelementptr i8, ptr %.val, i64 %.val47
-  %87 = call fastcc zeroext i1 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %82, ptr noundef %86, i64 noundef range(i64 0, 4294967296) %spec.select49, ptr noundef %1, ptr noundef %2)
-  br i1 %87, label %blf_read_bytes.exit48, label %88
+79:                                               ; preds = %50
+  %80 = add i64 %4, 32
+  %81 = load ptr, ptr %70, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 280
+  %.val = load ptr, ptr %82, align 8
+  %83 = getelementptr i8, ptr %81, i64 304
+  %.val47 = load i64, ptr %83, align 8
+  %84 = getelementptr i8, ptr %.val, i64 %.val47
+  %85 = call fastcc zeroext i1 @blf_read_bytes_or_eof(ptr noundef readonly %0, i64 noundef %80, ptr noundef %84, i64 noundef range(i64 0, 4294967296) %spec.select49, ptr noundef %1, ptr noundef %2)
+  br i1 %85, label %blf_read_bytes.exit48, label %86
 
-88:                                               ; preds = %81
-  %89 = load i32, ptr %1, align 4
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %blf_read_bytes.exit.thread
+86:                                               ; preds = %79
+  %87 = load i32, ptr %1, align 4
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %blf_read_bytes.exit.thread
 
-91:                                               ; preds = %88
+89:                                               ; preds = %86
   store i32 -12, ptr %1, align 4
   br label %blf_read_bytes.exit.thread
 
-blf_read_bytes.exit48:                            ; preds = %81, %52
-  %92 = load ptr, ptr %72, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 304
-  %94 = load i64, ptr %93, align 8
-  %95 = add i64 %94, %spec.select49
-  store i64 %95, ptr %93, align 8
-  %96 = load i16, ptr %9, align 4
-  call fastcc void @blf_init_rec(ptr noundef %0, i32 noundef %6, i64 noundef %7, i32 noundef 106, i16 noundef zeroext %96, i16 noundef zeroext -1, i32 noundef %78, i32 noundef %80)
-  %97 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %98 = load i8, ptr %97, align 2
-  %99 = icmp ult i8 %98, 3
-  br i1 %99, label %switch.lookup, label %blf_add_direction_option.exit
+blf_read_bytes.exit48:                            ; preds = %79, %50
+  %90 = load ptr, ptr %70, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 304
+  %92 = load i64, ptr %91, align 8
+  %93 = add i64 %92, %spec.select49
+  store i64 %93, ptr %91, align 8
+  %94 = load i16, ptr %9, align 4
+  call fastcc void @blf_init_rec(ptr noundef %0, i32 noundef %6, i64 noundef %7, i32 noundef 106, i16 noundef zeroext %94, i16 noundef zeroext -1, i32 noundef %76, i32 noundef %78)
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %96 = load i8, ptr %95, align 2
+  %97 = icmp ult i8 %96, 3
+  br i1 %97, label %switch.lookup, label %blf_add_direction_option.exit
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit48
-  %100 = zext nneg i8 %98 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %100
+  %98 = zext nneg i8 %96 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.blf_read_lincrcerror2, i64 %98
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
 blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf_read_bytes.exit48
   %.0.i = phi i32 [ 0, %blf_read_bytes.exit48 ], [ %switch.load, %switch.lookup ]
-  %101 = load ptr, ptr %72, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 232
-  %103 = load ptr, ptr %102, align 8
-  %104 = call i32 @wtap_block_add_uint32_option(ptr noundef %103, i32 noundef 2, i32 noundef %.0.i)
+  %99 = load ptr, ptr %70, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 232
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 @wtap_block_add_uint32_option(ptr noundef %101, i32 noundef 2, i32 noundef %.0.i)
   br label %blf_read_bytes.exit.thread
 
-blf_read_bytes.exit.thread:                       ; preds = %91, %88, %21, %18, %blf_add_direction_option.exit, %14
-  %.0 = phi i1 [ false, %14 ], [ true, %blf_add_direction_option.exit ], [ false, %21 ], [ false, %18 ], [ false, %88 ], [ false, %91 ]
+blf_read_bytes.exit.thread:                       ; preds = %89, %86, %21, %18, %blf_add_direction_option.exit, %14
+  %.0 = phi i1 [ false, %14 ], [ true, %blf_add_direction_option.exit ], [ false, %21 ], [ false, %18 ], [ false, %86 ], [ false, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0

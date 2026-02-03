@@ -261,9 +261,9 @@ define void @_ZN7rocksdb13BlobLogHeader10DecodeFromENS_5SliceE(ptr dead_on_unwin
   %29 = load i8, ptr %28, align 1, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %29, ptr %30, align 8, !tbaa !25
-  %31 = and i8 %27, 1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %31, ptr %32, align 1, !tbaa !22
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %32 = and i8 %27, 1
+  store i8 %32, ptr %31, align 1, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i12 = load i64, ptr %33, align 1

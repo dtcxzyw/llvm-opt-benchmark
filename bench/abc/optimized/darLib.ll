@@ -1243,8 +1243,7 @@ Dar_LibAlloc.exit:                                ; preds = %.lr.ph, %Dar_LibAll
   %78 = or disjoint i64 %76, %77
   store i64 %78, ptr %51, align 4
   %79 = load i64, ptr %45, align 4
-  %sext = sub nsw i32 0, %42
-  %80 = sext i32 %sext to i64
+  %80 = sub nsw i64 0, %56
   %81 = xor i64 %79, %80
   %.not25.i = icmp eq i32 %43, 0
   %82 = load i64, ptr %47, align 4

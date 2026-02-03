@@ -6756,7 +6756,7 @@ define internal fastcc range(i32 0, 2) i32 @_pixelpipe_process_on_CPU(ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %18 = load atomic i32, ptr %17 seq_cst, align 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %415
+  br i1 %.not, label %19, label %413
 
 19:                                               ; preds = %12
   %20 = ptrtoint ptr %2 to i64
@@ -6774,7 +6774,7 @@ define internal fastcc range(i32 0, 2) i32 @_pixelpipe_process_on_CPU(ptr nounde
   %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.171, i32 noundef 5) #28
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 456
   tail call void (ptr, ...) @dt_control_log(ptr noundef %25, ptr noundef nonnull %26) #28
-  br label %415
+  br label %413
 
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -6830,7 +6830,7 @@ define internal fastcc range(i32 0, 2) i32 @_pixelpipe_process_on_CPU(ptr nounde
   tail call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %2, i32 noundef %55, i32 noundef %57, i32 noundef %33, i32 noundef %37, ptr noundef nonnull %28, ptr noundef %34) #28
   %58 = load atomic i32, ptr %17 seq_cst, align 4
   %.not324 = icmp eq i32 %58, 0
-  br i1 %.not324, label %59, label %415
+  br i1 %.not324, label %59, label %413
 
 59:                                               ; preds = %53
   %.val = load i32, ptr %1, align 16, !tbaa !286
@@ -6934,7 +6934,7 @@ _histogram_collect.exit.i:                        ; preds = %70, %64
 _collect_histogram_on_CPU.exit:                   ; preds = %59, %_histogram_collect.exit.i, %91, %95, %99, %112
   %113 = load atomic i32, ptr %17 seq_cst, align 4
   %.not325 = icmp eq i32 %113, 0
-  br i1 %.not325, label %114, label %415
+  br i1 %.not325, label %114, label %413
 
 114:                                              ; preds = %_collect_histogram_on_CPU.exit
   %115 = call i64 @dt_iop_buffer_dsc_to_bpp(ptr noundef nonnull %3) #28
@@ -7304,7 +7304,7 @@ _piece_may_tile.exit.thread:                      ; preds = %196, %192, %_piece_
   store i32 %326, ptr %328, align 16, !tbaa !322
   %329 = load atomic i32, ptr %17 seq_cst, align 4
   %.not343 = icmp eq i32 %329, 0
-  br i1 %.not343, label %330, label %415
+  br i1 %.not343, label %330, label %413
 
 330:                                              ; preds = %324
   %331 = load i32, ptr %328, align 16, !tbaa !322
@@ -7339,7 +7339,7 @@ _transform_for_blend.exit:                        ; preds = %341, %334, %336, %3
   %345 = call fastcc i32 @_request_color_pick(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %8)
   %346 = icmp eq i32 %345, 0
   %or.cond5 = select i1 %346, i1 true, i1 %344
-  br i1 %or.cond5, label %369, label %347
+  br i1 %or.cond5, label %368, label %347
 
 347:                                              ; preds = %_transform_for_blend.exit
   %348 = getelementptr inbounds nuw i8, ptr %9, i64 224
@@ -7355,117 +7355,115 @@ _transform_for_blend.exit:                        ; preds = %341, %334, %336, %3
   %357 = load i32, ptr %328, align 16, !tbaa !322
   call fastcc void @_pixelpipe_picker(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %327, ptr noundef %353, ptr noundef %7, ptr noundef nonnull %354, ptr noundef nonnull %355, ptr noundef nonnull %356, i32 noundef %357, i32 noundef 1)
   %358 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !323
-  %359 = and i32 %358, 1
-  %360 = icmp ne i32 %359, 0
-  %361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3300), align 4
-  %362 = icmp ne i32 %361, 0
-  %or.cond7 = select i1 %360, i1 %362, i1 false
-  br i1 %or.cond7, label %363, label %367
+  %359 = trunc i32 %358 to i1
+  %360 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3300), align 4
+  %361 = icmp ne i32 %360, 0
+  %or.cond7 = select i1 %359, i1 %361, i1 false
+  br i1 %or.cond7, label %362, label %366
 
-363:                                              ; preds = %347
-  %364 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
-  %365 = and i32 %364, 1048576
-  %.not346 = icmp eq i32 %365, 0
-  br i1 %.not346, label %367, label %366
+362:                                              ; preds = %347
+  %363 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
+  %364 = and i32 %363, 1048576
+  %.not346 = icmp eq i32 %364, 0
+  br i1 %.not346, label %366, label %365
 
-366:                                              ; preds = %363
+365:                                              ; preds = %362
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.53, i32 noundef 1377, ptr noundef nonnull @__FUNCTION__._pixelpipe_process_on_CPU) #28
-  br label %367
+  br label %366
 
-367:                                              ; preds = %363, %366, %347
-  %368 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !324
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %368, i32 noundef 42, ptr noundef nonnull %8, ptr noundef nonnull %0) #28
-  br label %369
+366:                                              ; preds = %362, %365, %347
+  %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !324
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %367, i32 noundef 42, ptr noundef nonnull %8, ptr noundef nonnull %0) #28
+  br label %368
 
-369:                                              ; preds = %367, %_transform_for_blend.exit
-  %370 = load atomic i32, ptr %17 seq_cst, align 4
-  %.not347 = icmp eq i32 %370, 0
-  br i1 %.not347, label %371, label %415
+368:                                              ; preds = %366, %_transform_for_blend.exit
+  %369 = load atomic i32, ptr %17 seq_cst, align 4
+  %.not347 = icmp eq i32 %369, 0
+  br i1 %.not347, label %370, label %413
 
-371:                                              ; preds = %369
-  %372 = getelementptr i8, ptr %9, i64 24
-  %.val353 = load ptr, ptr %372, align 8, !tbaa !175
+370:                                              ; preds = %368
+  %371 = getelementptr i8, ptr %9, i64 24
+  %.val353 = load ptr, ptr %371, align 8, !tbaa !175
   %.not.i358 = icmp eq ptr %.val353, null
-  br i1 %.not.i358, label %_transform_for_blend.exit362.thread, label %373
+  br i1 %.not.i358, label %_transform_for_blend.exit362.thread, label %372
 
-373:                                              ; preds = %371
-  %374 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %375 = load ptr, ptr %374, align 16, !tbaa !231
-  %376 = call i32 %375() #28
-  %377 = and i32 %376, 2
-  %.not5.i359 = icmp eq i32 %377, 0
-  br i1 %.not5.i359, label %_transform_for_blend.exit362.thread, label %378
+372:                                              ; preds = %370
+  %373 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %374 = load ptr, ptr %373, align 16, !tbaa !231
+  %375 = call i32 %374() #28
+  %376 = and i32 %375, 2
+  %.not5.i359 = icmp eq i32 %376, 0
+  br i1 %.not5.i359, label %_transform_for_blend.exit362.thread, label %377
 
-378:                                              ; preds = %373
-  %379 = load i32, ptr %.val353, align 4, !tbaa !239
-  %.not6.i360 = icmp eq i32 %379, 0
+377:                                              ; preds = %372
+  %378 = load i32, ptr %.val353, align 4, !tbaa !239
+  %.not6.i360 = icmp eq i32 %378, 0
   br i1 %.not6.i360, label %_transform_for_blend.exit362.thread, label %_transform_for_blend.exit362
 
-_transform_for_blend.exit362:                     ; preds = %378
-  %380 = load i32, ptr %54, align 4, !tbaa !130
-  %381 = load i32, ptr %56, align 4, !tbaa !131
-  %382 = load i32, ptr %28, align 16, !tbaa !124
-  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %2, i32 noundef %380, i32 noundef %381, i32 noundef %382, i32 noundef %332, ptr noundef nonnull %28, ptr noundef %34) #28
-  %383 = load ptr, ptr %5, align 8, !tbaa !27
-  %384 = load i32, ptr %120, align 4, !tbaa !130
-  %385 = load i32, ptr %124, align 4, !tbaa !131
-  %386 = load i32, ptr %328, align 16, !tbaa !322
-  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %8, ptr noundef %383, ptr noundef %383, i32 noundef %384, i32 noundef %385, i32 noundef %386, i32 noundef %332, ptr noundef nonnull %328, ptr noundef %34) #28
-  br i1 %344, label %387, label %_transform_for_blend.exit362.thread
+_transform_for_blend.exit362:                     ; preds = %377
+  %379 = load i32, ptr %54, align 4, !tbaa !130
+  %380 = load i32, ptr %56, align 4, !tbaa !131
+  %381 = load i32, ptr %28, align 16, !tbaa !124
+  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %8, ptr noundef %2, ptr noundef %2, i32 noundef %379, i32 noundef %380, i32 noundef %381, i32 noundef %332, ptr noundef nonnull %28, ptr noundef %34) #28
+  %382 = load ptr, ptr %5, align 8, !tbaa !27
+  %383 = load i32, ptr %120, align 4, !tbaa !130
+  %384 = load i32, ptr %124, align 4, !tbaa !131
+  %385 = load i32, ptr %328, align 16, !tbaa !322
+  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %8, ptr noundef %382, ptr noundef %382, i32 noundef %383, i32 noundef %384, i32 noundef %385, i32 noundef %332, ptr noundef nonnull %328, ptr noundef %34) #28
+  br i1 %344, label %386, label %_transform_for_blend.exit362.thread
 
-387:                                              ; preds = %_transform_for_blend.exit362
-  %388 = getelementptr inbounds nuw i8, ptr %9, i64 224
-  %389 = getelementptr inbounds nuw i8, ptr %8, i64 512
-  %390 = getelementptr inbounds nuw i8, ptr %8, i64 528
-  %391 = getelementptr inbounds nuw i8, ptr %8, i64 544
-  call fastcc void @_pixelpipe_picker(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %388, ptr noundef %2, ptr noundef %4, ptr noundef nonnull %389, ptr noundef nonnull %390, ptr noundef nonnull %391, i32 noundef %332, i32 noundef 0)
-  %392 = load ptr, ptr %5, align 8, !tbaa !27
-  %393 = getelementptr inbounds nuw i8, ptr %8, i64 560
-  %394 = getelementptr inbounds nuw i8, ptr %8, i64 576
-  %395 = getelementptr inbounds nuw i8, ptr %8, i64 592
-  call fastcc void @_pixelpipe_picker(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %327, ptr noundef %392, ptr noundef %7, ptr noundef nonnull %393, ptr noundef nonnull %394, ptr noundef nonnull %395, i32 noundef %332, i32 noundef 1)
-  %396 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !323
-  %397 = and i32 %396, 1
+386:                                              ; preds = %_transform_for_blend.exit362
+  %387 = getelementptr inbounds nuw i8, ptr %9, i64 224
+  %388 = getelementptr inbounds nuw i8, ptr %8, i64 512
+  %389 = getelementptr inbounds nuw i8, ptr %8, i64 528
+  %390 = getelementptr inbounds nuw i8, ptr %8, i64 544
+  call fastcc void @_pixelpipe_picker(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %387, ptr noundef %2, ptr noundef %4, ptr noundef nonnull %388, ptr noundef nonnull %389, ptr noundef nonnull %390, i32 noundef %332, i32 noundef 0)
+  %391 = load ptr, ptr %5, align 8, !tbaa !27
+  %392 = getelementptr inbounds nuw i8, ptr %8, i64 560
+  %393 = getelementptr inbounds nuw i8, ptr %8, i64 576
+  %394 = getelementptr inbounds nuw i8, ptr %8, i64 592
+  call fastcc void @_pixelpipe_picker(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %327, ptr noundef %391, ptr noundef %7, ptr noundef nonnull %392, ptr noundef nonnull %393, ptr noundef nonnull %394, i32 noundef %332, i32 noundef 1)
+  %395 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !323
+  %396 = trunc i32 %395 to i1
+  %397 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3300), align 4
   %398 = icmp ne i32 %397, 0
-  %399 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3300), align 4
-  %400 = icmp ne i32 %399, 0
-  %or.cond9 = select i1 %398, i1 %400, i1 false
-  br i1 %or.cond9, label %401, label %405
+  %or.cond9 = select i1 %396, i1 %398, i1 false
+  br i1 %or.cond9, label %399, label %403
 
-401:                                              ; preds = %387
-  %402 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
-  %403 = and i32 %402, 1048576
-  %.not349 = icmp eq i32 %403, 0
-  br i1 %.not349, label %405, label %404
+399:                                              ; preds = %386
+  %400 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
+  %401 = and i32 %400, 1048576
+  %.not349 = icmp eq i32 %401, 0
+  br i1 %.not349, label %403, label %402
 
-404:                                              ; preds = %401
+402:                                              ; preds = %399
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.53, i32 noundef 1406, ptr noundef nonnull @__FUNCTION__._pixelpipe_process_on_CPU) #28
-  br label %405
+  br label %403
 
-405:                                              ; preds = %401, %404, %387
-  %406 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !324
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %406, i32 noundef 42, ptr noundef nonnull %8, ptr noundef nonnull %0) #28
+403:                                              ; preds = %399, %402, %386
+  %404 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !324
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %404, i32 noundef 42, ptr noundef nonnull %8, ptr noundef nonnull %0) #28
   br label %_transform_for_blend.exit362.thread
 
-_transform_for_blend.exit362.thread:              ; preds = %378, %373, %371, %_transform_for_blend.exit362, %405
-  %407 = load atomic i32, ptr %17 seq_cst, align 4
-  %.not350 = icmp eq i32 %407, 0
-  br i1 %.not350, label %408, label %415
+_transform_for_blend.exit362.thread:              ; preds = %377, %372, %370, %_transform_for_blend.exit362, %403
+  %405 = load atomic i32, ptr %17 seq_cst, align 4
+  %.not350 = icmp eq i32 %405, 0
+  br i1 %.not350, label %406, label %413
 
-408:                                              ; preds = %_transform_for_blend.exit362.thread
-  %409 = load ptr, ptr %5, align 8, !tbaa !27
-  call void @dt_develop_blend_process(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %409, ptr noundef nonnull %4, ptr noundef nonnull %7) #28
-  %410 = load i32, ptr %11, align 4, !tbaa !26
-  %411 = and i32 %410, -193
-  %412 = or disjoint i32 %411, 64
-  store i32 %412, ptr %11, align 4, !tbaa !26
-  %413 = load atomic i32, ptr %17 seq_cst, align 4
-  %.not351 = icmp ne i32 %413, 0
-  %414 = zext i1 %.not351 to i32
-  br label %415
+406:                                              ; preds = %_transform_for_blend.exit362.thread
+  %407 = load ptr, ptr %5, align 8, !tbaa !27
+  call void @dt_develop_blend_process(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2, ptr noundef %407, ptr noundef nonnull %4, ptr noundef nonnull %7) #28
+  %408 = load i32, ptr %11, align 4, !tbaa !26
+  %409 = and i32 %408, -193
+  %410 = or disjoint i32 %409, 64
+  store i32 %410, ptr %11, align 4, !tbaa !26
+  %411 = load atomic i32, ptr %17 seq_cst, align 4
+  %.not351 = icmp ne i32 %411, 0
+  %412 = zext i1 %.not351 to i32
+  br label %413
 
-415:                                              ; preds = %53, %_collect_histogram_on_CPU.exit, %408, %369, %_transform_for_blend.exit362.thread, %324, %12, %24
-  %.0 = phi i32 [ 0, %24 ], [ 1, %12 ], [ 1, %_collect_histogram_on_CPU.exit ], [ 1, %53 ], [ 1, %324 ], [ %414, %408 ], [ 1, %369 ], [ 1, %_transform_for_blend.exit362.thread ]
+413:                                              ; preds = %53, %_collect_histogram_on_CPU.exit, %406, %368, %_transform_for_blend.exit362.thread, %324, %12, %24
+  %.0 = phi i32 [ 0, %24 ], [ 1, %12 ], [ 1, %_collect_histogram_on_CPU.exit ], [ 1, %53 ], [ 1, %324 ], [ %412, %406 ], [ 1, %368 ], [ 1, %_transform_for_blend.exit362.thread ]
   ret i32 %.0
 }
 

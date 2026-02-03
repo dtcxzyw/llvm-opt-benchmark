@@ -6856,9 +6856,8 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %174 = load i64, ptr %173, align 8, !tbaa !330
-  %175 = and i64 %174, 1
-  %.not45.i.i = icmp eq i64 %175, 0
-  br i1 %.not45.i.i, label %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit, label %176
+  %175 = trunc i64 %174 to i1
+  br i1 %175, label %176, label %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 88
@@ -8179,9 +8178,8 @@ _ZN3tbb6detail2r115task_dispatcher27get_stream_or_critical_taskERNS1_18execution
 172:                                              ; preds = %170
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %174 = load i64, ptr %173, align 8, !tbaa !330
-  %175 = and i64 %174, 1
-  %.not45.i.i = icmp eq i64 %175, 0
-  br i1 %.not45.i.i, label %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit, label %176
+  %175 = trunc i64 %174 to i1
+  br i1 %175, label %176, label %_ZN3tbb6detail2r115task_dispatcher21steal_or_get_criticalERNS1_18execution_data_extERNS1_5arenaEjRNS1_10FastRandomElb.exit
 
 176:                                              ; preds = %172
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 88

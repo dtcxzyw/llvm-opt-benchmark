@@ -3468,12 +3468,12 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
   store i32 0, ptr %2, align 4
   %9 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %5) #14
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %79, label %10
+  br i1 %.not, label %78, label %10
 
 10:                                               ; preds = %4
   %11 = call i32 @_cmsReadUInt32Number(ptr noundef %1, ptr noundef nonnull %6) #14
   %.not61 = icmp eq i32 %11, 0
-  br i1 %.not61, label %79, label %12
+  br i1 %.not61, label %78, label %12
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %6, align 4
@@ -3484,13 +3484,13 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
 
 16:                                               ; preds = %12
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %15, i32 noundef 8, ptr noundef nonnull @.str.15) #14
-  br label %79
+  br label %78
 
 17:                                               ; preds = %12
   %18 = load i32, ptr %5, align 4
   %19 = call ptr @cmsMLUalloc(ptr noundef %15, i32 noundef %18) #14
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %79, label %21
+  br i1 %20, label %78, label %21
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %5, align 4
@@ -3506,9 +3506,9 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
   %27 = add i32 %3, 8
   br label %28
 
-28:                                               ; preds = %.lr.ph, %50
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %.075 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %50 ]
+28:                                               ; preds = %.lr.ph, %49
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
+  %.075 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %49 ]
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %29, i64 %indvars.iv
   %31 = call i32 @_cmsReadUInt16Number(ptr noundef %1, ptr noundef %30) #14
@@ -3535,81 +3535,80 @@ define internal ptr @Type_MLU_Read(ptr noundef readonly captures(none) %0, ptr n
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %8, align 4
-  %43 = and i32 %42, 1
-  %.not68 = icmp ne i32 %43, 0
-  %44 = icmp ult i32 %42, %26
-  %or.cond = or i1 %.not68, %44
-  br i1 %or.cond, label %.loopexit, label %45
+  %.not68 = trunc i32 %42 to i1
+  %43 = icmp ult i32 %42, %26
+  %or.cond = or i1 %43, %.not68
+  br i1 %or.cond, label %.loopexit, label %44
 
-45:                                               ; preds = %41
-  %46 = load i32, ptr %7, align 4
-  %47 = add i32 %46, %42
-  %48 = icmp ult i32 %47, %46
-  %49 = icmp ugt i32 %47, %27
-  %or.cond71 = or i1 %48, %49
-  br i1 %or.cond71, label %.loopexit, label %50
+44:                                               ; preds = %41
+  %45 = load i32, ptr %7, align 4
+  %46 = add i32 %45, %42
+  %47 = icmp ult i32 %46, %45
+  %48 = icmp ugt i32 %46, %27
+  %or.cond71 = or i1 %47, %48
+  br i1 %or.cond71, label %.loopexit, label %49
 
-50:                                               ; preds = %45
+49:                                               ; preds = %44
   %reass.sub = sub i32 %42, %24
-  %51 = add i32 %reass.sub, -16
-  %52 = shl i32 %46, 1
-  %53 = load ptr, ptr %25, align 8
-  %54 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %53, i64 %indvars.iv
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 %52, ptr %55, align 4
-  %56 = shl i32 %51, 1
-  %57 = load ptr, ptr %25, align 8
-  %58 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %57, i64 %indvars.iv
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 %56, ptr %59, align 4
-  %60 = load i32, ptr %7, align 4
-  %61 = add i32 %60, %51
-  %spec.select = call i32 @llvm.umax.i32(i32 %61, i32 %.075)
+  %50 = add i32 %reass.sub, -16
+  %51 = shl i32 %45, 1
+  %52 = load ptr, ptr %25, align 8
+  %53 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 %51, ptr %54, align 4
+  %55 = shl i32 %50, 1
+  %56 = load ptr, ptr %25, align 8
+  %57 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %56, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 %55, ptr %58, align 4
+  %59 = load i32, ptr %7, align 4
+  %60 = add i32 %59, %50
+  %spec.select = call i32 @llvm.umax.i32(i32 %60, i32 %.075)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = load i32, ptr %5, align 4
-  %63 = zext i32 %62 to i64
-  %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %28, label %._crit_edge, !llvm.loop !37
+  %61 = load i32, ptr %5, align 4
+  %62 = zext i32 %61 to i64
+  %63 = icmp samesign ult i64 %indvars.iv.next, %62
+  br i1 %63, label %28, label %._crit_edge, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %50
-  %65 = shl i32 %spec.select, 1
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %._crit_edge.thread, label %67
+._crit_edge:                                      ; preds = %49
+  %64 = shl i32 %spec.select, 1
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %._crit_edge.thread, label %66
 
-67:                                               ; preds = %._crit_edge
-  %68 = load ptr, ptr %14, align 8
-  %69 = call ptr @_cmsCalloc(ptr noundef %68, i32 noundef 1, i32 noundef %65) #14
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %.loopexit, label %71
+66:                                               ; preds = %._crit_edge
+  %67 = load ptr, ptr %14, align 8
+  %68 = call ptr @_cmsCalloc(ptr noundef %67, i32 noundef 1, i32 noundef %64) #14
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %.loopexit, label %70
 
-71:                                               ; preds = %67
-  %72 = lshr i32 %65, 2
-  %73 = call fastcc i32 @_cmsReadWCharArray(ptr noundef %1, i32 noundef %72, ptr noundef %69)
-  %.not63 = icmp eq i32 %73, 0
-  br i1 %.not63, label %74, label %._crit_edge.thread
+70:                                               ; preds = %66
+  %71 = lshr i32 %64, 2
+  %72 = call fastcc i32 @_cmsReadWCharArray(ptr noundef %1, i32 noundef %71, ptr noundef %68)
+  %.not63 = icmp eq i32 %72, 0
+  br i1 %.not63, label %73, label %._crit_edge.thread
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %14, align 8
-  call void @_cmsFree(ptr noundef %75, ptr noundef nonnull %69) #14
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %14, align 8
+  call void @_cmsFree(ptr noundef %74, ptr noundef nonnull %68) #14
   br label %.loopexit
 
-._crit_edge.thread:                               ; preds = %21, %._crit_edge, %71
-  %.0.lcssa84 = phi i32 [ %65, %71 ], [ 0, %._crit_edge ], [ 0, %21 ]
-  %.052 = phi ptr [ %69, %71 ], [ null, %._crit_edge ], [ null, %21 ]
-  %76 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %.052, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 %.0.lcssa84, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i32 %.0.lcssa84, ptr %78, align 4
+._crit_edge.thread:                               ; preds = %21, %._crit_edge, %70
+  %.0.lcssa84 = phi i32 [ %64, %70 ], [ 0, %._crit_edge ], [ 0, %21 ]
+  %.052 = phi ptr [ %68, %70 ], [ null, %._crit_edge ], [ null, %21 ]
+  %75 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr %.052, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i32 %.0.lcssa84, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  store i32 %.0.lcssa84, ptr %77, align 4
   store i32 1, ptr %2, align 4
-  br label %79
+  br label %78
 
-.loopexit:                                        ; preds = %28, %32, %37, %39, %41, %45, %74, %67
+.loopexit:                                        ; preds = %28, %32, %37, %39, %41, %44, %73, %66
   call void @cmsMLUfree(ptr noundef nonnull %19) #14
-  br label %79
+  br label %78
 
-79:                                               ; preds = %17, %10, %4, %.loopexit, %._crit_edge.thread, %16
+78:                                               ; preds = %17, %10, %4, %.loopexit, %._crit_edge.thread, %16
   %.051 = phi ptr [ null, %16 ], [ null, %10 ], [ null, %.loopexit ], [ %19, %._crit_edge.thread ], [ null, %4 ], [ null, %17 ]
   ret ptr %.051
 }

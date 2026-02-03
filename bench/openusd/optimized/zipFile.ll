@@ -1147,10 +1147,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator11GetFil
   store i16 %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %29 = load i16, ptr %28, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %31 = trunc i16 %29 to i8
-  %32 = and i8 %31, 1
-  store i8 %32, ptr %30, align 2
+  %30 = trunc i16 %29 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 2
   br label %33
 
 33:                                               ; preds = %4, %2

@@ -2167,19 +2167,18 @@ _ZN4llvm7memprof20IndexedMemProfRecordC2ERKS1_.exit: ; preds = %_ZN4llvm11SmallV
   br label %_ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
-  %.025 = phi ptr [ %48, %.lr.ph ], [ %37, %36 ]
+  %.025 = phi ptr [ %47, %.lr.ph ], [ %37, %36 ]
   %44 = call i32 @rand() #26
-  %45 = and i32 %44, 1
-  %.not17 = icmp ne i32 %45, 0
+  %.not17 = trunc i32 %44 to i1
   %spec.select = sext i1 %.not17 to i64
   %not..not17 = xor i1 %.not17, true
   %spec.select22 = sext i1 %not..not17 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %.025, i64 136
-  store i64 %spec.select22, ptr %46, align 8, !tbaa !201
-  %47 = getelementptr inbounds nuw i8, ptr %.025, i64 72
-  store i64 %spec.select, ptr %47, align 8, !tbaa !205
-  %48 = getelementptr inbounds nuw i8, ptr %.025, i64 168
-  %.not = icmp eq ptr %48, %39
+  %45 = getelementptr inbounds nuw i8, ptr %.025, i64 136
+  store i64 %spec.select22, ptr %45, align 8, !tbaa !201
+  %46 = getelementptr inbounds nuw i8, ptr %.025, i64 72
+  store i64 %spec.select, ptr %46, align 8, !tbaa !205
+  %47 = getelementptr inbounds nuw i8, ptr %.025, i64 168
+  %.not = icmp eq ptr %47, %39
   br i1 %.not, label %.loopexit.loopexit, label %.lr.ph
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
@@ -2187,174 +2186,174 @@ _ZN4llvm7memprof20IndexedMemProfRecordC2ERKS1_.exit: ; preds = %_ZN4llvm11SmallV
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4llvm7memprof20IndexedMemProfRecordC2ERKS1_.exit
-  %49 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %.pre26, %_ZN4llvm7memprof20IndexedMemProfRecordC2ERKS1_.exit ]
+  %48 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %.pre26, %_ZN4llvm7memprof20IndexedMemProfRecordC2ERKS1_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8, !tbaa !188
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %51, ptr %50, align 8, !tbaa !53
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %52, align 8, !tbaa !54
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 1, ptr %53, align 4, !tbaa !55
-  switch i32 %49, label %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i.i.i [
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %50, ptr %49, align 8, !tbaa !53
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 0, ptr %51, align 8, !tbaa !54
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 1, ptr %52, align 4, !tbaa !55
+  switch i32 %48, label %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i.i.i [
     i32 0, label %_ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i
     i32 1, label %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i.i
   ]
 
 _ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i.i.i: ; preds = %.loopexit
-  %54 = zext i32 %49 to i64
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(248) %50, ptr noundef nonnull %51, i64 noundef %54, i64 noundef 168) #26
+  %53 = zext i32 %48 to i64
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(248) %49, ptr noundef nonnull %50, i64 noundef %53, i64 noundef 168) #26
   %.pre.i.i.i = load i32, ptr %7, align 8, !tbaa !54
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i
 
 _ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i: ; preds = %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i.i.i
-  %.pre.i.i19 = load ptr, ptr %50, align 8, !tbaa !53
-  %55 = zext i32 %.pre.i.i.i to i64
-  %56 = mul nuw nsw i64 %55, 168
+  %.pre.i.i19 = load ptr, ptr %49, align 8, !tbaa !53
+  %54 = zext i32 %.pre.i.i.i to i64
+  %55 = mul nuw nsw i64 %54, 168
   br label %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i.i
 
 _ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i.i: ; preds = %.loopexit, %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i
-  %57 = phi ptr [ %.pre.i.i19, %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i ], [ %51, %.loopexit ]
-  %gepdiff.i.i.i.i = phi i64 [ %56, %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i ], [ 168, %.loopexit ]
-  %58 = load ptr, ptr %4, align 8, !tbaa !53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 8 dereferenceable(1) %58, i64 %gepdiff.i.i.i.i, i1 false)
+  %56 = phi ptr [ %.pre.i.i19, %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i ], [ %50, %.loopexit ]
+  %gepdiff.i.i.i.i = phi i64 [ %55, %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i._ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i_crit_edge.i.i ], [ 168, %.loopexit ]
+  %57 = load ptr, ptr %4, align 8, !tbaa !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 8 dereferenceable(1) %57, i64 %gepdiff.i.i.i.i, i1 false)
   br label %.sink.split.i.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i.i, %_ZSt4copyIPKN4llvm7memprof21IndexedAllocationInfoEPS2_ET0_T_S7_S6_.exit31.i.i.i.i
-  store i32 %49, ptr %52, align 8, !tbaa !54
+  store i32 %48, ptr %51, align 8, !tbaa !54
   br label %_ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i
 
 _ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i: ; preds = %.loopexit.thread, %.loopexit, %.sink.split.i.i.i.i
-  %59 = phi ptr [ %41, %.loopexit.thread ], [ %51, %.loopexit ], [ %51, %.sink.split.i.i.i.i ]
-  %60 = phi ptr [ %40, %.loopexit.thread ], [ %50, %.loopexit ], [ %50, %.sink.split.i.i.i.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 5104
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  store ptr %63, ptr %62, align 8, !tbaa !53
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  store i32 0, ptr %64, align 8, !tbaa !54
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 204
-  store i32 6, ptr %65, align 4, !tbaa !55
-  %66 = load i32, ptr %22, align 8, !tbaa !54
-  %.not.i.i3.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i3.i.i, label %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, label %67
+  %58 = phi ptr [ %41, %.loopexit.thread ], [ %50, %.loopexit ], [ %50, %.sink.split.i.i.i.i ]
+  %59 = phi ptr [ %40, %.loopexit.thread ], [ %49, %.loopexit ], [ %49, %.sink.split.i.i.i.i ]
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 5104
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  store ptr %62, ptr %61, align 8, !tbaa !53
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  store i32 0, ptr %63, align 8, !tbaa !54
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 204
+  store i32 6, ptr %64, align 4, !tbaa !55
+  %65 = load i32, ptr %22, align 8, !tbaa !54
+  %.not.i.i3.i.i = icmp eq i32 %65, 0
+  br i1 %.not.i.i3.i.i, label %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit, label %66
 
-67:                                               ; preds = %_ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i
-  %68 = icmp ugt i32 %66, 6
-  br i1 %68, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i
+66:                                               ; preds = %_ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i
+  %67 = icmp ugt i32 %65, 6
+  br i1 %67, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i
 
-_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i:       ; preds = %67
-  %69 = zext i32 %66 to i64
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull %63, i64 noundef %69, i64 noundef 8) #26
+_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i:       ; preds = %66
+  %68 = zext i32 %65 to i64
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull %62, i64 noundef %68, i64 noundef 8) #26
   %.pre.i7.i.i = load i32, ptr %22, align 8, !tbaa !54
   %.not.i.i.i8.i.i = icmp eq i32 %.pre.i7.i.i, 0
   br i1 %.not.i.i.i8.i.i, label %.sink.split.i.i6.i.i, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i
 
 _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i: ; preds = %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i
-  %.pre9.i.i = load ptr, ptr %62, align 8, !tbaa !53
+  %.pre9.i.i = load ptr, ptr %61, align 8, !tbaa !53
   br label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i
 
-_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i: ; preds = %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i, %67
-  %70 = phi ptr [ %.pre9.i.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i ], [ %63, %67 ]
-  %71 = phi i32 [ %.pre.i7.i.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i ], [ %66, %67 ]
-  %72 = zext i32 %71 to i64
-  %73 = load ptr, ptr %19, align 8, !tbaa !53
-  %gepdiff.i.i5.i.i = shl nuw nsw i64 %72, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 8 %73, i64 %gepdiff.i.i5.i.i, i1 false)
+_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i: ; preds = %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i, %66
+  %69 = phi ptr [ %.pre9.i.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i ], [ %62, %66 ]
+  %70 = phi i32 [ %.pre.i7.i.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i._ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i_crit_edge.i.i ], [ %65, %66 ]
+  %71 = zext i32 %70 to i64
+  %72 = load ptr, ptr %19, align 8, !tbaa !53
+  %gepdiff.i.i5.i.i = shl nuw nsw i64 %71, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 8 %72, i64 %gepdiff.i.i5.i.i, i1 false)
   br label %.sink.split.i.i6.i.i
 
 .sink.split.i.i6.i.i:                             ; preds = %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.thread.i.i.i, %_ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i
-  store i32 %66, ptr %64, align 8, !tbaa !54
+  store i32 %65, ptr %63, align 8, !tbaa !54
   br label %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
 
 _ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit: ; preds = %_ZN4llvm11SmallVectorINS_7memprof21IndexedAllocationInfoELj1EEC2ERKS3_.exit.i.i, %.sink.split.i.i6.i.i
-  %74 = call { ptr, i8 } @_ZN4llvm9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS2_ELj0EEEE11try_emplaceIJS2_EEESB_IPSC_bEOmDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull align 8 dereferenceable(248) %60)
-  %.fca.0.extract = extractvalue { ptr, i8 } %74, 0
-  %.fca.1.extract = extractvalue { ptr, i8 } %74, 1
-  %75 = load ptr, ptr %62, align 8, !tbaa !53
-  %76 = icmp eq ptr %75, %63
-  br i1 %76, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, label %77
+  %73 = call { ptr, i8 } @_ZN4llvm9MapVectorImNS_7memprof20IndexedMemProfRecordENS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEENS_11SmallVectorISt4pairImS2_ELj0EEEE11try_emplaceIJS2_EEESB_IPSC_bEOmDpOT_(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull align 8 dereferenceable(248) %59)
+  %.fca.0.extract = extractvalue { ptr, i8 } %73, 0
+  %.fca.1.extract = extractvalue { ptr, i8 } %73, 1
+  %74 = load ptr, ptr %61, align 8, !tbaa !53
+  %75 = icmp eq ptr %74, %62
+  br i1 %75, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, label %76
 
-77:                                               ; preds = %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  call void @free(ptr noundef %75) #26
+76:                                               ; preds = %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  call void @free(ptr noundef %74) #26
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i:        ; preds = %77, %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
-  %78 = load ptr, ptr %60, align 8, !tbaa !53
-  %79 = icmp eq ptr %78, %59
-  br i1 %79, label %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit, label %80
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i:        ; preds = %76, %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEEC2IRKmRS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_.exit
+  %77 = load ptr, ptr %59, align 8, !tbaa !53
+  %78 = icmp eq ptr %77, %58
+  br i1 %78, label %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit, label %79
 
-80:                                               ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
-  call void @free(ptr noundef %78) #26
+79:                                               ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i
+  call void @free(ptr noundef %77) #26
   br label %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit
 
-_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, %80
+_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i.i, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %81 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %81, label %103, label %82
+  %80 = trunc nuw i8 %.fca.1.extract to i1
+  br i1 %80, label %102, label %81
 
-82:                                               ; preds = %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit
-  %83 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
-  %84 = load ptr, ptr %4, align 8, !tbaa !53
-  %85 = load i32, ptr %7, align 8, !tbaa !54
-  %86 = zext i32 %85 to i64
-  %.idx.i.i = mul nuw nsw i64 %86, 168
-  %87 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 16
-  %88 = load i32, ptr %87, align 8, !tbaa !54
-  %89 = zext i32 %88 to i64
-  %90 = add nuw nsw i64 %89, %86
-  %91 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 20
-  %92 = load i32, ptr %91, align 4, !tbaa !55
-  %93 = zext i32 %92 to i64
-  %94 = icmp samesign ugt i64 %90, %93
-  br i1 %94, label %95, label %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i
+81:                                               ; preds = %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit
+  %82 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
+  %83 = load ptr, ptr %4, align 8, !tbaa !53
+  %84 = load i32, ptr %7, align 8, !tbaa !54
+  %85 = zext i32 %84 to i64
+  %.idx.i.i = mul nuw nsw i64 %85, 168
+  %86 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 16
+  %87 = load i32, ptr %86, align 8, !tbaa !54
+  %88 = zext i32 %87 to i64
+  %89 = add nuw nsw i64 %88, %85
+  %90 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 20
+  %91 = load i32, ptr %90, align 4, !tbaa !55
+  %92 = zext i32 %91 to i64
+  %93 = icmp samesign ugt i64 %89, %92
+  br i1 %93, label %94, label %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i
 
-95:                                               ; preds = %82
-  %96 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 24
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(248) %83, ptr noundef nonnull %96, i64 noundef %90, i64 noundef 168) #26
-  %.pre8.pre.i.i.i = load i32, ptr %87, align 8, !tbaa !54
+94:                                               ; preds = %81
+  %95 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 24
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(248) %82, ptr noundef nonnull %95, i64 noundef %89, i64 noundef 168) #26
+  %.pre8.pre.i.i.i = load i32, ptr %86, align 8, !tbaa !54
   br label %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i
 
-_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i: ; preds = %95, %82
-  %.pre8.i.i.i = phi i32 [ %88, %82 ], [ %.pre8.pre.i.i.i, %95 ]
-  %.not.i.i.i.i20 = icmp eq i32 %85, 0
-  br i1 %.not.i.i.i.i20, label %_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit, label %97
+_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i: ; preds = %94, %81
+  %.pre8.i.i.i = phi i32 [ %87, %81 ], [ %.pre8.pre.i.i.i, %94 ]
+  %.not.i.i.i.i20 = icmp eq i32 %84, 0
+  br i1 %.not.i.i.i.i20, label %_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit, label %96
 
-97:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i
-  %98 = load ptr, ptr %83, align 8, !tbaa !53
-  %99 = zext i32 %.pre8.i.i.i to i64
-  %100 = getelementptr inbounds nuw %"struct.llvm::memprof::IndexedAllocationInfo", ptr %98, i64 %99
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 8 %84, i64 %.idx.i.i, i1 false)
-  %.pre.i.i.i21 = load i32, ptr %87, align 8, !tbaa !54
+96:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i
+  %97 = load ptr, ptr %82, align 8, !tbaa !53
+  %98 = zext i32 %.pre8.i.i.i to i64
+  %99 = getelementptr inbounds nuw %"struct.llvm::memprof::IndexedAllocationInfo", ptr %97, i64 %98
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 8 %83, i64 %.idx.i.i, i1 false)
+  %.pre.i.i.i21 = load i32, ptr %86, align 8, !tbaa !54
   br label %_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit
 
-_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i, %97
-  %101 = phi i32 [ %.pre8.i.i.i, %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i ], [ %.pre.i.i.i21, %97 ]
-  %102 = add i32 %101, %85
-  store i32 %102, ptr %87, align 8, !tbaa !54
-  br label %103
+_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit: ; preds = %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i, %96
+  %100 = phi i32 [ %.pre8.i.i.i, %_ZN4llvm15SmallVectorImplINS_7memprof21IndexedAllocationInfoEE7reserveEm.exit.i.i.i ], [ %.pre.i.i.i21, %96 ]
+  %101 = add i32 %100, %84
+  store i32 %101, ptr %86, align 8, !tbaa !54
+  br label %102
 
-103:                                              ; preds = %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit, %_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit
-  %104 = load ptr, ptr %19, align 8, !tbaa !53
-  %105 = icmp eq ptr %104, %21
-  br i1 %105, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i, label %106
+102:                                              ; preds = %_ZNSt4pairImN4llvm7memprof20IndexedMemProfRecordEED2Ev.exit, %_ZN4llvm7memprof20IndexedMemProfRecord5mergeERKS1_.exit
+  %103 = load ptr, ptr %19, align 8, !tbaa !53
+  %104 = icmp eq ptr %103, %21
+  br i1 %104, label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i, label %105
 
-106:                                              ; preds = %103
-  call void @free(ptr noundef %104) #26
+105:                                              ; preds = %102
+  call void @free(ptr noundef %103) #26
   br label %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i:          ; preds = %106, %103
-  %107 = load ptr, ptr %4, align 8, !tbaa !53
-  %108 = icmp eq ptr %107, %6
-  br i1 %108, label %_ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit, label %109
+_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i:          ; preds = %105, %102
+  %106 = load ptr, ptr %4, align 8, !tbaa !53
+  %107 = icmp eq ptr %106, %6
+  br i1 %107, label %_ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit, label %108
 
-109:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i
-  call void @free(ptr noundef %107) #26
+108:                                              ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i
+  call void @free(ptr noundef %106) #26
   br label %_ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit
 
-_ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit:  ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i, %109
+_ZN4llvm7memprof20IndexedMemProfRecordD2Ev.exit:  ; preds = %_ZN4llvm11SmallVectorImLj6EED2Ev.exit.i, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

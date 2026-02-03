@@ -86,9 +86,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsToke
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = atomicrmw add ptr %9, i32 2 monotonic, align 4
-  %11 = and i32 %10, 1
-  %.not1.i.i = icmp eq i32 %11, 0
-  br i1 %.not1.i.i, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %11 = trunc i32 %10 to i1
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %12
 
 12:                                               ; preds = %7
   store ptr %9, ptr %0, align 8
@@ -293,9 +292,8 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeN
   %9 = and i64 %6, -8
   %10 = inttoptr i64 %9 to ptr
   %11 = atomicrmw add ptr %10, i32 2 monotonic, align 4
-  %12 = and i32 %11, 1
-  %.not1.i.i = icmp eq i32 %12, 0
-  %13 = select i1 %.not1.i.i, i64 %9, i64 %6
+  %12 = trunc i32 %11 to i1
+  %13 = select i1 %12, i64 %6, i64 %9
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %8, %2
@@ -412,9 +410,8 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName18GetAliase
   %22 = and i64 %19, -8
   %23 = inttoptr i64 %22 to ptr
   %24 = atomicrmw add ptr %23, i32 2 monotonic, align 4
-  %25 = and i32 %24, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %26, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %25 = trunc i32 %24 to i1
+  br i1 %25, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %26
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %.09.i.i.i.i.i, align 8
@@ -450,9 +447,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = atomicrmw add ptr %9, i32 2 monotonic, align 4, !noalias !6
-  %11 = and i32 %10, 1
-  %.not1.i.i.i = icmp eq i32 %11, 0
-  %12 = select i1 %.not1.i.i.i, i64 %8, i64 %5
+  %11 = trunc i32 %10 to i1
+  %12 = select i1 %11, i64 %5, i64 %8
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv.exit: ; preds = %7, %2

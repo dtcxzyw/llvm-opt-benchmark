@@ -20737,17 +20737,16 @@ define internal void @yuv2gbrp_full_X_c(ptr noundef readonly captures(none) %0, 
 isBE.exit:                                        ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %149 = load i64, ptr %148, align 8, !tbaa !27
-  %150 = and i64 %149, 1
-  %.not137 = icmp ne i64 %150, 0
-  %or.cond = and i1 %.not137, %24
+  %.not137 = trunc i64 %149 to i1
+  %or.cond = and i1 %24, %.not137
   br i1 %or.cond, label %.lr.ph172, label %.loopexit
 
 .lr.ph172:                                        ; preds = %isBE.exit
-  %151 = load ptr, ptr %9, align 8, !tbaa !43
-  %152 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !43
-  %154 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %155 = load ptr, ptr %154, align 8, !tbaa !43
+  %150 = load ptr, ptr %9, align 8, !tbaa !43
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !43
+  %153 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %154 = load ptr, ptr %153, align 8, !tbaa !43
   br i1 %.not219, label %.lr.ph172.split.preheader, label %.lr.ph172.split.us
 
 .lr.ph172.split.preheader:                        ; preds = %.lr.ph172
@@ -20755,52 +20754,52 @@ isBE.exit:                                        ; preds = %144
   br label %.lr.ph172.split
 
 .lr.ph172.split.us:                               ; preds = %.lr.ph172
-  %156 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %157 = load ptr, ptr %156, align 8, !tbaa !43
+  %155 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %156 = load ptr, ptr %155, align 8, !tbaa !43
   %wide.trip.count201 = zext nneg i32 %10 to i64
-  br label %158
+  br label %157
 
-158:                                              ; preds = %158, %.lr.ph172.split.us
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %158 ], [ 0, %.lr.ph172.split.us ]
-  %159 = getelementptr inbounds nuw i16, ptr %151, i64 %indvars.iv198
-  %160 = load i16, ptr %159, align 2, !tbaa !39
-  %161 = tail call i16 @llvm.bswap.i16(i16 %160)
-  store i16 %161, ptr %159, align 2, !tbaa !39
-  %162 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv198
-  %163 = load i16, ptr %162, align 2, !tbaa !39
-  %164 = tail call i16 @llvm.bswap.i16(i16 %163)
-  store i16 %164, ptr %162, align 2, !tbaa !39
-  %165 = getelementptr inbounds nuw i16, ptr %155, i64 %indvars.iv198
-  %166 = load i16, ptr %165, align 2, !tbaa !39
-  %167 = tail call i16 @llvm.bswap.i16(i16 %166)
-  store i16 %167, ptr %165, align 2, !tbaa !39
-  %168 = getelementptr inbounds nuw i16, ptr %157, i64 %indvars.iv198
-  %169 = load i16, ptr %168, align 2, !tbaa !39
-  %170 = tail call i16 @llvm.bswap.i16(i16 %169)
-  store i16 %170, ptr %168, align 2, !tbaa !39
+157:                                              ; preds = %157, %.lr.ph172.split.us
+  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %157 ], [ 0, %.lr.ph172.split.us ]
+  %158 = getelementptr inbounds nuw i16, ptr %150, i64 %indvars.iv198
+  %159 = load i16, ptr %158, align 2, !tbaa !39
+  %160 = tail call i16 @llvm.bswap.i16(i16 %159)
+  store i16 %160, ptr %158, align 2, !tbaa !39
+  %161 = getelementptr inbounds nuw i16, ptr %152, i64 %indvars.iv198
+  %162 = load i16, ptr %161, align 2, !tbaa !39
+  %163 = tail call i16 @llvm.bswap.i16(i16 %162)
+  store i16 %163, ptr %161, align 2, !tbaa !39
+  %164 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv198
+  %165 = load i16, ptr %164, align 2, !tbaa !39
+  %166 = tail call i16 @llvm.bswap.i16(i16 %165)
+  store i16 %166, ptr %164, align 2, !tbaa !39
+  %167 = getelementptr inbounds nuw i16, ptr %156, i64 %indvars.iv198
+  %168 = load i16, ptr %167, align 2, !tbaa !39
+  %169 = tail call i16 @llvm.bswap.i16(i16 %168)
+  store i16 %169, ptr %167, align 2, !tbaa !39
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %.loopexit, label %158, !llvm.loop !100
+  br i1 %exitcond202.not, label %.loopexit, label %157, !llvm.loop !100
 
 .lr.ph172.split:                                  ; preds = %.lr.ph172.split.preheader, %.lr.ph172.split
   %indvars.iv193 = phi i64 [ 0, %.lr.ph172.split.preheader ], [ %indvars.iv.next194, %.lr.ph172.split ]
-  %171 = getelementptr inbounds nuw i16, ptr %151, i64 %indvars.iv193
-  %172 = load i16, ptr %171, align 2, !tbaa !39
-  %173 = tail call i16 @llvm.bswap.i16(i16 %172)
-  store i16 %173, ptr %171, align 2, !tbaa !39
-  %174 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv193
-  %175 = load i16, ptr %174, align 2, !tbaa !39
-  %176 = tail call i16 @llvm.bswap.i16(i16 %175)
-  store i16 %176, ptr %174, align 2, !tbaa !39
-  %177 = getelementptr inbounds nuw i16, ptr %155, i64 %indvars.iv193
-  %178 = load i16, ptr %177, align 2, !tbaa !39
-  %179 = tail call i16 @llvm.bswap.i16(i16 %178)
-  store i16 %179, ptr %177, align 2, !tbaa !39
+  %170 = getelementptr inbounds nuw i16, ptr %150, i64 %indvars.iv193
+  %171 = load i16, ptr %170, align 2, !tbaa !39
+  %172 = tail call i16 @llvm.bswap.i16(i16 %171)
+  store i16 %172, ptr %170, align 2, !tbaa !39
+  %173 = getelementptr inbounds nuw i16, ptr %152, i64 %indvars.iv193
+  %174 = load i16, ptr %173, align 2, !tbaa !39
+  %175 = tail call i16 @llvm.bswap.i16(i16 %174)
+  store i16 %175, ptr %173, align 2, !tbaa !39
+  %176 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv193
+  %177 = load i16, ptr %176, align 2, !tbaa !39
+  %178 = tail call i16 @llvm.bswap.i16(i16 %177)
+  store i16 %178, ptr %176, align 2, !tbaa !39
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
   br i1 %exitcond197.not, label %.loopexit, label %.lr.ph172.split, !llvm.loop !100
 
-.loopexit:                                        ; preds = %158, %.lr.ph172.split, %isBE.exit, %._crit_edge170
+.loopexit:                                        ; preds = %157, %.lr.ph172.split, %isBE.exit, %._crit_edge170
   ret void
 }
 
@@ -21002,17 +21001,16 @@ define internal void @yuv2gbrp16_full_X_c(ptr noundef readonly captures(none) %0
 isBE.exit:                                        ; preds = %._crit_edge140
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !27
-  %118 = and i64 %117, 1
-  %.not = icmp ne i64 %118, 0
-  %or.cond = and i1 %.not, %21
+  %.not = trunc i64 %117 to i1
+  %or.cond = and i1 %21, %.not
   br i1 %or.cond, label %.lr.ph142, label %.loopexit
 
 .lr.ph142:                                        ; preds = %isBE.exit
-  %119 = load ptr, ptr %9, align 8, !tbaa !43
-  %120 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !43
-  %122 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !43
+  %118 = load ptr, ptr %9, align 8, !tbaa !43
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %120 = load ptr, ptr %119, align 8, !tbaa !43
+  %121 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %122 = load ptr, ptr %121, align 8, !tbaa !43
   br i1 %.not187, label %.lr.ph142.split.preheader, label %.lr.ph142.split.us
 
 .lr.ph142.split.preheader:                        ; preds = %.lr.ph142
@@ -21020,52 +21018,52 @@ isBE.exit:                                        ; preds = %._crit_edge140
   br label %.lr.ph142.split
 
 .lr.ph142.split.us:                               ; preds = %.lr.ph142
-  %124 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %125 = load ptr, ptr %124, align 8, !tbaa !43
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %124 = load ptr, ptr %123, align 8, !tbaa !43
   %wide.trip.count171 = zext nneg i32 %10 to i64
-  br label %126
+  br label %125
 
-126:                                              ; preds = %126, %.lr.ph142.split.us
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %126 ], [ 0, %.lr.ph142.split.us ]
-  %127 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv168
-  %128 = load i16, ptr %127, align 2, !tbaa !39
-  %129 = tail call i16 @llvm.bswap.i16(i16 %128)
-  store i16 %129, ptr %127, align 2, !tbaa !39
-  %130 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv168
-  %131 = load i16, ptr %130, align 2, !tbaa !39
-  %132 = tail call i16 @llvm.bswap.i16(i16 %131)
-  store i16 %132, ptr %130, align 2, !tbaa !39
-  %133 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv168
-  %134 = load i16, ptr %133, align 2, !tbaa !39
-  %135 = tail call i16 @llvm.bswap.i16(i16 %134)
-  store i16 %135, ptr %133, align 2, !tbaa !39
-  %136 = getelementptr inbounds nuw i16, ptr %125, i64 %indvars.iv168
-  %137 = load i16, ptr %136, align 2, !tbaa !39
-  %138 = tail call i16 @llvm.bswap.i16(i16 %137)
-  store i16 %138, ptr %136, align 2, !tbaa !39
+125:                                              ; preds = %125, %.lr.ph142.split.us
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %125 ], [ 0, %.lr.ph142.split.us ]
+  %126 = getelementptr inbounds nuw i16, ptr %118, i64 %indvars.iv168
+  %127 = load i16, ptr %126, align 2, !tbaa !39
+  %128 = tail call i16 @llvm.bswap.i16(i16 %127)
+  store i16 %128, ptr %126, align 2, !tbaa !39
+  %129 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv168
+  %130 = load i16, ptr %129, align 2, !tbaa !39
+  %131 = tail call i16 @llvm.bswap.i16(i16 %130)
+  store i16 %131, ptr %129, align 2, !tbaa !39
+  %132 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv168
+  %133 = load i16, ptr %132, align 2, !tbaa !39
+  %134 = tail call i16 @llvm.bswap.i16(i16 %133)
+  store i16 %134, ptr %132, align 2, !tbaa !39
+  %135 = getelementptr inbounds nuw i16, ptr %124, i64 %indvars.iv168
+  %136 = load i16, ptr %135, align 2, !tbaa !39
+  %137 = tail call i16 @llvm.bswap.i16(i16 %136)
+  store i16 %137, ptr %135, align 2, !tbaa !39
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %.loopexit, label %126, !llvm.loop !105
+  br i1 %exitcond172.not, label %.loopexit, label %125, !llvm.loop !105
 
 .lr.ph142.split:                                  ; preds = %.lr.ph142.split.preheader, %.lr.ph142.split
   %indvars.iv163 = phi i64 [ 0, %.lr.ph142.split.preheader ], [ %indvars.iv.next164, %.lr.ph142.split ]
-  %139 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv163
-  %140 = load i16, ptr %139, align 2, !tbaa !39
-  %141 = tail call i16 @llvm.bswap.i16(i16 %140)
-  store i16 %141, ptr %139, align 2, !tbaa !39
-  %142 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv163
-  %143 = load i16, ptr %142, align 2, !tbaa !39
-  %144 = tail call i16 @llvm.bswap.i16(i16 %143)
-  store i16 %144, ptr %142, align 2, !tbaa !39
-  %145 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv163
-  %146 = load i16, ptr %145, align 2, !tbaa !39
-  %147 = tail call i16 @llvm.bswap.i16(i16 %146)
-  store i16 %147, ptr %145, align 2, !tbaa !39
+  %138 = getelementptr inbounds nuw i16, ptr %118, i64 %indvars.iv163
+  %139 = load i16, ptr %138, align 2, !tbaa !39
+  %140 = tail call i16 @llvm.bswap.i16(i16 %139)
+  store i16 %140, ptr %138, align 2, !tbaa !39
+  %141 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv163
+  %142 = load i16, ptr %141, align 2, !tbaa !39
+  %143 = tail call i16 @llvm.bswap.i16(i16 %142)
+  store i16 %143, ptr %141, align 2, !tbaa !39
+  %144 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv163
+  %145 = load i16, ptr %144, align 2, !tbaa !39
+  %146 = tail call i16 @llvm.bswap.i16(i16 %145)
+  store i16 %146, ptr %144, align 2, !tbaa !39
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
   br i1 %exitcond167.not, label %.loopexit, label %.lr.ph142.split, !llvm.loop !105
 
-.loopexit:                                        ; preds = %126, %.lr.ph142.split, %isBE.exit
+.loopexit:                                        ; preds = %125, %.lr.ph142.split, %isBE.exit
   ret void
 }
 
@@ -21271,17 +21269,16 @@ define internal void @yuv2gbrpf32_full_X_c(ptr noundef readonly captures(none) %
 isBE.exit:                                        ; preds = %._crit_edge143
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %123 = load i64, ptr %122, align 8, !tbaa !27
-  %124 = and i64 %123, 1
-  %.not = icmp ne i64 %124, 0
-  %or.cond = and i1 %.not, %21
+  %.not = trunc i64 %123 to i1
+  %or.cond = and i1 %21, %.not
   br i1 %or.cond, label %.lr.ph145, label %.loopexit
 
 .lr.ph145:                                        ; preds = %isBE.exit
-  %125 = load ptr, ptr %9, align 8, !tbaa !48
-  %126 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !48
-  %128 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !48
+  %124 = load ptr, ptr %9, align 8, !tbaa !48
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !48
+  %127 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %128 = load ptr, ptr %127, align 8, !tbaa !48
   br i1 %.not190, label %.lr.ph145.split.preheader, label %.lr.ph145.split.us
 
 .lr.ph145.split.preheader:                        ; preds = %.lr.ph145
@@ -21289,52 +21286,52 @@ isBE.exit:                                        ; preds = %._crit_edge143
   br label %.lr.ph145.split
 
 .lr.ph145.split.us:                               ; preds = %.lr.ph145
-  %130 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %131 = load ptr, ptr %130, align 8, !tbaa !48
+  %129 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %130 = load ptr, ptr %129, align 8, !tbaa !48
   %wide.trip.count174 = zext nneg i32 %10 to i64
-  br label %132
+  br label %131
 
-132:                                              ; preds = %132, %.lr.ph145.split.us
-  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %132 ], [ 0, %.lr.ph145.split.us ]
-  %133 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv171
-  %134 = load i32, ptr %133, align 4, !tbaa !49
-  %135 = tail call i32 @llvm.bswap.i32(i32 %134)
-  store i32 %135, ptr %133, align 4, !tbaa !49
-  %136 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv171
-  %137 = load i32, ptr %136, align 4, !tbaa !49
-  %138 = tail call i32 @llvm.bswap.i32(i32 %137)
-  store i32 %138, ptr %136, align 4, !tbaa !49
-  %139 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv171
-  %140 = load i32, ptr %139, align 4, !tbaa !49
-  %141 = tail call i32 @llvm.bswap.i32(i32 %140)
-  store i32 %141, ptr %139, align 4, !tbaa !49
-  %142 = getelementptr inbounds nuw i32, ptr %131, i64 %indvars.iv171
-  %143 = load i32, ptr %142, align 4, !tbaa !49
-  %144 = tail call i32 @llvm.bswap.i32(i32 %143)
-  store i32 %144, ptr %142, align 4, !tbaa !49
+131:                                              ; preds = %131, %.lr.ph145.split.us
+  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %131 ], [ 0, %.lr.ph145.split.us ]
+  %132 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv171
+  %133 = load i32, ptr %132, align 4, !tbaa !49
+  %134 = tail call i32 @llvm.bswap.i32(i32 %133)
+  store i32 %134, ptr %132, align 4, !tbaa !49
+  %135 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv171
+  %136 = load i32, ptr %135, align 4, !tbaa !49
+  %137 = tail call i32 @llvm.bswap.i32(i32 %136)
+  store i32 %137, ptr %135, align 4, !tbaa !49
+  %138 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv171
+  %139 = load i32, ptr %138, align 4, !tbaa !49
+  %140 = tail call i32 @llvm.bswap.i32(i32 %139)
+  store i32 %140, ptr %138, align 4, !tbaa !49
+  %141 = getelementptr inbounds nuw i32, ptr %130, i64 %indvars.iv171
+  %142 = load i32, ptr %141, align 4, !tbaa !49
+  %143 = tail call i32 @llvm.bswap.i32(i32 %142)
+  store i32 %143, ptr %141, align 4, !tbaa !49
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %.loopexit, label %132, !llvm.loop !110
+  br i1 %exitcond175.not, label %.loopexit, label %131, !llvm.loop !110
 
 .lr.ph145.split:                                  ; preds = %.lr.ph145.split.preheader, %.lr.ph145.split
   %indvars.iv166 = phi i64 [ 0, %.lr.ph145.split.preheader ], [ %indvars.iv.next167, %.lr.ph145.split ]
-  %145 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv166
-  %146 = load i32, ptr %145, align 4, !tbaa !49
-  %147 = tail call i32 @llvm.bswap.i32(i32 %146)
-  store i32 %147, ptr %145, align 4, !tbaa !49
-  %148 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv166
-  %149 = load i32, ptr %148, align 4, !tbaa !49
-  %150 = tail call i32 @llvm.bswap.i32(i32 %149)
-  store i32 %150, ptr %148, align 4, !tbaa !49
-  %151 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv166
-  %152 = load i32, ptr %151, align 4, !tbaa !49
-  %153 = tail call i32 @llvm.bswap.i32(i32 %152)
-  store i32 %153, ptr %151, align 4, !tbaa !49
+  %144 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv166
+  %145 = load i32, ptr %144, align 4, !tbaa !49
+  %146 = tail call i32 @llvm.bswap.i32(i32 %145)
+  store i32 %146, ptr %144, align 4, !tbaa !49
+  %147 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv166
+  %148 = load i32, ptr %147, align 4, !tbaa !49
+  %149 = tail call i32 @llvm.bswap.i32(i32 %148)
+  store i32 %149, ptr %147, align 4, !tbaa !49
+  %150 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv166
+  %151 = load i32, ptr %150, align 4, !tbaa !49
+  %152 = tail call i32 @llvm.bswap.i32(i32 %151)
+  store i32 %152, ptr %150, align 4, !tbaa !49
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
   br i1 %exitcond170.not, label %.loopexit, label %.lr.ph145.split, !llvm.loop !110
 
-.loopexit:                                        ; preds = %132, %.lr.ph145.split, %isBE.exit
+.loopexit:                                        ; preds = %131, %.lr.ph145.split, %isBE.exit
   ret void
 }
 

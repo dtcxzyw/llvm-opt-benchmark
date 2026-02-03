@@ -19733,14 +19733,13 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$tokio..sync..oneshot..Inner$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9858)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !alias.scope !9861, !noundef !4
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %7, %1
   %6 = and i64 %3, 8
-  %.not2.i = icmp eq i64 %6, 0
-  br i1 %.not2.i, label %"_ZN78_$LT$tokio..sync..oneshot..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h46b39307e7e7fda6E.llvm.700930863383756518.exit", label %14
+  %.not.i = icmp eq i64 %6, 0
+  br i1 %.not.i, label %"_ZN78_$LT$tokio..sync..oneshot..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h46b39307e7e7fda6E.llvm.700930863383756518.exit", label %14
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24825,14 +24824,13 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$alloc..sync..ArcInner$LT$tok
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11994)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !alias.scope !11997, !noundef !4
-  %5 = and i64 %4, 1
-  %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %6, label %8
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %8, label %6
 
 6:                                                ; preds = %8, %1
   %7 = and i64 %4, 8
-  %.not2.i.i = icmp eq i64 %7, 0
-  br i1 %.not2.i.i, label %"_ZN4core3ptr64drop_in_place$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$17hcd1c966c20cd9b15E.exit", label %15
+  %.not.i.i = icmp eq i64 %7, 0
+  br i1 %.not.i.i, label %"_ZN4core3ptr64drop_in_place$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$17hcd1c966c20cd9b15E.exit", label %15
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -33941,14 +33939,13 @@ define hidden void @"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u2
 define hidden void @"_ZN78_$LT$tokio..sync..oneshot..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h46b39307e7e7fda6E.llvm.700930863383756518"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !alias.scope !13729, !noundef !4
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %7, %1
   %6 = and i64 %3, 8
-  %.not2 = icmp eq i64 %6, 0
-  br i1 %.not2, label %14, label %15
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %14, label %15
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16

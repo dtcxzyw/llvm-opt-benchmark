@@ -304,30 +304,30 @@ define dso_local void @fpu__init_system_xstate(i32 noundef %0) local_unnamed_add
 .preheader:                                       ; preds = %11, %49
   %32 = phi i64 [ %50, %49 ], [ 0, %11 ]
   %33 = icmp eq i64 %32, 0
-  %34 = shl nuw i64 1, %32
-  %35 = and i64 %34, 397310
-  %36 = icmp ne i64 %35, 0
-  %37 = select i1 %33, i1 true, i1 %36
-  br i1 %37, label %38, label %45
+  %34 = lshr i64 397310, %32
+  %35 = trunc i64 %34 to i1
+  %36 = select i1 %33, i1 true, i1 %35
+  br i1 %36, label %37, label %44
 
-38:                                               ; preds = %.preheader
-  %39 = getelementptr i16, ptr @xsave_cpuid_features, i64 %32
-  %40 = load i16, ptr %39, align 2
-  %41 = zext i16 %40 to i64
-  %42 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), i64 %41) #16, !srcloc !28
-  %43 = icmp ult i8 %42, 2
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp eq i8 %42, 0
-  br i1 %44, label %45, label %49
+37:                                               ; preds = %.preheader
+  %38 = getelementptr i16, ptr @xsave_cpuid_features, i64 %32
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i64
+  %41 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), i64 %40) #16, !srcloc !28
+  %42 = icmp ult i8 %41, 2
+  tail call void @llvm.assume(i1 %42)
+  %43 = icmp eq i8 %41, 0
+  br i1 %43, label %44, label %49
 
-45:                                               ; preds = %38, %.preheader
-  %46 = xor i64 %34, -1
+44:                                               ; preds = %37, %.preheader
+  %45 = shl nuw nsw i64 1, %32
+  %46 = xor i64 %45, -1
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   %48 = and i64 %47, %46
   store i64 %48, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   br label %49
 
-49:                                               ; preds = %45, %38
+49:                                               ; preds = %44, %37
   %50 = add nuw nsw i64 %32, 1
   %51 = icmp eq i64 %50, 19
   br i1 %51, label %52, label %.preheader, !llvm.loop !29

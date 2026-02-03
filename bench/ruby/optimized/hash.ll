@@ -344,9 +344,8 @@ define internal fastcc range(i64 -4611686018427387904, 4611686018427387904) i64 
   ]
 
 9:                                                ; preds = %7
-  %10 = and i64 %0, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %11, label %rb_type.exit.thread
+  %10 = trunc i64 %0 to i1
+  br i1 %10, label %rb_type.exit.thread, label %11
 
 11:                                               ; preds = %9
   %12 = and i64 %0, 254
@@ -459,9 +458,8 @@ define internal range(i64 -4611686018427387904, 4611686018427387904) i64 @obj_an
   br label %rb_class_of.exit
 
 13:                                               ; preds = %10
-  %14 = and i64 %0, 1
-  %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %rb_class_of.exit
+  %14 = trunc i64 %0 to i1
+  br i1 %14, label %rb_class_of.exit, label %15
 
 15:                                               ; preds = %13
   %16 = and i64 %0, 254
@@ -536,20 +534,19 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
 
 55:                                               ; preds = %.thread24, %.thread, %47
   %.2 = phi i64 [ %54, %.thread ], [ %51, %47 ], [ %38, %.thread24 ]
-  %56 = and i64 %.2, 1
-  %.not2728 = icmp eq i64 %56, 0
-  br i1 %.not2728, label %.lr.ph, label %._crit_edge
+  %56 = trunc i64 %.2 to i1
+  br i1 %56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %.329 = phi i64 [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %.2, %55 ]
-  %57 = icmp eq i64 %.329, 0
-  %58 = and i64 %.329, 6
+  %.327 = phi i64 [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %.2, %55 ]
+  %57 = icmp eq i64 %.327, 0
+  %58 = and i64 %.327, 6
   %59 = icmp ne i64 %58, 0
   %60 = or i1 %57, %59
   br i1 %60, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.lr.ph
-  %61 = inttoptr i64 %.329 to ptr
+  %61 = inttoptr i64 %.327 to ptr
   %62 = load i64, ptr %61, align 8, !tbaa !11
   %63 = and i64 %62, 31
   %64 = icmp eq i64 %63, 10
@@ -557,7 +554,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.lr.ph
 
 65:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %66 = call i32 @rb_integer_pack(i64 noundef %.329, ptr noundef nonnull %2, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64) #28
+  %66 = call i32 @rb_integer_pack(i64 noundef %.327, ptr noundef nonnull %2, i64 noundef 1, i64 noundef 8, i64 noundef 0, i32 noundef 64) #28
   %67 = icmp slt i32 %66, 0
   %68 = load i64, ptr %2, align 8, !tbaa !7
   %69 = shl i64 %68, 1
@@ -569,11 +566,10 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %.lr.ph
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %.lr.ph, %65, %rbimpl_RB_TYPE_P_fastpath.exit
-  %.4 = phi i64 [ %.5, %65 ], [ %.329, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %.329, %.lr.ph ]
+  %.4 = phi i64 [ %.5, %65 ], [ %.327, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %.327, %.lr.ph ]
   %73 = call i64 @rb_to_int(i64 noundef %.4) #28
-  %74 = and i64 %73, 1
-  %.not27 = icmp eq i64 %74, 0
-  br i1 %.not27, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  %74 = trunc i64 %73 to i1
+  br i1 %74, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread, %55
   %.3.lcssa = phi i64 [ %.2, %55 ], [ %73, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
@@ -604,9 +600,8 @@ define hidden range(i64 1, 0) i64 @rb_obj_hash(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @objid_hash(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_id(i64 noundef %0) #28
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %6
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i64 @rb_big_hash(i64 noundef %2) #28
@@ -614,9 +609,8 @@ define internal i64 @objid_hash(i64 noundef %0) #0 {
 
 6:                                                ; preds = %4, %1
   %.0 = phi i64 [ %2, %1 ], [ %5, %4 ]
-  %7 = and i64 %.0, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %10, label %8
+  %7 = trunc i64 %.0 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = ashr i64 %.0, 1
@@ -7788,9 +7782,8 @@ rb_check_arity.exit:                              ; preds = %3
 
 6:                                                ; preds = %rb_check_arity.exit
   %7 = load i64, ptr %1, align 8, !tbaa !7
-  %8 = and i64 %7, 1
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %11, label %9
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = tail call i64 @rb_fix2int(i64 noundef %7) #28
@@ -10381,9 +10374,8 @@ rb_hash_modify.exit:                              ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %rb_hash_modify.exit
-  %20 = and i64 %2, 1
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %23, label %21
+  %20 = trunc i64 %2 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
   %22 = ashr i64 %2, 1
@@ -10427,8 +10419,8 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
 
 39:                                               ; preds = %37
   %40 = tail call i64 @rb_proc_lambda_p(i64 noundef %5) #28
-  %.not.i20 = icmp eq i64 %40, 0
-  br i1 %.not.i20, label %45, label %41
+  %.not.i19 = icmp eq i64 %40, 0
+  br i1 %.not.i19, label %45, label %41
 
 41:                                               ; preds = %39
   %42 = tail call i32 @rb_proc_arity(i64 noundef %5) #28

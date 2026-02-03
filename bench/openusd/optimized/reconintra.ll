@@ -1315,8 +1315,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %.in.in.in.v = select i1 %.not192, i64 7872, i64 7874
   %.in.in.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.in.in.v
   %.in.in = load i8, ptr %.in.in.in, align 2
-  %.in = and i8 %.in.in, 1
-  %99 = icmp ne i8 %.in, 0
+  %99 = trunc i8 %.in.in to i1
   br label %100
 
 100:                                              ; preds = %98, %86
@@ -1326,11 +1325,10 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
 
 102:                                              ; preds = %100
   %.not194 = icmp eq i32 %95, 0
-  %.in195.in.in.v = select i1 %.not194, i64 7873, i64 7875
-  %.in195.in.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in195.in.in.v
-  %.in195.in = load i8, ptr %.in195.in.in, align 1
-  %.in195 = and i8 %.in195.in, 1
-  %103 = icmp ne i8 %.in195, 0
+  %.in.in195.in.v = select i1 %.not194, i64 7873, i64 7875
+  %.in.in195.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.in195.in.v
+  %.in.in195 = load i8, ptr %.in.in195.in, align 1
+  %103 = trunc i8 %.in.in195 to i1
   br label %104
 
 104:                                              ; preds = %102, %100

@@ -1475,8 +1475,7 @@ entry:
   br i1 %tobool.i.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool.i7 = icmp ne i8 %bf.clear.i, 0
+  %tobool.i7 = trunc i8 %bf.load.i to i1
   %call8 = tail call ptr @_ZN6hermes2vm11HiddenClass19copyToNewDictionaryENS0_6HandleIS1_EERNS0_7RuntimeEb(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i1 noundef zeroext %tobool.i7)
   %agg.tmp.sroa.0.0.copyload.i.i8.pre = load i64, ptr %call8, align 8
   %.pre = and i64 %agg.tmp.sroa.0.0.copyload.i.i8.pre, 281474976710655
@@ -1518,9 +1517,8 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i.i to ptr
   %flags_.i = getelementptr inbounds nuw i8, ptr %0, i64 10
   %bf.load.i = load i8, ptr %flags_.i, align 2
-  %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool.i.not = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.i.not, label %if.end44, label %if.then
+  %tobool.i = trunc i8 %bf.load.i to i1
+  br i1 %tobool.i, label %if.then, label %if.end44
 
 if.then:                                          ; preds = %entry
   %identifierTable_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9264
@@ -2256,9 +2254,8 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i.i to ptr
   %flags_.i = getelementptr inbounds nuw i8, ptr %0, i64 10
   %bf.load.i = load i8, ptr %flags_.i, align 2
-  %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool.i.not = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.i.not, label %if.end37, label %if.then
+  %tobool.i = trunc i8 %bf.load.i to i1
+  br i1 %tobool.i, label %if.then, label %if.end37
 
 if.then:                                          ; preds = %entry
   %1 = trunc i16 %newFlags.coerce to i8
@@ -3008,9 +3005,8 @@ _ZN6hermes2vm13MutableHandleINS0_11HiddenClassEEC2ERNS0_15HandleRootOwnerEPS2_.e
   %3 = inttoptr i64 %and.i.i.i.i.i to ptr
   %flags_.i = getelementptr inbounds nuw i8, ptr %3, i64 10
   %bf.load.i = load i8, ptr %flags_.i, align 2
-  %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool.i.not = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.i.not, label %if.else, label %if.end
+  %tobool.i = trunc i8 %bf.load.i to i1
+  br i1 %tobool.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HiddenClassEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %call14 = tail call ptr @_ZN6hermes2vm11HiddenClass19copyToNewDictionaryENS0_6HandleIS1_EERNS0_7RuntimeEb(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i1 noundef zeroext false)

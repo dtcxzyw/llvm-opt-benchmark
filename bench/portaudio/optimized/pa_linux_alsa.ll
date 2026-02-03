@@ -6698,7 +6698,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %14 = load ptr, ptr %13, align 8, !tbaa !130
   %.not12 = icmp eq ptr %14, null
-  br i1 %.not12, label %131, label %15
+  br i1 %.not12, label %129, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 788
@@ -6706,203 +6706,202 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %19 = load i32, ptr %18, align 8, !tbaa !144
   %20 = icmp sgt i32 %17, %19
-  br i1 %20, label %21, label %127
+  br i1 %20, label %21, label %125
 
 21:                                               ; preds = %15
   %22 = trunc i64 %1 to i32
   %23 = sub nsw i32 %17, %19
   %24 = and i32 %17, 1
   %25 = icmp eq i32 %24, 0
-  %26 = and i32 %19, 1
-  %27 = icmp ne i32 %26, 0
-  %28 = and i1 %25, %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 796
-  %30 = load i32, ptr %29, align 4, !tbaa !216
-  %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %90, label %31
+  %26 = trunc i32 %19 to i1
+  %spec.select.i = and i1 %25, %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 796
+  %28 = load i32, ptr %27, align 4, !tbaa !216
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %88, label %29
 
-31:                                               ; preds = %21
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %33 = load i32, ptr %32, align 8, !tbaa !214
-  %34 = tail call i64 @snd_pcm_format_size(i32 noundef %33, i64 noundef 1) #27, !callees !263
-  %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %37 = load i32, ptr %36, align 8, !tbaa !219
-  %.not74.i = icmp eq i32 %37, 0
-  br i1 %.not74.i, label %54, label %38
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %31 = load i32, ptr %30, align 8, !tbaa !214
+  %32 = tail call i64 @snd_pcm_format_size(i32 noundef %31, i64 noundef 1) #27, !callees !263
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %35 = load i32, ptr %34, align 8, !tbaa !219
+  %.not74.i = icmp eq i32 %35, 0
+  br i1 %.not74.i, label %52, label %36
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %40 = load ptr, ptr %39, align 8, !tbaa !264
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %42 = load i64, ptr %41, align 8, !tbaa !265
-  %43 = load ptr, ptr %40, align 8, !tbaa !266
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !268
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !269
-  %49 = zext i32 %48 to i64
-  %50 = mul i64 %42, %49
-  %51 = add i64 %50, %46
-  %52 = lshr i64 %51, 3
-  %53 = getelementptr inbounds nuw i8, ptr %43, i64 %52
-  br label %57
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %38 = load ptr, ptr %37, align 8, !tbaa !264
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %40 = load i64, ptr %39, align 8, !tbaa !265
+  %41 = load ptr, ptr %38, align 8, !tbaa !266
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %43 = load i32, ptr %42, align 8, !tbaa !268
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %46 = load i32, ptr %45, align 4, !tbaa !269
+  %47 = zext i32 %46 to i64
+  %48 = mul i64 %40, %47
+  %49 = add i64 %48, %44
+  %50 = lshr i64 %49, 3
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 %50
+  br label %55
 
-54:                                               ; preds = %31
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %56 = load ptr, ptr %55, align 8, !tbaa !206
-  br label %57
+52:                                               ; preds = %29
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %54 = load ptr, ptr %53, align 8, !tbaa !206
+  br label %55
 
-57:                                               ; preds = %54, %38
-  %58 = phi ptr [ %53, %38 ], [ %56, %54 ]
-  %59 = load i32, ptr %18, align 8, !tbaa !217
-  %60 = mul nsw i32 %59, %35
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %58, i64 %61
-  br i1 %28, label %63, label %79
+55:                                               ; preds = %52, %36
+  %56 = phi ptr [ %51, %36 ], [ %54, %52 ]
+  %57 = load i32, ptr %18, align 8, !tbaa !217
+  %58 = mul nsw i32 %57, %33
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i8, ptr %56, i64 %59
+  br i1 %spec.select.i, label %61, label %77
 
-63:                                               ; preds = %57
-  %64 = icmp sgt i32 %22, 0
-  br i1 %64, label %.lr.ph.i, label %.._crit_edge_crit_edge.i
+61:                                               ; preds = %55
+  %62 = icmp sgt i32 %22, 0
+  br i1 %62, label %.lr.ph.i, label %.._crit_edge_crit_edge.i
 
-.._crit_edge_crit_edge.i:                         ; preds = %63
-  %.pre.i = shl i64 %34, 32
+.._crit_edge_crit_edge.i:                         ; preds = %61
+  %.pre.i = shl i64 %32, 32
   %.pre11.i = ashr exact i64 %.pre.i, 32
   br label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %63
-  %65 = add nsw i32 %59, -1
-  %66 = mul nsw i32 %65, %35
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %58, i64 %67
-  %sext75.i = shl i64 %34, 32
-  %69 = ashr exact i64 %sext75.i, 32
-  br label %70
+.lr.ph.i:                                         ; preds = %61
+  %63 = add nsw i32 %57, -1
+  %64 = mul nsw i32 %63, %33
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %56, i64 %65
+  %sext75.i = shl i64 %32, 32
+  %67 = ashr exact i64 %sext75.i, 32
+  br label %68
 
-70:                                               ; preds = %70, %.lr.ph.i
-  %.0676.i = phi i32 [ 0, %.lr.ph.i ], [ %76, %70 ]
-  %.0715.i = phi ptr [ %68, %.lr.ph.i ], [ %75, %70 ]
-  %71 = getelementptr inbounds i8, ptr %.0715.i, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %.0715.i, i64 %69, i1 false)
-  %72 = load i32, ptr %16, align 4, !tbaa !207
-  %73 = mul nsw i32 %72, %35
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0715.i, i64 %74
-  %76 = add nuw nsw i32 %.0676.i, 1
-  %exitcond.not.i = icmp eq i32 %76, %22
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %70, !llvm.loop !270
+68:                                               ; preds = %68, %.lr.ph.i
+  %.0676.i = phi i32 [ 0, %.lr.ph.i ], [ %74, %68 ]
+  %.0715.i = phi ptr [ %66, %.lr.ph.i ], [ %73, %68 ]
+  %69 = getelementptr inbounds i8, ptr %.0715.i, i64 %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %.0715.i, i64 %67, i1 false)
+  %70 = load i32, ptr %16, align 4, !tbaa !207
+  %71 = mul nsw i32 %70, %33
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %.0715.i, i64 %72
+  %74 = add nuw nsw i32 %.0676.i, 1
+  %exitcond.not.i = icmp eq i32 %74, %22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !270
 
-._crit_edge.i:                                    ; preds = %70, %.._crit_edge_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre11.i, %.._crit_edge_crit_edge.i ], [ %69, %70 ]
-  %77 = getelementptr inbounds i8, ptr %62, i64 %.pre-phi.i
-  %78 = add nsw i32 %23, -1
-  br label %79
+._crit_edge.i:                                    ; preds = %68, %.._crit_edge_crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre11.i, %.._crit_edge_crit_edge.i ], [ %67, %68 ]
+  %75 = getelementptr inbounds i8, ptr %60, i64 %.pre-phi.i
+  %76 = add nsw i32 %23, -1
+  br label %77
 
-79:                                               ; preds = %._crit_edge.i, %57
-  %.069.i = phi i32 [ %78, %._crit_edge.i ], [ %23, %57 ]
-  %.065.i = phi ptr [ %77, %._crit_edge.i ], [ %62, %57 ]
-  %80 = icmp sgt i32 %.069.i, 0
-  %81 = icmp sgt i32 %22, 0
-  %or.cond.i = and i1 %81, %80
+77:                                               ; preds = %._crit_edge.i, %55
+  %.069.i = phi i32 [ %76, %._crit_edge.i ], [ %23, %55 ]
+  %.065.i = phi ptr [ %75, %._crit_edge.i ], [ %60, %55 ]
+  %78 = icmp sgt i32 %.069.i, 0
+  %79 = icmp sgt i32 %22, 0
+  %or.cond.i = and i1 %79, %78
   br i1 %or.cond.i, label %.lr.ph9.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
-.lr.ph9.i:                                        ; preds = %79
-  %82 = mul nsw i32 %.069.i, %35
-  %83 = sext i32 %82 to i64
-  br label %84
+.lr.ph9.i:                                        ; preds = %77
+  %80 = mul nsw i32 %.069.i, %33
+  %81 = sext i32 %80 to i64
+  br label %82
 
-84:                                               ; preds = %84, %.lr.ph9.i
-  %.1668.i = phi ptr [ %.065.i, %.lr.ph9.i ], [ %88, %84 ]
-  %.1687.i = phi i32 [ 0, %.lr.ph9.i ], [ %89, %84 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.1668.i, i8 0, i64 %83, i1 false)
-  %85 = load i32, ptr %16, align 4, !tbaa !207
-  %86 = mul nsw i32 %85, %35
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %.1668.i, i64 %87
-  %89 = add nuw nsw i32 %.1687.i, 1
-  %exitcond10.not.i = icmp eq i32 %89, %22
-  br i1 %exitcond10.not.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, label %84, !llvm.loop !271
+82:                                               ; preds = %82, %.lr.ph9.i
+  %.1668.i = phi ptr [ %.065.i, %.lr.ph9.i ], [ %86, %82 ]
+  %.1687.i = phi i32 [ 0, %.lr.ph9.i ], [ %87, %82 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.1668.i, i8 0, i64 %81, i1 false)
+  %83 = load i32, ptr %16, align 4, !tbaa !207
+  %84 = mul nsw i32 %83, %33
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %.1668.i, i64 %85
+  %87 = add nuw nsw i32 %.1687.i, 1
+  %exitcond10.not.i = icmp eq i32 %87, %22
+  br i1 %exitcond10.not.i, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, label %82, !llvm.loop !271
 
-90:                                               ; preds = %21
-  br i1 %28, label %91, label %111
+88:                                               ; preds = %21
+  br i1 %spec.select.i, label %89, label %109
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %93 = load ptr, ptr %92, align 8, !tbaa !264
-  %94 = sext i32 %19 to i64
-  %95 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %93, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %97 = load i64, ptr %96, align 8, !tbaa !265
-  %98 = getelementptr i8, ptr %95, i64 -16
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %100 = load i32, ptr %99, align 8, !tbaa !214
-  %101 = tail call i32 @snd_pcm_area_copy(ptr noundef %95, i64 noundef %97, ptr noundef %98, i64 noundef %97, i32 noundef %22, i32 noundef %100) #27, !callees !272
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %103, label %109, !prof !9
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %91 = load ptr, ptr %90, align 8, !tbaa !264
+  %92 = sext i32 %19 to i64
+  %93 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %91, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %95 = load i64, ptr %94, align 8, !tbaa !265
+  %96 = getelementptr i8, ptr %93, i64 -16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %98 = load i32, ptr %97, align 8, !tbaa !214
+  %99 = tail call i32 @snd_pcm_area_copy(ptr noundef %93, i64 noundef %95, ptr noundef %96, i64 noundef %95, i32 noundef %22, i32 noundef %98) #27, !callees !272
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %101, label %107, !prof !9
 
-103:                                              ; preds = %91
-  %104 = tail call i64 @pthread_self() #30
-  %105 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
-  %.not4.i = icmp eq i64 %104, %105
-  br i1 %.not4.i, label %106, label %126
+101:                                              ; preds = %89
+  %102 = tail call i64 @pthread_self() #30
+  %103 = load i64, ptr @paUnixMainThread, align 8, !tbaa !108
+  %.not4.i = icmp eq i64 %102, %103
+  br i1 %.not4.i, label %104, label %124
 
-106:                                              ; preds = %103
-  %107 = sext i32 %101 to i64
-  %108 = tail call ptr @snd_strerror(i32 noundef %101) #27, !callees !109
-  tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %107, ptr noundef %108) #27
-  br label %126
+104:                                              ; preds = %101
+  %105 = sext i32 %99 to i64
+  %106 = tail call ptr @snd_strerror(i32 noundef %99) #27, !callees !109
+  tail call void @PaUtil_SetLastHostErrorInfo(i32 noundef 8, i64 noundef %105, ptr noundef %106) #27
+  br label %124
 
-109:                                              ; preds = %91
-  %110 = add nsw i32 %23, -1
-  br label %111
+107:                                              ; preds = %89
+  %108 = add nsw i32 %23, -1
+  br label %109
 
-111:                                              ; preds = %109, %90
-  %.170.i = phi i32 [ %110, %109 ], [ %23, %90 ]
-  %112 = icmp sgt i32 %.170.i, 0
-  br i1 %112, label %113, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
+109:                                              ; preds = %107, %88
+  %.170.i = phi i32 [ %108, %107 ], [ %23, %88 ]
+  %110 = icmp sgt i32 %.170.i, 0
+  br i1 %110, label %111, label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %115 = load ptr, ptr %114, align 8, !tbaa !264
-  %116 = load i32, ptr %16, align 4, !tbaa !207
-  %117 = sub nsw i32 %116, %.170.i
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %115, i64 %118
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %121 = load i64, ptr %120, align 8, !tbaa !265
+111:                                              ; preds = %109
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %113 = load ptr, ptr %112, align 8, !tbaa !264
+  %114 = load i32, ptr %16, align 4, !tbaa !207
+  %115 = sub nsw i32 %114, %.170.i
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %113, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %119 = load i64, ptr %118, align 8, !tbaa !265
   %sext = shl i64 %1, 32
-  %122 = ashr exact i64 %sext, 32
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %124 = load i32, ptr %123, align 8, !tbaa !214
-  %125 = tail call i32 @snd_pcm_areas_silence(ptr noundef %119, i64 noundef %121, i32 noundef %.170.i, i64 noundef %122, i32 noundef %124) #27, !callees !250
+  %120 = ashr exact i64 %sext, 32
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %122 = load i32, ptr %121, align 8, !tbaa !214
+  %123 = tail call i32 @snd_pcm_areas_silence(ptr noundef %117, i64 noundef %119, i32 noundef %.170.i, i64 noundef %120, i32 noundef %122) #27, !callees !250
   br label %PaAlsaStreamComponent_DoChannelAdaption.exit.thread
 
-PaAlsaStreamComponent_DoChannelAdaption.exit.thread: ; preds = %84, %113, %111, %79
+PaAlsaStreamComponent_DoChannelAdaption.exit.thread: ; preds = %82, %111, %109, %77
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !3
-  br label %127
+  br label %125
 
-126:                                              ; preds = %106, %103
+124:                                              ; preds = %104, %101
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull @.str.204) #27
   store i32 -9999, ptr @paUtilErr_, align 4, !tbaa !3
   br label %.sink.split
 
-127:                                              ; preds = %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, %15
-  %128 = call fastcc i32 @PaAlsaStreamComponent_EndProcessing(ptr noundef nonnull %12, i64 noundef %1, ptr noundef %4)
-  store i32 %128, ptr @paUtilErr_, align 4, !tbaa !3
-  %129 = icmp slt i32 %128, 0
-  br i1 %129, label %.sink.split, label %131, !prof !9
+125:                                              ; preds = %PaAlsaStreamComponent_DoChannelAdaption.exit.thread, %15
+  %126 = call fastcc i32 @PaAlsaStreamComponent_EndProcessing(ptr noundef nonnull %12, i64 noundef %1, ptr noundef %4)
+  store i32 %126, ptr @paUtilErr_, align 4, !tbaa !3
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %.sink.split, label %129, !prof !9
 
-.sink.split:                                      ; preds = %127, %7, %126
-  %.str.203.sink = phi ptr [ @.str.201, %7 ], [ @.str.202, %126 ], [ @.str.203, %127 ]
+.sink.split:                                      ; preds = %125, %7, %124
+  %.str.203.sink = phi ptr [ @.str.201, %7 ], [ @.str.202, %124 ], [ @.str.203, %125 ]
   tail call void (ptr, ...) @PaUtil_DebugPrint(ptr noundef nonnull %.str.203.sink) #27
-  %130 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
-  br label %131
+  %128 = load i32, ptr @paUtilErr_, align 4, !tbaa !3
+  br label %129
 
-131:                                              ; preds = %.sink.split, %11, %127
-  %.0 = phi i32 [ 0, %11 ], [ 0, %127 ], [ %130, %.sink.split ]
-  %132 = load i32, ptr %4, align 4, !tbaa !3
-  store i32 %132, ptr %2, align 4, !tbaa !3
+129:                                              ; preds = %.sink.split, %11, %125
+  %.0 = phi i32 [ 0, %11 ], [ 0, %125 ], [ %128, %.sink.split ]
+  %130 = load i32, ptr %4, align 4, !tbaa !3
+  store i32 %130, ptr %2, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

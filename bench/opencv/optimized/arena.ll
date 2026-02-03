@@ -810,16 +810,14 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
   br i1 %.not, label %36, label %.thread
 
 36:                                               ; preds = %29
-  %37 = and i64 %33, 1
-  %.not14 = icmp eq i64 %37, 0
-  br i1 %.not14, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, label %.thread22
+  %37 = trunc i64 %33 to i1
+  br i1 %37, label %.thread20, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread
 
 .thread:                                          ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !56
-  %40 = and i64 %33, 1
-  %.not13 = icmp eq i64 %40, 0
-  br i1 %.not13, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit, label %45
+  %40 = trunc i64 %33 to i1
+  br i1 %40, label %45, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
 
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %.thread
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -842,15 +840,15 @@ _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.
   %storemerge = add i64 %.pn, %31
   store i64 %storemerge, ptr %2, align 8, !tbaa !24
   %.not8 = icmp eq ptr %46, null
-  br i1 %.not8, label %.thread22, label %47
+  br i1 %.not8, label %.thread20, label %47
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %46, align 8, !tbaa !58
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(9) %46, i64 noundef %storemerge)
-          to label %.thread22 unwind label %.loopexit.split-lp
+          to label %.thread20 unwind label %.loopexit.split-lp
 
-.thread22:                                        ; preds = %36, %47, %45
+.thread20:                                        ; preds = %36, %47, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -1159,9 +1157,8 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !54
-  %37 = and i64 %33, 1
-  %.not25 = icmp eq i64 %37, 0
-  br i1 %.not25, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit, label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit
+  %37 = trunc i64 %33 to i1
+  br i1 %37, label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
 
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -1201,10 +1198,9 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit: 
   br label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
 
 47:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit
-  %48 = and i64 %33, 1
-  %.not26 = icmp eq i64 %48, 0
+  %48 = trunc i64 %33 to i1
   %49 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  br i1 %.not26, label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22, label %50
+  br i1 %48, label %50, label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22
 
 50:                                               ; preds = %47
   %51 = load i64, ptr %2, align 8, !tbaa !24

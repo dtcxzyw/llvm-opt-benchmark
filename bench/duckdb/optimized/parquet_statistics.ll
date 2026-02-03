@@ -4833,18 +4833,17 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i:    ; preds = %_ZN6duckdb17Parquet
   %89 = load i8, ptr %88, align 1
   %90 = load i32, ptr %87, align 4, !tbaa !39
   %91 = zext nneg i8 %89 to i32
-  %92 = shl nuw i32 1, %91
-  %93 = and i32 %92, %90
-  %.not.not.i.i = icmp ne i32 %93, 0
+  %92 = lshr i32 %90, %91
+  %93 = trunc i32 %92 to i1
   %94 = add nuw nsw i64 %.079.i.i, 1
   %exitcond.i.i = icmp ne i64 %94, 8
-  %or.cond.not.i.i = select i1 %.not.not.i.i, i1 %exitcond.i.i, i1 false
+  %or.cond.not.i.i = select i1 %93, i1 %exitcond.i.i, i1 false
   br i1 %or.cond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i, label %_ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit, !llvm.loop !207
 
 _ZN6duckdb18ParquetBloomFilter11FilterCheckEm.exit: ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %not..not.not.i.i = xor i1 %.not.not.i.i, true
-  %spec.select = select i1 %not..not.not.i.i, i1 %21, i1 false
+  %not. = xor i1 %93, true
+  %spec.select = select i1 %not., i1 %21, i1 false
   br label %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit.thread
 
 95:                                               ; preds = %2
@@ -5133,17 +5132,16 @@ _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17Parquet
   %23 = load i8, ptr %22, align 1
   %24 = load i32, ptr %21, align 4, !tbaa !39
   %25 = zext nneg i8 %23 to i32
-  %26 = shl nuw i32 1, %25
-  %27 = and i32 %26, %24
-  %.not.not.i = icmp ne i32 %27, 0
+  %26 = lshr i32 %24, %25
+  %27 = trunc i32 %26 to i1
   %28 = add nuw nsw i64 %.079.i, 1
   %exitcond.i = icmp ne i64 %28, 8
-  %or.cond.not.i = select i1 %.not.not.i, i1 %exitcond.i, i1 false
+  %or.cond.not.i = select i1 %27, i1 %exitcond.i, i1 false
   br i1 %or.cond.not.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i, label %_ZN6duckdb17ParquetBloomBlock10BlockCheckERS0_j.exit, !llvm.loop !207
 
 _ZN6duckdb17ParquetBloomBlock10BlockCheckERS0_j.exit: ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not.not.i
+  ret i1 %27
 }
 
 ; Function Attrs: mustprogress uwtable

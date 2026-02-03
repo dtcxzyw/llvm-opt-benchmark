@@ -7791,55 +7791,55 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr nound
   %10 = and i8 %9, 1
   store i8 %10, ptr %8, align 4
   %11 = load i64, ptr %0, align 8
-  %12 = and i64 %11, 1
-  %13 = load i64, ptr %5, align 8
-  %14 = and i64 %13, -2
-  %storemerge.i = or disjoint i64 %14, %12
+  %12 = load i64, ptr %5, align 8
+  %13 = and i64 %12, -2
+  %masksel.i = and i64 %11, 1
+  %storemerge.i = or disjoint i64 %13, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %24, label %17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %23, label %16
 
-17:                                               ; preds = %2
-  %18 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %16, ptr noundef nonnull %1)
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8
-  %20 = load i64, ptr %18, align 8
-  %21 = and i64 %20, 3
-  %22 = ptrtoint ptr %5 to i64
-  %23 = or i64 %21, %22
-  store i64 %23, ptr %18, align 8
-  br label %26
+16:                                               ; preds = %2
+  %17 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %15, ptr noundef nonnull %1)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %17, ptr %18, align 8
+  %19 = load i64, ptr %17, align 8
+  %20 = and i64 %19, 3
+  %21 = ptrtoint ptr %5 to i64
+  %22 = or i64 %20, %21
+  store i64 %22, ptr %17, align 8
+  br label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %25, align 8
-  br label %26
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %24, align 8
+  br label %25
 
-26:                                               ; preds = %24, %17
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %common.ret, label %29
+25:                                               ; preds = %23, %16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %.not14 = icmp eq ptr %27, null
+  br i1 %.not14, label %common.ret, label %28
 
-common.ret16:                                     ; preds = %29, %common.ret
+common.ret16:                                     ; preds = %28, %common.ret
   ret ptr %5
 
-29:                                               ; preds = %26
-  %30 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %28, ptr noundef nonnull %1)
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %30, ptr %31, align 8
-  %32 = load i64, ptr %30, align 8
-  %33 = and i64 %32, 3
-  %34 = ptrtoint ptr %5 to i64
-  %35 = or i64 %33, %34
-  store i64 %35, ptr %30, align 8
+28:                                               ; preds = %25
+  %29 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %27, ptr noundef nonnull %1)
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %29, ptr %30, align 8
+  %31 = load i64, ptr %29, align 8
+  %32 = and i64 %31, 3
+  %33 = ptrtoint ptr %5 to i64
+  %34 = or i64 %32, %33
+  store i64 %34, ptr %29, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %36, align 8
+common.ret:                                       ; preds = %25
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %35, align 8
   br label %common.ret16
 }
 
@@ -16656,55 +16656,55 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeI5QPairIiiEbE4copyEP8QMapDataIS1_b
   %10 = and i8 %9, 1
   store i8 %10, ptr %8, align 8
   %11 = load i64, ptr %0, align 8
-  %12 = and i64 %11, 1
-  %13 = load i64, ptr %5, align 8
-  %14 = and i64 %13, -2
-  %storemerge.i = or disjoint i64 %14, %12
+  %12 = load i64, ptr %5, align 8
+  %13 = and i64 %12, -2
+  %masksel.i = and i64 %11, 1
+  %storemerge.i = or disjoint i64 %13, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %24, label %17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %23, label %16
 
-17:                                               ; preds = %2
-  %18 = tail call noundef ptr @_ZNK8QMapNodeI5QPairIiiEbE4copyEP8QMapDataIS1_bE(ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull %1)
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8
-  %20 = load i64, ptr %18, align 8
-  %21 = and i64 %20, 3
-  %22 = ptrtoint ptr %5 to i64
-  %23 = or i64 %21, %22
-  store i64 %23, ptr %18, align 8
-  br label %26
+16:                                               ; preds = %2
+  %17 = tail call noundef ptr @_ZNK8QMapNodeI5QPairIiiEbE4copyEP8QMapDataIS1_bE(ptr noundef nonnull align 8 dereferenceable(33) %15, ptr noundef nonnull %1)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %17, ptr %18, align 8
+  %19 = load i64, ptr %17, align 8
+  %20 = and i64 %19, 3
+  %21 = ptrtoint ptr %5 to i64
+  %22 = or i64 %20, %21
+  store i64 %22, ptr %17, align 8
+  br label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %25, align 8
-  br label %26
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %24, align 8
+  br label %25
 
-26:                                               ; preds = %24, %17
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %common.ret, label %29
+25:                                               ; preds = %23, %16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %.not14 = icmp eq ptr %27, null
+  br i1 %.not14, label %common.ret, label %28
 
-common.ret16:                                     ; preds = %29, %common.ret
+common.ret16:                                     ; preds = %28, %common.ret
   ret ptr %5
 
-29:                                               ; preds = %26
-  %30 = tail call noundef ptr @_ZNK8QMapNodeI5QPairIiiEbE4copyEP8QMapDataIS1_bE(ptr noundef nonnull align 8 dereferenceable(33) %28, ptr noundef nonnull %1)
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %30, ptr %31, align 8
-  %32 = load i64, ptr %30, align 8
-  %33 = and i64 %32, 3
-  %34 = ptrtoint ptr %5 to i64
-  %35 = or i64 %33, %34
-  store i64 %35, ptr %30, align 8
+28:                                               ; preds = %25
+  %29 = tail call noundef ptr @_ZNK8QMapNodeI5QPairIiiEbE4copyEP8QMapDataIS1_bE(ptr noundef nonnull align 8 dereferenceable(33) %27, ptr noundef nonnull %1)
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %29, ptr %30, align 8
+  %31 = load i64, ptr %29, align 8
+  %32 = and i64 %31, 3
+  %33 = ptrtoint ptr %5 to i64
+  %34 = or i64 %32, %33
+  store i64 %34, ptr %29, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %36, align 8
+common.ret:                                       ; preds = %25
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %35, align 8
   br label %common.ret16
 }
 
@@ -19023,55 +19023,55 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call noundef ptr @_ZN8QMapDataIi5QListIP7QActionEE10createNodeERKiRKS3_P8QMapNodeIiS3_Eb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null, i1 noundef zeroext false)
   %6 = load i64, ptr %0, align 8
-  %7 = and i64 %6, 1
-  %8 = load i64, ptr %5, align 8
-  %9 = and i64 %8, -2
-  %storemerge.i = or disjoint i64 %9, %7
+  %7 = load i64, ptr %5, align 8
+  %8 = and i64 %7, -2
+  %masksel.i = and i64 %6, 1
+  %storemerge.i = or disjoint i64 %8, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %19, label %12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %18, label %11
 
-12:                                               ; preds = %2
-  %13 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %1)
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %14, align 8
-  %15 = load i64, ptr %13, align 8
-  %16 = and i64 %15, 3
-  %17 = ptrtoint ptr %5 to i64
-  %18 = or i64 %16, %17
-  store i64 %18, ptr %13, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %1)
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %12, ptr %13, align 8
+  %14 = load i64, ptr %12, align 8
+  %15 = and i64 %14, 3
+  %16 = ptrtoint ptr %5 to i64
+  %17 = or i64 %15, %16
+  store i64 %17, ptr %12, align 8
+  br label %20
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %20, align 8
-  br label %21
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %19, align 8
+  br label %20
 
-21:                                               ; preds = %19, %12
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not14 = icmp eq ptr %23, null
-  br i1 %.not14, label %common.ret, label %24
+20:                                               ; preds = %18, %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not14 = icmp eq ptr %22, null
+  br i1 %.not14, label %common.ret, label %23
 
-common.ret16:                                     ; preds = %24, %common.ret
+common.ret16:                                     ; preds = %23, %common.ret
   ret ptr %5
 
-24:                                               ; preds = %21
-  %25 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %1)
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %25, ptr %26, align 8
-  %27 = load i64, ptr %25, align 8
-  %28 = and i64 %27, 3
-  %29 = ptrtoint ptr %5 to i64
-  %30 = or i64 %28, %29
-  store i64 %30, ptr %25, align 8
+23:                                               ; preds = %20
+  %24 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull %1)
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %24, ptr %25, align 8
+  %26 = load i64, ptr %24, align 8
+  %27 = and i64 %26, 3
+  %28 = ptrtoint ptr %5 to i64
+  %29 = or i64 %27, %28
+  store i64 %29, ptr %24, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %31, align 8
+common.ret:                                       ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %30, align 8
   br label %common.ret16
 }
 

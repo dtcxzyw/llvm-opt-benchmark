@@ -10978,9 +10978,9 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i: ; preds = %_ZN4llvm4Use
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i
   %76 = phi i32 [ %.pre.i63, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ]
-  %.pre-phi.i167 = phi i64 [ %.pre8.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ]
+  %.pre-phi.i166 = phi i64 [ %.pre8.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ]
   %77 = load ptr, ptr %7, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi.i167
+  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi.i166
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
@@ -11012,8 +11012,8 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit: ; preds =
   store i32 0, ptr %89, align 8, !tbaa !9
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 4, ptr %90, align 4, !tbaa !10
-  %.not.i134 = icmp eq i32 %84, 0
-  br i1 %.not.i134, label %._crit_edge, label %.lr.ph
+  %.not.i133 = icmp eq i32 %84, 0
+  br i1 %.not.i133, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -11068,7 +11068,7 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.
   br i1 %.not128, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread_crit_edge, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread120_crit_edge, !llvm.loop !670
 
 _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread_crit_edge: ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71
-  %.pre135 = load i32, ptr %60, align 8, !tbaa !9
+  %.pre134 = load i32, ptr %60, align 8, !tbaa !9
   br label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread, !llvm.loop !670
 
 _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread120_crit_edge: ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71
@@ -11090,9 +11090,8 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.
 123:                                              ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread120
   %124 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %125 = load i16, ptr %124, align 2, !tbaa !671
-  %126 = and i16 %125, 1
-  %.not131 = icmp eq i16 %126, 0
-  br i1 %.not131, label %127, label %.critedge
+  %126 = trunc i16 %125 to i1
+  br i1 %126, label %.critedge, label %127
 
 127:                                              ; preds = %123
   %128 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %101) #22
@@ -11171,8 +11170,8 @@ _ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit: ; preds = %158, %
 
 _ZN4llvm16dyn_cast_or_nullINS_9MemoryUseENS_12MemoryAccessEEEDaPT0_.exit: ; preds = %_ZNK4llvm9MemorySSA15getMemoryAccessEPKNS_11InstructionE.exit
   %169 = load i8, ptr %168, align 8, !tbaa !31
-  %.not133 = icmp eq i8 %169, 26
-  br i1 %.not133, label %170, label %.thread
+  %.not132 = icmp eq i8 %169, 26
+  br i1 %.not132, label %170, label %.thread
 
 170:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_9MemoryUseENS_12MemoryAccessEEEDaPT0_.exit
   %.1.i.i.i = getelementptr inbounds i8, ptr %168, i64 -32
@@ -11274,8 +11273,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit: ;
 _ZN4llvm4User6op_endEv.exit88:                    ; preds = %208, %211
   %216 = phi ptr [ %210, %208 ], [ %215, %211 ]
   %.pre-phi2.i87 = phi i64 [ %.pre1.i86, %208 ], [ %213, %211 ]
-  %.idx164 = shl nuw nsw i64 %.pre-phi2.i87, 5
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 %.idx164
+  %.idx163 = shl nuw nsw i64 %.pre-phi2.i87, 5
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 %.idx163
   %218 = load i32, ptr %60, align 8, !tbaa !9
   %219 = zext i32 %218 to i64
   %220 = add nuw nsw i64 %.pre-phi2.i87, %219
@@ -11318,7 +11317,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit99: ; preds
   br label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread
 
 _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread: ; preds = %115, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread_crit_edge, %110, %95, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit99
-  %233 = phi i32 [ %.pre135, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread_crit_edge ], [ %232, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit99 ], [ %102, %110 ], [ %102, %95 ], [ %102, %115 ]
+  %233 = phi i32 [ %.pre134, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71._ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit71.thread_crit_edge ], [ %232, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_.exit99 ], [ %102, %110 ], [ %102, %95 ], [ %102, %115 ]
   %.not.i = icmp eq i32 %233, 0
   br i1 %.not.i, label %._crit_edge, label %95
 

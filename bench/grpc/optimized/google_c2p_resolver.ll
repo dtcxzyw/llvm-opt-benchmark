@@ -3351,9 +3351,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
 
 97:                                               ; preds = %87
-  %98 = and i64 %89, 1
-  %.not.i.i1.i.i.i.i.i.i.i = icmp eq i64 %98, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i.i, label %99, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
+  %98 = trunc i64 %89 to i1
+  br i1 %98, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i, label %99
 
 99:                                               ; preds = %97
   %100 = inttoptr i64 %89 to ptr
@@ -3427,9 +3426,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
 
 128:                                              ; preds = %119
-  %129 = and i64 %120, 1
-  %.not.i.i1.i.i.i.i.i = icmp eq i64 %129, 0
-  br i1 %.not.i.i1.i.i.i.i.i, label %130, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
+  %129 = trunc i64 %120 to i1
+  br i1 %129, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i, label %130
 
 130:                                              ; preds = %128
   %131 = inttoptr i64 %120 to ptr
@@ -3489,9 +3487,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 10:                                               ; preds = %1
-  %11 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %11, 0
-  br i1 %.not.i.i1, label %12, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %11 = trunc i64 %2 to i1
+  br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %12
 
 12:                                               ; preds = %10
   %13 = inttoptr i64 %2 to ptr
@@ -3532,9 +3529,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 11:                                               ; preds = %1
-  %12 = and i64 %3, 1
-  %.not.i.i1.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i1.i, label %13, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  %12 = trunc i64 %3 to i1
+  br i1 %12, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %3 to ptr
@@ -3724,9 +3720,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 18:                                               ; preds = %8
-  %19 = and i64 %10, 1
-  %.not.i.i1.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i1.i.i, label %20, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
+  %19 = trunc i64 %10 to i1
+  br i1 %19, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %20
 
 20:                                               ; preds = %18
   %21 = inttoptr i64 %10 to ptr
@@ -10473,9 +10468,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
 
 97:                                               ; preds = %87
-  %98 = and i64 %89, 1
-  %.not.i.i1.i.i.i.i.i.i.i = icmp eq i64 %98, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i.i, label %99, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
+  %98 = trunc i64 %89 to i1
+  br i1 %98, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i, label %99
 
 99:                                               ; preds = %97
   %100 = inttoptr i64 %89 to ptr
@@ -10549,9 +10543,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
 
 128:                                              ; preds = %119
-  %129 = and i64 %120, 1
-  %.not.i.i1.i.i.i.i.i = icmp eq i64 %129, 0
-  br i1 %.not.i.i1.i.i.i.i.i, label %130, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
+  %129 = trunc i64 %120 to i1
+  br i1 %129, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i, label %130
 
 130:                                              ; preds = %128
   %131 = inttoptr i64 %120 to ptr
@@ -10612,9 +10605,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 11:                                               ; preds = %1
-  %12 = and i64 %3, 1
-  %.not.i.i1.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i1.i, label %13, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+  %12 = trunc i64 %3 to i1
+  br i1 %12, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %3 to ptr
@@ -10731,9 +10723,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 18:                                               ; preds = %8
-  %19 = and i64 %10, 1
-  %.not.i.i1.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i1.i.i, label %20, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
+  %19 = trunc i64 %10 to i1
+  br i1 %19, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %20
 
 20:                                               ; preds = %18
   %21 = inttoptr i64 %10 to ptr

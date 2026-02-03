@@ -439,120 +439,119 @@ define dso_local ptr @WPACKET_get_curr(ptr noundef readonly captures(none) %0) l
 define dso_local range(i32 0, 2) i32 @WPACKET_sub_reserve_bytes__(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  %9 = icmp ne i64 %3, 0
-  %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %WPACKET_reserve_bytes.exit.thread, label %10
+  %7 = trunc i8 %6 to i1
+  %8 = icmp ne i64 %3, 0
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %WPACKET_reserve_bytes.exit.thread, label %9
 
-10:                                               ; preds = %4
-  %11 = add i64 %3, %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = icmp ne ptr %13, null
-  %15 = icmp ne i64 %11, 0
-  %16 = and i1 %15, %14
-  br i1 %16, label %17, label %WPACKET_reserve_bytes.exit.thread, !prof !14
+9:                                                ; preds = %4
+  %10 = add i64 %3, %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  %13 = icmp ne ptr %12, null
+  %14 = icmp ne i64 %10, 0
+  %15 = and i1 %14, %13
+  br i1 %15, label %16, label %WPACKET_reserve_bytes.exit.thread, !prof !14
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !16
-  %22 = sub i64 %19, %21
-  %23 = icmp ult i64 %22, %11
-  br i1 %23, label %WPACKET_reserve_bytes.exit.thread, label %24
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = load i64, ptr %17, align 8, !tbaa !15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load i64, ptr %19, align 8, !tbaa !16
+  %21 = sub i64 %18, %20
+  %22 = icmp ult i64 %21, %10
+  br i1 %22, label %WPACKET_reserve_bytes.exit.thread, label %23
 
-24:                                               ; preds = %17
-  %25 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %33, label %26
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %0, align 8, !tbaa !17
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %32, label %25
 
-26:                                               ; preds = %24
-  %27 = load i64, ptr %25, align 8, !tbaa !18
-  %28 = sub i64 %27, %21
-  %29 = icmp ult i64 %28, %11
-  br i1 %29, label %30, label %33
+25:                                               ; preds = %23
+  %26 = load i64, ptr %24, align 8, !tbaa !18
+  %27 = sub i64 %26, %20
+  %28 = icmp ult i64 %27, %10
+  br i1 %28, label %29, label %32
 
-30:                                               ; preds = %26
-  %..i = tail call i64 @llvm.umax.i64(i64 %11, i64 %27)
-  %31 = shl nuw i64 %..i, 1
-  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %31, i64 256)
+29:                                               ; preds = %25
+  %..i = tail call i64 @llvm.umax.i64(i64 %10, i64 %26)
+  %30 = shl nuw i64 %..i, 1
+  %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %30, i64 256)
   %.inv.i = icmp sgt i64 %..i, -1
   %.027.i = select i1 %.inv.i, i64 %spec.store.select.i, i64 -1
-  %32 = tail call i64 @BUF_MEM_grow(ptr noundef nonnull %25, i64 noundef %.027.i) #12
-  %.not41.i = icmp eq i64 %32, 0
-  br i1 %.not41.i, label %WPACKET_reserve_bytes.exit.thread, label %33
+  %31 = tail call i64 @BUF_MEM_grow(ptr noundef nonnull %24, i64 noundef %.027.i) #12
+  %.not41.i = icmp eq i64 %31, 0
+  br i1 %.not41.i, label %WPACKET_reserve_bytes.exit.thread, label %32
 
-33:                                               ; preds = %30, %26, %24
+32:                                               ; preds = %29, %25, %23
   %.not34.i = icmp eq ptr %2, null
-  br i1 %.not34.i, label %WPACKET_reserve_bytes.exit.thread14, label %34
+  br i1 %.not34.i, label %WPACKET_reserve_bytes.exit.thread14, label %33
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !20
-  %.not.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i, label %37, label %.thread17.i.i
+33:                                               ; preds = %32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %.not.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i, label %36, label %.thread17.i.i
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not15.i.i = icmp eq ptr %38, null
-  br i1 %.not15.i.i, label %WPACKET_reserve_bytes.exit.thread.sink.split, label %39
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %0, align 8, !tbaa !17
+  %.not15.i.i = icmp eq ptr %37, null
+  br i1 %.not15.i.i, label %WPACKET_reserve_bytes.exit.thread.sink.split, label %38
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !21
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %WPACKET_reserve_bytes.exit.thread.sink.split, label %.thread17.i.i
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !21
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %WPACKET_reserve_bytes.exit.thread.sink.split, label %.thread17.i.i
 
-.thread17.i.i:                                    ; preds = %39, %34
-  %43 = phi ptr [ %41, %39 ], [ %36, %34 ]
-  %44 = load i8, ptr %5, align 8
-  %45 = and i8 %44, 1
-  %.not16.i.i = icmp eq i8 %45, 0
-  br i1 %.not16.i.i, label %53, label %46
+.thread17.i.i:                                    ; preds = %38, %33
+  %42 = phi ptr [ %40, %38 ], [ %35, %33 ]
+  %43 = load i8, ptr %5, align 8
+  %44 = and i8 %43, 1
+  %.not16.i.i = icmp eq i8 %44, 0
+  br i1 %.not16.i.i, label %52, label %45
 
-46:                                               ; preds = %.thread17.i.i
-  %47 = load i64, ptr %18, align 8, !tbaa !15
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !22
-  %51 = sub i64 0, %50
-  %52 = getelementptr inbounds i8, ptr %48, i64 %51
+45:                                               ; preds = %.thread17.i.i
+  %46 = load i64, ptr %17, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load i64, ptr %48, align 8, !tbaa !22
+  %50 = sub i64 0, %49
+  %51 = getelementptr inbounds i8, ptr %47, i64 %50
   br label %WPACKET_get_curr.exit.i
 
-53:                                               ; preds = %.thread17.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !22
-  %56 = getelementptr inbounds nuw i8, ptr %43, i64 %55
+52:                                               ; preds = %.thread17.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !22
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 %54
   br label %WPACKET_get_curr.exit.i
 
-WPACKET_get_curr.exit.i:                          ; preds = %53, %46
-  %.0.i.i = phi ptr [ %56, %53 ], [ %52, %46 ]
+WPACKET_get_curr.exit.i:                          ; preds = %52, %45
+  %.0.i.i = phi ptr [ %55, %52 ], [ %51, %45 ]
   store ptr %.0.i.i, ptr %2, align 8, !tbaa !23
-  %57 = load i8, ptr %5, align 8
-  %58 = and i8 %57, 1
-  %.not35.i = icmp eq i8 %58, 0
+  %56 = load i8, ptr %5, align 8
+  %57 = and i8 %56, 1
+  %.not35.i = icmp eq i8 %57, 0
   br i1 %.not35.i, label %WPACKET_reserve_bytes.exit.thread14, label %WPACKET_reserve_bytes.exit
 
 WPACKET_reserve_bytes.exit:                       ; preds = %WPACKET_get_curr.exit.i
-  %59 = sub i64 0, %11
-  %60 = getelementptr inbounds i8, ptr %.0.i.i, i64 %59
-  store ptr %60, ptr %2, align 8, !tbaa !23
+  %58 = sub i64 0, %10
+  %59 = getelementptr inbounds i8, ptr %.0.i.i, i64 %58
+  store ptr %59, ptr %2, align 8, !tbaa !23
   br label %WPACKET_reserve_bytes.exit.thread14
 
-WPACKET_reserve_bytes.exit.thread14:              ; preds = %WPACKET_reserve_bytes.exit, %33, %WPACKET_get_curr.exit.i
-  %61 = phi ptr [ %60, %WPACKET_reserve_bytes.exit ], [ %.0.i.i, %WPACKET_get_curr.exit.i ], [ undef, %33 ]
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %3
+WPACKET_reserve_bytes.exit.thread14:              ; preds = %WPACKET_reserve_bytes.exit, %32, %WPACKET_get_curr.exit.i
+  %60 = phi ptr [ %59, %WPACKET_reserve_bytes.exit ], [ %.0.i.i, %WPACKET_get_curr.exit.i ], [ undef, %32 ]
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %3
   br label %WPACKET_reserve_bytes.exit.thread.sink.split
 
-WPACKET_reserve_bytes.exit.thread.sink.split:     ; preds = %37, %39, %WPACKET_reserve_bytes.exit.thread14
-  %.sink = phi ptr [ %62, %WPACKET_reserve_bytes.exit.thread14 ], [ null, %39 ], [ null, %37 ]
+WPACKET_reserve_bytes.exit.thread.sink.split:     ; preds = %36, %38, %WPACKET_reserve_bytes.exit.thread14
+  %.sink = phi ptr [ %61, %WPACKET_reserve_bytes.exit.thread14 ], [ null, %38 ], [ null, %36 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !23
   br label %WPACKET_reserve_bytes.exit.thread
 
-WPACKET_reserve_bytes.exit.thread:                ; preds = %WPACKET_reserve_bytes.exit.thread.sink.split, %30, %17, %10, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %WPACKET_reserve_bytes.exit.thread.sink.split ], [ 0, %30 ], [ 0, %10 ], [ 0, %17 ]
+WPACKET_reserve_bytes.exit.thread:                ; preds = %WPACKET_reserve_bytes.exit.thread.sink.split, %29, %16, %9, %4
+  %.0 = phi i32 [ 0, %4 ], [ 1, %WPACKET_reserve_bytes.exit.thread.sink.split ], [ 0, %29 ], [ 0, %9 ], [ 0, %16 ]
   ret i32 %.0
 }
 

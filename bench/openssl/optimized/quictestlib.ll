@@ -175,250 +175,250 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   br i1 %.not114, label %.thread155, label %54
 
 54:                                               ; preds = %51
-  %55 = and i32 %5, 1
-  %.not115.not = icmp eq i32 %55, 0
-  br i1 %.not115.not, label %75, label %56
+  %.not115 = trunc i32 %5 to i1
+  br i1 %.not115, label %55, label %74
 
-56:                                               ; preds = %54
+55:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %57 = call i32 @create_test_sockets(ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef 2, ptr noundef %52) #10
-  %58 = icmp ne i32 %57, 0
-  %59 = zext i1 %58 to i32
-  %60 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @.str.5, i32 noundef %59) #10
-  %.not123 = icmp eq i32 %60, 0
-  br i1 %.not123, label %.thread, label %61
+  %56 = call i32 @create_test_sockets(ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef 2, ptr noundef %52) #10
+  %57 = icmp ne i32 %56, 0
+  %58 = zext i1 %57 to i32
+  %59 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @.str.5, i32 noundef %58) #10
+  %.not123 = icmp eq i32 %59, 0
+  br i1 %.not123, label %.thread, label %60
 
-61:                                               ; preds = %56
-  %62 = load i32, ptr %16, align 4, !tbaa !20
-  %63 = call ptr @BIO_new_dgram(i32 noundef %62, i32 noundef 1) #10
-  store ptr %63, ptr %13, align 8, !tbaa !4
-  %64 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @.str.6, ptr noundef %63) #10
-  %.not124 = icmp eq i32 %64, 0
-  br i1 %.not124, label %65, label %68
+60:                                               ; preds = %55
+  %61 = load i32, ptr %16, align 4, !tbaa !20
+  %62 = call ptr @BIO_new_dgram(i32 noundef %61, i32 noundef 1) #10
+  store ptr %62, ptr %13, align 8, !tbaa !4
+  %63 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @.str.6, ptr noundef %62) #10
+  %.not124 = icmp eq i32 %63, 0
+  br i1 %.not124, label %64, label %67
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr %16, align 4, !tbaa !20
-  %67 = call i32 @close(i32 noundef %66) #10
+64:                                               ; preds = %60
+  %65 = load i32, ptr %16, align 4, !tbaa !20
+  %66 = call i32 @close(i32 noundef %65) #10
   br label %.thread.sink.split
 
-68:                                               ; preds = %61
-  %69 = load i32, ptr %17, align 4, !tbaa !20
-  %70 = call ptr @BIO_new_dgram(i32 noundef %69, i32 noundef 1) #10
-  store ptr %70, ptr %14, align 8, !tbaa !4
-  %71 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 194, ptr noundef nonnull @.str.7, ptr noundef %70) #10
-  %.not125 = icmp eq i32 %71, 0
-  br i1 %.not125, label %.thread.sink.split, label %74
+67:                                               ; preds = %60
+  %68 = load i32, ptr %17, align 4, !tbaa !20
+  %69 = call ptr @BIO_new_dgram(i32 noundef %68, i32 noundef 1) #10
+  store ptr %69, ptr %14, align 8, !tbaa !4
+  %70 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 194, ptr noundef nonnull @.str.7, ptr noundef %69) #10
+  %.not125 = icmp eq i32 %70, 0
+  br i1 %.not125, label %.thread.sink.split, label %73
 
-.thread.sink.split:                               ; preds = %68, %65
-  %72 = load i32, ptr %17, align 4, !tbaa !20
-  %73 = call i32 @close(i32 noundef %72) #10
+.thread.sink.split:                               ; preds = %67, %64
+  %71 = load i32, ptr %17, align 4, !tbaa !20
+  %72 = call i32 @close(i32 noundef %71) #10
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %56
+.thread:                                          ; preds = %.thread.sink.split, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.thread155
 
-74:                                               ; preds = %68
+73:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %114
+  br label %113
 
-75:                                               ; preds = %54
-  %76 = call i32 @BIO_new_bio_dgram_pair(ptr noundef nonnull %13, i64 noundef 0, ptr noundef nonnull %14, i64 noundef 0) #10
-  %77 = icmp ne i32 %76, 0
-  %78 = zext i1 %77 to i32
-  %79 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 204, ptr noundef nonnull @.str.8, i32 noundef %78) #10
-  %.not116 = icmp eq i32 %79, 0
-  br i1 %.not116, label %.thread155, label %80
+74:                                               ; preds = %54
+  %75 = call i32 @BIO_new_bio_dgram_pair(ptr noundef nonnull %13, i64 noundef 0, ptr noundef nonnull %14, i64 noundef 0) #10
+  %76 = icmp ne i32 %75, 0
+  %77 = zext i1 %76 to i32
+  %78 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 204, ptr noundef nonnull @.str.8, i32 noundef %77) #10
+  %.not116 = icmp eq i32 %78, 0
+  br i1 %.not116, label %.thread155, label %79
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %13, align 8, !tbaa !4
-  %82 = call i64 @BIO_ctrl(ptr noundef %81, i32 noundef 87, i64 noundef 2, ptr noundef null) #10
-  %83 = and i64 %82, 4294967295
-  %84 = icmp ne i64 %83, 0
-  %85 = zext i1 %84 to i32
-  %86 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @.str.9, i32 noundef %85) #10
-  %.not117 = icmp eq i32 %86, 0
-  br i1 %.not117, label %.thread155, label %87
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %13, align 8, !tbaa !4
+  %81 = call i64 @BIO_ctrl(ptr noundef %80, i32 noundef 87, i64 noundef 2, ptr noundef null) #10
+  %82 = and i64 %81, 4294967295
+  %83 = icmp ne i64 %82, 0
+  %84 = zext i1 %83 to i32
+  %85 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @.str.9, i32 noundef %84) #10
+  %.not117 = icmp eq i32 %85, 0
+  br i1 %.not117, label %.thread155, label %86
 
-87:                                               ; preds = %80
-  %88 = load ptr, ptr %14, align 8, !tbaa !4
-  %89 = call i64 @BIO_ctrl(ptr noundef %88, i32 noundef 87, i64 noundef 2, ptr noundef null) #10
-  %90 = and i64 %89, 4294967295
-  %91 = icmp ne i64 %90, 0
-  %92 = zext i1 %91 to i32
-  %93 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @.str.10, i32 noundef %92) #10
-  %.not118 = icmp eq i32 %93, 0
-  br i1 %.not118, label %.thread155, label %94
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %14, align 8, !tbaa !4
+  %88 = call i64 @BIO_ctrl(ptr noundef %87, i32 noundef 87, i64 noundef 2, ptr noundef null) #10
+  %89 = and i64 %88, 4294967295
+  %90 = icmp ne i64 %89, 0
+  %91 = zext i1 %90 to i32
+  %92 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @.str.10, i32 noundef %91) #10
+  %.not118 = icmp eq i32 %92, 0
+  br i1 %.not118, label %.thread155, label %93
 
-94:                                               ; preds = %87
-  %95 = call ptr @BIO_ADDR_new() #10
-  %96 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 211, ptr noundef nonnull @.str.11, ptr noundef %95) #10
-  %.not119 = icmp eq i32 %96, 0
-  br i1 %.not119, label %.thread155, label %97
+93:                                               ; preds = %86
+  %94 = call ptr @BIO_ADDR_new() #10
+  %95 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 211, ptr noundef nonnull @.str.11, ptr noundef %94) #10
+  %.not119 = icmp eq i32 %95, 0
+  br i1 %.not119, label %.thread155, label %96
 
-97:                                               ; preds = %94
-  %98 = call i32 @BIO_ADDR_rawmake(ptr noundef %95, i32 noundef 2, ptr noundef nonnull %15, i64 noundef 4, i16 noundef zeroext 0) #10
-  %99 = icmp ne i32 %98, 0
-  %100 = zext i1 %99 to i32
-  %101 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @.str.12, i32 noundef %100) #10
-  %.not120 = icmp eq i32 %101, 0
-  br i1 %.not120, label %102, label %103
+96:                                               ; preds = %93
+  %97 = call i32 @BIO_ADDR_rawmake(ptr noundef %94, i32 noundef 2, ptr noundef nonnull %15, i64 noundef 4, i16 noundef zeroext 0) #10
+  %98 = icmp ne i32 %97, 0
+  %99 = zext i1 %98 to i32
+  %100 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @.str.12, i32 noundef %99) #10
+  %.not120 = icmp eq i32 %100, 0
+  br i1 %.not120, label %101, label %102
 
-102:                                              ; preds = %97
-  call void @BIO_ADDR_free(ptr noundef %95) #10
+101:                                              ; preds = %96
+  call void @BIO_ADDR_free(ptr noundef %94) #10
   br label %.thread155
 
-103:                                              ; preds = %97
-  %104 = load ptr, ptr %13, align 8, !tbaa !4
-  %105 = call i64 @BIO_ctrl(ptr noundef %104, i32 noundef 94, i64 noundef 0, ptr noundef %95) #10
-  %106 = trunc i64 %105 to i32
-  %107 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %106, i32 noundef 1) #10
-  %.not121 = icmp eq i32 %107, 0
-  br i1 %.not121, label %108, label %109
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %13, align 8, !tbaa !4
+  %104 = call i64 @BIO_ctrl(ptr noundef %103, i32 noundef 94, i64 noundef 0, ptr noundef %94) #10
+  %105 = trunc i64 %104 to i32
+  %106 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %105, i32 noundef 1) #10
+  %.not121 = icmp eq i32 %106, 0
+  br i1 %.not121, label %107, label %108
 
-108:                                              ; preds = %103
-  call void @BIO_ADDR_free(ptr noundef %95) #10
+107:                                              ; preds = %102
+  call void @BIO_ADDR_free(ptr noundef %94) #10
   br label %.thread155
 
-109:                                              ; preds = %103
-  %110 = call i32 @BIO_ADDR_rawmake(ptr noundef %52, i32 noundef 2, ptr noundef nonnull %15, i64 noundef 4, i16 noundef zeroext 0) #10
-  %111 = icmp ne i32 %110, 0
-  %112 = zext i1 %111 to i32
-  %113 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @.str.15, i32 noundef %112) #10
-  %.not122 = icmp eq i32 %113, 0
-  br i1 %.not122, label %.thread155, label %114
+108:                                              ; preds = %102
+  %109 = call i32 @BIO_ADDR_rawmake(ptr noundef %52, i32 noundef 2, ptr noundef nonnull %15, i64 noundef 4, i16 noundef zeroext 0) #10
+  %110 = icmp ne i32 %109, 0
+  %111 = zext i1 %110 to i32
+  %112 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @.str.15, i32 noundef %111) #10
+  %.not122 = icmp eq i32 %112, 0
+  br i1 %.not122, label %.thread155, label %113
 
-114:                                              ; preds = %109, %74
-  %115 = and i32 %5, 8
-  %.not126 = icmp eq i32 %115, 0
-  br i1 %.not126, label %129, label %116
+113:                                              ; preds = %108, %73
+  %114 = and i32 %5, 8
+  %.not126 = icmp eq i32 %114, 0
+  br i1 %.not126, label %128, label %115
 
-116:                                              ; preds = %114
-  %117 = call ptr @bio_f_pkt_split_dgram_filter() #10
-  %118 = call ptr @BIO_new(ptr noundef %117) #10
-  %119 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 232, ptr noundef nonnull @.str.16, ptr noundef %118) #10
-  %.not127 = icmp eq i32 %119, 0
-  br i1 %.not127, label %.thread155, label %120
+115:                                              ; preds = %113
+  %116 = call ptr @bio_f_pkt_split_dgram_filter() #10
+  %117 = call ptr @BIO_new(ptr noundef %116) #10
+  %118 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 232, ptr noundef nonnull @.str.16, ptr noundef %117) #10
+  %.not127 = icmp eq i32 %118, 0
+  br i1 %.not127, label %.thread155, label %119
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %13, align 8, !tbaa !4
-  %122 = call ptr @BIO_push(ptr noundef %118, ptr noundef %121) #10
-  store ptr %122, ptr %13, align 8, !tbaa !4
-  call void @BIO_set_data(ptr noundef %118, ptr noundef nonnull %19) #10
-  %123 = call ptr @bio_f_pkt_split_dgram_filter() #10
-  %124 = call ptr @BIO_new(ptr noundef %123) #10
-  %125 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 238, ptr noundef nonnull @.str.16, ptr noundef %124) #10
-  %.not128 = icmp eq i32 %125, 0
-  br i1 %.not128, label %.thread155, label %126
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %13, align 8, !tbaa !4
+  %121 = call ptr @BIO_push(ptr noundef %117, ptr noundef %120) #10
+  store ptr %121, ptr %13, align 8, !tbaa !4
+  call void @BIO_set_data(ptr noundef %117, ptr noundef nonnull %19) #10
+  %122 = call ptr @bio_f_pkt_split_dgram_filter() #10
+  %123 = call ptr @BIO_new(ptr noundef %122) #10
+  %124 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 238, ptr noundef nonnull @.str.16, ptr noundef %123) #10
+  %.not128 = icmp eq i32 %124, 0
+  br i1 %.not128, label %.thread155, label %125
 
-126:                                              ; preds = %120
-  %127 = load ptr, ptr %14, align 8, !tbaa !4
-  %128 = call ptr @BIO_push(ptr noundef %124, ptr noundef %127) #10
-  store ptr %128, ptr %14, align 8, !tbaa !4
-  call void @BIO_set_data(ptr noundef %124, ptr noundef nonnull %19) #10
-  br label %129
+125:                                              ; preds = %119
+  %126 = load ptr, ptr %14, align 8, !tbaa !4
+  %127 = call ptr @BIO_push(ptr noundef %123, ptr noundef %126) #10
+  store ptr %127, ptr %14, align 8, !tbaa !4
+  call void @BIO_set_data(ptr noundef %123, ptr noundef nonnull %19) #10
+  br label %128
 
-129:                                              ; preds = %126, %114
-  %130 = and i32 %5, 4
-  %.not129 = icmp eq i32 %130, 0
-  br i1 %.not129, label %171, label %131
+128:                                              ; preds = %125, %113
+  %129 = and i32 %5, 4
+  %.not129 = icmp eq i32 %129, 0
+  br i1 %.not129, label %170, label %130
 
-131:                                              ; preds = %129
+130:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) @__const.qtest_create_quic_objects.now_cb, i64 16, i1 false)
-  %132 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 251, ptr noundef nonnull @.str.17, ptr noundef %8) #10
-  %.not130 = icmp eq i32 %132, 0
-  br i1 %.not130, label %.thread161, label %133
+  %131 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 251, ptr noundef nonnull @.str.17, ptr noundef %8) #10
+  %.not130 = icmp eq i32 %131, 0
+  br i1 %.not130, label %.thread161, label %132
 
-133:                                              ; preds = %131
-  %134 = call ptr @bio_f_noisy_dgram_filter() #10
-  %135 = call ptr @BIO_new(ptr noundef %134) #10
-  %136 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.18, ptr noundef %135) #10
-  %.not131 = icmp eq i32 %136, 0
-  br i1 %.not131, label %.thread161, label %137
+132:                                              ; preds = %130
+  %133 = call ptr @bio_f_noisy_dgram_filter() #10
+  %134 = call ptr @BIO_new(ptr noundef %133) #10
+  %135 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.18, ptr noundef %134) #10
+  %.not131 = icmp eq i32 %135, 0
+  br i1 %.not131, label %.thread161, label %136
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr %13, align 8, !tbaa !4
-  %139 = call ptr @BIO_push(ptr noundef %135, ptr noundef %138) #10
-  store ptr %139, ptr %13, align 8, !tbaa !4
-  %140 = and i32 %5, 2
-  %.not132 = icmp eq i32 %140, 0
-  br i1 %.not132, label %145, label %141
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %13, align 8, !tbaa !4
+  %138 = call ptr @BIO_push(ptr noundef %134, ptr noundef %137) #10
+  store ptr %138, ptr %13, align 8, !tbaa !4
+  %139 = and i32 %5, 2
+  %.not132 = icmp eq i32 %139, 0
+  br i1 %.not132, label %144, label %140
 
-141:                                              ; preds = %137
-  %142 = call i64 @BIO_ctrl(ptr noundef %139, i32 noundef 1005, i64 noundef 0, ptr noundef nonnull %18) #10
-  %143 = trunc i64 %142 to i32
-  %144 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.14, i32 noundef %143, i32 noundef 1) #10
-  %.not133 = icmp eq i32 %144, 0
-  br i1 %.not133, label %.thread161, label %145
+140:                                              ; preds = %136
+  %141 = call i64 @BIO_ctrl(ptr noundef %138, i32 noundef 1005, i64 noundef 0, ptr noundef nonnull %18) #10
+  %142 = trunc i64 %141 to i32
+  %143 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.14, i32 noundef %142, i32 noundef 1) #10
+  %.not133 = icmp eq i32 %143, 0
+  br i1 %.not133, label %.thread161, label %144
 
-145:                                              ; preds = %141, %137
-  %146 = call ptr @bio_f_noisy_dgram_filter() #10
-  %147 = call ptr @BIO_new(ptr noundef %146) #10
-  %148 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @.str.18, ptr noundef %147) #10
-  %.not134 = icmp eq i32 %148, 0
-  br i1 %.not134, label %.thread161, label %149
+144:                                              ; preds = %140, %136
+  %145 = call ptr @bio_f_noisy_dgram_filter() #10
+  %146 = call ptr @BIO_new(ptr noundef %145) #10
+  %147 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @.str.18, ptr noundef %146) #10
+  %.not134 = icmp eq i32 %147, 0
+  br i1 %.not134, label %.thread161, label %148
 
-149:                                              ; preds = %145
-  %150 = load ptr, ptr %14, align 8, !tbaa !4
-  %151 = call ptr @BIO_push(ptr noundef %147, ptr noundef %150) #10
-  store ptr %151, ptr %14, align 8, !tbaa !4
-  br i1 %.not132, label %156, label %152
+148:                                              ; preds = %144
+  %149 = load ptr, ptr %14, align 8, !tbaa !4
+  %150 = call ptr @BIO_push(ptr noundef %146, ptr noundef %149) #10
+  store ptr %150, ptr %14, align 8, !tbaa !4
+  br i1 %.not132, label %155, label %151
 
-152:                                              ; preds = %149
-  %153 = call i64 @BIO_ctrl(ptr noundef %151, i32 noundef 1005, i64 noundef 0, ptr noundef nonnull %18) #10
-  %154 = trunc i64 %153 to i32
-  %155 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.14, i32 noundef %154, i32 noundef 1) #10
-  %.not135 = icmp eq i32 %155, 0
+151:                                              ; preds = %148
+  %152 = call i64 @BIO_ctrl(ptr noundef %150, i32 noundef 1005, i64 noundef 0, ptr noundef nonnull %18) #10
+  %153 = trunc i64 %152 to i32
+  %154 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.14, i32 noundef %153, i32 noundef 1) #10
+  %.not135 = icmp eq i32 %154, 0
   br i1 %.not135, label %.thread161, label %._crit_edge
 
-._crit_edge:                                      ; preds = %152
+._crit_edge:                                      ; preds = %151
   %.pre = load ptr, ptr %14, align 8, !tbaa !4
-  br label %156
+  br label %155
 
-.thread161:                                       ; preds = %145, %141, %133, %131, %152
+.thread161:                                       ; preds = %144, %140, %132, %130, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread155
 
-156:                                              ; preds = %._crit_edge, %149
-  %157 = phi ptr [ %.pre, %._crit_edge ], [ %151, %149 ]
-  %158 = call i64 @BIO_ctrl(ptr noundef %157, i32 noundef 1001, i64 noundef 0, ptr noundef null) #10
-  %159 = load ptr, ptr %13, align 8, !tbaa !4
-  %160 = load ptr, ptr %8, align 8, !tbaa !13
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 272
-  store ptr %159, ptr %161, align 8, !tbaa !22
-  %162 = load ptr, ptr %14, align 8, !tbaa !4
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 280
-  store ptr %162, ptr %163, align 8, !tbaa !31
-  %164 = getelementptr inbounds nuw i8, ptr %160, i64 288
-  store ptr %.197, ptr %164, align 8, !tbaa !32
-  %165 = getelementptr inbounds nuw i8, ptr %160, i64 296
-  store i32 %5, ptr %165, align 8, !tbaa !33
+155:                                              ; preds = %._crit_edge, %148
+  %156 = phi ptr [ %.pre, %._crit_edge ], [ %150, %148 ]
+  %157 = call i64 @BIO_ctrl(ptr noundef %156, i32 noundef 1001, i64 noundef 0, ptr noundef null) #10
+  %158 = load ptr, ptr %13, align 8, !tbaa !4
+  %159 = load ptr, ptr %8, align 8, !tbaa !13
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 272
+  store ptr %158, ptr %160, align 8, !tbaa !22
+  %161 = load ptr, ptr %14, align 8, !tbaa !4
+  %162 = getelementptr inbounds nuw i8, ptr %159, i64 280
+  store ptr %161, ptr %162, align 8, !tbaa !31
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 288
+  store ptr %.197, ptr %163, align 8, !tbaa !32
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 296
+  store i32 %5, ptr %164, align 8, !tbaa !33
+  %165 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @SSL_set_msg_callback(ptr noundef %165, ptr noundef nonnull @noise_msg_callback) #10
   %166 = load ptr, ptr %7, align 8, !tbaa !11
-  call void @SSL_set_msg_callback(ptr noundef %166, ptr noundef nonnull @noise_msg_callback) #10
-  %167 = load ptr, ptr %7, align 8, !tbaa !11
-  %168 = load ptr, ptr %8, align 8, !tbaa !13
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 272
-  %170 = call i64 @SSL_ctrl(ptr noundef %167, i32 noundef 16, i64 noundef 0, ptr noundef nonnull %169) #10
+  %167 = load ptr, ptr %8, align 8, !tbaa !13
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 272
+  %169 = call i64 @SSL_ctrl(ptr noundef %166, i32 noundef 16, i64 noundef 0, ptr noundef nonnull %168) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %171
+  br label %170
 
-171:                                              ; preds = %156, %129
-  %172 = load ptr, ptr %7, align 8, !tbaa !11
-  %173 = load ptr, ptr %13, align 8, !tbaa !4
-  call void @SSL_set_bio(ptr noundef %172, ptr noundef %173, ptr noundef %173) #10
-  %174 = load ptr, ptr %7, align 8, !tbaa !11
-  %175 = call i32 @SSL_set_blocking_mode(ptr noundef %174, i32 noundef %55) #10
+170:                                              ; preds = %155, %128
+  %171 = load ptr, ptr %7, align 8, !tbaa !11
+  %172 = load ptr, ptr %13, align 8, !tbaa !4
+  call void @SSL_set_bio(ptr noundef %171, ptr noundef %172, ptr noundef %172) #10
+  %173 = load ptr, ptr %7, align 8, !tbaa !11
+  %174 = and i32 %5, 1
+  %175 = call i32 @SSL_set_blocking_mode(ptr noundef %173, i32 noundef %174) #10
   %176 = icmp ne i32 %175, 0
   %177 = zext i1 %176 to i32
   %178 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @.str.21, i32 noundef %177) #10
   %.not136 = icmp eq i32 %178, 0
   br i1 %.not136, label %.thread155, label %179
 
-179:                                              ; preds = %171
+179:                                              ; preds = %170
   %180 = load ptr, ptr %7, align 8, !tbaa !11
   %181 = call i32 @SSL_set1_initial_peer_addr(ptr noundef %180, ptr noundef %52) #10
   %182 = icmp ne i32 %181, 0
@@ -542,11 +542,11 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   call void @BIO_ADDR_free(ptr noundef %52) #10
   br label %247
 
-.thread155:                                       ; preds = %..thread155_crit_edge, %120, %116, %109, %87, %75, %80, %102, %108, %94, %.thread161, %.thread, %213, %204, %189, %185, %179, %171, %51, %45, %35, %28, %196
-  %237 = phi ptr [ null, %28 ], [ %2, %213 ], [ %.pre164, %..thread155_crit_edge ], [ null, %204 ], [ null, %196 ], [ null, %189 ], [ null, %185 ], [ null, %179 ], [ null, %171 ], [ null, %.thread161 ], [ null, %109 ], [ null, %.thread ], [ null, %35 ], [ null, %51 ], [ null, %45 ], [ null, %94 ], [ null, %108 ], [ null, %102 ], [ null, %80 ], [ null, %75 ], [ null, %87 ], [ null, %116 ], [ null, %120 ]
-  %.099 = phi ptr [ null, %28 ], [ %187, %213 ], [ %187, %..thread155_crit_edge ], [ %187, %204 ], [ %187, %196 ], [ %187, %189 ], [ %187, %185 ], [ null, %179 ], [ null, %171 ], [ null, %.thread161 ], [ null, %109 ], [ null, %.thread ], [ null, %35 ], [ null, %51 ], [ null, %45 ], [ null, %94 ], [ null, %108 ], [ null, %102 ], [ null, %80 ], [ null, %75 ], [ null, %87 ], [ null, %116 ], [ null, %120 ]
-  %.098 = phi ptr [ null, %28 ], [ %52, %213 ], [ %52, %..thread155_crit_edge ], [ %52, %204 ], [ %52, %196 ], [ %52, %189 ], [ %52, %185 ], [ %52, %179 ], [ %52, %171 ], [ %52, %.thread161 ], [ %52, %109 ], [ %52, %.thread ], [ null, %35 ], [ %52, %51 ], [ null, %45 ], [ %52, %94 ], [ %52, %108 ], [ %52, %102 ], [ %52, %80 ], [ %52, %75 ], [ %52, %87 ], [ %52, %116 ], [ %52, %120 ]
-  %.096 = phi ptr [ null, %28 ], [ %.197, %213 ], [ %.197, %..thread155_crit_edge ], [ %.197, %204 ], [ %.197, %196 ], [ %.197, %189 ], [ %.197, %185 ], [ %.197, %179 ], [ %.197, %171 ], [ %.197, %.thread161 ], [ %.197, %109 ], [ %.197, %.thread ], [ %37, %35 ], [ %.197, %51 ], [ %.197, %45 ], [ %.197, %94 ], [ %.197, %108 ], [ %.197, %102 ], [ %.197, %80 ], [ %.197, %75 ], [ %.197, %87 ], [ %.197, %116 ], [ %.197, %120 ]
+.thread155:                                       ; preds = %..thread155_crit_edge, %119, %115, %108, %86, %74, %79, %101, %107, %93, %.thread161, %.thread, %213, %204, %189, %185, %179, %170, %51, %45, %35, %28, %196
+  %237 = phi ptr [ null, %28 ], [ %2, %213 ], [ %.pre164, %..thread155_crit_edge ], [ null, %204 ], [ null, %196 ], [ null, %189 ], [ null, %185 ], [ null, %179 ], [ null, %170 ], [ null, %.thread161 ], [ null, %108 ], [ null, %.thread ], [ null, %35 ], [ null, %51 ], [ null, %45 ], [ null, %93 ], [ null, %107 ], [ null, %101 ], [ null, %79 ], [ null, %74 ], [ null, %86 ], [ null, %115 ], [ null, %119 ]
+  %.099 = phi ptr [ null, %28 ], [ %187, %213 ], [ %187, %..thread155_crit_edge ], [ %187, %204 ], [ %187, %196 ], [ %187, %189 ], [ %187, %185 ], [ null, %179 ], [ null, %170 ], [ null, %.thread161 ], [ null, %108 ], [ null, %.thread ], [ null, %35 ], [ null, %51 ], [ null, %45 ], [ null, %93 ], [ null, %107 ], [ null, %101 ], [ null, %79 ], [ null, %74 ], [ null, %86 ], [ null, %115 ], [ null, %119 ]
+  %.098 = phi ptr [ null, %28 ], [ %52, %213 ], [ %52, %..thread155_crit_edge ], [ %52, %204 ], [ %52, %196 ], [ %52, %189 ], [ %52, %185 ], [ %52, %179 ], [ %52, %170 ], [ %52, %.thread161 ], [ %52, %108 ], [ %52, %.thread ], [ null, %35 ], [ %52, %51 ], [ null, %45 ], [ %52, %93 ], [ %52, %107 ], [ %52, %101 ], [ %52, %79 ], [ %52, %74 ], [ %52, %86 ], [ %52, %115 ], [ %52, %119 ]
+  %.096 = phi ptr [ null, %28 ], [ %.197, %213 ], [ %.197, %..thread155_crit_edge ], [ %.197, %204 ], [ %.197, %196 ], [ %.197, %189 ], [ %.197, %185 ], [ %.197, %179 ], [ %.197, %170 ], [ %.197, %.thread161 ], [ %.197, %108 ], [ %.197, %.thread ], [ %37, %35 ], [ %.197, %51 ], [ %.197, %45 ], [ %.197, %93 ], [ %.197, %107 ], [ %.197, %101 ], [ %.197, %79 ], [ %.197, %74 ], [ %.197, %86 ], [ %.197, %115 ], [ %.197, %119 ]
   call void @SSL_CTX_free(ptr noundef %237) #10
   call void @BIO_ADDR_free(ptr noundef %.098) #10
   %238 = load ptr, ptr %13, align 8, !tbaa !4

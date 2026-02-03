@@ -24578,9 +24578,8 @@ _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f06438
   %.sroa.10.0.i.ph = load i32, ptr %.sroa.10.0.i.ph.in, align 4, !alias.scope !3951, !noalias !3954, !noundef !4
   %.sroa.16.8.insert.ext91 = zext i32 %.sroa.10.0.i.ph to i64
   %.sroa.16.12.insert.insert95 = or disjoint i64 %.sroa.12.0.i.ph, %.sroa.16.8.insert.ext91
-  %32 = and i16 %.sroa.5.0.i.ph, 1
-  %.not.i = icmp eq i16 %32, 0
-  br i1 %.not.i, label %33, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread.i
+  %32 = trunc i16 %.sroa.5.0.i.ph to i1
+  br i1 %32, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread.i, label %33
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread.i: ; preds = %24, %23, %7, %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i, %25, %30
   %.sroa.53.073.ph = phi i32 [ %27, %25 ], [ %13, %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i ], [ %13, %30 ], [ %13, %7 ], [ %13, %23 ], [ %13, %24 ]
@@ -24769,9 +24768,8 @@ default.unreachable:                              ; preds = %46
   br label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread.i
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i: ; preds = %51
-  %55 = and i16 %.sroa.8.0, 1
-  %.not.i = icmp eq i16 %55, 0
-  br i1 %.not.i, label %_ZN17cranelift_codegen3isa3x644inst4args16XmmMemAlignedImm3new17ha6ad04fe353e0dd0E.exit, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread.i
+  %55 = trunc i16 %.sroa.8.0 to i1
+  br i1 %55, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread.i, label %_ZN17cranelift_codegen3isa3x644inst4args16XmmMemAlignedImm3new17ha6ad04fe353e0dd0E.exit
 
 _ZN17cranelift_codegen3isa3x644inst4args16XmmMemAlignedImm3new17ha6ad04fe353e0dd0E.exit: ; preds = %46, %46, %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i
   %56 = icmp eq i8 %narrow.i, 1

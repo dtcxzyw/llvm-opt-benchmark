@@ -2115,92 +2115,91 @@ declare dso_local i32 @get_wiphy_idx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @regulatory_hint_country_ie(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #1 align 16 {
-  %5 = and i8 %3, 1
-  %6 = icmp ne i8 %5, 0
-  %7 = icmp ult i8 %3, 6
-  %8 = or i1 %7, %6
-  br i1 %8, label %61, label %9
+  %5 = trunc i8 %3 to i1
+  %6 = icmp ult i8 %3, 6
+  %7 = or i1 %6, %5
+  br i1 %7, label %60, label %8
 
-9:                                                ; preds = %4
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
-  %11 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 64) #28
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %61, label %13
+8:                                                ; preds = %4
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
+  %10 = tail call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 64) #28
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %60, label %12
 
-13:                                               ; preds = %9
-  %14 = load i8, ptr %2, align 1
-  %15 = getelementptr i8, ptr %2, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = getelementptr i8, ptr %2, i64 2
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 79
-  %20 = select i1 %19, i32 2, i32 0
-  %21 = icmp eq i8 %18, 73
-  %22 = select i1 %21, i32 1, i32 %20
+12:                                               ; preds = %8
+  %13 = load i8, ptr %2, align 1
+  %14 = getelementptr i8, ptr %2, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = getelementptr i8, ptr %2, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 79
+  %19 = select i1 %18, i32 2, i32 0
+  %20 = icmp eq i8 %17, 73
+  %21 = select i1 %20, i32 1, i32 %19
   tail call void @__rcu_read_lock() #26
-  %23 = load volatile ptr, ptr @last_request, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %59, label %25, !prof !39
+  %22 = load volatile ptr, ptr @last_request, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %58, label %24, !prof !39
 
-25:                                               ; preds = %13
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %27, 3
-  br i1 %28, label %29, label %33
+24:                                               ; preds = %12
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, 3
+  br i1 %27, label %28, label %32
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, -1
-  br i1 %32, label %33, label %59
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %58
 
-33:                                               ; preds = %29, %25
-  %34 = tail call i32 @get_wiphy_idx(ptr noundef %0) #26
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %37 = getelementptr i8, ptr %11, i64 29
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 3, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 %22, ptr %39, align 8
+32:                                               ; preds = %28, %24
+  %33 = tail call i32 @get_wiphy_idx(ptr noundef %0) #26
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i32 %33, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %36 = getelementptr i8, ptr %10, i64 29
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  store i32 3, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i32 %21, ptr %38, align 8
   store i32 0, ptr @reg_crda_timeouts, align 4
-  %40 = zext i8 %14 to i64
-  %41 = getelementptr i8, ptr @_ctype, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 2
-  %44 = icmp eq i8 %43, 0
-  %45 = add i8 %14, -32
-  %46 = select i1 %44, i8 %14, i8 %45
-  store i8 %46, ptr %36, align 4
-  %47 = zext i8 %16 to i64
-  %48 = getelementptr i8, ptr @_ctype, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, 2
-  %51 = icmp eq i8 %50, 0
-  %52 = add i8 %16, -32
-  %53 = select i1 %51, i8 %16, i8 %52
-  store i8 %53, ptr %37, align 1
+  %39 = zext i8 %13 to i64
+  %40 = getelementptr i8, ptr @_ctype, i64 %39
+  %41 = load i8, ptr %40, align 1
+  %42 = and i8 %41, 2
+  %43 = icmp eq i8 %42, 0
+  %44 = add i8 %13, -32
+  %45 = select i1 %43, i8 %13, i8 %44
+  store i8 %45, ptr %35, align 4
+  %46 = zext i8 %15 to i64
+  %47 = getelementptr i8, ptr @_ctype, i64 %46
+  %48 = load i8, ptr %47, align 1
+  %49 = and i8 %48, 2
+  %50 = icmp eq i8 %49, 0
+  %51 = add i8 %15, -32
+  %52 = select i1 %50, i8 %15, i8 %51
+  store i8 %52, ptr %36, align 1
   tail call void @_raw_spin_lock(ptr noundef nonnull @reg_requests_lock) #26
-  %54 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @reg_requests_list, i64 8), align 8
-  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @reg_requests_list, i64 8), align 8
-  store ptr @reg_requests_list, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %55, ptr %56, align 8
-  store volatile ptr %54, ptr %55, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr %53, ptr getelementptr inbounds nuw (i8, ptr @reg_requests_list, i64 8), align 8
+  store ptr @reg_requests_list, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store ptr %54, ptr %55, align 8
+  store volatile ptr %53, ptr %54, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @reg_requests_lock) #26
-  %57 = load ptr, ptr @system_wq, align 8
-  %58 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %57, ptr noundef nonnull @reg_work) #26
-  br label %59
+  %56 = load ptr, ptr @system_wq, align 8
+  %57 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %56, ptr noundef nonnull @reg_work) #26
+  br label %58
 
-59:                                               ; preds = %33, %29, %13
-  %60 = phi ptr [ %11, %13 ], [ %11, %29 ], [ null, %33 ]
-  tail call void @kfree(ptr noundef %60) #26
+58:                                               ; preds = %32, %28, %12
+  %59 = phi ptr [ %10, %12 ], [ %10, %28 ], [ null, %32 ]
+  tail call void @kfree(ptr noundef %59) #26
   tail call void @__rcu_read_unlock() #26
-  br label %61
+  br label %60
 
-61:                                               ; preds = %59, %9, %4
+60:                                               ; preds = %58, %8, %4
   ret void
 }
 

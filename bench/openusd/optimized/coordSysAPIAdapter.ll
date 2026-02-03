@@ -352,9 +352,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingCoordSysAPIAdapter
   %25 = and i64 %22, -8
   %26 = inttoptr i64 %25 to ptr
   %27 = atomicrmw add ptr %26, i32 2 monotonic, align 4
-  %28 = and i32 %27, 1
-  %.not1.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not1.i.i.i.i, label %29, label %_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPIC2ERKNS_7UsdPrimERKNS_7TfTokenE.exit
+  %28 = trunc i32 %27 to i1
+  br i1 %28, label %_ZN32pxrInternal_v0_24__pxrReserved__19UsdShadeCoordSysAPIC2ERKNS_7UsdPrimERKNS_7TfTokenE.exit, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %21, align 8

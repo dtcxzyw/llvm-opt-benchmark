@@ -1834,23 +1834,23 @@ Next_Field_On_Page.exit:                          ; preds = %36
   %57 = load ptr, ptr %56, align 8, !tbaa !81
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load i32, ptr %58, align 8, !tbaa !19
-  %60 = and i32 %59, 1
-  %.not30 = icmp ne i32 %60, 0
+  %.not30 = trunc i32 %59 to i1
   %.not31 = icmp eq ptr %14, %57
   %or.cond = or i1 %.not31, %.not30
-  br i1 %or.cond, label %61, label %53, !llvm.loop !85
+  br i1 %or.cond, label %60, label %53, !llvm.loop !85
 
-61:                                               ; preds = %53
-  %.not32 = icmp eq i32 %60, 0
+60:                                               ; preds = %53
+  %61 = and i32 %59, 1
+  %.not32 = icmp eq i32 %61, 0
   %or.cond33 = and i1 %.not31, %.not32
   br i1 %or.cond33, label %62, label %64
 
-62:                                               ; preds = %61
+62:                                               ; preds = %60
   %63 = load ptr, ptr %52, align 8, !tbaa !81
   br label %64
 
-64:                                               ; preds = %Next_Field_On_Page.exit, %61, %62
-  %.0 = phi ptr [ %40, %Next_Field_On_Page.exit ], [ %57, %61 ], [ %63, %62 ]
+64:                                               ; preds = %Next_Field_On_Page.exit, %60, %62
+  %.0 = phi ptr [ %40, %Next_Field_On_Page.exit ], [ %57, %60 ], [ %63, %62 ]
   ret ptr %.0
 }
 
@@ -2129,23 +2129,23 @@ Next_Field_On_Page.exit.i:                        ; preds = %45
   %66 = load ptr, ptr %65, align 8, !tbaa !81
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load i32, ptr %67, align 8, !tbaa !19
-  %69 = and i32 %68, 1
-  %.not30.i = icmp ne i32 %69, 0
+  %.not30.i = trunc i32 %68 to i1
   %.not31.i = icmp eq ptr %23, %66
   %or.cond.i = or i1 %.not31.i, %.not30.i
-  br i1 %or.cond.i, label %70, label %62, !llvm.loop !85
+  br i1 %or.cond.i, label %69, label %62, !llvm.loop !85
 
-70:                                               ; preds = %62
-  %.not32.i = icmp eq i32 %69, 0
+69:                                               ; preds = %62
+  %70 = and i32 %68, 1
+  %.not32.i = icmp eq i32 %70, 0
   %or.cond33.i = and i1 %.not31.i, %.not32.i
   br i1 %or.cond33.i, label %71, label %_nc_First_Active_Field.exit
 
-71:                                               ; preds = %70
+71:                                               ; preds = %69
   %72 = load ptr, ptr %61, align 8, !tbaa !81
   br label %_nc_First_Active_Field.exit
 
-_nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %70, %71
-  %.0.i = phi ptr [ %49, %Next_Field_On_Page.exit.i ], [ %66, %70 ], [ %72, %71 ]
+_nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %69, %71
+  %.0.i = phi ptr [ %49, %Next_Field_On_Page.exit.i ], [ %66, %69 ], [ %72, %71 ]
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %73, align 8, !tbaa !14
   br label %129

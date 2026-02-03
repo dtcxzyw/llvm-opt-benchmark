@@ -12290,9 +12290,8 @@ if.end130:                                        ; preds = %land.lhs.true.i34, 
 land.lhs.true.i99:                                ; preds = %if.end130
   %id_.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 248
   %59 = load i64, ptr %id_.i, align 8
-  %rem.i = and i64 %59, 1
-  %cmp2.not.i.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp2.not.i.not, label %if.end195, label %land.lhs.true
+  %cmp2.not.i = trunc i64 %59 to i1
+  br i1 %cmp2.not.i, label %land.lhs.true, label %if.end195
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit: ; preds = %if.end130
   %id_5.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 248

@@ -15,9 +15,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAdd
 
 6:                                                ; preds = %5
   %7 = ptrtoint ptr %1 to i64
-  %8 = and i64 %7, 1
-  %.not22 = icmp eq i64 %8, 0
-  br i1 %.not22, label %9, label %lean_inc.exit
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %lean_inc.exit, label %9
 
 9:                                                ; preds = %6
   %.val.i = load i32, ptr %1, align 4, !tbaa !4
@@ -39,9 +38,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAdd
 
 15:                                               ; preds = %5
   %16 = ptrtoint ptr %2 to i64
-  %17 = and i64 %16, 1
-  %.not21 = icmp eq i64 %17, 0
-  br i1 %.not21, label %18, label %lean_inc.exit
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %lean_inc.exit, label %18
 
 18:                                               ; preds = %15
   %.val.i12 = load i32, ptr %2, align 4, !tbaa !4
@@ -63,9 +61,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAdd
 
 24:                                               ; preds = %5
   %25 = ptrtoint ptr %3 to i64
-  %26 = and i64 %25, 1
-  %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %27, label %lean_inc.exit
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit, label %27
 
 27:                                               ; preds = %24
   %.val.i15 = load i32, ptr %3, align 4, !tbaa !4
@@ -87,9 +84,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAdd
 
 33:                                               ; preds = %5
   %34 = ptrtoint ptr %4 to i64
-  %35 = and i64 %34, 1
-  %.not23 = icmp eq i64 %35, 0
-  br i1 %.not23, label %36, label %lean_inc.exit
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %lean_inc.exit, label %36
 
 36:                                               ; preds = %33
   %.val.i18 = load i32, ptr %4, align 4, !tbaa !4
@@ -143,9 +139,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAdd
   %6 = ptrtoint ptr %0 to i64
   %7 = lshr i64 %6, 1
   %8 = trunc i64 %7 to i8
-  %9 = and i64 %6, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %lean_dec.exit
+  %9 = trunc i64 %6 to i1
+  br i1 %9, label %lean_dec.exit, label %10
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %0, align 4, !tbaa !4
@@ -168,9 +163,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAdd
 lean_dec.exit:                                    ; preds = %16, %15, %13, %5
   %17 = tail call ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAddSound_0__Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString_match__1_splitter___rarg(i8 noundef zeroext %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %18 = ptrtoint ptr %4 to i64
-  %19 = and i64 %18, 1
-  %.not23 = icmp eq i64 %19, 0
-  br i1 %.not23, label %20, label %lean_dec.exit11
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_dec.exit11, label %20
 
 20:                                               ; preds = %lean_dec.exit
   %21 = load i32, ptr %4, align 4, !tbaa !4
@@ -192,9 +186,8 @@ lean_dec.exit:                                    ; preds = %16, %15, %13, %5
 
 lean_dec.exit11:                                  ; preds = %26, %25, %23, %lean_dec.exit
   %27 = ptrtoint ptr %3 to i64
-  %28 = and i64 %27, 1
-  %.not24 = icmp eq i64 %28, 0
-  br i1 %.not24, label %29, label %lean_dec.exit12
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %lean_dec.exit12, label %29
 
 29:                                               ; preds = %lean_dec.exit11
   %30 = load i32, ptr %3, align 4, !tbaa !4
@@ -216,9 +209,8 @@ lean_dec.exit11:                                  ; preds = %26, %25, %23, %lean
 
 lean_dec.exit12:                                  ; preds = %35, %34, %32, %lean_dec.exit11
   %36 = ptrtoint ptr %2 to i64
-  %37 = and i64 %36, 1
-  %.not25 = icmp eq i64 %37, 0
-  br i1 %.not25, label %38, label %lean_dec.exit13
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %lean_dec.exit13, label %38
 
 38:                                               ; preds = %lean_dec.exit12
   %39 = load i32, ptr %2, align 4, !tbaa !4
@@ -240,9 +232,8 @@ lean_dec.exit12:                                  ; preds = %35, %34, %32, %lean
 
 lean_dec.exit13:                                  ; preds = %44, %43, %41, %lean_dec.exit12
   %45 = ptrtoint ptr %1 to i64
-  %46 = and i64 %45, 1
-  %.not26 = icmp eq i64 %46, 0
-  br i1 %.not26, label %47, label %lean_dec.exit14
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %lean_dec.exit14, label %47
 
 47:                                               ; preds = %lean_dec.exit13
   %48 = load i32, ptr %1, align 4, !tbaa !4
@@ -269,9 +260,8 @@ lean_dec.exit14:                                  ; preds = %53, %52, %50, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAddSound_0__Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn_match__3_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not.i15 = icmp eq i64 %5, 0
-  br i1 %.not.i15, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 1
@@ -291,9 +281,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 13:                                               ; preds = %lean_obj_tag.exit
   %14 = ptrtoint ptr %2 to i64
-  %15 = and i64 %14, 1
-  %.not22 = icmp eq i64 %15, 0
-  br i1 %.not22, label %16, label %lean_dec.exit12
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit12, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %2, align 4, !tbaa !4
@@ -315,23 +304,22 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 lean_dec.exit12:                                  ; preds = %22, %21, %19, %13
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not23 = icmp eq i64 %24, 0
-  br i1 %.not23, label %25, label %lean_inc.exit11
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_inc.exit11, label %25
 
 25:                                               ; preds = %lean_dec.exit12
-  %.val.i16 = load i32, ptr %1, align 4, !tbaa !4
-  %26 = icmp sgt i32 %.val.i16, 0
+  %.val.i15 = load i32, ptr %1, align 4, !tbaa !4
+  %26 = icmp sgt i32 %.val.i15, 0
   br i1 %26, label %27, label %29, !prof !9
 
 27:                                               ; preds = %25
-  %28 = add nuw i32 %.val.i16, 1
+  %28 = add nuw i32 %.val.i15, 1
   store i32 %28, ptr %1, align 4, !tbaa !4
   br label %lean_inc.exit11
 
 29:                                               ; preds = %25
-  %.not.i17 = icmp eq i32 %.val.i16, 0
-  br i1 %.not.i17, label %lean_inc.exit11, label %30
+  %.not.i16 = icmp eq i32 %.val.i15, 0
+  br i1 %.not.i16, label %lean_inc.exit11, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1) #3
@@ -341,30 +329,29 @@ lean_dec.exit12:                                  ; preds = %22, %21, %19, %13
   %32 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %32, align 8, !tbaa !10
   %33 = ptrtoint ptr %.val to i64
-  %34 = and i64 %33, 1
-  %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %35, label %lean_inc.exit
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %lean_inc.exit, label %35
 
 35:                                               ; preds = %31
-  %.val.i18 = load i32, ptr %.val, align 4, !tbaa !4
-  %36 = icmp sgt i32 %.val.i18, 0
+  %.val.i17 = load i32, ptr %.val, align 4, !tbaa !4
+  %36 = icmp sgt i32 %.val.i17, 0
   br i1 %36, label %37, label %39, !prof !9
 
 37:                                               ; preds = %35
-  %38 = add nuw i32 %.val.i18, 1
+  %38 = add nuw i32 %.val.i17, 1
   store i32 %38, ptr %.val, align 4, !tbaa !4
   br label %lean_inc.exit
 
 39:                                               ; preds = %35
-  %.not.i19 = icmp eq i32 %.val.i18, 0
-  br i1 %.not.i19, label %lean_inc.exit, label %40
+  %.not.i18 = icmp eq i32 %.val.i17, 0
+  br i1 %.not.i18, label %lean_inc.exit, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.val) #3
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %40, %39, %37, %31
-  br i1 %.not.i15, label %41, label %lean_dec.exit
+  br i1 %5, label %lean_dec.exit, label %41
 
 41:                                               ; preds = %lean_inc.exit
   %42 = load i32, ptr %0, align 4, !tbaa !4
@@ -423,9 +410,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 define ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAddSound_0__Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn_match__3_splitter___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAddSound_0__Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn_match__3_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -471,9 +457,8 @@ l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAddSound_0__Std_Tactic_
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
   store i16 0, ptr %9, align 2, !tbaa !12
   %10 = ptrtoint ptr %0 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %lean_dec.exit
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %lean_dec.exit, label %12
 
 12:                                               ; preds = %l___private_Std_Tactic_BVDecide_LRAT_Internal_Formula_RatAddSound_0__Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_ofArray__fold__fn_match__3_splitter.exit
   %13 = load i32, ptr %0, align 4, !tbaa !4

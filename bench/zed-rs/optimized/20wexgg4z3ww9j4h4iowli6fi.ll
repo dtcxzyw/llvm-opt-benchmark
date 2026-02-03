@@ -4132,9 +4132,8 @@ define hidden void @"_ZN4text8undo_map7UndoMap6insert28_$u7b$$u7b$closure$u7d$$u
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4text8undo_map7UndoMap9is_undone17h5d685774fb016cc4E(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i16 noundef %2) unnamed_addr #3 {
   %4 = tail call noundef i32 @_ZN4text8undo_map7UndoMap10undo_count17h3891e0d53de5e87fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i16 noundef %2)
-  %5 = and i32 %4, 1
-  %6 = icmp ne i32 %5, 0
-  ret i1 %6
+  %5 = trunc i32 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4194,11 +4193,11 @@ define hidden noundef zeroext i1 @_ZN4text8undo_map7UndoMap10was_undone17hd3a753
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 544
   br label %.outer
 
-.outer:                                           ; preds = %44, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h78e4bf018ec8de38E.llvm.13982400825416426396.exit.i"
-  %.sroa.02.0.ph = phi i32 [ %.sroa.0.0.sroa.speculated.i, %44 ], [ 0, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h78e4bf018ec8de38E.llvm.13982400825416426396.exit.i" ]
+.outer:                                           ; preds = %43, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h78e4bf018ec8de38E.llvm.13982400825416426396.exit.i"
+  %.sroa.02.0.ph = phi i32 [ %.sroa.0.0.sroa.speculated.i, %43 ], [ 0, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h78e4bf018ec8de38E.llvm.13982400825416426396.exit.i" ]
   br label %25
 
-25:                                               ; preds = %.outer, %38
+25:                                               ; preds = %.outer, %37
   %26 = load i8, ptr %24, align 8, !range !160, !alias.scope !619, !noundef !4
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.noexc, label %28
@@ -4217,32 +4216,31 @@ define hidden noundef zeroext i1 @_ZN4text8undo_map7UndoMap10was_undone17hd3a753
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load i16, ptr %31, align 4, !noundef !4
   %33 = icmp eq i16 %32, %2
-  br i1 %33, label %36, label %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit.thread"
+  br i1 %33, label %35, label %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit.thread"
 
-"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit.thread": ; preds = %.noexc, %36, %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit"
+"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit.thread": ; preds = %.noexc, %35, %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %34 = and i32 %.sroa.02.0.ph, 1
-  %35 = icmp ne i32 %34, 0
+  %34 = trunc i32 %.sroa.02.0.ph to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i1 %35
+  ret i1 %34
 
-36:                                               ; preds = %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit"
-  %37 = load i32, ptr %29, align 4, !noundef !4
-  %.not = icmp eq i32 %37, %1
-  br i1 %.not, label %38, label %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit.thread"
+35:                                               ; preds = %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit"
+  %36 = load i32, ptr %29, align 4, !noundef !4
+  %.not = icmp eq i32 %36, %1
+  br i1 %.not, label %37, label %"_ZN96_$LT$sum_tree..cursor..Cursor$LT$T$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4c0ebbc2ea5c5239E.exit.thread"
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %40 = load i32, ptr %39, align 4, !noundef !4
-  %41 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %42 = load i16, ptr %41, align 4, !noundef !4
-  %43 = call noundef zeroext i1 @_ZN5clock6Global8observed17h3f0a0e7955814189E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i32 noundef %40, i16 noundef %42)
-  br i1 %43, label %44, label %25
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %39 = load i32, ptr %38, align 4, !noundef !4
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %41 = load i16, ptr %40, align 4, !noundef !4
+  %42 = call noundef zeroext i1 @_ZN5clock6Global8observed17h3f0a0e7955814189E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, i32 noundef %39, i16 noundef %41)
+  br i1 %42, label %43, label %25
 
-44:                                               ; preds = %38
-  %45 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %46 = load i32, ptr %45, align 4, !noundef !4
-  %.sroa.0.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.sroa.02.0.ph, i32 %46)
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %45 = load i32, ptr %44, align 4, !noundef !4
+  %.sroa.0.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.sroa.02.0.ph, i32 %45)
   br label %.outer
 }
 

@@ -832,13 +832,12 @@ define hidden void @_ZN16ShenandoahFullGC5do_itEN7GCCause5CauseE(ptr noundef non
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 769
   %19 = load volatile i8, ptr %18, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  %20 = and i8 %19, 1
-  %.not = icmp eq i8 %20, 0
+  %20 = trunc i8 %19 to i1
   %21 = load volatile i8, ptr %18, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %22 = and i8 %21, 4
-  %.not46 = icmp eq i8 %22, 0
-  br i1 %.not46, label %24, label %23
+  %.not = icmp eq i8 %22, 0
+  br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %15
   call void @_ZN14ShenandoahHeap26set_evacuation_in_progressEb(ptr noundef nonnull align 8 dereferenceable(2657) %6, i1 noundef zeroext false) #13
@@ -848,8 +847,8 @@ define hidden void @_ZN16ShenandoahFullGC5do_itEN7GCCause5CauseE(ptr noundef non
   %25 = load volatile i8, ptr %18, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %26 = and i8 %25, 8
-  %.not47 = icmp eq i8 %26, 0
-  br i1 %.not47, label %28, label %27
+  %.not46 = icmp eq i8 %26, 0
+  br i1 %.not46, label %28, label %27
 
 27:                                               ; preds = %24
   call void @_ZN14ShenandoahHeap27set_update_refs_in_progressEb(ptr noundef nonnull align 8 dereferenceable(2657) %6, i1 noundef zeroext false) #13
@@ -859,8 +858,8 @@ define hidden void @_ZN16ShenandoahFullGC5do_itEN7GCCause5CauseE(ptr noundef non
   %29 = load volatile i8, ptr %18, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %30 = and i8 %29, 2
-  %.not48 = icmp eq i8 %30, 0
-  br i1 %.not48, label %32, label %31
+  %.not47 = icmp eq i8 %30, 0
+  br i1 %.not47, label %32, label %31
 
 31:                                               ; preds = %28
   call void @_ZN22ShenandoahConcurrentGC6cancelEv() #13
@@ -868,7 +867,7 @@ define hidden void @_ZN16ShenandoahFullGC5do_itEN7GCCause5CauseE(ptr noundef non
   br label %32
 
 32:                                               ; preds = %31, %28
-  br i1 %.not, label %34, label %33
+  br i1 %20, label %33, label %34
 
 33:                                               ; preds = %32
   call void @_ZN12ShenandoahGC12update_rootsEb(i1 noundef zeroext true) #13
@@ -914,8 +913,8 @@ define hidden void @_ZN16ShenandoahFullGC5do_itEN7GCCause5CauseE(ptr noundef non
   %53 = shl nuw nsw i64 %52, 3
   %54 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %53, i8 noundef zeroext 5, i32 noundef 0) #13
   %55 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #13
-  %.not53 = icmp eq i32 %55, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.not52 = icmp eq i32 %55, 0
+  br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %50 ]
@@ -952,29 +951,29 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %._crit_edge, %63
   store volatile i32 0, ptr %61, align 4
   call void @_ZN11MetaspaceGC16compute_new_sizeEv() #13
   %65 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #13
-  %.not54 = icmp eq i32 %65, 0
-  br i1 %.not54, label %._crit_edge52, label %.lr.ph51
+  %.not53 = icmp eq i32 %65, 0
+  br i1 %.not53, label %._crit_edge51, label %.lr.ph50
 
-.lr.ph51:                                         ; preds = %_ZN16ShenandoahLockerD2Ev.exit, %70
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %70 ], [ 0, %_ZN16ShenandoahLockerD2Ev.exit ]
-  %66 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv56
+.lr.ph50:                                         ; preds = %_ZN16ShenandoahLockerD2Ev.exit, %70
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %70 ], [ 0, %_ZN16ShenandoahLockerD2Ev.exit ]
+  %66 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv55
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %70, label %69
 
-69:                                               ; preds = %.lr.ph51
+69:                                               ; preds = %.lr.ph50
   call void @_ZN23ShenandoahHeapRegionSetD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %67) #13
   call void @_Z8FreeHeapPv(ptr noundef nonnull %67) #13
   br label %70
 
-70:                                               ; preds = %.lr.ph51, %69
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+70:                                               ; preds = %.lr.ph50, %69
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %71 = call noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #13
   %72 = zext i32 %71 to i64
-  %73 = icmp samesign ult i64 %indvars.iv.next57, %72
-  br i1 %73, label %.lr.ph51, label %._crit_edge52, !llvm.loop !12
+  %73 = icmp samesign ult i64 %indvars.iv.next56, %72
+  br i1 %73, label %.lr.ph50, label %._crit_edge51, !llvm.loop !12
 
-._crit_edge52:                                    ; preds = %70, %_ZN16ShenandoahLockerD2Ev.exit
+._crit_edge51:                                    ; preds = %70, %_ZN16ShenandoahLockerD2Ev.exit
   call void @_Z8FreeHeapPv(ptr noundef %54) #13
   call void @_ZN14ShenandoahHeap28set_full_gc_move_in_progressEb(ptr noundef nonnull align 8 dereferenceable(2657) %6, i1 noundef zeroext false) #13
   call void @_ZN14ShenandoahHeap23set_full_gc_in_progressEb(ptr noundef nonnull align 8 dereferenceable(2657) %6, i1 noundef zeroext false) #13
@@ -982,12 +981,12 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %._crit_edge, %63
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %._crit_edge52
+76:                                               ; preds = %._crit_edge51
   %77 = call noundef ptr @_ZN14ShenandoahHeap8verifierEv(ptr noundef nonnull align 8 dereferenceable(2657) %6) #13
   call void @_ZN18ShenandoahVerifier19verify_after_fullgcEv(ptr noundef nonnull align 8 dereferenceable(16) %77) #13
   br label %78
 
-78:                                               ; preds = %76, %._crit_edge52
+78:                                               ; preds = %76, %._crit_edge51
   %79 = load i8, ptr @VerifyAfterGC, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %82
@@ -2071,31 +2070,30 @@ _ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit: ; preds = %18, %.lr.ph.pre
   store ptr %57, ptr %55, align 8
   call void @_ZN34ShenandoahPrepareForCompactionTask22prepare_for_compactionI43ShenandoahPrepareForCompactionObjectClosureEEvRT_R13GrowableArrayIP20ShenandoahHeapRegionER31ShenandoahHeapRegionSetIteratorS6_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %16)
   %58 = load i64, ptr %42, align 8
-  %59 = and i64 %58, 1
-  %.not.i = icmp eq i64 %59, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %60
+  %59 = trunc i64 %58 to i1
+  br i1 %59, label %60, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
 
 60:                                               ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
   store i32 0, ptr %5, align 8
   %61 = load i32, ptr %37, align 4
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %.loopexit.i
+  br i1 %62, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %.loopexit.i.i.i
 
-.loopexit.i:                                      ; preds = %60
+.loopexit.i.i.i:                                  ; preds = %60
   %63 = load ptr, ptr %38, align 8
   store i32 0, ptr %37, align 4
-  %.not.i7 = icmp eq ptr %63, null
-  br i1 %.not.i7, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
+  %.not.i.i.i = icmp eq ptr %63, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i.i.i, label %.loopexit.thread.i.i.i
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %63) #13
-  br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i
+  br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i.i.i
 
-_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
+_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i.i.i: ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
   store ptr null, ptr %38, align 8
   br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
 
-_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit: ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i, %60, %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
+_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit: ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit, %60, %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i.i.i
   %64 = load ptr, ptr %24, align 8
   %.not.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i, label %66, label %65
@@ -2325,9 +2323,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %43, %33
   br i1 %47, label %48, label %58
 
 48:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %49 = and i32 %46, 1
-  %.not.i.i = icmp eq i32 %49, 0
-  br i1 %.not.i.i, label %50, label %53
+  %49 = trunc i32 %46 to i1
+  br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
   %51 = lshr i32 %46, 3
@@ -2889,9 +2886,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %37, %27
   br i1 %41, label %42, label %52
 
 42:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %43 = and i32 %40, 1
-  %.not.i.i = icmp eq i32 %43, 0
-  br i1 %.not.i.i, label %44, label %47
+  %43 = trunc i32 %40 to i1
+  br i1 %43, label %47, label %44
 
 44:                                               ; preds = %42
   %45 = lshr i32 %40, 3
@@ -3404,9 +3400,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %16, %6
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %22 = and i32 %19, 1
-  %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %23, label %26
+  %22 = trunc i32 %19 to i1
+  br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
   %24 = lshr i32 %19, 3
@@ -4099,9 +4094,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
   br i1 %70, label %71, label %81
 
 71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %72 = and i32 %69, 1
-  %.not.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i, label %73, label %76
+  %72 = trunc i32 %69 to i1
+  br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
   %74 = lshr i32 %69, 3
@@ -4267,9 +4261,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %16, %6
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %22 = and i32 %19, 1
-  %.not.i.i = icmp eq i32 %22, 0
-  br i1 %.not.i.i, label %23, label %26
+  %22 = trunc i32 %19 to i1
+  br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
   %24 = lshr i32 %19, 3
@@ -4508,9 +4501,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
   br i1 %70, label %71, label %81
 
 71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %72 = and i32 %69, 1
-  %.not.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i, label %73, label %76
+  %72 = trunc i32 %69 to i1
+  br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
   %74 = lshr i32 %69, 3
@@ -4984,9 +4976,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %66, %56
   br i1 %70, label %71, label %81
 
 71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %72 = and i32 %69, 1
-  %.not.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i, label %73, label %76
+  %72 = trunc i32 %69 to i1
+  br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
   %74 = lshr i32 %69, 3
@@ -5060,9 +5051,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP20ShenandoahHe
   br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -5079,25 +5069,25 @@ _ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit: ; preds = %7, %11, 
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -5110,29 +5100,28 @@ _ZN13GrowableArrayIP20ShenandoahHeapRegionE8allocateEv.exit: ; preds = %7, %11, 
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !39
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !39
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !40
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !40
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #13
@@ -6060,9 +6049,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -6096,8 +6084,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -8064,9 +8052,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3
@@ -8316,9 +8303,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3

@@ -302,9 +302,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_43UsdShadeValidatorNameT
   %56 = and i64 %53, -8
   %57 = inttoptr i64 %56 to ptr
   %58 = atomicrmw add ptr %57, i32 2 monotonic, align 4
-  %59 = and i32 %58, 1
-  %.not1.i.i = icmp eq i32 %59, 0
-  br i1 %.not1.i.i, label %60, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %59 = trunc i32 %58 to i1
+  br i1 %59, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %60
 
 60:                                               ; preds = %55
   store ptr %57, ptr %6, align 8
@@ -4658,9 +4657,8 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit: ; pre
   %46 = and i64 %43, -8
   %47 = inttoptr i64 %46 to ptr
   %48 = atomicrmw add ptr %47, i32 2 monotonic, align 4
-  %49 = and i32 %48, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %49, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %50, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_.exit
+  %49 = trunc i32 %48 to i1
+  br i1 %49, label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11_Alloc_nodeclIRKS1_EEPSt13_Rb_tree_nodeIS1_EOT_.exit, label %50
 
 50:                                               ; preds = %45
   store ptr %47, ptr %42, align 8

@@ -442,9 +442,9 @@ define void @_ZN9grpc_core16TracedBufferList16ProcessTimestampEP17sock_extended_
   %6 = alloca %"class.absl::lts_20240722::Status", align 8
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.073 = load ptr, ptr %7, align 8, !tbaa !56
-  %.not74 = icmp eq ptr %.073, null
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.072 = load ptr, ptr %7, align 8, !tbaa !56
+  %.not73 = icmp eq ptr %.072, null
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -453,9 +453,9 @@ define void @_ZN9grpc_core16TracedBufferList16ProcessTimestampEP17sock_extended_
   br label %11
 
 11:                                               ; preds = %.lr.ph, %54
-  %.075 = phi ptr [ %.073, %.lr.ph ], [ %.0, %54 ]
+  %.074 = phi ptr [ %.072, %.lr.ph ], [ %.0, %54 ]
   %12 = load i32, ptr %8, align 4, !tbaa !42
-  %13 = getelementptr inbounds nuw i8, ptr %.075, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.074, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !35
   %.not49 = icmp ult i32 %12, %14
   br i1 %.not49, label %._crit_edge.loopexit, label %15
@@ -469,52 +469,52 @@ define void @_ZN9grpc_core16TracedBufferList16ProcessTimestampEP17sock_extended_
   ]
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %.075, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %.074, i64 280
   %.val = load i64, ptr %3, align 8, !tbaa !59
   %.val55 = load i64, ptr %10, align 8, !tbaa !61
   store i64 %.val, ptr %18, align 8, !tbaa !62
   %19 = trunc i64 %.val55 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %.075, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %.074, i64 288
   store i32 %19, ptr %20, align 8, !tbaa !63
-  %21 = getelementptr inbounds nuw i8, ptr %.075, i64 292
+  %21 = getelementptr inbounds nuw i8, ptr %.074, i64 292
   store i32 1, ptr %21, align 4, !tbaa !64
-  %22 = getelementptr inbounds nuw i8, ptr %.075, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %.074, i64 296
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %22, ptr noundef %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.075, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !48
-  %23 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.074, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !48
+  %23 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   br label %54
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %.075, i64 520
+  %25 = getelementptr inbounds nuw i8, ptr %.074, i64 520
   %.val56 = load i64, ptr %3, align 8, !tbaa !59
   %.val57 = load i64, ptr %10, align 8, !tbaa !61
   store i64 %.val56, ptr %25, align 8, !tbaa !62
   %26 = trunc i64 %.val57 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %.075, i64 528
+  %27 = getelementptr inbounds nuw i8, ptr %.074, i64 528
   store i32 %26, ptr %27, align 8, !tbaa !63
-  %28 = getelementptr inbounds nuw i8, ptr %.075, i64 532
+  %28 = getelementptr inbounds nuw i8, ptr %.074, i64 532
   store i32 1, ptr %28, align 4, !tbaa !64
-  %29 = getelementptr inbounds nuw i8, ptr %.075, i64 536
+  %29 = getelementptr inbounds nuw i8, ptr %.074, i64 536
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %29, ptr noundef %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.075, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !48
-  %30 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.074, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false), !tbaa.struct !48
+  %30 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   br label %54
 
 31:                                               ; preds = %15
-  %32 = getelementptr inbounds nuw i8, ptr %.075, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %.075, i64 760
+  %32 = getelementptr inbounds nuw i8, ptr %.074, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.074, i64 760
   %.val58 = load i64, ptr %3, align 8, !tbaa !59
   %.val59 = load i64, ptr %10, align 8, !tbaa !61
   store i64 %.val58, ptr %33, align 8, !tbaa !62
   %34 = trunc i64 %.val59 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %.075, i64 768
+  %35 = getelementptr inbounds nuw i8, ptr %.074, i64 768
   store i32 %34, ptr %35, align 8, !tbaa !63
-  %36 = getelementptr inbounds nuw i8, ptr %.075, i64 772
+  %36 = getelementptr inbounds nuw i8, ptr %.074, i64 772
   store i32 1, ptr %36, align 4, !tbaa !64
-  %37 = getelementptr inbounds nuw i8, ptr %.075, i64 776
+  %37 = getelementptr inbounds nuw i8, ptr %.074, i64 776
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ExtractOptStatsFromCmsgEPNS_17ConnectionMetricsEPK7cmsghdr(ptr noundef %37, ptr noundef %2)
   %38 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8, !tbaa !65
-  %39 = getelementptr inbounds nuw i8, ptr %.075, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.074, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !36
   store i64 1, ptr %5, align 8, !tbaa !66, !alias.scope !68
   invoke void %38(ptr noundef %40, ptr noundef nonnull %32, ptr noundef nonnull %5)
@@ -522,9 +522,8 @@ define void @_ZN9grpc_core16TracedBufferList16ProcessTimestampEP17sock_extended_
 
 41:                                               ; preds = %31
   %42 = load i64, ptr %5, align 8, !tbaa !66
-  %43 = and i64 %42, 1
-  %.not.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i, label %44, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %44
 
 44:                                               ; preds = %41
   %45 = inttoptr i64 %42 to ptr
@@ -539,10 +538,10 @@ define void @_ZN9grpc_core16TracedBufferList16ProcessTimestampEP17sock_extended_
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %41, %44
-  %49 = getelementptr inbounds nuw i8, ptr %.075, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !7
   store ptr %50, ptr %7, align 8, !tbaa !50
-  call void @_ZdlPvm(ptr noundef nonnull %.075, i64 noundef 1240) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.074, i64 noundef 1240) #21
   br label %54
 
 51:                                               ; preds = %31
@@ -573,25 +572,25 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %41, %44
 57:                                               ; preds = %._crit_edge
   %58 = extractvalue { i64, i64 } %56, 0
   %59 = extractvalue { i64, i64 } %56, 1
-  %.not507790 = icmp eq ptr %55, null
-  br i1 %.not507790, label %.outer._crit_edge, label %.lr.ph79
+  %.not507689 = icmp eq ptr %55, null
+  br i1 %.not507689, label %.outer._crit_edge, label %.lr.ph78
 
-.lr.ph79:                                         ; preds = %57, %.outer
-  %.2.ph92 = phi ptr [ %89, %.outer ], [ %55, %57 ]
-  %.043.ph91 = phi ptr [ %.us-phi82, %.outer ], [ null, %57 ]
-  %.not52 = icmp eq ptr %.043.ph91, null
-  %60 = getelementptr inbounds nuw i8, ptr %.043.ph91, i64 16
-  br i1 %.not52, label %.lr.ph79.split.us, label %.lr.ph79.split
+.lr.ph78:                                         ; preds = %57, %.outer
+  %.2.ph91 = phi ptr [ %89, %.outer ], [ %55, %57 ]
+  %.043.ph90 = phi ptr [ %.us-phi81, %.outer ], [ null, %57 ]
+  %.not52 = icmp eq ptr %.043.ph90, null
+  %60 = getelementptr inbounds nuw i8, ptr %.043.ph90, i64 16
+  br i1 %.not52, label %.lr.ph78.split.us, label %.lr.ph78.split
 
-.lr.ph79.split.us:                                ; preds = %.lr.ph79, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us
-  %.278.us = phi ptr [ %.3.us, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us ], [ %.2.ph92, %.lr.ph79 ]
-  %.sroa.0.0.copyload.i.us = load i64, ptr %.278.us, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.278.us, i64 8
+.lr.ph78.split.us:                                ; preds = %.lr.ph78, %_ZN4absl12lts_202407226StatusD2Ev.exit61.us
+  %.277.us = phi ptr [ %.3.us, %_ZN4absl12lts_202407226StatusD2Ev.exit61.us ], [ %.2.ph91, %.lr.ph78 ]
+  %.sroa.0.0.copyload.i.us = load i64, ptr %.277.us, align 8, !tbaa !3
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.277.us, i64 8
   %.sroa.2.0.copyload.i.us = load i64, ptr %.sroa.2.0..sroa_idx.i.us, align 8
   %61 = invoke { i64, i64 } @gpr_time_sub(i64 %58, i64 %59, i64 %.sroa.0.0.copyload.i.us, i64 %.sroa.2.0.copyload.i.us)
           to label %.noexc.us unwind label %.loopexit.split.us
 
-.noexc.us:                                        ; preds = %.lr.ph79.split.us
+.noexc.us:                                        ; preds = %.lr.ph78.split.us
   %62 = extractvalue { i64, i64 } %61, 0
   %63 = extractvalue { i64, i64 } %61, 1
   %64 = invoke i32 @gpr_time_to_millis(i64 %62, i64 %63)
@@ -603,60 +602,59 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %41, %44
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8, !tbaa !65
-  %69 = getelementptr inbounds nuw i8, ptr %.278.us, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.277.us, i64 32
   %70 = load ptr, ptr %69, align 8, !tbaa !36
   invoke void @_ZN4absl12lts_2024072221DeadlineExceededErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %6, i64 13, ptr nonnull @.str)
           to label %71 unwind label %.loopexit.split.us
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %.278.us, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.277.us, i64 40
   invoke void %68(ptr noundef %70, ptr noundef nonnull %72, ptr noundef nonnull %6)
-          to label %73 unwind label %.split84.us
+          to label %73 unwind label %.split83.us
 
 73:                                               ; preds = %71
   %74 = load i64, ptr %6, align 8, !tbaa !66
-  %75 = and i64 %74, 1
-  %.not.i.i61.us = icmp eq i64 %75, 0
-  br i1 %.not.i.i61.us, label %76, label %_ZN4absl12lts_202407226StatusD2Ev.exit62.us
+  %75 = trunc i64 %74 to i1
+  br i1 %75, label %_ZN4absl12lts_202407226StatusD2Ev.exit61.us, label %76
 
 76:                                               ; preds = %73
   %77 = inttoptr i64 %74 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %77)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit62.us unwind label %.split87.us
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit61.us unwind label %.split86.us
 
-_ZN4absl12lts_202407226StatusD2Ev.exit62.us:      ; preds = %76, %73
-  %78 = getelementptr inbounds nuw i8, ptr %.278.us, i64 16
+_ZN4absl12lts_202407226StatusD2Ev.exit61.us:      ; preds = %76, %73
+  %78 = getelementptr inbounds nuw i8, ptr %.277.us, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !7
   store ptr %79, ptr %7, align 8, !tbaa !50
-  call void @_ZdlPvm(ptr noundef nonnull %.278.us, i64 noundef 1240) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.277.us, i64 noundef 1240) #21
   %.3.us = load ptr, ptr %7, align 8, !tbaa !56
   %.not50.us = icmp eq ptr %.3.us, null
-  br i1 %.not50.us, label %.outer._crit_edge, label %.lr.ph79.split.us, !llvm.loop !73
+  br i1 %.not50.us, label %.outer._crit_edge, label %.lr.ph78.split.us, !llvm.loop !73
 
-.loopexit.split.us:                               ; preds = %67, %.noexc.us, %.lr.ph79.split.us
+.loopexit.split.us:                               ; preds = %67, %.noexc.us, %.lr.ph78.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.split84.us:                                      ; preds = %71
+.split83.us:                                      ; preds = %71
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %107
 
-.split87.us:                                      ; preds = %76
+.split86.us:                                      ; preds = %76
   %81 = landingpad { ptr, i32 }
           catch ptr null
   br label %102
 
-.lr.ph79.split:                                   ; preds = %.lr.ph79, %_ZN4absl12lts_202407226StatusD2Ev.exit62
-  %.278 = phi ptr [ %.3, %_ZN4absl12lts_202407226StatusD2Ev.exit62 ], [ %.2.ph92, %.lr.ph79 ]
-  %.sroa.0.0.copyload.i = load i64, ptr %.278, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.278, i64 8
+.lr.ph78.split:                                   ; preds = %.lr.ph78, %_ZN4absl12lts_202407226StatusD2Ev.exit61
+  %.277 = phi ptr [ %.3, %_ZN4absl12lts_202407226StatusD2Ev.exit61 ], [ %.2.ph91, %.lr.ph78 ]
+  %.sroa.0.0.copyload.i = load i64, ptr %.277, align 8, !tbaa !3
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.277, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %82 = invoke { i64, i64 } @gpr_time_sub(i64 %58, i64 %59, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
           to label %.noexc unwind label %.loopexit.split
 
-.noexc:                                           ; preds = %.lr.ph79.split
+.noexc:                                           ; preds = %.lr.ph78.split
   %83 = extractvalue { i64, i64 } %82, 0
   %84 = extractvalue { i64, i64 } %82, 1
   %85 = invoke i32 @gpr_time_to_millis(i64 %83, i64 %84)
@@ -667,13 +665,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62.us:      ; preds = %76, %73
   br i1 %87, label %90, label %.outer
 
 .outer:                                           ; preds = %86, %65
-  %.us-phi82 = phi ptr [ %.278.us, %65 ], [ %.278, %86 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.us-phi82, i64 16
+  %.us-phi81 = phi ptr [ %.277.us, %65 ], [ %.277, %86 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.us-phi81, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !7
-  %.not5077 = icmp eq ptr %89, null
-  br i1 %.not5077, label %.outer._crit_edge, label %.lr.ph79, !llvm.loop !73
+  %.not5076 = icmp eq ptr %89, null
+  br i1 %.not5076, label %.outer._crit_edge, label %.lr.ph78, !llvm.loop !73
 
-.loopexit.split:                                  ; preds = %90, %.lr.ph79.split, %.noexc
+.loopexit.split:                                  ; preds = %90, %.lr.ph78.split, %.noexc
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -685,62 +683,61 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62.us:      ; preds = %76, %73
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8, !tbaa !65
-  %92 = getelementptr inbounds nuw i8, ptr %.278, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.277, i64 32
   %93 = load ptr, ptr %92, align 8, !tbaa !36
   invoke void @_ZN4absl12lts_2024072221DeadlineExceededErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %6, i64 13, ptr nonnull @.str)
           to label %94 unwind label %.loopexit.split
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %.278, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %.277, i64 40
   invoke void %91(ptr noundef %93, ptr noundef nonnull %95, ptr noundef nonnull %6)
-          to label %96 unwind label %.split84
+          to label %96 unwind label %.split83
 
 96:                                               ; preds = %94
   %97 = load i64, ptr %6, align 8, !tbaa !66
-  %98 = and i64 %97, 1
-  %.not.i.i61 = icmp eq i64 %98, 0
-  br i1 %.not.i.i61, label %99, label %_ZN4absl12lts_202407226StatusD2Ev.exit62
+  %98 = trunc i64 %97 to i1
+  br i1 %98, label %_ZN4absl12lts_202407226StatusD2Ev.exit61, label %99
 
 99:                                               ; preds = %96
   %100 = inttoptr i64 %97 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %100)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit62 unwind label %.split87
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit61 unwind label %.split86
 
-.split87:                                         ; preds = %99
+.split86:                                         ; preds = %99
   %101 = landingpad { ptr, i32 }
           catch ptr null
   br label %102
 
-102:                                              ; preds = %.split87.us, %.split87
-  %.us-phi88 = phi { ptr, i32 } [ %101, %.split87 ], [ %81, %.split87.us ]
-  %103 = extractvalue { ptr, i32 } %.us-phi88, 0
+102:                                              ; preds = %.split86.us, %.split86
+  %.us-phi87 = phi { ptr, i32 } [ %101, %.split86 ], [ %81, %.split86.us ]
+  %103 = extractvalue { ptr, i32 } %.us-phi87, 0
   call void @__clang_call_terminate(ptr %103) #20
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %96, %99
-  %104 = getelementptr inbounds nuw i8, ptr %.278, i64 16
+_ZN4absl12lts_202407226StatusD2Ev.exit61:         ; preds = %96, %99
+  %104 = getelementptr inbounds nuw i8, ptr %.277, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !7
   store ptr %105, ptr %60, align 8, !tbaa !7
-  call void @_ZdlPvm(ptr noundef nonnull %.278, i64 noundef 1240) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.277, i64 noundef 1240) #21
   %.3 = load ptr, ptr %60, align 8, !tbaa !56
   %.not50 = icmp eq ptr %.3, null
-  br i1 %.not50, label %.outer._crit_edge, label %.lr.ph79.split, !llvm.loop !73
+  br i1 %.not50, label %.outer._crit_edge, label %.lr.ph78.split, !llvm.loop !73
 
-.split84:                                         ; preds = %94
+.split83:                                         ; preds = %94
   %106 = landingpad { ptr, i32 }
           cleanup
   br label %107
 
-107:                                              ; preds = %.split84.us, %.split84
-  %.us-phi85 = phi { ptr, i32 } [ %106, %.split84 ], [ %80, %.split84.us ]
+107:                                              ; preds = %.split83.us, %.split83
+  %.us-phi84 = phi { ptr, i32 } [ %106, %.split83 ], [ %80, %.split83.us ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %.loopexit
 
-.outer._crit_edge:                                ; preds = %.outer, %_ZN4absl12lts_202407226StatusD2Ev.exit62, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us, %57
-  %.043.ph.lcssa72 = phi ptr [ null, %_ZN4absl12lts_202407226StatusD2Ev.exit62.us ], [ null, %57 ], [ %.043.ph91, %_ZN4absl12lts_202407226StatusD2Ev.exit62 ], [ %.us-phi82, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %_ZN4absl12lts_202407226StatusD2Ev.exit61, %_ZN4absl12lts_202407226StatusD2Ev.exit61.us, %57
+  %.043.ph.lcssa71 = phi ptr [ null, %_ZN4absl12lts_202407226StatusD2Ev.exit61.us ], [ null, %57 ], [ %.043.ph90, %_ZN4absl12lts_202407226StatusD2Ev.exit61 ], [ %.us-phi81, %.outer ]
   %108 = load ptr, ptr %7, align 8, !tbaa !50
   %109 = icmp eq ptr %108, null
-  %..043 = select i1 %109, ptr null, ptr %.043.ph.lcssa72
+  %..043 = select i1 %109, ptr null, ptr %.043.ph.lcssa71
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %..043, ptr %110, align 8, !tbaa !55
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -757,9 +754,9 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.outer._crit_edge
   ret void
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %107, %51
-  %.pn53 = phi { ptr, i32 } [ %.us-phi85, %107 ], [ %52, %51 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
+  %.pn53 = phi { ptr, i32 } [ %.us-phi84, %107 ], [ %52, %51 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit63 unwind label %114
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit62 unwind label %114
 
 114:                                              ; preds = %.loopexit
   %115 = landingpad { ptr, i32 }
@@ -768,7 +765,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %.outer._crit_edge
   call void @__clang_call_terminate(ptr %116) #20
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit63:      ; preds = %.loopexit
+_ZN4absl12lts_202407229MutexLockD2Ev.exit62:      ; preds = %.loopexit
   resume { ptr, i32 } %.pn53
 }
 
@@ -1010,9 +1007,8 @@ _ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !66
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -1042,8 +1038,8 @@ define void @_ZN9grpc_core16TracedBufferList8ShutdownEPvN4absl12lts_202407226Sta
   tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !50
-  %.not23 = icmp eq ptr %7, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq ptr %7, null
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %8 = phi ptr [ %29, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %7, %3 ]
@@ -1052,9 +1048,8 @@ define void @_ZN9grpc_core16TracedBufferList8ShutdownEPvN4absl12lts_202407226Sta
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = load i64, ptr %2, align 8, !tbaa !66
   store i64 %12, ptr %4, align 8, !tbaa !66
-  %13 = and i64 %12, 1
-  %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %14, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = inttoptr i64 %12 to ptr
@@ -1068,9 +1063,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %14, %.lr.ph
 
 18:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %19 = load i64, ptr %4, align 8, !tbaa !66
-  %20 = and i64 %19, 1
-  %.not.i.i14 = icmp eq i64 %20, 0
-  br i1 %.not.i.i14, label %21, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %21
 
 21:                                               ; preds = %18
   %22 = inttoptr i64 %19 to ptr
@@ -1101,35 +1095,33 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18, %21
 
 ._crit_edge:                                      ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %3
   %.not11 = icmp eq ptr %1, null
-  br i1 %.not11, label %_ZN4absl12lts_202407226StatusD2Ev.exit18, label %32
+  br i1 %.not11, label %_ZN4absl12lts_202407226StatusD2Ev.exit15, label %32
 
 32:                                               ; preds = %._crit_edge
   %33 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_121g_timestamps_callbackE, align 8, !tbaa !65
   %34 = load i64, ptr %2, align 8, !tbaa !66
   store i64 %34, ptr %5, align 8, !tbaa !66
-  %35 = and i64 %34, 1
-  %.not.i.i15 = icmp eq i64 %35, 0
-  br i1 %.not.i.i15, label %36, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit16
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit14, label %36
 
 36:                                               ; preds = %32
   %37 = inttoptr i64 %34 to ptr
   %38 = atomicrmw add ptr %37, i32 1 monotonic, align 4
-  br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit16
+  br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit14
 
-_ZN4absl12lts_202407226StatusC2ERKS1_.exit16:     ; preds = %36, %32
+_ZN4absl12lts_202407226StatusC2ERKS1_.exit14:     ; preds = %36, %32
   invoke void %33(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %5)
           to label %39 unwind label %47
 
-39:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit16
+39:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit14
   %40 = load i64, ptr %5, align 8, !tbaa !66
-  %41 = and i64 %40, 1
-  %.not.i.i17 = icmp eq i64 %41, 0
-  br i1 %.not.i.i17, label %42, label %_ZN4absl12lts_202407226StatusD2Ev.exit18
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %_ZN4absl12lts_202407226StatusD2Ev.exit15, label %42
 
 42:                                               ; preds = %39
   %43 = inttoptr i64 %40 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %43)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit18 unwind label %44
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit15 unwind label %44
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -1138,26 +1130,26 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit16:     ; preds = %36, %32
   call void @__clang_call_terminate(ptr %46) #20
   unreachable
 
-47:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit16
+47:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit14
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %54
 
-_ZN4absl12lts_202407226StatusD2Ev.exit18:         ; preds = %42, %39, %._crit_edge
+_ZN4absl12lts_202407226StatusD2Ev.exit15:         ; preds = %42, %39, %._crit_edge
   %49 = load ptr, ptr %6, align 8, !tbaa !50
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !55
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %51
 
-51:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit18
+51:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
   call void @__clang_call_terminate(ptr %53) #20
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit18
+_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit15
   ret void
 
 54:                                               ; preds = %30, %47
@@ -1165,7 +1157,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_20240
   %.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %48, %47 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #19
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit19 unwind label %55
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit16 unwind label %55
 
 55:                                               ; preds = %54
   %56 = landingpad { ptr, i32 }
@@ -1174,7 +1166,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_20240
   call void @__clang_call_terminate(ptr %57) #20
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit19:      ; preds = %54
+_ZN4absl12lts_202407229MutexLockD2Ev.exit16:      ; preds = %54
   resume { ptr, i32 } %.pn.pn
 }
 

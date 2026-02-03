@@ -14998,7 +14998,7 @@ define internal fastcc void @text_format_append_string(ptr noundef nonnull %0, p
 
 6:                                                ; preds = %4
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %1) #18
-  br label %30
+  br label %29
 
 7:                                                ; preds = %4
   %8 = icmp slt i32 %3, 0
@@ -15018,40 +15018,39 @@ define internal fastcc void @text_format_append_string(ptr noundef nonnull %0, p
 .thread:                                          ; preds = %9
   %15 = sub nsw i32 0, %3
   %16 = tail call i32 @pg_mbstrlen(ptr noundef %1) #18
-  br label %20
+  br label %19
 
 17:                                               ; preds = %7
-  %18 = and i32 %2, 1
-  %.not.not = icmp eq i32 %18, 0
-  %19 = tail call i32 @pg_mbstrlen(ptr noundef %1) #18
-  br i1 %.not.not, label %25, label %20
+  %.not = trunc i32 %2 to i1
+  %18 = tail call i32 @pg_mbstrlen(ptr noundef %1) #18
+  br i1 %.not, label %19, label %24
 
-20:                                               ; preds = %.thread, %17
-  %21 = phi i32 [ %16, %.thread ], [ %19, %17 ]
+19:                                               ; preds = %.thread, %17
+  %20 = phi i32 [ %16, %.thread ], [ %18, %17 ]
   %.027 = phi i32 [ %15, %.thread ], [ %3, %17 ]
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %1) #18
-  %22 = icmp slt i32 %21, %.027
-  br i1 %22, label %23, label %30
+  %21 = icmp slt i32 %20, %.027
+  br i1 %21, label %22, label %29
 
-23:                                               ; preds = %20
-  %24 = sub i32 %.027, %21
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %0, i32 noundef %24) #18
-  br label %30
-
-25:                                               ; preds = %17
-  %26 = icmp slt i32 %19, %3
-  br i1 %26, label %27, label %29
-
-27:                                               ; preds = %25
-  %28 = sub i32 %3, %19
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %0, i32 noundef %28) #18
+22:                                               ; preds = %19
+  %23 = sub i32 %.027, %20
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %0, i32 noundef %23) #18
   br label %29
 
-29:                                               ; preds = %27, %25
-  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %1) #18
-  br label %30
+24:                                               ; preds = %17
+  %25 = icmp slt i32 %18, %3
+  br i1 %25, label %26, label %28
 
-30:                                               ; preds = %29, %23, %20, %6
+26:                                               ; preds = %24
+  %27 = sub i32 %3, %18
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %0, i32 noundef %27) #18
+  br label %28
+
+28:                                               ; preds = %26, %24
+  tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %1) #18
+  br label %29
+
+29:                                               ; preds = %28, %22, %19, %6
   ret void
 }
 

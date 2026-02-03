@@ -1321,9 +1321,8 @@ array_to_jsonb_internal.exit:                     ; preds = %45, %49
   store i8 0, ptr %8, align 1
   %100 = getelementptr i8, ptr %91, i64 20
   %.val.val.i.i = load i16, ptr %100, align 4
-  %101 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %101, 0
-  br i1 %.not.i.i.i, label %102, label %143
+  %101 = trunc i16 %.val.val.i.i to i1
+  br i1 %101, label %143, label %102
 
 102:                                              ; preds = %99
   %103 = getelementptr %struct.CompactAttribute, ptr %66, i64 %90
@@ -1405,8 +1404,8 @@ array_to_jsonb_internal.exit:                     ; preds = %45, %49
   %150 = and i32 %145, 7
   %151 = shl nuw nsw i32 1, %150
   %152 = and i32 %151, %149
-  %.not.i20.i.i = icmp eq i32 %152, 0
-  br i1 %.not.i20.i.i, label %153, label %154
+  %.not.i.i.i = icmp eq i32 %152, 0
+  br i1 %.not.i.i.i, label %153, label %154
 
 153:                                              ; preds = %143
   store i8 1, ptr %8, align 1

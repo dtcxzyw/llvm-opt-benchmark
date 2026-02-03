@@ -282,17 +282,17 @@ $_ZN4llvm8DenseMapISt4pairIjjEPNS_7PHINodeENS_12DenseMapInfoIS2_vEENS_6detail12D
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm18isAllocaPromotableEPKNS_10AllocaInstE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.077.095 = load ptr, ptr %2, align 8, !tbaa !3
-  %.not8396 = icmp eq ptr %.sroa.077.095, null
-  br i1 %.not8396, label %.critedge70, label %.lr.ph
+  %.sroa.077.093 = load ptr, ptr %2, align 8, !tbaa !3
+  %.not8394 = icmp eq ptr %.sroa.077.093, null
+  br i1 %.not8394, label %.critedge70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %4
 
 4:                                                ; preds = %.lr.ph, %.critedge69
-  %.sroa.077.097 = phi ptr [ %.sroa.077.095, %.lr.ph ], [ %.sroa.077.0, %.critedge69 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.077.097, i64 24
+  %.sroa.077.095 = phi ptr [ %.sroa.077.093, %.lr.ph ], [ %.sroa.077.0, %.critedge69 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.077.095, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = load i8, ptr %6, align 8, !tbaa !13
   switch i8 %7, label %.critedge70 [
@@ -307,9 +307,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm18isAllocaPromotableEPKNS_10AllocaI
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !18
-  %11 = and i16 %10, 1
-  %.not85 = icmp eq i16 %11, 0
-  br i1 %.not85, label %12, label %.critedge70
+  %11 = trunc i16 %10 to i1
+  br i1 %11, label %.critedge70, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -334,9 +333,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm18isAllocaPromotableEPKNS_10AllocaI
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %26 = load i16, ptr %25, align 2, !tbaa !18
-  %27 = and i16 %26, 1
-  %.not88 = icmp eq i16 %27, 0
-  br i1 %.not88, label %.critedge69, label %.critedge70
+  %27 = trunc i16 %26 to i1
+  br i1 %27, label %.critedge70, label %.critedge69
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %6, i64 -32
@@ -396,7 +394,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_4UserEEEDcPT0_.exit: ; preds = %_ZN4llv
   br i1 %56, label %.critedge69, label %.critedge70
 
 .critedge69:                                      ; preds = %24, %49, %55, %53, %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_4UserEEEDcPT0_.exit, %43, %45, %12
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.077.097, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.077.095, i64 8
   %.sroa.077.0 = load ptr, ptr %57, align 8, !tbaa !3
   %.not83 = icmp eq ptr %.sroa.077.0, null
   br i1 %.not83, label %.critedge70, label %4

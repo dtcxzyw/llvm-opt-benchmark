@@ -401,33 +401,32 @@ declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnam
 define range(i32 0, 2) i32 @dt_tag_new_from_gui(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @dt_tag_new(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %16, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %9 = icmp ne i32 %8, 0
-  %or.cond = select i1 %7, i1 %9, i1 false
-  br i1 %or.cond, label %10, label %14
+  %6 = trunc i32 %5 to i1
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %8 = icmp ne i32 %7, 0
+  %or.cond = select i1 %6, i1 %8, i1 false
+  br i1 %or.cond, label %9, label %13
 
-10:                                               ; preds = %4
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
-  %12 = and i32 %11, 1048576
-  %.not4 = icmp eq i32 %12, 0
-  br i1 %.not4, label %14, label %13
+9:                                                ; preds = %4
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
+  %11 = and i32 %10, 1048576
+  %.not4 = icmp eq i32 %11, 0
+  br i1 %.not4, label %13, label %12
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__FUNCTION__.dt_tag_new_from_gui) #11
-  br label %14
+  br label %13
 
-14:                                               ; preds = %10, %13, %4
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %15, i32 noundef 9) #11
-  br label %16
+13:                                               ; preds = %9, %12, %4
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %14, i32 noundef 9) #11
+  br label %15
 
-16:                                               ; preds = %14, %2
+15:                                               ; preds = %13, %2
   ret i32 %3
 }
 
@@ -1206,7 +1205,7 @@ declare void @dt_undo_record(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(none) %4) #0 {
   %6 = icmp eq i32 %1, 32
-  br i1 %6, label %.preheader, label %45
+  br i1 %6, label %.preheader, label %44
 
 .preheader:                                       ; preds = %5
   %.not20 = icmp eq ptr %2, null
@@ -1238,49 +1237,48 @@ define internal void @_pop_undo(ptr readnone captures(none) %0, i32 noundef %1, 
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
-  %22 = and i32 %21, 1
-  %23 = icmp ne i32 %22, 0
-  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %25 = icmp ne i32 %24, 0
-  %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %39, label %43
+  %22 = trunc i32 %21 to i1
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %24 = icmp ne i32 %23, 0
+  %or.cond = select i1 %22, i1 %24, i1 false
+  br i1 %or.cond, label %38, label %42
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.021 = phi ptr [ %38, %.lr.ph.split ], [ %2, %.lr.ph ]
-  %26 = load ptr, ptr %.021, align 8, !tbaa !58
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !63
-  %30 = load ptr, ptr %27, align 8, !tbaa !63
-  %31 = load i32, ptr %26, align 8, !tbaa !65
-  tail call fastcc void @_pop_undo_execute(i32 noundef %31, ptr noundef %29, ptr noundef %30)
-  %32 = load ptr, ptr %4, align 8, !tbaa !63
-  %33 = load i32, ptr %26, align 8, !tbaa !65
-  %34 = sext i32 %33 to i64
-  %35 = inttoptr i64 %34 to ptr
-  %36 = tail call ptr @g_list_prepend(ptr noundef %32, ptr noundef %35) #11
-  store ptr %36, ptr %4, align 8, !tbaa !63
-  %37 = getelementptr inbounds nuw i8, ptr %.021, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !62
-  %.not = icmp eq ptr %38, null
+  %.021 = phi ptr [ %37, %.lr.ph.split ], [ %2, %.lr.ph ]
+  %25 = load ptr, ptr %.021, align 8, !tbaa !58
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !63
+  %29 = load ptr, ptr %26, align 8, !tbaa !63
+  %30 = load i32, ptr %25, align 8, !tbaa !65
+  tail call fastcc void @_pop_undo_execute(i32 noundef %30, ptr noundef %28, ptr noundef %29)
+  %31 = load ptr, ptr %4, align 8, !tbaa !63
+  %32 = load i32, ptr %25, align 8, !tbaa !65
+  %33 = sext i32 %32 to i64
+  %34 = inttoptr i64 %33 to ptr
+  %35 = tail call ptr @g_list_prepend(ptr noundef %31, ptr noundef %34) #11
+  store ptr %35, ptr %4, align 8, !tbaa !63
+  %36 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !62
+  %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
-39:                                               ; preds = %._crit_edge
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
-  %41 = and i32 %40, 1048576
-  %.not18 = icmp eq i32 %41, 0
-  br i1 %.not18, label %43, label %42
+38:                                               ; preds = %._crit_edge
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
+  %40 = and i32 %39, 1048576
+  %.not18 = icmp eq i32 %40, 0
+  br i1 %.not18, label %42, label %41
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__FUNCTION__._pop_undo) #11
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %39, %._crit_edge
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %44, i32 noundef 9) #11
-  br label %45
+42:                                               ; preds = %41, %38, %._crit_edge
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %43, i32 noundef 9) #11
+  br label %44
 
-45:                                               ; preds = %43, %5
+44:                                               ; preds = %42, %5
   ret void
 }
 
@@ -4343,7 +4341,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %4 = alloca i32, align 4
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.61)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %75, label %6
+  br i1 %.not, label %74, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4541,33 +4539,32 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   call void @g_list_free_full(ptr noundef %.064.lcssa, ptr noundef nonnull @g_free) #11
   %63 = call i32 @fclose(ptr noundef nonnull %5)
   %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
-  %65 = and i32 %64, 1
-  %66 = icmp ne i32 %65, 0
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %68 = icmp ne i32 %67, 0
-  %or.cond = select i1 %66, i1 %68, i1 false
-  br i1 %or.cond, label %69, label %73
+  %65 = trunc i32 %64 to i1
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %67 = icmp ne i32 %66, 0
+  %or.cond = select i1 %65, i1 %67, i1 false
+  br i1 %or.cond, label %68, label %72
 
-69:                                               ; preds = %._crit_edge142
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
-  %71 = and i32 %70, 1048576
-  %.not82 = icmp eq i32 %71, 0
-  br i1 %.not82, label %73, label %72
+68:                                               ; preds = %._crit_edge142
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
+  %70 = and i32 %69, 1048576
+  %.not82 = icmp eq i32 %70, 0
+  br i1 %.not82, label %72, label %71
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 1777, ptr noundef nonnull @__FUNCTION__.dt_tag_import) #11
-  br label %73
+  br label %72
 
-73:                                               ; preds = %69, %72, %._crit_edge142
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 9) #11
+72:                                               ; preds = %68, %71, %._crit_edge142
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %73, i32 noundef 9) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %75
+  br label %74
 
-75:                                               ; preds = %1, %73
-  %.0 = phi i64 [ %.069.lcssa, %73 ], [ -1, %1 ]
+74:                                               ; preds = %1, %72
+  %.0 = phi i64 [ %.069.lcssa, %72 ], [ -1, %1 ]
   ret i64 %.0
 }
 

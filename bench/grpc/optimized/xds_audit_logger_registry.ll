@@ -746,9 +746,8 @@ _ZN9grpc_core12experimental4JsonC2ERKS1_.exit.i.i.i.i.i.i: ; preds = %107
   br i1 %133, label %150, label %134
 
 134:                                              ; preds = %131
-  %135 = and i64 %132, 1
-  %.not.i = icmp eq i64 %135, 0
-  br i1 %.not.i, label %136, label %142
+  %135 = trunc i64 %132 to i1
+  br i1 %135, label %142, label %136
 
 136:                                              ; preds = %134
   %137 = inttoptr i64 %132 to ptr
@@ -760,14 +759,14 @@ _ZN9grpc_core12experimental4JsonC2ERKS1_.exit.i.i.i.i.i.i: ; preds = %107
 
 142:                                              ; preds = %134
   %143 = and i64 %132, 2
-  %.not1.i = icmp eq i64 %143, 0
-  %spec.select.i = select i1 %.not1.i, i64 0, i64 27
-  %spec.select2.i = select i1 %.not1.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i = icmp eq i64 %143, 0
+  %spec.select.i = select i1 %.not.i, i64 0, i64 27
+  %spec.select1.i = select i1 %.not.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %144
 
 144:                                              ; preds = %142, %136
   %.sroa.0.0.i = phi i64 [ %spec.select.i, %142 ], [ %141, %136 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %142 ], [ %139, %136 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select1.i, %142 ], [ %139, %136 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 %.sroa.0.0.i, ptr %.sroa.4.0.i)
           to label %145 unwind label %148
 
@@ -1174,9 +1173,8 @@ _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclE
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit
 
 286:                                              ; preds = %278
-  %287 = and i64 %279, 1
-  %.not.i.i1.i = icmp eq i64 %287, 0
-  br i1 %.not.i.i1.i, label %288, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit
+  %287 = trunc i64 %279 to i1
+  br i1 %287, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit, label %288
 
 288:                                              ; preds = %286
   %289 = inttoptr i64 %279 to ptr
@@ -1379,17 +1377,16 @@ _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclE
 
 _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i
   store ptr null, ptr %4, align 8, !tbaa !89
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit1
 
 9:                                                ; preds = %1
-  %10 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %10, 0
-  br i1 %.not.i.i1, label %11, label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  %10 = trunc i64 %2 to i1
+  br i1 %10, label %_ZN4absl12lts_202407226StatusD2Ev.exit1, label %11
 
 11:                                               ; preds = %9
   %12 = inttoptr i64 %2 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit2 unwind label %13
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit1 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -1398,7 +1395,7 @@ _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14defau
   tail call void @__clang_call_terminate(ptr %15) #26
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit2:          ; preds = %11, %9, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit1:          ; preds = %11, %9, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
   ret void
 }
 

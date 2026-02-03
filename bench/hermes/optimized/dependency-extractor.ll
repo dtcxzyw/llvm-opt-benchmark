@@ -1836,10 +1836,9 @@ _ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
   tail call void @_ZdlPv(ptr noundef %11) #15
   %warningsAreErrors_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %12 = load i64, ptr %warningsAreErrors_, align 8
-  %and.i.i = and i64 %12, 1
-  %tobool.i.not.i = icmp ne i64 %and.i.i, 0
+  %tobool.i.i = trunc i64 %12 to i1
   %isnull.i = icmp eq i64 %12, 0
-  %or.cond.i = or i1 %isnull.i, %tobool.i.not.i
+  %or.cond.i = or i1 %isnull.i, %tobool.i.i
   br i1 %or.cond.i, label %_ZN4llvh14SmallBitVectorD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %_ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit27
@@ -1852,20 +1851,19 @@ delete.notnull.i:                                 ; preds = %_ZN4llvh8DenseMapIj
 _ZN4llvh14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvh8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS6_EEED2Ev.exit27, %delete.notnull.i
   %warningStatuses_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %15 = load i64, ptr %warningStatuses_, align 8
-  %and.i.i28 = and i64 %15, 1
-  %tobool.i.not.i29 = icmp ne i64 %and.i.i28, 0
-  %isnull.i30 = icmp eq i64 %15, 0
-  %or.cond.i31 = or i1 %isnull.i30, %tobool.i.not.i29
-  br i1 %or.cond.i31, label %_ZN4llvh14SmallBitVectorD2Ev.exit33, label %delete.notnull.i32
+  %tobool.i.i28 = trunc i64 %15 to i1
+  %isnull.i29 = icmp eq i64 %15, 0
+  %or.cond.i30 = or i1 %isnull.i29, %tobool.i.i28
+  br i1 %or.cond.i30, label %_ZN4llvh14SmallBitVectorD2Ev.exit32, label %delete.notnull.i31
 
-delete.notnull.i32:                               ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit
+delete.notnull.i31:                               ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit
   %16 = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #15
   tail call void @_ZdlPv(ptr noundef nonnull %16) #19
-  br label %_ZN4llvh14SmallBitVectorD2Ev.exit33
+  br label %_ZN4llvh14SmallBitVectorD2Ev.exit32
 
-_ZN4llvh14SmallBitVectorD2Ev.exit33:              ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit, %delete.notnull.i32
+_ZN4llvh14SmallBitVectorD2Ev.exit32:              ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit, %delete.notnull.i31
   %virtualBufferNames_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %stringsToIndex_.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %18 = load ptr, ptr %stringsToIndex_.i, align 8
@@ -1874,16 +1872,16 @@ _ZN4llvh14SmallBitVectorD2Ev.exit33:              ; preds = %_ZN4llvh14SmallBitV
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %19 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit, label %if.then.i.i.i34
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit, label %if.then.i.i.i33
 
-if.then.i.i.i34:                                  ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit33
+if.then.i.i.i33:                                  ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit32
   %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i34
+if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i33
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
@@ -1893,7 +1891,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i34
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
   br label %if.end8.sink.split.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i34
+if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i33
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1944,7 +1942,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #15
   br label %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit
 
-_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit: ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit: ; preds = %_ZN4llvh14SmallBitVectorD2Ev.exit32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %IncludeDirectories.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %30 = load ptr, ptr %IncludeDirectories.i, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1966,13 +1964,13 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit
   %32 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i ], [ %30, %_ZNSt10shared_ptrIN6hermes18SourceErrorManager16ICoordTranslatorEED2Ev.exit ]
   %tobool.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i35
+  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i, label %if.then.i.i.i.i34
 
-if.then.i.i.i.i35:                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+if.then.i.i.i.i34:                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %32) #19
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i35, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i34, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %BufferEnds.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %33 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

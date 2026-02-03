@@ -254,14 +254,13 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %._crit_edge, %31
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %33 = load volatile i64, ptr %9, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %34 = and i64 %33, 1
-  %.not.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %35
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %35, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 35:                                               ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit
   %36 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %36, 0
-  br i1 %.not5.i.i, label %37, label %42
+  %.not.i.i.i = icmp eq i32 %36, 0
+  br i1 %.not.i.i.i, label %37, label %42
 
 37:                                               ; preds = %35
   %38 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %10, i1 noundef zeroext false, i1 noundef zeroext false) #6
@@ -273,20 +272,19 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %._crit_edge, %31
 
 41:                                               ; preds = %39
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #6
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 42:                                               ; preds = %39, %37, %35
   %43 = load volatile i64, ptr %9, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %44 = and i64 %43, 1
-  %.not.i1.i = icmp eq i64 %44, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %45
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %45, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 45:                                               ; preds = %42
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #6
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit, %41, %42, %45
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit, %41, %42, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %46 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #6
   %47 = extractvalue { i64, i64 } %46, 0
@@ -302,7 +300,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN7ZLocke
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, %54
+.backedge.backedge:                               ; preds = %_ZN15ThreadBlockInVMD2Ev.exit, %54
   br label %.backedge, !llvm.loop !14
 
 54:                                               ; preds = %.backedge

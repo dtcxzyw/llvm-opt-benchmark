@@ -7533,97 +7533,96 @@ define internal fastcc void @setup_dig_out_stream(ptr noundef %0, i16 noundef ze
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %34 = load i16, ptr %33, align 4
-  %35 = and i16 %34, 1
-  %36 = icmp ne i16 %35, 0
-  %37 = icmp ne i32 %27, %3
-  %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %39, label %.thread9
+  %35 = trunc i16 %34 to i1
+  %36 = icmp ne i32 %27, %3
+  %37 = select i1 %35, i1 %36, i1 false
+  br i1 %37, label %38, label %.thread9
 
-39:                                               ; preds = %32
-  %40 = and i16 %34, 254
-  %41 = zext nneg i16 %40 to i32
-  %42 = zext i16 %1 to i32
-  %43 = shl i32 %42, 20
-  %44 = or disjoint i32 %43, 986368
-  %45 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %44, i32 noundef 255, i32 noundef %41) #24
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %47 = load ptr, ptr %46, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread9, label %49
+38:                                               ; preds = %32
+  %39 = and i16 %34, 254
+  %40 = zext nneg i16 %39 to i32
+  %41 = zext i16 %1 to i32
+  %42 = shl i32 %41, 20
+  %43 = or disjoint i32 %42, 986368
+  %44 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %43, i32 noundef 255, i32 noundef %40) #24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %.thread9, label %48
 
-49:                                               ; preds = %39
-  %50 = load i16, ptr %47, align 2
-  %51 = icmp eq i16 %50, 0
-  br i1 %51, label %.thread9, label %.preheader12
+48:                                               ; preds = %38
+  %49 = load i16, ptr %46, align 2
+  %50 = icmp eq i16 %49, 0
+  br i1 %50, label %.thread9, label %.preheader12
 
-.preheader12:                                     ; preds = %49, %.preheader12
-  %52 = phi i16 [ %59, %.preheader12 ], [ %50, %49 ]
-  %53 = phi ptr [ %58, %.preheader12 ], [ %47, %49 ]
-  %54 = zext i16 %52 to i32
-  %55 = shl i32 %54, 20
-  %56 = or disjoint i32 %55, 986368
-  %57 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %56, i32 noundef 255, i32 noundef %41) #24
-  %58 = getelementptr i8, ptr %53, i64 2
-  %59 = load i16, ptr %58, align 2
-  %60 = icmp eq i16 %59, 0
-  br i1 %60, label %.thread9, label %.preheader12, !llvm.loop !51
+.preheader12:                                     ; preds = %48, %.preheader12
+  %51 = phi i16 [ %58, %.preheader12 ], [ %49, %48 ]
+  %52 = phi ptr [ %57, %.preheader12 ], [ %46, %48 ]
+  %53 = zext i16 %51 to i32
+  %54 = shl i32 %53, 20
+  %55 = or disjoint i32 %54, 986368
+  %56 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %55, i32 noundef 255, i32 noundef %40) #24
+  %57 = getelementptr i8, ptr %52, i64 2
+  %58 = load i16, ptr %57, align 2
+  %59 = icmp eq i16 %58, 0
+  br i1 %59, label %.thread9, label %.preheader12, !llvm.loop !51
 
-.thread9:                                         ; preds = %.preheader12, %26, %49, %39, %32
-  %61 = phi i1 [ false, %32 ], [ false, %26 ], [ true, %49 ], [ true, %39 ], [ true, %.preheader12 ]
+.thread9:                                         ; preds = %.preheader12, %26, %48, %38, %32
+  %60 = phi i1 [ false, %32 ], [ false, %26 ], [ true, %48 ], [ true, %38 ], [ true, %.preheader12 ]
   tail call void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef 0, i32 noundef %3)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.loopexit11, label %65
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.loopexit11, label %64
 
-65:                                               ; preds = %.thread9
-  %66 = load i16, ptr %63, align 2
-  %67 = icmp eq i16 %66, 0
-  br i1 %67, label %.loopexit11, label %.preheader10
+64:                                               ; preds = %.thread9
+  %65 = load i16, ptr %62, align 2
+  %66 = icmp eq i16 %65, 0
+  br i1 %66, label %.loopexit11, label %.preheader10
 
-.preheader10:                                     ; preds = %65, %.preheader10
-  %68 = phi i16 [ %71, %.preheader10 ], [ %66, %65 ]
-  %69 = phi ptr [ %70, %.preheader10 ], [ %63, %65 ]
-  tail call void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef zeroext %68, i32 noundef %2, i32 noundef 0, i32 noundef %3)
-  %70 = getelementptr i8, ptr %69, i64 2
-  %71 = load i16, ptr %70, align 2
-  %72 = icmp eq i16 %71, 0
-  br i1 %72, label %.loopexit11, label %.preheader10, !llvm.loop !77
+.preheader10:                                     ; preds = %64, %.preheader10
+  %67 = phi i16 [ %70, %.preheader10 ], [ %65, %64 ]
+  %68 = phi ptr [ %69, %.preheader10 ], [ %62, %64 ]
+  tail call void @snd_hda_codec_setup_stream(ptr noundef %0, i16 noundef zeroext %67, i32 noundef %2, i32 noundef 0, i32 noundef %3)
+  %69 = getelementptr i8, ptr %68, i64 2
+  %70 = load i16, ptr %69, align 2
+  %71 = icmp eq i16 %70, 0
+  br i1 %71, label %.loopexit11, label %.preheader10, !llvm.loop !77
 
-.loopexit11:                                      ; preds = %.preheader10, %65, %.thread9
-  br i1 %61, label %73, label %.loopexit
+.loopexit11:                                      ; preds = %.preheader10, %64, %.thread9
+  br i1 %60, label %72, label %.loopexit
 
-73:                                               ; preds = %.loopexit11
-  %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %75 = load i16, ptr %74, align 4
-  %76 = and i16 %75, 255
-  %77 = zext nneg i16 %76 to i32
-  %78 = zext i16 %1 to i32
-  %79 = shl i32 %78, 20
-  %80 = or disjoint i32 %79, 986368
-  %81 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %80, i32 noundef 255, i32 noundef %77) #24
-  %82 = load ptr, ptr %62, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %.loopexit, label %84
+72:                                               ; preds = %.loopexit11
+  %73 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %74 = load i16, ptr %73, align 4
+  %75 = and i16 %74, 255
+  %76 = zext nneg i16 %75 to i32
+  %77 = zext i16 %1 to i32
+  %78 = shl i32 %77, 20
+  %79 = or disjoint i32 %78, 986368
+  %80 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %79, i32 noundef 255, i32 noundef %76) #24
+  %81 = load ptr, ptr %61, align 8
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %.loopexit, label %83
 
-84:                                               ; preds = %73
-  %85 = load i16, ptr %82, align 2
-  %86 = icmp eq i16 %85, 0
-  br i1 %86, label %.loopexit, label %.preheader
+83:                                               ; preds = %72
+  %84 = load i16, ptr %81, align 2
+  %85 = icmp eq i16 %84, 0
+  br i1 %85, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %84, %.preheader
-  %87 = phi i16 [ %94, %.preheader ], [ %85, %84 ]
-  %88 = phi ptr [ %93, %.preheader ], [ %82, %84 ]
-  %89 = zext i16 %87 to i32
-  %90 = shl i32 %89, 20
-  %91 = or disjoint i32 %90, 986368
-  %92 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %91, i32 noundef 255, i32 noundef %77) #24
-  %93 = getelementptr i8, ptr %88, i64 2
-  %94 = load i16, ptr %93, align 2
-  %95 = icmp eq i16 %94, 0
-  br i1 %95, label %.loopexit, label %.preheader, !llvm.loop !51
+.preheader:                                       ; preds = %83, %.preheader
+  %86 = phi i16 [ %93, %.preheader ], [ %84, %83 ]
+  %87 = phi ptr [ %92, %.preheader ], [ %81, %83 ]
+  %88 = zext i16 %86 to i32
+  %89 = shl i32 %88, 20
+  %90 = or disjoint i32 %89, 986368
+  %91 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %90, i32 noundef 255, i32 noundef %76) #24
+  %92 = getelementptr i8, ptr %87, i64 2
+  %93 = load i16, ptr %92, align 2
+  %94 = icmp eq i16 %93, 0
+  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.preheader, %84, %73, %.loopexit11, %.thread
+.loopexit:                                        ; preds = %.preheader, %83, %72, %.loopexit11, %.thread
   ret void
 }
 

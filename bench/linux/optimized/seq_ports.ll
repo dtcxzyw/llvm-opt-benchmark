@@ -720,7 +720,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_port_connect(ptr noundef
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 120) #12
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %41, label %10
+  br i1 %9, label %40, label %10
 
 10:                                               ; preds = %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef align 4 dereferenceable(80) %5, i64 80, i1 false)
@@ -736,44 +736,43 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_port_connect(ptr noundef
   store volatile ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 1
-  %19 = icmp ne i32 %18, 0
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp ne i32 %21, %23
-  %25 = tail call fastcc i32 @check_and_subscribe_port(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext %19, i1 noundef zeroext %24), !range !14
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %39, label %27
+  %18 = trunc i32 %17 to i1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %20 = load i32, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 %20, %22
+  %24 = tail call fastcc i32 @check_and_subscribe_port(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext %18, i1 noundef zeroext %23), !range !14
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %38, label %26
 
-27:                                               ; preds = %10
-  %28 = load i32, ptr %20, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ne i32 %28, %30
-  %32 = tail call fastcc i32 @check_and_subscribe_port(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext %19, i1 noundef zeroext %31), !range !14
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %41
+26:                                               ; preds = %10
+  %27 = load i32, ptr %19, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp ne i32 %27, %29
+  %31 = tail call fastcc i32 @check_and_subscribe_port(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext %18, i1 noundef zeroext %30), !range !14
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %40
 
-34:                                               ; preds = %27
-  %35 = load i32, ptr %20, align 8
-  %36 = load i32, ptr %22, align 8
-  %37 = icmp ne i32 %35, %36
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  tail call void @down_write(ptr noundef nonnull %38) #10
-  tail call fastcc void @__delete_and_unsubscribe_port(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext %37)
-  tail call void @up_write(ptr noundef nonnull %38) #10
-  br label %39
+33:                                               ; preds = %26
+  %34 = load i32, ptr %19, align 8
+  %35 = load i32, ptr %21, align 8
+  %36 = icmp ne i32 %34, %35
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  tail call void @down_write(ptr noundef nonnull %37) #10
+  tail call fastcc void @__delete_and_unsubscribe_port(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext %36)
+  tail call void @up_write(ptr noundef nonnull %37) #10
+  br label %38
 
-39:                                               ; preds = %34, %10
-  %40 = phi i32 [ %25, %10 ], [ %32, %34 ]
+38:                                               ; preds = %33, %10
+  %39 = phi i32 [ %24, %10 ], [ %31, %33 ]
   tail call void @kfree(ptr noundef nonnull %8) #10
-  br label %41
+  br label %40
 
-41:                                               ; preds = %39, %27, %6
-  %42 = phi i32 [ %40, %39 ], [ -12, %6 ], [ 0, %27 ]
-  ret i32 %42
+40:                                               ; preds = %38, %26, %6
+  %41 = phi i32 [ %39, %38 ], [ -12, %6 ], [ 0, %26 ]
+  ret i32 %41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

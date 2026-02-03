@@ -450,7 +450,7 @@ define dso_local void @update_ce_after_write(ptr noundef readonly captures(none)
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 16
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %29, label %7
+  br i1 %.not, label %28, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !35
@@ -475,24 +475,23 @@ define dso_local void @update_ce_after_write(ptr noundef readonly captures(none)
   %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !57
   %.not.i.i = icmp eq i32 %21, 0
   %22 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %23 = and i8 %22, 1
-  %.not5.i = icmp ne i8 %23, 0
+  %.not5.i = trunc i8 %22 to i1
   %.not.i = select i1 %.not.i.i, i1 %.not5.i, i1 false
-  br i1 %.not.i, label %mark_fsmonitor_invalid.exit, label %24
+  br i1 %.not.i, label %mark_fsmonitor_invalid.exit, label %23
 
-24:                                               ; preds = %17
+23:                                               ; preds = %17
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.11, i32 noundef 67, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.12, ptr noundef nonnull %20) #16
   br label %mark_fsmonitor_invalid.exit
 
-mark_fsmonitor_invalid.exit:                      ; preds = %7, %17, %24
-  %25 = load ptr, ptr %0, align 8, !tbaa !35
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !59
-  %28 = or i32 %27, 2
-  store i32 %28, ptr %26, align 4, !tbaa !59
-  br label %29
+mark_fsmonitor_invalid.exit:                      ; preds = %7, %17, %23
+  %24 = load ptr, ptr %0, align 8, !tbaa !35
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %26 = load i32, ptr %25, align 4, !tbaa !59
+  %27 = or i32 %26, 2
+  store i32 %27, ptr %25, align 4, !tbaa !59
+  br label %28
 
-29:                                               ; preds = %mark_fsmonitor_invalid.exit, %3
+28:                                               ; preds = %mark_fsmonitor_invalid.exit, %3
   ret void
 }
 

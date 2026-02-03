@@ -26,10 +26,6 @@ $_ZN4lean17consume_io_resultEP11lean_object = comdat any
 
 $__clang_call_terminate = comdat any
 
-$_ZN4lean3incEP11lean_object = comdat any
-
-$_ZN4lean3decEP11lean_object = comdat any
-
 $_ZNK4lean10string_ref13to_std_stringB5cxx11Ev = comdat any
 
 $_ZN4lean10object_refD2Ev = comdat any
@@ -410,95 +406,138 @@ define linkonce_odr hidden void @_ZN4lean17consume_io_resultEP11lean_object(ptr 
   %.val.i = load i32, ptr %4, align 4
   %.mask.i.i = and i32 %.val.i, -16777216
   %5 = icmp eq i32 %.mask.i.i, 16777216
-  br i1 %5, label %6, label %22
+  br i1 %5, label %6, label %39
 
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %0, i64 8
   %.val.i11 = load ptr, ptr %7, align 8, !tbaa !3
-  tail call void @_ZN4lean3incEP11lean_object(ptr noundef %.val.i11)
-  tail call void @_ZN4lean3decEP11lean_object(ptr noundef nonnull %0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %8 = tail call ptr @lean_io_error_to_string(ptr noundef %.val.i11)
-  store ptr %8, ptr %2, align 8, !tbaa !45
-  %9 = tail call ptr @__cxa_allocate_exception(i64 40) #17
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  invoke void @_ZNK4lean10string_ref13to_std_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %10 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+  %8 = ptrtoint ptr %.val.i11 to i64
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %_ZN4lean3incEP11lean_object.exit, label %10
 
 10:                                               ; preds = %6
-  invoke void @_ZN4lean9throwableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %11 unwind label %13
+  %.val.i.i = load i32, ptr %.val.i11, align 4, !tbaa !40
+  %11 = icmp sgt i32 %.val.i.i, 0
+  br i1 %11, label %12, label %14, !prof !45
 
-11:                                               ; preds = %10
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean9exceptionE, i64 16), ptr %9, align 8, !tbaa !7
-  invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN4lean9exceptionE, ptr nonnull @_ZN4lean9throwableD2Ev) #19
-          to label %32 unwind label %13
+12:                                               ; preds = %10
+  %13 = add nuw nsw i32 %.val.i.i, 1
+  store i32 %13, ptr %.val.i11, align 4, !tbaa !40
+  br label %_ZN4lean3incEP11lean_object.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %6
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %20
+14:                                               ; preds = %10
+  %.not.i.i = icmp eq i32 %.val.i.i, 0
+  br i1 %.not.i.i, label %_ZN4lean3incEP11lean_object.exit, label %15
 
-13:                                               ; preds = %10, %11
-  %.0 = phi i1 [ false, %11 ], [ true, %10 ]
-  %14 = landingpad { ptr, i32 }
-          cleanup
-  %15 = load ptr, ptr %3, align 8, !tbaa !39
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = icmp eq ptr %15, %16
-  br i1 %17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+15:                                               ; preds = %14
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %.val.i11)
+  br label %_ZN4lean3incEP11lean_object.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %13
-  %18 = load i64, ptr %16, align 8, !tbaa !35
-  %19 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #18
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %20, label %21
+_ZN4lean3incEP11lean_object.exit:                 ; preds = %6, %12, %14, %15
+  %16 = ptrtoint ptr %0 to i64
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %_ZN4lean3decEP11lean_object.exit, label %18
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.0, label %20, label %21
+18:                                               ; preds = %_ZN4lean3incEP11lean_object.exit
+  %19 = load i32, ptr %0, align 4, !tbaa !40
+  %20 = icmp sgt i32 %19, 1
+  br i1 %20, label %21, label %23, !prof !45
 
-20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn15 = phi { ptr, i32 } [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @__cxa_free_exception(ptr %9) #17
-  br label %21
-
-21:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn14 = phi { ptr, i32 } [ %.pn15, %20 ], [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #17
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn14
-
-22:                                               ; preds = %1
-  %23 = ptrtoint ptr %0 to i64
-  %24 = and i64 %23, 1
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %25, label %_ZN4lean3decEP11lean_object.exit
-
-25:                                               ; preds = %22
-  %26 = load i32, ptr %0, align 4, !tbaa !40
-  %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %28, label %30, !prof !47
-
-28:                                               ; preds = %25
-  %29 = add nsw i32 %26, -1
-  store i32 %29, ptr %0, align 4, !tbaa !40
+21:                                               ; preds = %18
+  %22 = add nsw i32 %19, -1
+  store i32 %22, ptr %0, align 4, !tbaa !40
   br label %_ZN4lean3decEP11lean_object.exit
 
-30:                                               ; preds = %25
-  %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %_ZN4lean3decEP11lean_object.exit, label %31
+23:                                               ; preds = %18
+  %.not.i.i12 = icmp eq i32 %19, 0
+  br i1 %.not.i.i12, label %_ZN4lean3decEP11lean_object.exit, label %24
 
-31:                                               ; preds = %30
+24:                                               ; preds = %23
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0)
   br label %_ZN4lean3decEP11lean_object.exit
 
-_ZN4lean3decEP11lean_object.exit:                 ; preds = %22, %28, %30, %31
+_ZN4lean3decEP11lean_object.exit:                 ; preds = %_ZN4lean3incEP11lean_object.exit, %21, %23, %24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %25 = tail call ptr @lean_io_error_to_string(ptr noundef %.val.i11)
+  store ptr %25, ptr %2, align 8, !tbaa !46
+  %26 = tail call ptr @__cxa_allocate_exception(i64 40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  invoke void @_ZNK4lean10string_ref13to_std_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %27 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
+
+27:                                               ; preds = %_ZN4lean3decEP11lean_object.exit
+  invoke void @_ZN4lean9throwableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %28 unwind label %30
+
+28:                                               ; preds = %27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean9exceptionE, i64 16), ptr %26, align 8, !tbaa !7
+  invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN4lean9exceptionE, ptr nonnull @_ZN4lean9throwableD2Ev) #19
+          to label %49 unwind label %30
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZN4lean3decEP11lean_object.exit
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %37
+
+30:                                               ; preds = %27, %28
+  %.0 = phi i1 [ false, %28 ], [ true, %27 ]
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = load ptr, ptr %3, align 8, !tbaa !39
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %34 = icmp eq ptr %32, %33
+  br i1 %34, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %30
+  %35 = load i64, ptr %33, align 8, !tbaa !35
+  %36 = add i64 %35, 1
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %36) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %.0, label %37, label %38
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br i1 %.0, label %37, label %38
+
+37:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn18 = phi { ptr, i32 } [ %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+  call void @__cxa_free_exception(ptr %26) #17
+  br label %38
+
+38:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn17 = phi { ptr, i32 } [ %.pn18, %37 ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  resume { ptr, i32 } %.pn17
+
+39:                                               ; preds = %1
+  %40 = ptrtoint ptr %0 to i64
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %_ZN4lean3decEP11lean_object.exit14, label %42
+
+42:                                               ; preds = %39
+  %43 = load i32, ptr %0, align 4, !tbaa !40
+  %44 = icmp sgt i32 %43, 1
+  br i1 %44, label %45, label %47, !prof !45
+
+45:                                               ; preds = %42
+  %46 = add nsw i32 %43, -1
+  store i32 %46, ptr %0, align 4, !tbaa !40
+  br label %_ZN4lean3decEP11lean_object.exit14
+
+47:                                               ; preds = %42
+  %.not.i.i13 = icmp eq i32 %43, 0
+  br i1 %.not.i.i13, label %_ZN4lean3decEP11lean_object.exit14, label %48
+
+48:                                               ; preds = %47
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0)
+  br label %_ZN4lean3decEP11lean_object.exit14
+
+_ZN4lean3decEP11lean_object.exit14:               ; preds = %39, %45, %47, %48
   ret void
 
-32:                                               ; preds = %11
+49:                                               ; preds = %28
   unreachable
 }
 
@@ -552,64 +591,6 @@ declare noalias ptr @mi_malloc_small(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: noreturn
 declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #10
 
-; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN4lean3incEP11lean_object(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %_ZL8lean_incP11lean_object.exit
-
-4:                                                ; preds = %1
-  %.val.i = load i32, ptr %0, align 4, !tbaa !40
-  %5 = icmp sgt i32 %.val.i, 0
-  br i1 %5, label %6, label %8, !prof !47
-
-6:                                                ; preds = %4
-  %7 = add nuw nsw i32 %.val.i, 1
-  store i32 %7, ptr %0, align 4, !tbaa !40
-  br label %_ZL8lean_incP11lean_object.exit
-
-8:                                                ; preds = %4
-  %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %_ZL8lean_incP11lean_object.exit, label %9
-
-9:                                                ; preds = %8
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %0)
-  br label %_ZL8lean_incP11lean_object.exit
-
-_ZL8lean_incP11lean_object.exit:                  ; preds = %9, %8, %6, %1
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZN4lean3decEP11lean_object(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %_ZL8lean_decP11lean_object.exit
-
-4:                                                ; preds = %1
-  %5 = load i32, ptr %0, align 4, !tbaa !40
-  %6 = icmp sgt i32 %5, 1
-  br i1 %6, label %7, label %9, !prof !47
-
-7:                                                ; preds = %4
-  %8 = add nsw i32 %5, -1
-  store i32 %8, ptr %0, align 4, !tbaa !40
-  br label %_ZL8lean_decP11lean_object.exit
-
-9:                                                ; preds = %4
-  %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %_ZL8lean_decP11lean_object.exit, label %10
-
-10:                                               ; preds = %9
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %0)
-  br label %_ZL8lean_decP11lean_object.exit
-
-_ZL8lean_decP11lean_object.exit:                  ; preds = %10, %9, %7, %1
-  ret void
-}
-
 declare ptr @lean_io_error_to_string(ptr noundef) local_unnamed_addr #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -617,7 +598,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK4lean10string_ref13to_std_stringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  %4 = load ptr, ptr %1, align 8, !tbaa !45
+  %4 = load ptr, ptr %1, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr i8, ptr %4, i64 8
   %.val.i.i = load i64, ptr %6, align 8, !tbaa !48
@@ -673,16 +654,15 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !45
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   %3 = ptrtoint ptr %2 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %_ZN4lean3decEP11lean_object.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %_ZN4lean3decEP11lean_object.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %2, align 4, !tbaa !40
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !47
+  br i1 %7, label %8, label %10, !prof !45
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %6, -1
@@ -817,7 +797,7 @@ attributes #20 = { noreturn nounwind }
 !42 = !{!43, !4, i64 8}
 !43 = !{!"_ZTS20lean_external_object", !41, i64 0, !4, i64 8, !4, i64 16}
 !44 = !{!43, !4, i64 16}
-!45 = !{!46, !4, i64 0}
-!46 = !{!"_ZTSN4lean10object_refE", !4, i64 0}
-!47 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!46 = !{!47, !4, i64 0}
+!47 = !{!"_ZTSN4lean10object_refE", !4, i64 0}
 !48 = !{!11, !11, i64 0}

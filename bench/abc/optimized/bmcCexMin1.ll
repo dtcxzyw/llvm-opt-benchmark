@@ -479,8 +479,8 @@ define void @Saig_ManCexMinDerivePhasePriority_rec(ptr noundef %0, ptr noundef c
   %.not58 = icmp eq i64 %7, 3
   br i1 %.not58, label %9, label %22
 
-common.ret.sink.split:                            ; preds = %9, %55, %64, %66, %61
-  %.sink = phi i32 [ %62, %61 ], [ %68, %66 ], [ %65, %64 ], [ %58, %55 ], [ %21, %9 ]
+common.ret.sink.split:                            ; preds = %9, %54, %63, %65, %60
+  %.sink = phi i32 [ %61, %60 ], [ %67, %65 ], [ %64, %63 ], [ %57, %54 ], [ %21, %9 ]
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %.sink, ptr %8, align 8, !tbaa !33
   br label %common.ret
@@ -546,37 +546,36 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %50 = ashr i32 %47, 1
   %51 = icmp ne i32 %40, %42
   %52 = xor i32 %47, %48
-  %53 = and i32 %52, 1
-  %54 = icmp ne i32 %53, 0
-  %or.cond = select i1 %51, i1 %54, i1 false
-  br i1 %or.cond, label %55, label %59
+  %53 = trunc i32 %52 to i1
+  %or.cond = select i1 %51, i1 %53, i1 false
+  br i1 %or.cond, label %54, label %58
 
-55:                                               ; preds = %26
-  %56 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smin.i32(i32 range(i32 -1073741824, 1073741824) %49, i32 range(i32 -1073741824, 1073741824) %50)
-  %57 = shl nsw i32 %56, 1
-  %58 = or disjoint i32 %57, 1
+54:                                               ; preds = %26
+  %55 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smin.i32(i32 range(i32 -1073741824, 1073741824) %49, i32 range(i32 -1073741824, 1073741824) %50)
+  %56 = shl nsw i32 %55, 1
+  %57 = or disjoint i32 %56, 1
   br label %common.ret.sink.split
 
-59:                                               ; preds = %26
-  %60 = icmp eq i32 %40, %42
-  %or.cond3 = select i1 %60, i1 %54, i1 false
-  br i1 %or.cond3, label %61, label %63
+58:                                               ; preds = %26
+  %59 = icmp eq i32 %40, %42
+  %or.cond3 = select i1 %59, i1 %53, i1 false
+  br i1 %or.cond3, label %60, label %62
 
-61:                                               ; preds = %59
-  %62 = and i32 %39, -2
+60:                                               ; preds = %58
+  %61 = and i32 %39, -2
   br label %common.ret.sink.split
 
-63:                                               ; preds = %59
-  %or.cond5 = select i1 %60, i1 true, i1 %54
-  br i1 %or.cond5, label %66, label %64
+62:                                               ; preds = %58
+  %or.cond5 = select i1 %59, i1 true, i1 %53
+  br i1 %or.cond5, label %65, label %63
 
-64:                                               ; preds = %63
-  %65 = and i32 %47, -2
+63:                                               ; preds = %62
+  %64 = and i32 %47, -2
   br label %common.ret.sink.split
 
-66:                                               ; preds = %63
-  %67 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smax.i32(i32 range(i32 -1073741824, 1073741824) %49, i32 range(i32 -1073741824, 1073741824) %50)
-  %68 = shl nsw i32 %67, 1
+65:                                               ; preds = %62
+  %66 = tail call range(i32 -1073741824, 1073741824) i32 @llvm.smax.i32(i32 range(i32 -1073741824, 1073741824) %49, i32 range(i32 -1073741824, 1073741824) %50)
+  %67 = shl nsw i32 %66, 1
   br label %common.ret.sink.split
 }
 
@@ -1967,9 +1966,9 @@ Vec_IntPush.exit110:                              ; preds = %.Vec_IntGrow.exit10
   %86 = inttoptr i64 %85 to ptr
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %82, %96, %101, %118, %119
-  %.val78 = phi i32 [ %.val78128, %82 ], [ %.val78.pre, %96 ], [ %.val78128, %118 ], [ %.val78128, %101 ], [ %.val78128, %119 ]
-  %.tr118.be = phi ptr [ %86, %82 ], [ %100, %96 ], [ %108, %118 ], [ %95, %101 ], [ %., %119 ]
+tailrecurse.backedge:                             ; preds = %82, %96, %101, %117, %118
+  %.val78 = phi i32 [ %.val78128, %82 ], [ %.val78.pre, %96 ], [ %.val78128, %117 ], [ %.val78128, %101 ], [ %.val78128, %118 ]
+  %.tr118.be = phi ptr [ %86, %82 ], [ %100, %96 ], [ %108, %117 ], [ %95, %101 ], [ %., %118 ]
   %87 = getelementptr i8, ptr %.tr118.be, i64 32
   %.val79 = load i32, ptr %87, align 8, !tbaa !39
   %.not = icmp eq i32 %.val79, %.val78
@@ -2013,19 +2012,18 @@ tailrecurse.backedge:                             ; preds = %82, %96, %101, %118
   %113 = and i32 %112, 1
   %114 = icmp eq i32 %113, 0
   %115 = xor i32 %110, %111
-  %116 = and i32 %115, 1
-  %117 = icmp ne i32 %116, 0
-  %or.cond = select i1 %114, i1 %117, i1 false
-  br i1 %or.cond, label %tailrecurse.backedge, label %118
+  %116 = trunc i32 %115 to i1
+  %or.cond = select i1 %114, i1 %116, i1 false
+  br i1 %or.cond, label %tailrecurse.backedge, label %117
 
-118:                                              ; preds = %101
-  %or.cond3 = select i1 %114, i1 true, i1 %117
-  br i1 %or.cond3, label %119, label %tailrecurse.backedge
+117:                                              ; preds = %101
+  %or.cond3 = select i1 %114, i1 true, i1 %116
+  br i1 %or.cond3, label %118, label %tailrecurse.backedge
 
-119:                                              ; preds = %118
-  %120 = ashr i32 %103, 1
-  %121 = ashr i32 %110, 1
-  %.not71 = icmp slt i32 %120, %121
+118:                                              ; preds = %117
+  %119 = ashr i32 %103, 1
+  %120 = ashr i32 %110, 1
+  %.not71 = icmp slt i32 %119, %120
   %. = select i1 %.not71, ptr %108, ptr %95
   br label %tailrecurse.backedge
 
@@ -2034,9 +2032,9 @@ Saig_ObjIsPi.exit.thread.sink.split:              ; preds = %Vec_IntPush.exit110
   %.sink137 = phi ptr [ %44, %Vec_IntPush.exit ], [ %79, %Vec_IntPush.exit110 ]
   %.sink.in = phi i32 [ %17, %Vec_IntPush.exit ], [ %52, %Vec_IntPush.exit110 ]
   %.sink = xor i32 %.sink.in, 1
-  %122 = sext i32 %.sink139 to i64
-  %123 = getelementptr inbounds i32, ptr %.sink137, i64 %122
-  store i32 %.sink, ptr %123, align 4, !tbaa !31
+  %121 = sext i32 %.sink139 to i64
+  %122 = getelementptr inbounds i32, ptr %.sink137, i64 %121
+  store i32 %.sink, ptr %122, align 4, !tbaa !31
   br label %Saig_ObjIsPi.exit.thread
 
 Saig_ObjIsPi.exit.thread:                         ; preds = %tailrecurse.backedge, %.lr.ph, %Saig_ObjIsPi.exit.thread.sink.split, %4, %Saig_ObjIsPi.exit, %Saig_ObjIsLo.exit

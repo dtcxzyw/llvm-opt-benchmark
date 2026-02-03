@@ -742,7 +742,7 @@ get_ue_golomb.exit.i:                             ; preds = %get_ue_golomb.exit.
   %411 = and i32 %410, 1
   store i32 %411, ptr %53, align 4, !tbaa !72
   store i32 1, ptr %54, align 8, !tbaa !73
-  %.not215.i = icmp ne i32 %411, 0
+  %.not215.i = trunc i32 %410 to i1
   br i1 %.not215.i, label %.thread.i, label %412
 
 412:                                              ; preds = %get_ue_golomb.exit.i
@@ -814,7 +814,7 @@ get_ue_golomb.exit.i:                             ; preds = %get_ue_golomb.exit.
   ]
 
 458:                                              ; preds = %.thread.i
-  %brmerge.i = or i1 %.not215.i, %431
+  %brmerge.i = or i1 %431, %.not215.i
   %459 = add i32 %456, 1
   %minmaxop.i = select i1 %brmerge.i, i32 %455, i32 %459
   %460 = call i32 @llvm.umin.i32(i32 %minmaxop.i, i32 %327)

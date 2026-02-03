@@ -3553,9 +3553,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -3589,8 +3588,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -4706,9 +4705,8 @@ define linkonce_odr hidden void @_ZN42ScanHazardPtrGatherProtectedThreadsClosure
 
 9:                                                ; preds = %6
   %10 = ptrtoint ptr %7 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %15, label %12
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
   %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %7, ptr nonnull %5) #15, !srcloc !8
@@ -4838,57 +4836,56 @@ define linkonce_odr hidden void @_ZN40ScanHazardPtrPrintMatchingThreadsClosure9d
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %7 = icmp eq ptr %6, null
   %8 = ptrtoint ptr %6 to i64
-  %9 = and i64 %8, 1
-  %10 = icmp ne i64 %9, 0
-  %or.cond = select i1 %7, i1 true, i1 %10
-  br i1 %or.cond, label %.loopexit, label %11
+  %9 = trunc i64 %8 to i1
+  %or.cond = or i1 %7, %9
+  br i1 %or.cond, label %.loopexit, label %10
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %13, align 8
-  %.not15 = icmp eq ptr %14, null
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+  %.not14 = icmp eq ptr %13, null
+  br i1 %.not14, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  br label %18
+.lr.ph:                                           ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  br label %17
 
-18:                                               ; preds = %.lr.ph, %_ZN18JavaThreadIterator4nextEv.exit
-  %.017 = phi ptr [ %14, %.lr.ph ], [ %32, %_ZN18JavaThreadIterator4nextEv.exit ]
-  %.sroa.3.016 = phi i32 [ 0, %.lr.ph ], [ %28, %_ZN18JavaThreadIterator4nextEv.exit ]
-  %19 = icmp eq ptr %.017, %16
-  br i1 %19, label %20, label %27
+17:                                               ; preds = %.lr.ph, %_ZN18JavaThreadIterator4nextEv.exit
+  %.016 = phi ptr [ %13, %.lr.ph ], [ %31, %_ZN18JavaThreadIterator4nextEv.exit ]
+  %.sroa.3.015 = phi i32 [ 0, %.lr.ph ], [ %27, %_ZN18JavaThreadIterator4nextEv.exit ]
+  %18 = icmp eq ptr %.016, %15
+  br i1 %18, label %19, label %26
 
-20:                                               ; preds = %18
-  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not14 = icmp eq ptr %21, null
-  br i1 %.not14, label %.loopexit, label %22
+19:                                               ; preds = %17
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not13 = icmp eq ptr %20, null
+  br i1 %.not13, label %.loopexit, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call noundef i64 @_ZN2os17current_thread_idEv() #15
-  %24 = ptrtoint ptr %1 to i64
-  %25 = load ptr, ptr %15, align 8
-  %26 = ptrtoint ptr %25 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.44, i64 noundef %23, i64 noundef %24, i64 noundef %26)
+21:                                               ; preds = %19
+  %22 = tail call noundef i64 @_ZN2os17current_thread_idEv() #15
+  %23 = ptrtoint ptr %1 to i64
+  %24 = load ptr, ptr %14, align 8
+  %25 = ptrtoint ptr %24 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.44, i64 noundef %22, i64 noundef %23, i64 noundef %25)
   br label %.loopexit
 
-27:                                               ; preds = %18
-  %28 = add i32 %.sroa.3.016, 1
-  %29 = load i32, ptr %17, align 4
-  %.not.i = icmp ult i32 %28, %29
+26:                                               ; preds = %17
+  %27 = add i32 %.sroa.3.015, 1
+  %28 = load i32, ptr %16, align 4
+  %.not.i = icmp ult i32 %27, %28
   br i1 %.not.i, label %_ZN18JavaThreadIterator4nextEv.exit, label %.loopexit
 
-_ZN18JavaThreadIterator4nextEv.exit:              ; preds = %27
-  %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %13, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.loopexit, label %18, !llvm.loop !36
+_ZN18JavaThreadIterator4nextEv.exit:              ; preds = %26
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  %.not = icmp eq ptr %31, null
+  br i1 %.not, label %.loopexit, label %17, !llvm.loop !36
 
-.loopexit:                                        ; preds = %27, %_ZN18JavaThreadIterator4nextEv.exit, %11, %22, %20, %4, %2
+.loopexit:                                        ; preds = %26, %_ZN18JavaThreadIterator4nextEv.exit, %10, %21, %19, %4, %2
   ret void
 }
 

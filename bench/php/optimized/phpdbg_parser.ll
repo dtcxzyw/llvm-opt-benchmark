@@ -903,8 +903,8 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %264
   %.0487612 = phi i32 [ 2, %.lr.ph.i563 ], [ 1, %yyerror.exit ], [ 2, %.thread582 ], [ 1, %48 ], [ 0, %.thread589 ]
   %.6517606 = phi ptr [ %.5516, %.lr.ph.i563 ], [ %.1512, %yyerror.exit ], [ %.5516, %.thread582 ], [ %.1512, %48 ], [ %.1512, %.thread589 ]
   %.4575604 = phi ptr [ %.0572, %.lr.ph.i563 ], [ %.2, %yyerror.exit ], [ %.0572, %.thread582 ], [ %4, %48 ], [ %4, %.thread589 ]
-  %.not553 = icmp eq ptr %.6517606, %2
-  br i1 %.not553, label %271, label %.thread614.thread
+  %.not552 = icmp eq ptr %.6517606, %2
+  br i1 %.not552, label %271, label %.thread614.thread
 
 .thread614.thread:                                ; preds = %29, %.thread614
   %.4575604678 = phi ptr [ %.4575604, %.thread614 ], [ %4, %29 ]
@@ -916,8 +916,8 @@ yyerror.exit:                                     ; preds = %.lr.ph.i, %264
 271:                                              ; preds = %.thread614.thread, %.thread614
   %.4575604679 = phi ptr [ %.4575604678, %.thread614.thread ], [ %.4575604, %.thread614 ]
   %.0487612676 = phi i32 [ %.0487612675, %.thread614.thread ], [ %.0487612, %.thread614 ]
-  %.not554 = icmp eq ptr %.4575604679, %4
-  br i1 %.not554, label %273, label %272
+  %.not553 = icmp eq ptr %.4575604679, %4
+  br i1 %.not553, label %273, label %272
 
 272:                                              ; preds = %271
   call void @free(ptr noundef %.4575604679) #13

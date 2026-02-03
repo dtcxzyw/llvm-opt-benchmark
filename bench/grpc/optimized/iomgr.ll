@@ -959,9 +959,8 @@ define noundef zeroext i1 @_Z43grpc_iomgr_add_closure_to_background_pollerP12grp
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = load i64, ptr %1, align 8, !tbaa !59
   store i64 %4, ptr %3, align 8, !tbaa !59
-  %5 = and i64 %4, 1
-  %.not.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i, label %6, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %6
 
 6:                                                ; preds = %2
   %7 = inttoptr i64 %4 to ptr
@@ -974,9 +973,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %2, %6
 
 10:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %11 = load i64, ptr %3, align 8, !tbaa !59
-  %12 = and i64 %11, 1
-  %.not.i.i2 = icmp eq i64 %12, 0
-  br i1 %.not.i.i2, label %13, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %13
 
 13:                                               ; preds = %10
   %14 = inttoptr i64 %11 to ptr
@@ -1005,9 +1003,8 @@ declare noundef zeroext i1 @_Z52grpc_iomgr_platform_add_closure_to_background_po
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !59
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr

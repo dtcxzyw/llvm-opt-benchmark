@@ -2913,7 +2913,7 @@ define internal void @alps_process_packet_v3(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 237
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 63
-  br i1 %4, label %5, label %70
+  br i1 %4, label %5, label %72
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
@@ -2930,14 +2930,14 @@ define internal void @alps_process_packet_v3(ptr noundef %0) #0 align 16 {
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 344
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %16, ptr noundef nonnull @.str.23) #15
-  br label %71
+  br label %73
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 64
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %71, label %22
+  br i1 %21, label %73, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr i8, ptr %0, i64 233
@@ -2953,7 +2953,7 @@ define internal void @alps_process_packet_v3(ptr noundef %0) #0 align 16 {
   %30 = getelementptr i8, ptr %0, i64 236
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 127
-  br i1 %32, label %71, label %._crit_edge
+  br i1 %32, label %73, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22, %29
   %33 = phi i8 [ %27, %22 ], [ 127, %29 ]
@@ -2982,41 +2982,42 @@ define internal void @alps_process_packet_v3(ptr noundef %0) #0 align 16 {
   %53 = and i32 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 324
   %55 = load i8, ptr %54, align 4
-  %56 = and i8 %55, 1
-  %57 = icmp ne i8 %56, 0
-  %58 = and i32 %52, 7
-  %59 = icmp eq i32 %58, 0
-  %60 = select i1 %57, i1 true, i1 %59
-  br i1 %60, label %62, label %.thread
+  %56 = trunc i8 %55 to i1
+  %57 = and i32 %52, 7
+  %58 = icmp eq i32 %57, 0
+  %59 = select i1 %56, i1 true, i1 %58
+  br i1 %59, label %62, label %60
 
-.thread:                                          ; preds = %._crit_edge
+60:                                               ; preds = %._crit_edge
   %61 = or disjoint i8 %55, 1
   store i8 %61, ptr %54, align 4
-  br label %64
+  br label %62
 
-62:                                               ; preds = %._crit_edge
-  %63 = icmp eq i8 %56, 0
-  br i1 %63, label %69, label %64
+62:                                               ; preds = %60, %._crit_edge
+  %63 = phi i8 [ %61, %60 ], [ %55, %._crit_edge ]
+  %64 = and i8 %63, 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %71, label %66
 
-64:                                               ; preds = %.thread, %62
+66:                                               ; preds = %62
   tail call void @input_event(ptr noundef %8, i32 noundef 1, i32 noundef 272, i32 noundef %53) #14
-  %65 = lshr i32 %52, 1
-  %66 = and i32 %65, 1
-  tail call void @input_event(ptr noundef %8, i32 noundef 1, i32 noundef 273, i32 noundef %66) #14
-  %67 = lshr i32 %52, 2
+  %67 = lshr i32 %52, 1
   %68 = and i32 %67, 1
-  tail call void @input_event(ptr noundef %8, i32 noundef 1, i32 noundef 274, i32 noundef %68) #14
-  br label %69
+  tail call void @input_event(ptr noundef %8, i32 noundef 1, i32 noundef 273, i32 noundef %68) #14
+  %69 = lshr i32 %52, 2
+  %70 = and i32 %69, 1
+  tail call void @input_event(ptr noundef %8, i32 noundef 1, i32 noundef 274, i32 noundef %70) #14
+  br label %71
 
-69:                                               ; preds = %64, %62
+71:                                               ; preds = %66, %62
   tail call void @input_event(ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
-  br label %71
+  br label %73
 
-70:                                               ; preds = %1
+72:                                               ; preds = %1
   tail call void @alps_process_touchpad_packet_v3_v5(ptr noundef %0)
-  br label %71
+  br label %73
 
-71:                                               ; preds = %70, %69, %29, %17, %13
+73:                                               ; preds = %72, %71, %29, %17, %13
   ret void
 }
 

@@ -2688,9 +2688,8 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4iter17h50241
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5index17h10e91781cc74b364E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !range !230, !alias.scope !231, !noundef !4
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48a310daf047e914c00cc15599afb284.57.llvm.2708031191408783576) #30
@@ -2726,9 +2725,8 @@ define hidden noundef nonnull align 8 ptr @_ZN16wasmtime_runtime2gc7enabled3drc7
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5index17h1d05d2131c3fb2b5E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !range !230, !alias.scope !237, !noundef !4
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48a310daf047e914c00cc15599afb284.57.llvm.2708031191408783576) #30
@@ -2764,9 +2762,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runt
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap9index_mut17h0e20814a80da69b9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !range !230, !alias.scope !243, !noundef !4
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48a310daf047e914c00cc15599afb284.63.llvm.2708031191408783576) #30
@@ -2802,9 +2799,8 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN16wasmtime_run
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap9index_mut17h6830155f839612e8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !range !230, !alias.scope !252, !noundef !4
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48a310daf047e914c00cc15599afb284.63.llvm.2708031191408783576) #30

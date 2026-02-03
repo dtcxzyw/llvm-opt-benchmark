@@ -320,9 +320,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit: 
   %19 = and i64 %16, -8
   %20 = inttoptr i64 %19 to ptr
   %21 = atomicrmw add ptr %20, i32 2 monotonic, align 4, !noalias !15
-  %22 = and i32 %21, 1
-  %.not1.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not1.i.i.i, label %23, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode6GetKeyEv.exit
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode6GetKeyEv.exit, label %23
 
 23:                                               ; preds = %18
   store ptr %20, ptr %6, align 8, !alias.scope !15

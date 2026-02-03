@@ -1153,8 +1153,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker5checkEv(ptr no
   %26 = load ptr, ptr %25, align 8, !tbaa !177
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %28 = load ptr, ptr %27, align 8, !tbaa !180
-  %.not12.i = icmp eq ptr %26, %28
-  br i1 %.not12.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread208, label %29
+  %.not11.i = icmp eq ptr %26, %28
+  br i1 %.not11.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread208, label %29
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %26, align 8, !tbaa !181
@@ -1164,9 +1164,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker5checkEv(ptr no
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 1
-  %.not3.i = icmp eq i8 %34, 0
-  br i1 %.not3.i, label %35, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread210
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread210, label %35
 
 35:                                               ; preds = %31, %29, %20
   %36 = getelementptr i8, ptr %.val9, i64 40
@@ -2568,21 +2567,20 @@ _ZN12_GLOBAL__N_15StateD2Ev.exit.i:               ; preds = %506, %_ZN4llvm15Sma
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %507 = getelementptr inbounds nuw i8, ptr %152, i64 104
   %508 = load i8, ptr %507, align 8
-  %509 = and i8 %508, 1
-  %.not70.i = icmp eq i8 %509, 0
-  br i1 %.not70.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i, label %510
+  %509 = trunc i8 %508 to i1
+  br i1 %509, label %510, label %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i
 
 510:                                              ; preds = %_ZN12_GLOBAL__N_15StateD2Ev.exit.i
-  %.val.i30 = load ptr, ptr %142, align 8, !tbaa !35
-  %.val11.i31 = load i32, ptr %145, align 8, !tbaa !37
-  %511 = zext i32 %.val11.i31 to i64
+  %.val.i36 = load ptr, ptr %142, align 8, !tbaa !35
+  %.val11.i37 = load i32, ptr %145, align 8, !tbaa !37
+  %511 = zext i32 %.val11.i37 to i64
   %.idx.i.i = shl nuw nsw i64 %511, 4
-  %512 = getelementptr inbounds nuw i8, ptr %.val.i30, i64 %.idx.i.i
-  %.not2.i.i = icmp eq i32 %.val11.i31, 0
+  %512 = getelementptr inbounds nuw i8, ptr %.val.i36, i64 %.idx.i.i
+  %.not2.i.i = icmp eq i32 %.val11.i37, 0
   br i1 %.not2.i.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i, label %.lr.ph.i12.i
 
 .lr.ph.i12.i:                                     ; preds = %510, %.lr.ph.i12.i
-  %.03.i.i = phi ptr [ %513, %.lr.ph.i12.i ], [ %.val.i30, %510 ]
+  %.03.i.i = phi ptr [ %513, %.lr.ph.i12.i ], [ %.val.i36, %510 ]
   store i32 0, ptr %.03.i.i, align 8, !tbaa !165
   %.sroa.41.0..0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
   store ptr null, ptr %.sroa.41.0..0.sroa_idx.i.i, align 8, !tbaa !166
@@ -2594,17 +2592,17 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i: ; preds = %.lr.ph.i
   %514 = load ptr, ptr %152, align 8, !tbaa !244
   %515 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %516 = load ptr, ptr %515, align 8, !tbaa !245
-  %.not130.i = icmp eq ptr %514, %516
-  br i1 %.not130.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker5checkEPKN5clang8CFGBlockE.exit, label %.lr.ph.i32
+  %.not129.i = icmp eq ptr %514, %516
+  br i1 %.not129.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker5checkEPKN5clang8CFGBlockE.exit, label %.lr.ph.i30
 
-.lr.ph.i32:                                       ; preds = %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
-  %.0131.i = phi ptr [ %962, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i ], [ %514, %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i ]
-  %517 = getelementptr inbounds nuw i8, ptr %.0131.i, i64 8
+.lr.ph.i30:                                       ; preds = %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
+  %.0130.i = phi ptr [ %962, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i ], [ %514, %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i ]
+  %517 = getelementptr inbounds nuw i8, ptr %.0130.i, i64 8
   %.0.copyload.i.i.i.i.i.i15.i = load i64, ptr %517, align 8, !noalias !246
   %518 = trunc i64 %.0.copyload.i.i.i.i.i.i15.i to i32
   %519 = shl i32 %518, 2
   %520 = and i32 %519, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.0131.i, align 8, !noalias !246
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.0130.i, align 8, !noalias !246
   %521 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %522 = and i32 %521, 3
   %523 = add nuw nsw i32 %522, -6
@@ -2612,7 +2610,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i: ; preds = %.lr.ph.i
   %spec.select.i.i.i = icmp ult i32 %524, 3
   br i1 %spec.select.i.i.i, label %525, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
 
-525:                                              ; preds = %.lr.ph.i32
+525:                                              ; preds = %.lr.ph.i30
   %526 = and i64 %.0.copyload.i.i.i3.i.i.i.i, -4
   %527 = inttoptr i64 %526 to ptr
   %528 = load i16, ptr %527, align 8
@@ -3362,10 +3360,10 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i.i:           ; preds = %645
 
 _ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i.i.i.i: ; preds = %705
   %711 = getelementptr i8, ptr %704, i64 40
-  %.val.i.i.i.i.i.i35 = load i64, ptr %711, align 8, !tbaa !259
-  %712 = and i64 %.val.i.i.i.i.i.i35, 7
+  %.val.i.i.i.i.i.i33 = load i64, ptr %711, align 8, !tbaa !259
+  %712 = and i64 %.val.i.i.i.i.i.i33, 7
   %713 = icmp ne i64 %712, 0
-  %714 = and i64 %.val.i.i.i.i.i.i35, -8
+  %714 = and i64 %.val.i.i.i.i.i.i33, -8
   %.not2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %714, 0
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = or i1 %713, %.not2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %715 = inttoptr i64 %714 to ptr
@@ -3568,8 +3566,8 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang8C
   %792 = and i32 %791, 524280
   %.idx.i31.i.i.i = zext nneg i32 %792 to i64
   %793 = getelementptr inbounds nuw i8, ptr %788, i64 %.idx.i31.i.i.i
-  %.not29.i.i.i.i36 = icmp eq i32 %792, 0
-  br i1 %.not29.i.i.i.i36, label %.loopexit.i.i, label %.lr.ph.i32.i.i.i
+  %.not29.i.i.i.i34 = icmp eq i32 %792, 0
+  br i1 %.not29.i.i.i.i34, label %.loopexit.i.i, label %.lr.ph.i32.i.i.i
 
 .lr.ph.i32.i.i.i:                                 ; preds = %787, %_ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang15ObjCMessageExprEj.exit.i.i.i.i
   %.sroa.7.028.i.i.i.i = phi i32 [ %803, %_ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceEPKN5clang15ObjCMessageExprEj.exit.i.i.i.i ], [ 0, %787 ]
@@ -3580,11 +3578,11 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker31shouldBlockArgumentBeCalledOnceIN5clang8C
 
 795:                                              ; preds = %.lr.ph.i32.i.i.i
   %796 = getelementptr i8, ptr %storemerge66.i.lcssa.i.i, i64 16
-  %.val.i.i.i.i37 = load i64, ptr %796, align 8
+  %.val.i.i.i.i35 = load i64, ptr %796, align 8
   %797 = and i32 %790, 16777216
   %.not.i.i.i.i.i.i40.i = icmp eq i32 %797, 0
-  %798 = inttoptr i64 %.val.i.i.i.i37 to ptr
-  %.not1.i.i.i.i.i.i = icmp eq i64 %.val.i.i.i.i37, 0
+  %798 = inttoptr i64 %.val.i.i.i.i35 to ptr
+  %.not1.i.i.i.i.i.i = icmp eq i64 %.val.i.i.i.i35, 0
   %.not.i.i.i.i.i41.i = select i1 %.not.i.i.i.i.i.i40.i, i1 true, i1 %.not1.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i41.i, label %.loopexit.i.i, label %799
 
@@ -3945,9 +3943,9 @@ _ZNK5clang12DeclGroupRef3endEv.exit.i.i:          ; preds = %930, %928
   %.idx.i.i.i24.i = shl nuw nsw i64 %952, 3
   %953 = getelementptr inbounds nuw i8, ptr %949, i64 %.idx.i.i.i24.i
   %.not.i.i.i25.i = icmp eq i32 %951, 0
-  br i1 %.not.i.i.i25.i, label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.thread1.i.i, label %.lr.ph.i.i.i.i.i.i.i34
+  br i1 %.not.i.i.i25.i, label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.thread1.i.i, label %.lr.ph.i.i.i.i.i.i.i32
 
-.lr.ph.i.i.i.i.i.i.i34:                           ; preds = %947, %958
+.lr.ph.i.i.i.i.i.i.i32:                           ; preds = %947, %958
   %.sroa.07.1.i.i.i.i.i.i = phi ptr [ %959, %958 ], [ %949, %947 ]
   %954 = load ptr, ptr %.sroa.07.1.i.i.i.i.i.i, align 8, !tbaa !241
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 32
@@ -3955,12 +3953,12 @@ _ZNK5clang12DeclGroupRef3endEv.exit.i.i:          ; preds = %930, %928
   %957 = icmp eq i16 %956, 168
   br i1 %957, label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.i.i, label %958
 
-958:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i34
+958:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i32
   %959 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i26.i = icmp eq ptr %959, %953
-  br i1 %.not.i.i.i.i.i.i26.i, label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.thread1.i.i, label %.lr.ph.i.i.i.i.i.i.i34, !llvm.loop !272
+  br i1 %.not.i.i.i.i.i.i26.i, label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.thread1.i.i, label %.lr.ph.i.i.i.i.i.i.i32, !llvm.loop !272
 
-_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i34
+_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i32
   %.not4.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i.i, %953
   br i1 %.not4.i.i, label %_ZNK5clang4Decl7hasAttrINS_11CleanupAttrEEEbv.exit.thread1.i.i, label %960
 
@@ -3977,10 +3975,10 @@ _ZN12_GLOBAL__N_117CalledOnceChecker13VisitDeclStmtEPKN5clang8DeclStmtE.exit.i: 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
 
-_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker14processCallForEjPKN5clang4ExprE.exit.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker14processCallForEjPKN5clang4ExprE.exit.i.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker13VisitDeclStmtEPKN5clang8DeclStmtE.exit.i, %915, %914, %913, %_ZNK12_GLOBAL__N_117CalledOnceChecker25getBlockGuaraneedCallSiteEPKN5clang9BlockExprE.exit.i.i, %671, %670, %669, %668, %667, %664, %_ZNK5clang4Type10isVoidTypeEv.exit.i.i, %645, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %571, %567, %566, %565, %564, %563, %562, %561, %560, %559, %558, %557, %556, %555, %554, %553, %552, %551, %550, %549, %548, %547, %546, %545, %544, %543, %542, %541, %540, %539, %538, %537, %536, %535, %.lr.ph.i32
-  %962 = getelementptr inbounds nuw i8, ptr %.0131.i, i64 16
-  %.not.i33 = icmp eq ptr %962, %516
-  br i1 %.not.i33, label %_ZN12_GLOBAL__N_117CalledOnceChecker5checkEPKN5clang8CFGBlockE.exit, label %.lr.ph.i32
+_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker14processCallForEjPKN5clang4ExprE.exit.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker14processCallForEjPKN5clang4ExprE.exit.i.i.i, %_ZN12_GLOBAL__N_117CalledOnceChecker13VisitDeclStmtEPKN5clang8DeclStmtE.exit.i, %915, %914, %913, %_ZNK12_GLOBAL__N_117CalledOnceChecker25getBlockGuaraneedCallSiteEPKN5clang9BlockExprE.exit.i.i, %671, %670, %669, %668, %667, %664, %_ZNK5clang4Type10isVoidTypeEv.exit.i.i, %645, %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %.critedge.i.i.i, %571, %567, %566, %565, %564, %563, %562, %561, %560, %559, %558, %557, %556, %555, %554, %553, %552, %551, %550, %549, %548, %547, %546, %545, %544, %543, %542, %541, %540, %539, %538, %537, %536, %535, %.lr.ph.i30
+  %962 = getelementptr inbounds nuw i8, ptr %.0130.i, i64 16
+  %.not.i31 = icmp eq ptr %962, %516
+  br i1 %.not.i31, label %_ZN12_GLOBAL__N_117CalledOnceChecker5checkEPKN5clang8CFGBlockE.exit, label %.lr.ph.i30
 
 _ZN12_GLOBAL__N_117CalledOnceChecker5checkEPKN5clang8CFGBlockE.exit: ; preds = %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i, %_ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i
   %.val13 = load ptr, ptr %86, align 8, !tbaa !35

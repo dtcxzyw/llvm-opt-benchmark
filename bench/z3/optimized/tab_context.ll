@@ -25862,9 +25862,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit112: ; preds = %313
 _Z9is_groundPK4expr.exit:                         ; preds = %322
   %328 = getelementptr inbounds nuw i8, ptr %323, i64 30
   %329 = load i8, ptr %328, align 2
-  %330 = and i8 %329, 1
-  %.not = icmp eq i8 %330, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %397
+  %330 = trunc i8 %329 to i1
+  br i1 %330, label %397, label %_Z9is_groundPK4expr.exit.thread
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %322, %_Z9is_groundPK4expr.exit
   %331 = invoke noundef i32 @_Z19get_verbosity_levelv()

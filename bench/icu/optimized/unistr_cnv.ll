@@ -702,67 +702,66 @@ declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #3
 define noundef i32 @_ZNK6icu_7713UnicodeString7extractEPciP10UConverterR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %4, align 4, !tbaa !8
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %8, label %38
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i16, ptr %9, align 8, !tbaa !6
-  %11 = and i16 %10, 1
-  %12 = icmp ne i16 %11, 0
-  %13 = icmp slt i32 %2, 0
-  %or.cond = or i1 %13, %12
-  br i1 %or.cond, label %17, label %14
+  %11 = trunc i16 %10 to i1
+  %12 = icmp slt i32 %2, 0
+  %or.cond = or i1 %12, %11
+  br i1 %or.cond, label %16, label %13
 
-14:                                               ; preds = %8
-  %15 = icmp ne i32 %2, 0
-  %16 = icmp eq ptr %1, null
-  %or.cond3 = and i1 %16, %15
-  br i1 %or.cond3, label %17, label %18
+13:                                               ; preds = %8
+  %14 = icmp ne i32 %2, 0
+  %15 = icmp eq ptr %1, null
+  %or.cond3 = and i1 %15, %14
+  br i1 %or.cond3, label %16, label %17
 
-17:                                               ; preds = %14, %8
+16:                                               ; preds = %13, %8
   store i32 1, ptr %4, align 4, !tbaa !8
-  br label %38
+  br label %37
 
-18:                                               ; preds = %14
-  %19 = icmp ugt i16 %10, 31
-  br i1 %19, label %22, label %20
+17:                                               ; preds = %13
+  %18 = icmp ugt i16 %10, 31
+  br i1 %18, label %21, label %19
 
-20:                                               ; preds = %18
-  %21 = tail call i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
-  br label %38
+19:                                               ; preds = %17
+  %20 = tail call i32 @u_terminateChars_77(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %4)
+  br label %37
 
-22:                                               ; preds = %18
+21:                                               ; preds = %17
   %.not30 = icmp eq ptr %3, null
-  br i1 %.not30, label %23, label %27
+  br i1 %.not30, label %22, label %26
 
-23:                                               ; preds = %22
-  %24 = tail call ptr @u_getDefaultConverter_77(ptr noundef nonnull %4)
-  %25 = load i32, ptr %4, align 4, !tbaa !8
-  %26 = icmp slt i32 %25, 1
-  br i1 %26, label %28, label %38
+22:                                               ; preds = %21
+  %23 = tail call ptr @u_getDefaultConverter_77(ptr noundef nonnull %4)
+  %24 = load i32, ptr %4, align 4, !tbaa !8
+  %25 = icmp slt i32 %24, 1
+  br i1 %25, label %27, label %37
 
-27:                                               ; preds = %22
+26:                                               ; preds = %21
   tail call void @ucnv_resetFromUnicode_77(ptr noundef nonnull %3)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %23, %27
-  %.024 = phi ptr [ %24, %23 ], [ %3, %27 ]
-  %29 = load i16, ptr %9, align 8, !tbaa !6
-  %30 = icmp slt i16 %29, 0
-  %31 = ashr i16 %29, 5
-  %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %34 = load i32, ptr %33, align 4
-  %35 = select i1 %30, i32 %34, i32 %32
-  %36 = tail call noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %35, ptr noundef %1, i32 noundef %2, ptr noundef %.024, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  br i1 %.not30, label %37, label %38
+27:                                               ; preds = %22, %26
+  %.024 = phi ptr [ %23, %22 ], [ %3, %26 ]
+  %28 = load i16, ptr %9, align 8, !tbaa !6
+  %29 = icmp slt i16 %28, 0
+  %30 = ashr i16 %28, 5
+  %31 = sext i16 %30 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %33 = load i32, ptr %32, align 4
+  %34 = select i1 %29, i32 %33, i32 %31
+  %35 = tail call noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %34, ptr noundef %1, i32 noundef %2, ptr noundef %.024, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  br i1 %.not30, label %36, label %37
 
-37:                                               ; preds = %28
+36:                                               ; preds = %27
   tail call void @u_releaseDefaultConverter_77(ptr noundef %.024)
-  br label %38
+  br label %37
 
-38:                                               ; preds = %23, %37, %28, %5, %20, %17
-  %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ %21, %20 ], [ 0, %23 ], [ %36, %37 ], [ %36, %28 ]
+37:                                               ; preds = %22, %36, %27, %5, %19, %16
+  %.0 = phi i32 [ 0, %5 ], [ 0, %16 ], [ %20, %19 ], [ 0, %22 ], [ %35, %36 ], [ %35, %27 ]
   ret i32 %.0
 }
 

@@ -751,9 +751,8 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
 
 68:                                               ; preds = %65
   %69 = load i16, ptr %14, align 8, !tbaa !10
-  %70 = and i16 %69, 1
-  %.not79 = icmp eq i16 %70, 0
-  br i1 %.not79, label %.thread, label %104
+  %70 = trunc i16 %69 to i1
+  br i1 %70, label %104, label %.thread
 
 71:                                               ; preds = %65
   %72 = icmp slt i16 %66, 0
@@ -782,8 +781,8 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
           to label %90 unwind label %.loopexit.split-lp
 
 90:                                               ; preds = %85
-  %.not80 = icmp eq i8 %89, 0
-  br i1 %.not80, label %.thread, label %104
+  %.not79 = icmp eq i8 %89, 0
+  br i1 %.not79, label %.thread, label %104
 
 .thread:                                          ; preds = %68, %71, %90
   %91 = load ptr, ptr %1, align 8, !tbaa !13

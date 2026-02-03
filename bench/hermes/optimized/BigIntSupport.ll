@@ -554,9 +554,8 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %tobool16.not.i, label %while.cond.i, label %if.then62, !llvm.loop !9
 
 _ZN6hermes6bigint12_GLOBAL__N_115roundMantissaUpEmPKmS3_jj.exit: ; preds = %while.cond.i
-  %and19.i = and i64 %mantissa.06376, 1
-  %tobool20.i.not = icmp eq i64 %and19.i, 0
-  br i1 %tobool20.i.not, label %if.end75, label %if.then62
+  %tobool20.i = trunc i64 %mantissa.06376 to i1
+  br i1 %tobool20.i, label %if.then62, label %if.end75
 
 if.then62:                                        ; preds = %while.body.i, %if.end8.i, %_ZN6hermes6bigint12_GLOBAL__N_115roundMantissaUpEmPKmS3_jj.exit
   %inc = add nuw nsw i64 %mantissa.06376, 1

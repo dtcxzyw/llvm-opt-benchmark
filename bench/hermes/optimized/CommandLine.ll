@@ -2027,43 +2027,34 @@ entry:
 define weak_odr hidden void @_ZNK4llvh2cl3optIbLb0ENS0_6parserIbEEE16printOptionValueEmb(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %GlobalWidth, i1 noundef zeroext %Force) unnamed_addr #0 comdat align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.llvh::cl::OptionValue.35", align 8
-  br i1 %Force, label %entry.if.then_crit_edge, label %lor.rhs
-
-entry.if.then_crit_edge:                          ; preds = %entry
   %add.ptr7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 152
   %.pre = load i8, ptr %add.ptr7.phi.trans.insert, align 8
-  br label %if.then
+  br i1 %Force, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %Valid.i = getelementptr inbounds nuw i8, ptr %this, i64 169
   %0 = load i8, ptr %Valid.i, align 1
   %tobool.i1 = trunc i8 %0 to i1
-  br i1 %tobool.i1, label %_ZNK4llvh2cl15OptionValueCopyIbE7compareERKb.exit, label %if.end
-
-_ZNK4llvh2cl15OptionValueCopyIbE7compareERKb.exit: ; preds = %lor.rhs
-  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %1 = load i8, ptr %add.ptr, align 8
   %Value.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %2 = load i8, ptr %Value.i, align 8
-  %3 = xor i8 %2, %1
-  %4 = and i8 %3, 1
-  %cmp.i.not = icmp eq i8 %4, 0
-  br i1 %cmp.i.not, label %if.end, label %if.then
+  %1 = load i8, ptr %Value.i, align 8
+  %2 = xor i8 %1, %.pre
+  %cmp.i = trunc i8 %2 to i1
+  %3 = select i1 %tobool.i1, i1 %cmp.i, i1 false
+  br i1 %3, label %if.then, label %if.end
 
-if.then:                                          ; preds = %entry.if.then_crit_edge, %_ZNK4llvh2cl15OptionValueCopyIbE7compareERKb.exit
-  %5 = phi i8 [ %.pre, %entry.if.then_crit_edge ], [ %1, %_ZNK4llvh2cl15OptionValueCopyIbE7compareERKb.exit ]
-  %tobool.i2 = trunc i8 %5 to i1
+if.then:                                          ; preds = %entry, %lor.rhs
+  %tobool.i2 = trunc i8 %.pre to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %Value.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 8
   %Value2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %6 = load i16, ptr %Value2.i.i.i.i.i, align 8
-  store i16 %6, ptr %Value.i.i.i.i.i, align 8
+  %4 = load i16, ptr %Value2.i.i.i.i.i, align 8
+  store i16 %4, ptr %Value.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 16), ptr %agg.tmp.i.i, align 8
   call void @_ZNK4llvh2cl6parserIbE15printOptionDiffERKNS0_6OptionEbNS0_11OptionValueIbEEm(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(145) %this, i1 noundef zeroext %tobool.i2, ptr noundef nonnull %agg.tmp.i.i, i64 noundef %GlobalWidth)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %if.end
 
-if.end:                                           ; preds = %lor.rhs, %if.then, %_ZNK4llvh2cl15OptionValueCopyIbE7compareERKb.exit
+if.end:                                           ; preds = %if.then, %lor.rhs
   ret void
 }
 
@@ -16054,24 +16045,23 @@ entry:
   %Valid.i = getelementptr inbounds nuw i8, ptr %V, i64 9
   %0 = load i8, ptr %Valid.i, align 1
   %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %return
+
+if.end:                                           ; preds = %entry
+  %Value.i = getelementptr inbounds nuw i8, ptr %V, i64 8
   %Valid.i2 = getelementptr inbounds nuw i8, ptr %this, i64 9
   %1 = load i8, ptr %Valid.i2, align 1
   %tobool.i3 = trunc i8 %1 to i1
-  %or.cond = select i1 %tobool.i, i1 %tobool.i3, i1 false
-  br i1 %or.cond, label %land.rhs.i, label %return
-
-land.rhs.i:                                       ; preds = %entry
-  %Value.i = getelementptr inbounds nuw i8, ptr %V, i64 8
   %Value.i4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %Value.i4, align 8
   %3 = load i8, ptr %Value.i, align 8
   %4 = xor i8 %3, %2
-  %5 = and i8 %4, 1
-  %cmp.i = icmp ne i8 %5, 0
+  %cmp.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i3, i1 %cmp.i, i1 false
   br label %return
 
-return:                                           ; preds = %land.rhs.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.i, %land.rhs.i ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i1 [ %5, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 

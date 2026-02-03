@@ -9344,16 +9344,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -9412,7 +9411,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -9420,10 +9419,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -9540,7 +9539,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -9579,7 +9578,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -9832,16 +9831,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -9991,7 +9989,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10054,7 +10052,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -10072,7 +10070,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -10573,22 +10571,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -10596,20 +10592,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -10632,20 +10627,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -10657,25 +10652,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -10704,8 +10699,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -10717,44 +10712,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 2
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 2
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 4, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 4, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -13739,16 +13734,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -13807,7 +13801,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -13815,10 +13809,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -13935,7 +13929,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -13974,7 +13968,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -14227,16 +14221,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -14386,7 +14379,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -14449,7 +14442,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -14467,7 +14460,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -14968,22 +14961,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -14991,20 +14982,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -15027,20 +15017,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -15052,25 +15042,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -15099,8 +15089,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -15112,44 +15102,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 3
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 3
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 8, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 8, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIdNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -17867,16 +17857,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -17935,7 +17924,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -17943,10 +17932,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -18063,7 +18052,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -18102,7 +18091,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -18355,16 +18344,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -18514,7 +18502,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -18577,7 +18565,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -18595,7 +18583,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemU
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -19096,22 +19084,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -19119,20 +19105,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -19155,20 +19140,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -19180,25 +19165,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -19227,8 +19212,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -19240,44 +19225,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 1
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 1
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 2, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 2, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_13TruncateCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -22311,16 +22296,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -22379,7 +22363,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -22387,10 +22371,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -22507,7 +22491,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -22545,7 +22529,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %31 = load i8, ptr %mFlags, align 2
+  %31 = load i8, ptr %mFlags.i, align 2
   %32 = and i8 %31, 8
   %tobool.i.not.i.i24 = icmp eq i8 %32, 0
   %33 = load i32, ptr %mSize, align 8
@@ -22796,16 +22780,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -22955,7 +22938,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -23017,7 +23000,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %26 = load i8, ptr %mFlags, align 2
+  %26 = load i8, ptr %mFlags.i, align 2
   %27 = and i8 %26, 8
   %tobool.i.not.i.i37 = icmp eq i8 %27, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -23034,7 +23017,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9U
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %23, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -23535,22 +23518,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -23558,20 +23539,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -23594,20 +23574,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -23619,25 +23599,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -23666,8 +23646,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -23679,43 +23659,43 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 1, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %21, %cond.false.i ], [ 1, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -26349,16 +26329,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -26417,7 +26396,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -26425,10 +26404,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -26545,7 +26524,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -26584,7 +26563,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -26837,16 +26816,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -26996,7 +26974,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -27059,7 +27037,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -27077,7 +27055,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9U
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -27578,22 +27556,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -27601,20 +27577,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -27637,20 +27612,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -27662,25 +27637,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -27709,8 +27684,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -27722,44 +27697,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 1
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 1
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 2, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 2, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIfNS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -30488,16 +30463,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -30556,7 +30530,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -30564,10 +30538,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -30684,7 +30658,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -30722,7 +30696,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %31 = load i8, ptr %mFlags, align 2
+  %31 = load i8, ptr %mFlags.i, align 2
   %32 = and i8 %31, 8
   %tobool.i.not.i.i24 = icmp eq i8 %32, 0
   %33 = load i32, ptr %mSize, align 8
@@ -30973,16 +30947,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -31132,7 +31105,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -31194,7 +31167,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %26 = load i8, ptr %mFlags, align 2
+  %26 = load i8, ptr %mFlags.i, align 2
   %27 = and i8 %26, 8
   %tobool.i.not.i.i37 = icmp eq i8 %27, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -31211,7 +31184,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %23, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -31712,22 +31685,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -31735,20 +31706,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -31771,20 +31741,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -31796,25 +31766,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -31843,8 +31813,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -31856,43 +31826,43 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 1, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE6doLoadEv.exit ], [ %21, %cond.false.i ], [ 1, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIaNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -34636,16 +34606,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -34704,7 +34673,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -34712,10 +34681,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -34832,7 +34801,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -34871,7 +34840,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -35124,16 +35093,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -35283,7 +35251,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -35346,7 +35314,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -35364,7 +35332,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -35865,22 +35833,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -35888,20 +35854,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -35924,20 +35889,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -35949,25 +35914,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -35996,8 +35961,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -36009,44 +35974,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 1
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 1
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 2, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 2, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIsNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -38793,16 +38758,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -38861,7 +38825,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -38869,10 +38833,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -38989,7 +38953,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -39028,7 +38992,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -39281,16 +39245,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -39440,7 +39403,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -39503,7 +39466,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -39521,7 +39484,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -40022,22 +39985,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -40045,20 +40006,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -40081,20 +40041,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -40106,25 +40066,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -40153,8 +40113,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -40166,44 +40126,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 2
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 2
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 4, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 4, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIiNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -42950,16 +42910,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -43018,7 +42977,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -43026,10 +42985,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -43146,7 +43105,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -43185,7 +43144,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -43438,16 +43397,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -43597,7 +43555,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -43660,7 +43618,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -43678,7 +43636,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -44179,22 +44137,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -44202,20 +44158,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -44238,20 +44193,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -44263,25 +44218,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -44310,8 +44265,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -44323,44 +44278,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 3
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 3
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 8, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 8, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIlNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -47124,16 +47079,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -47192,7 +47146,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -47200,10 +47154,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -47320,7 +47274,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -47359,7 +47313,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -47612,16 +47566,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -47771,7 +47724,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -47834,7 +47787,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -47852,7 +47805,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -48353,22 +48306,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -48376,20 +48327,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -48412,20 +48362,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -48437,25 +48387,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -48484,8 +48434,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -48497,44 +48447,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 12
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 12
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 12, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 12, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IiEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -51329,16 +51279,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -51397,7 +51346,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -51405,10 +51354,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -51525,7 +51474,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -51564,7 +51513,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -51817,16 +51766,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -51976,7 +51924,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -52039,7 +51987,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -52057,7 +52005,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -52558,22 +52506,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -52581,20 +52527,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -52617,20 +52562,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -52642,25 +52587,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -52689,8 +52634,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -52702,44 +52647,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 12
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 12
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 12, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 12, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -55538,16 +55483,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -55606,7 +55550,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -55614,10 +55558,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -55734,7 +55678,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -55773,7 +55717,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -56026,16 +55970,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -56185,7 +56128,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -56248,7 +56191,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -56266,7 +56209,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -56767,22 +56710,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -56790,20 +56731,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -56826,20 +56766,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -56851,25 +56791,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -56898,8 +56838,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -56911,44 +56851,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 24
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 24
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 24, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 24, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -59635,16 +59575,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -59703,7 +59642,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -59711,10 +59650,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -59831,7 +59770,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -59870,7 +59809,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -60123,16 +60062,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -60282,7 +60220,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -60345,7 +60283,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -60363,7 +60301,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateC
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -60864,22 +60802,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -60887,20 +60823,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -60923,20 +60858,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -60948,25 +60883,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -60995,8 +60930,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -61008,44 +60943,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 6
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 6
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 6, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 6, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_13TruncateCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -64407,16 +64342,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -64475,7 +64409,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -64483,10 +64417,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -64603,7 +64537,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -64642,7 +64576,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -64895,16 +64829,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -65054,7 +64987,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -65117,7 +65050,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -65135,7 +65068,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPoin
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -65636,22 +65569,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -65659,20 +65590,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -65695,20 +65625,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -65720,25 +65650,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -65767,8 +65697,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -65780,44 +65710,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 3
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 3
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 3, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 3, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -68732,16 +68662,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -68800,7 +68729,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -68808,10 +68737,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -68928,7 +68857,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -68967,7 +68896,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -69220,16 +69149,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -69379,7 +69307,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -69442,7 +69370,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -69460,7 +69388,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPoin
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -69961,22 +69889,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -69984,20 +69910,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -70020,20 +69945,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -70045,25 +69970,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -70092,8 +70017,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -70105,44 +70030,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 6
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 6
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 6, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 6, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_13PositionRangeEEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -73010,16 +72935,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -73078,7 +73002,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -73086,10 +73010,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -73206,7 +73130,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -73245,7 +73169,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -73498,16 +73422,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -73657,7 +73580,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -73720,7 +73643,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -73738,7 +73661,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPoin
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -74239,22 +74162,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -74262,20 +74183,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -74298,20 +74218,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -74323,25 +74243,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -74370,8 +74290,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -74383,44 +74303,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 3
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 3
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 3, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 3, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb1ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -77228,16 +77148,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -77296,7 +77215,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -77304,10 +77223,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -77424,7 +77343,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -77463,7 +77382,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -77716,16 +77635,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -77875,7 +77793,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -77938,7 +77856,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -77956,7 +77874,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPoin
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -78457,22 +78375,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -78480,20 +78396,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -78516,20 +78431,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -78541,25 +78456,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -78588,8 +78503,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -78601,44 +78516,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 6
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 6
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 6, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 6, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_15FixedPointCodecILb0ENS1_9UnitRangeEEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -81456,16 +81371,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -81524,7 +81438,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -81532,10 +81446,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -81652,7 +81566,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -81691,7 +81605,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -81944,16 +81858,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -82103,7 +82016,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -82166,7 +82079,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -82184,7 +82097,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCo
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -82685,22 +82598,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -82708,20 +82619,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -82744,20 +82654,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -82769,25 +82679,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -82816,8 +82726,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -82829,44 +82739,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 1
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 1
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 2, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 2, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Vec3IfEENS1_12UnitVecCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -85829,16 +85739,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -85897,7 +85806,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -85905,10 +85814,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -86025,7 +85934,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -86064,7 +85973,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -86317,16 +86226,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -86476,7 +86384,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -86539,7 +86447,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -86557,7 +86465,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -87058,22 +86966,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -87081,20 +86987,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -87117,20 +87022,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -87142,25 +87047,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -87189,8 +87094,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -87202,44 +87107,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 36
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 36
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 36, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 36, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -90047,16 +89952,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -90115,7 +90019,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -90123,10 +90027,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -90243,7 +90147,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -90282,7 +90186,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -90535,16 +90439,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -90694,7 +90597,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -90757,7 +90660,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -90775,7 +90678,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -91276,22 +91179,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -91299,20 +91200,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -91335,20 +91235,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -91360,25 +91260,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -91407,8 +91307,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -91420,44 +91320,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = mul nuw nsw i64 %22, 72
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = mul nuw nsw i64 %21, 72
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 72, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 72, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat3IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -94265,16 +94165,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -94333,7 +94232,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -94341,10 +94240,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -94461,7 +94360,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -94500,7 +94399,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -94753,16 +94652,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -94912,7 +94810,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -94975,7 +94873,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -94993,7 +94891,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -95494,22 +95392,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -95517,20 +95413,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -95553,20 +95448,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -95578,25 +95473,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -95625,8 +95520,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -95638,44 +95533,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 6
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 6
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 64, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 64, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IfEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -98483,16 +98378,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -98551,7 +98445,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -98559,10 +98453,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -98679,7 +98573,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -98718,7 +98612,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -98971,16 +98865,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -99130,7 +99023,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -99193,7 +99086,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -99211,7 +99104,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -99712,22 +99605,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -99735,20 +99626,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -99771,20 +99661,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -99796,25 +99686,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -99843,8 +99733,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -99856,44 +99746,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 7
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 7
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 128, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 128, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4Mat4IdEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -102675,16 +102565,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -102743,7 +102632,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -102751,10 +102640,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -102871,7 +102760,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -102910,7 +102799,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -103163,16 +103052,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -103322,7 +103210,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -103385,7 +103273,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -103403,7 +103291,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -103904,22 +103792,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -103927,20 +103813,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -103963,20 +103848,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -103988,25 +103873,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -104035,8 +103920,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -104048,44 +103933,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 4
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 4
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 16, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 16, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIfEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -106900,16 +106785,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -106968,7 +106852,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -106976,10 +106860,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -107096,7 +106980,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -107135,7 +107019,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -107388,16 +107272,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -107547,7 +107430,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -107610,7 +107493,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -107628,7 +107511,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -108129,22 +108012,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -108152,20 +108033,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -108188,20 +108068,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -108213,25 +108093,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -108260,8 +108140,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -108273,44 +108153,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 5
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 5
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 32, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 32, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayINS0_4math4QuatIdEENS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -111077,16 +110957,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -111145,7 +111024,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -111153,10 +111032,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -111273,7 +111152,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -111311,7 +111190,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %31 = load i8, ptr %mFlags, align 2
+  %31 = load i8, ptr %mFlags.i, align 2
   %32 = and i8 %31, 8
   %tobool.i.not.i.i24 = icmp eq i8 %32, 0
   %33 = load i32, ptr %mSize, align 8
@@ -111562,16 +111441,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -111721,7 +111599,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -111783,7 +111661,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %26 = load i8, ptr %mFlags, align 2
+  %26 = load i8, ptr %mFlags.i, align 2
   %27 = and i8 %26, 8
   %tobool.i.not.i.i37 = icmp eq i8 %27, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -111800,7 +111678,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsag
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %23, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -112301,22 +112179,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -112324,20 +112200,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -112360,20 +112235,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -112385,25 +112260,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -112432,8 +112307,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -112445,43 +112320,43 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 1, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6doLoadEv.exit ], [ %21, %cond.false.i ], [ 1, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -115225,16 +115100,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -115293,7 +115167,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -115301,10 +115175,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -115421,7 +115295,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -115460,7 +115334,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %32 = load i8, ptr %mFlags, align 2
+  %32 = load i8, ptr %mFlags.i, align 2
   %33 = and i8 %32, 8
   %tobool.i.not.i.i24 = icmp eq i8 %33, 0
   %34 = load i32, ptr %mSize, align 8
@@ -115713,16 +115587,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -115872,7 +115745,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -115935,7 +115808,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %27 = load i8, ptr %mFlags, align 2
+  %27 = load i8, ptr %mFlags.i, align 2
   %28 = and i8 %27, 8
   %tobool.i.not.i.i37 = icmp eq i8 %28, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -115953,7 +115826,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13array
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %24, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -116454,22 +116327,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -116477,20 +116348,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -116513,20 +116383,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -116538,25 +116408,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -116585,8 +116455,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -116598,44 +116468,44 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
-  %23 = shl nuw nsw i64 %22, 2
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
+  %22 = shl nuw nsw i64 %21, 2
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit ], [ %23, %cond.false.i ], [ 4, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 4, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIjNS1_11StringCodecILb0EEEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -119383,16 +119253,15 @@ entry:
   %size = alloca i32, align 4
   %strideOrTotalSize = alloca i32, align 4
   %bytes = alloca i64, align 8
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond33 = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond33, label %if.end, label %if.end64
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond32 = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond32, label %if.end64, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool3.not = icmp eq i8 %1, 0
   br i1 %tobool3.not, label %if.end12, label %if.then4
 
@@ -119451,7 +119320,7 @@ lpad10:                                           ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
-  store i8 %.pre, ptr %flags, align 1
+  store i8 %0, ptr %flags, align 1
   store i8 0, ptr %serializationFlags, align 1
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load i32, ptr %mSize, align 8
@@ -119459,10 +119328,10 @@ if.end12:                                         ; preds = %if.end
   %mStrideOrTotalSize = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i32, ptr %mStrideOrTotalSize, align 4
   store i32 %7, ptr %strideOrTotalSize, align 4
-  %8 = and i8 %.pre, 8
+  %8 = and i8 %0, 8
   %tobool.i.not.i = icmp ne i8 %8, 0
-  %cmp32 = icmp eq i32 %7, 1
-  %cmp = select i1 %tobool.i.not.i, i1 %cmp32, i1 false
+  %cmp33 = icmp eq i32 %7, 1
+  %cmp = select i1 %tobool.i.not.i, i1 %cmp33, i1 false
   %vtable = load ptr, ptr %os, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -119579,7 +119448,7 @@ if.end.i14:                                       ; preds = %if.else48
   br i1 %tobool.i15, label %if.end54, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i14
-  %24 = load i8, ptr %mFlags, align 2
+  %24 = load i8, ptr %mFlags.i, align 2
   %25 = and i8 %24, 8
   %tobool.i.not.i.i = icmp eq i8 %25, 0
   %26 = load i32, ptr %mSize, align 8
@@ -119617,7 +119486,7 @@ if.end.i19:                                       ; preds = %cond.false
   br i1 %tobool.i21, label %cond.end, label %cond.false.i22
 
 cond.false.i22:                                   ; preds = %if.end.i19
-  %31 = load i8, ptr %mFlags, align 2
+  %31 = load i8, ptr %mFlags.i, align 2
   %32 = and i8 %31, 8
   %tobool.i.not.i.i24 = icmp eq i8 %32, 0
   %33 = load i32, ptr %mSize, align 8
@@ -119868,16 +119737,15 @@ entry:
   %bloscCompressed = alloca i8, align 1
   %bloscCompressed35 = alloca i8, align 1
   %bloscCompressed43 = alloca i8, align 1
-  %mFlags.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %.pre = load i8, ptr %mFlags.phi.trans.insert, align 2
-  %0 = and i8 %.pre, 1
-  %tobool.i.not = icmp eq i8 %0, 0
-  %or.cond = select i1 %outputTransient, i1 true, i1 %tobool.i.not
-  br i1 %or.cond, label %if.end, label %if.end49
+  %outputTransient.not = xor i1 %outputTransient, true
+  %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %0 = load i8, ptr %mFlags.i, align 2
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end49, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %1 = and i8 %.pre, 32
+  %1 = and i8 %0, 32
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.end11, label %if.then3
 
@@ -120027,7 +119895,7 @@ if.end.i15:                                       ; preds = %if.then19
   br i1 %tobool.i17, label %invoke.cont22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i15
-  %15 = load i8, ptr %mFlags, align 2
+  %15 = load i8, ptr %mFlags.i, align 2
   %16 = and i8 %15, 8
   %tobool.i.not.i.i = icmp eq i8 %16, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -120089,7 +119957,7 @@ if.end.i32:                                       ; preds = %if.else42
   br i1 %tobool.i34, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit42, label %cond.false.i35
 
 cond.false.i35:                                   ; preds = %if.end.i32
-  %26 = load i8, ptr %mFlags, align 2
+  %26 = load i8, ptr %mFlags.i, align 2
   %27 = and i8 %26, 8
   %tobool.i.not.i.i37 = icmp eq i8 %27, 0
   %mSize.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -120106,7 +119974,7 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageE
   %call47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %23, i64 noundef %retval.0.i31)
   br label %if.end49
 
-if.end49:                                         ; preds = %entry, %if.else34, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
+if.end49:                                         ; preds = %if.else34, %entry, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i25, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit42, %if.then13
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -120607,22 +120475,20 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  br i1 %outputTransient, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %outputTransient.not = xor i1 %outputTransient, true
   %mFlags.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i, align 2
-  %1 = and i8 %0, 1
-  %tobool.i.not = icmp eq i8 %1, 0
-  br i1 %tobool.i.not, label %if.end, label %return
+  %tobool.i = trunc i8 %0 to i1
+  %or.cond = select i1 %outputTransient.not, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %return, label %if.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
+if.end:                                           ; preds = %entry
   %mOs.i = getelementptr inbounds nuw i8, ptr %os, i64 32
-  %2 = load ptr, ptr %mOs.i, align 8
-  %vtable = load ptr, ptr %2, align 8
+  %1 = load ptr, ptr %mOs.i, align 8
+  %vtable = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %vbase.offset
   %call3 = tail call noundef i32 @_ZN7openvdb5v11_02io18getDataCompressionERSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr)
   %and = and i32 %call3, 4
   %tobool4.not = icmp eq i32 %and, 0
@@ -120630,20 +120496,19 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then7:                                         ; preds = %if.end
   %mSizeOnly.i = getelementptr inbounds nuw i8, ptr %os, i64 40
-  %3 = load i8, ptr %mSizeOnly.i, align 8
-  %tobool.i5 = trunc i8 %3 to i1
+  %2 = load i8, ptr %mSizeOnly.i, align 8
+  %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %4 = load ptr, ptr %mOs.i, align 8
-  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %outputTransient)
+  %3 = load ptr, ptr %mOs.i, align 8
+  tail call void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE12writeBuffersERSob(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %outputTransient)
   br label %return
 
 if.end13:                                         ; preds = %if.end
-  %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 10
-  %5 = load i8, ptr %mFlags, align 2
-  %6 = and i8 %5, 32
-  %tobool15.not = icmp eq i8 %6, 0
+  %4 = load i8, ptr %mFlags.i, align 2
+  %5 = and i8 %4, 32
+  %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end24, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
@@ -120666,20 +120531,20 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   br label %try.cont
 
 lpad:                                             ; preds = %if.then16
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
   br label %catch
 
 lpad17:                                           ; preds = %invoke.cont18, %invoke.cont
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_openvdb_throw_os) #16
   br label %catch
 
 catch:                                            ; preds = %lpad17, %lpad
-  %.pn = phi { ptr, i32 } [ %8, %lpad17 ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -120691,25 +120556,25 @@ try.cont:                                         ; preds = %catch, %invoke.cont
           to label %unreachable unwind label %lpad22
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i, %lpad22
-  %common.resume.op = phi { ptr, i32 } [ %10, %lpad22 ], [ %14, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
+  %common.resume.op = phi { ptr, i32 } [ %9, %lpad22 ], [ %13, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad22:                                           ; preds = %try.cont, %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_openvdb_throw_msg) #16
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end13
   %mOutOfCore.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %11 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i = icmp eq i32 %11, 0
+  %10 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i = icmp eq i32 %10, 0
   br i1 %tobool.i.not.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
   %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i2.i.i.i.i = trunc i8 %12 to i1
+  %11 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i2.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i
@@ -120738,8 +120603,8 @@ if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i
 
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i ], [ %backoff.sroa.0.03.i.i.i.i, %if.else.i.i.i.i.i ]
-  %13 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
-  %tobool3.i.i.i.i.i.i = trunc i8 %13 to i1
+  %12 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
+  %tobool3.i.i.i.i.i.i = trunc i8 %12 to i1
   br i1 %tobool3.i.i.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i, !llvm.loop !16
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i, %if.end.i
@@ -120751,43 +120616,43 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i: ; preds = %
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   store atomic i8 0, ptr %mMutex.i release, align 1
   br label %common.resume
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit: ; preds = %if.end24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
   %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %15 = load ptr, ptr %mData.i, align 8
-  %16 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
-  %tobool.i.not.i8 = icmp eq i32 %16, 0
+  %14 = load ptr, ptr %mData.i, align 8
+  %15 = load atomic i32, ptr %mOutOfCore.i.i seq_cst, align 4
+  %tobool.i.not.i8 = icmp eq i32 %15, 0
   br i1 %tobool.i.not.i8, label %if.end.i9, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 if.end.i9:                                        ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit
   %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load i8, ptr %mIsUniform.i, align 8
-  %tobool.i10 = trunc i8 %17 to i1
+  %16 = load i8, ptr %mIsUniform.i, align 8
+  %tobool.i10 = trunc i8 %16 to i1
   br i1 %tobool.i10, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end.i9
-  %18 = load i8, ptr %mFlags, align 2
-  %19 = and i8 %18, 8
-  %tobool.i.not.i.i = icmp eq i8 %19, 0
+  %17 = load i8, ptr %mFlags.i, align 2
+  %18 = and i8 %17, 8
+  %tobool.i.not.i.i = icmp eq i8 %18, 0
   %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %20 = load i32, ptr %mSize.i.i, align 8
+  %19 = load i32, ptr %mSize.i.i, align 8
   %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %21 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
-  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %20
-  %cond.i.i = mul i32 %mul.i.i, %21
-  %22 = zext i32 %cond.i.i to i64
+  %20 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
+  %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %19
+  %cond.i.i = mul i32 %mul.i.i, %20
+  %21 = zext i32 %cond.i.i to i64
   br label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit
 
 _ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit: ; preds = %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit, %if.end.i9, %cond.false.i
-  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit ], [ %22, %cond.false.i ], [ 1, %if.end.i9 ]
-  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %15, i64 noundef %retval.0.i)
+  %retval.0.i = phi i64 [ 0, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE6doLoadEv.exit ], [ %21, %cond.false.i ], [ 1, %if.end.i9 ]
+  %call27 = tail call noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(41) %os, ptr noundef %14, i64 noundef %retval.0.i)
   br label %return
 
-return:                                           ; preds = %if.then7, %if.then9, %land.lhs.true, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit
+return:                                           ; preds = %entry, %if.then7, %if.then9, %_ZNK7openvdb5v11_06points19TypedAttributeArrayIbNS1_9NullCodecEE13arrayMemUsageEv.exit
   ret void
 
 unreachable:                                      ; preds = %try.cont
@@ -182496,7 +182361,6 @@ if.then94:                                        ; preds = %if.end92
           to label %invoke.cont99 unwind label %lpad
 
 invoke.cont99:                                    ; preds = %if.then94
-  %and = and i32 %call100, 1
   %call.i131 = invoke noalias noundef nonnull dereferenceable(2048) ptr @_Znam(i64 noundef 2048) #29
           to label %_ZN7openvdb5v11_04tree10LeafBufferINS0_10PointIndexIjLj1EEELj3EEC2Ev.exit unwind label %lpad
 
@@ -182512,7 +182376,8 @@ _ZN7openvdb5v11_04tree10LeafBufferINS0_10PointIndexIjLj1EEELj3EEC2Ev.exit: ; pre
   br i1 %cmp105210, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_04tree10LeafBufferINS0_10PointIndexIjLj1EEELj3EEC2Ev.exit
-  %tobool14.not.i171 = icmp eq i32 %and, 0
+  %conv109 = and i32 %call100, 1
+  %tobool14.not.i171 = icmp eq i32 %conv109, 0
   br i1 %fromHalf, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph

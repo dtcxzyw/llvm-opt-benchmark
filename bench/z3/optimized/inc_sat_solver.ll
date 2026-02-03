@@ -6603,13 +6603,13 @@ _ZNK3sat6solver8num_varsEv.exit.i:                ; preds = %.lr.ph.split, %_ZN3
   br i1 %21, label %22, label %_ZN3sat6solver9set_phaseENS_7literalE.exit
 
 22:                                               ; preds = %_ZNK3sat6solver8num_varsEv.exit.i
-  %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 %23
-  %25 = trunc i32 %.sroa.01.0.copyload to i8
-  %26 = and i8 %25, 1
+  %23 = trunc i32 %.sroa.01.0.copyload to i8
+  %24 = zext nneg i32 %20 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %24
+  %26 = and i8 %23, 1
   %27 = xor i8 %26, 1
-  store i8 %27, ptr %24, align 1, !tbaa !627
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %23
+  store i8 %27, ptr %25, align 1, !tbaa !627
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %24
   store i8 %27, ptr %28, align 1, !tbaa !627
   br label %_ZN3sat6solver9set_phaseENS_7literalE.exit
 
@@ -24634,10 +24634,9 @@ _ZNK7obj_mapI4exprN3sat7literalEE5beginEv.exit:   ; preds = %.lr.ph.i.i.i.i, %16
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i32, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !394
-  %26 = and i32 %.sroa.02.0.copyload, 1
-  %.not.i = icmp eq i32 %26, 0
+  %26 = trunc i32 %.sroa.02.0.copyload to i1
   %27 = sub nsw i32 0, %25
-  %spec.select.i = select i1 %.not.i, i32 %25, i32 %27
+  %spec.select.i = select i1 %26, i32 %27, i32 %25
   %.not = icmp eq i32 %spec.select.i, 1
   br i1 %.not, label %92, label %28
 
@@ -26466,10 +26465,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2
   br label %_ZN3satlsERSoNS_7literalE.exit.i
 
 15:                                               ; preds = %10
-  %16 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i.i = icmp eq i32 %16, 0
-  %17 = select i1 %.not.not.i.i, ptr @.str.58, ptr @.str.57
-  %18 = zext nneg i32 %16 to i64
+  %16 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %17 = select i1 %16, ptr @.str.57, ptr @.str.58
+  %.mask.i.i = and i32 %.sroa.0.0.copyload.i, 1
+  %18 = zext nneg i32 %.mask.i.i to i64
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %17, i64 noundef %18)
   %20 = lshr i32 %.sroa.0.0.copyload.i, 1
   %21 = zext nneg i32 %20 to i64
@@ -28140,9 +28139,8 @@ _Z17is_uninterp_constPK4expr.exit.thread45._Z17is_uninterp_constPK4expr.exit.thr
 29:                                               ; preds = %_Z17is_uninterp_constPK4expr.exit.thread45
   %30 = load ptr, ptr %1, align 8, !tbaa !224
   %31 = load i32, ptr %30, align 4, !tbaa !242
-  %32 = and i32 %31, 1
-  %.not50 = icmp eq i32 %32, 0
-  br i1 %.not50, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %33
+  %32 = trunc i32 %31 to i1
+  br i1 %32, label %33, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %9, align 8, !tbaa !271
@@ -28466,9 +28464,8 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35:   ; preds = %_ZN8rationalpLERKS_
 191:                                              ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit33.thread
   %192 = getelementptr inbounds nuw %"class.sat::literal", ptr %184, i64 %indvars.iv
   %193 = load i32, ptr %192, align 4, !tbaa !242
-  %194 = and i32 %193, 1
-  %.not = icmp eq i32 %194, 0
-  br i1 %.not, label %195, label %_ZN8rationalpLERKS_.exit
+  %194 = trunc i32 %193 to i1
+  br i1 %194, label %_ZN8rationalpLERKS_.exit, label %195
 
 195:                                              ; preds = %191
   %196 = load ptr, ptr %69, align 8, !tbaa !249
@@ -28478,7 +28475,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35:   ; preds = %_ZN8rationalpLERKS_
           to label %._ZN8rationalpLERKS_.exit_crit_edge unwind label %199
 
 ._ZN8rationalpLERKS_.exit_crit_edge:              ; preds = %195
-  %.pre57 = load ptr, ptr %1, align 8, !tbaa !224
+  %.pre56 = load ptr, ptr %1, align 8, !tbaa !224
   br label %_ZN8rationalpLERKS_.exit
 
 199:                                              ; preds = %195
@@ -28487,7 +28484,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35:   ; preds = %_ZN8rationalpLERKS_
   br label %225
 
 _ZN8rationalpLERKS_.exit:                         ; preds = %._ZN8rationalpLERKS_.exit_crit_edge, %191
-  %201 = phi ptr [ %.pre57, %._ZN8rationalpLERKS_.exit_crit_edge ], [ %184, %191 ]
+  %201 = phi ptr [ %.pre56, %._ZN8rationalpLERKS_.exit_crit_edge ], [ %184, %191 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %202 = icmp eq ptr %201, null
   br i1 %202, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit33.thread, !llvm.loop !948

@@ -1950,7 +1950,7 @@ _ZL15onlySingleValuePN4llvm9MemoryPhiE.exit:      ; preds = %.thread.i, %29, %31
   %40 = phi ptr [ %26, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit.thread ], [ %36, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit ]
   %41 = phi ptr [ %25, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit.thread ], [ %35, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit ]
   %42 = phi ptr [ %24, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit.thread ], [ %34, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit ]
-  %.067 = phi ptr [ null, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit.thread ], [ %.0, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit ]
+  %.066 = phi ptr [ null, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit.thread ], [ %.0, %_ZL15onlySingleValuePN4llvm9MemoryPhiE.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !154
   %45 = icmp eq ptr %44, null
@@ -1959,20 +1959,19 @@ _ZL15onlySingleValuePN4llvm9MemoryPhiE.exit:      ; preds = %.thread.i, %29, %31
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %48 = load i8, ptr %47, align 1
-  %49 = and i8 %48, 1
-  %.not43 = icmp eq i8 %49, 0
-  br i1 %.not43, label %.lr.ph, label %50
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %.lr.ph
 
 50:                                               ; preds = %46
-  call void @_ZN4llvm15ValueHandleBase12ValueIsRAUWdEPNS_5ValueES2_(ptr noundef nonnull %1, ptr noundef %.067) #17
+  call void @_ZN4llvm15ValueHandleBase12ValueIsRAUWdEPNS_5ValueES2_(ptr noundef nonnull %1, ptr noundef %.066) #17
   %.pre = load ptr, ptr %43, align 8, !tbaa !154
   %51 = icmp eq ptr %.pre, null
   br i1 %51, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %50
   %52 = phi ptr [ %.pre, %50 ], [ %44, %46 ]
-  %.not4.i = icmp eq ptr %.067, null
-  %53 = getelementptr inbounds nuw i8, ptr %.067, i64 16
+  %.not4.i = icmp eq ptr %.066, null
+  %53 = getelementptr inbounds nuw i8, ptr %.066, i64 16
   br label %54
 
 54:                                               ; preds = %.lr.ph, %_ZN4llvm3Use3setEPNS_5ValueE.exit
@@ -2058,7 +2057,7 @@ _ZN4llvm14MemoryUseOrDef14resetOptimizedEv.exit:  ; preds = %72, %_ZN4llvm9Memor
   br label %_ZN4llvm3Use14removeFromListEv.exit.i
 
 _ZN4llvm3Use14removeFromListEv.exit.i:            ; preds = %86, %81, %79
-  store ptr %.067, ptr %55, align 8, !tbaa !170
+  store ptr %.066, ptr %55, align 8, !tbaa !170
   br i1 %.not4.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %88
 
 88:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i
@@ -2115,11 +2114,11 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %_ZN4llvm3Use14remov
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(400) %7, i64 noundef %104)
   %.pre.i.i = load i32, ptr %107, align 8, !tbaa !118
   %.pre9.i.i = zext i32 %.pre.i.i to i64
-  %.pre47 = load ptr, ptr %7, align 8, !tbaa !119
+  %.pre46 = load ptr, ptr %7, align 8, !tbaa !119
   br label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %102, %110
-  %111 = phi ptr [ %106, %102 ], [ %.pre47, %110 ]
+  %111 = phi ptr [ %106, %102 ], [ %.pre46, %110 ]
   %.pre-phi.i.i = phi i64 [ 0, %102 ], [ %.pre9.i.i, %110 ]
   %112 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %111, i64 %.pre-phi.i.i
   br label %.lr.ph.i.i.i.i.i.i
@@ -2174,7 +2173,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE18uninitialized_copyIPKPNS_9Me
 
 132:                                              ; preds = %126
   call void @_ZN4llvm8DenseMapIPNS_9MemoryPhiENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEE16shrink_and_clearEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
-  %.pre48 = load i32, ptr %107, align 8, !tbaa !118
+  %.pre47 = load i32, ptr %107, align 8, !tbaa !118
   br label %_ZN4llvm9SetVectorIPNS_9MemoryPhiENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE5clearEv.exit
 
 133:                                              ; preds = %126
@@ -2198,19 +2197,19 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE18uninitialized_copyIPKPNS_9Me
   br i1 %.not.i.i.i28, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !224
 
 _ZN4llvm9SetVectorIPNS_9MemoryPhiENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE5clearEv.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE18uninitialized_copyIPKPNS_9MemoryPhiEPS1_EEvT_S9_T0_.exit.loopexit.i.i, %132, %._crit_edge.i.i.i
-  %138 = phi i32 [ %119, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE18uninitialized_copyIPKPNS_9MemoryPhiEPS1_EEvT_S9_T0_.exit.loopexit.i.i ], [ %.pre48, %132 ], [ %119, %._crit_edge.i.i.i ]
+  %138 = phi i32 [ %119, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE18uninitialized_copyIPKPNS_9MemoryPhiEPS1_EEvT_S9_T0_.exit.loopexit.i.i ], [ %.pre47, %132 ], [ %119, %._crit_edge.i.i.i ]
   store i32 0, ptr %96, align 8, !tbaa !118
-  %.not1945 = icmp eq i32 %138, 0
-  br i1 %.not1945, label %._crit_edge, label %.lr.ph46
+  %.not1944 = icmp eq i32 %138, 0
+  br i1 %.not1944, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %_ZN4llvm9SetVectorIPNS_9MemoryPhiENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE5clearEv.exit
+.lr.ph45:                                         ; preds = %_ZN4llvm9SetVectorIPNS_9MemoryPhiENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE5clearEv.exit
   %139 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %140 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %142
 
-142:                                              ; preds = %.lr.ph46, %179
-  %.in = phi i32 [ %138, %.lr.ph46 ], [ %143, %179 ]
+142:                                              ; preds = %.lr.ph45, %179
+  %.in = phi i32 [ %138, %.lr.ph45 ], [ %143, %179 ]
   %143 = add i32 %.in, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !225)

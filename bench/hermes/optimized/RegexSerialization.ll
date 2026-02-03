@@ -5822,7 +5822,7 @@ _ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE9push_backEOS6_.exit:
   %add.ptr.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 16
   %Size.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 8
   %Capacity2.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 12
-  %bf.clear.i = and i8 %flags.coerce, 1
+  %frombool.i = and i8 %flags.coerce, 1
   %0 = lshr i8 %flags.coerce, 3
   %.lobit.i = and i8 %0, 1
   %_M_finish.i33 = getelementptr inbounds nuw i8, ptr %nodeHolder, i64 8
@@ -6068,7 +6068,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
 
 _ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.exit: ; preds = %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i142, %if.end8.i111
   %icase_.i = getelementptr inbounds nuw i8, ptr %call21, i64 48
-  store i8 %bf.clear.i, ptr %icase_.i, align 8
+  store i8 %frombool.i, ptr %icase_.i, align 8
   %unicode_.i = getelementptr inbounds nuw i8, ptr %call21, i64 49
   store i8 %.lobit.i, ptr %unicode_.i, align 1
   %23 = load ptr, ptr %_M_finish.i33, align 8

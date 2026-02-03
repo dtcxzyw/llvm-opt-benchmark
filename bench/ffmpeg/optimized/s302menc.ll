@@ -22,80 +22,79 @@ define internal range(i32 -22, 1) i32 @s302m_encode_init(ptr noundef %0) #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %5 = load i32, ptr %4, align 4, !tbaa !27
-  %6 = and i32 %5, 1
-  %.not = icmp ne i32 %6, 0
-  %7 = icmp sgt i32 %5, 8
-  %or.cond = or i1 %7, %.not
-  br i1 %or.cond, label %8, label %9
+  %.not = trunc i32 %5 to i1
+  %6 = icmp sgt i32 %5, 8
+  %or.cond = or i1 %6, %.not
+  br i1 %or.cond, label %7, label %8
+
+7:                                                ; preds = %1
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %5) #4
+  br label %31
 
 8:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %5) #4
-  br label %32
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %11 = load i32, ptr %10, align 4, !tbaa !28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %10 = load i32, ptr %9, align 4, !tbaa !28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 652
-  switch i32 %11, label %._crit_edge [
-    i32 1, label %13
-    i32 2, label %14
+  switch i32 %10, label %._crit_edge [
+    i32 1, label %12
+    i32 2, label %13
   ]
 
-._crit_edge:                                      ; preds = %9
+._crit_edge:                                      ; preds = %8
   %.pre22 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
-  %12 = add nsw i32 %.pre22, 4
-  br label %24
+  %11 = add nsw i32 %.pre22, 4
+  br label %23
 
-13:                                               ; preds = %9
+12:                                               ; preds = %8
   store i32 16, ptr %.phi.trans.insert, align 4, !tbaa !29
-  br label %24
+  br label %23
 
-14:                                               ; preds = %9
-  %15 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
-  %16 = icmp sgt i32 %15, 20
-  br i1 %16, label %17, label %21
+13:                                               ; preds = %8
+  %14 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !29
+  %15 = icmp sgt i32 %14, 20
+  br i1 %15, label %16, label %20
 
-17:                                               ; preds = %14
-  %18 = icmp samesign ugt i32 %15, 24
-  br i1 %18, label %19, label %20
+16:                                               ; preds = %13
+  %17 = icmp samesign ugt i32 %14, 24
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4) #4
   %.pre.pre = load i32, ptr %4, align 4, !tbaa !27
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %17
-  %.pre = phi i32 [ %.pre.pre, %19 ], [ %5, %17 ]
+19:                                               ; preds = %18, %16
+  %.pre = phi i32 [ %.pre.pre, %18 ], [ %5, %16 ]
   store i32 24, ptr %.phi.trans.insert, align 4, !tbaa !29
-  br label %24
+  br label %23
 
-21:                                               ; preds = %14
-  %.not21 = icmp eq i32 %15, 0
-  br i1 %.not21, label %22, label %23
+20:                                               ; preds = %13
+  %.not21 = icmp eq i32 %14, 0
+  br i1 %.not21, label %21, label %22
 
-22:                                               ; preds = %21
+21:                                               ; preds = %20
   store i32 24, ptr %.phi.trans.insert, align 4, !tbaa !29
-  br label %24
+  br label %23
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   store i32 20, ptr %.phi.trans.insert, align 4, !tbaa !29
-  br label %24
+  br label %23
 
-24:                                               ; preds = %._crit_edge, %20, %23, %22, %13
-  %25 = phi i32 [ 28, %20 ], [ 24, %23 ], [ 28, %22 ], [ 20, %13 ], [ %12, %._crit_edge ]
-  %26 = phi i32 [ %.pre, %20 ], [ %5, %23 ], [ %5, %22 ], [ %5, %13 ], [ %5, %._crit_edge ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 0, ptr %27, align 8, !tbaa !30
-  %28 = mul nsw i32 %26, 48000
-  %29 = mul nsw i32 %28, %25
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %30, ptr %31, align 8, !tbaa !31
+23:                                               ; preds = %._crit_edge, %19, %22, %21, %12
+  %24 = phi i32 [ 28, %19 ], [ 24, %22 ], [ 28, %21 ], [ 20, %12 ], [ %11, %._crit_edge ]
+  %25 = phi i32 [ %.pre, %19 ], [ %5, %22 ], [ %5, %21 ], [ %5, %12 ], [ %5, %._crit_edge ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i32 0, ptr %26, align 8, !tbaa !30
+  %27 = mul nsw i32 %25, 48000
+  %28 = mul nsw i32 %27, %24
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %29, ptr %30, align 8, !tbaa !31
   store i8 0, ptr %3, align 1, !tbaa !32
-  br label %32
+  br label %31
 
-32:                                               ; preds = %24, %8
-  %.0 = phi i32 [ -22, %8 ], [ 0, %24 ]
+31:                                               ; preds = %23, %7
+  %.0 = phi i32 [ -22, %7 ], [ 0, %23 ]
   ret i32 %.0
 }
 

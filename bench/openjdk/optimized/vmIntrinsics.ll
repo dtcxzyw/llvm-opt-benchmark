@@ -915,8 +915,8 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
   call void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef %7, i1 noundef zeroext false) #10
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  %.not68 = icmp eq ptr %9, null
-  br i1 %.not68, label %._crit_edge, label %.lr.ph
+  %.not67 = icmp eq ptr %9, null
+  br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN12vmIntrinsics7find_idEPKc.exit.thread, %6
   call void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %2) #10
@@ -924,14 +924,14 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
   call void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %10, i1 noundef zeroext true) #10
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8
-  %.not970 = icmp eq ptr %12, null
-  br i1 %.not970, label %._crit_edge74, label %.lr.ph73
+  %.not969 = icmp eq ptr %12, null
+  br i1 %.not969, label %._crit_edge73, label %.lr.ph72
 
 .lr.ph:                                           ; preds = %6, %_ZN12vmIntrinsics7find_idEPKc.exit.thread
   %13 = phi ptr [ %50, %_ZN12vmIntrinsics7find_idEPKc.exit.thread ], [ %9, %6 ]
   %14 = load ptr, ptr @_ZL23vm_intrinsic_name_table, align 16
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.preheader.i, label %.preheader85
+  br i1 %15, label %.preheader.i, label %.preheader84
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 1, %.lr.ph ]
@@ -947,13 +947,13 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics20is_disabled_by_flagsE13vmIn
 
 _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.i
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
-  br label %.preheader85
+  br label %.preheader84
 
-.preheader85:                                     ; preds = %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, %.lr.ph
+.preheader84:                                     ; preds = %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i, %.lr.ph
   br label %20
 
-20:                                               ; preds = %.preheader85, %25
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 1, %.preheader85 ]
+20:                                               ; preds = %.preheader84, %25
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 1, %.preheader84 ]
   %21 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %22) #9
@@ -1003,22 +1003,22 @@ _ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %34
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge74:                                    ; preds = %_ZN12vmIntrinsics7find_idEPKc.exit24.thread, %._crit_edge
+._crit_edge73:                                    ; preds = %_ZN12vmIntrinsics7find_idEPKc.exit24.thread, %._crit_edge
   call void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %3) #10
   %51 = load i32, ptr @_ZL26vm_intrinsic_control_words, align 4, !noalias !14
   %52 = or i32 %51, 3
   store i32 %52, ptr @_ZL26vm_intrinsic_control_words, align 4
   br label %81
 
-.lr.ph73:                                         ; preds = %._crit_edge, %_ZN12vmIntrinsics7find_idEPKc.exit24.thread
+.lr.ph72:                                         ; preds = %._crit_edge, %_ZN12vmIntrinsics7find_idEPKc.exit24.thread
   %53 = phi ptr [ %80, %_ZN12vmIntrinsics7find_idEPKc.exit24.thread ], [ %12, %._crit_edge ]
   %54 = load ptr, ptr @_ZL23vm_intrinsic_name_table, align 16
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.preheader.i18, label %.preheader
 
-.preheader.i18:                                   ; preds = %.lr.ph73, %.preheader.i18
-  %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i21, %.preheader.i18 ], [ 1, %.lr.ph73 ]
-  %.013.i.i20 = phi ptr [ %59, %.preheader.i18 ], [ @.str.6, %.lr.ph73 ]
+.preheader.i18:                                   ; preds = %.lr.ph72, %.preheader.i18
+  %indvars.iv.i.i19 = phi i64 [ %indvars.iv.next.i.i21, %.preheader.i18 ], [ 1, %.lr.ph72 ]
+  %.013.i.i20 = phi ptr [ %59, %.preheader.i18 ], [ @.str.6, %.lr.ph72 ]
   %56 = getelementptr inbounds nuw ptr, ptr @_ZL23vm_intrinsic_name_table, i64 %indvars.iv.i.i19
   store ptr %.013.i.i20, ptr %56, align 8
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.i.i20) #9
@@ -1032,7 +1032,7 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23: ; preds = %.preheade
   store ptr @.str, ptr @_ZL23vm_intrinsic_name_table, align 16
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23, %.lr.ph73
+.preheader:                                       ; preds = %_ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i23, %.lr.ph72
   br label %60
 
 60:                                               ; preds = %.preheader, %65
@@ -1070,9 +1070,9 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
   %79 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %3) #10
   %80 = load ptr, ptr %11, align 8
   %.not9 = icmp eq ptr %80, null
-  br i1 %.not9, label %._crit_edge74, label %.lr.ph73, !llvm.loop !20
+  br i1 %.not9, label %._crit_edge73, label %.lr.ph72, !llvm.loop !20
 
-81:                                               ; preds = %._crit_edge74, %1
+81:                                               ; preds = %._crit_edge73, %1
   %82 = sext i32 %0 to i64
   %83 = lshr i64 %82, 4
   %84 = getelementptr inbounds nuw i32, ptr @_ZL26vm_intrinsic_control_words, i64 %83
@@ -1101,9 +1101,9 @@ _ZN12vmIntrinsics7find_idEPKc.exit24.thread:      ; preds = %65, %_ZN12vmIntrins
 
 102:                                              ; preds = %91, %81
   %.sroa.033.0 = phi i8 [ %98, %91 ], [ %89, %81 ]
-  %103 = and i8 %.sroa.033.0, 1
-  %.not65 = icmp eq i8 %103, 0
-  ret i1 %.not65
+  %103 = trunc i8 %.sroa.033.0 to i1
+  %104 = xor i1 %103, true
+  ret i1 %104
 }
 
 declare void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, i1 noundef zeroext) unnamed_addr #7

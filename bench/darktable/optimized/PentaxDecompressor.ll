@@ -203,13 +203,13 @@ define hidden void @_ZN8rawspeed18PentaxDecompressorC2ENS_8RawImageENS_8Optional
 21:                                               ; preds = %3
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %33
 
 23:                                               ; preds = %._crit_edge, %19
   %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %8) #21
-  br label %34
+  br label %33
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -221,26 +221,25 @@ define hidden void @_ZN8rawspeed18PentaxDecompressorC2ENS_8RawImageENS_8Optional
 
 28:                                               ; preds = %25
   %.not8 = icmp eq i32 %.pre, 0
-  %29 = and i32 %27, 1
-  %.not9 = icmp ne i32 %29, 0
-  %or.cond.not13 = or i1 %.not9, %.not8
-  %30 = icmp sgt i32 %27, 8384
-  %or.cond11 = or i1 %30, %or.cond.not13
-  %31 = icmp sgt i32 %.pre, 6208
-  %or.cond12 = or i1 %31, %or.cond11
-  br i1 %or.cond12, label %._crit_edge, label %33
+  %.not9 = trunc i32 %27 to i1
+  %or.cond.not13 = or i1 %.not8, %.not9
+  %29 = icmp sgt i32 %27, 8384
+  %or.cond11 = or i1 %29, %or.cond.not13
+  %30 = icmp sgt i32 %.pre, 6208
+  %or.cond12 = or i1 %30, %or.cond11
+  br i1 %or.cond12, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %25, %28
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed18PentaxDecompressorC2ENS_8RawImageENS_8OptionalINS_10ByteStreamEEE, i32 noundef %27, i32 noundef %.pre) #13
-          to label %32 unwind label %23
+          to label %31 unwind label %23
 
-32:                                               ; preds = %._crit_edge
+31:                                               ; preds = %._crit_edge
   unreachable
 
-33:                                               ; preds = %28
+32:                                               ; preds = %28
   ret void
 
-34:                                               ; preds = %23, %21
+33:                                               ; preds = %23, %21
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   resume { ptr, i32 } %.pn

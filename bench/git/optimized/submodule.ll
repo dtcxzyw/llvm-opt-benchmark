@@ -3362,124 +3362,118 @@ define dso_local range(i32 0, 4) i32 @is_submodule_modified(ptr noundef %0, i32 
 
 strbuf_setlen.exit:                               ; preds = %19, %22
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef null) #18
-  %.not35 = icmp eq i32 %1, 0
-  br i1 %.not35, label %25, label %23
+  %23 = icmp ne i32 %1, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %strbuf_setlen.exit
-  %24 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #18
-  br label %25
+24:                                               ; preds = %strbuf_setlen.exit
+  %25 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #18
+  br label %26
 
-25:                                               ; preds = %23, %strbuf_setlen.exit
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %26, ptr noundef nonnull @.str.32) #18
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %28 = load i16, ptr %27, align 8
-  %29 = or i16 %28, 9
-  store i16 %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  store i32 -1, ptr %30, align 4, !tbaa !154
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %0, ptr %31, align 8, !tbaa !152
-  %32 = call i32 @start_command(ptr noundef nonnull %3) #18
-  %.not31 = icmp eq i32 %32, 0
-  br i1 %.not31, label %35, label %33
+26:                                               ; preds = %24, %strbuf_setlen.exit
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @prepare_other_repo_env(ptr noundef nonnull %27, ptr noundef nonnull @.str.32) #18
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %29 = load i16, ptr %28, align 8
+  %30 = or i16 %29, 9
+  store i16 %30, ptr %28, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 84
+  store i32 -1, ptr %31, align 4, !tbaa !154
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr %0, ptr %32, align 8, !tbaa !152
+  %33 = call i32 @start_command(ptr noundef nonnull %3) #18
+  %.not31 = icmp eq i32 %33, 0
+  br i1 %.not31, label %36, label %34
 
-33:                                               ; preds = %25
-  %34 = call fastcc ptr @_(ptr noundef nonnull @.str.61)
-  call void (ptr, ...) @die(ptr noundef %34, ptr noundef %0) #20
+34:                                               ; preds = %26
+  %35 = call fastcc ptr @_(ptr noundef nonnull @.str.61)
+  call void (ptr, ...) @die(ptr noundef %35, ptr noundef %0) #20
   unreachable
 
-35:                                               ; preds = %25
-  %36 = load i32, ptr %30, align 4, !tbaa !154
-  %37 = call ptr @xfdopen(i32 noundef %36, ptr noundef nonnull @.str.62) #18
-  %38 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %37, i32 noundef 10) #18
-  %.not3239.not = icmp eq i32 %38, -1
-  br i1 %.not3239.not, label %._crit_edge, label %.lr.ph
+36:                                               ; preds = %26
+  %37 = load i32, ptr %31, align 4, !tbaa !154
+  %38 = call ptr @xfdopen(i32 noundef %37, ptr noundef nonnull @.str.62) #18
+  br label %39
 
-.lr.ph:                                           ; preds = %35, %64
-  %.02440 = phi i32 [ %.3, %64 ], [ 0, %35 ]
-  %39 = load ptr, ptr %10, align 8, !tbaa !49
-  %40 = load i8, ptr %39, align 1, !tbaa !51
-  %41 = icmp eq i8 %40, 63
-  %42 = or i32 %.02440, 1
-  %spec.select36 = select i1 %41, i32 %42, i32 %.02440
-  switch i8 %40, label %59 [
-    i8 117, label %43
-    i8 49, label %43
-    i8 50, label %43
+39:                                               ; preds = %62, %36
+  %.024 = phi i32 [ 0, %36 ], [ %.3, %62 ]
+  %40 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %38, i32 noundef 10) #18
+  %.not32.not.not.not.not.not = icmp ne i32 %40, -1
+  br i1 %.not32.not.not.not.not.not, label %41, label %65
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %10, align 8, !tbaa !49
+  %43 = load i8, ptr %42, align 1, !tbaa !51
+  %44 = icmp eq i8 %43, 63
+  %45 = or i32 %.024, 1
+  %spec.select35 = select i1 %44, i32 %45, i32 %.024
+  switch i8 %43, label %62 [
+    i8 117, label %46
+    i8 49, label %46
+    i8 50, label %46
   ]
 
-43:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %44 = load i64, ptr %20, align 8, !tbaa !145
-  %45 = icmp ult i64 %44, 9
-  br i1 %45, label %46, label %47
+46:                                               ; preds = %41, %41, %41
+  %47 = load i64, ptr %20, align 8, !tbaa !145
+  %48 = icmp ult i64 %47, 9
+  br i1 %48, label %49, label %50
 
-46:                                               ; preds = %43
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 1946, ptr noundef nonnull @.str.63, ptr noundef nonnull %39) #20
+49:                                               ; preds = %46
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 1946, ptr noundef nonnull @.str.63, ptr noundef nonnull %42) #20
   unreachable
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %39, i64 5
-  %49 = load i8, ptr %48, align 1, !tbaa !51
-  %50 = icmp eq i8 %49, 83
-  br i1 %50, label %51, label %55
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 5
+  %52 = load i8, ptr %51, align 1, !tbaa !51
+  %53 = icmp eq i8 %52, 83
+  br i1 %53, label %54, label %58
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %53 = load i8, ptr %52, align 1, !tbaa !51
-  %54 = icmp eq i8 %53, 85
-  %spec.select37 = select i1 %54, i32 %42, i32 %spec.select36
-  br label %55
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %56 = load i8, ptr %55, align 1, !tbaa !51
+  %57 = icmp eq i8 %56, 85
+  %spec.select36 = select i1 %57, i32 %45, i32 %spec.select35
+  br label %58
 
-55:                                               ; preds = %51, %47
-  %.4 = phi i32 [ %spec.select36, %47 ], [ %spec.select37, %51 ]
-  switch i8 %40, label %56 [
-    i8 117, label %57
-    i8 50, label %57
+58:                                               ; preds = %54, %50
+  %.4 = phi i32 [ %spec.select35, %50 ], [ %spec.select36, %54 ]
+  switch i8 %43, label %59 [
+    i8 117, label %60
+    i8 50, label %60
   ]
 
-56:                                               ; preds = %55
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %48, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
+59:                                               ; preds = %58
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %51, ptr noundef nonnull dereferenceable(4) @.str.64, i64 4)
   %.not33 = icmp eq i32 %bcmp, 0
-  br i1 %.not33, label %59, label %57
+  br i1 %.not33, label %62, label %60
 
-57:                                               ; preds = %55, %55, %56
-  %58 = or i32 %.4, 2
-  br label %59
+60:                                               ; preds = %58, %58, %59
+  %61 = or i32 %.4, 2
+  br label %62
 
-59:                                               ; preds = %.lr.ph, %56, %57
-  %.3 = phi i32 [ %58, %57 ], [ %.4, %56 ], [ %spec.select36, %.lr.ph ]
-  %60 = and i32 %.3, 2
-  %.not34 = icmp eq i32 %60, 0
-  br i1 %.not34, label %64, label %61
+62:                                               ; preds = %41, %59, %60
+  %.3 = phi i32 [ %61, %60 ], [ %.4, %59 ], [ %spec.select35, %41 ]
+  %63 = and i32 %.3, 2
+  %.not34 = icmp ne i32 %63, 0
+  %64 = trunc i32 %.3 to i1
+  %or.cond = or i1 %23, %64
+  %or.cond37 = and i1 %.not34, %or.cond
+  br i1 %or.cond37, label %65, label %39, !llvm.loop !234
 
-61:                                               ; preds = %59
-  %62 = and i32 %.3, 1
-  %63 = or i32 %62, %1
-  %or.cond.not = icmp eq i32 %63, 0
-  br i1 %or.cond.not, label %64, label %._crit_edge
-
-64:                                               ; preds = %61, %59
-  %65 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %37, i32 noundef 10) #18
-  %.not32.not = icmp eq i32 %65, -1
-  br i1 %.not32.not, label %._crit_edge, label %.lr.ph, !llvm.loop !234
-
-._crit_edge:                                      ; preds = %64, %61, %35
-  %.not32.lcssa = phi i1 [ false, %35 ], [ true, %61 ], [ false, %64 ]
-  %.1 = phi i32 [ 0, %35 ], [ %.3, %61 ], [ %.3, %64 ]
-  %66 = call i32 @fclose(ptr noundef %37)
+65:                                               ; preds = %62, %39
+  %.1 = phi i32 [ %.3, %62 ], [ %.024, %39 ]
+  %66 = call i32 @fclose(ptr noundef %38)
   %67 = call i32 @finish_command(ptr noundef nonnull %3) #18
   %68 = icmp eq i32 %67, 0
-  %or.cond3 = or i1 %.not32.lcssa, %68
+  %or.cond3 = or i1 %.not32.not.not.not.not.not, %68
   br i1 %or.cond3, label %71, label %69
 
-69:                                               ; preds = %._crit_edge
+69:                                               ; preds = %65
   %70 = call fastcc ptr @_(ptr noundef nonnull @.str.65)
   call void (ptr, ...) @die(ptr noundef %70, ptr noundef %0) #20
   unreachable
 
-71:                                               ; preds = %._crit_edge, %15
-  %.025 = phi i32 [ 0, %15 ], [ %.1, %._crit_edge ]
+71:                                               ; preds = %65, %15
+  %.025 = phi i32 [ 0, %15 ], [ %.1, %65 ]
   call void @strbuf_release(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -1199,9 +1199,9 @@ Gia_ManHashFind.exit.thread:                      ; preds = %Gia_ManHashFind.exi
   br label %99
 
 99:                                               ; preds = %Gia_ManHashFind.exit.thread, %97
-  %.sink91 = phi ptr [ %98, %97 ], [ %.021.lcssa.i75, %Gia_ManHashFind.exit.thread ]
+  %.sink92 = phi ptr [ %98, %97 ], [ %.021.lcssa.i75, %Gia_ManHashFind.exit.thread ]
   %100 = ashr i32 %96, 1
-  store i32 %100, ptr %.sink91, align 4, !tbaa !11
+  store i32 %100, ptr %.sink92, align 4, !tbaa !11
   %101 = and i32 %96, -2
   %102 = or disjoint i32 %101, %.156
   br label %103

@@ -1274,26 +1274,25 @@ define internal fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang9Va
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !224
   %10 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
-  br label %20
+  br label %19
 
 11:                                               ; preds = %2
   %12 = add nsw i32 %5, -38
   %13 = icmp ult i32 %12, 7
-  br i1 %13, label %14, label %20
+  br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
   %15 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %0)
-  br i1 %15, label %16, label %20
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8, !tbaa !181
-  %18 = and i64 %.sroa.0.0.copyload.i, 1
-  %19 = icmp ne i64 %18, 0
-  br label %20
+  %18 = trunc i64 %.sroa.0.0.copyload.i to i1
+  br label %19
 
-20:                                               ; preds = %16, %14, %11, %7
-  %.1 = phi i1 [ %10, %7 ], [ %19, %16 ], [ true, %14 ], [ false, %11 ]
+19:                                               ; preds = %16, %14, %11, %7
+  %.1 = phi i1 [ %10, %7 ], [ %18, %16 ], [ true, %14 ], [ false, %11 ]
   ret i1 %.1
 }
 

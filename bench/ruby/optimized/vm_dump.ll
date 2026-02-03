@@ -1877,9 +1877,8 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #8 {
   br label %17
 
 12:                                               ; preds = %9
-  %13 = and i64 %0, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %17
+  %13 = trunc i64 %0 to i1
+  br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
   %15 = and i64 %0, 254

@@ -69513,16 +69513,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4core6option15
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419"(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %0, i1 noundef zeroext %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %8, label %4
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !alias.scope !13853, !noundef !26
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  br label %8
+  %6 = trunc i8 %5 to i1
+  br label %7
 
-8:                                                ; preds = %2, %4
-  %.0.in = phi i1 [ %7, %4 ], [ %1, %2 ]
+7:                                                ; preds = %2, %4
+  %.0.in = phi i1 [ %6, %4 ], [ %1, %2 ]
   ret i1 %.0.in
 }
 
@@ -94186,9 +94185,8 @@ define noundef nonnull ptr @_ZN6hir_ty5infer5unify14InferenceTable14fallback_val
   %.sink5.i = select i1 %10, ptr %15, ptr %14
   %16 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 %13
   %17 = load i8, ptr %16, align 1, !alias.scope !19056, !noundef !26
-  %18 = and i8 %17, 1
-  %.not10 = icmp eq i8 %18, 0
-  br i1 %.not10, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread", label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread": ; preds = %3, %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -94237,12 +94235,12 @@ common.resume:                                    ; preds = %32, %21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread", %27
-  %.sink13 = phi i8 [ 4, %27 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread" ]
-  %.sink11 = phi i8 [ 1, %27 ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread" ]
+  %.sink12 = phi i8 [ 4, %27 ], [ 2, %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread" ]
+  %.sink10 = phi i8 [ 1, %27 ], [ 3, %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread" ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %.sink13, ptr %28, align 1
+  store i8 %.sink12, ptr %28, align 1
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %.sink11, ptr %29, align 2
+  store i8 %.sink10, ptr %29, align 2
   br label %30
 
 30:                                               ; preds = %.sink.split, %"_ZN4core6option15Option$LT$T$GT$6map_or17he55b8b15ea025cd3E.llvm.2869318172927361419.exit.thread"
@@ -94281,9 +94279,8 @@ common.resume:                                    ; preds = %32, %21
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN6hir_ty5infer5unify14InferenceTable14fallback_value28_$u7b$$u7b$closure$u7d$$u7d$17hb7217708b8061678E.llvm.2869318172927361419"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !noundef !26
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  ret i1 %4
+  %3 = trunc i8 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -3714,15 +3714,14 @@ define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17h
   br label %.thread12
 
 10:                                               ; preds = %1
-  %11 = and i32 %2, 1
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.thread12, label %12
+  %11 = trunc i32 %2 to i1
+  br i1 %11, label %12, label %.thread12
 
 12:                                               ; preds = %10
   %13 = lshr i32 %2, 11
   %14 = and i32 %13, 4
-  %spec.select16 = or disjoint i32 %.114, %14
-  %spec.select = zext nneg i32 %spec.select16 to i64
+  %spec.select15 = or disjoint i32 %.114, %14
+  %spec.select = zext nneg i32 %spec.select15 to i64
   br label %.thread12
 
 .thread12:                                        ; preds = %12, %10, %.thread
@@ -3734,8 +3733,8 @@ define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17h
   %19 = and i32 %18, 32
   %20 = shl i32 %2, 3
   %21 = and i32 %20, 16
-  %.417 = or disjoint i32 %21, %19
-  %.4 = zext nneg i32 %.417 to i64
+  %.416 = or disjoint i32 %21, %19
+  %.4 = zext nneg i32 %.416 to i64
   %.5 = or i64 %.3, %.4
   ret i64 %.5
 }
@@ -3801,17 +3800,16 @@ define hidden noundef i64 @_ZN5tokio2io5ready5Ready8as_usize17h89e7f160fb0727e6E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready13from_interest17h202fdd7c81fc4815E.llvm.5542961546488995764(i64 noundef %0) unnamed_addr #5 {
-  %2 = and i64 %0, 1
-  %.not = icmp eq i64 %2, 0
-  %spec.select = select i1 %.not, i64 0, i64 5
+  %2 = trunc i64 %0 to i1
+  %spec.select = select i1 %2, i64 5, i64 0
   %3 = and i64 %0, 2
-  %.not8 = icmp eq i64 %3, 0
+  %.not = icmp eq i64 %3, 0
   %4 = or disjoint i64 %spec.select, 10
-  %.1 = select i1 %.not8, i64 %spec.select, i64 %4
+  %.1 = select i1 %.not, i64 %spec.select, i64 %4
   %5 = and i64 %0, 16
-  %.not9 = icmp eq i64 %5, 0
+  %.not8 = icmp eq i64 %5, 0
   %6 = or i64 %.1, 20
-  %.2 = select i1 %.not9, i64 %.1, i64 %6
+  %.2 = select i1 %.not8, i64 %.1, i64 %6
   %7 = and i64 %0, 32
   %.3 = or disjoint i64 %.2, %7
   ret i64 %.3
@@ -3819,17 +3817,16 @@ define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready13from_inter
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready12intersection17h54351d29877c797bE(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  %spec.select.i = select i1 %.not.i, i64 0, i64 5
+  %3 = trunc i64 %1 to i1
+  %spec.select.i = select i1 %3, i64 5, i64 0
   %4 = and i64 %1, 2
-  %.not8.i = icmp eq i64 %4, 0
+  %.not.i = icmp eq i64 %4, 0
   %5 = or disjoint i64 %spec.select.i, 10
-  %.1.i = select i1 %.not8.i, i64 %spec.select.i, i64 %5
+  %.1.i = select i1 %.not.i, i64 %spec.select.i, i64 %5
   %6 = and i64 %1, 16
-  %.not9.i = icmp eq i64 %6, 0
+  %.not8.i = icmp eq i64 %6, 0
   %7 = or i64 %.1.i, 20
-  %.2.i = select i1 %.not9.i, i64 %.1.i, i64 %7
+  %.2.i = select i1 %.not8.i, i64 %.1.i, i64 %7
   %8 = and i64 %1, 32
   %.3.i = or disjoint i64 %.2.i, %8
   %9 = and i64 %.3.i, %0
@@ -3838,17 +3835,16 @@ define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready12intersecti
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN5tokio2io5ready5Ready9satisfies17h46fbd33aaa0cd7c5E(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  %spec.select.i = select i1 %.not.i, i64 0, i64 5
+  %3 = trunc i64 %1 to i1
+  %spec.select.i = select i1 %3, i64 5, i64 0
   %4 = and i64 %1, 2
-  %.not8.i = icmp eq i64 %4, 0
+  %.not.i = icmp eq i64 %4, 0
   %5 = or disjoint i64 %spec.select.i, 10
-  %.1.i = select i1 %.not8.i, i64 %spec.select.i, i64 %5
+  %.1.i = select i1 %.not.i, i64 %spec.select.i, i64 %5
   %6 = and i64 %1, 16
-  %.not9.i = icmp eq i64 %6, 0
+  %.not8.i = icmp eq i64 %6, 0
   %7 = or i64 %.1.i, 20
-  %.2.i = select i1 %.not9.i, i64 %.1.i, i64 %7
+  %.2.i = select i1 %.not8.i, i64 %.1.i, i64 %7
   %8 = and i64 %1, 32
   %.3.i = or disjoint i64 %.2.i, %8
   %9 = and i64 %.3.i, %0
@@ -7780,9 +7776,8 @@ define noundef range(i8 0, 4) i8 @_ZN5tokio7runtime4task5state5State18transition
 ; Function Attrs: nonlazybind uwtable
 define noundef i64 @_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #1 {
   %2 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %5
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #38
@@ -7790,8 +7785,8 @@ define noundef i64 @_ZN5tokio7runtime4task5state5State22transition_to_complete17
 
 5:                                                ; preds = %1
   %6 = and i64 %2, 2
-  %.not5 = icmp eq i64 %6, 0
-  br i1 %.not5, label %7, label %9
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
   %8 = xor i64 %2, 3
@@ -7868,9 +7863,8 @@ define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state5State29transition
   br i1 %or.cond.not.i.i, label %5, label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i"
 
 5:                                                ; preds = %3
-  %6 = and i64 %.07.i, 1
-  %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %7, label %11
+  %6 = trunc i64 %.07.i to i1
+  br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
   %8 = icmp sgt i64 %.07.i, -1
@@ -7889,12 +7883,13 @@ _ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i: ; pr
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i"
 
 "_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i": ; preds = %11, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i
-  %.sink.i.ph.i = phi i64 [ %12, %11 ], [ %10, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i ]
+  %.sink.i.ph.i = phi i64 [ %10, %_ZN5tokio7runtime4task5state8Snapshot7ref_inc17h8a8c01ddee1e4fa4E.exit.i.i ], [ %12, %11 ]
+  %.sroa.0.0.ph.i = xor i1 %6, true
   store i64 1, ptr %.sroa.612.i, align 8, !alias.scope !704
   br label %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i"
 
 "_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.i": ; preds = %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i", %3
-  %.sroa.0.0.i = phi i1 [ false, %3 ], [ %.not.i.i, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i" ]
+  %.sroa.0.0.i = phi i1 [ false, %3 ], [ %.sroa.0.0.ph.i, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i" ]
   %.sink13.i.sroa.phi.i = phi ptr [ %.sroa.612.i, %3 ], [ %.sroa.10.i, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i" ]
   %.sink.i.i = phi i64 [ 0, %3 ], [ %.sink.i.ph.i, %"_ZN5tokio7runtime4task5state5State29transition_to_notified_by_ref28_$u7b$$u7b$closure$u7d$$u7d$17hb7054e6dbefbffb1E.llvm.3285439092171202888.exit.sink.split.i" ]
   store i64 %.sink.i.i, ptr %.sink13.i.sroa.phi.i, align 8, !alias.scope !704
@@ -8224,9 +8219,8 @@ define hidden void @_ZN5tokio7runtime4task5state8Snapshot12set_notified17h70ded6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN5tokio7runtime4task5state8Snapshot10is_running17h43de46562ed6e5ceE(i64 noundef %0) unnamed_addr #5 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -8910,9 +8904,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio4sync5watch13maybe_changed17h8
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = and i64 %4, 1
-  %.not3 = icmp eq i64 %8, 0
-  %spec.select = select i1 %.not3, i8 2, i8 1
+  %8 = trunc i64 %4 to i1
+  %spec.select = select i1 %8, i8 1, i8 2
   br label %10
 
 9:                                                ; preds = %2
@@ -9156,9 +9149,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync5watch17Receiver$LT$T$GT
   br i1 %.not.i, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = and i64 %5, 1
-  %.not3.i = icmp eq i64 %9, 0
-  %spec.select.i = select i1 %.not3.i, i8 2, i8 1
+  %9 = trunc i64 %5 to i1
+  %spec.select.i = select i1 %9, i8 1, i8 2
   br label %_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit
 
 10:                                               ; preds = %1

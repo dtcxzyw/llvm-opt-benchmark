@@ -676,7 +676,7 @@ define hidden noundef zeroext i1 @_ZN2cv10ExrDecoder8readDataERNS_3MatE(ptr noun
   %43 = icmp ne i32 %42, 0
   %44 = and i32 %41, 1
   %45 = xor i32 %44, 1
-  %46 = icmp ne i32 %44, 0
+  %46 = trunc i32 %41 to i1
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !87
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -745,7 +745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %71, %
 
 76:                                               ; preds = %2
   %77 = select i1 %38, i64 4, i64 1
-  %or.cond = and i1 %46, %32
+  %or.cond = and i1 %32, %46
   br i1 %or.cond, label %83, label %78
 
 78:                                               ; preds = %76

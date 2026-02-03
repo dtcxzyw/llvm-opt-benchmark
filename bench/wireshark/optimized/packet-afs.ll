@@ -1438,7 +1438,7 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
-  %17 = icmp ne i8 %15, 0
+  %17 = trunc i8 %14 to i1
   %.in.v = select i1 %17, i64 288, i64 284
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
   %18 = load i32, ptr %.in, align 4

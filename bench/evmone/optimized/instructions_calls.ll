@@ -114,10 +114,10 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core9call_implILNS_6Opcode
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !tbaa.struct !16
   call void @llvm.lifetime.start.p0(ptr nonnull %9) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  %.sink237.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink237.sroa.gep246 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink237.sroa.gep248 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink237.sroa.gep249 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink236.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink236.sroa.gep245 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink236.sroa.gep247 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink236.sroa.gep248 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %26
 
 26:                                               ; preds = %26, %3
@@ -194,11 +194,11 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %26
 
 _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread: ; preds = %57, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
   %.0131133 = phi i64 [ %.0131.ph, %57 ], [ %1, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit ]
-  %.sroa.0.0.copyload174 = load i64, ptr %7, align 8
-  %.sroa.10.0..sroa_idx178 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.10.0.copyload179 = load i64, ptr %.sroa.10.0..sroa_idx178, align 8
-  %.sroa.13.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.13.0.copyload185 = load i32, ptr %.sroa.13.0..sroa_idx184, align 8
+  %.sroa.0.0.copyload173 = load i64, ptr %7, align 8
+  %.sroa.10.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.10.0.copyload178 = load i64, ptr %.sroa.10.0..sroa_idx177, align 8
+  %.sroa.13.0..sroa_idx183 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.13.0.copyload184 = load i32, ptr %.sroa.13.0..sroa_idx183, align 8
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
 59:                                               ; preds = %57
@@ -208,7 +208,7 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %62 = load i8, ptr %61, align 1, !tbaa !79, !range !81, !noalias !76, !noundef !82
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225
+  br i1 %63, label %64, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %46, align 8, !tbaa !72, !noalias !76
@@ -220,16 +220,16 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.neg.i = select i1 %70, i64 -2600, i64 -100
   %71 = add i64 %.neg.i, %.0131.ph
   %72 = icmp slt i64 %71, 0
-  br i1 %72, label %73, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225
+  br i1 %72, label %73, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224
 
-_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225: ; preds = %64, %59
-  %.sink237.sroa.phi = phi ptr [ %.sink237.sroa.gep, %59 ], [ %.sink237.sroa.gep246, %64 ]
-  %.sink237.sroa.phi247 = phi ptr [ %.sink237.sroa.gep248, %59 ], [ %.sink237.sroa.gep249, %64 ]
-  %.sink237 = phi ptr [ %7, %59 ], [ %6, %64 ]
+_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224: ; preds = %64, %59
+  %.sink236.sroa.phi = phi ptr [ %.sink236.sroa.gep, %59 ], [ %.sink236.sroa.gep245, %64 ]
+  %.sink236.sroa.phi246 = phi ptr [ %.sink236.sroa.gep247, %59 ], [ %.sink236.sroa.gep248, %64 ]
+  %.sink236 = phi ptr [ %7, %59 ], [ %6, %64 ]
   %.2.ph = phi i64 [ %.0131.ph, %59 ], [ %71, %64 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink237, align 1
-  %.sroa.10.0.copyload = load i64, ptr %.sink237.sroa.phi, align 1
-  %.sroa.13.0.copyload = load i32, ptr %.sink237.sroa.phi247, align 1
+  %.sroa.0.0.copyload = load i64, ptr %.sink236, align 1
+  %.sroa.10.0.copyload = load i64, ptr %.sink236.sroa.phi, align 1
+  %.sroa.13.0.copyload = load i32, ptr %.sink236.sroa.phi246, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18, !noalias !76
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -237,12 +237,12 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #18, !noalias !76
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.13.0.copyload.sink = phi i32 [ %.sroa.13.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.13.0.copyload185, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.3222 = phi i64 [ %.2.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.0131133, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.10.1220 = phi i64 [ %.sroa.10.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.10.0.copyload179, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.10.1219.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread225 ], [ %.sroa.0.0.copyload174, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr164232 = freeze i32 %.sroa.13.0.copyload.sink
+_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
+  %.sroa.13.0.copyload.sink = phi i32 [ %.sroa.13.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224 ], [ %.sroa.13.0.copyload184, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.3221 = phi i64 [ %.2.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224 ], [ %.0131133, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.10.1219 = phi i64 [ %.sroa.10.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224 ], [ %.sroa.10.0.copyload178, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.10.1218.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread224 ], [ %.sroa.0.0.copyload173, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr164231 = freeze i32 %.sroa.13.0.copyload.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %74
@@ -299,16 +299,16 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i:         ; preds = %74
   br i1 %104, label %105, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 105:                                              ; preds = %100
-  %106 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.3222, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %101) #18
+  %106 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.3221, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 noundef %101) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %100, %105
-  %.4 = phi i64 [ %106, %105 ], [ %.3222, %100 ]
+  %.4 = phi i64 [ %106, %105 ], [ %.3221, %100 ]
   %107 = icmp sgt i64 %.4, -1
   br i1 %107, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread140, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread140: ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
-  %.5143 = phi i64 [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.3222, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i ]
+  %.5143 = phi i64 [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.3221, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %108
@@ -388,12 +388,12 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64.thread14
   %146 = load i32, ptr %145, align 4, !tbaa !85
   %147 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %148 = load i64, ptr %7, align 8
-  %149 = icmp eq i64 %148, %.sroa.0.sroa.10.1219.in
+  %149 = icmp eq i64 %148, %.sroa.0.sroa.10.1218.in
   %150 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %151 = load i64, ptr %150, align 8
-  %152 = icmp eq i64 %151, %.sroa.10.1220
-  %or.cond241 = select i1 %149, i1 %152, i1 false
-  br i1 %or.cond241, label %_ZN4evmcneERKNS_7addressES2_.exit, label %_ZN4evmcneERKNS_7addressES2_.exit.thread
+  %152 = icmp eq i64 %151, %.sroa.10.1219
+  %or.cond240 = select i1 %149, i1 %152, i1 false
+  br i1 %or.cond240, label %_ZN4evmcneERKNS_7addressES2_.exit, label %_ZN4evmcneERKNS_7addressES2_.exit.thread
 
 _ZN4evmcneERKNS_7addressES2_.exit.thread:         ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64.thread147
   %153 = or i32 %146, 2
@@ -403,7 +403,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %155 = load i32, ptr %154, align 8
   %.fr = freeze i32 %155
-  %.not165 = icmp eq i32 %.fr, %.fr164232
+  %.not165 = icmp eq i32 %.fr, %.fr164231
   %156 = and i32 %146, -3
   %masksel = select i1 %.not165, i32 0, i32 2
   %spec.select163 = or disjoint i32 %masksel, %156
@@ -420,11 +420,11 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   %163 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %163, ptr noundef nonnull align 8 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !90
   %164 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  store i64 %.sroa.0.sroa.10.1219.in, ptr %164, align 8
-  %.sroa.10.0..sroa_idx180 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  store i64 %.sroa.10.1220, ptr %.sroa.10.0..sroa_idx180, align 8
-  %.sroa.13.0..sroa_idx186 = getelementptr inbounds nuw i8, ptr %12, i64 160
-  store i32 %.fr164232, ptr %.sroa.13.0..sroa_idx186, align 8, !tbaa !3
+  store i64 %.sroa.0.sroa.10.1218.in, ptr %164, align 8
+  %.sroa.10.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %12, i64 152
+  store i64 %.sroa.10.1219, ptr %.sroa.10.0..sroa_idx179, align 8
+  %.sroa.13.0..sroa_idx185 = getelementptr inbounds nuw i8, ptr %12, i64 160
+  store i32 %.fr164231, ptr %.sroa.13.0..sroa_idx185, align 8, !tbaa !3
   %165 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %166 = getelementptr inbounds nuw i8, ptr %12, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %166, ptr noundef nonnull align 8 dereferenceable(20) %165, i64 20, i1 false), !tbaa.struct !90
@@ -464,9 +464,8 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br i1 %34, label %.critedge52, label %186
 
 186:                                              ; preds = %184
-  %187 = and i32 %146, 1
-  %.not166 = icmp eq i32 %187, 0
-  br i1 %.not166, label %188, label %284
+  %187 = trunc i32 %146 to i1
+  br i1 %187, label %284, label %188
 
 .critedge52:                                      ; preds = %184
   %.old = load i32, ptr %42, align 8, !tbaa !25
@@ -503,25 +502,25 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %196
   %205 = or disjoint i128 %203, %204
   %206 = zext nneg i64 %.sroa.017.0.i to i128
   %207 = icmp ult i128 %205, %206
-  %spec.select168 = select i1 %207, i64 %.sroa.0102.0.copyload, i64 9223372036854775807
-  store i64 %spec.select168, ptr %199, align 8, !tbaa !102
+  %spec.select167 = select i1 %207, i64 %.sroa.0102.0.copyload, i64 9223372036854775807
+  store i64 %spec.select167, ptr %199, align 8, !tbaa !102
   %208 = load i32, ptr %42, align 8, !tbaa !25
   %209 = icmp sgt i32 %208, 1
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit
-  %.neg159167 = lshr i64 %197, 6
-  %211 = sub nsw i64 %197, %.neg159167
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %211, i64 %spec.select168)
+  %.neg159166 = lshr i64 %197, 6
+  %211 = sub nsw i64 %197, %.neg159166
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %211, i64 %spec.select167)
   store i64 %.sroa.speculated, ptr %199, align 8, !tbaa !102
   br label %214
 
 212:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit
-  %213 = icmp sgt i64 %spec.select168, %197
+  %213 = icmp sgt i64 %spec.select167, %197
   br i1 %213, label %284, label %214
 
 214:                                              ; preds = %212, %210
-  %215 = phi i64 [ %spec.select168, %212 ], [ %.sroa.speculated, %210 ]
+  %215 = phi i64 [ %spec.select167, %212 ], [ %.sroa.speculated, %210 ]
   br i1 %34, label %216, label %.thread152
 
 216:                                              ; preds = %214
@@ -655,7 +654,7 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %272, %283
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %284, %73, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64, %84, %93, %96, %117, %126, %129, %54
   %.sroa.039.0 = phi i32 [ 3, %54 ], [ 3, %73 ], [ %.sroa.039.4, %284 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ 3, %96 ], [ 3, %84 ], [ 3, %93 ], [ 3, %129 ], [ 3, %117 ], [ 3, %126 ]
-  %.sroa.1140.0 = phi i64 [ %55, %54 ], [ %71, %73 ], [ %.sroa.1140.4, %284 ], [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.6, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ %.3222, %96 ], [ %.3222, %84 ], [ %.3222, %93 ], [ %.5143, %129 ], [ %.5143, %117 ], [ %.5143, %126 ]
+  %.sroa.1140.0 = phi i64 [ %55, %54 ], [ %71, %73 ], [ %.sroa.1140.4, %284 ], [ %.4, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.6, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit64 ], [ %.3221, %96 ], [ %.3221, %84 ], [ %.3221, %93 ], [ %.5143, %129 ], [ %.5143, %117 ], [ %.5143, %126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #18
@@ -2201,10 +2200,10 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core12extcall_implILNS_6Op
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !16
   call void @llvm.lifetime.start.p0(ptr nonnull %8) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  %.sink174.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink174.sroa.gep180 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink174.sroa.gep182 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink174.sroa.gep183 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink173.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink173.sroa.gep179 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink173.sroa.gep181 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink173.sroa.gep182 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %17
 
 17:                                               ; preds = %17, %3
@@ -2291,11 +2290,11 @@ _ZN4intxgtERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZN4intxeqERKNS_4ui
   br i1 %61, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread, label %62
 
 _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread: ; preds = %58
-  %.sroa.0.0.copyload112 = load i64, ptr %9, align 8
-  %.sroa.9.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.9.0.copyload119 = load i64, ptr %.sroa.9.0..sroa_idx118, align 8
-  %.sroa.12.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.12.0.copyload125 = load i32, ptr %.sroa.12.0..sroa_idx124, align 8
+  %.sroa.0.0.copyload111 = load i64, ptr %9, align 8
+  %.sroa.9.0..sroa_idx117 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.9.0.copyload118 = load i64, ptr %.sroa.9.0..sroa_idx117, align 8
+  %.sroa.12.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.12.0.copyload124 = load i32, ptr %.sroa.12.0..sroa_idx123, align 8
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
 62:                                               ; preds = %58
@@ -2304,7 +2303,7 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %64 = load i8, ptr %63, align 1, !tbaa !79, !range !81, !noalias !174, !noundef !82
   %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %66, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163
+  br i1 %65, label %66, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %47, align 8, !tbaa !72, !noalias !174
@@ -2316,16 +2315,16 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   %.neg.i = select i1 %72, i64 -2600, i64 -100
   %73 = add i64 %.neg.i, %.093
   %74 = icmp slt i64 %73, 0
-  br i1 %74, label %75, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163
+  br i1 %74, label %75, label %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162
 
-_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163: ; preds = %66, %62
-  %.sink174.sroa.phi = phi ptr [ %.sink174.sroa.gep, %62 ], [ %.sink174.sroa.gep180, %66 ]
-  %.sink174.sroa.phi181 = phi ptr [ %.sink174.sroa.gep182, %62 ], [ %.sink174.sroa.gep183, %66 ]
-  %.sink174 = phi ptr [ %9, %62 ], [ %5, %66 ]
+_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162: ; preds = %66, %62
+  %.sink173.sroa.phi = phi ptr [ %.sink173.sroa.gep, %62 ], [ %.sink173.sroa.gep179, %66 ]
+  %.sink173.sroa.phi180 = phi ptr [ %.sink173.sroa.gep181, %62 ], [ %.sink173.sroa.gep182, %66 ]
+  %.sink173 = phi ptr [ %9, %62 ], [ %5, %66 ]
   %.1.ph = phi i64 [ %.093, %62 ], [ %73, %66 ]
-  %.sroa.0.0.copyload = load i64, ptr %.sink174, align 1
-  %.sroa.9.0.copyload115 = load i64, ptr %.sink174.sroa.phi, align 1
-  %.sroa.12.0.copyload = load i32, ptr %.sink174.sroa.phi181, align 1
+  %.sroa.0.0.copyload = load i64, ptr %.sink173, align 1
+  %.sroa.9.0.copyload114 = load i64, ptr %.sink173.sroa.phi, align 1
+  %.sroa.12.0.copyload = load i32, ptr %.sink173.sroa.phi180, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18, !noalias !174
   br label %_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit
 
@@ -2333,12 +2332,12 @@ _ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_1
   call void @llvm.lifetime.end.p0(ptr nonnull %5) #18, !noalias !174
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
-_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
-  %.sroa.12.0.copyload.sink = phi i32 [ %.sroa.12.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.12.0.copyload125, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.2160 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.093, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.9.1158 = phi i64 [ %.sroa.9.0.copyload115, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.9.0.copyload119, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.sroa.0.sroa.9.1157.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread163 ], [ %.sroa.0.0.copyload112, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
-  %.fr105170 = freeze i32 %.sroa.12.0.copyload.sink
+_ZSt3getIN4evmc7addressEJS1_N6evmone6ResultEEERKT_RKSt7variantIJDpT0_EE.exit: ; preds = %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread
+  %.sroa.12.0.copyload.sink = phi i32 [ %.sroa.12.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162 ], [ %.sroa.12.0.copyload124, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.2159 = phi i64 [ %.1.ph, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162 ], [ %.093, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.9.1157 = phi i64 [ %.sroa.9.0.copyload114, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162 ], [ %.sroa.9.0.copyload118, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.sroa.0.sroa.9.1156.in = phi i64 [ %.sroa.0.0.copyload, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread162 ], [ %.sroa.0.0.copyload111, %_ZN6evmone5instr4core12_GLOBAL__N_118get_target_addressERKN4evmc7addressERlRNS_14ExecutionStateE.exit.thread ]
+  %.fr105169 = freeze i32 %.sroa.12.0.copyload.sink
   call void @llvm.lifetime.start.p0(ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %76
@@ -2399,17 +2398,17 @@ _ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryE
   br i1 %106, label %107, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 107:                                              ; preds = %102
-  %108 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.2160, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 noundef %103) #18
+  %108 = call noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i64 noundef %.2159, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 noundef %103) #18
   br label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit: ; preds = %102, %107
-  %.3 = phi i64 [ %108, %107 ], [ %.2160, %102 ]
+  %.3 = phi i64 [ %108, %107 ], [ %.2159, %102 ]
   %109 = icmp sgt i64 %.3, -1
   br i1 %109, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99: ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99_crit_edge, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit
   %110 = phi i64 [ %96, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.pre, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99_crit_edge ]
-  %.4102 = phi i64 [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2160, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99_crit_edge ]
+  %.4102 = phi i64 [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2159, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit.i._ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99_crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2418,12 +2417,12 @@ _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99: 
   %114 = load i32, ptr %113, align 4, !tbaa !85
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %116 = load i64, ptr %9, align 8
-  %117 = icmp eq i64 %116, %.sroa.0.sroa.9.1157.in
+  %117 = icmp eq i64 %116, %.sroa.0.sroa.9.1156.in
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %119 = load i64, ptr %118, align 8
-  %120 = icmp eq i64 %119, %.sroa.9.1158
-  %or.cond177 = select i1 %117, i1 %120, i1 false
-  br i1 %or.cond177, label %_ZN4evmcneERKNS_7addressES2_.exit, label %_ZN4evmcneERKNS_7addressES2_.exit.thread
+  %120 = icmp eq i64 %119, %.sroa.9.1157
+  %or.cond176 = select i1 %117, i1 %120, i1 false
+  br i1 %or.cond176, label %_ZN4evmcneERKNS_7addressES2_.exit, label %_ZN4evmcneERKNS_7addressES2_.exit.thread
 
 _ZN4evmcneERKNS_7addressES2_.exit.thread:         ; preds = %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread99
   %121 = or i32 %114, 2
@@ -2433,7 +2432,7 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %123 = load i32, ptr %122, align 8
   %.fr = freeze i32 %123
-  %.not106 = icmp eq i32 %.fr, %.fr105170
+  %.not106 = icmp eq i32 %.fr, %.fr105169
   %124 = and i32 %114, -3
   %masksel = select i1 %.not106, i32 0, i32 2
   %spec.select104 = or disjoint i32 %masksel, %124
@@ -2450,11 +2449,11 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %131, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false), !tbaa.struct !90
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store i64 %.sroa.0.sroa.9.1157.in, ptr %132, align 8
-  %.sroa.9.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i64 %.sroa.9.1158, ptr %.sroa.9.0..sroa_idx120, align 8
-  %.sroa.12.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store i32 %.fr105170, ptr %.sroa.12.0..sroa_idx126, align 8, !tbaa !3
+  store i64 %.sroa.0.sroa.9.1156.in, ptr %132, align 8
+  %.sroa.9.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %10, i64 152
+  store i64 %.sroa.9.1157, ptr %.sroa.9.0..sroa_idx119, align 8
+  %.sroa.12.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store i32 %.fr105169, ptr %.sroa.12.0..sroa_idx125, align 8, !tbaa !3
   %133 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %134, ptr noundef nonnull align 8 dereferenceable(20) %133, i64 20, i1 false), !tbaa.struct !90
@@ -2493,9 +2492,8 @@ _ZN4evmcneERKNS_7addressES2_.exit:                ; preds = %_ZN6evmone12check_m
   br i1 %25, label %.critedge42, label %153
 
 153:                                              ; preds = %152
-  %154 = and i32 %114, 1
-  %.not107 = icmp eq i32 %154, 0
-  br i1 %.not107, label %155, label %224
+  %154 = trunc i32 %114 to i1
+  br i1 %154, label %224, label %155
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr %47, align 8, !tbaa !72
@@ -2655,7 +2653,7 @@ _ZN4evmc6ResultD2Ev.exit:                         ; preds = %212, %223
 
 _ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread: ; preds = %224, %75, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit, %86, %95, %98, %55
   %.sroa.032.1 = phi i32 [ 3, %55 ], [ 3, %75 ], [ %.sroa.032.5, %224 ], [ 3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ 3, %86 ], [ 3, %95 ], [ 3, %98 ]
-  %.sroa.933.1 = phi i64 [ %56, %55 ], [ %73, %75 ], [ %.sroa.933.5, %224 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2160, %86 ], [ %.2160, %95 ], [ %.2160, %98 ]
+  %.sroa.933.1 = phi i64 [ %56, %55 ], [ %73, %75 ], [ %.sroa.933.5, %224 ], [ %.3, %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit ], [ %.2159, %86 ], [ %.2159, %95 ], [ %.2159, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #18
   br label %225
 
@@ -3454,9 +3452,8 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6Opc
   %12 = load ptr, ptr %11, align 8, !tbaa !84
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !85
-  %15 = and i32 %14, 1
-  %.not86 = icmp eq i32 %15, 0
-  br i1 %.not86, label %16, label %181
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %181, label %16
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
@@ -3654,7 +3651,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %82, %99
   br i1 %113, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge
 
 _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit
-  %.pre91 = load i32, ptr %58, align 8, !tbaa !25
+  %.pre90 = load i32, ptr %58, align 8, !tbaa !25
   br label %114
 
 .critedge:                                        ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
@@ -3663,14 +3660,14 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4u
   br label %114
 
 114:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge, %.critedge
-  %115 = phi i32 [ %.pre91, %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge ], [ %59, %.critedge ]
+  %115 = phi i32 [ %.pre90, %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge ], [ %59, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, i8 0, i64 184, i1 false)
   store i32 3, ptr %9, align 8
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %117 = icmp sgt i32 %115, 1
-  %.neg258487 = lshr i64 %65, 6
-  %118 = select i1 %117, i64 %.neg258487, i64 0
+  %.neg258486 = lshr i64 %65, 6
+  %118 = select i1 %117, i64 %.neg258486, i64 0
   %storemerge = sub nsw i64 %65, %118
   store i64 %storemerge, ptr %116, align 8, !tbaa !102
   %.not = icmp eq i64 %57, 0
@@ -3816,9 +3813,8 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core11create_implILNS_6Opc
   %12 = load ptr, ptr %11, align 8, !tbaa !84
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !85
-  %15 = and i32 %14, 1
-  %.not83 = icmp eq i32 %15, 0
-  br i1 %.not83, label %16, label %186
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %186, label %16
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5) #18
@@ -4023,7 +4019,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %83, %100
   br i1 %114, label %_ZN6evmone12check_memoryERlRNS_6MemoryERKN4intx4uintILj256EEES7_.exit.thread, label %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge
 
 _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit
-  %.pre88 = load i32, ptr %59, align 8, !tbaa !25
+  %.pre87 = load i32, ptr %59, align 8, !tbaa !25
   br label %115
 
 .critedge:                                        ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
@@ -4032,14 +4028,14 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge: ; preds = %_ZN4intxltERKNS_4u
   br label %115
 
 115:                                              ; preds = %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge, %.critedge
-  %116 = phi i32 [ %.pre88, %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge ], [ %60, %.critedge ]
+  %116 = phi i32 [ %.pre87, %_ZN4intxltERKNS_4uintILj256EEES3_.exit._crit_edge ], [ %60, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, i8 0, i64 184, i1 false)
   store i32 4, ptr %9, align 8
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %118 = icmp sgt i32 %116, 1
-  %.neg258184 = lshr i64 %66, 6
-  %119 = select i1 %118, i64 %.neg258184, i64 0
+  %.neg258183 = lshr i64 %66, 6
+  %119 = select i1 %118, i64 %.neg258183, i64 0
   %storemerge = sub nsw i64 %66, %119
   store i64 %storemerge, ptr %117, align 8, !tbaa !102
   %.not = icmp eq i64 %58, 0
@@ -4193,9 +4189,8 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_
   %13 = load ptr, ptr %12, align 8, !tbaa !84
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !85
-  %16 = and i32 %15, 1
-  %.not82 = icmp eq i32 %16, 0
-  br i1 %.not82, label %17, label %196
+  %16 = trunc i32 %15 to i1
+  br i1 %16, label %196, label %17
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -4579,9 +4574,8 @@ define weak_odr hidden { i32, i64 } @_ZN6evmone5instr4core15create_eof_implILNS_
   %14 = load ptr, ptr %13, align 8, !tbaa !84
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !85
-  %17 = and i32 %16, 1
-  %.not97 = icmp eq i32 %17, 0
-  br i1 %.not97, label %18, label %202
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %202, label %18
 
 18:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #18

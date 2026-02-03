@@ -97951,16 +97951,16 @@ define hidden void @_ZN14polars_compute6gather14generic_binary28take_values_indi
   %.sroa.24.1.i = phi i64 [ %83, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i.i.i.i.i" ], [ %.sroa.24.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd681969c90bcadfE.exit.i.i.i.i" ]
   %86 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i.i.i.i.i" ], [ %.sroa.22.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd681969c90bcadfE.exit.i.i.i.i" ]
   %87 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i.i.i.i.i" ], [ %.sroa.20.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd681969c90bcadfE.exit.i.i.i.i" ]
-  %88 = lshr i64 %87, 1
-  %89 = add i64 %86, -1
-  %90 = trunc i64 %87 to i8
-  %91 = and i8 %90, 1
+  %88 = trunc i64 %87 to i8
+  %89 = lshr i64 %87, 1
+  %90 = add i64 %86, -1
+  %91 = and i8 %88, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i, %81
   %.sroa.15.2.i = phi ptr [ %.sroa.15.0.i, %81 ], [ %.sroa.15.1.i, %._crit_edge.i.i.i.i.i ]
-  %.sroa.20.1.i = phi i64 [ %.sroa.20.0.i, %81 ], [ %88, %._crit_edge.i.i.i.i.i ]
-  %.sroa.22.1.i = phi i64 [ 0, %81 ], [ %89, %._crit_edge.i.i.i.i.i ]
+  %.sroa.20.1.i = phi i64 [ %.sroa.20.0.i, %81 ], [ %89, %._crit_edge.i.i.i.i.i ]
+  %.sroa.22.1.i = phi i64 [ 0, %81 ], [ %90, %._crit_edge.i.i.i.i.i ]
   %.sroa.24.2.i = phi i64 [ 0, %81 ], [ %.sroa.24.1.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.i7.i.i.i.i = phi i8 [ 2, %81 ], [ %91, %._crit_edge.i.i.i.i.i ]
   %92 = invoke { i8, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h6db9b1049a20ad12E"(i8 noundef %.sroa.0.0.i7.i.i.i.i, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %spec.select44.i)

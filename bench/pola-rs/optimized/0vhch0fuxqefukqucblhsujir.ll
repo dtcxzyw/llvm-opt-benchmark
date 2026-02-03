@@ -6234,8 +6234,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %19 = phi i64 [ %35, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted27.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %20 = phi ptr [ %36, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted26.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %21 = phi i64 [ %37, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted25.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %.pre.i.i.i24.us.i = phi i64 [ %40, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %22 = phi i64 [ %41, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted23.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %.pre.i.i.i24.us.i = phi i64 [ %41, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %22 = phi i64 [ %42, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted23.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %23 = phi ptr [ %28, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted22.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %24 = phi i64 [ %27, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i" ], [ %.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1421)
@@ -6277,13 +6277,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %37 = phi i64 [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %21, %26 ]
   %38 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %22, %26 ]
   %39 = phi i64 [ %.sroa.02.0.copyload.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %.pre.i.i.i24.us.i, %26 ]
-  %40 = lshr i64 %39, 1
-  store i64 %40, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1431, !noalias !1432
-  %41 = add i64 %38, -1
-  store i64 %41, ptr %10, align 8, !alias.scope !1431, !noalias !1432
-  %42 = trunc i64 %39 to i1
+  %40 = trunc i64 %39 to i1
+  %41 = lshr i64 %39, 1
+  store i64 %41, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1431, !noalias !1432
+  %42 = add i64 %38, -1
+  store i64 %42, ptr %10, align 8, !alias.scope !1431, !noalias !1432
   %43 = icmp ult i64 %.val.i.i.i.i.us.i, %.val1.i.i.i.i.us.i
-  br i1 %42, label %49, label %44
+  br i1 %40, label %49, label %44
 
 44:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haea8de590561ad32E.exit.us.i"
   br i1 %43, label %.lr.ph.i.i.us.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h40e17fe96752f8bcE.exit.us.i"
@@ -6395,8 +6395,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = phi i64 [ %34, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted15.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %16 = phi ptr [ %35, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted14.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %17 = phi i64 [ %36, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted13.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %.pre.i.i.i12.us.i = phi i64 [ %39, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %18 = phi i64 [ %40, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %.pre.i.i.i12.us.i = phi i64 [ %40, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %18 = phi i64 [ %41, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %19 = phi ptr [ %24, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted10.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %20 = phi i64 [ %23, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i" ], [ %.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1463)
@@ -6439,12 +6439,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %36 = phi i64 [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %17, %22 ]
   %37 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %18, %22 ]
   %38 = phi i64 [ %.sroa.02.0.copyload.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %.pre.i.i.i12.us.i, %22 ]
-  %39 = lshr i64 %38, 1
-  store i64 %39, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1473, !noalias !1449
-  %40 = add i64 %37, -1
-  store i64 %40, ptr %10, align 8, !alias.scope !1473, !noalias !1449
-  %41 = trunc i64 %38 to i1
-  br i1 %41, label %.split.i.i.us.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i"
+  %39 = trunc i64 %38 to i1
+  %40 = lshr i64 %38, 1
+  store i64 %40, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1473, !noalias !1449
+  %41 = add i64 %37, -1
+  store i64 %41, ptr %10, align 8, !alias.scope !1473, !noalias !1449
+  br i1 %39, label %.split.i.i.us.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf8200ff4d2ea80a2E.exit.us.i"
 
 .split.i.i.us.i:                                  ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i"
   %42 = lshr i64 %27, 5
@@ -6524,8 +6524,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = phi i64 [ %33, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted15.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %16 = phi ptr [ %34, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted14.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %17 = phi i64 [ %35, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted13.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %.pre.i.i.i12.us.i = phi i64 [ %38, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %18 = phi i64 [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %.pre.i.i.i12.us.i = phi i64 [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %18 = phi i64 [ %40, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %19 = phi ptr [ %24, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted10.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %20 = phi i64 [ %23, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.us.i" ], [ %.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1498)
@@ -6567,14 +6567,14 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %35 = phi i64 [ %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %17, %22 ]
   %36 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %18, %22 ]
   %37 = phi i64 [ %.sroa.02.0.copyload.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %.pre.i.i.i12.us.i, %22 ]
-  %38 = lshr i64 %37, 1
-  store i64 %38, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1508, !noalias !1484
-  %39 = add i64 %36, -1
-  store i64 %39, ptr %10, align 8, !alias.scope !1508, !noalias !1484
-  %40 = trunc i64 %37 to i1
+  %38 = trunc i64 %37 to i1
+  %39 = lshr i64 %37, 1
+  store i64 %39, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1508, !noalias !1484
+  %40 = add i64 %36, -1
+  store i64 %40, ptr %10, align 8, !alias.scope !1508, !noalias !1484
   %41 = add i64 %25, 1
   %42 = sub i64 %41, %26
-  %.sroa.01.0.i.i.us.i = select i1 %40, i64 %42, i64 1
+  %.sroa.01.0.i.i.us.i = select i1 %38, i64 %42, i64 1
   %.not.i.i.i.not.us.i = icmp eq i64 %.sroa.01.0.i.i.us.i, %13
   %43 = add i64 %14, 1
   store i64 %43, ptr %3, align 8, !noalias !1510
@@ -6720,8 +6720,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %19 = phi i64 [ %37, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted27.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %20 = phi ptr [ %38, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted26.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %21 = phi i64 [ %39, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted25.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %.pre.i.i.i24.us.i = phi i64 [ %42, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %22 = phi i64 [ %43, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted23.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %.pre.i.i.i24.us.i = phi i64 [ %43, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %22 = phi i64 [ %44, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted23.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %23 = phi ptr [ %28, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted22.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %24 = phi i64 [ %27, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i" ], [ %.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1579)
@@ -6765,13 +6765,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %39 = phi i64 [ %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %21, %26 ]
   %40 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %22, %26 ]
   %41 = phi i64 [ %.sroa.02.0.copyload.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %.pre.i.i.i24.us.i, %26 ]
-  %42 = lshr i64 %41, 1
-  store i64 %42, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1589, !noalias !1590
-  %43 = add i64 %40, -1
-  store i64 %43, ptr %10, align 8, !alias.scope !1589, !noalias !1590
-  %44 = trunc i64 %41 to i1
+  %42 = trunc i64 %41 to i1
+  %43 = lshr i64 %41, 1
+  store i64 %43, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1589, !noalias !1590
+  %44 = add i64 %40, -1
+  store i64 %44, ptr %10, align 8, !alias.scope !1589, !noalias !1590
   %45 = icmp ult i32 %.val.i.i.i.i.us.i, %.val1.i.i.i.i.us.i
-  br i1 %44, label %51, label %46
+  br i1 %42, label %51, label %46
 
 46:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60caa0fed78f5640E.exit.us.i"
   br i1 %45, label %.lr.ph.i.i.us.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h87b9a52fcf4cb584E.exit.us.i"
@@ -6883,8 +6883,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = phi i64 [ %35, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted15.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %16 = phi ptr [ %36, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted14.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %17 = phi i64 [ %37, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted13.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %.pre.i.i.i12.us.i = phi i64 [ %40, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %18 = phi i64 [ %41, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %.pre.i.i.i12.us.i = phi i64 [ %41, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %18 = phi i64 [ %42, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %19 = phi ptr [ %24, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted10.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %20 = phi i64 [ %23, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i" ], [ %.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1621)
@@ -6928,13 +6928,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %37 = phi i64 [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %17, %22 ]
   %38 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %18, %22 ]
   %39 = phi i64 [ %.sroa.02.0.copyload.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %.pre.i.i.i12.us.i, %22 ]
-  %40 = lshr i64 %39, 1
-  store i64 %40, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1631, !noalias !1607
-  %41 = add i64 %38, -1
-  store i64 %41, ptr %10, align 8, !alias.scope !1631, !noalias !1607
-  %42 = trunc i64 %39 to i1
+  %40 = trunc i64 %39 to i1
+  %41 = lshr i64 %39, 1
+  store i64 %41, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1631, !noalias !1607
+  %42 = add i64 %38, -1
+  store i64 %42, ptr %10, align 8, !alias.scope !1631, !noalias !1607
   %43 = add nsw i64 %28, 1
-  %.sroa.01.0.i.i.us.i = select i1 %42, i64 %43, i64 1
+  %.sroa.01.0.i.i.us.i = select i1 %40, i64 %43, i64 1
   %.not.i.i.i.not.us.i = icmp eq i64 %.sroa.01.0.i.i.us.i, %13
   %44 = add i64 %14, 1
   store i64 %44, ptr %3, align 8, !noalias !1633
@@ -7120,8 +7120,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %15 = phi i64 [ %35, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted15.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %16 = phi ptr [ %36, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted14.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %17 = phi i64 [ %37, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted13.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %.pre.i.i.i12.us.i = phi i64 [ %40, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
-  %18 = phi i64 [ %41, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %.pre.i.i.i12.us.i = phi i64 [ %41, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
+  %18 = phi i64 [ %42, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted11.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %19 = phi ptr [ %24, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted10.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   %20 = phi i64 [ %23, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i" ], [ %.promoted.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.us.preheader.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1696)
@@ -7165,12 +7165,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %37 = phi i64 [ %32, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %17, %22 ]
   %38 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %18, %22 ]
   %39 = phi i64 [ %.sroa.02.0.copyload.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.us.i" ], [ %.pre.i.i.i12.us.i, %22 ]
-  %40 = lshr i64 %39, 1
-  store i64 %40, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1706, !noalias !1682
-  %41 = add i64 %38, -1
-  store i64 %41, ptr %10, align 8, !alias.scope !1706, !noalias !1682
-  %42 = trunc i64 %39 to i1
-  br i1 %42, label %.split.i.i.us.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i"
+  %40 = trunc i64 %39 to i1
+  %41 = lshr i64 %39, 1
+  store i64 %41, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !1706, !noalias !1682
+  %42 = add i64 %38, -1
+  store i64 %42, ptr %10, align 8, !alias.scope !1706, !noalias !1682
+  br i1 %40, label %.split.i.i.us.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h004ff7da24c2bfb5E.exit.us.i"
 
 .split.i.i.us.i:                                  ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.us.i"
   %43 = lshr i64 %28, 5
@@ -7903,8 +7903,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.promoted14.i, %4 ]
   %14 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.promoted13.i, %4 ]
   %15 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.promoted12.i, %4 ]
-  %.pre.i.i.i11.i = phi i64 [ %33, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %4 ]
-  %16 = phi i64 [ %34, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.promoted10.i, %4 ]
+  %.pre.i.i.i11.i = phi i64 [ %34, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %4 ]
+  %16 = phi i64 [ %35, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.promoted10.i, %4 ]
   %17 = phi ptr [ %20, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h828655b10b2d6071E.exit.i" ], [ %.promoted.i, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2031)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2032)
@@ -7942,13 +7942,13 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %30 = phi i64 [ %25, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %15, %19 ]
   %31 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %16, %19 ]
   %32 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %.pre.i.i.i11.i, %19 ]
-  %33 = lshr i64 %32, 1
-  store i64 %33, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !2038, !noalias !2017
-  %34 = add i64 %31, -1
-  store i64 %34, ptr %8, align 8, !alias.scope !2038, !noalias !2017
-  %35 = trunc i64 %32 to i1
+  %33 = trunc i64 %32 to i1
+  %34 = lshr i64 %32, 1
+  store i64 %34, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !2038, !noalias !2017
+  %35 = add i64 %31, -1
+  store i64 %35, ptr %8, align 8, !alias.scope !2038, !noalias !2017
   %36 = add nuw nsw i64 %21, 1
-  %.sroa.01.0.i.i.i = select i1 %35, i64 %36, i64 1
+  %.sroa.01.0.i.i.i = select i1 %33, i64 %36, i64 1
   %.not.i.i.i.not.i = icmp eq i64 %.sroa.01.0.i.i.i, %11
   %37 = add i64 %12, 1
   store i64 %37, ptr %3, align 8, !noalias !2040
@@ -8582,8 +8582,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = phi i64 [ %28, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted14.i, %4 ]
   %14 = phi ptr [ %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted13.i, %4 ]
   %15 = phi i64 [ %30, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted12.i, %4 ]
-  %.pre.i.i.i11.i = phi i64 [ %33, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %4 ]
-  %16 = phi i64 [ %34, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted10.i, %4 ]
+  %.pre.i.i.i11.i = phi i64 [ %34, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.phi.trans.insert.i.i.i.promoted.i, %4 ]
+  %16 = phi i64 [ %35, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted10.i, %4 ]
   %17 = phi ptr [ %20, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted.i, %4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2342)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2343)
@@ -8621,12 +8621,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %30 = phi i64 [ %25, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %15, %19 ]
   %31 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %16, %19 ]
   %32 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %.pre.i.i.i11.i, %19 ]
-  %33 = lshr i64 %32, 1
-  store i64 %33, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !2349, !noalias !2328
-  %34 = add i64 %31, -1
-  store i64 %34, ptr %8, align 8, !alias.scope !2349, !noalias !2328
-  %35 = trunc i64 %32 to i1
-  br i1 %35, label %.split.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i"
+  %33 = trunc i64 %32 to i1
+  %34 = lshr i64 %32, 1
+  store i64 %34, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !2349, !noalias !2328
+  %35 = add i64 %31, -1
+  store i64 %35, ptr %8, align 8, !alias.scope !2349, !noalias !2328
+  br i1 %33, label %.split.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i"
 
 .split.i.i.i:                                     ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i"
   %36 = add nuw nsw i64 %21, 31

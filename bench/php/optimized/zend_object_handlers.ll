@@ -4172,7 +4172,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %12 = load ptr, ptr %11, align 8, !tbaa !97
-  %.not143 = icmp eq ptr %12, null
+  %.not142 = icmp eq ptr %12, null
   br i1 %.not.i, label %20, label %13
 
 13:                                               ; preds = %tailrecurse
@@ -4209,7 +4209,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not99.i, label %.thread122, label %33
 
 33:                                               ; preds = %31
-  br i1 %.not143, label %34, label %zend_get_property_offset.exit.thread.thread.thread
+  br i1 %.not142, label %34, label %zend_get_property_offset.exit.thread.thread.thread
 
 34:                                               ; preds = %33
   tail call fastcc void @zend_bad_property_name()
@@ -4284,7 +4284,7 @@ get_fake_or_executed_scope.exit.i:                ; preds = %43, %41
   br i1 %.not93.i, label %62, label %.thread122
 
 62:                                               ; preds = %65, %60
-  br i1 %.not143, label %63, label %zend_get_property_offset.exit.thread.thread.thread
+  br i1 %.not142, label %63, label %zend_get_property_offset.exit.thread.thread.thread
 
 63:                                               ; preds = %62
   %64 = getelementptr i8, ptr %37, i64 4
@@ -4309,7 +4309,7 @@ get_fake_or_executed_scope.exit.i:                ; preds = %43, %41
   br i1 %.not95.i, label %76, label %71, !prof !59
 
 71:                                               ; preds = %.thread113
-  br i1 %.not143, label %72, label %zend_get_property_offset.exit.thread.thread133
+  br i1 %.not142, label %72, label %zend_get_property_offset.exit.thread.thread133
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -4390,9 +4390,8 @@ zend_get_property_offset.exit:                    ; preds = %16, %88, %89
 106:                                              ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %108 = load i32, ptr %107, align 4, !tbaa !37
-  %109 = and i32 %108, 1
-  %.not141 = icmp eq i32 %109, 0
-  br i1 %.not141, label %.critedge, label %110, !prof !59
+  %109 = trunc i32 %108 to i1
+  br i1 %109, label %110, label %.critedge, !prof !38
 
 110:                                              ; preds = %106, %101, %97
   %111 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
@@ -4404,8 +4403,8 @@ zend_get_property_offset.exit:                    ; preds = %16, %88, %89
   %115 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !37
   %117 = and i32 %116, 4
-  %.not142 = icmp eq i32 %117, 0
-  br i1 %.not142, label %.critedge102, label %118, !prof !59
+  %.not141 = icmp eq i32 %117, 0
+  br i1 %.not141, label %.critedge102, label %118, !prof !59
 
 118:                                              ; preds = %114
   %119 = tail call ptr @zend_lazy_object_init(ptr noundef nonnull %.tr) #18

@@ -1347,9 +1347,8 @@ define hidden void @_ZN3smt13quick_checker9collector7collectEP4exprP9func_declj(
 _Z9is_groundPK4expr.exit:                         ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %10 = load i8, ptr %9, align 2
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %18
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %18, label %_Z9is_groundPK4expr.exit.thread
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %4, %_Z9is_groundPK4expr.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1360,8 +1359,8 @@ _Z9is_groundPK4expr.exit.thread:                  ; preds = %4, %_Z9is_groundPK4
   store i32 %3, ptr %13, align 8, !tbaa !588
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryIN3smt13quick_checker9collector5entryEE8obj_hashIS4_E10default_eqIS4_EE9find_coreERKS4_(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(20) %6)
-  %.not9 = icmp eq ptr %15, null
-  br i1 %.not9, label %16, label %17
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %16, label %17
 
 16:                                               ; preds = %_Z9is_groundPK4expr.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1684,9 +1683,8 @@ define hidden void @_ZN3smt13quick_checker9collectorclEP10quantifierbR6vectorI10
 _Z9is_groundPK4expr.exit.i:                       ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 30
   %16 = load i8, ptr %15, align 2
-  %17 = and i8 %16, 1
-  %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %_Z9is_groundPK4expr.exit.thread.i, label %_ZN3smt13quick_checker9collector7collectEP4exprP9func_declj.exit
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %_ZN3smt13quick_checker9collector7collectEP4exprP9func_declj.exit, label %_Z9is_groundPK4expr.exit.thread.i
 
 _Z9is_groundPK4expr.exit.thread.i:                ; preds = %_Z9is_groundPK4expr.exit.i, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1700,8 +1698,8 @@ _Z9is_groundPK4expr.exit.thread.i:                ; preds = %_Z9is_groundPK4expr
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %_Z9is_groundPK4expr.exit.thread.i
-  %.not9.i = icmp eq ptr %21, null
-  br i1 %.not9.i, label %22, label %.noexc6
+  %.not.i = icmp eq ptr %21, null
+  br i1 %.not.i, label %22, label %.noexc6
 
 22:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

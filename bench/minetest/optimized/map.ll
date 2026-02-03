@@ -9587,8 +9587,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %call8.us.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %4, i48 %agg.tmp.sroa.0.0.copyload.us.us)
   %second.us.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us.us, i64 38
   %5 = load i8, ptr %second.us.us, align 2, !tbaa !281
-  %6 = and i8 %5, 1
-  %tobool.us.us = icmp ne i8 %6, 0
+  %tobool.us.us = trunc i8 %5 to i1
   %cmp.us.us = icmp eq ptr %call8.us.us, null
   %or.cond.us.us = or i1 %cmp.us.us, %tobool.us.us
   br i1 %or.cond.us.us, label %cleanup.us.us, label %lor.lhs.false11.us.us
@@ -9596,18 +9595,18 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
 lor.lhs.false11.us.us:                            ; preds = %for.body.us.us
   tail call void @_ZN8MapBlock8copyFromER16VoxelManipulator(ptr noundef nonnull align 8 dereferenceable(336) %call8.us.us, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %m_modified.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 74
-  %7 = load i16, ptr %m_modified.i.us.us, align 2, !tbaa !121
-  %cmp.i40.us.us = icmp ult i16 %7, 4
+  %6 = load i16, ptr %m_modified.i.us.us, align 2, !tbaa !121
+  %cmp.i40.us.us = icmp ult i16 %6, 4
   br i1 %cmp.i40.us.us, label %if.then.i.us.us, label %if.else.i.us.us
 
 if.else.i.us.us:                                  ; preds = %lor.lhs.false11.us.us
-  %cmp10.i.us.us = icmp eq i16 %7, 4
+  %cmp10.i.us.us = icmp eq i16 %6, 4
   br i1 %cmp10.i.us.us, label %if.then11.i.us.us, label %if.end14.i.us.us
 
 if.then11.i.us.us:                                ; preds = %if.else.i.us.us
   %m_modified_reason12.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 76
-  %8 = load i32, ptr %m_modified_reason12.i.us.us, align 4, !tbaa !122
-  %or.i.us.us = or i32 %8, 131072
+  %7 = load i32, ptr %m_modified_reason12.i.us.us, align 4, !tbaa !122
+  %or.i.us.us = or i32 %7, 131072
   store i32 %or.i.us.us, ptr %m_modified_reason12.i.us.us, align 4, !tbaa !122
   br label %if.end14.i.us.us
 
@@ -9616,21 +9615,21 @@ if.then.i.us.us:                                  ; preds = %lor.lhs.false11.us.
   %m_modified_reason.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 76
   store i32 131072, ptr %m_modified_reason.i.us.us, align 4, !tbaa !122
   %m_timestamp.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 80
-  %9 = load i32, ptr %m_timestamp.i.us.us, align 8, !tbaa !123
+  %8 = load i32, ptr %m_timestamp.i.us.us, align 8, !tbaa !123
   %m_disk_timestamp.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 84
-  store i32 %9, ptr %m_disk_timestamp.i.us.us, align 4, !tbaa !124
+  store i32 %8, ptr %m_disk_timestamp.i.us.us, align 4, !tbaa !124
   br label %if.end14.i.us.us
 
 if.end14.i.us.us:                                 ; preds = %if.then.i.us.us, %if.then11.i.us.us, %if.else.i.us.us
   %contents.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 48
-  %10 = load ptr, ptr %contents.i.us.us, align 8, !tbaa !125
+  %9 = load ptr, ptr %contents.i.us.us, align 8, !tbaa !125
   %_M_finish.i.i.i.us.us = getelementptr inbounds nuw i8, ptr %call8.us.us, i64 56
-  %11 = load ptr, ptr %_M_finish.i.i.i.us.us, align 8, !tbaa !126
-  %tobool.not.i.i.i.us.us = icmp eq ptr %11, %10
+  %10 = load ptr, ptr %_M_finish.i.i.i.us.us, align 8, !tbaa !126
+  %tobool.not.i.i.i.us.us = icmp eq ptr %10, %9
   br i1 %tobool.not.i.i.i.us.us, label %_ZN8MapBlock13raiseModifiedEjj.exit.us.us, label %invoke.cont.i.i.i.us.us
 
 invoke.cont.i.i.i.us.us:                          ; preds = %if.end14.i.us.us
-  store ptr %10, ptr %_M_finish.i.i.i.us.us, align 8, !tbaa !126
+  store ptr %9, ptr %_M_finish.i.i.i.us.us, align 8, !tbaa !126
   br label %_ZN8MapBlock13raiseModifiedEjj.exit.us.us
 
 _ZN8MapBlock13raiseModifiedEjj.exit.us.us:        ; preds = %invoke.cont.i.i.i.us.us, %if.end14.i.us.us
@@ -9648,38 +9647,37 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %_M_storage.i.i.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %p)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %p, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i.us, i64 6, i1 false), !tbaa.struct !97
-  %12 = load ptr, ptr %m_map, align 8, !tbaa !269
+  %11 = load ptr, ptr %m_map, align 8, !tbaa !269
   %agg.tmp.sroa.0.0.copyload.us = load i48, ptr %p, align 8, !tbaa.struct !97
-  %call8.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %12, i48 %agg.tmp.sroa.0.0.copyload.us)
+  %call8.us = tail call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %11, i48 %agg.tmp.sroa.0.0.copyload.us)
   %second.us = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047.us, i64 38
-  %13 = load i8, ptr %second.us, align 2, !tbaa !281
-  %14 = and i8 %13, 1
-  %tobool.us = icmp ne i8 %14, 0
+  %12 = load i8, ptr %second.us, align 2, !tbaa !281
+  %tobool.us = trunc i8 %12 to i1
   %cmp.us = icmp eq ptr %call8.us, null
   %or.cond.us = or i1 %cmp.us, %tobool.us
   br i1 %or.cond.us, label %cleanup.us, label %lor.lhs.false11.us
 
 lor.lhs.false11.us:                               ; preds = %for.body.us
   %m_generated.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 90
-  %15 = load i8, ptr %m_generated.i.us, align 2, !tbaa !285, !range !258, !noundef !259
-  %tobool.i.not.us = icmp eq i8 %15, 0
+  %13 = load i8, ptr %m_generated.i.us, align 2, !tbaa !285, !range !258, !noundef !259
+  %tobool.i.not.us = icmp eq i8 %13, 0
   br i1 %tobool.i.not.us, label %if.end15.us, label %cleanup.us
 
 if.end15.us:                                      ; preds = %lor.lhs.false11.us
   tail call void @_ZN8MapBlock8copyFromER16VoxelManipulator(ptr noundef nonnull align 8 dereferenceable(336) %call8.us, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %m_modified.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 74
-  %16 = load i16, ptr %m_modified.i.us, align 2, !tbaa !121
-  %cmp.i40.us = icmp ult i16 %16, 4
+  %14 = load i16, ptr %m_modified.i.us, align 2, !tbaa !121
+  %cmp.i40.us = icmp ult i16 %14, 4
   br i1 %cmp.i40.us, label %if.then.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.end15.us
-  %cmp10.i.us = icmp eq i16 %16, 4
+  %cmp10.i.us = icmp eq i16 %14, 4
   br i1 %cmp10.i.us, label %if.then11.i.us, label %if.end14.i.us
 
 if.then11.i.us:                                   ; preds = %if.else.i.us
   %m_modified_reason12.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 76
-  %17 = load i32, ptr %m_modified_reason12.i.us, align 4, !tbaa !122
-  %or.i.us = or i32 %17, 131072
+  %15 = load i32, ptr %m_modified_reason12.i.us, align 4, !tbaa !122
+  %or.i.us = or i32 %15, 131072
   store i32 %or.i.us, ptr %m_modified_reason12.i.us, align 4, !tbaa !122
   br label %if.end14.i.us
 
@@ -9688,21 +9686,21 @@ if.then.i.us:                                     ; preds = %if.end15.us
   %m_modified_reason.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 76
   store i32 131072, ptr %m_modified_reason.i.us, align 4, !tbaa !122
   %m_timestamp.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 80
-  %18 = load i32, ptr %m_timestamp.i.us, align 8, !tbaa !123
+  %16 = load i32, ptr %m_timestamp.i.us, align 8, !tbaa !123
   %m_disk_timestamp.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 84
-  store i32 %18, ptr %m_disk_timestamp.i.us, align 4, !tbaa !124
+  store i32 %16, ptr %m_disk_timestamp.i.us, align 4, !tbaa !124
   br label %if.end14.i.us
 
 if.end14.i.us:                                    ; preds = %if.then.i.us, %if.then11.i.us, %if.else.i.us
   %contents.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 48
-  %19 = load ptr, ptr %contents.i.us, align 8, !tbaa !125
+  %17 = load ptr, ptr %contents.i.us, align 8, !tbaa !125
   %_M_finish.i.i.i.us = getelementptr inbounds nuw i8, ptr %call8.us, i64 56
-  %20 = load ptr, ptr %_M_finish.i.i.i.us, align 8, !tbaa !126
-  %tobool.not.i.i.i.us = icmp eq ptr %20, %19
+  %18 = load ptr, ptr %_M_finish.i.i.i.us, align 8, !tbaa !126
+  %tobool.not.i.i.i.us = icmp eq ptr %18, %17
   br i1 %tobool.not.i.i.i.us, label %_ZN8MapBlock13raiseModifiedEjj.exit.us, label %invoke.cont.i.i.i.us
 
 invoke.cont.i.i.i.us:                             ; preds = %if.end14.i.us
-  store ptr %19, ptr %_M_finish.i.i.i.us, align 8, !tbaa !126
+  store ptr %17, ptr %_M_finish.i.i.i.us, align 8, !tbaa !126
   br label %_ZN8MapBlock13raiseModifiedEjj.exit.us
 
 _ZN8MapBlock13raiseModifiedEjj.exit.us:           ; preds = %invoke.cont.i.i.i.us, %if.end14.i.us
@@ -9720,13 +9718,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %p)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %p, ptr noundef nonnull align 2 dereferenceable(6) %_M_storage.i.i, i64 6, i1 false), !tbaa.struct !97
-  %21 = load ptr, ptr %m_map, align 8, !tbaa !269
+  %19 = load ptr, ptr %m_map, align 8, !tbaa !269
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %p, align 8, !tbaa.struct !97
-  %call8 = call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %21, i48 %agg.tmp.sroa.0.0.copyload)
+  %call8 = call noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144) %19, i48 %agg.tmp.sroa.0.0.copyload)
   %second = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.047, i64 38
-  %22 = load i8, ptr %second, align 2, !tbaa !281
-  %23 = and i8 %22, 1
-  %tobool = icmp ne i8 %23, 0
+  %20 = load i8, ptr %second, align 2, !tbaa !281
+  %tobool = trunc i8 %20 to i1
   %cmp = icmp eq ptr %call8, null
   %or.cond = or i1 %cmp, %tobool
   br i1 %or.cond, label %cleanup, label %lor.lhs.false11
@@ -9736,15 +9733,15 @@ lor.lhs.false11:                                  ; preds = %for.body
 
 land.lhs.true:                                    ; preds = %lor.lhs.false11
   %m_generated.i = getelementptr inbounds nuw i8, ptr %call8, i64 90
-  %24 = load i8, ptr %m_generated.i, align 2, !tbaa !285, !range !258, !noundef !259
-  %tobool.i.not = icmp eq i8 %24, 0
+  %21 = load i8, ptr %m_generated.i, align 2, !tbaa !285, !range !258, !noundef !259
+  %tobool.i.not = icmp eq i8 %21, 0
   br i1 %tobool.i.not, label %if.end15, label %cleanup
 
 if.end15:                                         ; preds = %land.lhs.true, %lor.lhs.false11
   call void @_ZN8MapBlock8copyFromER16VoxelManipulator(ptr noundef nonnull align 8 dereferenceable(336) %call8, ptr noundef nonnull align 8 dereferenceable(48) %this)
   %m_modified.i = getelementptr inbounds nuw i8, ptr %call8, i64 74
-  %25 = load i16, ptr %m_modified.i, align 2, !tbaa !121
-  %cmp.i40 = icmp ult i16 %25, 4
+  %22 = load i16, ptr %m_modified.i, align 2, !tbaa !121
+  %cmp.i40 = icmp ult i16 %22, 4
   br i1 %cmp.i40, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end15
@@ -9752,72 +9749,72 @@ if.then.i:                                        ; preds = %if.end15
   %m_modified_reason.i = getelementptr inbounds nuw i8, ptr %call8, i64 76
   store i32 131072, ptr %m_modified_reason.i, align 4, !tbaa !122
   %m_timestamp.i = getelementptr inbounds nuw i8, ptr %call8, i64 80
-  %26 = load i32, ptr %m_timestamp.i, align 8, !tbaa !123
+  %23 = load i32, ptr %m_timestamp.i, align 8, !tbaa !123
   %m_disk_timestamp.i = getelementptr inbounds nuw i8, ptr %call8, i64 84
-  store i32 %26, ptr %m_disk_timestamp.i, align 4, !tbaa !124
+  store i32 %23, ptr %m_disk_timestamp.i, align 4, !tbaa !124
   br label %if.end14.i
 
 if.else.i:                                        ; preds = %if.end15
-  %cmp10.i = icmp eq i16 %25, 4
+  %cmp10.i = icmp eq i16 %22, 4
   br i1 %cmp10.i, label %if.then11.i, label %if.end14.i
 
 if.then11.i:                                      ; preds = %if.else.i
   %m_modified_reason12.i = getelementptr inbounds nuw i8, ptr %call8, i64 76
-  %27 = load i32, ptr %m_modified_reason12.i, align 4, !tbaa !122
-  %or.i = or i32 %27, 131072
+  %24 = load i32, ptr %m_modified_reason12.i, align 4, !tbaa !122
+  %or.i = or i32 %24, 131072
   store i32 %or.i, ptr %m_modified_reason12.i, align 4, !tbaa !122
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.else.i, %if.then.i
   %contents.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
-  %28 = load ptr, ptr %contents.i, align 8, !tbaa !125
+  %25 = load ptr, ptr %contents.i, align 8, !tbaa !125
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 56
-  %29 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
-  %tobool.not.i.i.i = icmp eq ptr %29, %28
+  %26 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !126
+  %tobool.not.i.i.i = icmp eq ptr %26, %25
   br i1 %tobool.not.i.i.i, label %_ZN8MapBlock13raiseModifiedEjj.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.end14.i
-  store ptr %28, ptr %_M_finish.i.i.i, align 8, !tbaa !126
+  store ptr %25, ptr %_M_finish.i.i.i, align 8, !tbaa !126
   br label %_ZN8MapBlock13raiseModifiedEjj.exit
 
 _ZN8MapBlock13raiseModifiedEjj.exit:              ; preds = %invoke.cont.i.i.i, %if.end14.i
   call void @_ZN8MapBlock16expireIsAirCacheEv(ptr noundef nonnull align 8 dereferenceable(336) %call8)
-  %30 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !28
-  %cmp.not11.i.i.i.i = icmp eq ptr %30, null
+  %27 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !28
+  %cmp.not11.i.i.i.i = icmp eq ptr %27, null
   br i1 %cmp.not11.i.i.i.i, label %if.then.i41, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %_ZN8MapBlock13raiseModifiedEjj.exit
-  %31 = load i16, ptr %p, align 8, !tbaa !127
-  %32 = load i16, ptr %Y10.i.i.i.i.i.i, align 2
-  %33 = load i16, ptr %Z25.i.i.i.i.i.i, align 4
+  %28 = load i16, ptr %p, align 8, !tbaa !127
+  %29 = load i16, ptr %Y10.i.i.i.i.i.i, align 2
+  %30 = load i16, ptr %Z25.i.i.i.i.i.i, align 4
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %__x.addr.013.i.i.i.i = phi ptr [ %30, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i ]
+  %__x.addr.013.i.i.i.i = phi ptr [ %27, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i ]
   %__y.addr.012.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ]
   %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.013.i.i.i.i, i64 32
-  %34 = load i16, ptr %_M_storage.i.i.i.i.i.i, align 2, !tbaa !127
-  %cmp.i.i.i.i.i.i = icmp slt i16 %34, %31
+  %31 = load i16, ptr %_M_storage.i.i.i.i.i.i, align 2, !tbaa !127
+  %cmp.i.i.i.i.i.i = icmp slt i16 %31, %28
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.lhs.false.i.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i.i:                        ; preds = %while.body.i.i.i.i
-  %cmp8.i.i.i.i.i.i = icmp eq i16 %34, %31
+  %cmp8.i.i.i.i.i.i = icmp eq i16 %31, %28
   br i1 %cmp8.i.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i.i, label %if.end.i.i.i.i
 
 land.lhs.true.i.i.i.i.i.i:                        ; preds = %lor.lhs.false.i.i.i.i.i.i
   %Y.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.013.i.i.i.i, i64 34
-  %35 = load i16, ptr %Y.i.i.i.i.i.i, align 2, !tbaa !128
-  %cmp12.i.i.i.i.i.i = icmp slt i16 %35, %32
+  %32 = load i16, ptr %Y.i.i.i.i.i.i, align 2, !tbaa !128
+  %cmp12.i.i.i.i.i.i = icmp slt i16 %32, %29
   br i1 %cmp12.i.i.i.i.i.i, label %if.else.i.i.i.i, label %land.lhs.true18.i.i.i.i.i.i
 
 land.lhs.true18.i.i.i.i.i.i:                      ; preds = %land.lhs.true.i.i.i.i.i.i
-  %cmp23.i.i.i.i.i.i = icmp eq i16 %35, %32
+  %cmp23.i.i.i.i.i.i = icmp eq i16 %32, %29
   br i1 %cmp23.i.i.i.i.i.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, label %if.end.i.i.i.i
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i: ; preds = %land.lhs.true18.i.i.i.i.i.i
   %Z.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.013.i.i.i.i, i64 36
-  %36 = load i16, ptr %Z.i.i.i.i.i.i, align 2, !tbaa !129
-  %cmp27.i.i.i.i.i.i = icmp slt i16 %36, %33
+  %33 = load i16, ptr %Z.i.i.i.i.i.i, align 2, !tbaa !129
+  %cmp27.i.i.i.i.i.i = icmp slt i16 %33, %30
   br i1 %cmp27.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i.i.i.i, %land.lhs.true.i.i.i.i.i.i, %while.body.i.i.i.i
@@ -9837,28 +9834,28 @@ _ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lo
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 32
-  %37 = load i16, ptr %_M_storage.i.i.i, align 2, !tbaa !127
-  %cmp.i.i.i = icmp slt i16 %31, %37
+  %34 = load i16, ptr %_M_storage.i.i.i, align 2, !tbaa !127
+  %cmp.i.i.i = icmp slt i16 %28, %34
   br i1 %cmp.i.i.i, label %if.then.i41, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %lor.rhs.i
-  %cmp8.i.i.i = icmp eq i16 %31, %37
+  %cmp8.i.i.i = icmp eq i16 %28, %34
   br i1 %cmp8.i.i.i, label %land.lhs.true.i.i.i, label %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit
 
 land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   %Y10.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 34
-  %38 = load i16, ptr %Y10.i.i.i, align 2, !tbaa !128
-  %cmp12.i.i.i = icmp slt i16 %32, %38
+  %35 = load i16, ptr %Y10.i.i.i, align 2, !tbaa !128
+  %cmp12.i.i.i = icmp slt i16 %29, %35
   br i1 %cmp12.i.i.i, label %if.then.i41, label %land.lhs.true18.i.i.i
 
 land.lhs.true18.i.i.i:                            ; preds = %land.lhs.true.i.i.i
-  %cmp23.i.i.i = icmp eq i16 %32, %38
+  %cmp23.i.i.i = icmp eq i16 %29, %35
   br i1 %cmp23.i.i.i, label %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, label %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit
 
 _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true18.i.i.i
   %Z25.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 36
-  %39 = load i16, ptr %Z25.i.i.i, align 2, !tbaa !129
-  %cmp27.i.i.i = icmp slt i16 %33, %39
+  %36 = load i16, ptr %Z25.i.i.i, align 2, !tbaa !129
+  %cmp27.i.i.i = icmp slt i16 %30, %36
   br i1 %cmp27.i.i.i, label %if.then.i41, label %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit
 
 if.then.i41:                                      ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %_ZN8MapBlock13raiseModifiedEjj.exit

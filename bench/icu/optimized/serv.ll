@@ -161,51 +161,50 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ICUServiceKey12isFallback
   %4 = load i16, ptr %3, align 8, !tbaa !6
   %5 = and i16 %4, 1
   %.not.i = icmp eq i16 %5, 0
-  br i1 %.not.i, label %11, label %6
+  br i1 %.not.i, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i16, ptr %7, align 8, !tbaa !6
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
+  %9 = trunc i16 %8 to i1
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-11:                                               ; preds = %2
-  %12 = icmp slt i16 %4, 0
-  %13 = ashr i16 %4, 5
-  %14 = sext i16 %13 to i32
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = select i1 %12, i32 %16, i32 %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i16, ptr %18, align 8, !tbaa !6
-  %20 = icmp slt i16 %19, 0
-  %21 = ashr i16 %19, 5
-  %22 = sext i16 %21 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %24 = load i32, ptr %23, align 4
-  %25 = select i1 %20, i32 %24, i32 %22
-  %26 = and i16 %19, 1
-  %.not9.i = icmp eq i16 %26, 0
-  %27 = icmp eq i32 %17, %25
-  %or.cond.i = and i1 %.not9.i, %27
-  br i1 %or.cond.i, label %28, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+10:                                               ; preds = %2
+  %11 = icmp slt i16 %4, 0
+  %12 = ashr i16 %4, 5
+  %13 = sext i16 %12 to i32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %15 = load i32, ptr %14, align 4
+  %16 = select i1 %11, i32 %15, i32 %13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i16, ptr %17, align 8, !tbaa !6
+  %19 = icmp slt i16 %18, 0
+  %20 = ashr i16 %18, 5
+  %21 = sext i16 %20 to i32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %23 = load i32, ptr %22, align 4
+  %24 = select i1 %19, i32 %23, i32 %21
+  %25 = and i16 %18, 1
+  %.not9.i = icmp eq i16 %25, 0
+  %26 = icmp eq i32 %16, %24
+  %or.cond.i = and i1 %.not9.i, %26
+  br i1 %or.cond.i, label %27, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-28:                                               ; preds = %11
-  %29 = and i16 %19, 2
-  %.not.i.i.i = icmp eq i16 %29, 0
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = select i1 %.not.i.i.i, ptr %32, ptr %30
-  %34 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %33, i32 noundef %17)
-  %35 = icmp ne i8 %34, 0
+27:                                               ; preds = %10
+  %28 = and i16 %18, 2
+  %.not.i.i.i = icmp eq i16 %28, 0
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = select i1 %.not.i.i.i, ptr %31, ptr %29
+  %33 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %32, i32 noundef %16)
+  %34 = icmp ne i8 %33, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %6, %11, %28
-  %.0.i = phi i1 [ %10, %6 ], [ %35, %28 ], [ false, %11 ]
-  %36 = zext i1 %.0.i to i8
-  ret i8 %36
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %6, %10, %27
+  %.0.i = phi i1 [ %9, %6 ], [ %34, %27 ], [ false, %10 ]
+  %35 = zext i1 %.0.i to i8
+  ret i8 %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -384,9 +383,8 @@ define noundef ptr @_ZNK6icu_7713SimpleFactory6createERKNS_13ICUServiceKeyEPKNS_
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = load i16, ptr %20, align 8, !tbaa !6
-  %22 = and i16 %21, 1
-  %.not = icmp eq i16 %22, 0
-  br i1 %.not, label %.sink.split, label %47
+  %22 = trunc i16 %21 to i1
+  br i1 %22, label %47, label %.sink.split
 
 23:                                               ; preds = %14
   %24 = icmp slt i16 %17, 0
@@ -420,8 +418,8 @@ define noundef ptr @_ZNK6icu_7713SimpleFactory6createERKNS_13ICUServiceKeyEPKNS_
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %54
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %40
-  %.not13 = icmp eq i8 %46, 0
-  br i1 %.not13, label %.sink.split, label %47
+  %.not = icmp eq i8 %46, 0
+  br i1 %.not, label %.sink.split, label %47
 
 47:                                               ; preds = %19, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -528,9 +526,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713SimpleFacto
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i16, ptr %13, align 8, !tbaa !6
-  %15 = and i16 %14, 1
-  %.not6 = icmp eq i16 %15, 0
-  br i1 %.not6, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %39
+  %15 = trunc i16 %14 to i1
+  br i1 %15, label %39, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 16:                                               ; preds = %7
   %17 = icmp slt i16 %10, 0
@@ -561,8 +558,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %16
   %36 = load ptr, ptr %35, align 8
   %37 = select i1 %.not.i.i.i, ptr %36, ptr %34
   %38 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %37, i32 noundef %22)
-  %.not7 = icmp eq i8 %38, 0
-  br i1 %.not7, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %39
+  %.not6 = icmp eq i8 %38, 0
+  br i1 %.not6, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %39
 
 39:                                               ; preds = %12, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %40 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %8)

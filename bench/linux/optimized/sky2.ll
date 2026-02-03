@@ -1886,7 +1886,7 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef nonnull %0) unnamed_addr #
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %12 = load i32, ptr %6, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.61, i32 noundef %12) #24
-  br label %58
+  br label %57
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %0, align 8
@@ -1903,7 +1903,7 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef nonnull %0) unnamed_addr #
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %41
+  br i1 %25, label %26, label %40
 
 26:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1911,59 +1911,57 @@ define internal fastcc i32 @sky2_test_msi(ptr noundef nonnull %0) unnamed_addr #
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #23
   %27 = call i64 @prepare_to_wait_event(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 2) #23
   %28 = load i64, ptr %22, align 8
-  %29 = and i64 %28, 1
-  %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %.lr.ph, label %.critedge
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %30 = phi i64 [ %38, %.lr.ph ], [ 100, %26 ]
+  %30 = phi i64 [ %37, %.lr.ph ], [ 100, %26 ]
   %31 = call i64 @schedule_timeout(i64 noundef %30) #23
   %32 = call i64 @prepare_to_wait_event(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 2) #23
   %33 = load i64, ptr %22, align 8
-  %34 = and i64 %33, 1
-  %35 = icmp ne i64 %34, 0
-  %36 = icmp eq i64 %31, 0
-  %37 = select i1 %35, i1 %36, i1 false
-  %38 = select i1 %37, i64 1, i64 %31
-  %39 = icmp eq i64 %38, 0
-  %40 = select i1 %35, i1 true, i1 %39
-  br i1 %40, label %.critedge, label %.lr.ph
+  %34 = trunc i64 %33 to i1
+  %35 = icmp eq i64 %31, 0
+  %36 = select i1 %34, i1 %35, i1 false
+  %37 = select i1 %36, i64 1, i64 %31
+  %38 = icmp eq i64 %37, 0
+  %39 = select i1 %34, i1 true, i1 %38
+  br i1 %39, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %26
   call void @finish_wait(ptr noundef nonnull %5, ptr noundef nonnull %2) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i64, ptr %22, align 8
-  br label %41
+  br label %40
 
-41:                                               ; preds = %.critedge, %13
-  %42 = phi i64 [ %.pre, %.critedge ], [ %23, %13 ]
-  %43 = and i64 %42, 1
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %49
+40:                                               ; preds = %.critedge, %13
+  %41 = phi i64 [ %.pre, %.critedge ], [ %23, %13 ]
+  %42 = and i64 %41, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %46, ptr noundef nonnull @.str.62) #24
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr i8, ptr %47, i64 4
-  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 64, ptr elementtype(i8) %48) #23, !srcloc !7
-  br label %49
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %45, ptr noundef nonnull @.str.62) #24
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr i8, ptr %46, i64 4
+  call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 64, ptr elementtype(i8) %47) #23, !srcloc !7
+  br label %48
 
-49:                                               ; preds = %45, %41
-  %50 = phi i32 [ 0, %41 ], [ -95, %45 ]
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr i8, ptr %51, i64 12
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %52) #23, !srcloc !6
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr i8, ptr %53, i64 12
-  %55 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54) #23, !srcloc !12
-  %56 = load i32, ptr %6, align 4
-  %57 = call ptr @free_irq(i32 noundef %56, ptr noundef nonnull %0) #23
-  br label %58
+48:                                               ; preds = %44, %40
+  %49 = phi i32 [ 0, %40 ], [ -95, %44 ]
+  %50 = load ptr, ptr %0, align 8
+  %51 = getelementptr i8, ptr %50, i64 12
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %51) #23, !srcloc !6
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr i8, ptr %52, i64 12
+  %54 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53) #23, !srcloc !12
+  %55 = load i32, ptr %6, align 4
+  %56 = call ptr @free_irq(i32 noundef %55, ptr noundef nonnull %0) #23
+  br label %57
 
-58:                                               ; preds = %49, %10
-  %59 = phi i32 [ %8, %10 ], [ %50, %49 ]
-  ret i32 %59
+57:                                               ; preds = %48, %10
+  %58 = phi i32 [ %8, %10 ], [ %49, %48 ]
+  ret i32 %58
 }
 
 ; Function Attrs: null_pointer_is_valid

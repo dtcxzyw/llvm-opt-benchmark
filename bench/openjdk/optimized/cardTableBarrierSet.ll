@@ -344,9 +344,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %51, %41
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %57 = and i32 %54, 1
-  %.not.i.i = icmp eq i32 %57, 0
-  br i1 %.not.i.i, label %58, label %61
+  %57 = trunc i32 %54 to i1
+  br i1 %57, label %61, label %58
 
 58:                                               ; preds = %56
   %59 = lshr i32 %54, 3

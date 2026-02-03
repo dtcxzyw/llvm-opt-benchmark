@@ -5612,9 +5612,8 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http212Http2SessionE, i64 280), ptr %add.ptr2, align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %flags_.i, align 8
-  %and.i = and i32 %0, 1
-  %tobool.i3.not = icmp eq i32 %and.i, 0
-  br i1 %tobool.i3.not, label %do.end8, label %do.body6
+  %tobool.i3 = trunc i32 %0 to i1
+  br i1 %tobool.i3, label %do.body6, label %do.end8
 
 do.body6:                                         ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node5http212Http2SessionD1EvE4args) #29
@@ -9305,13 +9304,12 @@ do.end6:                                          ; preds = %entry
   %2 = load ptr, ptr %self.i.i.i, align 8
   %flags_.i2 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %3 = load i32, ptr %flags_.i2, align 8
-  %and.i3 = and i32 %3, 1
-  %tobool.i4 = icmp ne i32 %and.i3, 0
+  %tobool.i3 = trunc i32 %3 to i1
   %cmp.i = icmp eq i32 %code, 8
-  %or.cond = and i1 %cmp.i, %tobool.i4
-  br i1 %or.cond, label %if.end.i.i.i6, label %if.end13
+  %or.cond = and i1 %cmp.i, %tobool.i3
+  br i1 %or.cond, label %if.end.i.i.i5, label %if.end13
 
-if.end.i.i.i6:                                    ; preds = %do.end6
+if.end.i.i.i5:                                    ; preds = %do.end6
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %4 = load i32, ptr %id_, align 8
   %pending_rst_streams_.i = getelementptr inbounds nuw i8, ptr %2, i64 600
@@ -9322,14 +9320,14 @@ if.end.i.i.i6:                                    ; preds = %do.end6
   %cmp.not.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.end.i.i.i6
+if.then.i.i:                                      ; preds = %if.end.i.i.i5
   store i32 %4, ptr %5, align 4
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %return
 
-if.else.i.i:                                      ; preds = %if.end.i.i.i6
+if.else.i.i:                                      ; preds = %if.end.i.i.i5
   %8 = load ptr, ptr %pending_rst_streams_.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %8 to i64
@@ -9384,86 +9382,86 @@ if.end13:                                         ; preds = %do.end6
 
 if.then17:                                        ; preds = %if.end13
   %10 = load ptr, ptr %session_, align 8
-  %cmp.i.i.i15 = icmp eq ptr %10, null
-  br i1 %cmp.i.i.i15, label %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit19, label %if.end.i.i.i16
+  %cmp.i.i.i14 = icmp eq ptr %10, null
+  br i1 %cmp.i.i.i14, label %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit18, label %if.end.i.i.i15
 
-if.end.i.i.i16:                                   ; preds = %if.then17
-  %self.i.i.i17 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %11 = load ptr, ptr %self.i.i.i17, align 8
-  br label %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit19
+if.end.i.i.i15:                                   ; preds = %if.then17
+  %self.i.i.i16 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %11 = load ptr, ptr %self.i.i.i16, align 8
+  br label %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit18
 
-_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit19: ; preds = %if.then17, %if.end.i.i.i16
-  %retval.0.i.i.i18 = phi ptr [ %11, %if.end.i.i.i16 ], [ null, %if.then17 ]
+_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit18: ; preds = %if.then17, %if.end.i.i.i15
+  %retval.0.i.i.i17 = phi ptr [ %11, %if.end.i.i.i15 ], [ null, %if.then17 ]
   %id_20 = getelementptr inbounds nuw i8, ptr %this, i64 192
   %12 = load i32, ptr %id_20, align 8
-  %pending_rst_streams_.i20 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i18, i64 600
-  %_M_finish.i.i21 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i18, i64 608
-  %13 = load ptr, ptr %_M_finish.i.i21, align 8
-  %_M_end_of_storage.i.i22 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i18, i64 616
-  %14 = load ptr, ptr %_M_end_of_storage.i.i22, align 8
-  %cmp.not.i.i23 = icmp eq ptr %13, %14
-  br i1 %cmp.not.i.i23, label %if.else.i.i26, label %if.then.i.i24
+  %pending_rst_streams_.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i17, i64 600
+  %_M_finish.i.i20 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i17, i64 608
+  %13 = load ptr, ptr %_M_finish.i.i20, align 8
+  %_M_end_of_storage.i.i21 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i17, i64 616
+  %14 = load ptr, ptr %_M_end_of_storage.i.i21, align 8
+  %cmp.not.i.i22 = icmp eq ptr %13, %14
+  br i1 %cmp.not.i.i22, label %if.else.i.i25, label %if.then.i.i23
 
-if.then.i.i24:                                    ; preds = %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit19
+if.then.i.i23:                                    ; preds = %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit18
   store i32 %12, ptr %13, align 4
-  %15 = load ptr, ptr %_M_finish.i.i21, align 8
-  %incdec.ptr.i.i25 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store ptr %incdec.ptr.i.i25, ptr %_M_finish.i.i21, align 8
+  %15 = load ptr, ptr %_M_finish.i.i20, align 8
+  %incdec.ptr.i.i24 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store ptr %incdec.ptr.i.i24, ptr %_M_finish.i.i20, align 8
   br label %return
 
-if.else.i.i26:                                    ; preds = %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit19
-  %16 = load ptr, ptr %pending_rst_streams_.i20, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i27 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i28 = ptrtoint ptr %16 to i64
-  %sub.ptr.sub.i.i.i.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i27, %sub.ptr.rhs.cast.i.i.i.i.i28
-  %cmp.i.i.i.i30 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i29, 9223372036854775804
-  br i1 %cmp.i.i.i.i30, label %if.then.i.i.i.i49, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i31
+if.else.i.i25:                                    ; preds = %_ZNK4node17BaseObjectPtrImplINS_5http212Http2SessionELb1EEptEv.exit18
+  %16 = load ptr, ptr %pending_rst_streams_.i19, align 8
+  %sub.ptr.lhs.cast.i.i.i.i.i26 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i27 = ptrtoint ptr %16 to i64
+  %sub.ptr.sub.i.i.i.i.i28 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i26, %sub.ptr.rhs.cast.i.i.i.i.i27
+  %cmp.i.i.i.i29 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i28, 9223372036854775804
+  br i1 %cmp.i.i.i.i29, label %if.then.i.i.i.i48, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i30
 
-if.then.i.i.i.i49:                                ; preds = %if.else.i.i26
+if.then.i.i.i.i48:                                ; preds = %if.else.i.i25
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.739) #30
   unreachable
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i31: ; preds = %if.else.i.i26
-  %sub.ptr.div.i.i.i.i.i32 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i29, 2
-  %.sroa.speculated.i.i.i.i33 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i32, i64 1)
-  %add.i.i.i.i34 = add nsw i64 %.sroa.speculated.i.i.i.i33, %sub.ptr.div.i.i.i.i.i32
-  %cmp7.i.i.i.i35 = icmp ult i64 %add.i.i.i.i34, %sub.ptr.div.i.i.i.i.i32
-  %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i34, i64 2305843009213693951)
-  %cond.i.i.i.i36 = select i1 %cmp7.i.i.i.i35, i64 2305843009213693951, i64 %17
-  %cmp.not.i.i.i.i37 = icmp ne i64 %cond.i.i.i.i36, 0
-  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i37)
-  %mul.i.i.i.i.i.i38 = shl nuw nsw i64 %cond.i.i.i.i36, 2
-  %call5.i.i.i.i.i.i39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i38) #32
-  %add.ptr.i.i.i40 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i39, i64 %sub.ptr.sub.i.i.i.i.i29
-  store i32 %12, ptr %add.ptr.i.i.i40, align 4
-  %cmp.i.i.i.i.i.i41 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i29, 0
-  br i1 %cmp.i.i.i.i.i.i41, label %if.then.i.i.i.i.i.i48, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i42
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i30: ; preds = %if.else.i.i25
+  %sub.ptr.div.i.i.i.i.i31 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i28, 2
+  %.sroa.speculated.i.i.i.i32 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i31, i64 1)
+  %add.i.i.i.i33 = add nsw i64 %.sroa.speculated.i.i.i.i32, %sub.ptr.div.i.i.i.i.i31
+  %cmp7.i.i.i.i34 = icmp ult i64 %add.i.i.i.i33, %sub.ptr.div.i.i.i.i.i31
+  %17 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i33, i64 2305843009213693951)
+  %cond.i.i.i.i35 = select i1 %cmp7.i.i.i.i34, i64 2305843009213693951, i64 %17
+  %cmp.not.i.i.i.i36 = icmp ne i64 %cond.i.i.i.i35, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i36)
+  %mul.i.i.i.i.i.i37 = shl nuw nsw i64 %cond.i.i.i.i35, 2
+  %call5.i.i.i.i.i.i38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i37) #32
+  %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i38, i64 %sub.ptr.sub.i.i.i.i.i28
+  store i32 %12, ptr %add.ptr.i.i.i39, align 4
+  %cmp.i.i.i.i.i.i40 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i28, 0
+  br i1 %cmp.i.i.i.i.i.i40, label %if.then.i.i.i.i.i.i47, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i41
 
-if.then.i.i.i.i.i.i48:                            ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i31
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i39, ptr align 4 %16, i64 %sub.ptr.sub.i.i.i.i.i29, i1 false)
-  br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i42
+if.then.i.i.i.i.i.i47:                            ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i30
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i38, ptr align 4 %16, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
+  br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i41
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i42: ; preds = %if.then.i.i.i.i.i.i48, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i31
-  %incdec.ptr.i.i.i43 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i40, i64 4
-  %tobool.not.i.i.i.i44 = icmp eq ptr %16, null
-  br i1 %tobool.not.i.i.i.i44, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i46, label %if.then.i18.i.i.i45
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i41: ; preds = %if.then.i.i.i.i.i.i47, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i30
+  %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i39, i64 4
+  %tobool.not.i.i.i.i43 = icmp eq ptr %16, null
+  br i1 %tobool.not.i.i.i.i43, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i45, label %if.then.i18.i.i.i44
 
-if.then.i18.i.i.i45:                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i42
+if.then.i18.i.i.i44:                              ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i41
   tail call void @_ZdlPv(ptr noundef nonnull %16) #34
-  br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i46
+  br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i45
 
-_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i46: ; preds = %if.then.i18.i.i.i45, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i42
-  store ptr %call5.i.i.i.i.i.i39, ptr %pending_rst_streams_.i20, align 8
-  store ptr %incdec.ptr.i.i.i43, ptr %_M_finish.i.i21, align 8
-  %add.ptr19.i.i.i47 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i39, i64 %cond.i.i.i.i36
-  store ptr %add.ptr19.i.i.i47, ptr %_M_end_of_storage.i.i22, align 8
+_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i45: ; preds = %if.then.i18.i.i.i44, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i41
+  store ptr %call5.i.i.i.i.i.i38, ptr %pending_rst_streams_.i19, align 8
+  store ptr %incdec.ptr.i.i.i42, ptr %_M_finish.i.i20, align 8
+  %add.ptr19.i.i.i46 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i38, i64 %cond.i.i.i.i35
+  store ptr %add.ptr19.i.i.i46, ptr %_M_end_of_storage.i.i21, align 8
   br label %return
 
 if.end21:                                         ; preds = %if.end13
   tail call void @_ZN4node5http211Http2Stream14FlushRstStreamEv(ptr noundef nonnull align 8 dereferenceable(368) %this)
   br label %return
 
-return:                                           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i46, %if.then.i.i24, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i, %if.end21
+return:                                           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i45, %if.then.i.i23, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i, %if.end21
   ret void
 }
 
@@ -12485,20 +12483,20 @@ _ZN4node5http210Http2ScopeC2EPNS0_12Http2SessionE.exit: ; preds = %_ZN4node17Bas
   %empty_.i.i = getelementptr inbounds nuw i8, ptr %prov, i64 24
   %provider_2.i.i = getelementptr inbounds nuw i8, ptr %prov, i64 8
   store ptr null, ptr %provider_2.i.i, align 8
-  %6 = trunc i32 %options to i8
-  %frombool.i.i = and i8 %6, 1
+  %tobool.i.i = trunc i32 %options to i8
+  %frombool.i.i = and i8 %tobool.i.i, 1
   store i8 %frombool.i.i, ptr %empty_.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
   %read_callback.i = getelementptr inbounds nuw i8, ptr %prov, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback.i, align 8
   %session_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %7 = load ptr, ptr %session_, align 8
+  %6 = load ptr, ptr %session_, align 8
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 24
-  %8 = load ptr, ptr %buf_.i.i, align 8
-  %9 = load i64, ptr %headers, align 8
+  %7 = load ptr, ptr %buf_.i.i, align 8
+  %8 = load i64, ptr %headers, align 8
   %tobool.i9 = trunc i32 %options to i1
   %cond.i = select i1 %tobool.i9, ptr null, ptr %provider_2.i.i
-  %call5 = call i32 @nghttp2_submit_request(ptr noundef %7, ptr noundef nonnull %priority, ptr noundef %8, i64 noundef %9, ptr noundef %cond.i, ptr noundef null) #29
+  %call5 = call i32 @nghttp2_submit_request(ptr noundef %6, ptr noundef nonnull %priority, ptr noundef %7, i64 noundef %8, ptr noundef %cond.i, ptr noundef null) #29
   store i32 %call5, ptr %ret, align 4
   %cmp.not = icmp eq i32 %call5, -901
   br i1 %cmp.not, label %do.body8, label %do.end10
@@ -12513,20 +12511,20 @@ do.end10:                                         ; preds = %_ZN4node5http210Htt
   br i1 %cmp11, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %do.end10
-  %10 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 176
-  %11 = load ptr, ptr %env_.i.i.i, align 8
-  %isolate_data_.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %12 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %http2stream_constructor_template_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 2728
-  %13 = load ptr, ptr %http2stream_constructor_template_.i.i.i, align 8
-  %principal_realm_.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2728
-  %14 = load ptr, ptr %principal_realm_.i.i.i, align 8
-  %vtable.i.i = load ptr, ptr %14, align 8
+  %9 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %10 = load ptr, ptr %env_.i.i.i, align 8
+  %isolate_data_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %11 = load ptr, ptr %isolate_data_.i.i.i, align 8
+  %http2stream_constructor_template_.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2728
+  %12 = load ptr, ptr %http2stream_constructor_template_.i.i.i, align 8
+  %principal_realm_.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 2728
+  %13 = load ptr, ptr %principal_realm_.i.i.i, align 8
+  %vtable.i.i = load ptr, ptr %13, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 64
-  %15 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i = call ptr %15(ptr noundef nonnull align 8 dereferenceable(872) %14) #29
-  %call14.i = call ptr @_ZN2v814ObjectTemplate11NewInstanceENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr %call2.i.i) #29
+  %14 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i = call ptr %14(ptr noundef nonnull align 8 dereferenceable(872) %13) #29
+  %call14.i = call ptr @_ZN2v814ObjectTemplate11NewInstanceENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr %call2.i.i) #29
   %cmp.i.i.i = icmp eq ptr %call14.i, null
   br i1 %cmp.i.i.i, label %if.end16, label %if.end.i10
 
@@ -12544,10 +12542,10 @@ if.end16:                                         ; preds = %if.end.i10, %if.the
 
 if.end.i11:                                       ; preds = %if.end16
   %flags_.i.i12 = getelementptr inbounds nuw i8, ptr %h2scope.sroa.0.0, i64 304
-  %16 = load i32, ptr %flags_.i.i12, align 8
-  %and.i.i = and i32 %16, -2
+  %15 = load i32, ptr %flags_.i.i12, align 8
+  %and.i.i = and i32 %15, -2
   store i32 %and.i.i, ptr %flags_.i.i12, align 8
-  %and.i2.i = and i32 %16, 2
+  %and.i2.i = and i32 %15, 2
   %tobool.i.not.i = icmp eq i32 %and.i2.i, 0
   br i1 %tobool.i.not.i, label %cleanup.i, label %if.then.i.i
 
@@ -14443,25 +14441,25 @@ _ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i.exit: ; preds = %if.end8
   %spec.select = or i32 %9, %options
   %provider_7.i.i = getelementptr inbounds nuw i8, ptr %prov, i64 8
   store ptr %this, ptr %provider_7.i.i, align 8
-  %10 = trunc i32 %spec.select to i8
-  %frombool.i.i = and i8 %10, 1
+  %tobool.i.i = trunc i32 %spec.select to i8
+  %frombool.i.i = and i8 %tobool.i.i, 1
   store i8 %frombool.i.i, ptr %empty_.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %prov, align 8
   %read_callback.i = getelementptr inbounds nuw i8, ptr %prov, i64 16
   store ptr @_ZN4node5http211Http2Stream8Provider6Stream6OnReadEP15nghttp2_sessioniPhmPjP19nghttp2_data_sourcePv, ptr %read_callback.i, align 8
-  %11 = load ptr, ptr %session_.i.i, align 8, !nonnull !13, !noundef !13
-  %self.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %12 = load ptr, ptr %self.i.i.i, align 8
-  %session_.i = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %13 = load ptr, ptr %session_.i, align 8
+  %10 = load ptr, ptr %session_.i.i, align 8, !nonnull !13, !noundef !13
+  %self.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %11 = load ptr, ptr %self.i.i.i, align 8
+  %session_.i = getelementptr inbounds nuw i8, ptr %11, i64 168
+  %12 = load ptr, ptr %session_.i, align 8
   %id_ = getelementptr inbounds nuw i8, ptr %this, i64 192
-  %14 = load i32, ptr %id_, align 8
+  %13 = load i32, ptr %id_, align 8
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %headers, i64 24
-  %15 = load ptr, ptr %buf_.i.i, align 8
-  %16 = load i64, ptr %headers, align 8
+  %14 = load ptr, ptr %buf_.i.i, align 8
+  %15 = load i64, ptr %headers, align 8
   %tobool.i14 = trunc i32 %spec.select to i1
   %cond.i = select i1 %tobool.i14, ptr null, ptr %provider_7.i.i
-  %call17 = call i32 @nghttp2_submit_response(ptr noundef %13, i32 noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %cond.i) #29
+  %call17 = call i32 @nghttp2_submit_response(ptr noundef %12, i32 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %cond.i) #29
   %cmp.not = icmp eq i32 %call17, -901
   br i1 %cmp.not, label %do.body23, label %do.end27
 
@@ -14478,10 +14476,10 @@ do.end27:                                         ; preds = %_ZN4node5http211Htt
 
 if.end.i15:                                       ; preds = %do.end27
   %flags_.i.i = getelementptr inbounds nuw i8, ptr %h2scope.sroa.0.0, i64 304
-  %17 = load i32, ptr %flags_.i.i, align 8
-  %and.i.i = and i32 %17, -2
+  %16 = load i32, ptr %flags_.i.i, align 8
+  %and.i.i = and i32 %16, -2
   store i32 %and.i.i, ptr %flags_.i.i, align 8
-  %and.i2.i = and i32 %17, 2
+  %and.i2.i = and i32 %16, 2
   %tobool.i.not.i = icmp eq i32 %and.i2.i, 0
   br i1 %tobool.i.not.i, label %cleanup.i, label %if.then.i.i
 
@@ -15687,8 +15685,8 @@ do.body5:                                         ; preds = %entry
 do.end6:                                          ; preds = %entry
   %provider_7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %stream, ptr %provider_7, align 8
-  %1 = trunc i32 %options to i8
-  %frombool = and i8 %1, 1
+  %tobool = trunc i32 %options to i8
+  %frombool = and i8 %tobool, 1
   store i8 %frombool, ptr %empty_, align 8
   ret void
 }
@@ -15700,8 +15698,8 @@ entry:
   %empty_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %provider_2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %provider_2, align 8
-  %0 = trunc i32 %options to i8
-  %frombool = and i8 %0, 1
+  %tobool = trunc i32 %options to i8
+  %frombool = and i8 %tobool, 1
   store i8 %frombool, ptr %empty_, align 8
   ret void
 }
@@ -15728,8 +15726,8 @@ entry:
   %empty_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %provider_2.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %provider_2.i, align 8
-  %0 = trunc i32 %options to i8
-  %frombool.i = and i8 %0, 1
+  %tobool.i = trunc i32 %options to i8
+  %frombool.i = and i8 %tobool.i, 1
   store i8 %frombool.i, ptr %empty_.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %this, align 8
   %read_callback = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -16113,8 +16111,8 @@ do.body5.i:                                       ; preds = %entry
 _ZN4node5http211Http2Stream8ProviderC2EPS1_i.exit: ; preds = %entry
   %provider_7.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %stream, ptr %provider_7.i, align 8
-  %1 = trunc i32 %options to i8
-  %frombool.i = and i8 %1, 1
+  %tobool.i = trunc i32 %options to i8
+  %frombool.i = and i8 %tobool.i, 1
   store i8 %frombool.i, ptr %empty_.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node5http211Http2Stream8Provider6StreamE, i64 16), ptr %this, align 8
   %read_callback = getelementptr inbounds nuw i8, ptr %this, i64 16

@@ -7385,9 +7385,8 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir17CleanupReturnInst13getUnwindD
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !234
-  %8 = and i16 %7, 1
-  %.not.i = icmp eq i16 %8, 0
-  br i1 %.not.i, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit, label %9
+  %8 = trunc i16 %7 to i1
+  br i1 %8, label %9, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -7489,9 +7488,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !407
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !234, !noalias !407
-  %16 = and i16 %15, 1
-  %.not.i.i.i.i = icmp eq i16 %16, 0
-  br i1 %.not.i.i.i.i, label %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %17
+  %16 = trunc i16 %15 to i1
+  br i1 %16, label %17, label %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_17CleanupReturnInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -9781,9 +9779,8 @@ define dso_local noundef ptr @_ZNK4llvm9sandboxir15CatchSwitchInst13getUnwindDes
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !234
-  %8 = and i16 %7, 1
-  %.not.i = icmp eq i16 %8, 0
-  br i1 %.not.i, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit, label %9
+  %8 = trunc i16 %7 to i1
+  br i1 %8, label %9, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %5, i64 -8
@@ -9877,9 +9874,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %13 = load ptr, ptr %12, align 8, !tbaa !3, !noalias !495
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !234, !noalias !495
-  %16 = and i16 %15, 1
-  %.not.i.i.i.i = icmp eq i16 %16, 0
-  br i1 %.not.i.i.i.i, label %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_15CatchSwitchInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %17
+  %16 = trunc i16 %15 to i1
+  br i1 %16, label %17, label %_ZSt11make_uniqueIN4llvm9sandboxir13GenericSetterIXadL_ZNKS1_15CatchSwitchInst13getUnwindDestEvEEXadL_ZNS3_13setUnwindDestEPNS1_10BasicBlockEEEEEJRPS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %13, i64 -8

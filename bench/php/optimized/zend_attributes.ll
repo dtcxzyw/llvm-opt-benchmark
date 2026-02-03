@@ -1382,139 +1382,139 @@ zend_string_equals.exit.thread24:                 ; preds = %27, %15, %17, %zend
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @zend_add_attribute(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
-  %8 = and i32 %3, 1
-  %9 = icmp ne i32 %8, 0
-  %10 = load ptr, ptr %0, align 8, !tbaa !87
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %19
+  %8 = trunc i32 %3 to i1
+  %9 = load ptr, ptr %0, align 8, !tbaa !87
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %18
 
-12:                                               ; preds = %6
-  br i1 %9, label %13, label %15
+11:                                               ; preds = %6
+  br i1 %8, label %12, label %14
 
-13:                                               ; preds = %12
-  %14 = tail call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #17
-  br label %17
+12:                                               ; preds = %11
+  %13 = tail call noalias dereferenceable_or_null(56) ptr @__zend_malloc(i64 noundef 56) #17
+  br label %16
 
-15:                                               ; preds = %12
-  %16 = tail call noalias ptr @_emalloc_56() #16
-  br label %17
+14:                                               ; preds = %11
+  %15 = tail call noalias ptr @_emalloc_56() #16
+  br label %16
 
-17:                                               ; preds = %15, %13
-  %18 = phi ptr [ %14, %13 ], [ %16, %15 ]
-  store ptr %18, ptr %0, align 8, !tbaa !87
-  tail call void @_zend_hash_init(ptr noundef %18, i32 noundef 8, ptr noundef nonnull @attr_free, i1 noundef zeroext %9) #16
-  br label %19
+16:                                               ; preds = %14, %12
+  %17 = phi ptr [ %13, %12 ], [ %15, %14 ]
+  store ptr %17, ptr %0, align 8, !tbaa !87
+  tail call void @_zend_hash_init(ptr noundef %17, i32 noundef 8, ptr noundef nonnull @attr_free, i1 noundef zeroext %8) #16
+  br label %18
 
-19:                                               ; preds = %17, %6
-  %20 = zext i32 %2 to i64
-  %21 = mul nuw nsw i64 %20, 24
-  %22 = add nuw nsw i64 %21, 32
-  br i1 %9, label %23, label %25
+18:                                               ; preds = %16, %6
+  %19 = zext i32 %2 to i64
+  %20 = mul nuw nsw i64 %19, 24
+  %21 = add nuw nsw i64 %20, 32
+  br i1 %8, label %22, label %24
 
-23:                                               ; preds = %19
-  %24 = tail call noalias ptr @__zend_malloc(i64 noundef %22) #17
-  br label %27
+22:                                               ; preds = %18
+  %23 = tail call noalias ptr @__zend_malloc(i64 noundef %21) #17
+  br label %26
 
-25:                                               ; preds = %19
-  %26 = tail call noalias ptr @_emalloc(i64 noundef %22) #17
-  br label %27
+24:                                               ; preds = %18
+  %25 = tail call noalias ptr @_emalloc(i64 noundef %21) #17
+  br label %26
 
-27:                                               ; preds = %25, %23
-  %28 = phi ptr [ %24, %23 ], [ %26, %25 ]
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !11
-  %31 = lshr i32 %30, 7
-  %.lobit = and i32 %31, 1
-  %32 = icmp eq i32 %8, %.lobit
-  %33 = and i32 %30, 64
-  %.not.i = icmp eq i32 %33, 0
-  br i1 %32, label %34, label %38
+26:                                               ; preds = %24, %22
+  %27 = phi ptr [ %23, %22 ], [ %25, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !11
+  %30 = lshr i32 %29, 7
+  %31 = xor i32 %30, %3
+  %32 = and i32 %31, 1
+  %33 = icmp eq i32 %32, 0
+  %34 = and i32 %29, 64
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %33, label %35, label %39
 
-34:                                               ; preds = %27
-  br i1 %.not.i, label %35, label %zend_string_copy.exit
+35:                                               ; preds = %26
+  br i1 %.not.i, label %36, label %zend_string_copy.exit
 
-35:                                               ; preds = %34
-  %36 = load i32, ptr %1, align 4, !tbaa !13
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %1, align 4, !tbaa !13
+36:                                               ; preds = %35
+  %37 = load i32, ptr %1, align 4, !tbaa !13
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %1, align 4, !tbaa !13
   br label %zend_string_copy.exit
 
-38:                                               ; preds = %27
-  br i1 %.not.i, label %39, label %zend_string_copy.exit
+39:                                               ; preds = %26
+  br i1 %.not.i, label %40, label %zend_string_copy.exit
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !61
-  %43 = and i64 %42, -8
-  %44 = add i64 %43, 32
-  br i1 %9, label %45, label %47
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !61
+  %44 = and i64 %43, -8
+  %45 = add i64 %44, 32
+  br i1 %8, label %46, label %48
 
-45:                                               ; preds = %39
-  %46 = tail call noalias ptr @__zend_malloc(i64 noundef %44) #17
+46:                                               ; preds = %40
+  %47 = tail call noalias ptr @__zend_malloc(i64 noundef %45) #17
   br label %zend_string_init.exit
 
-47:                                               ; preds = %39
-  %48 = tail call noalias ptr @_emalloc(i64 noundef %44) #17
+48:                                               ; preds = %40
+  %49 = tail call noalias ptr @_emalloc(i64 noundef %45) #17
   br label %zend_string_init.exit
 
-zend_string_init.exit:                            ; preds = %45, %47
-  %49 = phi i32 [ 150, %45 ], [ 22, %47 ]
-  %50 = phi ptr [ %46, %45 ], [ %48, %47 ]
-  store i32 1, ptr %50, align 4, !tbaa !13
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %49, ptr %51, align 4, !tbaa !11
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 0, ptr %52, align 8, !tbaa !85
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i64 %42, ptr %53, align 8, !tbaa !61
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 1 %40, i64 %42, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %42
-  store i8 0, ptr %55, align 1, !tbaa !11
+zend_string_init.exit:                            ; preds = %46, %48
+  %50 = phi i32 [ 150, %46 ], [ 22, %48 ]
+  %51 = phi ptr [ %47, %46 ], [ %49, %48 ]
+  store i32 1, ptr %51, align 4, !tbaa !13
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %50, ptr %52, align 4, !tbaa !11
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 0, ptr %53, align 8, !tbaa !85
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i64 %43, ptr %54, align 8, !tbaa !61
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 1 %41, i64 %43, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %43
+  store i8 0, ptr %56, align 1, !tbaa !11
   br label %zend_string_copy.exit
 
-zend_string_copy.exit:                            ; preds = %zend_string_init.exit, %38, %35, %34
-  %storemerge = phi ptr [ %1, %35 ], [ %1, %34 ], [ %50, %zend_string_init.exit ], [ %1, %38 ]
-  store ptr %storemerge, ptr %28, align 8, !tbaa !88
-  %56 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %storemerge, i1 noundef zeroext %9) #16
-  %57 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %56, ptr %57, align 8, !tbaa !60
-  %58 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 %3, ptr %58, align 8, !tbaa !74
-  %59 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  store i32 %5, ptr %59, align 4, !tbaa !69
-  %60 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store i32 %4, ptr %60, align 8, !tbaa !59
-  %61 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  store i32 %2, ptr %61, align 4, !tbaa !4
+zend_string_copy.exit:                            ; preds = %zend_string_init.exit, %39, %36, %35
+  %storemerge = phi ptr [ %1, %36 ], [ %1, %35 ], [ %51, %zend_string_init.exit ], [ %1, %39 ]
+  store ptr %storemerge, ptr %27, align 8, !tbaa !88
+  %57 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %storemerge, i1 noundef zeroext %8) #16
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %57, ptr %58, align 8, !tbaa !60
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 %3, ptr %59, align 8, !tbaa !74
+  %60 = getelementptr inbounds nuw i8, ptr %27, i64 20
+  store i32 %5, ptr %60, align 4, !tbaa !69
+  %61 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i32 %4, ptr %61, align 8, !tbaa !59
+  %62 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  store i32 %2, ptr %62, align 4, !tbaa !4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %zend_hash_next_index_insert_ptr.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_string_copy.exit
-  %62 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %wide.trip.count = zext i32 %2 to i64
-  br label %66
+  br label %67
 
-zend_hash_next_index_insert_ptr.exit:             ; preds = %66, %zend_string_copy.exit
-  %63 = load ptr, ptr %0, align 8, !tbaa !87
+zend_hash_next_index_insert_ptr.exit:             ; preds = %67, %zend_string_copy.exit
+  %64 = load ptr, ptr %0, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %28, ptr %7, align 8, !tbaa !11
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 13, ptr %64, align 8, !tbaa !11
-  %65 = call ptr @zend_hash_next_index_insert(ptr noundef %63, ptr noundef nonnull %7) #16
+  store ptr %27, ptr %7, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 13, ptr %65, align 8, !tbaa !11
+  %66 = call ptr @zend_hash_next_index_insert(ptr noundef %64, ptr noundef nonnull %7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret ptr %28
+  ret ptr %27
 
-66:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %62, i64 %indvars.iv
-  store ptr null, ptr %67, align 8, !tbaa !75
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i32 0, ptr %68, align 8, !tbaa !11
+67:                                               ; preds = %.lr.ph, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
+  %68 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %63, i64 %indvars.iv
+  store ptr null, ptr %68, align 8, !tbaa !75
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store i32 0, ptr %69, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %zend_hash_next_index_insert_ptr.exit, label %66
+  br i1 %exitcond.not, label %zend_hash_next_index_insert_ptr.exit, label %67
 }
 
 ; Function Attrs: allocsize(0)

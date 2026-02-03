@@ -1336,25 +1336,24 @@ define hidden range(i32 0, 2) i32 @png_get_gAMA_fixed(ptr noalias noundef readno
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %15
+  br i1 %or.cond, label %6, label %14
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %8 = load i16, ptr %7, align 2
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = icmp ne ptr %2, null
-  %or.cond3 = and i1 %11, %10
-  br i1 %or.cond3, label %12, label %15
+  %9 = trunc i16 %8 to i1
+  %10 = icmp ne ptr %2, null
+  %or.cond3 = and i1 %10, %9
+  br i1 %or.cond3, label %11, label %14
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %14 = load i32, ptr %13, align 4
-  store i32 %14, ptr %2, align 4
-  br label %15
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %13 = load i32, ptr %12, align 4
+  store i32 %13, ptr %2, align 4
+  br label %14
 
-15:                                               ; preds = %3, %6, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %6 ], [ 0, %3 ]
+14:                                               ; preds = %3, %6, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1363,27 +1362,26 @@ define hidden range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone cap
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %17
+  br i1 %or.cond, label %6, label %16
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %8 = load i16, ptr %7, align 2
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = icmp ne ptr %2, null
-  %or.cond3 = and i1 %11, %10
-  br i1 %or.cond3, label %12, label %17
+  %9 = trunc i16 %8 to i1
+  %10 = icmp ne ptr %2, null
+  %or.cond3 = and i1 %10, %9
+  br i1 %or.cond3, label %11, label %16
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %14 = load i32, ptr %13, align 4
-  %15 = sitofp i32 %14 to double
-  %16 = fmul double %15, 1.000000e-05
-  store double %16, ptr %2, align 8
-  br label %17
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %13 = load i32, ptr %12, align 4
+  %14 = sitofp i32 %13 to double
+  %15 = fmul double %14, 1.000000e-05
+  store double %15, ptr %2, align 8
+  br label %16
 
-17:                                               ; preds = %3, %6, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %6 ], [ 0, %3 ]
+16:                                               ; preds = %3, %6, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %6 ], [ 0, %3 ]
   ret i32 %.0
 }
 

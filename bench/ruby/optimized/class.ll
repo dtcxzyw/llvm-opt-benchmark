@@ -928,9 +928,8 @@ class_init_copy_check.exit:                       ; preds = %31, %rbimpl_RB_TYPE
   br label %rb_class_of.exit
 
 53:                                               ; preds = %50
-  %54 = and i64 %0, 1
-  %.not.i103 = icmp eq i64 %54, 0
-  br i1 %.not.i103, label %55, label %rb_class_of.exit
+  %54 = trunc i64 %0 to i1
+  br i1 %54, label %rb_class_of.exit, label %55
 
 55:                                               ; preds = %53
   %56 = and i64 %0, 254
@@ -975,16 +974,16 @@ RBASIC_SET_CLASS.exit:                            ; preds = %RCLASS_SINGLETON_P.
   %74 = and i64 %72, 7
   %75 = icmp ne i64 %74, 0
   %76 = or i1 %73, %75
-  br i1 %76, label %rb_singleton_class_attached.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i104
+  br i1 %76, label %rb_singleton_class_attached.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i103
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i104:            ; preds = %RBASIC_SET_CLASS.exit
+rbimpl_RB_TYPE_P_fastpath.exit.i.i103:            ; preds = %RBASIC_SET_CLASS.exit
   %77 = inttoptr i64 %72 to ptr
   %78 = load i64, ptr %77, align 8, !tbaa !35
   %79 = and i64 %78, 8223
-  %or.cond.i105 = icmp eq i64 %79, 8194
-  br i1 %or.cond.i105, label %80, label %rb_singleton_class_attached.exit
+  %or.cond.i104 = icmp eq i64 %79, 8194
+  br i1 %or.cond.i104, label %80, label %rb_singleton_class_attached.exit
 
-80:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i104
+80:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i103
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 128
   store i64 %0, ptr %81, align 8, !tbaa !29
   br i1 %47, label %rb_singleton_class_attached.exit, label %82
@@ -993,28 +992,28 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i104:            ; preds = %RBASIC_SET_CLASS.ex
   tail call void @rb_gc_writebarrier(i64 noundef %72, i64 noundef %0) #19
   br label %rb_singleton_class_attached.exit
 
-rb_singleton_class_attached.exit:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %82, %80, %rbimpl_RB_TYPE_P_fastpath.exit.i.i104, %RBASIC_SET_CLASS.exit
+rb_singleton_class_attached.exit:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %82, %80, %rbimpl_RB_TYPE_P_fastpath.exit.i.i103, %RBASIC_SET_CLASS.exit
   %83 = icmp eq i64 %1, 0
   %84 = and i64 %1, 7
   %85 = icmp ne i64 %84, 0
   %86 = or i1 %83, %85
-  br i1 %86, label %RCLASS_SINGLETON_P.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i106
+  br i1 %86, label %RCLASS_SINGLETON_P.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i105
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i106:            ; preds = %rb_singleton_class_attached.exit
+rbimpl_RB_TYPE_P_fastpath.exit.i.i105:            ; preds = %rb_singleton_class_attached.exit
   %87 = load i64, ptr %40, align 8, !tbaa !35
   %88 = and i64 %87, 8223
-  %or.cond.i107 = icmp eq i64 %88, 8194
-  br i1 %or.cond.i107, label %RCLASS_ALLOCATOR.exit, label %RCLASS_SINGLETON_P.exit.thread.i
+  %or.cond.i106 = icmp eq i64 %88, 8194
+  br i1 %or.cond.i106, label %RCLASS_ALLOCATOR.exit, label %RCLASS_SINGLETON_P.exit.thread.i
 
-RCLASS_SINGLETON_P.exit.thread.i:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i106, %rb_singleton_class_attached.exit
+RCLASS_SINGLETON_P.exit.thread.i:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i105, %rb_singleton_class_attached.exit
   %89 = getelementptr inbounds nuw i8, ptr %40, i64 128
   %90 = load ptr, ptr %89, align 8, !tbaa !32
   br label %RCLASS_ALLOCATOR.exit
 
-RCLASS_ALLOCATOR.exit:                            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i106, %RCLASS_SINGLETON_P.exit.thread.i
-  %.0.i108 = phi ptr [ %90, %RCLASS_SINGLETON_P.exit.thread.i ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i106 ]
+RCLASS_ALLOCATOR.exit:                            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i105, %RCLASS_SINGLETON_P.exit.thread.i
+  %.0.i107 = phi ptr [ %90, %RCLASS_SINGLETON_P.exit.thread.i ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i105 ]
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store ptr %.0.i108, ptr %91, align 8, !tbaa !32
+  store ptr %.0.i107, ptr %91, align 8, !tbaa !32
   tail call fastcc void @copy_tables(i64 noundef %0, i64 noundef %1)
   %92 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !33
@@ -1067,9 +1066,9 @@ RCLASS_ALLOCATOR.exit:                            ; preds = %rbimpl_RB_TYPE_P_fa
   br label %121
 
 121:                                              ; preds = %.lr.ph, %204
-  %.090141 = phi i64 [ %104, %.lr.ph ], [ %206, %204 ]
-  %.091140 = phi i64 [ %0, %.lr.ph ], [ %130, %204 ]
-  %122 = inttoptr i64 %.090141 to ptr
+  %.090140 = phi i64 [ %104, %.lr.ph ], [ %206, %204 ]
+  %.091139 = phi i64 [ %0, %.lr.ph ], [ %130, %204 ]
+  %122 = inttoptr i64 %.090140 to ptr
   %123 = load i64, ptr %122, align 8, !tbaa !35
   %124 = and i64 %123, 31
   %.not98 = icmp eq i64 %124, 28
@@ -1108,32 +1107,32 @@ class_alloc.exit:                                 ; preds = %126, %rb_obj_write.
   %141 = load ptr, ptr %140, align 8, !tbaa !33
   %142 = getelementptr inbounds nuw i8, ptr %131, i64 24
   store ptr %141, ptr %142, align 8, !tbaa !33
-  %143 = call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %.091140, i64 noundef %130)
+  %143 = call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %.091139, i64 noundef %130)
   %144 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %145 = load ptr, ptr %144, align 8, !tbaa !47
   %146 = getelementptr inbounds nuw i8, ptr %131, i64 40
   store ptr %145, ptr %146, align 8, !tbaa !47
-  %147 = and i64 %.090141, 7
-  %.not137 = icmp eq i64 %147, 0
-  br i1 %.not137, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i110, label %RCLASS_SINGLETON_P.exit.thread.i112
+  %147 = and i64 %.090140, 7
+  %.not136 = icmp eq i64 %147, 0
+  br i1 %.not136, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i109, label %RCLASS_SINGLETON_P.exit.thread.i111
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i110:            ; preds = %class_alloc.exit
+rbimpl_RB_TYPE_P_fastpath.exit.i.i109:            ; preds = %class_alloc.exit
   %148 = load i64, ptr %122, align 8, !tbaa !35
   %149 = and i64 %148, 8223
-  %or.cond.i111 = icmp eq i64 %149, 8194
-  br i1 %or.cond.i111, label %RCLASS_ALLOCATOR.exit114, label %RCLASS_SINGLETON_P.exit.thread.i112
+  %or.cond.i110 = icmp eq i64 %149, 8194
+  br i1 %or.cond.i110, label %RCLASS_ALLOCATOR.exit113, label %RCLASS_SINGLETON_P.exit.thread.i111
 
-RCLASS_SINGLETON_P.exit.thread.i112:              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i110, %class_alloc.exit
+RCLASS_SINGLETON_P.exit.thread.i111:              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i109, %class_alloc.exit
   %150 = getelementptr inbounds nuw i8, ptr %122, i64 128
   %151 = load ptr, ptr %150, align 8, !tbaa !32
-  br label %RCLASS_ALLOCATOR.exit114
+  br label %RCLASS_ALLOCATOR.exit113
 
-RCLASS_ALLOCATOR.exit114:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i110, %RCLASS_SINGLETON_P.exit.thread.i112
-  %.0.i113 = phi ptr [ %151, %RCLASS_SINGLETON_P.exit.thread.i112 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i110 ]
-  store ptr %.0.i113, ptr %139, align 8, !tbaa !32
+RCLASS_ALLOCATOR.exit113:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i109, %RCLASS_SINGLETON_P.exit.thread.i111
+  %.0.i112 = phi ptr [ %151, %RCLASS_SINGLETON_P.exit.thread.i111 ], [ null, %rbimpl_RB_TYPE_P_fastpath.exit.i.i109 ]
+  store ptr %.0.i112, ptr %139, align 8, !tbaa !32
   br i1 %47, label %rbimpl_RB_TYPE_P_fastpath.exit.thread, label %rbimpl_RB_TYPE_P_fastpath.exit
 
-rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RCLASS_ALLOCATOR.exit114
+rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RCLASS_ALLOCATOR.exit113
   %152 = load i64, ptr %6, align 8, !tbaa !35
   %153 = and i64 %152, 31
   %154 = icmp eq i64 %153, 2
@@ -1145,10 +1144,10 @@ RCLASS_SET_INCLUDER.exit:                         ; preds = %rbimpl_RB_TYPE_P_fa
   call void @rb_gc_writebarrier(i64 noundef %130, i64 noundef %0) #19
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RCLASS_ALLOCATOR.exit114, %RCLASS_SET_INCLUDER.exit, %rbimpl_RB_TYPE_P_fastpath.exit
+rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RCLASS_ALLOCATOR.exit113, %RCLASS_SET_INCLUDER.exit, %rbimpl_RB_TYPE_P_fastpath.exit
   %156 = getelementptr inbounds nuw i8, ptr %122, i64 112
   %157 = load i64, ptr %156, align 8, !tbaa !46
-  %.not99 = icmp eq i64 %.090141, %157
+  %.not99 = icmp eq i64 %.090140, %157
   br i1 %.not99, label %160, label %158
 
 158:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -1160,8 +1159,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %RCLASS_ALLOCATOR.ex
 160:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %161 = load i64, ptr %117, align 8, !tbaa !35
   %162 = and i64 %161, 8192
-  %.not.i115 = icmp eq i64 %162, 0
-  br i1 %.not.i115, label %rb_array_len.exit, label %rb_array_len.exit.thread
+  %.not.i114 = icmp eq i64 %162, 0
+  br i1 %.not.i114, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %160
   %163 = load i64, ptr %119, align 8, !tbaa !32
@@ -1179,47 +1178,47 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit
   %169 = getelementptr i64, ptr %168, i64 %163
   %170 = getelementptr i8, ptr %169, i64 -8
   %171 = load i64, ptr %170, align 8, !tbaa !29
-  %172 = icmp eq i64 %171, %.090141
-  br i1 %172, label %RARRAY_AREF.exit119, label %.critedge
+  %172 = icmp eq i64 %171, %.090140
+  br i1 %172, label %RARRAY_AREF.exit118, label %.critedge
 
 RARRAY_AREF.exit.thread:                          ; preds = %rb_array_len.exit.thread
   %173 = getelementptr i64, ptr %118, i64 %166
   %174 = load i64, ptr %173, align 8, !tbaa !29
-  %175 = icmp eq i64 %174, %.090141
-  br i1 %175, label %RARRAY_AREF.exit119, label %.critedge
+  %175 = icmp eq i64 %174, %.090140
+  br i1 %175, label %RARRAY_AREF.exit118, label %.critedge
 
-RARRAY_AREF.exit119:                              ; preds = %RARRAY_AREF.exit, %RARRAY_AREF.exit.thread
+RARRAY_AREF.exit118:                              ; preds = %RARRAY_AREF.exit, %RARRAY_AREF.exit.thread
   %.in = phi i64 [ %166, %RARRAY_AREF.exit.thread ], [ %163, %RARRAY_AREF.exit ]
-  %.0.i.i118 = phi ptr [ %119, %RARRAY_AREF.exit.thread ], [ %168, %RARRAY_AREF.exit ]
+  %.0.i.i117 = phi ptr [ %119, %RARRAY_AREF.exit.thread ], [ %168, %RARRAY_AREF.exit ]
   %176 = add nsw i64 %.in, -2
-  %177 = getelementptr i64, ptr %.0.i.i118, i64 %176
+  %177 = getelementptr i64, ptr %.0.i.i117, i64 %176
   %178 = load i64, ptr %177, align 8, !tbaa !29
   %179 = inttoptr i64 %178 to ptr
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 112
   store i64 %130, ptr %180, align 8, !tbaa !29
   br i1 %137, label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit, label %rb_obj_write.exit.thread.i
 
-rb_obj_write.exit.thread.i:                       ; preds = %RARRAY_AREF.exit119
+rb_obj_write.exit.thread.i:                       ; preds = %RARRAY_AREF.exit118
   call void @rb_gc_writebarrier(i64 noundef %178, i64 noundef %130) #19
   %.not6.i = icmp ne i64 %178, %130
-  %.pre144 = load i64, ptr %131, align 8, !tbaa !35
-  %181 = and i64 %.pre144, 31
-  %.not.i.i120 = icmp ne i64 %181, 27
-  %or.cond166.not = and i1 %.not6.i, %.not.i.i120
-  %182 = or i64 %.pre144, 4096
-  %183 = select i1 %or.cond166.not, i64 %182, i64 %.pre144
+  %.pre143 = load i64, ptr %131, align 8, !tbaa !35
+  %181 = and i64 %.pre143, 31
+  %.not.i.i119 = icmp ne i64 %181, 27
+  %or.cond165.not = and i1 %.not6.i, %.not.i.i119
+  %182 = or i64 %.pre143, 4096
+  %183 = select i1 %or.cond165.not, i64 %182, i64 %.pre143
   %184 = and i64 %183, 31
-  %.not.i.i122 = icmp ne i64 %184, 27
-  %185 = or i1 %or.cond166.not, %.not.i.i122
+  %.not.i.i121 = icmp ne i64 %184, 27
+  %185 = or i1 %or.cond165.not, %.not.i.i121
   br i1 %185, label %186, label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit
 
 186:                                              ; preds = %rb_obj_write.exit.thread.i
   %187 = or i64 %183, 32768
-  %simplifycfg.merge = select i1 %.not.i.i122, i64 %187, i64 %183
+  %simplifycfg.merge = select i1 %.not.i.i121, i64 %187, i64 %183
   store i64 %simplifycfg.merge, ptr %131, align 8, !tbaa !35
   br label %RICLASS_SET_ORIGIN_SHARED_MTBL.exit
 
-RICLASS_SET_ORIGIN_SHARED_MTBL.exit:              ; preds = %186, %rb_obj_write.exit.thread.i, %RARRAY_AREF.exit119
+RICLASS_SET_ORIGIN_SHARED_MTBL.exit:              ; preds = %186, %rb_obj_write.exit.thread.i, %RARRAY_AREF.exit118
   %188 = call i64 @rb_ary_resize(i64 noundef %108, i64 noundef %176) #19
   br label %204
 
@@ -1230,8 +1229,8 @@ RICLASS_SET_ORIGIN_SHARED_MTBL.exit:              ; preds = %186, %rb_obj_write.
   %191 = inttoptr i64 %189 to ptr
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 88
   %193 = load ptr, ptr %192, align 8, !tbaa !14
-  %.not.i.i123 = icmp eq ptr %193, null
-  br i1 %.not.i.i123, label %194, label %196
+  %.not.i.i122 = icmp eq ptr %193, null
+  br i1 %.not.i.i122, label %194, label %196
 
 194:                                              ; preds = %.critedge
   %195 = call noalias nonnull dereferenceable(24) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 24) #18
@@ -1239,13 +1238,13 @@ RICLASS_SET_ORIGIN_SHARED_MTBL.exit:              ; preds = %186, %rb_obj_write.
   br label %196
 
 196:                                              ; preds = %194, %.critedge
-  %.0.i.i124 = phi ptr [ %193, %.critedge ], [ %195, %194 ]
-  %197 = getelementptr inbounds nuw i8, ptr %.0.i.i124, i64 8
+  %.0.i.i123 = phi ptr [ %193, %.critedge ], [ %195, %194 ]
+  %197 = getelementptr inbounds nuw i8, ptr %.0.i.i123, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !23
   %199 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store ptr %198, ptr %199, align 8, !tbaa !23
   %200 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  store ptr %.0.i.i124, ptr %200, align 8, !tbaa !24
+  store ptr %.0.i.i123, ptr %200, align 8, !tbaa !24
   %.not17.i.i = icmp eq ptr %198, null
   br i1 %.not17.i.i, label %rb_module_add_to_subclasses_list.exit, label %201
 
@@ -1274,14 +1273,14 @@ rb_module_add_to_subclasses_list.exit:            ; preds = %196, %201
 
 ._crit_edge.thread:                               ; preds = %107
   %211 = icmp eq i64 %104, %101
-  br i1 %211, label %._crit_edge145, label %228
+  br i1 %211, label %._crit_edge144, label %228
 
 212:                                              ; preds = %._crit_edge
   %.not96 = icmp eq i64 %130, 0
-  br i1 %.not96, label %._crit_edge145, label %213
+  br i1 %.not96, label %._crit_edge144, label %213
 
-._crit_edge145:                                   ; preds = %._crit_edge.thread, %212
-  %.pre146 = inttoptr i64 %101 to ptr
+._crit_edge144:                                   ; preds = %._crit_edge.thread, %212
+  %.pre145 = inttoptr i64 %101 to ptr
   br label %219
 
 213:                                              ; preds = %212
@@ -1292,8 +1291,8 @@ rb_module_add_to_subclasses_list.exit:            ; preds = %196, %201
   %218 = call fastcc i64 @RCLASS_SET_SUPER(i64 noundef %111, i64 noundef %217)
   br label %219
 
-219:                                              ; preds = %._crit_edge145, %213
-  %.pre-phi = phi ptr [ %.pre146, %._crit_edge145 ], [ %215, %213 ]
+219:                                              ; preds = %._crit_edge144, %213
+  %.pre-phi = phi ptr [ %.pre145, %._crit_edge144 ], [ %215, %213 ]
   call fastcc void @copy_tables(i64 noundef %111, i64 noundef %101)
   %220 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 24
   %221 = load ptr, ptr %220, align 8, !tbaa !33
@@ -4390,9 +4389,8 @@ rb_check_arity.exit:                              ; preds = %3
   br label %rb_class_of.exit
 
 22:                                               ; preds = %19
-  %23 = and i64 %2, 1
-  %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %24, label %rb_class_of.exit
+  %23 = trunc i64 %2 to i1
+  br i1 %23, label %rb_class_of.exit, label %24
 
 24:                                               ; preds = %22
   %25 = and i64 %2, 254
@@ -4445,8 +4443,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %11
   %16 = inttoptr i64 %2 to ptr
   %17 = load i64, ptr %16, align 8, !tbaa !35
   %18 = and i64 %17, 8223
-  %or.cond51 = icmp eq i64 %18, 8194
-  br i1 %or.cond51, label %rbimpl_RB_TYPE_P_fastpath.exit.i36, label %rb_singleton_class.exit
+  %or.cond50 = icmp eq i64 %18, 8194
+  br i1 %or.cond50, label %rbimpl_RB_TYPE_P_fastpath.exit.i36, label %rb_singleton_class.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.i36:               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
   %19 = tail call fastcc i64 @singleton_class_of(i64 noundef %2)
@@ -4503,9 +4501,8 @@ rb_singleton_class.exit:                          ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_class_of.exit
 
 43:                                               ; preds = %40
-  %44 = and i64 %2, 1
-  %.not.i39 = icmp eq i64 %44, 0
-  br i1 %.not.i39, label %45, label %rb_class_of.exit
+  %44 = trunc i64 %2 to i1
+  br i1 %44, label %rb_class_of.exit, label %45
 
 45:                                               ; preds = %43
   %46 = and i64 %2, 254
@@ -4528,16 +4525,16 @@ rb_class_of.exit:                                 ; preds = %rb_singleton_class.
 
 53:                                               ; preds = %rb_class_of.exit
   %54 = and i64 %.0.i38, 7
-  %.not56 = icmp eq i64 %54, 0
-  br i1 %.not56, label %rbimpl_RB_TYPE_P_fastpath.exit.i40, label %RCLASS_SINGLETON_P.exit41.thread
+  %.not55 = icmp eq i64 %54, 0
+  br i1 %.not55, label %rbimpl_RB_TYPE_P_fastpath.exit.i39, label %RCLASS_SINGLETON_P.exit40.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit.i40:               ; preds = %53
+rbimpl_RB_TYPE_P_fastpath.exit.i39:               ; preds = %53
   %55 = load i64, ptr %48, align 8, !tbaa !35
   %56 = and i64 %55, 8223
-  %or.cond53 = icmp eq i64 %56, 8194
-  br i1 %or.cond53, label %57, label %RCLASS_SINGLETON_P.exit41.thread
+  %or.cond52 = icmp eq i64 %56, 8194
+  br i1 %or.cond52, label %57, label %RCLASS_SINGLETON_P.exit40.thread
 
-57:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i40
+57:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i39
   %58 = inttoptr i64 %50 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !33
@@ -4551,32 +4548,32 @@ rbimpl_RB_TYPE_P_fastpath.exit.i40:               ; preds = %53
 62:                                               ; preds = %61, %57
   %63 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !34
-  br label %RCLASS_SINGLETON_P.exit41.thread
+  br label %RCLASS_SINGLETON_P.exit40.thread
 
-RCLASS_SINGLETON_P.exit41.thread:                 ; preds = %53, %rbimpl_RB_TYPE_P_fastpath.exit.i40, %62
-  %.026 = phi i64 [ %64, %62 ], [ %.0.i38, %53 ], [ %.0.i38, %rbimpl_RB_TYPE_P_fastpath.exit.i40 ]
+RCLASS_SINGLETON_P.exit40.thread:                 ; preds = %53, %rbimpl_RB_TYPE_P_fastpath.exit.i39, %62
+  %.026 = phi i64 [ %64, %62 ], [ %.0.i38, %53 ], [ %.0.i38, %rbimpl_RB_TYPE_P_fastpath.exit.i39 ]
   %65 = icmp ne i32 %.0, 0
   %66 = icmp ne i64 %.026, 0
   %or.cond = select i1 %65, i1 %66, i1 false
   br i1 %or.cond, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %RCLASS_SINGLETON_P.exit41.thread, %77
-  %.1 = phi i64 [ %79, %77 ], [ %.026, %RCLASS_SINGLETON_P.exit41.thread ]
+.preheader:                                       ; preds = %RCLASS_SINGLETON_P.exit40.thread, %77
+  %.1 = phi i64 [ %79, %77 ], [ %.026, %RCLASS_SINGLETON_P.exit40.thread ]
   %67 = and i64 %.1, 7
-  %.not57 = icmp eq i64 %67, 0
-  br i1 %.not57, label %rbimpl_RB_TYPE_P_fastpath.exit.i42, label %.critedge
+  %.not56 = icmp eq i64 %67, 0
+  br i1 %.not56, label %rbimpl_RB_TYPE_P_fastpath.exit.i41, label %.critedge
 
-rbimpl_RB_TYPE_P_fastpath.exit.i42:               ; preds = %.preheader
+rbimpl_RB_TYPE_P_fastpath.exit.i41:               ; preds = %.preheader
   %68 = inttoptr i64 %.1 to ptr
   %69 = load i64, ptr %68, align 8, !tbaa !35
   %70 = and i64 %69, 8223
-  %or.cond55 = icmp eq i64 %70, 8194
+  %or.cond54 = icmp eq i64 %70, 8194
   %71 = and i64 %69, 31
   %72 = icmp eq i64 %71, 28
-  %or.cond66 = or i1 %or.cond55, %72
-  br i1 %or.cond66, label %.critedge2, label %.critedge
+  %or.cond65 = or i1 %or.cond54, %72
+  br i1 %or.cond65, label %.critedge2, label %.critedge
 
-.critedge2:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i42
+.critedge2:                                       ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i41
   %.not34 = icmp eq i64 %.1, %50
   br i1 %.not34, label %77, label %73
 
@@ -4596,7 +4593,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i42:               ; preds = %.preheader
   %.old3.not = icmp eq i64 %79, 0
   br i1 %.old3.not, label %.critedge, label %.preheader
 
-.critedge:                                        ; preds = %.preheader, %77, %rbimpl_RB_TYPE_P_fastpath.exit.i42, %rb_class_of.exit, %RCLASS_SINGLETON_P.exit41.thread
+.critedge:                                        ; preds = %.preheader, %77, %rbimpl_RB_TYPE_P_fastpath.exit.i41, %rb_class_of.exit, %RCLASS_SINGLETON_P.exit40.thread
   %80 = load ptr, ptr %4, align 8, !tbaa !83
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !89
@@ -4636,9 +4633,8 @@ define hidden noundef i64 @rb_obj_protected_methods(i32 noundef %0, ptr noundef 
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %2, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %2 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %2, 254
@@ -4680,9 +4676,8 @@ define hidden noundef i64 @rb_obj_private_methods(i32 noundef %0, ptr noundef re
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %2, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %2 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %2, 254
@@ -4724,9 +4719,8 @@ define hidden noundef i64 @rb_obj_public_methods(i32 noundef %0, ptr noundef rea
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %2, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %2 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %2, 254

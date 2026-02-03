@@ -2085,18 +2085,18 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
   %85 = tail call ptr @proto_item_add_subtree(ptr noundef %83, i32 noundef %84)
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %87 = load i8, ptr %86, align 4
-  %88 = and i8 %87, 1
-  %89 = or i8 %87, 1
-  store i8 %89, ptr %86, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %91 = load ptr, ptr %90, align 8
-  tail call void @col_set_writable(ptr noundef %91, i32 noundef -1, i1 noundef zeroext false)
+  %88 = or i8 %87, 1
+  store i8 %88, ptr %86, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %90 = load ptr, ptr %89, align 8
+  tail call void @col_set_writable(ptr noundef %90, i32 noundef -1, i1 noundef zeroext false)
   tail call fastcc void @dissect_openflow_message_v4(ptr noundef %0, ptr noundef %1, ptr noundef %85, i32 noundef %80)
+  %91 = and i8 %87, 1
   %92 = load i8, ptr %86, align 4
   %93 = and i8 %92, -2
-  %94 = or disjoint i8 %93, %88
+  %94 = or disjoint i8 %93, %91
   store i8 %94, ptr %86, align 4
-  %95 = load ptr, ptr %90, align 8
+  %95 = load ptr, ptr %89, align 8
   tail call void @col_set_writable(ptr noundef %95, i32 noundef -1, i1 noundef zeroext true)
   br label %common.ret
 
@@ -2230,82 +2230,82 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
   %202 = tail call zeroext i1 @col_get_writable(ptr noundef %201, i32 noundef -1)
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %204 = load i8, ptr %203, align 4
-  %205 = and i8 %204, 1
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %207 = load i32, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %213 = load i32, ptr %212, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %215 = load i32, ptr %214, align 4
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %219 = load i32, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %225 = load i32, ptr %224, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %227 = load i32, ptr %226, align 4
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %231 = load i32, ptr %230, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %237 = load i32, ptr %236, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %241 = load ptr, ptr %240, align 8
-  %242 = load ptr, ptr %200, align 8
-  tail call void @col_set_writable(ptr noundef %242, i32 noundef -1, i1 noundef zeroext false)
-  %243 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %194, i32 noundef %197)
-  %244 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %245 = tail call i32 @call_dissector(ptr noundef %244, ptr noundef %243, ptr noundef %1, ptr noundef %199)
-  %246 = load ptr, ptr %200, align 8
-  tail call void @col_set_writable(ptr noundef %246, i32 noundef -1, i1 noundef zeroext %202)
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %206 = load i32, ptr %205, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %208 = load i32, ptr %207, align 4
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %212 = load i32, ptr %211, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 140
+  %214 = load i32, ptr %213, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %218 = load i32, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %220 = load i32, ptr %219, align 4
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %224 = load i32, ptr %223, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 188
+  %226 = load i32, ptr %225, align 4
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %230 = load i32, ptr %229, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %232 = load i32, ptr %231, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %234 = load ptr, ptr %233, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %236 = load i32, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %238 = load i32, ptr %237, align 4
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %240 = load ptr, ptr %239, align 8
+  %241 = load ptr, ptr %200, align 8
+  tail call void @col_set_writable(ptr noundef %241, i32 noundef -1, i1 noundef zeroext false)
+  %242 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %194, i32 noundef %197)
+  %243 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %244 = tail call i32 @call_dissector(ptr noundef %243, ptr noundef %242, ptr noundef %1, ptr noundef %199)
+  %245 = load ptr, ptr %200, align 8
+  tail call void @col_set_writable(ptr noundef %245, i32 noundef -1, i1 noundef zeroext %202)
+  %246 = and i8 %204, 1
   %247 = load i8, ptr %203, align 4
   %248 = and i8 %247, -2
-  %249 = or disjoint i8 %248, %205
+  %249 = or disjoint i8 %248, %246
   store i8 %249, ptr %203, align 4
-  store i32 %207, ptr %206, align 8
-  store i32 %209, ptr %208, align 4
-  store ptr %211, ptr %210, align 8
+  store i32 %206, ptr %205, align 8
+  store i32 %208, ptr %207, align 4
+  store ptr %210, ptr %209, align 8
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %250, align 8
-  store i32 %213, ptr %212, align 8
-  store i32 %215, ptr %214, align 4
-  store ptr %217, ptr %216, align 8
+  store i32 %212, ptr %211, align 8
+  store i32 %214, ptr %213, align 4
+  store ptr %216, ptr %215, align 8
   %251 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %251, align 8
-  store i32 %219, ptr %218, align 8
-  store i32 %221, ptr %220, align 4
-  store ptr %223, ptr %222, align 8
+  store i32 %218, ptr %217, align 8
+  store i32 %220, ptr %219, align 4
+  store ptr %222, ptr %221, align 8
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %252, align 8
-  store i32 %225, ptr %224, align 8
-  store i32 %227, ptr %226, align 4
-  store ptr %229, ptr %228, align 8
+  store i32 %224, ptr %223, align 8
+  store i32 %226, ptr %225, align 4
+  store ptr %228, ptr %227, align 8
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %253, align 8
-  store i32 %231, ptr %230, align 8
-  store i32 %233, ptr %232, align 4
-  store ptr %235, ptr %234, align 8
+  store i32 %230, ptr %229, align 8
+  store i32 %232, ptr %231, align 4
+  store ptr %234, ptr %233, align 8
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %254, align 8
-  store i32 %237, ptr %236, align 8
-  store i32 %239, ptr %238, align 4
-  store ptr %241, ptr %240, align 8
+  store i32 %236, ptr %235, align 8
+  store i32 %238, ptr %237, align 4
+  store ptr %240, ptr %239, align 8
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %255, align 8
   br label %common.ret
@@ -2393,82 +2393,82 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
   %322 = tail call zeroext i1 @col_get_writable(ptr noundef %321, i32 noundef -1)
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %324 = load i8, ptr %323, align 4
-  %325 = and i8 %324, 1
-  %326 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %327 = load i32, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %329 = load i32, ptr %328, align 4
-  %330 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %333 = load i32, ptr %332, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %335 = load i32, ptr %334, align 4
-  %336 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %339 = load i32, ptr %338, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %341 = load i32, ptr %340, align 4
-  %342 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %345 = load i32, ptr %344, align 8
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %347 = load i32, ptr %346, align 4
-  %348 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %351 = load i32, ptr %350, align 8
-  %352 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %353 = load i32, ptr %352, align 4
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %357 = load i32, ptr %356, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  %359 = load i32, ptr %358, align 4
-  %360 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %361 = load ptr, ptr %360, align 8
-  %362 = load ptr, ptr %320, align 8
-  tail call void @col_set_writable(ptr noundef %362, i32 noundef -1, i1 noundef zeroext false)
-  %363 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %317)
-  %364 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %365 = tail call i32 @call_dissector(ptr noundef %364, ptr noundef %363, ptr noundef %1, ptr noundef %319)
-  %366 = load ptr, ptr %320, align 8
-  tail call void @col_set_writable(ptr noundef %366, i32 noundef -1, i1 noundef zeroext %322)
+  %325 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %326 = load i32, ptr %325, align 8
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %328 = load i32, ptr %327, align 4
+  %329 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %330 = load ptr, ptr %329, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %332 = load i32, ptr %331, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 140
+  %334 = load i32, ptr %333, align 4
+  %335 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %336 = load ptr, ptr %335, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %338 = load i32, ptr %337, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %340 = load i32, ptr %339, align 4
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %344 = load i32, ptr %343, align 8
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 188
+  %346 = load i32, ptr %345, align 4
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %348 = load ptr, ptr %347, align 8
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %350 = load i32, ptr %349, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %352 = load i32, ptr %351, align 4
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %356 = load i32, ptr %355, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %358 = load i32, ptr %357, align 4
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %360 = load ptr, ptr %359, align 8
+  %361 = load ptr, ptr %320, align 8
+  tail call void @col_set_writable(ptr noundef %361, i32 noundef -1, i1 noundef zeroext false)
+  %362 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %317)
+  %363 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %364 = tail call i32 @call_dissector(ptr noundef %363, ptr noundef %362, ptr noundef %1, ptr noundef %319)
+  %365 = load ptr, ptr %320, align 8
+  tail call void @col_set_writable(ptr noundef %365, i32 noundef -1, i1 noundef zeroext %322)
+  %366 = and i8 %324, 1
   %367 = load i8, ptr %323, align 4
   %368 = and i8 %367, -2
-  %369 = or disjoint i8 %368, %325
+  %369 = or disjoint i8 %368, %366
   store i8 %369, ptr %323, align 4
-  store i32 %327, ptr %326, align 8
-  store i32 %329, ptr %328, align 4
-  store ptr %331, ptr %330, align 8
+  store i32 %326, ptr %325, align 8
+  store i32 %328, ptr %327, align 4
+  store ptr %330, ptr %329, align 8
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %370, align 8
-  store i32 %333, ptr %332, align 8
-  store i32 %335, ptr %334, align 4
-  store ptr %337, ptr %336, align 8
+  store i32 %332, ptr %331, align 8
+  store i32 %334, ptr %333, align 4
+  store ptr %336, ptr %335, align 8
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %371, align 8
-  store i32 %339, ptr %338, align 8
-  store i32 %341, ptr %340, align 4
-  store ptr %343, ptr %342, align 8
+  store i32 %338, ptr %337, align 8
+  store i32 %340, ptr %339, align 4
+  store ptr %342, ptr %341, align 8
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %372, align 8
-  store i32 %345, ptr %344, align 8
-  store i32 %347, ptr %346, align 4
-  store ptr %349, ptr %348, align 8
+  store i32 %344, ptr %343, align 8
+  store i32 %346, ptr %345, align 4
+  store ptr %348, ptr %347, align 8
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %373, align 8
-  store i32 %351, ptr %350, align 8
-  store i32 %353, ptr %352, align 4
-  store ptr %355, ptr %354, align 8
+  store i32 %350, ptr %349, align 8
+  store i32 %352, ptr %351, align 4
+  store ptr %354, ptr %353, align 8
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %374, align 8
-  store i32 %357, ptr %356, align 8
-  store i32 %359, ptr %358, align 4
-  store ptr %361, ptr %360, align 8
+  store i32 %356, ptr %355, align 8
+  store i32 %358, ptr %357, align 4
+  store ptr %360, ptr %359, align 8
   %375 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %375, align 8
   br label %common.ret
@@ -3955,9 +3955,9 @@ define internal fastcc i32 @dissect_openflow_oxm_v4(ptr noundef %0, ptr noundef 
   %29 = tail call ptr @proto_tree_add_bits_item(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef 0)
   %30 = load i32, ptr @hf_openflow_v4_oxm_length, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %30, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0)
-  switch i16 %5, label %115 [
+  switch i16 %5, label %116 [
     i16 -32768, label %32
-    i16 -1, label %108
+    i16 -1, label %109
   ]
 
 32:                                               ; preds = %4
@@ -4090,40 +4090,41 @@ define internal fastcc i32 @dissect_openflow_oxm_v4(ptr noundef %0, ptr noundef 
   %96 = load i32, ptr @hf_openflow_v4_oxm_value, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %96, ptr noundef %0, i32 noundef %10, i32 noundef %94, i32 noundef 0)
   %98 = add i32 %10, %94
-  br i1 %14, label %.thread, label %99
+  %99 = trunc i8 %7 to i1
+  br i1 %99, label %100, label %.thread
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr @hf_openflow_v4_oxm_mask, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %100, ptr noundef %0, i32 noundef %98, i32 noundef %94, i32 noundef 0)
-  %102 = add i32 %98, %94
+100:                                              ; preds = %95
+  %101 = load i32, ptr @hf_openflow_v4_oxm_mask, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %101, ptr noundef %0, i32 noundef %98, i32 noundef %94, i32 noundef 0)
+  %103 = add i32 %98, %94
   br label %.thread
 
-.thread:                                          ; preds = %93, %84, %95, %99, %85, %89, %76, %80, %64, %68, %50, %56, %38, %42, %72, %60, %46, %34
-  %.0 = phi i32 [ %102, %99 ], [ %98, %95 ], [ %37, %34 ], [ %45, %42 ], [ %41, %38 ], [ %49, %46 ], [ %59, %56 ], [ %55, %50 ], [ %63, %60 ], [ %71, %68 ], [ %67, %64 ], [ %75, %72 ], [ %83, %80 ], [ %79, %76 ], [ %88, %85 ], [ %92, %89 ], [ %10, %84 ], [ %10, %93 ]
-  %103 = and i32 %12, 65535
-  %104 = icmp sgt i32 %103, %.0
-  br i1 %104, label %105, label %117
+.thread:                                          ; preds = %93, %84, %95, %100, %85, %89, %76, %80, %64, %68, %50, %56, %38, %42, %72, %60, %46, %34
+  %.0 = phi i32 [ %103, %100 ], [ %98, %95 ], [ %37, %34 ], [ %45, %42 ], [ %41, %38 ], [ %49, %46 ], [ %59, %56 ], [ %55, %50 ], [ %63, %60 ], [ %71, %68 ], [ %67, %64 ], [ %75, %72 ], [ %83, %80 ], [ %79, %76 ], [ %88, %85 ], [ %92, %89 ], [ %10, %84 ], [ %10, %93 ]
+  %104 = and i32 %12, 65535
+  %105 = icmp sgt i32 %104, %.0
+  br i1 %105, label %106, label %118
 
-105:                                              ; preds = %.thread
-  %106 = sub i32 %103, %.0
-  %107 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_openflow_v4_oxm_undecoded, ptr noundef %0, i32 noundef %.0, i32 noundef %106, ptr noundef nonnull @.str.1124)
-  br label %117
+106:                                              ; preds = %.thread
+  %107 = sub i32 %104, %.0
+  %108 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_openflow_v4_oxm_undecoded, ptr noundef %0, i32 noundef %.0, i32 noundef %107, ptr noundef nonnull @.str.1124)
+  br label %118
 
-108:                                              ; preds = %4
-  %109 = load i32, ptr @hf_openflow_v4_oxm_experimenter_experimenter, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %109, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0)
-  %111 = add i32 %3, 8
-  %112 = load i32, ptr @hf_openflow_v4_oxm_experimenter_value, align 4
-  %113 = add nsw i32 %11, -4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef %113, i32 noundef 0)
-  br label %117
+109:                                              ; preds = %4
+  %110 = load i32, ptr @hf_openflow_v4_oxm_experimenter_experimenter, align 4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %110, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0)
+  %112 = add i32 %3, 8
+  %113 = load i32, ptr @hf_openflow_v4_oxm_experimenter_value, align 4
+  %114 = add nsw i32 %11, -4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef %114, i32 noundef 0)
+  br label %118
 
-115:                                              ; preds = %4
-  %116 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_openflow_v4_oxm_undecoded, ptr noundef %0, i32 noundef %10, i32 noundef %11, ptr noundef nonnull @.str.1125)
-  br label %117
+116:                                              ; preds = %4
+  %117 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_openflow_v4_oxm_undecoded, ptr noundef %0, i32 noundef %10, i32 noundef %11, ptr noundef nonnull @.str.1125)
+  br label %118
 
-117:                                              ; preds = %108, %115, %.thread, %105
-  %.2 = phi i32 [ %103, %105 ], [ %.0, %.thread ], [ %12, %108 ], [ %12, %115 ]
+118:                                              ; preds = %109, %116, %.thread, %106
+  %.2 = phi i32 [ %104, %106 ], [ %.0, %.thread ], [ %12, %109 ], [ %12, %116 ]
   ret i32 %.2
 }
 

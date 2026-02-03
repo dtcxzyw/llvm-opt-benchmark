@@ -2171,11 +2171,11 @@ _ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobS
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i.i:      ; preds = %713
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre.i.i = load ptr, ptr %411, align 8, !tbaa !71
-  %.pre6.i.i = load ptr, ptr %13, align 8, !tbaa !67
+  %.pre5.i.i = load ptr, ptr %13, align 8, !tbaa !67
   br label %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_113CaffeImporter18blobShapeFromProtoERKN12opencv_caffe9BlobProtoERSt6vectorIiSaIiEE.exit.i.i
 
 _ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_113CaffeImporter18blobShapeFromProtoERKN12opencv_caffe9BlobProtoERSt6vectorIiSaIiEE.exit.i.i: ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i.i, %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE.exit.i.i.i, %662
-  %714 = phi ptr [ %.pre6.i.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i.i ], [ %661, %662 ], [ %.sroa.0.2.i.i.i, %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE.exit.i.i.i ]
+  %714 = phi ptr [ %.pre5.i.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i.i ], [ %661, %662 ], [ %.sroa.0.2.i.i.i, %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE.exit.i.i.i ]
   %715 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i.i.i ], [ %666, %662 ], [ %.sroa.7.1.i.i.i, %_ZN2cv3dnn14dnn4_v2024122312_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE.exit.i.i.i ]
   %716 = ptrtoint ptr %715 to i64
   %717 = ptrtoint ptr %714 to i64
@@ -2285,9 +2285,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %7
 
 755:                                              ; preds = %721
   %756 = load i32, ptr %647, align 4, !tbaa !31
-  %757 = and i32 %756, 1
-  %.not1.i.i = icmp eq i32 %757, 0
-  br i1 %.not1.i.i, label %758, label %768
+  %757 = trunc i32 %756 to i1
+  br i1 %757, label %768, label %758
 
 758:                                              ; preds = %755
   call void @llvm.lifetime.start.p0(ptr nonnull %18)

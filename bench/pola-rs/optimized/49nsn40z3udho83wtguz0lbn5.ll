@@ -178,10 +178,10 @@ default.unreachable:                              ; preds = %40
   %56 = load i8, ptr %55, align 1, !noalias !10, !noundef !3
   %57 = trunc i64 %52 to i8
   %58 = and i8 %57, 7
-  %59 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %60 = lshr i8 %56, %58
-  %61 = and i8 %60, 1
-  store i8 %61, ptr %59, align 1, !alias.scope !7, !noalias !10
+  %59 = lshr i8 %56, %58
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %61 = and i8 %59, 1
+  store i8 %61, ptr %60, align 1, !alias.scope !7, !noalias !10
   store i8 1, ptr %24, align 16, !alias.scope !7, !noalias !10
   br label %_ZN11polars_core13chunked_array3ops9any_value16arr_to_any_value17h6b92fdfeb137a29eE.exit
 

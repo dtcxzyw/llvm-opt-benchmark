@@ -1198,9 +1198,9 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %.pre = load ptr, ptr %2, align 8, !tbaa !37
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %130
-  %7 = phi ptr [ %132, %130 ], [ %.pre, %.lr.ph.preheader ]
-  %.096133 = phi i64 [ %133, %130 ], [ %3, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %128
+  %7 = phi ptr [ %130, %128 ], [ %.pre, %.lr.ph.preheader ]
+  %.096133 = phi i64 [ %131, %128 ], [ %3, %.lr.ph.preheader ]
   %8 = load i8, ptr %7, align 1, !tbaa !34
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %10, label %14
@@ -1209,7 +1209,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %11 = zext nneg i8 %8 to i32
   %12 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %11) #7
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.thread128, label %130, !llvm.loop !65
+  br i1 %13, label %.thread128, label %128, !llvm.loop !65
 
 14:                                               ; preds = %.lr.ph
   %15 = icmp eq i64 %.096133, 1
@@ -1220,7 +1220,7 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %18 = load i8, ptr %17, align 1, !tbaa !34
   %.fr = freeze i8 %18
   %19 = icmp samesign ult i8 %8, -40
-  br i1 %19, label %20, label %90
+  br i1 %19, label %20, label %88
 
 20:                                               ; preds = %16
   %21 = lshr i8 %8, 2
@@ -1243,89 +1243,87 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %37 = add nsw i8 %22, -21
   %38 = icmp ult i8 %37, -20
   %39 = zext i8 %32 to i32
-  %40 = shl nuw nsw i64 1, %30
-  %41 = and i64 %40, 3271754499
-  %42 = icmp ne i64 %41, 0
-  %or.cond = select i1 %38, i1 true, i1 %42
-  %43 = shl nuw nsw i64 1, %33
-  %44 = and i64 %43, 3221487617
-  %45 = icmp ne i64 %44, 0
-  %or.cond6 = select i1 %or.cond, i1 true, i1 %45
-  br i1 %or.cond6, label %.thread128, label %46
+  %40 = lshr i64 3271754499, %30
+  %41 = trunc i64 %40 to i1
+  %or.cond = select i1 %38, i1 true, i1 %41
+  %42 = lshr i64 3221487617, %33
+  %43 = trunc i64 %42 to i1
+  %or.cond6 = select i1 %or.cond, i1 true, i1 %43
+  br i1 %or.cond6, label %.thread128, label %44
 
-46:                                               ; preds = %20
-  %47 = icmp eq i8 %22, 1
-  %48 = icmp eq i8 %25, 2
-  br i1 %47, label %49, label %70
+44:                                               ; preds = %20
+  %45 = icmp eq i8 %22, 1
+  %46 = icmp eq i8 %25, 2
+  br i1 %45, label %47, label %68
 
-49:                                               ; preds = %46
-  %50 = icmp eq i8 %26, 1
-  br i1 %48, label %51, label %62
+47:                                               ; preds = %44
+  %48 = icmp eq i8 %26, 1
+  br i1 %46, label %49, label %60
 
-51:                                               ; preds = %49
-  br i1 %50, label %52, label %55
+49:                                               ; preds = %47
+  br i1 %48, label %50, label %53
 
-52:                                               ; preds = %51
-  %53 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 12288) #7
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.thread128, label %130
+50:                                               ; preds = %49
+  %51 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 12288) #7
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %.thread128, label %128
 
-55:                                               ; preds = %51
-  %56 = getelementptr i8, ptr @johabjamo_jongseong, i64 %33
-  %57 = load i8, ptr %56, align 1, !tbaa !34
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %58, 12544
-  %60 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %59) #7
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %.thread128, label %130
+53:                                               ; preds = %49
+  %54 = getelementptr i8, ptr @johabjamo_jongseong, i64 %33
+  %55 = load i8, ptr %54, align 1, !tbaa !34
+  %56 = zext i8 %55 to i32
+  %57 = or disjoint i32 %56, 12544
+  %58 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %57) #7
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %.thread128, label %128
 
-62:                                               ; preds = %49
-  br i1 %50, label %63, label %.thread128
+60:                                               ; preds = %47
+  br i1 %48, label %61, label %.thread128
 
-63:                                               ; preds = %62
-  %64 = getelementptr i8, ptr @johabjamo_jungseong, i64 %30
-  %65 = load i8, ptr %64, align 1, !tbaa !34
-  %66 = zext i8 %65 to i32
-  %67 = or disjoint i32 %66, 12544
-  %68 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %67) #7
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %.thread128, label %130
+61:                                               ; preds = %60
+  %62 = getelementptr i8, ptr @johabjamo_jungseong, i64 %30
+  %63 = load i8, ptr %62, align 1, !tbaa !34
+  %64 = zext i8 %63 to i32
+  %65 = or disjoint i32 %64, 12544
+  %66 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %65) #7
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %.thread128, label %128
 
-70:                                               ; preds = %46
-  br i1 %48, label %71, label %80
+68:                                               ; preds = %44
+  br i1 %46, label %69, label %78
 
-71:                                               ; preds = %70
-  %72 = icmp eq i8 %26, 1
-  br i1 %72, label %73, label %.thread128
+69:                                               ; preds = %68
+  %70 = icmp eq i8 %26, 1
+  br i1 %70, label %71, label %.thread128
 
-73:                                               ; preds = %71
-  %74 = getelementptr i8, ptr @johabjamo_choseong, i64 %27
-  %75 = load i8, ptr %74, align 1, !tbaa !34
-  %76 = zext i8 %75 to i32
-  %77 = or disjoint i32 %76, 12544
-  %78 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %77) #7
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %.thread128, label %130
+71:                                               ; preds = %69
+  %72 = getelementptr i8, ptr @johabjamo_choseong, i64 %27
+  %73 = load i8, ptr %72, align 1, !tbaa !34
+  %74 = zext i8 %73 to i32
+  %75 = or disjoint i32 %74, 12544
+  %76 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %75) #7
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %.thread128, label %128
 
-80:                                               ; preds = %70
-  %81 = mul nuw nsw i32 %36, 588
-  %82 = add nuw nsw i32 %81, 44032
-  %83 = mul nuw nsw i32 %39, 28
-  %84 = add nuw nsw i32 %82, %83
-  %85 = icmp eq i8 %26, 1
-  %narrow = select i1 %85, i8 0, i8 %35
-  %86 = zext i8 %narrow to i32
-  %87 = add nuw nsw i32 %84, %86
-  %88 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %87) #7
-  %89 = icmp slt i32 %88, 0
-  br i1 %89, label %.thread128, label %130
+78:                                               ; preds = %68
+  %79 = mul nuw nsw i32 %36, 588
+  %80 = add nuw nsw i32 %79, 44032
+  %81 = mul nuw nsw i32 %39, 28
+  %82 = add nuw nsw i32 %80, %81
+  %83 = icmp eq i8 %26, 1
+  %narrow = select i1 %83, i8 0, i8 %35
+  %84 = zext i8 %narrow to i32
+  %85 = add nuw nsw i32 %82, %84
+  %86 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %85) #7
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %.thread128, label %128
 
-90:                                               ; preds = %16
-  %91 = icmp ult i8 %.fr, 49
-  br i1 %91, label %.thread128, label %switch.early.test
+88:                                               ; preds = %16
+  %89 = icmp ult i8 %.fr, 49
+  br i1 %89, label %.thread128, label %switch.early.test
 
-switch.early.test:                                ; preds = %90
-  switch i8 %8, label %92 [
+switch.early.test:                                ; preds = %88
+  switch i8 %8, label %90 [
     i8 -1, label %.thread128
     i8 -2, label %.thread128
     i8 -3, label %.thread128
@@ -1335,79 +1333,79 @@ switch.early.test:                                ; preds = %90
     i8 -33, label %.thread128
   ]
 
-92:                                               ; preds = %switch.early.test
-  %93 = icmp ult i8 %.fr, -111
+90:                                               ; preds = %switch.early.test
+  %91 = icmp ult i8 %.fr, -111
   %or.cond15 = icmp slt i8 %.fr, -111
-  %94 = and i8 %.fr, 127
-  %95 = icmp eq i8 %94, 127
-  %or.cond118 = or i1 %or.cond15, %95
-  br i1 %or.cond118, label %.thread128, label %96
+  %92 = and i8 %.fr, 127
+  %93 = icmp eq i8 %92, 127
+  %or.cond118 = or i1 %or.cond15, %93
+  br i1 %or.cond118, label %.thread128, label %94
 
-96:                                               ; preds = %92
-  %97 = icmp eq i8 %8, -38
-  %98 = add i8 %.fr, 95
-  %99 = icmp ult i8 %98, 51
-  %or.cond21 = and i1 %97, %99
-  br i1 %or.cond21, label %.thread128, label %100
+94:                                               ; preds = %90
+  %95 = icmp eq i8 %8, -38
+  %96 = add i8 %.fr, 95
+  %97 = icmp ult i8 %96, 51
+  %or.cond21 = and i1 %95, %97
+  br i1 %or.cond21, label %.thread128, label %98
 
-100:                                              ; preds = %96
-  %101 = icmp samesign ult i8 %8, -32
-  %102 = shl nsw i8 %8, 1
-  %.v132 = select i1 %101, i8 78, i8 105
-  %103 = add nsw i8 %.v132, %102
-  %.v = select i1 %93, i8 -49, i8 -67
-  %104 = add i8 %.v, %.fr
-  %105 = icmp ugt i8 %104, 93
-  %106 = zext i1 %105 to i8
-  %107 = add nsw i8 %103, %106
-  %108 = sext i8 %107 to i64
-  %109 = getelementptr %struct.dbcs_index, ptr @ksx1001_decmap, i64 %108
-  %110 = getelementptr i8, ptr %109, i64 528
-  %111 = load ptr, ptr %110, align 16, !tbaa !58
-  %.not = icmp eq ptr %111, null
-  br i1 %.not, label %.thread128, label %112
+98:                                               ; preds = %94
+  %99 = icmp samesign ult i8 %8, -32
+  %100 = shl nsw i8 %8, 1
+  %.v132 = select i1 %99, i8 78, i8 105
+  %101 = add nsw i8 %.v132, %100
+  %.v = select i1 %91, i8 -49, i8 -67
+  %102 = add i8 %.v, %.fr
+  %103 = icmp ugt i8 %102, 93
+  %104 = zext i1 %103 to i8
+  %105 = add nsw i8 %101, %104
+  %106 = sext i8 %105 to i64
+  %107 = getelementptr %struct.dbcs_index, ptr @ksx1001_decmap, i64 %106
+  %108 = getelementptr i8, ptr %107, i64 528
+  %109 = load ptr, ptr %108, align 16, !tbaa !58
+  %.not = icmp eq ptr %109, null
+  br i1 %.not, label %.thread128, label %110
 
-112:                                              ; preds = %100
-  %113 = select i1 %105, i8 -61, i8 33
-  %114 = add i8 %113, %104
-  %115 = zext nneg i8 %114 to i64
-  %116 = getelementptr i8, ptr %109, i64 536
-  %117 = load i8, ptr %116, align 8, !tbaa !60
-  %118 = zext i8 %117 to i64
-  %.not114 = icmp ult i8 %114, %117
-  br i1 %.not114, label %.thread128, label %119
+110:                                              ; preds = %98
+  %111 = select i1 %103, i8 -61, i8 33
+  %112 = add i8 %111, %102
+  %113 = zext nneg i8 %112 to i64
+  %114 = getelementptr i8, ptr %107, i64 536
+  %115 = load i8, ptr %114, align 8, !tbaa !60
+  %116 = zext i8 %115 to i64
+  %.not114 = icmp ult i8 %112, %115
+  br i1 %.not114, label %.thread128, label %117
 
-119:                                              ; preds = %112
-  %120 = getelementptr i8, ptr %109, i64 537
-  %121 = load i8, ptr %120, align 1, !tbaa !61
-  %.not115 = icmp ugt i8 %114, %121
-  br i1 %.not115, label %.thread128, label %122
+117:                                              ; preds = %110
+  %118 = getelementptr i8, ptr %107, i64 537
+  %119 = load i8, ptr %118, align 1, !tbaa !61
+  %.not115 = icmp ugt i8 %112, %119
+  br i1 %.not115, label %.thread128, label %120
 
-122:                                              ; preds = %119
-  %123 = sub nsw i64 %115, %118
-  %124 = getelementptr i16, ptr %111, i64 %123
-  %125 = load i16, ptr %124, align 2, !tbaa !49
-  %.not116 = icmp eq i16 %125, -2
-  br i1 %.not116, label %.thread128, label %126
+120:                                              ; preds = %117
+  %121 = sub nsw i64 %113, %116
+  %122 = getelementptr i16, ptr %109, i64 %121
+  %123 = load i16, ptr %122, align 2, !tbaa !49
+  %.not116 = icmp eq i16 %123, -2
+  br i1 %.not116, label %.thread128, label %124
 
-126:                                              ; preds = %122
-  %127 = zext i16 %125 to i32
-  %128 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %127) #7
-  %129 = icmp slt i32 %128, 0
-  br i1 %129, label %.thread128, label %130
+124:                                              ; preds = %120
+  %125 = zext i16 %123 to i32
+  %126 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef %125) #7
+  %127 = icmp slt i32 %126, 0
+  br i1 %127, label %.thread128, label %128
 
-130:                                              ; preds = %126, %63, %52, %55, %80, %73, %10
-  %.sink189 = phi i64 [ 1, %10 ], [ 2, %63 ], [ 2, %73 ], [ 2, %80 ], [ 2, %55 ], [ 2, %52 ], [ 2, %126 ]
-  %.sink = phi i64 [ -1, %10 ], [ -2, %63 ], [ -2, %73 ], [ -2, %80 ], [ -2, %55 ], [ -2, %52 ], [ -2, %126 ]
-  %131 = load ptr, ptr %2, align 8, !tbaa !37
-  %132 = getelementptr i8, ptr %131, i64 %.sink189
-  store ptr %132, ptr %2, align 8, !tbaa !37
-  %133 = add nsw i64 %.096133, %.sink
-  %134 = icmp sgt i64 %133, 0
-  br i1 %134, label %.lr.ph, label %.thread128
+128:                                              ; preds = %124, %61, %50, %53, %78, %71, %10
+  %.sink189 = phi i64 [ 1, %10 ], [ 2, %61 ], [ 2, %71 ], [ 2, %78 ], [ 2, %53 ], [ 2, %50 ], [ 2, %124 ]
+  %.sink = phi i64 [ -1, %10 ], [ -2, %61 ], [ -2, %71 ], [ -2, %78 ], [ -2, %53 ], [ -2, %50 ], [ -2, %124 ]
+  %129 = load ptr, ptr %2, align 8, !tbaa !37
+  %130 = getelementptr i8, ptr %129, i64 %.sink189
+  store ptr %130, ptr %2, align 8, !tbaa !37
+  %131 = add nsw i64 %.096133, %.sink
+  %132 = icmp sgt i64 %131, 0
+  br i1 %132, label %.lr.ph, label %.thread128
 
-.thread128:                                       ; preds = %130, %10, %92, %14, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %90, %96, %71, %20, %52, %55, %63, %62, %73, %80, %126, %122, %119, %112, %100, %5
-  %.5 = phi i64 [ 0, %5 ], [ -4, %10 ], [ 1, %71 ], [ 1, %96 ], [ 1, %90 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %20 ], [ -2, %14 ], [ 1, %92 ], [ -4, %126 ], [ -4, %80 ], [ -4, %73 ], [ 1, %62 ], [ -4, %63 ], [ -4, %55 ], [ -4, %52 ], [ 1, %100 ], [ 1, %112 ], [ 1, %119 ], [ 1, %122 ], [ 0, %130 ]
+.thread128:                                       ; preds = %128, %10, %90, %14, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %88, %94, %69, %20, %50, %53, %61, %60, %71, %78, %124, %120, %117, %110, %98, %5
+  %.5 = phi i64 [ 0, %5 ], [ -4, %10 ], [ 1, %69 ], [ 1, %94 ], [ 1, %88 ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %20 ], [ -2, %14 ], [ 1, %90 ], [ -4, %124 ], [ -4, %78 ], [ -4, %71 ], [ 1, %60 ], [ -4, %61 ], [ -4, %53 ], [ -4, %50 ], [ 1, %98 ], [ 1, %110 ], [ 1, %117 ], [ 1, %120 ], [ 0, %128 ]
   ret i64 %.5
 }
 

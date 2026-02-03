@@ -230,35 +230,33 @@ define dso_local noundef i32 @execv_git_cmd(ptr noundef %0) local_unnamed_addr #
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !18
   %.not.i = icmp eq i32 %4, 0
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
-  %6 = and i8 %5, 1
-  %.not3 = icmp ne i8 %6, 0
+  %.not3 = trunc i8 %5 to i1
   %.not = select i1 %.not.i, i1 %.not3, i1 false
-  br i1 %.not, label %9, label %7
+  br i1 %.not, label %8, label %6
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8, !tbaa !15
-  call void (ptr, i32, ptr, ptr, ...) @trace_argv_printf_fl(ptr noundef nonnull @.str.6, i32 noundef 364, ptr noundef %8, ptr noundef nonnull @.str.7) #10
-  br label %9
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !15
+  call void (ptr, i32, ptr, ptr, ...) @trace_argv_printf_fl(ptr noundef nonnull @.str.6, i32 noundef 364, ptr noundef %7, ptr noundef nonnull @.str.7) #10
+  br label %8
 
-9:                                                ; preds = %7, %1
-  %10 = load ptr, ptr %2, align 8, !tbaa !15
-  %11 = call i32 @sane_execvp(ptr noundef nonnull @.str.5, ptr noundef %10) #10
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !18
-  %.not.i2 = icmp eq i32 %12, 0
-  %13 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
-  %14 = and i8 %13, 1
-  %.not14 = icmp ne i8 %14, 0
+8:                                                ; preds = %6, %1
+  %9 = load ptr, ptr %2, align 8, !tbaa !15
+  %10 = call i32 @sane_execvp(ptr noundef nonnull @.str.5, ptr noundef %9) #10
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !18
+  %.not.i2 = icmp eq i32 %11, 0
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4
+  %.not14 = trunc i8 %12 to i1
   %.not1 = select i1 %.not.i2, i1 %.not14, i1 false
-  br i1 %.not1, label %19, label %15
+  br i1 %.not1, label %17, label %13
 
-15:                                               ; preds = %9
-  %16 = tail call ptr @__errno_location() #12
-  %17 = load i32, ptr %16, align 4, !tbaa !21
-  %18 = call ptr @strerror(i32 noundef %17) #10
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.6, i32 noundef 369, ptr noundef nonnull @trace_default_key, ptr noundef nonnull @.str.8, ptr noundef %18) #10
-  br label %19
+13:                                               ; preds = %8
+  %14 = tail call ptr @__errno_location() #12
+  %15 = load i32, ptr %14, align 4, !tbaa !21
+  %16 = call ptr @strerror(i32 noundef %15) #10
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.6, i32 noundef 369, ptr noundef nonnull @trace_default_key, ptr noundef nonnull @.str.8, ptr noundef %16) #10
+  br label %17
 
-19:                                               ; preds = %15, %9
+17:                                               ; preds = %13, %8
   call void @strvec_clear(ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 -1

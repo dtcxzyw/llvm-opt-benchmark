@@ -8674,11 +8674,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit715: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !503)
   %1115 = load i8, ptr %1113, align 8, !tbaa !13, !noalias !506
   switch i8 %1115, label %_ZN4llvmplERKNS_5TwineES2_.exit [
-    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.thread1508
+    i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507
     i8 1, label %1123
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit.thread1508:       ; preds = %975
+_ZN4llvmplERKNS_5TwineES2_.exit.thread1507:       ; preds = %975
   %1116 = getelementptr inbounds nuw i8, ptr %411, i64 32
   store i8 0, ptr %1116, align 8, !tbaa !13, !alias.scope !506
   %1117 = getelementptr inbounds nuw i8, ptr %411, i64 33
@@ -8709,18 +8709,18 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %975
 
 1123:                                             ; preds = %975
   store ptr %413, ptr %411, align 8
-  %.sroa.51458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 32
-  store i8 4, ptr %.sroa.51458.0..sroa_idx, align 8, !tbaa !365
-  %.sroa.61459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 33
-  store i8 1, ptr %.sroa.61459.0..sroa_idx, align 1, !tbaa !365
-  %.sroa.56.0..sroa_idx.i.i7171511 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  %.sroa.56.0.copyload.i.i7181512 = load i64, ptr %.sroa.56.0..sroa_idx.i.i7171511, align 8, !noalias !513
+  %.sroa.51457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 32
+  store i8 4, ptr %.sroa.51457.0..sroa_idx, align 8, !tbaa !365
+  %.sroa.61458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %411, i64 33
+  store i8 1, ptr %.sroa.61458.0..sroa_idx, align 1, !tbaa !365
+  %.sroa.56.0..sroa_idx.i.i7171510 = getelementptr inbounds nuw i8, ptr %411, i64 8
+  %.sroa.56.0.copyload.i.i7181511 = load i64, ptr %.sroa.56.0..sroa_idx.i.i7171510, align 8, !noalias !513
   br label %1124
 
 1124:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %1123
   %1125 = phi ptr [ %413, %1123 ], [ %411, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %1126 = phi i8 [ 4, %1123 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %1127 = phi i64 [ %.sroa.56.0.copyload.i.i7181512, %1123 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %1127 = phi i64 [ %.sroa.56.0.copyload.i.i7181511, %1123 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   store ptr %1125, ptr %410, align 8, !alias.scope !513
   %.sroa.23.0..sroa_idx.i.i.i728 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i64 %1127, ptr %.sroa.23.0..sroa_idx.i.i.i728, align 8, !tbaa !17, !alias.scope !513
@@ -8728,11 +8728,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %975
   store ptr @.str.63, ptr %1128, align 8, !alias.scope !513
   br label %_ZN4llvmplERKNS_5TwineES2_.exit730
 
-_ZN4llvmplERKNS_5TwineES2_.exit730:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread1508, %1124
-  %.sink1528 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1508 ], [ %1126, %1124 ]
-  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1508 ], [ 3, %1124 ]
+_ZN4llvmplERKNS_5TwineES2_.exit730:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507, %1124
+  %.sink1527 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507 ], [ %1126, %1124 ]
+  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread1507 ], [ 3, %1124 ]
   %1129 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  store i8 %.sink1528, ptr %1129, align 8, !tbaa !13, !alias.scope !513
+  store i8 %.sink1527, ptr %1129, align 8, !tbaa !13, !alias.scope !513
   %1130 = getelementptr inbounds nuw i8, ptr %410, i64 33
   store i8 %.sink, ptr %1130, align 1, !tbaa !16, !alias.scope !513
   %1131 = getelementptr inbounds nuw i8, ptr %414, i64 32
@@ -9014,8 +9014,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit749:               ; preds = %._crit_edge.i.i
   %1229 = icmp slt i64 %.sroa.01404.0.copyload, 0
   %1230 = call i32 @llvm.umin.i32(i32 %1228, i32 8)
   %1231 = zext nneg i32 %1230 to i64
-  %.sroa.01439.0.insert.ext = select i1 %1229, i64 %1231, i64 0
-  %1232 = inttoptr i64 %.sroa.01439.0.insert.ext to ptr
+  %.sroa.01438.0.insert.ext = select i1 %1229, i64 %1231, i64 0
+  %1232 = inttoptr i64 %.sroa.01438.0.insert.ext to ptr
   store ptr @.str.39, ptr %441, align 8, !alias.scope !515
   %1233 = getelementptr inbounds nuw i8, ptr %441, i64 16
   store ptr %1232, ptr %1233, align 8, !alias.scope !515
@@ -9182,9 +9182,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %462)
   %1291 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1292 = load i8, ptr %1291, align 8
-  %1293 = and i8 %1292, 1
-  %.not1430 = icmp eq i8 %1293, 0
-  %.str.59..str.39 = select i1 %.not1430, ptr @.str.39, ptr @.str.59
+  %1293 = trunc i8 %1292 to i1
+  %.str.59..str.39 = select i1 %1293, ptr @.str.59, ptr @.str.39
   %1294 = getelementptr inbounds nuw i8, ptr %462, i64 32
   %1295 = getelementptr inbounds nuw i8, ptr %462, i64 33
   store i8 1, ptr %1295, align 1, !tbaa !16
@@ -10937,11 +10936,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   %1796 = load i64, ptr %1, align 8
   %1797 = and i64 %1796, 32
   %.not662 = icmp ne i64 %1797, 0
-  %.pre1462 = load i64, ptr %934, align 8
-  %1798 = and i64 %.pre1462, 8796093022208
+  %.pre1461 = load i64, ptr %934, align 8
+  %1798 = and i64 %.pre1461, 8796093022208
   %.not663 = icmp eq i64 %1798, 0
-  %or.cond1530 = select i1 %.not662, i1 true, i1 %.not663
-  br i1 %or.cond1530, label %1805, label %1799
+  %or.cond1529 = select i1 %.not662, i1 true, i1 %.not663
+  br i1 %or.cond1529, label %1805, label %1799
 
 1799:                                             ; preds = %1795
   call void @llvm.lifetime.start.p0(ptr nonnull %479)
@@ -10961,11 +10960,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %479, ptr noundef nonnull align 8 dereferenceable(34) %480, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %481)
   call void @llvm.lifetime.end.p0(ptr nonnull %480)
   call void @llvm.lifetime.end.p0(ptr nonnull %479)
-  %.pre1461 = load i64, ptr %934, align 8
+  %.pre1460 = load i64, ptr %934, align 8
   br label %1805
 
 1805:                                             ; preds = %1799, %1795
-  %1806 = phi i64 [ %.pre1461, %1799 ], [ %.pre1462, %1795 ]
+  %1806 = phi i64 [ %.pre1460, %1799 ], [ %.pre1461, %1795 ]
   %1807 = and i64 %1806, 4294967295
   %.not664 = icmp eq i64 %1807, 0
   %1808 = and i64 %1806, 2251799813685248
@@ -11154,11 +11153,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %500, ptr noundef nonnull align 8 dereferenceable(34) %501, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %502)
   call void @llvm.lifetime.end.p0(ptr nonnull %501)
   call void @llvm.lifetime.end.p0(ptr nonnull %500)
-  %.pre1463 = load i64, ptr %1, align 8
+  %.pre1462 = load i64, ptr %1, align 8
   br label %1870
 
 1870:                                             ; preds = %1864, %1861
-  %1871 = phi i64 [ %.pre1463, %1864 ], [ %1862, %1861 ]
+  %1871 = phi i64 [ %.pre1462, %1864 ], [ %1862, %1861 ]
   %1872 = and i64 %1871, 268435584
   %or.cond703.not = icmp eq i64 %1872, 268435584
   br i1 %or.cond703.not, label %1873, label %1884
@@ -11288,11 +11287,11 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %518, ptr noundef nonnull align 8 dereferenceable(34) %519, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %520)
   call void @llvm.lifetime.end.p0(ptr nonnull %519)
   call void @llvm.lifetime.end.p0(ptr nonnull %518)
-  %.pre1464 = load i64, ptr %1781, align 8
+  %.pre1463 = load i64, ptr %1781, align 8
   br label %1915
 
 1915:                                             ; preds = %1909, %1906
-  %1916 = phi i64 [ %.pre1464, %1909 ], [ %1907, %1906 ]
+  %1916 = phi i64 [ %.pre1463, %1909 ], [ %1907, %1906 ]
   %1917 = and i64 %1916, 274877906944
   %.not672 = icmp eq i64 %1917, 0
   br i1 %.not672, label %1924, label %1918
@@ -11523,15 +11522,15 @@ _ZL36InitializeCPlusPlusFeatureTestMacrosRKN5clang11LangOptionsERNS_12MacroBuild
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %551, ptr noundef nonnull align 8 dereferenceable(34) %552, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %553)
   call void @llvm.lifetime.end.p0(ptr nonnull %552)
   call void @llvm.lifetime.end.p0(ptr nonnull %551)
-  %.pre1465 = load i8, ptr %1975, align 8, !tbaa !522
-  %.pre1466 = load i8, ptr %1978, align 2
-  %.pre1467 = load i8, ptr %1981, align 2
+  %.pre1464 = load i8, ptr %1975, align 8, !tbaa !522
+  %.pre1465 = load i8, ptr %1978, align 2
+  %.pre1466 = load i8, ptr %1981, align 2
   br label %1995
 
 1995:                                             ; preds = %1984, %1974
-  %1996 = phi i8 [ %.pre1467, %1984 ], [ %1982, %1974 ]
-  %1997 = phi i8 [ %.pre1466, %1984 ], [ %1979, %1974 ]
-  %1998 = phi i8 [ %.pre1465, %1984 ], [ %1976, %1974 ]
+  %1996 = phi i8 [ %.pre1466, %1984 ], [ %1982, %1974 ]
+  %1997 = phi i8 [ %.pre1465, %1984 ], [ %1979, %1974 ]
+  %1998 = phi i8 [ %.pre1464, %1984 ], [ %1976, %1974 ]
   %1999 = icmp eq i8 %1998, 32
   %2000 = icmp eq i8 %1997, 32
   %or.cond1422 = select i1 %1999, i1 %2000, i1 false
@@ -11833,9 +11832,9 @@ switch.lookup:                                    ; preds = %2002, %1995
   %2102 = load i32, ptr %2098, align 4, !tbaa !530
   %2103 = sext i32 %2102 to i64
   %2104 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2103
-  %switch.gep1555 = getelementptr i8, ptr %2104, i64 -4
-  %switch.load1556 = load i32, ptr %switch.gep1555, align 4
-  call fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERKNS3_10TargetInfoERNS3_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(34) %594, i32 noundef %switch.load1556, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %switch.gep1554 = getelementptr i8, ptr %2104, i64 -4
+  %switch.load1555 = load i32, ptr %switch.gep1554, align 4
+  call fastcc void @_ZL22DefineTypeSizeAndWidthRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERKNS3_10TargetInfoERNS3_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(34) %594, i32 noundef %switch.load1555, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %594)
   %2105 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %2106 = load i8, ptr %2105, align 2, !tbaa !531
@@ -12248,7 +12247,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit922:               ; preds = %_ZN4llvm9StringRefC
   store i8 3, ptr %2254, align 8, !tbaa !13, !alias.scope !534
   %2255 = getelementptr inbounds nuw i8, ptr %601, i64 33
   store i8 5, ptr %2255, align 1, !tbaa !16, !alias.scope !534
-  br label %switch.lookup1534
+  br label %switch.lookup1533
 
 2256:                                             ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %2257 = getelementptr inbounds nuw i8, ptr %601, i64 32
@@ -12256,9 +12255,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit922:               ; preds = %_ZN4llvm9StringRefC
   store i8 1, ptr %2258, align 1, !tbaa !16
   store ptr @.str.207, ptr %601, align 8, !tbaa !17
   store i8 3, ptr %2257, align 8, !tbaa !13
-  br label %switch.lookup1534
+  br label %switch.lookup1533
 
-switch.lookup1534:                                ; preds = %2256, %_ZN4llvmplERKNS_5TwineES2_.exit922
+switch.lookup1533:                                ; preds = %2256, %_ZN4llvmplERKNS_5TwineES2_.exit922
   %2259 = getelementptr inbounds nuw i8, ptr %602, i64 32
   store i16 257, ptr %2259, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %600, ptr noundef nonnull align 8 dereferenceable(34) %601, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %602)
@@ -12273,23 +12272,23 @@ switch.lookup1534:                                ; preds = %2256, %_ZN4llvmplER
   %2262 = load i32, ptr %2081, align 4, !tbaa !528
   %2263 = sext i32 %2262 to i64
   %2264 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2263
-  %switch.gep1535 = getelementptr i8, ptr %2264, i64 -4
-  %switch.load1536 = load i32, ptr %switch.gep1535, align 4
+  %switch.gep1534 = getelementptr i8, ptr %2264, i64 -4
+  %switch.load1535 = load i32, ptr %switch.gep1534, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %2265 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1536) #16
+  %2265 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1535) #16
   %2266 = getelementptr inbounds nuw i8, ptr %24, i64 33
   store i8 1, ptr %2266, align 1, !tbaa !16
   %2267 = load i8, ptr %2265, align 1, !tbaa !17
   %.not.i.i928 = icmp eq i8 %2267, 0
   br i1 %.not.i.i928, label %_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931, label %2268
 
-2268:                                             ; preds = %switch.lookup1534
+2268:                                             ; preds = %switch.lookup1533
   store ptr %2265, ptr %24, align 8, !tbaa !17
   br label %_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931
 
-_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931: ; preds = %switch.lookup1534, %2268
-  %storemerge.i.i930 = phi i8 [ 3, %2268 ], [ 1, %switch.lookup1534 ]
+_ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12MacroBuilderE.exit931: ; preds = %switch.lookup1533, %2268
+  %storemerge.i.i930 = phi i8 [ 3, %2268 ], [ 1, %switch.lookup1533 ]
   %2269 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 %storemerge.i.i930, ptr %2269, align 8, !tbaa !13
   %2270 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -12307,16 +12306,16 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %2273 = load i32, ptr %2081, align 4, !tbaa !528
   %2274 = sext i32 %2273 to i64
   %2275 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2274
-  %switch.gep1539 = getelementptr i8, ptr %2275, i64 -4
-  %switch.load1540 = load i32, ptr %switch.gep1539, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %604, i32 noundef %switch.load1540, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %switch.gep1538 = getelementptr i8, ptr %2275, i64 -4
+  %switch.load1539 = load i32, ptr %switch.gep1538, align 4
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %604, i32 noundef %switch.load1539, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %604)
   %2276 = load i32, ptr %2081, align 4, !tbaa !528
   %2277 = sext i32 %2276 to i64
   %2278 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2277
-  %switch.gep1559 = getelementptr i8, ptr %2278, i64 -4
-  %switch.load1560 = load i32, ptr %switch.gep1559, align 4
-  %2279 = call noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %switch.load1560) #16
+  %switch.gep1558 = getelementptr i8, ptr %2278, i64 -4
+  %switch.load1559 = load i32, ptr %switch.gep1558, align 4
+  %2279 = call noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %0, i32 noundef %switch.load1559) #16
   %.not.i937 = icmp eq ptr %2279, null
   br i1 %.not.i937, label %_ZN4llvm9StringRefC2EPKc.exit938, label %2280
 
@@ -12677,11 +12676,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %2391 = load i32, ptr %2098, align 4, !tbaa !530
   %2392 = sext i32 %2391 to i64
   %2393 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2392
-  %switch.gep1543 = getelementptr i8, ptr %2393, i64 -4
-  %switch.load1544 = load i32, ptr %switch.gep1543, align 4
+  %switch.gep1542 = getelementptr i8, ptr %2393, i64 -4
+  %switch.load1543 = load i32, ptr %switch.gep1542, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %2394 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1544) #16
+  %2394 = call noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTargetInfo7IntTypeE(i32 noundef %switch.load1543) #16
   %2395 = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 1, ptr %2395, align 1, !tbaa !16
   %2396 = load i8, ptr %2394, align 1, !tbaa !17
@@ -12711,9 +12710,9 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   %2402 = load i32, ptr %2098, align 4, !tbaa !530
   %2403 = sext i32 %2402 to i64
   %2404 = getelementptr i32, ptr @switch.table._ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE, i64 %2403
-  %switch.gep1547 = getelementptr i8, ptr %2404, i64 -4
-  %switch.load1548 = load i32, ptr %switch.gep1547, align 4
-  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %624, i32 noundef %switch.load1548, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %switch.gep1546 = getelementptr i8, ptr %2404, i64 -4
+  %switch.load1547 = load i32, ptr %switch.gep1546, align 4
+  call fastcc void @_ZL9DefineFmtRKN5clang11LangOptionsERKN4llvm5TwineENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, ptr noundef nonnull align 8 dereferenceable(34) %624, i32 noundef %switch.load1547, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %624)
   %2405 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %2406 = load i64, ptr %2405, align 8
@@ -13090,33 +13089,33 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
 
 2604:                                             ; preds = %2601
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1468 = load i8, ptr %2025, align 4, !tbaa !523
+  %.pre1467 = load i8, ptr %2025, align 4, !tbaa !523
   br label %2605
 
 2605:                                             ; preds = %2604, %2601
-  %2606 = phi i8 [ %.pre1468, %2604 ], [ %2602, %2601 ]
+  %2606 = phi i8 [ %.pre1467, %2604 ], [ %2602, %2601 ]
   %2607 = load i8, ptr %1981, align 2, !tbaa !524
   %2608 = icmp ugt i8 %2607, %2606
   br i1 %2608, label %2609, label %2610
 
 2609:                                             ; preds = %2605
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1469 = load i8, ptr %1981, align 2, !tbaa !524
+  %.pre1468 = load i8, ptr %1981, align 2, !tbaa !524
   br label %2610
 
 2610:                                             ; preds = %2609, %2605
-  %2611 = phi i8 [ %.pre1469, %2609 ], [ %2607, %2605 ]
+  %2611 = phi i8 [ %.pre1468, %2609 ], [ %2607, %2605 ]
   %2612 = load i8, ptr %1978, align 2, !tbaa !525
   %2613 = icmp ugt i8 %2612, %2611
   br i1 %2613, label %2614, label %2615
 
 2614:                                             ; preds = %2610
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1470 = load i8, ptr %1978, align 2, !tbaa !525
+  %.pre1469 = load i8, ptr %1978, align 2, !tbaa !525
   br label %2615
 
 2615:                                             ; preds = %2614, %2610
-  %2616 = phi i8 [ %.pre1470, %2614 ], [ %2612, %2610 ]
+  %2616 = phi i8 [ %.pre1469, %2614 ], [ %2612, %2610 ]
   %2617 = load i8, ptr %2047, align 8, !tbaa !526
   %2618 = icmp ugt i8 %2617, %2616
   br i1 %2618, label %2619, label %2620
@@ -13137,11 +13136,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1471 = load i8, ptr %2025, align 4, !tbaa !523
+  %.pre1470 = load i8, ptr %2025, align 4, !tbaa !523
   br label %2624
 
 2624:                                             ; preds = %2623, %2620
-  %2625 = phi i8 [ %.pre1471, %2623 ], [ %2621, %2620 ]
+  %2625 = phi i8 [ %.pre1470, %2623 ], [ %2621, %2620 ]
   %2626 = load i8, ptr %1981, align 2, !tbaa !524
   %2627 = icmp ugt i8 %2626, %2625
   br i1 %2627, label %2628, label %2629
@@ -13150,11 +13149,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1472 = load i8, ptr %1981, align 2, !tbaa !524
+  %.pre1471 = load i8, ptr %1981, align 2, !tbaa !524
   br label %2629
 
 2629:                                             ; preds = %2628, %2624
-  %2630 = phi i8 [ %.pre1472, %2628 ], [ %2626, %2624 ]
+  %2630 = phi i8 [ %.pre1471, %2628 ], [ %2626, %2624 ]
   %2631 = load i8, ptr %1978, align 2, !tbaa !525
   %2632 = icmp ugt i8 %2631, %2630
   br i1 %2632, label %2633, label %2634
@@ -13163,11 +13162,11 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   call fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr noundef nonnull align 8 dereferenceable(849) %1, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %.pre1473 = load i8, ptr %1978, align 2, !tbaa !525
+  %.pre1472 = load i8, ptr %1978, align 2, !tbaa !525
   br label %2634
 
 2634:                                             ; preds = %2633, %2629
-  %2635 = phi i8 [ %.pre1473, %2633 ], [ %2631, %2629 ]
+  %2635 = phi i8 [ %.pre1472, %2633 ], [ %2631, %2629 ]
   %2636 = load i8, ptr %2047, align 8, !tbaa !526
   %2637 = icmp ugt i8 %2636, %2635
   br i1 %2637, label %2638, label %2639
@@ -13255,8 +13254,8 @@ _ZN4llvm5TwineC2EPKc.exit1042:                    ; preds = %2639, %2647
   %.not680 = icmp ne i64 %2659, 0
   %2660 = and i64 %2658, 422212465065984
   %or.cond704.not = icmp eq i64 %2660, 422212465065984
-  %or.cond1431 = or i1 %.not680, %or.cond704.not
-  br i1 %or.cond1431, label %2661, label %2667
+  %or.cond1430 = or i1 %.not680, %or.cond704.not
+  br i1 %or.cond1430, label %2661, label %2667
 
 2661:                                             ; preds = %2657
   call void @llvm.lifetime.start.p0(ptr nonnull %664)
@@ -13526,11 +13525,11 @@ _ZN5clang12MacroBuilder6appendERKN4llvm5TwineE.exit1070: ; preds = %2733, %2735
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %690, ptr noundef nonnull align 8 dereferenceable(34) %691, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %692)
   call void @llvm.lifetime.end.p0(ptr nonnull %691)
   call void @llvm.lifetime.end.p0(ptr nonnull %690)
-  %.pre1474 = load i64, ptr %1852, align 8
+  %.pre1473 = load i64, ptr %1852, align 8
   br label %2755
 
 2755:                                             ; preds = %2749, %2746
-  %2756 = phi i64 [ %.pre1474, %2749 ], [ %2747, %2746 ]
+  %2756 = phi i64 [ %.pre1473, %2749 ], [ %2747, %2746 ]
   %2757 = lshr i64 %2756, 35
   %2758 = trunc nuw nsw i64 %2757 to i32
   %2759 = and i32 %2758, 3
@@ -13997,8 +13996,8 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %2886, %2889, %2889,
   call void @llvm.lifetime.end.p0(ptr nonnull %757)
   call void @llvm.lifetime.end.p0(ptr nonnull %756)
   %.pr1408 = load i32, ptr %1158, align 4, !tbaa !355
-  %.pre1476 = and i32 %.pr1408, -9
-  %2905 = icmp eq i32 %.pre1476, 1
+  %.pre1475 = and i32 %.pr1408, -9
+  %2905 = icmp eq i32 %.pre1475, 1
   br i1 %2905, label %2907, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %2889, %_ZNK4llvm6Triple10isOSDarwinEv.exit
@@ -14248,11 +14247,11 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit1139:          ; preds = %_ZNK4llvm6Triple10i
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %786, ptr noundef nonnull align 8 dereferenceable(34) %787, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %788)
   call void @llvm.lifetime.end.p0(ptr nonnull %787)
   call void @llvm.lifetime.end.p0(ptr nonnull %786)
-  %.pre1475 = load i64, ptr %2970, align 8
+  %.pre1474 = load i64, ptr %2970, align 8
   br label %2983
 
 2983:                                             ; preds = %2977, %2973, %2969
-  %2984 = phi i64 [ %.pre1475, %2977 ], [ %2971, %2973 ], [ %2971, %2969 ]
+  %2984 = phi i64 [ %.pre1474, %2977 ], [ %2971, %2973 ], [ %2971, %2969 ]
   %2985 = and i64 %2984, 8192
   %.not696 = icmp eq i64 %2985, 0
   br i1 %.not696, label %2992, label %2986
@@ -14516,18 +14515,18 @@ _ZN4llvm5TwineC2EPKc.exit1202:                    ; preds = %_ZN4llvm5TwineC2EPK
   store i8 3, ptr %3079, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %817)
   %3081 = load i32, ptr %1158, align 4, !tbaa !355
-  %switch.tableidx1549 = add i32 %3081, -3
-  %3082 = icmp ult i32 %switch.tableidx1549, 10
-  br i1 %3082, label %switch.lookup1550, label %switch.edge
+  %switch.tableidx1548 = add i32 %3081, -3
+  %3082 = icmp ult i32 %switch.tableidx1548, 10
+  br i1 %3082, label %switch.lookup1549, label %switch.edge
 
-switch.lookup1550:                                ; preds = %_ZN4llvm5TwineC2EPKc.exit1202
-  %3083 = zext nneg i32 %switch.tableidx1549 to i64
-  %switch.gep1551 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL26InitializePredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERKNS_19PreprocessorOptionsERNS_12MacroBuilderE.13, i64 %3083
-  %switch.load1552 = load ptr, ptr %switch.gep1551, align 8
+switch.lookup1549:                                ; preds = %_ZN4llvm5TwineC2EPKc.exit1202
+  %3083 = zext nneg i32 %switch.tableidx1548 to i64
+  %switch.gep1550 = getelementptr inbounds nuw ptr, ptr @switch.table._ZL26InitializePredefinedMacrosRKN5clang10TargetInfoERKNS_11LangOptionsERKNS_15FrontendOptionsERKNS_19PreprocessorOptionsERNS_12MacroBuilderE.13, i64 %3083
+  %switch.load1551 = load ptr, ptr %switch.gep1550, align 8
   br label %switch.edge
 
-switch.edge:                                      ; preds = %_ZN4llvm5TwineC2EPKc.exit1202, %switch.lookup1550
-  %3084 = phi ptr [ %switch.load1552, %switch.lookup1550 ], [ @.str.59, %_ZN4llvm5TwineC2EPKc.exit1202 ]
+switch.edge:                                      ; preds = %_ZN4llvm5TwineC2EPKc.exit1202, %switch.lookup1549
+  %3084 = phi ptr [ %switch.load1551, %switch.lookup1549 ], [ @.str.59, %_ZN4llvm5TwineC2EPKc.exit1202 ]
   %3085 = getelementptr inbounds nuw i8, ptr %817, i64 32
   %3086 = getelementptr inbounds nuw i8, ptr %817, i64 33
   store i8 1, ptr %3086, align 1, !tbaa !16

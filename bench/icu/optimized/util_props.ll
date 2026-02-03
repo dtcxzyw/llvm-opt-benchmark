@@ -780,8 +780,8 @@ define void @_ZN6icu_7711ICU_Utility22parseUnicodeIdentifierERKNS_13UnicodeStrin
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZN6icu_7713UnicodeString8truncateEi.exit
-  %.01936 = phi i32 [ %5, %.lr.ph ], [ %48, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
-  %17 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.01936)
+  %.01935 = phi i32 [ %5, %.lr.ph ], [ %48, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
+  %17 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.01935)
           to label %18 unwind label %.loopexit
 
 18:                                               ; preds = %16
@@ -823,9 +823,8 @@ define void @_ZN6icu_7711ICU_Utility22parseUnicodeIdentifierERKNS_13UnicodeStrin
 
 31:                                               ; preds = %28
   %32 = load i16, ptr %4, align 8, !tbaa !15
-  %33 = and i16 %32, 1
-  %.not32 = icmp eq i16 %33, 0
-  br i1 %.not32, label %35, label %34
+  %33 = trunc i16 %32 to i1
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
   invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
@@ -837,8 +836,8 @@ define void @_ZN6icu_7711ICU_Utility22parseUnicodeIdentifierERKNS_13UnicodeStrin
   %38 = sext i16 %37 to i32
   %39 = load i32, ptr %15, align 4
   %40 = select i1 %36, i32 %39, i32 %38
-  %.not33 = icmp eq i32 %40, 0
-  br i1 %.not33, label %56, label %41
+  %.not32 = icmp eq i32 %40, 0
+  br i1 %.not32, label %56, label %41
 
 41:                                               ; preds = %35
   %42 = and i16 %32, 30
@@ -856,7 +855,7 @@ define void @_ZN6icu_7711ICU_Utility22parseUnicodeIdentifierERKNS_13UnicodeStrin
 _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %.invoke
   %46 = icmp ult i32 %17, 65536
   %47 = select i1 %46, i32 1, i32 2
-  %48 = add nsw i32 %47, %.01936
+  %48 = add nsw i32 %47, %.01935
   %49 = load i16, ptr %6, align 8, !tbaa !15
   %50 = icmp slt i16 %49, 0
   %51 = ashr i16 %49, 5
@@ -867,7 +866,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %.invoke
   br i1 %55, label %16, label %.critedge
 
 .critedge:                                        ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %45, %3
-  %.019.lcssa = phi i32 [ %5, %3 ], [ %.01936, %45 ], [ %48, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
+  %.019.lcssa = phi i32 [ %5, %3 ], [ %.01935, %45 ], [ %48, %_ZN6icu_7713UnicodeString8truncateEi.exit ]
   store i32 %.019.lcssa, ptr %2, align 4, !tbaa !12
   br label %56
 

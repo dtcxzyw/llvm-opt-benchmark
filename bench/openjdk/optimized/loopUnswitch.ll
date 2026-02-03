@@ -532,49 +532,49 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
   %26 = zext i32 %25 to i64
   %.idx = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
-  %.not90 = icmp eq i32 %25, 0
-  br i1 %.not90, label %_ZN13GrowableArrayIP15CheckCastPPNodeED2Ev.exit, label %.lr.ph89
+  %.not79 = icmp eq i32 %25, 0
+  br i1 %.not79, label %_ZN13GrowableArrayIP15CheckCastPPNodeED2Ev.exit, label %.lr.ph78
 
-.lr.ph89:                                         ; preds = %4
+.lr.ph78:                                         ; preds = %4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %31
 
-31:                                               ; preds = %.lr.ph89, %._crit_edge82
-  %.087 = phi ptr [ %23, %.lr.ph89 ], [ %202, %._crit_edge82 ]
-  %.sroa.18.086 = phi ptr [ %21, %.lr.ph89 ], [ %.sroa.18.1.lcssa112, %._crit_edge82 ]
-  %.sroa.11.085 = phi i32 [ 2, %.lr.ph89 ], [ %.sroa.11.1.lcssa111, %._crit_edge82 ]
-  %.sroa.0.084 = phi i32 [ 0, %.lr.ph89 ], [ %.sroa.0.3.lcssa, %._crit_edge82 ]
-  %32 = load ptr, ptr %.087, align 8
+31:                                               ; preds = %.lr.ph78, %._crit_edge71
+  %.076 = phi ptr [ %23, %.lr.ph78 ], [ %202, %._crit_edge71 ]
+  %.sroa.17.075 = phi ptr [ %21, %.lr.ph78 ], [ %.sroa.17.1.lcssa101, %._crit_edge71 ]
+  %.sroa.10.074 = phi i32 [ 2, %.lr.ph78 ], [ %.sroa.10.1.lcssa100, %._crit_edge71 ]
+  %.sroa.0.073 = phi i32 [ 0, %.lr.ph78 ], [ %.sroa.0.3.lcssa, %._crit_edge71 ]
+  %32 = load ptr, ptr %.076, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %.idx91 = shl nuw nsw i64 %37, 3
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx91
-  %.not92 = icmp eq i32 %36, 0
-  br i1 %.not92, label %._crit_edge.thread, label %.lr.ph
+  %.idx80 = shl nuw nsw i64 %37, 3
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx80
+  %.not81 = icmp eq i32 %36, 0
+  br i1 %.not81, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %40 = load i32, ptr %39, align 4
   %41 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %8, i32 noundef %40) #9
-  br label %._crit_edge82
+  br label %._crit_edge71
 
 .lr.ph:                                           ; preds = %31, %79
-  %.02776 = phi ptr [ %80, %79 ], [ %34, %31 ]
-  %.sroa.18.175 = phi ptr [ %.sroa.18.2, %79 ], [ %.sroa.18.086, %31 ]
-  %.sroa.11.174 = phi i32 [ %.sroa.11.2, %79 ], [ %.sroa.11.085, %31 ]
-  %.sroa.0.172 = phi i32 [ %.sroa.0.2, %79 ], [ %.sroa.0.084, %31 ]
-  %42 = load ptr, ptr %.02776, align 8
+  %.02765 = phi ptr [ %80, %79 ], [ %34, %31 ]
+  %.sroa.17.164 = phi ptr [ %.sroa.17.2, %79 ], [ %.sroa.17.075, %31 ]
+  %.sroa.10.163 = phi i32 [ %.sroa.10.2, %79 ], [ %.sroa.10.074, %31 ]
+  %.sroa.0.161 = phi i32 [ %.sroa.0.2, %79 ], [ %.sroa.0.073, %31 ]
+  %42 = load ptr, ptr %.02765, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 44
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 127
   %46 = icmp ne i32 %45, 84
-  %.not71 = icmp eq ptr %42, null
-  %.not = or i1 %.not71, %46
+  %.not60 = icmp eq ptr %42, null
+  %.not = or i1 %.not60, %46
   br i1 %.not, label %79, label %47
 
 47:                                               ; preds = %.lr.ph
@@ -586,12 +586,12 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
   br i1 %52, label %53, label %79
 
 53:                                               ; preds = %47
-  %54 = icmp eq i32 %.sroa.0.172, %.sroa.11.174
+  %54 = icmp eq i32 %.sroa.0.161, %.sroa.10.163
   br i1 %54, label %_ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i, label %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit
 
 _ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i: ; preds = %53
-  %55 = add nsw i32 %.sroa.11.174, 1
-  %56 = icmp sgt i32 %.sroa.11.174, -1
+  %55 = add nsw i32 %.sroa.10.163, 1
+  %56 = icmp sgt i32 %.sroa.10.163, -1
   %57 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %55)
   %58 = icmp samesign ult i32 %57, 2
   %or.cond.i.i.i.i.i = select i1 %56, i1 %58, i1 false
@@ -600,19 +600,19 @@ _ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i: ; preds = %53
   %61 = shl nuw i32 1, %60
   %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %55, i32 %61
   %62 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i, i32 noundef 8) #9
-  %63 = icmp sgt i32 %.sroa.11.174, 0
-  br i1 %63, label %.lr.ph.i.preheader, label %.preheader16.i
+  %63 = icmp sgt i32 %.sroa.10.163, 0
+  br i1 %63, label %.lr.ph.i.preheader, label %.preheader15.i
 
 .lr.ph.i.preheader:                               ; preds = %_ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i
-  %64 = zext nneg i32 %.sroa.11.174 to i64
+  %64 = zext nneg i32 %.sroa.10.163 to i64
   br label %.lr.ph.i
 
-.preheader16.i:                                   ; preds = %.lr.ph.i, %_ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i ], [ %.sroa.11.174, %.lr.ph.i ]
+.preheader15.i:                                   ; preds = %.lr.ph.i, %_ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i ], [ %.sroa.10.163, %.lr.ph.i ]
   %65 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i.i
-  br i1 %65, label %.lr.ph19.preheader.i, label %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit
+  br i1 %65, label %.lr.ph18.preheader.i, label %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit
 
-.lr.ph19.preheader.i:                             ; preds = %.preheader16.i
+.lr.ph18.preheader.i:                             ; preds = %.preheader15.i
   %66 = zext nneg i32 %.0.lcssa.i to i64
   %67 = shl nuw nsw i64 %66, 3
   %scevgep = getelementptr i8, ptr %62, i64 %67
@@ -627,27 +627,27 @@ _ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i: ; preds = %53
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %73 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i
-  %74 = getelementptr inbounds nuw ptr, ptr %.sroa.18.175, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %.sroa.17.164, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %73, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %64
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader15.i, label %.lr.ph.i, !llvm.loop !9
 
-_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %53
-  %.sroa.11.3 = phi i32 [ %.sroa.11.174, %53 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
-  %.sroa.18.3 = phi ptr [ %.sroa.18.175, %53 ], [ %62, %.preheader16.i ], [ %62, %.lr.ph19.preheader.i ]
-  %76 = add nsw i32 %.sroa.0.172, 1
-  %77 = sext i32 %.sroa.0.172 to i64
-  %78 = getelementptr inbounds ptr, ptr %.sroa.18.3, i64 %77
+_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph18.preheader.i, %.preheader15.i, %53
+  %.sroa.10.3 = phi i32 [ %.sroa.10.163, %53 ], [ %.0.i.i.i.i.i, %.preheader15.i ], [ %.0.i.i.i.i.i, %.lr.ph18.preheader.i ]
+  %.sroa.17.3 = phi ptr [ %.sroa.17.164, %53 ], [ %62, %.preheader15.i ], [ %62, %.lr.ph18.preheader.i ]
+  %76 = add nsw i32 %.sroa.0.161, 1
+  %77 = sext i32 %.sroa.0.161 to i64
+  %78 = getelementptr inbounds ptr, ptr %.sroa.17.3, i64 %77
   store ptr %42, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %.lr.ph, %47, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit
-  %.sroa.0.2 = phi i32 [ %.sroa.0.172, %.lr.ph ], [ %76, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.0.172, %47 ]
-  %.sroa.11.2 = phi i32 [ %.sroa.11.174, %.lr.ph ], [ %.sroa.11.3, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.11.174, %47 ]
-  %.sroa.18.2 = phi ptr [ %.sroa.18.175, %.lr.ph ], [ %.sroa.18.3, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.18.175, %47 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.02776, i64 8
+  %.sroa.0.2 = phi i32 [ %.sroa.0.161, %.lr.ph ], [ %76, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.0.161, %47 ]
+  %.sroa.10.2 = phi i32 [ %.sroa.10.163, %.lr.ph ], [ %.sroa.10.3, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.10.163, %47 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.164, %.lr.ph ], [ %.sroa.17.3, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.17.164, %47 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.02765, i64 8
   %81 = icmp ult ptr %80, %38
   br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
@@ -656,9 +656,9 @@ _ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS
   %83 = load i32, ptr %82, align 4
   %84 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %8, i32 noundef %83) #9
   %85 = icmp sgt i32 %.sroa.0.2, 0
-  br i1 %85, label %.lr.ph81, label %._crit_edge82
+  br i1 %85, label %.lr.ph70, label %._crit_edge71
 
-.lr.ph81:                                         ; preds = %._crit_edge
+.lr.ph70:                                         ; preds = %._crit_edge
   %.not8.i = icmp eq ptr %84, null
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -666,10 +666,10 @@ _ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS
   %89 = zext nneg i32 %.sroa.0.2 to i64
   br label %90
 
-90:                                               ; preds = %.lr.ph81, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35
-  %indvars.iv = phi i64 [ %89, %.lr.ph81 ], [ %indvars.iv.next, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+90:                                               ; preds = %.lr.ph70, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35
+  %indvars.iv = phi i64 [ %89, %.lr.ph70 ], [ %indvars.iv.next, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %91 = getelementptr inbounds nuw ptr, ptr %.sroa.18.2, i64 %indvars.iv.next
+  %91 = getelementptr inbounds nuw ptr, ptr %.sroa.17.2, i64 %indvars.iv.next
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef ptr @_ZNK4Node5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %92) #9
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -867,17 +867,17 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i34:           ; preds = %196, %190
 _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35: ; preds = %_ZN9VectorSet8test_setEj.exit.i.i.i31, %_ZN9Node_List4pushEP4Node.exit.i.i.i34
   tail call void @_ZN4Node9set_req_XEjPS_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(52) %168, i32 noundef 1, ptr noundef nonnull %93, ptr noundef nonnull align 8 dereferenceable(2416) %169) #9
   %201 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %201, label %90, label %._crit_edge82, !llvm.loop !12
+  br i1 %201, label %90, label %._crit_edge71, !llvm.loop !12
 
-._crit_edge82:                                    ; preds = %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35, %._crit_edge.thread, %._crit_edge
-  %.sroa.18.1.lcssa112 = phi ptr [ %.sroa.18.2, %._crit_edge ], [ %.sroa.18.086, %._crit_edge.thread ], [ %.sroa.18.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
-  %.sroa.11.1.lcssa111 = phi i32 [ %.sroa.11.2, %._crit_edge ], [ %.sroa.11.085, %._crit_edge.thread ], [ %.sroa.11.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
-  %.sroa.0.3.lcssa = phi i32 [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.084, %._crit_edge.thread ], [ 0, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.087, i64 8
+._crit_edge71:                                    ; preds = %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35, %._crit_edge.thread, %._crit_edge
+  %.sroa.17.1.lcssa101 = phi ptr [ %.sroa.17.2, %._crit_edge ], [ %.sroa.17.075, %._crit_edge.thread ], [ %.sroa.17.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %.sroa.10.1.lcssa100 = phi i32 [ %.sroa.10.2, %._crit_edge ], [ %.sroa.10.074, %._crit_edge.thread ], [ %.sroa.10.2, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %.sroa.0.3.lcssa = phi i32 [ %.sroa.0.2, %._crit_edge ], [ %.sroa.0.073, %._crit_edge.thread ], [ 0, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit35 ]
+  %202 = getelementptr inbounds nuw i8, ptr %.076, i64 8
   %203 = icmp ult ptr %202, %27
   br i1 %203, label %31, label %_ZN13GrowableArrayIP15CheckCastPPNodeED2Ev.exit, !llvm.loop !13
 
-_ZN13GrowableArrayIP15CheckCastPPNodeED2Ev.exit:  ; preds = %._crit_edge82, %4
+_ZN13GrowableArrayIP15CheckCastPPNodeED2Ev.exit:  ; preds = %._crit_edge71, %4
   %204 = load ptr, ptr %14, align 8
   %.not.i.i.i.i37 = icmp eq ptr %204, null
   br i1 %.not.i.i.i.i37, label %206, label %205

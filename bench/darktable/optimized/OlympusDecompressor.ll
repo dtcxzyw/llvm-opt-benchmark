@@ -102,7 +102,7 @@ define hidden void @_ZN8rawspeed19OlympusDecompressorC2ENS_8RawImageE(ptr nounde
 17:                                               ; preds = %16
   unreachable
 
-18:                                               ; preds = %33, %16
+18:                                               ; preds = %32, %16
   %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
@@ -119,25 +119,24 @@ define hidden void @_ZN8rawspeed19OlympusDecompressorC2ENS_8RawImageE(ptr nounde
   %28 = and i32 %22, 1
   %.not4 = icmp eq i32 %28, 0
   %or.cond7 = and i1 %.not4, %27
-  br i1 %or.cond7, label %29, label %33
+  br i1 %or.cond7, label %29, label %32
 
 29:                                               ; preds = %20
-  %30 = and i32 %25, 1
-  %.not5 = icmp ne i32 %30, 0
-  %31 = icmp samesign ugt i32 %22, 10400
-  %or.cond = or i1 %31, %.not5
-  %32 = icmp samesign ugt i32 %25, 7792
-  %or.cond6 = or i1 %32, %or.cond
-  br i1 %or.cond6, label %33, label %35
+  %.not5 = trunc i32 %25 to i1
+  %30 = icmp samesign ugt i32 %22, 10400
+  %or.cond = or i1 %30, %.not5
+  %31 = icmp samesign ugt i32 %25, 7792
+  %or.cond6 = or i1 %31, %or.cond
+  br i1 %or.cond6, label %32, label %34
 
-33:                                               ; preds = %29, %20
+32:                                               ; preds = %29, %20
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed19OlympusDecompressorC2ENS_8RawImageE, i32 noundef %22, i32 noundef %25) #14
-          to label %34 unwind label %18
+          to label %33 unwind label %18
 
-34:                                               ; preds = %33
+33:                                               ; preds = %32
   unreachable
 
-35:                                               ; preds = %29
+34:                                               ; preds = %29
   ret void
 }
 

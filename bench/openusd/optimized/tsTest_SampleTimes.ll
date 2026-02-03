@@ -148,24 +148,18 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_Sample
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeneERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %1) local_unnamed_addr #4 align 2 {
-  %3 = load double, ptr %0, align 8
-  %4 = load double, ptr %1, align 8
-  %5 = fcmp oeq double %3, %4
-  br i1 %5, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeeqERKS1_.exit
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeeqERKS1_.exit:
+  %2 = load double, ptr %0, align 8
+  %3 = load double, ptr %1, align 8
+  %4 = fcmp une double %2, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i8, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i8, ptr %9, align 8
-  %11 = xor i8 %10, %8
-  %12 = and i8 %11, 1
-  %13 = icmp ne i8 %12, 0
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeeqERKS1_.exit
-
-_ZNK32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeeqERKS1_.exit: ; preds = %2, %6
-  %14 = phi i1 [ true, %2 ], [ %13, %6 ]
-  ret i1 %14
+  %9 = xor i8 %8, %6
+  %10 = trunc i8 %9 to i1
+  %11 = select i1 %4, i1 true, i1 %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable

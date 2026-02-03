@@ -2426,20 +2426,20 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
   unreachable
 
 131:                                              ; preds = %129, %127
-  %132 = and i8 %40, 1
-  %133 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %134 = load volatile ptr, ptr %133, align 8
-  call void @except_free(ptr noundef %134)
-  %135 = call ptr @except_pop()
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %133 = load volatile ptr, ptr %132, align 8
+  call void @except_free(ptr noundef %133)
+  %134 = call ptr @except_pop()
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %136 = load ptr, ptr %36, align 8
-  call void @col_set_writable(ptr noundef %136, i32 noundef -1, i1 noundef zeroext %38)
+  %135 = load ptr, ptr %36, align 8
+  call void @col_set_writable(ptr noundef %135, i32 noundef -1, i1 noundef zeroext %38)
+  %136 = and i8 %40, 1
   %137 = load i8, ptr %39, align 4
   %138 = and i8 %137, -2
-  %139 = or disjoint i8 %138, %132
+  %139 = or disjoint i8 %138, %136
   store i8 %139, ptr %39, align 4
   store i32 %48, ptr %47, align 8
   store i32 %50, ptr %49, align 4

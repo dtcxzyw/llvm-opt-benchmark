@@ -1154,31 +1154,31 @@ define hidden i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %499 = trunc i64 %20 to i8
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i8 %499, ptr %500, align 8, !tbaa !123
-  %501 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  %502 = trunc i64 %20 to i16
-  %503 = load i16, ptr %501, align 8
-  %504 = shl i16 %502, 3
+  %501 = trunc i64 %20 to i16
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  %503 = load i16, ptr %502, align 8
+  %504 = shl i16 %501, 3
   %505 = and i16 %503, -509
-  %506 = lshr i16 %502, 4
+  %506 = lshr i16 %501, 4
   %507 = and i16 %506, 4
   %508 = and i16 %504, 504
   %509 = or disjoint i16 %507, %508
   %510 = or disjoint i16 %509, %505
-  store i16 %510, ptr %501, align 8
+  store i16 %510, ptr %502, align 8
   br label %718
 
 511:                                              ; preds = %18
   %512 = trunc i64 %20 to i8
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   store i8 %512, ptr %513, align 8, !tbaa !124
-  %514 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %515 = trunc i64 %20 to i16
-  %516 = load i16, ptr %514, align 8
-  %517 = shl i16 %515, 3
+  %514 = trunc i64 %20 to i16
+  %515 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %516 = load i16, ptr %515, align 8
+  %517 = shl i16 %514, 3
   %518 = and i16 %516, -505
   %519 = and i16 %517, 504
   %520 = or disjoint i16 %518, %519
-  store i16 %520, ptr %514, align 8
+  store i16 %520, ptr %515, align 8
   br label %718
 
 521:                                              ; preds = %18

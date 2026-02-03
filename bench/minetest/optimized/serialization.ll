@@ -1314,8 +1314,7 @@ if.then.i225:                                     ; preds = %invoke.cont112
   %add.ptr118 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset117
   %_M_streambuf_state.i.i221 = getelementptr inbounds nuw i8, ptr %add.ptr118, i64 32
   %26 = load i32, ptr %_M_streambuf_state.i.i221, align 8, !tbaa !47
-  %and.i.i222 = and i32 %26, 1
-  %cmp.i223 = icmp ne i32 %and.i.i222, 0
+  %cmp.i223 = trunc i32 %26 to i1
   %call.i.i228 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %25, i1 noundef zeroext %cmp.i223)
           to label %invoke.cont123 unwind label %lpad119
 

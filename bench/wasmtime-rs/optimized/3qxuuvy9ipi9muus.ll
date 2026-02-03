@@ -26320,8 +26320,8 @@ define noundef range(i8 0, 6) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync197_$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 2) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..PathFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..PathFlags$GT$4from17h2f1b60dae467474eE"(i8 noundef %0) unnamed_addr #4 {
-  %2 = and i8 %0, 1
-  ret i8 %2
+  %spec.select = and i8 %0, 1
+  ret i8 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -26860,15 +26860,15 @@ define noundef i8 @"_ZN13wasmtime_wasi4host10filesystem160_$LT$impl$u20$core..co
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 2) i8 @"_ZN13wasmtime_wasi8preview1170_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Lookupflags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..PathFlags$GT$4from17hf2364777850b7f16E"(i32 noundef %0) unnamed_addr #4 {
-  %2 = trunc i32 %0 to i8
-  %spec.select = and i8 %2, 1
+  %.not = trunc i32 %0 to i8
+  %spec.select = and i8 %.not, 1
   ret i8 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 16) i8 @"_ZN13wasmtime_wasi8preview1165_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Oflags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..OpenFlags$GT$4from17h31b6662256f2e29aE"(i16 noundef %0) unnamed_addr #4 {
-  %2 = trunc i16 %0 to i8
-  %.3 = and i8 %2, 15
+  %.not = trunc i16 %0 to i8
+  %.3 = and i8 %.not, 15
   ret i8 %.3
 }
 
@@ -28186,10 +28186,9 @@ define noundef zeroext i1 @_ZN13wasmtime_wasi8bindings8async_io4wasi10filesystem
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13wasmtime_wasi8bindings8async_io4wasi10filesystem5types9PathFlags10intersects17h70d8fa21a34eb3c1E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef %1) unnamed_addr #15 {
   %3 = load i8, ptr %0, align 1, !noundef !4
-  %4 = and i8 %1, 1
-  %5 = and i8 %4, %3
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %4 = and i8 %3, %1
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

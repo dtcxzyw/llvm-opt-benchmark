@@ -1897,10 +1897,10 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %37, %46
   %92 = ashr i32 %91, 1
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %.pre.i18, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !316
-  %96 = trunc i32 %91 to i8
-  %97 = and i8 %96, 1
-  %98 = xor i8 %97, %95
+  %95 = trunc i32 %91 to i8
+  %96 = load i8, ptr %94, align 1, !tbaa !316
+  %97 = and i8 %95, 1
+  %98 = xor i8 %97, %96
   %.not.i19 = icmp eq i8 %98, 1
   br i1 %.not.i19, label %99, label %.loopexit.loopexit.i
 
@@ -2448,10 +2448,10 @@ define hidden void @_ZN4cvc58internal7Minisat10SimpSolver11extendModelEv(ptr nou
   %18 = ashr i32 %17, 1
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %.pre, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !316
-  %22 = trunc i32 %17 to i8
-  %23 = and i8 %22, 1
-  %24 = xor i8 %21, %23
+  %21 = trunc i32 %17 to i8
+  %22 = load i8, ptr %20, align 1, !tbaa !316
+  %23 = and i8 %21, 1
+  %24 = xor i8 %22, %23
   %.not = icmp eq i8 %24, 1
   br i1 %.not, label %25, label %.loopexit.loopexit
 
@@ -2727,14 +2727,14 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %._ZN4cvc58internal7
   %41 = load ptr, ptr %35, align 8, !tbaa !315
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %41, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !316
-  %45 = trunc i32 %.sroa.03.0.copyload to i8
-  %46 = and i8 %45, 1
-  %47 = icmp eq i8 %44, %46
+  %44 = trunc i32 %.sroa.03.0.copyload to i8
+  %45 = load i8, ptr %43, align 1, !tbaa !316
+  %46 = and i8 %44, 1
+  %47 = icmp eq i8 %45, %46
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %36
-  %49 = xor i8 %44, %46
+  %49 = xor i8 %45, %46
   %.not = icmp eq i8 %49, 1
   br i1 %.not, label %52, label %50
 
@@ -4724,10 +4724,10 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %._ZN4cvc58internal7
   %52 = load ptr, ptr %45, align 8, !tbaa !315
   %53 = sext i32 %50 to i64
   %54 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %52, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !316
-  %56 = trunc i32 %.sroa.04.0.copyload to i8
-  %57 = and i8 %56, 1
-  %58 = xor i8 %55, %57
+  %55 = trunc i32 %.sroa.04.0.copyload to i8
+  %56 = load i8, ptr %54, align 1, !tbaa !316
+  %57 = and i8 %55, 1
+  %58 = xor i8 %56, %57
   %.not27 = icmp eq i8 %58, 1
   br i1 %.not27, label %.critedge, label %59
 

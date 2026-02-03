@@ -9279,9 +9279,8 @@ common.resume:                                    ; preds = %85, %59, %34
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN13wasmtime_wasi4host10filesystem14symlink_follow17h5e78d4b9be6907c6E(i8 noundef %0) unnamed_addr #2 {
-  %2 = and i8 %0, 1
-  %3 = icmp ne i8 %2, 0
-  ret i1 %3
+  %2 = trunc i8 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: nonlazybind uwtable

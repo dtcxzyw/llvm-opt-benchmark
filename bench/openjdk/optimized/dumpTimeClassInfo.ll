@@ -50,8 +50,6 @@ $_ZN9LogPrefixILN6LogTag4typeE16ELS1_75ELS1_24ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 
 $_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo20DTVerifierConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv = comdat any
 
-$_ZN26GrowableArrayWithAllocatorIc13GrowableArrayIcEE13shrink_to_fitEv = comdat any
-
 $_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv = comdat any
 
 $_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo20DTVerifierConstraintE13GrowableArrayIS1_EE9expand_toEi = comdat any
@@ -96,14 +94,13 @@ define hidden void @_ZN17DumpTimeClassInfoD2Ev(ptr noundef nonnull readonly alig
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %17, label %4
+  br i1 %.not, label %22, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = and i64 %6, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit, label %8
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
@@ -115,47 +112,62 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit: ; pred
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 1
-  %.not.i4 = icmp eq i64 %15, 0
-  br i1 %.not.i4, label %_ZN13GrowableArrayIcED2Ev.exit, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %_ZN13GrowableArrayIcED2Ev.exit
 
 16:                                               ; preds = %12
   store i32 0, ptr %10, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIc13GrowableArrayIcEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %_ZN13GrowableArrayIcED2Ev.exit, label %.loopexit.i.i.i
+
+.loopexit.i.i.i:                                  ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = load ptr, ptr %20, align 8
+  store i32 0, ptr %17, align 4
+  %.not.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIcE10deallocateEPc.exit.i.i.i, label %.loopexit.thread.i.i.i
+
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %21) #10
+  br label %_ZN13GrowableArrayIcE10deallocateEPc.exit.i.i.i
+
+_ZN13GrowableArrayIcE10deallocateEPc.exit.i.i.i:  ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
+  store ptr null, ptr %20, align 8
   br label %_ZN13GrowableArrayIcED2Ev.exit
 
-_ZN13GrowableArrayIcED2Ev.exit:                   ; preds = %12, %16
+_ZN13GrowableArrayIcED2Ev.exit:                   ; preds = %12, %16, %_ZN13GrowableArrayIcE10deallocateEPc.exit.i.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %10) #10
-  br label %17
+  br label %22
 
-17:                                               ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit, %_ZN13GrowableArrayIcED2Ev.exit, %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load ptr, ptr %18, align 8
-  %.not3 = icmp eq ptr %19, null
-  br i1 %.not3, label %25, label %20
+22:                                               ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEED2Ev.exit, %_ZN13GrowableArrayIcED2Ev.exit, %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = load ptr, ptr %23, align 8
+  %.not3 = icmp eq ptr %24, null
+  br i1 %.not3, label %30, label %25
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 1
-  %.not.i5 = icmp eq i64 %23, 0
-  br i1 %.not.i5, label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit, label %24
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %27 = load i64, ptr %26, align 8
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit
 
-24:                                               ; preds = %20
-  store i32 0, ptr %19, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
+29:                                               ; preds = %25
+  store i32 0, ptr %24, align 4
+  tail call void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %24)
   br label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit
 
-_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit: ; preds = %20, %24
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %19) #10
-  br label %25
+_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit: ; preds = %25, %29
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %24) #10
+  br label %30
 
-25:                                               ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit, %17
+30:                                               ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEED2Ev.exit, %22
   ret void
 }
 
@@ -1342,9 +1354,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
   br label %.lr.ph.preheader
 
 16:                                               ; preds = %10
-  %17 = and i64 %12, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %22, label %18
+  %17 = trunc i64 %12 to i1
+  br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
   %19 = lshr i64 %12, 1
@@ -1397,24 +1408,24 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol
 .loopexit:                                        ; preds = %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit, %6
   %.020 = phi ptr [ null, %6 ], [ %.0.i, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit ]
   %34 = icmp sgt i32 %3, 0
-  br i1 %34, label %.lr.ph28.preheader, label %._crit_edge
+  br i1 %34, label %.lr.ph27.preheader, label %._crit_edge
 
-.lr.ph28.preheader:                               ; preds = %.loopexit
-  %wide.trip.count33 = zext nneg i32 %3 to i64
-  br label %.lr.ph28
+.lr.ph27.preheader:                               ; preds = %.loopexit
+  %wide.trip.count32 = zext nneg i32 %3 to i64
+  br label %.lr.ph27
 
-.lr.ph28:                                         ; preds = %.lr.ph28.preheader, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph28.preheader ], [ %indvars.iv.next31, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit ]
-  %35 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %8, i64 %indvars.iv30
+.lr.ph27:                                         ; preds = %.lr.ph27.preheader, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next30, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit ]
+  %35 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %8, i64 %indvars.iv29
   %36 = load ptr, ptr %35, align 8
   %.not.i.i24 = icmp eq ptr %36, null
   br i1 %.not.i.i24, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i, label %37
 
-37:                                               ; preds = %.lr.ph28
+37:                                               ; preds = %.lr.ph27
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %36) #10
   br label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i
 
-_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i:  ; preds = %37, %.lr.ph28
+_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i:  ; preds = %37, %.lr.ph27
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i1.i = icmp eq ptr %39, null
@@ -1425,9 +1436,9 @@ _ZN6Symbol24maybe_decrement_refcountEPS_.exit.i:  ; preds = %37, %.lr.ph28
   br label %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
 
 _ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit: ; preds = %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i, %40
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge.thread, label %.lr.ph28, !llvm.loop !12
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
+  br i1 %exitcond33.not, label %._crit_edge.thread, label %.lr.ph27, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not = icmp eq ptr %8, null
@@ -1436,9 +1447,8 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit: ; preds = %_ZN6Symbol24ma
 ._crit_edge.thread:                               ; preds = %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit, %._crit_edge
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8
-  %43 = and i64 %42, 1
-  %.not.i25 = icmp eq i64 %43, 0
-  br i1 %.not.i25, label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE10deallocateEPS1_.exit, label %44
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %44, label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE10deallocateEPS1_.exit
 
 44:                                               ; preds = %._crit_edge.thread
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #10
@@ -1459,87 +1469,6 @@ declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 n
 declare noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIc13GrowableArrayIcEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
-  %4 = load i32, ptr %0, align 8
-  %5 = icmp eq i32 %4, %3
-  br i1 %5, label %32, label %6
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store i32 %4, ptr %2, align 4
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %10, label %.loopexit
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %10
-  %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 1) #10
-  br label %.lr.ph.preheader
-
-16:                                               ; preds = %10
-  %17 = and i64 %12, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %22, label %18
-
-18:                                               ; preds = %16
-  %19 = lshr i64 %12, 1
-  %20 = trunc i64 %19 to i8
-  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %4, i32 noundef 1, i8 noundef zeroext %20) #10
-  br label %.lr.ph.preheader
-
-22:                                               ; preds = %16
-  %23 = inttoptr i64 %12 to ptr
-  %24 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %4, i32 noundef 1, ptr noundef nonnull %23) #10
-  br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %22, %18, %14
-  %.0.i = phi ptr [ %15, %14 ], [ %21, %18 ], [ %24, %22 ]
-  %wide.trip.count = zext nneg i32 %4 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  %27 = load i8, ptr %26, align 1
-  store i8 %27, ptr %25, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !13
-
-.loopexit:                                        ; preds = %6
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZN13GrowableArrayIcE10deallocateEPc.exit, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 1
-  %.not.i22 = icmp eq i64 %30, 0
-  br i1 %.not.i22, label %_ZN13GrowableArrayIcE10deallocateEPc.exit, label %31
-
-31:                                               ; preds = %.loopexit.thread
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #10
-  br label %_ZN13GrowableArrayIcE10deallocateEPc.exit
-
-_ZN13GrowableArrayIcE10deallocateEPc.exit:        ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01830, ptr %7, align 8
-  br label %32
-
-32:                                               ; preds = %1, %_ZN13GrowableArrayIcE10deallocateEPc.exit
-  ret void
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClassInfo18DTLoaderConstraintE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
@@ -1567,9 +1496,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
   br label %.lr.ph.preheader
 
 16:                                               ; preds = %10
-  %17 = and i64 %12, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %22, label %18
+  %17 = trunc i64 %12 to i1
+  br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
   %19 = lshr i64 %12, 1
@@ -1611,32 +1539,32 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
 _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit: ; preds = %.lr.ph, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit, %6
   %.020 = phi ptr [ null, %6 ], [ %.0.i, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit ]
   %35 = icmp sgt i32 %3, 0
-  br i1 %35, label %.lr.ph28.preheader, label %._crit_edge
+  br i1 %35, label %.lr.ph27.preheader, label %._crit_edge
 
-.lr.ph28.preheader:                               ; preds = %.loopexit
-  %wide.trip.count33 = zext nneg i32 %3 to i64
-  br label %.lr.ph28
+.lr.ph27.preheader:                               ; preds = %.loopexit
+  %wide.trip.count32 = zext nneg i32 %3 to i64
+  br label %.lr.ph27
 
-.lr.ph28:                                         ; preds = %.lr.ph28.preheader, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph28.preheader ], [ %indvars.iv.next31, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit ]
-  %36 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %8, i64 %indvars.iv30
+.lr.ph27:                                         ; preds = %.lr.ph27.preheader, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
+  %indvars.iv29 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next30, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit ]
+  %36 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %8, i64 %indvars.iv29
   %37 = load ptr, ptr %36, align 8
   %.not.i.i24 = icmp eq ptr %37, null
   br i1 %.not.i.i24, label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, label %38
 
-38:                                               ; preds = %.lr.ph28
+38:                                               ; preds = %.lr.ph27
   tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %37) #10
   br label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
 
-_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %.lr.ph28, %38
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %._crit_edge.thread, label %.lr.ph28, !llvm.loop !15
+_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %.lr.ph27, %38
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
+  br i1 %exitcond33.not, label %._crit_edge.thread, label %.lr.ph27, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not = icmp eq ptr %8, null
@@ -1645,9 +1573,8 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %.lr.ph28, %38
 ._crit_edge.thread:                               ; preds = %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, 1
-  %.not.i25 = icmp eq i64 %41, 0
-  br i1 %.not.i25, label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE10deallocateEPS1_.exit
 
 42:                                               ; preds = %._crit_edge.thread
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #10
@@ -1676,9 +1603,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
   br label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit
 
 10:                                               ; preds = %2
-  %11 = and i64 %6, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %16, label %12
+  %11 = trunc i64 %6 to i1
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
   %13 = lshr i64 %6, 1
@@ -1695,25 +1621,25 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit:
   %.0.i = phi ptr [ %9, %8 ], [ %15, %12 ], [ %18, %16 ]
   %19 = load i32, ptr %0, align 8
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %.preheader18
+  br i1 %20, label %.lr.ph, label %.preheader17
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %26
 
-.preheader18.loopexit:                            ; preds = %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit
+.preheader17.loopexit:                            ; preds = %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit
   %22 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader18
+  br label %.preheader17
 
-.preheader18:                                     ; preds = %.preheader18.loopexit, %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit ], [ %22, %.preheader18.loopexit ]
+.preheader17:                                     ; preds = %.preheader17.loopexit, %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit ], [ %22, %.preheader17.loopexit ]
   %23 = load i32, ptr %3, align 4
   %24 = icmp slt i32 %.0.lcssa, %23
-  br i1 %24, label %.lr.ph21.preheader, label %.preheader
+  br i1 %24, label %.lr.ph20.preheader, label %.preheader
 
-.lr.ph21.preheader:                               ; preds = %.preheader18
+.lr.ph20.preheader:                               ; preds = %.preheader17
   %25 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph21
+  br label %.lr.ph20
 
 26:                                               ; preds = %.lr.ph, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit ]
@@ -1748,31 +1674,31 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol
   %37 = load i32, ptr %0, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %26, label %.preheader18.loopexit, !llvm.loop !16
+  br i1 %39, label %26, label %.preheader17.loopexit, !llvm.loop !15
 
-.preheader:                                       ; preds = %.lr.ph21, %.preheader18
+.preheader:                                       ; preds = %.lr.ph20, %.preheader17
   %40 = icmp sgt i32 %4, 0
-  br i1 %40, label %.lr.ph23, label %._crit_edge
+  br i1 %40, label %.lr.ph22, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %.preheader
+.lr.ph22:                                         ; preds = %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %46
 
-.lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
-  %indvars.iv25 = phi i64 [ %25, %.lr.ph21.preheader ], [ %indvars.iv.next26, %.lr.ph21 ]
-  %42 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %.0.i, i64 %indvars.iv25
+.lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
+  %indvars.iv24 = phi i64 [ %25, %.lr.ph20.preheader ], [ %indvars.iv.next25, %.lr.ph20 ]
+  %42 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %.0.i, i64 %indvars.iv24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %43 = load i32, ptr %3, align 4
-  %44 = trunc nuw i64 %indvars.iv.next26 to i32
+  %44 = trunc nuw i64 %indvars.iv.next25 to i32
   %45 = icmp sgt i32 %43, %44
-  br i1 %45, label %.lr.ph21, label %.preheader, !llvm.loop !17
+  br i1 %45, label %.lr.ph20, label %.preheader, !llvm.loop !16
 
-46:                                               ; preds = %.lr.ph23, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next29, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit ]
+46:                                               ; preds = %.lr.ph22, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit ]
   %47 = load ptr, ptr %41, align 8
-  %48 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %47, i64 %indvars.iv28
+  %48 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %47, i64 %indvars.iv27
   %49 = load ptr, ptr %48, align 8
   %.not.i.i16 = icmp eq ptr %49, null
   br i1 %.not.i.i16, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i, label %50
@@ -1792,9 +1718,9 @@ _ZN6Symbol24maybe_decrement_refcountEPS_.exit.i:  ; preds = %50, %46
   br label %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
 
 _ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit: ; preds = %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i, %53
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !18
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit, %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1804,9 +1730,8 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit: ; preds = %_ZN6Symbol24ma
 
 56:                                               ; preds = %._crit_edge
   %57 = load i64, ptr %5, align 8
-  %58 = and i64 %57, 1
-  %.not.i17 = icmp eq i64 %58, 0
-  br i1 %.not.i17, label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE10deallocateEPS1_.exit, label %59
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %59, label %_ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE10deallocateEPS1_.exit
 
 59:                                               ; preds = %56
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %55) #10
@@ -1834,9 +1759,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIc13GrowableArra
   br label %_ZN13GrowableArrayIcE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -1853,25 +1777,25 @@ _ZN13GrowableArrayIcE8allocateEv.exit:            ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIcE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIcE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIcE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIcE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIcE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -1884,29 +1808,28 @@ _ZN13GrowableArrayIcE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !19
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !18
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIcE10deallocateEPc.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %indvars.iv20
   store i8 0, ptr %35, align 1
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !20
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !19
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIcE10deallocateEPc.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIcE10deallocateEPc.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #10
@@ -1940,9 +1863,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
   br label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit
 
 10:                                               ; preds = %2
-  %11 = and i64 %6, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %16, label %12
+  %11 = trunc i64 %6 to i1
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
   %13 = lshr i64 %6, 1
@@ -1959,25 +1881,25 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit: ;
   %.0.i = phi ptr [ %9, %8 ], [ %15, %12 ], [ %18, %16 ]
   %19 = load i32, ptr %0, align 8
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph, label %.preheader18
+  br i1 %20, label %.lr.ph, label %.preheader17
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %26
 
-.preheader18.loopexit:                            ; preds = %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit
+.preheader17.loopexit:                            ; preds = %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit
   %22 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader18
+  br label %.preheader17
 
-.preheader18:                                     ; preds = %.preheader18.loopexit, %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit ], [ %22, %.preheader18.loopexit ]
+.preheader17:                                     ; preds = %.preheader17.loopexit, %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit ], [ %22, %.preheader17.loopexit ]
   %23 = load i32, ptr %3, align 4
   %24 = icmp slt i32 %.0.lcssa, %23
-  br i1 %24, label %.lr.ph21.preheader, label %.preheader
+  br i1 %24, label %.lr.ph20.preheader, label %.preheader
 
-.lr.ph21.preheader:                               ; preds = %.preheader18
+.lr.ph20.preheader:                               ; preds = %.preheader17
   %25 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph21
+  br label %.lr.ph20
 
 26:                                               ; preds = %.lr.ph, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit ]
@@ -2006,35 +1928,35 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit: ; preds = %26, %37
   %38 = load i32, ptr %0, align 8
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %26, label %.preheader18.loopexit, !llvm.loop !21
+  br i1 %40, label %26, label %.preheader17.loopexit, !llvm.loop !20
 
-.preheader:                                       ; preds = %.lr.ph21, %.preheader18
+.preheader:                                       ; preds = %.lr.ph20, %.preheader17
   %41 = icmp sgt i32 %4, 0
-  br i1 %41, label %.lr.ph23, label %._crit_edge
+  br i1 %41, label %.lr.ph22, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %.preheader
+.lr.ph22:                                         ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %49
 
-.lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
-  %indvars.iv25 = phi i64 [ %25, %.lr.ph21.preheader ], [ %indvars.iv.next26, %.lr.ph21 ]
-  %43 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %.0.i, i64 %indvars.iv25
+.lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
+  %indvars.iv24 = phi i64 [ %25, %.lr.ph20.preheader ], [ %indvars.iv.next25, %.lr.ph20 ]
+  %43 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %.0.i, i64 %indvars.iv24
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i8 48, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 9
   store i8 48, ptr %45, align 1
-  %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %46 = load i32, ptr %3, align 4
-  %47 = trunc nuw i64 %indvars.iv.next26 to i32
+  %47 = trunc nuw i64 %indvars.iv.next25 to i32
   %48 = icmp sgt i32 %46, %47
-  br i1 %48, label %.lr.ph21, label %.preheader, !llvm.loop !22
+  br i1 %48, label %.lr.ph20, label %.preheader, !llvm.loop !21
 
-49:                                               ; preds = %.lr.ph23, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
-  %indvars.iv28 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next29, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit ]
+49:                                               ; preds = %.lr.ph22, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit ]
   %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %50, i64 %indvars.iv28
+  %51 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %50, i64 %indvars.iv27
   %52 = load ptr, ptr %51, align 8
   %.not.i.i16 = icmp eq ptr %52, null
   br i1 %.not.i.i16, label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, label %53
@@ -2044,9 +1966,9 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit: ; preds = %26, %37
   br label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
 
 _ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %49, %53
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !23
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2056,9 +1978,8 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit: ; preds = %49, %53
 
 56:                                               ; preds = %._crit_edge
   %57 = load i64, ptr %5, align 8
-  %58 = and i64 %57, 1
-  %.not.i17 = icmp eq i64 %58, 0
-  br i1 %.not.i17, label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE10deallocateEPS1_.exit, label %59
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %59, label %_ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE10deallocateEPS1_.exit
 
 59:                                               ; preds = %56
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %55) #10
@@ -2083,9 +2004,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArra
   br label %_ZN13GrowableArrayIiE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -2102,25 +2022,25 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIiE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIiE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -2133,29 +2053,28 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !23
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv20
   store i32 0, ptr %35, align 4
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !25
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !24
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIiE10deallocateEPi.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #10
@@ -2243,7 +2162,7 @@ _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13Instance
   %41 = add nsw i32 %.115, -1
   %.011 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI20CountClassByCategoryEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_ENKUlRS2_SM_E_clESP_SM_.exit, %.preheader
   %.1.lcssa = phi i32 [ %.01217, %.preheader ], [ %41, %_ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI20CountClassByCategoryEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_ENKUlRS2_SM_E_clESP_SM_.exit ]
@@ -2251,7 +2170,7 @@ _ZZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13Instance
   %42 = icmp sgt i32 %.1.lcssa, 0
   %43 = icmp samesign ult i64 %.0.idx18, 127104
   %or.cond = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !27
+  br i1 %or.cond, label %.preheader, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %._crit_edge, %2
   ret void
@@ -2318,4 +2237,3 @@ attributes #10 = { nounwind }
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}

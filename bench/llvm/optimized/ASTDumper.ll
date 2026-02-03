@@ -6788,7 +6788,7 @@ _ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %
   %63 = load i32, ptr %62, align 2
   %64 = and i32 %63, 512
   %.not101 = icmp eq i32 %64, 0
-  br i1 %.not101, label %65, label %106
+  br i1 %.not101, label %65, label %105
 
 65:                                               ; preds = %61, %_ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -6845,31 +6845,30 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_18CXX
 91:                                               ; preds = %.loopexit
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %93 = load i8, ptr %92, align 8, !tbaa !34
-  %94 = and i8 %93, 1
-  %95 = icmp ne i8 %94, 0
-  %96 = load ptr, ptr %92, align 8
-  %97 = icmp ne ptr %96, null
-  %98 = select i1 %95, i1 true, i1 %97
-  %99 = and i32 %89, 16384
-  %100 = icmp ne i32 %99, 0
-  %or.cond = or i1 %100, %98
-  br i1 %or.cond, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, label %106
+  %94 = trunc i8 %93 to i1
+  %95 = load ptr, ptr %92, align 8
+  %96 = icmp ne ptr %95, null
+  %97 = select i1 %94, i1 true, i1 %96
+  %98 = and i32 %89, 16384
+  %99 = icmp ne i32 %98, 0
+  %or.cond = or i1 %99, %97
+  br i1 %or.cond, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, label %105
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %.loopexit
   %.old = and i32 %89, 16384
   %.old99.not = icmp eq i32 %.old, 0
-  br i1 %.old99.not, label %106, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
+  br i1 %.old99.not, label %105, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread: ; preds = %91, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
-  %101 = load ptr, ptr %1, align 8, !tbaa !105
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(168) %1) #21
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1096) %105, ptr null, i64 0, ptr %104, ptr nonnull align 4 dereferenceable(8) %0)
-  br label %106
+  %100 = load ptr, ptr %1, align 8, !tbaa !105
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(168) %1) #21
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1096) %104, ptr null, i64 0, ptr %103, ptr nonnull align 4 dereferenceable(8) %0)
+  br label %105
 
-106:                                              ; preds = %91, %61, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
+105:                                              ; preds = %91, %61, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
   ret void
 }
 
@@ -7287,9 +7286,8 @@ _ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumen
 define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE14VisitFieldDeclEPKNS_9FieldDeclE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = and i32 %4, 1
-  %.not12 = icmp eq i32 %5, 0
-  br i1 %.not12, label %16, label %_ZNK5clang9FieldDecl11getBitWidthEv.exit
+  %5 = trunc i32 %4 to i1
+  br i1 %5, label %_ZNK5clang9FieldDecl11getBitWidthEv.exit, label %16
 
 _ZNK5clang9FieldDecl11getBitWidthEv.exit:         ; preds = %2
   %6 = lshr i32 %4, 2
@@ -22501,7 +22499,7 @@ _ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %
   %63 = load i32, ptr %62, align 2
   %64 = and i32 %63, 512
   %.not101 = icmp eq i32 %64, 0
-  br i1 %.not101, label %65, label %106
+  br i1 %.not101, label %65, label %105
 
 65:                                               ; preds = %61, %_ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -22558,31 +22556,30 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_18C
 91:                                               ; preds = %.loopexit
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %93 = load i8, ptr %92, align 8, !tbaa !34
-  %94 = and i8 %93, 1
-  %95 = icmp ne i8 %94, 0
-  %96 = load ptr, ptr %92, align 8
-  %97 = icmp ne ptr %96, null
-  %98 = select i1 %95, i1 true, i1 %97
-  %99 = and i32 %89, 16384
-  %100 = icmp ne i32 %99, 0
-  %or.cond = or i1 %100, %98
-  br i1 %or.cond, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, label %106
+  %94 = trunc i8 %93 to i1
+  %95 = load ptr, ptr %92, align 8
+  %96 = icmp ne ptr %95, null
+  %97 = select i1 %94, i1 true, i1 %96
+  %98 = and i32 %89, 16384
+  %99 = icmp ne i32 %98, 0
+  %or.cond = or i1 %99, %97
+  br i1 %or.cond, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, label %105
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit: ; preds = %.loopexit
   %.old = and i32 %89, 16384
   %.old99.not = icmp eq i32 %.old, 0
-  br i1 %.old99.not, label %106, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
+  br i1 %.old99.not, label %105, label %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread: ; preds = %91, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
-  %101 = load ptr, ptr %1, align 8, !tbaa !105
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable(168) %1) #21
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1224) %105, ptr null, i64 0, ptr %104, ptr nonnull align 4 dereferenceable(8) %0)
-  br label %106
+  %100 = load ptr, ptr %1, align 8, !tbaa !105
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 64
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call noundef ptr %102(ptr noundef nonnull align 8 dereferenceable(168) %1) #21
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1224) %104, ptr null, i64 0, ptr %103, ptr nonnull align 4 dereferenceable(8) %0)
+  br label %105
 
-106:                                              ; preds = %91, %61, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
+105:                                              ; preds = %91, %61, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit
   ret void
 }
 
@@ -23000,9 +22997,8 @@ _ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumen
 define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE14VisitFieldDeclEPKNS_9FieldDeclE(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i32, ptr %3, align 4
-  %5 = and i32 %4, 1
-  %.not12 = icmp eq i32 %5, 0
-  br i1 %.not12, label %16, label %_ZNK5clang9FieldDecl11getBitWidthEv.exit
+  %5 = trunc i32 %4 to i1
+  br i1 %5, label %_ZNK5clang9FieldDecl11getBitWidthEv.exit, label %16
 
 _ZNK5clang9FieldDecl11getBitWidthEv.exit:         ; preds = %2
   %6 = lshr i32 %4, 2
@@ -25537,8 +25533,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 
 ._crit_edge:                                      ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit, %10
   %16 = tail call noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %.not.i74 = icmp eq ptr %16, null
-  br i1 %.not.i74, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %17
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %17
 
 17:                                               ; preds = %._crit_edge
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -25629,9 +25625,8 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
   %50 = tail call noundef ptr @_ZNK5clang10LambdaExpr13capture_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   %51 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %50, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %51, align 8
-  %52 = and i64 %.0.copyload.i.i.i.i.i, 1
-  %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %53, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
+  %52 = trunc i64 %.0.copyload.i.i.i.i.i to i1
+  br i1 %52, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit, label %53
 
 53:                                               ; preds = %49
   %54 = tail call noundef zeroext i1 @_ZNK5clang10LambdaExpr13isInitCaptureEPKNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %51) #21
@@ -44868,8 +44863,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 
 ._crit_edge:                                      ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit, %10
   %16 = tail call noundef ptr @_ZNK5clang10LambdaExpr24getTemplateParameterListEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %.not.i74 = icmp eq ptr %16, null
-  br i1 %.not.i74, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %17
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %17
 
 17:                                               ; preds = %._crit_edge
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -44960,9 +44955,8 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
   %50 = tail call noundef ptr @_ZNK5clang10LambdaExpr13capture_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   %51 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %50, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %51, align 8
-  %52 = and i64 %.0.copyload.i.i.i.i.i, 1
-  %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %53, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
+  %52 = trunc i64 %.0.copyload.i.i.i.i.i to i1
+  br i1 %52, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit, label %53
 
 53:                                               ; preds = %49
   %54 = tail call noundef zeroext i1 @_ZNK5clang10LambdaExpr13isInitCaptureEPKNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %51) #21

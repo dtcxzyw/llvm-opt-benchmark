@@ -4849,7 +4849,7 @@ define internal void @virtio_pci_realize(ptr noundef %0, ptr noundef %1) #0 {
   %8 = tail call ptr @qdev_get_parent_bus(ptr noundef %7) #16
   %9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #16
   %10 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %9) #16
-  br i1 %10, label %11, label %17
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %2
   %12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
@@ -4857,241 +4857,241 @@ define internal void @virtio_pci_realize(ptr noundef %0, ptr noundef %1) #0 {
   %14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %13, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #16
   %15 = getelementptr i8, ptr %14, i64 120
   %.val90 = load i32, ptr %15, align 8
-  %16 = and i32 %.val90, 1
-  %.not94 = icmp eq i32 %16, 0
-  br label %17
+  %16 = trunc i32 %.val90 to i1
+  %17 = xor i1 %16, true
+  br label %18
 
-17:                                               ; preds = %11, %2
-  %18 = phi i1 [ false, %2 ], [ %.not94, %11 ]
-  %19 = load i32, ptr @replay_mode, align 4
-  %.not = icmp eq i32 %19, 0
+18:                                               ; preds = %11, %2
+  %19 = phi i1 [ false, %2 ], [ %17, %11 ]
+  %20 = load i32, ptr @replay_mode, align 4
+  %.not = icmp eq i32 %20, 0
   %.phi.trans.insert = getelementptr i8, ptr %4, i64 5348
   %.val91.pre = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %.not, label %._crit_edge, label %20
+  br i1 %.not, label %._crit_edge, label %21
 
-20:                                               ; preds = %17
-  %21 = and i32 %.val91.pre, -3
-  store i32 %21, ptr %.phi.trans.insert, align 4
+21:                                               ; preds = %18
+  %22 = and i32 %.val91.pre, -3
+  store i32 %22, ptr %.phi.trans.insert, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %17, %20
-  %.val91 = phi i32 [ %21, %20 ], [ %.val91.pre, %17 ]
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 5328
-  store i32 0, ptr %22, align 16
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 5332
-  store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 5336
-  store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 5340
-  store i32 4, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 3296
-  store i32 0, ptr %26, align 16
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 3300
-  store i32 4096, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 3304
-  store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 3584
-  store i32 4096, ptr %29, align 16
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 3588
-  store i32 4096, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 3592
-  store i32 3, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 3872
-  store i32 8192, ptr %32, align 16
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 3876
-  store i32 4096, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 3880
-  store i32 4, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4160
-  store i32 12288, ptr %35, align 16
-  %36 = getelementptr i8, ptr %4, i64 5348
-  %37 = and i32 %.val91, 32
-  %.not.i = icmp eq i32 %37, 0
-  %38 = select i1 %.not.i, i32 4096, i32 4194304
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 4164
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4168
-  store i32 2, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4448
-  store i32 0, ptr %41, align 16
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4452
-  store i32 4, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4456
-  store i32 2, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 4464
-  %45 = or disjoint i32 %38, 12287
-  %46 = zext nneg i32 %45 to i64
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, 4294967295) %46, i1 true)
-  %48 = add nuw nsw i64 %47, 4294967295
-  %49 = and i64 %48, 4294967295
-  %50 = lshr exact i64 -9223372036854775808, %49
-  tail call void @memory_region_init(ptr noundef nonnull %44, ptr noundef nonnull %4, ptr noundef nonnull @.str, i64 noundef %50) #16
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 5008
-  tail call void @address_space_init(ptr noundef nonnull %51, ptr noundef nonnull %44, ptr noundef nonnull @.str.90) #16
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 5356
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %57
+._crit_edge:                                      ; preds = %18, %21
+  %.val91 = phi i32 [ %22, %21 ], [ %.val91.pre, %18 ]
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 5328
+  store i32 0, ptr %23, align 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 5332
+  store i32 1, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 5336
+  store i32 2, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 5340
+  store i32 4, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 3296
+  store i32 0, ptr %27, align 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 3300
+  store i32 4096, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 3304
+  store i32 1, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 3584
+  store i32 4096, ptr %30, align 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 3588
+  store i32 4096, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 3592
+  store i32 3, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 3872
+  store i32 8192, ptr %33, align 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 3876
+  store i32 4096, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 3880
+  store i32 4, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 4160
+  store i32 12288, ptr %36, align 16
+  %37 = getelementptr i8, ptr %4, i64 5348
+  %38 = and i32 %.val91, 32
+  %.not.i = icmp eq i32 %38, 0
+  %39 = select i1 %.not.i, i32 4096, i32 4194304
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4164
+  store i32 %39, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4168
+  store i32 2, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4448
+  store i32 0, ptr %42, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4452
+  store i32 4, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 4456
+  store i32 2, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4464
+  %46 = or disjoint i32 %39, 12287
+  %47 = zext nneg i32 %46 to i64
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -1, 4294967295) %47, i1 true)
+  %49 = add nuw nsw i64 %48, 4294967295
+  %50 = and i64 %49, 4294967295
+  %51 = lshr exact i64 -9223372036854775808, %50
+  tail call void @memory_region_init(ptr noundef nonnull %45, ptr noundef nonnull %4, ptr noundef nonnull @.str, i64 noundef %51) #16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 5008
+  tail call void @address_space_init(ptr noundef nonnull %52, ptr noundef nonnull %45, ptr noundef nonnull @.str.90) #16
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 5356
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %58
 
-55:                                               ; preds = %._crit_edge
-  %56 = select i1 %18, i32 1, i32 2
-  store i32 %56, ptr %52, align 4
-  br label %57
+56:                                               ; preds = %._crit_edge
+  %57 = select i1 %19, i32 1, i32 2
+  store i32 %57, ptr %53, align 4
+  br label %58
 
-57:                                               ; preds = %55, %._crit_edge
-  %.val92 = phi i32 [ %56, %55 ], [ %53, %._crit_edge ]
-  %58 = getelementptr i8, ptr %4, i64 5352
-  %.val89 = load i8, ptr %58, align 8, !range !7, !noundef !6
-  %59 = trunc nuw i8 %.val89 to i1
-  %60 = icmp ne i32 %.val92, 2
-  %or.cond.not = select i1 %59, i1 %60, i1 false
-  br i1 %or.cond.not, label %61, label %62
+58:                                               ; preds = %56, %._crit_edge
+  %.val92 = phi i32 [ %57, %56 ], [ %54, %._crit_edge ]
+  %59 = getelementptr i8, ptr %4, i64 5352
+  %.val89 = load i8, ptr %59, align 8, !range !7, !noundef !6
+  %60 = trunc nuw i8 %.val89 to i1
+  %61 = icmp ne i32 %.val92, 2
+  %or.cond.not = select i1 %60, i1 %61, i1 false
+  br i1 %or.cond.not, label %62, label %63
 
-61:                                               ; preds = %57
+62:                                               ; preds = %58
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %1, ptr noundef nonnull @.str.5, i32 noundef 2194, ptr noundef nonnull @__func__.virtio_pci_realize, ptr noundef nonnull @.str.91) #16
   tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %1, ptr noundef nonnull @.str.92) #16
   br label %.critedge
 
-62:                                               ; preds = %57
-  %63 = getelementptr i8, ptr %0, i64 1324
-  %.val = load i32, ptr %63, align 4
-  %64 = and i32 %.val, 4
-  %.not80 = icmp ne i32 %64, 0
-  %or.cond110.not = select i1 %18, i1 %.not80, i1 false
-  br i1 %or.cond110.not, label %65, label %._crit_edge102
+63:                                               ; preds = %58
+  %64 = getelementptr i8, ptr %0, i64 1324
+  %.val = load i32, ptr %64, align 4
+  %65 = and i32 %.val, 4
+  %.not80 = icmp ne i32 %65, 0
+  %or.cond109.not = select i1 %19, i1 %.not80, i1 false
+  br i1 %or.cond109.not, label %66, label %._crit_edge101
 
-65:                                               ; preds = %62
-  %66 = tail call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %0, i8 noundef zeroext 0) #16
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %69, label %68
+66:                                               ; preds = %63
+  %67 = tail call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %0, i8 noundef zeroext 0) #16
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %70, label %69
 
-68:                                               ; preds = %65
+69:                                               ; preds = %66
   tail call void @__assert_fail(ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.5, i32 noundef 2205, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_realize) #17
   unreachable
 
-69:                                               ; preds = %65
-  %70 = tail call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 8, ptr noundef %1) #16
-  %71 = icmp sgt i32 %70, -1
-  br i1 %71, label %72, label %.critedge
+70:                                               ; preds = %66
+  %71 = tail call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 8, ptr noundef %1) #16
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %73, label %.critedge
 
-72:                                               ; preds = %69
-  %73 = trunc i32 %70 to i8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 2233
-  store i8 %73, ptr %74, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %76 = load ptr, ptr %75, align 16
-  %77 = zext nneg i32 %70 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 2
-  store i16 3, ptr %79, align 1
-  %80 = load i32, ptr %36, align 4
-  %81 = and i32 %80, 2048
-  %.not81 = icmp eq i32 %81, 0
-  br i1 %.not81, label %84, label %82
+73:                                               ; preds = %70
+  %74 = trunc i32 %71 to i8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2233
+  store i8 %74, ptr %75, align 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %77 = load ptr, ptr %76, align 16
+  %78 = zext nneg i32 %71 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
+  store i16 3, ptr %80, align 1
+  %81 = load i32, ptr %37, align 4
+  %82 = and i32 %81, 2048
+  %.not81 = icmp eq i32 %82, 0
+  br i1 %.not81, label %85, label %83
 
-82:                                               ; preds = %72
-  %83 = tail call i32 @pcie_aer_init(ptr noundef nonnull %0, i8 noundef zeroext 2, i16 noundef zeroext 256, i16 noundef zeroext 72, ptr noundef null) #16
-  %.pre = load i32, ptr %36, align 4
-  br label %84
+83:                                               ; preds = %73
+  %84 = tail call i32 @pcie_aer_init(ptr noundef nonnull %0, i8 noundef zeroext 2, i16 noundef zeroext 256, i16 noundef zeroext 72, ptr noundef null) #16
+  %.pre = load i32, ptr %37, align 4
+  br label %85
 
-84:                                               ; preds = %82, %72
-  %85 = phi i32 [ %.pre, %82 ], [ %80, %72 ]
-  %.0 = phi i16 [ 328, %82 ], [ 256, %72 ]
-  %86 = and i32 %85, 128
-  %.not82 = icmp eq i32 %86, 0
-  br i1 %.not82, label %88, label %87
+85:                                               ; preds = %83, %73
+  %86 = phi i32 [ %.pre, %83 ], [ %81, %73 ]
+  %.0 = phi i16 [ 328, %83 ], [ 256, %73 ]
+  %87 = and i32 %86, 128
+  %.not82 = icmp eq i32 %87, 0
+  br i1 %.not82, label %89, label %88
 
-87:                                               ; preds = %84
+88:                                               ; preds = %85
   tail call void @pcie_cap_deverr_init(ptr noundef nonnull %0) #16
-  %.pre97 = load i32, ptr %36, align 4
-  br label %88
+  %.pre96 = load i32, ptr %37, align 4
+  br label %89
 
-88:                                               ; preds = %87, %84
-  %89 = phi i32 [ %.pre97, %87 ], [ %85, %84 ]
-  %90 = and i32 %89, 256
-  %.not83 = icmp eq i32 %90, 0
-  br i1 %.not83, label %92, label %91
+89:                                               ; preds = %88, %85
+  %90 = phi i32 [ %.pre96, %88 ], [ %86, %85 ]
+  %91 = and i32 %90, 256
+  %.not83 = icmp eq i32 %91, 0
+  br i1 %.not83, label %93, label %92
 
-91:                                               ; preds = %88
+92:                                               ; preds = %89
   tail call void @pcie_cap_lnkctl_init(ptr noundef nonnull %0) #16
-  %.pre98 = load i32, ptr %36, align 4
-  br label %92
+  %.pre97 = load i32, ptr %37, align 4
+  br label %93
 
-92:                                               ; preds = %91, %88
-  %93 = phi i32 [ %.pre98, %91 ], [ %89, %88 ]
-  %94 = and i32 %93, 8192
-  %.not84 = icmp eq i32 %94, 0
-  br i1 %.not84, label %99, label %95
+93:                                               ; preds = %92, %89
+  %94 = phi i32 [ %.pre97, %92 ], [ %90, %89 ]
+  %95 = and i32 %94, 8192
+  %.not84 = icmp eq i32 %95, 0
+  br i1 %.not84, label %100, label %96
 
-95:                                               ; preds = %92
-  %96 = load ptr, ptr %75, align 16
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %77
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store i16 8, ptr %98, align 1
-  %.pre99 = load i32, ptr %36, align 4
-  br label %99
+96:                                               ; preds = %93
+  %97 = load ptr, ptr %76, align 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %78
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  store i16 8, ptr %99, align 1
+  %.pre98 = load i32, ptr %37, align 4
+  br label %100
 
-99:                                               ; preds = %95, %92
-  %100 = phi i32 [ %.pre99, %95 ], [ %93, %92 ]
-  %101 = and i32 %100, 512
-  %.not85 = icmp eq i32 %101, 0
-  br i1 %.not85, label %107, label %102
+100:                                              ; preds = %96, %93
+  %101 = phi i32 [ %.pre98, %96 ], [ %94, %93 ]
+  %102 = and i32 %101, 512
+  %.not85 = icmp eq i32 %102, 0
+  br i1 %.not85, label %108, label %103
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %104 = load ptr, ptr %103, align 16
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %77
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i16 3, ptr %106, align 1
-  %.pre100 = load i32, ptr %36, align 4
-  br label %107
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %105 = load ptr, ptr %104, align 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %78
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  store i16 3, ptr %107, align 1
+  %.pre99 = load i32, ptr %37, align 4
+  br label %108
 
-107:                                              ; preds = %102, %99
-  %108 = phi i32 [ %.pre100, %102 ], [ %100, %99 ]
-  %109 = and i32 %108, 64
-  %.not86 = icmp eq i32 %109, 0
-  br i1 %.not86, label %113, label %110
+108:                                              ; preds = %103, %100
+  %109 = phi i32 [ %.pre99, %103 ], [ %101, %100 ]
+  %110 = and i32 %109, 64
+  %.not86 = icmp eq i32 %110, 0
+  br i1 %.not86, label %114, label %111
 
-110:                                              ; preds = %107
-  %111 = and i32 %108, 4096
-  %112 = icmp ne i32 %111, 0
-  tail call void @pcie_ats_init(ptr noundef nonnull %0, i16 noundef zeroext %.0, i1 noundef zeroext %112) #16
-  %.pre101 = load i32, ptr %36, align 4
-  br label %113
+111:                                              ; preds = %108
+  %112 = and i32 %109, 4096
+  %113 = icmp ne i32 %112, 0
+  tail call void @pcie_ats_init(ptr noundef nonnull %0, i16 noundef zeroext %.0, i1 noundef zeroext %113) #16
+  %.pre100 = load i32, ptr %37, align 4
+  br label %114
 
-113:                                              ; preds = %110, %107
-  %114 = phi i32 [ %.pre101, %110 ], [ %108, %107 ]
-  %115 = and i32 %114, 1024
-  %.not87 = icmp eq i32 %115, 0
-  br i1 %.not87, label %119, label %116
+114:                                              ; preds = %111, %108
+  %115 = phi i32 [ %.pre100, %111 ], [ %109, %108 ]
+  %116 = and i32 %115, 1024
+  %.not87 = icmp eq i32 %116, 0
+  br i1 %.not87, label %120, label %117
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   tail call void @pcie_cap_flr_init(ptr noundef nonnull %0) #16
-  br label %119
+  br label %120
 
-._crit_edge102:                                   ; preds = %62
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 1324
-  %118 = and i32 %.val, -5
-  store i32 %118, ptr %117, align 4
-  br label %119
+._crit_edge101:                                   ; preds = %63
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 1324
+  %119 = and i32 %.val, -5
+  store i32 %119, ptr %118, align 4
+  br label %120
 
-119:                                              ; preds = %116, %113, %._crit_edge102
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 34080
-  %121 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
+120:                                              ; preds = %117, %114, %._crit_edge101
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 34080
+  %122 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull align 1 dereferenceable(11) @__const.virtio_pci_bus_new.virtio_bus_name, i64 11, i1 false)
-  call void @qbus_init(ptr noundef nonnull %120, i64 noundef 128, ptr noundef nonnull @.str.16, ptr noundef %121, ptr noundef nonnull %3) #16
+  call void @qbus_init(ptr noundef nonnull %121, i64 noundef 128, ptr noundef nonnull @.str.16, ptr noundef %122, ptr noundef nonnull %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %123 = load ptr, ptr %122, align 8
-  %.not88 = icmp eq ptr %123, null
-  br i1 %.not88, label %.critedge, label %124
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  %124 = load ptr, ptr %123, align 8
+  %.not88 = icmp eq ptr %124, null
+  br i1 %.not88, label %.critedge, label %125
 
-124:                                              ; preds = %119
-  call void %123(ptr noundef nonnull %4, ptr noundef %1) #16
+125:                                              ; preds = %120
+  call void %124(ptr noundef nonnull %4, ptr noundef %1) #16
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %119, %124, %61
+.critedge:                                        ; preds = %70, %120, %125, %62
   ret void
 }
 
@@ -5102,7 +5102,7 @@ define internal void @virtio_pci_exit(ptr noundef %0) #0 {
   %4 = tail call ptr @qdev_get_parent_bus(ptr noundef %3) #16
   %5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #16
   %6 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %5) #16
-  br i1 %6, label %7, label %13
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
@@ -5110,45 +5110,45 @@ define internal void @virtio_pci_exit(ptr noundef %0) #0 {
   %10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i32 noundef 274, ptr noundef nonnull @__func__.PCI_BUS) #16
   %11 = getelementptr i8, ptr %10, i64 120
   %.val13 = load i32, ptr %11, align 8
-  %12 = and i32 %.val13, 1
-  %.not14 = icmp eq i32 %12, 0
-  br label %13
+  %12 = trunc i32 %.val13 to i1
+  %13 = xor i1 %12, true
+  br label %14
 
-13:                                               ; preds = %7, %1
-  %14 = phi i1 [ false, %1 ], [ %.not14, %7 ]
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 5348
-  %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 8
-  %.not = icmp eq i32 %17, 0
+14:                                               ; preds = %7, %1
+  %15 = phi i1 [ false, %1 ], [ %13, %7 ]
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 5348
+  %17 = load i32, ptr %16, align 4
+  %18 = and i32 %17, 8
+  %.not = icmp eq i32 %18, 0
   tail call void @msix_uninit_exclusive_bar(ptr noundef %0) #16
-  %18 = load i32, ptr %15, align 4
-  %19 = and i32 %18, 2048
-  %20 = icmp ne i32 %19, 0
-  %or.cond = select i1 %20, i1 %14, i1 false
-  br i1 %or.cond, label %21, label %25
+  %19 = load i32, ptr %16, align 4
+  %20 = and i32 %19, 2048
+  %21 = icmp ne i32 %20, 0
+  %or.cond = select i1 %21, i1 %15, i1 false
+  br i1 %or.cond, label %22, label %26
 
-21:                                               ; preds = %13
-  %22 = getelementptr i8, ptr %0, i64 1324
-  %.val = load i32, ptr %22, align 4
-  %23 = and i32 %.val, 4
-  %.not12 = icmp eq i32 %23, 0
-  br i1 %.not12, label %25, label %24
+22:                                               ; preds = %14
+  %23 = getelementptr i8, ptr %0, i64 1324
+  %.val = load i32, ptr %23, align 4
+  %24 = and i32 %.val, 4
+  %.not12 = icmp eq i32 %24, 0
+  br i1 %.not12, label %26, label %25
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   tail call void @pcie_aer_exit(ptr noundef nonnull %0) #16
-  br label %25
+  br label %26
 
-25:                                               ; preds = %24, %21, %13
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 5008
-  tail call void @address_space_destroy(ptr noundef nonnull %26) #16
-  br i1 %.not, label %29, label %27
+26:                                               ; preds = %25, %22, %14
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 5008
+  tail call void @address_space_destroy(ptr noundef nonnull %27) #16
+  br i1 %.not, label %30, label %28
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 5168
-  tail call void @address_space_destroy(ptr noundef nonnull %28) #16
-  br label %29
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 5168
+  tail call void @address_space_destroy(ptr noundef nonnull %29) #16
+  br label %30
 
-29:                                               ; preds = %27, %25
+30:                                               ; preds = %28, %26
   ret void
 }
 

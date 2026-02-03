@@ -1150,27 +1150,27 @@ proto_item_set_generated.exit.i:                  ; preds = %81, %78, %71, %64
   %117 = tail call ptr @tfs_get_string(i1 noundef zeroext %114, ptr noundef nonnull @tfs_supported_not_supported)
   %118 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %57, i32 noundef %115, ptr noundef %0, i32 noundef 94, i32 noundef 1, i64 noundef %116, i32 noundef 0, ptr noundef nonnull @.str.264, ptr noundef %117)
   %119 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 11)
-  %120 = and i8 %119, 1
-  %121 = icmp ne i8 %120, 0
-  %122 = load i32, ptr @hf_iso14443_cid_supported, align 4
-  %123 = zext nneg i8 %120 to i64
-  %124 = tail call ptr @tfs_get_string(i1 noundef zeroext %121, ptr noundef nonnull @tfs_supported_not_supported)
-  %125 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %57, i32 noundef %122, ptr noundef %0, i32 noundef 95, i32 noundef 1, i64 noundef %123, i32 noundef 0, ptr noundef nonnull @.str.264, ptr noundef %124)
-  %126 = icmp samesign ugt i32 %54, 3
-  %spec.select117.i = select i1 %126, i32 13, i32 12
-  br i1 %.not, label %127, label %dissect_iso14443_atqb.exit
+  %120 = trunc i8 %119 to i1
+  %121 = load i32, ptr @hf_iso14443_cid_supported, align 4
+  %.mask.i = and i8 %119, 1
+  %122 = zext nneg i8 %.mask.i to i64
+  %123 = tail call ptr @tfs_get_string(i1 noundef zeroext %120, ptr noundef nonnull @tfs_supported_not_supported)
+  %124 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %57, i32 noundef %121, ptr noundef %0, i32 noundef 95, i32 noundef 1, i64 noundef %122, i32 noundef 0, ptr noundef nonnull @.str.264, ptr noundef %123)
+  %125 = icmp samesign ugt i32 %54, 3
+  %spec.select117.i = select i1 %125, i32 13, i32 12
+  br i1 %.not, label %126, label %dissect_iso14443_atqb.exit
 
-127:                                              ; preds = %111
-  %128 = load i32, ptr @hf_iso14443_crc, align 4
-  %129 = load i32, ptr @hf_iso14443_crc_status, align 4
-  %130 = tail call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select117.i)
-  %131 = zext i16 %130 to i32
-  %132 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %spec.select117.i, i32 noundef %128, i32 noundef %129, ptr noundef nonnull @ei_iso14443_wrong_crc, ptr noundef %1, i32 noundef %131, i32 noundef -2147483648, i32 noundef 1)
-  %133 = or disjoint i32 %spec.select117.i, 2
+126:                                              ; preds = %111
+  %127 = load i32, ptr @hf_iso14443_crc, align 4
+  %128 = load i32, ptr @hf_iso14443_crc_status, align 4
+  %129 = tail call zeroext i16 @crc16_ccitt_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %spec.select117.i)
+  %130 = zext i16 %129 to i32
+  %131 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %spec.select117.i, i32 noundef %127, i32 noundef %128, ptr noundef nonnull @ei_iso14443_wrong_crc, ptr noundef %1, i32 noundef %130, i32 noundef -2147483648, i32 noundef 1)
+  %132 = or disjoint i32 %spec.select117.i, 2
   br label %dissect_iso14443_atqb.exit
 
-dissect_iso14443_atqb.exit:                       ; preds = %127, %111, %4, %10, %30
-  %.0 = phi i32 [ 3, %10 ], [ 5, %30 ], [ 0, %4 ], [ %spec.select117.i, %111 ], [ %133, %127 ]
+dissect_iso14443_atqb.exit:                       ; preds = %126, %111, %4, %10, %30
+  %.0 = phi i32 [ 3, %10 ], [ 5, %30 ], [ 0, %4 ], [ %spec.select117.i, %111 ], [ %132, %126 ]
   ret i32 %.0
 }
 
@@ -1506,42 +1506,42 @@ proto_item_set_generated.exit:                    ; preds = %31, %28, %21, %10
   %130 = tail call ptr @tfs_get_string(i1 noundef zeroext %125, ptr noundef nonnull @tfs_supported_not_supported)
   %131 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %122, i32 noundef %126, ptr noundef %0, i32 noundef %128, i32 noundef 1, i64 noundef %129, i32 noundef 0, ptr noundef nonnull @.str.264, ptr noundef %130)
   %132 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2.i)
-  %133 = and i8 %132, 1
-  %134 = icmp ne i8 %133, 0
-  %135 = load i32, ptr @hf_iso14443_nad_supported, align 4
-  %136 = or disjoint i32 %127, 7
-  %137 = zext nneg i8 %133 to i64
-  %138 = tail call ptr @tfs_get_string(i1 noundef zeroext %134, ptr noundef nonnull @tfs_supported_not_supported)
-  %139 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %122, i32 noundef %135, ptr noundef %0, i32 noundef %136, i32 noundef 1, i64 noundef %137, i32 noundef 0, ptr noundef nonnull @.str.264, ptr noundef %138)
-  %140 = add nuw nsw i32 %.2.i, 1
+  %133 = trunc i8 %132 to i1
+  %134 = load i32, ptr @hf_iso14443_nad_supported, align 4
+  %135 = or disjoint i32 %127, 7
+  %.mask.i = and i8 %132, 1
+  %136 = zext nneg i8 %.mask.i to i64
+  %137 = tail call ptr @tfs_get_string(i1 noundef zeroext %133, ptr noundef nonnull @tfs_supported_not_supported)
+  %138 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %122, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef 1, i64 noundef %136, i32 noundef 0, ptr noundef nonnull @.str.264, ptr noundef %137)
+  %139 = add nuw nsw i32 %.2.i, 1
   br label %.thread116.i
 
 .thread116.i:                                     ; preds = %118, %116, %46
-  %.3.i = phi i32 [ %140, %118 ], [ %.2.i, %116 ], [ 1, %46 ]
-  %141 = sub nsw i32 %57, %.3.i
-  %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %143, label %146
+  %.3.i = phi i32 [ %139, %118 ], [ %.2.i, %116 ], [ 1, %46 ]
+  %140 = sub nsw i32 %57, %.3.i
+  %141 = icmp sgt i32 %140, 0
+  br i1 %141, label %142, label %145
 
-143:                                              ; preds = %.thread116.i
-  %144 = load i32, ptr @hf_iso14443_hist_bytes, align 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef %.3.i, i32 noundef %141, i32 noundef 0)
-  br label %146
+142:                                              ; preds = %.thread116.i
+  %143 = load i32, ptr @hf_iso14443_hist_bytes, align 4
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef %.3.i, i32 noundef %140, i32 noundef 0)
+  br label %145
 
-146:                                              ; preds = %143, %.thread116.i
-  %.4.i = phi i32 [ %57, %143 ], [ %.3.i, %.thread116.i ]
-  br i1 %.not, label %147, label %dissect_iso14443_ats.exit
+145:                                              ; preds = %142, %.thread116.i
+  %.4.i = phi i32 [ %57, %142 ], [ %.3.i, %.thread116.i ]
+  br i1 %.not, label %146, label %dissect_iso14443_ats.exit
 
-147:                                              ; preds = %146
-  %148 = load i32, ptr @hf_iso14443_crc, align 4
-  %149 = load i32, ptr @hf_iso14443_crc_status, align 4
-  %150 = tail call zeroext i16 @crc16_iso14443a_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %.4.i)
-  %151 = zext i16 %150 to i32
-  %152 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.4.i, i32 noundef %148, i32 noundef %149, ptr noundef nonnull @ei_iso14443_wrong_crc, ptr noundef %1, i32 noundef %151, i32 noundef -2147483648, i32 noundef 1)
-  %153 = add nuw nsw i32 %.4.i, 2
+146:                                              ; preds = %145
+  %147 = load i32, ptr @hf_iso14443_crc, align 4
+  %148 = load i32, ptr @hf_iso14443_crc_status, align 4
+  %149 = tail call zeroext i16 @crc16_iso14443a_tvb_offset(ptr noundef %0, i32 noundef 0, i32 noundef %.4.i)
+  %150 = zext i16 %149 to i32
+  %151 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.4.i, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @ei_iso14443_wrong_crc, ptr noundef %1, i32 noundef %150, i32 noundef -2147483648, i32 noundef 1)
+  %152 = add nuw nsw i32 %.4.i, 2
   br label %dissect_iso14443_ats.exit
 
-dissect_iso14443_ats.exit:                        ; preds = %147, %146, %4, %proto_item_set_generated.exit, %40
-  %.0 = phi i32 [ 2, %proto_item_set_generated.exit ], [ 4, %40 ], [ 0, %4 ], [ %.4.i, %146 ], [ %153, %147 ]
+dissect_iso14443_ats.exit:                        ; preds = %146, %145, %4, %proto_item_set_generated.exit, %40
+  %.0 = phi i32 [ 2, %proto_item_set_generated.exit ], [ 4, %40 ], [ 0, %4 ], [ %.4.i, %145 ], [ %152, %146 ]
   ret i32 %.0
 }
 

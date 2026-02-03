@@ -127,10 +127,10 @@ define hidden void @detect_cpu_features(ptr noundef captures(none) %0) local_unn
   %28 = trunc i32 %27 to i8
   %29 = and i8 %28, 1
   store i8 %29, ptr %26, align 1, !tbaa !16
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %31 = trunc i32 %7 to i8
-  %32 = and i8 %31, 1
-  store i8 %32, ptr %30, align 1, !tbaa !17
+  %30 = trunc i32 %7 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 1, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %34 = lshr i32 %7, 19
   %35 = trunc i32 %34 to i8
@@ -328,10 +328,10 @@ define internal range(i32 -1, 1) i32 @blake2_exec(ptr noundef %0) #1 {
   %30 = trunc i32 %29 to i8
   %31 = and i8 %30, 1
   store i8 %31, ptr %28, align 1, !tbaa !16
-  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 18
-  %33 = trunc i32 %9 to i8
-  %34 = and i8 %33, 1
-  store i8 %34, ptr %32, align 1, !tbaa !17
+  %32 = trunc i32 %9 to i8
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 18
+  %34 = and i8 %32, 1
+  store i8 %34, ptr %33, align 1, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 19
   %36 = lshr i32 %9, 19
   %37 = trunc i32 %36 to i8

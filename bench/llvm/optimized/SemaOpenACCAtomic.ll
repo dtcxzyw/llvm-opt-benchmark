@@ -4128,32 +4128,31 @@ _ZNK5clang4Type12isScalarTypeEv.exit:             ; preds = %25
   %29 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %16) #13
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 74
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %32, 0
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %34, align 8
+  %32 = trunc i8 %31 to i1
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %33, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %35 = select i1 %33, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %35, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
+  %34 = select i1 %32, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %34, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
 
 _ZNK5clang4Type12isScalarTypeEv.exit.thread9:     ; preds = %switch.hole_check, %27, %20, %_ZNK5clang4Type12isScalarTypeEv.exit
-  %36 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
+  %35 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #16
   tail call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %2, i64 noundef 1, i32 noundef 2)
   tail call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %2, i64 noundef %.sroa.0.0.copyload.i, i32 noundef 8)
   call void @_ZN5clang17PartialDiagnosticC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) %2)
-  call fastcc void @_ZN12_GLOBAL__N_120AtomicOperandChecker21DiagnoseInvalidAtomicEN5clang14SourceLocationENS1_17PartialDiagnosticE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 %36, ptr noundef %4)
-  %37 = load ptr, ptr %4, align 8, !tbaa !17
-  %.not.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %38
+  call fastcc void @_ZN12_GLOBAL__N_120AtomicOperandChecker21DiagnoseInvalidAtomicEN5clang14SourceLocationENS1_17PartialDiagnosticE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 %35, ptr noundef %4)
+  %36 = load ptr, ptr %4, align 8, !tbaa !17
+  %.not.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %37
 
-38:                                               ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !21
-  %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %41
+37:                                               ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %.not.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %40
 
-41:                                               ; preds = %38
-  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %40, ptr noundef nonnull %37)
+40:                                               ; preds = %37
+  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %39, ptr noundef nonnull %36)
   br label %_ZN5clang19StreamingDiagnosticD2Ev.exit
 
 switch.hole_check:                                ; preds = %27
@@ -4162,8 +4161,8 @@ switch.hole_check:                                ; preds = %27
   %switch.lobit = trunc i32 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN5clang19StreamingDiagnosticD2Ev.exit, label %_ZNK5clang4Type12isScalarTypeEv.exit.thread9
 
-_ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %switch.hole_check, %41, %38, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9, %20, %3, %_ZNK5clang4Type12isScalarTypeEv.exit
-  %.0 = phi i1 [ false, %20 ], [ false, %_ZNK5clang4Type12isScalarTypeEv.exit ], [ false, %3 ], [ true, %41 ], [ true, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9 ], [ true, %38 ], [ false, %switch.hole_check ]
+_ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %switch.hole_check, %40, %37, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9, %20, %3, %_ZNK5clang4Type12isScalarTypeEv.exit
+  %.0 = phi i1 [ false, %20 ], [ false, %_ZNK5clang4Type12isScalarTypeEv.exit ], [ false, %3 ], [ true, %40 ], [ true, %_ZNK5clang4Type12isScalarTypeEv.exit.thread9 ], [ true, %37 ], [ false, %switch.hole_check ]
   ret i1 %.0
 }
 

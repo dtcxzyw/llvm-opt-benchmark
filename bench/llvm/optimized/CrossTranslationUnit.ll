@@ -1527,10 +1527,9 @@ define dso_local noundef zeroext i1 @_ZN5clang8cross_tu12shouldImportEPKNS_7VarD
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !26
   %9 = or i64 %8, %.sroa.0.0.copyload.i
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
+  %10 = trunc i64 %9 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not, label %13, label %11
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %2
   store i64 %.sroa.0.0.copyload.i, ptr %3, align 8

@@ -8866,9 +8866,8 @@ _ZNSt13unordered_mapIPKciN12_GLOBAL__N_18str_hashENS2_6str_eqESaISt4pairIKS1_iEE
   %1383 = load ptr, ptr %1354, align 8
   %1384 = getelementptr inbounds nuw i8, ptr %1383, i64 208
   %1385 = load i32, ptr %1384, align 8
-  %1386 = and i32 %1385, 1
-  %.not = icmp eq i32 %1386, 0
-  br i1 %.not, label %1392, label %1387
+  %1386 = trunc i32 %1385 to i1
+  br i1 %1386, label %1387, label %1392
 
 1387:                                             ; preds = %1382
   %1388 = getelementptr inbounds nuw i8, ptr %0, i64 24

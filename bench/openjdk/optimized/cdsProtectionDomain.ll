@@ -1062,61 +1062,60 @@ define hidden noundef ptr @_ZN19CDSProtectionDomain28get_package_entry_from_clas
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(464) %0) #7
   %7 = tail call noundef zeroext i1 @_ZN9CDSConfig26is_using_full_module_graphEv() #7
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %10 = load i16, ptr %9, align 4
-  %11 = and i16 %10, 1
-  %12 = icmp ne i16 %11, 0
-  %13 = icmp ne ptr %6, null
-  %or.cond = and i1 %13, %12
-  br i1 %or.cond, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %14
+  %11 = trunc i16 %10 to i1
+  %12 = icmp ne ptr %6, null
+  %or.cond = and i1 %12, %11
+  br i1 %or.cond, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %13
 
-14:                                               ; preds = %8, %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb(ptr noundef %16, ptr noundef null) #7
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %18
+13:                                               ; preds = %8, %2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  %16 = tail call noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb(ptr noundef %15, ptr noundef null) #7
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit, label %17
 
-18:                                               ; preds = %14
-  %19 = load volatile i32, ptr %17, align 4
-  %20 = and i32 %19, 65535
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %22, label %23
+17:                                               ; preds = %13
+  %18 = load volatile i32, ptr %16, align 4
+  %19 = and i32 %18, 65535
+  %20 = icmp eq i32 %19, 1
+  br i1 %20, label %21, label %22
 
-22:                                               ; preds = %18
-  tail call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %17) #7
-  br label %23
+21:                                               ; preds = %17
+  tail call void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr noundef nonnull %16) #7
+  br label %22
 
-23:                                               ; preds = %18, %22
-  %24 = icmp eq ptr %1, null
-  br i1 %24, label %_ZNK6HandleclEv.exit.thread, label %_ZNK6HandleclEv.exit
+22:                                               ; preds = %17, %21
+  %23 = icmp eq ptr %1, null
+  br i1 %23, label %_ZNK6HandleclEv.exit.thread, label %_ZNK6HandleclEv.exit
 
-_ZNK6HandleclEv.exit:                             ; preds = %23
-  %25 = load ptr, ptr %1, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %_ZNK6HandleclEv.exit.thread, label %28
+_ZNK6HandleclEv.exit:                             ; preds = %22
+  %24 = load ptr, ptr %1, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %_ZNK6HandleclEv.exit.thread, label %27
 
-_ZNK6HandleclEv.exit.thread:                      ; preds = %23, %_ZNK6HandleclEv.exit
-  %27 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
-  br label %30
+_ZNK6HandleclEv.exit.thread:                      ; preds = %22, %_ZNK6HandleclEv.exit
+  %26 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
+  br label %29
 
-28:                                               ; preds = %_ZNK6HandleclEv.exit
-  %29 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %25) #7
-  br label %30
+27:                                               ; preds = %_ZNK6HandleclEv.exit
+  %28 = tail call noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(ptr noundef nonnull %24) #7
+  br label %29
 
-30:                                               ; preds = %_ZNK6HandleclEv.exit.thread, %28
-  %.0.i.i = phi ptr [ %27, %_ZNK6HandleclEv.exit.thread ], [ %29, %28 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
-  %32 = load volatile ptr, ptr %31, align 8
-  %33 = tail call noundef ptr @_ZN17PackageEntryTable11lookup_onlyEP6Symbol(ptr noundef nonnull align 8 dereferenceable(880) %32, ptr noundef nonnull %17) #7
-  tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %17) #7
+29:                                               ; preds = %_ZNK6HandleclEv.exit.thread, %27
+  %.0.i.i = phi ptr [ %26, %_ZNK6HandleclEv.exit.thread ], [ %28, %27 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
+  %31 = load volatile ptr, ptr %30, align 8
+  %32 = tail call noundef ptr @_ZN17PackageEntryTable11lookup_onlyEP6Symbol(ptr noundef nonnull align 8 dereferenceable(880) %31, ptr noundef nonnull %16) #7
+  tail call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %16) #7
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %14, %30, %8
-  %.08 = phi ptr [ %6, %8 ], [ %33, %30 ], [ null, %14 ]
+_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %13, %29, %8
+  %.08 = phi ptr [ %6, %8 ], [ %32, %29 ], [ null, %13 ]
   ret ptr %.08
 }
 
@@ -1731,9 +1730,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -1767,8 +1765,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

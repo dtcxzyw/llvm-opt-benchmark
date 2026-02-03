@@ -75,9 +75,8 @@ define noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull ali
 
 18:                                               ; preds = %9
   %19 = load i64, ptr %3, align 8, !tbaa !12
-  %20 = and i64 %19, 1
-  %.not.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i, label %21, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i, label %21
 
 21:                                               ; preds = %18
   %22 = inttoptr i64 %19 to ptr
@@ -93,9 +92,8 @@ define noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull ali
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %21, %18
   %26 = load i64, ptr %2, align 8, !tbaa !12
-  %27 = and i64 %26, 1
-  %.not.i.i5.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i5.i, label %28, label %_ZL12exec_ctx_runP12grpc_closure.exit
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZL12exec_ctx_runP12grpc_closure.exit, label %28
 
 28:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   %29 = inttoptr i64 %26 to ptr
@@ -170,9 +168,8 @@ define void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4abs
 6:                                                ; preds = %3
   %7 = load i64, ptr %2, align 8, !tbaa !12
   store i64 %7, ptr %4, align 8, !tbaa !12
-  %8 = and i64 %7, 1
-  %.not.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i, label %9, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %9
 
 9:                                                ; preds = %6
   %10 = inttoptr i64 %7 to ptr
@@ -187,9 +184,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %6, %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %12, ptr %14, align 8, !tbaa !8
   %15 = load i64, ptr %4, align 8, !tbaa !12
-  %16 = and i64 %15, 1
-  %.not.i.i4 = icmp eq i64 %16, 0
-  br i1 %.not.i.i4, label %17, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %17
 
 17:                                               ; preds = %13
   %18 = inttoptr i64 %15 to ptr
@@ -239,9 +235,8 @@ declare noundef i64 @_ZN9grpc_core8internal18StatusAllocHeapPtrEN4absl12lts_2024
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !12
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr

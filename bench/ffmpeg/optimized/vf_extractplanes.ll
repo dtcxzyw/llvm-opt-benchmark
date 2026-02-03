@@ -136,144 +136,143 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   %15 = load i32, ptr %14, align 8, !tbaa !48
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !50
-  %18 = trunc i64 %17 to i32
-  %19 = and i32 %18, 1
-  %20 = icmp ne i32 %19, 0
-  %21 = load ptr, ptr %2, align 8, !tbaa !30
-  %22 = load ptr, ptr %21, align 8, !tbaa !31
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
-  %.not79 = icmp eq ptr %24, null
-  br i1 %.not79, label %25, label %32
+  %18 = trunc i64 %17 to i1
+  %19 = load ptr, ptr %2, align 8, !tbaa !30
+  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 160
+  %22 = load ptr, ptr %21, align 8, !tbaa !53
+  %.not79 = icmp eq ptr %22, null
+  br i1 %.not79, label %23, label %30
 
-25:                                               ; preds = %9
-  %query_formats.in_pixfmts_be.query_formats.in_pixfmts_le = select i1 %20, ptr @query_formats.in_pixfmts_be, ptr @query_formats.in_pixfmts_le
-  %26 = tail call ptr @ff_make_format_list(ptr noundef nonnull %query_formats.in_pixfmts_be.query_formats.in_pixfmts_le) #6
-  %27 = load ptr, ptr %2, align 8, !tbaa !30
-  %28 = load ptr, ptr %27, align 8, !tbaa !31
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 160
-  %30 = tail call i32 @ff_formats_ref(ptr noundef %26, ptr noundef nonnull %29) #6
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %.loopexit, label %32
+23:                                               ; preds = %9
+  %query_formats.in_pixfmts_be.query_formats.in_pixfmts_le = select i1 %18, ptr @query_formats.in_pixfmts_be, ptr @query_formats.in_pixfmts_le
+  %24 = tail call ptr @ff_make_format_list(ptr noundef nonnull %query_formats.in_pixfmts_be.query_formats.in_pixfmts_le) #6
+  %25 = load ptr, ptr %2, align 8, !tbaa !30
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
+  %28 = tail call i32 @ff_formats_ref(ptr noundef %24, ptr noundef nonnull %27) #6
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %.loopexit, label %30
 
-32:                                               ; preds = %25, %9
-  %33 = load i32, ptr %6, align 8, !tbaa !42
-  %34 = icmp ugt i32 %33, 1
-  br i1 %34, label %.lr.ph, label %._crit_edge
+30:                                               ; preds = %23, %9
+  %31 = load i32, ptr %6, align 8, !tbaa !42
+  %32 = icmp ugt i32 %31, 1
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
-35:                                               ; preds = %45
+33:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %6, align 8, !tbaa !42
-  %37 = zext i32 %36 to i64
-  %38 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  %34 = load i32, ptr %6, align 8, !tbaa !42
+  %35 = zext i32 %34 to i64
+  %36 = icmp samesign ult i64 %indvars.iv.next, %35
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
-.lr.ph:                                           ; preds = %32, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 1, %32 ]
-  %39 = load ptr, ptr %10, align 8, !tbaa !47
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
-  %41 = load i32, ptr %40, align 4, !tbaa !23
-  %42 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %41) #6
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %44 = load i32, ptr %43, align 8, !tbaa !48
-  %.not80 = icmp eq i32 %15, %44
-  br i1 %.not80, label %45, label %.loopexit
+.lr.ph:                                           ; preds = %30, %33
+  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 1, %30 ]
+  %37 = load ptr, ptr %10, align 8, !tbaa !47
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %39 = load i32, ptr %38, align 4, !tbaa !23
+  %40 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %39) #6
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load i32, ptr %41, align 8, !tbaa !48
+  %.not80 = icmp eq i32 %15, %42
+  br i1 %.not80, label %43, label %.loopexit
 
-45:                                               ; preds = %.lr.ph
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !50
-  %48 = xor i64 %47, %17
-  %49 = and i64 %48, 1
-  %.not81 = icmp eq i64 %49, 0
-  br i1 %.not81, label %35, label %.loopexit
+43:                                               ; preds = %.lr.ph
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %45 = load i64, ptr %44, align 8, !tbaa !50
+  %46 = xor i64 %45, %17
+  %47 = and i64 %46, 1
+  %.not81 = icmp eq i64 %47, 0
+  br i1 %.not81, label %33, label %.loopexit
 
-._crit_edge:                                      ; preds = %35, %32
-  %50 = icmp eq i32 %15, 8
-  br i1 %50, label %69, label %51
+._crit_edge:                                      ; preds = %33, %30
+  %48 = icmp eq i32 %15, 8
+  br i1 %48, label %68, label %49
 
-51:                                               ; preds = %._crit_edge
-  %52 = icmp eq i32 %19, 0
-  %53 = icmp eq i32 %15, 9
-  %or.cond = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond, label %69, label %54
+49:                                               ; preds = %._crit_edge
+  %50 = and i64 %17, 1
+  %51 = icmp eq i64 %50, 0
+  %52 = icmp eq i32 %15, 9
+  %or.cond = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond, label %68, label %53
 
-54:                                               ; preds = %51
-  %or.cond3 = select i1 %20, i1 %53, i1 false
-  br i1 %or.cond3, label %69, label %55
+53:                                               ; preds = %49
+  %or.cond3 = select i1 %18, i1 %52, i1 false
+  br i1 %or.cond3, label %68, label %54
 
-55:                                               ; preds = %54
-  %56 = icmp eq i32 %15, 10
-  %or.cond5 = select i1 %52, i1 %56, i1 false
-  br i1 %or.cond5, label %69, label %57
+54:                                               ; preds = %53
+  %55 = icmp eq i32 %15, 10
+  %or.cond5 = select i1 %51, i1 %55, i1 false
+  br i1 %or.cond5, label %68, label %56
 
-57:                                               ; preds = %55
-  %or.cond7 = select i1 %20, i1 %56, i1 false
-  br i1 %or.cond7, label %69, label %58
+56:                                               ; preds = %54
+  %or.cond7 = select i1 %18, i1 %55, i1 false
+  br i1 %or.cond7, label %68, label %57
 
-58:                                               ; preds = %57
-  %59 = icmp eq i32 %15, 12
-  %or.cond9 = select i1 %52, i1 %59, i1 false
-  br i1 %or.cond9, label %69, label %60
+57:                                               ; preds = %56
+  %58 = icmp eq i32 %15, 12
+  %or.cond9 = select i1 %51, i1 %58, i1 false
+  br i1 %or.cond9, label %68, label %59
 
-60:                                               ; preds = %58
-  %or.cond11 = select i1 %20, i1 %59, i1 false
-  br i1 %or.cond11, label %69, label %61
+59:                                               ; preds = %57
+  %or.cond11 = select i1 %18, i1 %58, i1 false
+  br i1 %or.cond11, label %68, label %60
 
-61:                                               ; preds = %60
-  %62 = icmp eq i32 %15, 14
-  %or.cond13 = select i1 %52, i1 %62, i1 false
-  br i1 %or.cond13, label %69, label %63
+60:                                               ; preds = %59
+  %61 = icmp eq i32 %15, 14
+  %or.cond13 = select i1 %51, i1 %61, i1 false
+  br i1 %or.cond13, label %68, label %62
 
-63:                                               ; preds = %61
-  %or.cond15 = select i1 %20, i1 %62, i1 false
-  br i1 %or.cond15, label %69, label %64
+62:                                               ; preds = %60
+  %or.cond15 = select i1 %18, i1 %61, i1 false
+  br i1 %or.cond15, label %68, label %63
 
-64:                                               ; preds = %63
-  %65 = icmp eq i32 %15, 16
-  %or.cond17 = select i1 %20, i1 %65, i1 false
-  br i1 %or.cond17, label %69, label %66
+63:                                               ; preds = %62
+  %64 = icmp eq i32 %15, 16
+  %or.cond17 = select i1 %18, i1 %64, i1 false
+  br i1 %or.cond17, label %68, label %65
 
-66:                                               ; preds = %64
-  %or.cond19 = select i1 %52, i1 %65, i1 false
-  br i1 %or.cond19, label %69, label %67
+65:                                               ; preds = %63
+  %or.cond19 = select i1 %51, i1 %64, i1 false
+  br i1 %or.cond19, label %68, label %66
 
-67:                                               ; preds = %66
-  %68 = icmp eq i32 %15, 32
-  %or.cond21 = select i1 %20, i1 %68, i1 false
+66:                                               ; preds = %65
+  %67 = icmp eq i32 %15, 32
+  %or.cond21 = select i1 %18, i1 %67, i1 false
   %query_formats.out32be_pixfmts.query_formats.out32le_pixfmts = select i1 %or.cond21, ptr @query_formats.out32be_pixfmts, ptr @query_formats.out32le_pixfmts
-  br label %69
+  br label %68
 
-69:                                               ; preds = %67, %66, %64, %63, %61, %60, %58, %57, %55, %54, %51, %._crit_edge
-  %.073 = phi ptr [ @query_formats.out16le_pixfmts, %66 ], [ @query_formats.out8_pixfmts, %._crit_edge ], [ @query_formats.out9le_pixfmts, %51 ], [ @query_formats.out9be_pixfmts, %54 ], [ @query_formats.out10le_pixfmts, %55 ], [ @query_formats.out10be_pixfmts, %57 ], [ @query_formats.out12le_pixfmts, %58 ], [ @query_formats.out12be_pixfmts, %60 ], [ @query_formats.out14le_pixfmts, %61 ], [ @query_formats.out14be_pixfmts, %63 ], [ @query_formats.out16be_pixfmts, %64 ], [ %query_formats.out32be_pixfmts.query_formats.out32le_pixfmts, %67 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load i32, ptr %70, align 8, !tbaa !22
-  %.not89 = icmp eq i32 %71, 0
+68:                                               ; preds = %66, %65, %63, %62, %60, %59, %57, %56, %54, %53, %49, %._crit_edge
+  %.073 = phi ptr [ @query_formats.out16le_pixfmts, %65 ], [ @query_formats.out8_pixfmts, %._crit_edge ], [ @query_formats.out9le_pixfmts, %49 ], [ @query_formats.out9be_pixfmts, %53 ], [ @query_formats.out10le_pixfmts, %54 ], [ @query_formats.out10be_pixfmts, %56 ], [ @query_formats.out12le_pixfmts, %57 ], [ @query_formats.out12be_pixfmts, %59 ], [ @query_formats.out14le_pixfmts, %60 ], [ @query_formats.out14be_pixfmts, %62 ], [ @query_formats.out16be_pixfmts, %63 ], [ %query_formats.out32be_pixfmts.query_formats.out32le_pixfmts, %66 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %70 = load i32, ptr %69, align 8, !tbaa !22
+  %.not89 = icmp eq i32 %70, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph86
 
-.lr.ph86:                                         ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br label %77
+.lr.ph86:                                         ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  br label %76
 
-73:                                               ; preds = %77
+72:                                               ; preds = %76
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %74 = load i32, ptr %70, align 8, !tbaa !22
-  %75 = zext i32 %74 to i64
-  %76 = icmp samesign ult i64 %indvars.iv.next93, %75
-  br i1 %76, label %77, label %.loopexit, !llvm.loop !55
+  %73 = load i32, ptr %69, align 8, !tbaa !22
+  %74 = zext i32 %73 to i64
+  %75 = icmp samesign ult i64 %indvars.iv.next93, %74
+  br i1 %75, label %76, label %.loopexit, !llvm.loop !55
 
-77:                                               ; preds = %.lr.ph86, %73
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next93, %73 ]
-  %78 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.073) #6
-  %79 = load ptr, ptr %72, align 8, !tbaa !56
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv92
-  %81 = load ptr, ptr %80, align 8, !tbaa !31
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
-  %83 = tail call i32 @ff_formats_ref(ptr noundef %78, ptr noundef nonnull %82) #6
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %.loopexit, label %73
+76:                                               ; preds = %.lr.ph86, %72
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next93, %72 ]
+  %77 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.073) #6
+  %78 = load ptr, ptr %71, align 8, !tbaa !56
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv92
+  %80 = load ptr, ptr %79, align 8, !tbaa !31
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 120
+  %82 = tail call i32 @ff_formats_ref(ptr noundef %77, ptr noundef nonnull %81) #6
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %.loopexit, label %72
 
-.loopexit:                                        ; preds = %.lr.ph, %45, %77, %73, %69, %25, %1, %7
-  %.071 = phi i32 [ %30, %25 ], [ -11, %7 ], [ 0, %69 ], [ -11, %1 ], [ 0, %73 ], [ %83, %77 ], [ -11, %45 ], [ -11, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %43, %76, %72, %68, %23, %1, %7
+  %.071 = phi i32 [ %28, %23 ], [ -11, %7 ], [ 0, %68 ], [ -11, %1 ], [ 0, %72 ], [ %82, %76 ], [ -11, %43 ], [ -11, %.lr.ph ]
   ret i32 %.071
 }
 

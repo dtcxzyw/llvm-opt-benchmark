@@ -175,17 +175,16 @@ _ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne1900
 
 38:                                               ; preds = %_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEEC1B8ne190000Ev.exit
   %39 = load i8, ptr %37, align 8
-  %40 = and i8 %39, 1
-  %.not.i.i.i = icmp eq i8 %40, 0
+  %40 = trunc i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %44 = select i1 %.not.i.i.i, ptr %43, ptr %42
+  %44 = select i1 %40, ptr %42, ptr %43
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = lshr i8 %39, 1
   %48 = zext nneg i8 %47 to i64
-  %49 = select i1 %.not.i.i.i, i64 %48, i64 %46
+  %49 = select i1 %40, i64 %46, i64 %48
   %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %44, i64 noundef %49)
           to label %_ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostreamIT_T0_EES9_RKNS_12basic_stringIS6_S7_T1_EE.exit unwind label %84
 
@@ -707,17 +706,16 @@ define linkonce_odr void @_ZNSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS
 define void @_ZN7mitsuba6Stream10write_lineERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = load i8, ptr %1, align 8
-  %5 = and i8 %4, 1
-  %.not.i.i = icmp eq i8 %5, 0
+  %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %9 = select i1 %.not.i.i, ptr %8, ptr %7
+  %9 = select i1 %5, ptr %7, ptr %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = lshr i8 %4, 1
   %13 = zext nneg i8 %12 to i64
-  %14 = select i1 %.not.i.i, i64 %13, i64 %11
+  %14 = select i1 %5, i64 %11, i64 %13
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
@@ -809,13 +807,12 @@ define void @_ZN7mitsuba6Stream9read_lineEv(ptr dead_on_unwind noalias nonnull w
 
 26:                                               ; preds = %24
   %27 = load i8, ptr %0, align 8
-  %28 = and i8 %27, 1
-  %.not.i.i = icmp eq i8 %28, 0
+  %28 = trunc i8 %27 to i1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = lshr i8 %27, 1
   %32 = zext nneg i8 %31 to i64
-  %33 = select i1 %.not.i.i, i64 %32, i64 %30
+  %33 = select i1 %28, i64 %30, i64 %32
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %39, label %35
 
@@ -903,12 +900,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.ex
 
 12:                                               ; preds = %8
   %13 = load i8, ptr %0, align 8
-  %14 = and i8 %13, 1
-  %.not.i.i = icmp eq i8 %14, 0
+  %14 = trunc i8 %13 to i1
   %15 = load i64, ptr %4, align 8
   %16 = lshr i8 %13, 1
   %17 = zext nneg i8 %16 to i64
-  %18 = select i1 %.not.i.i, i64 %17, i64 %15
+  %18 = select i1 %14, i64 %15, i64 %17
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.exit.backedge, label %.loopexit
 
@@ -936,12 +932,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEpLB8ne190000Ec.ex
 
 35:                                               ; preds = %33
   %36 = load i8, ptr %0, align 8
-  %37 = and i8 %36, 1
-  %.not.i.i7 = icmp eq i8 %37, 0
+  %37 = trunc i8 %36 to i1
   %38 = load i64, ptr %4, align 8
   %39 = lshr i8 %36, 1
   %40 = zext nneg i8 %39 to i64
-  %41 = select i1 %.not.i.i7, i64 %40, i64 %38
+  %41 = select i1 %37, i64 %38, i64 %40
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %47, label %43
 
@@ -1220,12 +1215,11 @@ define linkonce_odr hidden ptr @_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char
 25:                                               ; preds = %24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEmc(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %15, i8 noundef signext %5)
   %26 = load i8, ptr %7, align 8
-  %27 = and i8 %26, 1
-  %.not.i.i = icmp eq i8 %27, 0
+  %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %31 = select i1 %.not.i.i, ptr %30, ptr %29
+  %31 = select i1 %27, ptr %29, ptr %30
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8

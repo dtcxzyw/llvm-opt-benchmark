@@ -120,46 +120,46 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32i_jalP11proc
   %17 = or disjoint i64 %16, %14
   %18 = add i64 %17, %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %19, align 8, !tbaa !3
-  %20 = lshr i64 %.sink.i.i.i, 35
-  %21 = and i64 %20, 2
-  %22 = xor i64 %21, 2
-  %23 = and i64 %22, %18
-  %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %24, !prof !7
+  %20 = load i64, ptr %19, align 8, !tbaa !3
+  %21 = lshr i64 %20, 35
+  %22 = and i64 %21, 2
+  %23 = xor i64 %22, 2
+  %24 = and i64 %23, %18
+  %.not.i = icmp eq i64 %24, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %25, !prof !7
 
-24:                                               ; preds = %3
-  %25 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %27 = load i8, ptr %26, align 2, !tbaa !8, !range !133, !noundef !134
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 0, ptr %28, align 8, !tbaa !135
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i8 %27, ptr %29, align 8, !tbaa !137
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 %18, ptr %30, align 8, !tbaa !139
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %25, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+25:                                               ; preds = %3
+  %26 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %28 = load i8, ptr %27, align 2, !tbaa !8, !range !133, !noundef !134
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i64 0, ptr %29, align 8, !tbaa !135
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i8 %28, ptr %30, align 8, !tbaa !137
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store i64 %18, ptr %31, align 8, !tbaa !139
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %26, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
-  %32 = lshr i64 %1, 7
-  %33 = and i64 %32, 31
-  %.not.i9 = icmp eq i64 %33, 0
-  br i1 %.not.i9, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %34
+  %33 = lshr i64 %1, 7
+  %34 = and i64 %33, 31
+  %.not.i9 = icmp eq i64 %34, 0
+  br i1 %.not.i9, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %35
 
-34:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %33
-  store i64 %6, ptr %36, align 8, !tbaa !3
+35:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %34
+  store i64 %6, ptr %37, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %34
-  %37 = shl i64 %18, 32
-  %38 = ashr exact i64 %37, 32
-  ret i64 %38
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %35
+  %38 = shl i64 %18, 32
+  %39 = ashr exact i64 %38, 32
+  ret i64 %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -181,43 +181,43 @@ define noundef i64 @_Z14fast_rv64i_jalP11processor_t6insn_tm(ptr noundef capture
   %15 = or disjoint i64 %14, %12
   %16 = add i64 %15, %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %17, align 8, !tbaa !3
-  %18 = lshr i64 %.sink.i.i.i, 35
-  %19 = and i64 %18, 2
-  %20 = xor i64 %19, 2
-  %21 = and i64 %20, %16
-  %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %22, !prof !7
+  %18 = load i64, ptr %17, align 8, !tbaa !3
+  %19 = lshr i64 %18, 35
+  %20 = and i64 %19, 2
+  %21 = xor i64 %20, 2
+  %22 = and i64 %21, %16
+  %.not.i = icmp eq i64 %22, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %23, !prof !7
 
-22:                                               ; preds = %3
-  %23 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %25 = load i8, ptr %24, align 2, !tbaa !8, !range !133, !noundef !134
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 0, ptr %26, align 8, !tbaa !135
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i8 %25, ptr %27, align 8, !tbaa !137
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i64 %16, ptr %28, align 8, !tbaa !139
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %23, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %23, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+23:                                               ; preds = %3
+  %24 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %26 = load i8, ptr %25, align 2, !tbaa !8, !range !133, !noundef !134
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 0, ptr %27, align 8, !tbaa !135
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i8 %26, ptr %28, align 8, !tbaa !137
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %16, ptr %29, align 8, !tbaa !139
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %24, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
-  %30 = lshr i64 %1, 7
-  %31 = and i64 %30, 31
-  %.not.i9 = icmp eq i64 %31, 0
-  br i1 %.not.i9, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %32
+  %31 = lshr i64 %1, 7
+  %32 = and i64 %31, 31
+  %.not.i9 = icmp eq i64 %32, 0
+  br i1 %.not.i9, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %33
 
-32:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %31
-  store i64 %4, ptr %34, align 8, !tbaa !3
+33:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %32
+  store i64 %4, ptr %35, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %32
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %33
   ret i64 %16
 }
 
@@ -240,55 +240,55 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32i_jalP11pr
   %18 = or disjoint i64 %17, %15
   %19 = add i64 %18, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %20, align 8, !tbaa !3
-  %21 = lshr i64 %.sink.i.i.i, 35
-  %22 = and i64 %21, 2
-  %23 = xor i64 %22, 2
-  %24 = and i64 %23, %19
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %25, !prof !7
+  %21 = load i64, ptr %20, align 8, !tbaa !3
+  %22 = lshr i64 %21, 35
+  %23 = and i64 %22, 2
+  %24 = xor i64 %23, 2
+  %25 = and i64 %24, %19
+  %.not.i = icmp eq i64 %25, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %26, !prof !7
 
-25:                                               ; preds = %3
-  %26 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %28 = load i8, ptr %27, align 2, !tbaa !8, !range !133, !noundef !134
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 0, ptr %29, align 8, !tbaa !135
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i8 %28, ptr %30, align 8, !tbaa !137
-  %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i64 %19, ptr %31, align 8, !tbaa !139
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %26, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+26:                                               ; preds = %3
+  %27 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %29 = load i8, ptr %28, align 2, !tbaa !8, !range !133, !noundef !134
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i64 0, ptr %30, align 8, !tbaa !135
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i8 %29, ptr %31, align 8, !tbaa !137
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i64 %19, ptr %32, align 8, !tbaa !139
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %27, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = lshr i64 %1, 7
-  %35 = and i64 %34, 31
-  %36 = shl nuw nsw i64 %35, 4
-  store i64 %36, ptr %4, align 8, !tbaa !3
-  %37 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %7, ptr %37, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %35 = lshr i64 %1, 7
+  %36 = and i64 %35, 31
+  %37 = shl nuw nsw i64 %36, 4
+  store i64 %37, ptr %4, align 8, !tbaa !3
+  %38 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %7, ptr %38, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !142
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i12 = icmp eq i64 %35, 0
-  br i1 %.not.i12, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %38
+  %.not.i12 = icmp eq i64 %36, 0
+  br i1 %.not.i12, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %39
 
-38:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %35
-  store i64 %7, ptr %40, align 8, !tbaa !3
+39:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %36
+  store i64 %7, ptr %41, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %38
-  %41 = shl i64 %19, 32
-  %42 = ashr exact i64 %41, 32
-  ret i64 %42
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %39
+  %42 = shl i64 %19, 32
+  %43 = ashr exact i64 %42, 32
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -394,52 +394,52 @@ define noundef i64 @_Z16logged_rv64i_jalP11processor_t6insn_tm(ptr noundef %0, i
   %16 = or disjoint i64 %15, %13
   %17 = add i64 %16, %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %18, align 8, !tbaa !3
-  %19 = lshr i64 %.sink.i.i.i, 35
-  %20 = and i64 %19, 2
-  %21 = xor i64 %20, 2
-  %22 = and i64 %21, %17
-  %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %23, !prof !7
+  %19 = load i64, ptr %18, align 8, !tbaa !3
+  %20 = lshr i64 %19, 35
+  %21 = and i64 %20, 2
+  %22 = xor i64 %21, 2
+  %23 = and i64 %22, %17
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %24, !prof !7
 
-23:                                               ; preds = %3
-  %24 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %26 = load i8, ptr %25, align 2, !tbaa !8, !range !133, !noundef !134
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 0, ptr %27, align 8, !tbaa !135
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i8 %26, ptr %28, align 8, !tbaa !137
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %17, ptr %29, align 8, !tbaa !139
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %24, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+24:                                               ; preds = %3
+  %25 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %27 = load i8, ptr %26, align 2, !tbaa !8, !range !133, !noundef !134
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 0, ptr %28, align 8, !tbaa !135
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i8 %27, ptr %29, align 8, !tbaa !137
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i64 %17, ptr %30, align 8, !tbaa !139
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %25, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %32 = lshr i64 %1, 7
-  %33 = and i64 %32, 31
-  %34 = shl nuw nsw i64 %33, 4
-  store i64 %34, ptr %4, align 8, !tbaa !3
-  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %5, ptr %35, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %33 = lshr i64 %1, 7
+  %34 = and i64 %33, 31
+  %35 = shl nuw nsw i64 %34, 4
+  store i64 %35, ptr %4, align 8, !tbaa !3
+  %36 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %5, ptr %36, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !142
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i12 = icmp eq i64 %33, 0
-  br i1 %.not.i12, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %36
+  %.not.i12 = icmp eq i64 %34, 0
+  br i1 %.not.i12, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %37
 
-36:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %33
-  store i64 %5, ptr %38, align 8, !tbaa !3
+37:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %34
+  store i64 %5, ptr %39, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %36
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %37
   ret i64 %17
 }
 
@@ -476,47 +476,47 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_jalP11proc
   %23 = or disjoint i64 %22, %20
   %24 = add i64 %23, %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %25, align 8, !tbaa !3
-  %26 = lshr i64 %.sink.i.i.i, 35
-  %27 = and i64 %26, 2
-  %28 = xor i64 %27, 2
-  %29 = and i64 %28, %24
-  %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %30, !prof !7
+  %26 = load i64, ptr %25, align 8, !tbaa !3
+  %27 = lshr i64 %26, 35
+  %28 = and i64 %27, 2
+  %29 = xor i64 %28, 2
+  %30 = and i64 %29, %24
+  %.not.i = icmp eq i64 %30, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %31, !prof !7
 
-30:                                               ; preds = %12
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %33 = load i8, ptr %32, align 2, !tbaa !8, !range !133, !noundef !134
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 0, ptr %34, align 8, !tbaa !135
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i8 %33, ptr %35, align 8, !tbaa !137
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %24, ptr %36, align 8, !tbaa !139
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %31, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+31:                                               ; preds = %12
+  %32 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %34 = load i8, ptr %33, align 2, !tbaa !8, !range !133, !noundef !134
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i64 0, ptr %35, align 8, !tbaa !135
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i8 %34, ptr %36, align 8, !tbaa !137
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i64 %24, ptr %37, align 8, !tbaa !139
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %32, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %12
   %.not.i17 = icmp eq i64 %5, 0
-  br i1 %.not.i17, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %38
+  br i1 %.not.i17, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %39
 
-38:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = shl i64 %2, 32
-  %41 = add i64 %40, 17179869184
-  %42 = ashr exact i64 %41, 32
-  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %5
-  store i64 %42, ptr %43, align 8, !tbaa !3
+39:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %41 = shl i64 %2, 32
+  %42 = add i64 %41, 17179869184
+  %43 = ashr exact i64 %42, 32
+  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %5
+  store i64 %43, ptr %44, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %38
-  %44 = shl i64 %24, 32
-  %45 = ashr exact i64 %44, 32
-  ret i64 %45
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %39
+  %45 = shl i64 %24, 32
+  %46 = ashr exact i64 %45, 32
+  ret i64 %46
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -564,42 +564,42 @@ define noundef i64 @_Z14fast_rv64e_jalP11processor_t6insn_tm(ptr noundef capture
   %23 = or disjoint i64 %22, %20
   %24 = add i64 %23, %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %25, align 8, !tbaa !3
-  %26 = lshr i64 %.sink.i.i.i, 35
-  %27 = and i64 %26, 2
-  %28 = xor i64 %27, 2
-  %29 = and i64 %28, %24
-  %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %30, !prof !7
+  %26 = load i64, ptr %25, align 8, !tbaa !3
+  %27 = lshr i64 %26, 35
+  %28 = and i64 %27, 2
+  %29 = xor i64 %28, 2
+  %30 = and i64 %29, %24
+  %.not.i = icmp eq i64 %30, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %31, !prof !7
 
-30:                                               ; preds = %12
-  %31 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %33 = load i8, ptr %32, align 2, !tbaa !8, !range !133, !noundef !134
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 0, ptr %34, align 8, !tbaa !135
-  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i8 %33, ptr %35, align 8, !tbaa !137
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %24, ptr %36, align 8, !tbaa !139
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %31, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+31:                                               ; preds = %12
+  %32 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %34 = load i8, ptr %33, align 2, !tbaa !8, !range !133, !noundef !134
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i64 0, ptr %35, align 8, !tbaa !135
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i8 %34, ptr %36, align 8, !tbaa !137
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i64 %24, ptr %37, align 8, !tbaa !139
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %32, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %12
   %.not.i17 = icmp eq i64 %5, 0
-  br i1 %.not.i17, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %38
+  br i1 %.not.i17, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %39
 
-38:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %40 = add i64 %2, 4
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %5
-  store i64 %40, ptr %41, align 8, !tbaa !3
+39:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %41 = add i64 %2, 4
+  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %5
+  store i64 %41, ptr %42, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %38
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %39
   ret i64 %24
 }
 
@@ -637,56 +637,56 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_jalP11pr
   %24 = or disjoint i64 %23, %21
   %25 = add i64 %24, %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %26, align 8, !tbaa !3
-  %27 = lshr i64 %.sink.i.i.i, 35
-  %28 = and i64 %27, 2
-  %29 = xor i64 %28, 2
-  %30 = and i64 %29, %25
-  %.not.i = icmp eq i64 %30, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %31, !prof !7
+  %27 = load i64, ptr %26, align 8, !tbaa !3
+  %28 = lshr i64 %27, 35
+  %29 = and i64 %28, 2
+  %30 = xor i64 %29, 2
+  %31 = and i64 %30, %25
+  %.not.i = icmp eq i64 %31, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %32, !prof !7
 
-31:                                               ; preds = %13
-  %32 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %34 = load i8, ptr %33, align 2, !tbaa !8, !range !133, !noundef !134
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 0, ptr %35, align 8, !tbaa !135
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i8 %34, ptr %36, align 8, !tbaa !137
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i64 %25, ptr %37, align 8, !tbaa !139
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %32, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+32:                                               ; preds = %13
+  %33 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %35 = load i8, ptr %34, align 2, !tbaa !8, !range !133, !noundef !134
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i64 0, ptr %36, align 8, !tbaa !135
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i8 %35, ptr %37, align 8, !tbaa !137
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store i64 %25, ptr %38, align 8, !tbaa !139
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %33, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
-  %39 = shl i64 %2, 32
-  %40 = add i64 %39, 17179869184
-  %41 = ashr exact i64 %40, 32
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %40 = shl i64 %2, 32
+  %41 = add i64 %40, 17179869184
+  %42 = ashr exact i64 %41, 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %43 = shl nuw nsw i64 %6, 4
-  store i64 %43, ptr %4, align 8, !tbaa !3
-  %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %41, ptr %44, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %44 = shl nuw nsw i64 %6, 4
+  store i64 %44, ptr %4, align 8, !tbaa !3
+  %45 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %43, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %42, ptr %45, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !142
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i20 = icmp eq i64 %6, 0
-  br i1 %.not.i20, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %45
+  br i1 %.not.i20, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %46
 
-45:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %6
-  store i64 %41, ptr %47, align 8, !tbaa !3
+46:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %6
+  store i64 %42, ptr %48, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %45
-  %48 = shl i64 %25, 32
-  %49 = ashr exact i64 %48, 32
-  ret i64 %49
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %46
+  %49 = shl i64 %25, 32
+  %50 = ashr exact i64 %49, 32
+  ret i64 %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -723,51 +723,51 @@ define noundef i64 @_Z16logged_rv64e_jalP11processor_t6insn_tm(ptr noundef %0, i
   %24 = or disjoint i64 %23, %21
   %25 = add i64 %24, %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i.i = load i64, ptr %26, align 8, !tbaa !3
-  %27 = lshr i64 %.sink.i.i.i, 35
-  %28 = and i64 %27, 2
-  %29 = xor i64 %28, 2
-  %30 = and i64 %29, %25
-  %.not.i = icmp eq i64 %30, 0
-  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %31, !prof !7
+  %27 = load i64, ptr %26, align 8, !tbaa !3
+  %28 = lshr i64 %27, 35
+  %29 = and i64 %28, 2
+  %30 = xor i64 %29, 2
+  %31 = and i64 %30, %25
+  %.not.i = icmp eq i64 %31, 0
+  br i1 %.not.i, label %_ZN11processor_t18check_pc_alignmentEm.exit, label %32, !prof !7
 
-31:                                               ; preds = %13
-  %32 = tail call ptr @__cxa_allocate_exception(i64 48) #14
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %34 = load i8, ptr %33, align 2, !tbaa !8, !range !133, !noundef !134
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 0, ptr %35, align 8, !tbaa !135
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i8 %34, ptr %36, align 8, !tbaa !137
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i64 %25, ptr %37, align 8, !tbaa !139
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %32, align 8, !tbaa !140
-  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
+32:                                               ; preds = %13
+  %33 = tail call ptr @__cxa_allocate_exception(i64 48) #14
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %35 = load i8, ptr %34, align 2, !tbaa !8, !range !133, !noundef !134
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i64 0, ptr %36, align 8, !tbaa !135
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i8 %35, ptr %37, align 8, !tbaa !137
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store i64 %25, ptr %38, align 8, !tbaa !139
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV35trap_instruction_address_misaligned, i64 16), ptr %33, align 8, !tbaa !140
+  tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #15
   unreachable
 
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
-  %39 = add i64 %2, 4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  %40 = add i64 %2, 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %41 = shl nuw nsw i64 %6, 4
-  store i64 %41, ptr %4, align 8, !tbaa !3
-  %42 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i64 %39, ptr %42, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %42 = shl nuw nsw i64 %6, 4
+  store i64 %42, ptr %4, align 8, !tbaa !3
+  %43 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %40, ptr %43, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !142
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i20 = icmp eq i64 %6, 0
-  br i1 %.not.i20, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %43
+  br i1 %.not.i20, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %44
 
-43:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %6
-  store i64 %39, ptr %45, align 8, !tbaa !3
+44:                                               ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %6
+  store i64 %40, ptr %46, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %43
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN11processor_t18check_pc_alignmentEm.exit, %44
   ret i64 %25
 }
 

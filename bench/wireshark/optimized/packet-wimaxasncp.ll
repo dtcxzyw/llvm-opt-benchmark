@@ -2598,8 +2598,8 @@ define internal fastcc void @add_tlv_reg_info(ptr noundef %0) unnamed_addr #0 {
   %46 = load ptr, ptr %42, align 8
   %47 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.266, ptr noundef %46)
   %48 = load i8, ptr %47, align 1
-  %.not32.i = icmp eq i8 %48, 0
-  br i1 %.not32.i, label %alnumerize.exit, label %.lr.ph.i
+  %.not31.i = icmp eq i8 %48, 0
+  br i1 %.not31.i, label %alnumerize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %49 = load ptr, ptr @g_ascii_table, align 8
@@ -2607,15 +2607,14 @@ define internal fastcc void @add_tlv_reg_info(ptr noundef %0) unnamed_addr #0 {
 
 50:                                               ; preds = %63, %.lr.ph.i
   %51 = phi i8 [ %48, %.lr.ph.i ], [ %65, %63 ]
-  %.034.i = phi ptr [ %47, %.lr.ph.i ], [ %64, %63 ]
-  %.02833.i = phi ptr [ %47, %.lr.ph.i ], [ %.1.i, %63 ]
+  %.033.i = phi ptr [ %47, %.lr.ph.i ], [ %64, %63 ]
+  %.02832.i = phi ptr [ %47, %.lr.ph.i ], [ %.1.i, %63 ]
   %52 = zext i8 %51 to i64
   %53 = getelementptr i16, ptr %49, i64 %52
   %54 = load i16, ptr %53, align 2
   %.fr.i = freeze i16 %54
-  %55 = and i16 %.fr.i, 1
-  %.not31.i = icmp eq i16 %55, 0
-  br i1 %.not31.i, label %switch.early.test.i, label %.sink.split.i
+  %55 = trunc i16 %.fr.i to i1
+  br i1 %55, label %.sink.split.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %50
   switch i8 %51, label %63 [
@@ -2627,24 +2626,24 @@ switch.early.test.i:                              ; preds = %50
   ]
 
 56:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %57 = icmp eq ptr %.02833.i, %47
+  %57 = icmp eq ptr %.02832.i, %47
   br i1 %57, label %63, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr i8, ptr %.02833.i, i64 -1
+  %59 = getelementptr i8, ptr %.02832.i, i64 -1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 95
   br i1 %61, label %63, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %58, %switch.early.test.i, %switch.early.test.i, %50
   %.sink.i = phi i8 [ %51, %50 ], [ %51, %switch.early.test.i ], [ %51, %switch.early.test.i ], [ 95, %58 ]
-  %62 = getelementptr i8, ptr %.02833.i, i64 1
-  store i8 %.sink.i, ptr %.02833.i, align 1
+  %62 = getelementptr i8, ptr %.02832.i, i64 1
+  store i8 %.sink.i, ptr %.02832.i, align 1
   br label %63
 
 63:                                               ; preds = %.sink.split.i, %58, %56, %switch.early.test.i
-  %.1.i = phi ptr [ %.02833.i, %switch.early.test.i ], [ %47, %56 ], [ %.02833.i, %58 ], [ %62, %.sink.split.i ]
-  %64 = getelementptr i8, ptr %.034.i, i64 1
+  %.1.i = phi ptr [ %.02832.i, %switch.early.test.i ], [ %47, %56 ], [ %.02832.i, %58 ], [ %62, %.sink.split.i ]
+  %64 = getelementptr i8, ptr %.033.i, i64 1
   %65 = load i8, ptr %64, align 1
   %.not.i = icmp eq i8 %65, 0
   br i1 %.not.i, label %alnumerize.exit, label %50, !llvm.loop !24
@@ -2712,8 +2711,8 @@ alnumerize.exit:                                  ; preds = %63, %1
   %91 = load ptr, ptr %42, align 8
   %92 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %90, ptr noundef nonnull @.str.272, ptr noundef %91)
   %93 = load i8, ptr %92, align 1
-  %.not32.i177 = icmp eq i8 %93, 0
-  br i1 %.not32.i177, label %alnumerize.exit189, label %.lr.ph.i178
+  %.not31.i177 = icmp eq i8 %93, 0
+  br i1 %.not31.i177, label %alnumerize.exit188, label %.lr.ph.i178
 
 .lr.ph.i178:                                      ; preds = %75
   %94 = load ptr, ptr @g_ascii_table, align 8
@@ -2721,17 +2720,16 @@ alnumerize.exit:                                  ; preds = %63, %1
 
 95:                                               ; preds = %108, %.lr.ph.i178
   %96 = phi i8 [ %93, %.lr.ph.i178 ], [ %110, %108 ]
-  %.034.i179 = phi ptr [ %92, %.lr.ph.i178 ], [ %109, %108 ]
-  %.02833.i180 = phi ptr [ %92, %.lr.ph.i178 ], [ %.1.i185, %108 ]
+  %.033.i179 = phi ptr [ %92, %.lr.ph.i178 ], [ %109, %108 ]
+  %.02832.i180 = phi ptr [ %92, %.lr.ph.i178 ], [ %.1.i185, %108 ]
   %97 = zext i8 %96 to i64
   %98 = getelementptr i16, ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %.fr.i181 = freeze i16 %99
-  %100 = and i16 %.fr.i181, 1
-  %.not31.i182 = icmp eq i16 %100, 0
-  br i1 %.not31.i182, label %switch.early.test.i188, label %.sink.split.i183
+  %100 = trunc i16 %.fr.i181 to i1
+  br i1 %100, label %.sink.split.i183, label %switch.early.test.i182
 
-switch.early.test.i188:                           ; preds = %95
+switch.early.test.i182:                           ; preds = %95
   switch i8 %96, label %108 [
     i8 95, label %.sink.split.i183
     i8 46, label %.sink.split.i183
@@ -2740,30 +2738,30 @@ switch.early.test.i188:                           ; preds = %95
     i8 32, label %101
   ]
 
-101:                                              ; preds = %switch.early.test.i188, %switch.early.test.i188, %switch.early.test.i188
-  %102 = icmp eq ptr %.02833.i180, %92
+101:                                              ; preds = %switch.early.test.i182, %switch.early.test.i182, %switch.early.test.i182
+  %102 = icmp eq ptr %.02832.i180, %92
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr i8, ptr %.02833.i180, i64 -1
+  %104 = getelementptr i8, ptr %.02832.i180, i64 -1
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 95
   br i1 %106, label %108, label %.sink.split.i183
 
-.sink.split.i183:                                 ; preds = %103, %switch.early.test.i188, %switch.early.test.i188, %95
-  %.sink.i184 = phi i8 [ %96, %95 ], [ %96, %switch.early.test.i188 ], [ %96, %switch.early.test.i188 ], [ 95, %103 ]
-  %107 = getelementptr i8, ptr %.02833.i180, i64 1
-  store i8 %.sink.i184, ptr %.02833.i180, align 1
+.sink.split.i183:                                 ; preds = %103, %switch.early.test.i182, %switch.early.test.i182, %95
+  %.sink.i184 = phi i8 [ %96, %95 ], [ %96, %switch.early.test.i182 ], [ %96, %switch.early.test.i182 ], [ 95, %103 ]
+  %107 = getelementptr i8, ptr %.02832.i180, i64 1
+  store i8 %.sink.i184, ptr %.02832.i180, align 1
   br label %108
 
-108:                                              ; preds = %.sink.split.i183, %103, %101, %switch.early.test.i188
-  %.1.i185 = phi ptr [ %.02833.i180, %switch.early.test.i188 ], [ %92, %101 ], [ %.02833.i180, %103 ], [ %107, %.sink.split.i183 ]
-  %109 = getelementptr i8, ptr %.034.i179, i64 1
+108:                                              ; preds = %.sink.split.i183, %103, %101, %switch.early.test.i182
+  %.1.i185 = phi ptr [ %.02832.i180, %switch.early.test.i182 ], [ %92, %101 ], [ %.02832.i180, %103 ], [ %107, %.sink.split.i183 ]
+  %109 = getelementptr i8, ptr %.033.i179, i64 1
   %110 = load i8, ptr %109, align 1
   %.not.i186 = icmp eq i8 %110, 0
-  br i1 %.not.i186, label %alnumerize.exit189, label %95, !llvm.loop !24
+  br i1 %.not.i186, label %alnumerize.exit188, label %95, !llvm.loop !24
 
-alnumerize.exit189:                               ; preds = %108, %75
+alnumerize.exit188:                               ; preds = %108, %75
   %.028.lcssa.i187 = phi ptr [ %92, %75 ], [ %.1.i185, %108 ]
   store i8 0, ptr %.028.lcssa.i187, align 1
   %111 = call ptr @wmem_epan_scope()
@@ -2801,7 +2799,7 @@ alnumerize.exit189:                               ; preds = %108, %75
     i32 25, label %905
   ]
 
-116:                                              ; preds = %alnumerize.exit189
+116:                                              ; preds = %alnumerize.exit188
   %117 = call ptr @wmem_epan_scope()
   call void @wmem_free(ptr noundef %117, ptr noundef %114)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -2832,7 +2830,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %937
 
-130:                                              ; preds = %alnumerize.exit189
+130:                                              ; preds = %alnumerize.exit188
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %131, ptr %38, align 8
@@ -2861,7 +2859,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %937
 
-143:                                              ; preds = %alnumerize.exit189, %alnumerize.exit189
+143:                                              ; preds = %alnumerize.exit188, %alnumerize.exit188
   %144 = call ptr @wmem_epan_scope()
   call void @wmem_free(ptr noundef %144, ptr noundef %89)
   %145 = call ptr @wmem_epan_scope()
@@ -2870,7 +2868,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @wmem_free(ptr noundef %146, ptr noundef %114)
   br label %937
 
-147:                                              ; preds = %alnumerize.exit189
+147:                                              ; preds = %alnumerize.exit188
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %148, ptr %37, align 8
@@ -2899,7 +2897,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %937
 
-160:                                              ; preds = %alnumerize.exit189
+160:                                              ; preds = %alnumerize.exit188
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %161, ptr %36, align 8
@@ -2930,7 +2928,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %937
 
-174:                                              ; preds = %alnumerize.exit189
+174:                                              ; preds = %alnumerize.exit188
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %175, ptr %35, align 8
@@ -2961,7 +2959,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %937
 
-188:                                              ; preds = %alnumerize.exit189
+188:                                              ; preds = %alnumerize.exit188
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %189, ptr %34, align 8
@@ -2992,7 +2990,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %937
 
-202:                                              ; preds = %alnumerize.exit189
+202:                                              ; preds = %alnumerize.exit188
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %203, ptr %33, align 8
@@ -3021,7 +3019,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %937
 
-215:                                              ; preds = %alnumerize.exit189
+215:                                              ; preds = %alnumerize.exit188
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %216, ptr %32, align 8
@@ -3050,7 +3048,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %937
 
-228:                                              ; preds = %alnumerize.exit189
+228:                                              ; preds = %alnumerize.exit188
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %229, ptr %31, align 8
@@ -3081,7 +3079,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %937
 
-242:                                              ; preds = %alnumerize.exit189
+242:                                              ; preds = %alnumerize.exit188
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %243, ptr %30, align 8
@@ -3112,7 +3110,7 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %937
 
-256:                                              ; preds = %alnumerize.exit189
+256:                                              ; preds = %alnumerize.exit188
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %257, ptr %29, align 8
@@ -3143,67 +3141,66 @@ alnumerize.exit189:                               ; preds = %108, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %937
 
-270:                                              ; preds = %alnumerize.exit189
+270:                                              ; preds = %alnumerize.exit188
   %271 = call ptr @wmem_epan_scope()
   call void @wmem_free(ptr noundef %271, ptr noundef %92)
   %272 = call ptr @wmem_epan_scope()
   %273 = load ptr, ptr %42, align 8
   %274 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %272, ptr noundef nonnull @.str.275, ptr noundef %273)
   %275 = load i8, ptr %274, align 1
-  %.not32.i190 = icmp eq i8 %275, 0
-  br i1 %.not32.i190, label %alnumerize.exit202, label %.lr.ph.i191
+  %.not31.i189 = icmp eq i8 %275, 0
+  br i1 %.not31.i189, label %alnumerize.exit200, label %.lr.ph.i190
 
-.lr.ph.i191:                                      ; preds = %270
+.lr.ph.i190:                                      ; preds = %270
   %276 = load ptr, ptr @g_ascii_table, align 8
   br label %277
 
-277:                                              ; preds = %290, %.lr.ph.i191
-  %278 = phi i8 [ %275, %.lr.ph.i191 ], [ %292, %290 ]
-  %.034.i192 = phi ptr [ %274, %.lr.ph.i191 ], [ %291, %290 ]
-  %.02833.i193 = phi ptr [ %274, %.lr.ph.i191 ], [ %.1.i198, %290 ]
+277:                                              ; preds = %290, %.lr.ph.i190
+  %278 = phi i8 [ %275, %.lr.ph.i190 ], [ %292, %290 ]
+  %.033.i191 = phi ptr [ %274, %.lr.ph.i190 ], [ %291, %290 ]
+  %.02832.i192 = phi ptr [ %274, %.lr.ph.i190 ], [ %.1.i197, %290 ]
   %279 = zext i8 %278 to i64
   %280 = getelementptr i16, ptr %276, i64 %279
   %281 = load i16, ptr %280, align 2
-  %.fr.i194 = freeze i16 %281
-  %282 = and i16 %.fr.i194, 1
-  %.not31.i195 = icmp eq i16 %282, 0
-  br i1 %.not31.i195, label %switch.early.test.i201, label %.sink.split.i196
+  %.fr.i193 = freeze i16 %281
+  %282 = trunc i16 %.fr.i193 to i1
+  br i1 %282, label %.sink.split.i195, label %switch.early.test.i194
 
-switch.early.test.i201:                           ; preds = %277
+switch.early.test.i194:                           ; preds = %277
   switch i8 %278, label %290 [
-    i8 95, label %.sink.split.i196
-    i8 46, label %.sink.split.i196
+    i8 95, label %.sink.split.i195
+    i8 46, label %.sink.split.i195
     i8 47, label %283
     i8 45, label %283
     i8 32, label %283
   ]
 
-283:                                              ; preds = %switch.early.test.i201, %switch.early.test.i201, %switch.early.test.i201
-  %284 = icmp eq ptr %.02833.i193, %274
+283:                                              ; preds = %switch.early.test.i194, %switch.early.test.i194, %switch.early.test.i194
+  %284 = icmp eq ptr %.02832.i192, %274
   br i1 %284, label %290, label %285
 
 285:                                              ; preds = %283
-  %286 = getelementptr i8, ptr %.02833.i193, i64 -1
+  %286 = getelementptr i8, ptr %.02832.i192, i64 -1
   %287 = load i8, ptr %286, align 1
   %288 = icmp eq i8 %287, 95
-  br i1 %288, label %290, label %.sink.split.i196
+  br i1 %288, label %290, label %.sink.split.i195
 
-.sink.split.i196:                                 ; preds = %285, %switch.early.test.i201, %switch.early.test.i201, %277
-  %.sink.i197 = phi i8 [ %278, %277 ], [ %278, %switch.early.test.i201 ], [ %278, %switch.early.test.i201 ], [ 95, %285 ]
-  %289 = getelementptr i8, ptr %.02833.i193, i64 1
-  store i8 %.sink.i197, ptr %.02833.i193, align 1
+.sink.split.i195:                                 ; preds = %285, %switch.early.test.i194, %switch.early.test.i194, %277
+  %.sink.i196 = phi i8 [ %278, %277 ], [ %278, %switch.early.test.i194 ], [ %278, %switch.early.test.i194 ], [ 95, %285 ]
+  %289 = getelementptr i8, ptr %.02832.i192, i64 1
+  store i8 %.sink.i196, ptr %.02832.i192, align 1
   br label %290
 
-290:                                              ; preds = %.sink.split.i196, %285, %283, %switch.early.test.i201
-  %.1.i198 = phi ptr [ %.02833.i193, %switch.early.test.i201 ], [ %274, %283 ], [ %.02833.i193, %285 ], [ %289, %.sink.split.i196 ]
-  %291 = getelementptr i8, ptr %.034.i192, i64 1
+290:                                              ; preds = %.sink.split.i195, %285, %283, %switch.early.test.i194
+  %.1.i197 = phi ptr [ %.02832.i192, %switch.early.test.i194 ], [ %274, %283 ], [ %.02832.i192, %285 ], [ %289, %.sink.split.i195 ]
+  %291 = getelementptr i8, ptr %.033.i191, i64 1
   %292 = load i8, ptr %291, align 1
-  %.not.i199 = icmp eq i8 %292, 0
-  br i1 %.not.i199, label %alnumerize.exit202, label %277, !llvm.loop !24
+  %.not.i198 = icmp eq i8 %292, 0
+  br i1 %.not.i198, label %alnumerize.exit200, label %277, !llvm.loop !24
 
-alnumerize.exit202:                               ; preds = %290, %270
-  %.028.lcssa.i200 = phi ptr [ %274, %270 ], [ %.1.i198, %290 ]
-  store i8 0, ptr %.028.lcssa.i200, align 1
+alnumerize.exit200:                               ; preds = %290, %270
+  %.028.lcssa.i199 = phi ptr [ %274, %270 ], [ %.1.i197, %290 ]
+  store i8 0, ptr %.028.lcssa.i199, align 1
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %293, ptr %28, align 8
@@ -3234,60 +3231,59 @@ alnumerize.exit202:                               ; preds = %290, %270
   %306 = load ptr, ptr %42, align 8
   %307 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %305, ptr noundef nonnull @.str.277, ptr noundef %306)
   %308 = load i8, ptr %307, align 1
-  %.not32.i203 = icmp eq i8 %308, 0
-  br i1 %.not32.i203, label %alnumerize.exit215, label %.lr.ph.i204
+  %.not31.i201 = icmp eq i8 %308, 0
+  br i1 %.not31.i201, label %alnumerize.exit212, label %.lr.ph.i202
 
-.lr.ph.i204:                                      ; preds = %alnumerize.exit202
+.lr.ph.i202:                                      ; preds = %alnumerize.exit200
   %309 = load ptr, ptr @g_ascii_table, align 8
   br label %310
 
-310:                                              ; preds = %323, %.lr.ph.i204
-  %311 = phi i8 [ %308, %.lr.ph.i204 ], [ %325, %323 ]
-  %.034.i205 = phi ptr [ %307, %.lr.ph.i204 ], [ %324, %323 ]
-  %.02833.i206 = phi ptr [ %307, %.lr.ph.i204 ], [ %.1.i211, %323 ]
+310:                                              ; preds = %323, %.lr.ph.i202
+  %311 = phi i8 [ %308, %.lr.ph.i202 ], [ %325, %323 ]
+  %.033.i203 = phi ptr [ %307, %.lr.ph.i202 ], [ %324, %323 ]
+  %.02832.i204 = phi ptr [ %307, %.lr.ph.i202 ], [ %.1.i209, %323 ]
   %312 = zext i8 %311 to i64
   %313 = getelementptr i16, ptr %309, i64 %312
   %314 = load i16, ptr %313, align 2
-  %.fr.i207 = freeze i16 %314
-  %315 = and i16 %.fr.i207, 1
-  %.not31.i208 = icmp eq i16 %315, 0
-  br i1 %.not31.i208, label %switch.early.test.i214, label %.sink.split.i209
+  %.fr.i205 = freeze i16 %314
+  %315 = trunc i16 %.fr.i205 to i1
+  br i1 %315, label %.sink.split.i207, label %switch.early.test.i206
 
-switch.early.test.i214:                           ; preds = %310
+switch.early.test.i206:                           ; preds = %310
   switch i8 %311, label %323 [
-    i8 95, label %.sink.split.i209
-    i8 46, label %.sink.split.i209
+    i8 95, label %.sink.split.i207
+    i8 46, label %.sink.split.i207
     i8 47, label %316
     i8 45, label %316
     i8 32, label %316
   ]
 
-316:                                              ; preds = %switch.early.test.i214, %switch.early.test.i214, %switch.early.test.i214
-  %317 = icmp eq ptr %.02833.i206, %307
+316:                                              ; preds = %switch.early.test.i206, %switch.early.test.i206, %switch.early.test.i206
+  %317 = icmp eq ptr %.02832.i204, %307
   br i1 %317, label %323, label %318
 
 318:                                              ; preds = %316
-  %319 = getelementptr i8, ptr %.02833.i206, i64 -1
+  %319 = getelementptr i8, ptr %.02832.i204, i64 -1
   %320 = load i8, ptr %319, align 1
   %321 = icmp eq i8 %320, 95
-  br i1 %321, label %323, label %.sink.split.i209
+  br i1 %321, label %323, label %.sink.split.i207
 
-.sink.split.i209:                                 ; preds = %318, %switch.early.test.i214, %switch.early.test.i214, %310
-  %.sink.i210 = phi i8 [ %311, %310 ], [ %311, %switch.early.test.i214 ], [ %311, %switch.early.test.i214 ], [ 95, %318 ]
-  %322 = getelementptr i8, ptr %.02833.i206, i64 1
-  store i8 %.sink.i210, ptr %.02833.i206, align 1
+.sink.split.i207:                                 ; preds = %318, %switch.early.test.i206, %switch.early.test.i206, %310
+  %.sink.i208 = phi i8 [ %311, %310 ], [ %311, %switch.early.test.i206 ], [ %311, %switch.early.test.i206 ], [ 95, %318 ]
+  %322 = getelementptr i8, ptr %.02832.i204, i64 1
+  store i8 %.sink.i208, ptr %.02832.i204, align 1
   br label %323
 
-323:                                              ; preds = %.sink.split.i209, %318, %316, %switch.early.test.i214
-  %.1.i211 = phi ptr [ %.02833.i206, %switch.early.test.i214 ], [ %307, %316 ], [ %.02833.i206, %318 ], [ %322, %.sink.split.i209 ]
-  %324 = getelementptr i8, ptr %.034.i205, i64 1
+323:                                              ; preds = %.sink.split.i207, %318, %316, %switch.early.test.i206
+  %.1.i209 = phi ptr [ %.02832.i204, %switch.early.test.i206 ], [ %307, %316 ], [ %.02832.i204, %318 ], [ %322, %.sink.split.i207 ]
+  %324 = getelementptr i8, ptr %.033.i203, i64 1
   %325 = load i8, ptr %324, align 1
-  %.not.i212 = icmp eq i8 %325, 0
-  br i1 %.not.i212, label %alnumerize.exit215, label %310, !llvm.loop !24
+  %.not.i210 = icmp eq i8 %325, 0
+  br i1 %.not.i210, label %alnumerize.exit212, label %310, !llvm.loop !24
 
-alnumerize.exit215:                               ; preds = %323, %alnumerize.exit202
-  %.028.lcssa.i213 = phi ptr [ %307, %alnumerize.exit202 ], [ %.1.i211, %323 ]
-  store i8 0, ptr %.028.lcssa.i213, align 1
+alnumerize.exit212:                               ; preds = %323, %alnumerize.exit200
+  %.028.lcssa.i211 = phi ptr [ %307, %alnumerize.exit200 ], [ %.1.i209, %323 ]
+  store i8 0, ptr %.028.lcssa.i211, align 1
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %326, ptr %27, align 8
@@ -3318,60 +3314,59 @@ alnumerize.exit215:                               ; preds = %323, %alnumerize.ex
   %339 = load ptr, ptr %42, align 8
   %340 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %338, ptr noundef nonnull @.str.279, ptr noundef %339)
   %341 = load i8, ptr %340, align 1
-  %.not32.i216 = icmp eq i8 %341, 0
-  br i1 %.not32.i216, label %alnumerize.exit228, label %.lr.ph.i217
+  %.not31.i213 = icmp eq i8 %341, 0
+  br i1 %.not31.i213, label %alnumerize.exit224, label %.lr.ph.i214
 
-.lr.ph.i217:                                      ; preds = %alnumerize.exit215
+.lr.ph.i214:                                      ; preds = %alnumerize.exit212
   %342 = load ptr, ptr @g_ascii_table, align 8
   br label %343
 
-343:                                              ; preds = %356, %.lr.ph.i217
-  %344 = phi i8 [ %341, %.lr.ph.i217 ], [ %358, %356 ]
-  %.034.i218 = phi ptr [ %340, %.lr.ph.i217 ], [ %357, %356 ]
-  %.02833.i219 = phi ptr [ %340, %.lr.ph.i217 ], [ %.1.i224, %356 ]
+343:                                              ; preds = %356, %.lr.ph.i214
+  %344 = phi i8 [ %341, %.lr.ph.i214 ], [ %358, %356 ]
+  %.033.i215 = phi ptr [ %340, %.lr.ph.i214 ], [ %357, %356 ]
+  %.02832.i216 = phi ptr [ %340, %.lr.ph.i214 ], [ %.1.i221, %356 ]
   %345 = zext i8 %344 to i64
   %346 = getelementptr i16, ptr %342, i64 %345
   %347 = load i16, ptr %346, align 2
-  %.fr.i220 = freeze i16 %347
-  %348 = and i16 %.fr.i220, 1
-  %.not31.i221 = icmp eq i16 %348, 0
-  br i1 %.not31.i221, label %switch.early.test.i227, label %.sink.split.i222
+  %.fr.i217 = freeze i16 %347
+  %348 = trunc i16 %.fr.i217 to i1
+  br i1 %348, label %.sink.split.i219, label %switch.early.test.i218
 
-switch.early.test.i227:                           ; preds = %343
+switch.early.test.i218:                           ; preds = %343
   switch i8 %344, label %356 [
-    i8 95, label %.sink.split.i222
-    i8 46, label %.sink.split.i222
+    i8 95, label %.sink.split.i219
+    i8 46, label %.sink.split.i219
     i8 47, label %349
     i8 45, label %349
     i8 32, label %349
   ]
 
-349:                                              ; preds = %switch.early.test.i227, %switch.early.test.i227, %switch.early.test.i227
-  %350 = icmp eq ptr %.02833.i219, %340
+349:                                              ; preds = %switch.early.test.i218, %switch.early.test.i218, %switch.early.test.i218
+  %350 = icmp eq ptr %.02832.i216, %340
   br i1 %350, label %356, label %351
 
 351:                                              ; preds = %349
-  %352 = getelementptr i8, ptr %.02833.i219, i64 -1
+  %352 = getelementptr i8, ptr %.02832.i216, i64 -1
   %353 = load i8, ptr %352, align 1
   %354 = icmp eq i8 %353, 95
-  br i1 %354, label %356, label %.sink.split.i222
+  br i1 %354, label %356, label %.sink.split.i219
 
-.sink.split.i222:                                 ; preds = %351, %switch.early.test.i227, %switch.early.test.i227, %343
-  %.sink.i223 = phi i8 [ %344, %343 ], [ %344, %switch.early.test.i227 ], [ %344, %switch.early.test.i227 ], [ 95, %351 ]
-  %355 = getelementptr i8, ptr %.02833.i219, i64 1
-  store i8 %.sink.i223, ptr %.02833.i219, align 1
+.sink.split.i219:                                 ; preds = %351, %switch.early.test.i218, %switch.early.test.i218, %343
+  %.sink.i220 = phi i8 [ %344, %343 ], [ %344, %switch.early.test.i218 ], [ %344, %switch.early.test.i218 ], [ 95, %351 ]
+  %355 = getelementptr i8, ptr %.02832.i216, i64 1
+  store i8 %.sink.i220, ptr %.02832.i216, align 1
   br label %356
 
-356:                                              ; preds = %.sink.split.i222, %351, %349, %switch.early.test.i227
-  %.1.i224 = phi ptr [ %.02833.i219, %switch.early.test.i227 ], [ %340, %349 ], [ %.02833.i219, %351 ], [ %355, %.sink.split.i222 ]
-  %357 = getelementptr i8, ptr %.034.i218, i64 1
+356:                                              ; preds = %.sink.split.i219, %351, %349, %switch.early.test.i218
+  %.1.i221 = phi ptr [ %.02832.i216, %switch.early.test.i218 ], [ %340, %349 ], [ %.02832.i216, %351 ], [ %355, %.sink.split.i219 ]
+  %357 = getelementptr i8, ptr %.033.i215, i64 1
   %358 = load i8, ptr %357, align 1
-  %.not.i225 = icmp eq i8 %358, 0
-  br i1 %.not.i225, label %alnumerize.exit228, label %343, !llvm.loop !24
+  %.not.i222 = icmp eq i8 %358, 0
+  br i1 %.not.i222, label %alnumerize.exit224, label %343, !llvm.loop !24
 
-alnumerize.exit228:                               ; preds = %356, %alnumerize.exit215
-  %.028.lcssa.i226 = phi ptr [ %340, %alnumerize.exit215 ], [ %.1.i224, %356 ]
-  store i8 0, ptr %.028.lcssa.i226, align 1
+alnumerize.exit224:                               ; preds = %356, %alnumerize.exit212
+  %.028.lcssa.i223 = phi ptr [ %340, %alnumerize.exit212 ], [ %.1.i221, %356 ]
+  store i8 0, ptr %.028.lcssa.i223, align 1
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %359, ptr %26, align 8
@@ -3400,7 +3395,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %937
 
-371:                                              ; preds = %alnumerize.exit189
+371:                                              ; preds = %alnumerize.exit188
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %372, ptr %25, align 8
@@ -3431,7 +3426,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %937
 
-385:                                              ; preds = %alnumerize.exit189
+385:                                              ; preds = %alnumerize.exit188
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %386, ptr %24, align 8
@@ -3462,7 +3457,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %937
 
-399:                                              ; preds = %alnumerize.exit189
+399:                                              ; preds = %alnumerize.exit188
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %400, ptr %23, align 8
@@ -3493,7 +3488,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %937
 
-413:                                              ; preds = %alnumerize.exit189
+413:                                              ; preds = %alnumerize.exit188
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %414, ptr %22, align 8
@@ -3524,7 +3519,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %937
 
-427:                                              ; preds = %alnumerize.exit189
+427:                                              ; preds = %alnumerize.exit188
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %428, ptr %21, align 8
@@ -3555,7 +3550,7 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %937
 
-441:                                              ; preds = %alnumerize.exit189
+441:                                              ; preds = %alnumerize.exit188
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %442, ptr %20, align 8
@@ -3586,67 +3581,66 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %937
 
-455:                                              ; preds = %alnumerize.exit189
+455:                                              ; preds = %alnumerize.exit188
   %456 = call ptr @wmem_epan_scope()
   call void @wmem_free(ptr noundef %456, ptr noundef %92)
   %457 = call ptr @wmem_epan_scope()
   %458 = load ptr, ptr %42, align 8
   %459 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %457, ptr noundef nonnull @.str.275, ptr noundef %458)
   %460 = load i8, ptr %459, align 1
-  %.not32.i229 = icmp eq i8 %460, 0
-  br i1 %.not32.i229, label %alnumerize.exit241, label %.lr.ph.i230
+  %.not31.i225 = icmp eq i8 %460, 0
+  br i1 %.not31.i225, label %alnumerize.exit236, label %.lr.ph.i226
 
-.lr.ph.i230:                                      ; preds = %455
+.lr.ph.i226:                                      ; preds = %455
   %461 = load ptr, ptr @g_ascii_table, align 8
   br label %462
 
-462:                                              ; preds = %475, %.lr.ph.i230
-  %463 = phi i8 [ %460, %.lr.ph.i230 ], [ %477, %475 ]
-  %.034.i231 = phi ptr [ %459, %.lr.ph.i230 ], [ %476, %475 ]
-  %.02833.i232 = phi ptr [ %459, %.lr.ph.i230 ], [ %.1.i237, %475 ]
+462:                                              ; preds = %475, %.lr.ph.i226
+  %463 = phi i8 [ %460, %.lr.ph.i226 ], [ %477, %475 ]
+  %.033.i227 = phi ptr [ %459, %.lr.ph.i226 ], [ %476, %475 ]
+  %.02832.i228 = phi ptr [ %459, %.lr.ph.i226 ], [ %.1.i233, %475 ]
   %464 = zext i8 %463 to i64
   %465 = getelementptr i16, ptr %461, i64 %464
   %466 = load i16, ptr %465, align 2
-  %.fr.i233 = freeze i16 %466
-  %467 = and i16 %.fr.i233, 1
-  %.not31.i234 = icmp eq i16 %467, 0
-  br i1 %.not31.i234, label %switch.early.test.i240, label %.sink.split.i235
+  %.fr.i229 = freeze i16 %466
+  %467 = trunc i16 %.fr.i229 to i1
+  br i1 %467, label %.sink.split.i231, label %switch.early.test.i230
 
-switch.early.test.i240:                           ; preds = %462
+switch.early.test.i230:                           ; preds = %462
   switch i8 %463, label %475 [
-    i8 95, label %.sink.split.i235
-    i8 46, label %.sink.split.i235
+    i8 95, label %.sink.split.i231
+    i8 46, label %.sink.split.i231
     i8 47, label %468
     i8 45, label %468
     i8 32, label %468
   ]
 
-468:                                              ; preds = %switch.early.test.i240, %switch.early.test.i240, %switch.early.test.i240
-  %469 = icmp eq ptr %.02833.i232, %459
+468:                                              ; preds = %switch.early.test.i230, %switch.early.test.i230, %switch.early.test.i230
+  %469 = icmp eq ptr %.02832.i228, %459
   br i1 %469, label %475, label %470
 
 470:                                              ; preds = %468
-  %471 = getelementptr i8, ptr %.02833.i232, i64 -1
+  %471 = getelementptr i8, ptr %.02832.i228, i64 -1
   %472 = load i8, ptr %471, align 1
   %473 = icmp eq i8 %472, 95
-  br i1 %473, label %475, label %.sink.split.i235
+  br i1 %473, label %475, label %.sink.split.i231
 
-.sink.split.i235:                                 ; preds = %470, %switch.early.test.i240, %switch.early.test.i240, %462
-  %.sink.i236 = phi i8 [ %463, %462 ], [ %463, %switch.early.test.i240 ], [ %463, %switch.early.test.i240 ], [ 95, %470 ]
-  %474 = getelementptr i8, ptr %.02833.i232, i64 1
-  store i8 %.sink.i236, ptr %.02833.i232, align 1
+.sink.split.i231:                                 ; preds = %470, %switch.early.test.i230, %switch.early.test.i230, %462
+  %.sink.i232 = phi i8 [ %463, %462 ], [ %463, %switch.early.test.i230 ], [ %463, %switch.early.test.i230 ], [ 95, %470 ]
+  %474 = getelementptr i8, ptr %.02832.i228, i64 1
+  store i8 %.sink.i232, ptr %.02832.i228, align 1
   br label %475
 
-475:                                              ; preds = %.sink.split.i235, %470, %468, %switch.early.test.i240
-  %.1.i237 = phi ptr [ %.02833.i232, %switch.early.test.i240 ], [ %459, %468 ], [ %.02833.i232, %470 ], [ %474, %.sink.split.i235 ]
-  %476 = getelementptr i8, ptr %.034.i231, i64 1
+475:                                              ; preds = %.sink.split.i231, %470, %468, %switch.early.test.i230
+  %.1.i233 = phi ptr [ %.02832.i228, %switch.early.test.i230 ], [ %459, %468 ], [ %.02832.i228, %470 ], [ %474, %.sink.split.i231 ]
+  %476 = getelementptr i8, ptr %.033.i227, i64 1
   %477 = load i8, ptr %476, align 1
-  %.not.i238 = icmp eq i8 %477, 0
-  br i1 %.not.i238, label %alnumerize.exit241, label %462, !llvm.loop !24
+  %.not.i234 = icmp eq i8 %477, 0
+  br i1 %.not.i234, label %alnumerize.exit236, label %462, !llvm.loop !24
 
-alnumerize.exit241:                               ; preds = %475, %455
-  %.028.lcssa.i239 = phi ptr [ %459, %455 ], [ %.1.i237, %475 ]
-  store i8 0, ptr %.028.lcssa.i239, align 1
+alnumerize.exit236:                               ; preds = %475, %455
+  %.028.lcssa.i235 = phi ptr [ %459, %455 ], [ %.1.i233, %475 ]
+  store i8 0, ptr %.028.lcssa.i235, align 1
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %478, ptr %19, align 8
@@ -3677,60 +3671,59 @@ alnumerize.exit241:                               ; preds = %475, %455
   %491 = load ptr, ptr %42, align 8
   %492 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %490, ptr noundef nonnull @.str.277, ptr noundef %491)
   %493 = load i8, ptr %492, align 1
-  %.not32.i242 = icmp eq i8 %493, 0
-  br i1 %.not32.i242, label %alnumerize.exit254, label %.lr.ph.i243
+  %.not31.i237 = icmp eq i8 %493, 0
+  br i1 %.not31.i237, label %alnumerize.exit248, label %.lr.ph.i238
 
-.lr.ph.i243:                                      ; preds = %alnumerize.exit241
+.lr.ph.i238:                                      ; preds = %alnumerize.exit236
   %494 = load ptr, ptr @g_ascii_table, align 8
   br label %495
 
-495:                                              ; preds = %508, %.lr.ph.i243
-  %496 = phi i8 [ %493, %.lr.ph.i243 ], [ %510, %508 ]
-  %.034.i244 = phi ptr [ %492, %.lr.ph.i243 ], [ %509, %508 ]
-  %.02833.i245 = phi ptr [ %492, %.lr.ph.i243 ], [ %.1.i250, %508 ]
+495:                                              ; preds = %508, %.lr.ph.i238
+  %496 = phi i8 [ %493, %.lr.ph.i238 ], [ %510, %508 ]
+  %.033.i239 = phi ptr [ %492, %.lr.ph.i238 ], [ %509, %508 ]
+  %.02832.i240 = phi ptr [ %492, %.lr.ph.i238 ], [ %.1.i245, %508 ]
   %497 = zext i8 %496 to i64
   %498 = getelementptr i16, ptr %494, i64 %497
   %499 = load i16, ptr %498, align 2
-  %.fr.i246 = freeze i16 %499
-  %500 = and i16 %.fr.i246, 1
-  %.not31.i247 = icmp eq i16 %500, 0
-  br i1 %.not31.i247, label %switch.early.test.i253, label %.sink.split.i248
+  %.fr.i241 = freeze i16 %499
+  %500 = trunc i16 %.fr.i241 to i1
+  br i1 %500, label %.sink.split.i243, label %switch.early.test.i242
 
-switch.early.test.i253:                           ; preds = %495
+switch.early.test.i242:                           ; preds = %495
   switch i8 %496, label %508 [
-    i8 95, label %.sink.split.i248
-    i8 46, label %.sink.split.i248
+    i8 95, label %.sink.split.i243
+    i8 46, label %.sink.split.i243
     i8 47, label %501
     i8 45, label %501
     i8 32, label %501
   ]
 
-501:                                              ; preds = %switch.early.test.i253, %switch.early.test.i253, %switch.early.test.i253
-  %502 = icmp eq ptr %.02833.i245, %492
+501:                                              ; preds = %switch.early.test.i242, %switch.early.test.i242, %switch.early.test.i242
+  %502 = icmp eq ptr %.02832.i240, %492
   br i1 %502, label %508, label %503
 
 503:                                              ; preds = %501
-  %504 = getelementptr i8, ptr %.02833.i245, i64 -1
+  %504 = getelementptr i8, ptr %.02832.i240, i64 -1
   %505 = load i8, ptr %504, align 1
   %506 = icmp eq i8 %505, 95
-  br i1 %506, label %508, label %.sink.split.i248
+  br i1 %506, label %508, label %.sink.split.i243
 
-.sink.split.i248:                                 ; preds = %503, %switch.early.test.i253, %switch.early.test.i253, %495
-  %.sink.i249 = phi i8 [ %496, %495 ], [ %496, %switch.early.test.i253 ], [ %496, %switch.early.test.i253 ], [ 95, %503 ]
-  %507 = getelementptr i8, ptr %.02833.i245, i64 1
-  store i8 %.sink.i249, ptr %.02833.i245, align 1
+.sink.split.i243:                                 ; preds = %503, %switch.early.test.i242, %switch.early.test.i242, %495
+  %.sink.i244 = phi i8 [ %496, %495 ], [ %496, %switch.early.test.i242 ], [ %496, %switch.early.test.i242 ], [ 95, %503 ]
+  %507 = getelementptr i8, ptr %.02832.i240, i64 1
+  store i8 %.sink.i244, ptr %.02832.i240, align 1
   br label %508
 
-508:                                              ; preds = %.sink.split.i248, %503, %501, %switch.early.test.i253
-  %.1.i250 = phi ptr [ %.02833.i245, %switch.early.test.i253 ], [ %492, %501 ], [ %.02833.i245, %503 ], [ %507, %.sink.split.i248 ]
-  %509 = getelementptr i8, ptr %.034.i244, i64 1
+508:                                              ; preds = %.sink.split.i243, %503, %501, %switch.early.test.i242
+  %.1.i245 = phi ptr [ %.02832.i240, %switch.early.test.i242 ], [ %492, %501 ], [ %.02832.i240, %503 ], [ %507, %.sink.split.i243 ]
+  %509 = getelementptr i8, ptr %.033.i239, i64 1
   %510 = load i8, ptr %509, align 1
-  %.not.i251 = icmp eq i8 %510, 0
-  br i1 %.not.i251, label %alnumerize.exit254, label %495, !llvm.loop !24
+  %.not.i246 = icmp eq i8 %510, 0
+  br i1 %.not.i246, label %alnumerize.exit248, label %495, !llvm.loop !24
 
-alnumerize.exit254:                               ; preds = %508, %alnumerize.exit241
-  %.028.lcssa.i252 = phi ptr [ %492, %alnumerize.exit241 ], [ %.1.i250, %508 ]
-  store i8 0, ptr %.028.lcssa.i252, align 1
+alnumerize.exit248:                               ; preds = %508, %alnumerize.exit236
+  %.028.lcssa.i247 = phi ptr [ %492, %alnumerize.exit236 ], [ %.1.i245, %508 ]
+  store i8 0, ptr %.028.lcssa.i247, align 1
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %511, ptr %18, align 8
@@ -3759,7 +3752,7 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %937
 
-523:                                              ; preds = %alnumerize.exit189
+523:                                              ; preds = %alnumerize.exit188
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %524, ptr %17, align 8
@@ -3788,7 +3781,7 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %937
 
-536:                                              ; preds = %alnumerize.exit189
+536:                                              ; preds = %alnumerize.exit188
   %537 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %537, ptr %16, align 8
@@ -3823,60 +3816,59 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   %554 = load ptr, ptr %42, align 8
   %555 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %553, ptr noundef nonnull @.str.282, ptr noundef %554)
   %556 = load i8, ptr %555, align 1
-  %.not32.i255 = icmp eq i8 %556, 0
-  br i1 %.not32.i255, label %alnumerize.exit267, label %.lr.ph.i256
+  %.not31.i249 = icmp eq i8 %556, 0
+  br i1 %.not31.i249, label %alnumerize.exit260, label %.lr.ph.i250
 
-.lr.ph.i256:                                      ; preds = %536
+.lr.ph.i250:                                      ; preds = %536
   %557 = load ptr, ptr @g_ascii_table, align 8
   br label %558
 
-558:                                              ; preds = %571, %.lr.ph.i256
-  %559 = phi i8 [ %556, %.lr.ph.i256 ], [ %573, %571 ]
-  %.034.i257 = phi ptr [ %555, %.lr.ph.i256 ], [ %572, %571 ]
-  %.02833.i258 = phi ptr [ %555, %.lr.ph.i256 ], [ %.1.i263, %571 ]
+558:                                              ; preds = %571, %.lr.ph.i250
+  %559 = phi i8 [ %556, %.lr.ph.i250 ], [ %573, %571 ]
+  %.033.i251 = phi ptr [ %555, %.lr.ph.i250 ], [ %572, %571 ]
+  %.02832.i252 = phi ptr [ %555, %.lr.ph.i250 ], [ %.1.i257, %571 ]
   %560 = zext i8 %559 to i64
   %561 = getelementptr i16, ptr %557, i64 %560
   %562 = load i16, ptr %561, align 2
-  %.fr.i259 = freeze i16 %562
-  %563 = and i16 %.fr.i259, 1
-  %.not31.i260 = icmp eq i16 %563, 0
-  br i1 %.not31.i260, label %switch.early.test.i266, label %.sink.split.i261
+  %.fr.i253 = freeze i16 %562
+  %563 = trunc i16 %.fr.i253 to i1
+  br i1 %563, label %.sink.split.i255, label %switch.early.test.i254
 
-switch.early.test.i266:                           ; preds = %558
+switch.early.test.i254:                           ; preds = %558
   switch i8 %559, label %571 [
-    i8 95, label %.sink.split.i261
-    i8 46, label %.sink.split.i261
+    i8 95, label %.sink.split.i255
+    i8 46, label %.sink.split.i255
     i8 47, label %564
     i8 45, label %564
     i8 32, label %564
   ]
 
-564:                                              ; preds = %switch.early.test.i266, %switch.early.test.i266, %switch.early.test.i266
-  %565 = icmp eq ptr %.02833.i258, %555
+564:                                              ; preds = %switch.early.test.i254, %switch.early.test.i254, %switch.early.test.i254
+  %565 = icmp eq ptr %.02832.i252, %555
   br i1 %565, label %571, label %566
 
 566:                                              ; preds = %564
-  %567 = getelementptr i8, ptr %.02833.i258, i64 -1
+  %567 = getelementptr i8, ptr %.02832.i252, i64 -1
   %568 = load i8, ptr %567, align 1
   %569 = icmp eq i8 %568, 95
-  br i1 %569, label %571, label %.sink.split.i261
+  br i1 %569, label %571, label %.sink.split.i255
 
-.sink.split.i261:                                 ; preds = %566, %switch.early.test.i266, %switch.early.test.i266, %558
-  %.sink.i262 = phi i8 [ %559, %558 ], [ %559, %switch.early.test.i266 ], [ %559, %switch.early.test.i266 ], [ 95, %566 ]
-  %570 = getelementptr i8, ptr %.02833.i258, i64 1
-  store i8 %.sink.i262, ptr %.02833.i258, align 1
+.sink.split.i255:                                 ; preds = %566, %switch.early.test.i254, %switch.early.test.i254, %558
+  %.sink.i256 = phi i8 [ %559, %558 ], [ %559, %switch.early.test.i254 ], [ %559, %switch.early.test.i254 ], [ 95, %566 ]
+  %570 = getelementptr i8, ptr %.02832.i252, i64 1
+  store i8 %.sink.i256, ptr %.02832.i252, align 1
   br label %571
 
-571:                                              ; preds = %.sink.split.i261, %566, %564, %switch.early.test.i266
-  %.1.i263 = phi ptr [ %.02833.i258, %switch.early.test.i266 ], [ %555, %564 ], [ %.02833.i258, %566 ], [ %570, %.sink.split.i261 ]
-  %572 = getelementptr i8, ptr %.034.i257, i64 1
+571:                                              ; preds = %.sink.split.i255, %566, %564, %switch.early.test.i254
+  %.1.i257 = phi ptr [ %.02832.i252, %switch.early.test.i254 ], [ %555, %564 ], [ %.02832.i252, %566 ], [ %570, %.sink.split.i255 ]
+  %572 = getelementptr i8, ptr %.033.i251, i64 1
   %573 = load i8, ptr %572, align 1
-  %.not.i264 = icmp eq i8 %573, 0
-  br i1 %.not.i264, label %alnumerize.exit267, label %558, !llvm.loop !24
+  %.not.i258 = icmp eq i8 %573, 0
+  br i1 %.not.i258, label %alnumerize.exit260, label %558, !llvm.loop !24
 
-alnumerize.exit267:                               ; preds = %571, %536
-  %.028.lcssa.i265 = phi ptr [ %555, %536 ], [ %.1.i263, %571 ]
-  store i8 0, ptr %.028.lcssa.i265, align 1
+alnumerize.exit260:                               ; preds = %571, %536
+  %.028.lcssa.i259 = phi ptr [ %555, %536 ], [ %.1.i257, %571 ]
+  store i8 0, ptr %.028.lcssa.i259, align 1
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %574, ptr %15, align 8
@@ -3907,7 +3899,7 @@ alnumerize.exit267:                               ; preds = %571, %536
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %937
 
-587:                                              ; preds = %alnumerize.exit189
+587:                                              ; preds = %alnumerize.exit188
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %588, ptr %14, align 8
@@ -3942,60 +3934,59 @@ alnumerize.exit267:                               ; preds = %571, %536
   %605 = load ptr, ptr %42, align 8
   %606 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %604, ptr noundef nonnull @.str.284, ptr noundef %605)
   %607 = load i8, ptr %606, align 1
-  %.not32.i268 = icmp eq i8 %607, 0
-  br i1 %.not32.i268, label %alnumerize.exit280, label %.lr.ph.i269
+  %.not31.i261 = icmp eq i8 %607, 0
+  br i1 %.not31.i261, label %alnumerize.exit272, label %.lr.ph.i262
 
-.lr.ph.i269:                                      ; preds = %587
+.lr.ph.i262:                                      ; preds = %587
   %608 = load ptr, ptr @g_ascii_table, align 8
   br label %609
 
-609:                                              ; preds = %622, %.lr.ph.i269
-  %610 = phi i8 [ %607, %.lr.ph.i269 ], [ %624, %622 ]
-  %.034.i270 = phi ptr [ %606, %.lr.ph.i269 ], [ %623, %622 ]
-  %.02833.i271 = phi ptr [ %606, %.lr.ph.i269 ], [ %.1.i276, %622 ]
+609:                                              ; preds = %622, %.lr.ph.i262
+  %610 = phi i8 [ %607, %.lr.ph.i262 ], [ %624, %622 ]
+  %.033.i263 = phi ptr [ %606, %.lr.ph.i262 ], [ %623, %622 ]
+  %.02832.i264 = phi ptr [ %606, %.lr.ph.i262 ], [ %.1.i269, %622 ]
   %611 = zext i8 %610 to i64
   %612 = getelementptr i16, ptr %608, i64 %611
   %613 = load i16, ptr %612, align 2
-  %.fr.i272 = freeze i16 %613
-  %614 = and i16 %.fr.i272, 1
-  %.not31.i273 = icmp eq i16 %614, 0
-  br i1 %.not31.i273, label %switch.early.test.i279, label %.sink.split.i274
+  %.fr.i265 = freeze i16 %613
+  %614 = trunc i16 %.fr.i265 to i1
+  br i1 %614, label %.sink.split.i267, label %switch.early.test.i266
 
-switch.early.test.i279:                           ; preds = %609
+switch.early.test.i266:                           ; preds = %609
   switch i8 %610, label %622 [
-    i8 95, label %.sink.split.i274
-    i8 46, label %.sink.split.i274
+    i8 95, label %.sink.split.i267
+    i8 46, label %.sink.split.i267
     i8 47, label %615
     i8 45, label %615
     i8 32, label %615
   ]
 
-615:                                              ; preds = %switch.early.test.i279, %switch.early.test.i279, %switch.early.test.i279
-  %616 = icmp eq ptr %.02833.i271, %606
+615:                                              ; preds = %switch.early.test.i266, %switch.early.test.i266, %switch.early.test.i266
+  %616 = icmp eq ptr %.02832.i264, %606
   br i1 %616, label %622, label %617
 
 617:                                              ; preds = %615
-  %618 = getelementptr i8, ptr %.02833.i271, i64 -1
+  %618 = getelementptr i8, ptr %.02832.i264, i64 -1
   %619 = load i8, ptr %618, align 1
   %620 = icmp eq i8 %619, 95
-  br i1 %620, label %622, label %.sink.split.i274
+  br i1 %620, label %622, label %.sink.split.i267
 
-.sink.split.i274:                                 ; preds = %617, %switch.early.test.i279, %switch.early.test.i279, %609
-  %.sink.i275 = phi i8 [ %610, %609 ], [ %610, %switch.early.test.i279 ], [ %610, %switch.early.test.i279 ], [ 95, %617 ]
-  %621 = getelementptr i8, ptr %.02833.i271, i64 1
-  store i8 %.sink.i275, ptr %.02833.i271, align 1
+.sink.split.i267:                                 ; preds = %617, %switch.early.test.i266, %switch.early.test.i266, %609
+  %.sink.i268 = phi i8 [ %610, %609 ], [ %610, %switch.early.test.i266 ], [ %610, %switch.early.test.i266 ], [ 95, %617 ]
+  %621 = getelementptr i8, ptr %.02832.i264, i64 1
+  store i8 %.sink.i268, ptr %.02832.i264, align 1
   br label %622
 
-622:                                              ; preds = %.sink.split.i274, %617, %615, %switch.early.test.i279
-  %.1.i276 = phi ptr [ %.02833.i271, %switch.early.test.i279 ], [ %606, %615 ], [ %.02833.i271, %617 ], [ %621, %.sink.split.i274 ]
-  %623 = getelementptr i8, ptr %.034.i270, i64 1
+622:                                              ; preds = %.sink.split.i267, %617, %615, %switch.early.test.i266
+  %.1.i269 = phi ptr [ %.02832.i264, %switch.early.test.i266 ], [ %606, %615 ], [ %.02832.i264, %617 ], [ %621, %.sink.split.i267 ]
+  %623 = getelementptr i8, ptr %.033.i263, i64 1
   %624 = load i8, ptr %623, align 1
-  %.not.i277 = icmp eq i8 %624, 0
-  br i1 %.not.i277, label %alnumerize.exit280, label %609, !llvm.loop !24
+  %.not.i270 = icmp eq i8 %624, 0
+  br i1 %.not.i270, label %alnumerize.exit272, label %609, !llvm.loop !24
 
-alnumerize.exit280:                               ; preds = %622, %587
-  %.028.lcssa.i278 = phi ptr [ %606, %587 ], [ %.1.i276, %622 ]
-  store i8 0, ptr %.028.lcssa.i278, align 1
+alnumerize.exit272:                               ; preds = %622, %587
+  %.028.lcssa.i271 = phi ptr [ %606, %587 ], [ %.1.i269, %622 ]
+  store i8 0, ptr %.028.lcssa.i271, align 1
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %625, ptr %13, align 8
@@ -4028,60 +4019,59 @@ alnumerize.exit280:                               ; preds = %622, %587
   %639 = load ptr, ptr %42, align 8
   %640 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %638, ptr noundef nonnull @.str.286, ptr noundef %639)
   %641 = load i8, ptr %640, align 1
-  %.not32.i281 = icmp eq i8 %641, 0
-  br i1 %.not32.i281, label %alnumerize.exit293, label %.lr.ph.i282
+  %.not31.i273 = icmp eq i8 %641, 0
+  br i1 %.not31.i273, label %alnumerize.exit284, label %.lr.ph.i274
 
-.lr.ph.i282:                                      ; preds = %alnumerize.exit280
+.lr.ph.i274:                                      ; preds = %alnumerize.exit272
   %642 = load ptr, ptr @g_ascii_table, align 8
   br label %643
 
-643:                                              ; preds = %656, %.lr.ph.i282
-  %644 = phi i8 [ %641, %.lr.ph.i282 ], [ %658, %656 ]
-  %.034.i283 = phi ptr [ %640, %.lr.ph.i282 ], [ %657, %656 ]
-  %.02833.i284 = phi ptr [ %640, %.lr.ph.i282 ], [ %.1.i289, %656 ]
+643:                                              ; preds = %656, %.lr.ph.i274
+  %644 = phi i8 [ %641, %.lr.ph.i274 ], [ %658, %656 ]
+  %.033.i275 = phi ptr [ %640, %.lr.ph.i274 ], [ %657, %656 ]
+  %.02832.i276 = phi ptr [ %640, %.lr.ph.i274 ], [ %.1.i281, %656 ]
   %645 = zext i8 %644 to i64
   %646 = getelementptr i16, ptr %642, i64 %645
   %647 = load i16, ptr %646, align 2
-  %.fr.i285 = freeze i16 %647
-  %648 = and i16 %.fr.i285, 1
-  %.not31.i286 = icmp eq i16 %648, 0
-  br i1 %.not31.i286, label %switch.early.test.i292, label %.sink.split.i287
+  %.fr.i277 = freeze i16 %647
+  %648 = trunc i16 %.fr.i277 to i1
+  br i1 %648, label %.sink.split.i279, label %switch.early.test.i278
 
-switch.early.test.i292:                           ; preds = %643
+switch.early.test.i278:                           ; preds = %643
   switch i8 %644, label %656 [
-    i8 95, label %.sink.split.i287
-    i8 46, label %.sink.split.i287
+    i8 95, label %.sink.split.i279
+    i8 46, label %.sink.split.i279
     i8 47, label %649
     i8 45, label %649
     i8 32, label %649
   ]
 
-649:                                              ; preds = %switch.early.test.i292, %switch.early.test.i292, %switch.early.test.i292
-  %650 = icmp eq ptr %.02833.i284, %640
+649:                                              ; preds = %switch.early.test.i278, %switch.early.test.i278, %switch.early.test.i278
+  %650 = icmp eq ptr %.02832.i276, %640
   br i1 %650, label %656, label %651
 
 651:                                              ; preds = %649
-  %652 = getelementptr i8, ptr %.02833.i284, i64 -1
+  %652 = getelementptr i8, ptr %.02832.i276, i64 -1
   %653 = load i8, ptr %652, align 1
   %654 = icmp eq i8 %653, 95
-  br i1 %654, label %656, label %.sink.split.i287
+  br i1 %654, label %656, label %.sink.split.i279
 
-.sink.split.i287:                                 ; preds = %651, %switch.early.test.i292, %switch.early.test.i292, %643
-  %.sink.i288 = phi i8 [ %644, %643 ], [ %644, %switch.early.test.i292 ], [ %644, %switch.early.test.i292 ], [ 95, %651 ]
-  %655 = getelementptr i8, ptr %.02833.i284, i64 1
-  store i8 %.sink.i288, ptr %.02833.i284, align 1
+.sink.split.i279:                                 ; preds = %651, %switch.early.test.i278, %switch.early.test.i278, %643
+  %.sink.i280 = phi i8 [ %644, %643 ], [ %644, %switch.early.test.i278 ], [ %644, %switch.early.test.i278 ], [ 95, %651 ]
+  %655 = getelementptr i8, ptr %.02832.i276, i64 1
+  store i8 %.sink.i280, ptr %.02832.i276, align 1
   br label %656
 
-656:                                              ; preds = %.sink.split.i287, %651, %649, %switch.early.test.i292
-  %.1.i289 = phi ptr [ %.02833.i284, %switch.early.test.i292 ], [ %640, %649 ], [ %.02833.i284, %651 ], [ %655, %.sink.split.i287 ]
-  %657 = getelementptr i8, ptr %.034.i283, i64 1
+656:                                              ; preds = %.sink.split.i279, %651, %649, %switch.early.test.i278
+  %.1.i281 = phi ptr [ %.02832.i276, %switch.early.test.i278 ], [ %640, %649 ], [ %.02832.i276, %651 ], [ %655, %.sink.split.i279 ]
+  %657 = getelementptr i8, ptr %.033.i275, i64 1
   %658 = load i8, ptr %657, align 1
-  %.not.i290 = icmp eq i8 %658, 0
-  br i1 %.not.i290, label %alnumerize.exit293, label %643, !llvm.loop !24
+  %.not.i282 = icmp eq i8 %658, 0
+  br i1 %.not.i282, label %alnumerize.exit284, label %643, !llvm.loop !24
 
-alnumerize.exit293:                               ; preds = %656, %alnumerize.exit280
-  %.028.lcssa.i291 = phi ptr [ %640, %alnumerize.exit280 ], [ %.1.i289, %656 ]
-  store i8 0, ptr %.028.lcssa.i291, align 1
+alnumerize.exit284:                               ; preds = %656, %alnumerize.exit272
+  %.028.lcssa.i283 = phi ptr [ %640, %alnumerize.exit272 ], [ %.1.i281, %656 ]
+  store i8 0, ptr %.028.lcssa.i283, align 1
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 60
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %659, ptr %12, align 8
@@ -4112,7 +4102,7 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %937
 
-672:                                              ; preds = %alnumerize.exit189
+672:                                              ; preds = %alnumerize.exit188
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %673, ptr %11, align 8
@@ -4147,60 +4137,59 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
   %690 = load ptr, ptr %42, align 8
   %691 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %689, ptr noundef nonnull @.str.288, ptr noundef %690)
   %692 = load i8, ptr %691, align 1
-  %.not32.i294 = icmp eq i8 %692, 0
-  br i1 %.not32.i294, label %alnumerize.exit306, label %.lr.ph.i295
+  %.not31.i285 = icmp eq i8 %692, 0
+  br i1 %.not31.i285, label %alnumerize.exit296, label %.lr.ph.i286
 
-.lr.ph.i295:                                      ; preds = %672
+.lr.ph.i286:                                      ; preds = %672
   %693 = load ptr, ptr @g_ascii_table, align 8
   br label %694
 
-694:                                              ; preds = %707, %.lr.ph.i295
-  %695 = phi i8 [ %692, %.lr.ph.i295 ], [ %709, %707 ]
-  %.034.i296 = phi ptr [ %691, %.lr.ph.i295 ], [ %708, %707 ]
-  %.02833.i297 = phi ptr [ %691, %.lr.ph.i295 ], [ %.1.i302, %707 ]
+694:                                              ; preds = %707, %.lr.ph.i286
+  %695 = phi i8 [ %692, %.lr.ph.i286 ], [ %709, %707 ]
+  %.033.i287 = phi ptr [ %691, %.lr.ph.i286 ], [ %708, %707 ]
+  %.02832.i288 = phi ptr [ %691, %.lr.ph.i286 ], [ %.1.i293, %707 ]
   %696 = zext i8 %695 to i64
   %697 = getelementptr i16, ptr %693, i64 %696
   %698 = load i16, ptr %697, align 2
-  %.fr.i298 = freeze i16 %698
-  %699 = and i16 %.fr.i298, 1
-  %.not31.i299 = icmp eq i16 %699, 0
-  br i1 %.not31.i299, label %switch.early.test.i305, label %.sink.split.i300
+  %.fr.i289 = freeze i16 %698
+  %699 = trunc i16 %.fr.i289 to i1
+  br i1 %699, label %.sink.split.i291, label %switch.early.test.i290
 
-switch.early.test.i305:                           ; preds = %694
+switch.early.test.i290:                           ; preds = %694
   switch i8 %695, label %707 [
-    i8 95, label %.sink.split.i300
-    i8 46, label %.sink.split.i300
+    i8 95, label %.sink.split.i291
+    i8 46, label %.sink.split.i291
     i8 47, label %700
     i8 45, label %700
     i8 32, label %700
   ]
 
-700:                                              ; preds = %switch.early.test.i305, %switch.early.test.i305, %switch.early.test.i305
-  %701 = icmp eq ptr %.02833.i297, %691
+700:                                              ; preds = %switch.early.test.i290, %switch.early.test.i290, %switch.early.test.i290
+  %701 = icmp eq ptr %.02832.i288, %691
   br i1 %701, label %707, label %702
 
 702:                                              ; preds = %700
-  %703 = getelementptr i8, ptr %.02833.i297, i64 -1
+  %703 = getelementptr i8, ptr %.02832.i288, i64 -1
   %704 = load i8, ptr %703, align 1
   %705 = icmp eq i8 %704, 95
-  br i1 %705, label %707, label %.sink.split.i300
+  br i1 %705, label %707, label %.sink.split.i291
 
-.sink.split.i300:                                 ; preds = %702, %switch.early.test.i305, %switch.early.test.i305, %694
-  %.sink.i301 = phi i8 [ %695, %694 ], [ %695, %switch.early.test.i305 ], [ %695, %switch.early.test.i305 ], [ 95, %702 ]
-  %706 = getelementptr i8, ptr %.02833.i297, i64 1
-  store i8 %.sink.i301, ptr %.02833.i297, align 1
+.sink.split.i291:                                 ; preds = %702, %switch.early.test.i290, %switch.early.test.i290, %694
+  %.sink.i292 = phi i8 [ %695, %694 ], [ %695, %switch.early.test.i290 ], [ %695, %switch.early.test.i290 ], [ 95, %702 ]
+  %706 = getelementptr i8, ptr %.02832.i288, i64 1
+  store i8 %.sink.i292, ptr %.02832.i288, align 1
   br label %707
 
-707:                                              ; preds = %.sink.split.i300, %702, %700, %switch.early.test.i305
-  %.1.i302 = phi ptr [ %.02833.i297, %switch.early.test.i305 ], [ %691, %700 ], [ %.02833.i297, %702 ], [ %706, %.sink.split.i300 ]
-  %708 = getelementptr i8, ptr %.034.i296, i64 1
+707:                                              ; preds = %.sink.split.i291, %702, %700, %switch.early.test.i290
+  %.1.i293 = phi ptr [ %.02832.i288, %switch.early.test.i290 ], [ %691, %700 ], [ %.02832.i288, %702 ], [ %706, %.sink.split.i291 ]
+  %708 = getelementptr i8, ptr %.033.i287, i64 1
   %709 = load i8, ptr %708, align 1
-  %.not.i303 = icmp eq i8 %709, 0
-  br i1 %.not.i303, label %alnumerize.exit306, label %694, !llvm.loop !24
+  %.not.i294 = icmp eq i8 %709, 0
+  br i1 %.not.i294, label %alnumerize.exit296, label %694, !llvm.loop !24
 
-alnumerize.exit306:                               ; preds = %707, %672
-  %.028.lcssa.i304 = phi ptr [ %691, %672 ], [ %.1.i302, %707 ]
-  store i8 0, ptr %.028.lcssa.i304, align 1
+alnumerize.exit296:                               ; preds = %707, %672
+  %.028.lcssa.i295 = phi ptr [ %691, %672 ], [ %.1.i293, %707 ]
+  store i8 0, ptr %.028.lcssa.i295, align 1
   %710 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %710, ptr %10, align 8
@@ -4231,60 +4220,59 @@ alnumerize.exit306:                               ; preds = %707, %672
   %723 = load ptr, ptr %42, align 8
   %724 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %722, ptr noundef nonnull @.str.289, ptr noundef %723)
   %725 = load i8, ptr %724, align 1
-  %.not32.i307 = icmp eq i8 %725, 0
-  br i1 %.not32.i307, label %alnumerize.exit319, label %.lr.ph.i308
+  %.not31.i297 = icmp eq i8 %725, 0
+  br i1 %.not31.i297, label %alnumerize.exit308, label %.lr.ph.i298
 
-.lr.ph.i308:                                      ; preds = %alnumerize.exit306
+.lr.ph.i298:                                      ; preds = %alnumerize.exit296
   %726 = load ptr, ptr @g_ascii_table, align 8
   br label %727
 
-727:                                              ; preds = %740, %.lr.ph.i308
-  %728 = phi i8 [ %725, %.lr.ph.i308 ], [ %742, %740 ]
-  %.034.i309 = phi ptr [ %724, %.lr.ph.i308 ], [ %741, %740 ]
-  %.02833.i310 = phi ptr [ %724, %.lr.ph.i308 ], [ %.1.i315, %740 ]
+727:                                              ; preds = %740, %.lr.ph.i298
+  %728 = phi i8 [ %725, %.lr.ph.i298 ], [ %742, %740 ]
+  %.033.i299 = phi ptr [ %724, %.lr.ph.i298 ], [ %741, %740 ]
+  %.02832.i300 = phi ptr [ %724, %.lr.ph.i298 ], [ %.1.i305, %740 ]
   %729 = zext i8 %728 to i64
   %730 = getelementptr i16, ptr %726, i64 %729
   %731 = load i16, ptr %730, align 2
-  %.fr.i311 = freeze i16 %731
-  %732 = and i16 %.fr.i311, 1
-  %.not31.i312 = icmp eq i16 %732, 0
-  br i1 %.not31.i312, label %switch.early.test.i318, label %.sink.split.i313
+  %.fr.i301 = freeze i16 %731
+  %732 = trunc i16 %.fr.i301 to i1
+  br i1 %732, label %.sink.split.i303, label %switch.early.test.i302
 
-switch.early.test.i318:                           ; preds = %727
+switch.early.test.i302:                           ; preds = %727
   switch i8 %728, label %740 [
-    i8 95, label %.sink.split.i313
-    i8 46, label %.sink.split.i313
+    i8 95, label %.sink.split.i303
+    i8 46, label %.sink.split.i303
     i8 47, label %733
     i8 45, label %733
     i8 32, label %733
   ]
 
-733:                                              ; preds = %switch.early.test.i318, %switch.early.test.i318, %switch.early.test.i318
-  %734 = icmp eq ptr %.02833.i310, %724
+733:                                              ; preds = %switch.early.test.i302, %switch.early.test.i302, %switch.early.test.i302
+  %734 = icmp eq ptr %.02832.i300, %724
   br i1 %734, label %740, label %735
 
 735:                                              ; preds = %733
-  %736 = getelementptr i8, ptr %.02833.i310, i64 -1
+  %736 = getelementptr i8, ptr %.02832.i300, i64 -1
   %737 = load i8, ptr %736, align 1
   %738 = icmp eq i8 %737, 95
-  br i1 %738, label %740, label %.sink.split.i313
+  br i1 %738, label %740, label %.sink.split.i303
 
-.sink.split.i313:                                 ; preds = %735, %switch.early.test.i318, %switch.early.test.i318, %727
-  %.sink.i314 = phi i8 [ %728, %727 ], [ %728, %switch.early.test.i318 ], [ %728, %switch.early.test.i318 ], [ 95, %735 ]
-  %739 = getelementptr i8, ptr %.02833.i310, i64 1
-  store i8 %.sink.i314, ptr %.02833.i310, align 1
+.sink.split.i303:                                 ; preds = %735, %switch.early.test.i302, %switch.early.test.i302, %727
+  %.sink.i304 = phi i8 [ %728, %727 ], [ %728, %switch.early.test.i302 ], [ %728, %switch.early.test.i302 ], [ 95, %735 ]
+  %739 = getelementptr i8, ptr %.02832.i300, i64 1
+  store i8 %.sink.i304, ptr %.02832.i300, align 1
   br label %740
 
-740:                                              ; preds = %.sink.split.i313, %735, %733, %switch.early.test.i318
-  %.1.i315 = phi ptr [ %.02833.i310, %switch.early.test.i318 ], [ %724, %733 ], [ %.02833.i310, %735 ], [ %739, %.sink.split.i313 ]
-  %741 = getelementptr i8, ptr %.034.i309, i64 1
+740:                                              ; preds = %.sink.split.i303, %735, %733, %switch.early.test.i302
+  %.1.i305 = phi ptr [ %.02832.i300, %switch.early.test.i302 ], [ %724, %733 ], [ %.02832.i300, %735 ], [ %739, %.sink.split.i303 ]
+  %741 = getelementptr i8, ptr %.033.i299, i64 1
   %742 = load i8, ptr %741, align 1
-  %.not.i316 = icmp eq i8 %742, 0
-  br i1 %.not.i316, label %alnumerize.exit319, label %727, !llvm.loop !24
+  %.not.i306 = icmp eq i8 %742, 0
+  br i1 %.not.i306, label %alnumerize.exit308, label %727, !llvm.loop !24
 
-alnumerize.exit319:                               ; preds = %740, %alnumerize.exit306
-  %.028.lcssa.i317 = phi ptr [ %724, %alnumerize.exit306 ], [ %.1.i315, %740 ]
-  store i8 0, ptr %.028.lcssa.i317, align 1
+alnumerize.exit308:                               ; preds = %740, %alnumerize.exit296
+  %.028.lcssa.i307 = phi ptr [ %724, %alnumerize.exit296 ], [ %.1.i305, %740 ]
+  store i8 0, ptr %.028.lcssa.i307, align 1
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %743, ptr %9, align 8
@@ -4315,60 +4303,59 @@ alnumerize.exit319:                               ; preds = %740, %alnumerize.ex
   %756 = load ptr, ptr %42, align 8
   %757 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %755, ptr noundef nonnull @.str.291, ptr noundef %756)
   %758 = load i8, ptr %757, align 1
-  %.not32.i320 = icmp eq i8 %758, 0
-  br i1 %.not32.i320, label %alnumerize.exit332, label %.lr.ph.i321
+  %.not31.i309 = icmp eq i8 %758, 0
+  br i1 %.not31.i309, label %alnumerize.exit320, label %.lr.ph.i310
 
-.lr.ph.i321:                                      ; preds = %alnumerize.exit319
+.lr.ph.i310:                                      ; preds = %alnumerize.exit308
   %759 = load ptr, ptr @g_ascii_table, align 8
   br label %760
 
-760:                                              ; preds = %773, %.lr.ph.i321
-  %761 = phi i8 [ %758, %.lr.ph.i321 ], [ %775, %773 ]
-  %.034.i322 = phi ptr [ %757, %.lr.ph.i321 ], [ %774, %773 ]
-  %.02833.i323 = phi ptr [ %757, %.lr.ph.i321 ], [ %.1.i328, %773 ]
+760:                                              ; preds = %773, %.lr.ph.i310
+  %761 = phi i8 [ %758, %.lr.ph.i310 ], [ %775, %773 ]
+  %.033.i311 = phi ptr [ %757, %.lr.ph.i310 ], [ %774, %773 ]
+  %.02832.i312 = phi ptr [ %757, %.lr.ph.i310 ], [ %.1.i317, %773 ]
   %762 = zext i8 %761 to i64
   %763 = getelementptr i16, ptr %759, i64 %762
   %764 = load i16, ptr %763, align 2
-  %.fr.i324 = freeze i16 %764
-  %765 = and i16 %.fr.i324, 1
-  %.not31.i325 = icmp eq i16 %765, 0
-  br i1 %.not31.i325, label %switch.early.test.i331, label %.sink.split.i326
+  %.fr.i313 = freeze i16 %764
+  %765 = trunc i16 %.fr.i313 to i1
+  br i1 %765, label %.sink.split.i315, label %switch.early.test.i314
 
-switch.early.test.i331:                           ; preds = %760
+switch.early.test.i314:                           ; preds = %760
   switch i8 %761, label %773 [
-    i8 95, label %.sink.split.i326
-    i8 46, label %.sink.split.i326
+    i8 95, label %.sink.split.i315
+    i8 46, label %.sink.split.i315
     i8 47, label %766
     i8 45, label %766
     i8 32, label %766
   ]
 
-766:                                              ; preds = %switch.early.test.i331, %switch.early.test.i331, %switch.early.test.i331
-  %767 = icmp eq ptr %.02833.i323, %757
+766:                                              ; preds = %switch.early.test.i314, %switch.early.test.i314, %switch.early.test.i314
+  %767 = icmp eq ptr %.02832.i312, %757
   br i1 %767, label %773, label %768
 
 768:                                              ; preds = %766
-  %769 = getelementptr i8, ptr %.02833.i323, i64 -1
+  %769 = getelementptr i8, ptr %.02832.i312, i64 -1
   %770 = load i8, ptr %769, align 1
   %771 = icmp eq i8 %770, 95
-  br i1 %771, label %773, label %.sink.split.i326
+  br i1 %771, label %773, label %.sink.split.i315
 
-.sink.split.i326:                                 ; preds = %768, %switch.early.test.i331, %switch.early.test.i331, %760
-  %.sink.i327 = phi i8 [ %761, %760 ], [ %761, %switch.early.test.i331 ], [ %761, %switch.early.test.i331 ], [ 95, %768 ]
-  %772 = getelementptr i8, ptr %.02833.i323, i64 1
-  store i8 %.sink.i327, ptr %.02833.i323, align 1
+.sink.split.i315:                                 ; preds = %768, %switch.early.test.i314, %switch.early.test.i314, %760
+  %.sink.i316 = phi i8 [ %761, %760 ], [ %761, %switch.early.test.i314 ], [ %761, %switch.early.test.i314 ], [ 95, %768 ]
+  %772 = getelementptr i8, ptr %.02832.i312, i64 1
+  store i8 %.sink.i316, ptr %.02832.i312, align 1
   br label %773
 
-773:                                              ; preds = %.sink.split.i326, %768, %766, %switch.early.test.i331
-  %.1.i328 = phi ptr [ %.02833.i323, %switch.early.test.i331 ], [ %757, %766 ], [ %.02833.i323, %768 ], [ %772, %.sink.split.i326 ]
-  %774 = getelementptr i8, ptr %.034.i322, i64 1
+773:                                              ; preds = %.sink.split.i315, %768, %766, %switch.early.test.i314
+  %.1.i317 = phi ptr [ %.02832.i312, %switch.early.test.i314 ], [ %757, %766 ], [ %.02832.i312, %768 ], [ %772, %.sink.split.i315 ]
+  %774 = getelementptr i8, ptr %.033.i311, i64 1
   %775 = load i8, ptr %774, align 1
-  %.not.i329 = icmp eq i8 %775, 0
-  br i1 %.not.i329, label %alnumerize.exit332, label %760, !llvm.loop !24
+  %.not.i318 = icmp eq i8 %775, 0
+  br i1 %.not.i318, label %alnumerize.exit320, label %760, !llvm.loop !24
 
-alnumerize.exit332:                               ; preds = %773, %alnumerize.exit319
-  %.028.lcssa.i330 = phi ptr [ %757, %alnumerize.exit319 ], [ %.1.i328, %773 ]
-  store i8 0, ptr %.028.lcssa.i330, align 1
+alnumerize.exit320:                               ; preds = %773, %alnumerize.exit308
+  %.028.lcssa.i319 = phi ptr [ %757, %alnumerize.exit308 ], [ %.1.i317, %773 ]
+  store i8 0, ptr %.028.lcssa.i319, align 1
   %776 = getelementptr inbounds nuw i8, ptr %0, i64 44
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %776, ptr %8, align 8
@@ -4399,60 +4386,59 @@ alnumerize.exit332:                               ; preds = %773, %alnumerize.ex
   %789 = load ptr, ptr %42, align 8
   %790 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %788, ptr noundef nonnull @.str.292, ptr noundef %789)
   %791 = load i8, ptr %790, align 1
-  %.not32.i333 = icmp eq i8 %791, 0
-  br i1 %.not32.i333, label %alnumerize.exit345, label %.lr.ph.i334
+  %.not31.i321 = icmp eq i8 %791, 0
+  br i1 %.not31.i321, label %alnumerize.exit332, label %.lr.ph.i322
 
-.lr.ph.i334:                                      ; preds = %alnumerize.exit332
+.lr.ph.i322:                                      ; preds = %alnumerize.exit320
   %792 = load ptr, ptr @g_ascii_table, align 8
   br label %793
 
-793:                                              ; preds = %806, %.lr.ph.i334
-  %794 = phi i8 [ %791, %.lr.ph.i334 ], [ %808, %806 ]
-  %.034.i335 = phi ptr [ %790, %.lr.ph.i334 ], [ %807, %806 ]
-  %.02833.i336 = phi ptr [ %790, %.lr.ph.i334 ], [ %.1.i341, %806 ]
+793:                                              ; preds = %806, %.lr.ph.i322
+  %794 = phi i8 [ %791, %.lr.ph.i322 ], [ %808, %806 ]
+  %.033.i323 = phi ptr [ %790, %.lr.ph.i322 ], [ %807, %806 ]
+  %.02832.i324 = phi ptr [ %790, %.lr.ph.i322 ], [ %.1.i329, %806 ]
   %795 = zext i8 %794 to i64
   %796 = getelementptr i16, ptr %792, i64 %795
   %797 = load i16, ptr %796, align 2
-  %.fr.i337 = freeze i16 %797
-  %798 = and i16 %.fr.i337, 1
-  %.not31.i338 = icmp eq i16 %798, 0
-  br i1 %.not31.i338, label %switch.early.test.i344, label %.sink.split.i339
+  %.fr.i325 = freeze i16 %797
+  %798 = trunc i16 %.fr.i325 to i1
+  br i1 %798, label %.sink.split.i327, label %switch.early.test.i326
 
-switch.early.test.i344:                           ; preds = %793
+switch.early.test.i326:                           ; preds = %793
   switch i8 %794, label %806 [
-    i8 95, label %.sink.split.i339
-    i8 46, label %.sink.split.i339
+    i8 95, label %.sink.split.i327
+    i8 46, label %.sink.split.i327
     i8 47, label %799
     i8 45, label %799
     i8 32, label %799
   ]
 
-799:                                              ; preds = %switch.early.test.i344, %switch.early.test.i344, %switch.early.test.i344
-  %800 = icmp eq ptr %.02833.i336, %790
+799:                                              ; preds = %switch.early.test.i326, %switch.early.test.i326, %switch.early.test.i326
+  %800 = icmp eq ptr %.02832.i324, %790
   br i1 %800, label %806, label %801
 
 801:                                              ; preds = %799
-  %802 = getelementptr i8, ptr %.02833.i336, i64 -1
+  %802 = getelementptr i8, ptr %.02832.i324, i64 -1
   %803 = load i8, ptr %802, align 1
   %804 = icmp eq i8 %803, 95
-  br i1 %804, label %806, label %.sink.split.i339
+  br i1 %804, label %806, label %.sink.split.i327
 
-.sink.split.i339:                                 ; preds = %801, %switch.early.test.i344, %switch.early.test.i344, %793
-  %.sink.i340 = phi i8 [ %794, %793 ], [ %794, %switch.early.test.i344 ], [ %794, %switch.early.test.i344 ], [ 95, %801 ]
-  %805 = getelementptr i8, ptr %.02833.i336, i64 1
-  store i8 %.sink.i340, ptr %.02833.i336, align 1
+.sink.split.i327:                                 ; preds = %801, %switch.early.test.i326, %switch.early.test.i326, %793
+  %.sink.i328 = phi i8 [ %794, %793 ], [ %794, %switch.early.test.i326 ], [ %794, %switch.early.test.i326 ], [ 95, %801 ]
+  %805 = getelementptr i8, ptr %.02832.i324, i64 1
+  store i8 %.sink.i328, ptr %.02832.i324, align 1
   br label %806
 
-806:                                              ; preds = %.sink.split.i339, %801, %799, %switch.early.test.i344
-  %.1.i341 = phi ptr [ %.02833.i336, %switch.early.test.i344 ], [ %790, %799 ], [ %.02833.i336, %801 ], [ %805, %.sink.split.i339 ]
-  %807 = getelementptr i8, ptr %.034.i335, i64 1
+806:                                              ; preds = %.sink.split.i327, %801, %799, %switch.early.test.i326
+  %.1.i329 = phi ptr [ %.02832.i324, %switch.early.test.i326 ], [ %790, %799 ], [ %.02832.i324, %801 ], [ %805, %.sink.split.i327 ]
+  %807 = getelementptr i8, ptr %.033.i323, i64 1
   %808 = load i8, ptr %807, align 1
-  %.not.i342 = icmp eq i8 %808, 0
-  br i1 %.not.i342, label %alnumerize.exit345, label %793, !llvm.loop !24
+  %.not.i330 = icmp eq i8 %808, 0
+  br i1 %.not.i330, label %alnumerize.exit332, label %793, !llvm.loop !24
 
-alnumerize.exit345:                               ; preds = %806, %alnumerize.exit332
-  %.028.lcssa.i343 = phi ptr [ %790, %alnumerize.exit332 ], [ %.1.i341, %806 ]
-  store i8 0, ptr %.028.lcssa.i343, align 1
+alnumerize.exit332:                               ; preds = %806, %alnumerize.exit320
+  %.028.lcssa.i331 = phi ptr [ %790, %alnumerize.exit320 ], [ %.1.i329, %806 ]
+  store i8 0, ptr %.028.lcssa.i331, align 1
   %809 = getelementptr inbounds nuw i8, ptr %0, i64 68
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %809, ptr %7, align 8
@@ -4481,7 +4467,7 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %937
 
-821:                                              ; preds = %alnumerize.exit189
+821:                                              ; preds = %alnumerize.exit188
   %822 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %822, ptr %6, align 8
@@ -4516,60 +4502,59 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
   %839 = load ptr, ptr %42, align 8
   %840 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %838, ptr noundef nonnull @.str.294, ptr noundef %839)
   %841 = load i8, ptr %840, align 1
-  %.not32.i346 = icmp eq i8 %841, 0
-  br i1 %.not32.i346, label %alnumerize.exit358, label %.lr.ph.i347
+  %.not31.i333 = icmp eq i8 %841, 0
+  br i1 %.not31.i333, label %alnumerize.exit344, label %.lr.ph.i334
 
-.lr.ph.i347:                                      ; preds = %821
+.lr.ph.i334:                                      ; preds = %821
   %842 = load ptr, ptr @g_ascii_table, align 8
   br label %843
 
-843:                                              ; preds = %856, %.lr.ph.i347
-  %844 = phi i8 [ %841, %.lr.ph.i347 ], [ %858, %856 ]
-  %.034.i348 = phi ptr [ %840, %.lr.ph.i347 ], [ %857, %856 ]
-  %.02833.i349 = phi ptr [ %840, %.lr.ph.i347 ], [ %.1.i354, %856 ]
+843:                                              ; preds = %856, %.lr.ph.i334
+  %844 = phi i8 [ %841, %.lr.ph.i334 ], [ %858, %856 ]
+  %.033.i335 = phi ptr [ %840, %.lr.ph.i334 ], [ %857, %856 ]
+  %.02832.i336 = phi ptr [ %840, %.lr.ph.i334 ], [ %.1.i341, %856 ]
   %845 = zext i8 %844 to i64
   %846 = getelementptr i16, ptr %842, i64 %845
   %847 = load i16, ptr %846, align 2
-  %.fr.i350 = freeze i16 %847
-  %848 = and i16 %.fr.i350, 1
-  %.not31.i351 = icmp eq i16 %848, 0
-  br i1 %.not31.i351, label %switch.early.test.i357, label %.sink.split.i352
+  %.fr.i337 = freeze i16 %847
+  %848 = trunc i16 %.fr.i337 to i1
+  br i1 %848, label %.sink.split.i339, label %switch.early.test.i338
 
-switch.early.test.i357:                           ; preds = %843
+switch.early.test.i338:                           ; preds = %843
   switch i8 %844, label %856 [
-    i8 95, label %.sink.split.i352
-    i8 46, label %.sink.split.i352
+    i8 95, label %.sink.split.i339
+    i8 46, label %.sink.split.i339
     i8 47, label %849
     i8 45, label %849
     i8 32, label %849
   ]
 
-849:                                              ; preds = %switch.early.test.i357, %switch.early.test.i357, %switch.early.test.i357
-  %850 = icmp eq ptr %.02833.i349, %840
+849:                                              ; preds = %switch.early.test.i338, %switch.early.test.i338, %switch.early.test.i338
+  %850 = icmp eq ptr %.02832.i336, %840
   br i1 %850, label %856, label %851
 
 851:                                              ; preds = %849
-  %852 = getelementptr i8, ptr %.02833.i349, i64 -1
+  %852 = getelementptr i8, ptr %.02832.i336, i64 -1
   %853 = load i8, ptr %852, align 1
   %854 = icmp eq i8 %853, 95
-  br i1 %854, label %856, label %.sink.split.i352
+  br i1 %854, label %856, label %.sink.split.i339
 
-.sink.split.i352:                                 ; preds = %851, %switch.early.test.i357, %switch.early.test.i357, %843
-  %.sink.i353 = phi i8 [ %844, %843 ], [ %844, %switch.early.test.i357 ], [ %844, %switch.early.test.i357 ], [ 95, %851 ]
-  %855 = getelementptr i8, ptr %.02833.i349, i64 1
-  store i8 %.sink.i353, ptr %.02833.i349, align 1
+.sink.split.i339:                                 ; preds = %851, %switch.early.test.i338, %switch.early.test.i338, %843
+  %.sink.i340 = phi i8 [ %844, %843 ], [ %844, %switch.early.test.i338 ], [ %844, %switch.early.test.i338 ], [ 95, %851 ]
+  %855 = getelementptr i8, ptr %.02832.i336, i64 1
+  store i8 %.sink.i340, ptr %.02832.i336, align 1
   br label %856
 
-856:                                              ; preds = %.sink.split.i352, %851, %849, %switch.early.test.i357
-  %.1.i354 = phi ptr [ %.02833.i349, %switch.early.test.i357 ], [ %840, %849 ], [ %.02833.i349, %851 ], [ %855, %.sink.split.i352 ]
-  %857 = getelementptr i8, ptr %.034.i348, i64 1
+856:                                              ; preds = %.sink.split.i339, %851, %849, %switch.early.test.i338
+  %.1.i341 = phi ptr [ %.02832.i336, %switch.early.test.i338 ], [ %840, %849 ], [ %.02832.i336, %851 ], [ %855, %.sink.split.i339 ]
+  %857 = getelementptr i8, ptr %.033.i335, i64 1
   %858 = load i8, ptr %857, align 1
-  %.not.i355 = icmp eq i8 %858, 0
-  br i1 %.not.i355, label %alnumerize.exit358, label %843, !llvm.loop !24
+  %.not.i342 = icmp eq i8 %858, 0
+  br i1 %.not.i342, label %alnumerize.exit344, label %843, !llvm.loop !24
 
-alnumerize.exit358:                               ; preds = %856, %821
-  %.028.lcssa.i356 = phi ptr [ %840, %821 ], [ %.1.i354, %856 ]
-  store i8 0, ptr %.028.lcssa.i356, align 1
+alnumerize.exit344:                               ; preds = %856, %821
+  %.028.lcssa.i343 = phi ptr [ %840, %821 ], [ %.1.i341, %856 ]
+  store i8 0, ptr %.028.lcssa.i343, align 1
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %859, ptr %5, align 8
@@ -4602,60 +4587,59 @@ alnumerize.exit358:                               ; preds = %856, %821
   %873 = load ptr, ptr %42, align 8
   %874 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %872, ptr noundef nonnull @.str.296, ptr noundef %873)
   %875 = load i8, ptr %874, align 1
-  %.not32.i359 = icmp eq i8 %875, 0
-  br i1 %.not32.i359, label %alnumerize.exit371, label %.lr.ph.i360
+  %.not31.i345 = icmp eq i8 %875, 0
+  br i1 %.not31.i345, label %alnumerize.exit356, label %.lr.ph.i346
 
-.lr.ph.i360:                                      ; preds = %alnumerize.exit358
+.lr.ph.i346:                                      ; preds = %alnumerize.exit344
   %876 = load ptr, ptr @g_ascii_table, align 8
   br label %877
 
-877:                                              ; preds = %890, %.lr.ph.i360
-  %878 = phi i8 [ %875, %.lr.ph.i360 ], [ %892, %890 ]
-  %.034.i361 = phi ptr [ %874, %.lr.ph.i360 ], [ %891, %890 ]
-  %.02833.i362 = phi ptr [ %874, %.lr.ph.i360 ], [ %.1.i367, %890 ]
+877:                                              ; preds = %890, %.lr.ph.i346
+  %878 = phi i8 [ %875, %.lr.ph.i346 ], [ %892, %890 ]
+  %.033.i347 = phi ptr [ %874, %.lr.ph.i346 ], [ %891, %890 ]
+  %.02832.i348 = phi ptr [ %874, %.lr.ph.i346 ], [ %.1.i353, %890 ]
   %879 = zext i8 %878 to i64
   %880 = getelementptr i16, ptr %876, i64 %879
   %881 = load i16, ptr %880, align 2
-  %.fr.i363 = freeze i16 %881
-  %882 = and i16 %.fr.i363, 1
-  %.not31.i364 = icmp eq i16 %882, 0
-  br i1 %.not31.i364, label %switch.early.test.i370, label %.sink.split.i365
+  %.fr.i349 = freeze i16 %881
+  %882 = trunc i16 %.fr.i349 to i1
+  br i1 %882, label %.sink.split.i351, label %switch.early.test.i350
 
-switch.early.test.i370:                           ; preds = %877
+switch.early.test.i350:                           ; preds = %877
   switch i8 %878, label %890 [
-    i8 95, label %.sink.split.i365
-    i8 46, label %.sink.split.i365
+    i8 95, label %.sink.split.i351
+    i8 46, label %.sink.split.i351
     i8 47, label %883
     i8 45, label %883
     i8 32, label %883
   ]
 
-883:                                              ; preds = %switch.early.test.i370, %switch.early.test.i370, %switch.early.test.i370
-  %884 = icmp eq ptr %.02833.i362, %874
+883:                                              ; preds = %switch.early.test.i350, %switch.early.test.i350, %switch.early.test.i350
+  %884 = icmp eq ptr %.02832.i348, %874
   br i1 %884, label %890, label %885
 
 885:                                              ; preds = %883
-  %886 = getelementptr i8, ptr %.02833.i362, i64 -1
+  %886 = getelementptr i8, ptr %.02832.i348, i64 -1
   %887 = load i8, ptr %886, align 1
   %888 = icmp eq i8 %887, 95
-  br i1 %888, label %890, label %.sink.split.i365
+  br i1 %888, label %890, label %.sink.split.i351
 
-.sink.split.i365:                                 ; preds = %885, %switch.early.test.i370, %switch.early.test.i370, %877
-  %.sink.i366 = phi i8 [ %878, %877 ], [ %878, %switch.early.test.i370 ], [ %878, %switch.early.test.i370 ], [ 95, %885 ]
-  %889 = getelementptr i8, ptr %.02833.i362, i64 1
-  store i8 %.sink.i366, ptr %.02833.i362, align 1
+.sink.split.i351:                                 ; preds = %885, %switch.early.test.i350, %switch.early.test.i350, %877
+  %.sink.i352 = phi i8 [ %878, %877 ], [ %878, %switch.early.test.i350 ], [ %878, %switch.early.test.i350 ], [ 95, %885 ]
+  %889 = getelementptr i8, ptr %.02832.i348, i64 1
+  store i8 %.sink.i352, ptr %.02832.i348, align 1
   br label %890
 
-890:                                              ; preds = %.sink.split.i365, %885, %883, %switch.early.test.i370
-  %.1.i367 = phi ptr [ %.02833.i362, %switch.early.test.i370 ], [ %874, %883 ], [ %.02833.i362, %885 ], [ %889, %.sink.split.i365 ]
-  %891 = getelementptr i8, ptr %.034.i361, i64 1
+890:                                              ; preds = %.sink.split.i351, %885, %883, %switch.early.test.i350
+  %.1.i353 = phi ptr [ %.02832.i348, %switch.early.test.i350 ], [ %874, %883 ], [ %.02832.i348, %885 ], [ %889, %.sink.split.i351 ]
+  %891 = getelementptr i8, ptr %.033.i347, i64 1
   %892 = load i8, ptr %891, align 1
-  %.not.i368 = icmp eq i8 %892, 0
-  br i1 %.not.i368, label %alnumerize.exit371, label %877, !llvm.loop !24
+  %.not.i354 = icmp eq i8 %892, 0
+  br i1 %.not.i354, label %alnumerize.exit356, label %877, !llvm.loop !24
 
-alnumerize.exit371:                               ; preds = %890, %alnumerize.exit358
-  %.028.lcssa.i369 = phi ptr [ %874, %alnumerize.exit358 ], [ %.1.i367, %890 ]
-  store i8 0, ptr %.028.lcssa.i369, align 1
+alnumerize.exit356:                               ; preds = %890, %alnumerize.exit344
+  %.028.lcssa.i355 = phi ptr [ %874, %alnumerize.exit344 ], [ %.1.i353, %890 ]
+  store i8 0, ptr %.028.lcssa.i355, align 1
   %893 = getelementptr inbounds nuw i8, ptr %0, i64 76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %893, ptr %4, align 8
@@ -4684,7 +4668,7 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %937
 
-905:                                              ; preds = %alnumerize.exit189
+905:                                              ; preds = %alnumerize.exit188
   %906 = call ptr @wmem_epan_scope()
   %907 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %906, ptr noundef nonnull @.str.298, ptr noundef %89)
   %908 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -4715,7 +4699,7 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %937
 
-920:                                              ; preds = %alnumerize.exit189
+920:                                              ; preds = %alnumerize.exit188
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 36
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %921, ptr %2, align 8
@@ -4751,7 +4735,7 @@ alnumerize.exit371:                               ; preds = %890, %alnumerize.ex
   call void (ptr, ...) @g_print(ptr noundef nonnull @.str.218, i32 noundef %936)
   br label %937
 
-937:                                              ; preds = %920, %935, %905, %alnumerize.exit371, %alnumerize.exit345, %alnumerize.exit293, %alnumerize.exit267, %523, %alnumerize.exit254, %441, %427, %413, %399, %385, %371, %alnumerize.exit228, %256, %242, %228, %215, %202, %188, %174, %160, %147, %143, %130, %116
+937:                                              ; preds = %920, %935, %905, %alnumerize.exit356, %alnumerize.exit332, %alnumerize.exit284, %alnumerize.exit260, %523, %alnumerize.exit248, %441, %427, %413, %399, %385, %371, %alnumerize.exit224, %256, %242, %228, %215, %202, %188, %174, %160, %147, %143, %130, %116
   ret void
 }
 

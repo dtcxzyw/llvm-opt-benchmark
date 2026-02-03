@@ -132,14 +132,13 @@ define hidden noundef zeroext i1 @_ZN13ZNMethodTable14register_entryEP18ZNMethod
   %.0 = phi i64 [ %20, %3 ], [ %34, %32 ]
   %23 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %0, i64 %.0
   %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, 1
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %26, label %28
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %28, label %26
 
 26:                                               ; preds = %22
   %27 = and i64 %24, 2
-  %.not17 = icmp eq i64 %27, 0
-  br i1 %.not17, label %35, label %32
+  %.not = icmp eq i64 %27, 0
+  br i1 %.not, label %35, label %32
 
 28:                                               ; preds = %22
   %29 = and i64 %24, -4
@@ -154,10 +153,11 @@ define hidden noundef zeroext i1 @_ZN13ZNMethodTable14register_entryEP18ZNMethod
 
 35:                                               ; preds = %28, %26
   %36 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %0, i64 %.0
+  %.012 = xor i1 %25, true
   %37 = and i64 %4, -4
   %38 = or disjoint i64 %37, 1
   store i64 %38, ptr %36, align 8
-  ret i1 %.not
+  ret i1 %.012
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -181,37 +181,35 @@ define hidden void @_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP
   %20 = and i64 %4, %19
   %21 = getelementptr inbounds nuw %class.ZNMethodTableEntry, ptr %0, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 1
-  %24 = icmp ne i64 %23, 0
-  %25 = and i64 %22, -4
-  %26 = inttoptr i64 %25 to ptr
-  %27 = icmp eq ptr %2, %26
-  %or.cond12 = and i1 %24, %27
+  %23 = trunc i64 %22 to i1
+  %24 = and i64 %22, -4
+  %25 = inttoptr i64 %24 to ptr
+  %26 = icmp eq ptr %2, %25
+  %or.cond12 = and i1 %26, %23
   br i1 %or.cond12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %28 = add i64 %1, -1
-  br label %30
+  %27 = add i64 %1, -1
+  br label %29
 
-._crit_edge:                                      ; preds = %30, %3
-  %.0.lcssa = phi i64 [ %20, %3 ], [ %32, %30 ]
-  %29 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %0, i64 %.0.lcssa
-  store i64 2, ptr %29, align 8
+._crit_edge:                                      ; preds = %29, %3
+  %.0.lcssa = phi i64 [ %20, %3 ], [ %31, %29 ]
+  %28 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %0, i64 %.0.lcssa
+  store i64 2, ptr %28, align 8
   ret void
 
-30:                                               ; preds = %.lr.ph, %30
-  %.013 = phi i64 [ %20, %.lr.ph ], [ %32, %30 ]
-  %31 = add i64 %.013, 1
-  %32 = and i64 %31, %28
-  %33 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %0, i64 %32
-  %34 = load i64, ptr %33, align 8
-  %35 = and i64 %34, 1
-  %36 = icmp ne i64 %35, 0
-  %37 = and i64 %34, -4
-  %38 = inttoptr i64 %37 to ptr
-  %39 = icmp eq ptr %2, %38
-  %or.cond = and i1 %36, %39
-  br i1 %or.cond, label %._crit_edge, label %30, !llvm.loop !8
+29:                                               ; preds = %.lr.ph, %29
+  %.013 = phi i64 [ %20, %.lr.ph ], [ %31, %29 ]
+  %30 = add i64 %.013, 1
+  %31 = and i64 %30, %27
+  %32 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %0, i64 %31
+  %33 = load i64, ptr %32, align 8
+  %34 = trunc i64 %33 to i1
+  %35 = and i64 %33, -4
+  %36 = inttoptr i64 %35 to ptr
+  %37 = icmp eq ptr %2, %36
+  %or.cond = and i1 %37, %34
+  br i1 %or.cond, label %._crit_edge, label %29, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -257,9 +255,9 @@ define hidden void @_ZN13ZNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_a
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %21
   %27 = load i64, ptr @_ZN13ZNMethodTable5_sizeE, align 8
-  %.not19 = icmp eq i64 %27, 0
-  %.pre22 = load ptr, ptr @_ZN13ZNMethodTable6_tableE, align 8
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i64 %27, 0
+  %.pre21 = load ptr, ptr @_ZN13ZNMethodTable6_tableE, align 8
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
   %28 = add i64 %0, 4294967295
@@ -268,13 +266,12 @@ define hidden void @_ZN13ZNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_a
 
 30:                                               ; preds = %.lr.ph, %67
   %31 = phi i64 [ %27, %.lr.ph ], [ %68, %67 ]
-  %32 = phi ptr [ %.pre22, %.lr.ph ], [ %69, %67 ]
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %70, %67 ]
-  %33 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %32, i64 %.018
+  %32 = phi ptr [ %.pre21, %.lr.ph ], [ %69, %67 ]
+  %.017 = phi i64 [ 0, %.lr.ph ], [ %70, %67 ]
+  %33 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %32, i64 %.017
   %34 = load i64, ptr %33, align 8
-  %35 = and i64 %34, 1
-  %.not17 = icmp eq i64 %35, 0
-  br i1 %.not17, label %67, label %36
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %36, label %67
 
 36:                                               ; preds = %30
   %37 = and i64 %34, -4
@@ -299,14 +296,13 @@ define hidden void @_ZN13ZNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_a
   %.0.i = phi i64 [ %52, %36 ], [ %64, %62 ]
   %54 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %25, i64 %.0.i
   %55 = load i64, ptr %54, align 8
-  %56 = and i64 %55, 1
-  %.not.i15 = icmp eq i64 %56, 0
-  br i1 %.not.i15, label %57, label %59
+  %56 = trunc i64 %55 to i1
+  br i1 %56, label %59, label %57
 
 57:                                               ; preds = %53
   %58 = and i64 %55, 2
-  %.not17.i = icmp eq i64 %58, 0
-  br i1 %.not17.i, label %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %62
+  %.not.i15 = icmp eq i64 %58, 0
+  br i1 %.not.i15, label %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %62
 
 59:                                               ; preds = %53
   %60 = and i64 %55, -4
@@ -323,18 +319,18 @@ _ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds
   %66 = or disjoint i64 %37, 1
   store i64 %66, ptr %65, align 8
   %.pre = load ptr, ptr @_ZN13ZNMethodTable6_tableE, align 8
-  %.pre21 = load i64, ptr @_ZN13ZNMethodTable5_sizeE, align 8
+  %.pre20 = load i64, ptr @_ZN13ZNMethodTable5_sizeE, align 8
   br label %67
 
 67:                                               ; preds = %30, %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit
-  %68 = phi i64 [ %31, %30 ], [ %.pre21, %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit ]
+  %68 = phi i64 [ %31, %30 ], [ %.pre20, %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit ]
   %69 = phi ptr [ %32, %30 ], [ %.pre, %_ZN13ZNMethodTable14register_entryEP18ZNMethodTableEntrymP7nmethod.exit ]
-  %70 = add nuw i64 %.018, 1
+  %70 = add nuw i64 %.017, 1
   %71 = icmp ult i64 %70, %68
   br i1 %71, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %67, %.loopexit
-  %72 = phi ptr [ %.pre22, %.loopexit ], [ %69, %67 ]
+  %72 = phi ptr [ %.pre21, %.loopexit ], [ %69, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %72, ptr %2, align 8
   %73 = load ptr, ptr @_ZN13ZNMethodTable12_safe_deleteE, align 8
@@ -519,14 +515,13 @@ _ZN13ZNMethodTable17rebuild_if_neededEv.exit:     ; preds = %17, %.sink.split.i
   %.0.i = phi i64 [ %42, %_ZN13ZNMethodTable17rebuild_if_neededEv.exit ], [ %56, %54 ]
   %45 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %25, i64 %.0.i
   %46 = load i64, ptr %45, align 8
-  %47 = and i64 %46, 1
-  %.not.i = icmp eq i64 %47, 0
-  br i1 %.not.i, label %48, label %50
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %50, label %48
 
 48:                                               ; preds = %44
   %49 = and i64 %46, 2
-  %.not17.i = icmp eq i64 %49, 0
-  br i1 %.not17.i, label %60, label %54
+  %.not.i = icmp eq i64 %49, 0
+  br i1 %.not.i, label %60, label %54
 
 50:                                               ; preds = %44
   %51 = and i64 %46, -4
@@ -617,49 +612,47 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %22 = and i64 %6, %21
   %23 = getelementptr inbounds nuw %class.ZNMethodTableEntry, ptr %4, i64 %22
   %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, 1
-  %26 = icmp ne i64 %25, 0
-  %27 = and i64 %24, -4
-  %28 = inttoptr i64 %27 to ptr
-  %29 = icmp eq ptr %0, %28
-  %or.cond12.i = and i1 %26, %29
+  %25 = trunc i64 %24 to i1
+  %26 = and i64 %24, -4
+  %27 = inttoptr i64 %26 to ptr
+  %28 = icmp eq ptr %0, %27
+  %or.cond12.i = and i1 %28, %25
   br i1 %or.cond12.i, label %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %30 = add i64 %5, -1
-  br label %31
+  %29 = add i64 %5, -1
+  br label %30
 
-31:                                               ; preds = %31, %.lr.ph.i
-  %.013.i = phi i64 [ %22, %.lr.ph.i ], [ %33, %31 ]
-  %32 = add i64 %.013.i, 1
-  %33 = and i64 %32, %30
-  %34 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %4, i64 %33
-  %35 = load i64, ptr %34, align 8
-  %36 = and i64 %35, 1
-  %37 = icmp ne i64 %36, 0
-  %38 = and i64 %35, -4
-  %39 = inttoptr i64 %38 to ptr
-  %40 = icmp eq ptr %0, %39
-  %or.cond.i = and i1 %37, %40
-  br i1 %or.cond.i, label %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %31, !llvm.loop !8
+30:                                               ; preds = %30, %.lr.ph.i
+  %.013.i = phi i64 [ %22, %.lr.ph.i ], [ %32, %30 ]
+  %31 = add i64 %.013.i, 1
+  %32 = and i64 %31, %29
+  %33 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %4, i64 %32
+  %34 = load i64, ptr %33, align 8
+  %35 = trunc i64 %34 to i1
+  %36 = and i64 %34, -4
+  %37 = inttoptr i64 %36 to ptr
+  %38 = icmp eq ptr %0, %37
+  %or.cond.i = and i1 %38, %35
+  br i1 %or.cond.i, label %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, label %30, !llvm.loop !8
 
-_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds = %31, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %.0.lcssa.i = phi i64 [ %22, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %33, %31 ]
-  %41 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %4, i64 %.0.lcssa.i
-  store i64 2, ptr %41, align 8
-  %42 = load i64, ptr @_ZN13ZNMethodTable14_nunregisteredE, align 8
-  %43 = add i64 %42, 1
-  store i64 %43, ptr @_ZN13ZNMethodTable14_nunregisteredE, align 8
-  %44 = load i64, ptr @_ZN13ZNMethodTable12_nregisteredE, align 8
-  %45 = add i64 %44, -1
-  store i64 %45, ptr @_ZN13ZNMethodTable12_nregisteredE, align 8
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %46
+_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit: ; preds = %30, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
+  %.0.lcssa.i = phi i64 [ %22, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %32, %30 ]
+  %39 = getelementptr inbounds %class.ZNMethodTableEntry, ptr %4, i64 %.0.lcssa.i
+  store i64 2, ptr %39, align 8
+  %40 = load i64, ptr @_ZN13ZNMethodTable14_nunregisteredE, align 8
+  %41 = add i64 %40, 1
+  store i64 %41, ptr @_ZN13ZNMethodTable14_nunregisteredE, align 8
+  %42 = load i64, ptr @_ZN13ZNMethodTable12_nregisteredE, align 8
+  %43 = add i64 %42, -1
+  store i64 %43, ptr @_ZN13ZNMethodTable12_nregisteredE, align 8
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %44
 
-46:                                               ; preds = %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit
+44:                                               ; preds = %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #13
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, %46
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN13ZNMethodTable16unregister_entryEP18ZNMethodTableEntrymP7nmethod.exit, %44
   ret void
 }
 

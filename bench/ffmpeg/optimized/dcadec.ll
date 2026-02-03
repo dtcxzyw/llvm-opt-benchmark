@@ -792,14 +792,14 @@ define internal i32 @dcadec_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 55536
   %122 = tail call i32 @ff_dca_lbr_filter_frame(ptr noundef nonnull %121, ptr noundef %1) #7
   %123 = icmp slt i32 %122, 0
-  br i1 %123, label %.critedge, label %185
+  br i1 %123, label %.critedge, label %184
 
 124:                                              ; preds = %117
   %125 = and i32 %118, 4
   %.not162 = icmp eq i32 %125, 0
   %126 = and i32 %118, 1
   %.not163 = icmp eq i32 %126, 0
-  br i1 %.not162, label %170, label %127
+  br i1 %.not162, label %169, label %127
 
 127:                                              ; preds = %124
   br i1 %.not163, label %155, label %128
@@ -858,68 +858,67 @@ define internal i32 @dcadec_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 46512
   %157 = tail call i32 @ff_dca_xll_filter_frame(ptr noundef nonnull %156, ptr noundef %1) #7
   %158 = icmp slt i32 %157, 0
-  br i1 %158, label %159, label %185
+  br i1 %158, label %159, label %184
 
 159:                                              ; preds = %155
   %160 = load i32, ptr %11, align 4, !tbaa !78
-  %161 = and i32 %160, 1
-  %.not168 = icmp ne i32 %161, 0
+  %.not168 = trunc i32 %160 to i1
   %.not169 = icmp eq i32 %157, -1094995529
   %or.cond173 = and i1 %.not169, %.not168
-  br i1 %or.cond173, label %162, label %.critedge
+  br i1 %or.cond173, label %161, label %.critedge
 
-162:                                              ; preds = %159
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %164 = load i32, ptr %163, align 8, !tbaa !84
-  %165 = and i32 %164, 8
-  %.not170 = icmp eq i32 %165, 0
-  br i1 %.not170, label %166, label %.critedge
+161:                                              ; preds = %159
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %163 = load i32, ptr %162, align 8, !tbaa !84
+  %164 = and i32 %163, 8
+  %.not170 = icmp eq i32 %164, 0
+  br i1 %.not170, label %165, label %.critedge
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %168 = tail call i32 @ff_dca_core_filter_frame(ptr noundef nonnull %167, ptr noundef %1) #7
-  %169 = icmp slt i32 %168, 0
-  br i1 %169, label %.critedge, label %185
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %167 = tail call i32 @ff_dca_core_filter_frame(ptr noundef nonnull %166, ptr noundef %1) #7
+  %168 = icmp slt i32 %167, 0
+  br i1 %168, label %.critedge, label %184
 
-170:                                              ; preds = %124
-  br i1 %.not163, label %182, label %171
+169:                                              ; preds = %124
+  br i1 %.not163, label %181, label %170
 
-171:                                              ; preds = %170
-  %172 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %173 = tail call i32 @ff_dca_core_filter_frame(ptr noundef nonnull %172, ptr noundef %1) #7
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %.critedge, label %175
+170:                                              ; preds = %169
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %172 = tail call i32 @ff_dca_core_filter_frame(ptr noundef nonnull %171, ptr noundef %1) #7
+  %173 = icmp slt i32 %172, 0
+  br i1 %173, label %.critedge, label %174
 
-175:                                              ; preds = %171
-  %176 = getelementptr inbounds nuw i8, ptr %6, i64 46300
-  %177 = load i32, ptr %176, align 4, !tbaa !92
-  %178 = and i32 %177, 2
-  %.not165 = icmp eq i32 %178, 0
-  br i1 %.not165, label %185, label %179
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 46300
+  %176 = load i32, ptr %175, align 4, !tbaa !92
+  %177 = and i32 %176, 2
+  %.not165 = icmp eq i32 %177, 0
+  br i1 %.not165, label %184, label %178
 
-179:                                              ; preds = %175
-  %180 = load i32, ptr %11, align 4, !tbaa !78
-  %181 = or i32 %180, 32
-  store i32 %181, ptr %11, align 4, !tbaa !78
-  br label %185
+178:                                              ; preds = %174
+  %179 = load i32, ptr %11, align 4, !tbaa !78
+  %180 = or i32 %179, 32
+  store i32 %180, ptr %11, align 4, !tbaa !78
+  br label %184
 
-182:                                              ; preds = %170
+181:                                              ; preds = %169
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.22) #7
-  %183 = load i32, ptr %56, align 4, !tbaa !83
-  %.not164 = icmp eq i32 %183, 0
-  br i1 %.not164, label %.critedge, label %184
+  %182 = load i32, ptr %56, align 4, !tbaa !83
+  %.not164 = icmp eq i32 %182, 0
+  br i1 %.not164, label %.critedge, label %183
 
-184:                                              ; preds = %182
+183:                                              ; preds = %181
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.23) #7
   br label %.critedge
 
-185:                                              ; preds = %166, %155, %175, %179, %120
+184:                                              ; preds = %165, %155, %174, %178, %120
   store i32 1, ptr %2, align 4, !tbaa !43
-  %186 = load i32, ptr %9, align 8, !tbaa !77
+  %185 = load i32, ptr %9, align 8, !tbaa !77
   br label %.critedge
 
-.critedge:                                        ; preds = %113, %104, %80, %102, %88, %65, %136, %40, %182, %184, %171, %166, %162, %159, %120, %18, %185, %34, %14
-  %.0126 = phi i32 [ -1094995529, %14 ], [ %30, %34 ], [ -1094995529, %182 ], [ %186, %185 ], [ %157, %159 ], [ %42, %40 ], [ %122, %120 ], [ -1094995529, %162 ], [ %168, %166 ], [ %173, %171 ], [ %138, %136 ], [ -1094995529, %184 ], [ -12, %18 ], [ %115, %113 ], [ %100, %104 ], [ %78, %80 ], [ -12, %102 ], [ %78, %88 ], [ %63, %65 ]
+.critedge:                                        ; preds = %113, %104, %80, %102, %88, %65, %136, %40, %181, %183, %170, %165, %161, %159, %120, %18, %184, %34, %14
+  %.0126 = phi i32 [ -1094995529, %14 ], [ %30, %34 ], [ -1094995529, %181 ], [ %185, %184 ], [ %157, %159 ], [ %42, %40 ], [ %122, %120 ], [ -1094995529, %161 ], [ %167, %165 ], [ %172, %170 ], [ %138, %136 ], [ -1094995529, %183 ], [ -12, %18 ], [ %115, %113 ], [ %100, %104 ], [ %78, %80 ], [ -12, %102 ], [ %78, %88 ], [ %63, %65 ]
   ret i32 %.0126
 }
 

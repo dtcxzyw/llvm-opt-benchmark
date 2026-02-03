@@ -9378,17 +9378,16 @@ define internal range(i32 0, 2) i32 @_event_fit_both_button_clicked(ptr readnone
   %20 = or i32 %19, %17
   %21 = and i32 %18, 4
   %22 = and i32 %21, %20
-  %.not27 = icmp eq i32 %22, 0
+  %.not26 = icmp eq i32 %22, 0
   %23 = load i32, ptr %16, align 8, !tbaa !515
   %24 = tail call i32 @gtk_accelerator_get_default_mod_mask() #35
   %25 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !71
   %26 = or i32 %25, %23
-  %27 = and i32 %24, 1
-  %28 = and i32 %27, %26
-  %.not26 = icmp eq i32 %28, 0
-  %. = select i1 %.not26, i32 63, i32 54
-  %spec.select = select i1 %.not26, i32 49, i32 55
-  %.0 = select i1 %.not27, i32 %., i32 %spec.select
+  %27 = and i32 %26, %24
+  %28 = trunc i32 %27 to i1
+  %. = select i1 %28, i32 54, i32 63
+  %spec.select = select i1 %28, i32 55, i32 49
+  %.0 = select i1 %.not26, i32 %., i32 %spec.select
   tail call void @dt_iop_request_focus(ptr noundef %2) #35
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %30 = load i32, ptr %29, align 16, !tbaa !345
@@ -9542,13 +9541,13 @@ define internal range(i32 0, 2) i32 @_event_structure_auto_clicked(ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8, !tbaa !510
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %63
+  br i1 %.not, label %7, label %62
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %9 = load i32, ptr %8, align 4, !tbaa !511
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %63
+  br i1 %10, label %11, label %62
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 704
@@ -9600,66 +9599,65 @@ _do_clean_structure.exit:                         ; preds = %11, %23
   %37 = tail call i32 @gtk_accelerator_get_default_mod_mask() #35
   %38 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !71
   %39 = or i32 %38, %36
-  %40 = and i32 %37, 1
-  %41 = and i32 %40, %39
-  %42 = icmp ne i32 %41, 0
-  %or.cond = and i1 %35, %42
+  %40 = and i32 %39, %37
+  %41 = trunc i32 %40 to i1
+  %or.cond = and i1 %35, %41
   %.mux = select i1 %or.cond, i32 3, i32 2
-  br i1 %42, label %.thread, label %43
+  br i1 %41, label %.thread, label %42
 
-43:                                               ; preds = %_do_clean_structure.exit
+42:                                               ; preds = %_do_clean_structure.exit
   %.lobit = lshr exact i32 %34, 2
-  br i1 %35, label %.thread, label %44
+  br i1 %35, label %.thread, label %43
 
-44:                                               ; preds = %43
-  %45 = tail call i64 @gtk_toggle_button_get_type() #37
-  %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %45) #35
-  %47 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %46) #35
-  %.not31 = icmp eq i32 %47, 0
-  br i1 %.not31, label %.thread, label %48
+43:                                               ; preds = %42
+  %44 = tail call i64 @gtk_toggle_button_get_type() #37
+  %45 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %44) #35
+  %46 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %45) #35
+  %.not31 = icmp eq i32 %46, 0
+  br i1 %.not31, label %.thread, label %47
 
-48:                                               ; preds = %44
+47:                                               ; preds = %43
   %.val34 = load ptr, ptr %12, align 16, !tbaa !301
   tail call fastcc void @_gui_update_structure_states(ptr %.val34, ptr noundef %0)
   tail call void (...) @dt_control_queue_redraw_center() #35
-  br label %63
+  br label %62
 
-.thread:                                          ; preds = %_do_clean_structure.exit, %44, %43
-  %.036 = phi i32 [ %.lobit, %43 ], [ 0, %44 ], [ %.mux, %_do_clean_structure.exit ]
-  %49 = tail call i64 @gtk_toggle_button_get_type() #37
-  %50 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %49) #35
-  tail call void @gtk_toggle_button_set_active(ptr noundef %50, i32 noundef 0) #35
+.thread:                                          ; preds = %_do_clean_structure.exit, %43, %42
+  %.036 = phi i32 [ %.lobit, %42 ], [ 0, %43 ], [ %.mux, %_do_clean_structure.exit ]
+  %48 = tail call i64 @gtk_toggle_button_get_type() #37
+  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %48) #35
+  tail call void @gtk_toggle_button_set_active(ptr noundef %49, i32 noundef 0) #35
   %.val = load ptr, ptr %12, align 16, !tbaa !301
   tail call fastcc void @_gui_update_structure_states(ptr %.val, ptr noundef %0)
-  %51 = getelementptr inbounds nuw i8, ptr %13, i64 368
-  store i32 1, ptr %51, align 8, !tbaa !409
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 368
+  store i32 1, ptr %50, align 8, !tbaa !409
   tail call void @dt_iop_request_focus(ptr noundef nonnull %2) #35
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 672
-  %53 = load i32, ptr %52, align 16, !tbaa !345
-  %.not32 = icmp eq i32 %53, 0
-  br i1 %.not32, label %56, label %54
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 672
+  %52 = load i32, ptr %51, align 16, !tbaa !345
+  %.not32 = icmp eq i32 %52, 0
+  br i1 %.not32, label %55, label %53
 
-54:                                               ; preds = %.thread
-  %55 = tail call fastcc i32 @_do_get_structure_auto(ptr noundef nonnull %2, i32 noundef %.036)
-  br label %61
+53:                                               ; preds = %.thread
+  %54 = tail call fastcc i32 @_do_get_structure_auto(ptr noundef nonnull %2, i32 noundef %.036)
+  br label %60
 
-56:                                               ; preds = %.thread
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 664
-  %58 = load ptr, ptr %57, align 8, !tbaa !303
-  tail call void @dt_dev_invalidate_all(ptr noundef %58) #35
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 340
-  store i32 1, ptr %59, align 4, !tbaa !456
-  %60 = getelementptr inbounds nuw i8, ptr %13, i64 344
-  store i32 %.036, ptr %60, align 8, !tbaa !497
-  br label %61
+55:                                               ; preds = %.thread
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 664
+  %57 = load ptr, ptr %56, align 8, !tbaa !303
+  tail call void @dt_dev_invalidate_all(ptr noundef %57) #35
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 340
+  store i32 1, ptr %58, align 4, !tbaa !456
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 344
+  store i32 %.036, ptr %59, align 8, !tbaa !497
+  br label %60
 
-61:                                               ; preds = %56, %54
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !453
-  tail call void @dt_dev_add_history_item(ptr noundef %62, ptr noundef nonnull %2, i32 noundef 1) #35
-  br label %63
+60:                                               ; preds = %55, %53
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !453
+  tail call void @dt_dev_add_history_item(ptr noundef %61, ptr noundef nonnull %2, i32 noundef 1) #35
+  br label %62
 
-63:                                               ; preds = %7, %48, %61, %3
-  %.030 = phi i32 [ 1, %48 ], [ 0, %3 ], [ 1, %61 ], [ 0, %7 ]
+62:                                               ; preds = %7, %47, %60, %3
+  %.030 = phi i32 [ 1, %47 ], [ 0, %3 ], [ 1, %60 ], [ 0, %7 ]
   ret i32 %.030
 }
 

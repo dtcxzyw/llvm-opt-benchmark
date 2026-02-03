@@ -1534,18 +1534,17 @@ define zeroext i1 @lv_display_get_antialiasing(ptr noundef readonly captures(add
 3:                                                ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 40), align 8, !tbaa !42
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %10, label %.thread
+  br i1 %5, label %9, label %.thread
 
 .thread:                                          ; preds = %1, %3
   %.07 = phi ptr [ %4, %3 ], [ %0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.07, i64 88
   %7 = load i16, ptr %6, align 8
-  %8 = and i16 %7, 1
-  %9 = icmp ne i16 %8, 0
-  br label %10
+  %8 = trunc i16 %7 to i1
+  br label %9
 
-10:                                               ; preds = %3, %.thread
-  %.04 = phi i1 [ %9, %.thread ], [ false, %3 ]
+9:                                                ; preds = %3, %.thread
+  %.04 = phi i1 [ %8, %.thread ], [ false, %3 ]
   ret i1 %.04
 }
 

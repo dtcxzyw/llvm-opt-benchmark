@@ -1030,8 +1030,8 @@ define range(i32 -1, 1) i32 @H5T__conv_vlen(ptr noundef readonly captures(addres
 
 .thread649:                                       ; preds = %518, %522, %519, %511, %514
   %.12 = phi i32 [ -1, %514 ], [ %.11, %511 ], [ -1, %522 ], [ %.11, %519 ], [ %.11, %518 ]
-  %526 = and i8 %.0382558576, %.0384557578
-  %or.cond19.not = icmp ne i8 %526, 0
+  %526 = and i8 %.0384557578, %.0382558576
+  %or.cond19.not = trunc nuw i8 %526 to i1
   %.not479658 = icmp eq ptr %.0372559574, null
   %.not479 = select i1 %or.cond19.not, i1 true, i1 %.not479658
   br i1 %.not479, label %529, label %527

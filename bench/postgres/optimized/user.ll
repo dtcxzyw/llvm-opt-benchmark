@@ -2506,7 +2506,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   br label %36
 
 36:                                               ; preds = %plan_single_revoke.exit.thread, %initialize_revoke_actions.exit
-  %.sroa.10.0 = phi i32 [ 0, %initialize_revoke_actions.exit ], [ %103, %plan_single_revoke.exit.thread ]
+  %.sroa.10.0 = phi i32 [ 0, %initialize_revoke_actions.exit ], [ %102, %plan_single_revoke.exit.thread ]
   br i1 %.not, label %44, label %37
 
 37:                                               ; preds = %36
@@ -2548,7 +2548,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 5
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  br label %104
+  br label %103
 
 62:                                               ; preds = %49
   %63 = sext i32 %.sroa.10.0 to i64
@@ -2563,8 +2563,8 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   %wide.trip.count.i = zext nneg i32 %67 to i64
   br label %69
 
-69:                                               ; preds = %97, %.lr.ph.i61
-  %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %97 ]
+69:                                               ; preds = %96, %.lr.ph.i61
+  %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %96 ]
   %70 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i62
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 80
@@ -2576,13 +2576,13 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, %66
-  br i1 %79, label %80, label %97
+  br i1 %79, label %80, label %96
 
 80:                                               ; preds = %69
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, %12
-  br i1 %83, label %84, label %97
+  br i1 %83, label %84, label %96
 
 84:                                               ; preds = %80
   %85 = trunc nuw nsw i64 %indvars.iv.i62 to i32
@@ -2607,109 +2607,108 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   br label %plan_single_revoke.exit.thread
 
 94:                                               ; preds = %90
-  %95 = and i32 %86, 1
-  %96 = icmp ne i32 %95, 0
-  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull readonly %17, ptr noundef %.08.i, i32 noundef %85, i1 noundef zeroext %96, i32 noundef %7)
+  %95 = trunc i32 %86 to i1
+  tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull readonly %17, ptr noundef %.08.i, i32 noundef %85, i1 noundef zeroext %95, i32 noundef %7)
   br label %plan_single_revoke.exit.thread
 
-97:                                               ; preds = %80, %69
+96:                                               ; preds = %80, %69
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i
   br i1 %exitcond.not.i, label %plan_single_revoke.exit, label %69, !llvm.loop !13
 
-plan_single_revoke.exit:                          ; preds = %97, %62
-  %98 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
-  br i1 %98, label %99, label %plan_single_revoke.exit.thread
+plan_single_revoke.exit:                          ; preds = %96, %62
+  %97 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  br i1 %97, label %98, label %plan_single_revoke.exit.thread
 
-99:                                               ; preds = %plan_single_revoke.exit
-  %100 = tail call ptr @get_rolespec_name(ptr noundef %65) #11
-  %101 = tail call ptr @GetUserNameFromId(i32 noundef %12, i1 noundef zeroext false) #11
-  %102 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.90, ptr noundef %100, ptr noundef %1, ptr noundef %101) #11
+98:                                               ; preds = %plan_single_revoke.exit
+  %99 = tail call ptr @get_rolespec_name(ptr noundef %65) #11
+  %100 = tail call ptr @GetUserNameFromId(i32 noundef %12, i1 noundef zeroext false) #11
+  %101 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.90, ptr noundef %99, ptr noundef %1, ptr noundef %100) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2027, ptr noundef nonnull @__func__.DelRoleMems) #11
   br label %plan_single_revoke.exit.thread
 
-plan_single_revoke.exit.thread:                   ; preds = %92, %88, %94, %plan_single_revoke.exit, %99
-  %103 = add i32 %.sroa.10.0, 1
+plan_single_revoke.exit.thread:                   ; preds = %92, %88, %94, %plan_single_revoke.exit, %98
+  %102 = add i32 %.sroa.10.0, 1
   br label %36, !llvm.loop !14
 
-104:                                              ; preds = %.lr.ph, %131
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %131, label %108
+103:                                              ; preds = %.lr.ph, %130
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
+  %104 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %130, label %107
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 64
-  %112 = icmp eq i32 %106, 4
-  br i1 %112, label %113, label %121
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
+  %111 = icmp eq i32 %105, 4
+  br i1 %111, label %112, label %120
 
-113:                                              ; preds = %108
-  %114 = getelementptr i8, ptr %110, i64 80
-  %.val = load ptr, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %116 = load i8, ptr %115, align 2
-  %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw i8, ptr %.val, i64 %117
-  %119 = load i32, ptr %118, align 4
-  call void @deleteSharedDependencyRecordsFor(i32 noundef 1261, i32 noundef %119, i32 noundef 0) #11
-  %120 = getelementptr inbounds nuw i8, ptr %110, i64 68
-  call void @CatalogTupleDelete(ptr noundef %13, ptr noundef nonnull %120) #11
-  br label %131
+112:                                              ; preds = %107
+  %113 = getelementptr i8, ptr %109, i64 80
+  %.val = load ptr, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %115 = load i8, ptr %114, align 2
+  %116 = zext i8 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %.val, i64 %116
+  %118 = load i32, ptr %117, align 4
+  call void @deleteSharedDependencyRecordsFor(i32 noundef 1261, i32 noundef %118, i32 noundef 0) #11
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 68
+  call void @CatalogTupleDelete(ptr noundef %13, ptr noundef nonnull %119) #11
+  br label %130
 
-121:                                              ; preds = %108
+120:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %10, i8 0, i64 7, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false)
-  switch i32 %106, label %125 [
-    i32 1, label %122
-    i32 2, label %123
-    i32 3, label %124
+  switch i32 %105, label %124 [
+    i32 1, label %121
+    i32 2, label %122
+    i32 3, label %123
   ]
 
-122:                                              ; preds = %121
+121:                                              ; preds = %120
   store i64 0, ptr %60, align 16
   store i8 1, ptr %61, align 1
-  br label %128
+  br label %127
 
-123:                                              ; preds = %121
+122:                                              ; preds = %120
   store i64 0, ptr %58, align 8
   store i8 1, ptr %59, align 1
-  br label %128
+  br label %127
 
-124:                                              ; preds = %121
+123:                                              ; preds = %120
   store i64 0, ptr %56, align 16
   store i8 1, ptr %57, align 1
-  br label %128
+  br label %127
 
-125:                                              ; preds = %121
-  %126 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.91) #11
+124:                                              ; preds = %120
+  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %126 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.91) #11
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2089, ptr noundef nonnull @__func__.DelRoleMems) #11
   unreachable
 
-128:                                              ; preds = %123, %124, %122
-  %129 = call ptr @heap_modify_tuple(ptr noundef nonnull %111, ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %130, ptr noundef %129) #11
+127:                                              ; preds = %122, %123, %121
+  %128 = call ptr @heap_modify_tuple(ptr noundef nonnull %110, ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %129, ptr noundef %128) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %131
+  br label %130
 
-131:                                              ; preds = %113, %128, %104
+130:                                              ; preds = %112, %127, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %132 = load i32, ptr %18, align 8
-  %133 = sext i32 %132 to i64
-  %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %104, label %._crit_edge, !llvm.loop !15
+  %131 = load i32, ptr %18, align 8
+  %132 = sext i32 %131 to i64
+  %133 = icmp slt i64 %indvars.iv.next, %132
+  br i1 %133, label %103, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %131, %.preheader
+._crit_edge:                                      ; preds = %130, %.preheader
   call void @ReleaseCatCacheList(ptr noundef nonnull %17) #11
   call void @table_close(ptr noundef %13, i32 noundef 0) #11
   ret void
@@ -3332,9 +3331,8 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   store i8 0, ptr %3, align 1
   %91 = getelementptr i8, ptr %85, i64 20
   %.val.val.i.i = load i16, ptr %91, align 4
-  %92 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %92, 0
-  br i1 %.not.i.i.i, label %93, label %132
+  %92 = trunc i16 %.val.val.i.i to i1
+  br i1 %92, label %132, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 184
@@ -3408,8 +3406,8 @@ define dso_local { i64, i32 } @RenameRole(ptr noundef %0, ptr noundef %1) local_
   %133 = getelementptr i8, ptr %85, i64 24
   %.val20.i.i = load i8, ptr %133, align 1
   %134 = and i8 %.val20.i.i, 4
-  %.not.i21.i.i = icmp eq i8 %134, 0
-  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread43, label %135
+  %.not.i.i.i = icmp eq i8 %134, 0
+  br i1 %.not.i.i.i, label %heap_getattr.exit.thread43, label %135
 
 heap_getattr.exit.thread43:                       ; preds = %132
   store i8 1, ptr %3, align 1

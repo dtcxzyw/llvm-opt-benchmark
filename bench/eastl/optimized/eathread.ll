@@ -231,8 +231,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 for.body:                                         ; preds = %cond.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %cond.end ]
   %nProcessor.addr.017 = phi i32 [ %shr, %for.inc ], [ %nProcessor, %cond.end ]
-  %and = and i32 %nProcessor.addr.017, 1
-  %tobool.not = icmp ne i32 %and, 0
+  %tobool.not = trunc i32 %nProcessor.addr.017 to i1
   %cmp7 = icmp samesign ult i64 %indvars.iv, 1024
   %or.cond = select i1 %tobool.not, i1 %cmp7, i1 false
   br i1 %or.cond, label %cond.true8, label %for.inc

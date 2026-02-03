@@ -1917,9 +1917,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   %.val.i = load ptr, ptr %4, align 8
   %13 = getelementptr i8, ptr %.val.i, i64 20
   %.val.val.i = load i16, ptr %13, align 4
-  %14 = and i16 %.val.val.i, 1
-  %.not.i.i = icmp eq i16 %14, 0
-  br i1 %.not.i.i, label %15, label %54
+  %14 = trunc i16 %.val.val.i to i1
+  br i1 %14, label %54, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -1993,8 +1992,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   %55 = getelementptr i8, ptr %.val.i, i64 25
   %.val20.i = load i8, ptr %55, align 1
   %56 = and i8 %.val20.i, 16
-  %.not.i21.i = icmp eq i8 %56, 0
-  br i1 %.not.i21.i, label %57, label %58
+  %.not.i.i = icmp eq i8 %56, 0
+  br i1 %.not.i.i, label %57, label %58
 
 57:                                               ; preds = %54
   store i8 1, ptr %2, align 1

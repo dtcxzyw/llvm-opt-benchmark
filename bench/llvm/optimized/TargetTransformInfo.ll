@@ -6238,32 +6238,31 @@ define internal { i64, i32 } @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.idx.i = shl nuw nsw i64 %2, 3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
-  %.not51.i = icmp eq i64 %2, 0
-  br i1 %.not51.i, label %_ZN4llvm31TargetTransformInfoImplCRTPBaseIN12_GLOBAL__N_19NoTTIImplEE20getPointersChainCostENS_8ArrayRefIPKNS_5ValueEEES7_RKNS_19TargetTransformInfo17PointersChainInfoEPNS_4TypeENS9_14TargetCostKindE.exit, label %.lr.ph.i
+  %.not50.i = icmp eq i64 %2, 0
+  br i1 %.not50.i, label %_ZN4llvm31TargetTransformInfoImplCRTPBaseIN12_GLOBAL__N_19NoTTIImplEE20getPointersChainCostENS_8ArrayRefIPKNS_5ValueEEES7_RKNS_19TargetTransformInfo17PointersChainInfoEPNS_4TypeENS9_14TargetCostKindE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
-  %11 = icmp eq i32 %6, 1
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %14 = icmp eq i32 %6, 1
   br label %15
 
 15:                                               ; preds = %71, %.lr.ph.i
-  %.054.i = phi ptr [ %1, %.lr.ph.i ], [ %72, %71 ]
-  %.sroa.647.053.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.647.1.i, %71 ]
-  %.sroa.044.052.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.044.1.i, %71 ]
-  %16 = load ptr, ptr %.054.i, align 8, !tbaa !188
+  %.053.i = phi ptr [ %1, %.lr.ph.i ], [ %72, %71 ]
+  %.sroa.647.052.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.647.1.i, %71 ]
+  %.sroa.044.051.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.044.1.i, %71 ]
+  %16 = load ptr, ptr %.053.i, align 8, !tbaa !188
   %17 = load i8, ptr %16, align 8, !tbaa !110
   %.not49.i = icmp eq i8 %17, 63
   br i1 %.not49.i, label %18, label %71
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %4, align 4
-  %20 = and i32 %19, 1
-  %.not50.i = icmp eq i32 %20, 0
-  %.not31.i = icmp eq ptr %16, %3
-  %or.cond.i = or i1 %.not31.i, %.not50.i
-  br i1 %or.cond.i, label %39, label %21
+  %20 = trunc i32 %19 to i1
+  %.not31.i = icmp ne ptr %16, %3
+  %or.cond.not.i = and i1 %.not31.i, %20
+  br i1 %or.cond.not.i, label %21, label %39
 
 21:                                               ; preds = %18
   %22 = call noundef zeroext i1 @_ZNK4llvm17GetElementPtrInst21hasAllConstantIndicesEv(ptr noundef nonnull align 8 dereferenceable(88) %16) #26
@@ -6272,7 +6271,7 @@ define internal { i64, i32 } @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !177
-  br i1 %11, label %26, label %38
+  br i1 %14, label %26, label %38
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -6307,7 +6306,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %31, %26
 
 _ZN4llvm15InstructionCostpLERKS0_.exit.i:         ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i, %38
   %.sroa.0.0.i.i = phi i64 [ 3, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i ], [ 1, %38 ]
-  %.0.i.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.044.052.i, i64 %.sroa.0.0.i.i)
+  %.0.i.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.044.051.i, i64 %.sroa.0.0.i.i)
   br label %71
 
 39:                                               ; preds = %18
@@ -6319,23 +6318,23 @@ _ZN4llvm15InstructionCostpLERKS0_.exit.i:         ; preds = %_ZNK4llvm4Type13get
   %44 = zext i32 %43 to i64
   %45 = sub nsw i64 32, %44
   %46 = getelementptr inbounds i8, ptr %16, i64 %45
-  store ptr %12, ptr %8, align 8, !tbaa !25
-  store i32 0, ptr %13, align 8, !tbaa !26
-  store i32 6, ptr %14, align 4, !tbaa !27
+  store ptr %11, ptr %8, align 8, !tbaa !25
+  store i32 0, ptr %12, align 8, !tbaa !26
+  store i32 6, ptr %13, align 4, !tbaa !27
   %gepdiff.i = add nsw i64 %44, -32
   %47 = ashr exact i64 %gepdiff.i, 5
   %48 = icmp ugt i64 %47, 6
   br i1 %48, label %49, label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i
 
 49:                                               ; preds = %39
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %12, i64 noundef %47, i64 noundef 8) #26
-  %.pre.i.i.i = load i32, ptr %13, align 8, !tbaa !26
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %11, i64 noundef %47, i64 noundef 8) #26
+  %.pre.i.i.i = load i32, ptr %12, align 8, !tbaa !26
   %.pre8.i.i.i = zext i32 %.pre.i.i.i to i64
   %.pre.pre.i = load ptr, ptr %8, align 8, !tbaa !25
   br label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i
 
 _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i: ; preds = %49, %39
-  %.pre.i = phi ptr [ %12, %39 ], [ %.pre.pre.i, %49 ]
+  %.pre.i = phi ptr [ %11, %39 ], [ %.pre.pre.i, %49 ]
   %.pre-phi.i.i.i = phi i64 [ 0, %39 ], [ %.pre8.i.i.i, %49 ]
   %50 = phi i32 [ 0, %39 ], [ %.pre.i.i.i, %49 ]
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %42, 1
@@ -6358,7 +6357,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i: ; preds = %49, %39
 _ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2IPKNS_3UseEEERKNS_14iterator_rangeIT_EE.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i.i.i
   %55 = trunc nsw i64 %47 to i32
   %56 = add i32 %50, %55
-  store i32 %56, ptr %13, align 8, !tbaa !26
+  store i32 %56, ptr %12, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %58 = load ptr, ptr %57, align 8, !tbaa !317
   %59 = load i32, ptr %40, align 4
@@ -6372,10 +6371,10 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2IPKNS_3UseEEERKNS_14iterator_rangeIT_EE
   %.fca.0.extract.i = extractvalue { i64, i32 } %66, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %66, 1
   %67 = icmp eq i32 %.fca.1.extract.i, 1
-  %spec.select.i = select i1 %67, i32 1, i32 %.sroa.647.053.i
-  %.0.i34.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.044.052.i, i64 %.fca.0.extract.i)
+  %spec.select.i = select i1 %67, i32 1, i32 %.sroa.647.052.i
+  %.0.i34.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.044.051.i, i64 %.fca.0.extract.i)
   %68 = load ptr, ptr %8, align 8, !tbaa !25
-  %69 = icmp eq ptr %68, %12
+  %69 = icmp eq ptr %68, %11
   br i1 %69, label %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i, label %70
 
 70:                                               ; preds = %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EEC2IPKNS_3UseEEERKNS_14iterator_rangeIT_EE.exit.i
@@ -6387,9 +6386,9 @@ _ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i: ; preds = %70, %_ZN4llvm11Sm
   br label %71
 
 71:                                               ; preds = %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i, %21, %15
-  %.sroa.044.1.i = phi i64 [ %.sroa.044.052.i, %15 ], [ %.0.i34.i, %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i ], [ %.sroa.044.052.i, %21 ], [ %.0.i.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ]
-  %.sroa.647.1.i = phi i32 [ %.sroa.647.053.i, %15 ], [ %spec.select.i, %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i ], [ %.sroa.647.053.i, %21 ], [ %.sroa.647.053.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ]
-  %72 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
+  %.sroa.044.1.i = phi i64 [ %.sroa.044.051.i, %15 ], [ %.0.i34.i, %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i ], [ %.sroa.044.051.i, %21 ], [ %.0.i.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ]
+  %.sroa.647.1.i = phi i32 [ %.sroa.647.052.i, %15 ], [ %spec.select.i, %_ZN4llvm11SmallVectorIPKNS_5ValueELj6EED2Ev.exit.i ], [ %.sroa.647.052.i, %21 ], [ %.sroa.647.052.i, %_ZN4llvm15InstructionCostpLERKS0_.exit.i ]
+  %72 = getelementptr inbounds nuw i8, ptr %.053.i, i64 8
   %.not.i = icmp eq ptr %72, %10
   br i1 %.not.i, label %_ZN4llvm31TargetTransformInfoImplCRTPBaseIN12_GLOBAL__N_19NoTTIImplEE20getPointersChainCostENS_8ArrayRefIPKNS_5ValueEEES7_RKNS_19TargetTransformInfo17PointersChainInfoEPNS_4TypeENS9_14TargetCostKindE.exit, label %15
 

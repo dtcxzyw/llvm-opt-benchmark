@@ -996,12 +996,12 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
   store i32 0, ptr %5, align 4, !tbaa !10
   %12 = call i32 @parseExtendedExpireArgumentsOrReply(ptr noundef %0, ptr noundef nonnull %5)
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %105
+  br i1 %.not, label %13, label %104
 
 13:                                               ; preds = %3
   %14 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull %4, ptr noundef null) #10
   %.not67 = icmp eq i32 %14, 0
-  br i1 %.not67, label %15, label %105
+  br i1 %.not67, label %15, label %104
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %2, 0
@@ -1015,7 +1015,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
 
 19:                                               ; preds = %17
   call void @addReplyErrorExpireTime(ptr noundef nonnull %0) #10
-  br label %105
+  br label %104
 
 20:                                               ; preds = %17
   %21 = mul nsw i64 %.pre, 1000
@@ -1030,7 +1030,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
 
 26:                                               ; preds = %22
   call void @addReplyErrorExpireTime(ptr noundef nonnull %0) #10
-  br label %105
+  br label %104
 
 27:                                               ; preds = %22
   %28 = add nsw i64 %23, %1
@@ -1044,7 +1044,7 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
 33:                                               ; preds = %27
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
   call void @addReply(ptr noundef nonnull %0, ptr noundef %34) #10
-  br label %105
+  br label %104
 
 35:                                               ; preds = %27
   %36 = load i32, ptr %5, align 4, !tbaa !10
@@ -1053,150 +1053,149 @@ define dso_local void @expireGenericCommand(ptr noundef %0, i64 noundef %1, i32 
 
 ._crit_edge:                                      ; preds = %35
   %.pre79 = load i64, ptr %4, align 8, !tbaa !51
-  br label %61
+  br label %60
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %29, align 8, !tbaa !91
   %39 = call i64 @getExpire(ptr noundef %38, ptr noundef %9) #10
-  %40 = and i32 %36, 1
-  %41 = icmp ne i32 %40, 0
-  %42 = icmp ne i64 %39, -1
-  %or.cond7 = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond7, label %43, label %45
+  %40 = trunc i32 %36 to i1
+  %41 = icmp ne i64 %39, -1
+  %or.cond7 = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond7, label %42, label %44
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %44) #10
-  br label %105
+42:                                               ; preds = %37
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %43) #10
+  br label %104
 
-45:                                               ; preds = %37
-  %46 = and i32 %36, 2
-  %47 = icmp ne i32 %46, 0
-  %48 = icmp eq i64 %39, -1
-  %or.cond9 = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond9, label %49, label %51
+44:                                               ; preds = %37
+  %45 = and i32 %36, 2
+  %46 = icmp ne i32 %45, 0
+  %47 = icmp eq i64 %39, -1
+  %or.cond9 = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond9, label %48, label %50
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %50) #10
-  br label %105
+48:                                               ; preds = %44
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %49) #10
+  br label %104
 
-51:                                               ; preds = %45
-  %52 = and i32 %36, 4
-  %.not69 = icmp ne i32 %52, 0
+50:                                               ; preds = %44
+  %51 = and i32 %36, 4
+  %.not69 = icmp ne i32 %51, 0
   %.pre78 = load i64, ptr %4, align 8
-  %53 = icmp sle i64 %.pre78, %39
-  %or.cond3 = or i1 %48, %53
+  %52 = icmp sle i64 %.pre78, %39
+  %or.cond3 = or i1 %47, %52
   %or.cond81 = select i1 %.not69, i1 %or.cond3, i1 false
-  br i1 %or.cond81, label %54, label %56
+  br i1 %or.cond81, label %53, label %55
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %55) #10
-  br label %105
+53:                                               ; preds = %50
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %54) #10
+  br label %104
 
-56:                                               ; preds = %51
-  %57 = and i32 %36, 8
-  %58 = icmp ne i32 %57, 0
-  %or.cond11 = select i1 %58, i1 %42, i1 false
+55:                                               ; preds = %50
+  %56 = and i32 %36, 8
+  %57 = icmp ne i32 %56, 0
+  %or.cond11 = select i1 %57, i1 %41, i1 false
   %.not70 = icmp sge i64 %.pre78, %39
   %or.cond75.not = select i1 %or.cond11, i1 %.not70, i1 false
-  br i1 %or.cond75.not, label %59, label %61
+  br i1 %or.cond75.not, label %58, label %60
 
-59:                                               ; preds = %56
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %60) #10
-  br label %105
+58:                                               ; preds = %55
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !92
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %59) #10
+  br label %104
 
-61:                                               ; preds = %._crit_edge, %56
-  %62 = phi i64 [ %.pre79, %._crit_edge ], [ %.pre78, %56 ]
-  %63 = call i64 @commandTimeSnapshot() #10
-  %.not.i = icmp sgt i64 %62, %63
-  br i1 %.not.i, label %checkAlreadyExpired.exit.thread, label %64
+60:                                               ; preds = %._crit_edge, %55
+  %61 = phi i64 [ %.pre79, %._crit_edge ], [ %.pre78, %55 ]
+  %62 = call i64 @commandTimeSnapshot() #10
+  %.not.i = icmp sgt i64 %61, %62
+  br i1 %.not.i, label %checkAlreadyExpired.exit.thread, label %63
 
-64:                                               ; preds = %61
-  %65 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !75
-  %.not1.i = icmp eq i32 %65, 0
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8
-  %.not2.i.not = icmp eq ptr %66, null
+63:                                               ; preds = %60
+  %64 = load volatile i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2412), align 4, !tbaa !75
+  %.not1.i = icmp eq i32 %64, 0
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8
+  %.not2.i.not = icmp eq ptr %65, null
   %or.cond77 = select i1 %.not1.i, i1 %.not2.i.not, i1 false
-  br i1 %or.cond77, label %67, label %checkAlreadyExpired.exit.thread
+  br i1 %or.cond77, label %66, label %checkAlreadyExpired.exit.thread
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %29, align 8, !tbaa !91
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !94
-  %70 = call i32 @dbGenericDelete(ptr noundef %68, ptr noundef %9, i32 noundef %69, i32 noundef 2) #10
-  %.not73 = icmp eq i32 %70, 0
-  br i1 %.not73, label %71, label %72, !prof !95
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %29, align 8, !tbaa !91
+  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !94
+  %69 = call i32 @dbGenericDelete(ptr noundef %67, ptr noundef %9, i32 noundef %68, i32 noundef 2) #10
+  %.not73 = icmp eq i32 %69, 0
+  br i1 %.not73, label %70, label %71, !prof !95
 
-71:                                               ; preds = %67
+70:                                               ; preds = %66
   call void @_serverAssertWithInfo(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 709) #10
   call void @abort() #11
   unreachable
 
-72:                                               ; preds = %67
-  %73 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
-  %74 = add nsw i64 %73, 1
-  store i64 %74, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
-  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !94
-  %.not74 = icmp eq i32 %75, 0
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 408), align 8
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
-  %78 = select i1 %.not74, ptr %77, ptr %76
-  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %78, ptr noundef %9) #10
+71:                                               ; preds = %66
+  %72 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  %73 = add nsw i64 %72, 1
+  store i64 %73, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8044), align 4, !tbaa !94
+  %.not74 = icmp eq i32 %74, 0
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 408), align 8
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 400), align 8
+  %77 = select i1 %.not74, ptr %76, ptr %75
+  call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %77, ptr noundef %9) #10
+  %78 = load ptr, ptr %29, align 8, !tbaa !91
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %9) #10
   %79 = load ptr, ptr %29, align 8, !tbaa !91
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %79, ptr noundef %9) #10
-  %80 = load ptr, ptr %29, align 8, !tbaa !91
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  %82 = load i32, ptr %81, align 8, !tbaa !72
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.11, ptr noundef %9, i32 noundef %82) #10
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %83) #10
-  br label %105
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
+  %81 = load i32, ptr %80, align 8, !tbaa !72
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.11, ptr noundef %9, i32 noundef %81) #10
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %82) #10
+  br label %104
 
-checkAlreadyExpired.exit.thread:                  ; preds = %61, %64
-  %84 = load ptr, ptr %29, align 8, !tbaa !91
-  %85 = load i64, ptr %4, align 8, !tbaa !51
-  call void @setExpire(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %9, i64 noundef %85) #10
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
-  call void @addReply(ptr noundef nonnull %0, ptr noundef %86) #10
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %88 = load ptr, ptr %87, align 8, !tbaa !98
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
-  %90 = load ptr, ptr %89, align 8, !tbaa !99
-  %.not72 = icmp eq ptr %90, @pexpireatCommand
-  br i1 %.not72, label %93, label %91
+checkAlreadyExpired.exit.thread:                  ; preds = %60, %63
+  %83 = load ptr, ptr %29, align 8, !tbaa !91
+  %84 = load i64, ptr %4, align 8, !tbaa !51
+  call void @setExpire(ptr noundef nonnull %0, ptr noundef %83, ptr noundef %9, i64 noundef %84) #10
+  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 32), align 8, !tbaa !97
+  call void @addReply(ptr noundef nonnull %0, ptr noundef %85) #10
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %87 = load ptr, ptr %86, align 8, !tbaa !98
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
+  %89 = load ptr, ptr %88, align 8, !tbaa !99
+  %.not72 = icmp eq ptr %89, @pexpireatCommand
+  br i1 %.not72, label %92, label %90
 
-91:                                               ; preds = %checkAlreadyExpired.exit.thread
-  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 592), align 8, !tbaa !105
-  call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %92) #10
-  br label %93
+90:                                               ; preds = %checkAlreadyExpired.exit.thread
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 592), align 8, !tbaa !105
+  call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %91) #10
+  br label %92
 
-93:                                               ; preds = %91, %checkAlreadyExpired.exit.thread
-  %94 = icmp ne i64 %1, 0
-  %or.cond5 = or i1 %94, %16
-  br i1 %or.cond5, label %95, label %98
+92:                                               ; preds = %90, %checkAlreadyExpired.exit.thread
+  %93 = icmp ne i64 %1, 0
+  %or.cond5 = or i1 %93, %16
+  br i1 %or.cond5, label %94, label %97
 
-95:                                               ; preds = %93
-  %96 = load i64, ptr %4, align 8, !tbaa !51
-  %97 = call ptr @createStringObjectFromLongLong(i64 noundef %96) #10
-  call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %97) #10
-  call void @decrRefCount(ptr noundef %97) #10
-  br label %98
+94:                                               ; preds = %92
+  %95 = load i64, ptr %4, align 8, !tbaa !51
+  %96 = call ptr @createStringObjectFromLongLong(i64 noundef %95) #10
+  call void @rewriteClientCommandArgument(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %96) #10
+  call void @decrRefCount(ptr noundef %96) #10
+  br label %97
 
-98:                                               ; preds = %93, %95
+97:                                               ; preds = %92, %94
+  %98 = load ptr, ptr %29, align 8, !tbaa !91
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %98, ptr noundef %9) #10
   %99 = load ptr, ptr %29, align 8, !tbaa !91
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %99, ptr noundef %9) #10
-  %100 = load ptr, ptr %29, align 8, !tbaa !91
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %102 = load i32, ptr %101, align 8, !tbaa !72
-  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef %9, i32 noundef %102) #10
-  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
-  %104 = add nsw i64 %103, 1
-  store i64 %104, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
-  br label %105
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
+  %101 = load i32, ptr %100, align 8, !tbaa !72
+  call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef %9, i32 noundef %101) #10
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  %103 = add nsw i64 %102, 1
+  store i64 %103, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !96
+  br label %104
 
-105:                                              ; preds = %13, %3, %98, %72, %59, %54, %49, %43, %33, %26, %19
+104:                                              ; preds = %13, %3, %97, %71, %58, %53, %48, %42, %33, %26, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

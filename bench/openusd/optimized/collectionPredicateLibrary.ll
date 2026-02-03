@@ -4580,9 +4580,8 @@ define internal range(i64 4294967296, 4294967298) i64 @"_ZNSt17_Function_handler
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = atomicrmw add ptr %9, i32 2 monotonic, align 4, !noalias !104
-  %11 = and i32 %10, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i
+  %11 = trunc i32 %10 to i1
+  br i1 %11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i, label %12
 
 12:                                               ; preds = %7
   store ptr %9, ptr %4, align 8, !alias.scope !104
@@ -6808,9 +6807,8 @@ define internal range(i64 4294967296, 4294967298) i64 @"_ZNSt17_Function_handler
   %10 = and i64 %7, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = atomicrmw add ptr %11, i32 2 monotonic, align 4, !noalias !140
-  %13 = and i32 %12, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i, label %14
 
 14:                                               ; preds = %9
   store ptr %11, ptr %6, align 8, !alias.scope !140
@@ -8313,9 +8311,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_BuildTokenFromPredicateArg
   %31 = and i64 %.pre.i, -8
   %32 = inttoptr i64 %31 to ptr
   %33 = atomicrmw add ptr %32, i32 2 monotonic, align 4, !noalias !163
-  %34 = and i32 %33, 1
-  %.not1.i.i.i = icmp eq i32 %34, 0
-  %35 = select i1 %.not1.i.i.i, i64 %31, i64 %.pre.i
+  %34 = trunc i32 %33 to i1
+  %35 = select i1 %34, i64 %.pre.i, i64 %31
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_BuildTokenFromPredicateArgERKSt6vectorINS_22SdfPredicateExpression5FnArgESaIS3_EERKm.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_BuildTokenFromPredicateArgERKSt6vectorINS_22SdfPredicateExpression5FnArgESaIS3_EERKm.exit.thread.i
@@ -8334,9 +8331,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %30, %_Z
   %39 = and i64 %.sroa.0.0.i, -8
   %40 = inttoptr i64 %39 to ptr
   %41 = atomicrmw add ptr %40, i32 2 monotonic, align 4, !noalias !163
-  %42 = and i32 %41, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %42, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %43, label %47
+  %42 = trunc i32 %41 to i1
+  br i1 %42, label %47, label %43
 
 43:                                               ; preds = %38
   store ptr %40, ptr %36, align 8, !noalias !163
@@ -8656,9 +8652,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
   %10 = and i64 %.val7.i, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = atomicrmw add ptr %11, i32 2 monotonic, align 4
-  %13 = and i32 %12, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not1.i.i.i.i.i.i, label %14, label %"_ZNSt14_Function_base13_Base_managerIZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvENK3$_0clERKSt6vectorINS1_22SdfPredicateExpression5FnArgESaIS6_EEEUlRKNS1_16HdSceneIndexPrimEE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i"
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %"_ZNSt14_Function_base13_Base_managerIZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvENK3$_0clERKSt6vectorINS1_22SdfPredicateExpression5FnArgESaIS6_EEEUlRKNS1_16HdSceneIndexPrimEE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i", label %14
 
 14:                                               ; preds = %9
   store ptr %11, ptr %7, align 8
@@ -9391,9 +9386,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %119 = and i64 %116, -8
   %120 = inttoptr i64 %119 to ptr
   %121 = atomicrmw add ptr %120, i32 2 monotonic, align 4, !noalias !170
-  %122 = and i32 %121, 1
-  %.not1.i.i.i.i.i.i.i.i.i = icmp eq i32 %122, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i, label %123, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %122 = trunc i32 %121 to i1
+  br i1 %122, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %123
 
 123:                                              ; preds = %118
   %124 = load ptr, ptr %.011.i.i.i.i.i.i, align 8, !noalias !170
@@ -9472,9 +9466,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %156 = and i64 %153, -8
   %157 = inttoptr i64 %156 to ptr
   %158 = atomicrmw add ptr %157, i32 2 monotonic, align 4, !noalias !170
-  %159 = and i32 %158, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %159, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %160, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i
+  %159 = trunc i32 %158 to i1
+  br i1 %159, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i, label %160
 
 160:                                              ; preds = %155
   %161 = load ptr, ptr %.011.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !170
@@ -9968,9 +9961,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitSto
   %33 = and i64 %30, -8
   %34 = inttoptr i64 %33 to ptr
   %35 = atomicrmw add ptr %34, i32 2 monotonic, align 4
-  %36 = and i32 %35, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %36, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i, label %37, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i
+  %36 = trunc i32 %35 to i1
+  br i1 %36, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i.i.i, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %.011.i.i.i.i.i.i.i.i.i, align 8
@@ -10343,9 +10335,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_BuildTokenFromPredicateArg
   %31 = and i64 %.pre.i, -8
   %32 = inttoptr i64 %31 to ptr
   %33 = atomicrmw add ptr %32, i32 2 monotonic, align 4, !noalias !180
-  %34 = and i32 %33, 1
-  %.not1.i.i.i = icmp eq i32 %34, 0
-  %35 = select i1 %.not1.i.i.i, i64 %31, i64 %.pre.i
+  %34 = trunc i32 %33 to i1
+  %35 = select i1 %34, i64 %.pre.i, i64 %31
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %30, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_BuildTokenFromPredicateArgERKSt6vectorINS_22SdfPredicateExpression5FnArgESaIS3_EERKm.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_BuildTokenFromPredicateArgERKSt6vectorINS_22SdfPredicateExpression5FnArgESaIS3_EERKm.exit.thread.i
@@ -10364,9 +10355,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %30, %_Z
   %39 = and i64 %.sroa.0.0.i, -8
   %40 = inttoptr i64 %39 to ptr
   %41 = atomicrmw add ptr %40, i32 2 monotonic, align 4, !noalias !180
-  %42 = and i32 %41, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %42, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %43, label %47
+  %42 = trunc i32 %41 to i1
+  br i1 %42, label %47, label %43
 
 43:                                               ; preds = %38
   store ptr %40, ptr %36, align 8, !noalias !180
@@ -10655,9 +10645,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
   %10 = and i64 %.val7.i, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = atomicrmw add ptr %11, i32 2 monotonic, align 4
-  %13 = and i32 %12, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not1.i.i.i.i.i.i, label %14, label %"_ZNSt14_Function_base13_Base_managerIZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvENK3$_2clERKSt6vectorINS1_22SdfPredicateExpression5FnArgESaIS6_EEEUlRKNS1_16HdSceneIndexPrimEE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i"
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %"_ZNSt14_Function_base13_Base_managerIZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvENK3$_2clERKSt6vectorINS1_22SdfPredicateExpression5FnArgESaIS6_EEEUlRKNS1_16HdSceneIndexPrimEE_E15_M_init_functorIRKSE_EEvRSt9_Any_dataOT_.exit.i", label %14
 
 14:                                               ; preds = %9
   store ptr %11, ptr %7, align 8
@@ -11263,9 +11252,8 @@ define internal range(i64 4294967296, 4294967298) i64 @"_ZNSt17_Function_handler
   %12 = and i64 %9, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4, !noalias !190
-  %15 = and i32 %14, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i.i.i.i.i.i.i, label %16
 
 16:                                               ; preds = %11
   store ptr %13, ptr %8, align 8, !alias.scope !190

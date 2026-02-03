@@ -361,10 +361,10 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2pb4card7displ
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 16:                                               ; preds = %.lr.ph
-  %17 = and i32 %.sroa.01.0.copyload, 1
-  %.not.not.i = icmp eq i32 %17, 0
-  %18 = select i1 %.not.not.i, ptr @.str.15, ptr @.str.14
-  %19 = zext nneg i32 %17 to i64
+  %17 = trunc i32 %.sroa.01.0.copyload to i1
+  %18 = select i1 %17, ptr @.str.14, ptr @.str.15
+  %.mask.i = and i32 %.sroa.01.0.copyload, 1
+  %19 = zext nneg i32 %.mask.i to i64
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %18, i64 noundef %19)
   %21 = lshr i32 %.sroa.01.0.copyload, 1
   %22 = zext nneg i32 %21 to i64
@@ -384,10 +384,10 @@ define hidden void @_ZNK2pb10constraint11display_litERSoRKNS_16solver_interfaceE
   br i1 %.not20, label %40, label %7
 
 7:                                                ; preds = %6
-  %8 = and i32 %3, 1
-  %.not.not.i = icmp eq i32 %8, 0
-  %9 = select i1 %.not.not.i, ptr @.str.15, ptr @.str.14
-  %10 = zext nneg i32 %8 to i64
+  %8 = trunc i32 %3 to i1
+  %9 = select i1 %8, ptr @.str.14, ptr @.str.15
+  %.mask.i = and i32 %3, 1
+  %10 = zext nneg i32 %.mask.i to i64
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9, i64 noundef %10)
   %12 = lshr i32 %3, 1
   %13 = zext nneg i32 %12 to i64
@@ -459,10 +459,10 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2pb4card7displ
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
-  %13 = and i32 %.sroa.0.0.copyload.i29.us, 1
-  %.not.not.i.us = icmp eq i32 %13, 0
-  %14 = select i1 %.not.not.i.us, ptr @.str.15, ptr @.str.14
-  %15 = zext nneg i32 %13 to i64
+  %13 = trunc i32 %.sroa.0.0.copyload.i29.us to i1
+  %14 = select i1 %13, ptr @.str.14, ptr @.str.15
+  %.mask.i.us = and i32 %.sroa.0.0.copyload.i29.us, 1
+  %15 = zext nneg i32 %.mask.i.us to i64
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %14, i64 noundef %15)
   %17 = lshr i32 %.sroa.0.0.copyload.i29.us, 1
   %18 = zext nneg i32 %17 to i64
@@ -526,10 +526,10 @@ _ZN3satlsERSoNS_7literalE.exit.us:                ; preds = %20, %12
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 55:                                               ; preds = %.lr.ph.split
-  %56 = and i32 %.sroa.0.0.copyload.i29, 1
-  %.not.not.i = icmp eq i32 %56, 0
-  %57 = select i1 %.not.not.i, ptr @.str.15, ptr @.str.14
-  %58 = zext nneg i32 %56 to i64
+  %56 = trunc i32 %.sroa.0.0.copyload.i29 to i1
+  %57 = select i1 %56, ptr @.str.14, ptr @.str.15
+  %.mask.i = and i32 %.sroa.0.0.copyload.i29, 1
+  %58 = zext nneg i32 %.mask.i to i64
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %57, i64 noundef %58)
   %60 = lshr i32 %.sroa.0.0.copyload.i29, 1
   %61 = zext nneg i32 %60 to i64
@@ -1098,14 +1098,13 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb4card4evalERK7svectorI5lboolj
   %.01521 = phi i32 [ 0, %.lr.ph ], [ %.116, %25 ]
   %.01720 = phi ptr [ %3, %.lr.ph ], [ %26, %25 ]
   %.sroa.01.0.copyload = load i32, ptr %.01720, align 4, !tbaa !9
-  %14 = and i32 %.sroa.01.0.copyload, 1
-  %.not.i = icmp eq i32 %14, 0
+  %14 = trunc i32 %.sroa.01.0.copyload to i1
   %15 = lshr i32 %.sroa.01.0.copyload, 1
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i32, ptr %8, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !59
   %19 = sub nsw i32 0, %18
-  %20 = select i1 %.not.i, i32 %18, i32 %19
+  %20 = select i1 %14, i32 %19, i32 %18
   switch i32 %20, label %25 [
     i32 1, label %21
     i32 0, label %23

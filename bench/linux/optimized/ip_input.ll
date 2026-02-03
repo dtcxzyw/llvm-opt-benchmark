@@ -168,9 +168,8 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 272
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %11, align 1
-  %33 = and i8 %32, 1
-  %.not32 = icmp eq i8 %33, 0
-  br i1 %.not32, label %68, label %34
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %68
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %12, align 8
@@ -221,8 +220,8 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
 68:                                               ; preds = %28
   %69 = getelementptr inbounds nuw i8, ptr %31, i64 2816
   %70 = load i32, ptr %69, align 4
-  %.not33 = icmp eq i32 %70, 0
-  br i1 %.not33, label %71, label %.thread20
+  %.not32 = icmp eq i32 %70, 0
+  br i1 %.not32, label %71, label %.thread20
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %31, i64 2968
@@ -326,9 +325,8 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 127
   %122 = load i8, ptr %121, align 1
-  %123 = and i8 %122, 1
-  %.not34 = icmp eq i8 %123, 0
-  br i1 %.not34, label %159, label %124
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %124, label %159
 
 124:                                              ; preds = %116
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -380,8 +378,8 @@ define dso_local void @ip_protocol_deliver_rcu(ptr noundef readonly captures(non
 159:                                              ; preds = %116
   %160 = getelementptr inbounds nuw i8, ptr %120, i64 2816
   %161 = load i32, ptr %160, align 4
-  %.not35 = icmp eq i32 %161, 0
-  br i1 %.not35, label %162, label %.thread29
+  %.not33 = icmp eq i32 %161, 0
+  br i1 %.not33, label %162, label %.thread29
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %120, i64 2968

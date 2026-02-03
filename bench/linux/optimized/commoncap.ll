@@ -787,10 +787,10 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
   store i64 %59, ptr %60, align 8
   %61 = xor i64 %59, -1
   %62 = and i64 %52, %61
-  %63 = icmp eq i64 %62, 0
-  %64 = icmp eq i8 %46, 0
-  %.not14 = select i1 %64, i1 true, i1 %63
-  br i1 %.not14, label %.thread5, label %.thread
+  %63 = icmp ne i64 %62, 0
+  %64 = trunc i32 %44 to i1
+  %.not13 = select i1 %64, i1 %63, i1 false
+  br i1 %.not13, label %.thread, label %.thread5
 
 .thread:                                          ; preds = %37, %38, %42
   %65 = phi i32 [ -1, %42 ], [ %35, %37 ], [ -22, %38 ]
@@ -998,12 +998,12 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
 
 188:                                              ; preds = %174
   %189 = icmp eq i64 %175, %181
-  br i1 %189, label %._crit_edge15, label %190
+  br i1 %189, label %._crit_edge14, label %190
 
-._crit_edge15:                                    ; preds = %188
-  %.pre16 = load ptr, ptr %6, align 8
-  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %.pre16, i64 40
-  %.pre18 = load i32, ptr %.phi.trans.insert17, align 8
+._crit_edge14:                                    ; preds = %188
+  %.pre15 = load ptr, ptr %6, align 8
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %.pre15, i64 40
+  %.pre17 = load i32, ptr %.phi.trans.insert16, align 8
   br label %205
 
 190:                                              ; preds = %188
@@ -1029,8 +1029,8 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %232
 
-205:                                              ; preds = %._crit_edge15, %199
-  %206 = phi i32 [ %.pre18, %._crit_edge15 ], [ %202, %199 ]
+205:                                              ; preds = %._crit_edge14, %199
+  %206 = phi i32 [ %.pre17, %._crit_edge14 ], [ %202, %199 ]
   %207 = and i32 %206, 1
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %209, label %218
@@ -1087,15 +1087,15 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
   br i1 %241, label %267, label %..thread12_crit_edge
 
 ..thread12_crit_edge:                             ; preds = %239
-  %.pre19 = load i64, ptr %22, align 8
-  %.pre20 = load i64, ptr %182, align 8
-  %.pre21 = load i64, ptr %176, align 8
+  %.pre18 = load i64, ptr %22, align 8
+  %.pre19 = load i64, ptr %182, align 8
+  %.pre20 = load i64, ptr %176, align 8
   br label %.thread12
 
 .thread12:                                        ; preds = %..thread12_crit_edge, %232, %236, %227, %218
-  %242 = phi i64 [ %.pre21, %..thread12_crit_edge ], [ %175, %232 ], [ %175, %236 ], [ %175, %227 ], [ %175, %218 ]
-  %243 = phi i64 [ %.pre20, %..thread12_crit_edge ], [ %183, %232 ], [ %183, %236 ], [ %183, %227 ], [ %183, %218 ]
-  %244 = phi i64 [ %.pre19, %..thread12_crit_edge ], [ %178, %232 ], [ %178, %236 ], [ %178, %227 ], [ %178, %218 ]
+  %242 = phi i64 [ %.pre20, %..thread12_crit_edge ], [ %175, %232 ], [ %175, %236 ], [ %175, %227 ], [ %175, %218 ]
+  %243 = phi i64 [ %.pre19, %..thread12_crit_edge ], [ %183, %232 ], [ %183, %236 ], [ %183, %227 ], [ %183, %218 ]
+  %244 = phi i64 [ %.pre18, %..thread12_crit_edge ], [ %178, %232 ], [ %178, %236 ], [ %178, %227 ], [ %178, %218 ]
   %245 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %246 = load i32, ptr %245, align 8
   %247 = and i32 %246, -17

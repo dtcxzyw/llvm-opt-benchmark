@@ -3932,9 +3932,8 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN104_$LT$wasmtime_runt
   tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %3 = load i32, ptr %1, align 4, !range !215, !alias.scope !298, !noalias !293, !noundef !9
-  %4 = and i32 %3, 1
-  %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %6, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48a310daf047e914c00cc15599afb284.57.llvm.2708031191408783576) #28, !noalias !301
@@ -4115,9 +4114,8 @@ define void @"_ZN104_$LT$wasmtime_runtime..gc..enabled..drc..DrcHeap$u20$as$u20$
   br label %64
 
 35:                                               ; preds = %29
-  %36 = and i32 %20, 1
-  %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %38, label %37
+  %36 = trunc i32 %20 to i1
+  br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.88003080372ff52b23e46096790674a6.145) #28
@@ -4214,9 +4212,8 @@ define noundef range(i32 1, 0) i32 @"_ZN104_$LT$wasmtime_runtime..gc..enabled..d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %3 = load i32, ptr %1, align 4, !range !215, !alias.scope !337, !noalias !332, !noundef !9
-  %4 = and i32 %3, 1
-  %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %6, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48a310daf047e914c00cc15599afb284.57.llvm.2708031191408783576) #28, !noalias !340
@@ -5375,11 +5372,10 @@ define void @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12write_gc_ref17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !578)
   %4 = load i32, ptr %0, align 16, !alias.scope !576, !noalias !580, !noundef !9
-  %5 = icmp ne i32 %4, 0
-  %6 = and i32 %4, 1
-  %.not.i = icmp eq i32 %6, 0
-  %or.cond.i = and i1 %5, %.not.i
-  br i1 %or.cond.i, label %10, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread.i"
+  %5 = icmp eq i32 %4, 0
+  %6 = trunc i32 %4 to i1
+  %or.cond.i = or i1 %5, %6
+  br i1 %or.cond.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread.i", label %10
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread.i": ; preds = %3
   %7 = icmp eq ptr %2, null
@@ -5387,9 +5383,8 @@ define void @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12write_gc_ref17
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020.exit.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread.i"
   %8 = load i32, ptr %2, align 4, !range !215, !alias.scope !578, !noalias !581, !noundef !9
-  %9 = and i32 %8, 1
-  %.not12.i = icmp eq i32 %9, 0
-  br i1 %.not12.i, label %10, label %.thread.i
+  %9 = trunc i32 %8 to i1
+  br i1 %9, label %.thread.i, label %10
 
 10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020.exit.i", %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32

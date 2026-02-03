@@ -1675,98 +1675,97 @@ define internal void @show_object(ptr noundef %0, ptr noundef %1, ptr noundef re
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 65536
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %23, label %16
+  br i1 %.not.i, label %22, label %16
 
 16:                                               ; preds = %11
   %17 = load i32, ptr %0, align 4
-  %18 = and i32 %17, 1
-  %.not7.i = icmp ne i32 %18, 0
-  %19 = and i32 %17, 14
-  %.not8.i = icmp eq i32 %19, 2
-  %or.cond.i = or i1 %.not7.i, %.not8.i
-  br i1 %or.cond.i, label %23, label %20
+  %.not7.i = trunc i32 %17 to i1
+  %18 = and i32 %17, 14
+  %.not8.i = icmp eq i32 %18, 2
+  %or.cond.i = or i1 %.not8.i, %.not7.i
+  br i1 %or.cond.i, label %22, label %19
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %22 = tail call ptr @parse_object(ptr noundef %21, ptr noundef nonnull %8) #11
-  br label %23
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @the_repository, align 8, !tbaa !4
+  %21 = tail call ptr @parse_object(ptr noundef %20, ptr noundef nonnull %8) #11
+  br label %22
 
 finish_object.exit:                               ; preds = %3
   tail call fastcc void @finish_object__ma(ptr noundef nonnull %0)
-  br label %56
+  br label %55
 
-23:                                               ; preds = %20, %16, %11
-  %24 = load ptr, ptr @progress, align 8, !tbaa !79
-  %25 = load i32, ptr @progress_counter, align 4, !tbaa !9
-  %26 = add i32 %25, 1
-  store i32 %26, ptr @progress_counter, align 4, !tbaa !9
-  %27 = zext i32 %26 to i64
-  tail call void @display_progress(ptr noundef %24, i64 noundef %27) #11
+22:                                               ; preds = %19, %16, %11
+  %23 = load ptr, ptr @progress, align 8, !tbaa !79
+  %24 = load i32, ptr @progress_counter, align 4, !tbaa !9
+  %25 = add i32 %24, 1
+  store i32 %25, ptr @progress_counter, align 4, !tbaa !9
+  %26 = zext i32 %25 to i64
+  tail call void @display_progress(ptr noundef %23, i64 noundef %26) #11
   %.b12 = load i1, ptr @show_disk_usage, align 4
-  br i1 %.b12, label %28, label %39
+  br i1 %.b12, label %27, label %38
 
-28:                                               ; preds = %23
+27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %29, align 8, !tbaa !104
-  %30 = load ptr, ptr @the_repository, align 8, !tbaa !4
-  %31 = call i32 @oid_object_info_extended(ptr noundef %30, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 0) #11
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %get_object_disk_usage.exit
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %28, align 8, !tbaa !104
+  %29 = load ptr, ptr @the_repository, align 8, !tbaa !4
+  %30 = call i32 @oid_object_info_extended(ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 0) #11
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %get_object_disk_usage.exit
 
-33:                                               ; preds = %28
-  %34 = call fastcc ptr @_(ptr noundef nonnull @.str.55)
-  %35 = call ptr @oid_to_hex(ptr noundef nonnull %8) #11
-  call void (ptr, ...) @die(ptr noundef %34, ptr noundef %35) #13
+32:                                               ; preds = %27
+  %33 = call fastcc ptr @_(ptr noundef nonnull @.str.55)
+  %34 = call ptr @oid_to_hex(ptr noundef nonnull %8) #11
+  call void (ptr, ...) @die(ptr noundef %33, ptr noundef %34) #13
   unreachable
 
-get_object_disk_usage.exit:                       ; preds = %28
-  %36 = load i64, ptr %4, align 8, !tbaa !103
+get_object_disk_usage.exit:                       ; preds = %27
+  %35 = load i64, ptr %4, align 8, !tbaa !103
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %37 = load i64, ptr @total_disk_usage, align 8, !tbaa !103
-  %38 = add nsw i64 %37, %36
-  store i64 %38, ptr @total_disk_usage, align 8, !tbaa !103
-  br label %39
+  %36 = load i64, ptr @total_disk_usage, align 8, !tbaa !103
+  %37 = add nsw i64 %36, %35
+  store i64 %37, ptr @total_disk_usage, align 8, !tbaa !103
+  br label %38
 
-39:                                               ; preds = %get_object_disk_usage.exit, %23
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !71
-  %42 = and i32 %41, 2
-  %.not13 = icmp eq i32 %42, 0
-  br i1 %.not13, label %43, label %56
+38:                                               ; preds = %get_object_disk_usage.exit, %22
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !71
+  %41 = and i32 %40, 2
+  %.not13 = icmp eq i32 %41, 0
+  br i1 %.not13, label %42, label %55
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 16777216
-  %.not14 = icmp eq i64 %46, 0
-  br i1 %.not14, label %51, label %47
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 288
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %44, 16777216
+  %.not14 = icmp eq i64 %45, 0
+  br i1 %.not14, label %50, label %46
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 2844
-  %49 = load i32, ptr %48, align 4, !tbaa !101
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %48, align 4, !tbaa !101
-  br label %56
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 2844
+  %48 = load i32, ptr %47, align 4, !tbaa !101
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %47, align 4, !tbaa !101
+  br label %55
 
-51:                                               ; preds = %43
+50:                                               ; preds = %42
   %.b = load i1, ptr @arg_show_object_names, align 4
-  br i1 %.b, label %54, label %52
+  br i1 %.b, label %53, label %51
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr @stdout, align 8, !tbaa !133
-  call void @show_object_with_name(ptr noundef %53, ptr noundef nonnull %0, ptr noundef %1) #11
-  br label %56
+51:                                               ; preds = %50
+  %52 = load ptr, ptr @stdout, align 8, !tbaa !133
+  call void @show_object_with_name(ptr noundef %52, ptr noundef nonnull %0, ptr noundef %1) #11
+  br label %55
 
-54:                                               ; preds = %51
-  %55 = call ptr @oid_to_hex(ptr noundef nonnull %8) #11
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %55)
-  br label %56
+53:                                               ; preds = %50
+  %54 = call ptr @oid_to_hex(ptr noundef nonnull %8) #11
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %54)
+  br label %55
 
-56:                                               ; preds = %finish_object.exit, %52, %54, %39, %47
+55:                                               ; preds = %finish_object.exit, %51, %53, %38, %46
   ret void
 }
 

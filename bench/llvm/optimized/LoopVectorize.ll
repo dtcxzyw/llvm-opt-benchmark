@@ -5455,94 +5455,90 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 define linkonce_odr hidden void @_ZNK4llvm19VPRecipeWithIRFlags8setFlagsEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i8, ptr %3, align 8, !tbaa !294
-  switch i8 %4, label %50 [
+  switch i8 %4, label %46 [
     i8 1, label %5
-    i8 2, label %12
-    i8 3, label %21
-    i8 4, label %26
-    i8 5, label %28
-    i8 6, label %45
+    i8 2, label %11
+    i8 3, label %20
+    i8 4, label %24
+    i8 5, label %26
+    i8 6, label %42
   ]
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  tail call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %9) #30
-  %10 = load i8, ptr %6, align 4
-  %.mask25 = and i8 %10, 2
-  %11 = icmp ne i8 %.mask25, 0
-  tail call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %11) #30
-  br label %50
+  %8 = trunc i8 %7 to i1
+  tail call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %8) #30
+  %9 = load i8, ptr %6, align 4
+  %.mask25 = and i8 %9, 2
+  %10 = icmp ne i8 %.mask25, 0
+  tail call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %10) #30
+  br label %46
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = shl i8 %14, 1
-  %18 = and i8 %17, 2
-  %19 = and i8 %16, -3
-  %20 = or disjoint i8 %19, %18
-  store i8 %20, ptr %15, align 1
-  br label %50
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %13 = load i8, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = shl i8 %13, 1
+  %17 = and i8 %16, 2
+  %18 = and i8 %15, -3
+  %19 = or disjoint i8 %18, %17
+  store i8 %19, ptr %14, align 1
+  br label %46
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %23 = load i8, ptr %22, align 4
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  tail call void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %25) #30
-  br label %50
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %22 = load i8, ptr %21, align 4
+  %23 = trunc i8 %22 to i1
+  tail call void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %23) #30
+  br label %46
+
+24:                                               ; preds = %2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %.sroa.0.0.copyload = load i32, ptr %25, align 4, !tbaa !66
+  tail call void @_ZN4llvm17GetElementPtrInst14setNoWrapFlagsENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 %.sroa.0.0.copyload) #30
+  br label %46
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %.sroa.0.0.copyload = load i32, ptr %27, align 4, !tbaa !66
-  tail call void @_ZN4llvm17GetElementPtrInst14setNoWrapFlagsENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 %.sroa.0.0.copyload) #30
-  br label %50
+  %28 = load i8, ptr %27, align 4
+  %29 = trunc i8 %28 to i1
+  tail call void @_ZN4llvm11Instruction18setHasAllowReassocEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %29) #30
+  %30 = load i8, ptr %27, align 4
+  %.mask = and i8 %30, 2
+  %31 = icmp ne i8 %.mask, 0
+  tail call void @_ZN4llvm11Instruction12setHasNoNaNsEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %31) #30
+  %32 = load i8, ptr %27, align 4
+  %.mask15 = and i8 %32, 4
+  %33 = icmp ne i8 %.mask15, 0
+  tail call void @_ZN4llvm11Instruction12setHasNoInfsEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %33) #30
+  %34 = load i8, ptr %27, align 4
+  %.mask17 = and i8 %34, 8
+  %35 = icmp ne i8 %.mask17, 0
+  tail call void @_ZN4llvm11Instruction19setHasNoSignedZerosEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %35) #30
+  %36 = load i8, ptr %27, align 4
+  %.mask19 = and i8 %36, 16
+  %37 = icmp ne i8 %.mask19, 0
+  tail call void @_ZN4llvm11Instruction21setHasAllowReciprocalEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %37) #30
+  %38 = load i8, ptr %27, align 4
+  %.mask21 = and i8 %38, 32
+  %39 = icmp ne i8 %.mask21, 0
+  tail call void @_ZN4llvm11Instruction19setHasAllowContractEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %39) #30
+  %40 = load i8, ptr %27, align 4
+  %.mask23 = and i8 %40, 64
+  %41 = icmp ne i8 %.mask23, 0
+  tail call void @_ZN4llvm11Instruction16setHasApproxFuncEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %41) #30
+  br label %46
 
-28:                                               ; preds = %2
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %32 = icmp ne i8 %31, 0
-  tail call void @_ZN4llvm11Instruction18setHasAllowReassocEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %32) #30
-  %33 = load i8, ptr %29, align 4
-  %.mask = and i8 %33, 2
-  %34 = icmp ne i8 %.mask, 0
-  tail call void @_ZN4llvm11Instruction12setHasNoNaNsEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %34) #30
-  %35 = load i8, ptr %29, align 4
-  %.mask15 = and i8 %35, 4
-  %36 = icmp ne i8 %.mask15, 0
-  tail call void @_ZN4llvm11Instruction12setHasNoInfsEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %36) #30
-  %37 = load i8, ptr %29, align 4
-  %.mask17 = and i8 %37, 8
-  %38 = icmp ne i8 %.mask17, 0
-  tail call void @_ZN4llvm11Instruction19setHasNoSignedZerosEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %38) #30
-  %39 = load i8, ptr %29, align 4
-  %.mask19 = and i8 %39, 16
-  %40 = icmp ne i8 %.mask19, 0
-  tail call void @_ZN4llvm11Instruction21setHasAllowReciprocalEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %40) #30
-  %41 = load i8, ptr %29, align 4
-  %.mask21 = and i8 %41, 32
-  %42 = icmp ne i8 %.mask21, 0
-  tail call void @_ZN4llvm11Instruction19setHasAllowContractEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %42) #30
-  %43 = load i8, ptr %29, align 4
-  %.mask23 = and i8 %43, 64
-  %44 = icmp ne i8 %.mask23, 0
-  tail call void @_ZN4llvm11Instruction16setHasApproxFuncEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %44) #30
-  br label %50
+42:                                               ; preds = %2
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %44 = load i8, ptr %43, align 4
+  %45 = trunc i8 %44 to i1
+  tail call void @_ZN4llvm11Instruction9setNonNegEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %45) #30
+  br label %46
 
-45:                                               ; preds = %2
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %47 = load i8, ptr %46, align 4
-  %48 = and i8 %47, 1
-  %49 = icmp ne i8 %48, 0
-  tail call void @_ZN4llvm11Instruction9setNonNegEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %49) #30
-  br label %50
-
-50:                                               ; preds = %45, %28, %26, %21, %12, %5, %2
+46:                                               ; preds = %42, %26, %24, %20, %11, %5, %2
   ret void
 }
 

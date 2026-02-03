@@ -3419,7 +3419,7 @@ define internal void @_focuspeaking_switch_button_callback(ptr noundef %0, ptr r
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %11) #18
   %13 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %12) #18
   %14 = icmp eq i32 %8, %13
-  br i1 %14, label %35, label %15
+  br i1 %14, label %34, label %15
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !15
@@ -3434,29 +3434,28 @@ define internal void @_focuspeaking_switch_button_callback(ptr noundef %0, ptr r
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !150
   tail call void @dt_dev_reprocess_center(ptr noundef %23) #18
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !106
-  %25 = and i32 %24, 1
-  %26 = icmp ne i32 %25, 0
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3212), align 4
-  %28 = icmp ne i32 %27, 0
-  %or.cond = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond, label %29, label %33
+  %25 = trunc i32 %24 to i1
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3212), align 4
+  %27 = icmp ne i32 %26, 0
+  %or.cond = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond, label %28, label %32
 
-29:                                               ; preds = %15
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !101
-  %31 = and i32 %30, 1048576
-  %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %33, label %32
+28:                                               ; preds = %15
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !101
+  %30 = and i32 %29, 1048576
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %29
+31:                                               ; preds = %28
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.219, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.221, i32 noundef 229, ptr noundef nonnull @__FUNCTION__._focuspeaking_switch_button_callback) #18
-  br label %33
+  br label %32
 
-33:                                               ; preds = %29, %32, %15
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !107
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %34, i32 noundef 20, i32 noundef -1) #18
-  br label %35
+32:                                               ; preds = %28, %31, %15
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !107
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %33, i32 noundef 20, i32 noundef -1) #18
+  br label %34
 
-35:                                               ; preds = %2, %33
+34:                                               ; preds = %2, %32
   ret void
 }
 

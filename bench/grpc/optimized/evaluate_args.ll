@@ -1232,9 +1232,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit: ; pr
 170:                                              ; preds = %.critedge76, %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit86, %143
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %0, i8 0, i64 132, i1 false)
   %.pre = load i64, ptr %13, align 8, !tbaa !33
-  %171 = and i64 %.pre, 1
-  %.not.i.i.i = icmp eq i64 %171, 0
-  br i1 %.not.i.i.i, label %172, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit
+  %171 = trunc i64 %.pre to i1
+  br i1 %171, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev.exit, label %172
 
 172:                                              ; preds = %170
   %173 = inttoptr i64 %.pre to ptr
@@ -1284,9 +1283,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %.critedge68
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.exit
 
 183:                                              ; preds = %.critedge68
-  %184 = and i64 %180, 1
-  %.not.i.i1.i = icmp eq i64 %184, 0
-  br i1 %.not.i.i1.i, label %185, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.exit
+  %184 = trunc i64 %180 to i1
+  br i1 %184, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.exit, label %185
 
 185:                                              ; preds = %183
   %186 = inttoptr i64 %180 to ptr
@@ -2074,9 +2072,8 @@ _ZN4absl12lts_2024072213AbslStringifyINS0_12log_internal13StringifySinkEEEvRT_RK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !33
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %4, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -2103,17 +2100,16 @@ define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDat
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #34
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit1
 
 5:                                                ; preds = %1
-  %6 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %6, 0
-  br i1 %.not.i.i1, label %7, label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  %6 = trunc i64 %2 to i1
+  br i1 %6, label %_ZN4absl12lts_202407226StatusD2Ev.exit1, label %7
 
 7:                                                ; preds = %5
   %8 = inttoptr i64 %2 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit2 unwind label %9
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit1 unwind label %9
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
@@ -2122,7 +2118,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   tail call void @__clang_call_terminate(ptr %11) #33
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit2:          ; preds = %7, %5, %_ZN4absl12lts_202407226StatusD2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit1:          ; preds = %7, %5, %_ZN4absl12lts_202407226StatusD2Ev.exit
   ret void
 }
 
@@ -4463,9 +4459,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   %6 = load ptr, ptr %1, align 8, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !40
-  %9 = and i16 %8, 1
-  %.not.i.i.not.i = icmp eq i16 %9, 0
-  br i1 %.not.i.i.not.i, label %88, label %10
+  %9 = trunc i16 %8 to i1
+  br i1 %9, label %10, label %88
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -5383,9 +5378,8 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   %3 = alloca %"class.grpc_core::Slice", align 8
   %4 = load ptr, ptr %1, align 8, !tbaa !48
   %5 = load i16, ptr %4, align 2, !tbaa !40
-  %6 = and i16 %5, 1
-  %.not.i.i.not.i = icmp eq i16 %6, 0
-  br i1 %.not.i.i.not.i, label %76, label %7
+  %6 = trunc i16 %5 to i1
+  br i1 %6, label %7, label %76
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 528
@@ -5396,16 +5390,15 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   %12 = load ptr, ptr %10, align 8, !tbaa !31
   store i8 0, ptr %12, align 1, !tbaa !12
   %13 = load i64, ptr %8, align 8, !tbaa !17
-  %14 = and i64 %13, 1
-  %.not.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 536
   %16 = load ptr, ptr %15, align 8
-  %17 = select i1 %.not.i.i, ptr %15, ptr %16
+  %17 = select i1 %14, ptr %16, ptr %15
   %18 = lshr i64 %13, 1
   %.idx = mul nuw nsw i64 %18, 40
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %.not14 = icmp eq i64 %18, 0
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq i64 %18, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5424,7 +5417,7 @@ define linkonce_odr void @_ZN9grpc_core15metadata_detail20GetStringValueHelperI1
   br label %76
 
 28:                                               ; preds = %.lr.ph, %_ZN9grpc_core5SliceD2Ev.exit
-  %.015 = phi ptr [ %17, %.lr.ph ], [ %73, %_ZN9grpc_core5SliceD2Ev.exit ]
+  %.014 = phi ptr [ %17, %.lr.ph ], [ %73, %_ZN9grpc_core5SliceD2Ev.exit ]
   %29 = load ptr, ptr %9, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !9
@@ -5466,7 +5459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::Slice") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %.015)
+  call void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::Slice") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %.014)
   %49 = load ptr, ptr %9, align 8, !tbaa !51
   %50 = load ptr, ptr %3, align 8, !tbaa !42
   %.not.i = icmp eq ptr %50, null
@@ -5508,7 +5501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKhvEERS4_T_S9_.exi
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendIPKhvEERS4_T_S9_.exit, %64, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %73 = getelementptr inbounds nuw i8, ptr %.015, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %.014, i64 40
   %.not = icmp eq ptr %73, %19
   br i1 %.not, label %._crit_edge, label %28
 

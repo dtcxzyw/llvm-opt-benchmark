@@ -4186,9 +4186,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %.val.i = load ptr, ptr %5, align 8
   %15 = getelementptr i8, ptr %.val.i, i64 20
   %.val.val.i = load i16, ptr %15, align 4
-  %16 = and i16 %.val.val.i, 1
-  %.not.i.i = icmp eq i16 %16, 0
-  br i1 %.not.i.i, label %17, label %58
+  %16 = trunc i16 %.val.val.i to i1
+  br i1 %16, label %58, label %17
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
@@ -4271,8 +4270,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %66 = and i32 %59, 7
   %67 = shl nuw nsw i32 1, %66
   %68 = and i32 %67, %65
-  %.not.i20.i = icmp eq i32 %68, 0
-  br i1 %.not.i20.i, label %69, label %70
+  %.not.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i, label %69, label %70
 
 69:                                               ; preds = %58
   store i8 1, ptr %3, align 1

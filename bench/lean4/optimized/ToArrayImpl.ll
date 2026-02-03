@@ -13,9 +13,8 @@ define ptr @l_List_toArrayAux___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %.011 = phi ptr [ %1, %2 ], [ %42, %lean_dec.exit ]
   %.0 = phi ptr [ %0, %2 ], [ %26, %lean_dec.exit ]
   %4 = ptrtoint ptr %.0 to i64
-  %5 = and i64 %4, 1
-  %.not.i13 = icmp eq i64 %5, 0
-  br i1 %.not.i13, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 1
@@ -40,23 +39,22 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !4
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 1
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %lean_inc.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_inc.exit, label %19
 
 19:                                               ; preds = %14
-  %.val.i14 = load i32, ptr %16, align 4, !tbaa !8
-  %20 = icmp sgt i32 %.val.i14, 0
+  %.val.i13 = load i32, ptr %16, align 4, !tbaa !8
+  %20 = icmp sgt i32 %.val.i13, 0
   br i1 %20, label %21, label %23, !prof !11
 
 21:                                               ; preds = %19
-  %22 = add nuw i32 %.val.i14, 1
+  %22 = add nuw i32 %.val.i13, 1
   store i32 %22, ptr %16, align 4, !tbaa !8
   br label %lean_inc.exit
 
 23:                                               ; preds = %19
-  %.not.i15 = icmp eq i32 %.val.i14, 0
-  br i1 %.not.i15, label %lean_inc.exit, label %24
+  %.not.i14 = icmp eq i32 %.val.i13, 0
+  br i1 %.not.i14, label %lean_inc.exit, label %24
 
 24:                                               ; preds = %23
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %16) #3
@@ -66,30 +64,29 @@ lean_inc.exit:                                    ; preds = %24, %23, %21, %14
   %25 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = ptrtoint ptr %26 to i64
-  %28 = and i64 %27, 1
-  %.not19 = icmp eq i64 %28, 0
-  br i1 %.not19, label %29, label %lean_inc.exit12
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %lean_inc.exit12, label %29
 
 29:                                               ; preds = %lean_inc.exit
-  %.val.i16 = load i32, ptr %26, align 4, !tbaa !8
-  %30 = icmp sgt i32 %.val.i16, 0
+  %.val.i15 = load i32, ptr %26, align 4, !tbaa !8
+  %30 = icmp sgt i32 %.val.i15, 0
   br i1 %30, label %31, label %33, !prof !11
 
 31:                                               ; preds = %29
-  %32 = add nuw i32 %.val.i16, 1
+  %32 = add nuw i32 %.val.i15, 1
   store i32 %32, ptr %26, align 4, !tbaa !8
   br label %lean_inc.exit12
 
 33:                                               ; preds = %29
-  %.not.i17 = icmp eq i32 %.val.i16, 0
-  br i1 %.not.i17, label %lean_inc.exit12, label %34
+  %.not.i16 = icmp eq i32 %.val.i15, 0
+  br i1 %.not.i16, label %lean_inc.exit12, label %34
 
 34:                                               ; preds = %33
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %26) #3
   br label %lean_inc.exit12
 
 lean_inc.exit12:                                  ; preds = %34, %33, %31, %lean_inc.exit
-  br i1 %.not.i13, label %35, label %lean_dec.exit
+  br i1 %5, label %lean_dec.exit, label %35
 
 35:                                               ; preds = %lean_inc.exit12
   %36 = load i32, ptr %.0, align 4, !tbaa !8
@@ -144,9 +141,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 define ptr @lean_list_to_array(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @l_List_lengthTRAux___rarg(ptr noundef %1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i7 = icmp eq i64 %5, 0
-  br i1 %.not.i7, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   tail call void @lean_internal_panic_out_of_memory() #4

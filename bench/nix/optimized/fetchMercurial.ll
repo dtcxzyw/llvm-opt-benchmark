@@ -5715,14 +5715,14 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %31 = trunc i32 %27 to i8
-  %32 = and i8 %31, 1
+  %28 = trunc i32 %27 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  %32 = and i8 %28, 1
   store i8 %32, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %30, ptr %33, align 8
+  store ptr %31, ptr %33, align 8
   %34 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIPKcNSt7__cxx1112regex_traitsIcEEE8_M_applyES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.pre, ptr noundef %.pre28, ptr noundef %19, ptr noundef %.0.lcssa)
   br i1 %34, label %35, label %43
 
@@ -7313,14 +7313,14 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %31 = trunc i32 %27 to i8
-  %32 = and i8 %31, 1
+  %28 = trunc i32 %27 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  %32 = and i8 %28, 1
   store i8 %32, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %30, ptr %33, align 8
+  store ptr %31, ptr %33, align 8
   %34 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIPKcNSt7__cxx1112regex_traitsIcEEE8_M_applyES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.pre, ptr noundef %.pre28, ptr noundef %19, ptr noundef %.0.lcssa)
   br i1 %34, label %35, label %43
 

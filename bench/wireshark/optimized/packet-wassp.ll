@@ -2385,35 +2385,34 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
   %92 = shl i32 %91, 8
   %93 = or disjoint i32 %92, %8
   %94 = add i32 %6, -8
-  %95 = and i16 %59, 1
-  %96 = icmp ne i16 %95, 0
-  %97 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @wassp_reassembled_table, ptr noundef %0, i32 noundef 8, ptr noundef %1, i32 noundef %93, ptr noundef null, i32 noundef %94, i1 noundef zeroext %96)
-  %.not123 = icmp eq ptr %97, null
-  br i1 %.not123, label %102, label %98
+  %95 = trunc i16 %59 to i1
+  %96 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @wassp_reassembled_table, ptr noundef %0, i32 noundef 8, ptr noundef %1, i32 noundef %93, ptr noundef null, i32 noundef %94, i1 noundef zeroext %95)
+  %.not123 = icmp eq ptr %96, null
+  br i1 %.not123, label %101, label %97
 
-98:                                               ; preds = %89
-  %99 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef nonnull @.str.912, ptr noundef nonnull %97, ptr noundef nonnull @wassp_frag_items, ptr noundef null, ptr noundef %31)
-  %.not124 = icmp eq ptr %99, null
-  br i1 %.not124, label %102, label %100
+97:                                               ; preds = %89
+  %98 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 8, ptr noundef %1, ptr noundef nonnull @.str.912, ptr noundef nonnull %96, ptr noundef nonnull @wassp_frag_items, ptr noundef null, ptr noundef %31)
+  %.not124 = icmp eq ptr %98, null
+  br i1 %.not124, label %101, label %99
 
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %4, align 8
-  tail call void @col_append_str(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.913)
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %4, align 8
+  tail call void @col_append_str(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.913)
   br label %.thread135
 
-102:                                              ; preds = %98, %89
-  %103 = load ptr, ptr %4, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.914, i32 noundef %85)
-  %104 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef -1)
+101:                                              ; preds = %97, %89
+  %102 = load ptr, ptr %4, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %102, i32 noundef 25, ptr noundef nonnull @.str.914, i32 noundef %85)
+  %103 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef -1)
   br label %dissect_unfragmented_wassp.exit
 
-.thread135:                                       ; preds = %54, %100
-  %.1141 = phi i32 [ 0, %100 ], [ 8, %54 ]
-  %.0108140 = phi ptr [ %99, %100 ], [ %0, %54 ]
-  %105 = trunc i32 %6 to i16
-  %106 = add i16 %105, -8
-  switch i8 %7, label %126 [
-    i8 15, label %123
+.thread135:                                       ; preds = %54, %99
+  %.1141 = phi i32 [ 0, %99 ], [ 8, %54 ]
+  %.0108140 = phi ptr [ %98, %99 ], [ %0, %54 ]
+  %104 = trunc i32 %6 to i16
+  %105 = add i16 %104, -8
+  switch i8 %7, label %125 [
+    i8 15, label %122
     i8 2, label %.thread135.thread
     i8 3, label %.thread135.thread
     i8 4, label %.thread135.thread
@@ -2480,57 +2479,57 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
     i8 102, label %.thread135.thread
     i8 103, label %.thread135.thread
     i8 104, label %.thread135.thread
-    i8 14, label %107
-    i8 55, label %113
+    i8 14, label %106
+    i8 55, label %112
   ]
 
-107:                                              ; preds = %.thread135
-  %108 = load ptr, ptr @wassp_dissector_table, align 8
-  %109 = zext i16 %106 to i32
-  %110 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef range(i32 0, 17) %.1141, i32 noundef %109)
-  %111 = tail call i32 @dissector_try_uint(ptr noundef %108, i32 noundef 161, ptr noundef %110, ptr noundef %1, ptr noundef %31)
-  %112 = add nuw nsw i32 %.1141, %109
-  br label %130
+106:                                              ; preds = %.thread135
+  %107 = load ptr, ptr @wassp_dissector_table, align 8
+  %108 = zext i16 %105 to i32
+  %109 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef range(i32 0, 17) %.1141, i32 noundef %108)
+  %110 = tail call i32 @dissector_try_uint(ptr noundef %107, i32 noundef 161, ptr noundef %109, ptr noundef %1, ptr noundef %31)
+  %111 = add nuw nsw i32 %.1141, %108
+  br label %129
 
-113:                                              ; preds = %.thread135
-  %114 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.0108140, i32 noundef 36)
-  %115 = load ptr, ptr @ip_handle, align 8
-  %116 = zext i16 %106 to i32
-  %117 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef range(i32 0, 17) %.1141, i32 noundef %116)
-  %118 = tail call i32 @call_dissector(ptr noundef %115, ptr noundef %117, ptr noundef %1, ptr noundef %31)
-  %119 = icmp eq i16 %114, 31875
-  br i1 %119, label %120, label %dissect_unfragmented_wassp.exit
+112:                                              ; preds = %.thread135
+  %113 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.0108140, i32 noundef 36)
+  %114 = load ptr, ptr @ip_handle, align 8
+  %115 = zext i16 %105 to i32
+  %116 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140, i32 noundef range(i32 0, 17) %.1141, i32 noundef %115)
+  %117 = tail call i32 @call_dissector(ptr noundef %114, ptr noundef %116, ptr noundef %1, ptr noundef %31)
+  %118 = icmp eq i16 %113, 31875
+  br i1 %118, label %119, label %dissect_unfragmented_wassp.exit
 
-120:                                              ; preds = %113
-  %121 = add nuw nsw i32 %.1141, 28
-  %122 = tail call fastcc i32 @decode_lbs_tag_header(ptr noundef %31, ptr noundef %.0108140, i32 noundef %121)
-  br label %130
+119:                                              ; preds = %112
+  %120 = add nuw nsw i32 %.1141, 28
+  %121 = tail call fastcc i32 @decode_lbs_tag_header(ptr noundef %31, ptr noundef %.0108140, i32 noundef %120)
+  br label %129
 
-123:                                              ; preds = %.thread135
-  %124 = zext i16 %106 to i32
-  %125 = tail call fastcc i32 @dissect_wassp_mu(ptr noundef %31, ptr noundef %.0108140, ptr noundef %1, i32 noundef range(i32 0, 17) %.1141, i32 noundef %124)
-  br label %130
+122:                                              ; preds = %.thread135
+  %123 = zext i16 %105 to i32
+  %124 = tail call fastcc i32 @dissect_wassp_mu(ptr noundef %31, ptr noundef %.0108140, ptr noundef %1, i32 noundef range(i32 0, 17) %.1141, i32 noundef %123)
+  br label %129
 
-126:                                              ; preds = %.thread135
-  %127 = zext i16 %106 to i32
-  %128 = add nuw nsw i32 %.1141, %127
-  br label %130
+125:                                              ; preds = %.thread135
+  %126 = zext i16 %105 to i32
+  %127 = add nuw nsw i32 %.1141, %126
+  br label %129
 
 .thread135.thread:                                ; preds = %.thread135.thread.sink.split, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135
   %.0108140147 = phi ptr [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %.0108140, %.thread135 ], [ %0, %.thread135.thread.sink.split ]
   %.1141144 = phi i32 [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.1141, %.thread135 ], [ %.154, %.thread135.thread.sink.split ]
-  %129 = tail call fastcc i32 @dissect_wassp_tlv(ptr noundef %31, ptr noundef %.0108140147, ptr noundef %1, i32 noundef range(i32 0, 17) %.1141144, i32 noundef range(i32 0, 256) %8)
-  br label %130
+  %128 = tail call fastcc i32 @dissect_wassp_tlv(ptr noundef %31, ptr noundef %.0108140147, ptr noundef %1, i32 noundef range(i32 0, 17) %.1141144, i32 noundef range(i32 0, 256) %8)
+  br label %129
 
-130:                                              ; preds = %.thread135.thread, %126, %123, %120, %107
-  %.0108140145 = phi ptr [ %.0108140, %126 ], [ %.0108140147, %.thread135.thread ], [ %.0108140, %107 ], [ %.0108140, %120 ], [ %.0108140, %123 ]
-  %.0.i = phi i32 [ %128, %126 ], [ %129, %.thread135.thread ], [ %112, %107 ], [ %122, %120 ], [ %125, %123 ]
-  %131 = load ptr, ptr @data_handle, align 8
-  %132 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140145, i32 noundef %.0.i, i32 noundef -1)
-  %133 = tail call i32 @call_dissector(ptr noundef %131, ptr noundef %132, ptr noundef %1, ptr noundef %31)
+129:                                              ; preds = %.thread135.thread, %125, %122, %119, %106
+  %.0108140145 = phi ptr [ %.0108140, %125 ], [ %.0108140147, %.thread135.thread ], [ %.0108140, %106 ], [ %.0108140, %119 ], [ %.0108140, %122 ]
+  %.0.i = phi i32 [ %127, %125 ], [ %128, %.thread135.thread ], [ %111, %106 ], [ %121, %119 ], [ %124, %122 ]
+  %130 = load ptr, ptr @data_handle, align 8
+  %131 = tail call ptr @tvb_new_subset_length(ptr noundef %.0108140145, i32 noundef %.0.i, i32 noundef -1)
+  %132 = tail call i32 @call_dissector(ptr noundef %130, ptr noundef %131, ptr noundef %1, ptr noundef %31)
   br label %dissect_unfragmented_wassp.exit
 
-dissect_unfragmented_wassp.exit:                  ; preds = %102, %130, %113
+dissect_unfragmented_wassp.exit:                  ; preds = %101, %129, %112
   store i8 %27, ptr %26, align 8
   ret void
 }
@@ -4415,99 +4414,98 @@ define internal fastcc void @decode_filter_rule_octext_string(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit170, label %.lr.ph, !llvm.loop !18
 
 .loopexit170:                                     ; preds = %.lr.ph, %4
-  %67 = and i32 %.2, 1
-  %.not167 = icmp ne i32 %67, 0
-  %68 = icmp samesign ugt i32 %3, 23
-  %or.cond187 = select i1 %.not167, i1 %68, i1 false
+  %.not167 = trunc i32 %.2 to i1
+  %67 = icmp samesign ugt i32 %3, 23
+  %or.cond187 = select i1 %.not167, i1 %67, i1 false
   br i1 %or.cond187, label %.lr.ph175.preheader, label %.loopexit169
 
 .lr.ph175.preheader:                              ; preds = %.loopexit170
   %.lhs.trunc183 = trunc i32 %7 to i16
-  %69 = udiv i16 %.lhs.trunc183, 20
-  %.zext184 = zext nneg i16 %69 to i32
-  %70 = add i32 %2, 4
+  %68 = udiv i16 %.lhs.trunc183, 20
+  %.zext184 = zext nneg i16 %68 to i32
+  %69 = add i32 %2, 4
   br label %.lr.ph175
 
 .lr.ph175:                                        ; preds = %.lr.ph175.preheader, %.lr.ph175
-  %.1162174 = phi i32 [ %106, %.lr.ph175 ], [ 0, %.lr.ph175.preheader ]
-  %.1165173 = phi i32 [ %105, %.lr.ph175 ], [ %70, %.lr.ph175.preheader ]
-  %71 = load i32, ptr @hf_wassp_filter_rule, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %71, ptr noundef %1, i32 noundef %.1165173, i32 noundef 20, i32 noundef 0)
-  %73 = load i32, ptr @hf_wassp_filter_flag, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %73, ptr noundef %1, i32 noundef %.1165173, i32 noundef 4, i32 noundef 0)
-  %75 = add i32 %.1165173, 4
-  %76 = load i32, ptr @hf_wassp_ipaddress, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %76, ptr noundef %1, i32 noundef %75, i32 noundef 4, i32 noundef 0)
-  %78 = add i32 %.1165173, 8
-  %79 = load i32, ptr @hf_filter_rule_port_range, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %79, ptr noundef %1, i32 noundef %78, i32 noundef 4, i32 noundef 0)
-  %81 = add i32 %.1165173, 12
-  %82 = load i32, ptr @hf_wassp_ipprotocol, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %82, ptr noundef %1, i32 noundef %81, i32 noundef 1, i32 noundef 0)
-  %84 = add i32 %.1165173, 13
-  %85 = load i32, ptr @hf_wassp_netmasklength, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %85, ptr noundef %1, i32 noundef %84, i32 noundef 1, i32 noundef 0)
-  %87 = add i32 %.1165173, 14
-  %88 = load i32, ptr @hf_wassp_tos, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %88, ptr noundef %1, i32 noundef %87, i32 noundef 1, i32 noundef 0)
-  %90 = add i32 %.1165173, 15
-  %91 = load i32, ptr @hf_filter_tos_maskbit_priority, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %91, ptr noundef %1, i32 noundef %90, i32 noundef 1, i32 noundef 0)
-  %93 = add i32 %.1165173, 16
-  %94 = load i32, ptr @hf_cos_tos, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %94, ptr noundef %1, i32 noundef %93, i32 noundef 1, i32 noundef 0)
-  %96 = add i32 %.1165173, 17
-  %97 = load i32, ptr @hf_cos_tos_mask, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %97, ptr noundef %1, i32 noundef %96, i32 noundef 1, i32 noundef 0)
-  %99 = add i32 %.1165173, 18
-  %100 = load i32, ptr @hf_cos_priority_txq, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %100, ptr noundef %1, i32 noundef %99, i32 noundef 1, i32 noundef 0)
-  %102 = add i32 %.1165173, 19
-  %103 = load i32, ptr @hf_cos_rateid, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %103, ptr noundef %1, i32 noundef %102, i32 noundef 1, i32 noundef 0)
-  %105 = add i32 %.1165173, 20
-  %106 = add nuw nsw i32 %.1162174, 1
-  %exitcond180.not = icmp eq i32 %106, %.zext184
+  %.1162174 = phi i32 [ %105, %.lr.ph175 ], [ 0, %.lr.ph175.preheader ]
+  %.1165173 = phi i32 [ %104, %.lr.ph175 ], [ %69, %.lr.ph175.preheader ]
+  %70 = load i32, ptr @hf_wassp_filter_rule, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %70, ptr noundef %1, i32 noundef %.1165173, i32 noundef 20, i32 noundef 0)
+  %72 = load i32, ptr @hf_wassp_filter_flag, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %72, ptr noundef %1, i32 noundef %.1165173, i32 noundef 4, i32 noundef 0)
+  %74 = add i32 %.1165173, 4
+  %75 = load i32, ptr @hf_wassp_ipaddress, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %75, ptr noundef %1, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  %77 = add i32 %.1165173, 8
+  %78 = load i32, ptr @hf_filter_rule_port_range, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %78, ptr noundef %1, i32 noundef %77, i32 noundef 4, i32 noundef 0)
+  %80 = add i32 %.1165173, 12
+  %81 = load i32, ptr @hf_wassp_ipprotocol, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %81, ptr noundef %1, i32 noundef %80, i32 noundef 1, i32 noundef 0)
+  %83 = add i32 %.1165173, 13
+  %84 = load i32, ptr @hf_wassp_netmasklength, align 4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %84, ptr noundef %1, i32 noundef %83, i32 noundef 1, i32 noundef 0)
+  %86 = add i32 %.1165173, 14
+  %87 = load i32, ptr @hf_wassp_tos, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %87, ptr noundef %1, i32 noundef %86, i32 noundef 1, i32 noundef 0)
+  %89 = add i32 %.1165173, 15
+  %90 = load i32, ptr @hf_filter_tos_maskbit_priority, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %90, ptr noundef %1, i32 noundef %89, i32 noundef 1, i32 noundef 0)
+  %92 = add i32 %.1165173, 16
+  %93 = load i32, ptr @hf_cos_tos, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %93, ptr noundef %1, i32 noundef %92, i32 noundef 1, i32 noundef 0)
+  %95 = add i32 %.1165173, 17
+  %96 = load i32, ptr @hf_cos_tos_mask, align 4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %96, ptr noundef %1, i32 noundef %95, i32 noundef 1, i32 noundef 0)
+  %98 = add i32 %.1165173, 18
+  %99 = load i32, ptr @hf_cos_priority_txq, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %99, ptr noundef %1, i32 noundef %98, i32 noundef 1, i32 noundef 0)
+  %101 = add i32 %.1165173, 19
+  %102 = load i32, ptr @hf_cos_rateid, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %102, ptr noundef %1, i32 noundef %101, i32 noundef 1, i32 noundef 0)
+  %104 = add i32 %.1165173, 20
+  %105 = add nuw nsw i32 %.1162174, 1
+  %exitcond180.not = icmp eq i32 %105, %.zext184
   br i1 %exitcond180.not, label %.loopexit169, label %.lr.ph175, !llvm.loop !19
 
 .loopexit169:                                     ; preds = %.lr.ph175, %.loopexit170
-  %107 = and i32 %.2, 2
-  %.not168 = icmp ne i32 %107, 0
-  %108 = icmp samesign ugt i32 %3, 19
-  %or.cond188 = select i1 %.not168, i1 %108, i1 false
+  %106 = and i32 %.2, 2
+  %.not168 = icmp ne i32 %106, 0
+  %107 = icmp samesign ugt i32 %3, 19
+  %or.cond188 = select i1 %.not168, i1 %107, i1 false
   br i1 %or.cond188, label %.lr.ph178.preheader, label %.loopexit
 
 .lr.ph178.preheader:                              ; preds = %.loopexit169
-  %109 = lshr i32 %7, 4
-  %.zext = and i32 %109, 4095
-  %110 = add i32 %2, 4
+  %108 = lshr i32 %7, 4
+  %.zext = and i32 %108, 4095
+  %109 = add i32 %2, 4
   br label %.lr.ph178
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
-  %.2163177 = phi i32 [ %131, %.lr.ph178 ], [ 0, %.lr.ph178.preheader ]
-  %.2166176 = phi i32 [ %130, %.lr.ph178 ], [ %110, %.lr.ph178.preheader ]
-  %111 = load i32, ptr @hf_wassp_filter_rule, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %111, ptr noundef %1, i32 noundef %.2166176, i32 noundef 16, i32 noundef 0)
-  %113 = load i32, ptr @hf_wassp_filter_flag, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %113, ptr noundef %1, i32 noundef %.2166176, i32 noundef 4, i32 noundef 0)
-  %115 = add i32 %.2166176, 4
-  %116 = load i32, ptr @hf_wassp_ipaddress, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %116, ptr noundef %1, i32 noundef %115, i32 noundef 4, i32 noundef 0)
-  %118 = add i32 %.2166176, 8
-  %119 = load i32, ptr @hf_filter_rule_port_range, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %119, ptr noundef %1, i32 noundef %118, i32 noundef 4, i32 noundef 0)
-  %121 = add i32 %.2166176, 12
-  %122 = load i32, ptr @hf_wassp_ipprotocol, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %122, ptr noundef %1, i32 noundef %121, i32 noundef 1, i32 noundef 0)
-  %124 = add i32 %.2166176, 13
-  %125 = load i32, ptr @hf_wassp_netmasklength, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %125, ptr noundef %1, i32 noundef %124, i32 noundef 1, i32 noundef 0)
-  %127 = add i32 %.2166176, 14
-  %128 = load i32, ptr @hf_wassp_reserve, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %128, ptr noundef %1, i32 noundef %127, i32 noundef 2, i32 noundef 0)
-  %130 = add i32 %.2166176, 16
-  %131 = add nuw nsw i32 %.2163177, 1
-  %exitcond182.not = icmp eq i32 %131, %.zext
+  %.2163177 = phi i32 [ %130, %.lr.ph178 ], [ 0, %.lr.ph178.preheader ]
+  %.2166176 = phi i32 [ %129, %.lr.ph178 ], [ %109, %.lr.ph178.preheader ]
+  %110 = load i32, ptr @hf_wassp_filter_rule, align 4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %110, ptr noundef %1, i32 noundef %.2166176, i32 noundef 16, i32 noundef 0)
+  %112 = load i32, ptr @hf_wassp_filter_flag, align 4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %112, ptr noundef %1, i32 noundef %.2166176, i32 noundef 4, i32 noundef 0)
+  %114 = add i32 %.2166176, 4
+  %115 = load i32, ptr @hf_wassp_ipaddress, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %115, ptr noundef %1, i32 noundef %114, i32 noundef 4, i32 noundef 0)
+  %117 = add i32 %.2166176, 8
+  %118 = load i32, ptr @hf_filter_rule_port_range, align 4
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %118, ptr noundef %1, i32 noundef %117, i32 noundef 4, i32 noundef 0)
+  %120 = add i32 %.2166176, 12
+  %121 = load i32, ptr @hf_wassp_ipprotocol, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %121, ptr noundef %1, i32 noundef %120, i32 noundef 1, i32 noundef 0)
+  %123 = add i32 %.2166176, 13
+  %124 = load i32, ptr @hf_wassp_netmasklength, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %124, ptr noundef %1, i32 noundef %123, i32 noundef 1, i32 noundef 0)
+  %126 = add i32 %.2166176, 14
+  %127 = load i32, ptr @hf_wassp_reserve, align 4
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %127, ptr noundef %1, i32 noundef %126, i32 noundef 2, i32 noundef 0)
+  %129 = add i32 %.2166176, 16
+  %130 = add nuw nsw i32 %.2163177, 1
+  %exitcond182.not = icmp eq i32 %130, %.zext
   br i1 %exitcond182.not, label %.loopexit, label %.lr.ph178, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph178, %.loopexit169

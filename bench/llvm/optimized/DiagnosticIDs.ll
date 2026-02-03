@@ -384,17 +384,16 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13DiagnosticIDs27getDiagn
 define dso_local noundef zeroext i1 @_ZN5clang13DiagnosticIDs12isDeferrableEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %0)
   %.not.not.not = icmp eq ptr %2, null
-  br i1 %.not.not.not, label %8, label %3
+  br i1 %.not.not.not, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %5 = load i8, ptr %4, align 2
-  %6 = and i8 %5, 1
-  %7 = icmp ne i8 %6, 0
-  br label %8
+  %6 = trunc i8 %5 to i1
+  br label %7
 
-8:                                                ; preds = %1, %3
-  %spec.select = phi i1 [ %7, %3 ], [ false, %1 ]
+7:                                                ; preds = %1, %3
+  %spec.select = phi i1 [ %6, %3 ], [ false, %1 ]
   ret i1 %spec.select
 }
 
@@ -3008,10 +3007,9 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10: ; preds = %_ZN5cl
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i: ; preds = %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit, %24, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10
   %spec.select.i3.i = phi i32 [ %29, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit.i10 ], [ 0, %24 ], [ %29, %_ZN5clang13DiagnosticIDs15isARCDiagnosticEj.exit ]
   %35 = zext nneg i32 %spec.select.i3.i to i64
-  %36 = shl nuw nsw i64 1, %35
-  %37 = and i64 %36, 67174656
-  %.not.i = icmp eq i64 %37, 0
-  br i1 %.not.i, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread, label %_ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit
+  %36 = lshr i64 67174656, %35
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %_ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit, label %_ZNK5clang13DiagnosticIDs12getDiagClassEj.exit.thread
 
 _ZN5clang13DiagnosticIDs27isCodegenABICheckDiagnosticEj.exit: ; preds = %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit.i
   %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %35
@@ -3117,10 +3115,9 @@ _ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit: ; preds = %1
 _ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit: ; preds = %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit, %1
   %spec.select.i3 = phi i32 [ %6, %_ZN5clang13DiagnosticIDs24getCategoryNumberForDiagEj.exit ], [ 0, %1 ]
   %8 = zext nneg i32 %spec.select.i3 to i64
-  %9 = shl nuw nsw i64 1, %8
-  %10 = and i64 %9, 67174656
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %11
+  %9 = lshr i64 67174656, %8
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %11, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
 11:                                               ; preds = %_ZN5clang13DiagnosticIDs21getCategoryNameFromIDEj.exit
   %12 = getelementptr inbounds nuw %"struct.(anonymous namespace)::StaticDiagCategoryRec", ptr @_ZL17CategoryNameTable, i64 %8

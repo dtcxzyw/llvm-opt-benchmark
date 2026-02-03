@@ -2386,8 +2386,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !46
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !46
   %12 = icmp eq i32 %11, 0
@@ -2397,7 +2396,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !46
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -2462,8 +2461,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -2473,7 +2471,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -2618,8 +2616,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !85
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !85
   %12 = icmp eq i32 %11, 0
@@ -2629,7 +2626,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !85
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -2694,8 +2691,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -2705,7 +2701,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -2850,8 +2846,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !112
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !112
   %12 = icmp eq i32 %11, 0
@@ -2861,7 +2856,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !112
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -2926,8 +2921,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -2937,7 +2931,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -3082,8 +3076,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !139
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !139
   %12 = icmp eq i32 %11, 0
@@ -3093,7 +3086,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !139
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -3158,8 +3151,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -3169,7 +3161,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -3314,8 +3306,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !166
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !166
   %12 = icmp eq i32 %11, 0
@@ -3325,7 +3316,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !166
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -3390,8 +3381,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -3401,7 +3391,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -3546,8 +3536,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !193
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !193
   %12 = icmp eq i32 %11, 0
@@ -3557,7 +3546,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !193
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -3622,8 +3611,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -3633,7 +3621,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -3856,9 +3844,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 1)
@@ -3869,8 +3856,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 1)
@@ -3881,15 +3868,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 1)
@@ -3900,8 +3887,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 1)
@@ -6538,9 +6525,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !227
@@ -6552,15 +6538,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !227
@@ -6572,15 +6558,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !227
@@ -10248,9 +10234,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 2)
@@ -10261,8 +10246,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 2)
@@ -10273,15 +10258,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 2)
@@ -10292,8 +10277,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 2)
@@ -12792,9 +12777,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !316
@@ -12806,15 +12790,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !316
@@ -12826,15 +12810,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !316
@@ -16244,9 +16228,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 3)
@@ -16257,8 +16240,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 3)
@@ -16269,15 +16252,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 3)
@@ -16288,8 +16271,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 3)
@@ -18788,9 +18771,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !360
@@ -18802,15 +18784,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !360
@@ -18822,15 +18804,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !360
@@ -22240,9 +22222,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 5)
@@ -22253,8 +22234,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 5)
@@ -22265,15 +22246,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 5)
@@ -22284,8 +22265,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 5)
@@ -24784,9 +24765,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !404
@@ -24798,15 +24778,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !404
@@ -24818,15 +24798,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !404
@@ -28236,9 +28216,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 7)
@@ -28249,8 +28228,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 7)
@@ -28261,15 +28240,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 7)
@@ -28280,8 +28259,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 7)
@@ -31165,9 +31144,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !448
@@ -31179,15 +31157,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !448
@@ -31199,15 +31177,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !448
@@ -36058,9 +36036,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 8)
@@ -36071,8 +36048,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 8)
@@ -36083,15 +36060,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 8)
@@ -36102,8 +36079,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 1, i32 noundef 8)
@@ -38597,9 +38574,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !492
@@ -38611,15 +38587,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !492
@@ -38631,15 +38607,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !492
@@ -41799,8 +41775,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !537
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !537
   %12 = icmp eq i32 %11, 0
@@ -41810,7 +41785,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !537
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -41875,8 +41850,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -41886,7 +41860,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -42031,8 +42005,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !564
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !564
   %12 = icmp eq i32 %11, 0
@@ -42042,7 +42015,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !564
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -42107,8 +42080,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -42118,7 +42090,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -42263,8 +42235,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !591
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !591
   %12 = icmp eq i32 %11, 0
@@ -42274,7 +42245,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !591
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -42339,8 +42310,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -42350,7 +42320,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -42495,8 +42465,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !618
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !618
   %12 = icmp eq i32 %11, 0
@@ -42506,7 +42475,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !618
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -42571,8 +42540,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -42582,7 +42550,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -42727,8 +42695,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !645
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !645
   %12 = icmp eq i32 %11, 0
@@ -42738,7 +42705,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !645
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -42803,8 +42770,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -42814,7 +42780,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -42959,8 +42925,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !672
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !672
   %12 = icmp eq i32 %11, 0
@@ -42970,7 +42935,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !672
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -43035,8 +43000,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -43046,7 +43010,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -43258,9 +43222,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 1)
@@ -43271,8 +43234,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 1)
@@ -43283,15 +43246,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 1)
@@ -43302,8 +43265,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 1)
@@ -45802,9 +45765,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !701
@@ -45816,15 +45778,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !701
@@ -45836,15 +45798,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !701
@@ -49268,9 +49230,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 2)
@@ -49281,8 +49242,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 2)
@@ -49293,15 +49254,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 2)
@@ -49312,8 +49273,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 2)
@@ -51812,9 +51773,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !754
@@ -51826,15 +51786,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !754
@@ -51846,15 +51806,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !754
@@ -55264,9 +55224,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 3)
@@ -55277,8 +55236,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 3)
@@ -55289,15 +55248,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 3)
@@ -55308,8 +55267,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 3)
@@ -57808,9 +57767,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !798
@@ -57822,15 +57780,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !798
@@ -57842,15 +57800,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !798
@@ -61260,9 +61218,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 5)
@@ -61273,8 +61230,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 5)
@@ -61285,15 +61242,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 5)
@@ -61304,8 +61261,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 5)
@@ -63804,9 +63761,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !842
@@ -63818,15 +63774,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !842
@@ -63838,15 +63794,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !842
@@ -67256,9 +67212,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 7)
@@ -67269,8 +67224,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 7)
@@ -67281,15 +67236,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 7)
@@ -67300,8 +67255,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 7)
@@ -70185,9 +70140,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !886
@@ -70199,15 +70153,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !886
@@ -70219,15 +70173,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !886
@@ -75078,9 +75032,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 8)
@@ -75091,8 +75044,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 8)
@@ -75103,15 +75056,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 8)
@@ -75122,8 +75075,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 2, i32 noundef 8)
@@ -77617,9 +77570,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !930
@@ -77631,15 +77583,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !930
@@ -77651,15 +77603,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !930
@@ -80819,8 +80771,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !975
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !975
   %12 = icmp eq i32 %11, 0
@@ -80830,7 +80781,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !975
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -80895,8 +80846,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -80906,7 +80856,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -81051,8 +81001,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1002
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1002
   %12 = icmp eq i32 %11, 0
@@ -81062,7 +81011,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1002
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -81127,8 +81076,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -81138,7 +81086,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -81283,8 +81231,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1029
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1029
   %12 = icmp eq i32 %11, 0
@@ -81294,7 +81241,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1029
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -81359,8 +81306,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -81370,7 +81316,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -81515,8 +81461,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1056
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1056
   %12 = icmp eq i32 %11, 0
@@ -81526,7 +81471,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1056
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -81591,8 +81536,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -81602,7 +81546,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -81747,8 +81691,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1083
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1083
   %12 = icmp eq i32 %11, 0
@@ -81758,7 +81701,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1083
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -81823,8 +81766,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -81834,7 +81776,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -81979,8 +81921,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1110
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1110
   %12 = icmp eq i32 %11, 0
@@ -81990,7 +81931,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1110
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -82055,8 +81996,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -82066,7 +82006,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -82278,9 +82218,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 1)
@@ -82291,8 +82230,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 1)
@@ -82303,15 +82242,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 1)
@@ -82322,8 +82261,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 1)
@@ -84822,9 +84761,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1139
@@ -84836,15 +84774,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1139
@@ -84856,15 +84794,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1139
@@ -88288,9 +88226,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 2)
@@ -88301,8 +88238,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 2)
@@ -88313,15 +88250,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 2)
@@ -88332,8 +88269,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 2)
@@ -90832,9 +90769,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1192
@@ -90846,15 +90782,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1192
@@ -90866,15 +90802,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1192
@@ -94284,9 +94220,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 3)
@@ -94297,8 +94232,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 3)
@@ -94309,15 +94244,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 3)
@@ -94328,8 +94263,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 3)
@@ -96828,9 +96763,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1236
@@ -96842,15 +96776,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1236
@@ -96862,15 +96796,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1236
@@ -100280,9 +100214,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 5)
@@ -100293,8 +100226,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 5)
@@ -100305,15 +100238,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 5)
@@ -100324,8 +100257,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 5)
@@ -102824,9 +102757,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1280
@@ -102838,15 +102770,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1280
@@ -102858,15 +102790,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1280
@@ -106276,9 +106208,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 7)
@@ -106289,8 +106220,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 7)
@@ -106301,15 +106232,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 7)
@@ -106320,8 +106251,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 7)
@@ -109205,9 +109136,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1324
@@ -109219,15 +109149,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1324
@@ -109239,15 +109169,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1324
@@ -114098,9 +114028,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 8)
@@ -114111,8 +114040,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 8)
@@ -114123,15 +114052,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 8)
@@ -114142,8 +114071,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 3, i32 noundef 8)
@@ -116637,9 +116566,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1368
@@ -116651,15 +116579,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1368
@@ -116671,15 +116599,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1368
@@ -119839,8 +119767,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1413
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1413
   %12 = icmp eq i32 %11, 0
@@ -119850,7 +119777,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1413
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -119915,8 +119842,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -119926,7 +119852,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -120071,8 +119997,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1440
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1440
   %12 = icmp eq i32 %11, 0
@@ -120082,7 +120007,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1440
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -120147,8 +120072,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -120158,7 +120082,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -120303,8 +120227,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1467
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1467
   %12 = icmp eq i32 %11, 0
@@ -120314,7 +120237,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1467
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -120379,8 +120302,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -120390,7 +120312,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -120535,8 +120457,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1494
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1494
   %12 = icmp eq i32 %11, 0
@@ -120546,7 +120467,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1494
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -120611,8 +120532,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -120622,7 +120542,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -120767,8 +120687,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1521
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1521
   %12 = icmp eq i32 %11, 0
@@ -120778,7 +120697,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1521
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -120843,8 +120762,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -120854,7 +120772,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -120999,8 +120917,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1548
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1548
   %12 = icmp eq i32 %11, 0
@@ -121010,7 +120927,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1548
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -121075,8 +120992,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -121086,7 +121002,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -121298,9 +121214,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 1)
@@ -121311,8 +121226,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 1)
@@ -121323,15 +121238,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 1)
@@ -121342,8 +121257,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 1)
@@ -123842,9 +123757,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1577
@@ -123856,15 +123770,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1577
@@ -123876,15 +123790,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1577
@@ -127308,9 +127222,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 2)
@@ -127321,8 +127234,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 2)
@@ -127333,15 +127246,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 2)
@@ -127352,8 +127265,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 2)
@@ -129852,9 +129765,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1630
@@ -129866,15 +129778,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1630
@@ -129886,15 +129798,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1630
@@ -133304,9 +133216,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 3)
@@ -133317,8 +133228,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 3)
@@ -133329,15 +133240,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 3)
@@ -133348,8 +133259,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 3)
@@ -135848,9 +135759,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1674
@@ -135862,15 +135772,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1674
@@ -135882,15 +135792,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1674
@@ -139300,9 +139210,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 5)
@@ -139313,8 +139222,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 5)
@@ -139325,15 +139234,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 5)
@@ -139344,8 +139253,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 5)
@@ -141844,9 +141753,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1718
@@ -141858,15 +141766,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1718
@@ -141878,15 +141786,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1718
@@ -145296,9 +145204,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 7)
@@ -145309,8 +145216,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 7)
@@ -145321,15 +145228,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 7)
@@ -145340,8 +145247,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 7)
@@ -148225,9 +148132,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1762
@@ -148239,15 +148145,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1762
@@ -148259,15 +148165,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1762
@@ -153118,9 +153024,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 8)
@@ -153131,8 +153036,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 8)
@@ -153143,15 +153048,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 8)
@@ -153162,8 +153067,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 5, i32 noundef 8)
@@ -155657,9 +155562,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !1806
@@ -155671,15 +155575,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !1806
@@ -155691,15 +155595,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !1806
@@ -158859,8 +158763,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1851
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1851
   %12 = icmp eq i32 %11, 0
@@ -158870,7 +158773,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1851
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -158935,8 +158838,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -158946,7 +158848,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -159091,8 +158993,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1878
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1878
   %12 = icmp eq i32 %11, 0
@@ -159102,7 +159003,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1878
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -159167,8 +159068,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -159178,7 +159078,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -159323,8 +159223,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1905
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1905
   %12 = icmp eq i32 %11, 0
@@ -159334,7 +159233,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1905
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -159399,8 +159298,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -159410,7 +159308,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -159555,8 +159453,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1932
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1932
   %12 = icmp eq i32 %11, 0
@@ -159566,7 +159463,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1932
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -159631,8 +159528,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -159642,7 +159538,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -159787,8 +159683,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1959
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1959
   %12 = icmp eq i32 %11, 0
@@ -159798,7 +159693,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1959
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -159863,8 +159758,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -159874,7 +159768,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -160019,8 +159913,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !1986
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !1986
   %12 = icmp eq i32 %11, 0
@@ -160030,7 +159923,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !1986
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -160095,8 +159988,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -160106,7 +159998,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -160318,9 +160210,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 1)
@@ -160331,8 +160222,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 1)
@@ -160343,15 +160234,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 1)
@@ -160362,8 +160253,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 1)
@@ -163047,9 +162938,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2015
@@ -163061,15 +162951,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2015
@@ -163081,15 +162971,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2015
@@ -167290,9 +167180,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 2)
@@ -167303,8 +167192,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 2)
@@ -167315,15 +167204,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 2)
@@ -167334,8 +167223,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 2)
@@ -170019,9 +169908,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2070
@@ -170033,15 +169921,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2070
@@ -170053,15 +169941,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2070
@@ -174248,9 +174136,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 3)
@@ -174261,8 +174148,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 3)
@@ -174273,15 +174160,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 3)
@@ -174292,8 +174179,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 3)
@@ -176977,9 +176864,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2114
@@ -176991,15 +176877,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2114
@@ -177011,15 +176897,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2114
@@ -181206,9 +181092,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 5)
@@ -181219,8 +181104,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 5)
@@ -181231,15 +181116,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 5)
@@ -181250,8 +181135,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 5)
@@ -183935,9 +183820,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2158
@@ -183949,15 +183833,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2158
@@ -183969,15 +183853,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2158
@@ -188164,9 +188048,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 7)
@@ -188177,8 +188060,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 7)
@@ -188189,15 +188072,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 7)
@@ -188208,8 +188091,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 7)
@@ -191278,9 +191161,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2202
@@ -191292,15 +191174,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2202
@@ -191312,15 +191194,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2202
@@ -196948,9 +196830,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 8)
@@ -196961,8 +196842,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 8)
@@ -196973,15 +196854,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 8)
@@ -196992,8 +196873,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 7, i32 noundef 8)
@@ -199672,9 +199553,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2246
@@ -199686,15 +199566,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2246
@@ -199706,15 +199586,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2246
@@ -203651,8 +203531,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !2291
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !2291
   %12 = icmp eq i32 %11, 0
@@ -203662,7 +203541,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !2291
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -203727,8 +203606,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -203738,7 +203616,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -203883,8 +203761,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !2318
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !2318
   %12 = icmp eq i32 %11, 0
@@ -203894,7 +203771,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !2318
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -203959,8 +203836,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -203970,7 +203846,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -204115,8 +203991,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !2345
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !2345
   %12 = icmp eq i32 %11, 0
@@ -204126,7 +204001,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !2345
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -204191,8 +204066,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -204202,7 +204076,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -204347,8 +204221,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !2372
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !2372
   %12 = icmp eq i32 %11, 0
@@ -204358,7 +204231,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !2372
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -204423,8 +204296,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -204434,7 +204306,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -204579,8 +204451,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !2399
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !2399
   %12 = icmp eq i32 %11, 0
@@ -204590,7 +204461,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !2399
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -204655,8 +204526,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -204666,7 +204536,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -204811,8 +204681,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %8 = load i32, ptr %7, align 8, !tbaa !45, !noalias !2426
-  %9 = and i32 %8, 1
-  %.not.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %11 = load i32, ptr %10, align 4, !tbaa !49, !noalias !2426
   %12 = icmp eq i32 %11, 0
@@ -204822,7 +204691,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev28GetLut1DRenderer_OutB
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !tbaa !53, !noalias !2426
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not.i, label %22, label %17
+  br i1 %9, label %17, label %22
 
 17:                                               ; preds = %6
   br i1 %12, label %18, label %20
@@ -204887,8 +204756,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
 27:                                               ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %29 = load i32, ptr %28, align 8, !tbaa !45
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
+  %30 = trunc i32 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 228
   %32 = load i32, ptr %31, align 4, !tbaa !49
   %33 = icmp eq i32 %32, 0
@@ -204898,7 +204766,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev5OpCPUELN9__gnu_cxx12_Lock_policyE2EED
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 1, ptr %36, align 4, !tbaa !53, !noalias !68
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  br i1 %.not, label %50, label %38
+  br i1 %30, label %38, label %50
 
 38:                                               ; preds = %27
   br i1 %33, label %39, label %43
@@ -205110,9 +204978,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 1)
@@ -205123,8 +204990,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 1)
@@ -205135,15 +205002,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 1)
@@ -205154,8 +205021,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 1)
@@ -206448,9 +206315,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2455
@@ -206462,15 +206328,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2455
@@ -206482,15 +206348,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2455
@@ -210069,9 +209935,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 2)
@@ -210082,8 +209947,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 2)
@@ -210094,15 +209959,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 2)
@@ -210113,8 +209978,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 2)
@@ -211148,9 +211013,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2508
@@ -211162,15 +211026,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2508
@@ -211182,15 +211046,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2508
@@ -214740,9 +214604,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 3)
@@ -214753,8 +214616,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 3)
@@ -214765,15 +214628,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 3)
@@ -214784,8 +214647,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 3)
@@ -215819,9 +215682,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2552
@@ -215833,15 +215695,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2552
@@ -215853,15 +215715,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2552
@@ -219411,9 +219273,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 5)
@@ -219424,8 +219285,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 5)
@@ -219436,15 +219297,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 5)
@@ -219455,8 +219316,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 5)
@@ -220490,9 +220351,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2596
@@ -220504,15 +220364,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2596
@@ -220524,15 +220384,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2596
@@ -224082,9 +223942,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 7)
@@ -224095,8 +223954,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 7)
@@ -224107,15 +223966,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 7)
@@ -224126,8 +223985,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 7)
@@ -225689,9 +225548,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2640
@@ -225703,15 +225561,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2640
@@ -225723,15 +225581,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2640
@@ -230865,9 +230723,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %23, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %2
   %22 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21SSE2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 8)
@@ -230878,8 +230735,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %24 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %25 = load i32, ptr %24, align 4, !tbaa !231
   %26 = and i32 %25, 256
-  %.not4 = icmp eq i32 %26, 0
-  br i1 %.not4, label %29, label %27
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %23
   %28 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev20AVXGetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 8)
@@ -230890,15 +230747,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %30 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %31 = load i32, ptr %30, align 4, !tbaa !231
   %32 = and i32 %31, 1024
-  %.not5 = icmp eq i32 %32, 0
-  br i1 %.not5, label %39, label %33
+  %.not4 = icmp eq i32 %32, 0
+  br i1 %.not4, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %35 = load i32, ptr %34, align 4, !tbaa !231
   %36 = and i32 %35, 2048
-  %.not6 = icmp eq i32 %36, 0
-  br i1 %.not6, label %37, label %39
+  %.not5 = icmp eq i32 %36, 0
+  br i1 %.not5, label %37, label %39
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 8)
@@ -230909,8 +230766,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 4096
-  %.not7 = icmp eq i32 %42, 0
-  br i1 %.not7, label %45, label %43
+  %.not6 = icmp eq i32 %42, 0
+  br i1 %.not6, label %45, label %43
 
 43:                                               ; preds = %39
   %44 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef 8, i32 noundef 8)
@@ -231848,9 +231705,8 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %18 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %19 = load i32, ptr %18, align 4, !tbaa !231
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %24, label %21
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %2
   %22 = load i32, ptr %11, align 4, !tbaa !2684
@@ -231862,15 +231718,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %25 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %26 = load i32, ptr %25, align 4, !tbaa !231
   %27 = and i32 %26, 256
-  %.not5 = icmp eq i32 %27, 0
-  br i1 %.not5, label %35, label %28
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %35, label %28
 
 28:                                               ; preds = %24
   %29 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %30 = load i32, ptr %29, align 4, !tbaa !231
   %31 = and i32 %30, 512
-  %.not6 = icmp eq i32 %31, 0
-  br i1 %.not6, label %32, label %35
+  %.not5 = icmp eq i32 %31, 0
+  br i1 %.not5, label %32, label %35
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %11, align 4, !tbaa !2684
@@ -231882,15 +231738,15 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_117BaseLut1DRe
   %36 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %37 = load i32, ptr %36, align 4, !tbaa !231
   %38 = and i32 %37, 1024
-  %.not7 = icmp eq i32 %38, 0
-  br i1 %.not7, label %46, label %39
+  %.not6 = icmp eq i32 %38, 0
+  br i1 %.not6, label %46, label %39
 
 39:                                               ; preds = %35
   %40 = tail call noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
   %41 = load i32, ptr %40, align 4, !tbaa !231
   %42 = and i32 %41, 2048
-  %.not8 = icmp eq i32 %42, 0
-  br i1 %.not8, label %43, label %46
+  %.not7 = icmp eq i32 %42, 0
+  br i1 %.not7, label %43, label %46
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %11, align 4, !tbaa !2684

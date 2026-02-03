@@ -109,7 +109,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vector
 20:                                               ; preds = %19
   unreachable
 
-21:                                               ; preds = %51, %49, %35, %19
+21:                                               ; preds = %48, %46, %35, %19
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %8, align 8, !tbaa !15
@@ -150,34 +150,31 @@ _ZNSt6vectorIN8rawspeed13PhaseOneStripESaIS1_EED2Ev.exit: ; preds = %21, %24
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %39 = load i32, ptr %38, align 4, !tbaa !90
-  %40 = icmp sgt i32 %39, 0
+  %40 = icmp slt i32 %39, 1
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %42 = load i32, ptr %41, align 4
-  %43 = icmp sgt i32 %42, 0
-  %44 = select i1 %40, i1 %43, i1 false
-  br i1 %44, label %45, label %49
+  %43 = icmp slt i32 %42, 1
+  %.not10 = select i1 %40, i1 true, i1 %43
+  %.not5 = trunc i32 %39 to i1
+  %44 = icmp samesign ugt i32 %39, 11976
+  %or.cond = or i1 %44, %.not5
+  %or.cond7 = select i1 %.not10, i1 true, i1 %or.cond
+  %45 = icmp samesign ugt i32 %42, 8854
+  %or.cond12 = select i1 %or.cond7, i1 true, i1 %45
+  br i1 %or.cond12, label %46, label %48
 
-45:                                               ; preds = %37
-  %46 = and i32 %39, 1
-  %.not5 = icmp ne i32 %46, 0
-  %47 = icmp samesign ugt i32 %39, 11976
-  %or.cond = or i1 %47, %.not5
-  %48 = icmp samesign ugt i32 %42, 8854
-  %or.cond8 = select i1 %or.cond, i1 true, i1 %48
-  br i1 %or.cond8, label %49, label %51
-
-49:                                               ; preds = %45, %37
+46:                                               ; preds = %37
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vectorINS_13PhaseOneStripESaIS3_EE, i32 noundef %39, i32 noundef %42) #17
-          to label %50 unwind label %21
+          to label %47 unwind label %21
 
-50:                                               ; preds = %49
+47:                                               ; preds = %46
   unreachable
 
-51:                                               ; preds = %45
+48:                                               ; preds = %37
   invoke void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %52 unwind label %21
+          to label %49 unwind label %21
 
-52:                                               ; preds = %51
+49:                                               ; preds = %48
   ret void
 }
 

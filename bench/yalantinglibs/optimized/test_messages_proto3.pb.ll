@@ -8030,9 +8030,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8051,9 +8050,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -8063,10 +8062,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8129,9 +8128,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8150,9 +8148,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8162,10 +8160,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8230,9 +8228,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8251,9 +8248,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -8263,10 +8260,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8327,9 +8324,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8348,9 +8344,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8360,10 +8356,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8428,9 +8424,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8449,9 +8444,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -8461,10 +8456,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8525,9 +8520,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8546,9 +8540,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8558,10 +8552,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8626,9 +8620,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8647,9 +8640,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -8659,10 +8652,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8723,9 +8716,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8744,9 +8736,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8756,10 +8748,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8824,9 +8816,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8845,9 +8836,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -8857,10 +8848,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -8921,9 +8912,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8942,9 +8932,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -8954,10 +8944,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -9022,9 +9012,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9043,9 +9032,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -9055,10 +9044,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load float, ptr %call14.i, align 4
   store float %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -9129,9 +9118,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9150,9 +9138,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -9162,10 +9150,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load double, ptr %call14.i, align 8
   store double %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -9236,9 +9224,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9258,9 +9245,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 17
@@ -9269,12 +9256,12 @@ if.then9.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr %vfn13.i, align 8
   %call14.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %5(ptr noundef nonnull align 8 dereferenceable(24) %other)
   %6 = load i8, ptr %call14.i, align 1
-  %frombool.i30.i = and i8 %6, 1
-  store i8 %frombool.i30.i, ptr %value_.i, align 1
-  %_has_bits_.i31.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %7 = load i32, ptr %_has_bits_.i31.i, align 4
-  %or.i32.i = or i32 %7, 2
-  store i32 %or.i32.i, ptr %_has_bits_.i31.i, align 4
+  %frombool.i29.i = and i8 %6, 1
+  store i8 %frombool.i29.i, ptr %value_.i, align 1
+  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %7 = load i32, ptr %_has_bits_.i30.i, align 4
+  %or.i31.i = or i32 %7, 2
+  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 4
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -9352,9 +9339,8 @@ entry:
   br i1 %tobool.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %entry
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end, label %if.then2
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9402,54 +9388,54 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11: ; preds = %_ZNK6google8prot
 
 if.end:                                           ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11, %if.then
   %11 = phi i32 [ %.pre, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11 ], [ %0, %if.then ]
-  %and.i14 = and i32 %11, 2
-  %cmp.i15.not = icmp eq i32 %and.i14, 0
-  br i1 %cmp.i15.not, label %if.end18, label %if.then9
+  %and.i = and i32 %11, 2
+  %cmp.i14.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i14.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_internal_metadata_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %12 = load ptr, ptr %_internal_metadata_.i16, align 8
+  %_internal_metadata_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %12 = load ptr, ptr %_internal_metadata_.i15, align 8
   %13 = ptrtoint ptr %12 to i64
-  %conv.i1.i17 = and i64 %13, 1
-  %cmp.i.i.not.i18 = icmp eq i64 %conv.i1.i17, 0
-  br i1 %cmp.i.i.not.i18, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, label %if.then.i.i19
+  %conv.i1.i16 = and i64 %13, 1
+  %cmp.i.i.not.i17 = icmp eq i64 %conv.i1.i16, 0
+  br i1 %cmp.i.i.not.i17, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, label %if.then.i.i18
 
-if.then.i.i19:                                    ; preds = %if.then9
-  %and.i.i20 = and i64 %13, -2
-  %14 = inttoptr i64 %and.i.i20 to ptr
+if.then.i.i18:                                    ; preds = %if.then9
+  %and.i.i19 = and i64 %13, -2
+  %14 = inttoptr i64 %and.i.i19 to ptr
   %15 = load ptr, ptr %14, align 8
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
+  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22: ; preds = %if.then9, %if.then.i.i19
-  %retval.i.0.i21 = phi ptr [ %15, %if.then.i.i19 ], [ %12, %if.then9 ]
-  %call1.i23 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i21)
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21: ; preds = %if.then9, %if.then.i.i18
+  %retval.i.0.i20 = phi ptr [ %15, %if.then.i.i18 ], [ %12, %if.then9 ]
+  %call1.i22 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i20)
   %vtable12 = load ptr, ptr %from, align 8
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 168
   %16 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef nonnull align 8 dereferenceable(32) ptr %16(ptr noundef nonnull align 8 dereferenceable(36) %from)
-  %17 = load ptr, ptr %_internal_metadata_.i16, align 8
+  %17 = load ptr, ptr %_internal_metadata_.i15, align 8
   %18 = ptrtoint ptr %17 to i64
-  %conv.i1.i25 = and i64 %18, 1
-  %cmp.i.i.not.i26 = icmp eq i64 %conv.i1.i25, 0
-  br i1 %cmp.i.i.not.i26, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30, label %if.then.i.i27
+  %conv.i1.i24 = and i64 %18, 1
+  %cmp.i.i.not.i25 = icmp eq i64 %conv.i1.i24, 0
+  br i1 %cmp.i.i.not.i25, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29, label %if.then.i.i26
 
-if.then.i.i27:                                    ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
-  %and.i.i28 = and i64 %18, -2
-  %19 = inttoptr i64 %and.i.i28 to ptr
+if.then.i.i26:                                    ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
+  %and.i.i27 = and i64 %18, -2
+  %19 = inttoptr i64 %and.i.i27 to ptr
   %20 = load ptr, ptr %19, align 8
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30
+  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, %if.then.i.i27
-  %retval.i.0.i29 = phi ptr [ %20, %if.then.i.i27 ], [ %17, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22 ]
-  tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %call14, ptr noundef %retval.i.0.i29)
-  %_has_bits_.i31 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %21 = load i32, ptr %_has_bits_.i31, align 8
-  %or.i32 = or i32 %21, 2
-  store i32 %or.i32, ptr %_has_bits_.i31, align 8
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, %if.then.i.i26
+  %retval.i.0.i28 = phi ptr [ %20, %if.then.i.i26 ], [ %17, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21 ]
+  tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %call14, ptr noundef %retval.i.0.i28)
+  %_has_bits_.i30 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %21 = load i32, ptr %_has_bits_.i30, align 8
+  %or.i31 = or i32 %21, 2
+  store i32 %or.i31, ptr %_has_bits_.i30, align 8
   br label %if.end18
 
-if.end18:                                         ; preds = %if.end, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30, %entry
+if.end18:                                         ; preds = %if.end, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29, %entry
   ret void
 }
 
@@ -9524,9 +9510,8 @@ entry:
   br i1 %tobool.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %entry
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end, label %if.then2
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9574,54 +9559,54 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11: ; preds = %_ZNK6google8prot
 
 if.end:                                           ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11, %if.then
   %11 = phi i32 [ %.pre, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11 ], [ %0, %if.then ]
-  %and.i14 = and i32 %11, 2
-  %cmp.i15.not = icmp eq i32 %and.i14, 0
-  br i1 %cmp.i15.not, label %if.end18, label %if.then9
+  %and.i = and i32 %11, 2
+  %cmp.i14.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i14.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_internal_metadata_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %12 = load ptr, ptr %_internal_metadata_.i16, align 8
+  %_internal_metadata_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %12 = load ptr, ptr %_internal_metadata_.i15, align 8
   %13 = ptrtoint ptr %12 to i64
-  %conv.i1.i17 = and i64 %13, 1
-  %cmp.i.i.not.i18 = icmp eq i64 %conv.i1.i17, 0
-  br i1 %cmp.i.i.not.i18, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, label %if.then.i.i19
+  %conv.i1.i16 = and i64 %13, 1
+  %cmp.i.i.not.i17 = icmp eq i64 %conv.i1.i16, 0
+  br i1 %cmp.i.i.not.i17, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, label %if.then.i.i18
 
-if.then.i.i19:                                    ; preds = %if.then9
-  %and.i.i20 = and i64 %13, -2
-  %14 = inttoptr i64 %and.i.i20 to ptr
+if.then.i.i18:                                    ; preds = %if.then9
+  %and.i.i19 = and i64 %13, -2
+  %14 = inttoptr i64 %and.i.i19 to ptr
   %15 = load ptr, ptr %14, align 8
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
+  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22: ; preds = %if.then9, %if.then.i.i19
-  %retval.i.0.i21 = phi ptr [ %15, %if.then.i.i19 ], [ %12, %if.then9 ]
-  %call1.i23 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i21)
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21: ; preds = %if.then9, %if.then.i.i18
+  %retval.i.0.i20 = phi ptr [ %15, %if.then.i.i18 ], [ %12, %if.then9 ]
+  %call1.i22 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef %retval.i.0.i20)
   %vtable12 = load ptr, ptr %from, align 8
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 168
   %16 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef nonnull align 8 dereferenceable(32) ptr %16(ptr noundef nonnull align 8 dereferenceable(36) %from)
-  %17 = load ptr, ptr %_internal_metadata_.i16, align 8
+  %17 = load ptr, ptr %_internal_metadata_.i15, align 8
   %18 = ptrtoint ptr %17 to i64
-  %conv.i1.i25 = and i64 %18, 1
-  %cmp.i.i.not.i26 = icmp eq i64 %conv.i1.i25, 0
-  br i1 %cmp.i.i.not.i26, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30, label %if.then.i.i27
+  %conv.i1.i24 = and i64 %18, 1
+  %cmp.i.i.not.i25 = icmp eq i64 %conv.i1.i24, 0
+  br i1 %cmp.i.i.not.i25, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29, label %if.then.i.i26
 
-if.then.i.i27:                                    ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
-  %and.i.i28 = and i64 %18, -2
-  %19 = inttoptr i64 %and.i.i28 to ptr
+if.then.i.i26:                                    ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
+  %and.i.i27 = and i64 %18, -2
+  %19 = inttoptr i64 %and.i.i27 to ptr
   %20 = load ptr, ptr %19, align 8
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30
+  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, %if.then.i.i27
-  %retval.i.0.i29 = phi ptr [ %20, %if.then.i.i27 ], [ %17, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22 ]
-  tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %call14, ptr noundef %retval.i.0.i29)
-  %_has_bits_.i31 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %21 = load i32, ptr %_has_bits_.i31, align 8
-  %or.i32 = or i32 %21, 2
-  store i32 %or.i32, ptr %_has_bits_.i31, align 8
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, %if.then.i.i26
+  %retval.i.0.i28 = phi ptr [ %20, %if.then.i.i26 ], [ %17, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21 ]
+  tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %value_, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %call14, ptr noundef %retval.i.0.i28)
+  %_has_bits_.i30 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %21 = load i32, ptr %_has_bits_.i30, align 8
+  %or.i31 = or i32 %21, 2
+  store i32 %or.i31, ptr %_has_bits_.i30, align 8
   br label %if.end18
 
-if.end18:                                         ; preds = %if.end, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30, %entry
+if.end18:                                         ; preds = %if.end, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29, %entry
   ret void
 }
 
@@ -9696,9 +9681,8 @@ entry:
   br i1 %tobool.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %entry
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end, label %if.then2
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9746,47 +9730,47 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11: ; preds = %_ZNK6google8prot
 
 if.end:                                           ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11, %if.then
   %11 = phi i32 [ %.pre, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11 ], [ %0, %if.then ]
-  %and.i14 = and i32 %11, 2
-  %cmp.i15.not = icmp eq i32 %and.i14, 0
-  br i1 %cmp.i15.not, label %if.end18, label %if.then9
+  %and.i = and i32 %11, 2
+  %cmp.i14.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i14.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_internal_metadata_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %12 = load ptr, ptr %_internal_metadata_.i16, align 8
+  %_internal_metadata_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %12 = load ptr, ptr %_internal_metadata_.i15, align 8
   %13 = ptrtoint ptr %12 to i64
-  %conv.i1.i17 = and i64 %13, 1
-  %cmp.i.i.not.i18 = icmp eq i64 %conv.i1.i17, 0
-  br i1 %cmp.i.i.not.i18, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, label %if.then.i.i19
+  %conv.i1.i16 = and i64 %13, 1
+  %cmp.i.i.not.i17 = icmp eq i64 %conv.i1.i16, 0
+  br i1 %cmp.i.i.not.i17, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, label %if.then.i.i18
 
-if.then.i.i19:                                    ; preds = %if.then9
-  %and.i.i20 = and i64 %13, -2
-  %14 = inttoptr i64 %and.i.i20 to ptr
+if.then.i.i18:                                    ; preds = %if.then9
+  %and.i.i19 = and i64 %13, -2
+  %14 = inttoptr i64 %and.i.i19 to ptr
   %15 = load ptr, ptr %14, align 8
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
+  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22: ; preds = %if.then9, %if.then.i.i19
-  %retval.i.0.i21 = phi ptr [ %15, %if.then.i.i19 ], [ %12, %if.then9 ]
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21: ; preds = %if.then9, %if.then.i.i18
+  %retval.i.0.i20 = phi ptr [ %15, %if.then.i.i18 ], [ %12, %if.then9 ]
   %16 = load ptr, ptr %value_, align 8
-  %cmp.i23 = icmp eq ptr %16, null
-  br i1 %cmp.i23, label %if.then.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit
+  %cmp.i22 = icmp eq ptr %16, null
+  br i1 %cmp.i22, label %if.then.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit
 
-if.then.i:                                        ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
-  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i21)
+if.then.i:                                        ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
+  %call.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEJEEEPT_PS1_DpOT0_(ptr noundef %retval.i.0.i20)
   store ptr %call.i.i.i, ptr %value_, align 8
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit
 
-_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, %if.then.i
+_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, %if.then.i
   %vtable12 = load ptr, ptr %from, align 8
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 168
   %17 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef nonnull align 8 dereferenceable(32) ptr %17(ptr noundef nonnull align 8 dereferenceable(36) %from)
   %18 = load ptr, ptr %value_, align 8
   tail call void @_ZN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessage9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %call14)
-  %_has_bits_.i31 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %19 = load i32, ptr %_has_bits_.i31, align 8
-  %or.i32 = or i32 %19, 2
-  store i32 %or.i32, ptr %_has_bits_.i31, align 8
+  %_has_bits_.i30 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %19 = load i32, ptr %_has_bits_.i30, align 8
+  %or.i31 = or i32 %19, 2
+  store i32 %or.i31, ptr %_has_bits_.i30, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit, %entry
@@ -9864,9 +9848,8 @@ entry:
   br i1 %tobool.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %entry
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end, label %if.then2
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
   %key_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9914,33 +9897,33 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11: ; preds = %_ZNK6google8prot
 
 if.end:                                           ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11, %if.then
   %11 = phi i32 [ %.pre, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11 ], [ %0, %if.then ]
-  %and.i14 = and i32 %11, 2
-  %cmp.i15.not = icmp eq i32 %and.i14, 0
-  br i1 %cmp.i15.not, label %if.end18, label %if.then9
+  %and.i = and i32 %11, 2
+  %cmp.i14.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i14.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_internal_metadata_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %12 = load ptr, ptr %_internal_metadata_.i16, align 8
+  %_internal_metadata_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %12 = load ptr, ptr %_internal_metadata_.i15, align 8
   %13 = ptrtoint ptr %12 to i64
-  %conv.i1.i17 = and i64 %13, 1
-  %cmp.i.i.not.i18 = icmp eq i64 %conv.i1.i17, 0
-  br i1 %cmp.i.i.not.i18, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, label %if.then.i.i19
+  %conv.i1.i16 = and i64 %13, 1
+  %cmp.i.i.not.i17 = icmp eq i64 %conv.i1.i16, 0
+  br i1 %cmp.i.i.not.i17, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, label %if.then.i.i18
 
-if.then.i.i19:                                    ; preds = %if.then9
-  %and.i.i20 = and i64 %13, -2
-  %14 = inttoptr i64 %and.i.i20 to ptr
+if.then.i.i18:                                    ; preds = %if.then9
+  %and.i.i19 = and i64 %13, -2
+  %14 = inttoptr i64 %and.i.i19 to ptr
   %15 = load ptr, ptr %14, align 8
-  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
+  br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
 
-_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22: ; preds = %if.then9, %if.then.i.i19
-  %retval.i.0.i21 = phi ptr [ %15, %if.then.i.i19 ], [ %12, %if.then9 ]
+_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21: ; preds = %if.then9, %if.then.i.i18
+  %retval.i.0.i20 = phi ptr [ %15, %if.then.i.i18 ], [ %12, %if.then9 ]
   %16 = load ptr, ptr %value_, align 8
-  %cmp.i23 = icmp eq ptr %16, null
-  br i1 %cmp.i23, label %if.then.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit
+  %cmp.i22 = icmp eq ptr %16, null
+  br i1 %cmp.i22, label %if.then.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit
 
-if.then.i:                                        ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22
-  %cmp.i.i.i.i = icmp eq ptr %retval.i.0.i21, null
+if.then.i:                                        ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21
+  %cmp.i.i.i.i = icmp eq ptr %retval.i.0.i20, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
@@ -9948,23 +9931,23 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i
   br label %_ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6proto314ForeignMessageELb1EE13CreateMessageEPNS0_5ArenaE.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i
-  %hooks_cookie_.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i21, i64 112
+  %hooks_cookie_.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i.0.i20, i64 112
   %17 = load ptr, ptr %hooks_cookie_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, label %if.then.i4.i.i.i
 
 if.then.i4.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %retval.i.0.i21, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
+  tail call void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(120) %retval.i.0.i20, ptr noundef nonnull @_ZTIN22protobuf_test_messages6proto314ForeignMessageE, i64 noundef 24)
   br label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.then.i4.i.i.i, %if.else.i.i.i.i
-  %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %retval.i.0.i21, i64 noundef 24)
+  %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %retval.i.0.i20, i64 noundef 24)
   br label %_ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6proto314ForeignMessageELb1EE13CreateMessageEPNS0_5ArenaE.exit.i
 
 _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6proto314ForeignMessageELb1EE13CreateMessageEPNS0_5ArenaE.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i, %if.then.i.i.i.i
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.i.i, i64 8
-  store ptr %retval.i.0.i21, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
+  store ptr %retval.i.0.i20, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 16), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
@@ -9973,7 +9956,7 @@ _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6p
   store ptr %call.i.sink10.i.i.i, ptr %value_, align 8
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit
 
-_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit22, %_ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6proto314ForeignMessageELb1EE13CreateMessageEPNS0_5ArenaE.exit.i
+_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE13EnsureMutableEPPS7_PNS0_5ArenaE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit21, %_ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6proto314ForeignMessageELb1EE13CreateMessageEPNS0_5ArenaE.exit.i
   %vtable12 = load ptr, ptr %from, align 8
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 168
   %18 = load ptr, ptr %vfn13, align 8
@@ -9995,9 +9978,9 @@ if.then.i17.i.i:                                  ; preds = %_ZN6google8protobuf
   %24 = ptrtoint ptr %23 to i64
   %conv.i1.i.i.i = and i64 %24, 1
   %cmp.i.not.i.i.i = icmp eq i64 %conv.i1.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i.i.i, label %if.then.i.i.i.i31
+  br i1 %cmp.i.not.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i.i.i, label %if.then.i.i.i.i30
 
-if.then.i.i.i.i31:                                ; preds = %if.then.i17.i.i
+if.then.i.i.i.i30:                                ; preds = %if.then.i17.i.i
   %and.i.i.i.i = and i64 %24, -2
   %25 = inttoptr i64 %and.i.i.i.i to ptr
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit.i.i
@@ -10035,8 +10018,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   store ptr %23, ptr %call.i.sink11.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit.i.i
 
-_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit.i.i: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i, %if.then.i.i.i.i31
-  %.pn.i.i.i = phi ptr [ %25, %if.then.i.i.i.i31 ], [ %call.i.sink11.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i ]
+_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit.i.i: ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i, %if.then.i.i.i.i30
+  %.pn.i.i.i = phi ptr [ %25, %if.then.i.i.i.i30 ], [ %call.i.sink11.i.i.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i.i.i ]
   %retval.i.0.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.i.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i.i.i)
   br label %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i
@@ -10045,18 +10028,18 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
   %c_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
   %30 = load i32, ptr %c_.i.i.i.i, align 8
   %cmp9.not.i.i = icmp eq i32 %30, 0
-  br i1 %cmp9.not.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS7_PPS7_PNS0_5ArenaE.exit, label %if.then.i.i32
+  br i1 %cmp9.not.i.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS7_PPS7_PNS0_5ArenaE.exit, label %if.then.i.i31
 
-if.then.i.i32:                                    ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i
+if.then.i.i31:                                    ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i
   %c_.i5.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %30, ptr %c_.i5.i.i, align 8
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS7_PPS7_PNS0_5ArenaE.exit
 
-_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS7_PPS7_PNS0_5ArenaE.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i, %if.then.i.i32
-  %_has_bits_.i33 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %31 = load i32, ptr %_has_bits_.i33, align 8
-  %or.i34 = or i32 %31, 2
-  store i32 %or.i34, ptr %_has_bits_.i33, align 8
+_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS7_PPS7_PNS0_5ArenaE.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEEEvRKS2_.exit.i.i, %if.then.i.i31
+  %_has_bits_.i32 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %31 = load i32, ptr %_has_bits_.i32, align 8
+  %or.i33 = or i32 %31, 2
+  store i32 %or.i33, ptr %_has_bits_.i32, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE5MergeERKS7_PPS7_PNS0_5ArenaE.exit, %entry
@@ -10127,9 +10110,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10177,9 +10159,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i: ; preds = %if.then.i.i8.i
 
 if.end.i:                                         ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i, %if.then.i
   %11 = phi i32 [ %.pre.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %11, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
+  %and.i.i = and i32 %11, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -10189,10 +10171,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %other)
   %13 = load i32, ptr %call14.i, align 4
   store i32 %13, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %14 = load i32, ptr %_has_bits_.i30.i, align 4
-  %or.i31.i = or i32 %14, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 4
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %14 = load i32, ptr %_has_bits_.i29.i, align 4
+  %or.i30.i = or i32 %14, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 4
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -10263,9 +10245,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -10313,9 +10294,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i: ; preds = %if.then.i.i8.i
 
 if.end.i:                                         ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i, %if.then.i
   %11 = phi i32 [ %.pre.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %11, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
+  %and.i.i = and i32 %11, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -10325,10 +10306,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %other)
   %13 = load i32, ptr %call14.i, align 4
   store i32 %13, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %14 = load i32, ptr %_has_bits_.i30.i, align 4
-  %or.i31.i = or i32 %14, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 4
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %14 = load i32, ptr %_has_bits_.i29.i, align 4
+  %or.i30.i = or i32 %14, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 4
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -62515,9 +62496,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -62536,9 +62516,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -62548,10 +62528,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -62563,9 +62543,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -62590,9 +62569,9 @@ if.else.i.i.i:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %if.else.i.i.i, %cond.true, %entry
   %cond = phi i64 [ 0, %entry ], [ %4, %if.else.i.i.i ], [ 11, %cond.true ]
   %5 = load i32, ptr %_has_bits_.i, align 8
-  %and.i4 = and i32 %5, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %5, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -62600,22 +62579,22 @@ cond.true6:                                       ; preds = %cond.end
   %6 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %this)
   %7 = load i32, ptr %call9, align 4
-  %cmp.i.i.i6 = icmp slt i32 %7, 0
-  br i1 %cmp.i.i.i6, label %cond.end14, label %if.else.i.i.i7
+  %cmp.i.i.i5 = icmp slt i32 %7, 0
+  br i1 %cmp.i.i.i5, label %cond.end14, label %if.else.i.i.i6
 
-if.else.i.i.i7:                                   ; preds = %cond.true6
-  %or.i.i.i.i8 = or i32 %7, 1
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i8, i1 true)
-  %xor.i.i.i.i.i9 = xor i32 %8, 31
-  %mul.i.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i.i9, 9
-  %add.i.i.i.i11 = add nuw nsw i32 %mul.i.i.i.i10, 73
-  %div1.i.i.i.i12 = lshr i32 %add.i.i.i.i11, 6
-  %narrow15 = add nuw nsw i32 %div1.i.i.i.i12, 1
-  %9 = zext nneg i32 %narrow15 to i64
+if.else.i.i.i6:                                   ; preds = %cond.true6
+  %or.i.i.i.i7 = or i32 %7, 1
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i7, i1 true)
+  %xor.i.i.i.i.i8 = xor i32 %8, 31
+  %mul.i.i.i.i9 = mul nuw nsw i32 %xor.i.i.i.i.i8, 9
+  %add.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i9, 73
+  %div1.i.i.i.i11 = lshr i32 %add.i.i.i.i10, 6
+  %narrow14 = add nuw nsw i32 %div1.i.i.i.i11, 1
+  %9 = zext nneg i32 %narrow14 to i64
   br label %cond.end14
 
-cond.end14:                                       ; preds = %if.else.i.i.i7, %cond.true6, %cond.end
-  %cond15 = phi i64 [ 0, %cond.end ], [ %9, %if.else.i.i.i7 ], [ 11, %cond.true6 ]
+cond.end14:                                       ; preds = %if.else.i.i.i6, %cond.true6, %cond.end
+  %cond15 = phi i64 [ 0, %cond.end ], [ %9, %if.else.i.i.i6 ], [ 11, %cond.true6 ]
   %add16 = add nuw nsw i64 %cond15, %cond
   ret i64 %add16
 }
@@ -62625,9 +62604,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -62651,9 +62629,9 @@ if.else.i.i.i:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %if.else.i.i.i, %cond.true, %entry
   %cond = phi i32 [ 0, %entry ], [ %4, %if.else.i.i.i ], [ 11, %cond.true ]
   %5 = load i32, ptr %_has_bits_.i, align 8
-  %and.i4 = and i32 %5, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %5, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -62661,21 +62639,21 @@ cond.true6:                                       ; preds = %cond.end
   %6 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(28) %this)
   %7 = load i32, ptr %call9, align 4
-  %cmp.i.i.i6 = icmp slt i32 %7, 0
-  br i1 %cmp.i.i.i6, label %cond.end13, label %if.else.i.i.i7
+  %cmp.i.i.i5 = icmp slt i32 %7, 0
+  br i1 %cmp.i.i.i5, label %cond.end13, label %if.else.i.i.i6
 
-if.else.i.i.i7:                                   ; preds = %cond.true6
-  %or.i.i.i.i8 = or i32 %7, 1
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i8, i1 true)
-  %xor.i.i.i.i.i9 = xor i32 %8, 31
-  %mul.i.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i.i9, 9
-  %add.i.i.i.i11 = add nuw nsw i32 %mul.i.i.i.i10, 73
-  %div1.i.i.i.i12 = lshr i32 %add.i.i.i.i11, 6
-  %9 = add nuw nsw i32 %div1.i.i.i.i12, 1
+if.else.i.i.i6:                                   ; preds = %cond.true6
+  %or.i.i.i.i7 = or i32 %7, 1
+  %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i7, i1 true)
+  %xor.i.i.i.i.i8 = xor i32 %8, 31
+  %mul.i.i.i.i9 = mul nuw nsw i32 %xor.i.i.i.i.i8, 9
+  %add.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i9, 73
+  %div1.i.i.i.i11 = lshr i32 %add.i.i.i.i10, 6
+  %9 = add nuw nsw i32 %div1.i.i.i.i11, 1
   br label %cond.end13
 
-cond.end13:                                       ; preds = %if.else.i.i.i7, %cond.true6, %cond.end
-  %cond14 = phi i32 [ 0, %cond.end ], [ %9, %if.else.i.i.i7 ], [ 11, %cond.true6 ]
+cond.end13:                                       ; preds = %if.else.i.i.i6, %cond.true6, %cond.end
+  %cond14 = phi i32 [ 0, %cond.end ], [ %9, %if.else.i.i.i6 ], [ 11, %cond.true6 ]
   %add15 = add nuw nsw i32 %cond14, %cond
   ret i32 %add15
 }
@@ -63118,9 +63096,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -63139,9 +63116,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -63151,10 +63128,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -63166,9 +63143,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -63189,9 +63165,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -63199,13 +63175,13 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %6 = load i64, ptr %call9, align 8
-  %or.i.i.i6 = or i64 %6, 1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i6, i1 true)
-  %xor.i.i.i.i7 = xor i64 %7, 63
-  %mul.i.i.i8 = mul nuw nsw i64 %xor.i.i.i.i7, 9
-  %add.i.i.i9 = add nuw nsw i64 %mul.i.i.i8, 73
-  %div1.i.i.i10 = lshr i64 %add.i.i.i9, 6
-  %add12 = add nuw nsw i64 %div1.i.i.i10, 1
+  %or.i.i.i5 = or i64 %6, 1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i5, i1 true)
+  %xor.i.i.i.i6 = xor i64 %7, 63
+  %mul.i.i.i7 = mul nuw nsw i64 %xor.i.i.i.i6, 9
+  %add.i.i.i8 = add nuw nsw i64 %mul.i.i.i7, 73
+  %div1.i.i.i9 = lshr i64 %add.i.i.i8, 6
+  %add12 = add nuw nsw i64 %div1.i.i.i9, 1
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.end, %cond.true6
@@ -63219,9 +63195,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -63243,9 +63218,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -63253,14 +63228,14 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %6 = load i64, ptr %call9, align 8
-  %or.i.i.i6 = or i64 %6, 1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i6, i1 true)
-  %xor.i.i.i.i7 = xor i64 %7, 63
-  %mul.i.i.i8 = mul nuw nsw i64 %xor.i.i.i.i7, 9
-  %add.i.i.i9 = add nuw nsw i64 %mul.i.i.i8, 73
-  %div1.i.i.i10 = lshr i64 %add.i.i.i9, 6
-  %conv.i11 = trunc nuw nsw i64 %div1.i.i.i10 to i32
-  %add11 = add nuw nsw i32 %conv.i11, 1
+  %or.i.i.i5 = or i64 %6, 1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i5, i1 true)
+  %xor.i.i.i.i6 = xor i64 %7, 63
+  %mul.i.i.i7 = mul nuw nsw i64 %xor.i.i.i.i6, 9
+  %add.i.i.i8 = add nuw nsw i64 %mul.i.i.i7, 73
+  %div1.i.i.i9 = lshr i64 %add.i.i.i8, 6
+  %conv.i10 = trunc nuw nsw i64 %div1.i.i.i9 to i32
+  %add11 = add nuw nsw i32 %conv.i10, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -63711,9 +63686,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -63732,9 +63706,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -63744,10 +63718,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -63759,9 +63733,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -63783,9 +63756,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -63793,14 +63766,14 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %this)
   %6 = load i32, ptr %call9, align 4
-  %or.i.i.i6 = or i32 %6, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i6, i1 true)
-  %xor.i.i.i.i7 = xor i32 %7, 31
-  %mul.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i7, 9
-  %add.i.i.i9 = add nuw nsw i32 %mul.i.i.i8, 73
-  %div1.i.i.i10 = lshr i32 %add.i.i.i9, 6
-  %narrow11 = add nuw nsw i32 %div1.i.i.i10, 1
-  %add12 = zext nneg i32 %narrow11 to i64
+  %or.i.i.i5 = or i32 %6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i5, i1 true)
+  %xor.i.i.i.i6 = xor i32 %7, 31
+  %mul.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i6, 9
+  %add.i.i.i8 = add nuw nsw i32 %mul.i.i.i7, 73
+  %div1.i.i.i9 = lshr i32 %add.i.i.i8, 6
+  %narrow10 = add nuw nsw i32 %div1.i.i.i9, 1
+  %add12 = zext nneg i32 %narrow10 to i64
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.end, %cond.true6
@@ -63814,9 +63787,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -63837,9 +63809,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -63847,13 +63819,13 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %this)
   %6 = load i32, ptr %call9, align 4
-  %or.i.i.i6 = or i32 %6, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i6, i1 true)
-  %xor.i.i.i.i7 = xor i32 %7, 31
-  %mul.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i7, 9
-  %add.i.i.i9 = add nuw nsw i32 %mul.i.i.i8, 73
-  %div1.i.i.i10 = lshr i32 %add.i.i.i9, 6
-  %add11 = add nuw nsw i32 %div1.i.i.i10, 1
+  %or.i.i.i5 = or i32 %6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i5, i1 true)
+  %xor.i.i.i.i6 = xor i32 %7, 31
+  %mul.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i6, 9
+  %add.i.i.i8 = add nuw nsw i32 %mul.i.i.i7, 73
+  %div1.i.i.i9 = lshr i32 %add.i.i.i8, 6
+  %add11 = add nuw nsw i32 %div1.i.i.i9, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -64294,9 +64266,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -64315,9 +64286,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -64327,10 +64298,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -64342,9 +64313,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -64365,9 +64335,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -64375,13 +64345,13 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %6 = load i64, ptr %call9, align 8
-  %or.i.i.i6 = or i64 %6, 1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i6, i1 true)
-  %xor.i.i.i.i7 = xor i64 %7, 63
-  %mul.i.i.i8 = mul nuw nsw i64 %xor.i.i.i.i7, 9
-  %add.i.i.i9 = add nuw nsw i64 %mul.i.i.i8, 73
-  %div1.i.i.i10 = lshr i64 %add.i.i.i9, 6
-  %add12 = add nuw nsw i64 %div1.i.i.i10, 1
+  %or.i.i.i5 = or i64 %6, 1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i5, i1 true)
+  %xor.i.i.i.i6 = xor i64 %7, 63
+  %mul.i.i.i7 = mul nuw nsw i64 %xor.i.i.i.i6, 9
+  %add.i.i.i8 = add nuw nsw i64 %mul.i.i.i7, 73
+  %div1.i.i.i9 = lshr i64 %add.i.i.i8, 6
+  %add12 = add nuw nsw i64 %div1.i.i.i9, 1
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.end, %cond.true6
@@ -64395,9 +64365,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -64419,9 +64388,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -64429,14 +64398,14 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %6 = load i64, ptr %call9, align 8
-  %or.i.i.i6 = or i64 %6, 1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i6, i1 true)
-  %xor.i.i.i.i7 = xor i64 %7, 63
-  %mul.i.i.i8 = mul nuw nsw i64 %xor.i.i.i.i7, 9
-  %add.i.i.i9 = add nuw nsw i64 %mul.i.i.i8, 73
-  %div1.i.i.i10 = lshr i64 %add.i.i.i9, 6
-  %conv.i11 = trunc nuw nsw i64 %div1.i.i.i10 to i32
-  %add11 = add nuw nsw i32 %conv.i11, 1
+  %or.i.i.i5 = or i64 %6, 1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i5, i1 true)
+  %xor.i.i.i.i6 = xor i64 %7, 63
+  %mul.i.i.i7 = mul nuw nsw i64 %xor.i.i.i.i6, 9
+  %add.i.i.i8 = add nuw nsw i64 %mul.i.i.i7, 73
+  %div1.i.i.i9 = lshr i64 %add.i.i.i8, 6
+  %conv.i10 = trunc nuw nsw i64 %div1.i.i.i9 to i32
+  %add11 = add nuw nsw i32 %conv.i10, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -64887,9 +64856,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -64908,9 +64876,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -64920,10 +64888,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -64935,9 +64903,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -64962,9 +64929,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -64972,17 +64939,17 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %this)
   %6 = load i32, ptr %call9, align 4
-  %shl.i.i.i6 = shl i32 %6, 1
-  %shr.i.i.i7 = ashr i32 %6, 31
-  %xor.i.i.i8 = xor i32 %shl.i.i.i6, %shr.i.i.i7
-  %or.i.i.i9 = or i32 %xor.i.i.i8, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i9, i1 true)
-  %xor.i.i.i.i10 = xor i32 %7, 31
-  %mul.i.i.i11 = mul nuw nsw i32 %xor.i.i.i.i10, 9
-  %add.i.i.i12 = add nuw nsw i32 %mul.i.i.i11, 73
-  %div1.i.i.i13 = lshr i32 %add.i.i.i12, 6
-  %narrow14 = add nuw nsw i32 %div1.i.i.i13, 1
-  %add12 = zext nneg i32 %narrow14 to i64
+  %shl.i.i.i5 = shl i32 %6, 1
+  %shr.i.i.i6 = ashr i32 %6, 31
+  %xor.i.i.i7 = xor i32 %shl.i.i.i5, %shr.i.i.i6
+  %or.i.i.i8 = or i32 %xor.i.i.i7, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i8, i1 true)
+  %xor.i.i.i.i9 = xor i32 %7, 31
+  %mul.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i9, 9
+  %add.i.i.i11 = add nuw nsw i32 %mul.i.i.i10, 73
+  %div1.i.i.i12 = lshr i32 %add.i.i.i11, 6
+  %narrow13 = add nuw nsw i32 %div1.i.i.i12, 1
+  %add12 = zext nneg i32 %narrow13 to i64
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.end, %cond.true6
@@ -64996,9 +64963,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -65022,9 +64988,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -65032,16 +64998,16 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %this)
   %6 = load i32, ptr %call9, align 4
-  %shl.i.i.i6 = shl i32 %6, 1
-  %shr.i.i.i7 = ashr i32 %6, 31
-  %xor.i.i.i8 = xor i32 %shl.i.i.i6, %shr.i.i.i7
-  %or.i.i.i9 = or i32 %xor.i.i.i8, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i9, i1 true)
-  %xor.i.i.i.i10 = xor i32 %7, 31
-  %mul.i.i.i11 = mul nuw nsw i32 %xor.i.i.i.i10, 9
-  %add.i.i.i12 = add nuw nsw i32 %mul.i.i.i11, 73
-  %div1.i.i.i13 = lshr i32 %add.i.i.i12, 6
-  %add11 = add nuw nsw i32 %div1.i.i.i13, 1
+  %shl.i.i.i5 = shl i32 %6, 1
+  %shr.i.i.i6 = ashr i32 %6, 31
+  %xor.i.i.i7 = xor i32 %shl.i.i.i5, %shr.i.i.i6
+  %or.i.i.i8 = or i32 %xor.i.i.i7, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i8, i1 true)
+  %xor.i.i.i.i9 = xor i32 %7, 31
+  %mul.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i9, 9
+  %add.i.i.i11 = add nuw nsw i32 %mul.i.i.i10, 73
+  %div1.i.i.i12 = lshr i32 %add.i.i.i11, 6
+  %add11 = add nuw nsw i32 %div1.i.i.i12, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -65506,9 +65472,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -65527,9 +65492,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -65539,10 +65504,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -65554,9 +65519,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -65580,9 +65544,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -65590,16 +65554,16 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %6 = load i64, ptr %call9, align 8
-  %shl.i.i.i6 = shl i64 %6, 1
-  %shr.i.i.i7 = ashr i64 %6, 63
-  %xor.i.i.i8 = xor i64 %shl.i.i.i6, %shr.i.i.i7
-  %or.i.i.i9 = or i64 %xor.i.i.i8, 1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i9, i1 true)
-  %xor.i.i.i.i10 = xor i64 %7, 63
-  %mul.i.i.i11 = mul nuw nsw i64 %xor.i.i.i.i10, 9
-  %add.i.i.i12 = add nuw nsw i64 %mul.i.i.i11, 73
-  %div1.i.i.i13 = lshr i64 %add.i.i.i12, 6
-  %add12 = add nuw nsw i64 %div1.i.i.i13, 1
+  %shl.i.i.i5 = shl i64 %6, 1
+  %shr.i.i.i6 = ashr i64 %6, 63
+  %xor.i.i.i7 = xor i64 %shl.i.i.i5, %shr.i.i.i6
+  %or.i.i.i8 = or i64 %xor.i.i.i7, 1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i8, i1 true)
+  %xor.i.i.i.i9 = xor i64 %7, 63
+  %mul.i.i.i10 = mul nuw nsw i64 %xor.i.i.i.i9, 9
+  %add.i.i.i11 = add nuw nsw i64 %mul.i.i.i10, 73
+  %div1.i.i.i12 = lshr i64 %add.i.i.i11, 6
+  %add12 = add nuw nsw i64 %div1.i.i.i12, 1
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.end, %cond.true6
@@ -65613,9 +65577,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -65640,9 +65603,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -65650,17 +65613,17 @@ cond.true6:                                       ; preds = %cond.end
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
   %6 = load i64, ptr %call9, align 8
-  %shl.i.i.i6 = shl i64 %6, 1
-  %shr.i.i.i7 = ashr i64 %6, 63
-  %xor.i.i.i8 = xor i64 %shl.i.i.i6, %shr.i.i.i7
-  %or.i.i.i9 = or i64 %xor.i.i.i8, 1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i9, i1 true)
-  %xor.i.i.i.i10 = xor i64 %7, 63
-  %mul.i.i.i11 = mul nuw nsw i64 %xor.i.i.i.i10, 9
-  %add.i.i.i12 = add nuw nsw i64 %mul.i.i.i11, 73
-  %div1.i.i.i13 = lshr i64 %add.i.i.i12, 6
-  %conv.i14 = trunc nuw nsw i64 %div1.i.i.i13 to i32
-  %add11 = add nuw nsw i32 %conv.i14, 1
+  %shl.i.i.i5 = shl i64 %6, 1
+  %shr.i.i.i6 = ashr i64 %6, 63
+  %xor.i.i.i7 = xor i64 %shl.i.i.i5, %shr.i.i.i6
+  %or.i.i.i8 = or i64 %xor.i.i.i7, 1
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i8, i1 true)
+  %xor.i.i.i.i9 = xor i64 %7, 63
+  %mul.i.i.i10 = mul nuw nsw i64 %xor.i.i.i.i9, 9
+  %add.i.i.i11 = add nuw nsw i64 %mul.i.i.i10, 73
+  %div1.i.i.i12 = lshr i64 %add.i.i.i11, 6
+  %conv.i13 = trunc nuw nsw i64 %div1.i.i.i12 to i32
+  %add11 = add nuw nsw i32 %conv.i13, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -66129,9 +66092,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -66150,9 +66112,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -66162,10 +66124,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -66177,9 +66139,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -66192,9 +66153,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ 5, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -66214,9 +66175,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -66229,9 +66189,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ 5, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -66536,9 +66496,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -66557,9 +66516,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -66569,10 +66528,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -66584,9 +66543,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -66599,9 +66557,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ 9, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -66621,9 +66579,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -66636,9 +66593,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ 9, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -66949,9 +66906,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -66970,9 +66926,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -66982,10 +66938,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load i32, ptr %call14.i, align 4
   store i32 %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -66997,9 +66953,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -67012,9 +66967,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ 5, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -67034,9 +66989,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -67049,9 +67003,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ 5, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -67356,9 +67310,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -67377,9 +67330,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -67389,10 +67342,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load i64, ptr %call14.i, align 8
   store i64 %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -67404,9 +67357,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -67419,9 +67371,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ 9, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -67441,9 +67393,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -67456,9 +67407,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ 9, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -67769,9 +67720,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -67790,9 +67740,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
@@ -67802,10 +67752,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %5(ptr noundef nonnull align 8 dereferenceable(28) %other)
   %6 = load float, ptr %call14.i, align 4
   store float %6, ptr %value_.i, align 4
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -67817,9 +67767,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -67844,9 +67793,9 @@ if.else.i.i.i:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %if.else.i.i.i, %cond.true, %entry
   %cond = phi i64 [ 0, %entry ], [ %4, %if.else.i.i.i ], [ 11, %cond.true ]
   %5 = load i32, ptr %_has_bits_.i, align 8
-  %and.i4 = and i32 %5, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %5, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -67866,9 +67815,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -67892,9 +67840,9 @@ if.else.i.i.i:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %if.else.i.i.i, %cond.true, %entry
   %cond = phi i32 [ 0, %entry ], [ %4, %if.else.i.i.i ], [ 11, %cond.true ]
   %5 = load i32, ptr %_has_bits_.i, align 8
-  %and.i4 = and i32 %5, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %5, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -68281,9 +68229,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -68302,9 +68249,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -68314,10 +68261,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %other)
   %6 = load double, ptr %call14.i, align 8
   store double %6, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load i32, ptr %_has_bits_.i30.i, align 8
-  %or.i31.i = or i32 %7, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 8
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = load i32, ptr %_has_bits_.i29.i, align 8
+  %or.i30.i = or i32 %7, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -68329,9 +68276,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -68356,9 +68302,9 @@ if.else.i.i.i:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %if.else.i.i.i, %cond.true, %entry
   %cond = phi i64 [ 0, %entry ], [ %4, %if.else.i.i.i ], [ 11, %cond.true ]
   %5 = load i32, ptr %_has_bits_.i, align 8
-  %and.i4 = and i32 %5, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %5, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -68378,9 +68324,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -68404,9 +68349,9 @@ if.else.i.i.i:                                    ; preds = %cond.true
 cond.end:                                         ; preds = %if.else.i.i.i, %cond.true, %entry
   %cond = phi i32 [ 0, %entry ], [ %4, %if.else.i.i.i ], [ 11, %cond.true ]
   %5 = load i32, ptr %_has_bits_.i, align 8
-  %and.i4 = and i32 %5, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %5, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -68793,9 +68738,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -68815,9 +68759,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then2.i, %if.then.i
   %4 = phi i32 [ %.pre.i, %if.then2.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %4, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
+  %and.i.i = and i32 %4, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 17
@@ -68826,12 +68770,12 @@ if.then9.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr %vfn13.i, align 8
   %call14.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %5(ptr noundef nonnull align 8 dereferenceable(24) %other)
   %6 = load i8, ptr %call14.i, align 1
-  %frombool.i30.i = and i8 %6, 1
-  store i8 %frombool.i30.i, ptr %value_.i, align 1
-  %_has_bits_.i31.i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %7 = load i32, ptr %_has_bits_.i31.i, align 4
-  %or.i32.i = or i32 %7, 2
-  store i32 %or.i32.i, ptr %_has_bits_.i31.i, align 4
+  %frombool.i29.i = and i8 %6, 1
+  store i8 %frombool.i29.i, ptr %value_.i, align 1
+  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %7 = load i32, ptr %_has_bits_.i30.i, align 4
+  %or.i31.i = or i32 %7, 2
+  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 4
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EE17MergeFromInternalERKS9_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -68843,9 +68787,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -68858,9 +68801,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ 2, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -68880,9 +68823,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -68895,9 +68837,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %2 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ 2, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %2, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %2, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -69295,9 +69237,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -69322,26 +69263,26 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 168
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %6 = load i64, ptr %_M_string_length.i.i.i6, align 8
-  %conv.i.i.i7 = trunc i64 %6 to i32
-  %or.i.i.i.i8 = or i32 %conv.i.i.i7, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i8, i1 true)
-  %xor.i.i.i.i.i9 = xor i32 %7, 31
-  %mul.i.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i.i9, 9
-  %add.i.i.i.i11 = add nuw nsw i32 %mul.i.i.i.i10, 73
-  %div1.i.i.i.i12 = lshr i32 %add.i.i.i.i11, 6
-  %conv.i13 = add i32 %div1.i.i.i.i12, %conv.i.i.i7
-  %conv11 = sext i32 %conv.i13 to i64
+  %_M_string_length.i.i.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 8
+  %6 = load i64, ptr %_M_string_length.i.i.i5, align 8
+  %conv.i.i.i6 = trunc i64 %6 to i32
+  %or.i.i.i.i7 = or i32 %conv.i.i.i6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i7, i1 true)
+  %xor.i.i.i.i.i8 = xor i32 %7, 31
+  %mul.i.i.i.i9 = mul nuw nsw i32 %xor.i.i.i.i.i8, 9
+  %add.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i9, 73
+  %div1.i.i.i.i11 = lshr i32 %add.i.i.i.i10, 6
+  %conv.i12 = add i32 %div1.i.i.i.i11, %conv.i.i.i6
+  %conv11 = sext i32 %conv.i12 to i64
   %add12 = add nsw i64 %conv11, 1
   br label %cond.end14
 
@@ -69356,9 +69297,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -69382,26 +69322,26 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 168
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %6 = load i64, ptr %_M_string_length.i.i.i6, align 8
-  %conv.i.i.i7 = trunc i64 %6 to i32
-  %or.i.i.i.i8 = or i32 %conv.i.i.i7, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i8, i1 true)
-  %xor.i.i.i.i.i9 = xor i32 %7, 31
-  %mul.i.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i.i9, 9
-  %add.i.i.i.i11 = add nuw nsw i32 %mul.i.i.i.i10, 73
-  %div1.i.i.i.i12 = lshr i32 %add.i.i.i.i11, 6
-  %conv.i13 = add i32 %conv.i.i.i7, 1
-  %add11 = add i32 %conv.i13, %div1.i.i.i.i12
+  %_M_string_length.i.i.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 8
+  %6 = load i64, ptr %_M_string_length.i.i.i5, align 8
+  %conv.i.i.i6 = trunc i64 %6 to i32
+  %or.i.i.i.i7 = or i32 %conv.i.i.i6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i7, i1 true)
+  %xor.i.i.i.i.i8 = xor i32 %7, 31
+  %mul.i.i.i.i9 = mul nuw nsw i32 %xor.i.i.i.i.i8, 9
+  %add.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i9, 73
+  %div1.i.i.i.i11 = lshr i32 %add.i.i.i.i10, 6
+  %conv.i12 = add i32 %conv.i.i.i6, 1
+  %add11 = add i32 %conv.i12, %div1.i.i.i.i11
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -69906,9 +69846,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -69933,26 +69872,26 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 168
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %6 = load i64, ptr %_M_string_length.i.i.i6, align 8
-  %conv.i.i.i7 = trunc i64 %6 to i32
-  %or.i.i.i.i8 = or i32 %conv.i.i.i7, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i8, i1 true)
-  %xor.i.i.i.i.i9 = xor i32 %7, 31
-  %mul.i.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i.i9, 9
-  %add.i.i.i.i11 = add nuw nsw i32 %mul.i.i.i.i10, 73
-  %div1.i.i.i.i12 = lshr i32 %add.i.i.i.i11, 6
-  %conv.i13 = add i32 %div1.i.i.i.i12, %conv.i.i.i7
-  %conv11 = sext i32 %conv.i13 to i64
+  %_M_string_length.i.i.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 8
+  %6 = load i64, ptr %_M_string_length.i.i.i5, align 8
+  %conv.i.i.i6 = trunc i64 %6 to i32
+  %or.i.i.i.i7 = or i32 %conv.i.i.i6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i7, i1 true)
+  %xor.i.i.i.i.i8 = xor i32 %7, 31
+  %mul.i.i.i.i9 = mul nuw nsw i32 %xor.i.i.i.i.i8, 9
+  %add.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i9, 73
+  %div1.i.i.i.i11 = lshr i32 %add.i.i.i.i10, 6
+  %conv.i12 = add i32 %div1.i.i.i.i11, %conv.i.i.i6
+  %conv11 = sext i32 %conv.i12 to i64
   %add12 = add nsw i64 %conv11, 1
   br label %cond.end14
 
@@ -69967,9 +69906,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -69993,26 +69931,26 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
   %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 168
   %5 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %call9, i64 8
-  %6 = load i64, ptr %_M_string_length.i.i.i6, align 8
-  %conv.i.i.i7 = trunc i64 %6 to i32
-  %or.i.i.i.i8 = or i32 %conv.i.i.i7, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i8, i1 true)
-  %xor.i.i.i.i.i9 = xor i32 %7, 31
-  %mul.i.i.i.i10 = mul nuw nsw i32 %xor.i.i.i.i.i9, 9
-  %add.i.i.i.i11 = add nuw nsw i32 %mul.i.i.i.i10, 73
-  %div1.i.i.i.i12 = lshr i32 %add.i.i.i.i11, 6
-  %conv.i13 = add i32 %conv.i.i.i7, 1
-  %add11 = add i32 %conv.i13, %div1.i.i.i.i12
+  %_M_string_length.i.i.i5 = getelementptr inbounds nuw i8, ptr %call9, i64 8
+  %6 = load i64, ptr %_M_string_length.i.i.i5, align 8
+  %conv.i.i.i6 = trunc i64 %6 to i32
+  %or.i.i.i.i7 = or i32 %conv.i.i.i6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i7, i1 true)
+  %xor.i.i.i.i.i8 = xor i32 %7, 31
+  %mul.i.i.i.i9 = mul nuw nsw i32 %xor.i.i.i.i.i8, 9
+  %add.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i9, 73
+  %div1.i.i.i.i11 = lshr i32 %add.i.i.i.i10, 6
+  %conv.i12 = add i32 %conv.i.i.i6, 1
+  %add11 = add i32 %conv.i12, %div1.i.i.i.i11
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true6
@@ -70561,9 +70499,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -70588,9 +70525,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -70675,9 +70612,9 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
   %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
   %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
   %div1.i.i.i = lshr i32 %add.i.i.i, 6
-  %conv.i.i.i6 = zext nneg i32 %div1.i.i.i to i64
+  %conv.i.i.i5 = zext nneg i32 %div1.i.i.i to i64
   %add.i.i = add i64 %retval.0.i.i, 1
-  %add11 = add i64 %add.i.i, %conv.i.i.i6
+  %add11 = add i64 %add.i.i, %conv.i.i.i5
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8ByteSizeERKS7_.exit
@@ -70691,9 +70628,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -70717,9 +70653,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -71312,9 +71248,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -71339,9 +71274,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -71392,13 +71327,13 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN22protobuf_test_messages6proto314ForeignMessageEE8ByteSizeERKS7_.exit: ; preds = %if.then6.i.i.i, %if.end9.i.i.i
   %conv.i.pre-phi.i.i = phi i32 [ %.pre.i.i, %if.then6.i.i.i ], [ %conv.i.i.i.i, %if.end9.i.i.i ]
   %retval.0.i.i.i = phi i64 [ %call8.i.i.i, %if.then6.i.i.i ], [ %total_size.0.i.i.i, %if.end9.i.i.i ]
-  %or.i.i.i.i6 = or i32 %conv.i.pre-phi.i.i, 1
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i6, i1 true)
-  %xor.i.i.i.i.i7 = xor i32 %11, 31
-  %mul.i.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i.i7, 9
-  %add.i.i.i.i9 = add nuw nsw i32 %mul.i.i.i.i8, 73
-  %div1.i.i.i.i10 = lshr i32 %add.i.i.i.i9, 6
-  %conv.i.i1.i.i = zext nneg i32 %div1.i.i.i.i10 to i64
+  %or.i.i.i.i5 = or i32 %conv.i.pre-phi.i.i, 1
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i5, i1 true)
+  %xor.i.i.i.i.i6 = xor i32 %11, 31
+  %mul.i.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i.i6, 9
+  %add.i.i.i.i8 = add nuw nsw i32 %mul.i.i.i.i7, 73
+  %div1.i.i.i.i9 = lshr i32 %add.i.i.i.i8, 6
+  %conv.i.i1.i.i = zext nneg i32 %div1.i.i.i.i9 to i64
   %add.i.i.i = add i64 %retval.0.i.i.i, 1
   %add11 = add i64 %add.i.i.i, %conv.i.i1.i.i
   br label %cond.end13
@@ -71414,9 +71349,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %_has_bits_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -71440,9 +71374,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -71972,9 +71906,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -72022,9 +71955,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i: ; preds = %if.then.i.i8.i
 
 if.end.i:                                         ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i, %if.then.i
   %11 = phi i32 [ %.pre.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %11, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
+  %and.i.i = and i32 %11, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -72034,10 +71967,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %other)
   %13 = load i32, ptr %call14.i, align 4
   store i32 %13, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %14 = load i32, ptr %_has_bits_.i30.i, align 4
-  %or.i31.i = or i32 %14, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 4
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %14 = load i32, ptr %_has_bits_.i29.i, align 4
+  %or.i30.i = or i32 %14, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 4
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -72049,9 +71982,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -72076,9 +72008,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -72090,13 +72022,13 @@ cond.true6:                                       ; preds = %cond.end
   br i1 %cmp.i.i.i, label %cond.end14, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.true6
-  %or.i.i.i.i6 = or i32 %6, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i6, i1 true)
-  %xor.i.i.i.i.i7 = xor i32 %7, 31
-  %mul.i.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i.i7, 9
-  %add.i.i.i.i9 = add nuw nsw i32 %mul.i.i.i.i8, 73
-  %div1.i.i.i.i10 = lshr i32 %add.i.i.i.i9, 6
-  %narrow = add nuw nsw i32 %div1.i.i.i.i10, 1
+  %or.i.i.i.i5 = or i32 %6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i5, i1 true)
+  %xor.i.i.i.i.i6 = xor i32 %7, 31
+  %mul.i.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i.i6, 9
+  %add.i.i.i.i8 = add nuw nsw i32 %mul.i.i.i.i7, 73
+  %div1.i.i.i.i9 = lshr i32 %add.i.i.i.i8, 6
+  %narrow = add nuw nsw i32 %div1.i.i.i.i9, 1
   %8 = zext nneg i32 %narrow to i64
   br label %cond.end14
 
@@ -72111,9 +72043,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -72137,9 +72068,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -72151,13 +72082,13 @@ cond.true6:                                       ; preds = %cond.end
   br i1 %cmp.i.i.i, label %cond.end13, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.true6
-  %or.i.i.i.i6 = or i32 %6, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i6, i1 true)
-  %xor.i.i.i.i.i7 = xor i32 %7, 31
-  %mul.i.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i.i7, 9
-  %add.i.i.i.i9 = add nuw nsw i32 %mul.i.i.i.i8, 73
-  %div1.i.i.i.i10 = lshr i32 %add.i.i.i.i9, 6
-  %8 = add nuw nsw i32 %div1.i.i.i.i10, 1
+  %or.i.i.i.i5 = or i32 %6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i5, i1 true)
+  %xor.i.i.i.i.i6 = xor i32 %7, 31
+  %mul.i.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i.i6, 9
+  %add.i.i.i.i8 = add nuw nsw i32 %mul.i.i.i.i7, 73
+  %div1.i.i.i.i9 = lshr i32 %add.i.i.i.i8, 6
+  %8 = add nuw nsw i32 %div1.i.i.i.i9, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %if.else.i.i.i, %cond.true6, %cond.end
@@ -72636,9 +72567,8 @@ entry:
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %and.i.i = and i32 %0, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %if.end.i, label %if.then2.i
+  %cmp.i.i = trunc i32 %0 to i1
+  br i1 %cmp.i.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -72686,9 +72616,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i: ; preds = %if.then.i.i8.i
 
 if.end.i:                                         ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i, %if.then.i
   %11 = phi i32 [ %.pre.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i ], [ %0, %if.then.i ]
-  %and.i14.i = and i32 %11, 2
-  %cmp.i15.not.i = icmp eq i32 %and.i14.i, 0
-  br i1 %cmp.i15.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
+  %and.i.i = and i32 %11, 2
+  %cmp.i14.not.i = icmp eq i32 %and.i.i, 0
+  br i1 %cmp.i14.not.i, label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
   %value_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -72698,10 +72628,10 @@ if.then9.i:                                       ; preds = %if.end.i
   %call14.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %other)
   %13 = load i32, ptr %call14.i, align 4
   store i32 %13, ptr %value_.i, align 8
-  %_has_bits_.i30.i = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %14 = load i32, ptr %_has_bits_.i30.i, align 4
-  %or.i31.i = or i32 %14, 2
-  store i32 %or.i31.i, ptr %_has_bits_.i30.i, align 4
+  %_has_bits_.i29.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %14 = load i32, ptr %_has_bits_.i29.i, align 4
+  %or.i30.i = or i32 %14, 2
+  store i32 %or.i30.i, ptr %_has_bits_.i29.i, align 4
   br label %_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE17MergeFromInternalERKSG_.exit: ; preds = %entry, %if.end.i, %if.then9.i
@@ -72713,9 +72643,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -72740,9 +72669,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i64 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end14, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end14, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -72754,13 +72683,13 @@ cond.true6:                                       ; preds = %cond.end
   br i1 %cmp.i.i.i, label %cond.end14, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.true6
-  %or.i.i.i.i6 = or i32 %6, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i6, i1 true)
-  %xor.i.i.i.i.i7 = xor i32 %7, 31
-  %mul.i.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i.i7, 9
-  %add.i.i.i.i9 = add nuw nsw i32 %mul.i.i.i.i8, 73
-  %div1.i.i.i.i10 = lshr i32 %add.i.i.i.i9, 6
-  %narrow = add nuw nsw i32 %div1.i.i.i.i10, 1
+  %or.i.i.i.i5 = or i32 %6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i5, i1 true)
+  %xor.i.i.i.i.i6 = xor i32 %7, 31
+  %mul.i.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i.i6, 9
+  %add.i.i.i.i8 = add nuw nsw i32 %mul.i.i.i.i7, 73
+  %div1.i.i.i.i9 = lshr i32 %add.i.i.i.i8, 6
+  %narrow = add nuw nsw i32 %div1.i.i.i.i9, 1
   %8 = zext nneg i32 %narrow to i64
   br label %cond.end14
 
@@ -72775,9 +72704,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK6google8protobuf8internal12MapEnt
 entry:
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %cond.end, label %cond.true
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
@@ -72801,9 +72729,9 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %4 = phi i32 [ %.pre, %cond.true ], [ %0, %entry ]
   %cond = phi i32 [ %add, %cond.true ], [ 0, %entry ]
-  %and.i4 = and i32 %4, 2
-  %cmp.i5.not = icmp eq i32 %and.i4, 0
-  br i1 %cmp.i5.not, label %cond.end13, label %cond.true6
+  %and.i = and i32 %4, 2
+  %cmp.i4.not = icmp eq i32 %and.i, 0
+  br i1 %cmp.i4.not, label %cond.end13, label %cond.true6
 
 cond.true6:                                       ; preds = %cond.end
   %vtable7 = load ptr, ptr %this, align 8
@@ -72815,13 +72743,13 @@ cond.true6:                                       ; preds = %cond.end
   br i1 %cmp.i.i.i, label %cond.end13, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %cond.true6
-  %or.i.i.i.i6 = or i32 %6, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i6, i1 true)
-  %xor.i.i.i.i.i7 = xor i32 %7, 31
-  %mul.i.i.i.i8 = mul nuw nsw i32 %xor.i.i.i.i.i7, 9
-  %add.i.i.i.i9 = add nuw nsw i32 %mul.i.i.i.i8, 73
-  %div1.i.i.i.i10 = lshr i32 %add.i.i.i.i9, 6
-  %8 = add nuw nsw i32 %div1.i.i.i.i10, 1
+  %or.i.i.i.i5 = or i32 %6, 1
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i.i5, i1 true)
+  %xor.i.i.i.i.i6 = xor i32 %7, 31
+  %mul.i.i.i.i7 = mul nuw nsw i32 %xor.i.i.i.i.i6, 9
+  %add.i.i.i.i8 = add nuw nsw i32 %mul.i.i.i.i7, 73
+  %div1.i.i.i.i9 = lshr i32 %add.i.i.i.i8, 6
+  %8 = add nuw nsw i32 %div1.i.i.i.i9, 1
   br label %cond.end13
 
 cond.end13:                                       ; preds = %if.else.i.i.i, %cond.true6, %cond.end
@@ -77004,9 +76932,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 16
@@ -77053,9 +76980,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i: ; preds = %if.then.i.
 
 if.end.i.i.i:                                     ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i, %if.then.i.i.i
   %11 = phi i32 [ %.pre.i.i.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %11, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %11, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 24
@@ -77065,10 +76992,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %13 = load i32, ptr %call14.i.i.i, align 4
   store i32 %13, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 28
-  %14 = load i32, ptr %_has_bits_.i30.i.i.i, align 4
-  %or.i31.i.i.i = or i32 %14, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 4
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 28
+  %14 = load i32, ptr %_has_bits_.i29.i.i.i, align 4
+  %or.i30.i.i.i = or i32 %14, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 4
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -77098,8 +77025,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %17 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %18 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %17, %18
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %17, %18
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %19 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %17, %lor.lhs.false.i ]
@@ -80384,9 +80311,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 16
@@ -80433,9 +80359,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i: ; preds = %if.then.i.
 
 if.end.i.i.i:                                     ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i, %if.then.i.i.i
   %11 = phi i32 [ %.pre.i.i.i, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit11.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %11, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %11, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 24
@@ -80445,10 +80371,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %12(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %13 = load i32, ptr %call14.i.i.i, align 4
   store i32 %13, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 28
-  %14 = load i32, ptr %_has_bits_.i30.i.i.i, align 4
-  %or.i31.i.i.i = or i32 %14, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 4
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i.i.i, i64 28
+  %14 = load i32, ptr %_has_bits_.i29.i.i.i, align 4
+  %or.i30.i.i.i = or i32 %14, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 4
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -80478,8 +80404,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %17 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %18 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %17, %18
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %17, %18
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %19 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %17, %lor.lhs.false.i ]
@@ -94827,9 +94753,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
@@ -94847,9 +94772,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
@@ -94857,11 +94782,11 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %vfn13.i.i.i, align 8
   %call14.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %value)
   %7 = load i8, ptr %call14.i.i.i, align 1
-  %frombool.i30.i.i.i = and i8 %7, 1
-  store i8 %frombool.i30.i.i.i, ptr %value_.i.i.i.i.i.i, align 1
+  %frombool.i29.i.i.i = and i8 %7, 1
+  store i8 %frombool.i29.i.i.i, ptr %value_.i.i.i.i.i.i, align 1
   %8 = load i32, ptr %_has_bits_.i.i.i.i.i.i, align 4
-  %or.i32.i.i.i = or i32 %8, 2
-  store i32 %or.i32.i.i.i, ptr %_has_bits_.i.i.i.i.i.i, align 4
+  %or.i31.i.i.i = or i32 %8, 2
+  store i32 %or.i31.i.i.i, ptr %_has_bits_.i.i.i.i.i.i, align 4
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -94891,8 +94816,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -98418,9 +98343,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %value, align 8
@@ -98437,9 +98361,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vtable12.i.i.i = load ptr, ptr %value, align 8
@@ -98449,8 +98373,8 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %7 = load double, ptr %call14.i.i.i, align 8
   store double %7, ptr %value_.i.i.i.i.i.i, align 8
   %8 = load i32, ptr %_has_bits_.i.i.i.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i.i.i.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i.i.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -98480,8 +98404,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -101659,9 +101583,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -101680,9 +101603,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 20
@@ -101692,10 +101615,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load float, ptr %call14.i.i.i, align 4
   store float %7, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -101725,8 +101648,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -105237,9 +105160,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -105258,9 +105180,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -105270,10 +105192,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -105303,8 +105225,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -108482,9 +108404,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -108503,9 +108424,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 20
@@ -108515,10 +108436,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -108548,8 +108469,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -112060,9 +111981,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -112081,9 +112001,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -112093,10 +112013,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -112126,8 +112046,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -115650,9 +115570,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -115671,9 +115590,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 20
@@ -115683,10 +115602,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -115716,8 +115635,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -116669,9 +116588,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -116690,9 +116608,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -116702,10 +116620,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -116735,8 +116653,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -117694,9 +117612,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -117715,9 +117632,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 20
@@ -117727,10 +117644,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -117760,8 +117677,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -118713,9 +118630,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -118734,9 +118650,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -118746,10 +118662,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -118779,8 +118695,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -119738,9 +119654,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -119759,9 +119674,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 20
@@ -119771,10 +119686,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -119804,8 +119719,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -120757,9 +120672,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -120778,9 +120692,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
@@ -120790,10 +120704,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %value)
   %7 = load i64, ptr %call14.i.i.i, align 8
   store i64 %7, ptr %value_.i.i.i, align 8
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 32
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -120823,8 +120737,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]
@@ -121782,9 +121696,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit
-  %and.i.i.i.i = and i32 %1, 1
-  %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then2.i.i.i
+  %cmp.i.i.i.i11 = trunc i32 %1 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then2.i.i.i, label %if.end.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   %key_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 16
@@ -121803,9 +121716,9 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i.i.i, %if.then.i.i.i
   %5 = phi i32 [ %.pre.i.i.i, %if.then2.i.i.i ], [ %1, %if.then.i.i.i ]
-  %and.i14.i.i.i = and i32 %5, 2
-  %cmp.i15.not.i.i.i = icmp eq i32 %and.i14.i.i.i, 0
-  br i1 %cmp.i15.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
+  %and.i.i.i.i = and i32 %5, 2
+  %cmp.i14.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
+  br i1 %cmp.i14.not.i.i.i, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE5MergeERKS5_PS5_.exit, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 20
@@ -121815,10 +121728,10 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr %6(ptr noundef nonnull align 8 dereferenceable(40) %value)
   %7 = load i32, ptr %call14.i.i.i, align 4
   store i32 %7, ptr %value_.i.i.i, align 4
-  %_has_bits_.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
-  %8 = load i32, ptr %_has_bits_.i30.i.i.i, align 8
-  %or.i31.i.i.i = or i32 %8, 2
-  store i32 %or.i31.i.i.i, ptr %_has_bits_.i30.i.i.i, align 8
+  %_has_bits_.i29.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink5.i.i.i, i64 24
+  %8 = load i32, ptr %_has_bits_.i29.i.i.i, align 8
+  %or.i30.i.i.i = or i32 %8, 2
+  store i32 %or.i30.i.i.i, ptr %_has_bits_.i29.i.i.i, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE5MergeERKS5_PS5_.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE5MergeERKS5_PS5_.exit: ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit, %if.end.i.i.i, %if.then9.i.i.i
@@ -121848,8 +121761,8 @@ lor.lhs.false.i:                                  ; preds = %if.end5
   %11 = load i32, ptr %current_size_.i, align 8
   %total_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %total_size_.i, align 4
-  %cmp.i11 = icmp eq i32 %11, %12
-  br i1 %cmp.i11, label %if.then.i, label %if.else.i
+  %cmp.i12 = icmp eq i32 %11, %12
+  br i1 %cmp.i12, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %13 = phi i32 [ %.pre.i, %entry.if.then_crit_edge.i ], [ %11, %lor.lhs.false.i ]

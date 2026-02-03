@@ -4257,11 +4257,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %4 = trunc i64 %0 to i32
   %5 = lshr i64 %0, 32
   %6 = trunc nuw i64 %5 to i32
-  switch i32 %1, label %45 [
+  switch i32 %1, label %42 [
     i32 0, label %7
     i32 1, label %14
     i32 2, label %21
-    i32 3, label %28
+    i32 3, label %26
   ]
 
 7:                                                ; preds = %2
@@ -4269,67 +4269,63 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %9 = add i32 %4, -21
   %10 = icmp ult i32 %9, 125
   %or.cond5 = and i1 %8, %10
-  br i1 %or.cond5, label %11, label %45
+  br i1 %or.cond5, label %11, label %42
 
 11:                                               ; preds = %7
   %12 = and i32 %4, 3
   %13 = icmp eq i32 %12, 1
-  br label %45
+  br label %42
 
 14:                                               ; preds = %2
   %15 = icmp eq i32 %4, %6
   %16 = add i32 %4, -21
   %17 = icmp ult i32 %16, 157
   %or.cond11 = and i1 %15, %17
-  br i1 %or.cond11, label %18, label %45
+  br i1 %or.cond11, label %18, label %42
 
 18:                                               ; preds = %14
   %19 = and i32 %4, 3
   %20 = icmp eq i32 %19, 1
-  br label %45
+  br label %42
 
 21:                                               ; preds = %2
   %22 = icmp eq i32 %4, %6
   %23 = add i32 %4, -11
   %24 = icmp ult i32 %23, 7
   %or.cond17 = and i1 %22, %24
-  br i1 %or.cond17, label %25, label %45
+  %25 = trunc i64 %0 to i1
+  %spec.select = and i1 %or.cond17, %25
+  br label %42
 
-25:                                               ; preds = %21
-  %26 = and i32 %4, 1
-  %27 = icmp ne i32 %26, 0
-  br label %45
-
-28:                                               ; preds = %2
+26:                                               ; preds = %2
   %.not = icmp eq i32 %4, %6
-  %29 = and i32 %4, 1
-  %.not35 = icmp eq i32 %29, 0
+  %27 = and i32 %4, 1
+  %.not35 = icmp eq i32 %27, 0
   %or.cond = or i1 %.not, %.not35
-  br i1 %or.cond, label %45, label %30
+  br i1 %or.cond, label %42, label %28
 
-30:                                               ; preds = %28
-  %31 = and i32 %6, 1
-  %32 = icmp ne i32 %31, 0
-  %33 = add i32 %4, -27
-  %34 = icmp ult i32 %33, 113
-  %or.cond23 = and i1 %34, %32
-  %35 = add i32 %6, -7
-  %36 = icmp ult i32 %35, 11
-  %or.cond29 = and i1 %36, %or.cond23
-  br i1 %or.cond29, label %37, label %45
+28:                                               ; preds = %26
+  %29 = trunc i64 %5 to i1
+  %30 = add i32 %4, -27
+  %31 = icmp ult i32 %30, 113
+  %or.cond23 = and i1 %31, %29
+  %32 = add i32 %6, -7
+  %33 = icmp ult i32 %32, 11
+  %or.cond29 = and i1 %or.cond23, %33
+  br i1 %or.cond29, label %34, label %42
 
-37:                                               ; preds = %30
-  %38 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull align 4 dereferenceable(256) @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), ptr nonnull align 4 dereferenceable(8) %3) #16
-  %39 = icmp ne ptr %38, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %40, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
-  %42 = and i64 %41, 34359738360
-  %43 = icmp ne i64 %42, 34359738360
-  %44 = and i1 %39, %43
-  br label %45
+34:                                               ; preds = %28
+  %35 = call noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag(ptr noundef nonnull align 4 dereferenceable(256) @_ZN5ZXing6QRCodeL10RMQR_SIZESE, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), ptr nonnull align 4 dereferenceable(8) %3) #16
+  %36 = icmp ne ptr %35, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %37, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
+  %39 = and i64 %38, 34359738360
+  %40 = icmp ne i64 %39, 34359738360
+  %41 = and i1 %36, %40
+  br label %42
 
-45:                                               ; preds = %2, %28, %30, %37, %21, %25, %14, %18, %7, %11
-  %.0 = phi i1 [ false, %28 ], [ %27, %25 ], [ %13, %11 ], [ %20, %18 ], [ false, %7 ], [ false, %14 ], [ false, %21 ], [ false, %30 ], [ %44, %37 ], [ false, %2 ]
+42:                                               ; preds = %2, %26, %28, %34, %14, %18, %7, %11, %21
+  %.0 = phi i1 [ false, %26 ], [ %20, %18 ], [ %13, %11 ], [ %spec.select, %21 ], [ false, %7 ], [ false, %14 ], [ false, %28 ], [ %41, %34 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -4359,7 +4355,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing6QRCode7Version6NumberENS_6PointTIiEE(
   %12 = trunc i64 %11 to i32
   %13 = add nsw i32 %12, 1
   %14 = select i1 %8, i32 0, i32 %13
-  br label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
+  br label %.thread
 
 15:                                               ; preds = %1
   %16 = add i32 %3, -21
@@ -4369,28 +4365,27 @@ define linkonce_odr noundef i32 @_ZN5ZXing6QRCode7Version6NumberENS_6PointTIiEE(
 _ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit: ; preds = %15
   %18 = and i32 %3, 3
   %19 = icmp eq i32 %18, 1
-  br i1 %19, label %20, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
+  br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit
   %21 = add nsw i32 %3, -17
   %22 = lshr exact i32 %21, 2
-  br label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
+  br label %.thread
 
 23:                                               ; preds = %15
   %24 = add i32 %3, -11
   %25 = icmp ult i32 %24, 7
-  %26 = and i32 %3, 1
-  %27 = icmp ne i32 %26, 0
-  %28 = and i1 %25, %27
-  br i1 %28, label %29, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
+  %26 = trunc i64 %0 to i1
+  %27 = and i1 %25, %26
+  br i1 %27, label %28, label %.thread
 
-29:                                               ; preds = %23
-  %30 = add nsw i32 %3, -9
-  %31 = lshr exact i32 %30, 1
-  br label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread
+28:                                               ; preds = %23
+  %29 = add nsw i32 %3, -9
+  %30 = lshr exact i32 %29, 1
+  br label %.thread
 
-_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit3.thread: ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit, %23, %29, %20, %6
-  %.0 = phi i32 [ %14, %6 ], [ %22, %20 ], [ %31, %29 ], [ 0, %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit ], [ 0, %23 ]
+.thread:                                          ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit, %23, %28, %20, %6
+  %.0 = phi i32 [ %14, %6 ], [ %22, %20 ], [ %30, %28 ], [ 0, %23 ], [ 0, %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit ]
   ret i32 %.0
 }
 

@@ -757,7 +757,7 @@ define internal i32 @rtsp_rtp_write_resp(ptr noundef %0, ptr noundef %1, i64 nou
 
 16:                                               ; preds = %12, %4
   %.not57 = icmp eq i64 %2, 0
-  br i1 %.not57, label %69, label %17
+  br i1 %.not57, label %68, label %17
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 1140
@@ -769,7 +769,7 @@ define internal i32 @rtsp_rtp_write_resp(ptr noundef %0, ptr noundef %1, i64 nou
 21:                                               ; preds = %17
   %22 = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %5)
   %.not59 = icmp eq i32 %22, 0
-  br i1 %.not59, label %23, label %69
+  br i1 %.not59, label %23, label %68
 
 23:                                               ; preds = %21
   %24 = load i64, ptr %5, align 8, !tbaa !119
@@ -781,107 +781,106 @@ define internal i32 @rtsp_rtp_write_resp(ptr noundef %0, ptr noundef %1, i64 nou
   %.048 = phi i64 [ %2, %17 ], [ %26, %23 ]
   %.046 = phi ptr [ %1, %17 ], [ %25, %23 ]
   %28 = load i32, ptr %9, align 1
-  %29 = and i32 %28, 1
-  %30 = icmp ne i32 %29, 0
-  %31 = icmp ne i64 %.048, 0
-  %or.cond = select i1 %30, i1 %31, i1 false
-  br i1 %or.cond, label %32, label %58
+  %29 = trunc i32 %28 to i1
+  %30 = icmp ne i64 %.048, 0
+  %or.cond = select i1 %29, i1 %30, i1 false
+  br i1 %or.cond, label %31, label %57
 
-32:                                               ; preds = %27
-  %33 = load i8, ptr %18, align 4
-  %34 = or i8 %33, 1
-  store i8 %34, ptr %18, align 4
-  %35 = call i32 @Curl_http_write_resp_hds(ptr noundef nonnull %0, ptr noundef %.046, i64 noundef %.048, ptr noundef nonnull %5) #7
-  %.not60 = icmp eq i32 %35, 0
-  br i1 %.not60, label %36, label %69
+31:                                               ; preds = %27
+  %32 = load i8, ptr %18, align 4
+  %33 = or i8 %32, 1
+  store i8 %33, ptr %18, align 4
+  %34 = call i32 @Curl_http_write_resp_hds(ptr noundef nonnull %0, ptr noundef %.046, i64 noundef %.048, ptr noundef nonnull %5) #7
+  %.not60 = icmp eq i32 %34, 0
+  br i1 %.not60, label %35, label %68
 
-36:                                               ; preds = %32
-  %37 = load i64, ptr %5, align 8, !tbaa !119
-  %38 = getelementptr inbounds nuw i8, ptr %.046, i64 %37
-  %39 = sub i64 %.048, %37
-  %40 = load i32, ptr %9, align 1
-  %41 = and i32 %40, 1
-  %.not61 = icmp eq i32 %41, 0
+35:                                               ; preds = %31
+  %36 = load i64, ptr %5, align 8, !tbaa !119
+  %37 = getelementptr inbounds nuw i8, ptr %.046, i64 %36
+  %38 = sub i64 %.048, %36
+  %39 = load i32, ptr %9, align 1
+  %40 = and i32 %39, 1
+  %.not61 = icmp eq i32 %40, 0
   %.pre = load i8, ptr %18, align 4
-  br i1 %.not61, label %42, label %44
+  br i1 %.not61, label %41, label %43
 
-42:                                               ; preds = %36
-  %43 = and i8 %.pre, -2
-  store i8 %43, ptr %18, align 4
-  br label %44
+41:                                               ; preds = %35
+  %42 = and i8 %.pre, -2
+  store i8 %42, ptr %18, align 4
+  br label %43
 
-44:                                               ; preds = %42, %36
-  %45 = phi i8 [ %43, %42 ], [ %.pre, %36 ]
-  %46 = and i8 %45, 1
-  %.not62 = icmp eq i8 %46, 0
-  br i1 %.not62, label %47, label %58
+43:                                               ; preds = %41, %35
+  %44 = phi i8 [ %42, %41 ], [ %.pre, %35 ]
+  %45 = and i8 %44, 1
+  %.not62 = icmp eq i8 %45, 0
+  br i1 %.not62, label %46, label %57
 
-47:                                               ; preds = %44
-  %48 = load i64, ptr %8, align 8, !tbaa !120
-  %49 = icmp slt i64 %48, 0
-  br i1 %49, label %50, label %53
+46:                                               ; preds = %43
+  %47 = load i64, ptr %8, align 8, !tbaa !120
+  %48 = icmp slt i64 %47, 0
+  br i1 %48, label %49, label %52
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
   store i64 0, ptr %8, align 8, !tbaa !120
-  %51 = load i32, ptr %9, align 1
-  %52 = or i32 %51, 8
-  store i32 %52, ptr %9, align 1
-  br label %53
+  %50 = load i32, ptr %9, align 1
+  %51 = or i32 %50, 8
+  store i32 %51, ptr %9, align 1
+  br label %52
 
-53:                                               ; preds = %50, %47
-  %54 = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %0, ptr noundef %38, i64 noundef %39, ptr noundef %5)
-  %.not63 = icmp eq i32 %54, 0
-  br i1 %.not63, label %55, label %69
+52:                                               ; preds = %49, %46
+  %53 = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %0, ptr noundef %37, i64 noundef %38, ptr noundef %5)
+  %.not63 = icmp eq i32 %53, 0
+  br i1 %.not63, label %54, label %68
 
-55:                                               ; preds = %53
-  %56 = load i64, ptr %5, align 8, !tbaa !119
-  %57 = sub i64 %39, %56
-  br label %58
+54:                                               ; preds = %52
+  %55 = load i64, ptr %5, align 8, !tbaa !119
+  %56 = sub i64 %38, %55
+  br label %57
 
-58:                                               ; preds = %44, %55, %27
-  %.149 = phi i64 [ %39, %44 ], [ %57, %55 ], [ %.048, %27 ]
-  %.147 = phi ptr [ %38, %44 ], [ %38, %55 ], [ %.046, %27 ]
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 1136
-  %60 = load i32, ptr %59, align 8, !tbaa !121
-  %.not64 = icmp eq i32 %60, 0
-  br i1 %.not64, label %64, label %61
+57:                                               ; preds = %43, %54, %27
+  %.149 = phi i64 [ %38, %43 ], [ %56, %54 ], [ %.048, %27 ]
+  %.147 = phi ptr [ %37, %43 ], [ %37, %54 ], [ %.046, %27 ]
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 1136
+  %59 = load i32, ptr %58, align 8, !tbaa !121
+  %.not64 = icmp eq i32 %59, 0
+  br i1 %.not64, label %63, label %60
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr %9, align 1
-  %63 = and i32 %62, -3
-  store i32 %63, ptr %9, align 1
-  br label %64
+60:                                               ; preds = %57
+  %61 = load i32, ptr %9, align 1
+  %62 = and i32 %61, -3
+  store i32 %62, ptr %9, align 1
+  br label %63
 
-64:                                               ; preds = %61, %58
-  %65 = icmp ne i64 %.149, 0
-  %or.cond3 = select i1 %3, i1 true, i1 %65
-  br i1 %or.cond3, label %66, label %69
+63:                                               ; preds = %60, %57
+  %64 = icmp ne i64 %.149, 0
+  %or.cond3 = select i1 %3, i1 true, i1 %64
+  br i1 %or.cond3, label %65, label %68
 
-66:                                               ; preds = %64
-  %67 = select i1 %3, i32 129, i32 1
-  %68 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef %67, ptr noundef %.147, i64 noundef %.149) #7
-  br label %69
+65:                                               ; preds = %63
+  %66 = select i1 %3, i32 129, i32 1
+  %67 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef %66, ptr noundef %.147, i64 noundef %.149) #7
+  br label %68
 
-69:                                               ; preds = %66, %64, %53, %32, %21, %16
-  %.0 = phi i32 [ %35, %32 ], [ 0, %16 ], [ %68, %66 ], [ 0, %64 ], [ %54, %53 ], [ %22, %21 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %71 = load i32, ptr %70, align 8, !tbaa !77
-  %72 = icmp eq i32 %71, 11
-  br i1 %72, label %73, label %80
+68:                                               ; preds = %65, %63, %52, %31, %21, %16
+  %.0 = phi i32 [ %34, %31 ], [ 0, %16 ], [ %67, %65 ], [ 0, %63 ], [ %53, %52 ], [ %22, %21 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %70 = load i32, ptr %69, align 8, !tbaa !77
+  %71 = icmp eq i32 %70, 11
+  br i1 %71, label %72, label %79
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 1136
-  %75 = load i32, ptr %74, align 8, !tbaa !121
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %77, label %80
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 1136
+  %74 = load i32, ptr %73, align 8, !tbaa !121
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %79
 
-77:                                               ; preds = %73
-  %78 = load i32, ptr %9, align 1
-  %79 = or i32 %78, 8
-  store i32 %79, ptr %9, align 1
-  br label %80
+76:                                               ; preds = %72
+  %77 = load i32, ptr %9, align 1
+  %78 = or i32 %77, 8
+  store i32 %78, ptr %9, align 1
+  br label %79
 
-80:                                               ; preds = %77, %73, %69
+79:                                               ; preds = %76, %72, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

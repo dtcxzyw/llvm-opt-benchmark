@@ -260,9 +260,8 @@ l_Lake_helpScript.exit:                           ; preds = %1, %lean_string_dec
   %.2.in.i = phi ptr [ @l_Lake_helpScriptRun, %lean_string_dec_eq.exit15.i ], [ @l_Lake_helpScriptList, %1 ], [ @l_Lake_helpScriptList, %lean_string_dec_eq.exit.i ], [ @l_Lake_helpScriptRun, %lean_string_dec_eq.exit.thread.i ], [ @l_Lake_helpScriptCli, %lean_string_dec_eq.exit18.thread.i ], [ @l_Lake_helpScriptDoc, %lean_string_dec_eq.exit18.i ], [ @l_Lake_helpScriptDoc, %lean_string_dec_eq.exit15.thread.i ]
   %.2.i = load ptr, ptr %.2.in.i, align 8, !tbaa !4
   %21 = ptrtoint ptr %0 to i64
-  %22 = and i64 %21, 1
-  %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %23, label %lean_dec.exit
+  %22 = trunc i64 %21 to i1
+  br i1 %22, label %lean_dec.exit, label %23
 
 23:                                               ; preds = %l_Lake_helpScript.exit
   %24 = load i32, ptr %0, align 4, !tbaa !10
@@ -686,9 +685,8 @@ lean_string_dec_eq.exit.thread166:                ; preds = %lean_string_dec_eq.
 define ptr @l_Lake_help___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @l_Lake_help(ptr noundef %0)
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !10

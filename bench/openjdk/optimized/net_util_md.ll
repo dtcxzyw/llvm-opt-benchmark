@@ -599,72 +599,72 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %7 = sext i32 %3 to i64
   %8 = mul nsw i64 %7, 1000000
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %10 = trunc i32 %2 to i16
-  %spec.select = and i16 %10, 1
-  %11 = shl i16 %10, 1
-  %12 = and i16 %11, 4
-  %spec.select21 = or disjoint i16 %spec.select, %12
-  %13 = and i32 %2, 4
-  %.not20 = icmp eq i32 %13, 0
-  %14 = tail call ptr @__errno_location() #15
+  %.not = trunc i32 %2 to i16
+  %spec.select = and i16 %.not, 1
+  %10 = shl i16 %.not, 1
+  %11 = and i16 %10, 4
+  %spec.select21 = or disjoint i16 %spec.select, %11
+  %12 = and i32 %2, 4
+  %.not20 = icmp eq i32 %12, 0
+  %13 = tail call ptr @__errno_location() #15
   br i1 %.not20, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %4
-  %15 = or disjoint i16 %spec.select, 4
+  %14 = or disjoint i16 %spec.select, 4
   br label %.split
 
-.split.us:                                        ; preds = %4, %22
-  %.017.us = phi i64 [ %20, %22 ], [ %8, %4 ]
-  %.016.us = phi i64 [ %19, %22 ], [ %6, %4 ]
+.split.us:                                        ; preds = %4, %21
+  %.017.us = phi i64 [ %19, %21 ], [ %8, %4 ]
+  %.016.us = phi i64 [ %18, %21 ], [ %6, %4 ]
   store i32 %1, ptr %5, align 4
   store i16 %spec.select21, ptr %9, align 4
-  store i32 0, ptr %14, align 4
-  %16 = sdiv i64 %.017.us, 1000000
-  %17 = trunc i64 %16 to i32
-  %18 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %17) #14
-  %19 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
-  %.neg.us = sub i64 %.016.us, %19
-  %20 = add i64 %.neg.us, %.017.us
-  %21 = icmp slt i64 %20, 1000000
-  br i1 %21, label %.split26.us, label %22
+  store i32 0, ptr %13, align 4
+  %15 = sdiv i64 %.017.us, 1000000
+  %16 = trunc i64 %15 to i32
+  %17 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %16) #14
+  %18 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
+  %.neg.us = sub i64 %.016.us, %18
+  %19 = add i64 %.neg.us, %.017.us
+  %20 = icmp slt i64 %19, 1000000
+  br i1 %20, label %.split26.us, label %21
 
-22:                                               ; preds = %.split.us
-  %23 = icmp sgt i32 %18, 0
-  br i1 %23, label %.split28.us, label %.split.us
+21:                                               ; preds = %.split.us
+  %22 = icmp sgt i32 %17, 0
+  br i1 %22, label %.split28.us, label %.split.us
 
-.split:                                           ; preds = %.split.preheader, %32
-  %.017 = phi i64 [ %28, %32 ], [ %8, %.split.preheader ]
-  %.016 = phi i64 [ %27, %32 ], [ %6, %.split.preheader ]
+.split:                                           ; preds = %.split.preheader, %31
+  %.017 = phi i64 [ %27, %31 ], [ %8, %.split.preheader ]
+  %.016 = phi i64 [ %26, %31 ], [ %6, %.split.preheader ]
   store i32 %1, ptr %5, align 4
-  store i16 %15, ptr %9, align 4
-  store i32 0, ptr %14, align 4
-  %24 = sdiv i64 %.017, 1000000
-  %25 = trunc i64 %24 to i32
-  %26 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %25) #14
-  %27 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
-  %.neg = sub i64 %.016, %27
-  %28 = add i64 %.neg, %.017
-  %29 = icmp slt i64 %28, 1000000
-  br i1 %29, label %.split26.us, label %32
+  store i16 %14, ptr %9, align 4
+  store i32 0, ptr %13, align 4
+  %23 = sdiv i64 %.017, 1000000
+  %24 = trunc i64 %23 to i32
+  %25 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %24) #14
+  %26 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
+  %.neg = sub i64 %.016, %26
+  %27 = add i64 %.neg, %.017
+  %28 = icmp slt i64 %27, 1000000
+  br i1 %28, label %.split26.us, label %31
 
 .split26.us:                                      ; preds = %.split, %.split.us
-  %.us-phi = phi i32 [ %18, %.split.us ], [ %26, %.split ]
-  %30 = icmp slt i32 %.us-phi, 1
-  %31 = sext i1 %30 to i32
-  br label %36
+  %.us-phi = phi i32 [ %17, %.split.us ], [ %25, %.split ]
+  %29 = icmp slt i32 %.us-phi, 1
+  %30 = sext i1 %29 to i32
+  br label %35
 
-32:                                               ; preds = %.split
-  %33 = icmp sgt i32 %26, 0
-  br i1 %33, label %.split28.us, label %.split
+31:                                               ; preds = %.split
+  %32 = icmp sgt i32 %25, 0
+  br i1 %32, label %.split28.us, label %.split
 
-.split28.us:                                      ; preds = %32, %22
-  %.us-phi29 = phi i64 [ %20, %22 ], [ %28, %32 ]
-  %34 = udiv i64 %.us-phi29, 1000000
-  %35 = trunc i64 %34 to i32
-  br label %36
+.split28.us:                                      ; preds = %31, %21
+  %.us-phi29 = phi i64 [ %19, %21 ], [ %27, %31 ]
+  %33 = udiv i64 %.us-phi29, 1000000
+  %34 = trunc i64 %33 to i32
+  br label %35
 
-36:                                               ; preds = %.split28.us, %.split26.us
-  %.0 = phi i32 [ %31, %.split26.us ], [ %35, %.split28.us ]
+35:                                               ; preds = %.split28.us, %.split26.us
+  %.0 = phi i32 [ %30, %.split26.us ], [ %34, %.split28.us ]
   ret i32 %.0
 }
 

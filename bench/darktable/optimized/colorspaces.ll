@@ -4011,14 +4011,14 @@ define void @dt_colorspaces_set_display_profile(i32 noundef %0) local_unnamed_ad
   %6 = alloca [512 x i8], align 16
   %7 = tail call i32 (...) @dt_control_running() #23
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %134, label %8
+  br i1 %.not, label %133, label %8
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call i32 @pthread_rwlock_trywrlock(ptr noundef nonnull %10) #23
   %.not27 = icmp eq i32 %11, 0
-  br i1 %.not27, label %12, label %134
+  br i1 %.not27, label %12, label %133
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -4280,7 +4280,7 @@ _update_display2_profile.exit:                    ; preds = %98, %78, %106, %96,
   %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %116) #23
-  br label %133
+  br label %132
 
 118:                                              ; preds = %_update_display2_profile.exit, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4288,35 +4288,34 @@ _update_display2_profile.exit:                    ; preds = %98, %78, %106, %96,
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull %120) #23
   %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !157
-  %123 = and i32 %122, 1
-  %124 = icmp ne i32 %123, 0
-  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3260), align 4
-  %126 = icmp ne i32 %125, 0
-  %or.cond = select i1 %124, i1 %126, i1 false
-  br i1 %or.cond, label %127, label %131
+  %123 = trunc i32 %122 to i1
+  %124 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3260), align 4
+  %125 = icmp ne i32 %124, 0
+  %or.cond = select i1 %123, i1 %125, i1 false
+  br i1 %or.cond, label %126, label %130
 
-127:                                              ; preds = %118
-  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !34
-  %129 = and i32 %128, 1048576
-  %.not34 = icmp eq i32 %129, 0
-  br i1 %.not34, label %131, label %130
+126:                                              ; preds = %118
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !34
+  %128 = and i32 %127, 1048576
+  %.not34 = icmp eq i32 %128, 0
+  br i1 %.not34, label %130, label %129
 
-130:                                              ; preds = %127
+129:                                              ; preds = %126
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.8, i32 noundef 2068, ptr noundef nonnull @__FUNCTION__.dt_colorspaces_set_display_profile) #23
-  br label %131
+  br label %130
 
-131:                                              ; preds = %127, %130, %118
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !158
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %132, i32 noundef 32) #23
-  br label %133
+130:                                              ; preds = %126, %129, %118
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !158
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %131, i32 noundef 32) #23
+  br label %132
 
-133:                                              ; preds = %.thread55, %131
+132:                                              ; preds = %.thread55, %130
   call void @g_free(ptr noundef %43) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %8, %1, %133
+133:                                              ; preds = %8, %1, %132
   ret void
 }
 

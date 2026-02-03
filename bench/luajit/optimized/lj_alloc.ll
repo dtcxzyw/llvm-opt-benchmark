@@ -2759,14 +2759,13 @@ direct_resize.exit:                               ; preds = %60, %64, %19, %25
 
 82:                                               ; preds = %79
   %83 = load i64, ptr %6, align 8, !tbaa !36
-  %84 = and i64 %83, 1
-  %.not86 = icmp eq i64 %84, 0
-  %.neg = select i1 %.not86, i64 -8, i64 -16
+  %84 = trunc i64 %83 to i1
+  %.neg = select i1 %84, i64 -16, i64 -8
   br label %85
 
 85:                                               ; preds = %82, %79
-  %.neg87 = phi i64 [ -8, %79 ], [ %.neg, %82 ]
-  %86 = add i64 %.neg87, %9
+  %.neg86 = phi i64 [ -8, %79 ], [ %.neg, %82 ]
+  %86 = add i64 %.neg86, %9
   %87 = tail call i64 @llvm.umin.i64(i64 %86, i64 %2)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %1, i64 %87, i1 false)
   tail call fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef nonnull %1)

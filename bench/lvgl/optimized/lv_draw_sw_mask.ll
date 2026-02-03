@@ -1991,53 +1991,53 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %9 = load i8, ptr %8, align 4
-  %10 = and i8 %9, 1
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !54
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = load i32, ptr %10, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %13 = load i32, ptr %7, align 8, !tbaa !50
-  store i32 %13, ptr %6, align 4, !tbaa !50
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !51
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %15, ptr %16, align 4, !tbaa !51
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !52
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %18, ptr %19, align 4, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !53
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %21, ptr %22, align 4, !tbaa !53
-  %.not267 = icmp eq i8 %10, 0
-  %23 = icmp slt i32 %2, %15
-  %24 = icmp sgt i32 %2, %21
+  %12 = load i32, ptr %7, align 8, !tbaa !50
+  store i32 %12, ptr %6, align 4, !tbaa !50
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %14 = load i32, ptr %13, align 4, !tbaa !51
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %14, ptr %15, align 4, !tbaa !51
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %17 = load i32, ptr %16, align 8, !tbaa !52
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %17, ptr %18, align 4, !tbaa !52
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %20 = load i32, ptr %19, align 4, !tbaa !53
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 %20, ptr %21, align 4, !tbaa !53
+  %22 = trunc i8 %9 to i1
+  %23 = icmp slt i32 %2, %14
+  %24 = icmp sgt i32 %2, %20
   %or.cond = select i1 %23, i1 true, i1 %24
-  %. = zext nneg i8 %10 to i32
+  %.mask = and i8 %9, 1
+  %. = zext nneg i8 %.mask to i32
   br i1 %or.cond, label %205, label %25
 
 25:                                               ; preds = %5
-  %26 = add nsw i32 %13, %12
+  %26 = add nsw i32 %12, %11
   %.not = icmp slt i32 %1, %26
   br i1 %.not, label %30, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %3, %1
-  %29 = sub nsw i32 %18, %12
+  %29 = sub nsw i32 %17, %11
   %.not207 = icmp sgt i32 %28, %29
   br i1 %.not207, label %30, label %33
 
 30:                                               ; preds = %27, %25
-  %31 = add nsw i32 %15, %12
+  %31 = add nsw i32 %14, %11
   %.not208 = icmp slt i32 %2, %31
-  %32 = sub nsw i32 %21, %12
+  %32 = sub nsw i32 %20, %11
   %.not209 = icmp sgt i32 %2, %32
   %or.cond235 = select i1 %.not208, i1 true, i1 %.not209
   br i1 %or.cond235, label %67, label %33
 
 33:                                               ; preds = %30, %27
-  %34 = sub nsw i32 %13, %1
-  br i1 %.not267, label %35, label %55
+  %34 = sub nsw i32 %12, %1
+  br i1 %22, label %55, label %35
 
 35:                                               ; preds = %33
   %36 = icmp sgt i32 %34, %3
@@ -2053,7 +2053,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   br label %41
 
 41:                                               ; preds = %39, %37
-  %42 = sub nsw i32 %18, %1
+  %42 = sub nsw i32 %17, %1
   %43 = add nsw i32 %42, 1
   %44 = icmp slt i32 %42, 0
   br i1 %44, label %205, label %45
@@ -2071,7 +2071,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   br label %52
 
 52:                                               ; preds = %45, %47
-  %53 = icmp eq i32 %13, %1
+  %53 = icmp eq i32 %12, %1
   %54 = icmp eq i32 %43, %3
   %or.cond216 = select i1 %53, i1 %54, i1 false
   %spec.select224 = select i1 %or.cond216, i32 1, i32 2
@@ -2084,7 +2084,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
 
 56:                                               ; preds = %55
   %57 = add i32 %1, %spec.store.select
-  %reass.sub = sub i32 %18, %57
+  %reass.sub = sub i32 %17, %57
   %58 = add i32 %reass.sub, 1
   %59 = add nsw i32 %58, %spec.store.select
   %60 = icmp sgt i32 %59, %3
@@ -2101,15 +2101,15 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   br label %205
 
 67:                                               ; preds = %30
-  %68 = sub nsw i32 %13, %1
+  %68 = sub nsw i32 %12, %1
   %69 = call i32 @lv_area_get_width(ptr noundef nonnull %6) #9
   %70 = call i32 @lv_area_get_height(ptr noundef nonnull %6) #9
-  %71 = load i32, ptr %16, align 4, !tbaa !51
+  %71 = load i32, ptr %15, align 4, !tbaa !51
   %72 = sub nsw i32 %2, %71
-  %73 = icmp slt i32 %72, %12
+  %73 = icmp slt i32 %72, %11
   %74 = xor i32 %72, -1
-  %75 = add i32 %12, %74
-  %.neg = sub i32 %12, %70
+  %75 = add i32 %11, %74
+  %.neg = sub i32 %11, %70
   %76 = add i32 %.neg, %72
   %.0179 = select i1 %73, i32 %75, i32 %76
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2133,14 +2133,14 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %95 = load ptr, ptr %94, align 8, !tbaa !21
   %96 = zext i16 %86 to i64
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
-  %98 = sub i32 %68, %12
+  %98 = sub i32 %68, %11
   %99 = add i32 %98, %69
   %100 = add nsw i32 %99, %93
-  %101 = add nsw i32 %68, %12
+  %101 = add nsw i32 %68, %11
   %102 = sub i32 %101, %93
   %103 = add nsw i32 %102, -1
   %104 = icmp sgt i32 %88, 0
-  br i1 %.not267, label %.preheader, label %.preheader243
+  br i1 %22, label %.preheader243, label %.preheader
 
 .preheader243:                                    ; preds = %67
   br i1 %104, label %.lr.ph.preheader, label %._crit_edge

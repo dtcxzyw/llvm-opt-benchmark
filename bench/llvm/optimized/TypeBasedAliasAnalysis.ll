@@ -368,22 +368,21 @@ _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit: ; pre
   %45 = load ptr, ptr %41, align 8
   %.in.i.i.i = select i1 %44, ptr %41, ptr %45
   %46 = load i64, ptr %.in.i.i.i, align 8, !tbaa !77
-  %47 = and i64 %46, 1
-  %.not31 = icmp eq i64 %47, 0
-  br i1 %.not31, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread, label %.critedge
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %.critedge, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
 
 _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i13, %36, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i21_crit_edge, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i16
 
 _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i21_crit_edge: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
-  %.pre38 = lshr i64 %15, 2
-  %.pre40 = and i64 %.pre38, 15
-  %.pre42 = sub nsw i64 0, %.pre40
+  %.pre37 = lshr i64 %15, 2
+  %.pre39 = and i64 %.pre37, 15
+  %.pre41 = sub nsw i64 0, %.pre39
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i21
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i21:          ; preds = %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i21_crit_edge, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i14
-  %.pre-phi43 = phi i64 [ %.pre42, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i21_crit_edge ], [ %19, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i14 ]
-  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %14, i64 %.pre-phi43
+  %.pre-phi42 = phi i64 [ %.pre41, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i21_crit_edge ], [ %19, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i14 ]
+  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %14, i64 %.pre-phi42
   %49 = load ptr, ptr %48, align 8, !tbaa !60
   %50 = load i8, ptr %49, align 4, !tbaa !63
   %51 = add i8 %50, -5
@@ -391,12 +390,12 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i21:          ; preds = %_ZNK12_GLOBAL__N_11
   br i1 %switch.i.i.i.i.i.i.i.i.i22, label %52, label %.critedge2
 
 _ZNK4llvm6MDNode10getOperandEj.exit.thread.i16:   ; preds = %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
-  %.phi.trans.insert33 = getelementptr inbounds i8, ptr %12, i64 -32
-  %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8, !tbaa !25
-  %.pre35 = load ptr, ptr %.pre34, align 8, !tbaa !60
-  %.pre36 = load i8, ptr %.pre35, align 4, !tbaa !63
-  %.pre37 = add i8 %.pre36, -5
-  %switch.i.i.i.i.i.i.i.i4.i17 = icmp ult i8 %.pre37, 31
+  %.phi.trans.insert32 = getelementptr inbounds i8, ptr %12, i64 -32
+  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !tbaa !25
+  %.pre34 = load ptr, ptr %.pre33, align 8, !tbaa !60
+  %.pre35 = load i8, ptr %.pre34, align 4, !tbaa !63
+  %.pre36 = add i8 %.pre35, -5
+  %switch.i.i.i.i.i.i.i.i4.i17 = icmp ult i8 %.pre36, 31
   br i1 %switch.i.i.i.i.i.i.i.i4.i17, label %.thread.i18, label %.critedge2
 
 52:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i21
@@ -565,12 +564,11 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
   %65 = load ptr, ptr %61, align 8
   %.in.i.i = select i1 %64, ptr %61, ptr %65
   %66 = load i64, ptr %.in.i.i, align 8, !tbaa !77
-  %67 = and i64 %66, 1
-  %68 = icmp ne i64 %67, 0
+  %67 = trunc i64 %66 to i1
   br label %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.thread
 
 _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit.thread: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %56, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ %68, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ false, %56 ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ]
+  %.0 = phi i1 [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ %67, %_ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ false, %56 ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ]
   ret i1 %.0
 }
 
@@ -659,22 +657,21 @@ _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit: ; pre
   %46 = load ptr, ptr %42, align 8
   %.in.i.i.i = select i1 %45, ptr %42, ptr %46
   %47 = load i64, ptr %.in.i.i.i, align 8, !tbaa !77
-  %48 = and i64 %47, 1
-  %.not54 = icmp eq i64 %48, 0
-  br i1 %.not54, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread, label %.critedge2
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %.critedge2, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
 
 _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i13, %37, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i18
 
 _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
-  %.pre61 = lshr i64 %16, 2
-  %.pre63 = and i64 %.pre61, 15
-  %.pre65 = sub nsw i64 0, %.pre63
+  %.pre60 = lshr i64 %16, 2
+  %.pre62 = and i64 %.pre60, 15
+  %.pre64 = sub nsw i64 0, %.pre62
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i23
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i23:          ; preds = %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i16
-  %.pre-phi66 = phi i64 [ %.pre65, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge ], [ %20, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i16 ]
-  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %15, i64 %.pre-phi66
+  %.pre-phi65 = phi i64 [ %.pre64, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge ], [ %20, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i16 ]
+  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %15, i64 %.pre-phi65
   %50 = load ptr, ptr %49, align 8, !tbaa !60
   %51 = load i8, ptr %50, align 4, !tbaa !63
   %52 = add i8 %51, -5
@@ -682,12 +679,12 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i23:          ; preds = %_ZNK12_GLOBAL__N_11
   br i1 %switch.i.i.i.i.i.i.i.i.i24, label %53, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
 
 _ZNK4llvm6MDNode10getOperandEj.exit.thread.i18:   ; preds = %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
-  %.phi.trans.insert56 = getelementptr inbounds i8, ptr %13, i64 -32
-  %.pre57 = load ptr, ptr %.phi.trans.insert56, align 8, !tbaa !25
-  %.pre58 = load ptr, ptr %.pre57, align 8, !tbaa !60
-  %.pre59 = load i8, ptr %.pre58, align 4, !tbaa !63
-  %.pre60 = add i8 %.pre59, -5
-  %switch.i.i.i.i.i.i.i.i4.i19 = icmp ult i8 %.pre60, 31
+  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %13, i64 -32
+  %.pre56 = load ptr, ptr %.phi.trans.insert55, align 8, !tbaa !25
+  %.pre57 = load ptr, ptr %.pre56, align 8, !tbaa !60
+  %.pre58 = load i8, ptr %.pre57, align 4, !tbaa !63
+  %.pre59 = add i8 %.pre58, -5
+  %switch.i.i.i.i.i.i.i.i4.i19 = icmp ult i8 %.pre59, 31
   br i1 %switch.i.i.i.i.i.i.i.i4.i19, label %.thread.i20, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
 
 53:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i23

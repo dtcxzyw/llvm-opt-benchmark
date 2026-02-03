@@ -478,8 +478,7 @@ define dso_local void @cluster_rel(ptr noundef %0, i32 noundef %1, ptr noundef r
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14 = load i32, ptr %2, align 4
-  %15 = and i32 %14, 1
-  %.not40 = icmp eq i32 %15, 0
+  %15 = trunc i32 %14 to i1
   %16 = and i32 %14, 2
   %.not = icmp eq i32 %16, 0
   %17 = load volatile i32, ptr @InterruptPending, align 4
@@ -680,7 +679,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   store double 0.000000e+00, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double 0.000000e+00, ptr %8, align 8
-  %112 = select i1 %.not40, i32 13, i32 17
+  %112 = select i1 %15, i32 17, i32 13
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @pg_rusage_init(ptr noundef nonnull %9) #7
   %113 = load ptr, ptr %20, align 8

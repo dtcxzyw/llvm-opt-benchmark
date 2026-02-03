@@ -4832,7 +4832,7 @@ if.then.i157.us.lr.ph:                            ; preds = %_ZN4llvh5APIntC2Ejm
   br i1 %cmp.i130, label %for.cond.us._ZN4llvh5APIntlSEj.exit173.split.us_crit_edge.split.us, label %if.then.i157.us
 
 for.cond.us._ZN4llvh5APIntlSEj.exit173.split.us_crit_edge.split.us: ; preds = %if.then.i157.us.lr.ph
-  %and.i207.us.us.le = and i64 %Val.sroa.0.1203, 1
+  %conv25209.us.us.le = and i64 %Val.sroa.0.1203, 1
   br label %_ZN4llvh5APIntlSEj.exit173
 
 if.then.i157.us:                                  ; preds = %if.then.i157.us.lr.ph, %if.then.i157.us
@@ -4840,8 +4840,8 @@ if.then.i157.us:                                  ; preds = %if.then.i157.us.lr.
   %Val.sroa.0.0.us227 = phi i64 [ %shr.i.us, %if.then.i157.us ], [ %Val.sroa.0.1203, %if.then.i157.us.lr.ph ]
   %and.i.i149.us224226 = phi i64 [ %and.i.i149.us, %if.then.i157.us ], [ %36, %if.then.i157.us.lr.ph ]
   %shl.i.us = shl i64 %and.i.i149.us224226, 1
-  %and.i207.us = and i64 %Val.sroa.0.0.us227, 1
-  %37 = or disjoint i64 %shl.i.us, %and.i207.us
+  %conv25209.us = and i64 %Val.sroa.0.0.us227, 1
+  %37 = or disjoint i64 %shl.i.us, %conv25209.us
   %and.i.i149.us = and i64 %37, %shr.i5.i.pre-phi
   %shr.i.us = lshr i64 %Val.sroa.0.0.us227, 1
   %dec212.us = add i32 %S.0.us228, -1
@@ -4922,10 +4922,10 @@ if.end4.i:                                        ; preds = %if.end16.i.i
   %and6.i.i = and i64 %47, %shr.i5.i.pre-phi
   store i64 %and6.i.i, ptr %arrayidx.i7.i, align 8
   %cond.i.i.else.val = load i64, ptr %38, align 8
-  %and.i = and i64 %cond.i.i.else.val, 1
+  %conv25 = and i64 %cond.i.i.else.val, 1
   %48 = load ptr, ptr %agg.result, align 8
   %49 = load i64, ptr %48, align 8
-  %or4.i = or i64 %49, %and.i
+  %or4.i = or i64 %49, %conv25
   store i64 %or4.i, ptr %48, align 8
   %50 = load i64, ptr %38, align 8
   %shr.i3.i.i = lshr i64 %50, 1
@@ -4956,7 +4956,7 @@ _ZN4llvh5APInt11lshrInPlaceEj.exit.loopexit:      ; preds = %for.inc.i.i.i
   br label %for.cond, !llvm.loop !68
 
 _ZN4llvh5APIntlSEj.exit173:                       ; preds = %if.then.i157.us, %for.cond.us._ZN4llvh5APIntlSEj.exit173.split.us_crit_edge.split.us
-  %.us-phi = phi i64 [ %and.i207.us.us.le, %for.cond.us._ZN4llvh5APIntlSEj.exit173.split.us_crit_edge.split.us ], [ %and.i.i149.us, %if.then.i157.us ]
+  %.us-phi = phi i64 [ %conv25209.us.us.le, %for.cond.us._ZN4llvh5APIntlSEj.exit173.split.us_crit_edge.split.us ], [ %and.i.i149.us, %if.then.i157.us ]
   %.us-phi229 = phi i32 [ 0, %for.cond.us._ZN4llvh5APIntlSEj.exit173.split.us_crit_edge.split.us ], [ %dec212.us, %if.then.i157.us ]
   %.pre262 = zext nneg i32 %.us-phi229 to i64
   %54 = icmp eq i32 %.us-phi229, %.fr

@@ -543,9 +543,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i: ; preds = %211, 
   %228 = and i64 %225, -8
   %229 = inttoptr i64 %228 to ptr
   %230 = atomicrmw add ptr %229, i32 2 monotonic, align 4
-  %231 = and i32 %230, 1
-  %.not1.i.i.i.i = icmp eq i32 %231, 0
-  br i1 %.not1.i.i.i.i, label %232, label %237
+  %231 = trunc i32 %230 to i1
+  br i1 %231, label %237, label %232
 
 232:                                              ; preds = %227
   %233 = load ptr, ptr %224, align 8

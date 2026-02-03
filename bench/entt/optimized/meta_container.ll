@@ -101649,11 +101649,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt3mapIicSt4lessIiESaISt4pairIKicEEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 2048
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -101681,9 +101681,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt3mapIicSt4les
   store ptr @_ZN4entt39basic_meta_associative_container_traitsISt3mapIicSt4lessIiESaISt4pairIKicEEEE4findERKNS_8meta_ctxEPvPKvSF_, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !98
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i8 %spec.select, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -106374,11 +106374,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt6vectorIiSaIiEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 1024
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -106404,9 +106404,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt6vectorIiSaIi
   store ptr @_ZN4entt36basic_meta_sequence_container_traitsISt6vectorIiSaIiEEE5eraseERKNS_8meta_ctxEPvRKNS_23meta_sequence_container13meta_iteratorE, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !98
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %spec.select, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -111940,11 +111940,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt6vectorIbSaIbEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 1024
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -111970,9 +111970,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt6vectorIbSaIb
   store ptr @_ZN4entt36basic_meta_sequence_container_traitsISt6vectorIbSaIbEEE5eraseERKNS_8meta_ctxEPvRKNS_23meta_sequence_container13meta_iteratorE, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !98
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %spec.select, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -117555,11 +117555,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt5arrayIiLm3EEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 1024
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -117585,9 +117585,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt5arrayIiLm3EE
   store ptr @_ZN4entt36basic_meta_sequence_container_traitsISt5arrayIiLm3EEE5eraseERKNS_8meta_ctxEPvRKNS_23meta_sequence_container13meta_iteratorE, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !98
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %spec.select, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -118714,11 +118714,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableINSt7__cxx114listIiSaIiEEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 1024
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -118744,9 +118744,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableINSt7__cxx114lis
   store ptr @_ZN4entt36basic_meta_sequence_container_traitsINSt7__cxx114listIiSaIiEEEE5eraseERKNS_8meta_ctxEPvRKNS_23meta_sequence_container13meta_iteratorE, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !98
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %spec.select, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -120684,11 +120684,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt5dequeIiSaIiEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 1024
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -120714,9 +120714,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt5dequeIiSaIiE
   store ptr @_ZN4entt36basic_meta_sequence_container_traitsISt5dequeIiSaIiEEE5eraseERKNS_8meta_ctxEPvRKNS_23meta_sequence_container13meta_iteratorE, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !98
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %spec.select, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -128053,11 +128053,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt6vectorIN4test25non_default_constructibleESaIS4_EEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 1024
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -128083,9 +128083,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt6vectorIN4tes
   store ptr @_ZN4entt36basic_meta_sequence_container_traitsISt6vectorIN4test25non_default_constructibleESaIS3_EEE5eraseERKNS_8meta_ctxEPvRKNS_23meta_sequence_container13meta_iteratorE, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !98
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %spec.select, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -132920,11 +132920,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt3setIiSt4lessIiESaIiEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 2048
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -132952,9 +132952,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableISt3setIiSt4less
   store ptr @_ZN4entt39basic_meta_associative_container_traitsISt3setIiSt4lessIiESaIiEEE4findERKNS_8meta_ctxEPvPKvSC_, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !98
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i8 %spec.select, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -136075,11 +136075,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableINS_9dense_mapIicSt4hashIiESt8equal_toIvESaISt4pairIKicEEEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 2048
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -136107,9 +136107,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableINS_9dense_mapIi
   store ptr @_ZN4entt39basic_meta_associative_container_traitsINS_9dense_mapIicSt4hashIiESt8equal_toIvESaISt4pairIKicEEEEE4findERKNS_8meta_ctxEPvPKvSH_, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !98
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i8 %spec.select, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 
@@ -138585,11 +138585,11 @@ _ZN4entt8internal11try_resolveERKNS0_12meta_contextERKNS_9type_infoE.exit.thread
 define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableINS_9dense_setIiSt4hashIiESt8equal_toIvESaIiEEEEEvNS_8internal11meta_traitsERKNS_8meta_ctxEPKvPv(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3) #7 comdat align 2 {
   %5 = and i32 %0, 2048
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %7, label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i32 %0 to i8
-  %spec.select = and i8 %7, 1
+  %.not.i6 = trunc i32 %0 to i8
+  %spec.select = and i8 %.not.i6, 1
   store ptr %1, ptr %3, align 8, !tbaa !661
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !98
@@ -138617,9 +138617,9 @@ define linkonce_odr hidden void @_ZN4entt8meta_any12basic_vtableINS_9dense_setIi
   store ptr @_ZN4entt39basic_meta_associative_container_traitsINS_9dense_setIiSt4hashIiESt8equal_toIvESaIiEEEE4findERKNS_8meta_ctxEPvPKvSE_, ptr %.sroa.27.0..sroa_idx, align 8, !tbaa !98
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i8 %spec.select, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !306
-  br label %8
+  br label %7
 
-8:                                                ; preds = %6, %4
+7:                                                ; preds = %6, %4
   ret void
 }
 

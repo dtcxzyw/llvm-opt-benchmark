@@ -28,9 +28,8 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl18visitAtomicRMWInstERNS_13
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !3
-  %9 = and i16 %8, 1
-  %.not56 = icmp eq i16 %9, 0
-  br i1 %.not56, label %10, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit
+  %9 = trunc i16 %8 to i1
+  br i1 %9, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %1, i64 -32
@@ -469,8 +468,8 @@ _ZN12_GLOBAL__N_115isIdempotentRMWERN4llvm13AtomicRMWInstE.exit.thread48: ; pred
   %273 = icmp ne i32 %272, 12
   %274 = and i16 %.val22, 496
   %.not18 = icmp eq i16 %274, 80
-  %or.cond57 = select i1 %273, i1 true, i1 %.not18
-  br i1 %or.cond57, label %322, label %275
+  %or.cond56 = select i1 %273, i1 true, i1 %.not18
+  br i1 %or.cond56, label %322, label %275
 
 275:                                              ; preds = %_ZN12_GLOBAL__N_115isIdempotentRMWERN4llvm13AtomicRMWInstE.exit.thread48
   %276 = and i16 %.val22, -497
@@ -587,8 +586,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit:         ; preds = %322
   %323 = and i32 %271, 253
   %spec.select.i = icmp ne i32 %323, 4
   %.not19 = icmp eq i16 %274, 176
-  %or.cond58 = select i1 %spec.select.i, i1 true, i1 %.not19
-  br i1 %or.cond58, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit, label %324
+  %or.cond57 = select i1 %spec.select.i, i1 true, i1 %.not19
+  br i1 %or.cond57, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit, label %324
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %322, %322, %322, %322, %322
   %.not19.old = icmp eq i16 %274, 176

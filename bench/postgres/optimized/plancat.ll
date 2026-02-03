@@ -535,14 +535,14 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %155, %163
   %302 = load ptr, ptr %300, align 8
   %303 = getelementptr inbounds nuw i16, ptr %302, i64 %indvars.iv394
   %304 = load i16, ptr %303, align 2
-  %305 = load ptr, ptr %297, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 %indvars.iv394
-  %307 = trunc i16 %304 to i8
-  %308 = and i8 %307, 1
-  store i8 %308, ptr %306, align 1
+  %305 = trunc i16 %304 to i8
+  %306 = load ptr, ptr %297, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 %indvars.iv394
+  %308 = and i8 %305, 1
+  store i8 %308, ptr %307, align 1
   %309 = load ptr, ptr %299, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 %indvars.iv394
-  %311 = lshr i8 %307, 1
+  %311 = lshr i8 %305, 1
   %312 = and i8 %311, 1
   store i8 %312, ptr %310, align 1
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
@@ -580,14 +580,14 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %155, %163
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %329 = load ptr, ptr %321, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 %indvars.iv389
-  %331 = trunc i16 %328 to i8
-  %332 = and i8 %331, 1
-  store i8 %332, ptr %330, align 1
+  %329 = trunc i16 %328 to i8
+  %330 = load ptr, ptr %321, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 %indvars.iv389
+  %332 = and i8 %329, 1
+  store i8 %332, ptr %331, align 1
   %333 = load ptr, ptr %323, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 %indvars.iv389
-  %335 = lshr i8 %331, 1
+  %335 = lshr i8 %329, 1
   %336 = and i8 %335, 1
   store i8 %336, ptr %334, align 1
   %337 = load ptr, ptr %197, align 8

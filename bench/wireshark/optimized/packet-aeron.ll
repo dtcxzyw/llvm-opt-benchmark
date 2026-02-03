@@ -4094,14 +4094,14 @@ define internal fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef r
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %proto_item_set_generated.exit190, label %10
+  br i1 %.not, label %proto_item_set_generated.exit189, label %10
 
 10:                                               ; preds = %6
   %11 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
   %13 = icmp ne ptr %5, null
   %or.cond = and i1 %13, %12
-  br i1 %or.cond, label %14, label %proto_item_set_generated.exit190
+  br i1 %or.cond, label %14, label %proto_item_set_generated.exit189
 
 14:                                               ; preds = %10
   %15 = load i32, ptr @hf_aeron_sequence_analysis, align 4
@@ -4128,59 +4128,59 @@ proto_item_set_generated.exit:                    ; preds = %14, %17, %20
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load i32, ptr %26, align 8
   %.not132 = icmp eq i32 %27, 0
-  br i1 %.not132, label %proto_item_set_generated.exit159, label %28
+  br i1 %.not132, label %proto_item_set_generated.exit158, label %28
 
 28:                                               ; preds = %proto_item_set_generated.exit
   %29 = load i32, ptr @hf_aeron_sequence_analysis_channel_prev_frame, align 4
   %30 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %27)
-  %.not.i157 = icmp eq ptr %30, null
-  br i1 %.not.i157, label %proto_item_set_generated.exit159, label %31
+  %.not.i156 = icmp eq ptr %30, null
+  br i1 %.not.i156, label %proto_item_set_generated.exit158, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
-  %.not5.i158 = icmp eq ptr %33, null
-  br i1 %.not5.i158, label %proto_item_set_generated.exit159, label %34
+  %.not5.i157 = icmp eq ptr %33, null
+  br i1 %.not5.i157, label %proto_item_set_generated.exit158, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, 2
   store i32 %37, ptr %35, align 4
-  br label %proto_item_set_generated.exit159
+  br label %proto_item_set_generated.exit158
 
-proto_item_set_generated.exit159:                 ; preds = %34, %31, %28, %proto_item_set_generated.exit
+proto_item_set_generated.exit158:                 ; preds = %34, %31, %28, %proto_item_set_generated.exit
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %39 = load i32, ptr %38, align 4
   %.not133 = icmp eq i32 %39, 0
-  br i1 %.not133, label %proto_item_set_generated.exit162, label %40
+  br i1 %.not133, label %proto_item_set_generated.exit161, label %40
 
-40:                                               ; preds = %proto_item_set_generated.exit159
+40:                                               ; preds = %proto_item_set_generated.exit158
   %41 = load i32, ptr @hf_aeron_sequence_analysis_channel_next_frame, align 4
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %39)
-  %.not.i160 = icmp eq ptr %42, null
-  br i1 %.not.i160, label %proto_item_set_generated.exit162, label %43
+  %.not.i159 = icmp eq ptr %42, null
+  br i1 %.not.i159, label %proto_item_set_generated.exit161, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %45 = load ptr, ptr %44, align 8
-  %.not5.i161 = icmp eq ptr %45, null
-  br i1 %.not5.i161, label %proto_item_set_generated.exit162, label %46
+  %.not5.i160 = icmp eq ptr %45, null
+  br i1 %.not5.i160, label %proto_item_set_generated.exit161, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, 2
   store i32 %49, ptr %47, align 4
-  br label %proto_item_set_generated.exit162
+  br label %proto_item_set_generated.exit161
 
-proto_item_set_generated.exit162:                 ; preds = %46, %43, %40, %proto_item_set_generated.exit159
+proto_item_set_generated.exit161:                 ; preds = %46, %43, %40, %proto_item_set_generated.exit158
   %50 = load i32, ptr %4, align 8
   %51 = and i32 %50, 1
   %.not134 = icmp eq i32 %51, 0
-  br i1 %.not134, label %proto_item_set_generated.exit190, label %52
+  br i1 %.not134, label %proto_item_set_generated.exit189, label %52
 
-52:                                               ; preds = %proto_item_set_generated.exit162
+52:                                               ; preds = %proto_item_set_generated.exit161
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr i8, ptr %3, i64 8
@@ -4190,127 +4190,127 @@ proto_item_set_generated.exit162:                 ; preds = %46, %43, %40, %prot
   %56 = call ptr @wmem_map_lookup(ptr noundef %.val, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not135 = icmp eq ptr %56, null
-  br i1 %.not135, label %proto_item_set_generated.exit190, label %57
+  br i1 %.not135, label %proto_item_set_generated.exit189, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %59 = load i32, ptr %58, align 8
   %.not136 = icmp eq i32 %59, 0
-  br i1 %.not136, label %proto_item_set_generated.exit165, label %60
+  br i1 %.not136, label %proto_item_set_generated.exit164, label %60
 
 60:                                               ; preds = %57
   %61 = load i32, ptr @hf_aeron_sequence_analysis_stream_prev_frame, align 4
   %62 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %61, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %59)
-  %.not.i163 = icmp eq ptr %62, null
-  br i1 %.not.i163, label %proto_item_set_generated.exit165, label %63
+  %.not.i162 = icmp eq ptr %62, null
+  br i1 %.not.i162, label %proto_item_set_generated.exit164, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %65 = load ptr, ptr %64, align 8
-  %.not5.i164 = icmp eq ptr %65, null
-  br i1 %.not5.i164, label %proto_item_set_generated.exit165, label %66
+  %.not5.i163 = icmp eq ptr %65, null
+  br i1 %.not5.i163, label %proto_item_set_generated.exit164, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 28
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, 2
   store i32 %69, ptr %67, align 4
-  br label %proto_item_set_generated.exit165
+  br label %proto_item_set_generated.exit164
 
-proto_item_set_generated.exit165:                 ; preds = %66, %63, %60, %57
+proto_item_set_generated.exit164:                 ; preds = %66, %63, %60, %57
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %71 = load i32, ptr %70, align 4
   %.not137 = icmp eq i32 %71, 0
-  br i1 %.not137, label %proto_item_set_generated.exit168, label %72
+  br i1 %.not137, label %proto_item_set_generated.exit167, label %72
 
-72:                                               ; preds = %proto_item_set_generated.exit165
+72:                                               ; preds = %proto_item_set_generated.exit164
   %73 = load i32, ptr @hf_aeron_sequence_analysis_stream_next_frame, align 4
   %74 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %71)
-  %.not.i166 = icmp eq ptr %74, null
-  br i1 %.not.i166, label %proto_item_set_generated.exit168, label %75
+  %.not.i165 = icmp eq ptr %74, null
+  br i1 %.not.i165, label %proto_item_set_generated.exit167, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %77 = load ptr, ptr %76, align 8
-  %.not5.i167 = icmp eq ptr %77, null
-  br i1 %.not5.i167, label %proto_item_set_generated.exit168, label %78
+  %.not5.i166 = icmp eq ptr %77, null
+  br i1 %.not5.i166, label %proto_item_set_generated.exit167, label %78
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, 2
   store i32 %81, ptr %79, align 4
-  br label %proto_item_set_generated.exit168
+  br label %proto_item_set_generated.exit167
 
-proto_item_set_generated.exit168:                 ; preds = %78, %75, %72, %proto_item_set_generated.exit165
+proto_item_set_generated.exit167:                 ; preds = %78, %75, %72, %proto_item_set_generated.exit164
   %82 = load i32, ptr %4, align 8
   %83 = and i32 %82, 2
   %.not138 = icmp eq i32 %83, 0
-  br i1 %.not138, label %proto_item_set_generated.exit190, label %84
+  br i1 %.not138, label %proto_item_set_generated.exit189, label %84
 
-84:                                               ; preds = %proto_item_set_generated.exit168
+84:                                               ; preds = %proto_item_set_generated.exit167
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr i8, ptr %56, i64 8
-  %.val155 = load ptr, ptr %87, align 8
+  %.val154 = load ptr, ptr %87, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %86, ptr %8, align 4
-  %88 = call ptr @wmem_map_lookup(ptr noundef %.val155, ptr noundef nonnull %8)
+  %88 = call ptr @wmem_map_lookup(ptr noundef %.val154, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not139 = icmp eq ptr %88, null
-  br i1 %.not139, label %proto_item_set_generated.exit190, label %89
+  br i1 %.not139, label %proto_item_set_generated.exit189, label %89
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %91 = load i32, ptr %90, align 8
   %.not140 = icmp eq i32 %91, 0
-  br i1 %.not140, label %proto_item_set_generated.exit171, label %92
+  br i1 %.not140, label %proto_item_set_generated.exit170, label %92
 
 92:                                               ; preds = %89
   %93 = load i32, ptr @hf_aeron_sequence_analysis_term_prev_frame, align 4
   %94 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %93, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %91)
-  %.not.i169 = icmp eq ptr %94, null
-  br i1 %.not.i169, label %proto_item_set_generated.exit171, label %95
+  %.not.i168 = icmp eq ptr %94, null
+  br i1 %.not.i168, label %proto_item_set_generated.exit170, label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %97 = load ptr, ptr %96, align 8
-  %.not5.i170 = icmp eq ptr %97, null
-  br i1 %.not5.i170, label %proto_item_set_generated.exit171, label %98
+  %.not5.i169 = icmp eq ptr %97, null
+  br i1 %.not5.i169, label %proto_item_set_generated.exit170, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, 2
   store i32 %101, ptr %99, align 4
-  br label %proto_item_set_generated.exit171
+  br label %proto_item_set_generated.exit170
 
-proto_item_set_generated.exit171:                 ; preds = %98, %95, %92, %89
+proto_item_set_generated.exit170:                 ; preds = %98, %95, %92, %89
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %103 = load i32, ptr %102, align 4
   %.not141 = icmp eq i32 %103, 0
-  br i1 %.not141, label %proto_item_set_generated.exit174, label %104
+  br i1 %.not141, label %proto_item_set_generated.exit173, label %104
 
-104:                                              ; preds = %proto_item_set_generated.exit171
+104:                                              ; preds = %proto_item_set_generated.exit170
   %105 = load i32, ptr @hf_aeron_sequence_analysis_term_next_frame, align 4
   %106 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %105, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %103)
-  %.not.i172 = icmp eq ptr %106, null
-  br i1 %.not.i172, label %proto_item_set_generated.exit174, label %107
+  %.not.i171 = icmp eq ptr %106, null
+  br i1 %.not.i171, label %proto_item_set_generated.exit173, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %109 = load ptr, ptr %108, align 8
-  %.not5.i173 = icmp eq ptr %109, null
-  br i1 %.not5.i173, label %proto_item_set_generated.exit174, label %110
+  %.not5.i172 = icmp eq ptr %109, null
+  br i1 %.not5.i172, label %proto_item_set_generated.exit173, label %110
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 28
   %112 = load i32, ptr %111, align 4
   %113 = or i32 %112, 2
   store i32 %113, ptr %111, align 4
-  br label %proto_item_set_generated.exit174
+  br label %proto_item_set_generated.exit173
 
-proto_item_set_generated.exit174:                 ; preds = %110, %107, %104, %proto_item_set_generated.exit171
+proto_item_set_generated.exit173:                 ; preds = %110, %107, %104, %proto_item_set_generated.exit170
   %114 = load i32, ptr %4, align 8
   %115 = and i32 %114, 4
   %.not142 = icmp eq i32 %115, 0
@@ -4318,82 +4318,81 @@ proto_item_set_generated.exit174:                 ; preds = %110, %107, %104, %p
   %117 = load i16, ptr %116, align 8
   br i1 %.not142, label %227, label %118
 
-118:                                              ; preds = %proto_item_set_generated.exit174
+118:                                              ; preds = %proto_item_set_generated.exit173
   %switch = icmp ult i16 %117, 2
-  br i1 %switch, label %119, label %proto_item_set_generated.exit190
+  br i1 %switch, label %119, label %proto_item_set_generated.exit189
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr i8, ptr %88, i64 8
-  %.val156 = load ptr, ptr %122, align 8
+  %.val155 = load ptr, ptr %122, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %121, ptr %7, align 4
-  %123 = call ptr @wmem_map_lookup(ptr noundef %.val156, ptr noundef nonnull %7)
+  %123 = call ptr @wmem_map_lookup(ptr noundef %.val155, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not147 = icmp eq ptr %123, null
-  br i1 %.not147, label %proto_item_set_generated.exit190, label %124
+  br i1 %.not147, label %proto_item_set_generated.exit189, label %124
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %126 = load i32, ptr %125, align 8
-  %127 = and i32 %126, 1
-  %.not149 = icmp eq i32 %127, 0
+  %127 = trunc i32 %126 to i1
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 52
   %129 = load i32, ptr %128, align 4
   %130 = icmp ugt i32 %129, 1
-  br i1 %130, label %131, label %.loopexit200
+  br i1 %130, label %131, label %.loopexit199
 
 131:                                              ; preds = %124
   %132 = load i32, ptr @hf_aeron_sequence_analysis_term_offset, align 4
   %133 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %132, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i175 = icmp eq ptr %133, null
-  br i1 %.not.i175, label %proto_item_set_generated.exit177, label %134
+  %.not.i174 = icmp eq ptr %133, null
+  br i1 %.not.i174, label %proto_item_set_generated.exit176, label %134
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %136 = load ptr, ptr %135, align 8
-  %.not5.i176 = icmp eq ptr %136, null
-  br i1 %.not5.i176, label %proto_item_set_generated.exit177, label %137
+  %.not5.i175 = icmp eq ptr %136, null
+  br i1 %.not5.i175, label %proto_item_set_generated.exit176, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 28
   %139 = load i32, ptr %138, align 4
   %140 = or i32 %139, 2
   store i32 %140, ptr %138, align 4
-  br label %proto_item_set_generated.exit177
+  br label %proto_item_set_generated.exit176
 
-proto_item_set_generated.exit177:                 ; preds = %131, %134, %137
+proto_item_set_generated.exit176:                 ; preds = %131, %134, %137
   %141 = load i32, ptr @ett_aeron_sequence_analysis_term_offset, align 4
   %142 = call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %141)
   %143 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = call ptr @wmem_list_head(ptr noundef %144)
-  %.not148201 = icmp eq ptr %145, null
-  br i1 %.not148201, label %.loopexit200, label %.lr.ph
+  %.not148200 = icmp eq ptr %145, null
+  br i1 %.not148200, label %.loopexit199, label %.lr.ph
 
-.lr.ph:                                           ; preds = %proto_item_set_generated.exit177
+.lr.ph:                                           ; preds = %proto_item_set_generated.exit176
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %147
 
 147:                                              ; preds = %.lr.ph, %aeron_sequence_report_frame.exit
-  %.0114202 = phi ptr [ %145, %.lr.ph ], [ %174, %aeron_sequence_report_frame.exit ]
-  %148 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0114202)
-  %.not153 = icmp eq ptr %148, null
-  br i1 %.not153, label %aeron_sequence_report_frame.exit, label %149
+  %.0114201 = phi ptr [ %145, %.lr.ph ], [ %174, %aeron_sequence_report_frame.exit ]
+  %148 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0114201)
+  %.not152 = icmp eq ptr %148, null
+  br i1 %.not152, label %aeron_sequence_report_frame.exit, label %149
 
 149:                                              ; preds = %147
   %150 = load i32, ptr %148, align 8
   %151 = load i32, ptr %146, align 4
-  %.not154 = icmp eq i32 %150, %151
-  br i1 %.not154, label %aeron_sequence_report_frame.exit, label %152
+  %.not153 = icmp eq i32 %150, %151
+  br i1 %.not153, label %aeron_sequence_report_frame.exit, label %152
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 72
   %154 = load i32, ptr %153, align 8
   %155 = and i32 %154, 1
-  %.not.i178 = icmp eq i32 %155, 0
-  br i1 %.not.i178, label %159, label %156
+  %.not.i177 = icmp eq i32 %155, 0
+  br i1 %.not.i177, label %159, label %156
 
 156:                                              ; preds = %152
   %157 = load i32, ptr @hf_aeron_sequence_analysis_term_offset_frame, align 4
@@ -4433,195 +4432,196 @@ proto_item_set_generated.exit177:                 ; preds = %131, %134, %137
   br label %aeron_sequence_report_frame.exit
 
 aeron_sequence_report_frame.exit:                 ; preds = %170, %167, %166, %149, %147
-  %174 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0114202)
+  %174 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0114201)
   %.not148 = icmp eq ptr %174, null
-  br i1 %.not148, label %.loopexit200, label %147, !llvm.loop !12
+  br i1 %.not148, label %.loopexit199, label %147, !llvm.loop !12
 
-.loopexit200:                                     ; preds = %aeron_sequence_report_frame.exit, %proto_item_set_generated.exit177, %124
+.loopexit199:                                     ; preds = %aeron_sequence_report_frame.exit, %proto_item_set_generated.exit176, %124
   %175 = load i32, ptr @hf_aeron_sequence_analysis_retransmission, align 4
-  %176 = zext nneg i32 %127 to i64
+  %.mask = and i32 %126, 1
+  %176 = zext nneg i32 %.mask to i64
   %177 = call ptr @proto_tree_add_boolean(ptr noundef %25, i32 noundef %175, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %176)
-  %.not.i179 = icmp eq ptr %177, null
-  br i1 %.not.i179, label %proto_item_set_generated.exit181, label %178
+  %.not.i178 = icmp eq ptr %177, null
+  br i1 %.not.i178, label %proto_item_set_generated.exit180, label %178
 
-178:                                              ; preds = %.loopexit200
+178:                                              ; preds = %.loopexit199
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %180 = load ptr, ptr %179, align 8
-  %.not5.i180 = icmp eq ptr %180, null
-  br i1 %.not5.i180, label %proto_item_set_generated.exit181, label %181
+  %.not5.i179 = icmp eq ptr %180, null
+  br i1 %.not5.i179, label %proto_item_set_generated.exit180, label %181
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 28
   %183 = load i32, ptr %182, align 4
   %184 = or i32 %183, 2
   store i32 %184, ptr %182, align 4
-  br label %proto_item_set_generated.exit181
+  br label %proto_item_set_generated.exit180
 
-proto_item_set_generated.exit181:                 ; preds = %.loopexit200, %178, %181
-  br i1 %.not149, label %.loopexit, label %185
+proto_item_set_generated.exit180:                 ; preds = %.loopexit199, %178, %181
+  br i1 %127, label %185, label %.loopexit
 
-185:                                              ; preds = %proto_item_set_generated.exit181
+185:                                              ; preds = %proto_item_set_generated.exit180
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %187 = load ptr, ptr %186, align 8
   %188 = call i32 @wmem_list_count(ptr noundef %187)
-  %.not150 = icmp eq i32 %188, 0
-  br i1 %.not150, label %.loopexit, label %189
+  %.not149 = icmp eq i32 %188, 0
+  br i1 %.not149, label %.loopexit, label %189
 
 189:                                              ; preds = %185
   %190 = load i32, ptr @hf_aeron_sequence_analysis_retransmission_rx, align 4
   %191 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %190, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i182 = icmp eq ptr %191, null
-  br i1 %.not.i182, label %proto_item_set_generated.exit184, label %192
+  %.not.i181 = icmp eq ptr %191, null
+  br i1 %.not.i181, label %proto_item_set_generated.exit183, label %192
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %194 = load ptr, ptr %193, align 8
-  %.not5.i183 = icmp eq ptr %194, null
-  br i1 %.not5.i183, label %proto_item_set_generated.exit184, label %195
+  %.not5.i182 = icmp eq ptr %194, null
+  br i1 %.not5.i182, label %proto_item_set_generated.exit183, label %195
 
 195:                                              ; preds = %192
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 28
   %197 = load i32, ptr %196, align 4
   %198 = or i32 %197, 2
   store i32 %198, ptr %196, align 4
-  br label %proto_item_set_generated.exit184
+  br label %proto_item_set_generated.exit183
 
-proto_item_set_generated.exit184:                 ; preds = %189, %192, %195
+proto_item_set_generated.exit183:                 ; preds = %189, %192, %195
   %199 = load i32, ptr @ett_aeron_sequence_analysis_retransmission_rx, align 4
   %200 = call ptr @proto_item_add_subtree(ptr noundef %191, i32 noundef %199)
   %201 = load ptr, ptr %186, align 8
   %202 = call ptr @wmem_list_head(ptr noundef %201)
-  %.not151203 = icmp eq ptr %202, null
-  br i1 %.not151203, label %.loopexit, label %.lr.ph205
+  %.not150202 = icmp eq ptr %202, null
+  br i1 %.not150202, label %.loopexit, label %.lr.ph204
 
-.lr.ph205:                                        ; preds = %proto_item_set_generated.exit184, %proto_item_set_generated.exit187
-  %.0115204 = phi ptr [ %215, %proto_item_set_generated.exit187 ], [ %202, %proto_item_set_generated.exit184 ]
-  %203 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0115204)
-  %.not152 = icmp eq ptr %203, null
-  br i1 %.not152, label %proto_item_set_generated.exit187, label %204
+.lr.ph204:                                        ; preds = %proto_item_set_generated.exit183, %proto_item_set_generated.exit186
+  %.0115203 = phi ptr [ %215, %proto_item_set_generated.exit186 ], [ %202, %proto_item_set_generated.exit183 ]
+  %203 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0115203)
+  %.not151 = icmp eq ptr %203, null
+  br i1 %.not151, label %proto_item_set_generated.exit186, label %204
 
-204:                                              ; preds = %.lr.ph205
+204:                                              ; preds = %.lr.ph204
   %205 = load i32, ptr @hf_aeron_sequence_analysis_retransmission_rx_frame, align 4
   %206 = load i32, ptr %203, align 8
   %207 = call ptr @proto_tree_add_uint(ptr noundef %200, i32 noundef %205, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %206)
-  %.not.i185 = icmp eq ptr %207, null
-  br i1 %.not.i185, label %proto_item_set_generated.exit187, label %208
+  %.not.i184 = icmp eq ptr %207, null
+  br i1 %.not.i184, label %proto_item_set_generated.exit186, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %210 = load ptr, ptr %209, align 8
-  %.not5.i186 = icmp eq ptr %210, null
-  br i1 %.not5.i186, label %proto_item_set_generated.exit187, label %211
+  %.not5.i185 = icmp eq ptr %210, null
+  br i1 %.not5.i185, label %proto_item_set_generated.exit186, label %211
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 28
   %213 = load i32, ptr %212, align 4
   %214 = or i32 %213, 2
   store i32 %214, ptr %212, align 4
-  br label %proto_item_set_generated.exit187
+  br label %proto_item_set_generated.exit186
 
-proto_item_set_generated.exit187:                 ; preds = %211, %208, %204, %.lr.ph205
-  %215 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0115204)
-  %.not151 = icmp eq ptr %215, null
-  br i1 %.not151, label %.loopexit, label %.lr.ph205, !llvm.loop !13
+proto_item_set_generated.exit186:                 ; preds = %211, %208, %204, %.lr.ph204
+  %215 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0115203)
+  %.not150 = icmp eq ptr %215, null
+  br i1 %.not150, label %.loopexit, label %.lr.ph204, !llvm.loop !13
 
-.loopexit:                                        ; preds = %proto_item_set_generated.exit187, %proto_item_set_generated.exit184, %185, %proto_item_set_generated.exit181
+.loopexit:                                        ; preds = %proto_item_set_generated.exit186, %proto_item_set_generated.exit183, %185, %proto_item_set_generated.exit180
   %216 = load i32, ptr @hf_aeron_sequence_analysis_keepalive, align 4
   %217 = lshr i32 %126, 1
   %.lobit = and i32 %217, 1
   %218 = zext nneg i32 %.lobit to i64
   %219 = call ptr @proto_tree_add_boolean(ptr noundef %25, i32 noundef %216, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %218)
-  %.not.i188 = icmp eq ptr %219, null
-  br i1 %.not.i188, label %proto_item_set_generated.exit190, label %220
+  %.not.i187 = icmp eq ptr %219, null
+  br i1 %.not.i187, label %proto_item_set_generated.exit189, label %220
 
 220:                                              ; preds = %.loopexit
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 40
   %222 = load ptr, ptr %221, align 8
-  %.not5.i189 = icmp eq ptr %222, null
-  br i1 %.not5.i189, label %proto_item_set_generated.exit190, label %223
+  %.not5.i188 = icmp eq ptr %222, null
+  br i1 %.not5.i188, label %proto_item_set_generated.exit189, label %223
 
 223:                                              ; preds = %220
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 28
   %225 = load i32, ptr %224, align 4
   %226 = or i32 %225, 2
   store i32 %226, ptr %224, align 4
-  br label %proto_item_set_generated.exit190
+  br label %proto_item_set_generated.exit189
 
-227:                                              ; preds = %proto_item_set_generated.exit174
+227:                                              ; preds = %proto_item_set_generated.exit173
   %228 = icmp eq i16 %117, 2
-  br i1 %228, label %229, label %proto_item_set_generated.exit190
+  br i1 %228, label %229, label %proto_item_set_generated.exit189
 
 229:                                              ; preds = %227
   %230 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %231 = load ptr, ptr %230, align 8
   %.not143 = icmp eq ptr %231, null
-  br i1 %.not143, label %proto_item_set_generated.exit190, label %232
+  br i1 %.not143, label %proto_item_set_generated.exit189, label %232
 
 232:                                              ; preds = %229
   %233 = load i32, ptr @hf_aeron_sequence_analysis_nak_unrecovered, align 4
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 28
   %235 = load i32, ptr %234, align 4
   %236 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %233, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %235)
-  %.not.i191 = icmp eq ptr %236, null
-  br i1 %.not.i191, label %proto_item_set_generated.exit193, label %237
+  %.not.i190 = icmp eq ptr %236, null
+  br i1 %.not.i190, label %proto_item_set_generated.exit192, label %237
 
 237:                                              ; preds = %232
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 40
   %239 = load ptr, ptr %238, align 8
-  %.not5.i192 = icmp eq ptr %239, null
-  br i1 %.not5.i192, label %proto_item_set_generated.exit193, label %240
+  %.not5.i191 = icmp eq ptr %239, null
+  br i1 %.not5.i191, label %proto_item_set_generated.exit192, label %240
 
 240:                                              ; preds = %237
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 28
   %242 = load i32, ptr %241, align 4
   %243 = or i32 %242, 2
   store i32 %243, ptr %241, align 4
-  br label %proto_item_set_generated.exit193
+  br label %proto_item_set_generated.exit192
 
-proto_item_set_generated.exit193:                 ; preds = %232, %237, %240
+proto_item_set_generated.exit192:                 ; preds = %232, %237, %240
   %244 = load ptr, ptr %230, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %246 = load ptr, ptr %245, align 8
   %247 = call i32 @wmem_list_count(ptr noundef %246)
   %.not144 = icmp eq i32 %247, 0
-  br i1 %.not144, label %proto_item_set_generated.exit190, label %248
+  br i1 %.not144, label %proto_item_set_generated.exit189, label %248
 
-248:                                              ; preds = %proto_item_set_generated.exit193
+248:                                              ; preds = %proto_item_set_generated.exit192
   %249 = load i32, ptr @hf_aeron_sequence_analysis_nak_rx, align 4
   %250 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %249, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i194 = icmp eq ptr %250, null
-  br i1 %.not.i194, label %proto_item_set_generated.exit196, label %251
+  %.not.i193 = icmp eq ptr %250, null
+  br i1 %.not.i193, label %proto_item_set_generated.exit195, label %251
 
 251:                                              ; preds = %248
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 40
   %253 = load ptr, ptr %252, align 8
-  %.not5.i195 = icmp eq ptr %253, null
-  br i1 %.not5.i195, label %proto_item_set_generated.exit196, label %254
+  %.not5.i194 = icmp eq ptr %253, null
+  br i1 %.not5.i194, label %proto_item_set_generated.exit195, label %254
 
 254:                                              ; preds = %251
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 28
   %256 = load i32, ptr %255, align 4
   %257 = or i32 %256, 2
   store i32 %257, ptr %255, align 4
-  br label %proto_item_set_generated.exit196
+  br label %proto_item_set_generated.exit195
 
-proto_item_set_generated.exit196:                 ; preds = %248, %251, %254
+proto_item_set_generated.exit195:                 ; preds = %248, %251, %254
   %258 = load i32, ptr @ett_aeron_sequence_analysis_nak_rx, align 4
   %259 = call ptr @proto_item_add_subtree(ptr noundef %250, i32 noundef %258)
   %260 = load ptr, ptr %230, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8
   %263 = call ptr @wmem_list_head(ptr noundef %262)
-  %.not145206 = icmp eq ptr %263, null
-  br i1 %.not145206, label %proto_item_set_generated.exit190, label %.lr.ph208
+  %.not145205 = icmp eq ptr %263, null
+  br i1 %.not145205, label %proto_item_set_generated.exit189, label %.lr.ph207
 
-.lr.ph208:                                        ; preds = %proto_item_set_generated.exit196, %proto_item_set_generated.exit199
-  %.0207 = phi ptr [ %281, %proto_item_set_generated.exit199 ], [ %263, %proto_item_set_generated.exit196 ]
-  %264 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0207)
+.lr.ph207:                                        ; preds = %proto_item_set_generated.exit195, %proto_item_set_generated.exit198
+  %.0206 = phi ptr [ %281, %proto_item_set_generated.exit198 ], [ %263, %proto_item_set_generated.exit195 ]
+  %264 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0206)
   %.not146 = icmp eq ptr %264, null
-  br i1 %.not146, label %proto_item_set_generated.exit199, label %265
+  br i1 %.not146, label %proto_item_set_generated.exit198, label %265
 
-265:                                              ; preds = %.lr.ph208
+265:                                              ; preds = %.lr.ph207
   %266 = load i32, ptr @hf_aeron_sequence_analysis_nak_rx_frame, align 4
   %267 = load ptr, ptr %264, align 8
   %268 = load i32, ptr %267, align 8
@@ -4630,28 +4630,28 @@ proto_item_set_generated.exit196:                 ; preds = %248, %251, %254
   %271 = getelementptr inbounds nuw i8, ptr %264, i64 12
   %272 = load i32, ptr %271, align 4
   %273 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %259, i32 noundef %266, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %268, ptr noundef nonnull @.str.264, i32 noundef %268, i32 noundef %270, i32 noundef %270, i32 noundef %272)
-  %.not.i197 = icmp eq ptr %273, null
-  br i1 %.not.i197, label %proto_item_set_generated.exit199, label %274
+  %.not.i196 = icmp eq ptr %273, null
+  br i1 %.not.i196, label %proto_item_set_generated.exit198, label %274
 
 274:                                              ; preds = %265
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 40
   %276 = load ptr, ptr %275, align 8
-  %.not5.i198 = icmp eq ptr %276, null
-  br i1 %.not5.i198, label %proto_item_set_generated.exit199, label %277
+  %.not5.i197 = icmp eq ptr %276, null
+  br i1 %.not5.i197, label %proto_item_set_generated.exit198, label %277
 
 277:                                              ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 28
   %279 = load i32, ptr %278, align 4
   %280 = or i32 %279, 2
   store i32 %280, ptr %278, align 4
-  br label %proto_item_set_generated.exit199
+  br label %proto_item_set_generated.exit198
 
-proto_item_set_generated.exit199:                 ; preds = %277, %274, %265, %.lr.ph208
-  %281 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0207)
+proto_item_set_generated.exit198:                 ; preds = %277, %274, %265, %.lr.ph207
+  %281 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0206)
   %.not145 = icmp eq ptr %281, null
-  br i1 %.not145, label %proto_item_set_generated.exit190, label %.lr.ph208, !llvm.loop !14
+  br i1 %.not145, label %proto_item_set_generated.exit189, label %.lr.ph207, !llvm.loop !14
 
-proto_item_set_generated.exit190:                 ; preds = %proto_item_set_generated.exit199, %proto_item_set_generated.exit196, %223, %220, %.loopexit, %118, %proto_item_set_generated.exit162, %84, %227, %229, %119, %proto_item_set_generated.exit193, %proto_item_set_generated.exit168, %52, %10, %6
+proto_item_set_generated.exit189:                 ; preds = %proto_item_set_generated.exit198, %proto_item_set_generated.exit195, %223, %220, %.loopexit, %118, %proto_item_set_generated.exit161, %84, %227, %229, %119, %proto_item_set_generated.exit192, %proto_item_set_generated.exit167, %52, %10, %6
   ret void
 }
 

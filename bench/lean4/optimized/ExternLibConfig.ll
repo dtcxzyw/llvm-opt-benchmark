@@ -25,9 +25,8 @@ define ptr @l_Lake_instInhabitedExternLibConfig(ptr noundef readnone captures(no
 define ptr @l_Lake_instInhabitedExternLibConfig___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @l_Lake_instInhabitedExternLibConfig___closed__8, align 8, !tbaa !4
   %5 = ptrtoint ptr %2 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 4, !tbaa !8
@@ -49,9 +48,8 @@ define ptr @l_Lake_instInhabitedExternLibConfig___boxed(ptr noundef %0, ptr noun
 
 lean_dec.exit:                                    ; preds = %13, %12, %10, %3
   %14 = ptrtoint ptr %1 to i64
-  %15 = and i64 %14, 1
-  %.not13 = icmp eq i64 %15, 0
-  br i1 %.not13, label %16, label %lean_dec.exit7
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit7, label %16
 
 16:                                               ; preds = %lean_dec.exit
   %17 = load i32, ptr %1, align 4, !tbaa !8
@@ -73,9 +71,8 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 
 lean_dec.exit7:                                   ; preds = %22, %21, %19, %lean_dec.exit
   %23 = ptrtoint ptr %0 to i64
-  %24 = and i64 %23, 1
-  %.not14 = icmp eq i64 %24, 0
-  br i1 %.not14, label %25, label %lean_dec.exit8
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_dec.exit8, label %25
 
 25:                                               ; preds = %lean_dec.exit7
   %26 = load i32, ptr %0, align 4, !tbaa !8

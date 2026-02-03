@@ -429,15 +429,15 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 968
   br label %23
 
-23:                                               ; preds = %69, %20
-  %24 = phi i64 [ 0, %20 ], [ %70, %69 ]
+23:                                               ; preds = %68, %20
+  %24 = phi i64 [ 0, %20 ], [ %69, %68 ]
   %25 = load ptr, ptr %21, align 8
   %26 = getelementptr %struct.xhci_port, ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #10, !srcloc !6
   %29 = and i32 %28, 480
   %30 = icmp eq i32 %29, 96
-  br i1 %30, label %31, label %69
+  br i1 %30, label %31, label %68
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -470,35 +470,34 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
   %55 = load i32, ptr %36, align 4
   %56 = add i32 %55, 1
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %49, ptr noundef nonnull @.str.15, i32 noundef %40, i32 noundef %54, i32 noundef %56) #11
-  br label %69
+  br label %68
 
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1296
   %61 = load i8, ptr %60, align 8
-  %62 = and i8 %61, 1
-  %63 = icmp ne i8 %62, 0
-  %64 = and i1 %1, %63
-  br i1 %64, label %69, label %65
+  %62 = trunc i8 %61 to i1
+  %63 = and i1 %1, %62
+  br i1 %63, label %68, label %64
 
-65:                                               ; preds = %57
-  %66 = tail call i32 @xhci_port_state_to_neutral(i32 noundef %28) #10
-  %67 = or i32 %66, 2
-  %68 = load ptr, ptr %26, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %67, ptr elementtype(i32) %68) #10, !srcloc !7
-  br label %69
+64:                                               ; preds = %57
+  %65 = tail call i32 @xhci_port_state_to_neutral(i32 noundef %28) #10
+  %66 = or i32 %65, 2
+  %67 = load ptr, ptr %26, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %66, ptr elementtype(i32) %67) #10, !srcloc !7
+  br label %68
 
-69:                                               ; preds = %65, %57, %47, %23
-  %70 = add nuw nsw i64 %24, 1
-  %71 = load i32, ptr %16, align 8
-  %72 = lshr i32 %71, 24
-  %73 = and i32 %72, 127
-  %74 = zext nneg i32 %73 to i64
-  %75 = icmp samesign ult i64 %70, %74
-  br i1 %75, label %23, label %.loopexit, !llvm.loop !11
+68:                                               ; preds = %64, %57, %47, %23
+  %69 = add nuw nsw i64 %24, 1
+  %70 = load i32, ptr %16, align 8
+  %71 = lshr i32 %70, 24
+  %72 = and i32 %71, 127
+  %73 = zext nneg i32 %72 to i64
+  %74 = icmp samesign ult i64 %69, %73
+  br i1 %74, label %23, label %.loopexit, !llvm.loop !11
 
-.loopexit:                                        ; preds = %69, %15, %8
+.loopexit:                                        ; preds = %68, %15, %8
   ret i32 0
 }
 

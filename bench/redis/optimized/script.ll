@@ -511,52 +511,49 @@ define dso_local range(i32 -1, 1) i32 @scriptPrepareForRun(ptr noundef %0, ptr n
   store i32 0, ptr %90, align 8, !tbaa !43
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 3, ptr %91, align 4, !tbaa !77
-  %.not81 = icmp eq i32 %5, 0
-  br i1 %.not81, label %92, label %94
+  %.not81 = icmp ne i32 %5, 0
+  %.not82 = trunc i64 %4 to i1
+  %or.cond87.not = and i1 %.not7192, %.not82
+  %or.cond97 = or i1 %.not81, %or.cond87.not
+  br i1 %or.cond97, label %92, label %93
 
 92:                                               ; preds = %86
-  %93 = and i64 %4, 1
-  %.not82 = icmp ne i64 %93, 0
-  %or.cond87.not = and i1 %.not82, %.not7192
-  br i1 %or.cond87.not, label %94, label %95
-
-94:                                               ; preds = %92, %86
   store i32 32, ptr %90, align 8, !tbaa !43
-  br label %95
+  br label %93
 
-95:                                               ; preds = %94, %92
-  %96 = phi i32 [ 32, %94 ], [ 0, %92 ]
-  br i1 %.not70, label %97, label %99
+93:                                               ; preds = %86, %92
+  %94 = phi i32 [ 0, %86 ], [ 32, %92 ]
+  br i1 %.not70, label %95, label %97
 
-97:                                               ; preds = %95
-  %98 = and i64 %4, 2
-  %.not83 = icmp ne i64 %98, 0
+95:                                               ; preds = %93
+  %96 = and i64 %4, 2
+  %.not83 = icmp ne i64 %96, 0
   %or.cond89.not = and i1 %.not83, %.not7192
-  br i1 %or.cond89.not, label %99, label %101
+  br i1 %or.cond89.not, label %97, label %99
+
+97:                                               ; preds = %95, %93
+  %98 = or disjoint i32 %94, 64
+  store i32 %98, ptr %90, align 8, !tbaa !43
+  br label %99
 
 99:                                               ; preds = %97, %95
-  %100 = or disjoint i32 %96, 64
-  store i32 %100, ptr %90, align 8, !tbaa !43
-  br label %101
-
-101:                                              ; preds = %99, %97
-  %102 = phi i32 [ %100, %99 ], [ %96, %97 ]
-  %103 = and i64 %4, 32
-  %.not84 = icmp eq i64 %103, 0
+  %100 = phi i32 [ %98, %97 ], [ %94, %95 ]
+  %101 = and i64 %4, 32
+  %.not84 = icmp eq i64 %101, 0
   %or.cond90 = and i1 %.not84, %.not7192
-  br i1 %or.cond90, label %106, label %104
+  br i1 %or.cond90, label %104, label %102
 
-104:                                              ; preds = %101
-  %105 = or i32 %102, 256
-  store i32 %105, ptr %90, align 8, !tbaa !43
-  br label %106
+102:                                              ; preds = %99
+  %103 = or i32 %100, 256
+  store i32 %103, ptr %90, align 8, !tbaa !43
+  br label %104
 
-106:                                              ; preds = %101, %104
+104:                                              ; preds = %99, %102
   store ptr %0, ptr @curr_run_ctx, align 8, !tbaa !41
   br label %.critedge
 
-.critedge:                                        ; preds = %54, %49, %57, %50, %106, %67, %65, %43, %34, %31
-  %.0 = phi i32 [ -1, %67 ], [ 0, %106 ], [ -1, %31 ], [ -1, %65 ], [ -1, %34 ], [ -1, %43 ], [ -1, %50 ], [ -1, %57 ], [ -1, %49 ], [ -1, %54 ]
+.critedge:                                        ; preds = %54, %49, %57, %50, %104, %67, %65, %43, %34, %31
+  %.0 = phi i32 [ -1, %67 ], [ 0, %104 ], [ -1, %31 ], [ -1, %65 ], [ -1, %34 ], [ -1, %43 ], [ -1, %50 ], [ -1, %57 ], [ -1, %49 ], [ -1, %54 ]
   ret i32 %.0
 }
 
@@ -823,7 +820,7 @@ scriptVerifyCommandArity.exit:                    ; preds = %2, %19
   %.str.32.sink.i = phi ptr [ @.str.31, %19 ], [ @.str.32, %2 ]
   %26 = tail call ptr @sdsnew(ptr noundef nonnull %.str.32.sink.i) #11
   store ptr %26, ptr %1, align 8, !tbaa !93
-  br label %114
+  br label %113
 
 27:                                               ; preds = %19
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8036), align 4, !tbaa !94
@@ -840,7 +837,7 @@ scriptVerifyCommandArity.exit:                    ; preds = %2, %19
 33:                                               ; preds = %29
   %34 = tail call ptr @sdsnew(ptr noundef nonnull @.str.26) #11
   store ptr %34, ptr %1, align 8, !tbaa !93
-  br label %114
+  br label %113
 
 35:                                               ; preds = %29, %27
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !65
@@ -863,7 +860,7 @@ scriptVerifyCommandArity.exit:                    ; preds = %2, %19
 scriptVerifyAllowStale.exit:                      ; preds = %41
   %45 = tail call ptr @sdsnew(ptr noundef nonnull @.str.33) #11
   store ptr %45, ptr %1, align 8, !tbaa !93
-  br label %114
+  br label %113
 
 46:                                               ; preds = %35, %41
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -889,7 +886,7 @@ scriptVerifyACL.exit:                             ; preds = %46
   store ptr %60, ptr %1, align 8, !tbaa !93
   call void @sdsfree(ptr noundef %58) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %114
+  br label %113
 
 61:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -912,149 +909,148 @@ scriptVerifyACL.exit:                             ; preds = %46
   br label %scriptVerifyWriteCommandAllow.exit
 
 ._crit_edge.i:                                    ; preds = %61
-  %68 = and i64 %.pre23.i, 1
-  %.not14.i = icmp ne i64 %68, 0
-  %69 = and i32 %63, 1
-  %.not15.i = icmp eq i32 %69, 0
+  %.not14.i = trunc i64 %.pre23.i to i1
+  %68 = and i32 %63, 1
+  %.not15.i = icmp eq i32 %68, 0
   %or.cond19.i = and i1 %.not15.i, %.not14.i
-  br i1 %or.cond19.i, label %70, label %94
+  br i1 %or.cond19.i, label %69, label %93
 
-70:                                               ; preds = %._crit_edge.i
-  %71 = call i32 @writeCommandsDeniedByDiskError() #11
-  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !65
-  %73 = icmp ne ptr %72, null
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7388), align 4
-  %75 = icmp ne i32 %74, 0
-  %or.cond.i55 = select i1 %73, i1 %75, i1 false
-  br i1 %or.cond.i55, label %76, label %84
+69:                                               ; preds = %._crit_edge.i
+  %70 = call i32 @writeCommandsDeniedByDiskError() #11
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8, !tbaa !65
+  %72 = icmp ne ptr %71, null
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7388), align 4
+  %74 = icmp ne i32 %73, 0
+  %or.cond.i55 = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond.i55, label %75, label %83
 
-76:                                               ; preds = %70
-  %77 = load ptr, ptr %6, align 8, !tbaa !47
-  %78 = call i32 @mustObeyClient(ptr noundef %77) #11
-  %.not16.i = icmp eq i32 %78, 0
-  br i1 %.not16.i, label %79, label %84
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %6, align 8, !tbaa !47
+  %77 = call i32 @mustObeyClient(ptr noundef %76) #11
+  %.not16.i = icmp eq i32 %77, 0
+  br i1 %.not16.i, label %78, label %83
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 296), align 8, !tbaa !99
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !97
-  %83 = call ptr @sdsdup(ptr noundef %82) #11
+78:                                               ; preds = %75
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 296), align 8, !tbaa !99
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8, !tbaa !97
+  %82 = call ptr @sdsdup(ptr noundef %81) #11
   br label %scriptVerifyWriteCommandAllow.exit
 
-84:                                               ; preds = %76, %70
-  %.not17.i = icmp eq i32 %71, 0
-  br i1 %.not17.i, label %87, label %85
+83:                                               ; preds = %75, %69
+  %.not17.i = icmp eq i32 %70, 0
+  br i1 %.not17.i, label %86, label %84
 
-85:                                               ; preds = %84
-  %86 = call ptr @writeCommandsGetDiskErrorMessage(i32 noundef %71) #11
+84:                                               ; preds = %83
+  %85 = call ptr @writeCommandsGetDiskErrorMessage(i32 noundef %70) #11
   br label %scriptVerifyWriteCommandAllow.exit
 
-87:                                               ; preds = %84
-  %88 = call i32 @checkGoodReplicasStatus() #11
-  %.not18.i = icmp eq i32 %88, 0
-  br i1 %.not18.i, label %89, label %94
+86:                                               ; preds = %83
+  %87 = call i32 @checkGoodReplicasStatus() #11
+  %.not18.i = icmp eq i32 %87, 0
+  br i1 %.not18.i, label %88, label %93
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 320), align 8, !tbaa !68
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !97
-  %93 = call ptr @sdsdup(ptr noundef %92) #11
+88:                                               ; preds = %86
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 320), align 8, !tbaa !68
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !97
+  %92 = call ptr @sdsdup(ptr noundef %91) #11
   br label %scriptVerifyWriteCommandAllow.exit
 
-scriptVerifyWriteCommandAllow.exit:               ; preds = %66, %79, %85, %89
-  %.sink.i = phi ptr [ %83, %79 ], [ %86, %85 ], [ %93, %89 ], [ %67, %66 ]
+scriptVerifyWriteCommandAllow.exit:               ; preds = %66, %78, %84, %88
+  %.sink.i = phi ptr [ %82, %78 ], [ %85, %84 ], [ %92, %88 ], [ %67, %66 ]
   store ptr %.sink.i, ptr %1, align 8, !tbaa !93
-  br label %114
+  br label %113
 
-94:                                               ; preds = %87, %._crit_edge.i
-  %95 = call fastcc i32 @scriptVerifyOOM(ptr noundef nonnull %0, ptr noundef %1)
-  %.not44 = icmp eq i32 %95, 0
-  br i1 %.not44, label %96, label %114
+93:                                               ; preds = %86, %._crit_edge.i
+  %94 = call fastcc i32 @scriptVerifyOOM(ptr noundef nonnull %0, ptr noundef %1)
+  %.not44 = icmp eq i32 %94, 0
+  br i1 %.not44, label %95, label %113
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %98 = load i64, ptr %97, align 8, !tbaa !95
-  %99 = and i64 %98, 1
-  %.not45 = icmp eq i64 %99, 0
-  br i1 %.not45, label %103, label %100
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %97 = load i64, ptr %96, align 8, !tbaa !95
+  %98 = and i64 %97, 1
+  %.not45 = icmp eq i64 %98, 0
+  br i1 %.not45, label %102, label %99
 
-100:                                              ; preds = %96
-  %101 = load i32, ptr %62, align 8, !tbaa !43
-  %102 = or i32 %101, 1
-  store i32 %102, ptr %62, align 8, !tbaa !43
-  br label %103
+99:                                               ; preds = %95
+  %100 = load i32, ptr %62, align 8, !tbaa !43
+  %101 = or i32 %100, 1
+  store i32 %101, ptr %62, align 8, !tbaa !43
+  br label %102
 
-103:                                              ; preds = %100, %96
-  %104 = load ptr, ptr %6, align 8, !tbaa !47
-  %105 = call fastcc i32 @scriptVerifyClusterState(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %104, ptr noundef %1)
-  %.not46 = icmp eq i32 %105, 0
-  br i1 %.not46, label %106, label %114
+102:                                              ; preds = %99, %95
+  %103 = load ptr, ptr %6, align 8, !tbaa !47
+  %104 = call fastcc i32 @scriptVerifyClusterState(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %103, ptr noundef %1)
+  %.not46 = icmp eq i32 %104, 0
+  br i1 %.not46, label %105, label %113
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %108 = load i32, ptr %107, align 4, !tbaa !77
-  %.1 = and i32 %108, 3
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %107 = load i32, ptr %106, align 4, !tbaa !77
+  %.1 = and i32 %107, 3
   call void @call(ptr noundef nonnull %5, i32 noundef %.1) #11
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %110 = load i64, ptr %109, align 8, !tbaa !54
-  %111 = and i64 %110, 16
-  %112 = icmp eq i64 %111, 0
-  br i1 %112, label %139, label %113, !prof !52
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %109 = load i64, ptr %108, align 8, !tbaa !54
+  %110 = and i64 %109, 16
+  %111 = icmp eq i64 %110, 0
+  br i1 %111, label %138, label %112, !prof !52
 
-113:                                              ; preds = %106
+112:                                              ; preds = %105
   call void @_serverAssert(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.10, i32 noundef 629) #11
   call void @abort() #13
   unreachable
 
-114:                                              ; preds = %scriptVerifyWriteCommandAllow.exit, %scriptVerifyACL.exit, %scriptVerifyAllowStale.exit, %scriptVerifyCommandArity.exit, %103, %94, %33
-  %115 = load ptr, ptr %1, align 8, !tbaa !93
-  %116 = getelementptr inbounds i8, ptr %115, i64 -1
-  %117 = load i8, ptr %116, align 1, !tbaa !100
-  %118 = zext i8 %117 to i32
-  %119 = and i32 %118, 7
-  switch i32 %119, label %sdslen.exit [
-    i32 0, label %120
-    i32 1, label %123
-    i32 2, label %127
-    i32 3, label %131
-    i32 4, label %135
+113:                                              ; preds = %scriptVerifyWriteCommandAllow.exit, %scriptVerifyACL.exit, %scriptVerifyAllowStale.exit, %scriptVerifyCommandArity.exit, %102, %93, %33
+  %114 = load ptr, ptr %1, align 8, !tbaa !93
+  %115 = getelementptr inbounds i8, ptr %114, i64 -1
+  %116 = load i8, ptr %115, align 1, !tbaa !100
+  %117 = zext i8 %116 to i32
+  %118 = and i32 %117, 7
+  switch i32 %118, label %sdslen.exit [
+    i32 0, label %119
+    i32 1, label %122
+    i32 2, label %126
+    i32 3, label %130
+    i32 4, label %134
   ]
 
-120:                                              ; preds = %114
-  %121 = lshr i32 %118, 3
-  %122 = zext nneg i32 %121 to i64
+119:                                              ; preds = %113
+  %120 = lshr i32 %117, 3
+  %121 = zext nneg i32 %120 to i64
   br label %sdslen.exit
 
-123:                                              ; preds = %114
-  %124 = getelementptr inbounds i8, ptr %115, i64 -3
-  %125 = load i8, ptr %124, align 1, !tbaa !100
-  %126 = zext i8 %125 to i64
+122:                                              ; preds = %113
+  %123 = getelementptr inbounds i8, ptr %114, i64 -3
+  %124 = load i8, ptr %123, align 1, !tbaa !100
+  %125 = zext i8 %124 to i64
   br label %sdslen.exit
 
-127:                                              ; preds = %114
-  %128 = getelementptr inbounds i8, ptr %115, i64 -5
-  %129 = load i16, ptr %128, align 1, !tbaa !101
-  %130 = zext i16 %129 to i64
+126:                                              ; preds = %113
+  %127 = getelementptr inbounds i8, ptr %114, i64 -5
+  %128 = load i16, ptr %127, align 1, !tbaa !101
+  %129 = zext i16 %128 to i64
   br label %sdslen.exit
 
-131:                                              ; preds = %114
-  %132 = getelementptr inbounds i8, ptr %115, i64 -9
-  %133 = load i32, ptr %132, align 1, !tbaa !39
-  %134 = zext i32 %133 to i64
+130:                                              ; preds = %113
+  %131 = getelementptr inbounds i8, ptr %114, i64 -9
+  %132 = load i32, ptr %131, align 1, !tbaa !39
+  %133 = zext i32 %132 to i64
   br label %sdslen.exit
 
-135:                                              ; preds = %114
-  %136 = getelementptr inbounds i8, ptr %115, i64 -17
-  %137 = load i64, ptr %136, align 1, !tbaa !5
+134:                                              ; preds = %113
+  %135 = getelementptr inbounds i8, ptr %114, i64 -17
+  %136 = load i64, ptr %135, align 1, !tbaa !5
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %114, %120, %123, %127, %131, %135
-  %.0.i56 = phi i64 [ %137, %135 ], [ %122, %120 ], [ %126, %123 ], [ %130, %127 ], [ %134, %131 ], [ 0, %114 ]
-  call void @afterErrorReply(ptr noundef nonnull %5, ptr noundef nonnull %115, i64 noundef %.0.i56, i32 noundef 0) #11
-  %138 = call i32 @incrCommandStatsOnError(ptr noundef %15, i32 noundef 1) #11
-  br label %139
+sdslen.exit:                                      ; preds = %113, %119, %122, %126, %130, %134
+  %.0.i56 = phi i64 [ %136, %134 ], [ %121, %119 ], [ %125, %122 ], [ %129, %126 ], [ %133, %130 ], [ 0, %113 ]
+  call void @afterErrorReply(ptr noundef nonnull %5, ptr noundef nonnull %114, i64 noundef %.0.i56, i32 noundef 0) #11
+  %137 = call i32 @incrCommandStatsOnError(ptr noundef %15, i32 noundef 1) #11
+  br label %138
 
-139:                                              ; preds = %106, %sdslen.exit
+138:                                              ; preds = %105, %sdslen.exit
   ret void
 }
 

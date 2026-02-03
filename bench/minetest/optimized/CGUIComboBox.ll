@@ -1884,11 +1884,10 @@ sw.bb.if.else_crit_edge:                          ; preds = %sw.bb
 land.lhs.true:                                    ; preds = %sw.bb
   %PressedDown = getelementptr inbounds nuw i8, ptr %event, i64 20
   %bf.load = load i8, ptr %PressedDown, align 4
-  %3 = and i8 %bf.load, 1
-  %bf.cast.not = icmp ne i8 %3, 0
+  %bf.cast.not = trunc i8 %bf.load to i1
   %Key = getelementptr inbounds nuw i8, ptr %event, i64 12
-  %4 = load i32, ptr %Key, align 4
-  %cmp = icmp eq i32 %4, 27
+  %3 = load i32, ptr %Key, align 4
+  %cmp = icmp eq i32 %3, 27
   %or.cond = select i1 %bf.cast.not, i1 %cmp, i1 false
   br i1 %or.cond, label %if.then3, label %if.else
 
@@ -1897,12 +1896,12 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %sw.bb.if.else_crit_edge
-  %5 = phi i32 [ %.pre331, %sw.bb.if.else_crit_edge ], [ %4, %land.lhs.true ]
+  %4 = phi i32 [ %.pre331, %sw.bb.if.else_crit_edge ], [ %3, %land.lhs.true ]
   %PressedDown19 = getelementptr inbounds nuw i8, ptr %event, i64 20
   %bf.load20 = load i8, ptr %PressedDown19, align 4
-  %6 = and i8 %bf.load20, 1
-  %bf.cast22.not = icmp eq i8 %6, 0
-  switch i32 %5, label %if.else18 [
+  %5 = and i8 %bf.load20, 1
+  %bf.cast22.not = icmp eq i8 %5, 0
+  switch i32 %4, label %if.else18 [
     i32 13, label %if.then8
     i32 32, label %if.then8
   ]
@@ -1916,14 +1915,14 @@ if.then13:                                        ; preds = %if.then8
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.then8
-  %7 = phi ptr [ %.pre332, %if.then13 ], [ %2, %if.then8 ]
+  %6 = phi ptr [ %.pre332, %if.then13 ], [ %2, %if.then8 ]
   %ListButton = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %8 = load ptr, ptr %ListButton, align 8, !tbaa !46
-  %cmp15 = icmp eq ptr %7, null
-  %vtable16 = load ptr, ptr %8, align 8, !tbaa !3
+  %7 = load ptr, ptr %ListButton, align 8, !tbaa !46
+  %cmp15 = icmp eq ptr %6, null
+  %vtable16 = load ptr, ptr %7, align 8, !tbaa !3
   %vfn17 = getelementptr inbounds nuw i8, ptr %vtable16, i64 448
-  %9 = load ptr, ptr %vfn17, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %8, i1 noundef zeroext %cmp15) #18
+  %8 = load ptr, ptr %vfn17, align 8
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(308) %7, i1 noundef zeroext %cmp15) #18
   br label %return
 
 if.else18:                                        ; preds = %if.else
@@ -1931,8 +1930,8 @@ if.else18:                                        ; preds = %if.else
 
 if.then23:                                        ; preds = %if.else18
   %Selected = getelementptr inbounds nuw i8, ptr %this, i64 376
-  %10 = load i32, ptr %Selected, align 8, !tbaa !86
-  switch i32 %5, label %sw.epilog [
+  %9 = load i32, ptr %Selected, align 8, !tbaa !86
+  switch i32 %4, label %sw.epilog [
     i32 40, label %sw.bb25
     i32 38, label %sw.bb29
     i32 36, label %sw.epilogthread-pre-split
@@ -1942,20 +1941,20 @@ if.then23:                                        ; preds = %if.else18
   ]
 
 sw.bb25:                                          ; preds = %if.then23
-  %add = add nsw i32 %10, 1
+  %add = add nsw i32 %9, 1
   br label %sw.epilogthread-pre-split
 
 sw.bb29:                                          ; preds = %if.then23
-  %sub = add nsw i32 %10, -1
+  %sub = add nsw i32 %9, -1
   br label %sw.epilogthread-pre-split
 
 sw.bb36:                                          ; preds = %if.then23, %if.then23
   %Items = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %11 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !83
-  %12 = load ptr, ptr %Items, align 8, !tbaa !84
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
+  %10 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !83
+  %11 = load ptr, ptr %Items, align 8, !tbaa !84
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
@@ -1966,72 +1965,72 @@ sw.epilogthread-pre-split:                        ; preds = %sw.bb36, %sw.bb29, 
   %add.sink = phi i32 [ %add, %sw.bb25 ], [ %sub, %sw.bb29 ], [ %sub38, %sw.bb36 ], [ 0, %if.then23 ], [ 0, %if.then23 ]
   %vtable27 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 352
-  %13 = load ptr, ptr %vfn28, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add.sink) #18
+  %12 = load ptr, ptr %vfn28, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add.sink) #18
   %.pr = load i32, ptr %Selected, align 8, !tbaa !86
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilogthread-pre-split, %if.then23
-  %14 = phi i32 [ %.pr, %sw.epilogthread-pre-split ], [ %10, %if.then23 ]
+  %13 = phi i32 [ %.pr, %sw.epilogthread-pre-split ], [ %9, %if.then23 ]
   %switch = phi i1 [ false, %sw.epilogthread-pre-split ], [ true, %if.then23 ]
-  %cmp42 = icmp slt i32 %14, 0
+  %cmp42 = icmp slt i32 %13, 0
   br i1 %cmp42, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %sw.epilog
   %vtable44 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn45 = getelementptr inbounds nuw i8, ptr %vtable44, i64 352
-  %15 = load ptr, ptr %vfn45, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef 0) #18
+  %14 = load ptr, ptr %vfn45, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef 0) #18
   %.pre333 = load i32, ptr %Selected, align 8, !tbaa !86
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then43, %sw.epilog
-  %16 = phi i32 [ %.pre333, %if.then43 ], [ %14, %sw.epilog ]
+  %15 = phi i32 [ %.pre333, %if.then43 ], [ %13, %sw.epilog ]
   %Items48 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i226 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %17 = load ptr, ptr %_M_finish.i.i226, align 8, !tbaa !83
-  %18 = load ptr, ptr %Items48, align 8, !tbaa !84
-  %sub.ptr.lhs.cast.i.i227 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast.i.i228 = ptrtoint ptr %18 to i64
+  %16 = load ptr, ptr %_M_finish.i.i226, align 8, !tbaa !83
+  %17 = load ptr, ptr %Items48, align 8, !tbaa !84
+  %sub.ptr.lhs.cast.i.i227 = ptrtoint ptr %16 to i64
+  %sub.ptr.rhs.cast.i.i228 = ptrtoint ptr %17 to i64
   %sub.ptr.sub.i.i229 = sub i64 %sub.ptr.lhs.cast.i.i227, %sub.ptr.rhs.cast.i.i228
   %sub.ptr.div.i.i230 = sdiv exact i64 %sub.ptr.sub.i.i229, 40
   %conv.i231 = trunc i64 %sub.ptr.div.i.i230 to i32
-  %cmp50.not = icmp slt i32 %16, %conv.i231
+  %cmp50.not = icmp slt i32 %15, %conv.i231
   br i1 %cmp50.not, label %if.end57, label %if.then51
 
 if.then51:                                        ; preds = %if.end46
   %sub54 = add nsw i32 %conv.i231, -1
   %vtable55 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn56 = getelementptr inbounds nuw i8, ptr %vtable55, i64 352
-  %19 = load ptr, ptr %vfn56, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %sub54) #18
+  %18 = load ptr, ptr %vfn56, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %sub54) #18
   %.pre334 = load i32, ptr %Selected, align 8, !tbaa !86
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then51, %if.end46
-  %20 = phi i32 [ %.pre334, %if.then51 ], [ %16, %if.end46 ]
-  %cmp59.not = icmp eq i32 %20, %10
+  %19 = phi i32 [ %.pre334, %if.then51 ], [ %15, %if.end46 ]
+  %cmp59.not = icmp eq i32 %19, %9
   br i1 %cmp59.not, label %cleanup, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
   %Parent.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %21 = load ptr, ptr %Parent.i, align 8, !tbaa !54
-  %tobool.not.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %Parent.i, align 8, !tbaa !54
+  %tobool.not.i = icmp eq ptr %20, null
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then60
   call void @llvm.lifetime.start.p0(ptr nonnull %event.i)
   store i32 0, ptr %event.i, align 8, !tbaa !80
-  %22 = getelementptr inbounds nuw i8, ptr %event.i, i64 8
-  store ptr %this, ptr %22, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %event.i, i64 8
+  store ptr %this, ptr %21, align 8, !tbaa !15
   %Element.i = getelementptr inbounds nuw i8, ptr %event.i, i64 16
   store ptr null, ptr %Element.i, align 8, !tbaa !15
   %EventType2.i = getelementptr inbounds nuw i8, ptr %event.i, i64 24
   store i32 18, ptr %EventType2.i, align 8, !tbaa !15
-  %vtable.i = load ptr, ptr %21, align 8, !tbaa !3
+  %vtable.i = load ptr, ptr %20, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
-  %23 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(308) %21, ptr noundef nonnull align 8 dereferenceable(56) %event.i) #18
+  %22 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(308) %20, ptr noundef nonnull align 8 dereferenceable(56) %event.i) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %event.i)
   br label %return
 
@@ -2039,10 +2038,10 @@ cleanup:                                          ; preds = %if.end57
   br i1 %switch, label %if.end195, label %return
 
 sw.bb69:                                          ; preds = %if.then
-  %24 = getelementptr inbounds nuw i8, ptr %event, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %event, i64 8
   %EventType70 = getelementptr inbounds nuw i8, ptr %event, i64 24
-  %25 = load i32, ptr %EventType70, align 8, !tbaa !15
-  switch i32 %25, label %if.end195 [
+  %24 = load i32, ptr %EventType70, align 8, !tbaa !15
+  switch i32 %24, label %if.end195 [
     i32 0, label %sw.bb71
     i32 5, label %sw.bb93
     i32 10, label %sw.bb99
@@ -2051,95 +2050,95 @@ sw.bb69:                                          ; preds = %if.then
 
 sw.bb71:                                          ; preds = %sw.bb69
   %ListBox72 = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %26 = load ptr, ptr %ListBox72, align 8, !tbaa !79
-  %tobool73.not = icmp eq ptr %26, null
+  %25 = load ptr, ptr %ListBox72, align 8, !tbaa !79
+  %tobool73.not = icmp eq ptr %25, null
   br i1 %tobool73.not, label %if.end195, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %sw.bb71
   %Environment = getelementptr inbounds nuw i8, ptr %this, i64 296
-  %27 = load ptr, ptr %Environment, align 8, !tbaa !44
-  %vtable76 = load ptr, ptr %27, align 8, !tbaa !3
+  %26 = load ptr, ptr %Environment, align 8, !tbaa !44
+  %vtable76 = load ptr, ptr %26, align 8, !tbaa !3
   %vfn77 = getelementptr inbounds nuw i8, ptr %vtable76, i64 40
-  %28 = load ptr, ptr %vfn77, align 8
-  %call78 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %26, i1 noundef zeroext false) #18
+  %27 = load ptr, ptr %vfn77, align 8
+  %call78 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %25, i1 noundef zeroext false) #18
   br i1 %call78, label %land.lhs.true82, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %land.lhs.true74
-  %29 = load ptr, ptr %ListBox72, align 8, !tbaa !79
-  %30 = load ptr, ptr %24, align 8, !tbaa !15
-  %tobool.not.i238 = icmp eq ptr %30, null
+  %28 = load ptr, ptr %ListBox72, align 8, !tbaa !79
+  %29 = load ptr, ptr %23, align 8, !tbaa !15
+  %tobool.not.i238 = icmp eq ptr %29, null
   br i1 %tobool.not.i238, label %if.end195, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %lor.lhs.false79
-  %Parent.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %Parent.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %29, i64 32
   %.pre.i = load ptr, ptr %Parent.phi.trans.insert.i, align 8, !tbaa !54
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.i
-  %31 = phi ptr [ %32, %do.body.i ], [ %.pre.i, %do.body.preheader.i ]
-  %child.addr.0.i = phi ptr [ %spec.select.i, %do.body.i ], [ %30, %do.body.preheader.i ]
-  %tobool2.not.i = icmp eq ptr %31, null
-  %spec.select.i = select i1 %tobool2.not.i, ptr %child.addr.0.i, ptr %31
+  %30 = phi ptr [ %31, %do.body.i ], [ %.pre.i, %do.body.preheader.i ]
+  %child.addr.0.i = phi ptr [ %spec.select.i, %do.body.i ], [ %29, %do.body.preheader.i ]
+  %tobool2.not.i = icmp eq ptr %30, null
+  %spec.select.i = select i1 %tobool2.not.i, ptr %child.addr.0.i, ptr %30
   %Parent6.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  %32 = load ptr, ptr %Parent6.i, align 8, !tbaa !54
-  %tobool7.i = icmp ne ptr %32, null
-  %cmp.i = icmp ne ptr %spec.select.i, %29
-  %33 = and i1 %tobool7.i, %cmp.i
-  br i1 %33, label %do.body.i, label %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit, !llvm.loop !105
+  %31 = load ptr, ptr %Parent6.i, align 8, !tbaa !54
+  %tobool7.i = icmp ne ptr %31, null
+  %cmp.i = icmp ne ptr %spec.select.i, %28
+  %32 = and i1 %tobool7.i, %cmp.i
+  br i1 %32, label %do.body.i, label %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit, !llvm.loop !105
 
 _ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit:    ; preds = %do.body.i
-  %cmp8.i = icmp eq ptr %spec.select.i, %29
+  %cmp8.i = icmp eq ptr %spec.select.i, %28
   br i1 %cmp8.i, label %land.lhs.true82, label %if.end195
 
 land.lhs.true82:                                  ; preds = %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit, %land.lhs.true74
   %Element = getelementptr inbounds nuw i8, ptr %event, i64 16
-  %34 = load ptr, ptr %Element, align 8, !tbaa !15
-  %cmp83.not = icmp eq ptr %34, %this
+  %33 = load ptr, ptr %Element, align 8, !tbaa !15
+  %cmp83.not = icmp eq ptr %33, %this
   br i1 %cmp83.not, label %if.end195, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %land.lhs.true82
-  %tobool.not.i239 = icmp eq ptr %34, null
+  %tobool.not.i239 = icmp eq ptr %33, null
   br i1 %tobool.not.i239, label %if.then91, label %do.body.preheader.i240
 
 do.body.preheader.i240:                           ; preds = %land.lhs.true84
-  %Parent.phi.trans.insert.i241 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %Parent.phi.trans.insert.i241 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %.pre.i242 = load ptr, ptr %Parent.phi.trans.insert.i241, align 8, !tbaa !54
   br label %do.body.i243
 
 do.body.i243:                                     ; preds = %do.body.i243, %do.body.preheader.i240
-  %35 = phi ptr [ %36, %do.body.i243 ], [ %.pre.i242, %do.body.preheader.i240 ]
-  %child.addr.0.i244 = phi ptr [ %spec.select.i246, %do.body.i243 ], [ %34, %do.body.preheader.i240 ]
-  %tobool2.not.i245 = icmp eq ptr %35, null
-  %spec.select.i246 = select i1 %tobool2.not.i245, ptr %child.addr.0.i244, ptr %35
+  %34 = phi ptr [ %35, %do.body.i243 ], [ %.pre.i242, %do.body.preheader.i240 ]
+  %child.addr.0.i244 = phi ptr [ %spec.select.i246, %do.body.i243 ], [ %33, %do.body.preheader.i240 ]
+  %tobool2.not.i245 = icmp eq ptr %34, null
+  %spec.select.i246 = select i1 %tobool2.not.i245, ptr %child.addr.0.i244, ptr %34
   %Parent6.i247 = getelementptr inbounds nuw i8, ptr %spec.select.i246, i64 32
-  %36 = load ptr, ptr %Parent6.i247, align 8, !tbaa !54
-  %tobool7.i248 = icmp ne ptr %36, null
+  %35 = load ptr, ptr %Parent6.i247, align 8, !tbaa !54
+  %tobool7.i248 = icmp ne ptr %35, null
   %cmp.i249 = icmp ne ptr %spec.select.i246, %this
-  %37 = and i1 %tobool7.i248, %cmp.i249
-  br i1 %37, label %do.body.i243, label %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit253, !llvm.loop !105
+  %36 = and i1 %tobool7.i248, %cmp.i249
+  br i1 %36, label %do.body.i243, label %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit253, !llvm.loop !105
 
 _ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit253: ; preds = %do.body.i243
   %cmp8.i251 = icmp eq ptr %spec.select.i246, %this
   br i1 %cmp8.i251, label %if.end195, label %land.lhs.true87
 
 land.lhs.true87:                                  ; preds = %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit253
-  %38 = load ptr, ptr %ListBox72, align 8, !tbaa !79
+  %37 = load ptr, ptr %ListBox72, align 8, !tbaa !79
   br label %do.body.i258
 
 do.body.i258:                                     ; preds = %do.body.i258, %land.lhs.true87
-  %39 = phi ptr [ %40, %do.body.i258 ], [ %.pre.i242, %land.lhs.true87 ]
-  %child.addr.0.i259 = phi ptr [ %spec.select.i261, %do.body.i258 ], [ %34, %land.lhs.true87 ]
-  %tobool2.not.i260 = icmp eq ptr %39, null
-  %spec.select.i261 = select i1 %tobool2.not.i260, ptr %child.addr.0.i259, ptr %39
+  %38 = phi ptr [ %39, %do.body.i258 ], [ %.pre.i242, %land.lhs.true87 ]
+  %child.addr.0.i259 = phi ptr [ %spec.select.i261, %do.body.i258 ], [ %33, %land.lhs.true87 ]
+  %tobool2.not.i260 = icmp eq ptr %38, null
+  %spec.select.i261 = select i1 %tobool2.not.i260, ptr %child.addr.0.i259, ptr %38
   %Parent6.i262 = getelementptr inbounds nuw i8, ptr %spec.select.i261, i64 32
-  %40 = load ptr, ptr %Parent6.i262, align 8, !tbaa !54
-  %tobool7.i263 = icmp ne ptr %40, null
-  %cmp.i264 = icmp ne ptr %spec.select.i261, %38
-  %41 = and i1 %tobool7.i263, %cmp.i264
-  br i1 %41, label %do.body.i258, label %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit268, !llvm.loop !105
+  %39 = load ptr, ptr %Parent6.i262, align 8, !tbaa !54
+  %tobool7.i263 = icmp ne ptr %39, null
+  %cmp.i264 = icmp ne ptr %spec.select.i261, %37
+  %40 = and i1 %tobool7.i263, %cmp.i264
+  br i1 %40, label %do.body.i258, label %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit268, !llvm.loop !105
 
 _ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit268: ; preds = %do.body.i258
-  %cmp8.i266 = icmp eq ptr %spec.select.i261, %38
+  %cmp8.i266 = icmp eq ptr %spec.select.i261, %37
   br i1 %cmp8.i266, label %if.end195, label %if.then91
 
 if.then91:                                        ; preds = %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit268, %land.lhs.true84
@@ -2147,10 +2146,10 @@ if.then91:                                        ; preds = %_ZNK3irr3gui11IGUIE
   br label %if.end195
 
 sw.bb93:                                          ; preds = %sw.bb69
-  %42 = load ptr, ptr %24, align 8, !tbaa !15
+  %41 = load ptr, ptr %23, align 8, !tbaa !15
   %ListButton95 = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %43 = load ptr, ptr %ListButton95, align 8, !tbaa !46
-  %cmp96 = icmp eq ptr %42, %43
+  %42 = load ptr, ptr %ListButton95, align 8, !tbaa !46
+  %cmp96 = icmp eq ptr %41, %42
   br i1 %cmp96, label %if.then97, label %if.end195
 
 if.then97:                                        ; preds = %sw.bb93
@@ -2158,74 +2157,74 @@ if.then97:                                        ; preds = %sw.bb93
   br label %return
 
 sw.bb99:                                          ; preds = %sw.bb69, %sw.bb69
-  %44 = load ptr, ptr %24, align 8, !tbaa !15
+  %43 = load ptr, ptr %23, align 8, !tbaa !15
   %ListBox101 = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %45 = load ptr, ptr %ListBox101, align 8, !tbaa !79
-  %cmp102 = icmp eq ptr %44, %45
+  %44 = load ptr, ptr %ListBox101, align 8, !tbaa !79
+  %cmp102 = icmp eq ptr %43, %44
   br i1 %cmp102, label %if.then103, label %return
 
 if.then103:                                       ; preds = %sw.bb99
-  %vtable105 = load ptr, ptr %44, align 8, !tbaa !3
+  %vtable105 = load ptr, ptr %43, align 8, !tbaa !3
   %vfn106 = getelementptr inbounds nuw i8, ptr %vtable105, i64 360
-  %46 = load ptr, ptr %vfn106, align 8
-  %call107 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(308) %44) #18
+  %45 = load ptr, ptr %vfn106, align 8
+  %call107 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(308) %43) #18
   %vtable108 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn109 = getelementptr inbounds nuw i8, ptr %vtable108, i64 352
-  %47 = load ptr, ptr %vfn109, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %call107) #18
+  %46 = load ptr, ptr %vfn109, align 8
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %call107) #18
   %Selected110 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  %48 = load i32, ptr %Selected110, align 8, !tbaa !86
-  %cmp111 = icmp slt i32 %48, 0
+  %47 = load i32, ptr %Selected110, align 8, !tbaa !86
+  %cmp111 = icmp slt i32 %47, 0
   br i1 %cmp111, label %if.then117, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %if.then103
   %Items114 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i269 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %49 = load ptr, ptr %_M_finish.i.i269, align 8, !tbaa !83
-  %50 = load ptr, ptr %Items114, align 8, !tbaa !84
-  %sub.ptr.lhs.cast.i.i270 = ptrtoint ptr %49 to i64
-  %sub.ptr.rhs.cast.i.i271 = ptrtoint ptr %50 to i64
+  %48 = load ptr, ptr %_M_finish.i.i269, align 8, !tbaa !83
+  %49 = load ptr, ptr %Items114, align 8, !tbaa !84
+  %sub.ptr.lhs.cast.i.i270 = ptrtoint ptr %48 to i64
+  %sub.ptr.rhs.cast.i.i271 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i.i272 = sub i64 %sub.ptr.lhs.cast.i.i270, %sub.ptr.rhs.cast.i.i271
   %sub.ptr.div.i.i273 = sdiv exact i64 %sub.ptr.sub.i.i272, 40
   %conv.i274 = trunc i64 %sub.ptr.div.i.i273 to i32
-  %cmp116.not = icmp slt i32 %48, %conv.i274
+  %cmp116.not = icmp slt i32 %47, %conv.i274
   br i1 %cmp116.not, label %if.end120, label %if.then117
 
 if.then117:                                       ; preds = %lor.lhs.false112, %if.then103
   %vtable118 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn119 = getelementptr inbounds nuw i8, ptr %vtable118, i64 352
-  %51 = load ptr, ptr %vfn119, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef -1) #18
+  %50 = load ptr, ptr %vfn119, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef -1) #18
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then117, %lor.lhs.false112
   tail call void @_ZN3irr3gui12CGUIComboBox13openCloseMenuEv(ptr noundef nonnull align 8 dereferenceable(408) %this)
   %Parent.i276 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %52 = load ptr, ptr %Parent.i276, align 8, !tbaa !54
-  %tobool.not.i277 = icmp eq ptr %52, null
+  %51 = load ptr, ptr %Parent.i276, align 8, !tbaa !54
+  %tobool.not.i277 = icmp eq ptr %51, null
   br i1 %tobool.not.i277, label %return, label %if.then.i278
 
 if.then.i278:                                     ; preds = %if.end120
   call void @llvm.lifetime.start.p0(ptr nonnull %event.i275)
   store i32 0, ptr %event.i275, align 8, !tbaa !80
-  %53 = getelementptr inbounds nuw i8, ptr %event.i275, i64 8
-  store ptr %this, ptr %53, align 8, !tbaa !15
+  %52 = getelementptr inbounds nuw i8, ptr %event.i275, i64 8
+  store ptr %this, ptr %52, align 8, !tbaa !15
   %Element.i279 = getelementptr inbounds nuw i8, ptr %event.i275, i64 16
   store ptr null, ptr %Element.i279, align 8, !tbaa !15
   %EventType2.i280 = getelementptr inbounds nuw i8, ptr %event.i275, i64 24
   store i32 18, ptr %EventType2.i280, align 8, !tbaa !15
-  %vtable.i281 = load ptr, ptr %52, align 8, !tbaa !3
+  %vtable.i281 = load ptr, ptr %51, align 8, !tbaa !3
   %vfn.i282 = getelementptr inbounds nuw i8, ptr %vtable.i281, i64 16
-  %54 = load ptr, ptr %vfn.i282, align 8
-  %call.i283 = call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(308) %52, ptr noundef nonnull align 8 dereferenceable(56) %event.i275) #18
+  %53 = load ptr, ptr %vfn.i282, align 8
+  %call.i283 = call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(308) %51, ptr noundef nonnull align 8 dereferenceable(56) %event.i275) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %event.i275)
   br label %return
 
 sw.bb124:                                         ; preds = %if.then
-  %55 = getelementptr inbounds nuw i8, ptr %event, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %event, i64 8
   %Event = getelementptr inbounds nuw i8, ptr %event, i64 28
-  %56 = load i32, ptr %Event, align 4, !tbaa !15
-  switch i32 %56, label %if.end195 [
+  %55 = load i32, ptr %Event, align 4, !tbaa !15
+  switch i32 %55, label %if.end195 [
     i32 0, label %sw.bb125
     i32 3, label %sw.bb141
     i32 7, label %sw.bb158
@@ -2233,26 +2232,26 @@ sw.bb124:                                         ; preds = %if.then
 
 sw.bb125:                                         ; preds = %sw.bb124
   call void @llvm.lifetime.start.p0(ptr nonnull %p)
-  %57 = load <2 x i32>, ptr %55, align 8, !tbaa !15
-  store <2 x i32> %57, ptr %p, align 8, !tbaa !45
+  %56 = load <2 x i32>, ptr %54, align 8, !tbaa !15
+  store <2 x i32> %56, ptr %p, align 8, !tbaa !45
   %ListBox126 = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %58 = load ptr, ptr %ListBox126, align 8, !tbaa !79
-  %tobool127.not = icmp eq ptr %58, null
+  %57 = load ptr, ptr %ListBox126, align 8, !tbaa !79
+  %tobool127.not = icmp eq ptr %57, null
   br i1 %tobool127.not, label %cleanup140, label %land.lhs.true128
 
 land.lhs.true128:                                 ; preds = %sw.bb125
-  %vtable130 = load ptr, ptr %58, align 8, !tbaa !3
+  %vtable130 = load ptr, ptr %57, align 8, !tbaa !3
   %vfn131 = getelementptr inbounds nuw i8, ptr %vtable130, i64 40
-  %59 = load ptr, ptr %vfn131, align 8
-  %call132 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(308) %58, ptr noundef nonnull align 4 dereferenceable(8) %p) #18
+  %58 = load ptr, ptr %vfn131, align 8
+  %call132 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(308) %57, ptr noundef nonnull align 4 dereferenceable(8) %p) #18
   br i1 %call132, label %land.lhs.true133, label %cleanup140
 
 land.lhs.true133:                                 ; preds = %land.lhs.true128
-  %60 = load ptr, ptr %ListBox126, align 8, !tbaa !79
-  %vtable135 = load ptr, ptr %60, align 8, !tbaa !3
+  %59 = load ptr, ptr %ListBox126, align 8, !tbaa !79
+  %vtable135 = load ptr, ptr %59, align 8, !tbaa !3
   %vfn136 = getelementptr inbounds nuw i8, ptr %vtable135, i64 16
-  %61 = load ptr, ptr %vfn136, align 8
-  %call137 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(308) %60, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
+  %60 = load ptr, ptr %vfn136, align 8
+  %call137 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(308) %59, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
   br label %cleanup140
 
 cleanup140:                                       ; preds = %land.lhs.true133, %land.lhs.true128, %sw.bb125
@@ -2260,41 +2259,41 @@ cleanup140:                                       ; preds = %land.lhs.true133, %
   br label %return
 
 sw.bb141:                                         ; preds = %sw.bb124
-  %62 = load i32, ptr %55, align 8, !tbaa !15
+  %61 = load i32, ptr %54, align 8, !tbaa !15
   %Y144 = getelementptr inbounds nuw i8, ptr %event, i64 12
-  %63 = load i32, ptr %Y144, align 4, !tbaa !15
+  %62 = load i32, ptr %Y144, align 4, !tbaa !15
   %ListBox145 = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %64 = load ptr, ptr %ListBox145, align 8, !tbaa !79
-  %tobool146.not = icmp eq ptr %64, null
+  %63 = load ptr, ptr %ListBox145, align 8, !tbaa !79
+  %tobool146.not = icmp eq ptr %63, null
   br i1 %tobool146.not, label %if.then155, label %land.lhs.true147
 
 land.lhs.true147:                                 ; preds = %sw.bb141
-  %AbsoluteRect.i = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %AbsoluteRect.i = getelementptr inbounds nuw i8, ptr %63, i64 64
   %retval.sroa.0.0.copyload.i = load i64, ptr %AbsoluteRect.i, align 8, !tbaa.struct !59
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i to i32
-  %cmp.not.i = icmp slt i32 %62, %ref.tmp.sroa.0.0.extract.trunc
+  %cmp.not.i = icmp slt i32 %61, %ref.tmp.sroa.0.0.extract.trunc
   br i1 %cmp.not.i, label %if.then155, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true147
-  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i = getelementptr inbounds nuw i8, ptr %64, i64 72
+  %retval.sroa.2.0.AbsoluteRect.sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 72
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i, align 8, !tbaa.struct !60
   %ref.tmp.sroa.0.4.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %ref.tmp.sroa.0.4.extract.trunc = trunc nuw i64 %ref.tmp.sroa.0.4.extract.shift to i32
-  %cmp5.not.i = icmp sge i32 %63, %ref.tmp.sroa.0.4.extract.trunc
+  %cmp5.not.i = icmp sge i32 %62, %ref.tmp.sroa.0.4.extract.trunc
   %ref.tmp.sroa.6.8.extract.trunc = trunc i64 %retval.sroa.2.0.copyload.i to i32
-  %cmp9.not.i = icmp sle i32 %62, %ref.tmp.sroa.6.8.extract.trunc
+  %cmp9.not.i = icmp sle i32 %61, %ref.tmp.sroa.6.8.extract.trunc
   %or.cond.i.not329 = select i1 %cmp5.not.i, i1 %cmp9.not.i, i1 false
   %ref.tmp.sroa.6.12.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i, 32
   %ref.tmp.sroa.6.12.extract.trunc = trunc nuw i64 %ref.tmp.sroa.6.12.extract.shift to i32
-  %cmp13.i = icmp sle i32 %63, %ref.tmp.sroa.6.12.extract.trunc
+  %cmp13.i = icmp sle i32 %62, %ref.tmp.sroa.6.12.extract.trunc
   %or.cond328 = select i1 %or.cond.i.not329, i1 %cmp13.i, i1 false
   br i1 %or.cond328, label %land.rhs, label %if.then155
 
 land.rhs:                                         ; preds = %land.lhs.true.i
-  %vtable152 = load ptr, ptr %64, align 8, !tbaa !3
+  %vtable152 = load ptr, ptr %63, align 8, !tbaa !3
   %vfn153 = getelementptr inbounds nuw i8, ptr %vtable152, i64 16
-  %65 = load ptr, ptr %vfn153, align 8
-  %call154 = tail call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(308) %64, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
+  %64 = load ptr, ptr %vfn153, align 8
+  %call154 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(308) %63, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
   br i1 %call154, label %return, label %if.then155
 
 if.then155:                                       ; preds = %land.rhs, %land.lhs.true.i, %land.lhs.true147, %sw.bb141
@@ -2303,101 +2302,101 @@ if.then155:                                       ; preds = %land.rhs, %land.lhs
 
 sw.bb158:                                         ; preds = %sw.bb124
   %Parent.i287 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %66 = load ptr, ptr %Parent.i287, align 8, !tbaa !54
-  %tobool.not.i288 = icmp eq ptr %66, null
+  %65 = load ptr, ptr %Parent.i287, align 8, !tbaa !54
+  %tobool.not.i288 = icmp eq ptr %65, null
   br i1 %tobool.not.i288, label %if.end161, label %_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE.exit
 
 _ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE.exit: ; preds = %sw.bb158
-  %vtable.i289 = load ptr, ptr %66, align 8, !tbaa !3
+  %vtable.i289 = load ptr, ptr %65, align 8, !tbaa !3
   %vfn.i290 = getelementptr inbounds nuw i8, ptr %vtable.i289, i64 16
-  %67 = load ptr, ptr %vfn.i290, align 8
-  %call.i291 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(308) %66, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
+  %66 = load ptr, ptr %vfn.i290, align 8
+  %call.i291 = tail call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(308) %65, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
   br i1 %call.i291, label %return, label %if.end161
 
 if.end161:                                        ; preds = %_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE.exit, %sw.bb158
   %Selected163 = getelementptr inbounds nuw i8, ptr %this, i64 376
-  %68 = load i32, ptr %Selected163, align 8, !tbaa !86
+  %67 = load i32, ptr %Selected163, align 8, !tbaa !86
   %Wheel = getelementptr inbounds nuw i8, ptr %event, i64 16
-  %69 = load float, ptr %Wheel, align 8, !tbaa !15
-  %cmp165 = fcmp olt float %69, 0.000000e+00
+  %68 = load float, ptr %Wheel, align 8, !tbaa !15
+  %cmp165 = fcmp olt float %68, 0.000000e+00
   %cond = select i1 %cmp165, i32 1, i32 -1
-  %add166 = add nsw i32 %cond, %68
+  %add166 = add nsw i32 %cond, %67
   %vtable167 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn168 = getelementptr inbounds nuw i8, ptr %vtable167, i64 352
-  %70 = load ptr, ptr %vfn168, align 8
-  tail call void %70(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add166) #18
-  %71 = load i32, ptr %Selected163, align 8, !tbaa !86
-  %cmp170 = icmp slt i32 %71, 0
+  %69 = load ptr, ptr %vfn168, align 8
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %add166) #18
+  %70 = load i32, ptr %Selected163, align 8, !tbaa !86
+  %cmp170 = icmp slt i32 %70, 0
   br i1 %cmp170, label %if.then171, label %if.end174
 
 if.then171:                                       ; preds = %if.end161
   %vtable172 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn173 = getelementptr inbounds nuw i8, ptr %vtable172, i64 352
-  %72 = load ptr, ptr %vfn173, align 8
-  tail call void %72(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef 0) #18
+  %71 = load ptr, ptr %vfn173, align 8
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef 0) #18
   %.pre = load i32, ptr %Selected163, align 8, !tbaa !86
   br label %if.end174
 
 if.end174:                                        ; preds = %if.then171, %if.end161
-  %73 = phi i32 [ %.pre, %if.then171 ], [ %71, %if.end161 ]
+  %72 = phi i32 [ %.pre, %if.then171 ], [ %70, %if.end161 ]
   %Items176 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %_M_finish.i.i292 = getelementptr inbounds nuw i8, ptr %this, i64 352
-  %74 = load ptr, ptr %_M_finish.i.i292, align 8, !tbaa !83
-  %75 = load ptr, ptr %Items176, align 8, !tbaa !84
-  %sub.ptr.lhs.cast.i.i293 = ptrtoint ptr %74 to i64
-  %sub.ptr.rhs.cast.i.i294 = ptrtoint ptr %75 to i64
+  %73 = load ptr, ptr %_M_finish.i.i292, align 8, !tbaa !83
+  %74 = load ptr, ptr %Items176, align 8, !tbaa !84
+  %sub.ptr.lhs.cast.i.i293 = ptrtoint ptr %73 to i64
+  %sub.ptr.rhs.cast.i.i294 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i.i295 = sub i64 %sub.ptr.lhs.cast.i.i293, %sub.ptr.rhs.cast.i.i294
   %sub.ptr.div.i.i296 = sdiv exact i64 %sub.ptr.sub.i.i295, 40
   %conv.i297 = trunc i64 %sub.ptr.div.i.i296 to i32
-  %cmp178.not = icmp slt i32 %73, %conv.i297
+  %cmp178.not = icmp slt i32 %72, %conv.i297
   br i1 %cmp178.not, label %if.end185, label %if.then179
 
 if.then179:                                       ; preds = %if.end174
   %sub182 = add nsw i32 %conv.i297, -1
   %vtable183 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn184 = getelementptr inbounds nuw i8, ptr %vtable183, i64 352
-  %76 = load ptr, ptr %vfn184, align 8
-  tail call void %76(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %sub182) #18
+  %75 = load ptr, ptr %vfn184, align 8
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %sub182) #18
   %.pre330 = load i32, ptr %Selected163, align 8, !tbaa !86
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then179, %if.end174
-  %77 = phi i32 [ %.pre330, %if.then179 ], [ %73, %if.end174 ]
-  %cmp187.not.not = icmp eq i32 %77, %68
+  %76 = phi i32 [ %.pre330, %if.then179 ], [ %72, %if.end174 ]
+  %cmp187.not.not = icmp eq i32 %76, %67
   br i1 %cmp187.not.not, label %return, label %if.then188
 
 if.then188:                                       ; preds = %if.end185
-  %78 = load ptr, ptr %Parent.i287, align 8, !tbaa !54
-  %tobool.not.i306 = icmp eq ptr %78, null
+  %77 = load ptr, ptr %Parent.i287, align 8, !tbaa !54
+  %tobool.not.i306 = icmp eq ptr %77, null
   br i1 %tobool.not.i306, label %return, label %if.then.i307
 
 if.then.i307:                                     ; preds = %if.then188
   call void @llvm.lifetime.start.p0(ptr nonnull %event.i304)
   store i32 0, ptr %event.i304, align 8, !tbaa !80
-  %79 = getelementptr inbounds nuw i8, ptr %event.i304, i64 8
-  store ptr %this, ptr %79, align 8, !tbaa !15
+  %78 = getelementptr inbounds nuw i8, ptr %event.i304, i64 8
+  store ptr %this, ptr %78, align 8, !tbaa !15
   %Element.i308 = getelementptr inbounds nuw i8, ptr %event.i304, i64 16
   store ptr null, ptr %Element.i308, align 8, !tbaa !15
   %EventType2.i309 = getelementptr inbounds nuw i8, ptr %event.i304, i64 24
   store i32 18, ptr %EventType2.i309, align 8, !tbaa !15
-  %vtable.i310 = load ptr, ptr %78, align 8, !tbaa !3
+  %vtable.i310 = load ptr, ptr %77, align 8, !tbaa !3
   %vfn.i311 = getelementptr inbounds nuw i8, ptr %vtable.i310, i64 16
-  %80 = load ptr, ptr %vfn.i311, align 8
-  %call.i312 = call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(308) %78, ptr noundef nonnull align 8 dereferenceable(56) %event.i304) #18
+  %79 = load ptr, ptr %vfn.i311, align 8
+  %call.i312 = call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(308) %77, ptr noundef nonnull align 8 dereferenceable(56) %event.i304) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %event.i304)
   br label %return
 
 if.end195:                                        ; preds = %sw.bb124, %sw.bb93, %if.then91, %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit268, %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit253, %land.lhs.true82, %_ZNK3irr3gui11IGUIElement9isMyChildEPS1_.exit, %lor.lhs.false79, %sw.bb71, %sw.bb69, %cleanup, %if.else18, %if.then, %entry
   %Parent.i314 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %81 = load ptr, ptr %Parent.i314, align 8, !tbaa !54
-  %tobool.not.i315 = icmp eq ptr %81, null
+  %80 = load ptr, ptr %Parent.i314, align 8, !tbaa !54
+  %tobool.not.i315 = icmp eq ptr %80, null
   br i1 %tobool.not.i315, label %return, label %cond.true.i316
 
 cond.true.i316:                                   ; preds = %if.end195
-  %vtable.i317 = load ptr, ptr %81, align 8, !tbaa !3
+  %vtable.i317 = load ptr, ptr %80, align 8, !tbaa !3
   %vfn.i318 = getelementptr inbounds nuw i8, ptr %vtable.i317, i64 16
-  %82 = load ptr, ptr %vfn.i318, align 8
-  %call.i319 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(308) %81, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
+  %81 = load ptr, ptr %vfn.i318, align 8
+  %call.i319 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(308) %80, ptr noundef nonnull align 8 dereferenceable(56) %event) #18
   br label %return
 
 return:                                           ; preds = %cond.true.i316, %if.end195, %if.then.i307, %if.then188, %if.end185, %_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE.exit, %if.then155, %land.rhs, %cleanup140, %if.then.i278, %if.end120, %sw.bb99, %if.then97, %cleanup, %if.then.i, %if.then60, %if.end, %if.then3

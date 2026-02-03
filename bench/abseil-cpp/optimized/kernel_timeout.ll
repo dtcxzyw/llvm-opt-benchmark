@@ -104,9 +104,8 @@ define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout
 
 3:                                                ; preds = %1
   %4 = lshr i64 %2, 1
-  %5 = and i64 %2, 1
-  %.not13 = icmp eq i64 %5, 0
-  br i1 %.not13, label %13, label %6
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = tail call noundef i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
@@ -167,9 +166,8 @@ define dso_local { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeou
 
 3:                                                ; preds = %1
   %4 = lshr i64 %2, 1
-  %5 = and i64 %2, 1
-  %.not13.i = icmp eq i64 %5, 0
-  br i1 %.not13.i, label %13, label %6
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = tail call noundef i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
@@ -378,9 +376,8 @@ define dso_local range(i64 -9223372036854775000, -9223372036854775808) i64 @_ZNK
 
 3:                                                ; preds = %1
   %4 = lshr i64 %2, 1
-  %5 = and i64 %2, 1
-  %.not13.i = icmp eq i64 %5, 0
-  br i1 %.not13.i, label %13, label %6
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
   %7 = tail call noundef i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8

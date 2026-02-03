@@ -3781,8 +3781,8 @@ queue_length.exit:                                ; preds = %32, %35
 
 40:                                               ; preds = %queue_length.exit
   %41 = and i64 %3, -5
-  %.not46 = icmp eq i64 %41, 0
-  br i1 %.not46, label %44, label %42
+  %.not45 = icmp eq i64 %41, 0
+  br i1 %.not45, label %44, label %42
 
 42:                                               ; preds = %40
   %43 = load i64, ptr @rb_eThreadError, align 8, !tbaa !145
@@ -3792,17 +3792,16 @@ queue_length.exit:                                ; preds = %32, %35
 44:                                               ; preds = %40
   %45 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %4) #16
   %46 = and i64 %45, -5
-  %.not47 = icmp eq i64 %46, 0
-  br i1 %.not47, label %47, label %120
+  %.not46 = icmp eq i64 %46, 0
+  br i1 %.not46, label %47, label %120
 
 47:                                               ; preds = %44, %queue_length.exit
   %48 = icmp eq i64 %4, 4
   br i1 %48, label %queue_timeout2hrtime.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = and i64 %4, 1
-  %.not.i = icmp eq i64 %50, 0
-  br i1 %.not.i, label %57, label %rb_num2long_inline.exit.i
+  %50 = trunc i64 %4 to i1
+  br i1 %50, label %rb_num2long_inline.exit.i, label %57
 
 rb_num2long_inline.exit.i:                        ; preds = %49
   %51 = ashr i64 %4, 1
@@ -3834,9 +3833,9 @@ rb_sec2hrtime.exit.i:                             ; preds = %57, %53, %rb_num2lo
 
 queue_timeout2hrtime.exit:                        ; preds = %47, %rb_sec2hrtime.exit.i
   %.0.i = phi i64 [ %.0.i7.i, %rb_sec2hrtime.exit.i ], [ 0, %47 ]
-  %.val3451 = load i64, ptr %21, align 1, !tbaa !199
-  %64 = icmp eq i64 %.val3451, 0
-  %65 = and i64 %.val3451, 7
+  %.val3450 = load i64, ptr %21, align 1, !tbaa !199
+  %64 = icmp eq i64 %.val3450, 0
+  %65 = and i64 %.val3450, 7
   %66 = icmp ne i64 %65, 0
   %67 = or i1 %64, %66
   br i1 %67, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i36, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i35.lr.ph
@@ -3859,8 +3858,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i.i35.lr.ph:       ; preds = %queue_timeout2hrtim
   br label %rbimpl_RB_TYPE_P_fastpath.exit.i.i35
 
 rbimpl_RB_TYPE_P_fastpath.exit.i.i35:             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i35.lr.ph, %.critedge
-  %.val3452 = phi i64 [ %.val3451, %rbimpl_RB_TYPE_P_fastpath.exit.i.i35.lr.ph ], [ %.val34, %.critedge ]
-  %82 = inttoptr i64 %.val3452 to ptr
+  %.val3451 = phi i64 [ %.val3450, %rbimpl_RB_TYPE_P_fastpath.exit.i.i35.lr.ph ], [ %.val34, %.critedge ]
+  %82 = inttoptr i64 %.val3451 to ptr
   %83 = load i64, ptr %82, align 8, !tbaa !42
   %84 = and i64 %83, 31
   %85 = icmp eq i64 %84, 7
@@ -3892,11 +3891,11 @@ queue_length.exit40:                              ; preds = %88, %91
   %.not31 = icmp slt i64 %.0.i.i39, %94
   %95 = load i64, ptr %68, align 8, !tbaa !42
   %96 = and i64 %95, 131072
-  %.not.i42 = icmp eq i64 %96, 0
+  %.not.i41 = icmp eq i64 %96, 0
   br i1 %.not31, label %117, label %97
 
 97:                                               ; preds = %queue_length.exit40
-  br i1 %.not.i42, label %99, label %98
+  br i1 %.not.i41, label %99, label %98
 
 98:                                               ; preds = %97
   call fastcc void @raise_closed_queue_error() #47
@@ -3912,8 +3911,8 @@ queue_length.exit40:                              ; preds = %88, %91
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %104 = load ptr, ptr %103, align 8, !tbaa !176
   %105 = call i32 @rb_fiberptr_blocking(ptr noundef %104) #16
-  %.not.i41 = icmp eq i32 %105, 0
-  %..i = select i1 %.not.i41, ptr %104, ptr null
+  %.not.i = icmp eq i32 %105, 0
+  %..i = select i1 %.not.i, ptr %104, ptr null
   store ptr %..i, ptr %71, align 8, !tbaa !182
   store ptr %8, ptr %73, align 8, !tbaa !44
   store ptr %74, ptr %72, align 8, !tbaa !84
@@ -3952,14 +3951,14 @@ queue_length.exit40:                              ; preds = %88, %91
   br label %120, !llvm.loop !205
 
 117:                                              ; preds = %queue_length.exit40
-  br i1 %.not.i42, label %queue_do_push.exit, label %118
+  br i1 %.not.i41, label %queue_do_push.exit, label %118
 
 118:                                              ; preds = %117
   call fastcc void @raise_closed_queue_error() #47
   unreachable
 
 queue_do_push.exit:                               ; preds = %117
-  %119 = call i64 @rb_ary_push(i64 noundef %.val3452, i64 noundef %2) #16
+  %119 = call i64 @rb_ary_push(i64 noundef %.val3451, i64 noundef %2) #16
   call fastcc void @sync_wakeup(ptr noundef nonnull readonly %8, i64 noundef 1)
   br label %120
 
@@ -7814,10 +7813,10 @@ threadptr_pending_interrupt_active_p.exit:        ; preds = %99, %102
   %.not3.i.not = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not3.i.not, label %threadptr_pending_interrupt_active_p.exit.thread, label %.preheader149
 
-.preheader149:                                    ; preds = %threadptr_pending_interrupt_active_p.exit, %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i
-  %105 = phi i64 [ %.pre189, %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i ], [ %97, %threadptr_pending_interrupt_active_p.exit ]
-  %106 = phi i64 [ %.pre, %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i ], [ %.val.i, %threadptr_pending_interrupt_active_p.exit ]
-  %.015.i = phi i32 [ %219, %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i ], [ 0, %threadptr_pending_interrupt_active_p.exit ]
+.preheader149:                                    ; preds = %threadptr_pending_interrupt_active_p.exit, %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i
+  %105 = phi i64 [ %.pre189, %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i ], [ %97, %threadptr_pending_interrupt_active_p.exit ]
+  %106 = phi i64 [ %.pre, %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i ], [ %.val.i, %threadptr_pending_interrupt_active_p.exit ]
+  %.015.i = phi i32 [ %219, %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i ], [ 0, %threadptr_pending_interrupt_active_p.exit ]
   %107 = sext i32 %.015.i to i64
   %108 = inttoptr i64 %106 to ptr
   %109 = and i64 %105, 8192
@@ -7874,9 +7873,8 @@ RARRAY_AREF.exit.i:                               ; preds = %117, %.thread.i
   br label %rb_class_of.exit.i
 
 132:                                              ; preds = %129
-  %133 = and i64 %121, 1
-  %.not.i18.i = icmp eq i64 %133, 0
-  br i1 %.not.i18.i, label %134, label %rb_class_of.exit.i
+  %133 = trunc i64 %121 to i1
+  br i1 %133, label %rb_class_of.exit.i, label %134
 
 134:                                              ; preds = %132
   %135 = and i64 %121, 254
@@ -7891,8 +7889,8 @@ rb_class_of.exit.i:                               ; preds = %134, %132, %131, %1
   %137 = inttoptr i64 %.val.i93 to ptr
   %138 = load i64, ptr %137, align 8, !tbaa !42
   %139 = and i64 %138, 8192
-  %.not.i.i19.i = icmp eq i64 %139, 0
-  br i1 %.not.i.i19.i, label %144, label %140
+  %.not.i.i18.i = icmp eq i64 %139, 0
+  br i1 %.not.i.i18.i, label %144, label %140
 
 140:                                              ; preds = %rb_class_of.exit.i
   %141 = lshr i64 %138, 15
@@ -7997,7 +7995,7 @@ RB_SYMBOL_P.exit.thread.i.i:                      ; preds = %178, %.lr.ph11.spli
 189:                                              ; preds = %186
   %190 = load i64, ptr @sym_never, align 8, !tbaa !145
   %191 = icmp eq i64 %.us-phi.i.i, %190
-  br i1 %191, label %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i, label %192
+  br i1 %191, label %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i, label %192
 
 192:                                              ; preds = %189
   %193 = load i64, ptr @rb_eThreadError, align 8, !tbaa !145
@@ -8042,7 +8040,7 @@ RB_SYMBOL_P.exit.preheader.i.i:                   ; preds = %RB_SYMBOL_P.exit.pr
 212:                                              ; preds = %209
   %213 = load i64, ptr @sym_never, align 8, !tbaa !145
   %214 = icmp eq i64 %205, %213
-  br i1 %214, label %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i, label %215
+  br i1 %214, label %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i, label %215
 
 215:                                              ; preds = %212
   %216 = load i64, ptr @rb_eThreadError, align 8, !tbaa !145
@@ -8052,17 +8050,17 @@ RB_SYMBOL_P.exit.preheader.i.i:                   ; preds = %RB_SYMBOL_P.exit.pr
 rb_threadptr_pending_interrupt_from_symbol.exit38.i.i: ; preds = %204, %201
   %217 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %218 = load i64, ptr %217, align 8, !tbaa !278
-  %.not.i20.i = icmp eq i64 %218, 0
-  br i1 %.not.i20.i, label %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i, label %RB_SYMBOL_P.exit.preheader.i.i, !llvm.loop !279
+  %.not.i19.i = icmp eq i64 %218, 0
+  br i1 %.not.i19.i, label %RB_SYMBOL_P.exit..loopexit_crit_edge.i.i, label %RB_SYMBOL_P.exit.preheader.i.i, !llvm.loop !279
 
 RB_SYMBOL_P.exit..loopexit_crit_edge.i.i:         ; preds = %rb_threadptr_pending_interrupt_from_symbol.exit38.i.i, %RB_SYMBOL_P.exit.thread.i.i
   %exitcond.not.i.i = icmp eq i64 %167, %.0.i2.i.i
   br i1 %exitcond.not.i.i, label %rb_threadptr_pending_interrupt_deque.exit, label %.lr.ph11.split.i.i, !llvm.loop !271
 
 rb_threadptr_pending_interrupt_check_mask.exit.i: ; preds = %209, %186
-  br i1 %.not82, label %rb_threadptr_pending_interrupt_check_mask.exit.thread24.i, label %rb_threadptr_pending_interrupt_deque.exit
+  br i1 %.not82, label %rb_threadptr_pending_interrupt_check_mask.exit.thread23.i, label %rb_threadptr_pending_interrupt_deque.exit
 
-rb_threadptr_pending_interrupt_check_mask.exit.thread24.i: ; preds = %rb_threadptr_pending_interrupt_check_mask.exit.i, %212, %189
+rb_threadptr_pending_interrupt_check_mask.exit.thread23.i: ; preds = %rb_threadptr_pending_interrupt_check_mask.exit.i, %212, %189
   %219 = add i32 %.015.i, 1
   %.pre = load i64, ptr %13, align 8, !tbaa !22
   %.phi.trans.insert = inttoptr i64 %.pre to ptr
@@ -13310,9 +13308,8 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = and i64 %7, 1
-  %.not13 = icmp eq i64 %10, 0
-  br i1 %.not13, label %17, label %rb_num2long_inline.exit
+  %10 = trunc i64 %7 to i1
+  br i1 %10, label %rb_num2long_inline.exit, label %17
 
 rb_num2long_inline.exit:                          ; preds = %9
   %11 = ashr i64 %7, 1
@@ -13570,9 +13567,8 @@ define internal range(i64 1, 0) i64 @rb_thread_priority(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @rb_thread_priority_set(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #16
-  %4 = and i64 %1, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %7, label %5
+  %4 = trunc i64 %1 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call i64 @rb_fix2int(i64 noundef %1) #16
@@ -13604,7 +13600,7 @@ define internal i64 @rb_thread_status(i64 noundef %0) #0 {
   %4 = and i8 %.val, 3
   switch i8 %4, label %default.unreachable [
     i8 3, label %5
-    i8 0, label %13
+    i8 0, label %12
     i8 2, label %thread_status_name.exit
     i8 1, label %thread_status_name.exit
   ]
@@ -13615,28 +13611,27 @@ define internal i64 @rb_thread_status(i64 noundef %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load i64, ptr %8, align 8, !tbaa !295
   %10 = icmp eq i64 %9, 4
-  %11 = and i64 %9, 1
-  %12 = icmp ne i64 %11, 0
-  %or.cond = or i1 %10, %12
+  %11 = trunc i64 %9 to i1
+  %or.cond = or i1 %10, %11
   %spec.select = select i1 %or.cond, i64 0, i64 4
-  br label %17
+  br label %16
 
-13:                                               ; preds = %1
-  %14 = and i8 %.val, 8
-  %.not3.i = icmp eq i8 %14, 0
-  %15 = select i1 %.not3.i, ptr @.str.76, ptr @.str.237
+12:                                               ; preds = %1
+  %13 = and i8 %.val, 8
+  %.not3.i = icmp eq i8 %13, 0
+  %14 = select i1 %.not3.i, ptr @.str.76, ptr @.str.237
   br label %thread_status_name.exit
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-thread_status_name.exit:                          ; preds = %1, %1, %13
-  %.0.i = phi ptr [ %15, %13 ], [ @.str.239, %1 ], [ @.str.239, %1 ]
-  %16 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #16
-  br label %17
+thread_status_name.exit:                          ; preds = %1, %1, %12
+  %.0.i = phi ptr [ %14, %12 ], [ @.str.239, %1 ], [ @.str.239, %1 ]
+  %15 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %.0.i) #16
+  br label %16
 
-17:                                               ; preds = %5, %thread_status_name.exit
-  %.0 = phi i64 [ %spec.select, %5 ], [ %16, %thread_status_name.exit ]
+16:                                               ; preds = %5, %thread_status_name.exit
+  %.0 = phi i64 [ %spec.select, %5 ], [ %15, %thread_status_name.exit ]
   ret i64 %.0
 }
 
@@ -14557,10 +14552,9 @@ RARRAY_AREF.exit32:                               ; preds = %.thread, %61
   %.0.i.i31 = phi ptr [ %60, %.thread ], [ %63, %61 ]
   %64 = getelementptr i64, ptr %.0.i.i31, i64 %32
   %65 = load i64, ptr %64, align 8, !tbaa !145
-  %66 = and i64 %65, 1
-  %.not36 = icmp ne i64 %66, 0
+  %66 = trunc i64 %65 to i1
   %67 = icmp slt i64 %65, 9223372036854775806
-  %or.cond = and i1 %67, %.not36
+  %or.cond = and i1 %67, %66
   br i1 %or.cond, label %68, label %.critedge
 
 68:                                               ; preds = %RARRAY_AREF.exit32
@@ -14724,9 +14718,8 @@ define internal void @update_method_coverage(i64 noundef %0, ptr readnone captur
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %8 to i64
   %11 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %10) #16
-  %12 = and i64 %11, 1
-  %.not12 = icmp eq i64 %12, 0
-  br i1 %.not12, label %.thread, label %13
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %9
   %14 = ashr i64 %11, 1
@@ -15889,17 +15882,16 @@ rb_array_len.exit:                                ; preds = %19, %22
 29:                                               ; preds = %26
   %30 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %3) #16
   %31 = and i64 %30, -5
-  %.not35 = icmp eq i64 %31, 0
-  br i1 %.not35, label %32, label %.loopexit36
+  %.not34 = icmp eq i64 %31, 0
+  br i1 %.not34, label %32, label %.loopexit35
 
 32:                                               ; preds = %29, %rb_array_len.exit
   %33 = icmp eq i64 %3, 4
   br i1 %33, label %queue_timeout2hrtime.exit.split.us.preheader, label %34
 
 34:                                               ; preds = %32
-  %35 = and i64 %3, 1
-  %.not.i28 = icmp eq i64 %35, 0
-  br i1 %.not.i28, label %42, label %rb_num2long_inline.exit.i
+  %35 = trunc i64 %3 to i1
+  br i1 %35, label %rb_num2long_inline.exit.i, label %42
 
 rb_num2long_inline.exit.i:                        ; preds = %34
   %36 = ashr i64 %3, 1
@@ -15961,29 +15953,29 @@ queue_timeout2hrtime.exit.split.us:               ; preds = %queue_timeout2hrtim
   %74 = inttoptr i64 %73 to ptr
   %75 = load i64, ptr %74, align 8, !tbaa !42
   %76 = and i64 %75, 8192
-  %.not.i30.us = icmp eq i64 %76, 0
-  br i1 %.not.i30.us, label %80, label %77
+  %.not.i29.us = icmp eq i64 %76, 0
+  br i1 %.not.i29.us, label %80, label %77
 
 77:                                               ; preds = %queue_timeout2hrtime.exit.split.us
   %78 = lshr i64 %75, 15
   %79 = and i64 %78, 127
-  br label %rb_array_len.exit32.us
+  br label %rb_array_len.exit31.us
 
 80:                                               ; preds = %queue_timeout2hrtime.exit.split.us
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !44
-  br label %rb_array_len.exit32.us
+  br label %rb_array_len.exit31.us
 
-rb_array_len.exit32.us:                           ; preds = %80, %77
-  %.0.i31.us = phi i64 [ %79, %77 ], [ %82, %80 ]
-  %83 = icmp eq i64 %.0.i31.us, 0
+rb_array_len.exit31.us:                           ; preds = %80, %77
+  %.0.i30.us = phi i64 [ %79, %77 ], [ %82, %80 ]
+  %83 = icmp eq i64 %.0.i30.us, 0
   br i1 %83, label %84, label %.loopexit
 
-84:                                               ; preds = %rb_array_len.exit32.us
+84:                                               ; preds = %rb_array_len.exit31.us
   %85 = load i64, ptr %61, align 8, !tbaa !42
   %86 = and i64 %85, 131072
   %.not26.us = icmp eq i64 %86, 0
-  br i1 %.not26.us, label %87, label %.loopexit36
+  br i1 %.not26.us, label %87, label %.loopexit35
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %62, align 8, !tbaa !148
@@ -15995,8 +15987,8 @@ rb_array_len.exit32.us:                           ; preds = %80, %77
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !176
   %93 = call i32 @rb_fiberptr_blocking(ptr noundef %92) #16
-  %.not.i33.us = icmp eq i32 %93, 0
-  %..i.us = select i1 %.not.i33.us, ptr %92, ptr null
+  %.not.i32.us = icmp eq i32 %93, 0
+  %..i.us = select i1 %.not.i32.us, ptr %92, ptr null
   store ptr %..i.us, ptr %64, align 8, !tbaa !182
   store ptr %1, ptr %66, align 8, !tbaa !44
   store ptr %1, ptr %65, align 8, !tbaa !84
@@ -16023,29 +16015,29 @@ queue_timeout2hrtime.exit.split:                  ; preds = %114, %queue_timeout
   %101 = inttoptr i64 %100 to ptr
   %102 = load i64, ptr %101, align 8, !tbaa !42
   %103 = and i64 %102, 8192
-  %.not.i30 = icmp eq i64 %103, 0
-  br i1 %.not.i30, label %107, label %104
+  %.not.i29 = icmp eq i64 %103, 0
+  br i1 %.not.i29, label %107, label %104
 
 104:                                              ; preds = %queue_timeout2hrtime.exit.split
   %105 = lshr i64 %102, 15
   %106 = and i64 %105, 127
-  br label %rb_array_len.exit32
+  br label %rb_array_len.exit31
 
 107:                                              ; preds = %queue_timeout2hrtime.exit.split
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %109 = load i64, ptr %108, align 8, !tbaa !44
-  br label %rb_array_len.exit32
+  br label %rb_array_len.exit31
 
-rb_array_len.exit32:                              ; preds = %104, %107
-  %.0.i31 = phi i64 [ %106, %104 ], [ %109, %107 ]
-  %110 = icmp eq i64 %.0.i31, 0
+rb_array_len.exit31:                              ; preds = %104, %107
+  %.0.i30 = phi i64 [ %106, %104 ], [ %109, %107 ]
+  %110 = icmp eq i64 %.0.i30, 0
   br i1 %110, label %111, label %.loopexit
 
-111:                                              ; preds = %rb_array_len.exit32
+111:                                              ; preds = %rb_array_len.exit31
   %112 = load i64, ptr %49, align 8, !tbaa !42
   %113 = and i64 %112, 131072
   %.not26 = icmp eq i64 %113, 0
-  br i1 %.not26, label %114, label %.loopexit36
+  br i1 %.not26, label %114, label %.loopexit35
 
 114:                                              ; preds = %111
   %115 = load ptr, ptr %50, align 8, !tbaa !148
@@ -16057,8 +16049,8 @@ rb_array_len.exit32:                              ; preds = %104, %107
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %119 = load ptr, ptr %118, align 8, !tbaa !176
   %120 = call i32 @rb_fiberptr_blocking(ptr noundef %119) #16
-  %.not.i33 = icmp eq i32 %120, 0
-  %..i = select i1 %.not.i33, ptr %119, ptr null
+  %.not.i32 = icmp eq i32 %120, 0
+  %..i = select i1 %.not.i32, ptr %119, ptr null
   store ptr %..i, ptr %52, align 8, !tbaa !182
   store ptr %1, ptr %54, align 8, !tbaa !44
   store ptr %1, ptr %53, align 8, !tbaa !84
@@ -16086,12 +16078,12 @@ rb_array_len.exit32:                              ; preds = %104, %107
   %.pre = load i64, ptr %7, align 1, !tbaa !199
   br label %.loopexit
 
-.loopexit:                                        ; preds = %rb_array_len.exit32, %rb_array_len.exit32.us, %.thread
-  %128 = phi i64 [ %73, %rb_array_len.exit32.us ], [ %.pre, %.thread ], [ %100, %rb_array_len.exit32 ]
+.loopexit:                                        ; preds = %rb_array_len.exit31, %rb_array_len.exit31.us, %.thread
+  %128 = phi i64 [ %73, %rb_array_len.exit31.us ], [ %.pre, %.thread ], [ %100, %rb_array_len.exit31 ]
   %129 = call i64 @rb_ary_shift(i64 noundef %128) #16
-  br label %.loopexit36
+  br label %.loopexit35
 
-.loopexit36:                                      ; preds = %111, %84, %.loopexit, %29
+.loopexit35:                                      ; preds = %111, %84, %.loopexit, %29
   %.0 = phi i64 [ 4, %29 ], [ %129, %.loopexit ], [ 4, %84 ], [ 4, %111 ]
   ret i64 %.0
 }
@@ -18370,9 +18362,8 @@ RARRAY_AREF.exit19.i.i:                           ; preds = %118, %116
   %.0.i.i18.i.i = phi ptr [ %117, %116 ], [ %120, %118 ]
   %121 = getelementptr i8, ptr %.0.i.i18.i.i, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !145
-  %123 = and i64 %122, 1
-  %.not.i.i.i = icmp eq i64 %123, 0
-  br i1 %.not.i.i.i, label %126, label %124
+  %123 = trunc i64 %122 to i1
+  br i1 %123, label %124, label %126
 
 124:                                              ; preds = %RARRAY_AREF.exit19.i.i
   %125 = call i64 @rb_fix2int(i64 noundef %122) #16
@@ -18764,8 +18755,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %289, %299, %rbimpl_
 315:                                              ; preds = %311
   %316 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %317 = call i32 @pthread_mutex_lock(ptr noundef nonnull %316) #16
-  %.not.i.i.i101 = icmp eq i32 %317, 0
-  br i1 %.not.i.i.i101, label %rb_native_mutex_lock.exit.i.i, label %318
+  %.not.i.i.i = icmp eq i32 %317, 0
+  br i1 %.not.i.i.i, label %rb_native_mutex_lock.exit.i.i, label %318
 
 318:                                              ; preds = %315
   call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %317) #38
@@ -18811,8 +18802,8 @@ rb_threadptr_interrupt.exit:                      ; preds = %threadptr_interrupt
   call fastcc void @thread_cleanup_func_before_exec(ptr noundef nonnull %0)
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %335 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %334) #16
-  %.not.i.i102 = icmp eq i32 %335, 0
-  br i1 %.not.i.i102, label %thread_cleanup_func.exit, label %336
+  %.not.i.i101 = icmp eq i32 %335, 0
+  br i1 %.not.i.i101, label %thread_cleanup_func.exit, label %336
 
 336:                                              ; preds = %rb_threadptr_interrupt.exit
   call void @rb_bug_errno(ptr noundef nonnull @.str.9, i32 noundef %335) #38
@@ -20714,9 +20705,8 @@ define internal fastcc i64 @thread_join(ptr noundef %0, i64 noundef %1, ptr noun
   br i1 %.not30, label %59, label %44
 
 44:                                               ; preds = %39
-  %45 = and i64 %43, 1
-  %.not32 = icmp eq i64 %45, 0
-  br i1 %.not32, label %49, label %46
+  %45 = trunc i64 %43 to i1
+  br i1 %45, label %46, label %49
 
 46:                                               ; preds = %44
   %cond = icmp eq i64 %43, 17
@@ -21699,9 +21689,8 @@ define internal noundef i64 @rb_szqueue_initialize(i64 noundef returned %0, i64 
   br label %szqueue_ptr.exit
 
 szqueue_ptr.exit:                                 ; preds = %2, %10
-  %16 = and i64 %1, 1
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %19, label %17
+  %16 = trunc i64 %1 to i1
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %szqueue_ptr.exit
   %18 = ashr i64 %1, 1
@@ -21858,9 +21847,8 @@ rb_long2num_inline.exit:                          ; preds = %18, %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @rb_szqueue_max_set(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = ashr i64 %1, 1

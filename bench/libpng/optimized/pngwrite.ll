@@ -2637,15 +2637,15 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   tail call void @png_set_benign_errors(ptr noundef %6, i32 noundef 0) #16
   %20 = load i32, ptr %9, align 4, !tbaa !214
   %21 = and i32 %20, 8
-  %.not144 = icmp eq i32 %21, 0
+  %.not143 = icmp eq i32 %21, 0
   %22 = and i32 %20, 3
   %23 = add nuw nsw i32 %22, 1
-  %24 = select i1 %.not144, i32 %23, i32 1
+  %24 = select i1 %.not143, i32 %23, i32 1
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !215
   %27 = udiv i32 2147483647, %24
-  %.not145 = icmp ugt i32 %26, %27
-  br i1 %.not145, label %46, label %28
+  %.not144 = icmp ugt i32 %26, %27
+  br i1 %.not144, label %46, label %28
 
 28:                                               ; preds = %18
   %29 = mul i32 %24, %26
@@ -2661,8 +2661,8 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 34:                                               ; preds = %33, %28
   %35 = phi i32 [ %29, %33 ], [ %31, %28 ]
   %.0136 = tail call i32 @llvm.abs.i32(i32 %35, i1 true)
-  %.not146 = icmp ult i32 %.0136, %29
-  br i1 %.not146, label %42, label %36
+  %.not145 = icmp ult i32 %.0136, %29
+  br i1 %.not145, label %42, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2695,14 +2695,14 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !202
-  %.not148 = icmp eq ptr %51, null
-  br i1 %.not148, label %354, label %52
+  %.not147 = icmp eq ptr %51, null
+  br i1 %.not147, label %354, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4, !tbaa !217
-  %.not149 = icmp eq i32 %54, 0
-  br i1 %.not149, label %354, label %55
+  %.not148 = icmp eq i32 %54, 0
+  br i1 %.not148, label %354, label %55
 
 55:                                               ; preds = %52
   %56 = icmp ugt i32 %54, 16
@@ -2713,7 +2713,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %61 = select i1 %56, i32 8, i32 %60
   tail call void @png_set_IHDR(ptr noundef %6, ptr noundef %8, i32 noundef %26, i32 noundef %38, i32 noundef %61, i32 noundef 3, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
   %.val = load ptr, ptr %0, align 8, !tbaa !198
-  %.val161 = load ptr, ptr %50, align 8, !tbaa !202
+  %.val160 = load ptr, ptr %50, align 8, !tbaa !202
   %62 = getelementptr inbounds nuw i8, ptr %.val, i64 28
   %63 = load i32, ptr %62, align 4, !tbaa !217
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %63, i32 256)
@@ -2762,7 +2762,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %indvars.iv.next39.i, %120 ]
   %.01223.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.6.us.i, %120 ]
   %90 = mul nuw nsw i64 %indvars.iv38.i, %89
-  %91 = getelementptr inbounds nuw i8, ptr %.val161, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %.val160, i64 %90
   switch i32 %67, label %98 [
     i32 4, label %104
     i32 3, label %110
@@ -2838,7 +2838,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 .lr.ph.split.split.us.split.us.i:                 ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.split.us.split.us.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.lr.ph.split.split.us.split.us.i ], [ 0, %.lr.ph.split.split.us.i ]
   %123 = mul nuw nsw i64 %indvars.iv33.i, %122
-  %124 = getelementptr inbounds nuw i16, ptr %.val161, i64 %123
+  %124 = getelementptr inbounds nuw i16, ptr %.val160, i64 %123
   %125 = getelementptr inbounds nuw i16, ptr %124, i64 %84
   %126 = load i16, ptr %125, align 2, !tbaa !223
   %127 = zext i16 %126 to i32
@@ -2906,7 +2906,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
 .lr.ph.split.split.us.split.i:                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.split.us.split.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.lr.ph.split.split.us.split.i ], [ 0, %.lr.ph.split.split.us.i ]
   %182 = mul nuw nsw i64 %indvars.iv28.i, %122
-  %183 = getelementptr inbounds nuw i16, ptr %.val161, i64 %182
+  %183 = getelementptr inbounds nuw i16, ptr %.val160, i64 %182
   %184 = load i16, ptr %183, align 2, !tbaa !223
   %185 = zext i16 %184 to i32
   %186 = mul nuw nsw i32 %185, 255
@@ -2941,7 +2941,7 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
   %.01223.us11.i = phi i32 [ %spec.select128.us.i, %png_unpremultiply.exit140.us.i ], [ 0, %.lr.ph.split.split.i ]
   %204 = mul nuw nsw i64 %indvars.iv23.i, %122
-  %205 = getelementptr inbounds nuw i16, ptr %.val161, i64 %204
+  %205 = getelementptr inbounds nuw i16, ptr %.val160, i64 %204
   %206 = getelementptr inbounds nuw i16, ptr %205, i64 %75
   %207 = load i16, ptr %206, align 2, !tbaa !223
   %208 = zext i16 %207 to i32
@@ -3089,7 +3089,7 @@ png_unpremultiply.exit140.us.i:                   ; preds = %279, %278, %png_unp
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %png_unpremultiply.exit145.i ], [ 0, %.lr.ph.split.split.i ]
   %.01223.i = phi i32 [ %spec.select128.i, %png_unpremultiply.exit145.i ], [ 0, %.lr.ph.split.split.i ]
   %299 = mul nuw nsw i64 %indvars.iv.i, %122
-  %300 = getelementptr inbounds nuw i16, ptr %.val161, i64 %299
+  %300 = getelementptr inbounds nuw i16, ptr %.val160, i64 %299
   %301 = getelementptr inbounds nuw i16, ptr %300, i64 %75
   %302 = load i16, ptr %301, align 2, !tbaa !223
   %303 = zext i16 %302 to i32
@@ -3241,13 +3241,13 @@ png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %349
 
 377:                                              ; preds = %375, %376
   %378 = and i32 %10, 16
-  %.not150 = icmp eq i32 %378, 0
-  br i1 %.not150, label %384, label %379
+  %.not149 = icmp eq i32 %378, 0
+  br i1 %.not149, label %384, label %379
 
 379:                                              ; preds = %377
   %380 = and i32 %10, 10
-  %or.cond159.not = icmp eq i32 %380, 2
-  br i1 %or.cond159.not, label %381, label %382
+  %or.cond158.not = icmp eq i32 %380, 2
+  br i1 %or.cond158.not, label %381, label %382
 
 381:                                              ; preds = %379
   call void @png_set_bgr(ptr noundef %6) #16
@@ -3260,15 +3260,15 @@ png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %349
 384:                                              ; preds = %382, %377
   %.0132 = phi i32 [ %383, %382 ], [ %10, %377 ]
   %385 = and i32 %.0132, 32
-  %.not152 = icmp eq i32 %385, 0
-  br i1 %.not152, label %392, label %386
+  %.not151 = icmp eq i32 %385, 0
+  br i1 %.not151, label %392, label %386
 
 386:                                              ; preds = %384
   %387 = icmp ne i32 %11, 0
   %388 = and i32 %.0132, 1
-  %.not153 = icmp eq i32 %388, 0
-  %or.cond160 = or i1 %387, %.not153
-  br i1 %or.cond160, label %390, label %389
+  %.not152 = icmp eq i32 %388, 0
+  %or.cond159 = or i1 %387, %.not152
+  br i1 %or.cond159, label %390, label %389
 
 389:                                              ; preds = %386
   call void @png_set_swap_alpha(ptr noundef %6) #16
@@ -3293,8 +3293,8 @@ png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %349
   br label %398
 
 398:                                              ; preds = %397, %393, %392
-  %.not154 = icmp ult i32 %.1133, 16
-  br i1 %.not154, label %400, label %399
+  %.not153 = icmp ult i32 %.1133, 16
+  br i1 %.not153, label %400, label %399
 
 399:                                              ; preds = %398
   call void @png_error(ptr noundef %6, ptr noundef nonnull @.str.29) #17
@@ -3328,18 +3328,18 @@ png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %349
   %417 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %418 = load i32, ptr %417, align 8, !tbaa !224
   %419 = and i32 %418, 2
-  %.not155 = icmp eq i32 %419, 0
+  %.not154 = icmp eq i32 %419, 0
   %420 = icmp eq ptr %6, null
-  %or.cond164 = select i1 %.not155, i1 true, i1 %420
-  br i1 %or.cond164, label %png_set_compression_level.exit, label %421
+  %or.cond163 = select i1 %.not154, i1 true, i1 %420
+  br i1 %or.cond163, label %png_set_compression_level.exit, label %421
 
 421:                                              ; preds = %414
   %422 = getelementptr inbounds nuw i8, ptr %6, i64 622
   store i8 8, ptr %422, align 2, !tbaa !189, !alias.scope !227
   %423 = getelementptr inbounds nuw i8, ptr %6, i64 560
   %424 = load ptr, ptr %423, align 8, !tbaa !165, !alias.scope !227
-  %.not.i162 = icmp eq ptr %424, null
-  br i1 %.not.i162, label %454, label %425
+  %.not.i161 = icmp eq ptr %424, null
+  br i1 %.not.i161, label %454, label %425
 
 425:                                              ; preds = %421
   %426 = getelementptr inbounds nuw i8, ptr %6, i64 508
@@ -3398,8 +3398,8 @@ png_set_compression_level.exit:                   ; preds = %454, %414
 458:                                              ; preds = %457
   %459 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %460 = load i32, ptr %459, align 8, !tbaa !203
-  %.not156 = icmp eq i32 %460, 0
-  br i1 %.not156, label %466, label %461
+  %.not155 = icmp eq i32 %460, 0
+  br i1 %.not155, label %466, label %461
 
 461:                                              ; preds = %png_set_compression_level.exit, %458
   %462 = call i64 @png_get_rowbytes(ptr noundef %6, ptr noundef %8) #16
@@ -3410,27 +3410,27 @@ png_set_compression_level.exit:                   ; preds = %454, %414
   %465 = call i32 @png_safe_execute(ptr noundef nonnull %4, ptr noundef nonnull %png_write_image_16bit.png_write_image_8bit, ptr noundef nonnull %0) #16
   store ptr null, ptr %464, align 8, !tbaa !233
   call void @png_free(ptr noundef %6, ptr noundef %463) #16
-  %.not158 = icmp eq i32 %465, 0
-  br i1 %.not158, label %472, label %.loopexit
+  %.not157 = icmp eq i32 %465, 0
+  br i1 %.not157, label %472, label %.loopexit
 
 466:                                              ; preds = %458, %457
   %467 = load i64, ptr %416, align 8, !tbaa !226
   %468 = load i32, ptr %37, align 8, !tbaa !216
-  %.not157169 = icmp eq i32 %468, 0
-  br i1 %.not157169, label %.loopexit, label %.lr.ph.preheader
+  %.not156168 = icmp eq i32 %468, 0
+  br i1 %.not156168, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %466
   %469 = load ptr, ptr %415, align 8, !tbaa !225
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0171 = phi i32 [ %471, %.lr.ph ], [ %468, %.lr.ph.preheader ]
-  %.0129170 = phi ptr [ %470, %.lr.ph ], [ %469, %.lr.ph.preheader ]
-  call void @png_write_row(ptr noundef %6, ptr noundef %.0129170)
-  %470 = getelementptr inbounds i8, ptr %.0129170, i64 %467
-  %471 = add i32 %.0171, -1
-  %.not157 = icmp eq i32 %471, 0
-  br i1 %.not157, label %.loopexit, label %.lr.ph, !llvm.loop !234
+  %.0170 = phi i32 [ %471, %.lr.ph ], [ %468, %.lr.ph.preheader ]
+  %.0129169 = phi ptr [ %470, %.lr.ph ], [ %469, %.lr.ph.preheader ]
+  call void @png_write_row(ptr noundef %6, ptr noundef %.0129169)
+  %470 = getelementptr inbounds i8, ptr %.0129169, i64 %467
+  %471 = add i32 %.0170, -1
+  %.not156 = icmp eq i32 %471, 0
+  br i1 %.not156, label %.loopexit, label %.lr.ph, !llvm.loop !234
 
 .loopexit:                                        ; preds = %.lr.ph, %466, %461
   call void @png_write_end(ptr noundef %6, ptr noundef %8)

@@ -34,7 +34,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
 6:                                                ; preds = %ossl_param_is_empty.exit
   %7 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str) #5
   %.not50 = icmp eq ptr %7, null
-  br i1 %.not50, label %32, label %8
+  br i1 %.not50, label %31, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -51,222 +51,221 @@ ossl_param_is_empty.exit:                         ; preds = %2
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !12
-  %15 = and i64 %14, 1
-  %.not52 = icmp ne i64 %15, 0
-  %16 = add i64 %14, -17
-  %17 = icmp ult i64 %16, -13
-  %or.cond63 = or i1 %.not52, %17
-  br i1 %or.cond63, label %18, label %19
+  %.not52 = trunc i64 %14 to i1
+  %15 = add i64 %14, -17
+  %16 = icmp ult i64 %15, -13
+  %or.cond63 = or i1 %16, %.not52
+  br i1 %or.cond63, label %17, label %18
 
-18:                                               ; preds = %12
+17:                                               ; preds = %12
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 84, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 118, ptr noundef null) #5
   br label %.critedge
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !13
-  %.not53 = icmp eq ptr %21, null
-  br i1 %.not53, label %29, label %22
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !13
+  %.not53 = icmp eq ptr %20, null
+  br i1 %.not53, label %28, label %21
 
-22:                                               ; preds = %19
-  %23 = load i8, ptr %0, align 8
-  %24 = and i8 %23, 1
-  %.not54 = icmp eq i8 %24, 0
-  br i1 %.not54, label %26, label %25
+21:                                               ; preds = %18
+  %22 = load i8, ptr %0, align 8
+  %23 = and i8 %22, 1
+  %.not54 = icmp eq i8 %23, 0
+  br i1 %.not54, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 120, ptr noundef null) #5
   br label %.critedge
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 1 %21, i64 %14, i1 false)
-  %28 = or i8 %23, 8
-  store i8 %28, ptr %0, align 8
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %20, i64 %14, i1 false)
+  %27 = or i8 %22, 8
+  store i8 %27, ptr %0, align 8
   %.pre = load i64, ptr %13, align 8, !tbaa !12
-  br label %29
+  br label %28
 
-29:                                               ; preds = %26, %19
-  %30 = phi i64 [ %.pre, %26 ], [ %14, %19 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %30, ptr %31, align 8, !tbaa !14
-  br label %32
+28:                                               ; preds = %25, %18
+  %29 = phi i64 [ %.pre, %25 ], [ %14, %18 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %29, ptr %30, align 8, !tbaa !14
+  br label %31
 
-32:                                               ; preds = %29, %6
-  %33 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #5
-  %.not55 = icmp eq ptr %33, null
-  br i1 %.not55, label %48, label %34
+31:                                               ; preds = %28, %6
+  %32 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.2) #5
+  %.not55 = icmp eq ptr %32, null
+  br i1 %.not55, label %47, label %33
 
-34:                                               ; preds = %32
-  %35 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %33, ptr noundef nonnull %3) #5
-  %.not56 = icmp eq i32 %35, 0
-  br i1 %.not56, label %36, label %37
+33:                                               ; preds = %31
+  %34 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %32, ptr noundef nonnull %3) #5
+  %.not56 = icmp eq i32 %34, 0
+  br i1 %.not56, label %35, label %36
 
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 103, ptr noundef null) #5
   br label %.critedge
 
-37:                                               ; preds = %34
-  %38 = load i64, ptr %3, align 8, !tbaa !19
-  %39 = sub i64 15, %38
-  %40 = add i64 %38, -14
-  %or.cond = icmp ult i64 %40, -7
-  br i1 %or.cond, label %41, label %42
+36:                                               ; preds = %33
+  %37 = load i64, ptr %3, align 8, !tbaa !19
+  %38 = sub i64 15, %37
+  %39 = add i64 %37, -14
+  %or.cond = icmp ult i64 %39, -7
+  br i1 %or.cond, label %40, label %41
 
-41:                                               ; preds = %37
+40:                                               ; preds = %36
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 109, ptr noundef null) #5
   br label %.critedge
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !20
-  %.not57 = icmp eq i64 %44, %39
-  br i1 %.not57, label %48, label %45
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !20
+  %.not57 = icmp eq i64 %43, %38
+  br i1 %.not57, label %47, label %44
 
-45:                                               ; preds = %42
-  store i64 %39, ptr %43, align 8, !tbaa !20
-  %46 = load i8, ptr %0, align 8
-  %47 = and i8 %46, -5
-  store i8 %47, ptr %0, align 8
-  br label %48
+44:                                               ; preds = %41
+  store i64 %38, ptr %42, align 8, !tbaa !20
+  %45 = load i8, ptr %0, align 8
+  %46 = and i8 %45, -5
+  store i8 %46, ptr %0, align 8
+  br label %47
 
-48:                                               ; preds = %45, %42, %32
-  %49 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #5
-  %.not58 = icmp eq ptr %49, null
-  br i1 %.not58, label %93, label %50
+47:                                               ; preds = %44, %41, %31
+  %48 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #5
+  %.not58 = icmp eq ptr %48, null
+  br i1 %.not58, label %92, label %49
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !11
-  %.not59 = icmp eq i32 %52, 5
-  br i1 %.not59, label %54, label %53
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !11
+  %.not59 = icmp eq i32 %51, 5
+  br i1 %.not59, label %53, label %52
 
-53:                                               ; preds = %50
+52:                                               ; preds = %49
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 121, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 103, ptr noundef null) #5
   br label %.critedge
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %58 = load i64, ptr %57, align 8, !tbaa !12
-  %59 = call i32 @ossl_prov_is_running() #5
-  %60 = icmp eq i32 %59, 0
-  %61 = icmp ne i64 %58, 13
-  %or.cond.i = or i1 %61, %60
-  br i1 %or.cond.i, label %ccm_tls_init.exit.thread, label %62
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !13
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %57 = load i64, ptr %56, align 8, !tbaa !12
+  %58 = call i32 @ossl_prov_is_running() #5
+  %59 = icmp eq i32 %58, 0
+  %60 = icmp ne i64 %57, 13
+  %or.cond.i = or i1 %60, %59
+  br i1 %or.cond.i, label %ccm_tls_init.exit.thread, label %61
 
-62:                                               ; preds = %54
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %63, ptr noundef nonnull readonly align 1 dereferenceable(13) %56, i64 13, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 13, ptr %64, align 8, !tbaa !21
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %66 = load i8, ptr %65, align 1, !tbaa !22
-  %67 = zext i8 %66 to i64
-  %68 = shl nuw nsw i64 %67, 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %70 = load i8, ptr %69, align 4, !tbaa !22
-  %71 = zext i8 %70 to i64
-  %72 = or disjoint i64 %68, %71
-  %73 = icmp samesign ult i64 %72, 8
-  br i1 %73, label %ccm_tls_init.exit.thread, label %74
+61:                                               ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %62, ptr noundef nonnull readonly align 1 dereferenceable(13) %55, i64 13, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 13, ptr %63, align 8, !tbaa !21
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 75
+  %65 = load i8, ptr %64, align 1, !tbaa !22
+  %66 = zext i8 %65 to i64
+  %67 = shl nuw nsw i64 %66, 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %69 = load i8, ptr %68, align 4, !tbaa !22
+  %70 = zext i8 %69 to i64
+  %71 = or disjoint i64 %67, %70
+  %72 = icmp samesign ult i64 %71, 8
+  br i1 %72, label %ccm_tls_init.exit.thread, label %73
 
-74:                                               ; preds = %62
-  %75 = add nsw i64 %72, -8
-  %76 = load i8, ptr %0, align 8
-  %77 = and i8 %76, 1
-  %.not.i = icmp eq i8 %77, 0
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load i64, ptr %78, align 8, !tbaa !14
-  br i1 %.not.i, label %80, label %ccm_tls_init.exit
+73:                                               ; preds = %61
+  %74 = add nsw i64 %71, -8
+  %75 = load i8, ptr %0, align 8
+  %76 = and i8 %75, 1
+  %.not.i = icmp eq i8 %76, 0
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %78 = load i64, ptr %77, align 8, !tbaa !14
+  br i1 %.not.i, label %79, label %ccm_tls_init.exit
 
-80:                                               ; preds = %74
-  %81 = icmp ult i64 %75, %79
-  br i1 %81, label %ccm_tls_init.exit.thread, label %82
+79:                                               ; preds = %73
+  %80 = icmp ult i64 %74, %78
+  br i1 %80, label %ccm_tls_init.exit.thread, label %81
 
-82:                                               ; preds = %80
-  %83 = sub nuw nsw i64 %75, %79
+81:                                               ; preds = %79
+  %82 = sub nuw nsw i64 %74, %78
   br label %ccm_tls_init.exit
 
-ccm_tls_init.exit.thread:                         ; preds = %62, %54, %80
+ccm_tls_init.exit.thread:                         ; preds = %61, %53, %79
   store i64 0, ptr %3, align 8, !tbaa !19
-  br label %90
+  br label %89
 
-ccm_tls_init.exit:                                ; preds = %74, %82
-  %.0.i = phi i64 [ %83, %82 ], [ %75, %74 ]
-  %84 = lshr i64 %.0.i, 8
-  %85 = trunc nuw i64 %84 to i8
-  store i8 %85, ptr %65, align 1, !tbaa !22
-  %86 = trunc i64 %.0.i to i8
-  store i8 %86, ptr %69, align 1, !tbaa !22
-  %sext = shl i64 %79, 32
-  %87 = ashr exact i64 %sext, 32
-  store i64 %87, ptr %3, align 8, !tbaa !19
-  %88 = and i64 %79, 4294967295
-  %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %91
+ccm_tls_init.exit:                                ; preds = %73, %81
+  %.0.i = phi i64 [ %82, %81 ], [ %74, %73 ]
+  %83 = lshr i64 %.0.i, 8
+  %84 = trunc nuw i64 %83 to i8
+  store i8 %84, ptr %64, align 1, !tbaa !22
+  %85 = trunc i64 %.0.i to i8
+  store i8 %85, ptr %68, align 1, !tbaa !22
+  %sext = shl i64 %78, 32
+  %86 = ashr exact i64 %sext, 32
+  store i64 %86, ptr %3, align 8, !tbaa !19
+  %87 = and i64 %78, 4294967295
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %89, label %90
 
-90:                                               ; preds = %ccm_tls_init.exit.thread, %ccm_tls_init.exit
+89:                                               ; preds = %ccm_tls_init.exit.thread, %ccm_tls_init.exit
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 115, ptr noundef null) #5
   br label %.critedge
 
-91:                                               ; preds = %ccm_tls_init.exit
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %87, ptr %92, align 8, !tbaa !23
-  br label %93
+90:                                               ; preds = %ccm_tls_init.exit
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %86, ptr %91, align 8, !tbaa !23
+  br label %92
 
-93:                                               ; preds = %91, %48
-  %94 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #5
-  %.not60 = icmp eq ptr %94, null
-  br i1 %.not60, label %.critedge, label %95
+92:                                               ; preds = %90, %47
+  %93 = call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #5
+  %.not60 = icmp eq ptr %93, null
+  br i1 %.not60, label %.critedge, label %94
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !11
-  %.not61 = icmp eq i32 %97, 5
-  br i1 %.not61, label %99, label %98
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %96 = load i32, ptr %95, align 8, !tbaa !11
+  %.not61 = icmp eq i32 %96, 5
+  br i1 %.not61, label %98, label %97
 
-98:                                               ; preds = %95
+97:                                               ; preds = %94
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 103, ptr noundef null) #5
   br label %.critedge
 
-99:                                               ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %101 = load i64, ptr %100, align 8, !tbaa !12
-  %.not.i64 = icmp eq i64 %101, 4
-  br i1 %.not.i64, label %ccm_tls_iv_set_fixed.exit, label %106
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 24
+  %100 = load i64, ptr %99, align 8, !tbaa !12
+  %.not.i64 = icmp eq i64 %100, 4
+  br i1 %.not.i64, label %ccm_tls_iv_set_fixed.exit, label %105
 
-ccm_tls_iv_set_fixed.exit:                        ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !13
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %105 = load i32, ptr %103, align 1
-  store i32 %105, ptr %104, align 8
+ccm_tls_iv_set_fixed.exit:                        ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !13
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %104 = load i32, ptr %102, align 1
+  store i32 %104, ptr %103, align 8
   br label %.critedge
 
-106:                                              ; preds = %99
+105:                                              ; preds = %98
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.ossl_ccm_set_ctx_params) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 109, ptr noundef null) #5
   br label %.critedge
 
-.critedge:                                        ; preds = %2, %ccm_tls_iv_set_fixed.exit, %41, %36, %93, %ossl_param_is_empty.exit, %106, %98, %90, %53, %25, %18, %11
-  %.0 = phi i32 [ 1, %93 ], [ 0, %11 ], [ 0, %18 ], [ 0, %25 ], [ 0, %53 ], [ 0, %90 ], [ 0, %98 ], [ 0, %106 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %ccm_tls_iv_set_fixed.exit ], [ 0, %36 ], [ 0, %41 ], [ 1, %2 ]
+.critedge:                                        ; preds = %2, %ccm_tls_iv_set_fixed.exit, %40, %35, %92, %ossl_param_is_empty.exit, %105, %97, %89, %52, %24, %17, %11
+  %.0 = phi i32 [ 1, %92 ], [ 0, %11 ], [ 0, %17 ], [ 0, %24 ], [ 0, %52 ], [ 0, %89 ], [ 0, %97 ], [ 0, %105 ], [ 1, %ossl_param_is_empty.exit ], [ 1, %ccm_tls_iv_set_fixed.exit ], [ 0, %35 ], [ 0, %40 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

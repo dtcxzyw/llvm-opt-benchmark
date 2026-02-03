@@ -161,8 +161,8 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   br label %26
 
 26:                                               ; preds = %21, %.thread
-  %.03976 = phi i32 [ 0, %21 ], [ %.3, %.thread ]
-  %.04475 = phi i8 [ 1, %21 ], [ %.4, %.thread ]
+  %.03975 = phi i32 [ 0, %21 ], [ %.3, %.thread ]
+  %.04474 = phi i8 [ 1, %21 ], [ %.4, %.thread ]
   %27 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %9, align 1, !tbaa !3
@@ -177,7 +177,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   br i1 %.not.not, label %38, label %36
 
 36:                                               ; preds = %26
-  %.not56 = icmp eq i8 %.04475, 0
+  %.not56 = icmp eq i8 %.04474, 0
   br i1 %.not56, label %37, label %38
 
 37:                                               ; preds = %36
@@ -218,10 +218,10 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   br i1 %54, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %49, %103
-  %.03874 = phi i32 [ %.2, %103 ], [ 0, %49 ]
-  %.14573 = phi i8 [ %.246, %103 ], [ %.04475, %49 ]
-  %55 = add nsw i32 %.03874, 1
-  %56 = sext i32 %.03874 to i64
+  %.03873 = phi i32 [ %.2, %103 ], [ 0, %49 ]
+  %.14572 = phi i8 [ %.246, %103 ], [ %.04474, %49 ]
+  %55 = add nsw i32 %.03873, 1
+  %56 = sext i32 %.03873 to i64
   %57 = getelementptr inbounds i16, ptr %4, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !28
   %59 = and i16 %58, -1024
@@ -239,7 +239,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %61
-  %68 = add nsw i32 %.03874, 2
+  %68 = add nsw i32 %.03873, 2
   %69 = shl i16 %58, 10
   %70 = add i16 %69, 9216
   %71 = add i16 %70, %64
@@ -251,7 +251,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %73 = zext i16 %.149 to i32
   %74 = call signext i8 @u_isWhitespace_77(i32 noundef %73)
   %.not61 = icmp eq i8 %74, 0
-  %.not62 = icmp eq i8 %.14573, 0
+  %.not62 = icmp eq i8 %.14572, 0
   br i1 %.not61, label %89, label %75
 
 75:                                               ; preds = %72
@@ -259,35 +259,34 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 
 76:                                               ; preds = %75
   %77 = load i8, ptr %9, align 1, !tbaa !3
-  %78 = sext i32 %.03976 to i64
+  %78 = sext i32 %.03975 to i64
   %79 = getelementptr inbounds i8, ptr %5, i64 %78
   store i8 %77, ptr %79, align 1, !tbaa !3
-  %80 = icmp sgt i32 %.03976, -1
-  br i1 %80, label %.lr.ph78.preheader, label %.loopexit
+  %80 = icmp sgt i32 %.03975, -1
+  br i1 %80, label %.lr.ph77.preheader, label %.loopexit
 
-.lr.ph78.preheader:                               ; preds = %76
-  %81 = add nuw i32 %.03976, 1
+.lr.ph77.preheader:                               ; preds = %76
+  %81 = add nuw i32 %.03975, 1
   %82 = zext i32 %81 to i64
-  br label %.lr.ph78
+  br label %.lr.ph77
 
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph78
-  %indvars.iv = phi i64 [ %82, %.lr.ph78.preheader ], [ %83, %.lr.ph78 ]
+.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
+  %indvars.iv = phi i64 [ %82, %.lr.ph77.preheader ], [ %83, %.lr.ph77 ]
   %83 = add nsw i64 %indvars.iv, -1
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !3
   %86 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %85)
   %87 = trunc nuw i64 %indvars.iv to i32
   %88 = icmp sgt i32 %87, 1
-  br i1 %88, label %.lr.ph78, label %.loopexit, !llvm.loop !30
+  br i1 %88, label %.lr.ph77, label %.loopexit, !llvm.loop !30
 
 89:                                               ; preds = %72
   br i1 %.not62, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %90
 
 90:                                               ; preds = %89
   %91 = load i16, ptr %24, align 8, !tbaa !3
-  %92 = and i16 %91, 1
-  %.not67 = icmp eq i16 %92, 0
-  br i1 %.not67, label %94, label %93
+  %92 = trunc i16 %91 to i1
+  br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90
   call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -299,8 +298,8 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %97 = sext i16 %96 to i32
   %98 = load i32, ptr %25, align 4
   %99 = select i1 %95, i32 %98, i32 %97
-  %.not68 = icmp eq i32 %99, 0
-  br i1 %.not68, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %100
+  %.not67 = icmp eq i32 %99, 0
+  br i1 %.not67, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %100
 
 100:                                              ; preds = %94
   %101 = and i16 %91, 30
@@ -321,18 +320,18 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %100, %94, %93, %89
 
 105:                                              ; preds = %47
   %106 = load i8, ptr %9, align 1, !tbaa !3
-  %107 = add nsw i32 %.03976, 1
-  %108 = sext i32 %.03976 to i64
+  %107 = add nsw i32 %.03975, 1
+  %108 = sext i32 %.03975 to i64
   %109 = getelementptr inbounds i8, ptr %5, i64 %108
   store i8 %106, ptr %109, align 1, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %103, %49, %105
-  %.4 = phi i8 [ %.04475, %105 ], [ %.04475, %49 ], [ %.246, %103 ]
+  %.4 = phi i8 [ %.04474, %105 ], [ %.04474, %49 ], [ %.246, %103 ]
   %.3 = phi i32 [ %107, %105 ], [ 0, %49 ], [ 0, %103 ]
   br i1 %.not.not, label %26, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %.thread, %.lr.ph78, %76, %42
+.loopexit:                                        ; preds = %.thread, %.lr.ph77, %76, %42
   call void @u_releaseDefaultConverter_77(ptr noundef %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

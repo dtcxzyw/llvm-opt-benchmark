@@ -433,8 +433,8 @@ define i32 @ossl_ec_GF2m_simple_oct2point(ptr noundef %0, ptr noundef %1, ptr no
   %17 = icmp eq i32 %12, 0
   %18 = icmp eq i32 %12, 4
   %or.cond7 = or i1 %17, %18
-  %19 = icmp ne i32 %11, 0
-  %or.cond9 = and i1 %19, %or.cond7
+  %19 = trunc i8 %9 to i1
+  %or.cond9 = and i1 %or.cond7, %19
   br i1 %or.cond9, label %20, label %21
 
 20:                                               ; preds = %16

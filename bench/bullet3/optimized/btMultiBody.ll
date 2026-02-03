@@ -4407,24 +4407,23 @@ define dso_local noundef zeroext i1 @_ZNK11btMultiBody12hasFixedBaseEv(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 561
   %3 = load i8, ptr %2, align 1, !tbaa !51, !range !71, !noundef !94
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %13, label %5
+  br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !107
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %13, label %8
+  br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %10 = load i32, ptr %9, align 8, !tbaa !108
-  %11 = and i32 %10, 1
-  %12 = icmp ne i32 %11, 0
-  br label %13
+  %11 = trunc i32 %10 to i1
+  br label %12
 
-13:                                               ; preds = %5, %8, %1
-  %14 = phi i1 [ true, %1 ], [ false, %5 ], [ %12, %8 ]
-  ret i1 %14
+12:                                               ; preds = %5, %8, %1
+  %13 = phi i1 [ true, %1 ], [ false, %5 ], [ %11, %8 ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

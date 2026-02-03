@@ -3224,24 +3224,23 @@ _ZN5clanglsIN4llvm9StringRefEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exi
 _ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %46 = load ptr, ptr %45, align 8, !tbaa !1031
-  %.not8.i = icmp eq ptr %46, null
-  br i1 %.not8.i, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit.thread, label %.lr.ph.i
+  %.not7.i = icmp eq ptr %46, null
+  br i1 %.not7.i, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang4Sema20isUnevaluatedContextEv.exit, %52
-  %.09.i = phi ptr [ %53, %52 ], [ %46, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
+  %.08.i = phi ptr [ %53, %52 ], [ %46, %_ZNK5clang4Sema20isUnevaluatedContextEv.exit ]
+  %47 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !1032
-  %49 = and i32 %48, 1
-  %.not6.i = icmp eq i32 %49, 0
-  br i1 %.not6.i, label %50, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit.thread
+  %49 = trunc i32 %48 to i1
+  br i1 %49, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit.thread, label %50
 
 50:                                               ; preds = %.lr.ph.i
   %51 = and i32 %48, 16777216
-  %.not7.i = icmp eq i32 %51, 0
-  br i1 %.not7.i, label %52, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit
+  %.not6.i = icmp eq i32 %51, 0
+  br i1 %.not6.i, label %52, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit
 
 52:                                               ; preds = %50
-  %53 = load ptr, ptr %.09.i, align 8, !tbaa !1048
+  %53 = load ptr, ptr %.08.i, align 8, !tbaa !1048
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %_ZL18isWithinCatchScopePN5clang5ScopeE.exit.thread, label %.lr.ph.i, !llvm.loop !1049
 

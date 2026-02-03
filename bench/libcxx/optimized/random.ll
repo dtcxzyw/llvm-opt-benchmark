@@ -21,12 +21,11 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZNSt3__113random_deviceC2ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = load i8, ptr %1, align 8
-  %5 = and i8 %4, 1
-  %.not.i.i.i = icmp eq i8 %5, 0
+  %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %9 = select i1 %.not.i.i.i, ptr %8, ptr %7
+  %9 = select i1 %5, ptr %7, ptr %8
   %10 = tail call i32 (ptr, i32, ...) @open(ptr noundef %9, i32 noundef 0)
   store i32 %10, ptr %0, align 4, !tbaa !4
   %11 = icmp slt i32 %10, 0
@@ -38,12 +37,11 @@ define dso_local void @_ZNSt3__113random_deviceC2ERKNS_12basic_stringIcNS_11char
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt3__1plIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_RKS9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %15 = load i8, ptr %3, align 8
-  %16 = and i8 %15, 1
-  %.not.i.i.i4 = icmp eq i8 %16, 0
+  %16 = trunc i8 %15 to i1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %20 = select i1 %.not.i.i.i4, ptr %19, ptr %18
+  %20 = select i1 %16, ptr %18, ptr %19
   invoke void @_ZNSt3__120__throw_system_errorEiPKc(i32 noundef %14, ptr noundef %20) #12
           to label %21 unwind label %22
 
@@ -54,9 +52,8 @@ define dso_local void @_ZNSt3__113random_deviceC2ERKNS_12basic_stringIcNS_11char
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load i8, ptr %3, align 8
-  %25 = and i8 %24, 1
-  %.not.i = icmp eq i8 %25, 0
-  br i1 %.not.i, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %17, align 8, !tbaa !10

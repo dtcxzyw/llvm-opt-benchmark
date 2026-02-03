@@ -18244,9 +18244,8 @@ define hidden void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKh
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !152
-  %9 = and i64 %8, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %14, label %10, !prof !41
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %10, label %14, !prof !154
 
 10:                                               ; preds = %5
   %11 = and i64 %8, -4

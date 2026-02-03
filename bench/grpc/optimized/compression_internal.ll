@@ -213,9 +213,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
   %.not.i = icmp ult i64 %39, 2
   br i1 %.not.i, label %._crit_edge, label %68
 
+._crit_edge:                                      ; preds = %38
+  %.pre = trunc nuw i64 %39 to i1
+  br i1 %.pre, label %89, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
+
 40:                                               ; preds = %28, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9push_backERKS2_.exit
-  %.013.idx36 = phi i64 [ 0, %28 ], [ %.013.add, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9push_backERKS2_.exit ]
-  %.013.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.013.idx36
+  %.013.idx32 = phi i64 [ 0, %28 ], [ %.013.add, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9push_backERKS2_.exit ]
+  %.013.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.013.idx32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = load i32, ptr %.013.ptr, align 4, !tbaa !21
   store i32 %41, ptr %8, align 4, !tbaa !21
@@ -232,17 +236,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
 
 50:                                               ; preds = %40
   %51 = load i64, ptr %6, align 8, !tbaa !23, !noalias !24
-  %52 = and i64 %51, 1
-  %.not.i.i.i.i = icmp eq i64 %52, 0
+  %52 = trunc i64 %51 to i1
   %53 = load i64, ptr %30, align 8, !noalias !24
-  %.sink.i.i.i.i = select i1 %.not.i.i.i.i, i64 4, i64 %53
+  %.sink.i.i.i.i = select i1 %52, i64 %53, i64 4
   %.sink1.i.i.i.i = lshr i64 %51, 1
   %.not.i.i.i = icmp eq i64 %.sink1.i.i.i.i, %.sink.i.i.i.i
   br i1 %.not.i.i.i, label %58, label %54, !prof !27
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %31, align 8, !noalias !24
-  %.sink2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %31, ptr %55
+  %.sink2.i.i.i.i = select i1 %52, ptr %55, ptr %31
   %56 = getelementptr inbounds nuw i32, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store i32 %41, ptr %56, align 4, !tbaa !21
   %57 = add i64 %51, 2
@@ -259,9 +262,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %17, %
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = load i64, ptr %6, align 8, !tbaa !23
-  %63 = and i64 %62, 1
-  %.not.i.i.i22 = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i22, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit, label %64
+  %63 = trunc i64 %62 to i1
+  br i1 %63, label %64, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %31, align 8, !tbaa !6
@@ -276,7 +278,7 @@ _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2
 
 _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9push_backERKS2_.exit: ; preds = %54, %58, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.013.add = add nuw nsw i64 %.013.idx36, 4
+  %.013.add = add nuw nsw i64 %.013.idx32, 4
   %.not18 = icmp eq i64 %.013.add, 8
   br i1 %.not18, label %38, label %40
 
@@ -288,56 +290,49 @@ _ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EE9p
   ]
 
 69:                                               ; preds = %68
-  %70 = and i64 %39, 1
-  %.not.i.i = icmp eq i64 %70, 0
+  %70 = trunc i64 %39 to i1
   %71 = load ptr, ptr %31, align 8
-  %72 = select i1 %.not.i.i, ptr %31, ptr %71
+  %72 = select i1 %70, ptr %71, ptr %31
   %73 = load i32, ptr %72, align 4, !tbaa !21
-  br label %._crit_edge
+  br i1 %70, label %89, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
 
 74:                                               ; preds = %68
   %75 = lshr i64 %39, 2
-  %76 = and i64 %39, 1
-  %.not.i.i23 = icmp eq i64 %76, 0
+  %76 = trunc i64 %39 to i1
   %77 = load ptr, ptr %31, align 8
-  %78 = select i1 %.not.i.i23, ptr %31, ptr %77
+  %78 = select i1 %76, ptr %77, ptr %31
   %79 = getelementptr inbounds nuw i32, ptr %78, i64 %75
   %80 = load i32, ptr %79, align 4, !tbaa !21
-  br label %._crit_edge
-
-81:                                               ; preds = %68
-  %82 = and i64 %39, 1
-  %.not.i.i24 = icmp eq i64 %82, 0
-  %83 = load ptr, ptr %31, align 8
-  %84 = select i1 %.not.i.i24, ptr %31, ptr %83
-  %85 = lshr i64 %39, 1
-  %86 = getelementptr i32, ptr %84, i64 %85
-  %87 = getelementptr i8, ptr %86, i64 -4
-  %88 = load i32, ptr %87, align 4, !tbaa !21
-  br label %._crit_edge
+  br i1 %76, label %89, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
 
 default.unreachable:                              ; preds = %68
   unreachable
 
-._crit_edge:                                      ; preds = %38, %81, %74, %69
-  %.pre-phi = phi i64 [ %70, %69 ], [ %82, %81 ], [ %76, %74 ], [ %39, %38 ]
-  %.1 = phi i32 [ %73, %69 ], [ %88, %81 ], [ %80, %74 ], [ 0, %38 ]
-  %.not.i.i.i25 = icmp eq i64 %.pre-phi, 0
-  br i1 %.not.i.i.i25, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26, label %89
+81:                                               ; preds = %68
+  %82 = trunc i64 %39 to i1
+  %83 = load ptr, ptr %31, align 8
+  %84 = select i1 %82, ptr %83, ptr %31
+  %85 = lshr i64 %39, 1
+  %86 = getelementptr i32, ptr %84, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 -4
+  %88 = load i32, ptr %87, align 4, !tbaa !21
+  br i1 %82, label %89, label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
 
-89:                                               ; preds = %._crit_edge
+89:                                               ; preds = %74, %69, %._crit_edge, %81
+  %.140 = phi i32 [ 0, %._crit_edge ], [ %88, %81 ], [ %73, %69 ], [ %80, %74 ]
   %90 = load ptr, ptr %31, align 8, !tbaa !6
   %91 = load i64, ptr %30, align 8, !tbaa !6
   %92 = shl i64 %91, 2
   call void @_ZdlPvm(ptr noundef %90, i64 noundef %92) #28
-  br label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26
+  br label %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
 
-_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26: ; preds = %._crit_edge, %89
+_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22: ; preds = %74, %69, %._crit_edge, %81, %89
+  %.139 = phi i32 [ 0, %._crit_edge ], [ %88, %81 ], [ %.140, %89 ], [ %73, %69 ], [ %80, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %93
 
-93:                                               ; preds = %24, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26
-  %.0 = phi i32 [ %.1, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit26 ], [ 0, %24 ]
+93:                                               ; preds = %24, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22
+  %.0 = phi i32 [ %.139, %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit22 ], [ 0, %24 ]
   ret i32 %.0
 
 94:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorI26grpc_compression_algorithmLm3ESaIS2_EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1195,15 +1190,14 @@ declare noundef zeroext i1 @_ZN4absl12lts_2024072219str_format_internal13FormatA
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageI26grpc_compression_algorithmLm3ESaIS3_EE15EmplaceBackSlowIJRKS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #22 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %0, align 8, !tbaa !23, !noalias !90
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
+  %4 = trunc i64 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !90
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noalias !90
   %.sink1.i = lshr i64 %3, 1
   %9 = shl i64 %8, 1
-  %10 = select i1 %.not.i, i64 8, i64 %9
+  %10 = select i1 %4, i64 %9, i64 8
   %11 = icmp ugt i64 %10, 2305843009213693951
   br i1 %11, label %12, label %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compression_algorithmELb0EE8AllocateERS4_m.exit.i, !prof !27
 
@@ -1225,11 +1219,11 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compres
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.sink1.i
   %17 = load i32, ptr %1, align 4, !tbaa !21
   store i32 %17, ptr %16, align 4, !tbaa !21
-  %.not.i15 = icmp eq i64 %.sink1.i, 0
-  br i1 %.not.i15, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI26grpc_compression_algorithmENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i.preheader
+  %.not.i = icmp eq i64 %.sink1.i, 0
+  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI26grpc_compression_algorithmENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compression_algorithmELb0EE8AllocateERS4_m.exit.i
-  %.sink2.i = select i1 %.not.i, ptr %5, ptr %6
+  %.sink2.i = select i1 %4, ptr %6, ptr %5
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -1244,7 +1238,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compres
   br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI26grpc_compression_algorithmENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !93
 
 _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI26grpc_compression_algorithmENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit: ; preds = %.lr.ph.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaI26grpc_compression_algorithmELb0EE8AllocateERS4_m.exit.i
-  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaI26grpc_compression_algorithmEED2Ev.exit, label %23
+  br i1 %4, label %23, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaI26grpc_compression_algorithmEED2Ev.exit
 
 23:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaI26grpc_compression_algorithmENS1_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit
   %24 = shl i64 %8, 2

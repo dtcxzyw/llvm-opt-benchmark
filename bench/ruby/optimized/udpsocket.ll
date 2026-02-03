@@ -205,9 +205,8 @@ rb_scan_args_set.exit:                            ; preds = %25
   %35 = load i32, ptr %34, align 8, !tbaa !29
   store i32 %35, ptr %13, align 8, !tbaa !37
   %36 = load i64, ptr %4, align 8, !tbaa !6
-  %37 = and i64 %36, 1
-  %.not.i13 = icmp eq i64 %37, 0
-  br i1 %.not.i13, label %40, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %rb_scan_args_set.exit
   %39 = call i64 @rb_fix2int(i64 noundef %36) #5
@@ -218,8 +217,8 @@ rb_scan_args_set.exit:                            ; preds = %25
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %38, %40
-  %.0.i14 = phi i64 [ %39, %38 ], [ %41, %40 ]
-  %42 = trunc i64 %.0.i14 to i32
+  %.0.i13 = phi i64 [ %39, %38 ], [ %41, %40 ]
+  %42 = trunc i64 %.0.i13 to i32
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %42, ptr %43, align 4, !tbaa !38
   %44 = load i64, ptr %5, align 8, !tbaa !6

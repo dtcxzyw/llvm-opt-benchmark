@@ -3500,7 +3500,7 @@ define internal fastcc range(i32 -1, 1) i32 @mark_ce_flags(ptr noundef %0, i32 n
   %8 = load ptr, ptr %7, align 8, !tbaa !47
   %9 = tail call i32 @index_name_pos(ptr noundef %8, ptr noundef nonnull %0, i32 noundef %5) #18
   %10 = icmp sgt i32 %9, -1
-  br i1 %10, label %11, label %65
+  br i1 %10, label %11, label %64
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr @the_repository, align 8, !tbaa !14
@@ -3526,65 +3526,64 @@ define internal fastcc range(i32 -1, 1) i32 @mark_ce_flags(ptr noundef %0, i32 n
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !108
   %.not.i.i = icmp eq i32 %28, 0
   %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
-  %30 = and i8 %29, 1
-  %.not5.i = icmp ne i8 %30, 0
+  %.not5.i = trunc i8 %29 to i1
   %.not.i = select i1 %.not.i.i, i1 %.not5.i, i1 false
-  br i1 %.not.i, label %mark_fsmonitor_invalid.exit, label %31
+  br i1 %.not.i, label %mark_fsmonitor_invalid.exit, label %30
 
-31:                                               ; preds = %23
+30:                                               ; preds = %23
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.113, i32 noundef 67, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.114, ptr noundef nonnull %27) #18
   br label %mark_fsmonitor_invalid.exit
 
-mark_fsmonitor_invalid.exit:                      ; preds = %11, %23, %31
+mark_fsmonitor_invalid.exit:                      ; preds = %11, %23, %30
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %42, label %32
+  br i1 %.not, label %41, label %31
 
-32:                                               ; preds = %mark_fsmonitor_invalid.exit
-  %33 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 384
-  %35 = load ptr, ptr %34, align 8, !tbaa !47
-  %36 = load ptr, ptr %35, align 8, !tbaa !56
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %16
-  %38 = load ptr, ptr %37, align 8, !tbaa !68
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %40 = load i32, ptr %39, align 8, !tbaa !4
-  %41 = or i32 %40, %1
-  store i32 %41, ptr %39, align 8, !tbaa !4
-  br label %53
+31:                                               ; preds = %mark_fsmonitor_invalid.exit
+  %32 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 384
+  %34 = load ptr, ptr %33, align 8, !tbaa !47
+  %35 = load ptr, ptr %34, align 8, !tbaa !56
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %16
+  %37 = load ptr, ptr %36, align 8, !tbaa !68
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  %39 = load i32, ptr %38, align 8, !tbaa !4
+  %40 = or i32 %39, %1
+  store i32 %40, ptr %38, align 8, !tbaa !4
+  br label %52
 
-42:                                               ; preds = %mark_fsmonitor_invalid.exit
-  %43 = xor i32 %1, -1
-  %44 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 384
-  %46 = load ptr, ptr %45, align 8, !tbaa !47
-  %47 = load ptr, ptr %46, align 8, !tbaa !56
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %16
-  %49 = load ptr, ptr %48, align 8, !tbaa !68
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %51 = load i32, ptr %50, align 8, !tbaa !4
-  %52 = and i32 %51, %43
-  store i32 %52, ptr %50, align 8, !tbaa !4
-  br label %53
+41:                                               ; preds = %mark_fsmonitor_invalid.exit
+  %42 = xor i32 %1, -1
+  %43 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 384
+  %45 = load ptr, ptr %44, align 8, !tbaa !47
+  %46 = load ptr, ptr %45, align 8, !tbaa !56
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %16
+  %48 = load ptr, ptr %47, align 8, !tbaa !68
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
+  %50 = load i32, ptr %49, align 8, !tbaa !4
+  %51 = and i32 %50, %42
+  store i32 %51, ptr %49, align 8, !tbaa !4
+  br label %52
 
-53:                                               ; preds = %42, %32
-  %54 = phi i32 [ %52, %42 ], [ %41, %32 ]
-  %55 = phi ptr [ %49, %42 ], [ %38, %32 ]
-  %56 = phi ptr [ %46, %42 ], [ %35, %32 ]
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  %58 = or i32 %54, 134217728
-  store i32 %58, ptr %57, align 8, !tbaa !4
-  tail call void @cache_tree_invalidate_path(ptr noundef nonnull %56, ptr noundef nonnull %0) #18
-  %59 = load ptr, ptr @the_repository, align 8, !tbaa !14
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 384
-  %61 = load ptr, ptr %60, align 8, !tbaa !47
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 20
-  %63 = load i32, ptr %62, align 4, !tbaa !72
-  %64 = or i32 %63, 2
-  store i32 %64, ptr %62, align 4, !tbaa !72
-  br label %65
+52:                                               ; preds = %41, %31
+  %53 = phi i32 [ %51, %41 ], [ %40, %31 ]
+  %54 = phi ptr [ %48, %41 ], [ %37, %31 ]
+  %55 = phi ptr [ %45, %41 ], [ %34, %31 ]
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %57 = or i32 %53, 134217728
+  store i32 %57, ptr %56, align 8, !tbaa !4
+  tail call void @cache_tree_invalidate_path(ptr noundef nonnull %55, ptr noundef nonnull %0) #18
+  %58 = load ptr, ptr @the_repository, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 384
+  %60 = load ptr, ptr %59, align 8, !tbaa !47
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
+  %62 = load i32, ptr %61, align 4, !tbaa !72
+  %63 = or i32 %62, 2
+  store i32 %63, ptr %61, align 4, !tbaa !72
+  br label %64
 
-65:                                               ; preds = %3, %53
-  %.0 = phi i32 [ 0, %53 ], [ -1, %3 ]
+64:                                               ; preds = %3, %52
+  %.0 = phi i32 [ 0, %52 ], [ -1, %3 ]
   ret i32 %.0
 }
 

@@ -7804,10 +7804,9 @@ _ZNSt13unordered_mapIN8WasmEdge16HostRegistrationESt10unique_ptrINS0_7Runtime8In
 _ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit: ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8
-  %24 = and i64 %23, 1
-  %.not = icmp eq i64 %24, 0
+  %24 = trunc i64 %23 to i1
   %25 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %0) #26
-  br i1 %.not, label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance14ModuleInstanceESt14default_deleteIS3_EED2Ev.exit, label %26
+  br i1 %24, label %26, label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance14ModuleInstanceESt14default_deleteIS3_EED2Ev.exit
 
 26:                                               ; preds = %_ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit
   %27 = tail call noalias noundef nonnull dereferenceable(1264) ptr @_Znwm(i64 noundef 1264) #27, !noalias !15

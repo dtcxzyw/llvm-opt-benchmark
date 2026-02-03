@@ -5351,14 +5351,13 @@ _ZNK5Parse5Block15is_SEL_backedgeEPS0_.exit:      ; preds = %355, %_ZNK8GraphKit
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit:       ; preds = %470, %472
   %477 = getelementptr inbounds nuw i8, ptr %.0.i.i.i117, i64 48
-  %478 = icmp ult i32 %467, 63
+  %478 = icmp ugt i32 %467, 62
   %479 = load i64, ptr %477, align 8
   %480 = zext nneg i32 %467 to i64
-  %481 = shl nuw i64 1, %480
-  %482 = and i64 %479, %481
-  %483 = icmp eq i64 %482, 0
-  %.not9.i.i.i = select i1 %478, i1 %483, i1 false
-  br i1 %.not9.i.i.i, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit136, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread
+  %481 = lshr i64 %479, %480
+  %482 = trunc i64 %481 to i1
+  %483 = select i1 %478, i1 true, i1 %482
+  br i1 %483, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit136
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread: ; preds = %443, %457, %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit, %442
   %484 = tail call noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %407, i1 zeroext poison)
@@ -7306,14 +7305,13 @@ _ZNK5Parse5Block11is_SEL_headEv.exit:             ; preds = %.preheader.i.i, %62
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.us:    ; preds = %97, %95
   %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us, i64 48
-  %103 = icmp ult i32 %92, 63
+  %103 = icmp ugt i32 %92, 62
   %104 = load i64, ptr %102, align 8
   %105 = zext nneg i32 %92 to i64
-  %106 = shl nuw i64 1, %105
-  %107 = and i64 %104, %106
-  %108 = icmp eq i64 %107, 0
-  %.not9.i.i.i.us = select i1 %103, i1 %108, i1 false
-  br i1 %.not9.i.i.i.us, label %110, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread.us
+  %106 = lshr i64 %104, %105
+  %107 = trunc i64 %106 to i1
+  %108 = select i1 %103, i1 true, i1 %107
+  br i1 %108, label %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread.us, label %110
 
 _ZNK5Parse5Block17can_elide_SEL_phiEj.exit.thread.us: ; preds = %_ZNK5Parse5Block17can_elide_SEL_phiEj.exit.us, %82, %.lr.ph.split.us
   %109 = tail call noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.01017.us, i1 zeroext poison)

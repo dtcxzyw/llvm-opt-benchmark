@@ -10050,14 +10050,13 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h420c74c14a1be1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i64, ptr %5, align 8, !alias.scope !1270, !noundef !4
-  %7 = and i64 %6, 1
-  %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %8, label %10
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %10, label %8
 
 8:                                                ; preds = %10, %1
   %9 = and i64 %6, 8
-  %.not2.i.i = icmp eq i64 %9, 0
-  br i1 %.not2.i.i, label %"_ZN4core3ptr64drop_in_place$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$17hcd1c966c20cd9b15E.exit", label %17
+  %.not.i.i = icmp eq i64 %9, 0
+  br i1 %.not.i.i, label %"_ZN4core3ptr64drop_in_place$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$17hcd1c966c20cd9b15E.exit", label %17
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -11968,9 +11967,8 @@ define noundef i64 @_ZN5tokio4sync7oneshot5State12set_complete17hfee6fd165b2b949
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5tokio4sync7oneshot5State14is_rx_task_set17h0fa79168a4ff3bd3E(i64 noundef %0) unnamed_addr #10 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

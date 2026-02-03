@@ -2533,10 +2533,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit13.i: ; preds = %378, %.noexc61
           to label %_ZN3satlsERSoNS_7literalE.exit.i unwind label %.loopexit.split-lp.loopexit
 
 400:                                              ; preds = %395
-  %401 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i.i = icmp eq i32 %401, 0
-  %402 = select i1 %.not.not.i.i, ptr @.str.29, ptr @.str.23
-  %403 = zext nneg i32 %401 to i64
+  %401 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %402 = select i1 %401, ptr @.str.23, ptr @.str.29
+  %.mask.i.i = and i32 %.sroa.0.0.copyload.i, 1
+  %403 = zext nneg i32 %.mask.i.i to i64
   %404 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %402, i64 noundef %403)
           to label %.noexc59 unwind label %.loopexit.split-lp.loopexit
 

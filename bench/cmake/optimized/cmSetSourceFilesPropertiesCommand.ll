@@ -582,7 +582,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %175 = or i8 %.051.lcssa, %.053.lcssa
-  %176 = icmp ne i8 %175, 0
+  %176 = trunc nuw i8 %175 to i1
   %177 = load ptr, ptr %0, align 8, !tbaa !41
   invoke void @_ZN18SetPropertyCommand35MakeSourceFilePathsAbsoluteIfNeededER17cmExecutionStatusRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEN9__gnu_cxx17__normal_iteratorIPKS8_SA_EESG_b(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %177, ptr %.sroa.07.2.i, i1 noundef zeroext %176)
           to label %178 unwind label %189

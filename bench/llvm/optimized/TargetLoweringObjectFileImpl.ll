@@ -595,239 +595,238 @@ define dso_local void @_ZN4llvm27TargetLoweringObjectFileELF10InitializeERNS_9MC
   %5 = load i32, ptr %4, align 4, !tbaa !81
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 876
   %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 1
-  %9 = icmp ne i32 %8, 0
-  tail call void @_ZN4llvm27TargetLoweringObjectFileELF13InitializeELFEb(ptr noundef nonnull align 8 dereferenceable(1026) %0, i1 noundef zeroext %9)
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 544
-  %11 = load i32, ptr %10, align 8, !tbaa !189
-  switch i32 %11, label %114 [
-    i32 1, label %12
-    i32 2, label %12
-    i32 35, label %12
-    i32 36, label %12
-    i32 21, label %18
-    i32 22, label %18
-    i32 37, label %18
-    i32 38, label %27
-    i32 12, label %43
-    i32 3, label %51
-    i32 4, label %51
-    i32 5, label %51
-    i32 54, label %60
-    i32 16, label %64
-    i32 17, label %64
-    i32 18, label %64
-    i32 19, label %64
-    i32 23, label %75
-    i32 24, label %75
-    i32 31, label %79
-    i32 29, label %79
-    i32 27, label %87
-    i32 28, label %87
-    i32 30, label %92
-    i32 32, label %101
-    i32 13, label %110
-    i32 14, label %110
+  %8 = trunc i32 %7 to i1
+  tail call void @_ZN4llvm27TargetLoweringObjectFileELF13InitializeELFEb(ptr noundef nonnull align 8 dereferenceable(1026) %0, i1 noundef zeroext %8)
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 544
+  %10 = load i32, ptr %9, align 8, !tbaa !189
+  switch i32 %10, label %113 [
+    i32 1, label %11
+    i32 2, label %11
+    i32 35, label %11
+    i32 36, label %11
+    i32 21, label %17
+    i32 22, label %17
+    i32 37, label %17
+    i32 38, label %26
+    i32 12, label %42
+    i32 3, label %50
+    i32 4, label %50
+    i32 5, label %50
+    i32 54, label %59
+    i32 16, label %63
+    i32 17, label %63
+    i32 18, label %63
+    i32 19, label %63
+    i32 23, label %74
+    i32 24, label %74
+    i32 31, label %78
+    i32 29, label %78
+    i32 27, label %86
+    i32 28, label %86
+    i32 30, label %91
+    i32 32, label %100
+    i32 13, label %109
+    i32 14, label %109
   ]
 
-12:                                               ; preds = %3, %3, %3, %3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %14 = load ptr, ptr %13, align 8, !tbaa !190
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 388
-  %16 = load i32, ptr %15, align 4, !tbaa !328
-  %17 = icmp eq i32 %16, 3
-  br i1 %17, label %114, label %18
+11:                                               ; preds = %3, %3, %3, %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %13 = load ptr, ptr %12, align 8, !tbaa !190
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 388
+  %15 = load i32, ptr %14, align 4, !tbaa !328
+  %16 = icmp eq i32 %15, 3
+  br i1 %16, label %113, label %17
 
-18:                                               ; preds = %12, %3, %3, %3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %20 = load i8, ptr %19, align 8, !tbaa !339, !range !50, !noundef !51
-  %21 = trunc nuw i8 %20 to i1
-  %22 = select i1 %21, i32 155, i32 0
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 %22, ptr %23, align 4, !tbaa !340
-  %24 = select i1 %21, i32 27, i32 0
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 %24, ptr %25, align 8, !tbaa !341
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 %22, ptr %26, align 4, !tbaa !342
-  br label %114
+17:                                               ; preds = %11, %3, %3, %3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %19 = load i8, ptr %18, align 8, !tbaa !339, !range !50, !noundef !51
+  %20 = trunc nuw i8 %19 to i1
+  %21 = select i1 %20, i32 155, i32 0
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 %21, ptr %22, align 4, !tbaa !340
+  %23 = select i1 %20, i32 27, i32 0
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 %23, ptr %24, align 8, !tbaa !341
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 %21, ptr %25, align 4, !tbaa !342
+  br label %113
 
-27:                                               ; preds = %3
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %29 = load i8, ptr %28, align 8, !tbaa !339, !range !50, !noundef !51
-  %30 = trunc nuw i8 %29 to i1
-  %31 = icmp eq i32 %5, 1
-  %32 = icmp eq i32 %5, 3
-  %33 = or i1 %31, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  br i1 %30, label %37, label %40
+26:                                               ; preds = %3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %28 = load i8, ptr %27, align 8, !tbaa !339, !range !50, !noundef !51
+  %29 = trunc nuw i8 %28 to i1
+  %30 = icmp eq i32 %5, 1
+  %31 = icmp eq i32 %5, 3
+  %32 = or i1 %30, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  br i1 %29, label %36, label %39
 
-37:                                               ; preds = %27
-  %38 = select i1 %33, i32 155, i32 156
-  store i32 %38, ptr %34, align 4, !tbaa !340
-  %39 = select i1 %31, i32 27, i32 28
-  store i32 %39, ptr %35, align 8, !tbaa !341
-  store i32 %38, ptr %36, align 4, !tbaa !342
-  br label %114
+36:                                               ; preds = %26
+  %37 = select i1 %32, i32 155, i32 156
+  store i32 %37, ptr %33, align 4, !tbaa !340
+  %38 = select i1 %30, i32 27, i32 28
+  store i32 %38, ptr %34, align 8, !tbaa !341
+  store i32 %37, ptr %35, align 4, !tbaa !342
+  br label %113
 
-40:                                               ; preds = %27
-  %41 = select i1 %33, i32 3, i32 0
-  store i32 %41, ptr %34, align 4, !tbaa !340
-  %42 = select i1 %31, i32 3, i32 0
-  store i32 %42, ptr %35, align 8, !tbaa !341
-  store i32 %42, ptr %36, align 4, !tbaa !342
-  br label %114
+39:                                               ; preds = %26
+  %40 = select i1 %32, i32 3, i32 0
+  store i32 %40, ptr %33, align 4, !tbaa !340
+  %41 = select i1 %30, i32 3, i32 0
+  store i32 %41, ptr %34, align 8, !tbaa !341
+  store i32 %41, ptr %35, align 4, !tbaa !342
+  br label %113
 
-43:                                               ; preds = %3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 0, ptr %44, align 4, !tbaa !340
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 0, ptr %45, align 8, !tbaa !341
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 0, ptr %46, align 4, !tbaa !342
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %48 = load i8, ptr %47, align 8, !tbaa !339, !range !50, !noundef !51
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %114
+42:                                               ; preds = %3
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 0, ptr %43, align 4, !tbaa !340
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 0, ptr %44, align 8, !tbaa !341
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 0, ptr %45, align 4, !tbaa !342
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %47 = load i8, ptr %46, align 8, !tbaa !339, !range !50, !noundef !51
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %113
 
-50:                                               ; preds = %43
-  store i32 144, ptr %44, align 4, !tbaa !340
-  store i32 16, ptr %45, align 8, !tbaa !341
-  store i32 144, ptr %46, align 4, !tbaa !342
-  br label %114
+49:                                               ; preds = %42
+  store i32 144, ptr %43, align 4, !tbaa !340
+  store i32 16, ptr %44, align 8, !tbaa !341
+  store i32 144, ptr %45, align 4, !tbaa !342
+  br label %113
 
-51:                                               ; preds = %3, %3, %3
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %53 = load i32, ptr %52, align 8, !tbaa !343
-  %54 = icmp eq i32 %53, 13
-  %55 = select i1 %54, i32 27, i32 28
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 %55, ptr %56, align 8, !tbaa !341
-  %57 = or disjoint i32 %55, 128
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 %57, ptr %58, align 4, !tbaa !340
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 %57, ptr %59, align 4, !tbaa !342
-  br label %114
+50:                                               ; preds = %3, %3, %3
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 560
+  %52 = load i32, ptr %51, align 8, !tbaa !343
+  %53 = icmp eq i32 %52, 13
+  %54 = select i1 %53, i32 27, i32 28
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 %54, ptr %55, align 8, !tbaa !341
+  %56 = or disjoint i32 %54, 128
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 %56, ptr %57, align 4, !tbaa !340
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 %56, ptr %58, align 4, !tbaa !342
+  br label %113
 
-60:                                               ; preds = %3
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 0, ptr %61, align 8, !tbaa !341
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 0, ptr %62, align 4, !tbaa !340
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 0, ptr %63, align 4, !tbaa !342
-  br label %114
+59:                                               ; preds = %3
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 0, ptr %60, align 8, !tbaa !341
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 0, ptr %61, align 4, !tbaa !340
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 0, ptr %62, align 4, !tbaa !342
+  br label %113
 
-64:                                               ; preds = %3, %3, %3, %3
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 128, ptr %65, align 4, !tbaa !340
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 155, ptr %66, align 4, !tbaa !342
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %68 = load i8, ptr %67, align 8, !tbaa !339, !range !50, !noundef !51
-  %69 = trunc nuw i8 %68 to i1
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 556
-  %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, 3
-  %or.cond = select i1 %69, i1 true, i1 %72
-  br i1 %or.cond, label %73, label %114
+63:                                               ; preds = %3, %3, %3, %3
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 128, ptr %64, align 4, !tbaa !340
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 155, ptr %65, align 4, !tbaa !342
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %67 = load i8, ptr %66, align 8, !tbaa !339, !range !50, !noundef !51
+  %68 = trunc nuw i8 %67 to i1
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 556
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 3
+  %or.cond = select i1 %68, i1 true, i1 %71
+  br i1 %or.cond, label %72, label %113
 
-73:                                               ; preds = %64
-  store i32 155, ptr %65, align 4, !tbaa !340
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 27, ptr %74, align 8, !tbaa !341
-  br label %114
+72:                                               ; preds = %63
+  store i32 155, ptr %64, align 4, !tbaa !340
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 27, ptr %73, align 8, !tbaa !341
+  br label %113
 
-75:                                               ; preds = %3, %3
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 148, ptr %76, align 4, !tbaa !340
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 20, ptr %77, align 8, !tbaa !341
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 148, ptr %78, align 4, !tbaa !342
-  br label %114
+74:                                               ; preds = %3, %3
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 148, ptr %75, align 4, !tbaa !340
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 20, ptr %76, align 8, !tbaa !341
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 148, ptr %77, align 4, !tbaa !342
+  br label %113
 
-79:                                               ; preds = %3, %3
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %81 = load i8, ptr %80, align 8, !tbaa !339, !range !50, !noundef !51
-  %82 = trunc nuw i8 %81 to i1
-  %spec.select = select i1 %82, i32 27, i32 0
-  %spec.select21 = select i1 %82, i32 155, i32 0
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 %spec.select, ptr %83, align 8, !tbaa !341
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 %spec.select21, ptr %84, align 4, !tbaa !340
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 %spec.select21, ptr %85, align 4, !tbaa !342
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i32 3, ptr %86, align 8, !tbaa !344
-  br label %114
+78:                                               ; preds = %3, %3
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %80 = load i8, ptr %79, align 8, !tbaa !339, !range !50, !noundef !51
+  %81 = trunc nuw i8 %80 to i1
+  %spec.select = select i1 %81, i32 27, i32 0
+  %spec.select21 = select i1 %81, i32 155, i32 0
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 %spec.select, ptr %82, align 8, !tbaa !341
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 %spec.select21, ptr %83, align 4, !tbaa !340
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 %spec.select21, ptr %84, align 4, !tbaa !342
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  store i32 3, ptr %85, align 8, !tbaa !344
+  br label %113
 
-87:                                               ; preds = %3, %3
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 27, ptr %88, align 8, !tbaa !341
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 155, ptr %89, align 4, !tbaa !340
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 155, ptr %90, align 4, !tbaa !342
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i32 3, ptr %91, align 8, !tbaa !344
-  br label %114
+86:                                               ; preds = %3, %3
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 27, ptr %87, align 8, !tbaa !341
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 155, ptr %88, align 4, !tbaa !340
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 155, ptr %89, align 4, !tbaa !342
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  store i32 3, ptr %90, align 8, !tbaa !344
+  br label %113
 
-92:                                               ; preds = %3
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 27, ptr %93, align 8, !tbaa !341
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %95 = load i8, ptr %94, align 8, !tbaa !339, !range !50, !noundef !51
-  %96 = trunc nuw i8 %95 to i1
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  br i1 %96, label %99, label %100
+91:                                               ; preds = %3
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 27, ptr %92, align 8, !tbaa !341
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %94 = load i8, ptr %93, align 8, !tbaa !339, !range !50, !noundef !51
+  %95 = trunc nuw i8 %94 to i1
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  br i1 %95, label %98, label %99
 
-99:                                               ; preds = %92
-  store i32 155, ptr %97, align 4, !tbaa !340
-  store i32 155, ptr %98, align 4, !tbaa !342
-  br label %114
+98:                                               ; preds = %91
+  store i32 155, ptr %96, align 4, !tbaa !340
+  store i32 155, ptr %97, align 4, !tbaa !342
+  br label %113
 
-100:                                              ; preds = %92
-  store i32 0, ptr %97, align 4, !tbaa !340
-  store i32 0, ptr %98, align 4, !tbaa !342
-  br label %114
+99:                                               ; preds = %91
+  store i32 0, ptr %96, align 4, !tbaa !340
+  store i32 0, ptr %97, align 4, !tbaa !342
+  br label %113
 
-101:                                              ; preds = %3
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %103 = load i8, ptr %102, align 8, !tbaa !339, !range !50, !noundef !51
-  %104 = trunc nuw i8 %103 to i1
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  br i1 %104, label %108, label %109
+100:                                              ; preds = %3
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %102 = load i8, ptr %101, align 8, !tbaa !339, !range !50, !noundef !51
+  %103 = trunc nuw i8 %102 to i1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  br i1 %103, label %107, label %108
 
-108:                                              ; preds = %101
-  store i32 155, ptr %105, align 4, !tbaa !340
-  store i32 27, ptr %106, align 8, !tbaa !341
-  store i32 155, ptr %107, align 4, !tbaa !342
-  br label %114
+107:                                              ; preds = %100
+  store i32 155, ptr %104, align 4, !tbaa !340
+  store i32 27, ptr %105, align 8, !tbaa !341
+  store i32 155, ptr %106, align 4, !tbaa !342
+  br label %113
 
-109:                                              ; preds = %101
-  store i32 0, ptr %105, align 4, !tbaa !340
-  store i32 0, ptr %106, align 8, !tbaa !341
-  store i32 0, ptr %107, align 4, !tbaa !342
-  br label %114
+108:                                              ; preds = %100
+  store i32 0, ptr %104, align 4, !tbaa !340
+  store i32 0, ptr %105, align 8, !tbaa !341
+  store i32 0, ptr %106, align 4, !tbaa !342
+  br label %113
 
-110:                                              ; preds = %3, %3
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 27, ptr %111, align 8, !tbaa !341
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 932
-  store i32 155, ptr %112, align 4, !tbaa !340
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 940
-  store i32 155, ptr %113, align 4, !tbaa !342
-  br label %114
+109:                                              ; preds = %3, %3
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i32 27, ptr %110, align 8, !tbaa !341
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 932
+  store i32 155, ptr %111, align 4, !tbaa !340
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  store i32 155, ptr %112, align 4, !tbaa !342
+  br label %113
 
-114:                                              ; preds = %64, %3, %108, %109, %99, %100, %73, %43, %50, %37, %40, %12, %110, %87, %79, %75, %60, %51, %18
+113:                                              ; preds = %63, %3, %107, %108, %98, %99, %72, %42, %49, %36, %39, %11, %109, %86, %78, %74, %59, %50, %17
   ret void
 }
 

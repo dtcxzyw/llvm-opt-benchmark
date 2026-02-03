@@ -1014,21 +1014,21 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 396
   br label %18
 
-18:                                               ; preds = %.lr.ph, %454
+18:                                               ; preds = %.lr.ph, %453
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 152), align 8, !tbaa !98
   %.not11 = icmp eq ptr %19, null
-  br i1 %.not11, label %454, label %20
+  br i1 %.not11, label %453, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %22 = load i32, ptr %21, align 8, !tbaa !99
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %451
+  br i1 %23, label %24, label %450
 
 24:                                               ; preds = %20
   %25 = call i32 @dt_view_get_current() #15
   %26 = icmp eq i32 %25, 1
-  br i1 %26, label %27, label %451
+  br i1 %26, label %27, label %450
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 156
@@ -1039,7 +1039,7 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
   %32 = load i32, ptr %31, align 8, !tbaa !75
   %33 = and i32 %32, %30
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %453
+  br i1 %34, label %35, label %452
 
 35:                                               ; preds = %27
   %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull %19) #15
@@ -1849,49 +1849,48 @@ dt_camctl_unused_camera_destroy.exit.i:           ; preds = %_dispatch_camera_co
 
 438:                                              ; preds = %.critedge2.i
   %439 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !124
-  %440 = and i32 %439, 1
-  %441 = icmp ne i32 %440, 0
-  %442 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3284), align 4
-  %443 = icmp ne i32 %442, 0
-  %or.cond.i = select i1 %441, i1 %443, i1 false
-  br i1 %or.cond.i, label %444, label %448
+  %440 = trunc i32 %439 to i1
+  %441 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3284), align 4
+  %442 = icmp ne i32 %441, 0
+  %or.cond.i = select i1 %440, i1 %442, i1 false
+  br i1 %or.cond.i, label %443, label %447
 
-444:                                              ; preds = %438
-  %445 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %446 = and i32 %445, 1048576
-  %.not190.i = icmp eq i32 %446, 0
-  br i1 %.not190.i, label %448, label %447
+443:                                              ; preds = %438
+  %444 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %445 = and i32 %444, 1048576
+  %.not190.i = icmp eq i32 %445, 0
+  br i1 %.not190.i, label %447, label %446
 
-447:                                              ; preds = %444
+446:                                              ; preds = %443
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 1055, ptr noundef nonnull @__FUNCTION__.dt_camctl_update_cameras) #15
-  br label %448
+  br label %447
 
-448:                                              ; preds = %447, %444, %438
-  %449 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !125
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %449, i32 noundef 38) #15
+447:                                              ; preds = %446, %443, %438
+  %448 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !125
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %448, i32 noundef 38) #15
   br label %dt_camctl_update_cameras.exit
 
-dt_camctl_update_cameras.exit:                    ; preds = %.critedge2.i, %448
-  %450 = phi i32 [ 31, %.critedge2.i ], [ 3, %448 ]
+dt_camctl_update_cameras.exit:                    ; preds = %.critedge2.i, %447
+  %449 = phi i32 [ 31, %.critedge2.i ], [ 3, %447 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  store i32 %450, ptr %31, align 8, !tbaa !75
-  br label %453
+  store i32 %449, ptr %31, align 8, !tbaa !75
+  br label %452
 
-451:                                              ; preds = %24, %20
-  %452 = getelementptr inbounds nuw i8, ptr %19, i64 160
-  store i32 3, ptr %452, align 8, !tbaa !75
-  br label %453
+450:                                              ; preds = %24, %20
+  %451 = getelementptr inbounds nuw i8, ptr %19, i64 160
+  store i32 3, ptr %451, align 8, !tbaa !75
+  br label %452
 
-453:                                              ; preds = %27, %dt_camctl_update_cameras.exit, %451
+452:                                              ; preds = %27, %dt_camctl_update_cameras.exit, %450
   call void @g_usleep(i64 noundef 250000) #15
-  br label %454
+  br label %453
 
-454:                                              ; preds = %453, %18
-  %455 = call i32 (...) @dt_control_running() #15
-  %.not10 = icmp eq i32 %455, 0
+453:                                              ; preds = %452, %18
+  %454 = call i32 (...) @dt_control_running() #15
+  %.not10 = icmp eq i32 %454, 0
   br i1 %.not10, label %._crit_edge, label %18
 
-._crit_edge:                                      ; preds = %454, %14
+._crit_edge:                                      ; preds = %453, %14
   ret ptr null
 }
 

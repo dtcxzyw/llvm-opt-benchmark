@@ -510,12 +510,11 @@ define internal zeroext i1 @get_queue_isr_status(ptr noundef readonly captures(n
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load i8, ptr %37, align 8
   %39 = tail call zeroext i8 @qpci_io_readb(ptr noundef nonnull %4, i64 %36, i8 %38, i64 noundef %35) #3
-  %40 = and i8 %39, 1
-  %41 = icmp ne i8 %40, 0
+  %40 = trunc i8 %39 to i1
   br label %get_msix_status.exit
 
 get_msix_status.exit:                             ; preds = %26, %19, %17, %31
-  %.0 = phi i1 [ %41, %31 ], [ %18, %17 ], [ true, %26 ], [ false, %19 ]
+  %.0 = phi i1 [ %40, %31 ], [ %18, %17 ], [ true, %26 ], [ false, %19 ]
   ret i1 %.0
 }
 

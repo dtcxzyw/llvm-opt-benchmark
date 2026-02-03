@@ -2045,9 +2045,8 @@ define internal fastcc i64 @obj_method(i64 noundef %0, i64 noundef %1, i32 nound
   br label %rb_class_of.exit
 
 17:                                               ; preds = %14
-  %18 = and i64 %0, 1
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %19, label %rb_class_of.exit
+  %18 = trunc i64 %0 to i1
+  br i1 %18, label %rb_class_of.exit, label %19
 
 19:                                               ; preds = %17
   %20 = and i64 %0, 254
@@ -2526,9 +2525,8 @@ define dso_local i32 @rb_obj_method_arity(i64 noundef %0, i64 noundef %1) local_
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %0, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %0 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %0, 254
@@ -3299,9 +3297,8 @@ define hidden void @Init_Proc() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 47:                                               ; preds = %44
-  %48 = and i64 %36, 1
-  %.not.i = icmp eq i64 %48, 0
-  br i1 %.not.i, label %49, label %rb_class_of.exit
+  %48 = trunc i64 %36 to i1
+  br i1 %48, label %rb_class_of.exit, label %49
 
 49:                                               ; preds = %47
   %50 = and i64 %36, 254
@@ -3379,34 +3376,33 @@ rb_class_of.exit:                                 ; preds = %41, %44, %45, %46, 
 85:                                               ; preds = %rb_class_of.exit
   %86 = inttoptr i64 %80 to ptr
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  br label %rb_class_of.exit5
+  br label %rb_class_of.exit4
 
 88:                                               ; preds = %rb_class_of.exit
   switch i64 %80, label %91 [
-    i64 0, label %rb_class_of.exit5
+    i64 0, label %rb_class_of.exit4
     i64 4, label %89
     i64 20, label %90
   ]
 
 89:                                               ; preds = %88
-  br label %rb_class_of.exit5
+  br label %rb_class_of.exit4
 
 90:                                               ; preds = %88
-  br label %rb_class_of.exit5
+  br label %rb_class_of.exit4
 
 91:                                               ; preds = %88
-  %92 = and i64 %80, 1
-  %.not.i3 = icmp eq i64 %92, 0
-  br i1 %.not.i3, label %93, label %rb_class_of.exit5
+  %92 = trunc i64 %80 to i1
+  br i1 %92, label %rb_class_of.exit4, label %93
 
 93:                                               ; preds = %91
   %94 = and i64 %80, 254
   %95 = icmp eq i64 %94, 12
-  %spec.select.i4 = select i1 %95, ptr @rb_cSymbol, ptr @rb_cFloat
-  br label %rb_class_of.exit5
+  %spec.select.i3 = select i1 %95, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit4
 
-rb_class_of.exit5:                                ; preds = %85, %88, %89, %90, %91, %93
-  %.0.in.i1 = phi ptr [ %87, %85 ], [ @rb_cNilClass, %89 ], [ @rb_cTrueClass, %90 ], [ @rb_cFalseClass, %88 ], [ @rb_cInteger, %91 ], [ %spec.select.i4, %93 ]
+rb_class_of.exit4:                                ; preds = %85, %88, %89, %90, %91, %93
+  %.0.in.i1 = phi ptr [ %87, %85 ], [ @rb_cNilClass, %89 ], [ @rb_cTrueClass, %90 ], [ @rb_cFalseClass, %88 ], [ @rb_cInteger, %91 ], [ %spec.select.i3, %93 ]
   %.0.i2 = load i64, ptr %.0.in.i1, align 8, !tbaa !36
   tail call void @rb_undef_method(i64 noundef %.0.i2, ptr noundef nonnull @.str.19) #21
   %96 = load i64, ptr @rb_cUnboundMethod, align 8, !tbaa !36
@@ -4300,9 +4296,8 @@ define internal range(i64 0, 21) i64 @method_eq(i64 noundef %0, i64 noundef %1) 
   br label %rb_class_of.exit
 
 15:                                               ; preds = %12
-  %16 = and i64 %0, 1
-  %.not.i21 = icmp eq i64 %16, 0
-  br i1 %.not.i21, label %17, label %rb_class_of.exit
+  %16 = trunc i64 %0 to i1
+  br i1 %16, label %rb_class_of.exit, label %17
 
 17:                                               ; preds = %15
   %18 = and i64 %0, 254
@@ -4322,47 +4317,46 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
 24:                                               ; preds = %rb_class_of.exit
   %25 = inttoptr i64 %1 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br label %rb_class_of.exit26
+  br label %rb_class_of.exit24
 
 27:                                               ; preds = %rb_class_of.exit
   switch i64 %1, label %30 [
-    i64 0, label %rb_class_of.exit26
+    i64 0, label %rb_class_of.exit24
     i64 4, label %28
     i64 20, label %29
   ]
 
 28:                                               ; preds = %27
-  br label %rb_class_of.exit26
+  br label %rb_class_of.exit24
 
 29:                                               ; preds = %27
-  br label %rb_class_of.exit26
+  br label %rb_class_of.exit24
 
 30:                                               ; preds = %27
-  %31 = and i64 %1, 1
-  %.not.i24 = icmp eq i64 %31, 0
-  br i1 %.not.i24, label %32, label %rb_class_of.exit26
+  %31 = trunc i64 %1 to i1
+  br i1 %31, label %rb_class_of.exit24, label %32
 
 32:                                               ; preds = %30
   %33 = and i64 %1, 254
   %34 = icmp eq i64 %33, 12
-  %spec.select.i25 = select i1 %34, ptr @rb_cSymbol, ptr @rb_cFloat
-  br label %rb_class_of.exit26
+  %spec.select.i23 = select i1 %34, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit24
 
-rb_class_of.exit26:                               ; preds = %24, %27, %28, %29, %30, %32
-  %.0.in.i22 = phi ptr [ %26, %24 ], [ @rb_cNilClass, %28 ], [ @rb_cTrueClass, %29 ], [ @rb_cFalseClass, %27 ], [ @rb_cInteger, %30 ], [ %spec.select.i25, %32 ]
-  %.0.i23 = load i64, ptr %.0.in.i22, align 8, !tbaa !36
-  %.not16 = icmp eq i64 %.0.i, %.0.i23
+rb_class_of.exit24:                               ; preds = %24, %27, %28, %29, %30, %32
+  %.0.in.i21 = phi ptr [ %26, %24 ], [ @rb_cNilClass, %28 ], [ @rb_cTrueClass, %29 ], [ @rb_cFalseClass, %27 ], [ @rb_cInteger, %30 ], [ %spec.select.i23, %32 ]
+  %.0.i22 = load i64, ptr %.0.in.i21, align 8, !tbaa !36
+  %.not16 = icmp eq i64 %.0.i, %.0.i22
   br i1 %.not16, label %35, label %78
 
-35:                                               ; preds = %rb_class_of.exit26
+35:                                               ; preds = %rb_class_of.exit24
   %36 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @method_data_type) #21
   %37 = inttoptr i64 %0 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i64, ptr %38, align 8, !tbaa !31
   %40 = and i64 %39, 2
-  %.not.i27 = icmp eq i64 %40, 0
+  %.not.i25 = icmp eq i64 %40, 0
   %41 = getelementptr i8, ptr %37, i64 32
-  br i1 %.not.i27, label %42, label %RTYPEDDATA_GET_DATA.exit
+  br i1 %.not.i25, label %42, label %RTYPEDDATA_GET_DATA.exit
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %41, align 8, !tbaa !34
@@ -4374,43 +4368,43 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %35, %42
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !31
   %48 = and i64 %47, 2
-  %.not.i28 = icmp eq i64 %48, 0
+  %.not.i26 = icmp eq i64 %48, 0
   %49 = getelementptr i8, ptr %45, i64 32
-  br i1 %.not.i28, label %50, label %RTYPEDDATA_GET_DATA.exit29
+  br i1 %.not.i26, label %50, label %RTYPEDDATA_GET_DATA.exit27
 
 50:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   %51 = load ptr, ptr %49, align 8, !tbaa !34
-  br label %RTYPEDDATA_GET_DATA.exit29
+  br label %RTYPEDDATA_GET_DATA.exit27
 
-RTYPEDDATA_GET_DATA.exit29:                       ; preds = %RTYPEDDATA_GET_DATA.exit, %50
+RTYPEDDATA_GET_DATA.exit27:                       ; preds = %RTYPEDDATA_GET_DATA.exit, %50
   %52 = phi ptr [ %51, %50 ], [ %49, %RTYPEDDATA_GET_DATA.exit ]
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !74
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !86
-  %.not.i30 = icmp eq i64 %56, 0
-  br i1 %.not.i30, label %57, label %method_entry_defined_class.exit
+  %.not.i28 = icmp eq i64 %56, 0
+  br i1 %.not.i28, label %57, label %method_entry_defined_class.exit
 
-57:                                               ; preds = %RTYPEDDATA_GET_DATA.exit29
+57:                                               ; preds = %RTYPEDDATA_GET_DATA.exit27
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %59 = load i64, ptr %58, align 8, !tbaa !104
   br label %method_entry_defined_class.exit
 
-method_entry_defined_class.exit:                  ; preds = %RTYPEDDATA_GET_DATA.exit29, %57
-  %60 = phi i64 [ %59, %57 ], [ %56, %RTYPEDDATA_GET_DATA.exit29 ]
+method_entry_defined_class.exit:                  ; preds = %RTYPEDDATA_GET_DATA.exit27, %57
+  %60 = phi i64 [ %59, %57 ], [ %56, %RTYPEDDATA_GET_DATA.exit27 ]
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !74
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !86
-  %.not.i31 = icmp eq i64 %64, 0
-  br i1 %.not.i31, label %65, label %method_entry_defined_class.exit32
+  %.not.i29 = icmp eq i64 %64, 0
+  br i1 %.not.i29, label %65, label %method_entry_defined_class.exit30
 
 65:                                               ; preds = %method_entry_defined_class.exit
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %67 = load i64, ptr %66, align 8, !tbaa !104
-  br label %method_entry_defined_class.exit32
+  br label %method_entry_defined_class.exit30
 
-method_entry_defined_class.exit32:                ; preds = %method_entry_defined_class.exit, %65
+method_entry_defined_class.exit30:                ; preds = %method_entry_defined_class.exit, %65
   %68 = phi i64 [ %67, %65 ], [ %64, %method_entry_defined_class.exit ]
   %69 = tail call i32 @rb_method_entry_eq(ptr noundef nonnull %54, ptr noundef nonnull %62) #21
   %.not17 = icmp ne i32 %69, 0
@@ -4418,7 +4412,7 @@ method_entry_defined_class.exit32:                ; preds = %method_entry_define
   %or.cond = select i1 %.not17, i1 %.not18, i1 false
   br i1 %or.cond, label %70, label %78
 
-70:                                               ; preds = %method_entry_defined_class.exit32
+70:                                               ; preds = %method_entry_defined_class.exit30
   %71 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !122
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4433,8 +4427,8 @@ method_entry_defined_class.exit32:                ; preds = %method_entry_define
   %spec.select = select i1 %.not20, i64 20, i64 0
   br label %78
 
-78:                                               ; preds = %75, %method_entry_defined_class.exit32, %70, %rb_class_of.exit26, %2
-  %.0 = phi i64 [ 0, %2 ], [ 0, %rb_class_of.exit26 ], [ 0, %method_entry_defined_class.exit32 ], [ %spec.select, %75 ], [ 0, %70 ]
+78:                                               ; preds = %75, %method_entry_defined_class.exit30, %70, %rb_class_of.exit24, %2
+  %.0 = phi i64 [ 0, %2 ], [ 0, %rb_class_of.exit24 ], [ 0, %method_entry_defined_class.exit30 ], [ %spec.select, %75 ], [ 0, %70 ]
   ret i64 %.0
 }
 
@@ -4484,9 +4478,8 @@ define internal i64 @method_clone(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 13:                                               ; preds = %10
-  %14 = and i64 %0, 1
-  %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %rb_class_of.exit
+  %14 = trunc i64 %0 to i1
+  br i1 %14, label %rb_class_of.exit, label %15
 
 15:                                               ; preds = %13
   %16 = and i64 %0, 254
@@ -4502,9 +4495,9 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !31
   %22 = and i64 %21, 2
-  %.not.i22 = icmp eq i64 %22, 0
+  %.not.i = icmp eq i64 %22, 0
   %23 = getelementptr i8, ptr %19, i64 32
-  br i1 %.not.i22, label %24, label %RTYPEDDATA_GET_DATA.exit
+  br i1 %.not.i, label %24, label %RTYPEDDATA_GET_DATA.exit
 
 24:                                               ; preds = %rb_class_of.exit
   %25 = load ptr, ptr %23, align 8, !tbaa !34
@@ -4534,13 +4527,13 @@ rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA
   %38 = and i64 %36, 7
   %39 = icmp ne i64 %38, 0
   %40 = or i1 %37, %39
-  br i1 %40, label %rb_obj_write.exit23, label %41
+  br i1 %40, label %rb_obj_write.exit22, label %41
 
 41:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %36) #21
-  br label %rb_obj_write.exit23
+  br label %rb_obj_write.exit22
 
-rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit, %41
+rb_obj_write.exit22:                              ; preds = %rb_obj_write.exit, %41
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !101
@@ -4549,13 +4542,13 @@ rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit, 
   %46 = and i64 %44, 7
   %47 = icmp ne i64 %46, 0
   %48 = or i1 %45, %47
-  br i1 %48, label %rb_obj_write.exit24, label %49
+  br i1 %48, label %rb_obj_write.exit23, label %49
 
-49:                                               ; preds = %rb_obj_write.exit23
+49:                                               ; preds = %rb_obj_write.exit22
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %44) #21
-  br label %rb_obj_write.exit24
+  br label %rb_obj_write.exit23
 
-rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %49
+rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit22, %49
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %52 = load i64, ptr %51, align 8, !tbaa !123
@@ -4564,13 +4557,13 @@ rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23
   %54 = and i64 %52, 7
   %55 = icmp ne i64 %54, 0
   %56 = or i1 %53, %55
-  br i1 %56, label %rb_obj_write.exit25, label %57
+  br i1 %56, label %rb_obj_write.exit24, label %57
 
-57:                                               ; preds = %rb_obj_write.exit24
+57:                                               ; preds = %rb_obj_write.exit23
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %52) #21
-  br label %rb_obj_write.exit25
+  br label %rb_obj_write.exit24
 
-rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24, %57
+rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %57
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !74
@@ -4581,13 +4574,13 @@ rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24
   %64 = and i64 %62, 7
   %65 = icmp ne i64 %64, 0
   %66 = or i1 %63, %65
-  br i1 %66, label %rb_obj_write.exit26, label %67
+  br i1 %66, label %rb_obj_write.exit25, label %67
 
-67:                                               ; preds = %rb_obj_write.exit25
+67:                                               ; preds = %rb_obj_write.exit24
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %62) #21
-  br label %rb_obj_write.exit26
+  br label %rb_obj_write.exit25
 
-rb_obj_write.exit26:                              ; preds = %rb_obj_write.exit25, %67
+rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24, %67
   ret i64 %18
 }
 
@@ -4619,9 +4612,8 @@ define internal i64 @method_dup(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 13:                                               ; preds = %10
-  %14 = and i64 %0, 1
-  %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %rb_class_of.exit
+  %14 = trunc i64 %0 to i1
+  br i1 %14, label %rb_class_of.exit, label %15
 
 15:                                               ; preds = %13
   %16 = and i64 %0, 254
@@ -4637,9 +4629,9 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8, !tbaa !31
   %22 = and i64 %21, 2
-  %.not.i22 = icmp eq i64 %22, 0
+  %.not.i = icmp eq i64 %22, 0
   %23 = getelementptr i8, ptr %19, i64 32
-  br i1 %.not.i22, label %24, label %RTYPEDDATA_GET_DATA.exit
+  br i1 %.not.i, label %24, label %RTYPEDDATA_GET_DATA.exit
 
 24:                                               ; preds = %rb_class_of.exit
   %25 = load ptr, ptr %23, align 8, !tbaa !34
@@ -4669,13 +4661,13 @@ rb_obj_write.exit:                                ; preds = %RTYPEDDATA_GET_DATA
   %38 = and i64 %36, 7
   %39 = icmp ne i64 %38, 0
   %40 = or i1 %37, %39
-  br i1 %40, label %rb_obj_write.exit23, label %41
+  br i1 %40, label %rb_obj_write.exit22, label %41
 
 41:                                               ; preds = %rb_obj_write.exit
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %36) #21
-  br label %rb_obj_write.exit23
+  br label %rb_obj_write.exit22
 
-rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit, %41
+rb_obj_write.exit22:                              ; preds = %rb_obj_write.exit, %41
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !101
@@ -4684,13 +4676,13 @@ rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit, 
   %46 = and i64 %44, 7
   %47 = icmp ne i64 %46, 0
   %48 = or i1 %45, %47
-  br i1 %48, label %rb_obj_write.exit24, label %49
+  br i1 %48, label %rb_obj_write.exit23, label %49
 
-49:                                               ; preds = %rb_obj_write.exit23
+49:                                               ; preds = %rb_obj_write.exit22
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %44) #21
-  br label %rb_obj_write.exit24
+  br label %rb_obj_write.exit23
 
-rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %49
+rb_obj_write.exit23:                              ; preds = %rb_obj_write.exit22, %49
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %52 = load i64, ptr %51, align 8, !tbaa !123
@@ -4699,13 +4691,13 @@ rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23
   %54 = and i64 %52, 7
   %55 = icmp ne i64 %54, 0
   %56 = or i1 %53, %55
-  br i1 %56, label %rb_obj_write.exit25, label %57
+  br i1 %56, label %rb_obj_write.exit24, label %57
 
-57:                                               ; preds = %rb_obj_write.exit24
+57:                                               ; preds = %rb_obj_write.exit23
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %52) #21
-  br label %rb_obj_write.exit25
+  br label %rb_obj_write.exit24
 
-rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24, %57
+rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit23, %57
   %58 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !74
@@ -4716,13 +4708,13 @@ rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24
   %64 = and i64 %62, 7
   %65 = icmp ne i64 %64, 0
   %66 = or i1 %63, %65
-  br i1 %66, label %rb_obj_write.exit26, label %67
+  br i1 %66, label %rb_obj_write.exit25, label %67
 
-67:                                               ; preds = %rb_obj_write.exit25
+67:                                               ; preds = %rb_obj_write.exit24
   tail call void @rb_gc_writebarrier(i64 noundef %18, i64 noundef %62) #21
-  br label %rb_obj_write.exit26
+  br label %rb_obj_write.exit25
 
-rb_obj_write.exit26:                              ; preds = %rb_obj_write.exit25, %67
+rb_obj_write.exit25:                              ; preds = %rb_obj_write.exit24, %67
   ret i64 %18
 }
 
@@ -6271,9 +6263,8 @@ rb_check_arity.exit:                              ; preds = %3
   br label %rb_class_of.exit
 
 32:                                               ; preds = %29
-  %33 = and i64 %10, 1
-  %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %34, label %rb_class_of.exit
+  %33 = trunc i64 %10 to i1
+  br i1 %33, label %rb_class_of.exit, label %34
 
 34:                                               ; preds = %32
   %35 = and i64 %10, 254
@@ -6473,9 +6464,8 @@ define hidden void @Init_Binding() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %3, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %3 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %3, 254
@@ -8138,9 +8128,8 @@ define internal fastcc void @convert_umethod_to_method_components(ptr noundef re
   br label %rb_class_of.exit
 
 24:                                               ; preds = %21
-  %25 = and i64 %1, 1
-  %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %26, label %rb_class_of.exit
+  %25 = trunc i64 %1 to i1
+  br i1 %25, label %rb_class_of.exit, label %26
 
 26:                                               ; preds = %24
   %27 = and i64 %1, 254

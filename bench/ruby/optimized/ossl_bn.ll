@@ -149,9 +149,8 @@ define nonnull ptr @ossl_bn_value_ptr(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %5, label %try_convert_to_bn.exit
 
 5:                                                ; preds = %1
-  %6 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %7, label %rb_integer_type_p.exit.thread.i
+  %6 = trunc i64 %2 to i1
+  br i1 %6, label %rb_integer_type_p.exit.thread.i, label %7
 
 7:                                                ; preds = %5
   %8 = icmp eq i64 %2, 0
@@ -407,8 +406,8 @@ define internal range(i64 1, -7) i64 @ossl_bn_initialize(i32 noundef %0, ptr nou
 .preheader:                                       ; preds = %3
   %7 = load i64, ptr %1, align 8, !tbaa !6
   store i64 %7, ptr %5, align 8, !tbaa !6
-  %.not43 = icmp eq i32 %0, 1
-  br i1 %.not43, label %rb_scan_args_set.exit.thread, label %8
+  %.not41 = icmp eq i32 %0, 1
+  br i1 %.not41, label %rb_scan_args_set.exit.thread, label %8
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -421,9 +420,8 @@ define internal range(i64 1, -7) i64 @ossl_bn_initialize(i32 noundef %0, ptr nou
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %8
-  %13 = and i64 %10, 1
-  %.not.i25 = icmp eq i64 %13, 0
-  br i1 %.not.i25, label %16, label %14
+  %13 = trunc i64 %10 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %rb_scan_args_set.exit
   %15 = tail call i64 @rb_fix2int(i64 noundef %10) #11
@@ -434,8 +432,8 @@ rb_scan_args_set.exit:                            ; preds = %8
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %14, %16
-  %.0.i26 = phi i64 [ %15, %14 ], [ %17, %16 ]
-  %18 = trunc i64 %.0.i26 to i32
+  %.0.i25 = phi i64 [ %15, %14 ], [ %17, %16 ]
+  %18 = trunc i64 %.0.i25 to i32
   br label %rb_scan_args_set.exit.thread
 
 rb_scan_args_set.exit.thread:                     ; preds = %.preheader, %rb_num2int_inline.exit
@@ -462,8 +460,8 @@ RB_FL_ABLE.exit.i.i:                              ; preds = %22
   %.not.i.i = icmp eq i64 %29, 27
   %30 = and i64 %28, 2048
   %31 = icmp ne i64 %30, 0
-  %or.cond.i27 = or i1 %.not.i.i, %31
-  br i1 %or.cond.i27, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !19
+  %or.cond.i26 = or i1 %.not.i.i, %31
+  br i1 %or.cond.i26, label %RB_OBJ_FROZEN.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit.i, !prof !19
 
 RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i, %22
   tail call void @rb_error_frozen_object(i64 noundef %2) #12
@@ -472,8 +470,8 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %RB_FL_ABLE.exit.i.i
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   %32 = icmp ne i64 %29, 5
   %33 = and i64 %28, 49152
-  %.not.i28 = icmp eq i64 %33, 0
-  %or.cond9.i = or i1 %32, %.not.i28
+  %.not.i27 = icmp eq i64 %33, 0
+  %or.cond9.i = or i1 %32, %.not.i27
   br i1 %or.cond9.i, label %rb_check_frozen_inline.exit, label %34, !prof !20
 
 34:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
@@ -481,23 +479,22 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   br label %rb_check_frozen_inline.exit
 
 rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %34
-  %35 = and i64 %7, 1
-  %.not.i29 = icmp eq i64 %35, 0
-  br i1 %.not.i29, label %36, label %rb_integer_type_p.exit.thread
+  %35 = trunc i64 %7 to i1
+  br i1 %35, label %rb_integer_type_p.exit.thread, label %36
 
 36:                                               ; preds = %rb_check_frozen_inline.exit
   %37 = icmp eq i64 %7, 0
   %38 = and i64 %7, 6
   %39 = icmp ne i64 %38, 0
   %40 = or i1 %37, %39
-  br i1 %40, label %rb_integer_type_p.exit.thread35, label %rb_integer_type_p.exit
+  br i1 %40, label %rb_integer_type_p.exit.thread33, label %rb_integer_type_p.exit
 
 rb_integer_type_p.exit:                           ; preds = %36
   %41 = inttoptr i64 %7 to ptr
   %42 = load i64, ptr %41, align 8, !tbaa !15
   %43 = and i64 %42, 31
   %44 = icmp eq i64 %43, 10
-  br i1 %44, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread35
+  br i1 %44, label %rb_integer_type_p.exit.thread, label %rb_integer_type_p.exit.thread33
 
 rb_integer_type_p.exit.thread:                    ; preds = %rb_check_frozen_inline.exit, %rb_integer_type_p.exit
   %45 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_bn_type) #11
@@ -513,15 +510,15 @@ rb_integer_type_p.exit.thread:                    ; preds = %rb_check_frozen_inl
   %49 = tail call fastcc ptr @integer_to_bnptr(i64 noundef %7, ptr noundef nonnull %45)
   br label %108
 
-rb_integer_type_p.exit.thread35:                  ; preds = %36, %rb_integer_type_p.exit
+rb_integer_type_p.exit.thread33:                  ; preds = %36, %rb_integer_type_p.exit
   %50 = load i64, ptr @cBN, align 8, !tbaa !6
   %51 = tail call i64 @rb_obj_is_kind_of(i64 noundef %7, i64 noundef %50) #11
   %52 = and i64 %51, -5
-  %.not37 = icmp eq i64 %52, 0
+  %.not35 = icmp eq i64 %52, 0
   %53 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_bn_type) #11
-  br i1 %.not37, label %65, label %54
+  br i1 %.not35, label %65, label %54
 
-54:                                               ; preds = %rb_integer_type_p.exit.thread35
+54:                                               ; preds = %rb_integer_type_p.exit.thread33
   %.not21 = icmp eq ptr %53, null
   br i1 %.not21, label %55, label %57
 
@@ -550,7 +547,7 @@ rb_integer_type_p.exit.thread35:                  ; preds = %36, %rb_integer_typ
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %64, ptr noundef null) #12
   unreachable
 
-65:                                               ; preds = %rb_integer_type_p.exit.thread35
+65:                                               ; preds = %rb_integer_type_p.exit.thread33
   store ptr %53, ptr %4, align 8, !tbaa !21
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %66, label %68
@@ -576,8 +573,8 @@ rb_integer_type_p.exit.thread35:                  ; preds = %36, %rb_integer_typ
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !23
   %76 = add i64 %75, 2147483648
-  %.not.i.i31 = icmp ult i64 %76, 4294967296
-  br i1 %.not.i.i31, label %RSTRING_LENINT.exit, label %77
+  %.not.i.i29 = icmp ult i64 %76, 4294967296
+  br i1 %.not.i.i29, label %RSTRING_LENINT.exit, label %77
 
 77:                                               ; preds = %70
   call void @rb_out_of_int(i64 noundef %75) #13
@@ -602,21 +599,21 @@ RSTRING_LENINT.exit:                              ; preds = %70
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !23
   %89 = add i64 %88, 2147483648
-  %.not.i.i32 = icmp ult i64 %89, 4294967296
-  br i1 %.not.i.i32, label %RSTRING_LENINT.exit33, label %90
+  %.not.i.i30 = icmp ult i64 %89, 4294967296
+  br i1 %.not.i.i30, label %RSTRING_LENINT.exit31, label %90
 
 90:                                               ; preds = %83
   call void @rb_out_of_int(i64 noundef %88) #13
   unreachable
 
-RSTRING_LENINT.exit33:                            ; preds = %83
+RSTRING_LENINT.exit31:                            ; preds = %83
   %91 = trunc nsw i64 %88 to i32
   %92 = load ptr, ptr %4, align 8, !tbaa !21
   %93 = call ptr @BN_bin2bn(ptr noundef %84, i32 noundef %91, ptr noundef %92) #11
   %.not19 = icmp eq ptr %93, null
   br i1 %.not19, label %94, label %108
 
-94:                                               ; preds = %RSTRING_LENINT.exit33
+94:                                               ; preds = %RSTRING_LENINT.exit31
   %95 = load i64, ptr @eBNError, align 8, !tbaa !6
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %95, ptr noundef null) #12
   unreachable
@@ -648,7 +645,7 @@ RSTRING_LENINT.exit33:                            ; preds = %83
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %107, ptr noundef nonnull @.str.67, i32 noundef %.015) #12
   unreachable
 
-108:                                              ; preds = %RSTRING_LENINT.exit, %RSTRING_LENINT.exit33, %96, %101, %61, %48
+108:                                              ; preds = %RSTRING_LENINT.exit, %RSTRING_LENINT.exit31, %96, %101, %61, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
@@ -1929,9 +1926,8 @@ define internal range(i64 0, 21) i64 @ossl_bn_eq(i64 noundef %0, i64 noundef %1)
   br i1 %.not.i, label %9, label %try_convert_to_bn.exit
 
 9:                                                ; preds = %6
-  %10 = and i64 %1, 1
-  %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %11, label %rb_integer_type_p.exit.thread.i
+  %10 = trunc i64 %1 to i1
+  br i1 %10, label %rb_integer_type_p.exit.thread.i, label %11
 
 11:                                               ; preds = %9
   %12 = icmp eq i64 %1, 0
@@ -2086,11 +2082,11 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef readonly capture
 11:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %25 ]
   %12 = phi i1 [ true, %.preheader ], [ false, %25 ]
-  %.185.i22 = phi i32 [ 1, %.preheader ], [ %.286.i, %25 ]
+  %.185.i20 = phi i32 [ 1, %.preheader ], [ %.286.i, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = icmp slt i32 %.185.i22, %0
+  %15 = icmp slt i32 %.185.i20, %0
   %.not108.i = icmp eq ptr %14, null
   br i1 %15, label %16, label %23
 
@@ -2098,14 +2094,14 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef readonly capture
   br i1 %.not108.i, label %21, label %17
 
 17:                                               ; preds = %16
-  %18 = sext i32 %.185.i22 to i64
+  %18 = sext i32 %.185.i20 to i64
   %19 = getelementptr inbounds i64, ptr %1, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %14, align 8, !tbaa !6
   br label %21
 
 21:                                               ; preds = %17, %16
-  %22 = add nsw i32 %.185.i22, 1
+  %22 = add nsw i32 %.185.i20, 1
   br label %25
 
 23:                                               ; preds = %11
@@ -2116,7 +2112,7 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef readonly capture
   br label %25
 
 25:                                               ; preds = %24, %23, %21
-  %.286.i = phi i32 [ %22, %21 ], [ %.185.i22, %24 ], [ %.185.i22, %23 ]
+  %.286.i = phi i32 [ %22, %21 ], [ %.185.i20, %24 ], [ %.185.i20, %23 ]
   br i1 %12, label %11, label %26, !llvm.loop !27
 
 26:                                               ; preds = %25
@@ -2142,9 +2138,8 @@ rb_scan_args_set.exit:                            ; preds = %26
 33:                                               ; preds = %29, %rb_scan_args_set.exit
   %.1 = phi i32 [ %32, %29 ], [ 0, %rb_scan_args_set.exit ]
   %34 = load i64, ptr %4, align 8, !tbaa !6
-  %35 = and i64 %34, 1
-  %.not.i13 = icmp eq i64 %35, 0
-  br i1 %.not.i13, label %38, label %36
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
   %37 = call i64 @rb_fix2int(i64 noundef %34) #11
@@ -2155,39 +2150,38 @@ rb_scan_args_set.exit:                            ; preds = %26
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %36, %38
-  %.0.i14 = phi i64 [ %37, %36 ], [ %39, %38 ]
-  %40 = trunc i64 %.0.i14 to i32
+  %.0.i13 = phi i64 [ %37, %36 ], [ %39, %38 ]
+  %40 = trunc i64 %.0.i13 to i32
   br label %41
 
 41:                                               ; preds = %rb_num2int_inline.exit, %rb_scan_args_set.exit
   %.011 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %40, %rb_num2int_inline.exit ]
   %.0 = phi i32 [ 0, %rb_scan_args_set.exit ], [ %.1, %rb_num2int_inline.exit ]
-  %42 = and i64 %10, 1
-  %.not.i15 = icmp eq i64 %42, 0
-  br i1 %.not.i15, label %45, label %43
+  %42 = trunc i64 %10 to i1
+  br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
   %44 = call i64 @rb_fix2int(i64 noundef %10) #11
-  br label %rb_num2int_inline.exit17
+  br label %rb_num2int_inline.exit15
 
 45:                                               ; preds = %41
   %46 = call i64 @rb_num2int(i64 noundef %10) #11
-  br label %rb_num2int_inline.exit17
+  br label %rb_num2int_inline.exit15
 
-rb_num2int_inline.exit17:                         ; preds = %43, %45
-  %.0.i16 = phi i64 [ %44, %43 ], [ %46, %45 ]
+rb_num2int_inline.exit15:                         ; preds = %43, %45
+  %.0.i14 = phi i64 [ %44, %43 ], [ %46, %45 ]
   %47 = call i64 @rb_data_typed_object_wrap(i64 noundef %2, ptr noundef null, ptr noundef nonnull @ossl_bn_type) #11
   %48 = call ptr @BN_new() #11
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %49, label %51
 
-49:                                               ; preds = %rb_num2int_inline.exit17
+49:                                               ; preds = %rb_num2int_inline.exit15
   %50 = load i64, ptr @eBNError, align 8, !tbaa !6
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %50, ptr noundef nonnull @.str.71) #12
   unreachable
 
-51:                                               ; preds = %rb_num2int_inline.exit17
-  %52 = trunc i64 %.0.i16 to i32
+51:                                               ; preds = %rb_num2int_inline.exit15
+  %52 = trunc i64 %.0.i14 to i32
   %53 = call i32 @BN_rand(ptr noundef nonnull %48, i32 noundef %52, i32 noundef %.011, i32 noundef %.0) #11
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %55, label %57
@@ -2266,11 +2260,11 @@ define internal i64 @ossl_bn_s_generate_prime(i32 noundef %0, ptr noundef readon
 
 13:                                               ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %26 ]
-  %.185.i22 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
+  %.185.i21 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !25
-  %16 = icmp slt i32 %.185.i22, %0
+  %16 = icmp slt i32 %.185.i21, %0
   %.not108.i = icmp eq ptr %15, null
   br i1 %16, label %17, label %24
 
@@ -2278,14 +2272,14 @@ define internal i64 @ossl_bn_s_generate_prime(i32 noundef %0, ptr noundef readon
   br i1 %.not108.i, label %22, label %18
 
 18:                                               ; preds = %17
-  %19 = sext i32 %.185.i22 to i64
+  %19 = sext i32 %.185.i21 to i64
   %20 = getelementptr inbounds i64, ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !6
   store i64 %21, ptr %15, align 8, !tbaa !6
   br label %22
 
 22:                                               ; preds = %18, %17
-  %23 = add nsw i32 %.185.i22, 1
+  %23 = add nsw i32 %.185.i21, 1
   br label %26
 
 24:                                               ; preds = %13
@@ -2296,7 +2290,7 @@ define internal i64 @ossl_bn_s_generate_prime(i32 noundef %0, ptr noundef readon
   br label %26
 
 26:                                               ; preds = %25, %24, %22
-  %.286.i = phi i32 [ %23, %22 ], [ %.185.i22, %25 ], [ %.185.i22, %24 ]
+  %.286.i = phi i32 [ %23, %22 ], [ %.185.i21, %25 ], [ %.185.i21, %24 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %27, label %13, !llvm.loop !27
 
@@ -2309,9 +2303,8 @@ define internal i64 @ossl_bn_s_generate_prime(i32 noundef %0, ptr noundef readon
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %27
-  %30 = and i64 %12, 1
-  %.not.i16 = icmp eq i64 %30, 0
-  br i1 %.not.i16, label %33, label %31
+  %30 = trunc i64 %12 to i1
+  br i1 %30, label %31, label %33
 
 31:                                               ; preds = %rb_scan_args_set.exit
   %32 = call i64 @rb_fix2int(i64 noundef %12) #11
@@ -2322,8 +2315,8 @@ rb_scan_args_set.exit:                            ; preds = %27
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %31, %33
-  %.0.i17 = phi i64 [ %32, %31 ], [ %34, %33 ]
-  %35 = trunc i64 %.0.i17 to i32
+  %.0.i16 = phi i64 [ %32, %31 ], [ %34, %33 ]
+  %35 = trunc i64 %.0.i16 to i32
   %36 = load i64, ptr %4, align 8, !tbaa !6
   %37 = icmp ne i64 %36, 0
   %spec.select = zext i1 %37 to i32
@@ -2490,9 +2483,8 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 18:                                               ; preds = %rb_check_frozen_inline.exit
-  %19 = and i64 %1, 1
-  %.not.i5 = icmp eq i64 %19, 0
-  br i1 %.not.i5, label %22, label %20
+  %19 = trunc i64 %1 to i1
+  br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
   %21 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2562,9 +2554,8 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 18:                                               ; preds = %rb_check_frozen_inline.exit
-  %19 = and i64 %1, 1
-  %.not.i5 = icmp eq i64 %19, 0
-  br i1 %.not.i5, label %22, label %20
+  %19 = trunc i64 %1 to i1
+  br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
   %21 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2592,9 +2583,8 @@ rb_num2int_inline.exit:                           ; preds = %20, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_bn_is_bit_set(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2667,9 +2657,8 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 18:                                               ; preds = %rb_check_frozen_inline.exit
-  %19 = and i64 %1, 1
-  %.not.i5 = icmp eq i64 %19, 0
-  br i1 %.not.i5, label %22, label %20
+  %19 = trunc i64 %1 to i1
+  br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
   %21 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2697,9 +2686,8 @@ rb_num2int_inline.exit:                           ; preds = %20, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_bn_lshift(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2753,9 +2741,8 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_bn_rshift(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2841,9 +2828,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   br label %rb_check_frozen_inline.exit
 
 rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %14
-  %15 = and i64 %1, 1
-  %.not.i7 = icmp eq i64 %15, 0
-  br i1 %.not.i7, label %18, label %16
+  %15 = trunc i64 %1 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %rb_check_frozen_inline.exit
   %17 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2913,9 +2899,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   br label %rb_check_frozen_inline.exit
 
 rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %14
-  %15 = and i64 %1, 1
-  %.not.i7 = icmp eq i64 %15, 0
-  br i1 %.not.i7, label %18, label %16
+  %15 = trunc i64 %1 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %rb_check_frozen_inline.exit
   %17 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -2963,9 +2948,8 @@ define internal range(i64 1, 0) i64 @ossl_bn_get_flags(i64 noundef %0, i64 nound
   unreachable
 
 6:                                                ; preds = %2
-  %7 = and i64 %1, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %10, label %8
+  %7 = trunc i64 %1 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -3029,9 +3013,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %RB_FL_ABLE.exit.i.i
   br label %rb_check_frozen_inline.exit
 
 rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %18
-  %19 = and i64 %1, 1
-  %.not.i4 = icmp eq i64 %19, 0
-  br i1 %.not.i4, label %22, label %20
+  %19 = trunc i64 %1 to i1
+  br i1 %19, label %20, label %22
 
 20:                                               ; preds = %rb_check_frozen_inline.exit
   %21 = tail call i64 @rb_fix2int(i64 noundef %1) #11
@@ -3056,8 +3039,8 @@ define internal i64 @ossl_bn_to_s(i32 noundef %0, ptr noundef readonly captures(
   br i1 %4, label %7, label %.preheader.split.split
 
 .preheader.split.split:                           ; preds = %3
-  %.not48 = icmp eq i32 %0, 0
-  br i1 %.not48, label %rb_scan_args_set.exit, label %.split.us
+  %.not47 = icmp eq i32 %0, 0
+  br i1 %.not47, label %rb_scan_args_set.exit, label %.split.us
 
 .split.us:                                        ; preds = %.preheader.split.split
   %5 = load i64, ptr %1, align 8, !tbaa !6
@@ -3069,9 +3052,8 @@ define internal i64 @ossl_bn_to_s(i32 noundef %0, ptr noundef readonly captures(
   unreachable
 
 8:                                                ; preds = %.split.us
-  %9 = and i64 %5, 1
-  %.not.i32 = icmp eq i64 %9, 0
-  br i1 %.not.i32, label %12, label %10
+  %9 = trunc i64 %5 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
   %11 = tail call i64 @rb_fix2int(i64 noundef %5) #11
@@ -3082,8 +3064,8 @@ define internal i64 @ossl_bn_to_s(i32 noundef %0, ptr noundef readonly captures(
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %10, %12
-  %.0.i33 = phi i64 [ %11, %10 ], [ %13, %12 ]
-  %14 = trunc i64 %.0.i33 to i32
+  %.0.i32 = phi i64 [ %11, %10 ], [ %13, %12 ]
+  %14 = trunc i64 %.0.i32 to i32
   br label %rb_scan_args_set.exit
 
 rb_scan_args_set.exit:                            ; preds = %.preheader.split.split, %rb_num2int_inline.exit
@@ -3141,21 +3123,21 @@ RSTRING_PTR.exit:                                 ; preds = %20, %28
   %38 = inttoptr i64 %37 to ptr
   %39 = load i64, ptr %38, align 8, !tbaa !15, !noalias !33
   %40 = and i64 %39, 8192
-  %.not.i.i34 = icmp eq i64 %40, 0
+  %.not.i.i33 = icmp eq i64 %40, 0
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %42
+  br i1 %.not.i.i33, label %RSTRING_PTR.exit36, label %42
 
 42:                                               ; preds = %32
-  %.sroa.2.0.copyload.i35 = load ptr, ptr %41, align 8
-  br label %RSTRING_PTR.exit37
+  %.sroa.2.0.copyload.i34 = load ptr, ptr %41, align 8
+  br label %RSTRING_PTR.exit36
 
-RSTRING_PTR.exit37:                               ; preds = %32, %42
-  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %42 ], [ %41, %32 ]
-  %43 = tail call i32 @BN_bn2bin(ptr noundef nonnull %15, ptr noundef %.sroa.2.0.i36) #11
+RSTRING_PTR.exit36:                               ; preds = %32, %42
+  %.sroa.2.0.i35 = phi ptr [ %.sroa.2.0.copyload.i34, %42 ], [ %41, %32 ]
+  %43 = tail call i32 @BN_bn2bin(ptr noundef nonnull %15, ptr noundef %.sroa.2.0.i35) #11
   %.not30 = icmp eq i32 %43, %35
   br i1 %.not30, label %66, label %44
 
-44:                                               ; preds = %RSTRING_PTR.exit37
+44:                                               ; preds = %RSTRING_PTR.exit36
   %45 = load i64, ptr @eBNError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %45, ptr noundef null) #12
   unreachable
@@ -3173,8 +3155,8 @@ RSTRING_PTR.exit37:                               ; preds = %32, %42
 50:                                               ; preds = %46
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #15
   %52 = add i64 %51, 2147483648
-  %.not.i38 = icmp ult i64 %52, 4294967296
-  br i1 %.not.i38, label %.sink.split, label %53
+  %.not.i37 = icmp ult i64 %52, 4294967296
+  br i1 %.not.i37, label %.sink.split, label %53
 
 53:                                               ; preds = %50
   tail call void @rb_out_of_int(i64 noundef %51) #13
@@ -3193,8 +3175,8 @@ RSTRING_PTR.exit37:                               ; preds = %32, %42
 58:                                               ; preds = %54
   %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #15
   %60 = add i64 %59, 2147483648
-  %.not.i39 = icmp ult i64 %60, 4294967296
-  br i1 %.not.i39, label %.sink.split, label %61
+  %.not.i38 = icmp ult i64 %60, 4294967296
+  br i1 %.not.i38, label %.sink.split, label %61
 
 61:                                               ; preds = %58
   tail call void @rb_out_of_int(i64 noundef %59) #13
@@ -3206,14 +3188,14 @@ RSTRING_PTR.exit37:                               ; preds = %32, %42
   unreachable
 
 .sink.split:                                      ; preds = %58, %50
-  %.sink58 = phi i64 [ %51, %50 ], [ %59, %58 ]
+  %.sink57 = phi i64 [ %51, %50 ], [ %59, %58 ]
   %.sink = phi ptr [ %47, %50 ], [ %55, %58 ]
-  %64 = trunc nsw i64 %.sink58 to i32
+  %64 = trunc nsw i64 %.sink57 to i32
   %65 = tail call i64 @ossl_buf2str(ptr noundef nonnull %.sink, i32 noundef %64) #11
   br label %66
 
-66:                                               ; preds = %.sink.split, %RSTRING_PTR.exit37, %RSTRING_PTR.exit
-  %.024 = phi i64 [ %23, %RSTRING_PTR.exit ], [ %37, %RSTRING_PTR.exit37 ], [ %65, %.sink.split ]
+66:                                               ; preds = %.sink.split, %RSTRING_PTR.exit36, %RSTRING_PTR.exit
+  %.024 = phi i64 [ %23, %RSTRING_PTR.exit ], [ %37, %RSTRING_PTR.exit36 ], [ %65, %.sink.split ]
   ret i64 %.024
 }
 
@@ -3267,9 +3249,8 @@ define internal i64 @ossl_bn_coerce(i64 noundef %0, i64 noundef %1) #0 {
   ]
 
 9:                                                ; preds = %7
-  %10 = and i64 %1, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %rb_type.exit.thread, label %rb_type.exit.thread8
+  %10 = trunc i64 %1 to i1
+  br i1 %10, label %rb_type.exit.thread7, label %rb_type.exit.thread
 
 rb_type.exit:                                     ; preds = %2
   %11 = inttoptr i64 %1 to ptr
@@ -3278,25 +3259,25 @@ rb_type.exit:                                     ; preds = %2
   %14 = and i32 %13, 31
   switch i32 %14, label %rb_type.exit.thread [
     i32 5, label %15
-    i32 21, label %rb_type.exit.thread8
-    i32 10, label %rb_type.exit.thread8
+    i32 21, label %rb_type.exit.thread7
+    i32 10, label %rb_type.exit.thread7
   ]
 
 15:                                               ; preds = %rb_type.exit
   %16 = tail call i64 @ossl_bn_to_s(i32 noundef 0, ptr noundef null, i64 noundef %0)
   br label %30
 
-rb_type.exit.thread8:                             ; preds = %9, %rb_type.exit, %rb_type.exit
+rb_type.exit.thread7:                             ; preds = %9, %rb_type.exit, %rb_type.exit
   %17 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_bn_type) #11
-  %.not.i6 = icmp eq ptr %17, null
-  br i1 %.not.i6, label %18, label %20
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %18, label %20
 
-18:                                               ; preds = %rb_type.exit.thread8
+18:                                               ; preds = %rb_type.exit.thread7
   %19 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str) #12
   unreachable
 
-20:                                               ; preds = %rb_type.exit.thread8
+20:                                               ; preds = %rb_type.exit.thread7
   %21 = tail call ptr @BN_bn2hex(ptr noundef nonnull %17) #11
   %.not6.i = icmp eq ptr %21, null
   br i1 %.not6.i, label %22, label %ossl_bn_to_i.exit
@@ -3398,9 +3379,8 @@ declare i64 @rb_obj_is_kind_of(i64 noundef, i64 noundef) local_unnamed_addr #1
 define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca i64, align 8
-  %5 = and i64 %0, 1
-  %.not32 = icmp eq i64 %5, 0
-  br i1 %.not32, label %22, label %6
+  %5 = trunc i64 %0 to i1
+  br i1 %5, label %6, label %22
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3409,15 +3389,15 @@ define internal fastcc nonnull ptr @integer_to_bnptr(i64 noundef %0, ptr noundef
   br label %9
 
 9:                                                ; preds = %6, %9
-  %.02634 = phi i64 [ 7, %6 ], [ %13, %9 ]
-  %.02733 = phi i64 [ %8, %6 ], [ %12, %9 ]
-  %10 = trunc i64 %.02733 to i8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.02634
+  %.02633 = phi i64 [ 7, %6 ], [ %13, %9 ]
+  %.02732 = phi i64 [ %8, %6 ], [ %12, %9 ]
+  %10 = trunc i64 %.02732 to i8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.02633
   store i8 %10, ptr %11, align 1, !tbaa !36
-  %12 = lshr i64 %.02733, 8
-  %13 = add nsw i64 %.02634, -1
-  %.not38 = icmp eq i64 %.02634, 0
-  br i1 %.not38, label %14, label %9, !llvm.loop !37
+  %12 = lshr i64 %.02732, 8
+  %13 = add nsw i64 %.02633, -1
+  %.not37 = icmp eq i64 %.02633, 0
+  br i1 %.not37, label %14, label %9, !llvm.loop !37
 
 14:                                               ; preds = %9
   %15 = call ptr @BN_bin2bn(ptr noundef nonnull %3, i32 noundef 8, ptr noundef %1) #11

@@ -821,10 +821,9 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %14 = getelementptr inbounds nuw i64, ptr %2, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !94
   %16 = and i64 %12, 63
-  %17 = shl nuw i64 1, %16
-  %18 = and i64 %17, %15
-  %.not19 = icmp eq i64 %18, 0
-  br i1 %.not19, label %19, label %.loopexit
+  %17 = lshr i64 %15, %16
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %5
   %20 = and i32 %11, 63
@@ -837,25 +836,25 @@ define internal fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef read
   %27 = or i64 %26, %22
   store i64 %27, ptr %25, align 8, !tbaa !94
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %.01520 = load ptr, ptr %28, align 8, !tbaa !27
-  %.not21 = icmp eq ptr %.01520, null
-  br i1 %.not21, label %.loopexit, label %.lr.ph
+  %.01519 = load ptr, ptr %28, align 8, !tbaa !27
+  %.not20 = icmp eq ptr %.01519, null
+  br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %33
-  %.01523 = phi ptr [ %.015, %33 ], [ %.01520, %19 ]
-  %.022 = phi i1 [ %.1, %33 ], [ false, %19 ]
-  %29 = load ptr, ptr %.01523, align 8, !tbaa !39
+  %.01522 = phi ptr [ %.015, %33 ], [ %.01519, %19 ]
+  %.021 = phi i1 [ %.1, %33 ], [ false, %19 ]
+  %29 = load ptr, ptr %.01522, align 8, !tbaa !39
   %30 = tail call fastcc zeroext i1 @zend_is_indirectly_recursive(ptr noundef %0, ptr noundef %29, ptr noundef %2)
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.01523, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.01522, i64 48
   store i8 1, ptr %32, align 8, !tbaa !92
   br label %33
 
 33:                                               ; preds = %31, %.lr.ph
-  %.1 = phi i1 [ true, %31 ], [ %.022, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i8, ptr %.01523, i64 32
+  %.1 = phi i1 [ true, %31 ], [ %.021, %.lr.ph ]
+  %34 = getelementptr inbounds nuw i8, ptr %.01522, i64 32
   %.015 = load ptr, ptr %34, align 8, !tbaa !27
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %.loopexit, label %.lr.ph

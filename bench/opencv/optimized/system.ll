@@ -8448,10 +8448,10 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
   %38 = trunc nuw nsw i32 %37 to i8
   %39 = and i8 %38, 1
   store i8 %39, ptr %36, align 1, !tbaa !14
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %41 = trunc i32 %27 to i8
-  %42 = and i8 %41, 1
-  store i8 %42, ptr %40, align 1, !tbaa !14
+  %40 = trunc i32 %27 to i8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %42 = and i8 %40, 1
+  store i8 %42, ptr %41, align 1, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %44 = lshr i32 %27, 9
   %45 = trunc i32 %44 to i8
@@ -8596,23 +8596,22 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
 
 142:                                              ; preds = %139
   %143 = and i32 %80, %100
-  %144 = and i32 %143, 1
-  %.not88 = icmp eq i32 %144, 0
+  %144 = trunc i32 %143 to i1
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %146 = trunc nuw nsw i32 %144 to i8
-  store i8 %146, ptr %145, align 1, !tbaa !14
-  br i1 %.not88, label %178, label %147
+  %146 = trunc nuw nsw i32 %143 to i8
+  %147 = and i8 %146, 1
+  store i8 %147, ptr %145, align 1, !tbaa !14
+  br i1 %144, label %148, label %178
 
-147:                                              ; preds = %142
-  %148 = and i32 %96, %92
-  %149 = and i32 %148, 1
-  %150 = icmp ne i32 %149, 0
+148:                                              ; preds = %142
+  %149 = and i32 %96, %92
+  %150 = trunc i32 %149 to i1
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 258
   %152 = trunc nuw nsw i32 %149 to i8
-  store i8 %152, ptr %151, align 1, !tbaa !14
-  %153 = and i8 %133, %130
-  %154 = and i8 %153, 1
-  %155 = icmp ne i8 %154, 0
+  %153 = and i8 %152, 1
+  store i8 %153, ptr %151, align 1, !tbaa !14
+  %154 = and i8 %133, %130
+  %155 = trunc i8 %154 to i1
   %or.cond30 = and i1 %150, %155
   %156 = select i1 %or.cond30, i8 %127, i8 0
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 259
@@ -8622,18 +8621,18 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
   %or.cond32.not = icmp eq i32 %159, 0
   br i1 %or.cond32.not, label %.thread83, label %162
 
-.thread83:                                        ; preds = %147
+.thread83:                                        ; preds = %148
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i8 0, ptr %160, align 1, !tbaa !14
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i8 0, ptr %161, align 1, !tbaa !14
   br label %169
 
-162:                                              ; preds = %147
+162:                                              ; preds = %148
   %163 = icmp slt i32 %72, 0
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.lobit89 = lshr i32 %72, 31
-  %165 = trunc nuw nsw i32 %.lobit89 to i8
+  %.lobit88 = lshr i32 %72, 31
+  %165 = trunc nuw nsw i32 %.lobit88 to i8
   store i8 %165, ptr %164, align 1, !tbaa !14
   %166 = trunc i32 %88 to i1
   %or.cond34 = and i1 %163, %166

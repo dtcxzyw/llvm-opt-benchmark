@@ -2347,12 +2347,11 @@ _ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread: ;
 8:                                                ; preds = %2
   store ptr %6, ptr %3, align 8, !tbaa !137
   %9 = ptrtoint ptr %6 to i64
-  %10 = and i64 %9, 1
-  %.not.i.i.i = icmp eq i64 %10, 0
+  %10 = trunc i64 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.not.i.i.i, label %14, label %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread20
+  br i1 %10, label %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread18, label %14
 
-_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread20: ; preds = %8
+_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread18: ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9unit_test9decorator12preconditionE, i64 16), ptr %4, align 8, !tbaa !12
@@ -2374,15 +2373,14 @@ _ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit: ; preds 
   %.not.i.i.i.i.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost9unit_test9decorator12preconditionC2ENS_8functionIFNS_10test_tools16assertion_resultEmEEE.exit, label %18
 
-18:                                               ; preds = %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread20, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit
-  %19 = phi ptr [ %13, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread20 ], [ %17, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit ]
-  %.pr23 = phi ptr [ %6, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread20 ], [ %.pr.pre, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit ]
-  store ptr %.pr23, ptr %19, align 8, !tbaa !137
-  %20 = ptrtoint ptr %.pr23 to i64
-  %21 = and i64 %20, 1
-  %.not.i.i.i.i6 = icmp eq i64 %21, 0
+18:                                               ; preds = %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread18, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit
+  %19 = phi ptr [ %13, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread18 ], [ %17, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit ]
+  %.pr21 = phi ptr [ %6, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread18 ], [ %.pr.pre, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit ]
+  store ptr %.pr21, ptr %19, align 8, !tbaa !137
+  %20 = ptrtoint ptr %.pr21 to i64
+  %21 = trunc i64 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %.not.i.i.i.i6, label %25, label %23
+  br i1 %21, label %23, label %25
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2390,10 +2388,10 @@ _ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit: ; preds 
   br label %_ZN5boost9unit_test9decorator12preconditionC2ENS_8functionIFNS_10test_tools16assertion_resultEmEEE.exit
 
 25:                                               ; preds = %18
-  %26 = load ptr, ptr %.pr23, align 8, !tbaa !139
+  %26 = load ptr, ptr %.pr21, align 8, !tbaa !139
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 0)
-          to label %_ZN5boost9unit_test9decorator12preconditionC2ENS_8functionIFNS_10test_tools16assertion_resultEmEEE.exit unwind label %.thread14
+          to label %_ZN5boost9unit_test9decorator12preconditionC2ENS_8functionIFNS_10test_tools16assertion_resultEmEEE.exit unwind label %.thread12
 
 _ZN5boost9unit_test9decorator12preconditionC2ENS_8functionIFNS_10test_tools16assertion_resultEmEEE.exit: ; preds = %23, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit, %_ZN5boost8functionIFNS_10test_tools16assertion_resultEmEEC2ERKS4_.exit.thread, %25
   store ptr %4, ptr %0, align 8, !tbaa !17
@@ -2440,17 +2438,16 @@ _ZN5boost9unit_test9decorator12preconditionC2ENS_8functionIFNS_10test_tools16ass
   store ptr %4, ptr %46, align 8, !tbaa !142
   store ptr %29, ptr %28, align 8, !tbaa !20
   %47 = load ptr, ptr %3, align 8, !tbaa !137
-  %.not.i.i = icmp ne ptr %47, null
+  %.not.i.i = icmp eq ptr %47, null
   %48 = ptrtoint ptr %47 to i64
-  %49 = and i64 %48, 1
-  %.not1.i.i = icmp eq i64 %49, 0
-  %or.cond = and i1 %.not.i.i, %.not1.i.i
-  br i1 %or.cond, label %50, label %_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit
+  %49 = trunc i64 %48 to i1
+  %or.cond = or i1 %.not.i.i, %49
+  br i1 %or.cond, label %_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit, label %50
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr %47, align 8, !tbaa !139
-  %.not.i.i.i8 = icmp eq ptr %51, null
-  br i1 %.not.i.i.i8, label %_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit, label %52
+  %.not.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i, label %_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2472,7 +2469,7 @@ _ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit: ; preds =
           cleanup
   br label %60
 
-.thread14:                                        ; preds = %25
+.thread12:                                        ; preds = %25
   %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
@@ -2483,14 +2480,14 @@ _ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit: ; preds =
   call void @_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   br label %61
 
-60:                                               ; preds = %.thread14, %.thread
-  %.pn13 = phi { ptr, i32 } [ %57, %.thread ], [ %58, %.thread14 ]
+60:                                               ; preds = %.thread12, %.thread
+  %.pn11 = phi { ptr, i32 } [ %57, %.thread ], [ %58, %.thread12 ]
   call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 40) #28
   br label %61
 
 61:                                               ; preds = %59, %60
-  %.pn12 = phi { ptr, i32 } [ %38, %59 ], [ %.pn13, %60 ]
-  resume { ptr, i32 } %.pn12
+  %.pn10 = phi { ptr, i32 } [ %38, %59 ], [ %.pn11, %60 ]
+  resume { ptr, i32 } %.pn10
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -2503,9 +2500,8 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9decorator12preconditionD2Ev
 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not1.i.i = icmp eq i64 %6, 0
-  br i1 %.not1.i.i, label %7, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %3, align 8, !tbaa !139
@@ -2537,12 +2533,11 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9decorator12preconditionD0Ev
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5boost9unit_test9decorator12preconditionE, i64 16), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !137
-  %.not.i.i.i = icmp ne ptr %3, null
+  %.not.i.i.i = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not1.i.i.i = icmp eq i64 %5, 0
-  %or.cond = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond, label %6, label %_ZN5boost9unit_test9decorator12preconditionD2Ev.exit
+  %5 = trunc i64 %4 to i1
+  %or.cond = or i1 %.not.i.i.i, %5
+  br i1 %or.cond, label %_ZN5boost9unit_test9decorator12preconditionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %3, align 8, !tbaa !139
@@ -3100,9 +3095,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nINS_10test_tools16assertio
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !139

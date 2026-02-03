@@ -6416,12 +6416,12 @@ rtree_leaf_elm_lookup.exit:                       ; preds = %33, %11, %21, %45
   %49 = trunc nuw nsw i64 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %49, ptr %50, align 8, !tbaa !242, !alias.scope !243
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %52 = trunc i64 %47 to i8
-  %53 = and i8 %52, 1
-  store i8 %53, ptr %51, align 1, !tbaa !246, !alias.scope !243
+  %51 = trunc i64 %47 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %53 = and i8 %51, 1
+  store i8 %53, ptr %52, align 1, !tbaa !246, !alias.scope !243
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = lshr i8 %52, 1
+  %55 = lshr i8 %51, 1
   %56 = and i8 %55, 1
   store i8 %56, ptr %54, align 8, !tbaa !247, !alias.scope !243
   %57 = trunc i64 %47 to i32

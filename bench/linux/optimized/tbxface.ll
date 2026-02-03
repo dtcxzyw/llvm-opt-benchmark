@@ -90,109 +90,108 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  %5 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
-  %6 = icmp ne i8 %5, 0
-  %7 = select i1 %4, i1 %6, i1 false
-  br i1 %7, label %55, label %8
+  %3 = trunc i8 %2 to i1
+  %4 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
+  %5 = icmp ne i8 %4, 0
+  %6 = select i1 %3, i1 %5, i1 false
+  br i1 %6, label %54, label %7
 
-8:                                                ; preds = %0
+7:                                                ; preds = %0
   store i32 0, ptr %1, align 4, !annotation !5
-  %9 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit3.thread, label %.preheader2.preheader
+  %8 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #6
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %.loopexit3.thread, label %.preheader2.preheader
 
-.preheader2.preheader:                            ; preds = %8
+.preheader2.preheader:                            ; preds = %7
   %.pre4 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   br label %.preheader2
 
-.preheader2:                                      ; preds = %.preheader2.preheader, %21
-  %12 = phi i32 [ %22, %21 ], [ %10, %.preheader2.preheader ]
-  %13 = phi ptr [ %23, %21 ], [ %.pre4, %.preheader2.preheader ]
-  %14 = phi i64 [ %24, %21 ], [ 0, %.preheader2.preheader ]
-  %15 = getelementptr %struct.acpi_table_desc, ptr %13, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %21, label %19
+.preheader2:                                      ; preds = %.preheader2.preheader, %20
+  %11 = phi i32 [ %21, %20 ], [ %9, %.preheader2.preheader ]
+  %12 = phi ptr [ %22, %20 ], [ %.pre4, %.preheader2.preheader ]
+  %13 = phi i64 [ %23, %20 ], [ 0, %.preheader2.preheader ]
+  %14 = getelementptr %struct.acpi_table_desc, ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %20, label %18
 
-19:                                               ; preds = %.preheader2
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 163, ptr noundef nonnull @.str, ptr noundef nonnull %20) #6
+18:                                               ; preds = %.preheader2
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 163, ptr noundef nonnull @.str, ptr noundef nonnull %19) #6
   %.pre = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %.pre5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  br label %21
+  br label %20
 
-21:                                               ; preds = %19, %.preheader2
-  %22 = phi i32 [ %.pre5, %19 ], [ %12, %.preheader2 ]
-  %23 = phi ptr [ %.pre, %19 ], [ %13, %.preheader2 ]
-  %24 = add nuw nsw i64 %14, 1
-  %25 = zext i32 %22 to i64
-  %26 = icmp samesign ult i64 %24, %25
-  br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !6
+20:                                               ; preds = %18, %.preheader2
+  %21 = phi i32 [ %.pre5, %18 ], [ %11, %.preheader2 ]
+  %22 = phi ptr [ %.pre, %18 ], [ %12, %.preheader2 ]
+  %23 = add nuw nsw i64 %13, 1
+  %24 = zext i32 %21 to i64
+  %25 = icmp samesign ult i64 %23, %24
+  br i1 %25, label %.preheader2, label %.loopexit3, !llvm.loop !6
 
-.loopexit3:                                       ; preds = %21
-  %27 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %31, label %.loopexit
+.loopexit3:                                       ; preds = %20
+  %26 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %30, label %.loopexit
 
-.loopexit3.thread:                                ; preds = %8
-  %29 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread, label %.loopexit
+.loopexit3.thread:                                ; preds = %7
+  %28 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %.loopexit3.thread
   store i8 1, ptr @acpi_gbl_enable_table_validation, align 1
   br label %.loopexit
 
-31:                                               ; preds = %.loopexit3
-  %32 = icmp eq i32 %22, 0
+30:                                               ; preds = %.loopexit3
+  %31 = icmp eq i32 %21, 0
   store i8 1, ptr @acpi_gbl_enable_table_validation, align 1
-  br i1 %32, label %.loopexit, label %.preheader
+  br i1 %31, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %31, %44
-  %33 = phi i64 [ %45, %44 ], [ 0, %31 ]
-  %34 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %35 = getelementptr %struct.acpi_table_desc, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 26
-  %37 = load i8, ptr %36, align 2
-  %38 = and i8 %37, 4
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %44
+.preheader:                                       ; preds = %30, %43
+  %32 = phi i64 [ %44, %43 ], [ 0, %30 ]
+  %33 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %34 = getelementptr %struct.acpi_table_desc, ptr %33, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 26
+  %36 = load i8, ptr %35, align 2
+  %37 = and i8 %36, 4
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %43
 
-40:                                               ; preds = %.preheader
-  %41 = call i32 @acpi_tb_verify_temp_table(ptr noundef %35, ptr noundef null, ptr noundef nonnull %1) #6
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %44, label %43
+39:                                               ; preds = %.preheader
+  %40 = call i32 @acpi_tb_verify_temp_table(ptr noundef %34, ptr noundef null, ptr noundef nonnull %1) #6
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %43, label %42
 
-43:                                               ; preds = %40
-  call void @acpi_tb_uninstall_table(ptr noundef %35) #6
-  br label %44
+42:                                               ; preds = %39
+  call void @acpi_tb_uninstall_table(ptr noundef %34) #6
+  br label %43
 
-44:                                               ; preds = %43, %40, %.preheader
-  %45 = add nuw nsw i64 %33, 1
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %47 = zext i32 %46 to i64
-  %48 = icmp samesign ult i64 %45, %47
-  br i1 %48, label %.preheader, label %.loopexit, !llvm.loop !9
+43:                                               ; preds = %42, %39, %.preheader
+  %44 = add nuw nsw i64 %32, 1
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %46 = zext i32 %45 to i64
+  %47 = icmp samesign ult i64 %44, %46
+  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %44, %.thread, %.loopexit3.thread, %31, %.loopexit3
-  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
-  %50 = or i8 %49, 2
-  store i8 %50, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
-  %51 = call i32 @acpi_tb_resize_root_table_list() #6
-  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
-  %53 = or i8 %52, 1
-  store i8 %53, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
-  %54 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
-  br label %55
+.loopexit:                                        ; preds = %43, %.thread, %.loopexit3.thread, %30, %.loopexit3
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %49 = or i8 %48, 2
+  store i8 %49, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %50 = call i32 @acpi_tb_resize_root_table_list() #6
+  %51 = load i8, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %52 = or i8 %51, 1
+  store i8 %52, ptr getelementptr inbounds nuw (i8, ptr @acpi_gbl_root_table_list, i64 16), align 8
+  %53 = call i32 @acpi_ut_release_mutex(i32 noundef 2) #6
+  br label %54
 
-55:                                               ; preds = %.loopexit, %0
-  %56 = phi i32 [ %51, %.loopexit ], [ 15, %0 ]
+54:                                               ; preds = %.loopexit, %0
+  %55 = phi i32 [ %50, %.loopexit ], [ 15, %0 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %56
+  ret i32 %55
 }
 
 ; Function Attrs: null_pointer_is_valid

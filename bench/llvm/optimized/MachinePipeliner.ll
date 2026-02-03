@@ -34502,45 +34502,44 @@ define linkonce_odr hidden i64 @_ZNK4llvm17MachineMemOperand7getSizeEv(ptr nound
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -7
   %spec.select.i.not = icmp eq i64 %4, 0
-  br i1 %spec.select.i.not, label %21, label %5
+  br i1 %spec.select.i.not, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = and i64 %3, 2
   %7 = and i64 %3, 6
   %8 = icmp eq i64 %7, 2
-  %9 = and i64 %3, 1
-  %10 = icmp ne i64 %9, 0
-  %or.cond8.i.i = or i1 %10, %8
-  br i1 %or.cond8.i.i, label %11, label %12
+  %9 = trunc i64 %3 to i1
+  %or.cond7.i.i = or i1 %8, %9
+  br i1 %or.cond7.i.i, label %10, label %11
 
-11:                                               ; preds = %5
+10:                                               ; preds = %5
   %.not.i.i.i.i.not = icmp eq i64 %6, 0
   %.0.in.v.i.i.i = select i1 %.not.i.i.i.i.not, i64 32, i64 48
   %.0.in.i.i.i = lshr i64 %3, %.0.in.v.i.i.i
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit
 
-12:                                               ; preds = %5
-  %13 = lshr i64 %3, 8
-  %.sroa.0.0.insert.ext.i.i.i.i = and i64 %13, 65535
+11:                                               ; preds = %5
+  %12 = lshr i64 %3, 8
+  %.sroa.0.0.insert.ext.i.i.i.i = and i64 %12, 65535
   %.not.i.i1.i.i.not = icmp eq i64 %6, 0
   %.0.in.v.i3.i.i = select i1 %.not.i.i1.i.i.not, i64 32, i64 48
   %.0.in.i4.i.i = lshr i64 %3, %.0.in.v.i3.i.i
-  %14 = mul nuw nsw i64 %.0.in.i4.i.i, %.sroa.0.0.insert.ext.i.i.i.i
-  %15 = and i64 %14, 4294967295
-  %16 = shl i64 %3, 59
-  %17 = and i64 %16, 4611686018427387904
+  %13 = mul nuw nsw i64 %.0.in.i4.i.i, %.sroa.0.0.insert.ext.i.i.i.i
+  %14 = and i64 %13, 4294967295
+  %15 = shl i64 %3, 59
+  %16 = and i64 %15, 4611686018427387904
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit:             ; preds = %11, %12
-  %.sroa.06.0.i.i = phi i64 [ %.0.in.i.i.i, %11 ], [ %15, %12 ]
-  %.sroa.3.0.i.i = phi i64 [ 0, %11 ], [ %17, %12 ]
-  %18 = add nuw nsw i64 %.sroa.06.0.i.i, 7
-  %19 = lshr i64 %18, 3
-  %20 = or disjoint i64 %19, %.sroa.3.0.i.i
-  br label %21
+_ZNK4llvm3LLT14getSizeInBytesEv.exit:             ; preds = %10, %11
+  %.sroa.06.0.i.i = phi i64 [ %.0.in.i.i.i, %10 ], [ %14, %11 ]
+  %.sroa.3.0.i.i = phi i64 [ 0, %10 ], [ %16, %11 ]
+  %17 = add nuw nsw i64 %.sroa.06.0.i.i, 7
+  %18 = lshr i64 %17, 3
+  %19 = or disjoint i64 %18, %.sroa.3.0.i.i
+  br label %20
 
-21:                                               ; preds = %1, %_ZNK4llvm3LLT14getSizeInBytesEv.exit
-  %.sroa.03.0 = phi i64 [ %20, %_ZNK4llvm3LLT14getSizeInBytesEv.exit ], [ -1, %1 ]
+20:                                               ; preds = %1, %_ZNK4llvm3LLT14getSizeInBytesEv.exit
+  %.sroa.03.0 = phi i64 [ %19, %_ZNK4llvm3LLT14getSizeInBytesEv.exit ], [ -1, %1 ]
   ret i64 %.sroa.03.0
 }
 

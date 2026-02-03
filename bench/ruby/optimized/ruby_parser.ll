@@ -535,9 +535,8 @@ define dso_local i64 @rb_node_integer_literal_val(ptr noundef readonly captures(
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @negative_numeric(i64 noundef %0) unnamed_addr #0 {
-  %2 = and i64 %0, 1
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %6, label %3
+  %2 = trunc i64 %0 to i1
+  br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
   %4 = and i64 %0, -2
@@ -553,8 +552,8 @@ define internal fastcc i64 @negative_numeric(i64 noundef %0) unnamed_addr #0 {
 
 11:                                               ; preds = %6
   %12 = and i64 %0, 2
-  %.not30 = icmp eq i64 %12, 0
-  br i1 %.not30, label %88, label %13
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %88, label %13
 
 13:                                               ; preds = %11
   %.not.i.i = icmp eq i64 %0, -9223372036854775806

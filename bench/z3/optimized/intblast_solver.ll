@@ -2460,11 +2460,10 @@ _ZNK3euf6solver13bool_var2exprEj.exit.i:          ; preds = %_ZNK6vectorIP4exprL
   br label %_ZNK3euf6solver12literal2exprEN3sat7literalE.exit
 
 61:                                               ; preds = %_ZNK3euf6solver13bool_var2exprEj.exit.i
-  %62 = and i32 %.sroa.025.0.copyload, 1
-  %.not10.i = icmp eq i32 %62, 0
+  %62 = trunc i32 %.sroa.025.0.copyload to i1
   %63 = getelementptr inbounds nuw i8, ptr %49, i64 136
   %64 = load ptr, ptr %63, align 8, !tbaa !29, !noalias !491
-  br i1 %.not10.i, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i, label %68
+  br i1 %62, label %68, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %61
   store ptr %.pre.i.then.val.i, ptr %6, align 8, !tbaa !483, !alias.scope !491
@@ -5361,11 +5360,10 @@ _ZNK3euf6solver13bool_var2exprEj.exit.i:          ; preds = %_ZNK6vectorIP4exprL
   br label %_ZNK3euf6solver12literal2exprEN3sat7literalE.exit
 
 518:                                              ; preds = %_ZNK3euf6solver13bool_var2exprEj.exit.i
-  %519 = and i32 %.sroa.024.0.copyload, 1
-  %.not10.i = icmp eq i32 %519, 0
+  %519 = trunc i32 %.sroa.024.0.copyload to i1
   %520 = getelementptr inbounds nuw i8, ptr %506, i64 136
   %521 = load ptr, ptr %520, align 8, !tbaa !29, !noalias !527
-  br i1 %.not10.i, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i, label %525
+  br i1 %519, label %525, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %518
   store ptr %.pre.i.then.val.i, ptr %13, align 8, !tbaa !483, !alias.scope !527

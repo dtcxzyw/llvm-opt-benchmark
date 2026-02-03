@@ -2638,12 +2638,12 @@ define internal i32 @heap_vac_scan_next_block(ptr readnone captures(none) %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %12 = load i32, ptr %11, align 4
   %.not38 = icmp eq i32 %12, 0
-  br i1 %.not38, label %67, label %13
+  br i1 %.not38, label %66, label %13
 
 13:                                               ; preds = %10
   tail call void @ReleaseBuffer(i32 noundef %12) #9
   store i32 0, ptr %11, align 4
-  br label %67
+  br label %66
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 292
@@ -2651,7 +2651,7 @@ define internal i32 @heap_vac_scan_next_block(ptr readnone captures(none) %0, pt
   %17 = icmp ugt i32 %7, %16
   %18 = icmp eq i32 %16, -1
   %or.cond = or i1 %17, %18
-  br i1 %or.cond, label %19, label %56
+  br i1 %or.cond, label %19, label %55
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2666,104 +2666,102 @@ define internal i32 @heap_vac_scan_next_block(ptr readnone captures(none) %0, pt
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.outer
 
-.outer:                                           ; preds = %47, %19
-  %.0.ph = phi i1 [ true, %47 ], [ false, %19 ]
-  %.028.in.i.ph = phi i32 [ %.028.i, %47 ], [ %16, %19 ]
+.outer:                                           ; preds = %46, %19
+  %.0.ph = phi i1 [ true, %46 ], [ false, %19 ]
+  %.028.in.i.ph = phi i32 [ %.028.i, %46 ], [ %16, %19 ]
   br label %28
 
-28:                                               ; preds = %.outer, %42
-  %.028.in.i = phi i32 [ %.028.i, %42 ], [ %.028.in.i.ph, %.outer ]
+28:                                               ; preds = %.outer, %41
+  %.028.in.i = phi i32 [ %.028.i, %41 ], [ %.028.in.i.ph, %.outer ]
   %.028.i = add i32 %.028.in.i, 1
   %29 = load ptr, ptr %1, align 8
   %30 = call zeroext i8 @visibilitymap_get_status(ptr noundef %29, i32 noundef %.028.i, ptr noundef nonnull %4) #9
-  %31 = zext i8 %30 to i32
-  %32 = and i32 %31, 1
-  %.not.i = icmp eq i32 %32, 0
-  %33 = load i32, ptr %23, align 8
-  %.not30.i = icmp ult i32 %.028.i, %33
-  br i1 %.not30.i, label %37, label %34
+  %31 = trunc i8 %30 to i1
+  %32 = load i32, ptr %23, align 8
+  %.not.i = icmp ult i32 %.028.i, %32
+  br i1 %.not.i, label %36, label %33
 
-34:                                               ; preds = %28
-  %35 = load i32, ptr %24, align 8
-  store i32 %35, ptr %22, align 4
-  %36 = add i32 %33, 4096
-  store i32 %36, ptr %23, align 8
-  br label %37
+33:                                               ; preds = %28
+  %34 = load i32, ptr %24, align 8
+  store i32 %34, ptr %22, align 4
+  %35 = add i32 %32, 4096
+  store i32 %35, ptr %23, align 8
+  br label %36
 
-37:                                               ; preds = %34, %28
-  %38 = icmp eq i32 %.028.in.i, %25
-  %or.cond.i = or i1 %38, %.not.i
-  br i1 %or.cond.i, label %find_next_unskippable_block.exit, label %39
+36:                                               ; preds = %33, %28
+  %37 = icmp ne i32 %.028.in.i, %25
+  %or.cond.not.i = and i1 %37, %31
+  br i1 %or.cond.not.i, label %38, label %find_next_unskippable_block.exit
 
-39:                                               ; preds = %37
-  %40 = load i8, ptr %26, align 1, !range !4, !noundef !5
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %find_next_unskippable_block.exit
+38:                                               ; preds = %36
+  %39 = load i8, ptr %26, align 1, !range !4, !noundef !5
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %find_next_unskippable_block.exit
 
-42:                                               ; preds = %39
-  %43 = and i32 %31, 2
-  %.not31.i = icmp eq i32 %43, 0
-  br i1 %.not31.i, label %44, label %28
+41:                                               ; preds = %38
+  %42 = and i8 %30, 2
+  %.not30.i = icmp eq i8 %42, 0
+  br i1 %.not30.i, label %43, label %28
 
-44:                                               ; preds = %42
-  %45 = load i8, ptr %27, align 8, !range !4, !noundef !5
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %find_next_unskippable_block.exit, label %47
+43:                                               ; preds = %41
+  %44 = load i8, ptr %27, align 8, !range !4, !noundef !5
+  %45 = trunc nuw i8 %44 to i1
+  br i1 %45, label %find_next_unskippable_block.exit, label %46
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %22, align 4
-  %.not32.i = icmp eq i32 %48, 0
-  br i1 %.not32.i, label %.outer, label %find_next_unskippable_block.exit
+46:                                               ; preds = %43
+  %47 = load i32, ptr %22, align 4
+  %.not31.i = icmp eq i32 %47, 0
+  br i1 %.not31.i, label %.outer, label %find_next_unskippable_block.exit
 
-find_next_unskippable_block.exit:                 ; preds = %44, %47, %37, %39
-  %.1.ph.i = phi i8 [ 0, %37 ], [ 0, %39 ], [ 0, %44 ], [ 1, %47 ]
-  %49 = trunc nuw nsw i32 %32 to i8
+find_next_unskippable_block.exit:                 ; preds = %43, %46, %36, %38
+  %.1.ph.i = phi i8 [ 0, %36 ], [ 0, %38 ], [ 0, %43 ], [ 1, %46 ]
+  %48 = and i8 %30, 1
   store i32 %.028.i, ptr %15, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  store i8 %49, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 297
-  store i8 %.1.ph.i, ptr %51, align 1
-  %52 = load i32, ptr %4, align 4
-  store i32 %52, ptr %20, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  store i8 %48, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 297
+  store i8 %.1.ph.i, ptr %50, align 1
+  %51 = load i32, ptr %4, align 4
+  store i32 %51, ptr %20, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %53 = sub i32 %.028.in.i, %6
-  %54 = icmp ugt i32 %53, 31
-  %brmerge.not = and i1 %54, %.0.ph
-  %.mux = select i1 %54, i32 %.028.i, i32 %7
-  br i1 %brmerge.not, label %.thread, label %56
+  %52 = sub i32 %.028.in.i, %6
+  %53 = icmp ugt i32 %52, 31
+  %brmerge.not = and i1 %53, %.0.ph
+  %.mux = select i1 %53, i32 %.028.i, i32 %7
+  br i1 %brmerge.not, label %.thread, label %55
 
 .thread:                                          ; preds = %find_next_unskippable_block.exit
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i8 1, ptr %55, align 8
-  br label %61
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i8 1, ptr %54, align 8
+  br label %60
 
-56:                                               ; preds = %find_next_unskippable_block.exit, %14
-  %57 = phi i32 [ %16, %14 ], [ %.028.i, %find_next_unskippable_block.exit ]
+55:                                               ; preds = %find_next_unskippable_block.exit, %14
+  %56 = phi i32 [ %16, %14 ], [ %.028.i, %find_next_unskippable_block.exit ]
   %.033 = phi i32 [ %7, %14 ], [ %.mux, %find_next_unskippable_block.exit ]
-  %58 = icmp ult i32 %.033, %57
-  br i1 %58, label %59, label %61
+  %57 = icmp ult i32 %.033, %56
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %56
+58:                                               ; preds = %55
   store i32 %.033, ptr %5, align 8
   store i8 2, ptr %2, align 1
-  %60 = load i32, ptr %5, align 8
-  br label %67
+  %59 = load i32, ptr %5, align 8
+  br label %66
 
-61:                                               ; preds = %.thread, %56
-  %.03347 = phi i32 [ %.028.i, %.thread ], [ %.033, %56 ]
+60:                                               ; preds = %.thread, %55
+  %.03347 = phi i32 [ %.028.i, %.thread ], [ %.033, %55 ]
   store i32 %.03347, ptr %5, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %63 = load i8, ptr %62, align 8, !range !4, !noundef !5
-  %spec.select = shl nuw nsw i8 %63, 1
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 297
-  %65 = load i8, ptr %64, align 1, !range !4, !noundef !5
-  %.1 = or disjoint i8 %spec.select, %65
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %62 = load i8, ptr %61, align 8, !range !4, !noundef !5
+  %spec.select = shl nuw nsw i8 %62, 1
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 297
+  %64 = load i8, ptr %63, align 1, !range !4, !noundef !5
+  %.1 = or disjoint i8 %spec.select, %64
   store i8 %.1, ptr %2, align 1
-  %66 = load i32, ptr %5, align 8
-  br label %67
+  %65 = load i32, ptr %5, align 8
+  br label %66
 
-67:                                               ; preds = %10, %13, %61, %59
-  %.032 = phi i32 [ %66, %61 ], [ %60, %59 ], [ -1, %13 ], [ -1, %10 ]
+66:                                               ; preds = %10, %13, %60, %58
+  %.032 = phi i32 [ %65, %60 ], [ %59, %58 ], [ -1, %13 ], [ -1, %10 ]
   ret i32 %.032
 }
 

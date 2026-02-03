@@ -8806,46 +8806,45 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %10
 define linkonce_odr noundef signext i8 @_ZN6icu_7713UnicodeString8truncateEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8, !tbaa !25
-  %5 = and i16 %4, 1
-  %6 = icmp ne i16 %5, 0
-  %7 = icmp eq i32 %1, 0
-  %or.cond = and i1 %7, %6
-  br i1 %or.cond, label %8, label %9
+  %5 = trunc i16 %4 to i1
+  %6 = icmp eq i32 %1, 0
+  %or.cond = and i1 %6, %5
+  br i1 %or.cond, label %7, label %8
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %_ZN6icu_7713UnicodeString9setLengthEi.exit
 
-9:                                                ; preds = %2
-  %10 = icmp slt i16 %4, 0
-  %11 = ashr i16 %4, 5
-  %12 = sext i16 %11 to i32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4
-  %15 = select i1 %10, i32 %14, i32 %12
-  %16 = icmp ult i32 %1, %15
-  br i1 %16, label %17, label %_ZN6icu_7713UnicodeString9setLengthEi.exit
+8:                                                ; preds = %2
+  %9 = icmp slt i16 %4, 0
+  %10 = ashr i16 %4, 5
+  %11 = sext i16 %10 to i32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = load i32, ptr %12, align 4
+  %14 = select i1 %9, i32 %13, i32 %11
+  %15 = icmp ult i32 %1, %14
+  br i1 %15, label %16, label %_ZN6icu_7713UnicodeString9setLengthEi.exit
 
-17:                                               ; preds = %9
-  %18 = icmp slt i32 %1, 1024
-  br i1 %18, label %19, label %23
+16:                                               ; preds = %8
+  %17 = icmp slt i32 %1, 1024
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %17
-  %20 = and i16 %4, 31
+18:                                               ; preds = %16
+  %19 = and i16 %4, 31
   %.tr.i.i = trunc i32 %1 to i16
-  %21 = shl i16 %.tr.i.i, 5
-  %22 = or disjoint i16 %20, %21
-  store i16 %22, ptr %3, align 8, !tbaa !25
+  %20 = shl i16 %.tr.i.i, 5
+  %21 = or disjoint i16 %19, %20
+  store i16 %21, ptr %3, align 8, !tbaa !25
   br label %_ZN6icu_7713UnicodeString9setLengthEi.exit
 
-23:                                               ; preds = %17
-  %24 = or i16 %4, -32
-  store i16 %24, ptr %3, align 8, !tbaa !25
-  store i32 %1, ptr %13, align 4, !tbaa !25
+22:                                               ; preds = %16
+  %23 = or i16 %4, -32
+  store i16 %23, ptr %3, align 8, !tbaa !25
+  store i32 %1, ptr %12, align 4, !tbaa !25
   br label %_ZN6icu_7713UnicodeString9setLengthEi.exit
 
-_ZN6icu_7713UnicodeString9setLengthEi.exit:       ; preds = %23, %19, %9, %8
-  %.0 = phi i8 [ 0, %8 ], [ 0, %9 ], [ 1, %19 ], [ 1, %23 ]
+_ZN6icu_7713UnicodeString9setLengthEi.exit:       ; preds = %22, %18, %8, %7
+  %.0 = phi i8 [ 0, %7 ], [ 0, %8 ], [ 1, %18 ], [ 1, %22 ]
   ret i8 %.0
 }
 

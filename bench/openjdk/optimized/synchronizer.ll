@@ -526,14 +526,13 @@ define hidden void @_ZN33ObjectMonitorDeflationSafepointer19block_for_safepointE
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1096
   %7 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  %8 = and i64 %7, 1
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit, label %9
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %9, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
 
 9:                                                ; preds = %4
   %10 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i = icmp eq i32 %10, 0
-  br i1 %.not5.i, label %11, label %17
+  %.not.i = icmp eq i32 %10, 0
+  br i1 %.not.i, label %11, label %17
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 1384
@@ -579,14 +578,13 @@ _ZN29ObjectMonitorDeflationLogging26before_block_for_safepointEPKcS1_m.exit: ; p
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1096
   %32 = load volatile i64, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  %33 = and i64 %32, 1
-  %.not.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %34
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %34, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 34:                                               ; preds = %_ZN29ObjectMonitorDeflationLogging26before_block_for_safepointEPKcS1_m.exit
   %35 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %35, 0
-  br i1 %.not5.i.i, label %36, label %42
+  %.not.i.i.i = icmp eq i32 %35, 0
+  br i1 %.not.i.i.i, label %36, label %42
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 1384
@@ -599,27 +597,26 @@ _ZN29ObjectMonitorDeflationLogging26before_block_for_safepointEPKcS1_m.exit: ; p
 
 41:                                               ; preds = %39
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %28) #19
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 42:                                               ; preds = %39, %36, %34
   %43 = load volatile i64, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  %44 = and i64 %43, 1
-  %.not.i1.i = icmp eq i64 %44, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %45
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %45, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 45:                                               ; preds = %42
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %28, i1 noundef zeroext false, i1 noundef zeroext false) #19
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN29ObjectMonitorDeflationLogging26before_block_for_safepointEPKcS1_m.exit, %41, %42, %45
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN29ObjectMonitorDeflationLogging26before_block_for_safepointEPKcS1_m.exit, %41, %42, %45
   %46 = load ptr, ptr %18, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 320
   %48 = load ptr, ptr %47, align 8
   %.not.i5 = icmp eq ptr %48, null
   br i1 %.not.i5, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit, label %49
 
-49:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+49:                                               ; preds = %_ZN15ThreadBlockInVMD2Ev.exit
   %50 = load i64, ptr @_ZL20_in_use_list_ceiling, align 8
   %51 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ObjectSynchronizer12_in_use_listE, i64 8), align 8
   %52 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN18ObjectSynchronizer12_in_use_listE, i64 16), align 8
@@ -628,7 +625,7 @@ _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN29Objec
   tail call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) %53) #19
   br label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
 
-_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %49, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, %16, %4
+_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %49, %_ZN15ThreadBlockInVMD2Ev.exit, %16, %4
   ret void
 }
 
@@ -3142,19 +3139,19 @@ _ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit: ; preds = %0, %5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   br label %10
 
-10:                                               ; preds = %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
-  %.014 = phi i32 [ 0, %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit ], [ %30, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit ]
+10:                                               ; preds = %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit, %_ZN15ThreadBlockInVMD2Ev.exit
+  %.015 = phi i32 [ 0, %_ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit ], [ %30, %_ZN15ThreadBlockInVMD2Ev.exit ]
   %11 = load i64, ptr @_ZN18ObjectSynchronizer29_last_async_deflation_time_nsE, align 8
   %12 = icmp sgt i64 %11, %3
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
   %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not11 = icmp eq ptr %14, null
-  br i1 %.not11, label %33, label %15
+  %.not12 = icmp eq ptr %14, null
+  br i1 %.not12, label %33, label %15
 
 15:                                               ; preds = %13
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15, i32 noundef %.014)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.15, i32 noundef %.015)
   br label %33
 
 16:                                               ; preds = %10
@@ -3167,14 +3164,13 @@ _ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit: ; preds = %0, %5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
   %17 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  %18 = and i64 %17, 1
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 19:                                               ; preds = %16
   %20 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %20, 0
-  br i1 %.not5.i.i, label %21, label %26
+  %.not.i.i.i7 = icmp eq i32 %20, 0
+  br i1 %.not.i.i.i7, label %21, label %26
 
 21:                                               ; preds = %19
   %22 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %9, i1 noundef zeroext false, i1 noundef zeroext false) #19
@@ -3186,25 +3182,24 @@ _ZN18ObjectSynchronizer29request_deflate_idle_monitorsEv.exit: ; preds = %0, %5
 
 25:                                               ; preds = %23
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %2) #19
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 26:                                               ; preds = %23, %21, %19
   %27 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !10
-  %28 = and i64 %27, 1
-  %.not.i1.i = icmp eq i64 %28, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 29:                                               ; preds = %26
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false) #19
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %16, %25, %26, %29
-  %30 = add nuw nsw i32 %.014, 1
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %16, %25, %26, %29
+  %30 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %30, 5
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !41
 
-.critedge:                                        ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+.critedge:                                        ; preds = %_ZN15ThreadBlockInVMD2Ev.exit
   %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %33, label %32
@@ -4437,31 +4432,30 @@ _ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i: ; preds = %76, %_ZN29ObjectMon
 
 _ZL15delete_monitorsP13GrowableArrayIP13ObjectMonitorEP33ObjectMonitorDeflationSafepointer.exit: ; preds = %._crit_edge.i, %88
   %89 = load i64, ptr %58, align 8
-  %90 = and i64 %89, 1
-  %.not.i21 = icmp eq i64 %90, 0
-  br i1 %.not.i21, label %_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit, label %91
+  %90 = trunc i64 %89 to i1
+  br i1 %90, label %91, label %_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit
 
 91:                                               ; preds = %_ZL15delete_monitorsP13GrowableArrayIP13ObjectMonitorEP33ObjectMonitorDeflationSafepointer.exit
   store i32 0, ptr %3, align 8
   %92 = load i32, ptr %53, align 4
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit, label %.loopexit.i
+  br i1 %93, label %_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit, label %.loopexit.i.i.i
 
-.loopexit.i:                                      ; preds = %91
+.loopexit.i.i.i:                                  ; preds = %91
   %94 = load ptr, ptr %54, align 8
   store i32 0, ptr %53, align 4
-  %.not.i23 = icmp eq ptr %94, null
-  br i1 %.not.i23, label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
+  %.not.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i.i.i, label %.loopexit.thread.i.i.i
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %94) #19
-  br label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i
+  br label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i.i.i
 
-_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
+_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i.i.i: ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
   store ptr null, ptr %54, align 8
   br label %_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit
 
-_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit:    ; preds = %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i, %91, %_ZL15delete_monitorsP13GrowableArrayIP13ObjectMonitorEP33ObjectMonitorDeflationSafepointer.exit
+_ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit:    ; preds = %_ZL15delete_monitorsP13GrowableArrayIP13ObjectMonitorEP33ObjectMonitorDeflationSafepointer.exit, %91, %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit.i.i.i
   %95 = load ptr, ptr %44, align 8
   %.not.i.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i.i.i, label %97, label %96
@@ -4483,17 +4477,17 @@ _ZN13GrowableArrayIP13ObjectMonitorED2Ev.exit:    ; preds = %_ZN13GrowableArrayI
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN29ObjectMonitorDeflationLogging5beginEv.exit, %99, %97, %_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer.exit
-  %.not33 = phi i1 [ false, %99 ], [ true, %_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer.exit ], [ false, %97 ], [ true, %_ZN29ObjectMonitorDeflationLogging5beginEv.exit ]
-  %.0.lcssa.i32 = phi i64 [ %spec.select.i, %99 ], [ 0, %_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer.exit ], [ %spec.select.i, %97 ], [ 0, %_ZN29ObjectMonitorDeflationLogging5beginEv.exit ]
+  %.not29 = phi i1 [ false, %99 ], [ true, %_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer.exit ], [ false, %97 ], [ true, %_ZN29ObjectMonitorDeflationLogging5beginEv.exit ]
+  %.0.lcssa.i28 = phi i64 [ %spec.select.i, %99 ], [ 0, %_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer.exit ], [ %spec.select.i, %97 ], [ 0, %_ZN29ObjectMonitorDeflationLogging5beginEv.exit ]
   %.0 = phi i64 [ %59, %99 ], [ 0, %_ZN18ObjectSynchronizer20deflate_monitor_listEP33ObjectMonitorDeflationSafepointer.exit ], [ %59, %97 ], [ 0, %_ZN29ObjectMonitorDeflationLogging5beginEv.exit ]
   %100 = load ptr, ptr %14, align 8
-  %.not.i22 = icmp eq ptr %100, null
-  br i1 %.not.i22, label %_ZN29ObjectMonitorDeflationLogging3endEmm.exit, label %101
+  %.not.i21 = icmp eq ptr %100, null
+  br i1 %.not.i21, label %_ZN29ObjectMonitorDeflationLogging3endEmm.exit, label %101
 
 101:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 328
   call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) %102) #19
-  %103 = or i64 %.0, %.0.lcssa.i32
+  %103 = or i64 %.0, %.0.lcssa.i28
   %or.cond.not.i = icmp eq i64 %103, 0
   br i1 %or.cond.not.i, label %104, label %111
 
@@ -4510,7 +4504,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN29ObjectMonitorD
 111:                                              ; preds = %104, %101
   %112 = load ptr, ptr %14, align 8
   %113 = call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) %102) #19
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull @.str.86, i64 noundef %.0.lcssa.i32, i64 noundef %.0, double noundef %113) #19
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull @.str.86, i64 noundef %.0.lcssa.i28, i64 noundef %.0, double noundef %113) #19
   br label %114
 
 114:                                              ; preds = %111, %104
@@ -4552,14 +4546,14 @@ _ZN29ObjectMonitorDeflationLogging3endEmm.exit:   ; preds = %_ZN12ResourceMarkD2
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %134 = load ptr, ptr %133, align 8
   %135 = load i64, ptr %134, align 8
-  %136 = add nsw i64 %135, %.0.lcssa.i32
+  %136 = add nsw i64 %135, %.0.lcssa.i28
   store i64 %136, ptr %134, align 8
   br label %137
 
 137:                                              ; preds = %132, %129, %127
   %138 = call noundef i32 @_ZN2os6randomEv() #19
   store volatile i32 %138, ptr getelementptr inbounds nuw (i8, ptr @_ZL5GVars, i64 64), align 4
-  br i1 %.not33, label %140, label %139
+  br i1 %.not29, label %140, label %139
 
 139:                                              ; preds = %137
   store i64 0, ptr @_ZL16_no_progress_cnt, align 8
@@ -4582,7 +4576,7 @@ _ZN29ObjectMonitorDeflationLogging3endEmm.exit:   ; preds = %_ZN12ResourceMarkD2
 145:                                              ; preds = %141, %142, %139
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %11) #19
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %1) #19
-  ret i64 %.0.lcssa.i32
+  ret i64 %.0.lcssa.i28
 }
 
 declare void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef) local_unnamed_addr #3
@@ -7062,9 +7056,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP13ObjectMonito
   br label %_ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -7081,25 +7074,25 @@ _ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit: ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -7112,29 +7105,28 @@ _ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !47
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !47
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !48
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !48
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIP13ObjectMonitorE10deallocateEPS1_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #19

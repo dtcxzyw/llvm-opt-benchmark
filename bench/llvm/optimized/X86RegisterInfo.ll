@@ -1503,35 +1503,34 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18X86GenRegisterInfo29isGeneralPur
   %9 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR64SubClassMaskE, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !285
   %11 = and i32 %6, 31
-  %12 = shl nuw i32 1, %11
-  %13 = and i32 %12, %10
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %27
+  %12 = lshr i32 %10, %11
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %29, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR32SubClassMaskE, i64 %8
   %16 = load i32, ptr %15, align 4, !tbaa !285
-  %17 = and i32 %16, %12
-  %.not4 = icmp eq i32 %17, 0
-  br i1 %.not4, label %18, label %27
+  %17 = lshr i32 %16, %11
+  %18 = trunc i32 %17 to i1
+  br i1 %18, label %29, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR16SubClassMaskE, i64 %8
-  %20 = load i32, ptr %19, align 4, !tbaa !285
-  %21 = and i32 %20, %12
-  %.not5 = icmp eq i32 %21, 0
-  br i1 %.not5, label %22, label %27
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR16SubClassMaskE, i64 %8
+  %21 = load i32, ptr %20, align 4, !tbaa !285
+  %22 = lshr i32 %21, %11
+  %23 = trunc i32 %22 to i1
+  br i1 %23, label %29, label %24
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL15GR8SubClassMaskE, i64 %8
-  %24 = load i32, ptr %23, align 4, !tbaa !285
-  %25 = and i32 %24, %12
-  %26 = icmp ne i32 %25, 0
-  br label %27
+24:                                               ; preds = %19
+  %25 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL15GR8SubClassMaskE, i64 %8
+  %26 = load i32, ptr %25, align 4, !tbaa !285
+  %27 = lshr i32 %26, %11
+  %28 = trunc i32 %27 to i1
+  br label %29
 
-27:                                               ; preds = %22, %18, %14, %2
-  %28 = phi i1 [ %26, %22 ], [ true, %18 ], [ true, %14 ], [ true, %2 ]
-  ret i1 %28
+29:                                               ; preds = %24, %19, %14, %2
+  %30 = phi i1 [ %28, %24 ], [ true, %19 ], [ true, %14 ], [ true, %2 ]
+  ret i1 %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -2528,36 +2527,34 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15X86RegisterInfo20shouldRewriteCo
   %12 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR64SubClassMaskE, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !285
   %14 = and i32 %9, 31
-  %15 = shl nuw i32 1, %14
-  %16 = and i32 %15, %13
-  %17 = icmp ne i32 %16, 0
-  %18 = icmp eq i32 %2, 0
-  %or.cond = and i1 %18, %17
-  br i1 %or.cond, label %19, label %33
+  %15 = lshr i32 %13, %14
+  %16 = trunc i32 %15 to i1
+  %17 = icmp eq i32 %2, 0
+  %or.cond = and i1 %17, %16
+  br i1 %or.cond, label %18, label %31
 
-19:                                               ; preds = %5
-  %20 = load ptr, ptr %3, align 8, !tbaa !273
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load i16, ptr %21, align 8, !tbaa !275
-  %23 = zext i16 %22 to i32
-  %24 = lshr i32 %23, 5
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR64SubClassMaskE, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !285
-  %28 = and i32 %23, 31
-  %29 = shl nuw i32 1, %28
-  %30 = and i32 %29, %27
-  %31 = icmp ne i32 %30, 0
-  %32 = icmp eq i32 %4, 6
-  %or.cond3 = and i1 %32, %31
-  br i1 %or.cond3, label %35, label %33
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %3, align 8, !tbaa !273
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %21 = load i16, ptr %20, align 8, !tbaa !275
+  %22 = zext i16 %21 to i32
+  %23 = lshr i32 %22, 5
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i32, ptr @_ZN4llvmL16GR64SubClassMaskE, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !285
+  %27 = and i32 %22, 31
+  %28 = lshr i32 %26, %27
+  %29 = trunc i32 %28 to i1
+  %30 = icmp eq i32 %4, 6
+  %or.cond3 = and i1 %30, %29
+  br i1 %or.cond3, label %33, label %31
 
-33:                                               ; preds = %19, %5
-  %34 = tail call noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo20shouldRewriteCopySrcEPKNS_19TargetRegisterClassEjS3_j(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #23
-  br label %35
+31:                                               ; preds = %18, %5
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo20shouldRewriteCopySrcEPKNS_19TargetRegisterClassEjS3_j(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #23
+  br label %33
 
-35:                                               ; preds = %19, %33
-  %.0 = phi i1 [ %34, %33 ], [ false, %19 ]
+33:                                               ; preds = %18, %31
+  %.0 = phi i1 [ %32, %31 ], [ false, %18 ]
   ret i1 %.0
 }
 

@@ -2013,9 +2013,9 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
   %wide.trip.count = zext i32 %10 to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph, %121
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
-  %.03255 = phi i32 [ %10, %.lr.ph ], [ %.1, %121 ]
+59:                                               ; preds = %.lr.ph, %120
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
+  %.03255 = phi i32 [ %10, %.lr.ph ], [ %.1, %120 ]
   %60 = load ptr, ptr %11, align 8, !tbaa !36
   %61 = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %60, i64 %6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -2023,7 +2023,7 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !91, !range !58, !noundef !59
   %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %121, label %67
+  br i1 %66, label %120, label %67
 
 67:                                               ; preds = %59
   %68 = load ptr, ptr %3, align 8, !tbaa !31
@@ -2056,86 +2056,85 @@ _ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT
   br label %.loopexit
 
 _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit: ; preds = %83
-  %87 = and i32 %74, 1
-  %88 = icmp ne i32 %87, 0
-  %89 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %80, i1 noundef zeroext %88)
+  %87 = trunc i32 %74 to i1
+  %88 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp27check_ineq_atom_satisfiableEPKNS_9ineq_atomEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %80, i1 noundef zeroext %87)
   %.pre = load ptr, ptr %11, align 8, !tbaa !36
   %.phi.trans.insert = getelementptr inbounds nuw %"struct.nlsat::simple_checker::imp::Clause_Visit_Tag", ptr %.pre, i64 %6
-  br i1 %89, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, label %93
+  br i1 %88, label %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, label %92
 
 _ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread: ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
   %.pre58 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !43, !range !58
-  %90 = trunc nuw i8 %.pre58 to i1
-  %91 = icmp ne i32 %.03255, %10
-  %or.cond.not = select i1 %90, i1 true, i1 %91
-  %92 = trunc nuw i64 %indvars.iv to i32
-  br i1 %or.cond.not, label %.loopexit, label %121
+  %89 = trunc nuw i8 %.pre58 to i1
+  %90 = icmp ne i32 %.03255, %10
+  %or.cond.not = select i1 %89, i1 true, i1 %90
+  %91 = trunc nuw i64 %indvars.iv to i32
+  br i1 %or.cond.not, label %.loopexit, label %120
 
-93:                                               ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
-  %94 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !37
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %indvars.iv
-  store i8 1, ptr %96, align 1, !tbaa !91
-  %97 = load ptr, ptr %3, align 8, !tbaa !31
-  %98 = load ptr, ptr %97, align 8, !tbaa !32
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %6
-  %100 = load ptr, ptr %99, align 8, !tbaa !86
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %102 = getelementptr inbounds nuw %"class.sat::literal", ptr %101, i64 %indvars.iv
-  %103 = load i32, ptr %102, align 4, !tbaa !19
-  %104 = xor i32 %103, 1
-  %105 = load ptr, ptr %58, align 8, !tbaa !104
-  %106 = load ptr, ptr %105, align 8, !tbaa !105
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %114, label %108
+92:                                               ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit
+  %93 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !37
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv
+  store i8 1, ptr %95, align 1, !tbaa !91
+  %96 = load ptr, ptr %3, align 8, !tbaa !31
+  %97 = load ptr, ptr %96, align 8, !tbaa !32
+  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %6
+  %99 = load ptr, ptr %98, align 8, !tbaa !86
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw %"class.sat::literal", ptr %100, i64 %indvars.iv
+  %102 = load i32, ptr %101, align 4, !tbaa !19
+  %103 = xor i32 %102, 1
+  %104 = load ptr, ptr %58, align 8, !tbaa !104
+  %105 = load ptr, ptr %104, align 8, !tbaa !105
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %113, label %107
 
-108:                                              ; preds = %93
-  %109 = getelementptr inbounds i8, ptr %106, i64 -4
-  %110 = load i32, ptr %109, align 4, !tbaa !19
-  %111 = getelementptr inbounds i8, ptr %106, i64 -8
-  %112 = load i32, ptr %111, align 4, !tbaa !19
-  %113 = icmp eq i32 %110, %112
-  br i1 %113, label %114, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
+107:                                              ; preds = %92
+  %108 = getelementptr inbounds i8, ptr %105, i64 -4
+  %109 = load i32, ptr %108, align 4, !tbaa !19
+  %110 = getelementptr inbounds i8, ptr %105, i64 -8
+  %111 = load i32, ptr %110, align 4, !tbaa !19
+  %112 = icmp eq i32 %109, %111
+  br i1 %112, label %113, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
-114:                                              ; preds = %108, %93
-  tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
-  %.pre.i = load ptr, ptr %105, align 8, !tbaa !105
+113:                                              ; preds = %107, %92
+  tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %104)
+  %.pre.i = load ptr, ptr %104, align 8, !tbaa !105
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !19
   br label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
 
-_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %108, %114
-  %115 = phi i32 [ %.pre2.i, %114 ], [ %110, %108 ]
-  %116 = phi ptr [ %.pre.i, %114 ], [ %106, %108 ]
-  %117 = getelementptr inbounds i8, ptr %116, i64 -4
-  %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds nuw %"class.sat::literal", ptr %116, i64 %118
-  store i32 %104, ptr %119, align 4, !tbaa !19
-  %120 = add i32 %115, 1
-  store i32 %120, ptr %117, align 4, !tbaa !19
-  br label %121
+_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %107, %113
+  %114 = phi i32 [ %.pre2.i, %113 ], [ %109, %107 ]
+  %115 = phi ptr [ %.pre.i, %113 ], [ %105, %107 ]
+  %116 = getelementptr inbounds i8, ptr %115, i64 -4
+  %117 = zext i32 %114 to i64
+  %118 = getelementptr inbounds nuw %"class.sat::literal", ptr %115, i64 %117
+  store i32 %103, ptr %118, align 4, !tbaa !19
+  %119 = add i32 %114, 1
+  store i32 %119, ptr %116, align 4, !tbaa !19
+  br label %120
 
-121:                                              ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %59
-  %.1 = phi i32 [ %.03255, %59 ], [ %.03255, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %92, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
+120:                                              ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %59
+  %.1 = phi i32 [ %.03255, %59 ], [ %.03255, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %91, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %59, !llvm.loop !108
 
-.critedge:                                        ; preds = %121, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
-  %.032.lcssa = phi i32 [ 0, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit ], [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i ], [ 0, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread ], [ %.1, %121 ]
+.critedge:                                        ; preds = %120, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit
+  %.032.lcssa = phi i32 [ 0, %_ZN6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE6resizeIS3_EEvjT_z.exit ], [ 0, %_ZNK6vectorIN5nlsat14simple_checker3imp17special_ineq_kindELb1EjE4sizeEv.exit.i ], [ 0, %_ZN6vectorIbLb0EjE6resizeIbEEvjT_z.exit.thread ], [ %.1, %120 ]
   %.not36 = icmp eq i32 %.032.lcssa, %10
-  br i1 %.not36, label %.loopexit, label %122
+  br i1 %.not36, label %.loopexit, label %121
 
-122:                                              ; preds = %.critedge
-  %123 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24collect_domain_axbc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
-  br i1 %123, label %124, label %.loopexit
+121:                                              ; preds = %.critedge
+  %122 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24collect_domain_axbc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
+  br i1 %122, label %123, label %.loopexit
 
-124:                                              ; preds = %122
-  %125 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25collect_domain_axbsc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
+123:                                              ; preds = %121
+  %124 = tail call noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25collect_domain_axbsc_formEjj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %.032.lcssa)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %82, %86, %.critedge, %124, %122
-  %.134 = phi i1 [ false, %122 ], [ %125, %124 ], [ false, %.critedge ], [ true, %82 ], [ true, %86 ], [ true, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
+.loopexit:                                        ; preds = %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread, %82, %86, %.critedge, %123, %121
+  %.134 = phi i1 [ false, %121 ], [ %124, %123 ], [ false, %.critedge ], [ true, %82 ], [ true, %86 ], [ true, %_ZN5nlsat14simple_checker3imp25check_literal_satisfiableEjj.exit.thread ]
   ret i1 %.134
 }
 
@@ -2155,8 +2154,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
   %15 = zext i32 %2 to i64
   %16 = getelementptr inbounds nuw %"class.sat::literal", ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !19
-  %18 = and i32 %17, 1
-  %.not = icmp eq i32 %18, 0
+  %18 = trunc i32 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !95
   %21 = lshr i32 %17, 1
@@ -2233,7 +2231,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp24co
 _ZN5nlsat14simple_checker3imp12to_sign_kindENS_4atom4kindE.exit: ; preds = %50, %.noexc
   %.0.i = phi i32 [ %58, %50 ], [ 0, %.noexc ]
   %switch.offset = sub nuw nsw i32 6, %.0.i
-  %.0 = select i1 %.not, i32 %.0.i, i32 %switch.offset
+  %.0 = select i1 %18, i32 %switch.offset, i32 %.0.i
   %61 = load i32, ptr %4, align 4, !tbaa !19
   %62 = load i32, ptr %7, align 4, !tbaa !19
   %63 = invoke noundef zeroext i1 @_ZN5nlsat14simple_checker3imp17update_var_domainENS1_9sign_kindERK15_scoped_numeralIN17algebraic_numbers7managerEEjjS8_(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.0, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %61, i32 noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -2311,8 +2309,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
   %19 = zext i32 %2 to i64
   %20 = getelementptr inbounds nuw %"class.sat::literal", ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !19
-  %22 = and i32 %21, 1
-  %.not = icmp eq i32 %22, 0
+  %22 = trunc i32 %21 to i1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !95
   %25 = lshr i32 %21, 1
@@ -2349,8 +2346,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp25co
           to label %.preheader unwind label %49
 
 .preheader:                                       ; preds = %40
-  %.not59 = icmp eq i32 %46, 0
-  br i1 %.not59, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2469,14 +2466,14 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit: ; preds = %62
 
 _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.preheader: ; preds = %92
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr, i64 -4
-  %.pre60 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
+  %.pre59 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
   %94 = load i32, ptr %11, align 4, !tbaa !19
-  %95 = icmp ugt i32 %.pre60, %94
+  %95 = icmp ugt i32 %.pre59, %94
   br i1 %95, label %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4backEv.exit.i, label %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.thread
 
 _ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4backEv.exit.i: ; preds = %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.preheader, %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE8pop_backEv.exit
   %96 = phi ptr [ %106, %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE8pop_backEv.exit ], [ %.pr, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.preheader ]
-  %97 = phi i32 [ %109, %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE8pop_backEv.exit ], [ %.pre60, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.preheader ]
+  %97 = phi i32 [ %109, %_ZN6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE8pop_backEv.exit ], [ %.pre59, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.preheader ]
   %98 = add i32 %97, -1
   %99 = zext i32 %98 to i64
   %100 = getelementptr inbounds nuw %class._scoped_numeral, ptr %96, i64 %99
@@ -2517,10 +2514,10 @@ _ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.t
 
 _ZN5nlsat14simple_checker3imp12to_sign_kindENS_4atom4kindE.exit: ; preds = %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.thread, %.noexc46
   %.0.i45 = phi i32 [ %112, %_ZNK6vectorI15_scoped_numeralIN17algebraic_numbers7managerEELb1EjE4sizeEv.exit.thread ], [ 0, %.noexc46 ]
-  br i1 %.not, label %116, label %115
+  br i1 %22, label %115, label %116
 
 115:                                              ; preds = %_ZN5nlsat14simple_checker3imp12to_sign_kindENS_4atom4kindE.exit
-  switch i32 %.0.i45, label %default.unreachable75 [
+  switch i32 %.0.i45, label %default.unreachable74 [
     i32 0, label %140
     i32 1, label %116
     i32 2, label %switch.edge
@@ -2539,7 +2536,7 @@ _ZN5nlsat14simple_checker3imp12to_sign_kindENS_4atom4kindE.exit: ; preds = %_ZNK
 switch.edge:                                      ; preds = %115
   br label %116
 
-default.unreachable75:                            ; preds = %115
+default.unreachable74:                            ; preds = %115
   unreachable
 
 116:                                              ; preds = %switch.edge, %115, %_ZN5nlsat14simple_checker3imp12to_sign_kindENS_4atom4kindE.exit
@@ -4368,7 +4365,7 @@ _ZNK6vectorIPN5nlsat14simple_checker3imp8EndpointELb0EjE4sizeEv.exit:
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 6
   %or.cond.i.not = icmp eq i8 %21, 6
-  br i1 %or.cond.i.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread, label %48
+  br i1 %or.cond.i.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread, label %47
 
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -4380,7 +4377,7 @@ _ZNK6vectorIPN5nlsat14simple_checker3imp8EndpointELb0EjE4sizeEv.exit:
 26:                                               ; preds = %22
   %27 = and i8 %24, 4
   %.not21.i = icmp eq i8 %27, 0
-  br i1 %.not21.i, label %48, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %.not21.i, label %47, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -4388,7 +4385,7 @@ _ZNK6vectorIPN5nlsat14simple_checker3imp8EndpointELb0EjE4sizeEv.exit:
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %33 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %30, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-  br i1 %33, label %34, label %45
+  br i1 %33, label %34, label %44
 
 34:                                               ; preds = %28
   %35 = load i8, ptr %13, align 8
@@ -4400,120 +4397,118 @@ _ZNK6vectorIPN5nlsat14simple_checker3imp8EndpointELb0EjE4sizeEv.exit:
 38:                                               ; preds = %34
   %39 = and i8 %37, 5
   %or.cond = icmp eq i8 %39, 5
-  br i1 %or.cond, label %48, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %or.cond, label %47, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
 40:                                               ; preds = %34
-  %41 = and i8 %37, 1
-  %.not14.i.not = icmp eq i8 %41, 0
-  %42 = and i8 %35, 4
-  %.not18.i = icmp eq i8 %42, 0
-  br i1 %.not14.i.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit, label %43
+  %.not14.i = trunc i8 %37 to i1
+  %41 = and i8 %35, 4
+  %.not18.i = icmp eq i8 %41, 0
+  br i1 %.not14.i, label %42, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
 
-43:                                               ; preds = %40
-  %44 = and i8 %37, 4
-  %.not20.i = icmp ne i8 %44, 0
+42:                                               ; preds = %40
+  %43 = and i8 %37, 4
+  %.not20.i = icmp ne i8 %43, 0
   %or.cond27.not.i = and i1 %.not18.i, %.not20.i
-  br i1 %or.cond27.not.i, label %48, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %or.cond27.not.i, label %47, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-45:                                               ; preds = %28
-  %46 = load ptr, ptr %29, align 8, !tbaa !50
-  %47 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %46, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-  br i1 %47, label %48, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+44:                                               ; preds = %28
+  %45 = load ptr, ptr %29, align 8, !tbaa !50
+  %46 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %45, ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
+  br i1 %46, label %47, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit: ; preds = %40
-  br i1 %.not18.i, label %48, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %.not18.i, label %47, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-48:                                               ; preds = %38, %43, %26, %18, %45, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
-  %49 = load ptr, ptr %1, align 8, !tbaa !129
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
-  %51 = load ptr, ptr %50, align 8, !tbaa !132
-  store ptr %51, ptr %3, align 8, !tbaa !132
+47:                                               ; preds = %38, %42, %26, %18, %44, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+  %48 = load ptr, ptr %1, align 8, !tbaa !129
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8, !tbaa !132
+  store ptr %50, ptr %3, align 8, !tbaa !132
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %16, %38, %43, %26, %18, %45, %48, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
-  %52 = load ptr, ptr %1, align 8, !tbaa !129
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8, !tbaa !132
-  %55 = load ptr, ptr %2, align 8, !tbaa !132
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %57 = load i8, ptr %56, align 8
-  %58 = and i8 %57, 2
-  %.not.i19 = icmp eq i8 %58, 0
-  br i1 %.not.i19, label %65, label %59
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %16, %38, %42, %26, %18, %44, %47, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+  %51 = load ptr, ptr %1, align 8, !tbaa !129
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %53 = load ptr, ptr %52, align 8, !tbaa !132
+  %54 = load ptr, ptr %2, align 8, !tbaa !132
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %56 = load i8, ptr %55, align 8
+  %57 = and i8 %56, 2
+  %.not.i19 = icmp eq i8 %57, 0
+  br i1 %.not.i19, label %64, label %58
 
-59:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
-  %60 = and i8 %57, 4
-  %.not22.i20 = icmp eq i8 %60, 0
-  br i1 %.not22.i20, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread, label %61
+58:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  %59 = and i8 %56, 4
+  %.not22.i20 = icmp eq i8 %59, 0
+  br i1 %.not22.i20, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread, label %60
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %63 = load i8, ptr %62, align 8
-  %64 = and i8 %63, 6
-  %or.cond.i21.not = icmp eq i8 %64, 6
-  br i1 %or.cond.i21.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread, label %91
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %62 = load i8, ptr %61, align 8
+  %63 = and i8 %62, 6
+  %or.cond.i21.not = icmp eq i8 %63, 6
+  br i1 %or.cond.i21.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread, label %89
 
-65:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
-  %66 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %67 = load i8, ptr %66, align 8
-  %68 = and i8 %67, 2
-  %.not12.i23 = icmp eq i8 %68, 0
-  br i1 %.not12.i23, label %71, label %69
+64:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %66 = load i8, ptr %65, align 8
+  %67 = and i8 %66, 2
+  %.not12.i23 = icmp eq i8 %67, 0
+  br i1 %.not12.i23, label %70, label %68
 
-69:                                               ; preds = %65
-  %70 = and i8 %67, 4
-  %.not21.i24 = icmp eq i8 %70, 0
-  br i1 %.not21.i24, label %91, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
+68:                                               ; preds = %64
+  %69 = and i8 %66, 4
+  %.not21.i24 = icmp eq i8 %69, 0
+  br i1 %.not21.i24, label %89, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !50
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !50
+  %73 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %75 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %76 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %73, ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %75)
-  br i1 %76, label %77, label %88
+  %75 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %72, ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  br i1 %75, label %76, label %86
 
-77:                                               ; preds = %71
-  %78 = load i8, ptr %56, align 8
-  %79 = and i8 %78, 1
-  %.not13.i25 = icmp eq i8 %79, 0
-  %80 = load i8, ptr %66, align 8
-  br i1 %.not13.i25, label %81, label %83
+76:                                               ; preds = %70
+  %77 = load i8, ptr %55, align 8
+  %78 = and i8 %77, 1
+  %.not13.i25 = icmp eq i8 %78, 0
+  %79 = load i8, ptr %65, align 8
+  br i1 %.not13.i25, label %80, label %82
 
-81:                                               ; preds = %77
-  %82 = and i8 %80, 5
-  %or.cond34 = icmp eq i8 %82, 5
-  br i1 %or.cond34, label %91, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
+80:                                               ; preds = %76
+  %81 = and i8 %79, 5
+  %or.cond34 = icmp eq i8 %81, 5
+  br i1 %or.cond34, label %89, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-83:                                               ; preds = %77
-  %84 = and i8 %80, 1
-  %.not14.i26.not = icmp eq i8 %84, 0
-  %85 = and i8 %78, 4
-  %.not18.i27 = icmp eq i8 %85, 0
-  br i1 %.not14.i26.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31, label %86
+82:                                               ; preds = %76
+  %.not14.i26 = trunc i8 %79 to i1
+  %83 = and i8 %77, 4
+  %.not18.i27 = icmp eq i8 %83, 0
+  br i1 %.not14.i26, label %84, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31
 
-86:                                               ; preds = %83
-  %87 = and i8 %80, 4
-  %.not20.i28 = icmp ne i8 %87, 0
+84:                                               ; preds = %82
+  %85 = and i8 %79, 4
+  %.not20.i28 = icmp ne i8 %85, 0
   %or.cond27.not.i29 = and i1 %.not18.i27, %.not20.i28
-  br i1 %or.cond27.not.i29, label %91, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
+  br i1 %or.cond27.not.i29, label %89, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-88:                                               ; preds = %71
-  %89 = load ptr, ptr %72, align 8, !tbaa !50
-  %90 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %89, ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull align 8 dereferenceable(8) %75)
-  br i1 %90, label %91, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
+86:                                               ; preds = %70
+  %87 = load ptr, ptr %71, align 8, !tbaa !50
+  %88 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %87, ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull align 8 dereferenceable(8) %74)
+  br i1 %88, label %89, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31: ; preds = %83
-  br i1 %.not18.i27, label %91, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31: ; preds = %82
+  br i1 %.not18.i27, label %89, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-91:                                               ; preds = %81, %86, %69, %61, %88, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31
-  %92 = load ptr, ptr %1, align 8, !tbaa !129
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv
-  %94 = load ptr, ptr %93, align 8, !tbaa !132
-  store ptr %94, ptr %2, align 8, !tbaa !132
+89:                                               ; preds = %80, %84, %68, %60, %86, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31
+  %90 = load ptr, ptr %1, align 8, !tbaa !129
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %92 = load ptr, ptr %91, align 8, !tbaa !132
+  store ptr %92, ptr %2, align 8, !tbaa !132
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread: ; preds = %59, %81, %86, %69, %61, %88, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31, %91
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31.thread: ; preds = %58, %80, %84, %68, %60, %86, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit31, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
@@ -5157,7 +5152,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp28up
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 6
   %or.cond.i.not = icmp eq i8 %13, 6
-  br i1 %or.cond.i.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread, label %40
+  br i1 %or.cond.i.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread, label %39
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5169,7 +5164,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp28up
 18:                                               ; preds = %14
   %19 = and i8 %16, 4
   %.not21.i = icmp eq i8 %19, 0
-  br i1 %.not21.i, label %40, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %.not21.i, label %39, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5177,7 +5172,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp28up
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  br i1 %25, label %26, label %37
+  br i1 %25, label %26, label %36
 
 26:                                               ; preds = %20
   %27 = load i8, ptr %5, align 8
@@ -5189,250 +5184,248 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5nlsat14simple_checker3imp28up
 30:                                               ; preds = %26
   %31 = and i8 %29, 5
   %or.cond = icmp eq i8 %31, 5
-  br i1 %or.cond, label %40, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %or.cond, label %39, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
 32:                                               ; preds = %26
-  %33 = and i8 %29, 1
-  %.not14.i.not = icmp eq i8 %33, 0
-  %34 = and i8 %27, 4
-  %.not18.i = icmp eq i8 %34, 0
-  br i1 %.not14.i.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit, label %35
+  %.not14.i = trunc i8 %29 to i1
+  %33 = and i8 %27, 4
+  %.not18.i = icmp eq i8 %33, 0
+  br i1 %.not14.i, label %34, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
 
-35:                                               ; preds = %32
-  %36 = and i8 %29, 4
-  %.not20.i = icmp ne i8 %36, 0
+34:                                               ; preds = %32
+  %35 = and i8 %29, 4
+  %.not20.i = icmp ne i8 %35, 0
   %or.cond27.not.i = and i1 %.not18.i, %.not20.i
-  br i1 %or.cond27.not.i, label %40, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %or.cond27.not.i, label %39, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-37:                                               ; preds = %20
-  %38 = load ptr, ptr %21, align 8, !tbaa !50
-  %39 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %38, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  br i1 %39, label %._crit_edge, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+36:                                               ; preds = %20
+  %37 = load ptr, ptr %21, align 8, !tbaa !50
+  %38 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %37, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  br i1 %38, label %._crit_edge, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-._crit_edge:                                      ; preds = %37
+._crit_edge:                                      ; preds = %36
   %.pre = load i8, ptr %15, align 8
   %.pre44 = load i8, ptr %5, align 8
-  br label %40
+  br label %39
 
 _ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit: ; preds = %32
-  br i1 %.not18.i, label %40, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  br i1 %.not18.i, label %39, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-40:                                               ; preds = %._crit_edge, %30, %35, %18, %10, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
-  %41 = phi i8 [ %.pre44, %._crit_edge ], [ %27, %30 ], [ %27, %35 ], [ %6, %18 ], [ %6, %10 ], [ %27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
-  %42 = phi i8 [ %.pre, %._crit_edge ], [ %29, %30 ], [ %29, %35 ], [ %16, %18 ], [ %12, %10 ], [ %29, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %44 = and i8 %42, 2
-  %45 = and i8 %41, -3
-  %46 = or disjoint i8 %45, %44
-  store i8 %46, ptr %5, align 8
-  %47 = load i8, ptr %43, align 8
-  %48 = and i8 %47, 1
-  %49 = and i8 %46, -2
-  %50 = or disjoint i8 %49, %48
-  store i8 %50, ptr %5, align 8
-  %51 = load i8, ptr %43, align 8
-  %52 = and i8 %51, 4
-  %53 = and i8 %50, -5
-  %54 = or disjoint i8 %53, %52
-  store i8 %54, ptr %5, align 8
-  %.not.i12 = icmp eq i8 %44, 0
-  br i1 %.not.i12, label %55, label %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit
+39:                                               ; preds = %._crit_edge, %30, %34, %18, %10, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+  %40 = phi i8 [ %.pre44, %._crit_edge ], [ %27, %30 ], [ %27, %34 ], [ %6, %18 ], [ %6, %10 ], [ %27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
+  %41 = phi i8 [ %.pre, %._crit_edge ], [ %29, %30 ], [ %29, %34 ], [ %16, %18 ], [ %12, %10 ], [ %29, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %43 = and i8 %41, 2
+  %44 = and i8 %40, -3
+  %45 = or disjoint i8 %44, %43
+  store i8 %45, ptr %5, align 8
+  %46 = load i8, ptr %42, align 8
+  %47 = and i8 %46, 1
+  %48 = and i8 %45, -2
+  %49 = or disjoint i8 %48, %47
+  store i8 %49, ptr %5, align 8
+  %50 = load i8, ptr %42, align 8
+  %51 = and i8 %50, 4
+  %52 = and i8 %49, -5
+  %53 = or disjoint i8 %52, %51
+  store i8 %53, ptr %5, align 8
+  %.not.i12 = icmp eq i8 %43, 0
+  br i1 %.not.i12, label %54, label %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit
 
-55:                                               ; preds = %40
-  %56 = load ptr, ptr %4, align 8, !tbaa !126
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %56, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %58)
+54:                                               ; preds = %39
+  %55 = load ptr, ptr %4, align 8, !tbaa !126
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 8 dereferenceable(8) %57)
   br label %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit
 
-_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit: ; preds = %40, %55
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 1, ptr %59, align 8, !tbaa !57
+_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit: ; preds = %39, %54
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 1, ptr %58, align 8, !tbaa !57
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %8, %30, %35, %18, %10, %37, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %62 = load i8, ptr %61, align 8
-  %63 = and i8 %62, 2
-  %.not.i13 = icmp eq i8 %63, 0
-  br i1 %.not.i13, label %70, label %64
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread: ; preds = %8, %30, %34, %18, %10, %36, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %61 = load i8, ptr %60, align 8
+  %62 = and i8 %61, 2
+  %.not.i13 = icmp eq i8 %62, 0
+  br i1 %.not.i13, label %69, label %63
 
-64:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
-  %65 = and i8 %62, 4
-  %.not22.i14 = icmp eq i8 %65, 0
-  br i1 %.not22.i14, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread, label %66
+63:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  %64 = and i8 %61, 4
+  %.not22.i14 = icmp eq i8 %64, 0
+  br i1 %.not22.i14, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread, label %65
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %68 = load i8, ptr %67, align 8
-  %69 = and i8 %68, 6
-  %or.cond.i15.not = icmp eq i8 %69, 6
-  br i1 %or.cond.i15.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread, label %96
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %67 = load i8, ptr %66, align 8
+  %68 = and i8 %67, 6
+  %or.cond.i15.not = icmp eq i8 %68, 6
+  br i1 %or.cond.i15.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread, label %94
 
-70:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %72 = load i8, ptr %71, align 8
-  %73 = and i8 %72, 2
-  %.not12.i17 = icmp eq i8 %73, 0
-  br i1 %.not12.i17, label %76, label %74
+69:                                               ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit.thread
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %71 = load i8, ptr %70, align 8
+  %72 = and i8 %71, 2
+  %.not12.i17 = icmp eq i8 %72, 0
+  br i1 %.not12.i17, label %75, label %73
 
-74:                                               ; preds = %70
-  %75 = and i8 %72, 4
-  %.not21.i18 = icmp eq i8 %75, 0
-  br i1 %.not21.i18, label %96, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+73:                                               ; preds = %69
+  %74 = and i8 %71, 4
+  %.not21.i18 = icmp eq i8 %74, 0
+  br i1 %.not21.i18, label %94, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-76:                                               ; preds = %70
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %78 = load ptr, ptr %77, align 8, !tbaa !50
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %81 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %78, ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(8) %80)
-  br i1 %81, label %82, label %93
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %77 = load ptr, ptr %76, align 8, !tbaa !50
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %80 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %77, ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %79)
+  br i1 %80, label %81, label %91
 
-82:                                               ; preds = %76
-  %83 = load i8, ptr %61, align 8
-  %84 = and i8 %83, 1
-  %.not13.i19 = icmp eq i8 %84, 0
-  %85 = load i8, ptr %71, align 8
-  br i1 %.not13.i19, label %86, label %88
+81:                                               ; preds = %75
+  %82 = load i8, ptr %60, align 8
+  %83 = and i8 %82, 1
+  %.not13.i19 = icmp eq i8 %83, 0
+  %84 = load i8, ptr %70, align 8
+  br i1 %.not13.i19, label %85, label %87
 
-86:                                               ; preds = %82
-  %87 = and i8 %85, 5
-  %or.cond43 = icmp eq i8 %87, 5
-  br i1 %or.cond43, label %96, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+85:                                               ; preds = %81
+  %86 = and i8 %84, 5
+  %or.cond43 = icmp eq i8 %86, 5
+  br i1 %or.cond43, label %94, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-88:                                               ; preds = %82
-  %89 = and i8 %85, 1
-  %.not14.i20.not = icmp eq i8 %89, 0
-  %90 = and i8 %83, 4
-  %.not18.i21 = icmp eq i8 %90, 0
-  br i1 %.not14.i20.not, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25, label %91
+87:                                               ; preds = %81
+  %.not14.i20 = trunc i8 %84 to i1
+  %88 = and i8 %82, 4
+  %.not18.i21 = icmp eq i8 %88, 0
+  br i1 %.not14.i20, label %89, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
 
-91:                                               ; preds = %88
-  %92 = and i8 %85, 4
-  %.not20.i22 = icmp ne i8 %92, 0
+89:                                               ; preds = %87
+  %90 = and i8 %84, 4
+  %.not20.i22 = icmp ne i8 %90, 0
   %or.cond27.not.i23 = and i1 %.not18.i21, %.not20.i22
-  br i1 %or.cond27.not.i23, label %96, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+  br i1 %or.cond27.not.i23, label %94, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-93:                                               ; preds = %76
-  %94 = load ptr, ptr %77, align 8, !tbaa !50
-  %95 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %94, ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(8) %80)
-  br i1 %95, label %._crit_edge45, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+91:                                               ; preds = %75
+  %92 = load ptr, ptr %76, align 8, !tbaa !50
+  %93 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %92, ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %79)
+  br i1 %93, label %._crit_edge45, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-._crit_edge45:                                    ; preds = %93
-  %.pre46 = load i8, ptr %61, align 8
-  %.pre48 = load i8, ptr %71, align 8
-  br label %96
+._crit_edge45:                                    ; preds = %91
+  %.pre46 = load i8, ptr %60, align 8
+  %.pre48 = load i8, ptr %70, align 8
+  br label %94
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25: ; preds = %88
-  br i1 %.not18.i21, label %96, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25: ; preds = %87
+  br i1 %.not18.i21, label %94, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-96:                                               ; preds = %._crit_edge45, %86, %91, %74, %66, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
-  %97 = phi i8 [ %.pre48, %._crit_edge45 ], [ %85, %86 ], [ %85, %91 ], [ %72, %74 ], [ %68, %66 ], [ %85, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
-  %98 = phi i8 [ %.pre46, %._crit_edge45 ], [ %83, %86 ], [ %83, %91 ], [ %62, %74 ], [ %62, %66 ], [ %83, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
-  %99 = and i8 %98, 2
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %101 = and i8 %97, -3
-  %102 = or disjoint i8 %101, %99
-  store i8 %102, ptr %100, align 8
-  %103 = load i8, ptr %61, align 8
-  %104 = and i8 %103, 1
-  %105 = and i8 %102, -2
-  %106 = or disjoint i8 %105, %104
-  store i8 %106, ptr %100, align 8
-  %107 = load i8, ptr %61, align 8
-  %108 = and i8 %107, 4
-  %109 = and i8 %106, -5
-  %110 = or disjoint i8 %109, %108
-  store i8 %110, ptr %100, align 8
-  %.not.i26 = icmp eq i8 %99, 0
-  br i1 %.not.i26, label %111, label %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27
+94:                                               ; preds = %._crit_edge45, %85, %89, %73, %65, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
+  %95 = phi i8 [ %.pre48, %._crit_edge45 ], [ %84, %85 ], [ %84, %89 ], [ %71, %73 ], [ %67, %65 ], [ %84, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
+  %96 = phi i8 [ %.pre46, %._crit_edge45 ], [ %82, %85 ], [ %82, %89 ], [ %61, %73 ], [ %61, %65 ], [ %82, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25 ]
+  %97 = and i8 %96, 2
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %99 = and i8 %95, -3
+  %100 = or disjoint i8 %99, %97
+  store i8 %100, ptr %98, align 8
+  %101 = load i8, ptr %60, align 8
+  %102 = and i8 %101, 1
+  %103 = and i8 %100, -2
+  %104 = or disjoint i8 %103, %102
+  store i8 %104, ptr %98, align 8
+  %105 = load i8, ptr %60, align 8
+  %106 = and i8 %105, 4
+  %107 = and i8 %104, -5
+  %108 = or disjoint i8 %107, %106
+  store i8 %108, ptr %98, align 8
+  %.not.i26 = icmp eq i8 %97, 0
+  br i1 %.not.i26, label %109, label %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27
 
-111:                                              ; preds = %96
-  %112 = load ptr, ptr %60, align 8, !tbaa !126
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %112, ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull align 8 dereferenceable(8) %114)
+109:                                              ; preds = %94
+  %110 = load ptr, ptr %59, align 8, !tbaa !126
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  tail call void @_ZN17algebraic_numbers7manager3setERNS_4anumERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %110, ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull align 8 dereferenceable(8) %112)
   br label %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27
 
-_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27: ; preds = %96, %111
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 1, ptr %115, align 8, !tbaa !57
+_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27: ; preds = %94, %109
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 1, ptr %113, align 8, !tbaa !57
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread: ; preds = %64, %86, %91, %74, %66, %93, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %117 = load i8, ptr %116, align 8
-  %118 = and i8 %117, 2
-  %.not.i28 = icmp eq i8 %118, 0
-  br i1 %.not.i28, label %124, label %119
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread: ; preds = %63, %85, %89, %73, %65, %91, %_ZN5nlsat14simple_checker3imp8Endpoint4copyERKS2_.exit27, %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %115 = load i8, ptr %114, align 8
+  %116 = and i8 %115, 2
+  %.not.i28 = icmp eq i8 %116, 0
+  br i1 %.not.i28, label %122, label %117
 
-119:                                              ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
-  %120 = and i8 %117, 4
-  %.not22.i29 = icmp eq i8 %120, 0
-  br i1 %.not22.i29, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40, label %121
+117:                                              ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+  %118 = and i8 %115, 4
+  %.not22.i29 = icmp eq i8 %118, 0
+  br i1 %.not22.i29, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40, label %119
 
-121:                                              ; preds = %119
-  %122 = load i8, ptr %5, align 8
-  %123 = and i8 %122, 6
-  %or.cond.i30 = icmp ne i8 %123, 6
+119:                                              ; preds = %117
+  %120 = load i8, ptr %5, align 8
+  %121 = and i8 %120, 6
+  %or.cond.i30 = icmp ne i8 %121, 6
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40
 
-124:                                              ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
-  %125 = load i8, ptr %5, align 8
-  %126 = and i8 %125, 2
-  %.not12.i32 = icmp eq i8 %126, 0
-  br i1 %.not12.i32, label %129, label %127
+122:                                              ; preds = %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit25.thread
+  %123 = load i8, ptr %5, align 8
+  %124 = and i8 %123, 2
+  %.not12.i32 = icmp eq i8 %124, 0
+  br i1 %.not12.i32, label %127, label %125
 
-127:                                              ; preds = %124
-  %128 = and i8 %125, 4
-  %.not21.i33 = icmp eq i8 %128, 0
+125:                                              ; preds = %122
+  %126 = and i8 %123, 4
+  %.not21.i33 = icmp eq i8 %126, 0
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40
 
-129:                                              ; preds = %124
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %131 = load ptr, ptr %130, align 8, !tbaa !50
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %134 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %131, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull align 8 dereferenceable(8) %133)
-  br i1 %134, label %135, label %147
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %129 = load ptr, ptr %128, align 8, !tbaa !50
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %132 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2eqERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %129, ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull align 8 dereferenceable(8) %131)
+  br i1 %132, label %133, label %145
 
-135:                                              ; preds = %129
-  %136 = load i8, ptr %116, align 8
+133:                                              ; preds = %127
+  %134 = load i8, ptr %114, align 8
+  %135 = and i8 %134, 1
+  %.not13.i34 = icmp eq i8 %135, 0
+  %136 = load i8, ptr %5, align 8
   %137 = and i8 %136, 1
-  %.not13.i34 = icmp eq i8 %137, 0
-  %138 = load i8, ptr %5, align 8
-  %139 = and i8 %138, 1
-  %.not14.i35 = icmp eq i8 %139, 0
-  br i1 %.not13.i34, label %140, label %143
+  %.not14.i35 = icmp eq i8 %137, 0
+  br i1 %.not13.i34, label %138, label %141
 
-140:                                              ; preds = %135
-  br i1 %.not14.i35, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40, label %141
+138:                                              ; preds = %133
+  br i1 %.not14.i35, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40, label %139
 
-141:                                              ; preds = %140
-  %142 = and i8 %138, 4
-  %.not16.i39 = icmp ne i8 %142, 0
+139:                                              ; preds = %138
+  %140 = and i8 %136, 4
+  %.not16.i39 = icmp ne i8 %140, 0
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40
 
-143:                                              ; preds = %135
-  %144 = and i8 %136, 4
-  %.not18.i36 = icmp eq i8 %144, 0
-  br i1 %.not14.i35, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40, label %145
+141:                                              ; preds = %133
+  %142 = and i8 %134, 4
+  %.not18.i36 = icmp eq i8 %142, 0
+  br i1 %.not14.i35, label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40, label %143
 
-145:                                              ; preds = %143
-  %146 = and i8 %138, 4
-  %.not20.i37 = icmp ne i8 %146, 0
+143:                                              ; preds = %141
+  %144 = and i8 %136, 4
+  %.not20.i37 = icmp ne i8 %144, 0
   %or.cond27.not.i38 = and i1 %.not18.i36, %.not20.i37
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40
 
-147:                                              ; preds = %129
-  %148 = load ptr, ptr %130, align 8, !tbaa !50
-  %149 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %148, ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull align 8 dereferenceable(8) %133)
+145:                                              ; preds = %127
+  %146 = load ptr, ptr %128, align 8, !tbaa !50
+  %147 = tail call noundef zeroext i1 @_ZN17algebraic_numbers7manager2ltERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %146, ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull align 8 dereferenceable(8) %131)
   br label %_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40
 
-_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40: ; preds = %119, %121, %127, %140, %141, %143, %145, %147
-  %.0.i31 = phi i1 [ %149, %147 ], [ false, %140 ], [ %or.cond27.not.i38, %145 ], [ %.not21.i33, %127 ], [ false, %119 ], [ %or.cond.i30, %121 ], [ %.not16.i39, %141 ], [ %.not18.i36, %143 ]
+_ZNK5nlsat14simple_checker3imp8EndpointltERKS2_.exit40: ; preds = %117, %119, %125, %138, %139, %141, %143, %145
+  %.0.i31 = phi i1 [ %147, %145 ], [ false, %138 ], [ %or.cond27.not.i38, %143 ], [ %.not21.i33, %125 ], [ false, %117 ], [ %or.cond.i30, %119 ], [ %.not16.i39, %139 ], [ %.not18.i36, %141 ]
   %.0 = xor i1 %.0.i31, true
   ret i1 %.0
 }

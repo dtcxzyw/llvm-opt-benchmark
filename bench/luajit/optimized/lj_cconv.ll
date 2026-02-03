@@ -12,170 +12,169 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = and i32 %3, 1
-  %.not = icmp ne i32 %5, 0
-  %6 = icmp eq ptr %1, %2
-  %or.cond = or i1 %6, %.not
-  br i1 %or.cond, label %63, label %7
+  %.not = trunc i32 %3 to i1
+  %5 = icmp eq ptr %1, %2
+  %or.cond = or i1 %5, %.not
+  br i1 %or.cond, label %62, label %6
 
-7:                                                ; preds = %4
+6:                                                ; preds = %4
   %.val = load ptr, ptr %0, align 8, !tbaa !4
   %.val46 = load i32, ptr %1, align 8, !tbaa !17
   br label %.outer
 
-.outer:                                           ; preds = %14, %7
-  %.064.ph = phi i32 [ %17, %14 ], [ 0, %7 ]
-  %.pn.in.in.i.ph = phi i32 [ %9, %14 ], [ %.val46, %7 ]
-  br label %8
+.outer:                                           ; preds = %13, %6
+  %.064.ph = phi i32 [ %16, %13 ], [ 0, %6 ]
+  %.pn.in.in.i.ph = phi i32 [ %8, %13 ], [ %.val46, %6 ]
+  br label %7
 
-8:                                                ; preds = %.backedge, %.outer
-  %.pn.in.in.i = phi i32 [ %.pn.in.in.i.ph, %.outer ], [ %9, %.backedge ]
+7:                                                ; preds = %.backedge, %.outer
+  %.pn.in.in.i = phi i32 [ %.pn.in.in.i.ph, %.outer ], [ %8, %.backedge ]
   %.pn.in.i = and i32 %.pn.in.in.i, 65535
   %.pn.i = zext nneg i32 %.pn.in.i to i64
   %.0.i = getelementptr inbounds nuw %struct.CType, ptr %.val, i64 %.pn.i
-  %9 = load i32, ptr %.0.i, align 8, !tbaa !17
-  %10 = lshr i32 %9, 28
-  switch i32 %10, label %cconv_childqual.exit [
-    i32 8, label %11
+  %8 = load i32, ptr %.0.i, align 8, !tbaa !17
+  %9 = lshr i32 %8, 28
+  switch i32 %9, label %cconv_childqual.exit [
+    i32 8, label %10
     i32 5, label %.backedge
   ]
 
-11:                                               ; preds = %8
-  %12 = and i32 %9, 16711680
-  %13 = icmp eq i32 %12, 65536
-  br i1 %13, label %14, label %.backedge
+10:                                               ; preds = %7
+  %11 = and i32 %8, 16711680
+  %12 = icmp eq i32 %11, 65536
+  br i1 %12, label %13, label %.backedge
 
-.backedge:                                        ; preds = %11, %8
-  br label %8
+.backedge:                                        ; preds = %10, %7
+  br label %7
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !22
-  %17 = or i32 %16, %.064.ph
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !22
+  %16 = or i32 %15, %.064.ph
   br label %.outer
 
-cconv_childqual.exit:                             ; preds = %8
-  %18 = and i32 %9, 50331648
-  %19 = or i32 %18, %.064.ph
-  %20 = load i32, ptr %2, align 8, !tbaa !17
-  %.mask = and i32 %20, -268435456
-  %21 = icmp eq i32 %.mask, 268435456
-  br i1 %21, label %33, label %.preheader.outer
+cconv_childqual.exit:                             ; preds = %7
+  %17 = and i32 %8, 50331648
+  %18 = or i32 %17, %.064.ph
+  %19 = load i32, ptr %2, align 8, !tbaa !17
+  %.mask = and i32 %19, -268435456
+  %20 = icmp eq i32 %.mask, 268435456
+  br i1 %20, label %32, label %.preheader.outer
 
-.preheader.outer:                                 ; preds = %cconv_childqual.exit, %27
-  %.163.ph = phi i32 [ %30, %27 ], [ 0, %cconv_childqual.exit ]
-  %.pn.in.in.i49.ph = phi i32 [ %22, %27 ], [ %20, %cconv_childqual.exit ]
+.preheader.outer:                                 ; preds = %cconv_childqual.exit, %26
+  %.163.ph = phi i32 [ %29, %26 ], [ 0, %cconv_childqual.exit ]
+  %.pn.in.in.i49.ph = phi i32 [ %21, %26 ], [ %19, %cconv_childqual.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.outer
-  %.pn.in.in.i49 = phi i32 [ %.pn.in.in.i49.ph, %.preheader.outer ], [ %22, %.preheader.backedge ]
+  %.pn.in.in.i49 = phi i32 [ %.pn.in.in.i49.ph, %.preheader.outer ], [ %21, %.preheader.backedge ]
   %.pn.in.i50 = and i32 %.pn.in.in.i49, 65535
   %.pn.i51 = zext nneg i32 %.pn.in.i50 to i64
   %.0.i52 = getelementptr inbounds nuw %struct.CType, ptr %.val, i64 %.pn.i51
-  %22 = load i32, ptr %.0.i52, align 8, !tbaa !17
-  %23 = lshr i32 %22, 28
-  switch i32 %23, label %cconv_childqual.exit54 [
-    i32 8, label %24
+  %21 = load i32, ptr %.0.i52, align 8, !tbaa !17
+  %22 = lshr i32 %21, 28
+  switch i32 %22, label %cconv_childqual.exit54 [
+    i32 8, label %23
     i32 5, label %.preheader.backedge
   ]
 
-24:                                               ; preds = %.preheader
-  %25 = and i32 %22, 16711680
-  %26 = icmp eq i32 %25, 65536
-  br i1 %26, label %27, label %.preheader.backedge
+23:                                               ; preds = %.preheader
+  %24 = and i32 %21, 16711680
+  %25 = icmp eq i32 %24, 65536
+  br i1 %25, label %26, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %24, %.preheader
+.preheader.backedge:                              ; preds = %23, %.preheader
   br label %.preheader
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !22
-  %30 = or i32 %29, %.163.ph
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !22
+  %29 = or i32 %28, %.163.ph
   br label %.preheader.outer
 
 cconv_childqual.exit54:                           ; preds = %.preheader
-  %31 = and i32 %22, 50331648
-  %32 = or i32 %31, %.163.ph
-  br label %33
+  %30 = and i32 %21, 50331648
+  %31 = or i32 %30, %.163.ph
+  br label %32
 
-33:                                               ; preds = %cconv_childqual.exit54, %cconv_childqual.exit
-  %34 = phi i32 [ %20, %cconv_childqual.exit ], [ %22, %cconv_childqual.exit54 ]
-  %.062 = phi i32 [ 0, %cconv_childqual.exit ], [ %32, %cconv_childqual.exit54 ]
+32:                                               ; preds = %cconv_childqual.exit54, %cconv_childqual.exit
+  %33 = phi i32 [ %19, %cconv_childqual.exit ], [ %21, %cconv_childqual.exit54 ]
+  %.062 = phi i32 [ 0, %cconv_childqual.exit ], [ %31, %cconv_childqual.exit54 ]
   %.030 = phi ptr [ %2, %cconv_childqual.exit ], [ %.0.i52, %cconv_childqual.exit54 ]
-  %35 = and i32 %3, 4
-  %.not34 = icmp eq i32 %35, 0
-  br i1 %.not34, label %38, label %36
+  %34 = and i32 %3, 4
+  %.not34 = icmp eq i32 %34, 0
+  br i1 %.not34, label %37, label %35
 
-36:                                               ; preds = %33
-  %.not39 = icmp eq i32 %19, %.062
-  %37 = lshr i32 %34, 28
-  %.not40 = icmp eq i32 %10, %37
+35:                                               ; preds = %32
+  %.not39 = icmp eq i32 %18, %.062
+  %36 = lshr i32 %33, 28
+  %.not40 = icmp eq i32 %9, %36
   %or.cond77 = and i1 %.not39, %.not40
-  br i1 %or.cond77, label %46, label %.thread
+  br i1 %or.cond77, label %45, label %.thread
 
-38:                                               ; preds = %33
-  %39 = and i32 %3, 8
-  %.not35 = icmp eq i32 %39, 0
-  br i1 %.not35, label %40, label %45
+37:                                               ; preds = %32
+  %38 = and i32 %3, 8
+  %.not35 = icmp eq i32 %38, 0
+  br i1 %.not35, label %39, label %44
 
-40:                                               ; preds = %38
-  %41 = and i32 %.062, %19
-  %.not36 = icmp eq i32 %41, %.062
-  br i1 %.not36, label %42, label %.thread
+39:                                               ; preds = %37
+  %40 = and i32 %.062, %18
+  %.not36 = icmp eq i32 %40, %.062
+  br i1 %.not36, label %41, label %.thread
 
-42:                                               ; preds = %40
-  %.mask37 = and i32 %9, -268435456
-  %43 = icmp eq i32 %.mask37, 1073741824
-  %.mask38 = and i32 %34, -268435456
-  %44 = icmp eq i32 %.mask38, 1073741824
-  %or.cond76 = or i1 %43, %44
-  br i1 %or.cond76, label %.thread, label %45
+41:                                               ; preds = %39
+  %.mask37 = and i32 %8, -268435456
+  %42 = icmp eq i32 %.mask37, 1073741824
+  %.mask38 = and i32 %33, -268435456
+  %43 = icmp eq i32 %.mask38, 1073741824
+  %or.cond76 = or i1 %42, %43
+  br i1 %or.cond76, label %.thread, label %44
 
-45:                                               ; preds = %42, %38
-  %.old = lshr i32 %34, 28
-  %.not40.old = icmp eq i32 %10, %.old
-  br i1 %.not40.old, label %46, label %.thread
+44:                                               ; preds = %41, %37
+  %.old = lshr i32 %33, 28
+  %.not40.old = icmp eq i32 %9, %.old
+  br i1 %.not40.old, label %45, label %.thread
 
-46:                                               ; preds = %36, %45
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !22
-  %49 = getelementptr inbounds nuw i8, ptr %.030, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !22
-  %.not41 = icmp eq i32 %48, %50
-  br i1 %.not41, label %51, label %.thread
+45:                                               ; preds = %35, %44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !22
+  %48 = getelementptr inbounds nuw i8, ptr %.030, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !22
+  %.not41 = icmp eq i32 %47, %49
+  br i1 %.not41, label %50, label %.thread
 
-51:                                               ; preds = %46
-  %52 = icmp eq i32 %10, 0
-  br i1 %52, label %53, label %56
+50:                                               ; preds = %45
+  %51 = icmp eq i32 %9, 0
+  br i1 %51, label %52, label %55
 
-53:                                               ; preds = %51
-  %54 = xor i32 %34, %9
-  %55 = and i32 %54, 201326592
-  %.not44 = icmp eq i32 %55, 0
-  br i1 %.not44, label %63, label %.thread
+52:                                               ; preds = %50
+  %53 = xor i32 %33, %8
+  %54 = and i32 %53, 201326592
+  %.not44 = icmp eq i32 %54, 0
+  br i1 %.not44, label %62, label %.thread
 
-56:                                               ; preds = %51
-  %.mask42 = and i32 %9, -536870912
-  %57 = icmp eq i32 %.mask42, 536870912
-  br i1 %57, label %58, label %61
+55:                                               ; preds = %50
+  %.mask42 = and i32 %8, -536870912
+  %56 = icmp eq i32 %.mask42, 536870912
+  br i1 %56, label %57, label %60
 
-58:                                               ; preds = %56
-  %59 = or i32 %3, 4
-  %60 = tail call i32 @lj_cconv_compatptr(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %.030, i32 noundef %59)
+57:                                               ; preds = %55
+  %58 = or i32 %3, 4
+  %59 = tail call i32 @lj_cconv_compatptr(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %.030, i32 noundef %58)
   br label %.thread
 
-61:                                               ; preds = %56
-  %62 = icmp ne i32 %10, 1
+60:                                               ; preds = %55
+  %61 = icmp ne i32 %9, 1
   %.not43 = icmp eq ptr %.0.i, %.030
-  %or.cond45 = or i1 %62, %.not43
-  br i1 %or.cond45, label %63, label %.thread
+  %or.cond45 = or i1 %61, %.not43
+  br i1 %or.cond45, label %62, label %.thread
 
-.thread:                                          ; preds = %40, %42, %45, %58, %53, %36, %46, %61
-  %.029.ph = phi i32 [ 0, %61 ], [ 0, %46 ], [ 0, %40 ], [ 0, %36 ], [ 0, %53 ], [ %60, %58 ], [ 0, %45 ], [ 1, %42 ]
-  br label %63
+.thread:                                          ; preds = %39, %41, %44, %57, %52, %35, %45, %60
+  %.029.ph = phi i32 [ 0, %60 ], [ 0, %45 ], [ 0, %39 ], [ 0, %35 ], [ 0, %52 ], [ %59, %57 ], [ 0, %44 ], [ 1, %41 ]
+  br label %62
 
-63:                                               ; preds = %4, %53, %61, %.thread
-  %.1 = phi i32 [ %.029.ph, %.thread ], [ 1, %61 ], [ 1, %53 ], [ 1, %4 ]
+62:                                               ; preds = %4, %52, %60, %.thread
+  %.1 = phi i32 [ %.029.ph, %.thread ], [ 1, %60 ], [ 1, %52 ], [ 1, %4 ]
   ret i32 %.1
 }
 

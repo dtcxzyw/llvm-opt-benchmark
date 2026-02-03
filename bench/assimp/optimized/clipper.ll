@@ -5496,12 +5496,12 @@ define hidden void @_ZN10ClipperLib7ClipperC2Ei(ptr noundef nonnull align 8 dere
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i8 0, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %21 = trunc i32 %2 to i8
-  %22 = and i8 %21, 1
-  store i8 %22, ptr %20, align 4
+  %20 = trunc i32 %2 to i8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %22 = and i8 %20, 1
+  store i8 %22, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  %24 = lshr i8 %21, 1
+  %24 = lshr i8 %20, 1
   %25 = and i8 %24, 1
   store i8 %25, ptr %23, align 2
   %26 = load ptr, ptr %0, align 8
@@ -5509,7 +5509,7 @@ define hidden void @_ZN10ClipperLib7ClipperC2Ei(ptr noundef nonnull align 8 dere
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %31 = lshr i8 %21, 2
+  %31 = lshr i8 %20, 2
   %32 = and i8 %31, 1
   store i8 %32, ptr %30, align 8
   %33 = load ptr, ptr %0, align 8
@@ -5546,16 +5546,16 @@ define hidden void @_ZN10ClipperLib7ClipperC1Ei(ptr noundef nonnull align 8 dere
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %15 = trunc i32 %1 to i8
-  %16 = and i8 %15, 1
-  store i8 %16, ptr %14, align 4
+  %14 = trunc i32 %1 to i8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %16 = and i8 %14, 1
+  store i8 %16, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 134
-  %18 = lshr i8 %15, 1
+  %18 = lshr i8 %14, 1
   %19 = and i8 %18, 1
   store i8 %19, ptr %17, align 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %21 = lshr i8 %15, 2
+  %21 = lshr i8 %14, 2
   %22 = and i8 %21, 1
   store i8 %22, ptr %20, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 209

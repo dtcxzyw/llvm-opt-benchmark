@@ -112,9 +112,8 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK18InstanceKlassFlags8print_onEP12outputStream(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(3) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %0, align 2
-  %4 = and i16 %3, 1
-  %.not = icmp eq i16 %4, 0
-  br i1 %.not, label %6, label %5
+  %4 = trunc i16 %3 to i1
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #5
@@ -124,140 +123,140 @@ define hidden void @_ZNK18InstanceKlassFlags8print_onEP12outputStream(ptr nounde
 6:                                                ; preds = %5, %2
   %7 = phi i16 [ %.pre, %5 ], [ %3, %2 ]
   %8 = and i16 %7, 2
-  %.not20 = icmp eq i16 %8, 0
-  br i1 %.not20, label %10, label %9
+  %.not = icmp eq i16 %8, 0
+  br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4) #5
-  %.pre38 = load i16, ptr %0, align 2
+  %.pre36 = load i16, ptr %0, align 2
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = phi i16 [ %.pre38, %9 ], [ %7, %6 ]
+  %11 = phi i16 [ %.pre36, %9 ], [ %7, %6 ]
   %12 = and i16 %11, 4
-  %.not21 = icmp eq i16 %12, 0
-  br i1 %.not21, label %14, label %13
+  %.not20 = icmp eq i16 %12, 0
+  br i1 %.not20, label %14, label %13
 
 13:                                               ; preds = %10
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5) #5
-  %.pre39 = load i16, ptr %0, align 2
+  %.pre37 = load i16, ptr %0, align 2
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = phi i16 [ %.pre39, %13 ], [ %11, %10 ]
+  %15 = phi i16 [ %.pre37, %13 ], [ %11, %10 ]
   %16 = and i16 %15, 8
-  %.not22 = icmp eq i16 %16, 0
-  br i1 %.not22, label %18, label %17
+  %.not21 = icmp eq i16 %16, 0
+  br i1 %.not21, label %18, label %17
 
 17:                                               ; preds = %14
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6) #5
-  %.pre40 = load i16, ptr %0, align 2
+  %.pre38 = load i16, ptr %0, align 2
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = phi i16 [ %.pre40, %17 ], [ %15, %14 ]
+  %19 = phi i16 [ %.pre38, %17 ], [ %15, %14 ]
   %20 = and i16 %19, 16
-  %.not23 = icmp eq i16 %20, 0
-  br i1 %.not23, label %22, label %21
+  %.not22 = icmp eq i16 %20, 0
+  br i1 %.not22, label %22, label %21
 
 21:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7) #5
-  %.pre41 = load i16, ptr %0, align 2
+  %.pre39 = load i16, ptr %0, align 2
   br label %22
 
 22:                                               ; preds = %21, %18
-  %23 = phi i16 [ %.pre41, %21 ], [ %19, %18 ]
+  %23 = phi i16 [ %.pre39, %21 ], [ %19, %18 ]
   %24 = and i16 %23, 32
-  %.not24 = icmp eq i16 %24, 0
-  br i1 %.not24, label %26, label %25
+  %.not23 = icmp eq i16 %24, 0
+  br i1 %.not23, label %26, label %25
 
 25:                                               ; preds = %22
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8) #5
-  %.pre42 = load i16, ptr %0, align 2
+  %.pre40 = load i16, ptr %0, align 2
   br label %26
 
 26:                                               ; preds = %25, %22
-  %27 = phi i16 [ %.pre42, %25 ], [ %23, %22 ]
+  %27 = phi i16 [ %.pre40, %25 ], [ %23, %22 ]
   %28 = and i16 %27, 64
-  %.not25 = icmp eq i16 %28, 0
-  br i1 %.not25, label %30, label %29
+  %.not24 = icmp eq i16 %28, 0
+  br i1 %.not24, label %30, label %29
 
 29:                                               ; preds = %26
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9) #5
-  %.pre43 = load i16, ptr %0, align 2
+  %.pre41 = load i16, ptr %0, align 2
   br label %30
 
 30:                                               ; preds = %29, %26
-  %31 = phi i16 [ %.pre43, %29 ], [ %27, %26 ]
+  %31 = phi i16 [ %.pre41, %29 ], [ %27, %26 ]
   %32 = and i16 %31, 128
-  %.not26 = icmp eq i16 %32, 0
-  br i1 %.not26, label %34, label %33
+  %.not25 = icmp eq i16 %32, 0
+  br i1 %.not25, label %34, label %33
 
 33:                                               ; preds = %30
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10) #5
-  %.pre44 = load i16, ptr %0, align 2
+  %.pre42 = load i16, ptr %0, align 2
   br label %34
 
 34:                                               ; preds = %33, %30
-  %35 = phi i16 [ %.pre44, %33 ], [ %31, %30 ]
+  %35 = phi i16 [ %.pre42, %33 ], [ %31, %30 ]
   %36 = and i16 %35, 256
-  %.not27 = icmp eq i16 %36, 0
-  br i1 %.not27, label %38, label %37
+  %.not26 = icmp eq i16 %36, 0
+  br i1 %.not26, label %38, label %37
 
 37:                                               ; preds = %34
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #5
-  %.pre45 = load i16, ptr %0, align 2
+  %.pre43 = load i16, ptr %0, align 2
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = phi i16 [ %.pre45, %37 ], [ %35, %34 ]
+  %39 = phi i16 [ %.pre43, %37 ], [ %35, %34 ]
   %40 = and i16 %39, 512
-  %.not28 = icmp eq i16 %40, 0
-  br i1 %.not28, label %42, label %41
+  %.not27 = icmp eq i16 %40, 0
+  br i1 %.not27, label %42, label %41
 
 41:                                               ; preds = %38
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12) #5
-  %.pre46 = load i16, ptr %0, align 2
+  %.pre44 = load i16, ptr %0, align 2
   br label %42
 
 42:                                               ; preds = %41, %38
-  %43 = phi i16 [ %.pre46, %41 ], [ %39, %38 ]
+  %43 = phi i16 [ %.pre44, %41 ], [ %39, %38 ]
   %44 = and i16 %43, 1024
-  %.not29 = icmp eq i16 %44, 0
-  br i1 %.not29, label %46, label %45
+  %.not28 = icmp eq i16 %44, 0
+  br i1 %.not28, label %46, label %45
 
 45:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13) #5
-  %.pre47 = load i16, ptr %0, align 2
+  %.pre45 = load i16, ptr %0, align 2
   br label %46
 
 46:                                               ; preds = %45, %42
-  %47 = phi i16 [ %.pre47, %45 ], [ %43, %42 ]
+  %47 = phi i16 [ %.pre45, %45 ], [ %43, %42 ]
   %48 = and i16 %47, 2048
-  %.not30 = icmp eq i16 %48, 0
-  br i1 %.not30, label %50, label %49
+  %.not29 = icmp eq i16 %48, 0
+  br i1 %.not29, label %50, label %49
 
 49:                                               ; preds = %46
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #5
-  %.pre48 = load i16, ptr %0, align 2
+  %.pre46 = load i16, ptr %0, align 2
   br label %50
 
 50:                                               ; preds = %49, %46
-  %51 = phi i16 [ %.pre48, %49 ], [ %47, %46 ]
+  %51 = phi i16 [ %.pre46, %49 ], [ %47, %46 ]
   %52 = and i16 %51, 4096
-  %.not31 = icmp eq i16 %52, 0
-  br i1 %.not31, label %54, label %53
+  %.not30 = icmp eq i16 %52, 0
+  br i1 %.not30, label %54, label %53
 
 53:                                               ; preds = %50
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15) #5
-  %.pre49 = load i16, ptr %0, align 2
+  %.pre47 = load i16, ptr %0, align 2
   br label %54
 
 54:                                               ; preds = %53, %50
-  %55 = phi i16 [ %.pre49, %53 ], [ %51, %50 ]
+  %55 = phi i16 [ %.pre47, %53 ], [ %51, %50 ]
   %56 = and i16 %55, 8192
-  %.not32 = icmp eq i16 %56, 0
-  br i1 %.not32, label %58, label %57
+  %.not31 = icmp eq i16 %56, 0
+  br i1 %.not31, label %58, label %57
 
 57:                                               ; preds = %54
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #5
@@ -266,53 +265,52 @@ define hidden void @_ZNK18InstanceKlassFlags8print_onEP12outputStream(ptr nounde
 58:                                               ; preds = %57, %54
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %60 = load i8, ptr %59, align 2
-  %61 = and i8 %60, 1
-  %.not33 = icmp eq i8 %61, 0
-  br i1 %.not33, label %63, label %62
+  %61 = trunc i8 %60 to i1
+  br i1 %61, label %62, label %63
 
 62:                                               ; preds = %58
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17) #5
-  %.pre50 = load i8, ptr %59, align 2
+  %.pre48 = load i8, ptr %59, align 2
   br label %63
 
 63:                                               ; preds = %62, %58
-  %64 = phi i8 [ %.pre50, %62 ], [ %60, %58 ]
+  %64 = phi i8 [ %.pre48, %62 ], [ %60, %58 ]
   %65 = and i8 %64, 2
-  %.not34 = icmp eq i8 %65, 0
-  br i1 %.not34, label %67, label %66
+  %.not32 = icmp eq i8 %65, 0
+  br i1 %.not32, label %67, label %66
 
 66:                                               ; preds = %63
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.18) #5
-  %.pre51 = load i8, ptr %59, align 2
+  %.pre49 = load i8, ptr %59, align 2
   br label %67
 
 67:                                               ; preds = %66, %63
-  %68 = phi i8 [ %.pre51, %66 ], [ %64, %63 ]
+  %68 = phi i8 [ %.pre49, %66 ], [ %64, %63 ]
   %69 = and i8 %68, 4
-  %.not35 = icmp eq i8 %69, 0
-  br i1 %.not35, label %71, label %70
+  %.not33 = icmp eq i8 %69, 0
+  br i1 %.not33, label %71, label %70
 
 70:                                               ; preds = %67
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19) #5
-  %.pre52 = load i8, ptr %59, align 2
+  %.pre50 = load i8, ptr %59, align 2
   br label %71
 
 71:                                               ; preds = %70, %67
-  %72 = phi i8 [ %.pre52, %70 ], [ %68, %67 ]
+  %72 = phi i8 [ %.pre50, %70 ], [ %68, %67 ]
   %73 = and i8 %72, 8
-  %.not36 = icmp eq i8 %73, 0
-  br i1 %.not36, label %75, label %74
+  %.not34 = icmp eq i8 %73, 0
+  br i1 %.not34, label %75, label %74
 
 74:                                               ; preds = %71
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.20) #5
-  %.pre53 = load i8, ptr %59, align 2
+  %.pre51 = load i8, ptr %59, align 2
   br label %75
 
 75:                                               ; preds = %74, %71
-  %76 = phi i8 [ %.pre53, %74 ], [ %72, %71 ]
+  %76 = phi i8 [ %.pre51, %74 ], [ %72, %71 ]
   %77 = and i8 %76, 16
-  %.not37 = icmp eq i8 %77, 0
-  br i1 %.not37, label %79, label %78
+  %.not35 = icmp eq i8 %77, 0
+  br i1 %.not35, label %79, label %78
 
 78:                                               ; preds = %75
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.21) #5
@@ -621,9 +619,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -657,8 +654,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

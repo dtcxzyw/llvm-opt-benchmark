@@ -2779,33 +2779,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
   %.not13.not = or i1 %.not.not21, %15
-  br i1 %.not13.not, label %29, label %16
+  br i1 %.not13.not, label %28, label %16
 
 16:                                               ; preds = %14
   %17 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %5) #11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 74
   %19 = load i8, ptr %18, align 2
-  %20 = and i8 %19, 1
-  %21 = icmp ne i8 %20, 0
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 128
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %22, align 8
+  %20 = trunc i8 %19 to i1
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 128
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %21, align 8
   %.not.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i, 7
-  %23 = select i1 %21, i1 true, i1 %.not.i.i.i.i
-  br i1 %23, label %24, label %.thread
+  %22 = select i1 %20, i1 true, i1 %.not.i.i.i.i
+  br i1 %22, label %23, label %.thread
 
-24:                                               ; preds = %16
-  %25 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %5) #11
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  %27 = load i40, ptr %26, align 8
-  %28 = icmp sgt i40 %27, -1
+23:                                               ; preds = %16
+  %24 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %5) #11
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %26 = load i40, ptr %25, align 8
+  %27 = icmp sgt i40 %26, -1
   br label %.thread
 
-29:                                               ; preds = %14
-  %30 = icmp eq i8 %7, 10
+28:                                               ; preds = %14
+  %29 = icmp eq i8 %7, 10
   br label %.thread
 
-.thread:                                          ; preds = %9, %24, %16, %29
-  %.1 = phi i1 [ %30, %29 ], [ %28, %24 ], [ %spec.select, %9 ], [ false, %16 ]
+.thread:                                          ; preds = %9, %23, %16, %28
+  %.1 = phi i1 [ %29, %28 ], [ %27, %23 ], [ %spec.select, %9 ], [ false, %16 ]
   ret i1 %.1
 }
 
@@ -2907,8 +2906,8 @@ select.unfold:                                    ; preds = %_ZNK5clang9FieldDec
 
 16:                                               ; preds = %12
   %17 = and i64 %14, 65536
-  %.not6 = icmp eq i64 %17, 0
-  br i1 %.not6, label %18, label %.critedge
+  %.not7 = icmp eq i64 %17, 0
+  br i1 %.not7, label %18, label %.critedge
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %.011, i64 40
@@ -2949,9 +2948,9 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %.critedge2, %37
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i15, i64 8
   %40 = load i16, ptr %39, align 8
   %41 = and i16 %40, 124
-  %.not7 = icmp eq i16 %41, 56
+  %.not6 = icmp eq i16 %41, 56
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i15, i64 -64
-  br i1 %.not7, label %select.unfold, label %.critedge
+  br i1 %.not6, label %select.unfold, label %.critedge
 
 .critedge:                                        ; preds = %select.unfold, %16, %_ZNK5clang11DeclContext9getParentEv.exit, %_ZNK5clang9NamedDecl7getNameEv.exit
   ret ptr %.011

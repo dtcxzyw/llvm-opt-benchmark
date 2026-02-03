@@ -2591,9 +2591,8 @@ entry:
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   %flags_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i32, ptr %flags_.i, align 8
-  %and.i = and i32 %0, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end5, label %if.then
+  %cmp.i = trunc i32 %0 to i1
+  br i1 %cmp.i, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
   %next_ = getelementptr inbounds nuw i8, ptr %this, i64 88

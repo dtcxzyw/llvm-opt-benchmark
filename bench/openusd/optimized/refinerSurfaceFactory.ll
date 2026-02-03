@@ -42,7 +42,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBas
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 2
   %.not = icmp eq i16 %7, 0
-  br i1 %.not, label %19, label %8
+  br i1 %.not, label %18, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -53,13 +53,12 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr25RefinerSurfaceFactoryBas
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %14, i64 %13
   %16 = load i8, ptr %15, align 1
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  br label %19
+  %17 = trunc i8 %16 to i1
+  br label %18
 
-19:                                               ; preds = %8, %2
-  %20 = phi i1 [ false, %2 ], [ %18, %8 ]
-  ret i1 %20
+18:                                               ; preds = %8, %2
+  %19 = phi i1 [ false, %2 ], [ %17, %8 ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

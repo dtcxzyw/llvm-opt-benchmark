@@ -3973,9 +3973,8 @@ define internal i64 @path_f_pathname(i64 %0, i64 noundef %1) #0 {
   br label %rb_class_of.exit
 
 14:                                               ; preds = %11
-  %15 = and i64 %1, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %16, label %rb_class_of.exit
+  %15 = trunc i64 %1 to i1
+  br i1 %15, label %rb_class_of.exit, label %16
 
 16:                                               ; preds = %14
   %17 = and i64 %1, 254

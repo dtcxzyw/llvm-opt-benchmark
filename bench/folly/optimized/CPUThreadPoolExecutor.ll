@@ -5869,14 +5869,14 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE23ext
 
 8:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
-  %.02026 = phi i1 [ true, %3 ], [ %spec.select, %8 ]
+  %.02025 = phi i1 [ true, %3 ], [ %spec.select, %8 ]
   %9 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %5, i64 %indvars.iv
   %10 = atomicrmw xchg ptr %9, i64 0 acq_rel, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !292
   %.not21 = icmp eq i64 %10, 0
-  %spec.select = select i1 %.not21, i1 %.02026, i1 false
+  %spec.select = select i1 %.not21, i1 %.02025, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.preheader, label %8, !llvm.loop !341
@@ -5886,16 +5886,15 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE23ext
   ret i1 %14
 
 15:                                               ; preds = %.preheader, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
-  %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next33, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
-  %.228 = phi i1 [ %spec.select, %.preheader ], [ %.3, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
-  %16 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %6, i64 %indvars.iv32
+  %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
+  %.227 = phi i1 [ %spec.select, %.preheader ], [ %.3, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
+  %16 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %6, i64 %indvars.iv31
   %17 = load atomic i64, ptr %16 acquire, align 8
-  %18 = and i64 %17, 1
-  %.not22 = icmp eq i64 %18, 0
-  br i1 %.not22, label %21, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv31
   store ptr null, ptr %20, align 8, !tbaa !292
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
 
@@ -5970,7 +5969,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE23ext
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit: ; preds = %36, %37
   %53 = and i64 %25, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv32
+  %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv31
   store ptr %54, ptr %55, align 8, !tbaa !292
   %.not = icmp eq i64 %53, 0
   br i1 %.not, label %56, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
@@ -6002,10 +6001,10 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
   br i1 %67, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit, %19
-  %.3 = phi i1 [ %.228, %19 ], [ false, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit ], [ %.228, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i ]
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond34.not, label %13, label %15, !llvm.loop !342
+  %.3 = phi i1 [ %.227, %19 ], [ false, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit ], [ %.227, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i ]
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %exitcond33.not = icmp eq i64 %indvars.iv.next32, 8
+  br i1 %exitcond33.not, label %13, label %15, !llvm.loop !342
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8432,9 +8431,8 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7
   %.0.i.i.i.i = inttoptr i64 %10 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !185
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %18, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 21
@@ -16138,8 +16136,8 @@ define linkonce_odr void @_ZN5folly25PriorityUnboundedQueueSetINS_21CPUThreadPoo
   %8 = load ptr, ptr %1, align 8, !tbaa !629
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !629
-  %.not124 = icmp eq ptr %8, %10
-  br i1 %.not124, label %._crit_edge, label %.lr.ph
+  %.not123 = icmp eq ptr %8, %10
+  br i1 %.not123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
@@ -16166,7 +16164,7 @@ define linkonce_odr void @_ZN5folly25PriorityUnboundedQueueSetINS_21CPUThreadPoo
   br label %31
 
 31:                                               ; preds = %.lr.ph, %455
-  %.sroa.072.0125 = phi ptr [ %8, %.lr.ph ], [ %456, %455 ]
+  %.sroa.071.0124 = phi ptr [ %8, %.lr.ph ], [ %456, %455 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !664
   store i64 -9223372036854775808, ptr %7, align 8, !noalias !664
   %32 = load ptr, ptr %11, align 8, !tbaa !220, !noalias !667
@@ -16198,30 +16196,30 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i.thread: ; preds = %_ZN5folly20Si
           to label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i unwind label %450, !noalias !667
 
 _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i: ; preds = %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i.thread, %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i
-  %.sroa.075.2 = phi ptr [ %41, %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i ], [ %42, %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i.thread ]
-  %43 = load atomic i64, ptr %.sroa.072.0125 monotonic, align 8, !noalias !667
-  store atomic i64 %43, ptr %.sroa.075.2 release, align 8, !noalias !667
+  %.sroa.074.2 = phi ptr [ %41, %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i ], [ %42, %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i.thread ]
+  %43 = load atomic i64, ptr %.sroa.071.0124 monotonic, align 8, !noalias !667
+  store atomic i64 %43, ptr %.sroa.074.2 release, align 8, !noalias !667
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !noalias !667, !srcloc !230
-  %44 = load atomic i64, ptr %.sroa.072.0125 acquire, align 8, !noalias !667
-  %.0.i.i12121 = inttoptr i64 %44 to ptr
-  %.not.i14.i122 = icmp eq i64 %43, %44
-  br i1 %.not.i14.i122, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.preheader, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !231
+  %44 = load atomic i64, ptr %.sroa.071.0124 acquire, align 8, !noalias !667
+  %.0.i.i12120 = inttoptr i64 %44 to ptr
+  %.not.i14.i121 = icmp eq i64 %43, %44
+  br i1 %.not.i14.i121, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.preheader, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !231
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.preheader: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
-  %.0.i.i12.lcssa = phi ptr [ %.0.i.i12121, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %.0.i.i12, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.072.0125, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.072.0125, i64 72
+  %.0.i.i12.lcssa = phi ptr [ %.0.i.i12120, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %.0.i.i12, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.071.0124, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.071.0124, i64 72
   br label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.outer
 
 _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i
-  %.0.i.i12123 = phi ptr [ %.0.i.i12, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %.0.i.i12121, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
-  store atomic i64 0, ptr %.sroa.075.2 release, align 8, !noalias !667
-  %47 = ptrtoint ptr %.0.i.i12123 to i64
-  store atomic i64 %47, ptr %.sroa.075.2 release, align 8, !noalias !667
+  %.0.i.i12122 = phi ptr [ %.0.i.i12, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i ], [ %.0.i.i12120, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+  store atomic i64 0, ptr %.sroa.074.2 release, align 8, !noalias !667
+  %47 = ptrtoint ptr %.0.i.i12122 to i64
+  store atomic i64 %47, ptr %.sroa.074.2 release, align 8, !noalias !667
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !noalias !667, !srcloc !230
-  %48 = load atomic i64, ptr %.sroa.072.0125 acquire, align 8, !noalias !667
+  %48 = load atomic i64, ptr %.sroa.071.0124 acquire, align 8, !noalias !667
   %.0.i.i12 = inttoptr i64 %48 to ptr
-  %.not.i14.i = icmp eq ptr %.0.i.i12123, %.0.i.i12
+  %.not.i14.i = icmp eq ptr %.0.i.i12122, %.0.i.i12
   br i1 %.not.i14.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.preheader, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EEbRSB_SE_T0_.exit.i, !prof !232
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.outer, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE18tryDequeueWaitElemINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRNS4_5EntryEmRKNS6_10time_pointIT_T0_EE.exit.thread
@@ -16232,7 +16230,7 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPo
   br i1 %.not.i, label %56, label %52, !prof !143
 
 52:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i
-  %53 = call noundef ptr @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE19getAllocNextSegmentEPNS4_7SegmentEm(ptr noundef nonnull align 64 dereferenceable(80) %.sroa.072.0125, ptr noundef nonnull %.0.i.ph, i64 noundef %49) #28
+  %53 = call noundef ptr @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE19getAllocNextSegmentEPNS4_7SegmentEm(ptr noundef nonnull align 64 dereferenceable(80) %.sroa.071.0124, ptr noundef nonnull %.0.i.ph, i64 noundef %49) #28
   br label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.outer, !llvm.loop !677
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.outer: ; preds = %52, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i.preheader
@@ -16454,7 +16452,7 @@ _ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit26:    ; preds = %_ZNSt12__shared_ptr
 139:                                              ; preds = %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit26
   %140 = load i64, ptr %70, align 8, !tbaa !621
   %141 = add i64 %140, 256
-  %142 = getelementptr inbounds nuw i8, ptr %.sroa.072.0125, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.071.0124, i64 64
   %143 = load atomic i64, ptr %142 acquire, align 8
   %storemerge6.i.i = inttoptr i64 %143 to ptr
   %144 = getelementptr inbounds nuw i8, ptr %storemerge6.i.i, i64 40
@@ -16463,7 +16461,7 @@ _ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit26:    ; preds = %_ZNSt12__shared_ptr
   br i1 %146, label %.lr.ph.i.i, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE19advanceTailToTicketEm.exit.i
 
 .lr.ph.i.i:                                       ; preds = %139
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.072.0125, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.071.0124, i64 16
   %148 = ptrtoint ptr %147 to i64
   br label %149
 
@@ -16536,7 +16534,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6
   unreachable
 
 _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE19advanceTailToTicketEm.exit.i: ; preds = %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE16allocNextSegmentEPNS4_7SegmentE.exit.i.i, %139
-  %179 = load atomic i64, ptr %.sroa.072.0125 acquire, align 8
+  %179 = load atomic i64, ptr %.sroa.071.0124 acquire, align 8
   %.08.i = inttoptr i64 %179 to ptr
   %180 = getelementptr inbounds nuw i8, ptr %.08.i, i64 40
   %181 = load i64, ptr %180, align 8, !tbaa !621
@@ -16548,7 +16546,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6
   %.0.in9.i = phi i64 [ %.1.in.i, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE14reclaimSegmentEPNS4_7SegmentE.exit.i ], [ %179, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE19advanceTailToTicketEm.exit.i ]
   %183 = getelementptr inbounds nuw i8, ptr %.010.i27, i64 32
   %184 = load atomic i64, ptr %183 acquire, align 8
-  %185 = cmpxchg ptr %.sroa.072.0125, i64 %.0.in9.i, i64 %184 release acquire, align 8
+  %185 = cmpxchg ptr %.sroa.071.0124, i64 %.0.in9.i, i64 %184 release acquire, align 8
   %186 = extractvalue { i64, i1 } %185, 1
   br i1 %186, label %188, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE7casHeadERPNS4_7SegmentES6_.exit.i
 
@@ -16645,9 +16643,8 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7
   %.0.i.i.i.i.i49 = inttoptr i64 %222 to ptr
   %224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i49, i64 16
   %225 = load i64, ptr %224, align 8, !tbaa !185
-  %226 = and i64 %225, 1
-  %.not.i50 = icmp eq i64 %226, 0
-  br i1 %.not.i50, label %229, label %227
+  %226 = trunc i64 %225 to i1
+  br i1 %226, label %227, label %229
 
 227:                                              ; preds = %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i
   %228 = getelementptr inbounds nuw i8, ptr %195, i64 21
@@ -16658,9 +16655,9 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7
 229:                                              ; preds = %227, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i
   %230 = phi i64 [ %.pre.i, %227 ], [ %225, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7pop_allEv.exit.i ]
   %231 = and i64 %230, 1
-  %.not.i.i.i51 = icmp eq i64 %231, 0
+  %.not.i.i.i50 = icmp eq i64 %231, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !230
-  br i1 %.not.i.i.i51, label %232, label %246
+  br i1 %.not.i.i.i50, label %232, label %246
 
 232:                                              ; preds = %229
   %233 = lshr i64 %222, 8
@@ -16672,16 +16669,16 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7
   store ptr %237, ptr %238, align 8, !tbaa !177
   %239 = cmpxchg weak ptr %235, i64 %236, i64 %222 acq_rel acquire, align 8
   %240 = extractvalue { i64, i1 } %239, 1
-  br i1 %240, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i56
+  br i1 %240, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i55
 
-_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i56: ; preds = %232, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i56
-  %241 = phi { i64, i1 } [ %244, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i56 ], [ %239, %232 ]
+_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i55: ; preds = %232, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i55
+  %241 = phi { i64, i1 } [ %244, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i55 ], [ %239, %232 ]
   %242 = extractvalue { i64, i1 } %241, 0
   %243 = inttoptr i64 %242 to ptr
   store ptr %243, ptr %238, align 8, !tbaa !177
   %244 = cmpxchg weak ptr %235, i64 %242, i64 %222 acq_rel acquire, align 8
   %245 = extractvalue { i64, i1 } %244, 1
-  br i1 %245, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i56
+  br i1 %245, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i55
 
 246:                                              ; preds = %229
   %247 = lshr i64 %230, 8
@@ -16690,39 +16687,39 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
   %250 = load atomic i64, ptr %249 acquire, align 8
   %251 = and i64 %250, 1
   %252 = and i64 %250, -2
-  %.01217.i.i.i.i52 = add i64 %251, %222
+  %.01217.i.i.i.i51 = add i64 %251, %222
   %253 = inttoptr i64 %252 to ptr
   %254 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5.i.i, i64 8
   store ptr %253, ptr %254, align 8, !tbaa !177
-  %255 = cmpxchg weak ptr %249, i64 %250, i64 %.01217.i.i.i.i52 acq_rel acquire, align 8
+  %255 = cmpxchg weak ptr %249, i64 %250, i64 %.01217.i.i.i.i51 acq_rel acquire, align 8
   %256 = extractvalue { i64, i1 } %255, 1
-  br i1 %256, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i53
+  br i1 %256, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i52
 
-_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i53: ; preds = %246, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i53
-  %257 = phi { i64, i1 } [ %262, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i53 ], [ %255, %246 ]
+_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i52: ; preds = %246, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i52
+  %257 = phi { i64, i1 } [ %262, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i52 ], [ %255, %246 ]
   %258 = extractvalue { i64, i1 } %257, 0
   %259 = and i64 %258, 1
   %260 = and i64 %258, -2
-  %.012.us.i.i.i.i54 = add i64 %259, %222
+  %.012.us.i.i.i.i53 = add i64 %259, %222
   %261 = inttoptr i64 %260 to ptr
   store ptr %261, ptr %254, align 8, !tbaa !177
-  %262 = cmpxchg weak ptr %249, i64 %258, i64 %.012.us.i.i.i.i54 acq_rel acquire, align 8
+  %262 = cmpxchg weak ptr %249, i64 %258, i64 %.012.us.i.i.i.i53 acq_rel acquire, align 8
   %263 = extractvalue { i64, i1 } %262, 1
-  br i1 %263, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i53
+  br i1 %263, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i52
 
-_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i53, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i56, %246, %232
+_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.us.i.i.i.i52, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.i.i.i55, %246, %232
   %264 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), i32 %.028.i release, align 4
   invoke void @_ZN5folly13hazptr_domainISt6atomicE27check_threshold_and_reclaimEv(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE)
           to label %.noexc unwind label %265
 
-265:                                              ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55
+265:                                              ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54
   %266 = landingpad { ptr, i32 }
           catch ptr null
   %267 = extractvalue { ptr, i32 } %266, 0
   call void @__clang_call_terminate(ptr %267) #41
   unreachable
 
-.noexc:                                           ; preds = %_ZN5folly17hazptr_obj_cohortISt6atomicE9cas_countERii.exit.i, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i55, %221, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i.i
+.noexc:                                           ; preds = %_ZN5folly17hazptr_obj_cohortISt6atomicE9cas_countERii.exit.i, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i54, %221, %_ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4pushEPS4_.exit.i.i
   %268 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %269 = load atomic i64, ptr %268 acquire, align 8
   %.not.i.i36 = icmp eq i64 %269, 0
@@ -16844,66 +16841,66 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4
   %327 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416) acquire, align 8
   %328 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 24) acquire, align 8
   %329 = shl nsw i32 %328, 1
-  %.sroa.speculated.i7.i.i57 = call noundef i32 @llvm.smax.i32(i32 %329, i32 1000)
-  %.not8.i.i58 = icmp slt i32 %327, %.sroa.speculated.i7.i.i57
-  br i1 %.not8.i.i58, label %.loopexit.i64, label %.lr.ph.i.i59
+  %.sroa.speculated.i7.i.i56 = call noundef i32 @llvm.smax.i32(i32 %329, i32 1000)
+  %.not8.i.i57 = icmp slt i32 %327, %.sroa.speculated.i7.i.i56
+  br i1 %.not8.i.i57, label %.loopexit.i63, label %.lr.ph.i.i58
 
-.lr.ph.i.i59:                                     ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i61
-  %.039.i.i60 = phi i32 [ %332, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i61 ], [ %327, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i ]
-  %330 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), i32 %.039.i.i60, i32 0 acq_rel monotonic, align 4
+.lr.ph.i.i58:                                     ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i60
+  %.039.i.i59 = phi i32 [ %332, %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i60 ], [ %327, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i ]
+  %330 = cmpxchg weak ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), i32 %.039.i.i59, i32 0 acq_rel monotonic, align 4
   %331 = extractvalue { i32, i1 } %330, 1
-  br i1 %331, label %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i68, label %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i61
+  br i1 %331, label %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i67, label %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i60
 
-_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i61: ; preds = %.lr.ph.i.i59
+_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i60: ; preds = %.lr.ph.i.i58
   %332 = extractvalue { i32, i1 } %330, 0
   %333 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 24) acquire, align 8
   %334 = shl nsw i32 %333, 1
-  %.sroa.speculated.i.i.i62 = call noundef i32 @llvm.smax.i32(i32 %334, i32 1000)
-  %.not.i.i63 = icmp slt i32 %332, %.sroa.speculated.i.i.i62
-  br i1 %.not.i.i63, label %.loopexit.i64, label %.lr.ph.i.i59
+  %.sroa.speculated.i.i.i61 = call noundef i32 @llvm.smax.i32(i32 %334, i32 1000)
+  %.not.i.i62 = icmp slt i32 %332, %.sroa.speculated.i.i.i61
+  br i1 %.not.i.i62, label %.loopexit.i63, label %.lr.ph.i.i58
 
-_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i68: ; preds = %.lr.ph.i.i59
+_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i67: ; preds = %.lr.ph.i.i58
   %335 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
   %336 = add i64 %335, 2000000000
   store atomic i64 %336, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 424) release, align 8
   br label %349
 
-.loopexit.i64:                                    ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i61, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i
+.loopexit.i63:                                    ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_countERii.exit.i.i60, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i
   %337 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
   %338 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 424) acquire, align 8
   %339 = icmp ult i64 %337, %338
-  br i1 %339, label %._crit_edge.loopexit.i, label %_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i65
+  br i1 %339, label %._crit_edge.loopexit.i, label %_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i64
 
-_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i65: ; preds = %.loopexit.i64
+_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i64: ; preds = %.loopexit.i63
   %340 = add i64 %337, 2000000000
   %341 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 424), i64 %338, i64 %340 acq_rel monotonic, align 8
   %342 = extractvalue { i64, i1 } %341, 1
   br i1 %342, label %343, label %._crit_edge.loopexit.i
 
-343:                                              ; preds = %_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i65
+343:                                              ; preds = %_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i64
   %344 = atomicrmw xchg ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), i32 0 acq_rel, align 4
   %345 = icmp slt i32 %344, 0
-  br i1 %345, label %346, label %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i66
+  br i1 %345, label %346, label %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i65
 
 346:                                              ; preds = %343
   %347 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), i32 %344 release, align 4
   br label %._crit_edge.loopexit.i
 
-_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i66: ; preds = %343
+_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i65: ; preds = %343
   %348 = icmp eq i32 %344, 0
   br i1 %348, label %._crit_edge.loopexit.i, label %349
 
-349:                                              ; preds = %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i66, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i68
-  %.0.i67 = phi i32 [ %344, %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i66 ], [ %.039.i.i60, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i68 ]
+349:                                              ; preds = %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i65, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i67
+  %.0.i66 = phi i32 [ %344, %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i65 ], [ %.039.i.i59, %_ZN5folly13hazptr_domainISt6atomicE21check_count_thresholdEv.exit.i67 ]
   %350 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 28), i16 1 release, align 2
-  %351 = invoke noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEi(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, i32 noundef %.0.i67)
-          to label %.noexc69 unwind label %353
+  %351 = invoke noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEi(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, i32 noundef %.0.i66)
+          to label %.noexc68 unwind label %353
 
-.noexc69:                                         ; preds = %349
+.noexc68:                                         ; preds = %349
   br i1 %351, label %._crit_edge.loopexit.i, label %352
 
-352:                                              ; preds = %.noexc69
-  invoke void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, i32 noundef %.0.i67)
+352:                                              ; preds = %.noexc68
+  invoke void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(ptr noundef nonnull align 8 dereferenceable(444) @_ZN5folly14default_domainE, i32 noundef %.0.i66)
           to label %._crit_edge.loopexit.i unwind label %353
 
 353:                                              ; preds = %352, %349
@@ -16917,7 +16914,7 @@ _ZN5folly26hazptr_domain_push_retiredISt6atomicEEvRNS_15hazptr_obj_listIT_EERNS_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.lr.ph.i43, !llvm.loop !288
 
-._crit_edge.loopexit.i:                           ; preds = %275, %.noexc69, %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i66, %346, %_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i65, %.loopexit.i64, %352
+._crit_edge.loopexit.i:                           ; preds = %275, %.noexc68, %_ZN5folly13hazptr_domainISt6atomicE14check_due_timeEv.exit.i65, %346, %_ZN5folly13hazptr_domainISt6atomicE12cas_due_timeERmm.exit.i.i64, %.loopexit.i63, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE14reclaimSegmentEPNS4_7SegmentE.exit.i
 
@@ -17062,8 +17059,8 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6
   br i1 %421, label %.lr.ph.i, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE17tryDequeueUntilMCINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS2_EEPNS4_7SegmentERKNS6_10time_pointIT_T0_EE.exit, !llvm.loop !681
 
 _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE17tryDequeueUntilMCINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS2_EEPNS4_7SegmentERKNS6_10time_pointIT_T0_EE.exit: ; preds = %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE14reclaimSegmentEPNS4_7SegmentE.exit.i, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE19advanceTailToTicketEm.exit.i, %_ZN5folly18ThreadPoolExecutor4TaskD2Ev.exit26, %65
-  store atomic i64 0, ptr %.sroa.075.2 release, align 8
-  %422 = getelementptr inbounds nuw i8, ptr %.sroa.075.2, i64 8
+  store atomic i64 0, ptr %.sroa.074.2 release, align 8
+  %422 = getelementptr inbounds nuw i8, ptr %.sroa.074.2, i64 8
   %423 = load ptr, ptr %422, align 8, !tbaa !241
   %424 = icmp eq ptr %423, @_ZN5folly14default_domainE
   br i1 %424, label %425, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !143
@@ -17089,13 +17086,13 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   store i8 %433, ptr %430, align 8, !tbaa !225
   %434 = zext nneg i8 %431 to i64
   %435 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %429, i64 %434
-  store ptr %.sroa.075.2, ptr %435, align 8, !tbaa !227
+  store ptr %.sroa.074.2, ptr %435, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE15tryDequeueUntilINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS2_EERKNS6_10time_pointIT_T0_EE.exit
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i: ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit13.i, %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE17tryDequeueUntilMCINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS2_EEPNS4_7SegmentERKNS6_10time_pointIT_T0_EE.exit
-  %436 = ptrtoint ptr %.sroa.075.2 to i64
+  %436 = ptrtoint ptr %.sroa.074.2 to i64
   %437 = getelementptr inbounds nuw i8, ptr %423, i64 8
-  %438 = getelementptr inbounds nuw i8, ptr %.sroa.075.2, i64 24
+  %438 = getelementptr inbounds nuw i8, ptr %.sroa.074.2, i64 24
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i
@@ -17140,7 +17137,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6
 
 455:                                              ; preds = %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE15tryDequeueUntilINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS2_EERKNS6_10time_pointIT_T0_EE.exit
   call void @_ZN5folly8OptionalINS_21CPUThreadPoolExecutor7CPUTaskEE31StorageNonTriviallyDestructible5clearEv(ptr noundef nonnull align 16 dereferenceable(144) %0)
-  %456 = getelementptr inbounds nuw i8, ptr %.sroa.072.0125, i64 128
+  %456 = getelementptr inbounds nuw i8, ptr %.sroa.071.0124, i64 128
   %.not = icmp eq ptr %456, %10
   br i1 %.not, label %._crit_edge, label %31
 

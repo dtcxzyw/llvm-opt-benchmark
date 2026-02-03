@@ -1487,9 +1487,8 @@ for.body:                                         ; preds = %entry, %_ZNK6hermes
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call ptr %0(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %i.06) #19
   %1 = ptrtoint ptr %call to i64
-  %and.i.i = and i64 %1, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i64 %1 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %call, i64 7
@@ -2486,40 +2485,39 @@ cond.true:                                        ; preds = %if.end
 cond.end:                                         ; preds = %if.end, %cond.true
   %global.sroa.0.0 = phi ptr [ %add.ptr.i5, %cond.true ], [ %arrayidx, %if.end ]
   %8 = ptrtoint ptr %global.sroa.0.0 to i64
-  %and.i.i = and i64 %8, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i12, label %if.then.i10
+  %tobool.i.i = trunc i64 %8 to i1
+  br i1 %tobool.i.i, label %if.then.i13, label %if.else.i9
 
-if.then.i10:                                      ; preds = %cond.end
-  %add.ptr.i.i6 = getelementptr inbounds i8, ptr %global.sroa.0.0, i64 -1
-  %9 = load i32, ptr %add.ptr.i.i6, align 1
-  %idx.ext10 = zext i32 %9 to i64
+if.then.i13:                                      ; preds = %cond.end
+  %add.ptr.i.i7 = getelementptr inbounds i8, ptr %global.sroa.0.0, i64 -1
+  %9 = load i32, ptr %add.ptr.i.i7, align 1
+  %idx.ext1023 = zext i32 %9 to i64
   %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %global.sroa.0.0, i64 7
   %10 = load i32, ptr %bytecodeSizeInBytes.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
-if.else.i12:                                      ; preds = %cond.end
-  %bf.load.i7 = load i120, ptr %global.sroa.0.0, align 1
-  %11 = trunc i120 %bf.load.i7 to i64
+if.else.i9:                                       ; preds = %cond.end
+  %bf.load.i6 = load i120, ptr %global.sroa.0.0, align 1
+  %11 = trunc i120 %bf.load.i6 to i64
   %bf.cast.i = and i64 %11, 33554431
-  %bf.lshr.i = lshr i120 %bf.load.i7, 32
+  %bf.lshr.i = lshr i120 %bf.load.i6, 32
   %12 = trunc i120 %bf.lshr.i to i32
-  %bf.cast.i14 = and i32 %12, 32767
+  %bf.cast.i11 = and i32 %12, 32767
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i10, %if.else.i12
-  %idx.ext10.pn = phi i64 [ %idx.ext10, %if.then.i10 ], [ %bf.cast.i, %if.else.i12 ]
-  %retval.0.i11 = phi i32 [ %10, %if.then.i10 ], [ %bf.cast.i14, %if.else.i12 ]
-  %add.ptr1126 = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext10.pn
-  %conv13 = zext i32 %retval.0.i11 to i64
-  %call.i15 = call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
-  %13 = ptrtoint ptr %add.ptr1126 to i64
-  %sub.i16 = add i64 %call.i15, -1
-  %and.i17 = and i64 %sub.i16, %13
-  %idx.neg.i18 = sub i64 0, %and.i17
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %add.ptr1126, i64 %idx.neg.i18
-  %add.i20 = add i64 %and.i17, %conv13
-  call void @_ZN6hermes8oscompat11vm_prefetchEPvm(ptr noundef %add.ptr.i19, i64 noundef %add.i20) #19
+_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i13, %if.else.i9
+  %idx.ext1023.pn = phi i64 [ %idx.ext1023, %if.then.i13 ], [ %bf.cast.i, %if.else.i9 ]
+  %retval.0.i12 = phi i32 [ %10, %if.then.i13 ], [ %bf.cast.i11, %if.else.i9 ]
+  %add.ptr1125 = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext1023.pn
+  %conv13 = zext i32 %retval.0.i12 to i64
+  %call.i14 = call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
+  %13 = ptrtoint ptr %add.ptr1125 to i64
+  %sub.i15 = add i64 %call.i14, -1
+  %and.i16 = and i64 %sub.i15, %13
+  %idx.neg.i17 = sub i64 0, %and.i16
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %add.ptr1125, i64 %idx.neg.i17
+  %add.i19 = add i64 %and.i16, %conv13
+  call void @_ZN6hermes8oscompat11vm_prefetchEPvm(ptr noundef %add.ptr.i18, i64 noundef %add.i19) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormE.exit, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
@@ -2675,23 +2673,22 @@ if.then.i:                                        ; preds = %entry
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit: ; preds = %entry, %if.then.i
   %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %arrayidx.i, %entry ]
   %4 = ptrtoint ptr %retval.sroa.0.0.i to i64
-  %and.i.i = and i64 %4, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i1
+  %tobool.i.i = trunc i64 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i2, label %if.else.i
 
-if.then.i1:                                       ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %add.ptr.i.i2 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 -1
-  %5 = load i32, ptr %add.ptr.i.i2, align 1
+if.then.i2:                                       ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
+  %add.ptr.i.i3 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 -1
+  %5 = load i32, ptr %add.ptr.i.i3, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
 
 if.else.i:                                        ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %bf.load.i3 = load i120, ptr %retval.sroa.0.0.i, align 1
-  %6 = trunc i120 %bf.load.i3 to i32
+  %bf.load.i1 = load i120, ptr %retval.sroa.0.0.i, align 1
+  %6 = trunc i120 %bf.load.i1 to i32
   %bf.cast.i = and i32 %6, 33554431
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit: ; preds = %if.then.i1, %if.else.i
-  %retval.0.i = phi i32 [ %5, %if.then.i1 ], [ %bf.cast.i, %if.else.i ]
+_ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit: ; preds = %if.then.i2, %if.else.i
+  %retval.0.i = phi i32 [ %5, %if.then.i2 ], [ %bf.cast.i, %if.else.i ]
   %idx.ext = zext i32 %retval.0.i to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
   ret ptr %add.ptr

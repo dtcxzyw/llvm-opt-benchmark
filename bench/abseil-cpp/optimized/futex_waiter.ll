@@ -30,9 +30,8 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24sync
   br label %_ZN4absl24synchronization_internal9FutexImpl4WaitEPSt6atomicIiEi.exit
 
 13:                                               ; preds = %3
-  %14 = and i64 %2, 1
-  %.not12 = icmp eq i64 %14, 0
-  br i1 %.not12, label %25, label %15
+  %14 = trunc i64 %2 to i1
+  br i1 %14, label %15, label %25
 
 15:                                               ; preds = %13
   %16 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout20MakeRelativeTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %6)

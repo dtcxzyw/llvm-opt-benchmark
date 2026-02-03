@@ -207,42 +207,42 @@ rm_write_audio.exit:                              ; preds = %.lr.ph.i, %.prehead
 52:                                               ; preds = %43
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %54 = load i32, ptr %53, align 8, !tbaa !58
-  %55 = and i32 %54, 1
-  %.not.i = icmp eq i32 %55, 0
-  %56 = add nsw i32 %17, 7
-  %57 = icmp sgt i32 %17, 16383
-  %58 = select i1 %57, i32 4, i32 0
-  %59 = add nsw i32 %56, %58
-  tail call fastcc void @write_packet_header(ptr %47, ptr noundef %49, i32 noundef %59, i32 noundef %55)
+  %55 = trunc i32 %54 to i1
+  %56 = and i32 %54, 1
+  %57 = add nsw i32 %17, 7
+  %58 = icmp sgt i32 %17, 16383
+  %59 = select i1 %58, i32 4, i32 0
+  %60 = add nsw i32 %57, %59
+  tail call fastcc void @write_packet_header(ptr %47, ptr noundef %49, i32 noundef %60, i32 noundef %56)
   tail call void @avio_w8(ptr noundef %47, i32 noundef 129) #6
-  %..i = select i1 %.not.i, i32 1, i32 129
+  %..i = select i1 %55, i32 129, i32 1
   tail call void @avio_w8(ptr noundef %47, i32 noundef %..i) #6
-  br i1 %57, label %60, label %61
-
-60:                                               ; preds = %52
-  tail call void @avio_wb32(ptr noundef %47, i32 noundef %17) #6
-  tail call void @avio_wb32(ptr noundef %47, i32 noundef %17) #6
-  br label %63
+  br i1 %58, label %61, label %62
 
 61:                                               ; preds = %52
-  %62 = or i32 %17, 16384
-  tail call void @avio_wb16(ptr noundef %47, i32 noundef %62) #6
-  tail call void @avio_wb16(ptr noundef %47, i32 noundef %62) #6
-  br label %63
+  tail call void @avio_wb32(ptr noundef %47, i32 noundef %17) #6
+  tail call void @avio_wb32(ptr noundef %47, i32 noundef %17) #6
+  br label %64
 
-63:                                               ; preds = %61, %60
-  %64 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !63
-  %66 = and i32 %65, 255
-  tail call void @avio_w8(ptr noundef %47, i32 noundef %66) #6
+62:                                               ; preds = %52
+  %63 = or i32 %17, 16384
+  tail call void @avio_wb16(ptr noundef %47, i32 noundef %63) #6
+  tail call void @avio_wb16(ptr noundef %47, i32 noundef %63) #6
+  br label %64
+
+64:                                               ; preds = %62, %61
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %66 = load i32, ptr %65, align 8, !tbaa !63
+  %67 = and i32 %66, 255
+  tail call void @avio_w8(ptr noundef %47, i32 noundef %67) #6
   tail call void @avio_write(ptr noundef %47, ptr noundef %15, i32 noundef %17) #6
-  %67 = load i32, ptr %64, align 8, !tbaa !63
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %64, align 8, !tbaa !63
+  %68 = load i32, ptr %65, align 8, !tbaa !63
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %65, align 8, !tbaa !63
   br label %rm_write_video.exit
 
-rm_write_video.exit:                              ; preds = %63, %51, %rm_write_audio.exit
-  %.0 = phi i32 [ 0, %rm_write_audio.exit ], [ -1163346256, %51 ], [ 0, %63 ]
+rm_write_video.exit:                              ; preds = %64, %51, %rm_write_audio.exit
+  %.0 = phi i32 [ 0, %rm_write_audio.exit ], [ -1163346256, %51 ], [ 0, %64 ]
   ret i32 %.0
 }
 

@@ -3093,117 +3093,117 @@ define internal fastcc void @__ftrace_clear_event_pids(ptr noundef %0, i32 nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = and i32 %1, 1
-  %8 = icmp ne i32 %7, 0
+  %8 = trunc i32 %1 to i1
   %9 = icmp ne ptr %4, null
-  %10 = and i1 %8, %9
-  %11 = icmp ne ptr %6, null
-  br i1 %10, label %18, label %12
+  %10 = and i1 %9, %8
+  br i1 %10, label %15, label %11
 
-12:                                               ; preds = %2
-  %13 = icmp samesign ugt i32 %1, 1
-  %14 = and i1 %13, %11
-  br i1 %14, label %15, label %68
+11:                                               ; preds = %2
+  %12 = icmp samesign ugt i32 %1, 1
+  %13 = icmp ne ptr %6, null
+  %14 = and i1 %12, %13
+  br i1 %14, label %15, label %71
 
-15:                                               ; preds = %12
+15:                                               ; preds = %11, %2
   %16 = icmp eq i32 %7, 0
   %17 = and i1 %16, %9
-  br i1 %17, label %.thread9, label %.thread5
+  br i1 %17, label %.thread, label %18
 
-18:                                               ; preds = %2
+18:                                               ; preds = %15
   %19 = icmp samesign ult i32 %1, 2
-  %20 = and i1 %19, %11
-  br i1 %20, label %.thread7, label %.thread5
+  %20 = icmp ne ptr %6, null
+  %21 = and i1 %19, %20
+  br i1 %21, label %.thread, label %22
 
-.thread5:                                         ; preds = %15, %18
-  %21 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_switch, ptr noundef nonnull @event_filter_pid_sched_switch_probe_pre, ptr noundef %0) #20
-  %22 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_switch, ptr noundef nonnull @event_filter_pid_sched_switch_probe_post, ptr noundef %0) #20
-  %23 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_pre, ptr noundef %0) #20
-  %24 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_post, ptr noundef %0) #20
-  %25 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup_new, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_pre, ptr noundef %0) #20
-  %26 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup_new, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_post, ptr noundef %0) #20
-  %27 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_waking, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_pre, ptr noundef %0) #20
-  %28 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_waking, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_post, ptr noundef %0) #20
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %29
-  br i1 %31, label %.loopexit, label %.preheader
+22:                                               ; preds = %18
+  %23 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_switch, ptr noundef nonnull @event_filter_pid_sched_switch_probe_pre, ptr noundef %0) #20
+  %24 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_switch, ptr noundef nonnull @event_filter_pid_sched_switch_probe_post, ptr noundef %0) #20
+  %25 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_pre, ptr noundef %0) #20
+  %26 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_post, ptr noundef %0) #20
+  %27 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup_new, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_pre, ptr noundef %0) #20
+  %28 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_wakeup_new, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_post, ptr noundef %0) #20
+  %29 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_waking, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_pre, ptr noundef %0) #20
+  %30 = tail call i32 @tracepoint_probe_unregister(ptr noundef nonnull @__tracepoint_sched_waking, ptr noundef nonnull @event_filter_pid_sched_wakeup_probe_post, ptr noundef %0) #20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %31
+  br i1 %33, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %.thread5
-  %32 = load i64, ptr @__cpu_possible_mask, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %38
+.loopexit:                                        ; preds = %.preheader, %22
+  %34 = load i64, ptr @__cpu_possible_mask, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %40
 
-.preheader:                                       ; preds = %.thread5, %.preheader
-  %34 = phi ptr [ %36, %.preheader ], [ %30, %.thread5 ]
-  %35 = getelementptr i8, ptr %34, i64 73
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 -3, ptr elementtype(i8) %35) #20, !srcloc !44
-  %36 = load ptr, ptr %34, align 8
-  %37 = icmp eq ptr %36, %29
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !101
+.preheader:                                       ; preds = %22, %.preheader
+  %36 = phi ptr [ %38, %.preheader ], [ %32, %22 ]
+  %37 = getelementptr i8, ptr %36, i64 73
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %37, i32 -3, ptr elementtype(i8) %37) #20, !srcloc !44
+  %38 = load ptr, ptr %36, align 8
+  %39 = icmp eq ptr %38, %31
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !101
 
-38:                                               ; preds = %.loopexit, %47
-  %39 = phi i64 [ 0, %.loopexit ], [ %57, %47 ]
-  %40 = shl nsw i64 -1, %39
-  %41 = and i64 %40, %32
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %.thread6, label %43
+40:                                               ; preds = %.loopexit, %49
+  %41 = phi i64 [ 0, %.loopexit ], [ %59, %49 ]
+  %42 = shl nsw i64 -1, %41
+  %43 = and i64 %42, %34
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %.thread, label %45
 
-43:                                               ; preds = %38
-  %44 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %41) #22, !srcloc !102
-  %45 = and i64 %44, 4294967232
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %.thread6
+45:                                               ; preds = %40
+  %46 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %43) #22, !srcloc !102
+  %47 = and i64 %46, 4294967232
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %.thread
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %33, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %44, 63
-  %51 = getelementptr i64, ptr @__per_cpu_offset, i64 %50
-  %52 = load i64, ptr %51, align 8
-  %53 = add i64 %52, %49
-  %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 120
-  store i8 0, ptr %55, align 8
-  %56 = add nuw nsw i64 %44, 1
-  %57 = and i64 %56, 127
-  %58 = icmp samesign ugt i64 %57, 63
-  br i1 %58, label %.thread6, label %38, !prof !103, !llvm.loop !104
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %35, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %46, 63
+  %53 = getelementptr i64, ptr @__per_cpu_offset, i64 %52
+  %54 = load i64, ptr %53, align 8
+  %55 = add i64 %54, %51
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
+  store i8 0, ptr %57, align 8
+  %58 = add nuw nsw i64 %46, 1
+  %59 = and i64 %58, 127
+  %60 = icmp samesign ugt i64 %59, 63
+  br i1 %60, label %.thread, label %40, !prof !103, !llvm.loop !104
 
-.thread6:                                         ; preds = %38, %47, %43
-  br i1 %8, label %.thread7, label %59
+.thread:                                          ; preds = %40, %49, %45, %18, %15
+  br i1 %8, label %61, label %62
 
-.thread7:                                         ; preds = %18, %.thread6
+61:                                               ; preds = %.thread
   store volatile ptr null, ptr %3, align 8
-  br label %59
+  br label %62
 
-59:                                               ; preds = %.thread7, %.thread6
-  %60 = icmp samesign ugt i32 %1, 1
-  br i1 %60, label %.thread9, label %61
+62:                                               ; preds = %61, %.thread
+  %63 = icmp samesign ugt i32 %1, 1
+  br i1 %63, label %64, label %65
 
-.thread9:                                         ; preds = %15, %59
+64:                                               ; preds = %62
   store volatile ptr null, ptr %5, align 8
-  br label %61
+  br label %65
 
-61:                                               ; preds = %.thread9, %59
-  %62 = phi i1 [ true, %.thread9 ], [ false, %59 ]
+65:                                               ; preds = %64, %62
   tail call void @synchronize_srcu(ptr noundef nonnull @tracepoint_srcu) #20
   tail call void @synchronize_rcu() #20
-  br i1 %10, label %63, label %64
+  br i1 %10, label %66, label %67
 
-63:                                               ; preds = %61
+66:                                               ; preds = %65
   tail call void @trace_pid_list_free(ptr noundef nonnull %4) #20
-  br label %64
+  br label %67
 
-64:                                               ; preds = %63, %61
-  %65 = icmp ne ptr %6, null
-  %66 = and i1 %65, %62
-  br i1 %66, label %67, label %68
+67:                                               ; preds = %66, %65
+  %68 = icmp ne ptr %6, null
+  %69 = and i1 %63, %68
+  br i1 %69, label %70, label %71
 
-67:                                               ; preds = %64
+70:                                               ; preds = %67
   tail call void @trace_pid_list_free(ptr noundef nonnull %6) #20
-  br label %68
+  br label %71
 
-68:                                               ; preds = %67, %64, %12
+71:                                               ; preds = %70, %67, %11
   ret void
 }
 

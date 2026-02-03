@@ -661,9 +661,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq14session_base_t8pull_msgEPNS_5msg_t
 
 9:                                                ; preds = %5
   %10 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %11 = and i8 %10, 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1544
-  store i8 %11, ptr %12, align 8, !tbaa !89
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  %12 = and i8 %10, 1
+  store i8 %12, ptr %11, align 8, !tbaa !89
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -2939,9 +2939,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq19hello_msg_session_t8pull_msgEPNS_5
 
 30:                                               ; preds = %26
   %31 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %32 = and i8 %31, 1
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1544
-  store i8 %32, ptr %33, align 8, !tbaa !89
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  %33 = and i8 %31, 1
+  store i8 %33, ptr %32, align 8, !tbaa !89
   br label %_ZN3zmq14session_base_t8pull_msgEPNS_5msg_tE.exit
 
 _ZN3zmq14session_base_t8pull_msgEPNS_5msg_tE.exit: ; preds = %30, %28, %6, %15

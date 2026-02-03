@@ -14403,12 +14403,11 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_codegen3isa3x644inst4args81_$L
 6:                                                ; preds = %1
   %.01.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i16, ptr %.01.i, align 2, !alias.scope !1486, !noundef !4
-  %8 = and i16 %7, 1
-  %9 = icmp ne i16 %8, 0
+  %8 = trunc i16 %7 to i1
   br label %"_ZN17cranelift_codegen3isa3x644inst4args81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$GT$9get_flags17h28bed84c9c873dedE.exit"
 
 "_ZN17cranelift_codegen3isa3x644inst4args81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$GT$9get_flags17h28bed84c9c873dedE.exit": ; preds = %4, %6
-  %.0.i = phi i1 [ %9, %6 ], [ true, %4 ]
+  %.0.i = phi i1 [ %8, %6 ], [ true, %4 ]
   ret i1 %.0.i
 }
 
@@ -14908,12 +14907,11 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x644inst4args14Synt
 8:                                                ; preds = %4
   %.01.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %.01.i.i, align 2, !alias.scope !1582, !noundef !4
-  %10 = and i16 %9, 1
-  %11 = icmp ne i16 %10, 0
+  %10 = trunc i16 %9 to i1
   br label %"_ZN17cranelift_codegen3isa3x644inst4args81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$GT$7aligned17hbac1cb5207d955beE.llvm.17911367524062806024.exit"
 
 "_ZN17cranelift_codegen3isa3x644inst4args81_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$GT$7aligned17hbac1cb5207d955beE.llvm.17911367524062806024.exit": ; preds = %8, %6, %1
-  %.0 = phi i1 [ true, %1 ], [ %11, %8 ], [ true, %6 ]
+  %.0 = phi i1 [ true, %1 ], [ %10, %8 ], [ true, %6 ]
   ret i1 %.0
 }
 
@@ -17708,9 +17706,8 @@ default.unreachable:                              ; preds = %_ZN17cranelift_code
   br label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread16
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i: ; preds = %11
-  %15 = and i16 %.sroa.7.0.copyload, 1
-  %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread16
+  %15 = trunc i16 %.sroa.7.0.copyload to i1
+  br i1 %15, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread16, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread
 
 _ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit: ; preds = %9
   %16 = icmp eq i8 %.sroa.0.0.copyload, 7
@@ -17816,9 +17813,8 @@ default.unreachable:                              ; preds = %10, %4
   br label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread20
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i: ; preds = %15
-  %19 = and i16 %.sroa.7.0.copyload, 1
-  %.not.i = icmp eq i16 %19, 0
-  br i1 %.not.i, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread20
+  %19 = trunc i16 %.sroa.7.0.copyload to i1
+  br i1 %19, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread20, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread
 
 _ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit: ; preds = %13
   %20 = icmp eq i8 %.sroa.010.0.copyload, 7
@@ -18026,9 +18022,8 @@ default.unreachable:                              ; preds = %_ZN17cranelift_code
   br label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread17
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.i: ; preds = %11
-  %15 = and i16 %.sroa.7.0.copyload, 1
-  %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread17
+  %15 = trunc i16 %.sroa.7.0.copyload to i1
+  br i1 %15, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread17, label %_ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit.thread
 
 _ZN17cranelift_codegen3isa3x644inst4args13XmmMemAligned3new17h012e5ce178f46d7dE.exit: ; preds = %9
   %16 = icmp eq i8 %.sroa.0.0.copyload, 7
@@ -55154,9 +55149,8 @@ default.unreachable:                              ; preds = %5
   br label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit: ; preds = %12
-  %16 = and i16 %.sroa.58.0.copyload, 1
-  %.not = icmp eq i16 %16, 0
-  br i1 %.not, label %19, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread
+  %16 = trunc i16 %.sroa.58.0.copyload to i1
+  br i1 %16, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread, label %19
 
 _ZN17cranelift_codegen8machinst3reg3Reg5class17hc7c6786d1f35d9dcE.exit: ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -55417,9 +55411,8 @@ default.unreachable:                              ; preds = %7
   br label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread
 
 _ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit: ; preds = %14
-  %18 = and i16 %.sroa.59.0.copyload, 1
-  %.not = icmp eq i16 %18, 0
-  br i1 %.not, label %22, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread
+  %18 = trunc i16 %.sroa.59.0.copyload to i1
+  br i1 %18, label %_ZN17cranelift_codegen3isa3x644inst4args14SyntheticAmode7aligned17h46a54f2f0643890dE.llvm.17911367524062806024.exit.thread, label %22
 
 19:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -55877,9 +55870,9 @@ _ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit: ; pr
   %spec.select = select i1 %.not, i32 0, i32 %spec.select.v
   %.sroa.0.0 = or disjoint i32 %spec.select, %.sroa.0.0.insert.ext
   %19 = icmp slt i8 %.sroa.0.0.extract.trunc, 0
-  %.sroa.0.2.insert.insert33 = or disjoint i32 %.sroa.0.0, 262144
-  %spec.select122 = select i1 %19, i32 %.sroa.0.2.insert.insert33, i32 %.sroa.0.0
-  %.sroa.0.1.extract.shift = lshr i32 %spec.select122, 8
+  %.sroa.0.2.insert.insert32 = or disjoint i32 %.sroa.0.0, 262144
+  %spec.select121 = select i1 %19, i32 %.sroa.0.2.insert.insert32, i32 %.sroa.0.0
+  %.sroa.0.1.extract.shift = lshr i32 %spec.select121, 8
   %20 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 19
   %21 = and i32 %20, 524288
   %22 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 17
@@ -55897,42 +55890,42 @@ _ZN17cranelift_codegen8settings7Builder9state_for17h45f8200b851d2476E.exit: ; pr
   %34 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 18
   %35 = and i32 %34, 16777216
   %36 = or disjoint i32 %33, %35
-  %.sroa.0.7 = or i32 %36, %spec.select122
+  %.sroa.0.7 = or i32 %36, %spec.select121
   %37 = and i8 %.sroa.0.0.extract.trunc, 80
   %or.cond.not = icmp eq i8 %37, 80
-  %.sroa.0.3.insert.insert81 = or i32 %.sroa.0.7, 33554432
-  %.sroa.0.8 = select i1 %or.cond.not, i32 %.sroa.0.3.insert.insert81, i32 %.sroa.0.7
+  %.sroa.0.3.insert.insert80 = or i32 %.sroa.0.7, 33554432
+  %.sroa.0.8 = select i1 %or.cond.not, i32 %.sroa.0.3.insert.insert80, i32 %.sroa.0.7
   %38 = shl nuw nsw i32 %.sroa.0.1.extract.shift, 19
   %39 = and i32 %38, 67108864
   %.sroa.0.9 = or i32 %.sroa.0.8, %39
-  %40 = and i32 %spec.select122, 4096
-  %.not11 = icmp eq i32 %40, 0
+  %40 = and i32 %spec.select121, 4096
+  %.not10 = icmp eq i32 %40, 0
   %41 = and i8 %.sroa.0.0.extract.trunc, 8
-  %.not12 = icmp eq i8 %41, 0
-  %or.cond16 = or i1 %.not12, %.not11
-  %.sroa.0.3.insert.insert97 = or i32 %.sroa.0.9, 134217728
-  %.sroa.0.10 = select i1 %or.cond16, i32 %.sroa.0.9, i32 %.sroa.0.3.insert.insert97
+  %.not11 = icmp eq i8 %41, 0
+  %or.cond15 = or i1 %.not11, %.not10
+  %.sroa.0.3.insert.insert96 = or i32 %.sroa.0.9, 134217728
+  %.sroa.0.10 = select i1 %or.cond15, i32 %.sroa.0.9, i32 %.sroa.0.3.insert.insert96
   %42 = and i8 %.sroa.0.0.extract.trunc, 4
-  %.not13 = icmp eq i8 %42, 0
-  br i1 %.not13, label %44, label %43
+  %.not12 = icmp eq i8 %42, 0
+  br i1 %.not12, label %44, label %43
 
 43:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit"
-  %.sroa.0.3.insert.insert105 = or i32 %.sroa.0.10, 268435456
-  br i1 %.not12, label %44, label %48
+  %.sroa.0.3.insert.insert104 = or i32 %.sroa.0.10, 268435456
+  br i1 %.not11, label %44, label %48
 
 44:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit", %43, %48
-  %.sroa.0.11 = phi i32 [ %.sroa.0.10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit" ], [ %.sroa.0.3.insert.insert105, %43 ], [ %.sroa.0.3.insert.insert113, %48 ]
+  %.sroa.0.11 = phi i32 [ %.sroa.0.10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17heaf43511f2cb393dE.exit" ], [ %.sroa.0.3.insert.insert104, %43 ], [ %.sroa.0.3.insert.insert112, %48 ]
   %45 = and i8 %.sroa.0.0.extract.trunc, 2
   %46 = zext nneg i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 29
-  %spec.select123 = or i32 %.sroa.0.11, %47
-  ret i32 %spec.select123
+  %spec.select122 = or i32 %.sroa.0.11, %47
+  ret i32 %spec.select122
 
 48:                                               ; preds = %43
-  %.sroa.0.3.extract.shift107 = and i32 %.sroa.0.3.insert.insert105, -553648128
-  %.sroa.0.3.insert.ext110 = or disjoint i32 %.sroa.0.3.extract.shift107, 536870912
-  %.sroa.0.3.insert.mask112 = and i32 %.sroa.0.10, 16777215
-  %.sroa.0.3.insert.insert113 = or disjoint i32 %.sroa.0.3.insert.mask112, %.sroa.0.3.insert.ext110
+  %.sroa.0.3.extract.shift106 = and i32 %.sroa.0.3.insert.insert104, -553648128
+  %.sroa.0.3.insert.ext109 = or disjoint i32 %.sroa.0.3.extract.shift106, 536870912
+  %.sroa.0.3.insert.mask111 = and i32 %.sroa.0.10, 16777215
+  %.sroa.0.3.insert.insert112 = or disjoint i32 %.sroa.0.3.insert.mask111, %.sroa.0.3.insert.ext109
   br label %44
 }
 
@@ -55979,9 +55972,8 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags8has_sse317h36d5d58c0d257f77E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #14 {
   %2 = load i8, ptr %0, align 1, !alias.scope !9617, !noundef !4
-  %3 = and i8 %2, 1
-  %4 = icmp ne i8 %3, 0
-  ret i1 %4
+  %3 = trunc i8 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -56043,9 +56035,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags16has_av
 define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags12has_avx512dq17h9588c50f77281be6E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !alias.scope !9641, !noundef !4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -56114,9 +56105,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags9has_lzc
 define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags7use_avx17hdce6631014d9e1b6E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 1, !alias.scope !9665, !noundef !4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -56185,9 +56175,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags8use_bmi
 define noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags8use_bmi217h65d3adb13c2c0f9bE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(4) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %3 = load i8, ptr %2, align 1, !alias.scope !9689, !noundef !4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -56813,9 +56802,8 @@ define noundef i8 @_ZN17cranelift_codegen8settings5Flags25bb_padding_log2_minus_
 define noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags16regalloc_checker17hc0a2352ef1aa136aE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i8, ptr %2, align 1, !alias.scope !9816, !noundef !4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -56884,9 +56872,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags12enable_float17
 define noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags27enable_nan_canonicalization17hb5ed9f151d36b05dE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %3 = load i8, ptr %2, align 1, !alias.scope !9840, !noundef !4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -56955,9 +56942,8 @@ define noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags21machine_code_c
 define noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags17enable_probestack17h9f59863b7a586a60E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(9) %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 1, !alias.scope !9864, !noundef !4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

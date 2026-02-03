@@ -489,18 +489,17 @@ define internal fastcc noundef zeroext i1 @is_rosconnection_header(ptr noundef %
   br label %18
 
 18:                                               ; preds = %18, %.lr.ph.i
-  %.0191.i = phi i32 [ 0, %.lr.ph.i ], [ %27, %18 ]
+  %.0191.i = phi i32 [ 0, %.lr.ph.i ], [ %26, %18 ]
   %19 = add i32 %16, %.0191.i
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %19)
   %21 = zext i8 %20 to i64
   %22 = getelementptr i16, ptr %17, i64 %21
   %23 = load i16, ptr %22, align 2
-  %24 = and i16 %23, 1
-  %25 = icmp ne i16 %24, 0
-  %26 = icmp ne i8 %20, 0
-  %or.cond.not.i = and i1 %26, %25
-  %27 = add nuw i32 %.0191.i, 1
-  %exitcond.not.i = icmp ne i32 %27, %13
+  %24 = trunc i16 %23 to i1
+  %25 = icmp ne i8 %20, 0
+  %or.cond.not.i = and i1 %25, %24
+  %26 = add nuw i32 %.0191.i, 1
+  %exitcond.not.i = icmp ne i32 %26, %13
   %or.cond.not = select i1 %or.cond.not.i, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.not, label %18, label %is_rosheaderfield.exit, !llvm.loop !10
 

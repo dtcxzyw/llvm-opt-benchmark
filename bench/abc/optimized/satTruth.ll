@@ -369,7 +369,7 @@ Tru_ManEqual1.exit:                               ; preds = %.lr.ph.i36
   %24 = load i64, ptr %1, align 8, !tbaa !14
   %25 = trunc i64 %24 to i32
   %26 = and i32 %25, 1
-  %.not32 = icmp ne i32 %26, 0
+  %.not32 = trunc i64 %24 to i1
   br i1 %.not32, label %27, label %Tru_ManNot.exit
 
 27:                                               ; preds = %23

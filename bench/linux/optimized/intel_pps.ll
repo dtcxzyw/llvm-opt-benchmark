@@ -3588,7 +3588,7 @@ define dso_local void @assert_pps_unlocked(ptr noundef %0, i32 noundef %1) local
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1681, i32 2313, i64 12) #7, !srcloc !124
   tail call void asm sideeffect "1063: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1063b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1063) #7, !srcloc !125
   tail call void asm sideeffect "1064: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1064) #7, !srcloc !126
-  br label %116
+  br label %115
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8112
@@ -3692,63 +3692,62 @@ default.unreachable9:                             ; preds = %26
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 %81(ptr noundef nonnull %79, i32 %78, i1 noundef zeroext true) #7
-  %83 = and i32 %82, 1
-  %84 = icmp ne i32 %83, 0
-  %85 = and i32 %82, -65536
-  %86 = icmp ne i32 %85, -1412628480
-  %87 = and i1 %84, %86
-  %88 = load i32, ptr %3, align 4
-  %89 = icmp eq i32 %88, %1
-  %90 = and i1 %89, %87
-  br i1 %90, label %91, label %116, !prof !5
+  %83 = trunc i32 %82 to i1
+  %84 = and i32 %82, -65536
+  %85 = icmp ne i32 %84, -1412628480
+  %86 = and i1 %85, %83
+  %87 = load i32, ptr %3, align 4
+  %88 = icmp eq i32 %87, %1
+  %89 = and i1 %88, %86
+  br i1 %89, label %90, label %115, !prof !5
 
-91:                                               ; preds = %77
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 6795
-  %93 = load i8, ptr %92, align 1, !range !36, !noundef !37
-  %94 = icmp eq i8 %93, 0
-  br i1 %94, label %108, label %95, !prof !11
+90:                                               ; preds = %77
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 6795
+  %92 = load i8, ptr %91, align 1, !range !36, !noundef !37
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %107, label %94, !prof !11
 
-95:                                               ; preds = %91
+94:                                               ; preds = %90
   call void asm sideeffect "1073: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1073b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1073) #7, !srcloc !132
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = call ptr @dev_driver_string(ptr noundef %97) #7
-  %99 = load ptr, ptr %96, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 80
-  %101 = load ptr, ptr %100, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %105
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = call ptr @dev_driver_string(ptr noundef %96) #7
+  %98 = load ptr, ptr %95, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 80
+  %100 = load ptr, ptr %99, align 8
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %102, label %104
 
-103:                                              ; preds = %95
-  %104 = load ptr, ptr %99, align 8
-  br label %105
+102:                                              ; preds = %94
+  %103 = load ptr, ptr %98, align 8
+  br label %104
 
-105:                                              ; preds = %103, %95
-  %106 = phi ptr [ %104, %103 ], [ %101, %95 ]
-  %107 = add i32 %1, 65
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.25, ptr noundef %98, ptr noundef %106, i32 noundef %107) #7
+104:                                              ; preds = %102, %94
+  %105 = phi ptr [ %103, %102 ], [ %100, %94 ]
+  %106 = add i32 %1, 65
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.25, ptr noundef %97, ptr noundef %105, i32 noundef %106) #7
   call void asm sideeffect "1074: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1074b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1074) #7, !srcloc !133
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1729, i32 2313, i64 12) #7, !srcloc !134
   call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #7, !srcloc !135
   call void asm sideeffect "1076: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1076b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1076) #7, !srcloc !136
-  br label %116
+  br label %115
 
-108:                                              ; preds = %91
-  %109 = icmp eq ptr %0, null
-  br i1 %109, label %113, label %110
+107:                                              ; preds = %90
+  %108 = icmp eq ptr %0, null
+  br i1 %108, label %112, label %109
 
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %112 = load ptr, ptr %111, align 8
-  br label %113
+109:                                              ; preds = %107
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %111 = load ptr, ptr %110, align 8
+  br label %112
 
-113:                                              ; preds = %110, %108
-  %114 = phi ptr [ %112, %110 ], [ null, %108 ]
-  %115 = add i32 %1, 65
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %114, ptr noundef nonnull @.str.26, i32 noundef %115) #8
-  br label %116
+112:                                              ; preds = %109, %107
+  %113 = phi ptr [ %111, %109 ], [ null, %107 ]
+  %114 = add i32 %1, 65
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %113, ptr noundef nonnull @.str.26, i32 noundef %114) #8
+  br label %115
 
-116:                                              ; preds = %113, %105, %77, %20
+115:                                              ; preds = %112, %104, %77, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

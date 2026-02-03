@@ -6729,57 +6729,55 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_start_stop_xlat(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %5 = load i16, ptr %4, align 4
   %6 = icmp ult i16 %5, 5
-  br i1 %6, label %29, label %7
+  br i1 %6, label %27, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %3, i64 168
   %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = and i32 %10, 2
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %29
+  %10 = and i8 %9, 2
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %12, label %27
 
-13:                                               ; preds = %7
-  %14 = icmp ult i8 %9, 16
-  br i1 %14, label %15, label %29
+12:                                               ; preds = %7
+  %13 = icmp ult i8 %9, 16
+  br i1 %13, label %14, label %27
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = and i32 %10, 1
-  %20 = icmp ne i32 %19, 0
-  %21 = tail call zeroext i1 @ata_dev_power_init_tf(ptr noundef %17, ptr noundef nonnull %18, i1 noundef zeroext %20) #19
-  br i1 %21, label %41, label %22
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = trunc i8 %9 to i1
+  %19 = tail call zeroext i1 @ata_dev_power_init_tf(ptr noundef %16, ptr noundef nonnull %17, i1 noundef zeroext %18) #19
+  br i1 %19, label %39, label %20
 
-22:                                               ; preds = %15
-  %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load i64, ptr %24, align 16
-  %26 = trunc i64 %25 to i32
-  %27 = lshr i32 %26, 29
-  %28 = and i32 %27, 1
-  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %28, i8 noundef zeroext 11, i8 noundef zeroext 0, i8 noundef zeroext 0) #19
-  br label %41
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %15, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %23 = load i64, ptr %22, align 16
+  %24 = trunc i64 %23 to i32
+  %25 = lshr i32 %24, 29
+  %26 = and i32 %25, 1
+  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %26, i8 noundef zeroext 11, i8 noundef zeroext 0, i8 noundef zeroext 0) #19
+  br label %39
 
-29:                                               ; preds = %13, %7, %1
-  %30 = phi i8 [ -1, %1 ], [ 1, %7 ], [ 3, %13 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load i64, ptr %33, align 16
-  %35 = trunc i64 %34 to i32
-  %36 = lshr i32 %35, 29
-  %37 = and i32 %36, 1
-  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %37, i8 noundef zeroext 5, i8 noundef zeroext 36, i8 noundef zeroext 0) #19
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %39, i32 noundef 96, i16 noundef zeroext 4, i8 noundef zeroext %30, i1 noundef zeroext true) #19
-  br label %41
+27:                                               ; preds = %12, %7, %1
+  %28 = phi i8 [ -1, %1 ], [ 1, %7 ], [ 3, %12 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i64, ptr %31, align 16
+  %33 = trunc i64 %32 to i32
+  %34 = lshr i32 %33, 29
+  %35 = and i32 %34, 1
+  tail call void @scsi_build_sense(ptr noundef %3, i32 noundef %35, i8 noundef zeroext 5, i8 noundef zeroext 36, i8 noundef zeroext 0) #19
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 248
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call i32 @scsi_set_sense_field_pointer(ptr noundef %37, i32 noundef 96, i16 noundef zeroext 4, i8 noundef zeroext %28, i1 noundef zeroext true) #19
+  br label %39
 
-41:                                               ; preds = %29, %22, %15
-  %42 = phi i32 [ 1, %29 ], [ 1, %22 ], [ 0, %15 ]
-  ret i32 %42
+39:                                               ; preds = %27, %20, %14
+  %40 = phi i32 [ 1, %27 ], [ 1, %20 ], [ 0, %14 ]
+  ret i32 %40
 }
 
 ; Function Attrs: null_pointer_is_valid

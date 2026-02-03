@@ -10014,10 +10014,10 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %14 = trunc nuw i8 %13 to i1
   %15 = and i32 %1, 1
   %.not = icmp eq i32 %15, 0
-  %or.cond101 = or i1 %.not, %14
+  %or.cond99 = or i1 %.not, %14
   %16 = and i32 %1, -2
   %17 = add i32 %16, 2
-  %.081 = select i1 %or.cond101, i32 %1, i32 %17
+  %.081 = select i1 %or.cond99, i32 %1, i32 %17
   %.not89 = icmp eq ptr %3, null
   br i1 %.not89, label %22, label %18
 
@@ -10036,10 +10036,10 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %26 = trunc nuw i8 %25 to i1
   %27 = and i32 %24, 1
   %.not90 = icmp eq i32 %27, 0
-  %or.cond102 = or i1 %.not90, %26
+  %or.cond100 = or i1 %.not90, %26
   %28 = and i32 %24, -2
   %29 = add i32 %28, 2
-  %.1 = select i1 %or.cond102, i32 %24, i32 %29
+  %.1 = select i1 %or.cond100, i32 %24, i32 %29
   %30 = load i32, ptr @hf_mapi_RPC_HEADER_EXT_Flags, align 4
   %31 = load i32, ptr @ett_mapi_RPC_HEADER_EXT_Flags, align 4
   %32 = load i8, ptr %5, align 1
@@ -10088,8 +10088,8 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %57 = trunc nuw i8 %56 to i1
   %58 = and i32 %49, 1
   %.not95 = icmp eq i32 %58, 0
-  %or.cond103 = select i1 %57, i1 true, i1 %.not95
-  br i1 %or.cond103, label %62, label %59
+  %or.cond101 = select i1 %57, i1 true, i1 %.not95
+  br i1 %or.cond101, label %62, label %59
 
 59:                                               ; preds = %55
   %60 = and i32 %49, -2
@@ -10102,28 +10102,26 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %64 = zext i16 %63 to i32
   %65 = and i32 %64, 4
   %.not96 = icmp eq i32 %65, 0
-  %66 = and i32 %64, 2
-  %.not98 = icmp eq i32 %66, 0
-  %67 = and i32 %64, 3
-  %or.cond = icmp eq i32 %67, 3
-  %or.cond104 = or i1 %.not96, %or.cond
-  br i1 %or.cond104, label %102, label %68
+  %66 = trunc i16 %63 to i1
+  %67 = and i32 %64, 2
+  %68 = icmp ne i32 %67, 0
+  %or.cond = and i1 %68, %66
+  %or.cond102 = or i1 %.not96, %or.cond
+  br i1 %or.cond102, label %102, label %69
 
-68:                                               ; preds = %62
-  %69 = and i32 %64, 1
-  %.not97 = icmp eq i32 %69, 0
-  br i1 %.not97, label %74, label %70
+69:                                               ; preds = %62
+  br i1 %66, label %70, label %74
 
-70:                                               ; preds = %68
+70:                                               ; preds = %69
   %71 = load i16, ptr %10, align 2
   %72 = zext i16 %71 to i32
   %73 = call ptr @tvb_child_uncompress_lz77(ptr noundef %0, ptr noundef %0, i32 noundef %.2, i32 noundef %72)
   br label %91
 
-74:                                               ; preds = %68
+74:                                               ; preds = %69
   %75 = load i16, ptr %11, align 2
   %76 = zext i16 %75 to i32
-  br i1 %.not98, label %89, label %77
+  br i1 %68, label %77, label %89
 
 77:                                               ; preds = %74
   %78 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
@@ -10158,15 +10156,15 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %77
 91:                                               ; preds = %mapi_deobfuscate.exit, %89, %70
   %.sink = phi ptr [ %88, %mapi_deobfuscate.exit ], [ %90, %89 ], [ %73, %70 ]
   store ptr %.sink, ptr %7, align 8
-  %.not99 = icmp eq ptr %.sink, null
-  br i1 %.not99, label %96, label %92
+  %.not97 = icmp eq ptr %.sink, null
+  br i1 %.not97, label %96, label %92
 
 92:                                               ; preds = %91
   %93 = call i32 @tvb_reported_length(ptr noundef nonnull %.sink)
   %94 = load i16, ptr %11, align 2
   %95 = zext i16 %94 to i32
-  %.not100 = icmp eq i32 %93, %95
-  br i1 %.not100, label %97, label %96
+  %.not98 = icmp eq i32 %93, %95
+  br i1 %.not98, label %97, label %96
 
 96:                                               ; preds = %92, %91
   store ptr null, ptr %7, align 8

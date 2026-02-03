@@ -1664,9 +1664,8 @@ _ZNK8seq_util3str8is_in_reEPK4exprRPS1_S5_.exit:  ; preds = %36
 45:                                               ; preds = %_ZNK8seq_util3str8is_in_reEPK4exprRPS1_S5_.exit, %44
   %.062 = phi ptr [ null, %44 ], [ %41, %_ZNK8seq_util3str8is_in_reEPK4exprRPS1_S5_.exit ]
   %.260 = phi ptr [ null, %44 ], [ %43, %_ZNK8seq_util3str8is_in_reEPK4exprRPS1_S5_.exit ]
-  %46 = and i32 %1, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %93, label %47
+  %46 = trunc i32 %1 to i1
+  br i1 %46, label %47, label %93
 
 47:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

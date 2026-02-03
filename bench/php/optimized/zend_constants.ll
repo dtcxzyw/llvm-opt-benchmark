@@ -613,12 +613,11 @@ define dso_local void @zend_register_null_constant(ptr noundef %0, i64 noundef %
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %9, ptr %10, align 4, !tbaa !4
   %11 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %12 = and i32 %2, 1
-  %13 = icmp ne i32 %12, 0
-  %14 = tail call ptr %11(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %13) #11
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %14, ptr %15, align 8, !tbaa !10
-  %16 = call i32 @zend_register_constant(ptr noundef nonnull %5)
+  %12 = trunc i32 %2 to i1
+  %13 = tail call ptr %11(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %12) #11
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %13, ptr %14, align 8, !tbaa !10
+  %15 = call i32 @zend_register_constant(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -628,8 +627,7 @@ define dso_local range(i32 -1, 1) i32 @zend_register_constant(ptr noundef captur
   %2 = alloca %struct._zval_struct, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !4
-  %5 = and i32 %4, 1
-  %.not54 = icmp eq i32 %5, 0
+  %5 = trunc i32 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -642,7 +640,7 @@ define dso_local range(i32 -1, 1) i32 @zend_register_constant(ptr noundef captur
   %12 = load i64, ptr %11, align 8, !tbaa !52
   %13 = and i64 %12, -8
   %14 = add i64 %13, 32
-  br i1 %.not54, label %17, label %15
+  br i1 %5, label %15, label %17
 
 15:                                               ; preds = %10
   %16 = tail call noalias ptr @__zend_malloc(i64 noundef %14) #12
@@ -723,9 +721,9 @@ zend_string_equals_cstr.exit:                     ; preds = %46
 
 zend_string_equals_cstr.exit.thread:              ; preds = %46
   %51 = and i64 %48, -2
-  %or.cond.i = icmp eq i64 %51, 4
-  %or.cond = and i1 %.not54, %or.cond.i
-  br i1 %or.cond, label %zend_get_special_const.exit, label %zend_get_special_const.exit.thread
+  %or.cond.i = icmp ne i64 %51, 4
+  %or.cond.not = or i1 %or.cond.i, %5
+  br i1 %or.cond.not, label %zend_get_special_const.exit.thread, label %zend_get_special_const.exit
 
 zend_get_special_const.exit:                      ; preds = %zend_string_equals_cstr.exit.thread
   %52 = getelementptr inbounds nuw i8, ptr %.032, i64 24
@@ -845,7 +843,7 @@ zend_string_release.exit46:                       ; preds = %85, %89, %96, %97
   br label %98
 
 98:                                               ; preds = %zend_string_release.exit46, %zend_string_release.exit
-  br i1 %.not54, label %99, label %zval_ptr_dtor_nogc.exit
+  br i1 %5, label %zval_ptr_dtor_nogc.exit, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -919,12 +917,11 @@ define dso_local void @zend_register_bool_constant(ptr noundef %0, i64 noundef %
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %11, ptr %12, align 4, !tbaa !4
   %13 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %14 = and i32 %3, 1
-  %15 = icmp ne i32 %14, 0
-  %16 = tail call ptr %13(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %15) #11
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !10
-  %18 = call i32 @zend_register_constant(ptr noundef nonnull %6)
+  %14 = trunc i32 %3 to i1
+  %15 = tail call ptr %13(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %14) #11
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %15, ptr %16, align 8, !tbaa !10
+  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -942,12 +939,11 @@ define dso_local void @zend_register_long_constant(ptr noundef %0, i64 noundef %
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %10, ptr %11, align 4, !tbaa !4
   %12 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %13 = and i32 %3, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = tail call ptr %12(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %14) #11
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !10
-  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6)
+  %13 = trunc i32 %3 to i1
+  %14 = tail call ptr %12(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %13) #11
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %14, ptr %15, align 8, !tbaa !10
+  %16 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -965,12 +961,11 @@ define dso_local void @zend_register_double_constant(ptr noundef %0, i64 noundef
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %10, ptr %11, align 4, !tbaa !4
   %12 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %13 = and i32 %3, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = tail call ptr %12(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %14) #11
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !10
-  %17 = call i32 @zend_register_constant(ptr noundef nonnull %6)
+  %13 = trunc i32 %3 to i1
+  %14 = tail call ptr %12(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %13) #11
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %14, ptr %15, align 8, !tbaa !10
+  %16 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -980,27 +975,26 @@ define dso_local void @zend_register_stringl_constant(ptr noundef %0, i64 nounde
   %7 = alloca %struct._zend_constant, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %9 = and i32 %4, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = tail call ptr %8(ptr noundef %2, i64 noundef %3, i1 noundef zeroext %10) #11
-  store ptr %11, ptr %7, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = and i32 %13, 64
-  %.not = icmp eq i32 %14, 0
-  %15 = select i1 %.not, i32 262, i32 6
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %15, ptr %16, align 8, !tbaa !4
-  %17 = and i32 %4, 255
-  %18 = shl i32 %5, 8
-  %19 = or disjoint i32 %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %19, ptr %20, align 4, !tbaa !4
-  %21 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %22 = tail call ptr %21(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %10) #11
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %22, ptr %23, align 8, !tbaa !10
-  %24 = call i32 @zend_register_constant(ptr noundef nonnull %7)
+  %9 = trunc i32 %4 to i1
+  %10 = tail call ptr %8(ptr noundef %2, i64 noundef %3, i1 noundef zeroext %9) #11
+  store ptr %10, ptr %7, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
+  %13 = and i32 %12, 64
+  %.not = icmp eq i32 %13, 0
+  %14 = select i1 %.not, i32 262, i32 6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 %14, ptr %15, align 8, !tbaa !4
+  %16 = and i32 %4, 255
+  %17 = shl i32 %5, 8
+  %18 = or disjoint i32 %17, %16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %18, ptr %19, align 4, !tbaa !4
+  %20 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
+  %21 = tail call ptr %20(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %9) #11
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %21, ptr %22, align 8, !tbaa !10
+  %23 = call i32 @zend_register_constant(ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -1011,27 +1005,26 @@ define dso_local void @zend_register_string_constant(ptr noundef %0, i64 noundef
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %9 = and i32 %3, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = tail call ptr %8(ptr noundef nonnull %2, i64 noundef %7, i1 noundef zeroext %10) #11
-  store ptr %11, ptr %6, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !4
-  %14 = and i32 %13, 64
-  %.not.i = icmp eq i32 %14, 0
-  %15 = select i1 %.not.i, i32 262, i32 6
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %15, ptr %16, align 8, !tbaa !4
-  %17 = and i32 %3, 255
-  %18 = shl i32 %4, 8
-  %19 = or disjoint i32 %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %19, ptr %20, align 4, !tbaa !4
-  %21 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
-  %22 = tail call ptr %21(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %10) #11
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %22, ptr %23, align 8, !tbaa !10
-  %24 = call i32 @zend_register_constant(ptr noundef nonnull %6)
+  %9 = trunc i32 %3 to i1
+  %10 = tail call ptr %8(ptr noundef nonnull %2, i64 noundef %7, i1 noundef zeroext %9) #11
+  store ptr %10, ptr %6, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
+  %13 = and i32 %12, 64
+  %.not.i = icmp eq i32 %13, 0
+  %14 = select i1 %.not.i, i32 262, i32 6
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %14, ptr %15, align 8, !tbaa !4
+  %16 = and i32 %3, 255
+  %17 = shl i32 %4, 8
+  %18 = or disjoint i32 %17, %16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 %18, ptr %19, align 4, !tbaa !4
+  %20 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !48
+  %21 = tail call ptr %20(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %9) #11
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %21, ptr %22, align 8, !tbaa !10
+  %23 = call i32 @zend_register_constant(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

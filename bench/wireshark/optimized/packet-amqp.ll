@@ -5731,15 +5731,14 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_ack(i16 noundef zeroe
   %14 = load i16, ptr %13, align 1
   %15 = and i16 %14, 8
   %.not = icmp eq i16 %15, 0
-  br i1 %.not, label %16, label %19
+  br i1 %.not, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = and i8 %10, 1
-  %18 = icmp ne i8 %17, 0
-  tail call fastcc void @record_delivery_ack(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %0, i64 noundef %7, i1 noundef zeroext %18)
-  br label %19
+  %17 = trunc i8 %10 to i1
+  tail call fastcc void @record_delivery_ack(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %0, i64 noundef %7, i1 noundef zeroext %17)
+  br label %18
 
-19:                                               ; preds = %16, %4
+18:                                               ; preds = %16, %4
   ret void
 }
 
@@ -5828,15 +5827,14 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_nack(i16 noundef zero
   %16 = load i16, ptr %15, align 1
   %17 = and i16 %16, 8
   %.not = icmp eq i16 %17, 0
-  br i1 %.not, label %18, label %21
+  br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %4
-  %19 = and i8 %10, 1
-  %20 = icmp ne i8 %19, 0
-  tail call fastcc void @record_delivery_ack(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %0, i64 noundef %7, i1 noundef zeroext %20)
-  br label %21
+  %19 = trunc i8 %10 to i1
+  tail call fastcc void @record_delivery_ack(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %0, i64 noundef %7, i1 noundef zeroext %19)
+  br label %20
 
-21:                                               ; preds = %18, %4
+20:                                               ; preds = %18, %4
   ret void
 }
 

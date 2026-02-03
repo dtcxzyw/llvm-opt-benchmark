@@ -87,10 +87,10 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2pblsERSoRKNS_1
   br i1 %.not, label %12, label %_ZN3satlsERSoNS_7literalE.exit
 
 _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %2
-  %4 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i = icmp eq i32 %4, 0
-  %5 = select i1 %.not.not.i, ptr @.str.3, ptr @.str.2
-  %6 = zext nneg i32 %4 to i64
+  %4 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %5 = select i1 %4, ptr @.str.2, ptr @.str.3
+  %.mask.i = and i32 %.sroa.0.0.copyload.i, 1
+  %6 = zext nneg i32 %.mask.i to i64
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, i64 noundef %6)
   %8 = lshr i32 %.sroa.0.0.copyload.i, 1
   %9 = zext nneg i32 %8 to i64

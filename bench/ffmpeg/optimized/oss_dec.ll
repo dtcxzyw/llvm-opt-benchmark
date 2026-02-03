@@ -119,26 +119,25 @@ define internal i32 @audio_read_packet(ptr noundef readonly captures(none) %0, p
   store i64 %47, ptr %48, align 8, !tbaa !48
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, 1
-  %.not = icmp ne i8 %51, 0
-  %52 = icmp eq i32 %43, 2
-  %or.cond = and i1 %52, %.not
+  %.not = trunc i8 %50 to i1
+  %51 = icmp eq i32 %43, 2
+  %or.cond = and i1 %51, %.not
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %27
-  %53 = load ptr, ptr %13, align 8, !tbaa !44
+  %52 = load ptr, ptr %13, align 8, !tbaa !44
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.038 = phi ptr [ %56, %.lr.ph ], [ %53, %.lr.ph.preheader ]
-  %.03237 = phi i32 [ %57, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %54 = load i16, ptr %.038, align 2, !tbaa !49
-  %55 = xor i16 %54, -1
-  store i16 %55, ptr %.038, align 2, !tbaa !49
-  %56 = getelementptr inbounds nuw i8, ptr %.038, i64 4
-  %57 = add nuw nsw i32 %.03237, 4
-  %58 = icmp slt i32 %57, %19
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !51
+  %.038 = phi ptr [ %55, %.lr.ph ], [ %52, %.lr.ph.preheader ]
+  %.03237 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %53 = load i16, ptr %.038, align 2, !tbaa !49
+  %54 = xor i16 %53, -1
+  store i16 %54, ptr %.038, align 2, !tbaa !49
+  %55 = getelementptr inbounds nuw i8, ptr %.038, i64 4
+  %56 = add nuw nsw i32 %.03237, 4
+  %57 = icmp slt i32 %56, %19
+  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph, %27, %21, %2, %23
   %.034 = phi i32 [ -541478725, %21 ], [ %26, %23 ], [ %8, %2 ], [ 0, %27 ], [ 0, %.lr.ph ]

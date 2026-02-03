@@ -344,9 +344,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %31, %21
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %37 = and i32 %34, 1
-  %.not.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i, label %38, label %41
+  %37 = trunc i32 %34 to i1
+  br i1 %37, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = lshr i32 %34, 3
@@ -403,14 +402,14 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %38, %41, %48, %68
   %75 = icmp ult ptr %.018, %13
   br i1 %75, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %74, %_ZN7oopDesc4sizeEv.exit24
-  %.025 = phi ptr [ %133, %_ZN7oopDesc4sizeEv.exit24 ], [ %.018, %74 ]
+.lr.ph:                                           ; preds = %74, %_ZN7oopDesc4sizeEv.exit23
+  %.024 = phi ptr [ %133, %_ZN7oopDesc4sizeEv.exit23 ], [ %.018, %74 ]
   %76 = load ptr, ptr %1, align 8
   %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.025) #7
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %.024) #7
   %78 = load i8, ptr @UseCompressedClassPointers, align 1
   %79 = trunc i8 %78 to i1
-  %80 = getelementptr inbounds nuw i8, ptr %.025, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   br i1 %79, label %81, label %91
 
 81:                                               ; preds = %.lr.ph
@@ -437,21 +436,20 @@ _ZNK7oopDesc5klassEv.exit.i20:                    ; preds = %91, %81
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i20
-  %97 = and i32 %94, 1
-  %.not.i.i23 = icmp eq i32 %97, 0
-  br i1 %.not.i.i23, label %98, label %101
+  %97 = trunc i32 %94 to i1
+  br i1 %97, label %101, label %98
 
 98:                                               ; preds = %96
   %99 = lshr i32 %94, 3
   %100 = zext nneg i32 %99 to i64
-  br label %_ZN7oopDesc4sizeEv.exit24
+  br label %_ZN7oopDesc4sizeEv.exit23
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr %.0.i.i21, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 256
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call noundef i64 %104(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %.025) #7
-  br label %_ZN7oopDesc4sizeEv.exit24
+  %105 = tail call noundef i64 %104(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %.024) #7
+  br label %_ZN7oopDesc4sizeEv.exit23
 
 106:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i20
   %107 = icmp slt i32 %94, 0
@@ -459,7 +457,7 @@ _ZNK7oopDesc5klassEv.exit.i20:                    ; preds = %91, %81
 
 108:                                              ; preds = %106
   %109 = select i1 %79, i64 12, i64 16
-  %110 = getelementptr inbounds nuw i8, ptr %.025, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %.024, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
   %113 = and i32 %94, 63
@@ -477,22 +475,22 @@ _ZNK7oopDesc5klassEv.exit.i20:                    ; preds = %91, %81
   %125 = sext i32 %124 to i64
   %126 = and i64 %123, %125
   %127 = lshr i64 %126, 3
-  br label %_ZN7oopDesc4sizeEv.exit24
+  br label %_ZN7oopDesc4sizeEv.exit23
 
 128:                                              ; preds = %106
   %129 = load ptr, ptr %.0.i.i21, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 256
   %131 = load ptr, ptr %130, align 8
-  %132 = tail call noundef i64 %131(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %.025) #7
-  br label %_ZN7oopDesc4sizeEv.exit24
+  %132 = tail call noundef i64 %131(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %.024) #7
+  br label %_ZN7oopDesc4sizeEv.exit23
 
-_ZN7oopDesc4sizeEv.exit24:                        ; preds = %98, %101, %108, %128
+_ZN7oopDesc4sizeEv.exit23:                        ; preds = %98, %101, %108, %128
   %.0.i1.i22 = phi i64 [ %105, %101 ], [ %100, %98 ], [ %127, %108 ], [ %132, %128 ]
-  %133 = getelementptr inbounds ptr, ptr %.025, i64 %.0.i1.i22
+  %133 = getelementptr inbounds ptr, ptr %.024, i64 %.0.i1.i22
   %134 = icmp ult ptr %133, %13
   br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %_ZN7oopDesc4sizeEv.exit24, %74
+._crit_edge:                                      ; preds = %_ZN7oopDesc4sizeEv.exit23, %74
   ret void
 }
 
@@ -568,9 +566,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %50 = and i32 %47, 1
-  %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %51, label %54
+  %50 = trunc i32 %47 to i1
+  br i1 %50, label %54, label %51
 
 51:                                               ; preds = %49
   %52 = lshr i32 %47, 3
@@ -1029,9 +1026,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %27 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %28, label %31
+  %27 = trunc i32 %24 to i1
+  br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
   %29 = lshr i32 %24, 3

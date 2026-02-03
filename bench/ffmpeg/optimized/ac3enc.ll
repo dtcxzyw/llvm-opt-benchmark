@@ -8959,22 +8959,21 @@ define internal fastcc void @set_channel_info(ptr noundef %0) unnamed_addr #3 {
 
 25:                                               ; preds = %._crit_edge, %24, %23, %22, %21, %20, %19, %18
   %26 = phi i32 [ %.pre, %._crit_edge ], [ 7, %24 ], [ 6, %23 ], [ 5, %22 ], [ 4, %21 ], [ 3, %20 ], [ 2, %19 ], [ 1, %18 ]
-  %27 = and i32 %26, 1
-  %.not28 = icmp ne i32 %27, 0
-  %28 = icmp ne i32 %26, 1
-  %narrow = and i1 %28, %.not28
-  %29 = zext i1 %narrow to i32
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 5016
-  store i32 %29, ptr %30, align 8, !tbaa !106
-  %31 = and i32 %26, 4
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 5020
-  store i32 %31, ptr %32, align 4, !tbaa !107
-  %33 = sext i32 %26 to i64
-  %34 = getelementptr inbounds [2 x [6 x i8]], ptr @ac3_enc_channel_map, i64 %33
-  %35 = zext nneg i32 %10 to i64
-  %36 = getelementptr inbounds nuw [6 x i8], ptr %34, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 5032
-  store ptr %36, ptr %37, align 8, !tbaa !260
+  %.not28 = trunc i32 %26 to i1
+  %27 = icmp ne i32 %26, 1
+  %narrow = and i1 %27, %.not28
+  %28 = zext i1 %narrow to i32
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 5016
+  store i32 %28, ptr %29, align 8, !tbaa !106
+  %30 = and i32 %26, 4
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 5020
+  store i32 %30, ptr %31, align 4, !tbaa !107
+  %32 = sext i32 %26 to i64
+  %33 = getelementptr inbounds [2 x [6 x i8]], ptr @ac3_enc_channel_map, i64 %32
+  %34 = zext nneg i32 %10 to i64
+  %35 = getelementptr inbounds nuw [6 x i8], ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 5032
+  store ptr %35, ptr %36, align 8, !tbaa !260
   ret void
 }
 

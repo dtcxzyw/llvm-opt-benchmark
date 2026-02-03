@@ -641,100 +641,98 @@ define dso_local void @_ZN4llvm11PoisonFlags5applyEPNS_11InstructionE(ptr nounde
 
 7:                                                ; preds = %2, %2, %2, %2
   %8 = load i8, ptr %0, align 4
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  tail call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %10) #20
-  %11 = load i8, ptr %0, align 4
-  %12 = and i8 %11, 2
-  %13 = icmp ne i8 %12, 0
-  tail call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %13) #20
+  %9 = trunc i8 %8 to i1
+  tail call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %9) #20
+  %10 = load i8, ptr %0, align 4
+  %11 = and i8 %10, 2
+  %12 = icmp ne i8 %11, 0
+  tail call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %12) #20
   %.pr = load i8, ptr %1, align 8, !tbaa !56
   br label %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit
 
 _ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit: ; preds = %2, %7
-  %14 = phi i8 [ %3, %2 ], [ %.pr, %7 ]
-  switch i8 %14, label %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit [
-    i8 56, label %15
-    i8 49, label %15
-    i8 48, label %15
-    i8 55, label %15
+  %13 = phi i8 [ %3, %2 ], [ %.pr, %7 ]
+  switch i8 %13, label %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit [
+    i8 56, label %14
+    i8 49, label %14
+    i8 48, label %14
+    i8 55, label %14
   ]
 
-15:                                               ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit
-  %16 = load i8, ptr %0, align 4
-  %17 = and i8 %16, 4
-  %18 = icmp ne i8 %17, 0
-  tail call void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %18) #20
+14:                                               ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit
+  %15 = load i8, ptr %0, align 4
+  %16 = and i8 %15, 4
+  %17 = icmp ne i8 %16, 0
+  tail call void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %17) #20
   %.pre = load i8, ptr %1, align 8, !tbaa !56
   br label %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit
 
-_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit: ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %15
-  %19 = phi i8 [ %14, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit ], [ %.pre, %15 ]
-  %.not = icmp eq i8 %19, 58
-  br i1 %.not, label %.sink.split, label %20
+_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit: ; preds = %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit, %14
+  %18 = phi i8 [ %13, %_ZN4llvm3isaINS_25OverflowingBinaryOperatorEPNS_11InstructionEEEbRKT0_.exit ], [ %.pre, %14 ]
+  %.not = icmp eq i8 %18, 58
+  br i1 %.not, label %.sink.split, label %19
 
-20:                                               ; preds = %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit
-  %21 = zext i8 %19 to i32
-  %22 = add nsw i32 %21, -68
-  %switch.and.i.i.i.i.i.i.i.i = and i32 %22, -5
+19:                                               ; preds = %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit
+  %20 = zext i8 %18 to i32
+  %21 = add nsw i32 %20, -68
+  %switch.and.i.i.i.i.i.i.i.i = and i32 %21, -5
   %switch.selectcmp.i.i.i.i.i.i.i.i.not = icmp eq i32 %switch.and.i.i.i.i.i.i.i.i, 0
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not, label %23, label %27
+  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not, label %22, label %26
 
-23:                                               ; preds = %20
-  %24 = load i8, ptr %0, align 4
-  %25 = and i8 %24, 16
-  %26 = icmp ne i8 %25, 0
-  tail call void @_ZN4llvm11Instruction9setNonNegEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %26) #20
+22:                                               ; preds = %19
+  %23 = load i8, ptr %0, align 4
+  %24 = and i8 %23, 16
+  %25 = icmp ne i8 %24, 0
+  tail call void @_ZN4llvm11Instruction9setNonNegEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %25) #20
   %.pre37 = load i8, ptr %1, align 8, !tbaa !56
-  br label %27
+  br label %26
 
-27:                                               ; preds = %23, %20
-  %28 = phi i8 [ %.pre37, %23 ], [ %19, %20 ]
-  %29 = icmp eq i8 %28, 67
-  br i1 %29, label %30, label %37
+26:                                               ; preds = %22, %19
+  %27 = phi i8 [ %.pre37, %22 ], [ %18, %19 ]
+  %28 = icmp eq i8 %27, 67
+  br i1 %28, label %29, label %35
 
-30:                                               ; preds = %27
-  %31 = load i8, ptr %0, align 4
-  %32 = and i8 %31, 1
-  %33 = icmp ne i8 %32, 0
-  tail call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %33) #20
-  %34 = load i8, ptr %0, align 4
-  %35 = and i8 %34, 2
-  %36 = icmp ne i8 %35, 0
-  tail call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %36) #20
+29:                                               ; preds = %26
+  %30 = load i8, ptr %0, align 4
+  %31 = trunc i8 %30 to i1
+  tail call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %31) #20
+  %32 = load i8, ptr %0, align 4
+  %33 = and i8 %32, 2
+  %34 = icmp ne i8 %33, 0
+  tail call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %34) #20
   %.pre38 = load i8, ptr %1, align 8, !tbaa !56
-  br label %37
+  br label %35
 
-37:                                               ; preds = %30, %27
-  %38 = phi i8 [ %.pre38, %30 ], [ %28, %27 ]
-  %.not33 = icmp eq i8 %38, 63
-  br i1 %.not33, label %39, label %41
+35:                                               ; preds = %29, %26
+  %36 = phi i8 [ %.pre38, %29 ], [ %27, %26 ]
+  %.not33 = icmp eq i8 %36, 63
+  br i1 %.not33, label %37, label %39
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.0.0.copyload = load i32, ptr %40, align 4, !tbaa !49
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.0.0.copyload = load i32, ptr %38, align 4, !tbaa !49
   tail call void @_ZN4llvm17GetElementPtrInst14setNoWrapFlagsENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(88) %1, i32 %.sroa.0.0.copyload) #20
   %.pre39 = load i8, ptr %1, align 8, !tbaa !56
-  br label %41
+  br label %39
 
-41:                                               ; preds = %39, %37
-  %42 = phi i8 [ %.pre39, %39 ], [ %38, %37 ]
-  %.not35 = icmp eq i8 %42, 82
-  br i1 %.not35, label %.sink.split, label %50
+39:                                               ; preds = %37, %35
+  %40 = phi i8 [ %.pre39, %37 ], [ %36, %35 ]
+  %.not35 = icmp eq i8 %40, 82
+  br i1 %.not35, label %.sink.split, label %48
 
-.sink.split:                                      ; preds = %41, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit
-  %.sink53 = phi i8 [ 2, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit ], [ 4, %41 ]
-  %43 = load i8, ptr %0, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %45 = load i8, ptr %44, align 1
-  %46 = lshr i8 %43, %.sink53
-  %47 = and i8 %46, 2
-  %48 = and i8 %45, -3
-  %49 = or disjoint i8 %48, %47
-  store i8 %49, ptr %44, align 1
-  br label %50
+.sink.split:                                      ; preds = %39, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit
+  %.sink53 = phi i8 [ 2, %_ZN4llvm3isaINS_21PossiblyExactOperatorEPNS_11InstructionEEEbRKT0_.exit ], [ 4, %39 ]
+  %41 = load i8, ptr %0, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = lshr i8 %41, %.sink53
+  %45 = and i8 %44, 2
+  %46 = and i8 %43, -3
+  %47 = or disjoint i8 %46, %45
+  store i8 %47, ptr %42, align 1
+  br label %48
 
-50:                                               ; preds = %.sink.split, %41
+48:                                               ; preds = %.sink.split, %39
   ret void
 }
 

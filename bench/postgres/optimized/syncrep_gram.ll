@@ -296,8 +296,8 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 .thread286:                                       ; preds = %.thread263, %30, %49, %.thread286.sink.split
   %.5196284 = phi ptr [ %.5196284.ph, %.thread286.sink.split ], [ %23, %30 ], [ %.1192, %49 ], [ %.1192, %.thread263 ]
   %.0200282 = phi i32 [ %.0200282.ph, %.thread286.sink.split ], [ 1, %30 ], [ 1, %49 ], [ 0, %.thread263 ]
-  %.not246 = icmp eq ptr %.5196284, %5
-  br i1 %.not246, label %142, label %141
+  %.not245 = icmp eq ptr %.5196284, %5
+  br i1 %.not245, label %142, label %141
 
 141:                                              ; preds = %.thread286
   call void @pfree(ptr noundef %.5196284) #8

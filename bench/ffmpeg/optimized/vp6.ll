@@ -2535,9 +2535,9 @@ define internal range(i32 -2147483648, 2) i32 @vp6_parse_header(ptr noundef %0, 
   %spec.select348 = select i1 %.not162, ptr @vp6_def_coeff_reorder, ptr @vp6_il_coeff_reorder
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   store ptr %spec.select348, ptr %34, align 8, !tbaa !85
-  %.not163 = icmp ne i8 %6, 0
+  %.not163 = trunc i8 %5 to i1
   %.not164 = icmp eq i32 %28, 0
-  %or.cond266 = or i1 %.not163, %.not164
+  %or.cond266 = or i1 %.not164, %.not163
   br i1 %or.cond266, label %35, label %42
 
 35:                                               ; preds = %27

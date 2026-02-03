@@ -24482,16 +24482,16 @@ define internal fastcc void @_ZN11polars_core13chunked_array6binary17fill_bytes_
   %.sroa.11.2 = phi i64 [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he653d5d602b8cc7fE.exit.i.i" ], [ %.sroa.11.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc836ccd759824c3E.exit.i" ]
   %60 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he653d5d602b8cc7fE.exit.i.i" ], [ %.sroa.18.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc836ccd759824c3E.exit.i" ]
   %61 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he653d5d602b8cc7fE.exit.i.i" ], [ %.sroa.16.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc836ccd759824c3E.exit.i" ]
-  %62 = lshr i64 %61, 1
-  %63 = add i64 %60, -1
-  %64 = trunc i64 %61 to i8
-  %65 = and i8 %64, 1
+  %62 = trunc i64 %61 to i8
+  %63 = lshr i64 %61, 1
+  %64 = add i64 %60, -1
+  %65 = and i8 %62, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %._crit_edge.i.i, %54
   %.sroa.20.3 = phi i64 [ 0, %54 ], [ %.sroa.20.2, %._crit_edge.i.i ]
-  %.sroa.18.2 = phi i64 [ 0, %54 ], [ %63, %._crit_edge.i.i ]
-  %.sroa.16.2 = phi i64 [ %.sroa.16.0, %54 ], [ %62, %._crit_edge.i.i ]
+  %.sroa.18.2 = phi i64 [ 0, %54 ], [ %64, %._crit_edge.i.i ]
+  %.sroa.16.2 = phi i64 [ %.sroa.16.0, %54 ], [ %63, %._crit_edge.i.i ]
   %.sroa.11.3 = phi i64 [ %.sroa.11.0, %54 ], [ %.sroa.11.2, %._crit_edge.i.i ]
   %.sroa.0.0.i3.i = phi i8 [ 2, %54 ], [ %65, %._crit_edge.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2124
@@ -24868,16 +24868,16 @@ define internal fastcc void @_ZN11polars_core13chunked_array6binary17fill_bytes_
   %.sroa.11.2 = phi i64 [ %74, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he653d5d602b8cc7fE.exit.i.i" ], [ %.sroa.11.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb99f7944bd947b98E.exit.i" ]
   %75 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he653d5d602b8cc7fE.exit.i.i" ], [ %.sroa.18.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb99f7944bd947b98E.exit.i" ]
   %76 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he653d5d602b8cc7fE.exit.i.i" ], [ %.sroa.16.0, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb99f7944bd947b98E.exit.i" ]
-  %77 = lshr i64 %76, 1
-  %78 = add i64 %75, -1
-  %79 = trunc i64 %76 to i8
-  %80 = and i8 %79, 1
+  %77 = trunc i64 %76 to i8
+  %78 = lshr i64 %76, 1
+  %79 = add i64 %75, -1
+  %80 = and i8 %77, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %._crit_edge.i.i, %69
   %.sroa.20.3 = phi i64 [ 0, %69 ], [ %.sroa.20.2, %._crit_edge.i.i ]
-  %.sroa.18.2 = phi i64 [ 0, %69 ], [ %78, %._crit_edge.i.i ]
-  %.sroa.16.2 = phi i64 [ %.sroa.16.0, %69 ], [ %77, %._crit_edge.i.i ]
+  %.sroa.18.2 = phi i64 [ 0, %69 ], [ %79, %._crit_edge.i.i ]
+  %.sroa.16.2 = phi i64 [ %.sroa.16.0, %69 ], [ %78, %._crit_edge.i.i ]
   %.sroa.11.3 = phi i64 [ %.sroa.11.0, %69 ], [ %.sroa.11.2, %._crit_edge.i.i ]
   %.sroa.0.0.i3.i = phi i8 [ 2, %69 ], [ %80, %._crit_edge.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2183
@@ -51692,10 +51692,10 @@ define hidden void @_ZN9polars_io10predicates18SkipBatchPredicate14can_skip_batc
   %145 = load i8, ptr %144, align 1, !noundef !6
   %146 = trunc i64 %141 to i8
   %147 = and i8 %146, 7
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %149 = lshr i8 %145, %147
-  %150 = and i8 %149, 1
-  store i8 %150, ptr %148, align 8
+  %148 = lshr i8 %145, %147
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %150 = and i8 %148, 1
+  store i8 %150, ptr %149, align 8
   store i64 17, ptr %0, align 8
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h44d9a738ee64647aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
           to label %.invoke unwind label %124

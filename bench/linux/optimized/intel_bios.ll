@@ -6637,18 +6637,17 @@ define dso_local zeroext i1 @intel_bios_encoder_supports_typec_usb(ptr noundef r
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 6816
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 194
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  br label %11
+  %9 = trunc i8 %8 to i1
+  br label %10
 
-11:                                               ; preds = %6, %1
-  %12 = phi i1 [ false, %1 ], [ %10, %6 ]
-  ret i1 %12
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
+  ret i1 %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)

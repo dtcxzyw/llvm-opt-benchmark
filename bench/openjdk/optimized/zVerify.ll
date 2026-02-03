@@ -1283,8 +1283,8 @@ define hidden void @_ZN7ZVerify25after_relocation_internalEP11ZForwarding(ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %.not7.i = icmp eq i64 %7, 0
-  br i1 %.not7.i, label %"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit", label %.lr.ph.i
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %"_ZN11ZForwarding32address_unsafe_iterate_via_tableIZN7ZVerify25after_relocation_internalEPS_E3$_0EEvT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %8 = ptrtoint ptr %0 to i64
@@ -1300,9 +1300,8 @@ define hidden void @_ZN7ZVerify25after_relocation_internalEP11ZForwarding(ptr no
   %15 = getelementptr inbounds %class.ZForwardingEntry, ptr %10, i64 %storemerge6.i
   %16 = load volatile i64, ptr %15, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  %17 = and i64 %16, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %62, label %18
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %18, label %62
 
 18:                                               ; preds = %14
   %19 = load i64, ptr %0, align 8
@@ -2975,108 +2974,105 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbE
   %61 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %60, i64 %57
   %62 = load volatile i64, ptr %61, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  %63 = and i64 %62, 1
-  %64 = icmp eq i64 %63, 0
-  %65 = lshr i64 %62, 46
-  %66 = icmp eq i64 %65, %40
-  %or.cond7.i.i.i.i = or i1 %64, %66
-  br i1 %or.cond7.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i
+  %63 = trunc i64 %62 to i1
+  %64 = lshr i64 %62, 46
+  %65 = icmp ne i64 %64, %40
+  %or.cond.not8.i.i.i.i = and i1 %65, %63
+  br i1 %or.cond.not8.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread, %.lr.ph.i.i.i.i
-  %.0.i7 = phi i64 [ %70, %.lr.ph.i.i.i.i ], [ %57, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread ]
-  %67 = load i64, ptr %41, align 8
-  %68 = add i64 %67, -1
-  %69 = add i64 %.0.i7, 1
-  %70 = and i64 %68, %69
-  %71 = getelementptr inbounds %class.ZForwardingEntry, ptr %60, i64 %70
-  %72 = load volatile i64, ptr %71, align 8
+  %.0.i7 = phi i64 [ %69, %.lr.ph.i.i.i.i ], [ %57, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread ]
+  %66 = load i64, ptr %41, align 8
+  %67 = add i64 %66, -1
+  %68 = add i64 %.0.i7, 1
+  %69 = and i64 %67, %68
+  %70 = getelementptr inbounds %class.ZForwardingEntry, ptr %60, i64 %69
+  %71 = load volatile i64, ptr %70, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  %73 = and i64 %72, 1
-  %74 = icmp eq i64 %73, 0
-  %75 = lshr i64 %72, 46
-  %76 = icmp eq i64 %75, %40
-  %or.cond.i.i.i.i = or i1 %74, %76
-  br i1 %or.cond.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  %72 = trunc i64 %71 to i1
+  %73 = lshr i64 %71, 46
+  %74 = icmp ne i64 %73, %40
+  %or.cond.not.i.i.i.i = and i1 %74, %72
+  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, !llvm.loop !20
 
 _ZN11ZForwarding4findE15zaddress_unsafe.exit:     ; preds = %.lr.ph.i.i.i.i, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread
-  %.pre-phi.i.i.i = phi i64 [ %63, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread ], [ %73, %.lr.ph.i.i.i.i ]
-  %storemerge.lcssa.i.i.i.i = phi i64 [ %62, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread ], [ %72, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i8 = icmp eq i64 %.pre-phi.i.i.i, 0
-  %77 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
-  %78 = and i64 %77, 35184372088831
-  %79 = load i64, ptr @ZAddressHeapBase, align 8
-  %80 = or i64 %78, %79
-  %.not617 = icmp eq i64 %80, 0
-  %.not6 = select i1 %.not.i.i.i8, i1 true, i1 %.not617
-  br i1 %.not6, label %81, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit
+  %.pre-phi.i.i.i = phi i1 [ %63, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread ], [ %72, %.lr.ph.i.i.i.i ]
+  %storemerge.lcssa.i.i.i.i = phi i64 [ %62, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit.thread ], [ %71, %.lr.ph.i.i.i.i ]
+  %75 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
+  %76 = and i64 %75, 35184372088831
+  %77 = load i64, ptr @ZAddressHeapBase, align 8
+  %78 = or i64 %76, %77
+  %.not616 = icmp ne i64 %78, 0
+  %.not6.not = select i1 %.pre-phi.i.i.i, i1 %.not616, i1 false
+  br i1 %.not6.not, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit, label %79
 
-81:                                               ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
-  %82 = load ptr, ptr %30, align 8
-  %83 = tail call noundef ptr @_ZN11ZForwarding4pageEv(ptr noundef nonnull align 8 dereferenceable(184) %82) #10
-  %84 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %85 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 3220
+79:                                               ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
+  %80 = load ptr, ptr %30, align 8
+  %81 = tail call noundef ptr @_ZN11ZForwarding4pageEv(ptr noundef nonnull align 8 dereferenceable(184) %80) #10
+  %82 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
+  %83 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 3220
+  %85 = load i32, ptr %84, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 6692
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 6692
-  %89 = load i32, ptr %88, align 4
-  %90 = sub i32 %87, %89
-  %91 = and i32 %90, 1
-  %92 = icmp eq i32 %91, 0
-  %93 = ptrtoint ptr %1 to i64
-  %94 = load i64, ptr @ZAddressOffsetMask, align 8
-  %95 = and i64 %94, %93
-  %96 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %97 = load i64, ptr %96, align 8
-  %98 = sub i64 %95, %97
-  %99 = getelementptr inbounds nuw i8, ptr %83, i64 104
-  %100 = lshr i64 %98, 3
-  %101 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  br i1 %92, label %102, label %116
+  %88 = sub i32 %85, %87
+  %89 = and i32 %88, 1
+  %90 = icmp eq i32 %89, 0
+  %91 = ptrtoint ptr %1 to i64
+  %92 = load i64, ptr @ZAddressOffsetMask, align 8
+  %93 = and i64 %92, %91
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %95 = load i64, ptr %94, align 8
+  %96 = sub i64 %93, %95
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 104
+  %98 = lshr i64 %96, 3
+  %99 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  br i1 %90, label %100, label %114
 
-102:                                              ; preds = %81
-  %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds %class.ZMovableBitMap, ptr %99, i64 %103
-  %105 = load ptr, ptr %104, align 8
-  %106 = lshr i64 %98, 9
-  %107 = getelementptr inbounds nuw i64, ptr %105, i64 %106
-  %108 = load i64, ptr %107, align 8
-  %109 = and i64 %100, 63
-  %110 = shl nuw i64 1, %109
-  %111 = and i64 %110, %108
-  %.not18 = icmp eq i64 %111, 0
-  br i1 %.not18, label %112, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit
+100:                                              ; preds = %79
+  %101 = sext i32 %99 to i64
+  %102 = getelementptr inbounds %class.ZMovableBitMap, ptr %97, i64 %101
+  %103 = load ptr, ptr %102, align 8
+  %104 = lshr i64 %96, 9
+  %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
+  %106 = load i64, ptr %105, align 8
+  %107 = and i64 %98, 63
+  %108 = shl nuw i64 1, %107
+  %109 = and i64 %108, %106
+  %.not17 = icmp eq i64 %109, 0
+  br i1 %.not17, label %110, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit
 
-112:                                              ; preds = %102
-  %113 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %113, align 1
-  %114 = load i64, ptr %32, align 8
-  %115 = sub i64 %93, %114
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 556, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %93, i64 noundef %3, i64 noundef %114, i64 noundef %115) #11
+110:                                              ; preds = %100
+  %111 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %111, align 1
+  %112 = load i64, ptr %32, align 8
+  %113 = sub i64 %91, %112
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 556, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %91, i64 noundef %3, i64 noundef %112, i64 noundef %113) #11
   unreachable
 
-116:                                              ; preds = %81
-  %117 = xor i32 %101, 1
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %class.ZMovableBitMap, ptr %99, i64 %118
-  %120 = load ptr, ptr %119, align 8
-  %121 = lshr i64 %98, 9
-  %122 = getelementptr inbounds nuw i64, ptr %120, i64 %121
-  %123 = load i64, ptr %122, align 8
-  %124 = and i64 %100, 63
-  %125 = shl nuw i64 1, %124
-  %126 = and i64 %125, %123
-  %.not = icmp eq i64 %126, 0
-  br i1 %.not, label %127, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit
+114:                                              ; preds = %79
+  %115 = xor i32 %99, 1
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds %class.ZMovableBitMap, ptr %97, i64 %116
+  %118 = load ptr, ptr %117, align 8
+  %119 = lshr i64 %96, 9
+  %120 = getelementptr inbounds nuw i64, ptr %118, i64 %119
+  %121 = load i64, ptr %120, align 8
+  %122 = and i64 %98, 63
+  %123 = shl nuw i64 1, %122
+  %124 = and i64 %123, %121
+  %.not = icmp eq i64 %124, 0
+  br i1 %.not, label %125, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit
 
-127:                                              ; preds = %116
-  %128 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %128, align 1
-  %129 = load i64, ptr %32, align 8
-  %130 = sub i64 %93, %129
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i64 noundef %93, i64 noundef %3, i64 noundef %129, i64 noundef %130) #11
+125:                                              ; preds = %114
+  %126 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %126, align 1
+  %127 = load i64, ptr %32, align 8
+  %128 = sub i64 %91, %127
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 558, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i64 noundef %91, i64 noundef %3, i64 noundef %127, i64 noundef %128) #11
   unreachable
 
-_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit: ; preds = %23, %116, %102, %_ZN11ZForwarding4findE15zaddress_unsafe.exit, %2
+_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009EPV8zpointerbES3_bLN6AnyObj15allocation_typeE2EL8MEMFLAGS5EXadL_Z14primitive_hashIS3_EjRKT_EEXadL_Z16primitive_equalsIS3_EbSB_SB_EEE3getERKS3_.exit: ; preds = %23, %114, %100, %_ZN11ZForwarding4findE15zaddress_unsafe.exit, %2
   ret void
 }
 
@@ -3903,9 +3899,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -3939,8 +3934,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5409,9 +5404,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   br i1 %84, label %85, label %95
 
 85:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %86 = and i32 %83, 1
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %87, label %90
+  %86 = trunc i32 %83 to i1
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %85
   %88 = lshr i32 %83, 3
@@ -5610,9 +5604,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %85, %75
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %91 = and i32 %88, 1
-  %.not.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not.i.i.i, label %92, label %95
+  %91 = trunc i32 %88 to i1
+  br i1 %91, label %95, label %92
 
 92:                                               ; preds = %90
   %93 = lshr i32 %88, 3
@@ -6539,9 +6532,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   br i1 %84, label %85, label %95
 
 85:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %86 = and i32 %83, 1
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %87, label %90
+  %86 = trunc i32 %83 to i1
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %85
   %88 = lshr i32 %83, 3
@@ -6735,9 +6727,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %85, %75
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %91 = and i32 %88, 1
-  %.not.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not.i.i.i, label %92, label %95
+  %91 = trunc i32 %88 to i1
+  br i1 %91, label %95, label %92
 
 92:                                               ; preds = %90
   %93 = lshr i32 %88, 3
@@ -7664,9 +7655,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   br i1 %84, label %85, label %95
 
 85:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %86 = and i32 %83, 1
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %87, label %90
+  %86 = trunc i32 %83 to i1
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %85
   %88 = lshr i32 %83, 3
@@ -7860,9 +7850,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %85, %75
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %91 = and i32 %88, 1
-  %.not.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not.i.i.i, label %92, label %95
+  %91 = trunc i32 %88 to i1
+  br i1 %91, label %95, label %92
 
 92:                                               ; preds = %90
   %93 = lshr i32 %88, 3

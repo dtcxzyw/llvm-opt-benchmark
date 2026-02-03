@@ -76,7 +76,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %266
+  br i1 %9, label %10, label %264
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -134,7 +134,7 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   br i1 %55, label %.backedge.us, label %._crit_edge, !llvm.loop !3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %HIDAPI_DriverSteamHori_HandleStatePacket.exit
-  %56 = phi i32 [ %258, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ], [ %17, %.lr.ph ]
+  %56 = phi i32 [ %256, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ], [ %17, %.lr.ph ]
   %57 = call i64 @SDL_GetTicksNS_REAL() #9
   %58 = load i8, ptr %4, align 16
   switch i8 %58, label %HIDAPI_DriverSteamHori_HandleStatePacket.exit [
@@ -238,245 +238,243 @@ define internal zeroext i1 @HIDAPI_DriverSteamHori_UpdateDevice(ptr noundef %0) 
   %118 = load i8, ptr %25, align 2
   %119 = load i8, ptr %26, align 2
   %.not163.i = icmp eq i8 %118, %119
-  br i1 %.not163.i, label %137, label %120
+  br i1 %.not163.i, label %136, label %120
 
 120:                                              ; preds = %117
-  %121 = and i8 %119, 1
-  %122 = icmp ne i8 %121, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 3, i1 noundef zeroext %122) #9
-  %123 = load i8, ptr %26, align 2
-  %124 = and i8 %123, 2
-  %125 = icmp ne i8 %124, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 14, i1 noundef zeroext %125) #9
-  %126 = load i8, ptr %26, align 2
-  %127 = and i8 %126, 4
-  %128 = icmp ne i8 %127, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 9, i1 noundef zeroext %128) #9
-  %129 = load i8, ptr %26, align 2
-  %130 = and i8 %129, 8
-  %131 = icmp ne i8 %130, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 10, i1 noundef zeroext %131) #9
-  %132 = load i8, ptr %26, align 2
-  %133 = and i8 %132, 64
-  %134 = icmp ne i8 %133, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 4, i1 noundef zeroext %134) #9
-  %135 = load i8, ptr %26, align 2
-  %136 = icmp slt i8 %135, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 6, i1 noundef zeroext %136) #9
-  br label %137
+  %121 = trunc i8 %119 to i1
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 3, i1 noundef zeroext %121) #9
+  %122 = load i8, ptr %26, align 2
+  %123 = and i8 %122, 2
+  %124 = icmp ne i8 %123, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 14, i1 noundef zeroext %124) #9
+  %125 = load i8, ptr %26, align 2
+  %126 = and i8 %125, 4
+  %127 = icmp ne i8 %126, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 9, i1 noundef zeroext %127) #9
+  %128 = load i8, ptr %26, align 2
+  %129 = and i8 %128, 8
+  %130 = icmp ne i8 %129, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 10, i1 noundef zeroext %130) #9
+  %131 = load i8, ptr %26, align 2
+  %132 = and i8 %131, 64
+  %133 = icmp ne i8 %132, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 4, i1 noundef zeroext %133) #9
+  %134 = load i8, ptr %26, align 2
+  %135 = icmp slt i8 %134, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 6, i1 noundef zeroext %135) #9
+  br label %136
 
-137:                                              ; preds = %120, %117
-  %138 = load i8, ptr %27, align 1
-  %139 = load i8, ptr %28, align 1
-  %.not164.i = icmp eq i8 %138, %139
-  br i1 %.not164.i, label %163, label %140
+136:                                              ; preds = %120, %117
+  %137 = load i8, ptr %27, align 1
+  %138 = load i8, ptr %28, align 1
+  %.not164.i = icmp eq i8 %137, %138
+  br i1 %.not164.i, label %161, label %139
 
-140:                                              ; preds = %137
-  %141 = and i8 %139, 1
-  %142 = icmp ne i8 %141, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 5, i1 noundef zeroext %142) #9
-  %143 = load i8, ptr %28, align 1
-  %144 = and i8 %143, 2
-  %145 = icmp ne i8 %144, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 7, i1 noundef zeroext %145) #9
-  %146 = load i8, ptr %28, align 1
-  %147 = and i8 %146, 4
-  %148 = icmp ne i8 %147, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 8, i1 noundef zeroext %148) #9
-  %149 = load i8, ptr %28, align 1
-  %150 = and i8 %149, 8
-  %151 = icmp ne i8 %150, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 15, i1 noundef zeroext %151) #9
-  %152 = load i8, ptr %28, align 1
-  %153 = and i8 %152, 16
-  %154 = icmp ne i8 %153, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 16, i1 noundef zeroext %154) #9
-  %155 = load i8, ptr %28, align 1
-  %156 = and i8 %155, 32
-  %157 = icmp ne i8 %156, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 17, i1 noundef zeroext %157) #9
-  %158 = load i8, ptr %28, align 1
-  %159 = and i8 %158, 64
-  %160 = icmp ne i8 %159, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 12, i1 noundef zeroext %160) #9
-  %161 = load i8, ptr %28, align 1
-  %162 = icmp slt i8 %161, 0
-  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 13, i1 noundef zeroext %162) #9
-  br label %163
+139:                                              ; preds = %136
+  %140 = trunc i8 %138 to i1
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 5, i1 noundef zeroext %140) #9
+  %141 = load i8, ptr %28, align 1
+  %142 = and i8 %141, 2
+  %143 = icmp ne i8 %142, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 7, i1 noundef zeroext %143) #9
+  %144 = load i8, ptr %28, align 1
+  %145 = and i8 %144, 4
+  %146 = icmp ne i8 %145, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 8, i1 noundef zeroext %146) #9
+  %147 = load i8, ptr %28, align 1
+  %148 = and i8 %147, 8
+  %149 = icmp ne i8 %148, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 15, i1 noundef zeroext %149) #9
+  %150 = load i8, ptr %28, align 1
+  %151 = and i8 %150, 16
+  %152 = icmp ne i8 %151, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 16, i1 noundef zeroext %152) #9
+  %153 = load i8, ptr %28, align 1
+  %154 = and i8 %153, 32
+  %155 = icmp ne i8 %154, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 17, i1 noundef zeroext %155) #9
+  %156 = load i8, ptr %28, align 1
+  %157 = and i8 %156, 64
+  %158 = icmp ne i8 %157, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 12, i1 noundef zeroext %158) #9
+  %159 = load i8, ptr %28, align 1
+  %160 = icmp slt i8 %159, 0
+  call void @SDL_SendJoystickButton(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 13, i1 noundef zeroext %160) #9
+  br label %161
 
-163:                                              ; preds = %140, %137
-  %164 = load i8, ptr %29, align 4, !range !5, !noundef !6
-  %165 = trunc nuw i8 %164 to i1
-  br i1 %165, label %184, label %166
+161:                                              ; preds = %139, %136
+  %162 = load i8, ptr %29, align 4, !range !5, !noundef !6
+  %163 = trunc nuw i8 %162 to i1
+  br i1 %163, label %182, label %164
 
-166:                                              ; preds = %163
-  %167 = load i8, ptr %30, align 1, !range !5, !noundef !6
-  %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %169, label %184
+164:                                              ; preds = %161
+  %165 = load i8, ptr %30, align 1, !range !5, !noundef !6
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %167, label %182
 
-169:                                              ; preds = %166
+167:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %170 = load i8, ptr %31, align 2
+  %168 = load i8, ptr %31, align 2
+  %169 = zext i8 %168 to i32
+  %170 = load i8, ptr %32, align 1
   %171 = zext i8 %170 to i32
-  %172 = load i8, ptr %32, align 1
+  %172 = load i8, ptr %33, align 8
   %173 = zext i8 %172 to i32
-  %174 = load i8, ptr %33, align 8
+  %174 = load i8, ptr %34, align 1
   %175 = zext i8 %174 to i32
-  %176 = load i8, ptr %34, align 1
+  %176 = load i8, ptr %35, align 2
   %177 = zext i8 %176 to i32
-  %178 = load i8, ptr %35, align 2
+  %178 = load i8, ptr %36, align 1
   %179 = zext i8 %178 to i32
-  %180 = load i8, ptr %36, align 1
-  %181 = zext i8 %180 to i32
-  %182 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %2, i64 noundef 18, ptr noundef nonnull @.str.3, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %177, i32 noundef %179, i32 noundef %181) #9
-  %183 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %2) #9
-  store ptr %183, ptr %37, align 8
+  %180 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %2, i64 noundef 18, ptr noundef nonnull @.str.3, i32 noundef %169, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %177, i32 noundef %179) #9
+  %181 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %2) #9
+  store ptr %181, ptr %37, align 8
   store i8 0, ptr %30, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %184
+  br label %182
 
-184:                                              ; preds = %169, %166, %163
-  %185 = load i8, ptr %38, align 8
-  %186 = zext i8 %185 to i16
-  %187 = mul nuw i16 %186, 257
-  %188 = xor i16 %187, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 5, i16 noundef signext %188) #9
-  %189 = load i8, ptr %39, align 1
-  %190 = zext i8 %189 to i16
-  %191 = mul nuw i16 %190, 257
-  %192 = xor i16 %191, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 4, i16 noundef signext %192) #9
+182:                                              ; preds = %167, %164, %161
+  %183 = load i8, ptr %38, align 8
+  %184 = zext i8 %183 to i16
+  %185 = mul nuw i16 %184, 257
+  %186 = xor i16 %185, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 5, i16 noundef signext %186) #9
+  %187 = load i8, ptr %39, align 1
+  %188 = zext i8 %187 to i16
+  %189 = mul nuw i16 %188, 257
+  %190 = xor i16 %189, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %57, ptr noundef nonnull %14, i8 noundef zeroext 4, i16 noundef signext %190) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %193 = load i16, ptr %40, align 2
-  %194 = zext i16 %193 to i32
-  %195 = load i32, ptr %41, align 8
-  %196 = icmp ult i32 %195, %194
-  %197 = sub i32 %194, %195
-  %198 = add i32 %197, 65536
-  %.0148.i = select i1 %196, i32 %197, i32 %198
-  store i32 %194, ptr %41, align 8
-  %199 = zext i32 %.0148.i to i64
-  %200 = load i64, ptr %42, align 8
-  %201 = add i64 %200, %199
-  store i64 %201, ptr %42, align 8
-  %202 = load i16, ptr %43, align 4
-  %203 = sitofp i16 %202 to float
-  %204 = fsub float 3.276800e+04, %203
-  %205 = fdiv float %204, 6.553500e+04
-  %206 = fcmp ogt float %205, 1.000000e+00
-  br i1 %206, label %RemapValClamped.exit.i, label %207
+  %191 = load i16, ptr %40, align 2
+  %192 = zext i16 %191 to i32
+  %193 = load i32, ptr %41, align 8
+  %194 = icmp ult i32 %193, %192
+  %195 = sub i32 %192, %193
+  %196 = add i32 %195, 65536
+  %.0148.i = select i1 %194, i32 %195, i32 %196
+  store i32 %192, ptr %41, align 8
+  %197 = zext i32 %.0148.i to i64
+  %198 = load i64, ptr %42, align 8
+  %199 = add i64 %198, %197
+  store i64 %199, ptr %42, align 8
+  %200 = load i16, ptr %43, align 4
+  %201 = sitofp i16 %200 to float
+  %202 = fsub float 3.276800e+04, %201
+  %203 = fdiv float %202, 6.553500e+04
+  %204 = fcmp ogt float %203, 1.000000e+00
+  br i1 %204, label %RemapValClamped.exit.i, label %205
 
-207:                                              ; preds = %184
-  %208 = fcmp olt float %205, 0.000000e+00
-  %209 = select i1 %208, float 0.000000e+00, float %205
-  %210 = call float @llvm.fmuladd.f32(float %209, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
+205:                                              ; preds = %182
+  %206 = fcmp olt float %203, 0.000000e+00
+  %207 = select i1 %206, float 0.000000e+00, float %203
+  %208 = call float @llvm.fmuladd.f32(float %207, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
   br label %RemapValClamped.exit.i
 
-RemapValClamped.exit.i:                           ; preds = %207, %184
-  %211 = phi float [ %210, %207 ], [ 0x4041DF46A0000000, %184 ]
-  store float %211, ptr %44, align 4
-  %212 = load i16, ptr %45, align 2
-  %213 = sitofp i16 %212 to float
-  %214 = fsub float 3.276800e+04, %213
-  %215 = fdiv float %214, 6.553500e+04
-  %216 = fcmp ogt float %215, 1.000000e+00
-  br i1 %216, label %RemapValClamped.exit167.i, label %217
+RemapValClamped.exit.i:                           ; preds = %205, %182
+  %209 = phi float [ %208, %205 ], [ 0x4041DF46A0000000, %182 ]
+  store float %209, ptr %44, align 4
+  %210 = load i16, ptr %45, align 2
+  %211 = sitofp i16 %210 to float
+  %212 = fsub float 3.276800e+04, %211
+  %213 = fdiv float %212, 6.553500e+04
+  %214 = fcmp ogt float %213, 1.000000e+00
+  br i1 %214, label %RemapValClamped.exit167.i, label %215
 
-217:                                              ; preds = %RemapValClamped.exit.i
-  %218 = fcmp olt float %215, 0.000000e+00
-  %219 = select i1 %218, float 0.000000e+00, float %215
-  %220 = call float @llvm.fmuladd.f32(float %219, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
+215:                                              ; preds = %RemapValClamped.exit.i
+  %216 = fcmp olt float %213, 0.000000e+00
+  %217 = select i1 %216, float 0.000000e+00, float %213
+  %218 = call float @llvm.fmuladd.f32(float %217, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
   br label %RemapValClamped.exit167.i
 
-RemapValClamped.exit167.i:                        ; preds = %217, %RemapValClamped.exit.i
-  %221 = phi float [ %220, %217 ], [ 0x4041DF46A0000000, %RemapValClamped.exit.i ]
-  store float %221, ptr %46, align 4
-  %222 = load i16, ptr %47, align 16
-  %223 = sitofp i16 %222 to float
-  %224 = fsub float 3.276800e+04, %223
-  %225 = fdiv float %224, 6.553500e+04
-  %226 = fcmp ogt float %225, 1.000000e+00
-  br i1 %226, label %RemapValClamped.exit168.i, label %227
+RemapValClamped.exit167.i:                        ; preds = %215, %RemapValClamped.exit.i
+  %219 = phi float [ %218, %215 ], [ 0x4041DF46A0000000, %RemapValClamped.exit.i ]
+  store float %219, ptr %46, align 4
+  %220 = load i16, ptr %47, align 16
+  %221 = sitofp i16 %220 to float
+  %222 = fsub float 3.276800e+04, %221
+  %223 = fdiv float %222, 6.553500e+04
+  %224 = fcmp ogt float %223, 1.000000e+00
+  br i1 %224, label %RemapValClamped.exit168.i, label %225
 
-227:                                              ; preds = %RemapValClamped.exit167.i
-  %228 = fcmp olt float %225, 0.000000e+00
-  %229 = select i1 %228, float 0.000000e+00, float %225
-  %230 = call float @llvm.fmuladd.f32(float %229, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
+225:                                              ; preds = %RemapValClamped.exit167.i
+  %226 = fcmp olt float %223, 0.000000e+00
+  %227 = select i1 %226, float 0.000000e+00, float %223
+  %228 = call float @llvm.fmuladd.f32(float %227, float 0x4051DF46A0000000, float 0xC041DF46A0000000)
   br label %RemapValClamped.exit168.i
 
-RemapValClamped.exit168.i:                        ; preds = %227, %RemapValClamped.exit167.i
-  %231 = phi float [ %230, %227 ], [ 0x4041DF46A0000000, %RemapValClamped.exit167.i ]
-  store float %231, ptr %3, align 4
+RemapValClamped.exit168.i:                        ; preds = %225, %RemapValClamped.exit167.i
+  %229 = phi float [ %228, %225 ], [ 0x4041DF46A0000000, %RemapValClamped.exit167.i ]
+  store float %229, ptr %3, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %57, ptr noundef nonnull %14, i32 noundef 2, i64 noundef %57, ptr noundef nonnull %3, i32 noundef 3) #9
-  %232 = load i16, ptr %48, align 2
-  %233 = sitofp i16 %232 to float
-  %234 = fmul float %233, 0x3F639D0140000000
-  store float %234, ptr %46, align 4
-  %235 = load i16, ptr %49, align 4
-  %236 = sext i16 %235 to i32
-  %237 = sub nsw i32 0, %236
-  %238 = sitofp i32 %237 to float
-  %239 = fmul float %238, 0x3F639D0140000000
-  store float %239, ptr %44, align 4
-  %240 = load i16, ptr %50, align 2
-  %241 = sitofp i16 %240 to float
-  %242 = fmul float %241, 0x3F639D0140000000
-  store float %242, ptr %3, align 4
+  %230 = load i16, ptr %48, align 2
+  %231 = sitofp i16 %230 to float
+  %232 = fmul float %231, 0x3F639D0140000000
+  store float %232, ptr %46, align 4
+  %233 = load i16, ptr %49, align 4
+  %234 = sext i16 %233 to i32
+  %235 = sub nsw i32 0, %234
+  %236 = sitofp i32 %235 to float
+  %237 = fmul float %236, 0x3F639D0140000000
+  store float %237, ptr %44, align 4
+  %238 = load i16, ptr %50, align 2
+  %239 = sitofp i16 %238 to float
+  %240 = fmul float %239, 0x3F639D0140000000
+  store float %240, ptr %3, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %57, ptr noundef nonnull %14, i32 noundef 1, i64 noundef %57, ptr noundef nonnull %3, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %243 = load i8, ptr %51, align 8
-  %244 = load i8, ptr %52, align 8
-  %.not165.i = icmp eq i8 %243, %244
-  br i1 %.not165.i, label %254, label %245
+  %241 = load i8, ptr %51, align 8
+  %242 = load i8, ptr %52, align 8
+  %.not165.i = icmp eq i8 %241, %242
+  br i1 %.not165.i, label %252, label %243
 
-245:                                              ; preds = %RemapValClamped.exit168.i
-  %246 = zext i8 %244 to i32
-  %247 = and i32 %246, 16
-  %.not166.i = icmp eq i32 %247, 0
-  %248 = and i32 %246, 15
-  %249 = mul nuw nsw i32 %248, 10
-  br i1 %.not166.i, label %250, label %253
+243:                                              ; preds = %RemapValClamped.exit168.i
+  %244 = zext i8 %242 to i32
+  %245 = and i32 %244, 16
+  %.not166.i = icmp eq i32 %245, 0
+  %246 = and i32 %244, 15
+  %247 = mul nuw nsw i32 %246, 10
+  br i1 %.not166.i, label %248, label %251
 
-250:                                              ; preds = %245
-  %251 = load i8, ptr %29, align 4, !range !5, !noundef !6
-  %252 = trunc nuw i8 %251 to i1
-  %..i = select i1 %252, i32 1, i32 4
-  br label %253
+248:                                              ; preds = %243
+  %249 = load i8, ptr %29, align 4, !range !5, !noundef !6
+  %250 = trunc nuw i8 %249 to i1
+  %..i = select i1 %250, i32 1, i32 4
+  br label %251
 
-253:                                              ; preds = %250, %245
-  %.0.i = phi i32 [ 3, %245 ], [ %..i, %250 ]
-  call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %14, i32 noundef %.0.i, i32 noundef %249) #9
-  br label %254
+251:                                              ; preds = %248, %243
+  %.0.i = phi i32 [ 3, %243 ], [ %..i, %248 ]
+  call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %14, i32 noundef %.0.i, i32 noundef %247) #9
+  br label %252
 
-254:                                              ; preds = %253, %RemapValClamped.exit168.i
-  %255 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %56, i32 64)
-  %256 = zext nneg i32 %255 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 %256, i1 false)
+252:                                              ; preds = %251, %RemapValClamped.exit168.i
+  %253 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %56, i32 64)
+  %254 = zext nneg i32 %253 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, ptr noundef nonnull readonly align 16 dereferenceable(1) %4, i64 %254, i1 false)
   br label %HIDAPI_DriverSteamHori_HandleStatePacket.exit
 
-HIDAPI_DriverSteamHori_HandleStatePacket.exit:    ; preds = %.lr.ph.split, %254
-  %257 = load ptr, ptr %15, align 8
-  %258 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %257, ptr noundef nonnull %4, i64 noundef 64, i32 noundef 0) #9
-  %259 = icmp sgt i32 %258, 0
-  br i1 %259, label %.lr.ph.split, label %._crit_edge, !llvm.loop !3
+HIDAPI_DriverSteamHori_HandleStatePacket.exit:    ; preds = %.lr.ph.split, %252
+  %255 = load ptr, ptr %15, align 8
+  %256 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %255, ptr noundef nonnull %4, i64 noundef 64, i32 noundef 0) #9
+  %257 = icmp sgt i32 %256, 0
+  br i1 %257, label %.lr.ph.split, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %HIDAPI_DriverSteamHori_HandleStatePacket.exit, %.backedge.us, %10
-  %.lcssa = phi i32 [ %17, %10 ], [ %54, %.backedge.us ], [ %258, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ]
-  %260 = icmp slt i32 %.lcssa, 0
-  br i1 %260, label %261, label %264
+  %.lcssa = phi i32 [ %17, %10 ], [ %54, %.backedge.us ], [ %256, %HIDAPI_DriverSteamHori_HandleStatePacket.exit ]
+  %258 = icmp slt i32 %.lcssa, 0
+  br i1 %258, label %259, label %262
 
-261:                                              ; preds = %._crit_edge
-  %262 = load ptr, ptr %11, align 8
-  %263 = load i32, ptr %262, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %263) #9
+259:                                              ; preds = %._crit_edge
+  %260 = load ptr, ptr %11, align 8
+  %261 = load i32, ptr %260, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %261) #9
+  br label %262
+
+262:                                              ; preds = %259, %._crit_edge
+  %263 = icmp eq i32 %.lcssa, 0
   br label %264
 
-264:                                              ; preds = %261, %._crit_edge
-  %265 = icmp eq i32 %.lcssa, 0
-  br label %266
-
-266:                                              ; preds = %1, %264
-  %.0 = phi i1 [ %265, %264 ], [ false, %1 ]
+264:                                              ; preds = %1, %262
+  %.0 = phi i1 [ %263, %262 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

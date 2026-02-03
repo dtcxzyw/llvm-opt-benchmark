@@ -8,81 +8,80 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @l_Nat_nextPowerOfTwo_go(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not23 = icmp eq i64 %5, 0
-  br i1 %.not23, label %.split.us.outer, label %.split.outer, !prof !4
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %.split.us.outer, label %.split.outer, !prof !4
 
 .split.us.outer:                                  ; preds = %3, %.split.us.outer.backedge
   %.09.us.ph = phi ptr [ %.09.us.ph.be, %.split.us.outer.backedge ], [ %1, %3 ]
   %6 = ptrtoint ptr %.09.us.ph to i64
-  %7 = and i64 %6, 1
-  %.not.us = icmp eq i64 %7, 0
+  %7 = trunc i64 %6 to i1
+  %.not.us = icmp ult ptr %.09.us.ph, %0
   %8 = lshr i64 %6, 1
   %9 = icmp eq i64 %8, 0
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.outer, %.thread.us
-  %10 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.09.us.ph, ptr noundef %0) #3
-  br i1 %.not.us, label %lean_nat_lt.exit.thread20.us, label %lean_nat_lt.exit.us, !prof !4
-
-lean_nat_lt.exit.us:                              ; preds = %.split.us
-  br i1 %10, label %.thread.us, label %.split26.us
-
-.thread.us:                                       ; preds = %lean_nat_lt.exit.us
-  br i1 %9, label %.split.us, label %11
-
-11:                                               ; preds = %.thread.us
-  %12 = icmp sgt ptr %.09.us.ph, inttoptr (i64 -1 to ptr)
-  br i1 %12, label %15, label %13
-
-13:                                               ; preds = %11
-  %14 = tail call ptr @lean_nat_overflow_mul(i64 noundef %8, i64 noundef 2) #3
-  br label %.split.us.outer.backedge
-
-15:                                               ; preds = %11
-  %mul.i22.us = shl i64 %6, 1
-  %16 = and i64 %mul.i22.us, -4
-  %17 = or disjoint i64 %16, 1
-  %18 = inttoptr i64 %17 to ptr
-  br label %.split.us.outer.backedge
+  br i1 %7, label %lean_nat_lt.exit.thread.us, label %lean_nat_lt.exit.thread20.us, !prof !4
 
 lean_nat_lt.exit.thread20.us:                     ; preds = %.split.us
-  br i1 %10, label %19, label %.split26.us
+  %10 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.09.us.ph, ptr noundef %0) #3
+  br i1 %10, label %11, label %.split24.us
 
-19:                                               ; preds = %lean_nat_lt.exit.thread20.us
-  %20 = tail call ptr @lean_nat_big_mul(ptr noundef %.09.us.ph, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
-  %21 = load i32, ptr %.09.us.ph, align 4, !tbaa !5
-  %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %25, label %23, !prof !10
+11:                                               ; preds = %lean_nat_lt.exit.thread20.us
+  %12 = tail call ptr @lean_nat_big_mul(ptr noundef %.09.us.ph, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
+  %13 = load i32, ptr %.09.us.ph, align 4, !tbaa !5
+  %14 = icmp sgt i32 %13, 1
+  br i1 %14, label %17, label %15, !prof !4
 
-23:                                               ; preds = %19
-  %.not.i.us = icmp eq i32 %21, 0
-  br i1 %.not.i.us, label %.split.us.outer.backedge, label %24
+15:                                               ; preds = %11
+  %.not.i.us = icmp eq i32 %13, 0
+  br i1 %.not.i.us, label %.split.us.outer.backedge, label %16
 
-.split.us.outer.backedge:                         ; preds = %23, %24, %25, %13, %15
-  %.09.us.ph.be = phi ptr [ %18, %15 ], [ %14, %13 ], [ %20, %25 ], [ %20, %24 ], [ %20, %23 ]
+.split.us.outer.backedge:                         ; preds = %15, %16, %17, %21, %23
+  %.09.us.ph.be = phi ptr [ %26, %23 ], [ %22, %21 ], [ %12, %17 ], [ %12, %16 ], [ %12, %15 ]
   br label %.split.us.outer
 
-24:                                               ; preds = %23
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.09.us.ph) #3
   br label %.split.us.outer.backedge
 
-25:                                               ; preds = %19
-  %26 = add nsw i32 %21, -1
-  store i32 %26, ptr %.09.us.ph, align 4, !tbaa !5
+17:                                               ; preds = %11
+  %18 = add nsw i32 %13, -1
+  store i32 %18, ptr %.09.us.ph, align 4, !tbaa !5
+  br label %.split.us.outer.backedge
+
+lean_nat_lt.exit.thread.us:                       ; preds = %.split.us
+  br i1 %.not.us, label %.thread.us, label %.split24.us
+
+.thread.us:                                       ; preds = %lean_nat_lt.exit.thread.us
+  br i1 %9, label %.split.us, label %19
+
+19:                                               ; preds = %.thread.us
+  %20 = icmp sgt ptr %.09.us.ph, inttoptr (i64 -1 to ptr)
+  br i1 %20, label %23, label %21
+
+21:                                               ; preds = %19
+  %22 = tail call ptr @lean_nat_overflow_mul(i64 noundef %8, i64 noundef 2) #3
+  br label %.split.us.outer.backedge
+
+23:                                               ; preds = %19
+  %mul.i22.us = shl i64 %6, 1
+  %24 = and i64 %mul.i22.us, -4
+  %25 = or disjoint i64 %24, 1
+  %26 = inttoptr i64 %25 to ptr
   br label %.split.us.outer.backedge
 
 .split:                                           ; preds = %.split.outer, %.thread
-  br i1 %.not, label %lean_nat_lt.exit.thread20, label %lean_nat_lt.exit.thread, !prof !4
+  %27 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.09.ph, ptr noundef %0) #3
+  br i1 %44, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread20, !prof !4
 
-lean_nat_lt.exit.thread:                          ; preds = %.split
-  br i1 %.not24, label %.thread, label %.split26.us
+lean_nat_lt.exit:                                 ; preds = %.split
+  br i1 %27, label %.thread, label %.split24.us
 
 lean_nat_lt.exit.thread20:                        ; preds = %.split
-  %27 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.09.ph, ptr noundef %0) #3
-  br i1 %27, label %36, label %.split26.us
+  br i1 %27, label %36, label %.split24.us
 
-.thread:                                          ; preds = %lean_nat_lt.exit.thread
+.thread:                                          ; preds = %lean_nat_lt.exit
   br i1 %46, label %.split, label %28
 
 28:                                               ; preds = %.thread
@@ -104,7 +103,7 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
   %37 = tail call ptr @lean_nat_big_mul(ptr noundef %.09.ph, ptr noundef nonnull inttoptr (i64 5 to ptr)) #3
   %38 = load i32, ptr %.09.ph, align 4, !tbaa !5
   %39 = icmp sgt i32 %38, 1
-  br i1 %39, label %40, label %42, !prof !10
+  br i1 %39, label %40, label %42, !prof !4
 
 40:                                               ; preds = %36
   %41 = add nsw i32 %38, -1
@@ -122,9 +121,7 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
 .split.outer:                                     ; preds = %3, %.split.outer.backedge
   %.09.ph = phi ptr [ %.09.ph.be, %.split.outer.backedge ], [ %1, %3 ]
   %43 = ptrtoint ptr %.09.ph to i64
-  %44 = and i64 %43, 1
-  %.not = icmp eq i64 %44, 0
-  %.not24 = icmp ult ptr %.09.ph, %0
+  %44 = trunc i64 %43 to i1
   %45 = lshr i64 %43, 1
   %46 = icmp eq i64 %45, 0
   br label %.split
@@ -133,8 +130,8 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.09.ph) #3
   br label %.split.outer.backedge
 
-.split26.us:                                      ; preds = %lean_nat_lt.exit.thread, %lean_nat_lt.exit.thread20, %lean_nat_lt.exit.us, %lean_nat_lt.exit.thread20.us
-  %.us-phi = phi ptr [ %.09.us.ph, %lean_nat_lt.exit.us ], [ %.09.us.ph, %lean_nat_lt.exit.thread20.us ], [ %.09.ph, %lean_nat_lt.exit.thread20 ], [ %.09.ph, %lean_nat_lt.exit.thread ]
+.split24.us:                                      ; preds = %lean_nat_lt.exit, %lean_nat_lt.exit.thread20, %lean_nat_lt.exit.thread.us, %lean_nat_lt.exit.thread20.us
+  %.us-phi = phi ptr [ %.09.us.ph, %lean_nat_lt.exit.thread.us ], [ %.09.us.ph, %lean_nat_lt.exit.thread20.us ], [ %.09.ph, %lean_nat_lt.exit.thread20 ], [ %.09.ph, %lean_nat_lt.exit ]
   ret ptr %.us-phi
 }
 
@@ -142,14 +139,13 @@ lean_nat_lt.exit.thread20:                        ; preds = %.split
 define ptr @l_Nat_nextPowerOfTwo_go___boxed(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @l_Nat_nextPowerOfTwo_go(ptr noundef %0, ptr noundef %1, ptr poison)
   %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 4, !tbaa !5
   %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %12, !prof !10
+  br i1 %9, label %10, label %12, !prof !4
 
 10:                                               ; preds = %7
   %11 = add nsw i32 %8, -1
@@ -178,14 +174,13 @@ define ptr @l_Nat_nextPowerOfTwo(ptr noundef %0) local_unnamed_addr #0 {
 define ptr @l_Nat_nextPowerOfTwo___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @l_Nat_nextPowerOfTwo_go(ptr noundef %0, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr nonnull poison)
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !5
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !10
+  br i1 %7, label %8, label %10, !prof !4
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %6, -1
@@ -231,7 +226,7 @@ define ptr @initialize_Init_Data_Nat_Power2(i8 noundef zeroext %0, ptr noundef r
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !5
   %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16, !prof !10
+  br i1 %13, label %14, label %16, !prof !4
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
@@ -262,9 +257,9 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   store i32 1, ptr %.sink11, align 4, !tbaa !5
   store i32 131096, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !11
+  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %.sink11, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !11
+  store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !10
   br label %24
 
 24:                                               ; preds = %.sink.split, %7
@@ -301,12 +296,11 @@ attributes #4 = { noreturn nounwind }
 !1 = !{i32 4, !"probe-stack", !"inline-asm"}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{!6, !7, i64 0}
 !6 = !{!"", !7, i64 0, !7, i64 4, !7, i64 6, !7, i64 7}
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"any pointer", !8, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"any pointer", !8, i64 0}

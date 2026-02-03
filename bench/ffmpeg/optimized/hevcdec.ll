@@ -2892,10 +2892,10 @@ get_ue_golomb_long.exit613.i.i.i:                 ; preds = %506, %502
   %712 = shl nuw nsw i32 %710, %711
   %713 = lshr i32 %712, 7
   store i32 %spec.select.i617.i.i.i, ptr %111, align 8, !tbaa !311
-  %714 = and i32 %713, 1
-  %715 = trunc nuw nsw i32 %714 to i8
+  %714 = trunc nuw i32 %713 to i8
+  %715 = and i8 %714, 1
   store i8 %715, ptr %134, align 4, !tbaa !344
-  %716 = icmp ne i32 %714, 0
+  %716 = trunc i32 %713 to i1
   %717 = icmp ne i8 %694, 1
   %or.cond.i.i.i = select i1 %716, i1 %717, i1 false
   br i1 %or.cond.i.i.i, label %718, label %.thread695.i.i.i

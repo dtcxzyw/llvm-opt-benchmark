@@ -40047,23 +40047,24 @@ define dso_local noundef ptr @_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cx
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P8cmTargetESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %13, label %7
+  br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !1304
-  %10 = tail call noundef zeroext i1 @_ZNK8cmTarget9IsForeignEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %.v.v = select i1 %10, i64 4, i64 1
-  %.v = and i64 %.v.v, %4
-  %.not7 = icmp eq i64 %.v, 0
-  br i1 %.not7, label %13, label %11
+  %8 = trunc i64 %4 to i1
+  %9 = and i64 %4, 4
+  %10 = icmp ne i64 %9, 0
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !1304
+  %13 = tail call noundef zeroext i1 @_ZNK8cmTarget9IsForeignEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %14 = select i1 %13, i1 %10, i1 %8
+  br i1 %14, label %15, label %17
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %8, align 8, !tbaa !1304
-  br label %13
+15:                                               ; preds = %7
+  %16 = load ptr, ptr %11, align 8, !tbaa !1304
+  br label %17
 
-13:                                               ; preds = %3, %7, %11
-  %.0 = phi ptr [ %12, %11 ], [ null, %7 ], [ null, %3 ]
+17:                                               ; preds = %3, %7, %15
+  %.0 = phi ptr [ %16, %15 ], [ null, %7 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -40174,42 +40175,44 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %35 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P8cmTargetESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull align 8 dereferenceable(32) %33)
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10, label %36
+  br i1 %.not.i, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %38 = load ptr, ptr %37, align 8, !tbaa !1304
-  %39 = tail call noundef zeroext i1 @_ZNK8cmTarget9IsForeignEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
-  %.v.v.i = select i1 %39, i64 4, i64 1
-  %.v.i = and i64 %.v.v.i, %4
-  %.not7.i = icmp eq i64 %.v.i, 0
-  br i1 %.not7.i, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10, label %40
+  %37 = trunc i64 %4 to i1
+  %38 = and i64 %4, 4
+  %39 = icmp ne i64 %38, 0
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %41 = load ptr, ptr %40, align 8, !tbaa !1304
+  %42 = tail call noundef zeroext i1 @_ZNK8cmTarget9IsForeignEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
+  %43 = select i1 %42, i1 %39, i1 %37
+  br i1 %43, label %44, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %37, align 8, !tbaa !1304
-  br label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %40, align 8, !tbaa !1304
+  br label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7
 
 _ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %6, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit, %3
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %43 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P8cmTargetESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not.i5 = icmp eq ptr %43, null
-  br i1 %.not.i5, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10, label %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %47 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P8cmTargetESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.not.i5 = icmp eq ptr %47, null
+  br i1 %.not.i5, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7, label %48
 
-44:                                               ; preds = %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !1304
-  %47 = tail call noundef zeroext i1 @_ZNK8cmTarget9IsForeignEv(ptr noundef nonnull align 8 dereferenceable(8) %46)
-  %.v.v.i6 = select i1 %47, i64 4, i64 1
-  %.v.i7 = and i64 %.v.v.i6, %4
-  %.not7.i8 = icmp eq i64 %.v.i7, 0
-  br i1 %.not7.i8, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10, label %48
+48:                                               ; preds = %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit
+  %49 = trunc i64 %4 to i1
+  %50 = and i64 %4, 4
+  %51 = icmp ne i64 %50, 0
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !1304
+  %54 = tail call noundef zeroext i1 @_ZNK8cmTarget9IsForeignEv(ptr noundef nonnull align 8 dereferenceable(8) %53)
+  %55 = select i1 %54, i1 %51, i1 %49
+  br i1 %55, label %56, label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %45, align 8, !tbaa !1304
-  br label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %52, align 8, !tbaa !1304
+  br label %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7
 
-_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit10: ; preds = %40, %36, %32, %48, %44, %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit
-  %.1 = phi ptr [ null, %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit ], [ %49, %48 ], [ null, %44 ], [ null, %32 ], [ null, %36 ], [ %41, %40 ]
+_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit7: ; preds = %44, %36, %32, %56, %48, %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit
+  %.1 = phi ptr [ null, %_ZNK17cmGlobalGenerator14FindTargetImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cm8enum_setIN12cmStateEnums12TargetDomainELm32ELi0EEE.exit ], [ %57, %56 ], [ null, %48 ], [ null, %32 ], [ null, %36 ], [ %45, %44 ]
   ret ptr %.1
 }
 

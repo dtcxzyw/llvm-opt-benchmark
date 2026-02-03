@@ -177,7 +177,7 @@ define internal i32 @dissect_brdwlk(ptr noundef %0, ptr noundef %1, ptr noundef 
   %26 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %27 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
   %28 = icmp slt i32 %27, 4
-  br i1 %28, label %81, label %29
+  br i1 %28, label %80, label %29
 
 29:                                               ; preds = %16
   %30 = icmp slt i32 %26, %27
@@ -186,7 +186,7 @@ define internal i32 @dissect_brdwlk(ptr noundef %0, ptr noundef %1, ptr noundef 
 31:                                               ; preds = %29
   %32 = add nsw i32 %27, -4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %26, i32 %32)
-  br label %81
+  br label %80
 
 33:                                               ; preds = %29
   %34 = add nsw i32 %26, -4
@@ -254,29 +254,28 @@ proto_item_set_hidden.exit:                       ; preds = %54, %57, %60
   store i8 %storemerge, ptr %10, align 4
   %71 = load i32, ptr @hf_brdwlk_eof, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %71, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0)
-  %73 = and i8 %65, 1
-  %74 = icmp ne i8 %73, 0
-  %or.cond13 = and i1 %39, %74
-  br i1 %or.cond13, label %75, label %81
+  %73 = trunc i8 %65 to i1
+  %or.cond13 = and i1 %39, %73
+  br i1 %or.cond13, label %74, label %80
 
-75:                                               ; preds = %proto_item_set_hidden.exit
-  %76 = add i32 %36, -8
-  %77 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %76)
-  %78 = shl i32 %77, 2
-  %79 = load i32, ptr @hf_brdwlk_plen, align 4
-  %80 = tail call ptr @proto_tree_add_uint(ptr noundef %21, i32 noundef %79, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef %78)
-  br label %81
+74:                                               ; preds = %proto_item_set_hidden.exit
+  %75 = add i32 %36, -8
+  %76 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %75)
+  %77 = shl i32 %76, 2
+  %78 = load i32, ptr @hf_brdwlk_plen, align 4
+  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %21, i32 noundef %78, ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef %77)
+  br label %80
 
-81:                                               ; preds = %31, %75, %proto_item_set_hidden.exit, %16
-  %.094 = phi i32 [ %27, %16 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ], [ %35, %75 ]
-  %.093 = phi i32 [ %26, %16 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ], [ %34, %75 ]
+80:                                               ; preds = %31, %74, %proto_item_set_hidden.exit, %16
+  %.094 = phi i32 [ %27, %16 ], [ %35, %proto_item_set_hidden.exit ], [ %32, %31 ], [ %35, %74 ]
+  %.093 = phi i32 [ %26, %16 ], [ %34, %proto_item_set_hidden.exit ], [ %spec.select, %31 ], [ %34, %74 ]
   store i32 34990, ptr %5, align 4
-  %82 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.093, i32 noundef %.094)
-  %83 = load ptr, ptr @fc_dissector_handle, align 8
-  %84 = call i32 @call_dissector_with_data(ptr noundef %83, ptr noundef %82, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
-  %85 = call i32 @tvb_captured_length(ptr noundef %0)
+  %81 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 2, i32 noundef %.093, i32 noundef %.094)
+  %82 = load ptr, ptr @fc_dissector_handle, align 8
+  %83 = call i32 @call_dissector_with_data(ptr noundef %82, ptr noundef %81, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  %84 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %85
+  ret i32 %84
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

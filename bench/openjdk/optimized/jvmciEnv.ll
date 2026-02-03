@@ -871,9 +871,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %92
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 1096
   %127 = load volatile i64, ptr %126, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %128 = and i64 %127, 1
-  %.not.i.i.i.i.i = icmp eq i64 %128, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %129
+  %128 = trunc i64 %127 to i1
+  br i1 %128, label %129, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 129:                                              ; preds = %125
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %120, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -1140,9 +1139,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -1234,9 +1232,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -1599,9 +1596,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %12
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 1096
   %86 = load volatile i64, ptr %85, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %87 = and i64 %86, 1
-  %.not.i.i.i.i.i = icmp eq i64 %87, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %88
+  %87 = trunc i64 %86 to i1
+  br i1 %87, label %88, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 88:                                               ; preds = %84
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %79, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -1959,9 +1955,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 1096
   %49 = load volatile i64, ptr %48, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %51
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %51, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 51:                                               ; preds = %47
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %42, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -2293,9 +2288,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %31
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 1096
   %60 = load volatile i64, ptr %59, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %61 = and i64 %60, 1
-  %.not.i.i.i.i.i10 = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i.i.i10, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %62
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %62, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 62:                                               ; preds = %58
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %53, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -2344,31 +2338,30 @@ _ZN13JNIAccessMarkD2Ev.exit:                      ; preds = %_ZN18SafepointMecha
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 1096
   %77 = load volatile i64, ptr %76, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %78 = and i64 %77, 1
-  %.not.i.i.i.i.i11 = icmp eq i64 %78, 0
-  br i1 %.not.i.i.i.i.i11, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i12, label %79
+  %78 = trunc i64 %77 to i1
+  br i1 %78, label %79, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i10
 
 79:                                               ; preds = %75
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %70, i1 noundef zeroext true, i1 noundef zeroext false) #14
-  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i12
+  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i10
 
-_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i12: ; preds = %79, %75
+_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i10: ; preds = %79, %75
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 1088
   %81 = load volatile i32, ptr %80, align 8
   %82 = and i32 %81, 12
-  %.not.i.i.i.i13 = icmp eq i32 %82, 0
-  br i1 %.not.i.i.i.i13, label %_ZN13JNIAccessMarkD2Ev.exit14, label %83
+  %.not.i.i.i.i11 = icmp eq i32 %82, 0
+  br i1 %.not.i.i.i.i11, label %_ZN13JNIAccessMarkD2Ev.exit12, label %83
 
-83:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i12
+83:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i10
   call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %70) #14
-  br label %_ZN13JNIAccessMarkD2Ev.exit14
+  br label %_ZN13JNIAccessMarkD2Ev.exit12
 
-_ZN13JNIAccessMarkD2Ev.exit14:                    ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i12, %83
+_ZN13JNIAccessMarkD2Ev.exit12:                    ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i10, %83
   store volatile i32 6, ptr %73, align 4
   br label %84
 
-84:                                               ; preds = %_ZN13JNIAccessMarkD2Ev.exit14, %_ZN13JNIAccessMarkD2Ev.exit, %_ZN8JVMCIEnv33transfer_pending_exception_to_jniEP10JavaThreadPS_S2_.exit
-  %.0 = phi i8 [ %.0.i, %_ZN8JVMCIEnv33transfer_pending_exception_to_jniEP10JavaThreadPS_S2_.exit ], [ 1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN13JNIAccessMarkD2Ev.exit14 ]
+84:                                               ; preds = %_ZN13JNIAccessMarkD2Ev.exit12, %_ZN13JNIAccessMarkD2Ev.exit, %_ZN8JVMCIEnv33transfer_pending_exception_to_jniEP10JavaThreadPS_S2_.exit
+  %.0 = phi i8 [ %.0.i, %_ZN8JVMCIEnv33transfer_pending_exception_to_jniEP10JavaThreadPS_S2_.exit ], [ 1, %_ZN13JNIAccessMarkD2Ev.exit ], [ 0, %_ZN13JNIAccessMarkD2Ev.exit12 ]
   ret i8 %.0
 }
 
@@ -2503,9 +2496,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %47
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 1096
   %72 = load volatile i64, ptr %71, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %73 = and i64 %72, 1
-  %.not.i.i.i.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %74
+  %73 = trunc i64 %72 to i1
+  br i1 %73, label %74, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 74:                                               ; preds = %70
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %65, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -2626,9 +2618,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %13
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 1096
   %37 = load volatile i64, ptr %36, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %38 = and i64 %37, 1
-  %.not.i.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %39
+  %38 = trunc i64 %37 to i1
+  br i1 %38, label %39, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 39:                                               ; preds = %35
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %30, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -2721,9 +2712,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %9
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %32 = load volatile i64, ptr %31, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %33 = and i64 %32, 1
-  %.not.i.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %34
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %34, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 34:                                               ; preds = %30
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %25, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -2814,9 +2804,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %15
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %42 = and i64 %41, 1
-  %.not.i.i.i.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %43
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %43, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 43:                                               ; preds = %39
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %34, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -2920,9 +2909,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %23
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 1096
   %50 = load volatile i64, ptr %49, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %51 = and i64 %50, 1
-  %.not.i.i.i.i.i = icmp eq i64 %51, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %52
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %52, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 52:                                               ; preds = %48
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %43, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3038,9 +3026,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %23
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 1096
   %48 = load volatile i64, ptr %47, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %49 = and i64 %48, 1
-  %.not.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %50
+  %49 = trunc i64 %48 to i1
+  br i1 %49, label %50, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 50:                                               ; preds = %46
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %41, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3139,9 +3126,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %40, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3242,9 +3228,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %22
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %40, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3341,9 +3326,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %40, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3441,9 +3425,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3540,9 +3523,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %40, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3640,9 +3622,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3739,9 +3720,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %40, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3839,9 +3819,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -3941,9 +3920,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 1096
   %49 = load volatile i64, ptr %48, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %51
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %51, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 51:                                               ; preds = %47
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %42, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4043,9 +4021,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 1096
   %49 = load volatile i64, ptr %48, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %51
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %51, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 51:                                               ; preds = %47
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %42, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4146,9 +4123,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %25
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 1096
   %50 = load volatile i64, ptr %49, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %51 = and i64 %50, 1
-  %.not.i.i.i.i.i = icmp eq i64 %51, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %52
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %52, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 52:                                               ; preds = %48
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %43, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4240,9 +4216,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %14
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %44 = and i64 %43, 1
-  %.not.i.i.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %45
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %45, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 45:                                               ; preds = %41
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %36, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4419,9 +4394,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %16
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 1096
   %84 = load volatile i64, ptr %83, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %85 = and i64 %84, 1
-  %.not.i.i.i.i.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %86
+  %85 = trunc i64 %84 to i1
+  br i1 %85, label %86, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 86:                                               ; preds = %82
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %77, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4596,9 +4570,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 1096
   %93 = load volatile i64, ptr %92, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %94 = and i64 %93, 1
-  %.not.i.i.i.i.i = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %95
+  %94 = trunc i64 %93 to i1
+  br i1 %94, label %95, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 95:                                               ; preds = %91
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %86, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4712,9 +4685,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %21
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 1096
   %52 = load volatile i64, ptr %51, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %53 = and i64 %52, 1
-  %.not.i.i.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %54
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %54, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 54:                                               ; preds = %50
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %45, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4806,9 +4778,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4902,9 +4873,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -4992,9 +4962,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5082,9 +5051,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5172,9 +5140,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5262,9 +5229,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5352,9 +5318,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5442,9 +5407,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %11
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 1096
   %36 = load volatile i64, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 38:                                               ; preds = %34
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %29, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5537,9 +5501,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %16
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %42 = and i64 %41, 1
-  %.not.i.i.i.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %43
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %43, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 43:                                               ; preds = %39
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %34, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5729,9 +5692,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %65
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 1096
   %93 = load volatile i64, ptr %92, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %94 = and i64 %93, 1
-  %.not.i.i.i.i.i = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %95
+  %94 = trunc i64 %93 to i1
+  br i1 %94, label %95, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 95:                                               ; preds = %91
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %86, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -5926,9 +5888,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %65
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 1096
   %93 = load volatile i64, ptr %92, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %94 = and i64 %93, 1
-  %.not.i.i.i.i.i = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %95
+  %94 = trunc i64 %93 to i1
+  br i1 %94, label %95, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 95:                                               ; preds = %91
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %86, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -6193,9 +6154,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %121
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 1096
   %151 = load volatile i64, ptr %150, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %152 = and i64 %151, 1
-  %.not.i.i.i.i.i = icmp eq i64 %152, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %153
+  %152 = trunc i64 %151 to i1
+  br i1 %152, label %153, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 153:                                              ; preds = %149
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %144, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -6366,9 +6326,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %51
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 1096
   %73 = load volatile i64, ptr %72, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %74 = and i64 %73, 1
-  %.not.i.i.i.i.i = icmp eq i64 %74, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %75
+  %74 = trunc i64 %73 to i1
+  br i1 %74, label %75, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 75:                                               ; preds = %71
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %66, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -6534,9 +6493,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %50
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 1096
   %72 = load volatile i64, ptr %71, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %73 = and i64 %72, 1
-  %.not.i.i.i.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %74
+  %73 = trunc i64 %72 to i1
+  br i1 %73, label %74, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 74:                                               ; preds = %70
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %65, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -6677,9 +6635,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %32
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 1096
   %62 = load volatile i64, ptr %61, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %63 = and i64 %62, 1
-  %.not.i.i.i.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %64
+  %63 = trunc i64 %62 to i1
+  br i1 %63, label %64, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 64:                                               ; preds = %60
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %55, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -6810,9 +6767,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %32
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 1096
   %62 = load volatile i64, ptr %61, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %63 = and i64 %62, 1
-  %.not.i.i.i.i.i = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %64
+  %63 = trunc i64 %62 to i1
+  br i1 %63, label %64, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 64:                                               ; preds = %60
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %55, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -6989,9 +6945,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %59
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 1096
   %88 = load volatile i64, ptr %87, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %89 = and i64 %88, 1
-  %.not.i.i.i.i.i = icmp eq i64 %89, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %90
+  %89 = trunc i64 %88 to i1
+  br i1 %89, label %90, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 90:                                               ; preds = %86
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %81, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -7162,9 +7117,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %51
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 1096
   %73 = load volatile i64, ptr %72, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %74 = and i64 %73, 1
-  %.not.i.i.i.i.i = icmp eq i64 %74, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %75
+  %74 = trunc i64 %73 to i1
+  br i1 %74, label %75, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 75:                                               ; preds = %71
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %66, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -7313,9 +7267,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %38
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 1096
   %69 = load volatile i64, ptr %68, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %70 = and i64 %69, 1
-  %.not.i.i.i.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %71
+  %70 = trunc i64 %69 to i1
+  br i1 %70, label %71, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 71:                                               ; preds = %67
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %62, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -7658,9 +7611,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %87
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 1096
   %151 = load volatile i64, ptr %150, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %152 = and i64 %151, 1
-  %.not.i.i.i.i.i = icmp eq i64 %152, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %153
+  %152 = trunc i64 %151 to i1
+  br i1 %152, label %153, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 153:                                              ; preds = %149
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %144, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8016,9 +7968,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %137
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 1096
   %179 = load volatile i64, ptr %178, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %180 = and i64 %179, 1
-  %.not.i.i.i.i.i = icmp eq i64 %180, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %181
+  %180 = trunc i64 %179 to i1
+  br i1 %180, label %181, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 181:                                              ; preds = %177
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %172, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8224,9 +8175,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %79
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 1096
   %108 = load volatile i64, ptr %107, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %109 = and i64 %108, 1
-  %.not.i.i.i.i.i = icmp eq i64 %109, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %110
+  %109 = trunc i64 %108 to i1
+  br i1 %109, label %110, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 110:                                              ; preds = %106
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %101, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8361,9 +8311,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %15
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 1096
   %43 = load volatile i64, ptr %42, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %44 = and i64 %43, 1
-  %.not.i.i.i.i.i = icmp eq i64 %44, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %45
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %45, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 45:                                               ; preds = %41
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %36, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8496,9 +8445,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %32
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 1096
   %58 = load volatile i64, ptr %57, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %59 = and i64 %58, 1
-  %.not.i.i.i.i.i = icmp eq i64 %59, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %60
+  %59 = trunc i64 %58 to i1
+  br i1 %59, label %60, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 60:                                               ; preds = %56
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %51, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8594,9 +8542,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 1096
   %35 = load volatile i64, ptr %34, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %36 = and i64 %35, 1
-  %.not.i.i.i.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %37
+  %36 = trunc i64 %35 to i1
+  br i1 %36, label %37, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 37:                                               ; preds = %33
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %28, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8682,9 +8629,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %9
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 1096
   %34 = load volatile i64, ptr %33, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %35 = and i64 %34, 1
-  %.not.i.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %36
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %36, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 36:                                               ; preds = %32
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %27, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8804,9 +8750,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %29
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 1096
   %60 = load volatile i64, ptr %59, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %61 = and i64 %60, 1
-  %.not.i.i.i.i.i = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %62
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %62, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 62:                                               ; preds = %58
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %53, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -8983,9 +8928,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %57
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 1096
   %86 = load volatile i64, ptr %85, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %87 = and i64 %86, 1
-  %.not.i.i.i.i.i = icmp eq i64 %87, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %88
+  %87 = trunc i64 %86 to i1
+  br i1 %87, label %88, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 88:                                               ; preds = %84
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %79, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9162,9 +9106,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %38
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 1096
   %67 = load volatile i64, ptr %66, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %68 = and i64 %67, 1
-  %.not.i.i.i.i.i = icmp eq i64 %68, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %69
+  %68 = trunc i64 %67 to i1
+  br i1 %68, label %69, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 69:                                               ; preds = %65
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %60, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9277,9 +9220,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %18
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 1096
   %44 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %45 = and i64 %44, 1
-  %.not.i.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %46
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %46, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 46:                                               ; preds = %42
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %37, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9383,9 +9325,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %18
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 1096
   %44 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %45 = and i64 %44, 1
-  %.not.i.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %46
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %46, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 46:                                               ; preds = %42
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %37, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9500,9 +9441,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %25
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 1096
   %52 = load volatile i64, ptr %51, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %53 = and i64 %52, 1
-  %.not.i.i.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %54
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %54, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 54:                                               ; preds = %50
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %45, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9606,9 +9546,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %18
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 1096
   %44 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %45 = and i64 %44, 1
-  %.not.i.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %46
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %46, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 46:                                               ; preds = %42
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %37, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9712,9 +9651,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %18
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 1096
   %44 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %45 = and i64 %44, 1
-  %.not.i.i.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %46
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %46, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 46:                                               ; preds = %42
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %37, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9836,9 +9774,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %34
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 1096
   %59 = load volatile i64, ptr %58, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %60 = and i64 %59, 1
-  %.not.i.i.i.i.i = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %61
+  %60 = trunc i64 %59 to i1
+  br i1 %60, label %61, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 61:                                               ; preds = %57
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %52, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -9969,9 +9906,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %32
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 1096
   %57 = load volatile i64, ptr %56, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %58 = and i64 %57, 1
-  %.not.i.i.i.i.i = icmp eq i64 %58, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %59
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %59, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 59:                                               ; preds = %55
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %50, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -10105,9 +10041,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %36
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 1096
   %64 = load volatile i64, ptr %63, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %65 = and i64 %64, 1
-  %.not.i.i.i.i.i = icmp eq i64 %65, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %66
+  %65 = trunc i64 %64 to i1
+  br i1 %65, label %66, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 66:                                               ; preds = %62
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %57, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -10424,9 +10359,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %73
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 1096
   %111 = load volatile i64, ptr %110, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %112 = and i64 %111, 1
-  %.not.i.i.i.i.i = icmp eq i64 %112, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %113
+  %112 = trunc i64 %111 to i1
+  br i1 %112, label %113, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 113:                                              ; preds = %109
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %104, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -10588,9 +10522,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %44
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 1096
   %74 = load volatile i64, ptr %73, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %75 = and i64 %74, 1
-  %.not.i.i.i.i.i = icmp eq i64 %75, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %76
+  %75 = trunc i64 %74 to i1
+  br i1 %75, label %76, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 76:                                               ; preds = %72
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %67, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -10916,9 +10849,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %22
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 1096
   %51 = load volatile i64, ptr %50, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %52 = and i64 %51, 1
-  %.not.i.i.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %53
+  %52 = trunc i64 %51 to i1
+  br i1 %52, label %53, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 53:                                               ; preds = %49
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %44, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -11013,9 +10945,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %14
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %42 = and i64 %41, 1
-  %.not.i.i.i.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %43
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %43, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 43:                                               ; preds = %39
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %34, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -12113,9 +12044,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -12316,9 +12246,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -12494,9 +12423,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -12766,9 +12694,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -13059,9 +12986,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -13483,9 +13409,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -13661,9 +13586,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -13839,9 +13763,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -14114,9 +14037,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -14323,9 +14245,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -14573,9 +14494,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -14827,9 +14747,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -15073,9 +14992,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -15458,9 +15376,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -15753,9 +15670,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -16228,9 +16144,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -16519,9 +16434,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -17090,9 +17004,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -17383,9 +17296,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -17627,9 +17539,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -17781,9 +17692,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -18027,9 +17937,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -18226,9 +18135,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -18427,9 +18335,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -18585,9 +18492,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -18763,9 +18669,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -18964,9 +18869,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -19492,9 +19396,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -19670,9 +19573,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -19874,9 +19776,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20028,9 +19929,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20182,9 +20082,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20336,9 +20235,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20490,9 +20388,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20644,9 +20541,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20798,9 +20694,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -20952,9 +20847,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -21106,9 +21000,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -21260,9 +21153,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -21414,9 +21306,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -21568,9 +21459,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -21722,9 +21612,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -21876,9 +21765,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -22030,9 +21918,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -22184,9 +22071,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -22338,9 +22224,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -22492,9 +22377,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -22646,9 +22530,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -22986,9 +22869,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %46 = load volatile i64, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %48
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %48, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 48:                                               ; preds = %44
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -23435,9 +23317,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -23471,8 +23352,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -24012,9 +23893,8 @@ _ZN20ExceptionTranslation26debug_translated_exceptionEv.exit: ; preds = %_ZN13JN
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %40, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -24251,9 +24131,8 @@ _ZN13JNIAccessMarkC2EP8JVMCIEnvP10JavaThread.exit: ; preds = %4
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 1096
   %52 = load volatile i64, ptr %51, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
-  %53 = and i64 %52, 1
-  %.not.i.i.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %54
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %54, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 54:                                               ; preds = %50
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %45, i1 noundef zeroext true, i1 noundef zeroext false) #14

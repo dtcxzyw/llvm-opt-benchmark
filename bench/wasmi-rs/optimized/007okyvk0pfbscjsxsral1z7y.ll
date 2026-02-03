@@ -11,13 +11,13 @@ define range(i32 0, 33685504) i32 @"_ZN76_$LT$wasmi_fuzz..config..FuzzWasmiConfi
   br i1 %3, label %15, label %5
 
 5:                                                ; preds = %1
-  %6 = and i8 %4, 1
-  %7 = lshr i8 %4, 3
-  %8 = and i8 %7, 3
-  %switch.selectcmp = icmp eq i8 %8, 1
+  %6 = lshr i8 %4, 3
+  %7 = and i8 %6, 3
+  %switch.selectcmp = icmp eq i8 %7, 1
   %switch.select = select i1 %switch.selectcmp, i32 256, i32 0
-  %switch.selectcmp14 = icmp eq i8 %8, 0
+  %switch.selectcmp14 = icmp eq i8 %7, 0
   %switch.select15 = select i1 %switch.selectcmp14, i32 512, i32 %switch.select
+  %8 = and i8 %4, 1
   %9 = lshr i8 %4, 1
   %.lobit = and i8 %9, 1
   %10 = xor i8 %.lobit, 1
@@ -27,7 +27,7 @@ define range(i32 0, 33685504) i32 @"_ZN76_$LT$wasmi_fuzz..config..FuzzWasmiConfi
   %.sroa.6.2.insert.ext = zext nneg i8 %12 to i32
   %.sroa.6.3.insert.insert = or disjoint i32 %switch.select15, %.sroa.6.2.insert.ext
   %13 = shl nuw nsw i32 %.sroa.6.3.insert.insert, 16
-  %14 = zext nneg i8 %6 to i32
+  %14 = zext nneg i8 %8 to i32
   br label %15
 
 15:                                               ; preds = %1, %5

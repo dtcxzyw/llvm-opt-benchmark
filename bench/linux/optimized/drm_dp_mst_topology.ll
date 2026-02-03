@@ -2634,24 +2634,23 @@ define dso_local zeroext i1 @drm_dp_read_mst_cap(ptr noundef %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i8, ptr %1, align 1
   %5 = icmp ult i8 %4, 18
-  br i1 %5, label %13, label %6
+  br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
   store i8 0, ptr %3, align 1, !annotation !28
   %7 = call i64 @drm_dp_dpcd_read(ptr noundef %0, i32 noundef 33, ptr noundef nonnull %3, i64 noundef 1) #21
   %8 = icmp eq i64 %7, 1
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
   %10 = load i8, ptr %3, align 1
-  %11 = and i8 %10, 1
-  %12 = icmp ne i8 %11, 0
-  br label %13
+  %11 = trunc i8 %10 to i1
+  br label %12
 
-13:                                               ; preds = %9, %6, %2
-  %14 = phi i1 [ %12, %9 ], [ false, %2 ], [ false, %6 ]
+12:                                               ; preds = %9, %6, %2
+  %13 = phi i1 [ %11, %9 ], [ false, %2 ], [ false, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %14
+  ret i1 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

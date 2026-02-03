@@ -275,9 +275,8 @@ _ZL16load_zip_libraryb.exit:                      ; preds = %35, %36, %_ZL23stor
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1096
   %74 = load volatile i64, ptr %73, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
-  %75 = and i64 %74, 1
-  %.not.i.i.i.i = icmp eq i64 %75, 0
-  br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %76
+  %75 = trunc i64 %74 to i1
+  br i1 %75, label %76, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 76:                                               ; preds = %72
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %.sroa.0.0, i1 noundef zeroext true, i1 noundef zeroext false) #8

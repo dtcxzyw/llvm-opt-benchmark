@@ -1493,9 +1493,9 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   %310 = icmp eq i8 %309, 1
   br i1 %310, label %.lr.ph34, label %.thread15
 
-.lr.ph34:                                         ; preds = %303, %362
-  %311 = phi ptr [ %366, %362 ], [ %308, %303 ]
-  %312 = phi ptr [ %364, %362 ], [ %305, %303 ]
+.lr.ph34:                                         ; preds = %303, %361
+  %311 = phi ptr [ %365, %361 ], [ %308, %303 ]
+  %312 = phi ptr [ %363, %361 ], [ %305, %303 ]
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 40
   %314 = load ptr, ptr %313, align 8
   %315 = icmp eq ptr %314, null
@@ -1532,67 +1532,66 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
   %334 = load i32, ptr %306, align 4
   %335 = and i32 %334, 4
   %336 = icmp eq i32 %335, 0
-  br i1 %336, label %347, label %337
+  br i1 %336, label %346, label %337
 
 337:                                              ; preds = %332
   %338 = getelementptr inbounds nuw i8, ptr %312, i64 552
   %339 = load volatile i64, ptr %338, align 8
-  %340 = and i64 %339, 1
-  %341 = icmp ne i64 %340, 0
-  %342 = and i32 %334, 67108864
-  %343 = icmp eq i32 %342, 0
-  %344 = or i1 %343, %341
-  br i1 %344, label %347, label %345
+  %340 = trunc i64 %339 to i1
+  %341 = and i32 %334, 67108864
+  %342 = icmp eq i32 %341, 0
+  %343 = or i1 %342, %340
+  br i1 %343, label %346, label %344
 
-345:                                              ; preds = %337
-  %346 = and i32 %334, -67108865
-  store i32 %346, ptr %306, align 4
-  br label %347
+344:                                              ; preds = %337
+  %345 = and i32 %334, -67108865
+  store i32 %345, ptr %306, align 4
+  br label %346
 
-347:                                              ; preds = %345, %337, %332
+346:                                              ; preds = %344, %337, %332
   store i8 0, ptr %311, align 2
-  %348 = getelementptr inbounds nuw i8, ptr %312, i64 3
-  store i8 0, ptr %348, align 1
-  %349 = ptrtoint ptr %333 to i64
-  %350 = and i64 %349, 3
-  %351 = icmp eq i64 %350, 2
-  %352 = icmp ugt ptr %333, inttoptr (i64 4096 to ptr)
-  %353 = and i1 %352, %351
-  br i1 %353, label %355, label %354
+  %347 = getelementptr inbounds nuw i8, ptr %312, i64 3
+  store i8 0, ptr %347, align 1
+  %348 = ptrtoint ptr %333 to i64
+  %349 = and i64 %348, 3
+  %350 = icmp eq i64 %349, 2
+  %351 = icmp ugt ptr %333, inttoptr (i64 4096 to ptr)
+  %352 = and i1 %351, %350
+  br i1 %352, label %354, label %353
 
-354:                                              ; preds = %347
+353:                                              ; preds = %346
   store volatile ptr inttoptr (i64 1026 to ptr), ptr %313, align 8
-  br label %355
+  br label %354
 
-355:                                              ; preds = %354, %347
-  %356 = load ptr, ptr %142, align 8
-  %357 = icmp eq ptr %356, null
-  br i1 %357, label %359, label %358
+354:                                              ; preds = %353, %346
+  %355 = load ptr, ptr %142, align 8
+  %356 = icmp eq ptr %355, null
+  br i1 %356, label %358, label %357
 
-358:                                              ; preds = %355
-  tail call void %356(ptr noundef %312) #9
-  br label %359
+357:                                              ; preds = %354
+  tail call void %355(ptr noundef %312) #9
+  br label %358
 
-359:                                              ; preds = %358, %355
-  %360 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %360, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %312, i64 24
-  tail call void @call_rcu(ptr noundef nonnull %361, ptr noundef nonnull @radix_tree_node_rcu_free) #9
-  br i1 %353, label %362, label %.thread15
+358:                                              ; preds = %357, %354
+  %359 = getelementptr inbounds nuw i8, ptr %312, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %359, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %312, i64 24
+  tail call void @call_rcu(ptr noundef nonnull %360, ptr noundef nonnull @radix_tree_node_rcu_free) #9
+  br i1 %352, label %361, label %.thread15
 
-362:                                              ; preds = %359
-  %363 = add nsw i64 %349, -2
-  %364 = inttoptr i64 %363 to ptr
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  store ptr null, ptr %365, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %364, i64 2
-  %367 = load i8, ptr %366, align 2
-  %368 = icmp eq i8 %367, 1
-  br i1 %368, label %.lr.ph34, label %.thread15
+361:                                              ; preds = %358
+  %362 = add nsw i64 %348, -2
+  %363 = inttoptr i64 %362 to ptr
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  store ptr null, ptr %364, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 2
+  %366 = load i8, ptr %365, align 2
+  %367 = icmp eq i8 %366, 1
+  br i1 %367, label %.lr.ph34, label %.thread15
 
-.thread15:                                        ; preds = %.loopexit20, %362, %.lr.ph34, %322, %359, %33, %303, %.thread16, %._crit_edge, %269, %253, %17
-  %369 = phi ptr [ %18, %17 ], [ %18, %33 ], [ %153, %253 ], [ %153, %269 ], [ %153, %._crit_edge ], [ %153, %303 ], [ %153, %.thread16 ], [ %153, %362 ], [ %153, %359 ], [ %153, %322 ], [ %153, %.lr.ph34 ], [ %18, %.loopexit20 ]
-  ret ptr %369
+.thread15:                                        ; preds = %.loopexit20, %361, %.lr.ph34, %322, %358, %33, %303, %.thread16, %._crit_edge, %269, %253, %17
+  %368 = phi ptr [ %18, %17 ], [ %18, %33 ], [ %153, %253 ], [ %153, %269 ], [ %153, %._crit_edge ], [ %153, %303 ], [ %153, %.thread16 ], [ %153, %361 ], [ %153, %358 ], [ %153, %322 ], [ %153, %.lr.ph34 ], [ %18, %.loopexit20 ]
+  ret ptr %368
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

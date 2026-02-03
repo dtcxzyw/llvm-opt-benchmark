@@ -15,9 +15,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext range(i8 0, 2) i8 @l_Lean_Meta_MVarRenaming_isEmpty(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -40,9 +39,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lean_Meta_MVarRenaming_isEmpty___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %6, label %l_Lean_Meta_MVarRenaming_isEmpty.exit.thread
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %l_Lean_Meta_MVarRenaming_isEmpty.exit.thread, label %6
 
 l_Lean_Meta_MVarRenaming_isEmpty.exit.thread:     ; preds = %1
   %4 = and i64 %2, 8589934590
@@ -83,9 +81,8 @@ define ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1(pt
 3:                                                ; preds = %.backedge, %2
   %.017 = phi ptr [ %0, %2 ], [ %.017.be, %.backedge ]
   %4 = ptrtoint ptr %.017 to i64
-  %5 = and i64 %4, 1
-  %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 1
@@ -124,9 +121,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 23:                                               ; preds = %13
   %24 = ptrtoint ptr %19 to i64
-  %25 = and i64 %24, 1
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %26, label %lean_inc.exit
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %lean_inc.exit, label %26
 
 26:                                               ; preds = %23
   %.val.i19 = load i32, ptr %19, align 4, !tbaa !4
@@ -139,8 +135,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   br label %lean_inc.exit
 
 30:                                               ; preds = %26
-  %.not.i20 = icmp eq i32 %.val.i19, 0
-  br i1 %.not.i20, label %lean_inc.exit, label %31
+  %.not.i = icmp eq i32 %.val.i19, 0
+  br i1 %.not.i, label %lean_inc.exit, label %31
 
 31:                                               ; preds = %30
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %19) #4
@@ -184,9 +180,8 @@ define ptr @l_Lean_Meta_MVarRenaming_find_x3f(ptr noundef %0, ptr noundef %1) lo
 define ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !4
@@ -208,9 +203,8 @@ define ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1___
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -238,9 +232,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 define ptr @l_Lean_Meta_MVarRenaming_find_x3f___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !4
@@ -262,9 +255,8 @@ define ptr @l_Lean_Meta_MVarRenaming_find_x3f___boxed(ptr noundef %0, ptr nounde
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -292,9 +284,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 define ptr @l_Lean_Meta_MVarRenaming_find_x21(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i10 = icmp eq i64 %5, 0
-  br i1 %.not.i10, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = lshr i64 %4, 1
@@ -321,30 +312,29 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 1
-  %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %21, label %lean_inc.exit
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %lean_inc.exit, label %21
 
 21:                                               ; preds = %16
-  %.val.i11 = load i32, ptr %18, align 4, !tbaa !4
-  %22 = icmp sgt i32 %.val.i11, 0
+  %.val.i10 = load i32, ptr %18, align 4, !tbaa !4
+  %22 = icmp sgt i32 %.val.i10, 0
   br i1 %22, label %23, label %25, !prof !9
 
 23:                                               ; preds = %21
-  %24 = add nuw i32 %.val.i11, 1
+  %24 = add nuw i32 %.val.i10, 1
   store i32 %24, ptr %18, align 4, !tbaa !4
   br label %lean_inc.exit
 
 25:                                               ; preds = %21
-  %.not.i12 = icmp eq i32 %.val.i11, 0
-  br i1 %.not.i12, label %lean_inc.exit, label %26
+  %.not.i11 = icmp eq i32 %.val.i10, 0
+  br i1 %.not.i11, label %lean_inc.exit, label %26
 
 26:                                               ; preds = %25
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %18) #4
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %26, %25, %23, %16
-  br i1 %.not.i10, label %27, label %lean_dec.exit
+  br i1 %5, label %lean_dec.exit, label %27
 
 27:                                               ; preds = %lean_inc.exit
   %28 = load i32, ptr %3, align 4, !tbaa !4
@@ -375,9 +365,8 @@ declare ptr @l_panic___at_Lean_Expr_mvarId_x21___spec__1(ptr noundef) local_unna
 define ptr @l_Lean_Meta_MVarRenaming_find_x21___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @l_Lean_RBNode_find___at_Lean_Meta_MVarRenaming_find_x3f___spec__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i10.i = icmp eq i64 %5, 0
-  br i1 %.not.i10.i, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = lshr i64 %4, 1
@@ -404,30 +393,29 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 1
-  %.not.i8 = icmp eq i64 %20, 0
-  br i1 %.not.i8, label %21, label %lean_inc.exit.i
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %lean_inc.exit.i, label %21
 
 21:                                               ; preds = %16
-  %.val.i11.i = load i32, ptr %18, align 4, !tbaa !4
-  %22 = icmp sgt i32 %.val.i11.i, 0
+  %.val.i10.i = load i32, ptr %18, align 4, !tbaa !4
+  %22 = icmp sgt i32 %.val.i10.i, 0
   br i1 %22, label %23, label %25, !prof !9
 
 23:                                               ; preds = %21
-  %24 = add nuw i32 %.val.i11.i, 1
+  %24 = add nuw i32 %.val.i10.i, 1
   store i32 %24, ptr %18, align 4, !tbaa !4
   br label %lean_inc.exit.i
 
 25:                                               ; preds = %21
-  %.not.i12.i = icmp eq i32 %.val.i11.i, 0
-  br i1 %.not.i12.i, label %lean_inc.exit.i, label %26
+  %.not.i11.i = icmp eq i32 %.val.i10.i, 0
+  br i1 %.not.i11.i, label %lean_inc.exit.i, label %26
 
 26:                                               ; preds = %25
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %18) #4
   br label %lean_inc.exit.i
 
 lean_inc.exit.i:                                  ; preds = %26, %25, %23, %16
-  br i1 %.not.i10.i, label %27, label %l_Lean_Meta_MVarRenaming_find_x21.exit
+  br i1 %5, label %l_Lean_Meta_MVarRenaming_find_x21.exit, label %27
 
 27:                                               ; preds = %lean_inc.exit.i
   %28 = load i32, ptr %3, align 4, !tbaa !4
@@ -450,9 +438,8 @@ lean_inc.exit.i:                                  ; preds = %26, %25, %23, %16
 l_Lean_Meta_MVarRenaming_find_x21.exit:           ; preds = %13, %lean_inc.exit.i, %30, %32, %33
   %.0.i = phi ptr [ %15, %13 ], [ %18, %33 ], [ %18, %32 ], [ %18, %30 ], [ %18, %lean_inc.exit.i ]
   %34 = ptrtoint ptr %1 to i64
-  %35 = and i64 %34, 1
-  %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %36, label %lean_dec.exit5
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %lean_dec.exit5, label %36
 
 36:                                               ; preds = %l_Lean_Meta_MVarRenaming_find_x21.exit
   %37 = load i32, ptr %1, align 4, !tbaa !4
@@ -474,9 +461,8 @@ l_Lean_Meta_MVarRenaming_find_x21.exit:           ; preds = %13, %lean_inc.exit.
 
 lean_dec.exit5:                                   ; preds = %42, %41, %39, %l_Lean_Meta_MVarRenaming_find_x21.exit
   %43 = ptrtoint ptr %0 to i64
-  %44 = and i64 %43, 1
-  %.not9 = icmp eq i64 %44, 0
-  br i1 %.not9, label %45, label %lean_dec.exit
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %lean_dec.exit, label %45
 
 45:                                               ; preds = %lean_dec.exit5
   %46 = load i32, ptr %0, align 4, !tbaa !4
@@ -511,9 +497,8 @@ declare ptr @l_Lean_RBNode_insert___at_Lean_MVarIdMap_insert___spec__1___rarg(pt
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Meta_MVarRenaming_apply___lambda__1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not.i37 = icmp eq i64 %4, 0
-  br i1 %.not.i37, label %lean_obj_tag.exit.thread, label %lean_obj_tag.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_obj_tag.exit, label %lean_obj_tag.exit.thread
 
 lean_obj_tag.exit:                                ; preds = %2
   %5 = and i64 %3, 8589934590
@@ -531,23 +516,22 @@ lean_obj_tag.exit.thread:                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = ptrtoint ptr %11 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_inc.exit30
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_inc.exit30, label %14
 
 14:                                               ; preds = %9
-  %.val.i38 = load i32, ptr %11, align 4, !tbaa !4
-  %15 = icmp sgt i32 %.val.i38, 0
+  %.val.i37 = load i32, ptr %11, align 4, !tbaa !4
+  %15 = icmp sgt i32 %.val.i37, 0
   br i1 %15, label %16, label %18, !prof !9
 
 16:                                               ; preds = %14
-  %17 = add nuw i32 %.val.i38, 1
+  %17 = add nuw i32 %.val.i37, 1
   store i32 %17, ptr %11, align 4, !tbaa !4
   br label %21
 
 18:                                               ; preds = %14
-  %.not.i39 = icmp eq i32 %.val.i38, 0
-  br i1 %.not.i39, label %21, label %19
+  %.not.i38 = icmp eq i32 %.val.i37, 0
+  br i1 %.not.i38, label %21, label %19
 
 19:                                               ; preds = %18
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %11) #4
@@ -579,27 +563,26 @@ lean_inc.exit30:                                  ; preds = %9
 lean_dec.exit29:                                  ; preds = %28, %27, %25, %lean_inc.exit30
   %29 = phi ptr [ %20, %lean_inc.exit30 ], [ %22, %25 ], [ %22, %27 ], [ %22, %28 ]
   %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, 1
-  %.not.i40 = icmp eq i64 %31, 0
-  br i1 %.not.i40, label %35, label %32
+  %31 = trunc i64 %30 to i1
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %lean_dec.exit29
   %33 = lshr i64 %30, 1
   %34 = trunc i64 %33 to i32
-  br label %lean_obj_tag.exit43
+  br label %lean_obj_tag.exit41
 
 35:                                               ; preds = %lean_dec.exit29
   %36 = getelementptr i8, ptr %29, i64 4
-  %.val.i42 = load i32, ptr %36, align 4
-  %37 = lshr i32 %.val.i42, 24
-  br label %lean_obj_tag.exit43
+  %.val.i39 = load i32, ptr %36, align 4
+  %37 = lshr i32 %.val.i39, 24
+  br label %lean_obj_tag.exit41
 
-lean_obj_tag.exit43:                              ; preds = %32, %35
-  %.0.i41 = phi i32 [ %34, %32 ], [ %37, %35 ]
-  %38 = icmp eq i32 %.0.i41, 0
+lean_obj_tag.exit41:                              ; preds = %32, %35
+  %.0.i40 = phi i32 [ %34, %32 ], [ %37, %35 ]
+  %38 = icmp eq i32 %.0.i40, 0
   br i1 %38, label %39, label %45
 
-39:                                               ; preds = %lean_obj_tag.exit43
+39:                                               ; preds = %lean_obj_tag.exit41
   tail call void @lean_inc_heartbeat() #4
   %40 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %41 = icmp eq ptr %40, null
@@ -617,8 +600,8 @@ lean_alloc_ctor.exit:                             ; preds = %39
   store ptr %1, ptr %44, align 8, !tbaa !10
   br label %lean_dec.exit
 
-45:                                               ; preds = %lean_obj_tag.exit43
-  br i1 %.not.i37, label %46, label %lean_dec.exit28
+45:                                               ; preds = %lean_obj_tag.exit41
+  br i1 %4, label %lean_dec.exit28, label %46
 
 46:                                               ; preds = %45
   %47 = load i32, ptr %1, align 4, !tbaa !4
@@ -652,30 +635,29 @@ lean_dec.exit28:                                  ; preds = %52, %51, %49, %45
 
 58:                                               ; preds = %lean_dec.exit28
   %59 = ptrtoint ptr %55 to i64
-  %60 = and i64 %59, 1
-  %.not50 = icmp eq i64 %60, 0
-  br i1 %.not50, label %61, label %lean_inc.exit
+  %60 = trunc i64 %59 to i1
+  br i1 %60, label %lean_inc.exit, label %61
 
 61:                                               ; preds = %58
-  %.val.i44 = load i32, ptr %55, align 4, !tbaa !4
-  %62 = icmp sgt i32 %.val.i44, 0
+  %.val.i42 = load i32, ptr %55, align 4, !tbaa !4
+  %62 = icmp sgt i32 %.val.i42, 0
   br i1 %62, label %63, label %65, !prof !9
 
 63:                                               ; preds = %61
-  %64 = add nuw i32 %.val.i44, 1
+  %64 = add nuw i32 %.val.i42, 1
   store i32 %64, ptr %55, align 4, !tbaa !4
   br label %lean_inc.exit
 
 65:                                               ; preds = %61
-  %.not.i45 = icmp eq i32 %.val.i44, 0
-  br i1 %.not.i45, label %lean_inc.exit, label %66
+  %.not.i43 = icmp eq i32 %.val.i42, 0
+  br i1 %.not.i43, label %lean_inc.exit, label %66
 
 66:                                               ; preds = %65
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %55) #4
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %66, %65, %63, %58
-  br i1 %.not.i40, label %67, label %lean_dec.exit27
+  br i1 %31, label %lean_dec.exit27, label %67
 
 67:                                               ; preds = %lean_inc.exit
   %68 = load i32, ptr %29, align 4, !tbaa !4
@@ -700,13 +682,13 @@ lean_dec.exit27:                                  ; preds = %73, %72, %70, %lean
   tail call void @lean_inc_heartbeat() #4
   %75 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #4
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %77, label %lean_alloc_ctor.exit47
+  br i1 %76, label %77, label %lean_alloc_ctor.exit45
 
 77:                                               ; preds = %lean_dec.exit27
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-lean_alloc_ctor.exit47:                           ; preds = %lean_dec.exit27
+lean_alloc_ctor.exit45:                           ; preds = %lean_dec.exit27
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 1, ptr %75, align 4, !tbaa !4
   store i32 16842768, ptr %78, align 4
@@ -732,8 +714,8 @@ lean_alloc_ctor.exit47:                           ; preds = %lean_dec.exit27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %82, %84, %85, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit47, %56
-  %.2 = phi ptr [ %75, %lean_alloc_ctor.exit47 ], [ %40, %lean_alloc_ctor.exit ], [ %29, %56 ], [ inttoptr (i64 1 to ptr), %85 ], [ inttoptr (i64 1 to ptr), %84 ], [ inttoptr (i64 1 to ptr), %82 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, %82, %84, %85, %lean_alloc_ctor.exit, %lean_alloc_ctor.exit45, %56
+  %.2 = phi ptr [ %75, %lean_alloc_ctor.exit45 ], [ %40, %lean_alloc_ctor.exit ], [ %29, %56 ], [ inttoptr (i64 1 to ptr), %85 ], [ inttoptr (i64 1 to ptr), %84 ], [ inttoptr (i64 1 to ptr), %82 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.2
 }
 
@@ -744,12 +726,11 @@ define ptr @l_Lean_Meta_MVarRenaming_apply(ptr noundef %0, ptr noundef %1) local
   %3 = tail call zeroext i8 @l_Lean_Expr_hasMVar(ptr noundef %1) #4
   %4 = icmp eq i8 %3, 0
   %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not25 = icmp eq i64 %6, 0
+  %6 = trunc i64 %5 to i1
   br i1 %4, label %7, label %23
 
 7:                                                ; preds = %2
-  br i1 %.not25, label %8, label %lean_dec.exit14
+  br i1 %6, label %lean_dec.exit14, label %8
 
 8:                                                ; preds = %7
   %9 = load i32, ptr %0, align 4, !tbaa !4
@@ -771,9 +752,8 @@ define ptr @l_Lean_Meta_MVarRenaming_apply(ptr noundef %0, ptr noundef %1) local
 
 lean_dec.exit14:                                  ; preds = %14, %13, %11, %7
   %15 = ptrtoint ptr %1 to i64
-  %16 = and i64 %15, 1
-  %.not26 = icmp eq i64 %16, 0
-  br i1 %.not26, label %17, label %lean_inc.exit15
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %lean_inc.exit15, label %17
 
 17:                                               ; preds = %lean_dec.exit14
   %.val.i = load i32, ptr %1, align 4, !tbaa !4
@@ -794,7 +774,7 @@ lean_dec.exit14:                                  ; preds = %14, %13, %11, %7
   br label %lean_inc.exit15
 
 23:                                               ; preds = %2
-  br i1 %.not25, label %27, label %24
+  br i1 %6, label %24, label %27
 
 24:                                               ; preds = %23
   %25 = lshr i64 %5, 1
@@ -803,8 +783,8 @@ lean_dec.exit14:                                  ; preds = %14, %13, %11, %7
 
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %0, i64 4
-  %.val.i20 = load i32, ptr %28, align 4
-  %29 = lshr i32 %.val.i20, 24
+  %.val.i19 = load i32, ptr %28, align 4
+  %29 = lshr i32 %.val.i19, 24
   br label %lean_obj_tag.exit
 
 lean_obj_tag.exit:                                ; preds = %24, %27
@@ -814,23 +794,22 @@ lean_obj_tag.exit:                                ; preds = %24, %27
 
 31:                                               ; preds = %lean_obj_tag.exit
   %32 = ptrtoint ptr %1 to i64
-  %33 = and i64 %32, 1
-  %.not24 = icmp eq i64 %33, 0
-  br i1 %.not24, label %34, label %lean_inc.exit15
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %lean_inc.exit15, label %34
 
 34:                                               ; preds = %31
-  %.val.i21 = load i32, ptr %1, align 4, !tbaa !4
-  %35 = icmp sgt i32 %.val.i21, 0
+  %.val.i20 = load i32, ptr %1, align 4, !tbaa !4
+  %35 = icmp sgt i32 %.val.i20, 0
   br i1 %35, label %36, label %38, !prof !9
 
 36:                                               ; preds = %34
-  %37 = add nuw i32 %.val.i21, 1
+  %37 = add nuw i32 %.val.i20, 1
   store i32 %37, ptr %1, align 4, !tbaa !4
   br label %lean_inc.exit15
 
 38:                                               ; preds = %34
-  %.not.i22 = icmp eq i32 %.val.i21, 0
-  br i1 %.not.i22, label %lean_inc.exit15, label %39
+  %.not.i21 = icmp eq i32 %.val.i20, 0
+  br i1 %.not.i21, label %lean_inc.exit15, label %39
 
 39:                                               ; preds = %38
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1) #4
@@ -887,9 +866,8 @@ declare zeroext i8 @l_Lean_Expr_hasMVar(ptr noundef) local_unnamed_addr #2
 define ptr @l_Lean_Meta_MVarRenaming_apply___lambda__1___boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call ptr @l_Lean_Meta_MVarRenaming_apply___lambda__1(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -919,9 +897,8 @@ declare ptr @lean_replace_expr(ptr noundef, ptr noundef) local_unnamed_addr #2
 define ptr @l_Lean_Meta_MVarRenaming_apply___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @l_Lean_Meta_MVarRenaming_apply(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !4

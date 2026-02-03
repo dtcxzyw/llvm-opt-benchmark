@@ -3991,8 +3991,7 @@ entry:
   %idxprom.i = zext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::atomic", ptr %m_has_outputs.i, i64 %idxprom.i
   %2 = load atomic i8, ptr %arrayidx.i monotonic, align 1
-  %3 = and i8 %2, 1
-  %tobool.i.i.i = icmp ne i8 %3, 0
+  %tobool.i.i.i = trunc i8 %2 to i1
   ret i1 %tobool.i.i.i
 }
 

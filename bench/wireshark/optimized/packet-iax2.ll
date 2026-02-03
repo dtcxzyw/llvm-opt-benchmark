@@ -1078,10 +1078,10 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   %193 = phi i32 [ -1, %.lr.ph.i.i.i ], [ %228, %383 ]
   %194 = phi i32 [ 0, %.lr.ph.i.i.i ], [ %229, %383 ]
   %195 = phi ptr [ null, %.lr.ph.i.i.i ], [ %230, %383 ]
-  %.0217.i.i.i = phi i32 [ %177, %.lr.ph.i.i.i ], [ %385, %383 ]
-  %196 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0217.i.i.i)
+  %.0216.i.i.i = phi i32 [ %177, %.lr.ph.i.i.i ], [ %385, %383 ]
+  %196 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0216.i.i.i)
   %197 = zext i8 %196 to i32
-  %198 = add nuw i32 %.0217.i.i.i, 1
+  %198 = add nuw i32 %.0216.i.i.i, 1
   %199 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %198)
   %200 = zext i8 %199 to i32
   switch i8 %196, label %227 [
@@ -1100,35 +1100,35 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %227
 
 204:                                              ; preds = %201
-  %205 = add i32 %.0217.i.i.i, 2
+  %205 = add i32 %.0216.i.i.i, 2
   %206 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %205)
   br label %227
 
 207:                                              ; preds = %192
   %208 = load ptr, ptr %184, align 8
-  %209 = add i32 %.0217.i.i.i, 2
+  %209 = add i32 %.0216.i.i.i, 2
   %210 = call ptr @tvb_format_text(ptr noundef %208, ptr noundef %0, i32 noundef %209, i32 noundef %200)
   store ptr %210, ptr getelementptr inbounds nuw (i8, ptr @ii_arr, i64 40), align 8
   br label %227
 
 211:                                              ; preds = %192
   %212 = load ptr, ptr %184, align 8
-  %213 = add i32 %.0217.i.i.i, 2
+  %213 = add i32 %.0216.i.i.i, 2
   %214 = call ptr @tvb_format_text(ptr noundef %212, ptr noundef %0, i32 noundef %213, i32 noundef %200)
   store ptr %214, ptr getelementptr inbounds nuw (i8, ptr @ii_arr, i64 32), align 16
   br label %227
 
 215:                                              ; preds = %192
-  %216 = add i32 %.0217.i.i.i, 2
+  %216 = add i32 %.0216.i.i.i, 2
   %217 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %216)
   %cond.i.i.i = icmp eq i16 %217, 2
   br i1 %cond.i.i.i, label %218, label %224
 
 218:                                              ; preds = %215
-  %219 = add i32 %.0217.i.i.i, 4
+  %219 = add i32 %.0216.i.i.i, 4
   %220 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %219)
   %221 = zext i16 %220 to i32
-  %222 = add i32 %.0217.i.i.i, 6
+  %222 = add i32 %.0216.i.i.i, 6
   %223 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %222, i32 noundef 4)
   br label %227
 
@@ -1152,9 +1152,9 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   %234 = load i32, ptr %233, align 4
   %235 = add nuw nsw i32 %200, 2
   %236 = load i32, ptr @ett_iax2_ie, align 4
-  %237 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0197.i, ptr noundef %0, i32 noundef %.0217.i.i.i, i32 noundef %235, i32 noundef %236, ptr noundef nonnull %9, ptr noundef nonnull @.str.510)
+  %237 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0197.i, ptr noundef %0, i32 noundef %.0216.i.i.i, i32 noundef %235, i32 noundef %236, ptr noundef nonnull %9, ptr noundef nonnull @.str.510)
   %238 = load i32, ptr @hf_iax2_ie_id, align 4
-  %239 = call ptr @proto_tree_add_uint(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef %.0217.i.i.i, i32 noundef 1, i32 noundef %197)
+  %239 = call ptr @proto_tree_add_uint(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef %.0216.i.i.i, i32 noundef 1, i32 noundef %197)
   %240 = load i32, ptr @hf_iax2_length, align 4
   %241 = call ptr @proto_tree_add_uint(ptr noundef %237, i32 noundef %240, ptr noundef %0, i32 noundef %198, i32 noundef 1, i32 noundef %200)
   switch i8 %196, label %320 [
@@ -1170,7 +1170,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %243 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_iax2_ies, i64 124), align 4
-  %244 = add i32 %.0217.i.i.i, 2
+  %244 = add i32 %.0216.i.i.i, 2
   %245 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %243, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef 0)
   %246 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %244)
   %247 = shl i32 %246, 1
@@ -1212,14 +1212,14 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %thread-pre-split.i.i.i
 
 266:                                              ; preds = %263
-  %267 = add i32 %.0217.i.i.i, 2
+  %267 = add i32 %.0216.i.i.i, 2
   %268 = load i32, ptr @ett_iax2_codecs, align 4
   %269 = call ptr @proto_tree_add_bitmask(ptr noundef %237, ptr noundef %0, i32 noundef %267, i32 noundef %234, i32 noundef %268, ptr noundef nonnull @hf_iax2_caps, i32 noundef 0)
   store ptr %269, ptr %10, align 8
   br label %362
 
 270:                                              ; preds = %231
-  %271 = add i32 %.0217.i.i.i, 2
+  %271 = add i32 %.0216.i.i.i, 2
   %272 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %271)
   %273 = zext i8 %272 to i32
   %274 = load i32, ptr @hf_iax2_version, align 4
@@ -1236,7 +1236,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %thread-pre-split.i.i.i
 
 280:                                              ; preds = %277
-  %281 = add i32 %.0217.i.i.i, 3
+  %281 = add i32 %.0216.i.i.i, 3
   %282 = load i32, ptr @ett_iax2_codecs, align 4
   %283 = call ptr @proto_tree_add_bitmask(ptr noundef %237, ptr noundef %0, i32 noundef %281, i32 noundef %234, i32 noundef %282, ptr noundef nonnull @hf_iax2_caps, i32 noundef 0)
   store ptr %283, ptr %10, align 8
@@ -1251,13 +1251,13 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %thread-pre-split.i.i.i
 
 287:                                              ; preds = %284
-  %288 = add i32 %.0217.i.i.i, 2
+  %288 = add i32 %.0216.i.i.i, 2
   %289 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %234, ptr noundef %0, i32 noundef %288, i32 noundef 4, i32 noundef 0)
   store ptr %289, ptr %10, align 8
   br label %362
 
 290:                                              ; preds = %231
-  %291 = add i32 %.0217.i.i.i, 2
+  %291 = add i32 %.0216.i.i.i, 2
   %292 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %291)
   %293 = zext i8 %292 to i32
   %294 = load i32, ptr @hf_iax2_version, align 4
@@ -1274,13 +1274,13 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %thread-pre-split.i.i.i
 
 300:                                              ; preds = %297
-  %301 = add i32 %.0217.i.i.i, 3
+  %301 = add i32 %.0216.i.i.i, 3
   %302 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %234, ptr noundef %0, i32 noundef %301, i32 noundef 8, i32 noundef 0)
   store ptr %302, ptr %10, align 8
   br label %362
 
 303:                                              ; preds = %231
-  %304 = add i32 %.0217.i.i.i, 2
+  %304 = add i32 %.0216.i.i.i, 2
   %305 = load i32, ptr @ett_iax2_ies_apparent_addr, align 4
   %306 = call ptr @proto_tree_add_subtree(ptr noundef %237, ptr noundef %0, i32 noundef %304, i32 noundef 16, i32 noundef %305, ptr noundef nonnull %10, ptr noundef nonnull @.str.511)
   %307 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %304)
@@ -1292,11 +1292,11 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
 
 312:                                              ; preds = %303
   %313 = load i32, ptr @hf_IAX_IE_APPARENTADDR_SINPORT, align 4
-  %314 = add i32 %.0217.i.i.i, 4
+  %314 = add i32 %.0216.i.i.i, 4
   %315 = call ptr @proto_tree_add_uint(ptr noundef %306, i32 noundef %313, ptr noundef %0, i32 noundef %314, i32 noundef 2, i32 noundef %229)
   %316 = load i32, ptr %230, align 1
   %317 = load i32, ptr @hf_IAX_IE_APPARENTADDR_SINADDR, align 4
-  %318 = add i32 %.0217.i.i.i, 6
+  %318 = add i32 %.0216.i.i.i, 6
   %319 = call ptr @proto_tree_add_ipv4(ptr noundef %306, i32 noundef %317, ptr noundef %0, i32 noundef %318, i32 noundef 4, i32 noundef %316)
   br label %thread-pre-split.i.i.i
 
@@ -1337,19 +1337,19 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   ]
 
 327:                                              ; preds = %325, %325, %325, %325, %325, %325, %325, %325, %325, %325, %325, %325
-  %328 = add i32 %.0217.i.i.i, 2
+  %328 = add i32 %.0216.i.i.i, 2
   %329 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %234, ptr noundef %0, i32 noundef %328, i32 noundef %200, i32 noundef 0)
   store ptr %329, ptr %10, align 8
   br label %362
 
 330:                                              ; preds = %325, %325
-  %331 = add i32 %.0217.i.i.i, 2
+  %331 = add i32 %.0216.i.i.i, 2
   %332 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %234, ptr noundef %0, i32 noundef %331, i32 noundef %200, i32 noundef 0)
   store ptr %332, ptr %10, align 8
   br label %362
 
 333:                                              ; preds = %325, %325
-  %334 = add i32 %.0217.i.i.i, 2
+  %334 = add i32 %.0216.i.i.i, 2
   %335 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %234, ptr noundef %0, i32 noundef %334, i32 noundef %200, i32 noundef 2)
   store ptr %335, ptr %10, align 8
   br label %362
@@ -1367,7 +1367,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   ]
 
 339:                                              ; preds = %337
-  %340 = add i32 %.0217.i.i.i, 2
+  %340 = add i32 %.0216.i.i.i, 2
   %341 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %340)
   %342 = zext i8 %341 to i32
   %343 = load i32, ptr @hf_IAX_IE_UNKNOWN_BYTE, align 4
@@ -1376,7 +1376,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %362
 
 345:                                              ; preds = %337
-  %346 = add i32 %.0217.i.i.i, 2
+  %346 = add i32 %.0216.i.i.i, 2
   %347 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %346)
   %348 = zext i16 %347 to i32
   %349 = load i32, ptr @hf_IAX_IE_UNKNOWN_I16, align 4
@@ -1385,7 +1385,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
   br label %362
 
 351:                                              ; preds = %337
-  %352 = add i32 %.0217.i.i.i, 2
+  %352 = add i32 %.0216.i.i.i, 2
   %353 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %352)
   %354 = load i32, ptr @hf_IAX_IE_UNKNOWN_I32, align 4
   %355 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %237, i32 noundef %354, ptr noundef %0, i32 noundef %352, i32 noundef 4, i32 noundef %353, ptr noundef nonnull @.str.514, ptr noundef %338, i32 noundef %353)
@@ -1394,7 +1394,7 @@ iax2_add_ts_fields.exit.i:                        ; preds = %165, %150, %proto_i
 
 356:                                              ; preds = %337
   %357 = load ptr, ptr %184, align 8
-  %358 = add i32 %.0217.i.i.i, 2
+  %358 = add i32 %.0216.i.i.i, 2
   %359 = call ptr @tvb_get_string_enc(ptr noundef %357, ptr noundef %0, i32 noundef %358, i32 noundef %200, i32 noundef 0)
   %360 = load i32, ptr @hf_IAX_IE_UNKNOWN_BYTES, align 4
   %361 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %237, i32 noundef %360, ptr noundef %0, i32 noundef %358, i32 noundef %200, ptr noundef %359, ptr noundef nonnull @.str.515, ptr noundef %338, ptr noundef %359)
@@ -1424,9 +1424,8 @@ thread-pre-split.i.i.i:                           ; preds = %323, %312, %303, %2
 proto_item_is_hidden.exit.i.i.i:                  ; preds = %366
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 28
   %370 = load i32, ptr %369, align 4
-  %371 = and i32 %370, 1
-  %.not215.i.i.i = icmp eq i32 %371, 0
-  br i1 %.not215.i.i.i, label %372, label %proto_item_is_hidden.exit.thread.i.i.i
+  %371 = trunc i32 %370 to i1
+  br i1 %371, label %proto_item_is_hidden.exit.thread.i.i.i, label %372
 
 372:                                              ; preds = %proto_item_is_hidden.exit.i.i.i
   %373 = getelementptr inbounds nuw i8, ptr %363, i64 40
@@ -1458,7 +1457,7 @@ proto_item_is_hidden.exit.thread.i.i.i:           ; preds = %379, %378, %proto_i
   br label %383
 
 383:                                              ; preds = %proto_item_is_hidden.exit.thread.i.i.i, %227
-  %384 = add i32 %.0217.i.i.i, 2
+  %384 = add i32 %.0216.i.i.i, 2
   %385 = add i32 %384, %200
   %386 = call i32 @tvb_reported_length(ptr noundef %0)
   %387 = icmp ult i32 %385, %386

@@ -252,9 +252,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %40, %46
 55:                                               ; preds = %53, %_ZNK5clang4Decl14getDeclContextEv.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %57 = load i32, ptr %56, align 2
-  %58 = and i32 %57, 1
-  %.not55 = icmp eq i32 %58, 0
-  br i1 %.not55, label %59, label %61
+  %58 = trunc i32 %57 to i1
+  br i1 %58, label %61, label %59
 
 59:                                               ; preds = %55
   %60 = call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #9
@@ -295,8 +294,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %72 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %1, i64 %2, i64 noundef 0) #9
-  %.not56 = icmp eq i64 %72, -1
-  br i1 %.not56, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread53, label %73
+  %.not55 = icmp eq i64 %72, -1
+  br i1 %.not55, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread53, label %73
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread53: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit
   br label %73

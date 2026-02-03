@@ -270,12 +270,12 @@ entry:
   %object_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %object.coerce, ptr %object_, align 8
   %skip_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = trunc i32 %flags to i8
-  %frombool = and i8 %0, 1
+  %tobool = trunc i32 %flags to i8
+  %frombool = and i8 %tobool, 1
   store i8 %frombool, ptr %skip_hooks_, align 8
   %skip_task_queues_ = getelementptr inbounds nuw i8, ptr %this, i64 33
-  %1 = lshr i8 %0, 1
-  %frombool6 = and i8 %1, 1
+  %0 = lshr i8 %tobool, 1
+  %frombool6 = and i8 %0, 1
   store i8 %frombool6, ptr %skip_task_queues_, align 1
   %failed_ = getelementptr inbounds nuw i8, ptr %this, i64 34
   store i8 0, ptr %failed_, align 2
@@ -293,18 +293,18 @@ do.body9:                                         ; preds = %entry
 
 do.end10:                                         ; preds = %entry
   %async_callback_scope_depth_.i = getelementptr inbounds nuw i8, ptr %env, i64 1408
-  %2 = load i64, ptr %async_callback_scope_depth_.i, align 8
-  %inc.i = add i64 %2, 1
+  %1 = load i64, ptr %async_callback_scope_depth_.i, align 8
+  %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %async_callback_scope_depth_.i, align 8
   %can_call_into_js_.i = getelementptr inbounds nuw i8, ptr %env, i64 873
-  %3 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
-  %tobool.i.i.i = trunc i8 %3 to i1
+  %2 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
+  %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %if.then11
 
 _ZNK4node11Environment16can_call_into_jsEv.exit:  ; preds = %do.end10
   %is_stopping_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 872
-  %4 = load atomic i8, ptr %is_stopping_.i.i seq_cst, align 1
-  %tobool.i.i.i.i = trunc i8 %4 to i1
+  %3 = load atomic i8, ptr %is_stopping_.i.i seq_cst, align 1
+  %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %do.end10, %_ZNK4node11Environment16can_call_into_jsEv.exit
@@ -313,15 +313,15 @@ if.then11:                                        ; preds = %do.end10, %_ZNK4nod
 
 if.end13:                                         ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit
   %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
-  %5 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5) #13
-  %call15 = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  %4 = load ptr, ptr %isolate_.i, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %4) #13
+  %call15 = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
-  %6 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %principal_realm_.i.i, align 8
+  %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call ptr %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #13
+  %6 = load ptr, ptr %vfn.i, align 8
+  %call2.i = call ptr %6(ptr noundef nonnull align 8 dereferenceable(872) %5) #13
   %cmp.i12.i = icmp eq ptr %call2.i, null
   %cmp.i9.i = icmp eq ptr %call15, null
   br i1 %cmp.i12.i, label %if.then.i, label %if.end.i
@@ -333,19 +333,19 @@ if.end.i:                                         ; preds = %if.end13
   br i1 %cmp.i9.i, label %do.body27, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
 
 _ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit: ; preds = %if.end.i
-  %8 = load i64, ptr %call2.i, align 8
-  %9 = load i64, ptr %call15, align 8
-  %cmp.i = icmp eq i64 %8, %9
+  %7 = load i64, ptr %call2.i, align 8
+  %8 = load i64, ptr %call15, align 8
+  %cmp.i = icmp eq i64 %7, %8
   br i1 %cmp.i, label %if.end39, label %do.body27
 
 do.body27:                                        ; preds = %if.then.i, %if.end.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
-  %call.i = call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  %call.i = call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   br i1 %call.i, label %if.end.i21, label %do.body34.sink.split
 
 if.end.i21:                                       ; preds = %do.body27
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef nonnull %5) #13
-  %call3.i = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef nonnull %4) #13
+  %call3.i = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   %cmp.i.i.i.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i.i.i.i, label %do.body34.critedge22, label %if.end.i.i.i
 
@@ -355,27 +355,27 @@ if.end.i.i.i:                                     ; preds = %if.end.i21
   br i1 %cmp.i.i.i, label %do.body34.critedge22, label %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
 
 _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i: ; preds = %if.end.i.i.i
-  %10 = load i64, ptr %call3.i, align 8
-  %sub.i37.i.i.i = add i64 %10, 47
-  %11 = inttoptr i64 %sub.i37.i.i.i to ptr
-  %12 = load i64, ptr %11, align 8
-  %sub.i.i.i.i = add i64 %12, 327
-  %13 = inttoptr i64 %sub.i.i.i.i to ptr
-  %14 = load i64, ptr %13, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %16, %15
+  %9 = load i64, ptr %call3.i, align 8
+  %sub.i37.i.i.i = add i64 %9, 47
+  %10 = inttoptr i64 %sub.i37.i.i.i to ptr
+  %11 = load i64, ptr %10, align 8
+  %sub.i.i.i.i = add i64 %11, 327
+  %12 = inttoptr i64 %sub.i.i.i.i to ptr
+  %13 = load i64, ptr %12, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
+  %cmp12.not.i.i.i = icmp eq ptr %15, %14
   br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %do.body34.critedge22
 
 if.end.i.i:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
-  %sub.i.i.i = add i64 %12, 271
-  %17 = inttoptr i64 %sub.i.i.i to ptr
-  %18 = load i64, ptr %17, align 8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = icmp eq ptr %env, %19
+  %sub.i.i.i = add i64 %11, 271
+  %16 = inttoptr i64 %sub.i.i.i to ptr
+  %17 = load i64, ptr %16, align 8
+  %18 = inttoptr i64 %17 to ptr
+  %19 = icmp eq ptr %env, %18
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
-  br i1 %20, label %if.end39, label %do.body34
+  br i1 %19, label %if.end39, label %do.body34
 
 do.body34.critedge22:                             ; preds = %if.end.i21, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
@@ -391,22 +391,22 @@ do.body34:                                        ; preds = %do.body34.sink.spli
   unreachable
 
 if.end39:                                         ; preds = %if.then.i, %if.end.i.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
-  call void @_ZN2v87Isolate7SetIdleEb(ptr noundef nonnull align 1 dereferenceable(1) %5, i1 noundef zeroext false) #13
+  call void @_ZN2v87Isolate7SetIdleEb(ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext false) #13
   %async_hooks_.i = getelementptr inbounds nuw i8, ptr %env, i64 880
-  %21 = load double, ptr %async_context_, align 8
+  %20 = load double, ptr %async_context_, align 8
   %trigger_async_id = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %22 = load double, ptr %trigger_async_id, align 8
-  call void @_ZN4node10AsyncHooks18push_async_contextEddN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i, double noundef %21, double noundef %22, ptr %object.coerce) #13
+  %21 = load double, ptr %trigger_async_id, align 8
+  call void @_ZN4node10AsyncHooks18push_async_contextEddN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i, double noundef %20, double noundef %21, ptr %object.coerce) #13
   store i8 1, ptr %pushed_ids_, align 1
-  %23 = load double, ptr %asyncContext, align 8
-  %cmp48 = fcmp oeq double %23, 0.000000e+00
-  %24 = load i8, ptr %skip_hooks_, align 8
-  %tobool50 = trunc i8 %24 to i1
+  %22 = load double, ptr %asyncContext, align 8
+  %cmp48 = fcmp oeq double %22, 0.000000e+00
+  %23 = load i8, ptr %skip_hooks_, align 8
+  %tobool50 = trunc i8 %23 to i1
   %or.cond = select i1 %cmp48, i1 true, i1 %tobool50
   br i1 %or.cond, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %if.end39
-  call void @_ZN4node9AsyncWrap10EmitBeforeEPNS_11EnvironmentEd(ptr noundef nonnull %env, double noundef %23) #13
+  call void @_ZN4node9AsyncWrap10EmitBeforeEPNS_11EnvironmentEd(ptr noundef nonnull %env, double noundef %22) #13
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %if.end39

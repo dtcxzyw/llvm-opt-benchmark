@@ -180,9 +180,8 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_implD2Ev(ptr nou
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %2, align 4, !tbaa !8
-  %6 = and i32 %5, 1
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit.sink.split, label %7
+  %6 = trunc i32 %5 to i1
+  br i1 %6, label %7, label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit.sink.split
 
 7:                                                ; preds = %4
   %8 = invoke i32 @close(i32 noundef %3)
@@ -388,9 +387,8 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %9, align 4, !tbaa !8
-  %13 = and i32 %12, 1
-  %.not43 = icmp eq i32 %13, 0
-  br i1 %.not43, label %.critedge.i, label %14
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %14, label %.critedge.i
 
 14:                                               ; preds = %11
   %15 = tail call i32 @close(i32 noundef %10)
@@ -462,27 +460,28 @@ _ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = 
 30:                                               ; preds = %22
   %31 = and i32 %2, 8
   %.not33 = icmp eq i32 %31, 0
-  %32 = and i32 %2, 1
-  %.not34 = icmp eq i32 %32, 0
-  br i1 %.not33, label %37, label %33
+  br i1 %.not33, label %36, label %32
 
-33:                                               ; preds = %30
-  %34 = and i32 %2, 33
-  %brmerge.not = icmp eq i32 %34, 0
-  %.mux = select i1 %.not34, i32 578, i32 1090
-  br i1 %brmerge.not, label %35, label %38
+32:                                               ; preds = %30
+  %.not35 = trunc i32 %2 to i1
+  %33 = and i32 %2, 33
+  %brmerge.not = icmp eq i32 %33, 0
+  %.mux = select i1 %.not35, i32 1090, i32 578
+  br i1 %brmerge.not, label %34, label %38
 
-35:                                               ; preds = %33
-  %36 = lshr i32 %2, 3
-  %. = and i32 %36, 2
+34:                                               ; preds = %32
+  %35 = lshr i32 %2, 3
+  %. = and i32 %35, 2
   br label %38
 
-37:                                               ; preds = %30
+36:                                               ; preds = %30
+  %37 = and i32 %2, 1
+  %.not34 = icmp eq i32 %37, 0
   %.42 = select i1 %.not34, i32 577, i32 1089
   br label %38
 
-38:                                               ; preds = %33, %37, %35
-  %.0 = phi i32 [ %.42, %37 ], [ %.mux, %33 ], [ %., %35 ]
+38:                                               ; preds = %32, %36, %34
+  %.0 = phi i32 [ %.42, %36 ], [ %.mux, %32 ], [ %., %34 ]
   %39 = load ptr, ptr %1, align 8, !tbaa !12
   %40 = tail call i32 (ptr, i32, ...) @open(ptr noundef %39, i32 noundef %.0, i32 noundef 438)
   %41 = icmp eq i32 %40, -1
@@ -3473,9 +3472,8 @@ define linkonce_odr hidden void @_ZN5boost14checked_deleteINS_9iostreams6detail2
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !8
-  %8 = and i32 %7, 1
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %_ZN5boost9iostreams6detail20file_descriptor_implD2Ev.exit, label %9
+  %8 = trunc i32 %7 to i1
+  br i1 %8, label %9, label %_ZN5boost9iostreams6detail20file_descriptor_implD2Ev.exit
 
 9:                                                ; preds = %5
   %10 = invoke i32 @close(i32 noundef %4)
@@ -3526,9 +3524,8 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_9iostrea
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !8
-  %10 = and i32 %9, 1
-  %.not.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i, label %_ZN5boost9iostreams6detail20file_descriptor_implD2Ev.exit.i, label %11
+  %10 = trunc i32 %9 to i1
+  br i1 %10, label %11, label %_ZN5boost9iostreams6detail20file_descriptor_implD2Ev.exit.i
 
 11:                                               ; preds = %7
   %12 = invoke i32 @close(i32 noundef %6)

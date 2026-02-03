@@ -8620,10 +8620,10 @@ default.unreachable38:                            ; preds = %27
   %43 = load i8, ptr %42, align 1, !noundef !3
   %44 = trunc i64 %39 to i8
   %45 = and i8 %44, 7
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %47 = lshr i8 %43, %45
-  %48 = and i8 %47, 1
-  store i8 %48, ptr %46, align 1
+  %46 = lshr i8 %43, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 1
   store i8 1, ptr %0, align 16
   br label %355
 
@@ -16318,16 +16318,16 @@ define hidden void @_ZN14polars_compute6gather14generic_binary28take_values_indi
   %.sroa.24.1.i = phi i64 [ %83, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.sroa.24.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.i.i.i.i" ]
   %86 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.sroa.22.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.i.i.i.i" ]
   %87 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.sroa.20.0.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.i.i.i.i" ]
-  %88 = lshr i64 %87, 1
-  %89 = add i64 %86, -1
-  %90 = trunc i64 %87 to i8
-  %91 = and i8 %90, 1
+  %88 = trunc i64 %87 to i8
+  %89 = lshr i64 %87, 1
+  %90 = add i64 %86, -1
+  %91 = and i8 %88, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i, %81
   %.sroa.15.2.i = phi ptr [ %.sroa.15.0.i, %81 ], [ %.sroa.15.1.i, %._crit_edge.i.i.i.i.i ]
-  %.sroa.20.1.i = phi i64 [ %.sroa.20.0.i, %81 ], [ %88, %._crit_edge.i.i.i.i.i ]
-  %.sroa.22.1.i = phi i64 [ 0, %81 ], [ %89, %._crit_edge.i.i.i.i.i ]
+  %.sroa.20.1.i = phi i64 [ %.sroa.20.0.i, %81 ], [ %89, %._crit_edge.i.i.i.i.i ]
+  %.sroa.22.1.i = phi i64 [ 0, %81 ], [ %90, %._crit_edge.i.i.i.i.i ]
   %.sroa.24.2.i = phi i64 [ 0, %81 ], [ %.sroa.24.1.i, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.i7.i.i.i.i = phi i8 [ 2, %81 ], [ %91, %._crit_edge.i.i.i.i.i ]
   %92 = invoke { i8, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h7691966d2f3b67ebE"(i8 noundef %.sroa.0.0.i7.i.i.i.i, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %spec.select44.i)
@@ -17603,17 +17603,17 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %62 = phi i64 [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.i.i.i.i" ]
   %63 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.i.i.i.i" ]
   %64 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.pre.i.i.i25.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.i.i.i.i" ]
-  %65 = lshr i64 %64, 1
-  %66 = add i64 %63, -1
-  %67 = trunc i64 %64 to i8
-  %68 = and i8 %67, 1
+  %65 = trunc i64 %64 to i8
+  %66 = lshr i64 %64, 1
+  %67 = add i64 %63, -1
+  %68 = and i8 %65, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i, %57
   %69 = phi ptr [ %61, %._crit_edge.i.i.i.i.i ], [ %50, %57 ]
   %70 = phi i64 [ %62, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
-  %.pre.i.i.i24.i.i = phi i64 [ %65, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
-  %71 = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
+  %.pre.i.i.i24.i.i = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
+  %71 = phi i64 [ %67, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
   %.sroa.0.0.i7.i.i.i.i = phi i8 [ %68, %._crit_edge.i.i.i.i.i ], [ 2, %57 ]
   %72 = invoke { i8, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h7691966d2f3b67ebE"(i8 noundef %.sroa.0.0.i7.i.i.i.i, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %spec.select64.i)
           to label %.noexc24.i unwind label %.loopexit.i, !noalias !1444
@@ -18386,17 +18386,17 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %62 = phi i64 [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c357d32060fc41fE.exit.i.i.i.i" ]
   %63 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c357d32060fc41fE.exit.i.i.i.i" ]
   %64 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.pre.i.i.i25.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7c357d32060fc41fE.exit.i.i.i.i" ]
-  %65 = lshr i64 %64, 1
-  %66 = add i64 %63, -1
-  %67 = trunc i64 %64 to i8
-  %68 = and i8 %67, 1
+  %65 = trunc i64 %64 to i8
+  %66 = lshr i64 %64, 1
+  %67 = add i64 %63, -1
+  %68 = and i8 %65, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i, %57
   %69 = phi ptr [ %61, %._crit_edge.i.i.i.i.i ], [ %50, %57 ]
   %70 = phi i64 [ %62, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
-  %.pre.i.i.i24.i.i = phi i64 [ %65, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
-  %71 = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
+  %.pre.i.i.i24.i.i = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
+  %71 = phi i64 [ %67, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
   %.sroa.0.0.i7.i.i.i.i = phi i8 [ %68, %._crit_edge.i.i.i.i.i ], [ 2, %57 ]
   %72 = invoke { i8, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h6b53a7ecbfff5965E"(i8 noundef %.sroa.0.0.i7.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %spec.select64.i)
           to label %.noexc24.i unwind label %.loopexit.i, !noalias !1621
@@ -18859,17 +18859,17 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %62 = phi i64 [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i" ]
   %63 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i" ]
   %64 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.pre.i.i.i25.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea81df0818c8749eE.exit.i.i.i.i" ]
-  %65 = lshr i64 %64, 1
-  %66 = add i64 %63, -1
-  %67 = trunc i64 %64 to i8
-  %68 = and i8 %67, 1
+  %65 = trunc i64 %64 to i8
+  %66 = lshr i64 %64, 1
+  %67 = add i64 %63, -1
+  %68 = and i8 %65, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i, %57
   %69 = phi ptr [ %61, %._crit_edge.i.i.i.i.i ], [ %50, %57 ]
   %70 = phi i64 [ %62, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
-  %.pre.i.i.i24.i.i = phi i64 [ %65, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
-  %71 = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
+  %.pre.i.i.i24.i.i = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
+  %71 = phi i64 [ %67, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
   %.sroa.0.0.i7.i.i.i.i = phi i8 [ %68, %._crit_edge.i.i.i.i.i ], [ 2, %57 ]
   %72 = invoke { i8, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h3b2225cac2c21a5dE"(i8 noundef %.sroa.0.0.i7.i.i.i.i, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %spec.select64.i)
           to label %.noexc24.i unwind label %.loopexit.i, !noalias !1723
@@ -19952,17 +19952,17 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %62 = phi i64 [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %51, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i" ]
   %63 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i" ]
   %64 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ], [ %.pre.i.i.i25.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd67574748e6c2ec4E.exit.i.i.i.i" ]
-  %65 = lshr i64 %64, 1
-  %66 = add i64 %63, -1
-  %67 = trunc i64 %64 to i8
-  %68 = and i8 %67, 1
+  %65 = trunc i64 %64 to i8
+  %66 = lshr i64 %64, 1
+  %67 = add i64 %63, -1
+  %68 = and i8 %65, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i, %57
   %69 = phi ptr [ %61, %._crit_edge.i.i.i.i.i ], [ %50, %57 ]
   %70 = phi i64 [ %62, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
-  %.pre.i.i.i24.i.i = phi i64 [ %65, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
-  %71 = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
+  %.pre.i.i.i24.i.i = phi i64 [ %66, %._crit_edge.i.i.i.i.i ], [ %.pre.i.i.i25.i.i, %57 ]
+  %71 = phi i64 [ %67, %._crit_edge.i.i.i.i.i ], [ 0, %57 ]
   %.sroa.0.0.i7.i.i.i.i = phi i8 [ %68, %._crit_edge.i.i.i.i.i ], [ 2, %57 ]
   %72 = invoke { i8, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h8578370cd33d19ceE"(i8 noundef %.sroa.0.0.i7.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %spec.select64.i)
           to label %.noexc24.i unwind label %.loopexit.i, !noalias !1954
@@ -24425,12 +24425,12 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
   %49 = phi i64 [ %36, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i" ]
   %50 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i" ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %52 = lshr i64 %50, 1
-  store i64 %52, ptr %51, align 8, !alias.scope !2853, !noalias !2847
-  %53 = add i64 %49, -1
-  store i64 %53, ptr %35, align 8, !alias.scope !2853, !noalias !2847
-  %54 = trunc i64 %50 to i8
-  %55 = and i8 %54, 1
+  %52 = trunc i64 %50 to i8
+  %53 = lshr i64 %50, 1
+  store i64 %53, ptr %51, align 8, !alias.scope !2853, !noalias !2847
+  %54 = add i64 %49, -1
+  store i64 %54, ptr %35, align 8, !alias.scope !2853, !noalias !2847
+  %55 = and i8 %52, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i": ; preds = %48, %38
@@ -49296,12 +49296,12 @@ common.resume.i:                                  ; preds = %764, %752, %740, %7
 144:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i", %._crit_edge.i.i.i.i
   %145 = phi i64 [ %134, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i" ]
   %146 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i" ]
-  %147 = lshr i64 %146, 1
-  store i64 %147, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !5534, !noalias !5530
-  %148 = add i64 %145, -1
-  store i64 %148, ptr %110, align 8, !alias.scope !5534, !noalias !5530
-  %149 = trunc i64 %146 to i8
-  %150 = and i8 %149, 1
+  %147 = trunc i64 %146 to i8
+  %148 = lshr i64 %146, 1
+  store i64 %148, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !5534, !noalias !5530
+  %149 = add i64 %145, -1
+  store i64 %149, ptr %110, align 8, !alias.scope !5534, !noalias !5530
+  %150 = and i8 %147, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i": ; preds = %144, %136
@@ -49491,12 +49491,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h6e150aa764117d03E.exit.i: ; p
 226:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i26.i", %._crit_edge.i.i.i23.i
   %227 = phi i64 [ %216, %._crit_edge.i.i.i23.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i27.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i26.i" ]
   %228 = phi i64 [ %.pre.i.i.i24.i, %._crit_edge.i.i.i23.i ], [ %.sroa.02.0.copyload.i.i.i28.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i26.i" ]
-  %229 = lshr i64 %228, 1
-  store i64 %229, ptr %.phi.trans.insert.i.i.i21.i, align 8, !alias.scope !5552, !noalias !5548
-  %230 = add i64 %227, -1
-  store i64 %230, ptr %190, align 8, !alias.scope !5552, !noalias !5548
-  %231 = trunc i64 %228 to i8
-  %232 = and i8 %231, 1
+  %229 = trunc i64 %228 to i8
+  %230 = lshr i64 %228, 1
+  store i64 %230, ptr %.phi.trans.insert.i.i.i21.i, align 8, !alias.scope !5552, !noalias !5548
+  %231 = add i64 %227, -1
+  store i64 %231, ptr %190, align 8, !alias.scope !5552, !noalias !5548
+  %232 = and i8 %229, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i": ; preds = %226, %218
@@ -49734,12 +49734,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h26c2a362360dfa13E.exit.i: ; p
 321:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i43.i", %._crit_edge.i.i.i36.i
   %322 = phi i64 [ %311, %._crit_edge.i.i.i36.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i44.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i43.i" ]
   %323 = phi i64 [ %.pre.i.i.i37.i, %._crit_edge.i.i.i36.i ], [ %.sroa.02.0.copyload.i.i.i45.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i43.i" ]
-  %324 = lshr i64 %323, 1
-  store i64 %324, ptr %.phi.trans.insert.i.i.i34.i, align 8, !alias.scope !5577, !noalias !5573
-  %325 = add i64 %322, -1
-  store i64 %325, ptr %285, align 8, !alias.scope !5577, !noalias !5573
-  %326 = trunc i64 %323 to i8
-  %327 = and i8 %326, 1
+  %324 = trunc i64 %323 to i8
+  %325 = lshr i64 %323, 1
+  store i64 %325, ptr %.phi.trans.insert.i.i.i34.i, align 8, !alias.scope !5577, !noalias !5573
+  %326 = add i64 %322, -1
+  store i64 %326, ptr %285, align 8, !alias.scope !5577, !noalias !5573
+  %327 = and i8 %324, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i38.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i38.i": ; preds = %321, %313
@@ -49927,12 +49927,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h8ba361fb97264adfE.exit.i: ; p
 398:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i62.i", %._crit_edge.i.i.i56.i
   %399 = phi i64 [ %388, %._crit_edge.i.i.i56.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i63.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i62.i" ]
   %400 = phi i64 [ %.pre.i.i.i57.i, %._crit_edge.i.i.i56.i ], [ %.sroa.02.0.copyload.i.i.i64.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i62.i" ]
-  %401 = lshr i64 %400, 1
-  store i64 %401, ptr %.phi.trans.insert.i.i.i53.i, align 8, !alias.scope !5595, !noalias !5591
-  %402 = add i64 %399, -1
-  store i64 %402, ptr %364, align 8, !alias.scope !5595, !noalias !5591
-  %403 = trunc i64 %400 to i8
-  %404 = and i8 %403, 1
+  %401 = trunc i64 %400 to i8
+  %402 = lshr i64 %400, 1
+  store i64 %402, ptr %.phi.trans.insert.i.i.i53.i, align 8, !alias.scope !5595, !noalias !5591
+  %403 = add i64 %399, -1
+  store i64 %403, ptr %364, align 8, !alias.scope !5595, !noalias !5591
+  %404 = and i8 %401, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i": ; preds = %398, %390
@@ -50122,12 +50122,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h2dc1834808b778b6E.exit.i: ; p
 480:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i90.i", %._crit_edge.i.i.i80.i
   %481 = phi i64 [ %470, %._crit_edge.i.i.i80.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i91.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i90.i" ]
   %482 = phi i64 [ %.pre.i.i.i81.i, %._crit_edge.i.i.i80.i ], [ %.sroa.02.0.copyload.i.i.i92.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i90.i" ]
-  %483 = lshr i64 %482, 1
-  store i64 %483, ptr %.phi.trans.insert.i.i.i77.i, align 8, !alias.scope !5613, !noalias !5609
-  %484 = add i64 %481, -1
-  store i64 %484, ptr %444, align 8, !alias.scope !5613, !noalias !5609
-  %485 = trunc i64 %482 to i8
-  %486 = and i8 %485, 1
+  %483 = trunc i64 %482 to i8
+  %484 = lshr i64 %482, 1
+  store i64 %484, ptr %.phi.trans.insert.i.i.i77.i, align 8, !alias.scope !5613, !noalias !5609
+  %485 = add i64 %481, -1
+  store i64 %485, ptr %444, align 8, !alias.scope !5613, !noalias !5609
+  %486 = and i8 %483, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i82.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i82.i": ; preds = %480, %472
@@ -50439,12 +50439,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h29e1d74b3358c934E.exit.i: ; p
 597:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i117.i", %._crit_edge.i.i.i107.i
   %598 = phi i64 [ %587, %._crit_edge.i.i.i107.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i118.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i117.i" ]
   %599 = phi i64 [ %.pre.i.i.i108.i, %._crit_edge.i.i.i107.i ], [ %.sroa.02.0.copyload.i.i.i119.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i117.i" ]
-  %600 = lshr i64 %599, 1
-  store i64 %600, ptr %.phi.trans.insert.i.i.i104.i, align 8, !alias.scope !5652, !noalias !5648
-  %601 = add i64 %598, -1
-  store i64 %601, ptr %561, align 8, !alias.scope !5652, !noalias !5648
-  %602 = trunc i64 %599 to i8
-  %603 = and i8 %602, 1
+  %600 = trunc i64 %599 to i8
+  %601 = lshr i64 %599, 1
+  store i64 %601, ptr %.phi.trans.insert.i.i.i104.i, align 8, !alias.scope !5652, !noalias !5648
+  %602 = add i64 %598, -1
+  store i64 %602, ptr %561, align 8, !alias.scope !5652, !noalias !5648
+  %603 = and i8 %600, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i109.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i109.i": ; preds = %597, %589
@@ -50645,12 +50645,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h3442881cbac83d16E.exit.i: ; p
 681:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i143.i", %._crit_edge.i.i.i134.i
   %682 = phi i64 [ %671, %._crit_edge.i.i.i134.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i144.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i143.i" ]
   %683 = phi i64 [ %.pre.i.i.i135.i, %._crit_edge.i.i.i134.i ], [ %.sroa.02.0.copyload.i.i.i145.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i143.i" ]
-  %684 = lshr i64 %683, 1
-  store i64 %684, ptr %.phi.trans.insert.i.i.i131.i, align 8, !alias.scope !5670, !noalias !5666
-  %685 = add i64 %682, -1
-  store i64 %685, ptr %645, align 8, !alias.scope !5670, !noalias !5666
-  %686 = trunc i64 %683 to i8
-  %687 = and i8 %686, 1
+  %684 = trunc i64 %683 to i8
+  %685 = lshr i64 %683, 1
+  store i64 %685, ptr %.phi.trans.insert.i.i.i131.i, align 8, !alias.scope !5670, !noalias !5666
+  %686 = add i64 %682, -1
+  store i64 %686, ptr %645, align 8, !alias.scope !5670, !noalias !5666
+  %687 = and i8 %684, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i136.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i136.i": ; preds = %681, %673
@@ -51233,12 +51233,12 @@ common.resume.i:                                  ; preds = %1023, %1011, %999, 
 165:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i", %._crit_edge.i.i.i.i
   %166 = phi i64 [ %155, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i" ]
   %167 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i" ]
-  %168 = lshr i64 %167, 1
-  store i64 %168, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !5728, !noalias !5721
-  %169 = add i64 %166, -1
-  store i64 %169, ptr %113, align 8, !alias.scope !5728, !noalias !5721
-  %170 = trunc i64 %167 to i8
-  %171 = and i8 %170, 1
+  %168 = trunc i64 %167 to i8
+  %169 = lshr i64 %167, 1
+  store i64 %169, ptr %.phi.trans.insert.i.i.i.i, align 8, !alias.scope !5728, !noalias !5721
+  %170 = add i64 %166, -1
+  store i64 %170, ptr %113, align 8, !alias.scope !5728, !noalias !5721
+  %171 = and i8 %168, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i": ; preds = %165, %157
@@ -51479,12 +51479,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h63c8f24cfb84a061E.exit.i: ; p
 284:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i30.i", %._crit_edge.i.i.i25.i
   %285 = phi i64 [ %274, %._crit_edge.i.i.i25.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i31.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i30.i" ]
   %286 = phi i64 [ %.pre.i.i.i26.i, %._crit_edge.i.i.i25.i ], [ %.sroa.02.0.copyload.i.i.i32.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i30.i" ]
-  %287 = lshr i64 %286, 1
-  store i64 %287, ptr %.phi.trans.insert.i.i.i22.i, align 8, !alias.scope !5754, !noalias !5747
-  %288 = add i64 %285, -1
-  store i64 %288, ptr %230, align 8, !alias.scope !5754, !noalias !5747
-  %289 = trunc i64 %286 to i8
-  %290 = and i8 %289, 1
+  %287 = trunc i64 %286 to i8
+  %288 = lshr i64 %286, 1
+  store i64 %288, ptr %.phi.trans.insert.i.i.i22.i, align 8, !alias.scope !5754, !noalias !5747
+  %289 = add i64 %285, -1
+  store i64 %289, ptr %230, align 8, !alias.scope !5754, !noalias !5747
+  %290 = and i8 %287, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i": ; preds = %284, %276
@@ -51773,12 +51773,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hd3daf84747ca3866E.exit.i: ; p
 416:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i53.i", %._crit_edge.i.i.i45.i
   %417 = phi i64 [ %406, %._crit_edge.i.i.i45.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i54.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i53.i" ]
   %418 = phi i64 [ %.pre.i.i.i46.i, %._crit_edge.i.i.i45.i ], [ %.sroa.02.0.copyload.i.i.i55.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i53.i" ]
-  %419 = lshr i64 %418, 1
-  store i64 %419, ptr %.phi.trans.insert.i.i.i43.i, align 8, !alias.scope !5787, !noalias !5780
-  %420 = add i64 %417, -1
-  store i64 %420, ptr %362, align 8, !alias.scope !5787, !noalias !5780
-  %421 = trunc i64 %418 to i8
-  %422 = and i8 %421, 1
+  %419 = trunc i64 %418 to i8
+  %420 = lshr i64 %418, 1
+  store i64 %420, ptr %.phi.trans.insert.i.i.i43.i, align 8, !alias.scope !5787, !noalias !5780
+  %421 = add i64 %417, -1
+  store i64 %421, ptr %362, align 8, !alias.scope !5787, !noalias !5780
+  %422 = and i8 %419, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i47.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i47.i": ; preds = %416, %408
@@ -52017,12 +52017,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hc4d011c195f35616E.exit.i: ; p
 530:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i73.i", %._crit_edge.i.i.i66.i
   %531 = phi i64 [ %520, %._crit_edge.i.i.i66.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i74.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i73.i" ]
   %532 = phi i64 [ %.pre.i.i.i67.i, %._crit_edge.i.i.i66.i ], [ %.sroa.02.0.copyload.i.i.i75.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i73.i" ]
-  %533 = lshr i64 %532, 1
-  store i64 %533, ptr %.phi.trans.insert.i.i.i63.i, align 8, !alias.scope !5813, !noalias !5806
-  %534 = add i64 %531, -1
-  store i64 %534, ptr %478, align 8, !alias.scope !5813, !noalias !5806
-  %535 = trunc i64 %532 to i8
-  %536 = and i8 %535, 1
+  %533 = trunc i64 %532 to i8
+  %534 = lshr i64 %532, 1
+  store i64 %534, ptr %.phi.trans.insert.i.i.i63.i, align 8, !alias.scope !5813, !noalias !5806
+  %535 = add i64 %531, -1
+  store i64 %535, ptr %478, align 8, !alias.scope !5813, !noalias !5806
+  %536 = and i8 %533, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i": ; preds = %530, %522
@@ -52263,12 +52263,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h91f8981bd7df5cefE.exit.i: ; p
 649:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i102.i", %._crit_edge.i.i.i91.i
   %650 = phi i64 [ %639, %._crit_edge.i.i.i91.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i103.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i102.i" ]
   %651 = phi i64 [ %.pre.i.i.i92.i, %._crit_edge.i.i.i91.i ], [ %.sroa.02.0.copyload.i.i.i104.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i102.i" ]
-  %652 = lshr i64 %651, 1
-  store i64 %652, ptr %.phi.trans.insert.i.i.i88.i, align 8, !alias.scope !5839, !noalias !5832
-  %653 = add i64 %650, -1
-  store i64 %653, ptr %595, align 8, !alias.scope !5839, !noalias !5832
-  %654 = trunc i64 %651 to i8
-  %655 = and i8 %654, 1
+  %652 = trunc i64 %651 to i8
+  %653 = lshr i64 %651, 1
+  store i64 %653, ptr %.phi.trans.insert.i.i.i88.i, align 8, !alias.scope !5839, !noalias !5832
+  %654 = add i64 %650, -1
+  store i64 %654, ptr %595, align 8, !alias.scope !5839, !noalias !5832
+  %655 = and i8 %652, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i93.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i93.i": ; preds = %649, %641
@@ -52631,12 +52631,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hbc6e367612dd6219E.exit.i: ; p
 803:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i130.i", %._crit_edge.i.i.i119.i
   %804 = phi i64 [ %793, %._crit_edge.i.i.i119.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i131.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i130.i" ]
   %805 = phi i64 [ %.pre.i.i.i120.i, %._crit_edge.i.i.i119.i ], [ %.sroa.02.0.copyload.i.i.i132.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i130.i" ]
-  %806 = lshr i64 %805, 1
-  store i64 %806, ptr %.phi.trans.insert.i.i.i116.i, align 8, !alias.scope !5886, !noalias !5879
-  %807 = add i64 %804, -1
-  store i64 %807, ptr %749, align 8, !alias.scope !5886, !noalias !5879
-  %808 = trunc i64 %805 to i8
-  %809 = and i8 %808, 1
+  %806 = trunc i64 %805 to i8
+  %807 = lshr i64 %805, 1
+  store i64 %807, ptr %.phi.trans.insert.i.i.i116.i, align 8, !alias.scope !5886, !noalias !5879
+  %808 = add i64 %804, -1
+  store i64 %808, ptr %749, align 8, !alias.scope !5886, !noalias !5879
+  %809 = and i8 %806, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i121.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i121.i": ; preds = %803, %795
@@ -52888,12 +52888,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hbcd0dd967ebef889E.exit.i: ; p
 924:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i", %._crit_edge.i.i.i147.i
   %925 = phi i64 [ %914, %._crit_edge.i.i.i147.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i158.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i" ]
   %926 = phi i64 [ %.pre.i.i.i148.i, %._crit_edge.i.i.i147.i ], [ %.sroa.02.0.copyload.i.i.i159.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i" ]
-  %927 = lshr i64 %926, 1
-  store i64 %927, ptr %.phi.trans.insert.i.i.i144.i, align 8, !alias.scope !5912, !noalias !5905
-  %928 = add i64 %925, -1
-  store i64 %928, ptr %870, align 8, !alias.scope !5912, !noalias !5905
-  %929 = trunc i64 %926 to i8
-  %930 = and i8 %929, 1
+  %927 = trunc i64 %926 to i8
+  %928 = lshr i64 %926, 1
+  store i64 %928, ptr %.phi.trans.insert.i.i.i144.i, align 8, !alias.scope !5912, !noalias !5905
+  %929 = add i64 %925, -1
+  store i64 %929, ptr %870, align 8, !alias.scope !5912, !noalias !5905
+  %930 = and i8 %927, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i149.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i149.i": ; preds = %924, %916
@@ -53532,12 +53532,12 @@ common.resume.i.i:                                ; preds = %1147, %1135, %1123,
 185:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i", %._crit_edge.i.i.i.i.i
   %186 = phi i64 [ %175, %._crit_edge.i.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ]
   %187 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ]
-  %188 = lshr i64 %187, 1
-  store i64 %188, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !5981, !noalias !5969
-  %189 = add i64 %186, -1
-  store i64 %189, ptr %132, align 8, !alias.scope !5981, !noalias !5969
-  %190 = trunc i64 %187 to i8
-  %191 = and i8 %190, 1
+  %188 = trunc i64 %187 to i8
+  %189 = lshr i64 %187, 1
+  store i64 %189, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !5981, !noalias !5969
+  %190 = add i64 %186, -1
+  store i64 %190, ptr %132, align 8, !alias.scope !5981, !noalias !5969
+  %191 = and i8 %188, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i.i": ; preds = %185, %177
@@ -53810,12 +53810,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17habfe9d1b28648ec2E.exit.i.i: ;
 319:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i32.i.i", %._crit_edge.i.i.i27.i.i
   %320 = phi i64 [ %309, %._crit_edge.i.i.i27.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i33.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i32.i.i" ]
   %321 = phi i64 [ %.pre.i.i.i28.i.i, %._crit_edge.i.i.i27.i.i ], [ %.sroa.02.0.copyload.i.i.i34.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i32.i.i" ]
-  %322 = lshr i64 %321, 1
-  store i64 %322, ptr %.phi.trans.insert.i.i.i22.i.i, align 8, !alias.scope !6022, !noalias !6010
-  %323 = add i64 %320, -1
-  store i64 %323, ptr %264, align 8, !alias.scope !6022, !noalias !6010
-  %324 = trunc i64 %321 to i8
-  %325 = and i8 %324, 1
+  %322 = trunc i64 %321 to i8
+  %323 = lshr i64 %321, 1
+  store i64 %323, ptr %.phi.trans.insert.i.i.i22.i.i, align 8, !alias.scope !6022, !noalias !6010
+  %324 = add i64 %320, -1
+  store i64 %324, ptr %264, align 8, !alias.scope !6022, !noalias !6010
+  %325 = and i8 %322, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %319, %311
@@ -54136,12 +54136,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h215369c2ff2ce85aE.exit.i.i: ;
 466:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i61.i.i", %._crit_edge.i.i.i52.i.i
   %467 = phi i64 [ %456, %._crit_edge.i.i.i52.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i62.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i61.i.i" ]
   %468 = phi i64 [ %.pre.i.i.i53.i.i, %._crit_edge.i.i.i52.i.i ], [ %.sroa.02.0.copyload.i.i.i63.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i61.i.i" ]
-  %469 = lshr i64 %468, 1
-  store i64 %469, ptr %.phi.trans.insert.i.i.i49.i.i, align 8, !alias.scope !6070, !noalias !6058
-  %470 = add i64 %467, -1
-  store i64 %470, ptr %411, align 8, !alias.scope !6070, !noalias !6058
-  %471 = trunc i64 %468 to i8
-  %472 = and i8 %471, 1
+  %469 = trunc i64 %468 to i8
+  %470 = lshr i64 %468, 1
+  store i64 %470, ptr %.phi.trans.insert.i.i.i49.i.i, align 8, !alias.scope !6070, !noalias !6058
+  %471 = add i64 %467, -1
+  store i64 %471, ptr %411, align 8, !alias.scope !6070, !noalias !6058
+  %472 = and i8 %469, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i54.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i54.i.i": ; preds = %466, %458
@@ -54412,12 +54412,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hce40e135e4a900d8E.exit.i.i: ;
 595:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i86.i.i", %._crit_edge.i.i.i78.i.i
   %596 = phi i64 [ %585, %._crit_edge.i.i.i78.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i87.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i86.i.i" ]
   %597 = phi i64 [ %.pre.i.i.i79.i.i, %._crit_edge.i.i.i78.i.i ], [ %.sroa.02.0.copyload.i.i.i88.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i86.i.i" ]
-  %598 = lshr i64 %597, 1
-  store i64 %598, ptr %.phi.trans.insert.i.i.i73.i.i, align 8, !alias.scope !6111, !noalias !6099
-  %599 = add i64 %596, -1
-  store i64 %599, ptr %542, align 8, !alias.scope !6111, !noalias !6099
-  %600 = trunc i64 %597 to i8
-  %601 = and i8 %600, 1
+  %598 = trunc i64 %597 to i8
+  %599 = lshr i64 %597, 1
+  store i64 %599, ptr %.phi.trans.insert.i.i.i73.i.i, align 8, !alias.scope !6111, !noalias !6099
+  %600 = add i64 %596, -1
+  store i64 %600, ptr %542, align 8, !alias.scope !6111, !noalias !6099
+  %601 = and i8 %598, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i.i": ; preds = %595, %587
@@ -54690,12 +54690,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hd4e7e9ae634d6708E.exit.i.i: ;
 729:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i122.i.i", %._crit_edge.i.i.i110.i.i
   %730 = phi i64 [ %719, %._crit_edge.i.i.i110.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i123.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i122.i.i" ]
   %731 = phi i64 [ %.pre.i.i.i111.i.i, %._crit_edge.i.i.i110.i.i ], [ %.sroa.02.0.copyload.i.i.i124.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i122.i.i" ]
-  %732 = lshr i64 %731, 1
-  store i64 %732, ptr %.phi.trans.insert.i.i.i105.i.i, align 8, !alias.scope !6152, !noalias !6140
-  %733 = add i64 %730, -1
-  store i64 %733, ptr %674, align 8, !alias.scope !6152, !noalias !6140
-  %734 = trunc i64 %731 to i8
-  %735 = and i8 %734, 1
+  %732 = trunc i64 %731 to i8
+  %733 = lshr i64 %731, 1
+  store i64 %733, ptr %.phi.trans.insert.i.i.i105.i.i, align 8, !alias.scope !6152, !noalias !6140
+  %734 = add i64 %730, -1
+  store i64 %734, ptr %674, align 8, !alias.scope !6152, !noalias !6140
+  %735 = and i8 %732, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i112.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i112.i.i": ; preds = %729, %721
@@ -55090,12 +55090,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17he449c95fafb02a53E.exit.i.i: ;
 898:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i.i", %._crit_edge.i.i.i145.i.i
   %899 = phi i64 [ %888, %._crit_edge.i.i.i145.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i158.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i.i" ]
   %900 = phi i64 [ %.pre.i.i.i146.i.i, %._crit_edge.i.i.i145.i.i ], [ %.sroa.02.0.copyload.i.i.i159.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i.i" ]
-  %901 = lshr i64 %900, 1
-  store i64 %901, ptr %.phi.trans.insert.i.i.i140.i.i, align 8, !alias.scope !6214, !noalias !6202
-  %902 = add i64 %899, -1
-  store i64 %902, ptr %843, align 8, !alias.scope !6214, !noalias !6202
-  %903 = trunc i64 %900 to i8
-  %904 = and i8 %903, 1
+  %901 = trunc i64 %900 to i8
+  %902 = lshr i64 %900, 1
+  store i64 %902, ptr %.phi.trans.insert.i.i.i140.i.i, align 8, !alias.scope !6214, !noalias !6202
+  %903 = add i64 %899, -1
+  store i64 %903, ptr %843, align 8, !alias.scope !6214, !noalias !6202
+  %904 = and i8 %901, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i147.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i147.i.i": ; preds = %898, %890
@@ -55379,12 +55379,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h71d9b868cc2e3bb1E.exit.i.i: ;
 1034:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i191.i.i", %._crit_edge.i.i.i180.i.i
   %1035 = phi i64 [ %1024, %._crit_edge.i.i.i180.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i192.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i191.i.i" ]
   %1036 = phi i64 [ %.pre.i.i.i181.i.i, %._crit_edge.i.i.i180.i.i ], [ %.sroa.02.0.copyload.i.i.i193.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i191.i.i" ]
-  %1037 = lshr i64 %1036, 1
-  store i64 %1037, ptr %.phi.trans.insert.i.i.i175.i.i, align 8, !alias.scope !6255, !noalias !6243
-  %1038 = add i64 %1035, -1
-  store i64 %1038, ptr %979, align 8, !alias.scope !6255, !noalias !6243
-  %1039 = trunc i64 %1036 to i8
-  %1040 = and i8 %1039, 1
+  %1037 = trunc i64 %1036 to i8
+  %1038 = lshr i64 %1036, 1
+  store i64 %1038, ptr %.phi.trans.insert.i.i.i175.i.i, align 8, !alias.scope !6255, !noalias !6243
+  %1039 = add i64 %1035, -1
+  store i64 %1039, ptr %979, align 8, !alias.scope !6255, !noalias !6243
+  %1040 = and i8 %1037, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i182.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i182.i.i": ; preds = %1034, %1026
@@ -56062,12 +56062,12 @@ common.resume.i.i:                                ; preds = %1164, %1152, %1140,
 189:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i", %._crit_edge.i.i.i.i.i
   %190 = phi i64 [ %179, %._crit_edge.i.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ]
   %191 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i.i.i" ]
-  %192 = lshr i64 %191, 1
-  store i64 %192, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !6334, !noalias !6322
-  %193 = add i64 %190, -1
-  store i64 %193, ptr %135, align 8, !alias.scope !6334, !noalias !6322
-  %194 = trunc i64 %191 to i8
-  %195 = and i8 %194, 1
+  %192 = trunc i64 %191 to i8
+  %193 = lshr i64 %191, 1
+  store i64 %193, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !6334, !noalias !6322
+  %194 = add i64 %190, -1
+  store i64 %194, ptr %135, align 8, !alias.scope !6334, !noalias !6322
+  %195 = and i8 %192, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit.i.i.i": ; preds = %189, %181
@@ -56344,12 +56344,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hd4c8654a87e99db0E.exit.i.i: ;
 325:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i32.i.i", %._crit_edge.i.i.i27.i.i
   %326 = phi i64 [ %315, %._crit_edge.i.i.i27.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i33.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i32.i.i" ]
   %327 = phi i64 [ %.pre.i.i.i28.i.i, %._crit_edge.i.i.i27.i.i ], [ %.sroa.02.0.copyload.i.i.i34.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i32.i.i" ]
-  %328 = lshr i64 %327, 1
-  store i64 %328, ptr %.phi.trans.insert.i.i.i22.i.i, align 8, !alias.scope !6375, !noalias !6363
-  %329 = add i64 %326, -1
-  store i64 %329, ptr %269, align 8, !alias.scope !6375, !noalias !6363
-  %330 = trunc i64 %327 to i8
-  %331 = and i8 %330, 1
+  %328 = trunc i64 %327 to i8
+  %329 = lshr i64 %327, 1
+  store i64 %329, ptr %.phi.trans.insert.i.i.i22.i.i, align 8, !alias.scope !6375, !noalias !6363
+  %330 = add i64 %326, -1
+  store i64 %330, ptr %269, align 8, !alias.scope !6375, !noalias !6363
+  %331 = and i8 %328, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i": ; preds = %325, %317
@@ -56674,12 +56674,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h416de8da30088d2eE.exit.i.i: ;
 474:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i61.i.i", %._crit_edge.i.i.i52.i.i
   %475 = phi i64 [ %464, %._crit_edge.i.i.i52.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i62.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i61.i.i" ]
   %476 = phi i64 [ %.pre.i.i.i53.i.i, %._crit_edge.i.i.i52.i.i ], [ %.sroa.02.0.copyload.i.i.i63.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i61.i.i" ]
-  %477 = lshr i64 %476, 1
-  store i64 %477, ptr %.phi.trans.insert.i.i.i49.i.i, align 8, !alias.scope !6423, !noalias !6411
-  %478 = add i64 %475, -1
-  store i64 %478, ptr %418, align 8, !alias.scope !6423, !noalias !6411
-  %479 = trunc i64 %476 to i8
-  %480 = and i8 %479, 1
+  %477 = trunc i64 %476 to i8
+  %478 = lshr i64 %476, 1
+  store i64 %478, ptr %.phi.trans.insert.i.i.i49.i.i, align 8, !alias.scope !6423, !noalias !6411
+  %479 = add i64 %475, -1
+  store i64 %479, ptr %418, align 8, !alias.scope !6423, !noalias !6411
+  %480 = and i8 %477, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i54.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i54.i.i": ; preds = %474, %466
@@ -56954,12 +56954,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h7a5f90e569053320E.exit.i.i: ;
 605:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i86.i.i", %._crit_edge.i.i.i78.i.i
   %606 = phi i64 [ %595, %._crit_edge.i.i.i78.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i87.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i86.i.i" ]
   %607 = phi i64 [ %.pre.i.i.i79.i.i, %._crit_edge.i.i.i78.i.i ], [ %.sroa.02.0.copyload.i.i.i88.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i86.i.i" ]
-  %608 = lshr i64 %607, 1
-  store i64 %608, ptr %.phi.trans.insert.i.i.i73.i.i, align 8, !alias.scope !6464, !noalias !6452
-  %609 = add i64 %606, -1
-  store i64 %609, ptr %551, align 8, !alias.scope !6464, !noalias !6452
-  %610 = trunc i64 %607 to i8
-  %611 = and i8 %610, 1
+  %608 = trunc i64 %607 to i8
+  %609 = lshr i64 %607, 1
+  store i64 %609, ptr %.phi.trans.insert.i.i.i73.i.i, align 8, !alias.scope !6464, !noalias !6452
+  %610 = add i64 %606, -1
+  store i64 %610, ptr %551, align 8, !alias.scope !6464, !noalias !6452
+  %611 = and i8 %608, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i.i"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit.i.i.i": ; preds = %605, %597
@@ -57236,12 +57236,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17hd928935d61ce4661E.exit.i.i: ;
 741:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i122.i.i", %._crit_edge.i.i.i110.i.i
   %742 = phi i64 [ %731, %._crit_edge.i.i.i110.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i123.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i122.i.i" ]
   %743 = phi i64 [ %.pre.i.i.i111.i.i, %._crit_edge.i.i.i110.i.i ], [ %.sroa.02.0.copyload.i.i.i124.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i122.i.i" ]
-  %744 = lshr i64 %743, 1
-  store i64 %744, ptr %.phi.trans.insert.i.i.i105.i.i, align 8, !alias.scope !6505, !noalias !6493
-  %745 = add i64 %742, -1
-  store i64 %745, ptr %685, align 8, !alias.scope !6505, !noalias !6493
-  %746 = trunc i64 %743 to i8
-  %747 = and i8 %746, 1
+  %744 = trunc i64 %743 to i8
+  %745 = lshr i64 %743, 1
+  store i64 %745, ptr %.phi.trans.insert.i.i.i105.i.i, align 8, !alias.scope !6505, !noalias !6493
+  %746 = add i64 %742, -1
+  store i64 %746, ptr %685, align 8, !alias.scope !6505, !noalias !6493
+  %747 = and i8 %744, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i112.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i112.i.i": ; preds = %741, %733
@@ -57640,12 +57640,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h7de4b5faa1657860E.exit.i.i: ;
 912:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i.i", %._crit_edge.i.i.i145.i.i
   %913 = phi i64 [ %902, %._crit_edge.i.i.i145.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i158.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i.i" ]
   %914 = phi i64 [ %.pre.i.i.i146.i.i, %._crit_edge.i.i.i145.i.i ], [ %.sroa.02.0.copyload.i.i.i159.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i157.i.i" ]
-  %915 = lshr i64 %914, 1
-  store i64 %915, ptr %.phi.trans.insert.i.i.i140.i.i, align 8, !alias.scope !6567, !noalias !6555
-  %916 = add i64 %913, -1
-  store i64 %916, ptr %856, align 8, !alias.scope !6567, !noalias !6555
-  %917 = trunc i64 %914 to i8
-  %918 = and i8 %917, 1
+  %915 = trunc i64 %914 to i8
+  %916 = lshr i64 %914, 1
+  store i64 %916, ptr %.phi.trans.insert.i.i.i140.i.i, align 8, !alias.scope !6567, !noalias !6555
+  %917 = add i64 %913, -1
+  store i64 %917, ptr %856, align 8, !alias.scope !6567, !noalias !6555
+  %918 = and i8 %915, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i147.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i147.i.i": ; preds = %912, %904
@@ -57933,12 +57933,12 @@ _ZN11polars_expr9hash_keys20for_each_hash_single17h0b74f46beec8cf1fE.exit.i.i: ;
 1050:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i191.i.i", %._crit_edge.i.i.i180.i.i
   %1051 = phi i64 [ %1040, %._crit_edge.i.i.i180.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i192.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i191.i.i" ]
   %1052 = phi i64 [ %.pre.i.i.i181.i.i, %._crit_edge.i.i.i180.i.i ], [ %.sroa.02.0.copyload.i.i.i193.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i.i191.i.i" ]
-  %1053 = lshr i64 %1052, 1
-  store i64 %1053, ptr %.phi.trans.insert.i.i.i175.i.i, align 8, !alias.scope !6608, !noalias !6596
-  %1054 = add i64 %1051, -1
-  store i64 %1054, ptr %994, align 8, !alias.scope !6608, !noalias !6596
-  %1055 = trunc i64 %1052 to i8
-  %1056 = and i8 %1055, 1
+  %1053 = trunc i64 %1052 to i8
+  %1054 = lshr i64 %1052, 1
+  store i64 %1054, ptr %.phi.trans.insert.i.i.i175.i.i, align 8, !alias.scope !6608, !noalias !6596
+  %1055 = add i64 %1051, -1
+  store i64 %1055, ptr %994, align 8, !alias.scope !6608, !noalias !6596
+  %1056 = and i8 %1053, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i182.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i182.i.i": ; preds = %1050, %1042
@@ -60185,12 +60185,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 91:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %92 = phi i64 [ %81, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %93 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %94 = lshr i64 %93, 1
-  store i64 %94, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !6950
-  %95 = add i64 %92, -1
-  store i64 %95, ptr %25, align 8, !alias.scope !6950
-  %96 = trunc i64 %93 to i8
-  %97 = and i8 %96, 1
+  %94 = trunc i64 %93 to i8
+  %95 = lshr i64 %93, 1
+  store i64 %95, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !6950
+  %96 = add i64 %92, -1
+  store i64 %96, ptr %25, align 8, !alias.scope !6950
+  %97 = and i8 %94, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %91, %83
@@ -60502,12 +60502,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h079cf83ec
 118:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %119 = phi i64 [ %108, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %120 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %121 = lshr i64 %120, 1
-  store i64 %121, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !6977
-  %122 = add i64 %119, -1
-  store i64 %122, ptr %37, align 8, !alias.scope !6977
-  %123 = trunc i64 %120 to i8
-  %124 = and i8 %123, 1
+  %121 = trunc i64 %120 to i8
+  %122 = lshr i64 %120, 1
+  store i64 %122, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !6977
+  %123 = add i64 %119, -1
+  store i64 %123, ptr %37, align 8, !alias.scope !6977
+  %124 = and i8 %121, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit": ; preds = %110, %118
@@ -60815,12 +60815,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h0f8d5bfa0
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !6999
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !6999
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !6999
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !6999
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -61137,12 +61137,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h1601cb76b
 118:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %119 = phi i64 [ %108, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %120 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %121 = lshr i64 %120, 1
-  store i64 %121, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7021
-  %122 = add i64 %119, -1
-  store i64 %122, ptr %37, align 8, !alias.scope !7021
-  %123 = trunc i64 %120 to i8
-  %124 = and i8 %123, 1
+  %121 = trunc i64 %120 to i8
+  %122 = lshr i64 %120, 1
+  store i64 %122, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7021
+  %123 = add i64 %119, -1
+  store i64 %123, ptr %37, align 8, !alias.scope !7021
+  %124 = and i8 %121, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit": ; preds = %110, %118
@@ -61481,12 +61481,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h1d0ccb709
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7042
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7042
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7042
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7042
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -61817,12 +61817,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h1f81e0d64
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7063
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7063
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7063
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7063
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -62073,12 +62073,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 84:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %85 = phi i64 [ %74, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %86 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %87 = lshr i64 %86, 1
-  store i64 %87, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7080
-  %88 = add i64 %85, -1
-  store i64 %88, ptr %25, align 8, !alias.scope !7080
-  %89 = trunc i64 %86 to i8
-  %90 = and i8 %89, 1
+  %87 = trunc i64 %86 to i8
+  %88 = lshr i64 %86, 1
+  store i64 %88, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7080
+  %89 = add i64 %85, -1
+  store i64 %89, ptr %25, align 8, !alias.scope !7080
+  %90 = and i8 %87, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %84, %76
@@ -62330,12 +62330,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 92:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %93 = phi i64 [ %82, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %94 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %95 = lshr i64 %94, 1
-  store i64 %95, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7104, !noalias !7100
-  %96 = add i64 %93, -1
-  store i64 %96, ptr %29, align 8, !alias.scope !7104, !noalias !7100
-  %97 = trunc i64 %94 to i8
-  %98 = and i8 %97, 1
+  %95 = trunc i64 %94 to i8
+  %96 = lshr i64 %94, 1
+  store i64 %96, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7104, !noalias !7100
+  %97 = add i64 %93, -1
+  store i64 %97, ptr %29, align 8, !alias.scope !7104, !noalias !7100
+  %98 = and i8 %95, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %92, %84
@@ -62551,12 +62551,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 55:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %56 = phi i64 [ %45, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %57 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %58 = lshr i64 %57, 1
-  store i64 %58, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7122
-  %59 = add i64 %56, -1
-  store i64 %59, ptr %19, align 8, !alias.scope !7122
-  %60 = trunc i64 %57 to i8
-  %61 = and i8 %60, 1
+  %58 = trunc i64 %57 to i8
+  %59 = lshr i64 %57, 1
+  store i64 %59, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7122
+  %60 = add i64 %56, -1
+  store i64 %60, ptr %19, align 8, !alias.scope !7122
+  %61 = and i8 %58, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %55, %47
@@ -62847,12 +62847,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h32b1a9bf0
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7135
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7135
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7135
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7135
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -63225,12 +63225,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h515db0dee
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7155
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7155
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7155
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7155
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -63572,12 +63572,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h63acaf8bf
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7176
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7176
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7176
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7176
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -63812,12 +63812,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 61:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %62 = phi i64 [ %51, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %63 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %64 = lshr i64 %63, 1
-  store i64 %64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7196, !noalias !7192
-  %65 = add i64 %62, -1
-  store i64 %65, ptr %25, align 8, !alias.scope !7196, !noalias !7192
-  %66 = trunc i64 %63 to i8
-  %67 = and i8 %66, 1
+  %64 = trunc i64 %63 to i8
+  %65 = lshr i64 %63, 1
+  store i64 %65, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7196, !noalias !7192
+  %66 = add i64 %62, -1
+  store i64 %66, ptr %25, align 8, !alias.scope !7196, !noalias !7192
+  %67 = and i8 %64, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %61, %53
@@ -64029,12 +64029,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 90:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %91 = phi i64 [ %80, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %92 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %93 = lshr i64 %92, 1
-  store i64 %93, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7210, !noalias !7206
-  %94 = add i64 %91, -1
-  store i64 %94, ptr %31, align 8, !alias.scope !7210, !noalias !7206
-  %95 = trunc i64 %92 to i8
-  %96 = and i8 %95, 1
+  %93 = trunc i64 %92 to i8
+  %94 = lshr i64 %92, 1
+  store i64 %94, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7210, !noalias !7206
+  %95 = add i64 %91, -1
+  store i64 %95, ptr %31, align 8, !alias.scope !7210, !noalias !7206
+  %96 = and i8 %93, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %90, %82
@@ -64263,12 +64263,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 86:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %87 = phi i64 [ %76, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %88 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %89 = lshr i64 %88, 1
-  store i64 %89, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7226
-  %90 = add i64 %87, -1
-  store i64 %90, ptr %23, align 8, !alias.scope !7226
-  %91 = trunc i64 %88 to i8
-  %92 = and i8 %91, 1
+  %89 = trunc i64 %88 to i8
+  %90 = lshr i64 %88, 1
+  store i64 %90, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7226
+  %91 = add i64 %87, -1
+  store i64 %91, ptr %23, align 8, !alias.scope !7226
+  %92 = and i8 %89, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %86, %78
@@ -64540,12 +64540,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 91:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %92 = phi i64 [ %81, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %93 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %94 = lshr i64 %93, 1
-  store i64 %94, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7253
-  %95 = add i64 %92, -1
-  store i64 %95, ptr %25, align 8, !alias.scope !7253
-  %96 = trunc i64 %93 to i8
-  %97 = and i8 %96, 1
+  %94 = trunc i64 %93 to i8
+  %95 = lshr i64 %93, 1
+  store i64 %95, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7253
+  %96 = add i64 %92, -1
+  store i64 %96, ptr %25, align 8, !alias.scope !7253
+  %97 = and i8 %94, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %91, %83
@@ -64879,12 +64879,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h899911e2c
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7279
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7279
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7279
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7279
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -65137,12 +65137,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 55:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %56 = phi i64 [ %45, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %57 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %58 = lshr i64 %57, 1
-  store i64 %58, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7292
-  %59 = add i64 %56, -1
-  store i64 %59, ptr %19, align 8, !alias.scope !7292
-  %60 = trunc i64 %57 to i8
-  %61 = and i8 %60, 1
+  %58 = trunc i64 %57 to i8
+  %59 = lshr i64 %57, 1
+  store i64 %59, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7292
+  %60 = add i64 %56, -1
+  store i64 %60, ptr %19, align 8, !alias.scope !7292
+  %61 = and i8 %58, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %55, %47
@@ -65402,12 +65402,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h95605e887
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7306
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7306
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7306
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7306
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -65637,12 +65637,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 55:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %56 = phi i64 [ %45, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %57 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %58 = lshr i64 %57, 1
-  store i64 %58, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7320
-  %59 = add i64 %56, -1
-  store i64 %59, ptr %19, align 8, !alias.scope !7320
-  %60 = trunc i64 %57 to i8
-  %61 = and i8 %60, 1
+  %58 = trunc i64 %57 to i8
+  %59 = lshr i64 %57, 1
+  store i64 %59, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7320
+  %60 = add i64 %56, -1
+  store i64 %60, ptr %19, align 8, !alias.scope !7320
+  %61 = and i8 %58, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %55, %47
@@ -65891,12 +65891,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h99311c127
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7334
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7334
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7334
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7334
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -66220,12 +66220,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17h99e4e04a5
 126:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %127 = phi i64 [ %116, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %128 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %129 = lshr i64 %128, 1
-  store i64 %129, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7362, !noalias !7358
-  %130 = add i64 %127, -1
-  store i64 %130, ptr %43, align 8, !alias.scope !7362, !noalias !7358
-  %131 = trunc i64 %128 to i8
-  %132 = and i8 %131, 1
+  %129 = trunc i64 %128 to i8
+  %130 = lshr i64 %128, 1
+  store i64 %130, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7362, !noalias !7358
+  %131 = add i64 %127, -1
+  store i64 %131, ptr %43, align 8, !alias.scope !7362, !noalias !7358
+  %132 = and i8 %129, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %126, %118
@@ -66566,12 +66566,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17ha9f8ea2b2
 141:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %142 = phi i64 [ %131, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %143 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %144 = lshr i64 %143, 1
-  store i64 %144, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7382
-  %145 = add i64 %142, -1
-  store i64 %145, ptr %41, align 8, !alias.scope !7382
-  %146 = trunc i64 %143 to i8
-  %147 = and i8 %146, 1
+  %144 = trunc i64 %143 to i8
+  %145 = lshr i64 %143, 1
+  store i64 %145, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7382
+  %146 = add i64 %142, -1
+  store i64 %146, ptr %41, align 8, !alias.scope !7382
+  %147 = and i8 %144, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77fff26304bae7d7E.exit": ; preds = %133, %141
@@ -66845,12 +66845,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 84:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %85 = phi i64 [ %74, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %86 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %87 = lshr i64 %86, 1
-  store i64 %87, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7398
-  %88 = add i64 %85, -1
-  store i64 %88, ptr %25, align 8, !alias.scope !7398
-  %89 = trunc i64 %86 to i8
-  %90 = and i8 %89, 1
+  %87 = trunc i64 %86 to i8
+  %88 = lshr i64 %86, 1
+  store i64 %88, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7398
+  %89 = add i64 %85, -1
+  store i64 %89, ptr %25, align 8, !alias.scope !7398
+  %90 = and i8 %87, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %84, %76
@@ -67075,12 +67075,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 86:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %87 = phi i64 [ %76, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %88 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %89 = lshr i64 %88, 1
-  store i64 %89, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7415
-  %90 = add i64 %87, -1
-  store i64 %90, ptr %23, align 8, !alias.scope !7415
-  %91 = trunc i64 %88 to i8
-  %92 = and i8 %91, 1
+  %89 = trunc i64 %88 to i8
+  %90 = lshr i64 %88, 1
+  store i64 %90, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7415
+  %91 = add i64 %87, -1
+  store i64 %91, ptr %23, align 8, !alias.scope !7415
+  %92 = and i8 %89, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %86, %78
@@ -67368,12 +67368,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 97:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %98 = phi i64 [ %87, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %99 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %100 = lshr i64 %99, 1
-  store i64 %100, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7448, !noalias !7444
-  %101 = add i64 %98, -1
-  store i64 %101, ptr %31, align 8, !alias.scope !7448, !noalias !7444
-  %102 = trunc i64 %99 to i8
-  %103 = and i8 %102, 1
+  %100 = trunc i64 %99 to i8
+  %101 = lshr i64 %99, 1
+  store i64 %101, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7448, !noalias !7444
+  %102 = add i64 %98, -1
+  store i64 %102, ptr %31, align 8, !alias.scope !7448, !noalias !7444
+  %103 = and i8 %100, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %97, %89
@@ -67711,12 +67711,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hbeeacb7e8
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7473
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7473
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7473
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7473
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -67990,12 +67990,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 84:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %85 = phi i64 [ %74, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %86 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %87 = lshr i64 %86, 1
-  store i64 %87, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7489
-  %88 = add i64 %85, -1
-  store i64 %88, ptr %25, align 8, !alias.scope !7489
-  %89 = trunc i64 %86 to i8
-  %90 = and i8 %89, 1
+  %87 = trunc i64 %86 to i8
+  %88 = lshr i64 %86, 1
+  store i64 %88, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7489
+  %89 = add i64 %85, -1
+  store i64 %89, ptr %25, align 8, !alias.scope !7489
+  %90 = and i8 %87, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %84, %76
@@ -68308,12 +68308,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hc9231caf4
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7505
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7505
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7505
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7505
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -68684,12 +68684,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hca4d988f0
 141:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %142 = phi i64 [ %131, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %143 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %144 = lshr i64 %143, 1
-  store i64 %144, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7525
-  %145 = add i64 %142, -1
-  store i64 %145, ptr %41, align 8, !alias.scope !7525
-  %146 = trunc i64 %143 to i8
-  %147 = and i8 %146, 1
+  %144 = trunc i64 %143 to i8
+  %145 = lshr i64 %143, 1
+  store i64 %145, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7525
+  %146 = add i64 %142, -1
+  store i64 %146, ptr %41, align 8, !alias.scope !7525
+  %147 = and i8 %144, 1
   br label %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit"
 
 "_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1c7ff41e82a5a379E.exit": ; preds = %133, %141
@@ -69051,12 +69051,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hdc1963b34
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7545
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7545
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7545
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7545
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -69434,12 +69434,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hddb496322
 149:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %150 = phi i64 [ %139, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %151 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %152 = lshr i64 %151, 1
-  store i64 %152, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7571, !noalias !7567
-  %153 = add i64 %150, -1
-  store i64 %153, ptr %47, align 8, !alias.scope !7571, !noalias !7567
-  %154 = trunc i64 %151 to i8
-  %155 = and i8 %154, 1
+  %152 = trunc i64 %151 to i8
+  %153 = lshr i64 %151, 1
+  store i64 %153, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7571, !noalias !7567
+  %154 = add i64 %150, -1
+  store i64 %154, ptr %47, align 8, !alias.scope !7571, !noalias !7567
+  %155 = and i8 %152, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %149, %141
@@ -69774,12 +69774,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17he7c797b54
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7591
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7591
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7591
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7591
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -70098,12 +70098,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17he973923d1
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7613
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7613
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7613
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7613
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -70422,12 +70422,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hef6f84655
 120:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %121 = phi i64 [ %110, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %122 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %123 = lshr i64 %122, 1
-  store i64 %123, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7635
-  %124 = add i64 %121, -1
-  store i64 %124, ptr %37, align 8, !alias.scope !7635
-  %125 = trunc i64 %122 to i8
-  %126 = and i8 %125, 1
+  %123 = trunc i64 %122 to i8
+  %124 = lshr i64 %122, 1
+  store i64 %124, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7635
+  %125 = add i64 %121, -1
+  store i64 %125, ptr %37, align 8, !alias.scope !7635
+  %126 = and i8 %123, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %120, %112
@@ -70777,12 +70777,12 @@ define hidden void @_ZN11polars_expr9hash_keys20for_each_hash_single17hf4bdda149
 143:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %144 = phi i64 [ %133, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %145 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %146 = lshr i64 %145, 1
-  store i64 %146, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7656
-  %147 = add i64 %144, -1
-  store i64 %147, ptr %41, align 8, !alias.scope !7656
-  %148 = trunc i64 %145 to i8
-  %149 = and i8 %148, 1
+  %146 = trunc i64 %145 to i8
+  %147 = lshr i64 %145, 1
+  store i64 %147, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7656
+  %148 = add i64 %144, -1
+  store i64 %148, ptr %41, align 8, !alias.scope !7656
+  %149 = and i8 %146, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %143, %135
@@ -71078,12 +71078,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 86:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %87 = phi i64 [ %76, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %88 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %89 = lshr i64 %88, 1
-  store i64 %89, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7677
-  %90 = add i64 %87, -1
-  store i64 %90, ptr %23, align 8, !alias.scope !7677
-  %91 = trunc i64 %88 to i8
-  %92 = and i8 %91, 1
+  %89 = trunc i64 %88 to i8
+  %90 = lshr i64 %88, 1
+  store i64 %90, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7677
+  %91 = add i64 %87, -1
+  store i64 %91, ptr %23, align 8, !alias.scope !7677
+  %92 = and i8 %89, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %86, %78
@@ -71344,12 +71344,12 @@ define internal fastcc void @_ZN11polars_expr9hash_keys20for_each_hash_single17h
 91:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i", %._crit_edge.i.i
   %92 = phi i64 [ %81, %._crit_edge.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
   %93 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25e5e7eb88fe0fbeE.exit.i.i" ]
-  %94 = lshr i64 %93, 1
-  store i64 %94, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7704
-  %95 = add i64 %92, -1
-  store i64 %95, ptr %25, align 8, !alias.scope !7704
-  %96 = trunc i64 %93 to i8
-  %97 = and i8 %96, 1
+  %94 = trunc i64 %93 to i8
+  %95 = lshr i64 %93, 1
+  store i64 %95, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !7704
+  %96 = add i64 %92, -1
+  store i64 %96, ptr %25, align 8, !alias.scope !7704
+  %97 = and i8 %94, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i": ; preds = %91, %83

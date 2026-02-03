@@ -1229,7 +1229,7 @@ is_valid_args.exit:                               ; preds = %238
   %264 = zext i1 %263 to i8
   store i8 %264, ptr @show_file_name_g, align 1, !tbaa !31
   %265 = or i8 %.0179348, %.0181363
-  %266 = icmp ne i8 %265, 0
+  %266 = trunc nuw i8 %265 to i1
   %267 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %268 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %269 = getelementptr inbounds nuw i8, ptr %9, i64 8

@@ -685,9 +685,10 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
 
 7:                                                ; preds = %147
   %8 = sext i8 %38 to i64
-  %9 = and i64 %.fr, 283678563909633
-  %cond.not = icmp eq i64 %9, 0
-  %spec.select = select i1 %cond.not, i32 %spec.select173, i32 %149
+  %9 = lshr i64 283678563909633, %.0140
+  %.fr = freeze i64 %9
+  %cond = trunc i64 %.fr to i1
+  %spec.select = select i1 %cond, i32 %149, i32 %spec.select173
   %10 = shl nsw i32 %39, 1
   %11 = sext i32 %10 to i64
   br label %.thread
@@ -743,8 +744,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = shl nuw i64 1, %.0140
-  %.fr = freeze i64 %40
-  %41 = and i64 %.fr, 274836122274530
+  %41 = and i64 %40, 274836122274530
   %.not162 = icmp eq i64 %41, 0
   br i1 %.not162, label %42, label %147
 
@@ -1021,7 +1021,7 @@ define linkonce_odr hidden void @_Z20find_syllables_khmerP11hb_buffer_t(ptr noun
   %.3148 = phi i32 [ %.2147, %36 ], [ %.2147, %42 ], [ %.2147, %45 ], [ %spec.store.select, %._crit_edge221 ], [ %spec.store.select2, %._crit_edge217 ], [ %spec.store.select3, %._crit_edge213 ], [ %spec.store.select4, %._crit_edge209 ], [ %spec.store.select5, %._crit_edge205 ], [ %spec.store.select6, %._crit_edge201 ], [ %.2147, %117 ], [ %spec.store.select7, %._crit_edge197 ], [ %spec.store.select8, %._crit_edge ], [ %.2147, %143 ], [ %.2147, %145 ]
   %.3144 = phi i32 [ %.2143, %36 ], [ %.2143, %42 ], [ %46, %45 ], [ %48, %._crit_edge221 ], [ %.2, %._crit_edge217 ], [ %.2, %._crit_edge213 ], [ %.2, %._crit_edge209 ], [ %.2143, %._crit_edge205 ], [ %.2143, %._crit_edge201 ], [ %.2143, %117 ], [ %.2143, %._crit_edge197 ], [ %.2143, %._crit_edge ], [ %144, %143 ], [ %146, %145 ]
   %.3 = phi i32 [ %.2, %36 ], [ %.2, %42 ], [ %.2, %45 ], [ %.2, %._crit_edge221 ], [ %59, %._crit_edge217 ], [ %69, %._crit_edge213 ], [ %83, %._crit_edge209 ], [ %94, %._crit_edge205 ], [ %104, %._crit_edge201 ], [ %.2, %117 ], [ %119, %._crit_edge197 ], [ %133, %._crit_edge ], [ %.2, %143 ], [ %.2, %145 ]
-  %148 = and i64 %.fr, 283678563909633
+  %148 = and i64 %40, 283678563909633
   %cond1.not = icmp eq i64 %148, 0
   %spec.select173 = select i1 %cond1.not, i32 %.3139, i32 0
   %149 = add i32 %.3, 1

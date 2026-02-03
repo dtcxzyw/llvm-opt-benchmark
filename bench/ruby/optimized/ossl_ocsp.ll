@@ -761,9 +761,9 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   store ptr %8, ptr %13, align 8, !tbaa !31
   %14 = icmp slt i32 %0, 2
   %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %14, label %35, label %.preheader19
+  br i1 %14, label %35, label %.preheader18
 
-.preheader19:                                     ; preds = %3, %19
+.preheader18:                                     ; preds = %3, %19
   %exitcond.not = phi i1 [ true, %19 ], [ false, %3 ]
   %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %19 ], [ %9, %3 ]
   %indvars.iv = phi i64 [ 1, %19 ], [ 0, %3 ]
@@ -771,22 +771,22 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   %.not109.i = icmp eq ptr %15, null
   br i1 %.not109.i, label %19, label %16
 
-16:                                               ; preds = %.preheader19
+16:                                               ; preds = %.preheader18
   %17 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !6
   store i64 %18, ptr %15, align 8, !tbaa !6
   br label %19
 
-19:                                               ; preds = %16, %.preheader19
-  br i1 %exitcond.not, label %.preheader, label %.preheader19, !llvm.loop !33
+19:                                               ; preds = %16, %.preheader18
+  br i1 %exitcond.not, label %.preheader, label %.preheader18, !llvm.loop !33
 
 .preheader:                                       ; preds = %19, %32
-  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %32 ], [ 2, %19 ]
-  %.185.i24 = phi i32 [ %.286.i, %32 ], [ 2, %19 ]
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv32
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %32 ], [ 2, %19 ]
+  %.185.i23 = phi i32 [ %.286.i, %32 ], [ 2, %19 ]
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv31
   %21 = load ptr, ptr %20, align 8, !tbaa !31
-  %22 = icmp slt i32 %.185.i24, %0
+  %22 = icmp slt i32 %.185.i23, %0
   %.not108.i = icmp eq ptr %21, null
   br i1 %22, label %23, label %30
 
@@ -794,14 +794,14 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   br i1 %.not108.i, label %28, label %24
 
 24:                                               ; preds = %23
-  %25 = sext i32 %.185.i24 to i64
+  %25 = sext i32 %.185.i23 to i64
   %26 = getelementptr inbounds i64, ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !6
   store i64 %27, ptr %21, align 8, !tbaa !6
   br label %28
 
 28:                                               ; preds = %24, %23
-  %29 = add nsw i32 %.185.i24, 1
+  %29 = add nsw i32 %.185.i23, 1
   br label %32
 
 30:                                               ; preds = %.preheader
@@ -812,9 +812,9 @@ define internal noundef i64 @ossl_ocspreq_sign(i32 noundef %0, ptr noundef reado
   br label %32
 
 32:                                               ; preds = %31, %30, %28
-  %.286.i = phi i32 [ %29, %28 ], [ %.185.i24, %31 ], [ %.185.i24, %30 ]
-  %exitcond35.not = icmp eq i64 %indvars.iv.next33, 5
-  br i1 %exitcond35.not, label %33, label %.preheader, !llvm.loop !34
+  %.286.i = phi i32 [ %29, %28 ], [ %.185.i23, %31 ], [ %.185.i23, %30 ]
+  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 5
+  br i1 %exitcond34.not, label %33, label %.preheader, !llvm.loop !34
 
 33:                                               ; preds = %32
   %34 = icmp eq i32 %.286.i, %0
@@ -844,9 +844,8 @@ rb_scan_args_set.exit:                            ; preds = %33
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %39
-  %47 = and i64 %44, 1
-  %.not.i17 = icmp eq i64 %47, 0
-  br i1 %.not.i17, label %50, label %48
+  %47 = trunc i64 %44 to i1
+  br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
   %49 = call i64 @rb_fix2int(i64 noundef %44) #5
@@ -857,8 +856,8 @@ rb_scan_args_set.exit:                            ; preds = %33
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %48, %50
-  %.0.i18 = phi i64 [ %49, %48 ], [ %51, %50 ]
-  %sext = shl i64 %.0.i18, 32
+  %.0.i17 = phi i64 [ %49, %48 ], [ %51, %50 ]
+  %sext = shl i64 %.0.i17, 32
   %52 = ashr exact i64 %sext, 32
   br label %53
 
@@ -915,20 +914,20 @@ define internal range(i64 0, 21) i64 @ossl_ocspreq_verify(i32 noundef %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 2
-  br i1 %6, label %13, label %.preheader12
+  br i1 %6, label %13, label %.preheader11
 
-.preheader12:                                     ; preds = %3, %.preheader12
-  %exitcond.not = phi i1 [ true, %.preheader12 ], [ false, %3 ]
-  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader12 ], [ %4, %3 ]
-  %indvars.iv = phi i64 [ 1, %.preheader12 ], [ 0, %3 ]
+.preheader11:                                     ; preds = %3, %.preheader11
+  %exitcond.not = phi i1 [ true, %.preheader11 ], [ false, %3 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader11 ], [ %4, %3 ]
+  %indvars.iv = phi i64 [ 1, %.preheader11 ], [ 0, %3 ]
   %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !6
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
-  br i1 %exitcond.not, label %.preheader, label %.preheader12, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader, label %.preheader11, !llvm.loop !33
 
-.preheader:                                       ; preds = %.preheader12
-  %.not28 = icmp eq i32 %0, 2
-  br i1 %.not28, label %rb_scan_args_set.exit, label %9
+.preheader:                                       ; preds = %.preheader11
+  %.not27 = icmp eq i32 %0, 2
+  br i1 %.not27, label %rb_scan_args_set.exit, label %9
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -958,9 +957,8 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %9
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %17
-  %22 = and i64 %.0, 1
-  %.not.i10 = icmp eq i64 %22, 0
-  br i1 %.not.i10, label %25, label %23
+  %22 = trunc i64 %.0 to i1
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
   %24 = tail call i64 @rb_fix2int(i64 noundef %.0) #5
@@ -971,8 +969,8 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %9
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %23, %25
-  %.0.i11 = phi i64 [ %24, %23 ], [ %26, %25 ]
-  %sext = shl i64 %.0.i11, 32
+  %.0.i10 = phi i64 [ %24, %23 ], [ %26, %25 ]
+  %sext = shl i64 %.0.i10, 32
   %27 = ashr exact i64 %sext, 32
   br label %28
 
@@ -1071,9 +1069,8 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ocspres_s_create(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = and i64 %1, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %7, label %5
+  %4 = trunc i64 %1 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = tail call i64 @rb_fix2int(i64 noundef %1) #5
@@ -1746,9 +1743,8 @@ define internal noundef i64 @ossl_ocspbres_add_status(i64 noundef returned %0, i
   unreachable
 
 17:                                               ; preds = %13
-  %18 = and i64 %2, 1
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %21, label %19
+  %18 = trunc i64 %2 to i1
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
   %20 = tail call i64 @rb_fix2int(i64 noundef %2) #5
@@ -1762,7 +1758,7 @@ rb_num2int_inline.exit:                           ; preds = %19, %21
   %.0.i = phi i64 [ %20, %19 ], [ %22, %21 ]
   %23 = trunc i64 %.0.i to i32
   %24 = icmp eq i64 %7, 4
-  br i1 %24, label %.loopexit87, label %25
+  br i1 %24, label %.loopexit85, label %25
 
 25:                                               ; preds = %rb_num2int_inline.exit
   %26 = tail call i64 @rb_check_array_type(i64 noundef %7) #5
@@ -1775,27 +1771,27 @@ rb_num2int_inline.exit:                           ; preds = %19, %21
   %.045 = phi i64 [ 0, %25 ], [ %55, %54 ]
   %31 = load i64, ptr %27, align 8, !tbaa !16
   %32 = and i64 %31, 8192
-  %.not.i68 = icmp eq i64 %32, 0
-  br i1 %.not.i68, label %rb_array_len.exit, label %rb_array_len.exit.thread
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %30
   %33 = load i64, ptr %28, align 8, !tbaa !59
   %34 = icmp slt i64 %.045, %33
-  br i1 %34, label %38, label %.loopexit87
+  br i1 %34, label %38, label %.loopexit85
 
 rb_array_len.exit.thread:                         ; preds = %30
   %35 = lshr i64 %31, 15
   %36 = and i64 %35, 127
   %37 = icmp samesign ult i64 %.045, %36
-  br i1 %37, label %rb_array_const_ptr.exit, label %.loopexit87
+  br i1 %37, label %rb_array_const_ptr.exit, label %.loopexit85
 
 38:                                               ; preds = %rb_array_len.exit
   %39 = load ptr, ptr %29, align 8, !tbaa !59
   br label %rb_array_const_ptr.exit
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %38
-  %.0.i71 = phi ptr [ %39, %38 ], [ %28, %rb_array_len.exit.thread ]
-  %40 = getelementptr inbounds nuw i64, ptr %.0.i71, i64 %.045
+  %.0.i70 = phi ptr [ %39, %38 ], [ %28, %rb_array_len.exit.thread ]
+  %40 = getelementptr inbounds nuw i64, ptr %.0.i70, i64 %.045
   %41 = load i64, ptr %40, align 8, !tbaa !6
   %42 = load i64, ptr @cX509Ext, align 8, !tbaa !6
   %43 = tail call i64 @rb_obj_is_kind_of(i64 noundef %41, i64 noundef %42) #5
@@ -1806,16 +1802,16 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
   %45 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
   %46 = load i64, ptr %27, align 8, !tbaa !16
   %47 = and i64 %46, 8192
-  %.not.i72 = icmp eq i64 %47, 0
-  br i1 %.not.i72, label %48, label %rb_array_const_ptr.exit74
+  %.not.i71 = icmp eq i64 %47, 0
+  br i1 %.not.i71, label %48, label %rb_array_const_ptr.exit73
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %29, align 8, !tbaa !59
-  br label %rb_array_const_ptr.exit74
+  br label %rb_array_const_ptr.exit73
 
-rb_array_const_ptr.exit74:                        ; preds = %44, %48
-  %.0.i73 = phi ptr [ %49, %48 ], [ %28, %44 ]
-  %50 = getelementptr inbounds nuw i64, ptr %.0.i73, i64 %.045
+rb_array_const_ptr.exit73:                        ; preds = %44, %48
+  %.0.i72 = phi ptr [ %49, %48 ], [ %28, %44 ]
+  %50 = getelementptr inbounds nuw i64, ptr %.0.i72, i64 %.045
   %51 = load i64, ptr %50, align 8, !tbaa !6
   %52 = tail call i64 @rb_obj_class(i64 noundef %51) #5
   %53 = load i64, ptr @cX509Ext, align 8, !tbaa !6
@@ -1826,39 +1822,38 @@ rb_array_const_ptr.exit74:                        ; preds = %44, %48
   %55 = add nuw nsw i64 %.045, 1
   br label %30, !llvm.loop !60
 
-.loopexit87:                                      ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %rb_num2int_inline.exit
+.loopexit85:                                      ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %rb_num2int_inline.exit
   %.049 = phi i64 [ 4, %rb_num2int_inline.exit ], [ %26, %rb_array_len.exit ], [ %26, %rb_array_len.exit.thread ]
   %56 = icmp eq i32 %23, 1
   br i1 %56, label %57, label %68
 
-57:                                               ; preds = %.loopexit87
-  %58 = and i64 %3, 1
-  %.not.i75 = icmp eq i64 %58, 0
-  br i1 %.not.i75, label %61, label %59
+57:                                               ; preds = %.loopexit85
+  %58 = trunc i64 %3 to i1
+  br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
   %60 = tail call i64 @rb_fix2int(i64 noundef %3) #5
-  br label %rb_num2int_inline.exit77
+  br label %rb_num2int_inline.exit75
 
 61:                                               ; preds = %57
   %62 = tail call i64 @rb_num2int(i64 noundef %3) #5
-  br label %rb_num2int_inline.exit77
+  br label %rb_num2int_inline.exit75
 
-rb_num2int_inline.exit77:                         ; preds = %59, %61
-  %.0.i76 = phi i64 [ %60, %59 ], [ %62, %61 ]
+rb_num2int_inline.exit75:                         ; preds = %59, %61
+  %.0.i74 = phi i64 [ %60, %59 ], [ %62, %61 ]
   %63 = call i64 @rb_protect(ptr noundef nonnull @add_status_convert_time, i64 noundef %4, ptr noundef nonnull %9) #5
   %64 = load i32, ptr %9, align 4, !tbaa !57
   %.not61 = icmp eq i32 %64, 0
   br i1 %.not61, label %65, label %.critedge
 
-65:                                               ; preds = %rb_num2int_inline.exit77
-  %66 = trunc i64 %.0.i76 to i32
+65:                                               ; preds = %rb_num2int_inline.exit75
+  %66 = trunc i64 %.0.i74 to i32
   %67 = inttoptr i64 %63 to ptr
   br label %68
 
-68:                                               ; preds = %65, %.loopexit87
-  %.050 = phi ptr [ %67, %65 ], [ null, %.loopexit87 ]
-  %.048 = phi i32 [ %66, %65 ], [ 0, %.loopexit87 ]
+68:                                               ; preds = %65, %.loopexit85
+  %.050 = phi ptr [ %67, %65 ], [ null, %.loopexit85 ]
+  %.048 = phi i32 [ %66, %65 ], [ 0, %.loopexit85 ]
   %69 = call i64 @rb_protect(ptr noundef nonnull @add_status_convert_time, i64 noundef %5, ptr noundef nonnull %9) #5
   %70 = load i32, ptr %9, align 4, !tbaa !57
   %.not62 = icmp eq i32 %70, 0
@@ -1895,31 +1890,31 @@ rb_num2int_inline.exit77:                         ; preds = %59, %61
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   br label %86
 
-86:                                               ; preds = %rb_array_const_ptr.exit83, %.preheader
-  %.1 = phi i64 [ %100, %rb_array_const_ptr.exit83 ], [ 0, %.preheader ]
+86:                                               ; preds = %rb_array_const_ptr.exit81, %.preheader
+  %.1 = phi i64 [ %100, %rb_array_const_ptr.exit81 ], [ 0, %.preheader ]
   %87 = load i64, ptr %83, align 8, !tbaa !16
   %88 = and i64 %87, 8192
-  %.not.i78 = icmp eq i64 %88, 0
-  br i1 %.not.i78, label %rb_array_len.exit80, label %rb_array_len.exit80.thread
+  %.not.i76 = icmp eq i64 %88, 0
+  br i1 %.not.i76, label %rb_array_len.exit78, label %rb_array_len.exit78.thread
 
-rb_array_len.exit80:                              ; preds = %86
+rb_array_len.exit78:                              ; preds = %86
   %89 = load i64, ptr %84, align 8, !tbaa !59
   %90 = icmp slt i64 %.1, %89
   br i1 %90, label %94, label %.critedge
 
-rb_array_len.exit80.thread:                       ; preds = %86
+rb_array_len.exit78.thread:                       ; preds = %86
   %91 = lshr i64 %87, 15
   %92 = and i64 %91, 127
   %93 = icmp samesign ult i64 %.1, %92
-  br i1 %93, label %rb_array_const_ptr.exit83, label %.critedge
+  br i1 %93, label %rb_array_const_ptr.exit81, label %.critedge
 
-94:                                               ; preds = %rb_array_len.exit80
+94:                                               ; preds = %rb_array_len.exit78
   %95 = load ptr, ptr %85, align 8, !tbaa !59
-  br label %rb_array_const_ptr.exit83
+  br label %rb_array_const_ptr.exit81
 
-rb_array_const_ptr.exit83:                        ; preds = %rb_array_len.exit80.thread, %94
-  %.0.i82 = phi ptr [ %95, %94 ], [ %84, %rb_array_len.exit80.thread ]
-  %96 = getelementptr inbounds nuw i64, ptr %.0.i82, i64 %.1
+rb_array_const_ptr.exit81:                        ; preds = %rb_array_len.exit78.thread, %94
+  %.0.i80 = phi ptr [ %95, %94 ], [ %84, %rb_array_len.exit78.thread ]
+  %96 = getelementptr inbounds nuw i64, ptr %.0.i80, i64 %.1
   %97 = load i64, ptr %96, align 8, !tbaa !6
   %98 = call ptr @GetX509ExtPtr(i64 noundef %97) #5
   %99 = call i32 @OCSP_SINGLERESP_add_ext(ptr noundef nonnull %80, ptr noundef %98, i32 noundef -1) #5
@@ -1927,7 +1922,7 @@ rb_array_const_ptr.exit83:                        ; preds = %rb_array_len.exit80
   %100 = add nuw nsw i64 %.1, 1
   br i1 %.not65, label %.loopexit, label %86, !llvm.loop !61
 
-.loopexit:                                        ; preds = %rb_array_const_ptr.exit83, %79
+.loopexit:                                        ; preds = %rb_array_const_ptr.exit81, %79
   call void @ASN1_TIME_free(ptr noundef %72) #5
   call void @ASN1_TIME_free(ptr noundef %.153) #5
   call void @ASN1_TIME_free(ptr noundef %.050) #5
@@ -1935,10 +1930,10 @@ rb_array_const_ptr.exit83:                        ; preds = %rb_array_len.exit80
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %101, ptr noundef null) #6
   unreachable
 
-.critedge:                                        ; preds = %rb_array_len.exit80.thread, %rb_array_len.exit80, %74, %81, %68, %rb_num2int_inline.exit77
-  %.054.ph = phi ptr [ null, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %72, %74 ], [ %72, %81 ], [ %72, %rb_array_len.exit80 ], [ %72, %rb_array_len.exit80.thread ]
-  %.052.ph = phi ptr [ null, %68 ], [ null, %rb_num2int_inline.exit77 ], [ null, %74 ], [ %.153, %81 ], [ %.153, %rb_array_len.exit80 ], [ %.153, %rb_array_len.exit80.thread ]
-  %.151.ph = phi ptr [ %.050, %68 ], [ null, %rb_num2int_inline.exit77 ], [ %.050, %74 ], [ %.050, %81 ], [ %.050, %rb_array_len.exit80 ], [ %.050, %rb_array_len.exit80.thread ]
+.critedge:                                        ; preds = %rb_array_len.exit78.thread, %rb_array_len.exit78, %74, %81, %68, %rb_num2int_inline.exit75
+  %.054.ph = phi ptr [ null, %68 ], [ null, %rb_num2int_inline.exit75 ], [ %72, %74 ], [ %72, %81 ], [ %72, %rb_array_len.exit78 ], [ %72, %rb_array_len.exit78.thread ]
+  %.052.ph = phi ptr [ null, %68 ], [ null, %rb_num2int_inline.exit75 ], [ null, %74 ], [ %.153, %81 ], [ %.153, %rb_array_len.exit78 ], [ %.153, %rb_array_len.exit78.thread ]
+  %.151.ph = phi ptr [ %.050, %68 ], [ null, %rb_num2int_inline.exit75 ], [ %.050, %74 ], [ %.050, %81 ], [ %.050, %rb_array_len.exit78 ], [ %.050, %rb_array_len.exit78.thread ]
   call void @ASN1_TIME_free(ptr noundef %.054.ph) #5
   call void @ASN1_TIME_free(ptr noundef %.052.ph) #5
   call void @ASN1_TIME_free(ptr noundef %.151.ph) #5
@@ -2208,9 +2203,9 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   store ptr %8, ptr %13, align 8, !tbaa !31
   %14 = icmp slt i32 %0, 2
   %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %14, label %35, label %.preheader19
+  br i1 %14, label %35, label %.preheader18
 
-.preheader19:                                     ; preds = %3, %19
+.preheader18:                                     ; preds = %3, %19
   %exitcond.not = phi i1 [ true, %19 ], [ false, %3 ]
   %indvars.iv.sroa.phi = phi ptr [ %indvars.iv.sroa.gep, %19 ], [ %9, %3 ]
   %indvars.iv = phi i64 [ 1, %19 ], [ 0, %3 ]
@@ -2218,22 +2213,22 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   %.not109.i = icmp eq ptr %15, null
   br i1 %.not109.i, label %19, label %16
 
-16:                                               ; preds = %.preheader19
+16:                                               ; preds = %.preheader18
   %17 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !6
   store i64 %18, ptr %15, align 8, !tbaa !6
   br label %19
 
-19:                                               ; preds = %16, %.preheader19
-  br i1 %exitcond.not, label %.preheader, label %.preheader19, !llvm.loop !33
+19:                                               ; preds = %16, %.preheader18
+  br i1 %exitcond.not, label %.preheader, label %.preheader18, !llvm.loop !33
 
 .preheader:                                       ; preds = %19, %32
-  %indvars.iv32 = phi i64 [ %indvars.iv.next33, %32 ], [ 2, %19 ]
-  %.185.i24 = phi i32 [ %.286.i, %32 ], [ 2, %19 ]
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv32
+  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %32 ], [ 2, %19 ]
+  %.185.i23 = phi i32 [ %.286.i, %32 ], [ 2, %19 ]
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
+  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv31
   %21 = load ptr, ptr %20, align 8, !tbaa !31
-  %22 = icmp slt i32 %.185.i24, %0
+  %22 = icmp slt i32 %.185.i23, %0
   %.not108.i = icmp eq ptr %21, null
   br i1 %22, label %23, label %30
 
@@ -2241,14 +2236,14 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   br i1 %.not108.i, label %28, label %24
 
 24:                                               ; preds = %23
-  %25 = sext i32 %.185.i24 to i64
+  %25 = sext i32 %.185.i23 to i64
   %26 = getelementptr inbounds i64, ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !6
   store i64 %27, ptr %21, align 8, !tbaa !6
   br label %28
 
 28:                                               ; preds = %24, %23
-  %29 = add nsw i32 %.185.i24, 1
+  %29 = add nsw i32 %.185.i23, 1
   br label %32
 
 30:                                               ; preds = %.preheader
@@ -2259,9 +2254,9 @@ define internal noundef i64 @ossl_ocspbres_sign(i32 noundef %0, ptr noundef read
   br label %32
 
 32:                                               ; preds = %31, %30, %28
-  %.286.i = phi i32 [ %29, %28 ], [ %.185.i24, %31 ], [ %.185.i24, %30 ]
-  %exitcond35.not = icmp eq i64 %indvars.iv.next33, 5
-  br i1 %exitcond35.not, label %33, label %.preheader, !llvm.loop !34
+  %.286.i = phi i32 [ %29, %28 ], [ %.185.i23, %31 ], [ %.185.i23, %30 ]
+  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 5
+  br i1 %exitcond34.not, label %33, label %.preheader, !llvm.loop !34
 
 33:                                               ; preds = %32
   %34 = icmp eq i32 %.286.i, %0
@@ -2291,9 +2286,8 @@ rb_scan_args_set.exit:                            ; preds = %33
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %39
-  %47 = and i64 %44, 1
-  %.not.i17 = icmp eq i64 %47, 0
-  br i1 %.not.i17, label %50, label %48
+  %47 = trunc i64 %44 to i1
+  br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
   %49 = call i64 @rb_fix2int(i64 noundef %44) #5
@@ -2304,8 +2298,8 @@ rb_scan_args_set.exit:                            ; preds = %33
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %48, %50
-  %.0.i18 = phi i64 [ %49, %48 ], [ %51, %50 ]
-  %sext = shl i64 %.0.i18, 32
+  %.0.i17 = phi i64 [ %49, %48 ], [ %51, %50 ]
+  %sext = shl i64 %.0.i17, 32
   %52 = ashr exact i64 %sext, 32
   br label %53
 
@@ -2362,20 +2356,20 @@ define internal range(i64 0, 21) i64 @ossl_ocspbres_verify(i32 noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 2
-  br i1 %6, label %13, label %.preheader12
+  br i1 %6, label %13, label %.preheader11
 
-.preheader12:                                     ; preds = %3, %.preheader12
-  %exitcond.not = phi i1 [ true, %.preheader12 ], [ false, %3 ]
-  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader12 ], [ %4, %3 ]
-  %indvars.iv = phi i64 [ 1, %.preheader12 ], [ 0, %3 ]
+.preheader11:                                     ; preds = %3, %.preheader11
+  %exitcond.not = phi i1 [ true, %.preheader11 ], [ false, %3 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader11 ], [ %4, %3 ]
+  %indvars.iv = phi i64 [ 1, %.preheader11 ], [ 0, %3 ]
   %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !6
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
-  br i1 %exitcond.not, label %.preheader, label %.preheader12, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader, label %.preheader11, !llvm.loop !33
 
-.preheader:                                       ; preds = %.preheader12
-  %.not28 = icmp eq i32 %0, 2
-  br i1 %.not28, label %rb_scan_args_set.exit, label %9
+.preheader:                                       ; preds = %.preheader11
+  %.not27 = icmp eq i32 %0, 2
+  br i1 %.not27, label %rb_scan_args_set.exit, label %9
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2405,9 +2399,8 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %9
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %17
-  %22 = and i64 %.0, 1
-  %.not.i10 = icmp eq i64 %22, 0
-  br i1 %.not.i10, label %25, label %23
+  %22 = trunc i64 %.0 to i1
+  br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
   %24 = tail call i64 @rb_fix2int(i64 noundef %.0) #5
@@ -2418,8 +2411,8 @@ rb_scan_args_set.exit:                            ; preds = %.preheader, %9
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %23, %25
-  %.0.i11 = phi i64 [ %24, %23 ], [ %26, %25 ]
-  %sext = shl i64 %.0.i11, 32
+  %.0.i10 = phi i64 [ %24, %23 ], [ %26, %25 ]
+  %sext = shl i64 %.0.i10, 32
   %27 = ashr exact i64 %sext, 32
   br label %28
 
@@ -2673,16 +2666,16 @@ define internal range(i64 0, 21) i64 @ossl_ocspsres_check_validity(i32 noundef %
 .preheader:                                       ; preds = %3, %16
   %exitcond.not = phi i1 [ true, %16 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %7, %16 ], [ %6, %3 ]
-  %.185.i18 = phi i32 [ %.286.i, %16 ], [ 0, %3 ]
-  %9 = icmp slt i32 %.185.i18, %0
+  %.185.i16 = phi i32 [ %.286.i, %16 ], [ 0, %3 ]
+  %9 = icmp slt i32 %.185.i16, %0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %.preheader
-  %11 = sext i32 %.185.i18 to i64
+  %11 = sext i32 %.185.i16 to i64
   %12 = getelementptr inbounds i64, ptr %1, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !6
   store i64 %13, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
-  %14 = add nsw i32 %.185.i18, 1
+  %14 = add nsw i32 %.185.i16, 1
   br label %16
 
 15:                                               ; preds = %.preheader
@@ -2690,7 +2683,7 @@ define internal range(i64 0, 21) i64 @ossl_ocspsres_check_validity(i32 noundef %
   br label %16
 
 16:                                               ; preds = %15, %10
-  %.286.i = phi i32 [ %14, %10 ], [ %.185.i18, %15 ]
+  %.286.i = phi i32 [ %14, %10 ], [ %.185.i16, %15 ]
   br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !34
 
 17:                                               ; preds = %16
@@ -2707,9 +2700,8 @@ rb_scan_args_set.exit:                            ; preds = %17
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %rb_scan_args_set.exit
-  %23 = and i64 %20, 1
-  %.not.i11 = icmp eq i64 %23, 0
-  br i1 %.not.i11, label %26, label %24
+  %23 = trunc i64 %20 to i1
+  br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
   %25 = tail call i64 @rb_fix2int(i64 noundef %20) #5
@@ -2720,8 +2712,8 @@ rb_scan_args_set.exit:                            ; preds = %17
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %24, %26
-  %.0.i12 = phi i64 [ %25, %24 ], [ %27, %26 ]
-  %sext = shl i64 %.0.i12, 32
+  %.0.i11 = phi i64 [ %25, %24 ], [ %27, %26 ]
+  %sext = shl i64 %.0.i11, 32
   %28 = ashr exact i64 %sext, 32
   br label %29
 
@@ -2732,26 +2724,25 @@ rb_num2int_inline.exit:                           ; preds = %24, %26
   br i1 %32, label %40, label %33
 
 33:                                               ; preds = %29
-  %34 = and i64 %31, 1
-  %.not.i13 = icmp eq i64 %34, 0
-  br i1 %.not.i13, label %37, label %35
+  %34 = trunc i64 %31 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
   %36 = tail call i64 @rb_fix2int(i64 noundef %31) #5
-  br label %rb_num2int_inline.exit15
+  br label %rb_num2int_inline.exit13
 
 37:                                               ; preds = %33
   %38 = tail call i64 @rb_num2int(i64 noundef %31) #5
-  br label %rb_num2int_inline.exit15
+  br label %rb_num2int_inline.exit13
 
-rb_num2int_inline.exit15:                         ; preds = %35, %37
-  %.0.i14 = phi i64 [ %36, %35 ], [ %38, %37 ]
-  %sext16 = shl i64 %.0.i14, 32
-  %39 = ashr exact i64 %sext16, 32
+rb_num2int_inline.exit13:                         ; preds = %35, %37
+  %.0.i12 = phi i64 [ %36, %35 ], [ %38, %37 ]
+  %sext14 = shl i64 %.0.i12, 32
+  %39 = ashr exact i64 %sext14, 32
   br label %40
 
-40:                                               ; preds = %29, %rb_num2int_inline.exit15
-  %41 = phi i64 [ %39, %rb_num2int_inline.exit15 ], [ -1, %29 ]
+40:                                               ; preds = %29, %rb_num2int_inline.exit13
+  %41 = phi i64 [ %39, %rb_num2int_inline.exit13 ], [ -1, %29 ]
   %42 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ocsp_singleresp_type) #5
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %43, label %45
@@ -3781,23 +3772,22 @@ declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @add_status_convert_time(i64 noundef %0) #0 {
-  %2 = and i64 %0, 1
-  %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %3, label %12
+  %2 = trunc i64 %0 to i1
+  br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
   %4 = icmp eq i64 %0, 0
   %5 = and i64 %0, 6
   %6 = icmp ne i64 %5, 0
   %7 = or i1 %4, %6
-  br i1 %7, label %rb_integer_type_p.exit.thread7, label %rb_integer_type_p.exit
+  br i1 %7, label %rb_integer_type_p.exit.thread6, label %rb_integer_type_p.exit
 
 rb_integer_type_p.exit:                           ; preds = %3
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = and i64 %9, 31
   %11 = icmp eq i64 %10, 10
-  br i1 %11, label %14, label %rb_integer_type_p.exit.thread7
+  br i1 %11, label %14, label %rb_integer_type_p.exit.thread6
 
 12:                                               ; preds = %1
   %13 = tail call i64 @rb_fix2int(i64 noundef %0) #5
@@ -3808,18 +3798,18 @@ rb_integer_type_p.exit:                           ; preds = %3
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %12, %14
-  %.0.i5 = phi i64 [ %13, %12 ], [ %15, %14 ]
-  %sext = shl i64 %.0.i5, 32
+  %.0.i4 = phi i64 [ %13, %12 ], [ %15, %14 ]
+  %sext = shl i64 %.0.i4, 32
   %16 = ashr exact i64 %sext, 32
   %17 = tail call ptr @X509_gmtime_adj(ptr noundef null, i64 noundef %16) #5
   br label %19
 
-rb_integer_type_p.exit.thread7:                   ; preds = %3, %rb_integer_type_p.exit
+rb_integer_type_p.exit.thread6:                   ; preds = %3, %rb_integer_type_p.exit
   %18 = tail call ptr @ossl_x509_time_adjust(ptr noundef null, i64 noundef %0) #5
   br label %19
 
-19:                                               ; preds = %rb_integer_type_p.exit.thread7, %rb_num2int_inline.exit
-  %.0 = phi ptr [ %17, %rb_num2int_inline.exit ], [ %18, %rb_integer_type_p.exit.thread7 ]
+19:                                               ; preds = %rb_integer_type_p.exit.thread6, %rb_num2int_inline.exit
+  %.0 = phi ptr [ %17, %rb_num2int_inline.exit ], [ %18, %rb_integer_type_p.exit.thread6 ]
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %20, label %22
 

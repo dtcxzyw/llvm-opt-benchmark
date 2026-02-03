@@ -980,9 +980,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema23RequireCompleteEnumDeclEPNS
   %15 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %17 = load i8, ptr %16, align 2
-  %18 = and i8 %17, 1
-  %.not89 = icmp eq i8 %18, 0
-  br i1 %.not89, label %28, label %19
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %28
 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1658,9 +1657,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema24ActOnSuperScopeSpecifierENS
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !1140
-  %18 = and i32 %17, 1
-  %.not37 = icmp eq i32 %18, 0
-  br i1 %.not37, label %37, label %19
+  %18 = trunc i32 %17 to i1
+  br i1 %18, label %19, label %37
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.026, i64 360
@@ -1693,8 +1691,8 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %27, %34
 
 37:                                               ; preds = %15
   %38 = and i32 %17, 32
-  %.not38 = icmp eq i32 %38, 0
-  br i1 %.not38, label %14, label %39, !llvm.loop !1159
+  %.not37 = icmp eq i32 %38, 0
+  br i1 %.not37, label %14, label %39, !llvm.loop !1159
 
 39:                                               ; preds = %37
   %40 = and i32 %17, 128

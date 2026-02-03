@@ -2058,191 +2058,190 @@ define internal fastcc noundef i64 @compress_out(ptr noundef %0, ptr noundef %1,
 12:                                               ; preds = %8, %4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 124
   %14 = load i32, ptr %13, align 4, !tbaa !82
-  %15 = and i32 %14, 1
-  %16 = icmp ne i32 %15, 0
-  %17 = icmp ne i64 %2, 0
-  %or.cond3 = and i1 %17, %16
-  br i1 %or.cond3, label %18, label %25
+  %15 = trunc i32 %14 to i1
+  %16 = icmp ne i64 %2, 0
+  %or.cond3 = and i1 %16, %15
+  br i1 %or.cond3, label %17, label %24
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 116
-  %20 = load i32, ptr %19, align 4, !tbaa !83
-  %21 = zext i32 %20 to i64
-  %22 = trunc i64 %2 to i32
-  %23 = tail call i64 @cm_zlib_crc32(i64 noundef %21, ptr noundef %1, i32 noundef %22) #18
-  %24 = trunc i64 %23 to i32
-  store i32 %24, ptr %19, align 4, !tbaa !83
-  br label %25
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 116
+  %19 = load i32, ptr %18, align 4, !tbaa !83
+  %20 = zext i32 %19 to i64
+  %21 = trunc i64 %2 to i32
+  %22 = tail call i64 @cm_zlib_crc32(i64 noundef %20, ptr noundef %1, i32 noundef %21) #18
+  %23 = trunc i64 %22 to i32
+  store i32 %23, ptr %18, align 4, !tbaa !83
+  br label %24
 
-25:                                               ; preds = %18, %12
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store ptr %1, ptr %26, align 8, !tbaa !143
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store i64 %2, ptr %27, align 8, !tbaa !144
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 120
+24:                                               ; preds = %17, %12
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  store ptr %1, ptr %25, align 8, !tbaa !143
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  store i64 %2, ptr %26, align 8, !tbaa !144
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 120
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %25
-  %34 = load i32, ptr %28, align 8, !tbaa !89
-  %.not.i = icmp eq i32 %34, 0
+.backedge:                                        ; preds = %.backedge.backedge, %24
+  %33 = load i32, ptr %27, align 8, !tbaa !89
+  %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %compression_code.exit.thread, label %compression_code.exit
 
 compression_code.exit:                            ; preds = %.backedge
-  %35 = load ptr, ptr %29, align 8, !tbaa !93
-  %36 = tail call i32 %35(ptr noundef %0, ptr noundef nonnull %26, i32 noundef range(i32 0, 2) %3) #18
-  %37 = icmp ne i32 %36, 1
-  %or.cond5 = icmp ugt i32 %36, 1
+  %34 = load ptr, ptr %28, align 8, !tbaa !93
+  %35 = tail call i32 %34(ptr noundef %0, ptr noundef nonnull %25, i32 noundef range(i32 0, 2) %3) #18
+  %36 = icmp ne i32 %35, 1
+  %or.cond5 = icmp ugt i32 %35, 1
   br i1 %or.cond5, label %.critedge, label %compression_code.exit.thread
 
 compression_code.exit.thread:                     ; preds = %.backedge, %compression_code.exit
-  %38 = phi i1 [ %37, %compression_code.exit ], [ true, %.backedge ]
-  %39 = load i64, ptr %30, align 8, !tbaa !96
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %71
+  %37 = phi i1 [ %36, %compression_code.exit ], [ true, %.backedge ]
+  %38 = load i64, ptr %29, align 8, !tbaa !96
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %70
 
-41:                                               ; preds = %compression_code.exit.thread
-  %42 = load ptr, ptr %5, align 8, !tbaa !33
-  %43 = load i32, ptr %42, align 8, !tbaa !17
-  %44 = icmp eq i32 %43, -1
-  br i1 %44, label %45, label %49
+40:                                               ; preds = %compression_code.exit.thread
+  %41 = load ptr, ptr %5, align 8, !tbaa !33
+  %42 = load i32, ptr %41, align 8, !tbaa !17
+  %43 = icmp eq i32 %42, -1
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 0, ptr %46, align 8, !tbaa !98
-  %47 = tail call i32 @__archive_mktemp(ptr noundef null) #18
-  store i32 %47, ptr %42, align 8, !tbaa !17
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %write_to_temp.exit, label %49
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i64 0, ptr %45, align 8, !tbaa !98
+  %46 = tail call i32 @__archive_mktemp(ptr noundef null) #18
+  store i32 %46, ptr %41, align 8, !tbaa !17
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %write_to_temp.exit, label %48
 
-49:                                               ; preds = %45, %41
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  br label %51
+48:                                               ; preds = %44, %40
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  br label %50
 
-51:                                               ; preds = %55, %49
-  %.01924.i = phi ptr [ %31, %49 ], [ %57, %55 ]
-  %.02023.i = phi i64 [ 61440, %49 ], [ %56, %55 ]
-  %52 = load i32, ptr %42, align 8, !tbaa !17
-  %53 = tail call i64 @write(i32 noundef %52, ptr noundef %.01924.i, i64 noundef %.02023.i) #18
-  %54 = icmp slt i64 %53, 0
-  br i1 %54, label %write_to_temp.exit, label %55
+50:                                               ; preds = %54, %48
+  %.01924.i = phi ptr [ %30, %48 ], [ %56, %54 ]
+  %.02023.i = phi i64 [ 61440, %48 ], [ %55, %54 ]
+  %51 = load i32, ptr %41, align 8, !tbaa !17
+  %52 = tail call i64 @write(i32 noundef %51, ptr noundef %.01924.i, i64 noundef %.02023.i) #18
+  %53 = icmp slt i64 %52, 0
+  br i1 %53, label %write_to_temp.exit, label %54
 
-55:                                               ; preds = %51
-  %56 = sub i64 %.02023.i, %53
-  %57 = getelementptr inbounds nuw i8, ptr %.01924.i, i64 %53
-  %58 = load i64, ptr %50, align 8, !tbaa !98
-  %59 = add i64 %58, %53
-  store i64 %59, ptr %50, align 8, !tbaa !98
-  %.not.i59 = icmp eq i64 %56, 0
-  br i1 %.not.i59, label %62, label %51, !llvm.loop !145
+54:                                               ; preds = %50
+  %55 = sub i64 %.02023.i, %52
+  %56 = getelementptr inbounds nuw i8, ptr %.01924.i, i64 %52
+  %57 = load i64, ptr %49, align 8, !tbaa !98
+  %58 = add i64 %57, %52
+  store i64 %58, ptr %49, align 8, !tbaa !98
+  %.not.i59 = icmp eq i64 %55, 0
+  br i1 %.not.i59, label %61, label %50, !llvm.loop !145
 
-write_to_temp.exit:                               ; preds = %45, %51
-  %.str.47.sink.i = phi ptr [ @.str.47, %51 ], [ @.str.46, %45 ]
-  %60 = tail call ptr @__errno_location() #21
-  %61 = load i32, ptr %60, align 4, !tbaa !50
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %.str.47.sink.i) #18
+write_to_temp.exit:                               ; preds = %44, %50
+  %.str.47.sink.i = phi ptr [ @.str.47, %50 ], [ @.str.46, %44 ]
+  %59 = tail call ptr @__errno_location() #21
+  %60 = load i32, ptr %59, align 4, !tbaa !50
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %60, ptr noundef nonnull %.str.47.sink.i) #18
   br label %.critedge
 
-62:                                               ; preds = %55
-  store ptr %31, ptr %32, align 8, !tbaa !95
-  store i64 61440, ptr %30, align 8, !tbaa !96
-  %63 = load i32, ptr %13, align 4, !tbaa !82
-  %64 = and i32 %63, 2
-  %.not57 = icmp eq i32 %64, 0
-  br i1 %.not57, label %70, label %65
+61:                                               ; preds = %54
+  store ptr %30, ptr %31, align 8, !tbaa !95
+  store i64 61440, ptr %29, align 8, !tbaa !96
+  %62 = load i32, ptr %13, align 4, !tbaa !82
+  %63 = and i32 %62, 2
+  %.not57 = icmp eq i32 %63, 0
+  br i1 %.not57, label %69, label %64
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %33, align 8, !tbaa !97
-  %67 = zext i32 %66 to i64
-  %68 = tail call i64 @cm_zlib_crc32(i64 noundef %67, ptr noundef nonnull %31, i32 noundef 61440) #18
-  %69 = trunc i64 %68 to i32
-  store i32 %69, ptr %33, align 8, !tbaa !97
-  br label %70
+64:                                               ; preds = %61
+  %65 = load i32, ptr %32, align 8, !tbaa !97
+  %66 = zext i32 %65 to i64
+  %67 = tail call i64 @cm_zlib_crc32(i64 noundef %66, ptr noundef nonnull %30, i32 noundef 61440) #18
+  %68 = trunc i64 %67 to i32
+  store i32 %68, ptr %32, align 8, !tbaa !97
+  br label %69
 
-70:                                               ; preds = %65, %62
-  %or.cond7 = and i1 %7, %38
-  br i1 %or.cond7, label %.backedge.backedge, label %71
+69:                                               ; preds = %64, %61
+  %or.cond7 = and i1 %7, %37
+  br i1 %or.cond7, label %.backedge.backedge, label %70
 
-.backedge.backedge:                               ; preds = %70, %71
+.backedge.backedge:                               ; preds = %69, %70
   br label %.backedge
 
-71:                                               ; preds = %70, %compression_code.exit.thread
-  %72 = load i64, ptr %27, align 8, !tbaa !144
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %.backedge.backedge
+70:                                               ; preds = %69, %compression_code.exit.thread
+  %71 = load i64, ptr %26, align 8, !tbaa !144
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %.backedge.backedge
 
-74:                                               ; preds = %71
-  br i1 %7, label %75, label %.critedge
+73:                                               ; preds = %70
+  br i1 %7, label %74, label %.critedge
 
-75:                                               ; preds = %74
-  %76 = load i64, ptr %30, align 8, !tbaa !96
-  %77 = sub i64 61440, %76
-  %78 = load ptr, ptr %5, align 8, !tbaa !33
-  %79 = load i32, ptr %78, align 8, !tbaa !17
-  %80 = icmp eq i32 %79, -1
-  br i1 %80, label %81, label %85
+74:                                               ; preds = %73
+  %75 = load i64, ptr %29, align 8, !tbaa !96
+  %76 = sub i64 61440, %75
+  %77 = load ptr, ptr %5, align 8, !tbaa !33
+  %78 = load i32, ptr %77, align 8, !tbaa !17
+  %79 = icmp eq i32 %78, -1
+  br i1 %79, label %80, label %84
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i64 0, ptr %82, align 8, !tbaa !98
-  %83 = tail call i32 @__archive_mktemp(ptr noundef null) #18
-  store i32 %83, ptr %78, align 8, !tbaa !17
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %write_to_temp.exit67, label %85
+80:                                               ; preds = %74
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i64 0, ptr %81, align 8, !tbaa !98
+  %82 = tail call i32 @__archive_mktemp(ptr noundef null) #18
+  store i32 %82, ptr %77, align 8, !tbaa !17
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %write_to_temp.exit67, label %84
 
-85:                                               ; preds = %81, %75
-  %.not22.i = icmp eq i64 %76, 61440
+84:                                               ; preds = %80, %74
+  %.not22.i = icmp eq i64 %75, 61440
   br i1 %.not22.i, label %.critedge, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %85
-  %86 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  br label %87
+.lr.ph.i:                                         ; preds = %84
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  br label %86
 
-87:                                               ; preds = %91, %.lr.ph.i
-  %.01924.i61 = phi ptr [ %31, %.lr.ph.i ], [ %93, %91 ]
-  %.02023.i62 = phi i64 [ %77, %.lr.ph.i ], [ %92, %91 ]
-  %88 = load i32, ptr %78, align 8, !tbaa !17
-  %89 = tail call i64 @write(i32 noundef %88, ptr noundef %.01924.i61, i64 noundef %.02023.i62) #18
-  %90 = icmp slt i64 %89, 0
-  br i1 %90, label %write_to_temp.exit67, label %91
+86:                                               ; preds = %90, %.lr.ph.i
+  %.01924.i61 = phi ptr [ %30, %.lr.ph.i ], [ %92, %90 ]
+  %.02023.i62 = phi i64 [ %76, %.lr.ph.i ], [ %91, %90 ]
+  %87 = load i32, ptr %77, align 8, !tbaa !17
+  %88 = tail call i64 @write(i32 noundef %87, ptr noundef %.01924.i61, i64 noundef %.02023.i62) #18
+  %89 = icmp slt i64 %88, 0
+  br i1 %89, label %write_to_temp.exit67, label %90
 
-91:                                               ; preds = %87
-  %92 = sub i64 %.02023.i62, %89
-  %93 = getelementptr inbounds nuw i8, ptr %.01924.i61, i64 %89
-  %94 = load i64, ptr %86, align 8, !tbaa !98
-  %95 = add i64 %94, %89
-  store i64 %95, ptr %86, align 8, !tbaa !98
-  %.not.i63 = icmp eq i64 %92, 0
-  br i1 %.not.i63, label %.loopexit, label %87, !llvm.loop !145
+90:                                               ; preds = %86
+  %91 = sub i64 %.02023.i62, %88
+  %92 = getelementptr inbounds nuw i8, ptr %.01924.i61, i64 %88
+  %93 = load i64, ptr %85, align 8, !tbaa !98
+  %94 = add i64 %93, %88
+  store i64 %94, ptr %85, align 8, !tbaa !98
+  %.not.i63 = icmp eq i64 %91, 0
+  br i1 %.not.i63, label %.loopexit, label %86, !llvm.loop !145
 
-write_to_temp.exit67:                             ; preds = %87, %81
-  %.str.47.sink.i66 = phi ptr [ @.str.46, %81 ], [ @.str.47, %87 ]
-  %96 = tail call ptr @__errno_location() #21
-  %97 = load i32, ptr %96, align 4, !tbaa !50
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %97, ptr noundef nonnull %.str.47.sink.i66) #18
+write_to_temp.exit67:                             ; preds = %86, %80
+  %.str.47.sink.i66 = phi ptr [ @.str.46, %80 ], [ @.str.47, %86 ]
+  %95 = tail call ptr @__errno_location() #21
+  %96 = load i32, ptr %95, align 4, !tbaa !50
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %96, ptr noundef nonnull %.str.47.sink.i66) #18
   br label %.critedge
 
-.loopexit:                                        ; preds = %91
-  %98 = load i32, ptr %13, align 4, !tbaa !82
-  %99 = and i32 %98, 2
-  %.not = icmp eq i32 %99, 0
-  br i1 %.not, label %.critedge, label %100
+.loopexit:                                        ; preds = %90
+  %97 = load i32, ptr %13, align 4, !tbaa !82
+  %98 = and i32 %97, 2
+  %.not = icmp eq i32 %98, 0
+  br i1 %.not, label %.critedge, label %99
 
-100:                                              ; preds = %.loopexit
-  %101 = load i32, ptr %33, align 8, !tbaa !97
-  %102 = zext i32 %101 to i64
-  %103 = trunc i64 %77 to i32
-  %104 = tail call i64 @cm_zlib_crc32(i64 noundef %102, ptr noundef nonnull %31, i32 noundef %103) #18
-  %105 = trunc i64 %104 to i32
-  store i32 %105, ptr %33, align 8, !tbaa !97
+99:                                               ; preds = %.loopexit
+  %100 = load i32, ptr %32, align 8, !tbaa !97
+  %101 = zext i32 %100 to i64
+  %102 = trunc i64 %76 to i32
+  %103 = tail call i64 @cm_zlib_crc32(i64 noundef %101, ptr noundef nonnull %30, i32 noundef %102) #18
+  %104 = trunc i64 %103 to i32
+  store i32 %104, ptr %32, align 8, !tbaa !97
   br label %.critedge
 
-.critedge:                                        ; preds = %compression_code.exit, %85, %74, %.loopexit, %100, %write_to_temp.exit67, %write_to_temp.exit, %8
-  %.0 = phi i64 [ -30, %write_to_temp.exit67 ], [ 0, %8 ], [ %2, %74 ], [ -30, %write_to_temp.exit ], [ %2, %100 ], [ %2, %.loopexit ], [ %2, %85 ], [ -30, %compression_code.exit ]
+.critedge:                                        ; preds = %compression_code.exit, %84, %73, %.loopexit, %99, %write_to_temp.exit67, %write_to_temp.exit, %8
+  %.0 = phi i64 [ -30, %write_to_temp.exit67 ], [ 0, %8 ], [ %2, %73 ], [ -30, %write_to_temp.exit ], [ %2, %99 ], [ %2, %.loopexit ], [ %2, %84 ], [ -30, %compression_code.exit ]
   ret i64 %.0
 }
 

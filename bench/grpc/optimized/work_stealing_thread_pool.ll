@@ -694,9 +694,8 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26Wo
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardESt14default_deleteIS4_EE5resetEPS4_.exit
   %43 = load i64, ptr %2, align 8, !tbaa !91
-  %44 = and i64 %43, 1
-  %.not.i.i12 = icmp eq i64 %44, 0
-  br i1 %.not.i.i12, label %45, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %45
 
 45:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit
   %46 = inttoptr i64 %43 to ptr
@@ -1573,9 +1572,8 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26Wo
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardESt14default_deleteIS4_EE5resetEPS4_.exit
   %41 = load i64, ptr %4, align 8, !tbaa !91
-  %42 = and i64 %41, 1
-  %.not.i.i14 = icmp eq i64 %42, 0
-  br i1 %.not.i.i14, label %43, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit
   %44 = inttoptr i64 %41 to ptr
@@ -2432,9 +2430,8 @@ declare noundef zeroext i1 @_ZNK17grpc_event_engine12experimental14BasicWorkQueu
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !91
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr

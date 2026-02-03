@@ -136,7 +136,7 @@ declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder7forDataERKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !20
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %59
+  br i1 %5, label %6, label %58
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 7304
@@ -147,12 +147,12 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder7
 
 11:                                               ; preds = %6
   store i32 27, ptr %2, align 4, !tbaa !20
-  br label %59
+  br label %58
 
 12:                                               ; preds = %6
   %13 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder10loadGroupsERKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not15 = icmp eq i8 %13, 0
-  br i1 %.not15, label %59, label %14
+  br i1 %.not15, label %58, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 7280
@@ -162,7 +162,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder7
   tail call void @_ZN6icu_7725CollationFastLatinBuilder6getCEsERKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %18 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder15encodeUniqueCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.not16 = icmp eq i8 %18, 0
-  br i1 %.not16, label %59, label %19
+  br i1 %.not16, label %58, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 7296
@@ -182,74 +182,73 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %28 = load i32, ptr %27, align 8, !tbaa !19
   %29 = load i16, ptr %8, align 8, !tbaa !18
-  %30 = and i16 %29, 1
-  %31 = icmp ne i16 %30, 0
-  %32 = icmp eq i32 %28, 0
-  %or.cond.i.i = and i1 %32, %31
-  br i1 %or.cond.i.i, label %33, label %34
+  %30 = trunc i16 %29 to i1
+  %31 = icmp eq i32 %28, 0
+  %or.cond.i.i = and i1 %31, %30
+  br i1 %or.cond.i.i, label %32, label %33
 
-33:                                               ; preds = %22
+32:                                               ; preds = %22
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
   br label %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
 
-34:                                               ; preds = %22
-  %35 = icmp slt i16 %29, 0
-  %36 = ashr i16 %29, 5
-  %37 = sext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 7316
-  %39 = load i32, ptr %38, align 4
-  %40 = select i1 %35, i32 %39, i32 %37
-  %41 = icmp ult i32 %28, %40
-  br i1 %41, label %42, label %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
+33:                                               ; preds = %22
+  %34 = icmp slt i16 %29, 0
+  %35 = ashr i16 %29, 5
+  %36 = sext i16 %35 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 7316
+  %38 = load i32, ptr %37, align 4
+  %39 = select i1 %34, i32 %38, i32 %36
+  %40 = icmp ult i32 %28, %39
+  br i1 %40, label %41, label %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
 
-42:                                               ; preds = %34
-  %43 = icmp slt i32 %28, 1024
-  br i1 %43, label %44, label %48
+41:                                               ; preds = %33
+  %42 = icmp slt i32 %28, 1024
+  br i1 %42, label %43, label %47
 
-44:                                               ; preds = %42
-  %45 = and i16 %29, 31
+43:                                               ; preds = %41
+  %44 = and i16 %29, 31
   %.tr.i.i.i.i = trunc i32 %28 to i16
-  %46 = shl i16 %.tr.i.i.i.i, 5
-  %47 = or disjoint i16 %45, %46
-  store i16 %47, ptr %8, align 8, !tbaa !18
+  %45 = shl i16 %.tr.i.i.i.i, 5
+  %46 = or disjoint i16 %44, %45
+  store i16 %46, ptr %8, align 8, !tbaa !18
   br label %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
 
-48:                                               ; preds = %42
-  %49 = or i16 %29, -32
-  store i16 %49, ptr %8, align 8, !tbaa !18
-  store i32 %28, ptr %38, align 4, !tbaa !18
+47:                                               ; preds = %41
+  %48 = or i16 %29, -32
+  store i16 %48, ptr %8, align 8, !tbaa !18
+  store i32 %28, ptr %37, align 4, !tbaa !18
   br label %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
 
-_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit: ; preds = %33, %34, %44, %48
+_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit: ; preds = %32, %33, %43, %47
   tail call void @_ZN6icu_7725CollationFastLatinBuilder6getCEsERKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %50 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder15encodeUniqueCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %.not18 = icmp eq i8 %50, 0
-  br i1 %.not18, label %59, label %51
+  %49 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder15encodeUniqueCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %.not18 = icmp eq i8 %49, 0
+  br i1 %.not18, label %58, label %50
 
-51:                                               ; preds = %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
+50:                                               ; preds = %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit
   %.pr = load i8, ptr %20, align 8, !tbaa !24
   %.not19 = icmp eq i8 %.pr, 0
-  br i1 %.not19, label %.thread, label %55
+  br i1 %.not19, label %.thread, label %54
 
-.thread:                                          ; preds = %19, %51
-  %52 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder13encodeCharCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %.not20 = icmp eq i8 %52, 0
-  br i1 %.not20, label %55, label %53
+.thread:                                          ; preds = %19, %50
+  %51 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder13encodeCharCEsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %.not20 = icmp eq i8 %51, 0
+  br i1 %.not20, label %54, label %52
 
-53:                                               ; preds = %.thread
-  %54 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder18encodeContractionsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  br label %55
+52:                                               ; preds = %.thread
+  %53 = tail call noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder18encodeContractionsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %54
 
-55:                                               ; preds = %53, %.thread, %51
-  %56 = phi i8 [ 0, %.thread ], [ 0, %51 ], [ %54, %53 ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 7192
+54:                                               ; preds = %52, %.thread, %50
+  %55 = phi i8 [ 0, %.thread ], [ 0, %50 ], [ %53, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 7192
+  tail call void @_ZN6icu_779UVector6417removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %56)
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 7224
   tail call void @_ZN6icu_779UVector6417removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %57)
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 7224
-  tail call void @_ZN6icu_779UVector6417removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %58)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit, %14, %12, %3, %55, %11
-  %.0 = phi i8 [ 0, %11 ], [ %56, %55 ], [ 0, %14 ], [ 0, %12 ], [ 0, %3 ], [ 0, %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit ]
+58:                                               ; preds = %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit, %14, %12, %3, %54, %11
+  %.0 = phi i8 [ 0, %11 ], [ %55, %54 ], [ 0, %14 ], [ 0, %12 ], [ 0, %3 ], [ 0, %_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv.exit ]
   ret i8 %.0
 }
 
@@ -898,46 +897,45 @@ define void @_ZN6icu_7725CollationFastLatinBuilder8resetCEsEv(ptr noundef nonnul
   %6 = load i32, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 7312
   %8 = load i16, ptr %7, align 8, !tbaa !18
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = icmp eq i32 %6, 0
-  %or.cond.i = and i1 %11, %10
-  br i1 %or.cond.i, label %12, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = icmp eq i32 %6, 0
+  %or.cond.i = and i1 %10, %9
+  br i1 %or.cond.i, label %11, label %13
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 7304
-  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %13)
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 7304
+  tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %12)
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-14:                                               ; preds = %1
-  %15 = icmp slt i16 %8, 0
-  %16 = ashr i16 %8, 5
-  %17 = sext i16 %16 to i32
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 7316
-  %19 = load i32, ptr %18, align 4
-  %20 = select i1 %15, i32 %19, i32 %17
-  %21 = icmp ult i32 %6, %20
-  br i1 %21, label %22, label %_ZN6icu_7713UnicodeString8truncateEi.exit
+13:                                               ; preds = %1
+  %14 = icmp slt i16 %8, 0
+  %15 = ashr i16 %8, 5
+  %16 = sext i16 %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 7316
+  %18 = load i32, ptr %17, align 4
+  %19 = select i1 %14, i32 %18, i32 %16
+  %20 = icmp ult i32 %6, %19
+  br i1 %20, label %21, label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-22:                                               ; preds = %14
-  %23 = icmp slt i32 %6, 1024
-  br i1 %23, label %24, label %28
+21:                                               ; preds = %13
+  %22 = icmp slt i32 %6, 1024
+  br i1 %22, label %23, label %27
 
-24:                                               ; preds = %22
-  %25 = and i16 %8, 31
+23:                                               ; preds = %21
+  %24 = and i16 %8, 31
   %.tr.i.i.i = trunc i32 %6 to i16
-  %26 = shl i16 %.tr.i.i.i, 5
-  %27 = or disjoint i16 %25, %26
-  store i16 %27, ptr %7, align 8, !tbaa !18
+  %25 = shl i16 %.tr.i.i.i, 5
+  %26 = or disjoint i16 %24, %25
+  store i16 %26, ptr %7, align 8, !tbaa !18
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-28:                                               ; preds = %22
-  %29 = or i16 %8, -32
-  store i16 %29, ptr %7, align 8, !tbaa !18
-  store i32 %6, ptr %18, align 4, !tbaa !18
+27:                                               ; preds = %21
+  %28 = or i16 %8, -32
+  store i16 %28, ptr %7, align 8, !tbaa !18
+  store i32 %6, ptr %17, align 4, !tbaa !18
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %12, %14, %24, %28
+_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %11, %13, %23, %27
   ret void
 }
 

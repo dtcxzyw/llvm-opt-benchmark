@@ -1358,15 +1358,14 @@ define internal i32 @nf_nat_ipv4_local_in(ptr noundef %0, ptr noundef %1, ptr no
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 752
   %46 = load volatile i64, ptr %45, align 8
   %47 = and i64 %46, 32768
-  %.not3 = icmp eq i64 %47, 0
-  br i1 %.not3, label %52, label %86
+  %.not2 = icmp eq i64 %47, 0
+  br i1 %.not2, label %52, label %86
 
 48:                                               ; preds = %37
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 1
-  %.not2 = icmp eq i32 %51, 0
-  br i1 %.not2, label %52, label %86
+  %51 = trunc i32 %50 to i1
+  br i1 %51, label %86, label %52
 
 52:                                               ; preds = %44, %40, %48
   %53 = load ptr, ptr %4, align 8
@@ -2025,15 +2024,14 @@ nf_nat_ipv6_fn.exit:                              ; preds = %3, %32, %36
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %51 = load volatile i64, ptr %50, align 8
   %52 = and i64 %51, 32768
-  %.not3 = icmp eq i64 %52, 0
-  br i1 %.not3, label %57, label %91
+  %.not2 = icmp eq i64 %52, 0
+  br i1 %.not2, label %57, label %91
 
 53:                                               ; preds = %42
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, 1
-  %.not2 = icmp eq i32 %56, 0
-  br i1 %.not2, label %57, label %91
+  %56 = trunc i32 %55 to i1
+  br i1 %56, label %91, label %57
 
 57:                                               ; preds = %49, %45, %53
   %58 = load ptr, ptr %7, align 8

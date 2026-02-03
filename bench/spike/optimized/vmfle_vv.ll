@@ -78,12 +78,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmfle_vvP1
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -113,9 +113,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmfle_vvP1
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -141,10 +141,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmfle_vvP1
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -172,9 +172,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmfle_vvP1
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -199,394 +199,394 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vmfle_vvP1
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %161
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %162
 
-._crit_edge:                                      ; preds = %241, %_ZTW22softfloat_roundingMode.exit
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #17
-  ret i64 %159
+._crit_edge:                                      ; preds = %242, %_ZTW22softfloat_roundingMode.exit
+  %158 = shl i64 %2, 32
+  %159 = add i64 %158, 17179869184
+  %160 = ashr exact i64 %159, 32
+  %161 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %161, i64 noundef 0) #17
+  ret i64 %160
 
-161:                                              ; preds = %.lr.ph, %241
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %242, %241 ]
-  %162 = lshr i64 %.0107184, 6
-  %163 = and i64 %.0107184, 63
-  br i1 %155, label %164, label %._crit_edge191
+162:                                              ; preds = %.lr.ph, %242
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %243, %242 ]
+  %163 = lshr i64 %.0107185, 6
+  %164 = and i64 %.0107185, 63
+  br i1 %156, label %165, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %161
-  %.pre195 = shl nuw i64 1, %163
-  %.pre197 = shl i64 %162, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %170
+._crit_edge192:                                   ; preds = %162
+  %.pre196 = shl nuw i64 1, %164
+  %.pre198 = shl i64 %163, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %171
 
-164:                                              ; preds = %161
-  %sext = shl i64 %162, 32
-  %165 = ashr exact i64 %sext, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !141
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not112 = icmp eq i64 %169, 0
-  br i1 %.not112, label %241, label %170
+165:                                              ; preds = %162
+  %sext = shl i64 %163, 32
+  %166 = ashr exact i64 %sext, 32
+  %167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %166, i1 noundef zeroext false)
+  %168 = load i64, ptr %167, align 8, !tbaa !141
+  %169 = shl nuw i64 1, %164
+  %170 = and i64 %168, %169
+  %.not112 = icmp eq i64 %170, 0
+  br i1 %.not112, label %242, label %171
 
-170:                                              ; preds = %._crit_edge191, %164
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %165, %164 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %168, %164 ]
-  %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %172 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %172, label %224 [
-    i64 16, label %173
-    i64 32, label %190
-    i64 64, label %207
+171:                                              ; preds = %._crit_edge192, %165
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %166, %165 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %169, %165 ]
+  %172 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %173 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %173, label %225 [
+    i64 16, label %174
+    i64 32, label %191
+    i64 64, label %208
   ]
 
-173:                                              ; preds = %170
-  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %174, align 2, !tbaa !157
-  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %175, align 2, !tbaa !157
-  %176 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+174:                                              ; preds = %171
+  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %175, align 2, !tbaa !157
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %176, align 2, !tbaa !157
+  %177 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
-  %177 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %174
+  %178 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %178, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %174
   call void @_ZTH24softfloat_exceptionFlags()
-  %178 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %178, 0
-  br i1 %.not116172, label %.thread174, label %184
+  %179 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %179, 0
+  br i1 %.not116172, label %.thread174, label %185
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %179 = load ptr, ptr %65, align 8, !tbaa !139
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  %181 = load i64, ptr %180, align 8, !tbaa !152
-  %182 = zext i8 %177 to i64
-  %183 = or i64 %181, %182
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef %183) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %180 = load ptr, ptr %65, align 8, !tbaa !139
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  %182 = load i64, ptr %181, align 8, !tbaa !152
+  %183 = zext i8 %178 to i64
+  %184 = or i64 %182, %183
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef %184) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-184:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %185 = load ptr, ptr %65, align 8, !tbaa !139
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
-  %187 = load i64, ptr %186, align 8, !tbaa !152
+185:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %186 = load ptr, ptr %65, align 8, !tbaa !139
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
+  %188 = load i64, ptr %187, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %188 = zext i8 %.pre189 to i64
-  %189 = or i64 %187, %188
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %185, i64 noundef %189) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %189 = zext i8 %.pre190 to i64
+  %190 = or i64 %188, %189
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %186, i64 noundef %190) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %184, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %185, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-190:                                              ; preds = %170
-  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %191, align 4, !tbaa !159
-  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %192, align 4, !tbaa !159
-  %193 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+191:                                              ; preds = %171
+  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %192, align 4, !tbaa !159
+  %193 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %193, align 4, !tbaa !159
+  %194 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
-  %194 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %191
+  %195 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %195, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %191
   call void @_ZTH24softfloat_exceptionFlags()
-  %195 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %195, 0
-  br i1 %.not115175, label %.thread177, label %201
+  %196 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %196, 0
+  br i1 %.not115175, label %.thread177, label %202
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %196 = load ptr, ptr %65, align 8, !tbaa !139
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %198 = load i64, ptr %197, align 8, !tbaa !152
-  %199 = zext i8 %194 to i64
-  %200 = or i64 %198, %199
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %196, i64 noundef %200) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %197 = load ptr, ptr %65, align 8, !tbaa !139
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
+  %199 = load i64, ptr %198, align 8, !tbaa !152
+  %200 = zext i8 %195 to i64
+  %201 = or i64 %199, %200
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %197, i64 noundef %201) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-201:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %202 = load ptr, ptr %65, align 8, !tbaa !139
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  %204 = load i64, ptr %203, align 8, !tbaa !152
+202:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %203 = load ptr, ptr %65, align 8, !tbaa !139
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %205 = load i64, ptr %204, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %205 = zext i8 %.pre188 to i64
-  %206 = or i64 %204, %205
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %202, i64 noundef %206) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %206 = zext i8 %.pre189 to i64
+  %207 = or i64 %205, %206
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %203, i64 noundef %207) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %201, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %202, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-207:                                              ; preds = %170
-  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %208, align 8, !tbaa !141
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %209, align 8, !tbaa !141
-  %210 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+208:                                              ; preds = %171
+  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %209, align 8, !tbaa !141
+  %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %210, align 8, !tbaa !141
+  %211 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
-  %211 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %208
+  %212 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %212, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %208
   call void @_ZTH24softfloat_exceptionFlags()
-  %212 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %212, 0
-  br i1 %.not114178, label %.thread180, label %218
+  %213 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %213, 0
+  br i1 %.not114178, label %.thread180, label %219
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %213 = load ptr, ptr %65, align 8, !tbaa !139
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %215 = load i64, ptr %214, align 8, !tbaa !152
-  %216 = zext i8 %211 to i64
-  %217 = or i64 %215, %216
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %217) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %214 = load ptr, ptr %65, align 8, !tbaa !139
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 40
+  %216 = load i64, ptr %215, align 8, !tbaa !152
+  %217 = zext i8 %212 to i64
+  %218 = or i64 %216, %217
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %214, i64 noundef %218) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-218:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %219 = load ptr, ptr %65, align 8, !tbaa !139
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %221 = load i64, ptr %220, align 8, !tbaa !152
+219:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %220 = load ptr, ptr %65, align 8, !tbaa !139
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %222 = load i64, ptr %221, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %222 = zext i8 %.pre187 to i64
-  %223 = or i64 %221, %222
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %219, i64 noundef %223) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %223 = zext i8 %.pre188 to i64
+  %224 = or i64 %222, %223
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %220, i64 noundef %224) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %218, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %219, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-224:                                              ; preds = %170
-  %225 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i64 2, ptr %226, align 8, !tbaa !132
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i8 0, ptr %227, align 8, !tbaa !134
-  %228 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  store i64 %1, ptr %228, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %225, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+225:                                              ; preds = %171
+  %226 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store i64 2, ptr %227, align 8, !tbaa !132
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store i8 0, ptr %228, align 8, !tbaa !134
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store i64 %1, ptr %229, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %226, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %193, %.thread177 ], [ %176, %.thread174 ], [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %229 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %229, label %236 [
-    i64 16, label %230
-    i64 32, label %230
-    i64 64, label %230
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %194, %.thread177 ], [ %177, %.thread174 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit ], [ %177, %.thread211 ], [ %194, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %194, %.thread213 ], [ %211, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %211, %.thread215 ], [ %211, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %230 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %230, label %237 [
+    i64 16, label %231
+    i64 32, label %231
+    i64 64, label %231
   ]
 
-230:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+231:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %231 = load i64, ptr %171, align 8, !tbaa !141
-  %232 = xor i64 %.pre-phi196, -1
-  %233 = and i64 %231, %232
-  %234 = shl nuw i64 %.0109, %163
-  %235 = or i64 %233, %234
-  store i64 %235, ptr %171, align 8, !tbaa !141
-  br label %241
+  %232 = load i64, ptr %172, align 8, !tbaa !141
+  %233 = xor i64 %.pre-phi197, -1
+  %234 = and i64 %232, %233
+  %235 = shl nuw i64 %.0109, %164
+  %236 = or i64 %234, %235
+  store i64 %236, ptr %172, align 8, !tbaa !141
+  br label %242
 
-236:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %237 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i64 2, ptr %238, align 8, !tbaa !132
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i8 0, ptr %239, align 8, !tbaa !134
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store i64 %1, ptr %240, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %237, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %237, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+237:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %238 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  store i64 2, ptr %239, align 8, !tbaa !132
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  store i8 0, ptr %240, align 8, !tbaa !134
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  store i64 %1, ptr %241, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %238, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %238, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-241:                                              ; preds = %164, %230
-  %242 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %242, %140
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !160
+242:                                              ; preds = %165, %231
+  %243 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %243, %141
+  br i1 %exitcond.not, label %._crit_edge, label %162, !llvm.loop !160
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -721,12 +721,12 @@ define noundef i64 @_Z19fast_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -756,9 +756,9 @@ define noundef i64 @_Z19fast_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -784,10 +784,10 @@ define noundef i64 @_Z19fast_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -815,9 +815,9 @@ define noundef i64 @_Z19fast_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -842,392 +842,392 @@ define noundef i64 @_Z19fast_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %159
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %160
 
-._crit_edge:                                      ; preds = %239, %_ZTW22softfloat_roundingMode.exit
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #17
-  ret i64 %157
+._crit_edge:                                      ; preds = %240, %_ZTW22softfloat_roundingMode.exit
+  %158 = add i64 %2, 4
+  %159 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #17
+  ret i64 %158
 
-159:                                              ; preds = %.lr.ph, %239
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %240, %239 ]
-  %160 = lshr i64 %.0107184, 6
-  %161 = and i64 %.0107184, 63
-  br i1 %155, label %162, label %._crit_edge191
+160:                                              ; preds = %.lr.ph, %240
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %241, %240 ]
+  %161 = lshr i64 %.0107185, 6
+  %162 = and i64 %.0107185, 63
+  br i1 %156, label %163, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %159
-  %.pre195 = shl nuw i64 1, %161
-  %.pre197 = shl i64 %160, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %168
+._crit_edge192:                                   ; preds = %160
+  %.pre196 = shl nuw i64 1, %162
+  %.pre198 = shl i64 %161, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %169
 
-162:                                              ; preds = %159
-  %sext = shl i64 %160, 32
-  %163 = ashr exact i64 %sext, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !141
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not112 = icmp eq i64 %167, 0
-  br i1 %.not112, label %239, label %168
+163:                                              ; preds = %160
+  %sext = shl i64 %161, 32
+  %164 = ashr exact i64 %sext, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !141
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not112 = icmp eq i64 %168, 0
+  br i1 %.not112, label %240, label %169
 
-168:                                              ; preds = %._crit_edge191, %162
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %163, %162 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %166, %162 ]
-  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %170 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %170, label %222 [
-    i64 16, label %171
-    i64 32, label %188
-    i64 64, label %205
+169:                                              ; preds = %._crit_edge192, %163
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %164, %163 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %167, %163 ]
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %171 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %171, label %223 [
+    i64 16, label %172
+    i64 32, label %189
+    i64 64, label %206
   ]
 
-171:                                              ; preds = %168
-  %172 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %172, align 2, !tbaa !157
-  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %173, align 2, !tbaa !157
-  %174 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+172:                                              ; preds = %169
+  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %173, align 2, !tbaa !157
+  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %174, align 2, !tbaa !157
+  %175 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
-  %175 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %172
+  %176 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %176, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %172
   call void @_ZTH24softfloat_exceptionFlags()
-  %176 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %176, 0
-  br i1 %.not116172, label %.thread174, label %182
+  %177 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %177, 0
+  br i1 %.not116172, label %.thread174, label %183
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %177 = load ptr, ptr %65, align 8, !tbaa !139
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  %179 = load i64, ptr %178, align 8, !tbaa !152
-  %180 = zext i8 %175 to i64
-  %181 = or i64 %179, %180
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %177, i64 noundef %181) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %178 = load ptr, ptr %65, align 8, !tbaa !139
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %180 = load i64, ptr %179, align 8, !tbaa !152
+  %181 = zext i8 %176 to i64
+  %182 = or i64 %180, %181
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef %182) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-182:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %183 = load ptr, ptr %65, align 8, !tbaa !139
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %185 = load i64, ptr %184, align 8, !tbaa !152
+183:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %184 = load ptr, ptr %65, align 8, !tbaa !139
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
+  %186 = load i64, ptr %185, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %186 = zext i8 %.pre189 to i64
-  %187 = or i64 %185, %186
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %187) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %187 = zext i8 %.pre190 to i64
+  %188 = or i64 %186, %187
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %184, i64 noundef %188) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %182, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %183, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-188:                                              ; preds = %168
-  %189 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %189, align 4, !tbaa !159
-  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %190, align 4, !tbaa !159
-  %191 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+189:                                              ; preds = %169
+  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %190, align 4, !tbaa !159
+  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %191, align 4, !tbaa !159
+  %192 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
-  %192 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %189
+  %193 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %193, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %189
   call void @_ZTH24softfloat_exceptionFlags()
-  %193 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %193, 0
-  br i1 %.not115175, label %.thread177, label %199
+  %194 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %194, 0
+  br i1 %.not115175, label %.thread177, label %200
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %194 = load ptr, ptr %65, align 8, !tbaa !139
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
-  %196 = load i64, ptr %195, align 8, !tbaa !152
-  %197 = zext i8 %192 to i64
-  %198 = or i64 %196, %197
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %194, i64 noundef %198) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %195 = load ptr, ptr %65, align 8, !tbaa !139
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %197 = load i64, ptr %196, align 8, !tbaa !152
+  %198 = zext i8 %193 to i64
+  %199 = or i64 %197, %198
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %195, i64 noundef %199) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-199:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %200 = load ptr, ptr %65, align 8, !tbaa !139
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load i64, ptr %201, align 8, !tbaa !152
+200:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %201 = load ptr, ptr %65, align 8, !tbaa !139
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
+  %203 = load i64, ptr %202, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %203 = zext i8 %.pre188 to i64
-  %204 = or i64 %202, %203
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %200, i64 noundef %204) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %204 = zext i8 %.pre189 to i64
+  %205 = or i64 %203, %204
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %201, i64 noundef %205) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %199, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %200, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-205:                                              ; preds = %168
-  %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %206, align 8, !tbaa !141
-  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %207, align 8, !tbaa !141
-  %208 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+206:                                              ; preds = %169
+  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %207, align 8, !tbaa !141
+  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %208, align 8, !tbaa !141
+  %209 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
-  %209 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %206
+  %210 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %210, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %206
   call void @_ZTH24softfloat_exceptionFlags()
-  %210 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %210, 0
-  br i1 %.not114178, label %.thread180, label %216
+  %211 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %211, 0
+  br i1 %.not114178, label %.thread180, label %217
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %211 = load ptr, ptr %65, align 8, !tbaa !139
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %213 = load i64, ptr %212, align 8, !tbaa !152
-  %214 = zext i8 %209 to i64
-  %215 = or i64 %213, %214
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %211, i64 noundef %215) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %212 = load ptr, ptr %65, align 8, !tbaa !139
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %214 = load i64, ptr %213, align 8, !tbaa !152
+  %215 = zext i8 %210 to i64
+  %216 = or i64 %214, %215
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %212, i64 noundef %216) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-216:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %217 = load ptr, ptr %65, align 8, !tbaa !139
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 40
-  %219 = load i64, ptr %218, align 8, !tbaa !152
+217:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %218 = load ptr, ptr %65, align 8, !tbaa !139
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 40
+  %220 = load i64, ptr %219, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %220 = zext i8 %.pre187 to i64
-  %221 = or i64 %219, %220
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %217, i64 noundef %221) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %221 = zext i8 %.pre188 to i64
+  %222 = or i64 %220, %221
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %218, i64 noundef %222) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %216, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %217, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-222:                                              ; preds = %168
-  %223 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 2, ptr %224, align 8, !tbaa !132
-  %225 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store i8 0, ptr %225, align 8, !tbaa !134
-  %226 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  store i64 %1, ptr %226, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %223, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+223:                                              ; preds = %169
+  %224 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 2, ptr %225, align 8, !tbaa !132
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  store i8 0, ptr %226, align 8, !tbaa !134
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  store i64 %1, ptr %227, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %224, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %224, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %191, %.thread177 ], [ %174, %.thread174 ], [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %227 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %227, label %234 [
-    i64 16, label %228
-    i64 32, label %228
-    i64 64, label %228
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %192, %.thread177 ], [ %175, %.thread174 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit ], [ %175, %.thread211 ], [ %192, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %192, %.thread213 ], [ %209, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %209, %.thread215 ], [ %209, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %228 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %228, label %235 [
+    i64 16, label %229
+    i64 32, label %229
+    i64 64, label %229
   ]
 
-228:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+229:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %229 = load i64, ptr %169, align 8, !tbaa !141
-  %230 = xor i64 %.pre-phi196, -1
-  %231 = and i64 %229, %230
-  %232 = shl nuw i64 %.0109, %161
-  %233 = or i64 %231, %232
-  store i64 %233, ptr %169, align 8, !tbaa !141
-  br label %239
+  %230 = load i64, ptr %170, align 8, !tbaa !141
+  %231 = xor i64 %.pre-phi197, -1
+  %232 = and i64 %230, %231
+  %233 = shl nuw i64 %.0109, %162
+  %234 = or i64 %232, %233
+  store i64 %234, ptr %170, align 8, !tbaa !141
+  br label %240
 
-234:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %235 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i64 2, ptr %236, align 8, !tbaa !132
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store i8 0, ptr %237, align 8, !tbaa !134
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  store i64 %1, ptr %238, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %235, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %235, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+235:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %236 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 2, ptr %237, align 8, !tbaa !132
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store i8 0, ptr %238, align 8, !tbaa !134
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  store i64 %1, ptr %239, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %236, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %236, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-239:                                              ; preds = %162, %228
-  %240 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %240, %140
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !169
+240:                                              ; preds = %163, %229
+  %241 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %241, %141
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !169
 }
 
 ; Function Attrs: uwtable
@@ -1238,12 +1238,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmfle_vv
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -1273,9 +1273,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmfle_vv
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -1301,10 +1301,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmfle_vv
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -1332,9 +1332,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmfle_vv
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -1359,394 +1359,394 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vmfle_vv
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %161
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %162
 
-._crit_edge:                                      ; preds = %241, %_ZTW22softfloat_roundingMode.exit
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #17
-  ret i64 %159
+._crit_edge:                                      ; preds = %242, %_ZTW22softfloat_roundingMode.exit
+  %158 = shl i64 %2, 32
+  %159 = add i64 %158, 17179869184
+  %160 = ashr exact i64 %159, 32
+  %161 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %161, i64 noundef 0) #17
+  ret i64 %160
 
-161:                                              ; preds = %.lr.ph, %241
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %242, %241 ]
-  %162 = lshr i64 %.0107184, 6
-  %163 = and i64 %.0107184, 63
-  br i1 %155, label %164, label %._crit_edge191
+162:                                              ; preds = %.lr.ph, %242
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %243, %242 ]
+  %163 = lshr i64 %.0107185, 6
+  %164 = and i64 %.0107185, 63
+  br i1 %156, label %165, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %161
-  %.pre195 = shl nuw i64 1, %163
-  %.pre197 = shl i64 %162, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %170
+._crit_edge192:                                   ; preds = %162
+  %.pre196 = shl nuw i64 1, %164
+  %.pre198 = shl i64 %163, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %171
 
-164:                                              ; preds = %161
-  %sext = shl i64 %162, 32
-  %165 = ashr exact i64 %sext, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !141
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not112 = icmp eq i64 %169, 0
-  br i1 %.not112, label %241, label %170
+165:                                              ; preds = %162
+  %sext = shl i64 %163, 32
+  %166 = ashr exact i64 %sext, 32
+  %167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %166, i1 noundef zeroext false)
+  %168 = load i64, ptr %167, align 8, !tbaa !141
+  %169 = shl nuw i64 1, %164
+  %170 = and i64 %168, %169
+  %.not112 = icmp eq i64 %170, 0
+  br i1 %.not112, label %242, label %171
 
-170:                                              ; preds = %._crit_edge191, %164
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %165, %164 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %168, %164 ]
-  %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %172 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %172, label %224 [
-    i64 16, label %173
-    i64 32, label %190
-    i64 64, label %207
+171:                                              ; preds = %._crit_edge192, %165
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %166, %165 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %169, %165 ]
+  %172 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %173 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %173, label %225 [
+    i64 16, label %174
+    i64 32, label %191
+    i64 64, label %208
   ]
 
-173:                                              ; preds = %170
-  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %174, align 2, !tbaa !157
-  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %175, align 2, !tbaa !157
-  %176 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+174:                                              ; preds = %171
+  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %175, align 2, !tbaa !157
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %176, align 2, !tbaa !157
+  %177 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
-  %177 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %174
+  %178 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %178, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %174
   call void @_ZTH24softfloat_exceptionFlags()
-  %178 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %178, 0
-  br i1 %.not116172, label %.thread174, label %184
+  %179 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %179, 0
+  br i1 %.not116172, label %.thread174, label %185
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %179 = load ptr, ptr %65, align 8, !tbaa !139
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  %181 = load i64, ptr %180, align 8, !tbaa !152
-  %182 = zext i8 %177 to i64
-  %183 = or i64 %181, %182
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef %183) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %180 = load ptr, ptr %65, align 8, !tbaa !139
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  %182 = load i64, ptr %181, align 8, !tbaa !152
+  %183 = zext i8 %178 to i64
+  %184 = or i64 %182, %183
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef %184) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-184:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %185 = load ptr, ptr %65, align 8, !tbaa !139
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
-  %187 = load i64, ptr %186, align 8, !tbaa !152
+185:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %186 = load ptr, ptr %65, align 8, !tbaa !139
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
+  %188 = load i64, ptr %187, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %188 = zext i8 %.pre189 to i64
-  %189 = or i64 %187, %188
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %185, i64 noundef %189) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %189 = zext i8 %.pre190 to i64
+  %190 = or i64 %188, %189
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %186, i64 noundef %190) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %184, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %185, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-190:                                              ; preds = %170
-  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %191, align 4, !tbaa !159
-  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %192, align 4, !tbaa !159
-  %193 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+191:                                              ; preds = %171
+  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %192, align 4, !tbaa !159
+  %193 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %193, align 4, !tbaa !159
+  %194 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
-  %194 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %191
+  %195 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %195, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %191
   call void @_ZTH24softfloat_exceptionFlags()
-  %195 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %195, 0
-  br i1 %.not115175, label %.thread177, label %201
+  %196 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %196, 0
+  br i1 %.not115175, label %.thread177, label %202
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %196 = load ptr, ptr %65, align 8, !tbaa !139
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %198 = load i64, ptr %197, align 8, !tbaa !152
-  %199 = zext i8 %194 to i64
-  %200 = or i64 %198, %199
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %196, i64 noundef %200) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %197 = load ptr, ptr %65, align 8, !tbaa !139
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
+  %199 = load i64, ptr %198, align 8, !tbaa !152
+  %200 = zext i8 %195 to i64
+  %201 = or i64 %199, %200
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %197, i64 noundef %201) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-201:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %202 = load ptr, ptr %65, align 8, !tbaa !139
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  %204 = load i64, ptr %203, align 8, !tbaa !152
+202:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %203 = load ptr, ptr %65, align 8, !tbaa !139
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %205 = load i64, ptr %204, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %205 = zext i8 %.pre188 to i64
-  %206 = or i64 %204, %205
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %202, i64 noundef %206) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %206 = zext i8 %.pre189 to i64
+  %207 = or i64 %205, %206
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %203, i64 noundef %207) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %201, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %202, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-207:                                              ; preds = %170
-  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %208, align 8, !tbaa !141
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %209, align 8, !tbaa !141
-  %210 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+208:                                              ; preds = %171
+  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %209, align 8, !tbaa !141
+  %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %210, align 8, !tbaa !141
+  %211 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
-  %211 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %208
+  %212 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %212, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %208
   call void @_ZTH24softfloat_exceptionFlags()
-  %212 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %212, 0
-  br i1 %.not114178, label %.thread180, label %218
+  %213 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %213, 0
+  br i1 %.not114178, label %.thread180, label %219
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %213 = load ptr, ptr %65, align 8, !tbaa !139
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %215 = load i64, ptr %214, align 8, !tbaa !152
-  %216 = zext i8 %211 to i64
-  %217 = or i64 %215, %216
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %217) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %214 = load ptr, ptr %65, align 8, !tbaa !139
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 40
+  %216 = load i64, ptr %215, align 8, !tbaa !152
+  %217 = zext i8 %212 to i64
+  %218 = or i64 %216, %217
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %214, i64 noundef %218) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-218:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %219 = load ptr, ptr %65, align 8, !tbaa !139
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %221 = load i64, ptr %220, align 8, !tbaa !152
+219:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %220 = load ptr, ptr %65, align 8, !tbaa !139
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %222 = load i64, ptr %221, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %222 = zext i8 %.pre187 to i64
-  %223 = or i64 %221, %222
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %219, i64 noundef %223) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %223 = zext i8 %.pre188 to i64
+  %224 = or i64 %222, %223
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %220, i64 noundef %224) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %218, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %219, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-224:                                              ; preds = %170
-  %225 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i64 2, ptr %226, align 8, !tbaa !132
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i8 0, ptr %227, align 8, !tbaa !134
-  %228 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  store i64 %1, ptr %228, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %225, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+225:                                              ; preds = %171
+  %226 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store i64 2, ptr %227, align 8, !tbaa !132
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store i8 0, ptr %228, align 8, !tbaa !134
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store i64 %1, ptr %229, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %226, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %193, %.thread177 ], [ %176, %.thread174 ], [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %229 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %229, label %236 [
-    i64 16, label %230
-    i64 32, label %230
-    i64 64, label %230
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %194, %.thread177 ], [ %177, %.thread174 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit ], [ %177, %.thread211 ], [ %194, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %194, %.thread213 ], [ %211, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %211, %.thread215 ], [ %211, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %230 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %230, label %237 [
+    i64 16, label %231
+    i64 32, label %231
+    i64 64, label %231
   ]
 
-230:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+231:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %231 = load i64, ptr %171, align 8, !tbaa !141
-  %232 = xor i64 %.pre-phi196, -1
-  %233 = and i64 %231, %232
-  %234 = shl nuw i64 %.0109, %163
-  %235 = or i64 %233, %234
-  store i64 %235, ptr %171, align 8, !tbaa !141
-  br label %241
+  %232 = load i64, ptr %172, align 8, !tbaa !141
+  %233 = xor i64 %.pre-phi197, -1
+  %234 = and i64 %232, %233
+  %235 = shl nuw i64 %.0109, %164
+  %236 = or i64 %234, %235
+  store i64 %236, ptr %172, align 8, !tbaa !141
+  br label %242
 
-236:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %237 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i64 2, ptr %238, align 8, !tbaa !132
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i8 0, ptr %239, align 8, !tbaa !134
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store i64 %1, ptr %240, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %237, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %237, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+237:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %238 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  store i64 2, ptr %239, align 8, !tbaa !132
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  store i8 0, ptr %240, align 8, !tbaa !134
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  store i64 %1, ptr %241, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %238, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %238, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-241:                                              ; preds = %164, %230
-  %242 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %242, %140
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !170
+242:                                              ; preds = %165, %231
+  %243 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %243, %141
+  br i1 %exitcond.not, label %._crit_edge, label %162, !llvm.loop !170
 }
 
 ; Function Attrs: uwtable
@@ -1757,12 +1757,12 @@ define noundef i64 @_Z21logged_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -1792,9 +1792,9 @@ define noundef i64 @_Z21logged_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -1820,10 +1820,10 @@ define noundef i64 @_Z21logged_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -1851,9 +1851,9 @@ define noundef i64 @_Z21logged_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -1878,392 +1878,392 @@ define noundef i64 @_Z21logged_rv64i_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %159
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %160
 
-._crit_edge:                                      ; preds = %239, %_ZTW22softfloat_roundingMode.exit
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #17
-  ret i64 %157
+._crit_edge:                                      ; preds = %240, %_ZTW22softfloat_roundingMode.exit
+  %158 = add i64 %2, 4
+  %159 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #17
+  ret i64 %158
 
-159:                                              ; preds = %.lr.ph, %239
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %240, %239 ]
-  %160 = lshr i64 %.0107184, 6
-  %161 = and i64 %.0107184, 63
-  br i1 %155, label %162, label %._crit_edge191
+160:                                              ; preds = %.lr.ph, %240
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %241, %240 ]
+  %161 = lshr i64 %.0107185, 6
+  %162 = and i64 %.0107185, 63
+  br i1 %156, label %163, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %159
-  %.pre195 = shl nuw i64 1, %161
-  %.pre197 = shl i64 %160, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %168
+._crit_edge192:                                   ; preds = %160
+  %.pre196 = shl nuw i64 1, %162
+  %.pre198 = shl i64 %161, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %169
 
-162:                                              ; preds = %159
-  %sext = shl i64 %160, 32
-  %163 = ashr exact i64 %sext, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !141
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not112 = icmp eq i64 %167, 0
-  br i1 %.not112, label %239, label %168
+163:                                              ; preds = %160
+  %sext = shl i64 %161, 32
+  %164 = ashr exact i64 %sext, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !141
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not112 = icmp eq i64 %168, 0
+  br i1 %.not112, label %240, label %169
 
-168:                                              ; preds = %._crit_edge191, %162
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %163, %162 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %166, %162 ]
-  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %170 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %170, label %222 [
-    i64 16, label %171
-    i64 32, label %188
-    i64 64, label %205
+169:                                              ; preds = %._crit_edge192, %163
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %164, %163 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %167, %163 ]
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %171 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %171, label %223 [
+    i64 16, label %172
+    i64 32, label %189
+    i64 64, label %206
   ]
 
-171:                                              ; preds = %168
-  %172 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %172, align 2, !tbaa !157
-  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %173, align 2, !tbaa !157
-  %174 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+172:                                              ; preds = %169
+  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %173, align 2, !tbaa !157
+  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %174, align 2, !tbaa !157
+  %175 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
-  %175 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %172
+  %176 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %176, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %172
   call void @_ZTH24softfloat_exceptionFlags()
-  %176 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %176, 0
-  br i1 %.not116172, label %.thread174, label %182
+  %177 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %177, 0
+  br i1 %.not116172, label %.thread174, label %183
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %177 = load ptr, ptr %65, align 8, !tbaa !139
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  %179 = load i64, ptr %178, align 8, !tbaa !152
-  %180 = zext i8 %175 to i64
-  %181 = or i64 %179, %180
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %177, i64 noundef %181) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %178 = load ptr, ptr %65, align 8, !tbaa !139
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %180 = load i64, ptr %179, align 8, !tbaa !152
+  %181 = zext i8 %176 to i64
+  %182 = or i64 %180, %181
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef %182) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-182:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %183 = load ptr, ptr %65, align 8, !tbaa !139
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %185 = load i64, ptr %184, align 8, !tbaa !152
+183:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %184 = load ptr, ptr %65, align 8, !tbaa !139
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
+  %186 = load i64, ptr %185, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %186 = zext i8 %.pre189 to i64
-  %187 = or i64 %185, %186
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %187) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %187 = zext i8 %.pre190 to i64
+  %188 = or i64 %186, %187
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %184, i64 noundef %188) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %182, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %183, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-188:                                              ; preds = %168
-  %189 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %189, align 4, !tbaa !159
-  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %190, align 4, !tbaa !159
-  %191 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+189:                                              ; preds = %169
+  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %190, align 4, !tbaa !159
+  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %191, align 4, !tbaa !159
+  %192 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
-  %192 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %189
+  %193 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %193, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %189
   call void @_ZTH24softfloat_exceptionFlags()
-  %193 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %193, 0
-  br i1 %.not115175, label %.thread177, label %199
+  %194 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %194, 0
+  br i1 %.not115175, label %.thread177, label %200
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %194 = load ptr, ptr %65, align 8, !tbaa !139
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
-  %196 = load i64, ptr %195, align 8, !tbaa !152
-  %197 = zext i8 %192 to i64
-  %198 = or i64 %196, %197
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %194, i64 noundef %198) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %195 = load ptr, ptr %65, align 8, !tbaa !139
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %197 = load i64, ptr %196, align 8, !tbaa !152
+  %198 = zext i8 %193 to i64
+  %199 = or i64 %197, %198
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %195, i64 noundef %199) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-199:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %200 = load ptr, ptr %65, align 8, !tbaa !139
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load i64, ptr %201, align 8, !tbaa !152
+200:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %201 = load ptr, ptr %65, align 8, !tbaa !139
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
+  %203 = load i64, ptr %202, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %203 = zext i8 %.pre188 to i64
-  %204 = or i64 %202, %203
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %200, i64 noundef %204) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %204 = zext i8 %.pre189 to i64
+  %205 = or i64 %203, %204
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %201, i64 noundef %205) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %199, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %200, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-205:                                              ; preds = %168
-  %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %206, align 8, !tbaa !141
-  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %207, align 8, !tbaa !141
-  %208 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+206:                                              ; preds = %169
+  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %207, align 8, !tbaa !141
+  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %208, align 8, !tbaa !141
+  %209 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
-  %209 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %206
+  %210 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %210, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %206
   call void @_ZTH24softfloat_exceptionFlags()
-  %210 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %210, 0
-  br i1 %.not114178, label %.thread180, label %216
+  %211 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %211, 0
+  br i1 %.not114178, label %.thread180, label %217
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %211 = load ptr, ptr %65, align 8, !tbaa !139
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %213 = load i64, ptr %212, align 8, !tbaa !152
-  %214 = zext i8 %209 to i64
-  %215 = or i64 %213, %214
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %211, i64 noundef %215) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %212 = load ptr, ptr %65, align 8, !tbaa !139
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %214 = load i64, ptr %213, align 8, !tbaa !152
+  %215 = zext i8 %210 to i64
+  %216 = or i64 %214, %215
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %212, i64 noundef %216) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-216:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %217 = load ptr, ptr %65, align 8, !tbaa !139
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 40
-  %219 = load i64, ptr %218, align 8, !tbaa !152
+217:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %218 = load ptr, ptr %65, align 8, !tbaa !139
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 40
+  %220 = load i64, ptr %219, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %220 = zext i8 %.pre187 to i64
-  %221 = or i64 %219, %220
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %217, i64 noundef %221) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %221 = zext i8 %.pre188 to i64
+  %222 = or i64 %220, %221
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %218, i64 noundef %222) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %216, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %217, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-222:                                              ; preds = %168
-  %223 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 2, ptr %224, align 8, !tbaa !132
-  %225 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store i8 0, ptr %225, align 8, !tbaa !134
-  %226 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  store i64 %1, ptr %226, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %223, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+223:                                              ; preds = %169
+  %224 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 2, ptr %225, align 8, !tbaa !132
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  store i8 0, ptr %226, align 8, !tbaa !134
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  store i64 %1, ptr %227, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %224, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %224, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %191, %.thread177 ], [ %174, %.thread174 ], [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %227 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %227, label %234 [
-    i64 16, label %228
-    i64 32, label %228
-    i64 64, label %228
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %192, %.thread177 ], [ %175, %.thread174 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit ], [ %175, %.thread211 ], [ %192, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %192, %.thread213 ], [ %209, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %209, %.thread215 ], [ %209, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %228 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %228, label %235 [
+    i64 16, label %229
+    i64 32, label %229
+    i64 64, label %229
   ]
 
-228:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+229:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %229 = load i64, ptr %169, align 8, !tbaa !141
-  %230 = xor i64 %.pre-phi196, -1
-  %231 = and i64 %229, %230
-  %232 = shl nuw i64 %.0109, %161
-  %233 = or i64 %231, %232
-  store i64 %233, ptr %169, align 8, !tbaa !141
-  br label %239
+  %230 = load i64, ptr %170, align 8, !tbaa !141
+  %231 = xor i64 %.pre-phi197, -1
+  %232 = and i64 %230, %231
+  %233 = shl nuw i64 %.0109, %162
+  %234 = or i64 %232, %233
+  store i64 %234, ptr %170, align 8, !tbaa !141
+  br label %240
 
-234:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %235 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i64 2, ptr %236, align 8, !tbaa !132
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store i8 0, ptr %237, align 8, !tbaa !134
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  store i64 %1, ptr %238, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %235, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %235, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+235:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %236 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 2, ptr %237, align 8, !tbaa !132
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store i8 0, ptr %238, align 8, !tbaa !134
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  store i64 %1, ptr %239, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %236, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %236, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-239:                                              ; preds = %162, %228
-  %240 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %240, %140
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !171
+240:                                              ; preds = %163, %229
+  %241 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %241, %141
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !171
 }
 
 ; Function Attrs: uwtable
@@ -2274,12 +2274,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmfle_vvP1
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -2309,9 +2309,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmfle_vvP1
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -2337,10 +2337,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmfle_vvP1
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -2368,9 +2368,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmfle_vvP1
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -2395,394 +2395,394 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vmfle_vvP1
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %161
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %162
 
-._crit_edge:                                      ; preds = %241, %_ZTW22softfloat_roundingMode.exit
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #17
-  ret i64 %159
+._crit_edge:                                      ; preds = %242, %_ZTW22softfloat_roundingMode.exit
+  %158 = shl i64 %2, 32
+  %159 = add i64 %158, 17179869184
+  %160 = ashr exact i64 %159, 32
+  %161 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %161, i64 noundef 0) #17
+  ret i64 %160
 
-161:                                              ; preds = %.lr.ph, %241
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %242, %241 ]
-  %162 = lshr i64 %.0107184, 6
-  %163 = and i64 %.0107184, 63
-  br i1 %155, label %164, label %._crit_edge191
+162:                                              ; preds = %.lr.ph, %242
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %243, %242 ]
+  %163 = lshr i64 %.0107185, 6
+  %164 = and i64 %.0107185, 63
+  br i1 %156, label %165, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %161
-  %.pre195 = shl nuw i64 1, %163
-  %.pre197 = shl i64 %162, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %170
+._crit_edge192:                                   ; preds = %162
+  %.pre196 = shl nuw i64 1, %164
+  %.pre198 = shl i64 %163, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %171
 
-164:                                              ; preds = %161
-  %sext = shl i64 %162, 32
-  %165 = ashr exact i64 %sext, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !141
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not112 = icmp eq i64 %169, 0
-  br i1 %.not112, label %241, label %170
+165:                                              ; preds = %162
+  %sext = shl i64 %163, 32
+  %166 = ashr exact i64 %sext, 32
+  %167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %166, i1 noundef zeroext false)
+  %168 = load i64, ptr %167, align 8, !tbaa !141
+  %169 = shl nuw i64 1, %164
+  %170 = and i64 %168, %169
+  %.not112 = icmp eq i64 %170, 0
+  br i1 %.not112, label %242, label %171
 
-170:                                              ; preds = %._crit_edge191, %164
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %165, %164 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %168, %164 ]
-  %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %172 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %172, label %224 [
-    i64 16, label %173
-    i64 32, label %190
-    i64 64, label %207
+171:                                              ; preds = %._crit_edge192, %165
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %166, %165 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %169, %165 ]
+  %172 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %173 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %173, label %225 [
+    i64 16, label %174
+    i64 32, label %191
+    i64 64, label %208
   ]
 
-173:                                              ; preds = %170
-  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %174, align 2, !tbaa !157
-  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %175, align 2, !tbaa !157
-  %176 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+174:                                              ; preds = %171
+  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %175, align 2, !tbaa !157
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %176, align 2, !tbaa !157
+  %177 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
-  %177 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %174
+  %178 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %178, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %174
   call void @_ZTH24softfloat_exceptionFlags()
-  %178 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %178, 0
-  br i1 %.not116172, label %.thread174, label %184
+  %179 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %179, 0
+  br i1 %.not116172, label %.thread174, label %185
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %179 = load ptr, ptr %65, align 8, !tbaa !139
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  %181 = load i64, ptr %180, align 8, !tbaa !152
-  %182 = zext i8 %177 to i64
-  %183 = or i64 %181, %182
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef %183) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %180 = load ptr, ptr %65, align 8, !tbaa !139
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  %182 = load i64, ptr %181, align 8, !tbaa !152
+  %183 = zext i8 %178 to i64
+  %184 = or i64 %182, %183
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef %184) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-184:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %185 = load ptr, ptr %65, align 8, !tbaa !139
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
-  %187 = load i64, ptr %186, align 8, !tbaa !152
+185:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %186 = load ptr, ptr %65, align 8, !tbaa !139
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
+  %188 = load i64, ptr %187, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %188 = zext i8 %.pre189 to i64
-  %189 = or i64 %187, %188
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %185, i64 noundef %189) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %189 = zext i8 %.pre190 to i64
+  %190 = or i64 %188, %189
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %186, i64 noundef %190) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %184, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %185, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-190:                                              ; preds = %170
-  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %191, align 4, !tbaa !159
-  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %192, align 4, !tbaa !159
-  %193 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+191:                                              ; preds = %171
+  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %192, align 4, !tbaa !159
+  %193 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %193, align 4, !tbaa !159
+  %194 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
-  %194 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %191
+  %195 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %195, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %191
   call void @_ZTH24softfloat_exceptionFlags()
-  %195 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %195, 0
-  br i1 %.not115175, label %.thread177, label %201
+  %196 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %196, 0
+  br i1 %.not115175, label %.thread177, label %202
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %196 = load ptr, ptr %65, align 8, !tbaa !139
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %198 = load i64, ptr %197, align 8, !tbaa !152
-  %199 = zext i8 %194 to i64
-  %200 = or i64 %198, %199
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %196, i64 noundef %200) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %197 = load ptr, ptr %65, align 8, !tbaa !139
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
+  %199 = load i64, ptr %198, align 8, !tbaa !152
+  %200 = zext i8 %195 to i64
+  %201 = or i64 %199, %200
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %197, i64 noundef %201) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-201:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %202 = load ptr, ptr %65, align 8, !tbaa !139
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  %204 = load i64, ptr %203, align 8, !tbaa !152
+202:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %203 = load ptr, ptr %65, align 8, !tbaa !139
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %205 = load i64, ptr %204, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %205 = zext i8 %.pre188 to i64
-  %206 = or i64 %204, %205
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %202, i64 noundef %206) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %206 = zext i8 %.pre189 to i64
+  %207 = or i64 %205, %206
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %203, i64 noundef %207) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %201, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %202, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-207:                                              ; preds = %170
-  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %208, align 8, !tbaa !141
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %209, align 8, !tbaa !141
-  %210 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+208:                                              ; preds = %171
+  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %209, align 8, !tbaa !141
+  %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %210, align 8, !tbaa !141
+  %211 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
-  %211 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %208
+  %212 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %212, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %208
   call void @_ZTH24softfloat_exceptionFlags()
-  %212 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %212, 0
-  br i1 %.not114178, label %.thread180, label %218
+  %213 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %213, 0
+  br i1 %.not114178, label %.thread180, label %219
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %213 = load ptr, ptr %65, align 8, !tbaa !139
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %215 = load i64, ptr %214, align 8, !tbaa !152
-  %216 = zext i8 %211 to i64
-  %217 = or i64 %215, %216
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %217) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %214 = load ptr, ptr %65, align 8, !tbaa !139
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 40
+  %216 = load i64, ptr %215, align 8, !tbaa !152
+  %217 = zext i8 %212 to i64
+  %218 = or i64 %216, %217
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %214, i64 noundef %218) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-218:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %219 = load ptr, ptr %65, align 8, !tbaa !139
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %221 = load i64, ptr %220, align 8, !tbaa !152
+219:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %220 = load ptr, ptr %65, align 8, !tbaa !139
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %222 = load i64, ptr %221, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %222 = zext i8 %.pre187 to i64
-  %223 = or i64 %221, %222
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %219, i64 noundef %223) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %223 = zext i8 %.pre188 to i64
+  %224 = or i64 %222, %223
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %220, i64 noundef %224) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %218, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %219, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-224:                                              ; preds = %170
-  %225 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i64 2, ptr %226, align 8, !tbaa !132
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i8 0, ptr %227, align 8, !tbaa !134
-  %228 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  store i64 %1, ptr %228, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %225, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+225:                                              ; preds = %171
+  %226 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store i64 2, ptr %227, align 8, !tbaa !132
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store i8 0, ptr %228, align 8, !tbaa !134
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store i64 %1, ptr %229, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %226, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %193, %.thread177 ], [ %176, %.thread174 ], [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %229 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %229, label %236 [
-    i64 16, label %230
-    i64 32, label %230
-    i64 64, label %230
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %194, %.thread177 ], [ %177, %.thread174 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit ], [ %177, %.thread211 ], [ %194, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %194, %.thread213 ], [ %211, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %211, %.thread215 ], [ %211, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %230 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %230, label %237 [
+    i64 16, label %231
+    i64 32, label %231
+    i64 64, label %231
   ]
 
-230:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+231:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %231 = load i64, ptr %171, align 8, !tbaa !141
-  %232 = xor i64 %.pre-phi196, -1
-  %233 = and i64 %231, %232
-  %234 = shl nuw i64 %.0109, %163
-  %235 = or i64 %233, %234
-  store i64 %235, ptr %171, align 8, !tbaa !141
-  br label %241
+  %232 = load i64, ptr %172, align 8, !tbaa !141
+  %233 = xor i64 %.pre-phi197, -1
+  %234 = and i64 %232, %233
+  %235 = shl nuw i64 %.0109, %164
+  %236 = or i64 %234, %235
+  store i64 %236, ptr %172, align 8, !tbaa !141
+  br label %242
 
-236:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %237 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i64 2, ptr %238, align 8, !tbaa !132
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i8 0, ptr %239, align 8, !tbaa !134
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store i64 %1, ptr %240, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %237, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %237, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+237:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %238 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  store i64 2, ptr %239, align 8, !tbaa !132
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  store i8 0, ptr %240, align 8, !tbaa !134
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  store i64 %1, ptr %241, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %238, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %238, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-241:                                              ; preds = %164, %230
-  %242 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %242, %140
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !172
+242:                                              ; preds = %165, %231
+  %243 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %243, %141
+  br i1 %exitcond.not, label %._crit_edge, label %162, !llvm.loop !172
 }
 
 ; Function Attrs: uwtable
@@ -2793,12 +2793,12 @@ define noundef i64 @_Z19fast_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -2828,9 +2828,9 @@ define noundef i64 @_Z19fast_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -2856,10 +2856,10 @@ define noundef i64 @_Z19fast_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -2887,9 +2887,9 @@ define noundef i64 @_Z19fast_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -2914,392 +2914,392 @@ define noundef i64 @_Z19fast_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef %0
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %159
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %160
 
-._crit_edge:                                      ; preds = %239, %_ZTW22softfloat_roundingMode.exit
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #17
-  ret i64 %157
+._crit_edge:                                      ; preds = %240, %_ZTW22softfloat_roundingMode.exit
+  %158 = add i64 %2, 4
+  %159 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #17
+  ret i64 %158
 
-159:                                              ; preds = %.lr.ph, %239
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %240, %239 ]
-  %160 = lshr i64 %.0107184, 6
-  %161 = and i64 %.0107184, 63
-  br i1 %155, label %162, label %._crit_edge191
+160:                                              ; preds = %.lr.ph, %240
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %241, %240 ]
+  %161 = lshr i64 %.0107185, 6
+  %162 = and i64 %.0107185, 63
+  br i1 %156, label %163, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %159
-  %.pre195 = shl nuw i64 1, %161
-  %.pre197 = shl i64 %160, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %168
+._crit_edge192:                                   ; preds = %160
+  %.pre196 = shl nuw i64 1, %162
+  %.pre198 = shl i64 %161, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %169
 
-162:                                              ; preds = %159
-  %sext = shl i64 %160, 32
-  %163 = ashr exact i64 %sext, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !141
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not112 = icmp eq i64 %167, 0
-  br i1 %.not112, label %239, label %168
+163:                                              ; preds = %160
+  %sext = shl i64 %161, 32
+  %164 = ashr exact i64 %sext, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !141
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not112 = icmp eq i64 %168, 0
+  br i1 %.not112, label %240, label %169
 
-168:                                              ; preds = %._crit_edge191, %162
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %163, %162 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %166, %162 ]
-  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %170 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %170, label %222 [
-    i64 16, label %171
-    i64 32, label %188
-    i64 64, label %205
+169:                                              ; preds = %._crit_edge192, %163
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %164, %163 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %167, %163 ]
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %171 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %171, label %223 [
+    i64 16, label %172
+    i64 32, label %189
+    i64 64, label %206
   ]
 
-171:                                              ; preds = %168
-  %172 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %172, align 2, !tbaa !157
-  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %173, align 2, !tbaa !157
-  %174 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+172:                                              ; preds = %169
+  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %173, align 2, !tbaa !157
+  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %174, align 2, !tbaa !157
+  %175 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
-  %175 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %172
+  %176 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %176, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %172
   call void @_ZTH24softfloat_exceptionFlags()
-  %176 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %176, 0
-  br i1 %.not116172, label %.thread174, label %182
+  %177 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %177, 0
+  br i1 %.not116172, label %.thread174, label %183
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %177 = load ptr, ptr %65, align 8, !tbaa !139
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  %179 = load i64, ptr %178, align 8, !tbaa !152
-  %180 = zext i8 %175 to i64
-  %181 = or i64 %179, %180
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %177, i64 noundef %181) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %178 = load ptr, ptr %65, align 8, !tbaa !139
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %180 = load i64, ptr %179, align 8, !tbaa !152
+  %181 = zext i8 %176 to i64
+  %182 = or i64 %180, %181
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef %182) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-182:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %183 = load ptr, ptr %65, align 8, !tbaa !139
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %185 = load i64, ptr %184, align 8, !tbaa !152
+183:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %184 = load ptr, ptr %65, align 8, !tbaa !139
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
+  %186 = load i64, ptr %185, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %186 = zext i8 %.pre189 to i64
-  %187 = or i64 %185, %186
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %187) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %187 = zext i8 %.pre190 to i64
+  %188 = or i64 %186, %187
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %184, i64 noundef %188) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %182, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %183, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-188:                                              ; preds = %168
-  %189 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %189, align 4, !tbaa !159
-  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %190, align 4, !tbaa !159
-  %191 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+189:                                              ; preds = %169
+  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %190, align 4, !tbaa !159
+  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %191, align 4, !tbaa !159
+  %192 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
-  %192 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %189
+  %193 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %193, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %189
   call void @_ZTH24softfloat_exceptionFlags()
-  %193 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %193, 0
-  br i1 %.not115175, label %.thread177, label %199
+  %194 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %194, 0
+  br i1 %.not115175, label %.thread177, label %200
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %194 = load ptr, ptr %65, align 8, !tbaa !139
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
-  %196 = load i64, ptr %195, align 8, !tbaa !152
-  %197 = zext i8 %192 to i64
-  %198 = or i64 %196, %197
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %194, i64 noundef %198) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %195 = load ptr, ptr %65, align 8, !tbaa !139
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %197 = load i64, ptr %196, align 8, !tbaa !152
+  %198 = zext i8 %193 to i64
+  %199 = or i64 %197, %198
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %195, i64 noundef %199) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-199:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %200 = load ptr, ptr %65, align 8, !tbaa !139
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load i64, ptr %201, align 8, !tbaa !152
+200:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %201 = load ptr, ptr %65, align 8, !tbaa !139
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
+  %203 = load i64, ptr %202, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %203 = zext i8 %.pre188 to i64
-  %204 = or i64 %202, %203
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %200, i64 noundef %204) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %204 = zext i8 %.pre189 to i64
+  %205 = or i64 %203, %204
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %201, i64 noundef %205) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %199, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %200, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-205:                                              ; preds = %168
-  %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %206, align 8, !tbaa !141
-  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %207, align 8, !tbaa !141
-  %208 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+206:                                              ; preds = %169
+  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %207, align 8, !tbaa !141
+  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %208, align 8, !tbaa !141
+  %209 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
-  %209 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %206
+  %210 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %210, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %206
   call void @_ZTH24softfloat_exceptionFlags()
-  %210 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %210, 0
-  br i1 %.not114178, label %.thread180, label %216
+  %211 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %211, 0
+  br i1 %.not114178, label %.thread180, label %217
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %211 = load ptr, ptr %65, align 8, !tbaa !139
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %213 = load i64, ptr %212, align 8, !tbaa !152
-  %214 = zext i8 %209 to i64
-  %215 = or i64 %213, %214
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %211, i64 noundef %215) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %212 = load ptr, ptr %65, align 8, !tbaa !139
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %214 = load i64, ptr %213, align 8, !tbaa !152
+  %215 = zext i8 %210 to i64
+  %216 = or i64 %214, %215
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %212, i64 noundef %216) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-216:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %217 = load ptr, ptr %65, align 8, !tbaa !139
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 40
-  %219 = load i64, ptr %218, align 8, !tbaa !152
+217:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %218 = load ptr, ptr %65, align 8, !tbaa !139
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 40
+  %220 = load i64, ptr %219, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %220 = zext i8 %.pre187 to i64
-  %221 = or i64 %219, %220
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %217, i64 noundef %221) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %221 = zext i8 %.pre188 to i64
+  %222 = or i64 %220, %221
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %218, i64 noundef %222) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %216, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %217, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-222:                                              ; preds = %168
-  %223 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 2, ptr %224, align 8, !tbaa !132
-  %225 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store i8 0, ptr %225, align 8, !tbaa !134
-  %226 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  store i64 %1, ptr %226, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %223, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+223:                                              ; preds = %169
+  %224 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 2, ptr %225, align 8, !tbaa !132
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  store i8 0, ptr %226, align 8, !tbaa !134
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  store i64 %1, ptr %227, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %224, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %224, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %191, %.thread177 ], [ %174, %.thread174 ], [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %227 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %227, label %234 [
-    i64 16, label %228
-    i64 32, label %228
-    i64 64, label %228
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %192, %.thread177 ], [ %175, %.thread174 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit ], [ %175, %.thread211 ], [ %192, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %192, %.thread213 ], [ %209, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %209, %.thread215 ], [ %209, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %228 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %228, label %235 [
+    i64 16, label %229
+    i64 32, label %229
+    i64 64, label %229
   ]
 
-228:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+229:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %229 = load i64, ptr %169, align 8, !tbaa !141
-  %230 = xor i64 %.pre-phi196, -1
-  %231 = and i64 %229, %230
-  %232 = shl nuw i64 %.0109, %161
-  %233 = or i64 %231, %232
-  store i64 %233, ptr %169, align 8, !tbaa !141
-  br label %239
+  %230 = load i64, ptr %170, align 8, !tbaa !141
+  %231 = xor i64 %.pre-phi197, -1
+  %232 = and i64 %230, %231
+  %233 = shl nuw i64 %.0109, %162
+  %234 = or i64 %232, %233
+  store i64 %234, ptr %170, align 8, !tbaa !141
+  br label %240
 
-234:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %235 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i64 2, ptr %236, align 8, !tbaa !132
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store i8 0, ptr %237, align 8, !tbaa !134
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  store i64 %1, ptr %238, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %235, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %235, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+235:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %236 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 2, ptr %237, align 8, !tbaa !132
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store i8 0, ptr %238, align 8, !tbaa !134
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  store i64 %1, ptr %239, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %236, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %236, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-239:                                              ; preds = %162, %228
-  %240 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %240, %140
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !173
+240:                                              ; preds = %163, %229
+  %241 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %241, %141
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !173
 }
 
 ; Function Attrs: uwtable
@@ -3310,12 +3310,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmfle_vv
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -3345,9 +3345,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmfle_vv
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -3373,10 +3373,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmfle_vv
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -3404,9 +3404,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmfle_vv
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -3431,394 +3431,394 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vmfle_vv
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %161
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %162
 
-._crit_edge:                                      ; preds = %241, %_ZTW22softfloat_roundingMode.exit
-  %157 = shl i64 %2, 32
-  %158 = add i64 %157, 17179869184
-  %159 = ashr exact i64 %158, 32
-  %160 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %160, i64 noundef 0) #17
-  ret i64 %159
+._crit_edge:                                      ; preds = %242, %_ZTW22softfloat_roundingMode.exit
+  %158 = shl i64 %2, 32
+  %159 = add i64 %158, 17179869184
+  %160 = ashr exact i64 %159, 32
+  %161 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %161, i64 noundef 0) #17
+  ret i64 %160
 
-161:                                              ; preds = %.lr.ph, %241
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %242, %241 ]
-  %162 = lshr i64 %.0107184, 6
-  %163 = and i64 %.0107184, 63
-  br i1 %155, label %164, label %._crit_edge191
+162:                                              ; preds = %.lr.ph, %242
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %243, %242 ]
+  %163 = lshr i64 %.0107185, 6
+  %164 = and i64 %.0107185, 63
+  br i1 %156, label %165, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %161
-  %.pre195 = shl nuw i64 1, %163
-  %.pre197 = shl i64 %162, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %170
+._crit_edge192:                                   ; preds = %162
+  %.pre196 = shl nuw i64 1, %164
+  %.pre198 = shl i64 %163, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %171
 
-164:                                              ; preds = %161
-  %sext = shl i64 %162, 32
-  %165 = ashr exact i64 %sext, 32
-  %166 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %165, i1 noundef zeroext false)
-  %167 = load i64, ptr %166, align 8, !tbaa !141
-  %168 = shl nuw i64 1, %163
-  %169 = and i64 %167, %168
-  %.not112 = icmp eq i64 %169, 0
-  br i1 %.not112, label %241, label %170
+165:                                              ; preds = %162
+  %sext = shl i64 %163, 32
+  %166 = ashr exact i64 %sext, 32
+  %167 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %166, i1 noundef zeroext false)
+  %168 = load i64, ptr %167, align 8, !tbaa !141
+  %169 = shl nuw i64 1, %164
+  %170 = and i64 %168, %169
+  %.not112 = icmp eq i64 %170, 0
+  br i1 %.not112, label %242, label %171
 
-170:                                              ; preds = %._crit_edge191, %164
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %165, %164 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %168, %164 ]
-  %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %172 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %172, label %224 [
-    i64 16, label %173
-    i64 32, label %190
-    i64 64, label %207
+171:                                              ; preds = %._crit_edge192, %165
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %166, %165 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %169, %165 ]
+  %172 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %173 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %173, label %225 [
+    i64 16, label %174
+    i64 32, label %191
+    i64 64, label %208
   ]
 
-173:                                              ; preds = %170
-  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %174, align 2, !tbaa !157
-  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %175, align 2, !tbaa !157
-  %176 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+174:                                              ; preds = %171
+  %175 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %175, align 2, !tbaa !157
+  %176 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %176, align 2, !tbaa !157
+  %177 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
-  %177 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %174
+  %178 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %178, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %174
   call void @_ZTH24softfloat_exceptionFlags()
-  %178 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %178, 0
-  br i1 %.not116172, label %.thread174, label %184
+  %179 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %179, 0
+  br i1 %.not116172, label %.thread174, label %185
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %179 = load ptr, ptr %65, align 8, !tbaa !139
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  %181 = load i64, ptr %180, align 8, !tbaa !152
-  %182 = zext i8 %177 to i64
-  %183 = or i64 %181, %182
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef %183) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %180 = load ptr, ptr %65, align 8, !tbaa !139
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  %182 = load i64, ptr %181, align 8, !tbaa !152
+  %183 = zext i8 %178 to i64
+  %184 = or i64 %182, %183
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef %184) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-184:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %185 = load ptr, ptr %65, align 8, !tbaa !139
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 40
-  %187 = load i64, ptr %186, align 8, !tbaa !152
+185:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %186 = load ptr, ptr %65, align 8, !tbaa !139
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
+  %188 = load i64, ptr %187, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %188 = zext i8 %.pre189 to i64
-  %189 = or i64 %187, %188
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %185, i64 noundef %189) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %189 = zext i8 %.pre190 to i64
+  %190 = or i64 %188, %189
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %186, i64 noundef %190) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %184, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %185, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-190:                                              ; preds = %170
-  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %191, align 4, !tbaa !159
-  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %192, align 4, !tbaa !159
-  %193 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+191:                                              ; preds = %171
+  %192 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %192, align 4, !tbaa !159
+  %193 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %193, align 4, !tbaa !159
+  %194 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
-  %194 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %191
+  %195 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %195, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %191
   call void @_ZTH24softfloat_exceptionFlags()
-  %195 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %195, 0
-  br i1 %.not115175, label %.thread177, label %201
+  %196 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %196, 0
+  br i1 %.not115175, label %.thread177, label %202
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %196 = load ptr, ptr %65, align 8, !tbaa !139
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
-  %198 = load i64, ptr %197, align 8, !tbaa !152
-  %199 = zext i8 %194 to i64
-  %200 = or i64 %198, %199
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %196, i64 noundef %200) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %197 = load ptr, ptr %65, align 8, !tbaa !139
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
+  %199 = load i64, ptr %198, align 8, !tbaa !152
+  %200 = zext i8 %195 to i64
+  %201 = or i64 %199, %200
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %197, i64 noundef %201) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-201:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %202 = load ptr, ptr %65, align 8, !tbaa !139
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  %204 = load i64, ptr %203, align 8, !tbaa !152
+202:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %203 = load ptr, ptr %65, align 8, !tbaa !139
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %205 = load i64, ptr %204, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %205 = zext i8 %.pre188 to i64
-  %206 = or i64 %204, %205
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %202, i64 noundef %206) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %206 = zext i8 %.pre189 to i64
+  %207 = or i64 %205, %206
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %203, i64 noundef %207) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %201, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %202, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-207:                                              ; preds = %170
-  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %208, align 8, !tbaa !141
-  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %209, align 8, !tbaa !141
-  %210 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+208:                                              ; preds = %171
+  %209 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %209, align 8, !tbaa !141
+  %210 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %210, align 8, !tbaa !141
+  %211 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
-  %211 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %208
+  %212 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %212, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %208
   call void @_ZTH24softfloat_exceptionFlags()
-  %212 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %212, 0
-  br i1 %.not114178, label %.thread180, label %218
+  %213 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %213, 0
+  br i1 %.not114178, label %.thread180, label %219
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %213 = load ptr, ptr %65, align 8, !tbaa !139
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  %215 = load i64, ptr %214, align 8, !tbaa !152
-  %216 = zext i8 %211 to i64
-  %217 = or i64 %215, %216
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %213, i64 noundef %217) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %214 = load ptr, ptr %65, align 8, !tbaa !139
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 40
+  %216 = load i64, ptr %215, align 8, !tbaa !152
+  %217 = zext i8 %212 to i64
+  %218 = or i64 %216, %217
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %214, i64 noundef %218) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-218:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %219 = load ptr, ptr %65, align 8, !tbaa !139
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %221 = load i64, ptr %220, align 8, !tbaa !152
+219:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %220 = load ptr, ptr %65, align 8, !tbaa !139
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %222 = load i64, ptr %221, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %222 = zext i8 %.pre187 to i64
-  %223 = or i64 %221, %222
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %219, i64 noundef %223) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %223 = zext i8 %.pre188 to i64
+  %224 = or i64 %222, %223
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %220, i64 noundef %224) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %218, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %219, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-224:                                              ; preds = %170
-  %225 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  store i64 2, ptr %226, align 8, !tbaa !132
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i8 0, ptr %227, align 8, !tbaa !134
-  %228 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  store i64 %1, ptr %228, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %225, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+225:                                              ; preds = %171
+  %226 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store i64 2, ptr %227, align 8, !tbaa !132
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store i8 0, ptr %228, align 8, !tbaa !134
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store i64 %1, ptr %229, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %226, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %193, %.thread177 ], [ %176, %.thread174 ], [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %229 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %229, label %236 [
-    i64 16, label %230
-    i64 32, label %230
-    i64 64, label %230
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %194, %.thread177 ], [ %177, %.thread174 ], [ %177, %_ZTW24softfloat_exceptionFlags.exit ], [ %177, %.thread211 ], [ %194, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %194, %.thread213 ], [ %211, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %211, %.thread215 ], [ %211, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %230 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %230, label %237 [
+    i64 16, label %231
+    i64 32, label %231
+    i64 64, label %231
   ]
 
-230:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+231:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %231 = load i64, ptr %171, align 8, !tbaa !141
-  %232 = xor i64 %.pre-phi196, -1
-  %233 = and i64 %231, %232
-  %234 = shl nuw i64 %.0109, %163
-  %235 = or i64 %233, %234
-  store i64 %235, ptr %171, align 8, !tbaa !141
-  br label %241
+  %232 = load i64, ptr %172, align 8, !tbaa !141
+  %233 = xor i64 %.pre-phi197, -1
+  %234 = and i64 %232, %233
+  %235 = shl nuw i64 %.0109, %164
+  %236 = or i64 %234, %235
+  store i64 %236, ptr %172, align 8, !tbaa !141
+  br label %242
 
-236:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %237 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i64 2, ptr %238, align 8, !tbaa !132
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i8 0, ptr %239, align 8, !tbaa !134
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store i64 %1, ptr %240, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %237, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %237, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+237:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %238 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  store i64 2, ptr %239, align 8, !tbaa !132
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  store i8 0, ptr %240, align 8, !tbaa !134
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  store i64 %1, ptr %241, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %238, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %238, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-241:                                              ; preds = %164, %230
-  %242 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %242, %140
-  br i1 %exitcond.not, label %._crit_edge, label %161, !llvm.loop !174
+242:                                              ; preds = %165, %231
+  %243 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %243, %141
+  br i1 %exitcond.not, label %._crit_edge, label %162, !llvm.loop !174
 }
 
 ; Function Attrs: uwtable
@@ -3829,12 +3829,12 @@ define noundef i64 @_Z21logged_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   %7 = lshr i64 %1, 20
   %8 = and i64 %7, 31
   %.not = icmp eq i64 %6, %8
-  br i1 %.not, label %._crit_edge186, label %9
+  br i1 %.not, label %._crit_edge187, label %9
 
-._crit_edge186:                                   ; preds = %3
+._crit_edge187:                                   ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !3
-  %.pre190 = trunc nuw nsw i64 %8 to i32
+  %.pre191 = trunc nuw nsw i64 %8 to i32
   br label %25
 
 9:                                                ; preds = %3
@@ -3864,9 +3864,9 @@ define noundef i64 @_Z21logged_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-25:                                               ; preds = %._crit_edge186, %9
-  %.pre-phi = phi i32 [ %.pre190, %._crit_edge186 ], [ %11, %9 ]
-  %26 = phi float [ %.pre, %._crit_edge186 ], [ %13, %9 ]
+25:                                               ; preds = %._crit_edge187, %9
+  %.pre-phi = phi i32 [ %.pre191, %._crit_edge187 ], [ %11, %9 ]
+  %26 = phi float [ %.pre, %._crit_edge187 ], [ %13, %9 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 266632
   %28 = fptoui float %26 to i32
   %.not.i = icmp eq i32 %28, 0
@@ -3892,10 +3892,10 @@ define noundef i64 @_Z21logged_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
   %.not110 = icmp eq i64 %6, %40
-  br i1 %.not110, label %._crit_edge192, label %41
+  br i1 %.not110, label %._crit_edge193, label %41
 
-._crit_edge192:                                   ; preds = %38
-  %.pre193 = trunc nuw nsw i64 %40 to i32
+._crit_edge193:                                   ; preds = %38
+  %.pre194 = trunc nuw nsw i64 %40 to i32
   br label %55
 
 41:                                               ; preds = %38
@@ -3923,9 +3923,9 @@ define noundef i64 @_Z21logged_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   tail call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-55:                                               ; preds = %._crit_edge192, %41
-  %.pre-phi194 = phi i32 [ %.pre193, %._crit_edge192 ], [ %43, %41 ]
-  %56 = and i32 %29, %.pre-phi194
+55:                                               ; preds = %._crit_edge193, %41
+  %.pre-phi195 = phi i32 [ %.pre194, %._crit_edge193 ], [ %43, %41 ]
+  %56 = and i32 %29, %.pre-phi195
   %57 = icmp eq i32 %56, 0
   %58 = or i1 %.not.i, %57
   br i1 %58, label %64, label %59, !prof !131
@@ -3950,392 +3950,392 @@ define noundef i64 @_Z21logged_rv64e_vmfle_vvP11processor_t6insn_tm(ptr noundef 
   %68 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %68, label %.thread171 [
     i64 16, label %69
-    i64 32, label %72
-    i64 64, label %76
+    i64 32, label %73
+    i64 64, label %77
   ]
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i = load i64, ptr %70, align 8, !tbaa !141
-  %71 = and i64 %.sink.i, 1125899906842624
-  %.0.i.not = icmp eq i64 %71, 0
-  br i1 %.0.i.not, label %.thread171, label %.critedge
+  %71 = load i64, ptr %70, align 8, !tbaa !141
+  %72 = and i64 %71, 1125899906842624
+  %.not183 = icmp eq i64 %72, 0
+  br i1 %.not183, label %.thread171, label %.critedge
 
-72:                                               ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !142, !range !143, !noundef !144
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %.critedge, label %.thread171
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i8, ptr %74, align 8, !tbaa !142, !range !143, !noundef !144
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %.critedge, label %.thread171
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %78 = load i8, ptr %77, align 1, !tbaa !145, !range !143, !noundef !144
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %.critedge, label %.thread171, !prof !131
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %79 = load i8, ptr %78, align 1, !tbaa !145, !range !143, !noundef !144
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %.critedge, label %.thread171, !prof !131
 
-.thread171:                                       ; preds = %64, %69, %72, %76
-  %80 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store i64 2, ptr %81, align 8, !tbaa !132
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %82, align 8, !tbaa !134
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store i64 %1, ptr %83, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %80, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+.thread171:                                       ; preds = %64, %69, %73, %77
+  %81 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 2, ptr %82, align 8, !tbaa !132
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %83, align 8, !tbaa !134
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i64 %1, ptr %84, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %81, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-.critedge:                                        ; preds = %72, %69, %76
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %85 = load i64, ptr %84, align 8, !tbaa !146
-  %.not183 = icmp eq i64 %85, 0
-  br i1 %.not183, label %90, label %86, !prof !147
+.critedge:                                        ; preds = %73, %69, %77
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %86 = load i64, ptr %85, align 8, !tbaa !146
+  %.not184 = icmp eq i64 %86, 0
+  br i1 %.not184, label %91, label %87, !prof !147
 
-86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %88 = load ptr, ptr %87, align 8, !tbaa !148
-  %89 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %88, i64 noundef 1536)
-  br i1 %89, label %95, label %90, !prof !131
+87:                                               ; preds = %.critedge
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %90 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %89, i64 noundef 1536)
+  br i1 %90, label %96, label %91, !prof !131
 
-90:                                               ; preds = %86, %.critedge
-  %91 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i64 2, ptr %92, align 8, !tbaa !132
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !134
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store i64 %1, ptr %94, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %91, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+91:                                               ; preds = %87, %.critedge
+  %92 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %93, align 8, !tbaa !132
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !134
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 %1, ptr %95, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %92, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-95:                                               ; preds = %86
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %97 = load i8, ptr %96, align 8, !tbaa !149, !range !143, !noundef !144
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %104, !prof !147
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %98 = load i8, ptr %97, align 8, !tbaa !149, !range !143, !noundef !144
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %105, !prof !147
 
-99:                                               ; preds = %95
-  %100 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 2, ptr %101, align 8, !tbaa !132
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store i8 0, ptr %102, align 8, !tbaa !134
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store i64 %1, ptr %103, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %100, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+100:                                              ; preds = %96
+  %101 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 2, ptr %102, align 8, !tbaa !132
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  store i8 0, ptr %103, align 8, !tbaa !134
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store i64 %1, ptr %104, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %101, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %101, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-104:                                              ; preds = %95
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %106 = load i8, ptr %105, align 1, !tbaa !150, !range !143, !noundef !144
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %120, label %108
+105:                                              ; preds = %96
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %107 = load i8, ptr %106, align 1, !tbaa !150, !range !143, !noundef !144
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %121, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %110 = load ptr, ptr %109, align 8, !tbaa !151
-  %111 = load ptr, ptr %110, align 8, !tbaa !137
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(48) %110) #17
-  %.not111 = icmp eq i64 %114, 0
-  br i1 %.not111, label %120, label %115, !prof !131
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %111 = load ptr, ptr %110, align 8, !tbaa !151
+  %112 = load ptr, ptr %111, align 8, !tbaa !137
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = tail call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(48) %111) #17
+  %.not111 = icmp eq i64 %115, 0
+  br i1 %.not111, label %121, label %116, !prof !131
 
-115:                                              ; preds = %108
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #17
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 2, ptr %117, align 8, !tbaa !132
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !134
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 %1, ptr %119, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %116, align 8, !tbaa !137
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+116:                                              ; preds = %109
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #17
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 2, ptr %118, align 8, !tbaa !132
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !134
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 %1, ptr %120, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %117, align 8, !tbaa !137
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-120:                                              ; preds = %108, %104
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+121:                                              ; preds = %109, %105
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !141
-  %122 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %123 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %123 = load ptr, ptr %87, align 8, !tbaa !148
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %123, i64 noundef 1536)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  %125 = load ptr, ptr %124, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !152
-  %128 = icmp ugt i64 %127, 4
-  br i1 %128, label %129, label %134, !prof !147
+  %124 = load ptr, ptr %88, align 8, !tbaa !148
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %124, i64 noundef 1536)
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  %126 = load ptr, ptr %125, align 8, !tbaa !139
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %128 = load i64, ptr %127, align 8, !tbaa !152
+  %129 = icmp ugt i64 %128, 4
+  br i1 %129, label %130, label %135, !prof !147
 
-129:                                              ; preds = %120
-  %130 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i64 2, ptr %131, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 0, ptr %132, align 8, !tbaa !134
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %1, ptr %133, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %130, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+130:                                              ; preds = %121
+  %131 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  store i64 2, ptr %132, align 8, !tbaa !132
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  store i8 0, ptr %133, align 8, !tbaa !134
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  store i64 %1, ptr %134, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %131, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-134:                                              ; preds = %120
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
-  %137 = load ptr, ptr %136, align 8, !tbaa !137
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = call noundef i64 %139(ptr noundef nonnull align 8 dereferenceable(48) %136) #17
-  %141 = load ptr, ptr %124, align 8, !tbaa !139
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = load i64, ptr %142, align 8, !tbaa !152
-  %144 = trunc i64 %143 to i8
+135:                                              ; preds = %121
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %137 = load ptr, ptr %136, align 8, !tbaa !151
+  %138 = load ptr, ptr %137, align 8, !tbaa !137
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(48) %137) #17
+  %142 = load ptr, ptr %125, align 8, !tbaa !139
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
+  %144 = load i64, ptr %143, align 8, !tbaa !152
+  %145 = trunc i64 %144 to i8
   %.not.i127 = icmp eq ptr @_ZTH22softfloat_roundingMode, null
-  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %145
+  br i1 %.not.i127, label %_ZTW22softfloat_roundingMode.exit, label %146
 
-145:                                              ; preds = %134
+146:                                              ; preds = %135
   call void @_ZTH22softfloat_roundingMode()
   br label %_ZTW22softfloat_roundingMode.exit
 
-_ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
-  %146 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  store i8 %144, ptr %146, align 1, !tbaa !156
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %148 = load ptr, ptr %147, align 8, !tbaa !151
-  %149 = load ptr, ptr %148, align 8, !tbaa !137
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(48) %148) #17
-  %153 = icmp ult i64 %152, %140
-  br i1 %153, label %.lr.ph, label %._crit_edge
+_ZTW22softfloat_roundingMode.exit:                ; preds = %135, %146
+  %147 = call noundef align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  store i8 %145, ptr %147, align 1, !tbaa !156
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %149 = load ptr, ptr %148, align 8, !tbaa !151
+  %150 = load ptr, ptr %149, align 8, !tbaa !137
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  %153 = call noundef i64 %152(ptr noundef nonnull align 8 dereferenceable(48) %149) #17
+  %154 = icmp ult i64 %153, %141
+  br i1 %154, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZTW22softfloat_roundingMode.exit
-  %154 = and i64 %1, 33554432
-  %155 = icmp eq i64 %154, 0
+  %155 = and i64 %1, 33554432
+  %156 = icmp eq i64 %155, 0
   %.not.i139 = icmp eq ptr @_ZTH24softfloat_exceptionFlags, null
-  %156 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
-  br label %159
+  %157 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_exceptionFlags)
+  br label %160
 
-._crit_edge:                                      ; preds = %239, %_ZTW22softfloat_roundingMode.exit
-  %157 = add i64 %2, 4
-  %158 = load ptr, ptr %147, align 8, !tbaa !151
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %158, i64 noundef 0) #17
-  ret i64 %157
+._crit_edge:                                      ; preds = %240, %_ZTW22softfloat_roundingMode.exit
+  %158 = add i64 %2, 4
+  %159 = load ptr, ptr %148, align 8, !tbaa !151
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %159, i64 noundef 0) #17
+  ret i64 %158
 
-159:                                              ; preds = %.lr.ph, %239
-  %.0107184 = phi i64 [ %152, %.lr.ph ], [ %240, %239 ]
-  %160 = lshr i64 %.0107184, 6
-  %161 = and i64 %.0107184, 63
-  br i1 %155, label %162, label %._crit_edge191
+160:                                              ; preds = %.lr.ph, %240
+  %.0107185 = phi i64 [ %153, %.lr.ph ], [ %241, %240 ]
+  %161 = lshr i64 %.0107185, 6
+  %162 = and i64 %.0107185, 63
+  br i1 %156, label %163, label %._crit_edge192
 
-._crit_edge191:                                   ; preds = %159
-  %.pre195 = shl nuw i64 1, %161
-  %.pre197 = shl i64 %160, 32
-  %.pre198 = ashr exact i64 %.pre197, 32
-  br label %168
+._crit_edge192:                                   ; preds = %160
+  %.pre196 = shl nuw i64 1, %162
+  %.pre198 = shl i64 %161, 32
+  %.pre199 = ashr exact i64 %.pre198, 32
+  br label %169
 
-162:                                              ; preds = %159
-  %sext = shl i64 %160, 32
-  %163 = ashr exact i64 %sext, 32
-  %164 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %163, i1 noundef zeroext false)
-  %165 = load i64, ptr %164, align 8, !tbaa !141
-  %166 = shl nuw i64 1, %161
-  %167 = and i64 %165, %166
-  %.not112 = icmp eq i64 %167, 0
-  br i1 %.not112, label %239, label %168
+163:                                              ; preds = %160
+  %sext = shl i64 %161, 32
+  %164 = ashr exact i64 %sext, 32
+  %165 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef 0, i64 noundef %164, i1 noundef zeroext false)
+  %166 = load i64, ptr %165, align 8, !tbaa !141
+  %167 = shl nuw i64 1, %162
+  %168 = and i64 %166, %167
+  %.not112 = icmp eq i64 %168, 0
+  br i1 %.not112, label %240, label %169
 
-168:                                              ; preds = %._crit_edge191, %162
-  %.pre-phi199 = phi i64 [ %.pre198, %._crit_edge191 ], [ %163, %162 ]
-  %.pre-phi196 = phi i64 [ %.pre195, %._crit_edge191 ], [ %166, %162 ]
-  %169 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi199, i1 noundef zeroext true)
-  %170 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %170, label %222 [
-    i64 16, label %171
-    i64 32, label %188
-    i64 64, label %205
+169:                                              ; preds = %._crit_edge192, %163
+  %.pre-phi200 = phi i64 [ %.pre199, %._crit_edge192 ], [ %164, %163 ]
+  %.pre-phi197 = phi i64 [ %.pre196, %._crit_edge192 ], [ %167, %163 ]
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %6, i64 noundef %.pre-phi200, i1 noundef zeroext true)
+  %171 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %171, label %223 [
+    i64 16, label %172
+    i64 32, label %189
+    i64 64, label %206
   ]
 
-171:                                              ; preds = %168
-  %172 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.012.0.copyload = load i16, ptr %172, align 2, !tbaa !157
-  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.011.0.copyload = load i16, ptr %173, align 2, !tbaa !157
-  %174 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
+172:                                              ; preds = %169
+  %173 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.012.0.copyload = load i16, ptr %173, align 2, !tbaa !157
+  %174 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZN12vectorUnit_t3eltI9float16_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.011.0.copyload = load i16, ptr %174, align 2, !tbaa !157
+  %175 = call zeroext i1 @f16_le(i16 %.sroa.011.0.copyload, i16 %.sroa.012.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit, label %_ZTW24softfloat_exceptionFlags.exit.thread
 
-_ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
-  %175 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
+_ZTW24softfloat_exceptionFlags.exit:              ; preds = %172
+  %176 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116 = icmp eq i8 %176, 0
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread211
 
-_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
+_ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %172
   call void @_ZTH24softfloat_exceptionFlags()
-  %176 = load i8, ptr %156, align 1, !tbaa !156
-  %.not116172 = icmp eq i8 %176, 0
-  br i1 %.not116172, label %.thread174, label %182
+  %177 = load i8, ptr %157, align 1, !tbaa !156
+  %.not116172 = icmp eq i8 %177, 0
+  br i1 %.not116172, label %.thread174, label %183
 
-.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
-  %177 = load ptr, ptr %65, align 8, !tbaa !139
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
-  %179 = load i64, ptr %178, align 8, !tbaa !152
-  %180 = zext i8 %175 to i64
-  %181 = or i64 %179, %180
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %177, i64 noundef %181) #17
+.thread211:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+  %178 = load ptr, ptr %65, align 8, !tbaa !139
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  %180 = load i64, ptr %179, align 8, !tbaa !152
+  %181 = zext i8 %176 to i64
+  %182 = or i64 %180, %181
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %178, i64 noundef %182) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-182:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
-  %183 = load ptr, ptr %65, align 8, !tbaa !139
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 40
-  %185 = load i64, ptr %184, align 8, !tbaa !152
+183:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit.thread
+  %184 = load ptr, ptr %65, align 8, !tbaa !139
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
+  %186 = load i64, ptr %185, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre189 = load i8, ptr %156, align 1, !tbaa !156
-  %186 = zext i8 %.pre189 to i64
-  %187 = or i64 %185, %186
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %183, i64 noundef %187) #17
+  %.pre190 = load i8, ptr %157, align 1, !tbaa !156
+  %187 = zext i8 %.pre190 to i64
+  %188 = or i64 %186, %187
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %184, i64 noundef %188) #17
   br label %.thread174
 
-.thread174:                                       ; preds = %182, %_ZTW24softfloat_exceptionFlags.exit.thread
+.thread174:                                       ; preds = %183, %_ZTW24softfloat_exceptionFlags.exit.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-188:                                              ; preds = %168
-  %189 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.08.0.copyload = load i32, ptr %189, align 4, !tbaa !159
-  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.07.0.copyload = load i32, ptr %190, align 4, !tbaa !159
-  %191 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
+189:                                              ; preds = %169
+  %190 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.08.0.copyload = load i32, ptr %190, align 4, !tbaa !159
+  %191 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN12vectorUnit_t3eltI9float32_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.07.0.copyload = load i32, ptr %191, align 4, !tbaa !159
+  %192 = call zeroext i1 @f32_le(i32 %.sroa.07.0.copyload, i32 %.sroa.08.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit134, label %_ZTW24softfloat_exceptionFlags.exit134.thread
 
-_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
-  %192 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
+_ZTW24softfloat_exceptionFlags.exit134:           ; preds = %189
+  %193 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115 = icmp eq i8 %193, 0
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread213
 
-_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
+_ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %189
   call void @_ZTH24softfloat_exceptionFlags()
-  %193 = load i8, ptr %156, align 1, !tbaa !156
-  %.not115175 = icmp eq i8 %193, 0
-  br i1 %.not115175, label %.thread177, label %199
+  %194 = load i8, ptr %157, align 1, !tbaa !156
+  %.not115175 = icmp eq i8 %194, 0
+  br i1 %.not115175, label %.thread177, label %200
 
-.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
-  %194 = load ptr, ptr %65, align 8, !tbaa !139
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
-  %196 = load i64, ptr %195, align 8, !tbaa !152
-  %197 = zext i8 %192 to i64
-  %198 = or i64 %196, %197
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %194, i64 noundef %198) #17
+.thread213:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+  %195 = load ptr, ptr %65, align 8, !tbaa !139
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
+  %197 = load i64, ptr %196, align 8, !tbaa !152
+  %198 = zext i8 %193 to i64
+  %199 = or i64 %197, %198
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %195, i64 noundef %199) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-199:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
-  %200 = load ptr, ptr %65, align 8, !tbaa !139
-  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
-  %202 = load i64, ptr %201, align 8, !tbaa !152
+200:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit134.thread
+  %201 = load ptr, ptr %65, align 8, !tbaa !139
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
+  %203 = load i64, ptr %202, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre188 = load i8, ptr %156, align 1, !tbaa !156
-  %203 = zext i8 %.pre188 to i64
-  %204 = or i64 %202, %203
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %200, i64 noundef %204) #17
+  %.pre189 = load i8, ptr %157, align 1, !tbaa !156
+  %204 = zext i8 %.pre189 to i64
+  %205 = or i64 %203, %204
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %201, i64 noundef %205) #17
   br label %.thread177
 
-.thread177:                                       ; preds = %199, %_ZTW24softfloat_exceptionFlags.exit134.thread
+.thread177:                                       ; preds = %200, %_ZTW24softfloat_exceptionFlags.exit134.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-205:                                              ; preds = %168
-  %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.04.0.copyload = load i64, ptr %206, align 8, !tbaa !141
-  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107184, i1 noundef zeroext false)
-  %.sroa.03.0.copyload = load i64, ptr %207, align 8, !tbaa !141
-  %208 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
+206:                                              ; preds = %169
+  %207 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %40, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.04.0.copyload = load i64, ptr %207, align 8, !tbaa !141
+  %208 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltI9float64_tEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %27, i64 noundef %8, i64 noundef %.0107185, i1 noundef zeroext false)
+  %.sroa.03.0.copyload = load i64, ptr %208, align 8, !tbaa !141
+  %209 = call zeroext i1 @f64_le(i64 %.sroa.03.0.copyload, i64 %.sroa.04.0.copyload)
   br i1 %.not.i139, label %_ZTW24softfloat_exceptionFlags.exit140, label %_ZTW24softfloat_exceptionFlags.exit140.thread
 
-_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
-  %209 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
+_ZTW24softfloat_exceptionFlags.exit140:           ; preds = %206
+  %210 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114 = icmp eq i8 %210, 0
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread215
 
-_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
+_ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %206
   call void @_ZTH24softfloat_exceptionFlags()
-  %210 = load i8, ptr %156, align 1, !tbaa !156
-  %.not114178 = icmp eq i8 %210, 0
-  br i1 %.not114178, label %.thread180, label %216
+  %211 = load i8, ptr %157, align 1, !tbaa !156
+  %.not114178 = icmp eq i8 %211, 0
+  br i1 %.not114178, label %.thread180, label %217
 
-.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
-  %211 = load ptr, ptr %65, align 8, !tbaa !139
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %213 = load i64, ptr %212, align 8, !tbaa !152
-  %214 = zext i8 %209 to i64
-  %215 = or i64 %213, %214
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %211, i64 noundef %215) #17
+.thread215:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+  %212 = load ptr, ptr %65, align 8, !tbaa !139
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %214 = load i64, ptr %213, align 8, !tbaa !152
+  %215 = zext i8 %210 to i64
+  %216 = or i64 %214, %215
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %212, i64 noundef %216) #17
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-216:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
-  %217 = load ptr, ptr %65, align 8, !tbaa !139
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 40
-  %219 = load i64, ptr %218, align 8, !tbaa !152
+217:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit140.thread
+  %218 = load ptr, ptr %65, align 8, !tbaa !139
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 40
+  %220 = load i64, ptr %219, align 8, !tbaa !152
   call void @_ZTH24softfloat_exceptionFlags()
-  %.pre187 = load i8, ptr %156, align 1, !tbaa !156
-  %220 = zext i8 %.pre187 to i64
-  %221 = or i64 %219, %220
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %217, i64 noundef %221) #17
+  %.pre188 = load i8, ptr %157, align 1, !tbaa !156
+  %221 = zext i8 %.pre188 to i64
+  %222 = or i64 %220, %221
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %218, i64 noundef %222) #17
   br label %.thread180
 
-.thread180:                                       ; preds = %216, %_ZTW24softfloat_exceptionFlags.exit140.thread
+.thread180:                                       ; preds = %217, %_ZTW24softfloat_exceptionFlags.exit140.thread
   call void @_ZTH24softfloat_exceptionFlags()
   br label %_ZTW24softfloat_exceptionFlags.exit132
 
-222:                                              ; preds = %168
-  %223 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 2, ptr %224, align 8, !tbaa !132
-  %225 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store i8 0, ptr %225, align 8, !tbaa !134
-  %226 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  store i64 %1, ptr %226, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %223, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+223:                                              ; preds = %169
+  %224 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 2, ptr %225, align 8, !tbaa !132
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  store i8 0, ptr %226, align 8, !tbaa !134
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  store i64 %1, ptr %227, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %224, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %224, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %191, %.thread177 ], [ %174, %.thread174 ], [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
-  store i8 0, ptr %156, align 1, !tbaa !156
-  %227 = load i64, ptr %67, align 8, !tbaa !140
-  switch i64 %227, label %234 [
-    i64 16, label %228
-    i64 32, label %228
-    i64 64, label %228
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread215, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread213, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread211, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %192, %.thread177 ], [ %175, %.thread174 ], [ %175, %_ZTW24softfloat_exceptionFlags.exit ], [ %175, %.thread211 ], [ %192, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %192, %.thread213 ], [ %209, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %209, %.thread215 ], [ %209, %.thread180 ]
+  store i8 0, ptr %157, align 1, !tbaa !156
+  %228 = load i64, ptr %67, align 8, !tbaa !140
+  switch i64 %228, label %235 [
+    i64 16, label %229
+    i64 32, label %229
+    i64 64, label %229
   ]
 
-228:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
+229:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132, %_ZTW24softfloat_exceptionFlags.exit132
   %.0109 = zext i1 %.0109.in to i64
-  %229 = load i64, ptr %169, align 8, !tbaa !141
-  %230 = xor i64 %.pre-phi196, -1
-  %231 = and i64 %229, %230
-  %232 = shl nuw i64 %.0109, %161
-  %233 = or i64 %231, %232
-  store i64 %233, ptr %169, align 8, !tbaa !141
-  br label %239
+  %230 = load i64, ptr %170, align 8, !tbaa !141
+  %231 = xor i64 %.pre-phi197, -1
+  %232 = and i64 %230, %231
+  %233 = shl nuw i64 %.0109, %162
+  %234 = or i64 %232, %233
+  store i64 %234, ptr %170, align 8, !tbaa !141
+  br label %240
 
-234:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
-  %235 = call ptr @__cxa_allocate_exception(i64 32) #17
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i64 2, ptr %236, align 8, !tbaa !132
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store i8 0, ptr %237, align 8, !tbaa !134
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  store i64 %1, ptr %238, align 8, !tbaa !136
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %235, align 8, !tbaa !137
-  call void @__cxa_throw(ptr nonnull %235, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
+235:                                              ; preds = %_ZTW24softfloat_exceptionFlags.exit132
+  %236 = call ptr @__cxa_allocate_exception(i64 32) #17
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 2, ptr %237, align 8, !tbaa !132
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  store i8 0, ptr %238, align 8, !tbaa !134
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  store i64 %1, ptr %239, align 8, !tbaa !136
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %236, align 8, !tbaa !137
+  call void @__cxa_throw(ptr nonnull %236, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-239:                                              ; preds = %162, %228
-  %240 = add i64 %.0107184, 1
-  %exitcond.not = icmp eq i64 %240, %140
-  br i1 %exitcond.not, label %._crit_edge, label %159, !llvm.loop !175
+240:                                              ; preds = %163, %229
+  %241 = add i64 %.0107185, 1
+  %exitcond.not = icmp eq i64 %241, %141
+  br i1 %exitcond.not, label %._crit_edge, label %160, !llvm.loop !175
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

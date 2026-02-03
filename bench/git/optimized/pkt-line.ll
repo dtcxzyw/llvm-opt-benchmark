@@ -184,9 +184,9 @@ packet_trace_pack.exit36:                         ; preds = %28, %12, %13, %29, 
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %wide.trip.count = zext i32 %.023 to i64
-  br label %56
+  br label %55
 
-._crit_edge:                                      ; preds = %73, %33
+._crit_edge:                                      ; preds = %72, %33
   %42 = load i64, ptr %4, align 8, !tbaa !12
   %.not.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
@@ -221,35 +221,34 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_packet, i64 8), align 8, !tbaa !17
   %.not.i39 = icmp eq i32 %53, 0
   %54 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_packet, i64 12), align 4
-  %55 = and i8 %54, 1
-  %.not3153 = icmp ne i8 %55, 0
+  %.not3153 = trunc i8 %54 to i1
   %.not31 = select i1 %.not.i39, i1 %.not3153, i1 false
-  br i1 %.not31, label %75, label %74
+  br i1 %.not31, label %74, label %73
 
-56:                                               ; preds = %.lr.ph, %73
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.022, i64 %indvars.iv
-  %58 = load i8, ptr %57, align 1, !tbaa !11
-  %59 = icmp eq i8 %58, 10
-  br i1 %59, label %73, label %60
+55:                                               ; preds = %.lr.ph, %72
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.022, i64 %indvars.iv
+  %57 = load i8, ptr %56, align 1, !tbaa !11
+  %58 = icmp eq i8 %57, 10
+  br i1 %58, label %72, label %59
 
-60:                                               ; preds = %56
-  %61 = add i8 %58, -127
-  %or.cond = icmp ult i8 %61, -95
-  br i1 %or.cond, label %71, label %62
+59:                                               ; preds = %55
+  %60 = add i8 %57, -127
+  %or.cond = icmp ult i8 %60, -95
+  br i1 %or.cond, label %70, label %61
 
-62:                                               ; preds = %60
-  %63 = load i64, ptr %4, align 8, !tbaa !12
-  %.not.i.i40 = icmp eq i64 %63, 0
+61:                                               ; preds = %59
+  %62 = load i64, ptr %4, align 8, !tbaa !12
+  %.not.i.i40 = icmp eq i64 %62, 0
   br i1 %.not.i.i40, label %strbuf_avail.exit.thread.i45, label %strbuf_avail.exit.i41
 
-strbuf_avail.exit.i41:                            ; preds = %62
-  %64 = load i64, ptr %40, align 8, !tbaa !15
-  %.neg.i42 = add i64 %64, 1
-  %.not.i43 = icmp eq i64 %63, %.neg.i42
+strbuf_avail.exit.i41:                            ; preds = %61
+  %63 = load i64, ptr %40, align 8, !tbaa !15
+  %.neg.i42 = add i64 %63, 1
+  %.not.i43 = icmp eq i64 %62, %.neg.i42
   br i1 %.not.i43, label %strbuf_avail.exit.thread.i45, label %strbuf_addch.exit49
 
-strbuf_avail.exit.thread.i45:                     ; preds = %strbuf_avail.exit.i41, %62
+strbuf_avail.exit.thread.i45:                     ; preds = %strbuf_avail.exit.i41, %61
   call void @strbuf_grow(ptr noundef nonnull %4, i64 noundef 1) #16
   %.pre.i47 = load i64, ptr %40, align 8, !tbaa !15
   %.pre7.i48 = add i64 %.pre.i47, 1
@@ -257,36 +256,36 @@ strbuf_avail.exit.thread.i45:                     ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit49:                              ; preds = %strbuf_avail.exit.i41, %strbuf_avail.exit.thread.i45
   %.pre-phi.i44 = phi i64 [ %.pre7.i48, %strbuf_avail.exit.thread.i45 ], [ %.neg.i42, %strbuf_avail.exit.i41 ]
-  %65 = phi i64 [ %.pre.i47, %strbuf_avail.exit.thread.i45 ], [ %64, %strbuf_avail.exit.i41 ]
-  %66 = load ptr, ptr %41, align 8, !tbaa !16
+  %64 = phi i64 [ %.pre.i47, %strbuf_avail.exit.thread.i45 ], [ %63, %strbuf_avail.exit.i41 ]
+  %65 = load ptr, ptr %41, align 8, !tbaa !16
   store i64 %.pre-phi.i44, ptr %40, align 8, !tbaa !15
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
-  store i8 %58, ptr %67, align 1, !tbaa !11
-  %68 = load ptr, ptr %41, align 8, !tbaa !16
-  %69 = load i64, ptr %40, align 8, !tbaa !15
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %69
-  store i8 0, ptr %70, align 1, !tbaa !11
-  br label %73
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %64
+  store i8 %57, ptr %66, align 1, !tbaa !11
+  %67 = load ptr, ptr %41, align 8, !tbaa !16
+  %68 = load i64, ptr %40, align 8, !tbaa !15
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
+  store i8 0, ptr %69, align 1, !tbaa !11
+  br label %72
 
-71:                                               ; preds = %60
-  %72 = sext i8 %58 to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, i32 noundef %72) #16
-  br label %73
+70:                                               ; preds = %59
+  %71 = sext i8 %57 to i32
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, i32 noundef %71) #16
+  br label %72
 
-73:                                               ; preds = %strbuf_addch.exit49, %71, %56
+72:                                               ; preds = %strbuf_addch.exit49, %70, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !19
 
-74:                                               ; preds = %strbuf_addch.exit
+73:                                               ; preds = %strbuf_addch.exit
   call void @trace_strbuf_fl(ptr noundef nonnull @.str.10, i32 noundef 85, ptr noundef nonnull @trace_packet, ptr noundef nonnull %4) #16
-  br label %75
+  br label %74
 
-75:                                               ; preds = %74, %strbuf_addch.exit
+74:                                               ; preds = %73, %strbuf_addch.exit
   call void @strbuf_release(ptr noundef nonnull %4) #16
   br label %packet_trace_pack.exit
 
-packet_trace_pack.exit:                           ; preds = %16, %11, %packet_trace_pack.exit36, %6, %75
+packet_trace_pack.exit:                           ; preds = %16, %11, %packet_trace_pack.exit36, %6, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

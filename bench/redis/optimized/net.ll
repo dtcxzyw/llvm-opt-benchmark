@@ -1044,14 +1044,14 @@ redisCreateSocket.exit.thread:                    ; preds = %3
   %12 = call i32 @__xpg_strerror_r(i32 noundef %11, ptr noundef nonnull %4, i64 noundef 128) #10
   call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %81
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %8, ptr %14, align 4, !tbaa !4
   %15 = tail call fastcc i32 @redisSetBlocking(ptr noundef nonnull %0, i32 noundef 0)
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %80
+  br i1 %.not, label %16, label %81
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1129,7 +1129,7 @@ redisContextUpdateConnectTimeout.exit.thread:     ; preds = %28, %36
 
 redisContextTimeoutMsec.exit:                     ; preds = %40, %44
   tail call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str.15) #10
-  br label %80
+  br label %81
 
 52:                                               ; preds = %redisContextUpdateConnectTimeout.exit.thread.thread, %47, %redisContextUpdateConnectTimeout.exit.thread
   %storemerge.i.ph = phi i64 [ -1, %redisContextUpdateConnectTimeout.exit.thread ], [ %spec.store.select.i, %47 ], [ -1, %redisContextUpdateConnectTimeout.exit.thread.thread ]
@@ -1165,36 +1165,36 @@ redisContextTimeoutMsec.exit:                     ; preds = %40, %44
   %69 = tail call ptr @__errno_location() #11
   %70 = load i32, ptr %69, align 4, !tbaa !18
   %71 = icmp ne i32 %70, 115
-  %72 = icmp ne i32 %7, 0
+  %72 = trunc i32 %6 to i1
   %or.cond = select i1 %71, i1 true, i1 %72
-  br i1 %or.cond, label %73, label %.thread
+  br i1 %or.cond, label %73, label %75
 
 73:                                               ; preds = %68
   %74 = tail call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %0, i64 noundef %storemerge.i.ph)
   %.not42 = icmp eq i32 %74, 0
-  br i1 %.not42, label %75, label %80
+  br i1 %.not42, label %75, label %81
 
-75:                                               ; preds = %73, %61
+75:                                               ; preds = %68, %73, %61
   %.not43 = icmp eq i32 %7, 0
-  br i1 %.not43, label %.thread, label %76
+  br i1 %.not43, label %78, label %76
 
 76:                                               ; preds = %75
   %77 = tail call fastcc i32 @redisSetBlocking(ptr noundef nonnull %0, i32 noundef 1)
   %.not44 = icmp eq i32 %77, 0
-  br i1 %.not44, label %.thread, label %80
+  br i1 %.not44, label %78, label %81
 
-.thread:                                          ; preds = %68, %76, %75
-  %78 = load i32, ptr %5, align 8, !tbaa !19
-  %79 = or i32 %78, 2
-  store i32 %79, ptr %5, align 8, !tbaa !19
-  br label %80
+78:                                               ; preds = %76, %75
+  %79 = load i32, ptr %5, align 8, !tbaa !19
+  %80 = or i32 %79, 2
+  store i32 %80, ptr %5, align 8, !tbaa !19
+  br label %81
 
 redisContextUpdateConnectTimeout.exit:            ; preds = %32, %57, %20
   tail call void @__redisSetError(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str.5) #10
-  br label %80
+  br label %81
 
-80:                                               ; preds = %redisContextTimeoutMsec.exit, %redisCreateSocket.exit.thread, %76, %73, %13, %redisContextUpdateConnectTimeout.exit, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ -1, %redisCreateSocket.exit.thread ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %13 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %73 ], [ -1, %76 ]
+81:                                               ; preds = %redisContextTimeoutMsec.exit, %redisCreateSocket.exit.thread, %76, %73, %13, %redisContextUpdateConnectTimeout.exit, %78
+  %.0 = phi i32 [ 0, %78 ], [ -1, %redisCreateSocket.exit.thread ], [ -1, %redisContextUpdateConnectTimeout.exit ], [ -1, %13 ], [ -1, %redisContextTimeoutMsec.exit ], [ -1, %73 ], [ -1, %76 ]
   ret i32 %.0
 }
 

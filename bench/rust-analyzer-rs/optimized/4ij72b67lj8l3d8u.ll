@@ -20269,13 +20269,12 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   %.58 = select i1 %125, i8 undef, i8 %122
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 26
   %127 = load i8, ptr %126, align 2, !noundef !7
-  %128 = and i8 %127, 1
-  %129 = getelementptr inbounds nuw i8, ptr %9, i64 27
-  %130 = load i8, ptr %129, align 1, !range !68, !noundef !7
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %118, ptr %131, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %130, ptr %132, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 27
+  %129 = load i8, ptr %128, align 1, !range !68, !noundef !7
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %118, ptr %130, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 %129, ptr %131, align 4
   store i8 %120, ptr %0, align 4
   %.sroa.87.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.58, ptr %.sroa.87.0..sroa_idx, align 1
@@ -20283,12 +20282,13 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   store i32 %.sroa.080.0.copyload, ptr %.sroa.129.0..sroa_idx, align 4
   %.sroa.1710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %124, ptr %.sroa.1710.0..sroa_idx, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %134 = lshr i8 %127, 1
-  %.lobit = and i8 %134, 1
-  store i8 %.lobit, ptr %133, align 1
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i8 %128, ptr %135, align 2
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %133 = lshr i8 %127, 1
+  %.lobit = and i8 %133, 1
+  store i8 %.lobit, ptr %132, align 1
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %135 = and i8 %127, 1
+  store i8 %135, ptr %134, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5022)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5025)
   %136 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !5028

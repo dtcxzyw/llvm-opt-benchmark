@@ -12400,28 +12400,27 @@ _ZNK5folly7futures6detail10FutureBaseINS_4UnitEE19getDeferredExecutorEv.exit: ; 
 if.then5:                                         ; preds = %_ZNK5folly7futures6detail10FutureBaseINS_4UnitEE19getDeferredExecutorEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %5 = load i64, ptr %executor, align 8, !noalias !142
-  %and.i.i = and i64 %5, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %cond.false.i, label %cond.true.i
+  %tobool.i.i = trunc i64 %5 to i1
+  br i1 %tobool.i.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then5
   %or.i.i.i = and i64 %5, -3
   br label %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit
 
 cond.false.i:                                     ; preds = %if.then5
-  %and.i2.i = and i64 %5, -4
-  %tobool.not.i.i = icmp eq i64 %and.i2.i, 0
+  %and.i1.i = and i64 %5, -4
+  %tobool.not.i.i = icmp eq i64 %and.i1.i, 0
   br i1 %tobool.not.i.i, label %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.false.i
-  %6 = inttoptr i64 %and.i2.i to ptr
+  %6 = inttoptr i64 %and.i1.i to ptr
   %vtable.i.i = load ptr, ptr %6, align 8, !noalias !145
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 40
   %7 = load ptr, ptr %vfn.i.i, align 8, !noalias !145
   %call.i.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #36, !noalias !145
   %not.call.i.i = xor i1 %call.i.i, true
   %or.i.i.i.i = zext i1 %not.call.i.i to i64
-  %spec.select.i.i = or disjoint i64 %and.i2.i, %or.i.i.i.i
+  %spec.select.i.i = or disjoint i64 %and.i1.i, %or.i.i.i.i
   br label %_ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit
 
 _ZNK5folly8Executor9KeepAliveIS0_E4copyEv.exit:   ; preds = %cond.true.i, %cond.false.i, %if.end.i.i
@@ -12439,14 +12438,14 @@ invoke.cont:                                      ; preds = %_ZNK5folly8Executor
 
 if.then.i.i:                                      ; preds = %invoke.cont
   store i64 0, ptr %agg.tmp, align 8
-  %and.i.i7 = and i64 %8, 3
-  %tobool4.not.i.i = icmp eq i64 %and.i.i7, 0
+  %and.i.i = and i64 %8, 3
+  %tobool4.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %if.end6
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %vtable.i.i8 = load ptr, ptr %9, align 8
-  %vfn.i.i9 = getelementptr inbounds nuw i8, ptr %vtable.i.i8, i64 48
-  %10 = load ptr, ptr %vfn.i.i9, align 8
+  %vtable.i.i7 = load ptr, ptr %9, align 8
+  %vfn.i.i8 = getelementptr inbounds nuw i8, ptr %vtable.i.i7, i64 48
+  %10 = load ptr, ptr %vfn.i.i8, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #36
   br label %if.end6
 
@@ -12454,15 +12453,15 @@ lpad:                                             ; preds = %_ZNK5folly8Executor
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = load i64, ptr %agg.tmp, align 8
-  %and.i.i.i10 = and i64 %12, -4
-  %tobool.not.i.i11 = icmp eq i64 %and.i.i.i10, 0
-  br i1 %tobool.not.i.i11, label %eh.resume, label %if.then.i.i12
+  %and.i.i.i9 = and i64 %12, -4
+  %tobool.not.i.i10 = icmp eq i64 %and.i.i.i9, 0
+  br i1 %tobool.not.i.i10, label %eh.resume, label %if.then.i.i11
 
-if.then.i.i12:                                    ; preds = %lpad
+if.then.i.i11:                                    ; preds = %lpad
   store i64 0, ptr %agg.tmp, align 8
-  %and.i.i13 = and i64 %12, 3
-  %tobool4.not.i.i14 = icmp eq i64 %and.i.i13, 0
-  br i1 %tobool4.not.i.i14, label %eh.resume.sink.split, label %eh.resume
+  %and.i.i12 = and i64 %12, 3
+  %tobool4.not.i.i13 = icmp eq i64 %and.i.i12, 0
+  br i1 %tobool4.not.i.i13, label %eh.resume.sink.split, label %eh.resume
 
 if.end6:                                          ; preds = %if.then5.i.i, %if.then.i.i, %invoke.cont, %_ZNK5folly7futures6detail10FutureBaseINS_4UnitEE19getDeferredExecutorEv.exit
   %13 = load ptr, ptr %this, align 8
@@ -12472,14 +12471,14 @@ if.end6:                                          ; preds = %if.then5.i.i, %if.t
   store i64 0, ptr %executor, align 8
   store i64 %14, ptr %agg.tmp9, align 8
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredC1ENS_8Executor9KeepAliveIS3_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, ptr noundef nonnull %agg.tmp9) #36
-  %tobool.not.i.i.i19 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i.i19, label %if.then.i.i.i20, label %invoke.cont11
+  %tobool.not.i.i.i18 = icmp eq ptr %13, null
+  br i1 %tobool.not.i.i.i18, label %if.then.i.i.i19, label %invoke.cont11
 
-if.then.i.i.i20:                                  ; preds = %if.end6
+if.then.i.i.i19:                                  ; preds = %if.end6
   invoke void @_ZN5folly6detail16throw_exception_INS_13FutureInvalidEJEEEvDpT0_() #18
           to label %.noexc unwind label %lpad10
 
-.noexc:                                           ; preds = %if.then.i.i.i20
+.noexc:                                           ; preds = %if.then.i.i.i19
   unreachable
 
 invoke.cont11:                                    ; preds = %if.end6
@@ -12487,54 +12486,54 @@ invoke.cont11:                                    ; preds = %if.end6
   %call12.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly7futures6detail19KeepAliveOrDeferredaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %executor_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8) #36
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8) #36
   %15 = load i64, ptr %agg.tmp9, align 8
-  %and.i.i.i21 = and i64 %15, -4
-  %16 = inttoptr i64 %and.i.i.i21 to ptr
-  %tobool.not.i.i22 = icmp eq i64 %and.i.i.i21, 0
-  br i1 %tobool.not.i.i22, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit29, label %if.then.i.i23
+  %and.i.i.i20 = and i64 %15, -4
+  %16 = inttoptr i64 %and.i.i.i20 to ptr
+  %tobool.not.i.i21 = icmp eq i64 %and.i.i.i20, 0
+  br i1 %tobool.not.i.i21, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit28, label %if.then.i.i22
 
-if.then.i.i23:                                    ; preds = %invoke.cont11
+if.then.i.i22:                                    ; preds = %invoke.cont11
   store i64 0, ptr %agg.tmp9, align 8
-  %and.i.i24 = and i64 %15, 3
-  %tobool4.not.i.i25 = icmp eq i64 %and.i.i24, 0
-  br i1 %tobool4.not.i.i25, label %if.then5.i.i26, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit29
+  %and.i.i23 = and i64 %15, 3
+  %tobool4.not.i.i24 = icmp eq i64 %and.i.i23, 0
+  br i1 %tobool4.not.i.i24, label %if.then5.i.i25, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit28
 
-if.then5.i.i26:                                   ; preds = %if.then.i.i23
-  %vtable.i.i27 = load ptr, ptr %16, align 8
-  %vfn.i.i28 = getelementptr inbounds nuw i8, ptr %vtable.i.i27, i64 48
-  %17 = load ptr, ptr %vfn.i.i28, align 8
+if.then5.i.i25:                                   ; preds = %if.then.i.i22
+  %vtable.i.i26 = load ptr, ptr %16, align 8
+  %vfn.i.i27 = getelementptr inbounds nuw i8, ptr %vtable.i.i26, i64 48
+  %17 = load ptr, ptr %vfn.i.i27, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #36
-  br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit29
+  br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit28
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit29:     ; preds = %invoke.cont11, %if.then.i.i23, %if.then5.i.i26
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit28:     ; preds = %invoke.cont11, %if.then.i.i22, %if.then5.i.i25
   ret void
 
-lpad10:                                           ; preds = %if.then.i.i.i20
+lpad10:                                           ; preds = %if.then.i.i.i19
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8) #36
   %19 = load i64, ptr %agg.tmp9, align 8
-  %and.i.i.i30 = and i64 %19, -4
-  %tobool.not.i.i31 = icmp eq i64 %and.i.i.i30, 0
-  br i1 %tobool.not.i.i31, label %eh.resume, label %if.then.i.i32
+  %and.i.i.i29 = and i64 %19, -4
+  %tobool.not.i.i30 = icmp eq i64 %and.i.i.i29, 0
+  br i1 %tobool.not.i.i30, label %eh.resume, label %if.then.i.i31
 
-if.then.i.i32:                                    ; preds = %lpad10
+if.then.i.i31:                                    ; preds = %lpad10
   store i64 0, ptr %agg.tmp9, align 8
-  %and.i.i33 = and i64 %19, 3
-  %tobool4.not.i.i34 = icmp eq i64 %and.i.i33, 0
-  br i1 %tobool4.not.i.i34, label %eh.resume.sink.split, label %eh.resume
+  %and.i.i32 = and i64 %19, 3
+  %tobool4.not.i.i33 = icmp eq i64 %and.i.i32, 0
+  br i1 %tobool4.not.i.i33, label %eh.resume.sink.split, label %eh.resume
 
-eh.resume.sink.split:                             ; preds = %if.then.i.i32, %if.then.i.i12
-  %.sink44.in = phi i64 [ %and.i.i.i10, %if.then.i.i12 ], [ %and.i.i.i30, %if.then.i.i32 ]
-  %.pn.ph = phi { ptr, i32 } [ %11, %if.then.i.i12 ], [ %18, %if.then.i.i32 ]
-  %.sink44 = inttoptr i64 %.sink44.in to ptr
-  %vtable.i.i36 = load ptr, ptr %.sink44, align 8
-  %vfn.i.i37 = getelementptr inbounds nuw i8, ptr %vtable.i.i36, i64 48
-  %20 = load ptr, ptr %vfn.i.i37, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %.sink44) #36
+eh.resume.sink.split:                             ; preds = %if.then.i.i31, %if.then.i.i11
+  %.sink43.in = phi i64 [ %and.i.i.i9, %if.then.i.i11 ], [ %and.i.i.i29, %if.then.i.i31 ]
+  %.pn.ph = phi { ptr, i32 } [ %11, %if.then.i.i11 ], [ %18, %if.then.i.i31 ]
+  %.sink43 = inttoptr i64 %.sink43.in to ptr
+  %vtable.i.i35 = load ptr, ptr %.sink43, align 8
+  %vfn.i.i36 = getelementptr inbounds nuw i8, ptr %vtable.i.i35, i64 48
+  %20 = load ptr, ptr %vfn.i.i36, align 8
+  call void %20(ptr noundef nonnull align 8 dereferenceable(8) %.sink43) #36
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad10, %if.then.i.i32, %if.then.i.i12, %lpad
-  %.pn = phi { ptr, i32 } [ %18, %if.then.i.i32 ], [ %11, %lpad ], [ %11, %if.then.i.i12 ], [ %18, %lpad10 ], [ %.pn.ph, %eh.resume.sink.split ]
+eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad10, %if.then.i.i31, %if.then.i.i11, %lpad
+  %.pn = phi { ptr, i32 } [ %18, %if.then.i.i31 ], [ %11, %lpad ], [ %11, %if.then.i.i11 ], [ %18, %lpad10 ], [ %.pn.ph, %eh.resume.sink.split ]
   resume { ptr, i32 } %.pn
 }
 

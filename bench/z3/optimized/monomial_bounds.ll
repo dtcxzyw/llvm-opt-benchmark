@@ -2535,9 +2535,8 @@ _ZN6vectorISt4pairIj8rationalELb1EjE16destroy_elementsEv.exit.i.i.i: ; preds = %
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %125 = load i8, ptr %124, align 8
-  %126 = and i8 %125, 1
-  %.not115 = icmp eq i8 %126, 0
-  %127 = select i1 %.not115, i32 2, i32 1
+  %126 = trunc i8 %125 to i1
+  %127 = select i1 %126, i32 1, i32 2
   %128 = load ptr, ptr %0, align 8, !tbaa !41
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 192
   %130 = load ptr, ptr %129, align 8, !tbaa !65
@@ -4577,8 +4576,8 @@ _ZN8rationalD2Ev.exit115:                         ; preds = %.noexc.i114
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %160 = load i8, ptr %159, align 8
   %161 = and i8 %160, 2
-  %.not169 = icmp eq i8 %161, 0
-  %162 = select i1 %.not169, i32 -2, i32 -1
+  %.not168 = icmp eq i8 %161, 0
+  %162 = select i1 %.not168, i32 -2, i32 -1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %163 = load ptr, ptr %0, align 8, !tbaa !41
   invoke void @_ZN3nla9new_lemmaC1ERNS_4coreEPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(4736) %163, ptr noundef nonnull @.str.5)
@@ -4672,8 +4671,8 @@ _ZN8rationalD2Ev.exit115:                         ; preds = %.noexc.i114
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %195 = load i8, ptr %194, align 8
   %196 = and i8 %195, 2
-  %.not168 = icmp eq i8 %196, 0
-  %197 = select i1 %.not168, i32 2, i32 1
+  %.not = icmp eq i8 %196, 0
+  %197 = select i1 %.not, i32 2, i32 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %198 = load ptr, ptr %0, align 8, !tbaa !41
   invoke void @_ZN3nla9new_lemmaC1ERNS_4coreEPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(4736) %198, ptr noundef nonnull @.str.6)
@@ -4939,10 +4938,9 @@ _ZN8rationalD2Ev.exit123:                         ; preds = %.noexc.i122
   store i32 %290, ptr %288, align 4, !tbaa !294
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %292 = load i8, ptr %291, align 8
-  %293 = and i8 %292, 1
-  %.not = icmp eq i8 %293, 0
-  %294 = select i1 %.not, i32 2, i32 1
-  %295 = select i1 %.not, i32 -2, i32 -1
+  %293 = trunc i8 %292 to i1
+  %294 = select i1 %293, i32 1, i32 2
+  %295 = select i1 %293, i32 -1, i32 -2
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !202
   %296 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 96)
@@ -12474,21 +12472,20 @@ define linkonce_odr hidden void @_ZNK13dep_intervals9im_config8add_depsERKNS0_8i
 
 8:                                                ; preds = %4
   %9 = load i16, ptr %2, align 2, !tbaa !59
-  %10 = and i16 %9, 1
-  %.not.i = icmp eq i16 %10, 0
-  br i1 %.not.i, label %.thread.i, label %11
+  %10 = trunc i16 %9 to i1
+  br i1 %10, label %11, label %.thread.i
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = and i16 %9, 2
-  %.not12.i = icmp eq i16 %14, 0
-  br i1 %.not12.i, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit, label %18
+  %.not11.i = icmp eq i16 %14, 0
+  br i1 %.not11.i, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit, label %18
 
 .thread.i:                                        ; preds = %8
   %15 = and i16 %9, 2
-  %.not11.i = icmp eq i16 %15, 0
-  br i1 %.not11.i, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit, label %.thread9.i
+  %.not.i = icmp eq i16 %15, 0
+  br i1 %.not.i, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit, label %.thread9.i
 
 .thread9.i:                                       ; preds = %.thread.i
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -12537,32 +12534,31 @@ _ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit: ; preds = %
   %42 = phi i8 [ %6, %4 ], [ %6, %.thread.i ], [ %6, %11 ], [ %.pre, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i ], [ %6, %18 ], [ %6, %24 ], [ %6, %.thread9.i ]
   %43 = phi ptr [ null, %4 ], [ null, %.thread.i ], [ %13, %11 ], [ %29, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i ], [ %22, %18 ], [ %13, %24 ], [ %17, %.thread9.i ]
   %44 = and i8 %42, 8
-  %.not20 = icmp eq i8 %44, 0
-  br i1 %.not20, label %45, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19
+  %.not19 = icmp eq i8 %44, 0
+  br i1 %.not19, label %45, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18
 
 45:                                               ; preds = %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %47 = load i16, ptr %46, align 2, !tbaa !62
-  %48 = and i16 %47, 1
-  %.not.i11 = icmp eq i16 %48, 0
-  br i1 %.not.i11, label %.thread.i16, label %49
+  %48 = trunc i16 %47 to i1
+  br i1 %48, label %49, label %.thread.i11
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %52 = and i16 %47, 2
-  %.not12.i12 = icmp eq i16 %52, 0
-  br i1 %.not12.i12, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19, label %56
+  %.not11.i15 = icmp eq i16 %52, 0
+  br i1 %.not11.i15, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18, label %56
 
-.thread.i16:                                      ; preds = %45
+.thread.i11:                                      ; preds = %45
   %53 = and i16 %47, 2
-  %.not11.i17 = icmp eq i16 %53, 0
-  br i1 %.not11.i17, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19, label %.thread9.i18
+  %.not.i12 = icmp eq i16 %53, 0
+  br i1 %.not.i12, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18, label %.thread9.i13
 
-.thread9.i18:                                     ; preds = %.thread.i16
+.thread9.i13:                                     ; preds = %.thread.i11
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %55 = load ptr, ptr %54, align 8, !tbaa !58
-  br label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19
+  br label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18
 
 56:                                               ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12570,15 +12566,15 @@ _ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit: ; preds = %
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = load ptr, ptr %59, align 8, !tbaa !58
   %61 = icmp eq ptr %51, null
-  br i1 %61, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19, label %62
+  br i1 %61, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18, label %62
 
 62:                                               ; preds = %56
   %63 = icmp eq ptr %60, null
   %64 = icmp eq ptr %51, %60
-  %or.cond.i.i.i13 = or i1 %63, %64
-  br i1 %or.cond.i.i.i13, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19, label %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14
+  %or.cond.i.i.i16 = or i1 %63, %64
+  br i1 %or.cond.i.i.i16, label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18, label %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i17
 
-_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14: ; preds = %62
+_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i17: ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %66 = load ptr, ptr %65, align 8, !tbaa !251
   %67 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %66, i64 noundef 24)
@@ -12599,10 +12595,10 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   store ptr %51, ptr %78, align 8, !tbaa !258
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %60, ptr %79, align 8, !tbaa !258
-  br label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19
+  br label %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18
 
-_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit19: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14, %62, %56, %.thread9.i18, %.thread.i16, %49, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit
-  %80 = phi ptr [ null, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit ], [ null, %.thread.i16 ], [ %51, %49 ], [ %67, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i14 ], [ %60, %56 ], [ %51, %62 ], [ %55, %.thread9.i18 ]
+_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit18: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i17, %62, %56, %.thread9.i13, %.thread.i11, %49, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit
+  %80 = phi ptr [ null, %_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalEs.exit ], [ null, %.thread.i11 ], [ %51, %49 ], [ %67, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i.i17 ], [ %60, %56 ], [ %51, %62 ], [ %55, %.thread9.i13 ]
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %43, ptr %81, align 8, !tbaa !55
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -12614,21 +12610,20 @@ declare void @_ZN16interval_managerIN13dep_intervals9im_configEE3mulERKNS1_8inte
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13dep_intervals9im_config13mk_dependencyERKNS0_8intervalES3_s(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i16 noundef signext %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = and i16 %3, 1
-  %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %.thread, label %6
+  %5 = trunc i16 %3 to i1
+  br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !55
   %9 = and i16 %3, 4
-  %.not36 = icmp eq i16 %9, 0
-  br i1 %.not36, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, label %13
+  %.not35 = icmp eq i16 %9, 0
+  br i1 %.not35, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, label %13
 
 .thread:                                          ; preds = %4
   %10 = and i16 %3, 4
-  %.not33 = icmp eq i16 %10, 0
-  br i1 %.not33, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, label %.thread23
+  %.not = icmp eq i16 %10, 0
+  br i1 %.not, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, label %.thread23
 
 .thread23:                                        ; preds = %.thread
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -12675,13 +12670,13 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i, %19, %13, %.thread23, %6
   %.1 = phi ptr [ %12, %.thread23 ], [ %8, %6 ], [ %24, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ], [ %17, %13 ], [ %8, %19 ]
   %37 = and i16 %3, 2
-  %.not37 = icmp eq i16 %37, 0
-  br i1 %.not37, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16, label %41
+  %.not36 = icmp eq i16 %37, 0
+  br i1 %.not36, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16, label %41
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread: ; preds = %.thread
   %38 = and i16 %3, 2
-  %.not34 = icmp eq i16 %38, 0
-  br i1 %.not34, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread, label %.thread27
+  %.not33 = icmp eq i16 %38, 0
+  br i1 %.not33, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread, label %.thread27
 
 .thread27:                                        ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -12728,13 +12723,13 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14, %47, %41, %.thread27, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
   %.2 = phi ptr [ %40, %.thread27 ], [ %.1, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %52, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i14 ], [ %45, %41 ], [ %.1, %47 ]
   %65 = and i16 %3, 8
-  %.not38 = icmp eq i16 %65, 0
-  br i1 %.not38, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %69
+  %.not37 = icmp eq i16 %65, 0
+  br i1 %.not37, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %69
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread: ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread
   %66 = and i16 %3, 8
-  %.not35 = icmp eq i16 %66, 0
-  br i1 %.not35, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %.thread31
+  %.not34 = icmp eq i16 %66, 0
+  br i1 %.not34, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit20, label %.thread31
 
 .thread31:                                        ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit16.thread
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 80

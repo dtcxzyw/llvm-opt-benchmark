@@ -2047,7 +2047,7 @@ dt_collection_get_query_no_group.exit:            ; preds = %._crit_edge
   %127 = call i32 @dt_collection_update(ptr noundef nonnull %0)
   %.pre.i = load ptr, ptr %125, align 8, !tbaa !16
   %.not144 = icmp eq ptr %.pre.i, null
-  br i1 %.not144, label %194, label %dt_collection_get_query_no_group.exit.thread
+  br i1 %.not144, label %193, label %dt_collection_get_query_no_group.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv162 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next163, %.lr.ph ]
@@ -2071,7 +2071,7 @@ dt_collection_get_query_no_group.exit.thread:     ; preds = %._crit_edge, %dt_co
   %137 = phi ptr [ %.pre.i, %dt_collection_get_query_no_group.exit ], [ %126, %._crit_edge ]
   %138 = load i8, ptr %137, align 1, !tbaa !88
   %.not145 = icmp eq i8 %138, 0
-  br i1 %.not145, label %194, label %139
+  br i1 %.not145, label %193, label %139
 
 139:                                              ; preds = %dt_collection_get_query_no_group.exit.thread
   %140 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.140, ptr noundef nonnull %137) #19
@@ -2136,67 +2136,65 @@ dt_collection_get_query_no_group.exit.thread:     ; preds = %._crit_edge, %dt_co
   %178 = call ptr @dt_database_get(ptr noundef %177) #19
   %179 = call i32 @sqlite3_changes(ptr noundef %178) #19
   %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %181, label %193
+  br i1 %180, label %181, label %192
 
 181:                                              ; preds = %172
   %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !24
-  %183 = and i32 %182, 1
-  %184 = icmp ne i32 %183, 0
-  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
-  %186 = icmp ne i32 %185, 0
-  %or.cond17 = select i1 %184, i1 %186, i1 false
-  br i1 %or.cond17, label %187, label %191
+  %183 = trunc i32 %182 to i1
+  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
+  %185 = icmp ne i32 %184, 0
+  %or.cond17 = select i1 %183, i1 %185, i1 false
+  br i1 %or.cond17, label %186, label %190
 
-187:                                              ; preds = %181
-  %188 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
-  %189 = and i32 %188, 1048576
-  %.not150 = icmp eq i32 %189, 0
-  br i1 %.not150, label %191, label %190
+186:                                              ; preds = %181
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
+  %188 = and i32 %187, 1048576
+  %.not150 = icmp eq i32 %188, 0
+  br i1 %.not150, label %190, label %189
 
-190:                                              ; preds = %187
+189:                                              ; preds = %186
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.3, i32 noundef 2694, ptr noundef nonnull @__FUNCTION__.dt_collection_update_query) #19
-  br label %191
+  br label %190
 
-191:                                              ; preds = %187, %190, %181
-  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !62
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %192, i32 noundef 8) #19
+190:                                              ; preds = %186, %189, %181
+  %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !62
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %191, i32 noundef 8) #19
+  br label %192
+
+192:                                              ; preds = %190, %172
+  call void @g_free(ptr noundef %140) #19
   br label %193
 
-193:                                              ; preds = %191, %172
-  call void @g_free(ptr noundef %140) #19
-  br label %194
+193:                                              ; preds = %192, %dt_collection_get_query_no_group.exit.thread, %dt_collection_get_query_no_group.exit
+  %194 = load i32, ptr %0, align 8, !tbaa !17
+  %.not151 = icmp eq i32 %194, 0
+  br i1 %.not151, label %195, label %206
 
-194:                                              ; preds = %193, %dt_collection_get_query_no_group.exit.thread, %dt_collection_get_query_no_group.exit
-  %195 = load i32, ptr %0, align 8, !tbaa !17
-  %.not151 = icmp eq i32 %195, 0
-  br i1 %.not151, label %196, label %208
-
-196:                                              ; preds = %194
+195:                                              ; preds = %193
   call void @dt_collection_memory_update()
-  %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !24
-  %198 = and i32 %197, 1
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !24
+  %197 = trunc i32 %196 to i1
+  %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
   %199 = icmp ne i32 %198, 0
-  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
-  %201 = icmp ne i32 %200, 0
-  %or.cond19 = select i1 %199, i1 %201, i1 false
-  br i1 %or.cond19, label %202, label %206
+  %or.cond19 = select i1 %197, i1 %199, i1 false
+  br i1 %or.cond19, label %200, label %204
 
-202:                                              ; preds = %196
-  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
-  %204 = and i32 %203, 1048576
-  %.not152 = icmp eq i32 %204, 0
-  br i1 %.not152, label %206, label %205
+200:                                              ; preds = %195
+  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
+  %202 = and i32 %201, 1048576
+  %.not152 = icmp eq i32 %202, 0
+  br i1 %.not152, label %204, label %203
 
-205:                                              ; preds = %202
+203:                                              ; preds = %200
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.3, i32 noundef 2707, ptr noundef nonnull @__FUNCTION__.dt_collection_update_query) #19
+  br label %204
+
+204:                                              ; preds = %200, %203, %195
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !62
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %205, i32 noundef 7, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %.0) #19
   br label %206
 
-206:                                              ; preds = %202, %205, %196
-  %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !62
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %207, i32 noundef 7, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %.0) #19
-  br label %208
-
-208:                                              ; preds = %206, %194
+206:                                              ; preds = %204, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6584,7 +6582,7 @@ _property_is_collection_criterion.exit.thread:    ; preds = %2, %_property_is_co
 17:                                               ; preds = %_property_is_collection_criterion.exit.thread, %_property_is_collection_criterion.exit
   %18 = load i32, ptr %0, align 8, !tbaa !17
   %.not11 = icmp eq i32 %18, 0
-  br i1 %.not11, label %19, label %34
+  br i1 %.not11, label %19, label %33
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %4, align 4, !tbaa !19
@@ -6597,29 +6595,28 @@ _property_is_collection_criterion.exit.thread:    ; preds = %2, %_property_is_co
 
 22:                                               ; preds = %19, %21
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !24
-  %24 = and i32 %23, 1
-  %25 = icmp ne i32 %24, 0
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
-  %27 = icmp ne i32 %26, 0
-  %or.cond = select i1 %25, i1 %27, i1 false
-  br i1 %or.cond, label %28, label %32
+  %24 = trunc i32 %23 to i1
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
+  %26 = icmp ne i32 %25, 0
+  %or.cond = select i1 %24, i1 %26, i1 false
+  br i1 %or.cond, label %27, label %31
 
-28:                                               ; preds = %22
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
-  %30 = and i32 %29, 1048576
-  %.not13 = icmp eq i32 %30, 0
-  br i1 %.not13, label %32, label %31
+27:                                               ; preds = %22
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !61
+  %29 = and i32 %28, 1048576
+  %.not13 = icmp eq i32 %29, 0
+  br i1 %.not13, label %31, label %30
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.3, i32 noundef 2835, ptr noundef nonnull @__FUNCTION__._collection_recount_callback) #19
-  br label %32
+  br label %31
 
-32:                                               ; preds = %28, %31, %22
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !62
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %33, i32 noundef 7, i32 noundef 3, i32 noundef 43, ptr noundef null, i32 noundef -1) #19
-  br label %34
+31:                                               ; preds = %27, %30, %22
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !62
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %32, i32 noundef 7, i32 noundef 3, i32 noundef 43, ptr noundef null, i32 noundef -1) #19
+  br label %33
 
-34:                                               ; preds = %32, %17
+33:                                               ; preds = %31, %17
   ret void
 }
 

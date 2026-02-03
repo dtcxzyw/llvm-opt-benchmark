@@ -896,9 +896,8 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl28foldCmpLoadFromIndexedGlo
   store ptr %2, ptr %7, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %30 = load i16, ptr %29, align 2, !tbaa !8
-  %31 = and i16 %30, 1
-  %.not336 = icmp eq i16 %31, 0
-  br i1 %.not336, label %32, label %.critedge
+  %31 = trunc i16 %30 to i1
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %6
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1004,8 +1003,8 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %77
   store i32 0, ptr %94, align 8, !tbaa !89
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 4, ptr %95, align 4, !tbaa !90
-  %.not252350 = icmp eq i32 %67, 3
-  br i1 %.not252350, label %.critedge275, label %.lr.ph.preheader
+  %.not252349 = icmp eq i32 %67, 3
+  br i1 %.not252349, label %.critedge275, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -1014,19 +1013,19 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %77
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %131
-  %.0189352 = phi ptr [ %.5194.ph, %131 ], [ %98, %.lr.ph.preheader ]
-  %.0195351 = phi i32 [ %132, %131 ], [ 3, %.lr.ph.preheader ]
+  %.0189351 = phi ptr [ %.5194.ph, %131 ], [ %98, %.lr.ph.preheader ]
+  %.0195350 = phi i32 [ %132, %131 ], [ 3, %.lr.ph.preheader ]
   %99 = load i32, ptr %65, align 4
   %100 = and i32 %99, 134217727
   %101 = zext nneg i32 %100 to i64
   %102 = sub nsw i64 0, %101
   %103 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %102
-  %104 = zext i32 %.0195351 to i64
+  %104 = zext i32 %.0195350 to i64
   %105 = getelementptr inbounds nuw %"class.llvm::Use", ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !37
   %107 = load i8, ptr %106, align 8, !tbaa !42
-  %.not338 = icmp eq i8 %107, 17
-  br i1 %.not338, label %108, label %.critedge274
+  %.not337 = icmp eq i8 %107, 17
+  br i1 %.not337, label %108, label %.critedge274
 
 108:                                              ; preds = %.lr.ph
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -1041,40 +1040,40 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %77
   br i1 %.not254, label %115, label %.critedge274
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds nuw i8, ptr %.0189352, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0189351, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = and i32 %117, 255
   %119 = icmp ne i32 %118, 15
-  %.not255339 = icmp eq ptr %.0189352, null
-  %.not255 = select i1 %119, i1 true, i1 %.not255339
+  %.not255338 = icmp eq ptr %.0189351, null
+  %.not255 = select i1 %119, i1 true, i1 %.not255338
   br i1 %.not255, label %124, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %.0189352, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.0189351, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !91
   %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %.0.i.i281
   br label %131
 
 124:                                              ; preds = %115
   %125 = icmp ne i32 %118, 16
-  %.not256 = select i1 %125, i1 true, i1 %.not255339
+  %.not256 = select i1 %125, i1 true, i1 %.not255338
   br i1 %.not256, label %.critedge274, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw i8, ptr %.0189352, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %.0189351, i64 32
   %128 = load i64, ptr %127, align 8, !tbaa !43
   %.not257 = icmp ult i64 %.0.i.i281, %128
   br i1 %.not257, label %129, label %.critedge274
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %.0189352, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %.0189351, i64 24
   br label %131
 
 131:                                              ; preds = %120, %129
   %.5194.ph.in = phi ptr [ %130, %129 ], [ %123, %120 ]
   %.5194.ph = load ptr, ptr %.5194.ph.in, align 8, !tbaa !92
   call void @_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %114)
-  %132 = add i32 %.0195351, 1
+  %132 = add i32 %.0195350, 1
   %.not252 = icmp eq i32 %132, %67
   br i1 %.not252, label %.critedge275, label %.lr.ph, !llvm.loop !93
 
@@ -1082,10 +1081,10 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %77
   %133 = getelementptr inbounds i8, ptr %4, i64 -32
   %134 = load ptr, ptr %133, align 8, !tbaa !37
   %135 = trunc i64 %60 to i32
-  %.not258354 = icmp eq i32 %135, 0
-  br i1 %.not258354, label %._crit_edge, label %.lr.ph363
+  %.not258353 = icmp eq i32 %135, 0
+  br i1 %.not258353, label %._crit_edge, label %.lr.ph362
 
-.lr.ph363:                                        ; preds = %.critedge275
+.lr.ph362:                                        ; preds = %.critedge275
   %.not261 = icmp eq ptr %5, null
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 2
@@ -1093,17 +1092,17 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %77
   %139 = and i64 %60, 4294967295
   br label %140
 
-140:                                              ; preds = %.lr.ph363, %200
-  %indvars.iv = phi i64 [ 0, %.lr.ph363 ], [ %indvars.iv.next, %200 ]
-  %.0196362 = phi i32 [ -2, %.lr.ph363 ], [ %.2198, %200 ]
-  %.0201361 = phi i32 [ -2, %.lr.ph363 ], [ %.2203, %200 ]
-  %.0207360 = phi i32 [ -2, %.lr.ph363 ], [ %.2209, %200 ]
-  %.0212359 = phi i32 [ -2, %.lr.ph363 ], [ %.2214, %200 ]
-  %.0218358 = phi i32 [ -2, %.lr.ph363 ], [ %.2220, %200 ]
-  %.0224357 = phi i32 [ -2, %.lr.ph363 ], [ %.2226, %200 ]
-  %.0230356 = phi i64 [ 0, %.lr.ph363 ], [ %.2232, %200 ]
-  %indvars372 = trunc i64 %indvars.iv to i32
-  %141 = call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %54, i32 noundef %indvars372) #19
+140:                                              ; preds = %.lr.ph362, %200
+  %indvars.iv = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next, %200 ]
+  %.0196361 = phi i32 [ -2, %.lr.ph362 ], [ %.2198, %200 ]
+  %.0201360 = phi i32 [ -2, %.lr.ph362 ], [ %.2203, %200 ]
+  %.0207359 = phi i32 [ -2, %.lr.ph362 ], [ %.2209, %200 ]
+  %.0212358 = phi i32 [ -2, %.lr.ph362 ], [ %.2214, %200 ]
+  %.0218357 = phi i32 [ -2, %.lr.ph362 ], [ %.2220, %200 ]
+  %.0224356 = phi i32 [ -2, %.lr.ph362 ], [ %.2226, %200 ]
+  %.0230355 = phi i64 [ 0, %.lr.ph362 ], [ %.2232, %200 ]
+  %indvars371 = trunc i64 %indvars.iv to i32
+  %141 = call noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24) %54, i32 noundef %indvars371) #19
   %.not259 = icmp eq ptr %141, null
   br i1 %.not259, label %.critedge274, label %142
 
@@ -1147,11 +1146,11 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %77
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %162, label %166
 
 162:                                              ; preds = %159
-  %163 = add nsw i32 %indvars372, -1
-  %164 = icmp eq i32 %.0218358, %163
-  %spec.select = select i1 %164, i32 %indvars372, i32 %.0218358
-  %165 = icmp eq i32 %.0224357, %163
-  %.4228 = select i1 %165, i32 %indvars372, i32 %.0224357
+  %163 = add nsw i32 %indvars371, -1
+  %164 = icmp eq i32 %.0218357, %163
+  %spec.select = select i1 %164, i32 %indvars371, i32 %.0218357
+  %165 = icmp eq i32 %.0224356, %163
+  %.4228 = select i1 %165, i32 %indvars371, i32 %.0224356
   br label %200
 
 166:                                              ; preds = %159
@@ -1176,43 +1175,43 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
   br i1 %177, label %184, label %178
 
 178:                                              ; preds = %173, %_ZNK4llvm11ConstantInt6isZeroEv.exit286
-  %179 = icmp eq i32 %.0196362, -2
+  %179 = icmp eq i32 %.0196361, -2
   br i1 %179, label %190, label %180
 
 180:                                              ; preds = %178
-  %181 = icmp eq i32 %.0201361, -2
-  %.0235. = select i1 %181, i32 %indvars372, i32 -3
-  %182 = add nsw i32 %indvars372, -1
-  %183 = icmp eq i32 %.0218358, %182
-  %spec.select279 = select i1 %183, i32 %indvars372, i32 -3
+  %181 = icmp eq i32 %.0201360, -2
+  %.0235. = select i1 %181, i32 %indvars371, i32 -3
+  %182 = add nsw i32 %indvars371, -1
+  %183 = icmp eq i32 %.0218357, %182
+  %spec.select279 = select i1 %183, i32 %indvars371, i32 -3
   br label %190
 
 184:                                              ; preds = %173, %_ZNK4llvm11ConstantInt6isZeroEv.exit286
-  %185 = icmp eq i32 %.0207360, -2
+  %185 = icmp eq i32 %.0207359, -2
   br i1 %185, label %190, label %186
 
 186:                                              ; preds = %184
-  %187 = icmp eq i32 %.0212359, -2
-  %.0235.276 = select i1 %187, i32 %indvars372, i32 -3
-  %188 = add nsw i32 %indvars372, -1
-  %189 = icmp eq i32 %.0224357, %188
-  %spec.select280 = select i1 %189, i32 %indvars372, i32 -3
+  %187 = icmp eq i32 %.0212358, -2
+  %.0235.276 = select i1 %187, i32 %indvars371, i32 -3
+  %188 = add nsw i32 %indvars371, -1
+  %189 = icmp eq i32 %.0224356, %188
+  %spec.select280 = select i1 %189, i32 %indvars371, i32 -3
   br label %190
 
 190:                                              ; preds = %186, %180, %184, %178
   %.0.i.i285302 = phi i1 [ true, %184 ], [ false, %178 ], [ true, %186 ], [ false, %180 ]
-  %.5229 = phi i32 [ %indvars372, %184 ], [ %.0224357, %178 ], [ %spec.select280, %186 ], [ %.0224357, %180 ]
-  %.5223 = phi i32 [ %.0218358, %184 ], [ %indvars372, %178 ], [ %.0218358, %186 ], [ %spec.select279, %180 ]
-  %.4216 = phi i32 [ %.0212359, %184 ], [ %.0212359, %178 ], [ %.0235.276, %186 ], [ %.0212359, %180 ]
-  %.4211 = phi i32 [ %indvars372, %184 ], [ %.0207360, %178 ], [ %.0207360, %186 ], [ %.0207360, %180 ]
-  %.5206 = phi i32 [ %.0201361, %184 ], [ %.0201361, %178 ], [ %.0201361, %186 ], [ %.0235., %180 ]
-  %.4200 = phi i32 [ %.0196362, %184 ], [ %indvars372, %178 ], [ %.0196362, %186 ], [ %.0196362, %180 ]
+  %.5229 = phi i32 [ %indvars371, %184 ], [ %.0224356, %178 ], [ %spec.select280, %186 ], [ %.0224356, %180 ]
+  %.5223 = phi i32 [ %.0218357, %184 ], [ %indvars371, %178 ], [ %.0218357, %186 ], [ %spec.select279, %180 ]
+  %.4216 = phi i32 [ %.0212358, %184 ], [ %.0212358, %178 ], [ %.0235.276, %186 ], [ %.0212358, %180 ]
+  %.4211 = phi i32 [ %indvars371, %184 ], [ %.0207359, %178 ], [ %.0207359, %186 ], [ %.0207359, %180 ]
+  %.5206 = phi i32 [ %.0201360, %184 ], [ %.0201360, %178 ], [ %.0201360, %186 ], [ %.0235., %180 ]
+  %.4200 = phi i32 [ %.0196361, %184 ], [ %indvars371, %178 ], [ %.0196361, %186 ], [ %.0196361, %180 ]
   %191 = icmp samesign ugt i64 %indvars.iv, 63
   %or.cond.not = or i1 %191, %.0.i.i285302
   %192 = shl nuw i64 1, %indvars.iv
   %193 = select i1 %or.cond.not, i64 0, i64 %192
-  %.4234 = or i64 %193, %.0230356
-  %194 = and i32 %indvars372, 8
+  %.4234 = or i64 %193, %.0230355
+  %194 = and i32 %indvars371, 8
   %195 = icmp eq i32 %194, 0
   %or.cond8 = and i1 %191, %195
   %196 = icmp eq i32 %.5206, -3
@@ -1226,13 +1225,13 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
   br i1 %or.cond16, label %.critedge274, label %200
 
 200:                                              ; preds = %162, %190
-  %.2232 = phi i64 [ %.4234, %190 ], [ %.0230356, %162 ]
+  %.2232 = phi i64 [ %.4234, %190 ], [ %.0230355, %162 ]
   %.2226 = phi i32 [ %.5229, %190 ], [ %.4228, %162 ]
   %.2220 = phi i32 [ %.5223, %190 ], [ %spec.select, %162 ]
-  %.2214 = phi i32 [ %.4216, %190 ], [ %.0212359, %162 ]
-  %.2209 = phi i32 [ %.4211, %190 ], [ %.0207360, %162 ]
-  %.2203 = phi i32 [ %.5206, %190 ], [ %.0201361, %162 ]
-  %.2198 = phi i32 [ %.4200, %190 ], [ %.0196362, %162 ]
+  %.2214 = phi i32 [ %.4216, %190 ], [ %.0212358, %162 ]
+  %.2209 = phi i32 [ %.4211, %190 ], [ %.0207359, %162 ]
+  %.2203 = phi i32 [ %.5206, %190 ], [ %.0201360, %162 ]
+  %.2198 = phi i32 [ %.4200, %190 ], [ %.0196361, %162 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not258 = icmp eq i64 %indvars.iv.next, %139
   br i1 %.not258, label %._crit_edge.loopexit, label %140, !llvm.loop !97
@@ -1243,14 +1242,14 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge275
   %201 = phi ptr [ %2, %.critedge275 ], [ %.pre, %._crit_edge.loopexit ]
-  %.0196.lcssa353 = phi i32 [ -2, %.critedge275 ], [ %.2198, %._crit_edge.loopexit ]
+  %.0196.lcssa352 = phi i32 [ -2, %.critedge275 ], [ %.2198, %._crit_edge.loopexit ]
   %.0230.lcssa = phi i64 [ 0, %.critedge275 ], [ %.2232, %._crit_edge.loopexit ]
   %.0224.lcssa = phi i32 [ -2, %.critedge275 ], [ %.2226, %._crit_edge.loopexit ]
   %.0218.lcssa = phi i32 [ -2, %.critedge275 ], [ %.2220, %._crit_edge.loopexit ]
   %.0212.lcssa = phi i32 [ -2, %.critedge275 ], [ %.2214, %._crit_edge.loopexit ]
   %.0207.lcssa = phi i32 [ -2, %.critedge275 ], [ %.2209, %._crit_edge.loopexit ]
   %.0201.lcssa = phi i32 [ -2, %.critedge275 ], [ %.2203, %._crit_edge.loopexit ]
-  %202 = sub i32 0, %.0196.lcssa353
+  %202 = sub i32 0, %.0196.lcssa352
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %204 = load i32, ptr %203, align 4
   %205 = and i32 %204, 134217727
@@ -1320,7 +1319,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
 
 243:                                              ; preds = %231
   %244 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl28foldCmpLoadFromIndexedGlobalEPNS_8LoadInstEPNS_17GetElementPtrInstEPNS_14GlobalVariableERNS_7CmpInstEPNS_11ConstantIntEENK3$_0clEPNS_5ValueE"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %.0238)
-  %245 = icmp eq i32 %.0196.lcssa353, -2
+  %245 = icmp eq i32 %.0196.lcssa352, -2
   br i1 %245, label %246, label %253
 
 246:                                              ; preds = %243
@@ -1335,7 +1334,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
 253:                                              ; preds = %243
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %255 = load ptr, ptr %254, align 8, !tbaa !14
-  %256 = sext i32 %.0196.lcssa353 to i64
+  %256 = sext i32 %.0196.lcssa352 to i64
   %257 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %255, i64 noundef %256, i1 noundef zeroext false) #19
   %258 = icmp eq i32 %.0201.lcssa, -2
   br i1 %258, label %259, label %262
@@ -1438,7 +1437,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
 
 309:                                              ; preds = %308
   %310 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl28foldCmpLoadFromIndexedGlobalEPNS_8LoadInstEPNS_17GetElementPtrInstEPNS_14GlobalVariableERNS_7CmpInstEPNS_11ConstantIntEENK3$_0clEPNS_5ValueE"(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %.0238)
-  %.not272 = icmp eq i32 %.0196.lcssa353, 0
+  %.not272 = icmp eq i32 %.0196.lcssa352, 0
   br i1 %.not272, label %320, label %311
 
 311:                                              ; preds = %309
@@ -1460,7 +1459,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit286:          ; preds = %168
   %321 = getelementptr inbounds nuw i8, ptr %.2240, i64 8
   %322 = load ptr, ptr %321, align 8, !tbaa !14
   %323 = add i32 %.0218.lcssa, 1
-  %324 = sub i32 %323, %.0196.lcssa353
+  %324 = sub i32 %323, %.0196.lcssa352
   %325 = sext i32 %324 to i64
   %326 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %322, i64 noundef %325, i1 noundef zeroext false) #19
   %327 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 2) #19

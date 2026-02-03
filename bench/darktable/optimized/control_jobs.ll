@@ -1013,36 +1013,35 @@ dt_imageio_write_dng.exit:                        ; preds = %74, %318, %320
   %338 = call ptr @g_list_prepend(ptr noundef null, ptr noundef %337) #17
   call void @dt_collection_update_query(ptr noundef %335, i32 noundef 3, i32 noundef 43, ptr noundef %338) #17
   %339 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %340 = and i32 %339, 1
-  %341 = icmp ne i32 %340, 0
-  %342 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %343 = icmp ne i32 %342, 0
-  %or.cond = select i1 %341, i1 %343, i1 false
-  br i1 %or.cond, label %344, label %348
+  %340 = trunc i32 %339 to i1
+  %341 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %342 = icmp ne i32 %341, 0
+  %or.cond = select i1 %340, i1 %342, i1 false
+  br i1 %or.cond, label %343, label %347
 
-344:                                              ; preds = %329
-  %345 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %346 = and i32 %345, 1048576
-  %.not44 = icmp eq i32 %346, 0
-  br i1 %.not44, label %348, label %347
+343:                                              ; preds = %329
+  %344 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %345 = and i32 %344, 1048576
+  %.not44 = icmp eq i32 %345, 0
+  br i1 %.not44, label %347, label %346
 
-347:                                              ; preds = %344
+346:                                              ; preds = %343
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 695, ptr noundef nonnull @__FUNCTION__.dt_control_merge_hdr_job_run) #17
-  br label %348
+  br label %347
 
-348:                                              ; preds = %344, %347, %329
-  %349 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %349, i32 noundef 15) #17
+347:                                              ; preds = %343, %346, %329
+  %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %348, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %._crit_edge, %348
-  %350 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %351 = load ptr, ptr %350, align 16, !tbaa !73
-  call void @free(ptr noundef %351) #17
-  %352 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %353 = load ptr, ptr %352, align 8, !tbaa !66
-  call void @free(ptr noundef %353) #17
+.loopexit:                                        ; preds = %24, %._crit_edge, %347
+  %349 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %350 = load ptr, ptr %349, align 16, !tbaa !73
+  call void @free(ptr noundef %350) #17
+  %351 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %352 = load ptr, ptr %351, align 8, !tbaa !66
+  call void @free(ptr noundef %352) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1323,26 +1322,25 @@ _update_progress.exit:                            ; preds = %_collection_update.
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
   call void @dt_undo_end_group(ptr noundef %77) #17
   %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %79 = and i32 %78, 1
-  %80 = icmp ne i32 %79, 0
-  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %82 = icmp ne i32 %81, 0
-  %or.cond = select i1 %80, i1 %82, i1 false
-  br i1 %or.cond, label %83, label %87
+  %79 = trunc i32 %78 to i1
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %81 = icmp ne i32 %80, 0
+  %or.cond = select i1 %79, i1 %81, i1 false
+  br i1 %or.cond, label %82, label %86
 
-83:                                               ; preds = %.critedge
-  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %85 = and i32 %84, 1048576
-  %.not26 = icmp eq i32 %85, 0
-  br i1 %.not26, label %87, label %86
+82:                                               ; preds = %.critedge
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %84 = and i32 %83, 1048576
+  %.not26 = icmp eq i32 %84, 0
+  br i1 %.not26, label %86, label %85
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 744, ptr noundef nonnull @__FUNCTION__.dt_control_duplicate_images_job_run) #17
-  br label %87
+  br label %86
 
-87:                                               ; preds = %83, %86, %.critedge
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %88, i32 noundef 15) #17
+86:                                               ; preds = %82, %85, %.critedge
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %87, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
@@ -1712,7 +1710,7 @@ _get_image_list.exit:                             ; preds = %13, %1
   call void @g_free(ptr noundef %11) #17
   %67 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.92, i32 noundef 5) #17
   call void (ptr, ...) @dt_control_log(ptr noundef %67) #17
-  br label %134
+  br label %133
 
 .critedge62:                                      ; preds = %56
   %68 = call i32 @sqlite3_finalize(ptr noundef %60) #17
@@ -1845,31 +1843,30 @@ _update_progress.exit:                            ; preds = %93, %105
   %122 = call ptr @g_list_copy(ptr noundef %121) #17
   call void @dt_collection_update_query(ptr noundef %120, i32 noundef 3, i32 noundef 43, ptr noundef %122) #17
   %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %124 = and i32 %123, 1
-  %125 = icmp ne i32 %124, 0
-  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %127 = icmp ne i32 %126, 0
-  %or.cond = select i1 %125, i1 %127, i1 false
-  br i1 %or.cond, label %128, label %132
+  %124 = trunc i32 %123 to i1
+  %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %126 = icmp ne i32 %125, 0
+  %or.cond = select i1 %124, i1 %126, i1 false
+  br i1 %or.cond, label %127, label %131
 
-128:                                              ; preds = %._crit_edge
-  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %130 = and i32 %129, 1048576
-  %.not53 = icmp eq i32 %130, 0
-  br i1 %.not53, label %132, label %131
+127:                                              ; preds = %._crit_edge
+  %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %129 = and i32 %128, 1048576
+  %.not53 = icmp eq i32 %129, 0
+  br i1 %.not53, label %131, label %130
 
-131:                                              ; preds = %128
+130:                                              ; preds = %127
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 988, ptr noundef nonnull @__FUNCTION__.dt_control_remove_images_job_run) #17
-  br label %132
+  br label %131
 
-132:                                              ; preds = %128, %131, %._crit_edge
-  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %133, i32 noundef 15) #17
+131:                                              ; preds = %127, %130, %._crit_edge
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %132, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %132, %64
+133:                                              ; preds = %131, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
@@ -2229,26 +2226,25 @@ _update_progress.exit:                            ; preds = %111, %125
   %138 = call ptr @g_list_copy(ptr noundef %137) #17
   call void @dt_collection_update_query(ptr noundef %136, i32 noundef 3, i32 noundef 43, ptr noundef %138) #17
   %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %140 = and i32 %139, 1
-  %141 = icmp ne i32 %140, 0
-  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %143 = icmp ne i32 %142, 0
-  %or.cond3 = select i1 %141, i1 %143, i1 false
-  br i1 %or.cond3, label %144, label %148
+  %140 = trunc i32 %139 to i1
+  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %142 = icmp ne i32 %141, 0
+  %or.cond3 = select i1 %140, i1 %142, i1 false
+  br i1 %or.cond3, label %143, label %147
 
-144:                                              ; preds = %._crit_edge94
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %146 = and i32 %145, 1048576
-  %.not80 = icmp eq i32 %146, 0
-  br i1 %.not80, label %148, label %147
+143:                                              ; preds = %._crit_edge94
+  %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %145 = and i32 %144, 1048576
+  %.not80 = icmp eq i32 %145, 0
+  br i1 %.not80, label %147, label %146
 
-147:                                              ; preds = %144
+146:                                              ; preds = %143
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 1362, ptr noundef nonnull @__FUNCTION__.dt_control_delete_images_job_run) #17
-  br label %148
+  br label %147
 
-148:                                              ; preds = %144, %147, %._crit_edge94
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %149, i32 noundef 15) #17
+147:                                              ; preds = %143, %146, %._crit_edge94
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %148, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2695,54 +2691,52 @@ _update_progress.exit:                            ; preds = %61, %73
   %82 = call ptr @g_list_copy(ptr noundef %81) #17
   call void @dt_collection_update_query(ptr noundef %80, i32 noundef 3, i32 noundef 29, ptr noundef %82) #17
   %.not31 = icmp eq i32 %.028.lcssa, 0
-  br i1 %.not31, label %95, label %83
+  br i1 %.not31, label %94, label %83
 
 83:                                               ; preds = %.critedge
   %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %85 = and i32 %84, 1
-  %86 = icmp ne i32 %85, 0
-  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %88 = icmp ne i32 %87, 0
-  %or.cond = select i1 %86, i1 %88, i1 false
-  br i1 %or.cond, label %89, label %93
+  %85 = trunc i32 %84 to i1
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %87 = icmp ne i32 %86, 0
+  %or.cond = select i1 %85, i1 %87, i1 false
+  br i1 %or.cond, label %88, label %92
 
-89:                                               ; preds = %83
-  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %91 = and i32 %90, 1048576
-  %.not32 = icmp eq i32 %91, 0
-  br i1 %.not32, label %93, label %92
+88:                                               ; preds = %83
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %90 = and i32 %89, 1048576
+  %.not32 = icmp eq i32 %90, 0
+  br i1 %.not32, label %92, label %91
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.48, i32 noundef 1510, ptr noundef nonnull @__FUNCTION__.dt_control_local_copy_images_job_run) #17
-  br label %93
+  br label %92
 
-93:                                               ; preds = %89, %92, %83
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %94, i32 noundef 9) #17
-  br label %95
+92:                                               ; preds = %88, %91, %83
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %93, i32 noundef 9) #17
+  br label %94
 
-95:                                               ; preds = %.critedge, %93
-  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %97 = and i32 %96, 1
+94:                                               ; preds = %.critedge, %92
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %96 = trunc i32 %95 to i1
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
   %98 = icmp ne i32 %97, 0
-  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %100 = icmp ne i32 %99, 0
-  %or.cond3 = select i1 %98, i1 %100, i1 false
-  br i1 %or.cond3, label %101, label %105
+  %or.cond3 = select i1 %96, i1 %98, i1 false
+  br i1 %or.cond3, label %99, label %103
 
-101:                                              ; preds = %95
-  %102 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %103 = and i32 %102, 1048576
-  %.not33 = icmp eq i32 %103, 0
-  br i1 %.not33, label %105, label %104
+99:                                               ; preds = %94
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %101 = and i32 %100, 1048576
+  %.not33 = icmp eq i32 %101, 0
+  br i1 %.not33, label %103, label %102
 
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 1511, ptr noundef nonnull @__FUNCTION__.dt_control_local_copy_images_job_run) #17
-  br label %105
+  br label %103
 
-105:                                              ; preds = %101, %104, %95
-  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %106, i32 noundef 15) #17
+103:                                              ; preds = %99, %102, %94
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %104, i32 noundef 15) #17
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2791,14 +2785,14 @@ define internal noundef i32 @dt_control_refresh_exif_run(ptr noundef %0) #0 {
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_update_progress.exit
-  %.041 = phi ptr [ %7, %.lr.ph ], [ %46, %_update_progress.exit ]
-  %.03040 = phi double [ 0.000000e+00, %.lr.ph ], [ %47, %_update_progress.exit ]
+  %.041 = phi ptr [ %7, %.lr.ph ], [ %45, %_update_progress.exit ]
+  %.03040 = phi double [ 0.000000e+00, %.lr.ph ], [ %46, %_update_progress.exit ]
   %.03739 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %_update_progress.exit ]
   %17 = load ptr, ptr %.041, align 8, !tbaa !61
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %43
+  br i1 %20, label %21, label %42
 
 21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2826,112 +2820,109 @@ define internal noundef i32 @dt_control_refresh_exif_run(ptr noundef %0) #0 {
 
 31:                                               ; preds = %24, %30
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %33 = and i32 %32, 1
-  %34 = icmp ne i32 %33, 0
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3248), align 8
-  %36 = icmp ne i32 %35, 0
-  %or.cond = select i1 %34, i1 %36, i1 false
-  br i1 %or.cond, label %37, label %41
+  %33 = trunc i32 %32 to i1
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3248), align 8
+  %35 = icmp ne i32 %34, 0
+  %or.cond = select i1 %33, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %40
 
-37:                                               ; preds = %31
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %39 = and i32 %38, 1048576
-  %.not36 = icmp eq i32 %39, 0
-  br i1 %.not36, label %41, label %40
+36:                                               ; preds = %31
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %38 = and i32 %37, 1048576
+  %.not36 = icmp eq i32 %38, 0
+  br i1 %.not36, label %40, label %39
 
-40:                                               ; preds = %37
+39:                                               ; preds = %36
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.48, i32 noundef 1553, ptr noundef nonnull @.str.135) #17
-  br label %41
+  br label %40
 
-41:                                               ; preds = %37, %40, %31
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %42, i32 noundef 29) #17
+40:                                               ; preds = %36, %39, %31
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %41, i32 noundef 29) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %43
 
-43:                                               ; preds = %16
+42:                                               ; preds = %16
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.138, i32 noundef %19) #17
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %41
-  %45 = getelementptr inbounds nuw i8, ptr %.041, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !63
-  %47 = fadd reassoc nsz arcp contract afn double %.03040, %14
+43:                                               ; preds = %42, %40
+  %44 = getelementptr inbounds nuw i8, ptr %.041, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !63
+  %46 = fadd reassoc nsz arcp contract afn double %.03040, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %48 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
-  %49 = load i64, ptr %2, align 8, !tbaa !88
-  %50 = add nsw i64 %49, -1290608000
-  %51 = sitofp i64 %50 to double
-  %52 = load i64, ptr %15, align 8, !tbaa !90
-  %53 = sitofp i64 %52 to double
-  %54 = fmul reassoc nsz arcp contract afn double %53, 0x3EB0C6F7A0B5ED8D
-  %55 = fadd reassoc nsz arcp contract afn double %54, %51
+  %47 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
+  %48 = load i64, ptr %2, align 8, !tbaa !88
+  %49 = add nsw i64 %48, -1290608000
+  %50 = sitofp i64 %49 to double
+  %51 = load i64, ptr %15, align 8, !tbaa !90
+  %52 = sitofp i64 %51 to double
+  %53 = fmul reassoc nsz arcp contract afn double %52, 0x3EB0C6F7A0B5ED8D
+  %54 = fadd reassoc nsz arcp contract afn double %53, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %56 = fadd reassoc nsz arcp contract afn double %.03739, 5.000000e-01
-  %57 = fcmp reassoc nsz arcp contract afn ogt double %55, %56
-  br i1 %57, label %58, label %_update_progress.exit
+  %55 = fadd reassoc nsz arcp contract afn double %.03739, 5.000000e-01
+  %56 = fcmp reassoc nsz arcp contract afn ogt double %54, %55
+  br i1 %56, label %57, label %_update_progress.exit
 
-58:                                               ; preds = %44
-  %59 = fcmp reassoc nsz arcp contract afn ogt double %47, 1.000000e+00
-  %60 = fcmp reassoc nsz arcp contract afn olt double %47, 0.000000e+00
-  %61 = select reassoc nsz arcp contract afn i1 %60, double 0.000000e+00, double %47
-  %62 = select reassoc nsz arcp contract afn i1 %59, double 1.000000e+00, double %61
-  call void @dt_control_job_set_progress(ptr noundef %0, double noundef %62) #17
+57:                                               ; preds = %43
+  %58 = fcmp reassoc nsz arcp contract afn ogt double %46, 1.000000e+00
+  %59 = fcmp reassoc nsz arcp contract afn olt double %46, 0.000000e+00
+  %60 = select reassoc nsz arcp contract afn i1 %59, double 0.000000e+00, double %46
+  %61 = select reassoc nsz arcp contract afn i1 %58, double 1.000000e+00, double %60
+  call void @dt_control_job_set_progress(ptr noundef %0, double noundef %61) #17
   br label %_update_progress.exit
 
-_update_progress.exit:                            ; preds = %44, %58
-  %.1 = phi nsz double [ %55, %58 ], [ %.03739, %44 ]
-  %.not = icmp eq ptr %46, null
+_update_progress.exit:                            ; preds = %43, %57
+  %.1 = phi nsz double [ %54, %57 ], [ %.03739, %43 ]
+  %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %_update_progress.exit, %1
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  %64 = load ptr, ptr %6, align 8, !tbaa !50
-  %65 = call ptr @g_list_copy(ptr noundef %64) #17
-  call void @dt_collection_update_query(ptr noundef %63, i32 noundef 3, i32 noundef 43, ptr noundef %65) #17
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %67 = and i32 %66, 1
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  %63 = load ptr, ptr %6, align 8, !tbaa !50
+  %64 = call ptr @g_list_copy(ptr noundef %63) #17
+  call void @dt_collection_update_query(ptr noundef %62, i32 noundef 3, i32 noundef 43, ptr noundef %64) #17
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %66 = trunc i32 %65 to i1
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
   %68 = icmp ne i32 %67, 0
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %70 = icmp ne i32 %69, 0
-  %or.cond3 = select i1 %68, i1 %70, i1 false
-  br i1 %or.cond3, label %71, label %75
+  %or.cond3 = select i1 %66, i1 %68, i1 false
+  br i1 %or.cond3, label %69, label %73
 
-71:                                               ; preds = %._crit_edge
-  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %73 = and i32 %72, 1048576
-  %.not33 = icmp eq i32 %73, 0
-  br i1 %.not33, label %75, label %74
+69:                                               ; preds = %._crit_edge
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %71 = and i32 %70, 1048576
+  %.not33 = icmp eq i32 %71, 0
+  br i1 %.not33, label %73, label %72
 
-74:                                               ; preds = %71
+72:                                               ; preds = %69
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.48, i32 noundef 1566, ptr noundef nonnull @.str.135) #17
-  br label %75
+  br label %73
 
-75:                                               ; preds = %71, %74, %._crit_edge
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %76, i32 noundef 9) #17
-  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %78 = and i32 %77, 1
-  %79 = icmp ne i32 %78, 0
-  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3180), align 4
-  %81 = icmp ne i32 %80, 0
-  %or.cond5 = select i1 %79, i1 %81, i1 false
-  br i1 %or.cond5, label %82, label %86
+73:                                               ; preds = %69, %72, %._crit_edge
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 9) #17
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %76 = trunc i32 %75 to i1
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3180), align 4
+  %78 = icmp ne i32 %77, 0
+  %or.cond5 = select i1 %76, i1 %78, i1 false
+  br i1 %or.cond5, label %79, label %83
 
-82:                                               ; preds = %75
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %84 = and i32 %83, 1048576
-  %.not34 = icmp eq i32 %84, 0
-  br i1 %.not34, label %86, label %85
+79:                                               ; preds = %73
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %81 = and i32 %80, 1048576
+  %.not34 = icmp eq i32 %81, 0
+  br i1 %.not34, label %83, label %82
 
-85:                                               ; preds = %82
+82:                                               ; preds = %79
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.48, i32 noundef 1567, ptr noundef nonnull @.str.135) #17
-  br label %86
+  br label %83
 
-86:                                               ; preds = %82, %85, %75
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %87, i32 noundef 12, ptr noundef %8) #17
+83:                                               ; preds = %79, %82, %73
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %84, i32 noundef 12, ptr noundef %8) #17
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
@@ -3444,31 +3435,30 @@ _update_progress.exit:                            ; preds = %30, %42
 
 .critedge:                                        ; preds = %_update_progress.exit, %15, %1
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %50 = and i32 %49, 1
-  %51 = icmp ne i32 %50, 0
-  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %53 = icmp ne i32 %52, 0
-  %or.cond = select i1 %51, i1 %53, i1 false
-  br i1 %or.cond, label %54, label %58
+  %50 = trunc i32 %49 to i1
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %52 = icmp ne i32 %51, 0
+  %or.cond = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %57
 
-54:                                               ; preds = %.critedge
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %56 = and i32 %55, 1048576
-  %.not22 = icmp eq i32 %56, 0
-  br i1 %.not22, label %58, label %57
+53:                                               ; preds = %.critedge
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %55 = and i32 %54, 1048576
+  %.not22 = icmp eq i32 %55, 0
+  br i1 %.not22, label %57, label %56
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.48, i32 noundef 1710, ptr noundef nonnull @__FUNCTION__._control_discard_history_job_run) #17
-  br label %58
+  br label %57
 
-58:                                               ; preds = %54, %57, %.critedge
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %59, i32 noundef 9) #17
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
-  call void @dt_undo_end_group(ptr noundef %60) #17
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  %62 = load ptr, ptr %5, align 8, !tbaa !52
-  call void @dt_collection_update_query(ptr noundef %61, i32 noundef 3, i32 noundef 43, ptr noundef %62) #17
+57:                                               ; preds = %53, %56, %.critedge
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %58, i32 noundef 9) #17
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
+  call void @dt_undo_end_group(ptr noundef %59) #17
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  %61 = load ptr, ptr %5, align 8, !tbaa !52
+  call void @dt_collection_update_query(ptr noundef %60, i32 noundef 3, i32 noundef 43, ptr noundef %61) #17
   store ptr null, ptr %5, align 8, !tbaa !52
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3534,7 +3524,7 @@ define internal noundef i32 @_control_apply_styles_job_run(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %85, label %7
+  br i1 %.not, label %84, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %6, align 8, !tbaa !147
@@ -3570,136 +3560,135 @@ define internal noundef i32 @_control_apply_styles_job_run(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %.lr.ph80, %_update_progress.exit
-  %.06078 = phi ptr [ %8, %.lr.ph80 ], [ %77, %_update_progress.exit ]
-  %.06177 = phi double [ 0.000000e+00, %.lr.ph80 ], [ %60, %_update_progress.exit ]
+  %.06078 = phi ptr [ %8, %.lr.ph80 ], [ %76, %_update_progress.exit ]
+  %.06177 = phi double [ 0.000000e+00, %.lr.ph80 ], [ %59, %_update_progress.exit ]
   %.07176 = phi double [ 0.000000e+00, %.lr.ph80 ], [ %.1, %_update_progress.exit ]
   %28 = call i32 @dt_control_job_get_state(ptr noundef %0) #17
   %.not72 = icmp eq i32 %28, 4
-  br i1 %.not72, label %.critedge, label %35
+  br i1 %.not72, label %.critedge, label %34
 
 .critedge:                                        ; preds = %27, %_update_progress.exit, %7
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
   call void @dt_undo_end_group(ptr noundef %29) #17
   %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %31 = and i32 %30, 1
-  %32 = icmp ne i32 %31, 0
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %34 = icmp ne i32 %33, 0
-  %or.cond7 = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond7, label %78, label %82
+  %31 = trunc i32 %30 to i1
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %33 = icmp ne i32 %32, 0
+  %or.cond7 = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond7, label %77, label %81
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %.06078, align 8, !tbaa !61
-  %37 = ptrtoint ptr %36 to i64
-  %38 = trunc i64 %37 to i32
-  br i1 %or.cond, label %39, label %46
+34:                                               ; preds = %27
+  %35 = load ptr, ptr %.06078, align 8, !tbaa !61
+  %36 = ptrtoint ptr %35 to i64
+  %37 = trunc i64 %36 to i32
+  br i1 %or.cond, label %38, label %45
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not67 = icmp eq ptr %40, null
-  br i1 %.not67, label %41, label %46
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %22, align 8, !tbaa !63
+  %.not67 = icmp eq ptr %39, null
+  br i1 %.not67, label %40, label %45
 
-41:                                               ; preds = %39
-  %42 = call ptr @dt_history_snapshot_item_init() #17
-  store i32 %38, ptr %42, align 4, !tbaa !151
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  call void @dt_history_snapshot_undo_create(i32 noundef %38, ptr noundef nonnull %43, ptr noundef nonnull %44) #17
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
-  call void @dt_undo_disable_next(ptr noundef %45) #17
-  br label %46
+40:                                               ; preds = %38
+  %41 = call ptr @dt_history_snapshot_item_init() #17
+  store i32 %37, ptr %41, align 4, !tbaa !151
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  call void @dt_history_snapshot_undo_create(i32 noundef %37, ptr noundef nonnull %42, ptr noundef nonnull %43) #17
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
+  call void @dt_undo_disable_next(ptr noundef %44) #17
+  br label %45
 
-46:                                               ; preds = %41, %39, %35
-  %.058 = phi ptr [ null, %39 ], [ %42, %41 ], [ null, %35 ]
-  br i1 %or.cond3.not, label %47, label %48
+45:                                               ; preds = %40, %38, %34
+  %.058 = phi ptr [ null, %38 ], [ %41, %40 ], [ null, %34 ]
+  br i1 %or.cond3.not, label %46, label %47
 
-47:                                               ; preds = %46
-  call void @dt_history_delete_on_image_ext(i32 noundef %38, i32 noundef 0, i32 noundef 1) #17
-  br label %48
+46:                                               ; preds = %45
+  call void @dt_history_delete_on_image_ext(i32 noundef %37, i32 noundef 0, i32 noundef 1) #17
+  br label %47
 
-48:                                               ; preds = %47, %46
+47:                                               ; preds = %46, %45
   br i1 %.not6973, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %48
-  br i1 %or.cond, label %52, label %59
+._crit_edge:                                      ; preds = %.lr.ph, %47
+  br i1 %or.cond, label %51, label %58
 
-.lr.ph:                                           ; preds = %48, %.lr.ph
-  %.074 = phi ptr [ %51, %.lr.ph ], [ %10, %48 ]
-  %49 = load ptr, ptr %.074, align 8, !tbaa !61
-  call void @dt_styles_apply_to_image(ptr noundef %49, i32 noundef %12, i32 noundef %20, i32 noundef %38) #17
-  %50 = getelementptr inbounds nuw i8, ptr %.074, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !63
-  %.not69 = icmp eq ptr %51, null
+.lr.ph:                                           ; preds = %47, %.lr.ph
+  %.074 = phi ptr [ %50, %.lr.ph ], [ %10, %47 ]
+  %48 = load ptr, ptr %.074, align 8, !tbaa !61
+  call void @dt_styles_apply_to_image(ptr noundef %48, i32 noundef %12, i32 noundef %20, i32 noundef %37) #17
+  %49 = getelementptr inbounds nuw i8, ptr %.074, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !63
+  %.not69 = icmp eq ptr %50, null
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
-52:                                               ; preds = %._crit_edge
-  %53 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not70 = icmp eq ptr %53, null
-  br i1 %.not70, label %54, label %59
+51:                                               ; preds = %._crit_edge
+  %52 = load ptr, ptr %22, align 8, !tbaa !63
+  %.not70 = icmp eq ptr %52, null
+  br i1 %.not70, label %53, label %58
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %.058, align 4, !tbaa !151
-  %56 = getelementptr inbounds nuw i8, ptr %.058, i64 12
-  %57 = getelementptr inbounds nuw i8, ptr %.058, i64 16
-  call void @dt_history_snapshot_undo_create(i32 noundef %55, ptr noundef nonnull %56, ptr noundef nonnull %57) #17
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
-  call void @dt_undo_record(ptr noundef %58, ptr noundef null, i32 noundef 128, ptr noundef nonnull %.058, ptr noundef nonnull @dt_history_snapshot_undo_pop, ptr noundef nonnull @dt_history_snapshot_undo_lt_history_data_free) #17
-  br label %59
+53:                                               ; preds = %51
+  %54 = load i32, ptr %.058, align 4, !tbaa !151
+  %55 = getelementptr inbounds nuw i8, ptr %.058, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.058, i64 16
+  call void @dt_history_snapshot_undo_create(i32 noundef %54, ptr noundef nonnull %55, ptr noundef nonnull %56) #17
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 208), align 8, !tbaa !87
+  call void @dt_undo_record(ptr noundef %57, ptr noundef null, i32 noundef 128, ptr noundef nonnull %.058, ptr noundef nonnull @dt_history_snapshot_undo_pop, ptr noundef nonnull @dt_history_snapshot_undo_lt_history_data_free) #17
+  br label %58
 
-59:                                               ; preds = %54, %52, %._crit_edge
-  %60 = fadd reassoc nsz arcp contract afn double %.06177, %25
+58:                                               ; preds = %53, %51, %._crit_edge
+  %59 = fadd reassoc nsz arcp contract afn double %.06177, %25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %61 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
-  %62 = load i64, ptr %2, align 8, !tbaa !88
-  %63 = add nsw i64 %62, -1290608000
-  %64 = sitofp i64 %63 to double
-  %65 = load i64, ptr %26, align 8, !tbaa !90
-  %66 = sitofp i64 %65 to double
-  %67 = fmul reassoc nsz arcp contract afn double %66, 0x3EB0C6F7A0B5ED8D
-  %68 = fadd reassoc nsz arcp contract afn double %67, %64
+  %60 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
+  %61 = load i64, ptr %2, align 8, !tbaa !88
+  %62 = add nsw i64 %61, -1290608000
+  %63 = sitofp i64 %62 to double
+  %64 = load i64, ptr %26, align 8, !tbaa !90
+  %65 = sitofp i64 %64 to double
+  %66 = fmul reassoc nsz arcp contract afn double %65, 0x3EB0C6F7A0B5ED8D
+  %67 = fadd reassoc nsz arcp contract afn double %66, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %69 = fadd reassoc nsz arcp contract afn double %.07176, 5.000000e-01
-  %70 = fcmp reassoc nsz arcp contract afn ogt double %68, %69
-  br i1 %70, label %71, label %_update_progress.exit
+  %68 = fadd reassoc nsz arcp contract afn double %.07176, 5.000000e-01
+  %69 = fcmp reassoc nsz arcp contract afn ogt double %67, %68
+  br i1 %69, label %70, label %_update_progress.exit
 
-71:                                               ; preds = %59
-  %72 = fcmp reassoc nsz arcp contract afn ogt double %60, 1.000000e+00
-  %73 = fcmp reassoc nsz arcp contract afn olt double %60, 0.000000e+00
-  %74 = select reassoc nsz arcp contract afn i1 %73, double 0.000000e+00, double %60
-  %75 = select reassoc nsz arcp contract afn i1 %72, double 1.000000e+00, double %74
-  call void @dt_control_job_set_progress(ptr noundef %0, double noundef %75) #17
+70:                                               ; preds = %58
+  %71 = fcmp reassoc nsz arcp contract afn ogt double %59, 1.000000e+00
+  %72 = fcmp reassoc nsz arcp contract afn olt double %59, 0.000000e+00
+  %73 = select reassoc nsz arcp contract afn i1 %72, double 0.000000e+00, double %59
+  %74 = select reassoc nsz arcp contract afn i1 %71, double 1.000000e+00, double %73
+  call void @dt_control_job_set_progress(ptr noundef %0, double noundef %74) #17
   br label %_update_progress.exit
 
-_update_progress.exit:                            ; preds = %59, %71
-  %.1 = phi nsz double [ %68, %71 ], [ %.07176, %59 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.06078, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !63
-  %.not64 = icmp eq ptr %77, null
+_update_progress.exit:                            ; preds = %58, %70
+  %.1 = phi nsz double [ %67, %70 ], [ %.07176, %58 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.06078, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !63
+  %.not64 = icmp eq ptr %76, null
   br i1 %.not64, label %.critedge, label %27
 
-78:                                               ; preds = %.critedge
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %80 = and i32 %79, 1048576
-  %.not66 = icmp eq i32 %80, 0
-  br i1 %.not66, label %82, label %81
+77:                                               ; preds = %.critedge
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %79 = and i32 %78, 1048576
+  %.not66 = icmp eq i32 %79, 0
+  br i1 %.not66, label %81, label %80
 
-81:                                               ; preds = %78
+80:                                               ; preds = %77
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.48, i32 noundef 1772, ptr noundef nonnull @__FUNCTION__._control_apply_styles_job_run) #17
-  br label %82
+  br label %81
 
-82:                                               ; preds = %78, %81, %.critedge
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %83, i32 noundef 9) #17
+81:                                               ; preds = %77, %80, %.critedge
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %82, i32 noundef 9) #17
   call void @g_list_free(ptr noundef %8) #17
   call void @g_list_free_full(ptr noundef %10, ptr noundef nonnull @g_free) #17
-  %84 = load ptr, ptr %5, align 8, !tbaa !52
-  call void @g_free(ptr noundef %84) #17
+  %83 = load ptr, ptr %5, align 8, !tbaa !52
+  call void @g_free(ptr noundef %83) #17
   store ptr null, ptr %5, align 8, !tbaa !52
   call void (...) @dt_control_queue_redraw_center() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %1, %82
+84:                                               ; preds = %1, %81
   ret i32 0
 }
 
@@ -4188,33 +4177,32 @@ _update_progress.exit:                            ; preds = %190, %202
   call void %215(ptr noundef %213, ptr noundef %216) #17
   call void (...) @dt_ui_notify_user() #17
   %.not133 = icmp eq i32 %.0100, 0
-  br i1 %.not133, label %229, label %217
+  br i1 %.not133, label %228, label %217
 
 217:                                              ; preds = %212
   %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %219 = and i32 %218, 1
-  %220 = icmp ne i32 %219, 0
-  %221 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %222 = icmp ne i32 %221, 0
-  %or.cond9 = select i1 %220, i1 %222, i1 false
-  br i1 %or.cond9, label %223, label %227
+  %219 = trunc i32 %218 to i1
+  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %221 = icmp ne i32 %220, 0
+  %or.cond9 = select i1 %219, i1 %221, i1 false
+  br i1 %or.cond9, label %222, label %226
 
-223:                                              ; preds = %217
-  %224 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %225 = and i32 %224, 1048576
-  %.not134 = icmp eq i32 %225, 0
-  br i1 %.not134, label %227, label %226
+222:                                              ; preds = %217
+  %223 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %224 = and i32 %223, 1048576
+  %.not134 = icmp eq i32 %224, 0
+  br i1 %.not134, label %226, label %225
 
-226:                                              ; preds = %223
+225:                                              ; preds = %222
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.48, i32 noundef 1939, ptr noundef nonnull @__func__.dt_control_export_job_run) #17
-  br label %227
+  br label %226
 
-227:                                              ; preds = %223, %226, %217
-  %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %228, i32 noundef 9) #17
-  br label %229
+226:                                              ; preds = %222, %225, %217
+  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %227, i32 noundef 9) #17
+  br label %228
 
-229:                                              ; preds = %227, %212
+228:                                              ; preds = %226, %212
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5135,7 +5123,7 @@ define internal range(i32 0, 2) i32 @dt_control_gpx_apply_job_run(ptr noundef %0
 20:                                               ; preds = %18, %16
   %21 = phi ptr [ %17, %16 ], [ %19, %18 ]
   %.not68 = icmp eq ptr %21, null
-  br i1 %.not68, label %65, label %22
+  br i1 %.not68, label %64, label %22
 
 22:                                               ; preds = %20
   %23 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 24) #17
@@ -5222,34 +5210,33 @@ define internal range(i32 0, 2) i32 @dt_control_gpx_apply_job_run(ptr noundef %0
   call void @dt_gpx_destroy(ptr noundef nonnull %11) #17
   call void @g_array_unref(ptr noundef %23) #17
   %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %55 = and i32 %54, 1
-  %56 = icmp ne i32 %55, 0
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
-  %58 = icmp ne i32 %57, 0
-  %or.cond = select i1 %56, i1 %58, i1 false
-  br i1 %or.cond, label %59, label %63
+  %55 = trunc i32 %54 to i1
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
+  %57 = icmp ne i32 %56, 0
+  %or.cond = select i1 %55, i1 %57, i1 false
+  br i1 %or.cond, label %58, label %62
 
-59:                                               ; preds = %50
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %61 = and i32 %60, 1048576
-  %.not76 = icmp eq i32 %61, 0
-  br i1 %.not76, label %63, label %62
+58:                                               ; preds = %50
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %60 = and i32 %59, 1048576
+  %.not76 = icmp eq i32 %60, 0
+  br i1 %.not76, label %62, label %61
 
-62:                                               ; preds = %59
+61:                                               ; preds = %58
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.48, i32 noundef 1436, ptr noundef nonnull @__FUNCTION__.dt_control_gpx_apply_job_run) #17
-  br label %63
+  br label %62
 
-63:                                               ; preds = %59, %62, %50
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %64, i32 noundef 10, ptr noundef %51, i32 noundef 0) #17
+62:                                               ; preds = %58, %61, %50
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %63, i32 noundef 10, ptr noundef %51, i32 noundef 0) #17
   br label %.thread
 
-65:                                               ; preds = %20
+64:                                               ; preds = %20
   tail call void @dt_gpx_destroy(ptr noundef nonnull %11) #17
   br label %.thread
 
-.thread:                                          ; preds = %1, %12, %65, %63
-  %.048 = phi i32 [ 0, %63 ], [ 1, %65 ], [ 1, %12 ], [ 1, %1 ]
+.thread:                                          ; preds = %1, %12, %64, %62
+  %.048 = phi i32 [ 0, %62 ], [ 1, %64 ], [ 1, %12 ], [ 1, %1 ]
   ret i32 %.048
 }
 
@@ -5890,7 +5877,7 @@ define internal fastcc range(i32 -1, 1) i32 @_generic_dt_control_fileop_images_j
 22:                                               ; preds = %4
   %23 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #17
   call void (ptr, ...) @dt_control_log(ptr noundef %23) #17
-  br label %68
+  br label %67
 
 24:                                               ; preds = %.lr.ph, %_update_progress.exit
   %.041 = phi i32 [ 1, %.lr.ph ], [ %31, %_update_progress.exit ]
@@ -5954,35 +5941,34 @@ _update_progress.exit:                            ; preds = %26, %45
 53:                                               ; preds = %.critedge.thread, %.critedge
   call void (...) @dt_film_remove_empty() #17
   %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %55 = and i32 %54, 1
-  %56 = icmp ne i32 %55, 0
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %58 = icmp ne i32 %57, 0
-  %or.cond = select i1 %56, i1 %58, i1 false
-  br i1 %or.cond, label %59, label %63
+  %55 = trunc i32 %54 to i1
+  %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %57 = icmp ne i32 %56, 0
+  %or.cond = select i1 %55, i1 %57, i1 false
+  br i1 %or.cond, label %58, label %62
 
-59:                                               ; preds = %53
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %61 = and i32 %60, 1048576
-  %.not33 = icmp eq i32 %61, 0
-  br i1 %.not33, label %63, label %62
+58:                                               ; preds = %53
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %60 = and i32 %59, 1048576
+  %.not33 = icmp eq i32 %60, 0
+  br i1 %.not33, label %62, label %61
 
-62:                                               ; preds = %59
+61:                                               ; preds = %58
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.48, i32 noundef 225, ptr noundef nonnull @__FUNCTION__._generic_dt_control_fileop_images_job_run) #17
-  br label %63
+  br label %62
 
-63:                                               ; preds = %59, %62, %53
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %64, i32 noundef 15) #17
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  %66 = load ptr, ptr %9, align 8, !tbaa !50
-  %67 = call ptr @g_list_copy(ptr noundef %66) #17
-  call void @dt_collection_update_query(ptr noundef %65, i32 noundef 3, i32 noundef 43, ptr noundef %67) #17
+62:                                               ; preds = %58, %61, %53
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %63, i32 noundef 15) #17
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  %65 = load ptr, ptr %9, align 8, !tbaa !50
+  %66 = call ptr @g_list_copy(ptr noundef %65) #17
+  call void @dt_collection_update_query(ptr noundef %64, i32 noundef 3, i32 noundef 43, ptr noundef %66) #17
   call void (...) @dt_control_queue_redraw_center() #17
-  br label %68
+  br label %67
 
-68:                                               ; preds = %63, %22
-  %.027 = phi i32 [ 0, %63 ], [ -1, %22 ]
+67:                                               ; preds = %62, %22
+  %.027 = phi i32 [ 0, %62 ], [ -1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.027
@@ -6074,7 +6060,7 @@ define internal range(i32 0, 2) i32 @dt_control_datetime_job_run(ptr noundef %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %2, i8 0, i64 512, i1 false)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %94, label %12
+  br i1 %.not, label %92, label %12
 
 12:                                               ; preds = %1
   %13 = icmp eq i64 %10, 0
@@ -6083,7 +6069,7 @@ define internal range(i32 0, 2) i32 @dt_control_datetime_job_run(ptr noundef %0)
 14:                                               ; preds = %12
   %15 = load i8, ptr %11, align 1, !tbaa !72
   %.not51 = icmp eq i8 %15, 0
-  br i1 %.not51, label %94, label %16
+  br i1 %.not51, label %92, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @g_list_length(ptr noundef nonnull %7) #17
@@ -6216,53 +6202,51 @@ _add_datetime_offset.exit:                        ; preds = %39, %42, %48
   %70 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull %68, ptr noundef nonnull %67, i64 noundef %69, i32 noundef 5) #17
   call void (ptr, ...) @dt_control_log(ptr noundef %70, i32 noundef %.4) #17
   %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %72 = and i32 %71, 1
-  %73 = icmp ne i32 %72, 0
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3132), align 4
-  %75 = icmp ne i32 %74, 0
-  %or.cond = select i1 %73, i1 %75, i1 false
-  br i1 %or.cond, label %76, label %80
+  %72 = trunc i32 %71 to i1
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3132), align 4
+  %74 = icmp ne i32 %73, 0
+  %or.cond = select i1 %72, i1 %74, i1 false
+  br i1 %or.cond, label %75, label %79
 
-76:                                               ; preds = %66
-  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %78 = and i32 %77, 1048576
-  %.not54 = icmp eq i32 %78, 0
-  br i1 %.not54, label %80, label %79
+75:                                               ; preds = %66
+  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %77 = and i32 %76, 1048576
+  %.not54 = icmp eq i32 %77, 0
+  br i1 %.not54, label %79, label %78
 
-79:                                               ; preds = %76
+78:                                               ; preds = %75
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.48, i32 noundef 2591, ptr noundef nonnull @__FUNCTION__.dt_control_datetime_job_run) #17
-  br label %80
+  br label %79
 
-80:                                               ; preds = %76, %79, %66
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %81, i32 noundef 0) #17
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %83 = and i32 %82, 1
+79:                                               ; preds = %75, %78, %66
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %80, i32 noundef 0) #17
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %82 = trunc i32 %81 to i1
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3180), align 4
   %84 = icmp ne i32 %83, 0
-  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3180), align 4
-  %86 = icmp ne i32 %85, 0
-  %or.cond3 = select i1 %84, i1 %86, i1 false
-  br i1 %or.cond3, label %87, label %91
+  %or.cond3 = select i1 %82, i1 %84, i1 false
+  br i1 %or.cond3, label %85, label %89
 
-87:                                               ; preds = %80
-  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %89 = and i32 %88, 1048576
-  %.not55 = icmp eq i32 %89, 0
-  br i1 %.not55, label %91, label %90
+85:                                               ; preds = %79
+  %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %87 = and i32 %86, 1048576
+  %.not55 = icmp eq i32 %87, 0
+  br i1 %.not55, label %89, label %88
 
-90:                                               ; preds = %87
+88:                                               ; preds = %85
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.48, i32 noundef 2592, ptr noundef nonnull @__FUNCTION__.dt_control_datetime_job_run) #17
-  br label %91
+  br label %89
 
-91:                                               ; preds = %87, %90, %80
-  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  %93 = load ptr, ptr %3, align 8, !tbaa !176
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %92, i32 noundef 12, ptr noundef %93) #17
+89:                                               ; preds = %85, %88, %79
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  %91 = load ptr, ptr %3, align 8, !tbaa !176
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %90, i32 noundef 12, ptr noundef %91) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %94
+  br label %92
 
-94:                                               ; preds = %1, %14, %91
-  %.0 = phi i32 [ 0, %91 ], [ 1, %14 ], [ 1, %1 ]
+92:                                               ; preds = %1, %14, %89
+  %.0 = phi i32 [ 0, %89 ], [ 1, %14 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -6365,32 +6349,31 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
   %44 = sitofp i64 %27 to double
   %45 = fmul reassoc nsz arcp contract afn double %44, 0x3EB0C6F7A0B5ED8D
   %46 = fadd reassoc nsz arcp contract afn double %43, %45
-  br label %56
+  br label %55
 
-47:                                               ; preds = %195
+47:                                               ; preds = %194
   %48 = call i32 @dt_control_job_get_state(ptr noundef %0) #17
   %.not139 = icmp eq i32 %48, 4
-  br i1 %.not139, label %.critedge, label %56
+  br i1 %.not139, label %.critedge, label %55
 
-.critedge:                                        ; preds = %195, %47, %.lr.ph, %1
-  %.092.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.193114, %47 ], [ %.193114, %195 ]
-  %.080.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.1122, %47 ], [ %.1122, %195 ]
-  %.051.lcssa = phi i32 [ -1, %1 ], [ -1, %.lr.ph ], [ %.152126, %47 ], [ %.152126, %195 ]
-  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %179, %47 ], [ %179, %195 ]
+.critedge:                                        ; preds = %194, %47, %.lr.ph, %1
+  %.092.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.193114, %47 ], [ %.193114, %194 ]
+  %.080.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %.1122, %47 ], [ %.1122, %194 ]
+  %.051.lcssa = phi i32 [ -1, %1 ], [ -1, %.lr.ph ], [ %.152126, %47 ], [ %.152126, %194 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ 0, %.lr.ph ], [ %178, %47 ], [ %178, %194 ]
   call void @g_free(ptr noundef %.080.lcssa) #17
   %49 = zext i32 %.0.lcssa to i64
   %50 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i64 noundef %49, i32 noundef 5) #17
   call void (ptr, ...) @dt_control_log(ptr noundef %50, i32 noundef %.0.lcssa) #17
   call void (...) @dt_control_queue_redraw_center() #17
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %52 = and i32 %51, 1
-  %53 = icmp ne i32 %52, 0
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %55 = icmp ne i32 %54, 0
-  %or.cond5 = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond5, label %198, label %202
+  %52 = trunc i32 %51 to i1
+  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %54 = icmp ne i32 %53, 0
+  %or.cond5 = select i1 %52, i1 %54, i1 false
+  br i1 %or.cond5, label %197, label %201
 
-56:                                               ; preds = %.lr.ph177, %47
+55:                                               ; preds = %.lr.ph177, %47
   %.092141176 = phi ptr [ null, %.lr.ph177 ], [ %.193114, %47 ]
   %.087142175 = phi double [ %46, %.lr.ph177 ], [ %.188116, %47 ]
   %.084143174 = phi double [ 5.000000e-01, %.lr.ph177 ], [ %.185118, %47 ]
@@ -6398,409 +6381,407 @@ define internal noundef i32 @_control_import_job_run(ptr noundef %0) #0 {
   %.080145172 = phi ptr [ null, %.lr.ph177 ], [ %.1122, %47 ]
   %.056146171 = phi i32 [ -1, %.lr.ph177 ], [ %.157124, %47 ]
   %.054147170 = phi double [ %46, %.lr.ph177 ], [ %.155, %47 ]
-  %.053148169 = phi ptr [ %19, %.lr.ph177 ], [ %197, %47 ]
-  %.050150168 = phi double [ 0.000000e+00, %.lr.ph177 ], [ %180, %47 ]
-  %.0151167 = phi i32 [ 0, %.lr.ph177 ], [ %179, %47 ]
-  %57 = load ptr, ptr %18, align 8, !tbaa !205
-  %.not66 = icmp eq ptr %57, null
-  %58 = load ptr, ptr %.053148169, align 8, !tbaa !61
-  br i1 %.not66, label %152, label %59
+  %.053148169 = phi ptr [ %19, %.lr.ph177 ], [ %196, %47 ]
+  %.050150168 = phi double [ 0.000000e+00, %.lr.ph177 ], [ %179, %47 ]
+  %.0151167 = phi i32 [ 0, %.lr.ph177 ], [ %178, %47 ]
+  %56 = load ptr, ptr %18, align 8, !tbaa !205
+  %.not66 = icmp eq ptr %56, null
+  %57 = load ptr, ptr %.053148169, align 8, !tbaa !61
+  br i1 %.not66, label %151, label %58
 
-59:                                               ; preds = %56
+58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !207
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %8, i8 0, i64 152, i1 false)
-  %60 = call i32 @g_file_get_contents(ptr noundef %58, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null) #17
-  %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %61, label %65
+  %59 = call i32 @g_file_get_contents(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null) #17
+  %.not.i = icmp eq i32 %59, 0
+  br i1 %.not.i, label %60, label %64
 
-61:                                               ; preds = %59
-  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %63 = and i32 %62, 2
-  %.not56.i = icmp eq i32 %63, 0
-  br i1 %.not56.i, label %_control_import_image_copy.exit.thread, label %64
+60:                                               ; preds = %58
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %62 = and i32 %61, 2
+  %.not56.i = icmp eq i32 %62, 0
+  br i1 %.not56.i, label %_control_import_image_copy.exit.thread, label %63
 
-64:                                               ; preds = %61
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.192, ptr noundef %58) #17
+63:                                               ; preds = %60
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.192, ptr noundef %57) #17
   br label %_control_import_image_copy.exit.thread
 
-65:                                               ; preds = %59
+64:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %66 = call i32 @stat(ptr noundef %58, ptr noundef nonnull %9) #17
-  %67 = call i32 @dt_has_same_path_basename(ptr noundef %58, ptr noundef %.081144173) #17
-  %.not57.i = icmp eq i32 %67, 0
-  br i1 %.not57.i, label %70, label %68
+  %65 = call i32 @stat(ptr noundef %57, ptr noundef nonnull %9) #17
+  %66 = call i32 @dt_has_same_path_basename(ptr noundef %57, ptr noundef %.081144173) #17
+  %.not57.i = icmp eq i32 %66, 0
+  br i1 %.not57.i, label %69, label %67
 
-68:                                               ; preds = %65
-  %69 = call ptr @dt_copy_filename_extension(ptr noundef %.080145172, ptr noundef %58) #17
-  br label %84
+67:                                               ; preds = %64
+  %68 = call ptr @dt_copy_filename_extension(ptr noundef %.080145172, ptr noundef %57) #17
+  br label %83
 
-70:                                               ; preds = %65
-  %71 = call noalias ptr @g_path_get_basename(ptr noundef %58) #17
-  %72 = load ptr, ptr %6, align 8, !tbaa !67
-  %73 = load i64, ptr %7, align 8, !tbaa !207
-  call void @dt_exif_get_basic_data(ptr noundef %72, i64 noundef %73, ptr noundef nonnull %8) #17
-  %74 = load i8, ptr %8, align 1, !tbaa !72
-  %75 = icmp ne i8 %74, 0
-  %76 = icmp ne i32 %66, 0
-  %or.cond.i = or i1 %76, %75
-  br i1 %or.cond.i, label %79, label %77
+69:                                               ; preds = %64
+  %70 = call noalias ptr @g_path_get_basename(ptr noundef %57) #17
+  %71 = load ptr, ptr %6, align 8, !tbaa !67
+  %72 = load i64, ptr %7, align 8, !tbaa !207
+  call void @dt_exif_get_basic_data(ptr noundef %71, i64 noundef %72, ptr noundef nonnull %8) #17
+  %73 = load i8, ptr %8, align 1, !tbaa !72
+  %74 = icmp ne i8 %73, 0
+  %75 = icmp ne i32 %65, 0
+  %or.cond.i = or i1 %75, %74
+  br i1 %or.cond.i, label %78, label %76
 
-77:                                               ; preds = %70
-  %78 = call i32 @dt_datetime_unix_to_exif(ptr noundef nonnull %8, i64 noundef 24, ptr noundef nonnull %28) #17
-  br label %79
+76:                                               ; preds = %69
+  %77 = call i32 @dt_datetime_unix_to_exif(ptr noundef nonnull %8, i64 noundef 24, ptr noundef nonnull %28) #17
+  br label %78
 
-79:                                               ; preds = %77, %70
-  call void @dt_import_session_set_exif_basic_info(ptr noundef nonnull %57, ptr noundef nonnull %8) #17
-  call void @dt_import_session_set_filename(ptr noundef nonnull %57, ptr noundef %71) #17
-  %80 = call ptr @dt_import_session_path(ptr noundef nonnull %57, i32 noundef 0) #17
-  %81 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.193) #17
-  %82 = call ptr @dt_import_session_filename(ptr noundef nonnull %57, i32 noundef %81) #17
-  %83 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %80, ptr noundef %82, ptr noundef null) #17
-  call void @g_free(ptr noundef %71) #17
-  br label %84
+78:                                               ; preds = %76, %69
+  call void @dt_import_session_set_exif_basic_info(ptr noundef nonnull %56, ptr noundef nonnull %8) #17
+  call void @dt_import_session_set_filename(ptr noundef nonnull %56, ptr noundef %70) #17
+  %79 = call ptr @dt_import_session_path(ptr noundef nonnull %56, i32 noundef 0) #17
+  %80 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.193) #17
+  %81 = call ptr @dt_import_session_filename(ptr noundef nonnull %56, i32 noundef %80) #17
+  %82 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %79, ptr noundef %81, ptr noundef null) #17
+  call void @g_free(ptr noundef %70) #17
+  br label %83
 
-84:                                               ; preds = %79, %68
-  %.054.i = phi ptr [ %69, %68 ], [ %83, %79 ]
-  %85 = load ptr, ptr %6, align 8, !tbaa !67
-  %86 = load i64, ptr %7, align 8, !tbaa !207
-  %87 = call i32 @g_file_set_contents(ptr noundef %.054.i, ptr noundef %85, i64 noundef %86, ptr noundef null) #17
-  %.not58.i = icmp eq i32 %87, 0
-  br i1 %.not58.i, label %88, label %92
+83:                                               ; preds = %78, %67
+  %.054.i = phi ptr [ %68, %67 ], [ %82, %78 ]
+  %84 = load ptr, ptr %6, align 8, !tbaa !67
+  %85 = load i64, ptr %7, align 8, !tbaa !207
+  %86 = call i32 @g_file_set_contents(ptr noundef %.054.i, ptr noundef %84, i64 noundef %85, ptr noundef null) #17
+  %.not58.i = icmp eq i32 %86, 0
+  br i1 %.not58.i, label %87, label %91
 
-88:                                               ; preds = %84
-  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %90 = and i32 %89, 2
-  %.not59.i = icmp eq i32 %90, 0
-  br i1 %.not59.i, label %129, label %91
+87:                                               ; preds = %83
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %89 = and i32 %88, 2
+  %.not59.i = icmp eq i32 %89, 0
+  br i1 %.not59.i, label %128, label %90
 
-91:                                               ; preds = %88
+90:                                               ; preds = %87
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.194, ptr noundef %.054.i) #17
-  br label %129
-
-92:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %93 = load i64, ptr %29, align 8, !tbaa !234
-  store i64 %93, ptr %10, align 16, !tbaa !88
-  %94 = load i64, ptr %28, align 8, !tbaa !237
-  store i64 %94, ptr %30, align 16, !tbaa !88
-  %95 = load i64, ptr %31, align 8, !tbaa !238
-  %96 = sitofp i64 %95 to double
-  %97 = fmul reassoc nsz arcp contract afn double %96, 1.000000e-03
-  %98 = fptosi double %97 to i64
-  store i64 %98, ptr %32, align 8, !tbaa !90
-  %99 = load i64, ptr %33, align 8, !tbaa !239
-  %100 = sitofp i64 %99 to double
-  %101 = fmul reassoc nsz arcp contract afn double %100, 1.000000e-03
-  %102 = fptosi double %101 to i64
-  store i64 %102, ptr %34, align 8, !tbaa !90
-  %103 = call i32 @utimes(ptr noundef %.054.i, ptr noundef nonnull %10) #17
-  %104 = call i32 @dt_import_session_film_id(ptr noundef nonnull %57) #17
-  %105 = call i32 @dt_image_import(i32 noundef %104, ptr noundef %.054.i, i32 noundef 0, i32 noundef 0) #17
-  %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %109, label %107
-
-107:                                              ; preds = %92
-  %108 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.195, i32 noundef 5) #17
-  call void (ptr, ...) @dt_control_log(ptr noundef %108, ptr noundef %.054.i) #17
   br label %128
 
-109:                                              ; preds = %92
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr null, ptr %11, align 8, !tbaa !224
-  %110 = call ptr @g_file_new_for_path(ptr noundef %58) #17
-  %111 = call ptr @g_file_query_info(ptr noundef %110, ptr noundef nonnull @.str.196, i32 noundef 0, ptr noundef null, ptr noundef nonnull %11) #17
-  %112 = call ptr @g_file_info_get_name(ptr noundef %111) #17
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %113 = call i64 @g_file_info_get_attribute_uint64(ptr noundef %111, ptr noundef nonnull @.str.197) #17
-  store i64 %113, ptr %12, align 8, !tbaa !207
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %114 = call i32 @dt_datetime_unix_to_exif(ptr noundef nonnull %13, i64 noundef 20, ptr noundef nonnull %12) #17
-  %115 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %112, ptr noundef nonnull @.str.198, ptr noundef nonnull %13, ptr noundef null) #17
-  call void @dt_metadata_set(i32 noundef %105, ptr noundef nonnull @.str.199, ptr noundef %115, i32 noundef 0) #17
-  %116 = call noalias ptr @g_path_get_basename(ptr noundef %.054.i) #17
-  %117 = call i32 @g_strcmp0(ptr noundef %116, ptr noundef %112) #17
-  %.not60.i = icmp eq i32 %117, 0
-  br i1 %.not60.i, label %119, label %118
+91:                                               ; preds = %83
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %92 = load i64, ptr %29, align 8, !tbaa !234
+  store i64 %92, ptr %10, align 16, !tbaa !88
+  %93 = load i64, ptr %28, align 8, !tbaa !237
+  store i64 %93, ptr %30, align 16, !tbaa !88
+  %94 = load i64, ptr %31, align 8, !tbaa !238
+  %95 = sitofp i64 %94 to double
+  %96 = fmul reassoc nsz arcp contract afn double %95, 1.000000e-03
+  %97 = fptosi double %96 to i64
+  store i64 %97, ptr %32, align 8, !tbaa !90
+  %98 = load i64, ptr %33, align 8, !tbaa !239
+  %99 = sitofp i64 %98 to double
+  %100 = fmul reassoc nsz arcp contract afn double %99, 1.000000e-03
+  %101 = fptosi double %100 to i64
+  store i64 %101, ptr %34, align 8, !tbaa !90
+  %102 = call i32 @utimes(ptr noundef %.054.i, ptr noundef nonnull %10) #17
+  %103 = call i32 @dt_import_session_film_id(ptr noundef nonnull %56) #17
+  %104 = call i32 @dt_image_import(i32 noundef %103, ptr noundef %.054.i, i32 noundef 0, i32 noundef 0) #17
+  %105 = icmp sgt i32 %104, 0
+  br i1 %105, label %108, label %106
 
-118:                                              ; preds = %109
-  call void @dt_metadata_set(i32 noundef %105, ptr noundef nonnull @.str.200, ptr noundef %112, i32 noundef 0) #17
-  br label %119
-
-119:                                              ; preds = %118, %109
-  call void @g_free(ptr noundef %116) #17
-  call void @g_free(ptr noundef %115) #17
-  call void @g_object_unref(ptr noundef %111) #17
-  call void @g_object_unref(ptr noundef %110) #17
-  %120 = zext nneg i32 %105 to i64
-  %121 = inttoptr i64 %120 to ptr
-  %122 = call ptr @g_list_prepend(ptr noundef %.092141176, ptr noundef nonnull %121) #17
-  %123 = and i32 %105, 3
-  %124 = icmp eq i32 %123, 3
-  br i1 %124, label %125, label %127
-
-125:                                              ; preds = %119
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  call void @dt_collection_update_query(ptr noundef %126, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
-  call void (...) @dt_control_queue_redraw_center() #17
+106:                                              ; preds = %91
+  %107 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.195, i32 noundef 5) #17
+  call void (ptr, ...) @dt_control_log(ptr noundef %107, ptr noundef %.054.i) #17
   br label %127
 
-127:                                              ; preds = %125, %119
+108:                                              ; preds = %91
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  store ptr null, ptr %11, align 8, !tbaa !224
+  %109 = call ptr @g_file_new_for_path(ptr noundef %57) #17
+  %110 = call ptr @g_file_query_info(ptr noundef %109, ptr noundef nonnull @.str.196, i32 noundef 0, ptr noundef null, ptr noundef nonnull %11) #17
+  %111 = call ptr @g_file_info_get_name(ptr noundef %110) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  %112 = call i64 @g_file_info_get_attribute_uint64(ptr noundef %110, ptr noundef nonnull @.str.197) #17
+  store i64 %112, ptr %12, align 8, !tbaa !207
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %113 = call i32 @dt_datetime_unix_to_exif(ptr noundef nonnull %13, i64 noundef 20, ptr noundef nonnull %12) #17
+  %114 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %111, ptr noundef nonnull @.str.198, ptr noundef nonnull %13, ptr noundef null) #17
+  call void @dt_metadata_set(i32 noundef %104, ptr noundef nonnull @.str.199, ptr noundef %114, i32 noundef 0) #17
+  %115 = call noalias ptr @g_path_get_basename(ptr noundef %.054.i) #17
+  %116 = call i32 @g_strcmp0(ptr noundef %115, ptr noundef %111) #17
+  %.not60.i = icmp eq i32 %116, 0
+  br i1 %.not60.i, label %118, label %117
+
+117:                                              ; preds = %108
+  call void @dt_metadata_set(i32 noundef %104, ptr noundef nonnull @.str.200, ptr noundef %111, i32 noundef 0) #17
+  br label %118
+
+118:                                              ; preds = %117, %108
+  call void @g_free(ptr noundef %115) #17
+  call void @g_free(ptr noundef %114) #17
+  call void @g_object_unref(ptr noundef %110) #17
+  call void @g_object_unref(ptr noundef %109) #17
+  %119 = zext nneg i32 %104 to i64
+  %120 = inttoptr i64 %119 to ptr
+  %121 = call ptr @g_list_prepend(ptr noundef %.092141176, ptr noundef nonnull %120) #17
+  %122 = and i32 %104, 3
+  %123 = icmp eq i32 %122, 3
+  br i1 %123, label %124, label %126
+
+124:                                              ; preds = %118
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  call void @dt_collection_update_query(ptr noundef %125, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
+  call void (...) @dt_control_queue_redraw_center() #17
+  br label %126
+
+126:                                              ; preds = %124, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %127
+
+127:                                              ; preds = %126, %106
+  %.294 = phi ptr [ %121, %126 ], [ %.092141176, %106 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %128
 
-128:                                              ; preds = %127, %107
-  %.294 = phi ptr [ %122, %127 ], [ %.092141176, %107 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %129
-
-129:                                              ; preds = %128, %91, %88
-  %.395 = phi ptr [ %.092141176, %88 ], [ %.092141176, %91 ], [ %.294, %128 ]
-  %130 = load ptr, ptr %6, align 8, !tbaa !67
-  call void @g_free(ptr noundef %130) #17
+128:                                              ; preds = %127, %90, %87
+  %.395 = phi ptr [ %.092141176, %87 ], [ %.092141176, %90 ], [ %.294, %127 ]
+  %129 = load ptr, ptr %6, align 8, !tbaa !67
+  call void @g_free(ptr noundef %129) #17
   call void @g_free(ptr noundef %.080145172) #17
   br i1 %.not58.i, label %_control_import_image_copy.exit.thread103, label %_control_import_image_copy.exit
 
-_control_import_image_copy.exit.thread103:        ; preds = %129
+_control_import_image_copy.exit.thread103:        ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_collection_update.exit.thread
 
-_control_import_image_copy.exit.thread:           ; preds = %64, %61
+_control_import_image_copy.exit.thread:           ; preds = %63, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_collection_update.exit.thread
 
-_control_import_image_copy.exit:                  ; preds = %129
-  %131 = call i32 @dt_import_session_film_id(ptr noundef nonnull %57) #17
+_control_import_image_copy.exit:                  ; preds = %128
+  %130 = call i32 @dt_import_session_film_id(ptr noundef nonnull %56) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %132 = icmp ne i32 %131, -1
-  %133 = icmp eq i32 %.056146171, -1
-  %or.cond = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond, label %134, label %_collection_update.exit
+  %131 = icmp ne i32 %130, -1
+  %132 = icmp eq i32 %.056146171, -1
+  %or.cond = select i1 %131, i1 %132, i1 false
+  br i1 %or.cond, label %133, label %_collection_update.exit
 
-134:                                              ; preds = %_control_import_image_copy.exit
-  %135 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.184) #17
-  %or.cond3 = icmp ugt i32 %135, 1
-  %spec.store.select = select i1 %or.cond3, i32 0, i32 %135
-  %136 = load ptr, ptr %18, align 8, !tbaa !205
-  %137 = call ptr @dt_import_session_path(ptr noundef %136, i32 noundef 0) #17
+133:                                              ; preds = %_control_import_image_copy.exit
+  %134 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.184) #17
+  %or.cond3 = icmp ugt i32 %134, 1
+  %spec.store.select = select i1 %or.cond3, i32 0, i32 %134
+  %135 = load ptr, ptr %18, align 8, !tbaa !205
+  %136 = call ptr @dt_import_session_path(ptr noundef %135, i32 noundef 0) #17
   call void @dt_conf_set_int(ptr noundef nonnull @.str.185, i32 noundef 1) #17
   call void @dt_conf_set_int(ptr noundef nonnull @.str.184, i32 noundef %spec.store.select) #17
-  call void @dt_conf_set_string(ptr noundef nonnull @.str.186, ptr noundef %137) #17
+  call void @dt_conf_set_string(ptr noundef nonnull @.str.186, ptr noundef %136) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %138 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #17
-  %139 = load i64, ptr %5, align 8, !tbaa !88
-  %140 = add nsw i64 %139, -1290608000
-  %141 = sitofp i64 %140 to double
-  %142 = load i64, ptr %35, align 8, !tbaa !90
-  %143 = sitofp i64 %142 to double
-  %144 = fmul reassoc nsz arcp contract afn double %143, 0x3EB0C6F7A0B5ED8D
-  %145 = fadd reassoc nsz arcp contract afn double %144, %141
+  %137 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #17
+  %138 = load i64, ptr %5, align 8, !tbaa !88
+  %139 = add nsw i64 %138, -1290608000
+  %140 = sitofp i64 %139 to double
+  %141 = load i64, ptr %35, align 8, !tbaa !90
+  %142 = sitofp i64 %141 to double
+  %143 = fmul reassoc nsz arcp contract afn double %142, 0x3EB0C6F7A0B5ED8D
+  %144 = fadd reassoc nsz arcp contract afn double %143, %140
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %146 = fsub reassoc nsz arcp contract afn double %145, %.087142175
-  %147 = fcmp reassoc nsz arcp contract afn ogt double %146, %.084143174
-  br i1 %147, label %148, label %_collection_update.exit.thread129
+  %145 = fsub reassoc nsz arcp contract afn double %144, %.087142175
+  %146 = fcmp reassoc nsz arcp contract afn ogt double %145, %.084143174
+  br i1 %146, label %147, label %_collection_update.exit.thread129
 
-148:                                              ; preds = %134
-  %149 = fcmp reassoc nsz arcp contract afn olt double %.084143174, 3.000000e+00
-  %150 = fadd reassoc nsz arcp contract afn double %.084143174, 1.000000e-01
-  %.286 = select nsz i1 %149, double %150, double %.084143174
-  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  call void @dt_collection_update_query(ptr noundef %151, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
+147:                                              ; preds = %133
+  %148 = fcmp reassoc nsz arcp contract afn olt double %.084143174, 3.000000e+00
+  %149 = fadd reassoc nsz arcp contract afn double %.084143174, 1.000000e-01
+  %.286 = select nsz i1 %148, double %149, double %.084143174
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  call void @dt_collection_update_query(ptr noundef %150, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
   call void (...) @dt_control_queue_redraw_center() #17
   br label %_collection_update.exit.thread129
 
-152:                                              ; preds = %56
+151:                                              ; preds = %55
   call void @dt_conf_set_int(ptr noundef nonnull @.str.201, i32 noundef -1) #17
-  %153 = call ptr @dt_util_path_get_dirname(ptr noundef %58) #17
+  %152 = call ptr @dt_util_path_get_dirname(ptr noundef %57) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %154 = call i32 @dt_film_new(ptr noundef nonnull %4, ptr noundef %153) #17
-  %155 = call i32 @dt_image_import(i32 noundef %154, ptr noundef %58, i32 noundef 0, i32 noundef 0) #17
-  %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %159, label %157
+  %153 = call i32 @dt_film_new(ptr noundef nonnull %4, ptr noundef %152) #17
+  %154 = call i32 @dt_image_import(i32 noundef %153, ptr noundef %57, i32 noundef 0, i32 noundef 0) #17
+  %155 = icmp sgt i32 %154, 0
+  br i1 %155, label %158, label %156
 
-157:                                              ; preds = %152
-  %158 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.195, i32 noundef 5) #17
-  call void (ptr, ...) @dt_control_log(ptr noundef %158, ptr noundef %58) #17
+156:                                              ; preds = %151
+  %157 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.195, i32 noundef 5) #17
+  call void (ptr, ...) @dt_control_log(ptr noundef %157, ptr noundef %57) #17
   br label %_control_import_image_insitu.exit
 
-159:                                              ; preds = %152
-  %160 = zext nneg i32 %155 to i64
-  %161 = inttoptr i64 %160 to ptr
-  %162 = call ptr @g_list_prepend(ptr noundef %.092141176, ptr noundef nonnull %161) #17
+158:                                              ; preds = %151
+  %159 = zext nneg i32 %154 to i64
+  %160 = inttoptr i64 %159 to ptr
+  %161 = call ptr @g_list_prepend(ptr noundef %.092141176, ptr noundef nonnull %160) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %163 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #17
-  %164 = load i64, ptr %3, align 8, !tbaa !88
-  %165 = add nsw i64 %164, -1290608000
-  %166 = sitofp i64 %165 to double
-  %167 = load i64, ptr %36, align 8, !tbaa !90
-  %168 = sitofp i64 %167 to double
-  %169 = fmul reassoc nsz arcp contract afn double %168, 0x3EB0C6F7A0B5ED8D
-  %170 = fadd reassoc nsz arcp contract afn double %169, %166
+  %162 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #17
+  %163 = load i64, ptr %3, align 8, !tbaa !88
+  %164 = add nsw i64 %163, -1290608000
+  %165 = sitofp i64 %164 to double
+  %166 = load i64, ptr %36, align 8, !tbaa !90
+  %167 = sitofp i64 %166 to double
+  %168 = fmul reassoc nsz arcp contract afn double %167, 0x3EB0C6F7A0B5ED8D
+  %169 = fadd reassoc nsz arcp contract afn double %168, %165
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %171 = fsub reassoc nsz arcp contract afn double %170, %.087142175
-  %172 = fcmp reassoc nsz arcp contract afn ogt double %171, %.084143174
-  br i1 %172, label %173, label %_collection_update.exit.i
+  %170 = fsub reassoc nsz arcp contract afn double %169, %.087142175
+  %171 = fcmp reassoc nsz arcp contract afn ogt double %170, %.084143174
+  br i1 %171, label %172, label %_collection_update.exit.i
 
-173:                                              ; preds = %159
-  %174 = fcmp reassoc nsz arcp contract afn olt double %.084143174, 3.000000e+00
-  %175 = fadd reassoc nsz arcp contract afn double %.084143174, 1.000000e-01
-  %.5 = select nsz i1 %174, double %175, double %.084143174
-  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
-  call void @dt_collection_update_query(ptr noundef %176, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
+172:                                              ; preds = %158
+  %173 = fcmp reassoc nsz arcp contract afn olt double %.084143174, 3.000000e+00
+  %174 = fadd reassoc nsz arcp contract afn double %.084143174, 1.000000e-01
+  %.5 = select nsz i1 %173, double %174, double %.084143174
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !75
+  call void @dt_collection_update_query(ptr noundef %175, i32 noundef 3, i32 noundef 43, ptr noundef null) #17
   call void (...) @dt_control_queue_redraw_center() #17
   br label %_collection_update.exit.i
 
-_collection_update.exit.i:                        ; preds = %173, %159
-  %.390 = phi nsz double [ %170, %173 ], [ %.087142175, %159 ]
-  %.4 = phi nsz double [ %.5, %173 ], [ %.084143174, %159 ]
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.201, i32 noundef %155) #17
+_collection_update.exit.i:                        ; preds = %172, %158
+  %.390 = phi nsz double [ %169, %172 ], [ %.087142175, %158 ]
+  %.4 = phi nsz double [ %.5, %172 ], [ %.084143174, %158 ]
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.201, i32 noundef %154) #17
   br label %_control_import_image_insitu.exit
 
-_control_import_image_insitu.exit:                ; preds = %157, %_collection_update.exit.i
-  %.597 = phi ptr [ %162, %_collection_update.exit.i ], [ %.092141176, %157 ]
-  %.491 = phi nsz double [ %.390, %_collection_update.exit.i ], [ %.087142175, %157 ]
-  %.6 = phi nsz double [ %.4, %_collection_update.exit.i ], [ %.084143174, %157 ]
-  call void @g_free(ptr noundef %153) #17
+_control_import_image_insitu.exit:                ; preds = %156, %_collection_update.exit.i
+  %.597 = phi ptr [ %161, %_collection_update.exit.i ], [ %.092141176, %156 ]
+  %.491 = phi nsz double [ %.390, %_collection_update.exit.i ], [ %.087142175, %156 ]
+  %.6 = phi nsz double [ %.4, %_collection_update.exit.i ], [ %.084143174, %156 ]
+  call void @g_free(ptr noundef %152) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_collection_update.exit
 
-_collection_update.exit.thread129:                ; preds = %134, %148
-  %.188.ph = phi double [ %.087142175, %134 ], [ %145, %148 ]
-  %.185.ph = phi double [ %.084143174, %134 ], [ %.286, %148 ]
-  %177 = add i32 %.0151167, 1
+_collection_update.exit.thread129:                ; preds = %133, %147
+  %.188.ph = phi double [ %.087142175, %133 ], [ %144, %147 ]
+  %.185.ph = phi double [ %.084143174, %133 ], [ %.286, %147 ]
+  %176 = add i32 %.0151167, 1
   br label %_collection_update.exit.thread
 
 _collection_update.exit:                          ; preds = %_control_import_image_copy.exit, %_control_import_image_insitu.exit
   %.193 = phi ptr [ %.597, %_control_import_image_insitu.exit ], [ %.395, %_control_import_image_copy.exit ]
   %.188 = phi nsz double [ %.491, %_control_import_image_insitu.exit ], [ %.087142175, %_control_import_image_copy.exit ]
   %.185 = phi nsz double [ %.6, %_control_import_image_insitu.exit ], [ %.084143174, %_control_import_image_copy.exit ]
-  %.182 = phi ptr [ %.081144173, %_control_import_image_insitu.exit ], [ %58, %_control_import_image_copy.exit ]
+  %.182 = phi ptr [ %.081144173, %_control_import_image_insitu.exit ], [ %57, %_control_import_image_copy.exit ]
   %.1 = phi ptr [ %.080145172, %_control_import_image_insitu.exit ], [ %.054.i, %_control_import_image_copy.exit ]
-  %.152 = phi i32 [ %154, %_control_import_image_insitu.exit ], [ %131, %_control_import_image_copy.exit ]
+  %.152 = phi i32 [ %153, %_control_import_image_insitu.exit ], [ %130, %_control_import_image_copy.exit ]
   %.152.fr = freeze i32 %.152
   %.not67 = icmp ne i32 %.152.fr, -1
-  %178 = zext i1 %.not67 to i32
-  %spec.select = add i32 %.0151167, %178
+  %177 = zext i1 %.not67 to i32
+  %spec.select = add i32 %.0151167, %177
   br label %_collection_update.exit.thread
 
 _collection_update.exit.thread:                   ; preds = %_collection_update.exit, %_control_import_image_copy.exit.thread, %_control_import_image_copy.exit.thread103, %_collection_update.exit.thread129
-  %.152126 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.152.fr, %_collection_update.exit ], [ -1, %_control_import_image_copy.exit.thread ], [ -1, %_control_import_image_copy.exit.thread103 ]
-  %.157124 = phi i32 [ %131, %_collection_update.exit.thread129 ], [ %.056146171, %_collection_update.exit ], [ %.056146171, %_control_import_image_copy.exit.thread ], [ %.056146171, %_control_import_image_copy.exit.thread103 ]
+  %.152126 = phi i32 [ %130, %_collection_update.exit.thread129 ], [ %.152.fr, %_collection_update.exit ], [ -1, %_control_import_image_copy.exit.thread ], [ -1, %_control_import_image_copy.exit.thread103 ]
+  %.157124 = phi i32 [ %130, %_collection_update.exit.thread129 ], [ %.056146171, %_collection_update.exit ], [ %.056146171, %_control_import_image_copy.exit.thread ], [ %.056146171, %_control_import_image_copy.exit.thread103 ]
   %.1122 = phi ptr [ %.054.i, %_collection_update.exit.thread129 ], [ %.1, %_collection_update.exit ], [ %.080145172, %_control_import_image_copy.exit.thread ], [ %.054.i, %_control_import_image_copy.exit.thread103 ]
-  %.182120 = phi ptr [ %58, %_collection_update.exit.thread129 ], [ %.182, %_collection_update.exit ], [ %.081144173, %_control_import_image_copy.exit.thread ], [ %58, %_control_import_image_copy.exit.thread103 ]
+  %.182120 = phi ptr [ %57, %_collection_update.exit.thread129 ], [ %.182, %_collection_update.exit ], [ %.081144173, %_control_import_image_copy.exit.thread ], [ %57, %_control_import_image_copy.exit.thread103 ]
   %.185118 = phi double [ %.185.ph, %_collection_update.exit.thread129 ], [ %.185, %_collection_update.exit ], [ %.084143174, %_control_import_image_copy.exit.thread ], [ %.084143174, %_control_import_image_copy.exit.thread103 ]
   %.188116 = phi double [ %.188.ph, %_collection_update.exit.thread129 ], [ %.188, %_collection_update.exit ], [ %.087142175, %_control_import_image_copy.exit.thread ], [ %.087142175, %_control_import_image_copy.exit.thread103 ]
   %.193114 = phi ptr [ %.395, %_collection_update.exit.thread129 ], [ %.193, %_collection_update.exit ], [ %.092141176, %_control_import_image_copy.exit.thread ], [ %.395, %_control_import_image_copy.exit.thread103 ]
-  %179 = phi i32 [ %177, %_collection_update.exit.thread129 ], [ %spec.select, %_collection_update.exit ], [ %.0151167, %_control_import_image_copy.exit.thread ], [ %.0151167, %_control_import_image_copy.exit.thread103 ]
-  %180 = fadd reassoc nsz arcp contract afn double %.050150168, %38
+  %178 = phi i32 [ %176, %_collection_update.exit.thread129 ], [ %spec.select, %_collection_update.exit ], [ %.0151167, %_control_import_image_copy.exit.thread ], [ %.0151167, %_control_import_image_copy.exit.thread103 ]
+  %179 = fadd reassoc nsz arcp contract afn double %.050150168, %38
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %181 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
-  %182 = load i64, ptr %2, align 8, !tbaa !88
-  %183 = add nsw i64 %182, -1290608000
-  %184 = sitofp i64 %183 to double
-  %185 = load i64, ptr %39, align 8, !tbaa !90
-  %186 = sitofp i64 %185 to double
-  %187 = fmul reassoc nsz arcp contract afn double %186, 0x3EB0C6F7A0B5ED8D
-  %188 = fadd reassoc nsz arcp contract afn double %187, %184
+  %180 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #17
+  %181 = load i64, ptr %2, align 8, !tbaa !88
+  %182 = add nsw i64 %181, -1290608000
+  %183 = sitofp i64 %182 to double
+  %184 = load i64, ptr %39, align 8, !tbaa !90
+  %185 = sitofp i64 %184 to double
+  %186 = fmul reassoc nsz arcp contract afn double %185, 0x3EB0C6F7A0B5ED8D
+  %187 = fadd reassoc nsz arcp contract afn double %186, %183
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %189 = fsub reassoc nsz arcp contract afn double %188, %.054147170
-  %190 = fcmp reassoc nsz arcp contract afn ogt double %189, 5.000000e-01
-  br i1 %190, label %191, label %195
+  %188 = fsub reassoc nsz arcp contract afn double %187, %.054147170
+  %189 = fcmp reassoc nsz arcp contract afn ogt double %188, 5.000000e-01
+  br i1 %189, label %190, label %194
 
-191:                                              ; preds = %_collection_update.exit.thread
-  %192 = zext i32 %179 to i64
-  %193 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, i64 noundef %192, i32 noundef 5) #17
-  %194 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 512, ptr noundef %193, i32 noundef %179, i32 noundef %20) #17
+190:                                              ; preds = %_collection_update.exit.thread
+  %191 = zext i32 %178 to i64
+  %192 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188, i64 noundef %191, i32 noundef 5) #17
+  %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 512, ptr noundef %192, i32 noundef %178, i32 noundef %20) #17
   call void @dt_control_job_set_progress_message(ptr noundef %0, ptr noundef nonnull %15) #17
-  call void @dt_control_job_set_progress(ptr noundef %0, double noundef %180) #17
+  call void @dt_control_job_set_progress(ptr noundef %0, double noundef %179) #17
   call void @g_usleep(i64 noundef 100) #17
-  br label %195
+  br label %194
 
-195:                                              ; preds = %191, %_collection_update.exit.thread
-  %.155 = phi nsz double [ %188, %191 ], [ %.054147170, %_collection_update.exit.thread ]
-  %196 = getelementptr inbounds nuw i8, ptr %.053148169, i64 8
-  %197 = load ptr, ptr %196, align 8, !tbaa !63
-  %.not = icmp eq ptr %197, null
+194:                                              ; preds = %190, %_collection_update.exit.thread
+  %.155 = phi nsz double [ %187, %190 ], [ %.054147170, %_collection_update.exit.thread ]
+  %195 = getelementptr inbounds nuw i8, ptr %.053148169, i64 8
+  %196 = load ptr, ptr %195, align 8, !tbaa !63
+  %.not = icmp eq ptr %196, null
   br i1 %.not, label %.critedge, label %47
 
-198:                                              ; preds = %.critedge
-  %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %200 = and i32 %199, 1048576
-  %.not62 = icmp eq i32 %200, 0
-  br i1 %.not62, label %202, label %201
+197:                                              ; preds = %.critedge
+  %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %199 = and i32 %198, 1048576
+  %.not62 = icmp eq i32 %199, 0
+  br i1 %.not62, label %201, label %200
 
-201:                                              ; preds = %198
+200:                                              ; preds = %197
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.48, i32 noundef 2941, ptr noundef nonnull @__FUNCTION__._control_import_job_run) #17
-  br label %202
+  br label %201
 
-202:                                              ; preds = %198, %201, %.critedge
-  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %203, i32 noundef 9) #17
-  %204 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %205 = and i32 %204, 1
+201:                                              ; preds = %197, %200, %.critedge
+  %202 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %202, i32 noundef 9) #17
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %204 = trunc i32 %203 to i1
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
   %206 = icmp ne i32 %205, 0
-  %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
-  %208 = icmp ne i32 %207, 0
-  %or.cond7 = select i1 %206, i1 %208, i1 false
-  br i1 %or.cond7, label %209, label %213
+  %or.cond7 = select i1 %204, i1 %206, i1 false
+  br i1 %or.cond7, label %207, label %211
 
-209:                                              ; preds = %202
-  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %211 = and i32 %210, 1048576
-  %.not63 = icmp eq i32 %211, 0
-  br i1 %.not63, label %213, label %212
+207:                                              ; preds = %201
+  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %209 = and i32 %208, 1048576
+  %.not63 = icmp eq i32 %209, 0
+  br i1 %.not63, label %211, label %210
 
-212:                                              ; preds = %209
+210:                                              ; preds = %207
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.48, i32 noundef 2942, ptr noundef nonnull @__FUNCTION__._control_import_job_run) #17
-  br label %213
+  br label %211
 
-213:                                              ; preds = %209, %212, %202
-  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %214, i32 noundef 10, ptr noundef %.092.lcssa, i32 noundef 0) #17
-  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
-  %216 = and i32 %215, 1
-  %217 = icmp ne i32 %216, 0
-  %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
-  %219 = icmp ne i32 %218, 0
-  %or.cond9 = select i1 %217, i1 %219, i1 false
-  br i1 %or.cond9, label %220, label %224
+211:                                              ; preds = %207, %210, %201
+  %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %212, i32 noundef 10, ptr noundef %.092.lcssa, i32 noundef 0) #17
+  %213 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !76
+  %214 = trunc i32 %213 to i1
+  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
+  %216 = icmp ne i32 %215, 0
+  %or.cond9 = select i1 %214, i1 %216, i1 false
+  br i1 %or.cond9, label %217, label %221
 
-220:                                              ; preds = %213
-  %221 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
-  %222 = and i32 %221, 1048576
-  %.not64 = icmp eq i32 %222, 0
-  br i1 %.not64, label %224, label %223
+217:                                              ; preds = %211
+  %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !77
+  %219 = and i32 %218, 1048576
+  %.not64 = icmp eq i32 %219, 0
+  br i1 %.not64, label %221, label %220
 
-223:                                              ; preds = %220
+220:                                              ; preds = %217
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.48, i32 noundef 2943, ptr noundef nonnull @__FUNCTION__._control_import_job_run) #17
-  br label %224
+  br label %221
 
-224:                                              ; preds = %220, %223, %213
-  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %225, i32 noundef 16, i32 noundef %.051.lcssa) #17
-  %226 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %227 = load ptr, ptr %226, align 8, !tbaa !202
-  %.not65 = icmp eq ptr %227, null
-  br i1 %.not65, label %229, label %228
+221:                                              ; preds = %217, %220, %211
+  %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !78
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %222, i32 noundef 16, i32 noundef %.051.lcssa) #17
+  %223 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %224 = load ptr, ptr %223, align 8, !tbaa !202
+  %.not65 = icmp eq ptr %224, null
+  br i1 %.not65, label %226, label %225
 
-228:                                              ; preds = %224
-  store i32 0, ptr %227, align 4, !tbaa !68
-  br label %229
+225:                                              ; preds = %221
+  store i32 0, ptr %224, align 4, !tbaa !68
+  br label %226
 
-229:                                              ; preds = %228, %224
+226:                                              ; preds = %225, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 0
 }

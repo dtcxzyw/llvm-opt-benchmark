@@ -6270,35 +6270,34 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal27match
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %15 = load i8, ptr %14, align 8, !tbaa !378
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = load ptr, ptr %14, align 8
-  %19 = icmp ne ptr %18, null
-  %20 = select i1 %17, i1 true, i1 %19
-  %21 = and i32 %6, 1073741824
-  %22 = icmp ne i32 %21, 0
-  %or.cond3.i = or i1 %22, %20
-  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %23
+  %16 = trunc i8 %15 to i1
+  %17 = load ptr, ptr %14, align 8
+  %18 = icmp ne ptr %17, null
+  %19 = select i1 %16, i1 true, i1 %18
+  %20 = and i32 %6, 1073741824
+  %21 = icmp ne i32 %20, 0
+  %or.cond3.i = or i1 %21, %19
+  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %22
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i: ; preds = %11
   %.old.i = and i32 %6, 1073741824
   %.old2.not.i = icmp eq i32 %.old.i, 0
-  br i1 %.old2.not.i, label %23, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
+  br i1 %.old2.not.i, label %22, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
-23:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %13
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %25 = load i16, ptr %24, align 4
-  %26 = and i16 %25, 96
-  %or.cond6.not.i = icmp eq i16 %26, 0
-  br i1 %or.cond6.not.i, label %27, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
+22:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %13
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %24 = load i16, ptr %23, align 4
+  %25 = and i16 %24, 96
+  %or.cond6.not.i = icmp eq i16 %25, 0
+  br i1 %or.cond6.not.i, label %26, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
-27:                                               ; preds = %23
-  %28 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+26:                                               ; preds = %22
+  %27 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
-_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %4, %13, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %23, %27
-  %29 = phi i1 [ %28, %27 ], [ true, %23 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i ], [ true, %13 ], [ true, %4 ]
-  ret i1 %29
+_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %4, %13, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %22, %26
+  %28 = phi i1 [ %27, %26 ], [ true, %22 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i ], [ true, %13 ], [ true, %4 ]
+  ret i1 %28
 }
 
 declare noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #1
@@ -8529,35 +8528,34 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal27match
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %15 = load i8, ptr %14, align 8, !tbaa !378
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = load ptr, ptr %14, align 8
-  %19 = icmp ne ptr %18, null
-  %20 = select i1 %17, i1 true, i1 %19
-  %21 = and i32 %6, 1073741824
-  %22 = icmp ne i32 %21, 0
-  %or.cond3.i = or i1 %22, %20
-  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %23
+  %16 = trunc i8 %15 to i1
+  %17 = load ptr, ptr %14, align 8
+  %18 = icmp ne ptr %17, null
+  %19 = select i1 %16, i1 true, i1 %18
+  %20 = and i32 %6, 1073741824
+  %21 = icmp ne i32 %20, 0
+  %or.cond3.i = or i1 %21, %19
+  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %22
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i: ; preds = %11
   %.old.i = and i32 %6, 1073741824
   %.old2.not.i = icmp eq i32 %.old.i, 0
-  br i1 %.old2.not.i, label %23, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
+  br i1 %.old2.not.i, label %22, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
-23:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %13
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %25 = load i16, ptr %24, align 4
-  %26 = and i16 %25, 96
-  %or.cond6.not.i = icmp eq i16 %26, 0
-  br i1 %or.cond6.not.i, label %27, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
+22:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %13
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %24 = load i16, ptr %23, align 4
+  %25 = and i16 %24, 96
+  %or.cond6.not.i = icmp eq i16 %25, 0
+  br i1 %or.cond6.not.i, label %26, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
-27:                                               ; preds = %23
-  %28 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
+26:                                               ; preds = %22
+  %27 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
   br label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
 
-_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %4, %13, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %23, %27
-  %29 = phi i1 [ %28, %27 ], [ true, %23 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i ], [ true, %13 ], [ true, %4 ]
-  ret i1 %29
+_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %4, %13, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %22, %26
+  %28 = phi i1 [ %27, %26 ], [ true, %22 ], [ true, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i ], [ true, %13 ], [ true, %4 ]
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress uwtable

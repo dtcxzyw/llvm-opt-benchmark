@@ -899,50 +899,50 @@ uvlc.exit:                                        ; preds = %._crit_edge.thread.
   %303 = and i32 %295, 7
   %304 = shl nuw nsw i32 %302, %303
   %305 = lshr i32 %304, 7
-  %306 = and i32 %305, 1
-  %307 = icmp eq i8 %30, 2
-  %308 = icmp ne i32 %306, 0
-  %or.cond.i85 = select i1 %307, i1 %308, i1 false
-  br i1 %or.cond.i85, label %.thread.i, label %324
+  %306 = icmp eq i8 %30, 2
+  %307 = trunc i32 %305 to i1
+  %or.cond.i85 = select i1 %306, i1 %307, i1 false
+  br i1 %or.cond.i85, label %.thread.i, label %323
 
 .thread.i:                                        ; preds = %293
-  %309 = lshr i32 %spec.select.i.i84, 3
-  %310 = zext nneg i32 %309 to i64
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 %310
-  %312 = load i8, ptr %311, align 1, !tbaa !4
-  %313 = icmp slt i32 %spec.select.i.i84, %26
-  %314 = zext i1 %313 to i32
-  %spec.select.i63.i = add nuw i32 %spec.select.i.i84, %314
-  %315 = zext i8 %312 to i32
-  %316 = and i32 %spec.select.i.i84, 7
-  %317 = shl nuw nsw i32 %315, %316
-  %318 = lshr i32 %317, 7
-  %319 = and i32 %318, 1
-  %320 = trunc nuw nsw i32 %319 to i8
-  %.tr71.i = shl nuw nsw i8 %320, 1
-  %321 = add nuw nsw i8 %.tr71.i, 10
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %321, ptr %322, align 1, !tbaa !19
-  %323 = icmp eq i32 %319, 0
+  %308 = lshr i32 %spec.select.i.i84, 3
+  %309 = zext nneg i32 %308 to i64
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 %309
+  %311 = load i8, ptr %310, align 1, !tbaa !4
+  %312 = icmp slt i32 %spec.select.i.i84, %26
+  %313 = zext i1 %312 to i32
+  %spec.select.i63.i = add nuw i32 %spec.select.i.i84, %313
+  %314 = zext i8 %311 to i32
+  %315 = and i32 %spec.select.i.i84, 7
+  %316 = shl nuw nsw i32 %314, %315
+  %317 = lshr i32 %316, 7
+  %318 = and i32 %317, 1
+  %319 = trunc nuw nsw i32 %318 to i8
+  %.tr71.i = shl nuw nsw i8 %319, 1
+  %320 = add nuw nsw i8 %.tr71.i, 10
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 %320, ptr %321, align 1, !tbaa !19
+  %322 = icmp eq i32 %318, 0
   br label %331
 
-324:                                              ; preds = %293
-  %325 = trunc nuw nsw i32 %306 to i8
-  %.tr.i = shl nuw nsw i8 %325, 1
+323:                                              ; preds = %293
+  %324 = trunc nuw i32 %305 to i8
+  %325 = shl i8 %324, 1
+  %.tr.i = and i8 %325, 2
   %326 = or disjoint i8 %.tr.i, 8
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %326, ptr %327, align 1, !tbaa !19
   %328 = icmp eq i8 %30, 1
   br i1 %328, label %329, label %331
 
-329:                                              ; preds = %324
+329:                                              ; preds = %323
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %330, align 1, !tbaa !20
   br label %346
 
-331:                                              ; preds = %324, %.thread.i
-  %332 = phi i32 [ %spec.select.i63.i, %.thread.i ], [ %spec.select.i.i84, %324 ]
-  %.05773.i = phi i1 [ %323, %.thread.i ], [ true, %324 ]
+331:                                              ; preds = %323, %.thread.i
+  %332 = phi i32 [ %spec.select.i63.i, %.thread.i ], [ %spec.select.i.i84, %323 ]
+  %.05773.i = phi i1 [ %322, %.thread.i ], [ true, %323 ]
   %333 = lshr i32 %332, 3
   %334 = zext nneg i32 %333 to i64
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 %334

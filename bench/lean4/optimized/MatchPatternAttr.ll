@@ -72,9 +72,8 @@ l_Lean_initFn____x40_Lean_Meta_Match_MatchPatternAttr___hyg_3____lambda__1.exit:
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %10, align 8, !tbaa !9
   %11 = ptrtoint ptr %2 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %lean_dec.exit, label %13
 
 13:                                               ; preds = %l_Lean_initFn____x40_Lean_Meta_Match_MatchPatternAttr___hyg_3____lambda__1.exit
   %14 = load i32, ptr %2, align 4, !tbaa !4
@@ -96,9 +95,8 @@ l_Lean_initFn____x40_Lean_Meta_Match_MatchPatternAttr___hyg_3____lambda__1.exit:
 
 lean_dec.exit:                                    ; preds = %19, %18, %16, %l_Lean_initFn____x40_Lean_Meta_Match_MatchPatternAttr___hyg_3____lambda__1.exit
   %20 = ptrtoint ptr %1 to i64
-  %21 = and i64 %20, 1
-  %.not14 = icmp eq i64 %21, 0
-  br i1 %.not14, label %22, label %lean_dec.exit8
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %lean_dec.exit8, label %22
 
 22:                                               ; preds = %lean_dec.exit
   %23 = load i32, ptr %1, align 4, !tbaa !4
@@ -120,9 +118,8 @@ lean_dec.exit:                                    ; preds = %19, %18, %16, %l_Le
 
 lean_dec.exit8:                                   ; preds = %28, %27, %25, %lean_dec.exit
   %29 = ptrtoint ptr %0 to i64
-  %30 = and i64 %29, 1
-  %.not15 = icmp eq i64 %30, 0
-  br i1 %.not15, label %31, label %lean_dec.exit9
+  %30 = trunc i64 %29 to i1
+  br i1 %30, label %lean_dec.exit9, label %31
 
 31:                                               ; preds = %lean_dec.exit8
   %32 = load i32, ptr %0, align 4, !tbaa !4
@@ -151,9 +148,8 @@ define zeroext i8 @lean_has_match_pattern_attribute(ptr noundef %0, ptr noundef 
   %3 = load ptr, ptr @l_Lean_hasMatchPatternAttribute___closed__1, align 8, !tbaa !9
   %4 = tail call zeroext i8 @l_Lean_TagAttribute_hasTag(ptr noundef %3, ptr noundef %0, ptr noundef %1) #3
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -184,9 +180,8 @@ define nonnull ptr @l_Lean_hasMatchPatternAttribute___boxed(ptr noundef %0, ptr 
   %3 = load ptr, ptr @l_Lean_hasMatchPatternAttribute___closed__1, align 8, !tbaa !9
   %4 = tail call zeroext i8 @l_Lean_TagAttribute_hasTag(ptr noundef %3, ptr noundef %0, ptr noundef %1) #3
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %7, label %lean_has_match_pattern_attribute.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_has_match_pattern_attribute.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !4

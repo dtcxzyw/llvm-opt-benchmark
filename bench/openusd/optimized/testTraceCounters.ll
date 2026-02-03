@@ -3431,9 +3431,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_18Trace
   %68 = and i64 %65, -8
   %69 = inttoptr i64 %68 to ptr
   %70 = atomicrmw add ptr %69, i32 2 monotonic, align 4, !noalias !9
-  %71 = and i32 %70, 1
-  %.not1.i.i.i = icmp eq i32 %71, 0
-  %72 = select i1 %.not1.i.i.i, i64 %68, i64 %65
+  %71 = trunc i32 %70 to i1
+  %72 = select i1 %71, i64 %65, i64 %68
   br label %_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNode6GetKeyEv.exit: ; preds = %67, %63

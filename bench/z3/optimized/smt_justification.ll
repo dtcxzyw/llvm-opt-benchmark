@@ -537,9 +537,8 @@ define hidden void @_ZN3smt29unit_resolution_justification15get_antecedentsERNS_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
-  %8 = and i8 %7, 1
-  %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %9, label %_ZN3smt19conflict_resolution18mark_justificationEPNS_13justificationE.exit
+  %8 = trunc i8 %7 to i1
+  br i1 %8, label %_ZN3smt19conflict_resolution18mark_justificationEPNS_13justificationE.exit, label %9
 
 9:                                                ; preds = %5
   %10 = or disjoint i8 %7, 1
@@ -2358,9 +2357,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i6:           ; preds = %27
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 45:                                               ; preds = %24
-  %46 = and i32 %1, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %70, label %47
+  %46 = trunc i32 %1 to i1
+  br i1 %46, label %47, label %70
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3759,25 +3757,25 @@ _ZN6vectorI9parameterLb1EjEC2EjPKS0_.exit:        ; preds = %_ZN6vectorI9paramet
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11ast_manager7inc_refEP3ast.exit ]
   %41 = getelementptr inbounds nuw %"class.sat::literal", ptr %4, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !20
-  %43 = and i32 %42, 1
-  %44 = lshr i32 %42, 1
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %37, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !192
-  %.not.i27 = icmp eq ptr %47, null
-  br i1 %.not.i27, label %_ZN11ast_manager7inc_refEP3ast.exit, label %48
+  %43 = lshr i32 %42, 1
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %37, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !192
+  %.not.i27 = icmp eq ptr %46, null
+  br i1 %.not.i27, label %_ZN11ast_manager7inc_refEP3ast.exit, label %47
 
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i32, ptr %49, align 4, !tbaa !13
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 4, !tbaa !13
+47:                                               ; preds = %40
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load i32, ptr %48, align 4, !tbaa !13
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %48, align 4, !tbaa !13
   br label %_ZN11ast_manager7inc_refEP3ast.exit
 
-_ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %48, %40
-  %52 = ptrtoint ptr %47 to i64
-  %53 = zext nneg i32 %43 to i64
-  %54 = or i64 %52, %53
+_ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %47, %40
+  %51 = ptrtoint ptr %46 to i64
+  %52 = and i32 %42, 1
+  %53 = zext nneg i32 %52 to i64
+  %54 = or i64 %51, %53
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
   store ptr %55, ptr %56, align 8, !tbaa !192

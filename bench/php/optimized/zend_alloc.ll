@@ -1769,10 +1769,9 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %240 = getelementptr inbounds nuw i64, ptr %233, i64 %239
   %241 = load i64, ptr %240, align 8, !tbaa !32
   %242 = and i64 %238, 63
-  %243 = shl nuw i64 1, %242
-  %244 = and i64 %241, %243
-  %.not85 = icmp eq i64 %244, 0
-  br i1 %.not85, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %243 = lshr i64 %241, %242
+  %244 = trunc i64 %243 to i1
+  br i1 %244, label %zend_mm_bitset_reset_range.exit, label %.critedge.i
 
 245:                                              ; preds = %231
   %246 = lshr i32 %234, 6
@@ -2336,10 +2335,9 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %243 = getelementptr inbounds nuw i64, ptr %236, i64 %242
   %244 = load i64, ptr %243, align 8, !tbaa !32
   %245 = and i64 %241, 63
-  %246 = shl nuw i64 1, %245
-  %247 = and i64 %244, %246
-  %.not85 = icmp eq i64 %247, 0
-  br i1 %.not85, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %246 = lshr i64 %244, %245
+  %247 = trunc i64 %246 to i1
+  br i1 %247, label %zend_mm_bitset_reset_range.exit, label %.critedge.i
 
 248:                                              ; preds = %234
   %249 = lshr i32 %237, 6
@@ -7055,10 +7053,9 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %246 = getelementptr inbounds nuw i64, ptr %239, i64 %245
   %247 = load i64, ptr %246, align 8, !tbaa !32
   %248 = and i64 %244, 63
-  %249 = shl nuw i64 1, %248
-  %250 = and i64 %247, %249
-  %.not89 = icmp eq i64 %250, 0
-  br i1 %.not89, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %249 = lshr i64 %247, %248
+  %250 = trunc i64 %249 to i1
+  br i1 %250, label %zend_mm_bitset_reset_range.exit, label %.critedge.i
 
 251:                                              ; preds = %237
   %252 = lshr i32 %240, 6
@@ -7634,10 +7631,9 @@ zend_mm_alloc_small.exit:                         ; preds = %zend_mm_get_next_fr
   %249 = getelementptr inbounds nuw i64, ptr %242, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !32
   %251 = and i64 %247, 63
-  %252 = shl nuw i64 1, %251
-  %253 = and i64 %250, %252
-  %.not89 = icmp eq i64 %253, 0
-  br i1 %.not89, label %.critedge.i, label %zend_mm_bitset_reset_range.exit
+  %252 = lshr i64 %250, %251
+  %253 = trunc i64 %252 to i1
+  br i1 %253, label %zend_mm_bitset_reset_range.exit, label %.critedge.i
 
 254:                                              ; preds = %240
   %255 = lshr i32 %243, 6

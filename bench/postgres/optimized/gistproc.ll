@@ -2491,11 +2491,11 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %narrow = select i1 %11, i16 10, i16 %spec.store.select
   %13 = udiv i16 %narrow, 20
   %14 = urem i16 %narrow, 20
-  switch i16 %13, label %169 [
+  switch i16 %13, label %167 [
     i16 0, label %15
     i16 1, label %101
     i16 2, label %128
-    i16 3, label %150
+    i16 3, label %149
   ]
 
 15:                                               ; preds = %1
@@ -2554,9 +2554,8 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %54 = load i16, ptr %53, align 4
-  %55 = and i16 %54, 1
-  %.not = icmp eq i16 %55, 0
-  br i1 %.not, label %75, label %56
+  %55 = trunc i16 %54 to i1
+  br i1 %55, label %56, label %75
 
 56:                                               ; preds = %46
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -2669,57 +2668,55 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %141 = getelementptr inbounds nuw i8, ptr %137, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %143 = load i16, ptr %142, align 4
-  %144 = and i16 %143, 1
-  %145 = icmp ne i16 %144, 0
-  %or.cond = select i1 %145, i1 %135, i1 false
-  br i1 %or.cond, label %146, label %172
+  %144 = trunc i16 %143 to i1
+  %or.cond = select i1 %144, i1 %135, i1 false
+  br i1 %or.cond, label %145, label %170
 
-146:                                              ; preds = %128
-  %147 = load i64, ptr %4, align 8
-  %148 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @poly_contain_pt, i32 noundef 0, i64 noundef %133, i64 noundef %147) #15
-  %149 = icmp ne i64 %148, 0
+145:                                              ; preds = %128
+  %146 = load i64, ptr %4, align 8
+  %147 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @poly_contain_pt, i32 noundef 0, i64 noundef %133, i64 noundef %146) #15
+  %148 = icmp ne i64 %147, 0
   br label %.sink.split
 
-150:                                              ; preds = %1
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %152 = load i64, ptr %151, align 8
-  %153 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_circle_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %152, i64 noundef 3, i64 noundef 0, i64 noundef %9) #15
-  %154 = icmp ne i64 %153, 0
-  %155 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %158 = load i16, ptr %157, align 4
-  %159 = zext i16 %158 to i64
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 %159
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 12
-  %162 = load i16, ptr %161, align 4
-  %163 = and i16 %162, 1
-  %164 = icmp ne i16 %163, 0
-  %or.cond3 = select i1 %164, i1 %154, i1 false
-  br i1 %or.cond3, label %165, label %172
+149:                                              ; preds = %1
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %151 = load i64, ptr %150, align 8
+  %152 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_circle_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %151, i64 noundef 3, i64 noundef 0, i64 noundef %9) #15
+  %153 = icmp ne i64 %152, 0
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %157 = load i16, ptr %156, align 4
+  %158 = zext i16 %157 to i64
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 %158
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 12
+  %161 = load i16, ptr %160, align 4
+  %162 = trunc i16 %161 to i1
+  %or.cond3 = select i1 %162, i1 %153, i1 false
+  br i1 %or.cond3, label %163, label %170
 
-165:                                              ; preds = %150
-  %166 = load i64, ptr %4, align 8
-  %167 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @circle_contain_pt, i32 noundef 0, i64 noundef %152, i64 noundef %166) #15
-  %168 = icmp ne i64 %167, 0
+163:                                              ; preds = %149
+  %164 = load i64, ptr %4, align 8
+  %165 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @circle_contain_pt, i32 noundef 0, i64 noundef %151, i64 noundef %164) #15
+  %166 = icmp ne i64 %165, 0
   br label %.sink.split
 
-169:                                              ; preds = %1
+167:                                              ; preds = %1
   %.0 = zext i16 %narrow to i32
-  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %171 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.0) #15
+  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.0) #15
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1446, ptr noundef nonnull @__func__.gist_point_consistent) #15
   unreachable
 
-.sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %146, %165
-  %.053.ph = phi i1 [ %168, %165 ], [ %149, %146 ], [ %96, %92 ], [ %26, %21 ], [ %31, %27 ], [ %38, %32 ], [ %45, %39 ], [ %74, %65 ], [ false, %56 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
+.sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %145, %163
+  %.053.ph = phi i1 [ %166, %163 ], [ %148, %145 ], [ %96, %92 ], [ %26, %21 ], [ %31, %27 ], [ %38, %32 ], [ %45, %39 ], [ %74, %65 ], [ false, %56 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
   store i8 0, ptr %10, align 1
-  br label %172
+  br label %170
 
-172:                                              ; preds = %.sink.split, %150, %128
-  %.053 = phi i1 [ %135, %128 ], [ %154, %150 ], [ %.053.ph, %.sink.split ]
-  %173 = zext i1 %.053 to i64
-  ret i64 %173
+170:                                              ; preds = %.sink.split, %149, %128
+  %.053 = phi i1 [ %135, %128 ], [ %153, %149 ], [ %.053.ph, %.sink.split ]
+  %171 = zext i1 %.053 to i64
+  ret i64 %171
 }
 
 declare i64 @DirectFunctionCall5Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -2743,7 +2740,7 @@ define dso_local i64 @gist_point_distance(ptr noundef readonly captures(none) %0
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i16
   %cond = icmp ult i16 %4, 20
-  br i1 %cond, label %5, label %26
+  br i1 %cond, label %5, label %25
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2757,22 +2754,21 @@ define dso_local i64 @gist_point_distance(ptr noundef readonly captures(none) %0
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i16, ptr %15, align 4
-  %17 = and i16 %16, 1
-  %18 = icmp ne i16 %17, 0
-  %19 = load i64, ptr %8, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load i64, ptr %21, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = tail call fastcc double @computeDistance(i1 noundef zeroext %18, ptr noundef %20, ptr noundef %23)
-  %25 = bitcast double %24 to i64
-  ret i64 %25
+  %17 = trunc i16 %16 to i1
+  %18 = load i64, ptr %8, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = load i64, ptr %20, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %23 = tail call fastcc double @computeDistance(i1 noundef zeroext %17, ptr noundef %19, ptr noundef %22)
+  %24 = bitcast double %23 to i64
+  ret i64 %24
 
-26:                                               ; preds = %1
-  %27 = trunc i64 %3 to i32
-  %28 = and i32 %27, 65535
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %28) #15
+25:                                               ; preds = %1
+  %26 = trunc i64 %3 to i32
+  %27 = and i32 %26, 65535
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %27) #15
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1470, ptr noundef nonnull @__func__.gist_point_distance) #15
   unreachable
 }

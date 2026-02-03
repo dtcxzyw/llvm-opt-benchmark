@@ -4751,10 +4751,10 @@ declare void @gtk_widget_grab_focus(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  switch i32 %1, label %550 [
+  switch i32 %1, label %549 [
     i32 -5, label %5
-    i32 -8, label %508
-    i32 -2, label %537
+    i32 -8, label %507
+    i32 -2, label %536
   ]
 
 5:                                                ; preds = %3
@@ -5515,122 +5515,121 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
 
 493:                                              ; preds = %.thread219, %492
   %494 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !172
-  %495 = and i32 %494, 1
-  %496 = icmp ne i32 %495, 0
-  %497 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
-  %498 = icmp ne i32 %497, 0
-  %or.cond = select i1 %496, i1 %498, i1 false
-  br i1 %or.cond, label %499, label %503
+  %495 = trunc i32 %494 to i1
+  %496 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
+  %497 = icmp ne i32 %496, 0
+  %or.cond = select i1 %495, i1 %497, i1 false
+  br i1 %or.cond, label %498, label %502
 
-499:                                              ; preds = %493
-  %500 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
-  %501 = and i32 %500, 1048576
-  %.not210 = icmp eq i32 %501, 0
-  br i1 %.not210, label %503, label %502
+498:                                              ; preds = %493
+  %499 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
+  %500 = and i32 %499, 1048576
+  %.not210 = icmp eq i32 %500, 0
+  br i1 %.not210, label %502, label %501
 
-502:                                              ; preds = %499
+501:                                              ; preds = %498
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.43, i32 noundef 416, ptr noundef nonnull @__FUNCTION__._edit_preset_response) #17
-  br label %503
+  br label %502
 
 .thread220:                                       ; preds = %43, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %559
+  br label %558
 
-503:                                              ; preds = %493, %502, %499
-  %504 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !173
-  %505 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %506 = load ptr, ptr %505, align 8, !tbaa !71
-  %507 = call noalias ptr @g_strdup(ptr noundef %506) #17
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %504, i32 noundef 18, ptr noundef %507) #17
+502:                                              ; preds = %493, %501, %498
+  %503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !173
+  %504 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %505 = load ptr, ptr %504, align 8, !tbaa !71
+  %506 = call noalias ptr @g_strdup(ptr noundef %505) #17
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %503, i32 noundef 18, ptr noundef %506) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %550
+  br label %549
 
-508:                                              ; preds = %3
-  %509 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %510 = load i32, ptr %509, align 8, !tbaa !62
-  %.not = icmp eq i32 %510, 0
-  br i1 %.not, label %550, label %511
+507:                                              ; preds = %3
+  %508 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %509 = load i32, ptr %508, align 8, !tbaa !62
+  %.not = icmp eq i32 %509, 0
+  br i1 %.not, label %549, label %510
 
-511:                                              ; preds = %508
-  %512 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %513 = load ptr, ptr %512, align 8, !tbaa !89
-  %514 = tail call ptr @gtk_entry_get_text(ptr noundef %513) #17
-  %515 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.160, i32 noundef 5) #17
-  %516 = tail call i64 @gtk_window_get_type() #21
-  %517 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %516) #17
-  %518 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.161, i32 noundef 5) #17
-  %519 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
-  %520 = tail call ptr @gtk_file_chooser_native_new(ptr noundef %515, ptr noundef %517, i32 noundef 2, ptr noundef %518, ptr noundef %519) #17
-  %521 = tail call i64 @gtk_file_chooser_get_type() #21
-  %522 = tail call ptr @g_type_check_instance_cast(ptr noundef %520, i64 noundef %521) #17
-  %523 = tail call i32 @dt_conf_get_folder_to_file_chooser(ptr noundef nonnull @.str.162, ptr noundef %522) #17
-  %524 = tail call i64 @gtk_native_dialog_get_type() #17
-  %525 = tail call ptr @g_type_check_instance_cast(ptr noundef %520, i64 noundef %524) #17
-  %526 = tail call i32 @gtk_native_dialog_run(ptr noundef %525) #17
-  %527 = icmp eq i32 %526, -3
-  br i1 %527, label %528, label %534
+510:                                              ; preds = %507
+  %511 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %512 = load ptr, ptr %511, align 8, !tbaa !89
+  %513 = tail call ptr @gtk_entry_get_text(ptr noundef %512) #17
+  %514 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.160, i32 noundef 5) #17
+  %515 = tail call i64 @gtk_window_get_type() #21
+  %516 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %515) #17
+  %517 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.161, i32 noundef 5) #17
+  %518 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.107, i32 noundef 5) #17
+  %519 = tail call ptr @gtk_file_chooser_native_new(ptr noundef %514, ptr noundef %516, i32 noundef 2, ptr noundef %517, ptr noundef %518) #17
+  %520 = tail call i64 @gtk_file_chooser_get_type() #21
+  %521 = tail call ptr @g_type_check_instance_cast(ptr noundef %519, i64 noundef %520) #17
+  %522 = tail call i32 @dt_conf_get_folder_to_file_chooser(ptr noundef nonnull @.str.162, ptr noundef %521) #17
+  %523 = tail call i64 @gtk_native_dialog_get_type() #17
+  %524 = tail call ptr @g_type_check_instance_cast(ptr noundef %519, i64 noundef %523) #17
+  %525 = tail call i32 @gtk_native_dialog_run(ptr noundef %524) #17
+  %526 = icmp eq i32 %525, -3
+  br i1 %526, label %527, label %533
 
-528:                                              ; preds = %511
-  %529 = tail call ptr @g_type_check_instance_cast(ptr noundef %520, i64 noundef %521) #17
-  %530 = tail call ptr @gtk_file_chooser_get_filename(ptr noundef %529) #17
-  %531 = load i32, ptr %509, align 8, !tbaa !62
-  tail call void @dt_presets_save_to_file(i32 noundef %531, ptr noundef %514, ptr noundef %530) #17
-  %532 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.163, i32 noundef 5) #17
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %532, ptr noundef %514) #17
-  tail call void @g_free(ptr noundef %530) #17
-  %533 = tail call ptr @g_type_check_instance_cast(ptr noundef %520, i64 noundef %521) #17
-  tail call void @dt_conf_set_folder_from_file_chooser(ptr noundef nonnull @.str.162, ptr noundef %533) #17
-  br label %534
+527:                                              ; preds = %510
+  %528 = tail call ptr @g_type_check_instance_cast(ptr noundef %519, i64 noundef %520) #17
+  %529 = tail call ptr @gtk_file_chooser_get_filename(ptr noundef %528) #17
+  %530 = load i32, ptr %508, align 8, !tbaa !62
+  tail call void @dt_presets_save_to_file(i32 noundef %530, ptr noundef %513, ptr noundef %529) #17
+  %531 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.163, i32 noundef 5) #17
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %531, ptr noundef %513) #17
+  tail call void @g_free(ptr noundef %529) #17
+  %532 = tail call ptr @g_type_check_instance_cast(ptr noundef %519, i64 noundef %520) #17
+  tail call void @dt_conf_set_folder_from_file_chooser(ptr noundef nonnull @.str.162, ptr noundef %532) #17
+  br label %533
 
-534:                                              ; preds = %528, %511
-  %535 = tail call i64 @gtk_widget_get_type() #21
-  %536 = tail call ptr @g_type_check_instance_cast(ptr noundef %520, i64 noundef %535) #17
-  tail call void @g_object_unref(ptr noundef %536) #17
-  br label %559
+533:                                              ; preds = %527, %510
+  %534 = tail call i64 @gtk_widget_get_type() #21
+  %535 = tail call ptr @g_type_check_instance_cast(ptr noundef %519, i64 noundef %534) #17
+  tail call void @g_object_unref(ptr noundef %535) #17
+  br label %558
 
-537:                                              ; preds = %3
-  %538 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %539 = load i32, ptr %538, align 8, !tbaa !62
-  %.not163 = icmp eq i32 %539, 0
-  br i1 %.not163, label %550, label %540
+536:                                              ; preds = %3
+  %537 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %538 = load i32, ptr %537, align 8, !tbaa !62
+  %.not163 = icmp eq i32 %538, 0
+  br i1 %.not163, label %549, label %539
 
-540:                                              ; preds = %537
-  %541 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %542 = load ptr, ptr %541, align 8, !tbaa !69
-  %543 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %544 = load ptr, ptr %543, align 8, !tbaa !71
-  %545 = tail call i32 @dt_gui_presets_confirm_and_delete(ptr noundef %542, ptr noundef %544, i32 noundef %539)
-  %.not164 = icmp eq i32 %545, 0
-  br i1 %.not164, label %550, label %546
+539:                                              ; preds = %536
+  %540 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %541 = load ptr, ptr %540, align 8, !tbaa !69
+  %542 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %543 = load ptr, ptr %542, align 8, !tbaa !71
+  %544 = tail call i32 @dt_gui_presets_confirm_and_delete(ptr noundef %541, ptr noundef %543, i32 noundef %538)
+  %.not164 = icmp eq i32 %544, 0
+  br i1 %.not164, label %549, label %545
 
-546:                                              ; preds = %540
-  %547 = getelementptr inbounds nuw i8, ptr %2, i64 248
-  %548 = load ptr, ptr %547, align 8, !tbaa !85
-  %.not165 = icmp eq ptr %548, null
-  br i1 %.not165, label %550, label %549
+545:                                              ; preds = %539
+  %546 = getelementptr inbounds nuw i8, ptr %2, i64 248
+  %547 = load ptr, ptr %546, align 8, !tbaa !85
+  %.not165 = icmp eq ptr %547, null
+  br i1 %.not165, label %549, label %548
 
-549:                                              ; preds = %546
-  store i32 0, ptr %538, align 8, !tbaa !62
-  tail call void %548(ptr noundef nonnull %2) #17
-  br label %550
+548:                                              ; preds = %545
+  store i32 0, ptr %537, align 8, !tbaa !62
+  tail call void %547(ptr noundef nonnull %2) #17
+  br label %549
 
-550:                                              ; preds = %508, %503, %3, %540, %546, %549, %537
-  %551 = tail call i64 @gtk_widget_get_type() #21
-  %552 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %551) #17
-  call void @gtk_widget_destroy(ptr noundef %552) #17
-  %553 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %554 = load ptr, ptr %553, align 8, !tbaa !69
-  call void @g_free(ptr noundef %554) #17
-  %555 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %556 = load ptr, ptr %555, align 8, !tbaa !84
-  call void @g_free(ptr noundef %556) #17
-  %557 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %558 = load ptr, ptr %557, align 8, !tbaa !71
-  call void @g_free(ptr noundef %558) #17
+549:                                              ; preds = %507, %502, %3, %539, %545, %548, %536
+  %550 = tail call i64 @gtk_widget_get_type() #21
+  %551 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %550) #17
+  call void @gtk_widget_destroy(ptr noundef %551) #17
+  %552 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %553 = load ptr, ptr %552, align 8, !tbaa !69
+  call void @g_free(ptr noundef %553) #17
+  %554 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %555 = load ptr, ptr %554, align 8, !tbaa !84
+  call void @g_free(ptr noundef %555) #17
+  %556 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %557 = load ptr, ptr %556, align 8, !tbaa !71
+  call void @g_free(ptr noundef %557) #17
   call void @free(ptr noundef %2) #17
-  br label %559
+  br label %558
 
-559:                                              ; preds = %.thread220, %550, %534
+558:                                              ; preds = %.thread220, %549, %533
   ret void
 }
 

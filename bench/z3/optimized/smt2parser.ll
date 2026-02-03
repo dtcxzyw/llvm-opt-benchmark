@@ -17682,9 +17682,8 @@ define linkonce_odr hidden void @_ZN4smt26parser10push_localERKNS0_5localE(ptr n
 _Z9is_groundPK4expr.exit:                         ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %10 = load i8, ptr %9, align 2
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %17
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %17, label %_Z9is_groundPK4expr.exit.thread
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %2, %_Z9is_groundPK4expr.exit
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20965,9 +20964,8 @@ define linkonce_odr hidden void @_ZN4smt26parser9name_exprEP4exprRK6symbol(ptr n
 _Z9is_groundPK4expr.exit:                         ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %18
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %18, label %_Z9is_groundPK4expr.exit.thread
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %3, %_Z9is_groundPK4expr.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2040

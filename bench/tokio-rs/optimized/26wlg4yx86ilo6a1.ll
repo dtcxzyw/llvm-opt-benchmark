@@ -13004,9 +13004,8 @@ define void @"_ZN94_$LT$tokio..sync..mpsc..unbounded..Semaphore$u20$as$u20$tokio
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @"_ZN94_$LT$tokio..sync..mpsc..unbounded..Semaphore$u20$as$u20$tokio..sync..mpsc..chan..Semaphore$GT$9is_closed17haa9273d50eca9252E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #13 {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %3 = and i64 %2, 1
-  %4 = icmp ne i64 %3, 0
-  ret i1 %4
+  %3 = trunc i64 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -13025,9 +13024,8 @@ define noundef range(i64 0, -1) i64 @_ZN5tokio4sync5watch5state13StateSnapshot7v
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5tokio4sync5watch5state13StateSnapshot9is_closed17hdca9ecc2a8da4763E(i64 noundef %0) unnamed_addr #10 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

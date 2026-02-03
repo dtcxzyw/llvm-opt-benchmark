@@ -1075,8 +1075,7 @@ _ZN3smt6theory12ensure_enodeEP4expr.exit14:       ; preds = %_ZNK3smt7context14e
   %70 = tail call i32 @_ZN3smt6theory5mk_eqEP4exprS2_b(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i1 noundef zeroext false)
   %71 = load ptr, ptr %4, align 8, !tbaa !76
   %72 = lshr i32 %70, 1
-  %73 = and i32 %70, 1
-  %.not.i15 = icmp eq i32 %73, 0
+  %73 = trunc i32 %70 to i1
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8872
   %75 = load ptr, ptr %74, align 8, !tbaa !85
   %76 = zext nneg i32 %72 to i64
@@ -1084,7 +1083,7 @@ _ZN3smt6theory12ensure_enodeEP4expr.exit14:       ; preds = %_ZNK3smt7context14e
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = and i64 %79, -201326593
-  %81 = select i1 %.not.i15, i64 201326592, i64 67108864
+  %81 = select i1 %73, i64 67108864, i64 201326592
   %82 = or disjoint i64 %80, %81
   store i64 %82, ptr %78, align 8
   ret i32 %70
@@ -1723,9 +1722,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i6:           ; preds = %27
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 45:                                               ; preds = %24
-  %46 = and i32 %1, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %70, label %47
+  %46 = trunc i32 %1 to i1
+  br i1 %46, label %47, label %70
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104

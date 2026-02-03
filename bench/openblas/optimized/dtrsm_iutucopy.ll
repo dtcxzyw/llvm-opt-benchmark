@@ -408,40 +408,39 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.3234 = phi ptr [ %161, %._crit_edge305 ], [ %.2233, %158 ]
   %.6 = phi ptr [ %.7.lcssa, %._crit_edge305 ], [ %.4230, %158 ]
   %.3214 = phi i64 [ %181, %._crit_edge305 ], [ %.2213, %158 ]
-  %183 = and i64 %1, 1
-  %.not242 = icmp ne i64 %183, 0
-  %184 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not242, %184
+  %.not242 = trunc i64 %1 to i1
+  %183 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %183, %.not242
   br i1 %or.cond, label %.lr.ph311, label %.loopexit
 
-.lr.ph311:                                        ; preds = %182, %189
-  %.4310 = phi ptr [ %191, %189 ], [ %.3234, %182 ]
-  %.4220309 = phi i64 [ %192, %189 ], [ 0, %182 ]
-  %.8307 = phi ptr [ %190, %189 ], [ %.6, %182 ]
+.lr.ph311:                                        ; preds = %182, %188
+  %.4310 = phi ptr [ %190, %188 ], [ %.3234, %182 ]
+  %.4220309 = phi i64 [ %191, %188 ], [ 0, %182 ]
+  %.8307 = phi ptr [ %189, %188 ], [ %.6, %182 ]
   %.not244 = icmp sgt i64 %.4220309, %.3214
   %or.cond.not = icmp eq i64 %.4220309, %.3214
-  br i1 %or.cond.not, label %185, label %186
+  br i1 %or.cond.not, label %184, label %185
 
-185:                                              ; preds = %.lr.ph311
+184:                                              ; preds = %.lr.ph311
   store double 1.000000e+00, ptr %.8307, align 8, !tbaa !3
-  br label %186
+  br label %185
 
-186:                                              ; preds = %185, %.lr.ph311
-  br i1 %.not244, label %187, label %189
+185:                                              ; preds = %184, %.lr.ph311
+  br i1 %.not244, label %186, label %188
 
-187:                                              ; preds = %186
-  %188 = load double, ptr %.4310, align 8, !tbaa !3
-  store double %188, ptr %.8307, align 8, !tbaa !3
-  br label %189
+186:                                              ; preds = %185
+  %187 = load double, ptr %.4310, align 8, !tbaa !3
+  store double %187, ptr %.8307, align 8, !tbaa !3
+  br label %188
 
-189:                                              ; preds = %187, %186
-  %190 = getelementptr inbounds nuw i8, ptr %.8307, i64 8
-  %191 = getelementptr inbounds double, ptr %.4310, i64 %3
-  %192 = add nuw nsw i64 %.4220309, 1
-  %exitcond332.not = icmp eq i64 %192, %0
+188:                                              ; preds = %186, %185
+  %189 = getelementptr inbounds nuw i8, ptr %.8307, i64 8
+  %190 = getelementptr inbounds double, ptr %.4310, i64 %3
+  %191 = add nuw nsw i64 %.4220309, 1
+  %exitcond332.not = icmp eq i64 %191, %0
   br i1 %exitcond332.not, label %.loopexit, label %.lr.ph311, !llvm.loop !16
 
-.loopexit:                                        ; preds = %189, %182
+.loopexit:                                        ; preds = %188, %182
   ret i32 0
 }
 

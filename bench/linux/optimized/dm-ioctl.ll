@@ -365,7 +365,7 @@ sub_0.i:                                          ; preds = %15
   %48 = load ptr, ptr %5, align 8
   %49 = call fastcc i32 @dm_hash_insert(ptr noundef nonnull %10, ptr noundef %47, ptr noundef %48), !range !10
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %141
+  br i1 %50, label %51, label %140
 
 51:                                               ; preds = %43
   %52 = load i32, ptr %27, align 4
@@ -376,7 +376,7 @@ sub_0.i:                                          ; preds = %15
   %57 = load ptr, ptr %5, align 8
   %58 = call i32 @dm_table_create(ptr noundef nonnull %4, i32 noundef %55, i32 noundef %56, ptr noundef %57) #21
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %121
+  br i1 %59, label %60, label %120
 
 60:                                               ; preds = %51
   %61 = load i32, ptr %6, align 4
@@ -407,13 +407,13 @@ sub_0.i:                                          ; preds = %15
 
 80:                                               ; preds = %.preheader
   %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5) #22
-  br label %118
+  br label %117
 
 .loopexit12:                                      ; preds = %63, %60
   %82 = load ptr, ptr %4, align 8
   %83 = call i32 @dm_table_complete(ptr noundef %82) #21
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %118
+  br i1 %84, label %85, label %117
 
 85:                                               ; preds = %.loopexit12
   %86 = load ptr, ptr %5, align 8
@@ -424,7 +424,7 @@ sub_0.i:                                          ; preds = %15
 
 90:                                               ; preds = %85
   %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6) #22
-  br label %118
+  br label %117
 
 92:                                               ; preds = %85
   %93 = load ptr, ptr %5, align 8
@@ -438,86 +438,85 @@ sub_0.i:                                          ; preds = %15
 99:                                               ; preds = %92
   %100 = ptrtoint ptr %97 to i64
   %101 = trunc i64 %100 to i32
-  br label %118
+  br label %117
 
 102:                                              ; preds = %92
   %103 = load ptr, ptr %5, align 8
   %104 = call ptr @dm_disk(ptr noundef %103) #21
   %105 = load i32, ptr %27, align 4
-  %106 = and i32 %105, 1
-  %107 = icmp ne i32 %106, 0
-  call void @set_disk_ro(ptr noundef %104, i1 noundef zeroext %107) #21
-  %108 = load ptr, ptr %5, align 8
-  %109 = call i32 @dm_resume(ptr noundef %108) #21
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %118
+  %106 = trunc i32 %105 to i1
+  call void @set_disk_ro(ptr noundef %104, i1 noundef zeroext %106) #21
+  %107 = load ptr, ptr %5, align 8
+  %108 = call i32 @dm_resume(ptr noundef %107) #21
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %117
 
-111:                                              ; preds = %102
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 184
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 12
-  %116 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef nonnull %115, ptr noundef nonnull %10) #22
-  %117 = load ptr, ptr %5, align 8
-  call void @dm_put(ptr noundef %117) #21
+110:                                              ; preds = %102
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 184
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
+  %115 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef nonnull %114, ptr noundef nonnull %10) #22
+  %116 = load ptr, ptr %5, align 8
+  call void @dm_put(ptr noundef %116) #21
   br label %check_name.exit
 
-118:                                              ; preds = %102, %99, %90, %.loopexit12, %80
-  %119 = phi i32 [ %78, %80 ], [ %83, %.loopexit12 ], [ %88, %90 ], [ %101, %99 ], [ %109, %102 ]
-  %120 = load ptr, ptr %4, align 8
-  call void @dm_table_destroy(ptr noundef %120) #21
-  br label %121
+117:                                              ; preds = %102, %99, %90, %.loopexit12, %80
+  %118 = phi i32 [ %78, %80 ], [ %83, %.loopexit12 ], [ %88, %90 ], [ %101, %99 ], [ %108, %102 ]
+  %119 = load ptr, ptr %4, align 8
+  call void @dm_table_destroy(ptr noundef %119) #21
+  br label %120
 
-121:                                              ; preds = %118, %51
-  %122 = phi i32 [ %58, %51 ], [ %119, %118 ]
+120:                                              ; preds = %117, %51
+  %121 = phi i32 [ %58, %51 ], [ %118, %117 ]
   call void @down_write(ptr noundef nonnull @_hash_lock) #21
-  %123 = load ptr, ptr @name_rb_tree, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %.loopexit, label %.lr.ph
+  %122 = load ptr, ptr @name_rb_tree, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %121, %132
-  %125 = phi ptr [ %136, %132 ], [ %123, %121 ]
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
-  %127 = load ptr, ptr %126, align 8
-  %128 = call i32 @strcmp(ptr noundef %127, ptr noundef nonnull dereferenceable(1) %10) #21
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %.thread, label %132
+.lr.ph:                                           ; preds = %120, %131
+  %124 = phi ptr [ %135, %131 ], [ %122, %120 ]
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 56
+  %126 = load ptr, ptr %125, align 8
+  %127 = call i32 @strcmp(ptr noundef %126, ptr noundef nonnull dereferenceable(1) %10) #21
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %.thread, label %131
 
 .thread:                                          ; preds = %.lr.ph
-  %130 = getelementptr inbounds nuw i8, ptr %125, i64 72
-  %131 = load ptr, ptr %130, align 8
-  call void @dm_get(ptr noundef %131) #21
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 72
+  %130 = load ptr, ptr %129, align 8
+  call void @dm_get(ptr noundef %130) #21
   br label %.loopexit
 
-132:                                              ; preds = %.lr.ph
-  %133 = icmp slt i32 %128, 0
-  %134 = select i1 %133, i64 8, i64 16
-  %135 = getelementptr inbounds nuw i8, ptr %125, i64 %134
-  %136 = load ptr, ptr %135, align 8
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit, label %.lr.ph, !llvm.loop !12
+131:                                              ; preds = %.lr.ph
+  %132 = icmp slt i32 %127, 0
+  %133 = select i1 %132, i64 8, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %124, i64 %133
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-.loopexit:                                        ; preds = %132, %121, %.thread
-  %138 = phi ptr [ %125, %.thread ], [ null, %121 ], [ null, %132 ]
-  %139 = call fastcc ptr @__hash_remove(ptr noundef %138)
+.loopexit:                                        ; preds = %131, %120, %.thread
+  %137 = phi ptr [ %124, %.thread ], [ null, %120 ], [ null, %131 ]
+  %138 = call fastcc ptr @__hash_remove(ptr noundef %137)
   call void @up_write(ptr noundef nonnull @_hash_lock) #21
-  %140 = load ptr, ptr %5, align 8
-  call void @dm_put(ptr noundef %140) #21
-  br label %141
+  %139 = load ptr, ptr %5, align 8
+  call void @dm_put(ptr noundef %139) #21
+  br label %140
 
-141:                                              ; preds = %.loopexit, %43
-  %142 = phi i32 [ %49, %43 ], [ %122, %.loopexit ]
+140:                                              ; preds = %.loopexit, %43
+  %141 = phi i32 [ %49, %43 ], [ %121, %.loopexit ]
+  %142 = load ptr, ptr %5, align 8
+  call void @dm_put(ptr noundef %142) #21
   %143 = load ptr, ptr %5, align 8
-  call void @dm_put(ptr noundef %143) #21
-  %144 = load ptr, ptr %5, align 8
-  call void @dm_destroy(ptr noundef %144) #21
+  call void @dm_destroy(ptr noundef %143) #21
   br label %check_name.exit
 
-check_name.exit:                                  ; preds = %24, %13, %141, %111, %39, %3
-  %145 = phi i32 [ %142, %141 ], [ 0, %111 ], [ -22, %3 ], [ %41, %39 ], [ -22, %13 ], [ -22, %24 ]
+check_name.exit:                                  ; preds = %24, %13, %140, %110, %39, %3
+  %144 = phi i32 [ %141, %140 ], [ 0, %110 ], [ -22, %3 ], [ %41, %39 ], [ -22, %13 ], [ -22, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %145
+  ret i32 %144
 }
 
 ; Function Attrs: null_pointer_is_valid

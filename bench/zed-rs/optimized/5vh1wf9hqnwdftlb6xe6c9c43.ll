@@ -11535,7 +11535,7 @@ define hidden { i64, i64 } @_ZN8markdown12RenderedText22surrounding_word_range17
 10:                                               ; preds = %12, %2
   %.sroa.0.064 = phi ptr [ %8, %2 ], [ %13, %12 ]
   %11 = icmp eq ptr %.sroa.0.064, %9
-  br i1 %11, label %.loopexit102, label %12
+  br i1 %11, label %.loopexit101, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.064, i64 40
@@ -11544,7 +11544,7 @@ define hidden { i64, i64 } @_ZN8markdown12RenderedText22surrounding_word_range17
   %16 = icmp ugt i64 %1, %15
   br i1 %16, label %10, label %19
 
-.loopexit102:                                     ; preds = %10, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE.exit"
+.loopexit101:                                     ; preds = %10, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE.exit"
   %.sroa.3.0 = phi i64 [ %164, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE.exit" ], [ %1, %10 ]
   %.sroa.0.0 = phi i64 [ %143, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE.exit" ], [ %1, %10 ]
   %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
@@ -11643,23 +11643,23 @@ _ZN8markdown12RenderedLine31rendered_index_for_source_index17h21f046550e56e40dE.
   %61 = icmp eq i64 %47, %52
   br i1 %61, label %.lr.ph.split.i.i.preheader, label %.thread78.invoke
 
-.loopexit97:                                      ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i
+.loopexit96:                                      ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.split.i.i
-  %lpad.loopexit99 = landingpad { ptr, i32 }
+  %lpad.loopexit98 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.thread78.invoke, %.invoke
-  %lpad.loopexit.split-lp100 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp99 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit97
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit97 ], [ %lpad.loopexit99, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp100, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit96
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit96 ], [ %lpad.loopexit98, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp99, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #31
           to label %176 unwind label %174
 
@@ -11762,7 +11762,7 @@ _ZN8markdown12RenderedLine31rendered_index_for_source_index17h21f046550e56e40dE.
 
 _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i: ; preds = %.lr.ph.split.split.i.i
   %107 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hefa91f9719f66b93E(i8 noundef 32, ptr noalias noundef nonnull readonly align 1 %100, i64 noundef %99)
-          to label %.noexc30 unwind label %.loopexit97
+          to label %.noexc30 unwind label %.loopexit96
 
 .noexc30:                                         ; preds = %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i
   %108 = extractvalue { i64, i64 } %107, 0
@@ -11826,7 +11826,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   %128 = getelementptr inbounds { i64, i64 }, ptr %.val20, i64 %126
   %.val16.i.i.i36 = load i64, ptr %128, align 8, !alias.scope !1647, !noalias !1652, !noundef !9
   %129 = icmp eq i64 %.val16.i.i.i36, %124
-  br i1 %129, label %.loopexit96, label %130
+  br i1 %129, label %.loopexit95, label %130
 
 130:                                              ; preds = %.lr.ph.i.i.i32
   %131 = icmp ugt i64 %.val16.i.i.i36, %124
@@ -11849,9 +11849,9 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
 .loopexit5..loopexit_crit_edge.i41:               ; preds = %.loopexit5.i39
   %.sroa.02.0.phi.trans.insert.i42 = getelementptr inbounds { i64, i64 }, ptr %.val20, i64 %137
   %.pre.i43 = load i64, ptr %.sroa.02.0.phi.trans.insert.i42, align 8
-  br label %.loopexit96
+  br label %.loopexit95
 
-.loopexit96:                                      ; preds = %.lr.ph.i.i.i32, %.loopexit5..loopexit_crit_edge.i41
+.loopexit95:                                      ; preds = %.lr.ph.i.i.i32, %.loopexit5..loopexit_crit_edge.i41
   %139 = phi i64 [ %.pre.i43, %.loopexit5..loopexit_crit_edge.i41 ], [ %124, %.lr.ph.i.i.i32 ]
   %.pn.i44 = phi i64 [ %137, %.loopexit5..loopexit_crit_edge.i41 ], [ %126, %.lr.ph.i.i.i32 ]
   %.sroa.02.0.i45 = getelementptr inbounds { i64, i64 }, ptr %.val20, i64 %.pn.i44
@@ -11862,10 +11862,10 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
   %144 = add i64 %123, %26
   br label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i48:                                   ; preds = %.loopexit96, %150
-  %.sroa.01.020.i.i.i49 = phi i64 [ %154, %150 ], [ %.val21, %.loopexit96 ]
-  %.sroa.03.019.i.i.i50 = phi i64 [ %.sroa.013.0.i.i.i54, %150 ], [ 0, %.loopexit96 ]
-  %.sroa.09.018.i.i.i51 = phi i64 [ %.sroa.014.0.i.i.i53, %150 ], [ %.val21, %.loopexit96 ]
+.lr.ph.i.i.i48:                                   ; preds = %.loopexit95, %150
+  %.sroa.01.020.i.i.i49 = phi i64 [ %154, %150 ], [ %.val21, %.loopexit95 ]
+  %.sroa.03.019.i.i.i50 = phi i64 [ %.sroa.013.0.i.i.i54, %150 ], [ 0, %.loopexit95 ]
+  %.sroa.09.018.i.i.i51 = phi i64 [ %.sroa.014.0.i.i.i53, %150 ], [ %.val21, %.loopexit95 ]
   %145 = lshr i64 %.sroa.01.020.i.i.i49, 1
   %146 = add i64 %145, %.sroa.03.019.i.i.i50
   %147 = icmp ult i64 %146, %.val21
@@ -11934,7 +11934,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i: ; preds = %.
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4ece884d2e94a52aE.exit": ; preds = %.loopexit, %168, %172
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1661
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit102
+  br label %.loopexit101
 
 174:                                              ; preds = %.loopexit.split-lp
   %175 = landingpad { ptr, i32 }

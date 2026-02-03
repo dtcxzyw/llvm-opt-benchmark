@@ -1409,8 +1409,7 @@ define hidden void @_ZN3smt10seq_axioms9set_phaseEP4expr(ptr noundef nonnull rea
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !111
   %7 = lshr i32 %3, 1
-  %8 = and i32 %3, 1
-  %.not.i = icmp eq i32 %8, 0
+  %8 = trunc i32 %3 to i1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8872
   %10 = load ptr, ptr %9, align 8, !tbaa !120
   %11 = zext nneg i32 %7 to i64
@@ -1418,7 +1417,7 @@ define hidden void @_ZN3smt10seq_axioms9set_phaseEP4expr(ptr noundef nonnull rea
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, -201326593
-  %16 = select i1 %.not.i, i64 201326592, i64 67108864
+  %16 = select i1 %8, i64 67108864, i64 201326592
   %17 = or disjoint i64 %15, %16
   store i64 %17, ptr %13, align 8
   ret void
@@ -1956,8 +1955,7 @@ define internal void @"_ZNSt17_Function_handlerIFvP4exprEZN3smt10seq_axiomsC1ERN
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !111
   %7 = lshr i32 %3, 1
-  %8 = and i32 %3, 1
-  %.not.i.i.i.i.i = icmp eq i32 %8, 0
+  %8 = trunc i32 %3 to i1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8872
   %10 = load ptr, ptr %9, align 8, !tbaa !120
   %11 = zext nneg i32 %7 to i64
@@ -1965,7 +1963,7 @@ define internal void @"_ZNSt17_Function_handlerIFvP4exprEZN3smt10seq_axiomsC1ERN
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, -201326593
-  %16 = select i1 %.not.i.i.i.i.i, i64 201326592, i64 67108864
+  %16 = select i1 %8, i64 67108864, i64 201326592
   %17 = or disjoint i64 %15, %16
   store i64 %17, ptr %13, align 8
   ret void

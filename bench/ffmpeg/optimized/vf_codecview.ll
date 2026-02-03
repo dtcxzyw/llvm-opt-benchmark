@@ -74,7 +74,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %237
+  br label %235
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %6, align 8, !tbaa !36
@@ -329,134 +329,133 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %166
 
-166:                                              ; preds = %.lr.ph, %232
-  %indvars.iv163 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next164, %232 ]
+166:                                              ; preds = %.lr.ph, %230
+  %indvars.iv163 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next164, %230 ]
   %167 = getelementptr inbounds nuw %struct.AVMotionVector, ptr %130, i64 %indvars.iv163
   %168 = load i32, ptr %167, align 8, !tbaa !70
   %169 = icmp sgt i32 %168, 0
   %170 = zext i1 %169 to i32
   %171 = load i32, ptr %156, align 8, !tbaa !66
   %.not130 = icmp eq i32 %171, 0
-  br i1 %.not130, label %198, label %172
+  br i1 %.not130, label %196, label %172
 
 172:                                              ; preds = %166
-  %173 = and i32 %171, 1
-  %174 = icmp ne i32 %173, 0
+  %173 = trunc i32 %171 to i1
   %not. = xor i1 %169, true
-  %175 = and i1 %174, %not.
-  %176 = and i32 %171, 2
-  %177 = icmp ne i32 %176, 0
-  %178 = and i1 %169, %177
-  %179 = load i32, ptr %131, align 4, !tbaa !67
-  %.not135 = icmp eq i32 %179, 0
-  %or.cond = or i1 %175, %178
+  %spec.select = and i1 %not., %173
+  %174 = and i32 %171, 2
+  %175 = icmp ne i32 %174, 0
+  %176 = and i1 %169, %175
+  %177 = load i32, ptr %131, align 4, !tbaa !67
+  %.not135 = icmp eq i32 %177, 0
+  %or.cond = or i1 %spec.select, %176
   %or.cond136 = select i1 %.not135, i1 %or.cond, i1 false
-  %or.cond3 = and i1 %139, %175
+  %or.cond3 = and i1 %139, %spec.select
   %or.cond137 = select i1 %or.cond136, i1 true, i1 %or.cond3
-  %or.cond5 = select i1 %139, i1 %178, i1 false
+  %or.cond5 = select i1 %139, i1 %176, i1 false
   %or.cond138 = select i1 %or.cond137, i1 true, i1 %or.cond5
-  %or.cond7 = and i1 %146, %175
+  %or.cond7 = and i1 %146, %spec.select
   %or.cond139 = select i1 %or.cond138, i1 true, i1 %or.cond7
-  %or.cond9 = and i1 %153, %175
+  %or.cond9 = and i1 %153, %spec.select
   %or.cond140 = select i1 %or.cond139, i1 true, i1 %or.cond9
-  %or.cond11 = select i1 %153, i1 %178, i1 false
+  %or.cond11 = select i1 %153, i1 %176, i1 false
   %or.cond141 = select i1 %or.cond140, i1 true, i1 %or.cond11
-  br i1 %or.cond141, label %180, label %232
+  br i1 %or.cond141, label %178, label %230
 
-180:                                              ; preds = %172
-  %181 = load ptr, ptr %1, align 8, !tbaa !36
-  %182 = getelementptr inbounds nuw i8, ptr %167, i64 10
-  %183 = load i16, ptr %182, align 2, !tbaa !73
-  %184 = sext i16 %183 to i32
-  %185 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %186 = load i16, ptr %185, align 4, !tbaa !74
-  %187 = sext i16 %186 to i32
-  %188 = getelementptr inbounds nuw i8, ptr %167, i64 6
-  %189 = load i16, ptr %188, align 2, !tbaa !75
-  %190 = sext i16 %189 to i32
-  %191 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %192 = load i16, ptr %191, align 8, !tbaa !76
-  %193 = sext i16 %192 to i32
-  %194 = load i32, ptr %157, align 8, !tbaa !37
-  %195 = load i32, ptr %158, align 4, !tbaa !44
-  %196 = load i32, ptr %159, align 8, !tbaa !46
-  %197 = sext i32 %196 to i64
-  call fastcc void @draw_arrow(ptr noundef %181, i32 noundef %184, i32 noundef %187, i32 noundef %190, i32 noundef %193, i32 noundef %194, i32 noundef %195, i64 noundef %197, i32 noundef %170)
-  br label %232
+178:                                              ; preds = %172
+  %179 = load ptr, ptr %1, align 8, !tbaa !36
+  %180 = getelementptr inbounds nuw i8, ptr %167, i64 10
+  %181 = load i16, ptr %180, align 2, !tbaa !73
+  %182 = sext i16 %181 to i32
+  %183 = getelementptr inbounds nuw i8, ptr %167, i64 12
+  %184 = load i16, ptr %183, align 4, !tbaa !74
+  %185 = sext i16 %184 to i32
+  %186 = getelementptr inbounds nuw i8, ptr %167, i64 6
+  %187 = load i16, ptr %186, align 2, !tbaa !75
+  %188 = sext i16 %187 to i32
+  %189 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %190 = load i16, ptr %189, align 8, !tbaa !76
+  %191 = sext i16 %190 to i32
+  %192 = load i32, ptr %157, align 8, !tbaa !37
+  %193 = load i32, ptr %158, align 4, !tbaa !44
+  %194 = load i32, ptr %159, align 8, !tbaa !46
+  %195 = sext i32 %194 to i64
+  call fastcc void @draw_arrow(ptr noundef %179, i32 noundef %182, i32 noundef %185, i32 noundef %188, i32 noundef %191, i32 noundef %192, i32 noundef %193, i64 noundef %195, i32 noundef %170)
+  br label %230
 
-198:                                              ; preds = %166
-  %199 = load i32, ptr %121, align 8, !tbaa !65
-  %.not131 = icmp eq i32 %199, 0
-  br i1 %.not131, label %232, label %200
+196:                                              ; preds = %166
+  %197 = load i32, ptr %121, align 8, !tbaa !65
+  %.not131 = icmp eq i32 %197, 0
+  br i1 %.not131, label %230, label %198
+
+198:                                              ; preds = %196
+  %199 = and i32 %197, 1
+  %.not132 = icmp eq i32 %199, 0
+  %or.cond142 = or i1 %169, %.not132
+  br i1 %or.cond142, label %203, label %200
 
 200:                                              ; preds = %198
-  %201 = and i32 %199, 1
-  %.not132 = icmp eq i32 %201, 0
-  %or.cond142 = or i1 %169, %.not132
-  br i1 %or.cond142, label %205, label %202
+  %201 = load i32, ptr %160, align 8, !tbaa !68
+  %202 = icmp eq i32 %201, 2
+  br i1 %202, label %212, label %.thread144
 
-202:                                              ; preds = %200
-  %203 = load i32, ptr %160, align 8, !tbaa !68
-  %204 = icmp eq i32 %203, 2
-  br i1 %204, label %214, label %.thread144
-
-205:                                              ; preds = %200
+203:                                              ; preds = %198
   br i1 %169, label %.critedge, label %.thread144
 
-.thread144:                                       ; preds = %202, %205
-  %206 = and i32 %199, 2
-  %.not133 = icmp eq i32 %206, 0
-  br i1 %.not133, label %232, label %207
+.thread144:                                       ; preds = %200, %203
+  %204 = and i32 %197, 2
+  %.not133 = icmp eq i32 %204, 0
+  br i1 %.not133, label %230, label %205
 
-207:                                              ; preds = %.thread144
-  %208 = load i32, ptr %161, align 8, !tbaa !68
-  %209 = icmp eq i32 %208, 3
-  br i1 %209, label %214, label %232
+205:                                              ; preds = %.thread144
+  %206 = load i32, ptr %161, align 8, !tbaa !68
+  %207 = icmp eq i32 %206, 3
+  br i1 %207, label %212, label %230
 
-.critedge:                                        ; preds = %205
-  %210 = and i32 %199, 4
-  %.not134 = icmp eq i32 %210, 0
-  br i1 %.not134, label %232, label %211
+.critedge:                                        ; preds = %203
+  %208 = and i32 %197, 4
+  %.not134 = icmp eq i32 %208, 0
+  br i1 %.not134, label %230, label %209
 
-211:                                              ; preds = %.critedge
-  %212 = load i32, ptr %162, align 8, !tbaa !68
-  %213 = icmp eq i32 %212, 3
-  br i1 %213, label %214, label %232
+209:                                              ; preds = %.critedge
+  %210 = load i32, ptr %162, align 8, !tbaa !68
+  %211 = icmp eq i32 %210, 3
+  br i1 %211, label %212, label %230
 
-214:                                              ; preds = %211, %207, %202
-  %215 = load ptr, ptr %1, align 8, !tbaa !36
-  %216 = getelementptr inbounds nuw i8, ptr %167, i64 10
-  %217 = load i16, ptr %216, align 2, !tbaa !73
-  %218 = sext i16 %217 to i32
-  %219 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %220 = load i16, ptr %219, align 4, !tbaa !74
-  %221 = sext i16 %220 to i32
-  %222 = getelementptr inbounds nuw i8, ptr %167, i64 6
-  %223 = load i16, ptr %222, align 2, !tbaa !75
-  %224 = sext i16 %223 to i32
-  %225 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %226 = load i16, ptr %225, align 8, !tbaa !76
-  %227 = sext i16 %226 to i32
-  %228 = load i32, ptr %163, align 8, !tbaa !37
-  %229 = load i32, ptr %164, align 4, !tbaa !44
-  %230 = load i32, ptr %165, align 8, !tbaa !46
-  %231 = sext i32 %230 to i64
-  call fastcc void @draw_arrow(ptr noundef %215, i32 noundef %218, i32 noundef %221, i32 noundef %224, i32 noundef %227, i32 noundef %228, i32 noundef %229, i64 noundef %231, i32 noundef %170)
-  br label %232
+212:                                              ; preds = %209, %205, %200
+  %213 = load ptr, ptr %1, align 8, !tbaa !36
+  %214 = getelementptr inbounds nuw i8, ptr %167, i64 10
+  %215 = load i16, ptr %214, align 2, !tbaa !73
+  %216 = sext i16 %215 to i32
+  %217 = getelementptr inbounds nuw i8, ptr %167, i64 12
+  %218 = load i16, ptr %217, align 4, !tbaa !74
+  %219 = sext i16 %218 to i32
+  %220 = getelementptr inbounds nuw i8, ptr %167, i64 6
+  %221 = load i16, ptr %220, align 2, !tbaa !75
+  %222 = sext i16 %221 to i32
+  %223 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %224 = load i16, ptr %223, align 8, !tbaa !76
+  %225 = sext i16 %224 to i32
+  %226 = load i32, ptr %163, align 8, !tbaa !37
+  %227 = load i32, ptr %164, align 4, !tbaa !44
+  %228 = load i32, ptr %165, align 8, !tbaa !46
+  %229 = sext i32 %228 to i64
+  call fastcc void @draw_arrow(ptr noundef %213, i32 noundef %216, i32 noundef %219, i32 noundef %222, i32 noundef %225, i32 noundef %226, i32 noundef %227, i64 noundef %229, i32 noundef %170)
+  br label %230
 
-232:                                              ; preds = %.thread144, %207, %180, %172, %198, %214, %211, %.critedge
+230:                                              ; preds = %.thread144, %205, %178, %172, %196, %212, %209, %.critedge
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %233 = load i64, ptr %154, align 8, !tbaa !69
-  %234 = udiv i64 %233, 40
-  %235 = icmp samesign ugt i64 %234, %indvars.iv.next164
-  br i1 %235, label %166, label %.loopexit, !llvm.loop !77
+  %231 = load i64, ptr %154, align 8, !tbaa !69
+  %232 = udiv i64 %231, 40
+  %233 = icmp samesign ugt i64 %232, %indvars.iv.next164
+  br i1 %233, label %166, label %.loopexit, !llvm.loop !77
 
-.loopexit:                                        ; preds = %232, %152, %126, %123
-  %236 = call i32 @ff_filter_frame(ptr noundef %13, ptr noundef %1) #8
-  br label %237
+.loopexit:                                        ; preds = %230, %152, %126, %123
+  %234 = call i32 @ff_filter_frame(ptr noundef %13, ptr noundef %1) #8
+  br label %235
 
-237:                                              ; preds = %.thread, %.loopexit
-  %.1 = phi i32 [ %236, %.loopexit ], [ %17, %.thread ]
+235:                                              ; preds = %.thread, %.loopexit
+  %.1 = phi i32 [ %234, %.loopexit ], [ %17, %.thread ]
   ret i32 %.1
 }
 

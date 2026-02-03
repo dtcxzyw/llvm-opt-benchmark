@@ -1584,8 +1584,8 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %47 = zext i8 %37 to i64
   br label %48
 
-48:                                               ; preds = %119, %40
-  %49 = phi i64 [ %46, %40 ], [ %122, %119 ]
+48:                                               ; preds = %118, %40
+  %49 = phi i64 [ %46, %40 ], [ %121, %118 ]
   %50 = add nuw nsw i64 %49, 3
   %51 = icmp samesign ugt i64 %50, %47
   br i1 %51, label %52, label %57
@@ -1617,111 +1617,110 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
 
 66:                                               ; preds = %57
   %67 = load i64, ptr %13, align 8
-  %68 = and i64 %67, 1
-  %69 = icmp ne i64 %68, 0
-  %70 = icmp ugt i64 %67, 1
-  %71 = and i1 %70, %69
-  br i1 %71, label %72, label %93
+  %68 = trunc i64 %67 to i1
+  %69 = icmp ugt i64 %67, 1
+  %70 = and i1 %69, %68
+  br i1 %70, label %71, label %92
 
-72:                                               ; preds = %66
-  %73 = and i64 %67, -2
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, i32 1, ptr nonnull elementtype(i32) %75) #11, !srcloc !19
-  %77 = icmp ult i8 %76, 2
-  tail call void @llvm.assume(i1 %77)
-  %78 = icmp eq i8 %76, 0
-  br i1 %78, label %82, label %79, !prof !20
+71:                                               ; preds = %66
+  %72 = and i64 %67, -2
+  %73 = inttoptr i64 %72 to ptr
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
+  %75 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %74, i32 1, ptr nonnull elementtype(i32) %74) #11, !srcloc !19
+  %76 = icmp ult i8 %75, 2
+  tail call void @llvm.assume(i1 %76)
+  %77 = icmp eq i8 %75, 0
+  br i1 %77, label %81, label %78, !prof !20
 
-79:                                               ; preds = %72
-  %80 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %75) #11
-  %81 = select i1 %80, ptr %74, ptr null
-  br label %82
+78:                                               ; preds = %71
+  %79 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %74) #11
+  %80 = select i1 %79, ptr %73, ptr null
+  br label %81
 
-82:                                               ; preds = %79, %72
-  %83 = phi ptr [ %81, %79 ], [ %74, %72 ]
-  %84 = ptrtoint ptr %83 to i64
-  store i64 %84, ptr %13, align 8
-  %85 = icmp ne ptr %83, null
-  %86 = load i24, ptr %43, align 1
-  %87 = and i24 %86, 1048576
-  %88 = icmp ne i24 %87, 0
-  %89 = or i1 %85, %88
-  %90 = select i1 %89, i24 1048576, i24 0
-  %91 = and i24 %86, -1048577
-  %92 = or disjoint i24 %90, %91
-  store i24 %92, ptr %43, align 1
-  br label %93
+81:                                               ; preds = %78, %71
+  %82 = phi ptr [ %80, %78 ], [ %73, %71 ]
+  %83 = ptrtoint ptr %82 to i64
+  store i64 %83, ptr %13, align 8
+  %84 = icmp ne ptr %82, null
+  %85 = load i24, ptr %43, align 1
+  %86 = and i24 %85, 1048576
+  %87 = icmp ne i24 %86, 0
+  %88 = or i1 %84, %87
+  %89 = select i1 %88, i24 1048576, i24 0
+  %90 = and i24 %85, -1048577
+  %91 = or disjoint i24 %89, %90
+  store i24 %91, ptr %43, align 1
+  br label %92
 
-93:                                               ; preds = %66, %82
-  %94 = phi i64 [ %67, %66 ], [ %84, %82 ]
-  %95 = icmp ugt i64 %94, 1
+92:                                               ; preds = %66, %81
+  %93 = phi i64 [ %67, %66 ], [ %83, %81 ]
+  %94 = icmp ugt i64 %93, 1
   tail call void @__rcu_read_unlock() #11
-  %96 = load i64, ptr %13, align 8
-  br i1 %95, label %97, label %.loopexit
+  %95 = load i64, ptr %13, align 8
+  br i1 %94, label %96, label %.loopexit
 
-97:                                               ; preds = %93
-  %98 = and i64 %96, -2
-  %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 144
-  %101 = load i16, ptr %100, align 8
-  %102 = add i16 %101, -1
-  %103 = icmp ult i16 %102, 2
-  br i1 %103, label %111, label %.loopexit
+96:                                               ; preds = %92
+  %97 = and i64 %95, -2
+  %98 = inttoptr i64 %97 to ptr
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 144
+  %100 = load i16, ptr %99, align 8
+  %101 = add i16 %100, -1
+  %102 = icmp ult i16 %101, 2
+  br i1 %102, label %110, label %.loopexit
 
-.loopexit:                                        ; preds = %97, %93, %.thread
-  %104 = phi i64 [ %65, %.thread ], [ %96, %93 ], [ %96, %97 ]
-  %105 = icmp ne i64 %104, 0
-  %106 = and i64 %104, 1
-  %107 = icmp eq i64 %106, 0
-  %or.cond = and i1 %105, %107
-  br i1 %or.cond, label %108, label %110
+.loopexit:                                        ; preds = %96, %92, %.thread
+  %103 = phi i64 [ %65, %.thread ], [ %95, %92 ], [ %95, %96 ]
+  %104 = icmp ne i64 %103, 0
+  %105 = and i64 %103, 1
+  %106 = icmp eq i64 %105, 0
+  %or.cond = and i1 %104, %106
+  br i1 %or.cond, label %107, label %109
 
-108:                                              ; preds = %.loopexit
-  %109 = inttoptr i64 %104 to ptr
-  tail call void @dst_release(ptr noundef nonnull %109) #11
-  br label %110
+107:                                              ; preds = %.loopexit
+  %108 = inttoptr i64 %103 to ptr
+  tail call void @dst_release(ptr noundef nonnull %108) #11
+  br label %109
 
-110:                                              ; preds = %108, %.loopexit
+109:                                              ; preds = %107, %.loopexit
   store i64 %60, ptr %13, align 8
   br label %.critedge
 
-111:                                              ; preds = %97
-  %112 = and i64 %60, 1
-  %113 = icmp eq i64 %112, 0
-  br i1 %113, label %114, label %116
+110:                                              ; preds = %96
+  %111 = and i64 %60, 1
+  %112 = icmp eq i64 %111, 0
+  br i1 %112, label %113, label %115
 
-114:                                              ; preds = %111
-  %115 = inttoptr i64 %60 to ptr
-  tail call void @dst_release(ptr noundef %115) #11
-  %.pre = load i16, ptr %100, align 8
-  br label %116
+113:                                              ; preds = %110
+  %114 = inttoptr i64 %60 to ptr
+  tail call void @dst_release(ptr noundef %114) #11
+  %.pre = load i16, ptr %99, align 8
+  br label %115
 
-116:                                              ; preds = %114, %111
-  %117 = phi i16 [ %.pre, %114 ], [ %101, %111 ]
-  %118 = icmp eq i16 %117, 2
-  br i1 %118, label %119, label %124
+115:                                              ; preds = %113, %110
+  %116 = phi i16 [ %.pre, %113 ], [ %100, %110 ]
+  %117 = icmp eq i16 %116, 2
+  br i1 %117, label %118, label %123
 
-119:                                              ; preds = %116
+118:                                              ; preds = %115
   store i32 %59, ptr %44, align 4
-  %120 = load i8, ptr %45, align 4
-  %121 = or i8 %120, 4
-  store i8 %121, ptr %45, align 4
-  %122 = add nuw nsw i64 %49, 4
-  %123 = icmp samesign ugt i64 %122, %47
-  br i1 %123, label %.critedge, label %48, !llvm.loop !21
+  %119 = load i8, ptr %45, align 4
+  %120 = or i8 %119, 4
+  store i8 %120, ptr %45, align 4
+  %121 = add nuw nsw i64 %49, 4
+  %122 = icmp samesign ugt i64 %121, %47
+  br i1 %122, label %.critedge, label %48, !llvm.loop !21
 
-124:                                              ; preds = %116
-  %125 = load i8, ptr %45, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %59, ptr %126, align 4
-  %127 = or i8 %125, 6
-  store i8 %127, ptr %45, align 4
+123:                                              ; preds = %115
+  %124 = load i8, ptr %45, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %59, ptr %125, align 4
+  %126 = or i8 %124, 6
+  store i8 %126, ptr %45, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %119, %33, %124, %110, %52, %31, %26, %23, %18, %2
-  %128 = phi i32 [ -22, %31 ], [ -22, %52 ], [ -22, %110 ], [ 0, %2 ], [ -22, %18 ], [ 0, %26 ], [ -22, %23 ], [ 0, %124 ], [ 0, %33 ], [ 0, %119 ]
-  ret i32 %128
+.critedge:                                        ; preds = %118, %33, %123, %109, %52, %31, %26, %23, %18, %2
+  %127 = phi i32 [ -22, %31 ], [ -22, %52 ], [ -22, %109 ], [ 0, %2 ], [ -22, %18 ], [ 0, %26 ], [ -22, %23 ], [ 0, %123 ], [ 0, %33 ], [ 0, %118 ]
+  ret i32 %127
 }
 
 ; Function Attrs: null_pointer_is_valid

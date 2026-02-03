@@ -3089,27 +3089,27 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
 
 ; Function Attrs: nounwind uwtable
 define i32 @Ifd_ManOper(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
-  switch i32 %4, label %38 [
+  switch i32 %4, label %37 [
     i32 1, label %6
     i32 2, label %14
-    i32 3, label %32
+    i32 3, label %31
   ]
 
 6:                                                ; preds = %5
   %7 = icmp eq i32 %1, 0
   %8 = icmp eq i32 %2, 0
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %67, label %9
+  br i1 %or.cond, label %66, label %9
 
 9:                                                ; preds = %6
   %10 = icmp eq i32 %1, 1
   %11 = icmp eq i32 %2, 1
   %or.cond3 = or i1 %10, %11
-  br i1 %or.cond3, label %12, label %38
+  br i1 %or.cond3, label %12, label %37
 
 12:                                               ; preds = %9
   %13 = select i1 %10, i32 %2, i32 %1
-  br label %67
+  br label %66
 
 14:                                               ; preds = %5
   %15 = icmp slt i32 %1, 2
@@ -3119,7 +3119,7 @@ define i32 @Ifd_ManOper(ptr noundef captures(none) %0, i32 noundef %1, i32 nound
   %17 = icmp eq i32 %1, 1
   %18 = zext i1 %17 to i32
   %19 = xor i32 %2, %18
-  br label %67
+  br label %66
 
 20:                                               ; preds = %14
   %21 = icmp slt i32 %2, 2
@@ -3129,88 +3129,88 @@ define i32 @Ifd_ManOper(ptr noundef captures(none) %0, i32 noundef %1, i32 nound
   %23 = icmp eq i32 %2, 1
   %24 = zext i1 %23 to i32
   %25 = xor i32 %1, %24
-  br label %67
+  br label %66
 
 26:                                               ; preds = %20
-  %27 = and i32 %1, 1
   %spec.select = and i32 %1, 2147483646
-  %28 = and i32 %2, 1
-  %.not83 = icmp eq i32 %28, 0
-  br i1 %.not83, label %38, label %29
+  %spec.select93 = and i32 %1, 1
+  %27 = and i32 %2, 1
+  %.not83 = icmp eq i32 %27, 0
+  br i1 %.not83, label %37, label %28
 
-29:                                               ; preds = %26
-  %30 = xor i32 %27, 1
-  %31 = and i32 %2, 2147483646
-  br label %38
+28:                                               ; preds = %26
+  %29 = xor i32 %spec.select93, 1
+  %30 = and i32 %2, 2147483646
+  br label %37
 
-32:                                               ; preds = %5
-  %33 = and i32 %3, 1
-  %.not = icmp eq i32 %33, 0
+31:                                               ; preds = %5
+  %32 = and i32 %3, 1
+  %.not = icmp eq i32 %32, 0
   %.172 = and i32 %3, -2
   %.168 = select i1 %.not, i32 %2, i32 %1
   %.2 = select i1 %.not, i32 %1, i32 %2
-  %34 = and i32 %.168, 1
+  %33 = and i32 %.168, 1
   %.067 = and i32 %.168, -2
-  %.065 = xor i32 %34, %.2
-  %35 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef %0, i32 noundef %.065, i32 noundef %.067, i32 noundef %.172, i32 noundef 3)
-  %36 = shl nsw i32 %35, 1
-  %37 = or disjoint i32 %36, %34
-  br label %67
+  %.065 = xor i32 %33, %.2
+  %34 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef %0, i32 noundef %.065, i32 noundef %.067, i32 noundef %.172, i32 noundef 3)
+  %35 = shl nsw i32 %34, 1
+  %36 = or disjoint i32 %35, %33
+  br label %66
 
-38:                                               ; preds = %5, %29, %26, %9
-  %.067.ph = phi i32 [ %2, %5 ], [ %2, %26 ], [ %31, %29 ], [ %2, %9 ]
-  %.065.ph = phi i32 [ %1, %5 ], [ %spec.select, %26 ], [ %spec.select, %29 ], [ %1, %9 ]
-  %.064.ph = phi i32 [ 0, %5 ], [ %27, %26 ], [ %30, %29 ], [ 0, %9 ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %40 = load ptr, ptr %39, align 8, !tbaa !37
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 0, ptr %41, align 4, !tbaa !17
-  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.065.ph, i32 noundef %4, ptr noundef %40)
-  %42 = load ptr, ptr %39, align 8, !tbaa !37
-  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.067.ph, i32 noundef %4, ptr noundef %42)
-  %43 = load ptr, ptr %39, align 8, !tbaa !37
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !17
-  %48 = sext i32 %47 to i64
-  tail call void @qsort(ptr noundef %45, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare2) #30
-  %49 = load ptr, ptr %39, align 8, !tbaa !37
-  %50 = getelementptr i8, ptr %49, i64 8
-  %.val85 = load ptr, ptr %50, align 8, !tbaa !21
-  %51 = load i32, ptr %.val85, align 4, !tbaa !36
-  %52 = getelementptr i8, ptr %49, i64 4
-  %.val94 = load i32, ptr %52, align 4, !tbaa !17
-  %53 = icmp sgt i32 %.val94, 1
-  br i1 %53, label %.lr.ph, label %.critedge
+37:                                               ; preds = %5, %28, %26, %9
+  %.067.ph = phi i32 [ %2, %5 ], [ %2, %26 ], [ %30, %28 ], [ %2, %9 ]
+  %.065.ph = phi i32 [ %1, %5 ], [ %spec.select, %26 ], [ %spec.select, %28 ], [ %1, %9 ]
+  %.064.ph = phi i32 [ 0, %5 ], [ %spec.select93, %26 ], [ %29, %28 ], [ 0, %9 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 0, ptr %40, align 4, !tbaa !17
+  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.065.ph, i32 noundef %4, ptr noundef %39)
+  %41 = load ptr, ptr %38, align 8, !tbaa !37
+  tail call void @Ifd_ManOperSuper_rec(ptr noundef %0, i32 noundef %.067.ph, i32 noundef %4, ptr noundef %41)
+  %42 = load ptr, ptr %38, align 8, !tbaa !37
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !21
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !17
+  %47 = sext i32 %46 to i64
+  tail call void @qsort(ptr noundef %44, i64 noundef %47, i64 noundef 4, ptr noundef nonnull @Vec_IntSortCompare2) #30
+  %48 = load ptr, ptr %38, align 8, !tbaa !37
+  %49 = getelementptr i8, ptr %48, i64 8
+  %.val85 = load ptr, ptr %49, align 8, !tbaa !21
+  %50 = load i32, ptr %.val85, align 4, !tbaa !36
+  %51 = getelementptr i8, ptr %48, i64 4
+  %.val94 = load i32, ptr %51, align 4, !tbaa !17
+  %52 = icmp sgt i32 %.val94, 1
+  br i1 %52, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %38, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %38 ]
-  %54 = phi ptr [ %60, %.lr.ph ], [ %49, %38 ]
-  %.06996 = phi i32 [ %59, %.lr.ph ], [ %51, %38 ]
-  %55 = getelementptr i8, ptr %54, i64 8
-  %.val84 = load ptr, ptr %55, align 8, !tbaa !21
-  %56 = getelementptr inbounds nuw i32, ptr %.val84, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4, !tbaa !36
-  %58 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef nonnull %0, i32 noundef %.06996, i32 noundef %57, i32 noundef -1, i32 noundef %4)
-  %59 = shl nsw i32 %58, 1
+.lr.ph:                                           ; preds = %37, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %37 ]
+  %53 = phi ptr [ %59, %.lr.ph ], [ %48, %37 ]
+  %.06996 = phi i32 [ %58, %.lr.ph ], [ %50, %37 ]
+  %54 = getelementptr i8, ptr %53, i64 8
+  %.val84 = load ptr, ptr %54, align 8, !tbaa !21
+  %55 = getelementptr inbounds nuw i32, ptr %.val84, i64 %indvars.iv
+  %56 = load i32, ptr %55, align 4, !tbaa !36
+  %57 = tail call i32 @Ifd_ManHashFindOrAdd(ptr noundef nonnull %0, i32 noundef %.06996, i32 noundef %56, i32 noundef -1, i32 noundef %4)
+  %58 = shl nsw i32 %57, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load ptr, ptr %39, align 8, !tbaa !37
-  %61 = getelementptr i8, ptr %60, i64 4
-  %.val = load i32, ptr %61, align 4, !tbaa !17
-  %62 = sext i32 %.val to i64
-  %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %.lr.ph, label %.critedge, !llvm.loop !66
+  %59 = load ptr, ptr %38, align 8, !tbaa !37
+  %60 = getelementptr i8, ptr %59, i64 4
+  %.val = load i32, ptr %60, align 4, !tbaa !17
+  %61 = sext i32 %.val to i64
+  %62 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %62, label %.lr.ph, label %.critedge, !llvm.loop !66
 
-.critedge:                                        ; preds = %.lr.ph, %38
-  %.069.lcssa = phi i32 [ %51, %38 ], [ %59, %.lr.ph ]
-  %64 = icmp ne i32 %.064.ph, 0
-  %65 = zext i1 %64 to i32
-  %66 = xor i32 %.069.lcssa, %65
-  br label %67
+.critedge:                                        ; preds = %.lr.ph, %37
+  %.069.lcssa = phi i32 [ %50, %37 ], [ %58, %.lr.ph ]
+  %63 = icmp ne i32 %.064.ph, 0
+  %64 = zext i1 %63 to i32
+  %65 = xor i32 %.069.lcssa, %64
+  br label %66
 
-67:                                               ; preds = %6, %.critedge, %32, %22, %16, %12
-  %.0 = phi i32 [ %25, %22 ], [ %13, %12 ], [ %37, %32 ], [ %66, %.critedge ], [ %19, %16 ], [ 0, %6 ]
+66:                                               ; preds = %6, %.critedge, %31, %22, %16, %12
+  %.0 = phi i32 [ %25, %22 ], [ %13, %12 ], [ %36, %31 ], [ %65, %.critedge ], [ %19, %16 ], [ 0, %6 ]
   ret i32 %.0
 }
 

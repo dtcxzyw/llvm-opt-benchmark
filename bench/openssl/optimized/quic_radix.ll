@@ -2242,11 +2242,11 @@ define internal range(i32 0, 2) i32 @hf_new_ssl(ptr noundef readonly captures(no
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %11
-  %.037 = phi i64 [ 0, %1 ], [ %13, %11 ]
+  %.036 = phi i64 [ 0, %1 ], [ %13, %11 ]
   %.0.i = phi i32 [ 0, %1 ], [ 1, %11 ]
   %15 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 183, ptr noundef nonnull @.str.45, i32 noundef %.0.i) #12
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %84, label %16
+  br i1 %.not, label %86, label %16
 
 16:                                               ; preds = %TERP_stk_pop.exit
   %17 = load ptr, ptr %0, align 8, !tbaa !107
@@ -2258,8 +2258,8 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
   %25 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 629, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i64 noundef %24, i64 noundef 8) #12
-  %.not.i32 = icmp eq i32 %25, 0
-  br i1 %.not.i32, label %TERP_stk_pop.exit34, label %26
+  %.not.i31 = icmp eq i32 %25, 0
+  br i1 %.not.i31, label %TERP_stk_pop.exit33, label %26
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %20, align 8, !tbaa !95
@@ -2267,21 +2267,20 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %30, ptr %20, align 8, !tbaa !95
-  br label %TERP_stk_pop.exit34
+  br label %TERP_stk_pop.exit33
 
-TERP_stk_pop.exit34:                              ; preds = %16, %26
-  %.038 = phi ptr [ null, %16 ], [ %29, %26 ]
-  %.0.i33 = phi i32 [ 0, %16 ], [ 1, %26 ]
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 183, ptr noundef nonnull @.str.46, i32 noundef %.0.i33) #12
+TERP_stk_pop.exit33:                              ; preds = %16, %26
+  %.037 = phi ptr [ null, %16 ], [ %29, %26 ]
+  %.0.i32 = phi i32 [ 0, %16 ], [ 1, %26 ]
+  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 183, ptr noundef nonnull @.str.46, i32 noundef %.0.i32) #12
   %.not21 = icmp eq i32 %31, 0
-  br i1 %.not21, label %84, label %32
+  br i1 %.not21, label %86, label %32
 
-32:                                               ; preds = %TERP_stk_pop.exit34
-  %33 = and i64 %.037, 2
+32:                                               ; preds = %TERP_stk_pop.exit33
+  %33 = and i64 %.036, 2
   %.not22 = icmp eq i64 %33, 0
-  %34 = and i64 %.037, 1
-  %.not23 = icmp eq i64 %34, 0
-  br i1 %.not23, label %37, label %35
+  %34 = trunc i64 %.036 to i1
+  br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
   %36 = tail call ptr @OSSL_QUIC_server_method() #12
@@ -2295,109 +2294,111 @@ TERP_stk_pop.exit34:                              ; preds = %16, %26
   %40 = phi ptr [ %36, %35 ], [ %38, %37 ]
   %41 = tail call ptr @SSL_CTX_new(ptr noundef %40) #12
   %42 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 189, ptr noundef nonnull @.str.47, ptr noundef %41) #12
-  %.not24 = icmp eq i32 %42, 0
-  br i1 %.not24, label %84, label %43
+  %.not23 = icmp eq i32 %42, 0
+  br i1 %.not23, label %86, label %43
 
 43:                                               ; preds = %39
   %44 = tail call i32 @SSL_CTX_set_domain_flags(ptr noundef %41, i64 noundef 10) #12
   %45 = icmp ne i32 %44, 0
   %46 = zext i1 %45 to i32
   %47 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 195, ptr noundef nonnull @.str.48, i32 noundef %46) #12
-  %.not25 = icmp eq i32 %47, 0
-  br i1 %.not25, label %84, label %48
+  %.not24 = icmp eq i32 %47, 0
+  br i1 %.not24, label %86, label %48
 
 48:                                               ; preds = %43
   %49 = tail call i32 @ossl_quic_set_diag_title(ptr noundef %41, ptr noundef nonnull @.str.58) #12
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
   %52 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 44, ptr noundef nonnull @.str.57, i32 noundef %51) #12
-  %.not.i35 = icmp eq i32 %52, 0
-  %brmerge = or i1 %.not.i35, %.not23
-  %not..not.i35 = xor i1 %.not.i35, true
-  %.mux = zext i1 %not..not.i35 to i32
-  br i1 %brmerge, label %ssl_ctx_configure.exit, label %53
+  %.not.i34 = icmp eq i32 %52, 0
+  br i1 %.not.i34, label %ssl_ctx_configure.exit, label %53
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 56), align 8, !tbaa !20
-  %.not7.i = icmp eq ptr %54, null
-  br i1 %.not7.i, label %56, label %55
+  %54 = and i64 %.036, 1
+  %.not6.i = icmp eq i64 %54, 0
+  br i1 %.not6.i, label %ssl_ctx_configure.exit, label %55
 
 55:                                               ; preds = %53
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 56), align 8, !tbaa !20
+  %.not7.i = icmp eq ptr %56, null
+  br i1 %.not7.i, label %58, label %57
+
+57:                                               ; preds = %55
   tail call void @SSL_CTX_set_keylog_callback(ptr noundef %41, ptr noundef nonnull @keylog_cb) #12
-  br label %56
+  br label %58
 
-56:                                               ; preds = %55, %53
-  %57 = load ptr, ptr @cert_file, align 8, !tbaa !43
-  %58 = tail call i32 @SSL_CTX_use_certificate_file(ptr noundef %41, ptr noundef %57, i32 noundef 1) #12
-  %59 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.44, i32 noundef 54, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %58, i32 noundef 1) #12
-  %.not8.i = icmp eq i32 %59, 0
-  br i1 %.not8.i, label %ssl_ctx_configure.exit, label %60
+58:                                               ; preds = %57, %55
+  %59 = load ptr, ptr @cert_file, align 8, !tbaa !43
+  %60 = tail call i32 @SSL_CTX_use_certificate_file(ptr noundef %41, ptr noundef %59, i32 noundef 1) #12
+  %61 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.44, i32 noundef 54, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %60, i32 noundef 1) #12
+  %.not8.i = icmp eq i32 %61, 0
+  br i1 %.not8.i, label %ssl_ctx_configure.exit, label %62
 
-60:                                               ; preds = %56
-  %61 = load ptr, ptr @key_file, align 8, !tbaa !43
-  %62 = tail call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %41, ptr noundef %61, i32 noundef 1) #12
-  %63 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.44, i32 noundef 56, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.60, i32 noundef %62, i32 noundef 1) #12
-  %.not9.i = icmp eq i32 %63, 0
-  br i1 %.not9.i, label %ssl_ctx_configure.exit, label %64
+62:                                               ; preds = %58
+  %63 = load ptr, ptr @key_file, align 8, !tbaa !43
+  %64 = tail call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %41, ptr noundef %63, i32 noundef 1) #12
+  %65 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.44, i32 noundef 56, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.60, i32 noundef %64, i32 noundef 1) #12
+  %.not9.i = icmp eq i32 %65, 0
+  br i1 %.not9.i, label %ssl_ctx_configure.exit, label %66
 
-64:                                               ; preds = %60
+66:                                               ; preds = %62
   tail call void @SSL_CTX_set_alpn_select_cb(ptr noundef %41, ptr noundef nonnull @ssl_ctx_select_alpn, ptr noundef null) #12
   br label %ssl_ctx_configure.exit
 
-ssl_ctx_configure.exit:                           ; preds = %48, %56, %60, %64
-  %.0.i36 = phi i32 [ 1, %64 ], [ 0, %56 ], [ %.mux, %48 ], [ 0, %60 ]
-  %65 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 199, ptr noundef nonnull @.str.49, i32 noundef %.0.i36) #12
-  %.not26 = icmp eq i32 %65, 0
-  br i1 %.not26, label %84, label %66
+ssl_ctx_configure.exit:                           ; preds = %48, %53, %58, %62, %66
+  %.0.i35 = phi i32 [ 1, %66 ], [ 1, %53 ], [ 0, %48 ], [ 0, %62 ], [ 0, %58 ]
+  %67 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 199, ptr noundef nonnull @.str.49, i32 noundef %.0.i35) #12
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %86, label %68
 
-66:                                               ; preds = %ssl_ctx_configure.exit
-  br i1 %.not22, label %70, label %67
+68:                                               ; preds = %ssl_ctx_configure.exit
+  br i1 %.not22, label %72, label %69
 
-67:                                               ; preds = %66
-  %68 = tail call ptr @SSL_new_domain(ptr noundef %41, i64 noundef 0) #12
-  %69 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 203, ptr noundef nonnull @.str.50, ptr noundef %68) #12
-  %.not29 = icmp eq i32 %69, 0
-  br i1 %.not29, label %84, label %80
+69:                                               ; preds = %68
+  %70 = tail call ptr @SSL_new_domain(ptr noundef %41, i64 noundef 0) #12
+  %71 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 203, ptr noundef nonnull @.str.50, ptr noundef %70) #12
+  %.not28 = icmp eq i32 %71, 0
+  br i1 %.not28, label %86, label %82
 
-70:                                               ; preds = %66
-  br i1 %.not23, label %74, label %71
+72:                                               ; preds = %68
+  br i1 %34, label %73, label %76
 
-71:                                               ; preds = %70
+73:                                               ; preds = %72
   tail call void @SSL_CTX_set_new_pending_conn_cb(ptr noundef %41, ptr noundef nonnull @new_pending_cb, ptr noundef null) #12
   tail call void @SSL_CTX_set_client_hello_cb(ptr noundef %41, ptr noundef nonnull @client_hello_cb, ptr noundef null) #12
   store i1 true, ptr @check_pending_match, align 4
-  %72 = tail call ptr @SSL_new_listener(ptr noundef %41, i64 noundef 0) #12
-  %73 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 210, ptr noundef nonnull @.str.51, ptr noundef %72) #12
-  %.not28 = icmp eq i32 %73, 0
-  br i1 %.not28, label %84, label %77
+  %74 = tail call ptr @SSL_new_listener(ptr noundef %41, i64 noundef 0) #12
+  %75 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 210, ptr noundef nonnull @.str.51, ptr noundef %74) #12
+  %.not27 = icmp eq i32 %75, 0
+  br i1 %.not27, label %86, label %79
 
-74:                                               ; preds = %70
-  %75 = tail call ptr @SSL_new(ptr noundef %41) #12
-  %76 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 213, ptr noundef nonnull @.str.52, ptr noundef %75) #12
-  %.not27 = icmp eq i32 %76, 0
-  br i1 %.not27, label %84, label %77
+76:                                               ; preds = %72
+  %77 = tail call ptr @SSL_new(ptr noundef %41) #12
+  %78 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 213, ptr noundef nonnull @.str.52, ptr noundef %77) #12
+  %.not26 = icmp eq i32 %78, 0
+  br i1 %.not26, label %86, label %79
 
-77:                                               ; preds = %71, %74
-  %.020.ph = phi ptr [ %75, %74 ], [ %72, %71 ]
-  %78 = tail call fastcc i32 @ssl_attach_bio_dgram(ptr noundef %.020.ph)
-  %79 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 217, ptr noundef nonnull @.str.53, i32 noundef %78) #12
-  %.not30 = icmp eq i32 %79, 0
-  br i1 %.not30, label %84, label %80
+79:                                               ; preds = %73, %76
+  %.020.ph = phi ptr [ %77, %76 ], [ %74, %73 ]
+  %80 = tail call fastcc i32 @ssl_attach_bio_dgram(ptr noundef %.020.ph)
+  %81 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 217, ptr noundef nonnull @.str.53, i32 noundef %80) #12
+  %.not29 = icmp eq i32 %81, 0
+  br i1 %.not29, label %86, label %82
 
-80:                                               ; preds = %67, %77
-  %.02040 = phi ptr [ %.020.ph, %77 ], [ %68, %67 ]
-  %81 = tail call fastcc i32 @RADIX_PROCESS_set_ssl(ptr noundef %.038, ptr noundef %.02040)
-  %82 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 220, ptr noundef nonnull @.str.54, i32 noundef %81) #12
-  %.not31 = icmp eq i32 %82, 0
-  br i1 %.not31, label %83, label %84
+82:                                               ; preds = %69, %79
+  %.02039 = phi ptr [ %.020.ph, %79 ], [ %70, %69 ]
+  %83 = tail call fastcc i32 @RADIX_PROCESS_set_ssl(ptr noundef %.037, ptr noundef %.02039)
+  %84 = tail call i32 @test_true(ptr noundef nonnull @.str.44, i32 noundef 220, ptr noundef nonnull @.str.54, i32 noundef %83) #12
+  %.not30 = icmp eq i32 %84, 0
+  br i1 %.not30, label %85, label %86
 
-83:                                               ; preds = %80
-  tail call void @SSL_free(ptr noundef %.02040) #12
-  br label %84
+85:                                               ; preds = %82
+  tail call void @SSL_free(ptr noundef %.02039) #12
+  br label %86
 
-84:                                               ; preds = %80, %77, %74, %71, %67, %ssl_ctx_configure.exit, %43, %39, %TERP_stk_pop.exit34, %TERP_stk_pop.exit, %83
-  %.019 = phi ptr [ null, %TERP_stk_pop.exit ], [ %41, %83 ], [ %41, %77 ], [ %41, %67 ], [ %41, %71 ], [ %41, %74 ], [ %41, %ssl_ctx_configure.exit ], [ %41, %43 ], [ %41, %39 ], [ null, %TERP_stk_pop.exit34 ], [ %41, %80 ]
-  %.0 = phi i32 [ 0, %TERP_stk_pop.exit ], [ 0, %83 ], [ 0, %77 ], [ 0, %67 ], [ 0, %71 ], [ 0, %74 ], [ 0, %ssl_ctx_configure.exit ], [ 0, %43 ], [ 0, %39 ], [ 0, %TERP_stk_pop.exit34 ], [ 1, %80 ]
+86:                                               ; preds = %82, %79, %76, %73, %69, %ssl_ctx_configure.exit, %43, %39, %TERP_stk_pop.exit33, %TERP_stk_pop.exit, %85
+  %.019 = phi ptr [ null, %TERP_stk_pop.exit ], [ %41, %85 ], [ %41, %79 ], [ %41, %69 ], [ %41, %73 ], [ %41, %76 ], [ %41, %ssl_ctx_configure.exit ], [ %41, %43 ], [ %41, %39 ], [ null, %TERP_stk_pop.exit33 ], [ %41, %82 ]
+  %.0 = phi i32 [ 0, %TERP_stk_pop.exit ], [ 0, %85 ], [ 0, %79 ], [ 0, %69 ], [ 0, %73 ], [ 0, %76 ], [ 0, %ssl_ctx_configure.exit ], [ 0, %43 ], [ 0, %39 ], [ 0, %TERP_stk_pop.exit33 ], [ 1, %82 ]
   tail call void @SSL_CTX_free(ptr noundef %.019) #12
   ret i32 %.0
 }

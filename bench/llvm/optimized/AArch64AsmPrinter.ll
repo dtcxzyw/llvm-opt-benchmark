@@ -2071,10 +2071,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i: ; preds = %_
 
 ._crit_edge.i.i45.i:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i
   %176 = icmp samesign ugt i32 %.249, 3
-  %177 = and i32 %.249, 1
-  %178 = zext i1 %176 to i32
-  %179 = lshr i32 %.249, 1
-  %.lobit.i = and i32 %179, 1
+  %177 = zext i1 %176 to i32
+  %178 = lshr i32 %.249, 1
+  %.lobit.i = and i32 %178, 1
+  %179 = and i32 %.249, 1
   %180 = call { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs13getVendorNameEj(i32 noundef 0) #25
   %181 = extractvalue { ptr, i64 } %180, 0
   %182 = extractvalue { ptr, i64 } %180, 1
@@ -2093,7 +2093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44.i: ; preds = %_
   %191 = load ptr, ptr %72, align 8, !tbaa !3
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 416
   %193 = load ptr, ptr %192, align 8
-  call void %193(ptr noundef nonnull align 8 dereferenceable(199720) %72, ptr %187, i64 %188, i32 noundef 0, i32 noundef %177, ptr noundef nonnull %5, i1 noundef zeroext false) #25
+  call void %193(ptr noundef nonnull align 8 dereferenceable(199720) %72, ptr %187, i64 %188, i32 noundef 0, i32 noundef %179, ptr noundef nonnull %5, i1 noundef zeroext false) #25
   %194 = load ptr, ptr %5, align 8, !tbaa !256
   %195 = icmp eq ptr %194, %189
   br i1 %195, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47.i
@@ -2139,7 +2139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54.i: ; preds = %_
   %215 = load ptr, ptr %72, align 8, !tbaa !3
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 416
   %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(199720) %72, ptr %211, i64 %212, i32 noundef 2, i32 noundef %178, ptr noundef nonnull %7, i1 noundef zeroext false) #25
+  call void %217(ptr noundef nonnull align 8 dereferenceable(199720) %72, ptr %211, i64 %212, i32 noundef 2, i32 noundef %177, ptr noundef nonnull %7, i1 noundef zeroext false) #25
   %218 = load ptr, ptr %7, align 8, !tbaa !256
   %219 = icmp eq ptr %218, %213
   br i1 %219, label %_ZN12_GLOBAL__N_117AArch64AsmPrinter14emitAttributesEjmmPN4llvm21AArch64TargetStreamerE.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57.i

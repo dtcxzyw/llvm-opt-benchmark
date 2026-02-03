@@ -6770,7 +6770,7 @@ _export_and_setup_pos.exit.thread:                ; preds = %63, %101
   call void (...) @dt_control_queue_redraw() #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %241
+  br label %240
 
 126:                                              ; preds = %_export_and_setup_pos.exit.thread, %23
   %127 = phi i32 [ %.pre, %_export_and_setup_pos.exit.thread ], [ %24, %23 ]
@@ -6785,7 +6785,7 @@ _export_and_setup_pos.exit.thread:                ; preds = %63, %101
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 1064
   %130 = call i32 @dt_control_job_get_state(ptr noundef %0) #18
   %131 = icmp eq i32 %130, 4
-  br i1 %131, label %241, label %132
+  br i1 %131, label %240, label %132
 
 132:                                              ; preds = %._crit_edge
   call void @dt_control_job_set_progress(ptr noundef %0, double noundef 9.000000e-01) #18
@@ -6800,7 +6800,7 @@ _export_and_setup_pos.exit.thread:                ; preds = %63, %101
   %138 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #18
   call void (ptr, ...) @dt_control_log(ptr noundef %138) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.123) #18
-  br label %241
+  br label %240
 
 139:                                              ; preds = %132
   %140 = call i32 @close(i32 noundef %135) #18
@@ -6925,7 +6925,7 @@ _create_pdf.exit:                                 ; preds = %.lr.ph46.i, %._crit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %207 = call i32 @dt_control_job_get_state(ptr noundef %0) #18
   %208 = icmp eq i32 %207, 4
-  br i1 %208, label %241, label %209
+  br i1 %208, label %240, label %209
 
 209:                                              ; preds = %_create_pdf.exit
   call void @dt_control_job_set_progress(ptr noundef %0, double noundef 0x3FEE666666666666) #18
@@ -6946,59 +6946,58 @@ _create_pdf.exit:                                 ; preds = %.lr.ph46.i, %._crit
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 1080
   br label %216
 
-._crit_edge82:                                    ; preds = %235, %209
+._crit_edge82:                                    ; preds = %234, %209
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %241
+  br label %240
 
-216:                                              ; preds = %.lr.ph81, %235
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %235 ]
+216:                                              ; preds = %.lr.ph81, %234
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %234 ]
   %217 = getelementptr inbounds nuw %struct._image_box, ptr %215, i64 %indvars.iv90
   %218 = load i32, ptr %217, align 8, !tbaa !105
   %219 = icmp sgt i32 %218, 0
-  br i1 %219, label %220, label %235
+  br i1 %219, label %220, label %234
 
 220:                                              ; preds = %216
   %221 = load i32, ptr %7, align 4, !tbaa !132
   %222 = call i32 @dt_tag_attach(i32 noundef %221, i32 noundef %218, i32 noundef 0, i32 noundef 0) #18
   %.not53 = icmp eq i32 %222, 0
-  br i1 %.not53, label %235, label %223
+  br i1 %.not53, label %234, label %223
 
 223:                                              ; preds = %220
   %224 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !95
-  %225 = and i32 %224, 1
-  %226 = icmp ne i32 %225, 0
-  %227 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %228 = icmp ne i32 %227, 0
-  %or.cond = select i1 %226, i1 %228, i1 false
-  br i1 %or.cond, label %229, label %233
+  %225 = trunc i32 %224 to i1
+  %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %227 = icmp ne i32 %226, 0
+  %or.cond = select i1 %225, i1 %227, i1 false
+  br i1 %or.cond, label %228, label %232
 
-229:                                              ; preds = %223
-  %230 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
-  %231 = and i32 %230, 1048576
-  %.not54 = icmp eq i32 %231, 0
-  br i1 %.not54, label %233, label %232
+228:                                              ; preds = %223
+  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !96
+  %230 = and i32 %229, 1048576
+  %.not54 = icmp eq i32 %230, 0
+  br i1 %.not54, label %232, label %231
 
-232:                                              ; preds = %229
+231:                                              ; preds = %228
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.5, i32 noundef 615, ptr noundef nonnull @__FUNCTION__._print_job_run) #18
-  br label %233
+  br label %232
 
-233:                                              ; preds = %229, %232, %223
-  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %234, i32 noundef 9) #18
-  br label %235
+232:                                              ; preds = %228, %231, %223
+  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %233, i32 noundef 9) #18
+  br label %234
 
-235:                                              ; preds = %220, %233, %216
-  %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !214
-  %237 = load i32, ptr %217, align 8, !tbaa !105
-  call void @dt_image_cache_set_print_timestamp(ptr noundef %236, i32 noundef %237) #18
+234:                                              ; preds = %220, %232, %216
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !214
+  %236 = load i32, ptr %217, align 8, !tbaa !105
+  call void @dt_image_cache_set_print_timestamp(ptr noundef %235, i32 noundef %236) #18
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %238 = load i32, ptr %9, align 8, !tbaa !236
-  %239 = sext i32 %238 to i64
-  %240 = icmp slt i64 %indvars.iv.next91, %239
-  br i1 %240, label %216, label %._crit_edge82
+  %237 = load i32, ptr %9, align 8, !tbaa !236
+  %238 = sext i32 %237 to i64
+  %239 = icmp slt i64 %indvars.iv.next91, %238
+  br i1 %239, label %216, label %._crit_edge82
 
-241:                                              ; preds = %._crit_edge82, %_create_pdf.exit, %.thread, %137, %._crit_edge
+240:                                              ; preds = %._crit_edge82, %_create_pdf.exit, %.thread, %137, %._crit_edge
   %.1 = phi i32 [ 1, %.thread ], [ 0, %._crit_edge ], [ 1, %137 ], [ 0, %_create_pdf.exit ], [ 0, %._crit_edge82 ]
   ret i32 %.1
 }

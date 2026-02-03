@@ -2255,24 +2255,23 @@ define dso_local void @_ZNK4llvm3opt7ArgList12ClaimAllArgsEv(ptr noundef nonnull
 _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i, %._ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEC2ES5_S5_RA1_KNS0_12OptSpecifierE.exit.loopexit_crit_edge.i, %1
   %.sroa.011.1 = phi ptr [ %3, %1 ], [ %7, %._ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEC2ES5_S5_RA1_KNS0_12OptSpecifierE.exit.loopexit_crit_edge.i ], [ %3, %.lr.ph.i.i.preheader.i ], [ %11, %.lr.ph.i.i.i ]
   %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
-  %.not27 = icmp eq ptr %.sroa.011.1, %12
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq ptr %.sroa.011.1, %12
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, %_ZNK4llvm3opt7ArgList5beginEv.exit
   ret void
 
 .lr.ph:                                           ; preds = %_ZNK4llvm3opt7ArgList5beginEv.exit, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit
-  %.sroa.011.028 = phi ptr [ %.sroa.011.3, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ], [ %.sroa.011.1, %_ZNK4llvm3opt7ArgList5beginEv.exit ]
-  %13 = load ptr, ptr %.sroa.011.028, align 8, !tbaa !45
+  %.sroa.011.027 = phi ptr [ %.sroa.011.3, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit ], [ %.sroa.011.1, %_ZNK4llvm3opt7ArgList5beginEv.exit ]
+  %13 = load ptr, ptr %.sroa.011.027, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %15, null
   %spec.select.i.i = select i1 %.not.i.i, ptr %13, ptr %15
   %16 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 44
   %17 = load i8, ptr %16, align 4
-  %18 = and i8 %17, 1
-  %.not25 = icmp eq i8 %18, 0
-  br i1 %.not25, label %19, label %21
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %21, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = or disjoint i8 %17, 1
@@ -2280,7 +2279,7 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   br label %21
 
 21:                                               ; preds = %19, %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.028, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.011.027, i64 8
   %.not2.i.i = icmp eq ptr %22, %7
   br i1 %.not2.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj0EEppEv.exit, label %.lr.ph.i.i
 

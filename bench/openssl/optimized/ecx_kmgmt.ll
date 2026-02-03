@@ -120,7 +120,7 @@ define internal range(i32 0, 2) i32 @ecx_has(ptr noundef readonly captures(addre
 define internal range(i32 0, 2) i32 @ecx_match(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %73, label %5
+  br i1 %.not, label %72, label %5
 
 5:                                                ; preds = %3
   %6 = and i32 %2, 4
@@ -140,34 +140,34 @@ define internal range(i32 0, 2) i32 @ecx_match(ptr noundef %0, ptr noundef %1, i
   %.046 = phi i32 [ %13, %7 ], [ 1, %5 ]
   %15 = and i32 %2, 3
   %.not56 = icmp eq i32 %15, 0
-  br i1 %.not56, label %73, label %16
+  br i1 %.not56, label %72, label %16
 
 16:                                               ; preds = %14
   %17 = and i32 %2, 2
   %.not57 = icmp eq i32 %17, 0
-  br i1 %.not57, label %45, label %18
+  br i1 %.not57, label %.thread, label %18
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i8, ptr %19, align 8
-  %21 = and i8 %20, 1
-  %22 = icmp eq i8 %21, 0
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %21 = trunc i8 %20 to i1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %23 = select i1 %21, ptr %22, ptr null
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %27 = icmp eq i8 %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %26 = trunc i8 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %28 = select i1 %26, ptr %27, ptr null
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load i64, ptr %29, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %32 = load i64, ptr %31, align 8, !tbaa !14
-  %or.cond.not = select i1 %22, i1 true, i1 %27
-  br i1 %or.cond.not, label %45, label %33
+  %or.cond = select i1 %21, i1 %26, i1 false
+  br i1 %or.cond, label %33, label %.thread
 
 33:                                               ; preds = %18
   %.not58 = icmp eq i32 %.046, 0
-  br i1 %.not58, label %.thread, label %34
+  br i1 %.not58, label %.thread67, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -176,64 +176,64 @@ define internal range(i32 0, 2) i32 @ecx_match(ptr noundef %0, ptr noundef %1, i
   %38 = load i32, ptr %37, align 8, !tbaa !13
   %39 = icmp eq i32 %36, %38
   %40 = icmp eq i64 %30, %32
-  %or.cond = select i1 %39, i1 %40, i1 false
-  br i1 %or.cond, label %41, label %.thread
+  %or.cond62 = select i1 %39, i1 %40, i1 false
+  br i1 %or.cond62, label %41, label %.thread67
 
 41:                                               ; preds = %34
-  %42 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %23, ptr noundef nonnull %28, i64 noundef %30) #4
+  %42 = tail call i32 @CRYPTO_memcmp(ptr noundef %23, ptr noundef %28, i64 noundef %30) #4
   %43 = icmp eq i32 %42, 0
   %44 = zext i1 %43 to i32
-  br label %.thread
+  br label %.thread67
 
-45:                                               ; preds = %16, %18
-  %46 = and i32 %2, 1
-  %.not62 = icmp eq i32 %46, 0
-  br i1 %.not62, label %.thread, label %47
+.thread:                                          ; preds = %16, %18
+  %45 = and i32 %2, 1
+  %.not60 = icmp eq i32 %45, 0
+  br i1 %.not60, label %.thread67, label %46
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !3
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %51 = load ptr, ptr %50, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %53 = load i64, ptr %52, align 8, !tbaa !14
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %55 = load i64, ptr %54, align 8, !tbaa !14
-  %56 = icmp ne ptr %49, null
-  %57 = icmp ne ptr %51, null
-  %or.cond3 = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond3, label %58, label %.thread
+46:                                               ; preds = %.thread
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %48 = load ptr, ptr %47, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %50 = load ptr, ptr %49, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %52 = load i64, ptr %51, align 8, !tbaa !14
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %54 = load i64, ptr %53, align 8, !tbaa !14
+  %55 = icmp ne ptr %48, null
+  %56 = icmp ne ptr %50, null
+  %or.cond3 = select i1 %55, i1 %56, i1 false
+  br i1 %or.cond3, label %57, label %.thread67
 
-58:                                               ; preds = %47
-  %.not63 = icmp eq i32 %.046, 0
-  br i1 %.not63, label %.thread, label %59
+57:                                               ; preds = %46
+  %.not61 = icmp eq i32 %.046, 0
+  br i1 %.not61, label %.thread67, label %58
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %61 = load i32, ptr %60, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %63 = load i32, ptr %62, align 8, !tbaa !13
-  %64 = icmp eq i32 %61, %63
-  %65 = icmp eq i64 %53, %55
-  %or.cond64 = select i1 %64, i1 %65, i1 false
-  br i1 %or.cond64, label %66, label %.thread
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %60 = load i32, ptr %59, align 8, !tbaa !13
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %62 = load i32, ptr %61, align 8, !tbaa !13
+  %63 = icmp eq i32 %60, %62
+  %64 = icmp eq i64 %52, %54
+  %or.cond63 = select i1 %63, i1 %64, i1 false
+  br i1 %or.cond63, label %65, label %.thread67
 
-66:                                               ; preds = %59
-  %67 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %49, ptr noundef nonnull %51, i64 noundef %53) #4
-  %68 = icmp eq i32 %67, 0
-  %69 = zext i1 %68 to i32
-  br label %.thread
+65:                                               ; preds = %58
+  %66 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %48, ptr noundef nonnull %50, i64 noundef %52) #4
+  %67 = icmp eq i32 %66, 0
+  %68 = zext i1 %67 to i32
+  br label %.thread67
 
-.thread:                                          ; preds = %41, %34, %33, %47, %66, %59, %58, %45
-  %.249 = phi i1 [ false, %47 ], [ false, %45 ], [ true, %58 ], [ true, %59 ], [ true, %66 ], [ true, %33 ], [ true, %34 ], [ true, %41 ]
-  %.4 = phi i32 [ %.046, %47 ], [ %.046, %45 ], [ 0, %58 ], [ 0, %59 ], [ %69, %66 ], [ 0, %33 ], [ 0, %34 ], [ %44, %41 ]
-  %70 = icmp ne i32 %.4, 0
-  %71 = and i1 %.249, %70
-  %72 = zext i1 %71 to i32
-  br label %73
+.thread67:                                        ; preds = %33, %34, %41, %46, %65, %58, %57, %.thread
+  %.249 = phi i1 [ false, %46 ], [ false, %.thread ], [ true, %57 ], [ true, %58 ], [ true, %65 ], [ true, %41 ], [ true, %34 ], [ true, %33 ]
+  %.4 = phi i32 [ %.046, %46 ], [ %.046, %.thread ], [ 0, %57 ], [ 0, %58 ], [ %68, %65 ], [ %44, %41 ], [ 0, %34 ], [ 0, %33 ]
+  %69 = icmp ne i32 %.4, 0
+  %70 = and i1 %.249, %69
+  %71 = zext i1 %70 to i32
+  br label %72
 
-73:                                               ; preds = %14, %.thread, %3
-  %.0 = phi i32 [ 0, %3 ], [ %72, %.thread ], [ %.046, %14 ]
+72:                                               ; preds = %14, %.thread67, %3
+  %.0 = phi i32 [ 0, %3 ], [ %71, %.thread67 ], [ %.046, %14 ]
   ret i32 %.0
 }
 

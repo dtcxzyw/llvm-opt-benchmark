@@ -23,8 +23,6 @@ $_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tags
 
 $_ZN9LogPrefixILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = comdat any
 
-$_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv = comdat any
-
 $_ZN4DCmd5resetEP10JavaThread = comdat any
 
 $_ZN4DCmd7cleanupEv = comdat any
@@ -205,12 +203,12 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_2Ev() local_unn
   %5 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
   %6 = trunc i8 %5 to i1
   %7 = select i1 %4, i1 true, i1 %6
-  br i1 %7, label %8, label %31
+  br i1 %7, label %8, label %36
 
 8:                                                ; preds = %0
   %9 = tail call noundef ptr @_ZN12JfrOptionSet30start_flight_recording_optionsEv() #12
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %31, label %10
+  br i1 %.not.i, label %36, label %10
 
 10:                                               ; preds = %8
   tail call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.5) #12
@@ -250,191 +248,207 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_2Ev() local_unn
 
 ._crit_edge.i.i.i:                                ; preds = %22
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %30, label %._crit_edge.thread.i.i.i
+  br i1 %24, label %35, label %._crit_edge.thread.i.i.i
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %12
   %25 = phi ptr [ %23, %._crit_edge.i.i.i ], [ %11, %12 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i
 
 29:                                               ; preds = %._crit_edge.thread.i.i.i
   store i32 0, ptr %25, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, label %.loopexit.i.i.i.i.i.i
+
+.loopexit.i.i.i.i.i.i:                            ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %34 = load ptr, ptr %33, align 8
+  store i32 0, ptr %30, align 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i, label %.loopexit.thread.i.i.i.i.i.i
+
+.loopexit.thread.i.i.i.i.i.i:                     ; preds = %.loopexit.i.i.i.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
+  br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i
+
+_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i: ; preds = %.loopexit.thread.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i
+  store ptr null, ptr %33, align 8
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i
 
-_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %29, %._crit_edge.thread.i.i.i
+_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i, %29, %._crit_edge.thread.i.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %25) #12
-  br label %30
+  br label %35
 
-30:                                               ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, %._crit_edge.i.i.i
+35:                                               ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, %._crit_edge.i.i.i
   store ptr null, ptr @_ZL21dcmd_recordings_array, align 8
   br label %_ZL21is_cds_dump_requestedv.exit
 
-_ZL21is_cds_dump_requestedv.exit:                 ; preds = %10, %30
+_ZL21is_cds_dump_requestedv.exit:                 ; preds = %10, %35
   tail call void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv() #12
-  br label %103
+  br label %108
 
-31:                                               ; preds = %8, %0
-  %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 584
-  %35 = tail call noundef i64 @_ZN14JfrThreadLocal16assign_thread_idEPK6ThreadPS_(ptr noundef nonnull %33, ptr noundef nonnull %34) #12
-  %36 = tail call noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(ptr noundef nonnull %33) #12
-  br i1 %36, label %37, label %103
+36:                                               ; preds = %8, %0
+  %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 584
+  %40 = tail call noundef i64 @_ZN14JfrThreadLocal16assign_thread_idEPK6ThreadPS_(ptr noundef nonnull %38, ptr noundef nonnull %39) #12
+  %41 = tail call noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(ptr noundef nonnull %38) #12
+  br i1 %41, label %42, label %108
 
-37:                                               ; preds = %31
-  %38 = tail call noundef zeroext i1 @_Z18register_jfr_dcmdsv() #12
-  br i1 %38, label %39, label %103
+42:                                               ; preds = %36
+  %43 = tail call noundef zeroext i1 @_Z18register_jfr_dcmdsv() #12
+  br i1 %43, label %44, label %108
 
-39:                                               ; preds = %37
-  %40 = tail call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEv() #12
-  br i1 %40, label %41, label %96
+44:                                               ; preds = %42
+  %45 = tail call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEv() #12
+  br i1 %45, label %46, label %101
 
-41:                                               ; preds = %39
-  %42 = tail call noundef ptr @_ZN12JfrOptionSet30start_flight_recording_optionsEv() #12
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit, label %44
+46:                                               ; preds = %44
+  %47 = tail call noundef ptr @_ZN12JfrOptionSet30start_flight_recording_optionsEv() #12
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.loopexit, label %49
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %42, align 4
-  %46 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 16) #12
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %56, label %48
+49:                                               ; preds = %46
+  %50 = load i32, ptr %47, align 4
+  %51 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 16) #12
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %61, label %53
 
-48:                                               ; preds = %44
-  %49 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %45, i32 noundef 8, i8 noundef zeroext 16) #12
-  store i32 0, ptr %46, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 %45, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %49, ptr %51, align 8
-  %52 = icmp sgt i32 %45, 0
-  br i1 %52, label %.lr.ph.preheader.i.i.i8, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i
+53:                                               ; preds = %49
+  %54 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %50, i32 noundef 8, i8 noundef zeroext 16) #12
+  store i32 0, ptr %51, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 %50, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %54, ptr %56, align 8
+  %57 = icmp sgt i32 %50, 0
+  br i1 %57, label %.lr.ph.preheader.i.i.i8, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i
 
-.lr.ph.preheader.i.i.i8:                          ; preds = %48
-  %53 = zext nneg i32 %45 to i64
-  %54 = shl nuw nsw i64 %53, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %49, i8 0, i64 %54, i1 false)
+.lr.ph.preheader.i.i.i8:                          ; preds = %53
+  %58 = zext nneg i32 %50 to i64
+  %59 = shl nuw nsw i64 %58, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %54, i8 0, i64 %59, i1 false)
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i
 
-_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i: ; preds = %.lr.ph.preheader.i.i.i8, %48
-  %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i64 33, ptr %55, align 8
-  br label %56
+_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i: ; preds = %.lr.ph.preheader.i.i.i8, %53
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i64 33, ptr %60, align 8
+  br label %61
 
-56:                                               ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i, %44
-  store ptr %46, ptr @_ZL21dcmd_recordings_array, align 8
-  %57 = icmp sgt i32 %45, 0
-  br i1 %57, label %.lr.ph.i, label %.loopexit
+61:                                               ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i, %49
+  store ptr %51, ptr @_ZL21dcmd_recordings_array, align 8
+  %62 = icmp sgt i32 %50, 0
+  br i1 %62, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %wide.trip.count.i = zext nneg i32 %45 to i64
-  br label %60
-
-60:                                               ; preds = %93, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
-  %61 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 40, i8 noundef zeroext 16) #12
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %65, label %63
-
-63:                                               ; preds = %60
-  %64 = load ptr, ptr @tty, align 8
-  call void @_ZN7JfrDCmdC2EP12outputStreambi(ptr noundef nonnull align 8 dereferenceable(37) %61, ptr noundef %64, i1 noundef zeroext true, i32 noundef 11) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV27JfrStartFlightRecordingDCmd, i64 16), ptr %61, align 8
+.lr.ph.i:                                         ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %wide.trip.count.i = zext nneg i32 %50 to i64
   br label %65
 
-65:                                               ; preds = %63, %60
-  %66 = load ptr, ptr @_ZL21dcmd_recordings_array, align 8
-  %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %67, %69
-  br i1 %70, label %71, label %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
+65:                                               ; preds = %98, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
+  %66 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 40, i8 noundef zeroext 16) #12
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %70, label %68
 
-71:                                               ; preds = %65
-  %72 = add nsw i32 %67, 1
-  %73 = icmp sgt i32 %67, -1
-  %74 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %72)
-  %75 = icmp samesign ult i32 %74, 2
-  %or.cond.i.i.i.i.i = select i1 %73, i1 %75, i1 false
-  %76 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
-  %77 = sub nuw nsw i32 32, %76
-  %78 = shl nuw i32 1, %77
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %72, i32 %78
-  call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %66, i32 noundef %.0.i.i.i.i.i)
-  %.pre.i.i = load i32, ptr %66, align 8
+68:                                               ; preds = %65
+  %69 = load ptr, ptr @tty, align 8
+  call void @_ZN7JfrDCmdC2EP12outputStreambi(ptr noundef nonnull align 8 dereferenceable(37) %66, ptr noundef %69, i1 noundef zeroext true, i32 noundef 11) #12
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV27JfrStartFlightRecordingDCmd, i64 16), ptr %66, align 8
+  br label %70
+
+70:                                               ; preds = %68, %65
+  %71 = load ptr, ptr @_ZL21dcmd_recordings_array, align 8
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = icmp eq i32 %72, %74
+  br i1 %75, label %76, label %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
+
+76:                                               ; preds = %70
+  %77 = add nsw i32 %72, 1
+  %78 = icmp sgt i32 %72, -1
+  %79 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %77)
+  %80 = icmp samesign ult i32 %79, 2
+  %or.cond.i.i.i.i.i = select i1 %78, i1 %80, i1 false
+  %81 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %77, i1 true)
+  %82 = sub nuw nsw i32 32, %81
+  %83 = shl nuw i32 1, %82
+  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %77, i32 %83
+  call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef %.0.i.i.i.i.i)
+  %.pre.i.i = load i32, ptr %71, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
-_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %71, %65
-  %79 = phi i32 [ %.pre.i.i, %71 ], [ %67, %65 ]
-  %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %66, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
-  store ptr %61, ptr %84, align 8
-  %85 = load ptr, ptr %58, align 8
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i
+_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %76, %70
+  %84 = phi i32 [ %.pre.i.i, %76 ], [ %72, %70 ]
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %71, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %87 = load ptr, ptr %86, align 8
+  %88 = sext i32 %84 to i64
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+  store ptr %66, ptr %89, align 8
+  %90 = load ptr, ptr %63, align 8
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i
+  %92 = load ptr, ptr %91, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
-  call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %87, i64 noundef %88, i1 noundef zeroext true) #12
-  %89 = load ptr, ptr %61, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(37) %61, ptr noundef nonnull %2, i8 noundef signext 44, ptr noundef nonnull %33) #12
-  %92 = load ptr, ptr %59, align 8
-  %.not.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i, label %93, label %_ZL26validate_recording_optionsP10JavaThread.exit
+  %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #13
+  call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %92, i64 noundef %93, i1 noundef zeroext true) #12
+  %94 = load ptr, ptr %66, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(37) %66, ptr noundef nonnull %2, i8 noundef signext 44, ptr noundef nonnull %38) #12
+  %97 = load ptr, ptr %64, align 8
+  %.not.i.i = icmp eq ptr %97, null
+  br i1 %.not.i.i, label %98, label %_ZL26validate_recording_optionsP10JavaThread.exit
 
-93:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
+98:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %60, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit, label %65, !llvm.loop !8
 
 _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
-  %94 = load ptr, ptr @tty, align 8
-  call void @_ZN19java_lang_Throwable5printEP7oopDescP12outputStream(ptr noundef nonnull %92, ptr noundef %94) #12
-  call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %33) #12
+  %99 = load ptr, ptr @tty, align 8
+  call void @_ZN19java_lang_Throwable5printEP7oopDescP12outputStream(ptr noundef nonnull %97, ptr noundef %99) #12
+  call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %38) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %103
+  br label %108
 
-.loopexit:                                        ; preds = %93, %41, %56
-  %95 = call noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr noundef nonnull %33) #12
-  br i1 %95, label %96, label %103
+.loopexit:                                        ; preds = %98, %46, %61
+  %100 = call noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr noundef nonnull %38) #12
+  br i1 %100, label %101, label %108
 
-96:                                               ; preds = %.loopexit, %39
-  %97 = load i8, ptr @_ZL8_enabled, align 1
-  %98 = trunc nuw i8 %97 to i1
-  %.not = xor i1 %98, true
-  %brmerge = or i1 %40, %.not
-  br i1 %brmerge, label %103, label %99
+101:                                              ; preds = %.loopexit, %44
+  %102 = load i8, ptr @_ZL8_enabled, align 1
+  %103 = trunc nuw i8 %102 to i1
+  %.not = xor i1 %103, true
+  %brmerge = or i1 %45, %.not
+  br i1 %brmerge, label %108, label %104
 
-99:                                               ; preds = %96
+104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %100) #12
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i32 5, ptr %101, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %105) #12
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i32 5, ptr %106, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
-  %102 = call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef nonnull %1, ptr noundef nonnull %33) #12
+  %107 = call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef nonnull %1, ptr noundef nonnull %38) #12
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %1) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %103
+  br label %108
 
-103:                                              ; preds = %_ZL26validate_recording_optionsP10JavaThread.exit, %_ZL21is_cds_dump_requestedv.exit, %96, %.loopexit, %37, %31, %99
-  %.0 = phi i1 [ true, %_ZL21is_cds_dump_requestedv.exit ], [ true, %96 ], [ false, %99 ], [ false, %.loopexit ], [ false, %_ZL26validate_recording_optionsP10JavaThread.exit ], [ false, %37 ], [ false, %31 ]
+108:                                              ; preds = %_ZL26validate_recording_optionsP10JavaThread.exit, %_ZL21is_cds_dump_requestedv.exit, %101, %.loopexit, %42, %36, %104
+  %.0 = phi i1 [ true, %_ZL21is_cds_dump_requestedv.exit ], [ true, %101 ], [ false, %104 ], [ false, %.loopexit ], [ false, %_ZL26validate_recording_optionsP10JavaThread.exit ], [ false, %42 ], [ false, %36 ]
   ret i1 %.0
 }
 
@@ -455,7 +469,7 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_3Ev() local_unn
   %3 = load i8, ptr @_ZN9CDSConfig27_is_dumping_dynamic_archiveE, align 1
   %4 = trunc i8 %3 to i1
   %5 = select i1 %2, i1 true, i1 %4
-  br i1 %5, label %54, label %6
+  br i1 %5, label %59, label %6
 
 6:                                                ; preds = %0
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -562,39 +576,55 @@ _ZL16launch_recordingP27JfrStartFlightRecordingDCmdP10JavaThread.exit.i: ; preds
 
 ._crit_edge.i.i.i:                                ; preds = %43
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %52, label %._crit_edge.thread.i.i.i
+  br i1 %45, label %57, label %._crit_edge.thread.i.i.i
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %34, %10
   %46 = phi i1 [ %.not5.i.i, %._crit_edge.i.i.i ], [ %.not5.i.i, %34 ], [ true, %10 ]
   %47 = phi ptr [ %44, %._crit_edge.i.i.i ], [ %.pr.pr.i, %34 ], [ %9, %10 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, label %51
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %51, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i
 
 51:                                               ; preds = %._crit_edge.thread.i.i.i
   store i32 0, ptr %47, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %47)
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, label %.loopexit.i.i.i.i.i.i
+
+.loopexit.i.i.i.i.i.i:                            ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %56 = load ptr, ptr %55, align 8
+  store i32 0, ptr %52, align 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i, label %.loopexit.thread.i.i.i.i.i.i
+
+.loopexit.thread.i.i.i.i.i.i:                     ; preds = %.loopexit.i.i.i.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %56) #12
+  br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i
+
+_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i: ; preds = %.loopexit.thread.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i
+  store ptr null, ptr %55, align 8
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i
 
-_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %51, %._crit_edge.thread.i.i.i
+_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i: ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit.i.i.i.i.i.i, %51, %._crit_edge.thread.i.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %47) #12
-  br label %52
+  br label %57
 
-52:                                               ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, %._crit_edge.i.i.i
-  %53 = phi i1 [ %46, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i ], [ %.not5.i.i, %._crit_edge.i.i.i ]
+57:                                               ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i, %._crit_edge.i.i.i
+  %58 = phi i1 [ %46, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdED2Ev.exit.i.i.i ], [ %.not5.i.i, %._crit_edge.i.i.i ]
   store ptr null, ptr @_ZL21dcmd_recordings_array, align 8
   br label %_ZL30launch_command_line_recordingsP10JavaThread.exit
 
-_ZL30launch_command_line_recordingsP10JavaThread.exit: ; preds = %6, %.loopexit.i, %52
-  %.059.i = phi i1 [ %53, %52 ], [ %.not5.i.i, %.loopexit.i ], [ true, %6 ]
+_ZL30launch_command_line_recordingsP10JavaThread.exit: ; preds = %6, %.loopexit.i, %57
+  %.059.i = phi i1 [ %58, %57 ], [ %.not5.i.i, %.loopexit.i ], [ true, %6 ]
   tail call void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv() #12
-  br label %54
+  br label %59
 
-54:                                               ; preds = %_ZL30launch_command_line_recordingsP10JavaThread.exit, %0
-  %55 = phi i1 [ true, %0 ], [ %.059.i, %_ZL30launch_command_line_recordingsP10JavaThread.exit ]
-  ret i1 %55
+59:                                               ; preds = %_ZL30launch_command_line_recordingsP10JavaThread.exit, %0
+  %60 = phi i1 [ true, %0 ], [ %.059.i, %_ZL30launch_command_line_recordingsP10JavaThread.exit ]
+  ret i1 %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1195,87 +1225,6 @@ declare void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv() loca
 ; Function Attrs: nounwind
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
-  %4 = load i32, ptr %0, align 8
-  %5 = icmp eq i32 %4, %3
-  br i1 %5, label %32, label %6
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store i32 %4, ptr %2, align 4
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %10, label %.loopexit
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %10
-  %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 8) #12
-  br label %.lr.ph.preheader
-
-16:                                               ; preds = %10
-  %17 = and i64 %12, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %22, label %18
-
-18:                                               ; preds = %16
-  %19 = lshr i64 %12, 1
-  %20 = trunc i64 %19 to i8
-  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %4, i32 noundef 8, i8 noundef zeroext %20) #12
-  br label %.lr.ph.preheader
-
-22:                                               ; preds = %16
-  %23 = inttoptr i64 %12 to ptr
-  %24 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %4, i32 noundef 8, ptr noundef nonnull %23) #12
-  br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %22, %18, %14
-  %.0.i = phi ptr [ %15, %14 ], [ %21, %18 ], [ %24, %22 ]
-  %wide.trip.count = zext nneg i32 %4 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !10
-
-.loopexit:                                        ; preds = %6
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 1
-  %.not.i22 = icmp eq i64 %30, 0
-  br i1 %.not.i22, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit, label %31
-
-31:                                               ; preds = %.loopexit.thread
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #12
-  br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit
-
-_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01830, ptr %7, align 8
-  br label %32
-
-32:                                               ; preds = %1, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit
-  ret void
-}
-
 declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
@@ -1328,9 +1277,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlig
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -1347,25 +1295,25 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit: ; preds = %7
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -1378,29 +1326,28 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit: ; preds = %7
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !10
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !12
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !11
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
@@ -1549,4 +1496,3 @@ attributes #14 = { noreturn nounwind }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}

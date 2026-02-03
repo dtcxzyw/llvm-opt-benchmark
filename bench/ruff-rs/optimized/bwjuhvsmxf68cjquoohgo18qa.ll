@@ -3499,9 +3499,8 @@ define void @_ZN20ruff_python_semantic5scope5Scope15set_uses_locals17hc72abf3f39
 define noundef zeroext i1 @_ZN20ruff_python_semantic5scope5Scope11uses_locals17he60d7568e6bcd0e1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8, !noundef !3
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

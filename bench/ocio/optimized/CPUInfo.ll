@@ -177,140 +177,139 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7CPUInfoC2Ev(ptr noundef nonnull ali
   %91 = tail call { i32, i32, i32, i32 } asm sideeffect "mov    %rbx, %rsi \0A\09cpuid               \0A\09xchg   %rbx, %rsi", "={ax},={si},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, i32 0) #4, !srcloc !3
   %92 = extractvalue { i32, i32, i32, i32 } %91, 0
   %93 = icmp ugt i32 %92, -2147483648
-  br i1 %93, label %94, label %116
+  br i1 %93, label %94, label %115
 
 94:                                               ; preds = %.thread
   %95 = tail call { i32, i32, i32, i32 } asm sideeffect "mov    %rbx, %rsi \0A\09cpuid               \0A\09xchg   %rbx, %rsi", "={ax},={si},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 -2147483647, i32 0) #4, !srcloc !3
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %5, ptr noundef nonnull dereferenceable(12) @.str, i64 12)
   %.not21 = icmp eq i32 %bcmp, 0
-  br i1 %.not21, label %96, label %116
+  br i1 %.not21, label %96, label %115
 
 96:                                               ; preds = %94
   %97 = extractvalue { i32, i32, i32, i32 } %95, 2
   %98 = load i32, ptr %0, align 4, !tbaa !10
-  %99 = and i32 %98, 1
-  %.not22 = icmp ne i32 %99, 0
-  %100 = and i32 %97, 64
-  %.not23 = icmp eq i32 %100, 0
+  %.not22 = trunc i32 %98 to i1
+  %99 = and i32 %97, 64
+  %.not23 = icmp eq i32 %99, 0
   %or.cond59 = select i1 %.not22, i1 %.not23, i1 false
-  br i1 %or.cond59, label %101, label %103
+  br i1 %or.cond59, label %100, label %102
 
-101:                                              ; preds = %96
-  %102 = or i32 %98, 2
-  store i32 %102, ptr %0, align 4, !tbaa !10
-  br label %103
+100:                                              ; preds = %96
+  %101 = or i32 %98, 2
+  store i32 %101, ptr %0, align 4, !tbaa !10
+  br label %102
 
-103:                                              ; preds = %101, %96
-  %104 = phi i32 [ %102, %101 ], [ %98, %96 ]
-  %105 = load i32, ptr %2, align 4, !tbaa !4
-  %.off = add i32 %105, -21
+102:                                              ; preds = %100, %96
+  %103 = phi i32 [ %101, %100 ], [ %98, %96 ]
+  %104 = load i32, ptr %2, align 4, !tbaa !4
+  %.off = add i32 %104, -21
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %106, label %110
+  br i1 %switch, label %105, label %109
 
-106:                                              ; preds = %103
-  %107 = and i32 %104, 256
-  %.not24 = icmp eq i32 %107, 0
-  br i1 %.not24, label %.thread55, label %108
+105:                                              ; preds = %102
+  %106 = and i32 %103, 256
+  %.not24 = icmp eq i32 %106, 0
+  br i1 %.not24, label %.thread55, label %107
 
-108:                                              ; preds = %106
-  %109 = or i32 %104, 512
-  store i32 %109, ptr %0, align 4, !tbaa !10
+107:                                              ; preds = %105
+  %108 = or i32 %103, 512
+  store i32 %108, ptr %0, align 4, !tbaa !10
   br label %.thread55
 
-110:                                              ; preds = %103
-  %111 = icmp slt i32 %105, 26
-  br i1 %111, label %.thread55, label %116
+109:                                              ; preds = %102
+  %110 = icmp slt i32 %104, 26
+  br i1 %110, label %.thread55, label %115
 
-.thread55:                                        ; preds = %106, %108, %110
-  %112 = phi i32 [ %104, %106 ], [ %109, %108 ], [ %104, %110 ]
-  %113 = and i32 %112, 1024
-  %.not25 = icmp eq i32 %113, 0
-  br i1 %.not25, label %116, label %114
+.thread55:                                        ; preds = %105, %107, %109
+  %111 = phi i32 [ %103, %105 ], [ %108, %107 ], [ %103, %109 ]
+  %112 = and i32 %111, 1024
+  %.not25 = icmp eq i32 %112, 0
+  br i1 %.not25, label %115, label %113
 
-114:                                              ; preds = %.thread55
-  %115 = or i32 %112, 2048
-  store i32 %115, ptr %0, align 4, !tbaa !10
-  br label %116
+113:                                              ; preds = %.thread55
+  %114 = or i32 %111, 2048
+  store i32 %114, ptr %0, align 4, !tbaa !10
+  br label %115
 
-116:                                              ; preds = %94, %114, %.thread55, %110, %.thread
+115:                                              ; preds = %94, %113, %.thread55, %109, %.thread
   %bcmp26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %5, ptr noundef nonnull dereferenceable(12) @.str.1, i64 12)
   %.not27 = icmp eq i32 %bcmp26, 0
-  br i1 %.not27, label %117, label %.thread66.preheader
+  br i1 %.not27, label %116, label %.thread66.preheader
 
-.thread66.preheader:                              ; preds = %134, %.thread66condstore.split, %117, %116
+.thread66.preheader:                              ; preds = %133, %.thread66condstore.split, %116, %115
   br label %.thread66
 
-117:                                              ; preds = %116
-  %118 = load i32, ptr %2, align 4, !tbaa !4
-  %119 = icmp eq i32 %118, 6
+116:                                              ; preds = %115
+  %117 = load i32, ptr %2, align 4, !tbaa !4
+  %118 = icmp eq i32 %117, 6
   %.pre = load i32, ptr %3, align 4
-  br i1 %119, label %120, label %.thread66.preheader
+  br i1 %118, label %119, label %.thread66.preheader
 
-120:                                              ; preds = %117
+119:                                              ; preds = %116
   switch i32 %.pre, label %.thread66condstore.split [
     i32 9, label %condstore.split
     i32 13, label %condstore.split
     i32 14, label %condstore.split
   ]
 
-condstore.split:                                  ; preds = %120, %120, %120
-  %121 = load i32, ptr %0, align 4, !tbaa !10
-  %122 = and i32 %121, 5
-  %.not71 = icmp eq i32 %122, 0
-  br i1 %.not71, label %.thread66condstore.split, label %123
+condstore.split:                                  ; preds = %119, %119, %119
+  %120 = load i32, ptr %0, align 4, !tbaa !10
+  %121 = and i32 %120, 5
+  %.not71 = icmp eq i32 %121, 0
+  br i1 %.not71, label %.thread66condstore.split, label %122
 
-123:                                              ; preds = %condstore.split
-  %124 = shl i32 %121, 1
-  %125 = and i32 %124, 10
-  %simplifycfg.merge = or i32 %125, %121
+122:                                              ; preds = %condstore.split
+  %123 = shl i32 %120, 1
+  %124 = and i32 %123, 10
+  %simplifycfg.merge = or i32 %124, %120
   store i32 %simplifycfg.merge, ptr %0, align 4, !tbaa !10
   br label %.thread66condstore.split
 
-.thread66condstore.split:                         ; preds = %123, %condstore.split, %120
-  %126 = load i32, ptr %0, align 4, !tbaa !10
-  %127 = and i32 %126, 80
-  %or.cond = icmp eq i32 %127, 16
-  %128 = icmp slt i32 %.pre, 23
-  %or.cond36 = select i1 %or.cond, i1 %128, i1 false
-  %129 = or i32 %126, 32
-  %130 = select i1 %or.cond36, i32 %129, i32 %126
-  %131 = and i32 %130, 1024
-  %.not32 = icmp ne i32 %131, 0
-  %132 = icmp slt i32 %.pre, 70
-  %or.cond40 = select i1 %.not32, i1 %132, i1 false
-  %133 = or i1 %or.cond36, %or.cond40
-  br i1 %133, label %134, label %.thread66.preheader
+.thread66condstore.split:                         ; preds = %122, %condstore.split, %119
+  %125 = load i32, ptr %0, align 4, !tbaa !10
+  %126 = and i32 %125, 80
+  %or.cond = icmp eq i32 %126, 16
+  %127 = icmp slt i32 %.pre, 23
+  %or.cond36 = select i1 %or.cond, i1 %127, i1 false
+  %128 = or i32 %125, 32
+  %129 = select i1 %or.cond36, i32 %128, i32 %125
+  %130 = and i32 %129, 1024
+  %.not32 = icmp ne i32 %130, 0
+  %131 = icmp slt i32 %.pre, 70
+  %or.cond40 = select i1 %.not32, i1 %131, i1 false
+  %132 = or i1 %or.cond36, %or.cond40
+  br i1 %132, label %133, label %.thread66.preheader
 
-134:                                              ; preds = %.thread66condstore.split
-  %135 = or i32 %130, 2048
-  %simplifycfg.merge70 = select i1 %or.cond40, i32 %135, i32 %130
+133:                                              ; preds = %.thread66condstore.split
+  %134 = or i32 %129, 2048
+  %simplifycfg.merge70 = select i1 %or.cond40, i32 %134, i32 %129
   store i32 %simplifycfg.merge70, ptr %0, align 4, !tbaa !10
   br label %.thread66.preheader
 
-136:                                              ; preds = %.thread66
+135:                                              ; preds = %.thread66
   ret void
 
 .thread66:                                        ; preds = %.thread66.preheader, %.thread66
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread66 ], [ 0, %.thread66.preheader ]
-  %137 = shl nuw nsw i64 %indvars.iv, 4
-  %138 = getelementptr inbounds nuw i8, ptr %4, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %141 = getelementptr inbounds nuw i8, ptr %138, i64 12
-  %142 = trunc i64 %indvars.iv to i32
-  %143 = add i32 %142, -2147483646
-  %144 = tail call { i32, i32, i32, i32 } asm sideeffect "mov    %rbx, %rsi \0A\09cpuid               \0A\09xchg   %rbx, %rsi", "={ax},={si},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %143, i32 0) #4, !srcloc !3
-  %145 = extractvalue { i32, i32, i32, i32 } %144, 0
-  %146 = extractvalue { i32, i32, i32, i32 } %144, 1
-  %147 = extractvalue { i32, i32, i32, i32 } %144, 2
-  %148 = extractvalue { i32, i32, i32, i32 } %144, 3
+  %136 = shl nuw nsw i64 %indvars.iv, 4
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 12
+  %141 = trunc i64 %indvars.iv to i32
+  %142 = add i32 %141, -2147483646
+  %143 = tail call { i32, i32, i32, i32 } asm sideeffect "mov    %rbx, %rsi \0A\09cpuid               \0A\09xchg   %rbx, %rsi", "={ax},={si},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %142, i32 0) #4, !srcloc !3
+  %144 = extractvalue { i32, i32, i32, i32 } %143, 0
+  %145 = extractvalue { i32, i32, i32, i32 } %143, 1
+  %146 = extractvalue { i32, i32, i32, i32 } %143, 2
+  %147 = extractvalue { i32, i32, i32, i32 } %143, 3
+  store i32 %144, ptr %137, align 4, !tbaa !12
   store i32 %145, ptr %138, align 4, !tbaa !12
   store i32 %146, ptr %139, align 4, !tbaa !12
   store i32 %147, ptr %140, align 4, !tbaa !12
-  store i32 %148, ptr %141, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %136, label %.thread66, !llvm.loop !13
+  br i1 %exitcond.not, label %135, label %.thread66, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

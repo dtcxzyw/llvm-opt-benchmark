@@ -1423,10 +1423,9 @@ define dso_local zeroext i1 @kernel_page_present(ptr noundef %0) local_unnamed_a
   %14 = getelementptr %struct.pgd_t, ptr %9, i64 %13
   %15 = call ptr @lookup_address_in_pgd(ptr noundef %14, i64 noundef %8, ptr noundef nonnull %2)
   %16 = load i64, ptr %15, align 8
-  %17 = and i64 %16, 1
-  %18 = icmp ne i64 %17, 0
+  %17 = trunc i64 %16 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %18
+  ret i1 %17
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

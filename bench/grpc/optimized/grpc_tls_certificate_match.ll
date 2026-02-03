@@ -77,13 +77,12 @@ define void @_ZN9grpc_core29PrivateKeyAndCertificateMatchESt17basic_string_viewI
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit: ; preds = %17
-  %.pre84 = load i64, ptr %6, align 8, !tbaa !3
-  %19 = and i64 %.pre84, 1
-  %.not.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i, label %20, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %.pre79 = load i64, ptr %6, align 8, !tbaa !3
+  %19 = trunc i64 %.pre79 to i1
+  br i1 %19, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %20
 
 20:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit
-  %21 = inttoptr i64 %.pre84 to ptr
+  %21 = inttoptr i64 %.pre79 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %21)
           to label %_ZN4absl12lts_202407226StatusD2Ev.exit unwind label %22
 
@@ -109,7 +108,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %14, %_ZN4absl12lts_
   store i64 %28, ptr %0, align 8, !tbaa !3
   store i64 55, ptr %7, align 8, !tbaa !3
   %29 = icmp eq i64 %28, 1
-  br i1 %29, label %30, label %_ZN4absl12lts_202407226StatusD2Ev.exit42, !prof !8
+  br i1 %29, label %30, label %_ZN4absl12lts_202407226StatusD2Ev.exit41, !prof !8
 
 30:                                               ; preds = %27
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0)
@@ -124,15 +123,14 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %14, %_ZN4absl12lts_
   br label %111
 
 _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit40: ; preds = %30
-  %.pre83 = load i64, ptr %7, align 8, !tbaa !3
-  %32 = and i64 %.pre83, 1
-  %.not.i.i41 = icmp eq i64 %32, 0
-  br i1 %.not.i.i41, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit42
+  %.pre78 = load i64, ptr %7, align 8, !tbaa !3
+  %32 = trunc i64 %.pre78 to i1
+  br i1 %32, label %_ZN4absl12lts_202407226StatusD2Ev.exit41, label %33
 
 33:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit40
-  %34 = inttoptr i64 %.pre83 to ptr
+  %34 = inttoptr i64 %.pre78 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %34)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit42 unwind label %35
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit41 unwind label %35
 
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
@@ -141,7 +139,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   call void @__clang_call_terminate(ptr %37) #11
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit42:         ; preds = %27, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit40, %33
+_ZN4absl12lts_202407226StatusD2Ev.exit41:         ; preds = %27, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit40, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %110
 
@@ -159,13 +157,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit42:         ; preds = %27, %_ZN4absl12lts_
   store i64 %43, ptr %0, align 8, !tbaa !3
   store i64 55, ptr %8, align 8, !tbaa !3
   %44 = icmp eq i64 %43, 1
-  br i1 %44, label %45, label %_ZN4absl12lts_202407226StatusD2Ev.exit47, !prof !8
+  br i1 %44, label %45, label %_ZN4absl12lts_202407226StatusD2Ev.exit45, !prof !8
 
 45:                                               ; preds = %42
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0)
-          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit45 unwind label %.body43
+          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit44 unwind label %.body42
 
-.body43:                                          ; preds = %45
+.body42:                                          ; preds = %45
   %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
@@ -173,16 +171,15 @@ _ZN4absl12lts_202407226StatusD2Ev.exit42:         ; preds = %27, %_ZN4absl12lts_
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %111
 
-_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit45: ; preds = %45
-  %.pre82 = load i64, ptr %8, align 8, !tbaa !3
-  %47 = and i64 %.pre82, 1
-  %.not.i.i46 = icmp eq i64 %47, 0
-  br i1 %.not.i.i46, label %48, label %_ZN4absl12lts_202407226StatusD2Ev.exit47
+_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit44: ; preds = %45
+  %.pre77 = load i64, ptr %8, align 8, !tbaa !3
+  %47 = trunc i64 %.pre77 to i1
+  br i1 %47, label %_ZN4absl12lts_202407226StatusD2Ev.exit45, label %48
 
-48:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit45
-  %49 = inttoptr i64 %.pre82 to ptr
+48:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit44
+  %49 = inttoptr i64 %.pre77 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %49)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit47 unwind label %50
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit45 unwind label %50
 
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
@@ -191,7 +188,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   call void @__clang_call_terminate(ptr %52) #11
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit47:         ; preds = %42, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit45, %48
+_ZN4absl12lts_202407226StatusD2Ev.exit45:         ; preds = %42, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit44, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %110
 
@@ -208,13 +205,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit47:         ; preds = %42, %_ZN4absl12lts_
   store i64 %58, ptr %0, align 8, !tbaa !3
   store i64 55, ptr %9, align 8, !tbaa !3
   %59 = icmp eq i64 %58, 1
-  br i1 %59, label %60, label %_ZN4absl12lts_202407226StatusD2Ev.exit52, !prof !8
+  br i1 %59, label %60, label %_ZN4absl12lts_202407226StatusD2Ev.exit49, !prof !8
 
 60:                                               ; preds = %57
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0)
-          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit50 unwind label %.body48
+          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit48 unwind label %.body46
 
-.body48:                                          ; preds = %60
+.body46:                                          ; preds = %60
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
@@ -222,16 +219,15 @@ _ZN4absl12lts_202407226StatusD2Ev.exit47:         ; preds = %42, %_ZN4absl12lts_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %111
 
-_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit50: ; preds = %60
-  %.pre81 = load i64, ptr %9, align 8, !tbaa !3
-  %62 = and i64 %.pre81, 1
-  %.not.i.i51 = icmp eq i64 %62, 0
-  br i1 %.not.i.i51, label %63, label %_ZN4absl12lts_202407226StatusD2Ev.exit52
+_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit48: ; preds = %60
+  %.pre76 = load i64, ptr %9, align 8, !tbaa !3
+  %62 = trunc i64 %.pre76 to i1
+  br i1 %62, label %_ZN4absl12lts_202407226StatusD2Ev.exit49, label %63
 
-63:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit50
-  %64 = inttoptr i64 %.pre81 to ptr
+63:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit48
+  %64 = inttoptr i64 %.pre76 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %64)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit52 unwind label %65
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit49 unwind label %65
 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
@@ -240,7 +236,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   call void @__clang_call_terminate(ptr %67) #11
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit52:         ; preds = %57, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit50, %63
+_ZN4absl12lts_202407226StatusD2Ev.exit49:         ; preds = %57, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit48, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %110
 
@@ -257,13 +253,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit52:         ; preds = %57, %_ZN4absl12lts_
   store i64 %72, ptr %0, align 8, !tbaa !3
   store i64 55, ptr %10, align 8, !tbaa !3
   %73 = icmp eq i64 %72, 1
-  br i1 %73, label %74, label %_ZN4absl12lts_202407226StatusD2Ev.exit57, !prof !8
+  br i1 %73, label %74, label %_ZN4absl12lts_202407226StatusD2Ev.exit53, !prof !8
 
 74:                                               ; preds = %71
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0)
-          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit55 unwind label %.body53
+          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit52 unwind label %.body50
 
-.body53:                                          ; preds = %74
+.body50:                                          ; preds = %74
   %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
@@ -271,16 +267,15 @@ _ZN4absl12lts_202407226StatusD2Ev.exit52:         ; preds = %57, %_ZN4absl12lts_
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %111
 
-_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit55: ; preds = %74
-  %.pre80 = load i64, ptr %10, align 8, !tbaa !3
-  %76 = and i64 %.pre80, 1
-  %.not.i.i56 = icmp eq i64 %76, 0
-  br i1 %.not.i.i56, label %77, label %_ZN4absl12lts_202407226StatusD2Ev.exit57
+_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit52: ; preds = %74
+  %.pre75 = load i64, ptr %10, align 8, !tbaa !3
+  %76 = trunc i64 %.pre75 to i1
+  br i1 %76, label %_ZN4absl12lts_202407226StatusD2Ev.exit53, label %77
 
-77:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit55
-  %78 = inttoptr i64 %.pre80 to ptr
+77:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit52
+  %78 = inttoptr i64 %.pre75 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %78)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit57 unwind label %79
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit53 unwind label %79
 
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
@@ -289,7 +284,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   call void @__clang_call_terminate(ptr %81) #11
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %71, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit55, %77
+_ZN4absl12lts_202407226StatusD2Ev.exit53:         ; preds = %71, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit52, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %110
 
@@ -308,13 +303,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %71, %_ZN4absl12lts_
   store i64 %87, ptr %0, align 8, !tbaa !3
   store i64 55, ptr %11, align 8, !tbaa !3
   %88 = icmp eq i64 %87, 1
-  br i1 %88, label %89, label %_ZN4absl12lts_202407226StatusD2Ev.exit62, !prof !8
+  br i1 %88, label %89, label %_ZN4absl12lts_202407226StatusD2Ev.exit57, !prof !8
 
 89:                                               ; preds = %86
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %0)
-          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit60 unwind label %.body58
+          to label %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit56 unwind label %.body54
 
-.body58:                                          ; preds = %89
+.body54:                                          ; preds = %89
   %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %0) #10
@@ -322,16 +317,15 @@ _ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %71, %_ZN4absl12lts_
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %111
 
-_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit60: ; preds = %89
+_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit56: ; preds = %89
   %.pre = load i64, ptr %11, align 8, !tbaa !3
-  %91 = and i64 %.pre, 1
-  %.not.i.i61 = icmp eq i64 %91, 0
-  br i1 %.not.i.i61, label %92, label %_ZN4absl12lts_202407226StatusD2Ev.exit62
+  %91 = trunc i64 %.pre to i1
+  br i1 %91, label %_ZN4absl12lts_202407226StatusD2Ev.exit57, label %92
 
-92:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit60
+92:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit56
   %93 = inttoptr i64 %.pre to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %93)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit62 unwind label %94
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit57 unwind label %94
 
 94:                                               ; preds = %92
   %95 = landingpad { ptr, i32 }
@@ -340,7 +334,7 @@ _ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_s
   call void @__clang_call_terminate(ptr %96) #11
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %86, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit60, %92
+_ZN4absl12lts_202407226StatusD2Ev.exit57:         ; preds = %86, %_ZN4absl12lts_202407228StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0EbT_EE5valueEiE4typeELi0EEEOS6_.exit56, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %110
 
@@ -380,11 +374,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit62:         ; preds = %86, %_ZN4absl12lts_
   store i64 1, ptr %0, align 8, !tbaa !3
   br label %110
 
-110:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit47, %_ZN4absl12lts_202407226StatusD2Ev.exit57, %102, %105, %_ZN4absl12lts_202407226StatusD2Ev.exit62, %_ZN4absl12lts_202407226StatusD2Ev.exit52, %_ZN4absl12lts_202407226StatusD2Ev.exit42, %_ZN4absl12lts_202407226StatusD2Ev.exit
+110:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit45, %_ZN4absl12lts_202407226StatusD2Ev.exit53, %102, %105, %_ZN4absl12lts_202407226StatusD2Ev.exit57, %_ZN4absl12lts_202407226StatusD2Ev.exit49, %_ZN4absl12lts_202407226StatusD2Ev.exit41, %_ZN4absl12lts_202407226StatusD2Ev.exit
   ret void
 
-111:                                              ; preds = %.body43, %.body53, %103, %.body58, %.body48, %.body38, %.body
-  %.pn36 = phi { ptr, i32 } [ %18, %.body ], [ %31, %.body38 ], [ %46, %.body43 ], [ %61, %.body48 ], [ %75, %.body53 ], [ %90, %.body58 ], [ %104, %103 ]
+111:                                              ; preds = %.body42, %.body50, %103, %.body54, %.body46, %.body38, %.body
+  %.pn36 = phi { ptr, i32 } [ %18, %.body ], [ %31, %.body38 ], [ %46, %.body42 ], [ %61, %.body46 ], [ %75, %.body50 ], [ %90, %.body54 ], [ %104, %103 ]
   resume { ptr, i32 } %.pn36
 }
 
@@ -418,9 +412,8 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !3
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr

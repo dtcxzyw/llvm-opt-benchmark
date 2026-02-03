@@ -640,41 +640,40 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 
 .loopexit25:                                      ; preds = %.loopexit25.loopexit, %1
   %24 = phi i8 [ %.pre, %.loopexit25.loopexit ], [ %7, %1 ]
-  %25 = and i8 %24, 1
-  %.not21 = icmp ne i8 %25, 0
+  %.not21 = trunc i8 %24 to i1
   %or.cond29 = select i1 %.not21, i1 %9, i1 false
   br i1 %or.cond29, label %.lr.ph28, label %.loopexit
 
 .lr.ph28:                                         ; preds = %.loopexit25
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count34 = zext nneg i32 %5 to i64
-  br label %28
+  br label %27
 
-28:                                               ; preds = %.lr.ph28, %39
-  %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %39 ]
-  %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %29, i64 %indvars.iv31
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, 1
-  %.not22 = icmp eq i8 %33, 0
-  br i1 %.not22, label %39, label %34
+27:                                               ; preds = %.lr.ph28, %38
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %38 ]
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %28, i64 %indvars.iv31
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %31 = load i8, ptr %30, align 4
+  %32 = and i8 %31, 1
+  %.not22 = icmp eq i8 %32, 0
+  br i1 %.not22, label %38, label %33
 
-34:                                               ; preds = %28
-  %35 = load ptr, ptr %0, align 8
-  %36 = load ptr, ptr %27, align 8
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv31
-  %38 = load i64, ptr %37, align 8
-  tail call void @toast_delete_datum(ptr noundef %35, i64 noundef %38, i1 noundef zeroext false) #5
-  br label %39
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %0, align 8
+  %35 = load ptr, ptr %26, align 8
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv31
+  %37 = load i64, ptr %36, align 8
+  tail call void @toast_delete_datum(ptr noundef %34, i64 noundef %37, i1 noundef zeroext false) #5
+  br label %38
 
-39:                                               ; preds = %34, %28
+38:                                               ; preds = %33, %27
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %.loopexit, label %28, !llvm.loop !10
+  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !10
 
-.loopexit:                                        ; preds = %39, %.loopexit25
+.loopexit:                                        ; preds = %38, %.loopexit25
   ret void
 }
 

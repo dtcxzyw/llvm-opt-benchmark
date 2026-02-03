@@ -191,12 +191,12 @@ define dso_local range(i32 0, 2) i32 @nghttp2_session_is_my_stream_id(ptr nounde
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = and i32 %1, 1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2844
-  %7 = load i8, ptr %6, align 4, !tbaa !40
-  %.not = icmp ne i8 %7, 0
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2844
+  %6 = load i8, ptr %5, align 4, !tbaa !40
+  %.not = icmp ne i8 %6, 0
+  %7 = and i32 %1, 1
   %8 = zext i1 %.not to i32
-  %spec.select = xor i32 %5, %8
+  %spec.select = xor i32 %7, %8
   br label %9
 
 9:                                                ; preds = %4, %2
@@ -12619,7 +12619,7 @@ define dso_local i32 @nghttp2_session_pack_data(ptr noundef %0, ptr noundef %1, 
 nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
   %34 = phi i64 [ %spec.select.i, %31 ], [ %spec.select2.i, %.thread.i ]
   %35 = icmp slt i64 %34, 1
-  br i1 %35, label %121, label %36
+  br i1 %35, label %120, label %36
 
 36:                                               ; preds = %nghttp2_session_enforce_flow_control_limits.exit
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -12664,13 +12664,13 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
 
 61:                                               ; preds = %51, %51, %51
   %62 = trunc nsw i64 %60 to i32
-  br label %121
+  br label %120
 
 63:                                               ; preds = %51
   %64 = icmp slt i64 %60, 0
   %65 = icmp ult i64 %.077, %60
   %or.cond = or i1 %64, %65
-  br i1 %or.cond, label %121, label %66
+  br i1 %or.cond, label %120, label %66
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %56, align 8, !tbaa !175
@@ -12684,103 +12684,102 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
   %72 = load i32, ptr %7, align 4, !tbaa !90
   %73 = and i32 %72, 1
   %.not85 = icmp eq i32 %73, 0
-  br i1 %.not85, label %84, label %74
+  br i1 %.not85, label %83, label %74
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 1, ptr %75, align 1, !tbaa !182
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %77 = load i8, ptr %76, align 8, !tbaa !274
-  %78 = and i8 %77, 1
-  %.not86 = icmp ne i8 %78, 0
-  %79 = and i32 %72, 2
-  %80 = icmp eq i32 %79, 0
-  %or.cond95 = and i1 %80, %.not86
-  br i1 %or.cond95, label %81, label %84
+  %.not86 = trunc i8 %77 to i1
+  %78 = and i32 %72, 2
+  %79 = icmp eq i32 %78, 0
+  %or.cond95 = and i1 %79, %.not86
+  br i1 %or.cond95, label %80, label %83
 
-81:                                               ; preds = %74
-  %82 = load i8, ptr %71, align 1, !tbaa !111
-  %83 = or i8 %82, 1
-  store i8 %83, ptr %71, align 1, !tbaa !111
-  br label %84
+80:                                               ; preds = %74
+  %81 = load i8, ptr %71, align 1, !tbaa !111
+  %82 = or i8 %81, 1
+  store i8 %82, ptr %71, align 1, !tbaa !111
+  br label %83
 
-84:                                               ; preds = %74, %81, %66
-  %85 = and i32 %72, 4
-  %.not87 = icmp eq i32 %85, 0
-  br i1 %.not87, label %92, label %86
+83:                                               ; preds = %74, %80, %66
+  %84 = and i32 %72, 4
+  %.not87 = icmp eq i32 %84, 0
+  br i1 %.not87, label %91, label %85
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %88 = load ptr, ptr %87, align 8, !tbaa !181
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %121, label %90
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %87 = load ptr, ptr %86, align 8, !tbaa !181
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %120, label %89
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i8 1, ptr %91, align 2, !tbaa !275
-  br label %92
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  store i8 1, ptr %90, align 2, !tbaa !275
+  br label %91
 
-92:                                               ; preds = %90, %84
+91:                                               ; preds = %89, %83
   store i64 %60, ptr %3, align 8, !tbaa !111
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %93, align 8, !tbaa !111
-  %94 = add nuw i64 %60, 256
-  %.077. = call i64 @llvm.umin.i64(i64 %.077, i64 %94)
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %92, align 8, !tbaa !111
+  %93 = add nuw i64 %60, 256
+  %.077. = call i64 @llvm.umin.i64(i64 %.077, i64 %93)
   %.not.i = icmp ugt i64 %.077, %60
-  br i1 %.not.i, label %95, label %session_call_select_padding.exit
+  br i1 %.not.i, label %94, label %session_call_select_padding.exit
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 2456
-  %97 = load ptr, ptr %96, align 8, !tbaa !276
-  %.not24.i = icmp eq ptr %97, null
-  br i1 %.not24.i, label %session_call_select_padding.exit, label %98
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  %96 = load ptr, ptr %95, align 8, !tbaa !276
+  %.not24.i = icmp eq ptr %96, null
+  br i1 %.not24.i, label %session_call_select_padding.exit, label %97
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %58, align 8, !tbaa !89
-  %100 = call i64 %97(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.077., ptr noundef %99) #20
-  %101 = load i64, ptr %3, align 8, !tbaa !111
-  %102 = icmp slt i64 %100, %101
-  %103 = icmp sgt i64 %100, %.077.
-  %or.cond.i = or i1 %103, %102
-  %.1.i = select i1 %or.cond.i, i64 -902, i64 %100
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %58, align 8, !tbaa !89
+  %99 = call i64 %96(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.077., ptr noundef %98) #20
+  %100 = load i64, ptr %3, align 8, !tbaa !111
+  %101 = icmp slt i64 %99, %100
+  %102 = icmp sgt i64 %99, %.077.
+  %or.cond.i = or i1 %102, %101
+  %.1.i = select i1 %or.cond.i, i64 -902, i64 %99
   br label %session_call_select_padding.exit
 
-session_call_select_padding.exit:                 ; preds = %92, %95, %98
-  %.0.i = phi i64 [ %60, %92 ], [ %.1.i, %98 ], [ %60, %95 ]
-  %104 = trunc i64 %.0.i to i32
-  %105 = icmp sgt i32 %104, -901
-  br i1 %105, label %106, label %121
+session_call_select_padding.exit:                 ; preds = %91, %94, %97
+  %.0.i = phi i64 [ %60, %91 ], [ %.1.i, %97 ], [ %60, %94 ]
+  %103 = trunc i64 %.0.i to i32
+  %104 = icmp sgt i32 %103, -901
+  br i1 %104, label %105, label %120
 
-106:                                              ; preds = %session_call_select_padding.exit
-  %107 = sub nsw i64 %.0.i, %60
-  store i64 %107, ptr %93, align 8, !tbaa !111
-  %108 = load ptr, ptr %56, align 8, !tbaa !175
-  call void @nghttp2_frame_pack_frame_hd(ptr noundef %108, ptr noundef nonnull %3) #20
-  %109 = load i64, ptr %93, align 8, !tbaa !111
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %111 = load i8, ptr %110, align 2, !tbaa !275
-  %112 = zext i8 %111 to i32
-  %113 = call i32 @nghttp2_frame_add_pad(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %109, i32 noundef %112) #20
-  %.not89 = icmp eq i32 %113, 0
-  br i1 %.not89, label %114, label %121
+105:                                              ; preds = %session_call_select_padding.exit
+  %106 = sub nsw i64 %.0.i, %60
+  store i64 %106, ptr %92, align 8, !tbaa !111
+  %107 = load ptr, ptr %56, align 8, !tbaa !175
+  call void @nghttp2_frame_pack_frame_hd(ptr noundef %107, ptr noundef nonnull %3) #20
+  %108 = load i64, ptr %92, align 8, !tbaa !111
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %110 = load i8, ptr %109, align 2, !tbaa !275
+  %111 = zext i8 %110 to i32
+  %112 = call i32 @nghttp2_frame_add_pad(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %108, i32 noundef %111) #20
+  %.not89 = icmp eq i32 %112, 0
+  br i1 %.not89, label %113, label %120
 
-114:                                              ; preds = %106
+113:                                              ; preds = %105
   call fastcc void @session_reschedule_stream(ptr noundef nonnull %0, ptr noundef %5)
-  %115 = load i64, ptr %3, align 8, !tbaa !111
-  %116 = icmp eq i64 %115, 0
-  br i1 %116, label %117, label %120
+  %114 = load i64, ptr %3, align 8, !tbaa !111
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %116, label %119
 
-117:                                              ; preds = %114
-  %118 = load i32, ptr %7, align 4, !tbaa !90
-  %119 = and i32 %118, 3
-  %or.cond92.not = icmp eq i32 %119, 3
-  br i1 %or.cond92.not, label %121, label %120
+116:                                              ; preds = %113
+  %117 = load i32, ptr %7, align 4, !tbaa !90
+  %118 = and i32 %117, 3
+  %or.cond92.not = icmp eq i32 %118, 3
+  br i1 %or.cond92.not, label %120, label %119
 
-120:                                              ; preds = %117, %114
-  br label %121
+119:                                              ; preds = %116, %113
+  br label %120
 
-121:                                              ; preds = %117, %106, %session_call_select_padding.exit, %86, %63, %nghttp2_session_enforce_flow_control_limits.exit, %120, %61
-  %.0 = phi i32 [ 0, %120 ], [ %62, %61 ], [ -902, %nghttp2_session_enforce_flow_control_limits.exit ], [ -902, %63 ], [ -902, %86 ], [ %104, %session_call_select_padding.exit ], [ %113, %106 ], [ -535, %117 ]
+120:                                              ; preds = %116, %105, %session_call_select_padding.exit, %85, %63, %nghttp2_session_enforce_flow_control_limits.exit, %119, %61
+  %.0 = phi i32 [ 0, %119 ], [ %62, %61 ], [ -902, %nghttp2_session_enforce_flow_control_limits.exit ], [ -902, %63 ], [ -902, %85 ], [ %103, %session_call_select_padding.exit ], [ %112, %105 ], [ -535, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

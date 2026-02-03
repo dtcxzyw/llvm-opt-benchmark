@@ -1700,7 +1700,7 @@ if.end:                                           ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %while.end, %if.end
-  %b.0 = phi ptr [ %atomic-temp.i.0.i.i, %if.end ], [ %13, %while.end ]
+  %b.0 = phi ptr [ %atomic-temp.i.0.i.i, %if.end ], [ %12, %while.end ]
   %size.i12 = getelementptr inbounds nuw i8, ptr %b.0, i64 16
   %3 = load i64, ptr %size.i12, align 8
   %and.i13 = and i64 %3, -8
@@ -1731,19 +1731,18 @@ sw.bb1.i:                                         ; preds = %while.body
   %sub2.i = add i64 %elem.i.0.copyload, -2
   %6 = inttoptr i64 %sub2.i to ptr
   %7 = load i8, ptr %6, align 1
-  %8 = and i8 %7, 1
-  %cmp.i.i.not.i = icmp eq i8 %8, 0
-  br i1 %cmp.i.i.not.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit, label %if.then.i
+  %cmp.i.i.i = trunc i8 %7 to i1
+  br i1 %cmp.i.i.i, label %if.then.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit
 
 if.then.i:                                        ; preds = %sw.bb1.i
   invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #29
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #29
   unreachable
 
 default.unreachable17:                            ; preds = %while.body
@@ -1751,9 +1750,9 @@ default.unreachable17:                            ; preds = %while.body
 
 sw.default.i:                                     ; preds = %while.body, %while.body
   %destructor.i = getelementptr inbounds nuw i8, ptr %it.015, i64 8
-  %11 = load ptr, ptr %destructor.i, align 8
-  %12 = inttoptr i64 %elem.i.0.copyload to ptr
-  tail call void %11(ptr noundef %12)
+  %10 = load ptr, ptr %destructor.i, align 8
+  %11 = inttoptr i64 %elem.i.0.copyload to ptr
+  tail call void %10(ptr noundef %11)
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit: ; preds = %if.then.i, %sw.bb1.i, %sw.default.i, %sw.bb.i
@@ -1763,8 +1762,8 @@ _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit: ; preds = %if.then.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit, %do.body
-  %13 = load ptr, ptr %b.0, align 8
-  %tobool.not = icmp eq ptr %13, null
+  %12 = load ptr, ptr %b.0, align 8
+  %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %while.end, %entry
@@ -2557,10 +2556,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = extractvalue { ptr, i64 } %call, 1
   %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %alloc_policy_, align 8
-  %and.i.i = and i64 %2, 1
-  %tobool.i.not = icmp ne i64 %and.i.i, 0
+  %tobool.i = trunc i64 %2 to i1
   %cmp.not = icmp eq i64 %1, 0
-  %or.cond = select i1 %tobool.i.not, i1 true, i1 %cmp.not
+  %or.cond = select i1 %tobool.i, i1 true, i1 %cmp.not
   br i1 %or.cond, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %invoke.cont3
@@ -2608,7 +2606,7 @@ entry:
   br i1 %cmp.i4.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i"
-  %2 = phi i32 [ %21, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %1, %entry ]
+  %2 = phi i32 [ %20, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %1, %entry ]
   %chunk.05.i = phi ptr [ %3, %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %entry ]
   %3 = load ptr, ptr %chunk.05.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
@@ -2648,7 +2646,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %while.end.i.i.i, %if.end.i.i.i
-  %b.0.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %if.end.i.i.i ], [ %20, %while.end.i.i.i ]
+  %b.0.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %if.end.i.i.i ], [ %19, %while.end.i.i.i ]
   %size.i12.i.i.i = getelementptr inbounds nuw i8, ptr %b.0.i.i.i, i64 16
   %10 = load i64, ptr %size.i12.i.i.i, align 8
   %and.i13.i.i.i = and i64 %10, -8
@@ -2679,19 +2677,18 @@ sw.bb1.i.i.i.i:                                   ; preds = %while.body.i.i.i
   %sub2.i.i.i.i = add i64 %elem.i.0.copyload.i.i.i, -2
   %13 = inttoptr i64 %sub2.i.i.i.i to ptr
   %14 = load i8, ptr %13, align 1
-  %15 = and i8 %14, 1
-  %cmp.i.i.not.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %cmp.i.i.not.i.i.i.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i, label %if.then.i.i.i.i
+  %cmp.i.i.i.i.i.i = trunc i8 %14 to i1
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb1.i.i.i.i
   invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
           to label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #29
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #29
   unreachable
 
 while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
@@ -2702,9 +2699,9 @@ default.unreachable:                              ; preds = %while.body.i4
 
 sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i, %while.body.i.i.i
   %destructor.i.i.i.i = getelementptr inbounds nuw i8, ptr %it.015.i.i.i, i64 8
-  %18 = load ptr, ptr %destructor.i.i.i.i, align 8
-  %19 = inttoptr i64 %elem.i.0.copyload.i.i.i to ptr
-  tail call void %18(ptr noundef %19)
+  %17 = load ptr, ptr %destructor.i.i.i.i, align 8
+  %18 = inttoptr i64 %elem.i.0.copyload.i.i.i to ptr
+  tail call void %17(ptr noundef %18)
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i: ; preds = %sw.default.i.i.i.i, %if.then.i.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i
@@ -2714,8 +2711,8 @@ _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i: ; preds = %sw.
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !13
 
 while.end.i.i.i:                                  ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i.i.i, %do.body.i.i.i
-  %20 = load ptr, ptr %b.0.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %b.0.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, label %do.body.i.i.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i: ; preds = %while.end.i.i.i, %for.body.i.i
@@ -2724,39 +2721,39 @@ _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i: ; preds = %wh
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i": ; preds = %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit.i.i, %while.body.i
   %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %capacity.i.i.i, align 8
-  %cmp.i.i = icmp eq i32 %21, 0
+  %20 = load i32, ptr %capacity.i.i.i, align 8
+  %cmp.i.i = icmp eq i32 %20, 0
   br i1 %cmp.i.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %while.body.i, !llvm.loop !16
 
 "_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", %entry
   %head_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %22 = load atomic i64, ptr %head_.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i1 = inttoptr i64 %22 to ptr
+  %21 = load atomic i64, ptr %head_.i.i monotonic, align 8
+  %atomic-temp.i.0.i.i.i1 = inttoptr i64 %21 to ptr
   %size.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i1, i64 16
-  %23 = load i64, ptr %size.i.i, align 8
-  %cmp.i.i2 = icmp eq i64 %23, 0
+  %22 = load i64, ptr %size.i.i, align 8
+  %cmp.i.i2 = icmp eq i64 %22, 0
   br i1 %cmp.i.i2, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
   %limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %24 = load ptr, ptr %limit_.i, align 8
+  %23 = load ptr, ptr %limit_.i, align 8
   %cleanup_nodes.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i.i1, i64 8
-  store ptr %24, ptr %cleanup_nodes.i, align 8
+  store ptr %23, ptr %cleanup_nodes.i, align 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %while.end.i, %if.end.i
-  %b.0.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %if.end.i ], [ %35, %while.end.i ]
+  %b.0.i = phi ptr [ %atomic-temp.i.0.i.i.i1, %if.end.i ], [ %33, %while.end.i ]
   %size.i12.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 16
-  %25 = load i64, ptr %size.i12.i, align 8
-  %and.i13.i = and i64 %25, -8
+  %24 = load i64, ptr %size.i12.i, align 8
+  %and.i13.i = and i64 %24, -8
   %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr %b.0.i, i64 %and.i13.i
   %cleanup_nodes4.i = getelementptr inbounds nuw i8, ptr %b.0.i, i64 8
-  %26 = load ptr, ptr %cleanup_nodes4.i, align 8
-  %cmp14.i = icmp ult ptr %26, %add.ptr.i.i.i3
+  %25 = load ptr, ptr %cleanup_nodes4.i, align 8
+  %cmp14.i = icmp ult ptr %25, %add.ptr.i.i.i3
   br i1 %cmp14.i, label %while.body.i4, label %while.end.i
 
 while.body.i4:                                    ; preds = %do.body.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
-  %it.015.i = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i ], [ %26, %do.body.i ]
+  %it.015.i = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i ], [ %25, %do.body.i ]
   %elem.i.0.copyload.i = load i64, ptr %it.015.i, align 1
   %and.i.i = and i64 %elem.i.0.copyload.i, 3
   switch i64 %and.i.i, label %default.unreachable [
@@ -2768,34 +2765,33 @@ while.body.i4:                                    ; preds = %do.body.i, %_ZN6goo
 
 sw.bb.i.i:                                        ; preds = %while.body.i4
   %sub.i.i = add i64 %elem.i.0.copyload.i, -1
-  %27 = inttoptr i64 %sub.i.i to ptr
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #27
+  %26 = inttoptr i64 %sub.i.i to ptr
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #27
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
 
 sw.bb1.i.i:                                       ; preds = %while.body.i4
   %sub2.i.i = add i64 %elem.i.0.copyload.i, -2
-  %28 = inttoptr i64 %sub2.i.i to ptr
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %cmp.i.i.not.i.i5 = icmp eq i8 %30, 0
-  br i1 %cmp.i.i.not.i.i5, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i, label %if.then.i.i
+  %27 = inttoptr i64 %sub2.i.i to ptr
+  %28 = load i8, ptr %27, align 1
+  %cmp.i.i.i.i = trunc i8 %28 to i1
+  br i1 %cmp.i.i.i.i, label %if.then.i.i, label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
 
 if.then.i.i:                                      ; preds = %sw.bb1.i.i
-  invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %31 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #29
+  %30 = extractvalue { ptr, i32 } %29, 0
+  tail call void @__clang_call_terminate(ptr %30) #29
   unreachable
 
 sw.default.i.i:                                   ; preds = %while.body.i4, %while.body.i4
   %destructor.i.i = getelementptr inbounds nuw i8, ptr %it.015.i, i64 8
-  %33 = load ptr, ptr %destructor.i.i, align 8
-  %34 = inttoptr i64 %elem.i.0.copyload.i to ptr
-  tail call void %33(ptr noundef %34)
+  %31 = load ptr, ptr %destructor.i.i, align 8
+  %32 = inttoptr i64 %elem.i.0.copyload.i to ptr
+  tail call void %31(ptr noundef %32)
   br label %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i
 
 _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i: ; preds = %sw.default.i.i, %if.then.i.i, %sw.bb1.i.i, %sw.bb.i.i
@@ -2805,8 +2801,8 @@ _ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i: ; preds = %sw.defa
   br i1 %cmp.i, label %while.body.i4, label %while.end.i, !llvm.loop !13
 
 while.end.i:                                      ; preds = %_ZN6google8protobuf8internal7cleanup11DestroyNodeEPKv.exit.i, %do.body.i
-  %35 = load ptr, ptr %b.0.i, align 8
-  %tobool.not.i = icmp eq ptr %35, null
+  %33 = load ptr, ptr %b.0.i, align 8
+  %tobool.not.i = icmp eq ptr %33, null
   br i1 %tobool.not.i, label %_ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit, label %do.body.i, !llvm.loop !14
 
 _ZN6google8protobuf8internal11SerialArena11CleanupListEv.exit: ; preds = %while.end.i, %"_ZN6google8protobuf8internal15ThreadSafeArena20WalkSerialArenaChunkIZNS2_11CleanupListEvE3$_0EEvT_.exit"
@@ -3231,8 +3227,8 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i64 %0, ptr %size3.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %cond
-  %and.i.i3 = and i64 %0, -8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %and.i.i3
+  %and.i.i = and i64 %0, -8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %and.i.i
   %5 = ptrtoint ptr %add.ptr.i.i to i64
   store atomic i64 %5, ptr %first_arena_ monotonic, align 8
   %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -3252,34 +3248,34 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %first_arena_9 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store atomic i64 ptrtoint (ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock to i64), ptr %first_arena_9 monotonic, align 8
-  %prefetch_ptr_.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %prefetch_ptr_.i.i4, align 8
-  %limit_.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %limit_.i.i5, align 8
-  %prefetch_limit_.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %prefetch_limit_.i.i6, align 8
-  %head_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 96
-  store atomic i64 ptrtoint (ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock to i64), ptr %head_.i7 monotonic, align 8
-  %space_used_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  store atomic i64 0, ptr %space_used_.i8 monotonic, align 8
+  %prefetch_ptr_.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %prefetch_ptr_.i.i3, align 8
+  %limit_.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %limit_.i.i4, align 8
+  %prefetch_limit_.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  store ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock, ptr %prefetch_limit_.i.i5, align 8
+  %head_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 96
+  store atomic i64 ptrtoint (ptr @_ZZN6google8protobuf8internal12_GLOBAL__N_116SentryArenaBlockEvE17kSentryArenaBlock to i64), ptr %head_.i6 monotonic, align 8
+  %space_used_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  store atomic i64 0, ptr %space_used_.i7 monotonic, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i64 [ 0, %if.else ], [ %7, %if.then ]
-  %space_allocated_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store atomic i64 %.sink, ptr %space_allocated_.i9 monotonic, align 8
-  %cached_block_length_.i10 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store i8 0, ptr %cached_block_length_.i10, align 8
-  %cached_blocks_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store ptr null, ptr %cached_blocks_.i11, align 8
-  %string_block_.i12 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store atomic i64 0, ptr %string_block_.i12 monotonic, align 8
-  %string_block_unused_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  store atomic i64 0, ptr %string_block_unused_.i13 monotonic, align 8
+  %space_allocated_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  store atomic i64 %.sink, ptr %space_allocated_.i8 monotonic, align 8
+  %cached_block_length_.i9 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  store i8 0, ptr %cached_block_length_.i9, align 8
+  %cached_blocks_.i10 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  store ptr null, ptr %cached_blocks_.i10, align 8
+  %string_block_.i11 = getelementptr inbounds nuw i8, ptr %this, i64 80
+  store atomic i64 0, ptr %string_block_.i11 monotonic, align 8
+  %string_block_unused_.i12 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  store atomic i64 0, ptr %string_block_unused_.i12 monotonic, align 8
   %8 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %9 = load i64, ptr %8, align 32
-  %and.i.i14 = and i64 %9, 255
-  %cmp.i.i = icmp eq i64 %and.i.i14, 0
+  %and.i.i13 = and i64 %9, 255
+  %cmp.i.i = icmp eq i64 %and.i.i13, 0
   br i1 %cmp.i.i, label %monotonic.i.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit
 
 monotonic.i.i.i:                                  ; preds = %if.end
@@ -3292,8 +3288,8 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %if.end, %m
   %add.i.i = add i64 %id.0.i.i, 1
   store i64 %add.i.i, ptr %8, align 32
   store i64 %id.0.i.i, ptr %this, align 8
-  %head_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_.i15 monotonic, align 8
+  %head_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  store atomic i64 ptrtoint (ptr @_ZN6google8protobuf8internalL17kSentryArenaChunkE to i64), ptr %head_.i14 monotonic, align 8
   %first_owner_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %8, ptr %first_owner_.i, align 8
   %first_arena_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -4084,19 +4080,18 @@ entry:
 define linkonce_odr hidden void @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectIN4absl12lts_202308024CordEEEvPv(ptr noundef %object) #6 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %object, align 1
-  %1 = and i8 %0, 1
-  %cmp.i.i.not.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.i.not.i, label %_ZN4absl12lts_202308024CordD2Ev.exit, label %if.then.i
+  %cmp.i.i.i = trunc i8 %0 to i1
+  br i1 %cmp.i.i.i, label %if.then.i, label %_ZN4absl12lts_202308024CordD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
   invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %object)
           to label %_ZN4absl12lts_202308024CordD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %2 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #29
+  %2 = extractvalue { ptr, i32 } %1, 0
+  tail call void @__clang_call_terminate(ptr %2) #29
   unreachable
 
 _ZN4absl12lts_202308024CordD2Ev.exit:             ; preds = %entry, %if.then.i

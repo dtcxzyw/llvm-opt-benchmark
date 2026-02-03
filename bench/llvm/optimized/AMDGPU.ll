@@ -16149,135 +16149,134 @@ define dso_local void @_ZNK5clang6driver24RocmInstallationDetector20getCommonBit
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @_ZN5clang6driver13SanitizerArgsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(336) %37, ptr noundef nonnull align 8 dereferenceable(336) %12)
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %37, align 8
-  %58 = and i64 %.sroa.0.0.copyload.i.i.i, 1
-  %.not.i.i.i.not.i = icmp eq i64 %58, 0
-  br i1 %.not.i.i.i.not.i, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i, label %59
+  %.not.i.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i to i1
+  br i1 %.not.i.i.i.i, label %58, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 504
-  %61 = load ptr, ptr %60, align 8, !tbaa !11
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %63 = load i64, ptr %62, align 8, !tbaa !72
-  %64 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %64, ptr %38, align 8, !tbaa !112
-  %65 = icmp eq ptr %61, null
-  %66 = icmp ne i64 %63, 0
-  %or.cond.i.i.i.i.i = and i1 %65, %66
-  br i1 %or.cond.i.i.i.i.i, label %67, label %68
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 504
+  %60 = load ptr, ptr %59, align 8, !tbaa !11
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  %62 = load i64, ptr %61, align 8, !tbaa !72
+  %63 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %63, ptr %38, align 8, !tbaa !112
+  %64 = icmp eq ptr %60, null
+  %65 = icmp ne i64 %62, 0
+  %or.cond.i.i.i.i.i = and i1 %64, %65
+  br i1 %or.cond.i.i.i.i.i, label %66, label %67
 
-67:                                               ; preds = %59
+66:                                               ; preds = %58
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-68:                                               ; preds = %59
+67:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  store i64 %63, ptr %36, align 8, !tbaa !105
-  %69 = icmp ugt i64 %63, 15
-  br i1 %69, label %70, label %._crit_edge.i.i.i.i.i.i
+  store i64 %62, ptr %36, align 8, !tbaa !105
+  %68 = icmp ugt i64 %62, 15
+  br i1 %68, label %69, label %._crit_edge.i.i.i.i.i.i
 
-70:                                               ; preds = %68
-  %71 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %38, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0) #20
-  store ptr %71, ptr %38, align 8, !tbaa !80
-  %72 = load i64, ptr %36, align 8, !tbaa !105
-  store i64 %72, ptr %64, align 8, !tbaa !25
+69:                                               ; preds = %67
+  %70 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %38, ptr noundef nonnull align 8 dereferenceable(8) %36, i64 noundef 0) #20
+  store ptr %70, ptr %38, align 8, !tbaa !80
+  %71 = load i64, ptr %36, align 8, !tbaa !105
+  store i64 %71, ptr %63, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %70, %68
-  %73 = phi ptr [ %71, %70 ], [ %64, %68 ]
-  switch i64 %63, label %76 [
-    i64 1, label %74
+._crit_edge.i.i.i.i.i.i:                          ; preds = %69, %67
+  %72 = phi ptr [ %70, %69 ], [ %63, %67 ]
+  switch i64 %62, label %75 [
+    i64 1, label %73
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
   ]
 
-74:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %75 = load i8, ptr %61, align 1, !tbaa !25
-  store i8 %75, ptr %73, align 1, !tbaa !25
+73:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+  %74 = load i8, ptr %60, align 1, !tbaa !25
+  store i8 %74, ptr %72, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
 
-76:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %61, i64 %63, i1 false)
+75:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %60, i64 %62, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i: ; preds = %76, %74, %._crit_edge.i.i.i.i.i.i
-  %77 = load i64, ptr %36, align 8, !tbaa !105
-  %78 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i64 %77, ptr %78, align 8, !tbaa !3
-  %79 = load ptr, ptr %38, align 8, !tbaa !80
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %77
-  store i8 0, ptr %80, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i: ; preds = %75, %73, %._crit_edge.i.i.i.i.i.i
+  %76 = load i64, ptr %36, align 8, !tbaa !105
+  %77 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i64 %76, ptr %77, align 8, !tbaa !3
+  %78 = load ptr, ptr %38, align 8, !tbaa !80
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %76
+  store i8 0, ptr %79, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %81 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store i8 0, ptr %81, align 8, !tbaa !799
-  %82 = load i32, ptr %51, align 8, !tbaa !33
-  %83 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i.i = icmp ult i32 %82, %83
-  br i1 %.not.i.i.i, label %86, label %84, !prof !81
+  %80 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  store i8 0, ptr %80, align 8, !tbaa !799
+  %81 = load i32, ptr %51, align 8, !tbaa !33
+  %82 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i.i = icmp ult i32 %81, %82
+  br i1 %.not.i.i.i, label %85, label %83, !prof !81
 
-84:                                               ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
-  %85 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %38)
+83:                                               ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
+  %84 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %38)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit.i"
 
-86:                                               ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
-  %87 = zext i32 %82 to i64
-  %88 = load ptr, ptr %0, align 8, !tbaa !31
-  %89 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %88, i64 %87
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %90, ptr %89, align 8, !tbaa !112
-  %91 = load ptr, ptr %38, align 8, !tbaa !80
-  %92 = load i64, ptr %78, align 8, !tbaa !3
+85:                                               ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit.i
+  %86 = zext i32 %81 to i64
+  %87 = load ptr, ptr %0, align 8, !tbaa !31
+  %88 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %87, i64 %86
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  store ptr %89, ptr %88, align 8, !tbaa !112
+  %90 = load ptr, ptr %38, align 8, !tbaa !80
+  %91 = load i64, ptr %77, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  store i64 %92, ptr %35, align 8, !tbaa !105
-  %93 = icmp ugt i64 %92, 15
-  br i1 %93, label %94, label %._crit_edge.i.i.i.i.i2.i
+  store i64 %91, ptr %35, align 8, !tbaa !105
+  %92 = icmp ugt i64 %91, 15
+  br i1 %92, label %93, label %._crit_edge.i.i.i.i.i2.i
 
-94:                                               ; preds = %86
-  %95 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %89, ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef 0) #20
-  store ptr %95, ptr %89, align 8, !tbaa !80
-  %96 = load i64, ptr %35, align 8, !tbaa !105
-  store i64 %96, ptr %90, align 8, !tbaa !25
+93:                                               ; preds = %85
+  %94 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %88, ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef 0) #20
+  store ptr %94, ptr %88, align 8, !tbaa !80
+  %95 = load i64, ptr %35, align 8, !tbaa !105
+  store i64 %95, ptr %89, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i2.i
 
-._crit_edge.i.i.i.i.i2.i:                         ; preds = %94, %86
-  %97 = phi ptr [ %95, %94 ], [ %90, %86 ]
-  switch i64 %92, label %100 [
-    i64 1, label %98
+._crit_edge.i.i.i.i.i2.i:                         ; preds = %93, %85
+  %96 = phi ptr [ %94, %93 ], [ %89, %85 ]
+  switch i64 %91, label %99 [
+    i64 1, label %97
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i
   ]
 
-98:                                               ; preds = %._crit_edge.i.i.i.i.i2.i
-  %99 = load i8, ptr %91, align 1, !tbaa !25
-  store i8 %99, ptr %97, align 1, !tbaa !25
+97:                                               ; preds = %._crit_edge.i.i.i.i.i2.i
+  %98 = load i8, ptr %90, align 1, !tbaa !25
+  store i8 %98, ptr %96, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i
 
-100:                                              ; preds = %._crit_edge.i.i.i.i.i2.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %97, ptr align 1 %91, i64 %92, i1 false)
+99:                                               ; preds = %._crit_edge.i.i.i.i.i2.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %96, ptr align 1 %90, i64 %91, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i: ; preds = %100, %98, %._crit_edge.i.i.i.i.i2.i
-  %101 = load i64, ptr %35, align 8, !tbaa !105
-  %102 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i64 %101, ptr %102, align 8, !tbaa !3
-  %103 = load ptr, ptr %89, align 8, !tbaa !80
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %101
-  store i8 0, ptr %104, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i: ; preds = %99, %97, %._crit_edge.i.i.i.i.i2.i
+  %100 = load i64, ptr %35, align 8, !tbaa !105
+  %101 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  store i64 %100, ptr %101, align 8, !tbaa !3
+  %102 = load ptr, ptr %88, align 8, !tbaa !80
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 %100
+  store i8 0, ptr %103, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %105 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %106 = load i8, ptr %81, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %106, ptr %105, align 8, !tbaa !799
-  %107 = load i32, ptr %51, align 8, !tbaa !33
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %51, align 8, !tbaa !33
+  %104 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %105 = load i8, ptr %80, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %105, ptr %104, align 8, !tbaa !799
+  %106 = load i32, ptr %51, align 8, !tbaa !33
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit.i"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit.i": ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i, %84
-  %109 = load ptr, ptr %38, align 8, !tbaa !80
-  %110 = icmp eq ptr %109, %64
-  br i1 %110, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit.i": ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i.i, %83
+  %108 = load ptr, ptr %38, align 8, !tbaa !80
+  %109 = icmp eq ptr %108, %63
+  br i1 %109, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit.i"
-  %111 = load i64, ptr %64, align 8, !tbaa !25
-  %112 = add i64 %111, 1
-  call void @_ZdlPvm(ptr noundef %109, i64 noundef %112) #21
+  %110 = load i64, ptr %63, align 8, !tbaa !25
+  %111 = add i64 %110, 1
+  call void @_ZdlPvm(ptr noundef %108, i64 noundef %111) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit.i", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %57
@@ -16287,1320 +16286,1320 @@ _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i: ; preds = %"_ZZNK5cla
 
 "_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_2clEv.exit": ; preds = %14, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %114 = load ptr, ptr %113, align 8, !tbaa !11
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %116 = load i64, ptr %115, align 8, !tbaa !72
-  %117 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %117, ptr %40, align 8, !tbaa !112
-  %118 = icmp eq ptr %114, null
-  %119 = icmp ne i64 %116, 0
-  %or.cond.i.i.i.i = and i1 %118, %119
-  br i1 %or.cond.i.i.i.i, label %120, label %121
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %113 = load ptr, ptr %112, align 8, !tbaa !11
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %115 = load i64, ptr %114, align 8, !tbaa !72
+  %116 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store ptr %116, ptr %40, align 8, !tbaa !112
+  %117 = icmp eq ptr %113, null
+  %118 = icmp ne i64 %115, 0
+  %or.cond.i.i.i.i = and i1 %117, %118
+  br i1 %or.cond.i.i.i.i, label %119, label %120
 
-120:                                              ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_2clEv.exit"
+119:                                              ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_2clEv.exit"
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-121:                                              ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_2clEv.exit"
+120:                                              ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_2clEv.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  store i64 %116, ptr %34, align 8, !tbaa !105
-  %122 = icmp ugt i64 %116, 15
-  br i1 %122, label %123, label %._crit_edge.i.i.i.i.i
+  store i64 %115, ptr %34, align 8, !tbaa !105
+  %121 = icmp ugt i64 %115, 15
+  br i1 %121, label %122, label %._crit_edge.i.i.i.i.i
 
-123:                                              ; preds = %121
-  %124 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0) #20
-  store ptr %124, ptr %40, align 8, !tbaa !80
-  %125 = load i64, ptr %34, align 8, !tbaa !105
-  store i64 %125, ptr %117, align 8, !tbaa !25
+122:                                              ; preds = %120
+  %123 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef 0) #20
+  store ptr %123, ptr %40, align 8, !tbaa !80
+  %124 = load i64, ptr %34, align 8, !tbaa !105
+  store i64 %124, ptr %116, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i:                            ; preds = %123, %121
-  %126 = phi ptr [ %124, %123 ], [ %117, %121 ]
-  switch i64 %116, label %129 [
-    i64 1, label %127
+._crit_edge.i.i.i.i.i:                            ; preds = %122, %120
+  %125 = phi ptr [ %123, %122 ], [ %116, %120 ]
+  switch i64 %115, label %128 [
+    i64 1, label %126
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
   ]
 
-127:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %128 = load i8, ptr %114, align 1, !tbaa !25
-  store i8 %128, ptr %126, align 1, !tbaa !25
+126:                                              ; preds = %._crit_edge.i.i.i.i.i
+  %127 = load i8, ptr %113, align 1, !tbaa !25
+  store i8 %127, ptr %125, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
 
-129:                                              ; preds = %._crit_edge.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 1 %114, i64 %116, i1 false)
+128:                                              ; preds = %._crit_edge.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 1 %113, i64 %115, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit: ; preds = %._crit_edge.i.i.i.i.i, %127, %129
-  %130 = load i64, ptr %34, align 8, !tbaa !105
-  %131 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 %130, ptr %131, align 8, !tbaa !3
-  %132 = load ptr, ptr %40, align 8, !tbaa !80
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 %130
-  store i8 0, ptr %133, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit: ; preds = %._crit_edge.i.i.i.i.i, %126, %128
+  %129 = load i64, ptr %34, align 8, !tbaa !105
+  %130 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 %129, ptr %130, align 8, !tbaa !3
+  %131 = load ptr, ptr %40, align 8, !tbaa !80
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %129
+  store i8 0, ptr %132, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %134 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i8 1, ptr %134, align 8, !tbaa !799
-  %135 = load i32, ptr %51, align 8, !tbaa !33
-  %136 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i = icmp ult i32 %135, %136
-  br i1 %.not.i.i, label %139, label %137, !prof !81
+  %133 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i8 1, ptr %133, align 8, !tbaa !799
+  %134 = load i32, ptr %51, align 8, !tbaa !33
+  %135 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i = icmp ult i32 %134, %135
+  br i1 %.not.i.i, label %138, label %136, !prof !81
 
-137:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
-  %138 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %40)
+136:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
+  %137 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %40)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit"
 
-139:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
-  %140 = zext i32 %135 to i64
-  %141 = load ptr, ptr %0, align 8, !tbaa !31
-  %142 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %141, i64 %140
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store ptr %143, ptr %142, align 8, !tbaa !112
-  %144 = load ptr, ptr %40, align 8, !tbaa !80
-  %145 = load i64, ptr %131, align 8, !tbaa !3
+138:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit
+  %139 = zext i32 %134 to i64
+  %140 = load ptr, ptr %0, align 8, !tbaa !31
+  %141 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %140, i64 %139
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  store ptr %142, ptr %141, align 8, !tbaa !112
+  %143 = load ptr, ptr %40, align 8, !tbaa !80
+  %144 = load i64, ptr %130, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  store i64 %145, ptr %33, align 8, !tbaa !105
-  %146 = icmp ugt i64 %145, 15
-  br i1 %146, label %147, label %._crit_edge.i.i.i.i.i45
+  store i64 %144, ptr %33, align 8, !tbaa !105
+  %145 = icmp ugt i64 %144, 15
+  br i1 %145, label %146, label %._crit_edge.i.i.i.i.i45
 
-147:                                              ; preds = %139
-  %148 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %142, ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef 0) #20
-  store ptr %148, ptr %142, align 8, !tbaa !80
-  %149 = load i64, ptr %33, align 8, !tbaa !105
-  store i64 %149, ptr %143, align 8, !tbaa !25
+146:                                              ; preds = %138
+  %147 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %141, ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef 0) #20
+  store ptr %147, ptr %141, align 8, !tbaa !80
+  %148 = load i64, ptr %33, align 8, !tbaa !105
+  store i64 %148, ptr %142, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i45
 
-._crit_edge.i.i.i.i.i45:                          ; preds = %147, %139
-  %150 = phi ptr [ %148, %147 ], [ %143, %139 ]
-  switch i64 %145, label %153 [
-    i64 1, label %151
+._crit_edge.i.i.i.i.i45:                          ; preds = %146, %138
+  %149 = phi ptr [ %147, %146 ], [ %142, %138 ]
+  switch i64 %144, label %152 [
+    i64 1, label %150
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i
   ]
 
-151:                                              ; preds = %._crit_edge.i.i.i.i.i45
-  %152 = load i8, ptr %144, align 1, !tbaa !25
-  store i8 %152, ptr %150, align 1, !tbaa !25
+150:                                              ; preds = %._crit_edge.i.i.i.i.i45
+  %151 = load i8, ptr %143, align 1, !tbaa !25
+  store i8 %151, ptr %149, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i
 
-153:                                              ; preds = %._crit_edge.i.i.i.i.i45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %150, ptr align 1 %144, i64 %145, i1 false)
+152:                                              ; preds = %._crit_edge.i.i.i.i.i45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr align 1 %143, i64 %144, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i: ; preds = %153, %151, %._crit_edge.i.i.i.i.i45
-  %154 = load i64, ptr %33, align 8, !tbaa !105
-  %155 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store i64 %154, ptr %155, align 8, !tbaa !3
-  %156 = load ptr, ptr %142, align 8, !tbaa !80
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 %154
-  store i8 0, ptr %157, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i: ; preds = %152, %150, %._crit_edge.i.i.i.i.i45
+  %153 = load i64, ptr %33, align 8, !tbaa !105
+  %154 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store i64 %153, ptr %154, align 8, !tbaa !3
+  %155 = load ptr, ptr %141, align 8, !tbaa !80
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 %153
+  store i8 0, ptr %156, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %158 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %159 = load i8, ptr %134, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %159, ptr %158, align 8, !tbaa !799
-  %160 = load i32, ptr %51, align 8, !tbaa !33
-  %161 = add i32 %160, 1
-  store i32 %161, ptr %51, align 8, !tbaa !33
+  %157 = getelementptr inbounds nuw i8, ptr %141, i64 32
+  %158 = load i8, ptr %133, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %158, ptr %157, align 8, !tbaa !799
+  %159 = load i32, ptr %51, align 8, !tbaa !33
+  %160 = add i32 %159, 1
+  store i32 %160, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit": ; preds = %137, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i
-  %162 = load ptr, ptr %40, align 8, !tbaa !80
-  %163 = icmp eq ptr %162, %117
-  br i1 %163, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit": ; preds = %136, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i
+  %161 = load ptr, ptr %40, align 8, !tbaa !80
+  %162 = icmp eq ptr %161, %116
+  br i1 %162, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit"
-  %164 = load i64, ptr %117, align 8, !tbaa !25
-  %165 = add i64 %164, 1
-  call void @_ZdlPvm(ptr noundef %162, i64 noundef %165) #21
+  %163 = load i64, ptr %116, align 8, !tbaa !25
+  %164 = add i64 %163, 1
+  call void @_ZdlPvm(ptr noundef %161, i64 noundef %164) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  br i1 %13, label %219, label %166
+  br i1 %13, label %218, label %165
 
-166:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit
-  %167 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  %168 = load ptr, ptr %167, align 8, !tbaa !11
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %170 = load i64, ptr %169, align 8, !tbaa !72
-  %171 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %171, ptr %41, align 8, !tbaa !112
-  %172 = icmp eq ptr %168, null
-  %173 = icmp ne i64 %170, 0
-  %or.cond.i.i.i.i48 = and i1 %172, %173
-  br i1 %or.cond.i.i.i.i48, label %174, label %175
+165:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %167 = load ptr, ptr %166, align 8, !tbaa !11
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %169 = load i64, ptr %168, align 8, !tbaa !72
+  %170 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store ptr %170, ptr %41, align 8, !tbaa !112
+  %171 = icmp eq ptr %167, null
+  %172 = icmp ne i64 %169, 0
+  %or.cond.i.i.i.i48 = and i1 %171, %172
+  br i1 %or.cond.i.i.i.i48, label %173, label %174
 
-174:                                              ; preds = %166
+173:                                              ; preds = %165
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-175:                                              ; preds = %166
+174:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  store i64 %170, ptr %32, align 8, !tbaa !105
-  %176 = icmp ugt i64 %170, 15
-  br i1 %176, label %177, label %._crit_edge.i.i.i.i.i49
+  store i64 %169, ptr %32, align 8, !tbaa !105
+  %175 = icmp ugt i64 %169, 15
+  br i1 %175, label %176, label %._crit_edge.i.i.i.i.i49
 
-177:                                              ; preds = %175
-  %178 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %41, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0) #20
-  store ptr %178, ptr %41, align 8, !tbaa !80
-  %179 = load i64, ptr %32, align 8, !tbaa !105
-  store i64 %179, ptr %171, align 8, !tbaa !25
+176:                                              ; preds = %174
+  %177 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %41, ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0) #20
+  store ptr %177, ptr %41, align 8, !tbaa !80
+  %178 = load i64, ptr %32, align 8, !tbaa !105
+  store i64 %178, ptr %170, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i49
 
-._crit_edge.i.i.i.i.i49:                          ; preds = %177, %175
-  %180 = phi ptr [ %178, %177 ], [ %171, %175 ]
-  switch i64 %170, label %183 [
-    i64 1, label %181
+._crit_edge.i.i.i.i.i49:                          ; preds = %176, %174
+  %179 = phi ptr [ %177, %176 ], [ %170, %174 ]
+  switch i64 %169, label %182 [
+    i64 1, label %180
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
   ]
 
-181:                                              ; preds = %._crit_edge.i.i.i.i.i49
-  %182 = load i8, ptr %168, align 1, !tbaa !25
-  store i8 %182, ptr %180, align 1, !tbaa !25
+180:                                              ; preds = %._crit_edge.i.i.i.i.i49
+  %181 = load i8, ptr %167, align 1, !tbaa !25
+  store i8 %181, ptr %179, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
 
-183:                                              ; preds = %._crit_edge.i.i.i.i.i49
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %180, ptr align 1 %168, i64 %170, i1 false)
+182:                                              ; preds = %._crit_edge.i.i.i.i.i49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr align 1 %167, i64 %169, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50: ; preds = %._crit_edge.i.i.i.i.i49, %181, %183
-  %184 = load i64, ptr %32, align 8, !tbaa !105
-  %185 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %184, ptr %185, align 8, !tbaa !3
-  %186 = load ptr, ptr %41, align 8, !tbaa !80
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %184
-  store i8 0, ptr %187, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50: ; preds = %._crit_edge.i.i.i.i.i49, %180, %182
+  %183 = load i64, ptr %32, align 8, !tbaa !105
+  %184 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i64 %183, ptr %184, align 8, !tbaa !3
+  %185 = load ptr, ptr %41, align 8, !tbaa !80
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %183
+  store i8 0, ptr %186, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %188 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store i8 1, ptr %188, align 8, !tbaa !799
-  %189 = load i32, ptr %51, align 8, !tbaa !33
-  %190 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i51 = icmp ult i32 %189, %190
-  br i1 %.not.i.i51, label %193, label %191, !prof !81
+  %187 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store i8 1, ptr %187, align 8, !tbaa !799
+  %188 = load i32, ptr %51, align 8, !tbaa !33
+  %189 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i51 = icmp ult i32 %188, %189
+  br i1 %.not.i.i51, label %192, label %190, !prof !81
 
-191:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
-  %192 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %41)
+190:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
+  %191 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %41)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54"
 
-193:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
-  %194 = zext i32 %189 to i64
-  %195 = load ptr, ptr %0, align 8, !tbaa !31
-  %196 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %195, i64 %194
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  store ptr %197, ptr %196, align 8, !tbaa !112
-  %198 = load ptr, ptr %41, align 8, !tbaa !80
-  %199 = load i64, ptr %185, align 8, !tbaa !3
+192:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit50
+  %193 = zext i32 %188 to i64
+  %194 = load ptr, ptr %0, align 8, !tbaa !31
+  %195 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %194, i64 %193
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  store ptr %196, ptr %195, align 8, !tbaa !112
+  %197 = load ptr, ptr %41, align 8, !tbaa !80
+  %198 = load i64, ptr %184, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  store i64 %199, ptr %31, align 8, !tbaa !105
-  %200 = icmp ugt i64 %199, 15
-  br i1 %200, label %201, label %._crit_edge.i.i.i.i.i52
+  store i64 %198, ptr %31, align 8, !tbaa !105
+  %199 = icmp ugt i64 %198, 15
+  br i1 %199, label %200, label %._crit_edge.i.i.i.i.i52
 
-201:                                              ; preds = %193
-  %202 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %196, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0) #20
-  store ptr %202, ptr %196, align 8, !tbaa !80
-  %203 = load i64, ptr %31, align 8, !tbaa !105
-  store i64 %203, ptr %197, align 8, !tbaa !25
+200:                                              ; preds = %192
+  %201 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %195, ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0) #20
+  store ptr %201, ptr %195, align 8, !tbaa !80
+  %202 = load i64, ptr %31, align 8, !tbaa !105
+  store i64 %202, ptr %196, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i52
 
-._crit_edge.i.i.i.i.i52:                          ; preds = %201, %193
-  %204 = phi ptr [ %202, %201 ], [ %197, %193 ]
-  switch i64 %199, label %207 [
-    i64 1, label %205
+._crit_edge.i.i.i.i.i52:                          ; preds = %200, %192
+  %203 = phi ptr [ %201, %200 ], [ %196, %192 ]
+  switch i64 %198, label %206 [
+    i64 1, label %204
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53
   ]
 
-205:                                              ; preds = %._crit_edge.i.i.i.i.i52
-  %206 = load i8, ptr %198, align 1, !tbaa !25
-  store i8 %206, ptr %204, align 1, !tbaa !25
+204:                                              ; preds = %._crit_edge.i.i.i.i.i52
+  %205 = load i8, ptr %197, align 1, !tbaa !25
+  store i8 %205, ptr %203, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53
 
-207:                                              ; preds = %._crit_edge.i.i.i.i.i52
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %198, i64 %199, i1 false)
+206:                                              ; preds = %._crit_edge.i.i.i.i.i52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %203, ptr align 1 %197, i64 %198, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53: ; preds = %207, %205, %._crit_edge.i.i.i.i.i52
-  %208 = load i64, ptr %31, align 8, !tbaa !105
-  %209 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  store i64 %208, ptr %209, align 8, !tbaa !3
-  %210 = load ptr, ptr %196, align 8, !tbaa !80
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %208
-  store i8 0, ptr %211, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53: ; preds = %206, %204, %._crit_edge.i.i.i.i.i52
+  %207 = load i64, ptr %31, align 8, !tbaa !105
+  %208 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  store i64 %207, ptr %208, align 8, !tbaa !3
+  %209 = load ptr, ptr %195, align 8, !tbaa !80
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %207
+  store i8 0, ptr %210, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %212 = getelementptr inbounds nuw i8, ptr %196, i64 32
-  %213 = load i8, ptr %188, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %213, ptr %212, align 8, !tbaa !799
-  %214 = load i32, ptr %51, align 8, !tbaa !33
-  %215 = add i32 %214, 1
-  store i32 %215, ptr %51, align 8, !tbaa !33
+  %211 = getelementptr inbounds nuw i8, ptr %195, i64 32
+  %212 = load i8, ptr %187, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %212, ptr %211, align 8, !tbaa !799
+  %213 = load i32, ptr %51, align 8, !tbaa !33
+  %214 = add i32 %213, 1
+  store i32 %214, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54": ; preds = %191, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53
-  %216 = load ptr, ptr %41, align 8, !tbaa !80
-  %217 = icmp eq ptr %216, %171
-  br i1 %217, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54": ; preds = %190, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i53
+  %215 = load ptr, ptr %41, align 8, !tbaa !80
+  %216 = icmp eq ptr %215, %170
+  br i1 %216, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54"
-  %218 = load i64, ptr %171, align 8, !tbaa !25
+  %217 = load i64, ptr %170, align 8, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57.sink.split
 
-219:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit
+218:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit
   %.val = load i8, ptr %53, align 8, !tbaa !162, !range !92, !noundef !156
-  %220 = trunc nuw i8 %.val to i1
-  br i1 %220, label %221, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
+  %219 = trunc nuw i8 %.val to i1
+  br i1 %219, label %220, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
 
-221:                                              ; preds = %219
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 432
-  %223 = load ptr, ptr %222, align 8, !tbaa !11
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %225 = load i64, ptr %224, align 8, !tbaa !72
-  %226 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %226, ptr %42, align 8, !tbaa !112
-  %227 = icmp eq ptr %223, null
-  %228 = icmp ne i64 %225, 0
-  %or.cond.i.i.i.i60 = and i1 %227, %228
-  br i1 %or.cond.i.i.i.i60, label %229, label %230
+220:                                              ; preds = %218
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %222 = load ptr, ptr %221, align 8, !tbaa !11
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %224 = load i64, ptr %223, align 8, !tbaa !72
+  %225 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store ptr %225, ptr %42, align 8, !tbaa !112
+  %226 = icmp eq ptr %222, null
+  %227 = icmp ne i64 %224, 0
+  %or.cond.i.i.i.i60 = and i1 %226, %227
+  br i1 %or.cond.i.i.i.i60, label %228, label %229
 
-229:                                              ; preds = %221
+228:                                              ; preds = %220
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-230:                                              ; preds = %221
+229:                                              ; preds = %220
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  store i64 %225, ptr %30, align 8, !tbaa !105
-  %231 = icmp ugt i64 %225, 15
-  br i1 %231, label %232, label %._crit_edge.i.i.i.i.i61
+  store i64 %224, ptr %30, align 8, !tbaa !105
+  %230 = icmp ugt i64 %224, 15
+  br i1 %230, label %231, label %._crit_edge.i.i.i.i.i61
 
-232:                                              ; preds = %230
-  %233 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %42, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef 0) #20
-  store ptr %233, ptr %42, align 8, !tbaa !80
-  %234 = load i64, ptr %30, align 8, !tbaa !105
-  store i64 %234, ptr %226, align 8, !tbaa !25
+231:                                              ; preds = %229
+  %232 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %42, ptr noundef nonnull align 8 dereferenceable(8) %30, i64 noundef 0) #20
+  store ptr %232, ptr %42, align 8, !tbaa !80
+  %233 = load i64, ptr %30, align 8, !tbaa !105
+  store i64 %233, ptr %225, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i61
 
-._crit_edge.i.i.i.i.i61:                          ; preds = %232, %230
-  %235 = phi ptr [ %233, %232 ], [ %226, %230 ]
-  switch i64 %225, label %238 [
-    i64 1, label %236
+._crit_edge.i.i.i.i.i61:                          ; preds = %231, %229
+  %234 = phi ptr [ %232, %231 ], [ %225, %229 ]
+  switch i64 %224, label %237 [
+    i64 1, label %235
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
   ]
 
-236:                                              ; preds = %._crit_edge.i.i.i.i.i61
-  %237 = load i8, ptr %223, align 1, !tbaa !25
-  store i8 %237, ptr %235, align 1, !tbaa !25
+235:                                              ; preds = %._crit_edge.i.i.i.i.i61
+  %236 = load i8, ptr %222, align 1, !tbaa !25
+  store i8 %236, ptr %234, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
 
-238:                                              ; preds = %._crit_edge.i.i.i.i.i61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %235, ptr align 1 %223, i64 %225, i1 false)
+237:                                              ; preds = %._crit_edge.i.i.i.i.i61
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %234, ptr align 1 %222, i64 %224, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62: ; preds = %._crit_edge.i.i.i.i.i61, %236, %238
-  %239 = load i64, ptr %30, align 8, !tbaa !105
-  %240 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 %239, ptr %240, align 8, !tbaa !3
-  %241 = load ptr, ptr %42, align 8, !tbaa !80
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 %239
-  store i8 0, ptr %242, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62: ; preds = %._crit_edge.i.i.i.i.i61, %235, %237
+  %238 = load i64, ptr %30, align 8, !tbaa !105
+  %239 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i64 %238, ptr %239, align 8, !tbaa !3
+  %240 = load ptr, ptr %42, align 8, !tbaa !80
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %238
+  store i8 0, ptr %241, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %243 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store i8 0, ptr %243, align 8, !tbaa !799
-  %244 = load i32, ptr %51, align 8, !tbaa !33
-  %245 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i63 = icmp ult i32 %244, %245
-  br i1 %.not.i.i63, label %248, label %246, !prof !81
+  %242 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store i8 0, ptr %242, align 8, !tbaa !799
+  %243 = load i32, ptr %51, align 8, !tbaa !33
+  %244 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i63 = icmp ult i32 %243, %244
+  br i1 %.not.i.i63, label %247, label %245, !prof !81
 
-246:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
-  %247 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %42)
+245:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
+  %246 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %42)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66"
 
-248:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
-  %249 = zext i32 %244 to i64
-  %250 = load ptr, ptr %0, align 8, !tbaa !31
-  %251 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %250, i64 %249
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  store ptr %252, ptr %251, align 8, !tbaa !112
-  %253 = load ptr, ptr %42, align 8, !tbaa !80
-  %254 = load i64, ptr %240, align 8, !tbaa !3
+247:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit62
+  %248 = zext i32 %243 to i64
+  %249 = load ptr, ptr %0, align 8, !tbaa !31
+  %250 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %249, i64 %248
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  store ptr %251, ptr %250, align 8, !tbaa !112
+  %252 = load ptr, ptr %42, align 8, !tbaa !80
+  %253 = load i64, ptr %239, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  store i64 %254, ptr %29, align 8, !tbaa !105
-  %255 = icmp ugt i64 %254, 15
-  br i1 %255, label %256, label %._crit_edge.i.i.i.i.i64
+  store i64 %253, ptr %29, align 8, !tbaa !105
+  %254 = icmp ugt i64 %253, 15
+  br i1 %254, label %255, label %._crit_edge.i.i.i.i.i64
 
-256:                                              ; preds = %248
-  %257 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %251, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0) #20
-  store ptr %257, ptr %251, align 8, !tbaa !80
-  %258 = load i64, ptr %29, align 8, !tbaa !105
-  store i64 %258, ptr %252, align 8, !tbaa !25
+255:                                              ; preds = %247
+  %256 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %250, ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef 0) #20
+  store ptr %256, ptr %250, align 8, !tbaa !80
+  %257 = load i64, ptr %29, align 8, !tbaa !105
+  store i64 %257, ptr %251, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i64
 
-._crit_edge.i.i.i.i.i64:                          ; preds = %256, %248
-  %259 = phi ptr [ %257, %256 ], [ %252, %248 ]
-  switch i64 %254, label %262 [
-    i64 1, label %260
+._crit_edge.i.i.i.i.i64:                          ; preds = %255, %247
+  %258 = phi ptr [ %256, %255 ], [ %251, %247 ]
+  switch i64 %253, label %261 [
+    i64 1, label %259
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65
   ]
 
-260:                                              ; preds = %._crit_edge.i.i.i.i.i64
-  %261 = load i8, ptr %253, align 1, !tbaa !25
-  store i8 %261, ptr %259, align 1, !tbaa !25
+259:                                              ; preds = %._crit_edge.i.i.i.i.i64
+  %260 = load i8, ptr %252, align 1, !tbaa !25
+  store i8 %260, ptr %258, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65
 
-262:                                              ; preds = %._crit_edge.i.i.i.i.i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %259, ptr align 1 %253, i64 %254, i1 false)
+261:                                              ; preds = %._crit_edge.i.i.i.i.i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %258, ptr align 1 %252, i64 %253, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65: ; preds = %262, %260, %._crit_edge.i.i.i.i.i64
-  %263 = load i64, ptr %29, align 8, !tbaa !105
-  %264 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  store i64 %263, ptr %264, align 8, !tbaa !3
-  %265 = load ptr, ptr %251, align 8, !tbaa !80
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 %263
-  store i8 0, ptr %266, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65: ; preds = %261, %259, %._crit_edge.i.i.i.i.i64
+  %262 = load i64, ptr %29, align 8, !tbaa !105
+  %263 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  store i64 %262, ptr %263, align 8, !tbaa !3
+  %264 = load ptr, ptr %250, align 8, !tbaa !80
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 %262
+  store i8 0, ptr %265, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %267 = getelementptr inbounds nuw i8, ptr %251, i64 32
-  %268 = load i8, ptr %243, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %268, ptr %267, align 8, !tbaa !799
-  %269 = load i32, ptr %51, align 8, !tbaa !33
-  %270 = add i32 %269, 1
-  store i32 %270, ptr %51, align 8, !tbaa !33
+  %266 = getelementptr inbounds nuw i8, ptr %250, i64 32
+  %267 = load i8, ptr %242, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %267, ptr %266, align 8, !tbaa !799
+  %268 = load i32, ptr %51, align 8, !tbaa !33
+  %269 = add i32 %268, 1
+  store i32 %269, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66": ; preds = %246, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65
-  %271 = load ptr, ptr %42, align 8, !tbaa !80
-  %272 = icmp eq ptr %271, %226
-  br i1 %272, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66": ; preds = %245, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i65
+  %270 = load ptr, ptr %42, align 8, !tbaa !80
+  %271 = icmp eq ptr %270, %225
+  br i1 %271, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66"
-  %273 = load i64, ptr %226, align 8, !tbaa !25
+  %272 = load i64, ptr %225, align 8, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57.sink.split
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57.sink.split: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
-  %.sink192 = phi i64 [ %273, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67 ], [ %218, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55 ]
-  %.sink = phi ptr [ %271, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67 ], [ %216, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55 ]
-  %274 = add i64 %.sink192, 1
-  call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %274) #21
+  %.sink193 = phi i64 [ %272, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67 ], [ %217, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55 ]
+  %.sink = phi ptr [ %270, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67 ], [ %215, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i55 ]
+  %273 = add i64 %.sink193, 1
+  call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %273) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57: ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57.sink.split, %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66", %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54", %219
-  %275 = select i1 %6, i64 672, i64 696
-  %276 = getelementptr inbounds nuw i8, ptr %1, i64 %275
-  %277 = load ptr, ptr %276, align 8, !tbaa !11
-  %278 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %279 = load i64, ptr %278, align 8, !tbaa !72
-  %280 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %280, ptr %43, align 8, !tbaa !112
-  %281 = icmp eq ptr %277, null
-  %282 = icmp ne i64 %279, 0
-  %or.cond.i.i.i.i70 = and i1 %281, %282
-  br i1 %or.cond.i.i.i.i70, label %283, label %284
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57: ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57.sink.split, %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit66", %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit54", %218
+  %274 = select i1 %6, i64 672, i64 696
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 %274
+  %276 = load ptr, ptr %275, align 8, !tbaa !11
+  %277 = getelementptr inbounds nuw i8, ptr %275, i64 8
+  %278 = load i64, ptr %277, align 8, !tbaa !72
+  %279 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store ptr %279, ptr %43, align 8, !tbaa !112
+  %280 = icmp eq ptr %276, null
+  %281 = icmp ne i64 %278, 0
+  %or.cond.i.i.i.i70 = and i1 %280, %281
+  br i1 %or.cond.i.i.i.i70, label %282, label %283
 
-283:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
+282:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-284:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
+283:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit57
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  store i64 %279, ptr %28, align 8, !tbaa !105
-  %285 = icmp ugt i64 %279, 15
-  br i1 %285, label %286, label %._crit_edge.i.i.i.i.i71
+  store i64 %278, ptr %28, align 8, !tbaa !105
+  %284 = icmp ugt i64 %278, 15
+  br i1 %284, label %285, label %._crit_edge.i.i.i.i.i71
 
-286:                                              ; preds = %284
-  %287 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %43, ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef 0) #20
-  store ptr %287, ptr %43, align 8, !tbaa !80
-  %288 = load i64, ptr %28, align 8, !tbaa !105
-  store i64 %288, ptr %280, align 8, !tbaa !25
+285:                                              ; preds = %283
+  %286 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %43, ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef 0) #20
+  store ptr %286, ptr %43, align 8, !tbaa !80
+  %287 = load i64, ptr %28, align 8, !tbaa !105
+  store i64 %287, ptr %279, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i71
 
-._crit_edge.i.i.i.i.i71:                          ; preds = %286, %284
-  %289 = phi ptr [ %287, %286 ], [ %280, %284 ]
-  switch i64 %279, label %292 [
-    i64 1, label %290
+._crit_edge.i.i.i.i.i71:                          ; preds = %285, %283
+  %288 = phi ptr [ %286, %285 ], [ %279, %283 ]
+  switch i64 %278, label %291 [
+    i64 1, label %289
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
   ]
 
-290:                                              ; preds = %._crit_edge.i.i.i.i.i71
-  %291 = load i8, ptr %277, align 1, !tbaa !25
-  store i8 %291, ptr %289, align 1, !tbaa !25
+289:                                              ; preds = %._crit_edge.i.i.i.i.i71
+  %290 = load i8, ptr %276, align 1, !tbaa !25
+  store i8 %290, ptr %288, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
 
-292:                                              ; preds = %._crit_edge.i.i.i.i.i71
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %289, ptr align 1 %277, i64 %279, i1 false)
+291:                                              ; preds = %._crit_edge.i.i.i.i.i71
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %288, ptr align 1 %276, i64 %278, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72: ; preds = %._crit_edge.i.i.i.i.i71, %290, %292
-  %293 = load i64, ptr %28, align 8, !tbaa !105
-  %294 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %293, ptr %294, align 8, !tbaa !3
-  %295 = load ptr, ptr %43, align 8, !tbaa !80
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 %293
-  store i8 0, ptr %296, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72: ; preds = %._crit_edge.i.i.i.i.i71, %289, %291
+  %292 = load i64, ptr %28, align 8, !tbaa !105
+  %293 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i64 %292, ptr %293, align 8, !tbaa !3
+  %294 = load ptr, ptr %43, align 8, !tbaa !80
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 %292
+  store i8 0, ptr %295, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %297 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  store i8 1, ptr %297, align 8, !tbaa !799
-  %298 = load i32, ptr %51, align 8, !tbaa !33
-  %299 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i73 = icmp ult i32 %298, %299
-  br i1 %.not.i.i73, label %302, label %300, !prof !81
+  %296 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  store i8 1, ptr %296, align 8, !tbaa !799
+  %297 = load i32, ptr %51, align 8, !tbaa !33
+  %298 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i73 = icmp ult i32 %297, %298
+  br i1 %.not.i.i73, label %301, label %299, !prof !81
 
-300:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
-  %301 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %43)
+299:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
+  %300 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %43)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit76"
 
-302:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
-  %303 = zext i32 %298 to i64
-  %304 = load ptr, ptr %0, align 8, !tbaa !31
-  %305 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %304, i64 %303
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
-  store ptr %306, ptr %305, align 8, !tbaa !112
-  %307 = load ptr, ptr %43, align 8, !tbaa !80
-  %308 = load i64, ptr %294, align 8, !tbaa !3
+301:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit72
+  %302 = zext i32 %297 to i64
+  %303 = load ptr, ptr %0, align 8, !tbaa !31
+  %304 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %303, i64 %302
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
+  store ptr %305, ptr %304, align 8, !tbaa !112
+  %306 = load ptr, ptr %43, align 8, !tbaa !80
+  %307 = load i64, ptr %293, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  store i64 %308, ptr %27, align 8, !tbaa !105
-  %309 = icmp ugt i64 %308, 15
-  br i1 %309, label %310, label %._crit_edge.i.i.i.i.i74
+  store i64 %307, ptr %27, align 8, !tbaa !105
+  %308 = icmp ugt i64 %307, 15
+  br i1 %308, label %309, label %._crit_edge.i.i.i.i.i74
 
-310:                                              ; preds = %302
-  %311 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %305, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 0) #20
-  store ptr %311, ptr %305, align 8, !tbaa !80
-  %312 = load i64, ptr %27, align 8, !tbaa !105
-  store i64 %312, ptr %306, align 8, !tbaa !25
+309:                                              ; preds = %301
+  %310 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %304, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 0) #20
+  store ptr %310, ptr %304, align 8, !tbaa !80
+  %311 = load i64, ptr %27, align 8, !tbaa !105
+  store i64 %311, ptr %305, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i74
 
-._crit_edge.i.i.i.i.i74:                          ; preds = %310, %302
-  %313 = phi ptr [ %311, %310 ], [ %306, %302 ]
-  switch i64 %308, label %316 [
-    i64 1, label %314
+._crit_edge.i.i.i.i.i74:                          ; preds = %309, %301
+  %312 = phi ptr [ %310, %309 ], [ %305, %301 ]
+  switch i64 %307, label %315 [
+    i64 1, label %313
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75
   ]
 
-314:                                              ; preds = %._crit_edge.i.i.i.i.i74
-  %315 = load i8, ptr %307, align 1, !tbaa !25
-  store i8 %315, ptr %313, align 1, !tbaa !25
+313:                                              ; preds = %._crit_edge.i.i.i.i.i74
+  %314 = load i8, ptr %306, align 1, !tbaa !25
+  store i8 %314, ptr %312, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75
 
-316:                                              ; preds = %._crit_edge.i.i.i.i.i74
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %313, ptr align 1 %307, i64 %308, i1 false)
+315:                                              ; preds = %._crit_edge.i.i.i.i.i74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %312, ptr align 1 %306, i64 %307, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75: ; preds = %316, %314, %._crit_edge.i.i.i.i.i74
-  %317 = load i64, ptr %27, align 8, !tbaa !105
-  %318 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  store i64 %317, ptr %318, align 8, !tbaa !3
-  %319 = load ptr, ptr %305, align 8, !tbaa !80
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 %317
-  store i8 0, ptr %320, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75: ; preds = %315, %313, %._crit_edge.i.i.i.i.i74
+  %316 = load i64, ptr %27, align 8, !tbaa !105
+  %317 = getelementptr inbounds nuw i8, ptr %304, i64 8
+  store i64 %316, ptr %317, align 8, !tbaa !3
+  %318 = load ptr, ptr %304, align 8, !tbaa !80
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 %316
+  store i8 0, ptr %319, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %321 = getelementptr inbounds nuw i8, ptr %305, i64 32
-  %322 = load i8, ptr %297, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %322, ptr %321, align 8, !tbaa !799
-  %323 = load i32, ptr %51, align 8, !tbaa !33
-  %324 = add i32 %323, 1
-  store i32 %324, ptr %51, align 8, !tbaa !33
+  %320 = getelementptr inbounds nuw i8, ptr %304, i64 32
+  %321 = load i8, ptr %296, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %321, ptr %320, align 8, !tbaa !799
+  %322 = load i32, ptr %51, align 8, !tbaa !33
+  %323 = add i32 %322, 1
+  store i32 %323, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit76"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit76": ; preds = %300, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75
-  %325 = load ptr, ptr %43, align 8, !tbaa !80
-  %326 = icmp eq ptr %325, %280
-  br i1 %326, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit76": ; preds = %299, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i75
+  %324 = load ptr, ptr %43, align 8, !tbaa !80
+  %325 = icmp eq ptr %324, %279
+  br i1 %325, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit76"
-  %327 = load i64, ptr %280, align 8, !tbaa !25
-  %328 = add i64 %327, 1
-  call void @_ZdlPvm(ptr noundef %325, i64 noundef %328) #21
+  %326 = load i64, ptr %279, align 8, !tbaa !25
+  %327 = add i64 %326, 1
+  call void @_ZdlPvm(ptr noundef %324, i64 noundef %327) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit76", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77
-  %329 = or i1 %8, %9
-  %330 = select i1 %329, i64 624, i64 648
-  %331 = getelementptr inbounds nuw i8, ptr %1, i64 %330
-  %332 = load ptr, ptr %331, align 8, !tbaa !11
-  %333 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  %334 = load i64, ptr %333, align 8, !tbaa !72
-  %335 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %335, ptr %44, align 8, !tbaa !112
-  %336 = icmp eq ptr %332, null
-  %337 = icmp ne i64 %334, 0
-  %or.cond.i.i.i.i82 = and i1 %336, %337
-  br i1 %or.cond.i.i.i.i82, label %338, label %339
+  %328 = or i1 %8, %9
+  %329 = select i1 %328, i64 624, i64 648
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 %329
+  %331 = load ptr, ptr %330, align 8, !tbaa !11
+  %332 = getelementptr inbounds nuw i8, ptr %330, i64 8
+  %333 = load i64, ptr %332, align 8, !tbaa !72
+  %334 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store ptr %334, ptr %44, align 8, !tbaa !112
+  %335 = icmp eq ptr %331, null
+  %336 = icmp ne i64 %333, 0
+  %or.cond.i.i.i.i82 = and i1 %335, %336
+  br i1 %or.cond.i.i.i.i82, label %337, label %338
 
-338:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79
+337:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-339:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79
+338:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit79
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  store i64 %334, ptr %26, align 8, !tbaa !105
-  %340 = icmp ugt i64 %334, 15
-  br i1 %340, label %341, label %._crit_edge.i.i.i.i.i83
+  store i64 %333, ptr %26, align 8, !tbaa !105
+  %339 = icmp ugt i64 %333, 15
+  br i1 %339, label %340, label %._crit_edge.i.i.i.i.i83
 
-341:                                              ; preds = %339
-  %342 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %44, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0) #20
-  store ptr %342, ptr %44, align 8, !tbaa !80
-  %343 = load i64, ptr %26, align 8, !tbaa !105
-  store i64 %343, ptr %335, align 8, !tbaa !25
+340:                                              ; preds = %338
+  %341 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %44, ptr noundef nonnull align 8 dereferenceable(8) %26, i64 noundef 0) #20
+  store ptr %341, ptr %44, align 8, !tbaa !80
+  %342 = load i64, ptr %26, align 8, !tbaa !105
+  store i64 %342, ptr %334, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i83
 
-._crit_edge.i.i.i.i.i83:                          ; preds = %341, %339
-  %344 = phi ptr [ %342, %341 ], [ %335, %339 ]
-  switch i64 %334, label %347 [
-    i64 1, label %345
+._crit_edge.i.i.i.i.i83:                          ; preds = %340, %338
+  %343 = phi ptr [ %341, %340 ], [ %334, %338 ]
+  switch i64 %333, label %346 [
+    i64 1, label %344
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
   ]
 
-345:                                              ; preds = %._crit_edge.i.i.i.i.i83
-  %346 = load i8, ptr %332, align 1, !tbaa !25
-  store i8 %346, ptr %344, align 1, !tbaa !25
+344:                                              ; preds = %._crit_edge.i.i.i.i.i83
+  %345 = load i8, ptr %331, align 1, !tbaa !25
+  store i8 %345, ptr %343, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
 
-347:                                              ; preds = %._crit_edge.i.i.i.i.i83
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %344, ptr align 1 %332, i64 %334, i1 false)
+346:                                              ; preds = %._crit_edge.i.i.i.i.i83
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %343, ptr align 1 %331, i64 %333, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84: ; preds = %._crit_edge.i.i.i.i.i83, %345, %347
-  %348 = load i64, ptr %26, align 8, !tbaa !105
-  %349 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 %348, ptr %349, align 8, !tbaa !3
-  %350 = load ptr, ptr %44, align 8, !tbaa !80
-  %351 = getelementptr inbounds nuw i8, ptr %350, i64 %348
-  store i8 0, ptr %351, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84: ; preds = %._crit_edge.i.i.i.i.i83, %344, %346
+  %347 = load i64, ptr %26, align 8, !tbaa !105
+  %348 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 %347, ptr %348, align 8, !tbaa !3
+  %349 = load ptr, ptr %44, align 8, !tbaa !80
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 %347
+  store i8 0, ptr %350, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %352 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store i8 1, ptr %352, align 8, !tbaa !799
-  %353 = load i32, ptr %51, align 8, !tbaa !33
-  %354 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i85 = icmp ult i32 %353, %354
-  br i1 %.not.i.i85, label %357, label %355, !prof !81
+  %351 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store i8 1, ptr %351, align 8, !tbaa !799
+  %352 = load i32, ptr %51, align 8, !tbaa !33
+  %353 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i85 = icmp ult i32 %352, %353
+  br i1 %.not.i.i85, label %356, label %354, !prof !81
 
-355:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
-  %356 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %44)
+354:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
+  %355 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %44)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit88"
 
-357:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
-  %358 = zext i32 %353 to i64
-  %359 = load ptr, ptr %0, align 8, !tbaa !31
-  %360 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %359, i64 %358
-  %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
-  store ptr %361, ptr %360, align 8, !tbaa !112
-  %362 = load ptr, ptr %44, align 8, !tbaa !80
-  %363 = load i64, ptr %349, align 8, !tbaa !3
+356:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit84
+  %357 = zext i32 %352 to i64
+  %358 = load ptr, ptr %0, align 8, !tbaa !31
+  %359 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %358, i64 %357
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
+  store ptr %360, ptr %359, align 8, !tbaa !112
+  %361 = load ptr, ptr %44, align 8, !tbaa !80
+  %362 = load i64, ptr %348, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store i64 %363, ptr %25, align 8, !tbaa !105
-  %364 = icmp ugt i64 %363, 15
-  br i1 %364, label %365, label %._crit_edge.i.i.i.i.i86
+  store i64 %362, ptr %25, align 8, !tbaa !105
+  %363 = icmp ugt i64 %362, 15
+  br i1 %363, label %364, label %._crit_edge.i.i.i.i.i86
 
-365:                                              ; preds = %357
-  %366 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %360, ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef 0) #20
-  store ptr %366, ptr %360, align 8, !tbaa !80
-  %367 = load i64, ptr %25, align 8, !tbaa !105
-  store i64 %367, ptr %361, align 8, !tbaa !25
+364:                                              ; preds = %356
+  %365 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %359, ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef 0) #20
+  store ptr %365, ptr %359, align 8, !tbaa !80
+  %366 = load i64, ptr %25, align 8, !tbaa !105
+  store i64 %366, ptr %360, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i86
 
-._crit_edge.i.i.i.i.i86:                          ; preds = %365, %357
-  %368 = phi ptr [ %366, %365 ], [ %361, %357 ]
-  switch i64 %363, label %371 [
-    i64 1, label %369
+._crit_edge.i.i.i.i.i86:                          ; preds = %364, %356
+  %367 = phi ptr [ %365, %364 ], [ %360, %356 ]
+  switch i64 %362, label %370 [
+    i64 1, label %368
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87
   ]
 
-369:                                              ; preds = %._crit_edge.i.i.i.i.i86
-  %370 = load i8, ptr %362, align 1, !tbaa !25
-  store i8 %370, ptr %368, align 1, !tbaa !25
+368:                                              ; preds = %._crit_edge.i.i.i.i.i86
+  %369 = load i8, ptr %361, align 1, !tbaa !25
+  store i8 %369, ptr %367, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87
 
-371:                                              ; preds = %._crit_edge.i.i.i.i.i86
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %368, ptr align 1 %362, i64 %363, i1 false)
+370:                                              ; preds = %._crit_edge.i.i.i.i.i86
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %367, ptr align 1 %361, i64 %362, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87: ; preds = %371, %369, %._crit_edge.i.i.i.i.i86
-  %372 = load i64, ptr %25, align 8, !tbaa !105
-  %373 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  store i64 %372, ptr %373, align 8, !tbaa !3
-  %374 = load ptr, ptr %360, align 8, !tbaa !80
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 %372
-  store i8 0, ptr %375, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87: ; preds = %370, %368, %._crit_edge.i.i.i.i.i86
+  %371 = load i64, ptr %25, align 8, !tbaa !105
+  %372 = getelementptr inbounds nuw i8, ptr %359, i64 8
+  store i64 %371, ptr %372, align 8, !tbaa !3
+  %373 = load ptr, ptr %359, align 8, !tbaa !80
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 %371
+  store i8 0, ptr %374, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %376 = getelementptr inbounds nuw i8, ptr %360, i64 32
-  %377 = load i8, ptr %352, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %377, ptr %376, align 8, !tbaa !799
-  %378 = load i32, ptr %51, align 8, !tbaa !33
-  %379 = add i32 %378, 1
-  store i32 %379, ptr %51, align 8, !tbaa !33
+  %375 = getelementptr inbounds nuw i8, ptr %359, i64 32
+  %376 = load i8, ptr %351, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %376, ptr %375, align 8, !tbaa !799
+  %377 = load i32, ptr %51, align 8, !tbaa !33
+  %378 = add i32 %377, 1
+  store i32 %378, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit88"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit88": ; preds = %355, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87
-  %380 = load ptr, ptr %44, align 8, !tbaa !80
-  %381 = icmp eq ptr %380, %335
-  br i1 %381, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i89
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit88": ; preds = %354, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i87
+  %379 = load ptr, ptr %44, align 8, !tbaa !80
+  %380 = icmp eq ptr %379, %334
+  br i1 %380, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i89
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i89: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit88"
-  %382 = load i64, ptr %335, align 8, !tbaa !25
-  %383 = add i64 %382, 1
-  call void @_ZdlPvm(ptr noundef %380, i64 noundef %383) #21
+  %381 = load i64, ptr %334, align 8, !tbaa !25
+  %382 = add i64 %381, 1
+  call void @_ZdlPvm(ptr noundef %379, i64 noundef %382) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit88", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i89
-  %384 = or i1 %7, %9
-  %385 = select i1 %384, i64 576, i64 600
-  %386 = getelementptr inbounds nuw i8, ptr %1, i64 %385
-  %387 = load ptr, ptr %386, align 8, !tbaa !11
-  %388 = getelementptr inbounds nuw i8, ptr %386, i64 8
-  %389 = load i64, ptr %388, align 8, !tbaa !72
-  %390 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %390, ptr %45, align 8, !tbaa !112
-  %391 = icmp eq ptr %387, null
-  %392 = icmp ne i64 %389, 0
-  %or.cond.i.i.i.i94 = and i1 %391, %392
-  br i1 %or.cond.i.i.i.i94, label %393, label %394
+  %383 = or i1 %7, %9
+  %384 = select i1 %383, i64 576, i64 600
+  %385 = getelementptr inbounds nuw i8, ptr %1, i64 %384
+  %386 = load ptr, ptr %385, align 8, !tbaa !11
+  %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  %388 = load i64, ptr %387, align 8, !tbaa !72
+  %389 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store ptr %389, ptr %45, align 8, !tbaa !112
+  %390 = icmp eq ptr %386, null
+  %391 = icmp ne i64 %388, 0
+  %or.cond.i.i.i.i94 = and i1 %390, %391
+  br i1 %or.cond.i.i.i.i94, label %392, label %393
 
-393:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91
+392:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-394:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91
+393:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit91
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  store i64 %389, ptr %24, align 8, !tbaa !105
-  %395 = icmp ugt i64 %389, 15
-  br i1 %395, label %396, label %._crit_edge.i.i.i.i.i95
+  store i64 %388, ptr %24, align 8, !tbaa !105
+  %394 = icmp ugt i64 %388, 15
+  br i1 %394, label %395, label %._crit_edge.i.i.i.i.i95
 
-396:                                              ; preds = %394
-  %397 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %45, ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 0) #20
-  store ptr %397, ptr %45, align 8, !tbaa !80
-  %398 = load i64, ptr %24, align 8, !tbaa !105
-  store i64 %398, ptr %390, align 8, !tbaa !25
+395:                                              ; preds = %393
+  %396 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %45, ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef 0) #20
+  store ptr %396, ptr %45, align 8, !tbaa !80
+  %397 = load i64, ptr %24, align 8, !tbaa !105
+  store i64 %397, ptr %389, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i95
 
-._crit_edge.i.i.i.i.i95:                          ; preds = %396, %394
-  %399 = phi ptr [ %397, %396 ], [ %390, %394 ]
-  switch i64 %389, label %402 [
-    i64 1, label %400
+._crit_edge.i.i.i.i.i95:                          ; preds = %395, %393
+  %398 = phi ptr [ %396, %395 ], [ %389, %393 ]
+  switch i64 %388, label %401 [
+    i64 1, label %399
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
   ]
 
-400:                                              ; preds = %._crit_edge.i.i.i.i.i95
-  %401 = load i8, ptr %387, align 1, !tbaa !25
-  store i8 %401, ptr %399, align 1, !tbaa !25
+399:                                              ; preds = %._crit_edge.i.i.i.i.i95
+  %400 = load i8, ptr %386, align 1, !tbaa !25
+  store i8 %400, ptr %398, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
 
-402:                                              ; preds = %._crit_edge.i.i.i.i.i95
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %399, ptr align 1 %387, i64 %389, i1 false)
+401:                                              ; preds = %._crit_edge.i.i.i.i.i95
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %398, ptr align 1 %386, i64 %388, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96: ; preds = %._crit_edge.i.i.i.i.i95, %400, %402
-  %403 = load i64, ptr %24, align 8, !tbaa !105
-  %404 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %403, ptr %404, align 8, !tbaa !3
-  %405 = load ptr, ptr %45, align 8, !tbaa !80
-  %406 = getelementptr inbounds nuw i8, ptr %405, i64 %403
-  store i8 0, ptr %406, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96: ; preds = %._crit_edge.i.i.i.i.i95, %399, %401
+  %402 = load i64, ptr %24, align 8, !tbaa !105
+  %403 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %402, ptr %403, align 8, !tbaa !3
+  %404 = load ptr, ptr %45, align 8, !tbaa !80
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 %402
+  store i8 0, ptr %405, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %407 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i8 1, ptr %407, align 8, !tbaa !799
-  %408 = load i32, ptr %51, align 8, !tbaa !33
-  %409 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i97 = icmp ult i32 %408, %409
-  br i1 %.not.i.i97, label %412, label %410, !prof !81
+  %406 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store i8 1, ptr %406, align 8, !tbaa !799
+  %407 = load i32, ptr %51, align 8, !tbaa !33
+  %408 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i97 = icmp ult i32 %407, %408
+  br i1 %.not.i.i97, label %411, label %409, !prof !81
 
-410:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
-  %411 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %45)
+409:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
+  %410 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %45)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit100"
 
-412:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
-  %413 = zext i32 %408 to i64
-  %414 = load ptr, ptr %0, align 8, !tbaa !31
-  %415 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %414, i64 %413
-  %416 = getelementptr inbounds nuw i8, ptr %415, i64 16
-  store ptr %416, ptr %415, align 8, !tbaa !112
-  %417 = load ptr, ptr %45, align 8, !tbaa !80
-  %418 = load i64, ptr %404, align 8, !tbaa !3
+411:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit96
+  %412 = zext i32 %407 to i64
+  %413 = load ptr, ptr %0, align 8, !tbaa !31
+  %414 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %413, i64 %412
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
+  store ptr %415, ptr %414, align 8, !tbaa !112
+  %416 = load ptr, ptr %45, align 8, !tbaa !80
+  %417 = load i64, ptr %403, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store i64 %418, ptr %23, align 8, !tbaa !105
-  %419 = icmp ugt i64 %418, 15
-  br i1 %419, label %420, label %._crit_edge.i.i.i.i.i98
+  store i64 %417, ptr %23, align 8, !tbaa !105
+  %418 = icmp ugt i64 %417, 15
+  br i1 %418, label %419, label %._crit_edge.i.i.i.i.i98
 
-420:                                              ; preds = %412
-  %421 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %415, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 0) #20
-  store ptr %421, ptr %415, align 8, !tbaa !80
-  %422 = load i64, ptr %23, align 8, !tbaa !105
-  store i64 %422, ptr %416, align 8, !tbaa !25
+419:                                              ; preds = %411
+  %420 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %414, ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef 0) #20
+  store ptr %420, ptr %414, align 8, !tbaa !80
+  %421 = load i64, ptr %23, align 8, !tbaa !105
+  store i64 %421, ptr %415, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i98
 
-._crit_edge.i.i.i.i.i98:                          ; preds = %420, %412
-  %423 = phi ptr [ %421, %420 ], [ %416, %412 ]
-  switch i64 %418, label %426 [
-    i64 1, label %424
+._crit_edge.i.i.i.i.i98:                          ; preds = %419, %411
+  %422 = phi ptr [ %420, %419 ], [ %415, %411 ]
+  switch i64 %417, label %425 [
+    i64 1, label %423
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99
   ]
 
-424:                                              ; preds = %._crit_edge.i.i.i.i.i98
-  %425 = load i8, ptr %417, align 1, !tbaa !25
-  store i8 %425, ptr %423, align 1, !tbaa !25
+423:                                              ; preds = %._crit_edge.i.i.i.i.i98
+  %424 = load i8, ptr %416, align 1, !tbaa !25
+  store i8 %424, ptr %422, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99
 
-426:                                              ; preds = %._crit_edge.i.i.i.i.i98
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %423, ptr align 1 %417, i64 %418, i1 false)
+425:                                              ; preds = %._crit_edge.i.i.i.i.i98
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %422, ptr align 1 %416, i64 %417, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99: ; preds = %426, %424, %._crit_edge.i.i.i.i.i98
-  %427 = load i64, ptr %23, align 8, !tbaa !105
-  %428 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  store i64 %427, ptr %428, align 8, !tbaa !3
-  %429 = load ptr, ptr %415, align 8, !tbaa !80
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 %427
-  store i8 0, ptr %430, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99: ; preds = %425, %423, %._crit_edge.i.i.i.i.i98
+  %426 = load i64, ptr %23, align 8, !tbaa !105
+  %427 = getelementptr inbounds nuw i8, ptr %414, i64 8
+  store i64 %426, ptr %427, align 8, !tbaa !3
+  %428 = load ptr, ptr %414, align 8, !tbaa !80
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 %426
+  store i8 0, ptr %429, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %431 = getelementptr inbounds nuw i8, ptr %415, i64 32
-  %432 = load i8, ptr %407, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %432, ptr %431, align 8, !tbaa !799
-  %433 = load i32, ptr %51, align 8, !tbaa !33
-  %434 = add i32 %433, 1
-  store i32 %434, ptr %51, align 8, !tbaa !33
+  %430 = getelementptr inbounds nuw i8, ptr %414, i64 32
+  %431 = load i8, ptr %406, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %431, ptr %430, align 8, !tbaa !799
+  %432 = load i32, ptr %51, align 8, !tbaa !33
+  %433 = add i32 %432, 1
+  store i32 %433, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit100"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit100": ; preds = %410, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99
-  %435 = load ptr, ptr %45, align 8, !tbaa !80
-  %436 = icmp eq ptr %435, %390
-  br i1 %436, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit100": ; preds = %409, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i99
+  %434 = load ptr, ptr %45, align 8, !tbaa !80
+  %435 = icmp eq ptr %434, %389
+  br i1 %435, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit100"
-  %437 = load i64, ptr %390, align 8, !tbaa !25
-  %438 = add i64 %437, 1
-  call void @_ZdlPvm(ptr noundef %435, i64 noundef %438) #21
+  %436 = load i64, ptr %389, align 8, !tbaa !25
+  %437 = add i64 %436, 1
+  call void @_ZdlPvm(ptr noundef %434, i64 noundef %437) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit100", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i101
-  %439 = select i1 %10, i64 720, i64 744
-  %440 = getelementptr inbounds nuw i8, ptr %1, i64 %439
-  %441 = load ptr, ptr %440, align 8, !tbaa !11
-  %442 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  %443 = load i64, ptr %442, align 8, !tbaa !72
-  %444 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %444, ptr %46, align 8, !tbaa !112
-  %445 = icmp eq ptr %441, null
-  %446 = icmp ne i64 %443, 0
-  %or.cond.i.i.i.i106 = and i1 %445, %446
-  br i1 %or.cond.i.i.i.i106, label %447, label %448
+  %438 = select i1 %10, i64 720, i64 744
+  %439 = getelementptr inbounds nuw i8, ptr %1, i64 %438
+  %440 = load ptr, ptr %439, align 8, !tbaa !11
+  %441 = getelementptr inbounds nuw i8, ptr %439, i64 8
+  %442 = load i64, ptr %441, align 8, !tbaa !72
+  %443 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store ptr %443, ptr %46, align 8, !tbaa !112
+  %444 = icmp eq ptr %440, null
+  %445 = icmp ne i64 %442, 0
+  %or.cond.i.i.i.i106 = and i1 %444, %445
+  br i1 %or.cond.i.i.i.i106, label %446, label %447
 
-447:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103
+446:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-448:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103
+447:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit103
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store i64 %443, ptr %22, align 8, !tbaa !105
-  %449 = icmp ugt i64 %443, 15
-  br i1 %449, label %450, label %._crit_edge.i.i.i.i.i107
+  store i64 %442, ptr %22, align 8, !tbaa !105
+  %448 = icmp ugt i64 %442, 15
+  br i1 %448, label %449, label %._crit_edge.i.i.i.i.i107
 
-450:                                              ; preds = %448
-  %451 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %46, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 0) #20
-  store ptr %451, ptr %46, align 8, !tbaa !80
-  %452 = load i64, ptr %22, align 8, !tbaa !105
-  store i64 %452, ptr %444, align 8, !tbaa !25
+449:                                              ; preds = %447
+  %450 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %46, ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef 0) #20
+  store ptr %450, ptr %46, align 8, !tbaa !80
+  %451 = load i64, ptr %22, align 8, !tbaa !105
+  store i64 %451, ptr %443, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i107
 
-._crit_edge.i.i.i.i.i107:                         ; preds = %450, %448
-  %453 = phi ptr [ %451, %450 ], [ %444, %448 ]
-  switch i64 %443, label %456 [
-    i64 1, label %454
+._crit_edge.i.i.i.i.i107:                         ; preds = %449, %447
+  %452 = phi ptr [ %450, %449 ], [ %443, %447 ]
+  switch i64 %442, label %455 [
+    i64 1, label %453
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
   ]
 
-454:                                              ; preds = %._crit_edge.i.i.i.i.i107
-  %455 = load i8, ptr %441, align 1, !tbaa !25
-  store i8 %455, ptr %453, align 1, !tbaa !25
+453:                                              ; preds = %._crit_edge.i.i.i.i.i107
+  %454 = load i8, ptr %440, align 1, !tbaa !25
+  store i8 %454, ptr %452, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
 
-456:                                              ; preds = %._crit_edge.i.i.i.i.i107
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %453, ptr align 1 %441, i64 %443, i1 false)
+455:                                              ; preds = %._crit_edge.i.i.i.i.i107
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %452, ptr align 1 %440, i64 %442, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108: ; preds = %._crit_edge.i.i.i.i.i107, %454, %456
-  %457 = load i64, ptr %22, align 8, !tbaa !105
-  %458 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i64 %457, ptr %458, align 8, !tbaa !3
-  %459 = load ptr, ptr %46, align 8, !tbaa !80
-  %460 = getelementptr inbounds nuw i8, ptr %459, i64 %457
-  store i8 0, ptr %460, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108: ; preds = %._crit_edge.i.i.i.i.i107, %453, %455
+  %456 = load i64, ptr %22, align 8, !tbaa !105
+  %457 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i64 %456, ptr %457, align 8, !tbaa !3
+  %458 = load ptr, ptr %46, align 8, !tbaa !80
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 %456
+  store i8 0, ptr %459, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %461 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  store i8 1, ptr %461, align 8, !tbaa !799
-  %462 = load i32, ptr %51, align 8, !tbaa !33
-  %463 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i109 = icmp ult i32 %462, %463
-  br i1 %.not.i.i109, label %466, label %464, !prof !81
+  %460 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  store i8 1, ptr %460, align 8, !tbaa !799
+  %461 = load i32, ptr %51, align 8, !tbaa !33
+  %462 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i109 = icmp ult i32 %461, %462
+  br i1 %.not.i.i109, label %465, label %463, !prof !81
 
-464:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
-  %465 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %46)
+463:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
+  %464 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %46)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit112"
 
-466:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
-  %467 = zext i32 %462 to i64
-  %468 = load ptr, ptr %0, align 8, !tbaa !31
-  %469 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %468, i64 %467
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
-  store ptr %470, ptr %469, align 8, !tbaa !112
-  %471 = load ptr, ptr %46, align 8, !tbaa !80
-  %472 = load i64, ptr %458, align 8, !tbaa !3
+465:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit108
+  %466 = zext i32 %461 to i64
+  %467 = load ptr, ptr %0, align 8, !tbaa !31
+  %468 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %467, i64 %466
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 16
+  store ptr %469, ptr %468, align 8, !tbaa !112
+  %470 = load ptr, ptr %46, align 8, !tbaa !80
+  %471 = load i64, ptr %457, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store i64 %472, ptr %21, align 8, !tbaa !105
-  %473 = icmp ugt i64 %472, 15
-  br i1 %473, label %474, label %._crit_edge.i.i.i.i.i110
+  store i64 %471, ptr %21, align 8, !tbaa !105
+  %472 = icmp ugt i64 %471, 15
+  br i1 %472, label %473, label %._crit_edge.i.i.i.i.i110
 
-474:                                              ; preds = %466
-  %475 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %469, ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 0) #20
-  store ptr %475, ptr %469, align 8, !tbaa !80
-  %476 = load i64, ptr %21, align 8, !tbaa !105
-  store i64 %476, ptr %470, align 8, !tbaa !25
+473:                                              ; preds = %465
+  %474 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %468, ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef 0) #20
+  store ptr %474, ptr %468, align 8, !tbaa !80
+  %475 = load i64, ptr %21, align 8, !tbaa !105
+  store i64 %475, ptr %469, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i110
 
-._crit_edge.i.i.i.i.i110:                         ; preds = %474, %466
-  %477 = phi ptr [ %475, %474 ], [ %470, %466 ]
-  switch i64 %472, label %480 [
-    i64 1, label %478
+._crit_edge.i.i.i.i.i110:                         ; preds = %473, %465
+  %476 = phi ptr [ %474, %473 ], [ %469, %465 ]
+  switch i64 %471, label %479 [
+    i64 1, label %477
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111
   ]
 
-478:                                              ; preds = %._crit_edge.i.i.i.i.i110
-  %479 = load i8, ptr %471, align 1, !tbaa !25
-  store i8 %479, ptr %477, align 1, !tbaa !25
+477:                                              ; preds = %._crit_edge.i.i.i.i.i110
+  %478 = load i8, ptr %470, align 1, !tbaa !25
+  store i8 %478, ptr %476, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111
 
-480:                                              ; preds = %._crit_edge.i.i.i.i.i110
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %477, ptr align 1 %471, i64 %472, i1 false)
+479:                                              ; preds = %._crit_edge.i.i.i.i.i110
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %476, ptr align 1 %470, i64 %471, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111: ; preds = %480, %478, %._crit_edge.i.i.i.i.i110
-  %481 = load i64, ptr %21, align 8, !tbaa !105
-  %482 = getelementptr inbounds nuw i8, ptr %469, i64 8
-  store i64 %481, ptr %482, align 8, !tbaa !3
-  %483 = load ptr, ptr %469, align 8, !tbaa !80
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 %481
-  store i8 0, ptr %484, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111: ; preds = %479, %477, %._crit_edge.i.i.i.i.i110
+  %480 = load i64, ptr %21, align 8, !tbaa !105
+  %481 = getelementptr inbounds nuw i8, ptr %468, i64 8
+  store i64 %480, ptr %481, align 8, !tbaa !3
+  %482 = load ptr, ptr %468, align 8, !tbaa !80
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 %480
+  store i8 0, ptr %483, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %485 = getelementptr inbounds nuw i8, ptr %469, i64 32
-  %486 = load i8, ptr %461, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %486, ptr %485, align 8, !tbaa !799
-  %487 = load i32, ptr %51, align 8, !tbaa !33
-  %488 = add i32 %487, 1
-  store i32 %488, ptr %51, align 8, !tbaa !33
+  %484 = getelementptr inbounds nuw i8, ptr %468, i64 32
+  %485 = load i8, ptr %460, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %485, ptr %484, align 8, !tbaa !799
+  %486 = load i32, ptr %51, align 8, !tbaa !33
+  %487 = add i32 %486, 1
+  store i32 %487, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit112"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit112": ; preds = %464, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111
-  %489 = load ptr, ptr %46, align 8, !tbaa !80
-  %490 = icmp eq ptr %489, %444
-  br i1 %490, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit112": ; preds = %463, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i111
+  %488 = load ptr, ptr %46, align 8, !tbaa !80
+  %489 = icmp eq ptr %488, %443
+  br i1 %489, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit112"
-  %491 = load i64, ptr %444, align 8, !tbaa !25
-  %492 = add i64 %491, 1
-  call void @_ZdlPvm(ptr noundef %489, i64 noundef %492) #21
+  %490 = load i64, ptr %443, align 8, !tbaa !25
+  %491 = add i64 %490, 1
+  call void @_ZdlPvm(ptr noundef %488, i64 noundef %491) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit112", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i113
-  %493 = select i1 %5, i64 528, i64 552
-  %494 = getelementptr inbounds nuw i8, ptr %1, i64 %493
-  %495 = load ptr, ptr %494, align 8, !tbaa !11
-  %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
-  %497 = load i64, ptr %496, align 8, !tbaa !72
-  %498 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %498, ptr %47, align 8, !tbaa !112
-  %499 = icmp eq ptr %495, null
-  %500 = icmp ne i64 %497, 0
-  %or.cond.i.i.i.i118 = and i1 %499, %500
-  br i1 %or.cond.i.i.i.i118, label %501, label %502
+  %492 = select i1 %5, i64 528, i64 552
+  %493 = getelementptr inbounds nuw i8, ptr %1, i64 %492
+  %494 = load ptr, ptr %493, align 8, !tbaa !11
+  %495 = getelementptr inbounds nuw i8, ptr %493, i64 8
+  %496 = load i64, ptr %495, align 8, !tbaa !72
+  %497 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store ptr %497, ptr %47, align 8, !tbaa !112
+  %498 = icmp eq ptr %494, null
+  %499 = icmp ne i64 %496, 0
+  %or.cond.i.i.i.i118 = and i1 %498, %499
+  br i1 %or.cond.i.i.i.i118, label %500, label %501
 
-501:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115
+500:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-502:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115
+501:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit115
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store i64 %497, ptr %20, align 8, !tbaa !105
-  %503 = icmp ugt i64 %497, 15
-  br i1 %503, label %504, label %._crit_edge.i.i.i.i.i119
+  store i64 %496, ptr %20, align 8, !tbaa !105
+  %502 = icmp ugt i64 %496, 15
+  br i1 %502, label %503, label %._crit_edge.i.i.i.i.i119
 
-504:                                              ; preds = %502
-  %505 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %47, ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 0) #20
-  store ptr %505, ptr %47, align 8, !tbaa !80
-  %506 = load i64, ptr %20, align 8, !tbaa !105
-  store i64 %506, ptr %498, align 8, !tbaa !25
+503:                                              ; preds = %501
+  %504 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %47, ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef 0) #20
+  store ptr %504, ptr %47, align 8, !tbaa !80
+  %505 = load i64, ptr %20, align 8, !tbaa !105
+  store i64 %505, ptr %497, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i119
 
-._crit_edge.i.i.i.i.i119:                         ; preds = %504, %502
-  %507 = phi ptr [ %505, %504 ], [ %498, %502 ]
-  switch i64 %497, label %510 [
-    i64 1, label %508
+._crit_edge.i.i.i.i.i119:                         ; preds = %503, %501
+  %506 = phi ptr [ %504, %503 ], [ %497, %501 ]
+  switch i64 %496, label %509 [
+    i64 1, label %507
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
   ]
 
-508:                                              ; preds = %._crit_edge.i.i.i.i.i119
-  %509 = load i8, ptr %495, align 1, !tbaa !25
-  store i8 %509, ptr %507, align 1, !tbaa !25
+507:                                              ; preds = %._crit_edge.i.i.i.i.i119
+  %508 = load i8, ptr %494, align 1, !tbaa !25
+  store i8 %508, ptr %506, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
 
-510:                                              ; preds = %._crit_edge.i.i.i.i.i119
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %507, ptr align 1 %495, i64 %497, i1 false)
+509:                                              ; preds = %._crit_edge.i.i.i.i.i119
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %506, ptr align 1 %494, i64 %496, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120: ; preds = %._crit_edge.i.i.i.i.i119, %508, %510
-  %511 = load i64, ptr %20, align 8, !tbaa !105
-  %512 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 %511, ptr %512, align 8, !tbaa !3
-  %513 = load ptr, ptr %47, align 8, !tbaa !80
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 %511
-  store i8 0, ptr %514, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120: ; preds = %._crit_edge.i.i.i.i.i119, %507, %509
+  %510 = load i64, ptr %20, align 8, !tbaa !105
+  %511 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 %510, ptr %511, align 8, !tbaa !3
+  %512 = load ptr, ptr %47, align 8, !tbaa !80
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 %510
+  store i8 0, ptr %513, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %515 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store i8 1, ptr %515, align 8, !tbaa !799
-  %516 = load i32, ptr %51, align 8, !tbaa !33
-  %517 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i121 = icmp ult i32 %516, %517
-  br i1 %.not.i.i121, label %520, label %518, !prof !81
+  %514 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store i8 1, ptr %514, align 8, !tbaa !799
+  %515 = load i32, ptr %51, align 8, !tbaa !33
+  %516 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i121 = icmp ult i32 %515, %516
+  br i1 %.not.i.i121, label %519, label %517, !prof !81
 
-518:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
-  %519 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %47)
+517:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
+  %518 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %47)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit124"
 
-520:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
-  %521 = zext i32 %516 to i64
-  %522 = load ptr, ptr %0, align 8, !tbaa !31
-  %523 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %522, i64 %521
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 16
-  store ptr %524, ptr %523, align 8, !tbaa !112
-  %525 = load ptr, ptr %47, align 8, !tbaa !80
-  %526 = load i64, ptr %512, align 8, !tbaa !3
+519:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit120
+  %520 = zext i32 %515 to i64
+  %521 = load ptr, ptr %0, align 8, !tbaa !31
+  %522 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %521, i64 %520
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 16
+  store ptr %523, ptr %522, align 8, !tbaa !112
+  %524 = load ptr, ptr %47, align 8, !tbaa !80
+  %525 = load i64, ptr %511, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store i64 %526, ptr %19, align 8, !tbaa !105
-  %527 = icmp ugt i64 %526, 15
-  br i1 %527, label %528, label %._crit_edge.i.i.i.i.i122
+  store i64 %525, ptr %19, align 8, !tbaa !105
+  %526 = icmp ugt i64 %525, 15
+  br i1 %526, label %527, label %._crit_edge.i.i.i.i.i122
 
-528:                                              ; preds = %520
-  %529 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %523, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0) #20
-  store ptr %529, ptr %523, align 8, !tbaa !80
-  %530 = load i64, ptr %19, align 8, !tbaa !105
-  store i64 %530, ptr %524, align 8, !tbaa !25
+527:                                              ; preds = %519
+  %528 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %522, ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef 0) #20
+  store ptr %528, ptr %522, align 8, !tbaa !80
+  %529 = load i64, ptr %19, align 8, !tbaa !105
+  store i64 %529, ptr %523, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i122
 
-._crit_edge.i.i.i.i.i122:                         ; preds = %528, %520
-  %531 = phi ptr [ %529, %528 ], [ %524, %520 ]
-  switch i64 %526, label %534 [
-    i64 1, label %532
+._crit_edge.i.i.i.i.i122:                         ; preds = %527, %519
+  %530 = phi ptr [ %528, %527 ], [ %523, %519 ]
+  switch i64 %525, label %533 [
+    i64 1, label %531
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123
   ]
 
-532:                                              ; preds = %._crit_edge.i.i.i.i.i122
-  %533 = load i8, ptr %525, align 1, !tbaa !25
-  store i8 %533, ptr %531, align 1, !tbaa !25
+531:                                              ; preds = %._crit_edge.i.i.i.i.i122
+  %532 = load i8, ptr %524, align 1, !tbaa !25
+  store i8 %532, ptr %530, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123
 
-534:                                              ; preds = %._crit_edge.i.i.i.i.i122
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %531, ptr align 1 %525, i64 %526, i1 false)
+533:                                              ; preds = %._crit_edge.i.i.i.i.i122
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %530, ptr align 1 %524, i64 %525, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123: ; preds = %534, %532, %._crit_edge.i.i.i.i.i122
-  %535 = load i64, ptr %19, align 8, !tbaa !105
-  %536 = getelementptr inbounds nuw i8, ptr %523, i64 8
-  store i64 %535, ptr %536, align 8, !tbaa !3
-  %537 = load ptr, ptr %523, align 8, !tbaa !80
-  %538 = getelementptr inbounds nuw i8, ptr %537, i64 %535
-  store i8 0, ptr %538, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123: ; preds = %533, %531, %._crit_edge.i.i.i.i.i122
+  %534 = load i64, ptr %19, align 8, !tbaa !105
+  %535 = getelementptr inbounds nuw i8, ptr %522, i64 8
+  store i64 %534, ptr %535, align 8, !tbaa !3
+  %536 = load ptr, ptr %522, align 8, !tbaa !80
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 %534
+  store i8 0, ptr %537, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %539 = getelementptr inbounds nuw i8, ptr %523, i64 32
-  %540 = load i8, ptr %515, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %540, ptr %539, align 8, !tbaa !799
-  %541 = load i32, ptr %51, align 8, !tbaa !33
-  %542 = add i32 %541, 1
-  store i32 %542, ptr %51, align 8, !tbaa !33
+  %538 = getelementptr inbounds nuw i8, ptr %522, i64 32
+  %539 = load i8, ptr %514, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %539, ptr %538, align 8, !tbaa !799
+  %540 = load i32, ptr %51, align 8, !tbaa !33
+  %541 = add i32 %540, 1
+  store i32 %541, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit124"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit124": ; preds = %518, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123
-  %543 = load ptr, ptr %47, align 8, !tbaa !80
-  %544 = icmp eq ptr %543, %498
-  br i1 %544, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i125
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit124": ; preds = %517, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i123
+  %542 = load ptr, ptr %47, align 8, !tbaa !80
+  %543 = icmp eq ptr %542, %497
+  br i1 %543, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i125
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i125: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit124"
-  %545 = load i64, ptr %498, align 8, !tbaa !25
-  %546 = add i64 %545, 1
-  call void @_ZdlPvm(ptr noundef %543, i64 noundef %546) #21
+  %544 = load i64, ptr %497, align 8, !tbaa !25
+  %545 = add i64 %544, 1
+  call void @_ZdlPvm(ptr noundef %542, i64 noundef %545) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit124", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i125
-  %547 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %547, ptr %48, align 8, !tbaa !112
-  %548 = icmp eq ptr %3, null
-  %549 = icmp ne i64 %4, 0
-  %or.cond.i.i.i.i128 = and i1 %548, %549
-  br i1 %or.cond.i.i.i.i128, label %550, label %551
+  %546 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store ptr %546, ptr %48, align 8, !tbaa !112
+  %547 = icmp eq ptr %3, null
+  %548 = icmp ne i64 %4, 0
+  %or.cond.i.i.i.i128 = and i1 %547, %548
+  br i1 %or.cond.i.i.i.i128, label %549, label %550
 
-550:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127
+549:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-551:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127
+550:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit127
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %4, ptr %18, align 8, !tbaa !105
-  %552 = icmp ugt i64 %4, 15
-  br i1 %552, label %553, label %._crit_edge.i.i.i.i.i129
+  %551 = icmp ugt i64 %4, 15
+  br i1 %551, label %552, label %._crit_edge.i.i.i.i.i129
 
-553:                                              ; preds = %551
-  %554 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %48, ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0) #20
-  store ptr %554, ptr %48, align 8, !tbaa !80
-  %555 = load i64, ptr %18, align 8, !tbaa !105
-  store i64 %555, ptr %547, align 8, !tbaa !25
+552:                                              ; preds = %550
+  %553 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %48, ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0) #20
+  store ptr %553, ptr %48, align 8, !tbaa !80
+  %554 = load i64, ptr %18, align 8, !tbaa !105
+  store i64 %554, ptr %546, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i129
 
-._crit_edge.i.i.i.i.i129:                         ; preds = %553, %551
-  %556 = phi ptr [ %554, %553 ], [ %547, %551 ]
-  switch i64 %4, label %559 [
-    i64 1, label %557
+._crit_edge.i.i.i.i.i129:                         ; preds = %552, %550
+  %555 = phi ptr [ %553, %552 ], [ %546, %550 ]
+  switch i64 %4, label %558 [
+    i64 1, label %556
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
   ]
 
-557:                                              ; preds = %._crit_edge.i.i.i.i.i129
-  %558 = load i8, ptr %3, align 1, !tbaa !25
-  store i8 %558, ptr %556, align 1, !tbaa !25
+556:                                              ; preds = %._crit_edge.i.i.i.i.i129
+  %557 = load i8, ptr %3, align 1, !tbaa !25
+  store i8 %557, ptr %555, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
 
-559:                                              ; preds = %._crit_edge.i.i.i.i.i129
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %556, ptr align 1 %3, i64 %4, i1 false)
+558:                                              ; preds = %._crit_edge.i.i.i.i.i129
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %555, ptr align 1 %3, i64 %4, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130: ; preds = %._crit_edge.i.i.i.i.i129, %557, %559
-  %560 = load i64, ptr %18, align 8, !tbaa !105
-  %561 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i64 %560, ptr %561, align 8, !tbaa !3
-  %562 = load ptr, ptr %48, align 8, !tbaa !80
-  %563 = getelementptr inbounds nuw i8, ptr %562, i64 %560
-  store i8 0, ptr %563, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130: ; preds = %._crit_edge.i.i.i.i.i129, %556, %558
+  %559 = load i64, ptr %18, align 8, !tbaa !105
+  %560 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i64 %559, ptr %560, align 8, !tbaa !3
+  %561 = load ptr, ptr %48, align 8, !tbaa !80
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 %559
+  store i8 0, ptr %562, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %564 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store i8 1, ptr %564, align 8, !tbaa !799
-  %565 = load i32, ptr %51, align 8, !tbaa !33
-  %566 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i131 = icmp ult i32 %565, %566
-  br i1 %.not.i.i131, label %569, label %567, !prof !81
+  %563 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  store i8 1, ptr %563, align 8, !tbaa !799
+  %564 = load i32, ptr %51, align 8, !tbaa !33
+  %565 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i131 = icmp ult i32 %564, %565
+  br i1 %.not.i.i131, label %568, label %566, !prof !81
 
-567:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
-  %568 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %48)
+566:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
+  %567 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %48)
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit134"
 
-569:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
-  %570 = zext i32 %565 to i64
-  %571 = load ptr, ptr %0, align 8, !tbaa !31
-  %572 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %571, i64 %570
-  %573 = getelementptr inbounds nuw i8, ptr %572, i64 16
-  store ptr %573, ptr %572, align 8, !tbaa !112
-  %574 = load ptr, ptr %48, align 8, !tbaa !80
-  %575 = load i64, ptr %561, align 8, !tbaa !3
+568:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit130
+  %569 = zext i32 %564 to i64
+  %570 = load ptr, ptr %0, align 8, !tbaa !31
+  %571 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %570, i64 %569
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 16
+  store ptr %572, ptr %571, align 8, !tbaa !112
+  %573 = load ptr, ptr %48, align 8, !tbaa !80
+  %574 = load i64, ptr %560, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  store i64 %575, ptr %17, align 8, !tbaa !105
-  %576 = icmp ugt i64 %575, 15
-  br i1 %576, label %577, label %._crit_edge.i.i.i.i.i132
+  store i64 %574, ptr %17, align 8, !tbaa !105
+  %575 = icmp ugt i64 %574, 15
+  br i1 %575, label %576, label %._crit_edge.i.i.i.i.i132
 
-577:                                              ; preds = %569
-  %578 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %572, ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0) #20
-  store ptr %578, ptr %572, align 8, !tbaa !80
-  %579 = load i64, ptr %17, align 8, !tbaa !105
-  store i64 %579, ptr %573, align 8, !tbaa !25
+576:                                              ; preds = %568
+  %577 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %571, ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0) #20
+  store ptr %577, ptr %571, align 8, !tbaa !80
+  %578 = load i64, ptr %17, align 8, !tbaa !105
+  store i64 %578, ptr %572, align 8, !tbaa !25
   br label %._crit_edge.i.i.i.i.i132
 
-._crit_edge.i.i.i.i.i132:                         ; preds = %577, %569
-  %580 = phi ptr [ %578, %577 ], [ %573, %569 ]
-  switch i64 %575, label %583 [
-    i64 1, label %581
+._crit_edge.i.i.i.i.i132:                         ; preds = %576, %568
+  %579 = phi ptr [ %577, %576 ], [ %572, %568 ]
+  switch i64 %574, label %582 [
+    i64 1, label %580
     i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133
   ]
 
-581:                                              ; preds = %._crit_edge.i.i.i.i.i132
-  %582 = load i8, ptr %574, align 1, !tbaa !25
-  store i8 %582, ptr %580, align 1, !tbaa !25
+580:                                              ; preds = %._crit_edge.i.i.i.i.i132
+  %581 = load i8, ptr %573, align 1, !tbaa !25
+  store i8 %581, ptr %579, align 1, !tbaa !25
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133
 
-583:                                              ; preds = %._crit_edge.i.i.i.i.i132
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %580, ptr align 1 %574, i64 %575, i1 false)
+582:                                              ; preds = %._crit_edge.i.i.i.i.i132
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %579, ptr align 1 %573, i64 %574, i1 false)
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133: ; preds = %583, %581, %._crit_edge.i.i.i.i.i132
-  %584 = load i64, ptr %17, align 8, !tbaa !105
-  %585 = getelementptr inbounds nuw i8, ptr %572, i64 8
-  store i64 %584, ptr %585, align 8, !tbaa !3
-  %586 = load ptr, ptr %572, align 8, !tbaa !80
-  %587 = getelementptr inbounds nuw i8, ptr %586, i64 %584
-  store i8 0, ptr %587, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133: ; preds = %582, %580, %._crit_edge.i.i.i.i.i132
+  %583 = load i64, ptr %17, align 8, !tbaa !105
+  %584 = getelementptr inbounds nuw i8, ptr %571, i64 8
+  store i64 %583, ptr %584, align 8, !tbaa !3
+  %585 = load ptr, ptr %571, align 8, !tbaa !80
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 %583
+  store i8 0, ptr %586, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %588 = getelementptr inbounds nuw i8, ptr %572, i64 32
-  %589 = load i8, ptr %564, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %589, ptr %588, align 8, !tbaa !799
-  %590 = load i32, ptr %51, align 8, !tbaa !33
-  %591 = add i32 %590, 1
-  store i32 %591, ptr %51, align 8, !tbaa !33
+  %587 = getelementptr inbounds nuw i8, ptr %571, i64 32
+  %588 = load i8, ptr %563, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %588, ptr %587, align 8, !tbaa !799
+  %589 = load i32, ptr %51, align 8, !tbaa !33
+  %590 = add i32 %589, 1
+  store i32 %590, ptr %51, align 8, !tbaa !33
   br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit134"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit134": ; preds = %567, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133
-  %592 = load ptr, ptr %48, align 8, !tbaa !80
-  %593 = icmp eq ptr %592, %547
-  br i1 %593, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i135
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit134": ; preds = %566, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i133
+  %591 = load ptr, ptr %48, align 8, !tbaa !80
+  %592 = icmp eq ptr %591, %546
+  br i1 %592, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i135
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i135: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit134"
-  %594 = load i64, ptr %547, align 8, !tbaa !25
-  %595 = add i64 %594, 1
-  call void @_ZdlPvm(ptr noundef %592, i64 noundef %595) #21
+  %593 = load i64, ptr %546, align 8, !tbaa !25
+  %594 = add i64 %593, 1
+  call void @_ZdlPvm(ptr noundef %591, i64 noundef %594) #21
   br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137
 
 _ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit134", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i135
-  %596 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %597 = load ptr, ptr %596, align 8, !tbaa !116
-  %598 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %.not10.i.i.i.i = icmp eq ptr %597, null
-  br i1 %.not10.i.i.i.i, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147, label %.lr.ph.i.i.i.i
+  %595 = getelementptr inbounds nuw i8, ptr %1, i64 784
+  %596 = load ptr, ptr %595, align 8, !tbaa !116
+  %597 = getelementptr inbounds nuw i8, ptr %1, i64 776
+  %.not10.i.i.i.i = icmp eq ptr %596, null
+  br i1 %.not10.i.i.i.i, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %597, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %598, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137 ]
-  %599 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %600 = load i32, ptr %599, align 4, !tbaa !83
-  %601 = icmp ult i32 %600, %11
-  %.19.i.i.i.i = select i1 %601, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %601, i64 24, i64 16
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %596, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %597, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137 ]
+  %598 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %599 = load i32, ptr %598, align 4, !tbaa !83
+  %600 = icmp ult i32 %599, %11
+  %.19.i.i.i.i = select i1 %600, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %600, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !117
-  %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !809
+  %.not.i.i.i.i138 = icmp eq ptr %.1.i.i.i.i, null
+  br i1 %.not.i.i.i.i138, label %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !809
 
 _ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %602 = icmp eq ptr %.19.i.i.i.i, %598
-  br i1 %602, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147, label %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i
+  %601 = icmp eq ptr %.19.i.i.i.i, %597
+  br i1 %601, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148, label %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i
 
 _ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i: ; preds = %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %603 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %604 = load i32, ptr %603, align 4, !tbaa !83
-  %605 = icmp ult i32 %11, %604
-  br i1 %605, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147, label %_ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit
+  %602 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %603 = load i32, ptr %602, align 4, !tbaa !83
+  %604 = icmp ult i32 %11, %603
+  br i1 %604, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148, label %_ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit
 
 _ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit: ; preds = %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i
-  %606 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
-  %607 = load ptr, ptr %606, align 8, !tbaa !80
-  %608 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
-  %609 = load i64, ptr %608, align 8, !tbaa !3
-  %610 = icmp eq i64 %609, 0
-  br i1 %610, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147, label %611
+  %605 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
+  %606 = load ptr, ptr %605, align 8, !tbaa !80
+  %607 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
+  %608 = load i64, ptr %607, align 8, !tbaa !3
+  %609 = icmp eq i64 %608, 0
+  br i1 %609, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148, label %610
 
-611:                                              ; preds = %_ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit
-  %612 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %612, ptr %49, align 8, !tbaa !112
-  %613 = icmp eq ptr %607, null
-  br i1 %613, label %614, label %615
+610:                                              ; preds = %_ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit
+  %611 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store ptr %611, ptr %49, align 8, !tbaa !112
+  %612 = icmp eq ptr %606, null
+  br i1 %612, label %613, label %614
 
-614:                                              ; preds = %611
+613:                                              ; preds = %610
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.89) #22
   unreachable
 
-615:                                              ; preds = %611
+614:                                              ; preds = %610
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store i64 %609, ptr %16, align 8, !tbaa !105
-  %616 = icmp ugt i64 %609, 15
-  br i1 %616, label %._crit_edge.i.i.i.i.i139.thread, label %._crit_edge.i.i.i.i.i139
+  store i64 %608, ptr %16, align 8, !tbaa !105
+  %615 = icmp ugt i64 %608, 15
+  br i1 %615, label %._crit_edge.i.i.i.i.i140.thread, label %._crit_edge.i.i.i.i.i140
 
-._crit_edge.i.i.i.i.i139.thread:                  ; preds = %615
-  %617 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %49, ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 0) #20
-  store ptr %617, ptr %49, align 8, !tbaa !80
-  %618 = load i64, ptr %16, align 8, !tbaa !105
-  store i64 %618, ptr %612, align 8, !tbaa !25
-  br label %621
+._crit_edge.i.i.i.i.i140.thread:                  ; preds = %614
+  %616 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %49, ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef 0) #20
+  store ptr %616, ptr %49, align 8, !tbaa !80
+  %617 = load i64, ptr %16, align 8, !tbaa !105
+  store i64 %617, ptr %611, align 8, !tbaa !25
+  br label %620
 
-._crit_edge.i.i.i.i.i139:                         ; preds = %615
-  %cond = icmp eq i64 %609, 1
-  br i1 %cond, label %619, label %621
+._crit_edge.i.i.i.i.i140:                         ; preds = %614
+  %cond = icmp eq i64 %608, 1
+  br i1 %cond, label %618, label %620
 
-619:                                              ; preds = %._crit_edge.i.i.i.i.i139
-  %620 = load i8, ptr %607, align 1, !tbaa !25
-  store i8 %620, ptr %612, align 8, !tbaa !25
-  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit140
+618:                                              ; preds = %._crit_edge.i.i.i.i.i140
+  %619 = load i8, ptr %606, align 1, !tbaa !25
+  store i8 %619, ptr %611, align 8, !tbaa !25
+  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit141
 
-621:                                              ; preds = %._crit_edge.i.i.i.i.i139.thread, %._crit_edge.i.i.i.i.i139
-  %622 = phi ptr [ %617, %._crit_edge.i.i.i.i.i139.thread ], [ %612, %._crit_edge.i.i.i.i.i139 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %622, ptr nonnull align 1 %607, i64 %609, i1 false)
-  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit140
+620:                                              ; preds = %._crit_edge.i.i.i.i.i140.thread, %._crit_edge.i.i.i.i.i140
+  %621 = phi ptr [ %616, %._crit_edge.i.i.i.i.i140.thread ], [ %611, %._crit_edge.i.i.i.i.i140 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %621, ptr nonnull align 1 %606, i64 %608, i1 false)
+  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit141
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit140: ; preds = %619, %621
-  %623 = load i64, ptr %16, align 8, !tbaa !105
-  %624 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %623, ptr %624, align 8, !tbaa !3
-  %625 = load ptr, ptr %49, align 8, !tbaa !80
-  %626 = getelementptr inbounds nuw i8, ptr %625, i64 %623
-  store i8 0, ptr %626, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit141: ; preds = %618, %620
+  %622 = load i64, ptr %16, align 8, !tbaa !105
+  %623 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 %622, ptr %623, align 8, !tbaa !3
+  %624 = load ptr, ptr %49, align 8, !tbaa !80
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 %622
+  store i8 0, ptr %625, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %627 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store i8 1, ptr %627, align 8, !tbaa !799
-  %628 = load i32, ptr %51, align 8, !tbaa !33
-  %629 = load i32, ptr %52, align 4, !tbaa !34
-  %.not.i.i141 = icmp ult i32 %628, %629
-  br i1 %.not.i.i141, label %632, label %630, !prof !81
+  %626 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  store i8 1, ptr %626, align 8, !tbaa !799
+  %627 = load i32, ptr %51, align 8, !tbaa !33
+  %628 = load i32, ptr %52, align 4, !tbaa !34
+  %.not.i.i142 = icmp ult i32 %627, %628
+  br i1 %.not.i.i142, label %631, label %629, !prof !81
 
-630:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit140
-  %631 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %49)
-  br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit144"
+629:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit141
+  %630 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver9ToolChain18BitCodeLibraryInfoELb0EE18growAndEmplaceBackIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(33) %49)
+  br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit145"
 
-632:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit140
-  %633 = zext i32 %628 to i64
-  %634 = load ptr, ptr %0, align 8, !tbaa !31
-  %635 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %634, i64 %633
-  %636 = getelementptr inbounds nuw i8, ptr %635, i64 16
-  store ptr %636, ptr %635, align 8, !tbaa !112
-  %637 = load ptr, ptr %49, align 8, !tbaa !80
-  %638 = load i64, ptr %624, align 8, !tbaa !3
+631:                                              ; preds = %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2EN4llvm9StringRefEb.exit141
+  %632 = zext i32 %627 to i64
+  %633 = load ptr, ptr %0, align 8, !tbaa !31
+  %634 = getelementptr inbounds nuw %"struct.clang::driver::ToolChain::BitCodeLibraryInfo", ptr %633, i64 %632
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 16
+  store ptr %635, ptr %634, align 8, !tbaa !112
+  %636 = load ptr, ptr %49, align 8, !tbaa !80
+  %637 = load i64, ptr %623, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i64 %638, ptr %15, align 8, !tbaa !105
-  %639 = icmp ugt i64 %638, 15
-  br i1 %639, label %640, label %._crit_edge.i.i.i.i.i142
+  store i64 %637, ptr %15, align 8, !tbaa !105
+  %638 = icmp ugt i64 %637, 15
+  br i1 %638, label %639, label %._crit_edge.i.i.i.i.i143
 
-640:                                              ; preds = %632
-  %641 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %635, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0) #20
-  store ptr %641, ptr %635, align 8, !tbaa !80
-  %642 = load i64, ptr %15, align 8, !tbaa !105
-  store i64 %642, ptr %636, align 8, !tbaa !25
-  br label %._crit_edge.i.i.i.i.i142
+639:                                              ; preds = %631
+  %640 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %634, ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef 0) #20
+  store ptr %640, ptr %634, align 8, !tbaa !80
+  %641 = load i64, ptr %15, align 8, !tbaa !105
+  store i64 %641, ptr %635, align 8, !tbaa !25
+  br label %._crit_edge.i.i.i.i.i143
 
-._crit_edge.i.i.i.i.i142:                         ; preds = %640, %632
-  %643 = phi ptr [ %641, %640 ], [ %636, %632 ]
-  switch i64 %638, label %646 [
-    i64 1, label %644
-    i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i143
+._crit_edge.i.i.i.i.i143:                         ; preds = %639, %631
+  %642 = phi ptr [ %640, %639 ], [ %635, %631 ]
+  switch i64 %637, label %645 [
+    i64 1, label %643
+    i64 0, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i144
   ]
 
-644:                                              ; preds = %._crit_edge.i.i.i.i.i142
-  %645 = load i8, ptr %637, align 1, !tbaa !25
-  store i8 %645, ptr %643, align 1, !tbaa !25
-  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i143
+643:                                              ; preds = %._crit_edge.i.i.i.i.i143
+  %644 = load i8, ptr %636, align 1, !tbaa !25
+  store i8 %644, ptr %642, align 1, !tbaa !25
+  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i144
 
-646:                                              ; preds = %._crit_edge.i.i.i.i.i142
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %643, ptr align 1 %637, i64 %638, i1 false)
-  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i143
+645:                                              ; preds = %._crit_edge.i.i.i.i.i143
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %642, ptr align 1 %636, i64 %637, i1 false)
+  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i144
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i143: ; preds = %646, %644, %._crit_edge.i.i.i.i.i142
-  %647 = load i64, ptr %15, align 8, !tbaa !105
-  %648 = getelementptr inbounds nuw i8, ptr %635, i64 8
-  store i64 %647, ptr %648, align 8, !tbaa !3
-  %649 = load ptr, ptr %635, align 8, !tbaa !80
-  %650 = getelementptr inbounds nuw i8, ptr %649, i64 %647
-  store i8 0, ptr %650, align 1, !tbaa !25
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i144: ; preds = %645, %643, %._crit_edge.i.i.i.i.i143
+  %646 = load i64, ptr %15, align 8, !tbaa !105
+  %647 = getelementptr inbounds nuw i8, ptr %634, i64 8
+  store i64 %646, ptr %647, align 8, !tbaa !3
+  %648 = load ptr, ptr %634, align 8, !tbaa !80
+  %649 = getelementptr inbounds nuw i8, ptr %648, i64 %646
+  store i8 0, ptr %649, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %651 = getelementptr inbounds nuw i8, ptr %635, i64 32
-  %652 = load i8, ptr %627, align 8, !tbaa !799, !range !92, !noundef !156
-  store i8 %652, ptr %651, align 8, !tbaa !799
-  %653 = load i32, ptr %51, align 8, !tbaa !33
-  %654 = add i32 %653, 1
-  store i32 %654, ptr %51, align 8, !tbaa !33
-  br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit144"
+  %650 = getelementptr inbounds nuw i8, ptr %634, i64 32
+  %651 = load i8, ptr %626, align 8, !tbaa !799, !range !92, !noundef !156
+  store i8 %651, ptr %650, align 8, !tbaa !799
+  %652 = load i32, ptr %51, align 8, !tbaa !33
+  %653 = add i32 %652, 1
+  store i32 %653, ptr %51, align 8, !tbaa !33
+  br label %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit145"
 
-"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit144": ; preds = %630, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i143
-  %655 = load ptr, ptr %49, align 8, !tbaa !80
-  %656 = icmp eq ptr %655, %612
-  br i1 %656, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i145
+"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit145": ; preds = %629, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoC2ERKS2_.exit.i.i144
+  %654 = load ptr, ptr %49, align 8, !tbaa !80
+  %655 = icmp eq ptr %654, %611
+  br i1 %655, label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i146
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i145: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit144"
-  %657 = load i64, ptr %612, align 8, !tbaa !25
-  %658 = add i64 %657, 1
-  call void @_ZdlPvm(ptr noundef %655, i64 noundef %658) #21
-  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i146: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit145"
+  %656 = load i64, ptr %611, align 8, !tbaa !25
+  %657 = add i64 %656, 1
+  call void @_ZdlPvm(ptr noundef %654, i64 noundef %657) #21
+  br label %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148
 
-_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit147: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit144", %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137, %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i145, %_ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit
+_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit148: ; preds = %"_ZZNK5clang6driver24RocmInstallationDetector20getCommonBitcodeLibsERKN4llvm3opt7ArgListENS2_9StringRefEbbbbbbNS0_19DeviceLibABIVersionERKSt5tupleIJbKNS0_13SanitizerArgsEEEbENK3$_1clENS0_9ToolChain18BitCodeLibraryInfoEb.exit145", %_ZNKSt8_Rb_treeIjSt4pairIKjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIjESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN5clang6driver9ToolChain18BitCodeLibraryInfoD2Ev.exit137, %_ZNKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE4findERS9_.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i146, %_ZNK5clang6driver24RocmInstallationDetector17getABIVersionPathENS0_19DeviceLibABIVersionE.exit
   call void @_ZN5clang6driver13SanitizerArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %39) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   ret void

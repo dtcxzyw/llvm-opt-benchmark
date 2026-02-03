@@ -1059,7 +1059,7 @@ Vec_VecExpand.exit:                               ; preds = %24, %._crit_edge.i
 
 .lr.ph151:                                        ; preds = %Vec_VecExpand.exit
   %55 = getelementptr i8, ptr %50, i64 8
-  %56 = icmp ne i32 %10, 0
+  %56 = trunc i64 %8 to i1
   br label %57
 
 57:                                               ; preds = %.lr.ph151, %71
@@ -1068,7 +1068,7 @@ Vec_VecExpand.exit:                               ; preds = %24, %._crit_edge.i
   %58 = getelementptr inbounds nuw ptr, ptr %.val124, i64 %indvars.iv153
   %59 = load ptr, ptr %58, align 8, !tbaa !21
   %60 = icmp eq i64 %indvars.iv153, 0
-  %61 = and i1 %56, %60
+  %61 = and i1 %60, %56
   %62 = ptrtoint ptr %59 to i64
   %63 = zext i1 %61 to i64
   %64 = xor i64 %62, %63

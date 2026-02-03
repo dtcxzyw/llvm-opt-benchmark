@@ -899,9 +899,8 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %39 = getelementptr inbounds i8, ptr %1, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i32, ptr %40, align 8, !tbaa !123
-  %42 = and i32 %41, 1
-  %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %43, label %75
+  %42 = trunc i32 %41 to i1
+  br i1 %42, label %75, label %43
 
 43:                                               ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -943,10 +942,10 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
 .critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
   %.pre = load ptr, ptr %1, align 8, !tbaa !38
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre13 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert14 = getelementptr inbounds i8, ptr %1, i64 %.pre13
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert14, i64 32
-  %.pre16 = load i32, ptr %.phi.trans.insert15, align 8, !tbaa !123
+  %.pre12 = load i64, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert13 = getelementptr inbounds i8, ptr %1, i64 %.pre12
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert13, i64 32
+  %.pre15 = load i32, ptr %.phi.trans.insert14, align 8, !tbaa !123
   br label %_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit, !llvm.loop !133
 
 62:                                               ; preds = %54
@@ -968,10 +967,9 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   br i1 %exitcond.not.i11, label %.critedge2.i, label %54, !llvm.loop !134
 
 _ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit: ; preds = %45, %.critedge2..critedge_crit_edge.i
-  %68 = phi i32 [ %.pre16, %.critedge2..critedge_crit_edge.i ], [ %51, %45 ]
-  %69 = and i32 %68, 1
-  %.not12 = icmp eq i32 %69, 0
-  br i1 %.not12, label %75, label %70
+  %68 = phi i32 [ %.pre15, %.critedge2..critedge_crit_edge.i ], [ %51, %45 ]
+  %69 = trunc i32 %68 to i1
+  br i1 %69, label %70, label %75
 
 70:                                               ; preds = %_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit
   store double 1.000000e+00, ptr %44, align 16, !tbaa !52
@@ -986,11 +984,12 @@ _ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit: ; preds = %45, %
   br label %75
 
 75:                                               ; preds = %_ZN3g2o8BaseEdgeILi3ENS_3SE2EE21readInformationMatrixERSi.exit, %70, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %.1 = xor i1 %42, true
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %76
 
 76:                                               ; preds = %11, %2, %75
-  %.0 = phi i1 [ %.not, %75 ], [ false, %2 ], [ false, %11 ]
+  %.0 = phi i1 [ %.1, %75 ], [ false, %2 ], [ false, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0

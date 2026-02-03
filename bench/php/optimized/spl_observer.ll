@@ -3201,8 +3201,8 @@ define hidden void @zim_MultipleIterator_valid(ptr noundef readonly captures(non
 14:                                               ; preds = %.critedge
   %15 = getelementptr inbounds i8, ptr %5, i64 -16
   %16 = load i64, ptr %15, align 8, !tbaa !10
+  %.not23 = trunc i64 %16 to i1
   %17 = and i64 %16, 1
-  %.not23.not = icmp eq i64 %17, 0
   %18 = getelementptr inbounds i8, ptr %5, i64 -24
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %6, ptr noundef nonnull %18) #10
   %19 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %6, ptr noundef nonnull %18) #10
@@ -3243,7 +3243,7 @@ define hidden void @zim_MultipleIterator_valid(ptr noundef readonly captures(non
   br i1 %.not25, label %40, label %.thread
 
 .thread:                                          ; preds = %37
-  %38 = select i1 %.not23.not, i32 3, i32 2
+  %38 = select i1 %.not23, i32 2, i32 3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %38, ptr %39, align 8, !tbaa !4
   br label %46
@@ -3258,7 +3258,7 @@ define hidden void @zim_MultipleIterator_valid(ptr noundef readonly captures(non
   br i1 %or.cond, label %22, label %zend_hash_get_current_data_ptr_ex.exit.thread
 
 zend_hash_get_current_data_ptr_ex.exit.thread:    ; preds = %40, %14
-  %44 = select i1 %.not23.not, i32 2, i32 3
+  %44 = select i1 %.not23, i32 3, i32 2
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %44, ptr %45, align 8, !tbaa !4
   br label %46
@@ -3966,9 +3966,8 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %0, i64 -16
   %12 = load i64, ptr %11, align 8, !tbaa !10
-  %13 = and i64 %12, 1
-  %.not36 = icmp eq i64 %13, 0
-  br i1 %.not36, label %15, label %.critedge, !prof !8
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %.critedge, label %15, !prof !9
 
 .critedge:                                        ; preds = %7, %4, %10
   %14 = tail call ptr @zend_std_read_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #10
@@ -4016,9 +4015,9 @@ define internal ptr @spl_object_storage_read_dimension(ptr noundef %0, ptr nound
   br i1 %.not33, label %45, label %.sink.split
 
 .sink.split:                                      ; preds = %32, %35
-  %.sink43 = phi i32 [ %39, %35 ], [ %30, %32 ]
+  %.sink42 = phi i32 [ %39, %35 ], [ %30, %32 ]
   %.sink.in = phi ptr [ %37, %35 ], [ %28, %32 ]
-  %41 = and i32 %.sink43, 65280
+  %41 = and i32 %.sink42, 65280
   %42 = icmp ne i32 %41, 0
   tail call void @llvm.assume(i1 %42)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
@@ -4089,9 +4088,8 @@ define internal i32 @spl_object_storage_has_dimension(ptr noundef %0, ptr nounde
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
   %11 = load i64, ptr %10, align 8, !tbaa !10
-  %12 = and i64 %11, 1
-  %.not20 = icmp eq i64 %12, 0
-  br i1 %.not20, label %14, label %.critedge, !prof !8
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %.critedge, label %14, !prof !9
 
 .critedge:                                        ; preds = %6, %3, %9
   %13 = tail call i32 @zend_std_has_dimension(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10

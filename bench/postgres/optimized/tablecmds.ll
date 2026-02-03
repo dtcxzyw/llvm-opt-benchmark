@@ -13757,9 +13757,8 @@ ATExecDropConstraint.exit:                        ; preds = %1148, %1158, %1160
   store i8 0, ptr %21, align 1
   %1299 = getelementptr i8, ptr %1291, i64 20
   %.val.val.i.i = load i16, ptr %1299, align 4
-  %1300 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i300 = icmp eq i16 %1300, 0
-  br i1 %.not.i.i.i300, label %1301, label %1340
+  %1300 = trunc i16 %.val.val.i.i to i1
+  br i1 %1300, label %1340, label %1301
 
 1301:                                             ; preds = %1298
   %1302 = getelementptr i8, ptr %1290, i64 408
@@ -13833,8 +13832,8 @@ ATExecDropConstraint.exit:                        ; preds = %1148, %1158, %1160
   %1341 = getelementptr inbounds nuw i8, ptr %1291, i64 26
   %1342 = load i8, ptr %1341, align 1
   %1343 = and i8 %1342, 1
-  %.not.i20.i.i = icmp eq i8 %1343, 0
-  br i1 %.not.i20.i.i, label %1344, label %1345
+  %.not.i.i.i301 = icmp eq i8 %1343, 0
+  br i1 %.not.i.i.i301, label %1344, label %1345
 
 1344:                                             ; preds = %1340
   store i8 1, ptr %21, align 1
@@ -13845,7 +13844,7 @@ ATExecDropConstraint.exit:                        ; preds = %1148, %1158, %1160
   br label %heap_getattr.exit
 
 heap_getattr.exit:                                ; preds = %1296, %1322, %1325, %1328, %1331, %1336, %1338, %1344, %1345
-  %.0.i301 = phi i64 [ %1297, %1296 ], [ %1346, %1345 ], [ 0, %1344 ], [ %1339, %1338 ], [ %1324, %1322 ], [ %1327, %1325 ], [ %1330, %1328 ], [ %1332, %1331 ], [ %1337, %1336 ]
+  %.0.i300 = phi i64 [ %1297, %1296 ], [ %1346, %1345 ], [ 0, %1344 ], [ %1339, %1338 ], [ %1324, %1322 ], [ %1327, %1325 ], [ %1330, %1328 ], [ %1332, %1331 ], [ %1337, %1336 ]
   %1347 = load i8, ptr %21, align 1, !range !6, !noundef !7
   %1348 = trunc nuw i8 %1347 to i1
   br i1 %1348, label %1376, label %1349
@@ -13868,7 +13867,7 @@ heap_getattr.exit:                                ; preds = %1296, %1322, %1325,
   %1355 = trunc nuw i8 %1354 to i1
   %1356 = getelementptr inbounds nuw i8, ptr %1192, i64 83
   %1357 = load i8, ptr %1356, align 1
-  %1358 = call i64 @array_get_element(i64 noundef %.0.i301, i32 noundef 1, ptr noundef nonnull %22, i32 noundef 0, i32 noundef %1352, i1 noundef zeroext %1355, i8 noundef signext %1357, ptr noundef nonnull %23) #15
+  %1358 = call i64 @array_get_element(i64 noundef %.0.i300, i32 noundef 1, ptr noundef nonnull %22, i32 noundef 0, i32 noundef %1352, i1 noundef zeroext %1355, i8 noundef signext %1357, ptr noundef nonnull %23) #15
   store i64 %1358, ptr %20, align 8
   %1359 = getelementptr inbounds nuw i8, ptr %1221, i64 76
   %1360 = load i16, ptr %1359, align 4
@@ -26110,9 +26109,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %.val.i = load ptr, ptr %5, align 8
   %15 = getelementptr i8, ptr %.val.i, i64 20
   %.val.val.i = load i16, ptr %15, align 4
-  %16 = and i16 %.val.val.i, 1
-  %.not.i.i = icmp eq i16 %16, 0
-  br i1 %.not.i.i, label %17, label %58
+  %16 = trunc i16 %.val.val.i to i1
+  br i1 %16, label %58, label %17
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
@@ -26195,8 +26193,8 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   %66 = and i32 %59, 7
   %67 = shl nuw nsw i32 1, %66
   %68 = and i32 %67, %65
-  %.not.i20.i = icmp eq i32 %68, 0
-  br i1 %.not.i20.i, label %69, label %70
+  %.not.i.i = icmp eq i32 %68, 0
+  br i1 %.not.i.i, label %69, label %70
 
 69:                                               ; preds = %58
   store i8 1, ptr %3, align 1

@@ -52,13 +52,12 @@ define dso_local noundef i32 @_ZN4absl13base_internal8SpinLock8SpinLoopEv(ptr no
   br label %5
 
 5:                                                ; preds = %5, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit"
-  %.0 = phi i32 [ %4, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit" ], [ %8, %5 ]
+  %.0 = phi i32 [ %4, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit" ], [ %7, %5 ]
   %6 = load atomic i32, ptr %0 monotonic, align 4
-  %7 = and i32 %6, 1
-  %.not = icmp ne i32 %7, 0
-  %8 = add nsw i32 %.0, -1
-  %9 = icmp sgt i32 %.0, 1
-  %or.cond = select i1 %.not, i1 %9, i1 false
+  %.not = trunc i32 %6 to i1
+  %7 = add nsw i32 %.0, -1
+  %8 = icmp sgt i32 %.0, 1
+  %or.cond = select i1 %.not, i1 %8, i1 false
   br i1 %or.cond, label %5, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %5

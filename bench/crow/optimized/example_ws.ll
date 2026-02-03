@@ -84803,76 +84803,76 @@ define linkonce_odr dso_local noundef i32 @_ZN4crow10HTTPParserINS_10ConnectionI
 define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11http_parserEPKNS_20http_parser_settingsEPKcm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 comdat {
   %5 = load i32, ptr %0, align 8
   %.fr2565 = freeze i32 %5
-  %6 = lshr i32 %.fr2565, 29
-  %7 = and i32 %6, 1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !2244
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %11 = load i16, ptr %10, align 2
-  %12 = and i16 %11, 32512
-  %.not = icmp eq i16 %12, 0
-  br i1 %.not, label %13, label %.thread1321
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !2244
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %9 = load i16, ptr %8, align 2
+  %10 = and i16 %9, 32512
+  %.not = icmp eq i16 %10, 0
+  br i1 %.not, label %11, label %.thread1321
 
-13:                                               ; preds = %4
-  %14 = icmp eq i64 %3, 0
-  br i1 %14, label %15, label %.lr.ph2557
+11:                                               ; preds = %4
+  %12 = icmp eq i64 %3, 0
+  br i1 %12, label %13, label %.lr.ph2557
 
-15:                                               ; preds = %13
-  %16 = lshr i32 %.fr2565, 7
-  %trunc1257 = trunc i32 %16 to i8
-  switch i8 %trunc1257, label %26 [
-    i8 45, label %17
+13:                                               ; preds = %11
+  %14 = lshr i32 %.fr2565, 7
+  %trunc1257 = trunc i32 %14 to i8
+  switch i8 %trunc1257, label %24 [
+    i8 45, label %15
     i8 1, label %.thread1321
     i8 2, label %.thread1321
   ]
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %19 = load ptr, ptr %18, align 8, !tbaa !2245
-  %.not1258 = icmp eq ptr %19, null
-  br i1 %.not1258, label %.thread1321, label %20, !prof !363
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %17 = load ptr, ptr %16, align 8, !tbaa !2245
+  %.not1258 = icmp eq ptr %17, null
+  br i1 %.not1258, label %.thread1321, label %18, !prof !363
 
-20:                                               ; preds = %17
-  %21 = tail call noundef i32 %19(ptr noundef nonnull %0)
-  %.not1259 = icmp eq i32 %21, 0
-  br i1 %.not1259, label %.thread1321, label %22, !prof !478
+18:                                               ; preds = %15
+  %19 = tail call noundef i32 %17(ptr noundef nonnull %0)
+  %.not1259 = icmp eq i32 %19, 0
+  br i1 %.not1259, label %.thread1321, label %20, !prof !478
 
-22:                                               ; preds = %20
-  store i32 %9, ptr %8, align 4, !tbaa !2244
-  %23 = load i16, ptr %10, align 2
-  %24 = and i16 %23, -32513
-  %25 = or disjoint i16 %24, 2048
-  store i16 %25, ptr %10, align 2
+20:                                               ; preds = %18
+  store i32 %7, ptr %6, align 4, !tbaa !2244
+  %21 = load i16, ptr %8, align 2
+  %22 = and i16 %21, -32513
+  %23 = or disjoint i16 %22, 2048
+  store i16 %23, ptr %8, align 2
   br label %.thread1321
 
-26:                                               ; preds = %15
-  %27 = or disjoint i16 %11, 2560
-  store i16 %27, ptr %10, align 2
+24:                                               ; preds = %13
+  %25 = or disjoint i16 %9, 2560
+  store i16 %25, ptr %8, align 2
   br label %.thread1321
 
-.lr.ph2557:                                       ; preds = %13
-  %28 = getelementptr i8, ptr %2, i64 %3
-  %29 = and i32 %.fr2565, 32640
-  %30 = icmp eq i32 %29, 3456
-  %spec.select = select i1 %30, ptr %2, ptr null
-  %31 = icmp eq i32 %29, 4096
-  %.01023 = select i1 %31, ptr %2, ptr null
-  %32 = lshr i32 %.fr2565, 7
-  %trunc = trunc i32 %32 to i8
+.lr.ph2557:                                       ; preds = %11
+  %26 = getelementptr i8, ptr %2, i64 %3
+  %27 = and i32 %.fr2565, 32640
+  %28 = icmp eq i32 %27, 3456
+  %spec.select = select i1 %28, ptr %2, ptr null
+  %29 = icmp eq i32 %27, 4096
+  %.01023 = select i1 %29, ptr %2, ptr null
+  %30 = lshr i32 %.fr2565, 7
+  %trunc = trunc i32 %30 to i8
   %trunc.off = add i8 %trunc, -5
   %switch = icmp ult i8 %trunc.off, 9
   %spec.select1277 = select i1 %switch, ptr %2, ptr null
-  %33 = and i32 %.fr2565, 268435456
-  %.not1182 = icmp eq i32 %33, 0
-  %.not1181 = icmp eq i32 %7, 0
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = icmp ne i32 %7, 0
+  %31 = and i32 %.fr2565, 268435456
+  %.not1182 = icmp eq i32 %31, 0
+  %32 = and i32 %.fr2565, 536870912
+  %.not1181 = icmp eq i32 %32, 0
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = and i32 %.fr2565, 536870912
+  %36 = icmp ne i32 %35, 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = ptrtoint ptr %28 to i64
+  %38 = ptrtoint ptr %26 to i64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %41 = getelementptr inbounds i8, ptr %28, i64 -1
+  %41 = getelementptr inbounds i8, ptr %26, i64 -1
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -84886,7 +84886,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %.110242551 = phi ptr [ %.01023, %.lr.ph2557 ], [ %.91032, %.thread1286 ]
   %.110342548 = phi ptr [ %spec.select1277, %.lr.ph2557 ], [ %.31036, %.thread1286 ]
   %.010372545 = phi ptr [ null, %.lr.ph2557 ], [ %.21039, %.thread1286 ]
-  %.010472544 = phi i32 [ %9, %.lr.ph2557 ], [ %.61053, %.thread1286 ]
+  %.010472544 = phi i32 [ %7, %.lr.ph2557 ], [ %.61053, %.thread1286 ]
   %.010542543 = phi ptr [ null, %.lr.ph2557 ], [ %.71061, %.thread1286 ]
   %48 = load i8, ptr %.010072555, align 1, !tbaa !14
   %49 = load i32, ptr %0, align 8
@@ -84900,10 +84900,10 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br i1 %54, label %55, label %59, !prof !363
 
 55:                                               ; preds = %52
-  %56 = load i16, ptr %10, align 2
+  %56 = load i16, ptr %8, align 2
   %57 = and i16 %56, -32513
   %58 = or disjoint i16 %57, 2816
-  store i16 %58, ptr %10, align 2
+  store i16 %58, ptr %8, align 2
   br label %.thread
 
 59:                                               ; preds = %52, %47
@@ -85062,7 +85062,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 
 .preheader:                                       ; preds = %.outer1371.split.us, %.outer1371.split
   %73 = phi i32 [ %71, %.outer1371.split ], [ %62, %.outer1371.split.us ]
-  %.not12172538 = icmp eq ptr %.21009.ph1365, %28
+  %.not12172538 = icmp eq ptr %.21009.ph1365, %26
   br i1 %.not12172538, label %._crit_edge, label %.lr.ph2540
 
 .split2239.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split
@@ -85072,10 +85072,10 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   ], !prof !2247
 
 74:                                               ; preds = %.split2239.us
-  %75 = load i16, ptr %10, align 2
+  %75 = load i16, ptr %8, align 2
   %76 = and i16 %75, -32513
   %77 = or disjoint i16 %76, 3072
-  store i16 %77, ptr %10, align 2
+  store i16 %77, ptr %8, align 2
   br label %.thread
 
 .split2246.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split
@@ -85092,18 +85092,18 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %80 = or i8 %.0995.ph1372, 32
   %81 = add i8 %80, -123
   %82 = icmp ult i8 %81, -26
-  %83 = load i16, ptr %10, align 2
+  %83 = load i16, ptr %8, align 2
   br i1 %82, label %84, label %87, !prof !363
 
 84:                                               ; preds = %78
   %85 = and i16 %83, -32513
   %86 = or disjoint i16 %85, 3840
-  store i16 %86, ptr %10, align 2
+  store i16 %86, ptr %8, align 2
   br label %.thread
 
 87:                                               ; preds = %78
   %88 = and i16 %83, -256
-  store i16 %88, ptr %10, align 2
+  store i16 %88, ptr %8, align 2
   %89 = and i32 %.us-phi2252, -264241280
   %90 = or disjoint i32 %89, 4194304
   store i32 %90, ptr %0, align 8
@@ -85167,13 +85167,13 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 104:                                              ; preds = %87
   %105 = and i16 %83, -32768
   %106 = or disjoint i16 %105, 3840
-  store i16 %106, ptr %10, align 2
+  store i16 %106, ptr %8, align 2
   br label %.thread
 
 .sink.split:                                      ; preds = %87, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103
   %.sink4872 = phi i16 [ 17, %103 ], [ 7, %102 ], [ 28, %101 ], [ 22, %100 ], [ 3, %99 ], [ 6, %98 ], [ 27, %97 ], [ 12, %96 ], [ 11, %95 ], [ 2, %94 ], [ 1, %93 ], [ 5, %92 ], [ 18, %91 ], [ 21, %87 ]
   %107 = or disjoint i16 %88, %.sink4872
-  store i16 %107, ptr %10, align 2
+  store i16 %107, ptr %8, align 2
   br label %108
 
 108:                                              ; preds = %.sink.split, %87
@@ -85187,14 +85187,14 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 112:                                              ; preds = %108
   %113 = tail call noundef i32 %111(ptr noundef nonnull %0)
   %.not1255 = icmp eq i32 %113, 0
-  %.pre3678 = load i16, ptr %10, align 2
+  %.pre3678 = load i16, ptr %8, align 2
   br i1 %.not1255, label %117, label %114, !prof !478
 
 114:                                              ; preds = %112
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %115 = and i16 %.pre3678, -32513
   %116 = or disjoint i16 %115, 256
-  store i16 %116, ptr %10, align 2
+  store i16 %116, ptr %8, align 2
   br label %117
 
 117:                                              ; preds = %114, %112
@@ -85213,13 +85213,13 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %.us-phi2260 = phi i32 [ %71, %.outer1371.split ], [ %62, %.outer1371.split.us ]
   %123 = zext i8 %.0995.ph1372 to i32
   %124 = icmp eq i8 %.0995.ph1372, 0
-  %125 = load i16, ptr %10, align 2
+  %125 = load i16, ptr %8, align 2
   br i1 %124, label %126, label %129, !prof !363
 
 126:                                              ; preds = %.split2254.us
   %127 = and i16 %125, -32513
   %128 = or disjoint i16 %127, 3840
-  store i16 %128, ptr %10, align 2
+  store i16 %128, ptr %8, align 2
   br label %.thread
 
 129:                                              ; preds = %.split2254.us
@@ -85289,128 +85289,128 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 157:                                              ; preds = %151
   %158 = and i16 %125, -256
   %159 = or disjoint i16 %158, 4
-  store i16 %159, ptr %10, align 2
+  store i16 %159, ptr %8, align 2
   br label %220
 
 160:                                              ; preds = %151
   %161 = and i16 %125, -256
   %162 = or disjoint i16 %161, 8
-  store i16 %162, ptr %10, align 2
+  store i16 %162, ptr %8, align 2
   br label %220
 
 163:                                              ; preds = %151
   %164 = and i16 %125, -256
   %165 = or disjoint i16 %164, 14
-  store i16 %165, ptr %10, align 2
+  store i16 %165, ptr %8, align 2
   br label %220
 
 166:                                              ; preds = %151
   %167 = and i16 %125, -256
   %168 = or disjoint i16 %167, 9
-  store i16 %168, ptr %10, align 2
+  store i16 %168, ptr %8, align 2
   br label %220
 
 169:                                              ; preds = %151
   %170 = and i16 %125, -256
   %171 = or disjoint i16 %170, 24
-  store i16 %171, ptr %10, align 2
+  store i16 %171, ptr %8, align 2
   br label %220
 
 172:                                              ; preds = %151
   %173 = and i16 %125, -256
   %174 = or disjoint i16 %173, 10
-  store i16 %174, ptr %10, align 2
+  store i16 %174, ptr %8, align 2
   br label %220
 
 175:                                              ; preds = %151
   %176 = and i16 %125, -256
   %177 = or disjoint i16 %176, 13
-  store i16 %177, ptr %10, align 2
+  store i16 %177, ptr %8, align 2
   br label %220
 
 178:                                              ; preds = %151
   %179 = and i16 %125, -256
   %180 = or disjoint i16 %179, 25
-  store i16 %180, ptr %10, align 2
+  store i16 %180, ptr %8, align 2
   br label %220
 
 181:                                              ; preds = %151
   %182 = and i16 %125, -256
   %183 = or disjoint i16 %182, 26
-  store i16 %183, ptr %10, align 2
+  store i16 %183, ptr %8, align 2
   br label %220
 
 184:                                              ; preds = %151
   %185 = and i16 %125, -256
   %186 = or disjoint i16 %185, 23
-  store i16 %186, ptr %10, align 2
+  store i16 %186, ptr %8, align 2
   br label %220
 
 187:                                              ; preds = %151
   %188 = and i16 %125, -256
   %189 = or disjoint i16 %188, 30
-  store i16 %189, ptr %10, align 2
+  store i16 %189, ptr %8, align 2
   br label %220
 
 190:                                              ; preds = %151
   %191 = and i16 %125, -256
   %192 = or disjoint i16 %191, 16
-  store i16 %192, ptr %10, align 2
+  store i16 %192, ptr %8, align 2
   br label %220
 
 193:                                              ; preds = %151
   %194 = and i16 %125, -256
   %195 = or disjoint i16 %194, 33
-  store i16 %195, ptr %10, align 2
+  store i16 %195, ptr %8, align 2
   br label %220
 
 196:                                              ; preds = %151
   %197 = and i16 %125, -256
   %198 = or disjoint i16 %197, 19
-  store i16 %198, ptr %10, align 2
+  store i16 %198, ptr %8, align 2
   br label %220
 
 199:                                              ; preds = %151
   %200 = and i16 %125, -256
   %201 = or disjoint i16 %200, 15
-  store i16 %201, ptr %10, align 2
+  store i16 %201, ptr %8, align 2
   br label %220
 
 202:                                              ; preds = %151
   %203 = and i16 %125, -256
   %204 = or disjoint i16 %203, 31
-  store i16 %204, ptr %10, align 2
+  store i16 %204, ptr %8, align 2
   br label %220
 
 205:                                              ; preds = %151
   %206 = and i16 %125, -256
   %207 = or disjoint i16 %206, 29
-  store i16 %207, ptr %10, align 2
+  store i16 %207, ptr %8, align 2
   br label %220
 
 208:                                              ; preds = %151
   %209 = and i16 %125, -256
   %210 = or disjoint i16 %209, 20
-  store i16 %210, ptr %10, align 2
+  store i16 %210, ptr %8, align 2
   br label %220
 
 211:                                              ; preds = %151
   %212 = and i16 %125, -256
   %213 = or disjoint i16 %212, 32
-  store i16 %213, ptr %10, align 2
+  store i16 %213, ptr %8, align 2
   br label %220
 
 214:                                              ; preds = %151
   %215 = and i16 %125, -32513
   %216 = or disjoint i16 %215, 3840
-  store i16 %216, ptr %10, align 2
+  store i16 %216, ptr %8, align 2
   br label %.thread
 
 217:                                              ; preds = %148
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %218 = and i16 %125, -32513
   %219 = or disjoint i16 %218, 3840
-  store i16 %219, ptr %10, align 2
+  store i16 %219, ptr %8, align 2
   br label %.thread
 
 220:                                              ; preds = %142, %211, %208, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %._crit_edge3687
@@ -85422,14 +85422,14 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 223:                                              ; preds = %220
   %224 = tail call noundef i32 %222(ptr noundef nonnull %0)
   %.not1252 = icmp eq i32 %224, 0
-  %.pre3675 = load i16, ptr %10, align 2
+  %.pre3675 = load i16, ptr %8, align 2
   br i1 %.not1252, label %228, label %225, !prof !478
 
 225:                                              ; preds = %223
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %226 = and i16 %.pre3675, -32513
   %227 = or disjoint i16 %226, 512
-  store i16 %227, ptr %10, align 2
+  store i16 %227, ptr %8, align 2
   br label %228
 
 228:                                              ; preds = %225, %223
@@ -85466,7 +85466,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %spec.select1261 = select i1 %.not1249, ptr %.21009.ph1365, ptr %.110342548
   %.not1250 = icmp eq ptr %.010372545, null
   %.11038 = select i1 %.not1250, ptr %.21009.ph1365, ptr %.010372545
-  %241 = load i16, ptr %10, align 2
+  %241 = load i16, ptr %8, align 2
   %242 = and i16 %241, 255
   %243 = icmp eq i16 %242, 5
   br i1 %243, label %244, label %247
@@ -85493,11 +85493,11 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br i1 %258, label %259, label %.thread1286, !prof !363
 
 259:                                              ; preds = %247
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %260 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %260 = load i16, ptr %8, align 2
   %261 = and i16 %260, -32513
   %262 = or disjoint i16 %261, 4096
-  store i16 %262, ptr %10, align 2
+  store i16 %262, ptr %8, align 2
   br label %.thread
 
 .split2270.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split, %.outer1371.split, %.outer1371.split, %.outer1371.split
@@ -85509,11 +85509,11 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   ]
 
 263:                                              ; preds = %.split2270.us, %.split2270.us, %.split2270.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %264 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %264 = load i16, ptr %8, align 2
   %265 = and i16 %264, -32513
   %266 = or disjoint i16 %265, 4096
-  store i16 %266, ptr %10, align 2
+  store i16 %266, ptr %8, align 2
   br label %.thread
 
 267:                                              ; preds = %.split2270.us
@@ -85530,11 +85530,11 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br i1 %276, label %277, label %.thread1286, !prof !363
 
 277:                                              ; preds = %267
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %278 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %278 = load i16, ptr %8, align 2
   %279 = and i16 %278, -32513
   %280 = or disjoint i16 %279, 4096
-  store i16 %280, ptr %10, align 2
+  store i16 %280, ptr %8, align 2
   br label %.thread
 
 .split2278.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split.us, %.outer1371.split, %.outer1371.split, %.outer1371.split, %.outer1371.split, %.outer1371.split
@@ -85563,14 +85563,14 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %288 = sub i64 %61, %287
   %289 = tail call noundef i32 %285(ptr noundef nonnull %0, ptr noundef nonnull %.110342548, i64 noundef %288)
   %.not1247 = icmp eq i32 %289, 0
-  %.pre3674 = load i16, ptr %10, align 2
+  %.pre3674 = load i16, ptr %8, align 2
   br i1 %.not1247, label %293, label %290, !prof !478
 
 290:                                              ; preds = %286
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %291 = and i16 %.pre3674, -32513
   %292 = or disjoint i16 %291, 768
-  store i16 %292, ptr %10, align 2
+  store i16 %292, ptr %8, align 2
   br label %293
 
 293:                                              ; preds = %290, %286
@@ -85586,7 +85586,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br label %.thread1321
 
 299:                                              ; preds = %.split2278.us, %.split2278.us
-  %300 = load i16, ptr %10, align 2
+  %300 = load i16, ptr %8, align 2
   %301 = and i16 %300, 255
   %.not1240 = icmp eq i16 %301, 1
   br i1 %.not1240, label %307, label %302, !prof !478
@@ -85595,10 +85595,10 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %303 = and i32 %.us-phi2284, -32641
   %304 = or disjoint i32 %303, 128
   store i32 %304, ptr %0, align 8
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %305 = and i16 %300, -32513
   %306 = or disjoint i16 %305, 3328
-  store i16 %306, ptr %10, align 2
+  store i16 %306, ptr %8, align 2
   br label %.thread
 
 307:                                              ; preds = %299
@@ -85622,14 +85622,14 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   %316 = sub i64 %61, %315
   %317 = tail call noundef i32 %313(ptr noundef nonnull %0, ptr noundef nonnull %.110342548, i64 noundef %316)
   %.not1243 = icmp eq i32 %317, 0
-  %.pre3673 = load i16, ptr %10, align 2
+  %.pre3673 = load i16, ptr %8, align 2
   br i1 %.not1243, label %321, label %318, !prof !478
 
 318:                                              ; preds = %314
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %319 = and i16 %.pre3673, -32513
   %320 = or disjoint i16 %319, 768
-  store i16 %320, ptr %10, align 2
+  store i16 %320, ptr %8, align 2
   br label %321
 
 321:                                              ; preds = %318, %314
@@ -85658,11 +85658,11 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br i1 %336, label %337, label %.thread1286, !prof !363
 
 337:                                              ; preds = %327
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %338 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %338 = load i16, ptr %8, align 2
   %339 = and i16 %338, -32513
   %340 = or disjoint i16 %339, 4096
-  store i16 %340, ptr %10, align 2
+  store i16 %340, ptr %8, align 2
   br label %.thread
 
 .split2287.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split
@@ -85674,7 +85674,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   ]
 
 .split2287.us._crit_edge:                         ; preds = %.split2287.us
-  %.pre3672 = load i16, ptr %10, align 2
+  %.pre3672 = load i16, ptr %8, align 2
   br label %split
 
 341:                                              ; preds = %.split2287.us
@@ -85684,7 +85684,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
   br label %.thread1286
 
 344:                                              ; preds = %.split2287.us
-  %345 = load i16, ptr %10, align 2
+  %345 = load i16, ptr %8, align 2
   %346 = and i16 %345, 255
   %347 = icmp eq i16 %346, 33
   br i1 %347, label %348, label %split
@@ -85697,10 +85697,10 @@ define linkonce_odr dso_local noundef i64 @_ZN4crow19http_parser_executeEPNS_11h
 
 split:                                            ; preds = %344, %.split2287.us._crit_edge
   %351 = phi i16 [ %.pre3672, %.split2287.us._crit_edge ], [ %345, %344 ]
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %352 = and i16 %351, -32513
   %353 = or disjoint i16 %352, 6912
-  store i16 %353, ptr %10, align 2
+  store i16 %353, ptr %8, align 2
   br label %.thread
 
 .split2295.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split
@@ -85709,11 +85709,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1239, label %358, label %354
 
 354:                                              ; preds = %.split2295.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %355 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %355 = load i16, ptr %8, align 2
   %356 = and i16 %355, -32513
   %357 = or disjoint i16 %356, 7424
-  store i16 %357, ptr %10, align 2
+  store i16 %357, ptr %8, align 2
   br label %.thread
 
 358:                                              ; preds = %.split2295.us
@@ -85728,11 +85728,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1238, label %365, label %361
 
 361:                                              ; preds = %.split2303.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %362 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %362 = load i16, ptr %8, align 2
   %363 = and i16 %362, -32513
   %364 = or disjoint i16 %363, 7424
-  store i16 %364, ptr %10, align 2
+  store i16 %364, ptr %8, align 2
   br label %.thread
 
 365:                                              ; preds = %.split2303.us
@@ -85747,11 +85747,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1237, label %372, label %368
 
 368:                                              ; preds = %.split2311.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %369 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %369 = load i16, ptr %8, align 2
   %370 = and i16 %369, -32513
   %371 = or disjoint i16 %370, 7424
-  store i16 %371, ptr %10, align 2
+  store i16 %371, ptr %8, align 2
   br label %.thread
 
 372:                                              ; preds = %.split2311.us
@@ -85766,11 +85766,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1236, label %379, label %375
 
 375:                                              ; preds = %.split2319.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %376 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %376 = load i16, ptr %8, align 2
   %377 = and i16 %376, -32513
   %378 = or disjoint i16 %377, 7424
-  store i16 %378, ptr %10, align 2
+  store i16 %378, ptr %8, align 2
   br label %.thread
 
 379:                                              ; preds = %.split2319.us
@@ -85785,11 +85785,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1235, label %386, label %382
 
 382:                                              ; preds = %.split2327.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %383 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %383 = load i16, ptr %8, align 2
   %384 = and i16 %383, -32513
   %385 = or disjoint i16 %384, 7424
-  store i16 %385, ptr %10, align 2
+  store i16 %385, ptr %8, align 2
   br label %.thread
 
 386:                                              ; preds = %.split2327.us
@@ -85804,11 +85804,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1234, label %393, label %389
 
 389:                                              ; preds = %.split2335.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %390 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %390 = load i16, ptr %8, align 2
   %391 = and i16 %390, -32513
   %392 = or disjoint i16 %391, 7424
-  store i16 %392, ptr %10, align 2
+  store i16 %392, ptr %8, align 2
   br label %.thread
 
 393:                                              ; preds = %.split2335.us
@@ -85824,11 +85824,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %397, label %398, label %402, !prof !363
 
 398:                                              ; preds = %.split2343.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %399 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %399 = load i16, ptr %8, align 2
   %400 = and i16 %399, -32513
   %401 = or disjoint i16 %400, 3328
-  store i16 %401, ptr %10, align 2
+  store i16 %401, ptr %8, align 2
   br label %.thread
 
 402:                                              ; preds = %.split2343.us
@@ -85845,11 +85845,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1233, label %410, label %406, !prof !478
 
 406:                                              ; preds = %.split2351.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %407 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %407 = load i16, ptr %8, align 2
   %408 = and i16 %407, -32513
   %409 = or disjoint i16 %408, 3328
-  store i16 %409, ptr %10, align 2
+  store i16 %409, ptr %8, align 2
   br label %.thread
 
 410:                                              ; preds = %.split2351.us
@@ -85865,11 +85865,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %414, label %415, label %419, !prof !363
 
 415:                                              ; preds = %.split2359.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %416 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %416 = load i16, ptr %8, align 2
   %417 = and i16 %416, -32513
   %418 = or disjoint i16 %417, 3328
-  store i16 %418, ptr %10, align 2
+  store i16 %418, ptr %8, align 2
   br label %.thread
 
 419:                                              ; preds = %.split2359.us
@@ -85900,11 +85900,11 @@ split:                                            ; preds = %344, %.split2287.us
   br label %.thread1286
 
 429:                                              ; preds = %.split2367.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %430 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %430 = load i16, ptr %8, align 2
   %431 = and i16 %430, -32513
   %432 = or disjoint i16 %431, 3328
-  store i16 %432, ptr %10, align 2
+  store i16 %432, ptr %8, align 2
   br label %.thread
 
 .split2375.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split
@@ -85913,11 +85913,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1232, label %437, label %433, !prof !478
 
 433:                                              ; preds = %.split2375.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %434 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %434 = load i16, ptr %8, align 2
   %435 = and i16 %434, -32513
   %436 = or disjoint i16 %435, 5632
-  store i16 %436, ptr %10, align 2
+  store i16 %436, ptr %8, align 2
   br label %.thread
 
 437:                                              ; preds = %.split2375.us
@@ -85953,11 +85953,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1230, label %450, label %454, !prof !363
 
 450:                                              ; preds = %446
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %451 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %451 = load i16, ptr %8, align 2
   %452 = and i16 %451, -32513
   %453 = or disjoint i16 %452, 5888
-  store i16 %453, ptr %10, align 2
+  store i16 %453, ptr %8, align 2
   br label %.thread
 
 454:                                              ; preds = %446
@@ -86262,7 +86262,7 @@ split:                                            ; preds = %344, %.split2287.us
   %614 = phi i32 [ %467, %472 ], [ %467, %611 ], [ %520, %530 ], [ %558, %568 ], [ %596, %606 ], [ %539, %549 ], [ %577, %587 ], [ %.sink, %.critedge.sink.split ], [ %467, %480 ], [ %467, %483 ]
   %.51012 = phi ptr [ %.310102539, %472 ], [ %.310102539, %611 ], [ %.310102539, %530 ], [ %.310102539, %568 ], [ %.310102539, %606 ], [ %.310102539, %549 ], [ %.310102539, %587 ], [ %.310102539, %.critedge.sink.split ], [ %.41011, %480 ], [ %.41011, %483 ]
   %615 = getelementptr inbounds nuw i8, ptr %.51012, i64 1
-  %.not1217 = icmp eq ptr %615, %28
+  %.not1217 = icmp eq ptr %615, %26
   br i1 %.not1217, label %._crit_edge, label %.lr.ph2540, !llvm.loop !2253
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader
@@ -86276,11 +86276,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %621, label %622, label %.thread1286, !prof !363
 
 622:                                              ; preds = %._crit_edge
-  store i32 %620, ptr %8, align 4, !tbaa !2244
-  %623 = load i16, ptr %10, align 2
+  store i32 %620, ptr %6, align 4, !tbaa !2244
+  %623 = load i16, ptr %8, align 2
   %624 = and i16 %623, -32513
   %625 = or disjoint i16 %624, 2816
-  store i16 %625, ptr %10, align 2
+  store i16 %625, ptr %8, align 2
   br label %.thread
 
 626:                                              ; preds = %.lr.ph2540
@@ -86292,11 +86292,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %631, label %632, label %636, !prof !363
 
 632:                                              ; preds = %626
-  store i32 %630, ptr %8, align 4, !tbaa !2244
-  %633 = load i16, ptr %10, align 2
+  store i32 %630, ptr %6, align 4, !tbaa !2244
+  %633 = load i16, ptr %8, align 2
   %634 = and i16 %633, -32513
   %635 = or disjoint i16 %634, 2816
-  store i16 %635, ptr %10, align 2
+  store i16 %635, ptr %8, align 2
   br label %.thread
 
 636:                                              ; preds = %626
@@ -86320,14 +86320,14 @@ split:                                            ; preds = %344, %.split2287.us
   %645 = sub i64 %627, %644
   %646 = tail call noundef i32 %642(ptr noundef nonnull %0, ptr noundef nonnull %.110182552, i64 noundef %645)
   %.not1221 = icmp eq i32 %646, 0
-  %.pre3671 = load i16, ptr %10, align 2
+  %.pre3671 = load i16, ptr %8, align 2
   br i1 %.not1221, label %650, label %647, !prof !478
 
 647:                                              ; preds = %643
-  store i32 %630, ptr %8, align 4, !tbaa !2244
+  store i32 %630, ptr %6, align 4, !tbaa !2244
   %648 = and i16 %.pre3671, -32513
   %649 = or disjoint i16 %648, 1024
-  store i16 %649, ptr %10, align 2
+  store i16 %649, ptr %8, align 2
   br label %650
 
 650:                                              ; preds = %647, %643
@@ -86337,11 +86337,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1222, label %.thread1286, label %657, !prof !478
 
 653:                                              ; preds = %636
-  store i32 %630, ptr %8, align 4, !tbaa !2244
-  %654 = load i16, ptr %10, align 2
+  store i32 %630, ptr %6, align 4, !tbaa !2244
+  %654 = load i16, ptr %8, align 2
   %655 = and i16 %654, -32513
   %656 = or disjoint i16 %655, 5888
-  store i16 %656, ptr %10, align 2
+  store i16 %656, ptr %8, align 2
   br label %.thread
 
 657:                                              ; preds = %650
@@ -86396,7 +86396,7 @@ split:                                            ; preds = %344, %.split2287.us
 
 673:                                              ; preds = %672
   %674 = getelementptr inbounds nuw i8, ptr %.21009.ph1365, i64 1
-  %675 = icmp eq ptr %674, %28
+  %675 = icmp eq ptr %674, %26
   br i1 %675, label %678, label %676
 
 676:                                              ; preds = %673
@@ -86435,11 +86435,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %692, label %693, label %697, !prof !363
 
 693:                                              ; preds = %690
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %694 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %694 = load i16, ptr %8, align 2
   %695 = and i16 %694, -32513
   %696 = or disjoint i16 %695, 6144
-  store i16 %696, ptr %10, align 2
+  store i16 %696, ptr %8, align 2
   br label %.thread
 
 697:                                              ; preds = %690
@@ -86448,11 +86448,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1213, label %703, label %699
 
 699:                                              ; preds = %697
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %700 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %700 = load i16, ptr %8, align 2
   %701 = and i16 %700, -32513
   %702 = or disjoint i16 %701, 6400
-  store i16 %702, ptr %10, align 2
+  store i16 %702, ptr %8, align 2
   br label %.thread
 
 703:                                              ; preds = %697
@@ -86499,7 +86499,7 @@ split:                                            ; preds = %344, %.split2287.us
   %.us-phi2406 = phi i32 [ %71, %.outer1371.split ], [ %62, %.outer1371.split.us ]
   %720 = lshr i32 %.us-phi2406, 15
   %721 = and i32 %720, 127
-  %.not11962518 = icmp eq ptr %.21009.ph1365, %28
+  %.not11962518 = icmp eq ptr %.21009.ph1365, %26
   br i1 %.not11962518, label %.loopexit, label %.lr.ph2522
 
 .lr.ph2522:                                       ; preds = %.split2404.us, %.thread1307
@@ -86522,7 +86522,7 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1208, label %.loopexit, label %729
 
 729:                                              ; preds = %724
-  %730 = load ptr, ptr %35, align 8, !tbaa !2255
+  %730 = load ptr, ptr %34, align 8, !tbaa !2255
   %.not1209 = icmp eq ptr %730, null
   br i1 %.not1209, label %.loopexit, label %731, !prof !363
 
@@ -86532,14 +86532,14 @@ split:                                            ; preds = %344, %.split2287.us
   %734 = sub i64 %732, %733
   %735 = tail call noundef i32 %730(ptr noundef nonnull %0, ptr noundef nonnull %.21025.ph1368, i64 noundef %734)
   %.not1210 = icmp eq i32 %735, 0
-  %.pre3669 = load i16, ptr %10, align 2
+  %.pre3669 = load i16, ptr %8, align 2
   br i1 %.not1210, label %739, label %736, !prof !478
 
 736:                                              ; preds = %731
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %737 = and i16 %.pre3669, -32513
   %738 = or disjoint i16 %737, 1280
-  store i16 %738, ptr %10, align 2
+  store i16 %738, ptr %8, align 2
   br label %739
 
 739:                                              ; preds = %736, %731
@@ -86570,11 +86570,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %752, label %753, label %757, !prof !363
 
 753:                                              ; preds = %745
-  store i32 %751, ptr %8, align 4, !tbaa !2244
-  %754 = load i16, ptr %10, align 2
+  store i32 %751, ptr %6, align 4, !tbaa !2244
+  %754 = load i16, ptr %8, align 2
   %755 = and i16 %754, -32513
   %756 = or disjoint i16 %755, 2816
-  store i16 %756, ptr %10, align 2
+  store i16 %756, ptr %8, align 2
   br label %.thread
 
 757:                                              ; preds = %745
@@ -86589,7 +86589,7 @@ split:                                            ; preds = %344, %.split2287.us
   br label %.outer1362
 
 761:                                              ; preds = %757
-  %762 = load ptr, ptr %35, align 8, !tbaa !2255
+  %762 = load ptr, ptr %34, align 8, !tbaa !2255
   %.not1205 = icmp eq ptr %762, null
   br i1 %.not1205, label %.outer1362.backedge, label %763, !prof !363
 
@@ -86598,14 +86598,14 @@ split:                                            ; preds = %344, %.split2287.us
   %765 = sub i64 %748, %764
   %766 = tail call noundef i32 %762(ptr noundef nonnull %0, ptr noundef nonnull %.21025.ph1368, i64 noundef %765)
   %.not1206 = icmp eq i32 %766, 0
-  %.pre3668 = load i16, ptr %10, align 2
+  %.pre3668 = load i16, ptr %8, align 2
   br i1 %.not1206, label %770, label %767, !prof !478
 
 767:                                              ; preds = %763
-  store i32 %751, ptr %8, align 4, !tbaa !2244
+  store i32 %751, ptr %6, align 4, !tbaa !2244
   %768 = and i16 %.pre3668, -32513
   %769 = or disjoint i16 %768, 1280
-  store i16 %769, ptr %10, align 2
+  store i16 %769, ptr %8, align 2
   br label %770
 
 770:                                              ; preds = %767, %763
@@ -86621,7 +86621,7 @@ split:                                            ; preds = %344, %.split2287.us
 
 776:                                              ; preds = %.lr.ph2522
   %777 = icmp eq i8 %723, 9
-  %or.cond24 = or i1 %36, %777
+  %or.cond24 = or i1 %777, %36
   br i1 %or.cond24, label %785, label %778
 
 778:                                              ; preds = %776
@@ -86631,11 +86631,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %or.cond27, label %785, label %781
 
 781:                                              ; preds = %778
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %782 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %782 = load i16, ptr %8, align 2
   %783 = and i16 %782, -32513
   %784 = or disjoint i16 %783, 5888
-  store i16 %784, ptr %10, align 2
+  store i16 %784, ptr %8, align 2
   br label %.thread
 
 785:                                              ; preds = %778, %776
@@ -86662,7 +86662,7 @@ split:                                            ; preds = %344, %.split2287.us
   %789 = sub i64 %38, %788
   %790 = tail call i64 @llvm.umin.i64(i64 %789, i64 81920)
   %791 = getelementptr i8, ptr %.710142519, i64 %790
-  %.not12032512 = icmp eq ptr %28, %.710142519
+  %.not12032512 = icmp eq ptr %26, %.710142519
   br i1 %.not12032512, label %.thread1301, label %.lr.ph
 
 .lr.ph:                                           ; preds = %787
@@ -86708,17 +86708,17 @@ split:                                            ; preds = %344, %.split2287.us
 
 .thread1301:                                      ; preds = %800, %793, %787, %.split2515.us
   %.10 = phi ptr [ %796, %.split2515.us ], [ %.710142519, %787 ], [ %791, %793 ], [ %791, %800 ]
-  %802 = icmp eq ptr %.10, %28
+  %802 = icmp eq ptr %.10, %26
   %spec.select1264.idx = sext i1 %802 to i64
   %spec.select1264 = getelementptr inbounds i8, ptr %.10, i64 %spec.select1264.idx
   br label %.thread1307
 
 803:                                              ; preds = %797
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %804 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %804 = load i16, ptr %8, align 2
   %805 = and i16 %804, -32513
   %806 = or disjoint i16 %805, 5888
-  store i16 %806, ptr %10, align 2
+  store i16 %806, ptr %8, align 2
   br label %.thread
 
 807:                                              ; preds = %785
@@ -86735,11 +86735,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %812, label %813, label %819, !prof !363
 
 813:                                              ; preds = %810
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %814 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %814 = load i16, ptr %8, align 2
   %815 = and i16 %814, -32513
   %816 = or disjoint i16 %815, 6144
-  store i16 %816, ptr %10, align 2
+  store i16 %816, ptr %8, align 2
   %817 = and i32 %722, -4161537
   %818 = or disjoint i32 %817, 360448
   store i32 %818, ptr %0, align 8
@@ -86751,11 +86751,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %821, label %822, label %828, !prof !363
 
 822:                                              ; preds = %819
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %823 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %823 = load i16, ptr %8, align 2
   %824 = and i16 %823, -32513
   %825 = or disjoint i16 %824, 6144
-  store i16 %825, ptr %10, align 2
+  store i16 %825, ptr %8, align 2
   %826 = and i32 %722, -4161537
   %827 = or disjoint i32 %826, 360448
   store i32 %827, ptr %0, align 8
@@ -86774,11 +86774,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %833, label %.thread1307, label %834
 
 834:                                              ; preds = %832
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %835 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %835 = load i16, ptr %8, align 2
   %836 = and i16 %835, -32513
   %837 = or disjoint i16 %836, 6144
-  store i16 %837, ptr %10, align 2
+  store i16 %837, ptr %8, align 2
   %838 = and i32 %722, -4161537
   %839 = or disjoint i32 %838, 393216
   store i32 %839, ptr %0, align 8
@@ -86899,7 +86899,7 @@ split:                                            ; preds = %344, %.split2287.us
   %.13 = phi ptr [ %.710142519, %896 ], [ %spec.select1264, %.thread1301 ], [ %.710142519, %785 ], [ %.710142519, %785 ], [ %.710142519, %807 ], [ %.710142519, %892 ], [ %.710142519, %832 ], [ %.710142519, %894 ], [ %.710142519, %840 ], [ %.710142519, %895 ], [ %.710142519, %842 ], [ %.710142519, %846 ], [ %.710142519, %848 ], [ %.710142519, %888 ], [ %.710142519, %864 ], [ %.710142519, %862 ], [ %.710142519, %860 ], [ %.710142519, %866 ], [ %.710142519, %874 ], [ %.710142519, %878 ], [ %.710142519, %880 ], [ %.710142519, %856 ], [ %.710142519, %828 ], [ %.710142519, %808 ]
   %.31006 = phi i32 [ 0, %896 ], [ 0, %.thread1301 ], [ %.010032520, %785 ], [ %.010032520, %785 ], [ 10, %807 ], [ %spec.select1268, %892 ], [ 12, %832 ], [ %spec.select1269, %894 ], [ 16, %840 ], [ %spec.select1270, %895 ], [ 17, %842 ], [ %spec.select1265, %846 ], [ 17, %848 ], [ 0, %888 ], [ 15, %864 ], [ 17, %862 ], [ %spec.select1266, %860 ], [ 0, %866 ], [ 0, %874 ], [ %spec.select1267, %878 ], [ 0, %880 ], [ 17, %856 ], [ 11, %828 ], [ 12, %808 ]
   %900 = getelementptr inbounds nuw i8, ptr %.13, i64 1
-  %.not1196 = icmp eq ptr %900, %28
+  %.not1196 = icmp eq ptr %900, %26
   br i1 %.not1196, label %.loopexit, label %.lr.ph2522, !llvm.loop !2257
 
 .loopexit:                                        ; preds = %.split2404.us, %.thread1307, %..loopexit_crit_edge, %729, %724
@@ -86921,11 +86921,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %909, label %910, label %.thread1286, !prof !363
 
 910:                                              ; preds = %.loopexit
-  store i32 %908, ptr %8, align 4, !tbaa !2244
-  %911 = load i16, ptr %10, align 2
+  store i32 %908, ptr %6, align 4, !tbaa !2244
+  %911 = load i16, ptr %8, align 2
   %912 = and i16 %911, -32513
   %913 = or disjoint i16 %912, 2816
-  store i16 %913, ptr %10, align 2
+  store i16 %913, ptr %8, align 2
   br label %.thread
 
 .split2408.us:                                    ; preds = %.outer1371.split.us, %.outer1371.split
@@ -86934,11 +86934,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1195, label %918, label %914, !prof !478
 
 914:                                              ; preds = %.split2408.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %915 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %915 = load i16, ptr %8, align 2
   %916 = and i16 %915, -32513
   %917 = or disjoint i16 %916, 5632
-  store i16 %917, ptr %10, align 2
+  store i16 %917, ptr %8, align 2
   br label %.thread
 
 918:                                              ; preds = %.split2408.us
@@ -86981,11 +86981,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1194, label %937, label %933
 
 933:                                              ; preds = %.split2416.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %934 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %934 = load i16, ptr %8, align 2
   %935 = and i16 %934, -32513
   %936 = or disjoint i16 %935, 7424
-  store i16 %936, ptr %10, align 2
+  store i16 %936, ptr %8, align 2
   br label %.thread
 
 937:                                              ; preds = %.split2416.us
@@ -87017,7 +87017,7 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1190, label %.outer1367.backedge, label %946
 
 946:                                              ; preds = %943
-  %947 = load ptr, ptr %35, align 8, !tbaa !2255
+  %947 = load ptr, ptr %34, align 8, !tbaa !2255
   %.not1191 = icmp eq ptr %947, null
   br i1 %.not1191, label %.outer1367.backedge, label %948, !prof !363
 
@@ -87029,14 +87029,14 @@ split:                                            ; preds = %344, %.split2287.us
   %950 = sub i64 %61, %949
   %951 = tail call noundef i32 %947(ptr noundef nonnull %0, ptr noundef nonnull %spec.select1272, i64 noundef %950)
   %.not1192 = icmp eq i32 %951, 0
-  %.pre3667 = load i16, ptr %10, align 2
+  %.pre3667 = load i16, ptr %8, align 2
   br i1 %.not1192, label %955, label %952, !prof !478
 
 952:                                              ; preds = %948
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %953 = and i16 %.pre3667, -32513
   %954 = or disjoint i16 %953, 1280
-  store i16 %954, ptr %10, align 2
+  store i16 %954, ptr %8, align 2
   br label %955
 
 955:                                              ; preds = %952, %948
@@ -87056,11 +87056,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1176, label %965, label %961
 
 961:                                              ; preds = %.split2428.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %962 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %962 = load i16, ptr %8, align 2
   %963 = and i16 %962, -32513
   %964 = or disjoint i16 %963, 7424
-  store i16 %964, ptr %10, align 2
+  store i16 %964, ptr %8, align 2
   br label %.thread
 
 965:                                              ; preds = %.split2428.us
@@ -87076,14 +87076,14 @@ split:                                            ; preds = %344, %.split2287.us
 969:                                              ; preds = %967
   %970 = tail call noundef i32 %968(ptr noundef nonnull %0)
   %.not1187 = icmp eq i32 %970, 0
-  %.pre3665 = load i16, ptr %10, align 2
+  %.pre3665 = load i16, ptr %8, align 2
   br i1 %.not1187, label %974, label %971, !prof !478
 
 971:                                              ; preds = %969
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %972 = and i16 %.pre3665, -32513
   %973 = or disjoint i16 %972, 2048
-  store i16 %973, ptr %10, align 2
+  store i16 %973, ptr %8, align 2
   br label %974
 
 974:                                              ; preds = %971, %969
@@ -87104,33 +87104,33 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %or.cond.not, label %982, label %._crit_edge3683
 
 ._crit_edge3683:                                  ; preds = %980
-  %.pre3666.pre = load i16, ptr %10, align 2
+  %.pre3666.pre = load i16, ptr %8, align 2
   br label %992
 
 982:                                              ; preds = %980
   %983 = and i32 %.us-phi2429, 1
   %.not1180 = icmp eq i32 %983, 0
-  %.pre3666.pre3685 = load i16, ptr %10, align 2
+  %.pre3666.pre3685 = load i16, ptr %8, align 2
   br i1 %.not1180, label %988, label %984
 
 984:                                              ; preds = %982
   br i1 %.not1182, label %985, label %992
 
 985:                                              ; preds = %984
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %986 = and i16 %.pre3666.pre3685, -32513
   %987 = or disjoint i16 %986, 6400
-  store i16 %987, ptr %10, align 2
+  store i16 %987, ptr %8, align 2
   br label %.thread
 
 988:                                              ; preds = %982
   br i1 %.not1181, label %989, label %992
 
 989:                                              ; preds = %988
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %990 = and i16 %.pre3666.pre3685, -32513
   %991 = or disjoint i16 %990, 6400
-  store i16 %991, ptr %10, align 2
+  store i16 %991, ptr %8, align 2
   br label %.thread
 
 992:                                              ; preds = %._crit_edge3683, %984, %988
@@ -87146,8 +87146,8 @@ split:                                            ; preds = %344, %.split2287.us
   %999 = select i1 %998, i16 0, i16 -32768
   %1000 = and i16 %.pre3666, 32767
   %1001 = or disjoint i16 %1000, %999
-  store i16 %1001, ptr %10, align 2
-  %1002 = load ptr, ptr %34, align 8, !tbaa !2258
+  store i16 %1001, ptr %8, align 2
+  %1002 = load ptr, ptr %33, align 8, !tbaa !2258
   %.not1184 = icmp eq ptr %1002, null
   br i1 %.not1184, label %1017, label %1003
 
@@ -87160,9 +87160,9 @@ split:                                            ; preds = %344, %.split2287.us
   ]
 
 1005:                                             ; preds = %1003
-  %1006 = load i16, ptr %10, align 2
+  %1006 = load i16, ptr %8, align 2
   %1007 = or i16 %1006, -32768
-  store i16 %1007, ptr %10, align 2
+  store i16 %1007, ptr %8, align 2
   br label %1008
 
 1008:                                             ; preds = %1005, %1003
@@ -87172,17 +87172,17 @@ split:                                            ; preds = %344, %.split2287.us
   br label %1017
 
 1011:                                             ; preds = %1003
-  %1012 = load i16, ptr %10, align 2
+  %1012 = load i16, ptr %8, align 2
   %1013 = and i16 %1012, -32513
   %1014 = or disjoint i16 %1013, 1536
-  store i16 %1014, ptr %10, align 2
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i16 %1014, ptr %8, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %1015 = ptrtoint ptr %2 to i64
   %1016 = sub i64 %61, %1015
   br label %.thread1321
 
 1017:                                             ; preds = %1003, %1008, %992
-  %1018 = load i16, ptr %10, align 2
+  %1018 = load i16, ptr %8, align 2
   %1019 = and i16 %1018, 32512
   %.not1185 = icmp eq i16 %1019, 0
   br i1 %.not1185, label %.outer1371.backedge, label %1020
@@ -87191,7 +87191,7 @@ split:                                            ; preds = %344, %.split2287.us
   br label %.outer1371
 
 1020:                                             ; preds = %1017
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %1021 = ptrtoint ptr %2 to i64
   %1022 = sub i64 %61, %1021
   br label %.thread1321
@@ -87202,16 +87202,16 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1157, label %1027, label %1023
 
 1023:                                             ; preds = %.split2431.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1024 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1024 = load i16, ptr %8, align 2
   %1025 = and i16 %1024, -32513
   %1026 = or disjoint i16 %1025, 7424
-  store i16 %1026, ptr %10, align 2
+  store i16 %1026, ptr %8, align 2
   br label %.thread
 
 1027:                                             ; preds = %.split2431.us
-  store i32 0, ptr %8, align 4, !tbaa !2244
-  %1028 = load i16, ptr %10, align 2
+  store i32 0, ptr %6, align 4, !tbaa !2244
+  %1028 = load i16, ptr %8, align 2
   %.not1158 = icmp sgt i16 %1028, -1
   br i1 %.not1158, label %1045, label %1029
 
@@ -87223,14 +87223,14 @@ split:                                            ; preds = %344, %.split2287.us
 1031:                                             ; preds = %1029
   %1032 = tail call noundef i32 %1030(ptr noundef nonnull %0)
   %.not1174 = icmp eq i32 %1032, 0
-  %.pre3661 = load i16, ptr %10, align 2
+  %.pre3661 = load i16, ptr %8, align 2
   br i1 %.not1174, label %1036, label %1033, !prof !478
 
 1033:                                             ; preds = %1031
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1034 = and i16 %.pre3661, -32513
   %1035 = or disjoint i16 %1034, 2048
-  store i16 %1035, ptr %10, align 2
+  store i16 %1035, ptr %8, align 2
   br label %1036
 
 1036:                                             ; preds = %1033, %1031
@@ -87246,7 +87246,7 @@ split:                                            ; preds = %344, %.split2287.us
   br label %.thread1321
 
 1042:                                             ; preds = %1036, %1029
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1043 = ptrtoint ptr %2 to i64
   %reass.sub2569 = sub i64 %61, %1043
   %1044 = add i64 %reass.sub2569, 1
@@ -87265,14 +87265,14 @@ split:                                            ; preds = %344, %.split2287.us
 1049:                                             ; preds = %1047
   %1050 = tail call noundef i32 %1048(ptr noundef nonnull %0)
   %.not1171 = icmp eq i32 %1050, 0
-  %.pre3662 = load i16, ptr %10, align 2
+  %.pre3662 = load i16, ptr %8, align 2
   br i1 %.not1171, label %1054, label %1051, !prof !478
 
 1051:                                             ; preds = %1049
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1052 = and i16 %.pre3662, -32513
   %1053 = or disjoint i16 %1052, 2048
-  store i16 %1053, ptr %10, align 2
+  store i16 %1053, ptr %8, align 2
   br label %1054
 
 1054:                                             ; preds = %1051, %1049
@@ -87309,8 +87309,8 @@ split:                                            ; preds = %344, %.split2287.us
 1068:                                             ; preds = %1067
   %1069 = and i16 %1028, 255
   %1070 = or disjoint i16 %1069, 7936
-  store i16 %1070, ptr %10, align 2
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i16 %1070, ptr %8, align 2
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1071 = ptrtoint ptr %2 to i64
   %1072 = sub i64 %61, %1071
   br label %.thread1321
@@ -87336,14 +87336,14 @@ split:                                            ; preds = %344, %.split2287.us
 1080:                                             ; preds = %1078
   %1081 = tail call noundef i32 %1079(ptr noundef nonnull %0)
   %.not1167 = icmp eq i32 %1081, 0
-  %.pre3664 = load i16, ptr %10, align 2
+  %.pre3664 = load i16, ptr %8, align 2
   br i1 %.not1167, label %1085, label %1082, !prof !478
 
 1082:                                             ; preds = %1080
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1083 = and i16 %.pre3664, -32513
   %1084 = or disjoint i16 %1083, 2048
-  store i16 %1084, ptr %10, align 2
+  store i16 %1084, ptr %8, align 2
   br label %1085
 
 1085:                                             ; preds = %1082, %1080
@@ -87372,14 +87372,14 @@ split:                                            ; preds = %344, %.split2287.us
 1096:                                             ; preds = %1094
   %1097 = tail call noundef i32 %1095(ptr noundef nonnull %0)
   %.not1164 = icmp eq i32 %1097, 0
-  %.pre3663 = load i16, ptr %10, align 2
+  %.pre3663 = load i16, ptr %8, align 2
   br i1 %.not1164, label %1101, label %1098, !prof !478
 
 1098:                                             ; preds = %1096
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1099 = and i16 %.pre3663, -32513
   %1100 = or disjoint i16 %1099, 2048
-  store i16 %1100, ptr %10, align 2
+  store i16 %1100, ptr %8, align 2
   br label %1101
 
 1101:                                             ; preds = %1098, %1096
@@ -87430,14 +87430,14 @@ split:                                            ; preds = %344, %.split2287.us
   %1120 = add i64 %reass.sub2567, 1
   %1121 = tail call noundef i32 %1116(ptr noundef nonnull %0, ptr noundef nonnull %.21056, i64 noundef %1120)
   %.not1155 = icmp eq i32 %1121, 0
-  %.pre3660 = load i16, ptr %10, align 2
+  %.pre3660 = load i16, ptr %8, align 2
   br i1 %.not1155, label %1125, label %1122, !prof !478
 
 1122:                                             ; preds = %1117
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %1123 = and i16 %.pre3660, -32513
   %1124 = or disjoint i16 %1123, 1792
-  store i16 %1124, ptr %10, align 2
+  store i16 %1124, ptr %8, align 2
   br label %1125
 
 1125:                                             ; preds = %1122, %1117
@@ -87464,14 +87464,14 @@ split:                                            ; preds = %344, %.split2287.us
 1131:                                             ; preds = %.split2452.us
   %1132 = tail call noundef i32 %1130(ptr noundef nonnull %0)
   %.not1149 = icmp eq i32 %1132, 0
-  %.pre3659 = load i16, ptr %10, align 2
+  %.pre3659 = load i16, ptr %8, align 2
   br i1 %.not1149, label %1136, label %1133, !prof !478
 
 1133:                                             ; preds = %1131
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %1134 = and i16 %.pre3659, -32513
   %1135 = or disjoint i16 %1134, 2048
-  store i16 %1135, ptr %10, align 2
+  store i16 %1135, ptr %8, align 2
   br label %1136
 
 1136:                                             ; preds = %1133, %1131
@@ -87495,11 +87495,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %1145, label %1146, label %1150, !prof !363
 
 1146:                                             ; preds = %.split2458.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1147 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1147 = load i16, ptr %8, align 2
   %1148 = and i16 %1147, -32513
   %1149 = or disjoint i16 %1148, 6656
-  store i16 %1149, ptr %10, align 2
+  store i16 %1149, ptr %8, align 2
   br label %.thread
 
 1150:                                             ; preds = %.split2458.us
@@ -87541,11 +87541,11 @@ split:                                            ; preds = %344, %.split2287.us
   br label %.thread1286
 
 1167:                                             ; preds = %1163
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1168 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1168 = load i16, ptr %8, align 2
   %1169 = and i16 %1168, -32513
   %1170 = or disjoint i16 %1169, 6656
-  store i16 %1170, ptr %10, align 2
+  store i16 %1170, ptr %8, align 2
   br label %.thread
 
 1171:                                             ; preds = %1158
@@ -87554,11 +87554,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %1173, label %1174, label %1178, !prof !363
 
 1174:                                             ; preds = %1171
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1175 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1175 = load i16, ptr %8, align 2
   %1176 = and i16 %1175, -32513
   %1177 = or disjoint i16 %1176, 6144
-  store i16 %1177, ptr %10, align 2
+  store i16 %1177, ptr %8, align 2
   br label %.thread
 
 1178:                                             ; preds = %1171
@@ -87585,15 +87585,15 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1147, label %1190, label %1186
 
 1186:                                             ; preds = %.split2482.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1187 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1187 = load i16, ptr %8, align 2
   %1188 = and i16 %1187, -32513
   %1189 = or disjoint i16 %1188, 7424
-  store i16 %1189, ptr %10, align 2
+  store i16 %1189, ptr %8, align 2
   br label %.thread
 
 1190:                                             ; preds = %.split2482.us
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1191 = load i64, ptr %37, align 8, !tbaa !2248
   %1192 = icmp eq i64 %1191, 0
   br i1 %1192, label %1193, label %1196
@@ -87636,11 +87636,11 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1141, label %1211, label %1207
 
 1207:                                             ; preds = %.split2497.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1208 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1208 = load i16, ptr %8, align 2
   %1209 = and i16 %1208, -32513
   %1210 = or disjoint i16 %1209, 7424
-  store i16 %1210, ptr %10, align 2
+  store i16 %1210, ptr %8, align 2
   br label %.thread
 
 1211:                                             ; preds = %.split2497.us
@@ -87660,14 +87660,14 @@ split:                                            ; preds = %344, %.split2287.us
   %1218 = sub i64 %61, %1217
   %1219 = tail call noundef i32 %1215(ptr noundef nonnull %0, ptr noundef nonnull %.11055.ph, i64 noundef %1218)
   %.not1144 = icmp eq i32 %1219, 0
-  %.pre = load i16, ptr %10, align 2
+  %.pre = load i16, ptr %8, align 2
   br i1 %.not1144, label %1223, label %1220, !prof !478
 
 1220:                                             ; preds = %1216
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
   %1221 = and i16 %.pre, -32513
   %1222 = or disjoint i16 %1221, 1792
-  store i16 %1222, ptr %10, align 2
+  store i16 %1222, ptr %8, align 2
   br label %1223
 
 1223:                                             ; preds = %1220, %1216
@@ -87688,25 +87688,25 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1140, label %1233, label %1229
 
 1229:                                             ; preds = %.split2505.us
-  store i32 %.31050.ph1363, ptr %8, align 4, !tbaa !2244
-  %1230 = load i16, ptr %10, align 2
+  store i32 %.31050.ph1363, ptr %6, align 4, !tbaa !2244
+  %1230 = load i16, ptr %8, align 2
   %1231 = and i16 %1230, -32513
   %1232 = or disjoint i16 %1231, 7424
-  store i16 %1232, ptr %10, align 2
+  store i16 %1232, ptr %8, align 2
   br label %.thread
 
 1233:                                             ; preds = %.split2505.us
-  store i32 0, ptr %8, align 4, !tbaa !2244
+  store i32 0, ptr %6, align 4, !tbaa !2244
   %1234 = and i32 %.us-phi2511, -32641
   %1235 = or disjoint i32 %1234, 4480
   store i32 %1235, ptr %0, align 8
   br label %.thread1286
 
 .split.us:                                        ; preds = %.outer1371.split.us, %.outer1371.split
-  %1236 = load i16, ptr %10, align 2
+  %1236 = load i16, ptr %8, align 2
   %1237 = and i16 %1236, -32513
   %1238 = or disjoint i16 %1237, 7168
-  store i16 %1238, ptr %10, align 2
+  store i16 %1238, ptr %8, align 2
   br label %.thread
 
 .thread1286:                                      ; preds = %.split2439.us, %1178, %1164, %1155, %.loopexit, %638, %650, %641, %._crit_edge, %233, %1214, %1223, %.split2490.us, %1204, %709, %.split2390.us, %.split2390.us, %312, %321, %284, %293, %.split2246.us, %.split2246.us, %.split2239.us, %.split2239.us, %358, %365, %372, %379, %386, %393, %402, %410, %419, %423, %426, %437, %440, %660, %663, %918, %937, %940, %.split2446.us, %1150, %1183, %1233, %117, %108, %.split2262.us, %247, %267, %327, %307, %281, %348, %341, %.split2287.us, %466, %464, %462, %460, %458, %710, %716, %713, %686, %688, %718, %703, %680, %.loopexit1361, %.loopexit1361, %974, %967, %1062, %1085, %1078, %1094, %1101, %1091, %1073, %1047, %1054, %1136, %.split2452.us, %.split2474.us, %1196, %1193, %1211
@@ -87718,7 +87718,7 @@ split:                                            ; preds = %344, %.split2287.us
   %.51022 = phi ptr [ %.110182552, %.split2239.us ], [ %.110182552, %.split2246.us ], [ %.110182552, %117 ], [ %.110182552, %108 ], [ %.110182552, %233 ], [ %.110182552, %.split2262.us ], [ %.110182552, %247 ], [ %.110182552, %267 ], [ %.110182552, %327 ], [ %.110182552, %.split2246.us ], [ %.110182552, %281 ], [ %.110182552, %284 ], [ %.110182552, %307 ], [ %.110182552, %.split2287.us ], [ %.110182552, %341 ], [ %.110182552, %348 ], [ %.110182552, %358 ], [ %.110182552, %365 ], [ %.110182552, %372 ], [ %.110182552, %379 ], [ %.110182552, %386 ], [ %.110182552, %393 ], [ %.110182552, %402 ], [ %.110182552, %410 ], [ %.110182552, %419 ], [ %.110182552, %423 ], [ %.110182552, %426 ], [ %.110182552, %437 ], [ %.110182552, %440 ], [ %spec.select1262, %466 ], [ %spec.select1262, %458 ], [ %spec.select1262, %460 ], [ %spec.select1262, %462 ], [ %spec.select1262, %464 ], [ %.110182552, %1214 ], [ %.110182552, %.split2390.us ], [ %.110182552, %660 ], [ %.110182552, %663 ], [ %.110182552, %718 ], [ %.110182552, %680 ], [ %.110182552, %686 ], [ %.110182552, %688 ], [ %.110182552, %703 ], [ %.110182552, %.loopexit1361 ], [ %.110182552, %.loopexit1361 ], [ %.110182552, %710 ], [ %.110182552, %713 ], [ %.110182552, %709 ], [ %.110182552, %716 ], [ null, %638 ], [ %.110182552, %918 ], [ %.110182552, %937 ], [ %.110182552, %940 ], [ %.110182552, %974 ], [ %.110182552, %967 ], [ %.110182552, %1054 ], [ %.110182552, %1047 ], [ %.110182552, %1062 ], [ %.110182552, %1073 ], [ %.110182552, %1085 ], [ %.110182552, %1078 ], [ %.110182552, %1091 ], [ %.110182552, %1101 ], [ %.110182552, %1094 ], [ %.110182552, %.loopexit ], [ %.110182552, %.split2446.us ], [ %.110182552, %1136 ], [ %.110182552, %.split2452.us ], [ %.110182552, %1150 ], [ %.110182552, %1178 ], [ %.110182552, %1183 ], [ %.110182552, %.split2474.us ], [ %.110182552, %1193 ], [ %.110182552, %1196 ], [ %.110182552, %.split2390.us ], [ %.110182552, %.split2490.us ], [ %.110182552, %1211 ], [ %.110182552, %1233 ], [ %.110182552, %.split2239.us ], [ %.110182552, %293 ], [ %.110182552, %321 ], [ %.110182552, %312 ], [ %.110182552, %1204 ], [ %.110182552, %1223 ], [ %.110182552, %._crit_edge ], [ null, %641 ], [ null, %650 ], [ %.110182552, %1155 ], [ %.110182552, %1164 ], [ %.110182552, %.split2439.us ]
   %.15 = phi ptr [ %.21009.ph1365, %.split2239.us ], [ %.21009.ph1365, %.split2246.us ], [ %.21009.ph1365, %117 ], [ %.21009.ph1365, %108 ], [ %.21009.ph1365, %233 ], [ %.21009.ph1365, %.split2262.us ], [ %.21009.ph1365, %247 ], [ %.21009.ph1365, %267 ], [ %.21009.ph1365, %327 ], [ %.21009.ph1365, %.split2246.us ], [ %.21009.ph1365, %281 ], [ %.21009.ph1365, %284 ], [ %.21009.ph1365, %307 ], [ %.21009.ph1365, %.split2287.us ], [ %.21009.ph1365, %341 ], [ %.21009.ph1365, %348 ], [ %.21009.ph1365, %358 ], [ %.21009.ph1365, %365 ], [ %.21009.ph1365, %372 ], [ %.21009.ph1365, %379 ], [ %.21009.ph1365, %386 ], [ %.21009.ph1365, %393 ], [ %.21009.ph1365, %402 ], [ %.21009.ph1365, %410 ], [ %.21009.ph1365, %419 ], [ %.21009.ph1365, %423 ], [ %.21009.ph1365, %426 ], [ %.21009.ph1365, %437 ], [ %.21009.ph1365, %440 ], [ %.21009.ph1365, %466 ], [ %.21009.ph1365, %458 ], [ %.21009.ph1365, %460 ], [ %.21009.ph1365, %462 ], [ %.21009.ph1365, %464 ], [ %.21009.ph1365, %1214 ], [ %.21009.ph1365, %.split2390.us ], [ %.21009.ph1365, %660 ], [ %.21009.ph1365, %663 ], [ %.21009.ph1365, %718 ], [ %.21009.ph1365, %680 ], [ %.21009.ph1365, %686 ], [ %.21009.ph1365, %688 ], [ %.21009.ph1365, %703 ], [ %.21009.ph1365, %.loopexit1361 ], [ %.21009.ph1365, %.loopexit1361 ], [ %.21009.ph1365, %710 ], [ %.21009.ph1365, %713 ], [ %.21009.ph1365, %709 ], [ %.21009.ph1365, %716 ], [ %.310102539, %638 ], [ %.21009.ph1365, %918 ], [ %.21009.ph1365, %937 ], [ %.21009.ph1365, %940 ], [ %.21009.ph1365, %974 ], [ %.21009.ph1365, %967 ], [ %.21009.ph1365, %1054 ], [ %.21009.ph1365, %1047 ], [ %.21009.ph1365, %1062 ], [ %.21009.ph1365, %1073 ], [ %.21009.ph1365, %1085 ], [ %.21009.ph1365, %1078 ], [ %.21009.ph1365, %1091 ], [ %.21009.ph1365, %1101 ], [ %.21009.ph1365, %1094 ], [ %spec.select1271, %.loopexit ], [ %41, %.split2446.us ], [ %.21009.ph1365, %1136 ], [ %.21009.ph1365, %.split2452.us ], [ %.21009.ph1365, %1150 ], [ %.21009.ph1365, %1178 ], [ %.21009.ph1365, %1183 ], [ %.21009.ph1365, %.split2474.us ], [ %.21009.ph1365, %1193 ], [ %.21009.ph1365, %1196 ], [ %.21009.ph1365, %.split2390.us ], [ %1203, %.split2490.us ], [ %.21009.ph1365, %1211 ], [ %.21009.ph1365, %1233 ], [ %.21009.ph1365, %.split2239.us ], [ %.21009.ph1365, %293 ], [ %.21009.ph1365, %321 ], [ %.21009.ph1365, %312 ], [ %1203, %1204 ], [ %.21009.ph1365, %1223 ], [ %616, %._crit_edge ], [ %.310102539, %641 ], [ %.310102539, %650 ], [ %.21009.ph1365, %1155 ], [ %.21009.ph1365, %1164 ], [ %1111, %.split2439.us ]
   %1239 = getelementptr inbounds nuw i8, ptr %.15, i64 1
-  %.not1122 = icmp eq ptr %1239, %28
+  %.not1122 = icmp eq ptr %1239, %26
   br i1 %.not1122, label %._crit_edge2558, label %47, !llvm.loop !2260
 
 ._crit_edge2558:                                  ; preds = %.thread1286
@@ -87732,19 +87732,19 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1124, label %1254, label %1243, !prof !363
 
 1243:                                             ; preds = %1240
-  %1244 = ptrtoint ptr %28 to i64
+  %1244 = ptrtoint ptr %26 to i64
   %1245 = ptrtoint ptr %.51022 to i64
   %1246 = sub i64 %1244, %1245
   %1247 = tail call noundef i32 %1242(ptr noundef nonnull %0, ptr noundef nonnull %.51022, i64 noundef %1246)
   %.not1125 = icmp eq i32 %1247, 0
-  %.pre3679 = load i16, ptr %10, align 2
+  %.pre3679 = load i16, ptr %8, align 2
   br i1 %.not1125, label %1251, label %1248, !prof !478
 
 1248:                                             ; preds = %1243
-  store i32 %.61053, ptr %8, align 4, !tbaa !2244
+  store i32 %.61053, ptr %6, align 4, !tbaa !2244
   %1249 = and i16 %.pre3679, -32513
   %1250 = or disjoint i16 %1249, 1024
-  store i16 %1250, ptr %10, align 2
+  store i16 %1250, ptr %8, align 2
   br label %1251
 
 1251:                                             ; preds = %1248, %1243
@@ -87764,19 +87764,19 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1128, label %1269, label %1258, !prof !363
 
 1258:                                             ; preds = %1255
-  %1259 = ptrtoint ptr %28 to i64
+  %1259 = ptrtoint ptr %26 to i64
   %1260 = ptrtoint ptr %.91032 to i64
   %1261 = sub i64 %1259, %1260
   %1262 = tail call noundef i32 %1257(ptr noundef nonnull %0, ptr noundef nonnull %.91032, i64 noundef %1261)
   %.not1129 = icmp eq i32 %1262, 0
-  %.pre3680 = load i16, ptr %10, align 2
+  %.pre3680 = load i16, ptr %8, align 2
   br i1 %.not1129, label %1266, label %1263, !prof !478
 
 1263:                                             ; preds = %1258
-  store i32 %.61053, ptr %8, align 4, !tbaa !2244
+  store i32 %.61053, ptr %6, align 4, !tbaa !2244
   %1264 = and i16 %.pre3680, -32513
   %1265 = or disjoint i16 %1264, 1280
-  store i16 %1265, ptr %10, align 2
+  store i16 %1265, ptr %8, align 2
   br label %1266
 
 1266:                                             ; preds = %1263, %1258
@@ -87796,19 +87796,19 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1132, label %1284, label %1273, !prof !363
 
 1273:                                             ; preds = %1270
-  %1274 = ptrtoint ptr %28 to i64
+  %1274 = ptrtoint ptr %26 to i64
   %1275 = ptrtoint ptr %.31036 to i64
   %1276 = sub i64 %1274, %1275
   %1277 = tail call noundef i32 %1272(ptr noundef nonnull %0, ptr noundef nonnull %.31036, i64 noundef %1276)
   %.not1133 = icmp eq i32 %1277, 0
-  %.pre3681 = load i16, ptr %10, align 2
+  %.pre3681 = load i16, ptr %8, align 2
   br i1 %.not1133, label %1281, label %1278, !prof !478
 
 1278:                                             ; preds = %1273
-  store i32 %.61053, ptr %8, align 4, !tbaa !2244
+  store i32 %.61053, ptr %6, align 4, !tbaa !2244
   %1279 = and i16 %.pre3681, -32513
   %1280 = or disjoint i16 %1279, 768
-  store i16 %1280, ptr %10, align 2
+  store i16 %1280, ptr %8, align 2
   br label %1281
 
 1281:                                             ; preds = %1278, %1273
@@ -87828,19 +87828,19 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1136, label %1299, label %1288, !prof !363
 
 1288:                                             ; preds = %1285
-  %1289 = ptrtoint ptr %28 to i64
+  %1289 = ptrtoint ptr %26 to i64
   %1290 = ptrtoint ptr %.71061 to i64
   %1291 = sub i64 %1289, %1290
   %1292 = tail call noundef i32 %1287(ptr noundef nonnull %0, ptr noundef nonnull %.71061, i64 noundef %1291)
   %.not1137 = icmp eq i32 %1292, 0
-  %.pre3682 = load i16, ptr %10, align 2
+  %.pre3682 = load i16, ptr %8, align 2
   br i1 %.not1137, label %1296, label %1293, !prof !478
 
 1293:                                             ; preds = %1288
-  store i32 %.61053, ptr %8, align 4, !tbaa !2244
+  store i32 %.61053, ptr %6, align 4, !tbaa !2244
   %1294 = and i16 %.pre3682, -32513
   %1295 = or disjoint i16 %1294, 1792
-  store i16 %1295, ptr %10, align 2
+  store i16 %1295, ptr %8, align 2
   br label %1296
 
 1296:                                             ; preds = %1293, %1288
@@ -87850,7 +87850,7 @@ split:                                            ; preds = %344, %.split2287.us
   br i1 %.not1138, label %1299, label %.thread1321, !prof !478
 
 1299:                                             ; preds = %1285, %1296, %1284
-  store i32 %.61053, ptr %8, align 4, !tbaa !2244
+  store i32 %.61053, ptr %6, align 4, !tbaa !2244
   br label %.thread1321
 
 .thread:                                          ; preds = %813, %822, %834, %803, %781, %753, %910, %632, %653, %622, %217, %214, %126, %1167, %1174, %.split.us, %1229, %1207, %1186, %1146, %1023, %989, %985, %961, %933, %914, %699, %693, %450, %433, %429, %415, %406, %398, %389, %382, %375, %368, %361, %354, %split, %337, %302, %277, %263, %259, %104, %84, %74, %55
@@ -87863,18 +87863,18 @@ split:                                            ; preds = %344, %.split2287.us
 
 1303:                                             ; preds = %.thread
   %1304 = or disjoint i16 %1300, 7680
-  store i16 %1304, ptr %10, align 2
+  store i16 %1304, ptr %8, align 2
   br label %1305
 
 1305:                                             ; preds = %1303, %.thread
-  store i32 %.21049, ptr %8, align 4, !tbaa !2244
+  store i32 %.21049, ptr %6, align 4, !tbaa !2244
   %1306 = ptrtoint ptr %.11008 to i64
   %1307 = ptrtoint ptr %2 to i64
   %1308 = sub i64 %1306, %1307
   br label %.thread1321
 
-.thread1321:                                      ; preds = %1296, %1281, %1266, %1251, %773, %742, %.thread1335, %657, %.thread1280, %20, %22, %15, %15, %17, %4, %1305, %1299, %1226, %1139, %1104, %1088, %1068, %1057, %1042, %1039, %1020, %1011, %977, %958, %324, %296, %120, %26
-  %.0 = phi i64 [ %3, %1299 ], [ 1, %26 ], [ 0, %4 ], [ 0, %15 ], [ 0, %17 ], [ %1308, %1305 ], [ %122, %120 ], [ %232, %.thread1280 ], [ %298, %296 ], [ %326, %324 ], [ %659, %657 ], [ 0, %20 ], [ %960, %958 ], [ %979, %977 ], [ %1016, %1011 ], [ %1022, %1020 ], [ %1041, %1039 ], [ %1044, %1042 ], [ %1059, %1057 ], [ %1072, %1068 ], [ %1090, %1088 ], [ %1106, %1104 ], [ %1129, %.thread1335 ], [ %1141, %1139 ], [ 0, %15 ], [ %1228, %1226 ], [ %744, %742 ], [ %3, %1251 ], [ %3, %1266 ], [ %3, %1281 ], [ 0, %22 ], [ %775, %773 ], [ %3, %1296 ]
+.thread1321:                                      ; preds = %1296, %1281, %1266, %1251, %773, %742, %.thread1335, %657, %.thread1280, %18, %20, %13, %13, %15, %4, %1305, %1299, %1226, %1139, %1104, %1088, %1068, %1057, %1042, %1039, %1020, %1011, %977, %958, %324, %296, %120, %24
+  %.0 = phi i64 [ %3, %1299 ], [ 1, %24 ], [ 0, %4 ], [ 0, %13 ], [ 0, %15 ], [ %1308, %1305 ], [ %122, %120 ], [ %232, %.thread1280 ], [ %298, %296 ], [ %326, %324 ], [ %659, %657 ], [ 0, %18 ], [ %960, %958 ], [ %979, %977 ], [ %1016, %1011 ], [ %1022, %1020 ], [ %1041, %1039 ], [ %1044, %1042 ], [ %1059, %1057 ], [ %1072, %1068 ], [ %1090, %1088 ], [ %1106, %1104 ], [ %1129, %.thread1335 ], [ %1141, %1139 ], [ 0, %13 ], [ %1228, %1226 ], [ %744, %742 ], [ %3, %1251 ], [ %3, %1266 ], [ %3, %1281 ], [ 0, %20 ], [ %775, %773 ], [ %3, %1296 ]
   ret i64 %.0
 }
 

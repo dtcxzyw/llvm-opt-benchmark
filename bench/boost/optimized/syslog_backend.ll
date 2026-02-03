@@ -17617,10 +17617,9 @@ _ZN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEE10set_optionINS1_13s
   store i32 1024, ptr %41, align 8, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 5, ptr %42, align 4, !tbaa !12
-  %43 = and i64 %39, 1
-  %.not.i.i.i = icmp ne i64 %43, 0
-  %44 = icmp ne i64 %39, 1
-  %or.cond.i = select i1 %44, i1 true, i1 %38
+  %.not.i.i.i = trunc i64 %39 to i1
+  %43 = icmp ne i64 %39, 1
+  %or.cond.i = select i1 %43, i1 true, i1 %38
   %or.cond = select i1 %.not.i.i.i, i1 %or.cond.i, i1 false
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
 
@@ -17628,17 +17627,17 @@ _ZNK5boost6system10error_codecvbEv.exit.thread.i: ; preds = %_ZN5boost4asio6deta
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str.78)
   invoke void @_ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %5) #35
-          to label %45 unwind label %46
+          to label %44 unwind label %45
 
-45:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
+44:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
   unreachable
 
-46:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
+  %46 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %47
+  resume { ptr, i32 } %46
 
 _ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit: ; preds = %_ZN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEE10set_optionINS1_13socket_option7booleanILi1ELi2EEEEENS_6system10error_codeERNS5_19implementation_typeERKT_RSB_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17741,10 +17740,9 @@ _ZN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEE4bindERNS5_19impleme
   store i32 793, ptr %44, align 8, !tbaa !11
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 5, ptr %45, align 4, !tbaa !12
-  %46 = and i64 %42, 1
-  %.not.i.i.i = icmp ne i64 %46, 0
-  %47 = icmp ne i64 %42, 1
-  %or.cond.i = select i1 %47, i1 true, i1 %41
+  %.not.i.i.i = trunc i64 %42 to i1
+  %46 = icmp ne i64 %42, 1
+  %or.cond.i = select i1 %46, i1 true, i1 %41
   %or.cond = select i1 %.not.i.i.i, i1 %or.cond.i, i1 false
   br i1 %or.cond, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit
 
@@ -17752,17 +17750,17 @@ _ZNK5boost6system10error_codecvbEv.exit.thread.i: ; preds = %_ZN5boost4asio6deta
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str.79)
   invoke void @_ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(24) %5) #35
-          to label %48 unwind label %49
+          to label %47 unwind label %48
 
-48:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
+47:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
   unreachable
 
-49:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %49
 
 _ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit: ; preds = %_ZN5boost4asio6detail23reactive_socket_serviceINS0_2ip3udpEE4bindERNS5_19implementation_typeERKNS3_14basic_endpointIS4_EERNS_6system10error_codeE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

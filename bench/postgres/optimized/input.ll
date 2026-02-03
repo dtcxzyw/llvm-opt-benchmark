@@ -237,45 +237,44 @@ define dso_local void @pg_send_history(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds i8, ptr %2, i64 %17
   store i8 0, ptr %18, align 1
   %.b = load i1, ptr @useHistory, align 1
-  br i1 %.b, label %19, label %37
+  br i1 %.b, label %19, label %36
 
 19:                                               ; preds = %.critedge
   %20 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %37, label %21
+  br i1 %.not, label %36, label %21
 
 21:                                               ; preds = %19
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 436), align 4
-  %23 = and i32 %22, 1
-  %.not16 = icmp ne i32 %23, 0
-  %24 = icmp eq i8 %20, 32
-  %or.cond17 = and i1 %24, %.not16
-  br i1 %or.cond17, label %37, label %25
+  %.not16 = trunc i32 %22 to i1
+  %23 = icmp eq i8 %20, 32
+  %or.cond17 = and i1 %23, %.not16
+  br i1 %or.cond17, label %36, label %24
 
-25:                                               ; preds = %21
-  %26 = and i32 %22, 2
-  %27 = icmp ne i32 %26, 0
-  %28 = load ptr, ptr @pg_send_history.prev_hist, align 8
-  %29 = icmp ne ptr %28, null
-  %or.cond = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond, label %30, label %33
+24:                                               ; preds = %21
+  %25 = and i32 %22, 2
+  %26 = icmp ne i32 %25, 0
+  %27 = load ptr, ptr @pg_send_history.prev_hist, align 8
+  %28 = icmp ne ptr %27, null
+  %or.cond = select i1 %26, i1 %28, i1 false
+  br i1 %or.cond, label %29, label %32
 
-30:                                               ; preds = %25
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %28) #10
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %37, label %33
+29:                                               ; preds = %24
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %27) #10
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %36, label %32
 
-33:                                               ; preds = %30, %25
-  tail call void @free(ptr noundef %28) #9
-  %34 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #9
-  store ptr %34, ptr @pg_send_history.prev_hist, align 8
+32:                                               ; preds = %29, %24
+  tail call void @free(ptr noundef %27) #9
+  %33 = tail call ptr @pg_strdup(ptr noundef nonnull %2) #9
+  store ptr %33, ptr @pg_send_history.prev_hist, align 8
   tail call void @add_history(ptr noundef nonnull %2) #9
-  %35 = load i32, ptr @history_lines_added, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr @history_lines_added, align 4
-  br label %37
+  %34 = load i32, ptr @history_lines_added, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr @history_lines_added, align 4
+  br label %36
 
-37:                                               ; preds = %21, %33, %30, %19, %.critedge
+36:                                               ; preds = %21, %32, %29, %19, %.critedge
   tail call void @resetPQExpBuffer(ptr noundef nonnull %0) #9
   ret void
 }

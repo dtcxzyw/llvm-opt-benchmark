@@ -9147,7 +9147,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
 15:                                               ; preds = %3
   %16 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %12) #15
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %111, label %.lr.ph
+  br i1 %.not, label %105, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.thread
   %17 = phi ptr [ %14, %.thread ], [ %16, %15 ]
@@ -9156,12 +9156,12 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %20 = zext nneg i32 %18 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %101
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %.0131157 = phi i32 [ 0, %.lr.ph ], [ %.1, %101 ]
-  %.0132156 = phi i8 [ 1, %.lr.ph ], [ %.1133, %101 ]
-  %.0135155 = phi i1 [ false, %.lr.ph ], [ %.1136, %101 ]
-  %.0137154 = phi i8 [ 0, %.lr.ph ], [ %.2139, %101 ]
+21:                                               ; preds = %.lr.ph, %99
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
+  %.0131157 = phi i32 [ 0, %.lr.ph ], [ %.1, %99 ]
+  %.0132156 = phi i1 [ true, %.lr.ph ], [ %.1133, %99 ]
+  %.0135155 = phi i1 [ false, %.lr.ph ], [ %.1136, %99 ]
+  %.0137154 = phi i8 [ 0, %.lr.ph ], [ %.2139, %99 ]
   %22 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %1, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9194,7 +9194,7 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
 
 41:                                               ; preds = %21
   %or.cond = select i1 %26, i1 %31, i1 false
-  br i1 %or.cond, label %101, label %42
+  br i1 %or.cond, label %99, label %42
 
 42:                                               ; preds = %41, %37, %40
   %.1138 = phi i8 [ 1, %40 ], [ %.0137154, %37 ], [ %.0137154, %41 ]
@@ -9222,15 +9222,15 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %58 = fmul float %9, %57
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store float %58, ptr %59, align 4
-  br i1 %55, label %101, label %60
+  br i1 %55, label %99, label %60
 
 60:                                               ; preds = %43
-  br i1 %45, label %61, label %101
+  br i1 %45, label %61, label %99
 
 61:                                               ; preds = %60
   %62 = fadd float %9, %51
   store float %62, ptr %52, align 4
-  br label %101
+  br label %99
 
 63:                                               ; preds = %42
   br i1 %31, label %64, label %84
@@ -9257,15 +9257,15 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   store float %78, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store float %9, ptr %80, align 4
-  br i1 %75, label %101, label %81
+  br i1 %75, label %99, label %81
 
 81:                                               ; preds = %64
-  br i1 %66, label %82, label %101
+  br i1 %66, label %82, label %99
 
 82:                                               ; preds = %81
   %83 = fadd float %7, %71
   store float %83, ptr %70, align 4
-  br label %101
+  br label %99
 
 84:                                               ; preds = %63
   %85 = tail call float @SDL_roundf_REAL(float noundef %23) #15
@@ -9281,44 +9281,36 @@ define internal fastcc zeroext i1 @RenderLinesWithRectsF(ptr noundef %0, ptr nou
   %95 = fptosi float %94 to i32
   %96 = trunc nuw i8 %.1138 to i1
   %97 = tail call fastcc zeroext i1 @RenderLineBresenham(ptr noundef %0, i32 noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %95, i1 noundef zeroext %96)
-  %98 = icmp ne i8 %.0132156, 0
-  %99 = select i1 %97, i1 %98, i1 false
-  %100 = zext i1 %99 to i8
-  br label %101
+  %98 = select i1 %97, i1 %.0132156, i1 false
+  br label %99
 
-101:                                              ; preds = %84, %61, %60, %43, %82, %81, %64, %41
+99:                                               ; preds = %84, %61, %60, %43, %82, %81, %64, %41
   %.2139 = phi i8 [ %.0137154, %41 ], [ 1, %64 ], [ 0, %81 ], [ 0, %82 ], [ 1, %43 ], [ 0, %60 ], [ 0, %61 ], [ %.1138, %84 ]
   %.1136 = phi i1 [ %.0135155, %41 ], [ true, %64 ], [ true, %81 ], [ true, %82 ], [ true, %43 ], [ true, %60 ], [ true, %61 ], [ true, %84 ]
-  %.1133 = phi i8 [ %.0132156, %41 ], [ %.0132156, %64 ], [ %.0132156, %81 ], [ %.0132156, %82 ], [ %.0132156, %43 ], [ %.0132156, %60 ], [ %.0132156, %61 ], [ %100, %84 ]
+  %.1133 = phi i1 [ %.0132156, %41 ], [ %.0132156, %64 ], [ %.0132156, %81 ], [ %.0132156, %82 ], [ %.0132156, %43 ], [ %.0132156, %60 ], [ %.0132156, %61 ], [ %98, %84 ]
   %.1 = phi i32 [ %.0131157, %41 ], [ %68, %64 ], [ %68, %81 ], [ %68, %82 ], [ %47, %43 ], [ %47, %60 ], [ %47, %61 ], [ %.0131157, %84 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %101
+._crit_edge:                                      ; preds = %99
   %.not151 = icmp eq i32 %.1, 0
-  br i1 %.not151, label %107, label %102
+  br i1 %.not151, label %103, label %100
 
-102:                                              ; preds = %._crit_edge
-  %103 = call fastcc zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr noundef %17, i32 noundef %.1)
-  %104 = icmp ne i8 %.1133, 0
-  %105 = select i1 %103, i1 %104, i1 false
-  %106 = zext i1 %105 to i8
-  br label %107
+100:                                              ; preds = %._crit_edge
+  %101 = call fastcc zeroext i1 @QueueCmdFillRects(ptr noundef %0, ptr noundef %17, i32 noundef %.1)
+  %102 = select i1 %101, i1 %.1133, i1 false
+  br label %103
 
-107:                                              ; preds = %102, %._crit_edge
-  %.3 = phi i8 [ %106, %102 ], [ %.1133, %._crit_edge ]
-  br i1 %13, label %109, label %108
+103:                                              ; preds = %100, %._crit_edge
+  %.3 = phi i1 [ %102, %100 ], [ %.1133, %._crit_edge ]
+  br i1 %13, label %105, label %104
 
-108:                                              ; preds = %107
+104:                                              ; preds = %103
   call void @SDL_free_REAL(ptr noundef nonnull %17) #15
-  br label %109
+  br label %105
 
-109:                                              ; preds = %107, %108
-  %110 = trunc nuw i8 %.3 to i1
-  br label %111
-
-111:                                              ; preds = %15, %109
-  %.0 = phi i1 [ %110, %109 ], [ false, %15 ]
+105:                                              ; preds = %104, %103, %15
+  %.0 = phi i1 [ false, %15 ], [ %.3, %103 ], [ %.3, %104 ]
   ret i1 %.0
 }
 

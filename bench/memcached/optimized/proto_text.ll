@@ -6983,12 +6983,12 @@ define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr noundef non
 ._crit_edge:                                      ; preds = %157, %4
   %163 = load i16, ptr %2, align 8
   %164 = and i16 %163, 1
-  %sext = sub nsw i16 0, %164
-  %165 = sext i16 %sext to i32
+  %165 = zext nneg i16 %164 to i32
+  %166 = sub nsw i32 0, %165
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %156, %._crit_edge
-  %.2 = phi i32 [ %165, %._crit_edge ], [ -1, %156 ], [ -1, %32 ]
+  %.2 = phi i32 [ %166, %._crit_edge ], [ -1, %156 ], [ -1, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2

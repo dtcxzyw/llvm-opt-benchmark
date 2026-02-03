@@ -3268,7 +3268,7 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1544
   %5 = load i32, ptr %4, align 8, !tbaa !71
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %70
+  br i1 %6, label %7, label %69
 
 7:                                                ; preds = %1
   tail call void @dt_dev_undo_start_record(ptr noundef nonnull %3) #17
@@ -3362,30 +3362,29 @@ define internal fastcc void @_lib_history_truncate(i32 noundef range(i32 0, 2) %
   %58 = call i32 @dt_dev_modulegroups_get(ptr noundef %57) #17
   call void @dt_dev_modulegroups_set(ptr noundef %57, i32 noundef %58) #17
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !25
-  %60 = and i32 %59, 1
-  %61 = icmp ne i32 %60, 0
-  %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3236), align 4
-  %63 = icmp ne i32 %62, 0
-  %or.cond = select i1 %61, i1 %63, i1 false
-  br i1 %or.cond, label %64, label %68
+  %60 = trunc i32 %59 to i1
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3236), align 4
+  %62 = icmp ne i32 %61, 0
+  %or.cond = select i1 %60, i1 %62, i1 false
+  br i1 %or.cond, label %63, label %67
 
-64:                                               ; preds = %48
-  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !62
-  %66 = and i32 %65, 1048576
-  %.not13 = icmp eq i32 %66, 0
-  br i1 %.not13, label %68, label %67
+63:                                               ; preds = %48
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !62
+  %65 = and i32 %64, 1048576
+  %.not13 = icmp eq i32 %65, 0
+  br i1 %.not13, label %67, label %66
 
-67:                                               ; preds = %64
+66:                                               ; preds = %63
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.9, i32 noundef 1196, ptr noundef nonnull @__FUNCTION__._lib_history_truncate) #17
-  br label %68
+  br label %67
 
-68:                                               ; preds = %64, %67, %48
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !63
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %69, i32 noundef 26) #17
+67:                                               ; preds = %63, %66, %48
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !63
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %68, i32 noundef 26) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %70
+  br label %69
 
-70:                                               ; preds = %1, %68
+69:                                               ; preds = %1, %67
   ret void
 }
 

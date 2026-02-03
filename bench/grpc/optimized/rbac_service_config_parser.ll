@@ -4975,9 +4975,8 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13StringMatcherEEdeEv.exit.i.i: ; pr
 57:                                               ; preds = %52
   %.val12.i = load ptr, ptr %26, align 8
   %58 = load ptr, ptr %.val12.i, align 8, !tbaa !243
-  %59 = and i64 %53, 1
-  %.not.i.i.i = icmp eq i64 %59, 0
-  br i1 %.not.i.i.i, label %60, label %66
+  %59 = trunc i64 %53 to i1
+  br i1 %59, label %66, label %60
 
 60:                                               ; preds = %57
   %61 = inttoptr i64 %53 to ptr
@@ -4989,14 +4988,14 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13StringMatcherEEdeEv.exit.i.i: ; pr
 
 66:                                               ; preds = %57
   %67 = and i64 %53, 2
-  %.not1.i.i.i = icmp eq i64 %67, 0
-  %spec.select.i.i.i = select i1 %.not1.i.i.i, i64 0, i64 27
-  %spec.select2.i.i.i = select i1 %.not1.i.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i.i.i = icmp eq i64 %67, 0
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 27
+  %spec.select1.i.i.i = select i1 %.not.i.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit.i.i
 
 _ZNK4absl12lts_202407226Status7messageEv.exit.i.i: ; preds = %66, %60
   %.sroa.0.0.i.i.i = phi i64 [ %spec.select.i.i.i, %66 ], [ %65, %60 ]
-  %.sroa.4.0.i.i.i = phi ptr [ %spec.select2.i.i.i, %66 ], [ %63, %60 ]
+  %.sroa.4.0.i.i.i = phi ptr [ %spec.select1.i.i.i, %66 ], [ %63, %60 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %58, i64 %.sroa.0.0.i.i.i, ptr %.sroa.4.0.i.i.i)
           to label %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13StringMatcherEEE.exit.i" unwind label %87
 
@@ -5008,8 +5007,8 @@ _ZNK4absl12lts_202407226Status7messageEv.exit.i.i: ; preds = %66, %60
 _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13StringMatcherEEE.exit.i"
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %71 = load ptr, ptr %70, align 8, !tbaa !213
-  %.not.i.i1.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i1.i.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i
+  %.not.i.i.i.i = icmp eq ptr %71, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i
   call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %71) #26
@@ -5031,9 +5030,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13StringMatcherEED2Ev.exit.i
 
 78:                                               ; preds = %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13StringMatcherEEE.exit.i"
-  %79 = and i64 %68, 1
-  %.not.i.i2.i.i = icmp eq i64 %79, 0
-  br i1 %.not.i.i2.i.i, label %80, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13StringMatcherEED2Ev.exit.i
+  %79 = trunc i64 %68 to i1
+  br i1 %79, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13StringMatcherEED2Ev.exit.i, label %80
 
 80:                                               ; preds = %78
   %81 = inttoptr i64 %68 to ptr
@@ -5354,9 +5352,8 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13StringMatcherEEdeEv.exit.i: ; pred
   %40 = getelementptr i8, ptr %25, i64 8
   %.val11 = load ptr, ptr %40, align 8
   %41 = load ptr, ptr %.val11, align 8, !tbaa !243
-  %42 = and i64 %35, 1
-  %.not.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i, label %43, label %49
+  %42 = trunc i64 %35 to i1
+  br i1 %42, label %49, label %43
 
 43:                                               ; preds = %39
   %44 = inttoptr i64 %35 to ptr
@@ -5368,14 +5365,14 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13StringMatcherEEdeEv.exit.i: ; pred
 
 49:                                               ; preds = %39
   %50 = and i64 %35, 2
-  %.not1.i.i = icmp eq i64 %50, 0
-  %spec.select.i.i = select i1 %.not1.i.i, i64 0, i64 27
-  %spec.select2.i.i = select i1 %.not1.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i.i = icmp eq i64 %50, 0
+  %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 27
+  %spec.select1.i.i = select i1 %.not.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit.i
 
 _ZNK4absl12lts_202407226Status7messageEv.exit.i:  ; preds = %49, %43
   %.sroa.0.0.i.i = phi i64 [ %spec.select.i.i, %49 ], [ %48, %43 ]
-  %.sroa.4.0.i.i = phi ptr [ %spec.select2.i.i, %49 ], [ %46, %43 ]
+  %.sroa.4.0.i.i = phi ptr [ %spec.select1.i.i, %49 ], [ %46, %43 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %41, i64 %.sroa.0.0.i.i, ptr %.sroa.4.0.i.i)
           to label %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13StringMatcherEEE.exit" unwind label %70
 
@@ -5387,8 +5384,8 @@ _ZNK4absl12lts_202407226Status7messageEv.exit.i:  ; preds = %49, %43
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13StringMatcherEEE.exit"
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %54 = load ptr, ptr %53, align 8, !tbaa !213
-  %.not.i.i1.i = icmp eq ptr %54, null
-  br i1 %.not.i.i1.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
+  %.not.i.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %54) #26
@@ -5410,9 +5407,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13StringMatcherEED2Ev.exit
 
 61:                                               ; preds = %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13StringMatcherEEE.exit"
-  %62 = and i64 %51, 1
-  %.not.i.i2.i = icmp eq i64 %62, 0
-  br i1 %.not.i.i2.i, label %63, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13StringMatcherEED2Ev.exit
+  %62 = trunc i64 %51 to i1
+  br i1 %62, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13StringMatcherEED2Ev.exit, label %63
 
 63:                                               ; preds = %61
   %64 = inttoptr i64 %51 to ptr
@@ -5683,8 +5679,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDat
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !213
-  %.not.i.i1 = icmp eq ptr %5, null
-  br i1 %.not.i.i1, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
+  %.not.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN3re23RE2ESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   tail call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %5) #26
@@ -5706,9 +5702,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN9grpc_core13StringMatcherD2Ev.exit
 
 12:                                               ; preds = %1
-  %13 = and i64 %2, 1
-  %.not.i.i2 = icmp eq i64 %13, 0
-  br i1 %.not.i.i2, label %14, label %_ZN9grpc_core13StringMatcherD2Ev.exit
+  %13 = trunc i64 %2 to i1
+  br i1 %13, label %_ZN9grpc_core13StringMatcherD2Ev.exit, label %14
 
 14:                                               ; preds = %12
   %15 = inttoptr i64 %2 to ptr
@@ -9325,9 +9320,8 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13HeaderMatcherEEdeEv.exit.i.i: ; pr
 98:                                               ; preds = %93
   %.val47.i = load ptr, ptr %57, align 8
   %99 = load ptr, ptr %.val47.i, align 8, !tbaa !243
-  %100 = and i64 %94, 1
-  %.not.i.i.i = icmp eq i64 %100, 0
-  br i1 %.not.i.i.i, label %101, label %107
+  %100 = trunc i64 %94 to i1
+  br i1 %100, label %107, label %101
 
 101:                                              ; preds = %98
   %102 = inttoptr i64 %94 to ptr
@@ -9339,14 +9333,14 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13HeaderMatcherEEdeEv.exit.i.i: ; pr
 
 107:                                              ; preds = %98
   %108 = and i64 %94, 2
-  %.not1.i.i.i = icmp eq i64 %108, 0
-  %spec.select.i.i.i = select i1 %.not1.i.i.i, i64 0, i64 27
-  %spec.select2.i.i.i = select i1 %.not1.i.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i.i.i = icmp eq i64 %108, 0
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i64 0, i64 27
+  %spec.select1.i.i.i = select i1 %.not.i.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit.i.i
 
 _ZNK4absl12lts_202407226Status7messageEv.exit.i.i: ; preds = %107, %101
   %.sroa.0.0.i.i.i = phi i64 [ %spec.select.i.i.i, %107 ], [ %106, %101 ]
-  %.sroa.4.0.i.i.i = phi ptr [ %spec.select2.i.i.i, %107 ], [ %104, %101 ]
+  %.sroa.4.0.i.i.i = phi ptr [ %spec.select1.i.i.i, %107 ], [ %104, %101 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %99, i64 %.sroa.0.0.i.i.i, ptr %.sroa.4.0.i.i.i)
           to label %"_ZZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatch12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsEENK3$_0clEN4absl12lts_202407228StatusOrINS_13HeaderMatcherEEE.exit.i" unwind label %111
 
@@ -9742,9 +9736,8 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13HeaderMatcherEEdeEv.exit.i: ; pred
   %44 = getelementptr i8, ptr %25, i64 8
   %.val13 = load ptr, ptr %44, align 8
   %45 = load ptr, ptr %.val13, align 8, !tbaa !243
-  %46 = and i64 %39, 1
-  %.not.i.i = icmp eq i64 %46, 0
-  br i1 %.not.i.i, label %47, label %53
+  %46 = trunc i64 %39 to i1
+  br i1 %46, label %53, label %47
 
 47:                                               ; preds = %43
   %48 = inttoptr i64 %39 to ptr
@@ -9756,14 +9749,14 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13HeaderMatcherEEdeEv.exit.i: ; pred
 
 53:                                               ; preds = %43
   %54 = and i64 %39, 2
-  %.not1.i.i = icmp eq i64 %54, 0
-  %spec.select.i.i = select i1 %.not1.i.i, i64 0, i64 27
-  %spec.select2.i.i = select i1 %.not1.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i.i = icmp eq i64 %54, 0
+  %spec.select.i.i = select i1 %.not.i.i, i64 0, i64 27
+  %spec.select1.i.i = select i1 %.not.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit.i
 
 _ZNK4absl12lts_202407226Status7messageEv.exit.i:  ; preds = %53, %47
   %.sroa.0.0.i.i = phi i64 [ %spec.select.i.i, %53 ], [ %52, %47 ]
-  %.sroa.4.0.i.i = phi ptr [ %spec.select2.i.i, %53 ], [ %50, %47 ]
+  %.sroa.4.0.i.i = phi ptr [ %spec.select1.i.i, %53 ], [ %50, %47 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %45, i64 %.sroa.0.0.i.i, ptr %.sroa.4.0.i.i)
           to label %59 unwind label %57
 
@@ -9838,9 +9831,8 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13HeaderMatcherEEdeEv.exit: ; preds 
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %.8.val, align 8, !tbaa !243
-  %8 = and i64 %2, 1
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %9, label %15
+  %8 = trunc i64 %2 to i1
+  br i1 %8, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = inttoptr i64 %2 to ptr
@@ -9852,14 +9844,14 @@ _ZNR4absl12lts_202407228StatusOrIN9grpc_core13HeaderMatcherEEdeEv.exit: ; preds 
 
 15:                                               ; preds = %6
   %16 = and i64 %2, 2
-  %.not1.i = icmp eq i64 %16, 0
-  %spec.select.i = select i1 %.not1.i, i64 0, i64 27
-  %spec.select2.i = select i1 %.not1.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i = icmp eq i64 %16, 0
+  %spec.select.i = select i1 %.not.i, i64 0, i64 27
+  %spec.select1.i = select i1 %.not.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %_ZNK4absl12lts_202407226Status7messageEv.exit
 
 _ZNK4absl12lts_202407226Status7messageEv.exit:    ; preds = %9, %15
   %.sroa.0.0.i = phi i64 [ %spec.select.i, %15 ], [ %14, %9 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %15 ], [ %12, %9 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select1.i, %15 ], [ %12, %9 ]
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %7, i64 %.sroa.0.0.i, ptr %.sroa.4.0.i)
   br label %17
 
@@ -9914,9 +9906,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
 
 18:                                               ; preds = %1
-  %19 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %19, 0
-  br i1 %.not.i.i1, label %20, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
+  %19 = trunc i64 %2 to i1
+  br i1 %19, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit, label %20
 
 20:                                               ; preds = %18
   %21 = inttoptr i64 %2 to ptr
@@ -15139,9 +15130,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %198 = load i64, ptr %18, align 8, !tbaa !265
-  %199 = and i64 %198, 1
-  %.not.i73.i = icmp eq i64 %199, 0
-  br i1 %.not.i73.i, label %200, label %206
+  %199 = trunc i64 %198 to i1
+  br i1 %199, label %206, label %200
 
 200:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i
   %201 = inttoptr i64 %198 to ptr
@@ -15153,14 +15143,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i: ; preds = %_
 
 206:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72.i
   %207 = and i64 %198, 2
-  %.not1.i.i = icmp eq i64 %207, 0
-  %spec.select.i.i = select i1 %.not1.i.i, i64 0, i64 27
-  %spec.select2.i.i = select i1 %.not1.i.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i75.i = icmp eq i64 %207, 0
+  %spec.select.i.i = select i1 %.not.i75.i, i64 0, i64 27
+  %spec.select1.i.i = select i1 %.not.i75.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %208
 
 208:                                              ; preds = %206, %200
   %.sroa.0.0.i.i = phi i64 [ %spec.select.i.i, %206 ], [ %205, %200 ]
-  %.sroa.4.0.i.i = phi ptr [ %spec.select2.i.i, %206 ], [ %203, %200 ]
+  %.sroa.4.0.i.i = phi ptr [ %spec.select1.i.i, %206 ], [ %203, %200 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 %.sroa.0.0.i.i, ptr %.sroa.4.0.i.i)
           to label %209 unwind label %226
 
@@ -15340,9 +15330,8 @@ _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclE
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i
 
 263:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.i
-  %264 = and i64 %257, 1
-  %.not.i.i1.i.i = icmp eq i64 %264, 0
-  br i1 %.not.i.i1.i.i, label %265, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i
+  %264 = trunc i64 %257 to i1
+  br i1 %264, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS7_EEED2Ev.exit.i, label %265
 
 265:                                              ; preds = %263
   %266 = inttoptr i64 %257 to ptr
@@ -15581,17 +15570,16 @@ _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclE
 
 _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i
   store ptr null, ptr %4, align 8, !tbaa !81
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit1
 
 9:                                                ; preds = %1
-  %10 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %10, 0
-  br i1 %.not.i.i1, label %11, label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  %10 = trunc i64 %2 to i1
+  br i1 %10, label %_ZN4absl12lts_202407226StatusD2Ev.exit1, label %11
 
 11:                                               ; preds = %9
   %12 = inttoptr i64 %2 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit2 unwind label %13
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit1 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -15600,7 +15588,7 @@ _ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14defau
   tail call void @__clang_call_terminate(ptr %15) #29
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit2:          ; preds = %11, %9, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit1:          ; preds = %11, %9, %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
   ret void
 }
 

@@ -12479,8 +12479,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_pos_zero_fp
 
 48:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_pos_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit
   %49 = and i32 %2, 8
-  %.not108 = icmp eq i32 %49, 0
-  br i1 %.not108, label %50, label %.critedge2
+  %.not107 = icmp eq i32 %49, 0
+  br i1 %.not107, label %50, label %.critedge2
 
 50:                                               ; preds = %48
   %51 = call i64 @_ZN4llvm19computeKnownFPClassEPKNS_5ValueENS_11FPClassTestEjRKNS_13SimplifyQueryE(ptr noundef %.097, i32 noundef 32, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(58) %3) #20
@@ -12760,8 +12760,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_neg_zero_fp
 
 51:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_neg_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit
   %52 = and i32 %2, 8
-  %.not116 = icmp eq i32 %52, 0
-  br i1 %.not116, label %53, label %.critedge2
+  %.not115 = icmp eq i32 %52, 0
+  br i1 %.not115, label %53, label %.critedge2
 
 53:                                               ; preds = %51
   %54 = call i64 @_ZN4llvm19computeKnownFPClassEPKNS_5ValueENS_11FPClassTestEjRKNS_13SimplifyQueryE(ptr noundef %0, i32 noundef 32, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(58) %3) #20
@@ -12818,11 +12818,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_neg_zero_fp
 
 66:                                               ; preds = %61, %.critedge4
   %67 = and i32 %2, 8
-  %.not117 = icmp eq i32 %67, 0
+  %.not116 = icmp eq i32 %67, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br i1 %.not117, label %.critedge6, label %68
+  br i1 %.not116, label %.critedge6, label %68
 
 68:                                               ; preds = %66
   store ptr null, ptr %13, align 8
@@ -12971,8 +12971,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_infENS_10Con
 
 _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i: ; preds = %121, %115
   %122 = phi ptr [ null, %121 ], [ %120, %115 ]
-  %.not130 = icmp eq ptr %122, %1
-  %spec.select = select i1 %.not130, ptr %117, ptr null
+  %.not129 = icmp eq ptr %122, %1
+  %spec.select = select i1 %.not129, ptr %117, ptr null
   br label %_ZL12foldConstantN4llvm11Instruction8UnaryOpsERPNS_5ValueERKNS_13SimplifyQueryE.exit
 
 _ZL12foldConstantN4llvm11Instruction8UnaryOpsERPNS_5ValueERKNS_13SimplifyQueryE.exit: ; preds = %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i, %121, %109, %112, %100, %98, %95, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_infENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit, %79, %83, %77, %63
@@ -13480,9 +13480,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
   br label %.thread72
 
 63:                                               ; preds = %.thread
-  %64 = and i32 %2, 1
-  %.not80 = icmp eq i32 %64, 0
-  br i1 %.not80, label %.critedge2, label %65
+  %64 = trunc i32 %2 to i1
+  br i1 %64, label %65, label %.critedge2
 
 65:                                               ; preds = %63
   %66 = load i8, ptr %0, align 8, !tbaa !3
@@ -13502,8 +13501,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_14is_any_zero_fp
 _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i: ; preds = %68
   %.not.i8.not.i.i.i = icmp ne ptr %.pre.i.i.i, null
   %72 = icmp eq ptr %70, %1
-  %or.cond92 = and i1 %.not.i8.not.i.i.i, %72
-  br i1 %or.cond92, label %.thread72, label %.critedge2
+  %or.cond91 = and i1 %.not.i8.not.i.i.i, %72
+  br i1 %or.cond91, label %.thread72, label %.critedge2
 
 .critedge2:                                       ; preds = %_ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i, %65, %63
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -13536,9 +13535,9 @@ _ZN4llvm12PatternMatch7bind_tyINS_5ValueEE5matchIS2_EEbPT_.exit.i.i.i: ; preds =
 
 82:                                               ; preds = %75
   %83 = and i32 %2, 4
-  %.not81 = icmp eq i32 %83, 0
+  %.not80 = icmp eq i32 %83, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %.not81, label %.critedge6, label %84
+  br i1 %.not80, label %.critedge6, label %84
 
 84:                                               ; preds = %82
   store ptr null, ptr %11, align 8
@@ -18468,9 +18467,8 @@ define dso_local noundef ptr @_ZN4llvm16simplifyLoadInstEPNS_8LoadInstEPNS_5Valu
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2, !tbaa !51
-  %10 = and i16 %9, 1
-  %.not = icmp eq i16 %10, 0
-  br i1 %.not, label %11, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread
+  %10 = trunc i16 %9 to i1
+  br i1 %10, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread, label %11
 
 11:                                               ; preds = %3
   %12 = load i8, ptr %1, align 8, !tbaa !3
@@ -18487,8 +18485,8 @@ define dso_local noundef ptr @_ZN4llvm16simplifyLoadInstEPNS_8LoadInstEPNS_5Valu
 19:                                               ; preds = %11
   %20 = tail call noundef ptr @_ZN4llvm19getUnderlyingObjectEPKNS_5ValueEj(ptr noundef nonnull %1, i32 noundef 6) #20
   %21 = load i8, ptr %20, align 8, !tbaa !3
-  %.not42 = icmp eq i8 %21, 3
-  br i1 %.not42, label %22, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread
+  %.not = icmp eq i8 %21, 3
+  br i1 %.not, label %22, label %_ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit.thread
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 80
@@ -24920,8 +24918,7 @@ _ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit.thread: ; preds = %15, %
   %30 = load ptr, ptr %26, align 8
   %.in.i.i = select i1 %29, ptr %26, ptr %30
   %31 = load i64, ptr %.in.i.i, align 8, !tbaa !47
-  %32 = and i64 %31, 1
-  %.not = icmp eq i64 %32, 0
+  %32 = trunc i64 %31 to i1
   %33 = icmp eq ptr %30, null
   %or.cond = select i1 %29, i1 true, i1 %33
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit.i, label %34
@@ -24947,7 +24944,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %34, %25
 
 _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %38, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not, label %42, label %43
+  br i1 %32, label %43, label %42
 
 42:                                               ; preds = %_ZN4llvm9KnownBitsD2Ev.exit, %_ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit.thread
   br label %43

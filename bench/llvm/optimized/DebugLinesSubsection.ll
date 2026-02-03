@@ -1529,9 +1529,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8codeview23DebugLinesSubsectionRef
   %3 = load ptr, ptr %2, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
-  %5 = and i16 %.0.copyload.i.i.i, 1
-  %6 = icmp ne i16 %5, 0
-  ret i1 %6
+  %5 = trunc i16 %.0.copyload.i.i.i to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1851,8 +1850,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %20 = load ptr, ptr %19, align 8, !tbaa !120
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !120
-  %.not5864 = icmp eq ptr %20, %22
-  br i1 %.not5864, label %_ZN4llvm5ErrorD2Ev.exit46, label %.lr.ph
+  %.not5862 = icmp eq ptr %20, %22
+  br i1 %.not5862, label %_ZN4llvm5ErrorD2Ev.exit46, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5ErrorD2Ev.exit
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1860,10 +1859,10 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.critedge37
-  %.sroa.052.065 = phi ptr [ %20, %.lr.ph ], [ %66, %.critedge37 ]
+  %.sroa.052.063 = phi ptr [ %20, %.lr.ph ], [ %66, %.critedge37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.052.065, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.052.065, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !123
   %29 = load ptr, ptr %26, align 8, !tbaa !125
   %30 = ptrtoint ptr %28 to i64
@@ -1876,9 +1875,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %36 = add i32 %35, 12
   store i32 %36, ptr %24, align 4
   %37 = load i16, ptr %9, align 4, !tbaa !104
-  %38 = and i16 %37, 1
-  %.not59 = icmp eq i16 %38, 0
-  br i1 %.not59, label %42, label %39
+  %38 = trunc i16 %37 to i1
+  br i1 %38, label %39, label %42
 
 39:                                               ; preds = %25
   %40 = shl i32 %34, 2
@@ -1887,12 +1885,12 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   br label %42
 
 42:                                               ; preds = %39, %25
-  %43 = load i32, ptr %.sroa.052.065, align 8, !tbaa !108
+  %43 = load i32, ptr %.sroa.052.063, align 8, !tbaa !108
   store i32 %43, ptr %5, align 4
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nonnull align 1 dereferenceable(12) %5, i64 12) #17
   %44 = load ptr, ptr %0, align 8, !tbaa !24
-  %.not60 = icmp eq ptr %44, null
-  br i1 %.not60, label %_ZN4llvm5ErrorD2Ev.exit42, label %.critedge32
+  %.not59 = icmp eq ptr %44, null
+  br i1 %.not59, label %_ZN4llvm5ErrorD2Ev.exit42, label %.critedge32
 
 _ZN4llvm5ErrorD2Ev.exit42:                        ; preds = %42
   %45 = load ptr, ptr %26, align 8, !tbaa !125
@@ -1914,19 +1912,18 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview15LineNumberEntryEEENS_5Err
 _ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview15LineNumberEntryEEENS_5ErrorENS_8ArrayRefIT_EE.exit: ; preds = %51
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr %45, i64 %49) #17
   %.pr = load ptr, ptr %0, align 8, !tbaa !24
-  %.not61 = icmp eq ptr %.pr, null
-  br i1 %.not61, label %_ZN4llvm5ErrorD2Ev.exit43, label %.critedge32
+  %.not60 = icmp eq ptr %.pr, null
+  br i1 %.not60, label %_ZN4llvm5ErrorD2Ev.exit43, label %.critedge32
 
 _ZN4llvm5ErrorD2Ev.exit43:                        ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview15LineNumberEntryEEENS_5ErrorENS_8ArrayRefIT_EE.exit, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview15LineNumberEntryEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread55
   %53 = load i16, ptr %9, align 4, !tbaa !104
-  %54 = and i16 %53, 1
-  %.not62 = icmp eq i16 %54, 0
-  br i1 %.not62, label %.critedge37, label %55
+  %54 = trunc i16 %53 to i1
+  br i1 %54, label %55, label %.critedge37
 
 55:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit43
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.052.065, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !128
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.052.065, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 40
   %59 = load ptr, ptr %58, align 8, !tbaa !126
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %57 to i64
@@ -1945,12 +1942,12 @@ _ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview17ColumnNumberEntryEEENS_5E
 _ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview17ColumnNumberEntryEEENS_5ErrorENS_8ArrayRefIT_EE.exit: ; preds = %64
   call void @_ZN4llvm18BinaryStreamWriter10writeBytesENS_8ArrayRefIhEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr %57, i64 %62) #17
   %.pr56 = load ptr, ptr %0, align 8, !tbaa !24
-  %.not63 = icmp eq ptr %.pr56, null
-  br i1 %.not63, label %.critedge37, label %.critedge32
+  %.not61 = icmp eq ptr %.pr56, null
+  br i1 %.not61, label %.critedge37, label %.critedge32
 
 .critedge37:                                      ; preds = %_ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview17ColumnNumberEntryEEENS_5ErrorENS_8ArrayRefIT_EE.exit.thread57, %_ZN4llvm18BinaryStreamWriter10writeArrayINS_8codeview17ColumnNumberEntryEEENS_5ErrorENS_8ArrayRefIT_EE.exit, %_ZN4llvm5ErrorD2Ev.exit43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.052.065, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 56
   %.not58 = icmp eq ptr %66, %22
   br i1 %.not58, label %_ZN4llvm5ErrorD2Ev.exit46, label %25
 
@@ -1977,9 +1974,8 @@ _ZN4llvm5ErrorD2Ev.exit46:                        ; preds = %.critedge37, %_ZN4l
 define dso_local noundef zeroext i1 @_ZNK4llvm8codeview20DebugLinesSubsection13hasColumnInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i16, ptr %2, align 4, !tbaa !104
-  %4 = and i16 %3, 1
-  %5 = icmp ne i16 %4, 0
-  ret i1 %5
+  %4 = trunc i16 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -1988,22 +1984,21 @@ define dso_local noundef i32 @_ZNK4llvm8codeview20DebugLinesSubsection23calculat
   %3 = load ptr, ptr %2, align 8, !tbaa !120
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !120
-  %.not13 = icmp eq ptr %3, %5
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not12 = icmp eq ptr %3, %5
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i16, ptr %6, align 4, !tbaa !104
-  %8 = and i16 %7, 1
-  %.not12 = icmp eq i16 %8, 0
-  br i1 %.not12, label %.lr.ph.split.us, label %.lr.ph.split
+  %8 = trunc i16 %7 to i1
+  br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.015.us = phi i32 [ %19, %.lr.ph.split.us ], [ 12, %.lr.ph ]
-  %.sroa.09.014.us = phi ptr [ %20, %.lr.ph.split.us ], [ %3, %.lr.ph ]
-  %9 = add i32 %.015.us, 12
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.us, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.us, i64 16
+  %.014.us = phi i32 [ %29, %.lr.ph.split.us ], [ 12, %.lr.ph ]
+  %.sroa.09.013.us = phi ptr [ %30, %.lr.ph.split.us ], [ %3, %.lr.ph ]
+  %9 = add i32 %.014.us, 12
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.us, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.us, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !123
   %13 = load ptr, ptr %10, align 8, !tbaa !125
   %14 = ptrtoint ptr %12 to i64
@@ -2012,39 +2007,39 @@ define dso_local noundef i32 @_ZNK4llvm8codeview20DebugLinesSubsection23calculat
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, -8
   %19 = add i32 %9, %18
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.us, i64 56
-  %.not.us = icmp eq ptr %20, %5
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.us, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.us, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !126
+  %23 = load ptr, ptr %20, align 8, !tbaa !128
+  %24 = ptrtoint ptr %22 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  %28 = and i32 %27, -4
+  %29 = add i32 %28, %19
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.us, i64 56
+  %.not.us = icmp eq ptr %30, %5
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %1
-  %.0.lcssa = phi i32 [ 12, %1 ], [ %19, %.lr.ph.split.us ], [ %41, %.lr.ph.split ]
+  %.0.lcssa = phi i32 [ 12, %1 ], [ %29, %.lr.ph.split.us ], [ %41, %.lr.ph.split ]
   ret i32 %.0.lcssa
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.015 = phi i32 [ %41, %.lr.ph.split ], [ 12, %.lr.ph ]
-  %.sroa.09.014 = phi ptr [ %42, %.lr.ph.split ], [ %3, %.lr.ph ]
-  %21 = add i32 %.015, 12
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !123
-  %25 = load ptr, ptr %22, align 8, !tbaa !125
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = trunc i64 %28 to i32
-  %30 = and i32 %29, -8
-  %31 = add i32 %21, %30
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 32
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !126
-  %35 = load ptr, ptr %32, align 8, !tbaa !128
+  %.014 = phi i32 [ %41, %.lr.ph.split ], [ 12, %.lr.ph ]
+  %.sroa.09.013 = phi ptr [ %42, %.lr.ph.split ], [ %3, %.lr.ph ]
+  %31 = add i32 %.014, 12
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !123
+  %35 = load ptr, ptr %32, align 8, !tbaa !125
   %36 = ptrtoint ptr %34 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = trunc i64 %38 to i32
-  %40 = and i32 %39, -4
-  %41 = add i32 %40, %31
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 56
+  %40 = and i32 %39, -8
+  %41 = add i32 %31, %40
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 56
   %.not = icmp eq ptr %42, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 }

@@ -537,24 +537,23 @@ define internal void @dd_limit_depth(i32 noundef %0, ptr noundef captures(none) 
   %5 = and i32 %0, 395264
   %6 = icmp eq i32 %5, 0
   %7 = and i1 %4, %6
-  %8 = and i32 %0, 1
-  %9 = icmp ne i32 %8, 0
-  %10 = or i1 %9, %7
-  br i1 %10, label %11, label %20
+  %8 = trunc i32 %0 to i1
+  %9 = or i1 %7, %8
+  br i1 %9, label %10, label %19
 
-11:                                               ; preds = %2
-  %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 320
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %18, ptr %19, align 4
-  br label %20
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %1, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
+  %17 = load i32, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 %17, ptr %18, align 4
+  br label %19
 
-20:                                               ; preds = %11, %2
+19:                                               ; preds = %10, %2
   ret void
 }
 

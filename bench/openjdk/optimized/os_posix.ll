@@ -3010,7 +3010,7 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
   %5 = alloca %struct.timespec, align 8
   %6 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %0) #28, !srcloc !28
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %8
+  br i1 %7, label %_ZN15ThreadBlockInVMD2Ev.exit, label %8
 
 8:                                                ; preds = %3
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3018,12 +3018,12 @@ define hidden void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceab
   %11 = tail call noundef zeroext i1 @_ZN10JavaThread14is_interruptedEb(ptr noundef nonnull align 8 dereferenceable(1800) %10, i1 noundef zeroext false) #28
   %12 = icmp slt i64 %2, 0
   %or.cond3 = or i1 %12, %11
-  br i1 %or.cond3, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %13
+  br i1 %or.cond3, label %_ZN15ThreadBlockInVMD2Ev.exit, label %13
 
 13:                                               ; preds = %8
   %14 = icmp eq i64 %2, 0
   %or.cond = and i1 %1, %14
-  br i1 %or.cond, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %15
+  br i1 %or.cond, label %_ZN15ThreadBlockInVMD2Ev.exit, label %15
 
 15:                                               ; preds = %13
   br i1 %14, label %39, label %16
@@ -3146,14 +3146,13 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 1096
   %69 = load volatile i64, ptr %68, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  %70 = and i64 %69, 1
-  %.not.i.i14 = icmp eq i64 %70, 0
-  br i1 %.not.i.i14, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %71
+  %70 = trunc i64 %69 to i1
+  br i1 %70, label %71, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 71:                                               ; preds = %67
   %72 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %72, 0
-  br i1 %.not5.i.i, label %73, label %79
+  %.not.i.i.i = icmp eq i32 %72, 0
+  br i1 %.not.i.i.i, label %73, label %79
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 1384
@@ -3166,20 +3165,19 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
 
 78:                                               ; preds = %76
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %10) #28
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 79:                                               ; preds = %76, %73, %71
   %80 = load volatile i64, ptr %68, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !25
-  %81 = and i64 %80, 1
-  %.not.i1.i = icmp eq i64 %81, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %82
+  %81 = trunc i64 %80 to i1
+  br i1 %81, label %82, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 82:                                               ; preds = %79
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #28
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %82, %79, %78, %67, %13, %8, %3
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %82, %79, %78, %67, %13, %8, %3
   ret void
 }
 

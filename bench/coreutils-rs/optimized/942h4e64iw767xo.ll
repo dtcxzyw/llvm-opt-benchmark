@@ -932,9 +932,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %43
 
 41:                                               ; preds = %35
-  %42 = and i64 %36, 1
-  %.not47.i = icmp eq i64 %42, 0
-  br i1 %.not47.i, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h06edbf75620eb002E.exit", label %.thread
+  %42 = trunc i64 %36 to i1
+  br i1 %42, label %.thread, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17h06edbf75620eb002E.exit"
 
 43:                                               ; preds = %39, %24
   %.018.i = phi i64 [ %25, %24 ], [ %spec.select.i, %39 ]
@@ -1498,9 +1497,8 @@ _ZN3std4sync4mpmc5waker9SyncWaker8register17h404870132307917dE.exit: ; preds = %
 
 81:                                               ; preds = %_ZN3std4sync4mpmc5waker9SyncWaker8register17h404870132307917dE.exit
   %82 = load atomic i64, ptr %75 seq_cst, align 128
-  %83 = and i64 %82, 1
-  %.not = icmp eq i64 %83, 0
-  br i1 %.not, label %84, label %78
+  %83 = trunc i64 %82 to i1
+  br i1 %83, label %78, label %84
 
 84:                                               ; preds = %81, %78
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16

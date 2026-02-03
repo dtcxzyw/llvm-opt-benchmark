@@ -1131,29 +1131,28 @@ define internal void @i915_ttm_tt_unpopulate(ptr noundef %0, ptr noundef %1) #1 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = load i8, ptr %12, align 8, !range !16, !noundef !17
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %26, label %15
+  br i1 %14, label %25, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 1
-  %19 = icmp ne i32 %18, 0
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 168
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8
-  tail call void @shmem_sg_free_table(ptr noundef nonnull %3, ptr noundef %25, i1 noundef zeroext %19, i1 noundef zeroext %19) #11
-  br label %28
+  %18 = trunc i32 %17 to i1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %24 = load ptr, ptr %23, align 8
+  tail call void @shmem_sg_free_table(ptr noundef nonnull %3, ptr noundef %24, i1 noundef zeroext %18, i1 noundef zeroext %18) #11
+  br label %27
 
-26:                                               ; preds = %11
+25:                                               ; preds = %11
   tail call void @sg_free_table(ptr noundef nonnull %3) #11
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  tail call void @ttm_pool_free(ptr noundef nonnull %27, ptr noundef %1) #11
-  br label %28
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  tail call void @ttm_pool_free(ptr noundef nonnull %26, ptr noundef %1) #11
+  br label %27
 
-28:                                               ; preds = %26, %15
+27:                                               ; preds = %25, %15
   ret void
 }
 

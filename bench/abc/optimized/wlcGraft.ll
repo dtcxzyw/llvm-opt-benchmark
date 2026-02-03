@@ -960,137 +960,136 @@ define void @Wlc_NtkFindOneNode(ptr noundef %0, ptr noundef %1, ptr noundef read
   %37 = getelementptr inbounds i64, ptr %.val43.val, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !52
   %39 = trunc i64 %38 to i32
-  %40 = and i32 %39, 1
-  %.not = icmp ne i32 %40, 0
+  %.not = trunc i64 %38 to i1
   %or.cond = select i1 %.not, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph.i, label %Abc_TtNot.exit
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %29 ]
-  %41 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i
-  %42 = load i64, ptr %41, align 8, !tbaa !52
-  %43 = xor i64 %42, -1
-  store i64 %43, ptr %41, align 8, !tbaa !52
+  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i
+  %41 = load i64, ptr %40, align 8, !tbaa !52
+  %42 = xor i64 %41, -1
+  store i64 %42, ptr %40, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_TtNot.exit, label %.lr.ph.i, !llvm.loop !53
 
 Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %29
-  %44 = load ptr, ptr %22, align 8, !tbaa !58
-  %45 = load i32, ptr %3, align 8, !tbaa !28
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
+  %43 = load ptr, ptr %22, align 8, !tbaa !58
+  %44 = load i32, ptr %3, align 8, !tbaa !28
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph.preheader.i.i, label %Vec_MemHashKey.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %Abc_TtNot.exit
-  %47 = shl nuw i32 %45, 1
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %47, i32 1)
+  %46 = shl nuw i32 %44, 1
+  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %46, i32 1)
   %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.012.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %54, %.lr.ph.i.i ]
-  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i.i
-  %49 = load i32, ptr %48, align 4, !tbaa !9
-  %50 = and i64 %indvars.iv.i.i, 7
-  %51 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !9
-  %53 = mul i32 %52, %49
-  %54 = add i32 %53, %.012.i.i
+  %.012.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %53, %.lr.ph.i.i ]
+  %47 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i.i
+  %48 = load i32, ptr %47, align 4, !tbaa !9
+  %49 = and i64 %indvars.iv.i.i, 7
+  %50 = getelementptr inbounds nuw i32, ptr @Vec_MemHashKey.s_Primes, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !9
+  %52 = mul i32 %51, %48
+  %53 = add i32 %52, %.012.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Vec_MemHashKey.exit.i, label %.lr.ph.i.i, !llvm.loop !65
 
 Vec_MemHashKey.exit.i:                            ; preds = %.lr.ph.i.i, %Abc_TtNot.exit
-  %.0.lcssa.i.i = phi i32 [ 0, %Abc_TtNot.exit ], [ %54, %.lr.ph.i.i ]
-  %55 = getelementptr i8, ptr %44, i64 4
-  %.val.i.i = load i32, ptr %55, align 4, !tbaa !24
-  %56 = urem i32 %.0.lcssa.i.i, %.val.i.i
-  %57 = getelementptr i8, ptr %44, i64 8
-  %.val.i = load ptr, ptr %57, align 8, !tbaa !26
-  %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds i32, ptr %.val.i, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !9
-  %.not17.i = icmp eq i32 %60, -1
+  %.0.lcssa.i.i = phi i32 [ 0, %Abc_TtNot.exit ], [ %53, %.lr.ph.i.i ]
+  %54 = getelementptr i8, ptr %43, i64 4
+  %.val.i.i = load i32, ptr %54, align 4, !tbaa !24
+  %55 = urem i32 %.0.lcssa.i.i, %.val.i.i
+  %56 = getelementptr i8, ptr %43, i64 8
+  %.val.i = load ptr, ptr %56, align 8, !tbaa !26
+  %57 = sext i32 %55 to i64
+  %58 = getelementptr inbounds i32, ptr %.val.i, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !9
+  %.not17.i = icmp eq i32 %59, -1
   br i1 %.not17.i, label %Vec_MemHashLookup.exit.thread, label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %Vec_MemHashKey.exit.i
-  %61 = load ptr, ptr %23, align 8, !tbaa !61
-  %62 = load i32, ptr %24, align 8, !tbaa !62
-  %63 = load i32, ptr %25, align 4, !tbaa !64
-  %64 = sext i32 %45 to i64
-  %65 = shl nsw i64 %64, 3
-  %66 = ashr i32 %60, %62
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %61, i64 %67
-  %69 = load ptr, ptr %68, align 8, !tbaa !63
-  %70 = and i32 %60, %63
-  %71 = mul nsw i32 %70, %45
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i64, ptr %69, i64 %72
-  %bcmp.i57 = tail call i32 @bcmp(ptr %73, ptr nonnull readonly %37, i64 %65)
+  %60 = load ptr, ptr %23, align 8, !tbaa !61
+  %61 = load i32, ptr %24, align 8, !tbaa !62
+  %62 = load i32, ptr %25, align 4, !tbaa !64
+  %63 = sext i32 %44 to i64
+  %64 = shl nsw i64 %63, 3
+  %65 = ashr i32 %59, %61
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds ptr, ptr %60, i64 %66
+  %68 = load ptr, ptr %67, align 8, !tbaa !63
+  %69 = and i32 %59, %62
+  %70 = mul nsw i32 %69, %44
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i64, ptr %68, i64 %71
+  %bcmp.i57 = tail call i32 @bcmp(ptr %72, ptr nonnull readonly %37, i64 %64)
   %.not15.i58 = icmp eq i32 %bcmp.i57, 0
   br i1 %.not15.i58, label %Vec_MemHashLookup.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i44
-  %74 = load ptr, ptr %26, align 8, !tbaa !60
-  %75 = getelementptr i8, ptr %74, i64 8
-  %.val16.i = load ptr, ptr %75, align 8, !tbaa !26
-  br label %85
+  %73 = load ptr, ptr %26, align 8, !tbaa !60
+  %74 = getelementptr i8, ptr %73, i64 8
+  %.val16.i = load ptr, ptr %74, align 8, !tbaa !26
+  br label %84
 
-76:                                               ; preds = %85
-  %77 = ashr i32 %89, %62
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds ptr, ptr %61, i64 %78
-  %80 = load ptr, ptr %79, align 8, !tbaa !63
-  %81 = and i32 %89, %63
-  %82 = mul nsw i32 %81, %45
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i64, ptr %80, i64 %83
-  %bcmp.i = tail call i32 @bcmp(ptr %84, ptr nonnull readonly %37, i64 %65)
+75:                                               ; preds = %84
+  %76 = ashr i32 %88, %61
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds ptr, ptr %60, i64 %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !63
+  %80 = and i32 %88, %62
+  %81 = mul nsw i32 %80, %44
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i64, ptr %79, i64 %82
+  %bcmp.i = tail call i32 @bcmp(ptr %83, ptr nonnull readonly %37, i64 %64)
   %.not15.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %85, !llvm.loop !66
+  br i1 %.not15.i, label %Vec_MemHashLookup.exit, label %84, !llvm.loop !66
 
-85:                                               ; preds = %.lr.ph, %76
-  %86 = phi i32 [ %60, %.lr.ph ], [ %89, %76 ]
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %.val16.i, i64 %87
-  %89 = load i32, ptr %88, align 4, !tbaa !9
-  %.not.i = icmp eq i32 %89, -1
-  br i1 %.not.i, label %Vec_MemHashLookup.exit.thread, label %76, !llvm.loop !66
+84:                                               ; preds = %.lr.ph, %75
+  %85 = phi i32 [ %59, %.lr.ph ], [ %88, %75 ]
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %.val16.i, i64 %86
+  %88 = load i32, ptr %87, align 4, !tbaa !9
+  %.not.i = icmp eq i32 %88, -1
+  br i1 %.not.i, label %Vec_MemHashLookup.exit.thread, label %75, !llvm.loop !66
 
-Vec_MemHashLookup.exit:                           ; preds = %76, %.lr.ph.i44
-  %.pr = phi i32 [ %60, %.lr.ph.i44 ], [ %89, %76 ]
-  %90 = icmp sgt i32 %.pr, 0
-  br i1 %90, label %91, label %Vec_MemHashLookup.exit.thread
+Vec_MemHashLookup.exit:                           ; preds = %75, %.lr.ph.i44
+  %.pr = phi i32 [ %59, %.lr.ph.i44 ], [ %88, %75 ]
+  %89 = icmp sgt i32 %.pr, 0
+  br i1 %89, label %90, label %Vec_MemHashLookup.exit.thread
 
-91:                                               ; preds = %Vec_MemHashLookup.exit
+90:                                               ; preds = %Vec_MemHashLookup.exit
   %.val33 = load ptr, ptr %9, align 8, !tbaa !10
-  %92 = ptrtoint ptr %.val33 to i64
-  %93 = sub i64 %10, %92
-  %94 = sdiv exact i64 %93, 24
-  %95 = trunc i64 %94 to i32
+  %91 = ptrtoint ptr %.val33 to i64
+  %92 = sub i64 %10, %91
+  %93 = sdiv exact i64 %92, 24
+  %94 = trunc i64 %93 to i32
   %.val38 = load i32, ptr %5, align 8, !tbaa !31
   %.val39 = load i32, ptr %6, align 4, !tbaa !32
-  %96 = sub nsw i32 %.val38, %.val39
-  %97 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %98 = add nuw nsw i32 %97, 1
-  %99 = xor i32 %32, %39
-  %100 = and i32 %99, 1
-  %101 = tail call ptr @Wlc_ObjName(ptr noundef %0, i32 noundef %95) #20
-  %102 = trunc nuw nsw i64 %indvars.iv to i32
-  %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %95, i32 noundef %98, i32 noundef %102, i32 noundef %.pr, i32 noundef %100, ptr noundef %101)
+  %95 = sub nsw i32 %.val38, %.val39
+  %96 = tail call i32 @llvm.abs.i32(i32 %95, i1 true)
+  %97 = add nuw nsw i32 %96, 1
+  %98 = xor i32 %32, %39
+  %99 = and i32 %98, 1
+  %100 = tail call ptr @Wlc_ObjName(ptr noundef %0, i32 noundef %94) #20
+  %101 = trunc nuw nsw i64 %indvars.iv to i32
+  %102 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %94, i32 noundef %97, i32 noundef %101, i32 noundef %.pr, i32 noundef %99, ptr noundef %100)
   br label %Vec_MemHashLookup.exit.thread
 
-Vec_MemHashLookup.exit.thread:                    ; preds = %85, %Vec_MemHashKey.exit.i, %91, %Vec_MemHashLookup.exit
+Vec_MemHashLookup.exit.thread:                    ; preds = %84, %Vec_MemHashKey.exit.i, %90, %Vec_MemHashLookup.exit
   br i1 %or.cond, label %.lr.ph.i47, label %Abc_TtNot.exit51
 
 .lr.ph.i47:                                       ; preds = %Vec_MemHashLookup.exit.thread, %.lr.ph.i47
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %.lr.ph.i47 ], [ 0, %Vec_MemHashLookup.exit.thread ]
-  %104 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i48
-  %105 = load i64, ptr %104, align 8, !tbaa !52
-  %106 = xor i64 %105, -1
-  store i64 %106, ptr %104, align 8, !tbaa !52
+  %103 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i48
+  %104 = load i64, ptr %103, align 8, !tbaa !52
+  %105 = xor i64 %104, -1
+  store i64 %105, ptr %103, align 8, !tbaa !52
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, %wide.trip.count.i
   br i1 %exitcond.not.i50, label %Abc_TtNot.exit51, label %.lr.ph.i47, !llvm.loop !53
@@ -1098,9 +1097,9 @@ Vec_MemHashLookup.exit.thread:                    ; preds = %85, %Vec_MemHashKey
 Abc_TtNot.exit51:                                 ; preds = %.lr.ph.i47, %Vec_MemHashLookup.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %107, label %29, !llvm.loop !71
+  br i1 %exitcond.not, label %106, label %29, !llvm.loop !71
 
-107:                                              ; preds = %Abc_TtNot.exit51
+106:                                              ; preds = %Abc_TtNot.exit51
   ret void
 }
 

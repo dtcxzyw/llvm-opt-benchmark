@@ -879,9 +879,8 @@ define noalias noundef nonnull ptr @lean_llvm_const_array(i64 noundef %0, i64 no
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @lean_llvm_const_string(i64 noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not.i.i.i = icmp eq i64 %5, 0
-  br i1 %.not.i.i.i, label %6, label %_ZN4lean10string_refC2EP11lean_objectb.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZN4lean10string_refC2EP11lean_objectb.exit, label %6
 
 6:                                                ; preds = %3
   %.val.i.i.i.i = load i32, ptr %1, align 4, !tbaa !3
@@ -920,7 +919,7 @@ _ZN4lean10string_refC2EP11lean_objectb.exit:      ; preds = %3, %8, %10, %11
 17:                                               ; preds = %12, %_ZN4lean10string_refC2EP11lean_objectb.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i, label %19, label %_ZN4lean10object_refD2Ev.exit
+  br i1 %5, label %_ZN4lean10object_refD2Ev.exit, label %19
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %1, align 4, !tbaa !3
@@ -933,8 +932,8 @@ _ZN4lean10string_refC2EP11lean_objectb.exit:      ; preds = %3, %8, %10, %11
   br label %_ZN4lean10object_refD2Ev.exit
 
 24:                                               ; preds = %19
-  %.not.i.i.i4 = icmp eq i32 %20, 0
-  br i1 %.not.i.i.i4, label %_ZN4lean10object_refD2Ev.exit, label %25
+  %.not.i.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i.i, label %_ZN4lean10object_refD2Ev.exit, label %25
 
 25:                                               ; preds = %24
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %1)

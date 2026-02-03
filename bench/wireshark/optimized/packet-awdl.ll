@@ -1572,57 +1572,55 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr readnone captur
   br label %40
 
 .preheader:                                       ; preds = %4, %38
-  %.162 = phi i32 [ %.2, %38 ], [ 9, %4 ]
-  %.05061 = phi i32 [ %.3, %38 ], [ 0, %4 ]
-  %.05360 = phi i32 [ %39, %38 ], [ 0, %4 ]
-  %18 = shl nuw i32 1, %.05360
-  %19 = and i32 %18, %16
-  %.not55 = icmp eq i32 %19, 0
-  br i1 %.not55, label %38, label %20
+  %.160 = phi i32 [ %.2, %38 ], [ 9, %4 ]
+  %.05059 = phi i32 [ %.3, %38 ], [ 0, %4 ]
+  %.05358 = phi i32 [ %39, %38 ], [ 0, %4 ]
+  %18 = lshr i32 %16, %.05358
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %20, label %38
 
 20:                                               ; preds = %.preheader
-  %21 = shl nuw nsw i32 %.05360, 3
+  %21 = shl nuw nsw i32 %.05358, 3
   %22 = load i32, ptr @hf_awdl_serviceparams_values, align 4
   %23 = load i32, ptr @ett_awdl_serviceparams_value, align 4
-  %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %0, i32 noundef %.162, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @awdl_tag_service_params.value_fields, i32 noundef -2147483648)
-  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.162)
+  %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %0, i32 noundef %.160, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @awdl_tag_service_params.value_fields, i32 noundef -2147483648)
+  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.160)
   %26 = zext i8 %25 to i32
   br label %29
 
 27:                                               ; preds = %36
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.573, i32 noundef %21)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.574, i32 noundef %21)
-  %28 = add i32 %.162, 1
+  %28 = add i32 %.160, 1
   br label %38
 
 29:                                               ; preds = %20, %36
-  %.058 = phi i32 [ 0, %20 ], [ %37, %36 ]
-  %.15157 = phi i32 [ %.05061, %20 ], [ %.252, %36 ]
-  %30 = shl nuw nsw i32 1, %.058
-  %31 = and i32 %30, %26
-  %.not56 = icmp eq i32 %31, 0
-  br i1 %.not56, label %36, label %32
+  %.056 = phi i32 [ 0, %20 ], [ %37, %36 ]
+  %.15155 = phi i32 [ %.05059, %20 ], [ %.252, %36 ]
+  %30 = lshr i32 %26, %.056
+  %31 = trunc i32 %30 to i1
+  br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = icmp eq i32 %.15157, 0
-  %34 = or disjoint i32 %.058, %21
+  %33 = icmp eq i32 %.15155, 0
+  %34 = or disjoint i32 %.056, %21
   %.str.572..str.573 = select i1 %33, ptr @.str.572, ptr @.str.573
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull %.str.572..str.573, i32 noundef %34)
-  %35 = add i32 %.15157, 1
+  %35 = add i32 %.15155, 1
   br label %36
 
 36:                                               ; preds = %29, %32
-  %.252 = phi i32 [ %35, %32 ], [ %.15157, %29 ]
-  %37 = add nuw nsw i32 %.058, 1
+  %.252 = phi i32 [ %35, %32 ], [ %.15155, %29 ]
+  %37 = add nuw nsw i32 %.056, 1
   %exitcond.not = icmp eq i32 %37, 8
   br i1 %exitcond.not, label %27, label %29, !llvm.loop !9
 
 38:                                               ; preds = %.preheader, %27
-  %.3 = phi i32 [ %.252, %27 ], [ %.05061, %.preheader ]
-  %.2 = phi i32 [ %28, %27 ], [ %.162, %.preheader ]
-  %39 = add nuw nsw i32 %.05360, 1
-  %exitcond63.not = icmp eq i32 %39, 32
-  br i1 %exitcond63.not, label %17, label %.preheader, !llvm.loop !10
+  %.3 = phi i32 [ %.252, %27 ], [ %.05059, %.preheader ]
+  %.2 = phi i32 [ %28, %27 ], [ %.160, %.preheader ]
+  %39 = add nuw nsw i32 %.05358, 1
+  %exitcond61.not = icmp eq i32 %39, 32
+  br i1 %exitcond61.not, label %17, label %.preheader, !llvm.loop !10
 
 40:                                               ; preds = %17, %4
   %.049 = phi i32 [ %.2, %17 ], [ 9, %4 ]

@@ -2228,9 +2228,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %68, %58
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %74 = and i32 %71, 1
-  %.not.i.i.i = icmp eq i32 %74, 0
-  br i1 %.not.i.i.i, label %75, label %78
+  %74 = trunc i32 %71 to i1
+  br i1 %74, label %78, label %75
 
 75:                                               ; preds = %73
   %76 = lshr i32 %71, 3
@@ -2410,9 +2409,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %27 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %28, label %31
+  %27 = trunc i32 %24 to i1
+  br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
   %29 = lshr i32 %24, 3
@@ -2582,9 +2580,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %27 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %28, label %31
+  %27 = trunc i32 %24 to i1
+  br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
   %29 = lshr i32 %24, 3
@@ -2679,9 +2676,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %20, %10
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %26 = and i32 %23, 1
-  %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %27, label %30
+  %26 = trunc i32 %23 to i1
+  br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
   %28 = lshr i32 %23, 3
@@ -5562,9 +5558,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -5598,8 +5593,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -7431,9 +7426,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3
@@ -7669,9 +7663,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3

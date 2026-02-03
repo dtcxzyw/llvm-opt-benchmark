@@ -82,9 +82,8 @@ define dso_local void @_ZN4absl17BadStatusOrAccessC2ERKS0_(ptr noundef nonnull a
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !7
   store i64 %5, ptr %3, align 8, !tbaa !7
-  %6 = and i64 %5, 1
-  %.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i, label %7, label %_ZN4absl6StatusC2ERKS0_.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZN4absl6StatusC2ERKS0_.exit, label %7
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %5 to ptr
@@ -127,9 +126,8 @@ _ZNK4absl17BadStatusOrAccess8InitWhatEv.exit:     ; preds = %2, %6
   br i1 %.not.i, label %_ZN4absl6StatusaSERKS0_.exit, label %11
 
 11:                                               ; preds = %_ZNK4absl17BadStatusOrAccess8InitWhatEv.exit
-  %12 = and i64 %10, 1
-  %.not.i.i4 = icmp eq i64 %12, 0
-  br i1 %.not.i.i4, label %13, label %_ZN4absl6Status3RefEm.exit.i
+  %12 = trunc i64 %10 to i1
+  br i1 %12, label %_ZN4absl6Status3RefEm.exit.i, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %10 to ptr
@@ -140,9 +138,8 @@ _ZNK4absl17BadStatusOrAccess8InitWhatEv.exit:     ; preds = %2, %6
 _ZN4absl6Status3RefEm.exit.i:                     ; preds = %13, %11
   %16 = phi i64 [ %10, %11 ], [ %.pre.i, %13 ]
   store i64 %16, ptr %8, align 8, !tbaa !7
-  %17 = and i64 %9, 1
-  %.not.i6.i = icmp eq i64 %17, 0
-  br i1 %.not.i6.i, label %18, label %_ZN4absl6StatusaSERKS0_.exit
+  %17 = trunc i64 %9 to i1
+  br i1 %17, label %_ZN4absl6StatusaSERKS0_.exit, label %18
 
 18:                                               ; preds = %_ZN4absl6Status3RefEm.exit.i
   %19 = inttoptr i64 %9 to ptr
@@ -201,9 +198,8 @@ _ZNK4absl17BadStatusOrAccess8InitWhatEv.exit:     ; preds = %2, %6
 11:                                               ; preds = %_ZNK4absl17BadStatusOrAccess8InitWhatEv.exit
   store i64 %10, ptr %8, align 8, !tbaa !7
   store i64 55, ptr %7, align 8, !tbaa !7
-  %12 = and i64 %9, 1
-  %.not.i.i4 = icmp eq i64 %12, 0
-  br i1 %.not.i.i4, label %13, label %_ZN4absl6StatusaSEOS0_.exit
+  %12 = trunc i64 %9 to i1
+  br i1 %12, label %_ZN4absl6StatusaSEOS0_.exit, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %9 to ptr
@@ -286,8 +282,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thr
   store i64 %44, ptr %45, align 8, !tbaa !18
   %46 = load i64, ptr %24, align 8, !tbaa !20
   store i64 %46, ptr %21, align 8, !tbaa !20
-  %.not.i5 = icmp eq ptr %20, null
-  br i1 %.not.i5, label %48, label %47
+  %.not.i4 = icmp eq ptr %20, null
+  br i1 %.not.i4, label %48, label %47
 
 47:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
   store ptr %20, ptr %18, align 8, !tbaa !25
@@ -402,9 +398,8 @@ define dso_local void @_ZN4absl17internal_statusor6Helper26HandleInvalidStatusCt
 11:                                               ; preds = %1
   store i64 %10, ptr %0, align 8, !tbaa !7
   store i64 55, ptr %6, align 8, !tbaa !7
-  %12 = and i64 %9, 1
-  %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %13, label %_ZN4absl6StatusD2Ev.exit
+  %12 = trunc i64 %9 to i1
+  br i1 %12, label %_ZN4absl6StatusD2Ev.exit, label %13
 
 13:                                               ; preds = %11
   %14 = inttoptr i64 %9 to ptr
@@ -424,9 +419,8 @@ define dso_local void @_ZN4absl17internal_statusor6Helper26HandleInvalidStatusCt
 
 _ZN4absl6StatusaSEOS0_.exit:                      ; preds = %._ZN4absl6StatusaSEOS0_.exit_crit_edge, %1
   %18 = phi i64 [ %.pre, %._ZN4absl6StatusaSEOS0_.exit_crit_edge ], [ %9, %1 ]
-  %19 = and i64 %18, 1
-  %.not.i.i1 = icmp eq i64 %19, 0
-  br i1 %.not.i.i1, label %20, label %_ZN4absl6StatusD2Ev.exit
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZN4absl6StatusD2Ev.exit, label %20
 
 20:                                               ; preds = %_ZN4absl6StatusaSEOS0_.exit
   %21 = inttoptr i64 %18 to ptr
@@ -682,9 +676,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !7
-  %10 = and i64 %9, 1
-  %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %11, label %_ZN4absl6StatusD2Ev.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %_ZN4absl6StatusD2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %12 = inttoptr i64 %9 to ptr
@@ -724,9 +717,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !7
-  %10 = and i64 %9, 1
-  %.not.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i, label %11, label %_ZN4absl17BadStatusOrAccessD2Ev.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %_ZN4absl17BadStatusOrAccessD2Ev.exit, label %11
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   %12 = inttoptr i64 %9 to ptr

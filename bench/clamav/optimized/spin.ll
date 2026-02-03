@@ -982,8 +982,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 434:                                              ; preds = %.thread723, %395
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %.1555) #8
-  %435 = and i32 %.1555, 1
-  %.not677 = icmp ne i32 %435, 0
+  %.not677 = trunc i32 %.1555 to i1
   %or.cond895.not = select i1 %138, i1 %.not677, i1 false
   br i1 %or.cond895.not, label %.lr.ph802.split.preheader, label %._crit_edge803
 
@@ -993,9 +992,9 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .lr.ph802.split:                                  ; preds = %.lr.ph802.split.preheader, %.lr.ph802.split
   %indvars.iv842 = phi i64 [ 0, %.lr.ph802.split.preheader ], [ %indvars.iv.next843, %.lr.ph802.split ]
-  %436 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv842
-  %437 = load ptr, ptr %436, align 8, !tbaa !49
-  tail call void @free(ptr noundef %437) #8
+  %435 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv842
+  %436 = load ptr, ptr %435, align 8, !tbaa !49
+  tail call void @free(ptr noundef %436) #8
   %indvars.iv.next843 = add nuw nsw i64 %indvars.iv842, 1
   %exitcond846.not = icmp eq i64 %indvars.iv.next843, %wide.trip.count845
   br i1 %exitcond846.not, label %._crit_edge803, label %.lr.ph802.split

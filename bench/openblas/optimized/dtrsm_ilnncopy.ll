@@ -506,55 +506,54 @@ define noundef i32 @dtrsm_ilnncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.3363 = phi ptr [ %202, %._crit_edge484 ], [ %.2362, %199 ]
   %.6 = phi ptr [ %.7.lcssa, %._crit_edge484 ], [ %.4359, %199 ]
   %.3343 = phi i64 [ %227, %._crit_edge484 ], [ %.2342, %199 ]
-  %229 = and i64 %1, 1
-  %.not381 = icmp ne i64 %229, 0
-  %230 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not381, %230
+  %.not381 = trunc i64 %1 to i1
+  %229 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %229, %.not381
   br i1 %or.cond, label %.lr.ph490, label %.loopexit
 
 .lr.ph490:                                        ; preds = %228
-  %231 = sub i64 0, %.3343
-  br label %232
+  %230 = sub i64 0, %.3343
+  br label %231
 
-232:                                              ; preds = %.lr.ph490, %247
-  %.4489 = phi ptr [ %.3363, %.lr.ph490 ], [ %248, %247 ]
-  %.4349488 = phi i64 [ 0, %.lr.ph490 ], [ %250, %247 ]
-  %.8486 = phi ptr [ %.6, %.lr.ph490 ], [ %249, %247 ]
+231:                                              ; preds = %.lr.ph490, %246
+  %.4489 = phi ptr [ %.3363, %.lr.ph490 ], [ %247, %246 ]
+  %.4349488 = phi i64 [ 0, %.lr.ph490 ], [ %249, %246 ]
+  %.8486 = phi ptr [ %.6, %.lr.ph490 ], [ %248, %246 ]
   %.not382 = icmp slt i64 %.4349488, %.3343
-  br i1 %.not382, label %243, label %233
+  br i1 %.not382, label %242, label %232
 
-233:                                              ; preds = %232
-  %234 = sub nsw i64 %.4349488, %.3343
-  %235 = icmp slt i64 %234, 1
-  br i1 %235, label %236, label %243
+232:                                              ; preds = %231
+  %233 = sub nsw i64 %.4349488, %.3343
+  %234 = icmp slt i64 %233, 1
+  br i1 %234, label %235, label %242
 
-236:                                              ; preds = %233
-  %237 = mul nsw i64 %234, %3
-  %238 = getelementptr inbounds double, ptr %.4489, i64 %237
-  %239 = load double, ptr %238, align 8, !tbaa !3
-  %240 = fdiv double 1.000000e+00, %239
-  %241 = getelementptr inbounds nuw double, ptr %.8486, i64 %.4349488
-  %242 = getelementptr inbounds double, ptr %241, i64 %231
-  store double %240, ptr %242, align 8, !tbaa !3
-  br label %243
+235:                                              ; preds = %232
+  %236 = mul nsw i64 %233, %3
+  %237 = getelementptr inbounds double, ptr %.4489, i64 %236
+  %238 = load double, ptr %237, align 8, !tbaa !3
+  %239 = fdiv double 1.000000e+00, %238
+  %240 = getelementptr inbounds nuw double, ptr %.8486, i64 %.4349488
+  %241 = getelementptr inbounds double, ptr %240, i64 %230
+  store double %239, ptr %241, align 8, !tbaa !3
+  br label %242
 
-243:                                              ; preds = %236, %233, %232
-  %244 = icmp sgt i64 %.4349488, %.3343
-  br i1 %244, label %245, label %247
+242:                                              ; preds = %235, %232, %231
+  %243 = icmp sgt i64 %.4349488, %.3343
+  br i1 %243, label %244, label %246
 
-245:                                              ; preds = %243
-  %246 = load double, ptr %.4489, align 8, !tbaa !3
-  store double %246, ptr %.8486, align 8, !tbaa !3
-  br label %247
+244:                                              ; preds = %242
+  %245 = load double, ptr %.4489, align 8, !tbaa !3
+  store double %245, ptr %.8486, align 8, !tbaa !3
+  br label %246
 
-247:                                              ; preds = %245, %243
-  %248 = getelementptr inbounds nuw i8, ptr %.4489, i64 8
-  %249 = getelementptr inbounds nuw i8, ptr %.8486, i64 8
-  %250 = add nuw nsw i64 %.4349488, 1
-  %exitcond511.not = icmp eq i64 %250, %0
-  br i1 %exitcond511.not, label %.loopexit, label %232, !llvm.loop !16
+246:                                              ; preds = %244, %242
+  %247 = getelementptr inbounds nuw i8, ptr %.4489, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %.8486, i64 8
+  %249 = add nuw nsw i64 %.4349488, 1
+  %exitcond511.not = icmp eq i64 %249, %0
+  br i1 %exitcond511.not, label %.loopexit, label %231, !llvm.loop !16
 
-.loopexit:                                        ; preds = %247, %228
+.loopexit:                                        ; preds = %246, %228
   ret i32 0
 }
 

@@ -3238,7 +3238,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
   br i1 %or.cond136218, label %.lr.ph221, label %.critedge179
 
 66:                                               ; preds = %register_CE.exit
-  %67 = load i8, ptr %601, align 1, !tbaa !45
+  %67 = load i8, ptr %600, align 1, !tbaa !45
   %68 = add i8 %67, -65
   %or.cond136 = icmp ult i8 %68, 26
   br i1 %or.cond136, label %.lr.ph221, label %.thread156, !llvm.loop !169
@@ -3246,8 +3246,8 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
 .lr.ph221:                                        ; preds = %.lr.ph, %66
   %69 = phi i8 [ %67, %66 ], [ %64, %.lr.ph ]
   %.not134168220 = phi i1 [ false, %66 ], [ true, %.lr.ph ]
-  %.0124169219 = phi ptr [ %601, %66 ], [ %2, %.lr.ph ]
-  %70 = phi ptr [ %602, %66 ], [ %12, %.lr.ph ]
+  %.0124169219 = phi ptr [ %600, %66 ], [ %2, %.lr.ph ]
+  %70 = phi ptr [ %601, %66 ], [ %12, %.lr.ph ]
   %71 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 1
   %72 = load i8, ptr %71, align 1, !tbaa !45
   %73 = add i8 %72, -65
@@ -3276,7 +3276,7 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
     i8 82, label %232
     i8 83, label %236
     i8 84, label %296
-    i8 90, label %581
+    i8 90, label %580
   ]
 
 85:                                               ; preds = %80
@@ -3737,576 +3737,575 @@ parse_rockridge_SL1.exit:                         ; preds = %255, %262, %268, %2
   %303 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
   %304 = add nsw i32 %81, -5
   %.not.i143 = icmp sgt i8 %302, -1
-  %305 = and i8 %302, 1
-  %306 = icmp ne i8 %305, 0
-  br i1 %.not.i143, label %354, label %307
+  %305 = trunc i8 %302 to i1
+  br i1 %.not.i143, label %353, label %306
 
-307:                                              ; preds = %301
-  %308 = icmp ugt i8 %76, 21
-  %or.cond.i = and i1 %308, %306
-  br i1 %or.cond.i, label %309, label %318
+306:                                              ; preds = %301
+  %307 = icmp ugt i8 %76, 21
+  %or.cond.i = and i1 %307, %305
+  br i1 %or.cond.i, label %308, label %317
 
-309:                                              ; preds = %307
-  %310 = call fastcc i32 @isodate17_valid(ptr noundef nonnull readonly %303)
-  %.not92.i = icmp eq i32 %310, 0
-  br i1 %.not92.i, label %315, label %311
+308:                                              ; preds = %306
+  %309 = call fastcc i32 @isodate17_valid(ptr noundef nonnull readonly %303)
+  %.not92.i = icmp eq i32 %309, 0
+  br i1 %.not92.i, label %314, label %310
 
-311:                                              ; preds = %309
-  %312 = load i32, ptr %16, align 8, !tbaa !81
-  %313 = or i32 %312, 1
-  store i32 %313, ptr %16, align 8, !tbaa !81
-  %314 = call fastcc i64 @isodate17(ptr noundef nonnull readonly %303)
-  store i64 %314, ptr %17, align 8, !tbaa !82
-  br label %315
+310:                                              ; preds = %308
+  %311 = load i32, ptr %16, align 8, !tbaa !81
+  %312 = or i32 %311, 1
+  store i32 %312, ptr %16, align 8, !tbaa !81
+  %313 = call fastcc i64 @isodate17(ptr noundef nonnull readonly %303)
+  store i64 %313, ptr %17, align 8, !tbaa !82
+  br label %314
 
-315:                                              ; preds = %311, %309
-  %316 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 22
-  %317 = add nsw i32 %81, -22
-  br label %318
+314:                                              ; preds = %310, %308
+  %315 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 22
+  %316 = add nsw i32 %81, -22
+  br label %317
 
-318:                                              ; preds = %315, %307
-  %.079.i = phi i32 [ %317, %315 ], [ %304, %307 ]
-  %.0.i144 = phi ptr [ %316, %315 ], [ %303, %307 ]
-  %319 = and i8 %302, 2
-  %320 = icmp ne i8 %319, 0
-  %321 = icmp samesign ugt i32 %.079.i, 16
-  %or.cond3.i = select i1 %320, i1 %321, i1 false
-  br i1 %or.cond3.i, label %322, label %331
+317:                                              ; preds = %314, %306
+  %.079.i = phi i32 [ %316, %314 ], [ %304, %306 ]
+  %.0.i144 = phi ptr [ %315, %314 ], [ %303, %306 ]
+  %318 = and i8 %302, 2
+  %319 = icmp ne i8 %318, 0
+  %320 = icmp samesign ugt i32 %.079.i, 16
+  %or.cond3.i = select i1 %319, i1 %320, i1 false
+  br i1 %or.cond3.i, label %321, label %330
 
-322:                                              ; preds = %318
-  %323 = call fastcc i32 @isodate17_valid(ptr noundef nonnull %.0.i144)
-  %.not93.i = icmp eq i32 %323, 0
-  br i1 %.not93.i, label %328, label %324
+321:                                              ; preds = %317
+  %322 = call fastcc i32 @isodate17_valid(ptr noundef nonnull %.0.i144)
+  %.not93.i = icmp eq i32 %322, 0
+  br i1 %.not93.i, label %327, label %323
 
-324:                                              ; preds = %322
-  %325 = load i32, ptr %16, align 8, !tbaa !81
-  %326 = or i32 %325, 2
-  store i32 %326, ptr %16, align 8, !tbaa !81
-  %327 = call fastcc i64 @isodate17(ptr noundef nonnull %.0.i144)
-  store i64 %327, ptr %18, align 8, !tbaa !83
-  br label %328
+323:                                              ; preds = %321
+  %324 = load i32, ptr %16, align 8, !tbaa !81
+  %325 = or i32 %324, 2
+  store i32 %325, ptr %16, align 8, !tbaa !81
+  %326 = call fastcc i64 @isodate17(ptr noundef nonnull %.0.i144)
+  store i64 %326, ptr %18, align 8, !tbaa !83
+  br label %327
 
-328:                                              ; preds = %324, %322
-  %329 = getelementptr inbounds nuw i8, ptr %.0.i144, i64 17
-  %330 = add nsw i32 %.079.i, -17
-  br label %331
+327:                                              ; preds = %323, %321
+  %328 = getelementptr inbounds nuw i8, ptr %.0.i144, i64 17
+  %329 = add nsw i32 %.079.i, -17
+  br label %330
 
-331:                                              ; preds = %328, %318
-  %.180.i = phi i32 [ %330, %328 ], [ %.079.i, %318 ]
-  %.1.i = phi ptr [ %329, %328 ], [ %.0.i144, %318 ]
-  %332 = and i8 %302, 4
-  %333 = icmp ne i8 %332, 0
-  %334 = icmp samesign ugt i32 %.180.i, 16
-  %or.cond5.i = select i1 %333, i1 %334, i1 false
-  br i1 %or.cond5.i, label %335, label %344
+330:                                              ; preds = %327, %317
+  %.180.i = phi i32 [ %329, %327 ], [ %.079.i, %317 ]
+  %.1.i = phi ptr [ %328, %327 ], [ %.0.i144, %317 ]
+  %331 = and i8 %302, 4
+  %332 = icmp ne i8 %331, 0
+  %333 = icmp samesign ugt i32 %.180.i, 16
+  %or.cond5.i = select i1 %332, i1 %333, i1 false
+  br i1 %or.cond5.i, label %334, label %343
 
-335:                                              ; preds = %331
-  %336 = call fastcc i32 @isodate17_valid(ptr noundef nonnull %.1.i)
-  %.not94.i = icmp eq i32 %336, 0
-  br i1 %.not94.i, label %341, label %337
+334:                                              ; preds = %330
+  %335 = call fastcc i32 @isodate17_valid(ptr noundef nonnull %.1.i)
+  %.not94.i = icmp eq i32 %335, 0
+  br i1 %.not94.i, label %340, label %336
 
-337:                                              ; preds = %335
-  %338 = load i32, ptr %16, align 8, !tbaa !81
-  %339 = or i32 %338, 4
-  store i32 %339, ptr %16, align 8, !tbaa !81
-  %340 = call fastcc i64 @isodate17(ptr noundef nonnull %.1.i)
-  store i64 %340, ptr %19, align 8, !tbaa !85
-  br label %341
+336:                                              ; preds = %334
+  %337 = load i32, ptr %16, align 8, !tbaa !81
+  %338 = or i32 %337, 4
+  store i32 %338, ptr %16, align 8, !tbaa !81
+  %339 = call fastcc i64 @isodate17(ptr noundef nonnull %.1.i)
+  store i64 %339, ptr %19, align 8, !tbaa !85
+  br label %340
 
-341:                                              ; preds = %337, %335
-  %342 = getelementptr inbounds nuw i8, ptr %.1.i, i64 17
-  %343 = add nsw i32 %.180.i, -17
-  br label %344
+340:                                              ; preds = %336, %334
+  %341 = getelementptr inbounds nuw i8, ptr %.1.i, i64 17
+  %342 = add nsw i32 %.180.i, -17
+  br label %343
 
-344:                                              ; preds = %341, %331
-  %.281.i = phi i32 [ %343, %341 ], [ %.180.i, %331 ]
-  %.2.i145 = phi ptr [ %342, %341 ], [ %.1.i, %331 ]
-  %345 = and i8 %302, 8
-  %346 = icmp ne i8 %345, 0
-  %347 = icmp samesign ugt i32 %.281.i, 16
-  %or.cond7.i = select i1 %346, i1 %347, i1 false
-  br i1 %or.cond7.i, label %348, label %parse_rockridge_TF1.exit
+343:                                              ; preds = %340, %330
+  %.281.i = phi i32 [ %342, %340 ], [ %.180.i, %330 ]
+  %.2.i145 = phi ptr [ %341, %340 ], [ %.1.i, %330 ]
+  %344 = and i8 %302, 8
+  %345 = icmp ne i8 %344, 0
+  %346 = icmp samesign ugt i32 %.281.i, 16
+  %or.cond7.i = select i1 %345, i1 %346, i1 false
+  br i1 %or.cond7.i, label %347, label %parse_rockridge_TF1.exit
 
-348:                                              ; preds = %344
-  %349 = call fastcc i32 @isodate17_valid(ptr noundef nonnull %.2.i145)
-  %.not95.i = icmp eq i32 %349, 0
-  br i1 %.not95.i, label %parse_rockridge_TF1.exit, label %350
+347:                                              ; preds = %343
+  %348 = call fastcc i32 @isodate17_valid(ptr noundef nonnull %.2.i145)
+  %.not95.i = icmp eq i32 %348, 0
+  br i1 %.not95.i, label %parse_rockridge_TF1.exit, label %349
 
-350:                                              ; preds = %348
-  %351 = load i32, ptr %16, align 8, !tbaa !81
-  %352 = or i32 %351, 8
-  store i32 %352, ptr %16, align 8, !tbaa !81
-  %353 = call fastcc i64 @isodate17(ptr noundef nonnull %.2.i145)
+349:                                              ; preds = %347
+  %350 = load i32, ptr %16, align 8, !tbaa !81
+  %351 = or i32 %350, 8
+  store i32 %351, ptr %16, align 8, !tbaa !81
+  %352 = call fastcc i64 @isodate17(ptr noundef nonnull %.2.i145)
   br label %.sink.split.i
 
-354:                                              ; preds = %301
-  %355 = icmp ugt i8 %76, 11
-  %or.cond9.i = and i1 %355, %306
-  br i1 %or.cond9.i, label %356, label %410
+353:                                              ; preds = %301
+  %354 = icmp ugt i8 %76, 11
+  %or.cond9.i = and i1 %354, %305
+  br i1 %or.cond9.i, label %355, label %409
 
-356:                                              ; preds = %354
-  %357 = load i8, ptr %303, align 1, !tbaa !45
-  %358 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 6
-  %359 = load i8, ptr %358, align 1, !tbaa !45
-  %360 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 7
-  %361 = load i8, ptr %360, align 1, !tbaa !45
-  %362 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 8
-  %363 = load i8, ptr %362, align 1, !tbaa !45
-  %364 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 9
-  %365 = load i8, ptr %364, align 1, !tbaa !45
-  %366 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 10
-  %367 = load i8, ptr %366, align 1, !tbaa !45
-  %368 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 11
-  %369 = load i8, ptr %368, align 1, !tbaa !45
-  %370 = icmp eq i8 %357, 0
-  %371 = icmp eq i8 %359, 0
-  %or.cond.not55.i.not177.i = select i1 %370, i1 %371, i1 false
-  %372 = icmp eq i8 %361, 0
-  %or.cond3.not52.i.not174.i = select i1 %or.cond.not55.i.not177.i, i1 %372, i1 false
-  %373 = icmp eq i8 %363, 0
-  %or.cond5.not50.i.not172.i = select i1 %or.cond3.not52.i.not174.i, i1 %373, i1 false
-  %374 = icmp eq i8 %365, 0
-  %or.cond7.not48.i.not170.i = select i1 %or.cond5.not50.i.not172.i, i1 %374, i1 false
-  %375 = icmp eq i8 %367, 0
-  %or.cond9.not46.i.not168.i = select i1 %or.cond7.not48.i.not170.i, i1 %375, i1 false
-  %376 = icmp eq i8 %369, 0
-  %or.cond11.not.i.not.i = select i1 %or.cond9.not46.i.not168.i, i1 %376, i1 false
-  %377 = add i8 %359, -13
-  %or.cond13.i.i = icmp ult i8 %377, -12
+355:                                              ; preds = %353
+  %356 = load i8, ptr %303, align 1, !tbaa !45
+  %357 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 6
+  %358 = load i8, ptr %357, align 1, !tbaa !45
+  %359 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 7
+  %360 = load i8, ptr %359, align 1, !tbaa !45
+  %361 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 8
+  %362 = load i8, ptr %361, align 1, !tbaa !45
+  %363 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 9
+  %364 = load i8, ptr %363, align 1, !tbaa !45
+  %365 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 10
+  %366 = load i8, ptr %365, align 1, !tbaa !45
+  %367 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 11
+  %368 = load i8, ptr %367, align 1, !tbaa !45
+  %369 = icmp eq i8 %356, 0
+  %370 = icmp eq i8 %358, 0
+  %or.cond.not55.i.not177.i = select i1 %369, i1 %370, i1 false
+  %371 = icmp eq i8 %360, 0
+  %or.cond3.not52.i.not174.i = select i1 %or.cond.not55.i.not177.i, i1 %371, i1 false
+  %372 = icmp eq i8 %362, 0
+  %or.cond5.not50.i.not172.i = select i1 %or.cond3.not52.i.not174.i, i1 %372, i1 false
+  %373 = icmp eq i8 %364, 0
+  %or.cond7.not48.i.not170.i = select i1 %or.cond5.not50.i.not172.i, i1 %373, i1 false
+  %374 = icmp eq i8 %366, 0
+  %or.cond9.not46.i.not168.i = select i1 %or.cond7.not48.i.not170.i, i1 %374, i1 false
+  %375 = icmp eq i8 %368, 0
+  %or.cond11.not.i.not.i = select i1 %or.cond9.not46.i.not168.i, i1 %375, i1 false
+  %376 = add i8 %358, -13
+  %or.cond13.i.i = icmp ult i8 %376, -12
   %or.cond40.i.i = select i1 %or.cond11.not.i.not.i, i1 true, i1 %or.cond13.i.i
-  %378 = add i8 %361, -32
-  %or.cond15.i.i = icmp ult i8 %378, -31
+  %377 = add i8 %360, -32
+  %or.cond15.i.i = icmp ult i8 %377, -31
   %or.cond41.i.i = select i1 %or.cond40.i.i, i1 true, i1 %or.cond15.i.i
-  %379 = icmp ugt i8 %363, 23
-  %or.cond42.i.i = select i1 %or.cond41.i.i, i1 true, i1 %379
-  %380 = icmp ugt i8 %365, 59
-  %or.cond43.i.i = select i1 %or.cond42.i.i, i1 true, i1 %380
-  %381 = icmp ugt i8 %367, 61
-  %or.cond44.i.i = select i1 %or.cond43.i.i, i1 true, i1 %381
-  %382 = add i8 %369, -53
-  %or.cond17.i.i = icmp ult i8 %382, -101
+  %378 = icmp ugt i8 %362, 23
+  %or.cond42.i.i = select i1 %or.cond41.i.i, i1 true, i1 %378
+  %379 = icmp ugt i8 %364, 59
+  %or.cond43.i.i = select i1 %or.cond42.i.i, i1 true, i1 %379
+  %380 = icmp ugt i8 %366, 61
+  %or.cond44.i.i = select i1 %or.cond43.i.i, i1 true, i1 %380
+  %381 = add i8 %368, -53
+  %or.cond17.i.i = icmp ult i8 %381, -101
   %narrow.i.i = select i1 %or.cond44.i.i, i1 true, i1 %or.cond17.i.i
-  br i1 %narrow.i.i, label %407, label %383
+  br i1 %narrow.i.i, label %406, label %382
 
-383:                                              ; preds = %356
-  %384 = load i32, ptr %16, align 8, !tbaa !81
-  %385 = or i32 %384, 1
-  store i32 %385, ptr %16, align 8, !tbaa !81
+382:                                              ; preds = %355
+  %383 = load i32, ptr %16, align 8, !tbaa !81
+  %384 = or i32 %383, 1
+  store i32 %384, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
-  %386 = load i8, ptr %303, align 1, !tbaa !45
-  %387 = zext i8 %386 to i32
-  store i32 %387, ptr %21, align 4, !tbaa !162
-  %388 = load i8, ptr %358, align 1, !tbaa !45
-  %389 = zext i8 %388 to i32
-  %390 = add nsw i32 %389, -1
-  store i32 %390, ptr %22, align 8, !tbaa !164
-  %391 = load i8, ptr %360, align 1, !tbaa !45
-  %392 = zext i8 %391 to i32
-  store i32 %392, ptr %23, align 4, !tbaa !165
-  %393 = load i8, ptr %362, align 1, !tbaa !45
-  %394 = zext i8 %393 to i32
-  store i32 %394, ptr %24, align 8, !tbaa !166
-  %395 = load i8, ptr %364, align 1, !tbaa !45
-  %396 = zext i8 %395 to i32
-  store i32 %396, ptr %25, align 4, !tbaa !167
-  %397 = load i8, ptr %366, align 1, !tbaa !45
-  %398 = zext i8 %397 to i32
-  store i32 %398, ptr %8, align 8, !tbaa !168
-  %399 = load i8, ptr %368, align 1, !tbaa !45
-  %400 = add i8 %399, 47
-  %or.cond.i.i = icmp ult i8 %400, 99
-  br i1 %or.cond.i.i, label %401, label %isodate7.exit.i
+  %385 = load i8, ptr %303, align 1, !tbaa !45
+  %386 = zext i8 %385 to i32
+  store i32 %386, ptr %21, align 4, !tbaa !162
+  %387 = load i8, ptr %357, align 1, !tbaa !45
+  %388 = zext i8 %387 to i32
+  %389 = add nsw i32 %388, -1
+  store i32 %389, ptr %22, align 8, !tbaa !164
+  %390 = load i8, ptr %359, align 1, !tbaa !45
+  %391 = zext i8 %390 to i32
+  store i32 %391, ptr %23, align 4, !tbaa !165
+  %392 = load i8, ptr %361, align 1, !tbaa !45
+  %393 = zext i8 %392 to i32
+  store i32 %393, ptr %24, align 8, !tbaa !166
+  %394 = load i8, ptr %363, align 1, !tbaa !45
+  %395 = zext i8 %394 to i32
+  store i32 %395, ptr %25, align 4, !tbaa !167
+  %396 = load i8, ptr %365, align 1, !tbaa !45
+  %397 = zext i8 %396 to i32
+  store i32 %397, ptr %8, align 8, !tbaa !168
+  %398 = load i8, ptr %367, align 1, !tbaa !45
+  %399 = add i8 %398, 47
+  %or.cond.i.i = icmp ult i8 %399, 99
+  br i1 %or.cond.i.i, label %400, label %isodate7.exit.i
 
-401:                                              ; preds = %383
-  %.neg17.i.i = sdiv i8 %399, -4
+400:                                              ; preds = %382
+  %.neg17.i.i = sdiv i8 %398, -4
   %.neg.sext.i.i = sext i8 %.neg17.i.i to i32
-  %402 = add nsw i32 %.neg.sext.i.i, %394
-  store i32 %402, ptr %24, align 8, !tbaa !166
-  %403 = srem i8 %399, 4
-  %narrow.i96.i = mul nsw i8 %403, -15
+  %401 = add nsw i32 %.neg.sext.i.i, %393
+  store i32 %401, ptr %24, align 8, !tbaa !166
+  %402 = srem i8 %398, 4
+  %narrow.i96.i = mul nsw i8 %402, -15
   %.neg16.i.i = sext i8 %narrow.i96.i to i32
-  %404 = add nsw i32 %.neg16.i.i, %396
-  store i32 %404, ptr %25, align 4, !tbaa !167
+  %403 = add nsw i32 %.neg16.i.i, %395
+  store i32 %403, ptr %25, align 4, !tbaa !167
   br label %isodate7.exit.i
 
-isodate7.exit.i:                                  ; preds = %401, %383
-  %405 = call i64 @timegm(ptr noundef nonnull %8) #20
-  %406 = icmp eq i64 %405, -1
-  %..i.i = select i1 %406, i64 0, i64 %405
+isodate7.exit.i:                                  ; preds = %400, %382
+  %404 = call i64 @timegm(ptr noundef nonnull %8) #20
+  %405 = icmp eq i64 %404, -1
+  %..i.i = select i1 %405, i64 0, i64 %404
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 %..i.i, ptr %17, align 8, !tbaa !82
-  br label %407
+  br label %406
 
-407:                                              ; preds = %isodate7.exit.i, %356
-  %408 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 12
-  %409 = add nsw i32 %81, -12
-  br label %410
+406:                                              ; preds = %isodate7.exit.i, %355
+  %407 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 12
+  %408 = add nsw i32 %81, -12
+  br label %409
 
-410:                                              ; preds = %407, %354
-  %.382.i = phi i32 [ %409, %407 ], [ %304, %354 ]
-  %.3.i = phi ptr [ %408, %407 ], [ %303, %354 ]
-  %411 = and i8 %302, 2
-  %412 = icmp ne i8 %411, 0
-  %413 = icmp samesign ugt i32 %.382.i, 6
-  %or.cond11.i = select i1 %412, i1 %413, i1 false
-  br i1 %or.cond11.i, label %414, label %468
+409:                                              ; preds = %406, %353
+  %.382.i = phi i32 [ %408, %406 ], [ %304, %353 ]
+  %.3.i = phi ptr [ %407, %406 ], [ %303, %353 ]
+  %410 = and i8 %302, 2
+  %411 = icmp ne i8 %410, 0
+  %412 = icmp samesign ugt i32 %.382.i, 6
+  %or.cond11.i = select i1 %411, i1 %412, i1 false
+  br i1 %or.cond11.i, label %413, label %467
 
-414:                                              ; preds = %410
-  %415 = load i8, ptr %.3.i, align 1, !tbaa !45
-  %416 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  %417 = load i8, ptr %416, align 1, !tbaa !45
-  %418 = getelementptr inbounds nuw i8, ptr %.3.i, i64 2
-  %419 = load i8, ptr %418, align 1, !tbaa !45
-  %420 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
-  %421 = load i8, ptr %420, align 1, !tbaa !45
-  %422 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
-  %423 = load i8, ptr %422, align 1, !tbaa !45
-  %424 = getelementptr inbounds nuw i8, ptr %.3.i, i64 5
-  %425 = load i8, ptr %424, align 1, !tbaa !45
-  %426 = getelementptr inbounds nuw i8, ptr %.3.i, i64 6
-  %427 = load i8, ptr %426, align 1, !tbaa !45
-  %428 = icmp eq i8 %415, 0
-  %429 = icmp eq i8 %417, 0
-  %or.cond.not55.i97.not189.i = select i1 %428, i1 %429, i1 false
-  %430 = icmp eq i8 %419, 0
-  %or.cond3.not52.i98.not186.i = select i1 %or.cond.not55.i97.not189.i, i1 %430, i1 false
-  %431 = icmp eq i8 %421, 0
-  %or.cond5.not50.i99.not184.i = select i1 %or.cond3.not52.i98.not186.i, i1 %431, i1 false
-  %432 = icmp eq i8 %423, 0
-  %or.cond7.not48.i100.not182.i = select i1 %or.cond5.not50.i99.not184.i, i1 %432, i1 false
-  %433 = icmp eq i8 %425, 0
-  %or.cond9.not46.i101.not180.i = select i1 %or.cond7.not48.i100.not182.i, i1 %433, i1 false
-  %434 = icmp eq i8 %427, 0
-  %or.cond11.not.i102.not.i = select i1 %or.cond9.not46.i101.not180.i, i1 %434, i1 false
-  %435 = add i8 %417, -13
-  %or.cond13.i103.i = icmp ult i8 %435, -12
+413:                                              ; preds = %409
+  %414 = load i8, ptr %.3.i, align 1, !tbaa !45
+  %415 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
+  %416 = load i8, ptr %415, align 1, !tbaa !45
+  %417 = getelementptr inbounds nuw i8, ptr %.3.i, i64 2
+  %418 = load i8, ptr %417, align 1, !tbaa !45
+  %419 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
+  %420 = load i8, ptr %419, align 1, !tbaa !45
+  %421 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
+  %422 = load i8, ptr %421, align 1, !tbaa !45
+  %423 = getelementptr inbounds nuw i8, ptr %.3.i, i64 5
+  %424 = load i8, ptr %423, align 1, !tbaa !45
+  %425 = getelementptr inbounds nuw i8, ptr %.3.i, i64 6
+  %426 = load i8, ptr %425, align 1, !tbaa !45
+  %427 = icmp eq i8 %414, 0
+  %428 = icmp eq i8 %416, 0
+  %or.cond.not55.i97.not189.i = select i1 %427, i1 %428, i1 false
+  %429 = icmp eq i8 %418, 0
+  %or.cond3.not52.i98.not186.i = select i1 %or.cond.not55.i97.not189.i, i1 %429, i1 false
+  %430 = icmp eq i8 %420, 0
+  %or.cond5.not50.i99.not184.i = select i1 %or.cond3.not52.i98.not186.i, i1 %430, i1 false
+  %431 = icmp eq i8 %422, 0
+  %or.cond7.not48.i100.not182.i = select i1 %or.cond5.not50.i99.not184.i, i1 %431, i1 false
+  %432 = icmp eq i8 %424, 0
+  %or.cond9.not46.i101.not180.i = select i1 %or.cond7.not48.i100.not182.i, i1 %432, i1 false
+  %433 = icmp eq i8 %426, 0
+  %or.cond11.not.i102.not.i = select i1 %or.cond9.not46.i101.not180.i, i1 %433, i1 false
+  %434 = add i8 %416, -13
+  %or.cond13.i103.i = icmp ult i8 %434, -12
   %or.cond40.i104.i = select i1 %or.cond11.not.i102.not.i, i1 true, i1 %or.cond13.i103.i
-  %436 = add i8 %419, -32
-  %or.cond15.i105.i = icmp ult i8 %436, -31
+  %435 = add i8 %418, -32
+  %or.cond15.i105.i = icmp ult i8 %435, -31
   %or.cond41.i106.i = select i1 %or.cond40.i104.i, i1 true, i1 %or.cond15.i105.i
-  %437 = icmp ugt i8 %421, 23
-  %or.cond42.i107.i = select i1 %or.cond41.i106.i, i1 true, i1 %437
-  %438 = icmp ugt i8 %423, 59
-  %or.cond43.i108.i = select i1 %or.cond42.i107.i, i1 true, i1 %438
-  %439 = icmp ugt i8 %425, 61
-  %or.cond44.i109.i = select i1 %or.cond43.i108.i, i1 true, i1 %439
-  %440 = add i8 %427, -53
-  %or.cond17.i110.i = icmp ult i8 %440, -101
+  %436 = icmp ugt i8 %420, 23
+  %or.cond42.i107.i = select i1 %or.cond41.i106.i, i1 true, i1 %436
+  %437 = icmp ugt i8 %422, 59
+  %or.cond43.i108.i = select i1 %or.cond42.i107.i, i1 true, i1 %437
+  %438 = icmp ugt i8 %424, 61
+  %or.cond44.i109.i = select i1 %or.cond43.i108.i, i1 true, i1 %438
+  %439 = add i8 %426, -53
+  %or.cond17.i110.i = icmp ult i8 %439, -101
   %narrow.i111.i = select i1 %or.cond44.i109.i, i1 true, i1 %or.cond17.i110.i
-  br i1 %narrow.i111.i, label %465, label %441
+  br i1 %narrow.i111.i, label %464, label %440
 
-441:                                              ; preds = %414
-  %442 = load i32, ptr %16, align 8, !tbaa !81
-  %443 = or i32 %442, 2
-  store i32 %443, ptr %16, align 8, !tbaa !81
+440:                                              ; preds = %413
+  %441 = load i32, ptr %16, align 8, !tbaa !81
+  %442 = or i32 %441, 2
+  store i32 %442, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
-  %444 = load i8, ptr %.3.i, align 1, !tbaa !45
-  %445 = zext i8 %444 to i32
-  store i32 %445, ptr %27, align 4, !tbaa !162
-  %446 = load i8, ptr %416, align 1, !tbaa !45
-  %447 = zext i8 %446 to i32
-  %448 = add nsw i32 %447, -1
-  store i32 %448, ptr %28, align 8, !tbaa !164
-  %449 = load i8, ptr %418, align 1, !tbaa !45
-  %450 = zext i8 %449 to i32
-  store i32 %450, ptr %29, align 4, !tbaa !165
-  %451 = load i8, ptr %420, align 1, !tbaa !45
-  %452 = zext i8 %451 to i32
-  store i32 %452, ptr %30, align 8, !tbaa !166
-  %453 = load i8, ptr %422, align 1, !tbaa !45
-  %454 = zext i8 %453 to i32
-  store i32 %454, ptr %31, align 4, !tbaa !167
-  %455 = load i8, ptr %424, align 1, !tbaa !45
-  %456 = zext i8 %455 to i32
-  store i32 %456, ptr %7, align 8, !tbaa !168
-  %457 = load i8, ptr %426, align 1, !tbaa !45
-  %458 = add i8 %457, 47
-  %or.cond.i113.i = icmp ult i8 %458, 99
-  br i1 %or.cond.i113.i, label %459, label %isodate7.exit119.i
+  %443 = load i8, ptr %.3.i, align 1, !tbaa !45
+  %444 = zext i8 %443 to i32
+  store i32 %444, ptr %27, align 4, !tbaa !162
+  %445 = load i8, ptr %415, align 1, !tbaa !45
+  %446 = zext i8 %445 to i32
+  %447 = add nsw i32 %446, -1
+  store i32 %447, ptr %28, align 8, !tbaa !164
+  %448 = load i8, ptr %417, align 1, !tbaa !45
+  %449 = zext i8 %448 to i32
+  store i32 %449, ptr %29, align 4, !tbaa !165
+  %450 = load i8, ptr %419, align 1, !tbaa !45
+  %451 = zext i8 %450 to i32
+  store i32 %451, ptr %30, align 8, !tbaa !166
+  %452 = load i8, ptr %421, align 1, !tbaa !45
+  %453 = zext i8 %452 to i32
+  store i32 %453, ptr %31, align 4, !tbaa !167
+  %454 = load i8, ptr %423, align 1, !tbaa !45
+  %455 = zext i8 %454 to i32
+  store i32 %455, ptr %7, align 8, !tbaa !168
+  %456 = load i8, ptr %425, align 1, !tbaa !45
+  %457 = add i8 %456, 47
+  %or.cond.i113.i = icmp ult i8 %457, 99
+  br i1 %or.cond.i113.i, label %458, label %isodate7.exit119.i
 
-459:                                              ; preds = %441
-  %.neg17.i115.i = sdiv i8 %457, -4
+458:                                              ; preds = %440
+  %.neg17.i115.i = sdiv i8 %456, -4
   %.neg.sext.i116.i = sext i8 %.neg17.i115.i to i32
-  %460 = add nsw i32 %.neg.sext.i116.i, %452
-  store i32 %460, ptr %30, align 8, !tbaa !166
-  %461 = srem i8 %457, 4
-  %narrow.i117.i = mul nsw i8 %461, -15
+  %459 = add nsw i32 %.neg.sext.i116.i, %451
+  store i32 %459, ptr %30, align 8, !tbaa !166
+  %460 = srem i8 %456, 4
+  %narrow.i117.i = mul nsw i8 %460, -15
   %.neg16.i118.i = sext i8 %narrow.i117.i to i32
-  %462 = add nsw i32 %.neg16.i118.i, %454
-  store i32 %462, ptr %31, align 4, !tbaa !167
+  %461 = add nsw i32 %.neg16.i118.i, %453
+  store i32 %461, ptr %31, align 4, !tbaa !167
   br label %isodate7.exit119.i
 
-isodate7.exit119.i:                               ; preds = %459, %441
-  %463 = call i64 @timegm(ptr noundef nonnull %7) #20
-  %464 = icmp eq i64 %463, -1
-  %..i114.i = select i1 %464, i64 0, i64 %463
+isodate7.exit119.i:                               ; preds = %458, %440
+  %462 = call i64 @timegm(ptr noundef nonnull %7) #20
+  %463 = icmp eq i64 %462, -1
+  %..i114.i = select i1 %463, i64 0, i64 %462
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %..i114.i, ptr %18, align 8, !tbaa !83
-  br label %465
+  br label %464
 
-465:                                              ; preds = %isodate7.exit119.i, %414
-  %466 = getelementptr inbounds nuw i8, ptr %.3.i, i64 7
-  %467 = add nsw i32 %.382.i, -7
-  br label %468
+464:                                              ; preds = %isodate7.exit119.i, %413
+  %465 = getelementptr inbounds nuw i8, ptr %.3.i, i64 7
+  %466 = add nsw i32 %.382.i, -7
+  br label %467
 
-468:                                              ; preds = %465, %410
-  %.483.i = phi i32 [ %467, %465 ], [ %.382.i, %410 ]
-  %.4.i = phi ptr [ %466, %465 ], [ %.3.i, %410 ]
-  %469 = and i8 %302, 4
-  %470 = icmp ne i8 %469, 0
-  %471 = icmp samesign ugt i32 %.483.i, 6
-  %or.cond13.i = select i1 %470, i1 %471, i1 false
-  br i1 %or.cond13.i, label %472, label %526
+467:                                              ; preds = %464, %409
+  %.483.i = phi i32 [ %466, %464 ], [ %.382.i, %409 ]
+  %.4.i = phi ptr [ %465, %464 ], [ %.3.i, %409 ]
+  %468 = and i8 %302, 4
+  %469 = icmp ne i8 %468, 0
+  %470 = icmp samesign ugt i32 %.483.i, 6
+  %or.cond13.i = select i1 %469, i1 %470, i1 false
+  br i1 %or.cond13.i, label %471, label %525
 
-472:                                              ; preds = %468
-  %473 = load i8, ptr %.4.i, align 1, !tbaa !45
-  %474 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
-  %475 = load i8, ptr %474, align 1, !tbaa !45
-  %476 = getelementptr inbounds nuw i8, ptr %.4.i, i64 2
-  %477 = load i8, ptr %476, align 1, !tbaa !45
-  %478 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
-  %479 = load i8, ptr %478, align 1, !tbaa !45
-  %480 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
-  %481 = load i8, ptr %480, align 1, !tbaa !45
-  %482 = getelementptr inbounds nuw i8, ptr %.4.i, i64 5
-  %483 = load i8, ptr %482, align 1, !tbaa !45
-  %484 = getelementptr inbounds nuw i8, ptr %.4.i, i64 6
-  %485 = load i8, ptr %484, align 1, !tbaa !45
-  %486 = icmp eq i8 %473, 0
-  %487 = icmp eq i8 %475, 0
-  %or.cond.not55.i120.not201.i = select i1 %486, i1 %487, i1 false
-  %488 = icmp eq i8 %477, 0
-  %or.cond3.not52.i121.not198.i = select i1 %or.cond.not55.i120.not201.i, i1 %488, i1 false
-  %489 = icmp eq i8 %479, 0
-  %or.cond5.not50.i122.not196.i = select i1 %or.cond3.not52.i121.not198.i, i1 %489, i1 false
-  %490 = icmp eq i8 %481, 0
-  %or.cond7.not48.i123.not194.i = select i1 %or.cond5.not50.i122.not196.i, i1 %490, i1 false
-  %491 = icmp eq i8 %483, 0
-  %or.cond9.not46.i124.not192.i = select i1 %or.cond7.not48.i123.not194.i, i1 %491, i1 false
-  %492 = icmp eq i8 %485, 0
-  %or.cond11.not.i125.not.i = select i1 %or.cond9.not46.i124.not192.i, i1 %492, i1 false
-  %493 = add i8 %475, -13
-  %or.cond13.i126.i = icmp ult i8 %493, -12
+471:                                              ; preds = %467
+  %472 = load i8, ptr %.4.i, align 1, !tbaa !45
+  %473 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
+  %474 = load i8, ptr %473, align 1, !tbaa !45
+  %475 = getelementptr inbounds nuw i8, ptr %.4.i, i64 2
+  %476 = load i8, ptr %475, align 1, !tbaa !45
+  %477 = getelementptr inbounds nuw i8, ptr %.4.i, i64 3
+  %478 = load i8, ptr %477, align 1, !tbaa !45
+  %479 = getelementptr inbounds nuw i8, ptr %.4.i, i64 4
+  %480 = load i8, ptr %479, align 1, !tbaa !45
+  %481 = getelementptr inbounds nuw i8, ptr %.4.i, i64 5
+  %482 = load i8, ptr %481, align 1, !tbaa !45
+  %483 = getelementptr inbounds nuw i8, ptr %.4.i, i64 6
+  %484 = load i8, ptr %483, align 1, !tbaa !45
+  %485 = icmp eq i8 %472, 0
+  %486 = icmp eq i8 %474, 0
+  %or.cond.not55.i120.not201.i = select i1 %485, i1 %486, i1 false
+  %487 = icmp eq i8 %476, 0
+  %or.cond3.not52.i121.not198.i = select i1 %or.cond.not55.i120.not201.i, i1 %487, i1 false
+  %488 = icmp eq i8 %478, 0
+  %or.cond5.not50.i122.not196.i = select i1 %or.cond3.not52.i121.not198.i, i1 %488, i1 false
+  %489 = icmp eq i8 %480, 0
+  %or.cond7.not48.i123.not194.i = select i1 %or.cond5.not50.i122.not196.i, i1 %489, i1 false
+  %490 = icmp eq i8 %482, 0
+  %or.cond9.not46.i124.not192.i = select i1 %or.cond7.not48.i123.not194.i, i1 %490, i1 false
+  %491 = icmp eq i8 %484, 0
+  %or.cond11.not.i125.not.i = select i1 %or.cond9.not46.i124.not192.i, i1 %491, i1 false
+  %492 = add i8 %474, -13
+  %or.cond13.i126.i = icmp ult i8 %492, -12
   %or.cond40.i127.i = select i1 %or.cond11.not.i125.not.i, i1 true, i1 %or.cond13.i126.i
-  %494 = add i8 %477, -32
-  %or.cond15.i128.i = icmp ult i8 %494, -31
+  %493 = add i8 %476, -32
+  %or.cond15.i128.i = icmp ult i8 %493, -31
   %or.cond41.i129.i = select i1 %or.cond40.i127.i, i1 true, i1 %or.cond15.i128.i
-  %495 = icmp ugt i8 %479, 23
-  %or.cond42.i130.i = select i1 %or.cond41.i129.i, i1 true, i1 %495
-  %496 = icmp ugt i8 %481, 59
-  %or.cond43.i131.i = select i1 %or.cond42.i130.i, i1 true, i1 %496
-  %497 = icmp ugt i8 %483, 61
-  %or.cond44.i132.i = select i1 %or.cond43.i131.i, i1 true, i1 %497
-  %498 = add i8 %485, -53
-  %or.cond17.i133.i = icmp ult i8 %498, -101
+  %494 = icmp ugt i8 %478, 23
+  %or.cond42.i130.i = select i1 %or.cond41.i129.i, i1 true, i1 %494
+  %495 = icmp ugt i8 %480, 59
+  %or.cond43.i131.i = select i1 %or.cond42.i130.i, i1 true, i1 %495
+  %496 = icmp ugt i8 %482, 61
+  %or.cond44.i132.i = select i1 %or.cond43.i131.i, i1 true, i1 %496
+  %497 = add i8 %484, -53
+  %or.cond17.i133.i = icmp ult i8 %497, -101
   %narrow.i134.i = select i1 %or.cond44.i132.i, i1 true, i1 %or.cond17.i133.i
-  br i1 %narrow.i134.i, label %523, label %499
+  br i1 %narrow.i134.i, label %522, label %498
 
-499:                                              ; preds = %472
-  %500 = load i32, ptr %16, align 8, !tbaa !81
-  %501 = or i32 %500, 4
-  store i32 %501, ptr %16, align 8, !tbaa !81
+498:                                              ; preds = %471
+  %499 = load i32, ptr %16, align 8, !tbaa !81
+  %500 = or i32 %499, 4
+  store i32 %500, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
-  %502 = load i8, ptr %.4.i, align 1, !tbaa !45
-  %503 = zext i8 %502 to i32
-  store i32 %503, ptr %33, align 4, !tbaa !162
-  %504 = load i8, ptr %474, align 1, !tbaa !45
-  %505 = zext i8 %504 to i32
-  %506 = add nsw i32 %505, -1
-  store i32 %506, ptr %34, align 8, !tbaa !164
-  %507 = load i8, ptr %476, align 1, !tbaa !45
-  %508 = zext i8 %507 to i32
-  store i32 %508, ptr %35, align 4, !tbaa !165
-  %509 = load i8, ptr %478, align 1, !tbaa !45
-  %510 = zext i8 %509 to i32
-  store i32 %510, ptr %36, align 8, !tbaa !166
-  %511 = load i8, ptr %480, align 1, !tbaa !45
-  %512 = zext i8 %511 to i32
-  store i32 %512, ptr %37, align 4, !tbaa !167
-  %513 = load i8, ptr %482, align 1, !tbaa !45
-  %514 = zext i8 %513 to i32
-  store i32 %514, ptr %6, align 8, !tbaa !168
-  %515 = load i8, ptr %484, align 1, !tbaa !45
-  %516 = add i8 %515, 47
-  %or.cond.i136.i = icmp ult i8 %516, 99
-  br i1 %or.cond.i136.i, label %517, label %isodate7.exit142.i
+  %501 = load i8, ptr %.4.i, align 1, !tbaa !45
+  %502 = zext i8 %501 to i32
+  store i32 %502, ptr %33, align 4, !tbaa !162
+  %503 = load i8, ptr %473, align 1, !tbaa !45
+  %504 = zext i8 %503 to i32
+  %505 = add nsw i32 %504, -1
+  store i32 %505, ptr %34, align 8, !tbaa !164
+  %506 = load i8, ptr %475, align 1, !tbaa !45
+  %507 = zext i8 %506 to i32
+  store i32 %507, ptr %35, align 4, !tbaa !165
+  %508 = load i8, ptr %477, align 1, !tbaa !45
+  %509 = zext i8 %508 to i32
+  store i32 %509, ptr %36, align 8, !tbaa !166
+  %510 = load i8, ptr %479, align 1, !tbaa !45
+  %511 = zext i8 %510 to i32
+  store i32 %511, ptr %37, align 4, !tbaa !167
+  %512 = load i8, ptr %481, align 1, !tbaa !45
+  %513 = zext i8 %512 to i32
+  store i32 %513, ptr %6, align 8, !tbaa !168
+  %514 = load i8, ptr %483, align 1, !tbaa !45
+  %515 = add i8 %514, 47
+  %or.cond.i136.i = icmp ult i8 %515, 99
+  br i1 %or.cond.i136.i, label %516, label %isodate7.exit142.i
 
-517:                                              ; preds = %499
-  %.neg17.i138.i = sdiv i8 %515, -4
+516:                                              ; preds = %498
+  %.neg17.i138.i = sdiv i8 %514, -4
   %.neg.sext.i139.i = sext i8 %.neg17.i138.i to i32
-  %518 = add nsw i32 %.neg.sext.i139.i, %510
-  store i32 %518, ptr %36, align 8, !tbaa !166
-  %519 = srem i8 %515, 4
-  %narrow.i140.i = mul nsw i8 %519, -15
+  %517 = add nsw i32 %.neg.sext.i139.i, %509
+  store i32 %517, ptr %36, align 8, !tbaa !166
+  %518 = srem i8 %514, 4
+  %narrow.i140.i = mul nsw i8 %518, -15
   %.neg16.i141.i = sext i8 %narrow.i140.i to i32
-  %520 = add nsw i32 %.neg16.i141.i, %512
-  store i32 %520, ptr %37, align 4, !tbaa !167
+  %519 = add nsw i32 %.neg16.i141.i, %511
+  store i32 %519, ptr %37, align 4, !tbaa !167
   br label %isodate7.exit142.i
 
-isodate7.exit142.i:                               ; preds = %517, %499
-  %521 = call i64 @timegm(ptr noundef nonnull %6) #20
-  %522 = icmp eq i64 %521, -1
-  %..i137.i = select i1 %522, i64 0, i64 %521
+isodate7.exit142.i:                               ; preds = %516, %498
+  %520 = call i64 @timegm(ptr noundef nonnull %6) #20
+  %521 = icmp eq i64 %520, -1
+  %..i137.i = select i1 %521, i64 0, i64 %520
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %..i137.i, ptr %19, align 8, !tbaa !85
-  br label %523
+  br label %522
 
-523:                                              ; preds = %isodate7.exit142.i, %472
-  %524 = getelementptr inbounds nuw i8, ptr %.4.i, i64 7
-  %525 = add nsw i32 %.483.i, -7
-  br label %526
+522:                                              ; preds = %isodate7.exit142.i, %471
+  %523 = getelementptr inbounds nuw i8, ptr %.4.i, i64 7
+  %524 = add nsw i32 %.483.i, -7
+  br label %525
 
-526:                                              ; preds = %523, %468
-  %.584.i = phi i32 [ %525, %523 ], [ %.483.i, %468 ]
-  %.5.i = phi ptr [ %524, %523 ], [ %.4.i, %468 ]
-  %527 = and i8 %302, 8
-  %528 = icmp ne i8 %527, 0
-  %529 = icmp samesign ugt i32 %.584.i, 6
-  %or.cond15.i = select i1 %528, i1 %529, i1 false
-  br i1 %or.cond15.i, label %530, label %parse_rockridge_TF1.exit
+525:                                              ; preds = %522, %467
+  %.584.i = phi i32 [ %524, %522 ], [ %.483.i, %467 ]
+  %.5.i = phi ptr [ %523, %522 ], [ %.4.i, %467 ]
+  %526 = and i8 %302, 8
+  %527 = icmp ne i8 %526, 0
+  %528 = icmp samesign ugt i32 %.584.i, 6
+  %or.cond15.i = select i1 %527, i1 %528, i1 false
+  br i1 %or.cond15.i, label %529, label %parse_rockridge_TF1.exit
 
-530:                                              ; preds = %526
-  %531 = load i8, ptr %.5.i, align 1, !tbaa !45
-  %532 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
-  %533 = load i8, ptr %532, align 1, !tbaa !45
-  %534 = getelementptr inbounds nuw i8, ptr %.5.i, i64 2
-  %535 = load i8, ptr %534, align 1, !tbaa !45
-  %536 = getelementptr inbounds nuw i8, ptr %.5.i, i64 3
-  %537 = load i8, ptr %536, align 1, !tbaa !45
-  %538 = getelementptr inbounds nuw i8, ptr %.5.i, i64 4
-  %539 = load i8, ptr %538, align 1, !tbaa !45
-  %540 = getelementptr inbounds nuw i8, ptr %.5.i, i64 5
-  %541 = load i8, ptr %540, align 1, !tbaa !45
-  %542 = getelementptr inbounds nuw i8, ptr %.5.i, i64 6
-  %543 = load i8, ptr %542, align 1, !tbaa !45
-  %544 = icmp eq i8 %531, 0
-  %545 = icmp eq i8 %533, 0
-  %or.cond.not55.i143.not213.i = select i1 %544, i1 %545, i1 false
-  %546 = icmp eq i8 %535, 0
-  %or.cond3.not52.i144.not210.i = select i1 %or.cond.not55.i143.not213.i, i1 %546, i1 false
-  %547 = icmp eq i8 %537, 0
-  %or.cond5.not50.i145.not208.i = select i1 %or.cond3.not52.i144.not210.i, i1 %547, i1 false
-  %548 = icmp eq i8 %539, 0
-  %or.cond7.not48.i146.not206.i = select i1 %or.cond5.not50.i145.not208.i, i1 %548, i1 false
-  %549 = icmp eq i8 %541, 0
-  %or.cond9.not46.i147.not204.i = select i1 %or.cond7.not48.i146.not206.i, i1 %549, i1 false
-  %550 = icmp eq i8 %543, 0
-  %or.cond11.not.i148.not.i = select i1 %or.cond9.not46.i147.not204.i, i1 %550, i1 false
-  %551 = add i8 %533, -13
-  %or.cond13.i149.i = icmp ult i8 %551, -12
+529:                                              ; preds = %525
+  %530 = load i8, ptr %.5.i, align 1, !tbaa !45
+  %531 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
+  %532 = load i8, ptr %531, align 1, !tbaa !45
+  %533 = getelementptr inbounds nuw i8, ptr %.5.i, i64 2
+  %534 = load i8, ptr %533, align 1, !tbaa !45
+  %535 = getelementptr inbounds nuw i8, ptr %.5.i, i64 3
+  %536 = load i8, ptr %535, align 1, !tbaa !45
+  %537 = getelementptr inbounds nuw i8, ptr %.5.i, i64 4
+  %538 = load i8, ptr %537, align 1, !tbaa !45
+  %539 = getelementptr inbounds nuw i8, ptr %.5.i, i64 5
+  %540 = load i8, ptr %539, align 1, !tbaa !45
+  %541 = getelementptr inbounds nuw i8, ptr %.5.i, i64 6
+  %542 = load i8, ptr %541, align 1, !tbaa !45
+  %543 = icmp eq i8 %530, 0
+  %544 = icmp eq i8 %532, 0
+  %or.cond.not55.i143.not213.i = select i1 %543, i1 %544, i1 false
+  %545 = icmp eq i8 %534, 0
+  %or.cond3.not52.i144.not210.i = select i1 %or.cond.not55.i143.not213.i, i1 %545, i1 false
+  %546 = icmp eq i8 %536, 0
+  %or.cond5.not50.i145.not208.i = select i1 %or.cond3.not52.i144.not210.i, i1 %546, i1 false
+  %547 = icmp eq i8 %538, 0
+  %or.cond7.not48.i146.not206.i = select i1 %or.cond5.not50.i145.not208.i, i1 %547, i1 false
+  %548 = icmp eq i8 %540, 0
+  %or.cond9.not46.i147.not204.i = select i1 %or.cond7.not48.i146.not206.i, i1 %548, i1 false
+  %549 = icmp eq i8 %542, 0
+  %or.cond11.not.i148.not.i = select i1 %or.cond9.not46.i147.not204.i, i1 %549, i1 false
+  %550 = add i8 %532, -13
+  %or.cond13.i149.i = icmp ult i8 %550, -12
   %or.cond40.i150.i = select i1 %or.cond11.not.i148.not.i, i1 true, i1 %or.cond13.i149.i
-  %552 = add i8 %535, -32
-  %or.cond15.i151.i = icmp ult i8 %552, -31
+  %551 = add i8 %534, -32
+  %or.cond15.i151.i = icmp ult i8 %551, -31
   %or.cond41.i152.i = select i1 %or.cond40.i150.i, i1 true, i1 %or.cond15.i151.i
-  %553 = icmp ugt i8 %537, 23
-  %or.cond42.i153.i = select i1 %or.cond41.i152.i, i1 true, i1 %553
-  %554 = icmp ugt i8 %539, 59
-  %or.cond43.i154.i = select i1 %or.cond42.i153.i, i1 true, i1 %554
-  %555 = icmp ugt i8 %541, 61
-  %or.cond44.i155.i = select i1 %or.cond43.i154.i, i1 true, i1 %555
-  %556 = add i8 %543, -53
-  %or.cond17.i156.i = icmp ult i8 %556, -101
+  %552 = icmp ugt i8 %536, 23
+  %or.cond42.i153.i = select i1 %or.cond41.i152.i, i1 true, i1 %552
+  %553 = icmp ugt i8 %538, 59
+  %or.cond43.i154.i = select i1 %or.cond42.i153.i, i1 true, i1 %553
+  %554 = icmp ugt i8 %540, 61
+  %or.cond44.i155.i = select i1 %or.cond43.i154.i, i1 true, i1 %554
+  %555 = add i8 %542, -53
+  %or.cond17.i156.i = icmp ult i8 %555, -101
   %narrow.i157.i = select i1 %or.cond44.i155.i, i1 true, i1 %or.cond17.i156.i
-  br i1 %narrow.i157.i, label %parse_rockridge_TF1.exit, label %557
+  br i1 %narrow.i157.i, label %parse_rockridge_TF1.exit, label %556
 
-557:                                              ; preds = %530
-  %558 = load i32, ptr %16, align 8, !tbaa !81
-  %559 = or i32 %558, 8
-  store i32 %559, ptr %16, align 8, !tbaa !81
+556:                                              ; preds = %529
+  %557 = load i32, ptr %16, align 8, !tbaa !81
+  %558 = or i32 %557, 8
+  store i32 %558, ptr %16, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
-  %560 = load i8, ptr %.5.i, align 1, !tbaa !45
-  %561 = zext i8 %560 to i32
-  store i32 %561, ptr %39, align 4, !tbaa !162
-  %562 = load i8, ptr %532, align 1, !tbaa !45
-  %563 = zext i8 %562 to i32
-  %564 = add nsw i32 %563, -1
-  store i32 %564, ptr %40, align 8, !tbaa !164
-  %565 = load i8, ptr %534, align 1, !tbaa !45
-  %566 = zext i8 %565 to i32
-  store i32 %566, ptr %41, align 4, !tbaa !165
-  %567 = load i8, ptr %536, align 1, !tbaa !45
-  %568 = zext i8 %567 to i32
-  store i32 %568, ptr %42, align 8, !tbaa !166
-  %569 = load i8, ptr %538, align 1, !tbaa !45
-  %570 = zext i8 %569 to i32
-  store i32 %570, ptr %43, align 4, !tbaa !167
-  %571 = load i8, ptr %540, align 1, !tbaa !45
-  %572 = zext i8 %571 to i32
-  store i32 %572, ptr %5, align 8, !tbaa !168
-  %573 = load i8, ptr %542, align 1, !tbaa !45
-  %574 = add i8 %573, 47
-  %or.cond.i159.i = icmp ult i8 %574, 99
-  br i1 %or.cond.i159.i, label %575, label %isodate7.exit165.i
+  %559 = load i8, ptr %.5.i, align 1, !tbaa !45
+  %560 = zext i8 %559 to i32
+  store i32 %560, ptr %39, align 4, !tbaa !162
+  %561 = load i8, ptr %531, align 1, !tbaa !45
+  %562 = zext i8 %561 to i32
+  %563 = add nsw i32 %562, -1
+  store i32 %563, ptr %40, align 8, !tbaa !164
+  %564 = load i8, ptr %533, align 1, !tbaa !45
+  %565 = zext i8 %564 to i32
+  store i32 %565, ptr %41, align 4, !tbaa !165
+  %566 = load i8, ptr %535, align 1, !tbaa !45
+  %567 = zext i8 %566 to i32
+  store i32 %567, ptr %42, align 8, !tbaa !166
+  %568 = load i8, ptr %537, align 1, !tbaa !45
+  %569 = zext i8 %568 to i32
+  store i32 %569, ptr %43, align 4, !tbaa !167
+  %570 = load i8, ptr %539, align 1, !tbaa !45
+  %571 = zext i8 %570 to i32
+  store i32 %571, ptr %5, align 8, !tbaa !168
+  %572 = load i8, ptr %541, align 1, !tbaa !45
+  %573 = add i8 %572, 47
+  %or.cond.i159.i = icmp ult i8 %573, 99
+  br i1 %or.cond.i159.i, label %574, label %isodate7.exit165.i
 
-575:                                              ; preds = %557
-  %.neg17.i161.i = sdiv i8 %573, -4
+574:                                              ; preds = %556
+  %.neg17.i161.i = sdiv i8 %572, -4
   %.neg.sext.i162.i = sext i8 %.neg17.i161.i to i32
-  %576 = add nsw i32 %.neg.sext.i162.i, %568
-  store i32 %576, ptr %42, align 8, !tbaa !166
-  %577 = srem i8 %573, 4
-  %narrow.i163.i = mul nsw i8 %577, -15
+  %575 = add nsw i32 %.neg.sext.i162.i, %567
+  store i32 %575, ptr %42, align 8, !tbaa !166
+  %576 = srem i8 %572, 4
+  %narrow.i163.i = mul nsw i8 %576, -15
   %.neg16.i164.i = sext i8 %narrow.i163.i to i32
-  %578 = add nsw i32 %.neg16.i164.i, %570
-  store i32 %578, ptr %43, align 4, !tbaa !167
+  %577 = add nsw i32 %.neg16.i164.i, %569
+  store i32 %577, ptr %43, align 4, !tbaa !167
   br label %isodate7.exit165.i
 
-isodate7.exit165.i:                               ; preds = %575, %557
-  %579 = call i64 @timegm(ptr noundef nonnull %5) #20
-  %580 = icmp eq i64 %579, -1
-  %..i160.i = select i1 %580, i64 0, i64 %579
+isodate7.exit165.i:                               ; preds = %574, %556
+  %578 = call i64 @timegm(ptr noundef nonnull %5) #20
+  %579 = icmp eq i64 %578, -1
+  %..i160.i = select i1 %579, i64 0, i64 %578
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %isodate7.exit165.i, %350
-  %.sink.i = phi i64 [ %353, %350 ], [ %..i160.i, %isodate7.exit165.i ]
+.sink.split.i:                                    ; preds = %isodate7.exit165.i, %349
+  %.sink.i = phi i64 [ %352, %349 ], [ %..i160.i, %isodate7.exit165.i ]
   store i64 %.sink.i, ptr %44, align 8, !tbaa !84
   br label %parse_rockridge_TF1.exit
 
-parse_rockridge_TF1.exit:                         ; preds = %299, %344, %348, %526, %530, %.sink.split.i
+parse_rockridge_TF1.exit:                         ; preds = %299, %343, %347, %525, %529, %.sink.split.i
   store i8 1, ptr %45, align 8, !tbaa !61
   br label %register_CE.exit
 
-581:                                              ; preds = %80
-  %582 = icmp eq i8 %72, 70
-  %583 = icmp eq i8 %84, 1
-  %or.cond22 = select i1 %582, i1 %583, i1 false
-  br i1 %or.cond22, label %584, label %register_CE.exit
+580:                                              ; preds = %80
+  %581 = icmp eq i8 %72, 70
+  %582 = icmp eq i8 %84, 1
+  %or.cond22 = select i1 %581, i1 %582, i1 false
+  br i1 %or.cond22, label %583, label %register_CE.exit
 
-584:                                              ; preds = %581
-  %585 = load i8, ptr %70, align 1, !tbaa !45
-  %586 = icmp eq i8 %585, 112
-  br i1 %586, label %587, label %register_CE.exit
+583:                                              ; preds = %580
+  %584 = load i8, ptr %70, align 1, !tbaa !45
+  %585 = icmp eq i8 %584, 112
+  br i1 %585, label %586, label %register_CE.exit
 
-587:                                              ; preds = %584
-  %588 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
-  %589 = load i8, ptr %588, align 1, !tbaa !45
-  %590 = icmp eq i8 %589, 122
-  %591 = icmp eq i32 %82, 12
-  %or.cond.i146 = and i1 %591, %590
-  br i1 %or.cond.i146, label %592, label %register_CE.exit
+586:                                              ; preds = %583
+  %587 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 5
+  %588 = load i8, ptr %587, align 1, !tbaa !45
+  %589 = icmp eq i8 %588, 122
+  %590 = icmp eq i32 %82, 12
+  %or.cond.i146 = and i1 %590, %589
+  br i1 %or.cond.i146, label %591, label %register_CE.exit
 
-592:                                              ; preds = %587
+591:                                              ; preds = %586
   store i32 1, ptr %13, align 4, !tbaa !93
-  %593 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 7
-  %594 = load i8, ptr %593, align 1, !tbaa !45
-  %595 = zext i8 %594 to i32
-  store i32 %595, ptr %14, align 8, !tbaa !96
-  %596 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 8
-  %597 = load i32, ptr %596, align 1
-  %598 = zext i32 %597 to i64
-  store i64 %598, ptr %15, align 8, !tbaa !98
+  %592 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 7
+  %593 = load i8, ptr %592, align 1, !tbaa !45
+  %594 = zext i8 %593 to i32
+  store i32 %594, ptr %14, align 8, !tbaa !96
+  %595 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 8
+  %596 = load i32, ptr %595, align 1
+  %597 = zext i32 %596 to i64
+  store i64 %597, ptr %15, align 8, !tbaa !98
   br label %register_CE.exit
 
-register_CE.exit:                                 ; preds = %._crit_edge.i, %154, %162, %159, %86, %parse_rockridge_NM1.exit, %167, %208, %.thread154, %197, %200, %235, %290, %238, %parse_rockridge_SL1.exit, %parse_rockridge_TF1.exit, %296, %581, %80, %85, %232, %584, %587, %592
-  %599 = load i8, ptr %75, align 1, !tbaa !45
-  %600 = zext i8 %599 to i64
-  %601 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 %600
-  %602 = getelementptr inbounds nuw i8, ptr %601, i64 4
-  %.not = icmp ugt ptr %602, %3
+register_CE.exit:                                 ; preds = %._crit_edge.i, %154, %162, %159, %86, %parse_rockridge_NM1.exit, %167, %208, %.thread154, %197, %200, %235, %290, %238, %parse_rockridge_SL1.exit, %parse_rockridge_TF1.exit, %296, %580, %80, %85, %232, %583, %586, %591
+  %598 = load i8, ptr %75, align 1, !tbaa !45
+  %599 = zext i8 %598 to i64
+  %600 = getelementptr inbounds nuw i8, ptr %.0124169219, i64 %599
+  %601 = getelementptr inbounds nuw i8, ptr %600, i64 4
+  %.not = icmp ugt ptr %601, %3
   br i1 %.not, label %.thread156, label %66, !llvm.loop !169
 
 .critedge:                                        ; preds = %74, %.lr.ph221

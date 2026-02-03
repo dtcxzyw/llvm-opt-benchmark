@@ -489,9 +489,8 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   store i8 0, ptr %5, align 1
   %24 = getelementptr i8, ptr %18, i64 20
   %.val.val.i.i = load i16, ptr %24, align 4
-  %25 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %25, 0
-  br i1 %.not.i.i.i, label %26, label %65
+  %25 = trunc i16 %.val.val.i.i to i1
+  br i1 %25, label %65, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 72
@@ -565,8 +564,8 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 23
   %.val20.i.i = load i8, ptr %66, align 1
   %67 = and i8 %.val20.i.i, 8
-  %.not.i21.i.i = icmp eq i8 %67, 0
-  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread16, label %68
+  %.not.i.i.i = icmp eq i8 %67, 0
+  br i1 %.not.i.i.i, label %heap_getattr.exit.thread16, label %68
 
 68:                                               ; preds = %65
   %69 = call i64 @nocachegetattr(ptr noundef nonnull %15, i32 noundef 4, ptr noundef %13) #7

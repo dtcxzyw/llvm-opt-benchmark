@@ -7959,9 +7959,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12slice_solver15should_activat
 _Z9is_groundPK4expr.exit:                         ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %9 = load i8, ptr %8, align 2
-  %10 = and i8 %9, 1
-  %.not23 = icmp eq i8 %10, 0
-  br i1 %.not23, label %11, label %_Z9is_forallPK3ast.exit20.thread
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %_Z9is_forallPK3ast.exit20.thread, label %11
 
 11:                                               ; preds = %_Z9is_groundPK4expr.exit
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7987,12 +7986,12 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %11
   %26 = zext i32 %25 to i64
   %.idx = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
-  %.not24 = icmp eq i32 %25, 0
-  br i1 %.not24, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread, label %.lr.ph
+  %.not23 = icmp eq i32 %25, 0
+  br i1 %.not23, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %.critedge
-  %.01725 = phi ptr [ %38, %.critedge ], [ %23, %22 ]
-  %28 = load ptr, ptr %.01725, align 8, !tbaa !101
+  %.01724 = phi ptr [ %38, %.critedge ], [ %23, %22 ]
+  %28 = load ptr, ptr %.01724, align 8, !tbaa !101
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 65535
@@ -8010,7 +8009,7 @@ _Z9is_forallPK3ast.exit:                          ; preds = %.lr.ph
   br i1 %37, label %_Z9is_forallPK3ast.exit20.thread, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %36, %_Z9is_forallPK3ast.exit
-  %38 = getelementptr inbounds nuw i8, ptr %.01725, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.01724, i64 8
   %.not = icmp eq ptr %38, %27
   br i1 %.not, label %_ZNK11ast_manager6is_andEPK4expr.exit.thread.loopexit, label %.lr.ph
 

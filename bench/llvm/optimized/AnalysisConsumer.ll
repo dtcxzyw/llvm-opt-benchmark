@@ -1565,9 +1565,8 @@ define internal void @_ZN12_GLOBAL__N_116AnalysisConsumerD2Ev(ptr noundef nonnul
 17:                                               ; preds = %.lr.ph.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !474
-  %20 = and i64 %19, 1
-  %.not.i.i.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i.i.i, label %21, label %_ZN5clang4ento19FunctionSummariesTy15FunctionSummaryD2Ev.exit.i.i.i
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %_ZN5clang4ento19FunctionSummariesTy15FunctionSummaryD2Ev.exit.i.i.i, label %21
 
 21:                                               ; preds = %17
   %22 = inttoptr i64 %19 to ptr
@@ -3663,42 +3662,41 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %8
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %26 = load i8, ptr %25, align 8, !tbaa !279
-  %27 = and i8 %26, 1
-  %28 = icmp ne i8 %27, 0
-  %29 = load ptr, ptr %25, align 8
-  %30 = icmp ne ptr %29, null
-  %31 = select i1 %28, i1 true, i1 %30
-  %32 = and i32 %17, 16384
-  %33 = icmp ne i32 %32, 0
-  %or.cond3.i = or i1 %33, %31
-  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %34
+  %27 = trunc i8 %26 to i1
+  %28 = load ptr, ptr %25, align 8
+  %29 = icmp ne ptr %28, null
+  %30 = select i1 %27, i1 true, i1 %29
+  %31 = and i32 %17, 16384
+  %32 = icmp ne i32 %31, 0
+  %or.cond3.i = or i1 %32, %30
+  br i1 %or.cond3.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %33
 
 _ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i: ; preds = %22
   %.old.i = and i32 %17, 16384
   %.old2.not.i = icmp eq i32 %.old.i, 0
-  br i1 %.old2.not.i, label %34, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
+  br i1 %.old2.not.i, label %33, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
-34:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %24
-  %35 = and i32 %17, 3145728
-  %or.cond6.not.i = icmp eq i32 %35, 0
+33:                                               ; preds = %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %24
+  %34 = and i32 %17, 3145728
+  %or.cond6.not.i = icmp eq i32 %34, 0
   br i1 %or.cond6.not.i, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
 
-_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %34
-  %36 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #20
-  br i1 %36, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
+_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit: ; preds = %33
+  %35 = tail call noundef zeroext i1 @_ZNK5clang4Decl15hasDefiningAttrEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #20
+  br i1 %35, label %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
-_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %.critedge, %24, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %34, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %38 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #20
-  br i1 %38, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %39
+_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %.critedge, %24, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.i, %33, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %37 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #20
+  br i1 %37, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %38
 
-39:                                               ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %41 = load i32, ptr %40, align 4, !tbaa !1005
-  tail call fastcc void @_ZN12_GLOBAL__N_116AnalysisConsumer10HandleCodeEPN5clang4DeclEjNS1_4ento10ExprEngine13InliningModesEPN4llvm8DenseSetIPKS2_NS7_12DenseMapInfoISA_vEEEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull %1, i32 noundef %41, i32 noundef 1, ptr noundef null)
+38:                                               ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %40 = load i32, ptr %39, align 4, !tbaa !1005
+  tail call fastcc void @_ZN12_GLOBAL__N_116AnalysisConsumer10HandleCodeEPN5clang4DeclEjNS1_4ento10ExprEngine13InliningModesEPN4llvm8DenseSetIPKS2_NS7_12DenseMapInfoISA_vEEEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull %1, i32 noundef %40, i32 noundef 1, ptr noundef null)
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, %39, %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit, %_ZNK5clang12FunctionDecl28isThisDeclarationADefinitionEv.exit.thread, %38, %_ZNK4llvm9StringRef11starts_withES0_.exit
   ret i1 true
 }
 

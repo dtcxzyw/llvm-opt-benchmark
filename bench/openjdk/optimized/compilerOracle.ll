@@ -754,10 +754,9 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_t
   %3 = sext i32 %0 to i64
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 37
-  %6 = shl nuw i64 1, %3
-  %7 = and i64 %6, 274894688256
-  %8 = icmp ne i64 %7, 0
-  %spec.select = select i1 %5, i1 %8, i1 false
+  %6 = lshr i64 274894688256, %3
+  %7 = trunc i64 %6 to i1
+  %spec.select = select i1 %5, i1 %7, i1 false
   ret i1 %spec.select
 }
 
@@ -772,10 +771,9 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle19option_matches_t
   %3 = sext i32 %0 to i64
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 37
-  %6 = shl nuw i64 1, %3
-  %7 = and i64 %6, 272982069244
-  %8 = icmp ne i64 %7, 0
-  %spec.select = select i1 %5, i1 %8, i1 false
+  %6 = lshr i64 272982069244, %3
+  %7 = trunc i64 %6 to i1
+  %spec.select = select i1 %5, i1 %7, i1 false
   ret i1 %spec.select
 }
 

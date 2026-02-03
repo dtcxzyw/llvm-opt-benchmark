@@ -2711,8 +2711,8 @@ if.end.i:                                         ; preds = %cond.false379, %con
   %pendingEndStreamHandling_.i = getelementptr inbounds nuw i8, ptr %this, i64 561
   %63 = load i8, ptr %pendingEndStreamHandling_.i, align 1
   %64 = or i8 %63, %62
-  %or1.i = and i8 %64, 1
-  store i8 %or1.i, ptr %pendingEndStreamHandling_.i, align 1
+  %frombool.i = and i8 %64, 1
+  store i8 %frombool.i, ptr %pendingEndStreamHandling_.i, align 1
   %ingressWebsocketUpgrade_.i = getelementptr inbounds nuw i8, ptr %this, i64 562
   %65 = load i8, ptr %ingressWebsocketUpgrade_.i, align 2
   %tobool16.i = trunc i8 %65 to i1
@@ -2732,7 +2732,7 @@ call.i.noexc:                                     ; preds = %if.then17.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %call.i.noexc, %if.end.i
-  %67 = phi i8 [ %.pre.i, %call.i.noexc ], [ %or1.i, %if.end.i ]
+  %67 = phi i8 [ %.pre.i, %call.i.noexc ], [ %frombool.i, %if.end.i ]
   %tobool23.i = trunc i8 %67 to i1
   %expectedContinuationStream_.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   %68 = load i64, ptr %expectedContinuationStream_.i, align 8
@@ -3621,8 +3621,8 @@ if.end.i:                                         ; preds = %if.end83, %if.end83
   %pendingEndStreamHandling_.i = getelementptr inbounds nuw i8, ptr %this, i64 561
   %17 = load i8, ptr %pendingEndStreamHandling_.i, align 1
   %18 = or i8 %17, %16
-  %or1.i = and i8 %18, 1
-  store i8 %or1.i, ptr %pendingEndStreamHandling_.i, align 1
+  %frombool.i = and i8 %18, 1
+  store i8 %frombool.i, ptr %pendingEndStreamHandling_.i, align 1
   %ingressWebsocketUpgrade_.i = getelementptr inbounds nuw i8, ptr %this, i64 562
   %19 = load i8, ptr %ingressWebsocketUpgrade_.i, align 2
   %tobool16.i = trunc i8 %19 to i1
@@ -3642,7 +3642,7 @@ call.i.noexc:                                     ; preds = %if.then17.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %call.i.noexc, %if.end.i
-  %21 = phi i8 [ %.pre.i, %call.i.noexc ], [ %or1.i, %if.end.i ]
+  %21 = phi i8 [ %.pre.i, %call.i.noexc ], [ %frombool.i, %if.end.i ]
   %tobool23.i = trunc i8 %21 to i1
   %expectedContinuationStream_.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   %22 = load i64, ptr %expectedContinuationStream_.i, align 8
@@ -6528,8 +6528,8 @@ if.end:                                           ; preds = %entry, %entry, %ent
   %pendingEndStreamHandling_ = getelementptr inbounds nuw i8, ptr %this, i64 561
   %2 = load i8, ptr %pendingEndStreamHandling_, align 1
   %3 = or i8 %2, %1
-  %or1 = and i8 %3, 1
-  store i8 %or1, ptr %pendingEndStreamHandling_, align 1
+  %frombool = and i8 %3, 1
+  store i8 %frombool, ptr %pendingEndStreamHandling_, align 1
   %ingressWebsocketUpgrade_ = getelementptr inbounds nuw i8, ptr %this, i64 562
   %4 = load i8, ptr %ingressWebsocketUpgrade_, align 2
   %tobool16 = trunc i8 %4 to i1
@@ -6546,7 +6546,7 @@ if.then17:                                        ; preds = %if.end
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end
-  %6 = phi i8 [ %.pre, %if.then17 ], [ %or1, %if.end ]
+  %6 = phi i8 [ %.pre, %if.then17 ], [ %frombool, %if.end ]
   %tobool23 = trunc i8 %6 to i1
   %expectedContinuationStream_ = getelementptr inbounds nuw i8, ptr %this, i64 536
   %7 = load i64, ptr %expectedContinuationStream_, align 8
@@ -6573,10 +6573,9 @@ entry:
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -6703,10 +6702,9 @@ entry:
   %ref.tmp12 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -6955,11 +6953,10 @@ if.then65:                                        ; preds = %if.end61
 if.end68:                                         ; preds = %if.then65, %if.end61
   %transportDirection_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load i8, ptr %transportDirection_.i, align 8
-  %11 = and i32 %.pre, 1
-  %tobool.i.i = icmp ne i32 %11, 0
-  %12 = icmp ne i8 %10, 1
-  %13 = xor i1 %tobool.i.i, %12
-  br i1 %13, label %if.then71, label %return
+  %tobool.i.i = trunc i32 %.pre to i1
+  %11 = icmp ne i8 %10, 1
+  %12 = xor i1 %11, %tobool.i.i
+  br i1 %12, label %if.then71, label %return
 
 if.then71:                                        ; preds = %if.end68
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
@@ -6969,11 +6966,11 @@ if.then71:                                        ; preds = %if.end68
           to label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA57_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad46, %lpad91, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i ], [ %3, %lpad ], [ %8, %lpad46 ], [ %17, %lpad91 ]
+  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i ], [ %3, %lpad ], [ %8, %lpad46 ], [ %16, %lpad91 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then71
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #31
   br label %common.resume
@@ -6983,8 +6980,8 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA57_cjEEENSt9e
   %goawayErrorMessage_73 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call74 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %goawayErrorMessage_73, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #31
-  %15 = load ptr, ptr @_ZZN8proxygen10HTTP2Codec14checkNewStreamEjbE8vlocal___1, align 8
-  %cmp77 = icmp eq ptr %15, null
+  %14 = load ptr, ptr @_ZZN8proxygen10HTTP2Codec14checkNewStreamEjbE8vlocal___1, align 8
+  %cmp77 = icmp eq ptr %14, null
   br i1 %cmp77, label %cond.true78, label %cond.end82
 
 cond.true78:                                      ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA57_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
@@ -6992,8 +6989,8 @@ cond.true78:                                      ; preds = %_ZN5folly2toINSt7__
   br i1 %call79, label %cond.false87, label %return
 
 cond.end82:                                       ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA57_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
-  %16 = load i32, ptr %15, align 4
-  %cmp81 = icmp sgt i32 %16, 3
+  %15 = load i32, ptr %14, align 4
+  %cmp81 = icmp sgt i32 %15, 3
   br i1 %cmp81, label %cond.false87, label %return
 
 cond.false87:                                     ; preds = %cond.true78, %cond.end82
@@ -7006,7 +7003,7 @@ invoke.cont92:                                    ; preds = %cond.false87
           to label %return.sink.split unwind label %lpad91
 
 lpad91:                                           ; preds = %invoke.cont92, %cond.false87
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp89) #31
   br label %common.resume
@@ -7609,8 +7606,8 @@ if.end.i:                                         ; preds = %if.end254, %if.end2
   %pendingEndStreamHandling_.i = getelementptr inbounds nuw i8, ptr %this, i64 561
   %70 = load i8, ptr %pendingEndStreamHandling_.i, align 1
   %71 = or i8 %70, %69
-  %or1.i = and i8 %71, 1
-  store i8 %or1.i, ptr %pendingEndStreamHandling_.i, align 1
+  %frombool.i = and i8 %71, 1
+  store i8 %frombool.i, ptr %pendingEndStreamHandling_.i, align 1
   %ingressWebsocketUpgrade_.i = getelementptr inbounds nuw i8, ptr %this, i64 562
   %72 = load i8, ptr %ingressWebsocketUpgrade_.i, align 2
   %tobool16.i = trunc i8 %72 to i1
@@ -7629,7 +7626,7 @@ call.i67.noexc:                                   ; preds = %if.then17.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %call.i67.noexc, %if.end.i
-  %74 = phi i8 [ %.pre.i, %call.i67.noexc ], [ %or1.i, %if.end.i ]
+  %74 = phi i8 [ %.pre.i, %call.i67.noexc ], [ %frombool.i, %if.end.i ]
   %tobool23.i = trunc i8 %74 to i1
   %expectedContinuationStream_.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   %75 = load i64, ptr %expectedContinuationStream_.i, align 8
@@ -8586,31 +8583,30 @@ entry:
   %0 = load i32, ptr %stream, align 4
   %transportDirection_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %transportDirection_.i, align 8
-  %2 = and i32 %0, 1
-  %tobool.i.i = icmp ne i32 %2, 0
-  %3 = icmp ne i8 %1, 1
-  %4 = xor i1 %tobool.i.i, %3
-  br i1 %4, label %if.end35, label %land.lhs.true
+  %tobool.i.i = trunc i32 %0 to i1
+  %2 = icmp ne i8 %1, 1
+  %3 = xor i1 %2, %tobool.i.i
+  br i1 %3, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %type = getelementptr inbounds nuw i8, ptr %this, i64 528
-  %5 = load i8, ptr %type, align 8
-  switch i8 %5, label %if.end35 [
+  %4 = load i8, ptr %type, align 8
+  switch i8 %4, label %if.end35 [
     i8 1, label %if.then
     i8 -5, label %if.then
   ]
 
 if.then:                                          ; preds = %land.lhs.true, %land.lhs.true
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load ptr, ptr %callback_, align 8
-  %tobool19.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr %callback_, align 8
+  %tobool19.not = icmp eq ptr %5, null
   br i1 %tobool19.not, label %if.end35, label %land.lhs.true20
 
 land.lhs.true20:                                  ; preds = %if.then
-  %vtable = load ptr, ptr %6, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
-  %7 = load ptr, ptr %vfn, align 8
-  %call22 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %6 = load ptr, ptr %vfn, align 8
+  %call22 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %conv23 = zext i32 %call22 to i64
   %egressSettings_ = getelementptr inbounds nuw i8, ptr %this, i64 800
   %call26 = tail call noundef i64 @_ZNK8proxygen12HTTPSettings10getSettingENS_10SettingsIdEm(ptr noundef nonnull align 8 dereferenceable(24) %egressSettings_, i64 noundef 3, i64 noundef 2147483647)
@@ -8627,12 +8623,12 @@ if.then28:                                        ; preds = %land.lhs.true20
           to label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA32_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad31, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i ], [ %10, %lpad31 ]
+  %common.resume.op = phi { ptr, i32 } [ %7, %lpad.i ], [ %9, %lpad31 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #31
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %.noexc.i, %if.then28
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -8645,13 +8641,13 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA32_cEEENSt9en
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA32_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
-  %9 = load ptr, ptr %agg.tmp30, align 8
-  %cmp.not.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %agg.tmp30, align 8
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %invoke.cont32
-  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %9) #31
-  call void @_ZdlPv(ptr noundef nonnull %9) #30
+  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %8) #31
+  call void @_ZdlPv(ptr noundef nonnull %8) #30
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont32, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
@@ -8662,7 +8658,7 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; p
   br label %return
 
 lpad31:                                           ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA32_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp30) #31
   br label %common.resume
@@ -8727,10 +8723,9 @@ entry:
   %ref.tmp10 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -8831,10 +8826,9 @@ entry:
   %ref.tmp15 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -8938,10 +8932,9 @@ entry:
   %ref.tmp12 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -9316,10 +9309,9 @@ entry:
   %ref.tmp10 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -9479,10 +9471,9 @@ entry:
   %ref.tmp10 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -10097,10 +10088,9 @@ entry:
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -10525,10 +10515,9 @@ entry:
   %ref.tmp10 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -10736,10 +10725,9 @@ entry:
   %ref.tmp10 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -12055,10 +12043,9 @@ entry:
   %ref.tmp10 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8
@@ -13046,10 +13033,9 @@ if.end140:                                        ; preds = %if.end140.sink.spli
   %19 = load i64, ptr %stream.addr, align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %19, 1
-  %tobool.i.i.i62 = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i62 = trunc i64 %19 to i1
   %21 = icmp ne i8 %20, 1
-  %22 = xor i1 %tobool.i.i.i62, %21
+  %22 = xor i1 %21, %tobool.i.i.i62
   %ingressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %egressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
@@ -14064,10 +14050,9 @@ entry:
   %agg.tmp84 = alloca %"class.folly::Optional.127", align 1
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %ingressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %egressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
@@ -14717,10 +14702,9 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %2 = load i64, ptr %stream.addr, align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %2, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %2 to i1
   %4 = icmp ne i8 %3, 1
-  %5 = xor i1 %tobool.i.i.i, %4
+  %5 = xor i1 %4, %tobool.i.i.i
   %ingressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %egressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
@@ -14893,10 +14877,9 @@ cleanup.action:                                   ; preds = %invoke.cont13
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %3 = icmp ne i8 %2, 1
-  %4 = xor i1 %tobool.i.i.i, %3
+  %4 = xor i1 %3, %tobool.i.i.i
   %ingressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %egressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
@@ -16492,10 +16475,9 @@ cleanup.action:                                   ; preds = %invoke.cont13
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %3 = icmp ne i8 %2, 1
-  %4 = xor i1 %tobool.i.i.i, %3
+  %4 = xor i1 %3, %tobool.i.i.i
   %ingressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %egressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
@@ -16621,10 +16603,9 @@ cleanup.action:                                   ; preds = %invoke.cont7
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %3 = icmp ne i8 %2, 1
-  %4 = xor i1 %tobool.i.i.i, %3
+  %4 = xor i1 %3, %tobool.i.i.i
   %ingressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %egressGoawayAck_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ingressGoawayAck_.i.val = load i64, ptr %ingressGoawayAck_.i, align 8
@@ -17033,10 +17014,9 @@ entry:
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
   %transportDirection_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %transportDirection_.i.i, align 8
-  %and.i.i.i = and i64 %stream, 1
-  %tobool.i.i.i = icmp ne i64 %and.i.i.i, 0
+  %tobool.i.i.i = trunc i64 %stream to i1
   %1 = icmp ne i8 %0, 1
-  %2 = xor i1 %tobool.i.i.i, %1
+  %2 = xor i1 %1, %tobool.i.i.i
   %spec.select.v = select i1 %2, i64 40, i64 48
   %spec.select = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.v
   %.pn.i = load i64, ptr %spec.select, align 8

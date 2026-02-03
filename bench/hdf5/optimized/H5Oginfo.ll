@@ -99,9 +99,9 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
   br label %120
 
 51:                                               ; preds = %43
-  %52 = and i8 %45, 1
-  %53 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i8 %52, ptr %53, align 4, !tbaa !13
+  %52 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %53 = and i8 %45, 1
+  store i8 %53, ptr %52, align 4, !tbaa !13
   %54 = icmp samesign ugt i8 %45, 1
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 10
   %56 = zext i1 %54 to i8

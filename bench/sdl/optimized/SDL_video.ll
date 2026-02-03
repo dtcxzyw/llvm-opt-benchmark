@@ -3984,133 +3984,132 @@ define hidden noundef zeroext i1 @SDL_SetDisplayModeForDisplay(ptr noundef %0, p
   %3 = load ptr, ptr @_this, align 8
   %4 = getelementptr i8, ptr %3, i64 908
   %.val = load i32, ptr %4, align 4
-  %5 = and i32 %.val, 1
-  %.not.i.not = icmp eq i32 %5, 0
-  br i1 %.not.i.not, label %9, label %6
+  %.not.i = trunc i32 %.val to i1
+  br i1 %.not.i, label %5, label %8
 
-6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8
-  %8 = tail call i32 @SDL_strcmp_REAL(ptr noundef %7, ptr noundef nonnull @.str.18) #19
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %SDL_SetCurrentDisplayMode.exit
+5:                                                ; preds = %2
+  %6 = load ptr, ptr %3, align 8
+  %7 = tail call i32 @SDL_strcmp_REAL(ptr noundef %6, ptr noundef nonnull @.str.18) #19
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %SDL_SetCurrentDisplayMode.exit
 
-9:                                                ; preds = %6, %2
+8:                                                ; preds = %5, %2
   %.not13 = icmp eq ptr %1, null
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %spec.select = select i1 %.not13, ptr %10, ptr %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %spec.select, %12
-  br i1 %13, label %SDL_SetCurrentDisplayMode.exit, label %14
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %spec.select = select i1 %.not13, ptr %9, ptr %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %spec.select, %11
+  br i1 %12, label %SDL_SetCurrentDisplayMode.exit, label %13
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr @_this, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8
-  %.not14 = icmp eq ptr %17, null
-  br i1 %.not14, label %23, label %18
+13:                                               ; preds = %8
+  %14 = load ptr, ptr @_this, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8
+  %.not14 = icmp eq ptr %16, null
+  br i1 %.not14, label %22, label %17
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 904
-  store i8 1, ptr %19, align 8
-  %20 = tail call zeroext i1 %17(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #19
-  %21 = load ptr, ptr @_this, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 904
-  store i8 0, ptr %22, align 8
-  br i1 %20, label %._crit_edge, label %SDL_SetCurrentDisplayMode.exit
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 904
+  store i8 1, ptr %18, align 8
+  %19 = tail call zeroext i1 %16(ptr noundef nonnull %14, ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #19
+  %20 = load ptr, ptr @_this, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 904
+  store i8 0, ptr %21, align 8
+  br i1 %19, label %._crit_edge, label %SDL_SetCurrentDisplayMode.exit
 
-._crit_edge:                                      ; preds = %18
-  %.pre = load ptr, ptr %11, align 8
-  br label %23
+._crit_edge:                                      ; preds = %17
+  %.pre = load ptr, ptr %10, align 8
+  br label %22
 
-23:                                               ; preds = %._crit_edge, %14
-  %24 = phi ptr [ %.pre, %._crit_edge ], [ %12, %14 ]
-  %.not.i15 = icmp eq ptr %24, null
-  br i1 %.not.i15, label %.thread43.i, label %25
+22:                                               ; preds = %._crit_edge, %13
+  %23 = phi ptr [ %.pre, %._crit_edge ], [ %11, %13 ]
+  %.not.i15 = icmp eq ptr %23, null
+  br i1 %.not.i15, label %.thread43.i, label %24
 
-.thread43.i:                                      ; preds = %23
-  store ptr %spec.select, ptr %11, align 8
+.thread43.i:                                      ; preds = %22
+  store ptr %spec.select, ptr %10, align 8
   br label %SDL_SetCurrentDisplayMode.exit
 
-25:                                               ; preds = %23
-  %.sroa.0.0.copyload.i = load i32, ptr %24, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 4
+24:                                               ; preds = %22
+  %.sroa.0.0.copyload.i = load i32, ptr %23, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 12
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.sroa.8.0.copyload.i = load float, ptr %.sroa.8.0..sroa_idx.i, align 8
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 20
   %.sroa.9.0.copyload.i = load float, ptr %.sroa.9.0..sroa_idx.i, align 4
-  store ptr %spec.select, ptr %11, align 8
+  store ptr %spec.select, ptr %10, align 8
   %.not.i.i = icmp eq i32 %.sroa.0.0.copyload.i, 0
-  br i1 %.not.i.i, label %28, label %26
+  br i1 %.not.i.i, label %27, label %25
 
-26:                                               ; preds = %25
-  %27 = load i32, ptr %spec.select, align 8
-  %.not23.i.i = icmp eq i32 %.sroa.0.0.copyload.i, %27
-  br i1 %.not23.i.i, label %28, label %DisplayModeChanged.exit.thread.i
+25:                                               ; preds = %24
+  %26 = load i32, ptr %spec.select, align 8
+  %.not23.i.i = icmp eq i32 %.sroa.0.0.copyload.i, %26
+  br i1 %.not23.i.i, label %27, label %DisplayModeChanged.exit.thread.i
 
-28:                                               ; preds = %26, %25
+27:                                               ; preds = %25, %24
   %.not24.i.i = icmp eq i32 %.sroa.5.0.copyload.i, 0
-  br i1 %.not24.i.i, label %32, label %29
+  br i1 %.not24.i.i, label %31, label %28
 
-29:                                               ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
-  %31 = load i32, ptr %30, align 4
-  %.not25.i.i = icmp eq i32 %.sroa.5.0.copyload.i, %31
-  br i1 %.not25.i.i, label %32, label %DisplayModeChanged.exit.thread.i
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
+  %30 = load i32, ptr %29, align 4
+  %.not25.i.i = icmp eq i32 %.sroa.5.0.copyload.i, %30
+  br i1 %.not25.i.i, label %31, label %DisplayModeChanged.exit.thread.i
 
-32:                                               ; preds = %29, %28
+31:                                               ; preds = %28, %27
   %.not26.i.i = icmp eq i32 %.sroa.6.0.copyload.i, 0
   %.not27.i.i = icmp eq i32 %.sroa.7.0.copyload.i, 0
   %or.cond.i = select i1 %.not26.i.i, i1 true, i1 %.not27.i.i
-  br i1 %or.cond.i, label %39, label %33
+  br i1 %or.cond.i, label %38, label %32
 
-33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
-  %35 = load i32, ptr %34, align 8
-  %.not28.i.i = icmp eq i32 %.sroa.6.0.copyload.i, %35
-  br i1 %.not28.i.i, label %36, label %DisplayModeChanged.exit.thread.i
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
+  %34 = load i32, ptr %33, align 8
+  %.not28.i.i = icmp eq i32 %.sroa.6.0.copyload.i, %34
+  br i1 %.not28.i.i, label %35, label %DisplayModeChanged.exit.thread.i
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %spec.select, i64 12
-  %38 = load i32, ptr %37, align 4
-  %.not29.i.i = icmp eq i32 %.sroa.7.0.copyload.i, %38
-  br i1 %.not29.i.i, label %39, label %DisplayModeChanged.exit.thread.i
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select, i64 12
+  %37 = load i32, ptr %36, align 4
+  %.not29.i.i = icmp eq i32 %.sroa.7.0.copyload.i, %37
+  br i1 %.not29.i.i, label %38, label %DisplayModeChanged.exit.thread.i
 
-39:                                               ; preds = %36, %32
-  %40 = fcmp une float %.sroa.8.0.copyload.i, 0.000000e+00
-  br i1 %40, label %41, label %45
+38:                                               ; preds = %35, %31
+  %39 = fcmp une float %.sroa.8.0.copyload.i, 0.000000e+00
+  br i1 %39, label %40, label %44
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %43 = load float, ptr %42, align 8
-  %44 = fcmp une float %.sroa.8.0.copyload.i, %43
-  br i1 %44, label %DisplayModeChanged.exit.thread.i, label %45
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
+  %42 = load float, ptr %41, align 8
+  %43 = fcmp une float %.sroa.8.0.copyload.i, %42
+  br i1 %43, label %DisplayModeChanged.exit.thread.i, label %44
 
-45:                                               ; preds = %41, %39
-  %46 = fcmp une float %.sroa.9.0.copyload.i, 0.000000e+00
-  br i1 %46, label %DisplayModeChanged.exit.i, label %SDL_SetCurrentDisplayMode.exit
+44:                                               ; preds = %40, %38
+  %45 = fcmp une float %.sroa.9.0.copyload.i, 0.000000e+00
+  br i1 %45, label %DisplayModeChanged.exit.i, label %SDL_SetCurrentDisplayMode.exit
 
-DisplayModeChanged.exit.i:                        ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %spec.select, i64 20
-  %48 = load float, ptr %47, align 4
-  %49 = fcmp une float %.sroa.9.0.copyload.i, %48
-  br i1 %49, label %DisplayModeChanged.exit.thread.i, label %SDL_SetCurrentDisplayMode.exit
+DisplayModeChanged.exit.i:                        ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %spec.select, i64 20
+  %47 = load float, ptr %46, align 4
+  %48 = fcmp une float %.sroa.9.0.copyload.i, %47
+  br i1 %48, label %DisplayModeChanged.exit.thread.i, label %SDL_SetCurrentDisplayMode.exit
 
-DisplayModeChanged.exit.thread.i:                 ; preds = %DisplayModeChanged.exit.i, %41, %36, %33, %29, %26
-  %50 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %spec.select, i64 12
-  %53 = load i32, ptr %52, align 4
-  tail call void @SDL_SendDisplayEvent(ptr noundef nonnull %0, i32 noundef 342, i32 noundef %51, i32 noundef %53) #19
+DisplayModeChanged.exit.thread.i:                 ; preds = %DisplayModeChanged.exit.i, %40, %35, %32, %28, %25
+  %49 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %spec.select, i64 12
+  %52 = load i32, ptr %51, align 4
+  tail call void @SDL_SendDisplayEvent(ptr noundef nonnull %0, i32 noundef 342, i32 noundef %50, i32 noundef %52) #19
   br label %SDL_SetCurrentDisplayMode.exit
 
-SDL_SetCurrentDisplayMode.exit:                   ; preds = %DisplayModeChanged.exit.thread.i, %DisplayModeChanged.exit.i, %45, %.thread43.i, %18, %9, %6
-  %.010 = phi i1 [ false, %18 ], [ true, %6 ], [ true, %9 ], [ true, %.thread43.i ], [ true, %45 ], [ true, %DisplayModeChanged.exit.i ], [ true, %DisplayModeChanged.exit.thread.i ]
+SDL_SetCurrentDisplayMode.exit:                   ; preds = %DisplayModeChanged.exit.thread.i, %DisplayModeChanged.exit.i, %44, %.thread43.i, %17, %8, %5
+  %.010 = phi i1 [ false, %17 ], [ true, %5 ], [ true, %8 ], [ true, %.thread43.i ], [ true, %44 ], [ true, %DisplayModeChanged.exit.i ], [ true, %DisplayModeChanged.exit.thread.i ]
   ret i1 %.010
 }
 
@@ -11978,7 +11977,7 @@ define internal fastcc void @ApplyWindowFlags(ptr noundef %0, i64 noundef %1) un
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 786432
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %33
+  br i1 %.not, label %6, label %32
 
 6:                                                ; preds = %2
   %7 = and i64 %1, 192
@@ -11999,45 +11998,44 @@ define internal fastcc void @ApplyWindowFlags(ptr noundef %0, i64 noundef %1) un
   br label %14
 
 14:                                               ; preds = %12, %10
-  %15 = and i64 %1, 1
-  %16 = icmp ne i64 %15, 0
-  %17 = tail call zeroext i1 @SDL_SetWindowFullscreen_REAL(ptr noundef nonnull %0, i1 noundef zeroext %16)
-  %18 = and i64 %1, 64
-  %.not16 = icmp eq i64 %18, 0
-  br i1 %.not16, label %21, label %19
+  %15 = trunc i64 %1 to i1
+  %16 = tail call zeroext i1 @SDL_SetWindowFullscreen_REAL(ptr noundef nonnull %0, i1 noundef zeroext %15)
+  %17 = and i64 %1, 64
+  %.not16 = icmp eq i64 %17, 0
+  br i1 %.not16, label %20, label %18
 
-19:                                               ; preds = %14
-  %20 = tail call zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef nonnull %0)
-  br label %21
+18:                                               ; preds = %14
+  %19 = tail call zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef nonnull %0)
+  br label %20
 
-21:                                               ; preds = %19, %14
-  %22 = and i64 %1, 4096
-  %.not17 = icmp eq i64 %22, 0
-  br i1 %.not17, label %25, label %23
+20:                                               ; preds = %18, %14
+  %21 = and i64 %1, 4096
+  %.not17 = icmp eq i64 %21, 0
+  br i1 %.not17, label %24, label %22
 
-23:                                               ; preds = %21
-  %24 = tail call zeroext i1 @SDL_SetWindowModal_REAL(ptr noundef nonnull %0, i1 noundef zeroext true)
-  br label %25
+22:                                               ; preds = %20
+  %23 = tail call zeroext i1 @SDL_SetWindowModal_REAL(ptr noundef nonnull %0, i1 noundef zeroext true)
+  br label %24
 
-25:                                               ; preds = %23, %21
-  %26 = and i64 %1, 256
-  %.not18 = icmp eq i64 %26, 0
-  br i1 %.not18, label %29, label %27
+24:                                               ; preds = %22, %20
+  %25 = and i64 %1, 256
+  %.not18 = icmp eq i64 %25, 0
+  br i1 %.not18, label %28, label %26
 
-27:                                               ; preds = %25
-  %28 = tail call zeroext i1 @SDL_SetWindowMouseGrab_REAL(ptr noundef nonnull %0, i1 noundef zeroext true)
-  br label %29
+26:                                               ; preds = %24
+  %27 = tail call zeroext i1 @SDL_SetWindowMouseGrab_REAL(ptr noundef nonnull %0, i1 noundef zeroext true)
+  br label %28
 
-29:                                               ; preds = %27, %25
-  %30 = and i64 %1, 1048576
-  %.not19 = icmp eq i64 %30, 0
-  br i1 %.not19, label %33, label %31
+28:                                               ; preds = %26, %24
+  %29 = and i64 %1, 1048576
+  %.not19 = icmp eq i64 %29, 0
+  br i1 %.not19, label %32, label %30
 
-31:                                               ; preds = %29
-  %32 = tail call zeroext i1 @SDL_SetWindowKeyboardGrab_REAL(ptr noundef nonnull %0, i1 noundef zeroext true)
-  br label %33
+30:                                               ; preds = %28
+  %31 = tail call zeroext i1 @SDL_SetWindowKeyboardGrab_REAL(ptr noundef nonnull %0, i1 noundef zeroext true)
+  br label %32
 
-33:                                               ; preds = %29, %31, %2
+32:                                               ; preds = %28, %30, %2
   ret void
 }
 
@@ -12408,16 +12406,15 @@ define hidden void @SDL_OnWindowFocusLost(ptr noundef %0) local_unnamed_addr #0 
   %21 = load ptr, ptr @_this, align 8
   %22 = getelementptr i8, ptr %21, i64 908
   %.val.i = load i32, ptr %22, align 4
-  %23 = and i32 %.val.i, 1
-  %.not.i.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i.not.i, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread4, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread
+  %.not.i.i = trunc i32 %.val.i to i1
+  br i1 %.not.i.i, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread4
 
 SDL_ShouldMinimizeOnFocusLoss.exit:               ; preds = %13
-  %24 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.167, i1 noundef zeroext false) #19
-  br i1 %24, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread4, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread
+  %23 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.167, i1 noundef zeroext false) #19
+  br i1 %23, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread4, label %SDL_ShouldMinimizeOnFocusLoss.exit.thread
 
 SDL_ShouldMinimizeOnFocusLoss.exit.thread4:       ; preds = %20, %SDL_ShouldMinimizeOnFocusLoss.exit
-  %25 = tail call zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef nonnull %0)
+  %24 = tail call zeroext i1 @SDL_MinimizeWindow_REAL(ptr noundef nonnull %0)
   br label %SDL_ShouldMinimizeOnFocusLoss.exit.thread
 
 SDL_ShouldMinimizeOnFocusLoss.exit.thread:        ; preds = %16, %20, %5, %1, %SDL_ShouldMinimizeOnFocusLoss.exit.thread4, %SDL_ShouldMinimizeOnFocusLoss.exit

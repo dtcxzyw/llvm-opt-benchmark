@@ -1098,10 +1098,10 @@ if.end13:                                         ; preds = %land.lhs.true, %sw.
   %11 = load i8, ptr %IsPushButton17, align 2, !range !47
   %tobool18.not = icmp eq i8 %11, 0
   %or.cond = select i1 %tobool15.not, i1 %tobool18.not, i1 false
+  %bf.cast23.not = trunc i8 %bf.load to i1
   br i1 %or.cond, label %land.lhs.true19, label %if.else30
 
 land.lhs.true19:                                  ; preds = %if.end13
-  %bf.cast23.not = icmp ne i8 %4, 0
   %Key25 = getelementptr inbounds nuw i8, ptr %event, i64 12
   %12 = load i32, ptr %Key25, align 4
   %cmp26 = icmp eq i32 %12, 27
@@ -1115,10 +1115,9 @@ if.then27:                                        ; preds = %land.lhs.true19
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(651) %this, i1 noundef zeroext false) #16
   br label %return
 
-if.else30:                                        ; preds = %land.lhs.true19, %if.end13
-  %bf.cast34.not = icmp ne i8 %4, 0
+if.else30:                                        ; preds = %if.end13, %land.lhs.true19
   %tobool37.not = icmp eq i8 %10, 0
-  %or.cond219 = or i1 %bf.cast34.not, %tobool37.not
+  %or.cond219 = or i1 %tobool37.not, %bf.cast23.not
   br i1 %or.cond219, label %sw.epilog, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.else30

@@ -376,9 +376,8 @@ define void @_ZN15DragDropToolBar10childEventEP11QChildEvent(ptr noundef align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 8
-  %13 = and i32 %12, 1
-  %.not9 = icmp eq i32 %13, 0
-  br i1 %.not9, label %42, label %14
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %14, label %42
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -429,9 +428,8 @@ define void @_ZN15DragDropToolBar10childEventEP11QChildEvent(ptr noundef align 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load i32, ptr %37, align 8
-  %39 = and i32 %38, 1
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %42, label %40
+  %39 = trunc i32 %38 to i1
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -548,9 +546,8 @@ define noundef zeroext i1 @_ZN15DragDropToolBar11eventFilterEP7QObjectP6QEvent(p
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 8
-  %17 = and i32 %16, 1
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %20
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %3
   %19 = tail call noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1, ptr noundef %2)

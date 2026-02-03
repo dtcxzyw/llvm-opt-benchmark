@@ -1265,10 +1265,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69: ; preds = %_ZNKS
           to label %_ZN3satlsERSoNS_7literalE.exit unwind label %164
 
 204:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69
-  %205 = and i32 %160, 1
-  %.not.not.i = icmp eq i32 %205, 0
-  %206 = select i1 %.not.not.i, ptr @.str.33, ptr @.str.32
-  %207 = zext nneg i32 %205 to i64
+  %205 = trunc i32 %160 to i1
+  %206 = select i1 %205, ptr @.str.32, ptr @.str.33
+  %.mask.i = and i32 %160, 1
+  %207 = zext nneg i32 %.mask.i to i64
   %208 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull %206, i64 noundef %207)
           to label %.noexc71 unwind label %164
 
@@ -1368,10 +1368,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94: ; preds = %_ZNKS
           to label %_ZN3satlsERSoNS_7literalE.exit99 unwind label %164
 
 243:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94
-  %244 = and i32 %160, 1
-  %.not.not.i95 = icmp eq i32 %244, 0
-  %245 = select i1 %.not.not.i95, ptr @.str.33, ptr @.str.32
-  %246 = zext nneg i32 %244 to i64
+  %244 = trunc i32 %160 to i1
+  %245 = select i1 %244, ptr @.str.32, ptr @.str.33
+  %.mask.i95 = and i32 %160, 1
+  %246 = zext nneg i32 %.mask.i95 to i64
   %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef nonnull %245, i64 noundef %246)
           to label %.noexc97 unwind label %164
 
@@ -4499,14 +4499,14 @@ _ZN6vectorI3mpzLb0EjE4backEv.exit.i:              ; preds = %.noexc133, %428
           to label %459 unwind label %399
 
 459:                                              ; preds = %457, %452
-  %460 = lshr i32 %392, 1
-  %461 = load ptr, ptr %354, align 8, !tbaa !108
-  %462 = zext nneg i32 %460 to i64
-  %463 = getelementptr inbounds nuw i8, ptr %461, i64 %462
-  %464 = load i8, ptr %463, align 1, !tbaa !109, !range !121, !noundef !122
-  %465 = trunc i32 %392 to i8
-  %466 = and i8 %465, 1
-  %.not174 = icmp eq i8 %464, %466
+  %460 = trunc i32 %392 to i8
+  %461 = lshr i32 %392, 1
+  %462 = load ptr, ptr %354, align 8, !tbaa !108
+  %463 = zext nneg i32 %461 to i64
+  %464 = getelementptr inbounds nuw i8, ptr %462, i64 %463
+  %465 = load i8, ptr %464, align 1, !tbaa !109, !range !121, !noundef !122
+  %466 = and i8 %460, 1
+  %.not174 = icmp eq i8 %465, %466
   br i1 %.not174, label %_ZN15_scoped_numeralI11mpz_managerILb0EEEmIERK3mpz.exit, label %467
 
 467:                                              ; preds = %459
@@ -4709,14 +4709,14 @@ _ZN6vectorI3mpzLb0EjE4backEv.exit.i144:           ; preds = %.noexc148, %538
 
 569:                                              ; preds = %567, %562
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %570 = lshr i32 %504, 1
-  %571 = load ptr, ptr %496, align 8, !tbaa !108
-  %572 = zext nneg i32 %570 to i64
-  %573 = getelementptr inbounds nuw i8, ptr %571, i64 %572
-  %574 = load i8, ptr %573, align 1, !tbaa !109, !range !121, !noundef !122
-  %575 = trunc i32 %504 to i8
-  %576 = and i8 %575, 1
-  %.not173 = icmp eq i8 %574, %576
+  %570 = trunc i32 %504 to i8
+  %571 = lshr i32 %504, 1
+  %572 = load ptr, ptr %496, align 8, !tbaa !108
+  %573 = zext nneg i32 %571 to i64
+  %574 = getelementptr inbounds nuw i8, ptr %572, i64 %573
+  %575 = load i8, ptr %574, align 1, !tbaa !109, !range !121, !noundef !122
+  %576 = and i8 %570, 1
+  %.not173 = icmp eq i8 %575, %576
   br i1 %.not173, label %585, label %577
 
 577:                                              ; preds = %569
@@ -10434,14 +10434,14 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2
   %25 = load ptr, ptr %1, align 8, !tbaa !219
   %26 = getelementptr inbounds nuw %"class.sat::literal", ptr %25, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %26, align 4, !tbaa !61
-  %27 = lshr i32 %.sroa.0.0.copyload, 1
-  %28 = load ptr, ptr %13, align 8, !tbaa !108
-  %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !109, !range !121, !noundef !122
-  %32 = trunc i32 %.sroa.0.0.copyload to i8
-  %33 = and i8 %32, 1
-  %.not = icmp eq i8 %31, %33
+  %27 = trunc i32 %.sroa.0.0.copyload to i8
+  %28 = lshr i32 %.sroa.0.0.copyload, 1
+  %29 = load ptr, ptr %13, align 8, !tbaa !108
+  %30 = zext nneg i32 %28 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !109, !range !121, !noundef !122
+  %33 = and i8 %27, 1
+  %.not = icmp eq i8 %32, %33
   br i1 %.not, label %38, label %34
 
 34:                                               ; preds = %24
@@ -10980,10 +10980,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit33: ; preds = %_ZlsR
           to label %_ZN3satlsERSoNS_7literalE.exit unwind label %71
 
 41:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit33
-  %42 = and i32 %.sroa.0.0.copyload, 1
-  %.not.not.i = icmp eq i32 %42, 0
-  %43 = select i1 %.not.not.i, ptr @.str.33, ptr @.str.32
-  %44 = zext nneg i32 %42 to i64
+  %42 = trunc i32 %.sroa.0.0.copyload to i1
+  %43 = select i1 %42, ptr @.str.32, ptr @.str.33
+  %.mask.i = and i32 %.sroa.0.0.copyload, 1
+  %44 = zext nneg i32 %.mask.i to i64
   %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %43, i64 noundef %44)
           to label %.noexc35 unwind label %71
 
@@ -11807,10 +11807,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %1, %86
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 61:                                               ; preds = %56
-  %62 = and i32 %35, 1
-  %.not.not.i = icmp eq i32 %62, 0
-  %63 = select i1 %.not.not.i, ptr @.str.33, ptr @.str.32
-  %64 = zext nneg i32 %62 to i64
+  %62 = trunc i32 %35 to i1
+  %63 = select i1 %62, ptr @.str.32, ptr @.str.33
+  %.mask.i = and i32 %35, 1
+  %64 = zext nneg i32 %.mask.i to i64
   %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %63, i64 noundef %64)
   %66 = lshr i32 %35, 1
   %67 = zext nneg i32 %66 to i64
@@ -11835,10 +11835,10 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %59, %61
   br label %_ZN3satlsERSoNS_7literalE.exit32
 
 76:                                               ; preds = %71
-  %77 = and i32 %35, 1
-  %.not.not.i31 = icmp eq i32 %77, 0
-  %78 = select i1 %.not.not.i31, ptr @.str.33, ptr @.str.32
-  %79 = zext nneg i32 %77 to i64
+  %77 = trunc i32 %35 to i1
+  %78 = select i1 %77, ptr @.str.32, ptr @.str.33
+  %.mask.i31 = and i32 %35, 1
+  %79 = zext nneg i32 %.mask.i31 to i64
   %80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %78, i64 noundef %79)
   %81 = lshr i32 %35, 1
   %82 = zext nneg i32 %81 to i64

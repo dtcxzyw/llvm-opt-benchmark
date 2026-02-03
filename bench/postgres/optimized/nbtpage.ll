@@ -2347,8 +2347,10 @@ BufferGetPage.exit:                               ; preds = %38, %44
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
   %55 = load i16, ptr %54, align 4
   %56 = zext i16 %55 to i32
-  %57 = and i32 %56, 5
-  %or.cond = icmp eq i32 %57, 1
+  %.not = trunc i16 %55 to i1
+  %57 = and i32 %56, 4
+  %.not62 = icmp eq i32 %57, 0
+  %or.cond = and i1 %.not62, %.not
   br i1 %or.cond, label %80, label %58
 
 58:                                               ; preds = %BufferGetPage.exit
@@ -2481,10 +2483,10 @@ _bt_leftsib_splitflag.exit:                       ; preds = %BufferGetPage.exit.
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %130 = load i16, ptr %129, align 4
   %131 = and i16 %130, 128
-  %.not = icmp eq i16 %131, 0
+  %.not91 = icmp eq i16 %131, 0
   call void @LockBuffer(i32 noundef %108, i32 noundef 0) #9
   call void @ReleaseBuffer(i32 noundef %108) #9
-  br i1 %.not, label %_bt_leftsib_splitflag.exit.thread, label %.thread
+  br i1 %.not91, label %_bt_leftsib_splitflag.exit.thread, label %.thread
 
 .thread:                                          ; preds = %_bt_leftsib_splitflag.exit
   call void @ReleaseBuffer(i32 noundef %.0) #9
@@ -3006,8 +3008,8 @@ _bt_mark_page_halfdead.exit:                      ; preds = %350, %358, %361, %B
 416:                                              ; preds = %_bt_mark_page_halfdead.exit, %95
   %417 = phi i16 [ %.pre, %_bt_mark_page_halfdead.exit ], [ %55, %95 ]
   %418 = and i16 %417, 16
-  %.not67281 = icmp eq i16 %418, 0
-  br i1 %.not67281, label %937, label %.lr.ph
+  %.not67282 = icmp eq i16 %418, 0
+  br i1 %.not67282, label %937, label %.lr.ph
 
 .lr.ph:                                           ; preds = %416
   %419 = add nsw i32 %.0, -1
@@ -3148,36 +3150,36 @@ BufferGetPage.exit303.i:                          ; preds = %486, %480
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 12
   %497 = load i16, ptr %496, align 4
   %498 = and i16 %497, 4
-  %.not276.i275 = icmp eq i16 %498, 0
+  %.not276.i276 = icmp eq i16 %498, 0
   %499 = getelementptr inbounds nuw i8, ptr %495, i64 4
   %500 = load i32, ptr %499, align 4
-  %.not277.i276 = icmp eq i32 %500, %.0255339.i
-  %or.cond387.i277 = select i1 %.not276.i275, i1 %.not277.i276, i1 false
-  br i1 %or.cond387.i277, label %.loopexit.i, label %.critedge.i
+  %.not277.i277 = icmp eq i32 %500, %.0255339.i
+  %or.cond387.i278 = select i1 %.not276.i276, i1 %.not277.i277, i1 false
+  br i1 %or.cond387.i278, label %.loopexit.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %BufferGetPage.exit303.i, %532
   %501 = phi i32 [ %541, %532 ], [ %500, %BufferGetPage.exit303.i ]
   %502 = phi i16 [ %539, %532 ], [ %498, %BufferGetPage.exit303.i ]
-  %.1257.i279 = phi i32 [ %501, %532 ], [ %.0256338.i, %BufferGetPage.exit303.i ]
-  %.0262.i278 = phi i32 [ %518, %532 ], [ %478, %BufferGetPage.exit303.i ]
+  %.1257.i280 = phi i32 [ %501, %532 ], [ %.0256338.i, %BufferGetPage.exit303.i ]
+  %.0262.i279 = phi i32 [ %518, %532 ], [ %478, %BufferGetPage.exit303.i ]
   %503 = icmp eq i32 %501, 0
   br i1 %503, label %.critedge347.i, label %504
 
 504:                                              ; preds = %.critedge.i
   %.not287.i = icmp ne i16 %502, 0
-  %505 = icmp eq i32 %.1257.i279, %501
+  %505 = icmp eq i32 %.1257.i280, %501
   %or.cond289.i = or i1 %.not287.i, %505
   br i1 %or.cond289.i, label %.critedge347.i, label %507
 
 .critedge347.i:                                   ; preds = %504, %.critedge.i
-  call void @LockBuffer(i32 noundef %.0262.i278, i32 noundef 0) #9
-  call void @ReleaseBuffer(i32 noundef %.0262.i278) #9
+  call void @LockBuffer(i32 noundef %.0262.i279, i32 noundef 0) #9
+  call void @ReleaseBuffer(i32 noundef %.0262.i279) #9
   %506 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
   br i1 %506, label %509, label %514
 
 507:                                              ; preds = %504
-  call void @LockBuffer(i32 noundef %.0262.i278, i32 noundef 0) #9
-  call void @ReleaseBuffer(i32 noundef %.0262.i278) #9
+  call void @LockBuffer(i32 noundef %.0262.i279, i32 noundef 0) #9
+  call void @ReleaseBuffer(i32 noundef %.0262.i279) #9
   %508 = load volatile i32, ptr @InterruptPending, align 4
   %.not288.i = icmp eq i32 %508, 0
   br i1 %.not288.i, label %517, label %516, !prof !17

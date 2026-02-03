@@ -7416,10 +7416,10 @@ define hidden noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_rle6bitm
 .preheader:                                       ; preds = %51, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i"
   %.sroa.015.0 = phi i8 [ %.sroa.015.1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ 0, %51 ]
   %53 = phi i64 [ %62, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ %.sroa.724.0.copyload, %51 ]
-  %.pre.i9.i = phi i64 [ %66, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ %.sroa.522.0.copyload, %51 ]
+  %.pre.i9.i = phi i64 [ %67, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ %.sroa.522.0.copyload, %51 ]
   %54 = phi i8 [ %76, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ 0, %51 ]
   %55 = phi ptr [ %63, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ %.sroa.020.0.copyload, %51 ]
-  %56 = phi i64 [ %67, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ %.sroa.623.0.copyload, %51 ]
+  %56 = phi i64 [ %68, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ %.sroa.623.0.copyload, %51 ]
   %.sroa.2.0.i = phi i64 [ %77, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i" ], [ 0, %51 ]
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %58, label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
@@ -7440,10 +7440,10 @@ define hidden noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_rle6bitm
   %63 = phi ptr [ %61, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i" ], [ %55, %.preheader ]
   %64 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i" ], [ %56, %.preheader ]
   %65 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i" ], [ %.pre.i9.i, %.preheader ]
-  %66 = lshr i64 %65, 1
-  %67 = add i64 %64, -1
-  %68 = trunc i64 %65 to i1
-  br i1 %68, label %69, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i"
+  %66 = trunc i64 %65 to i1
+  %67 = lshr i64 %65, 1
+  %68 = add i64 %64, -1
+  br i1 %66, label %69, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17he705dfb04ece8082E.exit.i"
 
 69:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i"
   %70 = icmp ult i64 %.sroa.2.0.i, 8
@@ -8715,8 +8715,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %47, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %51, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd37c4d32d751fb22E.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -8761,14 +8761,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %52 = phi i64 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %53 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %54 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %55 = lshr i64 %54, 1
-  store i64 %55, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1519, !noalias !1500
-  %56 = add i64 %53, -1
-  store i64 %56, ptr %13, align 8, !alias.scope !1519, !noalias !1500
-  %57 = trunc i64 %54 to i8
+  %55 = trunc i64 %54 to i8
+  %56 = lshr i64 %54, 1
+  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1519, !noalias !1500
+  %57 = add i64 %53, -1
+  store i64 %57, ptr %13, align 8, !alias.scope !1519, !noalias !1500
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1510
   store i32 %40, ptr %4, align 4, !noalias !1521
-  %58 = and i8 %57, 1
+  %58 = and i8 %55, 1
   store i8 %58, ptr %16, align 4, !noalias !1521
   %59 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf491770b8b7aa28eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1524
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1510
@@ -8792,8 +8792,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %65 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %47, %61 ]
   %66 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %48, %61 ]
   %67 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %49, %61 ]
-  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %55, %61 ]
-  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %56, %61 ]
+  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %56, %61 ]
+  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %57, %61 ]
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h07cff1c40866d4d0E.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
@@ -8955,8 +8955,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %46, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %47, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %54, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19bdce4bfb54a7d4E.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -9000,14 +9000,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %51 = phi i64 [ %43, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %52 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %53 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %54 = lshr i64 %53, 1
-  store i64 %54, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1570, !noalias !1551
-  %55 = add i64 %52, -1
-  store i64 %55, ptr %13, align 8, !alias.scope !1570, !noalias !1551
-  %56 = trunc i64 %53 to i8
+  %54 = trunc i64 %53 to i8
+  %55 = lshr i64 %53, 1
+  store i64 %55, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1570, !noalias !1551
+  %56 = add i64 %52, -1
+  store i64 %56, ptr %13, align 8, !alias.scope !1570, !noalias !1551
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1561
   store i32 %.val.i.i.i.i.i.i.i.i.i, ptr %4, align 4, !noalias !1572
-  %57 = and i8 %56, 1
+  %57 = and i8 %54, 1
   store i8 %57, ptr %16, align 4, !noalias !1572
   %58 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4378ad54e5efed2aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1575
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1561
@@ -9031,8 +9031,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %64 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %46, %60 ]
   %65 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %47, %60 ]
   %66 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %48, %60 ]
-  %67 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %54, %60 ]
-  %68 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %55, %60 ]
+  %67 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %55, %60 ]
+  %68 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %56, %60 ]
   %69 = phi ptr [ %59, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %39, %60 ]
   %70 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ae560f573eb3cd3E.exit.thread.i" ], [ %61, %60 ]
   %71 = extractvalue { i32, i32 } %70, 0
@@ -9194,8 +9194,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %58, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %51, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %52, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha04cf48d972bae4dE.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -9242,14 +9242,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %53 = phi i64 [ %45, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %54 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %55 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %56 = lshr i64 %55, 1
-  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1621, !noalias !1602
-  %57 = add i64 %54, -1
-  store i64 %57, ptr %13, align 8, !alias.scope !1621, !noalias !1602
-  %58 = trunc i64 %55 to i8
+  %56 = trunc i64 %55 to i8
+  %57 = lshr i64 %55, 1
+  store i64 %57, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1621, !noalias !1602
+  %58 = add i64 %54, -1
+  store i64 %58, ptr %13, align 8, !alias.scope !1621, !noalias !1602
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1612
   store i32 %41, ptr %4, align 4, !noalias !1623
-  %59 = and i8 %58, 1
+  %59 = and i8 %56, 1
   store i8 %59, ptr %16, align 4, !noalias !1623
   %60 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h92f6817646e73038E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1626
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1612
@@ -9273,8 +9273,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %66 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %48, %62 ]
   %67 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %49, %62 ]
   %68 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %50, %62 ]
-  %69 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %56, %62 ]
-  %70 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %57, %62 ]
+  %69 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %57, %62 ]
+  %70 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %58, %62 ]
   %71 = phi ptr [ %61, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %39, %62 ]
   %72 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80b651ddb3d9db4E.exit.thread.i" ], [ %63, %62 ]
   %73 = extractvalue { i32, i32 } %72, 0
@@ -9921,8 +9921,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %47, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %51, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5dc5063e55f5853bE.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -9967,14 +9967,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %52 = phi i64 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %53 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %54 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %55 = lshr i64 %54, 1
-  store i64 %55, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1691, !noalias !1672
-  %56 = add i64 %53, -1
-  store i64 %56, ptr %13, align 8, !alias.scope !1691, !noalias !1672
-  %57 = trunc i64 %54 to i8
+  %55 = trunc i64 %54 to i8
+  %56 = lshr i64 %54, 1
+  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1691, !noalias !1672
+  %57 = add i64 %53, -1
+  store i64 %57, ptr %13, align 8, !alias.scope !1691, !noalias !1672
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1682
   store i32 %40, ptr %4, align 4, !noalias !1693
-  %58 = and i8 %57, 1
+  %58 = and i8 %55, 1
   store i8 %58, ptr %16, align 4, !noalias !1693
   %59 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4eb9f432f65a6b5eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1696
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1682
@@ -9998,8 +9998,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %65 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %47, %61 ]
   %66 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %48, %61 ]
   %67 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %49, %61 ]
-  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %55, %61 ]
-  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %56, %61 ]
+  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %56, %61 ]
+  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %57, %61 ]
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3844a64adb67e2dE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
@@ -10418,8 +10418,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %47, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %51, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804edb40d22cc288E.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -10466,14 +10466,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %52 = phi i64 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %53 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %54 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %55 = lshr i64 %54, 1
-  store i64 %55, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1752, !noalias !1733
-  %56 = add i64 %53, -1
-  store i64 %56, ptr %13, align 8, !alias.scope !1752, !noalias !1733
-  %57 = trunc i64 %54 to i8
+  %55 = trunc i64 %54 to i8
+  %56 = lshr i64 %54, 1
+  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1752, !noalias !1733
+  %57 = add i64 %53, -1
+  store i64 %57, ptr %13, align 8, !alias.scope !1752, !noalias !1733
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1743
   store i32 %40, ptr %4, align 4, !noalias !1754
-  %58 = and i8 %57, 1
+  %58 = and i8 %55, 1
   store i8 %58, ptr %16, align 4, !noalias !1754
   %59 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h80500e3e7f0a9848E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1757
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1743
@@ -10497,8 +10497,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %65 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %47, %61 ]
   %66 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %48, %61 ]
   %67 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %49, %61 ]
-  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %55, %61 ]
-  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %56, %61 ]
+  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %56, %61 ]
+  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %57, %61 ]
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15cd6e2571bafabdE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
@@ -10660,8 +10660,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %47, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %51, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae7e7b2689e9a2afE.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -10706,14 +10706,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %52 = phi i64 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %53 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %54 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %55 = lshr i64 %54, 1
-  store i64 %55, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1803, !noalias !1784
-  %56 = add i64 %53, -1
-  store i64 %56, ptr %13, align 8, !alias.scope !1803, !noalias !1784
-  %57 = trunc i64 %54 to i8
+  %55 = trunc i64 %54 to i8
+  %56 = lshr i64 %54, 1
+  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1803, !noalias !1784
+  %57 = add i64 %53, -1
+  store i64 %57, ptr %13, align 8, !alias.scope !1803, !noalias !1784
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1794
   store i32 %40, ptr %4, align 4, !noalias !1805
-  %58 = and i8 %57, 1
+  %58 = and i8 %55, 1
   store i8 %58, ptr %16, align 4, !noalias !1805
   %59 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h08ab744323af246eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1808
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1794
@@ -10737,8 +10737,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %65 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %47, %61 ]
   %66 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %48, %61 ]
   %67 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %49, %61 ]
-  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %55, %61 ]
-  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %56, %61 ]
+  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %56, %61 ]
+  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %57, %61 ]
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hacd7d607d14e9a0fE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
@@ -11290,8 +11290,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %48, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %49, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %50, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %56, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %57, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %57, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %58, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %51, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %52, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %22, %20 ]
@@ -11338,14 +11338,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %53 = phi i64 [ %45, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %54 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %55 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %56 = lshr i64 %55, 1
-  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1869, !noalias !1850
-  %57 = add i64 %54, -1
-  store i64 %57, ptr %13, align 8, !alias.scope !1869, !noalias !1850
-  %58 = trunc i64 %55 to i8
+  %56 = trunc i64 %55 to i8
+  %57 = lshr i64 %55, 1
+  store i64 %57, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1869, !noalias !1850
+  %58 = add i64 %54, -1
+  store i64 %58, ptr %13, align 8, !alias.scope !1869, !noalias !1850
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1860
   store i32 %41, ptr %4, align 4, !noalias !1871
-  %59 = and i8 %58, 1
+  %59 = and i8 %56, 1
   store i8 %59, ptr %16, align 4, !noalias !1871
   %60 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h123ccbf518522c2cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1874
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1860
@@ -11369,8 +11369,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %66 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %48, %62 ]
   %67 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %49, %62 ]
   %68 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %50, %62 ]
-  %69 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %56, %62 ]
-  %70 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %57, %62 ]
+  %69 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %57, %62 ]
+  %70 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %58, %62 ]
   %71 = phi ptr [ %61, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %39, %62 ]
   %72 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a2d54429043ec3E.exit.thread.i" ], [ %63, %62 ]
   %73 = extractvalue { i32, i32 } %72, 0
@@ -11497,8 +11497,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 .outer:                                           ; preds = %.thread, %.split
   %.sroa.12.0.ph = phi i64 [ %.sroa.12.1, %.thread ], [ %.sroa.5.0.copyload, %.split ]
-  %.sroa.10.0.ph = phi i64 [ %21, %.thread ], [ %.sroa.4.0.copyload, %.split ]
-  %.sroa.8.0.ph = phi i64 [ %20, %.thread ], [ %.sroa.3.0.copyload, %.split ]
+  %.sroa.10.0.ph = phi i64 [ %22, %.thread ], [ %.sroa.4.0.copyload, %.split ]
+  %.sroa.8.0.ph = phi i64 [ %21, %.thread ], [ %.sroa.3.0.copyload, %.split ]
   %.sroa.087.0.ph = phi ptr [ %.sroa.087.1, %.thread ], [ %.sroa.088.0.copyload, %.split ]
   %.sroa.0.093.ph = phi i8 [ %68, %.thread ], [ 0, %.split ]
   %.sroa.019.0.ph = phi i64 [ %70, %.thread ], [ 0, %.split ]
@@ -11508,8 +11508,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
 
 11:                                               ; preds = %.outer, %60
   %.sroa.12.0 = phi i64 [ %.sroa.12.1, %60 ], [ %.sroa.12.0.ph, %.outer ]
-  %.sroa.10.0 = phi i64 [ %21, %60 ], [ %.sroa.10.0.ph, %.outer ]
-  %.sroa.8.0 = phi i64 [ %20, %60 ], [ %.sroa.8.0.ph, %.outer ]
+  %.sroa.10.0 = phi i64 [ %22, %60 ], [ %.sroa.10.0.ph, %.outer ]
+  %.sroa.8.0 = phi i64 [ %21, %60 ], [ %.sroa.8.0.ph, %.outer ]
   %.sroa.087.0 = phi ptr [ %.sroa.087.1, %60 ], [ %.sroa.087.0.ph, %.outer ]
   %.sroa.044.0 = phi i64 [ %43, %60 ], [ %.sroa.044.0.ph, %.outer ]
   %12 = icmp eq i64 %.sroa.10.0, 0
@@ -11533,10 +11533,10 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %.sroa.087.1 = phi ptr [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i" ], [ %.sroa.087.0, %11 ]
   %18 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i" ], [ %.sroa.10.0, %11 ]
   %19 = phi i64 [ %.sroa.02.0.copyload.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i" ], [ %.sroa.8.0, %11 ]
-  %20 = lshr i64 %19, 1
-  %21 = add i64 %18, -1
-  %22 = trunc i64 %19 to i8
-  %23 = and i8 %22, 1
+  %20 = trunc i64 %19 to i8
+  %21 = lshr i64 %19, 1
+  %22 = add i64 %18, -1
+  %23 = and i8 %20, 1
   %24 = icmp eq i8 %23, %.sroa.0.093.ph
   br i1 %24, label %42, label %40
 
@@ -12148,8 +12148,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %47, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %48, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %49, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %55, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %56, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %57, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %50, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %51, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfae8d16c2bd2a061E.exit.i.i.i.i.i" ], [ %22, %20 ]
@@ -12195,14 +12195,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %52 = phi i64 [ %44, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %53 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %54 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %55 = lshr i64 %54, 1
-  store i64 %55, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1952, !noalias !1933
-  %56 = add i64 %53, -1
-  store i64 %56, ptr %13, align 8, !alias.scope !1952, !noalias !1933
-  %57 = trunc i64 %54 to i8
+  %55 = trunc i64 %54 to i8
+  %56 = lshr i64 %54, 1
+  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !1952, !noalias !1933
+  %57 = add i64 %53, -1
+  store i64 %57, ptr %13, align 8, !alias.scope !1952, !noalias !1933
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1943
   store i32 %.val.i.i.i.i.i.i.i.i.i, ptr %4, align 4, !noalias !1954
-  %58 = and i8 %57, 1
+  %58 = and i8 %55, 1
   store i8 %58, ptr %16, align 4, !noalias !1954
   %59 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1f26efe29fc5df59E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !1957
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1943
@@ -12226,8 +12226,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %65 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %47, %61 ]
   %66 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %48, %61 ]
   %67 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %49, %61 ]
-  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %55, %61 ]
-  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %56, %61 ]
+  %68 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %56, %61 ]
+  %69 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %57, %61 ]
   %70 = phi ptr [ %60, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %39, %61 ]
   %71 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcdc18f796a996a4dE.exit.thread.i" ], [ %62, %61 ]
   %72 = extractvalue { i32, i32 } %71, 0
@@ -12544,8 +12544,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %28 = phi i64 [ %48, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %21, %20 ]
   %29 = phi ptr [ %49, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %22, %20 ]
   %30 = phi i64 [ %50, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %23, %20 ]
-  %31 = phi i64 [ %56, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %24, %20 ]
-  %32 = phi i64 [ %57, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %25, %20 ]
+  %31 = phi i64 [ %57, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %24, %20 ]
+  %32 = phi i64 [ %58, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %25, %20 ]
   %33 = phi ptr [ %39, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %26, %20 ]
   %34 = phi i64 [ %51, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %21, %20 ]
   %35 = phi ptr [ %52, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i.i.i.i" ], [ %22, %20 ]
@@ -12592,14 +12592,14 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %53 = phi i64 [ %45, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %36, %38 ]
   %54 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %32, %38 ]
   %55 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbeeebd6161a56970E.exit.i.i.i.i.i.i.i.i" ], [ %31, %38 ]
-  %56 = lshr i64 %55, 1
-  store i64 %56, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !2003, !noalias !1984
-  %57 = add i64 %54, -1
-  store i64 %57, ptr %13, align 8, !alias.scope !2003, !noalias !1984
-  %58 = trunc i64 %55 to i8
+  %56 = trunc i64 %55 to i8
+  %57 = lshr i64 %55, 1
+  store i64 %57, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i, align 8, !alias.scope !2003, !noalias !1984
+  %58 = add i64 %54, -1
+  store i64 %58, ptr %13, align 8, !alias.scope !2003, !noalias !1984
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1994
   store i32 %41, ptr %4, align 4, !noalias !2005
-  %59 = and i8 %58, 1
+  %59 = and i8 %56, 1
   store i8 %59, ptr %16, align 4, !noalias !2005
   %60 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hcfe46889e2c2ec93E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4), !noalias !2008
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1994
@@ -12623,8 +12623,8 @@ define hidden noalias noundef ptr @_ZN14polars_parquet7parquet8encoding10hybrid_
   %66 = phi i64 [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %48, %62 ]
   %67 = phi ptr [ %29, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %49, %62 ]
   %68 = phi i64 [ %30, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %50, %62 ]
-  %69 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %56, %62 ]
-  %70 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %57, %62 ]
+  %69 = phi i64 [ %31, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %57, %62 ]
+  %70 = phi i64 [ %.lcssa, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %58, %62 ]
   %71 = phi ptr [ %61, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %39, %62 ]
   %72 = phi { i32, i32 } [ { i32 0, i32 undef }, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5b4fffbbf46a7d71E.exit.thread.i" ], [ %63, %62 ]
   %73 = extractvalue { i32, i32 } %72, 0

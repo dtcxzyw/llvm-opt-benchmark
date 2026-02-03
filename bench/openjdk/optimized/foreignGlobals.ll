@@ -1153,9 +1153,8 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit
 
 16:                                               ; preds = %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEEC2Ev.exit
   store i32 0, ptr %5, align 8
@@ -1168,14 +1167,14 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEEC2Ev.exit: ; preds = %.lr.ph.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load ptr, ptr %20, align 8
   store i32 0, ptr %17, align 4
-  %.not.i4 = icmp eq ptr %21, null
-  br i1 %.not.i4, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit, label %.loopexit.thread.i
+  %.not.i.not = icmp eq ptr %21, null
+  br i1 %.not.i.not, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit, label %22
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i
+22:                                               ; preds = %.loopexit.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %21) #12
   br label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit
 
-_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit: ; preds = %.loopexit.i, %.loopexit.thread.i, %16, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEEC2Ev.exit
+_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit: ; preds = %.loopexit.i, %22, %16, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEEC2Ev.exit
   ret void
 }
 
@@ -1241,53 +1240,51 @@ _ZN15ArgumentShuffle16ComputeMoveOrderC2ERK13GrowableArrayI9VMStorageES5_S2_.exi
   call void @_ZN15ArgumentShuffle16ComputeMoveOrder7computeEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, 1
-  %.not.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i
 
 29:                                               ; preds = %_ZN15ArgumentShuffle16ComputeMoveOrderC2ERK13GrowableArrayI9VMStorageES5_S2_.exit
   store i32 0, ptr %17, align 8
   %30 = load i32, ptr %20, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i, label %.loopexit.i4
+  br i1 %31, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i, label %.loopexit.i
 
-.loopexit.i4:                                     ; preds = %29
+.loopexit.i:                                      ; preds = %29
   %32 = load ptr, ptr %21, align 8
   store i32 0, ptr %20, align 4
-  %.not.i5 = icmp eq ptr %32, null
-  br i1 %.not.i5, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit.i, label %.loopexit.thread.i6
+  %.not.i.not = icmp eq ptr %32, null
+  br i1 %.not.i.not, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit.i, label %33
 
-.loopexit.thread.i6:                              ; preds = %.loopexit.i4
+33:                                               ; preds = %.loopexit.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #12
   br label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit.i
 
-_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i6, %.loopexit.i4
+_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit.i: ; preds = %33, %.loopexit.i
   store ptr null, ptr %21, align 8
   br label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i
 
 _ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i: ; preds = %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit.i, %29, %_ZN15ArgumentShuffle16ComputeMoveOrderC2ERK13GrowableArrayI9VMStorageES5_S2_.exit
-  %33 = load i64, ptr %16, align 8
-  %34 = and i64 %33, 1
-  %.not.i1.i = icmp eq i64 %34, 0
-  br i1 %.not.i1.i, label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit, label %35
+  %34 = load i64, ptr %16, align 8
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %36, label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit
 
-35:                                               ; preds = %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i
+36:                                               ; preds = %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i
   store i32 0, ptr %8, align 8
-  %36 = load i32, ptr %11, align 4
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit, label %.loopexit.i
+  %37 = load i32, ptr %11, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit, label %.loopexit.i.i.i.i
 
-.loopexit.i:                                      ; preds = %35
-  %38 = load ptr, ptr %12, align 8
+.loopexit.i.i.i.i:                                ; preds = %36
+  %39 = load ptr, ptr %12, align 8
   store i32 0, ptr %11, align 4
-  %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit, label %.loopexit.thread.i
+  %.not.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i, label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit, label %.loopexit.thread.i.i.i.i
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %38) #12
+.loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %39) #12
   br label %_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit
 
-_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit:  ; preds = %.loopexit.i, %.loopexit.thread.i, %35, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i
+_ZN15ArgumentShuffle16ComputeMoveOrderD2Ev.exit:  ; preds = %.loopexit.i.i.i.i, %.loopexit.thread.i.i.i.i, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEED2Ev.exit.i, %36
   ret void
 }
 
@@ -1699,9 +1696,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -1735,8 +1731,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3163,12 +3159,12 @@ define linkonce_odr hidden void @_ZN15ArgumentShuffle16ComputeMoveOrder19compute
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
   br label %10
 
-.preheader32:                                     ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj32E9VMStoragePN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEES1_S5_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS3_4hashERKS1_EEXadL_ZNS3_6equalsESB_SB_EEE3putESB_RKS5_.exit
+.preheader33:                                     ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj32E9VMStoragePN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEES1_S5_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS3_4hashERKS1_EEXadL_ZNS3_6equalsESB_SB_EEE3putESB_RKS5_.exit
   store i32 %46, ptr %7, align 8
   %8 = icmp sgt i32 %47, 0
-  br i1 %8, label %.lr.ph43, label %._crit_edge
+  br i1 %8, label %.lr.ph44, label %._crit_edge
 
-.lr.ph43:                                         ; preds = %.preheader32
+.lr.ph44:                                         ; preds = %.preheader33
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %57
 
@@ -3243,13 +3239,13 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj32E9VMStoragePN15Ar
   %47 = load i32, ptr %3, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %10, label %.preheader32, !llvm.loop !25
+  br i1 %49, label %10, label %.preheader33, !llvm.loop !25
 
-.preheader31:                                     ; preds = %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit
+.preheader32:                                     ; preds = %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit
   %50 = icmp sgt i32 %90, 0
-  br i1 %50, label %.lr.ph49, label %._crit_edge
+  br i1 %50, label %.lr.ph50, label %._crit_edge
 
-.lr.ph49:                                         ; preds = %.preheader31
+.lr.ph50:                                         ; preds = %.preheader32
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3258,11 +3254,11 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj32E9VMStoragePN15Ar
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %93
 
-57:                                               ; preds = %.lr.ph43, %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit
-  %58 = phi i32 [ %47, %.lr.ph43 ], [ %90, %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit ]
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next56, %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit ]
+57:                                               ; preds = %.lr.ph44, %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit
+  %58 = phi i32 [ %47, %.lr.ph44 ], [ %90, %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit ]
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next57, %_ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit ]
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv55
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv56
   %61 = load ptr, ptr %60, align 8
   %62 = load i8, ptr %61, align 4
   %63 = sext i8 %62 to i32
@@ -3310,15 +3306,15 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj32E9VMStoragePN15Ar
 
 _ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI9VMStoragePS1_Lj32ELN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZNS0_4hashERKS3_EEXadL_ZNS0_6equalsES9_S9_EEE.exit: ; preds = %82, %57, %85
   %90 = phi i32 [ %.pre, %85 ], [ %58, %57 ], [ %58, %82 ]
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next56, %91
-  br i1 %92, label %57, label %.preheader31, !llvm.loop !26
+  %92 = icmp slt i64 %indvars.iv.next57, %91
+  br i1 %92, label %57, label %.preheader32, !llvm.loop !26
 
-93:                                               ; preds = %.lr.ph49, %.loopexit
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next59, %.loopexit ]
+93:                                               ; preds = %.lr.ph50, %.loopexit
+  %indvars.iv59 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next60, %.loopexit ]
   %94 = load ptr, ptr %51, align 8
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv58
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv59
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i8, ptr %97, align 8
@@ -3335,7 +3331,7 @@ _ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI
   br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !27
 
 .critedge:                                        ; preds = %.preheader
-  br i1 %.not25, label %102, label %.lr.ph47.preheader
+  br i1 %.not25, label %102, label %.lr.ph48.preheader
 
 102:                                              ; preds = %.critedge
   %103 = getelementptr inbounds nuw i8, ptr %.022, i64 32
@@ -3357,26 +3353,26 @@ _ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr %109, ptr %111, align 8
   store i64 %.sroa.0.0.copyload, ptr %105, align 8
-  br label %.lr.ph47.preheader
+  br label %.lr.ph48.preheader
 
-.lr.ph47.preheader:                               ; preds = %.critedge, %102
-  br label %.lr.ph47
+.lr.ph48.preheader:                               ; preds = %.critedge, %102
+  br label %.lr.ph48
 
-.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %.146 = phi ptr [ %167, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.022, %.lr.ph47.preheader ]
-  %.sroa.0.0.copyload.i27 = load i64, ptr %.146, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %.146, i64 8
+.lr.ph48:                                         ; preds = %.lr.ph48.preheader, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit
+  %.147 = phi ptr [ %166, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.022, %.lr.ph48.preheader ]
+  %.sroa.0.0.copyload.i27 = load i64, ptr %.147, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %.147, i64 8
   %.sroa.2.8.copyload.i = load i64, ptr %112, align 8
   %113 = load i32, ptr %53, align 8
   %114 = load i32, ptr %54, align 4
   %115 = icmp eq i32 %113, %114
-  br i1 %115, label %116, label %.lr.ph47._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge
+  br i1 %115, label %116, label %.lr.ph48._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge
 
-.lr.ph47._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge: ; preds = %.lr.ph47
-  %.pre61 = load ptr, ptr %56, align 8
+.lr.ph48._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge: ; preds = %.lr.ph48
+  %.pre62 = load ptr, ptr %56, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit
 
-116:                                              ; preds = %.lr.ph47
+116:                                              ; preds = %.lr.ph48
   %117 = add nsw i32 %113, 1
   %118 = icmp sgt i32 %113, -1
   %119 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %117)
@@ -3396,9 +3392,8 @@ _ZN15ArgumentShuffle16ComputeMoveOrder13MoveOperation4linkER17ResourceHashtableI
   br label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i
 
 128:                                              ; preds = %116
-  %129 = and i64 %124, 1
-  %.not.i.i28 = icmp eq i64 %129, 0
-  br i1 %.not.i.i28, label %134, label %130
+  %129 = trunc i64 %124 to i1
+  br i1 %129, label %130, label %134
 
 130:                                              ; preds = %128
   %131 = lshr i64 %124, 1
@@ -3415,21 +3410,21 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i: ; preds = %134, 
   %.0.i.i = phi ptr [ %127, %126 ], [ %133, %130 ], [ %136, %134 ]
   %137 = load i32, ptr %53, align 8
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph.i, label %.preheader16.i
+  br i1 %138, label %.lr.ph.i, label %.preheader15.i
 
-.preheader16.loopexit.i:                          ; preds = %.lr.ph.i
+.preheader15.loopexit.i:                          ; preds = %.lr.ph.i
   %139 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  br label %.preheader16.i
+  br label %.preheader15.i
 
-.preheader16.i:                                   ; preds = %.preheader16.loopexit.i, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i ], [ %139, %.preheader16.loopexit.i ]
+.preheader15.i:                                   ; preds = %.preheader15.loopexit.i, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i ], [ %139, %.preheader15.loopexit.i ]
   %140 = load i32, ptr %54, align 4
   %141 = icmp slt i32 %.0.lcssa.i, %140
-  br i1 %141, label %.lr.ph19.preheader.i, label %.preheader.i
+  br i1 %141, label %.lr.ph18.preheader.i, label %.preheader.i
 
-.lr.ph19.preheader.i:                             ; preds = %.preheader16.i
+.lr.ph18.preheader.i:                             ; preds = %.preheader15.i
   %142 = zext nneg i32 %.0.lcssa.i to i64
-  br label %.lr.ph19.i
+  br label %.lr.ph18.i
 
 .lr.ph.i:                                         ; preds = %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i ]
@@ -3441,68 +3436,65 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit.i: ; preds = %134, 
   %146 = load i32, ptr %53, align 8
   %147 = sext i32 %146 to i64
   %148 = icmp slt i64 %indvars.iv.next.i, %147
-  br i1 %148, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !28
+  br i1 %148, label %.lr.ph.i, label %.preheader15.loopexit.i, !llvm.loop !28
 
-.preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
+.preheader.i:                                     ; preds = %.lr.ph18.i, %.preheader15.i
   %149 = load ptr, ptr %56, align 8
-  %.not.i = icmp eq ptr %149, null
-  br i1 %.not.i, label %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit, label %156
+  %.not.i = icmp ne ptr %149, null
+  %150 = load i64, ptr %55, align 8
+  %151 = trunc i64 %150 to i1
+  %or.cond31 = select i1 %.not.i, i1 %151, i1 false
+  br i1 %or.cond31, label %158, label %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit
 
-.lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
-  %indvars.iv21.i = phi i64 [ %142, %.lr.ph19.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph19.i ]
-  %150 = getelementptr inbounds nuw %"struct.ArgumentShuffle::Move", ptr %.0.i.i, i64 %indvars.iv21.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %150, i8 0, i64 12, i1 false)
-  store i8 -1, ptr %150, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store i8 -1, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 12
-  store i32 0, ptr %152, align 4
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
-  %153 = load i32, ptr %54, align 4
-  %154 = trunc nuw i64 %indvars.iv.next22.i to i32
-  %155 = icmp sgt i32 %153, %154
-  br i1 %155, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !29
+.lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
+  %indvars.iv20.i = phi i64 [ %142, %.lr.ph18.preheader.i ], [ %indvars.iv.next21.i, %.lr.ph18.i ]
+  %152 = getelementptr inbounds nuw %"struct.ArgumentShuffle::Move", ptr %.0.i.i, i64 %indvars.iv20.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %152, i8 0, i64 12, i1 false)
+  store i8 -1, ptr %152, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  store i8 -1, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 12
+  store i32 0, ptr %154, align 4
+  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
+  %155 = load i32, ptr %54, align 4
+  %156 = trunc nuw i64 %indvars.iv.next21.i to i32
+  %157 = icmp sgt i32 %155, %156
+  br i1 %157, label %.lr.ph18.i, label %.preheader.i, !llvm.loop !29
 
-156:                                              ; preds = %.preheader.i
-  %157 = load i64, ptr %55, align 8
-  %158 = and i64 %157, 1
-  %.not.i15.i = icmp eq i64 %158, 0
-  br i1 %.not.i15.i, label %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit, label %159
-
-159:                                              ; preds = %156
+158:                                              ; preds = %.preheader.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %149) #12
   br label %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit
 
-_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit: ; preds = %.preheader.i, %156, %159
+_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit: ; preds = %.preheader.i, %158
   store ptr %.0.i.i, ptr %56, align 8
   %.pre.i.i = load i32, ptr %53, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph47._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit
-  %160 = phi ptr [ %.0.i.i, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit ], [ %.pre61, %.lr.ph47._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ]
-  %161 = phi i32 [ %.pre.i.i, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit ], [ %113, %.lr.ph47._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ]
-  %162 = add nsw i32 %161, 1
-  store i32 %162, ptr %53, align 8
-  %163 = sext i32 %161 to i64
-  %164 = getelementptr inbounds %"struct.ArgumentShuffle::Move", ptr %160, i64 %163
-  store i64 %.sroa.0.0.copyload.i27, ptr %164, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 8
+_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph48._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit
+  %159 = phi ptr [ %.0.i.i, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit ], [ %.pre62, %.lr.ph48._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ]
+  %160 = phi i32 [ %.pre.i.i, %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE9expand_toEi.exit ], [ %113, %.lr.ph48._ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ]
+  %161 = add nsw i32 %160, 1
+  store i32 %161, ptr %53, align 8
+  %162 = sext i32 %160 to i64
+  %163 = getelementptr inbounds %"struct.ArgumentShuffle::Move", ptr %159, i64 %162
+  store i64 %.sroa.0.0.copyload.i27, ptr %163, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 %.sroa.2.8.copyload.i, ptr %.sroa.2.0..sroa_idx, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %.146, i64 16
-  store i8 1, ptr %165, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %.146, i64 24
-  %167 = load ptr, ptr %166, align 8
-  %.not26 = icmp eq ptr %167, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph47, !llvm.loop !30
+  %164 = getelementptr inbounds nuw i8, ptr %.147, i64 16
+  store i8 1, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %.147, i64 24
+  %166 = load ptr, ptr %165, align 8
+  %.not26 = icmp eq ptr %166, null
+  br i1 %.not26, label %.loopexit, label %.lr.ph48, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIN15ArgumentShuffle4MoveE13GrowableArrayIS1_EE4pushERKS1_.exit, %93
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %168 = load i32, ptr %3, align 8
-  %169 = sext i32 %168 to i64
-  %170 = icmp slt i64 %indvars.iv.next59, %169
-  br i1 %170, label %93, label %._crit_edge, !llvm.loop !31
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %167 = load i32, ptr %3, align 8
+  %168 = sext i32 %167 to i64
+  %169 = icmp slt i64 %indvars.iv.next60, %168
+  br i1 %169, label %93, label %._crit_edge, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %.loopexit, %1, %.preheader32, %.preheader31
+._crit_edge:                                      ; preds = %.loopexit, %1, %.preheader33, %.preheader32
   ret void
 }
 
@@ -3520,9 +3512,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN15ArgumentShuf
   br label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -3539,25 +3530,25 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit: ; preds = %7, %11,
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -3569,17 +3560,17 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit: ; preds = %7, %11,
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !28
+  br i1 %31, label %25, label %.preheader15.loopexit, !llvm.loop !28
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit, label %41
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %34 = getelementptr inbounds nuw %"struct.ArgumentShuffle::Move", ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %34 = getelementptr inbounds nuw %"struct.ArgumentShuffle::Move", ptr %.0.i, i64 %indvars.iv20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, i8 0, i64 12, i1 false)
   store i8 -1, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -3588,17 +3579,16 @@ _ZN13GrowableArrayIN15ArgumentShuffle4MoveEE8allocateEv.exit: ; preds = %7, %11,
   store i8 -1, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 0, ptr %37, align 4
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %38 = load i32, ptr %3, align 4
-  %39 = trunc nuw i64 %indvars.iv.next22 to i32
+  %39 = trunc nuw i64 %indvars.iv.next21 to i32
   %40 = icmp sgt i32 %38, %39
-  br i1 %40, label %.lr.ph19, label %.preheader, !llvm.loop !29
+  br i1 %40, label %.lr.ph18, label %.preheader, !llvm.loop !29
 
 41:                                               ; preds = %.preheader
   %42 = load i64, ptr %4, align 8
-  %43 = and i64 %42, 1
-  %.not.i15 = icmp eq i64 %43, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit, label %44
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %44, label %_ZN13GrowableArrayIN15ArgumentShuffle4MoveEE10deallocateEPS1_.exit
 
 44:                                               ; preds = %41
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %33) #12
@@ -3632,9 +3622,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN15ArgumentShu
   br label %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -3651,25 +3640,25 @@ _ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8alloca
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -3682,29 +3671,28 @@ _ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE8alloca
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !32
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !32
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE10deallocateEPS3_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !33
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !33
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE10deallocateEPS3_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIPN15ArgumentShuffle16ComputeMoveOrder13MoveOperationEE10deallocateEPS3_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12
@@ -3731,9 +3719,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9VMStorage13Gro
   br label %_ZN13GrowableArrayI9VMStorageE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -3750,25 +3737,25 @@ _ZN13GrowableArrayI9VMStorageE8allocateEv.exit:   ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayI9VMStorageE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayI9VMStorageE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayI9VMStorageE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -3781,33 +3768,32 @@ _ZN13GrowableArrayI9VMStorageE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !34
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit, label %41
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw %class.VMStorage, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw %class.VMStorage, ptr %.0.i, i64 %indvars.iv20
   store i8 -1, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   store i16 0, ptr %36, align 2
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 0, ptr %37, align 4
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %38 = load i32, ptr %3, align 4
-  %39 = trunc nuw i64 %indvars.iv.next22 to i32
+  %39 = trunc nuw i64 %indvars.iv.next21 to i32
   %40 = icmp sgt i32 %38, %39
-  br i1 %40, label %.lr.ph19, label %.preheader, !llvm.loop !35
+  br i1 %40, label %.lr.ph18, label %.preheader, !llvm.loop !35
 
 41:                                               ; preds = %.preheader
   %42 = load i64, ptr %4, align 8
-  %43 = and i64 %42, 1
-  %.not.i15 = icmp eq i64 %43, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit, label %44
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %44, label %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit
 
 44:                                               ; preds = %41
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12

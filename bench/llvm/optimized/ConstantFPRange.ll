@@ -4037,95 +4037,94 @@ _ZN4llvm7APFloatC2EOS0_.exit7:                    ; preds = %78, %79
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %83 = load i8, ptr %82, align 8
   %84 = and i8 %83, %81
-  %85 = and i8 %84, 1
-  %86 = icmp ne i8 %85, 0
-  %87 = and i8 %84, 2
-  %88 = icmp ne i8 %87, 0
-  call void @_ZN4llvm15ConstantFPRangeC1ENS_7APFloatES1_bb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext %86, i1 noundef zeroext %88) #12
-  %89 = load ptr, ptr %9, align 8, !tbaa !3
-  %.not.i.i8 = icmp eq ptr %89, %13
-  br i1 %.not.i.i8, label %91, label %90
+  %85 = trunc i8 %84 to i1
+  %86 = and i8 %84, 2
+  %87 = icmp ne i8 %86, 0
+  call void @_ZN4llvm15ConstantFPRangeC1ENS_7APFloatES1_bb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext %85, i1 noundef zeroext %87) #12
+  %88 = load ptr, ptr %9, align 8, !tbaa !3
+  %.not.i.i8 = icmp eq ptr %88, %13
+  br i1 %.not.i.i8, label %90, label %89
 
-90:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit7
+89:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit7
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-91:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit7
-  %92 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !9
-  %.not.i.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %94
+90:                                               ; preds = %_ZN4llvm7APFloatC2EOS0_.exit7
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !9
+  %.not.i.i.i.i = icmp eq ptr %92, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %93
 
-94:                                               ; preds = %91
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %92, ptr noundef nonnull %93)
+93:                                               ; preds = %90
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull %92)
   br label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i
 
-_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i:      ; preds = %94, %91
-  store ptr null, ptr %92, align 8, !tbaa !9
+_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i:      ; preds = %93, %90
+  store ptr null, ptr %91, align 8, !tbaa !9
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %90, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i
-  %95 = load ptr, ptr %8, align 8, !tbaa !3
-  %.not.i.i9 = icmp eq ptr %95, %13
-  br i1 %.not.i.i9, label %97, label %96
+_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %89, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i
+  %94 = load ptr, ptr %8, align 8, !tbaa !3
+  %.not.i.i9 = icmp eq ptr %94, %13
+  br i1 %.not.i.i9, label %96, label %95
 
-96:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
+95:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #12
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
-97:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !9
-  %.not.i.i.i.i10 = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i10, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11, label %100
+96:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %98 = load ptr, ptr %97, align 8, !tbaa !9
+  %.not.i.i.i.i10 = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i10, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11, label %99
 
-100:                                              ; preds = %97
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %98, ptr noundef nonnull %99)
+99:                                               ; preds = %96
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %97, ptr noundef nonnull %98)
   br label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11
 
-_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11:    ; preds = %100, %97
-  store ptr null, ptr %98, align 8, !tbaa !9
+_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11:    ; preds = %99, %96
+  store ptr null, ptr %97, align 8, !tbaa !9
   br label %_ZN4llvm7APFloatD2Ev.exit12
 
-_ZN4llvm7APFloatD2Ev.exit12:                      ; preds = %96, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11
-  %101 = load ptr, ptr %7, align 8, !tbaa !3
-  %.not.i.i13 = icmp eq ptr %101, %13
-  br i1 %.not.i.i13, label %103, label %102
+_ZN4llvm7APFloatD2Ev.exit12:                      ; preds = %95, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i11
+  %100 = load ptr, ptr %7, align 8, !tbaa !3
+  %.not.i.i13 = icmp eq ptr %100, %13
+  br i1 %.not.i.i13, label %102, label %101
 
-102:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit12
+101:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit12
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #12
   br label %_ZN4llvm7APFloatD2Ev.exit16
 
-103:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit12
-  %104 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %105 = load ptr, ptr %104, align 8, !tbaa !9
-  %.not.i.i.i.i14 = icmp eq ptr %105, null
-  br i1 %.not.i.i.i.i14, label %_ZN4llvm7APFloatD2Ev.exit16, label %106
+102:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit12
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !9
+  %.not.i.i.i.i14 = icmp eq ptr %104, null
+  br i1 %.not.i.i.i.i14, label %_ZN4llvm7APFloatD2Ev.exit16, label %105
 
-106:                                              ; preds = %103
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %104, ptr noundef nonnull %105)
+105:                                              ; preds = %102
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %103, ptr noundef nonnull %104)
   br label %_ZN4llvm7APFloatD2Ev.exit16
 
-_ZN4llvm7APFloatD2Ev.exit16:                      ; preds = %103, %106, %102
+_ZN4llvm7APFloatD2Ev.exit16:                      ; preds = %102, %105, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %107 = load ptr, ptr %6, align 8, !tbaa !3
-  %.not.i.i17 = icmp eq ptr %107, %13
-  br i1 %.not.i.i17, label %109, label %108
+  %106 = load ptr, ptr %6, align 8, !tbaa !3
+  %.not.i.i17 = icmp eq ptr %106, %13
+  br i1 %.not.i.i17, label %108, label %107
 
-108:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit16
+107:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit16
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #12
   br label %_ZN4llvm7APFloatD2Ev.exit20
 
-109:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit16
-  %110 = load ptr, ptr %14, align 8, !tbaa !9
-  %.not.i.i.i.i18 = icmp eq ptr %110, null
-  br i1 %.not.i.i.i.i18, label %_ZN4llvm7APFloatD2Ev.exit20, label %111
+108:                                              ; preds = %_ZN4llvm7APFloatD2Ev.exit16
+  %109 = load ptr, ptr %14, align 8, !tbaa !9
+  %.not.i.i.i.i18 = icmp eq ptr %109, null
+  br i1 %.not.i.i.i.i18, label %_ZN4llvm7APFloatD2Ev.exit20, label %110
 
-111:                                              ; preds = %109
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %110)
+110:                                              ; preds = %108
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull %109)
   br label %_ZN4llvm7APFloatD2Ev.exit20
 
-_ZN4llvm7APFloatD2Ev.exit20:                      ; preds = %109, %111, %108
+_ZN4llvm7APFloatD2Ev.exit20:                      ; preds = %108, %110, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -4357,54 +4356,53 @@ define dso_local void @_ZNK4llvm15ConstantFPRange9unionWithERKS0_(ptr dead_on_un
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i8, ptr %10, align 8
   %12 = or i8 %11, %9
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  %15 = and i8 %12, 2
-  %16 = icmp ne i8 %15, 0
-  call void @_ZN4llvm15ConstantFPRangeC1ENS_7APFloatES1_bb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %14, i1 noundef zeroext %16) #12
-  %17 = load ptr, ptr %5, align 8, !tbaa !3
-  %18 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #11
-  %.not.i.i = icmp eq ptr %17, %18
-  br i1 %.not.i.i, label %20, label %19
+  %13 = trunc i8 %12 to i1
+  %14 = and i8 %12, 2
+  %15 = icmp ne i8 %14, 0
+  call void @_ZN4llvm15ConstantFPRangeC1ENS_7APFloatES1_bb(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext %13, i1 noundef zeroext %15) #12
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #11
+  %.not.i.i = icmp eq ptr %16, %17
+  br i1 %.not.i.i, label %19, label %18
 
-19:                                               ; preds = %3
+18:                                               ; preds = %3
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #12
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !9
-  %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %23
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !9
+  %.not.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i, label %22
 
-23:                                               ; preds = %20
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull %22)
+22:                                               ; preds = %19
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %21)
   br label %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i
 
-_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i:      ; preds = %23, %20
-  store ptr null, ptr %21, align 8, !tbaa !9
+_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i:      ; preds = %22, %19
+  store ptr null, ptr %20, align 8, !tbaa !9
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %19, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i
-  %24 = load ptr, ptr %4, align 8, !tbaa !3
-  %.not.i.i7 = icmp eq ptr %24, %18
-  br i1 %.not.i.i7, label %26, label %25
+_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %18, %_ZN4llvm6detail13DoubleAPFloatD2Ev.exit.i.i
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %.not.i.i7 = icmp eq ptr %23, %17
+  br i1 %.not.i.i7, label %25, label %24
 
-25:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
+24:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   br label %_ZN4llvm7APFloatD2Ev.exit10
 
-26:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !9
-  %.not.i.i.i.i8 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i8, label %_ZN4llvm7APFloatD2Ev.exit10, label %29
+25:                                               ; preds = %_ZN4llvm7APFloatD2Ev.exit
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !9
+  %.not.i.i.i.i8 = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i8, label %_ZN4llvm7APFloatD2Ev.exit10, label %28
 
-29:                                               ; preds = %26
-  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull %28)
+28:                                               ; preds = %25
+  call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull %27)
   br label %_ZN4llvm7APFloatD2Ev.exit10
 
-_ZN4llvm7APFloatD2Ev.exit10:                      ; preds = %26, %29, %25
+_ZN4llvm7APFloatD2Ev.exit10:                      ; preds = %25, %28, %24
   ret void
 }
 

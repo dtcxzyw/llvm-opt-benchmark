@@ -306,24 +306,24 @@ define internal i32 @v4l2_read_header(ptr noundef %0) #0 {
   %97 = add i32 %96, 1
   store i32 %97, ptr %6, align 4, !tbaa !44
   %98 = load i32, ptr %79, align 4, !tbaa !45
-  %99 = and i32 %98, 1
-  %.not17.i = icmp ne i32 %99, 0
+  %.not17.i = trunc i32 %98 to i1
   %or.cond.i = or i1 %.not18.i, %.not17.i
-  br i1 %or.cond.i, label %103, label %100
+  br i1 %or.cond.i, label %102, label %99
 
-100:                                              ; preds = %91
-  %101 = call ptr @av_get_pix_fmt_name(i32 noundef %95) #11
-  %.not19.i = icmp eq ptr %101, null
-  %102 = select i1 %.not19.i, ptr @.str.56, ptr %101
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.55, ptr noundef nonnull %102, ptr noundef nonnull %81) #11
+99:                                               ; preds = %91
+  %100 = call ptr @av_get_pix_fmt_name(i32 noundef %95) #11
+  %.not19.i = icmp eq ptr %100, null
+  %101 = select i1 %.not19.i, ptr @.str.56, ptr %100
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.55, ptr noundef nonnull %101, ptr noundef nonnull %81) #11
   br label %111
 
-103:                                              ; preds = %91
-  %.not20.i = icmp eq i32 %99, 0
+102:                                              ; preds = %91
+  %103 = and i32 %98, 1
+  %.not20.i = icmp eq i32 %103, 0
   %or.cond24.i = or i1 %.not21.i, %.not20.i
   br i1 %or.cond24.i, label %140, label %104, !llvm.loop !46
 
-104:                                              ; preds = %103
+104:                                              ; preds = %102
   %105 = call ptr @avcodec_descriptor_get(i32 noundef %93) #11
   %.not22.i = icmp eq ptr %105, null
   br i1 %.not22.i, label %109, label %106
@@ -338,7 +338,7 @@ define internal i32 @v4l2_read_header(ptr noundef %0) #0 {
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.57, ptr noundef %110, ptr noundef nonnull %81) #11
   br label %111
 
-111:                                              ; preds = %109, %100
+111:                                              ; preds = %109, %99
   %112 = load i32, ptr %79, align 4, !tbaa !45
   %113 = and i32 %112, 2
   %.not23.i = icmp eq i32 %113, 0
@@ -401,7 +401,7 @@ list_framesizes.exit.i:                           ; preds = %134, %115
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.59) #11
   br label %140
 
-140:                                              ; preds = %list_framesizes.exit.i, %103
+140:                                              ; preds = %list_framesizes.exit.i, %102
   %141 = load ptr, ptr %73, align 8, !tbaa !34
   %142 = load i32, ptr %74, align 8, !tbaa !28
   %143 = call i32 (i32, i64, ...) %141(i32 noundef %142, i64 noundef 3225441794, ptr noundef nonnull %6) #11

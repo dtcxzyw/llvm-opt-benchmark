@@ -987,85 +987,81 @@ define hidden ptr @rb_insn_name(i64 noundef %0) local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @rb_vm_ci_argc(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i.not.i, label %8, label %4
+  %.not.i.i = trunc i64 %2 to i1
+  br i1 %.not.i.i, label %3, label %7
 
-4:                                                ; preds = %1
-  %5 = trunc i64 %2 to i32
-  %6 = lshr i32 %5, 1
-  %7 = and i32 %6, 32767
+3:                                                ; preds = %1
+  %4 = trunc i64 %2 to i32
+  %5 = lshr i32 %4, 1
+  %6 = and i32 %5, 32767
   br label %vm_ci_argc.exit
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i64, ptr %9, align 8, !tbaa !124
-  %11 = trunc i64 %10 to i32
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = load i64, ptr %8, align 8, !tbaa !124
+  %10 = trunc i64 %9 to i32
   br label %vm_ci_argc.exit
 
-vm_ci_argc.exit:                                  ; preds = %4, %8
-  %.0.i = phi i32 [ %7, %4 ], [ %11, %8 ]
+vm_ci_argc.exit:                                  ; preds = %3, %7
+  %.0.i = phi i32 [ %6, %3 ], [ %10, %7 ]
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i64 @rb_vm_ci_mid(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i.not.i, label %6, label %4
+  %.not.i.i = trunc i64 %2 to i1
+  br i1 %.not.i.i, label %3, label %5
 
-4:                                                ; preds = %1
-  %5 = lshr i64 %2, 32
+3:                                                ; preds = %1
+  %4 = lshr i64 %2, 32
   br label %vm_ci_mid.exit
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !127
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !127
   br label %vm_ci_mid.exit
 
-vm_ci_mid.exit:                                   ; preds = %4, %6
-  %.0.i = phi i64 [ %5, %4 ], [ %8, %6 ]
+vm_ci_mid.exit:                                   ; preds = %3, %5
+  %.0.i = phi i64 [ %4, %3 ], [ %7, %5 ]
   ret i64 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @rb_vm_ci_flag(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i.not.i, label %7, label %4
+  %.not.i.i = trunc i64 %2 to i1
+  br i1 %.not.i.i, label %3, label %6
 
-4:                                                ; preds = %1
-  %5 = trunc i64 %2 to i32
-  %6 = lshr i32 %5, 16
+3:                                                ; preds = %1
+  %4 = trunc i64 %2 to i32
+  %5 = lshr i32 %4, 16
   br label %vm_ci_flag.exit
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !128
-  %10 = trunc i64 %9 to i32
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i64, ptr %7, align 8, !tbaa !128
+  %9 = trunc i64 %8 to i32
   br label %vm_ci_flag.exit
 
-vm_ci_flag.exit:                                  ; preds = %4, %7
-  %.0.i = phi i32 [ %6, %4 ], [ %10, %7 ]
+vm_ci_flag.exit:                                  ; preds = %3, %6
+  %.0.i = phi i32 [ %5, %3 ], [ %9, %6 ]
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden ptr @rb_vm_ci_kwarg(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i.not.i, label %4, label %vm_ci_kwarg.exit
+  %.not.i.i = trunc i64 %2 to i1
+  br i1 %.not.i.i, label %vm_ci_kwarg.exit, label %3
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !129
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !129
   br label %vm_ci_kwarg.exit
 
-vm_ci_kwarg.exit:                                 ; preds = %1, %4
-  %.0.i = phi ptr [ %6, %4 ], [ null, %1 ]
+vm_ci_kwarg.exit:                                 ; preds = %1, %3
+  %.0.i = phi ptr [ %5, %3 ], [ null, %1 ]
   ret ptr %.0.i
 }
 
@@ -1250,9 +1246,8 @@ define hidden zeroext i1 @rb_get_iseq_flags_has_lead(ptr noundef readonly captur
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i16, ptr %4, align 8
-  %6 = and i16 %5, 1
-  %7 = icmp ne i16 %6, 0
-  ret i1 %7
+  %6 = trunc i16 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -1617,9 +1612,8 @@ define hidden i64 @rb_yarv_class_of(i64 noundef %0) local_unnamed_addr #4 {
   br label %rb_class_of.exit
 
 12:                                               ; preds = %9
-  %13 = and i64 %0, 1
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %14, label %rb_class_of.exit
+  %13 = trunc i64 %0 to i1
+  br i1 %13, label %rb_class_of.exit, label %14
 
 14:                                               ; preds = %12
   %15 = and i64 %0, 254
@@ -2246,9 +2240,8 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
   br i1 %or.cond, label %switch.lookup, label %15
 
 15:                                               ; preds = %12
-  %16 = and i64 %0, 1
-  %.not.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %17, label %rbimpl_RB_TYPE_P_fastpath.exit
+  %16 = trunc i64 %0 to i1
+  br i1 %16, label %rbimpl_RB_TYPE_P_fastpath.exit, label %17
 
 17:                                               ; preds = %15
   %18 = and i64 %0, 254
@@ -2270,9 +2263,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %7, %15, %17, %switc
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_RSTRUCT_LEN(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @rb_struct_size(i64 noundef %0) #5
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %6, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = ashr i64 %2, 1
@@ -2599,69 +2591,67 @@ define hidden void @rb_yjit_assert_holding_vm_lock() local_unnamed_addr #8 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden range(i64 -2147483646, 2147483650) i64 @rb_yjit_sendish_sp_pops(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.not.i.i, label %9, label %4
+  %.not.i.i.i = trunc i64 %2 to i1
+  br i1 %.not.i.i.i, label %3, label %8
 
-4:                                                ; preds = %1
-  %5 = and i64 %2, 537001984
-  %6 = trunc i64 %2 to i32
-  %7 = lshr i32 %6, 1
-  %8 = and i32 %7, 32767
+3:                                                ; preds = %1
+  %4 = and i64 %2, 537001984
+  %5 = trunc i64 %2 to i32
+  %6 = lshr i32 %5, 1
+  %7 = and i32 %6, 32767
   br label %sp_inc_of_sendish.exit
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !128
-  %12 = and i64 %11, 8194
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !124
-  %15 = trunc i64 %14 to i32
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8, !tbaa !128
+  %11 = and i64 %10, 8194
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load i64, ptr %12, align 8, !tbaa !124
+  %14 = trunc i64 %13 to i32
   br label %sp_inc_of_sendish.exit
 
-sp_inc_of_sendish.exit:                           ; preds = %4, %9
-  %.neg8.in.in.i = phi i64 [ %5, %4 ], [ %12, %9 ]
-  %.0.i4.i = phi i32 [ %8, %4 ], [ %15, %9 ]
+sp_inc_of_sendish.exit:                           ; preds = %3, %8
+  %.neg8.in.in.i = phi i64 [ %4, %3 ], [ %11, %8 ]
+  %.0.i4.i = phi i32 [ %7, %3 ], [ %14, %8 ]
   %.neg8.in.i = icmp ne i64 %.neg8.in.in.i, 0
   %.neg8.i = sext i1 %.neg8.in.i to i32
-  %16 = sub i32 %.neg8.i, %.0.i4.i
-  %17 = sext i32 %16 to i64
-  %18 = sub nsw i64 1, %17
-  ret i64 %18
+  %15 = sub i32 %.neg8.i, %.0.i4.i
+  %16 = sext i32 %15 to i64
+  %17 = sub nsw i64 1, %16
+  ret i64 %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden range(i64 -2147483647, 2147483649) i64 @rb_yjit_invokeblock_sp_pops(ptr noundef %0) local_unnamed_addr #9 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.not.i.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.not.i.i.i, label %9, label %4
+  %.not.i.i.i.i = trunc i64 %2 to i1
+  br i1 %.not.i.i.i.i, label %3, label %8
 
-4:                                                ; preds = %1
-  %5 = and i64 %2, 537001984
-  %6 = trunc i64 %2 to i32
-  %7 = lshr i32 %6, 1
-  %8 = and i32 %7, 32767
+3:                                                ; preds = %1
+  %4 = and i64 %2, 537001984
+  %5 = trunc i64 %2 to i32
+  %6 = lshr i32 %5, 1
+  %7 = and i32 %6, 32767
   br label %sp_inc_of_invokeblock.exit
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !128
-  %12 = and i64 %11, 8194
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !124
-  %15 = trunc i64 %14 to i32
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8, !tbaa !128
+  %11 = and i64 %10, 8194
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load i64, ptr %12, align 8, !tbaa !124
+  %14 = trunc i64 %13 to i32
   br label %sp_inc_of_invokeblock.exit
 
-sp_inc_of_invokeblock.exit:                       ; preds = %4, %9
-  %.neg8.in.in.i.i = phi i64 [ %5, %4 ], [ %12, %9 ]
-  %.0.i4.i.i = phi i32 [ %8, %4 ], [ %15, %9 ]
+sp_inc_of_invokeblock.exit:                       ; preds = %3, %8
+  %.neg8.in.in.i.i = phi i64 [ %4, %3 ], [ %11, %8 ]
+  %.0.i4.i.i = phi i32 [ %7, %3 ], [ %14, %8 ]
   %.neg8.in.i.i = icmp ne i64 %.neg8.in.in.i.i, 0
   %.neg8.i.i = sext i1 %.neg8.in.i.i to i32
-  %16 = sub i32 %.neg8.i.i, %.0.i4.i.i
-  %17 = sext i32 %16 to i64
-  %18 = sub nsw i64 0, %17
-  ret i64 %18
+  %15 = sub i32 %.neg8.i.i, %.0.i4.i.i
+  %16 = sext i32 %15 to i64
+  %17 = sub nsw i64 0, %16
+  ret i64 %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

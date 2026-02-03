@@ -21974,7 +21974,7 @@ define internal fastcc range(i64 0, 8589934592) i64 @_ZN12_GLOBAL__N_117GlobalIS
   %6 = extractvalue { i64, i8 } %5, 0
   %7 = extractvalue { i64, i8 } %5, 1
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %34
+  br i1 %8, label %9, label %33
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -21984,52 +21984,51 @@ define internal fastcc range(i64 0, 8589934592) i64 @_ZN12_GLOBAL__N_117GlobalIS
   %12 = and i64 %6, 6
   %13 = icmp eq i64 %12, 2
   %or.cond.i = and i1 %spec.select.i.i.i, %13
-  %14 = and i64 %6, 1
-  %15 = icmp ne i64 %14, 0
-  %or.cond8.i = or i1 %15, %or.cond.i
-  br i1 %or.cond8.i, label %16, label %18
+  %14 = trunc i64 %6 to i1
+  %or.cond7.i = or i1 %or.cond.i, %14
+  br i1 %or.cond7.i, label %15, label %17
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   %.not.i.i.i = icmp ne i64 %11, 0
-  %17 = and i1 %.not.i.i.i, %spec.select.i.i.i
-  %.0.in.v.i.i = select i1 %17, i64 48, i64 32
+  %16 = and i1 %.not.i.i.i, %spec.select.i.i.i
+  %.0.in.v.i.i = select i1 %16, i64 48, i64 32
   %.0.in.i.i = lshr i64 %6, %.0.in.v.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-18:                                               ; preds = %9
-  %19 = lshr i64 %6, 8
-  %.sroa.0.0.insert.ext.i.i.i = and i64 %19, 65535
+17:                                               ; preds = %9
+  %18 = lshr i64 %6, 8
+  %.sroa.0.0.insert.ext.i.i.i = and i64 %18, 65535
   %.not.i.i1.i = icmp ne i64 %11, 0
-  %20 = and i1 %.not.i.i1.i, %spec.select.i.i.i
-  %.0.in.v.i3.i = select i1 %20, i64 48, i64 32
+  %19 = and i1 %.not.i.i1.i, %spec.select.i.i.i
+  %.0.in.v.i3.i = select i1 %19, i64 48, i64 32
   %.0.in.i4.i = lshr i64 %6, %.0.in.v.i3.i
-  %21 = mul nuw nsw i64 %.0.in.i4.i, %.sroa.0.0.insert.ext.i.i.i
-  %22 = and i64 %21, 4294967295
-  %23 = trunc i64 %6 to i8
-  %24 = lshr i8 %23, 3
-  %25 = and i8 %24, 1
+  %20 = mul nuw nsw i64 %.0.in.i4.i, %.sroa.0.0.insert.ext.i.i.i
+  %21 = and i64 %20, 4294967295
+  %22 = trunc i64 %6 to i8
+  %23 = lshr i8 %22, 3
+  %24 = and i8 %23, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %16, %18
-  %.sroa.06.0.i = phi i64 [ %.0.in.i.i, %16 ], [ %22, %18 ]
-  %.sroa.3.0.i = phi i8 [ 0, %16 ], [ %25, %18 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %15, %17
+  %.sroa.06.0.i = phi i64 [ %.0.in.i.i, %15 ], [ %21, %17 ]
+  %.sroa.3.0.i = phi i8 [ 0, %15 ], [ %24, %17 ]
   store i64 %.sroa.06.0.i, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %26 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #28
-  %27 = and i64 %26, 4294967295
-  %28 = icmp ne i64 %27, 0
-  %.neg = sext i1 %28 to i64
-  %29 = add i64 %26, %.neg
-  %30 = select i1 %28, i64 8, i64 0
-  %31 = add i64 %29, %30
-  %32 = and i64 %31, 4294967288
+  %25 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #28
+  %26 = and i64 %25, 4294967295
+  %27 = icmp ne i64 %26, 0
+  %.neg = sext i1 %27 to i64
+  %28 = add i64 %25, %.neg
+  %29 = select i1 %27, i64 8, i64 0
+  %30 = add i64 %28, %29
+  %31 = and i64 %30, 4294967288
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %33 = or disjoint i64 %32, 4294967296
-  br label %34
+  %32 = or disjoint i64 %31, 4294967296
+  br label %33
 
-34:                                               ; preds = %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %.sroa.2.0 = phi i64 [ %33, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ 0, %1 ]
+33:                                               ; preds = %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %.sroa.2.0 = phi i64 [ %32, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ 0, %1 ]
   ret i64 %.sroa.2.0
 }
 

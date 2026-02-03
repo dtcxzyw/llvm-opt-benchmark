@@ -11620,9 +11620,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.llvm.13310223807
   br label %31
 
 29:                                               ; preds = %23
-  %30 = and i64 %24, 1
-  %.not36 = icmp eq i64 %30, 0
-  br i1 %.not36, label %35, label %33
+  %30 = trunc i64 %24 to i1
+  br i1 %30, label %33, label %35
 
 31:                                               ; preds = %27, %11
   %.sroa.09.0 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]

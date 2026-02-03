@@ -4609,9 +4609,9 @@ switch.lookup:                                    ; preds = %139
   br i1 %or.cond.i.i, label %203, label %200
 
 200:                                              ; preds = %180
-  %201 = icmp ne i32 %190, 0
+  %201 = trunc i32 %188 to i1
   %202 = icmp eq i32 %198, 2
-  %or.cond3.i.i = and i1 %201, %202
+  %or.cond3.i.i = and i1 %202, %201
   br i1 %or.cond3.i.i, label %203, label %204
 
 203:                                              ; preds = %200, %180

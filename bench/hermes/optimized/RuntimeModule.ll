@@ -1432,23 +1432,22 @@ if.then.i.i:                                      ; preds = %entry
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit.i: ; preds = %entry, %if.then.i.i
   %retval.sroa.0.0.i13 = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %arrayidx.i, %entry ]
   %5 = ptrtoint ptr %retval.sroa.0.0.i13 to i64
-  %and.i.i.i = and i64 %5, 1
-  %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool.i.not.i.i, label %if.else.i.i, label %if.then.i1.i
+  %tobool.i.i.i = trunc i64 %5 to i1
+  br i1 %tobool.i.i.i, label %if.then.i2.i, label %if.else.i.i
 
-if.then.i1.i:                                     ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit.i
-  %add.ptr.i.i2.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i13, i64 -1
-  %6 = load i32, ptr %add.ptr.i.i2.i, align 1
+if.then.i2.i:                                     ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit.i
+  %add.ptr.i.i3.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i13, i64 -1
+  %6 = load i32, ptr %add.ptr.i.i3.i, align 1
   br label %_ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit
 
 if.else.i.i:                                      ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit.i
-  %bf.load.i3.i = load i120, ptr %retval.sroa.0.0.i13, align 1
-  %7 = trunc i120 %bf.load.i3.i to i32
+  %bf.load.i1.i = load i120, ptr %retval.sroa.0.0.i13, align 1
+  %7 = trunc i120 %bf.load.i1.i to i32
   %bf.cast.i.i = and i32 %7, 33554431
   br label %_ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit
 
-_ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit: ; preds = %if.then.i1.i, %if.else.i.i
-  %retval.0.i.i = phi i32 [ %6, %if.then.i1.i ], [ %bf.cast.i.i, %if.else.i.i ]
+_ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj.exit: ; preds = %if.then.i2.i, %if.else.i.i
+  %retval.0.i.i = phi i32 [ %6, %if.then.i2.i ], [ %bf.cast.i.i, %if.else.i.i ]
   %idx.ext.i = zext i32 %retval.0.i.i to i64
   %add.ptr.i8 = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext.i
   %call7 = tail call noundef ptr @_ZN6hermes2vm9CodeBlock15createCodeBlockEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhj(ptr noundef nonnull %this, ptr nonnull %retval.sroa.0.0.i13, ptr noundef %add.ptr.i8, i32 noundef %index) #17

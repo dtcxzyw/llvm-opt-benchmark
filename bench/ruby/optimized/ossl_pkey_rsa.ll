@@ -420,8 +420,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %10
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !6
   %19 = tail call i32 @rb_keyword_given_p() #5
-  %.not42 = icmp eq i32 %19, 0
-  br i1 %.not42, label %23, label %20
+  %.not41 = icmp eq i32 %19, 0
+  br i1 %.not41, label %23, label %20
 
 20:                                               ; preds = %14
   %21 = tail call i64 @rb_hash_dup(i64 noundef %18) #5
@@ -448,8 +448,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %10
   br i1 %28, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %27, %23
-  %.0.i41 = phi i32 [ %.0.i, %23 ], [ %.0.i, %27 ], [ %0, %rb_scan_args_n_opt.exit ]
-  tail call void @rb_error_arity(i32 noundef %.0.i41, i32 noundef 2, i32 noundef 2) #6
+  %.0.i40 = phi i32 [ %.0.i, %23 ], [ %.0.i, %27 ], [ %0, %rb_scan_args_n_opt.exit ]
+  tail call void @rb_error_arity(i32 noundef %.0.i40, i32 noundef 2, i32 noundef 2) #6
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %27
@@ -491,9 +491,8 @@ rbimpl_intern_const.exit32:                       ; preds = %.lr.ph.i30, %34
 
 39:                                               ; preds = %rbimpl_intern_const.exit32
   %40 = load i64, ptr %6, align 16, !tbaa !6
-  %41 = and i64 %40, 1
-  %.not.i33 = icmp eq i64 %41, 0
-  br i1 %.not.i33, label %44, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
   %43 = call i64 @rb_fix2int(i64 noundef %40) #5
@@ -504,8 +503,8 @@ rbimpl_intern_const.exit32:                       ; preds = %.lr.ph.i30, %34
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %42, %44
-  %.0.i34 = phi i64 [ %43, %42 ], [ %45, %44 ]
-  %46 = trunc i64 %.0.i34 to i32
+  %.0.i33 = phi i64 [ %43, %42 ], [ %45, %44 ]
+  %46 = trunc i64 %.0.i33 to i32
   br label %47
 
 47:                                               ; preds = %rbimpl_intern_const.exit32, %rbimpl_intern_const.exit, %rb_num2int_inline.exit
@@ -573,21 +572,21 @@ RSTRING_PTR.exit:                                 ; preds = %70, %76
   %81 = inttoptr i64 %57 to ptr
   %82 = load i64, ptr %81, align 8, !tbaa !24, !noalias !30
   %83 = and i64 %82, 8192
-  %.not.i.i35 = icmp eq i64 %83, 0
+  %.not.i.i34 = icmp eq i64 %83, 0
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  br i1 %.not.i.i35, label %RSTRING_PTR.exit38, label %85
+  br i1 %.not.i.i34, label %RSTRING_PTR.exit37, label %85
 
 85:                                               ; preds = %80
-  %.sroa.2.0.copyload.i36 = load ptr, ptr %84, align 8
-  br label %RSTRING_PTR.exit38
+  %.sroa.2.0.copyload.i35 = load ptr, ptr %84, align 8
+  br label %RSTRING_PTR.exit37
 
-RSTRING_PTR.exit38:                               ; preds = %80, %85
-  %.sroa.2.0.i37 = phi ptr [ %.sroa.2.0.copyload.i36, %85 ], [ %84, %80 ]
-  %86 = call i32 @EVP_DigestSignFinal(ptr noundef nonnull %58, ptr noundef %.sroa.2.0.i37, ptr noundef nonnull %8) #5
+RSTRING_PTR.exit37:                               ; preds = %80, %85
+  %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %85 ], [ %84, %80 ]
+  %86 = call i32 @EVP_DigestSignFinal(ptr noundef nonnull %58, ptr noundef %.sroa.2.0.i36, ptr noundef nonnull %8) #5
   %.not25 = icmp eq i32 %86, 1
   br i1 %.not25, label %87, label %89
 
-87:                                               ; preds = %RSTRING_PTR.exit38
+87:                                               ; preds = %RSTRING_PTR.exit37
   %88 = load i64, ptr %8, align 8, !tbaa !6
   call void @rb_str_set_len(i64 noundef %57, i64 noundef %88) #5
   call void @EVP_MD_CTX_free(ptr noundef nonnull %58) #5
@@ -598,7 +597,7 @@ RSTRING_PTR.exit38:                               ; preds = %80, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %57
 
-89:                                               ; preds = %RSTRING_PTR.exit38, %RSTRING_PTR.exit, %67, %64, %61, %59, %47
+89:                                               ; preds = %RSTRING_PTR.exit37, %RSTRING_PTR.exit, %67, %64, %61, %59, %47
   call void @EVP_MD_CTX_free(ptr noundef %58) #5
   %90 = load i64, ptr @eRSAError, align 8, !tbaa !6
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %90, ptr noundef null) #6
@@ -648,8 +647,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %12
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !6
   %24 = call i32 @rb_keyword_given_p() #5
-  %.not44 = icmp eq i32 %24, 0
-  br i1 %.not44, label %28, label %25
+  %.not43 = icmp eq i32 %24, 0
+  br i1 %.not43, label %28, label %25
 
 25:                                               ; preds = %19
   %26 = call i64 @rb_hash_dup(i64 noundef %23) #5
@@ -686,8 +685,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %3, %12
   br i1 %37, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %36, %28
-  %.0.i43 = phi i32 [ %.0.i, %28 ], [ %.0.i, %36 ], [ %0, %rb_scan_args_n_opt.exit ]
-  call void @rb_error_arity(i32 noundef %.0.i43, i32 noundef 3, i32 noundef 3) #6
+  %.0.i42 = phi i32 [ %.0.i, %28 ], [ %.0.i, %36 ], [ %0, %rb_scan_args_n_opt.exit ]
+  call void @rb_error_arity(i32 noundef %.0.i42, i32 noundef 3, i32 noundef 3) #6
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %36
@@ -730,9 +729,8 @@ rbimpl_intern_const.exit34:                       ; preds = %.lr.ph.i32, %44
 
 49:                                               ; preds = %rbimpl_intern_const.exit34
   %50 = load i64, ptr %8, align 16, !tbaa !6
-  %51 = and i64 %50, 1
-  %.not.i35 = icmp eq i64 %51, 0
-  br i1 %.not.i35, label %54, label %52
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %52, label %54
 
 52:                                               ; preds = %49
   %53 = call i64 @rb_fix2int(i64 noundef %50) #5
@@ -743,8 +741,8 @@ rbimpl_intern_const.exit34:                       ; preds = %.lr.ph.i32, %44
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %52, %54
-  %.0.i36 = phi i64 [ %53, %52 ], [ %55, %54 ]
-  %56 = trunc i64 %.0.i36 to i32
+  %.0.i35 = phi i64 [ %53, %52 ], [ %55, %54 ]
+  %56 = trunc i64 %.0.i35 to i32
   br label %57
 
 57:                                               ; preds = %rbimpl_intern_const.exit34, %rbimpl_intern_const.exit, %rb_num2int_inline.exit
@@ -819,36 +817,36 @@ RSTRING_PTR.exit:                                 ; preds = %81, %87
   %93 = inttoptr i64 %92 to ptr
   %94 = load i64, ptr %93, align 8, !tbaa !24, !noalias !38
   %95 = and i64 %94, 8192
-  %.not.i.i37 = icmp eq i64 %95, 0
+  %.not.i.i36 = icmp eq i64 %95, 0
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  br i1 %.not.i.i37, label %RSTRING_PTR.exit40, label %97
+  br i1 %.not.i.i36, label %RSTRING_PTR.exit39, label %97
 
 97:                                               ; preds = %91
-  %.sroa.2.0.copyload.i38 = load ptr, ptr %96, align 8
-  br label %RSTRING_PTR.exit40
+  %.sroa.2.0.copyload.i37 = load ptr, ptr %96, align 8
+  br label %RSTRING_PTR.exit39
 
-RSTRING_PTR.exit40:                               ; preds = %91, %97
-  %.sroa.2.0.i39 = phi ptr [ %.sroa.2.0.copyload.i38, %97 ], [ %96, %91 ]
+RSTRING_PTR.exit39:                               ; preds = %91, %97
+  %.sroa.2.0.i38 = phi ptr [ %.sroa.2.0.copyload.i37, %97 ], [ %96, %91 ]
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %99 = load i64, ptr %98, align 8, !tbaa !28
-  %100 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %69, ptr noundef %.sroa.2.0.i39, i64 noundef %99) #5
+  %100 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %69, ptr noundef %.sroa.2.0.i38, i64 noundef %99) #5
   switch i32 %100, label %102 [
     i32 0, label %101
     i32 1, label %104
   ]
 
-101:                                              ; preds = %RSTRING_PTR.exit40
+101:                                              ; preds = %RSTRING_PTR.exit39
   call void @ossl_clear_error() #5
   br label %104
 
-102:                                              ; preds = %RSTRING_PTR.exit40, %RSTRING_PTR.exit, %78, %75, %72, %70, %64
+102:                                              ; preds = %RSTRING_PTR.exit39, %RSTRING_PTR.exit, %78, %75, %72, %70, %64
   call void @EVP_MD_CTX_free(ptr noundef %69) #5
   %103 = load i64, ptr @eRSAError, align 8, !tbaa !6
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %103, ptr noundef null) #6
   unreachable
 
-104:                                              ; preds = %RSTRING_PTR.exit40, %101
-  %.0 = phi i64 [ 0, %101 ], [ 20, %RSTRING_PTR.exit40 ]
+104:                                              ; preds = %RSTRING_PTR.exit39, %101
+  %.0 = phi i64 [ 0, %101 ], [ 20, %RSTRING_PTR.exit39 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %69) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -271,70 +271,69 @@ define internal fastcc void @output_escaped_str(ptr noundef readonly captures(no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @whenever_action(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = and i32 %0, 1
-  %3 = icmp ne i32 %2, 0
-  %4 = load i32, ptr @when_nf, align 8
-  %5 = icmp ne i32 %4, 0
-  %or.cond = select i1 %3, i1 %5, i1 false
-  br i1 %or.cond, label %6, label %12
+  %2 = trunc i32 %0 to i1
+  %3 = load i32, ptr @when_nf, align 8
+  %4 = icmp ne i32 %3, 0
+  %or.cond = select i1 %2, i1 %4, i1 false
+  br i1 %or.cond, label %5, label %11
 
-6:                                                ; preds = %1
-  %7 = tail call ptr @hashline_number()
-  %8 = load ptr, ptr @base_yyout, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef %7) #7
-  %10 = load ptr, ptr @base_yyout, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %10, ptr noundef nonnull @.str.1) #7
+5:                                                ; preds = %1
+  %6 = tail call ptr @hashline_number()
+  %7 = load ptr, ptr @base_yyout, align 8
+  %8 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %6) #7
+  %9 = load ptr, ptr @base_yyout, align 8
+  %10 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %9, ptr noundef nonnull @.str.1) #7
   %when_nf.val = load i32, ptr @when_nf, align 8
   %when_nf.val5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @when_nf, i64 8), align 8
   tail call fastcc void @print_action(i32 %when_nf.val, ptr %when_nf.val5)
-  br label %12
+  br label %11
 
-12:                                               ; preds = %6, %1
-  %13 = load i32, ptr @when_warn, align 8
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %20, label %14
+11:                                               ; preds = %5, %1
+  %12 = load i32, ptr @when_warn, align 8
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %19, label %13
 
-14:                                               ; preds = %12
-  %15 = tail call ptr @hashline_number()
-  %16 = load ptr, ptr @base_yyout, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef %15) #7
-  %18 = load ptr, ptr @base_yyout, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %18, ptr noundef nonnull @.str.2) #7
+13:                                               ; preds = %11
+  %14 = tail call ptr @hashline_number()
+  %15 = load ptr, ptr @base_yyout, align 8
+  %16 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %15, ptr noundef nonnull @.str, ptr noundef %14) #7
+  %17 = load ptr, ptr @base_yyout, align 8
+  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %17, ptr noundef nonnull @.str.2) #7
   %when_warn.val = load i32, ptr @when_warn, align 8
   %when_warn.val6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @when_warn, i64 8), align 8
   tail call fastcc void @print_action(i32 %when_warn.val, ptr %when_warn.val6)
-  br label %20
+  br label %19
 
-20:                                               ; preds = %14, %12
-  %21 = load i32, ptr @when_error, align 8
-  %.not3 = icmp eq i32 %21, 0
-  br i1 %.not3, label %28, label %22
+19:                                               ; preds = %13, %11
+  %20 = load i32, ptr @when_error, align 8
+  %.not3 = icmp eq i32 %20, 0
+  br i1 %.not3, label %27, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call ptr @hashline_number()
-  %24 = load ptr, ptr @base_yyout, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef %23) #7
-  %26 = load ptr, ptr @base_yyout, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %26, ptr noundef nonnull @.str.3) #7
+21:                                               ; preds = %19
+  %22 = tail call ptr @hashline_number()
+  %23 = load ptr, ptr @base_yyout, align 8
+  %24 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %23, ptr noundef nonnull @.str, ptr noundef %22) #7
+  %25 = load ptr, ptr @base_yyout, align 8
+  %26 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.3) #7
   %when_error.val = load i32, ptr @when_error, align 8
   %when_error.val7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @when_error, i64 8), align 8
   tail call fastcc void @print_action(i32 %when_error.val, ptr %when_error.val7)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %22, %20
-  %29 = and i32 %0, 2
-  %.not4 = icmp eq i32 %29, 0
-  br i1 %.not4, label %33, label %30
+27:                                               ; preds = %21, %19
+  %28 = and i32 %0, 2
+  %.not4 = icmp eq i32 %28, 0
+  br i1 %.not4, label %32, label %29
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr @base_yyout, align 8
-  %32 = tail call i32 @fputc(i32 noundef 125, ptr noundef %31)
-  br label %33
+29:                                               ; preds = %27
+  %30 = load ptr, ptr @base_yyout, align 8
+  %31 = tail call i32 @fputc(i32 noundef 125, ptr noundef %30)
+  br label %32
 
-33:                                               ; preds = %30, %28
-  %34 = tail call ptr @hashline_number()
-  %35 = load ptr, ptr @base_yyout, align 8
-  %36 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %35, ptr noundef nonnull @.str, ptr noundef %34) #7
+32:                                               ; preds = %29, %27
+  %33 = tail call ptr @hashline_number()
+  %34 = load ptr, ptr @base_yyout, align 8
+  %35 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %34, ptr noundef nonnull @.str, ptr noundef %33) #7
   ret void
 }
 

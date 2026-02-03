@@ -619,9 +619,8 @@ define internal i64 @strscan_set_pos(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 9:                                                ; preds = %2
-  %10 = and i64 %1, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %13, label %11
+  %10 = trunc i64 %1 to i1
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
   %12 = tail call i64 @rb_fix2int(i64 noundef %1) #12
@@ -1161,9 +1160,8 @@ define internal noundef i64 @strscan_peek(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 9:                                                ; preds = %2
-  %10 = and i64 %1, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %13, label %11
+  %10 = trunc i64 %1 to i1
+  br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
   %12 = ashr i64 %1, 1
@@ -1879,7 +1877,7 @@ define internal noundef i64 @strscan_aref(i64 noundef %0, i64 noundef %1) #0 {
 19:                                               ; preds = %17
   %20 = and i64 %1, 255
   %or.cond = icmp eq i64 %20, 12
-  br i1 %or.cond, label %rb_type.exit.thread41, label %rb_type.exit.thread
+  br i1 %or.cond, label %rb_type.exit.thread39, label %rb_type.exit.thread
 
 rb_type.exit:                                     ; preds = %12
   %21 = inttoptr i64 %1 to ptr
@@ -1887,29 +1885,29 @@ rb_type.exit:                                     ; preds = %12
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 31
   switch i32 %24, label %rb_type.exit.thread [
-    i32 20, label %rb_type.exit.thread41
+    i32 20, label %rb_type.exit.thread39
     i32 5, label %26
   ]
 
-rb_type.exit.thread41:                            ; preds = %19, %rb_type.exit
+rb_type.exit.thread39:                            ; preds = %19, %rb_type.exit
   %25 = tail call i64 @rb_sym2str(i64 noundef %1) #12
   br label %26
 
-26:                                               ; preds = %rb_type.exit.thread41, %rb_type.exit
-  %.030 = phi i64 [ %25, %rb_type.exit.thread41 ], [ %1, %rb_type.exit ]
+26:                                               ; preds = %rb_type.exit.thread39, %rb_type.exit
+  %.030 = phi i64 [ %25, %rb_type.exit.thread39 ], [ %1, %rb_type.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load i64, ptr %27, align 8, !tbaa !24
   %29 = and i64 %28, -5
-  %.not49 = icmp eq i64 %29, 0
-  br i1 %.not49, label %extract_range.exit, label %30
+  %.not48 = icmp eq i64 %29, 0
+  br i1 %.not48, label %extract_range.exit, label %30
 
 30:                                               ; preds = %26
   %31 = inttoptr i64 %.030 to ptr
   %32 = load i64, ptr %31, align 8, !tbaa !34, !noalias !76
   %33 = and i64 %32, 8192
-  %.not.i33 = icmp eq i64 %33, 0
+  %.not.i = icmp eq i64 %33, 0
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  br i1 %.not.i33, label %rbimpl_rstring_getmem.exit, label %35
+  br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %35
 
 35:                                               ; preds = %30
   %.sroa.5.0.copyload = load ptr, ptr %34, align 8
@@ -1940,9 +1938,8 @@ rb_num2long_inline.exit.thread:                   ; preds = %rbimpl_rstring_getm
   br label %.thread
 
 rb_type.exit.thread:                              ; preds = %17, %17, %17, %19, %17, %rb_type.exit
-  %48 = and i64 %1, 1
-  %.not.i34 = icmp eq i64 %48, 0
-  br i1 %.not.i34, label %51, label %49
+  %48 = trunc i64 %1 to i1
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %rb_type.exit.thread
   %50 = ashr i64 %1, 1
@@ -1966,17 +1963,17 @@ rb_num2long_inline.exit:                          ; preds = %51, %49
   br i1 %59, label %extract_range.exit, label %.thread
 
 .thread:                                          ; preds = %rb_num2long_inline.exit.thread, %rb_num2long_inline.exit, %54
-  %.145 = phi i64 [ %58, %54 ], [ %47, %rb_num2long_inline.exit.thread ], [ %.029, %rb_num2long_inline.exit ]
+  %.143 = phi i64 [ %58, %54 ], [ %47, %rb_num2long_inline.exit.thread ], [ %.029, %rb_num2long_inline.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %61 = load i32, ptr %60, align 4, !tbaa !82
   %62 = sext i32 %61 to i64
-  %.not32 = icmp slt i64 %.145, %62
+  %.not32 = icmp slt i64 %.143, %62
   br i1 %.not32, label %63, label %extract_range.exit
 
 63:                                               ; preds = %.thread
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %65 = load ptr, ptr %64, align 8, !tbaa !43
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.145
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.143
   %67 = load i64, ptr %66, align 8, !tbaa !10
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %extract_range.exit, label %69
@@ -1990,9 +1987,9 @@ rb_num2long_inline.exit:                          ; preds = %51, %49
 adjust_register_position.exit.thread:             ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !44
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %.145
+  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %.143
   %76 = load i64, ptr %75, align 8, !tbaa !10
-  br label %adjust_register_position.exit38
+  br label %adjust_register_position.exit36
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2000,23 +1997,23 @@ adjust_register_position.exit.thread:             ; preds = %69
   %80 = add nsw i64 %79, %67
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %82 = load ptr, ptr %81, align 8, !tbaa !44
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.145
+  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.143
   %84 = load i64, ptr %83, align 8, !tbaa !10
   %85 = add nsw i64 %79, %84
-  br label %adjust_register_position.exit38
+  br label %adjust_register_position.exit36
 
-adjust_register_position.exit38:                  ; preds = %adjust_register_position.exit.thread, %77
-  %.0.i3647 = phi i64 [ %80, %77 ], [ %67, %adjust_register_position.exit.thread ]
-  %.0.i37 = phi i64 [ %85, %77 ], [ %76, %adjust_register_position.exit.thread ]
+adjust_register_position.exit36:                  ; preds = %adjust_register_position.exit.thread, %77
+  %.0.i3445 = phi i64 [ %80, %77 ], [ %67, %adjust_register_position.exit.thread ]
+  %.0.i35 = phi i64 [ %85, %77 ], [ %76, %adjust_register_position.exit.thread ]
   %86 = load i64, ptr %4, align 8, !tbaa !23
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8, !tbaa !32
-  %90 = icmp sgt i64 %.0.i3647, %89
+  %90 = icmp sgt i64 %.0.i3445, %89
   br i1 %90, label %extract_range.exit, label %91
 
-91:                                               ; preds = %adjust_register_position.exit38
-  %92 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i37, i64 %89)
+91:                                               ; preds = %adjust_register_position.exit36
+  %92 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i35, i64 %89)
   %93 = load i64, ptr %87, align 8, !tbaa !34, !noalias !83
   %94 = and i64 %93, 8192
   %.not.i.i.i = icmp eq i64 %94, 0
@@ -2029,15 +2026,15 @@ adjust_register_position.exit38:                  ; preds = %adjust_register_pos
 
 RSTRING_PTR.exit.i:                               ; preds = %96, %91
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %96 ], [ %95, %91 ]
-  %97 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.0.i3647
-  %98 = sub nsw i64 %92, %.0.i3647
+  %97 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.0.i3445
+  %98 = sub nsw i64 %92, %.0.i3445
   %99 = tail call i64 @rb_str_new(ptr noundef %97, i64 noundef %98) #12
   %100 = load i64, ptr %4, align 8, !tbaa !23
   tail call void @rb_enc_copy(i64 noundef %99, i64 noundef %100) #12
   br label %extract_range.exit
 
-extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i, %adjust_register_position.exit38, %63, %.thread, %54, %26, %9
-  %.0 = phi i64 [ 4, %26 ], [ 4, %54 ], [ 4, %.thread ], [ 4, %63 ], [ 4, %9 ], [ %99, %RSTRING_PTR.exit.i ], [ 4, %adjust_register_position.exit38 ]
+extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i, %adjust_register_position.exit36, %63, %.thread, %54, %26, %9
+  %.0 = phi i64 [ 4, %26 ], [ 4, %54 ], [ 4, %.thread ], [ 4, %63 ], [ 4, %9 ], [ %99, %RSTRING_PTR.exit.i ], [ 4, %adjust_register_position.exit36 ]
   ret i64 %.0
 }
 

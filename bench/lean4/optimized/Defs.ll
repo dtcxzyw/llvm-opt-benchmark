@@ -13,9 +13,8 @@ define noundef nonnull ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__in
 ; Function Attrs: nounwind uwtable
 define ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_getThenInsertIfNew_x3f_match__1_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not.i15 = icmp eq i64 %5, 0
-  br i1 %.not.i15, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 1
@@ -35,9 +34,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 13:                                               ; preds = %lean_obj_tag.exit
   %14 = ptrtoint ptr %2 to i64
-  %15 = and i64 %14, 1
-  %.not22 = icmp eq i64 %15, 0
-  br i1 %.not22, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %2, align 4, !tbaa !4
@@ -59,23 +57,22 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 lean_dec.exit:                                    ; preds = %22, %21, %19, %13
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not23 = icmp eq i64 %24, 0
-  br i1 %.not23, label %25, label %lean_inc.exit
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_inc.exit, label %25
 
 25:                                               ; preds = %lean_dec.exit
-  %.val.i16 = load i32, ptr %1, align 4, !tbaa !4
-  %26 = icmp sgt i32 %.val.i16, 0
+  %.val.i15 = load i32, ptr %1, align 4, !tbaa !4
+  %26 = icmp sgt i32 %.val.i15, 0
   br i1 %26, label %27, label %29, !prof !9
 
 27:                                               ; preds = %25
-  %28 = add nuw i32 %.val.i16, 1
+  %28 = add nuw i32 %.val.i15, 1
   store i32 %28, ptr %1, align 4, !tbaa !4
   br label %lean_inc.exit
 
 29:                                               ; preds = %25
-  %.not.i17 = icmp eq i32 %.val.i16, 0
-  br i1 %.not.i17, label %lean_inc.exit, label %30
+  %.not.i16 = icmp eq i32 %.val.i15, 0
+  br i1 %.not.i16, label %lean_inc.exit, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1) #4
@@ -85,30 +82,29 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %13
   %32 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %32, align 8, !tbaa !10
   %33 = ptrtoint ptr %.val to i64
-  %34 = and i64 %33, 1
-  %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %35, label %lean_inc.exit12
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %lean_inc.exit12, label %35
 
 35:                                               ; preds = %31
-  %.val.i18 = load i32, ptr %.val, align 4, !tbaa !4
-  %36 = icmp sgt i32 %.val.i18, 0
+  %.val.i17 = load i32, ptr %.val, align 4, !tbaa !4
+  %36 = icmp sgt i32 %.val.i17, 0
   br i1 %36, label %37, label %39, !prof !9
 
 37:                                               ; preds = %35
-  %38 = add nuw i32 %.val.i18, 1
+  %38 = add nuw i32 %.val.i17, 1
   store i32 %38, ptr %.val, align 4, !tbaa !4
   br label %lean_inc.exit12
 
 39:                                               ; preds = %35
-  %.not.i19 = icmp eq i32 %.val.i18, 0
-  br i1 %.not.i19, label %lean_inc.exit12, label %40
+  %.not.i18 = icmp eq i32 %.val.i17, 0
+  br i1 %.not.i18, label %lean_inc.exit12, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.val) #4
   br label %lean_inc.exit12
 
 lean_inc.exit12:                                  ; preds = %40, %39, %37, %31
-  br i1 %.not.i15, label %41, label %lean_dec.exit11
+  br i1 %5, label %lean_dec.exit11, label %41
 
 41:                                               ; preds = %lean_inc.exit12
   %42 = load i32, ptr %0, align 4, !tbaa !4
@@ -167,9 +163,8 @@ lean_alloc_closure.exit:                          ; preds = %4
 define ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_getThenInsertIfNew_x3f_match__1_splitter___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_getThenInsertIfNew_x3f_match__1_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -215,9 +210,8 @@ l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_get
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 0, ptr %11, align 2, !tbaa !12
   %12 = ptrtoint ptr %2 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_getThenInsertIfNew_x3f_match__1_splitter.exit
   %15 = load i32, ptr %2, align 4, !tbaa !4
@@ -244,9 +238,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l___
 ; Function Attrs: nounwind uwtable
 define ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_Const_getThenInsertIfNew_x3f_match__1_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not.i15 = icmp eq i64 %5, 0
-  br i1 %.not.i15, label %9, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
   %7 = lshr i64 %4, 1
@@ -266,9 +259,8 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 13:                                               ; preds = %lean_obj_tag.exit
   %14 = ptrtoint ptr %2 to i64
-  %15 = and i64 %14, 1
-  %.not22 = icmp eq i64 %15, 0
-  br i1 %.not22, label %16, label %lean_dec.exit11
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit11, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %2, align 4, !tbaa !4
@@ -290,23 +282,22 @@ lean_obj_tag.exit:                                ; preds = %6, %9
 
 lean_dec.exit11:                                  ; preds = %22, %21, %19, %13
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not23 = icmp eq i64 %24, 0
-  br i1 %.not23, label %25, label %lean_inc.exit12
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_inc.exit12, label %25
 
 25:                                               ; preds = %lean_dec.exit11
-  %.val.i16 = load i32, ptr %1, align 4, !tbaa !4
-  %26 = icmp sgt i32 %.val.i16, 0
+  %.val.i15 = load i32, ptr %1, align 4, !tbaa !4
+  %26 = icmp sgt i32 %.val.i15, 0
   br i1 %26, label %27, label %29, !prof !9
 
 27:                                               ; preds = %25
-  %28 = add nuw i32 %.val.i16, 1
+  %28 = add nuw i32 %.val.i15, 1
   store i32 %28, ptr %1, align 4, !tbaa !4
   br label %lean_inc.exit12
 
 29:                                               ; preds = %25
-  %.not.i17 = icmp eq i32 %.val.i16, 0
-  br i1 %.not.i17, label %lean_inc.exit12, label %30
+  %.not.i16 = icmp eq i32 %.val.i15, 0
+  br i1 %.not.i16, label %lean_inc.exit12, label %30
 
 30:                                               ; preds = %29
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1) #4
@@ -316,30 +307,29 @@ lean_dec.exit11:                                  ; preds = %22, %21, %19, %13
   %32 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %32, align 8, !tbaa !10
   %33 = ptrtoint ptr %.val to i64
-  %34 = and i64 %33, 1
-  %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %35, label %lean_inc.exit
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %lean_inc.exit, label %35
 
 35:                                               ; preds = %31
-  %.val.i18 = load i32, ptr %.val, align 4, !tbaa !4
-  %36 = icmp sgt i32 %.val.i18, 0
+  %.val.i17 = load i32, ptr %.val, align 4, !tbaa !4
+  %36 = icmp sgt i32 %.val.i17, 0
   br i1 %36, label %37, label %39, !prof !9
 
 37:                                               ; preds = %35
-  %38 = add nuw i32 %.val.i18, 1
+  %38 = add nuw i32 %.val.i17, 1
   store i32 %38, ptr %.val, align 4, !tbaa !4
   br label %lean_inc.exit
 
 39:                                               ; preds = %35
-  %.not.i19 = icmp eq i32 %.val.i18, 0
-  br i1 %.not.i19, label %lean_inc.exit, label %40
+  %.not.i18 = icmp eq i32 %.val.i17, 0
+  br i1 %.not.i18, label %lean_inc.exit, label %40
 
 40:                                               ; preds = %39
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.val) #4
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %40, %39, %37, %31
-  br i1 %.not.i15, label %41, label %lean_dec.exit
+  br i1 %5, label %lean_dec.exit, label %41
 
 41:                                               ; preds = %lean_inc.exit
   %42 = load i32, ptr %0, align 4, !tbaa !4
@@ -396,9 +386,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 define ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_Const_getThenInsertIfNew_x3f_match__1_splitter___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @l___private_Std_Data_DTreeMap_Internal_WF_Defs_0__Std_DTreeMap_Internal_Impl_Const_getThenInsertIfNew_x3f_match__1_splitter___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4, !tbaa !4

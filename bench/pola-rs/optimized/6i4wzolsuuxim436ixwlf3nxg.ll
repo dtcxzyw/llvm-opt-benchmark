@@ -880,10 +880,10 @@ default.unreachable:                              ; preds = %85
   %101 = load i8, ptr %100, align 1, !noalias !60, !noundef !9
   %102 = trunc i64 %97 to i8
   %103 = and i8 %102, 7
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %105 = lshr i8 %101, %103
-  %106 = and i8 %105, 1
-  store i8 %106, ptr %104, align 1, !alias.scope !64, !noalias !60
+  %104 = lshr i8 %101, %103
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %106 = and i8 %104, 1
+  store i8 %106, ptr %105, align 1, !alias.scope !64, !noalias !60
   store i8 1, ptr %0, align 16, !alias.scope !64, !noalias !60
   br label %"_ZN11polars_core13chunked_array3ops9any_value126_$LT$impl$u20$polars_core..chunked_array..ops..ChunkAnyValue$u20$for$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$23get_any_value_unchecked17hf93a43bd5662a01aE.exit"
 

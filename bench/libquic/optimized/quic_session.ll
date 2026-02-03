@@ -1409,9 +1409,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %40,
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %50 = load i32, ptr %49, align 8, !tbaa !211
   %51 = xor i32 %50, %1
-  %52 = and i32 %51, 1
-  %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %_ZNSt3mapIjmSt4lessIjESaISt4pairIKjmEEE4findERS3_.exit.thread, label %53
+  %52 = trunc i32 %51 to i1
+  br i1 %52, label %53, label %_ZNSt3mapIjmSt4lessIjESaISt4pairIKjmEEE4findERS3_.exit.thread
 
 53:                                               ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -1677,14 +1676,14 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !232
   %.not.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread53, label %33
+  br i1 %.not.i.i.i.i.i, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread52, label %33
 
 33:                                               ; preds = %24
   %34 = load ptr, ptr %32, align 8, !tbaa !219
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !230
   %37 = icmp eq i32 %1, %36
-  br i1 %37, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread55, label %.lr.ph.i.i.i.i.i
+  br i1 %37, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread54, label %.lr.ph.i.i.i.i.i
 
 38:                                               ; preds = %41
   %39 = icmp eq i32 %1, %43
@@ -1713,35 +1712,34 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
   %47 = zext nneg i32 %5 to i64
   %48 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %46, i64 %47
   %49 = icmp eq ptr %.sroa.09.0.i, %48
-  br i1 %49, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread53, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread
+  br i1 %49, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread52, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread
 
 .loopexit:                                        ; preds = %38, %.lr.ph.i.i.i.i.i, %19, %20, %..loopexit_crit_edge21.i.i.i.i.i
   %.sroa.4.0.i.ph = phi ptr [ %.sroa.06.0.i.i.i, %20 ], [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %19 ], [ %40, %38 ], [ null, %.lr.ph.i.i.i.i.i ]
   %50 = icmp eq ptr %.sroa.4.0.i.ph, null
-  br i1 %50, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread53, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread55
+  br i1 %50, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread52, label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread54
 
-_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread55: ; preds = %33, %.loopexit
-  %.sroa.4.0.i43.ph = phi ptr [ %34, %33 ], [ %.sroa.4.0.i.ph, %.loopexit ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i43.ph, i64 8
+_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread54: ; preds = %33, %.loopexit
+  %.sroa.4.0.i42.ph = phi ptr [ %34, %33 ], [ %.sroa.4.0.i.ph, %.loopexit ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i42.ph, i64 8
   br label %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread
 
-_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread: ; preds = %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread55
-  %52 = phi ptr [ %51, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread55 ], [ %.sroa.09.0.i, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit ]
+_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread: ; preds = %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread54
+  %52 = phi ptr [ %51, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread54 ], [ %.sroa.09.0.i, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !236
   br label %_ZN3net11QuicSession14IsClosedStreamEj.exit.thread12
 
-_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread53: ; preds = %.loopexit, %24, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit
+_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread52: ; preds = %.loopexit, %24, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE4findERSA_.exit
   %55 = tail call noundef zeroext i1 @_ZN3net11QuicSession12IsOpenStreamEj(ptr noundef nonnull readonly align 8 dereferenceable(2044) %0, i32 noundef %1)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 936
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !211
-  %.pre28 = xor i32 %.pre, %1
+  %.pre27 = xor i32 %.pre, %1
   br i1 %55, label %_ZN3net11QuicSession14IsClosedStreamEj.exit, label %56
 
-56:                                               ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread53
-  %57 = and i32 %.pre28, 1
-  %.not8.i = icmp eq i32 %57, 0
-  br i1 %.not8.i, label %58, label %60
+56:                                               ; preds = %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread52
+  %57 = trunc i32 %.pre27 to i1
+  br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
   %59 = icmp ult i32 %1, %.pre
@@ -1750,8 +1748,8 @@ _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8eq
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %62 = load i32, ptr %61, align 8, !tbaa !215
-  %.not.i4 = icmp ugt i32 %1, %62
-  br i1 %.not.i4, label %_ZN3net11QuicSession14IsClosedStreamEj.exit, label %63
+  %.not.i5 = icmp ugt i32 %1, %62
+  br i1 %.not.i5, label %_ZN3net11QuicSession14IsClosedStreamEj.exit, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -1815,10 +1813,9 @@ _ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8eq
 ..loopexit_crit_edge21.i.i.i.i.i.i:               ; preds = %90
   br label %_ZN3net11QuicSession14IsClosedStreamEj.exit.thread12, !llvm.loop !279
 
-_ZN3net11QuicSession14IsClosedStreamEj.exit:      ; preds = %87, %69, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread53, %60, %82, %58
-  %95 = and i32 %.pre28, 1
-  %.not15 = icmp eq i32 %95, 0
-  br i1 %.not15, label %96, label %100
+_ZN3net11QuicSession14IsClosedStreamEj.exit:      ; preds = %87, %69, %_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorneERKSI_.exit.thread52, %60, %82, %58
+  %95 = trunc i32 %.pre27 to i1
+  br i1 %95, label %100, label %96
 
 96:                                               ; preds = %_ZN3net11QuicSession14IsClosedStreamEj.exit
   %97 = load ptr, ptr %0, align 8, !tbaa !3
@@ -3081,9 +3078,8 @@ define void @_ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm(pt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %9 = load i32, ptr %8, align 8, !tbaa !211
   %10 = xor i32 %9, %7
-  %11 = and i32 %10, 1
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %16, label %12
+  %11 = trunc i32 %10 to i1
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -3187,9 +3183,8 @@ define noundef zeroext i1 @_ZNK3net11QuicSession16IsIncomingStreamEj(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %4 = load i32, ptr %3, align 8, !tbaa !211
   %5 = xor i32 %4, %1
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  ret i1 %7
+  %6 = trunc i32 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3223,13 +3218,13 @@ define void @_ZN3net11QuicSession16CloseStreamInnerEjb(ptr noundef nonnull align
   %13 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %10, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8, !tbaa !230
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %.loopexit58, label %11
+  br i1 %15, label %.loopexit57, label %11
 
 .critedge.i:                                      ; preds = %11, %.preheader.i
   %.pre-phi.i = phi i64 [ 0, %.preheader.i ], [ %wide.trip.count.i, %11 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %17 = getelementptr inbounds nuw %"class.base::ManualConstructor", ptr %16, i64 %.pre-phi.i
-  br label %.loopexit58
+  br label %.loopexit57
 
 _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE3mapEv.exit.i: ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -3293,7 +3288,7 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %44
   br label %.loopexit, !llvm.loop !233
 
-.loopexit58:                                      ; preds = %12, %.critedge.i
+.loopexit57:                                      ; preds = %12, %.critedge.i
   %.sroa.09.0.i = phi ptr [ %17, %.critedge.i ], [ %13, %12 ]
   store ptr %.sroa.09.0.i, ptr %6, align 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3316,8 +3311,8 @@ _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equ
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %168
 
-_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratoreqERKSI_.exit.thread: ; preds = %.loopexit58, %.thread
-  %56 = phi ptr [ %55, %.thread ], [ %.sroa.09.0.i, %.loopexit58 ]
+_ZNK4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratoreqERKSI_.exit.thread: ; preds = %.loopexit57, %.thread
+  %56 = phi ptr [ %55, %.thread ], [ %.sroa.09.0.i, %.loopexit57 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !236
   br i1 %2, label %59, label %61
@@ -3413,9 +3408,8 @@ _ZNSt6vectorIPN3net18ReliableQuicStreamESaIS2_EE9push_backERKS2_.exit: ; preds =
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %104 = load i32, ptr %103, align 8, !tbaa !211
   %105 = xor i32 %104, %102
-  %106 = and i32 %105, 1
-  %.not.i13 = icmp eq i32 %106, 0
-  br i1 %.not.i13, label %_ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit, label %107
+  %106 = trunc i32 %105 to i1
+  br i1 %106, label %107, label %_ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit
 
 107:                                              ; preds = %97
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -3433,9 +3427,8 @@ _ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit: ; preds =
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %114 = load i32, ptr %113, align 8, !tbaa !211
   %115 = xor i32 %114, %1
-  %116 = and i32 %115, 1
-  %.not = icmp eq i32 %116, 0
-  br i1 %.not, label %121, label %117
+  %116 = trunc i32 %115 to i1
+  br i1 %116, label %117, label %121
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1912
@@ -3507,7 +3500,7 @@ _ZN3net11QuicSession39InsertLocallyClosedStreamsHighestOffsetEjm.exit: ; preds =
   br label %.critedge, !llvm.loop !279
 
 _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE4findERKj.exit: ; preds = %145, %128, %140
-  br i1 %.not, label %.critedge, label %153
+  br i1 %116, label %153, label %.critedge
 
 153:                                              ; preds = %_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE4findERKj.exit
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -3529,11 +3522,11 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEE4findERKj.exit: ; preds = %1
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %166 = load i64, ptr %165, align 8
   %167 = icmp slt i32 %163, 0
-  %.0.i14 = select i1 %167, i64 %166, i64 %164
-  call void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr noundef nonnull align 8 dereferenceable(3372) %162, i64 noundef %.0.i14)
+  %.0.i13 = select i1 %167, i64 %166, i64 %164
+  call void @_ZN3net14QuicConnection17SetNumOpenStreamsEm(ptr noundef nonnull align 8 dereferenceable(3372) %162, i64 noundef %.0.i13)
   br label %168
 
-168:                                              ; preds = %.loopexit, %.loopexit58, %.critedge
+168:                                              ; preds = %.loopexit, %.loopexit57, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -4252,9 +4245,8 @@ define void @_ZN3net11QuicSession33HandleRstOnValidNonexistentStreamERKNS_18Quic
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %7 = load i32, ptr %6, align 8, !tbaa !211
   %8 = xor i32 %7, %3
-  %9 = and i32 %8, 1
-  %.not8.i = icmp eq i32 %9, 0
-  br i1 %.not8.i, label %10, label %12
+  %9 = trunc i32 %8 to i1
+  br i1 %9, label %12, label %10
 
 10:                                               ; preds = %5
   %11 = icmp ult i32 %3, %7
@@ -4347,9 +4339,8 @@ define noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %6 = load i32, ptr %5, align 8, !tbaa !211
   %7 = xor i32 %6, %1
-  %8 = and i32 %7, 1
-  %.not8 = icmp eq i32 %8, 0
-  br i1 %.not8, label %9, label %11
+  %8 = trunc i32 %7 to i1
+  br i1 %8, label %11, label %9
 
 9:                                                ; preds = %4
   %10 = icmp ult i32 %1, %6
@@ -4425,11 +4416,11 @@ define noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef no
 
 _ZN4base11ContainsKeyISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEjEEbRKT_RKT0_.exit: ; preds = %38, %.lr.ph.i.i.i.i.i, %19, %20, %24, %33, %..loopexit_crit_edge21.i.i.i.i.i
   %.sroa.06.1.i.i.i = phi ptr [ null, %..loopexit_crit_edge21.i.i.i.i.i ], [ null, %19 ], [ %34, %33 ], [ null, %24 ], [ %.sroa.06.0.i.i.i, %20 ], [ null, %.lr.ph.i.i.i.i.i ], [ %40, %38 ]
-  %.not9 = icmp eq ptr %.sroa.06.1.i.i.i, null
+  %.not8 = icmp eq ptr %.sroa.06.1.i.i.i, null
   br label %46
 
 46:                                               ; preds = %11, %_ZN4base11ContainsKeyISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEjEEbRKT_RKT0_.exit, %2, %9
-  %.0 = phi i1 [ %10, %9 ], [ false, %2 ], [ false, %11 ], [ %.not9, %_ZN4base11ContainsKeyISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEjEEbRKT_RKT0_.exit ]
+  %.0 = phi i1 [ %10, %9 ], [ false, %2 ], [ false, %11 ], [ %.not8, %_ZN4base11ContainsKeyISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEjEEbRKT_RKT0_.exit ]
   ret i1 %.0
 }
 
@@ -4592,9 +4583,8 @@ define void @_ZN3net11QuicSession14ActivateStreamEPNS_18ReliableQuicStreamE(ptr 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %10 = load i32, ptr %9, align 8, !tbaa !211
   %11 = xor i32 %10, %8
-  %12 = and i32 %11, 1
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %17, label %13
+  %12 = trunc i32 %11 to i1
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1912
@@ -4897,9 +4887,8 @@ define void @_ZN3net11QuicSession14StreamDrainingEj(ptr noundef nonnull align 8 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %39 = load i32, ptr %38, align 8, !tbaa !211
   %40 = xor i32 %39, %37
-  %41 = and i32 %40, 1
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %_ZN4base11ContainsKeyISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEjEEbRKT_RKT0_.exit, label %42
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %42, label %_ZN4base11ContainsKeyISt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEjEEbRKT_RKT0_.exit
 
 42:                                               ; preds = %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 1920

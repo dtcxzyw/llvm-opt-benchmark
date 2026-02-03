@@ -2797,9 +2797,8 @@ _ZSt9make_pairIN32pxrInternal_v0_24__pxrReserved__7VtValueERKS1_ESt4pairINSt25__
   %64 = and i64 %61, -8
   %65 = inttoptr i64 %64 to ptr
   %66 = atomicrmw add ptr %65, i32 2 monotonic, align 4
-  %67 = and i32 %66, 1
-  %.not1.i.i.i.i = icmp eq i32 %67, 0
-  br i1 %.not1.i.i.i.i, label %68, label %73
+  %67 = trunc i32 %66 to i1
+  br i1 %67, label %73, label %68
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr %60, align 8
@@ -5587,9 +5586,8 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIN32pxrInternal
   %7 = and i64 %4, -8
   %8 = inttoptr i64 %7 to ptr
   %9 = atomicrmw add ptr %8, i32 2 monotonic, align 4
-  %10 = and i32 %9, 1
-  %.not1.i.i.i.i = icmp eq i32 %10, 0
-  br i1 %.not1.i.i.i.i, label %11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i
+  %10 = trunc i32 %9 to i1
+  br i1 %10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i.i, label %11
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %.019, align 8

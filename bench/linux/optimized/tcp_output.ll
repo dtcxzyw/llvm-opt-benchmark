@@ -7257,27 +7257,27 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
 
 160:                                              ; preds = %144, %140, %137
   tail call void @__rcu_read_unlock() #19
-  %.pre31.pre = load i64, ptr %130, align 8
+  %.pre30.pre = load i64, ptr %130, align 8
   br label %161
 
 161:                                              ; preds = %160, %127
-  %.pre31 = phi i64 [ %.pre31.pre, %160 ], [ %131, %127 ]
+  %.pre30 = phi i64 [ %.pre30.pre, %160 ], [ %131, %127 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %170
 
 165:                                              ; preds = %161
-  %166 = and i64 %.pre31, -4
+  %166 = and i64 %.pre30, -4
   %167 = inttoptr i64 %166 to ptr
   %168 = getelementptr i8, ptr %167, i64 8
   %169 = load i32, ptr %168, align 4
   store i32 %169, ptr %162, align 4
-  %.pre30 = load i64, ptr %130, align 8
+  %.pre29 = load i64, ptr %130, align 8
   br label %170
 
 170:                                              ; preds = %165, %161
-  %171 = phi i64 [ %.pre30, %165 ], [ %.pre31, %161 ]
+  %171 = phi i64 [ %.pre29, %165 ], [ %.pre30, %161 ]
   %172 = and i64 %171, -4
   %173 = inttoptr i64 %172 to ptr
   %174 = getelementptr i8, ptr %173, i64 28
@@ -7306,12 +7306,12 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %191 = load i8, ptr %190, align 8
   %192 = and i8 %191, 32
   %193 = icmp eq i8 %192, 0
-  br i1 %193, label %._crit_edge32, label %194
+  br i1 %193, label %._crit_edge31, label %194
 
-._crit_edge32:                                    ; preds = %182
-  %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %0, i64 1438
-  %.pre34 = load i8, ptr %.phi.trans.insert33, align 2
-  %.pre38 = zext i8 %.pre34 to i64
+._crit_edge31:                                    ; preds = %182
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %0, i64 1438
+  %.pre33 = load i8, ptr %.phi.trans.insert32, align 2
+  %.pre37 = zext i8 %.pre33 to i64
   br label %213
 
 194:                                              ; preds = %182
@@ -7338,8 +7338,8 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   store i32 %212, ptr %162, align 4
   br label %213
 
-213:                                              ; preds = %._crit_edge32, %207, %194
-  %.pre-phi = phi i64 [ %.pre38, %._crit_edge32 ], [ %201, %207 ], [ %201, %194 ]
+213:                                              ; preds = %._crit_edge31, %207, %194
+  %.pre-phi = phi i64 [ %.pre37, %._crit_edge31 ], [ %201, %207 ], [ %201, %194 ]
   %214 = load volatile i8, ptr %2, align 2
   %215 = load i64, ptr %130, align 8
   %216 = and i64 %215, -4
@@ -7482,12 +7482,12 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %312 = trunc i64 %311 to i32
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 1444
   store i32 %312, ptr %313, align 4
-  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %.pre36 = load i32, ptr %.phi.trans.insert35, align 8
+  %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %.pre35 = load i32, ptr %.phi.trans.insert34, align 8
   br label %314
 
 314:                                              ; preds = %310, %308
-  %315 = phi i32 [ %.pre36, %310 ], [ 0, %308 ]
+  %315 = phi i32 [ %.pre35, %310 ], [ 0, %308 ]
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   store i32 %315, ptr %317, align 16
@@ -7625,11 +7625,10 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
   %406 = inttoptr i64 %405 to ptr
   %407 = getelementptr i8, ptr %406, i64 44
   %408 = load i32, ptr %407, align 4
-  %409 = and i32 %408, 1
-  %.not23 = icmp eq i32 %409, 0
+  %409 = trunc i32 %408 to i1
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   store i8 0, ptr %410, align 16
-  br i1 %.not23, label %445, label %411
+  br i1 %409, label %411, label %445
 
 411:                                              ; preds = %.critedge.thread, %.critedge
   %412 = phi ptr [ %402, %.critedge.thread ], [ %410, %.critedge ]
@@ -7764,14 +7763,14 @@ define dso_local noundef range(i32 -113, 1) i32 @tcp_connect(ptr noundef %0) #0 
 
 506:                                              ; preds = %474
   %507 = load i32, ptr %57, align 4
-  %reass.sub28 = sub i32 %507, %478
-  %508 = add i32 %reass.sub28, -20
+  %reass.sub27 = sub i32 %507, %478
+  %508 = add i32 %reass.sub27, -20
   %509 = tail call i32 @llvm.smin.i32(i32 %508, i32 %481)
   %510 = sub i32 %509, %484
   %511 = load volatile i32, ptr %487, align 4
   %512 = tail call i32 @llvm.smax.i32(i32 %510, i32 %511)
-  %reass.sub29 = sub i32 %512, %491
-  %513 = add i32 %reass.sub29, 20
+  %reass.sub28 = sub i32 %512, %491
+  %513 = add i32 %reass.sub28, 20
   %514 = tail call i32 @llvm.smin.i32(i32 %503, i32 %513)
   br label %515
 

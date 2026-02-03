@@ -4690,8 +4690,7 @@ land.lhs.true41.if.end55_crit_edge:               ; preds = %land.lhs.true41
 
 if.end55:                                         ; preds = %land.lhs.true41.if.end55_crit_edge, %land.lhs.true, %if.end33
   %12 = phi i32 [ %.pre, %land.lhs.true41.if.end55_crit_edge ], [ %6, %land.lhs.true ], [ %6, %if.end33 ]
-  %and57 = and i32 %12, 1
-  %tobool58.not = icmp ne i32 %and57, 0
+  %tobool58.not = trunc i32 %12 to i1
   %cmp61 = fcmp nsz ogt float %5, 7.500000e-01
   %or.cond = select i1 %tobool58.not, i1 %cmp61, i1 false
   %spec.select = select i1 %or.cond, i32 2, i32 0
@@ -5479,8 +5478,7 @@ land.lhs.true41.if.end55_crit_edge.i:             ; preds = %land.lhs.true41.i
 
 if.end55.i:                                       ; preds = %land.lhs.true41.if.end55_crit_edge.i, %land.lhs.true.i, %if.end33.i
   %30 = phi i32 [ %.pre.i, %land.lhs.true41.if.end55_crit_edge.i ], [ %24, %land.lhs.true.i ], [ %24, %if.end33.i ]
-  %and57.i = and i32 %30, 1
-  %tobool58.not.i = icmp ne i32 %and57.i, 0
+  %tobool58.not.i = trunc i32 %30 to i1
   %cmp61.i = fcmp nsz ogt float %23, 7.500000e-01
   %or.cond.i = select i1 %tobool58.not.i, i1 %cmp61.i, i1 false
   %spec.select.i = select i1 %or.cond.i, i32 2, i32 0
@@ -5900,8 +5898,7 @@ land.lhs.true41.if.end55_crit_edge.i:             ; preds = %land.lhs.true41.i
 
 if.end55.i:                                       ; preds = %land.lhs.true41.if.end55_crit_edge.i, %land.lhs.true.i173, %if.end33.i
   %48 = phi i32 [ %.pre.i, %land.lhs.true41.if.end55_crit_edge.i ], [ %14, %land.lhs.true.i173 ], [ %14, %if.end33.i ]
-  %and57.i = and i32 %48, 1
-  %tobool58.not.i = icmp ne i32 %and57.i, 0
+  %tobool58.not.i = trunc i32 %48 to i1
   %cmp61.i = fcmp nsz ogt float %42, 7.500000e-01
   %or.cond.i175 = select i1 %tobool58.not.i, i1 %cmp61.i, i1 false
   %spec.select.i = select i1 %or.cond.i175, i32 2, i32 0
@@ -7018,8 +7015,7 @@ land.lhs.true41.if.end55_crit_edge.i:             ; preds = %land.lhs.true41.i
 
 if.end55.i:                                       ; preds = %land.lhs.true41.if.end55_crit_edge.i, %land.lhs.true.i, %if.end33.i
   %46 = phi i32 [ %.pre.i, %land.lhs.true41.if.end55_crit_edge.i ], [ %40, %land.lhs.true.i ], [ %40, %if.end33.i ]
-  %and57.i = and i32 %46, 1
-  %tobool58.not.i = icmp ne i32 %and57.i, 0
+  %tobool58.not.i = trunc i32 %46 to i1
   %cmp61.i = fcmp nsz ogt float %39, 7.500000e-01
   %or.cond.i = select i1 %tobool58.not.i, i1 %cmp61.i, i1 false
   %spec.select.i = select i1 %or.cond.i, i32 2, i32 0
@@ -7357,8 +7353,7 @@ land.lhs.true41.if.end55_crit_edge.i:             ; preds = %land.lhs.true41.i
 
 if.end55.i:                                       ; preds = %land.lhs.true41.if.end55_crit_edge.i, %land.lhs.true.i, %if.end33.i
   %33 = phi i32 [ %.pre.i, %land.lhs.true41.if.end55_crit_edge.i ], [ %27, %land.lhs.true.i ], [ %27, %if.end33.i ]
-  %and57.i = and i32 %33, 1
-  %tobool58.not.i = icmp ne i32 %and57.i, 0
+  %tobool58.not.i = trunc i32 %33 to i1
   %cmp61.i = fcmp nsz ogt float %26, 7.500000e-01
   %or.cond.i = select i1 %tobool58.not.i, i1 %cmp61.i, i1 false
   %spec.select476 = select i1 %or.cond.i, i32 2, i32 0

@@ -1205,7 +1205,7 @@ define range(i32 0, 2) i32 @Fraig_ManCheckClauseUsingSimInfo(ptr noundef readonl
   br i1 %.not79, label %42, label %.loopexit
 
 48:                                               ; preds = %3
-  %49 = icmp ne i32 %11, 0
+  %49 = trunc i32 %10 to i1
   %or.cond3 = select i1 %49, i1 %21, i1 false
   br i1 %or.cond3, label %.preheader87, label %80
 

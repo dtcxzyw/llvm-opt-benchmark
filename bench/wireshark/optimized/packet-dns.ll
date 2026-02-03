@@ -5605,191 +5605,190 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
 
 551:                                              ; preds = %proto_item_set_hidden.exit, %proto_item_set_generated.exit461
   %552 = load i8, ptr %83, align 4
-  %553 = and i8 %552, 1
-  %.not445 = icmp ne i8 %553, 0
-  %554 = or i1 %5, %.not445
-  %or.cond451 = or i1 %4, %554
-  br i1 %or.cond451, label %639, label %555
+  %.not445 = trunc i8 %552 to i1
+  %553 = or i1 %5, %.not445
+  %or.cond451 = or i1 %4, %553
+  br i1 %or.cond451, label %638, label %554
 
-555:                                              ; preds = %551
-  %556 = load ptr, ptr %295, align 8
-  %557 = call noalias dereferenceable_or_null(864) ptr @wmem_alloc0(ptr noundef %556, i64 noundef 864) #12
-  %558 = getelementptr inbounds nuw i8, ptr %557, i64 12
-  store i32 %41, ptr %558, align 4
-  %559 = getelementptr inbounds nuw i8, ptr %557, i64 16
-  store i32 %37, ptr %559, align 8
-  %560 = lshr i32 %32, 15
-  store i32 %560, ptr %557, align 8
-  br i1 %240, label %571, label %561
+554:                                              ; preds = %551
+  %555 = load ptr, ptr %295, align 8
+  %556 = call noalias dereferenceable_or_null(864) ptr @wmem_alloc0(ptr noundef %555, i64 noundef 864) #12
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 12
+  store i32 %41, ptr %557, align 4
+  %558 = getelementptr inbounds nuw i8, ptr %556, i64 16
+  store i32 %37, ptr %558, align 8
+  %559 = lshr i32 %32, 15
+  store i32 %559, ptr %556, align 8
+  br i1 %240, label %570, label %560
 
-561:                                              ; preds = %555
-  %562 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %238, i32 noundef 0, i32 noundef range(i32 0, 3) %25, ptr noundef nonnull %17, ptr noundef nonnull %18)
-  %563 = add i32 %562, %238
-  %564 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %563)
-  %565 = add i32 %563, 2
-  %566 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %565)
-  %567 = zext i16 %564 to i32
-  %568 = getelementptr inbounds nuw i8, ptr %557, i64 4
-  store i32 %567, ptr %568, align 4
-  %569 = zext i16 %566 to i32
-  %570 = getelementptr inbounds nuw i8, ptr %557, i64 8
-  store i32 %569, ptr %570, align 8
-  br label %571
+560:                                              ; preds = %554
+  %561 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %238, i32 noundef 0, i32 noundef range(i32 0, 3) %25, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %562 = add i32 %561, %238
+  %563 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %562)
+  %564 = add i32 %562, 2
+  %565 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %564)
+  %566 = zext i16 %563 to i32
+  %567 = getelementptr inbounds nuw i8, ptr %556, i64 4
+  store i32 %566, ptr %567, align 4
+  %568 = zext i16 %565 to i32
+  %569 = getelementptr inbounds nuw i8, ptr %556, i64 8
+  store i32 %568, ptr %569, align 8
+  br label %570
 
-571:                                              ; preds = %561, %555
-  %572 = call i32 @tvb_captured_length(ptr noundef %0)
-  %573 = getelementptr inbounds nuw i8, ptr %557, i64 20
-  store i32 %572, ptr %573, align 4
-  %574 = getelementptr inbounds nuw i8, ptr %557, i64 40
-  store i32 %221, ptr %574, align 8
-  %575 = getelementptr inbounds nuw i8, ptr %557, i64 44
-  store i32 %226, ptr %575, align 4
-  %576 = getelementptr inbounds nuw i8, ptr %557, i64 48
-  store i32 %231, ptr %576, align 8
-  %577 = getelementptr inbounds nuw i8, ptr %557, i64 52
-  store i32 %236, ptr %577, align 4
-  br i1 %240, label %611, label %578
+570:                                              ; preds = %560, %554
+  %571 = call i32 @tvb_captured_length(ptr noundef %0)
+  %572 = getelementptr inbounds nuw i8, ptr %556, i64 20
+  store i32 %571, ptr %572, align 4
+  %573 = getelementptr inbounds nuw i8, ptr %556, i64 40
+  store i32 %221, ptr %573, align 8
+  %574 = getelementptr inbounds nuw i8, ptr %556, i64 44
+  store i32 %226, ptr %574, align 4
+  %575 = getelementptr inbounds nuw i8, ptr %556, i64 48
+  store i32 %231, ptr %575, align 8
+  %576 = getelementptr inbounds nuw i8, ptr %556, i64 52
+  store i32 %236, ptr %576, align 4
+  br i1 %240, label %610, label %577
 
-578:                                              ; preds = %571
-  %579 = load i32, ptr %18, align 4
-  %580 = getelementptr inbounds nuw i8, ptr %557, i64 24
-  store i32 %579, ptr %580, align 8
-  %581 = load ptr, ptr %17, align 8
-  %582 = icmp sgt i32 %579, 1
-  br i1 %582, label %.preheader.preheader.i, label %qname_host_and_domain.exit.critedge
+577:                                              ; preds = %570
+  %578 = load i32, ptr %18, align 4
+  %579 = getelementptr inbounds nuw i8, ptr %556, i64 24
+  store i32 %578, ptr %579, align 8
+  %580 = load ptr, ptr %17, align 8
+  %581 = icmp sgt i32 %578, 1
+  br i1 %581, label %.preheader.preheader.i, label %qname_host_and_domain.exit.critedge
 
-.preheader.preheader.i:                           ; preds = %578
-  %wide.trip.count.i = zext nneg i32 %579 to i64
+.preheader.preheader.i:                           ; preds = %577
+  %wide.trip.count.i = zext nneg i32 %578 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.preheader.i ]
   %.110.i = phi i32 [ 0, %.preheader.preheader.i ], [ %spec.select.i, %.preheader.i ]
-  %583 = getelementptr i8, ptr %581, i64 %indvars.iv.i
-  %584 = load i8, ptr %583, align 1
-  %585 = icmp eq i8 %584, 46
-  %586 = zext i1 %585 to i32
-  %spec.select.i = add i32 %.110.i, %586
+  %582 = getelementptr i8, ptr %580, i64 %indvars.iv.i
+  %583 = load i8, ptr %582, align 1
+  %584 = icmp eq i8 %583, 46
+  %585 = zext i1 %584 to i32
+  %spec.select.i = add i32 %.110.i, %585
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %qname_labels_count.exit, label %.preheader.i, !llvm.loop !16
 
 qname_labels_count.exit:                          ; preds = %.preheader.i
-  %587 = add i32 %spec.select.i, 1
-  %588 = getelementptr inbounds nuw i8, ptr %557, i64 28
-  store i32 %587, ptr %588, align 4
-  %589 = load ptr, ptr %295, align 8
-  %590 = call ptr @format_text(ptr noundef %589, ptr noundef %581, i64 noundef %wide.trip.count.i)
-  %591 = getelementptr inbounds nuw i8, ptr %557, i64 32
-  store ptr %590, ptr %591, align 8
-  %592 = getelementptr inbounds nuw i8, ptr %557, i64 344
-  %593 = getelementptr inbounds nuw i8, ptr %557, i64 600
+  %586 = add i32 %spec.select.i, 1
+  %587 = getelementptr inbounds nuw i8, ptr %556, i64 28
+  store i32 %586, ptr %587, align 4
+  %588 = load ptr, ptr %295, align 8
+  %589 = call ptr @format_text(ptr noundef %588, ptr noundef %580, i64 noundef %wide.trip.count.i)
+  %590 = getelementptr inbounds nuw i8, ptr %556, i64 32
+  store ptr %589, ptr %590, align 8
+  %591 = getelementptr inbounds nuw i8, ptr %556, i64 344
+  %592 = getelementptr inbounds nuw i8, ptr %556, i64 600
   br label %.preheader.i487
 
-.preheader.i487:                                  ; preds = %602, %qname_labels_count.exit
-  %indvars.iv.i488 = phi i64 [ 0, %qname_labels_count.exit ], [ %indvars.iv.next.i489, %602 ]
-  %594 = getelementptr i8, ptr %590, i64 %indvars.iv.i488
-  %595 = load i8, ptr %594, align 1
-  %596 = icmp eq i8 %595, 46
-  br i1 %596, label %597, label %602
+.preheader.i487:                                  ; preds = %601, %qname_labels_count.exit
+  %indvars.iv.i488 = phi i64 [ 0, %qname_labels_count.exit ], [ %indvars.iv.next.i489, %601 ]
+  %593 = getelementptr i8, ptr %589, i64 %indvars.iv.i488
+  %594 = load i8, ptr %593, align 1
+  %595 = icmp eq i8 %594, 46
+  br i1 %595, label %596, label %601
 
-597:                                              ; preds = %.preheader.i487
-  %598 = getelementptr i8, ptr %590, i64 %indvars.iv.i488
-  %599 = getelementptr i8, ptr %592, i64 %indvars.iv.i488
-  store i8 0, ptr %599, align 1
-  %600 = getelementptr i8, ptr %598, i64 1
-  %601 = call i64 @ws_label_strcpy(ptr noundef nonnull %593, i64 noundef 256, i64 noundef 0, ptr noundef %600, i32 noundef 0)
+596:                                              ; preds = %.preheader.i487
+  %597 = getelementptr i8, ptr %589, i64 %indvars.iv.i488
+  %598 = getelementptr i8, ptr %591, i64 %indvars.iv.i488
+  store i8 0, ptr %598, align 1
+  %599 = getelementptr i8, ptr %597, i64 1
+  %600 = call i64 @ws_label_strcpy(ptr noundef nonnull %592, i64 noundef 256, i64 noundef 0, ptr noundef %599, i32 noundef 0)
   br label %qname_host_and_domain.exit
 
-602:                                              ; preds = %.preheader.i487
-  %603 = getelementptr i8, ptr %592, i64 %indvars.iv.i488
-  store i8 %595, ptr %603, align 1
+601:                                              ; preds = %.preheader.i487
+  %602 = getelementptr i8, ptr %591, i64 %indvars.iv.i488
+  store i8 %594, ptr %602, align 1
   %indvars.iv.next.i489 = add nuw nsw i64 %indvars.iv.i488, 1
   %exitcond.not.i490 = icmp eq i64 %indvars.iv.next.i489, %wide.trip.count.i
   br i1 %exitcond.not.i490, label %qname_host_and_domain.exit, label %.preheader.i487, !llvm.loop !19
 
-qname_host_and_domain.exit.critedge:              ; preds = %578
-  %604 = getelementptr inbounds nuw i8, ptr %557, i64 28
-  store i32 0, ptr %604, align 4
-  %605 = load ptr, ptr %295, align 8
-  %606 = sext i32 %579 to i64
-  %607 = call ptr @format_text(ptr noundef %605, ptr noundef %581, i64 noundef %606)
-  %608 = getelementptr inbounds nuw i8, ptr %557, i64 32
-  store ptr %607, ptr %608, align 8
+qname_host_and_domain.exit.critedge:              ; preds = %577
+  %603 = getelementptr inbounds nuw i8, ptr %556, i64 28
+  store i32 0, ptr %603, align 4
+  %604 = load ptr, ptr %295, align 8
+  %605 = sext i32 %578 to i64
+  %606 = call ptr @format_text(ptr noundef %604, ptr noundef %580, i64 noundef %605)
+  %607 = getelementptr inbounds nuw i8, ptr %556, i64 32
+  store ptr %606, ptr %607, align 8
   br label %qname_host_and_domain.exit
 
-qname_host_and_domain.exit:                       ; preds = %602, %qname_host_and_domain.exit.critedge, %597
-  br i1 %.0399503, label %609, label %611
+qname_host_and_domain.exit:                       ; preds = %601, %qname_host_and_domain.exit.critedge, %596
+  br i1 %.0399503, label %608, label %610
 
-609:                                              ; preds = %qname_host_and_domain.exit
-  %610 = getelementptr inbounds nuw i8, ptr %557, i64 57
-  store i8 1, ptr %610, align 1
-  br label %611
+608:                                              ; preds = %qname_host_and_domain.exit
+  %609 = getelementptr inbounds nuw i8, ptr %556, i64 57
+  store i8 1, ptr %609, align 1
+  br label %610
 
-611:                                              ; preds = %qname_host_and_domain.exit, %609, %571
-  br i1 %39, label %612, label %622
+610:                                              ; preds = %qname_host_and_domain.exit, %608, %570
+  br i1 %39, label %611, label %621
 
-612:                                              ; preds = %611
-  %613 = load i32, ptr %.2405, align 8
-  %614 = icmp eq i32 %613, 0
-  br i1 %614, label %615, label %617
+611:                                              ; preds = %610
+  %612 = load i32, ptr %.2405, align 8
+  %613 = icmp eq i32 %612, 0
+  br i1 %613, label %614, label %616
 
-615:                                              ; preds = %612
-  %616 = getelementptr inbounds nuw i8, ptr %557, i64 56
-  store i8 1, ptr %616, align 8
-  br label %622
+614:                                              ; preds = %611
+  %615 = getelementptr inbounds nuw i8, ptr %556, i64 56
+  store i8 1, ptr %615, align 8
+  br label %621
 
-617:                                              ; preds = %612
-  br i1 %.0399503, label %618, label %620
+616:                                              ; preds = %611
+  br i1 %.0399503, label %617, label %619
 
-618:                                              ; preds = %617
-  %619 = getelementptr inbounds nuw i8, ptr %557, i64 57
-  store i8 1, ptr %619, align 1
-  br label %622
+617:                                              ; preds = %616
+  %618 = getelementptr inbounds nuw i8, ptr %556, i64 57
+  store i8 1, ptr %618, align 1
+  br label %621
 
-620:                                              ; preds = %617
-  %621 = getelementptr inbounds nuw i8, ptr %557, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %621, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
-  br label %622
+619:                                              ; preds = %616
+  %620 = getelementptr inbounds nuw i8, ptr %556, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %620, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
+  br label %621
 
-622:                                              ; preds = %615, %620, %618, %611
-  %623 = getelementptr inbounds nuw i8, ptr %557, i64 80
-  store ptr %297, ptr %623, align 8
-  %624 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %625 = load i32, ptr %624, align 8
-  switch i32 %625, label %634 [
-    i32 2, label %626
-    i32 3, label %630
+621:                                              ; preds = %614, %619, %617, %610
+  %622 = getelementptr inbounds nuw i8, ptr %556, i64 80
+  store ptr %297, ptr %622, align 8
+  %623 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %624 = load i32, ptr %623, align 8
+  switch i32 %624, label %633 [
+    i32 2, label %625
+    i32 3, label %629
   ]
 
-626:                                              ; preds = %622
-  %627 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds nuw i8, ptr %557, i64 88
-  call void @ip_addr_to_str_buf(ptr noundef %628, ptr noundef nonnull %629, i32 noundef 256)
-  br label %637
+625:                                              ; preds = %621
+  %626 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %627 = load ptr, ptr %626, align 8
+  %628 = getelementptr inbounds nuw i8, ptr %556, i64 88
+  call void @ip_addr_to_str_buf(ptr noundef %627, ptr noundef nonnull %628, i32 noundef 256)
+  br label %636
 
-630:                                              ; preds = %622
-  %631 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %632 = load ptr, ptr %631, align 8
-  %633 = getelementptr inbounds nuw i8, ptr %557, i64 88
-  call void @ip6_to_str_buf(ptr noundef %632, ptr noundef nonnull %633, i64 noundef 256)
-  br label %637
+629:                                              ; preds = %621
+  %630 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %631 = load ptr, ptr %630, align 8
+  %632 = getelementptr inbounds nuw i8, ptr %556, i64 88
+  call void @ip6_to_str_buf(ptr noundef %631, ptr noundef nonnull %632, i64 noundef 256)
+  br label %636
 
-634:                                              ; preds = %622
-  %635 = getelementptr inbounds nuw i8, ptr %557, i64 88
-  %636 = call i64 @ws_label_strcpy(ptr noundef nonnull %635, i64 noundef 256, i64 noundef 0, ptr noundef nonnull @.str.1198, i32 noundef 0)
-  br label %637
+633:                                              ; preds = %621
+  %634 = getelementptr inbounds nuw i8, ptr %556, i64 88
+  %635 = call i64 @ws_label_strcpy(ptr noundef nonnull %634, i64 noundef 256, i64 noundef 0, ptr noundef nonnull @.str.1198, i32 noundef 0)
+  br label %636
 
-637:                                              ; preds = %630, %634, %626
+636:                                              ; preds = %629, %633, %625
   store i32 0, ptr @dns_qr_r_ra_ttl_index, align 4
   store i32 0, ptr @dns_qr_r_ru_ttl_index, align 4
   store i32 0, ptr @dns_qr_r_rd_ttl_index, align 4
-  %638 = load i32, ptr @dns_tap, align 4
-  call void @tap_queue_packet(i32 noundef %638, ptr noundef %1, ptr noundef %557)
-  br label %639
+  %637 = load i32, ptr @dns_tap, align 4
+  call void @tap_queue_packet(i32 noundef %637, ptr noundef %1, ptr noundef %556)
+  br label %638
 
-639:                                              ; preds = %637, %551
+638:                                              ; preds = %636, %551
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)

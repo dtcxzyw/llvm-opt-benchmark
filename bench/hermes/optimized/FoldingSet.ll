@@ -925,8 +925,8 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.not31 = icmp eq i32 %1, 0
-  br i1 %cmp.not31, label %_ZN4llvh16FoldingSetNodeIDD2Ev.exit.sink.split, label %for.body.lr.ph
+  %cmp.not30 = icmp eq i32 %1, 0
+  br i1 %cmp.not30, label %_ZN4llvh16FoldingSetNodeIDD2Ev.exit.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZL15AllocateBucketsj.exit
   %add.ptr.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %TempID.i, i64 16
@@ -941,19 +941,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
-  %and.i28 = and i64 %4, 1
-  %tobool.not.i29 = icmp ne i64 %and.i28, 0
-  %or.cond = or i1 %tobool.not, %tobool.not.i29
+  %tobool.not.i28 = trunc i64 %4 to i1
+  %or.cond = or i1 %tobool.not, %tobool.not.i28
   br i1 %or.cond, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %for.body, %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit
-  %Probe.030 = phi ptr [ %5, %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit ], [ %3, %for.body ]
-  %5 = load ptr, ptr %Probe.030, align 8
-  store ptr null, ptr %Probe.030, align 8
+  %Probe.029 = phi ptr [ %5, %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit ], [ %3, %for.body ]
+  %5 = load ptr, ptr %Probe.029, align 8
+  store ptr null, ptr %Probe.029, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
-  %call7 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.030, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
+  %call7 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.029, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
   %7 = load ptr, ptr %Buckets, align 8
   %8 = load i32, ptr %NumBuckets, align 8
   %sub.i = add i32 %8, -1
@@ -975,7 +974,7 @@ if.then.i:                                        ; preds = %while.body
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.030, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
+  %call2.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.029, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
   %11 = load ptr, ptr %Buckets, align 8
   %12 = load i32, ptr %NumBuckets, align 8
   %sub.i17 = add i32 %12, -1
@@ -1001,13 +1000,12 @@ _ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit: ; preds = %if.then.i.i.
   %or.i = or i64 %16, 1
   %17 = inttoptr i64 %or.i to ptr
   %Next.0.i = select i1 %tobool.not.i12, ptr %17, ptr %15
-  store ptr %Next.0.i, ptr %Probe.030, align 8
-  store ptr %Probe.030, ptr %InsertPos.addr.0.i, align 8
+  store ptr %Next.0.i, ptr %Probe.029, align 8
+  store ptr %Probe.029, ptr %InsertPos.addr.0.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %TempID.i)
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %18 = ptrtoint ptr %5 to i64
-  %and.i = and i64 %18, 1
-  %tobool.not.i = icmp ne i64 %and.i, 0
+  %tobool.not.i = trunc i64 %18 to i1
   %tobool5.not27 = icmp eq ptr %5, null
   %tobool5.not = or i1 %tobool5.not27, %tobool.not.i
   br i1 %tobool5.not, label %for.inc, label %while.body, !llvm.loop !6
@@ -1149,26 +1147,24 @@ entry:
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %5 = ptrtoint ptr %4 to i64
-  %and.i811 = and i64 %5, 1
-  %tobool.not.i12 = icmp ne i64 %and.i811, 0
-  %tobool.not913 = icmp eq ptr %4, null
-  %tobool.not14 = or i1 %tobool.not913, %tobool.not.i12
-  br i1 %tobool.not14, label %while.end, label %while.body
+  %tobool.not.i11 = trunc i64 %5 to i1
+  %tobool.not912 = icmp eq ptr %4, null
+  %tobool.not13 = or i1 %tobool.not912, %tobool.not.i11
+  br i1 %tobool.not13, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
-  %Probe.015 = phi ptr [ %7, %if.end ], [ %4, %entry ]
+  %Probe.014 = phi ptr [ %7, %if.end ], [ %4, %entry ]
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
-  %call4 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.015, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
+  %call4 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.014, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
   br i1 %call4, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %while.body
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %Probe.015, align 8
+  %7 = load ptr, ptr %Probe.014, align 8
   %8 = ptrtoint ptr %7 to i64
-  %and.i8 = and i64 %8, 1
-  %tobool.not.i = icmp ne i64 %and.i8, 0
+  %tobool.not.i = trunc i64 %8 to i1
   %tobool.not9 = icmp eq ptr %7, null
   %tobool.not = or i1 %tobool.not9, %tobool.not.i
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
@@ -1178,7 +1174,7 @@ while.end:                                        ; preds = %if.end, %entry
   br label %cleanup
 
 cleanup:                                          ; preds = %while.body, %while.end
-  %retval.0 = phi ptr [ null, %while.end ], [ %Probe.015, %while.body ]
+  %retval.0 = phi ptr [ null, %while.end ], [ %Probe.014, %while.body ]
   %9 = load ptr, ptr %TempID, align 8
   %cmp.i.i.i.i = icmp eq ptr %9, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh16FoldingSetNodeIDD2Ev.exit, label %if.then.i.i.i
@@ -1209,8 +1205,7 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %while.body.backedge, %if.end
   %Ptr.0 = phi ptr [ %0, %if.end ], [ %Ptr.0.be, %while.body.backedge ]
   %2 = ptrtoint ptr %Ptr.0 to i64
-  %and.i = and i64 %2, 1
-  %tobool.not.i = icmp ne i64 %and.i, 0
+  %tobool.not.i = trunc i64 %2 to i1
   %tobool3.not14 = icmp eq ptr %Ptr.0, null
   %tobool3.not = or i1 %tobool3.not14, %tobool.not.i
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -1279,37 +1274,35 @@ entry:
   %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID.i, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %6 = ptrtoint ptr %5 to i64
-  %and.i811.i = and i64 %6, 1
-  %tobool.not.i12.i = icmp ne i64 %and.i811.i, 0
-  %tobool.not913.i = icmp eq ptr %5, null
-  %tobool.not14.i = or i1 %tobool.not913.i, %tobool.not.i12.i
-  br i1 %tobool.not14.i, label %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, label %while.body.i
+  %tobool.not.i11.i = trunc i64 %6 to i1
+  %tobool.not912.i = icmp eq ptr %5, null
+  %tobool.not13.i = or i1 %tobool.not912.i, %tobool.not.i11.i
+  br i1 %tobool.not13.i, label %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, label %while.body.i
 
 _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread: ; preds = %entry
   call void @llvm.lifetime.end.p0(ptr nonnull %TempID.i)
   br label %if.end
 
 while.body.i:                                     ; preds = %entry, %if.end.i
-  %Probe.015.i = phi ptr [ %8, %if.end.i ], [ %5, %entry ]
+  %Probe.014.i = phi ptr [ %8, %if.end.i ], [ %5, %entry ]
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
-  %call4.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.015.i, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
+  %call4.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.014.i, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
   br i1 %call4.i, label %cleanup.i, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %8 = load ptr, ptr %Probe.015.i, align 8
+  %8 = load ptr, ptr %Probe.014.i, align 8
   %9 = ptrtoint ptr %8 to i64
-  %and.i8.i = and i64 %9, 1
-  %tobool.not.i.i = icmp ne i64 %and.i8.i, 0
+  %tobool.not.i.i = trunc i64 %9 to i1
   %tobool.not9.i = icmp eq ptr %8, null
   %tobool.not.i = or i1 %tobool.not9.i, %tobool.not.i.i
   br i1 %tobool.not.i, label %cleanup.i, label %while.body.i, !llvm.loop !8
 
 cleanup.i:                                        ; preds = %if.end.i, %while.body.i
   %IP.0.ph = phi ptr [ null, %while.body.i ], [ %add.ptr.i.i, %if.end.i ]
-  %retval.0.i.ph = phi ptr [ %Probe.015.i, %while.body.i ], [ null, %if.end.i ]
+  %retval.0.i.ph = phi ptr [ %Probe.014.i, %while.body.i ], [ null, %if.end.i ]
   %.pre = load ptr, ptr %TempID.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %.pre, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit, label %if.then.i.i.i.i
@@ -1405,8 +1398,7 @@ while.cond:                                       ; preds = %while.body, %entry
   ]
 
 lor.rhs:                                          ; preds = %while.cond
-  %and.i = and i64 %magicptr, 1
-  %tobool.not.i = icmp ne i64 %and.i, 0
+  %tobool.not.i = trunc i64 %magicptr to i1
   %tobool2.not5 = icmp eq ptr %0, null
   %tobool2.not = or i1 %tobool2.not5, %tobool.not.i
   br i1 %tobool2.not, label %while.body, label %while.end
@@ -1426,8 +1418,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = ptrtoint ptr %1 to i64
-  %and.i = and i64 %2, 1
-  %tobool.not.i = icmp ne i64 %and.i, 0
+  %tobool.not.i = trunc i64 %2 to i1
   %tobool.not11 = icmp eq ptr %1, null
   %tobool.not = or i1 %tobool.not11, %tobool.not.i
   br i1 %tobool.not, label %if.else, label %if.end
@@ -1448,8 +1439,7 @@ do.body:                                          ; preds = %do.body.backedge, %
   ]
 
 lor.rhs:                                          ; preds = %do.body
-  %and.i8 = and i64 %magicptr, 1
-  %tobool.not.i9 = icmp ne i64 %and.i8, 0
+  %tobool.not.i9 = trunc i64 %magicptr to i1
   %tobool7.not12 = icmp eq ptr %4, null
   %tobool7.not = or i1 %tobool7.not12, %tobool.not.i9
   br i1 %tobool7.not, label %do.body.backedge, label %if.end
@@ -1469,9 +1459,8 @@ entry:
   %0 = load ptr, ptr %Bucket, align 8
   %tobool.not = icmp eq ptr %0, null
   %1 = ptrtoint ptr %0 to i64
-  %and.i = and i64 %1, 1
-  %tobool.not.i.not = icmp ne i64 %and.i, 0
-  %2 = select i1 %tobool.not, i1 true, i1 %tobool.not.i.not
+  %tobool.not.i = trunc i64 %1 to i1
+  %2 = or i1 %tobool.not, %tobool.not.i
   %cond = select i1 %2, ptr %Bucket, ptr %0
   store ptr %cond, ptr %this, align 8
   ret void

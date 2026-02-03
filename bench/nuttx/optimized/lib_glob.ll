@@ -498,9 +498,9 @@ define internal fastcc range(i32 0, 4) i32 @do_glob(ptr noundef nonnull %0, i64 
   %110 = ptrtoint ptr %104 to i64
   %111 = ptrtoint ptr %.0143 to i64
   %112 = sub i64 %110, %111
+  %.not189 = trunc i64 %112 to i1
   %113 = and i64 %112, 1
-  %.not189 = icmp ne i64 %113, 0
-  %spec.select212.idx = sext i1 %.not189 to i64
+  %spec.select212.idx = sub nsw i64 0, %113
   %spec.select212 = getelementptr inbounds i8, ptr %104, i64 %spec.select212.idx
   %spec.select213 = select i1 %.not189, i8 92, i8 47
   br label %114

@@ -3098,10 +3098,10 @@ _ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit: ; preds = %_ZN14arro
   %68 = and i64 %.0.i433, 1099511627775
   %69 = icmp eq i64 %68, 549755813888
   %70 = icmp samesign ugt i64 %68, 549755813888
+  %71 = trunc i64 %67 to i1
   %or.cond.i.i8 = select i1 %69, i1 %.031, i1 false
   %or.cond6.i.i9 = select i1 %70, i1 true, i1 %or.cond.i.i8
-  %71 = and i64 %.0.i433, 2199023255551
-  %72 = icmp eq i64 %71, 1649267441664
+  %72 = and i1 %69, %71
   %spec.select.i.i10 = or i1 %72, %or.cond6.i.i9
   %73 = zext i1 %spec.select.i.i10 to i64
   %74 = add nuw nsw i64 %67, %73
@@ -3367,47 +3367,41 @@ _ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %94, %59, %89, %_Z
 
 _ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit: ; preds = %.preheader.i, %113, %120, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, %110
   %121 = phi i1 [ false, %110 ], [ true, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %.preheader.i ], [ false, %120 ], [ true, %113 ]
-  %.not.i.i52 = phi i1 [ false, %110 ], [ false, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ %.not.i49, %120 ], [ %.not.i49, %113 ], [ %.not.i49, %.preheader.i ]
-  br i1 %.not.i, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit
+  %.not.i.i52 = phi i64 [ 0, %110 ], [ 0, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ 1, %.preheader.i ], [ 0, %120 ], [ 0, %113 ]
+  br i1 %.not.i, label %130, label %122
 
-_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit: ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
-  %122 = sub i32 1, %2
-  %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %122, i32 64)
-  %123 = icmp sgt i32 %122, 63
-  %124 = zext nneg i32 %.sroa.speculated88 to i64
-  %125 = lshr i64 %1, %124
-  %storemerge.i.i51 = select i1 %123, i64 0, i64 %125
-  %126 = and i64 %storemerge.i.i51, 1
-  %127 = icmp ne i64 %126, 0
-  %..i.i = and i1 %127, %.not.i.i52
-  %narrow = select i1 %121, i1 true, i1 %..i.i
-  %.0.i.i53 = zext i1 %narrow to i64
-  %128 = add i64 %storemerge.i.i51, %.0.i.i53
-  %129 = icmp ugt i64 %128, 8388607
-  %130 = zext i1 %129 to i32
+122:                                              ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
+  %123 = sub i32 1, %2
+  %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %123, i32 64)
+  %124 = icmp sgt i32 %123, 63
+  %125 = zext nneg i32 %.sroa.speculated88 to i64
+  %126 = lshr i64 %1, %125
+  %storemerge.i.i51 = select i1 %124, i64 0, i64 %126
+  %..i.i = and i64 %.not.i.i52, %storemerge.i.i51
+  %narrow.i = select i1 %121, i64 1, i64 %..i.i
+  %127 = add i64 %narrow.i, %storemerge.i.i51
+  %128 = icmp ugt i64 %127, 8388607
+  %129 = zext i1 %128 to i32
   br label %_ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
 
-_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58: ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
+130:                                              ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
   %131 = lshr i64 %1, 40
-  %132 = and i64 %1, 1099511627776
-  %133 = icmp ne i64 %132, 0
-  %..i.i56 = and i1 %133, %.not.i.i52
-  %narrow102 = select i1 %121, i1 true, i1 %..i.i56
-  %.0.i.i57 = zext i1 %narrow102 to i64
-  %134 = add nuw nsw i64 %131, %.0.i.i57
-  %.not14.i28 = icmp samesign ult i64 %134, 16777216
+  %..i.i56 = and i64 %.not.i.i52, %131
+  %narrow.i57 = select i1 %121, i64 1, i64 %..i.i56
+  %132 = add nuw nsw i64 %narrow.i57, %131
+  %.not14.i28 = icmp samesign ult i64 %132, 16777216
   %spec.select97.v = select i1 %.not14.i28, i32 40, i32 41
   %spec.select97 = add nsw i32 %spec.select97.v, %2
-  %135 = and i64 %134, 25165823
+  %133 = and i64 %132, 25165823
   %.not15.i29 = icmp samesign ult i32 %spec.select97, 255
-  %136 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 255)
-  %137 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
-  %spec.select100 = select i1 %137, i64 %135, i64 0
+  %134 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 255)
+  %135 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
+  %spec.select100 = select i1 %135, i64 %133, i64 0
   br label %_ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
 
-_ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit: ; preds = %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58, %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit
-  %.sroa.12.1 = phi i32 [ %136, %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58 ], [ %130, %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit ]
-  %.sroa.070.1 = phi i64 [ %spec.select100, %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58 ], [ %128, %_ZZN14arrow_vendored10fast_float19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit ]
+_ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit: ; preds = %130, %122
+  %.sroa.12.1 = phi i32 [ %134, %130 ], [ %129, %122 ]
+  %.sroa.070.1 = phi i64 [ %spec.select100, %130 ], [ %127, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.070.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12.1, 1
@@ -4156,10 +4150,10 @@ _ZNK14arrow_vendored10fast_float6bigint10bit_lengthEv.exit: ; preds = %_ZN14arro
   %68 = and i64 %.0.i433, 2047
   %69 = icmp eq i64 %68, 1024
   %70 = icmp samesign ugt i64 %68, 1024
+  %71 = trunc i64 %67 to i1
   %or.cond.i.i8 = select i1 %69, i1 %.031, i1 false
   %or.cond6.i.i9 = select i1 %70, i1 true, i1 %or.cond.i.i8
-  %71 = and i64 %.0.i433, 4095
-  %72 = icmp eq i64 %71, 3072
+  %72 = and i1 %69, %71
   %spec.select.i.i10 = or i1 %72, %or.cond6.i.i9
   %73 = zext i1 %spec.select.i.i10 to i64
   %74 = add nuw nsw i64 %67, %73
@@ -4426,47 +4420,41 @@ _ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit: ; preds = %95, %60, %90, %_Z
 
 _ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit: ; preds = %.preheader.i, %114, %121, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, %111
   %122 = phi i1 [ false, %111 ], [ true, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ false, %.preheader.i ], [ false, %121 ], [ true, %114 ]
-  %.not.i.i52 = phi i1 [ false, %111 ], [ false, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ %.not.i49, %121 ], [ %.not.i49, %114 ], [ %.not.i49, %.preheader.i ]
-  br i1 %.not.i, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58, label %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit
+  %.not.i.i52 = phi i64 [ 0, %111 ], [ 0, %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit ], [ 1, %.preheader.i ], [ 0, %121 ], [ 0, %114 ]
+  br i1 %.not.i, label %131, label %123
 
-_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit: ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
-  %123 = sub i32 1, %2
-  %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %123, i32 64)
-  %124 = icmp sgt i32 %123, 63
-  %125 = zext nneg i32 %.sroa.speculated88 to i64
-  %126 = lshr i64 %1, %125
-  %storemerge.i.i51 = select i1 %124, i64 0, i64 %126
-  %127 = and i64 %storemerge.i.i51, 1
-  %128 = icmp ne i64 %127, 0
-  %..i.i = and i1 %128, %.not.i.i52
-  %narrow = select i1 %122, i1 true, i1 %..i.i
-  %.0.i.i53 = zext i1 %narrow to i64
-  %129 = add i64 %storemerge.i.i51, %.0.i.i53
-  %130 = icmp ugt i64 %129, 4503599627370495
-  %131 = zext i1 %130 to i32
+123:                                              ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
+  %124 = sub i32 1, %2
+  %.sroa.speculated88 = call i32 @llvm.smin.i32(i32 %124, i32 64)
+  %125 = icmp sgt i32 %124, 63
+  %126 = zext nneg i32 %.sroa.speculated88 to i64
+  %127 = lshr i64 %1, %126
+  %storemerge.i.i51 = select i1 %125, i64 0, i64 %127
+  %..i.i = and i64 %.not.i.i52, %storemerge.i.i51
+  %narrow.i = select i1 %122, i64 1, i64 %..i.i
+  %128 = add i64 %narrow.i, %storemerge.i.i51
+  %129 = icmp ugt i64 %128, 4503599627370495
+  %130 = zext i1 %129 to i32
   br label %_ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
 
-_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58: ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
+131:                                              ; preds = %_ZNK14arrow_vendored10fast_float6bigint7compareERKS1_.exit
   %132 = lshr i64 %1, 11
-  %133 = and i64 %1, 2048
-  %134 = icmp ne i64 %133, 0
-  %..i.i56 = and i1 %134, %.not.i.i52
-  %narrow102 = select i1 %122, i1 true, i1 %..i.i56
-  %.0.i.i57 = zext i1 %narrow102 to i64
-  %135 = add nuw nsw i64 %132, %.0.i.i57
-  %.not14.i28 = icmp samesign ult i64 %135, 9007199254740992
+  %..i.i56 = and i64 %.not.i.i52, %132
+  %narrow.i57 = select i1 %122, i64 1, i64 %..i.i56
+  %133 = add nuw nsw i64 %narrow.i57, %132
+  %.not14.i28 = icmp samesign ult i64 %133, 9007199254740992
   %spec.select97.v = select i1 %.not14.i28, i32 11, i32 12
   %spec.select97 = add nsw i32 %spec.select97.v, %2
-  %136 = and i64 %135, 13510798882111487
+  %134 = and i64 %133, 13510798882111487
   %.not15.i29 = icmp samesign ult i32 %spec.select97, 2047
-  %137 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 2047)
-  %138 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
-  %spec.select100 = select i1 %138, i64 %136, i64 0
+  %135 = call i32 @llvm.umin.i32(i32 %spec.select97, i32 2047)
+  %136 = select i1 %.not15.i29, i1 %.not14.i28, i1 false
+  %spec.select100 = select i1 %136, i64 %134, i64 0
   br label %_ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
 
-_ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit: ; preds = %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58, %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit
-  %.sroa.12.1 = phi i32 [ %137, %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58 ], [ %131, %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit ]
-  %.sroa.070.1 = phi i64 [ %spec.select100, %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit58 ], [ %129, %_ZZN14arrow_vendored10fast_float19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES2_iENKUlRS2_iE0_clES5_i.exit ]
+_ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit: ; preds = %131, %123
+  %.sroa.12.1 = phi i32 [ %135, %131 ], [ %130, %123 ]
+  %.sroa.070.1 = phi i64 [ %spec.select100, %131 ], [ %128, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.070.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.12.1, 1

@@ -1551,7 +1551,7 @@ define internal i32 @dissect_rdm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %111, label %8
+  br i1 %.not, label %110, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @proto_rdm, align 4
@@ -1586,164 +1586,164 @@ define internal i32 @dissect_rdm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0.i = select i1 %or.cond.i, i16 %19, i16 %..i
   %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 15)
   %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 19)
-  %35 = and i8 %34, 1
-  %.not.i = icmp eq i8 %35, 0
+  %..i.i = and i8 %34, 1
+  %.not.i = icmp eq i8 %..i.i, 0
   %hf_rdm_port_id.val.i = load i32, ptr @hf_rdm_port_id, align 4
   %hf_rdm_response_type.val.i = load i32, ptr @hf_rdm_response_type, align 4
-  %36 = select i1 %.not.i, i32 %hf_rdm_port_id.val.i, i32 %hf_rdm_response_type.val.i
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %36, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %38 = load i32, ptr @hf_rdm_message_count, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %38, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %40 = load i32, ptr @hf_rdm_sub_device, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %40, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0)
-  %42 = load i32, ptr @hf_rdm_mdb, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %42, ptr noundef %0, i32 noundef 19, i32 noundef -1, i32 noundef 0)
-  %44 = load i32, ptr @ett_rdm, align 4
-  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44)
-  %46 = load i32, ptr @hf_rdm_command_class, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 20)
-  %49 = icmp sgt i16 %48, -1
+  %35 = select i1 %.not.i, i32 %hf_rdm_port_id.val.i, i32 %hf_rdm_response_type.val.i
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %35, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %37 = load i32, ptr @hf_rdm_message_count, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %37, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %39 = load i32, ptr @hf_rdm_sub_device, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %39, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0)
+  %41 = load i32, ptr @hf_rdm_mdb, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %41, ptr noundef %0, i32 noundef 19, i32 noundef -1, i32 noundef 0)
+  %43 = load i32, ptr @ett_rdm, align 4
+  %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43)
+  %45 = load i32, ptr @hf_rdm_command_class, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 20)
+  %48 = icmp sgt i16 %47, -1
   %cond.i.i = icmp ne i16 %.0.i, 25972
-  %50 = or i1 %cond.i.i, %49
+  %49 = or i1 %cond.i.i, %48
   %hf_rdm_parameter_id.val.i.i = load i32, ptr @hf_rdm_parameter_id, align 4
   %hf_etc_parameter_id.val.i.i = load i32, ptr @hf_etc_parameter_id, align 4
-  %51 = select i1 %50, i32 %hf_rdm_parameter_id.val.i.i, i32 %hf_etc_parameter_id.val.i.i
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %51, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
-  %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 22)
-  %54 = load i32, ptr @hf_rdm_parameter_data_length, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %54, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %56 = zext i8 %53 to i32
-  %57 = add nuw nsw i32 %56, 4
-  tail call void @proto_item_set_len(ptr noundef %45, i32 noundef %57)
-  %.not86.i = icmp eq i8 %53, 0
-  br i1 %.not86.i, label %dissect_rdm_mdb.exit, label %58
+  %50 = select i1 %49, i32 %hf_rdm_parameter_id.val.i.i, i32 %hf_etc_parameter_id.val.i.i
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %50, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
+  %52 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 22)
+  %53 = load i32, ptr @hf_rdm_parameter_data_length, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %53, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %55 = zext i8 %52 to i32
+  %56 = add nuw nsw i32 %55, 4
+  tail call void @proto_item_set_len(ptr noundef %44, i32 noundef %56)
+  %.not86.i = icmp eq i8 %52, 0
+  br i1 %.not86.i, label %dissect_rdm_mdb.exit, label %57
 
-58:                                               ; preds = %8
-  %59 = load i32, ptr @hf_rdm_parameter_data, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %59, ptr noundef %0, i32 noundef 23, i32 noundef %56, i32 noundef 0)
-  %61 = load i32, ptr @ett_rdm, align 4
-  %62 = tail call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61)
-  br i1 %.not.i, label %83, label %63
+57:                                               ; preds = %8
+  %58 = load i32, ptr @hf_rdm_parameter_data, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %58, ptr noundef %0, i32 noundef 23, i32 noundef %55, i32 noundef 0)
+  %60 = load i32, ptr @ett_rdm, align 4
+  %61 = tail call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60)
+  br i1 %.not.i, label %82, label %62
 
-63:                                               ; preds = %58
+62:                                               ; preds = %57
   switch i8 %33, label %dissect_rdm_mdb.exit [
-    i8 0, label %64
-    i8 1, label %66
-    i8 2, label %72
-    i8 3, label %78
+    i8 0, label %63
+    i8 1, label %65
+    i8 2, label %71
+    i8 3, label %77
   ]
 
-64:                                               ; preds = %63
-  %65 = tail call fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %62, i8 noundef zeroext %34, i16 noundef zeroext %48, i8 noundef zeroext %53, i16 noundef zeroext %.0.i)
+63:                                               ; preds = %62
+  %64 = tail call fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %61, i8 noundef zeroext %34, i16 noundef zeroext %47, i8 noundef zeroext %52, i16 noundef zeroext %.0.i)
   br label %dissect_rdm_mdb.exit
 
-66:                                               ; preds = %63
-  %67 = icmp eq i8 %53, 2
-  br i1 %67, label %68, label %dissect_rdm_mdb.exit
+65:                                               ; preds = %62
+  %66 = icmp eq i8 %52, 2
+  br i1 %66, label %67, label %dissect_rdm_mdb.exit
 
-68:                                               ; preds = %66
+67:                                               ; preds = %65
   switch i8 %34, label %dissect_rdm_mdb.exit [
-    i8 33, label %69
-    i8 49, label %69
+    i8 33, label %68
+    i8 49, label %68
   ]
 
-69:                                               ; preds = %68, %68
-  %70 = load i32, ptr @hf_rdm_pd_ack_timer_estimated_response_time, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %70, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0)
+68:                                               ; preds = %67, %67
+  %69 = load i32, ptr @hf_rdm_pd_ack_timer_estimated_response_time, align 4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %69, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0)
   br label %dissect_rdm_mdb.exit
 
-72:                                               ; preds = %63
-  %73 = icmp eq i8 %53, 2
-  br i1 %73, label %74, label %dissect_rdm_mdb.exit
+71:                                               ; preds = %62
+  %72 = icmp eq i8 %52, 2
+  br i1 %72, label %73, label %dissect_rdm_mdb.exit
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   switch i8 %34, label %dissect_rdm_mdb.exit [
-    i8 33, label %75
-    i8 49, label %75
+    i8 33, label %74
+    i8 49, label %74
   ]
 
-75:                                               ; preds = %74, %74
-  %76 = load i32, ptr @hf_rdm_pd_nack_reason_code, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %76, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0)
+74:                                               ; preds = %73, %73
+  %75 = load i32, ptr @hf_rdm_pd_nack_reason_code, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %75, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef 0)
   br label %dissect_rdm_mdb.exit
 
-78:                                               ; preds = %63
+77:                                               ; preds = %62
   switch i8 %34, label %dissect_rdm_mdb.exit [
-    i8 33, label %79
-    i8 49, label %79
+    i8 33, label %78
+    i8 49, label %78
   ]
 
-79:                                               ; preds = %78, %78
-  %80 = load i32, ptr @hf_rdm_pd_ack_overflow_raw_data, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %80, ptr noundef %0, i32 noundef 23, i32 noundef %56, i32 noundef 0)
-  %82 = add nuw nsw i32 %56, 23
+78:                                               ; preds = %77, %77
+  %79 = load i32, ptr @hf_rdm_pd_ack_overflow_raw_data, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %79, ptr noundef %0, i32 noundef 23, i32 noundef %55, i32 noundef 0)
+  %81 = add nuw nsw i32 %55, 23
   br label %dissect_rdm_mdb.exit
 
-83:                                               ; preds = %58
-  %84 = tail call fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %62, i8 noundef zeroext %34, i16 noundef zeroext %48, i8 noundef zeroext %53, i16 noundef zeroext %.0.i)
+82:                                               ; preds = %57
+  %83 = tail call fastcc i32 @dissect_rdm_mdb_param_data(ptr noundef %0, ptr noundef %61, i8 noundef zeroext %34, i16 noundef zeroext %47, i8 noundef zeroext %52, i16 noundef zeroext %.0.i)
   br label %dissect_rdm_mdb.exit
 
-dissect_rdm_mdb.exit:                             ; preds = %8, %63, %64, %66, %68, %69, %72, %74, %75, %78, %79, %83
-  %.1.i = phi i32 [ 23, %63 ], [ %65, %64 ], [ 23, %8 ], [ 23, %66 ], [ 23, %72 ], [ %84, %83 ], [ 23, %68 ], [ 25, %69 ], [ 23, %74 ], [ 25, %75 ], [ 23, %78 ], [ %82, %79 ]
+dissect_rdm_mdb.exit:                             ; preds = %8, %62, %63, %65, %67, %68, %71, %73, %74, %77, %78, %82
+  %.1.i = phi i32 [ 23, %62 ], [ %64, %63 ], [ 23, %8 ], [ 23, %65 ], [ 23, %71 ], [ %83, %82 ], [ 23, %67 ], [ 25, %68 ], [ 23, %73 ], [ 25, %74 ], [ 23, %77 ], [ %81, %78 ]
   %reass.sub = sub i32 %.1.i, %16
-  %85 = icmp ult i32 %reass.sub, 2147483647
-  br i1 %85, label %88, label %.thread
+  %84 = icmp ult i32 %reass.sub, 2147483647
+  br i1 %84, label %87, label %.thread
 
 .thread:                                          ; preds = %dissect_rdm_mdb.exit
-  %86 = load i32, ptr @hf_rdm_checksum, align 4
-  %87 = load i32, ptr @hf_rdm_checksum_status, align 4
+  %85 = load i32, ptr @hf_rdm_checksum, align 4
+  %86 = load i32, ptr @hf_rdm_checksum_status, align 4
   br label %.lr.ph.i.preheader
 
-88:                                               ; preds = %dissect_rdm_mdb.exit
-  %89 = add nuw nsw i32 %reass.sub, 1
-  %90 = load i32, ptr @hf_rdm_intron, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %90, ptr noundef %0, i32 noundef %.1.i, i32 noundef %89, i32 noundef 0)
-  %92 = add i32 %89, %.1.i
-  %93 = load i32, ptr @hf_rdm_checksum, align 4
-  %94 = load i32, ptr @hf_rdm_checksum_status, align 4
-  %.not.i76 = icmp eq i32 %92, 0
+87:                                               ; preds = %dissect_rdm_mdb.exit
+  %88 = add nuw nsw i32 %reass.sub, 1
+  %89 = load i32, ptr @hf_rdm_intron, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %89, ptr noundef %0, i32 noundef %.1.i, i32 noundef %88, i32 noundef 0)
+  %91 = add i32 %88, %.1.i
+  %92 = load i32, ptr @hf_rdm_checksum, align 4
+  %93 = load i32, ptr @hf_rdm_checksum_status, align 4
+  %.not.i76 = icmp eq i32 %91, 0
   br i1 %.not.i76, label %rdm_checksum.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.thread, %88
-  %95 = phi i32 [ %87, %.thread ], [ %94, %88 ]
-  %96 = phi i32 [ %86, %.thread ], [ %93, %88 ]
-  %.083 = phi i32 [ %.1.i, %.thread ], [ %92, %88 ]
+.lr.ph.i.preheader:                               ; preds = %.thread, %87
+  %94 = phi i32 [ %86, %.thread ], [ %93, %87 ]
+  %95 = phi i32 [ %85, %.thread ], [ %92, %87 ]
+  %.083 = phi i32 [ %.1.i, %.thread ], [ %91, %87 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.08.i = phi i32 [ %100, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.067.i = phi i16 [ %99, %.lr.ph.i ], [ 204, %.lr.ph.i.preheader ]
-  %97 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.08.i)
-  %98 = zext i8 %97 to i16
-  %99 = add i16 %.067.i, %98
-  %100 = add nuw i32 %.08.i, 1
-  %exitcond.not.i = icmp eq i32 %100, %.083
+  %.08.i = phi i32 [ %99, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.067.i = phi i16 [ %98, %.lr.ph.i ], [ 204, %.lr.ph.i.preheader ]
+  %96 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.08.i)
+  %97 = zext i8 %96 to i16
+  %98 = add i16 %.067.i, %97
+  %99 = add nuw i32 %.08.i, 1
+  %exitcond.not.i = icmp eq i32 %99, %.083
   br i1 %exitcond.not.i, label %rdm_checksum.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 rdm_checksum.exit.loopexit:                       ; preds = %.lr.ph.i
-  %101 = zext i16 %99 to i32
+  %100 = zext i16 %98 to i32
   br label %rdm_checksum.exit
 
-rdm_checksum.exit:                                ; preds = %rdm_checksum.exit.loopexit, %88
-  %102 = phi i32 [ %94, %88 ], [ %95, %rdm_checksum.exit.loopexit ]
-  %103 = phi i32 [ %93, %88 ], [ %96, %rdm_checksum.exit.loopexit ]
-  %.084 = phi i32 [ 0, %88 ], [ %.083, %rdm_checksum.exit.loopexit ]
-  %.06.lcssa.i = phi i32 [ 204, %88 ], [ %101, %rdm_checksum.exit.loopexit ]
-  %104 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.084, i32 noundef %103, i32 noundef %102, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1)
-  %105 = add i32 %.084, 2
-  %106 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %107 = icmp ult i32 %105, %106
-  br i1 %107, label %108, label %111
+rdm_checksum.exit:                                ; preds = %rdm_checksum.exit.loopexit, %87
+  %101 = phi i32 [ %93, %87 ], [ %94, %rdm_checksum.exit.loopexit ]
+  %102 = phi i32 [ %92, %87 ], [ %95, %rdm_checksum.exit.loopexit ]
+  %.084 = phi i32 [ 0, %87 ], [ %.083, %rdm_checksum.exit.loopexit ]
+  %.06.lcssa.i = phi i32 [ 204, %87 ], [ %100, %rdm_checksum.exit.loopexit ]
+  %103 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.084, i32 noundef %102, i32 noundef %101, ptr noundef nonnull @ei_rdm_checksum, ptr noundef %1, i32 noundef %.06.lcssa.i, i32 noundef 0, i32 noundef 1)
+  %104 = add i32 %.084, 2
+  %105 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %106 = icmp ult i32 %104, %105
+  br i1 %106, label %107, label %110
 
-108:                                              ; preds = %rdm_checksum.exit
-  %109 = load i32, ptr @hf_rdm_trailer, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %109, ptr noundef %0, i32 noundef %105, i32 noundef -1, i32 noundef 0)
-  br label %111
+107:                                              ; preds = %rdm_checksum.exit
+  %108 = load i32, ptr @hf_rdm_trailer, align 4
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %108, ptr noundef %0, i32 noundef %104, i32 noundef -1, i32 noundef 0)
+  br label %110
 
-111:                                              ; preds = %rdm_checksum.exit, %108, %4
-  %112 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %112
+110:                                              ; preds = %rdm_checksum.exit, %107, %4
+  %111 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %111
 }
 
 ; Function Attrs: null_pointer_is_valid

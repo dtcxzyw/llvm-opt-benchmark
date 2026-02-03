@@ -184,12 +184,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dh_does_selection(ptr re
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -730,12 +729,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dhx_does_selection(ptr r
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -906,12 +904,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2dsa_does_selection(ptr r
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1072,12 +1069,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ec_does_selection(ptr re
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1250,12 +1246,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x25519_does_selection(pt
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1338,12 +1333,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2x448_does_selection(ptr 
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1426,12 +1420,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed25519_does_selection(p
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1514,12 +1507,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ed448_does_selection(ptr
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1602,12 +1594,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2sm2_does_selection(ptr r
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1735,12 +1726,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_512_does_selectio
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1823,12 +1813,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_768_does_selectio
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1911,12 +1900,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_kem_1024_does_selecti
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -1999,12 +1987,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsa_does_selection(ptr r
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2175,12 +2162,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2rsapss_does_selection(pt
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2263,12 +2249,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_44_does_selection
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2351,12 +2336,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_65_does_selection
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 
@@ -2439,12 +2423,11 @@ define internal range(i32 0, 2) i32 @PrivateKeyInfo_der2ml_dsa_87_does_selection
   br i1 %.not.i, label %4, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = icmp eq i64 %.0103.i, 0
-  %11 = zext i1 %10 to i32
+  %10 = and i32 %7, 1
   br label %der2key_check_selection.exit
 
 der2key_check_selection.exit:                     ; preds = %4, %2, %9
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %9 ], [ 0, %4 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %9 ], [ 0, %4 ]
   ret i32 %.0.i
 }
 

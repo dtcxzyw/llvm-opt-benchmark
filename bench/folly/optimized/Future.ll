@@ -2182,9 +2182,8 @@ _ZNK5folly7futures6detail10FutureBaseINS_4UnitEE19getDeferredExecutorEv.exit: ; 
 25:                                               ; preds = %_ZNK5folly7futures6detail10FutureBaseINS_4UnitEE19getDeferredExecutorEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %26 = load i64, ptr %2, align 8, !tbaa !113, !noalias !117
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %30, label %28
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
   %29 = and i64 %26, -3

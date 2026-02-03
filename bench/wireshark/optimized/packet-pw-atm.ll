@@ -471,9 +471,9 @@ thread-pre-split:                                 ; preds = %39, %34
   %51 = load i32, ptr @hf_pref_cw_a5s_u, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %54 = and i8 %53, 1
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i8 %54, ptr %55, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %55 = and i8 %53, 1
+  store i8 %55, ptr %54, align 4
   %.pre = load i32, ptr %32, align 4
   br label %56
 

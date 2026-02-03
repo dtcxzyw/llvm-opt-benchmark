@@ -65835,7 +65835,7 @@ if.then419:                                       ; preds = %if.end415
   br i1 %cmp365, label %if.end440, label %if.else423
 
 if.else423:                                       ; preds = %if.then419
-  %tobool424 = icmp ne i8 %193, 0
+  %tobool424 = trunc i8 %bf.load327 to i1
   %or.cond2367 = select i1 %tobool424, i1 %cmp359, i1 false
   br i1 %or.cond2367, label %if.then428, label %if.end440
 

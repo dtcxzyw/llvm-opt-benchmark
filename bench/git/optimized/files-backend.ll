@@ -2971,7 +2971,7 @@ files_downcast.exit:                              ; preds = %17
   %57 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84, ptr noundef %56) #20
   call void @strbuf_release(ptr noundef nonnull %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %134
+  br label %133
 
 58:                                               ; preds = %49
   %.val = load ptr, ptr %8, align 8, !tbaa !59
@@ -2988,7 +2988,7 @@ files_downcast.exit:                              ; preds = %17
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %65 = call ptr @strerror(i32 noundef %64) #20
   %66 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.122, ptr noundef %62, ptr noundef %65) #20
-  br label %134
+  br label %133
 
 67:                                               ; preds = %58, %47
   call void %3(ptr noundef %1, ptr noundef nonnull %37, ptr noundef %6) #20
@@ -2998,149 +2998,148 @@ files_downcast.exit:                              ; preds = %17
   %70 = load i8, ptr %23, align 4
   %71 = and i8 %70, 2
   %.not54 = icmp eq i8 %71, 0
-  br i1 %.not54, label %72, label %126
+  br i1 %.not54, label %72, label %125
 
 72:                                               ; preds = %67
   %73 = and i32 %2, 2
   %.not55 = icmp eq i32 %73, 0
-  br i1 %.not55, label %81, label %74
+  br i1 %.not55, label %80, label %74
 
 74:                                               ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %75, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i71.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i71.not, label %81, label %76
+  br i1 %.not.i71.not, label %80, label %76
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %77 = call ptr @refs_resolve_ref_unsafe(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2, ptr noundef null, ptr noundef nonnull %13) #20
   %78 = icmp eq ptr %77, null
   %79 = load i32, ptr %13, align 4
-  %80 = and i32 %79, 1
-  %.not57 = icmp ne i32 %80, 0
+  %.not57 = trunc i32 %79 to i1
   %.not61 = select i1 %78, i1 true, i1 %.not57
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %81
+  br label %80
 
-81:                                               ; preds = %76, %74, %72
+80:                                               ; preds = %76, %74, %72
   %.048 = phi i1 [ true, %74 ], [ %.not61, %76 ], [ true, %72 ]
   %.val66 = load ptr, ptr %8, align 8, !tbaa !59
-  %82 = call i32 @close_tempfile_gently(ptr noundef %.val66) #20
-  %.not58 = icmp eq i32 %82, 0
-  br i1 %.not58, label %89, label %83
+  %81 = call i32 @close_tempfile_gently(ptr noundef %.val66) #20
+  %.not58 = icmp eq i32 %81, 0
+  br i1 %.not58, label %88, label %82
 
-83:                                               ; preds = %81
-  %84 = tail call ptr @__errno_location() #22
-  %85 = load i32, ptr %84, align 4, !tbaa !16
-  %86 = call ptr @strerror(i32 noundef %85) #20
-  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.123, ptr noundef %48, ptr noundef %86) #20
-  %88 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
-  br label %126
+82:                                               ; preds = %80
+  %83 = tail call ptr @__errno_location() #22
+  %84 = load i32, ptr %83, align 4, !tbaa !16
+  %85 = call ptr @strerror(i32 noundef %84) #20
+  %86 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.123, ptr noundef %48, ptr noundef %85) #20
+  %87 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
+  br label %125
 
-89:                                               ; preds = %81
-  br i1 %.048, label %113, label %90
+88:                                               ; preds = %80
+  br i1 %.048, label %112, label %89
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.val67 = load ptr, ptr %91, align 8, !tbaa !59
-  %92 = call i32 @get_tempfile_fd(ptr noundef %.val67) #20
-  %93 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %94 = call ptr @oid_to_hex(ptr noundef nonnull %93) #20
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !87
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 400
-  %98 = load ptr, ptr %97, align 8, !tbaa !116
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %100 = load i64, ptr %99, align 8, !tbaa !129
-  %101 = call i64 @write_in_full(i32 noundef %92, ptr noundef %94, i64 noundef %100) #20
-  %102 = icmp slt i64 %101, 0
-  br i1 %102, label %109, label %103
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.val67 = load ptr, ptr %90, align 8, !tbaa !59
+  %91 = call i32 @get_tempfile_fd(ptr noundef %.val67) #20
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %93 = call ptr @oid_to_hex(ptr noundef nonnull %92) #20
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !87
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 400
+  %97 = load ptr, ptr %96, align 8, !tbaa !116
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %99 = load i64, ptr %98, align 8, !tbaa !129
+  %100 = call i64 @write_in_full(i32 noundef %91, ptr noundef %93, i64 noundef %99) #20
+  %101 = icmp slt i64 %100, 0
+  br i1 %101, label %108, label %102
 
-103:                                              ; preds = %90
-  %.val68 = load ptr, ptr %91, align 8, !tbaa !59
-  %104 = call i32 @get_tempfile_fd(ptr noundef %.val68) #20
-  %105 = call i64 @write_in_full(i32 noundef %104, ptr noundef nonnull @.str.124, i64 noundef 1) #20
-  %106 = icmp slt i64 %105, 0
-  br i1 %106, label %109, label %107
+102:                                              ; preds = %89
+  %.val68 = load ptr, ptr %90, align 8, !tbaa !59
+  %103 = call i32 @get_tempfile_fd(ptr noundef %.val68) #20
+  %104 = call i64 @write_in_full(i32 noundef %103, ptr noundef nonnull @.str.124, i64 noundef 1) #20
+  %105 = icmp slt i64 %104, 0
+  br i1 %105, label %108, label %106
 
-107:                                              ; preds = %103
-  %.val69 = load ptr, ptr %91, align 8, !tbaa !59
-  %108 = call i32 @close_tempfile_gently(ptr noundef %.val69) #20
-  %.not.i72.not = icmp eq i32 %108, 0
-  br i1 %.not.i72.not, label %.thread, label %109
+106:                                              ; preds = %102
+  %.val69 = load ptr, ptr %90, align 8, !tbaa !59
+  %107 = call i32 @close_tempfile_gently(ptr noundef %.val69) #20
+  %.not.i72.not = icmp eq i32 %107, 0
+  br i1 %.not.i72.not, label %.thread, label %108
 
-109:                                              ; preds = %107, %103, %90
-  %.val65 = load ptr, ptr %91, align 8, !tbaa !59
-  %110 = call ptr @get_tempfile_path(ptr noundef %.val65) #20
-  %111 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125, ptr noundef %110) #20
-  %112 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
-  br label %126
+108:                                              ; preds = %106, %102, %89
+  %.val65 = load ptr, ptr %90, align 8, !tbaa !59
+  %109 = call ptr @get_tempfile_path(ptr noundef %.val65) #20
+  %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125, ptr noundef %109) #20
+  %111 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
+  br label %125
 
-113:                                              ; preds = %89
+112:                                              ; preds = %88
+  %113 = call i32 @commit_lock_file(ptr noundef nonnull %8) #20
+  %.not62 = icmp eq i32 %113, 0
+  br i1 %.not62, label %125, label %115
+
+.thread:                                          ; preds = %106
   %114 = call i32 @commit_lock_file(ptr noundef nonnull %8) #20
-  %.not62 = icmp eq i32 %114, 0
-  br i1 %.not62, label %126, label %116
+  %.not6277 = icmp eq i32 %114, 0
+  br i1 %.not6277, label %120, label %115
 
-.thread:                                          ; preds = %107
-  %115 = call i32 @commit_lock_file(ptr noundef nonnull %8) #20
-  %.not6277 = icmp eq i32 %115, 0
-  br i1 %.not6277, label %121, label %116
+115:                                              ; preds = %.thread, %112
+  %116 = tail call ptr @__errno_location() #22
+  %117 = load i32, ptr %116, align 4, !tbaa !16
+  %118 = call ptr @strerror(i32 noundef %117) #20
+  %119 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.126, ptr noundef %48, ptr noundef %118) #20
+  br label %125
 
-116:                                              ; preds = %.thread, %113
-  %117 = tail call ptr @__errno_location() #22
-  %118 = load i32, ptr %117, align 4, !tbaa !16
-  %119 = call ptr @strerror(i32 noundef %118) #20
-  %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.126, ptr noundef %48, ptr noundef %119) #20
-  br label %126
+120:                                              ; preds = %.thread
+  %121 = call fastcc i32 @commit_ref(ptr noundef nonnull %31)
+  %.not63 = icmp eq i32 %121, 0
+  br i1 %.not63, label %125, label %122
 
-121:                                              ; preds = %.thread
-  %122 = call fastcc i32 @commit_ref(ptr noundef nonnull %31)
-  %.not63 = icmp eq i32 %122, 0
-  br i1 %.not63, label %126, label %123
+122:                                              ; preds = %120
+  %123 = load ptr, ptr %31, align 8, !tbaa !55
+  %124 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef %123) #20
+  br label %125
 
-123:                                              ; preds = %121
-  %124 = load ptr, ptr %31, align 8, !tbaa !55
-  %125 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef %124) #20
-  br label %126
-
-126:                                              ; preds = %113, %83, %116, %123, %121, %109, %67
-  %.049 = phi i32 [ 0, %67 ], [ -1, %83 ], [ -1, %109 ], [ -1, %116 ], [ -1, %123 ], [ 0, %121 ], [ 0, %113 ]
+125:                                              ; preds = %112, %82, %115, %122, %120, %108, %67
+  %.049 = phi i32 [ 0, %67 ], [ -1, %82 ], [ -1, %108 ], [ -1, %115 ], [ -1, %122 ], [ 0, %120 ], [ 0, %112 ]
   call void @free(ptr noundef %48) #20
-  %127 = getelementptr inbounds nuw i8, ptr %31, i64 52
-  %128 = load i32, ptr %127, align 4, !tbaa !50
-  %129 = add i32 %128, -1
-  store i32 %129, ptr %127, align 4, !tbaa !50
-  %.not.i73 = icmp eq i32 %129, 0
-  br i1 %.not.i73, label %130, label %unlock_ref.exit
+  %126 = getelementptr inbounds nuw i8, ptr %31, i64 52
+  %127 = load i32, ptr %126, align 4, !tbaa !50
+  %128 = add i32 %127, -1
+  store i32 %128, ptr %126, align 4, !tbaa !50
+  %.not.i73 = icmp eq i32 %128, 0
+  br i1 %.not.i73, label %129, label %unlock_ref.exit
 
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %132 = call i32 @delete_tempfile(ptr noundef nonnull %131) #20
-  %133 = load ptr, ptr %31, align 8, !tbaa !55
-  call void @free(ptr noundef %133) #20
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %131 = call i32 @delete_tempfile(ptr noundef nonnull %130) #20
+  %132 = load ptr, ptr %31, align 8, !tbaa !55
+  call void @free(ptr noundef %132) #20
   call void @free(ptr noundef nonnull %31) #20
   br label %unlock_ref.exit
 
-134:                                              ; preds = %52, %61
-  %135 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
+133:                                              ; preds = %52, %61
+  %134 = call i32 @delete_tempfile(ptr noundef nonnull %8) #20
   call void @free(ptr noundef %48) #20
-  %136 = getelementptr inbounds nuw i8, ptr %31, i64 52
-  %137 = load i32, ptr %136, align 4, !tbaa !50
-  %138 = add i32 %137, -1
-  store i32 %138, ptr %136, align 4, !tbaa !50
-  %.not.i75 = icmp eq i32 %138, 0
-  br i1 %.not.i75, label %139, label %unlock_ref.exit
+  %135 = getelementptr inbounds nuw i8, ptr %31, i64 52
+  %136 = load i32, ptr %135, align 4, !tbaa !50
+  %137 = add i32 %136, -1
+  store i32 %137, ptr %135, align 4, !tbaa !50
+  %.not.i75 = icmp eq i32 %137, 0
+  br i1 %.not.i75, label %138, label %unlock_ref.exit
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %141 = call i32 @delete_tempfile(ptr noundef nonnull %140) #20
-  %142 = load ptr, ptr %31, align 8, !tbaa !55
-  call void @free(ptr noundef %142) #20
+138:                                              ; preds = %133
+  %139 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %140 = call i32 @delete_tempfile(ptr noundef nonnull %139) #20
+  %141 = load ptr, ptr %31, align 8, !tbaa !55
+  call void @free(ptr noundef %141) #20
   call void @free(ptr noundef nonnull %31) #20
   br label %unlock_ref.exit
 
-unlock_ref.exit:                                  ; preds = %139, %134, %130, %126, %43, %39, %32
-  %.0 = phi i32 [ 0, %43 ], [ %.049, %130 ], [ -1, %32 ], [ 0, %39 ], [ %.049, %126 ], [ -1, %134 ], [ -1, %139 ]
+unlock_ref.exit:                                  ; preds = %138, %133, %129, %125, %43, %39, %32
+  %.0 = phi i32 [ 0, %43 ], [ %.049, %129 ], [ -1, %32 ], [ 0, %39 ], [ %.049, %125 ], [ -1, %133 ], [ -1, %138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

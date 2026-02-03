@@ -16830,10 +16830,10 @@ define void @_ZN8wasmtime7runtime2gc7enabled6anyref6AnyRef7_is_i3117h677ffec3ffd
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %5, align 4, !range !11856, !noundef !11
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %10 = trunc i32 %8 to i8
-  %11 = and i8 %10, 1
-  store i8 %11, ptr %9, align 1
+  %9 = trunc i32 %8 to i8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %11 = and i8 %9, 1
+  store i8 %11, ptr %10, align 1
   br label %19
 
 12:                                               ; preds = %3

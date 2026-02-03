@@ -171,9 +171,8 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !10
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -251,7 +250,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %27 = load i64, ptr %8, align 8, !tbaa !10, !noalias !20
   %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %_ZN4absl12lts_202407226StatusD2Ev.exit16, !prof !13
+  br i1 %28, label %29, label %_ZN4absl12lts_202407226StatusD2Ev.exit15, !prof !13
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
@@ -262,7 +261,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23, !noalias !20
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit16:         ; preds = %24
+_ZN4absl12lts_202407226StatusD2Ev.exit15:         ; preds = %24
   store i64 %27, ptr %0, align 8, !tbaa !10, !alias.scope !20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %33
@@ -278,7 +277,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit16:         ; preds = %24
   store i64 1, ptr %0, align 8, !tbaa !10, !alias.scope !23
   br label %33
 
-33:                                               ; preds = %32, %_ZN4absl12lts_202407226StatusD2Ev.exit16, %_ZN4absl12lts_202407226StatusD2Ev.exit
+33:                                               ; preds = %32, %_ZN4absl12lts_202407226StatusD2Ev.exit15, %_ZN4absl12lts_202407226StatusD2Ev.exit
   ret void
 
 34:                                               ; preds = %30, %18
@@ -546,7 +545,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %27 = load i64, ptr %8, align 8, !tbaa !10, !noalias !50
   %28 = icmp eq i64 %27, 1
-  br i1 %28, label %29, label %_ZN4absl12lts_202407226StatusD2Ev.exit16, !prof !13
+  br i1 %28, label %29, label %_ZN4absl12lts_202407226StatusD2Ev.exit15, !prof !13
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !50
@@ -557,7 +556,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23, !noalias !50
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit16:         ; preds = %24
+_ZN4absl12lts_202407226StatusD2Ev.exit15:         ; preds = %24
   store i64 %27, ptr %0, align 8, !tbaa !10, !alias.scope !50
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %33
@@ -573,7 +572,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit16:         ; preds = %24
   store i64 1, ptr %0, align 8, !tbaa !10, !alias.scope !53
   br label %33
 
-33:                                               ; preds = %32, %_ZN4absl12lts_202407226StatusD2Ev.exit16, %_ZN4absl12lts_202407226StatusD2Ev.exit
+33:                                               ; preds = %32, %_ZN4absl12lts_202407226StatusD2Ev.exit15, %_ZN4absl12lts_202407226StatusD2Ev.exit
   ret void
 
 34:                                               ; preds = %30, %18
@@ -649,7 +648,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %31 = load i64, ptr %11, align 8, !tbaa !10, !noalias !59
   %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit11, !prof !13
+  br i1 %32, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit10, !prof !13
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !59
@@ -660,7 +659,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23, !noalias !59
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit11:         ; preds = %28
+_ZN4absl12lts_202407226StatusD2Ev.exit10:         ; preds = %28
   store i64 %31, ptr %0, align 8, !tbaa !10, !alias.scope !59
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %64
@@ -696,9 +695,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit11:         ; preds = %28
 .lr.ph.i.i.i.i:                                   ; preds = %42, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %53, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %43, %42 ]
   %46 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !10
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %48, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %48
 
 48:                                               ; preds = %.lr.ph.i.i.i.i
   %49 = inttoptr i64 %46 to ptr
@@ -750,7 +748,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   store i64 1, ptr %0, align 8, !tbaa !10, !alias.scope !70
   br label %64
 
-64:                                               ; preds = %63, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit11, %_ZN4absl12lts_202407226StatusD2Ev.exit
+64:                                               ; preds = %63, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit10, %_ZN4absl12lts_202407226StatusD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -783,9 +781,8 @@ define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev(
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load i64, ptr %.05.i.i.i, align 8, !tbaa !10
-  %6 = and i64 %5, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i.i.i.i, label %7, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = inttoptr i64 %5 to ptr
@@ -894,7 +891,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %31 = load i64, ptr %11, align 8, !tbaa !10, !noalias !76
   %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit11, !prof !13
+  br i1 %32, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit10, !prof !13
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !76
@@ -905,7 +902,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23, !noalias !76
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit11:         ; preds = %28
+_ZN4absl12lts_202407226StatusD2Ev.exit10:         ; preds = %28
   store i64 %31, ptr %0, align 8, !tbaa !10, !alias.scope !76
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %64
@@ -941,9 +938,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit11:         ; preds = %28
 .lr.ph.i.i.i.i:                                   ; preds = %42, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %53, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %43, %42 ]
   %46 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !10
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %48, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %48
 
 48:                                               ; preds = %.lr.ph.i.i.i.i
   %49 = inttoptr i64 %46 to ptr
@@ -995,7 +991,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   store i64 1, ptr %0, align 8, !tbaa !10, !alias.scope !79
   br label %64
 
-64:                                               ; preds = %63, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit11, %_ZN4absl12lts_202407226StatusD2Ev.exit
+64:                                               ; preds = %63, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit10, %_ZN4absl12lts_202407226StatusD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1032,9 +1028,8 @@ define void @_Z23probe_so_reuseport_oncev() #3 personality ptr @__gxx_personalit
 
 10:                                               ; preds = %.thread
   store i64 %8, ptr %1, align 8, !tbaa !10
-  %11 = and i64 %8, 1
-  %.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i, label %12, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i
+  %11 = trunc i64 %8 to i1
+  br i1 %11, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i, label %12
 
 12:                                               ; preds = %10
   %13 = inttoptr i64 %8 to ptr
@@ -1047,9 +1042,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %12, %10
 
 16:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i
   %17 = load i64, ptr %1, align 8, !tbaa !10
-  %18 = and i64 %17, 1
-  %.not.i.i7.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i7.i, label %19, label %25
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %25, label %19
 
 19:                                               ; preds = %16
   %20 = inttoptr i64 %17 to ptr
@@ -1076,9 +1070,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %12, %10
   %27 = zext i1 %26 to i32
   store i32 %27, ptr @_ZL22g_support_so_reuseport, align 4, !tbaa !3
   %28 = load i64, ptr %2, align 8, !tbaa !10
-  %29 = and i64 %28, 1
-  %.not.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i, label %30, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %30
 
 30:                                               ; preds = %25
   %31 = inttoptr i64 %28 to ptr
@@ -1183,7 +1176,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %31 = load i64, ptr %11, align 8, !tbaa !10, !noalias !85
   %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit11, !prof !13
+  br i1 %32, label %33, label %_ZN4absl12lts_202407226StatusD2Ev.exit10, !prof !13
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !85
@@ -1194,7 +1187,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %18
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23, !noalias !85
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit11:         ; preds = %28
+_ZN4absl12lts_202407226StatusD2Ev.exit10:         ; preds = %28
   store i64 %31, ptr %0, align 8, !tbaa !10, !alias.scope !85
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %64
@@ -1230,9 +1223,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit11:         ; preds = %28
 .lr.ph.i.i.i.i:                                   ; preds = %42, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %53, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %43, %42 ]
   %46 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !10
-  %47 = and i64 %46, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %48, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %48
 
 48:                                               ; preds = %.lr.ph.i.i.i.i
   %49 = inttoptr i64 %46 to ptr
@@ -1284,7 +1276,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   store i64 1, ptr %0, align 8, !tbaa !10, !alias.scope !88
   br label %64
 
-64:                                               ; preds = %63, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit11, %_ZN4absl12lts_202407226StatusD2Ev.exit
+64:                                               ; preds = %63, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit10, %_ZN4absl12lts_202407226StatusD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1390,7 +1382,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %24
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %44 = load i64, ptr %11, align 8, !tbaa !10, !noalias !97
   %45 = icmp eq i64 %44, 1
-  br i1 %45, label %46, label %_ZN4absl12lts_202407226StatusD2Ev.exit14, !prof !13
+  br i1 %45, label %46, label %_ZN4absl12lts_202407226StatusD2Ev.exit13, !prof !13
 
 46:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !97
@@ -1401,7 +1393,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23, !noalias !97
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit14:         ; preds = %41
+_ZN4absl12lts_202407226StatusD2Ev.exit13:         ; preds = %41
   store i64 %44, ptr %0, align 8, !tbaa !10, !alias.scope !97
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %50
@@ -1417,7 +1409,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit14:         ; preds = %41
   store i64 1, ptr %0, align 8, !tbaa !10, !alias.scope !100
   br label %50
 
-50:                                               ; preds = %49, %_ZN4absl12lts_202407226StatusD2Ev.exit14, %_ZN4absl12lts_202407226StatusD2Ev.exit
+50:                                               ; preds = %49, %_ZN4absl12lts_202407226StatusD2Ev.exit13, %_ZN4absl12lts_202407226StatusD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1909,9 +1901,8 @@ define void @_Z28grpc_set_socket_with_mutatori13grpc_fd_usageP19grpc_socket_muta
 .lr.ph.i.i.i.i:                                   ; preds = %11, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %22, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %12, %11 ]
   %15 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !10
-  %16 = and i64 %15, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %17, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
   %18 = inttoptr i64 %15 to ptr

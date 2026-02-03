@@ -917,8 +917,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$12cont
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !223
   call void @_ZN4http6header4name7HdrName10from_bytes17h0f3843904b93ab46E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %0), !noalias !227
   %4 = load i64, ptr %3, align 8, !range !97, !noalias !223, !noundef !35
-  %5 = and i64 %4, 1
-  %spec.select = icmp ne i64 %5, 0
+  %spec.select = trunc i64 %4 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !223
   ret i1 %spec.select
 }
@@ -3026,15 +3025,15 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$7get_all17h014f91b51
   %5 = load i64, ptr %4, align 8, !range !97, !noalias !367, !noundef !35
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.54.0.copyload = load i64, ptr %.sroa.54.0..sroa_idx, align 8
-  %6 = and i64 %5, 1
-  %.sroa.03.0.not = icmp eq i64 %6, 0
+  %.sroa.03.0 = trunc i64 %5 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !367
-  %.sroa.5.0 = select i1 %.sroa.03.0.not, i64 undef, i64 %.sroa.54.0.copyload
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %7, align 8
-  store i64 %6, ptr %0, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.0, ptr %8, align 8
+  %.sroa.5.0 = select i1 %.sroa.03.0, i64 %.sroa.54.0.copyload, i64 undef
+  %.sroa.0.0 = and i64 %5, 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %6, align 8
+  store i64 %.sroa.0.0, ptr %0, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.0, ptr %7, align 8
   ret void
 }
 

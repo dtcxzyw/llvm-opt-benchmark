@@ -79,10 +79,9 @@ define dso_local noundef i32 @uv_tcp_init(ptr noundef %0, ptr noundef %1) local_
 define hidden i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = and i32 %3, 1
-  %.not30 = icmp eq i32 %6, 0
+  %6 = trunc i32 %3 to i1
   %.pre = load i16, ptr %1, align 2
-  br i1 %.not30, label %8, label %7
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
   %.not = icmp eq i16 %.pre, 10
@@ -142,59 +141,60 @@ define hidden i32 @uv__tcp_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 35:                                               ; preds = %32, %30
   %36 = load i16, ptr %1, align 2
   %37 = icmp eq i16 %36, 10
-  br i1 %37, label %38, label %46
+  br i1 %37, label %38, label %47
 
 38:                                               ; preds = %35
-  store i32 %6, ptr %5, align 4
-  %39 = load i32, ptr %23, align 8
-  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %5, i32 noundef 4) #7
-  %41 = icmp eq i32 %40, -1
-  br i1 %41, label %42, label %46
+  %39 = and i32 %3, 1
+  store i32 %39, ptr %5, align 4
+  %40 = load i32, ptr %23, align 8
+  %41 = call i32 @setsockopt(i32 noundef %40, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %5, i32 noundef 4) #7
+  %42 = icmp eq i32 %41, -1
+  br i1 %42, label %43, label %47
 
-42:                                               ; preds = %38
-  %43 = tail call ptr @__errno_location() #8
-  %44 = load i32, ptr %43, align 4
-  %45 = sub nsw i32 0, %44
+43:                                               ; preds = %38
+  %44 = tail call ptr @__errno_location() #8
+  %45 = load i32, ptr %44, align 4
+  %46 = sub nsw i32 0, %45
   br label %maybe_new_socket.exit
 
-46:                                               ; preds = %38, %35
-  %47 = tail call ptr @__errno_location() #8
-  store i32 0, ptr %47, align 4
-  %48 = load i32, ptr %23, align 8
-  %49 = call i32 @bind(i32 noundef %48, ptr nonnull %1, i32 noundef %2) #7
-  %50 = icmp eq i32 %49, -1
-  br i1 %50, label %51, label %.critedge
+47:                                               ; preds = %38, %35
+  %48 = tail call ptr @__errno_location() #8
+  store i32 0, ptr %48, align 4
+  %49 = load i32, ptr %23, align 8
+  %50 = call i32 @bind(i32 noundef %49, ptr nonnull %1, i32 noundef %2) #7
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %52, label %.critedge
 
-51:                                               ; preds = %46
-  %52 = load i32, ptr %47, align 4
-  switch i32 %52, label %53 [
+52:                                               ; preds = %47
+  %53 = load i32, ptr %48, align 4
+  switch i32 %53, label %54 [
     i32 98, label %.critedge
     i32 97, label %maybe_new_socket.exit
   ]
 
-53:                                               ; preds = %51
-  %54 = sub nsw i32 0, %52
+54:                                               ; preds = %52
+  %55 = sub nsw i32 0, %53
   br label %maybe_new_socket.exit
 
-.critedge:                                        ; preds = %51, %46
-  %55 = phi i32 [ 0, %46 ], [ -98, %51 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %58 = load i32, ptr %57, align 8
-  %59 = or i32 %58, 8192
-  store i32 %59, ptr %57, align 8
-  %60 = load i16, ptr %1, align 2
-  %61 = icmp eq i16 %60, 10
-  br i1 %61, label %62, label %maybe_new_socket.exit
+.critedge:                                        ; preds = %52, %47
+  %56 = phi i32 [ 0, %47 ], [ -98, %52 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %56, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %59 = load i32, ptr %58, align 8
+  %60 = or i32 %59, 8192
+  store i32 %60, ptr %58, align 8
+  %61 = load i16, ptr %1, align 2
+  %62 = icmp eq i16 %61, 10
+  br i1 %62, label %63, label %maybe_new_socket.exit
 
-62:                                               ; preds = %.critedge
-  %63 = or i32 %58, 4202496
-  store i32 %63, ptr %57, align 8
+63:                                               ; preds = %.critedge
+  %64 = or i32 %59, 4202496
+  store i32 %64, ptr %58, align 8
   br label %maybe_new_socket.exit
 
-maybe_new_socket.exit:                            ; preds = %20, %15, %.critedge, %62, %51, %32, %7, %53, %42, %26
-  %.0 = phi i32 [ -22, %51 ], [ -22, %7 ], [ %29, %26 ], [ 0, %.critedge ], [ %45, %42 ], [ %34, %32 ], [ %54, %53 ], [ 0, %62 ], [ %16, %15 ], [ %19, %20 ]
+maybe_new_socket.exit:                            ; preds = %20, %15, %.critedge, %63, %52, %32, %7, %54, %43, %26
+  %.0 = phi i32 [ -22, %52 ], [ -22, %7 ], [ %29, %26 ], [ 0, %.critedge ], [ %46, %43 ], [ %34, %32 ], [ %55, %54 ], [ 0, %63 ], [ %16, %15 ], [ %19, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

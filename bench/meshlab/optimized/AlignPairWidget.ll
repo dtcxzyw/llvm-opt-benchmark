@@ -4098,16 +4098,16 @@ _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit:          ; preds = %63, %66
   %88 = load i32, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.0.0.copyload.i = load i32, ptr %89, align 4
-  %90 = and i32 %88, 1
-  %91 = shl i32 %88, 1
-  %92 = and i32 %91, 4
-  %.1.i = or disjoint i32 %92, %90
-  %93 = lshr i32 %88, 1
-  %94 = and i32 %93, 2
-  %.2.i = or disjoint i32 %.1.i, %94
-  %95 = lshr i32 %.sroa.0.0.copyload.i, 21
-  %96 = and i32 %95, 112
-  %.5.i = or disjoint i32 %.2.i, %96
+  %spec.select.i = and i32 %88, 1
+  %90 = shl i32 %88, 1
+  %91 = and i32 %90, 4
+  %.1.i = or disjoint i32 %91, %spec.select.i
+  %92 = lshr i32 %88, 1
+  %93 = and i32 %92, 2
+  %.2.i = or disjoint i32 %.1.i, %93
+  %94 = lshr i32 %.sroa.0.0.copyload.i, 21
+  %95 = and i32 %94, 112
+  %.5.i = or disjoint i32 %.2.i, %95
   tail call void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 dereferenceable(597) %34, i32 noundef %77, i32 noundef %86, i32 noundef %.5.i)
   ret void
 }
@@ -4329,7 +4329,7 @@ define void @_ZN15AlignPairWidget17mouseReleaseEventEP11QMouseEvent(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   store ptr @.str.7, ptr %8, align 8
   call void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.13)
-  br label %73
+  br label %72
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4404,21 +4404,21 @@ _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit:          ; preds = %42, %45
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.0.0.copyload.i = load i32, ptr %65, align 4
-  %66 = and i32 %64, 1
-  %67 = shl i32 %64, 1
-  %68 = and i32 %67, 4
-  %.1.i = or disjoint i32 %68, %66
-  %69 = lshr i32 %64, 1
-  %70 = and i32 %69, 2
-  %.2.i = or disjoint i32 %.1.i, %70
-  %71 = lshr i32 %.sroa.0.0.copyload.i, 21
-  %72 = and i32 %71, 112
-  %.5.i = or disjoint i32 %.2.i, %72
+  %spec.select.i = and i32 %64, 1
+  %66 = shl i32 %64, 1
+  %67 = and i32 %66, 4
+  %.1.i = or disjoint i32 %67, %spec.select.i
+  %68 = lshr i32 %64, 1
+  %69 = and i32 %68, 2
+  %.2.i = or disjoint i32 %.1.i, %69
+  %70 = lshr i32 %.sroa.0.0.copyload.i, 21
+  %71 = and i32 %70, 112
+  %.5.i = or disjoint i32 %.2.i, %71
   tail call void @_ZN3vcg9Trackball7MouseUpEiii(ptr noundef nonnull align 8 dereferenceable(597) %5, i32 noundef %32, i32 noundef %62, i32 noundef %.5.i)
   store ptr null, ptr %4, align 8
-  br label %73
+  br label %72
 
-73:                                               ; preds = %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit, %6
+72:                                               ; preds = %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit, %6
   ret void
 }
 

@@ -1024,9 +1024,9 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %14
 
-14:                                               ; preds = %.lr.ph, %74
-  %.04171 = phi i32 [ 0, %.lr.ph ], [ %.5, %74 ]
-  %.sroa.054.069 = phi ptr [ %7, %.lr.ph ], [ %75, %74 ]
+14:                                               ; preds = %.lr.ph, %73
+  %.04171 = phi i32 [ 0, %.lr.ph ], [ %.5, %73 ]
+  %.sroa.054.069 = phi ptr [ %7, %.lr.ph ], [ %74, %73 ]
   %15 = load ptr, ptr %.sroa.054.069, align 8, !tbaa !27
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %37, label %16
@@ -1070,7 +1070,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %.243.ph = phi i32 [ %.04171, %18 ], [ %35, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %74
+  br label %73
 
 36:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1081,7 +1081,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 24
   %39 = load i16, ptr %38, align 8, !tbaa !23
   %.not46 = icmp eq i16 %39, 0
-  br i1 %.not46, label %74, label %40
+  br i1 %.not46, label %73, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 28
@@ -1105,46 +1105,46 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %53 = getelementptr inbounds %struct.pollfd, ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = load i16, ptr %54, align 2, !tbaa !62
-  %56 = and i16 %55, 1
-  %57 = lshr i16 %55, 1
-  %58 = and i16 %57, 2
-  %.1 = or disjoint i16 %58, %56
-  %59 = shl i16 %55, 2
-  %60 = and i16 %59, 8
-  %.2 = or disjoint i16 %.1, %60
-  %61 = icmp ugt i16 %55, 7
-  %62 = or disjoint i16 %.2, 4
-  %.3 = select i1 %61, i16 %62, i16 %.2
+  %spec.select = and i16 %55, 1
+  %56 = lshr i16 %55, 1
+  %57 = and i16 %56, 2
+  %.1 = or disjoint i16 %57, %spec.select
+  %58 = shl i16 %55, 2
+  %59 = and i16 %58, 8
+  %.2 = or disjoint i16 %.1, %59
+  %60 = icmp ugt i16 %55, 7
+  %61 = or disjoint i16 %.2, 4
+  %.3 = select i1 %60, i16 %61, i16 %.2
   %.not50 = icmp eq i16 %.3, 0
-  br i1 %.not50, label %74, label %63
+  br i1 %.not50, label %73, label %62
 
-63:                                               ; preds = %49
-  %64 = sext i32 %.04171 to i64
-  %65 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %64
-  store ptr null, ptr %65, align 8, !tbaa !54
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !42
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 %67, ptr %68, align 8, !tbaa !56
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !60
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %70, ptr %71, align 8, !tbaa !57
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store i16 %.3, ptr %72, align 8, !tbaa !58
-  %73 = add nsw i32 %.04171, 1
-  br label %74
+62:                                               ; preds = %49
+  %63 = sext i32 %.04171 to i64
+  %64 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %63
+  store ptr null, ptr %64, align 8, !tbaa !54
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 8
+  %66 = load i32, ptr %65, align 8, !tbaa !42
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 %66, ptr %67, align 8, !tbaa !56
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !60
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store ptr %69, ptr %70, align 8, !tbaa !57
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store i16 %.3, ptr %71, align 8, !tbaa !58
+  %72 = add nsw i32 %.04171, 1
+  br label %73
 
-74:                                               ; preds = %.thread, %49, %63, %37
-  %.5 = phi i32 [ %.243.ph, %.thread ], [ %.04171, %37 ], [ %73, %63 ], [ %.04171, %49 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 32
-  %76 = icmp ne ptr %75, %9
-  %77 = icmp slt i32 %.5, %2
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %14, label %.loopexit, !llvm.loop !63
+73:                                               ; preds = %.thread, %49, %62, %37
+  %.5 = phi i32 [ %.243.ph, %.thread ], [ %.04171, %37 ], [ %72, %62 ], [ %.04171, %49 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 32
+  %75 = icmp ne ptr %74, %9
+  %76 = icmp slt i32 %.5, %2
+  %77 = select i1 %75, i1 %76, i1 false
+  br i1 %77, label %14, label %.loopexit, !llvm.loop !63
 
-.loopexit:                                        ; preds = %74, %3, %36
-  %spec.select53 = phi i32 [ -1, %36 ], [ 0, %3 ], [ %.5, %74 ]
+.loopexit:                                        ; preds = %73, %3, %36
+  %spec.select53 = phi i32 [ -1, %36 ], [ 0, %3 ], [ %.5, %73 ]
   ret i32 %spec.select53
 }
 

@@ -3283,7 +3283,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
-  br i1 %1, label %8, label %102
+  br i1 %1, label %8, label %97
 
 8:                                                ; preds = %7
   %9 = load i8, ptr @DisplayVMOutputToStdout, align 1
@@ -3292,21 +3292,21 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
   %12 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %13 = select i1 %10, ptr %11, ptr %12
   %14 = tail call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %13, ptr noundef nonnull @.str.85, ptr noundef %0) #32
-  br label %102
+  br label %97
 
 15:                                               ; preds = %3
   %16 = tail call i32 @getc(ptr noundef nonnull %5)
   %.not62 = icmp eq i32 %16, -1
   br i1 %.not62, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %72
-  %.060 = phi i32 [ %73, %72 ], [ %16, %15 ]
-  %.03759 = phi i8 [ %.1, %72 ], [ 1, %15 ]
-  %.03858 = phi i32 [ %.139, %72 ], [ 0, %15 ]
-  %.04057 = phi i1 [ %.141, %72 ], [ false, %15 ]
-  %.04256 = phi i1 [ %.143, %72 ], [ false, %15 ]
-  %.04455 = phi i1 [ %.145, %72 ], [ true, %15 ]
-  %.04654 = phi i32 [ %.147, %72 ], [ 0, %15 ]
+.lr.ph:                                           ; preds = %15, %70
+  %.060 = phi i32 [ %71, %70 ], [ %16, %15 ]
+  %.03759 = phi i1 [ %.1, %70 ], [ true, %15 ]
+  %.03858 = phi i32 [ %.139, %70 ], [ 0, %15 ]
+  %.04057 = phi i1 [ %.141, %70 ], [ false, %15 ]
+  %.04256 = phi i1 [ %.143, %70 ], [ false, %15 ]
+  %.04455 = phi i1 [ %.145, %70 ], [ true, %15 ]
+  %.04654 = phi i32 [ %.147, %70 ], [ 0, %15 ]
   br i1 %.04455, label %17, label %30
 
 17:                                               ; preds = %.lr.ph
@@ -3314,17 +3314,17 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
 
 18:                                               ; preds = %17
   %19 = icmp ne i32 %.060, 10
-  br label %72
+  br label %70
 
 20:                                               ; preds = %17
   %21 = icmp eq i32 %.060, 35
-  br i1 %21, label %72, label %22
+  br i1 %21, label %70, label %22
 
 22:                                               ; preds = %20
   %23 = and i32 %.060, 255
   %24 = call i32 @isspace(i32 noundef %23) #31
   %.not50 = icmp eq i32 %24, 0
-  br i1 %.not50, label %25, label %72
+  br i1 %.not50, label %25, label %70
 
 25:                                               ; preds = %22
   %26 = trunc i32 %.060 to i8
@@ -3332,7 +3332,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
   %28 = sext i32 %.04654 to i64
   %29 = getelementptr inbounds i8, ptr %4, i64 %28
   store i8 %26, ptr %29, align 1
-  br label %72
+  br label %70
 
 30:                                               ; preds = %.lr.ph
   %31 = icmp eq i32 %.060, 10
@@ -3345,7 +3345,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
   %34 = and i32 %.060, 255
   %35 = call i32 @isspace(i32 noundef %34) #31
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %67, label %36
+  br i1 %.not, label %65, label %36
 
 36:                                               ; preds = %33, %30
   %37 = sext i32 %.04654 to i64
@@ -3366,116 +3366,111 @@ define hidden noundef zeroext i1 @_ZN9Arguments21process_settings_fileEPKcbh(ptr
 
 _ZL9logOptionPKc.exit:                            ; preds = %36, %41
   %48 = call noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagOrigin(ptr noundef nonnull %4, i8 noundef zeroext %2, i32 noundef 3)
-  %49 = icmp ne i8 %.03759, 0
-  %50 = select i1 %48, i1 %49, i1 false
-  %51 = zext i1 %50 to i8
-  %52 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
-  %53 = add nsw i32 %52, 1
-  %54 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %55 = icmp eq ptr %54, null
-  %56 = sext i32 %53 to i64
-  %57 = shl nsw i64 %56, 3
-  br i1 %55, label %58, label %60
+  %49 = select i1 %48, i1 %.03759, i1 false
+  %50 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
+  %51 = add nsw i32 %50, 1
+  %52 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
+  %53 = icmp eq ptr %52, null
+  %54 = sext i32 %51 to i64
+  %55 = shl nsw i64 %54, 3
+  br i1 %53, label %56, label %58
+
+56:                                               ; preds = %_ZL9logOptionPKc.exit
+  %57 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %55, i8 noundef zeroext 19, i32 noundef 0) #32
+  br label %_ZN9Arguments15build_jvm_flagsEPKc.exit
 
 58:                                               ; preds = %_ZL9logOptionPKc.exit
-  %59 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %57, i8 noundef zeroext 19, i32 noundef 0) #32
+  %59 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %52, i64 noundef %55, i8 noundef zeroext 19, i32 noundef 0) #32
   br label %_ZN9Arguments15build_jvm_flagsEPKc.exit
 
-60:                                               ; preds = %_ZL9logOptionPKc.exit
-  %61 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %54, i64 noundef %57, i8 noundef zeroext 19, i32 noundef 0) #32
-  br label %_ZN9Arguments15build_jvm_flagsEPKc.exit
-
-_ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %58, %60
-  %storemerge.i.i = phi ptr [ %61, %60 ], [ %59, %58 ]
+_ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %56, %58
+  %storemerge.i.i = phi ptr [ %59, %58 ], [ %57, %56 ]
   store ptr %storemerge.i.i, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %62 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %4, i8 noundef zeroext 9) #32
-  %63 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %64 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %63, i64 %65
-  store ptr %62, ptr %66, align 8
-  store i32 %53, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
-  br label %72
+  %60 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %4, i8 noundef zeroext 9) #32
+  %61 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
+  %62 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  store ptr %60, ptr %64, align 8
+  store i32 %51, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
+  br label %70
 
-67:                                               ; preds = %33
+65:                                               ; preds = %33
   switch i32 %.060, label %.critedge [
-    i32 39, label %72
-    i32 34, label %72
+    i32 39, label %70
+    i32 34, label %70
   ]
 
 .critedge51:                                      ; preds = %32
   %.old = icmp eq i32 %.060, %.03858
-  br i1 %.old, label %72, label %.critedge
+  br i1 %.old, label %70, label %.critedge
 
-.critedge:                                        ; preds = %67, %.critedge51
-  %68 = trunc i32 %.060 to i8
-  %69 = add nsw i32 %.04654, 1
-  %70 = sext i32 %.04654 to i64
-  %71 = getelementptr inbounds i8, ptr %4, i64 %70
-  store i8 %68, ptr %71, align 1
-  br label %72
+.critedge:                                        ; preds = %65, %.critedge51
+  %66 = trunc i32 %.060 to i8
+  %67 = add nsw i32 %.04654, 1
+  %68 = sext i32 %.04654 to i64
+  %69 = getelementptr inbounds i8, ptr %4, i64 %68
+  store i8 %66, ptr %69, align 1
+  br label %70
 
-72:                                               ; preds = %18, %.critedge51, %67, %67, %20, %_ZN9Arguments15build_jvm_flagsEPKc.exit, %.critedge, %22, %25
-  %.147 = phi i32 [ %.04654, %20 ], [ %.04654, %.critedge51 ], [ %.04654, %18 ], [ %.04654, %22 ], [ %27, %25 ], [ 0, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04654, %67 ], [ %69, %.critedge ], [ %.04654, %67 ]
-  %.145 = phi i1 [ true, %20 ], [ false, %.critedge51 ], [ true, %18 ], [ true, %22 ], [ false, %25 ], [ true, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ false, %67 ], [ false, %.critedge ], [ false, %67 ]
-  %.143 = phi i1 [ true, %20 ], [ %.04256, %.critedge51 ], [ %19, %18 ], [ false, %22 ], [ false, %25 ], [ %.04256, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04256, %67 ], [ %.04256, %.critedge ], [ %.04256, %67 ]
-  %.141 = phi i1 [ %.04057, %20 ], [ false, %.critedge51 ], [ %.04057, %18 ], [ %.04057, %22 ], [ %.04057, %25 ], [ false, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ true, %67 ], [ %.04057, %.critedge ], [ true, %67 ]
-  %.139 = phi i32 [ %.03858, %20 ], [ %.060, %.critedge51 ], [ %.03858, %18 ], [ %.03858, %22 ], [ %.03858, %25 ], [ %.03858, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.060, %67 ], [ %.03858, %.critedge ], [ %.060, %67 ]
-  %.1 = phi i8 [ %.03759, %20 ], [ %.03759, %.critedge51 ], [ %.03759, %18 ], [ %.03759, %22 ], [ %.03759, %25 ], [ %51, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.03759, %67 ], [ %.03759, %.critedge ], [ %.03759, %67 ]
-  %73 = call i32 @getc(ptr noundef nonnull %5)
-  %74 = icmp ne i32 %73, -1
-  %75 = icmp slt i32 %.147, 1023
-  %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+70:                                               ; preds = %18, %.critedge51, %65, %65, %20, %_ZN9Arguments15build_jvm_flagsEPKc.exit, %.critedge, %22, %25
+  %.147 = phi i32 [ %.04654, %20 ], [ %.04654, %.critedge51 ], [ %.04654, %18 ], [ %.04654, %22 ], [ %27, %25 ], [ 0, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04654, %65 ], [ %67, %.critedge ], [ %.04654, %65 ]
+  %.145 = phi i1 [ true, %20 ], [ false, %.critedge51 ], [ true, %18 ], [ true, %22 ], [ false, %25 ], [ true, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ false, %65 ], [ false, %.critedge ], [ false, %65 ]
+  %.143 = phi i1 [ true, %20 ], [ %.04256, %.critedge51 ], [ %19, %18 ], [ false, %22 ], [ false, %25 ], [ %.04256, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.04256, %65 ], [ %.04256, %.critedge ], [ %.04256, %65 ]
+  %.141 = phi i1 [ %.04057, %20 ], [ false, %.critedge51 ], [ %.04057, %18 ], [ %.04057, %22 ], [ %.04057, %25 ], [ false, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ true, %65 ], [ %.04057, %.critedge ], [ true, %65 ]
+  %.139 = phi i32 [ %.03858, %20 ], [ %.060, %.critedge51 ], [ %.03858, %18 ], [ %.03858, %22 ], [ %.03858, %25 ], [ %.03858, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.060, %65 ], [ %.03858, %.critedge ], [ %.060, %65 ]
+  %.1 = phi i1 [ %.03759, %20 ], [ %.03759, %.critedge51 ], [ %.03759, %18 ], [ %.03759, %22 ], [ %.03759, %25 ], [ %49, %_ZN9Arguments15build_jvm_flagsEPKc.exit ], [ %.03759, %65 ], [ %.03759, %.critedge ], [ %.03759, %65 ]
+  %71 = call i32 @getc(ptr noundef nonnull %5)
+  %72 = icmp ne i32 %71, -1
+  %73 = icmp slt i32 %.147, 1023
+  %74 = select i1 %72, i1 %73, i1 false
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %72
-  %77 = icmp sgt i32 %.147, 0
-  br i1 %77, label %78, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %70
+  %75 = icmp sgt i32 %.147, 0
+  br i1 %75, label %76, label %._crit_edge.thread
 
-78:                                               ; preds = %._crit_edge
-  %79 = zext nneg i32 %.147 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 %79
-  store i8 0, ptr %80, align 1
-  %81 = call noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagOrigin(ptr noundef nonnull %4, i8 noundef zeroext %2, i32 noundef 3)
-  %82 = icmp ne i8 %.1, 0
-  %83 = select i1 %81, i1 %82, i1 false
-  %84 = zext i1 %83 to i8
-  %85 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
-  %86 = add nsw i32 %85, 1
-  %87 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %88 = icmp eq ptr %87, null
-  %89 = sext i32 %86 to i64
-  %90 = shl nsw i64 %89, 3
-  br i1 %88, label %91, label %93
+76:                                               ; preds = %._crit_edge
+  %77 = zext nneg i32 %.147 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 %77
+  store i8 0, ptr %78, align 1
+  %79 = call noundef zeroext i1 @_ZN9Arguments16process_argumentEPKch13JVMFlagOrigin(ptr noundef nonnull %4, i8 noundef zeroext %2, i32 noundef 3)
+  %80 = select i1 %79, i1 %.1, i1 false
+  %81 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
+  %82 = add nsw i32 %81, 1
+  %83 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
+  %84 = icmp eq ptr %83, null
+  %85 = sext i32 %82 to i64
+  %86 = shl nsw i64 %85, 3
+  br i1 %84, label %87, label %89
 
-91:                                               ; preds = %78
-  %92 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %90, i8 noundef zeroext 19, i32 noundef 0) #32
+87:                                               ; preds = %76
+  %88 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %86, i8 noundef zeroext 19, i32 noundef 0) #32
   br label %_ZN9Arguments15build_jvm_flagsEPKc.exit53
 
-93:                                               ; preds = %78
-  %94 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %87, i64 noundef %90, i8 noundef zeroext 19, i32 noundef 0) #32
+89:                                               ; preds = %76
+  %90 = call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %83, i64 noundef %86, i8 noundef zeroext 19, i32 noundef 0) #32
   br label %_ZN9Arguments15build_jvm_flagsEPKc.exit53
 
-_ZN9Arguments15build_jvm_flagsEPKc.exit53:        ; preds = %91, %93
-  %storemerge.i.i52 = phi ptr [ %94, %93 ], [ %92, %91 ]
+_ZN9Arguments15build_jvm_flagsEPKc.exit53:        ; preds = %87, %89
+  %storemerge.i.i52 = phi ptr [ %90, %89 ], [ %88, %87 ]
   store ptr %storemerge.i.i52, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %95 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %4, i8 noundef zeroext 9) #32
-  %96 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %97 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  store ptr %95, ptr %99, align 8
-  store i32 %86, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
+  %91 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %4, i8 noundef zeroext 9) #32
+  %92 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
+  %93 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
+  store ptr %91, ptr %95, align 8
+  store i32 %82, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %15, %_ZN9Arguments15build_jvm_flagsEPKc.exit53, %._crit_edge
-  %.2 = phi i8 [ %84, %_ZN9Arguments15build_jvm_flagsEPKc.exit53 ], [ %.1, %._crit_edge ], [ 1, %15 ]
-  %100 = call i32 @fclose(ptr noundef nonnull %5)
-  %101 = trunc nuw i8 %.2 to i1
-  br label %102
+  %.2 = phi i1 [ %80, %_ZN9Arguments15build_jvm_flagsEPKc.exit53 ], [ %.1, %._crit_edge ], [ true, %15 ]
+  %96 = call i32 @fclose(ptr noundef nonnull %5)
+  br label %97
 
-102:                                              ; preds = %7, %._crit_edge.thread, %8
-  %.048 = phi i1 [ false, %8 ], [ %101, %._crit_edge.thread ], [ true, %7 ]
+97:                                               ; preds = %7, %._crit_edge.thread, %8
+  %.048 = phi i1 [ false, %8 ], [ %.2, %._crit_edge.thread ], [ true, %7 ]
   ret i1 %.048
 }
 
@@ -10149,9 +10144,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15ModulePatchP
   br label %_ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -10168,25 +10162,25 @@ _ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit: ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -10199,29 +10193,28 @@ _ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !45
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !45
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP15ModulePatchPathE10deallocateEPS1_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !46
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !46
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIP15ModulePatchPathE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIP15ModulePatchPathE10deallocateEPS1_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #32

@@ -27577,11 +27577,10 @@ _ZNK8rational6is_oddEv.exit:                      ; preds = %_ZNK2dd3pdd6is_valE
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.0.in.in.in.i.i.i.i.i = select i1 %88, ptr %76, ptr %91
   %.0.in.in.i.i.i.i.i = load i32, ptr %.0.in.in.in.i.i.i.i.i, align 4, !tbaa !83
-  %.0.in.i.i.i.i.i = and i32 %.0.in.in.i.i.i.i.i, 1
-  %.0.i.i.i.i.i = icmp eq i32 %.0.in.i.i.i.i.i, 0
-  %92 = icmp eq i32 %60, 1
-  %or.cond = or i1 %92, %.0.i.i.i.i.i
-  br i1 %or.cond, label %_ZNK2dd3pdd6is_valEv.exit.thread42, label %93
+  %.0.i.i.i.i.i = trunc i32 %.0.in.in.i.i.i.i.i to i1
+  %92 = icmp ne i32 %60, 1
+  %or.cond.not = and i1 %92, %.0.i.i.i.i.i
+  br i1 %or.cond.not, label %93, label %_ZNK2dd3pdd6is_valEv.exit.thread42
 
 _ZNK8rational6is_oddEv.exit.thread:               ; preds = %_ZNK2dd3pdd6is_valEv.exit.thread
   %.old = icmp eq i32 %60, 1
@@ -31200,9 +31199,8 @@ _ZNK8rational6is_oddEv.exit:                      ; preds = %_ZNK2dd11pdd_manage
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.0.in.in.in.i.i.i.i.i = select i1 %102, ptr %90, ptr %105
   %.0.in.in.i.i.i.i.i = load i32, ptr %.0.in.in.in.i.i.i.i.i, align 4, !tbaa !83
-  %.0.in.i.i.i.i.i = and i32 %.0.in.in.i.i.i.i.i, 1
-  %.0.i.i.i.i.i.not = icmp eq i32 %.0.in.i.i.i.i.i, 0
-  br i1 %.0.i.i.i.i.i.not, label %106, label %.thread31
+  %.0.i.i.i.i.i = trunc i32 %.0.in.in.i.i.i.i.i to i1
+  br i1 %.0.i.i.i.i.i, label %.thread31, label %106
 
 .thread31:                                        ; preds = %_ZNK2dd11pdd_manager6is_valEj.exit.thread, %_ZNK8rational6is_oddEv.exit
   store i32 0, ptr %61, align 4, !tbaa !83

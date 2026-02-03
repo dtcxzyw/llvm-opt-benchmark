@@ -79,17 +79,17 @@ define internal fastcc { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   %28 = phi i64 [ %16, %._crit_edge.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i" ]
   %29 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i" ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = lshr i64 %29, 1
-  store i64 %31, ptr %30, align 8, !alias.scope !31, !noalias !32
-  %32 = add i64 %28, -1
-  store i64 %32, ptr %15, align 8, !alias.scope !31, !noalias !32
-  %33 = trunc i64 %29 to i1
+  %31 = trunc i64 %29 to i1
+  %32 = lshr i64 %29, 1
+  store i64 %32, ptr %30, align 8, !alias.scope !31, !noalias !32
+  %33 = add i64 %28, -1
+  store i64 %33, ptr %15, align 8, !alias.scope !31, !noalias !32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val = load ptr, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val1 = load ptr, ptr %35, align 8
   %36 = icmp ult i64 %.val.i.i.i.i, %.val1.i.i.i.i
-  br i1 %33, label %38, label %37
+  br i1 %31, label %38, label %37
 
 37:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haea8de590561ad32E.exit"
   br i1 %36, label %.lr.ph.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haea8de590561ad32E.exit.thread"
@@ -211,17 +211,17 @@ define internal fastcc { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   %30 = phi i64 [ %18, %._crit_edge.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i" ]
   %31 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i" ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = lshr i64 %31, 1
-  store i64 %33, ptr %32, align 8, !alias.scope !63, !noalias !64
-  %34 = add i64 %30, -1
-  store i64 %34, ptr %17, align 8, !alias.scope !63, !noalias !64
-  %35 = trunc i64 %31 to i1
+  %33 = trunc i64 %31 to i1
+  %34 = lshr i64 %31, 1
+  store i64 %34, ptr %32, align 8, !alias.scope !63, !noalias !64
+  %35 = add i64 %30, -1
+  store i64 %35, ptr %17, align 8, !alias.scope !63, !noalias !64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val = load ptr, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.val1 = load ptr, ptr %37, align 8
   %38 = icmp ult i32 %.val.i.i.i.i, %.val1.i.i.i.i
-  br i1 %35, label %40, label %39
+  br i1 %33, label %40, label %39
 
 39:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60caa0fed78f5640E.exit"
   br i1 %38, label %.lr.ph.i, label %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60caa0fed78f5640E.exit.thread"
@@ -782,13 +782,13 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h241516d29a6d416
   %78 = phi i64 [ %65, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %79 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %81 = lshr i64 %79, 1
-  store i64 %81, ptr %80, align 8, !alias.scope !194
-  %82 = add i64 %78, -1
-  store i64 %82, ptr %64, align 8, !alias.scope !194
-  %83 = trunc i64 %79 to i1
+  %81 = trunc i64 %79 to i1
+  %82 = lshr i64 %79, 1
+  store i64 %82, ptr %80, align 8, !alias.scope !194
+  %83 = add i64 %78, -1
+  store i64 %83, ptr %64, align 8, !alias.scope !194
   %84 = add nuw nsw i64 %62, 1
-  %.sroa.01.0.i.i = select i1 %83, i64 %84, i64 1
+  %.sroa.01.0.i.i = select i1 %81, i64 %84, i64 1
   store i64 %.sroa.01.0.i.i, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
@@ -2085,8 +2085,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h585875728f85943
   %.sroa.0.0 = phi i64 [ %52, %50 ], [ 0, %.lr.ph.i.i.preheader ]
   %25 = phi ptr [ %51, %50 ], [ %24, %.lr.ph.i.i.preheader ]
   %26 = phi ptr [ %37, %50 ], [ %.sroa.518.0.copyload, %.lr.ph.i.i.preheader ]
-  %.pre.i.i.i.i.i19.i.i = phi i64 [ %41, %50 ], [ %.sroa.7.0.copyload, %.lr.ph.i.i.preheader ]
-  %27 = phi i64 [ %42, %50 ], [ %.sroa.820.0.copyload, %.lr.ph.i.i.preheader ]
+  %.pre.i.i.i.i.i19.i.i = phi i64 [ %42, %50 ], [ %.sroa.7.0.copyload, %.lr.ph.i.i.preheader ]
+  %27 = phi i64 [ %43, %50 ], [ %.sroa.820.0.copyload, %.lr.ph.i.i.preheader ]
   %28 = phi ptr [ %30, %50 ], [ %.sroa.017.0.copyload, %.lr.ph.i.i.preheader ]
   %29 = phi i64 [ %38, %50 ], [ %.sroa.9.0.copyload, %.lr.ph.i.i.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -2111,10 +2111,10 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h585875728f85943
   %38 = phi i64 [ %35, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i.i" ], [ %29, %.lr.ph.i.i ]
   %39 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i.i" ], [ %27, %.lr.ph.i.i ]
   %40 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i19.i.i, %.lr.ph.i.i ]
-  %41 = lshr i64 %40, 1
-  %42 = add i64 %39, -1
-  %43 = trunc i64 %40 to i1
-  br i1 %43, label %.split.i.i.i.i.i, label %48
+  %41 = trunc i64 %40 to i1
+  %42 = lshr i64 %40, 1
+  %43 = add i64 %39, -1
+  br i1 %41, label %.split.i.i.i.i.i, label %48
 
 .split.i.i.i.i.i:                                 ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i.i"
   %44 = add nuw nsw i64 %31, 31
@@ -2197,12 +2197,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h585875728f85943
   %81 = phi i64 [ %69, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %82 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %84 = lshr i64 %82, 1
-  store i64 %84, ptr %83, align 8, !alias.scope !464
-  %85 = add i64 %81, -1
-  store i64 %85, ptr %68, align 8, !alias.scope !464
-  %86 = trunc i64 %82 to i1
-  br i1 %86, label %.split.i.i, label %91
+  %84 = trunc i64 %82 to i1
+  %85 = lshr i64 %82, 1
+  store i64 %85, ptr %83, align 8, !alias.scope !464
+  %86 = add i64 %81, -1
+  store i64 %86, ptr %68, align 8, !alias.scope !464
+  br i1 %84, label %.split.i.i, label %91
 
 .split.i.i:                                       ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i"
   %87 = add nuw nsw i64 %66, 31
@@ -4488,8 +4488,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   %25 = phi ptr [ %59, %58 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %42, %58 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %43, %58 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %46, %58 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %28 = phi i64 [ %47, %58 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %47, %58 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %28 = phi i64 [ %48, %58 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %58 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %58 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %31 = add i64 %29, -1
@@ -4518,10 +4518,10 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   %43 = phi i64 [ %40, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %44 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
   %45 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i24.us.i.i, %.lr.ph.split.us.i.i ]
-  %46 = lshr i64 %45, 1
-  %47 = add i64 %44, -1
-  %48 = trunc i64 %45 to i1
-  br i1 %48, label %.split.i.i.i.us.i.i, label %56
+  %46 = trunc i64 %45 to i1
+  %47 = lshr i64 %45, 1
+  %48 = add i64 %44, -1
+  br i1 %46, label %.split.i.i.i.us.i.i, label %56
 
 .split.i.i.i.us.i.i:                              ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i.i"
   %49 = lshr i64 %36, 5
@@ -4627,12 +4627,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17h9fecd4d5fa2031b
   %98 = phi i64 [ %86, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %99 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %101 = lshr i64 %99, 1
-  store i64 %101, ptr %100, align 8, !alias.scope !931
-  %102 = add i64 %98, -1
-  store i64 %102, ptr %85, align 8, !alias.scope !931
-  %103 = trunc i64 %99 to i1
-  br i1 %103, label %.split.i.i, label %111
+  %101 = trunc i64 %99 to i1
+  %102 = lshr i64 %99, 1
+  store i64 %102, ptr %100, align 8, !alias.scope !931
+  %103 = add i64 %98, -1
+  store i64 %103, ptr %85, align 8, !alias.scope !931
+  br i1 %101, label %.split.i.i, label %111
 
 .split.i.i:                                       ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i"
   %104 = lshr i64 %83, 5
@@ -5707,13 +5707,13 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hb4899c57f38bc04
   %92 = phi i64 [ %79, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %93 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %95 = lshr i64 %93, 1
-  store i64 %95, ptr %94, align 8, !alias.scope !1139
-  %96 = add i64 %92, -1
-  store i64 %96, ptr %78, align 8, !alias.scope !1139
-  %97 = trunc i64 %93 to i1
+  %95 = trunc i64 %93 to i1
+  %96 = lshr i64 %93, 1
+  store i64 %96, ptr %94, align 8, !alias.scope !1139
+  %97 = add i64 %92, -1
+  store i64 %97, ptr %78, align 8, !alias.scope !1139
   %98 = add nsw i64 %76, 1
-  %.sroa.01.0.i.i = select i1 %97, i64 %98, i64 1
+  %.sroa.01.0.i.i = select i1 %95, i64 %98, i64 1
   store i64 %.sroa.01.0.i.i, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8
@@ -7450,8 +7450,8 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   %25 = phi ptr [ %58, %57 ], [ %24, %.lr.ph.split.us.i.i.preheader ]
   %26 = phi ptr [ %41, %57 ], [ %.sroa.618.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %27 = phi i64 [ %42, %57 ], [ %.sroa.1020.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %45, %57 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
-  %28 = phi i64 [ %46, %57 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %.pre.i.i.i.i.i24.us.i.i = phi i64 [ %46, %57 ], [ %.sroa.8.0.copyload, %.lr.ph.split.us.i.i.preheader ]
+  %28 = phi i64 [ %47, %57 ], [ %.sroa.919.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %29 = phi i64 [ %31, %57 ], [ %.sroa.4.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %30 = phi ptr [ %32, %57 ], [ %.sroa.017.0.copyload, %.lr.ph.split.us.i.i.preheader ]
   %31 = add i64 %29, -1
@@ -7479,10 +7479,10 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   %42 = phi i64 [ %39, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %27, %.lr.ph.split.us.i.i ]
   %43 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %28, %.lr.ph.split.us.i.i ]
   %44 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i.i" ], [ %.pre.i.i.i.i.i24.us.i.i, %.lr.ph.split.us.i.i ]
-  %45 = lshr i64 %44, 1
-  %46 = add i64 %43, -1
-  %47 = trunc i64 %44 to i1
-  br i1 %47, label %.split.i.i.i.us.i.i, label %55
+  %45 = trunc i64 %44 to i1
+  %46 = lshr i64 %44, 1
+  %47 = add i64 %43, -1
+  br i1 %45, label %.split.i.i.i.us.i.i, label %55
 
 .split.i.i.i.us.i.i:                              ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i.i"
   %48 = lshr i64 %35, 5
@@ -7587,12 +7587,12 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17he1b047670b2cb37
   %96 = phi i64 [ %84, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %97 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %99 = lshr i64 %97, 1
-  store i64 %99, ptr %98, align 8, !alias.scope !1499
-  %100 = add i64 %96, -1
-  store i64 %100, ptr %83, align 8, !alias.scope !1499
-  %101 = trunc i64 %97 to i1
-  br i1 %101, label %.split.i.i, label %109
+  %99 = trunc i64 %97 to i1
+  %100 = lshr i64 %97, 1
+  store i64 %100, ptr %98, align 8, !alias.scope !1499
+  %101 = add i64 %96, -1
+  store i64 %101, ptr %83, align 8, !alias.scope !1499
+  br i1 %99, label %.split.i.i, label %109
 
 .split.i.i:                                       ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i"
   %102 = lshr i64 %81, 5
@@ -8826,14 +8826,14 @@ define hidden void @_ZN10polars_row6widths9RowWidths9push_iter17hf9e12a5f1112f41
   %89 = phi i64 [ %76, %._crit_edge.i.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %90 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ]
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %92 = lshr i64 %90, 1
-  store i64 %92, ptr %91, align 8, !alias.scope !1747
-  %93 = add i64 %89, -1
-  store i64 %93, ptr %75, align 8, !alias.scope !1747
-  %94 = trunc i64 %90 to i1
+  %92 = trunc i64 %90 to i1
+  %93 = lshr i64 %90, 1
+  store i64 %93, ptr %91, align 8, !alias.scope !1747
+  %94 = add i64 %89, -1
+  store i64 %94, ptr %75, align 8, !alias.scope !1747
   %95 = add i64 %72, 1
   %96 = sub i64 %95, %73
-  %.sroa.01.0.i.i = select i1 %94, i64 %96, i64 1
+  %.sroa.01.0.i.i = select i1 %92, i64 %96, i64 1
   store i64 %.sroa.01.0.i.i, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8

@@ -362,109 +362,104 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %15, %17
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5) local_unnamed_addr #0 align 2 {
-  %.not48 = icmp eq i64 %3, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  br label %16
+  br label %13
 
-._crit_edge:                                      ; preds = %16, %6
-  %9 = lshr i32 %1, 16
-  %10 = and i32 %9, 1
-  %.not = icmp eq i32 %10, 0
-  %11 = and i32 %1, 131072
-  %.not27 = icmp eq i32 %11, 0
-  %12 = icmp eq i64 %5, 0
-  %13 = or i1 %.not, %12
-  %or.cond46.not = or i1 %13, %.not27
-  br i1 %or.cond46.not, label %.loopexit40, label %.lr.ph43
+._crit_edge:                                      ; preds = %13, %6
+  %9 = and i32 %1, 196608
+  %or.cond.not = icmp eq i32 %9, 196608
+  %10 = icmp ne i64 %5, 0
+  %or.cond = and i1 %or.cond.not, %10
+  br i1 %or.cond, label %.lr.ph43, label %.loopexit40
 
 .lr.ph43:                                         ; preds = %._crit_edge
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.sroa.22.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  br label %22
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  br label %19
 
-16:                                               ; preds = %.lr.ph, %16
-  %.02541 = phi i64 [ 0, %.lr.ph ], [ %21, %16 ]
-  %17 = add i64 %.02541, 32
-  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %.02541
-  %19 = load i32, ptr %18, align 4, !tbaa !3
-  %.sroa.01.0.insert.ext.i = and i64 %17, 4294967295
+13:                                               ; preds = %.lr.ph, %13
+  %.02541 = phi i64 [ 0, %.lr.ph ], [ %18, %13 ]
+  %14 = add i64 %.02541, 32
+  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %.02541
+  %16 = load i32, ptr %15, align 4, !tbaa !3
+  %.sroa.01.0.insert.ext.i = and i64 %14, 4294967295
   %.sroa.01.0.insert.insert.i = or disjoint i64 %.sroa.01.0.insert.ext.i, 8589934592
   store i64 %.sroa.01.0.insert.insert.i, ptr %7, align 8
-  store i32 %19, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
-  %20 = load ptr, ptr %8, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
-  %21 = add nuw i64 %.02541, 1
-  %exitcond.not = icmp eq i64 %21, %3
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !99
+  store i32 %16, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
+  %17 = load ptr, ptr %8, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
+  %18 = add nuw i64 %.02541, 1
+  %exitcond.not = icmp eq i64 %18, %3
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !99
 
-22:                                               ; preds = %.lr.ph43, %22
-  %.02642 = phi i64 [ 0, %.lr.ph43 ], [ %27, %22 ]
-  %23 = add i64 %.02642, 4
-  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %.02642
-  %25 = load i32, ptr %24, align 4, !tbaa !3
-  %.sroa.01.0.insert.ext.i31 = and i64 %23, 4294967295
+19:                                               ; preds = %.lr.ph43, %19
+  %.02642 = phi i64 [ 0, %.lr.ph43 ], [ %24, %19 ]
+  %20 = add i64 %.02642, 4
+  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %.02642
+  %22 = load i32, ptr %21, align 4, !tbaa !3
+  %.sroa.01.0.insert.ext.i31 = and i64 %20, 4294967295
   %.sroa.01.0.insert.insert.i32 = or disjoint i64 %.sroa.01.0.insert.ext.i31, 8589934592
-  store i64 %.sroa.01.0.insert.insert.i32, ptr %14, align 8
-  store i32 %25, ptr %.sroa.22.0..sroa_idx.i.i33, align 8, !tbaa !3
-  %26 = load ptr, ptr %15, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
-  %27 = add nuw i64 %.02642, 1
-  %exitcond51.not = icmp eq i64 %27, %5
-  br i1 %exitcond51.not, label %.loopexit40, label %22, !llvm.loop !100
+  store i64 %.sroa.01.0.insert.insert.i32, ptr %11, align 8
+  store i32 %22, ptr %.sroa.22.0..sroa_idx.i.i33, align 8, !tbaa !3
+  %23 = load ptr, ptr %12, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %23)
+  %24 = add nuw i64 %.02642, 1
+  %exitcond47.not = icmp eq i64 %24, %5
+  br i1 %exitcond47.not, label %.loopexit40, label %19, !llvm.loop !100
 
-.loopexit40:                                      ; preds = %22, %._crit_edge
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 8589934615, ptr %28, align 8
+.loopexit40:                                      ; preds = %19, %._crit_edge
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 8589934615, ptr %25, align 8
   %.sroa.22.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store i32 %1, ptr %.sroa.22.0..sroa_idx.i.i34, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %30 = load ptr, ptr %29, align 8, !tbaa !7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %27 = load ptr, ptr %26, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  br label %29
+
+29:                                               ; preds = %29, %.loopexit40
+  store i64 4294967318, ptr %25, align 8
+  store i32 0, ptr %.sroa.22.0..sroa_idx.i.i34, align 8, !tbaa !3
+  %30 = load ptr, ptr %26, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  br label %32
+  %31 = load i32, ptr %28, align 8, !tbaa !88
+  %32 = and i32 %31, 4096
+  %.not28 = icmp eq i32 %32, 0
+  br i1 %.not28, label %33, label %29, !llvm.loop !101
 
-32:                                               ; preds = %32, %.loopexit40
-  store i64 4294967318, ptr %28, align 8
-  store i32 0, ptr %.sroa.22.0..sroa_idx.i.i34, align 8, !tbaa !3
-  %33 = load ptr, ptr %29, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
-  %34 = load i32, ptr %31, align 8, !tbaa !88
-  %35 = and i32 %34, 4096
-  %.not28 = icmp eq i32 %35, 0
-  br i1 %.not28, label %36, label %32, !llvm.loop !101
+33:                                               ; preds = %29
+  %or.cond30.not = icmp eq i32 %9, 131072
+  %or.cond46 = and i1 %or.cond30.not, %10
+  br i1 %or.cond46, label %.lr.ph45, label %.loopexit
 
-36:                                               ; preds = %32
-  %37 = icmp ne i32 %10, 0
-  %38 = or i1 %37, %12
-  %or.cond47.not = or i1 %38, %.not27
-  br i1 %or.cond47.not, label %.loopexit, label %.lr.ph45
-
-.lr.ph45:                                         ; preds = %36, %.lr.ph45
-  %.044 = phi i64 [ %43, %.lr.ph45 ], [ 0, %36 ]
-  %39 = add i64 %.044, 4
-  %.sroa.01.0.insert.ext.i36 = and i64 %39, 4294967295
+.lr.ph45:                                         ; preds = %33, %.lr.ph45
+  %.044 = phi i64 [ %38, %.lr.ph45 ], [ 0, %33 ]
+  %34 = add i64 %.044, 4
+  %.sroa.01.0.insert.ext.i36 = and i64 %34, 4294967295
   %.sroa.01.0.insert.insert.i37 = or disjoint i64 %.sroa.01.0.insert.ext.i36, 4294967296
-  store i64 %.sroa.01.0.insert.insert.i37, ptr %28, align 8
+  store i64 %.sroa.01.0.insert.insert.i37, ptr %25, align 8
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i34, align 8, !tbaa !3
-  %40 = load ptr, ptr %29, align 8, !tbaa !7
-  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %40)
-  %41 = load i32, ptr %31, align 8, !tbaa !88
-  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %.044
-  store i32 %41, ptr %42, align 4, !tbaa !3
-  %43 = add nuw i64 %.044, 1
-  %exitcond52.not = icmp eq i64 %43, %5
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph45, !llvm.loop !102
+  %35 = load ptr, ptr %26, align 8, !tbaa !7
+  tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
+  %36 = load i32, ptr %28, align 8, !tbaa !88
+  %37 = getelementptr inbounds nuw i32, ptr %4, i64 %.044
+  store i32 %36, ptr %37, align 4, !tbaa !3
+  %38 = add nuw i64 %.044, 1
+  %exitcond48.not = icmp eq i64 %38, %5
+  br i1 %exitcond48.not, label %.loopexit, label %.lr.ph45, !llvm.loop !102
 
-.loopexit:                                        ; preds = %.lr.ph45, %36
-  %44 = lshr i32 %34, 8
-  %45 = and i32 %44, 7
-  ret i32 %45
+.loopexit:                                        ; preds = %.lr.ph45, %33
+  %39 = lshr i32 %31, 8
+  %40 = and i32 %39, 7
+  ret i32 %40
 }
 
 ; Function Attrs: mustprogress uwtable

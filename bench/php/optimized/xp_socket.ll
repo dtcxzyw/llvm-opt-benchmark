@@ -581,10 +581,10 @@ define internal range(i32 -128, 128) i32 @php_sockop_set_option(ptr noundef read
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %166, label %9
+  br i1 %.not, label %165, label %9
 
 9:                                                ; preds = %4
-  switch i32 %1, label %166 [
+  switch i32 %1, label %165 [
     i32 12, label %10
     i32 1, label %54
     i32 4, label %64
@@ -681,7 +681,7 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
 53:                                               ; preds = %47, %45, %41, %22, %php_pollfd_for.exit
   %.088 = phi i32 [ 0, %php_pollfd_for.exit ], [ -1, %22 ], [ 0, %45 ], [ %52, %47 ], [ -1, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %166
+  br label %165
 
 54:                                               ; preds = %9
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -690,20 +690,20 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   %58 = icmp ne i32 %2, 0
   %59 = tail call i32 @php_set_sock_blocking(i32 noundef %57, i1 noundef zeroext %58) #15
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %166
+  br i1 %60, label %61, label %165
 
 61:                                               ; preds = %54
   %62 = sext i8 %56 to i32
   %63 = trunc i32 %2 to i8
   store i8 %63, ptr %55, align 4, !tbaa !25
-  br label %166
+  br label %165
 
 64:                                               ; preds = %9
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !56
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i8 0, ptr %66, align 8, !tbaa !27
-  br label %166
+  br label %165
 
 67:                                               ; preds = %9
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -719,17 +719,17 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   %76 = and i16 %75, 8
   %77 = icmp ne i16 %76, 0
   tail call void @add_assoc_bool_ex(ptr noundef %3, ptr noundef nonnull @.str.10, i64 noundef 3, i1 noundef zeroext %77) #15
-  br label %166
+  br label %165
 
 78:                                               ; preds = %9
   %79 = load i32, ptr %3, align 8, !tbaa !57
-  switch i32 %79, label %166 [
+  switch i32 %79, label %165 [
     i32 2, label %80
     i32 5, label %88
     i32 6, label %102
     i32 8, label %116
-    i32 7, label %136
-    i32 9, label %155
+    i32 7, label %135
+    i32 9, label %154
   ]
 
 80:                                               ; preds = %78
@@ -741,7 +741,7 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   %86 = sext i1 %85 to i32
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i32 %86, ptr %87, align 8, !tbaa !65
-  br label %166
+  br label %165
 
 88:                                               ; preds = %78
   %89 = load i32, ptr %8, align 8, !tbaa !21
@@ -760,7 +760,7 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   %100 = tail call i32 @php_network_get_sock_name(i32 noundef %89, ptr noundef %94, ptr noundef %97, ptr noundef %99) #15
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i32 %100, ptr %101, align 8, !tbaa !65
-  br label %166
+  br label %165
 
 102:                                              ; preds = %78
   %103 = load i32, ptr %8, align 8, !tbaa !21
@@ -779,76 +779,76 @@ php_pollfd_for.exit._crit_edge:                   ; preds = %php_pollfd_for.exit
   %114 = tail call i32 @php_network_get_peer_name(i32 noundef %103, ptr noundef %108, ptr noundef %111, ptr noundef %113) #15
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i32 %114, ptr %115, align 8, !tbaa !65
-  br label %166
+  br label %165
 
 116:                                              ; preds = %78
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %118 = load i32, ptr %117, align 8, !tbaa !66
-  %119 = and i32 %118, 1
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %121 = load ptr, ptr %120, align 8, !tbaa !67
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %123 = load i64, ptr %122, align 8, !tbaa !68
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !69
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %127 = load i32, ptr %126, align 8, !tbaa !70
-  %128 = tail call fastcc i32 @sock_sendto(ptr noundef %8, ptr noundef %121, i64 noundef %123, i32 noundef %119, ptr noundef %125, i32 noundef %127)
-  %129 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i32 %128, ptr %129, align 8, !tbaa !65
-  %130 = icmp eq i32 %128, -1
-  br i1 %130, label %131, label %166
+  %spec.select = and i32 %118, 1
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %120 = load ptr, ptr %119, align 8, !tbaa !67
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %122 = load i64, ptr %121, align 8, !tbaa !68
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %124 = load ptr, ptr %123, align 8, !tbaa !69
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %126 = load i32, ptr %125, align 8, !tbaa !70
+  %127 = tail call fastcc i32 @sock_sendto(ptr noundef %8, ptr noundef %120, i64 noundef %122, i32 noundef %spec.select, ptr noundef %124, i32 noundef %126)
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store i32 %127, ptr %128, align 8, !tbaa !65
+  %129 = icmp eq i32 %127, -1
+  br i1 %129, label %130, label %165
 
-131:                                              ; preds = %116
-  %132 = tail call ptr @__errno_location() #16
-  %133 = load i32, ptr %132, align 4, !tbaa !26
-  %134 = sext i32 %133 to i64
-  %135 = tail call ptr @php_socket_strerror(i64 noundef %134, ptr noundef null, i64 noundef 0) #15
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %135) #15
-  tail call void @_efree(ptr noundef %135) #15
-  br label %166
+130:                                              ; preds = %116
+  %131 = tail call ptr @__errno_location() #16
+  %132 = load i32, ptr %131, align 4, !tbaa !26
+  %133 = sext i32 %132 to i64
+  %134 = tail call ptr @php_socket_strerror(i64 noundef %133, ptr noundef null, i64 noundef 0) #15
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %134) #15
+  tail call void @_efree(ptr noundef %134) #15
+  br label %165
 
-136:                                              ; preds = %78
-  %137 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %138 = load i32, ptr %137, align 8, !tbaa !66
-  %.2 = and i32 %138, 3
-  %139 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %140 = load ptr, ptr %139, align 8, !tbaa !67
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %142 = load i64, ptr %141, align 8, !tbaa !68
-  %143 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %144 = load i8, ptr %143, align 4
-  %145 = and i8 %144, 2
-  %.not96 = icmp eq i8 %145, 0
-  %146 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %147 = select i1 %.not96, ptr null, ptr %146
-  %148 = and i8 %144, 1
-  %.not97 = icmp eq i8 %148, 0
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %150 = select i1 %.not97, ptr null, ptr %149
-  %151 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %152 = select i1 %.not97, ptr null, ptr %151
-  %153 = tail call fastcc i32 @sock_recvfrom(ptr noundef %8, ptr noundef %140, i64 noundef %142, i32 noundef %.2, ptr noundef %147, ptr noundef %150, ptr noundef %152)
-  %154 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i32 %153, ptr %154, align 8, !tbaa !65
-  br label %166
+135:                                              ; preds = %78
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %137 = load i32, ptr %136, align 8, !tbaa !66
+  %.2 = and i32 %137, 3
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %139 = load ptr, ptr %138, align 8, !tbaa !67
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %141 = load i64, ptr %140, align 8, !tbaa !68
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %143 = load i8, ptr %142, align 4
+  %144 = and i8 %143, 2
+  %.not96 = icmp eq i8 %144, 0
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %146 = select i1 %.not96, ptr null, ptr %145
+  %147 = and i8 %143, 1
+  %.not97 = icmp eq i8 %147, 0
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %149 = select i1 %.not97, ptr null, ptr %148
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %151 = select i1 %.not97, ptr null, ptr %150
+  %152 = tail call fastcc i32 @sock_recvfrom(ptr noundef %8, ptr noundef %139, i64 noundef %141, i32 noundef %.2, ptr noundef %146, ptr noundef %149, ptr noundef %151)
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store i32 %152, ptr %153, align 8, !tbaa !65
+  br label %165
 
-155:                                              ; preds = %78
-  %156 = load i32, ptr %8, align 8, !tbaa !21
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %158 = load i8, ptr %157, align 4
-  %159 = lshr i8 %158, 3
-  %160 = and i8 %159, 3
-  %161 = zext nneg i8 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr @php_sockop_set_option.shutdown_how, i64 %161
-  %163 = load i32, ptr %162, align 4, !tbaa !26
-  %164 = tail call i32 @shutdown(i32 noundef %156, i32 noundef %163) #15
-  %165 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i32 %164, ptr %165, align 8, !tbaa !65
-  br label %166
+154:                                              ; preds = %78
+  %155 = load i32, ptr %8, align 8, !tbaa !21
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %157 = load i8, ptr %156, align 4
+  %158 = lshr i8 %157, 3
+  %159 = and i8 %158, 3
+  %160 = zext nneg i8 %159 to i64
+  %161 = getelementptr inbounds nuw i32, ptr @php_sockop_set_option.shutdown_how, i64 %160
+  %162 = load i32, ptr %161, align 4, !tbaa !26
+  %163 = tail call i32 @shutdown(i32 noundef %155, i32 noundef %162) #15
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store i32 %163, ptr %164, align 8, !tbaa !65
+  br label %165
 
-166:                                              ; preds = %9, %78, %116, %131, %54, %4, %155, %136, %102, %88, %80, %67, %64, %61, %53
-  %.0 = phi i32 [ 0, %116 ], [ %.088, %53 ], [ %62, %61 ], [ -2, %4 ], [ 0, %64 ], [ 0, %67 ], [ 0, %80 ], [ 0, %88 ], [ 0, %102 ], [ -1, %54 ], [ 0, %136 ], [ 0, %155 ], [ 0, %131 ], [ -2, %78 ], [ -2, %9 ]
+165:                                              ; preds = %9, %78, %116, %130, %54, %4, %154, %135, %102, %88, %80, %67, %64, %61, %53
+  %.0 = phi i32 [ 0, %116 ], [ %.088, %53 ], [ %62, %61 ], [ -2, %4 ], [ 0, %64 ], [ 0, %67 ], [ 0, %80 ], [ 0, %88 ], [ 0, %102 ], [ -1, %54 ], [ 0, %135 ], [ 0, %154 ], [ 0, %130 ], [ -2, %78 ], [ -2, %9 ]
   ret i32 %.0
 }
 

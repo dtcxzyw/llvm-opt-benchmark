@@ -269,9 +269,9 @@ define internal ptr @H5HF__cache_hdr_deserialize(ptr noundef %0, i64 noundef %1,
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %5, align 8, !tbaa !19
   %30 = load i8, ptr %28, align 1, !tbaa !16
-  %31 = and i8 %30, 1
-  %32 = getelementptr inbounds nuw i8, ptr %14, i64 258
-  store i8 %31, ptr %32, align 2, !tbaa !21
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 258
+  %32 = and i8 %30, 1
+  store i8 %32, ptr %31, align 2, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 259
   %34 = lshr i8 %30, 1
   %.lobit = and i8 %34, 1

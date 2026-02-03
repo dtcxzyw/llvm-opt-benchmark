@@ -71585,7 +71585,6 @@ if.then93:                                        ; preds = %if.end91
           to label %invoke.cont98 unwind label %lpad
 
 invoke.cont98:                                    ; preds = %if.then93
-  %and = and i32 %call99, 1
   %call.i131 = invoke noalias noundef nonnull dereferenceable(2048) ptr @_Znam(i64 noundef 2048) #28
           to label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2Ev.exit unwind label %lpad
 
@@ -71600,11 +71599,12 @@ _ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2Ev.exit: ; preds = %invoke.cont98
   br i1 %cmp104196, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEC2Ev.exit
+  %conv108 = and i32 %call99, 1
   br i1 %fromHalf, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.0197.us = phi i32 [ %inc.us, %for.inc.us ], [ 1, %for.body.lr.ph ]
-  invoke void @_ZN7openvdb5v11_02io10HalfReaderILb1EfE4readERSiPfjjPNS1_19DelayedLoadMetadataEm(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %call.i131, i32 noundef 512, i32 noundef %and, ptr noundef null, i64 noundef 0)
+  invoke void @_ZN7openvdb5v11_02io10HalfReaderILb1EfE4readERSiPfjjPNS1_19DelayedLoadMetadataEm(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %call.i131, i32 noundef 512, i32 noundef %conv108, ptr noundef null, i64 noundef 0)
           to label %for.inc.us unwind label %lpad109.split.us
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -71620,7 +71620,7 @@ lpad109.split.us:                                 ; preds = %for.body.us
   br label %lpad109
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %tobool14.not.i = icmp eq i32 %and, 0
+  %tobool14.not.i = icmp eq i32 %conv108, 0
   br i1 %tobool14.not.i, label %if.else24.i.us, label %for.body
 
 if.else24.i.us:                                   ; preds = %for.body.lr.ph.split, %for.inc.us200
@@ -193207,7 +193207,6 @@ if.then91:                                        ; preds = %if.end89
           to label %invoke.cont96 unwind label %lpad
 
 invoke.cont96:                                    ; preds = %if.then91
-  %and = and i32 %call97, 1
   %call.i131 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #28
           to label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2Ev.exit unwind label %lpad
 
@@ -193222,11 +193221,12 @@ _ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2Ev.exit: ; preds = %invoke.cont96
   br i1 %cmp102196, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EEC2Ev.exit
+  %conv106 = and i32 %call97, 1
   br i1 %fromHalf, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.0197.us = phi i32 [ %inc.us, %for.inc.us ], [ 1, %for.body.lr.ph ]
-  invoke void @_ZN7openvdb5v11_02io10HalfReaderILb1EdE4readERSiPdjjPNS1_19DelayedLoadMetadataEm(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %call.i131, i32 noundef 512, i32 noundef %and, ptr noundef null, i64 noundef 0)
+  invoke void @_ZN7openvdb5v11_02io10HalfReaderILb1EdE4readERSiPdjjPNS1_19DelayedLoadMetadataEm(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %call.i131, i32 noundef 512, i32 noundef %conv106, ptr noundef null, i64 noundef 0)
           to label %for.inc.us unwind label %lpad107.split.us
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -193242,7 +193242,7 @@ lpad107.split.us:                                 ; preds = %for.body.us
   br label %lpad107
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %tobool14.not.i = icmp eq i32 %and, 0
+  %tobool14.not.i = icmp eq i32 %conv106, 0
   br i1 %tobool14.not.i, label %if.else24.i.us, label %for.body
 
 if.else24.i.us:                                   ; preds = %for.body.lr.ph.split, %for.inc.us200

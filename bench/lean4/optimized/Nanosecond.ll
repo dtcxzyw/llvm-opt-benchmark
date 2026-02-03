@@ -80,9 +80,8 @@ define nonnull ptr @l_Std_Time_Nanosecond_instOrdinalDecidableEq___boxed(ptr nou
 
 l_Std_Time_Nanosecond_instOrdinalDecidableEq.exit: ; preds = %7, %.critedge.i.i.i
   %.0.i.i.i = phi i1 [ %8, %7 ], [ %9, %.critedge.i.i.i ]
-  %10 = and i64 %4, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %4 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l_Std_Time_Nanosecond_instOrdinalDecidableEq.exit
   %12 = load i32, ptr %1, align 4, !tbaa !5
@@ -103,38 +102,37 @@ l_Std_Time_Nanosecond_instOrdinalDecidableEq.exit: ; preds = %7, %.critedge.i.i.
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %17, %16, %14, %l_Std_Time_Nanosecond_instOrdinalDecidableEq.exit
-  %.not8 = icmp eq i64 %5, 0
-  br i1 %.not8, label %18, label %lean_dec.exit5
+  %18 = trunc i64 %3 to i1
+  br i1 %18, label %lean_dec.exit5, label %19
 
-18:                                               ; preds = %lean_dec.exit
-  %19 = load i32, ptr %0, align 4, !tbaa !5
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !10
+19:                                               ; preds = %lean_dec.exit
+  %20 = load i32, ptr %0, align 4, !tbaa !5
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !10
 
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %0, align 4, !tbaa !5
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-23:                                               ; preds = %18
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %24
+24:                                               ; preds = %19
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %24, %23, %21, %lean_dec.exit
-  %25 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %25
+lean_dec.exit5:                                   ; preds = %25, %24, %22, %lean_dec.exit
+  %26 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Time_Nanosecond_instOfNatOrdinal(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %.critedge.i, label %4, !prof !11
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %.critedge.i, !prof !10
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -151,11 +149,10 @@ define ptr @l_Std_Time_Nanosecond_instOfNatOrdinal(ptr noundef %0) local_unnamed
 lean_nat_mod.exit:                                ; preds = %4, %.critedge.i
   %.1.i = phi ptr [ %10, %.critedge.i ], [ %9, %4 ]
   %11 = ptrtoint ptr %.1.i to i64
-  %12 = and i64 %11, 1
-  %.not.i4 = icmp eq i64 %12, 0
-  %13 = icmp ult ptr %.1.i, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i = or i1 %13, %.not.i4
-  br i1 %or.cond.i, label %lean_nat_to_int.exit, label %14
+  %12 = trunc i64 %11 to i1
+  %13 = icmp uge ptr %.1.i, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i = and i1 %13, %12
+  br i1 %or.cond.not.i, label %14, label %lean_nat_to_int.exit
 
 14:                                               ; preds = %lean_nat_mod.exit
   %15 = lshr i64 %11, 1
@@ -163,16 +160,15 @@ lean_nat_mod.exit:                                ; preds = %4, %.critedge.i
   br label %lean_nat_to_int.exit
 
 lean_nat_to_int.exit:                             ; preds = %lean_nat_mod.exit, %14
-  %.1.i5 = phi ptr [ %.1.i, %lean_nat_mod.exit ], [ %16, %14 ]
-  ret ptr %.1.i5
+  %.1.i4 = phi ptr [ %.1.i, %lean_nat_mod.exit ], [ %16, %14 ]
+  ret ptr %.1.i4
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Time_Nanosecond_instOfNatOrdinal___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %4, !prof !11
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %.critedge.i.i, !prof !10
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -189,11 +185,10 @@ define ptr @l_Std_Time_Nanosecond_instOfNatOrdinal___boxed(ptr noundef %0) local
 lean_nat_mod.exit.i:                              ; preds = %.critedge.i.i, %4
   %.1.i.i = phi ptr [ %10, %.critedge.i.i ], [ %9, %4 ]
   %11 = ptrtoint ptr %.1.i.i to i64
-  %12 = and i64 %11, 1
-  %.not.i4.i = icmp eq i64 %12, 0
-  %13 = icmp ult ptr %.1.i.i, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i = or i1 %13, %.not.i4.i
-  br i1 %or.cond.i.i, label %l_Std_Time_Nanosecond_instOfNatOrdinal.exit, label %14
+  %12 = trunc i64 %11 to i1
+  %13 = icmp uge ptr %.1.i.i, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i.i = and i1 %13, %12
+  br i1 %or.cond.not.i.i, label %14, label %l_Std_Time_Nanosecond_instOfNatOrdinal.exit
 
 14:                                               ; preds = %lean_nat_mod.exit.i
   %15 = lshr i64 %11, 1
@@ -201,8 +196,8 @@ lean_nat_mod.exit.i:                              ; preds = %.critedge.i.i, %4
   br label %l_Std_Time_Nanosecond_instOfNatOrdinal.exit
 
 l_Std_Time_Nanosecond_instOfNatOrdinal.exit:      ; preds = %lean_nat_mod.exit.i, %14
-  %.1.i5.i = phi ptr [ %.1.i.i, %lean_nat_mod.exit.i ], [ %16, %14 ]
-  br i1 %.not.i.i, label %17, label %lean_dec.exit
+  %.1.i4.i = phi ptr [ %.1.i.i, %lean_nat_mod.exit.i ], [ %16, %14 ]
+  br i1 %3, label %lean_dec.exit, label %17
 
 17:                                               ; preds = %l_Std_Time_Nanosecond_instOfNatOrdinal.exit
   %18 = load i32, ptr %0, align 4, !tbaa !5
@@ -223,21 +218,19 @@ l_Std_Time_Nanosecond_instOfNatOrdinal.exit:      ; preds = %lean_nat_mod.exit.i
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %23, %22, %20, %l_Std_Time_Nanosecond_instOfNatOrdinal.exit
-  ret ptr %.1.i5.i
+  ret ptr %.1.i4.i
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_instDecidableLeOrdinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -260,91 +253,87 @@ lean_int_dec_le.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_instDecidableLeOrdinal___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp sle i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp sle i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit: ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread19, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread17, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLeOrdinal.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_instDecidableLtOrdinal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -367,77 +356,75 @@ lean_int_dec_lt.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_instDecidableLtOrdinal___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp slt i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp slt i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit: ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread19, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread17, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLtOrdinal.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -482,9 +469,8 @@ define nonnull ptr @l_Std_Time_Nanosecond_instOffsetDecidableEq___boxed(ptr noun
 
 l_Std_Time_Nanosecond_instOffsetDecidableEq.exit: ; preds = %7, %.critedge.i.i.i
   %.0.i.i.i = phi i1 [ %8, %7 ], [ %9, %.critedge.i.i.i ]
-  %10 = and i64 %4, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit5
+  %10 = trunc i64 %4 to i1
+  br i1 %10, label %lean_dec.exit5, label %11
 
 11:                                               ; preds = %l_Std_Time_Nanosecond_instOffsetDecidableEq.exit
   %12 = load i32, ptr %1, align 4, !tbaa !5
@@ -505,44 +491,42 @@ l_Std_Time_Nanosecond_instOffsetDecidableEq.exit: ; preds = %7, %.critedge.i.i.i
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %17, %16, %14, %l_Std_Time_Nanosecond_instOffsetDecidableEq.exit
-  %.not8 = icmp eq i64 %5, 0
-  br i1 %.not8, label %18, label %lean_dec.exit
+  %18 = trunc i64 %3 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
-18:                                               ; preds = %lean_dec.exit5
-  %19 = load i32, ptr %0, align 4, !tbaa !5
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !10
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !5
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !10
 
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %0, align 4, !tbaa !5
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-23:                                               ; preds = %18
-  %.not.i6 = icmp eq i32 %19, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %24
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %24, %23, %21, %lean_dec.exit5
-  %25 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %25
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_instDecidableLeOffset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -565,91 +549,87 @@ lean_int_dec_le.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_instDecidableLeOffset___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_instDecidableLeOffset.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_instDecidableLeOffset.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp sle i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp sle i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_instDecidableLeOffset.exit: ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread19, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread17, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_instDecidableLeOffset.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_instDecidableLeOffset.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLeOffset.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_instDecidableLtOffset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -672,87 +652,84 @@ lean_int_dec_lt.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_instDecidableLtOffset___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_instDecidableLtOffset.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_instDecidableLtOffset.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp slt i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp slt i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_instDecidableLtOffset.exit: ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread19, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread17, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_instDecidableLtOffset.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_instDecidableLtOffset.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLtOffset.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Time_Nanosecond_instOfNatOffset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  %4 = icmp ult ptr %0, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i = or i1 %4, %.not.i
-  br i1 %or.cond.i, label %lean_nat_to_int.exit, label %5
+  %3 = trunc i64 %2 to i1
+  %4 = icmp uge ptr %0, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i = and i1 %4, %3
+  br i1 %or.cond.not.i, label %5, label %lean_nat_to_int.exit
 
 5:                                                ; preds = %1
   %6 = lshr i64 %2, 1
@@ -767,11 +744,10 @@ lean_nat_to_int.exit:                             ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Time_Nanosecond_Offset_ofNat(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  %4 = icmp ult ptr %0, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i = or i1 %4, %.not.i
-  br i1 %or.cond.i, label %lean_nat_to_int.exit, label %5
+  %3 = trunc i64 %2 to i1
+  %4 = icmp uge ptr %0, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i = and i1 %4, %3
+  br i1 %or.cond.not.i, label %5, label %lean_nat_to_int.exit
 
 5:                                                ; preds = %1
   %6 = lshr i64 %2, 1
@@ -786,9 +762,8 @@ lean_nat_to_int.exit:                             ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Offset_ofInt(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !5
@@ -815,9 +790,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Offset_ofInt___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !5
@@ -841,7 +815,7 @@ define noundef ptr @l_Std_Time_Nanosecond_Offset_ofInt___boxed(ptr noundef retur
 10:                                               ; preds = %6, %9
   %11 = phi i32 [ %7, %6 ], [ %.pr, %9 ]
   %12 = icmp sgt i32 %11, 1
-  br i1 %12, label %13, label %15, !prof !12
+  br i1 %12, label %13, label %15, !prof !11
 
 13:                                               ; preds = %10
   %14 = add nsw i32 %11, -1
@@ -902,9 +876,8 @@ define nonnull ptr @l_Std_Time_Nanosecond_instSpanDecidableEq___boxed(ptr nounde
 
 l_Std_Time_Nanosecond_instSpanDecidableEq.exit:   ; preds = %7, %.critedge.i.i.i
   %.0.i.i.i = phi i1 [ %8, %7 ], [ %9, %.critedge.i.i.i ]
-  %10 = and i64 %4, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit5
+  %10 = trunc i64 %4 to i1
+  br i1 %10, label %lean_dec.exit5, label %11
 
 11:                                               ; preds = %l_Std_Time_Nanosecond_instSpanDecidableEq.exit
   %12 = load i32, ptr %1, align 4, !tbaa !5
@@ -925,44 +898,42 @@ l_Std_Time_Nanosecond_instSpanDecidableEq.exit:   ; preds = %7, %.critedge.i.i.i
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %17, %16, %14, %l_Std_Time_Nanosecond_instSpanDecidableEq.exit
-  %.not8 = icmp eq i64 %5, 0
-  br i1 %.not8, label %18, label %lean_dec.exit
+  %18 = trunc i64 %3 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
-18:                                               ; preds = %lean_dec.exit5
-  %19 = load i32, ptr %0, align 4, !tbaa !5
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !10
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !5
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !10
 
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %0, align 4, !tbaa !5
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-23:                                               ; preds = %18
-  %.not.i6 = icmp eq i32 %19, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %24
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %24, %23, %21, %lean_dec.exit5
-  %25 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %25
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_instDecidableLeSpan(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -985,91 +956,87 @@ lean_int_dec_le.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_instDecidableLeSpan___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_instDecidableLeSpan.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_instDecidableLeSpan.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp sle i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp sle i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_instDecidableLeSpan.exit:   ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread19, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread17, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_instDecidableLeSpan.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_instDecidableLeSpan.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLeSpan.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_instDecidableLtSpan(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -1092,85 +1059,82 @@ lean_int_dec_lt.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_instDecidableLtSpan___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_instDecidableLtSpan.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_instDecidableLtSpan.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp slt i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp slt i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_instDecidableLtSpan.exit:   ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread19, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread17, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_instDecidableLtSpan.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_instDecidableLtSpan.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_instDecidableLtSpan.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Span_toOffset(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !5
@@ -1197,9 +1161,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Span_toOffset___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !5
@@ -1223,7 +1186,7 @@ define noundef ptr @l_Std_Time_Nanosecond_Span_toOffset___boxed(ptr noundef retu
 10:                                               ; preds = %6, %9
   %11 = phi i32 [ %7, %6 ], [ %.pr, %9 ]
   %12 = icmp sgt i32 %11, 1
-  br i1 %12, label %13, label %15, !prof !12
+  br i1 %12, label %13, label %15, !prof !11
 
 13:                                               ; preds = %10
   %14 = add nsw i32 %11, -1
@@ -1284,9 +1247,8 @@ define nonnull ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayDecidableEq___boxed(p
 
 l_Std_Time_Nanosecond_Ordinal_instOfDayDecidableEq.exit: ; preds = %7, %.critedge.i.i.i
   %.0.i.i.i = phi i1 [ %8, %7 ], [ %9, %.critedge.i.i.i ]
-  %10 = and i64 %4, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit5
+  %10 = trunc i64 %4 to i1
+  br i1 %10, label %lean_dec.exit5, label %11
 
 11:                                               ; preds = %l_Std_Time_Nanosecond_Ordinal_instOfDayDecidableEq.exit
   %12 = load i32, ptr %1, align 4, !tbaa !5
@@ -1307,44 +1269,42 @@ l_Std_Time_Nanosecond_Ordinal_instOfDayDecidableEq.exit: ; preds = %7, %.critedg
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %17, %16, %14, %l_Std_Time_Nanosecond_Ordinal_instOfDayDecidableEq.exit
-  %.not8 = icmp eq i64 %5, 0
-  br i1 %.not8, label %18, label %lean_dec.exit
+  %18 = trunc i64 %3 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
-18:                                               ; preds = %lean_dec.exit5
-  %19 = load i32, ptr %0, align 4, !tbaa !5
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !10
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !5
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !10
 
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %0, align 4, !tbaa !5
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-23:                                               ; preds = %18
-  %.not.i6 = icmp eq i32 %19, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %24
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %24, %23, %21, %lean_dec.exit5
-  %25 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %25
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = select i1 %.0.i.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -1367,91 +1327,87 @@ lean_int_dec_le.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp sle i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp sle i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit: ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread19, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread17, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_Ordinal_instDecidableLeOfDay.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.critedge.i.i, label %5, !prof !11
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i.i, !prof !10
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not7.i.i = icmp eq i64 %7, 0
-  br i1 %.not7.i.i, label %.critedge.i.i, label %8, !prof !11
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i.i, !prof !10
 
 8:                                                ; preds = %5
   %9 = lshr i64 %3, 1
@@ -1474,85 +1430,82 @@ lean_int_dec_lt.exit:                             ; preds = %8, %.critedge.i.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  %.pre11 = ptrtoint ptr %1 to i64
-  %.pre = and i64 %.pre11, 1
-  %5 = icmp eq i64 %.pre, 0
-  br i1 %.not.i.i.i, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit, label %6, !prof !11
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %1 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %4, label %7, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit, !prof !10
 
-6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread19, label %lean_dec.exit5.thread24, !prof !11
+7:                                                ; preds = %2
+  br i1 %6, label %lean_dec.exit5.thread, label %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread17, !prof !10
 
-l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread19: ; preds = %6
-  %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br label %14
+l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread17: ; preds = %7
+  %8 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br label %15
 
-lean_dec.exit5.thread24:                          ; preds = %6
-  %8 = lshr i64 %3, 1
-  %9 = trunc i64 %8 to i32
-  %10 = lshr i64 %.pre11, 1
-  %11 = trunc i64 %10 to i32
-  %12 = icmp slt i32 %9, %11
+lean_dec.exit5.thread:                            ; preds = %7
+  %9 = lshr i64 %3, 1
+  %10 = trunc i64 %9 to i32
+  %11 = lshr i64 %5, 1
+  %12 = trunc i64 %11 to i32
+  %13 = icmp slt i32 %10, %12
   br label %lean_dec.exit
 
 l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit: ; preds = %2
-  %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
-  br i1 %5, label %14, label %lean_dec.exit5.thread
+  %14 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #3
+  br i1 %6, label %lean_dec.exit5.thread21, label %15
 
-14:                                               ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread19, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread19 ], [ %13, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit ]
-  %16 = load i32, ptr %1, align 4, !tbaa !5
-  %17 = icmp sgt i32 %16, 1
-  br i1 %17, label %18, label %20, !prof !10
+15:                                               ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread17, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit
+  %16 = phi i1 [ %8, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit.thread17 ], [ %14, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit ]
+  %17 = load i32, ptr %1, align 4, !tbaa !5
+  %18 = icmp sgt i32 %17, 1
+  br i1 %18, label %19, label %21, !prof !10
 
-18:                                               ; preds = %14
-  %19 = add nsw i32 %16, -1
-  store i32 %19, ptr %1, align 4, !tbaa !5
+19:                                               ; preds = %15
+  %20 = add nsw i32 %17, -1
+  store i32 %20, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-20:                                               ; preds = %14
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %21
+21:                                               ; preds = %15
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %21, %20, %18
-  br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %22, %21, %19
+  br i1 %4, label %lean_dec.exit, label %lean_dec.exit5.thread21
 
-lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit, %lean_dec.exit5
-  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit ]
-  %22 = load i32, ptr %0, align 4, !tbaa !5
-  %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+lean_dec.exit5.thread21:                          ; preds = %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit, %lean_dec.exit5
+  %.0.i.i.i1623 = phi i1 [ %16, %lean_dec.exit5 ], [ %14, %l_Std_Time_Nanosecond_Ordinal_instDecidableLtOfDay.exit ]
+  %23 = load i32, ptr %0, align 4, !tbaa !5
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !10
 
-24:                                               ; preds = %lean_dec.exit5.thread
-  %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %0, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit5.thread21
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit5.thread
-  %.not.i6 = icmp eq i32 %22, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %27
+27:                                               ; preds = %lean_dec.exit5.thread21
+  %.not.i6 = icmp eq i32 %23, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %28
 
-27:                                               ; preds = %26
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
-  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %28
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread, %28, %27, %25, %lean_dec.exit5
+  %.0.i.i.i1620 = phi i1 [ %13, %lean_dec.exit5.thread ], [ %.0.i.i.i1623, %28 ], [ %.0.i.i.i1623, %27 ], [ %.0.i.i.i1623, %25 ], [ %16, %lean_dec.exit5 ]
+  %29 = select i1 %.0.i.i.i1620, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Ordinal_ofInt(ptr noundef returned %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_inc.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_inc.exit, label %5
 
 5:                                                ; preds = %2
   %.val.i = load i32, ptr %0, align 4, !tbaa !5
@@ -1579,9 +1532,8 @@ lean_inc.exit:                                    ; preds = %10, %9, %7, %2
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Ordinal_ofInt___boxed(ptr noundef returned %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i4 = icmp eq i64 %4, 0
-  br i1 %.not.i4, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !5
@@ -1605,7 +1557,7 @@ define noundef ptr @l_Std_Time_Nanosecond_Ordinal_ofInt___boxed(ptr noundef retu
 11:                                               ; preds = %7, %10
   %12 = phi i32 [ %8, %7 ], [ %.pr, %10 ]
   %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16, !prof !12
+  br i1 %13, label %14, label %16, !prof !11
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
@@ -1627,11 +1579,10 @@ lean_dec.exit:                                    ; preds = %9, %17, %16, %14, %
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Time_Nanosecond_Ordinal_ofNat(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  %5 = icmp ult ptr %0, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i = or i1 %5, %.not.i
-  br i1 %or.cond.i, label %lean_nat_to_int.exit, label %6
+  %4 = trunc i64 %3 to i1
+  %5 = icmp uge ptr %0, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i = and i1 %5, %4
+  br i1 %or.cond.not.i, label %6, label %lean_nat_to_int.exit
 
 6:                                                ; preds = %2
   %7 = lshr i64 %3, 1
@@ -1646,11 +1597,10 @@ lean_nat_to_int.exit:                             ; preds = %2, %6
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Time_Nanosecond_Ordinal_ofFin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  %4 = icmp ult ptr %0, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i = or i1 %4, %.not.i
-  br i1 %or.cond.i, label %lean_nat_to_int.exit, label %5
+  %3 = trunc i64 %2 to i1
+  %4 = icmp uge ptr %0, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i = and i1 %4, %3
+  br i1 %or.cond.not.i, label %5, label %lean_nat_to_int.exit
 
 5:                                                ; preds = %1
   %6 = lshr i64 %2, 1
@@ -1665,9 +1615,8 @@ lean_nat_to_int.exit:                             ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Ordinal_toOffset(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !5
@@ -1694,9 +1643,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Time_Nanosecond_Ordinal_toOffset___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !5
@@ -1720,7 +1668,7 @@ define noundef ptr @l_Std_Time_Nanosecond_Ordinal_toOffset___boxed(ptr noundef r
 10:                                               ; preds = %6, %9
   %11 = phi i32 [ %7, %6 ], [ %.pr, %9 ]
   %12 = icmp sgt i32 %11, 1
-  br i1 %12, label %13, label %15, !prof !12
+  br i1 %12, label %13, label %15, !prof !11
 
 13:                                               ; preds = %10
   %14 = add nsw i32 %11, -1
@@ -1822,22 +1770,22 @@ _init_l_Std_Time_Nanosecond_instOrdinalRepr___closed__1.exit: ; preds = %lean_de
   store i32 1, ptr %28, align 4, !tbaa !5
   store i32 -184549352, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr @l_Std_Time_Internal_Bounded_instRepr___rarg___boxed, ptr %32, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_Bounded_instRepr___rarg___boxed, ptr %32, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i16 2, ptr %33, align 8, !tbaa !15
+  store i16 2, ptr %33, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 18
-  store i16 0, ptr %34, align 2, !tbaa !15
-  store ptr %28, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %34, align 2, !tbaa !14
+  store ptr %28, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %28) #3
-  %35 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !13
-  store ptr %35, ptr @l_Std_Time_Nanosecond_instOrdinalRepr, align 8, !tbaa !13
+  %35 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !12
+  store ptr %35, ptr @l_Std_Time_Nanosecond_instOrdinalRepr, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %35) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOrdinalLE, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOrdinalLE, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOrdinalLT, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOrdinalLT, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instInhabitedOrdinal, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instInhabitedOrdinal, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   tail call void @lean_inc_heartbeat() #3
   %36 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1853,14 +1801,14 @@ _init_l_Std_Time_Nanosecond_instOrdOrdinal___closed__1.exit: ; preds = %_init_l_
   store i32 1, ptr %36, align 4, !tbaa !5
   store i32 -184549352, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %40, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %40, align 8, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i16 1, ptr %41, align 8, !tbaa !15
+  store i16 1, ptr %41, align 8, !tbaa !14
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  store i16 0, ptr %42, align 2, !tbaa !15
-  store ptr %36, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %42, align 2, !tbaa !14
+  store ptr %36, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %36) #3
-  %43 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__1, align 8, !tbaa !13
+  %43 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__1, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #3
   %44 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
   %45 = icmp eq ptr %44, null
@@ -1875,17 +1823,17 @@ _init_l_Std_Time_Nanosecond_instOrdOrdinal___closed__2.exit: ; preds = %_init_l_
   store i32 1, ptr %44, align 4, !tbaa !5
   store i32 -184549344, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %48, align 8, !tbaa !13
+  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %48, align 8, !tbaa !12
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i16 3, ptr %49, align 8, !tbaa !15
+  store i16 3, ptr %49, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 18
-  store i16 1, ptr %50, align 2, !tbaa !15
+  store i16 1, ptr %50, align 2, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %43, ptr %51, align 8, !tbaa !13
-  store ptr %44, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !13
+  store ptr %43, ptr %51, align 8, !tbaa !12
+  store ptr %44, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %44) #3
-  %52 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !13
-  store ptr %52, ptr @l_Std_Time_Nanosecond_instOrdOrdinal, align 8, !tbaa !13
+  %52 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !12
+  store ptr %52, ptr @l_Std_Time_Nanosecond_instOrdOrdinal, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %52) #3
   tail call void @lean_inc_heartbeat() #3
   %53 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1901,17 +1849,17 @@ _init_l_Std_Time_Nanosecond_instOffsetRepr___closed__1.exit: ; preds = %_init_l_
   store i32 1, ptr %53, align 4, !tbaa !5
   store i32 -184549352, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %57, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %57, align 8, !tbaa !12
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i16 2, ptr %58, align 8, !tbaa !15
+  store i16 2, ptr %58, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 18
-  store i16 0, ptr %59, align 2, !tbaa !15
-  store ptr %53, ptr @l_Std_Time_Nanosecond_instOffsetRepr___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %59, align 2, !tbaa !14
+  store ptr %53, ptr @l_Std_Time_Nanosecond_instOffsetRepr___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %53) #3
-  %60 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetRepr___closed__1, align 8, !tbaa !13
-  store ptr %60, ptr @l_Std_Time_Nanosecond_instOffsetRepr, align 8, !tbaa !13
+  %60 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetRepr___closed__1, align 8, !tbaa !12
+  store ptr %60, ptr @l_Std_Time_Nanosecond_instOffsetRepr, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %60) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOffsetInhabited, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOffsetInhabited, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   tail call void @lean_inc_heartbeat() #3
   %61 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1927,15 +1875,15 @@ _init_l_Std_Time_Nanosecond_instOffsetAdd___closed__1.exit: ; preds = %_init_l_S
   store i32 1, ptr %61, align 4, !tbaa !5
   store i32 -184549352, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %65, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %65, align 8, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store i16 2, ptr %66, align 8, !tbaa !15
+  store i16 2, ptr %66, align 8, !tbaa !14
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 18
-  store i16 0, ptr %67, align 2, !tbaa !15
-  store ptr %61, ptr @l_Std_Time_Nanosecond_instOffsetAdd___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %67, align 2, !tbaa !14
+  store ptr %61, ptr @l_Std_Time_Nanosecond_instOffsetAdd___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %61) #3
-  %68 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetAdd___closed__1, align 8, !tbaa !13
-  store ptr %68, ptr @l_Std_Time_Nanosecond_instOffsetAdd, align 8, !tbaa !13
+  %68 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetAdd___closed__1, align 8, !tbaa !12
+  store ptr %68, ptr @l_Std_Time_Nanosecond_instOffsetAdd, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %68) #3
   tail call void @lean_inc_heartbeat() #3
   %69 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1951,15 +1899,15 @@ _init_l_Std_Time_Nanosecond_instOffsetSub___closed__1.exit: ; preds = %_init_l_S
   store i32 1, ptr %69, align 4, !tbaa !5
   store i32 -184549352, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %73, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %73, align 8, !tbaa !12
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i16 2, ptr %74, align 8, !tbaa !15
+  store i16 2, ptr %74, align 8, !tbaa !14
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 18
-  store i16 0, ptr %75, align 2, !tbaa !15
-  store ptr %69, ptr @l_Std_Time_Nanosecond_instOffsetSub___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %75, align 2, !tbaa !14
+  store ptr %69, ptr @l_Std_Time_Nanosecond_instOffsetSub___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %69) #3
-  %76 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetSub___closed__1, align 8, !tbaa !13
-  store ptr %76, ptr @l_Std_Time_Nanosecond_instOffsetSub, align 8, !tbaa !13
+  %76 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetSub___closed__1, align 8, !tbaa !12
+  store ptr %76, ptr @l_Std_Time_Nanosecond_instOffsetSub, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %76) #3
   tail call void @lean_inc_heartbeat() #3
   %77 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1975,19 +1923,19 @@ _init_l_Std_Time_Nanosecond_instOffsetNeg___closed__1.exit: ; preds = %_init_l_S
   store i32 1, ptr %77, align 4, !tbaa !5
   store i32 -184549352, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %81, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %81, align 8, !tbaa !12
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i16 1, ptr %82, align 8, !tbaa !15
+  store i16 1, ptr %82, align 8, !tbaa !14
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 18
-  store i16 0, ptr %83, align 2, !tbaa !15
-  store ptr %77, ptr @l_Std_Time_Nanosecond_instOffsetNeg___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %83, align 2, !tbaa !14
+  store ptr %77, ptr @l_Std_Time_Nanosecond_instOffsetNeg___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %77) #3
-  %84 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetNeg___closed__1, align 8, !tbaa !13
-  store ptr %84, ptr @l_Std_Time_Nanosecond_instOffsetNeg, align 8, !tbaa !13
+  %84 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetNeg___closed__1, align 8, !tbaa !12
+  store ptr %84, ptr @l_Std_Time_Nanosecond_instOffsetNeg, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %84) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOffsetLE, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOffsetLE, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOffsetLT, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instOffsetLT, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   tail call void @lean_inc_heartbeat() #3
   %85 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -2003,15 +1951,15 @@ _init_l_Std_Time_Nanosecond_instOffsetToString___closed__1.exit: ; preds = %_ini
   store i32 1, ptr %85, align 4, !tbaa !5
   store i32 -184549352, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %89, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %89, align 8, !tbaa !12
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i16 1, ptr %90, align 8, !tbaa !15
+  store i16 1, ptr %90, align 8, !tbaa !14
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 18
-  store i16 0, ptr %91, align 2, !tbaa !15
-  store ptr %85, ptr @l_Std_Time_Nanosecond_instOffsetToString___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %91, align 2, !tbaa !14
+  store ptr %85, ptr @l_Std_Time_Nanosecond_instOffsetToString___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %85) #3
-  %92 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetToString___closed__1, align 8, !tbaa !13
-  store ptr %92, ptr @l_Std_Time_Nanosecond_instOffsetToString, align 8, !tbaa !13
+  %92 = load ptr, ptr @l_Std_Time_Nanosecond_instOffsetToString___closed__1, align 8, !tbaa !12
+  store ptr %92, ptr @l_Std_Time_Nanosecond_instOffsetToString, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %92) #3
   tail call void @lean_inc_heartbeat() #3
   %93 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -2027,39 +1975,39 @@ _init_l_Std_Time_Nanosecond_instOrdOffset___closed__1.exit: ; preds = %_init_l_S
   store i32 1, ptr %93, align 4, !tbaa !5
   store i32 -184549352, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %97, align 8, !tbaa !13
+  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %97, align 8, !tbaa !12
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i16 2, ptr %98, align 8, !tbaa !15
+  store i16 2, ptr %98, align 8, !tbaa !14
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 18
-  store i16 0, ptr %99, align 2, !tbaa !15
-  store ptr %93, ptr @l_Std_Time_Nanosecond_instOrdOffset___closed__1, align 8, !tbaa !13
+  store i16 0, ptr %99, align 2, !tbaa !14
+  store ptr %93, ptr @l_Std_Time_Nanosecond_instOrdOffset___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull %93) #3
-  %100 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOffset___closed__1, align 8, !tbaa !13
-  store ptr %100, ptr @l_Std_Time_Nanosecond_instOrdOffset, align 8, !tbaa !13
+  %100 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOffset___closed__1, align 8, !tbaa !12
+  store ptr %100, ptr @l_Std_Time_Nanosecond_instOrdOffset, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %100) #3
-  %101 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !13
-  store ptr %101, ptr @l_Std_Time_Nanosecond_instSpanRepr, align 8, !tbaa !13
+  %101 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !12
+  store ptr %101, ptr @l_Std_Time_Nanosecond_instSpanRepr, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %101) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instSpanLE, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instSpanLE, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instSpanLT, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instSpanLT, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instInhabitedSpan, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_instInhabitedSpan, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  %102 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !13
-  store ptr %102, ptr @l_Std_Time_Nanosecond_instOrdSpan, align 8, !tbaa !13
+  %102 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !12
+  store ptr %102, ptr @l_Std_Time_Nanosecond_instOrdSpan, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %102) #3
-  %103 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !13
-  store ptr %103, ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayRepr, align 8, !tbaa !13
+  %103 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdinalRepr___closed__1, align 8, !tbaa !12
+  store ptr %103, ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayRepr, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %103) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayLE, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayLE, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayLT, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_Ordinal_instOfDayLT, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_Ordinal_instInhabitedOfDay, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Nanosecond_Ordinal_instInhabitedOfDay, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  %104 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !13
-  store ptr %104, ptr @l_Std_Time_Nanosecond_Ordinal_instOrdOfDay, align 8, !tbaa !13
+  %104 = load ptr, ptr @l_Std_Time_Nanosecond_instOrdOrdinal___closed__2, align 8, !tbaa !12
+  store ptr %104, ptr @l_Std_Time_Nanosecond_Ordinal_instOrdOfDay, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %104) #3
   tail call void @lean_inc_heartbeat() #3
   %105 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -2076,9 +2024,9 @@ _init_l_Std_Time_Nanosecond_instOrdOffset___closed__1.exit: ; preds = %_init_l_S
   store i32 1, ptr %.sink30, align 4, !tbaa !5
   store i32 131096, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %109, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr %109, align 8, !tbaa !12
   %110 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %110, align 8, !tbaa !13
+  store ptr inttoptr (i64 1 to ptr), ptr %110, align 8, !tbaa !12
   br label %111
 
 111:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
@@ -2150,9 +2098,8 @@ attributes #4 = { noreturn nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"any pointer", !8, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !8, i64 0}
+!11 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"any pointer", !8, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !8, i64 0}

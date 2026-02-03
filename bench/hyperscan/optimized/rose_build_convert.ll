@@ -466,8 +466,8 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %87, %93
   %127 = lshr i64 %125, %126
   br label %.lr.ph.i.split.i.i.i
 
-.lr.ph.i.split.i.i.i:                             ; preds = %140, %.lr.ph.i.i.i.i
-  %.sroa.35.0.i.i.i = phi i64 [ %128, %140 ], [ %115, %.lr.ph.i.i.i.i ]
+.lr.ph.i.split.i.i.i:                             ; preds = %139, %.lr.ph.i.i.i.i
+  %.sroa.35.0.i.i.i = phi i64 [ %128, %139 ], [ %115, %.lr.ph.i.i.i.i ]
   %128 = add i64 %.sroa.35.0.i.i.i, -1
   %129 = getelementptr inbounds nuw i8, ptr %118, i64 %128
   %130 = load i8, ptr %129, align 1, !noalias !25
@@ -478,32 +478,31 @@ _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %87, %93
   %135 = lshr i64 %133, %134
   %.not.i.i.i.i.i.i.i = icmp ne i8 %130, %120
   %136 = xor i64 %135, %127
-  %137 = and i64 %136, 1
-  %138 = icmp ne i64 %137, 0
-  %139 = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %138
-  br i1 %139, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit, label %140
+  %137 = trunc i64 %136 to i1
+  %138 = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %137
+  br i1 %138, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit, label %139
 
-140:                                              ; preds = %.lr.ph.i.split.i.i.i
+139:                                              ; preds = %.lr.ph.i.split.i.i.i
   %.not.i.i.i45 = icmp eq i64 %128, 0
   br i1 %.not.i.i.i45, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %.lr.ph.i.split.i.i.i, !llvm.loop !32
 
 _ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit: ; preds = %.lr.ph.i.split.i.i.i
-  %141 = sub i64 %115, %.sroa.35.0.i.i.i
-  %142 = icmp ult i64 %141, %26
-  br i1 %142, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %143
+  %140 = sub i64 %115, %.sroa.35.0.i.i.i
+  %141 = icmp ult i64 %140, %26
+  br i1 %141, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %142
 
-143:                                              ; preds = %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit
-  %reass.sub = sub nuw i64 %141, %26
-  %144 = add i64 %reass.sub, 1
-  %145 = sub i64 %115, %144
-  %146 = icmp ult i64 %145, 5
-  br i1 %146, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %147
+142:                                              ; preds = %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit
+  %reass.sub = sub nuw i64 %140, %26
+  %143 = add i64 %reass.sub, 1
+  %144 = sub i64 %115, %143
+  %145 = icmp ult i64 %144, 5
+  br i1 %145, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %146
 
-147:                                              ; preds = %143
-  tail call fastcc void @_ZN3ue2L23convertFloodProneSuffixERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjRKNS_15rose_literal_idEm(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr %.sroa.053.061, i64 %35, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i, i64 noundef %144)
+146:                                              ; preds = %142
+  tail call fastcc void @_ZN3ue2L23convertFloodProneSuffixERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjRKNS_15rose_literal_idEm(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr %.sroa.053.061, i64 %35, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i, i64 noundef %143)
   br label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread
 
-_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread: ; preds = %140, %102, %_ZNK3ue214RoseLiteralMap2atEj.exit, %105, %111, %113, %147, %143, %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit, %45, %42, %39, %33
+_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread: ; preds = %139, %102, %_ZNK3ue214RoseLiteralMap2atEj.exit, %105, %111, %113, %146, %142, %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit, %45, %42, %39, %33
   %.sroa.053.0 = load ptr, ptr %.sroa.053.061, align 8
   %.not57 = icmp eq ptr %.sroa.053.0, %27
   br i1 %.not57, label %.loopexit, label %33

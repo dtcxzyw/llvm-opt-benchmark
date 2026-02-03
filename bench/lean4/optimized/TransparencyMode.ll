@@ -29,9 +29,8 @@ define noalias nonnull ptr @l_Lean_Meta_TransparencyMode_hash___boxed(ptr nounde
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -83,27 +82,27 @@ lean_box_uint64.exit:                             ; preds = %l_Lean_Meta_Transpa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 2) i8 @l_Lean_Meta_TransparencyMode_lt(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-  switch i8 %0, label %7 [
+  switch i8 %0, label %lean_obj_tag.exit29 [
     i8 0, label %lean_dec.exit19
-    i8 1, label %3
-    i8 2, label %5
+    i8 1, label %lean_obj_tag.exit
+    i8 2, label %lean_obj_tag.exit26
   ]
 
-3:                                                ; preds = %2
-  %4 = icmp eq i8 %1, 0
+lean_obj_tag.exit:                                ; preds = %2
+  %3 = icmp eq i8 %1, 0
   br label %lean_dec.exit19
 
-5:                                                ; preds = %2
-  %6 = icmp ne i8 %1, 2
+lean_obj_tag.exit26:                              ; preds = %2
+  %4 = icmp ne i8 %1, 2
   br label %lean_dec.exit19
 
-7:                                                ; preds = %2
-  %8 = and i8 %1, -2
-  %switch = icmp ne i8 %8, 2
+lean_obj_tag.exit29:                              ; preds = %2
+  %5 = and i8 %1, -2
+  %switch = icmp ne i8 %5, 2
   br label %lean_dec.exit19
 
-lean_dec.exit19:                                  ; preds = %7, %5, %3, %2
-  %.0.shrunk = phi i1 [ %6, %5 ], [ %4, %3 ], [ false, %2 ], [ %switch, %7 ]
+lean_dec.exit19:                                  ; preds = %lean_obj_tag.exit29, %lean_obj_tag.exit26, %lean_obj_tag.exit, %2
+  %.0.shrunk = phi i1 [ %switch, %lean_obj_tag.exit29 ], [ %3, %lean_obj_tag.exit ], [ false, %2 ], [ %4, %lean_obj_tag.exit26 ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -113,9 +112,8 @@ define noundef nonnull ptr @l_Lean_Meta_TransparencyMode_lt___boxed(ptr noundef 
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i8
-  %6 = and i64 %3, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %6 = trunc i64 %3 to i1
+  br i1 %6, label %lean_dec.exit7, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -139,9 +137,8 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %1 to i64
   %15 = lshr i64 %14, 1
   %16 = trunc i64 %15 to i8
-  %17 = and i64 %14, 1
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %18, label %lean_dec.exit
+  %17 = trunc i64 %14 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_dec.exit7
   %19 = load i32, ptr %1, align 4, !tbaa !4
@@ -162,31 +159,31 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %24, %23, %21, %lean_dec.exit7
-  switch i8 %5, label %26 [
+  switch i8 %5, label %lean_obj_tag.exit29.i [
     i8 0, label %l_Lean_Meta_TransparencyMode_lt.exit.thread
     i8 1, label %l_Lean_Meta_TransparencyMode_lt.exit
-    i8 2, label %25
+    i8 2, label %lean_obj_tag.exit26.i
   ]
 
-25:                                               ; preds = %lean_dec.exit
-  %.not15 = icmp eq i8 %16, 2
-  br i1 %.not15, label %l_Lean_Meta_TransparencyMode_lt.exit.thread, label %29
+lean_obj_tag.exit26.i:                            ; preds = %lean_dec.exit
+  %.not = icmp eq i8 %16, 2
+  br i1 %.not, label %l_Lean_Meta_TransparencyMode_lt.exit.thread, label %27
 
-26:                                               ; preds = %lean_dec.exit
-  %27 = and i8 %16, -2
-  %switch.i.not = icmp eq i8 %27, 2
-  br i1 %switch.i.not, label %l_Lean_Meta_TransparencyMode_lt.exit.thread, label %29
+lean_obj_tag.exit29.i:                            ; preds = %lean_dec.exit
+  %25 = and i8 %16, -2
+  %switch.i.not = icmp eq i8 %25, 2
+  br i1 %switch.i.not, label %l_Lean_Meta_TransparencyMode_lt.exit.thread, label %27
 
 l_Lean_Meta_TransparencyMode_lt.exit:             ; preds = %lean_dec.exit
-  %28 = icmp eq i8 %16, 0
-  br i1 %28, label %29, label %l_Lean_Meta_TransparencyMode_lt.exit.thread
+  %26 = icmp eq i8 %16, 0
+  br i1 %26, label %27, label %l_Lean_Meta_TransparencyMode_lt.exit.thread
 
-29:                                               ; preds = %26, %25, %l_Lean_Meta_TransparencyMode_lt.exit
+27:                                               ; preds = %lean_obj_tag.exit26.i, %lean_obj_tag.exit29.i, %l_Lean_Meta_TransparencyMode_lt.exit
   br label %l_Lean_Meta_TransparencyMode_lt.exit.thread
 
-l_Lean_Meta_TransparencyMode_lt.exit.thread:      ; preds = %lean_dec.exit, %26, %25, %l_Lean_Meta_TransparencyMode_lt.exit, %29
-  %30 = phi ptr [ inttoptr (i64 3 to ptr), %29 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_lt.exit ], [ inttoptr (i64 1 to ptr), %26 ], [ inttoptr (i64 1 to ptr), %25 ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
-  ret ptr %30
+l_Lean_Meta_TransparencyMode_lt.exit.thread:      ; preds = %lean_dec.exit, %lean_obj_tag.exit26.i, %lean_obj_tag.exit29.i, %l_Lean_Meta_TransparencyMode_lt.exit, %27
+  %28 = phi ptr [ inttoptr (i64 3 to ptr), %27 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_lt.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit26.i ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit29.i ], [ inttoptr (i64 1 to ptr), %lean_dec.exit ]
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable

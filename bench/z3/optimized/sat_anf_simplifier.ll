@@ -4699,9 +4699,8 @@ define hidden void @_ZN3sat14anf_simplifier7add_binERKSt4pairINS_7literalES2_ERN
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load i32, ptr %1, align 4, !tbaa !327
-  %13 = and i32 %12, 1
-  %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %18, label %14
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %14, label %18
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4721,9 +4720,8 @@ _ZNK2dd3pddcoEv.exit:                             ; preds = %14, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !327
-  %22 = and i32 %21, 1
-  %.not77 = icmp eq i32 %22, 0
-  br i1 %.not77, label %28, label %23
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %23, label %28
 
 23:                                               ; preds = %_ZNK2dd3pddcoEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4844,7 +4842,7 @@ _ZN2dd3pddD2Ev.exit:                              ; preds = %62, %70
   br label %_ZN2dd3pddD2Ev.exit51
 
 _ZN2dd3pddD2Ev.exit51:                            ; preds = %_ZN2dd3pddD2Ev.exit, %83
-  br i1 %.not77, label %.critedge, label %88
+  br i1 %22, label %88, label %.critedge
 
 88:                                               ; preds = %_ZN2dd3pddD2Ev.exit51
   %89 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -4892,7 +4890,7 @@ _ZN2dd3pddD2Ev.exit53:                            ; preds = %88, %97
   br label %_ZN2dd3pddD2Ev.exit55
 
 _ZN2dd3pddD2Ev.exit55:                            ; preds = %.critedge, %110
-  br i1 %.not, label %.critedge46, label %115
+  br i1 %13, label %115, label %.critedge46
 
 115:                                              ; preds = %_ZN2dd3pddD2Ev.exit55
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5016,7 +5014,7 @@ _ZN2dd3pddD2Ev.exit62:                            ; preds = %159, %.body, %148
 
 _ZN2dd3pddD2Ev.exit64:                            ; preds = %172, %_ZN2dd3pddD2Ev.exit62, %146
   %.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %.pn, %_ZN2dd3pddD2Ev.exit62 ], [ %.pn, %172 ]
-  br i1 %.not77, label %_ZN2dd3pddD2Ev.exit66, label %177
+  br i1 %22, label %177, label %_ZN2dd3pddD2Ev.exit66
 
 177:                                              ; preds = %_ZN2dd3pddD2Ev.exit64
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5067,7 +5065,7 @@ _ZN2dd3pddD2Ev.exit66:                            ; preds = %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit68:                            ; preds = %200, %_ZN2dd3pddD2Ev.exit66, %142
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %143, %142 ], [ %.pn.pn.pn75, %_ZN2dd3pddD2Ev.exit66 ], [ %.pn.pn.pn75, %200 ]
-  br i1 %.not, label %.critedge48, label %205
+  br i1 %13, label %205, label %.critedge48
 
 205:                                              ; preds = %_ZN2dd3pddD2Ev.exit68
   %206 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5150,8 +5148,8 @@ define hidden void @_ZN3sat14anf_simplifier10add_clauseERKNS_6clauseERN2dd6solve
   %19 = zext i32 %18 to i64
   %.idx = shl nuw nsw i64 %19, 2
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %.not68 = icmp eq i32 %18, 0
-  br i1 %.not68, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i32 %18, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -5218,12 +5216,11 @@ _ZN2dd3pddD2Ev.exit4.i:                           ; preds = %50, %40
   br label %.body
 
 55:                                               ; preds = %.lr.ph, %.critedge
-  %.02269 = phi ptr [ %17, %.lr.ph ], [ %118, %.critedge ]
-  %56 = load i32, ptr %.02269, align 4, !tbaa !55
+  %.02266 = phi ptr [ %17, %.lr.ph ], [ %118, %.critedge ]
+  %56 = load i32, ptr %.02266, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %57 = and i32 %56, 1
-  %.not62 = icmp eq i32 %57, 0
-  br i1 %.not62, label %62, label %58
+  %57 = trunc i32 %56 to i1
+  br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5315,7 +5312,7 @@ _ZN2dd3pddD2Ev.exit6.i:                           ; preds = %87, %78
   br label %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit:                              ; preds = %92, %100
-  br i1 %.not62, label %.critedge, label %105
+  br i1 %57, label %105, label %.critedge
 
 105:                                              ; preds = %_ZN2dd3pddD2Ev.exit
   %106 = load ptr, ptr %21, align 8, !tbaa !112
@@ -5342,7 +5339,7 @@ _ZN2dd3pddD2Ev.exit42:                            ; preds = %105, %113
 
 .critedge:                                        ; preds = %_ZN2dd3pddD2Ev.exit, %_ZN2dd3pddD2Ev.exit42
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %118 = getelementptr inbounds nuw i8, ptr %.02269, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.02266, i64 4
   %.not = icmp eq ptr %118, %20
   br i1 %.not, label %._crit_edge, label %55
 
@@ -5383,7 +5380,7 @@ _ZN2dd3pddD2Ev.exit42:                            ; preds = %105, %113
 
 _ZN2dd3pddD2Ev.exit44:                            ; preds = %132, %.body39, %121
   %.pn32 = phi { ptr, i32 } [ %122, %121 ], [ %eh.lpad-body40, %.body39 ], [ %eh.lpad-body40, %132 ]
-  br i1 %.not62, label %_ZN2dd3pddD2Ev.exit46, label %137
+  br i1 %57, label %137, label %_ZN2dd3pddD2Ev.exit46
 
 137:                                              ; preds = %_ZN2dd3pddD2Ev.exit44
   %138 = load ptr, ptr %21, align 8, !tbaa !112
@@ -6262,8 +6259,8 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
-  %.not55 = icmp eq i32 %12, 0
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  %.not52 = icmp eq i32 %12, 0
+  br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6276,12 +6273,11 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %3
           to label %_ZN2dd6solver3addERKNS_3pddE.exit unwind label %128
 
 19:                                               ; preds = %.lr.ph, %.critedge
-  %.02056 = phi ptr [ %9, %.lr.ph ], [ %82, %.critedge ]
-  %20 = load i32, ptr %.02056, align 4, !tbaa !55
+  %.02053 = phi ptr [ %9, %.lr.ph ], [ %82, %.critedge ]
+  %20 = load i32, ptr %.02053, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %21 = and i32 %20, 1
-  %.not49 = icmp eq i32 %21, 0
-  br i1 %.not49, label %26, label %22
+  %21 = trunc i32 %20 to i1
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6373,7 +6369,7 @@ _ZN2dd3pddD2Ev.exit6.i:                           ; preds = %51, %42
   br label %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit:                              ; preds = %56, %64
-  br i1 %.not49, label %.critedge, label %69
+  br i1 %21, label %69, label %.critedge
 
 69:                                               ; preds = %_ZN2dd3pddD2Ev.exit
   %70 = load ptr, ptr %16, align 8, !tbaa !112
@@ -6400,7 +6396,7 @@ _ZN2dd3pddD2Ev.exit34:                            ; preds = %69, %77
 
 .critedge:                                        ; preds = %_ZN2dd3pddD2Ev.exit, %_ZN2dd3pddD2Ev.exit34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %82 = getelementptr inbounds nuw i8, ptr %.02056, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.02053, i64 4
   %.not = icmp eq ptr %82, %15
   br i1 %.not, label %._crit_edge, label %19
 
@@ -6441,7 +6437,7 @@ _ZN2dd3pddD2Ev.exit34:                            ; preds = %69, %77
 
 _ZN2dd3pddD2Ev.exit36:                            ; preds = %96, %.body, %85
   %.pn = phi { ptr, i32 } [ %86, %85 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %96 ]
-  br i1 %.not49, label %_ZN2dd3pddD2Ev.exit38, label %101
+  br i1 %21, label %101, label %_ZN2dd3pddD2Ev.exit38
 
 101:                                              ; preds = %_ZN2dd3pddD2Ev.exit36
   %102 = load ptr, ptr %16, align 8, !tbaa !112
@@ -6551,8 +6547,8 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %4
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  %.not101 = icmp eq i32 %16, 0
-  br i1 %.not101, label %._crit_edge, label %.lr.ph
+  %.not97 = icmp eq i32 %16, 0
+  br i1 %.not97, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6563,17 +6559,15 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %4
 ._crit_edge:                                      ; preds = %.critedge, %4, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %23 = and i32 %1, 1
-  %.not95 = icmp eq i32 %23, 0
-  br i1 %.not95, label %125, label %120
+  %23 = trunc i32 %1 to i1
+  br i1 %23, label %120, label %125
 
 24:                                               ; preds = %.lr.ph, %.critedge
-  %.033102 = phi ptr [ %13, %.lr.ph ], [ %87, %.critedge ]
-  %25 = load i32, ptr %.033102, align 4, !tbaa !55
+  %.03398 = phi ptr [ %13, %.lr.ph ], [ %87, %.critedge ]
+  %25 = load i32, ptr %.03398, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %26 = and i32 %25, 1
-  %.not94 = icmp eq i32 %26, 0
-  br i1 %.not94, label %31, label %27
+  %26 = trunc i32 %25 to i1
+  br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6665,7 +6659,7 @@ _ZN2dd3pddD2Ev.exit6.i:                           ; preds = %56, %47
   br label %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit:                              ; preds = %61, %69
-  br i1 %.not94, label %.critedge, label %74
+  br i1 %26, label %74, label %.critedge
 
 74:                                               ; preds = %_ZN2dd3pddD2Ev.exit
   %75 = load ptr, ptr %20, align 8, !tbaa !112
@@ -6692,7 +6686,7 @@ _ZN2dd3pddD2Ev.exit57:                            ; preds = %74, %82
 
 .critedge:                                        ; preds = %_ZN2dd3pddD2Ev.exit, %_ZN2dd3pddD2Ev.exit57
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %87 = getelementptr inbounds nuw i8, ptr %.033102, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.03398, i64 4
   %.not = icmp eq ptr %87, %19
   br i1 %.not, label %._crit_edge, label %24
 
@@ -6733,7 +6727,7 @@ _ZN2dd3pddD2Ev.exit57:                            ; preds = %74, %82
 
 _ZN2dd3pddD2Ev.exit59:                            ; preds = %101, %.body, %90
   %.pn49 = phi { ptr, i32 } [ %91, %90 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %101 ]
-  br i1 %.not94, label %_ZN2dd3pddD2Ev.exit61, label %106
+  br i1 %26, label %106, label %_ZN2dd3pddD2Ev.exit61
 
 106:                                              ; preds = %_ZN2dd3pddD2Ev.exit59
   %107 = load ptr, ptr %20, align 8, !tbaa !112
@@ -6806,7 +6800,7 @@ _ZNK2dd3pddcoEv.exit63:                           ; preds = %122, %125
   br label %_ZN2dd3pddD2Ev.exit65
 
 _ZN2dd3pddD2Ev.exit65:                            ; preds = %127, %136
-  br i1 %.not95, label %.critedge55, label %141
+  br i1 %23, label %141, label %.critedge55
 
 141:                                              ; preds = %_ZN2dd3pddD2Ev.exit65
   %142 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -6916,7 +6910,7 @@ _ZN2dd3pddD2Ev.exit72:                            ; preds = %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit74:                            ; preds = %195, %185, %183
   %.pn = phi { ptr, i32 } [ %184, %183 ], [ %186, %185 ], [ %186, %195 ]
-  br i1 %.not95, label %_ZN2dd3pddD2Ev.exit76, label %200
+  br i1 %23, label %200, label %_ZN2dd3pddD2Ev.exit76
 
 200:                                              ; preds = %_ZN2dd3pddD2Ev.exit74
   %201 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -7046,9 +7040,8 @@ define hidden void @_ZN3sat14anf_simplifier6add_ifENS_7literalES1_S1_S1_RN2dd6so
   %19 = alloca %"class.dd::pdd", align 8
   %20 = load ptr, ptr %5, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %21 = and i32 %2, 1
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %26, label %22
+  %21 = trunc i32 %2 to i1
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7091,9 +7084,8 @@ _ZN2dd3pddD2Ev.exit:                              ; preds = %28, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %41 = and i32 %1, 1
-  %.not162 = icmp eq i32 %41, 0
-  br i1 %.not162, label %47, label %42
+  %41 = trunc i32 %1 to i1
+  br i1 %41, label %42, label %47
 
 42:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -7115,9 +7107,8 @@ _ZN2dd3pddD2Ev.exit:                              ; preds = %28, %36
 _ZNK2dd3pddcoEv.exit85:                           ; preds = %44, %47
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %49 = and i32 %3, 1
-  %.not163 = icmp eq i32 %49, 0
-  br i1 %.not163, label %55, label %50
+  %49 = trunc i32 %3 to i1
+  br i1 %49, label %50, label %55
 
 50:                                               ; preds = %_ZNK2dd3pddcoEv.exit85
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -7154,9 +7145,8 @@ _ZNK2dd3pddcoEv.exit86:                           ; preds = %52, %55
 
 _ZNK2dd3pddcoEv.exit87:                           ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %61 = and i32 %4, 1
-  %.not164 = icmp eq i32 %61, 0
-  br i1 %.not164, label %67, label %62
+  %61 = trunc i32 %4 to i1
+  br i1 %61, label %62, label %67
 
 62:                                               ; preds = %_ZNK2dd3pddcoEv.exit87
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -7224,7 +7214,7 @@ _ZN2dd3pddD2Ev.exit90:                            ; preds = %70, %79
   br label %_ZN2dd3pddD2Ev.exit92
 
 _ZN2dd3pddD2Ev.exit92:                            ; preds = %_ZN2dd3pddD2Ev.exit90, %92
-  br i1 %.not164, label %.critedge78, label %97
+  br i1 %61, label %97, label %.critedge78
 
 97:                                               ; preds = %_ZN2dd3pddD2Ev.exit92
   %98 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -7334,7 +7324,7 @@ _ZN2dd3pddD2Ev.exit100:                           ; preds = %_ZN2dd3pddD2Ev.exit
   br label %_ZN2dd3pddD2Ev.exit102
 
 _ZN2dd3pddD2Ev.exit102:                           ; preds = %_ZN2dd3pddD2Ev.exit100, %158
-  br i1 %.not163, label %.critedge80, label %163
+  br i1 %49, label %163, label %.critedge80
 
 163:                                              ; preds = %_ZN2dd3pddD2Ev.exit102
   %164 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7383,7 +7373,7 @@ _ZN2dd3pddD2Ev.exit104:                           ; preds = %163, %172
   br label %_ZN2dd3pddD2Ev.exit106
 
 _ZN2dd3pddD2Ev.exit106:                           ; preds = %.critedge80, %185
-  br i1 %.not162, label %.critedge82, label %190
+  br i1 %41, label %190, label %.critedge82
 
 190:                                              ; preds = %_ZN2dd3pddD2Ev.exit106
   %191 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -7579,7 +7569,7 @@ _ZN2dd3pddD2Ev.exit116:                           ; preds = %273, %263, %261
 
 _ZN2dd3pddD2Ev.exit118:                           ; preds = %286, %_ZN2dd3pddD2Ev.exit116, %259
   %.pn.pn = phi { ptr, i32 } [ %260, %259 ], [ %.pn, %_ZN2dd3pddD2Ev.exit116 ], [ %.pn, %286 ]
-  br i1 %.not164, label %_ZN2dd3pddD2Ev.exit120, label %291
+  br i1 %61, label %291, label %_ZN2dd3pddD2Ev.exit120
 
 291:                                              ; preds = %_ZN2dd3pddD2Ev.exit118
   %292 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -7695,7 +7685,7 @@ _ZN2dd3pddD2Ev.exit126:                           ; preds = %340, %_ZN2dd3pddD2E
 
 _ZN2dd3pddD2Ev.exit128:                           ; preds = %353, %_ZN2dd3pddD2Ev.exit126, %249
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %250, %249 ], [ %.pn.pn.pn.pn.pn.pn, %_ZN2dd3pddD2Ev.exit126 ], [ %.pn.pn.pn.pn.pn.pn, %353 ]
-  br i1 %.not163, label %_ZN2dd3pddD2Ev.exit130, label %358
+  br i1 %49, label %358, label %_ZN2dd3pddD2Ev.exit130
 
 358:                                              ; preds = %_ZN2dd3pddD2Ev.exit128
   %359 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -7747,7 +7737,7 @@ _ZN2dd3pddD2Ev.exit130:                           ; preds = %_ZN2dd3pddD2Ev.exit
 
 _ZN2dd3pddD2Ev.exit132:                           ; preds = %381, %_ZN2dd3pddD2Ev.exit130, %245
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %246, %245 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn156, %_ZN2dd3pddD2Ev.exit130 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn156, %381 ]
-  br i1 %.not162, label %_ZN2dd3pddD2Ev.exit134, label %386
+  br i1 %41, label %386, label %_ZN2dd3pddD2Ev.exit134
 
 386:                                              ; preds = %_ZN2dd3pddD2Ev.exit132
   %387 = getelementptr inbounds nuw i8, ptr %12, i64 8

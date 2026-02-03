@@ -4833,7 +4833,7 @@ define internal void @dequeue_task_fair(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %307, label %333, label %310
 
 310:                                              ; preds = %295
-  %311 = icmp ne i32 %5, 0
+  %311 = trunc i32 %2 to i1
   %312 = icmp ne ptr %309, null
   %313 = select i1 %311, i1 %312, i1 false
   br i1 %313, label %.preheader34, label %.loopexit
@@ -12813,7 +12813,7 @@ can_migrate_task.exit.thread:                     ; preds = %1205, %.preheader, 
 1609:                                             ; preds = %1608
   %1610 = call fastcc i32 @need_active_balance(ptr noundef nonnull %10), !range !152
   %1611 = icmp eq i32 %1610, 0
-  br i1 %1611, label %1651, label %.thread98
+  br i1 %1611, label %1650, label %.thread98
 
 .thread98:                                        ; preds = %1566, %1606, %1609, %1608
   %1612 = phi i32 [ 0, %1608 ], [ 0, %1609 ], [ 0, %1566 ], [ %1487, %1606 ]
@@ -12822,7 +12822,7 @@ can_migrate_task.exit.thread:                     ; preds = %1205, %.preheader, 
   %1615 = trunc i64 %1614 to i32
   %1616 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %1615, ptr %1616, align 8
-  br label %1651
+  br label %1650
 
 1617:                                             ; preds = %1109, %1108, %957, %select.unfold, %._crit_edge
   br i1 %71, label %.loopexit114, label %1618
@@ -12866,35 +12866,34 @@ can_migrate_task.exit.thread:                     ; preds = %1205, %.preheader, 
 .thread95:                                        ; preds = %1579, %1582, %1635
   %1637 = load i32, ptr %26, align 4
   %1638 = icmp eq i32 %1637, 2
-  br i1 %1638, label %1651, label %1639
+  br i1 %1638, label %1650, label %1639
 
 1639:                                             ; preds = %.thread95
   %1640 = load i32, ptr %29, align 8
-  %1641 = and i32 %1640, 1
-  %1642 = icmp ne i32 %1641, 0
+  %1641 = trunc i32 %1640 to i1
   %.phi.trans.insert221 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre222 = load i32, ptr %.phi.trans.insert221, align 8
-  %1643 = icmp ult i32 %.pre222, 512
-  %or.cond349 = select i1 %1642, i1 %1643, i1 false
-  br i1 %or.cond349, label %1648, label %._crit_edge220
+  %1642 = icmp ult i32 %.pre222, 512
+  %or.cond349 = select i1 %1641, i1 %1642, i1 false
+  br i1 %or.cond349, label %1647, label %._crit_edge220
 
 ._crit_edge220:                                   ; preds = %1639
-  %1644 = zext i32 %.pre222 to i64
-  %1645 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1646 = load i64, ptr %1645, align 8
-  %1647 = icmp ugt i64 %1646, %1644
-  br i1 %1647, label %1648, label %1651
+  %1643 = zext i32 %.pre222 to i64
+  %1644 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %1645 = load i64, ptr %1644, align 8
+  %1646 = icmp ugt i64 %1645, %1643
+  br i1 %1646, label %1647, label %1650
 
-1648:                                             ; preds = %1639, %._crit_edge220
-  %1649 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %1650 = shl i32 %.pre222, 1
-  store i32 %1650, ptr %1649, align 8
-  br label %1651
+1647:                                             ; preds = %1639, %._crit_edge220
+  %1648 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %1649 = shl i32 %.pre222, 1
+  store i32 %1649, ptr %1648, align 8
+  br label %1650
 
-1651:                                             ; preds = %1648, %._crit_edge220, %.thread95, %.thread98, %1609
-  %1652 = phi i32 [ 0, %.thread95 ], [ 0, %1648 ], [ 0, %._crit_edge220 ], [ %1612, %.thread98 ], [ 0, %1609 ]
+1650:                                             ; preds = %1647, %._crit_edge220, %.thread95, %.thread98, %1609
+  %1651 = phi i32 [ 0, %.thread95 ], [ 0, %1647 ], [ 0, %._crit_edge220 ], [ %1612, %.thread98 ], [ 0, %1609 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i32 %1652
+  ret i32 %1651
 }
 
 ; Function Attrs: null_pointer_is_valid

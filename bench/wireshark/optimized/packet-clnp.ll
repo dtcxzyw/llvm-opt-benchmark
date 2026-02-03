@@ -719,14 +719,14 @@ set_address_tvb.exit346:                          ; preds = %172, %.split.i344
   %276 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %0, i32 noundef %215, i32 noundef %273, i32 noundef %275, ptr noundef null, ptr noundef nonnull @.str.107)
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %278 = load i8, ptr %277, align 4
-  %279 = and i8 %278, 1
-  %280 = or i8 %278, 1
-  store i8 %280, ptr %277, align 4
-  %281 = load ptr, ptr @clnp_handle, align 8
-  %282 = call i32 @call_dissector(ptr noundef %281, ptr noundef nonnull %.0311, ptr noundef %1, ptr noundef %276)
+  %279 = or i8 %278, 1
+  store i8 %279, ptr %277, align 4
+  %280 = load ptr, ptr @clnp_handle, align 8
+  %281 = call i32 @call_dissector(ptr noundef %280, ptr noundef nonnull %.0311, ptr noundef %1, ptr noundef %276)
+  %282 = and i8 %278, 1
   %283 = load i8, ptr %277, align 4
   %284 = and i8 %283, -2
-  %285 = or disjoint i8 %284, %279
+  %285 = or disjoint i8 %284, %282
   store i8 %285, ptr %277, align 4
   br label %286
 

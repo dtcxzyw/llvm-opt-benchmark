@@ -8141,375 +8141,374 @@ define void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6icu_7713UnicodeString8truncateEi.exit
-  %15 = phi i32 [ %45, %_ZN6icu_7713UnicodeString8truncateEi.exit ], [ %12, %.lr.ph.preheader ]
+  %15 = phi i32 [ %44, %_ZN6icu_7713UnicodeString8truncateEi.exit ], [ %12, %.lr.ph.preheader ]
   %.tr2331 = phi i1 [ true, %_ZN6icu_7713UnicodeString8truncateEi.exit ], [ %14, %.lr.ph.preheader ]
   %16 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %15, i32 noundef -1)
   %17 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %16)
-  br i1 %.tr2331, label %47, label %18
+  br i1 %.tr2331, label %46, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = load i16, ptr %5, align 8, !tbaa !17
-  %20 = and i16 %19, 1
-  %21 = icmp ne i16 %20, 0
-  %22 = icmp eq i32 %16, 0
-  %or.cond.i = and i1 %22, %21
-  br i1 %or.cond.i, label %23, label %24
+  %20 = trunc i16 %19 to i1
+  %21 = icmp eq i32 %16, 0
+  %or.cond.i = and i1 %21, %20
+  br i1 %or.cond.i, label %22, label %23
 
-23:                                               ; preds = %18
+22:                                               ; preds = %18
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-24:                                               ; preds = %18
-  %25 = icmp slt i16 %19, 0
-  %26 = ashr i16 %19, 5
-  %27 = sext i16 %26 to i32
-  %28 = load i32, ptr %6, align 4
-  %29 = select i1 %25, i32 %28, i32 %27
-  %30 = icmp ult i32 %16, %29
-  br i1 %30, label %31, label %_ZN6icu_7713UnicodeString8truncateEi.exit
+23:                                               ; preds = %18
+  %24 = icmp slt i16 %19, 0
+  %25 = ashr i16 %19, 5
+  %26 = sext i16 %25 to i32
+  %27 = load i32, ptr %6, align 4
+  %28 = select i1 %24, i32 %27, i32 %26
+  %29 = icmp ult i32 %16, %28
+  br i1 %29, label %30, label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-31:                                               ; preds = %24
-  %32 = icmp slt i32 %16, 1024
-  br i1 %32, label %33, label %37
+30:                                               ; preds = %23
+  %31 = icmp slt i32 %16, 1024
+  br i1 %31, label %32, label %36
 
-33:                                               ; preds = %31
-  %34 = and i16 %19, 31
+32:                                               ; preds = %30
+  %33 = and i16 %19, 31
   %.tr.i.i.i = trunc i32 %16 to i16
-  %35 = shl i16 %.tr.i.i.i, 5
-  %36 = or disjoint i16 %34, %35
-  store i16 %36, ptr %5, align 8, !tbaa !17
+  %34 = shl i16 %.tr.i.i.i, 5
+  %35 = or disjoint i16 %33, %34
+  store i16 %35, ptr %5, align 8, !tbaa !17
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-37:                                               ; preds = %31
-  %38 = or i16 %19, -32
-  store i16 %38, ptr %5, align 8, !tbaa !17
+36:                                               ; preds = %30
+  %37 = or i16 %19, -32
+  store i16 %37, ptr %5, align 8, !tbaa !17
   store i32 %16, ptr %6, align 4, !tbaa !17
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
-_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %23, %24, %33, %37
+_ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %22, %23, %32, %36
   tail call void @_ZN6icu_7712RegexCompile11fixLiteralsEa(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 noundef signext 0)
-  %39 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %17)
-  %40 = load i16, ptr %5, align 8, !tbaa !17
-  %41 = icmp slt i16 %40, 0
-  %42 = ashr i16 %40, 5
-  %43 = sext i16 %42 to i32
-  %44 = load i32, ptr %6, align 4
-  %45 = select i1 %41, i32 %44, i32 %43
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit, label %.lr.ph
+  %38 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %17)
+  %39 = load i16, ptr %5, align 8, !tbaa !17
+  %40 = icmp slt i16 %39, 0
+  %41 = ashr i16 %39, 5
+  %42 = sext i16 %41 to i32
+  %43 = load i32, ptr %6, align 4
+  %44 = select i1 %40, i32 %43, i32 %42
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %.loopexit, label %.lr.ph
 
-47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %49 = load i32, ptr %48, align 4, !tbaa !50
-  %50 = and i32 %49, 2
-  %.not10 = icmp eq i32 %50, 0
-  br i1 %.not10, label %61, label %51
+46:                                               ; preds = %.lr.ph
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %48 = load i32, ptr %47, align 4, !tbaa !50
+  %49 = and i32 %48, 2
+  %.not10 = icmp eq i32 %49, 0
+  br i1 %.not10, label %60, label %50
 
-51:                                               ; preds = %47
-  %52 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8foldCaseEj(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
-  %53 = load i16, ptr %5, align 8, !tbaa !17
-  %54 = icmp slt i16 %53, 0
-  %55 = ashr i16 %53, 5
-  %56 = sext i16 %55 to i32
-  %57 = load i32, ptr %6, align 4
-  %58 = select i1 %54, i32 %57, i32 %56
-  %59 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %58, i32 noundef -1)
-  %60 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %59)
-  br label %61
+50:                                               ; preds = %46
+  %51 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8foldCaseEj(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0)
+  %52 = load i16, ptr %5, align 8, !tbaa !17
+  %53 = icmp slt i16 %52, 0
+  %54 = ashr i16 %52, 5
+  %55 = sext i16 %54 to i32
+  %56 = load i32, ptr %6, align 4
+  %57 = select i1 %53, i32 %56, i32 %55
+  %58 = tail call noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %57, i32 noundef -1)
+  %59 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %58)
+  br label %60
 
-61:                                               ; preds = %51, %47
-  %.09 = phi i32 [ %59, %51 ], [ %16, %47 ]
-  %.0 = phi i32 [ %60, %51 ], [ %17, %47 ]
-  %62 = icmp eq i32 %.09, 0
-  br i1 %62, label %63, label %94
+60:                                               ; preds = %50, %46
+  %.09 = phi i32 [ %58, %50 ], [ %16, %46 ]
+  %.0 = phi i32 [ %59, %50 ], [ %17, %46 ]
+  %61 = icmp eq i32 %.09, 0
+  br i1 %61, label %62, label %93
 
-63:                                               ; preds = %61
-  %64 = load i32, ptr %48, align 4, !tbaa !50
-  %65 = and i32 %64, 2
-  %.not12 = icmp eq i32 %65, 0
-  br i1 %.not12, label %81, label %66
+62:                                               ; preds = %60
+  %63 = load i32, ptr %47, align 4, !tbaa !50
+  %64 = and i32 %63, 2
+  %.not12 = icmp eq i32 %64, 0
+  br i1 %.not12, label %80, label %65
 
-66:                                               ; preds = %63
-  %67 = tail call signext i8 @u_hasBinaryProperty_77(i32 noundef %.0, i32 noundef 34)
-  %.not13 = icmp eq i8 %67, 0
-  br i1 %.not13, label %81, label %68
+65:                                               ; preds = %62
+  %66 = tail call signext i8 @u_hasBinaryProperty_77(i32 noundef %.0, i32 noundef 34)
+  %.not13 = icmp eq i8 %66, 0
+  br i1 %.not13, label %80, label %67
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !18
-  %71 = load i32, ptr %70, align 4, !tbaa !13
-  %72 = icmp slt i32 %71, 1
-  br i1 %72, label %73, label %_ZN6icu_7712RegexCompile8appendOpEii.exit
+67:                                               ; preds = %65
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !18
+  %70 = load i32, ptr %69, align 4, !tbaa !13
+  %71 = icmp slt i32 %70, 1
+  br i1 %71, label %72, label %_ZN6icu_7712RegexCompile8appendOpEii.exit
 
-73:                                               ; preds = %68
-  %74 = icmp sgt i32 %.0, 16777215
-  br i1 %74, label %75, label %76
+72:                                               ; preds = %67
+  %73 = icmp sgt i32 %.0, 16777215
+  br i1 %73, label %74, label %75
 
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   tail call void @abort() #17
   unreachable
 
-76:                                               ; preds = %73
-  %77 = icmp slt i32 %.0, 0
-  br i1 %77, label %78, label %79
+75:                                               ; preds = %72
+  %76 = icmp slt i32 %.0, 0
+  br i1 %76, label %77, label %78
 
-78:                                               ; preds = %76
+77:                                               ; preds = %75
   tail call void @abort() #17
   unreachable
 
-79:                                               ; preds = %76
-  %80 = or i32 %.0, 654311424
+78:                                               ; preds = %75
+  %79 = or i32 %.0, 654311424
   br label %_ZN6icu_7712RegexCompile8appendOpEii.exit
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit:        ; preds = %68, %79
-  %.0.i.i = phi i32 [ %80, %79 ], [ 0, %68 ]
+_ZN6icu_7712RegexCompile8appendOpEii.exit:        ; preds = %67, %78
+  %.0.i.i = phi i32 [ %79, %78 ], [ 0, %67 ]
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i)
-  br label %216
+  br label %215
 
-81:                                               ; preds = %66, %63
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !18
-  %84 = load i32, ptr %83, align 4, !tbaa !13
-  %85 = icmp slt i32 %84, 1
-  br i1 %85, label %86, label %_ZN6icu_7712RegexCompile8appendOpEii.exit15
+80:                                               ; preds = %65, %62
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = load ptr, ptr %81, align 8, !tbaa !18
+  %83 = load i32, ptr %82, align 4, !tbaa !13
+  %84 = icmp slt i32 %83, 1
+  br i1 %84, label %85, label %_ZN6icu_7712RegexCompile8appendOpEii.exit15
 
-86:                                               ; preds = %81
-  %87 = icmp sgt i32 %.0, 16777215
-  br i1 %87, label %88, label %89
+85:                                               ; preds = %80
+  %86 = icmp sgt i32 %.0, 16777215
+  br i1 %86, label %87, label %88
 
-88:                                               ; preds = %86
+87:                                               ; preds = %85
   tail call void @abort() #17
   unreachable
 
-89:                                               ; preds = %86
-  %90 = icmp slt i32 %.0, 0
-  br i1 %90, label %91, label %92
+88:                                               ; preds = %85
+  %89 = icmp slt i32 %.0, 0
+  br i1 %89, label %90, label %91
 
-91:                                               ; preds = %89
+90:                                               ; preds = %88
   tail call void @abort() #17
   unreachable
 
-92:                                               ; preds = %89
-  %93 = or i32 %.0, 50331648
+91:                                               ; preds = %88
+  %92 = or i32 %.0, 50331648
   br label %_ZN6icu_7712RegexCompile8appendOpEii.exit15
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit15:      ; preds = %81, %92
-  %.0.i.i14 = phi i32 [ %93, %92 ], [ 0, %81 ]
+_ZN6icu_7712RegexCompile8appendOpEii.exit15:      ; preds = %80, %91
+  %.0.i.i14 = phi i32 [ %92, %91 ], [ 0, %80 ]
   tail call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i14)
-  br label %216
+  br label %215
 
-94:                                               ; preds = %61
-  %95 = load i16, ptr %5, align 8, !tbaa !17
-  %96 = icmp slt i16 %95, 0
-  %97 = load i32, ptr %6, align 4
-  %98 = icmp sgt i32 %97, 16777215
-  %99 = select i1 %96, i1 %98, i1 false
-  br i1 %99, label %110, label %100
+93:                                               ; preds = %60
+  %94 = load i16, ptr %5, align 8, !tbaa !17
+  %95 = icmp slt i16 %94, 0
+  %96 = load i32, ptr %6, align 4
+  %97 = icmp sgt i32 %96, 16777215
+  %98 = select i1 %95, i1 %97, i1 false
+  br i1 %98, label %109, label %99
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !33
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %104 = load i16, ptr %103, align 8, !tbaa !17
-  %105 = icmp slt i16 %104, 0
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 52
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp sgt i32 %107, 16777215
-  %109 = select i1 %105, i1 %108, i1 false
-  br i1 %109, label %110, label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !33
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
+  %103 = load i16, ptr %102, align 8, !tbaa !17
+  %104 = icmp slt i16 %103, 0
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 52
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp sgt i32 %106, 16777215
+  %108 = select i1 %104, i1 %107, i1 false
+  br i1 %108, label %109, label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
-110:                                              ; preds = %100, %94
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !18
-  %113 = load i32, ptr %112, align 4, !tbaa !13
-  %114 = icmp slt i32 %113, 1
-  br i1 %114, label %115, label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
+109:                                              ; preds = %99, %93
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !18
+  %112 = load i32, ptr %111, align 4, !tbaa !13
+  %113 = icmp slt i32 %112, 1
+  br i1 %113, label %114, label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
-115:                                              ; preds = %110
-  store i32 66324, ptr %112, align 4, !tbaa !13
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %117 = load i64, ptr %116, align 8, !tbaa !37
-  %118 = icmp sgt i64 %117, 2147483647
-  br i1 %118, label %119, label %122
+114:                                              ; preds = %109
+  store i32 66324, ptr %111, align 4, !tbaa !13
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %116 = load i64, ptr %115, align 8, !tbaa !37
+  %117 = icmp sgt i64 %116, 2147483647
+  br i1 %117, label %118, label %121
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !58
-  store i32 0, ptr %121, align 4, !tbaa !73
-  br label %130
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %120 = load ptr, ptr %119, align 8, !tbaa !58
+  store i32 0, ptr %120, align 4, !tbaa !73
+  br label %129
 
-122:                                              ; preds = %115
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %124 = load i64, ptr %123, align 8, !tbaa !38
-  %125 = icmp sgt i64 %124, 2147483647
-  %126 = trunc i64 %117 to i32
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !58
-  store i32 %126, ptr %128, align 4, !tbaa !73
-  %129 = trunc i64 %124 to i32
-  %spec.select.i = select i1 %125, i32 -1, i32 %129
-  br label %130
+121:                                              ; preds = %114
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %123 = load i64, ptr %122, align 8, !tbaa !38
+  %124 = icmp sgt i64 %123, 2147483647
+  %125 = trunc i64 %116 to i32
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %127 = load ptr, ptr %126, align 8, !tbaa !58
+  store i32 %125, ptr %127, align 4, !tbaa !73
+  %128 = trunc i64 %123 to i32
+  %spec.select.i = select i1 %124, i32 -1, i32 %128
+  br label %129
 
-130:                                              ; preds = %122, %119
-  %.sink5.i = phi ptr [ %121, %119 ], [ %128, %122 ]
-  %.sink.i = phi i32 [ -1, %119 ], [ %spec.select.i, %122 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 4
-  store i32 %.sink.i, ptr %131, align 4, !tbaa !75
+129:                                              ; preds = %121, %118
+  %.sink5.i = phi ptr [ %120, %118 ], [ %127, %121 ]
+  %.sink.i = phi i32 [ -1, %118 ], [ %spec.select.i, %121 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 4
+  store i32 %.sink.i, ptr %130, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %133 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %133, i8 0, i64 32, i1 false)
-  %134 = load ptr, ptr %132, align 8, !tbaa !58
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %135, i8 0, i64 32, i1 false)
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !33
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load ptr, ptr %138, align 8, !tbaa !62
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %141 = load i64, ptr %140, align 8, !tbaa !34
-  %142 = add nsw i64 %141, -15
-  %143 = load ptr, ptr %132, align 8, !tbaa !58
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = call i32 @utext_extract_77(ptr noundef %139, i64 noundef %142, i64 noundef %141, ptr noundef nonnull %144, i32 noundef 16, ptr noundef nonnull %3)
-  %146 = load ptr, ptr %136, align 8, !tbaa !33
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !62
-  %149 = load i64, ptr %140, align 8, !tbaa !34
-  %150 = add nsw i64 %149, 15
-  %151 = load ptr, ptr %132, align 8, !tbaa !58
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 40
-  %153 = call i32 @utext_extract_77(ptr noundef %148, i64 noundef %149, i64 noundef %150, ptr noundef nonnull %152, i32 noundef 16, ptr noundef nonnull %3)
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %.sink5.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %132, i8 0, i64 32, i1 false)
+  %133 = load ptr, ptr %131, align 8, !tbaa !58
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %134, i8 0, i64 32, i1 false)
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %136 = load ptr, ptr %135, align 8, !tbaa !33
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !62
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %140 = load i64, ptr %139, align 8, !tbaa !34
+  %141 = add nsw i64 %140, -15
+  %142 = load ptr, ptr %131, align 8, !tbaa !58
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %144 = call i32 @utext_extract_77(ptr noundef %138, i64 noundef %141, i64 noundef %140, ptr noundef nonnull %143, i32 noundef 16, ptr noundef nonnull %3)
+  %145 = load ptr, ptr %135, align 8, !tbaa !33
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8, !tbaa !62
+  %148 = load i64, ptr %139, align 8, !tbaa !34
+  %149 = add nsw i64 %148, 15
+  %150 = load ptr, ptr %131, align 8, !tbaa !58
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %152 = call i32 @utext_extract_77(ptr noundef %147, i64 noundef %148, i64 noundef %149, ptr noundef nonnull %151, i32 noundef 16, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
 
-_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %130, %110, %100
-  %154 = load i32, ptr %48, align 4, !tbaa !50
-  %155 = and i32 %154, 2
-  %.not11 = icmp eq i32 %155, 0
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %157 = load ptr, ptr %156, align 8, !tbaa !33
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  %159 = load i16, ptr %158, align 8, !tbaa !17
-  %160 = icmp slt i16 %159, 0
-  %161 = ashr i16 %159, 5
-  %162 = sext i16 %161 to i32
-  %163 = getelementptr inbounds nuw i8, ptr %157, i64 52
-  %164 = load i32, ptr %163, align 4
-  %165 = select i1 %160, i32 %164, i32 %162
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !18
-  %168 = load i32, ptr %167, align 4, !tbaa !13
-  %169 = icmp slt i32 %168, 1
-  br i1 %.not11, label %179, label %170
+_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit: ; preds = %129, %109, %99
+  %153 = load i32, ptr %47, align 4, !tbaa !50
+  %154 = and i32 %153, 2
+  %.not11 = icmp eq i32 %154, 0
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %156 = load ptr, ptr %155, align 8, !tbaa !33
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
+  %158 = load i16, ptr %157, align 8, !tbaa !17
+  %159 = icmp slt i16 %158, 0
+  %160 = ashr i16 %158, 5
+  %161 = sext i16 %160 to i32
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 52
+  %163 = load i32, ptr %162, align 4
+  %164 = select i1 %159, i32 %163, i32 %161
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %166 = load ptr, ptr %165, align 8, !tbaa !18
+  %167 = load i32, ptr %166, align 4, !tbaa !13
+  %168 = icmp slt i32 %167, 1
+  br i1 %.not11, label %178, label %169
 
-170:                                              ; preds = %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
-  br i1 %169, label %171, label %_ZN6icu_7712RegexCompile8appendOpEii.exit18
+169:                                              ; preds = %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
+  br i1 %168, label %170, label %_ZN6icu_7712RegexCompile8appendOpEii.exit18
 
-171:                                              ; preds = %170
-  %172 = icmp sgt i32 %165, 16777215
-  br i1 %172, label %173, label %174
+170:                                              ; preds = %169
+  %171 = icmp sgt i32 %164, 16777215
+  br i1 %171, label %172, label %173
 
-173:                                              ; preds = %171
+172:                                              ; preds = %170
   call void @abort() #17
   unreachable
 
-174:                                              ; preds = %171
-  %175 = icmp slt i32 %165, 0
-  br i1 %175, label %176, label %177
+173:                                              ; preds = %170
+  %174 = icmp slt i32 %164, 0
+  br i1 %174, label %175, label %176
 
-176:                                              ; preds = %174
+175:                                              ; preds = %173
   call void @abort() #17
   unreachable
 
-177:                                              ; preds = %174
-  %178 = or i32 %165, 671088640
+176:                                              ; preds = %173
+  %177 = or i32 %164, 671088640
   br label %_ZN6icu_7712RegexCompile8appendOpEii.exit18
 
-179:                                              ; preds = %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
-  br i1 %169, label %180, label %_ZN6icu_7712RegexCompile8appendOpEii.exit18
+178:                                              ; preds = %_ZN6icu_7712RegexCompile5errorE10UErrorCode.exit
+  br i1 %168, label %179, label %_ZN6icu_7712RegexCompile8appendOpEii.exit18
 
-180:                                              ; preds = %179
-  %181 = icmp sgt i32 %165, 16777215
-  br i1 %181, label %182, label %183
+179:                                              ; preds = %178
+  %180 = icmp sgt i32 %164, 16777215
+  br i1 %180, label %181, label %182
 
-182:                                              ; preds = %180
+181:                                              ; preds = %179
   call void @abort() #17
   unreachable
 
-183:                                              ; preds = %180
-  %184 = icmp slt i32 %165, 0
-  br i1 %184, label %185, label %186
+182:                                              ; preds = %179
+  %183 = icmp slt i32 %164, 0
+  br i1 %183, label %184, label %185
 
-185:                                              ; preds = %183
+184:                                              ; preds = %182
   call void @abort() #17
   unreachable
 
-186:                                              ; preds = %183
-  %187 = or i32 %165, 67108864
+185:                                              ; preds = %182
+  %186 = or i32 %164, 67108864
   br label %_ZN6icu_7712RegexCompile8appendOpEii.exit18
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit18:      ; preds = %186, %179, %177, %170
-  %.0.i.i19.sink = phi i32 [ 0, %170 ], [ %178, %177 ], [ %187, %186 ], [ 0, %179 ]
+_ZN6icu_7712RegexCompile8appendOpEii.exit18:      ; preds = %185, %178, %176, %169
+  %.0.i.i19.sink = phi i32 [ 0, %169 ], [ %177, %176 ], [ %186, %185 ], [ 0, %178 ]
   call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i19.sink)
-  %188 = load i16, ptr %5, align 8, !tbaa !17
-  %189 = icmp slt i16 %188, 0
-  %190 = ashr i16 %188, 5
-  %191 = sext i16 %190 to i32
-  %192 = load i32, ptr %6, align 4
-  %193 = select i1 %189, i32 %192, i32 %191
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %195 = load ptr, ptr %194, align 8, !tbaa !18
-  %196 = load i32, ptr %195, align 4, !tbaa !13
-  %197 = icmp slt i32 %196, 1
-  br i1 %197, label %198, label %_ZN6icu_7712RegexCompile8appendOpEii.exit22
+  %187 = load i16, ptr %5, align 8, !tbaa !17
+  %188 = icmp slt i16 %187, 0
+  %189 = ashr i16 %187, 5
+  %190 = sext i16 %189 to i32
+  %191 = load i32, ptr %6, align 4
+  %192 = select i1 %188, i32 %191, i32 %190
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %194 = load ptr, ptr %193, align 8, !tbaa !18
+  %195 = load i32, ptr %194, align 4, !tbaa !13
+  %196 = icmp slt i32 %195, 1
+  br i1 %196, label %197, label %_ZN6icu_7712RegexCompile8appendOpEii.exit22
 
-198:                                              ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit18
-  %199 = icmp sgt i32 %193, 16777215
-  br i1 %199, label %200, label %201
+197:                                              ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit18
+  %198 = icmp sgt i32 %192, 16777215
+  br i1 %198, label %199, label %200
 
-200:                                              ; preds = %198
+199:                                              ; preds = %197
   call void @abort() #17
   unreachable
 
-201:                                              ; preds = %198
-  %202 = icmp slt i32 %193, 0
-  br i1 %202, label %203, label %204
+200:                                              ; preds = %197
+  %201 = icmp slt i32 %192, 0
+  br i1 %201, label %202, label %203
 
-203:                                              ; preds = %201
+202:                                              ; preds = %200
   call void @abort() #17
   unreachable
 
-204:                                              ; preds = %201
-  %205 = or i32 %193, 83886080
+203:                                              ; preds = %200
+  %204 = or i32 %192, 83886080
   br label %_ZN6icu_7712RegexCompile8appendOpEii.exit22
 
-_ZN6icu_7712RegexCompile8appendOpEii.exit22:      ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit18, %204
-  %.0.i.i21 = phi i32 [ %205, %204 ], [ 0, %_ZN6icu_7712RegexCompile8appendOpEii.exit18 ]
+_ZN6icu_7712RegexCompile8appendOpEii.exit22:      ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit18, %203
+  %.0.i.i21 = phi i32 [ %204, %203 ], [ 0, %_ZN6icu_7712RegexCompile8appendOpEii.exit18 ]
   call void @_ZN6icu_7712RegexCompile8appendOpEi(ptr noundef nonnull readonly align 8 dereferenceable(512) %0, i32 noundef %.0.i.i21)
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %207 = load ptr, ptr %206, align 8, !tbaa !33
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 40
-  %209 = load i16, ptr %5, align 8, !tbaa !17
-  %210 = icmp slt i16 %209, 0
-  %211 = ashr i16 %209, 5
-  %212 = sext i16 %211 to i32
-  %213 = load i32, ptr %6, align 4
-  %214 = select i1 %210, i32 %213, i32 %212
-  %215 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef %214)
-  br label %216
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %206 = load ptr, ptr %205, align 8, !tbaa !33
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 40
+  %208 = load i16, ptr %5, align 8, !tbaa !17
+  %209 = icmp slt i16 %208, 0
+  %210 = ashr i16 %208, 5
+  %211 = sext i16 %210 to i32
+  %212 = load i32, ptr %6, align 4
+  %213 = select i1 %209, i32 %212, i32 %211
+  %214 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %207, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef %213)
+  br label %215
 
-216:                                              ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit, %_ZN6icu_7712RegexCompile8appendOpEii.exit15, %_ZN6icu_7712RegexCompile8appendOpEii.exit22
-  %217 = load i16, ptr %5, align 8, !tbaa !17
-  %218 = and i16 %217, 1
-  %.not.i = icmp eq i16 %218, 0
-  %219 = and i16 %217, 30
-  %storemerge.i = select i1 %.not.i, i16 %219, i16 2
+215:                                              ; preds = %_ZN6icu_7712RegexCompile8appendOpEii.exit, %_ZN6icu_7712RegexCompile8appendOpEii.exit15, %_ZN6icu_7712RegexCompile8appendOpEii.exit22
+  %216 = load i16, ptr %5, align 8, !tbaa !17
+  %217 = and i16 %216, 1
+  %.not.i = icmp eq i16 %217, 0
+  %218 = and i16 %216, 30
+  %storemerge.i = select i1 %.not.i, i16 %218, i16 2
   store i16 %storemerge.i, ptr %5, align 8, !tbaa !17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %2, %216
+.loopexit:                                        ; preds = %_ZN6icu_7713UnicodeString8truncateEi.exit, %2, %215
   ret void
 }
 

@@ -21826,7 +21826,7 @@ _ZNK11ast_manager8is_labelEPK4expr.exit.thread:   ; preds = %233, %228, %242, %_
 
 251:                                              ; preds = %_ZNK11ast_manager8is_labelEPK4expr.exit.thread, %292
   %indvars.iv = phi i64 [ 0, %_ZNK11ast_manager8is_labelEPK4expr.exit.thread ], [ %indvars.iv.next, %292 ]
-  %.045143 = phi i32 [ 0, %_ZNK11ast_manager8is_labelEPK4expr.exit.thread ], [ %spec.select, %292 ]
+  %.045142 = phi i32 [ 0, %_ZNK11ast_manager8is_labelEPK4expr.exit.thread ], [ %spec.select, %292 ]
   %252 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !124
   %.not.i90 = icmp eq ptr %253, null
@@ -21863,11 +21863,11 @@ _ZN11ast_manager7inc_refEP3ast.exit91:            ; preds = %251, %254
   %268 = load i8, ptr %247, align 2
   %269 = or i8 %268, 2
   store i8 %269, ptr %247, align 2
-  %.pre150 = load i8, ptr %264, align 2
+  %.pre149 = load i8, ptr %264, align 2
   br label %270
 
 270:                                              ; preds = %267, %260
-  %271 = phi i8 [ %.pre150, %267 ], [ %265, %260 ]
+  %271 = phi i8 [ %.pre149, %267 ], [ %265, %260 ]
   %272 = and i8 %271, 4
   %.not140 = icmp eq i8 %272, 0
   br i1 %.not140, label %276, label %273
@@ -21876,14 +21876,13 @@ _ZN11ast_manager7inc_refEP3ast.exit91:            ; preds = %251, %254
   %274 = load i8, ptr %247, align 2
   %275 = or i8 %274, 4
   store i8 %275, ptr %247, align 2
-  %.pre151 = load i8, ptr %264, align 2
+  %.pre150 = load i8, ptr %264, align 2
   br label %276
 
 276:                                              ; preds = %273, %270
-  %277 = phi i8 [ %.pre151, %273 ], [ %271, %270 ]
-  %278 = and i8 %277, 1
-  %.not141 = icmp eq i8 %278, 0
-  br i1 %.not141, label %279, label %292
+  %277 = phi i8 [ %.pre150, %273 ], [ %271, %270 ]
+  %278 = trunc i8 %277 to i1
+  br i1 %278, label %292, label %279
 
 279:                                              ; preds = %276
   %280 = load i8, ptr %247, align 2
@@ -21913,7 +21912,7 @@ _ZN11ast_manager7inc_refEP3ast.exit91:            ; preds = %251, %254
 
 292:                                              ; preds = %276, %279, %291, %288, %282
   %.042 = phi i32 [ 0, %291 ], [ 1, %288 ], [ %287, %282 ], [ %263, %279 ], [ %263, %276 ]
-  %spec.select = call i32 @llvm.umax.i32(i32 %.042, i32 %.045143)
+  %spec.select = call i32 @llvm.umax.i32(i32 %.042, i32 %.045142)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %248, label %251, !llvm.loop !432
@@ -22001,9 +22000,9 @@ _ZN11ast_manager7inc_refEP3ast.exit107:           ; preds = %_ZN11ast_manager13i
 _ZNK4expr8get_sortEv.exit110.thread:              ; preds = %_ZN11ast_manager7inc_refEP3ast.exit107
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 388, ptr noundef nonnull @.str.1)
   call void @_Z18invoke_exit_actionj(i32 noundef 114)
-  %.pre147 = load ptr, ptr %3, align 8, !tbaa !29
-  %.phi.trans.insert148 = getelementptr inbounds nuw i8, ptr %.pre147, i64 20
-  %.pre149 = load i32, ptr %.phi.trans.insert148, align 4, !tbaa !130
+  %.pre146 = load ptr, ptr %3, align 8, !tbaa !29
+  %.phi.trans.insert147 = getelementptr inbounds nuw i8, ptr %.pre146, i64 20
+  %.pre148 = load i32, ptr %.phi.trans.insert147, align 4, !tbaa !130
   br label %_ZN11ast_manager7inc_refEP3ast.exit112
 
 _ZNK4expr8get_sortEv.exit110:                     ; preds = %_ZN11ast_manager7inc_refEP3ast.exit107, %315, %323
@@ -22020,8 +22019,8 @@ _ZNK4expr8get_sortEv.exit110:                     ; preds = %_ZN11ast_manager7in
   br label %_ZN11ast_manager7inc_refEP3ast.exit112
 
 _ZN11ast_manager7inc_refEP3ast.exit112:           ; preds = %_ZNK4expr8get_sortEv.exit110.thread, %_ZNK4expr8get_sortEv.exit110, %327
-  %331 = phi i32 [ %.pre149, %_ZNK4expr8get_sortEv.exit110.thread ], [ %326, %_ZNK4expr8get_sortEv.exit110 ], [ %326, %327 ]
-  %332 = phi ptr [ %.pre147, %_ZNK4expr8get_sortEv.exit110.thread ], [ %12, %_ZNK4expr8get_sortEv.exit110 ], [ %12, %327 ]
+  %331 = phi i32 [ %.pre148, %_ZNK4expr8get_sortEv.exit110.thread ], [ %326, %_ZNK4expr8get_sortEv.exit110 ], [ %326, %327 ]
+  %332 = phi ptr [ %.pre146, %_ZNK4expr8get_sortEv.exit110.thread ], [ %12, %_ZNK4expr8get_sortEv.exit110 ], [ %12, %327 ]
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %334 = load i32, ptr %333, align 8, !tbaa !137
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 80

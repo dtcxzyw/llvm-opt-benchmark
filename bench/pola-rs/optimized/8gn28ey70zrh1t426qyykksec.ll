@@ -745,26 +745,25 @@ define void @_ZN12polars_error7signals33try_raise_keyboard_interrupt_slow17heb89
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef zeroext i1 @_ZN12polars_error7signals20try_register_catcher17h853df5d4a0ff168dE() unnamed_addr #4 personality ptr @rust_eh_personality {
   %1 = atomicrmw add ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE, i64 2 monotonic, align 8
-  %2 = and i64 %1, 1
-  %3 = icmp ne i64 %2, 0
-  br i1 %3, label %4, label %_ZN12polars_error7signals18unregister_catcher17ha7baf07cf3b0b436E.exit
+  %2 = trunc i64 %1 to i1
+  br i1 %2, label %3, label %_ZN12polars_error7signals18unregister_catcher17ha7baf07cf3b0b436E.exit
 
-4:                                                ; preds = %0
-  %5 = load atomic i64, ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE monotonic, align 8
-  br label %6
+3:                                                ; preds = %0
+  %4 = load atomic i64, ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE monotonic, align 8
+  br label %5
 
-6:                                                ; preds = %6, %4
-  %.sroa.01.0.i.i = phi i64 [ %5, %4 ], [ %11, %6 ]
-  %7 = icmp ugt i64 %.sroa.01.0.i.i, 3
-  %8 = add i64 %.sroa.01.0.i.i, -2
-  %.sroa.3.0.i.i.i = select i1 %7, i64 %8, i64 0
-  %9 = cmpxchg weak ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE, i64 %.sroa.01.0.i.i, i64 %.sroa.3.0.i.i.i monotonic monotonic, align 8
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  br i1 %10, label %_ZN12polars_error7signals18unregister_catcher17ha7baf07cf3b0b436E.exit, label %6
+5:                                                ; preds = %5, %3
+  %.sroa.01.0.i.i = phi i64 [ %4, %3 ], [ %10, %5 ]
+  %6 = icmp ugt i64 %.sroa.01.0.i.i, 3
+  %7 = add i64 %.sroa.01.0.i.i, -2
+  %.sroa.3.0.i.i.i = select i1 %6, i64 %7, i64 0
+  %8 = cmpxchg weak ptr @_ZN12polars_error7signals15INTERRUPT_STATE17h69cd2df7099d644eE, i64 %.sroa.01.0.i.i, i64 %.sroa.3.0.i.i.i monotonic monotonic, align 8
+  %9 = extractvalue { i64, i1 } %8, 1
+  %10 = extractvalue { i64, i1 } %8, 0
+  br i1 %9, label %_ZN12polars_error7signals18unregister_catcher17ha7baf07cf3b0b436E.exit, label %5
 
-_ZN12polars_error7signals18unregister_catcher17ha7baf07cf3b0b436E.exit: ; preds = %6, %0
-  ret i1 %3
+_ZN12polars_error7signals18unregister_catcher17ha7baf07cf3b0b436E.exit: ; preds = %5, %0
+  ret i1 %2
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

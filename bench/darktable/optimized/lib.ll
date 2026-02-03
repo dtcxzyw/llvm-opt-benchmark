@@ -1525,102 +1525,101 @@ _update_params.exit.thread:                       ; preds = %94, %88, %86
 
 183:                                              ; preds = %179, %182
   %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !81
-  %185 = and i32 %184, 1
-  %186 = icmp ne i32 %185, 0
-  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
-  %188 = icmp ne i32 %187, 0
-  %or.cond = select i1 %186, i1 %188, i1 false
-  br i1 %or.cond, label %189, label %193
+  %185 = trunc i32 %184 to i1
+  %186 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
+  %187 = icmp ne i32 %186, 0
+  %or.cond = select i1 %185, i1 %187, i1 false
+  br i1 %or.cond, label %188, label %192
 
-189:                                              ; preds = %183
-  %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
-  %191 = and i32 %190, 1048576
-  %.not66 = icmp eq i32 %191, 0
-  br i1 %.not66, label %193, label %192
+188:                                              ; preds = %183
+  %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
+  %190 = and i32 %189, 1048576
+  %.not66 = icmp eq i32 %190, 0
+  br i1 %.not66, label %192, label %191
 
-192:                                              ; preds = %189
+191:                                              ; preds = %188
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 818, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets) #19
-  br label %193
+  br label %192
 
-193:                                              ; preds = %192, %189, %183
-  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !82
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %196 = call noalias ptr @g_strdup(ptr noundef nonnull %195) #19
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %194, i32 noundef 18, ptr noundef %196) #19
+192:                                              ; preds = %191, %188, %183
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !82
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %195 = call noalias ptr @g_strdup(ptr noundef nonnull %194) #19
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %193, i32 noundef 18, ptr noundef %195) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %197 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
-  %198 = and i32 %197, 256
-  %.not67 = icmp eq i32 %198, 0
-  br i1 %.not67, label %200, label %199
+  %196 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
+  %197 = and i32 %196, 256
+  %.not67 = icmp eq i32 %197, 0
+  br i1 %.not67, label %199, label %198
 
-199:                                              ; preds = %193
+198:                                              ; preds = %192
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 827, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef nonnull @.str.23) #19
-  br label %200
+  br label %199
 
-200:                                              ; preds = %199, %193
-  %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
-  %202 = call ptr @dt_database_get(ptr noundef %201) #19
-  %203 = call i32 @sqlite3_prepare_v2(ptr noundef %202, ptr noundef nonnull @.str.23, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #19
-  %.not68 = icmp eq i32 %203, 0
-  br i1 %.not68, label %210, label %204
+199:                                              ; preds = %198, %192
+  %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
+  %201 = call ptr @dt_database_get(ptr noundef %200) #19
+  %202 = call i32 @sqlite3_prepare_v2(ptr noundef %201, ptr noundef nonnull @.str.23, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #19
+  %.not68 = icmp eq i32 %202, 0
+  br i1 %.not68, label %209, label %203
 
-204:                                              ; preds = %200
-  %205 = load ptr, ptr @stderr, align 8, !tbaa !61
-  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
-  %207 = call ptr @dt_database_get(ptr noundef %206) #19
-  %208 = call ptr @sqlite3_errmsg(ptr noundef %207) #19
-  %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 827, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef nonnull @.str.23, ptr noundef %208) #20
-  br label %210
+203:                                              ; preds = %199
+  %204 = load ptr, ptr @stderr, align 8, !tbaa !61
+  %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
+  %206 = call ptr @dt_database_get(ptr noundef %205) #19
+  %207 = call ptr @sqlite3_errmsg(ptr noundef %206) #19
+  %208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %204, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 827, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef nonnull @.str.23, ptr noundef %207) #20
+  br label %209
 
-210:                                              ; preds = %204, %200
-  %211 = load ptr, ptr %8, align 8, !tbaa !63
-  %212 = call i32 @sqlite3_bind_text(ptr noundef %211, i32 noundef 1, ptr noundef nonnull %195, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #19
-  %.not69 = icmp eq i32 %212, 0
-  br i1 %.not69, label %219, label %213
+209:                                              ; preds = %203, %199
+  %210 = load ptr, ptr %8, align 8, !tbaa !63
+  %211 = call i32 @sqlite3_bind_text(ptr noundef %210, i32 noundef 1, ptr noundef nonnull %194, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #19
+  %.not69 = icmp eq i32 %211, 0
+  br i1 %.not69, label %218, label %212
 
-213:                                              ; preds = %210
-  %214 = load ptr, ptr @stderr, align 8, !tbaa !61
-  %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
-  %216 = call ptr @dt_database_get(ptr noundef %215) #19
-  %217 = call ptr @sqlite3_errmsg(ptr noundef %216) #19
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef 829, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef %217) #20
-  br label %219
+212:                                              ; preds = %209
+  %213 = load ptr, ptr @stderr, align 8, !tbaa !61
+  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
+  %215 = call ptr @dt_database_get(ptr noundef %214) #19
+  %216 = call ptr @sqlite3_errmsg(ptr noundef %215) #19
+  %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef 829, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef %216) #20
+  br label %218
 
-219:                                              ; preds = %213, %210
-  %220 = load ptr, ptr %8, align 8, !tbaa !63
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %222 = load ptr, ptr %221, align 8, !tbaa !78
-  %223 = call i32 (...) %222() #19
-  %224 = call i32 @sqlite3_bind_int(ptr noundef %220, i32 noundef 2, i32 noundef %223) #19
-  %.not70 = icmp eq i32 %224, 0
-  br i1 %.not70, label %231, label %225
+218:                                              ; preds = %212, %209
+  %219 = load ptr, ptr %8, align 8, !tbaa !63
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %221 = load ptr, ptr %220, align 8, !tbaa !78
+  %222 = call i32 (...) %221() #19
+  %223 = call i32 @sqlite3_bind_int(ptr noundef %219, i32 noundef 2, i32 noundef %222) #19
+  %.not70 = icmp eq i32 %223, 0
+  br i1 %.not70, label %230, label %224
 
-225:                                              ; preds = %219
-  %226 = load ptr, ptr @stderr, align 8, !tbaa !61
-  %227 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
-  %228 = call ptr @dt_database_get(ptr noundef %227) #19
-  %229 = call ptr @sqlite3_errmsg(ptr noundef %228) #19
-  %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %226, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef 830, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef %229) #20
-  br label %231
+224:                                              ; preds = %218
+  %225 = load ptr, ptr @stderr, align 8, !tbaa !61
+  %226 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !60
+  %227 = call ptr @dt_database_get(ptr noundef %226) #19
+  %228 = call ptr @sqlite3_errmsg(ptr noundef %227) #19
+  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef 830, ptr noundef nonnull @__FUNCTION__.dt_lib_init_presets, ptr noundef %228) #20
+  br label %230
 
-231:                                              ; preds = %225, %219
-  %232 = load ptr, ptr %8, align 8, !tbaa !63
-  %233 = call i32 @sqlite3_step(ptr noundef %232) #19
-  %234 = icmp eq i32 %233, 100
-  br i1 %234, label %.lr.ph78, label %._crit_edge79
+230:                                              ; preds = %224, %218
+  %231 = load ptr, ptr %8, align 8, !tbaa !63
+  %232 = call i32 @sqlite3_step(ptr noundef %231) #19
+  %233 = icmp eq i32 %232, 100
+  br i1 %233, label %.lr.ph78, label %._crit_edge79
 
-.lr.ph78:                                         ; preds = %231, %.lr.ph78
-  %235 = load ptr, ptr %8, align 8, !tbaa !63
-  %236 = call ptr @sqlite3_column_text(ptr noundef %235, i32 noundef 0) #19
-  call void @dt_action_define_preset(ptr noundef nonnull %0, ptr noundef %236) #19
-  %237 = load ptr, ptr %8, align 8, !tbaa !63
-  %238 = call i32 @sqlite3_step(ptr noundef %237) #19
-  %239 = icmp eq i32 %238, 100
-  br i1 %239, label %.lr.ph78, label %._crit_edge79
+.lr.ph78:                                         ; preds = %230, %.lr.ph78
+  %234 = load ptr, ptr %8, align 8, !tbaa !63
+  %235 = call ptr @sqlite3_column_text(ptr noundef %234, i32 noundef 0) #19
+  call void @dt_action_define_preset(ptr noundef nonnull %0, ptr noundef %235) #19
+  %236 = load ptr, ptr %8, align 8, !tbaa !63
+  %237 = call i32 @sqlite3_step(ptr noundef %236) #19
+  %238 = icmp eq i32 %237, 100
+  br i1 %238, label %.lr.ph78, label %._crit_edge79
 
-._crit_edge79:                                    ; preds = %.lr.ph78, %231
-  %240 = load ptr, ptr %8, align 8, !tbaa !63
-  %241 = call i32 @sqlite3_finalize(ptr noundef %240) #19
+._crit_edge79:                                    ; preds = %.lr.ph78, %230
+  %239 = load ptr, ptr %8, align 8, !tbaa !63
+  %240 = call i32 @sqlite3_finalize(ptr noundef %239) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -4471,7 +4470,7 @@ define internal void @menuitem_edit_preset(ptr readnone captures(none) %0, ptr n
 define internal void @menuitem_delete_preset(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = tail call ptr @dt_lib_get_active_preset_name(ptr noundef %1)
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %31, label %5
+  br i1 %4, label %30, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.70) #19
@@ -4483,7 +4482,7 @@ define internal void @menuitem_delete_preset(ptr readnone captures(none) %0, ptr
   %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef 5) #19
   %10 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %3) #19
   %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %30, label %11
+  br i1 %.not11, label %29, label %11
 
 11:                                               ; preds = %7, %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4494,35 +4493,34 @@ define internal void @menuitem_delete_preset(ptr readnone captures(none) %0, ptr
   %16 = load i32, ptr %15, align 8, !tbaa !68
   tail call void @dt_lib_presets_remove(ptr noundef nonnull %3, ptr noundef %14, i32 noundef %16)
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !81
-  %18 = and i32 %17, 1
-  %19 = icmp ne i32 %18, 0
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
-  %21 = icmp ne i32 %20, 0
-  %or.cond = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %26
+  %18 = trunc i32 %17 to i1
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
+  %20 = icmp ne i32 %19, 0
+  %or.cond = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond, label %21, label %25
 
-22:                                               ; preds = %11
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
-  %24 = and i32 %23, 1048576
-  %.not12 = icmp eq i32 %24, 0
-  br i1 %.not12, label %26, label %25
+21:                                               ; preds = %11
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
+  %23 = and i32 %22, 1048576
+  %.not12 = icmp eq i32 %23, 0
+  br i1 %.not12, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 242, ptr noundef nonnull @__FUNCTION__.menuitem_delete_preset) #19
-  br label %26
+  br label %25
 
-26:                                               ; preds = %22, %25, %11
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !82
-  %28 = load ptr, ptr %1, align 8, !tbaa !65
-  %29 = tail call noalias ptr @g_strdup(ptr noundef %28) #19
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %27, i32 noundef 18, ptr noundef %29) #19
+25:                                               ; preds = %21, %24, %11
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !82
+  %27 = load ptr, ptr %1, align 8, !tbaa !65
+  %28 = tail call noalias ptr @g_strdup(ptr noundef %27) #19
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %26, i32 noundef 18, ptr noundef %28) #19
+  br label %29
+
+29:                                               ; preds = %25, %7
+  tail call void @g_free(ptr noundef nonnull %3) #19
   br label %30
 
-30:                                               ; preds = %26, %7
-  tail call void @g_free(ptr noundef nonnull %3) #19
-  br label %31
-
-31:                                               ; preds = %2, %30
+30:                                               ; preds = %2, %29
   ret void
 }
 
@@ -4658,7 +4656,7 @@ define internal void @menuitem_update_preset(ptr noundef %0, ptr noundef readonl
   %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.76, i32 noundef 5) #19
   %10 = tail call i32 (ptr, ptr, ...) @dt_gui_show_yes_no_dialog(ptr noundef %8, ptr noundef %9, ptr noundef %5) #19
   %.not13 = icmp eq i32 %10, 0
-  br i1 %.not13, label %86, label %11
+  br i1 %.not13, label %85, label %11
 
 11:                                               ; preds = %7, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4755,32 +4753,31 @@ define internal void @menuitem_update_preset(ptr noundef %0, ptr noundef readonl
   %71 = load ptr, ptr %3, align 8, !tbaa !63
   %72 = call i32 @sqlite3_finalize(ptr noundef %71) #19
   %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !81
-  %74 = and i32 %73, 1
-  %75 = icmp ne i32 %74, 0
-  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
-  %77 = icmp ne i32 %76, 0
-  %or.cond = select i1 %75, i1 %77, i1 false
-  br i1 %or.cond, label %78, label %82
+  %74 = trunc i32 %73 to i1
+  %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
+  %76 = icmp ne i32 %75, 0
+  %or.cond = select i1 %74, i1 %76, i1 false
+  br i1 %or.cond, label %77, label %81
 
-78:                                               ; preds = %68
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
-  %80 = and i32 %79, 1048576
-  %.not20 = icmp eq i32 %80, 0
-  br i1 %.not20, label %82, label %81
+77:                                               ; preds = %68
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !59
+  %79 = and i32 %78, 1048576
+  %.not20 = icmp eq i32 %79, 0
+  br i1 %.not20, label %81, label %80
 
-81:                                               ; preds = %78
+80:                                               ; preds = %77
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 176, ptr noundef nonnull @__FUNCTION__.menuitem_update_preset) #19
-  br label %82
+  br label %81
 
-82:                                               ; preds = %78, %81, %68
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !82
-  %84 = load ptr, ptr %1, align 8, !tbaa !65
-  %85 = call noalias ptr @g_strdup(ptr noundef %84) #19
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %83, i32 noundef 18, ptr noundef %85) #19
+81:                                               ; preds = %77, %80, %68
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !82
+  %83 = load ptr, ptr %1, align 8, !tbaa !65
+  %84 = call noalias ptr @g_strdup(ptr noundef %83) #19
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %82, i32 noundef 18, ptr noundef %84) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %86
+  br label %85
 
-86:                                               ; preds = %82, %7
+85:                                               ; preds = %81, %7
   ret void
 }
 

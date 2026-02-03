@@ -3705,24 +3705,23 @@ if.then.i:                                        ; preds = %entry
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit: ; preds = %entry, %if.then.i
   %retval.sroa.0.0.i = phi ptr [ %add.ptr.i.i, %if.then.i ], [ %arrayidx.i, %entry ]
   %4 = ptrtoint ptr %retval.sroa.0.0.i to i64
-  %and.i.i = and i64 %4, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i2
+  %tobool.i.i = trunc i64 %4 to i1
+  br i1 %tobool.i.i, label %if.then.i3, label %if.else.i
 
-if.then.i2:                                       ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
+if.then.i3:                                       ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
   %functionName.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i, i64 11
   %5 = load i32, ptr %functionName.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit
 
 if.else.i:                                        ; preds = %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
-  %bf.load.i3 = load i120, ptr %retval.sroa.0.0.i, align 1
-  %bf.lshr.i = lshr i120 %bf.load.i3, 47
+  %bf.load.i2 = load i120, ptr %retval.sroa.0.0.i, align 1
+  %bf.lshr.i = lshr i120 %bf.load.i2, 47
   %6 = trunc i120 %bf.lshr.i to i32
   %bf.cast.i = and i32 %6, 131071
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit
 
-_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.i2, %if.else.i
-  %retval.0.i = phi i32 [ %5, %if.then.i2 ], [ %bf.cast.i, %if.else.i ]
+_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.i3, %if.else.i
+  %retval.0.i = phi i32 [ %5, %if.then.i3 ], [ %bf.cast.i, %if.else.i ]
   %vtable.i = load ptr, ptr %bcProvider, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
@@ -3731,9 +3730,9 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %stringStorage_.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i, null
-  br i1 %tobool.not.i, label %if.then.i6, label %if.end.i
+  br i1 %tobool.not.i, label %if.then.i5, label %if.end.i
 
-if.then.i6:                                       ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit
+if.then.i5:                                       ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
@@ -3741,13 +3740,13 @@ if.end.i:                                         ; preds = %_ZNK6hermes3hbc21Ru
   %idx.ext.i = and i64 %call.i, 4294967295
   %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i.i, i64 %idx.ext.i
   %entry2.sroa.2.0.extract.shift.i = lshr i64 %call.i, 32
-  %and.i.i5 = and i64 %entry2.sroa.2.0.extract.shift.i, 2147483647
+  %and.i.i = and i64 %entry2.sroa.2.0.extract.shift.i, 2147483647
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16, !noalias !64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %add.ptr.i4, i64 noundef %and.i.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %add.ptr.i4, i64 noundef %and.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #16
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
-_ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i6, %if.end.i
+_ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i5, %if.end.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }

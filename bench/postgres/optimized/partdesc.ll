@@ -176,9 +176,8 @@ list_length.exit.i:                               ; preds = %.critedge.i
   store i8 0, ptr %8, align 1
   %79 = getelementptr i8, ptr %71, i64 20
   %.val.val.i.i.i = load i16, ptr %79, align 4
-  %80 = and i16 %.val.val.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i16 %80, 0
-  br i1 %.not.i.i.i.i, label %81, label %120
+  %80 = trunc i16 %.val.val.i.i.i to i1
+  br i1 %80, label %120, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %69, i64 536
@@ -252,8 +251,8 @@ list_length.exit.i:                               ; preds = %.critedge.i
   %121 = getelementptr i8, ptr %71, i64 27
   %.val20.i.i.i = load i8, ptr %121, align 1
   %122 = and i8 %.val20.i.i.i, 1
-  %.not.i21.i.i.i = icmp eq i8 %122, 0
-  br i1 %.not.i21.i.i.i, label %123, label %124
+  %.not.i.i.i.i = icmp eq i8 %122, 0
+  br i1 %.not.i.i.i.i, label %123, label %124
 
 123:                                              ; preds = %120
   store i8 1, ptr %8, align 1

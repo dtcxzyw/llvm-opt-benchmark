@@ -195,26 +195,25 @@ define internal i32 @uint32_i2c(ptr noundef readonly captures(none) %0, ptr noun
   %.0.copyload = load i32, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !16
-  %8 = and i64 %7, 1
-  %9 = icmp ne i64 %8, 0
-  %10 = icmp eq i32 %.0.copyload, 0
-  %or.cond = select i1 %9, i1 %10, i1 false
-  br i1 %or.cond, label %18, label %11
+  %8 = trunc i64 %7 to i1
+  %9 = icmp eq i32 %.0.copyload, 0
+  %or.cond = select i1 %8, i1 %9, i1 false
+  br i1 %or.cond, label %17, label %10
 
-11:                                               ; preds = %4
-  %12 = and i64 %7, 2
-  %13 = icmp ne i64 %12, 0
-  %14 = icmp slt i32 %.0.copyload, 0
-  %or.cond3 = select i1 %13, i1 %14, i1 false
-  %15 = sub i32 0, %.0.copyload
-  %spec.select = select i1 %or.cond3, i32 %15, i32 %.0.copyload
+10:                                               ; preds = %4
+  %11 = and i64 %7, 2
+  %12 = icmp ne i64 %11, 0
+  %13 = icmp slt i32 %.0.copyload, 0
+  %or.cond3 = select i1 %12, i1 %13, i1 false
+  %14 = sub i32 0, %.0.copyload
+  %spec.select = select i1 %or.cond3, i32 %14, i32 %.0.copyload
   %spec.select15 = zext i1 %or.cond3 to i32
-  %16 = zext i32 %spec.select to i64
-  %17 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %16, i32 noundef %spec.select15) #5
-  br label %18
+  %15 = zext i32 %spec.select to i64
+  %16 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %15, i32 noundef %spec.select15) #5
+  br label %17
 
-18:                                               ; preds = %4, %11
-  %.0 = phi i32 [ %17, %11 ], [ -1, %4 ]
+17:                                               ; preds = %4, %10
+  %.0 = phi i32 [ %16, %10 ], [ -1, %4 ]
   ret i32 %.0
 }
 
@@ -354,25 +353,24 @@ define internal i32 @uint64_i2c(ptr noundef readonly captures(none) %0, ptr noun
   %.0.copyload = load i64, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !16
-  %8 = and i64 %7, 1
-  %9 = icmp ne i64 %8, 0
-  %10 = icmp eq i64 %.0.copyload, 0
-  %or.cond = select i1 %9, i1 %10, i1 false
-  br i1 %or.cond, label %17, label %11
+  %8 = trunc i64 %7 to i1
+  %9 = icmp eq i64 %.0.copyload, 0
+  %or.cond = select i1 %8, i1 %9, i1 false
+  br i1 %or.cond, label %16, label %10
 
-11:                                               ; preds = %4
-  %12 = and i64 %7, 2
-  %13 = icmp ne i64 %12, 0
-  %14 = icmp slt i64 %.0.copyload, 0
-  %or.cond3 = select i1 %13, i1 %14, i1 false
-  %15 = sub i64 0, %.0.copyload
-  %spec.select = select i1 %or.cond3, i64 %15, i64 %.0.copyload
+10:                                               ; preds = %4
+  %11 = and i64 %7, 2
+  %12 = icmp ne i64 %11, 0
+  %13 = icmp slt i64 %.0.copyload, 0
+  %or.cond3 = select i1 %12, i1 %13, i1 false
+  %14 = sub i64 0, %.0.copyload
+  %spec.select = select i1 %or.cond3, i64 %14, i64 %.0.copyload
   %spec.select15 = zext i1 %or.cond3 to i32
-  %16 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %spec.select, i32 noundef %spec.select15) #5
-  br label %17
+  %15 = tail call i32 @ossl_i2c_uint64_int(ptr noundef %1, i64 noundef %spec.select, i32 noundef %spec.select15) #5
+  br label %16
 
-17:                                               ; preds = %4, %11
-  %.0 = phi i32 [ %16, %11 ], [ -1, %4 ]
+16:                                               ; preds = %4, %10
+  %.0 = phi i32 [ %15, %10 ], [ -1, %4 ]
   ret i32 %.0
 }
 

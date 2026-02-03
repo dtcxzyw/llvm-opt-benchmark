@@ -1787,10 +1787,10 @@ default.unreachable:                              ; preds = %91
   %107 = load i8, ptr %106, align 1, !noalias !131, !noundef !4
   %108 = trunc i64 %103 to i8
   %109 = and i8 %108, 7
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %111 = lshr i8 %107, %109
-  %112 = and i8 %111, 1
-  store i8 %112, ptr %110, align 1, !alias.scope !135, !noalias !131
+  %110 = lshr i8 %107, %109
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %112 = and i8 %110, 1
+  store i8 %112, ptr %111, align 1, !alias.scope !135, !noalias !131
   store i8 1, ptr %0, align 16, !alias.scope !135, !noalias !131
   br label %"_ZN11polars_core13chunked_array3ops9any_value159_$LT$impl$u20$polars_core..chunked_array..ops..ChunkAnyValue$u20$for$u20$polars_core..chunked_array..ChunkedArray$LT$polars_core..datatypes..StringType$GT$$GT$23get_any_value_unchecked17h7099000c23de504bE.exit"
 
@@ -23538,7 +23538,7 @@ define internal fastcc void @_ZN10polars_sql9functions18_extract_func_args17h105
   ret void
 
 28:                                               ; preds = %23
-  %29 = icmp ne i8 %26, 0
+  %29 = trunc nuw i8 %26 to i1
   %30 = xor i8 %26, 1
   %31 = or i1 %3, %29
   %or.cond.not = or i1 %2, %31

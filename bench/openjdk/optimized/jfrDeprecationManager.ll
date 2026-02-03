@@ -503,9 +503,8 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %52 = load volatile i64, ptr %51, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %53 = and i64 %52, 1
-  %.not.i.i.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %54
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %54, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 54:                                               ; preds = %50
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext false) #11

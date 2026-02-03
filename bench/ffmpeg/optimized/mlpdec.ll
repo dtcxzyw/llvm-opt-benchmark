@@ -1070,103 +1070,103 @@ read_major_sync.exit:                             ; preds = %52
   %504 = shl nuw nsw i32 %502, %503
   %505 = lshr i32 %504, 7
   store i32 %spec.select.i.i, ptr %37, align 8, !tbaa !51
-  %506 = and i32 %505, 1
-  %507 = icmp ne i32 %506, 0
-  %or.cond.i241 = select i1 %482, i1 %507, i1 false
-  br i1 %or.cond.i241, label %508, label %509
+  %506 = trunc i32 %505 to i1
+  %or.cond.i241 = select i1 %482, i1 %506, i1 false
+  br i1 %or.cond.i241, label %507, label %508
 
-508:                                              ; preds = %495
+507:                                              ; preds = %495
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %479, i32 noundef 16, ptr noundef nonnull @.str.36) #8
   br label %read_restart_header.exit.thread
 
-509:                                              ; preds = %495
-  %510 = add i32 %spec.select.i.i, 16
-  %511 = call i32 @llvm.umin.i32(i32 %454, i32 %510)
-  store i32 %511, ptr %37, align 8, !tbaa !51
-  %512 = lshr i32 %511, 3
-  %513 = zext nneg i32 %512 to i64
-  %514 = getelementptr inbounds nuw i8, ptr %455, i64 %513
-  %515 = load i32, ptr %514, align 1, !tbaa !39
-  %516 = call i32 @llvm.bswap.i32(i32 %515)
-  %517 = and i32 %511, 7
-  %518 = shl i32 %516, %517
-  %519 = lshr i32 %518, 28
-  %520 = add i32 %511, 4
-  %521 = call i32 @llvm.umin.i32(i32 %454, i32 %520)
-  store i32 %521, ptr %37, align 8, !tbaa !51
-  %522 = lshr i32 %521, 3
-  %523 = zext nneg i32 %522 to i64
-  %524 = getelementptr inbounds nuw i8, ptr %455, i64 %523
-  %525 = load i32, ptr %524, align 1, !tbaa !39
-  %526 = call i32 @llvm.bswap.i32(i32 %525)
-  %527 = and i32 %521, 7
-  %528 = shl i32 %526, %527
-  %529 = lshr i32 %528, 28
-  %530 = add i32 %521, 4
-  %531 = call i32 @llvm.umin.i32(i32 %454, i32 %530)
-  store i32 %531, ptr %37, align 8, !tbaa !51
-  %532 = lshr i32 %531, 3
-  %533 = zext nneg i32 %532 to i64
-  %534 = getelementptr inbounds nuw i8, ptr %455, i64 %533
-  %535 = load i32, ptr %534, align 1, !tbaa !39
-  %536 = call i32 @llvm.bswap.i32(i32 %535)
-  %537 = and i32 %531, 7
-  %538 = shl i32 %536, %537
-  %539 = lshr i32 %538, 28
-  %540 = add i32 %531, 4
-  %541 = call i32 @llvm.umin.i32(i32 %454, i32 %540)
-  store i32 %541, ptr %37, align 8, !tbaa !51
-  %542 = icmp samesign ugt i32 %539, %483
-  br i1 %542, label %543, label %544
+508:                                              ; preds = %495
+  %509 = add i32 %spec.select.i.i, 16
+  %510 = call i32 @llvm.umin.i32(i32 %454, i32 %509)
+  store i32 %510, ptr %37, align 8, !tbaa !51
+  %511 = lshr i32 %510, 3
+  %512 = zext nneg i32 %511 to i64
+  %513 = getelementptr inbounds nuw i8, ptr %455, i64 %512
+  %514 = load i32, ptr %513, align 1, !tbaa !39
+  %515 = call i32 @llvm.bswap.i32(i32 %514)
+  %516 = and i32 %510, 7
+  %517 = shl i32 %515, %516
+  %518 = lshr i32 %517, 28
+  %519 = add i32 %510, 4
+  %520 = call i32 @llvm.umin.i32(i32 %454, i32 %519)
+  store i32 %520, ptr %37, align 8, !tbaa !51
+  %521 = lshr i32 %520, 3
+  %522 = zext nneg i32 %521 to i64
+  %523 = getelementptr inbounds nuw i8, ptr %455, i64 %522
+  %524 = load i32, ptr %523, align 1, !tbaa !39
+  %525 = call i32 @llvm.bswap.i32(i32 %524)
+  %526 = and i32 %520, 7
+  %527 = shl i32 %525, %526
+  %528 = lshr i32 %527, 28
+  %529 = add i32 %520, 4
+  %530 = call i32 @llvm.umin.i32(i32 %454, i32 %529)
+  store i32 %530, ptr %37, align 8, !tbaa !51
+  %531 = lshr i32 %530, 3
+  %532 = zext nneg i32 %531 to i64
+  %533 = getelementptr inbounds nuw i8, ptr %455, i64 %532
+  %534 = load i32, ptr %533, align 1, !tbaa !39
+  %535 = call i32 @llvm.bswap.i32(i32 %534)
+  %536 = and i32 %530, 7
+  %537 = shl i32 %535, %536
+  %538 = lshr i32 %537, 28
+  %539 = add i32 %530, 4
+  %540 = call i32 @llvm.umin.i32(i32 %454, i32 %539)
+  store i32 %540, ptr %37, align 8, !tbaa !51
+  %541 = icmp samesign ugt i32 %538, %483
+  br i1 %541, label %542, label %543
 
-543:                                              ; preds = %509
+542:                                              ; preds = %508
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %479, i32 noundef 16, ptr noundef nonnull @.str.37, i32 noundef %483) #8
   br label %read_restart_header.exit.thread
 
-544:                                              ; preds = %509
-  %545 = icmp ult i32 %538, 1610612736
-  %or.cond3.i242 = select i1 %545, i1 true, i1 %507
-  br i1 %or.cond3.i242, label %548, label %546
+543:                                              ; preds = %508
+  %544 = icmp ult i32 %537, 1610612736
+  %or.cond3.i242 = select i1 %544, i1 true, i1 %506
+  br i1 %or.cond3.i242, label %547, label %545
 
-546:                                              ; preds = %544
-  %547 = add nuw nsw i32 %529, 2
-  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %479, ptr noundef nonnull @.str.38, i32 noundef %547) #8
+545:                                              ; preds = %543
+  %546 = add nuw nsw i32 %528, 2
+  call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %479, ptr noundef nonnull @.str.38, i32 noundef %546) #8
   br label %read_restart_header.exit.thread
 
-548:                                              ; preds = %544
-  %549 = icmp slt i32 %528, 0
-  %550 = add nuw nsw i32 %529, 1
-  %551 = icmp samesign ult i32 %550, %519
-  %or.cond171.i = select i1 %549, i1 true, i1 %551
-  br i1 %or.cond171.i, label %read_restart_header.exit.thread, label %552
+547:                                              ; preds = %543
+  %548 = icmp slt i32 %527, 0
+  %549 = add nuw nsw i32 %528, 1
+  %550 = icmp samesign ult i32 %549, %518
+  %or.cond171.i = select i1 %548, i1 true, i1 %550
+  br i1 %or.cond171.i, label %read_restart_header.exit.thread, label %551
 
-552:                                              ; preds = %548
-  %553 = trunc nuw nsw i32 %519 to i8
-  store i8 %553, ptr %423, align 4, !tbaa !102
-  %554 = trunc nuw nsw i32 %529 to i8
-  store i8 %554, ptr %424, align 1, !tbaa !103
-  %reass.sub = sub nsw i32 %529, %519
-  %555 = add nsw i32 %reass.sub, 1
-  %556 = zext nneg i32 %555 to i64
-  %notmask.i = shl nsw i64 -1, %556
-  %557 = xor i64 %notmask.i, -1
-  %558 = zext nneg i32 %519 to i64
-  %559 = shl i64 %557, %558
-  store i64 %559, ptr %425, align 8, !tbaa !104
-  %560 = trunc nuw nsw i32 %539 to i8
-  store i8 %560, ptr %426, align 16, !tbaa !77
-  %561 = trunc nuw nsw i32 %506 to i16
+551:                                              ; preds = %547
+  %552 = trunc nuw nsw i32 %518 to i8
+  store i8 %552, ptr %423, align 4, !tbaa !102
+  %553 = trunc nuw nsw i32 %528 to i8
+  store i8 %553, ptr %424, align 1, !tbaa !103
+  %reass.sub = sub nsw i32 %528, %518
+  %554 = add nsw i32 %reass.sub, 1
+  %555 = zext nneg i32 %554 to i64
+  %notmask.i = shl nsw i64 -1, %555
+  %556 = xor i64 %notmask.i, -1
+  %557 = zext nneg i32 %518 to i64
+  %558 = shl i64 %556, %557
+  store i64 %558, ptr %425, align 8, !tbaa !104
+  %559 = trunc nuw nsw i32 %538 to i8
+  store i8 %559, ptr %426, align 16, !tbaa !77
+  %560 = trunc nuw nsw i32 %505 to i16
+  %561 = and i16 %560, 1
   store i16 %561, ptr %427, align 2, !tbaa !105
   %562 = load i64, ptr %428, align 16, !tbaa !83
   %563 = call i32 @av_channel_layout_check(ptr noundef nonnull %400) #8
   %.not.i.i = icmp eq i32 %563, 0
   br i1 %.not.i.i, label %.mlp_channel_layout_subset.exit.thread.i_crit_edge, label %mlp_channel_layout_subset.exit.i
 
-.mlp_channel_layout_subset.exit.thread.i_crit_edge: ; preds = %552
+.mlp_channel_layout_subset.exit.thread.i_crit_edge: ; preds = %551
   %.pre = load i8, ptr %396, align 4, !tbaa !71
   br label %mlp_channel_layout_subset.exit.thread.i
 
-mlp_channel_layout_subset.exit.i:                 ; preds = %552
+mlp_channel_layout_subset.exit.i:                 ; preds = %551
   %564 = call i64 @av_channel_layout_subset(ptr noundef nonnull %400, i64 noundef %562) #8
   %565 = call i64 @av_channel_layout_subset(ptr noundef nonnull %400, i64 noundef -1) #8
   %.not179.i = icmp eq i64 %564, %565
@@ -2886,7 +2886,7 @@ read_block_data.exit:                             ; preds = %1495, %._crit_edge5
   %.not217 = icmp eq i32 %417, %.val227
   br i1 %.not217, label %read_restart_header.exit.thread, label %.loopexit
 
-read_restart_header.exit.thread:                  ; preds = %548, %read_decoding_params.exit, %867, %986, %842, %.critedge.i, %546, %543, %508, %494, %.thread310, %1291, %1281
+read_restart_header.exit.thread:                  ; preds = %547, %read_decoding_params.exit, %867, %986, %842, %.critedge.i, %545, %542, %507, %494, %.thread310, %1291, %1281
   %.pr313 = load i8, ptr %413, align 16, !tbaa !80
   %.not218 = icmp eq i8 %.pr313, 0
   br i1 %.not218, label %.thread315, label %1602

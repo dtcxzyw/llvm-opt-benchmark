@@ -133,9 +133,8 @@ define hidden { i32, i64 } @_ZN6evmone5instr4core6sstoreENS_8StackTopElRNS_14Exe
   %9 = load ptr, ptr %8, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !76
-  %12 = and i32 %11, 1
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %77
+  %12 = trunc i32 %11 to i1
+  br i1 %12, label %77, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 64

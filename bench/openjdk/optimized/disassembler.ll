@@ -522,9 +522,8 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %11
   br label %_ZN13GrowableArrayIPKcE8allocateEv.exit.i
 
 98:                                               ; preds = %85
-  %99 = and i64 %94, 1
-  %.not.i.i = icmp eq i64 %99, 0
-  br i1 %.not.i.i, label %104, label %100
+  %99 = trunc i64 %94 to i1
+  br i1 %99, label %100, label %104
 
 100:                                              ; preds = %98
   %101 = lshr i64 %94, 1
@@ -541,25 +540,25 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit.i:        ; preds = %104, %100, %96
   %.0.i.i = phi ptr [ %97, %96 ], [ %103, %100 ], [ %106, %104 ]
   %107 = load i32, ptr %79, align 8
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph.i, label %.preheader16.i
+  br i1 %108, label %.lr.ph.i, label %.preheader15.i
 
 .lr.ph.i:                                         ; preds = %_ZN13GrowableArrayIPKcE8allocateEv.exit.i
   %109 = getelementptr inbounds nuw i8, ptr %79, i64 8
   br label %114
 
-.preheader16.loopexit.i:                          ; preds = %114
+.preheader15.loopexit.i:                          ; preds = %114
   %110 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  br label %.preheader16.i
+  br label %.preheader15.i
 
-.preheader16.i:                                   ; preds = %.preheader16.loopexit.i, %_ZN13GrowableArrayIPKcE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIPKcE8allocateEv.exit.i ], [ %110, %.preheader16.loopexit.i ]
+.preheader15.i:                                   ; preds = %.preheader15.loopexit.i, %_ZN13GrowableArrayIPKcE8allocateEv.exit.i
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIPKcE8allocateEv.exit.i ], [ %110, %.preheader15.loopexit.i ]
   %111 = load i32, ptr %82, align 4
   %112 = icmp slt i32 %.0.lcssa.i, %111
-  br i1 %112, label %.lr.ph19.preheader.i, label %.preheader.i
+  br i1 %112, label %.lr.ph18.preheader.i, label %.preheader.i
 
-.lr.ph19.preheader.i:                             ; preds = %.preheader16.i
+.lr.ph18.preheader.i:                             ; preds = %.preheader15.i
   %113 = zext nneg i32 %.0.lcssa.i to i64
-  br label %.lr.ph19.i
+  br label %.lr.ph18.i
 
 114:                                              ; preds = %114, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
@@ -572,29 +571,28 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit.i:        ; preds = %104, %100, %96
   %119 = load i32, ptr %79, align 8
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next.i, %120
-  br i1 %121, label %114, label %.preheader16.loopexit.i, !llvm.loop !9
+  br i1 %121, label %114, label %.preheader15.loopexit.i, !llvm.loop !9
 
-.preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
+.preheader.i:                                     ; preds = %.lr.ph18.i, %.preheader15.i
   %122 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not.i45 = icmp eq ptr %123, null
   br i1 %.not.i45, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi.exit, label %128
 
-.lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
-  %indvars.iv21.i = phi i64 [ %113, %.lr.ph19.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph19.i ]
-  %124 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv21.i
+.lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
+  %indvars.iv20.i = phi i64 [ %113, %.lr.ph18.preheader.i ], [ %indvars.iv.next21.i, %.lr.ph18.i ]
+  %124 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv20.i
   store ptr null, ptr %124, align 8
-  %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
+  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %125 = load i32, ptr %82, align 4
-  %126 = trunc nuw i64 %indvars.iv.next22.i to i32
+  %126 = trunc nuw i64 %indvars.iv.next21.i to i32
   %127 = icmp sgt i32 %125, %126
-  br i1 %127, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !10
+  br i1 %127, label %.lr.ph18.i, label %.preheader.i, !llvm.loop !10
 
 128:                                              ; preds = %.preheader.i
   %129 = load i64, ptr %93, align 8
-  %130 = and i64 %129, 1
-  %.not.i15.i = icmp eq i64 %130, 0
-  br i1 %.not.i15.i, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi.exit, label %131
+  %130 = trunc i64 %129 to i1
+  br i1 %130, label %131, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi.exit
 
 131:                                              ; preds = %128
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %123) #12

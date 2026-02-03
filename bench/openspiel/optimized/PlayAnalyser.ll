@@ -136,10 +136,10 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = srem i32 %33, 2
-  %.not131160 = icmp slt i32 %spec.select137, 1
-  br i1 %.not131160, label %._crit_edge168, label %.lr.ph167
+  %.not131159 = icmp slt i32 %spec.select137, 1
+  br i1 %.not131159, label %._crit_edge167, label %.lr.ph166
 
-.lr.ph167:                                        ; preds = %11
+.lr.ph166:                                        ; preds = %11
   %35 = icmp sgt i32 %18, 0
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -151,27 +151,27 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %43 = sext i32 %18 to i64
   %44 = zext nneg i32 %spec.select137 to i64
   %45 = add nuw nsw i32 %spec.select137, 1
-  %wide.trip.count174 = zext nneg i32 %45 to i64
+  %wide.trip.count173 = zext nneg i32 %45 to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph167, %._crit_edge
-  %47 = phi i32 [ %28, %.lr.ph167 ], [ %135, %._crit_edge ]
-  %48 = phi i32 [ %28, %.lr.ph167 ], [ %136, %._crit_edge ]
-  %indvars.iv171 = phi i64 [ 1, %.lr.ph167 ], [ %indvars.iv.next172, %._crit_edge ]
-  %.0116164 = phi i32 [ %16, %.lr.ph167 ], [ %.1117.lcssa, %._crit_edge ]
-  %.0118163 = phi i32 [ 1, %.lr.ph167 ], [ %.1119.lcssa, %._crit_edge ]
-  %.0121162 = phi i32 [ %33, %.lr.ph167 ], [ %.1122.lcssa, %._crit_edge ]
-  %.0124161 = phi i32 [ 0, %.lr.ph167 ], [ %.1125.lcssa, %._crit_edge ]
-  %49 = icmp eq i64 %indvars.iv171, %44
+46:                                               ; preds = %.lr.ph166, %._crit_edge
+  %47 = phi i32 [ %28, %.lr.ph166 ], [ %135, %._crit_edge ]
+  %48 = phi i32 [ %28, %.lr.ph166 ], [ %136, %._crit_edge ]
+  %indvars.iv170 = phi i64 [ 1, %.lr.ph166 ], [ %indvars.iv.next171, %._crit_edge ]
+  %.0116163 = phi i32 [ %16, %.lr.ph166 ], [ %.1117.lcssa, %._crit_edge ]
+  %.0118162 = phi i32 [ 1, %.lr.ph166 ], [ %.1119.lcssa, %._crit_edge ]
+  %.0121161 = phi i32 [ %33, %.lr.ph166 ], [ %.1122.lcssa, %._crit_edge ]
+  %.0124160 = phi i32 [ 0, %.lr.ph166 ], [ %.1125.lcssa, %._crit_edge ]
+  %49 = icmp eq i64 %indvars.iv170, %44
   %50 = select i1 %49, i32 %spec.select, i32 4
-  %51 = icmp eq i64 %indvars.iv171, 1
+  %51 = icmp eq i64 %indvars.iv170, 1
   %52 = and i1 %35, %51
-  %.not132147 = icmp slt i32 %50, 1
-  br i1 %.not132147, label %._crit_edge, label %.lr.ph
+  %.not132146 = icmp slt i32 %50, 1
+  br i1 %.not132146, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46
-  %indvars.iv171.tr = trunc i64 %indvars.iv171 to i32
-  %53 = shl i32 %indvars.iv171.tr, 2
+  %indvars.iv170.tr = trunc i64 %indvars.iv170 to i32
+  %53 = shl i32 %indvars.iv170.tr, 2
   %reass.sub = sub i32 %53, %18
   %54 = add i32 %reass.sub, -4
   %55 = add i32 %reass.sub, -5
@@ -185,14 +185,14 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %59 = phi i32 [ %47, %.lr.ph ], [ %133, %132 ]
   %60 = phi i32 [ %48, %.lr.ph ], [ %134, %132 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %132 ]
-  %.0107155 = phi i32 [ 0, %.lr.ph ], [ %.1108, %132 ]
-  %.0109154 = phi i32 [ 0, %.lr.ph ], [ %.1110, %132 ]
-  %.0111153 = phi i32 [ 0, %.lr.ph ], [ %.1112, %132 ]
-  %.0113152 = phi i32 [ 0, %.lr.ph ], [ %.1114, %132 ]
-  %.1117151 = phi i32 [ %.0116164, %.lr.ph ], [ %.2, %132 ]
-  %.1119150 = phi i32 [ %.0118163, %.lr.ph ], [ %.2120, %132 ]
-  %.1122149 = phi i32 [ %.0121162, %.lr.ph ], [ %.2123, %132 ]
-  %.1125148 = phi i32 [ %.0124161, %.lr.ph ], [ %.2126, %132 ]
+  %.0107154 = phi i32 [ 0, %.lr.ph ], [ %.1108, %132 ]
+  %.0109153 = phi i32 [ 0, %.lr.ph ], [ %.1110, %132 ]
+  %.0111152 = phi i32 [ 0, %.lr.ph ], [ %.1112, %132 ]
+  %.0113151 = phi i32 [ 0, %.lr.ph ], [ %.1114, %132 ]
+  %.1117150 = phi i32 [ %.0116163, %.lr.ph ], [ %.2, %132 ]
+  %.1119149 = phi i32 [ %.0118162, %.lr.ph ], [ %.2120, %132 ]
+  %.1122148 = phi i32 [ %.0121161, %.lr.ph ], [ %.2123, %132 ]
+  %.1125147 = phi i32 [ %.0124160, %.lr.ph ], [ %.2126, %132 ]
   %61 = icmp sle i64 %indvars.iv, %43
   %62 = and i1 %52, %61
   %63 = add nsw i64 %indvars.iv, -1
@@ -228,11 +228,11 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
 82:                                               ; preds = %58
   %83 = load i32, ptr %0, align 8
   %84 = icmp eq i32 %.0101, %83
-  %.not134 = icmp eq i32 %.0107155, 0
+  %.not134 = icmp eq i32 %.0107154, 0
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %82
-  %86 = icmp sgt i32 %.0100, %.0113152
+  %86 = icmp sgt i32 %.0100, %.0113151
   %or.cond = select i1 %.not134, i1 true, i1 %86
   br i1 %or.cond, label %87, label %92
 
@@ -243,19 +243,19 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   br i1 %.not134, label %89, label %92
 
 89:                                               ; preds = %88
-  %90 = icmp eq i32 %.0101, %.0111153
-  %91 = icmp sgt i32 %.0100, %.0113152
+  %90 = icmp eq i32 %.0101, %.0111152
+  %91 = icmp sgt i32 %.0100, %.0113151
   %or.cond138 = select i1 %90, i1 %91, i1 false
-  %spec.select139 = select i1 %or.cond138, i32 %.0100, i32 %.0113152
-  %spec.select140 = select i1 %or.cond138, i32 %.1122149, i32 %.0109154
+  %spec.select139 = select i1 %or.cond138, i32 %.0100, i32 %.0113151
+  %spec.select140 = select i1 %or.cond138, i32 %.1122148, i32 %.0109153
   br label %92
 
 92:                                               ; preds = %89, %85, %87, %88, %77
-  %.1114 = phi i32 [ %.0100, %77 ], [ %.0100, %87 ], [ %.0113152, %85 ], [ %.0113152, %88 ], [ %spec.select139, %89 ]
-  %.1112 = phi i32 [ %.0101, %77 ], [ %.0101, %87 ], [ %.0111153, %85 ], [ %.0111153, %88 ], [ %.0111153, %89 ]
-  %.1110 = phi i32 [ %78, %77 ], [ %.1122149, %87 ], [ %.0109154, %85 ], [ %.0109154, %88 ], [ %spec.select140, %89 ]
+  %.1114 = phi i32 [ %.0100, %77 ], [ %.0100, %87 ], [ %.0113151, %85 ], [ %.0113151, %88 ], [ %spec.select139, %89 ]
+  %.1112 = phi i32 [ %.0101, %77 ], [ %.0101, %87 ], [ %.0111152, %85 ], [ %.0111152, %88 ], [ %.0111152, %89 ]
+  %.1110 = phi i32 [ %78, %77 ], [ %.1122148, %87 ], [ %.0109153, %85 ], [ %.0109153, %88 ], [ %spec.select140, %89 ]
   %.1108 = phi i32 [ %81, %77 ], [ 1, %87 ], [ 1, %85 ], [ 1, %88 ], [ 0, %89 ]
-  %93 = sext i32 %.1122149 to i64
+  %93 = sext i32 %.1122148 to i64
   %94 = getelementptr inbounds [4 x i32], ptr %42, i64 %93
   %95 = sext i32 %.0101 to i64
   %96 = getelementptr inbounds i32, ptr %94, i64 %95
@@ -280,34 +280,34 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %106 = srem i32 %.1110, 2
   %107 = icmp ne i32 %106, %34
   %108 = zext i1 %107 to i32
-  %109 = add nsw i32 %.1125148, %108
-  %110 = add nsw i32 %.1117151, -1
+  %109 = add nsw i32 %.1125147, %108
+  %110 = add nsw i32 %.1117150, -1
   %111 = load i32, ptr %32, align 4
   %112 = add nsw i32 %111, %.1110
-  %113 = and i32 %112, 1
-  %.not142 = icmp eq i32 %113, 0
+  %113 = trunc i32 %112 to i1
   %114 = sub nsw i32 %110, %59
   %115 = add nsw i32 %59, -1
-  %.0104 = select i1 %.not142, i32 %114, i32 %115
+  %.0105 = and i32 %112, 1
+  %.0104 = select i1 %113, i32 %115, i32 %114
   store i32 %.1110, ptr %32, align 4
   %not. = xor i1 %107, true
   %116 = zext i1 %not. to i32
   br label %122
 
 117:                                              ; preds = %103
-  %118 = add nsw i32 %.1122149, 1
+  %118 = add nsw i32 %.1122148, 1
   %119 = srem i32 %118, 4
-  %120 = sub nuw nsw i32 1, %.1119150
-  %121 = sub nsw i32 %.1117151, %60
+  %120 = sub nuw nsw i32 1, %.1119149
+  %121 = sub nsw i32 %.1117150, %60
   br label %122
 
 122:                                              ; preds = %117, %105
   %123 = phi i32 [ %59, %105 ], [ %60, %117 ]
-  %.2126 = phi i32 [ %109, %105 ], [ %.1125148, %117 ]
+  %.2126 = phi i32 [ %109, %105 ], [ %.1125147, %117 ]
   %.2123 = phi i32 [ %.1110, %105 ], [ %119, %117 ]
   %.2120 = phi i32 [ %116, %105 ], [ %120, %117 ]
-  %.2 = phi i32 [ %110, %105 ], [ %.1117151, %117 ]
-  %.1106 = phi i32 [ %113, %105 ], [ 0, %117 ]
+  %.2 = phi i32 [ %110, %105 ], [ %.1117150, %117 ]
+  %.1106 = phi i32 [ %.0105, %105 ], [ 0, %117 ]
   %.1 = phi i32 [ %.0104, %105 ], [ %121, %117 ]
   br i1 %62, label %132, label %124
 
@@ -337,24 +337,24 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
 ._crit_edge:                                      ; preds = %132, %46
   %135 = phi i32 [ %47, %46 ], [ %133, %132 ]
   %136 = phi i32 [ %48, %46 ], [ %134, %132 ]
-  %.1125.lcssa = phi i32 [ %.0124161, %46 ], [ %.2126, %132 ]
-  %.1122.lcssa = phi i32 [ %.0121162, %46 ], [ %.2123, %132 ]
-  %.1119.lcssa = phi i32 [ %.0118163, %46 ], [ %.2120, %132 ]
-  %.1117.lcssa = phi i32 [ %.0116164, %46 ], [ %.2, %132 ]
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge168, label %46, !llvm.loop !6
+  %.1125.lcssa = phi i32 [ %.0124160, %46 ], [ %.2126, %132 ]
+  %.1122.lcssa = phi i32 [ %.0121161, %46 ], [ %.2123, %132 ]
+  %.1119.lcssa = phi i32 [ %.0118162, %46 ], [ %.2120, %132 ]
+  %.1117.lcssa = phi i32 [ %.0116163, %46 ], [ %.2, %132 ]
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %._crit_edge167, label %46, !llvm.loop !6
 
-._crit_edge168:                                   ; preds = %._crit_edge, %11
+._crit_edge167:                                   ; preds = %._crit_edge, %11
   %137 = shl nsw i32 %spec.select137, 2
-  %reass.sub169 = sub nsw i32 %spec.select, %18
-  %138 = add nsw i32 %reass.sub169, -3
+  %reass.sub168 = sub nsw i32 %spec.select, %18
+  %138 = add nsw i32 %reass.sub168, -3
   %139 = add i32 %138, %137
   store i32 %139, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %124, %100, %8, %4, %._crit_edge168
-  %.0 = phi i32 [ -15, %4 ], [ 1, %._crit_edge168 ], [ %10, %8 ], [ %126, %124 ], [ -98, %100 ]
+.loopexit:                                        ; preds = %124, %100, %8, %4, %._crit_edge167
+  %.0 = phi i32 [ -15, %4 ], [ 1, %._crit_edge167 ], [ %10, %8 ], [ %126, %124 ], [ -98, %100 ]
   ret i32 %.0
 }
 

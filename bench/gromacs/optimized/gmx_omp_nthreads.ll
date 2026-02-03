@@ -392,10 +392,10 @@ define void @_Z21gmx_omp_nthreads_initRKN3gmx8MDLoggerEP9t_commreciiiib(ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %17 = load i32, ptr %16, align 8, !tbaa !30
   %18 = and i32 %17, 1
-  %19 = icmp ne i32 %18, 0
+  %19 = trunc i32 %17 to i1
   %20 = and i32 %17, 2
   %21 = icmp ne i32 %20, 0
-  %22 = xor i1 %19, %21
+  %22 = xor i1 %21, %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %24 = load i32, ptr %23, align 4, !tbaa !48
   %25 = icmp eq i32 %24, 0

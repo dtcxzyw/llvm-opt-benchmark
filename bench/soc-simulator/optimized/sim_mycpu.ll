@@ -684,8 +684,6 @@ $_ZNSt5dequeIjSaIjEE17_M_reallocate_mapEmb = comdat any
 
 $_ZN8mips_mmuILi32EE11translationEjhRbS1_Rj = comdat any
 
-$_ZN8mips_mmuILi32EE9tlb_matchEjh = comdat any
-
 $_ZNSt5dequeIjSaIjEE9pop_frontEv = comdat any
 
 $_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvR8uart8250ESt17reference_wrapperIS3_EEEEEED0Ev = comdat any
@@ -24188,32 +24186,54 @@ define linkonce_odr dso_local void @_ZN8mips_cp0ILi32EE4tlbpEv(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !774
   %5 = load i32, ptr %2, align 8
-  %6 = and i32 %5, -8192
-  %7 = trunc i32 %5 to i8
-  %8 = tail call noundef ptr @_ZN8mips_mmuILi32EE9tlb_matchEjh(ptr noundef nonnull align 8 dereferenceable(392) %4, i32 noundef %6, i8 noundef zeroext %7) #28
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %19, label %10
+  %6 = trunc i32 %5 to i8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = lshr i32 %5, 13
+  br label %9
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = ptrtoint ptr %8 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = sdiv exact i64 %14, 12
-  %16 = trunc i64 %15 to i32
-  %17 = and i32 %16, 255
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %17, ptr %18, align 4, !tbaa !309
-  br label %23
+9:                                                ; preds = %26, %1
+  %10 = phi i64 [ 0, %1 ], [ %27, %26 ]
+  %11 = getelementptr inbounds nuw %struct.mips_tlb, ptr %7, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i32, ptr %12, align 4
+  %14 = lshr i32 %13, 19
+  %15 = trunc i32 %14 to i8
+  %16 = icmp eq i8 %6, %15
+  br i1 %16, label %23, label %17
 
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %21 = load i32, ptr %20, align 4, !tbaa !309
-  %22 = or i32 %21, -2147483648
-  store i32 %22, ptr %20, align 4, !tbaa !309
-  br label %23
+17:                                               ; preds = %9
+  %18 = load i64, ptr %11, align 4
+  %19 = trunc i64 %18 to i1
+  %20 = and i32 %13, 524287
+  %21 = icmp eq i32 %20, %8
+  %22 = and i1 %21, %19
+  br i1 %22, label %29, label %26
 
-23:                                               ; preds = %19, %10
+23:                                               ; preds = %9
+  %24 = and i32 %13, 524287
+  %25 = icmp eq i32 %24, %8
+  br i1 %25, label %29, label %26
+
+26:                                               ; preds = %23, %17
+  %27 = add nuw nsw i64 %10, 1
+  %28 = icmp eq i64 %27, 32
+  br i1 %28, label %_ZN8mips_mmuILi32EE9tlb_matchEjh.exit, label %9, !llvm.loop !775
+
+29:                                               ; preds = %23, %17
+  %30 = trunc i64 %10 to i32
+  %31 = and i32 %30, 255
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %31, ptr %32, align 4, !tbaa !309
+  br label %36
+
+_ZN8mips_mmuILi32EE9tlb_matchEjh.exit:            ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %34 = load i32, ptr %33, align 4, !tbaa !309
+  %35 = or i32 %34, -2147483648
+  store i32 %35, ptr %33, align 4, !tbaa !309
+  br label %36
+
+36:                                               ; preds = %_ZN8mips_mmuILi32EE9tlb_matchEjh.exit, %29
   ret void
 }
 
@@ -24579,104 +24599,96 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN8mips_mmuILi32EE11translati
   store i8 1, ptr %3, align 1, !tbaa !52
   %9 = and i32 %1, 536870911
   store i32 %9, ptr %5, align 4, !tbaa !56
-  br label %44
+  br label %62
 
 10:                                               ; preds = %6
-  %11 = tail call noundef ptr @_ZN8mips_mmuILi32EE9tlb_matchEjh(ptr noundef nonnull align 8 dereferenceable(392) %0, i32 noundef %1, i8 noundef zeroext %2) #28
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = lshr i32 %1, 13
+  br label %13
 
-13:                                               ; preds = %10
+13:                                               ; preds = %30, %10
+  %14 = phi i64 [ 0, %10 ], [ %31, %30 ]
+  %15 = getelementptr inbounds nuw %struct.mips_tlb, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i32, ptr %16, align 4
+  %18 = lshr i32 %17, 19
+  %19 = trunc i32 %18 to i8
+  %20 = icmp eq i8 %2, %19
+  br i1 %20, label %27, label %21
+
+21:                                               ; preds = %13
+  %22 = load i64, ptr %15, align 4
+  %23 = trunc i64 %22 to i1
+  %24 = and i32 %17, 524287
+  %25 = icmp eq i32 %24, %12
+  %26 = and i1 %25, %23
+  br i1 %26, label %split, label %30
+
+27:                                               ; preds = %13
+  %28 = and i32 %17, 524287
+  %29 = icmp eq i32 %28, %12
+  br i1 %29, label %._crit_edge, label %30
+
+._crit_edge:                                      ; preds = %27
+  %.pre = load i64, ptr %15, align 4
+  br label %split
+
+30:                                               ; preds = %27, %21
+  %31 = add nuw nsw i64 %14, 1
+  %32 = icmp eq i64 %31, 32
+  br i1 %32, label %_ZN8mips_mmuILi32EE9tlb_matchEjh.exit, label %13, !llvm.loop !775
+
+_ZN8mips_mmuILi32EE9tlb_matchEjh.exit:            ; preds = %30
   store i8 1, ptr %4, align 1, !tbaa !52
-  br label %44
+  br label %62
 
-14:                                               ; preds = %10
-  %15 = and i32 %1, 4096
-  %16 = icmp eq i32 %15, 0
-  %17 = load i64, ptr %11, align 4
-  br i1 %16, label %31, label %18
+split:                                            ; preds = %21, %._crit_edge
+  %33 = phi i64 [ %.pre, %._crit_edge ], [ %22, %21 ]
+  %34 = and i32 %1, 4096
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %49, label %36
 
-18:                                               ; preds = %14
-  %19 = and i64 %17, 4
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %44, label %21
+36:                                               ; preds = %split
+  %37 = and i64 %33, 4
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %62, label %39
 
-21:                                               ; preds = %18
-  %22 = trunc i64 %17 to i8
-  %23 = lshr i8 %22, 4
-  %24 = and i8 %23, 1
-  store i8 %24, ptr %3, align 1, !tbaa !52
-  %25 = and i32 %1, 4095
-  %26 = load i64, ptr %11, align 4
-  %27 = lshr i64 %26, 20
-  %28 = trunc i64 %27 to i32
-  %29 = and i32 %28, -4096
-  %30 = or disjoint i32 %29, %25
-  store i32 %30, ptr %5, align 4, !tbaa !56
-  br label %44
+39:                                               ; preds = %36
+  %40 = trunc i64 %33 to i8
+  %41 = lshr i8 %40, 4
+  %42 = and i8 %41, 1
+  store i8 %42, ptr %3, align 1, !tbaa !52
+  %43 = and i32 %1, 4095
+  %44 = load i64, ptr %15, align 4
+  %45 = lshr i64 %44, 20
+  %46 = trunc i64 %45 to i32
+  %47 = and i32 %46, -4096
+  %48 = or disjoint i32 %47, %43
+  store i32 %48, ptr %5, align 4, !tbaa !56
+  br label %62
 
-31:                                               ; preds = %14
-  %32 = and i64 %17, 2
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %44, label %34
+49:                                               ; preds = %split
+  %50 = and i64 %33, 2
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %62, label %52
 
-34:                                               ; preds = %31
-  %35 = trunc i64 %17 to i8
-  %36 = lshr i8 %35, 3
-  %37 = and i8 %36, 1
-  store i8 %37, ptr %3, align 1, !tbaa !52
-  %38 = and i32 %1, 4095
-  %39 = load i64, ptr %11, align 4
-  %40 = trunc i64 %39 to i32
-  %41 = shl i32 %40, 1
-  %42 = and i32 %41, -4096
-  %43 = or disjoint i32 %42, %38
-  store i32 %43, ptr %5, align 4, !tbaa !56
-  br label %44
+52:                                               ; preds = %49
+  %53 = trunc i64 %33 to i8
+  %54 = lshr i8 %53, 3
+  %55 = and i8 %54, 1
+  store i8 %55, ptr %3, align 1, !tbaa !52
+  %56 = and i32 %1, 4095
+  %57 = load i64, ptr %15, align 4
+  %58 = trunc i64 %57 to i32
+  %59 = shl i32 %58, 1
+  %60 = and i32 %59, -4096
+  %61 = or disjoint i32 %60, %56
+  store i32 %61, ptr %5, align 4, !tbaa !56
+  br label %62
 
-44:                                               ; preds = %34, %31, %21, %18, %13, %8
-  %45 = phi i1 [ true, %8 ], [ true, %21 ], [ true, %34 ], [ false, %13 ], [ false, %31 ], [ false, %18 ]
-  ret i1 %45
-}
-
-; Function Attrs: mustprogress nounwind optsize uwtable
-define linkonce_odr dso_local noundef ptr @_ZN8mips_mmuILi32EE9tlb_matchEjh(ptr noundef nonnull align 8 dereferenceable(392) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #6 comdat align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = lshr i32 %1, 13
-  br label %6
-
-6:                                                ; preds = %24, %3
-  %7 = phi i64 [ 0, %3 ], [ %25, %24 ]
-  %8 = getelementptr inbounds nuw %struct.mips_tlb, ptr %4, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i32, ptr %9, align 4
-  %11 = lshr i32 %10, 19
-  %12 = trunc i32 %11 to i8
-  %13 = icmp eq i8 %2, %12
-  br i1 %13, label %21, label %14
-
-14:                                               ; preds = %6
-  %15 = load i64, ptr %8, align 4
-  %16 = and i64 %15, 1
-  %17 = icmp ne i64 %16, 0
-  %18 = and i32 %10, 524287
-  %19 = icmp eq i32 %18, %5
-  %20 = and i1 %19, %17
-  br i1 %20, label %27, label %24
-
-21:                                               ; preds = %6
-  %22 = and i32 %10, 524287
-  %23 = icmp eq i32 %22, %5
-  br i1 %23, label %27, label %24
-
-24:                                               ; preds = %21, %14
-  %25 = add nuw nsw i64 %7, 1
-  %26 = icmp eq i64 %25, 32
-  br i1 %26, label %27, label %6, !llvm.loop !775
-
-27:                                               ; preds = %24, %21, %14
-  %28 = phi ptr [ null, %24 ], [ %8, %21 ], [ %8, %14 ]
-  ret ptr %28
+62:                                               ; preds = %52, %49, %39, %36, %_ZN8mips_mmuILi32EE9tlb_matchEjh.exit, %8
+  %63 = phi i1 [ true, %8 ], [ true, %39 ], [ true, %52 ], [ false, %_ZN8mips_mmuILi32EE9tlb_matchEjh.exit ], [ false, %49 ], [ false, %36 ]
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress nounwind optsize uwtable

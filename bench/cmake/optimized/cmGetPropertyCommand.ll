@@ -952,7 +952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %33
 
 359:                                              ; preds = %349
   %360 = or i8 %.0150.lcssa, %.0152.lcssa
-  %361 = icmp ne i8 %360, 0
+  %361 = trunc nuw i8 %360 to i1
   %362 = load ptr, ptr %350, align 8, !tbaa !37
   %363 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleSourceModeER17cmExecutionStatusRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7OutTypeES9_S9_R10cmMakefileb(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %.0128.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(2880) %362, i1 noundef zeroext %361)
           to label %thread-pre-split unwind label %353

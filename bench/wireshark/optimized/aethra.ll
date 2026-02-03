@@ -264,9 +264,9 @@ define internal zeroext i1 @aethra_seek_read(ptr noundef readonly captures(none)
   store i32 %25, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 7
   %42 = load i8, ptr %41, align 1
-  %43 = and i8 %42, 1
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 %43, ptr %44, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %44 = and i8 %42, 1
+  store i8 %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 81
   store i8 0, ptr %45, align 1
   %46 = load ptr, ptr %7, align 8

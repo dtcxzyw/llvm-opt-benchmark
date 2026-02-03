@@ -1965,8 +1965,8 @@ _ZNK6vectorIP10quantifierLb0EjE3endEv.exit:       ; preds = %3
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
-  %.not54 = icmp eq i32 %11, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not53 = icmp eq i32 %11, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIP10quantifierLb0EjE3endEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1984,8 +1984,8 @@ _ZNK6vectorIP10quantifierLb0EjE3endEv.exit:       ; preds = %3
   ret void
 
 24:                                               ; preds = %.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %.055 = phi ptr [ %8, %.lr.ph ], [ %77, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
-  %25 = load ptr, ptr %.055, align 8, !tbaa !440
+  %.054 = phi ptr [ %8, %.lr.ph ], [ %77, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %25 = load ptr, ptr %.054, align 8, !tbaa !440
   %26 = load ptr, ptr %0, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
@@ -2127,7 +2127,7 @@ _ZN8subterms8iteratorD2Ev.exit32:                 ; preds = %_ZN8obj_markI4expr1
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8subterms8iteratorD2Ev.exit32, %67, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %77 = getelementptr inbounds nuw i8, ptr %.055, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %.not = icmp eq ptr %77, %14
   br i1 %.not, label %._crit_edge, label %24
 
@@ -2178,9 +2178,8 @@ _Z11is_uninterpPK4expr.exit:                      ; preds = %93
 _Z11is_uninterpPK4expr.exit.thread:               ; preds = %93, %_Z11is_uninterpPK4expr.exit
   %101 = getelementptr inbounds nuw i8, ptr %87, i64 30
   %102 = load i8, ptr %101, align 2
-  %103 = and i8 %102, 1
-  %.not43 = icmp eq i8 %103, 0
-  br i1 %.not43, label %104, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_.exit, label %104
 
 104:                                              ; preds = %_Z11is_uninterpPK4expr.exit.thread
   %105 = load i32, ptr %17, align 4, !tbaa !521
@@ -2190,12 +2189,12 @@ _Z11is_uninterpPK4expr.exit.thread:               ; preds = %93, %_Z11is_uninter
   %109 = load i32, ptr %19, align 8, !tbaa !520
   %110 = mul i32 %109, 3
   %111 = icmp ugt i32 %108, %110
-  br i1 %111, label %113, label %._crit_edge66
+  br i1 %111, label %113, label %._crit_edge65
 
-._crit_edge66:                                    ; preds = %104
+._crit_edge65:                                    ; preds = %104
   %.pre = load ptr, ptr %2, align 8, !tbaa !519
-  %.pre67 = add i32 %109, -1
-  %.pre68 = zext i32 %109 to i64
+  %.pre66 = add i32 %109, -1
+  %.pre67 = zext i32 %109 to i64
   %112 = add i32 %106, -1
   br label %145
 
@@ -2305,19 +2304,19 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
   store i32 0, ptr %18, align 8, !tbaa !522
   br label %145
 
-145:                                              ; preds = %._crit_edge66, %.noexc
-  %.pre-phi69 = phi i64 [ %.pre68, %._crit_edge66 ], [ %115, %.noexc ]
-  %.pre-phi = phi i32 [ %.pre67, %._crit_edge66 ], [ %120, %.noexc ]
-  %146 = phi i32 [ %112, %._crit_edge66 ], [ -1, %.noexc ]
-  %147 = phi ptr [ %.pre, %._crit_edge66 ], [ %117, %.noexc ]
-  %148 = phi i32 [ %109, %._crit_edge66 ], [ %114, %.noexc ]
+145:                                              ; preds = %._crit_edge65, %.noexc
+  %.pre-phi68 = phi i64 [ %.pre67, %._crit_edge65 ], [ %115, %.noexc ]
+  %.pre-phi = phi i32 [ %.pre66, %._crit_edge65 ], [ %120, %.noexc ]
+  %146 = phi i32 [ %112, %._crit_edge65 ], [ -1, %.noexc ]
+  %147 = phi ptr [ %.pre, %._crit_edge65 ], [ %117, %.noexc ]
+  %148 = phi i32 [ %109, %._crit_edge65 ], [ %114, %.noexc ]
   %149 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %150 = load i32, ptr %149, align 4, !tbaa !465
   %151 = and i32 %.pre-phi, %150
   %152 = zext i32 %151 to i64
   %.idx.i = shl nuw nsw i64 %152, 3
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 %.idx.i
-  %154 = getelementptr inbounds nuw %class.obj_hash_entry.390, ptr %147, i64 %.pre-phi69
+  %154 = getelementptr inbounds nuw %class.obj_hash_entry.390, ptr %147, i64 %.pre-phi68
   %.not62.i = icmp eq i32 %151, %148
   br i1 %.not62.i, label %.preheader.i, label %.lr.ph.i
 

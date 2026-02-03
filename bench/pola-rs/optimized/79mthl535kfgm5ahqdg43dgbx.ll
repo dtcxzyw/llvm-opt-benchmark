@@ -4869,8 +4869,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %21 = phi i64 [ %34, %69 ], [ %.promoted11.i, %.lr.ph.split.us.preheader.i ]
   %22 = phi ptr [ %35, %69 ], [ %.promoted10.i, %.lr.ph.split.us.preheader.i ]
   %23 = phi i64 [ %36, %69 ], [ %.promoted9.i, %.lr.ph.split.us.preheader.i ]
-  %.pre.i.i.i.i.i8.us.i = phi i64 [ %39, %69 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
-  %24 = phi i64 [ %40, %69 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
+  %.pre.i.i.i.i.i8.us.i = phi i64 [ %40, %69 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
+  %24 = phi i64 [ %41, %69 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
   %.val11.i.i.i.i35.us.i = phi i64 [ %26, %69 ], [ %.promoted.i, %.lr.ph.split.us.preheader.i ]
   %25 = phi ptr [ %27, %69 ], [ %.promoted4.i, %.lr.ph.split.us.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !962)
@@ -4910,13 +4910,13 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %36 = phi i64 [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %23, %.lr.ph.split.us.i ]
   %37 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %24, %.lr.ph.split.us.i ]
   %38 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %.pre.i.i.i.i.i8.us.i, %.lr.ph.split.us.i ]
-  %39 = lshr i64 %38, 1
-  store i64 %39, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !974, !noalias !975
-  %40 = add i64 %37, -1
-  store i64 %40, ptr %10, align 8, !alias.scope !974, !noalias !975
-  %41 = trunc i64 %38 to i1
+  %39 = trunc i64 %38 to i1
+  %40 = lshr i64 %38, 1
+  store i64 %40, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !974, !noalias !975
+  %41 = add i64 %37, -1
+  store i64 %41, ptr %10, align 8, !alias.scope !974, !noalias !975
   %42 = icmp ult i64 %.val.i.i.i.i.i.i.us.i, %.val1.i.i.i.i.i.i.us.i
-  br i1 %41, label %48, label %43
+  br i1 %39, label %48, label %43
 
 43:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haea8de590561ad32E.exit.i.i.us.i"
   br i1 %42, label %.lr.ph.i.i.i.us.i, label %.loopexit.us.i
@@ -4977,7 +4977,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5b9b26d6e78a8ebbE.exit.us.i": ; preds = %.loopexit.us.i
   %63 = icmp ult i64 %26, 2
   %64 = add i64 %.val11.i.i.i.i35.us.i, -2
-  %65 = add i64 %40, %36
+  %65 = add i64 %41, %36
   %66 = tail call i64 @llvm.umin.i64(i64 %65, i64 %64)
   %67 = tail call i64 @llvm.uadd.sat.i64(i64 %66, i64 1)
   %68 = select i1 %63, i64 1, i64 %67
@@ -5520,8 +5520,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = phi i64 [ %.promoted9.i, %.lr.ph.i ], [ %31, %54 ]
   %18 = phi ptr [ %.promoted8.i, %.lr.ph.i ], [ %32, %54 ]
   %19 = phi i64 [ %.promoted3.i, %.lr.ph.i ], [ %33, %54 ]
-  %.pre.i.i.i.i.i6.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.i ], [ %37, %54 ]
-  %20 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %38, %54 ]
+  %.pre.i.i.i.i.i6.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.i ], [ %38, %54 ]
+  %20 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %39, %54 ]
   %21 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %23, %54 ]
   %22 = phi i64 [ %.promoted3.i, %.lr.ph.i ], [ %34, %54 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1139)
@@ -5559,13 +5559,13 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %34 = phi i64 [ %28, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i" ], [ %22, %16 ]
   %35 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i" ], [ %20, %16 ]
   %36 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i6.i, %16 ]
-  %37 = lshr i64 %36, 1
-  store i64 %37, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1148, !noalias !1121
-  %38 = add i64 %35, -1
-  store i64 %38, ptr %9, align 8, !alias.scope !1148, !noalias !1121
-  %39 = trunc i64 %36 to i1
+  %37 = trunc i64 %36 to i1
+  %38 = lshr i64 %36, 1
+  store i64 %38, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1148, !noalias !1121
+  %39 = add i64 %35, -1
+  store i64 %39, ptr %9, align 8, !alias.scope !1148, !noalias !1121
   %40 = add nuw nsw i64 %24, 1
-  %.sroa.01.0.i.i.i.i = select i1 %39, i64 %40, i64 1
+  %.sroa.01.0.i.i.i.i = select i1 %37, i64 %40, i64 1
   %41 = load i64, ptr %.val.i.i, align 8, !noalias !1149, !noundef !3
   %42 = add i64 %41, %.sroa.01.0.i.i.i.i
   store i64 %42, ptr %.val.i.i, align 8, !noalias !1149
@@ -5582,7 +5582,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %49 = ptrtoint ptr %23 to i64
   %50 = sub nuw i64 %14, %49
   %51 = lshr exact i64 %50, 4
-  %52 = add i64 %38, %33
+  %52 = add i64 %39, %33
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %52, i64 %51)
   %53 = add nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, 1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17hbcbae5e5ac0a5f59E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45, i64 noundef %53, i64 noundef 8, i64 noundef 8), !noalias !1124
@@ -5866,8 +5866,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = phi i64 [ %33, %63 ], [ %.promoted11.i, %.lr.ph.split.us.preheader.i ]
   %18 = phi ptr [ %34, %63 ], [ %.promoted10.i, %.lr.ph.split.us.preheader.i ]
   %19 = phi i64 [ %35, %63 ], [ %.promoted9.i, %.lr.ph.split.us.preheader.i ]
-  %.pre.i.i.i.i.i8.us.i = phi i64 [ %38, %63 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
-  %20 = phi i64 [ %39, %63 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
+  %.pre.i.i.i.i.i8.us.i = phi i64 [ %39, %63 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
+  %20 = phi i64 [ %40, %63 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
   %.val11.i.i.i.i35.us.i = phi i64 [ %22, %63 ], [ %.promoted.i, %.lr.ph.split.us.preheader.i ]
   %21 = phi ptr [ %23, %63 ], [ %.promoted4.i, %.lr.ph.split.us.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1232)
@@ -5908,12 +5908,12 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %35 = phi i64 [ %30, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %19, %.lr.ph.split.us.i ]
   %36 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %20, %.lr.ph.split.us.i ]
   %37 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %.pre.i.i.i.i.i8.us.i, %.lr.ph.split.us.i ]
-  %38 = lshr i64 %37, 1
-  store i64 %38, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1244, !noalias !1214
-  %39 = add i64 %36, -1
-  store i64 %39, ptr %10, align 8, !alias.scope !1244, !noalias !1214
-  %40 = trunc i64 %37 to i1
-  br i1 %40, label %.split.i.i.i.us.i, label %48
+  %38 = trunc i64 %37 to i1
+  %39 = lshr i64 %37, 1
+  store i64 %39, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1244, !noalias !1214
+  %40 = add i64 %36, -1
+  store i64 %40, ptr %10, align 8, !alias.scope !1244, !noalias !1214
+  br i1 %38, label %.split.i.i.i.us.i, label %48
 
 .split.i.i.i.us.i:                                ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2f9533f5b117cc6E.exit.i.i.us.i"
   %41 = lshr i64 %26, 5
@@ -5942,7 +5942,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5b9b26d6e78a8ebbE.exit.us.i": ; preds = %48
   %57 = icmp ugt i64 %5, %22
   %58 = sub i64 %.val11.i.i.i.i35.us.i, %5
-  %59 = add i64 %39, %35
+  %59 = add i64 %40, %35
   %60 = tail call i64 @llvm.umin.i64(i64 %59, i64 %58)
   %61 = tail call i64 @llvm.uadd.sat.i64(i64 %60, i64 1)
   %62 = select i1 %57, i64 1, i64 %61
@@ -6152,8 +6152,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %21 = phi i64 [ %36, %71 ], [ %.promoted12.i, %.lr.ph.split.us.preheader.i ]
   %22 = phi ptr [ %37, %71 ], [ %.promoted11.i, %.lr.ph.split.us.preheader.i ]
   %23 = phi i64 [ %38, %71 ], [ %.promoted10.i, %.lr.ph.split.us.preheader.i ]
-  %.pre.i.i.i.i.i9.us.i = phi i64 [ %41, %71 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
-  %24 = phi i64 [ %42, %71 ], [ %.promoted8.i, %.lr.ph.split.us.preheader.i ]
+  %.pre.i.i.i.i.i9.us.i = phi i64 [ %42, %71 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
+  %24 = phi i64 [ %43, %71 ], [ %.promoted8.i, %.lr.ph.split.us.preheader.i ]
   %.val11.i.i.i.i46.us.i = phi i64 [ %26, %71 ], [ %.promoted.i, %.lr.ph.split.us.preheader.i ]
   %25 = phi ptr [ %27, %71 ], [ %.promoted5.i, %.lr.ph.split.us.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1314)
@@ -6195,13 +6195,13 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %38 = phi i64 [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %23, %.lr.ph.split.us.i ]
   %39 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %24, %.lr.ph.split.us.i ]
   %40 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %.pre.i.i.i.i.i9.us.i, %.lr.ph.split.us.i ]
-  %41 = lshr i64 %40, 1
-  store i64 %41, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1326, !noalias !1327
-  %42 = add i64 %39, -1
-  store i64 %42, ptr %10, align 8, !alias.scope !1326, !noalias !1327
-  %43 = trunc i64 %40 to i1
+  %41 = trunc i64 %40 to i1
+  %42 = lshr i64 %40, 1
+  store i64 %42, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1326, !noalias !1327
+  %43 = add i64 %39, -1
+  store i64 %43, ptr %10, align 8, !alias.scope !1326, !noalias !1327
   %44 = icmp ult i32 %.val.i.i.i.i.i.i.us.i, %.val1.i.i.i.i.i.i.us.i
-  br i1 %43, label %50, label %45
+  br i1 %41, label %50, label %45
 
 45:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60caa0fed78f5640E.exit.i.i.us.i"
   br i1 %44, label %.lr.ph.i.i.i.us.i, label %.loopexit.us.i
@@ -6262,7 +6262,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5b9b26d6e78a8ebbE.exit.us.i": ; preds = %.loopexit.us.i
   %65 = icmp ult i64 %26, 2
   %66 = add i64 %.val11.i.i.i.i46.us.i, -2
-  %67 = add i64 %42, %38
+  %67 = add i64 %43, %38
   %68 = tail call i64 @llvm.umin.i64(i64 %67, i64 %66)
   %69 = tail call i64 @llvm.uadd.sat.i64(i64 %68, i64 1)
   %70 = select i1 %65, i64 1, i64 %69
@@ -6491,8 +6491,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = phi i64 [ %.promoted9.i, %.lr.ph.i ], [ %31, %58 ]
   %18 = phi ptr [ %.promoted8.i, %.lr.ph.i ], [ %32, %58 ]
   %19 = phi i64 [ %.promoted3.i, %.lr.ph.i ], [ %33, %58 ]
-  %.pre.i.i.i.i.i6.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.i ], [ %37, %58 ]
-  %20 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %38, %58 ]
+  %.pre.i.i.i.i.i6.i = phi i64 [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.i ], [ %38, %58 ]
+  %20 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %39, %58 ]
   %21 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %23, %58 ]
   %22 = phi i64 [ %.promoted3.i, %.lr.ph.i ], [ %34, %58 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1397)
@@ -6530,12 +6530,12 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %34 = phi i64 [ %28, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i" ], [ %22, %16 ]
   %35 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i" ], [ %20, %16 ]
   %36 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i6.i, %16 ]
-  %37 = lshr i64 %36, 1
-  store i64 %37, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1406, !noalias !1379
-  %38 = add i64 %35, -1
-  store i64 %38, ptr %9, align 8, !alias.scope !1406, !noalias !1379
-  %39 = trunc i64 %36 to i1
-  br i1 %39, label %.split.i.i.i.i, label %44
+  %37 = trunc i64 %36 to i1
+  %38 = lshr i64 %36, 1
+  store i64 %38, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1406, !noalias !1379
+  %39 = add i64 %35, -1
+  store i64 %39, ptr %9, align 8, !alias.scope !1406, !noalias !1379
+  br i1 %37, label %.split.i.i.i.i, label %44
 
 .split.i.i.i.i:                                   ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i.i.i"
   %40 = add nuw nsw i64 %24, 31
@@ -6562,7 +6562,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %53 = ptrtoint ptr %23 to i64
   %54 = sub nuw i64 %14, %53
   %55 = lshr exact i64 %54, 4
-  %56 = add i64 %38, %33
+  %56 = add i64 %39, %33
   %.sroa.0.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %56, i64 %55)
   %57 = add nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, 1
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17hbcbae5e5ac0a5f59E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %49, i64 noundef %57, i64 noundef 8, i64 noundef 8), !noalias !1382
@@ -6663,8 +6663,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = phi i64 [ %32, %56 ], [ %.promoted12.i, %.lr.ph.split.us.preheader.i ]
   %18 = phi ptr [ %33, %56 ], [ %.promoted11.i, %.lr.ph.split.us.preheader.i ]
   %19 = phi i64 [ %34, %56 ], [ %.promoted10.i, %.lr.ph.split.us.preheader.i ]
-  %.pre.i.i.i.i.i9.us.i = phi i64 [ %37, %56 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
-  %20 = phi i64 [ %38, %56 ], [ %.promoted8.i, %.lr.ph.split.us.preheader.i ]
+  %.pre.i.i.i.i.i9.us.i = phi i64 [ %38, %56 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
+  %20 = phi i64 [ %39, %56 ], [ %.promoted8.i, %.lr.ph.split.us.preheader.i ]
   %.val11.i.i.i.i46.us.i = phi i64 [ %22, %56 ], [ %.promoted.i, %.lr.ph.split.us.preheader.i ]
   %21 = phi ptr [ %23, %56 ], [ %.promoted5.i, %.lr.ph.split.us.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1441)
@@ -6704,14 +6704,14 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %34 = phi i64 [ %29, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %19, %.lr.ph.split.us.i ]
   %35 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %20, %.lr.ph.split.us.i ]
   %36 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %.pre.i.i.i.i.i9.us.i, %.lr.ph.split.us.i ]
-  %37 = lshr i64 %36, 1
-  store i64 %37, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1453, !noalias !1423
-  %38 = add i64 %35, -1
-  store i64 %38, ptr %10, align 8, !alias.scope !1453, !noalias !1423
-  %39 = trunc i64 %36 to i1
+  %37 = trunc i64 %36 to i1
+  %38 = lshr i64 %36, 1
+  store i64 %38, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1453, !noalias !1423
+  %39 = add i64 %35, -1
+  store i64 %39, ptr %10, align 8, !alias.scope !1453, !noalias !1423
   %40 = add i64 %24, 1
   %41 = sub i64 %40, %25
-  %.sroa.01.0.i.i.i.us.i = select i1 %39, i64 %41, i64 1
+  %.sroa.01.0.i.i.i.us.i = select i1 %37, i64 %41, i64 1
   %42 = load i64, ptr %.val.i.i, align 8, !noalias !1454, !noundef !3
   %43 = add i64 %42, %.sroa.01.0.i.i.i.us.i
   store i64 %43, ptr %.val.i.i, align 8, !noalias !1454
@@ -6727,7 +6727,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5b9b26d6e78a8ebbE.exit.us.i": ; preds = %._crit_edge.i.i.i.i.i.us.i
   %50 = icmp ugt i64 %5, %22
   %51 = sub i64 %.val11.i.i.i.i46.us.i, %5
-  %52 = add i64 %38, %34
+  %52 = add i64 %39, %34
   %53 = tail call i64 @llvm.umin.i64(i64 %52, i64 %51)
   %54 = tail call i64 @llvm.uadd.sat.i64(i64 %53, i64 1)
   %55 = select i1 %50, i64 1, i64 %54
@@ -6984,8 +6984,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = phi i64 [ %34, %57 ], [ %.promoted11.i, %.lr.ph.split.us.preheader.i ]
   %18 = phi ptr [ %35, %57 ], [ %.promoted10.i, %.lr.ph.split.us.preheader.i ]
   %19 = phi i64 [ %36, %57 ], [ %.promoted9.i, %.lr.ph.split.us.preheader.i ]
-  %.pre.i.i.i.i.i8.us.i = phi i64 [ %39, %57 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
-  %20 = phi i64 [ %40, %57 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
+  %.pre.i.i.i.i.i8.us.i = phi i64 [ %40, %57 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
+  %20 = phi i64 [ %41, %57 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
   %.val.i.i.i.i35.us.i = phi i64 [ %22, %57 ], [ %.promoted.i, %.lr.ph.split.us.preheader.i ]
   %21 = phi ptr [ %23, %57 ], [ %.promoted4.i, %.lr.ph.split.us.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1523)
@@ -7027,13 +7027,13 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %36 = phi i64 [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %19, %.lr.ph.split.us.i ]
   %37 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %20, %.lr.ph.split.us.i ]
   %38 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %.pre.i.i.i.i.i8.us.i, %.lr.ph.split.us.i ]
-  %39 = lshr i64 %38, 1
-  store i64 %39, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1535, !noalias !1505
-  %40 = add i64 %37, -1
-  store i64 %40, ptr %10, align 8, !alias.scope !1535, !noalias !1505
-  %41 = trunc i64 %38 to i1
+  %39 = trunc i64 %38 to i1
+  %40 = lshr i64 %38, 1
+  store i64 %40, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1535, !noalias !1505
+  %41 = add i64 %37, -1
+  store i64 %41, ptr %10, align 8, !alias.scope !1535, !noalias !1505
   %42 = add nsw i64 %27, 1
-  %.sroa.01.0.i.i.i.us.i = select i1 %41, i64 %42, i64 1
+  %.sroa.01.0.i.i.i.us.i = select i1 %39, i64 %42, i64 1
   %43 = load i64, ptr %.val.i.i, align 8, !noalias !1536, !noundef !3
   %44 = add i64 %43, %.sroa.01.0.i.i.i.us.i
   store i64 %44, ptr %.val.i.i, align 8, !noalias !1536
@@ -7049,7 +7049,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5b9b26d6e78a8ebbE.exit.us.i": ; preds = %._crit_edge.i.i.i.i.i.us.i
   %51 = icmp ugt i64 %5, %22
   %52 = sub i64 %.val.i.i.i.i35.us.i, %5
-  %53 = add i64 %40, %36
+  %53 = add i64 %41, %36
   %54 = tail call i64 @llvm.umin.i64(i64 %53, i64 %52)
   %55 = tail call i64 @llvm.uadd.sat.i64(i64 %54, i64 1)
   %56 = select i1 %51, i64 1, i64 %55
@@ -7122,8 +7122,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %17 = phi i64 [ %34, %64 ], [ %.promoted11.i, %.lr.ph.split.us.preheader.i ]
   %18 = phi ptr [ %35, %64 ], [ %.promoted10.i, %.lr.ph.split.us.preheader.i ]
   %19 = phi i64 [ %36, %64 ], [ %.promoted9.i, %.lr.ph.split.us.preheader.i ]
-  %.pre.i.i.i.i.i8.us.i = phi i64 [ %39, %64 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
-  %20 = phi i64 [ %40, %64 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
+  %.pre.i.i.i.i.i8.us.i = phi i64 [ %40, %64 ], [ %.phi.trans.insert.i.i.i.i.i.promoted.i, %.lr.ph.split.us.preheader.i ]
+  %20 = phi i64 [ %41, %64 ], [ %.promoted7.i, %.lr.ph.split.us.preheader.i ]
   %.val.i.i.i.i35.us.i = phi i64 [ %22, %64 ], [ %.promoted.i, %.lr.ph.split.us.preheader.i ]
   %21 = phi ptr [ %23, %64 ], [ %.promoted4.i, %.lr.ph.split.us.preheader.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1556)
@@ -7165,12 +7165,12 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %36 = phi i64 [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %19, %.lr.ph.split.us.i ]
   %37 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %20, %.lr.ph.split.us.i ]
   %38 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i.i.us.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i.i.us.i" ], [ %.pre.i.i.i.i.i8.us.i, %.lr.ph.split.us.i ]
-  %39 = lshr i64 %38, 1
-  store i64 %39, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1568, !noalias !1538
-  %40 = add i64 %37, -1
-  store i64 %40, ptr %10, align 8, !alias.scope !1568, !noalias !1538
-  %41 = trunc i64 %38 to i1
-  br i1 %41, label %.split.i.i.i.us.i, label %49
+  %39 = trunc i64 %38 to i1
+  %40 = lshr i64 %38, 1
+  store i64 %40, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !1568, !noalias !1538
+  %41 = add i64 %37, -1
+  store i64 %41, ptr %10, align 8, !alias.scope !1568, !noalias !1538
+  br i1 %39, label %.split.i.i.i.us.i, label %49
 
 .split.i.i.i.us.i:                                ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3f27795cc2ba632dE.exit.i.i.us.i"
   %42 = lshr i64 %27, 5
@@ -7199,7 +7199,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h5b9b26d6e78a8ebbE.exit.us.i": ; preds = %49
   %58 = icmp ugt i64 %5, %22
   %59 = sub i64 %.val.i.i.i.i35.us.i, %5
-  %60 = add i64 %40, %36
+  %60 = add i64 %41, %36
   %61 = tail call i64 @llvm.umin.i64(i64 %60, i64 %59)
   %62 = tail call i64 @llvm.uadd.sat.i64(i64 %61, i64 1)
   %63 = select i1 %58, i64 1, i64 %62

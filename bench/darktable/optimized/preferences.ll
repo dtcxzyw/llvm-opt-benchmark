@@ -2373,26 +2373,25 @@ init_tab_accels.exit:                             ; preds = %init_tab_general.ex
 
 349:                                              ; preds = %341, %347
   %350 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !77
-  %351 = and i32 %350, 1
-  %352 = icmp ne i32 %351, 0
-  %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3280), align 8
-  %354 = icmp ne i32 %353, 0
-  %or.cond = select i1 %352, i1 %354, i1 false
-  br i1 %or.cond, label %355, label %359
+  %351 = trunc i32 %350 to i1
+  %352 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3280), align 8
+  %353 = icmp ne i32 %352, 0
+  %or.cond = select i1 %351, i1 %353, i1 false
+  br i1 %or.cond, label %354, label %358
 
-355:                                              ; preds = %349
-  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !78
-  %357 = and i32 %356, 1048576
-  %.not25 = icmp eq i32 %357, 0
-  br i1 %.not25, label %359, label %358
+354:                                              ; preds = %349
+  %355 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !78
+  %356 = and i32 %355, 1048576
+  %.not25 = icmp eq i32 %356, 0
+  br i1 %.not25, label %358, label %357
 
-358:                                              ; preds = %355
+357:                                              ; preds = %354
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 644, ptr noundef nonnull @__FUNCTION__.dt_gui_preferences_show) #13
-  br label %359
+  br label %358
 
-359:                                              ; preds = %355, %358, %349
-  %360 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !79
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %360, i32 noundef 37) #13
+358:                                              ; preds = %354, %357, %349
+  %359 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !79
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %359, i32 noundef 37) #13
   ret void
 }
 

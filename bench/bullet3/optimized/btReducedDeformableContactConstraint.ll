@@ -324,10 +324,10 @@ define dso_local void @_ZN41btReducedDeformableRigidContactConstraintC2EP23btRed
   %26 = load ptr, ptr %25, align 8, !tbaa !59
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 224
   %28 = load i32, ptr %27, align 8, !tbaa !74
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %30 = trunc i32 %28 to i8
-  %31 = and i8 %30, 1
-  store i8 %31, ptr %29, align 8, !tbaa !82
+  %29 = trunc i32 %28 to i8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %31 = and i8 %29, 1
+  store i8 %31, ptr %30, align 8, !tbaa !82
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 272
   %33 = load i32, ptr %32, align 8, !tbaa !83
   %34 = icmp eq i32 %33, 64
@@ -1001,10 +1001,10 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   %28 = load ptr, ptr %27, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 224
   %30 = load i32, ptr %29, align 8, !tbaa !74
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %32 = trunc i32 %30 to i8
-  %33 = and i8 %32, 1
-  store i8 %33, ptr %31, align 8, !tbaa !82
+  %31 = trunc i32 %30 to i8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %33 = and i8 %31, 1
+  store i8 %33, ptr %32, align 8, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 272
   %35 = load i32, ptr %34, align 8, !tbaa !83
   %36 = icmp eq i32 %35, 64
@@ -1094,7 +1094,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   store <2 x float> %.sroa.0.4.vec.insert.i20, ptr %92, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 284
   store <2 x float> %.sroa.3.12.vec.insert.i21, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !25
-  %93 = load i8, ptr %31, align 8, !tbaa !82, !range !85, !noundef !86
+  %93 = load i8, ptr %32, align 8, !tbaa !82, !range !85, !noundef !86
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %95, label %106
 
@@ -1824,10 +1824,10 @@ define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintC2EP23b
   %28 = load ptr, ptr %27, align 8, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 224
   %30 = load i32, ptr %29, align 8, !tbaa !74
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %32 = trunc i32 %30 to i8
-  %33 = and i8 %32, 1
-  store i8 %33, ptr %31, align 8, !tbaa !82
+  %31 = trunc i32 %30 to i8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %33 = and i8 %31, 1
+  store i8 %33, ptr %32, align 8, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 272
   %35 = load i32, ptr %34, align 8, !tbaa !83
   %36 = icmp eq i32 %35, 64

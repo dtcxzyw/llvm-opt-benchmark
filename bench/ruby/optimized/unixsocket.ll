@@ -477,9 +477,8 @@ define internal noundef i64 @unix_send_io(i64 noundef %0, i64 noundef %1) #0 {
   br label %23
 
 16:                                               ; preds = %2
-  %17 = and i64 %1, 1
-  %.not9 = icmp eq i64 %17, 0
-  br i1 %.not9, label %21, label %18
+  %17 = trunc i64 %1 to i1
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
   %19 = tail call i64 @rb_fix2int(i64 noundef %1) #7

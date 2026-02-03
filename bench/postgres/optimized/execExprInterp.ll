@@ -5945,9 +5945,8 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
   store i8 0, ptr %136, align 1
   %144 = getelementptr i8, ptr %89, i64 20
   %.val.val.i.i = load i16, ptr %144, align 4
-  %145 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %145, 0
-  br i1 %.not.i.i.i, label %146, label %187
+  %145 = trunc i16 %.val.val.i.i to i1
+  br i1 %145, label %187, label %146
 
 146:                                              ; preds = %143
   %147 = zext nneg i32 %94 to i64
@@ -6029,8 +6028,8 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
   %194 = and i32 %107, 7
   %195 = shl nuw nsw i32 1, %194
   %196 = and i32 %195, %193
-  %.not.i20.i.i = icmp eq i32 %196, 0
-  br i1 %.not.i20.i.i, label %197, label %198
+  %.not.i.i.i = icmp eq i32 %196, 0
+  br i1 %.not.i.i.i, label %197, label %198
 
 197:                                              ; preds = %187
   store i8 1, ptr %136, align 1

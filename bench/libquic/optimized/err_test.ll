@@ -126,25 +126,24 @@ _ZL12TestPutErrorv.exit.thread:                   ; preds = %_ZL12TestOverflowv.
   %50 = load i32, ptr %5, align 4
   %51 = icmp eq i32 %50, 4
   %or.cond.not24.i = select i1 %49, i1 %51, i1 false
-  %52 = and i32 %42, 1
-  %53 = icmp ne i32 %52, 0
-  %or.cond17.not21.i = and i1 %53, %or.cond.not24.i
-  %54 = and i32 %33, -16773121
-  %55 = icmp eq i32 %54, 16777218
-  %or.cond19.i = and i1 %55, %or.cond17.not21.i
-  br i1 %or.cond19.i, label %56, label %58
+  %52 = trunc i32 %42 to i1
+  %or.cond17.not21.i = and i1 %or.cond.not24.i, %52
+  %53 = and i32 %33, -16773121
+  %54 = icmp eq i32 %53, 16777218
+  %or.cond19.i = and i1 %54, %or.cond17.not21.i
+  br i1 %or.cond19.i, label %55, label %57
 
-56:                                               ; preds = %47
-  %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(8) @.str.5) #8
-  %.not15.i = icmp eq i32 %57, 0
-  br i1 %.not15.i, label %61, label %58
+55:                                               ; preds = %47
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(8) @.str.5) #8
+  %.not15.i = icmp eq i32 %56, 0
+  br i1 %.not15.i, label %60, label %57
 
-58:                                               ; preds = %56, %47
-  %59 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %60 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %59) #7
+57:                                               ; preds = %55, %47
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %59 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %58) #7
   br label %_ZL12TestPutErrorv.exit.thread8
 
-_ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %58
+_ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -155,7 +154,7 @@ _ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL12TestOverflowv.exit.thread
 
-61:                                               ; preds = %56
+60:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -164,82 +163,82 @@ _ZL12TestPutErrorv.exit.thread8:                  ; preds = %44, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %62 = call i32 @ERR_get_error()
-  %.not.i2 = icmp eq i32 %62, 0
-  br i1 %.not.i2, label %66, label %63
+  %61 = call i32 @ERR_get_error()
+  %.not.i2 = icmp eq i32 %61, 0
+  br i1 %.not.i2, label %65, label %62
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %65 = call i64 @fwrite(ptr nonnull @.str.4, i64 56, i64 1, ptr %64) #7
+62:                                               ; preds = %60
+  %63 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %64 = call i64 @fwrite(ptr nonnull @.str.4, i64 56, i64 1, ptr %63) #7
   br label %_ZL12TestOverflowv.exit.thread
 
-66:                                               ; preds = %61
+65:                                               ; preds = %60
   call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4)
   call void @ERR_clear_error()
-  %67 = call i32 @ERR_get_error()
-  %.not1.i = icmp eq i32 %67, 0
-  br i1 %.not1.i, label %_ZL14TestClearErrorv.exit, label %68
+  %66 = call i32 @ERR_get_error()
+  %.not1.i = icmp eq i32 %66, 0
+  br i1 %.not1.i, label %_ZL14TestClearErrorv.exit, label %67
 
-68:                                               ; preds = %66
-  %69 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %70 = call i64 @fwrite(ptr nonnull @.str.8, i64 31, i64 1, ptr %69) #7
+67:                                               ; preds = %65
+  %68 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %69 = call i64 @fwrite(ptr nonnull @.str.8, i64 31, i64 1, ptr %68) #7
   br label %_ZL12TestOverflowv.exit.thread
 
-_ZL14TestClearErrorv.exit:                        ; preds = %66
+_ZL14TestClearErrorv.exit:                        ; preds = %65
   call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4)
   call void (i32, ...) @ERR_add_error_data(i32 noundef 1, ptr noundef nonnull @.str.5)
-  %71 = call i32 @ERR_get_error()
+  %70 = call i32 @ERR_get_error()
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %72
+  br label %71
 
-72:                                               ; preds = %72, %_ZL14TestClearErrorv.exit
-  %.04.i = phi i64 [ 0, %_ZL14TestClearErrorv.exit ], [ %73, %72 ]
-  call void @ERR_error_string_n(i32 noundef %71, ptr noundef nonnull %3, i64 noundef %.04.i)
-  %73 = add nuw nsw i64 %.04.i, 1
-  %exitcond.not.i4 = icmp eq i64 %73, 257
-  br i1 %exitcond.not.i4, label %_ZL9TestPrintv.exit, label %72, !llvm.loop !18
+71:                                               ; preds = %71, %_ZL14TestClearErrorv.exit
+  %.04.i = phi i64 [ 0, %_ZL14TestClearErrorv.exit ], [ %72, %71 ]
+  call void @ERR_error_string_n(i32 noundef %70, ptr noundef nonnull %3, i64 noundef %.04.i)
+  %72 = add nuw nsw i64 %.04.i, 1
+  %exitcond.not.i4 = icmp eq i64 %72, 257
+  br i1 %exitcond.not.i4, label %_ZL9TestPrintv.exit, label %71, !llvm.loop !18
 
-_ZL9TestPrintv.exit:                              ; preds = %72
+_ZL9TestPrintv.exit:                              ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @ERR_put_error(i32 noundef 1, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 4)
   call void @ERR_remove_thread_state(ptr noundef null)
   call void @ERR_put_error(i32 noundef 32, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str.9, i32 noundef 131)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %74 = call i32 @ERR_get_error_line(ptr noundef nonnull %2, ptr noundef nonnull %1)
-  %75 = load ptr, ptr %2, align 8, !tbaa !14
-  %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %75) #8
-  %77 = icmp ult i64 %76, 11
-  br i1 %77, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
+  %73 = call i32 @ERR_get_error_line(ptr noundef nonnull %2, ptr noundef nonnull %1)
+  %74 = load ptr, ptr %2, align 8, !tbaa !14
+  %75 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %74) #8
+  %76 = icmp ult i64 %75, 11
+  br i1 %76, label %_ZL12TestPutMacrov.exit, label %_ZL9HasSuffixPKcS0_.exit.i
 
 _ZL9HasSuffixPKcS0_.exit.i:                       ; preds = %_ZL9TestPrintv.exit
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %76
-  %79 = getelementptr inbounds i8, ptr %78, i64 -11
-  %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull dereferenceable(12) @.str.10) #8
-  %81 = icmp eq i32 %80, 0
-  %82 = load i32, ptr %1, align 4
-  %.not.i5 = icmp eq i32 %82, 131
-  %or.cond.i = select i1 %81, i1 %.not.i5, i1 false
-  %83 = and i32 %74, -16773121
-  %84 = icmp eq i32 %83, 536870980
-  %or.cond6.i = select i1 %or.cond.i, i1 %84, i1 false
-  br i1 %or.cond6.i, label %87, label %_ZL12TestPutMacrov.exit
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %78 = getelementptr inbounds i8, ptr %77, i64 -11
+  %79 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %78, ptr noundef nonnull dereferenceable(12) @.str.10) #8
+  %80 = icmp eq i32 %79, 0
+  %81 = load i32, ptr %1, align 4
+  %.not.i5 = icmp eq i32 %81, 131
+  %or.cond.i = select i1 %80, i1 %.not.i5, i1 false
+  %82 = and i32 %73, -16773121
+  %83 = icmp eq i32 %82, 536870980
+  %or.cond6.i = select i1 %or.cond.i, i1 %83, i1 false
+  br i1 %or.cond6.i, label %86, label %_ZL12TestPutMacrov.exit
 
 _ZL12TestPutMacrov.exit:                          ; preds = %_ZL9TestPrintv.exit, %_ZL9HasSuffixPKcS0_.exit.i
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %86 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %85) #7
+  %84 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %85 = call i64 @fwrite(ptr nonnull @.str.7, i64 25, i64 1, ptr %84) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZL12TestOverflowv.exit.thread
 
-87:                                               ; preds = %_ZL9HasSuffixPKcS0_.exit.i
+86:                                               ; preds = %_ZL9HasSuffixPKcS0_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %_ZL12TestOverflowv.exit.thread
 
-_ZL12TestOverflowv.exit.thread:                   ; preds = %68, %63, %21, %26, %_ZL12TestPutMacrov.exit, %_ZL12TestPutErrorv.exit.thread8, %_ZL12TestPutErrorv.exit.thread, %87
-  %.0 = phi i32 [ 0, %87 ], [ 1, %_ZL12TestPutMacrov.exit ], [ 1, %21 ], [ 1, %_ZL12TestPutErrorv.exit.thread8 ], [ 1, %_ZL12TestPutErrorv.exit.thread ], [ 1, %26 ], [ 1, %63 ], [ 1, %68 ]
+_ZL12TestOverflowv.exit.thread:                   ; preds = %67, %62, %21, %26, %_ZL12TestPutMacrov.exit, %_ZL12TestPutErrorv.exit.thread8, %_ZL12TestPutErrorv.exit.thread, %86
+  %.0 = phi i32 [ 0, %86 ], [ 1, %_ZL12TestPutMacrov.exit ], [ 1, %21 ], [ 1, %_ZL12TestPutErrorv.exit.thread8 ], [ 1, %_ZL12TestPutErrorv.exit.thread ], [ 1, %26 ], [ 1, %62 ], [ 1, %67 ]
   ret i32 %.0
 }
 

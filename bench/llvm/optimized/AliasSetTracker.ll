@@ -2821,8 +2821,8 @@ _ZN4llvm12PatternMatch5matchINS_8CallBaseENS0_17IntrinsicID_matchEEEbPT_RKT0_.ex
   %154 = sub nsw i64 0, %153
   %155 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %154
   %156 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
-  %.not95 = icmp eq ptr %155, %156
-  br i1 %.not95, label %.loopexit, label %.lr.ph
+  %.not96 = icmp eq ptr %155, %156
+  br i1 %.not96, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2830,9 +2830,9 @@ _ZN4llvm12PatternMatch5matchINS_8CallBaseENS0_17IntrinsicID_matchEEEbPT_RKT0_.ex
   br label %159
 
 159:                                              ; preds = %.lr.ph, %189
-  %.sroa.7.097 = phi i32 [ 0, %.lr.ph ], [ %190, %189 ]
-  %.sroa.070.096 = phi ptr [ %155, %.lr.ph ], [ %191, %189 ]
-  %160 = load ptr, ptr %.sroa.070.096, align 8, !tbaa !125
+  %.sroa.7.098 = phi i32 [ 0, %.lr.ph ], [ %190, %189 ]
+  %.sroa.071.097 = phi ptr [ %155, %.lr.ph ], [ %191, %189 ]
+  %160 = load ptr, ptr %.sroa.071.097, align 8, !tbaa !125
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !195
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -2843,10 +2843,10 @@ _ZN4llvm12PatternMatch5matchINS_8CallBaseENS0_17IntrinsicID_matchEEEbPT_RKT0_.ex
 
 167:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %12, ptr noundef nonnull %1, i32 noundef %.sroa.7.097, ptr noundef null) #20
+  call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MemoryLocation") align 8 %12, ptr noundef nonnull %1, i32 noundef %.sroa.7.098, ptr noundef null) #20
   %168 = load ptr, ptr %0, align 8, !tbaa !91
   %169 = load ptr, ptr %168, align 8, !tbaa !92
-  %170 = call noundef zeroext i8 @_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(56) %169, ptr noundef nonnull %1, i32 noundef %.sroa.7.097) #20
+  %170 = call noundef zeroext i8 @_ZN4llvm9AAResults16getArgModRefInfoEPKNS_8CallBaseEj(ptr noundef nonnull align 8 dereferenceable(56) %169, ptr noundef nonnull %1, i32 noundef %.sroa.7.098) #20
   %171 = and i8 %170, %.0
   %172 = icmp eq i8 %171, 0
   br i1 %172, label %188, label %173
@@ -2854,13 +2854,13 @@ _ZN4llvm12PatternMatch5matchINS_8CallBaseENS0_17IntrinsicID_matchEEEbPT_RKT0_.ex
 173:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
-  %174 = and i8 %171, 1
   %or.cond.i = icmp eq i8 %171, 3
-  %175 = and i8 %171, 2
-  %.not2.i = icmp eq i8 %175, 0
-  %narrow.i = select i1 %.not2.i, i8 %174, i8 2
-  %narrow3.i = select i1 %or.cond.i, i8 3, i8 %narrow.i
-  %.0.i = zext nneg i8 %narrow3.i to i32
+  %174 = and i8 %171, 2
+  %.not.i64 = icmp eq i8 %174, 0
+  %175 = and i8 %171, 1
+  %narrow.i = select i1 %.not.i64, i8 %175, i8 2
+  %narrow2.i = select i1 %or.cond.i, i8 3, i8 %narrow.i
+  %.0.i = zext nneg i8 %narrow2.i to i32
   %176 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZN4llvm15AliasSetTracker14getAliasSetForERKNS_14MemoryLocationE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %178 = load i32, ptr %177, align 8
@@ -2868,8 +2868,8 @@ _ZN4llvm12PatternMatch5matchINS_8CallBaseENS0_17IntrinsicID_matchEEEbPT_RKT0_.ex
   %180 = or i32 %178, %179
   store i32 %180, ptr %177, align 8
   %181 = load ptr, ptr %157, align 8, !tbaa !90
-  %.not.i64 = icmp eq ptr %181, null
-  br i1 %.not.i64, label %182, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
+  %.not.i65 = icmp eq ptr %181, null
+  br i1 %.not.i65, label %182, label %_ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13AccessLatticeE.exit
 
 182:                                              ; preds = %173
   %183 = load i32, ptr %158, align 8, !tbaa !79
@@ -2890,8 +2890,8 @@ _ZN4llvm15AliasSetTracker17addMemoryLocationENS_14MemoryLocationENS_8AliasSet13A
   br label %189
 
 189:                                              ; preds = %159, %188
-  %190 = add i32 %.sroa.7.097, 1
-  %191 = getelementptr inbounds nuw i8, ptr %.sroa.070.096, i64 32
+  %190 = add i32 %.sroa.7.098, 1
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.071.097, i64 32
   %.not = icmp eq ptr %191, %156
   br i1 %.not, label %.loopexit, label %159
 

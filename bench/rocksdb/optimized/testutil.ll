@@ -2868,10 +2868,10 @@ define void @_ZN7rocksdb4test28RandomBlockBasedTableOptionsEPNS_6RandomE(ptr dea
   %47 = icmp slt i32 %46, 0
   %48 = add i32 %46, -2147483647
   %spec.select.i.i = select i1 %47, i32 %48, i32 %46
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = trunc i32 %spec.select.i.i to i8
-  %51 = and i8 %50, 1
-  store i8 %51, ptr %49, align 8, !tbaa !168
+  %49 = trunc i32 %spec.select.i.i to i8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = and i8 %49, 1
+  store i8 %51, ptr %50, align 8, !tbaa !168
   %52 = zext i32 %spec.select.i.i to i64
   %53 = mul nuw nsw i64 %52, 16807
   %54 = lshr i64 %53, 31
@@ -3599,10 +3599,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %10 = icmp slt i32 %9, 0
   %11 = add i32 %9, -2147483647
   %spec.select.i.i = select i1 %10, i32 %11, i32 %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %13 = trunc i32 %spec.select.i.i to i8
-  %14 = and i8 %13, 1
-  store i8 %14, ptr %12, align 8, !tbaa !198
+  %12 = trunc i32 %spec.select.i.i to i8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %14 = and i8 %12, 1
+  store i8 %14, ptr %13, align 8, !tbaa !198
   %15 = zext i32 %spec.select.i.i to i64
   %16 = mul nuw nsw i64 %15, 16807
   %17 = lshr i64 %16, 31
@@ -3612,10 +3612,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %21 = icmp slt i32 %20, 0
   %22 = add i32 %20, -2147483647
   %spec.select.i.i86 = select i1 %21, i32 %22, i32 %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %24 = trunc i32 %spec.select.i.i86 to i8
-  %25 = and i8 %24, 1
-  store i8 %25, ptr %23, align 8, !tbaa !238
+  %23 = trunc i32 %spec.select.i.i86 to i8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %25 = and i8 %23, 1
+  store i8 %25, ptr %24, align 8, !tbaa !238
   %26 = zext i32 %spec.select.i.i86 to i64
   %27 = mul nuw nsw i64 %26, 16807
   %28 = lshr i64 %27, 31
@@ -3625,10 +3625,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %32 = icmp slt i32 %31, 0
   %33 = add i32 %31, -2147483647
   %spec.select.i.i87 = select i1 %32, i32 %33, i32 %31
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 305
-  %35 = trunc i32 %spec.select.i.i87 to i8
-  %36 = and i8 %35, 1
-  store i8 %36, ptr %34, align 1, !tbaa !239
+  %34 = trunc i32 %spec.select.i.i87 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 305
+  %36 = and i8 %34, 1
+  store i8 %36, ptr %35, align 1, !tbaa !239
   %37 = zext i32 %spec.select.i.i87 to i64
   %38 = mul nuw nsw i64 %37, 16807
   %39 = lshr i64 %38, 31
@@ -3638,10 +3638,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %43 = icmp slt i32 %42, 0
   %44 = add i32 %42, -2147483647
   %spec.select.i.i88 = select i1 %43, i32 %44, i32 %42
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 306
-  %46 = trunc i32 %spec.select.i.i88 to i8
-  %47 = and i8 %46, 1
-  store i8 %47, ptr %45, align 2, !tbaa !240
+  %45 = trunc i32 %spec.select.i.i88 to i8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 306
+  %47 = and i8 %45, 1
+  store i8 %47, ptr %46, align 2, !tbaa !240
   %48 = zext i32 %spec.select.i.i88 to i64
   %49 = mul nuw nsw i64 %48, 16807
   %50 = lshr i64 %49, 31
@@ -3651,10 +3651,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %54 = icmp slt i32 %53, 0
   %55 = add i32 %53, -2147483647
   %spec.select.i.i89 = select i1 %54, i32 %55, i32 %53
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 307
-  %57 = trunc i32 %spec.select.i.i89 to i8
-  %58 = and i8 %57, 1
-  store i8 %58, ptr %56, align 1, !tbaa !241
+  %56 = trunc i32 %spec.select.i.i89 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 307
+  %58 = and i8 %56, 1
+  store i8 %58, ptr %57, align 1, !tbaa !241
   %59 = zext i32 %spec.select.i.i89 to i64
   %60 = mul nuw nsw i64 %59, 16807
   %61 = lshr i64 %60, 31
@@ -3676,10 +3676,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %75 = icmp slt i32 %74, 0
   %76 = add i32 %74, -2147483647
   %spec.select.i.i91 = select i1 %75, i32 %76, i32 %74
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %78 = trunc i32 %spec.select.i.i91 to i8
-  %79 = and i8 %78, 1
-  store i8 %79, ptr %77, align 1, !tbaa !243
+  %77 = trunc i32 %spec.select.i.i91 to i8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %79 = and i8 %77, 1
+  store i8 %79, ptr %78, align 1, !tbaa !243
   %80 = zext i32 %spec.select.i.i91 to i64
   %81 = mul nuw nsw i64 %80, 16807
   %82 = lshr i64 %81, 31
@@ -3689,10 +3689,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %86 = icmp slt i32 %85, 0
   %87 = add i32 %85, -2147483647
   %spec.select.i.i92 = select i1 %86, i32 %87, i32 %85
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %89 = trunc i32 %spec.select.i.i92 to i8
-  %90 = and i8 %89, 1
-  store i8 %90, ptr %88, align 8, !tbaa !244
+  %88 = trunc i32 %spec.select.i.i92 to i8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %90 = and i8 %88, 1
+  store i8 %90, ptr %89, align 8, !tbaa !244
   %91 = zext i32 %spec.select.i.i92 to i64
   %92 = mul nuw nsw i64 %91, 16807
   %93 = lshr i64 %92, 31
@@ -3702,10 +3702,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %97 = icmp slt i32 %96, 0
   %98 = add i32 %96, -2147483647
   %spec.select.i.i93 = select i1 %97, i32 %98, i32 %96
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %100 = trunc i32 %spec.select.i.i93 to i8
-  %101 = and i8 %100, 1
-  store i8 %101, ptr %99, align 2, !tbaa !245
+  %99 = trunc i32 %spec.select.i.i93 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %101 = and i8 %99, 1
+  store i8 %101, ptr %100, align 2, !tbaa !245
   %102 = zext i32 %spec.select.i.i93 to i64
   %103 = mul nuw nsw i64 %102, 16807
   %104 = lshr i64 %103, 31
@@ -3715,10 +3715,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %108 = icmp slt i32 %107, 0
   %109 = add i32 %107, -2147483647
   %spec.select.i.i94 = select i1 %108, i32 %109, i32 %107
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 309
-  %111 = trunc i32 %spec.select.i.i94 to i8
-  %112 = and i8 %111, 1
-  store i8 %112, ptr %110, align 1, !tbaa !246
+  %110 = trunc i32 %spec.select.i.i94 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 309
+  %112 = and i8 %110, 1
+  store i8 %112, ptr %111, align 1, !tbaa !246
   %113 = zext i32 %spec.select.i.i94 to i64
   %114 = mul nuw nsw i64 %113, 16807
   %115 = lshr i64 %114, 31
@@ -3728,10 +3728,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %119 = icmp slt i32 %118, 0
   %120 = add i32 %118, -2147483647
   %spec.select.i.i95 = select i1 %119, i32 %120, i32 %118
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %122 = trunc i32 %spec.select.i.i95 to i8
-  %123 = and i8 %122, 1
-  store i8 %123, ptr %121, align 1, !tbaa !247
+  %121 = trunc i32 %spec.select.i.i95 to i8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %123 = and i8 %121, 1
+  store i8 %123, ptr %122, align 1, !tbaa !247
   %124 = zext i32 %spec.select.i.i95 to i64
   %125 = mul nuw nsw i64 %124, 16807
   %126 = lshr i64 %125, 31
@@ -3741,10 +3741,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %130 = icmp slt i32 %129, 0
   %131 = add i32 %129, -2147483647
   %spec.select.i.i96 = select i1 %130, i32 %131, i32 %129
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %133 = trunc i32 %spec.select.i.i96 to i8
-  %134 = and i8 %133, 1
-  store i8 %134, ptr %132, align 2, !tbaa !248
+  %132 = trunc i32 %spec.select.i.i96 to i8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %134 = and i8 %132, 1
+  store i8 %134, ptr %133, align 2, !tbaa !248
   %135 = zext i32 %spec.select.i.i96 to i64
   %136 = mul nuw nsw i64 %135, 16807
   %137 = lshr i64 %136, 31
@@ -3754,10 +3754,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %141 = icmp slt i32 %140, 0
   %142 = add i32 %140, -2147483647
   %spec.select.i.i97 = select i1 %141, i32 %142, i32 %140
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %144 = trunc i32 %spec.select.i.i97 to i8
-  %145 = and i8 %144, 1
-  store i8 %145, ptr %143, align 1, !tbaa !249
+  %143 = trunc i32 %spec.select.i.i97 to i8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %145 = and i8 %143, 1
+  store i8 %145, ptr %144, align 1, !tbaa !249
   %146 = zext i32 %spec.select.i.i97 to i64
   %147 = mul nuw nsw i64 %146, 16807
   %148 = lshr i64 %147, 31
@@ -3767,10 +3767,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %152 = icmp slt i32 %151, 0
   %153 = add i32 %151, -2147483647
   %spec.select.i.i98 = select i1 %152, i32 %153, i32 %151
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %155 = trunc i32 %spec.select.i.i98 to i8
-  %156 = and i8 %155, 1
-  store i8 %156, ptr %154, align 8, !tbaa !250
+  %154 = trunc i32 %spec.select.i.i98 to i8
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %156 = and i8 %154, 1
+  store i8 %156, ptr %155, align 8, !tbaa !250
   %157 = zext i32 %spec.select.i.i98 to i64
   %158 = mul nuw nsw i64 %157, 16807
   %159 = lshr i64 %158, 31
@@ -3780,10 +3780,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %163 = icmp slt i32 %162, 0
   %164 = add i32 %162, -2147483647
   %spec.select.i.i99 = select i1 %163, i32 %164, i32 %162
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %166 = trunc i32 %spec.select.i.i99 to i8
-  %167 = and i8 %166, 1
-  store i8 %167, ptr %165, align 8, !tbaa !251
+  %165 = trunc i32 %spec.select.i.i99 to i8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %167 = and i8 %165, 1
+  store i8 %167, ptr %166, align 8, !tbaa !251
   %168 = zext i32 %spec.select.i.i99 to i64
   %169 = mul nuw nsw i64 %168, 16807
   %170 = lshr i64 %169, 31
@@ -3793,10 +3793,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %174 = icmp slt i32 %173, 0
   %175 = add i32 %173, -2147483647
   %spec.select.i.i100 = select i1 %174, i32 %175, i32 %173
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 489
-  %177 = trunc i32 %spec.select.i.i100 to i8
-  %178 = and i8 %177, 1
-  store i8 %178, ptr %176, align 1, !tbaa !252
+  %176 = trunc i32 %spec.select.i.i100 to i8
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 489
+  %178 = and i8 %176, 1
+  store i8 %178, ptr %177, align 1, !tbaa !252
   %179 = zext i32 %spec.select.i.i100 to i64
   %180 = mul nuw nsw i64 %179, 16807
   %181 = lshr i64 %180, 31
@@ -3806,10 +3806,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %185 = icmp slt i32 %184, 0
   %186 = add i32 %184, -2147483647
   %spec.select.i.i101 = select i1 %185, i32 %186, i32 %184
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %188 = trunc i32 %spec.select.i.i101 to i8
-  %189 = and i8 %188, 1
-  store i8 %189, ptr %187, align 8, !tbaa !253
+  %187 = trunc i32 %spec.select.i.i101 to i8
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %189 = and i8 %187, 1
+  store i8 %189, ptr %188, align 8, !tbaa !253
   %190 = zext i32 %spec.select.i.i101 to i64
   %191 = mul nuw nsw i64 %190, 16807
   %192 = lshr i64 %191, 31
@@ -3819,10 +3819,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %196 = icmp slt i32 %195, 0
   %197 = add i32 %195, -2147483647
   %spec.select.i.i102 = select i1 %196, i32 %197, i32 %195
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %199 = trunc i32 %spec.select.i.i102 to i8
-  %200 = and i8 %199, 1
-  store i8 %200, ptr %198, align 8, !tbaa !254
+  %198 = trunc i32 %spec.select.i.i102 to i8
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %200 = and i8 %198, 1
+  store i8 %200, ptr %199, align 8, !tbaa !254
   %201 = zext i32 %spec.select.i.i102 to i64
   %202 = mul nuw nsw i64 %201, 16807
   %203 = lshr i64 %202, 31
@@ -3845,10 +3845,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %218 = icmp slt i32 %217, 0
   %219 = add i32 %217, -2147483647
   %spec.select.i.i104 = select i1 %218, i32 %219, i32 %217
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 522
-  %221 = trunc i32 %spec.select.i.i104 to i8
-  %222 = and i8 %221, 1
-  store i8 %222, ptr %220, align 2, !tbaa !256
+  %220 = trunc i32 %spec.select.i.i104 to i8
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 522
+  %222 = and i8 %220, 1
+  store i8 %222, ptr %221, align 2, !tbaa !256
   %223 = zext i32 %spec.select.i.i104 to i64
   %224 = mul nuw nsw i64 %223, 16807
   %225 = lshr i64 %224, 31
@@ -3858,10 +3858,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %229 = icmp slt i32 %228, 0
   %230 = add i32 %228, -2147483647
   %spec.select.i.i105 = select i1 %229, i32 %230, i32 %228
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 523
-  %232 = trunc i32 %spec.select.i.i105 to i8
-  %233 = and i8 %232, 1
-  store i8 %233, ptr %231, align 1, !tbaa !257
+  %231 = trunc i32 %spec.select.i.i105 to i8
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 523
+  %233 = and i8 %231, 1
+  store i8 %233, ptr %232, align 1, !tbaa !257
   %234 = zext i32 %spec.select.i.i105 to i64
   %235 = mul nuw nsw i64 %234, 16807
   %236 = lshr i64 %235, 31
@@ -3871,10 +3871,10 @@ define void @_ZN7rocksdb4test19RandomInitDBOptionsEPNS_9DBOptionsEPNS_6RandomE(p
   %240 = icmp slt i32 %239, 0
   %241 = add i32 %239, -2147483647
   %spec.select.i.i106 = select i1 %240, i32 %241, i32 %239
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 641
-  %243 = trunc i32 %spec.select.i.i106 to i8
-  %244 = and i8 %243, 1
-  store i8 %244, ptr %242, align 1, !tbaa !258
+  %242 = trunc i32 %spec.select.i.i106 to i8
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 641
+  %244 = and i8 %242, 1
+  store i8 %244, ptr %243, align 1, !tbaa !258
   %245 = zext i32 %spec.select.i.i106 to i64
   %246 = mul nuw nsw i64 %245, 16807
   %247 = lshr i64 %246, 31
@@ -4175,10 +4175,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %22 = icmp slt i32 %21, 0
   %23 = add i32 %21, -2147483647
   %spec.select.i.i114 = select i1 %22, i32 %23, i32 %21
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  %25 = trunc i32 %spec.select.i.i114 to i8
-  %26 = and i8 %25, 1
-  store i8 %26, ptr %24, align 4, !tbaa !311
+  %24 = trunc i32 %spec.select.i.i114 to i8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %26 = and i8 %24, 1
+  store i8 %26, ptr %25, align 4, !tbaa !311
   %27 = zext i32 %spec.select.i.i114 to i64
   %28 = mul nuw nsw i64 %27, 16807
   %29 = lshr i64 %28, 31
@@ -4188,10 +4188,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %33 = icmp slt i32 %32, 0
   %34 = add i32 %32, -2147483647
   %spec.select.i.i115 = select i1 %33, i32 %34, i32 %32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %36 = trunc i32 %spec.select.i.i115 to i8
-  %37 = and i8 %36, 1
-  store i8 %37, ptr %35, align 8, !tbaa !312
+  %35 = trunc i32 %spec.select.i.i115 to i8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %37 = and i8 %35, 1
+  store i8 %37, ptr %36, align 8, !tbaa !312
   %38 = zext i32 %spec.select.i.i115 to i64
   %39 = mul nuw nsw i64 %38, 16807
   %40 = lshr i64 %39, 31
@@ -4201,10 +4201,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %44 = icmp slt i32 %43, 0
   %45 = add i32 %43, -2147483647
   %spec.select.i.i116 = select i1 %44, i32 %45, i32 %43
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = trunc i32 %spec.select.i.i116 to i8
-  %48 = and i8 %47, 1
-  store i8 %48, ptr %46, align 8, !tbaa !331
+  %46 = trunc i32 %spec.select.i.i116 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 8, !tbaa !331
   %49 = zext i32 %spec.select.i.i116 to i64
   %50 = mul nuw nsw i64 %49, 16807
   %51 = lshr i64 %50, 31
@@ -4214,10 +4214,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %55 = icmp slt i32 %54, 0
   %56 = add i32 %54, -2147483647
   %spec.select.i.i117 = select i1 %55, i32 %56, i32 %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %58 = trunc i32 %spec.select.i.i117 to i8
-  %59 = and i8 %58, 1
-  store i8 %59, ptr %57, align 4, !tbaa !332
+  %57 = trunc i32 %spec.select.i.i117 to i8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %59 = and i8 %57, 1
+  store i8 %59, ptr %58, align 4, !tbaa !332
   %60 = zext i32 %spec.select.i.i117 to i64
   %61 = mul nuw nsw i64 %60, 16807
   %62 = lshr i64 %61, 31
@@ -4227,10 +4227,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %66 = icmp slt i32 %65, 0
   %67 = add i32 %65, -2147483647
   %spec.select.i.i118 = select i1 %66, i32 %67, i32 %65
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 369
-  %69 = trunc i32 %spec.select.i.i118 to i8
-  %70 = and i8 %69, 1
-  store i8 %70, ptr %68, align 1, !tbaa !333
+  %68 = trunc i32 %spec.select.i.i118 to i8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 369
+  %70 = and i8 %68, 1
+  store i8 %70, ptr %69, align 1, !tbaa !333
   %71 = zext i32 %spec.select.i.i118 to i64
   %72 = mul nuw nsw i64 %71, 16807
   %73 = lshr i64 %72, 31
@@ -4240,10 +4240,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %77 = icmp slt i32 %76, 0
   %78 = add i32 %76, -2147483647
   %spec.select.i.i119 = select i1 %77, i32 %78, i32 %76
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 370
-  %80 = trunc i32 %spec.select.i.i119 to i8
-  %81 = and i8 %80, 1
-  store i8 %81, ptr %79, align 2, !tbaa !334
+  %79 = trunc i32 %spec.select.i.i119 to i8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 370
+  %81 = and i8 %79, 1
+  store i8 %81, ptr %80, align 2, !tbaa !334
   %82 = zext i32 %spec.select.i.i119 to i64
   %83 = mul nuw nsw i64 %82, 16807
   %84 = lshr i64 %83, 31
@@ -4253,10 +4253,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %88 = icmp slt i32 %87, 0
   %89 = add i32 %87, -2147483647
   %spec.select.i.i120 = select i1 %88, i32 %89, i32 %87
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 371
-  %91 = trunc i32 %spec.select.i.i120 to i8
-  %92 = and i8 %91, 1
-  store i8 %92, ptr %90, align 1, !tbaa !335
+  %90 = trunc i32 %spec.select.i.i120 to i8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 371
+  %92 = and i8 %90, 1
+  store i8 %92, ptr %91, align 1, !tbaa !335
   %93 = zext i32 %spec.select.i.i120 to i64
   %94 = mul nuw nsw i64 %93, 16807
   %95 = lshr i64 %94, 31
@@ -4266,11 +4266,11 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %99 = icmp slt i32 %98, 0
   %100 = add i32 %98, -2147483647
   %spec.select.i.i121 = select i1 %99, i32 %100, i32 %98
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %103 = trunc i32 %spec.select.i.i121 to i8
-  %104 = and i8 %103, 1
-  store i8 %104, ptr %102, align 8, !tbaa !336
+  %101 = trunc i32 %spec.select.i.i121 to i8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %104 = and i8 %101, 1
+  store i8 %104, ptr %103, align 8, !tbaa !336
   %105 = zext i32 %spec.select.i.i121 to i64
   %106 = mul nuw nsw i64 %105, 16807
   %107 = lshr i64 %106, 31
@@ -4280,10 +4280,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %111 = icmp slt i32 %110, 0
   %112 = add i32 %110, -2147483647
   %spec.select.i.i122 = select i1 %111, i32 %112, i32 %110
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %114 = trunc i32 %spec.select.i.i122 to i8
-  %115 = and i8 %114, 1
-  store i8 %115, ptr %113, align 8, !tbaa !337
+  %113 = trunc i32 %spec.select.i.i122 to i8
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %115 = and i8 %113, 1
+  store i8 %115, ptr %114, align 8, !tbaa !337
   %116 = zext i32 %spec.select.i.i122 to i64
   %117 = mul nuw nsw i64 %116, 16807
   %118 = lshr i64 %117, 31
@@ -4293,10 +4293,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %122 = icmp slt i32 %121, 0
   %123 = add i32 %121, -2147483647
   %spec.select.i.i123 = select i1 %122, i32 %123, i32 %121
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %125 = trunc i32 %spec.select.i.i123 to i8
-  %126 = and i8 %125, 1
-  store i8 %126, ptr %124, align 8, !tbaa !338
+  %124 = trunc i32 %spec.select.i.i123 to i8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %126 = and i8 %124, 1
+  store i8 %126, ptr %125, align 8, !tbaa !338
   %127 = zext i32 %spec.select.i.i123 to i64
   %128 = mul nuw nsw i64 %127, 16807
   %129 = lshr i64 %128, 31
@@ -4306,10 +4306,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %133 = icmp slt i32 %132, 0
   %134 = add i32 %132, -2147483647
   %spec.select.i.i124 = select i1 %133, i32 %134, i32 %132
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 449
-  %136 = trunc i32 %spec.select.i.i124 to i8
-  %137 = and i8 %136, 1
-  store i8 %137, ptr %135, align 1, !tbaa !339
+  %135 = trunc i32 %spec.select.i.i124 to i8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 449
+  %137 = and i8 %135, 1
+  store i8 %137, ptr %136, align 1, !tbaa !339
   %138 = zext i32 %spec.select.i.i124 to i64
   %139 = mul nuw nsw i64 %138, 16807
   %140 = lshr i64 %139, 31
@@ -4319,10 +4319,10 @@ define void @_ZN7rocksdb4test19RandomInitCFOptionsEPNS_19ColumnFamilyOptionsERNS
   %144 = icmp slt i32 %143, 0
   %145 = add i32 %143, -2147483647
   %spec.select.i.i125 = select i1 %144, i32 %145, i32 %143
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %147 = trunc i32 %spec.select.i.i125 to i8
-  %148 = and i8 %147, 1
-  store i8 %148, ptr %146, align 8, !tbaa !340
+  %146 = trunc i32 %spec.select.i.i125 to i8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %148 = and i8 %146, 1
+  store i8 %148, ptr %147, align 8, !tbaa !340
   %149 = zext i32 %spec.select.i.i125 to i64
   %150 = mul nuw nsw i64 %149, 16807
   %151 = lshr i64 %150, 31
@@ -4735,7 +4735,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %296, %298, %300, %3
   %473 = urem i32 %spec.select.i.i152, 10000
   %474 = zext nneg i32 %473 to i64
   %475 = add nuw nsw i64 %474, 4294967295
-  store i64 %475, ptr %101, align 8, !tbaa !369
+  store i64 %475, ptr %102, align 8, !tbaa !369
   %476 = zext i32 %spec.select.i.i152 to i64
   %477 = mul nuw nsw i64 %476, 16807
   %478 = lshr i64 %477, 31

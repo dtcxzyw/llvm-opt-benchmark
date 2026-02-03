@@ -8613,7 +8613,7 @@ define hidden { i1, i64 } @_ZN7tracing4span4Span8in_scope17h4918471540fc3346E(pt
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN12tracing_core10dispatcher8Dispatch4exit17h4e9fe31d76afa51cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
-          to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit" unwind label %29
+          to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit" unwind label %28
 
 22:                                               ; preds = %16, %.noexc
   br i1 %.not, label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit6", label %23
@@ -8624,14 +8624,13 @@ define hidden { i1, i64 } @_ZN7tracing4span4Span8in_scope17h4918471540fc3346E(pt
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit6"
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit6": ; preds = %22, %23
-  %25 = and i8 %11, 1
-  %26 = icmp ne i8 %25, 0
-  %27 = insertvalue { i1, i64 } poison, i1 %26, 0
-  %28 = insertvalue { i1, i64 } %27, i64 %13, 1
-  ret { i1, i64 } %28
+  %25 = trunc i8 %11 to i1
+  %26 = insertvalue { i1, i64 } poison, i1 %25, 0
+  %27 = insertvalue { i1, i64 } %26, i64 %13, 1
+  ret { i1, i64 } %27
 
-29:                                               ; preds = %20
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %20
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
   unreachable

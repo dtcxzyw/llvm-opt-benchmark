@@ -748,8 +748,7 @@ define dso_local ptr @parse_object_with_flags(ptr noundef %0, ptr noundef %1, i3
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = and i32 %2, 1
-  %.not59 = icmp eq i32 %7, 0
+  %7 = trunc i32 %2 to i1
   %8 = and i32 %2, 2
   %9 = icmp ne i32 %8, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -786,8 +785,8 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   %26 = load ptr, ptr %25, align 8, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !37
-  %.not.i62 = icmp eq ptr %28, null
-  br i1 %.not.i62, label %lookup_object.exit.thread, label %29
+  %.not.i61 = icmp eq ptr %28, null
+  br i1 %.not.i61, label %lookup_object.exit.thread, label %29
 
 29:                                               ; preds = %lookup_replace_object.exit
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 20
@@ -804,9 +803,9 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
 
 .lr.ph.i.preheader:                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %bcmp.i.i98 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %38, i64 32)
-  %.not.i.not.i99 = icmp eq i32 %bcmp.i.i98, 0
-  br i1 %.not.i.not.i99, label %lookup_object.exit, label %.lr.ph
+  %bcmp.i.i97 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %38, i64 32)
+  %.not.i.not.i98 = icmp eq i32 %bcmp.i.i97, 0
+  br i1 %.not.i.not.i98, label %lookup_object.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -815,8 +814,8 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   br i1 %.not.i.not.i, label %.lr.ph.i._crit_edge, label %.lr.ph, !llvm.loop !45
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.02334.i100 = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ %33, %.lr.ph.i.preheader ]
-  %40 = add i32 %.02334.i100, 1
+  %.02334.i99 = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ %33, %.lr.ph.i.preheader ]
+  %40 = add i32 %.02334.i99, 1
   %41 = icmp eq i32 %40, %31
   %spec.store.select.i = select i1 %41, i32 0, i32 %40
   %42 = zext i32 %spec.store.select.i to i64
@@ -837,27 +836,27 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   br label %lookup_object.exit
 
 lookup_object.exit:                               ; preds = %.lr.ph.i.preheader, %46, %.lr.ph.i._crit_edge
-  %.lcssa95138 = phi ptr [ %44, %.lr.ph.i._crit_edge ], [ %44, %46 ], [ %36, %.lr.ph.i.preheader ]
-  %49 = load i32, ptr %.lcssa95138, align 4
+  %.lcssa94137 = phi ptr [ %44, %.lr.ph.i._crit_edge ], [ %44, %46 ], [ %36, %.lr.ph.i.preheader ]
+  %49 = load i32, ptr %.lcssa94137, align 4
   %50 = and i32 %49, 1
   %.not57 = icmp eq i32 %50, 0
-  br i1 %.not57, label %lookup_object.exit.thread, label %lookup_object.exit77
+  br i1 %.not57, label %lookup_object.exit.thread, label %lookup_object.exit76
 
 lookup_object.exit.thread:                        ; preds = %.lr.ph, %29, %lookup_replace_object.exit, %lookup_object.exit
-  %.not84 = phi i1 [ false, %lookup_object.exit ], [ true, %lookup_replace_object.exit ], [ true, %29 ], [ true, %.lr.ph ]
-  %.0.i6383 = phi ptr [ %.lcssa95138, %lookup_object.exit ], [ null, %lookup_replace_object.exit ], [ null, %29 ], [ null, %.lr.ph ]
-  br i1 %.not59, label %53, label %51
+  %.not83 = phi i1 [ false, %lookup_object.exit ], [ true, %lookup_replace_object.exit ], [ true, %29 ], [ true, %.lr.ph ]
+  %.0.i6282 = phi ptr [ %.lcssa94137, %lookup_object.exit ], [ null, %lookup_replace_object.exit ], [ null, %29 ], [ null, %.lr.ph ]
+  br i1 %7, label %51, label %53
 
 51:                                               ; preds = %lookup_object.exit.thread
   %52 = tail call ptr @lookup_commit_in_graph(ptr noundef %0, ptr noundef %.0.i) #21
   %.not58 = icmp eq ptr %52, null
-  br i1 %.not58, label %53, label %lookup_object.exit77
+  br i1 %.not58, label %53, label %lookup_object.exit76
 
 53:                                               ; preds = %51, %lookup_object.exit.thread
-  br i1 %.not84, label %58, label %54
+  br i1 %.not83, label %58, label %54
 
 54:                                               ; preds = %53
-  %55 = load i32, ptr %.0.i6383, align 4
+  %55 = load i32, ptr %.0.i6282, align 4
   %56 = and i32 %55, 14
   %57 = icmp eq i32 %56, 6
   br i1 %57, label %58, label %.thread
@@ -868,7 +867,7 @@ lookup_object.exit.thread:                        ; preds = %.lr.ph, %29, %looku
   br i1 %60, label %61, label %96
 
 61:                                               ; preds = %58
-  br i1 %.not59, label %62, label %71
+  br i1 %7, label %71, label %62
 
 62:                                               ; preds = %61
   %63 = tail call i32 @stream_object_signature(ptr noundef %0, ptr noundef %.0.i) #21
@@ -885,10 +884,10 @@ lookup_object.exit.thread:                        ; preds = %.lr.ph, %29, %looku
   br label %_.exit
 
 _.exit:                                           ; preds = %65, %67
-  %.0.i64 = phi ptr [ %68, %67 ], [ @.str.6, %65 ]
+  %.0.i63 = phi ptr [ %68, %67 ], [ @.str.6, %65 ]
   %69 = tail call ptr @oid_to_hex(ptr noundef %1) #21
-  %70 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i64, ptr noundef %69) #21
-  br label %lookup_object.exit77
+  %70 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i63, ptr noundef %69) #21
+  br label %lookup_object.exit76
 
 71:                                               ; preds = %62, %61
   %72 = tail call ptr @lookup_blob(ptr noundef %0, ptr noundef %1) #21
@@ -896,55 +895,55 @@ _.exit:                                           ; preds = %65, %67
   %73 = load ptr, ptr %25, align 8, !tbaa !9
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !37
-  %.not.i65 = icmp eq ptr %75, null
-  br i1 %.not.i65, label %lookup_object.exit77, label %76
+  %.not.i64 = icmp eq ptr %75, null
+  br i1 %.not.i64, label %lookup_object.exit76, label %76
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %78 = load i32, ptr %77, align 4, !tbaa !30
-  %.val.i66 = load i32, ptr %1, align 4
+  %.val.i65 = load i32, ptr %1, align 4
   %79 = add i32 %78, -1
-  %80 = and i32 %79, %.val.i66
+  %80 = and i32 %79, %.val.i65
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw ptr, ptr %75, i64 %81
   %83 = load ptr, ptr %82, align 8
-  %.not2633.i67 = icmp eq ptr %83, null
+  %.not2633.i66 = icmp eq ptr %83, null
   %84 = ptrtoint ptr %83 to i64
-  br i1 %.not2633.i67, label %lookup_object.exit77, label %.lr.ph.i68.preheader
+  br i1 %.not2633.i66, label %lookup_object.exit76, label %.lr.ph.i67.preheader
 
-.lr.ph.i68.preheader:                             ; preds = %76
+.lr.ph.i67.preheader:                             ; preds = %76
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %bcmp.i.i71104 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %85, i64 32)
-  %.not.i.not.i72105 = icmp eq i32 %bcmp.i.i71104, 0
-  br i1 %.not.i.not.i72105, label %lookup_object.exit77, label %.lr.ph107
+  %bcmp.i.i70103 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %85, i64 32)
+  %.not.i.not.i71104 = icmp eq i32 %bcmp.i.i70103, 0
+  br i1 %.not.i.not.i71104, label %lookup_object.exit76, label %.lr.ph106
 
-.lr.ph.i68:                                       ; preds = %.lr.ph107
+.lr.ph.i67:                                       ; preds = %.lr.ph106
   %86 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %bcmp.i.i71 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %86, i64 32)
-  %.not.i.not.i72 = icmp eq i32 %bcmp.i.i71, 0
-  br i1 %.not.i.not.i72, label %.lr.ph.i68._crit_edge, label %.lr.ph107, !llvm.loop !45
+  %bcmp.i.i70 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull readonly dereferenceable(32) %86, i64 32)
+  %.not.i.not.i71 = icmp eq i32 %bcmp.i.i70, 0
+  br i1 %.not.i.not.i71, label %.lr.ph.i67._crit_edge, label %.lr.ph106, !llvm.loop !45
 
-.lr.ph107:                                        ; preds = %.lr.ph.i68.preheader, %.lr.ph.i68
-  %.02334.i70106 = phi i32 [ %spec.store.select.i73, %.lr.ph.i68 ], [ %80, %.lr.ph.i68.preheader ]
-  %87 = add i32 %.02334.i70106, 1
+.lr.ph106:                                        ; preds = %.lr.ph.i67.preheader, %.lr.ph.i67
+  %.02334.i69105 = phi i32 [ %spec.store.select.i72, %.lr.ph.i67 ], [ %80, %.lr.ph.i67.preheader ]
+  %87 = add i32 %.02334.i69105, 1
   %88 = icmp eq i32 %87, %78
-  %spec.store.select.i73 = select i1 %88, i32 0, i32 %87
-  %89 = zext i32 %spec.store.select.i73 to i64
+  %spec.store.select.i72 = select i1 %88, i32 0, i32 %87
+  %89 = zext i32 %spec.store.select.i72 to i64
   %90 = getelementptr inbounds nuw ptr, ptr %75, i64 %89
   %91 = load ptr, ptr %90, align 8
-  %.not26.i74 = icmp eq ptr %91, null
-  br i1 %.not26.i74, label %lookup_object.exit77, label %.lr.ph.i68, !llvm.loop !45
+  %.not26.i73 = icmp eq ptr %91, null
+  br i1 %.not26.i73, label %lookup_object.exit76, label %.lr.ph.i67, !llvm.loop !45
 
-.lr.ph.i68._crit_edge:                            ; preds = %.lr.ph.i68
-  %92 = icmp eq i32 %spec.store.select.i73, %80
-  br i1 %92, label %lookup_object.exit77, label %93
+.lr.ph.i67._crit_edge:                            ; preds = %.lr.ph.i67
+  %92 = icmp eq i32 %spec.store.select.i72, %80
+  br i1 %92, label %lookup_object.exit76, label %93
 
-93:                                               ; preds = %.lr.ph.i68._crit_edge
+93:                                               ; preds = %.lr.ph.i67._crit_edge
   %94 = ptrtoint ptr %91 to i64
   %95 = getelementptr inbounds nuw ptr, ptr %75, i64 %89
   store i64 %84, ptr %95, align 1
   store i64 %94, ptr %82, align 1
-  br label %lookup_object.exit77
+  br label %lookup_object.exit76
 
 96:                                               ; preds = %58
   %97 = and i32 %2, 3
@@ -953,38 +952,38 @@ _.exit:                                           ; preds = %65, %67
 
 .thread:                                          ; preds = %54
   %98 = and i32 %2, 3
-  %or.cond85 = icmp eq i32 %98, 3
-  br i1 %or.cond85, label %.thread86, label %106
+  %or.cond84 = icmp eq i32 %98, 3
+  br i1 %or.cond84, label %.thread85, label %106
 
 99:                                               ; preds = %96
-  br i1 %.not84, label %101, label %..thread86_crit_edge
+  br i1 %.not83, label %101, label %..thread85_crit_edge
 
-..thread86_crit_edge:                             ; preds = %99
-  %.pre = load i32, ptr %.0.i6383, align 4
-  %.pre124 = and i32 %.pre, 14
-  br label %.thread86
+..thread85_crit_edge:                             ; preds = %99
+  %.pre = load i32, ptr %.0.i6282, align 4
+  %.pre123 = and i32 %.pre, 14
+  br label %.thread85
 
-.thread86:                                        ; preds = %..thread86_crit_edge, %.thread
-  %.pre-phi = phi i32 [ %.pre124, %..thread86_crit_edge ], [ %56, %.thread ]
+.thread85:                                        ; preds = %..thread85_crit_edge, %.thread
+  %.pre-phi = phi i32 [ %.pre123, %..thread85_crit_edge ], [ %56, %.thread ]
   %100 = icmp eq i32 %.pre-phi, 4
   br i1 %100, label %101, label %106
 
-101:                                              ; preds = %.thread86, %99
+101:                                              ; preds = %.thread85, %99
   %102 = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %1, ptr noundef null) #21
   %103 = icmp eq i32 %102, 2
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %101
   %105 = tail call ptr @lookup_tree(ptr noundef %0, ptr noundef %1) #21
-  br label %lookup_object.exit77
+  br label %lookup_object.exit76
 
-106:                                              ; preds = %.thread, %101, %.thread86, %96
+106:                                              ; preds = %.thread, %101, %.thread85, %96
   %107 = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4) #21
-  %.not60 = icmp eq ptr %107, null
-  br i1 %.not60, label %lookup_object.exit77, label %108
+  %.not59 = icmp eq ptr %107, null
+  br i1 %.not59, label %lookup_object.exit76, label %108
 
 108:                                              ; preds = %106
-  br i1 %.not59, label %109, label %120
+  br i1 %7, label %120, label %109
 
 109:                                              ; preds = %108
   %110 = load i64, ptr %4, align 8, !tbaa !70
@@ -996,26 +995,26 @@ _.exit:                                           ; preds = %65, %67
 114:                                              ; preds = %109
   call void @free(ptr noundef nonnull %107) #21
   %115 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !44
-  %.not4.i78 = icmp eq i32 %115, 0
-  br i1 %.not4.i78, label %_.exit80, label %116
+  %.not4.i77 = icmp eq i32 %115, 0
+  br i1 %.not4.i77, label %_.exit79, label %116
 
 116:                                              ; preds = %114
   %117 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #21
-  br label %_.exit80
+  br label %_.exit79
 
-_.exit80:                                         ; preds = %114, %116
-  %.0.i79 = phi ptr [ %117, %116 ], [ @.str.6, %114 ]
+_.exit79:                                         ; preds = %114, %116
+  %.0.i78 = phi ptr [ %117, %116 ], [ @.str.6, %114 ]
   %118 = call ptr @oid_to_hex(ptr noundef %.0.i) #21
-  %119 = call i32 (ptr, ...) @error(ptr noundef %.0.i79, ptr noundef %118) #21
-  br label %lookup_object.exit77
+  %119 = call i32 (ptr, ...) @error(ptr noundef %.0.i78, ptr noundef %118) #21
+  br label %lookup_object.exit76
 
 120:                                              ; preds = %109, %108
   %121 = load i32, ptr %5, align 4, !tbaa !44
   %122 = load i64, ptr %4, align 8, !tbaa !70
   %123 = call ptr @parse_object_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %121, i64 noundef %122, ptr noundef nonnull %107, ptr noundef nonnull %6)
   %124 = load i32, ptr %6, align 4, !tbaa !44
-  %.not61 = icmp eq i32 %124, 0
-  br i1 %.not61, label %125, label %126
+  %.not60 = icmp eq i32 %124, 0
+  br i1 %.not60, label %125, label %126
 
 125:                                              ; preds = %120
   call void @free(ptr noundef nonnull %107) #21
@@ -1025,14 +1024,14 @@ _.exit80:                                         ; preds = %114, %116
   %127 = load i32, ptr %5, align 4
   %128 = icmp eq i32 %127, 2
   %or.cond3 = select i1 %9, i1 %128, i1 false
-  br i1 %or.cond3, label %129, label %lookup_object.exit77
+  br i1 %or.cond3, label %129, label %lookup_object.exit76
 
 129:                                              ; preds = %126
   call void @free_tree_buffer(ptr noundef %123) #21
-  br label %lookup_object.exit77
+  br label %lookup_object.exit76
 
-lookup_object.exit77:                             ; preds = %.lr.ph107, %.lr.ph.i68.preheader, %93, %.lr.ph.i68._crit_edge, %76, %71, %106, %126, %129, %lookup_object.exit, %51, %_.exit80, %104, %_.exit
-  %.0 = phi ptr [ %52, %51 ], [ null, %106 ], [ null, %_.exit ], [ %105, %104 ], [ %.lcssa95138, %lookup_object.exit ], [ null, %_.exit80 ], [ %123, %126 ], [ %123, %129 ], [ null, %71 ], [ %91, %.lr.ph.i68._crit_edge ], [ %91, %93 ], [ null, %76 ], [ %83, %.lr.ph.i68.preheader ], [ null, %.lr.ph107 ]
+lookup_object.exit76:                             ; preds = %.lr.ph106, %.lr.ph.i67.preheader, %93, %.lr.ph.i67._crit_edge, %76, %71, %106, %126, %129, %lookup_object.exit, %51, %_.exit79, %104, %_.exit
+  %.0 = phi ptr [ %52, %51 ], [ null, %106 ], [ null, %_.exit ], [ %105, %104 ], [ %.lcssa94137, %lookup_object.exit ], [ null, %_.exit79 ], [ %123, %126 ], [ %123, %129 ], [ null, %71 ], [ %91, %.lr.ph.i67._crit_edge ], [ %91, %93 ], [ null, %76 ], [ %83, %.lr.ph.i67.preheader ], [ null, %.lr.ph106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

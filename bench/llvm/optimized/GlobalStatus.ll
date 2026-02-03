@@ -251,26 +251,26 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
 
 11:                                               ; preds = %5, %9, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.sroa.0201.0229 = load ptr, ptr %12, align 8, !tbaa !34
-  %.not213230.not = icmp eq ptr %.sroa.0201.0229, null
-  br i1 %.not213230.not, label %.critedge166, label %.lr.ph
+  %.sroa.0201.0227 = load ptr, ptr %12, align 8, !tbaa !34
+  %.not213228.not = icmp eq ptr %.sroa.0201.0227, null
+  br i1 %.not213228.not, label %.critedge166, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.critedge155
-  %.sroa.0201.0231 = phi ptr [ %.sroa.0201.0229, %.lr.ph ], [ %.sroa.0201.0, %.critedge155 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0231, i64 24
+  %.sroa.0201.0229 = phi ptr [ %.sroa.0201.0227, %.lr.ph ], [ %.sroa.0201.0, %.critedge155 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0229, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !35
   %26 = load i8, ptr %25, align 8, !tbaa !29
   %27 = icmp ugt i8 %26, 21
@@ -302,7 +302,7 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
   br i1 %40, label %.critedge166, label %41
 
 41:                                               ; preds = %39
-  %42 = load i8, ptr %14, align 8, !tbaa !52, !range !20, !noundef !24
+  %42 = load i8, ptr %13, align 8, !tbaa !52, !range !20, !noundef !24
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %53, label %44
 
@@ -311,12 +311,12 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
   %46 = load ptr, ptr %45, align 8, !tbaa !53
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !56
-  %49 = load ptr, ptr %15, align 8, !tbaa !72
+  %49 = load ptr, ptr %14, align 8, !tbaa !72
   %.not143 = icmp eq ptr %49, null
   br i1 %.not143, label %50, label %51
 
 50:                                               ; preds = %44
-  store ptr %48, ptr %15, align 8, !tbaa !72
+  store ptr %48, ptr %14, align 8, !tbaa !72
   br label %53
 
 51:                                               ; preds = %44
@@ -324,7 +324,7 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
   br i1 %.not144, label %53, label %52
 
 52:                                               ; preds = %51
-  store i8 1, ptr %14, align 8, !tbaa !52
+  store i8 1, ptr %13, align 8, !tbaa !52
   br label %53
 
 53:                                               ; preds = %50, %52, %51, %41
@@ -338,15 +338,14 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
   ]
 
 54:                                               ; preds = %53
-  store i8 1, ptr %13, align 1, !tbaa !47
+  store i8 1, ptr %22, align 1, !tbaa !47
   %55 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %56 = load i16, ptr %55, align 2, !tbaa !73
-  %57 = and i16 %56, 1
-  %.not220 = icmp eq i16 %57, 0
-  br i1 %.not220, label %58, label %.critedge166
+  %57 = trunc i16 %56 to i1
+  br i1 %57, label %.critedge166, label %58
 
 58:                                               ; preds = %54
-  %59 = load i32, ptr %20, align 4, !tbaa !50
+  %59 = load i32, ptr %19, align 4, !tbaa !50
   %60 = lshr i16 %56, 7
   %61 = and i16 %60, 7
   %62 = zext nneg i16 %61 to i32
@@ -367,7 +366,7 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
 
 _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit: ; preds = %58, %65, %68
   %.0.i = phi i32 [ %.sroa.speculated.i, %68 ], [ 6, %65 ], [ 6, %58 ]
-  store i32 %.0.i, ptr %20, align 4, !tbaa !50
+  store i32 %.0.i, ptr %19, align 4, !tbaa !50
   br label %.critedge155
 
 69:                                               ; preds = %53
@@ -379,15 +378,14 @@ _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit: ; preds = %58, %65, %68
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !73
-  %76 = and i16 %75, 1
-  %.not223 = icmp eq i16 %76, 0
-  br i1 %.not223, label %77, label %.critedge166
+  %76 = trunc i16 %75 to i1
+  br i1 %76, label %.critedge166, label %77
 
 77:                                               ; preds = %73
-  %78 = load i32, ptr %19, align 4, !tbaa !48
+  %78 = load i32, ptr %18, align 4, !tbaa !48
   %79 = add i32 %78, 1
-  store i32 %79, ptr %19, align 4, !tbaa !48
-  %80 = load i32, ptr %20, align 4, !tbaa !50
+  store i32 %79, ptr %18, align 4, !tbaa !48
+  %80 = load i32, ptr %19, align 4, !tbaa !50
   %81 = lshr i16 %75, 7
   %82 = and i16 %81, 7
   %83 = zext nneg i16 %82 to i32
@@ -408,8 +406,8 @@ _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit: ; preds = %58, %65, %68
 
 _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit178: ; preds = %77, %86, %89
   %.0.i177 = phi i32 [ %.sroa.speculated.i176, %89 ], [ 6, %86 ], [ 6, %77 ]
-  store i32 %.0.i177, ptr %20, align 4, !tbaa !50
-  %90 = load i32, ptr %21, align 8, !tbaa !49
+  store i32 %.0.i177, ptr %19, align 4, !tbaa !50
+  %90 = load i32, ptr %20, align 8, !tbaa !49
   %.not150 = icmp eq i32 %90, 3
   br i1 %.not150, label %.critedge155, label %91
 
@@ -418,8 +416,8 @@ _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit178: ; preds = %77, %86, %89
   %93 = load ptr, ptr %92, align 8, !tbaa !74
   %94 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %93) #9
   %95 = load i8, ptr %94, align 8, !tbaa !29
-  %.not225 = icmp eq i8 %95, 3
-  br i1 %.not225, label %96, label %134
+  %.not223 = icmp eq i8 %95, 3
+  br i1 %.not223, label %96, label %134
 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %70, align 8, !tbaa !74
@@ -442,12 +440,12 @@ _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit178: ; preds = %77, %86, %89
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %104
-  %109 = load i32, ptr %21, align 8, !tbaa !49
+  %109 = load i32, ptr %20, align 8, !tbaa !49
   %110 = icmp slt i32 %109, 1
   br i1 %110, label %111, label %.critedge155
 
 111:                                              ; preds = %108
-  store i32 1, ptr %21, align 8, !tbaa !49
+  store i32 1, ptr %20, align 8, !tbaa !49
   br label %.critedge155
 
 112:                                              ; preds = %104, %102
@@ -462,45 +460,45 @@ _ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit178: ; preds = %77, %86, %89
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %115
-  %120 = load i32, ptr %21, align 8, !tbaa !49
+  %120 = load i32, ptr %20, align 8, !tbaa !49
   %121 = icmp slt i32 %120, 1
   br i1 %121, label %122, label %.critedge155
 
 122:                                              ; preds = %119
-  store i32 1, ptr %21, align 8, !tbaa !49
+  store i32 1, ptr %20, align 8, !tbaa !49
   br label %.critedge155
 
 123:                                              ; preds = %115, %112
-  %124 = load i32, ptr %21, align 8, !tbaa !49
+  %124 = load i32, ptr %20, align 8, !tbaa !49
   %125 = icmp slt i32 %124, 2
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %123
-  store i32 2, ptr %21, align 8, !tbaa !49
-  store ptr %25, ptr %22, align 8, !tbaa !75
+  store i32 2, ptr %20, align 8, !tbaa !49
+  store ptr %25, ptr %21, align 8, !tbaa !75
   br label %.critedge155
 
 127:                                              ; preds = %123
   %128 = icmp eq i32 %124, 2
-  br i1 %128, label %129, label %.critedge227
+  br i1 %128, label %129, label %.critedge225
 
 129:                                              ; preds = %127
-  %130 = load ptr, ptr %22, align 8, !tbaa !75
+  %130 = load ptr, ptr %21, align 8, !tbaa !75
   %.not.i = icmp eq ptr %130, null
-  br i1 %.not.i, label %.critedge227, label %_ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit
+  br i1 %.not.i, label %.critedge225, label %_ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit
 
 _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -64
   %132 = load ptr, ptr %131, align 8, !tbaa !74
   %133 = icmp eq ptr %132, %97
-  br i1 %133, label %.critedge155, label %.critedge227
+  br i1 %133, label %.critedge155, label %.critedge225
 
-.critedge227:                                     ; preds = %129, %_ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit, %127
-  store i32 3, ptr %21, align 8, !tbaa !49
+.critedge225:                                     ; preds = %129, %_ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit, %127
+  store i32 3, ptr %20, align 8, !tbaa !49
   br label %.critedge155
 
 134:                                              ; preds = %91
-  store i32 3, ptr %21, align 8, !tbaa !49
+  store i32 3, ptr %20, align 8, !tbaa !49
   br label %.critedge155
 
 135:                                              ; preds = %53, %53
@@ -508,13 +506,13 @@ _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %129
   br i1 %136, label %.critedge166, label %.critedge155
 
 137:                                              ; preds = %53, %53
-  %138 = load i8, ptr %16, align 4, !tbaa !16, !range !20, !noalias !76, !noundef !24
+  %138 = load i8, ptr %15, align 4, !tbaa !16, !range !20, !noalias !76, !noundef !24
   %139 = trunc nuw i8 %138 to i1
   br i1 %139, label %140, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %2, align 8, !tbaa !10, !noalias !76
-  %142 = load i32, ptr %17, align 4, !tbaa !14, !noalias !76
+  %142 = load i32, ptr %16, align 4, !tbaa !14, !noalias !76
   %143 = zext i32 %142 to i64
   %.idx.i.i = shl nuw nsw i64 %143, 3
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 %.idx.i.i
@@ -533,13 +531,13 @@ _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %129
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.critedge.i.i, %140
-  %147 = load i32, ptr %18, align 8, !tbaa !13, !noalias !76
+  %147 = load i32, ptr %17, align 8, !tbaa !13, !noalias !76
   %148 = icmp ult i32 %142, %147
-  br i1 %148, label %.critedge274, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+  br i1 %148, label %.critedge272, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
-.critedge274:                                     ; preds = %._crit_edge.i.i
+.critedge272:                                     ; preds = %._crit_edge.i.i
   %149 = add nuw i32 %142, 1
-  store i32 %149, ptr %17, align 4, !tbaa !14, !noalias !76
+  store i32 %149, ptr %16, align 4, !tbaa !14, !noalias !76
   store ptr %25, ptr %144, align 8, !tbaa !25, !noalias !76
   br label %153
 
@@ -549,7 +547,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %.critedge155
 
-153:                                              ; preds = %.critedge274, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+153:                                              ; preds = %.critedge272, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %154 = tail call fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueERNS_12GlobalStatusERNS_15SmallPtrSetImplIS2_EE(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(21) %2)
   br i1 %154, label %.critedge166, label %.critedge155
 
@@ -617,23 +615,23 @@ _ZN4llvm8dyn_castINS_15MemTransferInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   br i1 %186, label %187, label %188
 
 187:                                              ; preds = %178
-  store i32 3, ptr %21, align 8, !tbaa !49
-  %.pre260 = load i32, ptr %179, align 4
-  %.pre261 = and i32 %.pre260, 134217727
-  %.pre262 = zext nneg i32 %.pre261 to i64
-  %.pre264 = sub nsw i64 0, %.pre262
+  store i32 3, ptr %20, align 8, !tbaa !49
+  %.pre258 = load i32, ptr %179, align 4
+  %.pre259 = and i32 %.pre258, 134217727
+  %.pre260 = zext nneg i32 %.pre259 to i64
+  %.pre262 = sub nsw i64 0, %.pre260
   br label %188
 
 188:                                              ; preds = %187, %178
-  %.pre-phi265 = phi i64 [ %.pre264, %187 ], [ %183, %178 ]
-  %189 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %.pre-phi265
+  %.pre-phi263 = phi i64 [ %.pre262, %187 ], [ %183, %178 ]
+  %189 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %.pre-phi263
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load ptr, ptr %190, align 8, !tbaa !74
   %192 = icmp eq ptr %191, %0
   br i1 %192, label %193, label %.critedge155
 
 193:                                              ; preds = %188
-  store i8 1, ptr %13, align 1, !tbaa !47
+  store i8 1, ptr %22, align 1, !tbaa !47
   br label %.critedge155
 
 194:                                              ; preds = %174, %163, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %158, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %160
@@ -646,7 +644,7 @@ _ZN4llvm8dyn_castINS_15MemTransferInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   br i1 %197, label %.critedge166, label %198
 
 198:                                              ; preds = %196
-  store i32 3, ptr %21, align 8, !tbaa !49
+  store i32 3, ptr %20, align 8, !tbaa !49
   br label %.critedge155
 
 199:                                              ; preds = %194
@@ -668,15 +666,15 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %199, 
 
 205:                                              ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit
   %206 = getelementptr inbounds i8, ptr %25, i64 -32
-  %207 = icmp eq ptr %206, %.sroa.0201.0231
+  %207 = icmp eq ptr %206, %.sroa.0201.0229
   br i1 %207, label %208, label %.critedge166
 
 208:                                              ; preds = %205
-  store i8 1, ptr %13, align 1, !tbaa !47
+  store i8 1, ptr %22, align 1, !tbaa !47
   br label %.critedge155
 
-.critedge155:                                     ; preds = %.lr.ph.i.i, %_ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit, %198, %208, %203, %134, %188, %193, %135, %157, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %153, %_ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit178, %111, %108, %126, %_ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit, %.critedge227, %119, %122, %36, %.critedge
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0231, i64 8
+.critedge155:                                     ; preds = %.lr.ph.i.i, %_ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit, %198, %208, %203, %134, %188, %193, %135, %157, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %153, %_ZL16strongerOrderingN4llvm14AtomicOrderingES0_.exit178, %111, %108, %126, %_ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit, %.critedge225, %119, %122, %36, %.critedge
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.0201.0229, i64 8
   %.sroa.0201.0 = load ptr, ptr %209, align 8, !tbaa !34
   %.not213.not = icmp eq ptr %.sroa.0201.0, null
   br i1 %.not213.not, label %.critedge166, label %23

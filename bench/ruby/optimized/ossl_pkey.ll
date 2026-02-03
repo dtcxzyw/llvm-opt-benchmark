@@ -1035,9 +1035,8 @@ define internal i64 @ossl_pkey_inspect(i64 noundef %0) #0 {
   br label %rb_class_of.exit
 
 17:                                               ; preds = %14
-  %18 = and i64 %0, 1
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %19, label %rb_class_of.exit
+  %18 = trunc i64 %0 to i1
+  br i1 %18, label %rb_class_of.exit, label %19
 
 19:                                               ; preds = %17
   %20 = and i64 %0, 254

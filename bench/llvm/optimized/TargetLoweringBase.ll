@@ -8463,9 +8463,8 @@ declare void @_ZN4llvm19MachineRegisterInfo18freezeReservedRegsEv(ptr noundef no
 define dso_local noundef zeroext range(i16 1, 0) i16 @_ZNK4llvm18TargetLoweringBase22getLoadMemOperandFlagsERKNS_8LoadInstERKNS_10DataLayoutEPNS_15AssumptionCacheEPKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull align 8 dereferenceable(496) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2, !tbaa !732
-  %8 = and i16 %7, 1
-  %.not = icmp eq i16 %8, 0
-  %spec.select = select i1 %.not, i16 1, i16 5
+  %8 = trunc i16 %7 to i1
+  %spec.select = select i1 %8, i16 5, i16 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 536870912
@@ -8474,19 +8473,19 @@ define dso_local noundef zeroext range(i16 1, 0) i16 @_ZNK4llvm18TargetLoweringB
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit.thread: ; preds = %5
   %12 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 9) #28
-  %.not25 = icmp eq ptr %12, null
+  %.not = icmp eq ptr %12, null
   %13 = or disjoint i16 %spec.select, 8
-  %spec.select22 = select i1 %.not25, i16 %spec.select, i16 %13
+  %spec.select22 = select i1 %.not, i16 %spec.select, i16 %13
   %.pre = load i32, ptr %9, align 4
-  %.pre27 = and i32 %.pre, 536870912
-  %14 = icmp eq i32 %.pre27, 0
+  %.pre26 = and i32 %.pre, 536870912
+  %14 = icmp eq i32 %.pre26, 0
   br i1 %14, label %_ZNK4llvm11Instruction11hasMetadataEj.exit14.thread, label %_ZNK4llvm11Instruction11hasMetadataEj.exit14
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit14:     ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread
   %15 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 6) #28
-  %.not26 = icmp eq ptr %15, null
+  %.not25 = icmp eq ptr %15, null
   %16 = or disjoint i16 %spec.select22, 32
-  %spec.select23 = select i1 %.not26, i16 %spec.select22, i16 %16
+  %spec.select23 = select i1 %.not25, i16 %spec.select22, i16 %16
   br label %_ZNK4llvm11Instruction11hasMetadataEj.exit14.thread
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit14.thread: ; preds = %5, %_ZNK4llvm11Instruction11hasMetadataEj.exit14, %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread
@@ -8516,9 +8515,8 @@ declare noundef zeroext i1 @_ZN4llvm34isDereferenceableAndAlignedPointerEPKNS_5V
 define dso_local noundef zeroext range(i16 2, 0) i16 @_ZNK4llvm18TargetLoweringBase23getStoreMemOperandFlagsERKNS_9StoreInstERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(496) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %5 = load i16, ptr %4, align 2, !tbaa !732
-  %6 = and i16 %5, 1
-  %.not = icmp eq i16 %6, 0
-  %spec.select = select i1 %.not, i16 2, i16 6
+  %6 = trunc i16 %5 to i1
+  %spec.select = select i1 %6, i16 6, i16 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 536870912
@@ -8527,9 +8525,9 @@ define dso_local noundef zeroext range(i16 2, 0) i16 @_ZNK4llvm18TargetLoweringB
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit:       ; preds = %3
   %10 = tail call noundef ptr @_ZNK4llvm5Value15getMetadataImplEj(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 9) #28
-  %.not9 = icmp eq ptr %10, null
+  %.not = icmp eq ptr %10, null
   %11 = or disjoint i16 %spec.select, 8
-  %spec.select8 = select i1 %.not9, i16 %spec.select, i16 %11
+  %spec.select8 = select i1 %.not, i16 %spec.select, i16 %11
   br label %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread
 
 _ZNK4llvm11Instruction11hasMetadataEj.exit.thread: ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit, %3
@@ -8556,9 +8554,8 @@ define dso_local noundef zeroext range(i16 3, 0) i16 @_ZNK4llvm18TargetLoweringB
 7:                                                ; preds = %3, %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2, !tbaa !732
-  %10 = and i16 %9, 1
-  %.not14 = icmp eq i16 %10, 0
-  %spec.select12 = select i1 %.not14, i16 3, i16 7
+  %10 = trunc i16 %9 to i1
+  %spec.select12 = select i1 %10, i16 7, i16 3
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8

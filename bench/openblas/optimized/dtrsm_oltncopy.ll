@@ -186,42 +186,41 @@ define noundef i32 @dtrsm_oltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.089.lcssa = phi ptr [ %5, %6 ], [ %5, %.lr.ph104.split.split.us.preheader ], [ %.2.us, %._crit_edge105.loopexit ], [ %80, %._crit_edge105.loopexit127 ]
   %.083.lcssa = phi i64 [ %4, %6 ], [ %70, %.lr.ph104.split.split.us.preheader ], [ %86, %._crit_edge105.loopexit ], [ %88, %._crit_edge105.loopexit127 ]
   %.082.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.lr.ph104.split.split.us.preheader ], [ %33, %._crit_edge105.loopexit ], [ %81, %._crit_edge105.loopexit127 ]
-  %89 = and i64 %1, 1
-  %.not = icmp ne i64 %89, 0
-  %90 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not, %90
+  %.not = trunc i64 %1 to i1
+  %89 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %89, %.not
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %._crit_edge105, %99
-  %.1125 = phi ptr [ %100, %99 ], [ %.082.lcssa, %._crit_edge105 ]
-  %.186124 = phi i64 [ %102, %99 ], [ 0, %._crit_edge105 ]
-  %.3122 = phi ptr [ %101, %99 ], [ %.089.lcssa, %._crit_edge105 ]
-  %91 = icmp eq i64 %.186124, %.083.lcssa
-  br i1 %91, label %92, label %95
+.lr.ph:                                           ; preds = %._crit_edge105, %98
+  %.1125 = phi ptr [ %99, %98 ], [ %.082.lcssa, %._crit_edge105 ]
+  %.186124 = phi i64 [ %101, %98 ], [ 0, %._crit_edge105 ]
+  %.3122 = phi ptr [ %100, %98 ], [ %.089.lcssa, %._crit_edge105 ]
+  %90 = icmp eq i64 %.186124, %.083.lcssa
+  br i1 %90, label %91, label %94
 
-92:                                               ; preds = %.lr.ph
-  %93 = load double, ptr %.1125, align 8, !tbaa !3
-  %94 = fdiv double 1.000000e+00, %93
-  store double %94, ptr %.3122, align 8, !tbaa !3
-  br label %95
+91:                                               ; preds = %.lr.ph
+  %92 = load double, ptr %.1125, align 8, !tbaa !3
+  %93 = fdiv double 1.000000e+00, %92
+  store double %93, ptr %.3122, align 8, !tbaa !3
+  br label %94
 
-95:                                               ; preds = %92, %.lr.ph
-  %96 = icmp slt i64 %.186124, %.083.lcssa
-  br i1 %96, label %97, label %99
+94:                                               ; preds = %91, %.lr.ph
+  %95 = icmp slt i64 %.186124, %.083.lcssa
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %95
-  %98 = load double, ptr %.1125, align 8, !tbaa !3
-  store double %98, ptr %.3122, align 8, !tbaa !3
-  br label %99
+96:                                               ; preds = %94
+  %97 = load double, ptr %.1125, align 8, !tbaa !3
+  store double %97, ptr %.3122, align 8, !tbaa !3
+  br label %98
 
-99:                                               ; preds = %97, %95
-  %100 = getelementptr inbounds double, ptr %.1125, i64 %3
-  %101 = getelementptr inbounds nuw i8, ptr %.3122, i64 8
-  %102 = add nuw nsw i64 %.186124, 1
-  %exitcond.not = icmp eq i64 %102, %0
+98:                                               ; preds = %96, %94
+  %99 = getelementptr inbounds double, ptr %.1125, i64 %3
+  %100 = getelementptr inbounds nuw i8, ptr %.3122, i64 8
+  %101 = add nuw nsw i64 %.186124, 1
+  %exitcond.not = icmp eq i64 %101, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-.loopexit:                                        ; preds = %99, %._crit_edge105
+.loopexit:                                        ; preds = %98, %._crit_edge105
   ret i32 0
 }
 

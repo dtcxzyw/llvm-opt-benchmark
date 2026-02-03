@@ -110,164 +110,162 @@ define internal fastcc void @read_mailmap_line(ptr noundef %0, ptr noundef %1) u
   br i1 %or.cond, label %add_mapping.exit, label %.preheader35.i
 
 .preheader35.i:                                   ; preds = %7, %.preheader35.i
-  %.027.i = phi ptr [ %19, %.preheader35.i ], [ %1, %7 ]
+  %.027.i = phi ptr [ %18, %.preheader35.i ], [ %1, %7 ]
   %11 = load i8, ptr %.027.i, align 1, !tbaa !10
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !10
-  %15 = and i8 %14, 1
-  %16 = icmp ne i8 %15, 0
-  %17 = icmp ult ptr %.027.i, %6
-  %18 = and i1 %17, %16
-  %19 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
-  br i1 %18, label %.preheader35.i, label %.preheader.i, !llvm.loop !11
+  %15 = trunc i8 %14 to i1
+  %16 = icmp ult ptr %.027.i, %6
+  %17 = and i1 %16, %15
+  %18 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
+  br i1 %17, label %.preheader35.i, label %.preheader.i, !llvm.loop !11
 
-.preheader.i:                                     ; preds = %.preheader35.i, %21
-  %.pn.i = phi ptr [ %.0.i, %21 ], [ %6, %.preheader35.i ]
+.preheader.i:                                     ; preds = %.preheader35.i, %20
+  %.pn.i = phi ptr [ %.0.i, %20 ], [ %6, %.preheader35.i ]
   %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 -1
-  %20 = icmp ugt ptr %.0.i, %.027.i
-  br i1 %20, label %21, label %.critedge.i
+  %19 = icmp ugt ptr %.0.i, %.027.i
+  br i1 %19, label %20, label %.critedge.i
 
-21:                                               ; preds = %.preheader.i
-  %22 = load i8, ptr %.0.i, align 1, !tbaa !10
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !10
-  %26 = and i8 %25, 1
-  %.not33.i = icmp eq i8 %26, 0
+20:                                               ; preds = %.preheader.i
+  %21 = load i8, ptr %.0.i, align 1, !tbaa !10
+  %22 = zext i8 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !10
+  %25 = and i8 %24, 1
+  %.not33.i = icmp eq i8 %25, 0
   br i1 %.not33.i, label %.critedge.i, label %.preheader.i, !llvm.loop !12
 
-.critedge.i:                                      ; preds = %21, %.preheader.i
+.critedge.i:                                      ; preds = %20, %.preheader.i
   %.not34.i = icmp ugt ptr %.027.i, %.0.i
   store i8 0, ptr %.pn.i, align 1, !tbaa !10
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %9, align 1, !tbaa !10
-  %28 = load i8, ptr %27, align 1, !tbaa !10
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %parse_name_and_email.exit16, label %parse_name_and_email.exit
+  %27 = load i8, ptr %26, align 1, !tbaa !10
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %parse_name_and_email.exit16, label %parse_name_and_email.exit
 
 parse_name_and_email.exit:                        ; preds = %.critedge.i
-  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 60) #14
-  %.not.i5 = icmp eq ptr %30, null
-  br i1 %.not.i5, label %parse_name_and_email.exit16, label %31
+  %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 60) #14
+  %.not.i5 = icmp eq ptr %29, null
+  br i1 %.not.i5, label %parse_name_and_email.exit16, label %30
 
-31:                                               ; preds = %parse_name_and_email.exit
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %33 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 62) #14
-  %.not31.i6 = icmp eq ptr %33, null
+30:                                               ; preds = %parse_name_and_email.exit
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %31, i32 noundef 62) #14
+  %.not31.i6 = icmp eq ptr %32, null
   br i1 %.not31.i6, label %parse_name_and_email.exit16, label %.preheader35.i7
 
-.preheader35.i7:                                  ; preds = %31, %.preheader35.i7
-  %.027.i8 = phi ptr [ %42, %.preheader35.i7 ], [ %27, %31 ]
-  %34 = load i8, ptr %.027.i8, align 1, !tbaa !10
-  %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !10
-  %38 = and i8 %37, 1
-  %39 = icmp ne i8 %38, 0
-  %40 = icmp ult ptr %.027.i8, %30
-  %41 = and i1 %40, %39
-  %42 = getelementptr inbounds nuw i8, ptr %.027.i8, i64 1
-  br i1 %41, label %.preheader35.i7, label %.preheader.i9, !llvm.loop !11
+.preheader35.i7:                                  ; preds = %30, %.preheader35.i7
+  %.027.i8 = phi ptr [ %40, %.preheader35.i7 ], [ %26, %30 ]
+  %33 = load i8, ptr %.027.i8, align 1, !tbaa !10
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !10
+  %37 = trunc i8 %36 to i1
+  %38 = icmp ult ptr %.027.i8, %29
+  %39 = and i1 %38, %37
+  %40 = getelementptr inbounds nuw i8, ptr %.027.i8, i64 1
+  br i1 %39, label %.preheader35.i7, label %.preheader.i9, !llvm.loop !11
 
-.preheader.i9:                                    ; preds = %.preheader35.i7, %44
-  %.pn.i10 = phi ptr [ %.0.i11, %44 ], [ %30, %.preheader35.i7 ]
+.preheader.i9:                                    ; preds = %.preheader35.i7, %42
+  %.pn.i10 = phi ptr [ %.0.i11, %42 ], [ %29, %.preheader35.i7 ]
   %.0.i11 = getelementptr inbounds i8, ptr %.pn.i10, i64 -1
-  %43 = icmp ugt ptr %.0.i11, %.027.i8
-  br i1 %43, label %44, label %.critedge.i12
+  %41 = icmp ugt ptr %.0.i11, %.027.i8
+  br i1 %41, label %42, label %.critedge.i12
 
-44:                                               ; preds = %.preheader.i9
-  %45 = load i8, ptr %.0.i11, align 1, !tbaa !10
-  %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !10
-  %49 = and i8 %48, 1
-  %.not33.i15 = icmp eq i8 %49, 0
+42:                                               ; preds = %.preheader.i9
+  %43 = load i8, ptr %.0.i11, align 1, !tbaa !10
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !10
+  %47 = and i8 %46, 1
+  %.not33.i15 = icmp eq i8 %47, 0
   br i1 %.not33.i15, label %.critedge.i12, label %.preheader.i9, !llvm.loop !12
 
-.critedge.i12:                                    ; preds = %44, %.preheader.i9
+.critedge.i12:                                    ; preds = %42, %.preheader.i9
   %.not34.i13 = icmp ugt ptr %.027.i8, %.0.i11
-  %50 = select i1 %.not34.i13, ptr null, ptr %.027.i8
+  %48 = select i1 %.not34.i13, ptr null, ptr %.027.i8
   store i8 0, ptr %.pn.i10, align 1, !tbaa !10
-  store i8 0, ptr %33, align 1, !tbaa !10
+  store i8 0, ptr %32, align 1, !tbaa !10
   br label %parse_name_and_email.exit16
 
-parse_name_and_email.exit16:                      ; preds = %.critedge.i12, %31, %parse_name_and_email.exit, %.critedge.i
-  %.042 = phi ptr [ null, %.critedge.i ], [ %32, %.critedge.i12 ], [ null, %31 ], [ null, %parse_name_and_email.exit ]
-  %.02441 = phi ptr [ null, %.critedge.i ], [ %50, %.critedge.i12 ], [ null, %31 ], [ null, %parse_name_and_email.exit ]
+parse_name_and_email.exit16:                      ; preds = %.critedge.i12, %30, %parse_name_and_email.exit, %.critedge.i
+  %.042 = phi ptr [ null, %.critedge.i ], [ %31, %.critedge.i12 ], [ null, %30 ], [ null, %parse_name_and_email.exit ]
+  %.02441 = phi ptr [ null, %.critedge.i ], [ %48, %.critedge.i12 ], [ null, %30 ], [ null, %parse_name_and_email.exit ]
   %.not.i17 = icmp eq ptr %.042, null
   %spec.select.i = select i1 %.not.i17, ptr %8, ptr %.042
-  %51 = tail call ptr @string_list_insert(ptr noundef %0, ptr noundef nonnull %spec.select.i) #12
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !13
-  %.not32.i = icmp eq ptr %53, null
-  br i1 %.not32.i, label %54, label %60
+  %49 = tail call ptr @string_list_insert(ptr noundef %0, ptr noundef nonnull %spec.select.i) #12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !13
+  %.not32.i = icmp eq ptr %51, null
+  br i1 %.not32.i, label %52, label %58
 
-54:                                               ; preds = %parse_name_and_email.exit16
-  %55 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #12
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load i8, ptr %56, align 8
-  %58 = or i8 %57, 1
-  store i8 %58, ptr %56, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  store ptr @namemap_cmp, ptr %59, align 8, !tbaa !17
-  store ptr %55, ptr %52, align 8, !tbaa !13
-  br label %60
+52:                                               ; preds = %parse_name_and_email.exit16
+  %53 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  %55 = load i8, ptr %54, align 8
+  %56 = or i8 %55, 1
+  store i8 %56, ptr %54, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  store ptr @namemap_cmp, ptr %57, align 8, !tbaa !17
+  store ptr %53, ptr %50, align 8, !tbaa !13
+  br label %58
 
-60:                                               ; preds = %54, %parse_name_and_email.exit16
-  %.027.i18 = phi ptr [ %55, %54 ], [ %53, %parse_name_and_email.exit16 ]
+58:                                               ; preds = %52, %parse_name_and_email.exit16
+  %.027.i18 = phi ptr [ %53, %52 ], [ %51, %parse_name_and_email.exit16 ]
   %.not33.i19 = icmp eq ptr %.02441, null
-  br i1 %.not33.i19, label %61, label %70
+  br i1 %.not33.i19, label %59, label %68
 
-61:                                               ; preds = %60
-  br i1 %.not34.i, label %65, label %62
+59:                                               ; preds = %58
+  br i1 %.not34.i, label %63, label %60
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %.027.i18, align 8, !tbaa !22
-  tail call void @free(ptr noundef %63) #12
-  %64 = tail call ptr @xstrdup(ptr noundef nonnull %.027.i) #12
-  store ptr %64, ptr %.027.i18, align 8, !tbaa !22
-  br label %65
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %.027.i18, align 8, !tbaa !22
+  tail call void @free(ptr noundef %61) #12
+  %62 = tail call ptr @xstrdup(ptr noundef nonnull %.027.i) #12
+  store ptr %62, ptr %.027.i18, align 8, !tbaa !22
+  br label %63
 
-65:                                               ; preds = %62, %61
-  br i1 %.not.i17, label %add_mapping.exit, label %66
+63:                                               ; preds = %60, %59
+  br i1 %.not.i17, label %add_mapping.exit, label %64
 
-66:                                               ; preds = %65
-  %67 = getelementptr inbounds nuw i8, ptr %.027.i18, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !23
-  tail call void @free(ptr noundef %68) #12
-  %69 = tail call ptr @xstrdup(ptr noundef nonnull %8) #12
-  store ptr %69, ptr %67, align 8, !tbaa !23
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %.027.i18, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !23
+  tail call void @free(ptr noundef %66) #12
+  %67 = tail call ptr @xstrdup(ptr noundef nonnull %8) #12
+  store ptr %67, ptr %65, align 8, !tbaa !23
   br label %add_mapping.exit
 
-70:                                               ; preds = %60
-  %71 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #12
-  br i1 %.not34.i, label %xstrdup_or_null.exit.i, label %72
+68:                                               ; preds = %58
+  %69 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #12
+  br i1 %.not34.i, label %xstrdup_or_null.exit.i, label %70
 
-72:                                               ; preds = %70
-  %73 = tail call ptr @xstrdup(ptr noundef nonnull %.027.i) #12
+70:                                               ; preds = %68
+  %71 = tail call ptr @xstrdup(ptr noundef nonnull %.027.i) #12
   br label %xstrdup_or_null.exit.i
 
-xstrdup_or_null.exit.i:                           ; preds = %72, %70
-  %74 = phi ptr [ %73, %72 ], [ null, %70 ]
-  store ptr %74, ptr %71, align 8, !tbaa !24
-  br i1 %.not.i17, label %xstrdup_or_null.exit38.i, label %75
+xstrdup_or_null.exit.i:                           ; preds = %70, %68
+  %72 = phi ptr [ %71, %70 ], [ null, %68 ]
+  store ptr %72, ptr %69, align 8, !tbaa !24
+  br i1 %.not.i17, label %xstrdup_or_null.exit38.i, label %73
 
-75:                                               ; preds = %xstrdup_or_null.exit.i
-  %76 = tail call ptr @xstrdup(ptr noundef nonnull %8) #12
+73:                                               ; preds = %xstrdup_or_null.exit.i
+  %74 = tail call ptr @xstrdup(ptr noundef nonnull %8) #12
   br label %xstrdup_or_null.exit38.i
 
-xstrdup_or_null.exit38.i:                         ; preds = %75, %xstrdup_or_null.exit.i
-  %77 = phi ptr [ %76, %75 ], [ null, %xstrdup_or_null.exit.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %77, ptr %78, align 8, !tbaa !26
-  %79 = getelementptr inbounds nuw i8, ptr %.027.i18, i64 16
-  %80 = tail call ptr @string_list_insert(ptr noundef nonnull %79, ptr noundef nonnull %.02441) #12
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %71, ptr %81, align 8, !tbaa !13
+xstrdup_or_null.exit38.i:                         ; preds = %73, %xstrdup_or_null.exit.i
+  %75 = phi ptr [ %74, %73 ], [ null, %xstrdup_or_null.exit.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr %75, ptr %76, align 8, !tbaa !26
+  %77 = getelementptr inbounds nuw i8, ptr %.027.i18, i64 16
+  %78 = tail call ptr @string_list_insert(ptr noundef nonnull %77, ptr noundef nonnull %.02441) #12
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store ptr %69, ptr %79, align 8, !tbaa !13
   br label %add_mapping.exit
 
-add_mapping.exit:                                 ; preds = %5, %7, %xstrdup_or_null.exit38.i, %66, %65, %2
+add_mapping.exit:                                 ; preds = %5, %7, %xstrdup_or_null.exit38.i, %64, %63, %2
   ret void
 }
 

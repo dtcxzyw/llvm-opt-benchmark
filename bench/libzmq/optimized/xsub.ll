@@ -650,9 +650,9 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq6xsub_t5xrecvEPNS_5msg_tE(ptr nounde
 23:                                               ; preds = %15, %12
   store i8 0, ptr %3, align 1, !tbaa !91
   %24 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %25 = and i8 %24, 1
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2025
-  store i8 %25, ptr %26, align 1, !tbaa !104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2025
+  %26 = and i8 %24, 1
+  store i8 %26, ptr %25, align 1, !tbaa !104
   br label %.thread
 
 .loopexit:                                        ; preds = %53, %.preheader

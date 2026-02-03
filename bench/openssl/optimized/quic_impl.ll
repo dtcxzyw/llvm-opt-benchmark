@@ -2369,27 +2369,26 @@ define void @ossl_quic_set_connect_state(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call fastcc range(i32 0, 2) i32 @expect_quic_as(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 3)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %16, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !134
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %8 = load i16, ptr %7, align 8
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ne i32 %12, 0
-  %or.cond = select i1 %10, i1 true, i1 %13
-  br i1 %or.cond, label %16, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %11, 0
+  %or.cond = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond, label %15, label %13
 
-14:                                               ; preds = %4
-  %15 = and i16 %8, -6
-  store i16 %15, ptr %7, align 8
-  br label %16
+13:                                               ; preds = %4
+  %14 = and i16 %8, -6
+  store i16 %14, ptr %7, align 8
+  br label %15
 
-16:                                               ; preds = %4, %1, %14
+15:                                               ; preds = %4, %1, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -2400,27 +2399,26 @@ define void @ossl_quic_set_accept_state(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call fastcc range(i32 0, 2) i32 @expect_quic_as(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 3)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %16, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !134
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %8 = load i16, ptr %7, align 8
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ne i32 %12, 0
-  %or.cond = select i1 %10, i1 true, i1 %13
-  br i1 %or.cond, label %16, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %11, 0
+  %or.cond = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond, label %15, label %13
 
-14:                                               ; preds = %4
-  %15 = or i16 %8, 4
-  store i16 %15, ptr %7, align 8
-  br label %16
+13:                                               ; preds = %4
+  %14 = or i16 %8, 4
+  store i16 %14, ptr %7, align 8
+  br label %15
 
-16:                                               ; preds = %4, %1, %14
+15:                                               ; preds = %4, %1, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -2864,23 +2862,22 @@ define range(i32 -1, 2) i32 @ossl_quic_connect(ptr noundef %0) local_unnamed_add
   %6 = load ptr, ptr %5, align 8, !tbaa !134
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %8 = load i16, ptr %7, align 8
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ne i32 %12, 0
-  %or.cond.i = select i1 %10, i1 true, i1 %13
-  br i1 %or.cond.i, label %ossl_quic_set_connect_state.exit, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %11, 0
+  %or.cond.i = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond.i, label %ossl_quic_set_connect_state.exit, label %13
 
-14:                                               ; preds = %4
-  %15 = and i16 %8, -6
-  store i16 %15, ptr %7, align 8
+13:                                               ; preds = %4
+  %14 = and i16 %8, -6
+  store i16 %14, ptr %7, align 8
   br label %ossl_quic_set_connect_state.exit
 
-ossl_quic_set_connect_state.exit:                 ; preds = %1, %4, %14
+ossl_quic_set_connect_state.exit:                 ; preds = %1, %4, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %16 = call i32 @ossl_quic_do_handshake(ptr noundef %0)
-  ret i32 %16
+  %15 = call i32 @ossl_quic_do_handshake(ptr noundef %0)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2896,23 +2893,22 @@ define range(i32 -1, 2) i32 @ossl_quic_accept(ptr noundef %0) local_unnamed_addr
   %6 = load ptr, ptr %5, align 8, !tbaa !134
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %8 = load i16, ptr %7, align 8
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp ne i32 %12, 0
-  %or.cond.i = select i1 %10, i1 true, i1 %13
-  br i1 %or.cond.i, label %ossl_quic_set_accept_state.exit, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp ne i32 %11, 0
+  %or.cond.i = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond.i, label %ossl_quic_set_accept_state.exit, label %13
 
-14:                                               ; preds = %4
-  %15 = or i16 %8, 4
-  store i16 %15, ptr %7, align 8
+13:                                               ; preds = %4
+  %14 = or i16 %8, 4
+  store i16 %14, ptr %7, align 8
   br label %ossl_quic_set_accept_state.exit
 
-ossl_quic_set_accept_state.exit:                  ; preds = %1, %4, %14
+ossl_quic_set_accept_state.exit:                  ; preds = %1, %4, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %16 = call i32 @ossl_quic_do_handshake(ptr noundef %0)
-  ret i32 %16
+  %15 = call i32 @ossl_quic_do_handshake(ptr noundef %0)
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8240,7 +8236,7 @@ expect_quic_as.exit:                              ; preds = %9, %17, %12
 
 30:                                               ; preds = %26
   %31 = and i64 %1, 128
-  br label %204
+  br label %202
 
 32:                                               ; preds = %26, %expect_quic_as.exit
   %.not39 = icmp eq i32 %2, 0
@@ -8254,12 +8250,12 @@ expect_quic_as.exit:                              ; preds = %9, %17, %12
 
 36:                                               ; preds = %33, %32
   %.not40 = icmp eq ptr %.sroa.26.1, null
-  br i1 %.not40, label %130, label %37
+  br i1 %.not40, label %128, label %37
 
 37:                                               ; preds = %36
   %38 = and i64 %1, 64
   %.not41 = icmp eq i64 %38, 0
-  br i1 %.not41, label %61, label %39
+  br i1 %.not41, label %60, label %39
 
 39:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8301,352 +8297,350 @@ expect_quic_as.exit:                              ; preds = %9, %17, %12
 test_poll_event_r.exit.thread:                    ; preds = %49, %46, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %60
+  br label %59
 
 test_poll_event_r.exit.thread130:                 ; preds = %39, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %61
+  br label %60
 
 test_poll_event_r.exit:                           ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 136
   %58 = load i8, ptr %57, align 8
-  %.fr = freeze i8 %58
-  %59 = and i8 %.fr, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not42.not = icmp eq i8 %59, 0
-  br i1 %.not42.not, label %61, label %60
+  %.fr = freeze i8 %58
+  %.not42 = trunc i8 %.fr to i1
+  br i1 %.not42, label %59, label %60
 
-60:                                               ; preds = %test_poll_event_r.exit.thread, %test_poll_event_r.exit
-  br label %61
+59:                                               ; preds = %test_poll_event_r.exit.thread, %test_poll_event_r.exit
+  br label %60
 
-61:                                               ; preds = %60, %test_poll_event_r.exit, %test_poll_event_r.exit.thread130, %37
-  %.2 = phi i64 [ 0, %37 ], [ 0, %60 ], [ 64, %test_poll_event_r.exit ], [ 64, %test_poll_event_r.exit.thread130 ]
-  %62 = and i64 %1, 16
-  %.not43 = icmp eq i64 %62, 0
-  br i1 %.not43, label %77, label %63
+60:                                               ; preds = %59, %test_poll_event_r.exit, %test_poll_event_r.exit.thread130, %37
+  %.2 = phi i64 [ 0, %37 ], [ 0, %59 ], [ 64, %test_poll_event_r.exit ], [ 64, %test_poll_event_r.exit.thread130 ]
+  %61 = and i64 %1, 16
+  %.not43 = icmp eq i64 %61, 0
+  br i1 %.not43, label %75, label %62
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 128
-  %65 = load ptr, ptr %64, align 8, !tbaa !145
-  %66 = getelementptr i8, ptr %65, i64 256
-  %.val5.i = load i64, ptr %66, align 8
-  %67 = and i64 %.val5.i, 16711680
-  %.not6.i86 = icmp eq i64 %67, 0
-  br i1 %.not6.i86, label %test_poll_event_er.exit.thread, label %68
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 128
+  %64 = load ptr, ptr %63, align 8, !tbaa !145
+  %65 = getelementptr i8, ptr %64, i64 256
+  %.val5.i = load i64, ptr %65, align 8
+  %66 = and i64 %.val5.i, 16711680
+  %.not6.i86 = icmp eq i64 %66, 0
+  br i1 %.not6.i86, label %test_poll_event_er.exit.thread, label %67
 
-68:                                               ; preds = %63
-  %69 = trunc i64 %.val5.i to i32
-  %70 = lshr i32 %69, 16
-  %71 = and i32 %70, 255
-  %72 = add nsw i32 %71, -7
-  %narrow.i.i = icmp ult i32 %72, -2
+67:                                               ; preds = %62
+  %68 = trunc i64 %.val5.i to i32
+  %69 = lshr i32 %68, 16
+  %70 = and i32 %69, 255
+  %71 = add nsw i32 %70, -7
+  %narrow.i.i = icmp ult i32 %71, -2
   br i1 %narrow.i.i, label %test_poll_event_er.exit.thread, label %test_poll_event_er.exit
 
-test_poll_event_er.exit:                          ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 136
-  %74 = load i8, ptr %73, align 8
-  %.fr149 = freeze i8 %74
-  %75 = and i8 %.fr149, 1
-  %.not44.not = icmp eq i8 %75, 0
-  %76 = or disjoint i64 %.2, 16
-  br i1 %.not44.not, label %77, label %test_poll_event_er.exit.thread
+test_poll_event_er.exit:                          ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 136
+  %73 = load i8, ptr %72, align 8
+  %.fr149 = freeze i8 %73
+  %.not44 = trunc i8 %.fr149 to i1
+  %74 = or disjoint i64 %.2, 16
+  br i1 %.not44, label %test_poll_event_er.exit.thread, label %75
 
-test_poll_event_er.exit.thread:                   ; preds = %63, %68, %test_poll_event_er.exit
-  br label %77
+test_poll_event_er.exit.thread:                   ; preds = %62, %67, %test_poll_event_er.exit
+  br label %75
 
-77:                                               ; preds = %test_poll_event_er.exit.thread, %test_poll_event_er.exit, %61
-  %.3 = phi i64 [ %.2, %61 ], [ %.2, %test_poll_event_er.exit.thread ], [ %76, %test_poll_event_er.exit ]
-  %78 = and i64 %1, 128
-  %.not45 = icmp eq i64 %78, 0
-  br i1 %.not45, label %112, label %79
+75:                                               ; preds = %test_poll_event_er.exit.thread, %test_poll_event_er.exit, %60
+  %.3 = phi i64 [ %.2, %60 ], [ %.2, %test_poll_event_er.exit.thread ], [ %74, %test_poll_event_er.exit ]
+  %76 = and i64 %1, 128
+  %.not45 = icmp eq i64 %76, 0
+  br i1 %.not45, label %110, label %77
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 120
-  %81 = load ptr, ptr %80, align 8, !tbaa !136
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 336
-  %83 = load i16, ptr %82, align 8
-  %84 = and i16 %83, 32
-  %.not.i = icmp eq i16 %84, 0
-  br i1 %.not.i, label %85, label %test_poll_event_w.exit.thread
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 120
+  %79 = load ptr, ptr %78, align 8, !tbaa !136
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 336
+  %81 = load i16, ptr %80, align 8
+  %82 = and i16 %81, 32
+  %.not.i = icmp eq i16 %82, 0
+  br i1 %.not.i, label %83, label %test_poll_event_w.exit.thread
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 128
-  %87 = load ptr, ptr %86, align 8, !tbaa !145
-  %88 = getelementptr i8, ptr %87, i64 256
-  %.val.i = load i64, ptr %88, align 8
-  %89 = lshr i64 %.val.i, 8
-  %trunc.i.i87 = trunc i64 %89 to i8
-  %90 = add i8 %trunc.i.i87, -4
-  %switch.i.i88 = icmp ult i8 %90, -3
-  br i1 %switch.i.i88, label %test_poll_event_w.exit.thread, label %91
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 128
+  %85 = load ptr, ptr %84, align 8, !tbaa !145
+  %86 = getelementptr i8, ptr %85, i64 256
+  %.val.i = load i64, ptr %86, align 8
+  %87 = lshr i64 %.val.i, 8
+  %trunc.i.i87 = trunc i64 %87 to i8
+  %88 = add i8 %trunc.i.i87, -4
+  %switch.i.i88 = icmp ult i8 %88, -3
+  br i1 %switch.i.i88, label %test_poll_event_w.exit.thread, label %89
 
-91:                                               ; preds = %85
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 112
-  %93 = load ptr, ptr %92, align 8, !tbaa !146
-  %94 = call i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef %93) #12
-  %.not6.i89 = icmp eq i64 %94, 0
-  br i1 %.not6.i89, label %test_poll_event_w.exit.thread, label %95
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 112
+  %91 = load ptr, ptr %90, align 8, !tbaa !146
+  %92 = call i64 @ossl_quic_sstream_get_buffer_avail(ptr noundef %91) #12
+  %.not6.i89 = icmp eq i64 %92, 0
+  br i1 %.not6.i89, label %test_poll_event_w.exit.thread, label %93
 
-95:                                               ; preds = %91
-  %96 = load ptr, ptr %86, align 8, !tbaa !145
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 112
-  %98 = load ptr, ptr %97, align 8, !tbaa !146
-  %99 = call i32 @ossl_quic_sstream_get_final_size(ptr noundef %98, ptr noundef null) #12
-  %.not7.i = icmp eq i32 %99, 0
-  br i1 %.not7.i, label %100, label %test_poll_event_w.exit.thread
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %84, align 8, !tbaa !145
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 112
+  %96 = load ptr, ptr %95, align 8, !tbaa !146
+  %97 = call i32 @ossl_quic_sstream_get_final_size(ptr noundef %96, ptr noundef null) #12
+  %.not7.i = icmp eq i32 %97, 0
+  br i1 %.not7.i, label %98, label %test_poll_event_w.exit.thread
 
-100:                                              ; preds = %95
-  %101 = load ptr, ptr %80, align 8, !tbaa !136
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 336
-  %103 = load i16, ptr %102, align 8
-  %104 = and i16 %103, 32
-  %.not.i.i = icmp eq i16 %104, 0
-  br i1 %.not.i.i, label %105, label %test_poll_event_w.exit.thread
+98:                                               ; preds = %93
+  %99 = load ptr, ptr %78, align 8, !tbaa !136
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 336
+  %101 = load i16, ptr %100, align 8
+  %102 = and i16 %101, 32
+  %.not.i.i = icmp eq i16 %102, 0
+  br i1 %.not.i.i, label %103, label %test_poll_event_w.exit.thread
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 160
-  %107 = load ptr, ptr %106, align 8, !tbaa !113
-  %108 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %107) #12
-  %.not4.i.i = icmp eq i32 %108, 0
+103:                                              ; preds = %98
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 160
+  %105 = load ptr, ptr %104, align 8, !tbaa !113
+  %106 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %105) #12
+  %.not4.i.i = icmp eq i32 %106, 0
   br i1 %.not4.i.i, label %test_poll_event_w.exit, label %test_poll_event_w.exit.thread
 
-test_poll_event_w.exit:                           ; preds = %105
-  %109 = load ptr, ptr %106, align 8, !tbaa !113
-  %110 = call i32 @ossl_quic_channel_is_active(ptr noundef %109) #12
-  %.fr150 = freeze i32 %110
+test_poll_event_w.exit:                           ; preds = %103
+  %107 = load ptr, ptr %104, align 8, !tbaa !113
+  %108 = call i32 @ossl_quic_channel_is_active(ptr noundef %107) #12
+  %.fr150 = freeze i32 %108
   %.not6.i.i.not = icmp eq i32 %.fr150, 0
-  %111 = or i64 %.3, 128
-  br i1 %.not6.i.i.not, label %test_poll_event_w.exit.thread, label %112
+  %109 = or i64 %.3, 128
+  br i1 %.not6.i.i.not, label %test_poll_event_w.exit.thread, label %110
 
-test_poll_event_w.exit.thread:                    ; preds = %105, %100, %79, %85, %91, %95, %test_poll_event_w.exit
-  br label %112
+test_poll_event_w.exit.thread:                    ; preds = %103, %98, %77, %83, %89, %93, %test_poll_event_w.exit
+  br label %110
 
-112:                                              ; preds = %test_poll_event_w.exit.thread, %test_poll_event_w.exit, %77
-  %.4 = phi i64 [ %.3, %77 ], [ %.3, %test_poll_event_w.exit.thread ], [ %111, %test_poll_event_w.exit ]
-  %113 = and i64 %1, 32
-  %.not47 = icmp eq i64 %113, 0
-  br i1 %.not47, label %130, label %114
+110:                                              ; preds = %test_poll_event_w.exit.thread, %test_poll_event_w.exit, %75
+  %.4 = phi i64 [ %.3, %75 ], [ %.3, %test_poll_event_w.exit.thread ], [ %109, %test_poll_event_w.exit ]
+  %111 = and i64 %1, 32
+  %.not47 = icmp eq i64 %111, 0
+  br i1 %.not47, label %128, label %112
 
-114:                                              ; preds = %112
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 128
-  %116 = load ptr, ptr %115, align 8, !tbaa !145
-  %117 = getelementptr i8, ptr %116, i64 256
-  %.val.i90 = load i64, ptr %117, align 8
-  %118 = and i64 %.val.i90, 65280
-  %.not7.i91 = icmp eq i64 %118, 0
-  %119 = and i64 %.val.i90, 134217728
-  %.not4.i92 = icmp eq i64 %119, 0
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 128
+  %114 = load ptr, ptr %113, align 8, !tbaa !145
+  %115 = getelementptr i8, ptr %114, i64 256
+  %.val.i90 = load i64, ptr %115, align 8
+  %116 = and i64 %.val.i90, 65280
+  %.not7.i91 = icmp eq i64 %116, 0
+  %117 = and i64 %.val.i90, 134217728
+  %.not4.i92 = icmp eq i64 %117, 0
   %or.cond.i = or i1 %.not7.i91, %.not4.i92
-  br i1 %or.cond.i, label %test_poll_event_ew.exit.thread, label %120
+  br i1 %or.cond.i, label %test_poll_event_ew.exit.thread, label %118
 
-120:                                              ; preds = %114
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 136
-  %122 = load i8, ptr %121, align 8
-  %123 = and i8 %122, 2
-  %.not5.i93 = icmp eq i8 %123, 0
+118:                                              ; preds = %112
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 136
+  %120 = load i8, ptr %119, align 8
+  %121 = and i8 %120, 2
+  %.not5.i93 = icmp eq i8 %121, 0
   br i1 %.not5.i93, label %test_poll_event_ew.exit, label %test_poll_event_ew.exit.thread
 
-test_poll_event_ew.exit:                          ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 120
-  %125 = load ptr, ptr %124, align 8, !tbaa !136
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 336
-  %127 = load i16, ptr %126, align 8
-  %.fr151 = freeze i16 %127
-  %128 = and i16 %.fr151, 32
-  %.not6.i94.not = icmp eq i16 %128, 0
-  %129 = or i64 %.4, 32
-  br i1 %.not6.i94.not, label %130, label %test_poll_event_ew.exit.thread
+test_poll_event_ew.exit:                          ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.26.1, i64 120
+  %123 = load ptr, ptr %122, align 8, !tbaa !136
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 336
+  %125 = load i16, ptr %124, align 8
+  %.fr151 = freeze i16 %125
+  %126 = and i16 %.fr151, 32
+  %.not6.i94.not = icmp eq i16 %126, 0
+  %127 = or i64 %.4, 32
+  br i1 %.not6.i94.not, label %128, label %test_poll_event_ew.exit.thread
 
-test_poll_event_ew.exit.thread:                   ; preds = %114, %120, %test_poll_event_ew.exit
-  br label %130
+test_poll_event_ew.exit.thread:                   ; preds = %112, %118, %test_poll_event_ew.exit
+  br label %128
 
-130:                                              ; preds = %test_poll_event_ew.exit.thread, %test_poll_event_ew.exit, %112, %36
-  %.1 = phi i64 [ 0, %36 ], [ %.4, %112 ], [ %.4, %test_poll_event_ew.exit.thread ], [ %129, %test_poll_event_ew.exit ]
+128:                                              ; preds = %test_poll_event_ew.exit.thread, %test_poll_event_ew.exit, %110, %36
+  %.1 = phi i64 [ 0, %36 ], [ %.4, %110 ], [ %.4, %test_poll_event_ew.exit.thread ], [ %127, %test_poll_event_ew.exit ]
   %or.cond = or i1 %.not36, %23
-  br i1 %or.cond, label %191, label %131
+  br i1 %or.cond, label %189, label %129
 
-131:                                              ; preds = %130
-  %132 = and i64 %1, 4
-  %.not49 = icmp eq i64 %132, 0
-  br i1 %.not49, label %137, label %133
+129:                                              ; preds = %128
+  %130 = and i64 %1, 4
+  %.not49 = icmp eq i64 %130, 0
+  br i1 %.not49, label %135, label %131
 
-133:                                              ; preds = %131
-  %134 = getelementptr i8, ptr %.sroa.17.1, i64 160
-  %.val80 = load ptr, ptr %134, align 8, !tbaa !113
-  %135 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %.val80) #12
-  %.not50 = icmp eq i32 %135, 0
-  %136 = or i64 %.1, 4
-  %spec.select70 = select i1 %.not50, i64 %.1, i64 %136
-  br label %137
+131:                                              ; preds = %129
+  %132 = getelementptr i8, ptr %.sroa.17.1, i64 160
+  %.val80 = load ptr, ptr %132, align 8, !tbaa !113
+  %133 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %.val80) #12
+  %.not50 = icmp eq i32 %133, 0
+  %134 = or i64 %.1, 4
+  %spec.select70 = select i1 %.not50, i64 %.1, i64 %134
+  br label %135
 
-137:                                              ; preds = %133, %131
-  %.6 = phi i64 [ %.1, %131 ], [ %spec.select70, %133 ]
-  %138 = and i64 %1, 8
-  %.not51 = icmp eq i64 %138, 0
-  br i1 %.not51, label %143, label %139
+135:                                              ; preds = %131, %129
+  %.6 = phi i64 [ %.1, %129 ], [ %spec.select70, %131 ]
+  %136 = and i64 %1, 8
+  %.not51 = icmp eq i64 %136, 0
+  br i1 %.not51, label %141, label %137
 
-139:                                              ; preds = %137
-  %140 = getelementptr i8, ptr %.sroa.17.1, i64 160
-  %.val81 = load ptr, ptr %140, align 8, !tbaa !113
-  %141 = call i32 @ossl_quic_channel_is_terminated(ptr noundef %.val81) #12
-  %.not52 = icmp eq i32 %141, 0
-  %142 = or i64 %.6, 8
-  %spec.select71 = select i1 %.not52, i64 %.6, i64 %142
-  br label %143
+137:                                              ; preds = %135
+  %138 = getelementptr i8, ptr %.sroa.17.1, i64 160
+  %.val81 = load ptr, ptr %138, align 8, !tbaa !113
+  %139 = call i32 @ossl_quic_channel_is_terminated(ptr noundef %.val81) #12
+  %.not52 = icmp eq i32 %139, 0
+  %140 = or i64 %.6, 8
+  %spec.select71 = select i1 %.not52, i64 %.6, i64 %140
+  br label %141
 
-143:                                              ; preds = %139, %137
-  %.7 = phi i64 [ %.6, %137 ], [ %spec.select71, %139 ]
-  %144 = and i64 %1, 512
-  %.not53 = icmp eq i64 %144, 0
-  br i1 %.not53, label %151, label %145
+141:                                              ; preds = %137, %135
+  %.7 = phi i64 [ %.6, %135 ], [ %spec.select71, %137 ]
+  %142 = and i64 %1, 512
+  %.not53 = icmp eq i64 %142, 0
+  br i1 %.not53, label %149, label %143
 
-145:                                              ; preds = %143
-  %146 = getelementptr i8, ptr %.sroa.17.1, i64 160
-  %.val82 = load ptr, ptr %146, align 8, !tbaa !113
-  %147 = call ptr @ossl_quic_channel_get_qsm(ptr noundef %.val82) #12
-  %148 = call i64 @ossl_quic_stream_map_get_accept_queue_len(ptr noundef %147, i32 noundef 0) #12
-  %149 = and i64 %148, 4294967295
-  %.not54 = icmp eq i64 %149, 0
-  %150 = or i64 %.7, 512
-  %spec.select72 = select i1 %.not54, i64 %.7, i64 %150
-  br label %151
+143:                                              ; preds = %141
+  %144 = getelementptr i8, ptr %.sroa.17.1, i64 160
+  %.val82 = load ptr, ptr %144, align 8, !tbaa !113
+  %145 = call ptr @ossl_quic_channel_get_qsm(ptr noundef %.val82) #12
+  %146 = call i64 @ossl_quic_stream_map_get_accept_queue_len(ptr noundef %145, i32 noundef 0) #12
+  %147 = and i64 %146, 4294967295
+  %.not54 = icmp eq i64 %147, 0
+  %148 = or i64 %.7, 512
+  %spec.select72 = select i1 %.not54, i64 %.7, i64 %148
+  br label %149
 
-151:                                              ; preds = %145, %143
-  %.8 = phi i64 [ %.7, %143 ], [ %spec.select72, %145 ]
-  %152 = and i64 %1, 1024
-  %.not55 = icmp eq i64 %152, 0
-  br i1 %.not55, label %159, label %153
+149:                                              ; preds = %143, %141
+  %.8 = phi i64 [ %.7, %141 ], [ %spec.select72, %143 ]
+  %150 = and i64 %1, 1024
+  %.not55 = icmp eq i64 %150, 0
+  br i1 %.not55, label %157, label %151
 
-153:                                              ; preds = %151
-  %154 = getelementptr i8, ptr %.sroa.17.1, i64 160
-  %.val83 = load ptr, ptr %154, align 8, !tbaa !113
-  %155 = call ptr @ossl_quic_channel_get_qsm(ptr noundef %.val83) #12
-  %156 = call i64 @ossl_quic_stream_map_get_accept_queue_len(ptr noundef %155, i32 noundef 1) #12
-  %157 = and i64 %156, 4294967295
-  %.not56 = icmp eq i64 %157, 0
-  %158 = or i64 %.8, 1024
-  %spec.select73 = select i1 %.not56, i64 %.8, i64 %158
-  br label %159
+151:                                              ; preds = %149
+  %152 = getelementptr i8, ptr %.sroa.17.1, i64 160
+  %.val83 = load ptr, ptr %152, align 8, !tbaa !113
+  %153 = call ptr @ossl_quic_channel_get_qsm(ptr noundef %.val83) #12
+  %154 = call i64 @ossl_quic_stream_map_get_accept_queue_len(ptr noundef %153, i32 noundef 1) #12
+  %155 = and i64 %154, 4294967295
+  %.not56 = icmp eq i64 %155, 0
+  %156 = or i64 %.8, 1024
+  %spec.select73 = select i1 %.not56, i64 %.8, i64 %156
+  br label %157
 
-159:                                              ; preds = %153, %151
-  %.9 = phi i64 [ %.8, %151 ], [ %spec.select73, %153 ]
-  %160 = and i64 %1, 2048
-  %.not57 = icmp eq i64 %160, 0
-  br i1 %.not57, label %175, label %161
+157:                                              ; preds = %151, %149
+  %.9 = phi i64 [ %.8, %149 ], [ %spec.select73, %151 ]
+  %158 = and i64 %1, 2048
+  %.not57 = icmp eq i64 %158, 0
+  br i1 %.not57, label %173, label %159
 
-161:                                              ; preds = %159
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 336
-  %163 = load i16, ptr %162, align 8
-  %164 = and i16 %163, 32
-  %.not.i.i95 = icmp eq i16 %164, 0
-  br i1 %.not.i.i95, label %165, label %test_poll_event_os.exit.thread
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 336
+  %161 = load i16, ptr %160, align 8
+  %162 = and i16 %161, 32
+  %.not.i.i95 = icmp eq i16 %162, 0
+  br i1 %.not.i.i95, label %163, label %test_poll_event_os.exit.thread
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 160
-  %167 = load ptr, ptr %166, align 8, !tbaa !113
-  %168 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %167) #12
-  %.not4.i.i96 = icmp eq i32 %168, 0
-  br i1 %.not4.i.i96, label %169, label %test_poll_event_os.exit.thread
+163:                                              ; preds = %159
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 160
+  %165 = load ptr, ptr %164, align 8, !tbaa !113
+  %166 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %165) #12
+  %.not4.i.i96 = icmp eq i32 %166, 0
+  br i1 %.not4.i.i96, label %167, label %test_poll_event_os.exit.thread
 
-169:                                              ; preds = %165
-  %170 = load ptr, ptr %166, align 8, !tbaa !113
-  %171 = call i32 @ossl_quic_channel_is_active(ptr noundef %170) #12
-  %.not6.i.i97 = icmp eq i32 %171, 0
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %164, align 8, !tbaa !113
+  %169 = call i32 @ossl_quic_channel_is_active(ptr noundef %168) #12
+  %.not6.i.i97 = icmp eq i32 %169, 0
   br i1 %.not6.i.i97, label %test_poll_event_os.exit.thread, label %test_poll_event_os.exit
 
-test_poll_event_os.exit:                          ; preds = %169
-  %172 = load ptr, ptr %166, align 8, !tbaa !113
-  %173 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %172, i32 noundef 0) #12
-  %.fr152 = freeze i64 %173
+test_poll_event_os.exit:                          ; preds = %167
+  %170 = load ptr, ptr %164, align 8, !tbaa !113
+  %171 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %170, i32 noundef 0) #12
+  %.fr152 = freeze i64 %171
   %.not = icmp eq i64 %.fr152, 0
-  %174 = or i64 %.9, 2048
-  br i1 %.not, label %test_poll_event_os.exit.thread, label %175
+  %172 = or i64 %.9, 2048
+  br i1 %.not, label %test_poll_event_os.exit.thread, label %173
 
-test_poll_event_os.exit.thread:                   ; preds = %169, %165, %161, %test_poll_event_os.exit
-  br label %175
+test_poll_event_os.exit.thread:                   ; preds = %167, %163, %159, %test_poll_event_os.exit
+  br label %173
 
-175:                                              ; preds = %test_poll_event_os.exit.thread, %test_poll_event_os.exit, %159
-  %.10 = phi i64 [ %.9, %159 ], [ %.9, %test_poll_event_os.exit.thread ], [ %174, %test_poll_event_os.exit ]
-  %176 = and i64 %1, 4096
-  %.not59 = icmp eq i64 %176, 0
-  br i1 %.not59, label %191, label %177
+173:                                              ; preds = %test_poll_event_os.exit.thread, %test_poll_event_os.exit, %157
+  %.10 = phi i64 [ %.9, %157 ], [ %.9, %test_poll_event_os.exit.thread ], [ %172, %test_poll_event_os.exit ]
+  %174 = and i64 %1, 4096
+  %.not59 = icmp eq i64 %174, 0
+  br i1 %.not59, label %189, label %175
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 336
-  %179 = load i16, ptr %178, align 8
-  %180 = and i16 %179, 32
-  %.not.i.i98 = icmp eq i16 %180, 0
-  br i1 %.not.i.i98, label %181, label %test_poll_event_os.exit102.thread
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 336
+  %177 = load i16, ptr %176, align 8
+  %178 = and i16 %177, 32
+  %.not.i.i98 = icmp eq i16 %178, 0
+  br i1 %.not.i.i98, label %179, label %test_poll_event_os.exit102.thread
 
-181:                                              ; preds = %177
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 160
-  %183 = load ptr, ptr %182, align 8, !tbaa !113
-  %184 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %183) #12
-  %.not4.i.i99 = icmp eq i32 %184, 0
-  br i1 %.not4.i.i99, label %185, label %test_poll_event_os.exit102.thread
+179:                                              ; preds = %175
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.17.1, i64 160
+  %181 = load ptr, ptr %180, align 8, !tbaa !113
+  %182 = call i32 @ossl_quic_channel_is_term_any(ptr noundef %181) #12
+  %.not4.i.i99 = icmp eq i32 %182, 0
+  br i1 %.not4.i.i99, label %183, label %test_poll_event_os.exit102.thread
 
-185:                                              ; preds = %181
-  %186 = load ptr, ptr %182, align 8, !tbaa !113
-  %187 = call i32 @ossl_quic_channel_is_active(ptr noundef %186) #12
-  %.not6.i.i100 = icmp eq i32 %187, 0
+183:                                              ; preds = %179
+  %184 = load ptr, ptr %180, align 8, !tbaa !113
+  %185 = call i32 @ossl_quic_channel_is_active(ptr noundef %184) #12
+  %.not6.i.i100 = icmp eq i32 %185, 0
   br i1 %.not6.i.i100, label %test_poll_event_os.exit102.thread, label %test_poll_event_os.exit102
 
-test_poll_event_os.exit102:                       ; preds = %185
-  %188 = load ptr, ptr %182, align 8, !tbaa !113
-  %189 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %188, i32 noundef 1) #12
-  %.fr154 = freeze i64 %189
+test_poll_event_os.exit102:                       ; preds = %183
+  %186 = load ptr, ptr %180, align 8, !tbaa !113
+  %187 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %186, i32 noundef 1) #12
+  %.fr154 = freeze i64 %187
   %.not153 = icmp eq i64 %.fr154, 0
-  %190 = or i64 %.10, 4096
-  br i1 %.not153, label %test_poll_event_os.exit102.thread, label %191
+  %188 = or i64 %.10, 4096
+  br i1 %.not153, label %test_poll_event_os.exit102.thread, label %189
 
-test_poll_event_os.exit102.thread:                ; preds = %185, %181, %177, %test_poll_event_os.exit102
-  br label %191
+test_poll_event_os.exit102.thread:                ; preds = %183, %179, %175, %test_poll_event_os.exit102
+  br label %189
 
-191:                                              ; preds = %test_poll_event_os.exit102.thread, %test_poll_event_os.exit102, %175, %130
-  %.5 = phi i64 [ %.1, %130 ], [ %.10, %175 ], [ %.10, %test_poll_event_os.exit102.thread ], [ %190, %test_poll_event_os.exit102 ]
-  br i1 %.not61, label %204, label %192
+189:                                              ; preds = %test_poll_event_os.exit102.thread, %test_poll_event_os.exit102, %173, %128
+  %.5 = phi i64 [ %.1, %128 ], [ %.10, %173 ], [ %.10, %test_poll_event_os.exit102.thread ], [ %188, %test_poll_event_os.exit102 ]
+  br i1 %.not61, label %202, label %190
 
-192:                                              ; preds = %191
-  %193 = and i64 %1, 2
-  %.not62 = icmp eq i64 %193, 0
-  br i1 %.not62, label %198, label %194
+190:                                              ; preds = %189
+  %191 = and i64 %1, 2
+  %.not62 = icmp eq i64 %191, 0
+  br i1 %.not62, label %196, label %192
 
-194:                                              ; preds = %192
-  %195 = getelementptr i8, ptr %.sroa.12.1, i64 136
-  %.val84 = load ptr, ptr %195, align 8, !tbaa !139
-  %196 = call i32 @ossl_quic_port_is_running(ptr noundef %.val84) #12
-  %.not.i103.not = icmp eq i32 %196, 0
-  %197 = or i64 %.5, 2
-  %spec.select76 = select i1 %.not.i103.not, i64 %197, i64 %.5
-  br label %198
+192:                                              ; preds = %190
+  %193 = getelementptr i8, ptr %.sroa.12.1, i64 136
+  %.val84 = load ptr, ptr %193, align 8, !tbaa !139
+  %194 = call i32 @ossl_quic_port_is_running(ptr noundef %.val84) #12
+  %.not.i103.not = icmp eq i32 %194, 0
+  %195 = or i64 %.5, 2
+  %spec.select76 = select i1 %.not.i103.not, i64 %195, i64 %.5
+  br label %196
 
-198:                                              ; preds = %194, %192
-  %.11 = phi i64 [ %.5, %192 ], [ %spec.select76, %194 ]
-  %199 = and i64 %1, 256
-  %.not64 = icmp eq i64 %199, 0
-  br i1 %.not64, label %204, label %200
+196:                                              ; preds = %192, %190
+  %.11 = phi i64 [ %.5, %190 ], [ %spec.select76, %192 ]
+  %197 = and i64 %1, 256
+  %.not64 = icmp eq i64 %197, 0
+  br i1 %.not64, label %202, label %198
 
-200:                                              ; preds = %198
-  %201 = getelementptr i8, ptr %.sroa.12.1, i64 136
-  %.val85 = load ptr, ptr %201, align 8, !tbaa !139
-  %202 = call i64 @ossl_quic_port_get_num_incoming_channels(ptr noundef %.val85) #12
-  %.not155 = icmp eq i64 %202, 0
-  %203 = or i64 %.11, 256
-  %spec.select77 = select i1 %.not155, i64 %.11, i64 %203
-  br label %204
+198:                                              ; preds = %196
+  %199 = getelementptr i8, ptr %.sroa.12.1, i64 136
+  %.val85 = load ptr, ptr %199, align 8, !tbaa !139
+  %200 = call i64 @ossl_quic_port_get_num_incoming_channels(ptr noundef %.val85) #12
+  %.not155 = icmp eq i64 %200, 0
+  %201 = or i64 %.11, 256
+  %spec.select77 = select i1 %.not155, i64 %.11, i64 %201
+  br label %202
 
-204:                                              ; preds = %200, %30, %191, %198
-  %.0 = phi i64 [ %31, %30 ], [ %spec.select77, %200 ], [ %.11, %198 ], [ %.5, %191 ]
+202:                                              ; preds = %198, %30, %189, %196
+  %.0 = phi i64 [ %31, %30 ], [ %spec.select77, %198 ], [ %.11, %196 ], [ %.5, %189 ]
   %.val79.val = load ptr, ptr %24, align 8, !tbaa !143
-  %205 = call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val79.val) #12
-  call void @ossl_crypto_mutex_unlock(ptr noundef %205) #12
+  %203 = call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val79.val) #12
+  call void @ossl_crypto_mutex_unlock(ptr noundef %203) #12
   store i64 %.0, ptr %3, align 8, !tbaa !160
   br label %expect_quic_as.exit.thread
 
-expect_quic_as.exit.thread:                       ; preds = %8, %22, %11, %204
-  %.032 = phi i32 [ 1, %204 ], [ 0, %11 ], [ 0, %22 ], [ 0, %8 ]
+expect_quic_as.exit.thread:                       ; preds = %8, %22, %11, %202
+  %.032 = phi i32 [ 1, %202 ], [ 0, %11 ], [ 0, %22 ], [ 0, %8 ]
   ret i32 %.032
 }
 

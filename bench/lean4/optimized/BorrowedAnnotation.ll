@@ -22,9 +22,8 @@ define zeroext range(i8 0, 2) i8 @lean_is_marked_borrowed(ptr noundef %0) local_
   %2 = load ptr, ptr @l_Lean_markBorrowed___closed__2, align 8, !tbaa !4
   %3 = tail call ptr @l_Lean_annotation_x3f(ptr noundef %2, ptr noundef %0) #3
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !8
@@ -46,9 +45,8 @@ define zeroext range(i8 0, 2) i8 @lean_is_marked_borrowed(ptr noundef %0) local_
 
 lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   %13 = ptrtoint ptr %3 to i64
-  %14 = and i64 %13, 1
-  %.not.i10 = icmp eq i64 %14, 0
-  br i1 %.not.i10, label %lean_obj_tag.exit.thread, label %lean_obj_tag.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_obj_tag.exit, label %lean_obj_tag.exit.thread
 
 lean_obj_tag.exit:                                ; preds = %lean_dec.exit
   %15 = and i64 %13, 8589934590
@@ -92,9 +90,8 @@ define nonnull ptr @l_Lean_isMarkedBorrowed___boxed(ptr noundef %0) local_unname
   %2 = load ptr, ptr @l_Lean_markBorrowed___closed__2, align 8, !tbaa !4
   %3 = tail call ptr @l_Lean_annotation_x3f(ptr noundef %2, ptr noundef %0) #3
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %6, label %lean_dec.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit.i, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !8
@@ -116,9 +113,8 @@ define nonnull ptr @l_Lean_isMarkedBorrowed___boxed(ptr noundef %0) local_unname
 
 lean_dec.exit.i:                                  ; preds = %12, %11, %9, %1
   %13 = ptrtoint ptr %3 to i64
-  %14 = and i64 %13, 1
-  %.not.i10.i = icmp eq i64 %14, 0
-  br i1 %.not.i10.i, label %lean_obj_tag.exit.thread.i, label %lean_obj_tag.exit.i
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_obj_tag.exit.i, label %lean_obj_tag.exit.thread.i
 
 lean_obj_tag.exit.i:                              ; preds = %lean_dec.exit.i
   %15 = and i64 %13, 8589934590

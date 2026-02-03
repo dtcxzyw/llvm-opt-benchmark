@@ -6639,18 +6639,17 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt12_Vector_base
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = xor i32 %14, %12
-  %16 = and i32 %15, 1
-  %.not = icmp ne i32 %16, 0
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 1
-  %or.cond = select i1 %.not, i1 %19, i1 false
+  %.not = trunc i32 %15 to i1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 1
+  %or.cond = select i1 %.not, i1 %18, i1 false
   br i1 %or.cond, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread:  ; preds = %10
   store i64 53, ptr %6, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %20, ptr %4, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %19, ptr %4, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit32
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i34
@@ -6659,35 +6658,36 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread:  ; preds = %10
   store ptr %42, ptr %4, align 8
   store ptr %43, ptr %2, align 8
   store ptr %44, ptr %0, align 8
-  br label %23
+  br label %22
 
 .loopexit.split-lp:                               ; preds = %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i, %52
-  %21 = phi ptr [ %42, %52 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ]
-  %22 = phi ptr [ %44, %52 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ]
+  %20 = phi ptr [ %42, %52 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ]
+  %21 = phi ptr [ %44, %52 ], [ null, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %22
 
-23:                                               ; preds = %.loopexit.split-lp, %.loopexit
-  %24 = phi ptr [ %42, %.loopexit ], [ %21, %.loopexit.split-lp ]
-  %25 = phi ptr [ %44, %.loopexit ], [ %22, %.loopexit.split-lp ]
+22:                                               ; preds = %.loopexit.split-lp, %.loopexit
+  %23 = phi ptr [ %42, %.loopexit ], [ %20, %.loopexit.split-lp ]
+  %24 = phi ptr [ %44, %.loopexit ], [ %21, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %26
+  %.not.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %25
 
-26:                                               ; preds = %23
+25:                                               ; preds = %22
+  %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %24 to i64
-  %28 = ptrtoint ptr %25 to i64
-  %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %29) #31
+  %28 = sub i64 %26, %27
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %28) #31
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %23, %26
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %22, %25
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit22:         ; preds = %10
-  %30 = icmp eq i32 %16, 0
-  %31 = icmp eq i32 %18, 2
+  %29 = and i32 %15, 1
+  %30 = icmp eq i32 %29, 0
+  %31 = icmp eq i32 %17, 2
   %or.cond10 = select i1 %30, i1 %31, i1 false
   br i1 %or.cond10, label %32, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit32
 
@@ -6702,7 +6702,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit22:         ; preds = %10
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit32:         ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %32, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22
   %.promoted56 = phi ptr [ %3, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ], [ %3, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %3, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread ], [ %.promoted56.pre, %32 ]
   %.promoted52 = phi ptr [ %5, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ], [ %5, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %5, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread ], [ %.promoted52.pre, %32 ]
-  %.promoted = phi ptr [ %6, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ], [ %6, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %20, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread ], [ %33, %32 ]
+  %.promoted = phi ptr [ %6, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22 ], [ %6, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ], [ %19, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit22.thread ], [ %33, %32 ]
   %34 = load i32, ptr %7, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %36 = load i32, ptr %35, align 4

@@ -30,109 +30,111 @@ define hidden range(i32 0, 2) i32 @EC_POINT_oct2point(ptr noundef %0, ptr nounde
   %15 = and i32 %14, 1
   %16 = and i32 %14, 254
   %trunc.i = trunc nuw i32 %16 to i8
-  switch i8 %trunc.i, label %18 [
+  switch i8 %trunc.i, label %20 [
     i8 4, label %17
     i8 2, label %17
   ]
 
 17:                                               ; preds = %12, %12
-  %or.cond3.i = icmp eq i8 %13, 5
-  br i1 %or.cond3.i, label %18, label %19
+  %18 = icmp eq i32 %16, 4
+  %19 = trunc i8 %13 to i1
+  %or.cond3.i = and i1 %18, %19
+  br i1 %or.cond3.i, label %20, label %21
 
-18:                                               ; preds = %17, %12
+20:                                               ; preds = %17, %12
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 192) #3
   br label %ec_GFp_simple_oct2point.exit
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = tail call i32 @BN_num_bytes(ptr noundef nonnull %20) #3
-  %22 = zext i32 %21 to i64
-  %23 = icmp eq i32 %16, 2
-  %24 = add nuw nsw i64 %22, 1
-  %25 = shl nuw nsw i64 %22, 1
-  %26 = or disjoint i64 %25, 1
-  %27 = select i1 %23, i64 %24, i64 %26
-  %.not.i = icmp eq i64 %3, %27
-  br i1 %.not.i, label %29, label %28
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %23 = tail call i32 @BN_num_bytes(ptr noundef nonnull %22) #3
+  %24 = zext i32 %23 to i64
+  %25 = icmp eq i32 %16, 2
+  %26 = add nuw nsw i64 %24, 1
+  %27 = shl nuw nsw i64 %24, 1
+  %28 = or disjoint i64 %27, 1
+  %29 = select i1 %25, i64 %26, i64 %28
+  %.not.i = icmp eq i64 %3, %29
+  br i1 %.not.i, label %31, label %30
 
-28:                                               ; preds = %19
+30:                                               ; preds = %21
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 201) #3
   br label %ec_GFp_simple_oct2point.exit
 
-29:                                               ; preds = %19
-  %30 = icmp eq ptr %4, null
-  br i1 %30, label %31, label %34
+31:                                               ; preds = %21
+  %32 = icmp eq ptr %4, null
+  br i1 %32, label %33, label %36
 
-31:                                               ; preds = %29
-  %32 = tail call ptr @BN_CTX_new() #3
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %ec_GFp_simple_oct2point.exit, label %34
+33:                                               ; preds = %31
+  %34 = tail call ptr @BN_CTX_new() #3
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %ec_GFp_simple_oct2point.exit, label %36
 
-34:                                               ; preds = %31, %29
-  %.053.i = phi ptr [ %32, %31 ], [ null, %29 ]
-  %.052.i = phi ptr [ %32, %31 ], [ %4, %29 ]
+36:                                               ; preds = %33, %31
+  %.053.i = phi ptr [ %34, %33 ], [ null, %31 ]
+  %.052.i = phi ptr [ %34, %33 ], [ %4, %31 ]
   tail call void @BN_CTX_start(ptr noundef nonnull %.052.i) #3
-  %35 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.052.i) #3
-  %36 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.052.i) #3
-  %37 = icmp eq ptr %35, null
-  %38 = icmp eq ptr %36, null
-  %or.cond5.i = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond5.i, label %59, label %39
+  %37 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.052.i) #3
+  %38 = tail call ptr @BN_CTX_get(ptr noundef nonnull %.052.i) #3
+  %39 = icmp eq ptr %37, null
+  %40 = icmp eq ptr %38, null
+  %or.cond5.i = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond5.i, label %61, label %41
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %41 = tail call ptr @BN_bin2bn(ptr noundef nonnull %40, i64 noundef %22, ptr noundef nonnull %35) #3
-  %.not59.i = icmp eq ptr %41, null
-  br i1 %.not59.i, label %59, label %42
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %43 = tail call ptr @BN_bin2bn(ptr noundef nonnull %42, i64 noundef %24, ptr noundef nonnull %37) #3
+  %.not59.i = icmp eq ptr %43, null
+  br i1 %.not59.i, label %61, label %44
 
-42:                                               ; preds = %39
-  %43 = tail call i32 @BN_ucmp(ptr noundef nonnull %35, ptr noundef nonnull %20) #3
-  %44 = icmp sgt i32 %43, -1
-  br i1 %44, label %45, label %46
+44:                                               ; preds = %41
+  %45 = tail call i32 @BN_ucmp(ptr noundef nonnull %37, ptr noundef nonnull %22) #3
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %47, label %48
 
-45:                                               ; preds = %42
+47:                                               ; preds = %44
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 223) #3
-  br label %59
+  br label %61
 
-46:                                               ; preds = %42
-  br i1 %23, label %47, label %49
+48:                                               ; preds = %44
+  br i1 %25, label %49, label %51
 
-47:                                               ; preds = %46
-  %48 = tail call i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %35, i32 noundef %15, ptr noundef nonnull %.052.i)
-  %.not62.i = icmp eq i32 %48, 0
-  br i1 %.not62.i, label %59, label %58
+49:                                               ; preds = %48
+  %50 = tail call i32 @EC_POINT_set_compressed_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %37, i32 noundef %15, ptr noundef nonnull %.052.i)
+  %.not62.i = icmp eq i32 %50, 0
+  br i1 %.not62.i, label %61, label %60
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %40, i64 %22
-  %51 = tail call ptr @BN_bin2bn(ptr noundef nonnull %50, i64 noundef %22, ptr noundef nonnull %36) #3
-  %.not60.i = icmp eq ptr %51, null
-  br i1 %.not60.i, label %59, label %52
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 %24
+  %53 = tail call ptr @BN_bin2bn(ptr noundef nonnull %52, i64 noundef %24, ptr noundef nonnull %38) #3
+  %.not60.i = icmp eq ptr %53, null
+  br i1 %.not60.i, label %61, label %54
 
-52:                                               ; preds = %49
-  %53 = tail call i32 @BN_ucmp(ptr noundef nonnull %36, ptr noundef nonnull %20) #3
-  %54 = icmp sgt i32 %53, -1
-  br i1 %54, label %55, label %56
+54:                                               ; preds = %51
+  %55 = tail call i32 @BN_ucmp(ptr noundef nonnull %38, ptr noundef nonnull %22) #3
+  %56 = icmp sgt i32 %55, -1
+  br i1 %56, label %57, label %58
 
-55:                                               ; preds = %52
+57:                                               ; preds = %54
   tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 109, ptr noundef nonnull @.str, i32 noundef 236) #3
-  br label %59
+  br label %61
 
-56:                                               ; preds = %52
-  %57 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %.052.i) #3
-  %.not61.i = icmp eq i32 %57, 0
-  br i1 %.not61.i, label %59, label %58
+58:                                               ; preds = %54
+  %59 = tail call i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %.052.i) #3
+  %.not61.i = icmp eq i32 %59, 0
+  br i1 %.not61.i, label %61, label %60
 
-58:                                               ; preds = %56, %47
-  br label %59
+60:                                               ; preds = %58, %49
+  br label %61
 
-59:                                               ; preds = %58, %56, %55, %49, %47, %45, %39, %34
-  %.0.i = phi i32 [ 0, %34 ], [ 0, %45 ], [ 1, %58 ], [ 0, %47 ], [ 0, %55 ], [ 0, %56 ], [ 0, %49 ], [ 0, %39 ]
+61:                                               ; preds = %60, %58, %57, %51, %49, %47, %41, %36
+  %.0.i = phi i32 [ 0, %36 ], [ 0, %47 ], [ 1, %60 ], [ 0, %49 ], [ 0, %57 ], [ 0, %58 ], [ 0, %51 ], [ 0, %41 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.052.i) #3
   tail call void @BN_CTX_free(ptr noundef %.053.i) #3
   br label %ec_GFp_simple_oct2point.exit
 
-ec_GFp_simple_oct2point.exit:                     ; preds = %59, %31, %28, %18, %11, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %18 ], [ 0, %28 ], [ %.0.i, %59 ], [ 0, %31 ]
+ec_GFp_simple_oct2point.exit:                     ; preds = %61, %33, %30, %20, %11, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %11 ], [ 0, %20 ], [ 0, %30 ], [ %.0.i, %61 ], [ 0, %33 ]
   ret i32 %.0
 }
 

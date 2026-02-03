@@ -688,7 +688,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_add_log(ptr noun
 reftable_writer_add_log_verbatim.exit:            ; preds = %17, %20
   %.1.i = phi i32 [ %27, %20 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %82
+  br label %81
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -696,113 +696,112 @@ reftable_writer_add_log_verbatim.exit:            ; preds = %17, %20
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = icmp ugt i64 %30, %32
-  br i1 %33, label %82, label %34
+  br i1 %33, label %81, label %34
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %1, align 8, !tbaa !72
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %82, label %36
+  br i1 %.not, label %81, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %40 = load i8, ptr %39, align 4
-  %41 = and i8 %40, 1
-  %.not25 = icmp ne i8 %41, 0
+  %.not25 = trunc i8 %40 to i1
   %.not26 = icmp eq ptr %38, null
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
-  br i1 %or.cond, label %63, label %42
+  br i1 %or.cond, label %62, label %41
 
-42:                                               ; preds = %36
-  %43 = call i32 @reftable_buf_addstr(ptr noundef nonnull %5, ptr noundef nonnull %38) #12
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %.loopexit, label %.preheader
+41:                                               ; preds = %36
+  %42 = call i32 @reftable_buf_addstr(ptr noundef nonnull %5, ptr noundef nonnull %38) #12
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %47
+.preheader:                                       ; preds = %41
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %46
 
-47:                                               ; preds = %.preheader, %54
-  %48 = load i64, ptr %45, align 8, !tbaa !58
-  %.not27 = icmp eq i64 %48, 0
-  %.pre = load ptr, ptr %46, align 8, !tbaa !57
-  br i1 %.not27, label %.critedge, label %49
+46:                                               ; preds = %.preheader, %53
+  %47 = load i64, ptr %44, align 8, !tbaa !58
+  %.not27 = icmp eq i64 %47, 0
+  %.pre = load ptr, ptr %45, align 8, !tbaa !57
+  br i1 %.not27, label %.critedge, label %48
 
-49:                                               ; preds = %47
-  %50 = add i64 %48, -1
-  %51 = getelementptr inbounds nuw i8, ptr %.pre, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !11
-  %53 = icmp eq i8 %52, 10
-  br i1 %53, label %54, label %.critedge
+48:                                               ; preds = %46
+  %49 = add i64 %47, -1
+  %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !11
+  %52 = icmp eq i8 %51, 10
+  br i1 %52, label %53, label %.critedge
 
-54:                                               ; preds = %49
-  %55 = call i32 @reftable_buf_setlen(ptr noundef nonnull %5, i64 noundef %50) #12
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.loopexit, label %47, !llvm.loop !73
+53:                                               ; preds = %48
+  %54 = call i32 @reftable_buf_setlen(ptr noundef nonnull %5, i64 noundef %49) #12
+  %55 = icmp slt i32 %54, 0
+  br i1 %55, label %.loopexit, label %46, !llvm.loop !73
 
-.critedge:                                        ; preds = %47, %49
-  %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.pre, i32 noundef 10) #14
-  %.not28 = icmp eq ptr %57, null
-  br i1 %.not28, label %58, label %.loopexit
+.critedge:                                        ; preds = %46, %48
+  %56 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.pre, i32 noundef 10) #14
+  %.not28 = icmp eq ptr %56, null
+  br i1 %.not28, label %57, label %.loopexit
 
-58:                                               ; preds = %.critedge
-  %59 = call i32 @reftable_buf_addstr(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #12
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.loopexit, label %61
+57:                                               ; preds = %.critedge
+  %58 = call i32 @reftable_buf_addstr(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #12
+  %59 = icmp slt i32 %58, 0
+  br i1 %59, label %.loopexit, label %60
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %46, align 8, !tbaa !57
-  store ptr %62, ptr %37, align 8, !tbaa !11
-  br label %63
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %45, align 8, !tbaa !57
+  store ptr %61, ptr %37, align 8, !tbaa !11
+  br label %62
 
-63:                                               ; preds = %61, %36
+62:                                               ; preds = %60, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 103, ptr %3, align 8, !tbaa !46
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %64, i8 0, i64 7, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %65, ptr noundef nonnull readonly align 8 dereferenceable(144) %1, i64 144, i1 false), !tbaa.struct !69
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %67 = load ptr, ptr %66, align 8, !tbaa !35
-  %.not.i29 = icmp eq ptr %67, null
-  br i1 %.not.i29, label %74, label %68
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %63, i8 0, i64 7, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull readonly align 8 dereferenceable(144) %1, i64 144, i1 false), !tbaa.struct !69
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %66 = load ptr, ptr %65, align 8, !tbaa !35
+  %.not.i29 = icmp eq ptr %66, null
+  br i1 %.not.i29, label %73, label %67
 
-68:                                               ; preds = %63
-  %69 = call zeroext i8 @block_writer_type(ptr noundef nonnull %67) #12
-  %70 = icmp eq i8 %69, 114
-  br i1 %70, label %71, label %74
+67:                                               ; preds = %62
+  %68 = call zeroext i8 @block_writer_type(ptr noundef nonnull %66) #12
+  %69 = icmp eq i8 %68, 114
+  br i1 %69, label %70, label %73
 
-71:                                               ; preds = %68
-  %72 = call fastcc i32 @writer_finish_public_section(ptr noundef nonnull %0)
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %74, label %reftable_writer_add_log_verbatim.exit31
+70:                                               ; preds = %67
+  %71 = call fastcc i32 @writer_finish_public_section(ptr noundef nonnull %0)
+  %72 = icmp sgt i32 %71, -1
+  br i1 %72, label %73, label %reftable_writer_add_log_verbatim.exit31
 
-74:                                               ; preds = %71, %68, %63
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %76 = load i32, ptr %75, align 8, !tbaa !70
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %79 = load i64, ptr %78, align 8, !tbaa !32
-  %80 = sub i64 %79, %77
-  store i64 %80, ptr %78, align 8, !tbaa !32
-  store i32 0, ptr %75, align 8, !tbaa !70
-  %81 = call fastcc i32 @writer_add_record(ptr noundef nonnull %0, ptr noundef %3)
+73:                                               ; preds = %70, %67, %62
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %75 = load i32, ptr %74, align 8, !tbaa !70
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %78 = load i64, ptr %77, align 8, !tbaa !32
+  %79 = sub i64 %78, %76
+  store i64 %79, ptr %77, align 8, !tbaa !32
+  store i32 0, ptr %74, align 8, !tbaa !70
+  %80 = call fastcc i32 @writer_add_record(ptr noundef nonnull %0, ptr noundef %3)
   br label %reftable_writer_add_log_verbatim.exit31
 
-reftable_writer_add_log_verbatim.exit31:          ; preds = %71, %74
-  %.1.i30 = phi i32 [ %81, %74 ], [ %72, %71 ]
+reftable_writer_add_log_verbatim.exit31:          ; preds = %70, %73
+  %.1.i30 = phi i32 [ %80, %73 ], [ %71, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %38, ptr %37, align 8, !tbaa !11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %.critedge, %58, %42, %reftable_writer_add_log_verbatim.exit31
-  %.0 = phi i32 [ %.1.i30, %reftable_writer_add_log_verbatim.exit31 ], [ %43, %42 ], [ -6, %.critedge ], [ %59, %58 ], [ %55, %54 ]
+.loopexit:                                        ; preds = %53, %.critedge, %57, %41, %reftable_writer_add_log_verbatim.exit31
+  %.0 = phi i32 [ %.1.i30, %reftable_writer_add_log_verbatim.exit31 ], [ %42, %41 ], [ -6, %.critedge ], [ %58, %57 ], [ %54, %53 ]
   call void @reftable_buf_release(ptr noundef nonnull %5) #12
-  br label %82
+  br label %81
 
-82:                                               ; preds = %34, %28, %.loopexit, %reftable_writer_add_log_verbatim.exit
+81:                                               ; preds = %34, %28, %.loopexit, %reftable_writer_add_log_verbatim.exit
   %.019 = phi i32 [ %.1.i, %reftable_writer_add_log_verbatim.exit ], [ -6, %28 ], [ %.0, %.loopexit ], [ -6, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019

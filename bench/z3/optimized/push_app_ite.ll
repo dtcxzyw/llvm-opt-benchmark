@@ -507,8 +507,8 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.thread.i:   ; preds = %37, %34, %_ZNK11ast
 
 _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit: ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.thread.i
   %41 = trunc nuw i8 %.1.i to i1
-  %.not19 = icmp ne i32 %2, 0
-  %or.cond = and i1 %.not19, %41
+  %.not18 = icmp ne i32 %2, 0
+  %or.cond = and i1 %.not18, %41
   br i1 %or.cond, label %.lr.ph, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14
 
 42:                                               ; preds = %_Z9is_groundPK4expr.exit
@@ -529,9 +529,8 @@ _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit: ; preds = %_ZNK11ast_
 _Z9is_groundPK4expr.exit:                         ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 30
   %50 = load i8, ptr %49, align 2
-  %51 = and i8 %50, 1
-  %.not17 = icmp eq i8 %51, 0
-  br i1 %.not17, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %42
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %42, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14
 
 _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14: ; preds = %37, %_Z9is_groundPK4expr.exit, %42, %.lr.ph, %.preheader.i, %11, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit
   %.012 = phi i1 [ false, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ], [ false, %11 ], [ true, %.lr.ph ], [ false, %.preheader.i ], [ false, %42 ], [ true, %_Z9is_groundPK4expr.exit ], [ false, %37 ]

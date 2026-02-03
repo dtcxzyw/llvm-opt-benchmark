@@ -704,9 +704,10 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
 
 7:                                                ; preds = %126
   %8 = sext i8 %38 to i64
-  %9 = and i64 %.fr, 1153343717090787345
-  %cond.not = icmp eq i64 %9, 0
-  %spec.select = select i1 %cond.not, i32 %spec.select146, i32 %128
+  %9 = lshr i64 1153343717090787345, %.0123
+  %.fr = freeze i64 %9
+  %cond = trunc i64 %.fr to i1
+  %spec.select = select i1 %cond, i32 %128, i32 %spec.select146
   %10 = shl nsw i32 %39, 1
   %11 = sext i32 %10 to i64
   br label %.thread
@@ -758,8 +759,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %40 = shl nuw i64 1, %.0123
-  %.fr = freeze i64 %40
-  %41 = and i64 %.fr, 1152499292122906606
+  %41 = and i64 %40, 1152499292122906606
   %.not136 = icmp eq i64 %41, 0
   br i1 %.not136, label %42, label %126
 
@@ -981,7 +981,7 @@ define linkonce_odr hidden void @_Z22find_syllables_myanmarP11hb_buffer_t(ptr no
 126:                                              ; preds = %42, %._crit_edge184, %._crit_edge180, %._crit_edge176, %._crit_edge172, %._crit_edge168, %._crit_edge164, %._crit_edge, %36
   %.3127 = phi i32 [ %.2126, %36 ], [ %.2126, %42 ], [ %spec.store.select, %._crit_edge184 ], [ %spec.store.select2, %._crit_edge180 ], [ %spec.store.select3, %._crit_edge176 ], [ %spec.store.select4, %._crit_edge172 ], [ %spec.store.select5, %._crit_edge168 ], [ %spec.store.select6, %._crit_edge164 ], [ %spec.store.select7, %._crit_edge ]
   %.3 = phi i32 [ %.2, %36 ], [ %.2, %42 ], [ %.2, %._crit_edge184 ], [ %.2, %._crit_edge180 ], [ %.2, %._crit_edge176 ], [ %.2, %._crit_edge172 ], [ %92, %._crit_edge168 ], [ %102, %._crit_edge164 ], [ %116, %._crit_edge ]
-  %127 = and i64 %.fr, 1153343717090787345
+  %127 = and i64 %40, 1153343717090787345
   %cond1.not = icmp eq i64 %127, 0
   %spec.select146 = select i1 %cond1.not, i32 %.3122, i32 0
   %128 = add i32 %.3, 1

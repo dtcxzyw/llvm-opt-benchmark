@@ -13876,67 +13876,66 @@ define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr n
   %83 = load i32, ptr %9, align 4
   %84 = icmp ne i32 %83, 0
   %or.cond3 = select i1 %82, i1 %84, i1 false
-  br i1 %or.cond3, label %85, label %96
+  br i1 %or.cond3, label %85, label %95
 
 85:                                               ; preds = %80
   %86 = load i32, ptr @hf_mbim_device_caps_info_device_id, align 4
   %87 = add i32 %81, %3
   %88 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %87, i32 noundef %83, i32 noundef -2147483644)
   %89 = load i32, ptr %18, align 4
-  %90 = and i32 %89, 1
-  %91 = icmp ne i32 %90, 0
-  %92 = load i32, ptr %9, align 4
-  %93 = icmp ugt i32 %92, 30
-  %or.cond5 = select i1 %91, i1 %93, i1 false
-  %94 = icmp ugt i32 %92, 36
-  %or.cond112 = select i1 %or.cond5, i1 true, i1 %94
-  br i1 %or.cond112, label %.sink.split, label %96
+  %90 = trunc i32 %89 to i1
+  %91 = load i32, ptr %9, align 4
+  %92 = icmp ugt i32 %91, 30
+  %or.cond5 = select i1 %90, i1 %92, i1 false
+  %93 = icmp ugt i32 %91, 36
+  %or.cond112 = select i1 %or.cond5, i1 true, i1 %93
+  br i1 %or.cond112, label %.sink.split, label %95
 
 .sink.split:                                      ; preds = %85
-  %95 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %88, ptr noundef nonnull @ei_mbim_oversized_string)
-  br label %96
+  %94 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %88, ptr noundef nonnull @ei_mbim_oversized_string)
+  br label %95
 
-96:                                               ; preds = %85, %.sink.split, %80
-  %97 = load i32, ptr %10, align 4
-  %98 = icmp ne i32 %97, 0
-  %99 = load i32, ptr %11, align 4
-  %100 = icmp ne i32 %99, 0
-  %or.cond7 = select i1 %98, i1 %100, i1 false
-  br i1 %or.cond7, label %101, label %109
+95:                                               ; preds = %85, %.sink.split, %80
+  %96 = load i32, ptr %10, align 4
+  %97 = icmp ne i32 %96, 0
+  %98 = load i32, ptr %11, align 4
+  %99 = icmp ne i32 %98, 0
+  %or.cond7 = select i1 %97, i1 %99, i1 false
+  br i1 %or.cond7, label %100, label %108
 
-101:                                              ; preds = %96
-  %102 = load i32, ptr @hf_mbim_device_caps_info_fw_info, align 4
-  %103 = add i32 %97, %3
-  %104 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef %99, i32 noundef -2147483644)
-  %105 = load i32, ptr %11, align 4
-  %106 = icmp ugt i32 %105, 60
-  br i1 %106, label %107, label %109
+100:                                              ; preds = %95
+  %101 = load i32, ptr @hf_mbim_device_caps_info_fw_info, align 4
+  %102 = add i32 %96, %3
+  %103 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef %98, i32 noundef -2147483644)
+  %104 = load i32, ptr %11, align 4
+  %105 = icmp ugt i32 %104, 60
+  br i1 %105, label %106, label %108
 
-107:                                              ; preds = %101
-  %108 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %104, ptr noundef nonnull @ei_mbim_oversized_string)
-  br label %109
+106:                                              ; preds = %100
+  %107 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %103, ptr noundef nonnull @ei_mbim_oversized_string)
+  br label %108
 
-109:                                              ; preds = %101, %107, %96
-  %110 = load i32, ptr %12, align 4
-  %111 = icmp ne i32 %110, 0
-  %112 = load i32, ptr %13, align 4
-  %113 = icmp ne i32 %112, 0
-  %or.cond9 = select i1 %111, i1 %113, i1 false
-  br i1 %or.cond9, label %114, label %122
+108:                                              ; preds = %100, %106, %95
+  %109 = load i32, ptr %12, align 4
+  %110 = icmp ne i32 %109, 0
+  %111 = load i32, ptr %13, align 4
+  %112 = icmp ne i32 %111, 0
+  %or.cond9 = select i1 %110, i1 %112, i1 false
+  br i1 %or.cond9, label %113, label %121
 
-114:                                              ; preds = %109
-  %115 = load i32, ptr @hf_mbim_device_caps_info_hw_info, align 4
-  %116 = add i32 %110, %3
-  %117 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef %116, i32 noundef %112, i32 noundef -2147483644)
-  %118 = load i32, ptr %13, align 4
-  %119 = icmp ugt i32 %118, 60
-  br i1 %119, label %120, label %122
+113:                                              ; preds = %108
+  %114 = load i32, ptr @hf_mbim_device_caps_info_hw_info, align 4
+  %115 = add i32 %109, %3
+  %116 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef %111, i32 noundef -2147483644)
+  %117 = load i32, ptr %13, align 4
+  %118 = icmp ugt i32 %117, 60
+  br i1 %118, label %119, label %121
 
-120:                                              ; preds = %114
-  %121 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %117, ptr noundef nonnull @ei_mbim_oversized_string)
-  br label %122
+119:                                              ; preds = %113
+  %120 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %116, ptr noundef nonnull @ei_mbim_oversized_string)
+  br label %121
 
-122:                                              ; preds = %114, %120, %109
+121:                                              ; preds = %113, %119, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -16790,67 +16789,66 @@ define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, pt
   %86 = load i32, ptr %9, align 4
   %87 = icmp ne i32 %86, 0
   %or.cond3 = select i1 %85, i1 %87, i1 false
-  br i1 %or.cond3, label %88, label %99
+  br i1 %or.cond3, label %88, label %98
 
 88:                                               ; preds = %83
   %89 = load i32, ptr @hf_mbim_device_caps_info_device_id, align 4
   %90 = add i32 %84, %3
   %91 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef %86, i32 noundef -2147483644)
   %92 = load i32, ptr %18, align 4
-  %93 = and i32 %92, 1
-  %94 = icmp ne i32 %93, 0
-  %95 = load i32, ptr %9, align 4
-  %96 = icmp ugt i32 %95, 30
-  %or.cond5 = select i1 %94, i1 %96, i1 false
-  %97 = icmp ugt i32 %95, 36
-  %or.cond116 = select i1 %or.cond5, i1 true, i1 %97
-  br i1 %or.cond116, label %.sink.split, label %99
+  %93 = trunc i32 %92 to i1
+  %94 = load i32, ptr %9, align 4
+  %95 = icmp ugt i32 %94, 30
+  %or.cond5 = select i1 %93, i1 %95, i1 false
+  %96 = icmp ugt i32 %94, 36
+  %or.cond116 = select i1 %or.cond5, i1 true, i1 %96
+  br i1 %or.cond116, label %.sink.split, label %98
 
 .sink.split:                                      ; preds = %88
-  %98 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mbim_oversized_string)
-  br label %99
+  %97 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mbim_oversized_string)
+  br label %98
 
-99:                                               ; preds = %88, %.sink.split, %83
-  %100 = load i32, ptr %10, align 4
-  %101 = icmp ne i32 %100, 0
-  %102 = load i32, ptr %11, align 4
-  %103 = icmp ne i32 %102, 0
-  %or.cond7 = select i1 %101, i1 %103, i1 false
-  br i1 %or.cond7, label %104, label %112
+98:                                               ; preds = %88, %.sink.split, %83
+  %99 = load i32, ptr %10, align 4
+  %100 = icmp ne i32 %99, 0
+  %101 = load i32, ptr %11, align 4
+  %102 = icmp ne i32 %101, 0
+  %or.cond7 = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond7, label %103, label %111
 
-104:                                              ; preds = %99
-  %105 = load i32, ptr @hf_mbim_device_caps_info_fw_info, align 4
-  %106 = add i32 %100, %3
-  %107 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef %102, i32 noundef -2147483644)
-  %108 = load i32, ptr %11, align 4
-  %109 = icmp ugt i32 %108, 60
-  br i1 %109, label %110, label %112
+103:                                              ; preds = %98
+  %104 = load i32, ptr @hf_mbim_device_caps_info_fw_info, align 4
+  %105 = add i32 %99, %3
+  %106 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef %101, i32 noundef -2147483644)
+  %107 = load i32, ptr %11, align 4
+  %108 = icmp ugt i32 %107, 60
+  br i1 %108, label %109, label %111
 
-110:                                              ; preds = %104
-  %111 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %107, ptr noundef nonnull @ei_mbim_oversized_string)
-  br label %112
+109:                                              ; preds = %103
+  %110 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %106, ptr noundef nonnull @ei_mbim_oversized_string)
+  br label %111
 
-112:                                              ; preds = %104, %110, %99
-  %113 = load i32, ptr %12, align 4
-  %114 = icmp ne i32 %113, 0
-  %115 = load i32, ptr %13, align 4
-  %116 = icmp ne i32 %115, 0
-  %or.cond9 = select i1 %114, i1 %116, i1 false
-  br i1 %or.cond9, label %117, label %125
+111:                                              ; preds = %103, %109, %98
+  %112 = load i32, ptr %12, align 4
+  %113 = icmp ne i32 %112, 0
+  %114 = load i32, ptr %13, align 4
+  %115 = icmp ne i32 %114, 0
+  %or.cond9 = select i1 %113, i1 %115, i1 false
+  br i1 %or.cond9, label %116, label %124
 
-117:                                              ; preds = %112
-  %118 = load i32, ptr @hf_mbim_device_caps_info_hw_info, align 4
-  %119 = add i32 %113, %3
-  %120 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %118, ptr noundef %0, i32 noundef %119, i32 noundef %115, i32 noundef -2147483644)
-  %121 = load i32, ptr %13, align 4
-  %122 = icmp ugt i32 %121, 60
-  br i1 %122, label %123, label %125
+116:                                              ; preds = %111
+  %117 = load i32, ptr @hf_mbim_device_caps_info_hw_info, align 4
+  %118 = add i32 %112, %3
+  %119 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef %114, i32 noundef -2147483644)
+  %120 = load i32, ptr %13, align 4
+  %121 = icmp ugt i32 %120, 60
+  br i1 %121, label %122, label %124
 
-123:                                              ; preds = %117
-  %124 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %120, ptr noundef nonnull @ei_mbim_oversized_string)
-  br label %125
+122:                                              ; preds = %116
+  %123 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %119, ptr noundef nonnull @ei_mbim_oversized_string)
+  br label %124
 
-125:                                              ; preds = %117, %123, %112
+124:                                              ; preds = %116, %122, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

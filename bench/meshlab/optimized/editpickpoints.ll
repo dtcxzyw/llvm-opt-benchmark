@@ -1975,8 +1975,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   call void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE4pVec, i64 noundef %76)
   %77 = load ptr, ptr %70, align 8
   %78 = load ptr, ptr %69, align 8
-  %.not21.i = icmp eq ptr %77, %78
-  br i1 %.not21.i, label %.loopexit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %77, %78
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1995,9 +1995,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %88 = getelementptr inbounds %class.CVertexO, ptr %86, i64 %.020.i
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 20
   %90 = load i32, ptr %89, align 4
-  %91 = and i32 %90, 1
-  %.not.i = icmp eq i32 %91, 0
-  br i1 %.not.i, label %92, label %123
+  %91 = trunc i32 %90 to i1
+  br i1 %91, label %123, label %92
 
 92:                                               ; preds = %85
   %93 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -2049,11 +2048,11 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %122, i64 8
   store float %.sroa.016.8.vec.extract.i.i, ptr %.sroa.26.0..sroa_idx.i, align 4
   %.pre.i = load ptr, ptr %70, align 8
-  %.pre22.i = load ptr, ptr %69, align 8
+  %.pre21.i = load ptr, ptr %69, align 8
   br label %123
 
 123:                                              ; preds = %92, %85
-  %124 = phi ptr [ %86, %85 ], [ %.pre22.i, %92 ]
+  %124 = phi ptr [ %86, %85 ], [ %.pre21.i, %92 ]
   %125 = phi ptr [ %87, %85 ], [ %.pre.i, %92 ]
   %126 = add nuw i64 %.020.i, 1
   %127 = ptrtoint ptr %125 to i64
@@ -2083,8 +2082,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %140, align 8
-  %.not74 = icmp eq ptr %142, %143
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.not73 = icmp eq ptr %142, %143
+  br i1 %.not73, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2093,13 +2092,12 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
 
 146:                                              ; preds = %.lr.ph, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit
   %147 = phi ptr [ %143, %.lr.ph ], [ %219, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit ]
-  %.03973 = phi i64 [ 0, %.lr.ph ], [ %217, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit ]
-  %148 = getelementptr inbounds %class.CFaceO, ptr %147, i64 %.03973
+  %.03972 = phi i64 [ 0, %.lr.ph ], [ %217, %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit ]
+  %148 = getelementptr inbounds %class.CFaceO, ptr %147, i64 %.03972
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load i32, ptr %149, align 8
-  %151 = and i32 %150, 1
-  %.not72 = icmp eq i32 %151, 0
-  br i1 %.not72, label %152, label %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit
+  %151 = trunc i32 %150 to i1
+  br i1 %151, label %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit, label %152
 
 152:                                              ; preds = %146
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -2149,7 +2147,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
 
 190:                                              ; preds = %188
   %191 = load ptr, ptr %140, align 8
-  %192 = getelementptr inbounds %class.CFaceO, ptr %191, i64 %.03973
+  %192 = getelementptr inbounds %class.CFaceO, ptr %191, i64 %.03972
   %193 = load ptr, ptr %26, align 8
   %194 = load ptr, ptr %145, align 8
   %.not.i.i49 = icmp eq ptr %193, %194
@@ -2211,7 +2209,7 @@ _ZNSt6vectorIP6CFaceOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_i
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIP6CFaceOSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %195, %146, %188, %183, %178, %152
-  %217 = add nuw i64 %.03973, 1
+  %217 = add nuw i64 %.03972, 1
   %218 = load ptr, ptr %141, align 8
   %219 = load ptr, ptr %140, align 8
   %220 = ptrtoint ptr %218 to i64

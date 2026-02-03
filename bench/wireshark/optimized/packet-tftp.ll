@@ -1304,22 +1304,22 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %.not4048 = icmp sgt i32 %3, 2
-  br i1 %.not4048, label %.lr.ph, label %.critedge
+  %.not4052 = icmp sgt i32 %3, 2
+  br i1 %.not4052, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
   %4 = load ptr, ptr @g_ascii_table, align 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %14
-  %.03150 = phi i32 [ 0, %.lr.ph ], [ %.33443, %14 ]
-  %.03849 = phi i32 [ 2, %.lr.ph ], [ %15, %14 ]
-  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03849)
+  %.03154 = phi i32 [ 0, %.lr.ph ], [ %.33445, %14 ]
+  %.03853 = phi i32 [ 2, %.lr.ph ], [ %15, %14 ]
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03853)
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.thread, label %9
 
 .thread:                                          ; preds = %5
-  %8 = add i32 %.03150, 1
+  %8 = add i32 %.03154, 1
   br label %14
 
 9:                                                ; preds = %5
@@ -1331,41 +1331,40 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
   br i1 %.not.not, label %.critedge, label %14
 
 14:                                               ; preds = %.thread, %9
-  %.33443 = phi i32 [ %8, %.thread ], [ %.03150, %9 ]
-  %15 = add nuw nsw i32 %.03849, 1
+  %.33445 = phi i32 [ %8, %.thread ], [ %.03154, %9 ]
+  %15 = add nuw nsw i32 %.03853, 1
   %16 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %.not40 = icmp slt i32 %15, %16
   br i1 %.not40, label %5, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14
-  %17 = and i32 %.33443, 1
-  %18 = icmp ne i32 %17, 0
-  %19 = icmp eq i32 %.33443, 0
-  %or.cond = or i1 %19, %18
-  br i1 %or.cond, label %.critedge, label %20
+  %17 = trunc i32 %.33445 to i1
+  %18 = icmp eq i32 %.33445, 0
+  %or.cond = or i1 %18, %17
+  br i1 %or.cond, label %.critedge, label %19
 
-20:                                               ; preds = %._crit_edge
-  %21 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 2)
-  %22 = add i32 %21, 2
-  %23 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %22)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @tvb_format_stringzpad(ptr noundef %25, ptr noundef %0, i32 noundef %22, i32 noundef %23)
-  br label %27
+19:                                               ; preds = %._crit_edge
+  %20 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 2)
+  %21 = add i32 %20, 2
+  %22 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %21)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call ptr @tvb_format_stringzpad(ptr noundef %24, ptr noundef %0, i32 noundef %21, i32 noundef %22)
+  br label %26
 
-27:                                               ; preds = %27, %20
-  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr ptr, ptr @__const.is_valid_request_body.modes, i64 %indvars.iv
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @g_ascii_strcasecmp(ptr noundef %26, ptr noundef %29)
-  %31 = icmp eq i32 %30, 0
+26:                                               ; preds = %26, %19
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %26 ]
+  %27 = getelementptr ptr, ptr @__const.is_valid_request_body.modes, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 @g_ascii_strcasecmp(ptr noundef %25, ptr noundef %28)
+  %30 = icmp eq i32 %29, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  %or.cond59 = select i1 %31, i1 true, i1 %exitcond.not
-  br i1 %or.cond59, label %.critedge, label %27, !llvm.loop !10
+  %or.cond63 = select i1 %30, i1 true, i1 %exitcond.not
+  br i1 %or.cond63, label %.critedge, label %26, !llvm.loop !10
 
-.critedge:                                        ; preds = %9, %27, %2, %._crit_edge
-  %.3 = phi i1 [ %31, %27 ], [ false, %._crit_edge ], [ false, %2 ], [ false, %9 ]
+.critedge:                                        ; preds = %9, %26, %2, %._crit_edge
+  %.3 = phi i1 [ false, %._crit_edge ], [ %30, %26 ], [ false, %2 ], [ false, %9 ]
   ret i1 %.3
 }
 

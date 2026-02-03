@@ -35993,9 +35993,8 @@ define linkonce_odr hidden void @_ZNK8IU_State5printEv(ptr noundef nonnull align
   %52 = select i1 %.not5.i, i8 45, i8 80
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %52, ptr %53, align 1
-  %54 = and i32 %36, 1
-  %.not6.i = icmp eq i32 %54, 0
-  %55 = select i1 %.not6.i, i8 45, i8 67
+  %54 = trunc i32 %36 to i1
+  %55 = select i1 %54, i8 67, i8 45
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %55, ptr %56, align 1
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 7
@@ -36115,9 +36114,8 @@ switch.lookup:                                    ; preds = %1, %switch.lookup
   %70 = select i1 %.not10.i, i8 45, i8 68
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %70, ptr %71, align 1
-  %72 = and i32 %39, 1
-  %.not11.i = icmp eq i32 %72, 0
-  %73 = select i1 %.not11.i, i8 45, i8 73
+  %72 = trunc i32 %39 to i1
+  %73 = select i1 %72, i8 73, i8 45
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 %73, ptr %74, align 1
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -36150,8 +36148,8 @@ switch.lookup:
   %6 = lshr i32 %2, 8
   %7 = and i32 %6, 3
   %8 = zext nneg i32 %7 to i64
-  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11ControlWord5printEv.2, i64 %8
-  %switch.load13 = load ptr, ptr %switch.gep12, align 8
+  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11ControlWord5printEv.2, i64 %8
+  %switch.load12 = load ptr, ptr %switch.gep11, align 8
   store i8 32, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 32, ptr %9, align 1
@@ -36180,15 +36178,14 @@ switch.lookup:
   %23 = select i1 %.not8, i8 100, i8 68
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 %23, ptr %24, align 1
-  %25 = and i32 %2, 1
-  %.not9 = icmp eq i32 %25, 0
-  %26 = select i1 %.not9, i8 105, i8 73
+  %25 = trunc i32 %2 to i1
+  %26 = select i1 %25, i8 73, i8 105
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 %26, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %28, align 1
   %29 = and i32 %2, 65535
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %29, ptr noundef nonnull %1, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load13)
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.85, i32 noundef %29, ptr noundef nonnull %1, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load12)
   ret void
 }
 

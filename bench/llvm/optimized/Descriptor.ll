@@ -394,7 +394,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
   br i1 %.not.us, label %52, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.us
 
 _ZNK5clang6interp10Descriptor7isUnionEv.exit.us:  ; preds = %42
-  %50 = icmp ne i8 %36, 0
+  %50 = trunc nuw i8 %36 to i1
   %51 = icmp ne i8 %43, 0
   tail call void %49(ptr noundef %0, ptr noundef nonnull %25, i1 noundef zeroext %50, i1 noundef zeroext %51, i1 noundef zeroext %4, i1 noundef zeroext true, ptr noundef nonnull %47) #21
   br label %52
@@ -443,7 +443,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us:  ; preds = %42
   br i1 %.not.us46, label %87, label %74
 
 74:                                               ; preds = %67
-  %75 = icmp ne i8 %68, 0
+  %75 = trunc nuw i8 %68 to i1
   %76 = getelementptr inbounds nuw i8, ptr %58, i64 51
   %77 = load i8, ptr %76, align 1, !tbaa !30, !range !40, !noundef !41
   %78 = trunc nuw i8 %77 to i1
@@ -569,7 +569,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit.us52: ; preds = %115, %107
   br i1 %.not, label %158, label %144
 
 144:                                              ; preds = %.lr.ph.split.split.split
-  %145 = icmp ne i8 %133, 0
+  %145 = trunc nuw i8 %133 to i1
   %146 = icmp ne i8 %136, 0
   %147 = getelementptr inbounds nuw i8, ptr %126, i64 51
   %148 = load i8, ptr %147, align 1, !tbaa !30, !range !40, !noundef !41
@@ -928,7 +928,7 @@ _ZNK5clang6interp10Descriptor7isUnionEv.exit:     ; preds = %36, %41
   br i1 %.not.i, label %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit, label %85
 
 85:                                               ; preds = %79
-  %86 = icmp ne i8 %72, 0
+  %86 = trunc nuw i8 %72 to i1
   %87 = icmp ne i8 %80, 0
   br i1 %46, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i, label %88
 
@@ -5199,7 +5199,7 @@ define internal fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0
   br i1 %.not.i.us, label %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us, label %_ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us
 
 _ZNK5clang6interp10Descriptor7isUnionEv.exit.i.us: ; preds = %86
-  %92 = icmp ne i8 %79, 0
+  %92 = trunc nuw i8 %79 to i1
   %93 = icmp ne i8 %87, 0
   tail call void %91(ptr noundef %0, ptr noundef nonnull %65, i1 noundef zeroext %92, i1 noundef zeroext %93, i1 noundef zeroext %24, i1 noundef zeroext true, ptr noundef nonnull %61) #21
   br label %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us
@@ -5252,7 +5252,7 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us: ; 
   br i1 %.not.i.us69, label %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71, label %120
 
 120:                                              ; preds = %113
-  %121 = icmp ne i8 %114, 0
+  %121 = trunc nuw i8 %114 to i1
   %122 = load i8, ptr %103, align 1, !tbaa !30, !range !40, !noundef !41
   %123 = trunc nuw i8 %122 to i1
   %124 = getelementptr inbounds nuw i8, ptr %96, i64 24
@@ -5336,7 +5336,7 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71: 
   br i1 %.not.i, label %_ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit, label %167
 
 167:                                              ; preds = %156
-  %168 = icmp ne i8 %157, 0
+  %168 = trunc nuw i8 %157 to i1
   %169 = icmp ne i8 %161, 0
   %170 = load i8, ptr %146, align 1, !tbaa !30, !range !40, !noundef !41
   %171 = trunc nuw i8 %170 to i1

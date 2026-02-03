@@ -2198,48 +2198,48 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.083113.i
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %16 = icmp eq i8 %15, 42
-  %17 = and i32 %.080114.i, 1
-  br i1 %16, label %18, label %34
+  br i1 %16, label %17, label %33
 
-18:                                               ; preds = %13
-  %19 = icmp eq i64 %.083113.i, %11
-  br i1 %19, label %24, label %20
+17:                                               ; preds = %13
+  %18 = icmp eq i64 %.083113.i, %11
+  br i1 %18, label %23, label %19
 
-20:                                               ; preds = %18
-  %21 = getelementptr i8, ptr %14, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !18
-  %23 = icmp eq i8 %22, 46
-  br label %24
+19:                                               ; preds = %17
+  %20 = getelementptr i8, ptr %14, i64 1
+  %21 = load i8, ptr %20, align 1, !tbaa !18
+  %22 = icmp eq i8 %21, 46
+  br label %23
 
-24:                                               ; preds = %20, %18
-  %25 = phi i1 [ true, %18 ], [ %23, %20 ]
+23:                                               ; preds = %19, %17
+  %24 = phi i1 [ true, %17 ], [ %22, %19 ]
   %.not94.i = icmp eq ptr %.075116.i, null
-  br i1 %.not94.i, label %26, label %valid_star.exit.thread
+  br i1 %.not94.i, label %25, label %valid_star.exit.thread
 
-26:                                               ; preds = %24
-  %27 = and i32 %.080114.i, 8
-  %28 = icmp ne i32 %27, 0
-  %29 = icmp ne i32 %.078115.i, 0
-  %or.cond.i = select i1 %28, i1 true, i1 %29
-  br i1 %or.cond.i, label %valid_star.exit.thread, label %30
+25:                                               ; preds = %23
+  %26 = and i32 %.080114.i, 8
+  %27 = icmp ne i32 %26, 0
+  %28 = icmp ne i32 %.078115.i, 0
+  %or.cond.i = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond.i, label %valid_star.exit.thread, label %29
 
-30:                                               ; preds = %26
-  %31 = icmp ne i32 %17, 0
-  %or.cond3.i = select i1 %31, i1 %25, i1 false
+29:                                               ; preds = %25
+  %30 = trunc i32 %.080114.i to i1
+  %or.cond3.i = select i1 %30, i1 %24, i1 false
   %or.cond96.i = select i1 %.not95.i, i1 true, i1 %or.cond3.i
-  %or.cond5.i = select i1 %31, i1 true, i1 %25
+  %or.cond5.i = select i1 %30, i1 true, i1 %24
   %or.cond105.i = select i1 %or.cond96.i, i1 %or.cond5.i, i1 false
-  br i1 %or.cond105.i, label %32, label %valid_star.exit.thread
+  br i1 %or.cond105.i, label %31, label %valid_star.exit.thread
 
-32:                                               ; preds = %30
-  %33 = and i32 %.080114.i, -10
+31:                                               ; preds = %29
+  %32 = and i32 %.080114.i, -10
   br label %65
 
-34:                                               ; preds = %13
-  %.not.i = icmp eq i32 %17, 0
+33:                                               ; preds = %13
+  %34 = and i32 %.080114.i, 1
+  %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %52, label %35
 
-35:                                               ; preds = %34
+35:                                               ; preds = %33
   %36 = and i32 %.080114.i, 8
   %37 = icmp eq i32 %36, 0
   %38 = sub i64 %1, %.083113.i
@@ -2272,7 +2272,7 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %or.cond107.i = or i1 %or.cond101.i, %or.cond106.i
   br i1 %or.cond107.i, label %65, label %valid_star.exit.thread
 
-52:                                               ; preds = %34
+52:                                               ; preds = %33
   %53 = and i8 %15, -33
   %54 = add i8 %53, -65
   %or.cond108.i = icmp ult i8 %54, 26
@@ -2304,11 +2304,11 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %64 = or i32 %.080114.i, 4
   br label %65
 
-65:                                               ; preds = %63, %61, %56, %46, %43, %32
-  %.184.i = phi i64 [ %.083113.i, %32 ], [ %44, %43 ], [ %.083113.i, %46 ], [ %.083113.i, %63 ], [ %.083113.i, %61 ], [ %.083113.i, %56 ]
-  %.282.i = phi i32 [ %33, %32 ], [ %45, %43 ], [ %48, %46 ], [ %64, %63 ], [ 1, %61 ], [ %57, %56 ]
-  %.179.i = phi i32 [ 0, %32 ], [ %.078115.i, %43 ], [ %.078115.i, %46 ], [ %.078115.i, %63 ], [ %62, %61 ], [ %.078115.i, %56 ]
-  %.277.i = phi ptr [ %14, %32 ], [ %.075116.i, %43 ], [ %.075116.i, %46 ], [ %.075116.i, %63 ], [ %.075116.i, %61 ], [ %.075116.i, %56 ]
+65:                                               ; preds = %63, %61, %56, %46, %43, %31
+  %.184.i = phi i64 [ %.083113.i, %31 ], [ %44, %43 ], [ %.083113.i, %46 ], [ %.083113.i, %63 ], [ %.083113.i, %61 ], [ %.083113.i, %56 ]
+  %.282.i = phi i32 [ %32, %31 ], [ %45, %43 ], [ %48, %46 ], [ %64, %63 ], [ 1, %61 ], [ %57, %56 ]
+  %.179.i = phi i32 [ 0, %31 ], [ %.078115.i, %43 ], [ %.078115.i, %46 ], [ %.078115.i, %63 ], [ %62, %61 ], [ %.078115.i, %56 ]
+  %.277.i = phi ptr [ %14, %31 ], [ %.075116.i, %43 ], [ %.075116.i, %46 ], [ %.075116.i, %63 ], [ %.075116.i, %61 ], [ %.075116.i, %56 ]
   %66 = add i64 %.184.i, 1
   %67 = icmp ult i64 %66, %1
   br i1 %67, label %13, label %._crit_edge.loopexit.i, !llvm.loop !75
@@ -2322,7 +2322,7 @@ define internal range(i32 0, 2) i32 @equal_wildcard(ptr noundef %0, i64 noundef 
   %or.cond31 = select i1 %71, i1 true, i1 %72
   br i1 %or.cond31, label %valid_star.exit.thread, label %102
 
-valid_star.exit.thread:                           ; preds = %46, %24, %30, %26, %58, %59, %._crit_edge.loopexit.i, %10, %7
+valid_star.exit.thread:                           ; preds = %46, %23, %29, %25, %58, %59, %._crit_edge.loopexit.i, %10, %7
   %73 = and i32 %4, 32768
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %skip_prefix.exit.i, label %.preheader.i.i

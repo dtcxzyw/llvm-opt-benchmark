@@ -1201,7 +1201,7 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
   %6 = icmp eq i8 %1, 2
   %7 = icmp sgt i8 %5, -1
   %or.cond47 = select i1 %6, i1 %7, i1 false
-  br i1 %or.cond47, label %34, label %8
+  br i1 %or.cond47, label %33, label %8
 
 8:                                                ; preds = %3
   %9 = lshr i8 %5, 2
@@ -1210,60 +1210,59 @@ define internal fastcc zeroext i1 @sccp_called_calling_looks_valid(ptr noundef %
 
 11:                                               ; preds = %8
   %12 = icmp samesign ugt i8 %10, 2
-  br i1 %12, label %34, label %15
+  br i1 %12, label %33, label %15
 
 13:                                               ; preds = %8
   %14 = icmp samesign ugt i8 %10, 4
-  br i1 %14, label %34, label %15
+  br i1 %14, label %33, label %15
 
 15:                                               ; preds = %13, %11
-  %16 = lshr i8 %5, 6
-  %17 = and i8 %16, 1
-  %18 = and i8 %5, 2
-  %19 = and i8 %5, 1
-  %. = select i1 %6, i8 %19, i8 %18
-  %.48 = select i1 %6, i8 %18, i8 %19
-  %20 = icmp ne i8 %17, 0
-  %21 = icmp eq i8 %., 0
-  %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %34, label %22
+  %16 = and i8 %5, 2
+  %17 = and i8 %5, 1
+  %. = select i1 %6, i8 %17, i8 %16
+  %.48 = select i1 %6, i8 %16, i8 %17
+  %18 = and i8 %5, 64
+  %19 = icmp ne i8 %18, 0
+  %20 = icmp eq i8 %., 0
+  %or.cond = select i1 %19, i1 %20, i1 false
+  br i1 %or.cond, label %33, label %21
 
-22:                                               ; preds = %15
-  %23 = icmp eq i8 %17, 0
-  %24 = icmp eq i8 %10, 0
-  %or.cond5 = select i1 %23, i1 %24, i1 false
-  %or.cond7 = and i1 %2, %23
-  %or.cond50 = or i1 %or.cond5, %or.cond7
-  br i1 %or.cond50, label %34, label %25
+21:                                               ; preds = %15
+  %22 = icmp eq i8 %18, 0
+  %23 = icmp eq i8 %10, 0
+  %or.cond5 = select i1 %22, i1 %23, i1 false
+  %or.cond7 = and i1 %2, %22
+  %or.cond50 = or i1 %or.cond7, %or.cond5
+  br i1 %or.cond50, label %33, label %24
 
-25:                                               ; preds = %22
-  %spec.select = select i1 %21, i8 1, i8 2
+24:                                               ; preds = %21
+  %spec.select = select i1 %20, i8 1, i8 2
   %.not44 = icmp eq i8 %.48, 0
-  br i1 %.not44, label %30, label %26
+  br i1 %.not44, label %29, label %25
 
-26:                                               ; preds = %25
-  %27 = and i8 %1, -2
-  %or.cond10 = icmp eq i8 %27, 2
-  br i1 %or.cond10, label %28, label %29
+25:                                               ; preds = %24
+  %26 = and i8 %1, -2
+  %or.cond10 = icmp eq i8 %26, 2
+  br i1 %or.cond10, label %27, label %28
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   %narrow45 = add nuw nsw i8 %spec.select, 3
-  br label %30
+  br label %29
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   %narrow = add nuw nsw i8 %spec.select, 2
-  br label %30
+  br label %29
 
-30:                                               ; preds = %28, %29, %25
-  %.1 = phi i8 [ %narrow45, %28 ], [ %narrow, %29 ], [ %spec.select, %25 ]
-  %31 = add nuw nsw i8 %.1, 2
-  %spec.select49 = select i1 %24, i8 %.1, i8 %31
-  %32 = zext nneg i8 %spec.select49 to i32
-  %33 = icmp uge i32 %4, %32
-  br label %34
+29:                                               ; preds = %27, %28, %24
+  %.1 = phi i8 [ %narrow45, %27 ], [ %narrow, %28 ], [ %spec.select, %24 ]
+  %30 = add nuw nsw i8 %.1, 2
+  %spec.select49 = select i1 %23, i8 %.1, i8 %30
+  %31 = zext nneg i8 %spec.select49 to i32
+  %32 = icmp uge i32 %4, %31
+  br label %33
 
-34:                                               ; preds = %30, %22, %15, %13, %11, %3
-  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %13 ], [ false, %15 ], [ false, %22 ], [ %33, %30 ]
+33:                                               ; preds = %29, %21, %15, %13, %11, %3
+  %.0 = phi i1 [ false, %11 ], [ false, %3 ], [ false, %13 ], [ false, %15 ], [ false, %21 ], [ %32, %29 ]
   ret i1 %.0
 }
 
@@ -2374,27 +2373,27 @@ switch.lookup:                                    ; preds = %19
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 15), align 1
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @no_assoc, i64 32), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @no_assoc, i64 40), i8 0, i64 24, i1 false)
-  switch i8 %54, label %473 [
+  switch i8 %54, label %472 [
     i8 1, label %63
     i8 2, label %80
     i8 3, label %92
     i8 4, label %111
     i8 5, label %131
     i8 6, label %136
-    i8 7, label %176
-    i8 8, label %187
-    i8 9, label %198
-    i8 10, label %228
-    i8 11, label %273
-    i8 12, label %283
-    i8 13, label %287
-    i8 14, label %301
-    i8 15, label %306
-    i8 16, label %319
-    i8 17, label %330
-    i8 18, label %346
-    i8 19, label %377
-    i8 20, label %421
+    i8 7, label %175
+    i8 8, label %186
+    i8 9, label %197
+    i8 10, label %227
+    i8 11, label %272
+    i8 12, label %282
+    i8 13, label %286
+    i8 14, label %300
+    i8 15, label %305
+    i8 16, label %318
+    i8 17, label %329
+    i8 18, label %345
+    i8 19, label %376
+    i8 20, label %420
   ]
 
 63:                                               ; preds = %62
@@ -2518,547 +2517,546 @@ dissect_sccp_parameter.exit706.i:                 ; preds = %121, %111
   store ptr %139, ptr %140, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
   %141 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %142 = and i8 %141, 1
-  br i1 %.not.i, label %dissect_sccp_parameter.exit707.i, label %143
+  br i1 %.not.i, label %dissect_sccp_parameter.exit707.i, label %142
 
-143:                                              ; preds = %136
-  %144 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 1)
-  %145 = load i32, ptr @hf_sccp_more, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %145, ptr noundef %144, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+142:                                              ; preds = %136
+  %143 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 1)
+  %144 = load i32, ptr @hf_sccp_more, align 4
+  %145 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %144, ptr noundef %143, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   br label %dissect_sccp_parameter.exit707.i
 
-dissect_sccp_parameter.exit707.i:                 ; preds = %143, %136
-  %147 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
-  %148 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %149 = zext i8 %147 to i32
-  %150 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %148, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %149)
-  %151 = add nuw nsw i32 %149, 5
-  %152 = trunc nuw nsw i32 %151 to i16
-  %153 = load i8, ptr @sccp_reassemble, align 1, !range !6, !noundef !7
-  %154 = trunc nuw i8 %153 to i1
-  br i1 %154, label %162, label %155
+dissect_sccp_parameter.exit707.i:                 ; preds = %142, %136
+  %146 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %147 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %148 = zext i8 %146 to i32
+  %149 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %147, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %148)
+  %150 = add nuw nsw i32 %148, 5
+  %151 = trunc nuw nsw i32 %150 to i16
+  %152 = load i8, ptr @sccp_reassemble, align 1, !range !6, !noundef !7
+  %153 = trunc nuw i8 %152 to i1
+  br i1 %153, label %161, label %154
 
-155:                                              ; preds = %dissect_sccp_parameter.exit707.i
-  %156 = load i32, ptr @hf_sccp_segmented_data, align 4
-  %157 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %151)
-  %158 = zext i8 %157 to i32
-  %159 = add nuw nsw i32 %158, 1
-  %160 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %156, ptr noundef %0, i32 noundef %151, i32 noundef %159, i32 noundef 0)
-  %161 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %151, ptr noundef nonnull %7)
+154:                                              ; preds = %dissect_sccp_parameter.exit707.i
+  %155 = load i32, ptr @hf_sccp_segmented_data, align 4
+  %156 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %150)
+  %157 = zext i8 %156 to i32
+  %158 = add nuw nsw i32 %157, 1
+  %159 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %155, ptr noundef %0, i32 noundef %150, i32 noundef %158, i32 noundef 0)
+  %160 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %150, ptr noundef nonnull %7)
   br label %dissect_sccp_parameter.exit711.i
 
-162:                                              ; preds = %dissect_sccp_parameter.exit707.i
-  %163 = add nuw nsw i32 %149, 6
-  %164 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %163)
-  %165 = load i8, ptr @dt1_ignore_length, align 1, !range !6, !noundef !7
-  %166 = trunc nuw i8 %165 to i1
-  %167 = icmp sgt i32 %164, 255
-  %or.cond.i = select i1 %166, i1 %167, i1 false
-  br i1 %or.cond.i, label %168, label %170
+161:                                              ; preds = %dissect_sccp_parameter.exit707.i
+  %162 = add nuw nsw i32 %148, 6
+  %163 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %162)
+  %164 = load i8, ptr @dt1_ignore_length, align 1, !range !6, !noundef !7
+  %165 = trunc nuw i8 %164 to i1
+  %166 = icmp sgt i32 %163, 255
+  %or.cond.i = select i1 %165, i1 %166, i1 false
+  br i1 %or.cond.i, label %167, label %169
 
-168:                                              ; preds = %162
-  %169 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %163, i32 noundef %164)
-  br label %173
+167:                                              ; preds = %161
+  %168 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %162, i32 noundef %163)
+  br label %172
 
-170:                                              ; preds = %162
-  %171 = icmp ne i8 %142, 0
-  %172 = call fastcc ptr @sccp_reassemble_fragments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %152, i32 noundef %137, i1 noundef zeroext %171)
-  br label %173
+169:                                              ; preds = %161
+  %170 = trunc i8 %141 to i1
+  %171 = call fastcc ptr @sccp_reassemble_fragments(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %151, i32 noundef %137, i1 noundef zeroext %170)
+  br label %172
 
-173:                                              ; preds = %170, %168
-  %.0700.i = phi ptr [ %169, %168 ], [ %172, %170 ]
+172:                                              ; preds = %169, %167
+  %.0700.i = phi ptr [ %168, %167 ], [ %171, %169 ]
   %.not704.i = icmp eq ptr %.0700.i, null
-  br i1 %.not704.i, label %dissect_sccp_parameter.exit711.i, label %174
+  br i1 %.not704.i, label %dissect_sccp_parameter.exit711.i, label %173
 
-174:                                              ; preds = %173
-  %175 = load ptr, ptr %140, align 8
-  call fastcc void @dissect_sccp_data_param(ptr noundef nonnull %.0700.i, ptr noundef %1, ptr noundef %2, ptr noundef %175)
+173:                                              ; preds = %172
+  %174 = load ptr, ptr %140, align 8
+  call fastcc void @dissect_sccp_data_param(ptr noundef nonnull %.0700.i, ptr noundef %1, ptr noundef %2, ptr noundef %174)
   br label %dissect_sccp_parameter.exit711.i
 
-176:                                              ; preds = %62
-  %177 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %178 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %179 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %178, ptr %179, align 8
+175:                                              ; preds = %62
+  %176 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %177 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %177, ptr %178, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %180 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 8, i32 noundef 4, i16 noundef zeroext 2, ptr noundef nonnull %7)
-  %181 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
-  %182 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %183 = zext i8 %181 to i32
-  %184 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %182, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %183)
-  %185 = add nuw nsw i32 %183, 6
-  %186 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %185, ptr noundef nonnull %7)
+  %179 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 8, i32 noundef 4, i16 noundef zeroext 2, ptr noundef nonnull %7)
+  %180 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
+  %181 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %182 = zext i8 %180 to i32
+  %183 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %181, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %182)
+  %184 = add nuw nsw i32 %182, 6
+  %185 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %184, ptr noundef nonnull %7)
   br label %dissect_sccp_parameter.exit711.i
 
-187:                                              ; preds = %62
-  %188 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %189 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %190 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %189, ptr %190, align 8
+186:                                              ; preds = %62
+  %187 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %188 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %188, ptr %189, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  br i1 %.not.i, label %dissect_sccp_parameter.exit711.i, label %191
+  br i1 %.not.i, label %dissect_sccp_parameter.exit711.i, label %190
 
-191:                                              ; preds = %187
-  %192 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 1)
-  %193 = load i32, ptr @hf_sccp_rsn, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %193, ptr noundef %192, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %195 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 1)
-  %196 = load i32, ptr @hf_sccp_credit, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %196, ptr noundef %195, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+190:                                              ; preds = %186
+  %191 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 1)
+  %192 = load i32, ptr @hf_sccp_rsn, align 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %192, ptr noundef %191, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %194 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 5, i32 noundef 1)
+  %195 = load i32, ptr @hf_sccp_credit, align 4
+  %196 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %195, ptr noundef %194, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   br label %dissect_sccp_parameter.exit711.i
 
-198:                                              ; preds = %62
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %200, i64 noundef 56) #11
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %203 = load i32, ptr %202, align 4
-  store i32 %203, ptr %201, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 16
+197:                                              ; preds = %62
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %199 = load ptr, ptr %198, align 8
+  %200 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %199, i64 noundef 56) #11
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %202 = load i32, ptr %201, align 4
+  store i32 %202, ptr %200, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  store ptr null, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 32
   store ptr null, ptr %204, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %201, i64 32
-  store ptr null, ptr %205, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %201, ptr %206, align 8
-  %207 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 1, i16 noundef zeroext 1, ptr noundef nonnull %7)
-  %208 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %209 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %210 = zext i8 %208 to i32
-  %211 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %209, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %210)
-  %212 = add nuw nsw i32 %210, 2
-  %213 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %214 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %215 = zext i8 %213 to i32
-  %216 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %214, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %215)
-  %217 = add nuw nsw i32 %215, 3
-  %218 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %219 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %220 = zext i8 %218 to i32
-  %221 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %219, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %220)
-  %222 = add nuw nsw i32 %220, 4
-  %223 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %224 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %223, ptr %224, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %200, ptr %205, align 8
+  %206 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 1, i16 noundef zeroext 1, ptr noundef nonnull %7)
+  %207 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %208 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %209 = zext i8 %207 to i32
+  %210 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %208, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %209)
+  %211 = add nuw nsw i32 %209, 2
+  %212 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %213 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %214 = zext i8 %212 to i32
+  %215 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %213, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %214)
+  %216 = add nuw nsw i32 %214, 3
+  %217 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
+  %218 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %219 = zext i8 %217 to i32
+  %220 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %218, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %219)
+  %221 = add nuw nsw i32 %219, 4
+  %222 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %222, ptr %223, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %225 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %212, ptr noundef nonnull %7)
-  %226 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %217, ptr noundef nonnull %7)
-  %227 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %222, ptr noundef nonnull %7)
+  %224 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %211, ptr noundef nonnull %7)
+  %225 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %216, ptr noundef nonnull %7)
+  %226 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %221, ptr noundef nonnull %7)
   br label %dissect_sccp_parameter.exit711.i
 
-228:                                              ; preds = %62
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %230 = load i8, ptr %229, align 4
-  %231 = and i8 %230, 1
-  %232 = or i8 %230, 1
-  store i8 %232, ptr %229, align 4
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %234 = load ptr, ptr %233, align 8
-  %235 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %234, i64 noundef 56) #11
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %237 = load i32, ptr %236, align 4
-  store i32 %237, ptr %235, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  store ptr null, ptr %238, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %235, i64 32
-  store ptr null, ptr %239, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %235, ptr %240, align 8
-  %241 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
-  %242 = load i32, ptr @hf_sccp_return_cause, align 4
-  %243 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %242, ptr noundef %241, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
-  %244 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
-  %245 = trunc nuw i8 %244 to i1
-  br i1 %245, label %246, label %dissect_sccp_parameter.exit712.i
+227:                                              ; preds = %62
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 276
+  %229 = load i8, ptr %228, align 4
+  %230 = or i8 %229, 1
+  store i8 %230, ptr %228, align 4
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %232 = load ptr, ptr %231, align 8
+  %233 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %232, i64 noundef 56) #11
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %235 = load i32, ptr %234, align 4
+  store i32 %235, ptr %233, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  store ptr null, ptr %236, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 32
+  store ptr null, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %233, ptr %238, align 8
+  %239 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  %240 = load i32, ptr @hf_sccp_return_cause, align 4
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %240, ptr noundef %239, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  %242 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
+  %243 = trunc nuw i8 %242 to i1
+  br i1 %243, label %244, label %dissect_sccp_parameter.exit712.i
 
-246:                                              ; preds = %228
-  %247 = load ptr, ptr %55, align 8
-  %248 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %241, i32 noundef 0)
-  %249 = zext i8 %248 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %249)
+244:                                              ; preds = %227
+  %245 = load ptr, ptr %55, align 8
+  %246 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %239, i32 noundef 0)
+  %247 = zext i8 %246 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %245, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %247)
   br label %dissect_sccp_parameter.exit712.i
 
-dissect_sccp_parameter.exit712.i:                 ; preds = %246, %228
-  %250 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %251 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %252 = zext i8 %250 to i32
-  %253 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %251, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %252)
-  %254 = add nuw nsw i32 %252, 2
-  %255 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %256 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %257 = zext i8 %255 to i32
-  %258 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %256, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %257)
-  %259 = add nuw nsw i32 %257, 3
-  %260 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %261 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %262 = zext i8 %260 to i32
-  %263 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %261, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %262)
-  %264 = add nuw nsw i32 %262, 4
-  %265 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %266 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %265, ptr %266, align 8
+dissect_sccp_parameter.exit712.i:                 ; preds = %244, %227
+  %248 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %249 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %250 = zext i8 %248 to i32
+  %251 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %249, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %250)
+  %252 = add nuw nsw i32 %250, 2
+  %253 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %254 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %255 = zext i8 %253 to i32
+  %256 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %254, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %255)
+  %257 = add nuw nsw i32 %255, 3
+  %258 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
+  %259 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %260 = zext i8 %258 to i32
+  %261 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %259, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %260)
+  %262 = add nuw nsw i32 %260, 4
+  %263 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %264 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %263, ptr %264, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %267 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %254, ptr noundef nonnull %7)
-  %268 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %259, ptr noundef nonnull %7)
-  %269 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %264, ptr noundef nonnull %7)
-  %270 = load i8, ptr %229, align 4
-  %271 = and i8 %270, -2
-  %272 = or disjoint i8 %271, %231
-  store i8 %272, ptr %229, align 4
+  %265 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %252, ptr noundef nonnull %7)
+  %266 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %257, ptr noundef nonnull %7)
+  %267 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %262, ptr noundef nonnull %7)
+  %268 = and i8 %229, 1
+  %269 = load i8, ptr %228, align 4
+  %270 = and i8 %269, -2
+  %271 = or disjoint i8 %270, %268
+  store i8 %271, ptr %228, align 4
   br label %dissect_sccp_parameter.exit711.i
 
-273:                                              ; preds = %62
-  %274 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %275 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %276 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %275, ptr %276, align 8
+272:                                              ; preds = %62
+  %273 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %274 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %275 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %274, ptr %275, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %277 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %278 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %279 = zext i8 %277 to i32
-  %280 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %278, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %279)
-  %281 = add nuw nsw i32 %279, 4
-  %282 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %281, ptr noundef nonnull %7)
+  %276 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
+  %277 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %278 = zext i8 %276 to i32
+  %279 = call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %277, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %278)
+  %280 = add nuw nsw i32 %278, 4
+  %281 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 15, i32 noundef %280, ptr noundef nonnull %7)
   br label %dissect_sccp_parameter.exit711.i
 
-283:                                              ; preds = %62
-  %284 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %285 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %286 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %285, ptr %286, align 8
+282:                                              ; preds = %62
+  %283 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %284 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %285 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %284, ptr %285, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
   br label %dissect_sccp_parameter.exit711.i
 
-287:                                              ; preds = %62
-  %288 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %289 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 2, i32 noundef 4, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %290 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef 1)
-  %291 = load i32, ptr @hf_sccp_reset_cause, align 4
-  %292 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %291, ptr noundef %290, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
-  %293 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
-  %294 = trunc nuw i8 %293 to i1
-  br i1 %294, label %295, label %dissect_sccp_parameter.exit713.i
+286:                                              ; preds = %62
+  %287 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %288 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 2, i32 noundef 4, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %289 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef 1)
+  %290 = load i32, ptr @hf_sccp_reset_cause, align 4
+  %291 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %290, ptr noundef %289, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  %292 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
+  %293 = trunc nuw i8 %292 to i1
+  br i1 %293, label %294, label %dissect_sccp_parameter.exit713.i
 
-295:                                              ; preds = %287
-  %296 = load ptr, ptr %55, align 8
-  %297 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %290, i32 noundef 0)
-  %298 = zext i8 %297 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %296, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %298)
+294:                                              ; preds = %286
+  %295 = load ptr, ptr %55, align 8
+  %296 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %289, i32 noundef 0)
+  %297 = zext i8 %296 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %295, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %297)
   br label %dissect_sccp_parameter.exit713.i
 
-dissect_sccp_parameter.exit713.i:                 ; preds = %295, %287
-  %299 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %300 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %299, ptr %300, align 8
+dissect_sccp_parameter.exit713.i:                 ; preds = %294, %286
+  %298 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %299 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %298, ptr %299, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
   br label %dissect_sccp_parameter.exit711.i
 
-301:                                              ; preds = %62
-  %302 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %303 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 2, i32 noundef 4, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %304 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %305 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %304, ptr %305, align 8
+300:                                              ; preds = %62
+  %301 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %302 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 2, i32 noundef 4, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %303 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %304 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %303, ptr %304, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
   br label %dissect_sccp_parameter.exit711.i
 
-306:                                              ; preds = %62
-  %307 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %308 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 1)
-  %309 = load i32, ptr @hf_sccp_error_cause, align 4
-  %310 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %309, ptr noundef %308, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
-  %311 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
-  %312 = trunc nuw i8 %311 to i1
-  br i1 %312, label %313, label %dissect_sccp_parameter.exit714.i
+305:                                              ; preds = %62
+  %306 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %307 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 1)
+  %308 = load i32, ptr @hf_sccp_error_cause, align 4
+  %309 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %308, ptr noundef %307, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  %310 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
+  %311 = trunc nuw i8 %310 to i1
+  br i1 %311, label %312, label %dissect_sccp_parameter.exit714.i
 
-313:                                              ; preds = %306
-  %314 = load ptr, ptr %55, align 8
-  %315 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %308, i32 noundef 0)
-  %316 = zext i8 %315 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %314, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %316)
+312:                                              ; preds = %305
+  %313 = load ptr, ptr %55, align 8
+  %314 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %307, i32 noundef 0)
+  %315 = zext i8 %314 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %313, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %315)
   br label %dissect_sccp_parameter.exit714.i
 
-dissect_sccp_parameter.exit714.i:                 ; preds = %313, %306
-  %317 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %318 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %317, ptr %318, align 8
+dissect_sccp_parameter.exit714.i:                 ; preds = %312, %305
+  %316 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %317 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %316, ptr %317, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
   br label %dissect_sccp_parameter.exit711.i
 
-319:                                              ; preds = %62
-  %320 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %321 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 2, i32 noundef 4, i16 noundef zeroext 3, ptr noundef nonnull %7)
-  %322 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %323 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %322, ptr %323, align 8
+318:                                              ; preds = %62
+  %319 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 1, i32 noundef 1, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %320 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 2, i32 noundef 4, i16 noundef zeroext 3, ptr noundef nonnull %7)
+  %321 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %322 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %321, ptr %322, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %324 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 7, i16 noundef zeroext 1, ptr noundef nonnull %7)
-  %325 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 8, i32 noundef 8, i16 noundef zeroext 2, ptr noundef nonnull %7)
-  br i1 %.not.i, label %dissect_sccp_parameter.exit711.i, label %326
+  %323 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 7, i16 noundef zeroext 1, ptr noundef nonnull %7)
+  %324 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 8, i32 noundef 8, i16 noundef zeroext 2, ptr noundef nonnull %7)
+  br i1 %.not.i, label %dissect_sccp_parameter.exit711.i, label %325
 
-326:                                              ; preds = %319
-  %327 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef 1)
-  %328 = load i32, ptr @hf_sccp_credit, align 4
-  %329 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %328, ptr noundef %327, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+325:                                              ; preds = %318
+  %326 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef 1)
+  %327 = load i32, ptr @hf_sccp_credit, align 4
+  %328 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %327, ptr noundef %326, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   br label %dissect_sccp_parameter.exit711.i
 
-330:                                              ; preds = %62
-  %331 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %332 = load ptr, ptr %331, align 8
-  %333 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %332, i64 noundef 56) #11
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %335 = load i32, ptr %334, align 4
-  store i32 %335, ptr %333, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %333, i64 16
+329:                                              ; preds = %62
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %331 = load ptr, ptr %330, align 8
+  %332 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %331, i64 noundef 56) #11
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %334 = load i32, ptr %333, align 4
+  store i32 %334, ptr %332, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 16
+  store ptr null, ptr %335, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %332, i64 32
   store ptr null, ptr %336, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %333, i64 32
-  store ptr null, ptr %337, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %333, ptr %338, align 8
-  %339 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 1, i16 noundef zeroext 1, ptr noundef nonnull %7)
-  br i1 %.not.i, label %dissect_sccp_parameter.exit718.i, label %340
+  %337 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %332, ptr %337, align 8
+  %338 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 1, i16 noundef zeroext 1, ptr noundef nonnull %7)
+  br i1 %.not.i, label %dissect_sccp_parameter.exit718.i, label %339
 
-340:                                              ; preds = %330
-  %341 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
-  %342 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %341, i32 noundef 0)
-  %343 = load i32, ptr @hf_sccp_hop_counter, align 4
-  %344 = zext i8 %342 to i32
-  %345 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %343, ptr noundef %341, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %344)
+339:                                              ; preds = %329
+  %340 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
+  %341 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %340, i32 noundef 0)
+  %342 = load i32, ptr @hf_sccp_hop_counter, align 4
+  %343 = zext i8 %341 to i32
+  %344 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %342, ptr noundef %340, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %343)
   br label %dissect_sccp_parameter.exit718.i
 
-dissect_sccp_parameter.exit718.i:                 ; preds = %340, %330
+dissect_sccp_parameter.exit718.i:                 ; preds = %339, %329
   call fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %dissect_sccp_parameter.exit711.i
 
-346:                                              ; preds = %62
-  %347 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %348 = load i8, ptr %347, align 4
-  %349 = and i8 %348, 1
-  %350 = or i8 %348, 1
-  store i8 %350, ptr %347, align 4
-  %351 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %352 = load ptr, ptr %351, align 8
-  %353 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %352, i64 noundef 56) #11
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %355 = load i32, ptr %354, align 4
-  store i32 %355, ptr %353, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %353, i64 16
-  store ptr null, ptr %356, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %353, i64 32
-  store ptr null, ptr %357, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %353, ptr %358, align 8
-  %359 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
-  %360 = load i32, ptr @hf_sccp_return_cause, align 4
-  %361 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %360, ptr noundef %359, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
-  %362 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
-  %363 = trunc nuw i8 %362 to i1
-  br i1 %363, label %364, label %dissect_sccp_parameter.exit719.i
+345:                                              ; preds = %62
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 276
+  %347 = load i8, ptr %346, align 4
+  %348 = or i8 %347, 1
+  store i8 %348, ptr %346, align 4
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %350 = load ptr, ptr %349, align 8
+  %351 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %350, i64 noundef 56) #11
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %353 = load i32, ptr %352, align 4
+  store i32 %353, ptr %351, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %351, i64 16
+  store ptr null, ptr %354, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %351, i64 32
+  store ptr null, ptr %355, align 8
+  %356 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %351, ptr %356, align 8
+  %357 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  %358 = load i32, ptr @hf_sccp_return_cause, align 4
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %358, ptr noundef %357, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  %360 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
+  %361 = trunc nuw i8 %360 to i1
+  br i1 %361, label %362, label %dissect_sccp_parameter.exit719.i
 
-364:                                              ; preds = %346
-  %365 = load ptr, ptr %55, align 8
-  %366 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %359, i32 noundef 0)
-  %367 = zext i8 %366 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %365, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %367)
+362:                                              ; preds = %345
+  %363 = load ptr, ptr %55, align 8
+  %364 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %357, i32 noundef 0)
+  %365 = zext i8 %364 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %363, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %365)
   br label %dissect_sccp_parameter.exit719.i
 
-dissect_sccp_parameter.exit719.i:                 ; preds = %364, %346
-  br i1 %.not.i, label %dissect_sccp_parameter.exit721.i, label %368
+dissect_sccp_parameter.exit719.i:                 ; preds = %362, %345
+  br i1 %.not.i, label %dissect_sccp_parameter.exit721.i, label %366
 
-368:                                              ; preds = %dissect_sccp_parameter.exit719.i
-  %369 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
-  %370 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %369, i32 noundef 0)
-  %371 = load i32, ptr @hf_sccp_hop_counter, align 4
-  %372 = zext i8 %370 to i32
-  %373 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %371, ptr noundef %369, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %372)
+366:                                              ; preds = %dissect_sccp_parameter.exit719.i
+  %367 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
+  %368 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %367, i32 noundef 0)
+  %369 = load i32, ptr @hf_sccp_hop_counter, align 4
+  %370 = zext i8 %368 to i32
+  %371 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %369, ptr noundef %367, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %370)
   br label %dissect_sccp_parameter.exit721.i
 
-dissect_sccp_parameter.exit721.i:                 ; preds = %368, %dissect_sccp_parameter.exit719.i
+dissect_sccp_parameter.exit721.i:                 ; preds = %366, %dissect_sccp_parameter.exit719.i
   call fastcc void @dissect_xudt_common(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %374 = load i8, ptr %347, align 4
-  %375 = and i8 %374, -2
-  %376 = or disjoint i8 %375, %349
-  store i8 %376, ptr %347, align 4
+  %372 = and i8 %347, 1
+  %373 = load i8, ptr %346, align 4
+  %374 = and i8 %373, -2
+  %375 = or disjoint i8 %374, %372
+  store i8 %375, ptr %346, align 4
   br label %dissect_sccp_parameter.exit711.i
 
-377:                                              ; preds = %62
-  %378 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %379 = load ptr, ptr %378, align 8
-  %380 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %379, i64 noundef 56) #11
-  %381 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %382 = load i32, ptr %381, align 4
-  store i32 %382, ptr %380, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %380, i64 16
+376:                                              ; preds = %62
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %378 = load ptr, ptr %377, align 8
+  %379 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %378, i64 noundef 56) #11
+  %380 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %381 = load i32, ptr %380, align 4
+  store i32 %381, ptr %379, align 8
+  %382 = getelementptr inbounds nuw i8, ptr %379, i64 16
+  store ptr null, ptr %382, align 8
+  %383 = getelementptr inbounds nuw i8, ptr %379, i64 32
   store ptr null, ptr %383, align 8
-  %384 = getelementptr inbounds nuw i8, ptr %380, i64 32
-  store ptr null, ptr %384, align 8
-  %385 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %380, ptr %385, align 8
-  %386 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 1, i16 noundef zeroext 1, ptr noundef nonnull %7)
-  br i1 %.not.i, label %dissect_sccp_parameter.exit723.i, label %387
+  %384 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %379, ptr %384, align 8
+  %385 = call fastcc zeroext i16 @dissect_sccp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 5, i32 noundef 1, i16 noundef zeroext 1, ptr noundef nonnull %7)
+  br i1 %.not.i, label %dissect_sccp_parameter.exit723.i, label %386
 
-387:                                              ; preds = %377
-  %388 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
-  %389 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %388, i32 noundef 0)
-  %390 = load i32, ptr @hf_sccp_hop_counter, align 4
-  %391 = zext i8 %389 to i32
-  %392 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %390, ptr noundef %388, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %391)
+386:                                              ; preds = %376
+  %387 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
+  %388 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %387, i32 noundef 0)
+  %389 = load i32, ptr @hf_sccp_hop_counter, align 4
+  %390 = zext i8 %388 to i32
+  %391 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %389, ptr noundef %387, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %390)
   br label %dissect_sccp_parameter.exit723.i
 
-dissect_sccp_parameter.exit723.i:                 ; preds = %387, %377
-  %393 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
-  %394 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %395 = zext i16 %393 to i32
-  %396 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %394, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %395)
-  %397 = add i16 %393, 4
-  %398 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
-  %399 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %400 = zext i16 %398 to i32
-  %401 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %399, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef %400)
-  %402 = add i16 %398, 6
-  %403 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 7)
-  %404 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %405 = zext i16 %403 to i32
-  %406 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %404, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %405)
-  %407 = add i16 %403, 8
-  %408 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 9)
-  store i16 %408, ptr %6, align 2
-  %409 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %410 = zext i16 %408 to i32
-  %411 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %409, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef %410)
-  %412 = add i16 %408, 10
-  store i16 %412, ptr %5, align 2
-  %413 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %414 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %413, ptr %414, align 8
+dissect_sccp_parameter.exit723.i:                 ; preds = %386, %376
+  %392 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
+  %393 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %394 = zext i16 %392 to i32
+  %395 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %393, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %394)
+  %396 = add i16 %392, 4
+  %397 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
+  %398 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %399 = zext i16 %397 to i32
+  %400 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %398, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef %399)
+  %401 = add i16 %397, 6
+  %402 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 7)
+  %403 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %404 = zext i16 %402 to i32
+  %405 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %403, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %404)
+  %406 = add i16 %402, 8
+  %407 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 9)
+  store i16 %407, ptr %6, align 2
+  %408 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %409 = zext i16 %407 to i32
+  %410 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %408, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef %409)
+  %411 = add i16 %407, 10
+  store i16 %411, ptr %5, align 2
+  %412 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %413 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %412, ptr %413, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %415 = zext i16 %397 to i32
-  %416 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %415, ptr noundef nonnull %7)
-  %417 = zext i16 %402 to i32
-  %418 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %417, ptr noundef nonnull %7)
-  %419 = zext i16 %407 to i32
-  %420 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 19, i32 noundef %419, ptr noundef nonnull %7)
+  %414 = zext i16 %396 to i32
+  %415 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %414, ptr noundef nonnull %7)
+  %416 = zext i16 %401 to i32
+  %417 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %416, ptr noundef nonnull %7)
+  %418 = zext i16 %406 to i32
+  %419 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 19, i32 noundef %418, ptr noundef nonnull %7)
   br label %dissect_sccp_parameter.exit711.i
 
-421:                                              ; preds = %62
-  %422 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %423 = load ptr, ptr %422, align 8
-  %424 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %423, i64 noundef 56) #11
-  %425 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %426 = load i32, ptr %425, align 4
-  store i32 %426, ptr %424, align 8
-  %427 = getelementptr inbounds nuw i8, ptr %424, i64 16
+420:                                              ; preds = %62
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %422 = load ptr, ptr %421, align 8
+  %423 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %422, i64 noundef 56) #11
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %425 = load i32, ptr %424, align 4
+  store i32 %425, ptr %423, align 8
+  %426 = getelementptr inbounds nuw i8, ptr %423, i64 16
+  store ptr null, ptr %426, align 8
+  %427 = getelementptr inbounds nuw i8, ptr %423, i64 32
   store ptr null, ptr %427, align 8
-  %428 = getelementptr inbounds nuw i8, ptr %424, i64 32
-  store ptr null, ptr %428, align 8
-  %429 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %424, ptr %429, align 8
-  %430 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
-  %431 = load i32, ptr @hf_sccp_return_cause, align 4
-  %432 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %431, ptr noundef %430, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
-  %433 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
-  %434 = trunc nuw i8 %433 to i1
-  br i1 %434, label %435, label %dissect_sccp_parameter.exit724.i
+  %428 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %423, ptr %428, align 8
+  %429 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  %430 = load i32, ptr @hf_sccp_return_cause, align 4
+  %431 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %430, ptr noundef %429, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  %432 = load i8, ptr @show_key_params, align 1, !range !6, !noundef !7
+  %433 = trunc nuw i8 %432 to i1
+  br i1 %433, label %434, label %dissect_sccp_parameter.exit724.i
 
-435:                                              ; preds = %421
-  %436 = load ptr, ptr %55, align 8
-  %437 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %430, i32 noundef 0)
-  %438 = zext i8 %437 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %436, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %438)
+434:                                              ; preds = %420
+  %435 = load ptr, ptr %55, align 8
+  %436 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %429, i32 noundef 0)
+  %437 = zext i8 %436 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %435, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %437)
   br label %dissect_sccp_parameter.exit724.i
 
-dissect_sccp_parameter.exit724.i:                 ; preds = %435, %421
-  br i1 %.not.i, label %dissect_sccp_parameter.exit726.i, label %439
+dissect_sccp_parameter.exit724.i:                 ; preds = %434, %420
+  br i1 %.not.i, label %dissect_sccp_parameter.exit726.i, label %438
 
-439:                                              ; preds = %dissect_sccp_parameter.exit724.i
-  %440 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
-  %441 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %440, i32 noundef 0)
-  %442 = load i32, ptr @hf_sccp_hop_counter, align 4
-  %443 = zext i8 %441 to i32
-  %444 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %442, ptr noundef %440, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %443)
+438:                                              ; preds = %dissect_sccp_parameter.exit724.i
+  %439 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef 1)
+  %440 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %439, i32 noundef 0)
+  %441 = load i32, ptr @hf_sccp_hop_counter, align 4
+  %442 = zext i8 %440 to i32
+  %443 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %.0, i32 noundef %441, ptr noundef %439, i32 noundef 0, i32 noundef range(i32 0, 65536) 1, i32 noundef %442)
   br label %dissect_sccp_parameter.exit726.i
 
-dissect_sccp_parameter.exit726.i:                 ; preds = %439, %dissect_sccp_parameter.exit724.i
-  %445 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
-  %446 = load i32, ptr @hf_sccp_variable_pointer1, align 4
-  %447 = zext i16 %445 to i32
-  %448 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %446, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %447)
-  %449 = add i16 %445, 4
-  %450 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
-  %451 = load i32, ptr @hf_sccp_variable_pointer2, align 4
-  %452 = zext i16 %450 to i32
-  %453 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %451, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef %452)
-  %454 = add i16 %450, 6
-  %455 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 7)
-  %456 = load i32, ptr @hf_sccp_variable_pointer3, align 4
-  %457 = zext i16 %455 to i32
-  %458 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %456, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %457)
-  %459 = add i16 %455, 8
-  %460 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 9)
-  store i16 %460, ptr %6, align 2
-  %461 = load i32, ptr @hf_sccp_optional_pointer, align 4
-  %462 = zext i16 %460 to i32
-  %463 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %461, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef %462)
-  %464 = add i16 %460, 10
-  store i16 %464, ptr %5, align 2
-  %465 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
-  %466 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %465, ptr %466, align 8
+dissect_sccp_parameter.exit726.i:                 ; preds = %438, %dissect_sccp_parameter.exit724.i
+  %444 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
+  %445 = load i32, ptr @hf_sccp_variable_pointer1, align 4
+  %446 = zext i16 %444 to i32
+  %447 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %445, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef %446)
+  %448 = add i16 %444, 4
+  %449 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
+  %450 = load i32, ptr @hf_sccp_variable_pointer2, align 4
+  %451 = zext i16 %449 to i32
+  %452 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %450, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef %451)
+  %453 = add i16 %449, 6
+  %454 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 7)
+  %455 = load i32, ptr @hf_sccp_variable_pointer3, align 4
+  %456 = zext i16 %454 to i32
+  %457 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %455, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef %456)
+  %458 = add i16 %454, 8
+  %459 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 9)
+  store i16 %459, ptr %6, align 2
+  %460 = load i32, ptr @hf_sccp_optional_pointer, align 4
+  %461 = zext i16 %459 to i32
+  %462 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %460, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef %461)
+  %463 = add i16 %459, 10
+  store i16 %463, ptr %5, align 2
+  %464 = call ptr @get_sccp_assoc(ptr noundef %1, i32 noundef %53, ptr noundef nonnull %7)
+  %465 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %464, ptr %465, align 8
   call fastcc void @build_assoc_tree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef nonnull %7, i32 noundef %53)
-  %467 = zext i16 %449 to i32
-  %468 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %467, ptr noundef nonnull %7)
-  %469 = zext i16 %454 to i32
-  %470 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %469, ptr noundef nonnull %7)
-  %471 = zext i16 %459 to i32
-  %472 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 19, i32 noundef %471, ptr noundef nonnull %7)
+  %466 = zext i16 %448 to i32
+  %467 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 3, i32 noundef %466, ptr noundef nonnull %7)
+  %468 = zext i16 %453 to i32
+  %469 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 4, i32 noundef %468, ptr noundef nonnull %7)
+  %470 = zext i16 %458 to i32
+  %471 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext 19, i32 noundef %470, ptr noundef nonnull %7)
   br label %dissect_sccp_parameter.exit711.i
 
-473:                                              ; preds = %62
-  %474 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %475 = load i32, ptr @hf_sccp_unknown_message, align 4
-  %476 = icmp eq i32 %474, 1
-  %477 = select i1 %476, ptr @.str.466, ptr @.str.491
-  %478 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0, i32 noundef %475, ptr noundef %0, i32 noundef 0, i32 noundef %474, ptr noundef null, ptr noundef nonnull @.str.510, i32 noundef %474, ptr noundef nonnull %477)
+472:                                              ; preds = %62
+  %473 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %474 = load i32, ptr @hf_sccp_unknown_message, align 4
+  %475 = icmp eq i32 %473, 1
+  %476 = select i1 %475, ptr @.str.466, ptr @.str.491
+  %477 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0, i32 noundef %474, ptr noundef %0, i32 noundef 0, i32 noundef %473, ptr noundef null, ptr noundef nonnull @.str.510, i32 noundef %473, ptr noundef nonnull %476)
   br label %dissect_sccp_parameter.exit711.i
 
-dissect_sccp_parameter.exit711.i:                 ; preds = %473, %dissect_sccp_parameter.exit726.i, %dissect_sccp_parameter.exit723.i, %dissect_sccp_parameter.exit721.i, %dissect_sccp_parameter.exit718.i, %326, %319, %dissect_sccp_parameter.exit714.i, %301, %dissect_sccp_parameter.exit713.i, %283, %273, %dissect_sccp_parameter.exit712.i, %198, %191, %187, %176, %174, %173, %155, %131, %dissect_sccp_parameter.exit706.i, %dissect_sccp_parameter.exit.i, %80, %63
-  %479 = load i16, ptr %6, align 2
-  %.not705.i = icmp eq i16 %479, 0
-  br i1 %.not705.i, label %dissect_sccp_message.exit, label %480
+dissect_sccp_parameter.exit711.i:                 ; preds = %472, %dissect_sccp_parameter.exit726.i, %dissect_sccp_parameter.exit723.i, %dissect_sccp_parameter.exit721.i, %dissect_sccp_parameter.exit718.i, %325, %318, %dissect_sccp_parameter.exit714.i, %300, %dissect_sccp_parameter.exit713.i, %282, %272, %dissect_sccp_parameter.exit712.i, %197, %190, %186, %175, %173, %172, %154, %131, %dissect_sccp_parameter.exit706.i, %dissect_sccp_parameter.exit.i, %80, %63
+  %478 = load i16, ptr %6, align 2
+  %.not705.i = icmp eq i16 %478, 0
+  br i1 %.not705.i, label %dissect_sccp_message.exit, label %479
 
-480:                                              ; preds = %dissect_sccp_parameter.exit711.i
-  %481 = load i16, ptr %5, align 2
-  %482 = zext i16 %481 to i32
-  %483 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, 65536) %482)
-  %.not17.i.i = icmp eq i8 %483, 0
+479:                                              ; preds = %dissect_sccp_parameter.exit711.i
+  %480 = load i16, ptr %5, align 2
+  %481 = zext i16 %480 to i32
+  %482 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, 65536) %481)
+  %.not17.i.i = icmp eq i8 %482, 0
   br i1 %.not17.i.i, label %dissect_sccp_optional_parameters.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %480, %.lr.ph.i.i
-  %484 = phi i8 [ %489, %.lr.ph.i.i ], [ %483, %480 ]
-  %.018.i.i = phi i32 [ %488, %.lr.ph.i.i ], [ %482, %480 ]
-  %485 = add i32 %.018.i.i, 1
-  %486 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext %484, i32 noundef %485, ptr noundef nonnull %7)
-  %487 = zext i16 %486 to i32
-  %488 = add i32 %485, %487
-  %489 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %488)
-  %.not.i727.i = icmp eq i8 %489, 0
+.lr.ph.i.i:                                       ; preds = %479, %.lr.ph.i.i
+  %483 = phi i8 [ %488, %.lr.ph.i.i ], [ %482, %479 ]
+  %.018.i.i = phi i32 [ %487, %.lr.ph.i.i ], [ %481, %479 ]
+  %484 = add i32 %.018.i.i, 1
+  %485 = call fastcc zeroext i16 @dissect_sccp_variable_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %2, i8 noundef zeroext %483, i32 noundef %484, ptr noundef nonnull %7)
+  %486 = zext i16 %485 to i32
+  %487 = add i32 %484, %486
+  %488 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %487)
+  %.not.i727.i = icmp eq i8 %488, 0
   br i1 %.not.i727.i, label %dissect_sccp_optional_parameters.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
-dissect_sccp_optional_parameters.exit.i:          ; preds = %.lr.ph.i.i, %480
-  %.0.lcssa.i.i = phi i32 [ %482, %480 ], [ %488, %.lr.ph.i.i ]
-  br i1 %.not.i, label %dissect_sccp_message.exit, label %490
+dissect_sccp_optional_parameters.exit.i:          ; preds = %.lr.ph.i.i, %479
+  %.0.lcssa.i.i = phi i32 [ %481, %479 ], [ %487, %.lr.ph.i.i ]
+  br i1 %.not.i, label %dissect_sccp_message.exit, label %489
 
-490:                                              ; preds = %dissect_sccp_optional_parameters.exit.i
-  %491 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef 1)
-  %492 = load i32, ptr @hf_sccp_end_optional_param, align 4
-  %493 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %492, ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef 1, i32 noundef 0)
+489:                                              ; preds = %dissect_sccp_optional_parameters.exit.i
+  %490 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef 1)
+  %491 = load i32, ptr @hf_sccp_end_optional_param, align 4
+  %492 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %491, ptr noundef %0, i32 noundef %.0.lcssa.i.i, i32 noundef 1, i32 noundef 0)
   br label %dissect_sccp_message.exit
 
-dissect_sccp_message.exit:                        ; preds = %dissect_sccp_parameter.exit711.i, %dissect_sccp_optional_parameters.exit.i, %490
+dissect_sccp_message.exit:                        ; preds = %dissect_sccp_parameter.exit711.i, %dissect_sccp_optional_parameters.exit.i, %489
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %494 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %494
+  %493 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %493
 }
 
 ; Function Attrs: null_pointer_is_valid

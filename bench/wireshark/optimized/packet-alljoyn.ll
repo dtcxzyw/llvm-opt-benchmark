@@ -919,11 +919,10 @@ define internal i32 @dissect_AllJoyn_ardp(ptr noundef %0, ptr noundef %1, ptr no
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %14 = shl i8 %13, 1
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %16 = and i8 %15, 1
-  %.not157 = icmp eq i8 %16, 0
+  %16 = trunc i8 %15 to i1
   %17 = icmp eq i8 %14, 28
   %18 = icmp ugt i8 %14, 33
-  %or.cond = select i1 %.not157, i1 %18, i1 %17
+  %or.cond = select i1 %16, i1 %17, i1 %18
   br i1 %or.cond, label %19, label %protocol_is_ardp.exit.thread
 
 19:                                               ; preds = %12
@@ -1074,8 +1073,8 @@ ardp_parse_header.exit:                           ; preds = %ardp_parse_header.e
 113:                                              ; preds = %109
   %114 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %115 = add nuw nsw i32 %.sroa.0.0, 1
-  %.not158 = icmp sgt i32 %114, %.sroa.0.0
-  br i1 %.not158, label %116, label %.thread
+  %.not157 = icmp sgt i32 %114, %.sroa.0.0
+  br i1 %.not157, label %116, label %.thread
 
 116:                                              ; preds = %113
   %117 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sroa.0.0)
@@ -1091,8 +1090,8 @@ protocol_is_alljoyn_message.exit:                 ; preds = %116
   %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %115)
   %122 = zext i8 %121 to i32
   %123 = tail call ptr @try_val_to_str(i32 noundef %122, ptr noundef nonnull @message_header_encoding_vals)
-  %.not159 = icmp eq ptr %123, null
-  br i1 %.not159, label %.thread, label %127
+  %.not158 = icmp eq ptr %123, null
+  br i1 %.not158, label %.thread, label %127
 
 .thread:                                          ; preds = %protocol_is_alljoyn_message.exit, %113, %116
   %124 = trunc i8 %26 to i1
@@ -1122,8 +1121,8 @@ protocol_is_alljoyn_message.exit:                 ; preds = %116
 
 135:                                              ; preds = %133, %129
   %136 = and i8 %26, 2
-  %.not160 = icmp eq i8 %136, 0
-  br i1 %.not160, label %139, label %137
+  %.not159 = icmp eq i8 %136, 0
+  br i1 %.not159, label %139, label %137
 
 137:                                              ; preds = %135
   %138 = load ptr, ptr %110, align 8
@@ -1141,8 +1140,8 @@ protocol_is_alljoyn_message.exit:                 ; preds = %116
 
 143:                                              ; preds = %141, %139
   %144 = and i8 %26, 8
-  %.not161 = icmp eq i8 %144, 0
-  br i1 %.not161, label %147, label %145
+  %.not160 = icmp eq i8 %144, 0
+  br i1 %.not160, label %147, label %145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %110, align 8
@@ -1151,8 +1150,8 @@ protocol_is_alljoyn_message.exit:                 ; preds = %116
 
 147:                                              ; preds = %145, %143
   %148 = and i8 %26, 16
-  %.not162 = icmp eq i8 %148, 0
-  br i1 %.not162, label %151, label %149
+  %.not161 = icmp eq i8 %148, 0
+  br i1 %.not161, label %151, label %149
 
 149:                                              ; preds = %147
   %150 = load ptr, ptr %110, align 8

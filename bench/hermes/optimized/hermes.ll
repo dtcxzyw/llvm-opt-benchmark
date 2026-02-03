@@ -4227,8 +4227,8 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.then7:                                         ; preds = %entry
-  %2 = trunc i64 %hv.coerce to i8
-  %frombool.i = and i8 %2, 1
+  %tobool.i = trunc i64 %hv.coerce to i8
+  %frombool.i = and i8 %tobool.i, 1
   store i32 2, ptr %agg.result, align 8
   %data_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %frombool.i, ptr %data_.i, align 8

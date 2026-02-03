@@ -608,12 +608,12 @@ _ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i:
   %28 = load ptr, ptr %27, align 8, !tbaa !86, !noalias !112
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !92, !noalias !106
-  %.not8.i.i14 = icmp eq i32 %30, 6
-  br i1 %.not8.i.i14, label %_ZN4llvm7objcarc22getAttachedARCFunctionEPKNS_8CallBaseE.exit, label %.critedge.i.i
+  %.not8.i.i13 = icmp eq i32 %30, 6
+  br i1 %.not8.i.i13, label %_ZN4llvm7objcarc22getAttachedARCFunctionEPKNS_8CallBaseE.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, %.critedge.i.i
-  %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i, %.critedge.i.i ], [ 0, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i15, 1
+  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i, %.critedge.i.i ], [ 0, %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i14, 1
   %.not.i.i = icmp ne i64 %indvars.iv.next.i, %25
   call void @llvm.assume(i1 %.not.i.i)
   %31 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #14, !noalias !109
@@ -640,9 +640,8 @@ _ZN4llvm7objcarc22getAttachedARCFunctionEPKNS_8CallBaseE.exit: ; preds = %.crite
   %46 = load ptr, ptr %45, align 8, !tbaa !93
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !116
-  %49 = and i16 %48, 1
-  %.not.i.i8 = icmp eq i16 %49, 0
-  br i1 %.not.i.i8, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit, label %50
+  %49 = trunc i16 %48 to i1
+  br i1 %49, label %50, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit
 
 50:                                               ; preds = %_ZN4llvm7objcarc22getAttachedARCFunctionEPKNS_8CallBaseE.exit
   call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %46) #14
@@ -667,8 +666,8 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i16 257, ptr %59, align 8
   store ptr %1, ptr %11, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %2, ptr %.sroa.413.0..sroa_idx, align 8
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %2, ptr %.sroa.412.0..sroa_idx, align 8
   %60 = call noundef ptr @_ZN4llvm7objcarc24createCallInstWithColorsENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEERKNS_5TwineENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERKNS_8DenseMapIPSD_NS_13TinyPtrVectorISH_EENS_12DenseMapInfoISH_vEENS_6detail12DenseMapPairISH_SJ_EEEE(ptr %58, ptr nonnull %46, ptr nonnull %7, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef nonnull byval(%"class.llvm::ilist_iterator_w_bits") align 8 %11, ptr noundef nonnull align 8 dereferenceable(20) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %60, ptr %9, align 8, !tbaa !144

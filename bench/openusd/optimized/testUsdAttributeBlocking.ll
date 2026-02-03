@@ -3803,9 +3803,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i: ; preds = 
   %36 = and i64 %33, -8
   %37 = inttoptr i64 %36 to ptr
   %38 = atomicrmw add ptr %37, i32 2 monotonic, align 4
-  %39 = and i32 %38, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %39, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %40, label %_ZNSt11_Tuple_implILm1EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeES1_S1_EEC2IRS1_JS4_S4_EvEEOT_DpOT0_.exit
+  %39 = trunc i32 %38 to i1
+  br i1 %39, label %_ZNSt11_Tuple_implILm1EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeES1_S1_EEC2IRS1_JS4_S4_EvEEOT_DpOT0_.exit, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %31, align 8
@@ -3981,9 +3980,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i: ; preds = 
   %33 = and i64 %30, -8
   %34 = inttoptr i64 %33 to ptr
   %35 = atomicrmw add ptr %34, i32 2 monotonic, align 4
-  %36 = and i32 %35, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %36, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %37, label %_ZNSt11_Tuple_implILm3EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEEEC2IRS1_EEOT_.exit
+  %36 = trunc i32 %35 to i1
+  br i1 %36, label %_ZNSt11_Tuple_implILm3EJN32pxrInternal_v0_24__pxrReserved__12UsdAttributeEEEC2IRS1_EEOT_.exit, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %28, align 8
@@ -4047,9 +4045,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i: ; preds = %5
   %72 = and i64 %69, -8
   %73 = inttoptr i64 %72 to ptr
   %74 = atomicrmw add ptr %73, i32 2 monotonic, align 4
-  %75 = and i32 %74, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %75, 0
-  br i1 %.not1.i.i.i.i.i.i, label %76, label %_ZNSt10_Head_baseILm2EN32pxrInternal_v0_24__pxrReserved__12UsdAttributeELb0EEC2IRS1_EEOT_.exit
+  %75 = trunc i32 %74 to i1
+  br i1 %75, label %_ZNSt10_Head_baseILm2EN32pxrInternal_v0_24__pxrReserved__12UsdAttributeELb0EEC2IRS1_EEOT_.exit, label %76
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %67, align 8

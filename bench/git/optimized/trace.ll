@@ -864,7 +864,7 @@ define dso_local void @trace_repo_setup(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %5 = tail call fastcc i32 @get_trace_fd(ptr noundef nonnull @trace_setup_key, ptr noundef null)
   %.not27 = icmp eq i32 %5, 0
-  br i1 %.not27, label %37, label %6
+  br i1 %.not27, label %32, label %6
 
 6:                                                ; preds = %1
   %7 = tail call ptr @xgetcwd() #15
@@ -879,67 +879,62 @@ define dso_local void @trace_repo_setup(ptr noundef %0) local_unnamed_addr #0 {
   %trace_setup_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !4
   %trace_setup_key.val14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 12), align 4
   %.not.i = icmp eq i32 %trace_setup_key.val, 0
-  %12 = and i8 %trace_setup_key.val14, 1
-  %.not928 = icmp ne i8 %12, 0
+  %.not928 = trunc i8 %trace_setup_key.val14 to i1
   %.not9 = select i1 %.not.i, i1 %.not928, i1 false
-  br i1 %.not9, label %.thread54, label %13
+  br i1 %.not9, label %.thread51, label %12
 
-13:                                               ; preds = %6
-  %14 = tail call ptr @repo_get_git_dir(ptr noundef %0) #15
-  %15 = tail call fastcc ptr @quote_crnl(ptr noundef %14)
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 316, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.6, ptr noundef %15)
+12:                                               ; preds = %6
+  %13 = tail call ptr @repo_get_git_dir(ptr noundef %0) #15
+  %14 = tail call fastcc ptr @quote_crnl(ptr noundef %13)
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 316, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.6, ptr noundef %14)
   %trace_setup_key.val15.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !4
   %trace_setup_key.val16.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 12), align 4
-  %.pre = and i8 %trace_setup_key.val16.pre, 1
-  %16 = icmp eq i32 %trace_setup_key.val15.pre, 0
-  %17 = icmp ne i8 %.pre, 0
-  %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.thread54, label %19
+  %.pre = trunc i8 %trace_setup_key.val16.pre to i1
+  %15 = icmp eq i32 %trace_setup_key.val15.pre, 0
+  %16 = select i1 %15, i1 %.pre, i1 false
+  br i1 %16, label %.thread51, label %17
 
-19:                                               ; preds = %13
-  %20 = tail call ptr @repo_get_common_dir(ptr noundef %0) #15
-  %21 = tail call fastcc ptr @quote_crnl(ptr noundef %20)
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 317, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.7, ptr noundef %21)
+17:                                               ; preds = %12
+  %18 = tail call ptr @repo_get_common_dir(ptr noundef %0) #15
+  %19 = tail call fastcc ptr @quote_crnl(ptr noundef %18)
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 317, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.7, ptr noundef %19)
   %trace_setup_key.val17.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !4
   %trace_setup_key.val18.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 12), align 4
-  %.pre41 = and i8 %trace_setup_key.val18.pre, 1
-  %22 = icmp eq i32 %trace_setup_key.val17.pre, 0
-  %23 = icmp ne i8 %.pre41, 0
-  %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.thread54, label %25
+  %.pre41 = trunc i8 %trace_setup_key.val18.pre to i1
+  %20 = icmp eq i32 %trace_setup_key.val17.pre, 0
+  %21 = select i1 %20, i1 %.pre41, i1 false
+  br i1 %21, label %.thread51, label %22
 
-25:                                               ; preds = %19
-  %26 = tail call fastcc ptr @quote_crnl(ptr noundef nonnull %spec.store.select)
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 318, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.8, ptr noundef %26)
+22:                                               ; preds = %17
+  %23 = tail call fastcc ptr @quote_crnl(ptr noundef nonnull %spec.store.select)
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 318, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.8, ptr noundef %23)
   %trace_setup_key.val19.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !4
   %trace_setup_key.val20.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 12), align 4
-  %.pre43 = and i8 %trace_setup_key.val20.pre, 1
-  %27 = icmp eq i32 %trace_setup_key.val19.pre, 0
-  %28 = icmp ne i8 %.pre43, 0
-  %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %.thread54, label %30
+  %.pre42 = trunc i8 %trace_setup_key.val20.pre to i1
+  %24 = icmp eq i32 %trace_setup_key.val19.pre, 0
+  %25 = select i1 %24, i1 %.pre42, i1 false
+  br i1 %25, label %.thread51, label %26
 
-30:                                               ; preds = %25
-  %31 = tail call fastcc ptr @quote_crnl(ptr noundef %7)
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 319, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.9, ptr noundef %31)
+26:                                               ; preds = %22
+  %27 = tail call fastcc ptr @quote_crnl(ptr noundef %7)
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 319, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.9, ptr noundef %27)
   %trace_setup_key.val21.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !4
   %trace_setup_key.val22.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 12), align 4
-  %.pre45 = and i8 %trace_setup_key.val22.pre, 1
-  %32 = icmp eq i32 %trace_setup_key.val21.pre, 0
-  %33 = icmp ne i8 %.pre45, 0
-  %34 = select i1 %32, i1 %33, i1 false
-  br i1 %34, label %.thread54, label %35
+  %.pre43 = trunc i8 %trace_setup_key.val22.pre to i1
+  %28 = icmp eq i32 %trace_setup_key.val21.pre, 0
+  %29 = select i1 %28, i1 %.pre43, i1 false
+  br i1 %29, label %.thread51, label %30
 
-35:                                               ; preds = %30
-  %36 = tail call fastcc ptr @quote_crnl(ptr noundef %spec.select)
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 320, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.10, ptr noundef %36)
-  br label %.thread54
+30:                                               ; preds = %26
+  %31 = tail call fastcc ptr @quote_crnl(ptr noundef %spec.select)
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.3, i32 noundef 320, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.10, ptr noundef %31)
+  br label %.thread51
 
-.thread54:                                        ; preds = %6, %13, %19, %25, %35, %30
+.thread51:                                        ; preds = %6, %12, %17, %22, %30, %26
   tail call void @free(ptr noundef %7) #15
-  br label %37
+  br label %32
 
-37:                                               ; preds = %1, %.thread54
+32:                                               ; preds = %1, %.thread51
   ret void
 }
 
@@ -1098,18 +1093,17 @@ define internal void @print_command_performance_atexit() #0 {
   %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !4
   %trace_perf_key.val1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %.not.i = icmp eq i32 %trace_perf_key.val, 0
-  %1 = and i8 %trace_perf_key.val1, 1
-  %.not2 = icmp ne i8 %1, 0
+  %.not2 = trunc i8 %trace_perf_key.val1 to i1
   %.not = select i1 %.not.i, i1 %.not2, i1 false
-  br i1 %.not, label %5, label %2
+  br i1 %.not, label %4, label %1
 
-2:                                                ; preds = %0
-  %3 = tail call i64 @getnanotime()
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @command_line, i64 16), align 8, !tbaa !17
-  tail call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 416, i64 noundef %3, ptr noundef nonnull @.str.26, ptr noundef %4)
-  br label %5
+1:                                                ; preds = %0
+  %2 = tail call i64 @getnanotime()
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @command_line, i64 16), align 8, !tbaa !17
+  tail call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.3, i32 noundef 416, i64 noundef %2, ptr noundef nonnull @.str.26, ptr noundef %3)
+  br label %4
 
-5:                                                ; preds = %0, %2
+4:                                                ; preds = %0, %1
   ret void
 }
 

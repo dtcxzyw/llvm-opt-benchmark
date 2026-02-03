@@ -332,70 +332,69 @@ define internal fastcc ptr @GenerationAllocLarge(ptr noundef %0, i64 noundef %1,
   br i1 %4, label %5, label %MemoryContextCheckSize.exit, !prof !7
 
 5:                                                ; preds = %3
-  %6 = and i32 %2, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp sgt i64 %1, -1
-  %or.cond.i = and i1 %8, %7
-  br i1 %or.cond.i, label %MemoryContextCheckSize.exit, label %9
+  %6 = trunc i32 %2 to i1
+  %7 = icmp sgt i64 %1, -1
+  %or.cond.i = and i1 %7, %6
+  br i1 %or.cond.i, label %MemoryContextCheckSize.exit, label %8
 
-9:                                                ; preds = %5
+8:                                                ; preds = %5
   tail call void @MemoryContextSizeFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #17
   unreachable
 
 MemoryContextCheckSize.exit:                      ; preds = %3, %5
-  %10 = add nuw i64 %1, 7
-  %11 = and i64 %10, -8
-  %12 = add nuw i64 %11, 64
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #14
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %17
+  %9 = add nuw i64 %1, 7
+  %10 = and i64 %9, -8
+  %11 = add nuw i64 %10, 64
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #14
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %MemoryContextCheckSize.exit
-  %16 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #15
-  br label %37
+14:                                               ; preds = %MemoryContextCheckSize.exit
+  %15 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #15
+  br label %36
 
-17:                                               ; preds = %MemoryContextCheckSize.exit
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = add i64 %19, %12
-  store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %0, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 %12, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 %12
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr %25, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i64 -5645020766237429836, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %dlist_push_head.exit
+16:                                               ; preds = %MemoryContextCheckSize.exit
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = add i64 %18, %11
+  store i64 %19, ptr %17, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %0, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 %11, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i32 1, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  store i32 0, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 %11
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr %24, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  store i64 -5645020766237429836, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %dlist_push_head.exit
 
-33:                                               ; preds = %17
-  store ptr %29, ptr %29, align 8
+32:                                               ; preds = %16
+  store ptr %28, ptr %28, align 8
   br label %dlist_push_head.exit
 
-dlist_push_head.exit:                             ; preds = %17, %33
-  %34 = phi ptr [ %29, %33 ], [ %31, %17 ]
-  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %34, ptr %35, align 8
-  store ptr %29, ptr %13, align 8
-  store ptr %13, ptr %34, align 8
-  store ptr %13, ptr %30, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  br label %37
+dlist_push_head.exit:                             ; preds = %16, %32
+  %33 = phi ptr [ %28, %32 ], [ %30, %16 ]
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %33, ptr %34, align 8
+  store ptr %28, ptr %12, align 8
+  store ptr %12, ptr %33, align 8
+  store ptr %12, ptr %29, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  br label %36
 
-37:                                               ; preds = %dlist_push_head.exit, %15
-  %.0 = phi ptr [ %16, %15 ], [ %36, %dlist_push_head.exit ]
+36:                                               ; preds = %dlist_push_head.exit, %14
+  %.0 = phi ptr [ %15, %14 ], [ %35, %dlist_push_head.exit ]
   ret ptr %.0
 }
 

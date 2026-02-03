@@ -3422,9 +3422,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit.i: ; 
   %1141 = and i64 %1138, -8
   %1142 = inttoptr i64 %1141 to ptr
   %1143 = atomicrmw add ptr %1142, i32 2 monotonic, align 4
-  %1144 = and i32 %1143, 1
-  %.not1.i.i.i.i = icmp eq i32 %1144, 0
-  %1145 = select i1 %.not1.i.i.i.i, i64 %1141, i64 %1138
+  %1144 = trunc i32 %1143 to i1
+  %1145 = select i1 %1144, i64 %1138, i64 %1141
   br label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyC2ERKS1_.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyC2ERKS1_.exit.i: ; preds = %1140, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit.i
@@ -6648,9 +6647,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit: ; pr
   %227 = and i64 %224, -8
   %228 = inttoptr i64 %227 to ptr
   %229 = atomicrmw add ptr %228, i32 2 monotonic, align 4
-  %230 = and i32 %229, 1
-  %.not1.i.i.i = icmp eq i32 %230, 0
-  %231 = select i1 %.not1.i.i.i, i64 %227, i64 %224
+  %230 = trunc i32 %229 to i1
+  %231 = select i1 %230, i64 %224, i64 %227
   br label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyC2ERKS1_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyC2ERKS1_.exit: ; preds = %226, %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit
@@ -11170,9 +11168,8 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7TfTokenEEERKT_
   %29 = and i64 %26, -8
   %30 = inttoptr i64 %29 to ptr
   %31 = atomicrmw add ptr %30, i32 2 monotonic, align 4
-  %32 = and i32 %31, 1
-  %.not1.i.i = icmp eq i32 %32, 0
-  br i1 %.not1.i.i, label %33, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
+  %32 = trunc i32 %31 to i1
+  br i1 %32, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %33
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %.0.i.i, align 8

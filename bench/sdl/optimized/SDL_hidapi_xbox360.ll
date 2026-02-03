@@ -187,7 +187,7 @@ define internal zeroext i1 @HIDAPI_DriverXbox360_UpdateDevice(ptr noundef %0) #0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %8, label %103
+  br i1 %7, label %8, label %101
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -222,7 +222,7 @@ define internal zeroext i1 @HIDAPI_DriverXbox360_UpdateDevice(ptr noundef %0) #0
   br i1 %30, label %.backedge.us, label %._crit_edge, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
-  %31 = phi i32 [ %95, %.backedge ], [ %15, %.lr.ph ]
+  %31 = phi i32 [ %93, %.backedge ], [ %15, %.lr.ph ]
   %32 = load i8, ptr %2, align 16
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %.backedge
@@ -232,118 +232,117 @@ define internal zeroext i1 @HIDAPI_DriverXbox360_UpdateDevice(ptr noundef %0) #0
   %36 = load i8, ptr %17, align 1
   %37 = load i8, ptr %18, align 2
   %.not.i = icmp eq i8 %36, %37
-  br i1 %.not.i, label %55, label %38
+  br i1 %.not.i, label %54, label %38
 
 38:                                               ; preds = %34
-  %39 = and i8 %37, 1
-  %40 = shl i8 %37, 1
-  %41 = and i8 %40, 12
-  %.2.i = or disjoint i8 %41, %39
-  %42 = lshr i8 %37, 2
-  %43 = and i8 %42, 2
-  %.3.i = or disjoint i8 %.2.i, %43
+  %spec.select.i = and i8 %37, 1
+  %39 = shl i8 %37, 1
+  %40 = and i8 %39, 12
+  %.2.i = or disjoint i8 %40, %spec.select.i
+  %41 = lshr i8 %37, 2
+  %42 = and i8 %41, 2
+  %.3.i = or disjoint i8 %.2.i, %42
   call void @SDL_SendJoystickHat(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 0, i8 noundef zeroext %.3.i) #9
-  %44 = load i8, ptr %18, align 2
-  %45 = and i8 %44, 16
-  %46 = icmp ne i8 %45, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 6, i1 noundef zeroext %46) #9
-  %47 = load i8, ptr %18, align 2
-  %48 = and i8 %47, 32
-  %49 = icmp ne i8 %48, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 4, i1 noundef zeroext %49) #9
-  %50 = load i8, ptr %18, align 2
-  %51 = and i8 %50, 64
-  %52 = icmp ne i8 %51, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 7, i1 noundef zeroext %52) #9
-  %53 = load i8, ptr %18, align 2
-  %54 = icmp slt i8 %53, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 8, i1 noundef zeroext %54) #9
-  br label %55
+  %43 = load i8, ptr %18, align 2
+  %44 = and i8 %43, 16
+  %45 = icmp ne i8 %44, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 6, i1 noundef zeroext %45) #9
+  %46 = load i8, ptr %18, align 2
+  %47 = and i8 %46, 32
+  %48 = icmp ne i8 %47, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 4, i1 noundef zeroext %48) #9
+  %49 = load i8, ptr %18, align 2
+  %50 = and i8 %49, 64
+  %51 = icmp ne i8 %50, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 7, i1 noundef zeroext %51) #9
+  %52 = load i8, ptr %18, align 2
+  %53 = icmp slt i8 %52, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 8, i1 noundef zeroext %53) #9
+  br label %54
 
-55:                                               ; preds = %38, %34
-  %56 = load i8, ptr %19, align 1
-  %57 = load i8, ptr %20, align 1
-  %.not83.i = icmp eq i8 %56, %57
-  br i1 %.not83.i, label %HIDAPI_DriverXbox360_HandleStatePacket.exit, label %58
+54:                                               ; preds = %38, %34
+  %55 = load i8, ptr %19, align 1
+  %56 = load i8, ptr %20, align 1
+  %.not83.i = icmp eq i8 %55, %56
+  br i1 %.not83.i, label %HIDAPI_DriverXbox360_HandleStatePacket.exit, label %57
 
-58:                                               ; preds = %55
-  %59 = and i8 %57, 1
-  %60 = icmp ne i8 %59, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 9, i1 noundef zeroext %60) #9
-  %61 = load i8, ptr %20, align 1
-  %62 = and i8 %61, 2
-  %63 = icmp ne i8 %62, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 10, i1 noundef zeroext %63) #9
-  %64 = load i8, ptr %20, align 1
-  %65 = and i8 %64, 4
-  %66 = icmp ne i8 %65, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 5, i1 noundef zeroext %66) #9
-  %67 = load i8, ptr %20, align 1
-  %68 = and i8 %67, 16
-  %69 = icmp ne i8 %68, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 0, i1 noundef zeroext %69) #9
-  %70 = load i8, ptr %20, align 1
-  %71 = and i8 %70, 32
-  %72 = icmp ne i8 %71, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 1, i1 noundef zeroext %72) #9
-  %73 = load i8, ptr %20, align 1
-  %74 = and i8 %73, 64
-  %75 = icmp ne i8 %74, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 2, i1 noundef zeroext %75) #9
-  %76 = load i8, ptr %20, align 1
-  %77 = icmp slt i8 %76, 0
-  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 3, i1 noundef zeroext %77) #9
+57:                                               ; preds = %54
+  %58 = trunc i8 %56 to i1
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 9, i1 noundef zeroext %58) #9
+  %59 = load i8, ptr %20, align 1
+  %60 = and i8 %59, 2
+  %61 = icmp ne i8 %60, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 10, i1 noundef zeroext %61) #9
+  %62 = load i8, ptr %20, align 1
+  %63 = and i8 %62, 4
+  %64 = icmp ne i8 %63, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 5, i1 noundef zeroext %64) #9
+  %65 = load i8, ptr %20, align 1
+  %66 = and i8 %65, 16
+  %67 = icmp ne i8 %66, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 0, i1 noundef zeroext %67) #9
+  %68 = load i8, ptr %20, align 1
+  %69 = and i8 %68, 32
+  %70 = icmp ne i8 %69, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 1, i1 noundef zeroext %70) #9
+  %71 = load i8, ptr %20, align 1
+  %72 = and i8 %71, 64
+  %73 = icmp ne i8 %72, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 2, i1 noundef zeroext %73) #9
+  %74 = load i8, ptr %20, align 1
+  %75 = icmp slt i8 %74, 0
+  call void @SDL_SendJoystickButton(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 3, i1 noundef zeroext %75) #9
   br label %HIDAPI_DriverXbox360_HandleStatePacket.exit
 
-HIDAPI_DriverXbox360_HandleStatePacket.exit:      ; preds = %55, %58
-  %78 = load i8, ptr %22, align 4
-  %79 = zext i8 %78 to i16
-  %80 = mul nuw i16 %79, 257
-  %81 = xor i16 %80, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 4, i16 noundef signext %81) #9
-  %82 = load i8, ptr %23, align 1
-  %83 = zext i8 %82 to i16
-  %84 = mul nuw i16 %83, 257
-  %85 = xor i16 %84, -32768
-  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 5, i16 noundef signext %85) #9
-  %86 = load i16, ptr %24, align 2
-  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 0, i16 noundef signext %86) #9
-  %87 = load i16, ptr %25, align 8
-  %88 = xor i16 %87, -1
-  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 1, i16 noundef signext %88) #9
-  %89 = load i16, ptr %26, align 2
-  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 2, i16 noundef signext %89) #9
-  %90 = load i16, ptr %27, align 4
-  %91 = xor i16 %90, -1
-  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 3, i16 noundef signext %91) #9
-  %92 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %31, i32 64)
-  %93 = zext nneg i32 %92 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull readonly align 16 dereferenceable(1) %2, i64 %93, i1 false)
+HIDAPI_DriverXbox360_HandleStatePacket.exit:      ; preds = %54, %57
+  %76 = load i8, ptr %22, align 4
+  %77 = zext i8 %76 to i16
+  %78 = mul nuw i16 %77, 257
+  %79 = xor i16 %78, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 4, i16 noundef signext %79) #9
+  %80 = load i8, ptr %23, align 1
+  %81 = zext i8 %80 to i16
+  %82 = mul nuw i16 %81, 257
+  %83 = xor i16 %82, -32768
+  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 5, i16 noundef signext %83) #9
+  %84 = load i16, ptr %24, align 2
+  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 0, i16 noundef signext %84) #9
+  %85 = load i16, ptr %25, align 8
+  %86 = xor i16 %85, -1
+  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 1, i16 noundef signext %86) #9
+  %87 = load i16, ptr %26, align 2
+  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 2, i16 noundef signext %87) #9
+  %88 = load i16, ptr %27, align 4
+  %89 = xor i16 %88, -1
+  call void @SDL_SendJoystickAxis(i64 noundef %35, ptr noundef nonnull %12, i8 noundef zeroext 3, i16 noundef signext %89) #9
+  %90 = call i32 @llvm.umin.i32(i32 range(i32 1, -2147483648) %31, i32 64)
+  %91 = zext nneg i32 %90 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull readonly align 16 dereferenceable(1) %2, i64 %91, i1 false)
   br label %.backedge
 
 .backedge:                                        ; preds = %HIDAPI_DriverXbox360_HandleStatePacket.exit, %.lr.ph.split
-  %94 = load ptr, ptr %13, align 8
-  %95 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %94, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
+  %92 = load ptr, ptr %13, align 8
+  %93 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %92, ptr noundef nonnull %2, i64 noundef 64, i32 noundef 0) #9
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph.split, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.us, %8
-  %.lcssa = phi i32 [ %15, %8 ], [ %29, %.backedge.us ], [ %95, %.backedge ]
-  %97 = icmp slt i32 %.lcssa, 0
-  br i1 %97, label %98, label %101
+  %.lcssa = phi i32 [ %15, %8 ], [ %29, %.backedge.us ], [ %93, %.backedge ]
+  %95 = icmp slt i32 %.lcssa, 0
+  br i1 %95, label %96, label %99
 
-98:                                               ; preds = %._crit_edge
-  %99 = load ptr, ptr %9, align 8
-  %100 = load i32, ptr %99, align 4
-  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %100) #9
+96:                                               ; preds = %._crit_edge
+  %97 = load ptr, ptr %9, align 8
+  %98 = load i32, ptr %97, align 4
+  call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %0, i32 noundef %98) #9
+  br label %99
+
+99:                                               ; preds = %96, %._crit_edge
+  %100 = icmp eq i32 %.lcssa, 0
   br label %101
 
-101:                                              ; preds = %98, %._crit_edge
-  %102 = icmp eq i32 %.lcssa, 0
-  br label %103
-
-103:                                              ; preds = %1, %101
-  %.0 = phi i1 [ %102, %101 ], [ false, %1 ]
+101:                                              ; preds = %1, %99
+  %.0 = phi i1 [ %100, %99 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }

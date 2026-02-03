@@ -774,7 +774,7 @@ define internal i32 @e1000_set_eeprom(ptr noundef %0, ptr noundef readonly captu
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %70, label %8
+  br i1 %7, label %69, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -788,7 +788,7 @@ define internal i32 @e1000_set_eeprom(ptr noundef %0, ptr noundef readonly captu
   %17 = shl nuw i32 %16, 16
   %18 = or disjoint i32 %17, %13
   %19 = icmp eq i32 %10, %18
-  br i1 %19, label %20, label %70
+  br i1 %19, label %20, label %69
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -803,7 +803,7 @@ define internal i32 @e1000_set_eeprom(ptr noundef %0, ptr noundef readonly captu
   %30 = shl nuw nsw i64 %29, 1
   %31 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %30, i32 noundef 3264) #20
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %70, label %33
+  br i1 %32, label %69, label %33
 
 33:                                               ; preds = %20
   %34 = load i32, ptr %21, align 4
@@ -825,49 +825,48 @@ define internal i32 @e1000_set_eeprom(ptr noundef %0, ptr noundef readonly captu
   %45 = phi i1 [ %41, %37 ], [ true, %33 ]
   %46 = load i32, ptr %5, align 4
   %47 = add i32 %46, %43
-  %48 = and i32 %47, 1
-  %49 = icmp ne i32 %48, 0
-  %50 = select i1 %49, i1 %45, i1 false
-  br i1 %50, label %51, label %._crit_edge
+  %48 = trunc i32 %47 to i1
+  %49 = select i1 %48, i1 %45, i1 false
+  br i1 %49, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42
   %.pre3 = sub nsw i32 %26, %23
-  br label %57
+  br label %56
 
-51:                                               ; preds = %42
-  %52 = trunc i32 %26 to i16
-  %53 = sub nsw i32 %26, %23
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr i16, ptr %31, i64 %54
-  %56 = tail call i32 @e1000_read_eeprom(ptr noundef %4, i16 noundef zeroext %52, i16 noundef zeroext 1, ptr noundef %55) #18
+50:                                               ; preds = %42
+  %51 = trunc i32 %26 to i16
+  %52 = sub nsw i32 %26, %23
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr i16, ptr %31, i64 %53
+  %55 = tail call i32 @e1000_read_eeprom(ptr noundef %4, i16 noundef zeroext %51, i16 noundef zeroext 1, ptr noundef %54) #18
   %.pre2 = load i32, ptr %5, align 4
-  br label %57
+  br label %56
 
-57:                                               ; preds = %._crit_edge, %51
-  %.pre-phi = phi i32 [ %.pre3, %._crit_edge ], [ %53, %51 ]
-  %58 = phi i32 [ %46, %._crit_edge ], [ %.pre2, %51 ]
-  %59 = zext i32 %58 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %2, i64 %59, i1 false)
-  %60 = trunc i32 %23 to i16
-  %61 = trunc i32 %.pre-phi to i16
-  %62 = add i16 %61, 1
-  %63 = tail call i32 @e1000_write_eeprom(ptr noundef %4, i16 noundef zeroext %60, i16 noundef zeroext %62, ptr noundef nonnull %31) #18
-  %64 = icmp eq i32 %63, 0
-  %65 = icmp ult i32 %22, 128
-  %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %67, label %69
+56:                                               ; preds = %._crit_edge, %50
+  %.pre-phi = phi i32 [ %.pre3, %._crit_edge ], [ %52, %50 ]
+  %57 = phi i32 [ %46, %._crit_edge ], [ %.pre2, %50 ]
+  %58 = zext i32 %57 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %2, i64 %58, i1 false)
+  %59 = trunc i32 %23 to i16
+  %60 = trunc i32 %.pre-phi to i16
+  %61 = add i16 %60, 1
+  %62 = tail call i32 @e1000_write_eeprom(ptr noundef %4, i16 noundef zeroext %59, i16 noundef zeroext %61, ptr noundef nonnull %31) #18
+  %63 = icmp eq i32 %62, 0
+  %64 = icmp ult i32 %22, 128
+  %65 = select i1 %63, i1 %64, i1 false
+  br i1 %65, label %66, label %68
 
-67:                                               ; preds = %57
-  %68 = tail call i32 @e1000_update_eeprom_checksum(ptr noundef %4) #18
+66:                                               ; preds = %56
+  %67 = tail call i32 @e1000_update_eeprom_checksum(ptr noundef %4) #18
+  br label %68
+
+68:                                               ; preds = %66, %56
+  tail call void @kfree(ptr noundef nonnull %31) #18
   br label %69
 
-69:                                               ; preds = %67, %57
-  tail call void @kfree(ptr noundef nonnull %31) #18
-  br label %70
-
-70:                                               ; preds = %69, %20, %8, %3
-  %71 = phi i32 [ %63, %69 ], [ -95, %3 ], [ -14, %8 ], [ -12, %20 ]
-  ret i32 %71
+69:                                               ; preds = %68, %20, %8, %3
+  %70 = phi i32 [ %62, %68 ], [ -95, %3 ], [ -14, %8 ], [ -12, %20 ]
+  ret i32 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

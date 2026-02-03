@@ -74,212 +74,211 @@ define dso_local i32 @__generic_remap_file_range_prep(ptr noundef %0, i64 nounde
 37:                                               ; preds = %33
   %38 = load i64, ptr %4, align 8
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %51
+  br i1 %39, label %40, label %50
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %42 = load i64, ptr %41, align 8
-  %43 = and i32 %5, 1
-  %44 = icmp ne i32 %43, 0
-  %45 = icmp eq i64 %42, %1
-  %46 = select i1 %44, i1 true, i1 %45
-  br i1 %46, label %.thread, label %47
+  %43 = trunc i32 %5 to i1
+  %44 = icmp eq i64 %42, %1
+  %45 = select i1 %43, i1 true, i1 %44
+  br i1 %45, label %.thread, label %46
 
-47:                                               ; preds = %40
-  %48 = icmp slt i64 %42, %1
-  br i1 %48, label %.thread, label %49
+46:                                               ; preds = %40
+  %47 = icmp slt i64 %42, %1
+  br i1 %47, label %.thread, label %48
 
-49:                                               ; preds = %47
-  %50 = sub i64 %42, %1
-  store i64 %50, ptr %4, align 8
-  br label %51
+48:                                               ; preds = %46
+  %49 = sub i64 %42, %1
+  store i64 %49, ptr %4, align 8
+  br label %50
 
-51:                                               ; preds = %49, %37
-  %52 = phi i64 [ %50, %49 ], [ %38, %37 ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 216
+50:                                               ; preds = %48, %37
+  %51 = phi i64 [ %49, %48 ], [ %38, %37 ]
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = load i64, ptr %61, align 8
-  %63 = add i64 %62, -1
-  %64 = or i64 %3, %1
-  %65 = and i64 %63, %64
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %.thread16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load i64, ptr %60, align 8
+  %62 = add i64 %61, -1
+  %63 = or i64 %3, %1
+  %64 = and i64 %62, %63
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %.thread16
 
-67:                                               ; preds = %51
-  %68 = xor i64 %1, -1
-  %69 = icmp ugt i64 %52, %68
-  %70 = xor i64 %3, -1
-  %71 = icmp ugt i64 %52, %70
-  %72 = or i1 %69, %71
-  br i1 %72, label %.thread16, label %73
+66:                                               ; preds = %50
+  %67 = xor i64 %1, -1
+  %68 = icmp ugt i64 %51, %67
+  %69 = xor i64 %3, -1
+  %70 = icmp ugt i64 %51, %69
+  %71 = or i1 %68, %70
+  br i1 %71, label %.thread16, label %72
 
-73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw i8, ptr %55, i64 80
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  %77 = load i64, ptr %76, align 8
-  %78 = and i32 %5, 1
-  %79 = icmp eq i32 %78, 0
-  %80 = icmp sgt i64 %75, %1
-  br i1 %79, label %90, label %81
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 80
+  %74 = load i64, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 80
+  %76 = load i64, ptr %75, align 8
+  %77 = and i32 %5, 1
+  %78 = icmp eq i32 %77, 0
+  %79 = icmp sgt i64 %74, %1
+  br i1 %78, label %89, label %80
 
-81:                                               ; preds = %73
-  br i1 %80, label %82, label %.thread16
+80:                                               ; preds = %72
+  br i1 %79, label %81, label %.thread16
 
-82:                                               ; preds = %81
-  %83 = add i64 %52, %1
-  %84 = icmp ule i64 %83, %75
-  %85 = icmp sgt i64 %77, %3
-  %86 = select i1 %84, i1 %85, i1 false
-  %87 = add i64 %52, %3
-  %88 = icmp ule i64 %87, %77
-  %89 = select i1 %86, i1 %88, i1 false
-  br i1 %89, label %91, label %.thread16
+81:                                               ; preds = %80
+  %82 = add i64 %51, %1
+  %83 = icmp ule i64 %82, %74
+  %84 = icmp sgt i64 %76, %3
+  %85 = select i1 %83, i1 %84, i1 false
+  %86 = add i64 %51, %3
+  %87 = icmp ule i64 %86, %76
+  %88 = select i1 %85, i1 %87, i1 false
+  br i1 %88, label %90, label %.thread16
 
-90:                                               ; preds = %73
-  br i1 %80, label %91, label %.thread16
+89:                                               ; preds = %72
+  br i1 %79, label %90, label %.thread16
 
-91:                                               ; preds = %90, %82
-  %92 = sub i64 %75, %1
-  %93 = tail call i64 @llvm.umin.i64(i64 %52, i64 %92)
-  store i64 %93, ptr %8, align 8
-  %94 = call i32 @generic_write_check_limits(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %8) #10
-  %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %.thread16
+90:                                               ; preds = %89, %81
+  %91 = sub i64 %74, %1
+  %92 = tail call i64 @llvm.umin.i64(i64 %51, i64 %91)
+  store i64 %92, ptr %8, align 8
+  %93 = call i32 @generic_write_check_limits(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %8) #10
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %95, label %.thread16
 
-96:                                               ; preds = %91
-  %97 = load i64, ptr %8, align 8
-  %98 = add i64 %97, %1
-  %99 = icmp eq i64 %98, %75
-  br i1 %99, label %100, label %109
+95:                                               ; preds = %90
+  %96 = load i64, ptr %8, align 8
+  %97 = add i64 %96, %1
+  %98 = icmp eq i64 %97, %74
+  br i1 %98, label %99, label %108
 
-100:                                              ; preds = %96
-  %101 = add i64 %97, %3
-  %102 = icmp eq i64 %101, %77
-  %103 = select i1 %79, i1 true, i1 %102
-  br i1 %103, label %104, label %109
+99:                                               ; preds = %95
+  %100 = add i64 %96, %3
+  %101 = icmp eq i64 %100, %76
+  %102 = select i1 %78, i1 true, i1 %101
+  br i1 %102, label %103, label %108
 
-104:                                              ; preds = %100
-  %105 = add i64 %75, %63
-  %106 = sub i64 0, %62
-  %107 = and i64 %105, %106
-  %108 = sub i64 %107, %1
-  br label %115
+103:                                              ; preds = %99
+  %104 = add i64 %74, %62
+  %105 = sub i64 0, %61
+  %106 = and i64 %104, %105
+  %107 = sub i64 %106, %1
+  br label %114
 
-109:                                              ; preds = %100, %96
-  %110 = and i64 %97, %63
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %115, label %112
+108:                                              ; preds = %99, %95
+  %109 = and i64 %96, %62
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %114, label %111
 
-112:                                              ; preds = %109
-  %113 = sub i64 0, %62
-  %114 = and i64 %97, %113
-  br label %115
+111:                                              ; preds = %108
+  %112 = sub i64 0, %61
+  %113 = and i64 %96, %112
+  br label %114
 
-115:                                              ; preds = %109, %112, %104
-  %116 = phi i64 [ %97, %104 ], [ %114, %112 ], [ %97, %109 ]
-  %117 = phi i64 [ %108, %104 ], [ %114, %112 ], [ %97, %109 ]
-  %118 = icmp eq ptr %55, %58
-  %119 = add i64 %117, %3
-  %120 = icmp ugt i64 %119, %1
-  %121 = add i64 %117, %1
-  %122 = icmp ugt i64 %121, %3
-  %123 = and i1 %120, %122
-  %124 = select i1 %118, i1 %123, i1 false
-  br i1 %124, label %.thread16, label %125
+114:                                              ; preds = %108, %111, %103
+  %115 = phi i64 [ %96, %103 ], [ %113, %111 ], [ %96, %108 ]
+  %116 = phi i64 [ %107, %103 ], [ %113, %111 ], [ %96, %108 ]
+  %117 = icmp eq ptr %54, %57
+  %118 = add i64 %116, %3
+  %119 = icmp ugt i64 %118, %1
+  %120 = add i64 %116, %1
+  %121 = icmp ugt i64 %120, %3
+  %122 = and i1 %119, %121
+  %123 = select i1 %117, i1 %122, i1 false
+  br i1 %123, label %.thread16, label %124
 
-125:                                              ; preds = %115
-  %126 = load i64, ptr %4, align 8
-  %127 = icmp ne i64 %126, %116
-  %128 = and i32 %5, 2
-  %129 = icmp eq i32 %128, 0
-  %130 = and i1 %129, %127
-  br i1 %130, label %.thread16, label %131
+124:                                              ; preds = %114
+  %125 = load i64, ptr %4, align 8
+  %126 = icmp ne i64 %125, %115
+  %127 = and i32 %5, 2
+  %128 = icmp eq i32 %127, 0
+  %129 = and i1 %128, %126
+  br i1 %129, label %.thread16, label %130
 
-.thread16:                                        ; preds = %51, %67, %82, %81, %90, %91, %115, %125
-  %.ph15 = phi i32 [ -22, %125 ], [ -22, %115 ], [ %94, %91 ], [ -22, %90 ], [ -22, %81 ], [ -22, %82 ], [ -22, %67 ], [ -22, %51 ]
+.thread16:                                        ; preds = %50, %66, %81, %80, %89, %90, %114, %124
+  %.ph15 = phi i32 [ -22, %124 ], [ -22, %114 ], [ %93, %90 ], [ -22, %89 ], [ -22, %80 ], [ -22, %81 ], [ -22, %66 ], [ -22, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-131:                                              ; preds = %125
-  store i64 %116, ptr %4, align 8
+130:                                              ; preds = %124
+  store i64 %115, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %132 = icmp eq i64 %116, 0
-  br i1 %132, label %.thread, label %133
+  %131 = icmp eq i64 %115, 0
+  br i1 %131, label %.thread, label %132
 
-133:                                              ; preds = %131
+132:                                              ; preds = %130
   call void @inode_dio_wait(ptr noundef %11) #10
-  br i1 %14, label %135, label %134
+  br i1 %14, label %134, label %133
 
-134:                                              ; preds = %133
+133:                                              ; preds = %132
   call void @inode_dio_wait(ptr noundef %13) #10
-  br label %135
+  br label %134
 
-135:                                              ; preds = %134, %133
-  %136 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %137 = load ptr, ptr %136, align 8
-  %138 = load i64, ptr %4, align 8
-  %139 = add i64 %1, -1
-  %140 = add i64 %139, %138
-  %141 = call i32 @filemap_write_and_wait_range(ptr noundef %137, i64 noundef %1, i64 noundef %140) #10
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %.thread
+134:                                              ; preds = %133, %132
+  %135 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %136 = load ptr, ptr %135, align 8
+  %137 = load i64, ptr %4, align 8
+  %138 = add i64 %1, -1
+  %139 = add i64 %138, %137
+  %140 = call i32 @filemap_write_and_wait_range(ptr noundef %136, i64 noundef %1, i64 noundef %139) #10
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %.thread
 
-143:                                              ; preds = %135
-  %144 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %145 = load ptr, ptr %144, align 8
-  %146 = load i64, ptr %4, align 8
-  %147 = add i64 %3, -1
-  %148 = add i64 %147, %146
-  %149 = call i32 @filemap_write_and_wait_range(ptr noundef %145, i64 noundef %3, i64 noundef %148) #10
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %.thread
+142:                                              ; preds = %134
+  %143 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %144 = load ptr, ptr %143, align 8
+  %145 = load i64, ptr %4, align 8
+  %146 = add i64 %3, -1
+  %147 = add i64 %146, %145
+  %148 = call i32 @filemap_write_and_wait_range(ptr noundef %144, i64 noundef %3, i64 noundef %147) #10
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %150, label %.thread
 
-151:                                              ; preds = %143
-  %152 = icmp ne i32 %78, 0
-  br i1 %152, label %153, label %161
+150:                                              ; preds = %142
+  %151 = trunc i32 %5 to i1
+  br i1 %151, label %152, label %160
 
-153:                                              ; preds = %151
+152:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
-  %154 = load i64, ptr %4, align 8
-  %155 = call fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %154, ptr noundef nonnull %9)
-  %156 = icmp eq i32 %155, 0
-  %157 = load i8, ptr %9, align 1, !range !6
-  %158 = icmp ne i8 %157, 0
-  %159 = select i1 %156, i32 -52, i32 %155
-  %160 = select i1 %156, i1 %158, i1 false
+  %153 = load i64, ptr %4, align 8
+  %154 = call fastcc i32 @vfs_dedupe_file_range_compare(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %153, ptr noundef nonnull %9)
+  %155 = icmp eq i32 %154, 0
+  %156 = load i8, ptr %9, align 1, !range !6
+  %157 = icmp ne i8 %156, 0
+  %158 = select i1 %155, i32 -52, i32 %154
+  %159 = select i1 %155, i1 %157, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %160, label %161, label %.thread
+  br i1 %159, label %160, label %.thread
 
-161:                                              ; preds = %153, %151
-  %162 = getelementptr i8, ptr %11, i64 142
-  %.val = load i8, ptr %162, align 2
-  %163 = call fastcc i32 @generic_remap_check_len(i8 %.val, ptr noundef %13, i64 noundef %3, ptr noundef %4, i32 noundef %5)
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %.thread
+160:                                              ; preds = %152, %150
+  %161 = getelementptr i8, ptr %11, i64 142
+  %.val = load i8, ptr %161, align 2
+  %162 = call fastcc i32 @generic_remap_check_len(i8 %.val, ptr noundef %13, i64 noundef %3, ptr noundef %4, i32 noundef %5)
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %.thread
 
-165:                                              ; preds = %161
-  %166 = load i64, ptr %4, align 8
-  %167 = icmp eq i64 %166, 0
-  %168 = or i1 %152, %167
-  br i1 %168, label %.thread, label %169
+164:                                              ; preds = %160
+  %165 = load i64, ptr %4, align 8
+  %166 = icmp eq i64 %165, 0
+  %167 = or i1 %166, %151
+  br i1 %167, label %.thread, label %168
 
-169:                                              ; preds = %165
-  %170 = call i32 @file_modified(ptr noundef %2) #10
+168:                                              ; preds = %164
+  %169 = call i32 @file_modified(ptr noundef %2) #10
   br label %.thread
 
-.thread:                                          ; preds = %47, %40, %.thread16, %169, %165, %161, %153, %143, %135, %131, %33, %29, %25, %19, %7
-  %171 = phi i32 [ %159, %153 ], [ %170, %169 ], [ -1, %7 ], [ -26, %19 ], [ -21, %29 ], [ -21, %25 ], [ -22, %33 ], [ 0, %131 ], [ %.ph15, %.thread16 ], [ %141, %135 ], [ %149, %143 ], [ 0, %165 ], [ %163, %161 ], [ -22, %47 ], [ 0, %40 ]
-  ret i32 %171
+.thread:                                          ; preds = %46, %40, %.thread16, %168, %164, %160, %152, %142, %134, %130, %33, %29, %25, %19, %7
+  %170 = phi i32 [ %158, %152 ], [ %169, %168 ], [ -1, %7 ], [ -26, %19 ], [ -21, %29 ], [ -21, %25 ], [ -22, %33 ], [ 0, %130 ], [ %.ph15, %.thread16 ], [ %140, %134 ], [ %148, %142 ], [ 0, %164 ], [ %162, %160 ], [ -22, %46 ], [ 0, %40 ]
+  ret i32 %170
 }
 
 ; Function Attrs: null_pointer_is_valid

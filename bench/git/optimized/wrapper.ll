@@ -1460,24 +1460,24 @@ declare i32 @lstat_cache_aware_rmdir(ptr noundef) local_unnamed_addr #14
 define dso_local noundef i32 @access_or_warn(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @access(ptr noundef %0, i32 noundef %1) #20
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %access_error_is_ok.exit.thread, label %5
+  br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %6, align 4, !tbaa !9
-  switch i32 %7, label %access_error_is_ok.exit [
-    i32 20, label %access_error_is_ok.exit.thread
-    i32 2, label %access_error_is_ok.exit.thread
+  %.fr = freeze i32 %7
+  %8 = trunc i32 %2 to i1
+  %9 = icmp eq i32 %.fr, 13
+  %10 = and i1 %9, %8
+  br i1 %10, label %15, label %switch.early.test
+
+switch.early.test:                                ; preds = %5
+  switch i32 %.fr, label %11 [
+    i32 20, label %15
+    i32 2, label %15
   ]
 
-access_error_is_ok.exit:                          ; preds = %5
-  %8 = and i32 %2, 1
-  %9 = icmp eq i32 %8, 0
-  %10 = icmp ne i32 %7, 13
-  %.not9 = or i1 %9, %10
-  br i1 %.not9, label %11, label %access_error_is_ok.exit.thread
-
-11:                                               ; preds = %access_error_is_ok.exit
+11:                                               ; preds = %switch.early.test
   %12 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !9
   %.not4.i.i = icmp eq i32 %12, 0
   br i1 %.not4.i.i, label %warn_on_inaccessible.exit, label %13
@@ -1489,9 +1489,9 @@ access_error_is_ok.exit:                          ; preds = %5
 warn_on_inaccessible.exit:                        ; preds = %11, %13
   %.0.i.i = phi ptr [ %14, %13 ], [ @.str.20, %11 ]
   tail call void (ptr, ...) @warning_errno(ptr noundef %.0.i.i, ptr noundef %0) #20
-  br label %access_error_is_ok.exit.thread
+  br label %15
 
-access_error_is_ok.exit.thread:                   ; preds = %5, %5, %warn_on_inaccessible.exit, %access_error_is_ok.exit, %3
+15:                                               ; preds = %switch.early.test, %switch.early.test, %5, %warn_on_inaccessible.exit, %3
   ret i32 %4
 }
 
@@ -1502,29 +1502,29 @@ declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) lo
 define dso_local noundef i32 @access_or_die(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @access(ptr noundef %0, i32 noundef %1) #20
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %access_error_is_ok.exit.thread, label %5
+  br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %6, align 4, !tbaa !9
-  switch i32 %7, label %access_error_is_ok.exit [
-    i32 20, label %access_error_is_ok.exit.thread
-    i32 2, label %access_error_is_ok.exit.thread
+  %.fr = freeze i32 %7
+  %8 = trunc i32 %2 to i1
+  %9 = icmp eq i32 %.fr, 13
+  %10 = and i1 %9, %8
+  br i1 %10, label %13, label %switch.early.test
+
+switch.early.test:                                ; preds = %5
+  switch i32 %.fr, label %11 [
+    i32 20, label %13
+    i32 2, label %13
   ]
 
-access_error_is_ok.exit:                          ; preds = %5
-  %8 = and i32 %2, 1
-  %9 = icmp eq i32 %8, 0
-  %10 = icmp ne i32 %7, 13
-  %.not9 = or i1 %9, %10
-  br i1 %.not9, label %11, label %access_error_is_ok.exit.thread
-
-11:                                               ; preds = %access_error_is_ok.exit
+11:                                               ; preds = %switch.early.test
   %12 = tail call fastcc ptr @_(ptr noundef nonnull @.str.20)
   tail call void (ptr, ...) @die_errno(ptr noundef %12, ptr noundef %0) #21
   unreachable
 
-access_error_is_ok.exit.thread:                   ; preds = %5, %5, %access_error_is_ok.exit, %3
+13:                                               ; preds = %switch.early.test, %switch.early.test, %5, %3
   ret i32 %4
 }
 

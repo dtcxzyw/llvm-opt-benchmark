@@ -852,7 +852,7 @@ define float @Map_MappingGetAreaFlow(ptr noundef readonly captures(none) %0) loc
 
 6:                                                ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %.01921 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %31 ]
+  %.01920 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %31 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !31
@@ -877,14 +877,14 @@ define float @Map_MappingGetAreaFlow(ptr noundef readonly captures(none) %0) loc
   %spec.select = select i1 %24, i64 %19, i64 %20
   %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %spec.select
   %26 = load ptr, ptr %25, align 8, !tbaa !66
-  %27 = getelementptr %struct.Map_MatchStruct_t_, ptr %26, i64 %spec.select
-  %28 = getelementptr i8, ptr %27, i64 116
+  %27 = getelementptr inbounds nuw %struct.Map_MatchStruct_t_, ptr %26, i64 %spec.select
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 116
   %29 = load float, ptr %28, align 4, !tbaa !67
-  %30 = fadd float %.01921, %29
+  %30 = fadd float %.01920, %29
   br label %31
 
 31:                                               ; preds = %6, %14
-  %.1 = phi float [ %30, %14 ], [ %.01921, %6 ]
+  %.1 = phi float [ %30, %14 ], [ %.01920, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %2, align 8, !tbaa !16
   %33 = sext i32 %32 to i64

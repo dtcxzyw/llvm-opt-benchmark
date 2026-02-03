@@ -3346,7 +3346,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3362,33 +3362,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !94
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !94
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !94
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !94
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !94
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !94
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJNS_2roEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -3635,7 +3634,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %22
+  br label %21
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3645,33 +3644,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %12, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %13 = and i8 %2, 1
-  %14 = icmp ne i8 %13, 0
-  %15 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %14, ptr noundef %3) #22
+  %13 = trunc i8 %2 to i1
+  %14 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %13, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit, label %16
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit, label %15
 
-16:                                               ; preds = %10
-  %17 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %15) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false), !tbaa.struct !103
+15:                                               ; preds = %10
+  %16 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %14) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %16
-  %18 = load ptr, ptr %0, align 8, !tbaa !115
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %18) #22
-  store ptr %15, ptr %0, align 8, !tbaa !115
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %15
+  %17 = load ptr, ptr %0, align 8, !tbaa !115
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %17) #22
+  store ptr %14, ptr %0, align 8, !tbaa !115
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %20 = load ptr, ptr %0, align 8, !tbaa !115
-  %21 = icmp ne ptr %20, null
+  %19 = load ptr, ptr %0, align 8, !tbaa !115
+  %20 = icmp ne ptr %19, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %21, %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit ]
+21:                                               ; preds = %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %20, %_ZN8nanobind7ndarrayIJEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4206,7 +4204,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4222,33 +4220,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !90
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !90
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !90
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !90
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !90
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !90
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJfEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4291,7 +4288,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4307,33 +4304,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !128
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !128
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !128
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !128
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !128
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJKfEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4376,7 +4372,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4392,33 +4388,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !130
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !130
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !130
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !130
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !130
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !130
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4464,7 +4459,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4480,33 +4475,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !132
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !132
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !132
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !132
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !132
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !132
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJKSt7complexIfEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4549,7 +4543,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4565,33 +4559,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !134
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !134
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !134
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !134
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !134
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !134
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJjEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4634,7 +4627,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4650,33 +4643,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !136
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !136
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !136
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !136
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !136
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !136
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJbEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4720,7 +4712,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %28
+  br label %27
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4742,34 +4734,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 4, ptr %18, align 16, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %19 = and i8 %2, 1
-  %20 = icmp ne i8 %19, 0
-  %21 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %20, ptr noundef %3) #22
+  %19 = trunc i8 %2 to i1
+  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit, label %22
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit, label %21
 
-22:                                               ; preds = %11
-  %23 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %21) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false), !tbaa.struct !103
+21:                                               ; preds = %11
+  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %22
-  %24 = load ptr, ptr %0, align 8, !tbaa !138
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %24) #22
-  store ptr %21, ptr %0, align 8, !tbaa !138
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %21
+  %23 = load ptr, ptr %0, align 8, !tbaa !138
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
+  store ptr %20, ptr %0, align 8, !tbaa !138
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %26 = load ptr, ptr %0, align 8, !tbaa !138
-  %27 = icmp ne ptr %26, null
+  %25 = load ptr, ptr %0, align 8, !tbaa !138
+  %26 = icmp ne ptr %25, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %27, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit ]
+27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELln1ELl4EEEEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -4813,7 +4804,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4833,34 +4824,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 4, ptr %17, align 16, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !140
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !140
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !140
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !140
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !140
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !140
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLln1ELln1ELl4EEEEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -5010,7 +5000,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5028,34 +5018,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 -1, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !144
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !144
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !144
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !144
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !144
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -5115,7 +5104,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5133,34 +5122,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 -1, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !146
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !146
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !146
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !146
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !146
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !146
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJKdNS_6detail5shapeIJLln1EEEEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -5537,7 +5525,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5553,33 +5541,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !180
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !180
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !180
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !180
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !180
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !180
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJNS_8c_contigEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -5640,7 +5627,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5656,33 +5643,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !182
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !182
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !182
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !182
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !182
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !182
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJNS_8f_contigEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -5804,7 +5790,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5820,33 +5806,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !184
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !184
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !184
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !184
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !184
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJNS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -5903,7 +5888,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5919,33 +5904,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !186
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !186
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !186
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !186
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !186
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !186
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJNS_6device4cudaEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -6011,7 +5995,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6029,34 +6013,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 10, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !195
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !195
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !195
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !195
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !195
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !195
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -6147,7 +6130,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6167,34 +6150,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 -1, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !200
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !200
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !200
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !200
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !200
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl10ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -6249,7 +6231,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6269,34 +6251,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 2, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !201
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !201
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !201
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !201
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !201
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !201
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_8c_contigENS_6detail5shapeIJLl2ELl2EEEEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -6567,7 +6548,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6587,34 +6568,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 3, ptr %17, align 16, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !206
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !206
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !206
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !206
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !206
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !206
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJhNS_6detail5shapeIJLln1ELln1ELl3EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7219,7 +7199,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7237,34 +7217,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 -1, i64 24, i1 false)
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !244
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !244
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !244
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !244
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !244
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !244
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1ELln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7311,7 +7290,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7329,34 +7308,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !246
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !246
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !246
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !246
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !246
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !246
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_8f_contigEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7418,7 +7396,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7436,34 +7414,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 2, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !248
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !248
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !248
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !248
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !248
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !248
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl2EEEEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7528,7 +7505,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7546,34 +7523,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 2, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !250
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !250
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !250
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !250
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !250
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !250
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJKfNS_6detail5shapeIJLl2EEEEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7650,7 +7626,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7670,34 +7646,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 1, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !252
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !252
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !252
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !252
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !252
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !252
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_10any_contigEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7759,7 +7734,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7779,34 +7754,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 1, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !254
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !254
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !254
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !254
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !254
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !254
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8c_contigEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -7868,7 +7842,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7888,34 +7862,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 1, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !256
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !256
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !256
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !256
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !256
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !256
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_5numpyENS_6detail5shapeIJLl2ELl1EEEENS_8f_contigEEEC2EPNS2_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -8371,7 +8344,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8389,34 +8362,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 -1, i64 16, i1 false)
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !285
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !285
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !285
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !285
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !285
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !285
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLln1ELln1EEEENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -8512,7 +8484,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8532,34 +8504,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 4, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !289
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !289
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !289
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !289
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !289
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !289
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8c_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -8655,7 +8626,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8675,34 +8646,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 4, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !294
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !294
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !294
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !294
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !294
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !294
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJfNS_6detail5shapeIJLl3ELl4EEEENS_8f_contigENS_6device3cpuEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -8818,7 +8788,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %27
+  br label %26
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8838,34 +8808,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 2, ptr %17, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %18 = and i8 %2, 1
-  %19 = icmp ne i8 %18, 0
-  %20 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %19, ptr noundef %3) #22
+  %18 = trunc i8 %2 to i1
+  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit, label %21
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit, label %20
 
-21:                                               ; preds = %11
-  %22 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %20) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !103
+20:                                               ; preds = %11
+  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit: ; preds = %11, %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !299
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %23) #22
-  store ptr %20, ptr %0, align 8, !tbaa !299
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit: ; preds = %11, %20
+  %22 = load ptr, ptr %0, align 8, !tbaa !299
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
+  store ptr %19, ptr %0, align 8, !tbaa !299
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %25 = load ptr, ptr %0, align 8, !tbaa !299
-  %26 = icmp ne ptr %25, null
+  %24 = load ptr, ptr %0, align 8, !tbaa !299
+  %25 = icmp ne ptr %24, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %26, %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit ]
+26:                                               ; preds = %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJSt7complexIfENS_6detail5shapeIJLl2ELl2EEEENS_8c_contigENS_6device3cpuEEEC2EPNS3_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -9018,7 +8987,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9036,34 +9005,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 -1, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !309
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !309
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !309
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !309
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !309
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !309
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJdNS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS1_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -9130,7 +9098,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %10) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %26
+  br label %25
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9148,34 +9116,33 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   store i64 -1, ptr %5, align 8, !tbaa !67
   store ptr %5, ptr %16, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %17 = and i8 %2, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %18, ptr noundef %3) #22
+  %17 = trunc i8 %2 to i1
+  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %6, i1 noundef zeroext %17, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit, label %20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit, label %19
 
-20:                                               ; preds = %11
-  %21 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %19) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !103
+19:                                               ; preds = %11
+  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit: ; preds = %11, %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !311
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %22) #22
-  store ptr %19, ptr %0, align 8, !tbaa !311
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit: ; preds = %11, %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !311
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
+  store ptr %18, ptr %0, align 8, !tbaa !311
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %24 = load ptr, ptr %0, align 8, !tbaa !311
-  %25 = icmp ne ptr %24, null
+  %23 = load ptr, ptr %0, align 8, !tbaa !311
+  %24 = icmp ne ptr %23, null
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ %25, %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit ]
+25:                                               ; preds = %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit, %9
+  %.0 = phi i1 [ true, %9 ], [ %24, %_ZN8nanobind7ndarrayIJSt7complexIdENS_6detail5shapeIJLln1EEEENS_8c_contigEEEC2EPNS3_14ndarray_handleE.exit ]
   ret i1 %.0
 }
 
@@ -9220,7 +9187,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %9) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   tail call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
-  br label %25
+  br label %24
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9236,33 +9203,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %15, align 8, !tbaa !102
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
-  %16 = and i8 %2, 1
-  %17 = icmp ne i8 %16, 0
-  %18 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %17, ptr noundef %3) #22
+  %16 = trunc i8 %2 to i1
+  %17 = call noundef ptr @_ZN8nanobind6detail14ndarray_importEP7_objectPKNS0_14ndarray_configEbPNS0_12cleanup_listE(ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext %16, ptr noundef %3) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i8 0, i64 48, i1 false)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, label %19
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, label %18
 
-19:                                               ; preds = %10
-  %20 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %18) #22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !tbaa.struct !103
+18:                                               ; preds = %10
+  %19 = call noundef ptr @_ZN8nanobind6detail15ndarray_inc_refEPNS0_14ndarray_handleE(ptr noundef nonnull %17) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false), !tbaa.struct !103
   br label %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit
 
-_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !313
-  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %21) #22
-  store ptr %18, ptr %0, align 8, !tbaa !313
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
+_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit: ; preds = %10, %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !313
+  call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef %20) #22
+  store ptr %17, ptr %0, align 8, !tbaa !313
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, i64 48, i1 false), !tbaa.struct !103
   call void @_ZN8nanobind6detail15ndarray_dec_refEPNS0_14ndarray_handleE(ptr noundef null) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
-  %23 = load ptr, ptr %0, align 8, !tbaa !313
-  %24 = icmp ne ptr %23, null
+  %22 = load ptr, ptr %0, align 8, !tbaa !313
+  %23 = icmp ne ptr %22, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, %8
-  %.0 = phi i1 [ true, %8 ], [ %24, %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit ]
+24:                                               ; preds = %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit, %8
+  %.0 = phi i1 [ true, %8 ], [ %23, %_ZN8nanobind7ndarrayIJNS_2roENS_8c_contigENS_6device3cpuEEEC2EPNS_6detail14ndarray_handleE.exit ]
   ret i1 %.0
 }
 

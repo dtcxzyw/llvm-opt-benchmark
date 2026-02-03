@@ -413,11 +413,11 @@ switch.early.test:                                ; preds = %35
 
 129:                                              ; preds = %127
   %130 = load i8, ptr %28, align 2
-  %131 = and i8 %130, 1
   store i8 0, ptr %29, align 8, !tbaa !4
   store i32 0, ptr %7, align 8, !tbaa !13
   store i32 0, ptr %30, align 4, !tbaa !14
   tail call void @Curl_dyn_reset(ptr noundef nonnull %27) #8
+  %131 = and i8 %130, 1
   %132 = load i8, ptr %28, align 2
   %133 = and i8 %132, -2
   %134 = or disjoint i8 %133, %131

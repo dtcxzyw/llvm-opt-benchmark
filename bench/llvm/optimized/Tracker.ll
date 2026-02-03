@@ -1021,13 +1021,12 @@ define dso_local void @_ZN4llvm9sandboxir21CatchSwitchAddHandlerC2EPNS0_15CatchS
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !124
-  %9 = and i16 %8, 1
-  %.not.i.i = icmp eq i16 %9, 0
+  %9 = trunc i16 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 134217727
-  %..i.i = select i1 %.not.i.i, i32 -1, i32 -2
-  %13 = add nsw i32 %..i.i, %12
+  %..i.i = select i1 %9, i32 -2, i32 -1
+  %13 = add nsw i32 %12, %..i.i
   store i32 %13, ptr %4, align 8, !tbaa !128
   ret void
 }
@@ -1042,9 +1041,8 @@ define dso_local void @_ZN4llvm9sandboxir21CatchSwitchAddHandler6revertERNS0_7Tr
   %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !124
-  %11 = and i16 %10, 1
-  %.not.i = icmp eq i16 %11, 0
-  %spec.select.v.i = select i1 %.not.i, i64 32, i64 64
+  %11 = trunc i16 %10 to i1
+  %spec.select.v.i = select i1 %11, i64 64, i64 32
   %spec.select.i = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.v.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !128

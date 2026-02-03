@@ -110,7 +110,7 @@ define hidden void @_ZN8rawspeed22HasselbladDecompressorC2ENS_8RawImageERKNS0_18
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %17, label %.invoke
 
-15:                                               ; preds = %.invoke, %37, %23
+15:                                               ; preds = %.invoke, %34, %23
   %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
@@ -138,44 +138,41 @@ define hidden void @_ZN8rawspeed22HasselbladDecompressorC2ENS_8RawImageERKNS0_18
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %27 = load i32, ptr %26, align 4, !tbaa !89
-  %28 = icmp sgt i32 %27, 0
+  %28 = icmp slt i32 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %30 = load i32, ptr %29, align 4
-  %31 = icmp sgt i32 %30, 0
-  %32 = select i1 %28, i1 %31, i1 false
-  br i1 %32, label %33, label %37
+  %31 = icmp slt i32 %30, 1
+  %.not10 = select i1 %28, i1 true, i1 %31
+  %.not5 = trunc i32 %27 to i1
+  %32 = icmp samesign ugt i32 %27, 12000
+  %or.cond = or i1 %32, %.not5
+  %or.cond7 = select i1 %.not10, i1 true, i1 %or.cond
+  %33 = icmp samesign ugt i32 %30, 8842
+  %or.cond11 = select i1 %or.cond7, i1 true, i1 %33
+  br i1 %or.cond11, label %34, label %36
 
-33:                                               ; preds = %25
-  %34 = and i32 %27, 1
-  %.not5 = icmp ne i32 %34, 0
-  %35 = icmp samesign ugt i32 %27, 12000
-  %or.cond = or i1 %35, %.not5
-  %36 = icmp samesign ugt i32 %30, 8842
-  %or.cond7 = select i1 %or.cond, i1 true, i1 %36
-  br i1 %or.cond7, label %37, label %39
-
-37:                                               ; preds = %33, %25
+34:                                               ; preds = %25
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed22HasselbladDecompressorC2ENS_8RawImageERKNS0_18PerComponentRecipeENS_10Array1DRefIKhEE, i32 noundef %27, i32 noundef %30) #14
-          to label %38 unwind label %15
+          to label %35 unwind label %15
 
-38:                                               ; preds = %37
+35:                                               ; preds = %34
   unreachable
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %2, align 8, !tbaa !90
-  %41 = load i8, ptr %40, align 8, !tbaa !94, !range !107, !noundef !108
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %.invoke, label %44
+36:                                               ; preds = %25
+  %37 = load ptr, ptr %2, align 8, !tbaa !90
+  %38 = load i8, ptr %37, align 8, !tbaa !94, !range !107, !noundef !108
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %.invoke, label %41
 
-.invoke:                                          ; preds = %5, %39
-  %43 = phi ptr [ @.str.3, %39 ], [ @.str, %5 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %43, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed22HasselbladDecompressorC2ENS_8RawImageERKNS0_18PerComponentRecipeENS_10Array1DRefIKhEE) #14
+.invoke:                                          ; preds = %5, %36
+  %40 = phi ptr [ @.str.3, %36 ], [ @.str, %5 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %40, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed22HasselbladDecompressorC2ENS_8RawImageERKNS0_18PerComponentRecipeENS_10Array1DRefIKhEE) #14
           to label %.cont unwind label %15
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-44:                                               ; preds = %39
+41:                                               ; preds = %36
   ret void
 }
 

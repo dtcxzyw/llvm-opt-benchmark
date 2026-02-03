@@ -426,31 +426,31 @@ prof_tdata_comp.exit.i:                           ; preds = %16, %10
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !40
   %50 = ptrtoint ptr %49 to i64
-  %51 = and i64 %50, 1
-  %52 = and i64 %50, -2
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !40
-  %56 = ptrtoint ptr %55 to i64
-  %57 = and i64 %56, 1
-  %58 = or disjoint i64 %57, %52
-  %59 = inttoptr i64 %58 to ptr
-  store ptr %59, ptr %48, align 8, !tbaa !40
-  %60 = load ptr, ptr %53, align 8, !tbaa !39
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr %60, ptr %61, align 8, !tbaa !39
-  %62 = load ptr, ptr %54, align 8, !tbaa !40
-  %63 = ptrtoint ptr %62 to i64
-  %64 = and i64 %63, -2
-  %65 = or disjoint i64 %64, %57
-  %66 = inttoptr i64 %65 to ptr
-  store ptr %66, ptr %48, align 8, !tbaa !40
-  %67 = load ptr, ptr %54, align 8, !tbaa !40
-  %68 = ptrtoint ptr %67 to i64
-  %69 = and i64 %68, -2
-  %70 = or disjoint i64 %69, %51
+  %51 = and i64 %50, -2
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %54 = load ptr, ptr %53, align 8, !tbaa !40
+  %55 = ptrtoint ptr %54 to i64
+  %56 = and i64 %55, 1
+  %57 = or disjoint i64 %56, %51
+  %58 = inttoptr i64 %57 to ptr
+  store ptr %58, ptr %48, align 8, !tbaa !40
+  %59 = load ptr, ptr %52, align 8, !tbaa !39
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store ptr %59, ptr %60, align 8, !tbaa !39
+  %61 = load ptr, ptr %53, align 8, !tbaa !40
+  %62 = ptrtoint ptr %61 to i64
+  %63 = and i64 %62, -2
+  %64 = or disjoint i64 %63, %56
+  %65 = inttoptr i64 %64 to ptr
+  store ptr %65, ptr %48, align 8, !tbaa !40
+  %66 = load ptr, ptr %53, align 8, !tbaa !40
+  %67 = ptrtoint ptr %66 to i64
+  %68 = and i64 %67, -2
+  %69 = and i64 %50, 1
+  %70 = or disjoint i64 %68, %69
   %71 = inttoptr i64 %70 to ptr
-  store ptr %71, ptr %54, align 8, !tbaa !40
+  store ptr %71, ptr %53, align 8, !tbaa !40
   store ptr %46, ptr %.1272.i, align 8, !tbaa !34
   store ptr %1, ptr %45, align 8, !tbaa !34
   %72 = icmp eq ptr %.1272.i, %3
@@ -1440,31 +1440,31 @@ prof_tctx_comp.exit.i.i:                          ; preds = %84, %78, %72
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 120
   %117 = load ptr, ptr %116, align 8, !tbaa !86
   %118 = ptrtoint ptr %117 to i64
-  %119 = and i64 %118, 1
-  %120 = and i64 %118, -2
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %123 = load ptr, ptr %122, align 8, !tbaa !86
-  %124 = ptrtoint ptr %123 to i64
-  %125 = and i64 %124, 1
-  %126 = or disjoint i64 %125, %120
-  %127 = inttoptr i64 %126 to ptr
-  store ptr %127, ptr %116, align 8, !tbaa !86
-  %128 = load ptr, ptr %121, align 8, !tbaa !85
-  %129 = getelementptr inbounds nuw i8, ptr %114, i64 112
-  store ptr %128, ptr %129, align 8, !tbaa !85
-  %130 = load ptr, ptr %122, align 8, !tbaa !86
-  %131 = ptrtoint ptr %130 to i64
-  %132 = and i64 %131, -2
-  %133 = or disjoint i64 %132, %125
-  %134 = inttoptr i64 %133 to ptr
-  store ptr %134, ptr %116, align 8, !tbaa !86
-  %135 = load ptr, ptr %122, align 8, !tbaa !86
-  %136 = ptrtoint ptr %135 to i64
-  %137 = and i64 %136, -2
-  %138 = or disjoint i64 %137, %119
+  %119 = and i64 %118, -2
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %122 = load ptr, ptr %121, align 8, !tbaa !86
+  %123 = ptrtoint ptr %122 to i64
+  %124 = and i64 %123, 1
+  %125 = or disjoint i64 %124, %119
+  %126 = inttoptr i64 %125 to ptr
+  store ptr %126, ptr %116, align 8, !tbaa !86
+  %127 = load ptr, ptr %120, align 8, !tbaa !85
+  %128 = getelementptr inbounds nuw i8, ptr %114, i64 112
+  store ptr %127, ptr %128, align 8, !tbaa !85
+  %129 = load ptr, ptr %121, align 8, !tbaa !86
+  %130 = ptrtoint ptr %129 to i64
+  %131 = and i64 %130, -2
+  %132 = or disjoint i64 %131, %124
+  %133 = inttoptr i64 %132 to ptr
+  store ptr %133, ptr %116, align 8, !tbaa !86
+  %134 = load ptr, ptr %121, align 8, !tbaa !86
+  %135 = ptrtoint ptr %134 to i64
+  %136 = and i64 %135, -2
+  %137 = and i64 %118, 1
+  %138 = or disjoint i64 %136, %137
   %139 = inttoptr i64 %138 to ptr
-  store ptr %139, ptr %122, align 8, !tbaa !86
+  store ptr %139, ptr %121, align 8, !tbaa !86
   store ptr %114, ptr %.1272.i.i, align 8, !tbaa !79
   store ptr %1, ptr %113, align 8, !tbaa !79
   %140 = icmp eq ptr %.1272.i.i, %3

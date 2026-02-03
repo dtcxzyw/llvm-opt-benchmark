@@ -1547,10 +1547,9 @@ should_catch_syscall.exit:                        ; preds = %5
   %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %6, 63
-  %11 = shl nuw i64 1, %10
-  %12 = and i64 %9, %11
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %should_catch_syscall.exit.thread3, label %should_catch_syscall.exit.thread
+  %11 = lshr i64 %9, %10
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %should_catch_syscall.exit.thread, label %should_catch_syscall.exit.thread3
 
 should_catch_syscall.exit.thread:                 ; preds = %2, %should_catch_syscall.exit
   %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, i32 noundef %1) #16
@@ -1581,10 +1580,9 @@ should_catch_syscall.exit:                        ; preds = %5
   %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_user_state, i64 24), i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %6, 63
-  %11 = shl nuw i64 1, %10
-  %12 = and i64 %9, %11
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %should_catch_syscall.exit.thread3, label %should_catch_syscall.exit.thread
+  %11 = lshr i64 %9, %10
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %should_catch_syscall.exit.thread, label %should_catch_syscall.exit.thread3
 
 should_catch_syscall.exit.thread:                 ; preds = %2, %should_catch_syscall.exit
   %13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.22, i32 noundef %1) #16

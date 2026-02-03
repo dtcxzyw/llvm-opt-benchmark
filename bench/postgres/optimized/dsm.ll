@@ -226,8 +226,8 @@ define internal void @dsm_postmaster_shutdown(i32 %0, i64 noundef %1) #0 {
   br i1 %or.cond, label %.preheader, label %dsm_control_segment_sane.exit.thread
 
 .preheader:                                       ; preds = %15
-  %.not11 = icmp eq i32 %10, 0
-  br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %10 to i64
@@ -254,9 +254,8 @@ dsm_control_segment_sane.exit.thread:             ; preds = %13, %2, %15
 
 32:                                               ; preds = %.lr.ph
   %33 = load i32, ptr %28, align 8
-  %34 = and i32 %33, 1
-  %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %35, label %41
+  %34 = trunc i32 %33 to i1
+  br i1 %34, label %41, label %35
 
 35:                                               ; preds = %32
   %36 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #11
@@ -357,8 +356,8 @@ dsm_control_segment_sane.exit:                    ; preds = %15
   br i1 %.not, label %.sink.split, label %24
 
 24:                                               ; preds = %dsm_control_segment_sane.exit
-  %.not21 = icmp eq i32 %23, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %23, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -375,9 +374,8 @@ dsm_control_segment_sane.exit:                    ; preds = %15
 
 31:                                               ; preds = %26
   %32 = load i32, ptr %27, align 8
-  %33 = and i32 %32, 1
-  %.not19 = icmp eq i32 %33, 0
-  br i1 %.not19, label %34, label %40
+  %33 = trunc i32 %32 to i1
+  br i1 %33, label %40, label %34
 
 34:                                               ; preds = %31
   %35 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #11
@@ -794,13 +792,13 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1, %2
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dsm_segment_list, i64 8), align 8
   %.not = icmp eq ptr %4, null
-  %.not344160 = icmp eq ptr %4, @dsm_segment_list
-  %.not3441 = or i1 %.not, %.not344160
-  br i1 %.not3441, label %select.unfold._crit_edge, label %.lr.ph
+  %.not343958 = icmp eq ptr %4, @dsm_segment_list
+  %.not3439 = or i1 %.not, %.not343958
+  br i1 %.not3439, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %select.unfold
-  %.sroa.0.042 = phi ptr [ %12, %select.unfold ], [ %4, %3 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 24
+  %.sroa.0.040 = phi ptr [ %12, %select.unfold ], [ %4, %3 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %select.unfold
@@ -812,7 +810,7 @@ define dso_local ptr @dsm_attach(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 select.unfold:                                    ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not34 = icmp eq ptr %12, @dsm_segment_list
   br i1 %.not34, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -870,16 +868,16 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %34 = load ptr, ptr @dsm_control, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
-  %.not46 = icmp eq i32 %36, 0
-  br i1 %.not46, label %.loopexit, label %.lr.ph45
+  %.not44 = icmp eq i32 %36, 0
+  br i1 %.not44, label %.loopexit, label %.lr.ph43
 
-.lr.ph45:                                         ; preds = %dsm_create_descriptor.exit
+.lr.ph43:                                         ; preds = %dsm_create_descriptor.exit
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %wide.trip.count = zext i32 %36 to i64
   br label %38
 
-38:                                               ; preds = %.lr.ph45, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next, %64 ]
+38:                                               ; preds = %.lr.ph43, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %64 ]
   %39 = getelementptr inbounds nuw %struct.dsm_control_item, ptr %37, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
@@ -899,9 +897,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   store i32 %49, ptr %47, align 4
   store i32 %48, ptr %23, align 4
   %50 = load i32, ptr %30, align 8
-  %51 = and i32 %50, 1
-  %.not36 = icmp eq i32 %51, 0
-  br i1 %.not36, label %.loopexit, label %52
+  %51 = trunc i32 %50 to i1
+  br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr @dsm_main_space_begin, align 8
@@ -938,9 +935,8 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 70:                                               ; preds = %.loopexit
   %71 = load i32, ptr %30, align 8
-  %72 = and i32 %71, 1
-  %.not37 = icmp eq i32 %72, 0
-  br i1 %.not37, label %73, label %77
+  %72 = trunc i32 %71 to i1
+  br i1 %72, label %77, label %73
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -959,17 +955,17 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   %3 = add i32 %2, 1
   store volatile i32 %3, ptr @InterruptHoldoffCount, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val42 = load ptr, ptr %4, align 8
-  %5 = icmp eq ptr %.val42, null
+  %.val39 = load ptr, ptr %4, align 8
+  %5 = icmp eq ptr %.val39, null
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.val43 = phi ptr [ %.val, %.lr.ph ], [ %.val42, %1 ]
-  %6 = load ptr, ptr %.val43, align 8
+  %.val40 = phi ptr [ %.val, %.lr.ph ], [ %.val39, %1 ]
+  %6 = load ptr, ptr %.val40, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %.val43, i64 -16
+  %7 = getelementptr inbounds i8, ptr %.val40, i64 -16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %.val43, i64 -8
+  %9 = getelementptr inbounds i8, ptr %.val40, i64 -8
   %10 = load i64, ptr %9, align 8
   tail call void @pfree(ptr noundef nonnull %7) #11
   tail call void %8(ptr noundef nonnull %0, i64 noundef %10) #11
@@ -989,9 +985,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
 16:                                               ; preds = %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 1
-  %.not39 = icmp eq i32 %19, 0
-  br i1 %.not39, label %20, label %24
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %24, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1031,9 +1026,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
 42:                                               ; preds = %29
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 1
-  %.not40 = icmp eq i32 %45, 0
-  br i1 %.not40, label %46, label %50
+  %45 = trunc i32 %44 to i1
+  br i1 %45, label %50, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1046,9 +1040,8 @@ define dso_local void @dsm_detach(ptr noundef %0) local_unnamed_addr #0 {
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4352
   %53 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %52, i32 noundef 0) #11
   %54 = load i32, ptr %43, align 8
-  %55 = and i32 %54, 1
-  %.not41 = icmp eq i32 %55, 0
-  br i1 %.not41, label %65, label %56
+  %55 = trunc i32 %54 to i1
+  br i1 %55, label %56, label %65
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr @dsm_main_space_begin, align 8
@@ -1209,9 +1202,8 @@ define dso_local void @dsm_pin_segment(ptr noundef readonly captures(none) %0) l
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %24
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %24, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1261,8 +1253,8 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr @dsm_control, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
-  %.not27 = icmp eq i32 %10, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1308,9 +1300,8 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 32:                                               ; preds = %23
-  %33 = and i32 %0, 1
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %34, label %36
+  %33 = trunc i32 %0 to i1
+  br i1 %33, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -1340,7 +1331,7 @@ define dso_local void @dsm_unpin_segment(i32 noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  br i1 %.not, label %47, label %53
+  br i1 %33, label %53, label %47
 
 47:                                               ; preds = %46
   %48 = call zeroext i1 @dsm_impl_op(i32 noundef 3, i32 noundef %0, i64 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 19) #11

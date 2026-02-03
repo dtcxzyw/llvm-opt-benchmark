@@ -4831,9 +4831,8 @@ get_current_interp.exit.thread.i:                 ; preds = %2
 get_current_interp.exit.i:                        ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 10696
   %10 = load atomic i8, ptr %9 seq_cst, align 1
-  %11 = and i8 %10, 1
-  %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %12, label %14
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %14, label %12
 
 12:                                               ; preds = %get_current_interp.exit.i
   %13 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !14

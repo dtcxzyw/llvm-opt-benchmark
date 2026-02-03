@@ -3549,9 +3549,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
   %11 = and i64 %8, -8
   %12 = inttoptr i64 %11 to ptr
   %13 = atomicrmw add ptr %12, i32 2 monotonic, align 4
-  %14 = and i32 %13, 1
-  %.not1.i.i = icmp eq i32 %14, 0
-  br i1 %.not1.i.i, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %14 = trunc i32 %13 to i1
+  br i1 %14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %7, align 8
@@ -3612,9 +3611,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
   %11 = and i64 %8, -8
   %12 = inttoptr i64 %11 to ptr
   %13 = atomicrmw add ptr %12, i32 2 monotonic, align 4
-  %14 = and i32 %13, 1
-  %.not1.i.i = icmp eq i32 %14, 0
-  br i1 %.not1.i.i, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %14 = trunc i32 %13 to i1
+  br i1 %14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %7, align 8
@@ -3783,9 +3781,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdVtBufferSourceC2ERKNS_7TfT
   %12 = and i64 %9, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4
-  %15 = and i32 %14, 1
-  %.not1.i.i = icmp eq i32 %15, 0
-  br i1 %.not1.i.i, label %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %8, align 8
@@ -4153,9 +4150,8 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__16HdVtBufferSour
   %9 = and i64 %6, -8
   %10 = inttoptr i64 %9 to ptr
   %11 = atomicrmw add ptr %10, i32 2 monotonic, align 4
-  %12 = and i32 %11, 1
-  %.not1.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not1.i.i.i, label %13, label %_ZN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecC2ERKNS_7TfTokenENS_11HdTupleTypeE.exit
+  %12 = trunc i32 %11 to i1
+  br i1 %12, label %_ZN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecC2ERKNS_7TfTokenENS_11HdTupleTypeE.exit, label %13
 
 13:                                               ; preds = %8
   store ptr %10, ptr %3, align 8

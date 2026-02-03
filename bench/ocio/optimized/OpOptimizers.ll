@@ -1360,7 +1360,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123RemoveDynamicPropertiesERNS_10OpRcPtrVec
   %.not457 = icmp eq i64 %491, 0
   %492 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %493 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %494 = icmp ne i64 %489, 0
+  %494 = trunc i64 %1 to i1
   %495 = and i64 %1, 2
   %496 = icmp ne i64 %495, 0
   %497 = and i64 %1, 3
@@ -1848,7 +1848,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
   %721 = icmp eq i32 %696, 4
   %or.cond3.i = and i1 %496, %721
   %722 = icmp ne i32 %696, 4
-  %or.cond5.i = and i1 %494, %722
+  %or.cond5.i = and i1 %722, %494
   %or.cond33.i = or i1 %or.cond3.i, %or.cond5.i
   br i1 %or.cond33.i, label %723, label %806
 

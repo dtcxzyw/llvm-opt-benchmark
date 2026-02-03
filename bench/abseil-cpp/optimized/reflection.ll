@@ -2885,10 +2885,9 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !80
-  %10 = and i64 %9, 1
-  %11 = icmp ne i64 %10, 0
-  invoke void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %2, i64 noundef %3, ptr noundef %7, i64 noundef 24, i64 noundef 8, i1 noundef zeroext %11)
-          to label %.noexc unwind label %12
+  %10 = trunc i64 %9 to i1
+  invoke void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %2, i64 noundef %3, ptr noundef %7, i64 noundef 24, i64 noundef 8, i1 noundef zeroext %10)
+          to label %.noexc unwind label %11
 
 .noexc:                                           ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2897,11 +2896,11 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
 _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPNS_15CommandLineFlagEEENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_S8_EEE15destructor_implEv.exit: ; preds = %.noexc, %1
   ret void
 
-12:                                               ; preds = %5
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %5
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #36
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #36
   unreachable
 }
 

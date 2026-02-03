@@ -1139,31 +1139,31 @@ switch.lookup:                                    ; preds = %225
   %493 = trunc i64 %20 to i8
   %494 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   store i8 %493, ptr %494, align 8, !tbaa !125
-  %495 = getelementptr inbounds nuw i8, ptr %0, i64 1504
-  %496 = trunc i64 %20 to i16
-  %497 = load i16, ptr %495, align 8
-  %498 = shl i16 %496, 3
+  %495 = trunc i64 %20 to i16
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %497 = load i16, ptr %496, align 8
+  %498 = shl i16 %495, 3
   %499 = and i16 %497, -509
-  %500 = lshr i16 %496, 4
+  %500 = lshr i16 %495, 4
   %501 = and i16 %500, 4
   %502 = and i16 %498, 504
   %503 = or disjoint i16 %501, %502
   %504 = or disjoint i16 %503, %499
-  store i16 %504, ptr %495, align 8
+  store i16 %504, ptr %496, align 8
   br label %688
 
 505:                                              ; preds = %18
   %506 = trunc i64 %20 to i8
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i8 %506, ptr %507, align 8, !tbaa !126
-  %508 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %509 = trunc i64 %20 to i16
-  %510 = load i16, ptr %508, align 8
-  %511 = shl i16 %509, 3
+  %508 = trunc i64 %20 to i16
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  %510 = load i16, ptr %509, align 8
+  %511 = shl i16 %508, 3
   %512 = and i16 %510, -505
   %513 = and i16 %511, 504
   %514 = or disjoint i16 %512, %513
-  store i16 %514, ptr %508, align 8
+  store i16 %514, ptr %509, align 8
   br label %688
 
 515:                                              ; preds = %18

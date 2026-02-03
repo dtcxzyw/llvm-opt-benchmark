@@ -4644,10 +4644,10 @@ land.lhs.true:                                    ; preds = %entry
   %tobool.not = icmp eq ptr %1, null
   %PressedDown138 = getelementptr inbounds nuw i8, ptr %event, i64 20
   %bf.load139 = load i8, ptr %PressedDown138, align 4
-  %2 = and i8 %bf.load139, 1
   br i1 %tobool.not, label %land.lhs.true137, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
+  %2 = and i8 %bf.load139, 1
   %bf.cast.not = icmp eq i8 %2, 0
   br i1 %bf.cast.not, label %if.end220, label %if.then
 
@@ -5123,7 +5123,7 @@ _ZN8KeyPressD2Ev.exit323:                         ; preds = %ehcleanup126, %if.t
   br label %common.resume
 
 land.lhs.true137:                                 ; preds = %land.lhs.true
-  %bf.cast141.not = icmp ne i8 %2, 0
+  %bf.cast141.not = trunc i8 %bf.load139 to i1
   %Key143 = getelementptr inbounds nuw i8, ptr %event, i64 12
   %74 = load i32, ptr %Key143, align 4
   %cmp144 = icmp eq i32 %74, 27

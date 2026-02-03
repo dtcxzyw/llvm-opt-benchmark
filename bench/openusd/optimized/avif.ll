@@ -307,128 +307,130 @@ define hidden void @avifImageCopySamples(ptr noundef readonly captures(none) %0,
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ugt i32 %5, 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = zext i1 %6 to i64
-  br label %18
+  %7 = trunc i32 %2 to i1
+  %8 = and i32 %2, 2
+  %.not42 = icmp eq i32 %8, 0
+  %9 = xor i1 %7, true
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = zext i1 %6 to i64
+  br label %21
 
-18:                                               ; preds = %3, %.loopexit
+21:                                               ; preds = %3, %.loopexit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.loopexit ]
-  %19 = icmp eq i64 %indvars.iv, 3
-  %or.cond44.v.v = select i1 %19, i32 2, i32 1
-  %or.cond44.v = and i32 %or.cond44.v.v, %2
-  %or.cond44 = icmp eq i32 %or.cond44.v, 0
-  br i1 %or.cond44, label %.loopexit, label %20
+  %22 = icmp eq i64 %indvars.iv, 3
+  %or.cond44 = select i1 %22, i1 %.not42, i1 %9
+  br i1 %or.cond44, label %.loopexit, label %23
 
-20:                                               ; preds = %18
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %21, label %22 [
-    i32 0, label %26
-    i32 3, label %24
+23:                                               ; preds = %21
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %24, label %25 [
+    i32 0, label %29
+    i32 3, label %27
   ]
 
-22:                                               ; preds = %20
-  %23 = load i32, ptr %12, align 4
-  switch i32 %23, label %29 [
+25:                                               ; preds = %23
+  %26 = load i32, ptr %15, align 4
+  switch i32 %26, label %32 [
     i32 4, label %avifImagePlaneRowBytes.exit57
     i32 2, label %avifGetPixelFormatInfo.exit.thread15.i
     i32 3, label %avifGetPixelFormatInfo.exit.thread15.i
   ]
 
-avifGetPixelFormatInfo.exit.thread15.i:           ; preds = %22, %22
-  br label %29
+avifGetPixelFormatInfo.exit.thread15.i:           ; preds = %25, %25
+  br label %32
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %7, align 8
-  %.not.i = icmp eq ptr %25, null
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %10, align 8
+  %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %.loopexit, label %avifImagePlaneRowBytes.exit57.thread136
 
-26:                                               ; preds = %20
-  %27 = load i32, ptr %1, align 8
-  %28 = load i32, ptr %8, align 4
+29:                                               ; preds = %23
+  %30 = load i32, ptr %1, align 8
+  %31 = load i32, ptr %11, align 4
   br label %avifImagePlaneRowBytes.exit57
 
-29:                                               ; preds = %22, %avifGetPixelFormatInfo.exit.thread15.i
-  %.sroa.3.0.i = phi i32 [ 0, %22 ], [ 1, %avifGetPixelFormatInfo.exit.thread15.i ]
-  %30 = load i32, ptr %1, align 8
-  %31 = add i32 %30, %.sroa.3.0.i
-  %32 = lshr i32 %31, %.sroa.3.0.i
-  switch i32 %23, label %avifGetPixelFormatInfo.exit.thread.i48 [
+32:                                               ; preds = %25, %avifGetPixelFormatInfo.exit.thread15.i
+  %.sroa.3.0.i = phi i32 [ 0, %25 ], [ 1, %avifGetPixelFormatInfo.exit.thread15.i ]
+  %33 = load i32, ptr %1, align 8
+  %34 = add i32 %33, %.sroa.3.0.i
+  %35 = lshr i32 %34, %.sroa.3.0.i
+  switch i32 %26, label %avifGetPixelFormatInfo.exit.thread.i48 [
     i32 4, label %avifImagePlaneRowBytes.exit57
     i32 3, label %avifGetPixelFormatInfo.exit.thread19.i
   ]
 
-avifGetPixelFormatInfo.exit.thread19.i:           ; preds = %29
+avifGetPixelFormatInfo.exit.thread19.i:           ; preds = %32
   br label %avifGetPixelFormatInfo.exit.thread.i48
 
-avifGetPixelFormatInfo.exit.thread.i48:           ; preds = %avifGetPixelFormatInfo.exit.thread19.i, %29
-  %.sroa.5.0.i = phi i32 [ 0, %29 ], [ 1, %avifGetPixelFormatInfo.exit.thread19.i ]
-  %33 = load i32, ptr %8, align 4
-  %34 = add i32 %33, %.sroa.5.0.i
-  %35 = lshr i32 %34, %.sroa.5.0.i
+avifGetPixelFormatInfo.exit.thread.i48:           ; preds = %avifGetPixelFormatInfo.exit.thread19.i, %32
+  %.sroa.5.0.i = phi i32 [ 0, %32 ], [ 1, %avifGetPixelFormatInfo.exit.thread19.i ]
+  %36 = load i32, ptr %11, align 4
+  %37 = add i32 %36, %.sroa.5.0.i
+  %38 = lshr i32 %37, %.sroa.5.0.i
   br label %avifImagePlaneRowBytes.exit57
 
-avifImagePlaneRowBytes.exit57.thread136:          ; preds = %24
-  %36 = load i32, ptr %1, align 8
-  %37 = load i32, ptr %8, align 4
-  br label %42
+avifImagePlaneRowBytes.exit57.thread136:          ; preds = %27
+  %39 = load i32, ptr %1, align 8
+  %40 = load i32, ptr %11, align 4
+  br label %45
 
-avifImagePlaneRowBytes.exit57:                    ; preds = %22, %avifGetPixelFormatInfo.exit.thread.i48, %29, %26
-  %.0.i59.ph = phi i32 [ %32, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %32, %29 ], [ %27, %26 ], [ 0, %22 ]
-  %.0.i46.ph = phi i32 [ %35, %avifGetPixelFormatInfo.exit.thread.i48 ], [ 0, %29 ], [ %28, %26 ], [ 0, %22 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
-  %40 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %.0.i498390112.pre = load ptr, ptr %38, align 8
+avifImagePlaneRowBytes.exit57:                    ; preds = %25, %avifGetPixelFormatInfo.exit.thread.i48, %32, %29
+  %.0.i59.ph = phi i32 [ %35, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %35, %32 ], [ %30, %29 ], [ 0, %25 ]
+  %.0.i46.ph = phi i32 [ %38, %avifGetPixelFormatInfo.exit.thread.i48 ], [ 0, %32 ], [ %31, %29 ], [ 0, %25 ]
+  %41 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %.0.i498390112.pre = load ptr, ptr %41, align 8
   %.not43 = icmp eq ptr %.0.i498390112.pre, null
-  br i1 %.not43, label %.loopexit, label %42
+  br i1 %.not43, label %.loopexit, label %45
 
-42:                                               ; preds = %avifImagePlaneRowBytes.exit57.thread136, %avifImagePlaneRowBytes.exit57
-  %.0.i54114151.in = phi ptr [ %10, %avifImagePlaneRowBytes.exit57.thread136 ], [ %40, %avifImagePlaneRowBytes.exit57 ]
-  %.0.i56150.in = phi ptr [ %11, %avifImagePlaneRowBytes.exit57.thread136 ], [ %41, %avifImagePlaneRowBytes.exit57 ]
-  %.0.i5198106.in149 = phi ptr [ %9, %avifImagePlaneRowBytes.exit57.thread136 ], [ %39, %avifImagePlaneRowBytes.exit57 ]
-  %.0.i46697994108148 = phi i32 [ %37, %avifImagePlaneRowBytes.exit57.thread136 ], [ %.0.i46.ph, %avifImagePlaneRowBytes.exit57 ]
-  %.0.i59678192110147 = phi i32 [ %36, %avifImagePlaneRowBytes.exit57.thread136 ], [ %.0.i59.ph, %avifImagePlaneRowBytes.exit57 ]
-  %.0.i498390112146 = phi ptr [ %25, %avifImagePlaneRowBytes.exit57.thread136 ], [ %.0.i498390112.pre, %avifImagePlaneRowBytes.exit57 ]
-  %43 = zext i32 %.0.i59678192110147 to i64
-  %44 = shl nuw nsw i64 %43, %17
+45:                                               ; preds = %avifImagePlaneRowBytes.exit57.thread136, %avifImagePlaneRowBytes.exit57
+  %.0.i54114151.in = phi ptr [ %13, %avifImagePlaneRowBytes.exit57.thread136 ], [ %43, %avifImagePlaneRowBytes.exit57 ]
+  %.0.i56150.in = phi ptr [ %14, %avifImagePlaneRowBytes.exit57.thread136 ], [ %44, %avifImagePlaneRowBytes.exit57 ]
+  %.0.i5198106.in149 = phi ptr [ %12, %avifImagePlaneRowBytes.exit57.thread136 ], [ %42, %avifImagePlaneRowBytes.exit57 ]
+  %.0.i46697994108148 = phi i32 [ %40, %avifImagePlaneRowBytes.exit57.thread136 ], [ %.0.i46.ph, %avifImagePlaneRowBytes.exit57 ]
+  %.0.i59678192110147 = phi i32 [ %39, %avifImagePlaneRowBytes.exit57.thread136 ], [ %.0.i59.ph, %avifImagePlaneRowBytes.exit57 ]
+  %.0.i498390112146 = phi ptr [ %28, %avifImagePlaneRowBytes.exit57.thread136 ], [ %.0.i498390112.pre, %avifImagePlaneRowBytes.exit57 ]
+  %46 = zext i32 %.0.i59678192110147 to i64
+  %47 = shl nuw nsw i64 %46, %20
   %.not = icmp eq i32 %.0.i46697994108148, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %42
+.lr.ph:                                           ; preds = %45
   %.0.i56150 = load i32, ptr %.0.i56150.in, align 4
   %.0.i54114151 = load i32, ptr %.0.i54114151.in, align 4
   %.0.i5198106 = load ptr, ptr %.0.i5198106.in149, align 8
-  %45 = zext i32 %.0.i54114151 to i64
-  %46 = zext i32 %.0.i56150 to i64
-  br label %47
+  %48 = zext i32 %.0.i54114151 to i64
+  %49 = zext i32 %.0.i56150 to i64
+  br label %50
 
-47:                                               ; preds = %.lr.ph, %47
-  %.0118 = phi i32 [ 0, %.lr.ph ], [ %50, %47 ]
-  %.039117 = phi ptr [ %.0.i498390112146, %.lr.ph ], [ %48, %47 ]
-  %.040116 = phi ptr [ %.0.i5198106, %.lr.ph ], [ %49, %47 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040116, ptr align 1 %.039117, i64 %44, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %.039117, i64 %45
-  %49 = getelementptr inbounds nuw i8, ptr %.040116, i64 %46
-  %50 = add nuw i32 %.0118, 1
-  %exitcond.not = icmp eq i32 %50, %.0.i46697994108148
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !4
+50:                                               ; preds = %.lr.ph, %50
+  %.0118 = phi i32 [ 0, %.lr.ph ], [ %53, %50 ]
+  %.039117 = phi ptr [ %.0.i498390112146, %.lr.ph ], [ %51, %50 ]
+  %.040116 = phi ptr [ %.0.i5198106, %.lr.ph ], [ %52, %50 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040116, ptr align 1 %.039117, i64 %47, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %.039117, i64 %48
+  %52 = getelementptr inbounds nuw i8, ptr %.040116, i64 %49
+  %53 = add nuw i32 %.0118, 1
+  %exitcond.not = icmp eq i32 %53, %.0.i46697994108148
+  br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !4
 
-.loopexit:                                        ; preds = %47, %24, %42, %avifImagePlaneRowBytes.exit57, %18
+.loopexit:                                        ; preds = %50, %27, %45, %avifImagePlaneRowBytes.exit57, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond122.not, label %51, label %18, !llvm.loop !6
+  br i1 %exitcond122.not, label %54, label %21, !llvm.loop !6
 
-51:                                               ; preds = %.loopexit
+54:                                               ; preds = %.loopexit
   ret void
 }
 
@@ -783,123 +785,123 @@ avifImageFreePlanes.exit:                         ; preds = %18, %21
 111:                                              ; preds = %109, %106, %104
   %112 = load i32, ptr %29, align 8
   %113 = icmp ugt i32 %112, 8
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %121 = zext i1 %113 to i64
-  br label %122
+  %114 = trunc i32 %2 to i1
+  %115 = xor i1 %114, true
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %123 = zext i1 %113 to i64
+  br label %124
 
-122:                                              ; preds = %.loopexit.i, %111
+124:                                              ; preds = %.loopexit.i, %111
   %indvars.iv.i = phi i64 [ 0, %111 ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %123 = icmp eq i64 %indvars.iv.i, 3
-  %or.cond44.v.v.i = select i1 %123, i32 2, i32 1
-  %or.cond44.v.i = and i32 %or.cond44.v.v.i, %2
-  %or.cond44.i = icmp eq i32 %or.cond44.v.i, 0
-  br i1 %or.cond44.i, label %.loopexit.i, label %124
-
-124:                                              ; preds = %122
-  %125 = trunc nuw nsw i64 %indvars.iv.i to i32
-  switch i32 %125, label %126 [
-    i32 0, label %130
-    i32 3, label %128
-  ]
+  %125 = icmp eq i64 %indvars.iv.i, 3
+  %or.cond44.i = select i1 %125, i1 %.not47, i1 %115
+  br i1 %or.cond44.i, label %.loopexit.i, label %126
 
 126:                                              ; preds = %124
-  %127 = load i32, ptr %32, align 4
-  switch i32 %127, label %133 [
+  %127 = trunc nuw nsw i64 %indvars.iv.i to i32
+  switch i32 %127, label %128 [
+    i32 0, label %132
+    i32 3, label %130
+  ]
+
+128:                                              ; preds = %126
+  %129 = load i32, ptr %32, align 4
+  switch i32 %129, label %135 [
     i32 4, label %avifImagePlaneRowBytes.exit57.i
     i32 2, label %avifGetPixelFormatInfo.exit.thread15.i.i
     i32 3, label %avifGetPixelFormatInfo.exit.thread15.i.i
   ]
 
-avifGetPixelFormatInfo.exit.thread15.i.i:         ; preds = %126, %126
-  br label %133
+avifGetPixelFormatInfo.exit.thread15.i.i:         ; preds = %128, %128
+  br label %135
 
-128:                                              ; preds = %124
-  %129 = load ptr, ptr %114, align 8
-  %.not.i.i = icmp eq ptr %129, null
+130:                                              ; preds = %126
+  %131 = load ptr, ptr %116, align 8
+  %.not.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i, label %.loopexit.i, label %avifImagePlaneRowBytes.exit57.thread136.i
 
-130:                                              ; preds = %124
-  %131 = load i32, ptr %1, align 8
-  %132 = load i32, ptr %26, align 4
+132:                                              ; preds = %126
+  %133 = load i32, ptr %1, align 8
+  %134 = load i32, ptr %26, align 4
   br label %avifImagePlaneRowBytes.exit57.i
 
-133:                                              ; preds = %avifGetPixelFormatInfo.exit.thread15.i.i, %126
-  %.sroa.3.0.i.i = phi i32 [ 0, %126 ], [ 1, %avifGetPixelFormatInfo.exit.thread15.i.i ]
-  %134 = load i32, ptr %1, align 8
-  %135 = add i32 %134, %.sroa.3.0.i.i
-  %136 = lshr i32 %135, %.sroa.3.0.i.i
-  switch i32 %127, label %avifGetPixelFormatInfo.exit.thread.i48.i [
+135:                                              ; preds = %avifGetPixelFormatInfo.exit.thread15.i.i, %128
+  %.sroa.3.0.i.i = phi i32 [ 0, %128 ], [ 1, %avifGetPixelFormatInfo.exit.thread15.i.i ]
+  %136 = load i32, ptr %1, align 8
+  %137 = add i32 %136, %.sroa.3.0.i.i
+  %138 = lshr i32 %137, %.sroa.3.0.i.i
+  switch i32 %129, label %avifGetPixelFormatInfo.exit.thread.i48.i [
     i32 4, label %avifImagePlaneRowBytes.exit57.i
     i32 3, label %avifGetPixelFormatInfo.exit.thread19.i.i
   ]
 
-avifGetPixelFormatInfo.exit.thread19.i.i:         ; preds = %133
+avifGetPixelFormatInfo.exit.thread19.i.i:         ; preds = %135
   br label %avifGetPixelFormatInfo.exit.thread.i48.i
 
-avifGetPixelFormatInfo.exit.thread.i48.i:         ; preds = %avifGetPixelFormatInfo.exit.thread19.i.i, %133
-  %.sroa.5.0.i.i = phi i32 [ 0, %133 ], [ 1, %avifGetPixelFormatInfo.exit.thread19.i.i ]
-  %137 = load i32, ptr %26, align 4
-  %138 = add i32 %137, %.sroa.5.0.i.i
-  %139 = lshr i32 %138, %.sroa.5.0.i.i
+avifGetPixelFormatInfo.exit.thread.i48.i:         ; preds = %avifGetPixelFormatInfo.exit.thread19.i.i, %135
+  %.sroa.5.0.i.i = phi i32 [ 0, %135 ], [ 1, %avifGetPixelFormatInfo.exit.thread19.i.i ]
+  %139 = load i32, ptr %26, align 4
+  %140 = add i32 %139, %.sroa.5.0.i.i
+  %141 = lshr i32 %140, %.sroa.5.0.i.i
   br label %avifImagePlaneRowBytes.exit57.i
 
-avifImagePlaneRowBytes.exit57.thread136.i:        ; preds = %128
-  %140 = load i32, ptr %1, align 8
-  %141 = load i32, ptr %26, align 4
-  br label %146
+avifImagePlaneRowBytes.exit57.thread136.i:        ; preds = %130
+  %142 = load i32, ptr %1, align 8
+  %143 = load i32, ptr %26, align 4
+  br label %148
 
-avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatInfo.exit.thread.i48.i, %133, %130, %126
-  %.0.i59.ph.i = phi i32 [ %136, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %136, %133 ], [ %131, %130 ], [ 0, %126 ]
-  %.0.i46.ph.i = phi i32 [ %139, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ 0, %133 ], [ %132, %130 ], [ 0, %126 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i
-  %143 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i
-  %144 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv.i
-  %145 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv.i
-  %.0.i498390112.pre.i = load ptr, ptr %142, align 8
+avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatInfo.exit.thread.i48.i, %135, %132, %128
+  %.0.i59.ph.i = phi i32 [ %138, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %138, %135 ], [ %133, %132 ], [ 0, %128 ]
+  %.0.i46.ph.i = phi i32 [ %141, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ 0, %135 ], [ %134, %132 ], [ 0, %128 ]
+  %144 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i
+  %.0.i498390112.pre.i = load ptr, ptr %144, align 8
   %.not43.i = icmp eq ptr %.0.i498390112.pre.i, null
-  br i1 %.not43.i, label %.loopexit.i, label %146
+  br i1 %.not43.i, label %.loopexit.i, label %148
 
-146:                                              ; preds = %avifImagePlaneRowBytes.exit57.i, %avifImagePlaneRowBytes.exit57.thread136.i
-  %.0.i54114151.in.i = phi ptr [ %115, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %144, %avifImagePlaneRowBytes.exit57.i ]
-  %.0.i56150.in.i = phi ptr [ %116, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %145, %avifImagePlaneRowBytes.exit57.i ]
-  %.0.i5198106.in149.i = phi ptr [ %24, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %143, %avifImagePlaneRowBytes.exit57.i ]
-  %.0.i46697994108148.i = phi i32 [ %141, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %.0.i46.ph.i, %avifImagePlaneRowBytes.exit57.i ]
-  %.0.i59678192110147.i = phi i32 [ %140, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %.0.i59.ph.i, %avifImagePlaneRowBytes.exit57.i ]
-  %.0.i498390112146.i = phi ptr [ %129, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %.0.i498390112.pre.i, %avifImagePlaneRowBytes.exit57.i ]
-  %147 = zext i32 %.0.i59678192110147.i to i64
-  %148 = shl nuw nsw i64 %147, %121
+148:                                              ; preds = %avifImagePlaneRowBytes.exit57.i, %avifImagePlaneRowBytes.exit57.thread136.i
+  %.0.i54114151.in.i = phi ptr [ %117, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %146, %avifImagePlaneRowBytes.exit57.i ]
+  %.0.i56150.in.i = phi ptr [ %118, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %147, %avifImagePlaneRowBytes.exit57.i ]
+  %.0.i5198106.in149.i = phi ptr [ %24, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %145, %avifImagePlaneRowBytes.exit57.i ]
+  %.0.i46697994108148.i = phi i32 [ %143, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %.0.i46.ph.i, %avifImagePlaneRowBytes.exit57.i ]
+  %.0.i59678192110147.i = phi i32 [ %142, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %.0.i59.ph.i, %avifImagePlaneRowBytes.exit57.i ]
+  %.0.i498390112146.i = phi ptr [ %131, %avifImagePlaneRowBytes.exit57.thread136.i ], [ %.0.i498390112.pre.i, %avifImagePlaneRowBytes.exit57.i ]
+  %149 = zext i32 %.0.i59678192110147.i to i64
+  %150 = shl nuw nsw i64 %149, %123
   %.not.i = icmp eq i32 %.0.i46697994108148.i, 0
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %146
+.lr.ph.i:                                         ; preds = %148
   %.0.i56150.i = load i32, ptr %.0.i56150.in.i, align 4
   %.0.i54114151.i = load i32, ptr %.0.i54114151.in.i, align 4
   %.0.i5198106.i = load ptr, ptr %.0.i5198106.in149.i, align 8
-  %149 = zext i32 %.0.i54114151.i to i64
-  %150 = zext i32 %.0.i56150.i to i64
-  br label %151
+  %151 = zext i32 %.0.i54114151.i to i64
+  %152 = zext i32 %.0.i56150.i to i64
+  br label %153
 
-151:                                              ; preds = %151, %.lr.ph.i
-  %.0118.i = phi i32 [ 0, %.lr.ph.i ], [ %154, %151 ]
-  %.039117.i = phi ptr [ %.0.i498390112146.i, %.lr.ph.i ], [ %152, %151 ]
-  %.040116.i = phi ptr [ %.0.i5198106.i, %.lr.ph.i ], [ %153, %151 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040116.i, ptr align 1 %.039117.i, i64 %148, i1 false)
-  %152 = getelementptr inbounds nuw i8, ptr %.039117.i, i64 %149
-  %153 = getelementptr inbounds nuw i8, ptr %.040116.i, i64 %150
-  %154 = add nuw i32 %.0118.i, 1
-  %exitcond.not.i = icmp eq i32 %154, %.0.i46697994108148.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %151, !llvm.loop !4
+153:                                              ; preds = %153, %.lr.ph.i
+  %.0118.i = phi i32 [ 0, %.lr.ph.i ], [ %156, %153 ]
+  %.039117.i = phi ptr [ %.0.i498390112146.i, %.lr.ph.i ], [ %154, %153 ]
+  %.040116.i = phi ptr [ %.0.i5198106.i, %.lr.ph.i ], [ %155, %153 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040116.i, ptr align 1 %.039117.i, i64 %150, i1 false)
+  %154 = getelementptr inbounds nuw i8, ptr %.039117.i, i64 %151
+  %155 = getelementptr inbounds nuw i8, ptr %.040116.i, i64 %152
+  %156 = add nuw i32 %.0118.i, 1
+  %exitcond.not.i = icmp eq i32 %156, %.0.i46697994108148.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %153, !llvm.loop !4
 
-.loopexit.i:                                      ; preds = %151, %146, %avifImagePlaneRowBytes.exit57.i, %128, %122
+.loopexit.i:                                      ; preds = %153, %148, %avifImagePlaneRowBytes.exit57.i, %130, %124
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond122.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond122.not.i, label %avifImageCopySamples.exit, label %122, !llvm.loop !6
+  br i1 %exitcond122.not.i, label %avifImageCopySamples.exit, label %124, !llvm.loop !6
 
 avifImageCopySamples.exit:                        ; preds = %.loopexit.i, %109, %102, %96, %99, %82, %75, %avifImageFreePlanes.exit
   %.0 = phi i32 [ %88, %82 ], [ %74, %avifImageFreePlanes.exit ], [ %81, %75 ], [ 24, %96 ], [ %103, %102 ], [ %110, %109 ], [ 24, %99 ], [ 0, %.loopexit.i ]

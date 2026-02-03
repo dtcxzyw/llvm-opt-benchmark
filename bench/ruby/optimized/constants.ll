@@ -3500,9 +3500,8 @@ RSTRING_PTR.exit._crit_edge:                      ; preds = %RSTRING_PTR.exit
   unreachable
 
 31:                                               ; preds = %RB_SYMBOL_P.exit.thread10
-  %32 = and i64 %0, 1
-  %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %35, label %33
+  %32 = trunc i64 %0 to i1
+  br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
   %34 = tail call i64 @rb_fix2int(i64 noundef %0) #6
@@ -3574,9 +3573,8 @@ define i32 @rsock_optname_arg(i32 noundef %0, i32 noundef %1, i64 noundef %2) lo
   br label %33
 
 16:                                               ; preds = %5
-  %17 = and i64 %2, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %20, label %18
+  %17 = trunc i64 %2 to i1
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
   %19 = tail call i64 @rb_fix2int(i64 noundef %2) #6
@@ -3600,25 +3598,24 @@ rb_num2int_inline.exit:                           ; preds = %18, %20
   br label %33
 
 26:                                               ; preds = %23
-  %27 = and i64 %2, 1
-  %.not.i14 = icmp eq i64 %27, 0
-  br i1 %.not.i14, label %30, label %28
+  %27 = trunc i64 %2 to i1
+  br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
   %29 = tail call i64 @rb_fix2int(i64 noundef %2) #6
-  br label %rb_num2int_inline.exit16
+  br label %rb_num2int_inline.exit15
 
 30:                                               ; preds = %26
   %31 = tail call i64 @rb_num2int(i64 noundef %2) #6
-  br label %rb_num2int_inline.exit16
+  br label %rb_num2int_inline.exit15
 
-rb_num2int_inline.exit16:                         ; preds = %28, %30
-  %.0.i15 = phi i64 [ %29, %28 ], [ %31, %30 ]
-  %32 = trunc i64 %.0.i15 to i32
+rb_num2int_inline.exit15:                         ; preds = %28, %30
+  %.0.i14 = phi i64 [ %29, %28 ], [ %31, %30 ]
+  %32 = trunc i64 %.0.i14 to i32
   br label %33
 
-33:                                               ; preds = %rb_num2int_inline.exit16, %24, %rb_num2int_inline.exit, %14, %12, %10, %8, %6
-  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit16 ]
+33:                                               ; preds = %rb_num2int_inline.exit15, %24, %rb_num2int_inline.exit, %14, %12, %10, %8, %6
+  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit15 ]
   ret i32 %.0
 }
 
@@ -3658,9 +3655,8 @@ define i32 @rsock_cmsg_type_arg(i32 noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %33
 
 16:                                               ; preds = %5
-  %17 = and i64 %2, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %20, label %18
+  %17 = trunc i64 %2 to i1
+  br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
   %19 = tail call i64 @rb_fix2int(i64 noundef %2) #6
@@ -3684,25 +3680,24 @@ rb_num2int_inline.exit:                           ; preds = %18, %20
   br label %33
 
 26:                                               ; preds = %23
-  %27 = and i64 %2, 1
-  %.not.i14 = icmp eq i64 %27, 0
-  br i1 %.not.i14, label %30, label %28
+  %27 = trunc i64 %2 to i1
+  br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
   %29 = tail call i64 @rb_fix2int(i64 noundef %2) #6
-  br label %rb_num2int_inline.exit16
+  br label %rb_num2int_inline.exit15
 
 30:                                               ; preds = %26
   %31 = tail call i64 @rb_num2int(i64 noundef %2) #6
-  br label %rb_num2int_inline.exit16
+  br label %rb_num2int_inline.exit15
 
-rb_num2int_inline.exit16:                         ; preds = %28, %30
-  %.0.i15 = phi i64 [ %29, %28 ], [ %31, %30 ]
-  %32 = trunc i64 %.0.i15 to i32
+rb_num2int_inline.exit15:                         ; preds = %28, %30
+  %.0.i14 = phi i64 [ %29, %28 ], [ %31, %30 ]
+  %32 = trunc i64 %.0.i14 to i32
   br label %33
 
-33:                                               ; preds = %rb_num2int_inline.exit16, %24, %rb_num2int_inline.exit, %14, %12, %10, %8, %6
-  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit16 ]
+33:                                               ; preds = %rb_num2int_inline.exit15, %24, %rb_num2int_inline.exit, %14, %12, %10, %8, %6
+  %.0 = phi i32 [ %22, %rb_num2int_inline.exit ], [ %7, %6 ], [ %9, %8 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %25, %24 ], [ %32, %rb_num2int_inline.exit15 ]
   ret i32 %.0
 }
 

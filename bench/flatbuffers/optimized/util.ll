@@ -135,7 +135,7 @@ define internal noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_111LoadFileRawE
   %12 = icmp ne i32 %11, 0
   %.0.i = select i1 %.not.i, i1 %12, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.i, label %121, label %13
+  br i1 %.0.i, label %122, label %13
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -143,12 +143,12 @@ define internal noundef zeroext i1 @_ZN11flatbuffers12_GLOBAL__N_111LoadFileRawE
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef %0, i32 noundef %14)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %16 = call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9) %15) #24
-  br i1 %16, label %19, label %119
+  br i1 %16, label %19, label %120
 
 17:                                               ; preds = %20
   %18 = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %121
 
 19:                                               ; preds = %13
   br i1 %1, label %20, label %34
@@ -180,7 +180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 32:                                               ; preds = %24, %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %22
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %120
+  br label %121
 
 34:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -382,7 +382,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 110:                                              ; preds = %109, %105
   %.pn.pn = phi { ptr, i32 } [ %.pn, %109 ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %120
+  br label %121
 
 111:                                              ; preds = %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit, %27
   %112 = load ptr, ptr %5, align 8, !tbaa !29
@@ -391,24 +391,24 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %115 = getelementptr inbounds i8, ptr %5, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load i32, ptr %116, align 8, !tbaa !31
-  %118 = and i32 %117, 1
-  %.not = icmp eq i32 %118, 0
-  br label %119
+  %118 = trunc i32 %117 to i1
+  %119 = xor i1 %118, true
+  br label %120
 
-119:                                              ; preds = %13, %111
-  %.114 = phi i1 [ %.not, %111 ], [ false, %13 ]
+120:                                              ; preds = %13, %111
+  %.114 = phi i1 [ %119, %111 ], [ false, %13 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %121
+  br label %122
 
-120:                                              ; preds = %110, %32, %17
+121:                                              ; preds = %110, %32, %17
   %.pn17 = phi { ptr, i32 } [ %18, %17 ], [ %33, %32 ], [ %.pn.pn, %110 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn17
 
-121:                                              ; preds = %3, %119
-  %.013 = phi i1 [ %.114, %119 ], [ false, %3 ]
+122:                                              ; preds = %3, %120
+  %.013 = phi i1 [ %.114, %120 ], [ false, %3 ]
   ret i1 %.013
 }
 
@@ -446,7 +446,7 @@ define dso_local noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noun
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef %0, i32 noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %8 = call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #24
-  br i1 %8, label %11, label %21
+  br i1 %8, label %11, label %22
 
 9:                                                ; preds = %11
   %10 = landingpad { ptr, i32 }
@@ -466,12 +466,12 @@ define dso_local noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noun
   %17 = getelementptr inbounds i8, ptr %5, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load i32, ptr %18, align 8, !tbaa !31
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br label %21
+  %20 = trunc i32 %19 to i1
+  %21 = xor i1 %20, true
+  br label %22
 
-21:                                               ; preds = %4, %13
-  %.0 = phi i1 [ %.not, %13 ], [ false, %4 ]
+22:                                               ; preds = %4, %13
+  %.0 = phi i1 [ %21, %13 ], [ false, %4 ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %5) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

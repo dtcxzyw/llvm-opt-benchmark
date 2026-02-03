@@ -1054,9 +1054,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb21NativeTypeFunctionSig14isCxx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %8 = load i8, ptr %7, align 1
   %9 = select i1 %4, i8 %6, i8 %8
-  %10 = and i8 %9, 1
-  %11 = icmp ne i8 %10, 0
-  ret i1 %11
+  %10 = trunc i8 %9 to i1
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

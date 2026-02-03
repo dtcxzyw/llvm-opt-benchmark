@@ -306,7 +306,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
 13:                                               ; preds = %8
   %14 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #11
   tail call void (ptr, ...) @dt_control_log(ptr noundef %14) #11
-  br label %113
+  br label %110
 
 .thread:                                          ; preds = %8, %3
   %15 = phi ptr [ %2, %3 ], [ %11, %8 ]
@@ -447,87 +447,84 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %76 = call ptr @g_list_reverse(ptr noundef %.171) #11
   call void (...) @dt_control_queue_redraw_center() #11
   %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
-  %78 = and i32 %77, 1
-  %79 = icmp ne i32 %78, 0
-  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %81 = icmp ne i32 %80, 0
-  %or.cond = select i1 %79, i1 %81, i1 false
-  br i1 %or.cond, label %82, label %86
+  %78 = trunc i32 %77 to i1
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %80 = icmp ne i32 %79, 0
+  %or.cond = select i1 %78, i1 %80, i1 false
+  br i1 %or.cond, label %81, label %85
 
-82:                                               ; preds = %._crit_edge
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
-  %84 = and i32 %83, 1048576
-  %.not83 = icmp eq i32 %84, 0
-  br i1 %.not83, label %86, label %85
+81:                                               ; preds = %._crit_edge
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
+  %83 = and i32 %82, 1048576
+  %.not83 = icmp eq i32 %83, 0
+  br i1 %.not83, label %85, label %84
 
-85:                                               ; preds = %82
+84:                                               ; preds = %81
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 367, ptr noundef nonnull @__FUNCTION__._film_import1) #11
-  br label %86
+  br label %85
 
-86:                                               ; preds = %82, %85, %._crit_edge
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %87, i32 noundef 9) #11
-  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
-  %89 = and i32 %88, 1
+85:                                               ; preds = %81, %84, %._crit_edge
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %86, i32 noundef 9) #11
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
+  %88 = trunc i32 %87 to i1
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
   %90 = icmp ne i32 %89, 0
-  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
-  %92 = icmp ne i32 %91, 0
-  %or.cond3 = select i1 %90, i1 %92, i1 false
-  br i1 %or.cond3, label %93, label %97
+  %or.cond3 = select i1 %88, i1 %90, i1 false
+  br i1 %or.cond3, label %91, label %95
 
-93:                                               ; preds = %86
-  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
-  %95 = and i32 %94, 1048576
-  %.not84 = icmp eq i32 %95, 0
-  br i1 %.not84, label %97, label %96
+91:                                               ; preds = %85
+  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
+  %93 = and i32 %92, 1048576
+  %.not84 = icmp eq i32 %93, 0
+  br i1 %.not84, label %95, label %94
 
-96:                                               ; preds = %93
+94:                                               ; preds = %91
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, i32 noundef 369, ptr noundef nonnull @__FUNCTION__._film_import1) #11
-  br label %97
+  br label %95
 
-97:                                               ; preds = %93, %96, %86
-  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
+95:                                               ; preds = %91, %94, %85
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
   %.not85 = icmp eq ptr %1, null
   %.169. = select i1 %.not85, ptr %.169, ptr %1
-  %99 = load i32, ptr %.169., align 8, !tbaa !18
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %98, i32 noundef 16, i32 noundef %99) #11
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
-  %101 = and i32 %100, 1
-  %102 = icmp ne i32 %101, 0
-  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
-  %104 = icmp ne i32 %103, 0
-  %or.cond5 = select i1 %102, i1 %104, i1 false
-  br i1 %or.cond5, label %105, label %109
+  %97 = load i32, ptr %.169., align 8, !tbaa !18
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %96, i32 noundef 16, i32 noundef %97) #11
+  %98 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
+  %99 = trunc i32 %98 to i1
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3172), align 4
+  %101 = icmp ne i32 %100, 0
+  %or.cond5 = select i1 %99, i1 %101, i1 false
+  br i1 %or.cond5, label %102, label %106
 
-105:                                              ; preds = %97
-  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
-  %107 = and i32 %106, 1048576
-  %.not86 = icmp eq i32 %107, 0
-  br i1 %.not86, label %109, label %108
+102:                                              ; preds = %95
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !65
+  %104 = and i32 %103, 1048576
+  %.not86 = icmp eq i32 %104, 0
+  br i1 %.not86, label %106, label %105
 
-108:                                              ; preds = %105
+105:                                              ; preds = %102
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.9, i32 noundef 372, ptr noundef nonnull @__FUNCTION__._film_import1) #11
-  br label %109
+  br label %106
 
-109:                                              ; preds = %105, %108, %97
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %110, i32 noundef 10, ptr noundef %76, i32 noundef 0) #11
+106:                                              ; preds = %102, %105, %95
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !66
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %107, i32 noundef 10, ptr noundef %76, i32 noundef 0) #11
   call fastcc void @_apply_filmroll_gpx(ptr noundef %.169)
   %.not87 = icmp eq ptr %.169, null
   %.not88 = icmp eq ptr %.169, %1
   %or.cond92 = or i1 %.not87, %.not88
-  br i1 %or.cond92, label %112, label %111
+  br i1 %or.cond92, label %109, label %108
 
-111:                                              ; preds = %109
+108:                                              ; preds = %106
   call void @dt_film_cleanup(ptr noundef nonnull %.169) #11
   call void @free(ptr noundef nonnull %.169) #11
-  br label %112
+  br label %109
 
-112:                                              ; preds = %111, %109
+109:                                              ; preds = %108, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %113
+  br label %110
 
-113:                                              ; preds = %13, %112
+110:                                              ; preds = %13, %109
   ret void
 }
 

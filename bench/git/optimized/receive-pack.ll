@@ -5751,113 +5751,112 @@ define internal fastcc range(i32 -1, 1) i32 @update_shallow_ref(ptr noundef nonn
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 8), align 8, !tbaa !208
   %.not.i = icmp eq i32 %10, 0
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_shallow, i64 12), align 4
-  %12 = and i8 %11, 1
-  %.not29 = icmp ne i8 %12, 0
+  %.not29 = trunc i8 %11 to i1
   %.not = select i1 %.not.i, i1 %.not29, i1 false
-  br i1 %.not, label %15, label %13
+  br i1 %.not, label %14, label %12
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.10, i32 noundef 1315, ptr noundef nonnull @trace_shallow, ptr noundef nonnull @.str.206, ptr noundef nonnull %14) #21
-  br label %15
+12:                                               ; preds = %2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.10, i32 noundef 1315, ptr noundef nonnull @trace_shallow, ptr noundef nonnull @.str.206, ptr noundef nonnull %13) #21
+  br label %14
 
-15:                                               ; preds = %13, %2
-  %16 = load ptr, ptr %1, align 8, !tbaa !84
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !80
-  %.not35 = icmp eq i64 %18, 0
+14:                                               ; preds = %12, %2
+  %15 = load ptr, ptr %1, align 8, !tbaa !84
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !80
+  %.not35 = icmp eq i64 %17, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  br label %20
+.lr.ph:                                           ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %38
-  %21 = phi ptr [ %16, %.lr.ph ], [ %39, %38 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %22 = load ptr, ptr %19, align 8, !tbaa !85
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8, !tbaa !90
-  %.not26 = icmp eq ptr %24, null
-  br i1 %.not26, label %38, label %25
+19:                                               ; preds = %.lr.ph, %37
+  %20 = phi ptr [ %15, %.lr.ph ], [ %38, %37 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+  %21 = load ptr, ptr %18, align 8, !tbaa !85
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
+  %.not26 = icmp eq ptr %23, null
+  br i1 %.not26, label %37, label %24
 
-25:                                               ; preds = %20
-  %26 = load i32, ptr %6, align 4, !tbaa !4
-  %27 = sdiv i32 %26, 32
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %24, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !4
-  %31 = and i32 %30, %9
-  %.not27 = icmp eq i32 %31, 0
-  br i1 %.not27, label %38, label %32
+24:                                               ; preds = %19
+  %25 = load i32, ptr %6, align 4, !tbaa !4
+  %26 = sdiv i32 %25, 32
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i32, ptr %23, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !4
+  %30 = and i32 %29, %9
+  %.not27 = icmp eq i32 %30, 0
+  br i1 %.not27, label %37, label %31
 
-32:                                               ; preds = %25
-  %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = call i32 @delayed_reachability_test(ptr noundef nonnull %1, i32 noundef %33) #21
-  %.not28 = icmp eq i32 %34, 0
+31:                                               ; preds = %24
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  %33 = call i32 @delayed_reachability_test(ptr noundef nonnull %1, i32 noundef %32) #21
+  %.not28 = icmp eq i32 %33, 0
   %.pre41 = load ptr, ptr %1, align 8, !tbaa !84
-  br i1 %.not28, label %35, label %38
+  br i1 %.not28, label %34, label %37
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %.pre41, align 8, !tbaa !210
-  %37 = getelementptr inbounds nuw %struct.object_id, ptr %36, i64 %indvars.iv
-  call void @oid_array_append(ptr noundef nonnull %4, ptr noundef %37) #21
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %.pre41, align 8, !tbaa !210
+  %36 = getelementptr inbounds nuw %struct.object_id, ptr %35, i64 %indvars.iv
+  call void @oid_array_append(ptr noundef nonnull %4, ptr noundef %36) #21
   %.pre = load ptr, ptr %1, align 8, !tbaa !84
-  br label %38
+  br label %37
 
-38:                                               ; preds = %20, %25, %32, %35
-  %39 = phi ptr [ %21, %20 ], [ %21, %25 ], [ %.pre41, %32 ], [ %.pre, %35 ]
+37:                                               ; preds = %19, %24, %31, %34
+  %38 = phi ptr [ %20, %19 ], [ %20, %24 ], [ %.pre41, %31 ], [ %.pre, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !80
-  %42 = icmp ugt i64 %41, %indvars.iv.next
-  br i1 %42, label %20, label %._crit_edge, !llvm.loop !211
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load i64, ptr %39, align 8, !tbaa !80
+  %41 = icmp ugt i64 %40, %indvars.iv.next
+  br i1 %41, label %19, label %._crit_edge, !llvm.loop !211
 
-._crit_edge:                                      ; preds = %38, %15
-  %43 = load ptr, ptr @tmp_objdir, align 8, !tbaa !106
-  %44 = call ptr @tmp_objdir_env(ptr noundef %43) #21
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %44, ptr %45, align 8, !tbaa !108
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @setup_alternate_shallow(ptr noundef nonnull %3, ptr noundef nonnull %46, ptr noundef nonnull %4) #21
-  %47 = call i32 @check_connected(ptr noundef nonnull @command_singleton_iterator, ptr noundef nonnull %0, ptr noundef nonnull %5) #21
-  %.not25 = icmp eq i32 %47, 0
-  %48 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  br i1 %.not25, label %50, label %49
+._crit_edge:                                      ; preds = %37, %14
+  %42 = load ptr, ptr @tmp_objdir, align 8, !tbaa !106
+  %43 = call ptr @tmp_objdir_env(ptr noundef %42) #21
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %43, ptr %44, align 8, !tbaa !108
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @setup_alternate_shallow(ptr noundef nonnull %3, ptr noundef nonnull %45, ptr noundef nonnull %4) #21
+  %46 = call i32 @check_connected(ptr noundef nonnull @command_singleton_iterator, ptr noundef nonnull %0, ptr noundef nonnull %5) #21
+  %.not25 = icmp eq i32 %46, 0
+  %47 = load ptr, ptr @the_repository, align 8, !tbaa !22
+  br i1 %.not25, label %49, label %48
+
+48:                                               ; preds = %._crit_edge
+  call void @rollback_shallow_file(ptr noundef %47, ptr noundef nonnull %3) #21
+  br label %64
 
 49:                                               ; preds = %._crit_edge
-  call void @rollback_shallow_file(ptr noundef %48, ptr noundef nonnull %3) #21
-  br label %65
-
-50:                                               ; preds = %._crit_edge
-  %51 = call i32 @commit_shallow_file(ptr noundef %48, ptr noundef nonnull %3) #21
-  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !80
-  %.not36 = icmp eq i64 %53, 0
+  %50 = call i32 @commit_shallow_file(ptr noundef %47, ptr noundef nonnull %3) #21
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = load i64, ptr %51, align 8, !tbaa !80
+  %.not36 = icmp eq i64 %52, 0
   br i1 %.not36, label %._crit_edge34, label %.lr.ph33
 
-.lr.ph33:                                         ; preds = %50, %.lr.ph33
-  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.lr.ph33 ], [ 0, %50 ]
-  %54 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  %55 = load ptr, ptr %4, align 8, !tbaa !210
-  %56 = getelementptr inbounds nuw %struct.object_id, ptr %55, i64 %indvars.iv38
-  %57 = call i32 @register_shallow(ptr noundef %54, ptr noundef %56) #21
+.lr.ph33:                                         ; preds = %49, %.lr.ph33
+  %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.lr.ph33 ], [ 0, %49 ]
+  %53 = load ptr, ptr @the_repository, align 8, !tbaa !22
+  %54 = load ptr, ptr %4, align 8, !tbaa !210
+  %55 = getelementptr inbounds nuw %struct.object_id, ptr %54, i64 %indvars.iv38
+  %56 = call i32 @register_shallow(ptr noundef %53, ptr noundef %55) #21
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %58 = load i64, ptr %52, align 8, !tbaa !80
-  %59 = icmp ugt i64 %58, %indvars.iv.next39
-  br i1 %59, label %.lr.ph33, label %._crit_edge34, !llvm.loop !212
+  %57 = load i64, ptr %51, align 8, !tbaa !80
+  %58 = icmp ugt i64 %57, %indvars.iv.next39
+  br i1 %58, label %.lr.ph33, label %._crit_edge34, !llvm.loop !212
 
-._crit_edge34:                                    ; preds = %.lr.ph33, %50
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %61 = load ptr, ptr %60, align 8, !tbaa !88
-  %62 = load i32, ptr %6, align 4, !tbaa !4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %61, i64 %63
-  store i32 0, ptr %64, align 4, !tbaa !4
-  br label %65
+._crit_edge34:                                    ; preds = %.lr.ph33, %49
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %60 = load ptr, ptr %59, align 8, !tbaa !88
+  %61 = load i32, ptr %6, align 4, !tbaa !4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds i32, ptr %60, i64 %62
+  store i32 0, ptr %63, align 4, !tbaa !4
+  br label %64
 
-65:                                               ; preds = %._crit_edge34, %49
-  %.021 = phi i32 [ -1, %49 ], [ 0, %._crit_edge34 ]
+64:                                               ; preds = %._crit_edge34, %48
+  %.021 = phi i32 [ -1, %48 ], [ 0, %._crit_edge34 ]
   call void @oid_array_clear(ptr noundef nonnull %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

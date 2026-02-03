@@ -24020,9 +24020,8 @@ define hidden void @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtim
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 8, !noundef !9
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %11, label %28
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %28, label %11
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

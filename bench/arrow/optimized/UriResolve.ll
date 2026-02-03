@@ -51,170 +51,169 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %1, align 8, !tbaa !3
   %.not.i = icmp ne ptr %18, null
-  %19 = and i32 %3, 1
-  %.not84.i = icmp ne i32 %19, 0
+  %.not84.i = trunc i32 %3 to i1
   %brmerge.not.i = select i1 %.not84.i, i1 %.not.i, i1 false
-  br i1 %brmerge.not.i, label %20, label %22
+  br i1 %brmerge.not.i, label %19, label %21
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @uriCompareRangeA(ptr noundef nonnull %2, ptr noundef nonnull %1) #4
-  %.not107.i = icmp eq i32 %21, 0
-  br i1 %.not107.i, label %32, label %23
+19:                                               ; preds = %17
+  %20 = tail call i32 @uriCompareRangeA(ptr noundef nonnull %2, ptr noundef nonnull %1) #4
+  %.not107.i = icmp eq i32 %20, 0
+  br i1 %.not107.i, label %31, label %22
 
-22:                                               ; preds = %17
-  br i1 %.not.i, label %23, label %32
+21:                                               ; preds = %17
+  br i1 %.not.i, label %22, label %31
 
-23:                                               ; preds = %22, %20
+22:                                               ; preds = %21, %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !15
-  %24 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not101.i = icmp eq i32 %24, 0
-  br i1 %.not101.i, label %uriAddBaseUriImplA.exit, label %25
+  %23 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not101.i = icmp eq i32 %23, 0
+  br i1 %.not101.i, label %uriAddBaseUriImplA.exit, label %24
 
-25:                                               ; preds = %23
-  %26 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not102.i = icmp eq i32 %26, 0
-  br i1 %.not102.i, label %uriAddBaseUriImplA.exit, label %27
+24:                                               ; preds = %22
+  %25 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not102.i = icmp eq i32 %25, 0
+  br i1 %.not102.i, label %uriAddBaseUriImplA.exit, label %26
 
-27:                                               ; preds = %25
-  %28 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not103.i = icmp eq i32 %28, 0
-  br i1 %.not103.i, label %uriAddBaseUriImplA.exit, label %29
+26:                                               ; preds = %24
+  %27 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not103.i = icmp eq i32 %27, 0
+  br i1 %.not103.i, label %uriAddBaseUriImplA.exit, label %28
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !15
-  br label %80
-
-32:                                               ; preds = %22, %20
-  %33 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %1) #4
-  %.not85.i = icmp eq i32 %33, 0
-  br i1 %.not85.i, label %43, label %34
-
-34:                                               ; preds = %32
-  %35 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not98.i = icmp eq i32 %35, 0
-  br i1 %.not98.i, label %uriAddBaseUriImplA.exit, label %36
-
-36:                                               ; preds = %34
-  %37 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not99.i = icmp eq i32 %37, 0
-  br i1 %.not99.i, label %uriAddBaseUriImplA.exit, label %38
-
-38:                                               ; preds = %36
-  %39 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not100.i = icmp eq i32 %39, 0
-  br i1 %.not100.i, label %uriAddBaseUriImplA.exit, label %40
-
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !15
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !15
   br label %79
 
-43:                                               ; preds = %32
-  %44 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
-  %.not86.i = icmp eq i32 %44, 0
-  br i1 %.not86.i, label %uriAddBaseUriImplA.exit, label %45
+31:                                               ; preds = %21, %19
+  %32 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %1) #4
+  %.not85.i = icmp eq i32 %32, 0
+  br i1 %.not85.i, label %42, label %33
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %47 = load ptr, ptr %46, align 8, !tbaa !17
-  %48 = icmp eq ptr %47, null
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %50 = load i32, ptr %49, align 8, !tbaa !18
-  %.not87.i = icmp eq i32 %50, 0
-  br i1 %48, label %51, label %61
+33:                                               ; preds = %31
+  %34 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not98.i = icmp eq i32 %34, 0
+  br i1 %.not98.i, label %uriAddBaseUriImplA.exit, label %35
 
-51:                                               ; preds = %45
-  br i1 %.not87.i, label %52, label %.thread113.i
+35:                                               ; preds = %33
+  %36 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not99.i = icmp eq i32 %36, 0
+  br i1 %.not99.i, label %uriAddBaseUriImplA.exit, label %37
 
-52:                                               ; preds = %51
-  %53 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
-  %.not88.i = icmp eq i32 %53, 0
-  br i1 %.not88.i, label %uriAddBaseUriImplA.exit, label %54
+37:                                               ; preds = %35
+  %38 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not100.i = icmp eq i32 %38, 0
+  br i1 %.not100.i, label %uriAddBaseUriImplA.exit, label %39
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %56 = load ptr, ptr %55, align 8, !tbaa !19
-  %.not89.i = icmp eq ptr %56, null
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  br i1 %.not89.i, label %59, label %58
-
-58:                                               ; preds = %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !15
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !15
   br label %78
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !15
-  br label %78
+42:                                               ; preds = %31
+  %43 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not86.i = icmp eq i32 %43, 0
+  br i1 %.not86.i, label %uriAddBaseUriImplA.exit, label %44
 
-61:                                               ; preds = %45
-  br i1 %.not87.i, label %67, label %.thread113.i
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %46 = load ptr, ptr %45, align 8, !tbaa !17
+  %47 = icmp eq ptr %46, null
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %49 = load i32, ptr %48, align 8, !tbaa !18
+  %.not87.i = icmp eq i32 %49, 0
+  br i1 %47, label %50, label %60
 
-.thread113.i:                                     ; preds = %61, %51
-  %62 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not95.i = icmp eq i32 %62, 0
-  br i1 %.not95.i, label %uriAddBaseUriImplA.exit, label %63
+50:                                               ; preds = %44
+  br i1 %.not87.i, label %51, label %.thread113.i
 
-63:                                               ; preds = %.thread113.i
-  %64 = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef %0, ptr noundef nonnull %.013)
-  %.not96.i = icmp eq i32 %64, 0
-  br i1 %.not96.i, label %65, label %uriAddBaseUriImplA.exit
+51:                                               ; preds = %50
+  %52 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not88.i = icmp eq i32 %52, 0
+  br i1 %.not88.i, label %uriAddBaseUriImplA.exit, label %53
 
-65:                                               ; preds = %63
-  %66 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not97.not.i = icmp eq i32 %66, 0
-  br i1 %.not97.not.i, label %uriAddBaseUriImplA.exit, label %75
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %55 = load ptr, ptr %54, align 8, !tbaa !19
+  %.not89.i = icmp eq ptr %55, null
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br i1 %.not89.i, label %58, label %57
 
-67:                                               ; preds = %61
-  %68 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
-  %.not91.i = icmp eq i32 %68, 0
-  br i1 %.not91.i, label %uriAddBaseUriImplA.exit, label %69
+57:                                               ; preds = %53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !15
+  br label %77
 
-69:                                               ; preds = %67
-  %70 = tail call fastcc i32 @uriMergePathA(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.013)
-  %.not92.i = icmp eq i32 %70, 0
-  br i1 %.not92.i, label %uriAddBaseUriImplA.exit, label %71
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !15
+  br label %77
 
-71:                                               ; preds = %69
-  %72 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not93.i = icmp eq i32 %72, 0
-  br i1 %.not93.i, label %uriAddBaseUriImplA.exit, label %73
+60:                                               ; preds = %44
+  br i1 %.not87.i, label %66, label %.thread113.i
 
-73:                                               ; preds = %71
-  %74 = tail call i32 @uriFixAmbiguityA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not94.i = icmp eq i32 %74, 0
-  br i1 %.not94.i, label %uriAddBaseUriImplA.exit, label %75
+.thread113.i:                                     ; preds = %60, %50
+  %61 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not95.i = icmp eq i32 %61, 0
+  br i1 %.not95.i, label %uriAddBaseUriImplA.exit, label %62
 
-75:                                               ; preds = %73, %65
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !15
-  br label %78
+62:                                               ; preds = %.thread113.i
+  %63 = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef %0, ptr noundef nonnull %.013)
+  %.not96.i = icmp eq i32 %63, 0
+  br i1 %.not96.i, label %64, label %uriAddBaseUriImplA.exit
 
-78:                                               ; preds = %75, %59, %58
+64:                                               ; preds = %62
+  %65 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not97.not.i = icmp eq i32 %65, 0
+  br i1 %.not97.not.i, label %uriAddBaseUriImplA.exit, label %74
+
+66:                                               ; preds = %60
+  %67 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not91.i = icmp eq i32 %67, 0
+  br i1 %.not91.i, label %uriAddBaseUriImplA.exit, label %68
+
+68:                                               ; preds = %66
+  %69 = tail call fastcc i32 @uriMergePathA(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.013)
+  %.not92.i = icmp eq i32 %69, 0
+  br i1 %.not92.i, label %uriAddBaseUriImplA.exit, label %70
+
+70:                                               ; preds = %68
+  %71 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not93.i = icmp eq i32 %71, 0
+  br i1 %.not93.i, label %uriAddBaseUriImplA.exit, label %72
+
+72:                                               ; preds = %70
+  %73 = tail call i32 @uriFixAmbiguityA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not94.i = icmp eq i32 %73, 0
+  br i1 %.not94.i, label %uriAddBaseUriImplA.exit, label %74
+
+74:                                               ; preds = %72, %64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !15
+  br label %77
+
+77:                                               ; preds = %74, %58, %57
   tail call void @uriFixEmptyTrailSegmentA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  br label %78
+
+78:                                               ; preds = %77, %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !15
   br label %79
 
-79:                                               ; preds = %78, %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !15
-  br label %80
-
-80:                                               ; preds = %79, %29
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !15
+79:                                               ; preds = %78, %28
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !15
   br label %uriAddBaseUriImplA.exit.thread
 
-uriAddBaseUriImplA.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread113.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
-  %.0.i = phi i32 [ 3, %38 ], [ %64, %63 ], [ 2, %11 ], [ 3, %.thread113.i ], [ 3, %25 ], [ 3, %23 ], [ 5, %14 ], [ 3, %36 ], [ 3, %34 ], [ 3, %27 ], [ 3, %65 ], [ 3, %71 ], [ 3, %69 ], [ 3, %67 ], [ 3, %52 ], [ 3, %43 ], [ 3, %73 ]
-  %83 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+uriAddBaseUriImplA.exit:                          ; preds = %72, %70, %68, %66, %64, %62, %.thread113.i, %51, %42, %37, %35, %33, %26, %24, %22, %14, %11
+  %.0.i = phi i32 [ 3, %37 ], [ %63, %62 ], [ 2, %11 ], [ 3, %.thread113.i ], [ 3, %24 ], [ 3, %22 ], [ 5, %14 ], [ 3, %35 ], [ 3, %33 ], [ 3, %26 ], [ 3, %64 ], [ 3, %70 ], [ 3, %68 ], [ 3, %66 ], [ 3, %51 ], [ 3, %42 ], [ 3, %72 ]
+  %82 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriAddBaseUriImplA.exit.thread
 
-uriAddBaseUriImplA.exit.thread:                   ; preds = %9, %80, %uriAddBaseUriImplA.exit, %7
-  %.0 = phi i32 [ 10, %7 ], [ %.0.i, %uriAddBaseUriImplA.exit ], [ 2, %9 ], [ 0, %80 ]
+uriAddBaseUriImplA.exit.thread:                   ; preds = %9, %79, %uriAddBaseUriImplA.exit, %7
+  %.0 = phi i32 [ 10, %7 ], [ %.0.i, %uriAddBaseUriImplA.exit ], [ 2, %9 ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -264,170 +263,169 @@ define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %1, align 8, !tbaa !20
   %.not.i = icmp ne ptr %18, null
-  %19 = and i32 %3, 1
-  %.not84.i = icmp ne i32 %19, 0
+  %.not84.i = trunc i32 %3 to i1
   %brmerge.not.i = select i1 %.not84.i, i1 %.not.i, i1 false
-  br i1 %brmerge.not.i, label %20, label %22
+  br i1 %brmerge.not.i, label %19, label %21
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @uriCompareRangeW(ptr noundef nonnull %2, ptr noundef nonnull %1) #4
-  %.not107.i = icmp eq i32 %21, 0
-  br i1 %.not107.i, label %32, label %23
+19:                                               ; preds = %17
+  %20 = tail call i32 @uriCompareRangeW(ptr noundef nonnull %2, ptr noundef nonnull %1) #4
+  %.not107.i = icmp eq i32 %20, 0
+  br i1 %.not107.i, label %31, label %22
 
-22:                                               ; preds = %17
-  br i1 %.not.i, label %23, label %32
+21:                                               ; preds = %17
+  br i1 %.not.i, label %22, label %31
 
-23:                                               ; preds = %22, %20
+22:                                               ; preds = %21, %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !26
-  %24 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not101.i = icmp eq i32 %24, 0
-  br i1 %.not101.i, label %uriAddBaseUriImplW.exit, label %25
+  %23 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not101.i = icmp eq i32 %23, 0
+  br i1 %.not101.i, label %uriAddBaseUriImplW.exit, label %24
 
-25:                                               ; preds = %23
-  %26 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not102.i = icmp eq i32 %26, 0
-  br i1 %.not102.i, label %uriAddBaseUriImplW.exit, label %27
+24:                                               ; preds = %22
+  %25 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not102.i = icmp eq i32 %25, 0
+  br i1 %.not102.i, label %uriAddBaseUriImplW.exit, label %26
 
-27:                                               ; preds = %25
-  %28 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not103.i = icmp eq i32 %28, 0
-  br i1 %.not103.i, label %uriAddBaseUriImplW.exit, label %29
+26:                                               ; preds = %24
+  %27 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not103.i = icmp eq i32 %27, 0
+  br i1 %.not103.i, label %uriAddBaseUriImplW.exit, label %28
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !26
-  br label %80
-
-32:                                               ; preds = %22, %20
-  %33 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %1) #4
-  %.not85.i = icmp eq i32 %33, 0
-  br i1 %.not85.i, label %43, label %34
-
-34:                                               ; preds = %32
-  %35 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not98.i = icmp eq i32 %35, 0
-  br i1 %.not98.i, label %uriAddBaseUriImplW.exit, label %36
-
-36:                                               ; preds = %34
-  %37 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not99.i = icmp eq i32 %37, 0
-  br i1 %.not99.i, label %uriAddBaseUriImplW.exit, label %38
-
-38:                                               ; preds = %36
-  %39 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not100.i = icmp eq i32 %39, 0
-  br i1 %.not100.i, label %uriAddBaseUriImplW.exit, label %40
-
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !26
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !26
   br label %79
 
-43:                                               ; preds = %32
-  %44 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
-  %.not86.i = icmp eq i32 %44, 0
-  br i1 %.not86.i, label %uriAddBaseUriImplW.exit, label %45
+31:                                               ; preds = %21, %19
+  %32 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %1) #4
+  %.not85.i = icmp eq i32 %32, 0
+  br i1 %.not85.i, label %42, label %33
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %47 = load ptr, ptr %46, align 8, !tbaa !28
-  %48 = icmp eq ptr %47, null
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %50 = load i32, ptr %49, align 8, !tbaa !29
-  %.not87.i = icmp eq i32 %50, 0
-  br i1 %48, label %51, label %61
+33:                                               ; preds = %31
+  %34 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not98.i = icmp eq i32 %34, 0
+  br i1 %.not98.i, label %uriAddBaseUriImplW.exit, label %35
 
-51:                                               ; preds = %45
-  br i1 %.not87.i, label %52, label %.thread113.i
+35:                                               ; preds = %33
+  %36 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not99.i = icmp eq i32 %36, 0
+  br i1 %.not99.i, label %uriAddBaseUriImplW.exit, label %37
 
-52:                                               ; preds = %51
-  %53 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
-  %.not88.i = icmp eq i32 %53, 0
-  br i1 %.not88.i, label %uriAddBaseUriImplW.exit, label %54
+37:                                               ; preds = %35
+  %38 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not100.i = icmp eq i32 %38, 0
+  br i1 %.not100.i, label %uriAddBaseUriImplW.exit, label %39
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %56 = load ptr, ptr %55, align 8, !tbaa !30
-  %.not89.i = icmp eq ptr %56, null
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  br i1 %.not89.i, label %59, label %58
-
-58:                                               ; preds = %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !26
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !26
   br label %78
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !26
-  br label %78
+42:                                               ; preds = %31
+  %43 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not86.i = icmp eq i32 %43, 0
+  br i1 %.not86.i, label %uriAddBaseUriImplW.exit, label %44
 
-61:                                               ; preds = %45
-  br i1 %.not87.i, label %67, label %.thread113.i
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %46 = load ptr, ptr %45, align 8, !tbaa !28
+  %47 = icmp eq ptr %46, null
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %49 = load i32, ptr %48, align 8, !tbaa !29
+  %.not87.i = icmp eq i32 %49, 0
+  br i1 %47, label %50, label %60
 
-.thread113.i:                                     ; preds = %61, %51
-  %62 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
-  %.not95.i = icmp eq i32 %62, 0
-  br i1 %.not95.i, label %uriAddBaseUriImplW.exit, label %63
+50:                                               ; preds = %44
+  br i1 %.not87.i, label %51, label %.thread113.i
 
-63:                                               ; preds = %.thread113.i
-  %64 = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef %0, ptr noundef nonnull %.013)
-  %.not96.i = icmp eq i32 %64, 0
-  br i1 %.not96.i, label %65, label %uriAddBaseUriImplW.exit
+51:                                               ; preds = %50
+  %52 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not88.i = icmp eq i32 %52, 0
+  br i1 %.not88.i, label %uriAddBaseUriImplW.exit, label %53
 
-65:                                               ; preds = %63
-  %66 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not97.not.i = icmp eq i32 %66, 0
-  br i1 %.not97.not.i, label %uriAddBaseUriImplW.exit, label %75
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %55 = load ptr, ptr %54, align 8, !tbaa !30
+  %.not89.i = icmp eq ptr %55, null
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br i1 %.not89.i, label %58, label %57
 
-67:                                               ; preds = %61
-  %68 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
-  %.not91.i = icmp eq i32 %68, 0
-  br i1 %.not91.i, label %uriAddBaseUriImplW.exit, label %69
+57:                                               ; preds = %53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !26
+  br label %77
 
-69:                                               ; preds = %67
-  %70 = tail call fastcc i32 @uriMergePathW(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.013)
-  %.not92.i = icmp eq i32 %70, 0
-  br i1 %.not92.i, label %uriAddBaseUriImplW.exit, label %71
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !26
+  br label %77
 
-71:                                               ; preds = %69
-  %72 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not93.i = icmp eq i32 %72, 0
-  br i1 %.not93.i, label %uriAddBaseUriImplW.exit, label %73
+60:                                               ; preds = %44
+  br i1 %.not87.i, label %66, label %.thread113.i
 
-73:                                               ; preds = %71
-  %74 = tail call i32 @uriFixAmbiguityW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
-  %.not94.i = icmp eq i32 %74, 0
-  br i1 %.not94.i, label %uriAddBaseUriImplW.exit, label %75
+.thread113.i:                                     ; preds = %60, %50
+  %61 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not95.i = icmp eq i32 %61, 0
+  br i1 %.not95.i, label %uriAddBaseUriImplW.exit, label %62
 
-75:                                               ; preds = %73, %65
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !26
-  br label %78
+62:                                               ; preds = %.thread113.i
+  %63 = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef %0, ptr noundef nonnull %.013)
+  %.not96.i = icmp eq i32 %63, 0
+  br i1 %.not96.i, label %64, label %uriAddBaseUriImplW.exit
 
-78:                                               ; preds = %75, %59, %58
+64:                                               ; preds = %62
+  %65 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not97.not.i = icmp eq i32 %65, 0
+  br i1 %.not97.not.i, label %uriAddBaseUriImplW.exit, label %74
+
+66:                                               ; preds = %60
+  %67 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not91.i = icmp eq i32 %67, 0
+  br i1 %.not91.i, label %uriAddBaseUriImplW.exit, label %68
+
+68:                                               ; preds = %66
+  %69 = tail call fastcc i32 @uriMergePathW(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.013)
+  %.not92.i = icmp eq i32 %69, 0
+  br i1 %.not92.i, label %uriAddBaseUriImplW.exit, label %70
+
+70:                                               ; preds = %68
+  %71 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not93.i = icmp eq i32 %71, 0
+  br i1 %.not93.i, label %uriAddBaseUriImplW.exit, label %72
+
+72:                                               ; preds = %70
+  %73 = tail call i32 @uriFixAmbiguityW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not94.i = icmp eq i32 %73, 0
+  br i1 %.not94.i, label %uriAddBaseUriImplW.exit, label %74
+
+74:                                               ; preds = %72, %64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !26
+  br label %77
+
+77:                                               ; preds = %74, %58, %57
   tail call void @uriFixEmptyTrailSegmentW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  br label %78
+
+78:                                               ; preds = %77, %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !26
   br label %79
 
-79:                                               ; preds = %78, %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !26
-  br label %80
-
-80:                                               ; preds = %79, %29
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !26
+79:                                               ; preds = %78, %28
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !26
   br label %uriAddBaseUriImplW.exit.thread
 
-uriAddBaseUriImplW.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread113.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
-  %.0.i = phi i32 [ 3, %38 ], [ %64, %63 ], [ 2, %11 ], [ 3, %.thread113.i ], [ 3, %25 ], [ 3, %23 ], [ 5, %14 ], [ 3, %36 ], [ 3, %34 ], [ 3, %27 ], [ 3, %65 ], [ 3, %71 ], [ 3, %69 ], [ 3, %67 ], [ 3, %52 ], [ 3, %43 ], [ 3, %73 ]
-  %83 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+uriAddBaseUriImplW.exit:                          ; preds = %72, %70, %68, %66, %64, %62, %.thread113.i, %51, %42, %37, %35, %33, %26, %24, %22, %14, %11
+  %.0.i = phi i32 [ 3, %37 ], [ %63, %62 ], [ 2, %11 ], [ 3, %.thread113.i ], [ 3, %24 ], [ 3, %22 ], [ 5, %14 ], [ 3, %35 ], [ 3, %33 ], [ 3, %26 ], [ 3, %64 ], [ 3, %70 ], [ 3, %68 ], [ 3, %66 ], [ 3, %51 ], [ 3, %42 ], [ 3, %72 ]
+  %82 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
   br label %uriAddBaseUriImplW.exit.thread
 
-uriAddBaseUriImplW.exit.thread:                   ; preds = %9, %80, %uriAddBaseUriImplW.exit, %7
-  %.0 = phi i32 [ 10, %7 ], [ %.0.i, %uriAddBaseUriImplW.exit ], [ 2, %9 ], [ 0, %80 ]
+uriAddBaseUriImplW.exit.thread:                   ; preds = %9, %79, %uriAddBaseUriImplW.exit, %7
+  %.0 = phi i32 [ 10, %7 ], [ %.0.i, %uriAddBaseUriImplW.exit ], [ 2, %9 ], [ 0, %79 ]
   ret i32 %.0
 }
 

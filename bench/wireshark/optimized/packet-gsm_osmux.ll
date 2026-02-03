@@ -463,9 +463,9 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %24 = lshr i8 %16, 1
   %.lobit85 = and i8 %24, 1
   store i8 %.lobit85, ptr %23, align 4
-  %25 = and i8 %16, 1
-  %26 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  store i8 %25, ptr %26, align 1
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 3
+  %26 = and i8 %16, 1
+  store i8 %26, ptr %25, align 1
   %27 = load ptr, ptr %7, align 8
   call void @col_append_sep_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58)
   %28 = load ptr, ptr %7, align 8

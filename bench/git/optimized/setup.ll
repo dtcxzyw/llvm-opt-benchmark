@@ -3235,26 +3235,25 @@ define internal void @update_relative_gitdir(ptr readnone captures(none) %0, ptr
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 8), align 8, !tbaa !71
   %.not.i = icmp eq i32 %9, 0
   %10 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_setup_key, i64 12), align 4
-  %11 = and i8 %10, 1
-  %.not10 = icmp ne i8 %11, 0
+  %.not10 = trunc i8 %10 to i1
   %.not = select i1 %.not.i, i1 %.not10, i1 false
-  br i1 %.not, label %13, label %12
+  br i1 %.not, label %12, label %11
 
-12:                                               ; preds = %4
+11:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.39, i32 noundef 1678, ptr noundef nonnull @trace_setup_key, ptr noundef nonnull @.str.127, ptr noundef %7) #25
-  br label %13
+  br label %12
 
-13:                                               ; preds = %12, %4
+12:                                               ; preds = %11, %4
   tail call void @xsetenv(ptr noundef nonnull @.str.62, ptr noundef %7, i32 noundef 1) #25
   tail call void @setup_git_env(ptr noundef %7)
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %15, label %14
+  br i1 %.not9, label %14, label %13
 
-14:                                               ; preds = %13
+13:                                               ; preds = %12
   tail call void @tmp_objdir_reapply_primary_odb(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2) #25
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %13
+14:                                               ; preds = %13, %12
   tail call void @free(ptr noundef %7) #25
   ret void
 }

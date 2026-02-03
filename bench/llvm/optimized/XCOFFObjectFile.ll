@@ -7992,9 +7992,8 @@ define dso_local noundef zeroext range(i8 0, -128) i8 @_ZNK4llvm6object11TBVecto
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object11TBVectorExt17hasVMXInstructionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
   %2 = load i16, ptr %0, align 8, !tbaa !859
-  %3 = and i16 %2, 1
-  %4 = icmp ne i16 %3, 0
-  ret i1 %4
+  %3 = trunc i16 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

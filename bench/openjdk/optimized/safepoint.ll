@@ -1821,9 +1821,8 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZNK5frame16saved_o
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 1096
   %60 = load volatile i64, ptr %59, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
-  %61 = and i64 %60, 1
-  %.not.i.i21 = icmp eq i64 %61, 0
-  br i1 %.not.i.i21, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i, label %62
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %62, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i
 
 62:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext true) #17
@@ -1833,8 +1832,8 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i: ; preds = 
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 1088
   %64 = load volatile i32, ptr %63, align 8
   %65 = and i32 %64, 12
-  %.not.i22 = icmp eq i32 %65, 0
-  br i1 %.not.i22, label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit, label %66
+  %.not.i21 = icmp eq i32 %65, 0
+  br i1 %.not.i21, label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit, label %66
 
 66:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i
   call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %9) #17
@@ -1852,57 +1851,56 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN18SafepointMecha
   %70 = phi ptr [ %69, %68 ], [ null, %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit ]
   %71 = load i64, ptr %34, align 8
   %72 = and i64 %71, 1
-  %.not.i.i23 = icmp eq i64 %72, 0
-  br i1 %.not.i.i23, label %75, label %73
+  %.not.i.i22 = icmp eq i64 %72, 0
+  br i1 %.not.i.i22, label %75, label %73
 
 73:                                               ; preds = %_ZNK6HandleclEv.exit
   %74 = load ptr, ptr %3, align 8
-  br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i24
+  br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i23
 
 75:                                               ; preds = %_ZNK6HandleclEv.exit
   %76 = call noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(4983) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1)) #17
-  br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i24
+  br label %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i23
 
-_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i24: ; preds = %75, %73
-  %.0.i.i25 = phi ptr [ %74, %73 ], [ %76, %75 ]
-  %.not.i26 = icmp eq ptr %.0.i.i25, null
-  br i1 %.not.i26, label %77, label %_ZN5frame20set_saved_oop_resultEP11RegisterMapP7oopDesc.exit
+_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i23: ; preds = %75, %73
+  %.0.i.i24 = phi ptr [ %74, %73 ], [ %76, %75 ]
+  %.not.i25 = icmp eq ptr %.0.i.i24, null
+  br i1 %.not.i25, label %77, label %_ZN5frame20set_saved_oop_resultEP11RegisterMapP7oopDesc.exit
 
-77:                                               ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i24
+77:                                               ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i23
   %78 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %78, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.35, i32 noundef 333, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37) #18
   unreachable
 
-_ZN5frame20set_saved_oop_resultEP11RegisterMapP7oopDesc.exit: ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i24
-  store ptr %70, ptr %.0.i.i25, align 8
-  br label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit30
+_ZN5frame20set_saved_oop_resultEP11RegisterMapP7oopDesc.exit: ; preds = %_ZNK11RegisterMap8locationEP9VMRegImplPl.exit.i23
+  store ptr %70, ptr %.0.i.i24, align 8
+  br label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit28
 
 .critedge:                                        ; preds = %25
   call void @_ZN17StackWatermarkSet12after_unwindEP10JavaThread(ptr noundef nonnull %9) #17
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 1096
   %80 = load volatile i64, ptr %79, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
-  %81 = and i64 %80, 1
-  %.not.i.i27 = icmp eq i64 %81, 0
-  br i1 %.not.i.i27, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i28, label %82
+  %81 = trunc i64 %80 to i1
+  br i1 %81, label %82, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i26
 
 82:                                               ; preds = %.critedge
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext true) #17
-  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i28
+  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i26
 
-_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i28: ; preds = %82, %.critedge
+_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i26: ; preds = %82, %.critedge
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 1088
   %84 = load volatile i32, ptr %83, align 8
   %85 = and i32 %84, 12
-  %.not.i29 = icmp eq i32 %85, 0
-  br i1 %.not.i29, label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit30, label %86
+  %.not.i27 = icmp eq i32 %85, 0
+  br i1 %.not.i27, label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit28, label %86
 
-86:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i28
+86:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i26
   call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %9) #17
-  br label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit30
+  br label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit28
 
-_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit30: ; preds = %86, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i28, %_ZN5frame20set_saved_oop_resultEP11RegisterMapP7oopDesc.exit
+_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit28: ; preds = %86, %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i26, %_ZN5frame20set_saved_oop_resultEP11RegisterMapP7oopDesc.exit
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   br label %120
 
@@ -1911,32 +1909,31 @@ _ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exi
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 1096
   %89 = load volatile i64, ptr %88, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
-  %90 = and i64 %89, 1
-  %.not.i.i31 = icmp eq i64 %90, 0
-  br i1 %.not.i.i31, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i32, label %91
+  %90 = trunc i64 %89 to i1
+  br i1 %90, label %91, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i29
 
 91:                                               ; preds = %87
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false) #17
-  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i32
+  br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i29
 
-_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i32: ; preds = %91, %87
+_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i29: ; preds = %91, %87
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 1088
   %93 = load volatile i32, ptr %92, align 8
   %94 = and i32 %93, 12
-  %.not.i33 = icmp eq i32 %94, 0
-  br i1 %.not.i33, label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit34, label %95
+  %.not.i30 = icmp eq i32 %94, 0
+  br i1 %.not.i30, label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit31, label %95
 
-95:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i32
+95:                                               ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i29
   call void @_ZN10JavaThread37handle_special_runtime_exit_conditionEv(ptr noundef nonnull align 8 dereferenceable(1800) %9) #17
-  br label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit34
+  br label %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit31
 
-_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit34: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i32, %95
+_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit31: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i29, %95
   store volatile i8 0, ptr %0, align 8
   %96 = getelementptr inbounds nuw i8, ptr %9, i64 1384
   %97 = call noundef zeroext i1 @_ZN14HandshakeState29has_async_exception_operationEv(ptr noundef nonnull align 8 dereferenceable(131) %96) #17
   br i1 %97, label %98, label %103
 
-98:                                               ; preds = %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit34
+98:                                               ; preds = %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit31
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %100 = load ptr, ptr %99, align 8
   call void @_ZN14Deoptimization16deoptimize_frameEP10JavaThreadPl(ptr noundef nonnull %9, ptr noundef %100) #17
@@ -1948,11 +1945,11 @@ _ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exi
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE42ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.19)
   br label %103
 
-103:                                              ; preds = %102, %98, %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit34
+103:                                              ; preds = %102, %98, %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit31
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %105 = load ptr, ptr %104, align 8
-  %.not40 = icmp eq ptr %105, null
-  br i1 %.not40, label %120, label %106
+  %.not37 = icmp eq ptr %105, null
+  br i1 %.not37, label %120, label %106
 
 106:                                              ; preds = %103
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %6, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 0, i32 noundef 0) #17
@@ -1960,36 +1957,36 @@ _ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exi
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 4981
   %108 = load i8, ptr %107, align 1, !noalias !23
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %110, label %_ZNK5frame6senderEP11RegisterMap.exit38
+  br i1 %109, label %110, label %_ZNK5frame6senderEP11RegisterMap.exit35
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 4968
   %112 = load ptr, ptr %111, align 8, !noalias !23
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %_ZNK11RegisterMap7in_contEv.exit.thread.i37, label %_ZNK11RegisterMap7in_contEv.exit.i35
+  br i1 %113, label %_ZNK11RegisterMap7in_contEv.exit.thread.i34, label %_ZNK11RegisterMap7in_contEv.exit.i32
 
-_ZNK11RegisterMap7in_contEv.exit.i35:             ; preds = %110
+_ZNK11RegisterMap7in_contEv.exit.i32:             ; preds = %110
   %114 = load ptr, ptr %112, align 8
-  %.not.i36 = icmp eq ptr %114, null
-  br i1 %.not.i36, label %_ZNK11RegisterMap7in_contEv.exit.thread.i37, label %_ZNK5frame6senderEP11RegisterMap.exit38
+  %.not.i33 = icmp eq ptr %114, null
+  br i1 %.not.i33, label %_ZNK11RegisterMap7in_contEv.exit.thread.i34, label %_ZNK5frame6senderEP11RegisterMap.exit35
 
-_ZNK11RegisterMap7in_contEv.exit.thread.i37:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i35, %110
+_ZNK11RegisterMap7in_contEv.exit.thread.i34:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i32, %110
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 4960
   %116 = load ptr, ptr %115, align 8, !noalias !23
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(56) %7) #17
-  br label %_ZNK5frame6senderEP11RegisterMap.exit38
+  br label %_ZNK5frame6senderEP11RegisterMap.exit35
 
-_ZNK5frame6senderEP11RegisterMap.exit38:          ; preds = %106, %_ZNK11RegisterMap7in_contEv.exit.i35, %_ZNK11RegisterMap7in_contEv.exit.thread.i37
+_ZNK5frame6senderEP11RegisterMap.exit35:          ; preds = %106, %_ZNK11RegisterMap7in_contEv.exit.i32, %_ZNK11RegisterMap7in_contEv.exit.thread.i34
   %117 = call noundef zeroext i1 @_ZNK5frame20is_deoptimized_frameEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
   br i1 %117, label %118, label %120
 
-118:                                              ; preds = %_ZNK5frame6senderEP11RegisterMap.exit38
+118:                                              ; preds = %_ZNK5frame6senderEP11RegisterMap.exit35
   %119 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %119, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.6, i32 noundef 852, ptr noundef nonnull @.str.20) #18
   unreachable
 
-120:                                              ; preds = %103, %_ZNK5frame6senderEP11RegisterMap.exit38, %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit30
+120:                                              ; preds = %103, %_ZNK5frame6senderEP11RegisterMap.exit35, %_ZN18SafepointMechanism36process_if_requested_with_exit_checkEP10JavaThreadb.exit28
   ret void
 }
 

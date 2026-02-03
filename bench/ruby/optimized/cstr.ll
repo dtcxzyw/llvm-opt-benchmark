@@ -102,9 +102,8 @@ RSTRING_PTR.exit.i:                               ; preds = %21, %18
   br label %rb_num2char_inline.exit
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %14, %rbimpl_RB_TYPE_P_fastpath.exit.i, %2
-  %23 = and i64 %1, 1
-  %.not.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i, label %26, label %24
+  %23 = trunc i64 %1 to i1
+  br i1 %23, label %24, label %26
 
 24:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
   %25 = tail call i64 @rb_fix2int(i64 noundef %1) #9
@@ -123,9 +122,9 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %.0.i = phi i8 [ %22, %RSTRING_PTR.exit.i ], [ %28, %rb_num2int_inline.exit.i ]
   %29 = load i64, ptr %3, align 8, !tbaa !18, !noalias !20
   %30 = and i64 %29, 8192
-  %.not.i.i6 = icmp eq i64 %30, 0
+  %.not.i.i = icmp eq i64 %30, 0
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br i1 %.not.i.i6, label %RSTRING_PTR.exit, label %32
+  br i1 %.not.i.i, label %RSTRING_PTR.exit, label %32
 
 32:                                               ; preds = %rb_num2char_inline.exit
   %.sroa.2.0.copyload.i = load ptr, ptr %31, align 8
@@ -189,9 +188,8 @@ rbimpl_rstring_getmem.exit:                       ; preds = %1, %7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @bug_str_unterminated_substring(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = and i64 %1, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %7, label %5
+  %4 = trunc i64 %1 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = ashr i64 %1, 1
@@ -203,30 +201,29 @@ define internal i64 @bug_str_unterminated_substring(i64 noundef %0, i64 noundef 
 
 rb_num2long_inline.exit:                          ; preds = %5, %7
   %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ]
-  %9 = and i64 %2, 1
-  %.not.i28 = icmp eq i64 %9, 0
-  br i1 %.not.i28, label %12, label %10
+  %9 = trunc i64 %2 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %rb_num2long_inline.exit
   %11 = ashr i64 %2, 1
-  br label %rb_num2long_inline.exit30
+  br label %rb_num2long_inline.exit29
 
 12:                                               ; preds = %rb_num2long_inline.exit
   %13 = tail call i64 @rb_num2long(i64 noundef %2) #9
-  br label %rb_num2long_inline.exit30
+  br label %rb_num2long_inline.exit29
 
-rb_num2long_inline.exit30:                        ; preds = %10, %12
-  %.0.i29 = phi i64 [ %11, %10 ], [ %13, %12 ]
+rb_num2long_inline.exit29:                        ; preds = %10, %12
+  %.0.i28 = phi i64 [ %11, %10 ], [ %13, %12 ]
   tail call void @rb_str_modify(i64 noundef %0) #9
-  %14 = icmp slt i64 %.0.i29, 0
+  %14 = icmp slt i64 %.0.i28, 0
   br i1 %14, label %15, label %17
 
-15:                                               ; preds = %rb_num2long_inline.exit30
+15:                                               ; preds = %rb_num2long_inline.exit29
   %16 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.7, i64 noundef %.0.i29) #10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.7, i64 noundef %.0.i28) #10
   unreachable
 
-17:                                               ; preds = %rb_num2long_inline.exit30
+17:                                               ; preds = %rb_num2long_inline.exit29
   %18 = inttoptr i64 %0 to ptr
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !10
@@ -239,7 +236,7 @@ rb_num2long_inline.exit30:                        ; preds = %10, %12
   unreachable
 
 24:                                               ; preds = %17
-  %25 = add nsw i64 %.0.i29, %.0.i
+  %25 = add nsw i64 %.0.i28, %.0.i
   %26 = icmp slt i64 %20, %25
   br i1 %26, label %27, label %29
 
@@ -252,16 +249,16 @@ rb_num2long_inline.exit30:                        ; preds = %10, %12
   %30 = tail call i64 @rb_str_new_shared(i64 noundef %0) #9
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %.0.i29, ptr %32, align 8, !tbaa !10
+  store i64 %.0.i28, ptr %32, align 8, !tbaa !10
   %33 = load i64, ptr %31, align 8, !tbaa !18
   %34 = and i64 %33, 8192
-  %.not.i31 = icmp eq i64 %34, 0
+  %.not.i = icmp eq i64 %34, 0
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  br i1 %.not.i31, label %36, label %38
+  br i1 %.not.i, label %36, label %38
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %35, i64 %.0.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %35, ptr noundef nonnull align 1 %37, i64 noundef range(i64 0, -9223372036854775808) %.0.i29, i1 noundef false) #9
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %35, ptr noundef nonnull align 1 %37, i64 noundef range(i64 0, -9223372036854775808) %.0.i28, i1 noundef false) #9
   br label %41
 
 38:                                               ; preds = %29
@@ -376,9 +373,8 @@ RSTRING_PTR.exit.i.i:                             ; preds = %29, %26
   br label %rb_num2char_inline.exit.i
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %22, %rbimpl_RB_TYPE_P_fastpath.exit.i.i, %Check_Type.exit
-  %31 = and i64 %2, 1
-  %.not.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i, label %34, label %32
+  %31 = trunc i64 %2 to i1
+  br i1 %31, label %32, label %34
 
 32:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i
   %33 = tail call i64 @rb_fix2int(i64 noundef %2) #9
@@ -397,9 +393,9 @@ rb_num2char_inline.exit.i:                        ; preds = %rb_num2int_inline.e
   %.0.i.i = phi i8 [ %30, %RSTRING_PTR.exit.i.i ], [ %36, %rb_num2int_inline.exit.i.i ]
   %37 = load i64, ptr %8, align 8, !tbaa !18, !noalias !29
   %38 = and i64 %37, 8192
-  %.not.i.i6.i = icmp eq i64 %38, 0
+  %.not.i.i.i = icmp eq i64 %38, 0
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  br i1 %.not.i.i6.i, label %bug_str_cstr_unterm.exit, label %40
+  br i1 %.not.i.i.i, label %bug_str_cstr_unterm.exit, label %40
 
 40:                                               ; preds = %rb_num2char_inline.exit.i
   %.sroa.2.0.copyload.i.i = load ptr, ptr %39, align 8

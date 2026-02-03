@@ -706,9 +706,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit45: ; preds = %_ZNSt7__cxx
   br i1 %66, label %88, label %67
 
 67:                                               ; preds = %64
-  %68 = and i64 %65, 1
-  %.not.i46 = icmp eq i64 %68, 0
-  br i1 %.not.i46, label %69, label %75
+  %68 = trunc i64 %65 to i1
+  br i1 %68, label %75, label %69
 
 69:                                               ; preds = %67
   %70 = inttoptr i64 %65 to ptr
@@ -720,14 +719,14 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit45: ; preds = %_ZNSt7__cxx
 
 75:                                               ; preds = %67
   %76 = and i64 %65, 2
-  %.not1.i = icmp eq i64 %76, 0
-  %spec.select.i = select i1 %.not1.i, i64 0, i64 27
-  %spec.select2.i = select i1 %.not1.i, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
+  %.not.i46 = icmp eq i64 %76, 0
+  %spec.select.i = select i1 %.not.i46, i64 0, i64 27
+  %spec.select1.i = select i1 %.not.i46, ptr null, ptr @_ZN4absl12lts_202407226Status16kMovedFromStringE
   br label %77
 
 77:                                               ; preds = %75, %69
   %.sroa.0.0.i = phi i64 [ %spec.select.i, %75 ], [ %74, %69 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %75 ], [ %72, %69 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select1.i, %75 ], [ %72, %69 ]
   invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %3, i64 %.sroa.0.0.i, ptr %.sroa.4.0.i)
           to label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEaSEOS3_.exit unwind label %86
 
@@ -806,9 +805,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %_ZN9grpc_core13RefC
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_19LoadBalancingPolicy6ConfigEEEED2Ev.exit
 
 113:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEEaSEOS3_.exit
-  %114 = and i64 %101, 1
-  %.not.i.i1.i = icmp eq i64 %114, 0
-  br i1 %.not.i.i1.i, label %115, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_19LoadBalancingPolicy6ConfigEEEED2Ev.exit
+  %114 = trunc i64 %101 to i1
+  br i1 %114, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_19LoadBalancingPolicy6ConfigEEEED2Ev.exit, label %115
 
 115:                                              ; preds = %113
   %116 = inttoptr i64 %101 to ptr
@@ -1109,9 +1107,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
 
 14:                                               ; preds = %1
-  %15 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %15, 0
-  br i1 %.not.i.i1, label %16, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
+  %15 = trunc i64 %2 to i1
+  br i1 %15, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit, label %16
 
 16:                                               ; preds = %14
   %17 = inttoptr i64 %2 to ptr

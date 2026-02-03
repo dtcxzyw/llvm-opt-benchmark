@@ -1293,13 +1293,13 @@ define range(i32 -1, 2) i32 @ssl_get_prev_session(ptr noundef %0, ptr noundef %1
   %17 = load ptr, ptr %16, align 8, !tbaa !145
   %18 = tail call i32 @tls_parse_extension(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 128, ptr noundef %17, ptr noundef null, i64 noundef 0) #11
   %.not57 = icmp eq i32 %18, 0
-  br i1 %.not57, label %118, label %19
+  br i1 %.not57, label %117, label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %16, align 8, !tbaa !145
   %21 = tail call i32 @tls_parse_extension(ptr noundef nonnull %0, i32 noundef 28, i32 noundef 128, ptr noundef %20, ptr noundef null, i64 noundef 0) #11
   %.not58 = icmp eq i32 %21, 0
-  br i1 %.not58, label %118, label %22
+  br i1 %.not58, label %117, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2304
@@ -1320,7 +1320,7 @@ define range(i32 -1, 2) i32 @ssl_get_prev_session(ptr noundef %0, ptr noundef %1
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 615, ptr noundef nonnull @__func__.ssl_get_prev_session) #11
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #11
-  br label %101
+  br label %100
 
 28:                                               ; preds = %25, %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1343,14 +1343,14 @@ thread-pre-split:                                 ; preds = %28, %25
   %.not70 = phi i1 [ true, %thread-pre-split ], [ false, %31 ], [ true, %22 ]
   %.047 = phi i32 [ 0, %thread-pre-split ], [ 1, %31 ], [ 0, %22 ]
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %101, label %37
+  br i1 %36, label %100, label %37
 
 37:                                               ; preds = %34
   %38 = load i32, ptr %35, align 8, !tbaa !129
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = load i32, ptr %39, align 8, !tbaa !95
   %.not60 = icmp eq i32 %38, %40
-  br i1 %.not60, label %41, label %101
+  br i1 %.not60, label %41, label %100
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 632
@@ -1358,152 +1358,151 @@ thread-pre-split:                                 ; preds = %28, %25
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %45 = load i64, ptr %44, align 8, !tbaa !128
   %.not61 = icmp eq i64 %43, %45
-  br i1 %.not61, label %46, label %101
+  br i1 %.not61, label %46, label %100
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 640
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %bcmp = call i32 @bcmp(ptr nonnull %47, ptr nonnull %48, i64 %43)
   %.not62 = icmp eq i32 %bcmp, 0
-  br i1 %.not62, label %49, label %101
+  br i1 %.not62, label %49, label %100
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %51 = load i32, ptr %50, align 8, !tbaa !150
-  %52 = and i32 %51, 1
-  %.not63 = icmp ne i32 %52, 0
-  %53 = icmp eq i64 %43, 0
-  %or.cond76 = and i1 %53, %.not63
-  br i1 %or.cond76, label %54, label %55
+  %.not63 = trunc i32 %51 to i1
+  %52 = icmp eq i64 %43, 0
+  %or.cond76 = and i1 %52, %.not63
+  br i1 %or.cond76, label %53, label %54
 
-54:                                               ; preds = %49
+53:                                               ; preds = %49
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 662, ptr noundef nonnull @__func__.ssl_get_prev_session) #11
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 277, ptr noundef null) #11
-  br label %101
+  br label %100
 
-55:                                               ; preds = %49
-  %56 = call i64 @ossl_time_now() #11
-  %57 = load ptr, ptr %3, align 8, !tbaa !144
-  %58 = getelementptr i8, ptr %57, i64 744
-  %.val = load i64, ptr %58, align 8
-  %.not79 = icmp ugt i64 %56, %.val
-  br i1 %.not79, label %59, label %67
+54:                                               ; preds = %49
+  %55 = call i64 @ossl_time_now() #11
+  %56 = load ptr, ptr %3, align 8, !tbaa !144
+  %57 = getelementptr i8, ptr %56, i64 744
+  %.val = load i64, ptr %57, align 8
+  %.not79 = icmp ugt i64 %55, %.val
+  br i1 %.not79, label %58, label %66
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2952
-  %61 = load ptr, ptr %60, align 8, !tbaa !98
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 148
-  %63 = atomicrmw add ptr %62, i32 1 monotonic, align 4
-  br i1 %.not70, label %101, label %64
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2952
+  %60 = load ptr, ptr %59, align 8, !tbaa !98
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 148
+  %62 = atomicrmw add ptr %61, i32 1 monotonic, align 4
+  br i1 %.not70, label %100, label %63
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %60, align 8, !tbaa !98
-  %66 = call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %65, ptr noundef nonnull %57, i32 noundef 1)
-  br label %101
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %59, align 8, !tbaa !98
+  %65 = call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %64, ptr noundef nonnull %56, i32 noundef 1)
+  br label %100
 
-67:                                               ; preds = %55
-  %68 = getelementptr inbounds nuw i8, ptr %57, i64 888
-  %69 = load i32, ptr %68, align 8, !tbaa !131
-  %70 = and i32 %69, 1
-  %.not65 = icmp eq i32 %70, 0
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %72 = load i64, ptr %71, align 8, !tbaa !130
-  %73 = and i64 %72, 512
-  %.not66 = icmp eq i64 %73, 0
-  br i1 %.not65, label %76, label %74
+66:                                               ; preds = %54
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 888
+  %68 = load i32, ptr %67, align 8, !tbaa !131
+  %69 = and i32 %68, 1
+  %.not65 = icmp eq i32 %69, 0
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %71 = load i64, ptr %70, align 8, !tbaa !130
+  %72 = and i64 %71, 512
+  %.not66 = icmp eq i64 %72, 0
+  br i1 %.not65, label %75, label %73
 
-74:                                               ; preds = %67
-  br i1 %.not66, label %75, label %77
+73:                                               ; preds = %66
+  br i1 %.not66, label %74, label %76
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 680, ptr noundef nonnull @__func__.ssl_get_prev_session) #11
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 47, i32 noundef 104, ptr noundef null) #11
-  br label %101
+  br label %100
 
-76:                                               ; preds = %67
-  br i1 %.not66, label %77, label %101
+75:                                               ; preds = %66
+  br i1 %.not66, label %76, label %100
 
-77:                                               ; preds = %76, %74
-  %78 = load ptr, ptr %4, align 8, !tbaa !120
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 216
-  %80 = load ptr, ptr %79, align 8, !tbaa !124
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 80
-  %82 = load i32, ptr %81, align 8, !tbaa !125
-  %83 = and i32 %82, 8
-  %.not68 = icmp eq i32 %83, 0
-  br i1 %.not68, label %84, label %87
+76:                                               ; preds = %75, %73
+  %77 = load ptr, ptr %4, align 8, !tbaa !120
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 216
+  %79 = load ptr, ptr %78, align 8, !tbaa !124
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 80
+  %81 = load i32, ptr %80, align 8, !tbaa !125
+  %82 = and i32 %81, 8
+  %.not68 = icmp eq i32 %82, 0
+  br i1 %.not68, label %83, label %86
 
-84:                                               ; preds = %77
-  %85 = load i32, ptr %78, align 8, !tbaa !127
-  %86 = icmp slt i32 %85, 772
-  %.not69 = icmp eq i32 %85, 65536
-  %or.cond77 = or i1 %86, %.not69
-  br i1 %or.cond77, label %87, label %91
+83:                                               ; preds = %76
+  %84 = load i32, ptr %77, align 8, !tbaa !127
+  %85 = icmp slt i32 %84, 772
+  %.not69 = icmp eq i32 %84, 65536
+  %or.cond77 = or i1 %85, %.not69
+  br i1 %or.cond77, label %86, label %90
 
-87:                                               ; preds = %84, %77
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %89 = load ptr, ptr %88, align 8, !tbaa !17
-  call void @SSL_SESSION_free(ptr noundef %89)
-  %90 = load ptr, ptr %3, align 8, !tbaa !144
-  store ptr %90, ptr %88, align 8, !tbaa !17
-  br label %91
+86:                                               ; preds = %83, %76
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %88 = load ptr, ptr %87, align 8, !tbaa !17
+  call void @SSL_SESSION_free(ptr noundef %88)
+  %89 = load ptr, ptr %3, align 8, !tbaa !144
+  store ptr %89, ptr %87, align 8, !tbaa !17
+  br label %90
 
-91:                                               ; preds = %84, %87
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 2952
-  %93 = load ptr, ptr %92, align 8, !tbaa !98
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 156
-  %95 = atomicrmw add ptr %94, i32 1 monotonic, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  %97 = load ptr, ptr %96, align 8, !tbaa !17
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 720
-  %99 = load i64, ptr %98, align 8, !tbaa !75
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2456
-  store i64 %99, ptr %100, align 8, !tbaa !151
-  br label %118
+90:                                               ; preds = %83, %86
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2952
+  %92 = load ptr, ptr %91, align 8, !tbaa !98
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 156
+  %94 = atomicrmw add ptr %93, i32 1 monotonic, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  %96 = load ptr, ptr %95, align 8, !tbaa !17
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 720
+  %98 = load i64, ptr %97, align 8, !tbaa !75
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 2456
+  store i64 %98, ptr %99, align 8, !tbaa !151
+  br label %117
 
-101:                                              ; preds = %76, %59, %64, %41, %46, %37, %34, %75, %54, %27
-  %.1 = phi i32 [ %.047, %34 ], [ %.047, %37 ], [ %.047, %41 ], [ %.047, %46 ], [ %.047, %54 ], [ 1, %64 ], [ 0, %59 ], [ %.047, %75 ], [ %.047, %76 ], [ 0, %27 ]
-  %not..not75 = phi i32 [ 0, %34 ], [ 0, %37 ], [ 0, %41 ], [ 0, %46 ], [ -1, %54 ], [ 0, %64 ], [ 0, %59 ], [ -1, %75 ], [ 0, %76 ], [ -1, %27 ]
-  %102 = load ptr, ptr %3, align 8, !tbaa !144
-  %.not71 = icmp eq ptr %102, null
-  br i1 %.not71, label %118, label %103
+100:                                              ; preds = %75, %58, %63, %41, %46, %37, %34, %74, %53, %27
+  %.1 = phi i32 [ %.047, %34 ], [ %.047, %37 ], [ %.047, %41 ], [ %.047, %46 ], [ %.047, %53 ], [ 1, %63 ], [ 0, %58 ], [ %.047, %74 ], [ %.047, %75 ], [ 0, %27 ]
+  %not..not75 = phi i32 [ 0, %34 ], [ 0, %37 ], [ 0, %41 ], [ 0, %46 ], [ -1, %53 ], [ 0, %63 ], [ 0, %58 ], [ -1, %74 ], [ 0, %75 ], [ -1, %27 ]
+  %101 = load ptr, ptr %3, align 8, !tbaa !144
+  %.not71 = icmp eq ptr %101, null
+  br i1 %.not71, label %117, label %102
 
-103:                                              ; preds = %101
-  call void @SSL_SESSION_free(ptr noundef nonnull %102)
-  %104 = load ptr, ptr %4, align 8, !tbaa !120
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 216
-  %106 = load ptr, ptr %105, align 8, !tbaa !124
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
-  %108 = load i32, ptr %107, align 8, !tbaa !125
-  %109 = and i32 %108, 8
-  %.not72 = icmp eq i32 %109, 0
-  br i1 %.not72, label %110, label %115
+102:                                              ; preds = %100
+  call void @SSL_SESSION_free(ptr noundef nonnull %101)
+  %103 = load ptr, ptr %4, align 8, !tbaa !120
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 216
+  %105 = load ptr, ptr %104, align 8, !tbaa !124
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
+  %107 = load i32, ptr %106, align 8, !tbaa !125
+  %108 = and i32 %107, 8
+  %.not72 = icmp eq i32 %108, 0
+  br i1 %.not72, label %109, label %114
 
-110:                                              ; preds = %103
-  %111 = load i32, ptr %104, align 8, !tbaa !127
-  %112 = icmp slt i32 %111, 772
-  %.not73 = icmp eq i32 %111, 65536
-  %or.cond78 = or i1 %112, %.not73
-  br i1 %or.cond78, label %115, label %113
+109:                                              ; preds = %102
+  %110 = load i32, ptr %103, align 8, !tbaa !127
+  %111 = icmp slt i32 %110, 772
+  %.not73 = icmp eq i32 %110, 65536
+  %or.cond78 = or i1 %111, %.not73
+  br i1 %or.cond78, label %114, label %112
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 2304
-  store ptr null, ptr %114, align 8, !tbaa !17
-  br label %115
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 2304
+  store ptr null, ptr %113, align 8, !tbaa !17
+  br label %114
 
-115:                                              ; preds = %113, %110, %103
+114:                                              ; preds = %112, %109, %102
   %.not74 = icmp eq i32 %.1, 0
-  br i1 %.not74, label %116, label %118
+  br i1 %.not74, label %115, label %117
 
-116:                                              ; preds = %115
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 2656
-  store i32 1, ptr %117, align 8, !tbaa !96
-  br label %118
+115:                                              ; preds = %114
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2656
+  store i32 1, ptr %116, align 8, !tbaa !96
+  br label %117
 
-118:                                              ; preds = %101, %116, %115, %14, %19, %91
-  %.0 = phi i32 [ -1, %19 ], [ -1, %14 ], [ 1, %91 ], [ %not..not75, %115 ], [ %not..not75, %116 ], [ %not..not75, %101 ]
+117:                                              ; preds = %100, %115, %114, %14, %19, %90
+  %.0 = phi i32 [ -1, %19 ], [ -1, %14 ], [ 1, %90 ], [ %not..not75, %114 ], [ %not..not75, %115 ], [ %not..not75, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -1346,16 +1346,17 @@ define void @Res_SimPerformOne(ptr noundef readonly captures(none) %0, ptr nound
   %18 = getelementptr i8, ptr %0, i64 20
   %.val58 = load i32, ptr %18, align 4
   %19 = lshr i32 %.val58, 10
-  %20 = and i32 %19, 1
-  %21 = icmp ne i32 %20, 0
-  %22 = and i32 %.val58, 2048
-  %23 = icmp ne i32 %22, 0
-  %or.cond = and i1 %23, %21
-  br i1 %or.cond, label %.preheader, label %31
+  %20 = and i32 %19, 3
+  %21 = icmp sgt i32 %2, 0
+  switch i32 %20, label %.unreachabledefault [
+    i32 3, label %.preheader
+    i32 1, label %.preheader60
+    i32 2, label %.preheader62
+    i32 0, label %.preheader64
+  ]
 
 .preheader:                                       ; preds = %3
-  %24 = icmp sgt i32 %2, 0
-  br i1 %24, label %.lr.ph72.preheader, label %.loopexit
+  br i1 %21, label %.lr.ph72.preheader, label %.loopexit
 
 .lr.ph72.preheader:                               ; preds = %.preheader
   %wide.trip.count90 = zext nneg i32 %2 to i64
@@ -1363,59 +1364,20 @@ define void @Res_SimPerformOne(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv87 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next88, %.lr.ph72 ]
-  %25 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv87
-  %26 = load i32, ptr %25, align 4, !tbaa !59
-  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv87
-  %28 = load i32, ptr %27, align 4, !tbaa !59
-  %.demorgan = or i32 %28, %26
-  %29 = xor i32 %.demorgan, -1
-  %30 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv87
-  store i32 %29, ptr %30, align 4, !tbaa !59
+  %22 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv87
+  %23 = load i32, ptr %22, align 4, !tbaa !59
+  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv87
+  %25 = load i32, ptr %24, align 4, !tbaa !59
+  %.demorgan = or i32 %25, %23
+  %26 = xor i32 %.demorgan, -1
+  %27 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv87
+  store i32 %26, ptr %27, align 4, !tbaa !59
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %.loopexit, label %.lr.ph72, !llvm.loop !86
 
-31:                                               ; preds = %3
-  %32 = icmp eq i32 %20, 0
-  %or.cond3 = or i1 %23, %32
-  br i1 %or.cond3, label %41, label %.preheader64
-
-.preheader64:                                     ; preds = %31
-  %33 = icmp sgt i32 %2, 0
-  br i1 %33, label %.lr.ph.preheader, label %.loopexit
-
-.lr.ph.preheader:                                 ; preds = %.preheader64
-  %wide.trip.count = zext nneg i32 %2 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
-  %35 = load i32, ptr %34, align 4, !tbaa !59
-  %36 = xor i32 %35, -1
-  %37 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
-  %38 = load i32, ptr %37, align 4, !tbaa !59
-  %39 = and i32 %38, %36
-  %40 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  store i32 %39, ptr %40, align 4, !tbaa !59
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
-
-41:                                               ; preds = %31
-  %or.cond5 = and i1 %23, %32
-  %42 = icmp sgt i32 %2, 0
-  br i1 %or.cond5, label %.preheader60, label %.preheader62
-
-.preheader62:                                     ; preds = %41
-  br i1 %42, label %.lr.ph68.preheader, label %.loopexit
-
-.lr.ph68.preheader:                               ; preds = %.preheader62
-  %wide.trip.count80 = zext nneg i32 %2 to i64
-  br label %.lr.ph68
-
-.preheader60:                                     ; preds = %41
-  br i1 %42, label %.lr.ph70.preheader, label %.loopexit
+.preheader60:                                     ; preds = %3
+  br i1 %21, label %.lr.ph70.preheader, label %.loopexit
 
 .lr.ph70.preheader:                               ; preds = %.preheader60
   %wide.trip.count85 = zext nneg i32 %2 to i64
@@ -1423,30 +1385,61 @@ define void @Res_SimPerformOne(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv82 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next83, %.lr.ph70 ]
-  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv82
-  %44 = load i32, ptr %43, align 4, !tbaa !59
-  %45 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv82
-  %46 = load i32, ptr %45, align 4, !tbaa !59
-  %47 = xor i32 %46, -1
-  %48 = and i32 %44, %47
-  %49 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv82
-  store i32 %48, ptr %49, align 4, !tbaa !59
+  %28 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv82
+  %29 = load i32, ptr %28, align 4, !tbaa !59
+  %30 = xor i32 %29, -1
+  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv82
+  %32 = load i32, ptr %31, align 4, !tbaa !59
+  %33 = and i32 %32, %30
+  %34 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv82
+  store i32 %33, ptr %34, align 4, !tbaa !59
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph70, !llvm.loop !88
+  br i1 %exitcond86.not, label %.loopexit, label %.lr.ph70, !llvm.loop !87
+
+.unreachabledefault:                              ; preds = %3
+  unreachable
+
+.preheader64:                                     ; preds = %3
+  br i1 %21, label %.lr.ph.preheader, label %.loopexit
+
+.lr.ph.preheader:                                 ; preds = %.preheader64
+  %wide.trip.count = zext nneg i32 %2 to i64
+  br label %.lr.ph
+
+.preheader62:                                     ; preds = %3
+  br i1 %21, label %.lr.ph68.preheader, label %.loopexit
+
+.lr.ph68.preheader:                               ; preds = %.preheader62
+  %wide.trip.count80 = zext nneg i32 %2 to i64
+  br label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv77 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next78, %.lr.ph68 ]
-  %50 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv77
-  %51 = load i32, ptr %50, align 4, !tbaa !59
-  %52 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv77
-  %53 = load i32, ptr %52, align 4, !tbaa !59
-  %54 = and i32 %53, %51
-  %55 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv77
-  store i32 %54, ptr %55, align 4, !tbaa !59
+  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv77
+  %36 = load i32, ptr %35, align 4, !tbaa !59
+  %37 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv77
+  %38 = load i32, ptr %37, align 4, !tbaa !59
+  %39 = xor i32 %38, -1
+  %40 = and i32 %36, %39
+  %41 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv77
+  store i32 %40, ptr %41, align 4, !tbaa !59
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
-  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph68, !llvm.loop !89
+  br i1 %exitcond81.not, label %.loopexit, label %.lr.ph68, !llvm.loop !88
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %42 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %43 = load i32, ptr %42, align 4, !tbaa !59
+  %44 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %45 = load i32, ptr %44, align 4, !tbaa !59
+  %46 = and i32 %45, %43
+  %47 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  store i32 %46, ptr %47, align 4, !tbaa !59
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph68, %.lr.ph70, %.lr.ph72, %.preheader64, %.preheader62, %.preheader60, %.preheader
   ret void
@@ -1527,113 +1520,206 @@ define void @Res_SimPerformRound(ptr noundef readonly captures(none) %0, i32 nou
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = getelementptr i8, ptr %11, i64 4
-  %.val28 = load i32, ptr %12, align 4, !tbaa !22
-  %13 = icmp sgt i32 %.val28, 0
+  %.val39 = load i32, ptr %12, align 4, !tbaa !22
+  %13 = icmp sgt i32 %.val39, 0
   br i1 %13, label %.lr.ph, label %.critedge.preheader
 
-.critedge.preheader:                              ; preds = %53, %2
-  %.lcssa = phi ptr [ %9, %2 ], [ %54, %53 ]
-  %14 = getelementptr i8, ptr %.lcssa, i64 48
-  %.val22 = load ptr, ptr %14, align 8, !tbaa !53
-  %15 = getelementptr i8, ptr %.val22, i64 4
-  %.val22.val30 = load i32, ptr %15, align 4, !tbaa !22
-  %16 = icmp sgt i32 %.val22.val30, 0
-  br i1 %16, label %.lr.ph32, label %.critedge2
-
-.lr.ph32:                                         ; preds = %.critedge.preheader
-  %17 = getelementptr i8, ptr %.val22, i64 8
-  %.val26.val = load ptr, ptr %17, align 8, !tbaa !25
-  %18 = load ptr, ptr %3, align 8, !tbaa !26
-  %19 = getelementptr i8, ptr %18, i64 8
-  %.val19.i = load ptr, ptr %19, align 8, !tbaa !25
-  %20 = icmp sgt i32 %1, 0
+.lr.ph:                                           ; preds = %2
+  %14 = getelementptr i8, ptr %11, i64 8
+  %.val24.val = load ptr, ptr %14, align 8, !tbaa !25
+  %15 = icmp sgt i32 %1, 0
   %wide.trip.count.i = zext nneg i32 %1 to i64
-  br i1 %20, label %.lr.ph32.split.us, label %.critedge2
+  br label %45
 
-.lr.ph32.split.us:                                ; preds = %.lr.ph32, %Res_SimTransferOne.exit.us
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %Res_SimTransferOne.exit.us ], [ 0, %.lr.ph32 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val26.val, i64 %indvars.iv37
-  %22 = load ptr, ptr %21, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !62
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %.val19.i, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !19
-  %28 = getelementptr i8, ptr %22, i64 32
-  %.val20.i.us = load ptr, ptr %28, align 8, !tbaa !85
+.critedge.preheader:                              ; preds = %Res_SimPerformOne.exit, %2
+  %16 = getelementptr i8, ptr %9, i64 48
+  %.val22 = load ptr, ptr %16, align 8, !tbaa !53
+  %17 = getelementptr i8, ptr %.val22, i64 4
+  %.val22.val41 = load i32, ptr %17, align 4, !tbaa !22
+  %18 = icmp sgt i32 %.val22.val41, 0
+  br i1 %18, label %.lr.ph43, label %.critedge2
+
+.lr.ph43:                                         ; preds = %.critedge.preheader
+  %19 = getelementptr i8, ptr %.val22, i64 8
+  %.val26.val = load ptr, ptr %19, align 8, !tbaa !25
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = getelementptr i8, ptr %20, i64 8
+  %.val19.i = load ptr, ptr %21, align 8, !tbaa !25
+  %22 = icmp sgt i32 %1, 0
+  %wide.trip.count.i28 = zext nneg i32 %1 to i64
+  br i1 %22, label %.lr.ph43.split.us, label %.critedge2
+
+.lr.ph43.split.us:                                ; preds = %.lr.ph43, %Res_SimTransferOne.exit.us
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %Res_SimTransferOne.exit.us ], [ 0, %.lr.ph43 ]
+  %23 = getelementptr inbounds nuw ptr, ptr %.val26.val, i64 %indvars.iv50
+  %24 = load ptr, ptr %23, align 8, !tbaa !19
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !62
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds ptr, ptr %.val19.i, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !19
+  %30 = getelementptr i8, ptr %24, i64 32
+  %.val20.i.us = load ptr, ptr %30, align 8, !tbaa !85
   %.val20.val.i.us = load i32, ptr %.val20.i.us, align 4, !tbaa !59
-  %29 = sext i32 %.val20.val.i.us to i64
-  %30 = getelementptr inbounds ptr, ptr %.val19.i, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !19
-  %32 = getelementptr i8, ptr %22, i64 20
-  %.val21.i.us = load i32, ptr %32, align 4
-  %33 = and i32 %.val21.i.us, 1024
-  %.not.i.us = icmp eq i32 %33, 0
-  br i1 %.not.i.us, label %.lr.ph26.i.us, label %.lr.ph.i.us
+  %31 = sext i32 %.val20.val.i.us to i64
+  %32 = getelementptr inbounds ptr, ptr %.val19.i, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !19
+  %34 = getelementptr i8, ptr %24, i64 20
+  %.val21.i.us = load i32, ptr %34, align 4
+  %35 = and i32 %.val21.i.us, 1024
+  %.not.i.us = icmp eq i32 %35, 0
+  br i1 %.not.i.us, label %.lr.ph26.i.us, label %.lr.ph.i29.us
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph32.split.us, %.lr.ph.i.us
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %.lr.ph32.split.us ]
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i.us
-  %35 = load i32, ptr %34, align 4, !tbaa !59
-  %36 = xor i32 %35, -1
-  %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i.us
-  store i32 %36, ptr %37, align 4, !tbaa !59
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Res_SimTransferOne.exit.us, label %.lr.ph.i.us, !llvm.loop !90
+.lr.ph.i29.us:                                    ; preds = %.lr.ph43.split.us, %.lr.ph.i29.us
+  %indvars.iv.i30.us = phi i64 [ %indvars.iv.next.i31.us, %.lr.ph.i29.us ], [ 0, %.lr.ph43.split.us ]
+  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i30.us
+  %37 = load i32, ptr %36, align 4, !tbaa !59
+  %38 = xor i32 %37, -1
+  %39 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i30.us
+  store i32 %38, ptr %39, align 4, !tbaa !59
+  %indvars.iv.next.i31.us = add nuw nsw i64 %indvars.iv.i30.us, 1
+  %exitcond.not.i32.us = icmp eq i64 %indvars.iv.next.i31.us, %wide.trip.count.i28
+  br i1 %exitcond.not.i32.us, label %Res_SimTransferOne.exit.us, label %.lr.ph.i29.us, !llvm.loop !90
 
-.lr.ph26.i.us:                                    ; preds = %.lr.ph32.split.us, %.lr.ph26.i.us
-  %indvars.iv29.i.us = phi i64 [ %indvars.iv.next30.i.us, %.lr.ph26.i.us ], [ 0, %.lr.ph32.split.us ]
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv29.i.us
-  %39 = load i32, ptr %38, align 4, !tbaa !59
-  %40 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv29.i.us
-  store i32 %39, ptr %40, align 4, !tbaa !59
+.lr.ph26.i.us:                                    ; preds = %.lr.ph43.split.us, %.lr.ph26.i.us
+  %indvars.iv29.i.us = phi i64 [ %indvars.iv.next30.i.us, %.lr.ph26.i.us ], [ 0, %.lr.ph43.split.us ]
+  %40 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv29.i.us
+  %41 = load i32, ptr %40, align 4, !tbaa !59
+  %42 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv29.i.us
+  store i32 %41, ptr %42, align 4, !tbaa !59
   %indvars.iv.next30.i.us = add nuw nsw i64 %indvars.iv29.i.us, 1
-  %exitcond33.not.i.us = icmp eq i64 %indvars.iv.next30.i.us, %wide.trip.count.i
+  %exitcond33.not.i.us = icmp eq i64 %indvars.iv.next30.i.us, %wide.trip.count.i28
   br i1 %exitcond33.not.i.us, label %Res_SimTransferOne.exit.us, label %.lr.ph26.i.us, !llvm.loop !91
 
-Res_SimTransferOne.exit.us:                       ; preds = %.lr.ph.i.us, %.lr.ph26.i.us
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %.val22.val.us = load i32, ptr %15, align 4, !tbaa !22
-  %41 = sext i32 %.val22.val.us to i64
-  %42 = icmp slt i64 %indvars.iv.next38, %41
-  br i1 %42, label %.lr.ph32.split.us, label %.critedge2, !llvm.loop !92
+Res_SimTransferOne.exit.us:                       ; preds = %.lr.ph.i29.us, %.lr.ph26.i.us
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %.val22.val.us = load i32, ptr %17, align 4, !tbaa !22
+  %43 = sext i32 %.val22.val.us to i64
+  %44 = icmp slt i64 %indvars.iv.next51, %43
+  br i1 %44, label %.lr.ph43.split.us, label %.critedge2, !llvm.loop !92
 
-.lr.ph:                                           ; preds = %2, %53
-  %43 = phi ptr [ %54, %53 ], [ %9, %2 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %2 ]
-  %44 = phi ptr [ %56, %53 ], [ %11, %2 ]
-  %45 = getelementptr i8, ptr %44, i64 8
-  %.val24.val = load ptr, ptr %45, align 8, !tbaa !25
+45:                                               ; preds = %.lr.ph, %Res_SimPerformOne.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Res_SimPerformOne.exit ]
   %46 = getelementptr inbounds nuw ptr, ptr %.val24.val, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !19
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %53, label %49
+  br i1 %48, label %Res_SimPerformOne.exit, label %49
 
-49:                                               ; preds = %.lr.ph
+49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %47, i64 28
   %.val25 = load i32, ptr %50, align 4, !tbaa !93
   %.not = icmp eq i32 %.val25, 2
-  br i1 %.not, label %51, label %53
+  br i1 %.not, label %51, label %Res_SimPerformOne.exit
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %3, align 8, !tbaa !26
-  tail call void @Res_SimPerformOne(ptr noundef nonnull %47, ptr noundef %52, i32 noundef %1)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !36
-  br label %53
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %54 = load i32, ptr %53, align 8, !tbaa !62
+  %55 = getelementptr i8, ptr %52, i64 8
+  %.val55.i = load ptr, ptr %55, align 8, !tbaa !25
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds ptr, ptr %.val55.i, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !19
+  %59 = getelementptr i8, ptr %47, i64 32
+  %.val56.i = load ptr, ptr %59, align 8, !tbaa !85
+  %.val56.val.i = load i32, ptr %.val56.i, align 4, !tbaa !59
+  %60 = sext i32 %.val56.val.i to i64
+  %61 = getelementptr inbounds ptr, ptr %.val55.i, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !19
+  %63 = getelementptr i8, ptr %.val56.i, i64 4
+  %.val57.val.i = load i32, ptr %63, align 4, !tbaa !59
+  %64 = sext i32 %.val57.val.i to i64
+  %65 = getelementptr inbounds ptr, ptr %.val55.i, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !19
+  %67 = getelementptr i8, ptr %47, i64 20
+  %.val58.i = load i32, ptr %67, align 4
+  %68 = lshr i32 %.val58.i, 10
+  %69 = and i32 %68, 3
+  switch i32 %69, label %default.unreachable [
+    i32 3, label %.preheader.i
+    i32 1, label %.preheader60.i
+    i32 2, label %.preheader62.i
+    i32 0, label %.preheader64.i
+  ]
 
-53:                                               ; preds = %51, %49, %.lr.ph
-  %54 = phi ptr [ %.pre, %51 ], [ %43, %49 ], [ %43, %.lr.ph ]
+.preheader.i:                                     ; preds = %51
+  br i1 %15, label %.lr.ph72.i, label %Res_SimPerformOne.exit
+
+.lr.ph72.i:                                       ; preds = %.preheader.i, %.lr.ph72.i
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph72.i ], [ 0, %.preheader.i ]
+  %70 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv87.i
+  %71 = load i32, ptr %70, align 4, !tbaa !59
+  %72 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv87.i
+  %73 = load i32, ptr %72, align 4, !tbaa !59
+  %.demorgan.i = or i32 %73, %71
+  %74 = xor i32 %.demorgan.i, -1
+  %75 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv87.i
+  store i32 %74, ptr %75, align 4, !tbaa !59
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count.i
+  br i1 %exitcond91.not.i, label %Res_SimPerformOne.exit, label %.lr.ph72.i, !llvm.loop !86
+
+.preheader60.i:                                   ; preds = %51
+  br i1 %15, label %.lr.ph70.i, label %Res_SimPerformOne.exit
+
+.lr.ph70.i:                                       ; preds = %.preheader60.i, %.lr.ph70.i
+  %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %.lr.ph70.i ], [ 0, %.preheader60.i ]
+  %76 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv82.i
+  %77 = load i32, ptr %76, align 4, !tbaa !59
+  %78 = xor i32 %77, -1
+  %79 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv82.i
+  %80 = load i32, ptr %79, align 4, !tbaa !59
+  %81 = and i32 %80, %78
+  %82 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv82.i
+  store i32 %81, ptr %82, align 4, !tbaa !59
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count.i
+  br i1 %exitcond86.not.i, label %Res_SimPerformOne.exit, label %.lr.ph70.i, !llvm.loop !87
+
+default.unreachable:                              ; preds = %51
+  unreachable
+
+.preheader64.i:                                   ; preds = %51
+  br i1 %15, label %.lr.ph.i, label %Res_SimPerformOne.exit
+
+.preheader62.i:                                   ; preds = %51
+  br i1 %15, label %.lr.ph68.i, label %Res_SimPerformOne.exit
+
+.lr.ph68.i:                                       ; preds = %.preheader62.i, %.lr.ph68.i
+  %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %.lr.ph68.i ], [ 0, %.preheader62.i ]
+  %83 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv77.i
+  %84 = load i32, ptr %83, align 4, !tbaa !59
+  %85 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv77.i
+  %86 = load i32, ptr %85, align 4, !tbaa !59
+  %87 = xor i32 %86, -1
+  %88 = and i32 %84, %87
+  %89 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv77.i
+  store i32 %88, ptr %89, align 4, !tbaa !59
+  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
+  %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count.i
+  br i1 %exitcond81.not.i, label %Res_SimPerformOne.exit, label %.lr.ph68.i, !llvm.loop !88
+
+.lr.ph.i:                                         ; preds = %.preheader64.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader64.i ]
+  %90 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
+  %91 = load i32, ptr %90, align 4, !tbaa !59
+  %92 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i
+  %93 = load i32, ptr %92, align 4, !tbaa !59
+  %94 = and i32 %93, %91
+  %95 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i
+  store i32 %94, ptr %95, align 4, !tbaa !59
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %Res_SimPerformOne.exit, label %.lr.ph.i, !llvm.loop !89
+
+Res_SimPerformOne.exit:                           ; preds = %.lr.ph.i, %.lr.ph68.i, %.lr.ph70.i, %.lr.ph72.i, %.preheader62.i, %.preheader64.i, %.preheader60.i, %.preheader.i, %49, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %56 = load ptr, ptr %55, align 8, !tbaa !38
-  %57 = getelementptr i8, ptr %56, i64 4
-  %.val = load i32, ptr %57, align 4, !tbaa !22
-  %58 = sext i32 %.val to i64
-  %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.critedge.preheader, !llvm.loop !94
+  %.val = load i32, ptr %12, align 4, !tbaa !22
+  %96 = sext i32 %.val to i64
+  %97 = icmp slt i64 %indvars.iv.next, %96
+  br i1 %97, label %45, label %.critedge.preheader, !llvm.loop !94
 
-.critedge2:                                       ; preds = %Res_SimTransferOne.exit.us, %.lr.ph32, %.critedge.preheader
+.critedge2:                                       ; preds = %Res_SimTransferOne.exit.us, %.lr.ph43, %.critedge.preheader
   ret void
 }
 

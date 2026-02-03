@@ -5107,35 +5107,34 @@ HandleHat.exit:                                   ; preds = %114, %111, %70, %.p
   %128 = icmp sgt i32 %127, -1
   br i1 %128, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %124, %145
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %145 ], [ 0, %124 ]
+.preheader:                                       ; preds = %124, %144
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %144 ], [ 0, %124 ]
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 958
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 %indvars.iv49
   %132 = load i8, ptr %131, align 1, !range !5, !noundef !6
   %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %134, label %145
+  br i1 %133, label %134, label %144
 
 134:                                              ; preds = %.preheader
   %135 = lshr i64 %indvars.iv49, 6
   %136 = getelementptr inbounds nuw i64, ptr %4, i64 %135
   %137 = load i64, ptr %136, align 8
   %138 = and i64 %indvars.iv49, 63
-  %139 = shl nuw i64 1, %138
-  %140 = and i64 %137, %139
-  %141 = icmp ne i64 %140, 0
-  %142 = getelementptr inbounds nuw i8, ptr %129, i64 128
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv49
-  %144 = load i8, ptr %143, align 1
-  call void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %144, i1 noundef zeroext %141) #18
-  br label %145
+  %139 = lshr i64 %137, %138
+  %140 = trunc i64 %139 to i1
+  %141 = getelementptr inbounds nuw i8, ptr %129, i64 128
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %indvars.iv49
+  %143 = load i8, ptr %142, align 1
+  call void @SDL_SendJoystickButton(i64 noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %143, i1 noundef zeroext %140) #18
+  br label %144
 
-145:                                              ; preds = %.preheader, %134
+144:                                              ; preds = %.preheader, %134
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 767
   br i1 %exitcond52.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
-.loopexit:                                        ; preds = %145, %124
+.loopexit:                                        ; preds = %144, %124
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

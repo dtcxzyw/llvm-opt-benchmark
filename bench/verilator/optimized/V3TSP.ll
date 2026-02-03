@@ -2647,9 +2647,8 @@ common.resume:                                    ; preds = %.lr.ph.i.i.i, %39, 
   resume { ptr, i32 } %common.resume.op
 
 _ZN12TspGraphTmplIPKN5V3TSP12TspStateBaseEE16keysToVertexListB5cxx11ERKSt6vectorIS3_SaIS3_EE.exit: ; preds = %26
-  %43 = and i64 %28, 1
-  %.not = icmp eq i64 %43, 0
-  br i1 %.not, label %44, label %.preheader109, !prof !174
+  %43 = trunc i64 %28 to i1
+  br i1 %43, label %.preheader109, label %44, !prof !174
 
 .preheader109:                                    ; preds = %14, %_ZN12TspGraphTmplIPKN5V3TSP12TspStateBaseEE16keysToVertexListB5cxx11ERKSt6vectorIS3_SaIS3_EE.exit
   %.sroa.093.0124 = load ptr, ptr %6, align 8, !tbaa !166
@@ -15089,7 +15088,7 @@ attributes #30 = { nounwind willreturn memory(read) }
 !171 = !{!"_ZTSNSt7__cxx1110_List_baseIP13TspVertexTmplIPKN5V3TSP12TspStateBaseEESaIS7_EE10_List_implE", !168, i64 0}
 !172 = distinct !{!172, !30}
 !173 = distinct !{!173, !30}
-!174 = !{!"branch_weights", !"expected", i32 1717167, i32 2145766481}
+!174 = !{!"branch_weights", !"expected", i32 2145766481, i32 1717167}
 !175 = !{!176, !178, !180, !182, !184}
 !176 = distinct !{!176, !177, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bISt16reverse_iteratorIPP11V3GraphEdgeES7_EET0_T_S9_S8_: argument 0"}
 !177 = distinct !{!177, !"_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bISt16reverse_iteratorIPP11V3GraphEdgeES7_EET0_T_S9_S8_"}

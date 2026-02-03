@@ -244,8 +244,8 @@ define internal i64 @pty_check(i32 noundef %0, ptr noundef readonly captures(non
 
 .preheader:                                       ; preds = %3
   %6 = load i64, ptr %1, align 8, !tbaa !6
-  %.not13 = icmp eq i32 %0, 1
-  br i1 %.not13, label %13, label %7
+  %.not12 = icmp eq i32 %0, 1
+  br i1 %.not12, label %13, label %7
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -265,9 +265,8 @@ define internal i64 @pty_check(i32 noundef %0, ptr noundef readonly captures(non
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %13
-  %15 = and i64 %6, 1
-  %.not.i7 = icmp eq i64 %15, 0
-  br i1 %.not.i7, label %18, label %16
+  %15 = trunc i64 %6 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %rb_scan_args_set.exit
   %17 = tail call i64 @rb_fix2int(i64 noundef %6) #10

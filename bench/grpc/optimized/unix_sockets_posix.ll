@@ -109,14 +109,13 @@ _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EED2Ev.exit.i: ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %16, align 8, !tbaa !19
   store i64 1, ptr %0, align 8, !tbaa !13
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit22
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit19
 
 17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %8, ptr %7, align 8, !tbaa !13
-  %18 = and i64 %8, 1
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %19, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %18 = trunc i64 %8 to i1
+  br i1 %18, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %19
 
 19:                                               ; preds = %17
   %20 = inttoptr i64 %8 to ptr
@@ -129,9 +128,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %19, %17
 
 22:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %23 = load i64, ptr %7, align 8, !tbaa !13
-  %24 = and i64 %23, 1
-  %.not.i.i16 = icmp eq i64 %24, 0
-  br i1 %.not.i.i16, label %25, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %25
 
 25:                                               ; preds = %22
   %26 = inttoptr i64 %23 to ptr
@@ -154,9 +152,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %22, %25
 
 32:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit unwind label %.body17
+          to label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit unwind label %.body16
 
-.body17:                                          ; preds = %32
+.body16:                                          ; preds = %32
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
@@ -164,9 +162,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %22, %25
 
 _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit: ; preds = %32
   %.pre = load i64, ptr %6, align 8, !tbaa !13
-  %34 = and i64 %.pre, 1
-  %.not.i.i19 = icmp eq i64 %34, 0
-  br i1 %.not.i.i19, label %35, label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread
+  %34 = trunc i64 %.pre to i1
+  br i1 %34, label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread, label %35
 
 35:                                               ; preds = %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   %36 = inttoptr i64 %.pre to ptr
@@ -185,24 +182,23 @@ _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0
           cleanup
   br label %42
 
-42:                                               ; preds = %.body17, %40
-  %.sink = phi ptr [ %6, %.body17 ], [ %7, %40 ]
-  %.pn = phi { ptr, i32 } [ %33, %.body17 ], [ %41, %40 ]
+42:                                               ; preds = %.body16, %40
+  %.sink = phi ptr [ %6, %.body16 ], [ %7, %40 ]
+  %.pn = phi { ptr, i32 } [ %33, %.body16 ], [ %41, %40 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %35, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre34 = load i64, ptr %5, align 8, !tbaa !13
-  %43 = and i64 %.pre34, 1
-  %.not.i.i21 = icmp eq i64 %43, 0
-  br i1 %.not.i.i21, label %44, label %_ZN4absl12lts_202407226StatusD2Ev.exit22
+  %.pre31 = load i64, ptr %5, align 8, !tbaa !13
+  %43 = trunc i64 %.pre31 to i1
+  br i1 %43, label %_ZN4absl12lts_202407226StatusD2Ev.exit19, label %44
 
 44:                                               ; preds = %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread
-  %45 = inttoptr i64 %.pre34 to ptr
+  %45 = inttoptr i64 %.pre31 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit22 unwind label %46
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit19 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -211,7 +207,7 @@ _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0
   call void @__clang_call_terminate(ptr %48) #18
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit22:         ; preds = %.thread, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread, %44
+_ZN4absl12lts_202407226StatusD2Ev.exit19:         ; preds = %.thread, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -234,9 +230,8 @@ declare void @_Z25grpc_error_to_absl_statusN4absl12lts_202407226StatusE(ptr dead
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !13
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -286,14 +281,13 @@ _ZNSt12_Vector_baseI21grpc_resolved_addressSaIS0_EED2Ev.exit.i: ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %16, align 8, !tbaa !19
   store i64 1, ptr %0, align 8, !tbaa !13
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit22
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit19
 
 17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %8, ptr %7, align 8, !tbaa !13
-  %18 = and i64 %8, 1
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %19, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %18 = trunc i64 %8 to i1
+  br i1 %18, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %19
 
 19:                                               ; preds = %17
   %20 = inttoptr i64 %8 to ptr
@@ -306,9 +300,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %19, %17
 
 22:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %23 = load i64, ptr %7, align 8, !tbaa !13
-  %24 = and i64 %23, 1
-  %.not.i.i16 = icmp eq i64 %24, 0
-  br i1 %.not.i.i16, label %25, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %25
 
 25:                                               ; preds = %22
   %26 = inttoptr i64 %23 to ptr
@@ -331,9 +324,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %22, %25
 
 32:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit unwind label %.body17
+          to label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit unwind label %.body16
 
-.body17:                                          ; preds = %32
+.body16:                                          ; preds = %32
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
@@ -341,9 +334,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %22, %25
 
 _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit: ; preds = %32
   %.pre = load i64, ptr %6, align 8, !tbaa !13
-  %34 = and i64 %.pre, 1
-  %.not.i.i19 = icmp eq i64 %34, 0
-  br i1 %.not.i.i19, label %35, label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread
+  %34 = trunc i64 %.pre to i1
+  br i1 %34, label %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread, label %35
 
 35:                                               ; preds = %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   %36 = inttoptr i64 %.pre to ptr
@@ -362,24 +354,23 @@ _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0
           cleanup
   br label %42
 
-42:                                               ; preds = %.body17, %40
-  %.sink = phi ptr [ %6, %.body17 ], [ %7, %40 ]
-  %.pn = phi { ptr, i32 } [ %33, %.body17 ], [ %41, %40 ]
+42:                                               ; preds = %.body16, %40
+  %.sink = phi ptr [ %6, %.body16 ], [ %7, %40 ]
+  %.pn = phi { ptr, i32 } [ %33, %.body16 ], [ %41, %40 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %49
 
 _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %35, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre34 = load i64, ptr %5, align 8, !tbaa !13
-  %43 = and i64 %.pre34, 1
-  %.not.i.i21 = icmp eq i64 %43, 0
-  br i1 %.not.i.i21, label %44, label %_ZN4absl12lts_202407226StatusD2Ev.exit22
+  %.pre31 = load i64, ptr %5, align 8, !tbaa !13
+  %43 = trunc i64 %.pre31 to i1
+  br i1 %43, label %_ZN4absl12lts_202407226StatusD2Ev.exit19, label %44
 
 44:                                               ; preds = %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread
-  %45 = inttoptr i64 %.pre34 to ptr
+  %45 = inttoptr i64 %.pre31 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %45)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit22 unwind label %46
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit19 unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -388,7 +379,7 @@ _ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0
   call void @__clang_call_terminate(ptr %48) #18
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit22:         ; preds = %.thread, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread, %44
+_ZN4absl12lts_202407226StatusD2Ev.exit19:         ; preds = %.thread, %_ZN4absl12lts_202407228StatusOrISt6vectorI21grpc_resolved_addressSaIS3_EEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit.thread, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

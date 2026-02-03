@@ -185,9 +185,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23TraceCounterAccumulator15OnE
 67:                                               ; preds = %.loopexit.i
   %68 = inttoptr i64 %32 to ptr
   %69 = atomicrmw add ptr %68, i32 2 monotonic, align 4
-  %70 = and i32 %69, 1
-  %.not1.i.i.i.i.i.i.i.i.i = icmp eq i32 %70, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i, label %71, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St6vectorIS2_ImdESaIS5_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESQ_IJEEEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.i
+  %70 = trunc i32 %69 to i1
+  br i1 %70, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_St6vectorIS2_ImdESaIS5_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESQ_IJEEEEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb1EEEEEEDpOT_.exit.i, label %71
 
 71:                                               ; preds = %67
   store ptr %68, ptr %65, align 8
@@ -1204,9 +1203,8 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
   %36 = and i64 %33, -8
   %37 = inttoptr i64 %36 to ptr
   %38 = atomicrmw add ptr %37, i32 2 monotonic, align 4
-  %39 = and i32 %38, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %39, 0
-  br i1 %.not1.i.i.i.i.i.i, label %40, label %56
+  %39 = trunc i32 %38 to i1
+  br i1 %39, label %56, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %25, align 8
@@ -1233,9 +1231,8 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
   %51 = and i64 %48, -8
   %52 = inttoptr i64 %51 to ptr
   %53 = atomicrmw add ptr %52, i32 2 monotonic, align 4
-  %54 = and i32 %53, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i32 %54, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %55, label %56
+  %54 = trunc i32 %53 to i1
+  br i1 %54, label %56, label %55
 
 55:                                               ; preds = %50
   store ptr %52, ptr %47, align 8
@@ -1260,14 +1257,14 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
   %68 = urem i64 %67, %66
   %69 = getelementptr inbounds ptr, ptr %64, i64 %68
   store ptr %63, ptr %69, align 8
-  %.02743 = load ptr, ptr %19, align 8
-  %.not2944 = icmp eq ptr %.02743, null
-  br i1 %.not2944, label %.loopexit, label %.lr.ph
+  %.02741 = load ptr, ptr %19, align 8
+  %.not2942 = icmp eq ptr %.02741, null
+  br i1 %.not2942, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %56, %129
-  %.02746 = phi ptr [ %.027, %129 ], [ %.02743, %56 ]
-  %.02645 = phi ptr [ %.sink.i37, %129 ], [ %.sink.i, %56 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.02746, i64 8
+  %.02744 = phi ptr [ %.027, %129 ], [ %.02741, %56 ]
+  %.02643 = phi ptr [ %.sink.i36, %129 ], [ %.sink.i, %56 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.02744, i64 8
   %71 = load ptr, ptr %2, align 8
   %.not.i32 = icmp eq ptr %71, null
   br i1 %.not.i32, label %94, label %72
@@ -1300,9 +1297,8 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
   %85 = and i64 %82, -8
   %86 = inttoptr i64 %85 to ptr
   %87 = atomicrmw add ptr %86, i32 2 monotonic, align 4
-  %88 = and i32 %87, 1
-  %.not1.i.i.i.i.i.i36 = icmp eq i32 %88, 0
-  br i1 %.not1.i.i.i.i.i.i36, label %89, label %105
+  %88 = trunc i32 %87 to i1
+  br i1 %88, label %105, label %89
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %74, align 8
@@ -1314,38 +1310,37 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
 
 94:                                               ; preds = %.lr.ph
   %95 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-          to label %.noexc40 unwind label %.loopexit42
+          to label %.noexc38 unwind label %.loopexit40
 
-.noexc40:                                         ; preds = %94
+.noexc38:                                         ; preds = %94
   store ptr null, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i64, ptr %70, align 8
   store i64 %97, ptr %96, align 8
   %98 = and i64 %97, 7
-  %.not.i.i.i.i.i.i.i38 = icmp eq i64 %98, 0
-  br i1 %.not.i.i.i.i.i.i.i38, label %105, label %99
+  %.not.i.i.i.i.i.i.i37 = icmp eq i64 %98, 0
+  br i1 %.not.i.i.i.i.i.i.i37, label %105, label %99
 
-99:                                               ; preds = %.noexc40
+99:                                               ; preds = %.noexc38
   %100 = and i64 %97, -8
   %101 = inttoptr i64 %100 to ptr
   %102 = atomicrmw add ptr %101, i32 2 monotonic, align 4
-  %103 = and i32 %102, 1
-  %.not1.i.i.i.i.i.i.i39 = icmp eq i32 %103, 0
-  br i1 %.not1.i.i.i.i.i.i.i39, label %104, label %105
+  %103 = trunc i32 %102 to i1
+  br i1 %103, label %105, label %104
 
 104:                                              ; preds = %99
   store ptr %101, ptr %96, align 8
   br label %105
 
-105:                                              ; preds = %104, %99, %.noexc40, %89, %84, %_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenEdELb1EEEEE7destroyIS6_EEvRS8_PT_.exit.i34
-  %.sink.i37 = phi ptr [ %71, %89 ], [ %71, %_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenEdELb1EEEEE7destroyIS6_EEvRS8_PT_.exit.i34 ], [ %71, %84 ], [ %95, %.noexc40 ], [ %95, %99 ], [ %95, %104 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.sink.i37, i64 16
-  %107 = getelementptr inbounds nuw i8, ptr %.02746, i64 16
+105:                                              ; preds = %104, %99, %.noexc38, %89, %84, %_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenEdELb1EEEEE7destroyIS6_EEvRS8_PT_.exit.i34
+  %.sink.i36 = phi ptr [ %71, %89 ], [ %71, %_ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__pxrReserved__7TfTokenEdELb1EEEEE7destroyIS6_EEvRS8_PT_.exit.i34 ], [ %71, %84 ], [ %95, %.noexc38 ], [ %95, %99 ], [ %95, %104 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.sink.i36, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.02744, i64 16
   %108 = load double, ptr %107, align 8
   store double %108, ptr %106, align 8
-  store ptr %.sink.i37, ptr %.02645, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.sink.i37, i64 24
-  %110 = getelementptr inbounds nuw i8, ptr %.02746, i64 24
+  store ptr %.sink.i36, ptr %.02643, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %.sink.i36, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %.02744, i64 24
   %111 = load i64, ptr %110, align 8
   store i64 %111, ptr %109, align 8
   %112 = load i64, ptr %65, align 8
@@ -1357,10 +1352,10 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
   br i1 %.not31, label %117, label %129
 
 117:                                              ; preds = %105
-  store ptr %.02645, ptr %115, align 8
+  store ptr %.02643, ptr %115, align 8
   br label %129
 
-.loopexit42:                                      ; preds = %94
+.loopexit40:                                      ; preds = %94
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %118
@@ -1370,8 +1365,8 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
           catch ptr null
   br label %118
 
-118:                                              ; preds = %.loopexit.split-lp, %.loopexit42
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit42 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+118:                                              ; preds = %.loopexit.split-lp, %.loopexit40
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit40 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %119 = extractvalue { ptr, i32 } %lpad.phi, 0
   %120 = tail call ptr @__cxa_begin_catch(ptr %119) #20
   tail call void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_dESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #20
@@ -1391,7 +1386,7 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_dESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 129:                                              ; preds = %117, %105
-  %.027 = load ptr, ptr %.02746, align 8
+  %.027 = load ptr, ptr %.02744, align 8
   %.not29 = icmp eq ptr %.027, null
   br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
@@ -1665,9 +1660,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__deta
 42:                                               ; preds = %.loopexit
   %43 = inttoptr i64 %6 to ptr
   %44 = atomicrmw add ptr %43, i32 2 monotonic, align 4
-  %45 = and i32 %44, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %45, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %46, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_dESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit
+  %45 = trunc i32 %44 to i1
+  br i1 %45, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_dESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_11HashFunctorENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESM_IJEEEEEPNS6_16_Hashtable_allocISaINS6_10_Hash_nodeIS4_Lb1EEEEEEDpOT_.exit, label %46
 
 46:                                               ; preds = %42
   store ptr %43, ptr %40, align 8
@@ -1993,9 +1987,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTo
   %14 = and i64 %11, -8
   %15 = inttoptr i64 %14 to ptr
   %16 = atomicrmw add ptr %15, i32 2 monotonic, align 4
-  %17 = and i32 %16, 1
-  %.not1.i.i.i.i.i.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i, label %18, label %19
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %19, label %18
 
 18:                                               ; preds = %13
   store ptr %15, ptr %8, align 8

@@ -90,101 +90,100 @@ define internal range(i32 0, 2) i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %16 = load i8, ptr %15, align 4
-  %17 = and i8 %16, 1
-  %18 = icmp eq ptr %4, null
-  br i1 %18, label %aes_wrap_cipher_internal.exit.thread16, label %19
+  %17 = icmp eq ptr %4, null
+  br i1 %17, label %aes_wrap_cipher_internal.exit.thread16, label %18
 
-19:                                               ; preds = %14
-  %20 = and i8 %16, 2
-  %.not.i = icmp eq i8 %20, 0
-  br i1 %.not.i, label %21, label %25
+18:                                               ; preds = %14
+  %19 = and i8 %16, 2
+  %.not.i = icmp eq i8 %19, 0
+  br i1 %.not.i, label %20, label %24
 
-21:                                               ; preds = %19
-  %22 = icmp ugt i64 %5, 15
-  %23 = and i64 %5, 7
-  %.not32.i = icmp eq i64 %23, 0
-  %or.cond.i = and i1 %22, %.not32.i
-  br i1 %or.cond.i, label %28, label %24
+20:                                               ; preds = %18
+  %21 = icmp ugt i64 %5, 15
+  %22 = and i64 %5, 7
+  %.not32.i = icmp eq i64 %22, 0
+  %or.cond.i = and i1 %21, %.not32.i
+  br i1 %or.cond.i, label %27, label %23
 
-24:                                               ; preds = %21
+23:                                               ; preds = %20
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 185, ptr noundef nonnull @__func__.aes_wrap_cipher_internal) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 230, ptr noundef null) #3
   br label %aes_wrap_cipher_internal.exit.thread
 
-25:                                               ; preds = %19
+24:                                               ; preds = %18
   %.pre.i = and i64 %5, 7
-  %26 = icmp eq i64 %.pre.i, 0
-  %.not33.i = icmp ne i8 %17, 0
-  %or.cond38.i = or i1 %26, %.not33.i
-  br i1 %or.cond38.i, label %.thread47.i, label %27
+  %25 = icmp eq i64 %.pre.i, 0
+  %.not33.i = trunc i8 %16 to i1
+  %or.cond38.i = or i1 %25, %.not33.i
+  br i1 %or.cond38.i, label %.thread47.i, label %26
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 191, ptr noundef nonnull @__func__.aes_wrap_cipher_internal) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 230, ptr noundef null) #3
   br label %aes_wrap_cipher_internal.exit.thread
 
-28:                                               ; preds = %21
-  %29 = icmp eq ptr %1, null
-  br i1 %29, label %aes_wrap_cipher_internal.exit, label %33
+27:                                               ; preds = %20
+  %28 = icmp eq ptr %1, null
+  br i1 %28, label %aes_wrap_cipher_internal.exit, label %32
 
-.thread47.i:                                      ; preds = %25
-  %30 = icmp eq ptr %1, null
-  br i1 %30, label %.thread50.i, label %33
+.thread47.i:                                      ; preds = %24
+  %29 = icmp eq ptr %1, null
+  br i1 %29, label %.thread50.i, label %32
 
 .thread50.i:                                      ; preds = %.thread47.i
-  %31 = add i64 %5, 7
-  %32 = and i64 %31, 4294967288
-  %.027.i = select i1 %.not33.i, i64 %32, i64 %5
+  %30 = add i64 %5, 7
+  %31 = and i64 %30, 4294967288
+  %.027.i = select i1 %.not33.i, i64 %31, i64 %5
   br label %aes_wrap_cipher_internal.exit
 
-33:                                               ; preds = %.thread47.i, %28
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %35 = load ptr, ptr %34, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %37 = and i8 %16, 4
-  %.not35.i = icmp eq i8 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = select i1 %.not35.i, ptr null, ptr %38
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !16
-  %42 = tail call i64 %35(ptr noundef nonnull %36, ptr noundef %39, ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5, ptr noundef %41) #3
-  %.not36.i = icmp eq i64 %42, 0
-  br i1 %.not36.i, label %43, label %44
+32:                                               ; preds = %.thread47.i, %27
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %36 = and i8 %16, 4
+  %.not35.i = icmp eq i8 %36, 0
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = select i1 %.not35.i, ptr null, ptr %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %40 = load ptr, ptr %39, align 8, !tbaa !16
+  %41 = tail call i64 %34(ptr noundef nonnull %35, ptr noundef %38, ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5, ptr noundef %40) #3
+  %.not36.i = icmp eq i64 %41, 0
+  br i1 %.not36.i, label %42, label %43
 
-43:                                               ; preds = %33
+42:                                               ; preds = %32
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__func__.aes_wrap_cipher_internal) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 102, ptr noundef null) #3
   br label %aes_wrap_cipher_internal.exit.thread
 
-44:                                               ; preds = %33
-  %45 = icmp ugt i64 %42, 2147483647
-  br i1 %45, label %46, label %47
+43:                                               ; preds = %32
+  %44 = icmp ugt i64 %41, 2147483647
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @__func__.aes_wrap_cipher_internal) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 217, ptr noundef null) #3
   br label %aes_wrap_cipher_internal.exit.thread
 
-47:                                               ; preds = %44
-  %48 = trunc nuw nsw i64 %42 to i32
+46:                                               ; preds = %43
+  %47 = trunc nuw nsw i64 %41 to i32
   br label %aes_wrap_cipher_internal.exit.thread
 
-aes_wrap_cipher_internal.exit:                    ; preds = %28, %.thread50.i
-  %.027.i.sink = phi i64 [ %.027.i, %.thread50.i ], [ %5, %28 ]
-  %.sink21 = phi i32 [ 8, %.thread50.i ], [ -8, %28 ]
-  %49 = trunc i64 %.027.i.sink to i32
-  %50 = add i32 %.sink21, %49
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %aes_wrap_cipher_internal.exit.thread16, label %aes_wrap_cipher_internal.exit.thread
+aes_wrap_cipher_internal.exit:                    ; preds = %27, %.thread50.i
+  %.027.i.sink = phi i64 [ %.027.i, %.thread50.i ], [ %5, %27 ]
+  %.sink21 = phi i32 [ 8, %.thread50.i ], [ -8, %27 ]
+  %48 = trunc i64 %.027.i.sink to i32
+  %49 = add i32 %.sink21, %48
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %aes_wrap_cipher_internal.exit.thread16, label %aes_wrap_cipher_internal.exit.thread
 
-aes_wrap_cipher_internal.exit.thread:             ; preds = %43, %47, %46, %24, %27, %aes_wrap_cipher_internal.exit
-  %.0.i15 = phi i32 [ %50, %aes_wrap_cipher_internal.exit ], [ -1, %43 ], [ %48, %47 ], [ -1, %46 ], [ -1, %24 ], [ -1, %27 ]
-  %52 = sext i32 %.0.i15 to i64
-  store i64 %52, ptr %2, align 8, !tbaa !13
+aes_wrap_cipher_internal.exit.thread:             ; preds = %42, %46, %45, %23, %26, %aes_wrap_cipher_internal.exit
+  %.0.i15 = phi i32 [ %49, %aes_wrap_cipher_internal.exit ], [ -1, %42 ], [ %47, %46 ], [ -1, %45 ], [ -1, %23 ], [ -1, %26 ]
+  %51 = sext i32 %.0.i15 to i64
+  store i64 %51, ptr %2, align 8, !tbaa !13
   br label %aes_wrap_cipher_internal.exit.thread16
 
 aes_wrap_cipher_internal.exit.thread16:           ; preds = %14, %aes_wrap_cipher_internal.exit, %6, %aes_wrap_cipher_internal.exit.thread, %13, %10

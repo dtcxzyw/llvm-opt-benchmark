@@ -433,60 +433,58 @@ define void @_camera_import_image_downloaded(ptr readnone captures(none) %0, ptr
   %45 = load i32, ptr %26, align 8, !tbaa !67
   %46 = add i32 %45, 1
   %47 = icmp eq i32 %46, %25
-  br i1 %47, label %48, label %73
+  br i1 %47, label %48, label %71
 
 48:                                               ; preds = %44
   call void (...) @dt_control_queue_redraw_center() #10
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !71
-  %50 = and i32 %49, 1
-  %51 = icmp ne i32 %50, 0
-  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %53 = icmp ne i32 %52, 0
-  %or.cond5 = select i1 %51, i1 %53, i1 false
-  br i1 %or.cond5, label %54, label %58
+  %50 = trunc i32 %49 to i1
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %52 = icmp ne i32 %51, 0
+  %or.cond5 = select i1 %50, i1 %52, i1 false
+  br i1 %or.cond5, label %53, label %57
 
-54:                                               ; preds = %48
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !72
-  %56 = and i32 %55, 1048576
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %58, label %57
+53:                                               ; preds = %48
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !72
+  %55 = and i32 %54, 1048576
+  %.not = icmp eq i32 %55, 0
+  br i1 %.not, label %57, label %56
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 291, ptr noundef nonnull @__FUNCTION__._camera_import_image_downloaded) #10
-  br label %58
+  br label %57
 
-58:                                               ; preds = %54, %57, %48
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !73
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %59, i32 noundef 9) #10
-  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !71
-  %61 = and i32 %60, 1
+57:                                               ; preds = %53, %56, %48
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !73
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %58, i32 noundef 9) #10
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !71
+  %60 = trunc i32 %59 to i1
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
   %62 = icmp ne i32 %61, 0
-  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3196), align 4
-  %64 = icmp ne i32 %63, 0
-  %or.cond7 = select i1 %62, i1 %64, i1 false
-  br i1 %or.cond7, label %65, label %69
+  %or.cond7 = select i1 %60, i1 %62, i1 false
+  br i1 %or.cond7, label %63, label %67
 
-65:                                               ; preds = %58
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !72
-  %67 = and i32 %66, 1048576
-  %.not36 = icmp eq i32 %67, 0
-  br i1 %.not36, label %69, label %68
+63:                                               ; preds = %57
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !72
+  %65 = and i32 %64, 1048576
+  %.not36 = icmp eq i32 %65, 0
+  br i1 %.not36, label %67, label %66
 
-68:                                               ; preds = %65
+66:                                               ; preds = %63
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i32 noundef 294, ptr noundef nonnull @__FUNCTION__._camera_import_image_downloaded) #10
-  br label %69
+  br label %67
 
-69:                                               ; preds = %65, %68, %58
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !73
-  %71 = load ptr, ptr %4, align 8, !tbaa !61
-  %72 = call i32 @dt_import_session_film_id(ptr noundef %71) #10
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %70, i32 noundef 16, i32 noundef %72) #10
+67:                                               ; preds = %63, %66, %57
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !73
+  %69 = load ptr, ptr %4, align 8, !tbaa !61
+  %70 = call i32 @dt_import_session_film_id(ptr noundef %69) #10
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %68, i32 noundef 16, i32 noundef %70) #10
   %.pre = load i32, ptr %26, align 8, !tbaa !67
   %.pre38 = add i32 %.pre, 1
-  br label %73
+  br label %71
 
-73:                                               ; preds = %69, %44
-  %.pre-phi = phi i32 [ %.pre38, %69 ], [ %46, %44 ]
+71:                                               ; preds = %67, %44
+  %.pre-phi = phi i32 [ %.pre38, %67 ], [ %46, %44 ]
   store i32 %.pre-phi, ptr %26, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

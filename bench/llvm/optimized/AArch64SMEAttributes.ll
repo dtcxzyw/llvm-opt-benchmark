@@ -370,7 +370,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8SMEAttrs16requiresSMChangeERKS0_(
   %3 = load i32, ptr %1, align 4, !tbaa !3
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %14
+  br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !3
@@ -378,17 +378,18 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8SMEAttrs16requiresSMChangeERKS0_(
   %8 = and i32 %3, 1
   %9 = or i32 %7, %8
   %or.cond = icmp eq i32 %9, 0
-  br i1 %or.cond, label %14, label %10
+  br i1 %or.cond, label %13, label %10
 
 10:                                               ; preds = %5
   %11 = and i32 %6, 5
-  %12 = icmp eq i32 %11, 0
-  %13 = icmp eq i32 %8, 0
-  %or.cond7.not = or i1 %13, %12
-  br label %14
+  %spec.select.i = icmp ne i32 %11, 0
+  %12 = trunc i32 %3 to i1
+  %or.cond6 = and i1 %spec.select.i, %12
+  %not.or.cond6 = xor i1 %or.cond6, true
+  br label %13
 
-14:                                               ; preds = %10, %5, %2
-  %.0 = phi i1 [ %or.cond7.not, %10 ], [ false, %2 ], [ false, %5 ]
+13:                                               ; preds = %10, %5, %2
+  %.0 = phi i1 [ %not.or.cond6, %10 ], [ false, %2 ], [ false, %5 ]
   ret i1 %.0
 }
 

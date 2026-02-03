@@ -16590,21 +16590,21 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
   store i64 %spec.select.i, ptr %139, align 8, !tbaa !38
   %142 = load i64, ptr %111, align 8, !tbaa !243
   %.not54.i = icmp ne i64 %142, 0
-  %143 = and i8 %119, 1
-  %.not55.i = icmp ne i8 %143, 0
-  %144 = or i1 %.not55.i, %.not54.i
-  br i1 %144, label %145, label %149
+  %.not55.i = trunc i8 %119 to i1
+  %143 = or i1 %.not54.i, %.not55.i
+  br i1 %143, label %144, label %149
 
-145:                                              ; preds = %136
+144:                                              ; preds = %136
+  %145 = and i8 %119, 1
   %146 = or disjoint i64 %spec.select.i, 8
   %147 = select i1 %.not54.i, i64 %146, i64 %spec.select.i
-  %148 = zext nneg i8 %143 to i64
+  %148 = zext nneg i8 %145 to i64
   %simplifycfg.merge = or disjoint i64 %147, %148
   store i64 %simplifycfg.merge, ptr %139, align 8, !tbaa !38
   br label %149
 
-149:                                              ; preds = %136, %145
-  %150 = phi i64 [ %spec.select.i, %136 ], [ %simplifycfg.merge, %145 ]
+149:                                              ; preds = %136, %144
+  %150 = phi i64 [ %spec.select.i, %136 ], [ %simplifycfg.merge, %144 ]
   br i1 %switch.selectcmp56.i, label %151, label %184
 
 151:                                              ; preds = %149
@@ -16695,21 +16695,21 @@ define internal fastcc range(i32 0, 3) i32 @tng_data_block_write(ptr noundef %0,
   store i64 %spec.select.i319, ptr %193, align 8, !tbaa !38
   %196 = load i64, ptr %111, align 8, !tbaa !243
   %.not54.i320 = icmp ne i64 %196, 0
-  %197 = and i8 %119, 1
-  %.not55.i321 = icmp ne i8 %197, 0
-  %198 = or i1 %.not55.i321, %.not54.i320
-  br i1 %198, label %199, label %203
+  %.not55.i321 = trunc i8 %119 to i1
+  %197 = or i1 %.not54.i320, %.not55.i321
+  br i1 %197, label %198, label %203
 
-199:                                              ; preds = %192
+198:                                              ; preds = %192
+  %199 = and i8 %119, 1
   %200 = or disjoint i64 %spec.select.i319, 8
   %201 = select i1 %.not54.i320, i64 %200, i64 %spec.select.i319
-  %202 = zext nneg i8 %197 to i64
+  %202 = zext nneg i8 %199 to i64
   %simplifycfg.merge351 = or disjoint i64 %201, %202
   store i64 %simplifycfg.merge351, ptr %193, align 8, !tbaa !38
   br label %203
 
-203:                                              ; preds = %192, %199
-  %204 = phi i64 [ %spec.select.i319, %192 ], [ %simplifycfg.merge351, %199 ]
+203:                                              ; preds = %192, %198
+  %204 = phi i64 [ %spec.select.i319, %192 ], [ %simplifycfg.merge351, %198 ]
   br i1 %switch.selectcmp56.i318, label %205, label %228
 
 205:                                              ; preds = %203

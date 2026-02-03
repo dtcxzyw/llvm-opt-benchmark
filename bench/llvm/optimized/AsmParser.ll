@@ -10220,11 +10220,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @_ZdlPvm(ptr noundef %204, i64 noundef %208) #31
   %.val200.pre = load ptr, ptr %194, align 8, !tbaa !454
   %.val201.pre = load i32, ptr %201, align 8, !tbaa !455
-  %.pre378 = zext i32 %.val201.pre to i64
+  %.pre377 = zext i32 %.val201.pre to i64
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %193, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %.pre-phi = phi i64 [ %.pre378, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %202, %193 ]
+  %.pre-phi = phi i64 [ %.pre377, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %202, %193 ]
   %.val200 = phi ptr [ %.val200.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.val.i.i, %193 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %209 = getelementptr inbounds nuw ptr, ptr %.val200, i64 %.pre-phi
@@ -10501,7 +10501,7 @@ _ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6ve
 
 ._crit_edge:                                      ; preds = %322
   %.pre = load ptr, ptr %71, align 8, !tbaa !162
-  %.pre377 = load i32, ptr %.pre, align 8, !tbaa !417
+  %.pre376 = load i32, ptr %.pre, align 8, !tbaa !417
   br label %475
 
 329:                                              ; preds = %322
@@ -10523,8 +10523,8 @@ _ZNSt6vectorIN4llvm7AsmCondESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6ve
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread330
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %334
-  %lhsc395 = load i8, ptr %.sroa.0149.0.copyload, align 1
-  %339 = icmp eq i8 %lhsc395, 46
+  %lhsc394 = load i8, ptr %.sroa.0149.0.copyload, align 1
+  %339 = icmp eq i8 %lhsc394, 46
   br i1 %339, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread330
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -10773,7 +10773,7 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %385, %401, %404
   br label %_ZN12_GLOBAL__N_19AsmParser16parseDirectiveIfEN4llvm5SMLocENS0_13DirectiveKindE.exit
 
 475:                                              ; preds = %._crit_edge, %318
-  %476 = phi i32 [ %.pre377, %._crit_edge ], [ %320, %318 ]
+  %476 = phi i32 [ %.pre376, %._crit_edge ], [ %320, %318 ]
   %477 = icmp eq i32 %476, 28
   br i1 %477, label %478, label %491
 
@@ -10800,9 +10800,8 @@ _ZN4llvm8AsmTokenD2Ev.exit:                       ; preds = %385, %401, %404
 491:                                              ; preds = %478, %475
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %.val208 = load i8, ptr %492, align 8
-  %493 = and i8 %.val208, 1
-  %.not368 = icmp eq i8 %493, 0
-  br i1 %.not368, label %.thread332, label %494
+  %493 = trunc i8 %.val208 to i1
+  br i1 %493, label %494, label %.thread332
 
 494:                                              ; preds = %491
   %495 = load ptr, ptr %0, align 8, !tbaa !10
@@ -10838,9 +10837,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   br i1 %.not.i.i227, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
-  %lhsc394 = load i8, ptr %504, align 1
-  %.not369 = icmp eq i8 %lhsc394, 46
-  br i1 %.not369, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread334, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %lhsc393 = load i8, ptr %504, align 1
+  %.not368 = icmp eq i8 %lhsc393, 46
+  br i1 %.not368, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread334, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmneENS_9StringRefES0_.exit
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 8

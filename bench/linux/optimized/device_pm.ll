@@ -1047,18 +1047,17 @@ declare dso_local void @wakeup_source_unregister(ptr noundef) local_unnamed_addr
 define dso_local zeroext i1 @acpi_bus_can_wakeup(ptr noundef %0) #1 align 16 {
   %2 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %0) #6
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %9, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 456
   %6 = load i8, ptr %5, align 8
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  br label %9
+  %7 = trunc i8 %6 to i1
+  br label %8
 
-9:                                                ; preds = %4, %1
-  %10 = phi i1 [ false, %1 ], [ %8, %4 ]
-  ret i1 %10
+8:                                                ; preds = %4, %1
+  %9 = phi i1 [ false, %1 ], [ %7, %4 ]
+  ret i1 %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1069,18 +1068,17 @@ define dso_local zeroext i1 @acpi_pm_device_can_wakeup(ptr noundef readonly capt
   %5 = getelementptr i8, ptr %3, i64 -16
   %6 = icmp ne ptr %5, null
   %7 = and i1 %4, %6
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
   %9 = getelementptr i8, ptr %3, i64 440
   %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %12 = icmp ne i8 %11, 0
-  br label %13
+  %11 = trunc i8 %10 to i1
+  br label %12
 
-13:                                               ; preds = %8, %1
-  %14 = phi i1 [ %12, %8 ], [ false, %1 ]
-  ret i1 %14
+12:                                               ; preds = %8, %1
+  %13 = phi i1 [ %11, %8 ], [ false, %1 ]
+  ret i1 %13
 }
 
 ; Function Attrs: null_pointer_is_valid

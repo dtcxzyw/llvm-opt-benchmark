@@ -30565,8 +30565,8 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %102
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0292.0.copyload, i64 28
   %.sroa.0.0.copyload.i = load i32, ptr %115, align 4, !tbaa !464
   %116 = and i32 %.sroa.0.0.copyload.i, 2
-  %.not353 = icmp eq i32 %116, 0
-  br i1 %.not353, label %.thread342, label %117
+  %.not351 = icmp eq i32 %116, 0
+  br i1 %.not351, label %.thread342, label %117
 
 117:                                              ; preds = %114
   %118 = call noundef zeroext i1 @_ZNK4llvm6SDNode15hasNUsesOfValueEjj(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0292.0.copyload, i32 noundef 1, i32 noundef %.sroa.9297.0.copyload) #27
@@ -30706,9 +30706,8 @@ _ZNK4llvm3EVT8isVectorEv.exit266:                 ; preds = %166
 178:                                              ; preds = %172
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0286.0.copyload, i64 28
   %.sroa.0.0.copyload.i267 = load i32, ptr %179, align 4, !tbaa !464
-  %180 = and i32 %.sroa.0.0.copyload.i267, 1
-  %.not = icmp eq i32 %180, 0
-  br i1 %.not, label %181, label %184
+  %180 = trunc i32 %.sroa.0.0.copyload.i267 to i1
+  br i1 %180, label %184, label %181
 
 181:                                              ; preds = %178, %172
   %182 = load ptr, ptr %27, align 8, !tbaa !341
@@ -30816,9 +30815,8 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit271:            ; preds = %206, %209
   %241 = load ptr, ptr %11, align 8, !tbaa !456
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 28
   %.sroa.0.0.copyload.i274 = load i32, ptr %242, align 4, !tbaa !464
-  %243 = and i32 %.sroa.0.0.copyload.i274, 1
-  %.not351 = icmp eq i32 %243, 0
-  br i1 %.not351, label %244, label %.critedge11
+  %243 = trunc i32 %.sroa.0.0.copyload.i274 to i1
+  br i1 %243, label %.critedge11, label %244
 
 244:                                              ; preds = %240
   %245 = load ptr, ptr %27, align 8, !tbaa !341
@@ -30827,13 +30825,13 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit271:            ; preds = %206, %209
 
 ..critedge11_crit_edge:                           ; preds = %244
   %.pre = load i32, ptr %201, align 4, !tbaa !881
-  %.pre354 = zext i32 %.pre to i64
-  %.pre355 = shl i64 %.pre354, %.0.i.i.i.i.i273
+  %.pre352 = zext i32 %.pre to i64
+  %.pre353 = shl i64 %.pre352, %.0.i.i.i.i.i273
   br label %.critedge11
 
 .critedge11:                                      ; preds = %..critedge11_crit_edge, %240
-  %.pre-phi356 = phi i64 [ %.pre355, %..critedge11_crit_edge ], [ %238, %240 ]
-  %247 = trunc i64 %.pre-phi356 to i32
+  %.pre-phi354 = phi i64 [ %.pre353, %..critedge11_crit_edge ], [ %238, %240 ]
+  %247 = trunc i64 %.pre-phi354 to i32
   store i32 %247, ptr %201, align 4, !tbaa !881
   %248 = load ptr, ptr %27, align 8, !tbaa !341
   %.sroa.083.0.copyload = load i16, ptr %6, align 8, !tbaa !473
@@ -30921,9 +30919,9 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge9, %259, %
   call void @_ZN4llvm12SelectionDAG18ReplaceAllUsesWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %270, ptr nonnull %1, i32 %2, ptr %.fca.0.extract, i32 %.fca.1.extract) #27
   %271 = load ptr, ptr %27, align 8, !tbaa !341
   call void @_ZN4llvm12SelectionDAG14RemoveDeadNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %271, ptr noundef nonnull %1) #27
-  %.not352 = icmp eq ptr %.sroa.0282.0, null
-  %.sroa.0241.0.copyload243.sroa.speculated = select i1 %.not352, ptr %.fca.0.extract50, ptr %.sroa.0282.0
-  %.sroa.10.0.copyload247.sroa.speculated = select i1 %.not352, i32 %.fca.1.extract51, i32 %.sroa.6283.0
+  %.not = icmp eq ptr %.sroa.0282.0, null
+  %.sroa.0241.0.copyload243.sroa.speculated = select i1 %.not, ptr %.fca.0.extract50, ptr %.sroa.0282.0
+  %.sroa.10.0.copyload247.sroa.speculated = select i1 %.not, i32 %.fca.1.extract51, i32 %.sroa.6283.0
   %272 = load ptr, ptr %12, align 8, !tbaa !459
   %.not.i.i.i.i.i275 = icmp eq ptr %272, null
   br i1 %.not.i.i.i.i.i275, label %.critedge7, label %273
@@ -32845,26 +32843,26 @@ _ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread: ; preds = %
 80:                                               ; preds = %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %82 = load ptr, ptr %81, align 8, !tbaa !917
-  %.not.i765 = icmp eq ptr %82, null
+  %.not.i764 = icmp eq ptr %82, null
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %84 = load ptr, ptr %83, align 8
-  %.not1.i766 = icmp eq ptr %84, null
-  %or.cond.i767 = select i1 %.not.i765, i1 %.not1.i766, i1 false
+  %.not1.i765 = icmp eq ptr %84, null
+  %or.cond.i766 = select i1 %.not.i764, i1 %.not1.i765, i1 false
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %86 = load ptr, ptr %85, align 8
-  %.not2.i768 = icmp eq ptr %86, null
-  %or.cond7.i = select i1 %or.cond.i767, i1 %.not2.i768, i1 false
+  %.not2.i767 = icmp eq ptr %86, null
+  %or.cond7.i = select i1 %or.cond.i766, i1 %.not2.i767, i1 false
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %88 = load ptr, ptr %87, align 8
-  %.not3.i769 = icmp eq ptr %88, null
-  %or.cond9.i = select i1 %or.cond7.i, i1 %.not3.i769, i1 false
+  %.not3.i768 = icmp eq ptr %88, null
+  %or.cond9.i = select i1 %or.cond7.i, i1 %.not3.i768, i1 false
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %90 = load i32, ptr %89, align 8
-  %.not4.i770 = icmp eq i32 %90, -1
-  %or.cond11.i = select i1 %or.cond9.i, i1 %.not4.i770, i1 false
-  br i1 %or.cond11.i, label %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771, label %.critedge378
+  %.not4.i769 = icmp eq i32 %90, -1
+  %or.cond11.i = select i1 %or.cond9.i, i1 %.not4.i769, i1 false
+  br i1 %or.cond11.i, label %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit770, label %.critedge378
 
-_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771: ; preds = %80
+_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit770: ; preds = %80
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %92 = load ptr, ptr %91, align 8, !tbaa !921
   %93 = icmp ne ptr %92, null
@@ -32874,15 +32872,15 @@ _ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771: ; pre
   %or.cond376.not = select i1 %93, i1 true, i1 %96
   br i1 %or.cond376.not, label %.critedge378, label %97
 
-97:                                               ; preds = %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771
+97:                                               ; preds = %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit770
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %99 = load ptr, ptr %98, align 8, !tbaa !603
   %100 = load ptr, ptr %99, align 8, !tbaa !456
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load i32, ptr %101, align 8, !tbaa !471
   %103 = icmp ne i32 %102, 44
-  %.not365729 = icmp eq ptr %100, null
-  %.not365 = or i1 %.not365729, %103
+  %.not365728 = icmp eq ptr %100, null
+  %.not365 = or i1 %.not365728, %103
   br i1 %.not365, label %.critedge378, label %104
 
 104:                                              ; preds = %97
@@ -33389,8 +33387,8 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %330, %327, %327, %3
 _ZNK4llvm6SDNode9hasOneUseEv.exit458:             ; preds = %341
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 32
   %345 = load ptr, ptr %344, align 8, !tbaa !711
-  %.not718 = icmp eq ptr %345, null
-  br i1 %.not718, label %.thread, label %_ZNK4llvm6SDNode9hasOneUseEv.exit458.thread
+  %.not717 = icmp eq ptr %345, null
+  br i1 %.not717, label %.thread, label %_ZNK4llvm6SDNode9hasOneUseEv.exit458.thread
 
 _ZNK4llvm6SDNode9hasOneUseEv.exit458.thread:      ; preds = %_ZNK4llvm3EVTeqES0_.exit, %341, %_ZNK4llvm6SDNode9hasOneUseEv.exit458
   %346 = add nsw i32 %.0334, -1
@@ -33404,15 +33402,15 @@ _ZNK4llvm6SDNode9hasOneUseEv.exit458.thread:      ; preds = %_ZNK4llvm3EVTeqES0_
 _ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit: ; preds = %.thread
   %.not.i459 = icmp eq ptr %.sroa.9557.0.copyload, null
   %.not1.i = icmp eq ptr %.sroa.10564.0.copyload, null
-  %or.cond.i460.not721.not726 = select i1 %.not.i459, i1 %.not1.i, i1 false
+  %or.cond.i460.not720.not725 = select i1 %.not.i459, i1 %.not1.i, i1 false
   %.not2.i = icmp eq ptr %.sroa.12.0.copyload, null
-  %or.cond7.i.not720.not725 = select i1 %or.cond.i460.not721.not726, i1 %.not2.i, i1 false
+  %or.cond7.i.not719.not724 = select i1 %or.cond.i460.not720.not725, i1 %.not2.i, i1 false
   %.not3.i = icmp eq ptr %.sroa.13.0.copyload585, null
-  %or.cond9.i.not719.not724 = select i1 %or.cond7.i.not720.not725, i1 %.not3.i, i1 false
+  %or.cond9.i.not718.not723 = select i1 %or.cond7.i.not719.not724, i1 %.not3.i, i1 false
   %.not4.i = icmp eq i32 %.sroa.14.0.copyload, -1
-  %or.cond11.i.not.not723 = select i1 %or.cond9.i.not719.not724, i1 %.not4.i, i1 false
+  %or.cond11.i.not.not722 = select i1 %or.cond9.i.not718.not723, i1 %.not4.i, i1 false
   %348 = icmp eq ptr %.sroa.11571.0.copyload, null
-  %spec.select712.not = select i1 %or.cond11.i.not.not723, i1 %348, i1 false
+  %spec.select712.not = select i1 %or.cond11.i.not.not722, i1 %348, i1 false
   %349 = zext i1 %spec.select712.not to i32
   br label %350
 
@@ -33448,8 +33446,8 @@ _ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit: ; preds 
   store ptr %.sroa.12.0.copyload, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !52
   store ptr %.sroa.13.0.copyload585, ptr %.sroa.13.0..sroa_idx584, align 8, !tbaa !930
   store i32 %.sroa.14.0.copyload, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !464
-  %.sroa.15.sroa.0.0.extract.trunc733 = trunc i32 %303 to i24
-  store i24 %.sroa.15.sroa.0.0.extract.trunc733, ptr %.sroa.15.0..sroa_idx, align 4
+  %.sroa.15.sroa.0.0.extract.trunc732 = trunc i32 %303 to i24
+  store i24 %.sroa.15.sroa.0.0.extract.trunc732, ptr %.sroa.15.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0531)
   call void @_ZN4llvm12HandleSDNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -33741,11 +33739,11 @@ _ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddress
   %498 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %499 = load i32, ptr %498, align 8, !tbaa !457
   %500 = call noundef zeroext i1 @_ZNK4llvm6SDNode15hasNUsesOfValueEjj(ptr noundef nonnull align 8 dereferenceable(88) %493, i32 noundef 1, i32 noundef %499) #27
-  %.pre736 = load ptr, ptr %11, align 8, !tbaa !456
+  %.pre735 = load ptr, ptr %11, align 8, !tbaa !456
   br i1 %500, label %501, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468.thread
 
 501:                                              ; preds = %497
-  %502 = getelementptr inbounds nuw i8, ptr %.pre736, i64 40
+  %502 = getelementptr inbounds nuw i8, ptr %.pre735, i64 40
   %503 = load ptr, ptr %502, align 8, !tbaa !603
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 40
   %505 = load ptr, ptr %504, align 8, !tbaa !456
@@ -33769,7 +33767,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468: ; preds = %
   br label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468.thread
 
 _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468.thread: ; preds = %501, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468, %497, %490
-  %515 = phi ptr [ %.pre736, %501 ], [ %.pre, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468 ], [ %.pre736, %497 ], [ %493, %490 ]
+  %515 = phi ptr [ %.pre735, %501 ], [ %.pre, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit468 ], [ %.pre735, %497 ], [ %493, %490 ]
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 24
   %517 = load i32, ptr %516, align 8, !tbaa !471
   %518 = icmp eq i32 %517, 190
@@ -33840,9 +33838,8 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit473: ; preds = %5
   %550 = load ptr, ptr %11, align 8, !tbaa !456
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 28
   %.sroa.0.0.copyload.i476 = load i32, ptr %551, align 4, !tbaa !464
-  %552 = and i32 %.sroa.0.0.copyload.i476, 1
-  %.not717 = icmp eq i32 %552, 0
-  br i1 %.not717, label %553, label %.critedge407.thread
+  %552 = trunc i32 %.sroa.0.0.copyload.i476 to i1
+  br i1 %552, label %.critedge407.thread, label %553
 
 553:                                              ; preds = %546
   %554 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34214,9 +34211,9 @@ _ZN4llvm5APIntD2Ev.exit492:                       ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge378
 
-.critedge378:                                     ; preds = %80, %183, %190, %178, %435, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433, %216, %214, %129, %221, %153, %_ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddressModeEj.exit, %.thread698, %_ZN4llvm5APIntD2Ev.exit492, %_ZN4llvm5APIntD2Ev.exit490, %_ZN4llvm5APIntD2Ev.exit489, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %97, %.critedge397, %472, %475, %468, %430, %367, %217, %173, %147, %150, %137, %127, %125, %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771, %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit426, %195
-  %.sroa.0625.0 = phi ptr [ %1, %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread ], [ %1, %97 ], [ %1, %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771 ], [ %1, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit426 ], [ %1, %125 ], [ %1, %127 ], [ %1, %137 ], [ %1, %221 ], [ %1, %129 ], [ %1, %475 ], [ %1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ %1, %150 ], [ %1, %147 ], [ %1, %195 ], [ %1, %183 ], [ %1, %472 ], [ %1, %173 ], [ %1, %153 ], [ %1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433 ], [ %1, %217 ], [ %1, %_ZN4llvm5APIntD2Ev.exit489 ], [ %1, %214 ], [ %1, %216 ], [ %.sroa.0625.0.copyload, %.critedge397 ], [ %.sroa.0625.0.copyload, %.thread698 ], [ %.sroa.0625.0.copyload655, %_ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddressModeEj.exit ], [ %1, %367 ], [ %1, %468 ], [ %1, %435 ], [ %1, %430 ], [ %1, %_ZN4llvm5APIntD2Ev.exit490 ], [ %1, %_ZN4llvm5APIntD2Ev.exit492 ], [ %1, %178 ], [ %1, %190 ], [ %1, %80 ]
-  %.sroa.55.0 = phi i32 [ %2, %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread ], [ %2, %97 ], [ %2, %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit771 ], [ %2, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit426 ], [ %2, %125 ], [ %2, %127 ], [ %2, %137 ], [ %2, %221 ], [ %2, %129 ], [ %2, %475 ], [ %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ %2, %150 ], [ %2, %147 ], [ %2, %195 ], [ %2, %183 ], [ %2, %472 ], [ %2, %173 ], [ %2, %153 ], [ %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433 ], [ %2, %217 ], [ %2, %_ZN4llvm5APIntD2Ev.exit489 ], [ %2, %214 ], [ %2, %216 ], [ %.sroa.55.0.copyload, %.critedge397 ], [ %.sroa.55.0.copyload, %.thread698 ], [ %.sroa.55.0.copyload660, %_ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddressModeEj.exit ], [ %2, %367 ], [ %2, %468 ], [ %2, %435 ], [ %2, %430 ], [ %2, %_ZN4llvm5APIntD2Ev.exit490 ], [ %2, %_ZN4llvm5APIntD2Ev.exit492 ], [ %2, %178 ], [ %2, %190 ], [ %2, %80 ]
+.critedge378:                                     ; preds = %80, %183, %190, %178, %435, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433, %216, %214, %129, %221, %153, %_ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddressModeEj.exit, %.thread698, %_ZN4llvm5APIntD2Ev.exit492, %_ZN4llvm5APIntD2Ev.exit490, %_ZN4llvm5APIntD2Ev.exit489, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %97, %.critedge397, %472, %475, %468, %430, %367, %217, %173, %147, %150, %137, %127, %125, %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit770, %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit426, %195
+  %.sroa.0625.0 = phi ptr [ %1, %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread ], [ %1, %97 ], [ %1, %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit770 ], [ %1, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit426 ], [ %1, %125 ], [ %1, %127 ], [ %1, %137 ], [ %1, %221 ], [ %1, %129 ], [ %1, %475 ], [ %1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ %1, %150 ], [ %1, %147 ], [ %1, %195 ], [ %1, %183 ], [ %1, %472 ], [ %1, %173 ], [ %1, %153 ], [ %1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433 ], [ %1, %217 ], [ %1, %_ZN4llvm5APIntD2Ev.exit489 ], [ %1, %214 ], [ %1, %216 ], [ %.sroa.0625.0.copyload, %.critedge397 ], [ %.sroa.0625.0.copyload, %.thread698 ], [ %.sroa.0625.0.copyload655, %_ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddressModeEj.exit ], [ %1, %367 ], [ %1, %468 ], [ %1, %435 ], [ %1, %430 ], [ %1, %_ZN4llvm5APIntD2Ev.exit490 ], [ %1, %_ZN4llvm5APIntD2Ev.exit492 ], [ %1, %178 ], [ %1, %190 ], [ %1, %80 ]
+  %.sroa.55.0 = phi i32 [ %2, %_ZNK12_GLOBAL__N_118X86ISelAddressMode13isRIPRelativeEv.exit.thread ], [ %2, %97 ], [ %2, %_ZNK12_GLOBAL__N_118X86ISelAddressMode23hasSymbolicDisplacementEv.exit770 ], [ %2, %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit426 ], [ %2, %125 ], [ %2, %127 ], [ %2, %137 ], [ %2, %221 ], [ %2, %129 ], [ %2, %475 ], [ %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ %2, %150 ], [ %2, %147 ], [ %2, %195 ], [ %2, %183 ], [ %2, %472 ], [ %2, %173 ], [ %2, %153 ], [ %2, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433 ], [ %2, %217 ], [ %2, %_ZN4llvm5APIntD2Ev.exit489 ], [ %2, %214 ], [ %2, %216 ], [ %.sroa.55.0.copyload, %.critedge397 ], [ %.sroa.55.0.copyload, %.thread698 ], [ %.sroa.55.0.copyload660, %_ZN12_GLOBAL__N_115X86DAGToDAGISel8matchAddERN4llvm7SDValueERNS_18X86ISelAddressModeEj.exit ], [ %2, %367 ], [ %2, %468 ], [ %2, %435 ], [ %2, %430 ], [ %2, %_ZN4llvm5APIntD2Ev.exit490 ], [ %2, %_ZN4llvm5APIntD2Ev.exit492 ], [ %2, %178 ], [ %2, %190 ], [ %2, %80 ]
   %695 = load i32, ptr %3, align 8, !tbaa !870
   %.not.i493 = icmp eq i32 %695, 0
   %696 = load ptr, ptr %44, align 8

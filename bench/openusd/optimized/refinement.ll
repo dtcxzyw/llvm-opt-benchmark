@@ -2950,7 +2950,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
   %88 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %87, i64 %indvars.iv108
   %89 = load i8, ptr %88, align 1
   %90 = and i8 %89, 1
-  %.not = icmp ne i8 %90, 0
+  %.not = trunc i8 %89 to i1
   %91 = load ptr, ptr %12, align 8
   %.idx = shl i64 %indvars.iv108, 3
   %92 = getelementptr i8, ptr %91, i64 %.idx
@@ -2962,7 +2962,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateFaceParent
   %98 = load i32, ptr %92, align 4
   %.fr97 = freeze i32 %98
   %99 = icmp eq i32 %.fr97, 4
-  %or.cond = and i1 %.not, %99
+  %or.cond = and i1 %99, %.not
   br i1 %or.cond, label %100, label %141
 
 100:                                              ; preds = %86
@@ -3356,7 +3356,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   %88 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %87, i64 %indvars.iv108
   %89 = load i8, ptr %88, align 1
   %90 = and i8 %89, 1
-  %.not = icmp ne i8 %90, 0
+  %.not = trunc i8 %89 to i1
   %91 = load ptr, ptr %12, align 8
   %.idx = shl i64 %indvars.iv108, 3
   %92 = getelementptr i8, ptr %91, i64 %.idx
@@ -3368,7 +3368,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal10Refinement33populateEdgeParent
   %98 = load i32, ptr %92, align 4
   %.fr97 = freeze i32 %98
   %99 = icmp eq i32 %.fr97, 4
-  %or.cond = and i1 %.not, %99
+  %or.cond = and i1 %99, %.not
   br i1 %or.cond, label %100, label %141
 
 100:                                              ; preds = %86

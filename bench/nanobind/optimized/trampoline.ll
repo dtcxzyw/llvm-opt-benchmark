@@ -83,9 +83,8 @@ define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly c
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i.i.i.i.i, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
-  %40 = and i64 %39, 1
-  %.not10 = icmp eq i64 %40, 0
-  br i1 %.not10, label %41, label %.critedge, !prof !3
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %.critedge, label %41, !prof !6
 
 .critedge:                                        ; preds = %.loopexit, %36
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #9

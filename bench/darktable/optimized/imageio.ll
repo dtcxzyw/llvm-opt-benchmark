@@ -1105,20 +1105,20 @@ define range(i32 0, 2) i32 @dt_imageio_export_with_flags(i32 noundef %0, ptr nou
   %57 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #20
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %57, ptr noundef nonnull %58) #20
-  br label %577
+  br label %576
 
 59:                                               ; preds = %53, %53, %53
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %1, i32 noundef %55) #20
   %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #20
   %61 = getelementptr inbounds nuw i8, ptr %27, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %60, ptr noundef nonnull %61) #20
-  br label %577
+  br label %576
 
 62:                                               ; preds = %53
   %63 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #20
   %64 = getelementptr inbounds nuw i8, ptr %27, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %63, ptr noundef nonnull %64) #20
-  br label %577
+  br label %576
 
 65:                                               ; preds = %42
   %66 = getelementptr inbounds nuw i8, ptr %27, i64 1484
@@ -2080,45 +2080,44 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 
 565:                                              ; preds = %560
   %566 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !203
-  %567 = and i32 %566, 1
-  %568 = icmp ne i32 %567, 0
-  %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3272), align 8
-  %570 = icmp ne i32 %569, 0
-  %or.cond17 = select i1 %568, i1 %570, i1 false
-  br i1 %or.cond17, label %571, label %575
+  %567 = trunc i32 %566 to i1
+  %568 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3272), align 8
+  %569 = icmp ne i32 %568, 0
+  %or.cond17 = select i1 %567, i1 %569, i1 false
+  br i1 %or.cond17, label %570, label %574
 
-571:                                              ; preds = %565
-  %572 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %573 = and i32 %572, 1048576
-  %.not430 = icmp eq i32 %573, 0
-  br i1 %.not430, label %575, label %574
+570:                                              ; preds = %565
+  %571 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %572 = and i32 %571, 1048576
+  %.not430 = icmp eq i32 %572, 0
+  br i1 %.not430, label %574, label %573
 
-574:                                              ; preds = %571
+573:                                              ; preds = %570
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.10, i32 noundef 1517, ptr noundef nonnull @__FUNCTION__.dt_imageio_export_with_flags) #20
-  br label %575
+  br label %574
 
-575:                                              ; preds = %571, %574, %565
-  %576 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !204
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %576, i32 noundef 35, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16, ptr noundef %17) #20
+574:                                              ; preds = %570, %573, %565
+  %575 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !204
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %575, i32 noundef 35, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16, ptr noundef %17) #20
   br label %.critedge.sink.split
 
 .thread455:                                       ; preds = %120, %122, %544, %389, %392, %97
   call void @dt_dev_pixelpipe_cleanup(ptr noundef nonnull %30) #20
-  br label %577
+  br label %576
 
-577:                                              ; preds = %56, %62, %59, %.thread455
+576:                                              ; preds = %56, %62, %59, %.thread455
   call void @dt_dev_cleanup(ptr noundef nonnull %27) #20
-  %578 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !102
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %578, ptr noundef nonnull %28, ptr noundef nonnull @.str.10, i32 noundef 1528) #20
+  %577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !102
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %577, ptr noundef nonnull %28, ptr noundef nonnull @.str.10, i32 noundef 1528) #20
   br i1 %.not398, label %.critedge.sink.split, label %.critedge
 
-.critedge.sink.split:                             ; preds = %577, %575, %560, %555
-  %.0.ph = phi i32 [ 0, %575 ], [ 0, %555 ], [ 0, %560 ], [ 1, %577 ]
+.critedge.sink.split:                             ; preds = %576, %574, %560, %555
+  %.0.ph = phi i32 [ 0, %574 ], [ 0, %555 ], [ 0, %560 ], [ 1, %576 ]
   call void @dt_set_backthumb_time(double noundef 5.000000e+00) #20
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %577, %553
-  %.0 = phi i32 [ 1, %577 ], [ 0, %553 ], [ %.0.ph, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %576, %553
+  %.0 = phi i32 [ 1, %576 ], [ 0, %553 ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret i32 %.0
@@ -2266,26 +2265,25 @@ define void @dt_imageio_update_monochrome_workflow_tag(i32 noundef %0, i32 nound
 
 12:                                               ; preds = %6, %10
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !203
-  %14 = and i32 %13, 1
-  %15 = icmp ne i32 %14, 0
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %17 = icmp ne i32 %16, 0
-  %or.cond = select i1 %15, i1 %17, i1 false
-  br i1 %or.cond, label %18, label %22
+  %14 = trunc i32 %13 to i1
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %16 = icmp ne i32 %15, 0
+  %or.cond = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond, label %17, label %21
 
-18:                                               ; preds = %12
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %20 = and i32 %19, 1048576
-  %.not4 = icmp eq i32 %20, 0
-  br i1 %.not4, label %22, label %21
+17:                                               ; preds = %12
+  %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %19 = and i32 %18, 1048576
+  %.not4 = icmp eq i32 %19, 0
+  br i1 %.not4, label %21, label %20
 
-21:                                               ; preds = %18
+20:                                               ; preds = %17
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.10, i32 noundef 1565, ptr noundef nonnull @__FUNCTION__.dt_imageio_update_monochrome_workflow_tag) #20
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %18, %12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !204
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %23, i32 noundef 9) #20
+21:                                               ; preds = %20, %17, %12
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !204
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %22, i32 noundef 9) #20
   ret void
 }
 

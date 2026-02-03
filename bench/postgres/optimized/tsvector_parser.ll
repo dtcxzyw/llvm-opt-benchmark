@@ -26,16 +26,16 @@ define dso_local noundef ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %
   %9 = tail call i32 @pg_database_encoding_max_length() #7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %12 = trunc i32 %1 to i8
-  %13 = and i8 %12, 1
-  store i8 %13, ptr %11, align 8
+  %11 = trunc i32 %1 to i8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %13 = and i8 %11, 1
+  store i8 %13, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  %15 = lshr i8 %12, 1
+  %15 = lshr i8 %11, 1
   %16 = and i8 %15, 1
   store i8 %16, ptr %14, align 1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 34
-  %18 = lshr i8 %12, 2
+  %18 = lshr i8 %11, 2
   %19 = and i8 %18, 1
   store i8 %19, ptr %17, align 2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40

@@ -236,9 +236,8 @@ define void @_Z44grpc_chttp2_window_update_parser_begin_frameP32grpc_chttp2_wind
 .lr.ph.i.i.i.i:                                   ; preds = %20, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %31, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %21, %20 ]
   %24 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !30
-  %25 = and i64 %24, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %26, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %26
 
 26:                                               ; preds = %.lr.ph.i.i.i.i
   %27 = inttoptr i64 %24 to ptr
@@ -339,9 +338,8 @@ define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev(
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load i64, ptr %.05.i.i.i, align 8, !tbaa !30
-  %6 = and i64 %5, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i.i.i.i, label %7, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = inttoptr i64 %5 to ptr
@@ -500,9 +498,8 @@ define void @_Z38grpc_chttp2_window_update_parser_parsePvP21grpc_chttp2_transpor
 .lr.ph.i.i.i.i:                                   ; preds = %69, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %80, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %70, %69 ]
   %73 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !30
-  %74 = and i64 %73, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %74, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %75, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %74 = trunc i64 %73 to i1
+  br i1 %74, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %75
 
 75:                                               ; preds = %.lr.ph.i.i.i.i
   %76 = inttoptr i64 %73 to ptr

@@ -55,8 +55,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 
 .lr.ph:                                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %21
 
 18:                                               ; preds = %.critedge
@@ -78,9 +78,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
           to label %.critedge unwind label %19
 
 24:                                               ; preds = %21
-  %25 = and i64 %22, 1
-  %.not20 = icmp eq i64 %25, 0
-  br i1 %.not20, label %36, label %26
+  %25 = trunc i64 %22 to i1
+  br i1 %25, label %26, label %36
 
 26:                                               ; preds = %24
   %27 = invoke i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -94,7 +93,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
   %32 = add i64 %.neg.i.i.i.i.i, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %31, ptr %4, align 8, !tbaa !23
-  store i64 %32, ptr %16, align 8, !tbaa !25
+  store i64 %32, ptr %17, align 8, !tbaa !25
   %33 = load ptr, ptr %6, align 8, !tbaa !14
   %34 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit unwind label %45
@@ -115,16 +114,16 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt
   %40 = add i64 %.neg.i.i.i.i, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %39, ptr %3, align 8, !tbaa !23
-  store i64 %40, ptr %17, align 8, !tbaa !25
+  store i64 %40, ptr %16, align 8, !tbaa !25
   %41 = load ptr, ptr %6, align 8, !tbaa !14
   %42 = invoke noundef i32 @pthread_cond_timedwait(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %43 unwind label %47
 
 43:                                               ; preds = %38
   %44 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #7
-  %.not44 = icmp slt i64 %44, %37
+  %.not42 = icmp slt i64 %44, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not44, label %.critedge, label %.loopexit
+  br i1 %.not42, label %.critedge, label %.loopexit
 
 45:                                               ; preds = %28, %26
   %46 = landingpad { ptr, i32 }
@@ -138,12 +137,12 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt
 
 .critedge:                                        ; preds = %_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EE.exit, %43, %23
   %49 = load i32, ptr %13, align 4, !tbaa !13
-  %.not37 = icmp eq i32 %49, 0
-  br i1 %.not37, label %18, label %._crit_edge, !llvm.loop !26
+  %.not36 = icmp eq i32 %49, 0
+  br i1 %.not36, label %18, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.critedge, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %.lcssa25 = phi i32 [ %14, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %49, %.critedge ]
-  %50 = add nsw i32 %.lcssa25, -1
+  %.lcssa24 = phi i32 [ %14, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %49, %.critedge ]
+  %50 = add nsw i32 %.lcssa24, -1
   store i32 %50, ptr %13, align 4, !tbaa !13
   br label %.loopexit
 

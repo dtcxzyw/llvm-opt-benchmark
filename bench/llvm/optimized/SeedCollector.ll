@@ -1680,7 +1680,7 @@ define dso_local void @_ZN4llvm9sandboxir13SeedCollectorC2EPNS0_10BasicBlockERNS
   %22 = icmp ne i64 %21, -1
   %23 = and i64 %21, %19
   %or.cond.not = icmp eq i64 %23, -1
-  br i1 %or.cond.not, label %117, label %24
+  br i1 %or.cond.not, label %119, label %24
 
 24:                                               ; preds = %3
   %25 = load ptr, ptr %15, align 8, !tbaa !166
@@ -1710,15 +1710,15 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %24, %32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !175
-  %.not4243 = icmp eq ptr %38, %36
-  br i1 %.not4243, label %._crit_edge, label %.lr.ph
+  %.not4041 = icmp eq ptr %38, %36
+  br i1 %.not4041, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %39
 
-39:                                               ; preds = %.lr.ph, %114
-  %40 = phi ptr [ %38, %.lr.ph ], [ %116, %114 ]
+39:                                               ; preds = %.lr.ph, %116
+  %40 = phi ptr [ %38, %.lr.ph ], [ %118, %116 ]
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %41 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZNK4llvm9sandboxir10BBIterator8getInstrENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr %40, i64 %.sroa.2.0.copyload.i) #21
   %42 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
@@ -1732,173 +1732,171 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %24, %32
   %46 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %45) #24
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %48 = load i16, ptr %47, align 2
-  %49 = and i16 %48, 1
-  %.not.i.i.i = icmp ne i16 %49, 0
-  %.not12.i = select i1 %46, i1 true, i1 %.not.i.i.i
-  br i1 %.not12.i, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread, label %50
+  %49 = trunc i16 %48 to i1
+  %50 = select i1 %46, i1 true, i1 %49
+  br i1 %50, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread, label %51
 
-50:                                               ; preds = %43
-  %51 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
-  br i1 %51, label %52, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
+51:                                               ; preds = %43
+  %52 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
+  br i1 %52, label %53, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !16
-  %.not.i.i = icmp eq i32 %54, 36
-  br i1 %.not.i.i, label %55, label %58
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %55 = load i32, ptr %54, align 8, !tbaa !16
+  %.not.i.i = icmp eq i32 %55, 36
+  br i1 %.not.i.i, label %56, label %59
 
-55:                                               ; preds = %52
-  %56 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, label %58
+56:                                               ; preds = %53
+  %57 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, label %59
 
-58:                                               ; preds = %55, %52
-  %59 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
-  br i1 %59, label %60, label %62
+59:                                               ; preds = %56, %53
+  %60 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %58
-  %61 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
+61:                                               ; preds = %59
+  %62 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
-62:                                               ; preds = %58
-  %63 = load i32, ptr %53, align 8, !tbaa !16
-  %.not.i.i7.i = icmp eq i32 %63, 36
-  br i1 %.not.i.i7.i, label %64, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
+63:                                               ; preds = %59
+  %64 = load i32, ptr %54, align 8, !tbaa !16
+  %.not.i.i.i = icmp eq i32 %64, 36
+  br i1 %.not.i.i.i, label %65, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
-64:                                               ; preds = %62
-  %65 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
+65:                                               ; preds = %63
+  %66 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
   br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
 
-_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i: ; preds = %64, %62, %60, %55, %50
-  %.1.i.sink.i.i = phi ptr [ %41, %55 ], [ %41, %62 ], [ %61, %60 ], [ %65, %64 ], [ %41, %50 ]
-  %66 = call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i.i) #21
-  %67 = load ptr, ptr %66, align 8, !tbaa !156
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load i32, ptr %68, align 8
-  %trunc.i = trunc i32 %69 to i8
-  switch i8 %trunc.i, label %70 [
+_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i: ; preds = %65, %63, %61, %56, %51
+  %.1.i.sink.i.i = phi ptr [ %41, %56 ], [ %41, %63 ], [ %62, %61 ], [ %66, %65 ], [ %41, %51 ]
+  %67 = call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i.i) #21
+  %68 = load ptr, ptr %67, align 8, !tbaa !156
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load i32, ptr %69, align 8
+  %trunc.i = trunc i32 %70 to i8
+  switch i8 %trunc.i, label %71 [
     i8 4, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
     i8 6, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
     i8 18, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
   ]
 
-70:                                               ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
-  %71 = and i32 %69, 255
-  %.not.i26 = icmp eq i32 %71, 17
-  br i1 %.not.i26, label %72, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit
+71:                                               ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i
+  %72 = and i32 %70, 255
+  %.not.i26 = icmp eq i32 %72, 17
+  br i1 %.not.i26, label %73, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit
 
-72:                                               ; preds = %70
-  %73 = call noundef ptr @_ZNK4llvm9sandboxir10VectorType14getElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #21
+73:                                               ; preds = %71
+  %74 = call noundef ptr @_ZNK4llvm9sandboxir10VectorType14getElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #21
   br label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit
 
-_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit: ; preds = %70, %72
-  %.sink.i = phi ptr [ %73, %72 ], [ %66, %70 ]
-  %74 = call noundef zeroext i1 @_ZN4llvm9sandboxir10VectorType18isValidElementTypeEPNS0_4TypeE(ptr noundef %.sink.i) #21
-  br i1 %74, label %75, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
+_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit: ; preds = %71, %73
+  %.sink.i = phi ptr [ %74, %73 ], [ %67, %71 ]
+  %75 = call noundef zeroext i1 @_ZN4llvm9sandboxir10VectorType18isValidElementTypeEPNS0_4TypeE(ptr noundef %.sink.i) #21
+  br i1 %75, label %76, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
 
-75:                                               ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit
+76:                                               ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit
   call void @_ZN4llvm9sandboxir13SeedContainer6insertINS0_9StoreInstEEEvPT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %41)
   br label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
 
-_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %43, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit, %75, %39
-  %76 = call noundef zeroext i1 @_ZN4llvm9sandboxir8LoadInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
-  %spec.select.i.i27 = select i1 %76, ptr %41, ptr null
-  %or.cond5 = and i1 %22, %76
-  br i1 %or.cond5, label %77, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
+_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i, %43, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit, %76, %39
+  %77 = call noundef zeroext i1 @_ZN4llvm9sandboxir8LoadInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
+  %spec.select.i.i27 = select i1 %77, ptr %41, ptr null
+  %or.cond5 = and i1 %22, %77
+  br i1 %or.cond5, label %78, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
 
-77:                                               ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
-  %78 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !11
-  %80 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %79) #24
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 2
-  %82 = load i16, ptr %81, align 2
-  %83 = and i16 %82, 1
-  %.not.i.i.i28 = icmp ne i16 %83, 0
-  %.not12.i29 = select i1 %80, i1 true, i1 %.not.i.i.i28
-  br i1 %.not12.i29, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread, label %84
+78:                                               ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
+  %79 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !11
+  %81 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %80) #24
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 2
+  %83 = load i16, ptr %82, align 2
+  %84 = trunc i16 %83 to i1
+  %85 = select i1 %81, i1 true, i1 %84
+  br i1 %85, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread, label %86
 
-84:                                               ; preds = %77
-  %85 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
-  br i1 %85, label %86, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30
+86:                                               ; preds = %78
+  %87 = call noundef zeroext i1 @_ZN4llvm9sandboxir11Instruction7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %41) #21
+  br i1 %87, label %88, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %spec.select.i.i27, i64 8
-  %88 = load i32, ptr %87, align 8, !tbaa !16
-  %.not.i.i37 = icmp eq i32 %88, 36
-  br i1 %.not.i.i37, label %89, label %92
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %spec.select.i.i27, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !16
+  %.not.i.i35 = icmp eq i32 %90, 36
+  br i1 %.not.i.i35, label %91, label %94
 
-89:                                               ; preds = %86
-  %90 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30, label %92
+91:                                               ; preds = %88
+  %92 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28, label %94
 
-92:                                               ; preds = %89, %86
-  %93 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
-  br i1 %93, label %94, label %96
+94:                                               ; preds = %91, %88
+  %95 = call noundef zeroext i1 @_ZN4llvm9sandboxir9StoreInst7classofEPKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(36) %41) #21
+  br i1 %95, label %96, label %98
 
-94:                                               ; preds = %92
-  %95 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
-  br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30
+96:                                               ; preds = %94
+  %97 = call noundef ptr @_ZNK4llvm9sandboxir9StoreInst15getValueOperandEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
+  br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28
 
-96:                                               ; preds = %92
-  %97 = load i32, ptr %87, align 8, !tbaa !16
-  %.not.i.i7.i38 = icmp eq i32 %97, 36
-  br i1 %.not.i.i7.i38, label %98, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30
+98:                                               ; preds = %94
+  %99 = load i32, ptr %89, align 8, !tbaa !16
+  %.not.i.i.i36 = icmp eq i32 %99, 36
+  br i1 %.not.i.i.i36, label %100, label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28
 
-98:                                               ; preds = %96
-  %99 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
-  br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30
+100:                                              ; preds = %98
+  %101 = call noundef ptr @_ZNK4llvm9sandboxir10ReturnInst14getReturnValueEv(ptr noundef nonnull align 8 dereferenceable(40) %41) #21
+  br label %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28
 
-_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30: ; preds = %98, %96, %94, %89, %84
-  %.1.i.sink.i.i31 = phi ptr [ %41, %89 ], [ %41, %96 ], [ %95, %94 ], [ %99, %98 ], [ %41, %84 ]
-  %100 = call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i.i31) #21
-  %101 = load ptr, ptr %100, align 8, !tbaa !156
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load i32, ptr %102, align 8
-  %trunc.i32 = trunc i32 %103 to i8
-  switch i8 %trunc.i32, label %104 [
+_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28: ; preds = %100, %98, %96, %91, %86
+  %.1.i.sink.i.i29 = phi ptr [ %41, %91 ], [ %41, %98 ], [ %97, %96 ], [ %101, %100 ], [ %41, %86 ]
+  %102 = call noundef ptr @_ZNK4llvm9sandboxir5Value7getTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.sink.i.i29) #21
+  %103 = load ptr, ptr %102, align 8, !tbaa !156
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load i32, ptr %104, align 8
+  %trunc.i30 = trunc i32 %105 to i8
+  switch i8 %trunc.i30, label %106 [
     i8 4, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
     i8 6, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
     i8 18, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
   ]
 
-104:                                              ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30
-  %105 = and i32 %103, 255
-  %.not.i34 = icmp eq i32 %105, 17
-  br i1 %.not.i34, label %106, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit
+106:                                              ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28
+  %107 = and i32 %105, 255
+  %.not.i32 = icmp eq i32 %107, 17
+  br i1 %.not.i32, label %108, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit
 
-106:                                              ; preds = %104
-  %107 = call noundef ptr @_ZNK4llvm9sandboxir10VectorType14getElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %100) #21
+108:                                              ; preds = %106
+  %109 = call noundef ptr @_ZNK4llvm9sandboxir10VectorType14getElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %102) #21
   br label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit
 
-_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit: ; preds = %104, %106
-  %.sink.i36 = phi ptr [ %107, %106 ], [ %100, %104 ]
-  %108 = call noundef zeroext i1 @_ZN4llvm9sandboxir10VectorType18isValidElementTypeEPNS0_4TypeE(ptr noundef %.sink.i36) #21
-  br i1 %108, label %109, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
+_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit: ; preds = %106, %108
+  %.sink.i34 = phi ptr [ %109, %108 ], [ %102, %106 ]
+  %110 = call noundef zeroext i1 @_ZN4llvm9sandboxir10VectorType18isValidElementTypeEPNS0_4TypeE(ptr noundef %.sink.i34) #21
+  br i1 %110, label %111, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
 
-109:                                              ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit
+111:                                              ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit
   call void @_ZN4llvm9sandboxir13SeedContainer6insertINS0_8LoadInstEEEvPT_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull %41)
   br label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
 
-_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread: ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i30, %77, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit, %109, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
-  %110 = load i32, ptr %8, align 8, !tbaa !27
-  %111 = load i32, ptr %13, align 8, !tbaa !27
-  %112 = add i32 %111, %110
-  %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9sandboxir15SeedGroupsLimitE, i64 120), align 8, !tbaa !33
-  %.not = icmp ugt i32 %112, %113
-  br i1 %.not, label %._crit_edge, label %114
+_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread: ; preds = %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28, %_ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit.i28, %78, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit, %111, %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
+  %112 = load i32, ptr %8, align 8, !tbaa !27
+  %113 = load i32, ptr %13, align 8, !tbaa !27
+  %114 = add i32 %113, %112
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm9sandboxir15SeedGroupsLimitE, i64 120), align 8, !tbaa !33
+  %.not = icmp ugt i32 %114, %115
+  br i1 %.not, label %._crit_edge, label %116
 
-114:                                              ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
-  %115 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandboxir10BBIteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
-  %116 = load ptr, ptr %37, align 8, !tbaa !175
-  %.not42 = icmp eq ptr %116, %36
-  br i1 %.not42, label %._crit_edge, label %39
+116:                                              ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
+  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm9sandboxir10BBIteratorppEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
+  %118 = load ptr, ptr %37, align 8, !tbaa !175
+  %.not40 = icmp eq ptr %118, %36
+  br i1 %.not40, label %._crit_edge, label %39
 
-._crit_edge:                                      ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread, %114, %_ZNSt14_Function_baseD2Ev.exit
+._crit_edge:                                      ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread, %116, %_ZNSt14_Function_baseD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %117
+  br label %119
 
-117:                                              ; preds = %3, %._crit_edge
+119:                                              ; preds = %3, %._crit_edge
   ret void
 }
 

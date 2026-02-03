@@ -5347,8 +5347,8 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %71, %77, %79
   %.idx = and i64 %91, 536870904
   %92 = add nuw nsw i64 %.idx, 24
   %93 = getelementptr inbounds nuw i8, ptr %65, i64 %92
-  %.not117 = icmp samesign eq i64 %spec.select.v.i.i, %92
-  br i1 %.not117, label %._crit_edge, label %.lr.ph
+  %.not116 = icmp samesign eq i64 %spec.select.v.i.i, %92
+  br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %65, i64 %spec.select.v.i.i
@@ -5485,10 +5485,10 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit39: ; preds = %127, %133, %135
   br label %295
 
 168:                                              ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52
-  %.sroa.0106.0118 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %294, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52 ]
+  %.sroa.0106.0117 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %294, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %169 = load ptr, ptr %.sroa.0106.0118, align 8, !tbaa !71, !noalias !169
+  %169 = load ptr, ptr %.sroa.0106.0117, align 8, !tbaa !71, !noalias !169
   store ptr %169, ptr %10, align 8, !tbaa !51, !alias.scope !169
   %170 = load i64, ptr %169, align 8, !noalias !169
   %171 = lshr i64 %170, 40
@@ -5596,10 +5596,9 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6th
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %196 ], [ %211, %210 ], [ %225, %219 ]
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %231 = load i64, ptr %230, align 8, !tbaa !247
-  %232 = shl nuw i64 1, %190
-  %233 = and i64 %231, %232
-  %.not111 = icmp eq i64 %233, 0
-  br i1 %.not111, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers25OracleInputVarAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread, label %234
+  %232 = lshr i64 %231, %190
+  %233 = trunc i64 %232 to i1
+  br i1 %233, label %234, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers25OracleInputVarAttributeIdEbEEEENT_10value_typeERKSA_.exit.thread
 
 234:                                              ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory11quantifiers25OracleInputVarAttributeIdEbEEEENT_10value_typeERKSA_.exit
   %235 = load ptr, ptr %94, align 8, !tbaa !50
@@ -5728,7 +5727,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit52: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit, %284, %290
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0118, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0117, i64 8
   %.not = icmp eq ptr %294, %93
   br i1 %.not, label %._crit_edge, label %168
 

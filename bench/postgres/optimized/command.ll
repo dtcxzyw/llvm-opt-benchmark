@@ -5917,7 +5917,7 @@ define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 no
   %5 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false) #17
   store ptr %5, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %71, label %6
+  br i1 %.not, label %69, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %5, align 1
@@ -5928,9 +5928,9 @@ define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br i1 %1, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %9, %38
-  %.036.us.i = phi ptr [ null, %38 ], [ %10, %9 ]
-  %.033.us.i = phi i8 [ %.3.us.i, %38 ], [ 1, %9 ]
+.split.us.i:                                      ; preds = %9, %36
+  %.036.us.i = phi ptr [ null, %36 ], [ %10, %9 ]
+  %.033.us.i = phi i8 [ %.3.us.i, %36 ], [ 1, %9 ]
   %.not45.us.i = icmp eq ptr %.036.us.i, null
   br i1 %.not45.us.i, label %11, label %13
 
@@ -5982,187 +5982,185 @@ define internal fastcc range(i32 1, 6) i32 @exec_command_g(ptr noundef %0, i1 no
 
 32:                                               ; preds = %30, %27
   %33 = tail call zeroext i1 @do_pset(ptr noundef nonnull %.031.us.i, ptr noundef %.0.us.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48), i1 noundef zeroext true)
-  %34 = icmp ne i8 %.033.us.i, 0
-  %35 = select i1 %33, i1 %34, i1 false
-  %36 = zext i1 %35 to i8
+  %34 = select i1 %33, i8 %.033.us.i, i8 0
   br label %.thread.us.i
 
 .thread.us.i:                                     ; preds = %32, %20, %13
   %.253.us.i = phi i1 [ true, %20 ], [ %19, %32 ], [ false, %13 ]
-  %.3.us.i = phi i8 [ %.033.us.i, %20 ], [ %36, %32 ], [ %.033.us.i, %13 ]
-  br i1 %.not45.us.i, label %37, label %38
+  %.3.us.i = phi i8 [ %.033.us.i, %20 ], [ %34, %32 ], [ %.033.us.i, %13 ]
+  br i1 %.not45.us.i, label %35, label %36
 
-37:                                               ; preds = %.thread.us.i
+35:                                               ; preds = %.thread.us.i
   tail call void @free(ptr noundef nonnull %.031.us.i) #17
-  br label %38
+  br label %36
 
-38:                                               ; preds = %37, %.thread.us.i
+36:                                               ; preds = %35, %.thread.us.i
   br i1 %.253.us.i, label %.thread58.loopexit.i, label %.split.us.i, !llvm.loop !21
 
-.split.i:                                         ; preds = %9, %57
-  %.036.i = phi ptr [ null, %57 ], [ %10, %9 ]
+.split.i:                                         ; preds = %9, %55
+  %.036.i = phi ptr [ null, %55 ], [ %10, %9 ]
   %.not45.i = icmp eq ptr %.036.i, null
-  br i1 %.not45.i, label %39, label %43
+  br i1 %.not45.i, label %37, label %41
 
-39:                                               ; preds = %.split.i
-  %40 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
-  %.not46.i = icmp eq ptr %40, null
-  br i1 %.not46.i, label %.split70.us.i, label %43
+37:                                               ; preds = %.split.i
+  %38 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #17
+  %.not46.i = icmp eq ptr %38, null
+  br i1 %.not46.i, label %.split70.us.i, label %41
 
 .split70.us.loopexit.i:                           ; preds = %11
-  %41 = trunc nuw i8 %.033.us.i to i1
+  %39 = trunc nuw i8 %.033.us.i to i1
   br label %.split70.us.i
 
-.split70.us.i:                                    ; preds = %39, %.split70.us.loopexit.i
-  %.us-phi.i = phi i1 [ %41, %.split70.us.loopexit.i ], [ true, %39 ]
-  br i1 %1, label %42, label %.thread58.thread.i
+.split70.us.i:                                    ; preds = %37, %.split70.us.loopexit.i
+  %.us-phi.i = phi i1 [ %39, %.split70.us.loopexit.i ], [ true, %37 ]
+  br i1 %1, label %40, label %.thread58.thread.i
 
-42:                                               ; preds = %.split70.us.i
+40:                                               ; preds = %.split70.us.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.247, ptr noundef %2) #17
   br label %.thread58.i
 
-43:                                               ; preds = %39, %.split.i
-  %.031.i = phi ptr [ %40, %39 ], [ %.036.i, %.split.i ]
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.031.i) #18
-  %.not47.i = icmp eq i64 %44, 0
-  br i1 %.not47.i, label %.thread.i, label %45
+41:                                               ; preds = %37, %.split.i
+  %.031.i = phi ptr [ %38, %37 ], [ %.036.i, %.split.i ]
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.031.i) #18
+  %.not47.i = icmp eq i64 %42, 0
+  br i1 %.not47.i, label %.thread.i, label %43
 
-45:                                               ; preds = %43
-  %46 = getelementptr i8, ptr %.031.i, i64 %44
-  %47 = getelementptr i8, ptr %46, i64 -1
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp eq i8 %48, 41
-  br i1 %49, label %50, label %.thread54.i
+43:                                               ; preds = %41
+  %44 = getelementptr i8, ptr %.031.i, i64 %42
+  %45 = getelementptr i8, ptr %44, i64 -1
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 41
+  br i1 %47, label %48, label %.thread54.i
 
-50:                                               ; preds = %45
-  %51 = add i64 %44, -1
-  %52 = getelementptr inbounds nuw i8, ptr %.031.i, i64 %51
+48:                                               ; preds = %43
+  %49 = add i64 %42, -1
+  %50 = getelementptr inbounds nuw i8, ptr %.031.i, i64 %49
+  store i8 0, ptr %50, align 1
+  %51 = icmp eq i64 %49, 0
+  br i1 %51, label %.thread.i, label %.thread54.i
+
+.thread54.i:                                      ; preds = %48, %43
+  %52 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.031.i, i32 noundef 61) #18
+  %.not49.i = icmp eq ptr %52, null
+  br i1 %.not49.i, label %.thread.i, label %53
+
+53:                                               ; preds = %.thread54.i
   store i8 0, ptr %52, align 1
-  %53 = icmp eq i64 %51, 0
-  br i1 %53, label %.thread.i, label %.thread54.i
-
-.thread54.i:                                      ; preds = %50, %45
-  %54 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.031.i, i32 noundef 61) #18
-  %.not49.i = icmp eq ptr %54, null
-  br i1 %.not49.i, label %.thread.i, label %55
-
-55:                                               ; preds = %.thread54.i
-  store i8 0, ptr %54, align 1
   br label %.thread.i
 
-.thread.i:                                        ; preds = %55, %.thread54.i, %50, %43
-  %.253.i = phi i1 [ true, %50 ], [ false, %43 ], [ %49, %55 ], [ %49, %.thread54.i ]
-  br i1 %.not45.i, label %56, label %57
+.thread.i:                                        ; preds = %53, %.thread54.i, %48, %41
+  %.253.i = phi i1 [ true, %48 ], [ false, %41 ], [ %47, %53 ], [ %47, %.thread54.i ]
+  br i1 %.not45.i, label %54, label %55
 
-56:                                               ; preds = %.thread.i
+54:                                               ; preds = %.thread.i
   tail call void @free(ptr noundef nonnull %.031.i) #17
-  br label %57
+  br label %55
 
-57:                                               ; preds = %56, %.thread.i
+55:                                               ; preds = %54, %.thread.i
   br i1 %.253.i, label %.thread58.thread.thread.i, label %.split.i, !llvm.loop !21
 
-.thread58.loopexit.i:                             ; preds = %38
-  %58 = trunc nuw i8 %.3.us.i to i1
+.thread58.loopexit.i:                             ; preds = %36
+  %56 = trunc nuw i8 %.3.us.i to i1
   br label %.thread58.i
 
-.thread58.i:                                      ; preds = %.thread58.loopexit.i, %42
-  %.23563.i = phi i1 [ false, %42 ], [ %58, %.thread58.loopexit.i ]
+.thread58.i:                                      ; preds = %.thread58.loopexit.i, %40
+  %.23563.i = phi i1 [ false, %40 ], [ %56, %.thread58.loopexit.i ]
   %.not.i = xor i1 %.23563.i, true
   %or.cond.i = and i1 %1, %.not.i
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
-  %60 = icmp ne ptr %59, null
-  %or.cond3.i = select i1 %or.cond.i, i1 %60, i1 false
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
+  %58 = icmp ne ptr %57, null
+  %or.cond3.i = select i1 %or.cond.i, i1 %58, i1 false
   br i1 %or.cond3.i, label %.thread58.thread.thread87.i, label %.thread58.thread.i
 
 .thread58.thread.thread87.i:                      ; preds = %.thread58.i
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 96), align 8
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 96), align 8
+  tail call void @free(ptr noundef %59) #17
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 112), align 8
+  tail call void @free(ptr noundef %60) #17
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 136), align 8
   tail call void @free(ptr noundef %61) #17
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 112), align 8
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 168), align 8
   tail call void @free(ptr noundef %62) #17
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 136), align 8
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 176), align 8
   tail call void @free(ptr noundef %63) #17
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 168), align 8
-  tail call void @free(ptr noundef %64) #17
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 176), align 8
-  tail call void @free(ptr noundef %65) #17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), ptr noundef nonnull align 8 dereferenceable(168) %59, i64 168, i1 false)
-  tail call void @free(ptr noundef nonnull %59) #17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds nuw (i8, ptr @pset, i64 48), ptr noundef nonnull align 8 dereferenceable(168) %57, i64 168, i1 false)
+  tail call void @free(ptr noundef nonnull %57) #17
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
   br label %process_command_g_options.exit
 
 .thread58.thread.i:                               ; preds = %.thread58.i, %.split70.us.i
-  %66 = phi i1 [ %.23563.i, %.thread58.i ], [ %.us-phi.i, %.split70.us.i ]
-  %cond.fr.i = freeze i1 %66
+  %64 = phi i1 [ %.23563.i, %.thread58.i ], [ %.us-phi.i, %.split70.us.i ]
+  %cond.fr.i = freeze i1 %64
   br i1 %cond.fr.i, label %.thread58.thread.thread.i, label %process_command_g_options.exit
 
-.thread58.thread.thread.i:                        ; preds = %57, %.thread58.thread.i
+.thread58.thread.thread.i:                        ; preds = %55, %.thread58.thread.i
   br label %process_command_g_options.exit
 
 process_command_g_options.exit:                   ; preds = %.thread58.thread.thread87.i, %.thread58.thread.i, %.thread58.thread.thread.i
-  %67 = phi i32 [ 2, %.thread58.thread.thread.i ], [ 5, %.thread58.thread.i ], [ 5, %.thread58.thread.thread87.i ]
-  %68 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %68) #17
-  %69 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false) #17
-  store ptr %69, ptr %4, align 8
-  %70 = icmp eq ptr %69, null
-  br label %71
+  %65 = phi i32 [ 2, %.thread58.thread.thread.i ], [ 5, %.thread58.thread.i ], [ 5, %.thread58.thread.thread87.i ]
+  %66 = load ptr, ptr %4, align 8
+  tail call void @free(ptr noundef %66) #17
+  %67 = tail call ptr @psql_scan_slash_option(ptr noundef %0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false) #17
+  store ptr %67, ptr %4, align 8
+  %68 = icmp eq ptr %67, null
+  br label %69
 
-71:                                               ; preds = %process_command_g_options.exit, %3
-  %.not10 = phi i1 [ %70, %process_command_g_options.exit ], [ true, %3 ]
-  %.0 = phi i32 [ %67, %process_command_g_options.exit ], [ 2, %3 ]
-  %72 = icmp eq i32 %.0, 2
-  %or.cond = and i1 %1, %72
-  br i1 %or.cond, label %73, label %.tail.thread
+69:                                               ; preds = %process_command_g_options.exit, %3
+  %.not10 = phi i1 [ %68, %process_command_g_options.exit ], [ true, %3 ]
+  %.0 = phi i32 [ %65, %process_command_g_options.exit ], [ 2, %3 ]
+  %70 = icmp eq i32 %.0, 2
+  %or.cond = and i1 %1, %70
+  br i1 %or.cond, label %71, label %.tail.thread
 
 .thread:                                          ; preds = %6
   br i1 %1, label %.thread27, label %.tail.thread
 
-73:                                               ; preds = %71
+71:                                               ; preds = %69
   br i1 %.not10, label %sub_0, label %.thread27
 
-.thread27:                                        ; preds = %.thread, %73
+.thread27:                                        ; preds = %.thread, %71
   call void @expand_tilde(ptr noundef nonnull %4) #17
-  %74 = load ptr, ptr %4, align 8
-  %75 = call ptr @pg_strdup(ptr noundef %74) #17
+  %72 = load ptr, ptr %4, align 8
+  %73 = call ptr @pg_strdup(ptr noundef %72) #17
   br label %sub_0
 
-sub_0:                                            ; preds = %73, %.thread27
-  %storemerge = phi ptr [ %75, %.thread27 ], [ null, %73 ]
+sub_0:                                            ; preds = %71, %.thread27
+  %storemerge = phi ptr [ %73, %.thread27 ], [ null, %71 ]
   store ptr %storemerge, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 216), align 8
-  %76 = load i8, ptr %2, align 1
-  %.not12 = icmp eq i8 %76, 103
+  %74 = load i8, ptr %2, align 1
+  %.not12 = icmp eq i8 %74, 103
   br i1 %.not12, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %78 = load i8, ptr %77, align 1
-  %.not13 = icmp eq i8 %78, 120
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %76 = load i8, ptr %75, align 1
+  %.not13 = icmp eq i8 %76, 120
   br i1 %.not13, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %80 = load i8, ptr %79, align 1
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %.tail.thread
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %78 = load i8, ptr %77, align 1
+  %79 = icmp eq i8 %78, 0
+  br i1 %79, label %80, label %.tail.thread
 
-82:                                               ; preds = %.tail
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %87
+80:                                               ; preds = %.tail
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %85
 
-85:                                               ; preds = %82
-  %86 = call ptr @savePsetInfo(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48))
-  store ptr %86, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
-  br label %87
+83:                                               ; preds = %80
+  %84 = call ptr @savePsetInfo(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pset, i64 48))
+  store ptr %84, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 224), align 8
+  br label %85
 
-87:                                               ; preds = %85, %82
+85:                                               ; preds = %83, %80
   store i16 1, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 52), align 4
   br label %.tail.thread
 
-.tail.thread:                                     ; preds = %sub_1, %sub_0, %.thread, %.tail, %87, %71
-  %.1 = phi i32 [ %.0, %71 ], [ 1, %87 ], [ 1, %.tail ], [ 2, %.thread ], [ 1, %sub_0 ], [ 1, %sub_1 ]
-  %88 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %88) #17
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.thread, %.tail, %85, %69
+  %.1 = phi i32 [ %.0, %69 ], [ 1, %85 ], [ 1, %.tail ], [ 2, %.thread ], [ 1, %sub_0 ], [ 1, %sub_1 ]
+  %86 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %86) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }

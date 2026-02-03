@@ -13888,14 +13888,13 @@ _ZN7testing15AssertionResultD2Ev.exit281:         ; preds = %626, %_ZNKSt14defau
   %637 = select i1 %.not.i.i282, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %636
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 16
   %639 = load i32, ptr %638, align 4, !tbaa !93
-  %640 = and i32 %639, 1
-  %.not305 = icmp eq i32 %640, 0
-  %641 = trunc nuw nsw i32 %640 to i8
-  %642 = xor i8 %641, 1
+  %640 = trunc i32 %639 to i1
+  %641 = xor i1 %640, true
+  %642 = zext i1 %641 to i8
   store i8 %642, ptr %52, align 8, !tbaa !39
   %643 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr null, ptr %643, align 8, !tbaa !49
-  br i1 %.not305, label %_ZN7testing15AssertionResultD2Ev.exit299, label %644
+  br i1 %640, label %644, label %_ZN7testing15AssertionResultD2Ev.exit299
 
 644:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit281
   call void @llvm.lifetime.start.p0(ptr nonnull %53)

@@ -6961,9 +6961,8 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1
   %68 = and i64 %62, -8
   %69 = inttoptr i64 %68 to ptr
   %70 = atomicrmw add ptr %69, i32 2 monotonic, align 4
-  %71 = and i32 %70, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %71, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %72, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit
+  %71 = trunc i32 %70 to i1
+  br i1 %71, label %_ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES7_NS_10_AllocNodeISaINS_10_Hash_nodeIS5_Lb1EEEEEEEEPNT1_11__node_typeEOT_OT0_RKSD_.exit, label %72
 
 72:                                               ; preds = %67
   store ptr %69, ptr %65, align 8
@@ -7268,9 +7267,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventNode3
   %10 = and i64 %7, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = atomicrmw add ptr %11, i32 2 monotonic, align 4, !noalias !58
-  %13 = and i32 %12, 1
-  %.not1.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not1.i.i.i.i, label %14, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_14TraceEventNodeEEESaIS3_EED2Ev.exit
+  %13 = trunc i32 %12 to i1
+  br i1 %13, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_14TraceEventNodeEEESaIS3_EED2Ev.exit, label %14
 
 14:                                               ; preds = %9
   store ptr %11, ptr %6, align 8, !noalias !58
@@ -10261,9 +10259,8 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_128_Writ
   %18 = and i64 %15, -8
   %19 = inttoptr i64 %18 to ptr
   %20 = atomicrmw add ptr %19, i32 2 monotonic, align 4
-  %21 = and i32 %20, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not1.i.i.i.i.i.i, label %22, label %_ZNSt16allocator_traitsISaISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS1_10TraceEventEEEE9constructIS6_JRKS2_S5_EEEvRS7_PT_DpOT0_.exit.i
+  %21 = trunc i32 %20 to i1
+  br i1 %21, label %_ZNSt16allocator_traitsISaISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS1_10TraceEventEEEE9constructIS6_JRKS2_S5_EEEvRS7_PT_DpOT0_.exit.i, label %22
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %11, align 8
@@ -10924,9 +10921,8 @@ _ZNKSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS1_10TraceE
   %26 = and i64 %23, -8
   %27 = inttoptr i64 %26 to ptr
   %28 = atomicrmw add ptr %27, i32 2 monotonic, align 4
-  %29 = and i32 %28, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not1.i.i.i.i.i, label %30, label %31
+  %29 = trunc i32 %28 to i1
+  br i1 %29, label %31, label %30
 
 30:                                               ; preds = %25
   store ptr %27, ptr %22, align 8

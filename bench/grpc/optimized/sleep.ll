@@ -375,9 +375,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN9grpc_core9Times
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load atomic i32, ptr %38 acquire, align 4
   %40 = icmp eq i32 %39, 1
-  br i1 %40, label %_ZN4absl12lts_202407226StatusD2Ev.exit9, label %42
+  br i1 %40, label %_ZN4absl12lts_202407226StatusD2Ev.exit7, label %42
 
-_ZN4absl12lts_202407226StatusD2Ev.exit9:          ; preds = %36
+_ZN4absl12lts_202407226StatusD2Ev.exit7:          ; preds = %36
   store i8 1, ptr %0, align 8, !tbaa !48
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %41, align 8, !tbaa !50
@@ -387,7 +387,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit9:          ; preds = %36
   store i8 0, ptr %0, align 8, !tbaa !48
   br label %43
 
-43:                                               ; preds = %42, %_ZN4absl12lts_202407226StatusD2Ev.exit9, %_ZN4absl12lts_202407226StatusD2Ev.exit
+43:                                               ; preds = %42, %_ZN4absl12lts_202407226StatusD2Ev.exit7, %_ZN4absl12lts_202407226StatusD2Ev.exit
   ret void
 }
 

@@ -2890,193 +2890,192 @@ define dso_local noundef ptr @createSentinelRedisInstance(ptr noundef %0, i32 no
   unreachable
 
 9:                                                ; preds = %6
-  %10 = and i32 %1, 1
-  %11 = icmp ne i32 %10, 0
-  %12 = icmp ne ptr %5, null
-  %13 = or i1 %11, %12
-  br i1 %13, label %15, label %14, !prof !103
+  %10 = trunc i32 %1 to i1
+  %11 = icmp ne ptr %5, null
+  %12 = or i1 %11, %10
+  br i1 %12, label %14, label %13, !prof !103
 
-14:                                               ; preds = %9
+13:                                               ; preds = %9
   tail call void @_serverAssert(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.21, i32 noundef 1271) #30
   tail call void @abort() #35
   unreachable
 
-15:                                               ; preds = %9
-  %16 = tail call ptr @createSentinelAddr(ptr noundef %2, i32 noundef %3, i32 noundef 1)
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %106, label %18
+14:                                               ; preds = %9
+  %15 = tail call ptr @createSentinelAddr(ptr noundef %2, i32 noundef %3, i32 noundef 1)
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %105, label %17
 
-18:                                               ; preds = %15
-  %19 = and i32 %1, 2
-  %.not79 = icmp eq i32 %19, 0
-  br i1 %.not79, label %20, label %.thread
+17:                                               ; preds = %14
+  %18 = and i32 %1, 2
+  %.not79 = icmp eq i32 %18, 0
+  br i1 %.not79, label %19, label %.thread
 
-20:                                               ; preds = %18
-  %21 = tail call ptr @sdsnew(ptr noundef %0) #30
-  br i1 %11, label %29, label %33
+19:                                               ; preds = %17
+  %20 = tail call ptr @sdsnew(ptr noundef %0) #30
+  br i1 %10, label %28, label %32
 
-.thread:                                          ; preds = %18
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
-  %.not.i.i = icmp eq i32 %22, 0
+.thread:                                          ; preds = %17
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
+  %.not.i.i = icmp eq i32 %21, 0
   %.in.idx.i.i = select i1 %.not.i.i, i64 8, i64 0
-  %.in.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %.in.idx.i.i
-  %23 = load ptr, ptr %.in.i.i, align 8, !tbaa !87
-  %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 58) #34
-  %.not.i = icmp eq ptr %24, null
-  %25 = tail call ptr @sdsempty() #30
-  %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !86
+  %.in.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.in.idx.i.i
+  %22 = load ptr, ptr %.in.i.i, align 8, !tbaa !87
+  %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 58) #34
+  %.not.i = icmp eq ptr %23, null
+  %24 = tail call ptr @sdsempty() #30
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !86
   %.str.14..str.13.i = select i1 %.not.i, ptr @.str.14, ptr @.str.13
-  %28 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %25, ptr noundef nonnull %.str.14..str.13.i, ptr noundef nonnull %23, i32 noundef %27) #30
-  br i1 %11, label %29, label %.thread86
+  %27 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %24, ptr noundef nonnull %.str.14..str.13.i, ptr noundef nonnull %22, i32 noundef %26) #30
+  br i1 %10, label %28, label %.thread86
 
-29:                                               ; preds = %.thread, %20
-  %.085 = phi ptr [ %28, %.thread ], [ %21, %20 ]
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
-  br label %38
+28:                                               ; preds = %.thread, %19
+  %.085 = phi ptr [ %27, %.thread ], [ %20, %19 ]
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
+  br label %37
 
 .thread86:                                        ; preds = %.thread
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  %32 = load ptr, ptr %31, align 8, !tbaa !18
-  br label %38
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  br label %37
 
-33:                                               ; preds = %20
-  %34 = and i32 %1, 4
-  %.not80 = icmp eq i32 %34, 0
-  br i1 %.not80, label %38, label %35
+32:                                               ; preds = %19
+  %33 = and i32 %1, 4
+  %.not80 = icmp eq i32 %33, 0
+  br i1 %.not80, label %37, label %34
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %37 = load ptr, ptr %36, align 8, !tbaa !5
-  br label %38
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %36 = load ptr, ptr %35, align 8, !tbaa !5
+  br label %37
 
-38:                                               ; preds = %.thread86, %35, %33, %29
-  %.083 = phi ptr [ %.085, %29 ], [ %28, %.thread86 ], [ %21, %35 ], [ %21, %33 ]
-  %.075 = phi ptr [ %30, %29 ], [ %32, %.thread86 ], [ %37, %35 ], [ null, %33 ]
-  %39 = tail call ptr @dictFind(ptr noundef %.075, ptr noundef %.083) #30
-  %.not81 = icmp eq ptr %39, null
-  br i1 %.not81, label %45, label %40
+37:                                               ; preds = %.thread86, %34, %32, %28
+  %.083 = phi ptr [ %.085, %28 ], [ %27, %.thread86 ], [ %20, %34 ], [ %20, %32 ]
+  %.075 = phi ptr [ %29, %28 ], [ %31, %.thread86 ], [ %36, %34 ], [ null, %32 ]
+  %38 = tail call ptr @dictFind(ptr noundef %.075, ptr noundef %.083) #30
+  %.not81 = icmp eq ptr %38, null
+  br i1 %.not81, label %44, label %39
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %16, align 8, !tbaa !30
-  tail call void @sdsfree(ptr noundef %41) #30
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !32
-  tail call void @sdsfree(ptr noundef %43) #30
-  tail call void @zfree(ptr noundef nonnull %16) #30
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %15, align 8, !tbaa !30
+  tail call void @sdsfree(ptr noundef %40) #30
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  tail call void @sdsfree(ptr noundef %42) #30
+  tail call void @zfree(ptr noundef nonnull %15) #30
   tail call void @sdsfree(ptr noundef %.083) #30
-  %44 = tail call ptr @__errno_location() #32
-  store i32 16, ptr %44, align 4, !tbaa !78
-  br label %106
+  %43 = tail call ptr @__errno_location() #32
+  store i32 16, ptr %43, align 4, !tbaa !78
+  br label %105
 
-45:                                               ; preds = %38
-  %46 = tail call noalias dereferenceable_or_null(344) ptr @zmalloc(i64 noundef 344) #33
-  store i32 %1, ptr %46, align 8, !tbaa !34
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %.083, ptr %47, align 8, !tbaa !20
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  store ptr %16, ptr %49, align 8, !tbaa !29
-  %50 = tail call noalias dereferenceable_or_null(96) ptr @zmalloc(i64 noundef 96) #33
-  store i32 1, ptr %50, align 8, !tbaa !114
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 1, ptr %51, align 4, !tbaa !117
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 0, ptr %52, align 8, !tbaa !118
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 88
-  store i64 0, ptr %54, align 8, !tbaa !119
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, i8 0, i64 40, i1 false)
-  %55 = tail call i64 @mstime() #30
-  %56 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  store i64 %55, ptr %56, align 8, !tbaa !120
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  store i64 0, ptr %57, align 8, !tbaa !121
-  %58 = tail call i64 @mstime() #30
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  store i64 %58, ptr %59, align 8, !tbaa !122
-  %60 = tail call i64 @mstime() #30
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 80
-  store i64 %60, ptr %61, align 8, !tbaa !123
-  %62 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  store ptr %50, ptr %62, align 8, !tbaa !19
-  %63 = tail call i64 @mstime() #30
-  %64 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  store i64 %63, ptr %64, align 8, !tbaa !151
-  %65 = tail call i64 @mstime() #30
-  %66 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  store i64 %65, ptr %66, align 8, !tbaa !152
-  %67 = tail call i64 @mstime() #30
-  %68 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store i64 %67, ptr %68, align 8, !tbaa !153
-  %69 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %.in = select i1 %12, ptr %70, ptr @sentinel_default_down_after
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  %71 = load i64, ptr %.in, align 8, !tbaa !107
-  %72 = getelementptr inbounds nuw i8, ptr %46, i64 88
-  store i64 %71, ptr %72, align 8, !tbaa !154
-  %73 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  store i64 0, ptr %73, align 8, !tbaa !155
-  %74 = getelementptr inbounds nuw i8, ptr %46, i64 176
-  %75 = getelementptr inbounds nuw i8, ptr %46, i64 200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
-  store i32 100, ptr %75, align 8, !tbaa !156
-  %76 = getelementptr inbounds nuw i8, ptr %46, i64 204
-  store i32 1, ptr %76, align 4, !tbaa !157
-  %77 = getelementptr inbounds nuw i8, ptr %46, i64 208
-  store i64 0, ptr %77, align 8, !tbaa !158
-  %78 = getelementptr inbounds nuw i8, ptr %46, i64 224
-  store ptr null, ptr %78, align 8, !tbaa !24
-  %79 = getelementptr inbounds nuw i8, ptr %46, i64 232
-  store i32 0, ptr %79, align 8, !tbaa !159
-  %80 = getelementptr inbounds nuw i8, ptr %46, i64 236
-  store i32 1, ptr %80, align 4, !tbaa !160
-  %81 = getelementptr inbounds nuw i8, ptr %46, i64 240
-  store i64 0, ptr %81, align 8, !tbaa !161
-  %82 = tail call ptr @dictCreate(ptr noundef nonnull @instancesDictType) #30
-  %83 = getelementptr inbounds nuw i8, ptr %46, i64 152
-  store ptr %82, ptr %83, align 8, !tbaa !5
-  %84 = getelementptr inbounds nuw i8, ptr %46, i64 168
-  store i32 %4, ptr %84, align 8, !tbaa !83
-  %85 = getelementptr inbounds nuw i8, ptr %46, i64 172
-  store i32 1, ptr %85, align 4, !tbaa !162
-  %86 = getelementptr inbounds nuw i8, ptr %46, i64 216
-  store ptr %5, ptr %86, align 8, !tbaa !35
-  %87 = tail call ptr @dictCreate(ptr noundef nonnull @instancesDictType) #30
-  %88 = getelementptr inbounds nuw i8, ptr %46, i64 160
-  store ptr %87, ptr %88, align 8, !tbaa !18
-  %89 = getelementptr inbounds nuw i8, ptr %46, i64 112
-  store i64 0, ptr %89, align 8, !tbaa !163
-  %90 = tail call ptr @dictCreate(ptr noundef nonnull @renamedCommandsDictType) #30
-  %91 = getelementptr inbounds nuw i8, ptr %46, i64 120
-  store ptr %90, ptr %91, align 8, !tbaa !33
-  %92 = getelementptr inbounds nuw i8, ptr %46, i64 248
-  %93 = getelementptr inbounds nuw i8, ptr %46, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %92, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  %94 = load i64, ptr @sentinel_default_failover_timeout, align 8, !tbaa !107
-  %95 = getelementptr inbounds nuw i8, ptr %46, i64 296
-  store i64 %94, ptr %95, align 8, !tbaa !164
-  %96 = getelementptr inbounds nuw i8, ptr %46, i64 304
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %96, i8 0, i64 40, i1 false)
-  %97 = load i32, ptr %46, align 8, !tbaa !34
-  %98 = and i32 %97, 3
-  %99 = getelementptr inbounds nuw i8, ptr %46, i64 128
-  store i32 %98, ptr %99, align 8, !tbaa !165
-  %100 = tail call i64 @mstime() #30
-  %101 = getelementptr inbounds nuw i8, ptr %46, i64 136
-  store i64 %100, ptr %101, align 8, !tbaa !166
-  %102 = tail call i64 @mstime() #30
-  %103 = getelementptr inbounds nuw i8, ptr %46, i64 144
-  store i64 %102, ptr %103, align 8, !tbaa !167
-  %104 = load ptr, ptr %47, align 8, !tbaa !20
-  %105 = tail call i32 @dictAdd(ptr noundef %.075, ptr noundef %104, ptr noundef %46) #30
-  br label %106
+44:                                               ; preds = %37
+  %45 = tail call noalias dereferenceable_or_null(344) ptr @zmalloc(i64 noundef 344) #33
+  store i32 %1, ptr %45, align 8, !tbaa !34
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %.083, ptr %46, align 8, !tbaa !20
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
+  store ptr %15, ptr %48, align 8, !tbaa !29
+  %49 = tail call noalias dereferenceable_or_null(96) ptr @zmalloc(i64 noundef 96) #33
+  store i32 1, ptr %49, align 8, !tbaa !114
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 1, ptr %50, align 4, !tbaa !117
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i32 0, ptr %51, align 8, !tbaa !118
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 88
+  store i64 0, ptr %53, align 8, !tbaa !119
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 40, i1 false)
+  %54 = tail call i64 @mstime() #30
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 64
+  store i64 %54, ptr %55, align 8, !tbaa !120
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 72
+  store i64 0, ptr %56, align 8, !tbaa !121
+  %57 = tail call i64 @mstime() #30
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 56
+  store i64 %57, ptr %58, align 8, !tbaa !122
+  %59 = tail call i64 @mstime() #30
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 80
+  store i64 %59, ptr %60, align 8, !tbaa !123
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store ptr %49, ptr %61, align 8, !tbaa !19
+  %62 = tail call i64 @mstime() #30
+  %63 = getelementptr inbounds nuw i8, ptr %45, i64 48
+  store i64 %62, ptr %63, align 8, !tbaa !151
+  %64 = tail call i64 @mstime() #30
+  %65 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  store i64 %64, ptr %65, align 8, !tbaa !152
+  %66 = tail call i64 @mstime() #30
+  %67 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  store i64 %66, ptr %67, align 8, !tbaa !153
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %.in = select i1 %11, ptr %69, ptr @sentinel_default_down_after
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
+  %70 = load i64, ptr %.in, align 8, !tbaa !107
+  %71 = getelementptr inbounds nuw i8, ptr %45, i64 88
+  store i64 %70, ptr %71, align 8, !tbaa !154
+  %72 = getelementptr inbounds nuw i8, ptr %45, i64 96
+  store i64 0, ptr %72, align 8, !tbaa !155
+  %73 = getelementptr inbounds nuw i8, ptr %45, i64 176
+  %74 = getelementptr inbounds nuw i8, ptr %45, i64 200
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
+  store i32 100, ptr %74, align 8, !tbaa !156
+  %75 = getelementptr inbounds nuw i8, ptr %45, i64 204
+  store i32 1, ptr %75, align 4, !tbaa !157
+  %76 = getelementptr inbounds nuw i8, ptr %45, i64 208
+  store i64 0, ptr %76, align 8, !tbaa !158
+  %77 = getelementptr inbounds nuw i8, ptr %45, i64 224
+  store ptr null, ptr %77, align 8, !tbaa !24
+  %78 = getelementptr inbounds nuw i8, ptr %45, i64 232
+  store i32 0, ptr %78, align 8, !tbaa !159
+  %79 = getelementptr inbounds nuw i8, ptr %45, i64 236
+  store i32 1, ptr %79, align 4, !tbaa !160
+  %80 = getelementptr inbounds nuw i8, ptr %45, i64 240
+  store i64 0, ptr %80, align 8, !tbaa !161
+  %81 = tail call ptr @dictCreate(ptr noundef nonnull @instancesDictType) #30
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 152
+  store ptr %81, ptr %82, align 8, !tbaa !5
+  %83 = getelementptr inbounds nuw i8, ptr %45, i64 168
+  store i32 %4, ptr %83, align 8, !tbaa !83
+  %84 = getelementptr inbounds nuw i8, ptr %45, i64 172
+  store i32 1, ptr %84, align 4, !tbaa !162
+  %85 = getelementptr inbounds nuw i8, ptr %45, i64 216
+  store ptr %5, ptr %85, align 8, !tbaa !35
+  %86 = tail call ptr @dictCreate(ptr noundef nonnull @instancesDictType) #30
+  %87 = getelementptr inbounds nuw i8, ptr %45, i64 160
+  store ptr %86, ptr %87, align 8, !tbaa !18
+  %88 = getelementptr inbounds nuw i8, ptr %45, i64 112
+  store i64 0, ptr %88, align 8, !tbaa !163
+  %89 = tail call ptr @dictCreate(ptr noundef nonnull @renamedCommandsDictType) #30
+  %90 = getelementptr inbounds nuw i8, ptr %45, i64 120
+  store ptr %89, ptr %90, align 8, !tbaa !33
+  %91 = getelementptr inbounds nuw i8, ptr %45, i64 248
+  %92 = getelementptr inbounds nuw i8, ptr %45, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %91, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  %93 = load i64, ptr @sentinel_default_failover_timeout, align 8, !tbaa !107
+  %94 = getelementptr inbounds nuw i8, ptr %45, i64 296
+  store i64 %93, ptr %94, align 8, !tbaa !164
+  %95 = getelementptr inbounds nuw i8, ptr %45, i64 304
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, i8 0, i64 40, i1 false)
+  %96 = load i32, ptr %45, align 8, !tbaa !34
+  %97 = and i32 %96, 3
+  %98 = getelementptr inbounds nuw i8, ptr %45, i64 128
+  store i32 %97, ptr %98, align 8, !tbaa !165
+  %99 = tail call i64 @mstime() #30
+  %100 = getelementptr inbounds nuw i8, ptr %45, i64 136
+  store i64 %99, ptr %100, align 8, !tbaa !166
+  %101 = tail call i64 @mstime() #30
+  %102 = getelementptr inbounds nuw i8, ptr %45, i64 144
+  store i64 %101, ptr %102, align 8, !tbaa !167
+  %103 = load ptr, ptr %46, align 8, !tbaa !20
+  %104 = tail call i32 @dictAdd(ptr noundef %.075, ptr noundef %103, ptr noundef %45) #30
+  br label %105
 
-106:                                              ; preds = %15, %45, %40
-  %.076 = phi ptr [ %46, %45 ], [ null, %40 ], [ null, %15 ]
+105:                                              ; preds = %14, %44, %39
+  %.076 = phi ptr [ %45, %44 ], [ null, %39 ], [ null, %14 ]
   ret ptr %.076
 }
 

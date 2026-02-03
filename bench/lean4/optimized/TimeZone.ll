@@ -600,9 +600,8 @@ declare ptr @l_Bool_repr(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 define noalias nonnull ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____boxed(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54_(ptr noundef %0, ptr poison)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8
@@ -624,9 +623,8 @@ define noalias nonnull ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_repr
 
 lean_dec.exit:                                    ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit5
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit5, label %15
 
 15:                                               ; preds = %lean_dec.exit
   %16 = load i32, ptr %0, align 4, !tbaa !8
@@ -806,9 +804,8 @@ lean_string_dec_eq.exit28.thread30.i:             ; preds = %lean_string_dec_eq.
 l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_152_.exit: ; preds = %21, %lean_int_dec_eq.exit.i, %26, %lean_string_dec_eq.exit.i, %32, %lean_string_dec_eq.exit28.i, %lean_string_dec_eq.exit28.thread30.i, %38
   %.0.i = phi i8 [ 0, %lean_int_dec_eq.exit.i ], [ 0, %lean_string_dec_eq.exit.i ], [ 0, %lean_string_dec_eq.exit28.i ], [ %..i, %38 ], [ %.val.i, %lean_string_dec_eq.exit28.thread30.i ], [ 0, %26 ], [ 0, %32 ], [ 0, %21 ]
   %40 = ptrtoint ptr %1 to i64
-  %41 = and i64 %40, 1
-  %.not = icmp eq i64 %41, 0
-  br i1 %.not, label %42, label %lean_dec.exit5
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %lean_dec.exit5, label %42
 
 42:                                               ; preds = %l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_152_.exit
   %43 = load i32, ptr %1, align 4, !tbaa !8
@@ -830,9 +827,8 @@ l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZone____x40_Std_Time_Zo
 
 lean_dec.exit5:                                   ; preds = %48, %47, %45, %l___private_Std_Time_Zoned_TimeZone_0__Std_Time_decEqTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_152_.exit
   %49 = ptrtoint ptr %0 to i64
-  %50 = and i64 %49, 1
-  %.not8 = icmp eq i64 %50, 0
-  br i1 %.not8, label %51, label %lean_dec.exit
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %lean_dec.exit, label %51
 
 51:                                               ; preds = %lean_dec.exit5
   %52 = load i32, ptr %0, align 4, !tbaa !8
@@ -1016,9 +1012,8 @@ lean_string_dec_eq.exit28.thread30.i.i:           ; preds = %lean_string_dec_eq.
 l_Std_Time_instDecidableEqTimeZone.exit:          ; preds = %21, %lean_int_dec_eq.exit.i.i, %26, %lean_string_dec_eq.exit.i.i, %32, %lean_string_dec_eq.exit28.i.i, %lean_string_dec_eq.exit28.thread30.i.i, %38
   %.0.i.i = phi i8 [ 0, %lean_int_dec_eq.exit.i.i ], [ 0, %lean_string_dec_eq.exit.i.i ], [ 0, %lean_string_dec_eq.exit28.i.i ], [ %..i.i, %38 ], [ %.val.i.i, %lean_string_dec_eq.exit28.thread30.i.i ], [ 0, %26 ], [ 0, %32 ], [ 0, %21 ]
   %40 = ptrtoint ptr %1 to i64
-  %41 = and i64 %40, 1
-  %.not = icmp eq i64 %41, 0
-  br i1 %.not, label %42, label %lean_dec.exit5
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %lean_dec.exit5, label %42
 
 42:                                               ; preds = %l_Std_Time_instDecidableEqTimeZone.exit
   %43 = load i32, ptr %1, align 4, !tbaa !8
@@ -1040,9 +1035,8 @@ l_Std_Time_instDecidableEqTimeZone.exit:          ; preds = %21, %lean_int_dec_e
 
 lean_dec.exit5:                                   ; preds = %48, %47, %45, %l_Std_Time_instDecidableEqTimeZone.exit
   %49 = ptrtoint ptr %0 to i64
-  %50 = and i64 %49, 1
-  %.not8 = icmp eq i64 %50, 0
-  br i1 %.not8, label %51, label %lean_dec.exit
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %lean_dec.exit, label %51
 
 51:                                               ; preds = %lean_dec.exit5
   %52 = load i32, ptr %0, align 4, !tbaa !8
@@ -1105,9 +1099,8 @@ define noalias nonnull ptr @l_Std_Time_TimeZone_ofHours___boxed(ptr noundef %0, 
   %5 = ptrtoint ptr %3 to i64
   %6 = lshr i64 %5, 1
   %7 = trunc i64 %6 to i8
-  %8 = and i64 %5, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %lean_dec.exit7
+  %8 = trunc i64 %5 to i1
+  br i1 %8, label %lean_dec.exit7, label %9
 
 9:                                                ; preds = %4
   %10 = load i32, ptr %3, align 4, !tbaa !8
@@ -1152,9 +1145,8 @@ l_Std_Time_TimeZone_ofHours.exit:                 ; preds = %lean_dec.exit7
   store ptr %1, ptr %24, align 8, !tbaa !4
   store i8 %7, ptr %21, align 8, !tbaa !13
   %25 = ptrtoint ptr %2 to i64
-  %26 = and i64 %25, 1
-  %.not10 = icmp eq i64 %26, 0
-  br i1 %.not10, label %27, label %lean_dec.exit
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_dec.exit, label %27
 
 27:                                               ; preds = %l_Std_Time_TimeZone_ofHours.exit
   %28 = load i32, ptr %2, align 4, !tbaa !8
@@ -1208,9 +1200,8 @@ lean_alloc_ctor.exit:                             ; preds = %4
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Std_Time_TimeZone_ofSeconds___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %3, align 4, !tbaa !8
@@ -1263,9 +1254,8 @@ define ptr @l_Std_Time_TimeZone_toSeconds(ptr noundef readonly captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1294,9 +1284,8 @@ define ptr @l_Std_Time_TimeZone_toSeconds___boxed(ptr noundef %0) local_unnamed_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Std_Time_TimeZone_toSeconds.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Std_Time_TimeZone_toSeconds.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1318,9 +1307,8 @@ define ptr @l_Std_Time_TimeZone_toSeconds___boxed(ptr noundef %0) local_unnamed_
 
 l_Std_Time_TimeZone_toSeconds.exit:               ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Std_Time_TimeZone_toSeconds.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1606,11 +1594,10 @@ _init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Ti
   tail call void @lean_mark_persistent(ptr noundef nonnull %91) #3
   %92 = load ptr, ptr @l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__20, align 8, !tbaa !4
   %93 = ptrtoint ptr %92 to i64
-  %94 = and i64 %93, 1
-  %.not.i.i = icmp eq i64 %94, 0
-  %95 = icmp ult ptr %92, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i = or i1 %95, %.not.i.i
-  br i1 %or.cond.i.i, label %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__21.exit, label %96
+  %94 = trunc i64 %93 to i1
+  %95 = icmp uge ptr %92, inttoptr (i64 4294967296 to ptr)
+  %or.cond.not.i.i = and i1 %95, %94
+  br i1 %or.cond.not.i.i, label %96, label %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__21.exit
 
 96:                                               ; preds = %_init_l___private_Std_Time_Zoned_TimeZone_0__Std_Time_reprTimeZone____x40_Std_Time_Zoned_TimeZone___hyg_54____closed__17.exit
   %97 = lshr i64 %93, 1

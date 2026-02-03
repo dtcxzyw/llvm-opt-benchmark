@@ -562,57 +562,56 @@ define void @_ZN3zmq15send_routing_idEPNS_6pipe_tERKNS_9options_tE(ptr noundef %
 
 _ZN3zmq6pipe_t11check_writeEv.exit.i:             ; preds = %27
   %40 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %41 = and i8 %40, 1
-  %42 = icmp ne i8 %41, 0
-  %43 = call noundef zeroext i1 @_ZNK3zmq5msg_t13is_routing_idEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %45 = load ptr, ptr %44, align 8, !tbaa !103
-  %46 = load ptr, ptr %45, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %42)
-  %or.cond.i = or i1 %43, %42
-  br i1 %or.cond.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %49
+  %41 = trunc i8 %40 to i1
+  %42 = call noundef zeroext i1 @_ZNK3zmq5msg_t13is_routing_idEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %44 = load ptr, ptr %43, align 8, !tbaa !103
+  %45 = load ptr, ptr %44, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %41)
+  %or.cond.i = or i1 %42, %41
+  br i1 %or.cond.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %48
 
-49:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i
-  %50 = load i64, ptr %31, align 8, !tbaa !104
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %31, align 8, !tbaa !104
+48:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i
+  %49 = load i64, ptr %31, align 8, !tbaa !104
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %31, align 8, !tbaa !104
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
 _ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit:           ; preds = %39, %16
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 60) #26
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %55 = call i32 @fflush(ptr noundef %54)
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 60) #26
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %54 = call i32 @fflush(ptr noundef %53)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
-_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %49, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
-  %56 = load i32, ptr %24, align 8, !tbaa !105
-  %57 = icmp eq i32 %56, 3
-  br i1 %57, label %_ZN3zmq6pipe_t5flushEv.exit, label %58
+_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %48, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
+  %55 = load i32, ptr %24, align 8, !tbaa !105
+  %56 = icmp eq i32 %55, 3
+  br i1 %56, label %_ZN3zmq6pipe_t5flushEv.exit, label %57
 
-58:                                               ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %60 = load ptr, ptr %59, align 8, !tbaa !103
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %_ZN3zmq6pipe_t5flushEv.exit, label %61
+57:                                               ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %59 = load ptr, ptr %58, align 8, !tbaa !103
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %_ZN3zmq6pipe_t5flushEv.exit, label %60
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %60, align 8, !tbaa !9
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %60)
-  br i1 %65, label %_ZN3zmq6pipe_t5flushEv.exit, label %66
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %59, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(8) %59)
+  br i1 %64, label %_ZN3zmq6pipe_t5flushEv.exit, label %65
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %68 = load ptr, ptr %67, align 8, !tbaa !29
-  call void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %68)
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %67 = load ptr, ptr %66, align 8, !tbaa !29
+  call void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %67)
   br label %_ZN3zmq6pipe_t5flushEv.exit
 
-_ZN3zmq6pipe_t5flushEv.exit:                      ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, %58, %61, %66
+_ZN3zmq6pipe_t5flushEv.exit:                      ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, %57, %60, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -663,26 +662,25 @@ define noundef zeroext i1 @_ZN3zmq6pipe_t5writeEPKNS_5msg_tE(ptr noundef nonnull
 
 _ZN3zmq6pipe_t11check_writeEv.exit:               ; preds = %9
   %22 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %23 = and i8 %22, 1
-  %24 = icmp ne i8 %23, 0
-  %25 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t13is_routing_idEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !103
-  %28 = load ptr, ptr %27, align 8, !tbaa !9
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %24)
-  %or.cond = or i1 %25, %24
-  br i1 %or.cond, label %_ZN3zmq6pipe_t11check_writeEv.exit.thread, label %31
+  %23 = trunc i8 %22 to i1
+  %24 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t13is_routing_idEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %26 = load ptr, ptr %25, align 8, !tbaa !103
+  %27 = load ptr, ptr %26, align 8, !tbaa !9
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %23)
+  %or.cond = or i1 %24, %23
+  br i1 %or.cond, label %_ZN3zmq6pipe_t11check_writeEv.exit.thread, label %30
 
-31:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit
-  %32 = load i64, ptr %13, align 8, !tbaa !104
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %13, align 8, !tbaa !104
+30:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit
+  %31 = load i64, ptr %13, align 8, !tbaa !104
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %13, align 8, !tbaa !104
   br label %_ZN3zmq6pipe_t11check_writeEv.exit.thread
 
-_ZN3zmq6pipe_t11check_writeEv.exit.thread:        ; preds = %21, %2, %_ZN3zmq6pipe_t11check_writeEv.exit, %31
-  %.0.i9 = phi i1 [ true, %31 ], [ true, %_ZN3zmq6pipe_t11check_writeEv.exit ], [ false, %2 ], [ false, %21 ]
+_ZN3zmq6pipe_t11check_writeEv.exit.thread:        ; preds = %21, %2, %_ZN3zmq6pipe_t11check_writeEv.exit, %30
+  %.0.i9 = phi i1 [ true, %30 ], [ true, %_ZN3zmq6pipe_t11check_writeEv.exit ], [ false, %2 ], [ false, %21 ]
   ret i1 %.0.i9
 }
 
@@ -772,57 +770,56 @@ define void @_ZN3zmq14send_hello_msgEPNS_6pipe_tERKNS_9options_tE(ptr noundef %0
 
 _ZN3zmq6pipe_t11check_writeEv.exit.i:             ; preds = %27
   %40 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %41 = and i8 %40, 1
-  %42 = icmp ne i8 %41, 0
-  %43 = call noundef zeroext i1 @_ZNK3zmq5msg_t13is_routing_idEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %45 = load ptr, ptr %44, align 8, !tbaa !103
-  %46 = load ptr, ptr %45, align 8, !tbaa !9
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %42)
-  %or.cond.i = or i1 %43, %42
-  br i1 %or.cond.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %49
+  %41 = trunc i8 %40 to i1
+  %42 = call noundef zeroext i1 @_ZNK3zmq5msg_t13is_routing_idEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %44 = load ptr, ptr %43, align 8, !tbaa !103
+  %45 = load ptr, ptr %44, align 8, !tbaa !9
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %41)
+  %or.cond.i = or i1 %42, %41
+  br i1 %or.cond.i, label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, label %48
 
-49:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i
-  %50 = load i64, ptr %31, align 8, !tbaa !104
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %31, align 8, !tbaa !104
+48:                                               ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i
+  %49 = load i64, ptr %31, align 8, !tbaa !104
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %31, align 8, !tbaa !104
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
 _ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit:           ; preds = %39, %20
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 71) #26
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %55 = call i32 @fflush(ptr noundef %54)
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 71) #26
+  %53 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %54 = call i32 @fflush(ptr noundef %53)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
 
-_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %49, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
-  %56 = load i32, ptr %24, align 8, !tbaa !105
-  %57 = icmp eq i32 %56, 3
-  br i1 %57, label %_ZN3zmq6pipe_t5flushEv.exit, label %58
+_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread:    ; preds = %_ZN3zmq6pipe_t11check_writeEv.exit.i, %48, %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit
+  %55 = load i32, ptr %24, align 8, !tbaa !105
+  %56 = icmp eq i32 %55, 3
+  br i1 %56, label %_ZN3zmq6pipe_t5flushEv.exit, label %57
 
-58:                                               ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %60 = load ptr, ptr %59, align 8, !tbaa !103
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %_ZN3zmq6pipe_t5flushEv.exit, label %61
+57:                                               ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %59 = load ptr, ptr %58, align 8, !tbaa !103
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %_ZN3zmq6pipe_t5flushEv.exit, label %60
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %60, align 8, !tbaa !9
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %60)
-  br i1 %65, label %_ZN3zmq6pipe_t5flushEv.exit, label %66
+60:                                               ; preds = %57
+  %61 = load ptr, ptr %59, align 8, !tbaa !9
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(8) %59)
+  br i1 %64, label %_ZN3zmq6pipe_t5flushEv.exit, label %65
 
-66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %68 = load ptr, ptr %67, align 8, !tbaa !29
-  call void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %68)
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %67 = load ptr, ptr %66, align 8, !tbaa !29
+  call void @_ZN3zmq8object_t18send_activate_readEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %67)
   br label %_ZN3zmq6pipe_t5flushEv.exit
 
-_ZN3zmq6pipe_t5flushEv.exit:                      ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, %58, %61, %66
+_ZN3zmq6pipe_t5flushEv.exit:                      ; preds = %_ZN3zmq6pipe_t5writeEPKNS_5msg_tE.exit.thread, %57, %60, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

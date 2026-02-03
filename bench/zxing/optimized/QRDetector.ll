@@ -5367,11 +5367,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.6.0.extract.shift = lshr i64 %0, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  switch i32 %1, label %76 [
+  switch i32 %1, label %73 [
     i32 0, label %3
     i32 1, label %10
     i32 2, label %17
-    i32 3, label %24
+    i32 3, label %22
   ]
 
 3:                                                ; preds = %2
@@ -5379,126 +5379,122 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode7Version11IsValidSizeENS
   %5 = add i32 %.sroa.0.0.extract.trunc, -21
   %6 = icmp ult i32 %5, 125
   %or.cond5 = and i1 %4, %6
-  br i1 %or.cond5, label %7, label %76
+  br i1 %or.cond5, label %7, label %73
 
 7:                                                ; preds = %3
   %8 = and i32 %.sroa.0.0.extract.trunc, 3
   %9 = icmp eq i32 %8, 1
-  br label %76
+  br label %73
 
 10:                                               ; preds = %2
   %11 = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.6.0.extract.trunc
   %12 = add i32 %.sroa.0.0.extract.trunc, -21
   %13 = icmp ult i32 %12, 157
   %or.cond11 = and i1 %11, %13
-  br i1 %or.cond11, label %14, label %76
+  br i1 %or.cond11, label %14, label %73
 
 14:                                               ; preds = %10
   %15 = and i32 %.sroa.0.0.extract.trunc, 3
   %16 = icmp eq i32 %15, 1
-  br label %76
+  br label %73
 
 17:                                               ; preds = %2
   %18 = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.6.0.extract.trunc
   %19 = add i32 %.sroa.0.0.extract.trunc, -11
   %20 = icmp ult i32 %19, 7
   %or.cond17 = and i1 %18, %20
-  br i1 %or.cond17, label %21, label %76
+  %21 = trunc i64 %0 to i1
+  %spec.select = select i1 %or.cond17, i1 %21, i1 false
+  br label %73
 
-21:                                               ; preds = %17
-  %22 = and i32 %.sroa.0.0.extract.trunc, 1
-  %23 = icmp ne i32 %22, 0
-  br label %76
-
-24:                                               ; preds = %2
+22:                                               ; preds = %2
   %.not = icmp eq i32 %.sroa.0.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %25 = and i32 %.sroa.0.0.extract.trunc, 1
-  %.not35 = icmp eq i32 %25, 0
+  %23 = and i32 %.sroa.0.0.extract.trunc, 1
+  %.not35 = icmp eq i32 %23, 0
   %or.cond = or i1 %.not, %.not35
-  br i1 %or.cond, label %76, label %26
+  br i1 %or.cond, label %73, label %24
 
-26:                                               ; preds = %24
-  %27 = and i32 %.sroa.6.0.extract.trunc, 1
-  %28 = icmp ne i32 %27, 0
-  %29 = add i32 %.sroa.0.0.extract.trunc, -27
-  %30 = icmp ult i32 %29, 113
-  %or.cond23 = and i1 %30, %28
-  %31 = add i32 %.sroa.6.0.extract.trunc, -7
-  %32 = icmp ult i32 %31, 11
-  %or.cond29 = and i1 %32, %or.cond23
-  br i1 %or.cond29, label %.preheader, label %76
+24:                                               ; preds = %22
+  %25 = trunc i64 %.sroa.6.0.extract.shift to i1
+  %26 = add i32 %.sroa.0.0.extract.trunc, -27
+  %27 = icmp ult i32 %26, 113
+  %or.cond23 = and i1 %27, %25
+  %28 = add i32 %.sroa.6.0.extract.trunc, -7
+  %29 = icmp ult i32 %28, 11
+  %or.cond29 = and i1 %or.cond23, %29
+  br i1 %or.cond29, label %.preheader, label %73
 
-.preheader:                                       ; preds = %26, %63
-  %.047.i = phi i64 [ %65, %63 ], [ 8, %26 ]
-  %.02946.i = phi ptr [ %64, %63 ], [ @_ZN5ZXing6QRCodeL10RMQR_SIZESE, %26 ]
-  %33 = load i32, ptr %.02946.i, align 4, !tbaa !70
-  %34 = icmp eq i32 %33, %.sroa.0.0.extract.trunc
-  %35 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 4
-  %36 = load i32, ptr %35, align 4
-  %37 = icmp eq i32 %36, %.sroa.6.0.extract.trunc
-  %38 = select i1 %34, i1 %37, i1 false
-  br i1 %38, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, label %39
+.preheader:                                       ; preds = %24, %60
+  %.047.i = phi i64 [ %62, %60 ], [ 8, %24 ]
+  %.02946.i = phi ptr [ %61, %60 ], [ @_ZN5ZXing6QRCodeL10RMQR_SIZESE, %24 ]
+  %30 = load i32, ptr %.02946.i, align 4, !tbaa !70
+  %31 = icmp eq i32 %30, %.sroa.0.0.extract.trunc
+  %32 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = icmp eq i32 %33, %.sroa.6.0.extract.trunc
+  %35 = select i1 %31, i1 %34, i1 false
+  br i1 %35, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, label %36
 
-39:                                               ; preds = %.preheader
-  %40 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 8
-  %41 = load i32, ptr %40, align 4, !tbaa !70
-  %42 = icmp eq i32 %41, %.sroa.0.0.extract.trunc
-  %43 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 12
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, %.sroa.6.0.extract.trunc
-  %46 = select i1 %42, i1 %45, i1 false
-  br i1 %46, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59, label %47
+36:                                               ; preds = %.preheader
+  %37 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 8
+  %38 = load i32, ptr %37, align 4, !tbaa !70
+  %39 = icmp eq i32 %38, %.sroa.0.0.extract.trunc
+  %40 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 12
+  %41 = load i32, ptr %40, align 4
+  %42 = icmp eq i32 %41, %.sroa.6.0.extract.trunc
+  %43 = select i1 %39, i1 %42, i1 false
+  br i1 %43, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59, label %44
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 16
-  %49 = load i32, ptr %48, align 4, !tbaa !70
-  %50 = icmp eq i32 %49, %.sroa.0.0.extract.trunc
-  %51 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 20
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %52, %.sroa.6.0.extract.trunc
-  %54 = select i1 %50, i1 %53, i1 false
-  br i1 %54, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61, label %55
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 16
+  %46 = load i32, ptr %45, align 4, !tbaa !70
+  %47 = icmp eq i32 %46, %.sroa.0.0.extract.trunc
+  %48 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 20
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, %.sroa.6.0.extract.trunc
+  %51 = select i1 %47, i1 %50, i1 false
+  br i1 %51, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61, label %52
 
-55:                                               ; preds = %47
-  %56 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 24
-  %57 = load i32, ptr %56, align 4, !tbaa !70
-  %58 = icmp eq i32 %57, %.sroa.0.0.extract.trunc
-  %59 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 28
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %.sroa.6.0.extract.trunc
-  %62 = select i1 %58, i1 %61, i1 false
-  br i1 %62, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63, label %63
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 24
+  %54 = load i32, ptr %53, align 4, !tbaa !70
+  %55 = icmp eq i32 %54, %.sroa.0.0.extract.trunc
+  %56 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 28
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, %.sroa.6.0.extract.trunc
+  %59 = select i1 %55, i1 %58, i1 false
+  br i1 %59, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63, label %60
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 32
-  %65 = add nsw i64 %.047.i, -1
-  %66 = icmp samesign ugt i64 %.047.i, 1
-  br i1 %66, label %.preheader, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, !llvm.loop !253
+60:                                               ; preds = %52
+  %61 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 32
+  %62 = add nsw i64 %.047.i, -1
+  %63 = icmp samesign ugt i64 %.047.i, 1
+  br i1 %63, label %.preheader, label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, !llvm.loop !253
 
-_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59: ; preds = %39
-  %67 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 8
+_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59: ; preds = %36
+  %64 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 8
   br label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61: ; preds = %47
-  %68 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 16
+_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61: ; preds = %44
+  %65 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 16
   br label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63: ; preds = %55
-  %69 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 24
+_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63: ; preds = %52
+  %66 = getelementptr inbounds nuw i8, ptr %.02946.i, i64 24
   br label %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit: ; preds = %63, %.preheader, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59
-  %.028.i = phi ptr [ %68, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61 ], [ %69, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63 ], [ %67, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59 ], [ %.02946.i, %.preheader ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), %63 ]
-  %70 = icmp ne ptr %.028.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
-  %71 = ptrtoint ptr %.028.i to i64
-  %72 = sub i64 %71, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
-  %73 = and i64 %72, 34359738360
-  %74 = icmp ne i64 %73, 34359738360
-  %75 = select i1 %70, i1 %74, i1 false
-  br label %76
+_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit: ; preds = %60, %.preheader, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59
+  %.028.i = phi ptr [ %65, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit61 ], [ %66, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit63 ], [ %64, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit.split.loop.exit59 ], [ %.02946.i, %.preheader ], [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256), %60 ]
+  %67 = icmp ne ptr %.028.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 256)
+  %68 = ptrtoint ptr %.028.i to i64
+  %69 = sub i64 %68, ptrtoint (ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE to i64)
+  %70 = and i64 %69, 34359738360
+  %71 = icmp ne i64 %70, 34359738360
+  %72 = select i1 %67, i1 %71, i1 false
+  br label %73
 
-76:                                               ; preds = %2, %24, %26, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, %17, %21, %10, %14, %3, %7
-  %.0 = phi i1 [ false, %24 ], [ %23, %21 ], [ %9, %7 ], [ %16, %14 ], [ false, %3 ], [ false, %10 ], [ false, %17 ], [ false, %26 ], [ %75, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit ], [ false, %2 ]
+73:                                               ; preds = %2, %22, %24, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit, %10, %14, %3, %7, %17
+  %.0 = phi i1 [ false, %22 ], [ %16, %14 ], [ %9, %7 ], [ %spec.select, %17 ], [ false, %3 ], [ false, %10 ], [ false, %24 ], [ %72, %_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5__ops16_Iter_equals_valIS3_EEET_S9_S9_T0_St26random_access_iterator_tag.exit ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -5533,7 +5529,7 @@ define void @_ZN5ZXing6QRCode13DetectPureMQRERKNS_9BitMatrixE(ptr dead_on_unwind
 
 17:                                               ; preds = %11, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  br label %99
+  br label %98
 
 18:                                               ; preds = %11
   %19 = load i32, ptr %3, align 4, !tbaa !24
@@ -5607,7 +5603,7 @@ _ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EX
 
 _ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread: ; preds = %36, %_ZNK5ZXing11PatternView3sumEi.exit.i, %_ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  br label %98
+  br label %97
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit, %.lr.ph.i.i.i
   %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %_ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit ]
@@ -5629,55 +5625,54 @@ _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %56 = trunc i64 %55 to i32
   %57 = add i32 %56, -11
   %58 = icmp ult i32 %57, 7
-  %59 = and i32 %56, 1
-  %60 = icmp ne i32 %59, 0
-  %or.cond = and i1 %60, %58
-  br i1 %or.cond, label %61, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread
+  %59 = trunc i64 %55 to i1
+  %spec.select.i = and i1 %58, %59
+  br i1 %spec.select.i, label %60, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread
 
-61:                                               ; preds = %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit
-  %62 = load i32, ptr %3, align 4, !tbaa !24
-  %63 = sitofp i32 %62 to float
-  %64 = fmul float %51, 5.000000e-01
-  %65 = fadd float %64, %63
-  %66 = add nsw i32 %56, -1
-  %67 = uitofp nneg i32 %66 to float
-  %68 = call float @llvm.fmuladd.f32(float %67, float %51, float %65)
-  %69 = load i32, ptr %4, align 4, !tbaa !24
-  %70 = sitofp i32 %69 to float
-  %71 = fadd float %64, %70
-  %72 = call float @llvm.fmuladd.f32(float %67, float %51, float %71)
-  %73 = fpext float %72 to double
-  %74 = fcmp ult float %68, 0.000000e+00
-  br i1 %74, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread, label %75
+60:                                               ; preds = %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit
+  %61 = load i32, ptr %3, align 4, !tbaa !24
+  %62 = sitofp i32 %61 to float
+  %63 = fmul float %51, 5.000000e-01
+  %64 = fadd float %63, %62
+  %65 = add nsw i32 %56, -1
+  %66 = uitofp nneg i32 %65 to float
+  %67 = call float @llvm.fmuladd.f32(float %66, float %51, float %64)
+  %68 = load i32, ptr %4, align 4, !tbaa !24
+  %69 = sitofp i32 %68 to float
+  %70 = fadd float %63, %69
+  %71 = call float @llvm.fmuladd.f32(float %66, float %51, float %70)
+  %72 = fpext float %71 to double
+  %73 = fcmp ult float %67, 0.000000e+00
+  br i1 %73, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread, label %74
 
-75:                                               ; preds = %61
-  %76 = fpext float %68 to double
-  %77 = load i32, ptr %1, align 8, !tbaa !69
-  %78 = sitofp i32 %77 to double
-  %79 = fcmp uge double %76, %78
-  %80 = fcmp ult float %72, 0.000000e+00
-  %or.cond.i = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.i, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
+74:                                               ; preds = %60
+  %75 = fpext float %67 to double
+  %76 = load i32, ptr %1, align 8, !tbaa !69
+  %77 = sitofp i32 %76 to double
+  %78 = fcmp uge double %75, %77
+  %79 = fcmp ult float %71, 0.000000e+00
+  %or.cond.i = select i1 %78, i1 true, i1 %79
+  br i1 %or.cond.i, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
 
-_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit: ; preds = %75
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %82 = load i32, ptr %81, align 4, !tbaa !27
-  %83 = sitofp i32 %82 to double
-  %84 = fcmp olt double %73, %83
-  br i1 %84, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread
+_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit: ; preds = %74
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %81 = load i32, ptr %80, align 4, !tbaa !27
+  %82 = sitofp i32 %81 to double
+  %83 = fcmp olt double %72, %82
+  br i1 %83, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread
 
-_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread: ; preds = %61, %75, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
+_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread: ; preds = %60, %74, %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  br label %98
+  br label %97
 
 _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN5ZXing7DeflateERKNS_9BitMatrixEiifff(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %56, i32 noundef %56, float noundef %71, float noundef %65, float noundef %51)
-  %85 = load i32, ptr %3, align 4, !tbaa !24
-  %86 = load i32, ptr %4, align 4, !tbaa !24
-  %.sroa.228.0.insert.ext = zext i32 %86 to i64
+  call void @_ZN5ZXing7DeflateERKNS_9BitMatrixEiifff(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %56, i32 noundef %56, float noundef %70, float noundef %64, float noundef %51)
+  %84 = load i32, ptr %3, align 4, !tbaa !24
+  %85 = load i32, ptr %4, align 4, !tbaa !24
+  %.sroa.228.0.insert.ext = zext i32 %85 to i64
   %.sroa.228.0.insert.shift = shl nuw i64 %.sroa.228.0.insert.ext, 32
-  %.sroa.027.0.insert.ext = zext i32 %85 to i64
+  %.sroa.027.0.insert.ext = zext i32 %84 to i64
   %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.228.0.insert.shift, %.sroa.027.0.insert.ext
   %.sroa.025.0.insert.ext = zext i32 %27 to i64
   %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.228.0.insert.shift, %.sroa.025.0.insert.ext
@@ -5685,22 +5680,22 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZNK5ZXing9BitMatri
   %.sroa.224.0.insert.shift = shl nuw i64 %.sroa.224.0.insert.ext, 32
   %.sroa.023.0.insert.insert = or disjoint i64 %.sroa.224.0.insert.shift, %.sroa.025.0.insert.ext
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.224.0.insert.shift, %.sroa.027.0.insert.ext
-  %87 = load i64, ptr %9, align 8
-  store i64 %87, ptr %0, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !144
-  store ptr %90, ptr %88, align 8, !tbaa !144
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !143
-  store ptr %93, ptr %91, align 8, !tbaa !143
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !252
-  store ptr %96, ptr %94, align 8, !tbaa !252
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.027.0.insert.insert, ptr %97, align 8
+  %86 = load i64, ptr %9, align 8
+  store i64 %86, ptr %0, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !144
+  store ptr %89, ptr %87, align 8, !tbaa !144
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %92 = load ptr, ptr %91, align 8, !tbaa !143
+  store ptr %92, ptr %90, align 8, !tbaa !143
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %95 = load ptr, ptr %94, align 8, !tbaa !252
+  store ptr %95, ptr %93, align 8, !tbaa !252
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.027.0.insert.insert, ptr %96, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.025.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5708,13 +5703,13 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %_ZNK5ZXing9BitMatri
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.0.0.insert.insert, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %97
+
+97:                                               ; preds = %_ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit.thread, %_ZN5ZXing9BitMatrixD2Ev.exit, %_ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %98
 
-98:                                               ; preds = %_ZN5ZXing6QRCode7Version11IsValidSizeENS_6PointTIiEENS0_4TypeE.exit.thread, %_ZN5ZXing9BitMatrixD2Ev.exit, %_ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd.exit.thread
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %99
-
-99:                                               ; preds = %98, %17
+98:                                               ; preds = %97, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

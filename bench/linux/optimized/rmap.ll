@@ -2067,69 +2067,68 @@ define dso_local i32 @folio_referenced(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr @invalid_folio_referenced_vma, ptr %27, align 8
   store i64 0, ptr %3, align 8
   %28 = icmp eq i32 %17, 0
-  br i1 %28, label %56, label %29
+  br i1 %28, label %55, label %29
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ult ptr %31, inttoptr (i64 4 to ptr)
-  br i1 %32, label %56, label %33
+  br i1 %32, label %55, label %33
 
 33:                                               ; preds = %29
   %34 = ptrtoint ptr %31 to i64
   %35 = icmp ne i32 %1, 0
-  %36 = and i64 %34, 1
-  %37 = icmp ne i64 %36, 0
-  %38 = or i1 %35, %37
-  br i1 %38, label %43, label %39
+  %36 = trunc i64 %34 to i1
+  %37 = or i1 %35, %36
+  br i1 %37, label %42, label %38
 
-39:                                               ; preds = %33
-  %40 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 0, ptr elementtype(i64) %0) #17, !srcloc !39
-  %41 = icmp ult i8 %40, 2
-  call void @llvm.assume(i1 %41)
-  %42 = icmp eq i8 %40, 0
-  br i1 %42, label %._crit_edge, label %56
+38:                                               ; preds = %33
+  %39 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 0, ptr elementtype(i64) %0) #17, !srcloc !39
+  %40 = icmp ult i8 %39, 2
+  call void @llvm.assume(i1 %40)
+  %41 = icmp eq i8 %39, 0
+  br i1 %41, label %._crit_edge, label %55
 
-._crit_edge:                                      ; preds = %39
+._crit_edge:                                      ; preds = %38
   %.pre = load ptr, ptr %30, align 8
   %.pre1 = ptrtoint ptr %.pre to i64
-  br label %43
+  br label %42
 
-43:                                               ; preds = %._crit_edge, %33
+42:                                               ; preds = %._crit_edge, %33
   %.pre-phi = phi i64 [ %.pre1, %._crit_edge ], [ %34, %33 ]
-  %44 = and i64 %.pre-phi, 1
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %47, label %46
+  %43 = and i64 %.pre-phi, 1
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %46, label %45
 
-46:                                               ; preds = %43
+45:                                               ; preds = %42
   call fastcc void @rmap_walk_anon(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext false)
-  br label %48
+  br label %47
 
-47:                                               ; preds = %43
+46:                                               ; preds = %42
   call fastcc void @rmap_walk_file(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext false)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %47, %46
-  %49 = load i64, ptr %19, align 8
-  store i64 %49, ptr %3, align 8
-  br i1 %38, label %51, label %50
+47:                                               ; preds = %46, %45
+  %48 = load i64, ptr %19, align 8
+  store i64 %48, ptr %3, align 8
+  br i1 %37, label %50, label %49
 
-50:                                               ; preds = %48
+49:                                               ; preds = %47
   call void @folio_unlock(ptr noundef %0) #17
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %48
-  %52 = load i8, ptr %23, align 1, !range !33, !noundef !34
-  %53 = icmp eq i8 %52, 0
-  %54 = load i32, ptr %18, align 4
-  %55 = select i1 %53, i32 %54, i32 -1
-  br label %56
+50:                                               ; preds = %49, %47
+  %51 = load i8, ptr %23, align 1, !range !33, !noundef !34
+  %52 = icmp eq i8 %51, 0
+  %53 = load i32, ptr %18, align 4
+  %54 = select i1 %52, i32 %53, i32 -1
+  br label %55
 
-56:                                               ; preds = %51, %39, %29, %16
-  %57 = phi i32 [ %55, %51 ], [ 0, %16 ], [ 0, %29 ], [ 1, %39 ]
+55:                                               ; preds = %50, %38, %29, %16
+  %56 = phi i32 [ %54, %50 ], [ 0, %16 ], [ 0, %29 ], [ 1, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %57
+  ret i32 %56
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2953,53 +2952,53 @@ define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, 
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, 1
   %43 = icmp eq i64 %42, 0
-  %44 = and i32 %5, 1
-  br i1 %43, label %45, label %._crit_edge, !prof !10
+  br i1 %43, label %44, label %46, !prof !10
 
-45:                                               ; preds = %38
-  %46 = icmp ne i32 %44, 0
-  tail call fastcc void @__folio_set_anon(ptr noundef %0, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %46)
-  br label %._crit_edge
+44:                                               ; preds = %38
+  %45 = trunc i32 %5 to i1
+  tail call fastcc void @__folio_set_anon(ptr noundef %0, ptr noundef %3, i64 noundef %4, i1 noundef zeroext %45)
+  br label %46
 
-._crit_edge:                                      ; preds = %38, %45
-  %47 = icmp eq i32 %44, 0
-  br i1 %47, label %.loopexit, label %48
+46:                                               ; preds = %44, %38
+  %47 = and i32 %5, 1
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.loopexit, label %49
 
-48:                                               ; preds = %._crit_edge
-  %49 = getelementptr i8, ptr %1, i64 2
-  %50 = icmp sgt i32 %2, 0
-  br i1 %50, label %51, label %.loopexit
+49:                                               ; preds = %46
+  %50 = getelementptr i8, ptr %1, i64 2
+  %51 = icmp sgt i32 %2, 0
+  br i1 %51, label %52, label %.loopexit
 
-51:                                               ; preds = %48
-  %52 = zext nneg i32 %2 to i64
-  br label %53
+52:                                               ; preds = %49
+  %53 = zext nneg i32 %2 to i64
+  br label %54
 
-53:                                               ; preds = %53, %51
-  %54 = phi i64 [ 0, %51 ], [ %56, %53 ]
-  %55 = getelementptr %struct.page, ptr %49, i64 %54
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55, i32 2, ptr elementtype(i8) %55) #17, !srcloc !53
-  %56 = add nuw nsw i64 %54, 1
-  %57 = icmp eq i64 %56, %52
-  br i1 %57, label %.loopexit, label %53, !llvm.loop !54
+54:                                               ; preds = %54, %52
+  %55 = phi i64 [ 0, %52 ], [ %57, %54 ]
+  %56 = getelementptr %struct.page, ptr %50, i64 %55
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %56, i32 2, ptr elementtype(i8) %56) #17, !srcloc !53
+  %57 = add nuw nsw i64 %55, 1
+  %58 = icmp eq i64 %57, %53
+  br i1 %58, label %.loopexit, label %54, !llvm.loop !54
 
-.loopexit:                                        ; preds = %53, %48, %._crit_edge
-  %58 = load volatile i64, ptr %0, align 8
-  %59 = and i64 %58, 64
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %67
+.loopexit:                                        ; preds = %54, %49, %46
+  %59 = load volatile i64, ptr %0, align 8
+  %60 = and i64 %59, 64
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %68
 
-61:                                               ; preds = %.loopexit
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %63 = load i64, ptr %62, align 8
-  %64 = and i64 %63, 268723200
-  %65 = icmp eq i64 %64, 8192
-  br i1 %65, label %66, label %67, !prof !10
+62:                                               ; preds = %.loopexit
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 268723200
+  %66 = icmp eq i64 %65, 8192
+  br i1 %66, label %67, label %68, !prof !10
 
-66:                                               ; preds = %61
+67:                                               ; preds = %62
   tail call void @mlock_folio(ptr noundef %0) #17
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %61, %.loopexit
+68:                                               ; preds = %67, %62, %.loopexit
   ret void
 }
 

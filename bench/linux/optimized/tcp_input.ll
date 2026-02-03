@@ -443,9 +443,8 @@ define dso_local void @tcp_enter_loss(ptr noundef %0) local_unnamed_addr #1 alig
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 53
   %13 = load i8, ptr %12, align 1
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %.thread, label %.thread6
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %.thread6, label %.thread
 
 .thread6:                                         ; preds = %11
   %15 = load ptr, ptr %2, align 8
@@ -13763,7 +13762,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %67 = load i32, ptr %3, align 4
   %68 = and i32 %67, -4097
   store i32 %68, ptr %3, align 4
-  br label %944
+  br label %943
 
 69:                                               ; preds = %51
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1432
@@ -13893,7 +13892,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
 
 135:                                              ; preds = %134, %129
   %136 = tail call fastcc zeroext i1 @tcp_try_undo_recovery(ptr noundef %0)
-  br i1 %136, label %944, label %137
+  br i1 %136, label %943, label %137
 
 137:                                              ; preds = %135
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 1160
@@ -14143,7 +14142,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 1460
   %289 = load i32, ptr %288, align 4
   %290 = icmp eq i32 %289, 0
-  br i1 %290, label %291, label %944
+  br i1 %290, label %291, label %943
 
 291:                                              ; preds = %287
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -14434,7 +14433,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %477 = load volatile i8, ptr %476, align 1
   %478 = and i8 %477, 1
   %479 = icmp eq i8 %478, 0
-  br i1 %479, label %480, label %944
+  br i1 %479, label %480, label %943
 
 480:                                              ; preds = %473
   %481 = load i32, ptr %70, align 8
@@ -14442,7 +14441,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %484 = load i32, ptr %483, align 32
   %485 = icmp ugt i32 %482, %484
-  br i1 %485, label %915, label %944
+  br i1 %485, label %915, label %943
 
 486:                                              ; preds = %169
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 1664
@@ -14714,7 +14713,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %654 = load i32, ptr %3, align 4
   %655 = and i32 %654, 128
   %656 = icmp eq i32 %655, 0
-  br i1 %656, label %944, label %657
+  br i1 %656, label %943, label %657
 
 657:                                              ; preds = %653, %649, %169
   %658 = getelementptr inbounds nuw i8, ptr %0, i64 1716
@@ -15045,7 +15044,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %855 = phi i8 [ %.pre43, %853 ], [ %.pre44, %826 ], [ %.pre44, %824 ]
   %856 = and i8 %855, 31
   %857 = icmp eq i8 %856, 2
-  br i1 %857, label %944, label %858
+  br i1 %857, label %943, label %858
 
 858:                                              ; preds = %854
   %859 = load i32, ptr %70, align 8
@@ -15079,7 +15078,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %877 = and i8 %876, 31
   %878 = zext nneg i8 %877 to i32
   %879 = icmp eq i32 %875, %878
-  br i1 %879, label %944, label %880
+  br i1 %879, label %943, label %880
 
 880:                                              ; preds = %874
   %881 = trunc nuw nsw i32 %875 to i8
@@ -15088,7 +15087,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %883 = load i32, ptr %882, align 4
   %884 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   store i32 %883, ptr %884, align 32
-  br label %944
+  br label %943
 
 885:                                              ; preds = %802, %792
   %886 = load i8, ptr %78, align 8
@@ -15138,7 +15137,7 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
 914:                                              ; preds = %913, %900
   store i32 %911, ptr %909, align 4
   tail call void @tcp_simple_retransmit(ptr noundef %0)
-  br label %944
+  br label %943
 
 915:                                              ; preds = %894, %889, %885, %480, %470
   %916 = phi i8 [ %357, %480 ], [ %357, %470 ], [ %39, %894 ], [ %39, %889 ], [ %39, %885 ]
@@ -15153,43 +15152,42 @@ define internal fastcc void @tcp_fastretrans_alert(ptr noundef %0, i32 noundef %
   %922 = load ptr, ptr %921, align 8
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 1167
   %924 = load volatile i8, ptr %923, align 1
-  %925 = and i8 %924, 1
-  %926 = icmp ne i8 %925, 0
-  %927 = icmp eq i8 %919, 0
-  %928 = select i1 %926, i1 true, i1 %927
-  br i1 %928, label %943, label %929
+  %925 = trunc i8 %924 to i1
+  %926 = icmp eq i8 %919, 0
+  %927 = select i1 %925, i1 true, i1 %926
+  br i1 %927, label %942, label %928
 
-929:                                              ; preds = %918
-  %930 = getelementptr inbounds nuw i8, ptr %0, i64 1716
-  %931 = load i24, ptr %930, align 4
-  %932 = and i24 %931, 112
-  %933 = icmp eq i24 %932, 0
-  br i1 %933, label %943, label %934
+928:                                              ; preds = %918
+  %929 = getelementptr inbounds nuw i8, ptr %0, i64 1716
+  %930 = load i24, ptr %929, align 4
+  %931 = and i24 %930, 112
+  %932 = icmp eq i24 %931, 0
+  br i1 %932, label %942, label %933
 
-934:                                              ; preds = %929
-  %935 = load i32, ptr %70, align 8
-  %936 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  %937 = load i32, ptr %936, align 32
-  %938 = sub i32 %935, %937
-  %939 = icmp sgt i32 %938, -1
-  br i1 %939, label %940, label %941
+933:                                              ; preds = %928
+  %934 = load i32, ptr %70, align 8
+  %935 = getelementptr inbounds nuw i8, ptr %0, i64 1376
+  %936 = load i32, ptr %935, align 32
+  %937 = sub i32 %934, %936
+  %938 = icmp sgt i32 %937, -1
+  br i1 %938, label %939, label %940
 
-940:                                              ; preds = %934
-  tail call fastcc void @tcp_mark_head_lost(ptr noundef %0, i32 noundef %938, i32 noundef 0)
-  br label %943
+939:                                              ; preds = %933
+  tail call fastcc void @tcp_mark_head_lost(ptr noundef %0, i32 noundef %937, i32 noundef 0)
+  br label %942
 
-941:                                              ; preds = %934
-  br i1 %920, label %943, label %942
+940:                                              ; preds = %933
+  br i1 %920, label %942, label %941
 
-942:                                              ; preds = %941
+941:                                              ; preds = %940
   tail call fastcc void @tcp_mark_head_lost(ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  br label %942
+
+942:                                              ; preds = %941, %940, %939, %928, %918
+  store i32 1, ptr %4, align 4
   br label %943
 
-943:                                              ; preds = %942, %941, %940, %929, %918
-  store i32 1, ptr %4, align 4
-  br label %944
-
-944:                                              ; preds = %287, %943, %914, %880, %874, %854, %653, %480, %473, %135, %55
+943:                                              ; preds = %287, %942, %914, %880, %874, %854, %653, %480, %473, %135, %55
   ret void
 }
 

@@ -2695,8 +2695,7 @@ do.end153:                                        ; preds = %if.then142
   %agg.tmp156.sroa.0.0.copyload = load ptr, ptr %method143, align 8
   %attributes160 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %19 = load i32, ptr %attributes160, align 8
-  %and161 = and i32 %19, 1
-  %cmp162 = icmp ne i32 %and161, 0
+  %cmp162 = trunc i32 %19 to i1
   call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154, ptr %agg.tmp156.sroa.0.0.copyload, i1 noundef zeroext %cmp162) #24
   %20 = load i32, ptr %attributes160, align 8
   %and167 = and i32 %20, 2
@@ -2737,8 +2736,7 @@ if.then215:                                       ; preds = %if.else197
   br label %do.body258
 
 if.else231:                                       ; preds = %if.else197
-  %and209 = and i32 %24, 1
-  %cmp236 = icmp ne i32 %and209, 0
+  %cmp236 = trunc i32 %24 to i1
   call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEEb(ptr noundef nonnull align 8 dereferenceable(8) %descriptor232, ptr %23, i1 noundef zeroext %cmp236) #24
   %26 = load i32, ptr %attributes206, align 8
   %and241 = and i32 %26, 2

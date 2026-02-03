@@ -57097,42 +57097,41 @@ define linkonce_odr hidden noundef ptr @_ZNK9rapidjson22GenericSchemaValidatorIN
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 -104
   %9 = load ptr, ptr %8, align 8
-  br label %26
+  br label %25
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 1
-  %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, 0
-  %or.cond = select i1 %14, i1 true, i1 %17
-  br i1 %or.cond, label %26, label %18
+  %13 = trunc i32 %12 to i1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ne i32 %15, 0
+  %or.cond.not = select i1 %13, i1 %16, i1 false
+  br i1 %or.cond.not, label %17, label %25
 
-18:                                               ; preds = %10
-  %19 = load atomic i8, ptr @_ZGVZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v acquire, align 8
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit, !prof !88
+17:                                               ; preds = %10
+  %18 = load atomic i8, ptr @_ZGVZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v acquire, align 8
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit, !prof !88
 
-21:                                               ; preds = %18
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v) #38
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit, label %23
+20:                                               ; preds = %17
+  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v) #38
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit, label %22
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   store ptr @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1s, ptr @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v, align 8
   store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v, i64 8), align 8
-  %24 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v)
+  %23 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v) #38
   br label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit
 
-_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit: ; preds = %18, %21, %23
-  %25 = load ptr, ptr @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v, align 8
-  br label %26
+_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit: ; preds = %17, %20, %22
+  %24 = load ptr, ptr @_ZZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEvE1v, align 8
+  br label %25
 
-26:                                               ; preds = %10, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit, %7
-  %.0 = phi ptr [ %9, %7 ], [ %25, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit ], [ null, %10 ]
+25:                                               ; preds = %10, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit, %7
+  %.0 = phi ptr [ %9, %7 ], [ %24, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E15GetErrorsStringEv.exit ], [ null, %10 ]
   ret ptr %.0
 }
 
@@ -62853,20 +62852,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK9rapidjson22GenericSchemaVali
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %13
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 1
-  %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 0
-  %or.cond = select i1 %9, i1 true, i1 %12
-  br label %13
+  %8 = trunc i32 %7 to i1
+  %.not = xor i1 %8, true
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 0
+  %or.cond = select i1 %.not, i1 true, i1 %11
+  br label %12
 
-13:                                               ; preds = %5, %1
+12:                                               ; preds = %5, %1
   %.0 = phi i1 [ %or.cond, %5 ], [ false, %1 ]
   ret i1 %.0
 }
@@ -66892,12 +66891,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZThn8_NK9rapidjson22GenericSchem
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 1
-  %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %11, 0
-  %or.cond.i = select i1 %9, i1 true, i1 %12
+  %8 = trunc i32 %7 to i1
+  %.not.i = xor i1 %8, true
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %10 = load i32, ptr %9, align 8
+  %11 = icmp eq i32 %10, 0
+  %or.cond.i = select i1 %.not.i, i1 true, i1 %11
   br label %_ZNK9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E7IsValidEv.exit
 
 _ZNK9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E7IsValidEv.exit: ; preds = %1, %5
@@ -71483,81 +71482,78 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %91
+  br i1 %4, label %5, label %83
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %6, label %11, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %8 = load i32, ptr %7, align 4
+  %9 = trunc i32 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %10, label %19
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %.not26 = icmp eq i32 %10, 0
-  br i1 %.not26, label %22, label %11
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 -128
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 -144
+  %16 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4NullERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %14, ptr noundef nonnull align 8 dereferenceable(139) %15)
+  %17 = load i32, ptr %7, align 4
+  %18 = trunc i32 %17 to i1
+  %or.cond30 = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond30, label %34, label %19
 
-11:                                               ; preds = %7, %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 -128
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 -144
-  %17 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4NullERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %15, ptr noundef nonnull align 8 dereferenceable(139) %16)
-  br i1 %17, label %37, label %18
+19:                                               ; preds = %10, %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %21 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = icmp slt i64 %26, 1
+  br i1 %27, label %28, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 1
-  %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %22, label %37
-
-22:                                               ; preds = %18, %7
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %24 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp slt i64 %29, 1
-  br i1 %30, label %31, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
-
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef 1)
-  %.pre = load ptr, ptr %25, align 8
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef 1)
+  %.pre = load ptr, ptr %22, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %22, %31
-  %33 = phi ptr [ %26, %22 ], [ %.pre, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store ptr %34, ptr %25, align 8
-  store i8 0, ptr %33, align 1
-  %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 -1
-  store ptr %36, ptr %25, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %19, %28
+  %30 = phi ptr [ %23, %19 ], [ %.pre, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store ptr %31, ptr %22, align 8
+  store i8 0, ptr %30, align 1
+  %32 = load ptr, ptr %22, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 -1
+  store ptr %33, ptr %22, align 8
   br label %.sink.split
 
-37:                                               ; preds = %18, %11
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %12, align 8
-  %.not34 = icmp eq ptr %39, %40
-  br i1 %.not34, label %._crit_edge, label %.lr.ph36
+34:                                               ; preds = %10
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %11, align 8
+  %.not39 = icmp eq ptr %36, %37
+  br i1 %.not39, label %._crit_edge, label %.lr.ph41
 
-._crit_edge:                                      ; preds = %.loopexit, %37
-  %41 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %41, label %87, label %83
+._crit_edge:                                      ; preds = %.loopexit, %34
+  %38 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %39 = load i32, ptr %7, align 4
+  %40 = trunc i32 %39 to i1
+  %or.cond33 = select i1 %38, i1 true, i1 %40
+  %41 = zext i1 %or.cond33 to i8
+  br label %.sink.split
 
-.lr.ph36:                                         ; preds = %37, %.loopexit
-  %.01835 = phi ptr [ %81, %.loopexit ], [ %39, %37 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.01835, i64 56
+.lr.ph41:                                         ; preds = %34, %.loopexit
+  %.01840 = phi ptr [ %81, %.loopexit ], [ %36, %34 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.01840, i64 56
   %43 = load ptr, ptr %42, align 8
   %.not23 = icmp eq ptr %43, null
   br i1 %.not23, label %56, label %44
 
-44:                                               ; preds = %.lr.ph36
+44:                                               ; preds = %.lr.ph41
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -71580,20 +71576,20 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4NullEv.exit: ; pre
   store i64 -5808590958014384161, ptr %54, align 8
   br label %56
 
-56:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4NullEv.exit, %.lr.ph36
-  %57 = getelementptr inbounds nuw i8, ptr %.01835, i64 72
+56:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4NullEv.exit, %.lr.ph41
+  %57 = getelementptr inbounds nuw i8, ptr %.01840, i64 72
   %58 = load ptr, ptr %57, align 8
   %.not24 = icmp eq ptr %58, null
-  br i1 %.not24, label %.loopexit30, label %.preheader29
+  br i1 %.not24, label %.loopexit35, label %.preheader34
 
-.preheader29:                                     ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %.01835, i64 80
+.preheader34:                                     ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %.01840, i64 80
   %60 = load i32, ptr %59, align 8
-  %.not37 = icmp eq i32 %60, 0
-  br i1 %.not37, label %.loopexit30, label %.lr.ph
+  %.not42 = icmp eq i32 %60, 0
+  br i1 %.not42, label %.loopexit35, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader29, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader29 ]
+.lr.ph:                                           ; preds = %.preheader34, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader34 ]
   %61 = load ptr, ptr %57, align 8
   %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !nonnull !8, !noundef !8
@@ -71603,61 +71599,46 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4NullEv.exit: ; pre
   %66 = load i32, ptr %59, align 8
   %67 = zext i32 %66 to i64
   %68 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %.loopexit30, !llvm.loop !548
+  br i1 %68, label %.lr.ph, label %.loopexit35, !llvm.loop !548
 
-.loopexit30:                                      ; preds = %.lr.ph, %.preheader29, %56
-  %69 = getelementptr inbounds nuw i8, ptr %.01835, i64 88
+.loopexit35:                                      ; preds = %.lr.ph, %.preheader34, %56
+  %69 = getelementptr inbounds nuw i8, ptr %.01840, i64 88
   %70 = load ptr, ptr %69, align 8
   %.not25 = icmp eq ptr %70, null
   br i1 %.not25, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit30
-  %71 = getelementptr inbounds nuw i8, ptr %.01835, i64 96
+.preheader:                                       ; preds = %.loopexit35
+  %71 = getelementptr inbounds nuw i8, ptr %.01840, i64 96
   %72 = load i32, ptr %71, align 8
-  %.not38 = icmp eq i32 %72, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph33
+  %.not43 = icmp eq i32 %72, 0
+  br i1 %.not43, label %.loopexit, label %.lr.ph38
 
-.lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
-  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %.lr.ph33 ], [ 0, %.preheader ]
+.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.lr.ph38 ], [ 0, %.preheader ]
   %73 = load ptr, ptr %69, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv40
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv45
   %75 = load ptr, ptr %74, align 8, !nonnull !8, !noundef !8
   %76 = getelementptr inbounds i8, ptr %75, i64 -8
   %77 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4NullEv(ptr noundef nonnull align 8 dereferenceable(220) %76)
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %78 = load i32, ptr %71, align 8
   %79 = zext i32 %78 to i64
-  %80 = icmp samesign ult i64 %indvars.iv.next41, %79
-  br i1 %80, label %.lr.ph33, label %.loopexit, !llvm.loop !549
+  %80 = icmp samesign ult i64 %indvars.iv.next46, %79
+  br i1 %80, label %.lr.ph38, label %.loopexit, !llvm.loop !549
 
-.loopexit:                                        ; preds = %.lr.ph33, %.preheader, %.loopexit30
-  %81 = getelementptr inbounds nuw i8, ptr %.01835, i64 144
-  %82 = load ptr, ptr %12, align 8
+.loopexit:                                        ; preds = %.lr.ph38, %.preheader, %.loopexit35
+  %81 = getelementptr inbounds nuw i8, ptr %.01840, i64 144
+  %82 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %81, %82
-  br i1 %.not, label %._crit_edge, label %.lr.ph36, !llvm.loop !550
+  br i1 %.not, label %._crit_edge, label %.lr.ph41, !llvm.loop !550
 
-83:                                               ; preds = %._crit_edge
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %85 = load i32, ptr %84, align 4
-  %86 = and i32 %85, 1
-  %.not28 = icmp eq i32 %86, 0
-  br i1 %.not28, label %88, label %87
-
-87:                                               ; preds = %83, %._crit_edge
-  br label %88
-
-88:                                               ; preds = %87, %83
-  %89 = phi i1 [ false, %83 ], [ true, %87 ]
-  %90 = zext i1 %89 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %88
-  %.sink = phi i8 [ %90, %88 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.019.ph = phi i1 [ %89, %88 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %41, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.019.ph = phi i1 [ %or.cond33, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %2, align 8
-  br label %91
+  br label %83
 
-91:                                               ; preds = %.sink.split, %1
+83:                                               ; preds = %.sink.split, %1
   %.019 = phi i1 [ false, %1 ], [ %.019.ph, %.sink.split ]
   ret i1 %.019
 }
@@ -71667,189 +71648,176 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %93
+  br i1 %5, label %6, label %86
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %7, label %12, label %8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %9 = load i32, ptr %8, align 4
+  %10 = trunc i32 %9 to i1
+  %or.cond = select i1 %7, i1 true, i1 %10
+  br i1 %or.cond, label %11, label %21
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 1
-  %.not32 = icmp eq i32 %11, 0
-  br i1 %.not32, label %23, label %12
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 -128
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 -144
+  %17 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9CheckBoolERNS0_23SchemaValidationContextISA_EEb(ptr noundef nonnull align 8 dereferenceable(419) %15, ptr noundef nonnull align 8 dereferenceable(139) %16, i1 noundef zeroext %1)
+  br i1 %17, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread
 
-12:                                               ; preds = %8, %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 -128
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 -144
-  %18 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9CheckBoolERNS0_23SchemaValidationContextISA_EEb(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17, i1 noundef zeroext %1)
-  br i1 %18, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit: ; preds = %11
+  %18 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %15, ptr noundef nonnull align 8 dereferenceable(139) %16)
+  %19 = load i32, ptr %8, align 4
+  %20 = trunc i32 %19 to i1
+  %or.cond36 = select i1 %18, i1 true, i1 %20
+  br i1 %or.cond36, label %36, label %21
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit: ; preds = %12
-  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17)
-  br i1 %19, label %38, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread: ; preds = %11
+  %.old34 = load i32, ptr %8, align 4
+  %.old35 = trunc i32 %.old34 to i1
+  br i1 %.old35, label %36, label %21
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread: ; preds = %12, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not33 = icmp eq i32 %22, 0
-  br i1 %.not33, label %23, label %38
-
-23:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread, %8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+21:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit, %6, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %27 = load ptr, ptr %26, align 8
-  %28 = ptrtoint ptr %25 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = icmp slt i64 %30, 1
-  br i1 %31, label %32, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
+  %26 = ptrtoint ptr %23 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = icmp slt i64 %28, 1
+  br i1 %29, label %30, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-32:                                               ; preds = %23
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %33, i64 noundef 1)
-  %.pre = load ptr, ptr %26, align 8
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef 1)
+  %.pre = load ptr, ptr %24, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %23, %32
-  %34 = phi ptr [ %27, %23 ], [ %.pre, %32 ]
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  store ptr %35, ptr %26, align 8
-  store i8 0, ptr %34, align 1
-  %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 -1
-  store ptr %37, ptr %26, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %21, %30
+  %32 = phi ptr [ %25, %21 ], [ %.pre, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store ptr %33, ptr %24, align 8
+  store i8 0, ptr %32, align 1
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 -1
+  store ptr %35, ptr %24, align 8
   br label %.sink.split
 
-38:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %13, align 8
-  %.not40 = icmp eq ptr %40, %41
-  br i1 %.not40, label %._crit_edge, label %.lr.ph42
+36:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4BoolERNS0_23SchemaValidationContextISA_EEb.exit
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %12, align 8
+  %.not46 = icmp eq ptr %38, %39
+  br i1 %.not46, label %._crit_edge, label %.lr.ph48
 
-.lr.ph42:                                         ; preds = %38
+.lr.ph48:                                         ; preds = %36
   %.0910.i.i.i = select i1 %1, i64 -5808588758991127739, i64 -5808592057526012372
-  br label %43
+  br label %44
 
-._crit_edge:                                      ; preds = %.loopexit, %38
-  %42 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %42, label %89, label %85
+._crit_edge:                                      ; preds = %.loopexit, %36
+  %40 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %41 = load i32, ptr %8, align 4
+  %42 = trunc i32 %41 to i1
+  %or.cond40 = select i1 %40, i1 true, i1 %42
+  %43 = zext i1 %or.cond40 to i8
+  br label %.sink.split
 
-43:                                               ; preds = %.lr.ph42, %.loopexit
-  %.02341 = phi ptr [ %40, %.lr.ph42 ], [ %83, %.loopexit ]
-  %44 = getelementptr inbounds nuw i8, ptr %.02341, i64 56
-  %45 = load ptr, ptr %44, align 8
-  %.not28 = icmp eq ptr %45, null
-  br i1 %.not28, label %58, label %46
+44:                                               ; preds = %.lr.ph48, %.loopexit
+  %.02347 = phi ptr [ %38, %.lr.ph48 ], [ %84, %.loopexit ]
+  %45 = getelementptr inbounds nuw i8, ptr %.02347, i64 56
+  %46 = load ptr, ptr %45, align 8
+  %.not28 = icmp eq ptr %46, null
+  br i1 %.not28, label %59, label %47
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %48 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = icmp slt i64 %53, 8
-  br i1 %54, label %55, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit, !prof !5
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = ptrtoint ptr %49 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = icmp slt i64 %54, 8
+  br i1 %55, label %56, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit, !prof !5
 
-55:                                               ; preds = %46
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef 1)
-  %.pre.i.i.i = load ptr, ptr %49, align 8
+56:                                               ; preds = %47
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %46, i64 noundef 1)
+  %.pre.i.i.i = load ptr, ptr %50, align 8
   br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit
 
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit: ; preds = %46, %55
-  %56 = phi ptr [ %50, %46 ], [ %.pre.i.i.i, %55 ]
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %57, ptr %49, align 8
-  store i64 %.0910.i.i.i, ptr %56, align 8
-  br label %58
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit: ; preds = %47, %56
+  %57 = phi ptr [ %51, %47 ], [ %.pre.i.i.i, %56 ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %58, ptr %50, align 8
+  store i64 %.0910.i.i.i, ptr %57, align 8
+  br label %59
 
-58:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit, %43
-  %59 = getelementptr inbounds nuw i8, ptr %.02341, i64 72
-  %60 = load ptr, ptr %59, align 8
-  %.not29 = icmp eq ptr %60, null
-  br i1 %.not29, label %.loopexit36, label %.preheader35
+59:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4BoolEb.exit, %44
+  %60 = getelementptr inbounds nuw i8, ptr %.02347, i64 72
+  %61 = load ptr, ptr %60, align 8
+  %.not29 = icmp eq ptr %61, null
+  br i1 %.not29, label %.loopexit42, label %.preheader41
 
-.preheader35:                                     ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %.02341, i64 80
-  %62 = load i32, ptr %61, align 8
-  %.not43 = icmp eq i32 %62, 0
-  br i1 %.not43, label %.loopexit36, label %.lr.ph
+.preheader41:                                     ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %.02347, i64 80
+  %63 = load i32, ptr %62, align 8
+  %.not49 = icmp eq i32 %63, 0
+  br i1 %.not49, label %.loopexit42, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader35, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader35 ]
-  %63 = load ptr, ptr %59, align 8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8, !nonnull !8, !noundef !8
-  %66 = getelementptr inbounds i8, ptr %65, i64 -8
-  %67 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4BoolEb(ptr noundef nonnull align 8 dereferenceable(220) %66, i1 noundef zeroext %1)
+.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader41 ]
+  %64 = load ptr, ptr %60, align 8
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %66 = load ptr, ptr %65, align 8, !nonnull !8, !noundef !8
+  %67 = getelementptr inbounds i8, ptr %66, i64 -8
+  %68 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4BoolEb(ptr noundef nonnull align 8 dereferenceable(220) %67, i1 noundef zeroext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %61, align 8
-  %69 = zext i32 %68 to i64
-  %70 = icmp samesign ult i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %.loopexit36, !llvm.loop !551
+  %69 = load i32, ptr %62, align 8
+  %70 = zext i32 %69 to i64
+  %71 = icmp samesign ult i64 %indvars.iv.next, %70
+  br i1 %71, label %.lr.ph, label %.loopexit42, !llvm.loop !551
 
-.loopexit36:                                      ; preds = %.lr.ph, %.preheader35, %58
-  %71 = getelementptr inbounds nuw i8, ptr %.02341, i64 88
-  %72 = load ptr, ptr %71, align 8
-  %.not30 = icmp eq ptr %72, null
+.loopexit42:                                      ; preds = %.lr.ph, %.preheader41, %59
+  %72 = getelementptr inbounds nuw i8, ptr %.02347, i64 88
+  %73 = load ptr, ptr %72, align 8
+  %.not30 = icmp eq ptr %73, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit36
-  %73 = getelementptr inbounds nuw i8, ptr %.02341, i64 96
-  %74 = load i32, ptr %73, align 8
-  %.not44 = icmp eq i32 %74, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph39
+.preheader:                                       ; preds = %.loopexit42
+  %74 = getelementptr inbounds nuw i8, ptr %.02347, i64 96
+  %75 = load i32, ptr %74, align 8
+  %.not50 = icmp eq i32 %75, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph45
 
-.lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph39 ], [ 0, %.preheader ]
-  %75 = load ptr, ptr %71, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv46
-  %77 = load ptr, ptr %76, align 8, !nonnull !8, !noundef !8
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  %79 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4BoolEb(ptr noundef nonnull align 8 dereferenceable(220) %78, i1 noundef zeroext %1)
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %80 = load i32, ptr %73, align 8
-  %81 = zext i32 %80 to i64
-  %82 = icmp samesign ult i64 %indvars.iv.next47, %81
-  br i1 %82, label %.lr.ph39, label %.loopexit, !llvm.loop !552
+.lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph45 ], [ 0, %.preheader ]
+  %76 = load ptr, ptr %72, align 8
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv52
+  %78 = load ptr, ptr %77, align 8, !nonnull !8, !noundef !8
+  %79 = getelementptr inbounds i8, ptr %78, i64 -8
+  %80 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4BoolEb(ptr noundef nonnull align 8 dereferenceable(220) %79, i1 noundef zeroext %1)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %81 = load i32, ptr %74, align 8
+  %82 = zext i32 %81 to i64
+  %83 = icmp samesign ult i64 %indvars.iv.next53, %82
+  br i1 %83, label %.lr.ph45, label %.loopexit, !llvm.loop !552
 
-.loopexit:                                        ; preds = %.lr.ph39, %.preheader, %.loopexit36
-  %83 = getelementptr inbounds nuw i8, ptr %.02341, i64 144
-  %84 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %83, %84
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !553
+.loopexit:                                        ; preds = %.lr.ph45, %.preheader, %.loopexit42
+  %84 = getelementptr inbounds nuw i8, ptr %.02347, i64 144
+  %85 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %84, %85
+  br i1 %.not, label %._crit_edge, label %44, !llvm.loop !553
 
-85:                                               ; preds = %._crit_edge
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %87 = load i32, ptr %86, align 4
-  %88 = and i32 %87, 1
-  %.not34 = icmp eq i32 %88, 0
-  br i1 %.not34, label %90, label %89
-
-89:                                               ; preds = %85, %._crit_edge
-  br label %90
-
-90:                                               ; preds = %89, %85
-  %91 = phi i1 [ false, %85 ], [ true, %89 ]
-  %92 = zext i1 %91 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %90
-  %.sink = phi i8 [ %92, %90 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.024.ph = phi i1 [ %91, %90 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %43, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.024.ph = phi i1 [ %or.cond40, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %3, align 8
-  br label %93
+  br label %86
 
-93:                                               ; preds = %.sink.split, %2
+86:                                               ; preds = %.sink.split, %2
   %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
   ret i1 %.024
 }
@@ -71859,133 +71827,126 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %67
+  br i1 %4, label %5, label %64
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %6, label %11, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %8 = load i32, ptr %7, align 4
+  %9 = trunc i32 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %10, label %19
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %.not26 = icmp eq i32 %10, 0
-  br i1 %.not26, label %22, label %11
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 -128
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 -144
+  %16 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE11StartObjectERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %14, ptr noundef nonnull align 8 dereferenceable(139) %15)
+  %17 = load i32, ptr %7, align 4
+  %18 = trunc i32 %17 to i1
+  %or.cond30 = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond30, label %34, label %19
 
-11:                                               ; preds = %7, %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 -128
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 -144
-  %17 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE11StartObjectERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %15, ptr noundef nonnull align 8 dereferenceable(139) %16)
-  br i1 %17, label %37, label %18
+19:                                               ; preds = %10, %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %21 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = icmp slt i64 %26, 1
+  br i1 %27, label %28, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 1
-  %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %22, label %37
-
-22:                                               ; preds = %18, %7
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %24 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp slt i64 %29, 1
-  br i1 %30, label %31, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
-
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef 1)
-  %.pre = load ptr, ptr %25, align 8
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef 1)
+  %.pre = load ptr, ptr %22, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %22, %31
-  %33 = phi ptr [ %26, %22 ], [ %.pre, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store ptr %34, ptr %25, align 8
-  store i8 0, ptr %33, align 1
-  %35 = load ptr, ptr %25, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 -1
-  store ptr %36, ptr %25, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %19, %28
+  %30 = phi ptr [ %23, %19 ], [ %.pre, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store ptr %31, ptr %22, align 8
+  store i8 0, ptr %30, align 1
+  %32 = load ptr, ptr %22, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 -1
+  store ptr %33, ptr %22, align 8
   br label %.sink.split
 
-37:                                               ; preds = %18, %11
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+34:                                               ; preds = %10
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %11, align 8
+  %.not36 = icmp eq ptr %36, %37
+  br i1 %.not36, label %.sink.split, label %.lr.ph38
+
+.lr.ph38:                                         ; preds = %34, %.loopexit
+  %.01837 = phi ptr [ %62, %.loopexit ], [ %36, %34 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01837, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %12, align 8
-  %.not33 = icmp eq ptr %39, %40
-  br i1 %.not33, label %.sink.split, label %.lr.ph35
+  %.not24 = icmp eq ptr %39, null
+  br i1 %.not24, label %.loopexit32, label %.preheader31
 
-.lr.ph35:                                         ; preds = %37, %.loopexit
-  %.01834 = phi ptr [ %65, %.loopexit ], [ %39, %37 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01834, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %.not24 = icmp eq ptr %42, null
-  br i1 %.not24, label %.loopexit29, label %.preheader28
+.preheader31:                                     ; preds = %.lr.ph38
+  %40 = getelementptr inbounds nuw i8, ptr %.01837, i64 80
+  %41 = load i32, ptr %40, align 8
+  %.not39 = icmp eq i32 %41, 0
+  br i1 %.not39, label %.loopexit32, label %.lr.ph
 
-.preheader28:                                     ; preds = %.lr.ph35
-  %43 = getelementptr inbounds nuw i8, ptr %.01834, i64 80
-  %44 = load i32, ptr %43, align 8
-  %.not36 = icmp eq i32 %44, 0
-  br i1 %.not36, label %.loopexit29, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader28, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader28 ]
-  %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !nonnull !8, !noundef !8
-  %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(220) %48)
+.lr.ph:                                           ; preds = %.preheader31, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader31 ]
+  %42 = load ptr, ptr %38, align 8
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %44 = load ptr, ptr %43, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds i8, ptr %44, i64 -8
+  %46 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(220) %45)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %43, align 8
-  %51 = zext i32 %50 to i64
-  %52 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %.loopexit29, !llvm.loop !554
+  %47 = load i32, ptr %40, align 8
+  %48 = zext i32 %47 to i64
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph, label %.loopexit32, !llvm.loop !554
 
-.loopexit29:                                      ; preds = %.lr.ph, %.preheader28, %.lr.ph35
-  %53 = getelementptr inbounds nuw i8, ptr %.01834, i64 88
-  %54 = load ptr, ptr %53, align 8
-  %.not25 = icmp eq ptr %54, null
+.loopexit32:                                      ; preds = %.lr.ph, %.preheader31, %.lr.ph38
+  %50 = getelementptr inbounds nuw i8, ptr %.01837, i64 88
+  %51 = load ptr, ptr %50, align 8
+  %.not25 = icmp eq ptr %51, null
   br i1 %.not25, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit29
-  %55 = getelementptr inbounds nuw i8, ptr %.01834, i64 96
-  %56 = load i32, ptr %55, align 8
-  %.not37 = icmp eq i32 %56, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph32
+.preheader:                                       ; preds = %.loopexit32
+  %52 = getelementptr inbounds nuw i8, ptr %.01837, i64 96
+  %53 = load i32, ptr %52, align 8
+  %.not40 = icmp eq i32 %53, 0
+  br i1 %.not40, label %.loopexit, label %.lr.ph35
 
-.lr.ph32:                                         ; preds = %.preheader, %.lr.ph32
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.lr.ph32 ], [ 0, %.preheader ]
-  %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv39
-  %59 = load ptr, ptr %58, align 8, !nonnull !8, !noundef !8
-  %60 = getelementptr inbounds i8, ptr %59, i64 -8
-  %61 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(220) %60)
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %62 = load i32, ptr %55, align 8
-  %63 = zext i32 %62 to i64
-  %64 = icmp samesign ult i64 %indvars.iv.next40, %63
-  br i1 %64, label %.lr.ph32, label %.loopexit, !llvm.loop !555
+.lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph35 ], [ 0, %.preheader ]
+  %54 = load ptr, ptr %50, align 8
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv42
+  %56 = load ptr, ptr %55, align 8, !nonnull !8, !noundef !8
+  %57 = getelementptr inbounds i8, ptr %56, i64 -8
+  %58 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11StartObjectEv(ptr noundef nonnull align 8 dereferenceable(220) %57)
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %59 = load i32, ptr %52, align 8
+  %60 = zext i32 %59 to i64
+  %61 = icmp samesign ult i64 %indvars.iv.next43, %60
+  br i1 %61, label %.lr.ph35, label %.loopexit, !llvm.loop !555
 
-.loopexit:                                        ; preds = %.lr.ph32, %.preheader, %.loopexit29
-  %65 = getelementptr inbounds nuw i8, ptr %.01834, i64 144
-  %66 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %65, %66
-  br i1 %.not, label %.sink.split, label %.lr.ph35, !llvm.loop !556
+.loopexit:                                        ; preds = %.lr.ph35, %.preheader, %.loopexit32
+  %62 = getelementptr inbounds nuw i8, ptr %.01837, i64 144
+  %63 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %62, %63
+  br i1 %.not, label %.sink.split, label %.lr.ph38, !llvm.loop !556
 
-.sink.split:                                      ; preds = %.loopexit, %37, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
-  %.sink = phi i8 [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ 1, %37 ], [ 1, %.loopexit ]
-  %.019.ph = phi i1 [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ true, %37 ], [ true, %.loopexit ]
+.sink.split:                                      ; preds = %.loopexit, %34, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
+  %.sink = phi i8 [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ 1, %34 ], [ 1, %.loopexit ]
+  %.019.ph = phi i1 [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ true, %34 ], [ true, %.loopexit ]
   store i8 %.sink, ptr %2, align 8
-  br label %67
+  br label %64
 
-67:                                               ; preds = %.sink.split, %1
+64:                                               ; preds = %.sink.split, %1
   %.019 = phi i1 [ false, %1 ], [ %.019.ph, %.sink.split ]
   ret i1 %.019
 }
@@ -71995,7 +71956,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %98
+  br i1 %7, label %8, label %97
 
 8:                                                ; preds = %4
   %9 = shl i32 %2, 1
@@ -72073,136 +72034,132 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 -144
   %41 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3KeyERNS0_23SchemaValidationContextISA_EEPKcjb(ptr noundef nonnull align 8 dereferenceable(419) %39, ptr noundef nonnull align 8 dereferenceable(139) %40, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
-  br i1 %41, label %46, label %42
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %43 = load i32, ptr %42, align 4
+  %44 = trunc i32 %43 to i1
+  %or.cond = select i1 %41, i1 true, i1 %44
+  br i1 %or.cond, label %45, label %.sink.split
 
-42:                                               ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11AppendTokenEPKcj.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %44 = load i32, ptr %43, align 4
-  %45 = and i32 %44, 1
-  %.not43 = icmp eq i32 %45, 0
-  br i1 %.not43, label %.sink.split, label %46
+45:                                               ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11AppendTokenEPKcj.exit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %36, align 8
+  %.not50 = icmp eq ptr %47, %48
+  br i1 %.not50, label %.sink.split, label %.lr.ph52
 
-46:                                               ; preds = %42, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11AppendTokenEPKcj.exit
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %36, align 8
-  %.not49 = icmp eq ptr %48, %49
-  br i1 %.not49, label %.sink.split, label %.lr.ph51
+.lr.ph52:                                         ; preds = %45
+  %49 = zext i32 %2 to i64
+  br label %50
 
-.lr.ph51:                                         ; preds = %46
-  %50 = zext i32 %2 to i64
-  br label %51
+50:                                               ; preds = %.lr.ph52, %.loopexit
+  %.03551 = phi ptr [ %47, %.lr.ph52 ], [ %95, %.loopexit ]
+  %51 = getelementptr inbounds nuw i8, ptr %.03551, i64 56
+  %52 = load ptr, ptr %51, align 8
+  %.not40 = icmp eq ptr %52, null
+  br i1 %.not40, label %70, label %53
 
-51:                                               ; preds = %.lr.ph51, %.loopexit
-  %.03550 = phi ptr [ %48, %.lr.ph51 ], [ %96, %.loopexit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.03550, i64 56
-  %53 = load ptr, ptr %52, align 8
-  %.not40 = icmp eq ptr %53, null
-  br i1 %.not40, label %71, label %54
-
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   br i1 %.not.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %54
-  %.09.lcssa.i.i.i = phi i64 [ -5808596455572525216, %54 ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %56 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = icmp slt i64 %61, 8
-  br i1 %62, label %63, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit, !prof !5
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %53
+  %.09.lcssa.i.i.i = phi i64 [ -5808596455572525216, %53 ], [ %.09.i.i.i, %.lr.ph.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %55 to i64
+  %59 = ptrtoint ptr %57 to i64
+  %60 = sub i64 %58, %59
+  %61 = icmp slt i64 %60, 8
+  br i1 %61, label %62, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit, !prof !5
 
-63:                                               ; preds = %._crit_edge.i.i.i
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %53, i64 noundef 1)
-  %.pre.i.i.i = load ptr, ptr %57, align 8
+62:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %52, i64 noundef 1)
+  %.pre.i.i.i = load ptr, ptr %56, align 8
   br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit
 
-.lr.ph.i.i.i:                                     ; preds = %54, %.lr.ph.i.i.i
-  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808596455572525216, %54 ]
-  %.011.i.i.i = phi i64 [ %68, %.lr.ph.i.i.i ], [ 0, %54 ]
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %.011.i.i.i
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i64
-  %67 = xor i64 %.0912.i.i.i, %66
-  %68 = add nuw nsw i64 %.011.i.i.i, 1
-  %.09.i.i.i = mul i64 %67, 1099511628211
-  %exitcond.not.i.i.i = icmp eq i64 %68, %50
+.lr.ph.i.i.i:                                     ; preds = %53, %.lr.ph.i.i.i
+  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808596455572525216, %53 ]
+  %.011.i.i.i = phi i64 [ %67, %.lr.ph.i.i.i ], [ 0, %53 ]
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %.011.i.i.i
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i64
+  %66 = xor i64 %.0912.i.i.i, %65
+  %67 = add nuw nsw i64 %.011.i.i.i, 1
+  %.09.i.i.i = mul i64 %66, 1099511628211
+  %exitcond.not.i.i.i = icmp eq i64 %67, %49
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !558
 
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit: ; preds = %._crit_edge.i.i.i, %63
-  %69 = phi ptr [ %58, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %63 ]
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %70, ptr %57, align 8
-  store i64 %.09.lcssa.i.i.i, ptr %69, align 8
-  br label %71
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit: ; preds = %._crit_edge.i.i.i, %62
+  %68 = phi ptr [ %57, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %62 ]
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %69, ptr %56, align 8
+  store i64 %.09.lcssa.i.i.i, ptr %68, align 8
+  br label %70
 
-71:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit, %51
-  %72 = getelementptr inbounds nuw i8, ptr %.03550, i64 72
-  %73 = load ptr, ptr %72, align 8
-  %.not41 = icmp eq ptr %73, null
-  br i1 %.not41, label %.loopexit45, label %.preheader44
+70:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3KeyEPKcjb.exit, %50
+  %71 = getelementptr inbounds nuw i8, ptr %.03551, i64 72
+  %72 = load ptr, ptr %71, align 8
+  %.not41 = icmp eq ptr %72, null
+  br i1 %.not41, label %.loopexit46, label %.preheader45
 
-.preheader44:                                     ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %.03550, i64 80
-  %75 = load i32, ptr %74, align 8
-  %.not52 = icmp eq i32 %75, 0
-  br i1 %.not52, label %.loopexit45, label %.lr.ph
+.preheader45:                                     ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %.03551, i64 80
+  %74 = load i32, ptr %73, align 8
+  %.not53 = icmp eq i32 %74, 0
+  br i1 %.not53, label %.loopexit46, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader44, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader44 ]
-  %76 = load ptr, ptr %72, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8, !nonnull !8, !noundef !8
-  %79 = getelementptr inbounds i8, ptr %78, i64 -8
-  %80 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3KeyEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %79, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
+.lr.ph:                                           ; preds = %.preheader45, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader45 ]
+  %75 = load ptr, ptr %71, align 8
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv
+  %77 = load ptr, ptr %76, align 8, !nonnull !8, !noundef !8
+  %78 = getelementptr inbounds i8, ptr %77, i64 -8
+  %79 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3KeyEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %78, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i32, ptr %74, align 8
-  %82 = zext i32 %81 to i64
-  %83 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %.loopexit45, !llvm.loop !559
+  %80 = load i32, ptr %73, align 8
+  %81 = zext i32 %80 to i64
+  %82 = icmp samesign ult i64 %indvars.iv.next, %81
+  br i1 %82, label %.lr.ph, label %.loopexit46, !llvm.loop !559
 
-.loopexit45:                                      ; preds = %.lr.ph, %.preheader44, %71
-  %84 = getelementptr inbounds nuw i8, ptr %.03550, i64 88
-  %85 = load ptr, ptr %84, align 8
-  %.not42 = icmp eq ptr %85, null
+.loopexit46:                                      ; preds = %.lr.ph, %.preheader45, %70
+  %83 = getelementptr inbounds nuw i8, ptr %.03551, i64 88
+  %84 = load ptr, ptr %83, align 8
+  %.not42 = icmp eq ptr %84, null
   br i1 %.not42, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit45
-  %86 = getelementptr inbounds nuw i8, ptr %.03550, i64 96
-  %87 = load i32, ptr %86, align 8
-  %.not53 = icmp eq i32 %87, 0
-  br i1 %.not53, label %.loopexit, label %.lr.ph48
+.preheader:                                       ; preds = %.loopexit46
+  %85 = getelementptr inbounds nuw i8, ptr %.03551, i64 96
+  %86 = load i32, ptr %85, align 8
+  %.not54 = icmp eq i32 %86, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph49
 
-.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph48 ], [ 0, %.preheader ]
-  %88 = load ptr, ptr %84, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv55
-  %90 = load ptr, ptr %89, align 8, !nonnull !8, !noundef !8
-  %91 = getelementptr inbounds i8, ptr %90, i64 -8
-  %92 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3KeyEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %91, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %93 = load i32, ptr %86, align 8
-  %94 = zext i32 %93 to i64
-  %95 = icmp samesign ult i64 %indvars.iv.next56, %94
-  br i1 %95, label %.lr.ph48, label %.loopexit, !llvm.loop !560
+.lr.ph49:                                         ; preds = %.preheader, %.lr.ph49
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph49 ], [ 0, %.preheader ]
+  %87 = load ptr, ptr %83, align 8
+  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv56
+  %89 = load ptr, ptr %88, align 8, !nonnull !8, !noundef !8
+  %90 = getelementptr inbounds i8, ptr %89, i64 -8
+  %91 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3KeyEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %90, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %92 = load i32, ptr %85, align 8
+  %93 = zext i32 %92 to i64
+  %94 = icmp samesign ult i64 %indvars.iv.next57, %93
+  br i1 %94, label %.lr.ph49, label %.loopexit, !llvm.loop !560
 
-.loopexit:                                        ; preds = %.lr.ph48, %.preheader, %.loopexit45
-  %96 = getelementptr inbounds nuw i8, ptr %.03550, i64 144
-  %97 = load ptr, ptr %36, align 8
-  %.not = icmp eq ptr %96, %97
-  br i1 %.not, label %.sink.split, label %51, !llvm.loop !561
+.loopexit:                                        ; preds = %.lr.ph49, %.preheader, %.loopexit46
+  %95 = getelementptr inbounds nuw i8, ptr %.03551, i64 144
+  %96 = load ptr, ptr %36, align 8
+  %.not = icmp eq ptr %95, %96
+  br i1 %.not, label %.sink.split, label %50, !llvm.loop !561
 
-.sink.split:                                      ; preds = %.loopexit, %46, %42
-  %.sink = phi i8 [ 0, %42 ], [ 1, %46 ], [ 1, %.loopexit ]
-  %.036.ph = phi i1 [ false, %42 ], [ true, %46 ], [ true, %.loopexit ]
+.sink.split:                                      ; preds = %.loopexit, %45, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11AppendTokenEPKcj.exit
+  %.sink = phi i8 [ 0, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E11AppendTokenEPKcj.exit ], [ 1, %45 ], [ 1, %.loopexit ]
   store i8 %.sink, ptr %5, align 8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %.sink.split, %4
-  %.036 = phi i1 [ false, %4 ], [ %.036.ph, %.sink.split ]
+97:                                               ; preds = %.sink.split, %4
+  %.036 = phi i1 [ false, %4 ], [ %or.cond, %.sink.split ]
   ret i1 %.036
 }
 
@@ -72211,177 +72168,163 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %88
+  br i1 %5, label %6, label %82
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
-  %.not38 = icmp eq ptr %8, %10
-  br i1 %.not38, label %._crit_edge, label %.lr.ph40
+  %.not41 = icmp eq ptr %8, %10
+  br i1 %.not41, label %._crit_edge, label %.lr.ph43
 
-.lr.ph40:                                         ; preds = %6
+.lr.ph43:                                         ; preds = %6
   %11 = shl i32 %1, 1
   %12 = zext i32 %11 to i64
   %.neg.i.i = mul nsw i64 %12, -8
   %.not.i = icmp eq i32 %1, 0
   %wide.trip.count.i = zext i32 %1 to i64
-  br label %18
+  br label %21
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
-  %13 = phi ptr [ %10, %6 ], [ %73, %.loopexit ]
+  %13 = phi ptr [ %10, %6 ], [ %76, %.loopexit ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -128
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 -144
   %17 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9EndObjectERNS0_23SchemaValidationContextISA_EEj(ptr noundef nonnull align 8 dereferenceable(419) %15, ptr noundef nonnull align 8 dereferenceable(139) %16, i32 noundef %1)
-  br i1 %17, label %78, label %74
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %19 = load i32, ptr %18, align 4
+  %20 = trunc i32 %19 to i1
+  %or.cond = select i1 %17, i1 true, i1 %20
+  br i1 %or.cond, label %77, label %.sink.split
 
-18:                                               ; preds = %.lr.ph40, %.loopexit
-  %.02339 = phi ptr [ %8, %.lr.ph40 ], [ %72, %.loopexit ]
-  %19 = getelementptr inbounds nuw i8, ptr %.02339, i64 56
-  %20 = load ptr, ptr %19, align 8
-  %.not28 = icmp eq ptr %20, null
-  br i1 %.not28, label %47, label %21
-
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
+21:                                               ; preds = %.lr.ph43, %.loopexit
+  %.02342 = phi ptr [ %8, %.lr.ph43 ], [ %75, %.loopexit ]
+  %22 = getelementptr inbounds nuw i8, ptr %.02342, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 %.neg.i.i
-  store ptr %24, ptr %22, align 8
+  %.not28 = icmp eq ptr %23, null
+  br i1 %.not28, label %50, label %24
+
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 %.neg.i.i
+  store ptr %27, ptr %25, align 8
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
-  %.010.lcssa.i = phi i64 [ 3298534884633, %21 ], [ %44, %.lr.ph.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %24 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp slt i64 %29, 8
-  br i1 %30, label %31, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit, !prof !5
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
+  %.010.lcssa.i = phi i64 [ 3298534884633, %24 ], [ %47, %.lr.ph.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = ptrtoint ptr %27 to i64
+  %32 = sub i64 %30, %31
+  %33 = icmp slt i64 %32, 8
+  br i1 %33, label %34, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit, !prof !5
 
-31:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef 1)
-  %.pre.i = load ptr, ptr %22, align 8
+34:                                               ; preds = %._crit_edge.i
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %23, i64 noundef 1)
+  %.pre.i = load ptr, ptr %25, align 8
   br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit
 
-.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %21 ]
-  %.01011.i = phi i64 [ %44, %.lr.ph.i ], [ 3298534884633, %21 ]
-  %32 = trunc nuw i64 %indvars.iv.i to i32
-  %33 = shl i32 %32, 1
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %24, i64 %34
-  %36 = load i64, ptr %35, align 8
-  %37 = mul i64 %36, 1099511628211
-  %38 = or disjoint i32 %33, 1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %24, i64 %39
-  %41 = load i64, ptr %40, align 8
-  %42 = xor i64 %41, %37
-  %43 = mul i64 %42, 1099511628211
-  %44 = xor i64 %43, %.01011.i
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
+  %.01011.i = phi i64 [ %47, %.lr.ph.i ], [ 3298534884633, %24 ]
+  %35 = trunc nuw i64 %indvars.iv.i to i32
+  %36 = shl i32 %35, 1
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i64, ptr %27, i64 %37
+  %39 = load i64, ptr %38, align 8
+  %40 = mul i64 %39, 1099511628211
+  %41 = or disjoint i32 %36, 1
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw i64, ptr %27, i64 %42
+  %44 = load i64, ptr %43, align 8
+  %45 = xor i64 %44, %40
+  %46 = mul i64 %45, 1099511628211
+  %47 = xor i64 %46, %.01011.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !562
 
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit: ; preds = %._crit_edge.i, %31
-  %45 = phi ptr [ %24, %._crit_edge.i ], [ %.pre.i, %31 ]
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %46, ptr %22, align 8
-  store i64 %.010.lcssa.i, ptr %45, align 8
-  br label %47
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit: ; preds = %._crit_edge.i, %34
+  %48 = phi ptr [ %27, %._crit_edge.i ], [ %.pre.i, %34 ]
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %49, ptr %25, align 8
+  store i64 %.010.lcssa.i, ptr %48, align 8
+  br label %50
 
-47:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit, %18
-  %48 = getelementptr inbounds nuw i8, ptr %.02339, i64 72
-  %49 = load ptr, ptr %48, align 8
-  %.not29 = icmp eq ptr %49, null
-  br i1 %.not29, label %.loopexit34, label %.preheader33
+50:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE9EndObjectEj.exit, %21
+  %51 = getelementptr inbounds nuw i8, ptr %.02342, i64 72
+  %52 = load ptr, ptr %51, align 8
+  %.not29 = icmp eq ptr %52, null
+  br i1 %.not29, label %.loopexit37, label %.preheader36
 
-.preheader33:                                     ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %.02339, i64 80
-  %51 = load i32, ptr %50, align 8
-  %.not41 = icmp eq i32 %51, 0
-  br i1 %.not41, label %.loopexit34, label %.lr.ph
+.preheader36:                                     ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %.02342, i64 80
+  %54 = load i32, ptr %53, align 8
+  %.not44 = icmp eq i32 %54, 0
+  br i1 %.not44, label %.loopexit37, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader33, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader33 ]
-  %52 = load ptr, ptr %48, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8, !nonnull !8, !noundef !8
-  %55 = getelementptr inbounds i8, ptr %54, i64 -8
-  %56 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(220) %55, i32 noundef %1)
+.lr.ph:                                           ; preds = %.preheader36, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader36 ]
+  %55 = load ptr, ptr %51, align 8
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %57 = load ptr, ptr %56, align 8, !nonnull !8, !noundef !8
+  %58 = getelementptr inbounds i8, ptr %57, i64 -8
+  %59 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(220) %58, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = load i32, ptr %50, align 8
-  %58 = zext i32 %57 to i64
-  %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.loopexit34, !llvm.loop !563
+  %60 = load i32, ptr %53, align 8
+  %61 = zext i32 %60 to i64
+  %62 = icmp samesign ult i64 %indvars.iv.next, %61
+  br i1 %62, label %.lr.ph, label %.loopexit37, !llvm.loop !563
 
-.loopexit34:                                      ; preds = %.lr.ph, %.preheader33, %47
-  %60 = getelementptr inbounds nuw i8, ptr %.02339, i64 88
-  %61 = load ptr, ptr %60, align 8
-  %.not30 = icmp eq ptr %61, null
+.loopexit37:                                      ; preds = %.lr.ph, %.preheader36, %50
+  %63 = getelementptr inbounds nuw i8, ptr %.02342, i64 88
+  %64 = load ptr, ptr %63, align 8
+  %.not30 = icmp eq ptr %64, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit34
-  %62 = getelementptr inbounds nuw i8, ptr %.02339, i64 96
-  %63 = load i32, ptr %62, align 8
-  %.not42 = icmp eq i32 %63, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph37
+.preheader:                                       ; preds = %.loopexit37
+  %65 = getelementptr inbounds nuw i8, ptr %.02342, i64 96
+  %66 = load i32, ptr %65, align 8
+  %.not45 = icmp eq i32 %66, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph40
 
-.lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.lr.ph37 ], [ 0, %.preheader ]
-  %64 = load ptr, ptr %60, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv44
-  %66 = load ptr, ptr %65, align 8, !nonnull !8, !noundef !8
-  %67 = getelementptr inbounds i8, ptr %66, i64 -8
-  %68 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(220) %67, i32 noundef %1)
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %69 = load i32, ptr %62, align 8
-  %70 = zext i32 %69 to i64
-  %71 = icmp samesign ult i64 %indvars.iv.next45, %70
-  br i1 %71, label %.lr.ph37, label %.loopexit, !llvm.loop !564
+.lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.lr.ph40 ], [ 0, %.preheader ]
+  %67 = load ptr, ptr %63, align 8
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv47
+  %69 = load ptr, ptr %68, align 8, !nonnull !8, !noundef !8
+  %70 = getelementptr inbounds i8, ptr %69, i64 -8
+  %71 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E9EndObjectEj(ptr noundef nonnull align 8 dereferenceable(220) %70, i32 noundef %1)
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %72 = load i32, ptr %65, align 8
+  %73 = zext i32 %72 to i64
+  %74 = icmp samesign ult i64 %indvars.iv.next48, %73
+  br i1 %74, label %.lr.ph40, label %.loopexit, !llvm.loop !564
 
-.loopexit:                                        ; preds = %.lr.ph37, %.preheader, %.loopexit34
-  %72 = getelementptr inbounds nuw i8, ptr %.02339, i64 144
-  %73 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %72, %73
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !565
+.loopexit:                                        ; preds = %.lr.ph40, %.preheader, %.loopexit37
+  %75 = getelementptr inbounds nuw i8, ptr %.02342, i64 144
+  %76 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %75, %76
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !565
 
-74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %76 = load i32, ptr %75, align 4
-  %77 = and i32 %76, 1
-  %.not31 = icmp eq i32 %77, 0
-  br i1 %.not31, label %.sink.split, label %78
-
-78:                                               ; preds = %74, %._crit_edge
-  %79 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %79, label %84, label %80
-
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, 1
-  %.not32 = icmp eq i32 %83, 0
-  br i1 %.not32, label %85, label %84
-
-84:                                               ; preds = %80, %78
-  br label %85
-
-85:                                               ; preds = %84, %80
-  %86 = phi i1 [ false, %80 ], [ true, %84 ]
-  %87 = zext i1 %86 to i8
+77:                                               ; preds = %._crit_edge
+  %78 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %79 = load i32, ptr %18, align 4
+  %80 = trunc i32 %79 to i1
+  %or.cond35 = select i1 %78, i1 true, i1 %80
+  %81 = zext i1 %or.cond35 to i8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %74, %85
-  %.sink = phi i8 [ %87, %85 ], [ 0, %74 ]
-  %.024.ph = phi i1 [ %86, %85 ], [ false, %74 ]
+.sink.split:                                      ; preds = %._crit_edge, %77
+  %.sink = phi i8 [ %81, %77 ], [ 0, %._crit_edge ]
+  %.024.ph = phi i1 [ %or.cond35, %77 ], [ false, %._crit_edge ]
   store i8 %.sink, ptr %3, align 8
-  br label %88
+  br label %82
 
-88:                                               ; preds = %.sink.split, %2
+82:                                               ; preds = %.sink.split, %2
   %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
   ret i1 %.024
 }
@@ -72391,36 +72334,313 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %67
+  br i1 %4, label %5, label %64
 
 5:                                                ; preds = %1
   %6 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %6, label %11, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %8 = load i32, ptr %7, align 4
+  %9 = trunc i32 %8 to i1
+  %or.cond = select i1 %6, i1 true, i1 %9
+  br i1 %or.cond, label %10, label %19
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %.not26 = icmp eq i32 %10, 0
-  br i1 %.not26, label %22, label %11
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 -128
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 -144
+  %16 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10StartArrayERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %14, ptr noundef nonnull align 8 dereferenceable(139) %15)
+  %17 = load i32, ptr %7, align 4
+  %18 = trunc i32 %17 to i1
+  %or.cond30 = select i1 %16, i1 true, i1 %18
+  br i1 %or.cond30, label %34, label %19
 
-11:                                               ; preds = %7, %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 -128
+19:                                               ; preds = %10, %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = load ptr, ptr %22, align 8
+  %24 = ptrtoint ptr %21 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = icmp slt i64 %26, 1
+  br i1 %27, label %28, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
+
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %29, i64 noundef 1)
+  %.pre = load ptr, ptr %22, align 8
+  br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
+
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %19, %28
+  %30 = phi ptr [ %23, %19 ], [ %.pre, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  store ptr %31, ptr %22, align 8
+  store i8 0, ptr %30, align 1
+  %32 = load ptr, ptr %22, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 -1
+  store ptr %33, ptr %22, align 8
+  br label %.sink.split
+
+34:                                               ; preds = %10
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %11, align 8
+  %.not36 = icmp eq ptr %36, %37
+  br i1 %.not36, label %.sink.split, label %.lr.ph38
+
+.lr.ph38:                                         ; preds = %34, %.loopexit
+  %.01837 = phi ptr [ %62, %.loopexit ], [ %36, %34 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.01837, i64 72
+  %39 = load ptr, ptr %38, align 8
+  %.not24 = icmp eq ptr %39, null
+  br i1 %.not24, label %.loopexit32, label %.preheader31
+
+.preheader31:                                     ; preds = %.lr.ph38
+  %40 = getelementptr inbounds nuw i8, ptr %.01837, i64 80
+  %41 = load i32, ptr %40, align 8
+  %.not39 = icmp eq i32 %41, 0
+  br i1 %.not39, label %.loopexit32, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader31, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader31 ]
+  %42 = load ptr, ptr %38, align 8
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %44 = load ptr, ptr %43, align 8, !nonnull !8, !noundef !8
+  %45 = getelementptr inbounds i8, ptr %44, i64 -8
+  %46 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(220) %45)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %47 = load i32, ptr %40, align 8
+  %48 = zext i32 %47 to i64
+  %49 = icmp samesign ult i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph, label %.loopexit32, !llvm.loop !566
+
+.loopexit32:                                      ; preds = %.lr.ph, %.preheader31, %.lr.ph38
+  %50 = getelementptr inbounds nuw i8, ptr %.01837, i64 88
+  %51 = load ptr, ptr %50, align 8
+  %.not25 = icmp eq ptr %51, null
+  br i1 %.not25, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.loopexit32
+  %52 = getelementptr inbounds nuw i8, ptr %.01837, i64 96
+  %53 = load i32, ptr %52, align 8
+  %.not40 = icmp eq i32 %53, 0
+  br i1 %.not40, label %.loopexit, label %.lr.ph35
+
+.lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph35 ], [ 0, %.preheader ]
+  %54 = load ptr, ptr %50, align 8
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv42
+  %56 = load ptr, ptr %55, align 8, !nonnull !8, !noundef !8
+  %57 = getelementptr inbounds i8, ptr %56, i64 -8
+  %58 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(220) %57)
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %59 = load i32, ptr %52, align 8
+  %60 = zext i32 %59 to i64
+  %61 = icmp samesign ult i64 %indvars.iv.next43, %60
+  br i1 %61, label %.lr.ph35, label %.loopexit, !llvm.loop !567
+
+.loopexit:                                        ; preds = %.lr.ph35, %.preheader, %.loopexit32
+  %62 = getelementptr inbounds nuw i8, ptr %.01837, i64 144
+  %63 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %62, %63
+  br i1 %.not, label %.sink.split, label %.lr.ph38, !llvm.loop !568
+
+.sink.split:                                      ; preds = %.loopexit, %34, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
+  %.sink = phi i8 [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ 1, %34 ], [ 1, %.loopexit ]
+  %.019.ph = phi i1 [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ true, %34 ], [ true, %.loopexit ]
+  store i8 %.sink, ptr %2, align 8
+  br label %64
+
+64:                                               ; preds = %.sink.split, %1
+  %.019 = phi i1 [ false, %1 ], [ %.019.ph, %.sink.split ]
+  ret i1 %.019
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %72
+
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = load ptr, ptr %9, align 8
+  %.not41 = icmp eq ptr %8, %10
+  br i1 %.not41, label %._crit_edge, label %.lr.ph43
+
+.lr.ph43:                                         ; preds = %6
+  %11 = zext i32 %1 to i64
+  %.neg.i.i = mul nsw i64 %11, -8
+  %.not.i = icmp eq i32 %1, 0
+  br label %20
+
+._crit_edge:                                      ; preds = %.loopexit, %6
+  %12 = phi ptr [ %10, %6 ], [ %66, %.loopexit ]
+  %13 = getelementptr inbounds i8, ptr %12, i64 -128
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 -144
+  %16 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE8EndArrayERNS0_23SchemaValidationContextISA_EEj(ptr noundef nonnull align 8 dereferenceable(419) %14, ptr noundef nonnull align 8 dereferenceable(139) %15, i32 noundef %1)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %18 = load i32, ptr %17, align 4
+  %19 = trunc i32 %18 to i1
+  %or.cond = select i1 %16, i1 true, i1 %19
+  br i1 %or.cond, label %67, label %.sink.split
+
+20:                                               ; preds = %.lr.ph43, %.loopexit
+  %.02342 = phi ptr [ %8, %.lr.ph43 ], [ %65, %.loopexit ]
+  %21 = getelementptr inbounds nuw i8, ptr %.02342, i64 56
+  %22 = load ptr, ptr %21, align 8
+  %.not28 = icmp eq ptr %22, null
+  br i1 %.not28, label %40, label %23
+
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 %.neg.i.i
+  store ptr %26, ptr %24, align 8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %23
+  %.08.lcssa.i = phi i64 [ 4398046512844, %23 ], [ %37, %.lr.ph.i ]
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = ptrtoint ptr %26 to i64
+  %31 = sub i64 %29, %30
+  %32 = icmp slt i64 %31, 8
+  br i1 %32, label %33, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit, !prof !5
+
+33:                                               ; preds = %._crit_edge.i
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef 1)
+  %.pre.i = load ptr, ptr %24, align 8
+  br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit
+
+.lr.ph.i:                                         ; preds = %23, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %23 ]
+  %.089.i = phi i64 [ %37, %.lr.ph.i ], [ 4398046512844, %23 ]
+  %34 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv.i
+  %35 = load i64, ptr %34, align 8
+  %36 = xor i64 %35, %.089.i
+  %37 = mul i64 %36, 1099511628211
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !569
+
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit: ; preds = %._crit_edge.i, %33
+  %38 = phi ptr [ %26, %._crit_edge.i ], [ %.pre.i, %33 ]
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %39, ptr %24, align 8
+  store i64 %.08.lcssa.i, ptr %38, align 8
+  br label %40
+
+40:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit, %20
+  %41 = getelementptr inbounds nuw i8, ptr %.02342, i64 72
+  %42 = load ptr, ptr %41, align 8
+  %.not29 = icmp eq ptr %42, null
+  br i1 %.not29, label %.loopexit37, label %.preheader36
+
+.preheader36:                                     ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %.02342, i64 80
+  %44 = load i32, ptr %43, align 8
+  %.not44 = icmp eq i32 %44, 0
+  br i1 %.not44, label %.loopexit37, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader36, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader36 ]
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %47 = load ptr, ptr %46, align 8, !nonnull !8, !noundef !8
+  %48 = getelementptr inbounds i8, ptr %47, i64 -8
+  %49 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(220) %48, i32 noundef %1)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %50 = load i32, ptr %43, align 8
+  %51 = zext i32 %50 to i64
+  %52 = icmp samesign ult i64 %indvars.iv.next, %51
+  br i1 %52, label %.lr.ph, label %.loopexit37, !llvm.loop !570
+
+.loopexit37:                                      ; preds = %.lr.ph, %.preheader36, %40
+  %53 = getelementptr inbounds nuw i8, ptr %.02342, i64 88
+  %54 = load ptr, ptr %53, align 8
+  %.not30 = icmp eq ptr %54, null
+  br i1 %.not30, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.loopexit37
+  %55 = getelementptr inbounds nuw i8, ptr %.02342, i64 96
+  %56 = load i32, ptr %55, align 8
+  %.not45 = icmp eq i32 %56, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph40
+
+.lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.lr.ph40 ], [ 0, %.preheader ]
+  %57 = load ptr, ptr %53, align 8
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv47
+  %59 = load ptr, ptr %58, align 8, !nonnull !8, !noundef !8
+  %60 = getelementptr inbounds i8, ptr %59, i64 -8
+  %61 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(220) %60, i32 noundef %1)
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %62 = load i32, ptr %55, align 8
+  %63 = zext i32 %62 to i64
+  %64 = icmp samesign ult i64 %indvars.iv.next48, %63
+  br i1 %64, label %.lr.ph40, label %.loopexit, !llvm.loop !571
+
+.loopexit:                                        ; preds = %.lr.ph40, %.preheader, %.loopexit37
+  %65 = getelementptr inbounds nuw i8, ptr %.02342, i64 144
+  %66 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %65, %66
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !572
+
+67:                                               ; preds = %._crit_edge
+  %68 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %69 = load i32, ptr %17, align 4
+  %70 = trunc i32 %69 to i1
+  %or.cond35 = select i1 %68, i1 true, i1 %70
+  %71 = zext i1 %or.cond35 to i8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %._crit_edge, %67
+  %.sink = phi i8 [ %71, %67 ], [ 0, %._crit_edge ]
+  %.024.ph = phi i1 [ %or.cond35, %67 ], [ false, %._crit_edge ]
+  store i8 %.sink, ptr %3, align 8
+  br label %72
+
+72:                                               ; preds = %.sink.split, %2
+  %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
+  ret i1 %.024
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6StringEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 comdat align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
+  %7 = trunc nuw i8 %6 to i1
+  br i1 %7, label %8, label %93
+
+8:                                                ; preds = %4
+  %9 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %11 = load i32, ptr %10, align 4
+  %12 = trunc i32 %11 to i1
+  %or.cond = select i1 %9, i1 true, i1 %12
+  br i1 %or.cond, label %13, label %22
+
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 -144
-  %17 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10StartArrayERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %15, ptr noundef nonnull align 8 dereferenceable(139) %16)
-  br i1 %17, label %37, label %18
+  %16 = getelementptr inbounds i8, ptr %15, i64 -128
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 -144
+  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6StringERNS0_23SchemaValidationContextISA_EEPKcjb(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
+  %20 = load i32, ptr %10, align 4
+  %21 = trunc i32 %20 to i1
+  %or.cond45 = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond45, label %37, label %22
 
-18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, 1
-  %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %22, label %37
-
-22:                                               ; preds = %18, %7
+22:                                               ; preds = %13, %8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -72447,330 +72667,29 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %
   store ptr %36, ptr %25, align 8
   br label %.sink.split
 
-37:                                               ; preds = %18, %11
+37:                                               ; preds = %13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %12, align 8
-  %.not33 = icmp eq ptr %39, %40
-  br i1 %.not33, label %.sink.split, label %.lr.ph35
+  %40 = load ptr, ptr %14, align 8
+  %.not54 = icmp eq ptr %39, %40
+  br i1 %.not54, label %._crit_edge, label %.lr.ph56
 
-.lr.ph35:                                         ; preds = %37, %.loopexit
-  %.01834 = phi ptr [ %65, %.loopexit ], [ %39, %37 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01834, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %.not24 = icmp eq ptr %42, null
-  br i1 %.not24, label %.loopexit29, label %.preheader28
-
-.preheader28:                                     ; preds = %.lr.ph35
-  %43 = getelementptr inbounds nuw i8, ptr %.01834, i64 80
-  %44 = load i32, ptr %43, align 8
-  %.not36 = icmp eq i32 %44, 0
-  br i1 %.not36, label %.loopexit29, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader28, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader28 ]
-  %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
-  %47 = load ptr, ptr %46, align 8, !nonnull !8, !noundef !8
-  %48 = getelementptr inbounds i8, ptr %47, i64 -8
-  %49 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(220) %48)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %43, align 8
-  %51 = zext i32 %50 to i64
-  %52 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %.loopexit29, !llvm.loop !566
-
-.loopexit29:                                      ; preds = %.lr.ph, %.preheader28, %.lr.ph35
-  %53 = getelementptr inbounds nuw i8, ptr %.01834, i64 88
-  %54 = load ptr, ptr %53, align 8
-  %.not25 = icmp eq ptr %54, null
-  br i1 %.not25, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %.loopexit29
-  %55 = getelementptr inbounds nuw i8, ptr %.01834, i64 96
-  %56 = load i32, ptr %55, align 8
-  %.not37 = icmp eq i32 %56, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph32
-
-.lr.ph32:                                         ; preds = %.preheader, %.lr.ph32
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.lr.ph32 ], [ 0, %.preheader ]
-  %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv39
-  %59 = load ptr, ptr %58, align 8, !nonnull !8, !noundef !8
-  %60 = getelementptr inbounds i8, ptr %59, i64 -8
-  %61 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(220) %60)
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %62 = load i32, ptr %55, align 8
-  %63 = zext i32 %62 to i64
-  %64 = icmp samesign ult i64 %indvars.iv.next40, %63
-  br i1 %64, label %.lr.ph32, label %.loopexit, !llvm.loop !567
-
-.loopexit:                                        ; preds = %.lr.ph32, %.preheader, %.loopexit29
-  %65 = getelementptr inbounds nuw i8, ptr %.01834, i64 144
-  %66 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %65, %66
-  br i1 %.not, label %.sink.split, label %.lr.ph35, !llvm.loop !568
-
-.sink.split:                                      ; preds = %.loopexit, %37, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
-  %.sink = phi i8 [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ 1, %37 ], [ 1, %.loopexit ]
-  %.019.ph = phi i1 [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ], [ true, %37 ], [ true, %.loopexit ]
-  store i8 %.sink, ptr %2, align 8
-  br label %67
-
-67:                                               ; preds = %.sink.split, %1
-  %.019 = phi i1 [ false, %1 ], [ %.019.ph, %.sink.split ]
-  ret i1 %.019
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
-  %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %78
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8
-  %.not38 = icmp eq ptr %8, %10
-  br i1 %.not38, label %._crit_edge, label %.lr.ph40
-
-.lr.ph40:                                         ; preds = %6
-  %11 = zext i32 %1 to i64
-  %.neg.i.i = mul nsw i64 %11, -8
-  %.not.i = icmp eq i32 %1, 0
-  br label %17
-
-._crit_edge:                                      ; preds = %.loopexit, %6
-  %12 = phi ptr [ %10, %6 ], [ %63, %.loopexit ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 -128
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 -144
-  %16 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE8EndArrayERNS0_23SchemaValidationContextISA_EEj(ptr noundef nonnull align 8 dereferenceable(419) %14, ptr noundef nonnull align 8 dereferenceable(139) %15, i32 noundef %1)
-  br i1 %16, label %68, label %64
-
-17:                                               ; preds = %.lr.ph40, %.loopexit
-  %.02339 = phi ptr [ %8, %.lr.ph40 ], [ %62, %.loopexit ]
-  %18 = getelementptr inbounds nuw i8, ptr %.02339, i64 56
-  %19 = load ptr, ptr %18, align 8
-  %.not28 = icmp eq ptr %19, null
-  br i1 %.not28, label %37, label %20
-
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.neg.i.i
-  store ptr %23, ptr %21, align 8
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %20
-  %.08.lcssa.i = phi i64 [ 4398046512844, %20 ], [ %34, %.lr.ph.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %26, %27
-  %29 = icmp slt i64 %28, 8
-  br i1 %29, label %30, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit, !prof !5
-
-30:                                               ; preds = %._crit_edge.i
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef 1)
-  %.pre.i = load ptr, ptr %21, align 8
-  br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit
-
-.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
-  %.089.i = phi i64 [ %34, %.lr.ph.i ], [ 4398046512844, %20 ]
-  %31 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i
-  %32 = load i64, ptr %31, align 8
-  %33 = xor i64 %32, %.089.i
-  %34 = mul i64 %33, 1099511628211
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !569
-
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit: ; preds = %._crit_edge.i, %30
-  %35 = phi ptr [ %23, %._crit_edge.i ], [ %.pre.i, %30 ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %36, ptr %21, align 8
-  store i64 %.08.lcssa.i, ptr %35, align 8
-  br label %37
-
-37:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE8EndArrayEj.exit, %17
-  %38 = getelementptr inbounds nuw i8, ptr %.02339, i64 72
-  %39 = load ptr, ptr %38, align 8
-  %.not29 = icmp eq ptr %39, null
-  br i1 %.not29, label %.loopexit34, label %.preheader33
-
-.preheader33:                                     ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %.02339, i64 80
-  %41 = load i32, ptr %40, align 8
-  %.not41 = icmp eq i32 %41, 0
-  br i1 %.not41, label %.loopexit34, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader33, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader33 ]
-  %42 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
-  %44 = load ptr, ptr %43, align 8, !nonnull !8, !noundef !8
-  %45 = getelementptr inbounds i8, ptr %44, i64 -8
-  %46 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(220) %45, i32 noundef %1)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load i32, ptr %40, align 8
-  %48 = zext i32 %47 to i64
-  %49 = icmp samesign ult i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %.loopexit34, !llvm.loop !570
-
-.loopexit34:                                      ; preds = %.lr.ph, %.preheader33, %37
-  %50 = getelementptr inbounds nuw i8, ptr %.02339, i64 88
-  %51 = load ptr, ptr %50, align 8
-  %.not30 = icmp eq ptr %51, null
-  br i1 %.not30, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %.loopexit34
-  %52 = getelementptr inbounds nuw i8, ptr %.02339, i64 96
-  %53 = load i32, ptr %52, align 8
-  %.not42 = icmp eq i32 %53, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph37
-
-.lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.lr.ph37 ], [ 0, %.preheader ]
-  %54 = load ptr, ptr %50, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv44
-  %56 = load ptr, ptr %55, align 8, !nonnull !8, !noundef !8
-  %57 = getelementptr inbounds i8, ptr %56, i64 -8
-  %58 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndArrayEj(ptr noundef nonnull align 8 dereferenceable(220) %57, i32 noundef %1)
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %59 = load i32, ptr %52, align 8
-  %60 = zext i32 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next45, %60
-  br i1 %61, label %.lr.ph37, label %.loopexit, !llvm.loop !571
-
-.loopexit:                                        ; preds = %.lr.ph37, %.preheader, %.loopexit34
-  %62 = getelementptr inbounds nuw i8, ptr %.02339, i64 144
-  %63 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %62, %63
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !572
-
-64:                                               ; preds = %._crit_edge
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, 1
-  %.not31 = icmp eq i32 %67, 0
-  br i1 %.not31, label %.sink.split, label %68
-
-68:                                               ; preds = %64, %._crit_edge
-  %69 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %69, label %74, label %70
-
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 1
-  %.not32 = icmp eq i32 %73, 0
-  br i1 %.not32, label %75, label %74
-
-74:                                               ; preds = %70, %68
-  br label %75
-
-75:                                               ; preds = %74, %70
-  %76 = phi i1 [ false, %70 ], [ true, %74 ]
-  %77 = zext i1 %76 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %64, %75
-  %.sink = phi i8 [ %77, %75 ], [ 0, %64 ]
-  %.024.ph = phi i1 [ %76, %75 ], [ false, %64 ]
-  store i8 %.sink, ptr %3, align 8
-  br label %78
-
-78:                                               ; preds = %.sink.split, %2
-  %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
-  ret i1 %.024
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6StringEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #5 comdat align 2 {
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %101
-
-8:                                                ; preds = %4
-  %9 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %9, label %14, label %10
-
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 1
-  %.not41 = icmp eq i32 %13, 0
-  br i1 %.not41, label %25, label %14
-
-14:                                               ; preds = %10, %8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 -128
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 -144
-  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6StringERNS0_23SchemaValidationContextISA_EEPKcjb(ptr noundef nonnull align 8 dereferenceable(419) %18, ptr noundef nonnull align 8 dereferenceable(139) %19, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
-  br i1 %20, label %40, label %21
-
-21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 1
-  %.not42 = icmp eq i32 %24, 0
-  br i1 %.not42, label %25, label %40
-
-25:                                               ; preds = %21, %10
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %27 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp slt i64 %32, 1
-  br i1 %33, label %34, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
-
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef 1)
-  %.pre = load ptr, ptr %28, align 8
-  br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
-
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %25, %34
-  %36 = phi ptr [ %29, %25 ], [ %.pre, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %37, ptr %28, align 8
-  store i8 0, ptr %36, align 1
-  %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 -1
-  store ptr %39, ptr %28, align 8
-  br label %.sink.split
-
-40:                                               ; preds = %21, %14
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %15, align 8
-  %.not49 = icmp eq ptr %42, %43
-  br i1 %.not49, label %._crit_edge, label %.lr.ph51
-
-.lr.ph51:                                         ; preds = %40
-  %44 = zext i32 %2 to i64
+.lr.ph56:                                         ; preds = %37
+  %41 = zext i32 %2 to i64
   %.not.i.i = icmp eq i32 %2, 0
   br label %46
 
-._crit_edge:                                      ; preds = %.loopexit, %40
-  %45 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %45, label %97, label %93
+._crit_edge:                                      ; preds = %.loopexit, %37
+  %42 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %43 = load i32, ptr %10, align 4
+  %44 = trunc i32 %43 to i1
+  %or.cond48 = select i1 %42, i1 true, i1 %44
+  %45 = zext i1 %or.cond48 to i8
+  br label %.sink.split
 
-46:                                               ; preds = %.lr.ph51, %.loopexit
-  %.03350 = phi ptr [ %42, %.lr.ph51 ], [ %91, %.loopexit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.03350, i64 56
+46:                                               ; preds = %.lr.ph56, %.loopexit
+  %.03355 = phi ptr [ %39, %.lr.ph56 ], [ %91, %.loopexit ]
+  %47 = getelementptr inbounds nuw i8, ptr %.03355, i64 56
   %48 = load ptr, ptr %47, align 8
   %.not38 = icmp eq ptr %48, null
   br i1 %.not38, label %66, label %49
@@ -72804,7 +72723,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %
   %62 = xor i64 %.0912.i.i, %61
   %63 = add nuw nsw i64 %.011.i.i, 1
   %.09.i.i = mul i64 %62, 1099511628211
-  %exitcond.not.i.i = icmp eq i64 %63, %44
+  %exitcond.not.i.i = icmp eq i64 %63, %41
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !558
 
 _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6StringEPKcjb.exit: ; preds = %._crit_edge.i.i, %58
@@ -72815,19 +72734,19 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6StringEPKcjb.exit:
   br label %66
 
 66:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6StringEPKcjb.exit, %46
-  %67 = getelementptr inbounds nuw i8, ptr %.03350, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %.03355, i64 72
   %68 = load ptr, ptr %67, align 8
   %.not39 = icmp eq ptr %68, null
-  br i1 %.not39, label %.loopexit45, label %.preheader44
+  br i1 %.not39, label %.loopexit50, label %.preheader49
 
-.preheader44:                                     ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.03350, i64 80
+.preheader49:                                     ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %.03355, i64 80
   %70 = load i32, ptr %69, align 8
-  %.not52 = icmp eq i32 %70, 0
-  br i1 %.not52, label %.loopexit45, label %.lr.ph
+  %.not57 = icmp eq i32 %70, 0
+  br i1 %.not57, label %.loopexit50, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader44, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader44 ]
+.lr.ph:                                           ; preds = %.preheader49, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader49 ]
   %71 = load ptr, ptr %67, align 8
   %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !nonnull !8, !noundef !8
@@ -72837,61 +72756,46 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6StringEPKcjb.exit:
   %76 = load i32, ptr %69, align 8
   %77 = zext i32 %76 to i64
   %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit45, !llvm.loop !573
+  br i1 %78, label %.lr.ph, label %.loopexit50, !llvm.loop !573
 
-.loopexit45:                                      ; preds = %.lr.ph, %.preheader44, %66
-  %79 = getelementptr inbounds nuw i8, ptr %.03350, i64 88
+.loopexit50:                                      ; preds = %.lr.ph, %.preheader49, %66
+  %79 = getelementptr inbounds nuw i8, ptr %.03355, i64 88
   %80 = load ptr, ptr %79, align 8
   %.not40 = icmp eq ptr %80, null
   br i1 %.not40, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit45
-  %81 = getelementptr inbounds nuw i8, ptr %.03350, i64 96
+.preheader:                                       ; preds = %.loopexit50
+  %81 = getelementptr inbounds nuw i8, ptr %.03355, i64 96
   %82 = load i32, ptr %81, align 8
-  %.not53 = icmp eq i32 %82, 0
-  br i1 %.not53, label %.loopexit, label %.lr.ph48
+  %.not58 = icmp eq i32 %82, 0
+  br i1 %.not58, label %.loopexit, label %.lr.ph53
 
-.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph48 ], [ 0, %.preheader ]
+.lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph53 ], [ 0, %.preheader ]
   %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv55
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv60
   %85 = load ptr, ptr %84, align 8, !nonnull !8, !noundef !8
   %86 = getelementptr inbounds i8, ptr %85, i64 -8
   %87 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6StringEPKcjb(ptr noundef nonnull align 8 dereferenceable(220) %86, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3)
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %88 = load i32, ptr %81, align 8
   %89 = zext i32 %88 to i64
-  %90 = icmp samesign ult i64 %indvars.iv.next56, %89
-  br i1 %90, label %.lr.ph48, label %.loopexit, !llvm.loop !574
+  %90 = icmp samesign ult i64 %indvars.iv.next61, %89
+  br i1 %90, label %.lr.ph53, label %.loopexit, !llvm.loop !574
 
-.loopexit:                                        ; preds = %.lr.ph48, %.preheader, %.loopexit45
-  %91 = getelementptr inbounds nuw i8, ptr %.03350, i64 144
-  %92 = load ptr, ptr %15, align 8
+.loopexit:                                        ; preds = %.lr.ph53, %.preheader, %.loopexit50
+  %91 = getelementptr inbounds nuw i8, ptr %.03355, i64 144
+  %92 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %91, %92
   br i1 %.not, label %._crit_edge, label %46, !llvm.loop !575
 
-93:                                               ; preds = %._crit_edge
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 1
-  %.not43 = icmp eq i32 %96, 0
-  br i1 %.not43, label %98, label %97
-
-97:                                               ; preds = %93, %._crit_edge
-  br label %98
-
-98:                                               ; preds = %97, %93
-  %99 = phi i1 [ false, %93 ], [ true, %97 ]
-  %100 = zext i1 %99 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %98
-  %.sink = phi i8 [ %100, %98 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.034.ph = phi i1 [ %99, %98 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %45, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.034.ph = phi i1 [ %or.cond48, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %5, align 8
-  br label %101
+  br label %93
 
-101:                                              ; preds = %.sink.split, %4
+93:                                               ; preds = %.sink.split, %4
   %.034 = phi i1 [ false, %4 ], [ %.034.ph, %.sink.split ]
   ret i1 %.034
 }
@@ -72902,84 +72806,81 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %103
+  br i1 %6, label %7, label %95
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %8, label %13, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %10 = load i32, ptr %9, align 4
+  %11 = trunc i32 %10 to i1
+  %or.cond = select i1 %8, i1 true, i1 %11
+  br i1 %or.cond, label %12, label %21
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1
-  %.not31 = icmp eq i32 %12, 0
-  br i1 %.not31, label %24, label %13
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 -128
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 -144
+  %18 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6DoubleERNS0_23SchemaValidationContextISA_EEd(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17, double noundef %1)
+  %19 = load i32, ptr %9, align 4
+  %20 = trunc i32 %19 to i1
+  %or.cond35 = select i1 %18, i1 true, i1 %20
+  br i1 %or.cond35, label %36, label %21
 
-13:                                               ; preds = %9, %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 -128
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 -144
-  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6DoubleERNS0_23SchemaValidationContextISA_EEd(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18, double noundef %1)
-  br i1 %19, label %39, label %20
+21:                                               ; preds = %12, %7
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %25 = load ptr, ptr %24, align 8
+  %26 = ptrtoint ptr %23 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = icmp slt i64 %28, 1
+  br i1 %29, label %30, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 1
-  %.not32 = icmp eq i32 %23, 0
-  br i1 %.not32, label %24, label %39
-
-24:                                               ; preds = %20, %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp slt i64 %31, 1
-  br i1 %32, label %33, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
-
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 1)
-  %.pre = load ptr, ptr %27, align 8
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %31, i64 noundef 1)
+  %.pre = load ptr, ptr %24, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %24, %33
-  %35 = phi ptr [ %28, %24 ], [ %.pre, %33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %27, align 8
-  store i8 0, ptr %35, align 1
-  %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 -1
-  store ptr %38, ptr %27, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %21, %30
+  %32 = phi ptr [ %25, %21 ], [ %.pre, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store ptr %33, ptr %24, align 8
+  store i8 0, ptr %32, align 1
+  %34 = load ptr, ptr %24, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 -1
+  store ptr %35, ptr %24, align 8
   br label %.sink.split
 
-39:                                               ; preds = %20, %13
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %14, align 8
-  %.not39 = icmp eq ptr %41, %42
-  br i1 %.not39, label %._crit_edge, label %.lr.ph41
+36:                                               ; preds = %12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %13, align 8
+  %.not44 = icmp eq ptr %38, %39
+  br i1 %.not44, label %._crit_edge, label %.lr.ph46
 
-.lr.ph41:                                         ; preds = %39
-  %43 = fcmp olt double %1, 0.000000e+00
-  %44 = fptoui double %1 to i64
-  %45 = fptosi double %1 to i64
-  %storemerge.i = select i1 %43, i64 %45, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+.lr.ph46:                                         ; preds = %36
+  %40 = fcmp olt double %1, 0.000000e+00
+  %41 = fptoui double %1 to i64
+  %42 = fptosi double %1 to i64
+  %storemerge.i = select i1 %40, i64 %42, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %48
 
-._crit_edge:                                      ; preds = %.loopexit, %39
-  %47 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %47, label %99, label %95
+._crit_edge:                                      ; preds = %.loopexit, %36
+  %44 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %45 = load i32, ptr %9, align 4
+  %46 = trunc i32 %45 to i1
+  %or.cond38 = select i1 %44, i1 true, i1 %46
+  %47 = zext i1 %or.cond38 to i8
+  br label %.sink.split
 
-48:                                               ; preds = %.lr.ph41, %.loopexit
-  %.02340 = phi ptr [ %41, %.lr.ph41 ], [ %93, %.loopexit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.02340, i64 56
+48:                                               ; preds = %.lr.ph46, %.loopexit
+  %.02345 = phi ptr [ %38, %.lr.ph46 ], [ %93, %.loopexit ]
+  %49 = getelementptr inbounds nuw i8, ptr %.02345, i64 56
   %50 = load ptr, ptr %49, align 8
   %.not28 = icmp eq ptr %50, null
   br i1 %.not28, label %68, label %51
@@ -72987,7 +72888,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %storemerge.i, ptr %3, align 8
-  store double %1, ptr %46, align 8
+  store double %1, ptr %43, align 8
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
@@ -73027,19 +72928,19 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6DoubleEd.exit: ; p
   br label %68
 
 68:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6DoubleEd.exit, %48
-  %69 = getelementptr inbounds nuw i8, ptr %.02340, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.02345, i64 72
   %70 = load ptr, ptr %69, align 8
   %.not29 = icmp eq ptr %70, null
-  br i1 %.not29, label %.loopexit35, label %.preheader34
+  br i1 %.not29, label %.loopexit40, label %.preheader39
 
-.preheader34:                                     ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %.02340, i64 80
+.preheader39:                                     ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %.02345, i64 80
   %72 = load i32, ptr %71, align 8
-  %.not42 = icmp eq i32 %72, 0
-  br i1 %.not42, label %.loopexit35, label %.lr.ph
+  %.not47 = icmp eq i32 %72, 0
+  br i1 %.not47, label %.loopexit40, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader34, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader34 ]
+.lr.ph:                                           ; preds = %.preheader39, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader39 ]
   %73 = load ptr, ptr %69, align 8
   %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !nonnull !8, !noundef !8
@@ -73049,61 +72950,46 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6DoubleEd.exit: ; p
   %78 = load i32, ptr %71, align 8
   %79 = zext i32 %78 to i64
   %80 = icmp samesign ult i64 %indvars.iv.next, %79
-  br i1 %80, label %.lr.ph, label %.loopexit35, !llvm.loop !576
+  br i1 %80, label %.lr.ph, label %.loopexit40, !llvm.loop !576
 
-.loopexit35:                                      ; preds = %.lr.ph, %.preheader34, %68
-  %81 = getelementptr inbounds nuw i8, ptr %.02340, i64 88
+.loopexit40:                                      ; preds = %.lr.ph, %.preheader39, %68
+  %81 = getelementptr inbounds nuw i8, ptr %.02345, i64 88
   %82 = load ptr, ptr %81, align 8
   %.not30 = icmp eq ptr %82, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit35
-  %83 = getelementptr inbounds nuw i8, ptr %.02340, i64 96
+.preheader:                                       ; preds = %.loopexit40
+  %83 = getelementptr inbounds nuw i8, ptr %.02345, i64 96
   %84 = load i32, ptr %83, align 8
-  %.not43 = icmp eq i32 %84, 0
-  br i1 %.not43, label %.loopexit, label %.lr.ph38
+  %.not48 = icmp eq i32 %84, 0
+  br i1 %.not48, label %.loopexit, label %.lr.ph43
 
-.lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.lr.ph38 ], [ 0, %.preheader ]
+.lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph43 ], [ 0, %.preheader ]
   %85 = load ptr, ptr %81, align 8
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv45
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv50
   %87 = load ptr, ptr %86, align 8, !nonnull !8, !noundef !8
   %88 = getelementptr inbounds i8, ptr %87, i64 -8
   %89 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6DoubleEd(ptr noundef nonnull align 8 dereferenceable(220) %88, double noundef %1)
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %90 = load i32, ptr %83, align 8
   %91 = zext i32 %90 to i64
-  %92 = icmp samesign ult i64 %indvars.iv.next46, %91
-  br i1 %92, label %.lr.ph38, label %.loopexit, !llvm.loop !577
+  %92 = icmp samesign ult i64 %indvars.iv.next51, %91
+  br i1 %92, label %.lr.ph43, label %.loopexit, !llvm.loop !577
 
-.loopexit:                                        ; preds = %.lr.ph38, %.preheader, %.loopexit35
-  %93 = getelementptr inbounds nuw i8, ptr %.02340, i64 144
-  %94 = load ptr, ptr %14, align 8
+.loopexit:                                        ; preds = %.lr.ph43, %.preheader, %.loopexit40
+  %93 = getelementptr inbounds nuw i8, ptr %.02345, i64 144
+  %94 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %93, %94
   br i1 %.not, label %._crit_edge, label %48, !llvm.loop !578
 
-95:                                               ; preds = %._crit_edge
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %97 = load i32, ptr %96, align 4
-  %98 = and i32 %97, 1
-  %.not33 = icmp eq i32 %98, 0
-  br i1 %.not33, label %100, label %99
-
-99:                                               ; preds = %95, %._crit_edge
-  br label %100
-
-100:                                              ; preds = %99, %95
-  %101 = phi i1 [ false, %95 ], [ true, %99 ]
-  %102 = zext i1 %101 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %100
-  %.sink = phi i8 [ %102, %100 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.024.ph = phi i1 [ %101, %100 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %47, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.024.ph = phi i1 [ %or.cond38, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %4, align 8
-  br label %103
+  br label %95
 
-103:                                              ; preds = %.sink.split, %2
+95:                                               ; preds = %.sink.split, %2
   %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
   ret i1 %.024
 }
@@ -73114,210 +73000,197 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %102
+  br i1 %6, label %7, label %95
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %8, label %13, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %10 = load i32, ptr %9, align 4
+  %11 = trunc i32 %10 to i1
+  %or.cond = select i1 %8, i1 true, i1 %11
+  br i1 %or.cond, label %12, label %23
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %25, label %13
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 -128
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 -144
+  %18 = sext i32 %1 to i64
+  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE8CheckIntERNS0_23SchemaValidationContextISA_EEl(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17, i64 noundef %18)
+  br i1 %19, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread
 
-13:                                               ; preds = %9, %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 -128
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 -144
-  %19 = sext i32 %1 to i64
-  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE8CheckIntERNS0_23SchemaValidationContextISA_EEl(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18, i64 noundef %19)
-  br i1 %20, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit: ; preds = %12
+  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17)
+  %21 = load i32, ptr %9, align 4
+  %22 = trunc i32 %21 to i1
+  %or.cond36 = select i1 %20, i1 true, i1 %22
+  br i1 %or.cond36, label %38, label %23
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit: ; preds = %13
-  %21 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18)
-  br i1 %21, label %40, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread: ; preds = %12
+  %.old34 = load i32, ptr %9, align 4
+  %.old35 = trunc i32 %.old34 to i1
+  br i1 %.old35, label %38, label %23
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread: ; preds = %13, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 1
-  %.not33 = icmp eq i32 %24, 0
-  br i1 %.not33, label %25, label %40
-
-25:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread, %9
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
+23:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit, %7, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %27 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp slt i64 %32, 1
-  br i1 %33, label %34, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = icmp slt i64 %30, 1
+  br i1 %31, label %32, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef 1)
-  %.pre = load ptr, ptr %28, align 8
+32:                                               ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %33, i64 noundef 1)
+  %.pre = load ptr, ptr %26, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %25, %34
-  %36 = phi ptr [ %29, %25 ], [ %.pre, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %37, ptr %28, align 8
-  store i8 0, ptr %36, align 1
-  %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 -1
-  store ptr %39, ptr %28, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %23, %32
+  %34 = phi ptr [ %27, %23 ], [ %.pre, %32 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  store ptr %35, ptr %26, align 8
+  store i8 0, ptr %34, align 1
+  %36 = load ptr, ptr %26, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 -1
+  store ptr %37, ptr %26, align 8
   br label %.sink.split
 
-40:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %14, align 8
-  %.not40 = icmp eq ptr %42, %43
-  br i1 %.not40, label %._crit_edge, label %.lr.ph42
+38:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE3IntERNS0_23SchemaValidationContextISA_EEi.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %13, align 8
+  %.not46 = icmp eq ptr %40, %41
+  br i1 %.not46, label %._crit_edge, label %.lr.ph48
 
-.lr.ph42:                                         ; preds = %40
-  %44 = sitofp i32 %1 to double
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %47
+.lr.ph48:                                         ; preds = %38
+  %42 = sitofp i32 %1 to double
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %48
 
-._crit_edge:                                      ; preds = %.loopexit, %40
-  %46 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %46, label %98, label %94
+._crit_edge:                                      ; preds = %.loopexit, %38
+  %44 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %45 = load i32, ptr %9, align 4
+  %46 = trunc i32 %45 to i1
+  %or.cond40 = select i1 %44, i1 true, i1 %46
+  %47 = zext i1 %or.cond40 to i8
+  br label %.sink.split
 
-47:                                               ; preds = %.lr.ph42, %.loopexit
-  %.02341 = phi ptr [ %42, %.lr.ph42 ], [ %92, %.loopexit ]
-  %48 = getelementptr inbounds nuw i8, ptr %.02341, i64 56
-  %49 = load ptr, ptr %48, align 8
-  %.not28 = icmp eq ptr %49, null
-  br i1 %.not28, label %67, label %50
+48:                                               ; preds = %.lr.ph48, %.loopexit
+  %.02347 = phi ptr [ %40, %.lr.ph48 ], [ %93, %.loopexit ]
+  %49 = getelementptr inbounds nuw i8, ptr %.02347, i64 56
+  %50 = load ptr, ptr %49, align 8
+  %.not28 = icmp eq ptr %50, null
+  br i1 %.not28, label %68, label %51
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %19, ptr %3, align 8
-  store double %44, ptr %45, align 8
+  store i64 %18, ptr %3, align 8
+  store double %42, ptr %43, align 8
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = ptrtoint ptr %52 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = icmp slt i64 %57, 8
-  br i1 %58, label %59, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit, !prof !5
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %53 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = icmp slt i64 %58, 8
+  br i1 %59, label %60, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit, !prof !5
 
-59:                                               ; preds = %._crit_edge.i.i.i
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 1)
-  %.pre.i.i.i = load ptr, ptr %53, align 8
+60:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %50, i64 noundef 1)
+  %.pre.i.i.i = load ptr, ptr %54, align 8
   br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %50
-  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %50 ]
-  %.011.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i ], [ 0, %50 ]
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i.i.i
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i64
-  %63 = xor i64 %.0912.i.i.i, %62
-  %64 = add nuw nsw i64 %.011.i.i.i, 1
-  %.09.i.i.i = mul i64 %63, 1099511628211
-  %exitcond.not.i.i.i = icmp eq i64 %64, 16
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %51
+  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %51 ]
+  %.011.i.i.i = phi i64 [ %65, %.lr.ph.i.i.i ], [ 0, %51 ]
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i.i.i
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i64
+  %64 = xor i64 %.0912.i.i.i, %63
+  %65 = add nuw nsw i64 %.011.i.i.i, 1
+  %.09.i.i.i = mul i64 %64, 1099511628211
+  %exitcond.not.i.i.i = icmp eq i64 %65, 16
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !558
 
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit: ; preds = %._crit_edge.i.i.i, %59
-  %65 = phi ptr [ %54, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %59 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %66, ptr %53, align 8
-  store i64 %.09.i.i.i, ptr %65, align 8
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit: ; preds = %._crit_edge.i.i.i, %60
+  %66 = phi ptr [ %55, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %60 ]
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %67, ptr %54, align 8
+  store i64 %.09.i.i.i, ptr %66, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit, %47
-  %68 = getelementptr inbounds nuw i8, ptr %.02341, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %.not29 = icmp eq ptr %69, null
-  br i1 %.not29, label %.loopexit36, label %.preheader35
+68:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE3IntEi.exit, %48
+  %69 = getelementptr inbounds nuw i8, ptr %.02347, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %.not29 = icmp eq ptr %70, null
+  br i1 %.not29, label %.loopexit42, label %.preheader41
 
-.preheader35:                                     ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %.02341, i64 80
-  %71 = load i32, ptr %70, align 8
-  %.not43 = icmp eq i32 %71, 0
-  br i1 %.not43, label %.loopexit36, label %.lr.ph
+.preheader41:                                     ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %.02347, i64 80
+  %72 = load i32, ptr %71, align 8
+  %.not49 = icmp eq i32 %72, 0
+  br i1 %.not49, label %.loopexit42, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader35, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader35 ]
-  %72 = load ptr, ptr %68, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
-  %74 = load ptr, ptr %73, align 8, !nonnull !8, !noundef !8
-  %75 = getelementptr inbounds i8, ptr %74, i64 -8
-  %76 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3IntEi(ptr noundef nonnull align 8 dereferenceable(220) %75, i32 noundef %1)
+.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader41 ]
+  %73 = load ptr, ptr %69, align 8
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %75 = load ptr, ptr %74, align 8, !nonnull !8, !noundef !8
+  %76 = getelementptr inbounds i8, ptr %75, i64 -8
+  %77 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3IntEi(ptr noundef nonnull align 8 dereferenceable(220) %76, i32 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i32, ptr %70, align 8
-  %78 = zext i32 %77 to i64
-  %79 = icmp samesign ult i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph, label %.loopexit36, !llvm.loop !579
+  %78 = load i32, ptr %71, align 8
+  %79 = zext i32 %78 to i64
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
+  br i1 %80, label %.lr.ph, label %.loopexit42, !llvm.loop !579
 
-.loopexit36:                                      ; preds = %.lr.ph, %.preheader35, %67
-  %80 = getelementptr inbounds nuw i8, ptr %.02341, i64 88
-  %81 = load ptr, ptr %80, align 8
-  %.not30 = icmp eq ptr %81, null
+.loopexit42:                                      ; preds = %.lr.ph, %.preheader41, %68
+  %81 = getelementptr inbounds nuw i8, ptr %.02347, i64 88
+  %82 = load ptr, ptr %81, align 8
+  %.not30 = icmp eq ptr %82, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit36
-  %82 = getelementptr inbounds nuw i8, ptr %.02341, i64 96
-  %83 = load i32, ptr %82, align 8
-  %.not44 = icmp eq i32 %83, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph39
+.preheader:                                       ; preds = %.loopexit42
+  %83 = getelementptr inbounds nuw i8, ptr %.02347, i64 96
+  %84 = load i32, ptr %83, align 8
+  %.not50 = icmp eq i32 %84, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph45
 
-.lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph39 ], [ 0, %.preheader ]
-  %84 = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv46
-  %86 = load ptr, ptr %85, align 8, !nonnull !8, !noundef !8
-  %87 = getelementptr inbounds i8, ptr %86, i64 -8
-  %88 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3IntEi(ptr noundef nonnull align 8 dereferenceable(220) %87, i32 noundef %1)
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %89 = load i32, ptr %82, align 8
-  %90 = zext i32 %89 to i64
-  %91 = icmp samesign ult i64 %indvars.iv.next47, %90
-  br i1 %91, label %.lr.ph39, label %.loopexit, !llvm.loop !580
+.lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph45 ], [ 0, %.preheader ]
+  %85 = load ptr, ptr %81, align 8
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv52
+  %87 = load ptr, ptr %86, align 8, !nonnull !8, !noundef !8
+  %88 = getelementptr inbounds i8, ptr %87, i64 -8
+  %89 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E3IntEi(ptr noundef nonnull align 8 dereferenceable(220) %88, i32 noundef %1)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %90 = load i32, ptr %83, align 8
+  %91 = zext i32 %90 to i64
+  %92 = icmp samesign ult i64 %indvars.iv.next53, %91
+  br i1 %92, label %.lr.ph45, label %.loopexit, !llvm.loop !580
 
-.loopexit:                                        ; preds = %.lr.ph39, %.preheader, %.loopexit36
-  %92 = getelementptr inbounds nuw i8, ptr %.02341, i64 144
-  %93 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %92, %93
-  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !581
+.loopexit:                                        ; preds = %.lr.ph45, %.preheader, %.loopexit42
+  %93 = getelementptr inbounds nuw i8, ptr %.02347, i64 144
+  %94 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %93, %94
+  br i1 %.not, label %._crit_edge, label %48, !llvm.loop !581
 
-94:                                               ; preds = %._crit_edge
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 1
-  %.not34 = icmp eq i32 %97, 0
-  br i1 %.not34, label %99, label %98
-
-98:                                               ; preds = %94, %._crit_edge
-  br label %99
-
-99:                                               ; preds = %98, %94
-  %100 = phi i1 [ false, %94 ], [ true, %98 ]
-  %101 = zext i1 %100 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %99
-  %.sink = phi i8 [ %101, %99 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.024.ph = phi i1 [ %100, %99 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %47, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.024.ph = phi i1 [ %or.cond40, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %4, align 8
-  br label %102
+  br label %95
 
-102:                                              ; preds = %.sink.split, %2
+95:                                               ; preds = %.sink.split, %2
   %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
   ret i1 %.024
 }
@@ -73328,94 +73201,296 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %102
+  br i1 %6, label %7, label %95
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %8, label %13, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %10 = load i32, ptr %9, align 4
+  %11 = trunc i32 %10 to i1
+  %or.cond = select i1 %8, i1 true, i1 %11
+  br i1 %or.cond, label %12, label %23
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %25, label %13
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 -128
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 -144
+  %18 = zext i32 %1 to i64
+  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9CheckUintERNS0_23SchemaValidationContextISA_EEm(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17, i64 noundef %18)
+  br i1 %19, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread
 
-13:                                               ; preds = %9, %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 -128
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 -144
-  %19 = zext i32 %1 to i64
-  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9CheckUintERNS0_23SchemaValidationContextISA_EEm(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18, i64 noundef %19)
-  br i1 %20, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit: ; preds = %12
+  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17)
+  %21 = load i32, ptr %9, align 4
+  %22 = trunc i32 %21 to i1
+  %or.cond36 = select i1 %20, i1 true, i1 %22
+  br i1 %or.cond36, label %38, label %23
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit: ; preds = %13
-  %21 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18)
-  br i1 %21, label %40, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread: ; preds = %12
+  %.old34 = load i32, ptr %9, align 4
+  %.old35 = trunc i32 %.old34 to i1
+  br i1 %.old35, label %38, label %23
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread: ; preds = %13, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, 1
-  %.not33 = icmp eq i32 %24, 0
-  br i1 %.not33, label %25, label %40
-
-25:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread, %9
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
+23:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit, %7, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %27 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp slt i64 %32, 1
-  br i1 %33, label %34, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
+  %28 = ptrtoint ptr %25 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = icmp slt i64 %30, 1
+  br i1 %31, label %32, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef 1)
-  %.pre = load ptr, ptr %28, align 8
+32:                                               ; preds = %23
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %33, i64 noundef 1)
+  %.pre = load ptr, ptr %26, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %25, %34
-  %36 = phi ptr [ %29, %25 ], [ %.pre, %34 ]
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %37, ptr %28, align 8
-  store i8 0, ptr %36, align 1
-  %38 = load ptr, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 -1
-  store ptr %39, ptr %28, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %23, %32
+  %34 = phi ptr [ %27, %23 ], [ %.pre, %32 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  store ptr %35, ptr %26, align 8
+  store i8 0, ptr %34, align 1
+  %36 = load ptr, ptr %26, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 -1
+  store ptr %37, ptr %26, align 8
   br label %.sink.split
 
-40:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %14, align 8
-  %.not40 = icmp eq ptr %42, %43
-  br i1 %.not40, label %._crit_edge, label %.lr.ph42
+38:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE4UintERNS0_23SchemaValidationContextISA_EEj.exit
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %13, align 8
+  %.not46 = icmp eq ptr %40, %41
+  br i1 %.not46, label %._crit_edge, label %.lr.ph48
 
-.lr.ph42:                                         ; preds = %40
-  %44 = uitofp i32 %1 to double
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+.lr.ph48:                                         ; preds = %38
+  %42 = uitofp i32 %1 to double
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %48
+
+._crit_edge:                                      ; preds = %.loopexit, %38
+  %44 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %45 = load i32, ptr %9, align 4
+  %46 = trunc i32 %45 to i1
+  %or.cond40 = select i1 %44, i1 true, i1 %46
+  %47 = zext i1 %or.cond40 to i8
+  br label %.sink.split
+
+48:                                               ; preds = %.lr.ph48, %.loopexit
+  %.02347 = phi ptr [ %40, %.lr.ph48 ], [ %93, %.loopexit ]
+  %49 = getelementptr inbounds nuw i8, ptr %.02347, i64 56
+  %50 = load ptr, ptr %49, align 8
+  %.not28 = icmp eq ptr %50, null
+  br i1 %.not28, label %68, label %51
+
+51:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store i64 %18, ptr %3, align 8
+  store double %42, ptr %43, align 8
+  br label %.lr.ph.i.i.i
+
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %53 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = icmp slt i64 %58, 8
+  br i1 %59, label %60, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit, !prof !5
+
+60:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %50, i64 noundef 1)
+  %.pre.i.i.i = load ptr, ptr %54, align 8
+  br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %51
+  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %51 ]
+  %.011.i.i.i = phi i64 [ %65, %.lr.ph.i.i.i ], [ 0, %51 ]
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i.i.i
+  %62 = load i8, ptr %61, align 1
+  %63 = zext i8 %62 to i64
+  %64 = xor i64 %.0912.i.i.i, %63
+  %65 = add nuw nsw i64 %.011.i.i.i, 1
+  %.09.i.i.i = mul i64 %64, 1099511628211
+  %exitcond.not.i.i.i = icmp eq i64 %65, 16
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !558
+
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit: ; preds = %._crit_edge.i.i.i, %60
+  %66 = phi ptr [ %55, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %60 ]
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %67, ptr %54, align 8
+  store i64 %.09.i.i.i, ptr %66, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %68
+
+68:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit, %48
+  %69 = getelementptr inbounds nuw i8, ptr %.02347, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %.not29 = icmp eq ptr %70, null
+  br i1 %.not29, label %.loopexit42, label %.preheader41
+
+.preheader41:                                     ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %.02347, i64 80
+  %72 = load i32, ptr %71, align 8
+  %.not49 = icmp eq i32 %72, 0
+  br i1 %.not49, label %.loopexit42, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader41 ]
+  %73 = load ptr, ptr %69, align 8
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %75 = load ptr, ptr %74, align 8, !nonnull !8, !noundef !8
+  %76 = getelementptr inbounds i8, ptr %75, i64 -8
+  %77 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4UintEj(ptr noundef nonnull align 8 dereferenceable(220) %76, i32 noundef %1)
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %78 = load i32, ptr %71, align 8
+  %79 = zext i32 %78 to i64
+  %80 = icmp samesign ult i64 %indvars.iv.next, %79
+  br i1 %80, label %.lr.ph, label %.loopexit42, !llvm.loop !582
+
+.loopexit42:                                      ; preds = %.lr.ph, %.preheader41, %68
+  %81 = getelementptr inbounds nuw i8, ptr %.02347, i64 88
+  %82 = load ptr, ptr %81, align 8
+  %.not30 = icmp eq ptr %82, null
+  br i1 %.not30, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.loopexit42
+  %83 = getelementptr inbounds nuw i8, ptr %.02347, i64 96
+  %84 = load i32, ptr %83, align 8
+  %.not50 = icmp eq i32 %84, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph45
+
+.lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph45 ], [ 0, %.preheader ]
+  %85 = load ptr, ptr %81, align 8
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv52
+  %87 = load ptr, ptr %86, align 8, !nonnull !8, !noundef !8
+  %88 = getelementptr inbounds i8, ptr %87, i64 -8
+  %89 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4UintEj(ptr noundef nonnull align 8 dereferenceable(220) %88, i32 noundef %1)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %90 = load i32, ptr %83, align 8
+  %91 = zext i32 %90 to i64
+  %92 = icmp samesign ult i64 %indvars.iv.next53, %91
+  br i1 %92, label %.lr.ph45, label %.loopexit, !llvm.loop !583
+
+.loopexit:                                        ; preds = %.lr.ph45, %.preheader, %.loopexit42
+  %93 = getelementptr inbounds nuw i8, ptr %.02347, i64 144
+  %94 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %93, %94
+  br i1 %.not, label %._crit_edge, label %48, !llvm.loop !584
+
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %47, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.024.ph = phi i1 [ %or.cond40, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  store i8 %.sink, ptr %4, align 8
+  br label %95
+
+95:                                               ; preds = %.sink.split, %2
+  %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
+  ret i1 %.024
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E5Int64El(ptr noundef nonnull align 8 dereferenceable(220) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
+  %3 = alloca %"struct.rapidjson::internal::Hasher<rapidjson::UTF8<>, rapidjson::CrtAllocator>::Number", align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %7, label %94
+
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %10 = load i32, ptr %9, align 4
+  %11 = trunc i32 %10 to i1
+  %or.cond = select i1 %8, i1 true, i1 %11
+  br i1 %or.cond, label %12, label %22
+
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 -128
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 -144
+  %18 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE8CheckIntERNS0_23SchemaValidationContextISA_EEl(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17, i64 noundef %1)
+  br i1 %18, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread
+
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit: ; preds = %12
+  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17)
+  %20 = load i32, ptr %9, align 4
+  %21 = trunc i32 %20 to i1
+  %or.cond36 = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond36, label %37, label %22
+
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread: ; preds = %12
+  %.old34 = load i32, ptr %9, align 4
+  %.old35 = trunc i32 %.old34 to i1
+  br i1 %.old35, label %37, label %22
+
+22:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit, %7, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %26 = load ptr, ptr %25, align 8
+  %27 = ptrtoint ptr %24 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = icmp slt i64 %29, 1
+  br i1 %30, label %31, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
+
+31:                                               ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef 1)
+  %.pre = load ptr, ptr %25, align 8
+  br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
+
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %22, %31
+  %33 = phi ptr [ %26, %22 ], [ %.pre, %31 ]
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store ptr %34, ptr %25, align 8
+  store i8 0, ptr %33, align 1
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 -1
+  store ptr %36, ptr %25, align 8
+  br label %.sink.split
+
+37:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %13, align 8
+  %.not46 = icmp eq ptr %39, %40
+  br i1 %.not46, label %._crit_edge, label %.lr.ph48
+
+.lr.ph48:                                         ; preds = %37
+  %41 = sitofp i64 %1 to double
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %47
 
-._crit_edge:                                      ; preds = %.loopexit, %40
-  %46 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %46, label %98, label %94
+._crit_edge:                                      ; preds = %.loopexit, %37
+  %43 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %44 = load i32, ptr %9, align 4
+  %45 = trunc i32 %44 to i1
+  %or.cond40 = select i1 %43, i1 true, i1 %45
+  %46 = zext i1 %or.cond40 to i8
+  br label %.sink.split
 
-47:                                               ; preds = %.lr.ph42, %.loopexit
-  %.02341 = phi ptr [ %42, %.lr.ph42 ], [ %92, %.loopexit ]
-  %48 = getelementptr inbounds nuw i8, ptr %.02341, i64 56
+47:                                               ; preds = %.lr.ph48, %.loopexit
+  %.02347 = phi ptr [ %39, %.lr.ph48 ], [ %92, %.loopexit ]
+  %48 = getelementptr inbounds nuw i8, ptr %.02347, i64 56
   %49 = load ptr, ptr %48, align 8
   %.not28 = icmp eq ptr %49, null
   br i1 %.not28, label %67, label %50
 
 50:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %19, ptr %3, align 8
-  store double %44, ptr %45, align 8
+  store i64 %1, ptr %3, align 8
+  store double %41, ptr %42, align 8
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
@@ -73427,12 +73502,12 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = icmp slt i64 %57, 8
-  br i1 %58, label %59, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit, !prof !5
+  br i1 %58, label %59, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit, !prof !5
 
 59:                                               ; preds = %._crit_edge.i.i.i
   tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 1)
   %.pre.i.i.i = load ptr, ptr %53, align 8
-  br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit
+  br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %50
   %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %50 ]
@@ -73446,7 +73521,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %
   %exitcond.not.i.i.i = icmp eq i64 %64, 16
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !558
 
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit: ; preds = %._crit_edge.i.i.i, %59
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit: ; preds = %._crit_edge.i.i.i, %59
   %65 = phi ptr [ %54, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %59 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %66, ptr %53, align 8
@@ -73454,297 +73529,69 @@ _ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
-67:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE4UintEj.exit, %47
-  %68 = getelementptr inbounds nuw i8, ptr %.02341, i64 72
+67:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit, %47
+  %68 = getelementptr inbounds nuw i8, ptr %.02347, i64 72
   %69 = load ptr, ptr %68, align 8
   %.not29 = icmp eq ptr %69, null
-  br i1 %.not29, label %.loopexit36, label %.preheader35
+  br i1 %.not29, label %.loopexit42, label %.preheader41
 
-.preheader35:                                     ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %.02341, i64 80
+.preheader41:                                     ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %.02347, i64 80
   %71 = load i32, ptr %70, align 8
-  %.not43 = icmp eq i32 %71, 0
-  br i1 %.not43, label %.loopexit36, label %.lr.ph
+  %.not49 = icmp eq i32 %71, 0
+  br i1 %.not49, label %.loopexit42, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader35, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader35 ]
+.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader41 ]
   %72 = load ptr, ptr %68, align 8
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !nonnull !8, !noundef !8
   %75 = getelementptr inbounds i8, ptr %74, i64 -8
-  %76 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4UintEj(ptr noundef nonnull align 8 dereferenceable(220) %75, i32 noundef %1)
+  %76 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E5Int64El(ptr noundef nonnull align 8 dereferenceable(220) %75, i64 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %70, align 8
   %78 = zext i32 %77 to i64
   %79 = icmp samesign ult i64 %indvars.iv.next, %78
-  br i1 %79, label %.lr.ph, label %.loopexit36, !llvm.loop !582
+  br i1 %79, label %.lr.ph, label %.loopexit42, !llvm.loop !585
 
-.loopexit36:                                      ; preds = %.lr.ph, %.preheader35, %67
-  %80 = getelementptr inbounds nuw i8, ptr %.02341, i64 88
+.loopexit42:                                      ; preds = %.lr.ph, %.preheader41, %67
+  %80 = getelementptr inbounds nuw i8, ptr %.02347, i64 88
   %81 = load ptr, ptr %80, align 8
   %.not30 = icmp eq ptr %81, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit36
-  %82 = getelementptr inbounds nuw i8, ptr %.02341, i64 96
+.preheader:                                       ; preds = %.loopexit42
+  %82 = getelementptr inbounds nuw i8, ptr %.02347, i64 96
   %83 = load i32, ptr %82, align 8
-  %.not44 = icmp eq i32 %83, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph39
+  %.not50 = icmp eq i32 %83, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph45
 
-.lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph39 ], [ 0, %.preheader ]
+.lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph45 ], [ 0, %.preheader ]
   %84 = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv46
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv52
   %86 = load ptr, ptr %85, align 8, !nonnull !8, !noundef !8
   %87 = getelementptr inbounds i8, ptr %86, i64 -8
-  %88 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E4UintEj(ptr noundef nonnull align 8 dereferenceable(220) %87, i32 noundef %1)
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %88 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E5Int64El(ptr noundef nonnull align 8 dereferenceable(220) %87, i64 noundef %1)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %89 = load i32, ptr %82, align 8
   %90 = zext i32 %89 to i64
-  %91 = icmp samesign ult i64 %indvars.iv.next47, %90
-  br i1 %91, label %.lr.ph39, label %.loopexit, !llvm.loop !583
+  %91 = icmp samesign ult i64 %indvars.iv.next53, %90
+  br i1 %91, label %.lr.ph45, label %.loopexit, !llvm.loop !586
 
-.loopexit:                                        ; preds = %.lr.ph39, %.preheader, %.loopexit36
-  %92 = getelementptr inbounds nuw i8, ptr %.02341, i64 144
-  %93 = load ptr, ptr %14, align 8
+.loopexit:                                        ; preds = %.lr.ph45, %.preheader, %.loopexit42
+  %92 = getelementptr inbounds nuw i8, ptr %.02347, i64 144
+  %93 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %92, %93
-  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !584
+  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !587
 
-94:                                               ; preds = %._crit_edge
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 1
-  %.not34 = icmp eq i32 %97, 0
-  br i1 %.not34, label %99, label %98
-
-98:                                               ; preds = %94, %._crit_edge
-  br label %99
-
-99:                                               ; preds = %98, %94
-  %100 = phi i1 [ false, %94 ], [ true, %98 ]
-  %101 = zext i1 %100 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %99
-  %.sink = phi i8 [ %101, %99 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.024.ph = phi i1 [ %100, %99 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %46, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.024.ph = phi i1 [ %or.cond40, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %4, align 8
-  br label %102
+  br label %94
 
-102:                                              ; preds = %.sink.split, %2
-  %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
-  ret i1 %.024
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E5Int64El(ptr noundef nonnull align 8 dereferenceable(220) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = alloca %"struct.rapidjson::internal::Hasher<rapidjson::UTF8<>, rapidjson::CrtAllocator>::Number", align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %101
-
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %8, label %13, label %9
-
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %24, label %13
-
-13:                                               ; preds = %9, %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 -128
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 -144
-  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE8CheckIntERNS0_23SchemaValidationContextISA_EEl(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18, i64 noundef %1)
-  br i1 %19, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread
-
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit: ; preds = %13
-  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18)
-  br i1 %20, label %39, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread
-
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread: ; preds = %13, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 1
-  %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %24, label %39
-
-24:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread, %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp slt i64 %31, 1
-  br i1 %32, label %33, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
-
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 1)
-  %.pre = load ptr, ptr %27, align 8
-  br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
-
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %24, %33
-  %35 = phi ptr [ %28, %24 ], [ %.pre, %33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %27, align 8
-  store i8 0, ptr %35, align 1
-  %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 -1
-  store ptr %38, ptr %27, align 8
-  br label %.sink.split
-
-39:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE5Int64ERNS0_23SchemaValidationContextISA_EEl.exit
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %14, align 8
-  %.not40 = icmp eq ptr %41, %42
-  br i1 %.not40, label %._crit_edge, label %.lr.ph42
-
-.lr.ph42:                                         ; preds = %39
-  %43 = sitofp i64 %1 to double
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %46
-
-._crit_edge:                                      ; preds = %.loopexit, %39
-  %45 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %45, label %97, label %93
-
-46:                                               ; preds = %.lr.ph42, %.loopexit
-  %.02341 = phi ptr [ %41, %.lr.ph42 ], [ %91, %.loopexit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.02341, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %.not28 = icmp eq ptr %48, null
-  br i1 %.not28, label %66, label %49
-
-49:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %1, ptr %3, align 8
-  store double %43, ptr %44, align 8
-  br label %.lr.ph.i.i.i
-
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %51 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = icmp slt i64 %56, 8
-  br i1 %57, label %58, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit, !prof !5
-
-58:                                               ; preds = %._crit_edge.i.i.i
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %48, i64 noundef 1)
-  %.pre.i.i.i = load ptr, ptr %52, align 8
-  br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit
-
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %49
-  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %49 ]
-  %.011.i.i.i = phi i64 [ %63, %.lr.ph.i.i.i ], [ 0, %49 ]
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i.i.i
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i64
-  %62 = xor i64 %.0912.i.i.i, %61
-  %63 = add nuw nsw i64 %.011.i.i.i, 1
-  %.09.i.i.i = mul i64 %62, 1099511628211
-  %exitcond.not.i.i.i = icmp eq i64 %63, 16
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !558
-
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit: ; preds = %._crit_edge.i.i.i, %58
-  %64 = phi ptr [ %53, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %58 ]
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %65, ptr %52, align 8
-  store i64 %.09.i.i.i, ptr %64, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %66
-
-66:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE5Int64El.exit, %46
-  %67 = getelementptr inbounds nuw i8, ptr %.02341, i64 72
-  %68 = load ptr, ptr %67, align 8
-  %.not29 = icmp eq ptr %68, null
-  br i1 %.not29, label %.loopexit36, label %.preheader35
-
-.preheader35:                                     ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.02341, i64 80
-  %70 = load i32, ptr %69, align 8
-  %.not43 = icmp eq i32 %70, 0
-  br i1 %.not43, label %.loopexit36, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader35, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader35 ]
-  %71 = load ptr, ptr %67, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
-  %73 = load ptr, ptr %72, align 8, !nonnull !8, !noundef !8
-  %74 = getelementptr inbounds i8, ptr %73, i64 -8
-  %75 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E5Int64El(ptr noundef nonnull align 8 dereferenceable(220) %74, i64 noundef %1)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %69, align 8
-  %77 = zext i32 %76 to i64
-  %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit36, !llvm.loop !585
-
-.loopexit36:                                      ; preds = %.lr.ph, %.preheader35, %66
-  %79 = getelementptr inbounds nuw i8, ptr %.02341, i64 88
-  %80 = load ptr, ptr %79, align 8
-  %.not30 = icmp eq ptr %80, null
-  br i1 %.not30, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %.loopexit36
-  %81 = getelementptr inbounds nuw i8, ptr %.02341, i64 96
-  %82 = load i32, ptr %81, align 8
-  %.not44 = icmp eq i32 %82, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph39
-
-.lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph39 ], [ 0, %.preheader ]
-  %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv46
-  %85 = load ptr, ptr %84, align 8, !nonnull !8, !noundef !8
-  %86 = getelementptr inbounds i8, ptr %85, i64 -8
-  %87 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E5Int64El(ptr noundef nonnull align 8 dereferenceable(220) %86, i64 noundef %1)
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %88 = load i32, ptr %81, align 8
-  %89 = zext i32 %88 to i64
-  %90 = icmp samesign ult i64 %indvars.iv.next47, %89
-  br i1 %90, label %.lr.ph39, label %.loopexit, !llvm.loop !586
-
-.loopexit:                                        ; preds = %.lr.ph39, %.preheader, %.loopexit36
-  %91 = getelementptr inbounds nuw i8, ptr %.02341, i64 144
-  %92 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %91, %92
-  br i1 %.not, label %._crit_edge, label %46, !llvm.loop !587
-
-93:                                               ; preds = %._crit_edge
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 1
-  %.not34 = icmp eq i32 %96, 0
-  br i1 %.not34, label %98, label %97
-
-97:                                               ; preds = %93, %._crit_edge
-  br label %98
-
-98:                                               ; preds = %97, %93
-  %99 = phi i1 [ false, %93 ], [ true, %97 ]
-  %100 = zext i1 %99 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %98
-  %.sink = phi i8 [ %100, %98 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.024.ph = phi i1 [ %99, %98 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  store i8 %.sink, ptr %4, align 8
-  br label %101
-
-101:                                              ; preds = %.sink.split, %2
+94:                                               ; preds = %.sink.split, %2
   %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
   ret i1 %.024
 }
@@ -73755,209 +73602,196 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i8, ptr %4, align 8, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %101
+  br i1 %6, label %7, label %94
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E10BeginValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %8, label %13, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %10 = load i32, ptr %9, align 4
+  %11 = trunc i32 %10 to i1
+  %or.cond = select i1 %8, i1 true, i1 %11
+  br i1 %or.cond, label %12, label %22
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 1
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %24, label %13
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 -128
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 -144
+  %18 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9CheckUintERNS0_23SchemaValidationContextISA_EEm(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17, i64 noundef %1)
+  br i1 %18, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread
 
-13:                                               ; preds = %9, %7
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 -128
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 -144
-  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE9CheckUintERNS0_23SchemaValidationContextISA_EEm(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18, i64 noundef %1)
-  br i1 %19, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit: ; preds = %12
+  %19 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %16, ptr noundef nonnull align 8 dereferenceable(139) %17)
+  %20 = load i32, ptr %9, align 4
+  %21 = trunc i32 %20 to i1
+  %or.cond36 = select i1 %19, i1 true, i1 %21
+  br i1 %or.cond36, label %37, label %22
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit: ; preds = %13
-  %20 = tail call noundef zeroext i1 @_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23CreateParallelValidatorERNS0_23SchemaValidationContextISA_EE(ptr noundef nonnull align 8 dereferenceable(419) %17, ptr noundef nonnull align 8 dereferenceable(139) %18)
-  br i1 %20, label %39, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread
+_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread: ; preds = %12
+  %.old34 = load i32, ptr %9, align 4
+  %.old35 = trunc i32 %.old34 to i1
+  br i1 %.old35, label %37, label %22
 
-_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread: ; preds = %13, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %22, 1
-  %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %24, label %39
-
-24:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread, %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
+22:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit, %7, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp slt i64 %31, 1
-  br i1 %32, label %33, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
+  %27 = ptrtoint ptr %24 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = icmp slt i64 %29, 1
+  br i1 %30, label %31, label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, !prof !5
 
-33:                                               ; preds = %24
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef 1)
-  %.pre = load ptr, ptr %27, align 8
+31:                                               ; preds = %22
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %32, i64 noundef 1)
+  %.pre = load ptr, ptr %25, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit
 
-_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %24, %33
-  %35 = phi ptr [ %28, %24 ], [ %.pre, %33 ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store ptr %36, ptr %27, align 8
-  store i8 0, ptr %35, align 1
-  %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 -1
-  store ptr %38, ptr %27, align 8
+_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit: ; preds = %22, %31
+  %33 = phi ptr [ %26, %22 ], [ %.pre, %31 ]
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store ptr %34, ptr %25, align 8
+  store i8 0, ptr %33, align 1
+  %35 = load ptr, ptr %25, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 -1
+  store ptr %36, ptr %25, align 8
   br label %.sink.split
 
-39:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %14, align 8
-  %.not40 = icmp eq ptr %41, %42
-  br i1 %.not40, label %._crit_edge, label %.lr.ph42
+37:                                               ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit.thread, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE6Uint64ERNS0_23SchemaValidationContextISA_EEm.exit
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %13, align 8
+  %.not46 = icmp eq ptr %39, %40
+  br i1 %.not46, label %._crit_edge, label %.lr.ph48
 
-.lr.ph42:                                         ; preds = %39
-  %43 = uitofp i64 %1 to double
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %46
+.lr.ph48:                                         ; preds = %37
+  %41 = uitofp i64 %1 to double
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %47
 
-._crit_edge:                                      ; preds = %.loopexit, %39
-  %45 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
-  br i1 %45, label %97, label %93
+._crit_edge:                                      ; preds = %.loopexit, %37
+  %43 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E8EndValueEv(ptr noundef nonnull align 8 dereferenceable(220) %0)
+  %44 = load i32, ptr %9, align 4
+  %45 = trunc i32 %44 to i1
+  %or.cond40 = select i1 %43, i1 true, i1 %45
+  %46 = zext i1 %or.cond40 to i8
+  br label %.sink.split
 
-46:                                               ; preds = %.lr.ph42, %.loopexit
-  %.02341 = phi ptr [ %41, %.lr.ph42 ], [ %91, %.loopexit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.02341, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %.not28 = icmp eq ptr %48, null
-  br i1 %.not28, label %66, label %49
+47:                                               ; preds = %.lr.ph48, %.loopexit
+  %.02347 = phi ptr [ %39, %.lr.ph48 ], [ %92, %.loopexit ]
+  %48 = getelementptr inbounds nuw i8, ptr %.02347, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %.not28 = icmp eq ptr %49, null
+  br i1 %.not28, label %67, label %50
 
-49:                                               ; preds = %46
+50:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8
-  store double %43, ptr %44, align 8
+  store double %41, ptr %42, align 8
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = ptrtoint ptr %51 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = icmp slt i64 %56, 8
-  br i1 %57, label %58, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit, !prof !5
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %54 = load ptr, ptr %53, align 8
+  %55 = ptrtoint ptr %52 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = icmp slt i64 %57, 8
+  br i1 %58, label %59, label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit, !prof !5
 
-58:                                               ; preds = %._crit_edge.i.i.i
-  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %48, i64 noundef 1)
-  %.pre.i.i.i = load ptr, ptr %52, align 8
+59:                                               ; preds = %._crit_edge.i.i.i
+  tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandImEEvm(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 1)
+  %.pre.i.i.i = load ptr, ptr %53, align 8
   br label %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %49
-  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %49 ]
-  %.011.i.i.i = phi i64 [ %63, %.lr.ph.i.i.i ], [ 0, %49 ]
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i.i.i
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i64
-  %62 = xor i64 %.0912.i.i.i, %61
-  %63 = add nuw nsw i64 %.011.i.i.i, 1
-  %.09.i.i.i = mul i64 %62, 1099511628211
-  %exitcond.not.i.i.i = icmp eq i64 %63, 16
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %50
+  %.0912.i.i.i = phi i64 [ %.09.i.i.i, %.lr.ph.i.i.i ], [ -5808593157037640583, %50 ]
+  %.011.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i ], [ 0, %50 ]
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 %.011.i.i.i
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i64
+  %63 = xor i64 %.0912.i.i.i, %62
+  %64 = add nuw nsw i64 %.011.i.i.i, 1
+  %.09.i.i.i = mul i64 %63, 1099511628211
+  %exitcond.not.i.i.i = icmp eq i64 %64, 16
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !558
 
-_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit: ; preds = %._crit_edge.i.i.i, %58
-  %64 = phi ptr [ %53, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %58 ]
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %65, ptr %52, align 8
-  store i64 %.09.i.i.i, ptr %64, align 8
+_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit: ; preds = %._crit_edge.i.i.i, %59
+  %65 = phi ptr [ %54, %._crit_edge.i.i.i ], [ %.pre.i.i.i, %59 ]
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr %66, ptr %53, align 8
+  store i64 %.09.i.i.i, ptr %65, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %66
+  br label %67
 
-66:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit, %46
-  %67 = getelementptr inbounds nuw i8, ptr %.02341, i64 72
-  %68 = load ptr, ptr %67, align 8
-  %.not29 = icmp eq ptr %68, null
-  br i1 %.not29, label %.loopexit36, label %.preheader35
+67:                                               ; preds = %_ZN9rapidjson8internal6HasherINS_4UTF8IcEENS_12CrtAllocatorEE6Uint64Em.exit, %47
+  %68 = getelementptr inbounds nuw i8, ptr %.02347, i64 72
+  %69 = load ptr, ptr %68, align 8
+  %.not29 = icmp eq ptr %69, null
+  br i1 %.not29, label %.loopexit42, label %.preheader41
 
-.preheader35:                                     ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.02341, i64 80
-  %70 = load i32, ptr %69, align 8
-  %.not43 = icmp eq i32 %70, 0
-  br i1 %.not43, label %.loopexit36, label %.lr.ph
+.preheader41:                                     ; preds = %67
+  %70 = getelementptr inbounds nuw i8, ptr %.02347, i64 80
+  %71 = load i32, ptr %70, align 8
+  %.not49 = icmp eq i32 %71, 0
+  br i1 %.not49, label %.loopexit42, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader35, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader35 ]
-  %71 = load ptr, ptr %67, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
-  %73 = load ptr, ptr %72, align 8, !nonnull !8, !noundef !8
-  %74 = getelementptr inbounds i8, ptr %73, i64 -8
-  %75 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6Uint64Em(ptr noundef nonnull align 8 dereferenceable(220) %74, i64 noundef %1)
+.lr.ph:                                           ; preds = %.preheader41, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader41 ]
+  %72 = load ptr, ptr %68, align 8
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %74 = load ptr, ptr %73, align 8, !nonnull !8, !noundef !8
+  %75 = getelementptr inbounds i8, ptr %74, i64 -8
+  %76 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6Uint64Em(ptr noundef nonnull align 8 dereferenceable(220) %75, i64 noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %76 = load i32, ptr %69, align 8
-  %77 = zext i32 %76 to i64
-  %78 = icmp samesign ult i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %.loopexit36, !llvm.loop !588
+  %77 = load i32, ptr %70, align 8
+  %78 = zext i32 %77 to i64
+  %79 = icmp samesign ult i64 %indvars.iv.next, %78
+  br i1 %79, label %.lr.ph, label %.loopexit42, !llvm.loop !588
 
-.loopexit36:                                      ; preds = %.lr.ph, %.preheader35, %66
-  %79 = getelementptr inbounds nuw i8, ptr %.02341, i64 88
-  %80 = load ptr, ptr %79, align 8
-  %.not30 = icmp eq ptr %80, null
+.loopexit42:                                      ; preds = %.lr.ph, %.preheader41, %67
+  %80 = getelementptr inbounds nuw i8, ptr %.02347, i64 88
+  %81 = load ptr, ptr %80, align 8
+  %.not30 = icmp eq ptr %81, null
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit36
-  %81 = getelementptr inbounds nuw i8, ptr %.02341, i64 96
-  %82 = load i32, ptr %81, align 8
-  %.not44 = icmp eq i32 %82, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph39
+.preheader:                                       ; preds = %.loopexit42
+  %82 = getelementptr inbounds nuw i8, ptr %.02347, i64 96
+  %83 = load i32, ptr %82, align 8
+  %.not50 = icmp eq i32 %83, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph45
 
-.lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph39 ], [ 0, %.preheader ]
-  %83 = load ptr, ptr %79, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv46
-  %85 = load ptr, ptr %84, align 8, !nonnull !8, !noundef !8
-  %86 = getelementptr inbounds i8, ptr %85, i64 -8
-  %87 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6Uint64Em(ptr noundef nonnull align 8 dereferenceable(220) %86, i64 noundef %1)
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %88 = load i32, ptr %81, align 8
-  %89 = zext i32 %88 to i64
-  %90 = icmp samesign ult i64 %indvars.iv.next47, %89
-  br i1 %90, label %.lr.ph39, label %.loopexit, !llvm.loop !589
+.lr.ph45:                                         ; preds = %.preheader, %.lr.ph45
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph45 ], [ 0, %.preheader ]
+  %84 = load ptr, ptr %80, align 8
+  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv52
+  %86 = load ptr, ptr %85, align 8, !nonnull !8, !noundef !8
+  %87 = getelementptr inbounds i8, ptr %86, i64 -8
+  %88 = tail call noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E6Uint64Em(ptr noundef nonnull align 8 dereferenceable(220) %87, i64 noundef %1)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %89 = load i32, ptr %82, align 8
+  %90 = zext i32 %89 to i64
+  %91 = icmp samesign ult i64 %indvars.iv.next53, %90
+  br i1 %91, label %.lr.ph45, label %.loopexit, !llvm.loop !589
 
-.loopexit:                                        ; preds = %.lr.ph39, %.preheader, %.loopexit36
-  %91 = getelementptr inbounds nuw i8, ptr %.02341, i64 144
-  %92 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %91, %92
-  br i1 %.not, label %._crit_edge, label %46, !llvm.loop !590
+.loopexit:                                        ; preds = %.lr.ph45, %.preheader, %.loopexit42
+  %92 = getelementptr inbounds nuw i8, ptr %.02347, i64 144
+  %93 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %92, %93
+  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !590
 
-93:                                               ; preds = %._crit_edge
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 1
-  %.not34 = icmp eq i32 %96, 0
-  br i1 %.not34, label %98, label %97
-
-97:                                               ; preds = %93, %._crit_edge
-  br label %98
-
-98:                                               ; preds = %97, %93
-  %99 = phi i1 [ false, %93 ], [ true, %97 ]
-  %100 = zext i1 %99 to i8
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %98
-  %.sink = phi i8 [ %100, %98 ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
-  %.024.ph = phi i1 [ %99, %98 ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+.sink.split:                                      ; preds = %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit, %._crit_edge
+  %.sink = phi i8 [ %46, %._crit_edge ], [ 0, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
+  %.024.ph = phi i1 [ %or.cond40, %._crit_edge ], [ false, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveIcEEvm.exit ]
   store i8 %.sink, ptr %4, align 8
-  br label %101
+  br label %94
 
-101:                                              ; preds = %.sink.split, %2
+94:                                               ; preds = %.sink.split, %2
   %.024 = phi i1 [ false, %2 ], [ %.024.ph, %.sink.split ]
   ret i1 %.024
 }
@@ -73985,11 +73819,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
 
 17:                                               ; preds = %8
   tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandINS0_23SchemaValidationContextINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorIS2_EEEES2_EEEEEEvm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1)
-  %.pre25 = load ptr, ptr %3, align 8
+  %.pre24 = load ptr, ptr %3, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationContextINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorIS2_EEEES2_EEEEEEvm.exit
 
 _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationContextINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorIS2_EEEES2_EEEEEEvm.exit: ; preds = %8, %17
-  %18 = phi ptr [ %4, %8 ], [ %.pre25, %17 ]
+  %18 = phi ptr [ %4, %8 ], [ %.pre24, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
   store ptr %19, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -74055,11 +73889,11 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   %57 = getelementptr i8, ptr %56, i64 %.neg.i.neg
   %58 = getelementptr i8, ptr %57, i64 -10
   store ptr %58, ptr %41, align 8
-  %.pre22 = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre22, i64 -8
-  %.pre23 = load i8, ptr %.phi.trans.insert, align 8, !range !7
-  %59 = trunc nuw i8 %.pre23 to i1
-  %60 = getelementptr inbounds i8, ptr %.pre22, i64 -128
+  %.pre21 = load ptr, ptr %3, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre21, i64 -8
+  %.pre22 = load i8, ptr %.phi.trans.insert, align 8, !range !7
+  %59 = trunc nuw i8 %.pre22 to i1
+  %60 = getelementptr inbounds i8, ptr %.pre21, i64 -128
   %61 = load ptr, ptr %60, align 8
   br i1 %59, label %62, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread
 
@@ -74070,7 +73904,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %.pre22, i64 -7
+  %67 = getelementptr inbounds i8, ptr %.pre21, i64 -7
   store i8 1, ptr %67, align 1
   br label %68
 
@@ -74087,7 +73921,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   br i1 %.not22.i, label %94, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %.pre22, i64 -20
+  %75 = getelementptr inbounds i8, ptr %.pre21, i64 -20
   %76 = load i32, ptr %75, align 4
   %77 = getelementptr inbounds nuw i8, ptr %61, i64 328
   %78 = load i32, ptr %77, align 8
@@ -74124,16 +73958,16 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
 
 97:                                               ; preds = %94, %91, %84, %80, %68
   %.sink.i = phi ptr [ %96, %94 ], [ %70, %68 ], [ %93, %91 ], [ %83, %80 ], [ %86, %84 ]
-  %98 = getelementptr inbounds i8, ptr %.pre22, i64 -112
+  %98 = getelementptr inbounds i8, ptr %.pre21, i64 -112
   store ptr %.sink.i, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %.pre22, i64 -20
+  %99 = getelementptr inbounds i8, ptr %.pre21, i64 -20
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4
   br label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread
 
 102:                                              ; preds = %87
-  %103 = getelementptr inbounds i8, ptr %.pre22, i64 -136
+  %103 = getelementptr inbounds i8, ptr %.pre21, i64 -136
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 112
@@ -74141,12 +73975,12 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   tail call void %107(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 noundef %76)
   %108 = getelementptr inbounds nuw i8, ptr %61, i64 160
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %.pre22, i64 -112
+  %110 = getelementptr inbounds i8, ptr %.pre21, i64 -112
   store ptr %109, ptr %110, align 8
   %111 = load i32, ptr %75, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %75, align 4
-  %113 = getelementptr inbounds i8, ptr %.pre22, i64 -96
+  %113 = getelementptr inbounds i8, ptr %.pre21, i64 -96
   store i32 12, ptr %113, align 8
   %114 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE(i32 noundef 12)
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 14
@@ -74159,13 +73993,12 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   %121 = and i64 %120, 281474976710655
   %122 = inttoptr i64 %121 to ptr
   %123 = select i1 %.not.i.i.i, ptr %122, ptr %114
-  %124 = getelementptr inbounds i8, ptr %.pre22, i64 -104
+  %124 = getelementptr inbounds i8, ptr %.pre21, i64 -104
   store ptr %123, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %126 = load i32, ptr %125, align 4
-  %127 = and i32 %126, 1
-  %.not19 = icmp eq i32 %127, 0
-  br i1 %.not19, label %186, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread
+  %127 = trunc i32 %126 to i1
+  br i1 %127, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread, label %186
 
 _ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread: ; preds = %32, %49, %97, %102
   %128 = load ptr, ptr %3, align 8
@@ -74189,11 +74022,11 @@ _ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4
 
 145:                                              ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread
   tail call void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandINS0_23SchemaValidationContextINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorIS2_EEEES2_EEEEEEvm(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef 1)
-  %.pre24 = load ptr, ptr %3, align 8
+  %.pre23 = load ptr, ptr %3, align 8
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationContextINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorIS2_EEEES2_EEEEEEvm.exit17
 
 _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationContextINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorIS2_EEEES2_EEEEEEvm.exit17: ; preds = %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread, %145
-  %146 = phi ptr [ %128, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread ], [ %.pre24, %145 ]
+  %146 = phi ptr [ %128, %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread ], [ %.pre23, %145 ]
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 144
   store ptr %147, ptr %3, align 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -74384,10 +74217,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %16
-  %.0107.i249 = phi i32 [ %19, %16 ], [ %12, %13 ]
-  %.0108.i247 = phi i1 [ %26, %16 ], [ false, %13 ]
+  %.0107.i247 = phi i32 [ %19, %16 ], [ %12, %13 ]
+  %.0108.i245 = phi i1 [ %26, %16 ], [ false, %13 ]
   %28 = getelementptr inbounds i8, ptr %7, i64 -56
-  %wide.trip.count = zext i32 %.0107.i249 to i64
+  %wide.trip.count = zext i32 %.0107.i247 to i64
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph
@@ -74405,9 +74238,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   br i1 %or.cond.not, label %29, label %._crit_edge, !llvm.loop !592
 
 ._crit_edge:                                      ; preds = %29, %16
-  %.0107.i250 = phi i32 [ 0, %16 ], [ %.0107.i249, %29 ]
-  %.0108.i248 = phi i1 [ %26, %16 ], [ %.0108.i247, %29 ]
-  %.lcssa155 = phi i1 [ true, %16 ], [ %36, %29 ]
+  %.0107.i248 = phi i32 [ 0, %16 ], [ %.0107.i247, %29 ]
+  %.0108.i246 = phi i1 [ %26, %16 ], [ %.0108.i245, %29 ]
+  %.lcssa153 = phi i1 [ true, %16 ], [ %36, %29 ]
   %37 = load i32, ptr %14, align 8
   switch i32 %37, label %93 [
     i32 0, label %38
@@ -74415,7 +74248,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   ]
 
 38:                                               ; preds = %._crit_edge
-  br i1 %.lcssa155, label %.thread, label %39
+  br i1 %.lcssa153, label %.thread, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i8, ptr %7, i64 -136
@@ -74425,7 +74258,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9rapidjson22GenericSchemaValid
   %44 = load ptr, ptr %41, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %43, i32 noundef %.0107.i250)
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %43, i32 noundef %.0107.i248)
   %47 = getelementptr inbounds i8, ptr %7, i64 -96
   store i32 17, ptr %47, align 8
   %48 = load atomic i8, ptr @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE26GetPatternPropertiesStringEvE1v acquire, align 8
@@ -74462,7 +74295,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   br label %.thread137
 
 65:                                               ; preds = %._crit_edge
-  %or.cond.i = and i1 %.0108.i248, %.lcssa155
+  %or.cond.i = and i1 %.0108.i246, %.lcssa153
   br i1 %or.cond.i, label %.thread, label %66
 
 66:                                               ; preds = %65
@@ -74470,7 +74303,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %7, i64 -56
   %70 = load ptr, ptr %69, align 8
-  %71 = add i32 %.0107.i250, 1
+  %71 = add i32 %.0107.i248, 1
   %72 = load ptr, ptr %68, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
   %74 = load ptr, ptr %73, align 8
@@ -74511,7 +74344,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   br label %.thread137
 
 93:                                               ; preds = %._crit_edge
-  %or.cond3.i = or i1 %.0108.i248, %.lcssa155
+  %or.cond3.i = or i1 %.0108.i246, %.lcssa153
   br i1 %or.cond3.i, label %.thread, label %94
 
 94:                                               ; preds = %93
@@ -74519,7 +74352,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %7, i64 -56
   %98 = load ptr, ptr %97, align 8
-  %99 = add i32 %.0107.i250, 1
+  %99 = add i32 %.0107.i248, 1
   %100 = load ptr, ptr %96, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 184
   %102 = load ptr, ptr %101, align 8
@@ -74579,27 +74412,27 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %131 = tail call noundef i64 %130(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull %125)
   %132 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %133 = load i32, ptr %132, align 8
-  %.not184 = icmp eq i32 %133, 0
-  br i1 %.not184, label %._crit_edge162, label %.lr.ph161
+  %.not182 = icmp eq i32 %133, 0
+  br i1 %.not182, label %._crit_edge160, label %.lr.ph159
 
-.lr.ph161:                                        ; preds = %126
+.lr.ph159:                                        ; preds = %126
   %134 = load ptr, ptr %121, align 8
-  %wide.trip.count193 = zext i32 %133 to i64
+  %wide.trip.count191 = zext i32 %133 to i64
   br label %136
 
 135:                                              ; preds = %136
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
-  br i1 %exitcond194.not, label %._crit_edge162, label %136, !llvm.loop !593
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
+  br i1 %exitcond192.not, label %._crit_edge160, label %136, !llvm.loop !593
 
-136:                                              ; preds = %.lr.ph161, %135
-  %indvars.iv190 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next191, %135 ]
-  %137 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv190
+136:                                              ; preds = %.lr.ph159, %135
+  %indvars.iv188 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next189, %135 ]
+  %137 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv188
   %138 = load i64, ptr %137, align 8
   %139 = icmp eq i64 %138, %131
   br i1 %139, label %.thread128, label %135
 
-._crit_edge162:                                   ; preds = %135, %126
+._crit_edge160:                                   ; preds = %135, %126
   %140 = getelementptr inbounds i8, ptr %7, i64 -136
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
@@ -74612,7 +74445,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %147 = icmp eq i8 %146, 0
   br i1 %147, label %148, label %156, !prof !88
 
-148:                                              ; preds = %._crit_edge162
+148:                                              ; preds = %._crit_edge160
   %149 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE13GetEnumStringEvE1v) #38
   %.not.i20.i = icmp eq i32 %149, 0
   br i1 %.not.i20.i, label %156, label %150
@@ -74630,7 +74463,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE13GetEnumStringEvE1v) #38
   br label %156
 
-156:                                              ; preds = %150, %148, %._crit_edge162
+156:                                              ; preds = %150, %148, %._crit_edge160
   %157 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE13GetEnumStringEvE1v, i64 14), align 2
   %158 = and i16 %157, 4096
   %.not.i.i78 = icmp eq i16 %158, 0
@@ -74660,26 +74493,26 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %173 = load i32, ptr %172, align 4
   %174 = add i32 %173, %171
   %175 = icmp ult i32 %171, %174
-  br i1 %175, label %.lr.ph165, label %.thread130
+  br i1 %175, label %.lr.ph163, label %.thread130
 
-.lr.ph165:                                        ; preds = %169
+.lr.ph163:                                        ; preds = %169
   %176 = getelementptr inbounds i8, ptr %7, i64 -72
   %177 = zext i32 %171 to i64
   br label %184
 
 178:                                              ; preds = %184
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %179 = load i32, ptr %170, align 8
   %180 = load i32, ptr %172, align 4
   %181 = add i32 %180, %179
   %182 = zext i32 %181 to i64
-  %183 = icmp samesign ult i64 %indvars.iv.next196, %182
+  %183 = icmp samesign ult i64 %indvars.iv.next194, %182
   br i1 %183, label %184, label %.thread130, !llvm.loop !594
 
-184:                                              ; preds = %.lr.ph165, %178
-  %indvars.iv195 = phi i64 [ %177, %.lr.ph165 ], [ %indvars.iv.next196, %178 ]
+184:                                              ; preds = %.lr.ph163, %178
+  %indvars.iv193 = phi i64 [ %177, %.lr.ph163 ], [ %indvars.iv.next194, %178 ]
   %185 = load ptr, ptr %176, align 8
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv195
+  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv193
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
@@ -74747,26 +74580,26 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %228 = load i32, ptr %227, align 4
   %229 = add i32 %228, %226
   %230 = icmp ult i32 %226, %229
-  br i1 %230, label %.lr.ph168, label %._crit_edge169
+  br i1 %230, label %.lr.ph166, label %._crit_edge167
 
-.lr.ph168:                                        ; preds = %224
+.lr.ph166:                                        ; preds = %224
   %231 = getelementptr inbounds i8, ptr %7, i64 -72
   %232 = zext i32 %226 to i64
   br label %239
 
 233:                                              ; preds = %239
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %234 = load i32, ptr %225, align 8
   %235 = load i32, ptr %227, align 4
   %236 = add i32 %235, %234
   %237 = zext i32 %236 to i64
-  %238 = icmp samesign ult i64 %indvars.iv.next199, %237
-  br i1 %238, label %239, label %._crit_edge169, !llvm.loop !595
+  %238 = icmp samesign ult i64 %indvars.iv.next197, %237
+  br i1 %238, label %239, label %._crit_edge167, !llvm.loop !595
 
-239:                                              ; preds = %.lr.ph168, %233
-  %indvars.iv198 = phi i64 [ %232, %.lr.ph168 ], [ %indvars.iv.next199, %233 ]
+239:                                              ; preds = %.lr.ph166, %233
+  %indvars.iv196 = phi i64 [ %232, %.lr.ph166 ], [ %indvars.iv.next197, %233 ]
   %240 = load ptr, ptr %231, align 8
-  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv198
+  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv196
   %242 = load ptr, ptr %241, align 8
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
@@ -74774,7 +74607,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %246 = tail call noundef zeroext i1 %245(ptr noundef nonnull align 8 dereferenceable(8) %242)
   br i1 %246, label %.loopexit, label %233
 
-._crit_edge169:                                   ; preds = %233, %224
+._crit_edge167:                                   ; preds = %233, %224
   %247 = phi i32 [ %228, %224 ], [ %235, %233 ]
   %248 = phi i32 [ %226, %224 ], [ %234, %233 ]
   %249 = getelementptr inbounds i8, ptr %7, i64 -136
@@ -74793,7 +74626,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %260 = icmp eq i8 %259, 0
   br i1 %260, label %261, label %_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit83, !prof !88
 
-261:                                              ; preds = %._crit_edge169
+261:                                              ; preds = %._crit_edge167
   %262 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetAnyOfStringEvE1v) #38
   %.not.i26.i = icmp eq i32 %262, 0
   br i1 %.not.i26.i, label %_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit83, label %263
@@ -74811,7 +74644,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetAnyOfStringEvE1v) #38
   br label %_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit83
 
-_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit83: ; preds = %._crit_edge169, %261, %263
+_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit83: ; preds = %._crit_edge167, %261, %263
   %269 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetAnyOfStringEvE1v, i64 14), align 2
   %270 = and i16 %269, 4096
   %.not.i.i84 = icmp eq i16 %270, 0
@@ -74834,37 +74667,37 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %281 = getelementptr inbounds nuw i8, ptr %9, i64 228
   %282 = load i32, ptr %281, align 4
   %283 = add i32 %282, %280
-  %.not119.i170 = icmp ult i32 %280, %283
-  br i1 %.not119.i170, label %.lr.ph175, label %._crit_edge176.thread
+  %.not119.i168 = icmp ult i32 %280, %283
+  br i1 %.not119.i168, label %.lr.ph173, label %._crit_edge174.thread
 
-.lr.ph175:                                        ; preds = %278
+.lr.ph173:                                        ; preds = %278
   %284 = getelementptr inbounds i8, ptr %7, i64 -72
   %285 = zext i32 %280 to i64
   br label %286
 
-286:                                              ; preds = %.lr.ph175, %327
-  %indvars.iv201 = phi i64 [ %285, %.lr.ph175 ], [ %indvars.iv.next202, %327 ]
-  %.090.i172 = phi i32 [ 0, %.lr.ph175 ], [ %.1.i, %327 ]
-  %.091.i171 = phi i8 [ 0, %.lr.ph175 ], [ %.192.i, %327 ]
+286:                                              ; preds = %.lr.ph173, %327
+  %indvars.iv199 = phi i64 [ %285, %.lr.ph173 ], [ %indvars.iv.next200, %327 ]
+  %.090.i170 = phi i32 [ 0, %.lr.ph173 ], [ %.1.i, %327 ]
+  %.091.i169 = phi i8 [ 0, %.lr.ph173 ], [ %.192.i, %327 ]
   %287 = load ptr, ptr %284, align 8
-  %288 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv201
+  %288 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv199
   %289 = load ptr, ptr %288, align 8
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %292 = load ptr, ptr %291, align 8
   %293 = tail call noundef zeroext i1 %292(ptr noundef nonnull align 8 dereferenceable(8) %289)
-  br i1 %293, label %294, label %._crit_edge203
+  br i1 %293, label %294, label %._crit_edge201
 
-._crit_edge203:                                   ; preds = %286
+._crit_edge201:                                   ; preds = %286
   %.pre = load i32, ptr %279, align 8
   br label %327
 
 294:                                              ; preds = %286
-  %295 = trunc nuw i8 %.091.i171 to i1
+  %295 = trunc nuw i8 %.091.i169 to i1
   br i1 %295, label %296, label %323
 
 296:                                              ; preds = %294
-  %297 = trunc nuw i64 %indvars.iv201 to i32
+  %297 = trunc nuw i64 %indvars.iv199 to i32
   %298 = getelementptr inbounds i8, ptr %7, i64 -136
   %299 = load ptr, ptr %298, align 8
   %300 = load i32, ptr %279, align 8
@@ -74872,7 +74705,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %302 = load ptr, ptr %299, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 304
   %304 = load ptr, ptr %303, align 8
-  tail call void %304(ptr noundef nonnull align 8 dereferenceable(8) %299, i32 noundef %.090.i172, i32 noundef %301)
+  tail call void %304(ptr noundef nonnull align 8 dereferenceable(8) %299, i32 noundef %.090.i170, i32 noundef %301)
   %305 = getelementptr inbounds i8, ptr %7, i64 -96
   store i32 22, ptr %305, align 8
   %306 = load atomic i8, ptr @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetOneOfStringEvE1v acquire, align 8
@@ -74910,28 +74743,28 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
 
 323:                                              ; preds = %294
   %324 = load i32, ptr %279, align 8
-  %325 = trunc nuw i64 %indvars.iv201 to i32
+  %325 = trunc nuw i64 %indvars.iv199 to i32
   %326 = sub i32 %325, %324
   br label %327
 
-327:                                              ; preds = %._crit_edge203, %323
-  %328 = phi i32 [ %324, %323 ], [ %.pre, %._crit_edge203 ]
-  %.192.i = phi i8 [ 1, %323 ], [ %.091.i171, %._crit_edge203 ]
-  %.1.i = phi i32 [ %326, %323 ], [ %.090.i172, %._crit_edge203 ]
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+327:                                              ; preds = %._crit_edge201, %323
+  %328 = phi i32 [ %324, %323 ], [ %.pre, %._crit_edge201 ]
+  %.192.i = phi i8 [ 1, %323 ], [ %.091.i169, %._crit_edge201 ]
+  %.1.i = phi i32 [ %326, %323 ], [ %.090.i170, %._crit_edge201 ]
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %329 = load i32, ptr %281, align 4
   %330 = add i32 %329, %328
   %331 = zext i32 %330 to i64
-  %.not119.i = icmp samesign ult i64 %indvars.iv.next202, %331
-  br i1 %.not119.i, label %286, label %._crit_edge176, !llvm.loop !596
+  %.not119.i = icmp samesign ult i64 %indvars.iv.next200, %331
+  br i1 %.not119.i, label %286, label %._crit_edge174, !llvm.loop !596
 
-._crit_edge176:                                   ; preds = %327
+._crit_edge174:                                   ; preds = %327
   %332 = trunc nuw i8 %.192.i to i1
-  br i1 %332, label %362, label %._crit_edge176.thread
+  br i1 %332, label %362, label %._crit_edge174.thread
 
-._crit_edge176.thread:                            ; preds = %278, %._crit_edge176
-  %333 = phi i32 [ %328, %._crit_edge176 ], [ %280, %278 ]
-  %334 = phi i32 [ %329, %._crit_edge176 ], [ %282, %278 ]
+._crit_edge174.thread:                            ; preds = %278, %._crit_edge174
+  %333 = phi i32 [ %328, %._crit_edge174 ], [ %280, %278 ]
+  %334 = phi i32 [ %329, %._crit_edge174 ], [ %282, %278 ]
   %335 = getelementptr inbounds i8, ptr %7, i64 -136
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds i8, ptr %7, i64 -72
@@ -74948,7 +74781,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %346 = icmp eq i8 %345, 0
   br i1 %346, label %347, label %_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit89, !prof !88
 
-347:                                              ; preds = %._crit_edge176.thread
+347:                                              ; preds = %._crit_edge174.thread
   %348 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetOneOfStringEvE1v) #38
   %.not.i22.i = icmp eq i32 %348, 0
   br i1 %.not.i22.i, label %_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit89, label %349
@@ -74966,7 +74799,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetOneOfStringEvE1v) #38
   br label %_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit89
 
-_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit89: ; preds = %._crit_edge176.thread, %347, %349
+_ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE23GetValidateErrorKeywordENS_17ValidateErrorCodeE.exit89: ; preds = %._crit_edge174.thread, %347, %349
   %355 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetOneOfStringEvE1v, i64 14), align 2
   %356 = and i16 %355, 4096
   %.not.i.i90 = icmp eq i16 %356, 0
@@ -74977,7 +74810,7 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   %361 = select i1 %.not.i.i90, ptr %360, ptr @_ZZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE14GetOneOfStringEvE1v
   br label %.thread137
 
-362:                                              ; preds = %._crit_edge176, %.loopexit
+362:                                              ; preds = %._crit_edge174, %.loopexit
   %363 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %364 = load ptr, ptr %363, align 8
   %.not120.i = icmp eq ptr %364, null
@@ -75045,9 +74878,8 @@ _ZN9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4U
   store ptr %.sink, ptr %401, align 8
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %403 = load i32, ptr %402, align 4
-  %404 = and i32 %403, 1
-  %.not140 = icmp eq i32 %404, 0
-  br i1 %.not140, label %697, label %405
+  %404 = trunc i32 %403 to i1
+  br i1 %404, label %405, label %697
 
 405:                                              ; preds = %.thread137, %.thread128, %362, %365
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -75241,14 +75073,14 @@ _ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAlloc
 498:                                              ; preds = %_ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_ED2Ev.exit
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke void @_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm(ptr noundef nonnull align 8 dereferenceable(48) %499, i64 noundef 1)
-          to label %._crit_edge205 unwind label %548
+          to label %._crit_edge203 unwind label %548
 
-._crit_edge205:                                   ; preds = %498
-  %.pre206 = load ptr, ptr %492, align 8
+._crit_edge203:                                   ; preds = %498
+  %.pre204 = load ptr, ptr %492, align 8
   br label %500
 
-500:                                              ; preds = %._crit_edge205, %_ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_ED2Ev.exit
-  %501 = phi ptr [ %.pre206, %._crit_edge205 ], [ %493, %_ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_ED2Ev.exit ]
+500:                                              ; preds = %._crit_edge203, %_ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_ED2Ev.exit
+  %501 = phi ptr [ %.pre204, %._crit_edge203 ], [ %493, %_ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES5_ED2Ev.exit ]
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 1
   store ptr %502, ptr %492, align 8
   store i8 0, ptr %501, align 1
@@ -75369,22 +75201,22 @@ _ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAlloc
   %559 = zext i32 %558 to i64
   %.idx = shl nuw nsw i64 %559, 4
   %560 = getelementptr inbounds nuw i8, ptr %557, i64 %.idx
-  %.not52178 = icmp eq i32 %558, 0
-  br i1 %.not52178, label %.critedge62, label %.lr.ph181
+  %.not52176 = icmp eq i32 %558, 0
+  br i1 %.not52176, label %.critedge62, label %.lr.ph179
 
 561:                                              ; preds = %580, %565
   %562 = landingpad { ptr, i32 }
           cleanup
   br label %696
 
-.lr.ph181:                                        ; preds = %552, %643
-  %.031179 = phi ptr [ %644, %643 ], [ %557, %552 ]
-  %563 = load i64, ptr %.031179, align 8
+.lr.ph179:                                        ; preds = %552, %643
+  %.031177 = phi ptr [ %644, %643 ], [ %557, %552 ]
+  %563 = load i64, ptr %.031177, align 8
   %564 = icmp eq i64 %563, %518
   br i1 %564, label %565, label %643
 
-565:                                              ; preds = %.lr.ph181
-  %566 = ptrtoint ptr %.031179 to i64
+565:                                              ; preds = %.lr.ph179
+  %566 = ptrtoint ptr %.031177 to i64
   %567 = sub i64 %566, %555
   %568 = lshr i64 %567, 4
   %569 = trunc i64 %568 to i32
@@ -75397,9 +75229,8 @@ _ZN9rapidjson14GenericPointerINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAlloc
 573:                                              ; preds = %565
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %575 = load i32, ptr %574, align 4
-  %576 = and i32 %575, 1
-  %.not141 = icmp eq i32 %576, 0
-  br i1 %.not141, label %.critedge, label %577
+  %576 = trunc i32 %575 to i1
+  br i1 %576, label %577, label %.critedge
 
 577:                                              ; preds = %573
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -75437,7 +75268,7 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
   br i1 %.not.i4.i, label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit_crit_edge, label %588
 
 _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit_crit_edge: ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103
-  %.pre207 = load ptr, ptr %553, align 8
+  %.pre205 = load ptr, ptr %553, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit
 
 588:                                              ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103
@@ -75447,11 +75278,11 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
   %592 = add i32 %591, %587
   %593 = select i1 %589, i32 16, i32 %592
   %594 = icmp ugt i32 %593, %587
-  %.pre208 = load ptr, ptr %553, align 8
+  %.pre206 = load ptr, ptr %553, align 8
   br i1 %594, label %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit
 
 _ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i: ; preds = %588
-  %595 = ptrtoint ptr %.pre208 to i64
+  %595 = ptrtoint ptr %.pre206 to i64
   %596 = and i64 %595, 281474976710655
   %597 = inttoptr i64 %596 to ptr
   %598 = zext i32 %593 to i64
@@ -75469,7 +75300,7 @@ _ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i: ; preds = %588
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit: ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit_crit_edge, %588, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i
-  %607 = phi ptr [ %606, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i ], [ %.pre208, %588 ], [ %.pre207, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit_crit_edge ]
+  %607 = phi ptr [ %606, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i ], [ %.pre206, %588 ], [ %.pre205, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit_crit_edge ]
   %608 = phi i32 [ %.pre.i.i, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i ], [ %585, %588 ], [ %585, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit103._ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8internal9DisableIfINS6_15RemoveSfinaeTagIPFRNS6_9SfinaeTagENS6_6OrExprINS6_9IsPointerIT_EENS6_14IsGenericValueISD_EEEEEE4TypeERS4_E4TypeESD_RS3_.exit_crit_edge ]
   %609 = ptrtoint ptr %607 to i64
   %610 = and i64 %609, 281474976710655
@@ -75537,10 +75368,10 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8inte
   store ptr %641, ptr %642, align 8
   br label %.critedge64
 
-643:                                              ; preds = %.lr.ph181
-  %644 = getelementptr inbounds nuw i8, ptr %.031179, i64 16
+643:                                              ; preds = %.lr.ph179
+  %644 = getelementptr inbounds nuw i8, ptr %.031177, i64 16
   %.not52 = icmp eq ptr %644, %560
-  br i1 %.not52, label %.critedge62, label %.lr.ph181, !llvm.loop !602
+  br i1 %.not52, label %.critedge62, label %.lr.ph179, !llvm.loop !602
 
 .critedge62:                                      ; preds = %643, %552
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -75556,11 +75387,11 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE8PushBackImEENS_8inte
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %648, ptr %649, align 8
   store ptr %648, ptr %645, align 8
-  %.pre209 = load i32, ptr %.032, align 8
+  %.pre207 = load i32, ptr %.032, align 8
   br label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110
 
 _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110: ; preds = %.noexc109, %.critedge62
-  %650 = phi i32 [ %.pre209, %.noexc109 ], [ %558, %.critedge62 ]
+  %650 = phi i32 [ %.pre207, %.noexc109 ], [ %558, %.critedge62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %651 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %651, align 8
@@ -75579,7 +75410,7 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
   br i1 %.not.i4.i117, label %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110._crit_edge, label %655
 
 _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110._crit_edge: ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110
-  %.pre210 = load ptr, ptr %553, align 8
+  %.pre208 = load ptr, ptr %553, align 8
   br label %674
 
 655:                                              ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110
@@ -75589,11 +75420,11 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
   %659 = add i32 %658, %654
   %660 = select i1 %656, i32 16, i32 %659
   %661 = icmp ugt i32 %660, %654
-  %.pre211 = load ptr, ptr %553, align 8
+  %.pre209 = load ptr, ptr %553, align 8
   br i1 %661, label %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118, label %674
 
 _ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118: ; preds = %655
-  %662 = ptrtoint ptr %.pre211 to i64
+  %662 = ptrtoint ptr %.pre209 to i64
   %663 = and i64 %662, 281474976710655
   %664 = inttoptr i64 %663 to ptr
   %665 = zext i32 %660 to i64
@@ -75611,7 +75442,7 @@ _ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118: ; preds = %655
   br label %674
 
 674:                                              ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110._crit_edge, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118, %655
-  %675 = phi ptr [ %673, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118 ], [ %.pre211, %655 ], [ %.pre210, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110._crit_edge ]
+  %675 = phi ptr [ %673, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118 ], [ %.pre209, %655 ], [ %.pre208, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110._crit_edge ]
   %676 = phi i32 [ %.pre.i.i119, %_ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118 ], [ %650, %655 ], [ %650, %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit110._crit_edge ]
   %677 = ptrtoint ptr %675 to i64
   %678 = and i64 %677, 281474976710655
@@ -75629,11 +75460,11 @@ _ZN9rapidjson12CrtAllocator7ReallocEPvmm.exit.i.i.i118: ; preds = %655
 .critedge65:                                      ; preds = %523, %674, %528
   %683 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %684 = load ptr, ptr %683, align 8
-  %.promoted182 = load ptr, ptr %492, align 8
+  %.promoted180 = load ptr, ptr %492, align 8
   br label %685
 
 685:                                              ; preds = %688, %.critedge65
-  %686 = phi ptr [ %689, %688 ], [ %.promoted182, %.critedge65 ]
+  %686 = phi ptr [ %689, %688 ], [ %.promoted180, %.critedge65 ]
   %687 = icmp eq ptr %686, %684
   br i1 %687, label %.critedge64, label %688
 

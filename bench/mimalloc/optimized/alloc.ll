@@ -1614,9 +1614,8 @@ _mi_page_ptr_unalign.exit:                        ; preds = %13, %17
 
 32:                                               ; preds = %22
   %.val.i9 = load i8, ptr %3, align 2
-  %33 = and i8 %.val.i9, 1
-  %.not.i10 = icmp eq i8 %33, 0
-  br i1 %.not.i10, label %mi_free_block_local.exit, label %34, !prof !8
+  %33 = trunc i8 %.val.i9 to i1
+  br i1 %33, label %34, label %mi_free_block_local.exit, !prof !17
 
 34:                                               ; preds = %32
   tail call void @_mi_page_unfull(ptr noundef nonnull %0) #20
@@ -1698,9 +1697,8 @@ define hidden noundef zeroext i1 @_mi_free_delayed_block(ptr noundef %0) local_u
 25:                                               ; preds = %16
   %26 = getelementptr i8, ptr %14, i64 6
   %.val.i = load i8, ptr %26, align 2
-  %27 = and i8 %.val.i, 1
-  %.not.i = icmp eq i8 %27, 0
-  br i1 %.not.i, label %mi_free_block_local.exit, label %28, !prof !8
+  %27 = trunc i8 %.val.i to i1
+  br i1 %27, label %28, label %mi_free_block_local.exit, !prof !17
 
 28:                                               ; preds = %25
   tail call void @_mi_page_unfull(ptr noundef nonnull %14) #20

@@ -3238,9 +3238,8 @@ define void @_ZN17RtpAnalysisDialog8closeTabEi(ptr noundef align 8 dereferenceab
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 1
-  %.not5.i = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %.not5.i, ptr null, ptr %14
+  %20 = trunc i32 %19 to i1
+  %spec.select.i = select i1 %20, ptr %14, ptr null
   br label %_Z12qobject_castIP7QWidgetET_P7QObject.exit
 
 _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %9, %15
@@ -10290,9 +10289,8 @@ define noundef ptr @_ZN17RtpAnalysisDialog23getTabInfoForCurrentTabEv(ptr nounde
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load i32, ptr %18, align 8
-  %20 = and i32 %19, 1
-  %.not5.i = icmp eq i32 %20, 0
-  br i1 %.not5.i, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit.thread, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit
+  %20 = trunc i32 %19 to i1
+  br i1 %20, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit, label %_Z12qobject_castIP7QWidgetET_P7QObject.exit.thread
 
 _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

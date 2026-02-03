@@ -123,9 +123,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function2Fn4call17h0fb085c676705e
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN4core3ops8function2Fn4call17h741d10ae63c3ed08E.llvm.15964793097634730155(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #3 {
-  %3 = and i64 %1, 1
-  %4 = icmp ne i64 %3, 0
-  ret i1 %4
+  %3 = trunc i64 %1 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -610,9 +609,8 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5sleep8counters16JobsEventCount
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN10rayon_core5sleep8counters16JobsEventCounter9is_active17hc84e9fff1c523547E.llvm.15964793097634730155(i64 noundef %0) unnamed_addr #3 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable

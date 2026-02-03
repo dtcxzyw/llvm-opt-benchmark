@@ -4476,9 +4476,8 @@ define dso_local void @AlterTypeOwnerInternal(i32 noundef %0, i32 noundef %1) lo
   store i8 0, ptr %6, align 1
   %29 = getelementptr i8, ptr %.val, i64 20
   %.val.val.i.i = load i16, ptr %29, align 4
-  %30 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %30, 0
-  br i1 %.not.i.i.i, label %31, label %66
+  %30 = trunc i16 %.val.val.i.i to i1
+  br i1 %30, label %66, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 520
@@ -4547,8 +4546,8 @@ define dso_local void @AlterTypeOwnerInternal(i32 noundef %0, i32 noundef %1) lo
 66:                                               ; preds = %28
   %67 = getelementptr i8, ptr %.val, i64 26
   %.val20.i.i = load i8, ptr %67, align 1
-  %.not.i21.i.i = icmp sgt i8 %.val20.i.i, -1
-  br i1 %.not.i21.i.i, label %heap_getattr.exit.thread34, label %68
+  %.not.i.i.i = icmp sgt i8 %.val20.i.i, -1
+  br i1 %.not.i.i.i, label %heap_getattr.exit.thread34, label %68
 
 heap_getattr.exit.thread34:                       ; preds = %66
   store i8 1, ptr %6, align 1

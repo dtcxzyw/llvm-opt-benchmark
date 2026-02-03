@@ -1131,29 +1131,27 @@ define hidden void @_ZN17CompilationPolicy14print_countersEPKcPK6Method(ptr noun
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 244
   %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %.not.i = icmp eq i32 %10, 0
+  %10 = trunc i32 %9 to i1
   %11 = lshr i32 %9, 1
-  %spec.select.i = select i1 %.not.i, i32 %11, i32 1073741824
+  %spec.select.i = select i1 %10, i32 1073741824, i32 %11
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 1
-  %.not.i22 = icmp eq i32 %14, 0
+  %14 = trunc i32 %13 to i1
   %15 = lshr i32 %13, 1
-  %spec.select.i23 = select i1 %.not.i22, i32 %15, i32 1073741824
+  %spec.select.i22 = select i1 %14, i32 1073741824, i32 %15
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 252
   %17 = load i32, ptr %16, align 4
-  %.0.i = select i1 %.not.i, i32 %17, i32 0
+  %.0.i = select i1 %10, i32 0, i32 %17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %19 = load i32, ptr %18, align 8
-  %.0.i26 = select i1 %.not.i22, i32 %19, i32 0
+  %.0.i23 = select i1 %14, i32 0, i32 %19
   br label %20
 
 20:                                               ; preds = %7, %2
   %.020 = phi i32 [ %spec.select.i, %7 ], [ 0, %2 ]
-  %.019 = phi i32 [ %spec.select.i23, %7 ], [ 0, %2 ]
+  %.019 = phi i32 [ %spec.select.i22, %7 ], [ 0, %2 ]
   %.018 = phi i32 [ %.0.i, %7 ], [ 0, %2 ]
-  %.0 = phi i32 [ %.0.i26, %7 ], [ 0, %2 ]
+  %.0 = phi i32 [ %.0.i23, %7 ], [ 0, %2 ]
   %21 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str, ptr noundef %0, i32 noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %.020, i32 noundef %.018, i32 noundef %.019, i32 noundef %.0) #12
   %22 = load ptr, ptr @tty, align 8
@@ -1629,22 +1627,20 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit73:      ; preds = %111, %_ZN26Growable
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 244
   %150 = load i32, ptr %149, align 4
-  %151 = and i32 %150, 1
-  %.not.i.i.i = icmp eq i32 %151, 0
+  %151 = trunc i32 %150 to i1
   %152 = lshr i32 %150, 1
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 252
   %154 = load i32, ptr %153, align 4
   %155 = sub i32 %152, %154
-  %156 = select i1 %.not.i.i.i, i32 %155, i32 1073741824
+  %156 = select i1 %151, i32 1073741824, i32 %155
   %157 = getelementptr inbounds nuw i8, ptr %147, i64 248
   %158 = load i32, ptr %157, align 4
-  %159 = and i32 %158, 1
-  %.not.i.i8.i = icmp eq i32 %159, 0
+  %159 = trunc i32 %158 to i1
   %160 = lshr i32 %158, 1
   %161 = getelementptr inbounds nuw i8, ptr %147, i64 256
   %162 = load i32, ptr %161, align 8
   %163 = sub i32 %160, %162
-  %164 = select i1 %.not.i.i8.i, i32 %163, i32 1073741824
+  %164 = select i1 %159, i32 1073741824, i32 %163
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %165 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %166 = load double, ptr %2, align 8
@@ -1996,22 +1992,20 @@ define hidden noundef zeroext i1 @_ZN17CompilationPolicy18is_method_profiledERK1
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 244
   %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, 1
-  %.not.i.i = icmp eq i32 %9, 0
+  %9 = trunc i32 %8 to i1
   %10 = lshr i32 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 252
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %10, %12
-  %14 = select i1 %.not.i.i, i32 %13, i32 1073741824
+  %14 = select i1 %9, i32 1073741824, i32 %13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 1
-  %.not.i.i8 = icmp eq i32 %17, 0
+  %17 = trunc i32 %16 to i1
   %18 = lshr i32 %16, 1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %20 = load i32, ptr %19, align 8
   %21 = sub i32 %18, %20
-  %22 = select i1 %.not.i.i8, i32 %21, i32 1073741824
+  %22 = select i1 %17, i32 1073741824, i32 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %24 = load double, ptr %2, align 8
@@ -2076,20 +2070,18 @@ define hidden void @_ZN17CompilationPolicy9reprofileEP9ScopeDescb(ptr noundef %0
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 244
   %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 1
-  %.not.i.i = icmp eq i32 %15, 0
+  %15 = trunc i32 %14 to i1
   %16 = lshr i32 %14, 1
-  %spec.select.i.i = select i1 %.not.i.i, i32 %16, i32 1073741824
+  %spec.select.i.i = select i1 %15, i32 1073741824, i32 %16
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 252
   store i32 %spec.select.i.i, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 248
   %19 = load i32, ptr %18, align 4
-  %20 = and i32 %19, 1
-  %.not.i1.i = icmp eq i32 %20, 0
+  %20 = trunc i32 %19 to i1
   %21 = lshr i32 %19, 1
-  %spec.select.i2.i = select i1 %.not.i1.i, i32 %21, i32 1073741824
+  %spec.select.i1.i = select i1 %20, i32 1073741824, i32 %21
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 256
-  store i32 %spec.select.i2.i, ptr %22, align 8
+  store i32 %spec.select.i1.i, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %12, %8
@@ -2908,16 +2900,14 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %7, %_ZN26GrowableAr
 34:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 244
   %36 = load i32, ptr %35, align 4
-  %37 = and i32 %36, 1
-  %.not.i12 = icmp eq i32 %37, 0
+  %37 = trunc i32 %36 to i1
   %38 = lshr i32 %36, 1
-  %spec.select.i = select i1 %.not.i12, i32 %38, i32 1073741824
+  %spec.select.i = select i1 %37, i32 1073741824, i32 %38
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 248
   %40 = load i32, ptr %39, align 4
-  %41 = and i32 %40, 1
-  %.not.i13 = icmp eq i32 %41, 0
+  %41 = trunc i32 %40 to i1
   %42 = lshr i32 %40, 1
-  %spec.select.i14 = select i1 %.not.i13, i32 %42, i32 1073741824
+  %spec.select.i12 = select i1 %41, i32 1073741824, i32 %42
   %43 = load i64, ptr @ProfileMaturityPercentage, align 8
   %44 = sitofp i64 %43 to double
   %45 = fdiv double %44, 1.000000e+02
@@ -2942,14 +2932,14 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread: ; pr
   %56 = sitofp i64 %55 to double
   %57 = fmul double %.0.i, %56
   %58 = fcmp ugt double %57, %49
-  br i1 %58, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread17, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
+  br i1 %58, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread15, label %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
 
-_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread17: ; preds = %54
+_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread15: ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %65
 
 _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %54
-  %59 = add nuw nsw i32 %spec.select.i14, %spec.select.i
+  %59 = add nuw nsw i32 %spec.select.i12, %spec.select.i
   %60 = uitofp nneg i32 %59 to double
   %61 = load i64, ptr @Tier4CompileThreshold, align 8
   %62 = sitofp i64 %61 to double
@@ -2958,16 +2948,16 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %64, label %65, label %74
 
-65:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread17, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
+65:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread15, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %66 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   %67 = load double, ptr %2, align 8
   %68 = select i1 %66, double %67, double 1.000000e+00
-  %.0.i15 = fmul double %45, %68
-  %69 = uitofp nneg i32 %spec.select.i14 to double
+  %.0.i13 = fmul double %45, %68
+  %69 = uitofp nneg i32 %spec.select.i12 to double
   %70 = load i64, ptr @Tier4BackEdgeThreshold, align 8
   %71 = sitofp i64 %70 to double
-  %72 = fmul double %.0.i15, %71
+  %72 = fmul double %.0.i13, %71
   %73 = fcmp ole double %72, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %74
@@ -3193,8 +3183,8 @@ _ZN17CompilationPolicy10is_trivialERK12methodHandle.exit: ; preds = %_ZN17Compil
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 8
   %28 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not74 = icmp eq i32 %28, 0
-  br i1 %.not74, label %32, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread
+  %.not73 = icmp eq i32 %28, 0
+  br i1 %.not73, label %32, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread: ; preds = %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, %25, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit
   %29 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
@@ -3260,22 +3250,20 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 244
   %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, 1
-  %.not.i.i.i = icmp eq i32 %61, 0
+  %61 = trunc i32 %60 to i1
   %62 = lshr i32 %60, 1
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 252
   %64 = load i32, ptr %63, align 4
   %65 = sub i32 %62, %64
-  %66 = select i1 %.not.i.i.i, i32 %65, i32 1073741824
+  %66 = select i1 %61, i32 1073741824, i32 %65
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 248
   %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 1
-  %.not.i.i8.i = icmp eq i32 %69, 0
+  %69 = trunc i32 %68 to i1
   %70 = lshr i32 %68, 1
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 256
   %72 = load i32, ptr %71, align 8
   %73 = sub i32 %70, %72
-  %74 = select i1 %.not.i.i8.i, i32 %73, i32 1073741824
+  %74 = select i1 %69, i32 1073741824, i32 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   %76 = load double, ptr %4, align 8
@@ -3285,9 +3273,9 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
   %79 = sitofp i64 %78 to double
   %80 = fmul double %.0.i.i, %79
   %81 = fcmp ugt double %80, %77
-  br i1 %81, label %82, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67
+  br i1 %81, label %82, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66
 
-_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; preds = %58
+_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
@@ -3296,9 +3284,9 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; pre
   %84 = sitofp i64 %83 to double
   %85 = fmul double %.0.i.i, %84
   %86 = fcmp ugt double %85, %77
-  br i1 %86, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
+  br i1 %86, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread68, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
 
-_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69: ; preds = %82
+_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread68: ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread
 
@@ -3312,7 +3300,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %92, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds = %55, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
+_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds = %55, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread68, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
@@ -3322,9 +3310,9 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds
 96:                                               ; preds = %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 276
   %98 = load i32, ptr %97, align 4
-  %.not76 = icmp eq i32 %98, 1
-  %brmerge = or i1 %2, %.not76
-  %.mux = select i1 %.not76, i8 4, i8 3
+  %.not75 = icmp eq i32 %98, 1
+  %brmerge = or i1 %2, %.not75
+  %.mux = select i1 %.not75, i8 4, i8 3
   br i1 %brmerge, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %99
 
 99:                                               ; preds = %96
@@ -3387,8 +3375,8 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 276
   %131 = load i32, ptr %130, align 4
-  %.not75 = icmp eq i32 %131, 1
-  br i1 %.not75, label %132, label %135
+  %.not74 = icmp eq i32 %131, 1
+  br i1 %.not74, label %132, label %135
 
 132:                                              ; preds = %129
   %133 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
@@ -3399,28 +3387,26 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
 135:                                              ; preds = %132, %129
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 244
   %137 = load i32, ptr %136, align 4
-  %138 = and i32 %137, 1
-  %.not.i.i = icmp eq i32 %138, 0
+  %138 = trunc i32 %137 to i1
   %139 = lshr i32 %137, 1
   %140 = getelementptr inbounds nuw i8, ptr %128, i64 252
   %141 = load i32, ptr %140, align 4
   %142 = sub i32 %139, %141
-  %143 = select i1 %.not.i.i, i32 %142, i32 1073741824
+  %143 = select i1 %138, i32 1073741824, i32 %142
   %144 = getelementptr inbounds nuw i8, ptr %128, i64 248
   %145 = load i32, ptr %144, align 4
-  %146 = and i32 %145, 1
-  %.not.i.i62 = icmp eq i32 %146, 0
+  %146 = trunc i32 %145 to i1
   %147 = lshr i32 %145, 1
   %148 = getelementptr inbounds nuw i8, ptr %128, i64 256
   %149 = load i32, ptr %148, align 8
   %150 = sub i32 %147, %149
-  %151 = select i1 %.not.i.i62, i32 %150, i32 1073741824
+  %151 = select i1 %146, i32 1073741824, i32 %150
   %152 = tail call noundef zeroext i1 @_ZN13LoopPredicate5applyERK12methodHandle9CompLevelii(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext 3, i32 noundef %143, i32 noundef %151)
   %spec.select = select i1 %152, i8 4, i8 3
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
-  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 3, %112 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %54 ], [ 4, %33 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ %.mux, %96 ], [ 3, %110 ], [ 3, %124 ]
+_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 3, %112 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %54 ], [ 4, %33 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ %.mux, %96 ], [ 3, %110 ], [ 3, %124 ]
   %.not45 = icmp eq i8 %.0, %1
   br i1 %.not45, label %.thread, label %153
 
@@ -3454,10 +3440,10 @@ _ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfi
   br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
 _ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %153
-  %.0.i.i63 = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 0, %153 ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ]
+  %.0.i.i62 = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 0, %153 ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ]
   %166 = trunc i64 %.fr29.i.i to i8
-  %167 = call i8 @llvm.smin.i8(i8 %.0.i.i63, i8 %166)
-  %.1.i.i = select i1 %.pre32.i.i, i8 %167, i8 %.0.i.i63
+  %167 = call i8 @llvm.smin.i8(i8 %.0.i.i62, i8 %166)
+  %.1.i.i = select i1 %.pre32.i.i, i8 %167, i8 %.0.i.i62
   switch i32 %.fr30.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
     i32 3, label %171
     i32 1, label %168
@@ -3534,8 +3520,8 @@ _ZN17CompilationPolicy10is_trivialERK12methodHandle.exit: ; preds = %_ZN17Compil
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 8
   %28 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not74 = icmp eq i32 %28, 0
-  br i1 %.not74, label %32, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread
+  %.not73 = icmp eq i32 %28, 0
+  br i1 %.not73, label %32, label %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread
 
 _ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread: ; preds = %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit, %25, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit
   %29 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
@@ -3601,22 +3587,20 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 244
   %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, 1
-  %.not.i.i.i = icmp eq i32 %61, 0
+  %61 = trunc i32 %60 to i1
   %62 = lshr i32 %60, 1
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 252
   %64 = load i32, ptr %63, align 4
   %65 = sub i32 %62, %64
-  %66 = select i1 %.not.i.i.i, i32 %65, i32 1073741824
+  %66 = select i1 %61, i32 1073741824, i32 %65
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 248
   %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 1
-  %.not.i.i8.i = icmp eq i32 %69, 0
+  %69 = trunc i32 %68 to i1
   %70 = lshr i32 %68, 1
   %71 = getelementptr inbounds nuw i8, ptr %57, i64 256
   %72 = load i32, ptr %71, align 8
   %73 = sub i32 %70, %72
-  %74 = select i1 %.not.i.i8.i, i32 %73, i32 1073741824
+  %74 = select i1 %69, i32 1073741824, i32 %73
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = call noundef zeroext i1 @_ZN14CompilerOracle16has_option_valueIdEEbRK12methodHandle18CompileCommandEnumRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   %76 = load double, ptr %4, align 8
@@ -3626,9 +3610,9 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %42, %44
   %79 = sitofp i64 %78 to double
   %80 = fmul double %.0.i.i, %79
   %81 = fcmp ugt double %80, %77
-  br i1 %81, label %82, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67
+  br i1 %81, label %82, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66
 
-_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; preds = %58
+_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66: ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
@@ -3637,9 +3621,9 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67: ; pre
   %84 = sitofp i64 %83 to double
   %85 = fmul double %.0.i.i, %84
   %86 = fcmp ugt double %85, %77
-  br i1 %86, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
+  br i1 %86, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread68, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
 
-_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69: ; preds = %82
+_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread68: ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread
 
@@ -3653,7 +3637,7 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit: ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %92, label %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds = %55, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread69, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
+_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds = %55, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread68, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
@@ -3663,9 +3647,9 @@ _ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread: ; preds
 96:                                               ; preds = %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 276
   %98 = load i32, ptr %97, align 4
-  %.not76 = icmp eq i32 %98, 1
-  %brmerge = or i1 %2, %.not76
-  %.mux = select i1 %.not76, i8 4, i8 3
+  %.not75 = icmp eq i32 %98, 1
+  %brmerge = or i1 %2, %.not75
+  %.mux = select i1 %.not75, i8 4, i8 3
   br i1 %brmerge, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread, label %99
 
 99:                                               ; preds = %96
@@ -3728,8 +3712,8 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 276
   %131 = load i32, ptr %130, align 4
-  %.not75 = icmp eq i32 %131, 1
-  br i1 %.not75, label %132, label %135
+  %.not74 = icmp eq i32 %131, 1
+  br i1 %.not74, label %132, label %135
 
 132:                                              ; preds = %129
   %133 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
@@ -3740,28 +3724,26 @@ _ZN13CompileBroker10queue_sizeEi.exit58:          ; preds = %113, %115
 135:                                              ; preds = %132, %129
   %136 = getelementptr inbounds nuw i8, ptr %128, i64 244
   %137 = load i32, ptr %136, align 4
-  %138 = and i32 %137, 1
-  %.not.i.i = icmp eq i32 %138, 0
+  %138 = trunc i32 %137 to i1
   %139 = lshr i32 %137, 1
   %140 = getelementptr inbounds nuw i8, ptr %128, i64 252
   %141 = load i32, ptr %140, align 4
   %142 = sub i32 %139, %141
-  %143 = select i1 %.not.i.i, i32 %142, i32 1073741824
+  %143 = select i1 %138, i32 1073741824, i32 %142
   %144 = getelementptr inbounds nuw i8, ptr %128, i64 248
   %145 = load i32, ptr %144, align 4
-  %146 = and i32 %145, 1
-  %.not.i.i62 = icmp eq i32 %146, 0
+  %146 = trunc i32 %145 to i1
   %147 = lshr i32 %145, 1
   %148 = getelementptr inbounds nuw i8, ptr %128, i64 256
   %149 = load i32, ptr %148, align 8
   %150 = sub i32 %147, %149
-  %151 = select i1 %.not.i.i62, i32 %150, i32 1073741824
+  %151 = select i1 %146, i32 1073741824, i32 %150
   %152 = tail call noundef zeroext i1 @_ZN13CallPredicate5applyERK12methodHandle9CompLevelii(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext 3, i32 noundef %143, i32 noundef %151)
   %spec.select = select i1 %152, i8 4, i8 3
   br label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread
 
-_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
-  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 3, %112 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %54 ], [ 4, %33 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread67 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ %.mux, %96 ], [ 3, %110 ], [ 3, %124 ]
+_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.thread: ; preds = %96, %112, %124, %110, %19, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66, %135, %132, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit, %_ZN13CompileBroker10queue_sizeEi.exit, %33, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread, %54
+  %.0 = phi i8 [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit ], [ %31, %_ZN17CompilationPolicy10is_trivialERK12methodHandle.exit.thread ], [ 3, %112 ], [ 4, %132 ], [ %spec.select, %135 ], [ 3, %54 ], [ 4, %33 ], [ 4, %_ZN17CompilationPolicy18is_method_profiledERK12methodHandle.exit.thread66 ], [ 2, %_ZN13CompileBroker10queue_sizeEi.exit ], [ 1, %19 ], [ %.mux, %96 ], [ 3, %110 ], [ 3, %124 ]
   %.not45 = icmp eq i8 %.0, %1
   br i1 %.not45, label %.thread, label %153
 
@@ -3795,10 +3777,10 @@ _ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i: ; preds = %_ZN14CompilerConfi
   br label %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i
 
 _ZN14CompilerConfig17is_c1_simple_onlyEv.exit.thread.i.i: ; preds = %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i, %153
-  %.0.i.i63 = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 0, %153 ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ]
+  %.0.i.i62 = phi i8 [ %spec.select.i.i, %_ZN14CompilerConfig17is_c1_simple_onlyEv.exit.i.i ], [ 0, %153 ], [ 4, %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.i.i ]
   %166 = trunc i64 %.fr29.i.i to i8
-  %167 = call i8 @llvm.smin.i8(i8 %.0.i.i63, i8 %166)
-  %.1.i.i = select i1 %.pre32.i.i, i8 %167, i8 %.0.i.i63
+  %167 = call i8 @llvm.smin.i8(i8 %.0.i.i62, i8 %166)
+  %.1.i.i = select i1 %.pre32.i.i, i8 %167, i8 %.0.i.i62
   switch i32 %.fr30.i.i, label %_ZN17CompilationPolicy11limit_levelE9CompLevel.exit [
     i32 3, label %171
     i32 1, label %168
@@ -4110,9 +4092,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8Metadata13Gro
   br label %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -4129,25 +4110,25 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -4160,29 +4141,28 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !23
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !23
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !24
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !24
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12

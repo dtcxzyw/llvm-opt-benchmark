@@ -178,7 +178,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly captures(address
 
 4:                                                ; preds = %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %146
+  br label %145
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @clrs_log_init() #16
@@ -220,246 +220,246 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly captures(address
   store i16 %25, ptr @mprintf_progress, align 2, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !13
-  %28 = trunc i32 %27 to i16
-  %29 = and i16 %28, 1
-  store i16 %29, ptr @logg_verbose, align 2, !tbaa !12
-  %30 = lshr i16 %28, 1
-  %31 = and i16 %30, 1
-  store i16 %31, ptr @logg_nowarn, align 2, !tbaa !12
-  %32 = lshr i16 %28, 2
-  %33 = and i16 %32, 1
-  store i16 %33, ptr @logg_time, align 2, !tbaa !12
-  %34 = lshr i16 %28, 3
-  %35 = and i16 %34, 1
-  store i16 %35, ptr @logg_rotate, align 2, !tbaa !12
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !14
-  store i64 %37, ptr @logg_size, align 8, !tbaa !15
-  %38 = load ptr, ptr @logg_file, align 8, !tbaa !16
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %48
+  %.not66 = trunc i32 %27 to i16
+  %28 = and i16 %.not66, 1
+  store i16 %28, ptr @logg_verbose, align 2, !tbaa !12
+  %29 = lshr i16 %.not66, 1
+  %30 = and i16 %29, 1
+  store i16 %30, ptr @logg_nowarn, align 2, !tbaa !12
+  %31 = lshr i16 %.not66, 2
+  %32 = and i16 %31, 1
+  store i16 %32, ptr @logg_time, align 2, !tbaa !12
+  %33 = lshr i16 %.not66, 3
+  %34 = and i16 %33, 1
+  store i16 %34, ptr @logg_rotate, align 2, !tbaa !12
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !14
+  store i64 %36, ptr @logg_size, align 8, !tbaa !15
+  %37 = load ptr, ptr @logg_file, align 8, !tbaa !16
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %47
 
-40:                                               ; preds = %13
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !17
-  %.not70 = icmp eq ptr %42, null
-  br i1 %.not70, label %48, label %43
+39:                                               ; preds = %13
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !17
+  %.not70 = icmp eq ptr %41, null
+  br i1 %.not70, label %47, label %42
 
-43:                                               ; preds = %40
-  %44 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %42) #16
-  store ptr %44, ptr @logg_file, align 8, !tbaa !16
-  %45 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.22) #16
-  %.not71 = icmp eq i32 %45, 0
-  br i1 %.not71, label %._crit_edge, label %46
+42:                                               ; preds = %39
+  %43 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %41) #16
+  store ptr %43, ptr @logg_file, align 8, !tbaa !16
+  %44 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.22) #16
+  %.not71 = icmp eq i32 %44, 0
+  br i1 %.not71, label %._crit_edge, label %45
 
-._crit_edge:                                      ; preds = %43
+._crit_edge:                                      ; preds = %42
   %.pre92 = load i32, ptr %26, align 4, !tbaa !13
-  br label %48
+  br label %47
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr @logg_file, align 8, !tbaa !16
-  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.23, ptr noundef %47) #16
-  br label %145
+45:                                               ; preds = %42
+  %46 = load ptr, ptr @logg_file, align 8, !tbaa !16
+  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.23, ptr noundef %46) #16
+  br label %144
 
-48:                                               ; preds = %._crit_edge, %40, %13
-  %49 = phi i32 [ %.pre92, %._crit_edge ], [ %27, %40 ], [ %27, %13 ]
-  %50 = and i32 %49, 16
-  %.not72 = icmp eq i32 %50, 0
-  br i1 %.not72, label %62, label %51
+47:                                               ; preds = %._crit_edge, %39, %13
+  %48 = phi i32 [ %.pre92, %._crit_edge ], [ %27, %39 ], [ %27, %13 ]
+  %49 = and i32 %48, 16
+  %.not72 = icmp eq i32 %49, 0
+  br i1 %.not72, label %61, label %50
 
-51:                                               ; preds = %48
-  %52 = load i16, ptr @logg_syslog, align 2, !tbaa !12
-  %53 = icmp eq i16 %52, 0
-  br i1 %53, label %54, label %.thread
+50:                                               ; preds = %47
+  %51 = load i16, ptr @logg_syslog, align 2, !tbaa !12
+  %52 = icmp eq i16 %51, 0
+  br i1 %52, label %53, label %.thread
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !18
-  %.not73 = icmp eq ptr %56, null
-  br i1 %.not73, label %.thread, label %57
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !18
+  %.not73 = icmp eq ptr %55, null
+  br i1 %.not73, label %.thread, label %56
 
-57:                                               ; preds = %54
-  %58 = tail call i32 @logg_facility(ptr noundef nonnull %56) #16
-  %59 = icmp eq i32 %58, -1
-  br i1 %59, label %60, label %.thread
+56:                                               ; preds = %53
+  %57 = tail call i32 @logg_facility(ptr noundef nonnull %55) #16
+  %58 = icmp eq i32 %57, -1
+  br i1 %58, label %59, label %.thread
 
-.thread:                                          ; preds = %51, %54, %57
-  %.048 = phi i32 [ %58, %57 ], [ 176, %54 ], [ 176, %51 ]
+.thread:                                          ; preds = %50, %53, %56
+  %.048 = phi i32 [ %57, %56 ], [ 176, %53 ], [ 176, %50 ]
   tail call void @openlog(ptr noundef nonnull @.str.25, i32 noundef 1, i32 noundef %.048) #16
   store i16 1, ptr @logg_syslog, align 2, !tbaa !12
-  br label %62
+  br label %61
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %55, align 8, !tbaa !18
-  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef %61) #16
-  br label %145
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %54, align 8, !tbaa !18
+  tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef %60) #16
+  br label %144
 
-62:                                               ; preds = %.thread, %48
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %64 = load ptr, ptr %63, align 8, !tbaa !19
-  %.not74 = icmp eq ptr %64, null
-  br i1 %.not74, label %67, label %65
+61:                                               ; preds = %.thread, %47
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %63 = load ptr, ptr %62, align 8, !tbaa !19
+  %.not74 = icmp eq ptr %63, null
+  br i1 %.not74, label %66, label %64
 
-65:                                               ; preds = %62
-  %66 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %64) #16
-  store ptr %66, ptr @g_localIP, align 8, !tbaa !16
-  br label %67
+64:                                               ; preds = %61
+  %65 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %63) #16
+  store ptr %65, ptr @g_localIP, align 8, !tbaa !16
+  br label %66
 
-67:                                               ; preds = %65, %62
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !20
-  %.not75 = icmp eq ptr %69, null
-  br i1 %.not75, label %72, label %70
+66:                                               ; preds = %64, %61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
+  %.not75 = icmp eq ptr %68, null
+  br i1 %.not75, label %71, label %69
 
-70:                                               ; preds = %67
-  %71 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %69) #16
-  store ptr %71, ptr @g_userAgent, align 8, !tbaa !16
-  br label %72
+69:                                               ; preds = %66
+  %70 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %68) #16
+  store ptr %70, ptr @g_userAgent, align 8, !tbaa !16
+  br label %71
 
-72:                                               ; preds = %70, %67
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %74 = load ptr, ptr %73, align 8, !tbaa !21
-  %.not76 = icmp eq ptr %74, null
-  br i1 %.not76, label %87, label %75
+71:                                               ; preds = %69, %66
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %73 = load ptr, ptr %72, align 8, !tbaa !21
+  %.not76 = icmp eq ptr %73, null
+  br i1 %.not76, label %86, label %74
 
-75:                                               ; preds = %72
-  %76 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %74) #16
-  store ptr %76, ptr @g_proxyServer, align 8, !tbaa !16
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %78 = load i16, ptr %77, align 8, !tbaa !22
-  %.not77 = icmp eq i16 %78, 0
-  br i1 %.not77, label %80, label %79
+74:                                               ; preds = %71
+  %75 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %73) #16
+  store ptr %75, ptr @g_proxyServer, align 8, !tbaa !16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %77 = load i16, ptr %76, align 8, !tbaa !22
+  %.not77 = icmp eq i16 %77, 0
+  br i1 %.not77, label %79, label %78
 
-79:                                               ; preds = %75
-  store i16 %78, ptr @g_proxyPort, align 2, !tbaa !12
-  br label %87
-
-80:                                               ; preds = %75
-  %81 = tail call ptr @getservbyname(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #16
-  %.not78 = icmp eq ptr %81, null
-  br i1 %.not78, label %86, label %82
-
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %84 = load i32, ptr %83, align 8, !tbaa !23
-  %85 = trunc i32 %84 to i16
-  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %85)
+78:                                               ; preds = %74
+  store i16 %77, ptr @g_proxyPort, align 2, !tbaa !12
   br label %86
 
-86:                                               ; preds = %80, %82
-  %storemerge = phi i16 [ %rev.i, %82 ], [ 8080, %80 ]
+79:                                               ; preds = %74
+  %80 = tail call ptr @getservbyname(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #16
+  %.not78 = icmp eq ptr %80, null
+  br i1 %.not78, label %85, label %81
+
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = load i32, ptr %82, align 8, !tbaa !23
+  %84 = trunc i32 %83 to i16
+  %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %84)
+  br label %85
+
+85:                                               ; preds = %79, %81
+  %storemerge = phi i16 [ %rev.i, %81 ], [ 8080, %79 ]
   store i16 %storemerge, ptr @g_proxyPort, align 2, !tbaa !12
   tail call void @endservent() #16
-  br label %87
+  br label %86
 
-87:                                               ; preds = %79, %86, %72
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %89 = load ptr, ptr %88, align 8, !tbaa !26
-  %.not79 = icmp eq ptr %89, null
-  br i1 %.not79, label %92, label %90
+86:                                               ; preds = %78, %85, %71
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %88 = load ptr, ptr %87, align 8, !tbaa !26
+  %.not79 = icmp eq ptr %88, null
+  br i1 %.not79, label %91, label %89
 
-90:                                               ; preds = %87
-  %91 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %89) #16
-  store ptr %91, ptr @g_proxyUsername, align 8, !tbaa !16
-  br label %92
+89:                                               ; preds = %86
+  %90 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %88) #16
+  store ptr %90, ptr @g_proxyUsername, align 8, !tbaa !16
+  br label %91
 
-92:                                               ; preds = %90, %87
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %94 = load ptr, ptr %93, align 8, !tbaa !27
-  %.not80 = icmp eq ptr %94, null
-  br i1 %.not80, label %97, label %95
+91:                                               ; preds = %89, %86
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %93 = load ptr, ptr %92, align 8, !tbaa !27
+  %.not80 = icmp eq ptr %93, null
+  br i1 %.not80, label %96, label %94
 
-95:                                               ; preds = %92
-  %96 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %94) #16
-  store ptr %96, ptr @g_proxyPassword, align 8, !tbaa !16
-  br label %97
+94:                                               ; preds = %91
+  %95 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %93) #16
+  store ptr %95, ptr @g_proxyPassword, align 8, !tbaa !16
+  br label %96
 
-97:                                               ; preds = %95, %92
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %99 = load ptr, ptr %98, align 8, !tbaa !28
-  %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #17
-  %101 = getelementptr i8, ptr %99, i64 %100
-  %102 = getelementptr i8, ptr %101, i64 -1
-  %103 = load i8, ptr %102, align 1, !tbaa !29
-  %.not81 = icmp eq i8 %103, 47
-  br i1 %.not81, label %110, label %104
+96:                                               ; preds = %94, %91
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %98 = load ptr, ptr %97, align 8, !tbaa !28
+  %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #17
+  %100 = getelementptr i8, ptr %98, i64 %99
+  %101 = getelementptr i8, ptr %100, i64 -1
+  %102 = load i8, ptr %101, align 1, !tbaa !29
+  %.not81 = icmp eq i8 %102, 47
+  br i1 %.not81, label %109, label %103
 
-104:                                              ; preds = %97
-  %105 = add i64 %100, 2
-  %106 = tail call noalias ptr @malloc(i64 noundef %105) #18
-  store ptr %106, ptr @g_databaseDirectory, align 8, !tbaa !16
-  %107 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #17
-  %108 = add i64 %107, 2
-  %109 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %106, i64 noundef %108, ptr noundef nonnull @.str.28, ptr noundef nonnull %99) #16
+103:                                              ; preds = %96
+  %104 = add i64 %99, 2
+  %105 = tail call noalias ptr @malloc(i64 noundef %104) #18
+  store ptr %105, ptr @g_databaseDirectory, align 8, !tbaa !16
+  %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #17
+  %107 = add i64 %106, 2
+  %108 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %105, i64 noundef %107, ptr noundef nonnull @.str.28, ptr noundef nonnull %98) #16
   %.pre93 = load ptr, ptr @g_databaseDirectory, align 8, !tbaa !16
-  br label %112
+  br label %111
 
-110:                                              ; preds = %97
-  %111 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %99) #16
-  store ptr %111, ptr @g_databaseDirectory, align 8, !tbaa !16
-  br label %112
+109:                                              ; preds = %96
+  %110 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %98) #16
+  store ptr %110, ptr @g_databaseDirectory, align 8, !tbaa !16
+  br label %111
 
-112:                                              ; preds = %110, %104
-  %113 = phi ptr [ %111, %110 ], [ %.pre93, %104 ]
-  %114 = call i32 @lstat(ptr noundef %113, ptr noundef nonnull %2) #16
-  %115 = icmp eq i32 %114, -1
-  br i1 %115, label %116, label %119
+111:                                              ; preds = %109, %103
+  %112 = phi ptr [ %110, %109 ], [ %.pre93, %103 ]
+  %113 = call i32 @lstat(ptr noundef %112, ptr noundef nonnull %2) #16
+  %114 = icmp eq i32 %113, -1
+  br i1 %114, label %115, label %118
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr @g_databaseDirectory, align 8, !tbaa !16
-  %118 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef %117) #16
-  br label %145
+115:                                              ; preds = %111
+  %116 = load ptr, ptr @g_databaseDirectory, align 8, !tbaa !16
+  %117 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef %116) #16
+  br label %144
 
-119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %121 = load i32, ptr %120, align 8, !tbaa !30
-  %122 = and i32 %121, 61440
-  %123 = icmp eq i32 %122, 16384
-  br i1 %123, label %127, label %124
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %120 = load i32, ptr %119, align 8, !tbaa !30
+  %121 = and i32 %120, 61440
+  %122 = icmp eq i32 %121, 16384
+  br i1 %122, label %126, label %123
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr @g_databaseDirectory, align 8, !tbaa !16
-  %126 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.30, ptr noundef %125) #16
-  br label %145
+123:                                              ; preds = %118
+  %124 = load ptr, ptr @g_databaseDirectory, align 8, !tbaa !16
+  %125 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.30, ptr noundef %124) #16
+  br label %144
 
-127:                                              ; preds = %119
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %129 = load ptr, ptr %128, align 8, !tbaa !33
-  %130 = tail call ptr @cli_safer_strdup(ptr noundef %129) #16
-  store ptr %130, ptr @g_tempDirectory, align 8, !tbaa !16
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %132 = load i32, ptr %131, align 8, !tbaa !34
-  store i32 %132, ptr @g_maxAttempts, align 4, !tbaa !35
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !36
-  store i32 %134, ptr @g_connectTimeout, align 4, !tbaa !35
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %136 = load i32, ptr %135, align 8, !tbaa !37
-  store i32 %136, ptr @g_requestTimeout, align 4, !tbaa !35
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %138 = load i32, ptr %137, align 4, !tbaa !38
-  store i32 %138, ptr @g_bCompressLocalDatabase, align 4, !tbaa !35
-  %139 = tail call i32 @load_freshclam_dat() #16
-  %.not82 = icmp eq i32 %139, 0
-  br i1 %.not82, label %146, label %140
+126:                                              ; preds = %118
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %128 = load ptr, ptr %127, align 8, !tbaa !33
+  %129 = tail call ptr @cli_safer_strdup(ptr noundef %128) #16
+  store ptr %129, ptr @g_tempDirectory, align 8, !tbaa !16
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %131 = load i32, ptr %130, align 8, !tbaa !34
+  store i32 %131, ptr @g_maxAttempts, align 4, !tbaa !35
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %133 = load i32, ptr %132, align 4, !tbaa !36
+  store i32 %133, ptr @g_connectTimeout, align 4, !tbaa !35
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %135 = load i32, ptr %134, align 8, !tbaa !37
+  store i32 %135, ptr @g_requestTimeout, align 4, !tbaa !35
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %137 = load i32, ptr %136, align 4, !tbaa !38
+  store i32 %137, ptr @g_bCompressLocalDatabase, align 4, !tbaa !35
+  %138 = tail call i32 @load_freshclam_dat() #16
+  %.not82 = icmp eq i32 %138, 0
+  br i1 %.not82, label %145, label %139
 
-140:                                              ; preds = %127
-  %141 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31) #16
-  %142 = tail call i32 @new_freshclam_dat() #16
-  %.not83 = icmp eq i32 %142, 0
-  br i1 %.not83, label %146, label %143
+139:                                              ; preds = %126
+  %140 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31) #16
+  %141 = tail call i32 @new_freshclam_dat() #16
+  %.not83 = icmp eq i32 %141, 0
+  br i1 %.not83, label %145, label %142
 
-143:                                              ; preds = %140
-  %144 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.32) #16
-  br label %145
+142:                                              ; preds = %139
+  %143 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.32) #16
+  br label %144
 
-145:                                              ; preds = %46, %116, %143, %60, %124
-  %.050.ph = phi i32 [ 3, %124 ], [ 13, %60 ], [ 2, %143 ], [ 3, %116 ], [ 13, %46 ]
+144:                                              ; preds = %45, %115, %142, %59, %123
+  %.050.ph = phi i32 [ 3, %123 ], [ 13, %59 ], [ 2, %142 ], [ 3, %115 ], [ 13, %45 ]
   tail call void @fc_cleanup()
-  br label %146
+  br label %145
 
-146:                                              ; preds = %140, %127, %145, %4
-  %.0 = phi i32 [ 16, %4 ], [ %.050.ph, %145 ], [ 0, %127 ], [ 0, %140 ]
+145:                                              ; preds = %139, %126, %144, %4
+  %.0 = phi i32 [ 16, %4 ], [ %.050.ph, %144 ], [ 0, %126 ], [ 0, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

@@ -3134,7 +3134,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__remove_mapping(ptr noundef
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %36 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %35, i32 0, i32 %34, ptr nonnull elementtype(i32) %35) #14, !srcloc !67
   %37 = icmp eq i32 %36, %34
-  br i1 %37, label %38, label %100
+  br i1 %37, label %38, label %99
 
 38:                                               ; preds = %33
   %39 = load volatile i64, ptr %1, align 8
@@ -3145,7 +3145,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__remove_mapping(ptr noundef
 42:                                               ; preds = %38
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !62
   store volatile i32 %34, ptr %35, align 4
-  br label %100
+  br label %99
 
 43:                                               ; preds = %38
   %44 = load volatile i64, ptr %1, align 8
@@ -3180,7 +3180,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__remove_mapping(ptr noundef
   tail call void @__delete_from_swap_cache(ptr noundef %1, i64 %53, ptr noundef %62) #14
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %25) #14
   tail call void @put_swap_folio(ptr noundef %1, i64 %53) #14
-  br label %111
+  br label %110
 
 63:                                               ; preds = %47, %43
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3213,7 +3213,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__remove_mapping(ptr noundef
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load volatile ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %93, label %84
+  br i1 %83, label %92, label %84
 
 84:                                               ; preds = %79
   %85 = ptrtoint ptr %82 to i64
@@ -3221,49 +3221,48 @@ define internal fastcc noundef range(i32 0, 2) i32 @__remove_mapping(ptr noundef
   %87 = icmp ne i64 %86, 2
   %88 = icmp ule ptr %82, inttoptr (i64 4096 to ptr)
   %89 = or i1 %88, %87
-  %90 = and i64 %85, 1
-  %91 = icmp ne i64 %90, 0
-  %92 = and i1 %91, %89
-  br i1 %92, label %93, label %95
+  %90 = trunc i64 %85 to i1
+  %91 = and i1 %89, %90
+  br i1 %91, label %92, label %94
 
-93:                                               ; preds = %84, %79
-  %94 = load ptr, ptr %0, align 8
-  tail call void @inode_add_lru(ptr noundef %94) #14
-  br label %95
+92:                                               ; preds = %84, %79
+  %93 = load ptr, ptr %0, align 8
+  tail call void @inode_add_lru(ptr noundef %93) #14
+  br label %94
 
-95:                                               ; preds = %93, %84
-  %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 136
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %97) #14
-  %98 = icmp eq ptr %67, null
-  br i1 %98, label %111, label %99
+94:                                               ; preds = %92, %84
+  %95 = load ptr, ptr %0, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 136
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %96) #14
+  %97 = icmp eq ptr %67, null
+  br i1 %97, label %110, label %98
 
-99:                                               ; preds = %95
+98:                                               ; preds = %94
   tail call void %67(ptr noundef %1) #14
-  br label %111
+  br label %110
 
-100:                                              ; preds = %42, %33
+99:                                               ; preds = %42, %33
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %25) #14
-  %101 = load volatile i64, ptr %1, align 8
-  %102 = and i64 %101, 524288
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %108, label %104
+  %100 = load volatile i64, ptr %1, align 8
+  %101 = and i64 %100, 524288
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %107, label %103
 
-104:                                              ; preds = %100
-  %105 = load volatile i64, ptr %1, align 8
-  %106 = and i64 %105, 4096
-  %107 = icmp eq i64 %106, 0
-  br i1 %107, label %108, label %111
+103:                                              ; preds = %99
+  %104 = load volatile i64, ptr %1, align 8
+  %105 = and i64 %104, 4096
+  %106 = icmp eq i64 %105, 0
+  br i1 %106, label %107, label %110
 
-108:                                              ; preds = %104, %100
-  %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 136
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %110) #14
-  br label %111
+107:                                              ; preds = %103, %99
+  %108 = load ptr, ptr %0, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 136
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %109) #14
+  br label %110
 
-111:                                              ; preds = %108, %104, %99, %95, %61
-  %112 = phi i32 [ 1, %95 ], [ 1, %99 ], [ 1, %61 ], [ 0, %108 ], [ 0, %104 ]
-  ret i32 %112
+110:                                              ; preds = %107, %103, %98, %94, %61
+  %111 = phi i32 [ 1, %94 ], [ 1, %98 ], [ 1, %61 ], [ 0, %107 ], [ 0, %103 ]
+  ret i32 %111
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

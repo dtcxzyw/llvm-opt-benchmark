@@ -10953,8 +10953,8 @@ entry:
   %negate_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store i8 %frombool.i.i, ptr %negate_.i.i, align 8, !noalias !145
   %icase_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 89
-  %bf.clear.i.i = and i8 %agg.tmp.sroa.0.0.copyload.i, 1
-  store i8 %bf.clear.i.i, ptr %icase_.i.i, align 1, !noalias !145
+  %frombool4.i.i = and i8 %agg.tmp.sroa.0.0.copyload.i, 1
+  store i8 %frombool4.i.i, ptr %icase_.i.i, align 1, !noalias !145
   %unicode_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 90
   %1 = lshr i8 %agg.tmp.sroa.0.0.copyload.i, 3
   %.lobit.i.i = and i8 %1, 1
@@ -13845,8 +13845,8 @@ _ZN6hermes5regex13MatchCharNodeC2EN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsE.
   %agg.tmp3.sroa.0.0.copyload20 = phi i8 [ %agg.tmp3.sroa.0.0.copyload, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i ], [ %agg.tmp3.sroa.0.0.copyload, %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit ], [ %agg.tmp3.sroa.0.0.copyload, %if.end8.i ], [ %agg.tmp3.sroa.0.0.copyload14, %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread ]
   %3 = phi ptr [ %.pre5, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i ], [ %.pre6.pre, %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit ], [ %add.ptr.i.i.i.i.i, %if.end8.i ], [ %add.ptr.i.i.i.i.i, %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread ]
   %icase_.i = getelementptr inbounds nuw i8, ptr %call, i64 48
-  %bf.clear.i = and i8 %agg.tmp3.sroa.0.0.copyload20, 1
-  store i8 %bf.clear.i, ptr %icase_.i, align 8
+  %frombool.i = and i8 %agg.tmp3.sroa.0.0.copyload20, 1
+  store i8 %frombool.i, ptr %icase_.i, align 8
   %unicode_.i = getelementptr inbounds nuw i8, ptr %call, i64 49
   %4 = lshr i8 %agg.tmp3.sroa.0.0.copyload20, 3
   %.lobit.i = and i8 %4, 1

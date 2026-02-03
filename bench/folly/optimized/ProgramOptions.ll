@@ -16672,9 +16672,8 @@ define linkonce_odr void @_ZN5boost15program_options6detail7cmdlineD2Ev(ptr noun
 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not1.i.i = icmp eq i64 %6, 0
-  br i1 %.not1.i.i, label %7, label %_ZNK5boost6detail8function13basic_vtable1ISt6vectorINS_15program_options12basic_optionIcEESaIS6_EERS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEE5clearERNS1_15function_bufferE.exit.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZNK5boost6detail8function13basic_vtable1ISt6vectorINS_15program_options12basic_optionIcEESaIS6_EERS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEE5clearERNS1_15function_bufferE.exit.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %3, align 8, !tbaa !510
@@ -16705,14 +16704,13 @@ _ZN5boost9function1ISt6vectorINS_15program_options12basic_optionIcEESaIS4_EERS1_
 
 16:                                               ; preds = %_ZN5boost9function1ISt6vectorINS_15program_options12basic_optionIcEESaIS4_EERS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEED2Ev.exit
   %17 = ptrtoint ptr %15 to i64
-  %18 = and i64 %17, 1
-  %.not1.i.i2 = icmp eq i64 %18, 0
-  br i1 %.not1.i.i2, label %19, label %_ZNK5boost6detail8function13basic_vtable1ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ERKS9_E5clearERNS1_15function_bufferE.exit.i.i
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %_ZNK5boost6detail8function13basic_vtable1ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ERKS9_E5clearERNS1_15function_bufferE.exit.i.i, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %15, align 8, !tbaa !513
-  %.not.i.i.i3 = icmp eq ptr %20, null
-  br i1 %.not.i.i.i3, label %_ZNK5boost6detail8function13basic_vtable1ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ERKS9_E5clearERNS1_15function_bufferE.exit.i.i, label %21
+  %.not.i.i.i2 = icmp eq ptr %20, null
+  br i1 %.not.i.i.i2, label %_ZNK5boost6detail8function13basic_vtable1ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ERKS9_E5clearERNS1_15function_bufferE.exit.i.i, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16761,8 +16759,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZN5boost9function1ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS7_ED2Ev.exit
   %35 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %26, %_ZN5boost9function1ISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS7_ED2Ev.exit ]
-  %.not.i.i.i4 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %36
+  %.not.i.i.i3 = icmp eq ptr %35, null
+  br i1 %.not.i.i.i3, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %36
 
 36:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16

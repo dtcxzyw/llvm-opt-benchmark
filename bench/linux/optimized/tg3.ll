@@ -23673,9 +23673,8 @@ define internal i32 @tg3_set_ringparam(ptr noundef %0, ptr noundef readonly capt
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %31 = load volatile i64, ptr %30, align 8
-  %32 = and i64 %31, 1
-  %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %45, label %33
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %33, label %45
 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %0, i64 7212
@@ -23817,7 +23816,7 @@ define internal i32 @tg3_set_ringparam(ptr noundef %0, ptr noundef readonly capt
 
 101:                                              ; preds = %100, %.loopexit
   tail call void @_raw_spin_unlock_bh(ptr noundef %.sink) #28
-  br i1 %.not, label %tg3_phy_start.exit, label %102
+  br i1 %32, label %102, label %tg3_phy_start.exit
 
 102:                                              ; preds = %101
   %103 = getelementptr i8, ptr %0, i64 7212
@@ -24328,11 +24327,11 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   store i32 0, ptr %5, align 4, !annotation !5
   %73 = call fastcc i32 @tg3_nvram_read(ptr noundef %10, i32 noundef 0, ptr noundef nonnull %5), !range !7
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.preheader59, label %.thread37
+  br i1 %74, label %.preheader59, label %.thread38
 
-.thread37:                                        ; preds = %68
+.thread38:                                        ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread28
+  br label %.thread30
 
 75:                                               ; preds = %.preheader59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -24357,11 +24356,11 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 86:                                               ; preds = %75
   %87 = icmp samesign ult i32 %83, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %87, label %.thread28, label %90
+  br i1 %87, label %.thread30, label %90
 
 88:                                               ; preds = %.preheader59
   %89 = icmp samesign ult i32 %83, %64
-  br i1 %89, label %.thread30, label %90
+  br i1 %89, label %.thread32, label %90
 
 90:                                               ; preds = %86, %88
   %91 = load i32, ptr %66, align 8
@@ -24416,7 +24415,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 .loopexit52:                                      ; preds = %.preheader54, %109, %98
   %124 = phi i8 [ %106, %98 ], [ %114, %109 ], [ %121, %.preheader54 ]
   %125 = icmp eq i8 %124, 0
-  br i1 %125, label %.thread30, label %.thread28
+  br i1 %125, label %.thread32, label %.thread30
 
 126:                                              ; preds = %90
   %127 = and i32 %92, 65535
@@ -24521,7 +24520,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 193:                                              ; preds = %207, %206
   %194 = add nuw nsw i64 %196, 1
   %195 = icmp eq i64 %194, 28
-  br i1 %195, label %.thread25, label %.preheader56, !llvm.loop !150
+  br i1 %195, label %.thread27, label %.preheader56, !llvm.loop !150
 
 .preheader56:                                     ; preds = %.loopexit57, %193
   %196 = phi i64 [ %194, %193 ], [ 0, %.loopexit57 ]
@@ -24537,12 +24536,12 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   br i1 %202, label %207, label %206
 
 206:                                              ; preds = %.preheader56
-  br i1 %205, label %193, label %.thread25
+  br i1 %205, label %193, label %.thread27
 
 207:                                              ; preds = %.preheader56
-  br i1 %205, label %.thread25, label %193
+  br i1 %205, label %.thread27, label %193
 
-.thread25:                                        ; preds = %207, %206, %193
+.thread27:                                        ; preds = %207, %206, %193
   %208 = phi i32 [ 0, %193 ], [ -5, %206 ], [ -5, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -24569,7 +24568,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %218 = load i32, ptr %217, align 8
   %219 = xor i32 %218, %crc.next
   %220 = icmp eq i32 %219, -1
-  br i1 %220, label %221, label %.thread28
+  br i1 %220, label %221, label %.thread30
 
 221:                                              ; preds = %216
   %222 = getelementptr i8, ptr %66, i64 116
@@ -24596,7 +24595,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %233 = load i32, ptr %232, align 4
   %234 = xor i32 %233, %crc.next95
   %235 = icmp eq i32 %234, -1
-  br i1 %235, label %236, label %.thread28
+  br i1 %235, label %236, label %.thread30
 
 236:                                              ; preds = %231
   tail call void @kfree(ptr noundef nonnull %66) #28
@@ -24608,29 +24607,29 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %240 = load i32, ptr %7, align 4
   %241 = call i32 @pci_vpd_check_csum(ptr noundef nonnull %237, i32 noundef %240) #28
   %242 = icmp eq i32 %241, 1
-  br i1 %242, label %.thread30, label %243
+  br i1 %242, label %.thread32, label %243
 
-.thread28:                                        ; preds = %.loopexit52, %216, %231, %86, %.thread37
+.thread30:                                        ; preds = %.loopexit52, %216, %231, %86, %.thread38
   tail call void @kfree(ptr noundef nonnull %66) #28
   br label %.sink.split
 
-.thread30:                                        ; preds = %88, %.loopexit52, %239
+.thread32:                                        ; preds = %88, %.loopexit52, %239
   %.ph = phi ptr [ %66, %88 ], [ %66, %.loopexit52 ], [ %237, %239 ]
   call void @kfree(ptr noundef nonnull %.ph) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %250
 
-243:                                              ; preds = %239, %.thread25
-  %244 = phi ptr [ %66, %.thread25 ], [ %237, %239 ]
-  %245 = phi i32 [ %208, %.thread25 ], [ %241, %239 ]
+243:                                              ; preds = %239, %.thread27
+  %244 = phi ptr [ %66, %.thread27 ], [ %237, %239 ]
+  %245 = phi i32 [ %208, %.thread27 ], [ %241, %239 ]
   call void @kfree(ptr noundef nonnull %244) #28
   %246 = icmp eq i32 %245, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %246, label %250, label %247
 
-.sink.split:                                      ; preds = %62, %39, %51, %236, %59, %.thread28
+.sink.split:                                      ; preds = %62, %39, %51, %236, %59, %.thread30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %247
@@ -24647,7 +24646,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %250
 
-250:                                              ; preds = %.thread30, %.critedge, %247, %243
+250:                                              ; preds = %.thread32, %.critedge, %247, %243
   br i1 %14, label %251, label %.loopexit50
 
 251:                                              ; preds = %250
@@ -24698,9 +24697,8 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 280:                                              ; preds = %.loopexit50
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %282 = load volatile i64, ptr %281, align 8
-  %283 = and i64 %282, 1
-  %.not = icmp eq i64 %283, 0
-  br i1 %.not, label %295, label %284
+  %283 = trunc i64 %282 to i1
+  br i1 %283, label %284, label %295
 
 284:                                              ; preds = %280
   %285 = load i32, ptr %15, align 4
@@ -24794,17 +24792,17 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   call void @__const_udelay(i64 noundef 85900) #28
   %333 = add nuw nsw i32 %327, 1
   %334 = icmp eq i32 %333, 8000
-  br i1 %334, label %.thread32, label %326, !llvm.loop !34
+  br i1 %334, label %.thread34, label %326, !llvm.loop !34
 
 335:                                              ; preds = %326
   %336 = icmp eq i32 %327, 8000
-  br i1 %336, label %.thread32, label %._crit_edge
+  br i1 %336, label %.thread34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %335
   %.pre = load i32, ptr %319, align 8
   br label %338
 
-.thread32:                                        ; preds = %332, %335
+.thread34:                                        ; preds = %332, %335
   %337 = load ptr, ptr %323, align 8
   call void %337(ptr noundef %10, i32 noundef 28704, i32 noundef 32) #28
   br label %341
@@ -24815,8 +24813,8 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   store i32 %340, ptr %319, align 8
   br label %341
 
-341:                                              ; preds = %338, %.thread32, %.loopexit49
-  %342 = phi i1 [ false, %.thread32 ], [ true, %338 ], [ true, %.loopexit49 ]
+341:                                              ; preds = %338, %.thread34, %.loopexit49
+  %342 = phi i1 [ false, %.thread34 ], [ true, %338 ], [ true, %.loopexit49 ]
   %343 = getelementptr i8, ptr %0, i64 7164
   %344 = load i32, ptr %343, align 4
   %345 = and i32 %344, -4096
@@ -24957,8 +24955,8 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 
 429:                                              ; preds = %424
   %430 = and i64 %428, 2107652235809291770
-  %.not41 = icmp eq i64 %430, 0
-  br i1 %.not41, label %471, label %433
+  %.not = icmp eq i64 %430, 0
+  br i1 %.not, label %471, label %433
 
 431:                                              ; preds = %424
   %432 = and i64 %428, 2305840214649601013
@@ -24969,16 +24967,16 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %434 = load volatile i64, ptr %368, align 8
   %435 = and i64 %434, 256
   %436 = icmp eq i64 %435, 0
-  %437 = and i64 %428, 2305840217484951551
-  %438 = icmp ne i64 %437, 0
-  %or.cond = or i1 %436, %438
+  %437 = lshr i64 2305840217484951551, %425
+  %438 = trunc i64 %437 to i1
+  %or.cond = select i1 %436, i1 true, i1 %438
   br i1 %or.cond, label %439, label %471
 
 439:                                              ; preds = %433
   %440 = add nsw i64 %425, -51
   %441 = icmp ult i64 %440, -2
-  %or.cond40 = select i1 %421, i1 true, i1 %441
-  br i1 %or.cond40, label %442, label %471
+  %or.cond41 = select i1 %421, i1 true, i1 %441
+  br i1 %or.cond41, label %442, label %471
 
 442:                                              ; preds = %439
   %443 = zext i16 %426 to i32
@@ -25087,7 +25085,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %512 = phi ptr [ @tg3_test_memory.mem_tbl_5717, %.loopexit47 ], [ @tg3_test_memory.mem_tbl_57765, %496 ], [ @tg3_test_memory.mem_tbl_57765, %492 ], [ @tg3_test_memory.mem_tbl_5755, %500 ], [ @tg3_test_memory.mem_tbl_5906, %504 ], [ %510, %506 ]
   %513 = load i32, ptr %512, align 4
   %514 = icmp eq i32 %513, -1
-  br i1 %514, label %.thread35, label %.preheader46
+  br i1 %514, label %.thread37, label %.preheader46
 
 .preheader46:                                     ; preds = %511
   %515 = getelementptr i8, ptr %0, i64 2312
@@ -25101,7 +25099,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %520 = getelementptr %struct.mem_entry, ptr %512, i64 %519
   %521 = load i32, ptr %520, align 4
   %522 = icmp eq i32 %521, -1
-  br i1 %522, label %.thread35, label %523, !llvm.loop !154
+  br i1 %522, label %.thread37, label %523, !llvm.loop !154
 
 523:                                              ; preds = %.preheader46, %.split74
   %524 = phi i32 [ %521, %.split74 ], [ %513, %.preheader46 ]
@@ -25228,18 +25226,18 @@ tg3_read_mem.exit:                                ; preds = %536, %589
   store i32 %596, ptr %11, align 4
   %597 = getelementptr i8, ptr %2, i64 24
   store i64 1, ptr %597, align 8
-  br label %.thread35
+  br label %.thread37
 
-.thread35:                                        ; preds = %.split74, %511, %594
+.thread37:                                        ; preds = %.split74, %511, %594
   br i1 %14, label %601, label %598
 
-598:                                              ; preds = %.thread35
+598:                                              ; preds = %.thread37
   %599 = load i32, ptr %11, align 4
   %600 = or i32 %599, 8
   store i32 %600, ptr %11, align 4
   br label %601
 
-601:                                              ; preds = %598, %.thread35
+601:                                              ; preds = %598, %.thread37
   %602 = getelementptr i8, ptr %0, i64 2608
   %603 = load i32, ptr %602, align 16
   %604 = icmp eq i32 %603, 0
@@ -25592,11 +25590,7 @@ tg3_read_mem.exit:                                ; preds = %536, %589
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %808, i32 1, ptr elementtype(i8) %808) #28, !srcloc !6
   %809 = call fastcc i32 @tg3_restart_hw(ptr noundef %10, i1 noundef zeroext true)
   %810 = icmp eq i32 %809, 0
-  br i1 %810, label %811, label %.thread36
-
-.thread36:                                        ; preds = %807
-  call void @_raw_spin_unlock_bh(ptr noundef %.sink) #28
-  br label %tg3_phy_start.exit
+  br i1 %810, label %811, label %.critedge26
 
 811:                                              ; preds = %807
   call fastcc void @tg3_ptp_resume(ptr noundef %10)
@@ -25663,7 +25657,7 @@ tg3_read_mem.exit:                                ; preds = %536, %589
 
 848:                                              ; preds = %.loopexit, %803
   call void @_raw_spin_unlock_bh(ptr noundef %.sink) #28
-  br i1 %.not, label %tg3_phy_start.exit, label %849
+  br i1 %283, label %849, label %tg3_phy_start.exit
 
 849:                                              ; preds = %848
   %850 = load i32, ptr %15, align 4
@@ -25716,7 +25710,11 @@ tg3_read_mem.exit:                                ; preds = %536, %589
   %885 = call i32 @phy_start_aneg(ptr noundef %859) #28
   br label %tg3_phy_start.exit
 
-tg3_phy_start.exit:                               ; preds = %884, %849, %.thread36, %848, %.loopexit50
+.critedge26:                                      ; preds = %807
+  call void @_raw_spin_unlock_bh(ptr noundef %.sink) #28
+  br label %tg3_phy_start.exit
+
+tg3_phy_start.exit:                               ; preds = %884, %849, %.critedge26, %848, %.loopexit50
   %886 = load i32, ptr %15, align 4
   %887 = and i32 %886, 1
   %888 = icmp eq i32 %887, 0

@@ -7834,8 +7834,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %106, %108
   %145 = shl i64 %144, 39
   %146 = and i64 %145, 140737488355328
   %.masked.masked.masked = or i64 %134, %136
-  %.masked159.masked = or i64 %.masked.masked.masked, %138
-  %.masked = or i64 %.masked159.masked, %118
+  %.masked156.masked = or i64 %.masked.masked.masked, %138
+  %.masked = or i64 %.masked156.masked, %118
   %147 = or i64 %.masked, %142
   %148 = or i64 %147, %146
   %149 = xor i64 %148, 1610612736
@@ -7941,10 +7941,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55:               ; preds = %174, %176
   %216 = load i64, ptr %143, align 8
   %217 = shl i64 %216, 39
   %218 = and i64 %217, 140737488355328
-  %.masked137.masked.masked = or i64 %207, %209
-  %.masked162.masked = or i64 %.masked137.masked.masked, %211
-  %.masked164 = or i64 %.masked162.masked, %191
-  %219 = or i64 %.masked164, %215
+  %.masked134.masked.masked = or i64 %207, %209
+  %.masked159.masked = or i64 %.masked134.masked.masked, %211
+  %.masked161 = or i64 %.masked159.masked, %191
+  %219 = or i64 %.masked161, %215
   %220 = or i64 %219, %218
   %221 = xor i64 %220, 1610612736
   store i64 %221, ptr %10, align 8
@@ -8020,10 +8020,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit60:               ; preds = %231, %233
   %271 = load i64, ptr %143, align 8
   %272 = shl i64 %271, 39
   %273 = and i64 %272, 140737488355328
-  %.masked143.masked.masked = or i64 %262, %264
-  %.masked166.masked = or i64 %.masked143.masked.masked, %266
-  %.masked168 = or i64 %.masked166.masked, %246
-  %274 = or i64 %.masked168, %270
+  %.masked140.masked.masked = or i64 %262, %264
+  %.masked163.masked = or i64 %.masked140.masked.masked, %266
+  %.masked165 = or i64 %.masked163.masked, %246
+  %274 = or i64 %.masked165, %270
   %275 = or i64 %274, %273
   %276 = xor i64 %275, 1610612736
   store i64 %276, ptr %12, align 8
@@ -8057,13 +8057,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit60:               ; preds = %231, %233
   br label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 291:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52
-  %.not115 = icmp eq i16 %165, 81
+  %.not112 = icmp eq i16 %165, 81
   %292 = load ptr, ptr %98, align 8, !tbaa !491
   %293 = load ptr, ptr %100, align 8, !tbaa !492
   %294 = ptrtoint ptr %292 to i64
   %295 = ptrtoint ptr %293 to i64
   %296 = sub i64 %294, %295
-  br i1 %.not115, label %297, label %416
+  br i1 %.not112, label %297, label %416
 
 297:                                              ; preds = %291
   %298 = icmp ult i64 %296, 21
@@ -8125,10 +8125,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit71:               ; preds = %299, %301
   %341 = load i64, ptr %143, align 8
   %342 = shl i64 %341, 39
   %343 = and i64 %342, 140737488355328
-  %.masked149.masked.masked = or i64 %332, %334
-  %.masked170.masked = or i64 %.masked149.masked.masked, %336
-  %.masked172 = or i64 %.masked170.masked, %316
-  %344 = or i64 %.masked172, %340
+  %.masked146.masked.masked = or i64 %332, %334
+  %.masked167.masked = or i64 %.masked146.masked.masked, %336
+  %.masked169 = or i64 %.masked167.masked, %316
+  %344 = or i64 %.masked169, %340
   %345 = or i64 %344, %343
   %346 = xor i64 %345, 1610612736
   store i64 %346, ptr %14, align 8
@@ -8204,10 +8204,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit78:               ; preds = %356, %358
   %396 = load i64, ptr %143, align 8
   %397 = shl i64 %396, 39
   %398 = and i64 %397, 140737488355328
-  %.masked155.masked.masked = or i64 %387, %389
-  %.masked174.masked = or i64 %.masked155.masked.masked, %391
-  %.masked176 = or i64 %.masked174.masked, %371
-  %399 = or i64 %.masked176, %395
+  %.masked152.masked.masked = or i64 %387, %389
+  %.masked171.masked = or i64 %.masked152.masked.masked, %391
+  %.masked173 = or i64 %.masked171.masked, %371
+  %399 = or i64 %.masked173, %395
   %400 = or i64 %399, %398
   %401 = xor i64 %400, 1610612736
   store i64 %401, ptr %16, align 8

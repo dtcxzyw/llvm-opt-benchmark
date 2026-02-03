@@ -3906,8 +3906,7 @@ if.end:                                           ; preds = %land.lhs.true6, %la
   %focusCandidate.0 = phi ptr [ %3, %land.lhs.true ], [ null, %if.then ], [ %spec.select, %land.lhs.true6 ]
   %FocusFlags9 = getelementptr inbounds nuw i8, ptr %this, i64 480
   %7 = load i32, ptr %FocusFlags9, align 8, !tbaa !76
-  %and10 = and i32 %7, 1
-  %tobool11.not = icmp ne i32 %and10, 0
+  %tobool11.not = trunc i32 %7 to i1
   %Event = getelementptr inbounds nuw i8, ptr %event, i64 28
   %8 = load i32, ptr %Event, align 4
   %cmp13 = icmp eq i32 %8, 0
@@ -3991,47 +3990,46 @@ if.end72:                                         ; preds = %land.lhs.true66, %s
 land.lhs.true76:                                  ; preds = %if.end72
   %PressedDown = getelementptr inbounds nuw i8, ptr %event, i64 20
   %bf.load = load i8, ptr %PressedDown, align 4
-  %18 = and i8 %bf.load, 1
-  %bf.cast.not = icmp ne i8 %18, 0
+  %bf.cast.not = trunc i8 %bf.load to i1
   %Key = getelementptr inbounds nuw i8, ptr %event, i64 12
-  %19 = load i32, ptr %Key, align 4
-  %cmp78 = icmp eq i32 %19, 9
+  %18 = load i32, ptr %Key, align 4
+  %cmp78 = icmp eq i32 %18, 9
   %or.cond135 = select i1 %bf.cast.not, i1 %cmp78, i1 false
   br i1 %or.cond135, label %if.then79, label %sw.epilog
 
 if.then79:                                        ; preds = %land.lhs.true76
-  %20 = and i8 %bf.load, 2
-  %bf.cast82 = icmp ne i8 %20, 0
-  %21 = and i8 %bf.load, 4
-  %bf.cast86 = icmp ne i8 %21, 0
+  %19 = and i8 %bf.load, 2
+  %bf.cast82 = icmp ne i8 %19, 0
+  %20 = and i8 %bf.load, 4
+  %bf.cast86 = icmp ne i8 %20, 0
   %vtable87 = load ptr, ptr %this, align 8, !tbaa !10
   %vfn88 = getelementptr inbounds nuw i8, ptr %vtable87, i64 280
-  %22 = load ptr, ptr %vfn88, align 8
-  %call89 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(520) %this, i1 noundef zeroext %bf.cast82, i1 noundef zeroext %bf.cast86) #24
+  %21 = load ptr, ptr %vfn88, align 8
+  %call89 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(520) %this, i1 noundef zeroext %bf.cast82, i1 noundef zeroext %bf.cast86) #24
   %tobool90.not = icmp eq ptr %call89, null
-  %23 = load ptr, ptr %Focus64, align 8
-  %cmp93.not = icmp eq ptr %call89, %23
+  %22 = load ptr, ptr %Focus64, align 8
+  %cmp93.not = icmp eq ptr %call89, %22
   %or.cond136 = select i1 %tobool90.not, i1 true, i1 %cmp93.not
   br i1 %or.cond136, label %sw.epilog, label %if.then94
 
 if.then94:                                        ; preds = %if.then79
   %vtable95 = load ptr, ptr %this, align 8, !tbaa !10
   %vfn96 = getelementptr inbounds nuw i8, ptr %vtable95, i64 8
-  %24 = load ptr, ptr %vfn96, align 8
-  %call97 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull %call89) #24
+  %23 = load ptr, ptr %vfn96, align 8
+  %call97 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull %call89) #24
   br i1 %call97, label %return, label %sw.epilog
 
 sw.bb102:                                         ; preds = %entry
   %Focus103 = getelementptr inbounds nuw i8, ptr %this, i64 432
-  %25 = load ptr, ptr %Focus103, align 8, !tbaa !95
-  %tobool104.not = icmp eq ptr %25, null
+  %24 = load ptr, ptr %Focus103, align 8, !tbaa !95
+  %tobool104.not = icmp eq ptr %24, null
   br i1 %tobool104.not, label %sw.epilog, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %sw.bb102
-  %vtable107 = load ptr, ptr %25, align 8, !tbaa !10
+  %vtable107 = load ptr, ptr %24, align 8, !tbaa !10
   %vfn108 = getelementptr inbounds nuw i8, ptr %vtable107, i64 16
-  %26 = load ptr, ptr %vfn108, align 8
-  %call109 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(308) %25, ptr noundef nonnull align 8 dereferenceable(56) %event) #24
+  %25 = load ptr, ptr %vfn108, align 8
+  %call109 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(308) %24, ptr noundef nonnull align 8 dereferenceable(56) %event) #24
   br i1 %call109, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.lhs.true105, %sw.bb102, %if.then94, %if.then79, %land.lhs.true76, %if.end72, %land.lhs.true54, %if.end51, %entry

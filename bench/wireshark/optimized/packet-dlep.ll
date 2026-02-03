@@ -862,16 +862,15 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
   %19 = load i32, ptr @hf_dlep_dataitem_v4addr_flags_adddrop, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  %24 = tail call ptr @tfs_get_string(i1 noundef zeroext %23, ptr noundef nonnull @tfs_add_drop)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.213, ptr noundef %24)
-  %25 = load i32, ptr @hf_dlep_dataitem_v4addr_addr, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0)
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.214, ptr noundef %29)
+  %22 = trunc i8 %21 to i1
+  %23 = tail call ptr @tfs_get_string(i1 noundef zeroext %22, ptr noundef nonnull @tfs_add_drop)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.213, ptr noundef %23)
+  %24 = load i32, ptr @hf_dlep_dataitem_v4addr_addr, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0)
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr @tvb_address_to_str(ptr noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef 1)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.214, ptr noundef %28)
   ret i32 5
 }
 
@@ -904,16 +903,15 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
   %19 = load i32, ptr @hf_dlep_dataitem_v6addr_flags_adddrop, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %22 = and i8 %21, 1
-  %23 = icmp ne i8 %22, 0
-  %24 = tail call ptr @tfs_get_string(i1 noundef zeroext %23, ptr noundef nonnull @tfs_add_drop)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.213, ptr noundef %24)
-  %25 = load i32, ptr @hf_dlep_dataitem_v6addr_addr, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 3, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.214, ptr noundef %29)
+  %22 = trunc i8 %21 to i1
+  %23 = tail call ptr @tfs_get_string(i1 noundef zeroext %22, ptr noundef nonnull @tfs_add_drop)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.213, ptr noundef %23)
+  %24 = load i32, ptr @hf_dlep_dataitem_v6addr_addr, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call ptr @tvb_address_to_str(ptr noundef %27, ptr noundef %0, i32 noundef 3, i32 noundef 1)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.214, ptr noundef %28)
   ret i32 17
 }
 
@@ -948,20 +946,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
   %20 = load i32, ptr @hf_dlep_dataitem_v4subnet_flags_adddrop, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %23 = and i8 %22, 1
-  %24 = icmp ne i8 %23, 0
-  %25 = tail call ptr @tfs_get_string(i1 noundef zeroext %24, ptr noundef nonnull @tfs_add_drop)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.213, ptr noundef %25)
-  %26 = load i32, ptr @hf_dlep_dataitem_v4subnet_subnet, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @tvb_address_to_str(ptr noundef %29, ptr noundef %0, i32 noundef 2, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.214, ptr noundef %30)
-  %31 = load i32, ptr @hf_dlep_dataitem_v4subnet_prefixlen, align 4
-  %32 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
-  %33 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.215, i32 noundef %33)
+  %23 = trunc i8 %22 to i1
+  %24 = tail call ptr @tfs_get_string(i1 noundef zeroext %23, ptr noundef nonnull @tfs_add_drop)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.213, ptr noundef %24)
+  %25 = load i32, ptr @hf_dlep_dataitem_v4subnet_subnet, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.214, ptr noundef %29)
+  %30 = load i32, ptr @hf_dlep_dataitem_v4subnet_prefixlen, align 4
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %32 = load i32, ptr %5, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.215, i32 noundef %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 6
 }
@@ -997,20 +994,19 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
   %20 = load i32, ptr @hf_dlep_dataitem_v6subnet_flags_adddrop, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %23 = and i8 %22, 1
-  %24 = icmp ne i8 %23, 0
-  %25 = tail call ptr @tfs_get_string(i1 noundef zeroext %24, ptr noundef nonnull @tfs_add_drop)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.213, ptr noundef %25)
-  %26 = load i32, ptr @hf_dlep_dataitem_v6subnet_subnet, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @tvb_address_to_str(ptr noundef %29, ptr noundef %0, i32 noundef 3, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.214, ptr noundef %30)
-  %31 = load i32, ptr @hf_dlep_dataitem_v6subnet_prefixlen, align 4
-  %32 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
-  %33 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.215, i32 noundef %33)
+  %23 = trunc i8 %22 to i1
+  %24 = tail call ptr @tfs_get_string(i1 noundef zeroext %23, ptr noundef nonnull @tfs_add_drop)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.213, ptr noundef %24)
+  %25 = load i32, ptr @hf_dlep_dataitem_v6subnet_subnet, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 3, i32 noundef 1)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.214, ptr noundef %29)
+  %30 = load i32, ptr @hf_dlep_dataitem_v6subnet_prefixlen, align 4
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %32 = load i32, ptr %5, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.215, i32 noundef %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 18
 }

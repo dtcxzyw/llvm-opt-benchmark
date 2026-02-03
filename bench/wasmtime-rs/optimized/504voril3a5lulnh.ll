@@ -1020,15 +1020,15 @@ switch.lookup:
   %.116 = or disjoint i32 %8, %10
   %.1 = zext nneg i32 %.116 to i64
   %11 = load i32, ptr %1, align 4, !noundef !5
-  %12 = trunc i32 %11 to i16
-  %.4.i = and i16 %12, 31
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %switch.load, ptr %13, align 2
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.4.i, ptr %14, align 8
+  %.not.i = trunc i32 %11 to i16
+  %.4.i = and i16 %.not.i, 31
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i8 %switch.load, ptr %12, align 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %.4.i, ptr %13, align 8
   store i64 %.1, ptr %0, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %15, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %14, align 8
   ret void
 }
 
@@ -1045,8 +1045,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i16 0, 16) i16 @"_ZN11wasi_common9snapshots9preview_1135_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..file..OFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Oflags$GT$4from17hcab2f7ec658cce2eE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #7 {
   %2 = load i32, ptr %0, align 4, !noundef !5
-  %3 = trunc i32 %2 to i16
-  %.3 = and i16 %3, 15
+  %.not = trunc i32 %2 to i16
+  %.3 = and i16 %.not, 15
   ret i16 %.3
 }
 
@@ -1267,8 +1267,8 @@ switch.lookup:                                    ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i16 0, 2) i16 @"_ZN11wasi_common9snapshots9preview_1162_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..sched..subscription..RwEventFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Eventrwflags$GT$4from17h2657f323d14fb7d3E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #7 {
   %2 = load i32, ptr %0, align 4, !noundef !5
-  %3 = trunc i32 %2 to i16
-  %spec.select = and i16 %3, 1
+  %.not = trunc i32 %2 to i16
+  %spec.select = and i16 %.not, 1
   ret i16 %spec.select
 }
 
@@ -1300,8 +1300,8 @@ define noundef range(i16 0, 32) i16 @"_ZN11wasi_common9snapshots9preview_0156_$L
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i32 0, 2) i32 @"_ZN11wasi_common9snapshots9preview_0164_$LT$impl$u20$core..convert..From$LT$wasi_common..snapshots..preview_0..types..Lookupflags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Lookupflags$GT$4from17hc8b4f57cd14a367cE"(i32 noundef %0) unnamed_addr #4 {
-  %2 = and i32 %0, 1
-  ret i32 %2
+  %spec.select = and i32 %0, 1
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -21296,29 +21296,29 @@ define void @"_ZN11wasi_common9snapshots9preview_15types1_121_$LT$impl$u20$core.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 0, 32) i16 @"_ZN11wasi_common9snapshots9preview_1133_$LT$impl$u20$core..convert..From$LT$wasi_common..file..FdFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Fdflags$GT$4from17h30c7afd965d49455E"(i32 noundef %0) unnamed_addr #4 {
-  %2 = trunc i32 %0 to i16
-  %.4 = and i16 %2, 31
+  %.not = trunc i32 %0 to i16
+  %.4 = and i16 %.not, 31
   ret i16 %.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 0, 4) i16 @"_ZN11wasi_common9snapshots9preview_1133_$LT$impl$u20$core..convert..From$LT$wasi_common..file..RiFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Riflags$GT$4from17hea61a2bec1ccfab5E"(i32 noundef %0) unnamed_addr #4 {
-  %2 = trunc i32 %0 to i16
-  %.1 = and i16 %2, 3
+  %.not = trunc i32 %0 to i16
+  %.1 = and i16 %.not, 3
   ret i16 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 0, 2) i16 @"_ZN11wasi_common9snapshots9preview_1133_$LT$impl$u20$core..convert..From$LT$wasi_common..file..RoFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Roflags$GT$4from17h41c9d7f2ca55941eE"(i32 noundef %0) unnamed_addr #4 {
-  %2 = trunc i32 %0 to i16
-  %spec.select = and i16 %2, 1
+  %.not = trunc i32 %0 to i16
+  %spec.select = and i16 %.not, 1
   ret i16 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @"_ZN11wasi_common9snapshots9preview_1133_$LT$impl$u20$core..convert..From$LT$wasi_common..file..SdFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_1..types..Sdflags$GT$4from17h498d6fa10ce9e9a0E"(i32 noundef %0) unnamed_addr #4 {
-  %2 = trunc i32 %0 to i8
-  %.1 = and i8 %2, 3
+  %.not = trunc i32 %0 to i8
+  %.1 = and i8 %.not, 3
   ret i8 %.1
 }
 

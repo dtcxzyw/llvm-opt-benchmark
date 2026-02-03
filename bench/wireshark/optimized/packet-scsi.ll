@@ -5173,67 +5173,66 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
 45:                                               ; preds = %40
   %46 = add i32 %3, 4
   %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %46)
-  %48 = and i8 %47, 1
-  %49 = icmp ne i8 %48, 0
-  %50 = load i32, ptr @hf_scsi_modesel_longlba, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %50, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0)
-  %52 = icmp eq i32 %6, 6
-  br i1 %52, label %.critedge, label %53
+  %48 = trunc i8 %47 to i1
+  %49 = load i32, ptr @hf_scsi_modesel_longlba, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %49, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef 0)
+  %51 = icmp eq i32 %6, 6
+  br i1 %51, label %.critedge, label %52
 
-53:                                               ; preds = %45
-  %54 = add i32 %3, 6
-  %55 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %54)
-  %56 = zext i16 %55 to i32
-  %57 = load i32, ptr @hf_scsi_modesel_block_descriptor_length16, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %57, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef 0)
-  %59 = add i32 %3, 8
-  %60 = add i32 %6, -8
-  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59)
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %63, label %71
+52:                                               ; preds = %45
+  %53 = add i32 %3, 6
+  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %53)
+  %55 = zext i16 %54 to i32
+  %56 = load i32, ptr @hf_scsi_modesel_block_descriptor_length16, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %56, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0)
+  %58 = add i32 %3, 8
+  %59 = add i32 %6, -8
+  %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %58)
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %70
 
-63:                                               ; preds = %53
-  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59)
-  %65 = icmp slt i32 %64, %56
-  br i1 %65, label %66, label %68
+62:                                               ; preds = %52
+  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %58)
+  %64 = icmp slt i32 %63, %55
+  br i1 %64, label %65, label %67
 
-66:                                               ; preds = %63
-  %67 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59)
-  br label %68
+65:                                               ; preds = %62
+  %66 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %58)
+  br label %67
 
-68:                                               ; preds = %63, %66
-  %69 = phi i32 [ %67, %66 ], [ %56, %63 ]
-  %70 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %59, i32 noundef %69, i32 noundef %56)
-  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %70, ptr noundef %2, ptr noundef %7, i1 noundef zeroext %49)
-  br label %71
+67:                                               ; preds = %62, %65
+  %68 = phi i32 [ %66, %65 ], [ %55, %62 ]
+  %69 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %58, i32 noundef %68, i32 noundef %55)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %69, ptr noundef %2, ptr noundef %7, i1 noundef zeroext %48)
+  br label %70
 
-71:                                               ; preds = %68, %53
-  %72 = sub i32 %60, %56
-  %.not9899 = icmp eq i32 %72, 0
+70:                                               ; preds = %67, %52
+  %71 = sub i32 %59, %55
+  %.not9899 = icmp eq i32 %71, 0
   br i1 %.not9899, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %71
-  %73 = add i32 %59, %56
+.lr.ph.preheader:                                 ; preds = %70
+  %72 = add i32 %58, %55
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %75
-  %.0101 = phi i32 [ %81, %75 ], [ %73, %.lr.ph.preheader ]
-  %.088100 = phi i32 [ %82, %75 ], [ %72, %.lr.ph.preheader ]
-  %74 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0101, i32 noundef 2)
-  br i1 %74, label %75, label %.critedge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %74
+  %.0101 = phi i32 [ %80, %74 ], [ %72, %.lr.ph.preheader ]
+  %.088100 = phi i32 [ %81, %74 ], [ %71, %.lr.ph.preheader ]
+  %73 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0101, i32 noundef 2)
+  br i1 %73, label %74, label %.critedge
 
-75:                                               ; preds = %.lr.ph
-  %76 = load ptr, ptr %32, align 8
-  %77 = load i8, ptr %76, align 8
-  %78 = and i8 %77, 127
-  %79 = zext nneg i8 %78 to i32
-  %80 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0101, i32 noundef %79)
-  %81 = add i32 %80, %.0101
-  %82 = sub i32 %.088100, %80
-  %.not98 = icmp eq i32 %82, 0
+74:                                               ; preds = %.lr.ph
+  %75 = load ptr, ptr %32, align 8
+  %76 = load i8, ptr %75, align 8
+  %77 = and i8 %76, 127
+  %78 = zext nneg i8 %77 to i32
+  %79 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0101, i32 noundef %78)
+  %80 = add i32 %79, %.0101
+  %81 = sub i32 %.088100, %79
+  %.not98 = icmp eq i32 %81, 0
   br i1 %.not98, label %.critedge, label %.lr.ph, !llvm.loop !17
 
-.critedge:                                        ; preds = %.lr.ph, %75, %71, %10, %45, %40, %34, %31, %26, %24, %8
+.critedge:                                        ; preds = %.lr.ph, %74, %70, %10, %45, %40, %34, %31, %26, %24, %8
   ret void
 }
 
@@ -5466,68 +5465,67 @@ dissect_scsi_pagecode.exit:                       ; preds = %10, %33
 59:                                               ; preds = %54
   %60 = add i32 %3, 4
   %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %60)
-  %62 = and i8 %61, 1
-  %63 = icmp ne i8 %62, 0
-  %64 = load i32, ptr @hf_scsi_modesel_longlba, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %64, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0)
-  %66 = icmp samesign ult i32 %.095, 6
-  br i1 %66, label %.critedge, label %67
+  %62 = trunc i8 %61 to i1
+  %63 = load i32, ptr @hf_scsi_modesel_longlba, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %63, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0)
+  %65 = icmp samesign ult i32 %.095, 6
+  br i1 %65, label %.critedge, label %66
 
-67:                                               ; preds = %59
-  %68 = add i32 %3, 6
-  %69 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %68)
-  %70 = zext i16 %69 to i32
-  %71 = load i32, ptr @hf_scsi_modesel_block_descriptor_length16, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %71, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0)
-  %73 = add i32 %3, 8
-  %74 = add nsw i32 %.095, -6
-  %75 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73)
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %85
+66:                                               ; preds = %59
+  %67 = add i32 %3, 6
+  %68 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %67)
+  %69 = zext i16 %68 to i32
+  %70 = load i32, ptr @hf_scsi_modesel_block_descriptor_length16, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %70, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0)
+  %72 = add i32 %3, 8
+  %73 = add nsw i32 %.095, -6
+  %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %72)
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %76, label %84
 
-77:                                               ; preds = %67
-  %78 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73)
-  %79 = icmp slt i32 %78, %70
-  br i1 %79, label %80, label %82
+76:                                               ; preds = %66
+  %77 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %72)
+  %78 = icmp slt i32 %77, %69
+  br i1 %78, label %79, label %81
 
-80:                                               ; preds = %77
-  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73)
-  br label %82
+79:                                               ; preds = %76
+  %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %72)
+  br label %81
 
-82:                                               ; preds = %77, %80
-  %83 = phi i32 [ %81, %80 ], [ %70, %77 ]
-  %84 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %73, i32 noundef %83, i32 noundef %70)
-  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %84, ptr noundef %2, ptr noundef %7, i1 noundef zeroext %63)
-  br label %85
+81:                                               ; preds = %76, %79
+  %82 = phi i32 [ %80, %79 ], [ %69, %76 ]
+  %83 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %72, i32 noundef %82, i32 noundef %69)
+  tail call fastcc void @dissect_scsi_blockdescs(ptr noundef %83, ptr noundef %2, ptr noundef %7, i1 noundef zeroext %62)
+  br label %84
 
-85:                                               ; preds = %82, %67
-  %86 = sub nsw i32 %74, %70
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %.lr.ph, label %.critedge
+84:                                               ; preds = %81, %66
+  %85 = sub nsw i32 %73, %69
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %85
-  %88 = add i32 %73, %70
-  %89 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %90
+.lr.ph:                                           ; preds = %84
+  %87 = add i32 %72, %69
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br label %89
 
-90:                                               ; preds = %.lr.ph, %92
-  %.0106 = phi i32 [ %88, %.lr.ph ], [ %98, %92 ]
-  %.1105 = phi i32 [ %86, %.lr.ph ], [ %99, %92 ]
-  %91 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0106, i32 noundef 2)
-  br i1 %91, label %92, label %.critedge
+89:                                               ; preds = %.lr.ph, %91
+  %.0106 = phi i32 [ %87, %.lr.ph ], [ %97, %91 ]
+  %.1105 = phi i32 [ %85, %.lr.ph ], [ %98, %91 ]
+  %90 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0106, i32 noundef 2)
+  br i1 %90, label %91, label %.critedge
 
-92:                                               ; preds = %90
-  %93 = load ptr, ptr %89, align 8
-  %94 = load i8, ptr %93, align 8
-  %95 = and i8 %94, 127
-  %96 = zext nneg i8 %95 to i32
-  %97 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0106, i32 noundef %96)
-  %98 = add i32 %97, %.0106
-  %99 = sub nsw i32 %.1105, %97
-  %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %90, label %.critedge, !llvm.loop !19
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %88, align 8
+  %93 = load i8, ptr %92, align 8
+  %94 = and i8 %93, 127
+  %95 = zext nneg i8 %94 to i32
+  %96 = tail call fastcc i32 @dissect_scsi_modepage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0106, i32 noundef %95)
+  %97 = add i32 %96, %.0106
+  %98 = sub nsw i32 %.1105, %96
+  %99 = icmp sgt i32 %98, 0
+  br i1 %99, label %89, label %.critedge, !llvm.loop !19
 
-.critedge:                                        ; preds = %90, %92, %85, %dissect_scsi_pagecode.exit, %59, %54, %49, %42, %8
+.critedge:                                        ; preds = %89, %91, %84, %dissect_scsi_pagecode.exit, %59, %54, %49, %42, %8
   ret void
 }
 

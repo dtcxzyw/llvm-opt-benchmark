@@ -165,11 +165,11 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   %30 = add i32 %29, 2531011
   store i32 %30, ptr %27, align 8, !tbaa !26
   %31 = lshr i32 %30, 16
-  %32 = load ptr, ptr %0, align 8, !tbaa !18
-  %33 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN2lp10int_solver8is_upperEv(ptr noundef nonnull align 8 dereferenceable(32) %32)
-  %34 = trunc i32 %31 to i8
-  %35 = and i8 %34, 1
-  store i8 %35, ptr %33, align 1, !tbaa !28
+  %32 = trunc i32 %31 to i8
+  %33 = load ptr, ptr %0, align 8, !tbaa !18
+  %34 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN2lp10int_solver8is_upperEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
+  %35 = and i8 %32, 1
+  store i8 %35, ptr %34, align 1, !tbaa !28
   br i1 %24, label %36, label %103
 
 36:                                               ; preds = %_ZN8rationalD2Ev.exit

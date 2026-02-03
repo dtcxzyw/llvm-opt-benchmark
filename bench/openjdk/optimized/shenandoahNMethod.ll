@@ -267,11 +267,11 @@ define hidden void @_ZN17ShenandoahNMethod6updateEv(ptr noundef nonnull align 8 
   %33 = shl nuw nsw i64 %32, 3
   %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %33, i8 noundef zeroext 5, i32 noundef 0) #15
   store ptr %34, ptr %25, align 8
-  %.pre13 = load i32, ptr %22, align 8
+  %.pre12 = load i32, ptr %22, align 8
   br label %35
 
 35:                                               ; preds = %31, %1
-  %36 = phi i32 [ %21, %1 ], [ %.pre13, %31 ]
+  %36 = phi i32 [ %21, %1 ], [ %.pre12, %31 ]
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -299,31 +299,30 @@ define hidden void @_ZN17ShenandoahNMethod6updateEv(ptr noundef nonnull align 8 
   %50 = and i8 %48, 1
   store i8 %50, ptr %49, align 4
   %51 = load i64, ptr %19, align 8
-  %52 = and i64 %51, 1
-  %.not.i = icmp eq i64 %52, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit, label %53
+  %52 = trunc i64 %51 to i1
+  br i1 %52, label %53, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit
 
 53:                                               ; preds = %._crit_edge
   store i32 0, ptr %3, align 8
   %54 = load i32, ptr %17, align 4
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit, label %.loopexit.i
+  br i1 %55, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit, label %.loopexit.i.i.i
 
-.loopexit.i:                                      ; preds = %53
+.loopexit.i.i.i:                                  ; preds = %53
   %56 = load ptr, ptr %18, align 8
   store i32 0, ptr %17, align 4
-  %.not.i7 = icmp eq ptr %56, null
-  br i1 %.not.i7, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i, label %.loopexit.thread.i
+  %.not.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i, label %.loopexit.thread.i.i.i
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %56) #15
-  br label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i
+  br label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i
 
-_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
+_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i: ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
   store ptr null, ptr %18, align 8
   br label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit
 
-_ZN13GrowableArrayIPP7oopDescED2Ev.exit:          ; preds = %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i, %53, %._crit_edge
+_ZN13GrowableArrayIPP7oopDescED2Ev.exit:          ; preds = %._crit_edge, %53, %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i
   %57 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %59, label %58
@@ -566,31 +565,30 @@ _ZN17ShenandoahNMethodC2EP7nmethodR13GrowableArrayIPP7oopDescEb.exit: ; preds = 
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i8 %43, ptr %44, align 4
   %45 = load i64, ptr %19, align 8
-  %46 = and i64 %45, 1
-  %.not.i = icmp eq i64 %46, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit, label %47
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %47, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit
 
 47:                                               ; preds = %_ZN17ShenandoahNMethodC2EP7nmethodR13GrowableArrayIPP7oopDescEb.exit
   store i32 0, ptr %3, align 8
   %48 = load i32, ptr %17, align 4
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit, label %.loopexit.i
+  br i1 %49, label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit, label %.loopexit.i.i.i
 
-.loopexit.i:                                      ; preds = %47
+.loopexit.i.i.i:                                  ; preds = %47
   %50 = load ptr, ptr %18, align 8
   store i32 0, ptr %17, align 4
-  %.not.i4 = icmp eq ptr %50, null
-  br i1 %.not.i4, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i, label %.loopexit.thread.i
+  %.not.i.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i, label %.loopexit.thread.i.i.i
 
-.loopexit.thread.i:                               ; preds = %.loopexit.i
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %50) #15
-  br label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i
+  br label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i
 
-_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
+_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i: ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
   store ptr null, ptr %18, align 8
   br label %_ZN13GrowableArrayIPP7oopDescED2Ev.exit
 
-_ZN13GrowableArrayIPP7oopDescED2Ev.exit:          ; preds = %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i, %47, %_ZN17ShenandoahNMethodC2EP7nmethodR13GrowableArrayIPP7oopDescEb.exit
+_ZN13GrowableArrayIPP7oopDescED2Ev.exit:          ; preds = %_ZN17ShenandoahNMethodC2EP7nmethodR13GrowableArrayIPP7oopDescEb.exit, %47, %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit.i.i.i
   %51 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i, label %53, label %52
@@ -2349,9 +2347,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPP7oopDesc13Gro
   br label %_ZN13GrowableArrayIPP7oopDescE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -2368,25 +2365,25 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit:   ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIPP7oopDescE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIPP7oopDescE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIPP7oopDescE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIPP7oopDescE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIPP7oopDescE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -2399,29 +2396,28 @@ _ZN13GrowableArrayIPP7oopDescE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !27
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !27
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !28
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !28
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIPP7oopDescE10deallocateEPS2_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #15

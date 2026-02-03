@@ -196,10 +196,10 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %13
   br label %dump_output.exit
 
 dump_output.exit:                                 ; preds = %rb_type.exit.i, %rb_type.exit.thread.i
-  %.sink33.i = phi ptr [ %32, %rb_type.exit.thread.i ], [ null, %rb_type.exit.i ]
+  %.sink31.i = phi ptr [ %32, %rb_type.exit.thread.i ], [ null, %rb_type.exit.i ]
   %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %2, %rb_type.exit.i ]
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.sink33.i, ptr %33, align 8, !tbaa !23
+  store ptr %.sink31.i, ptr %33, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink.i, ptr %34, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 76
@@ -322,10 +322,10 @@ rb_type.exit.thread:                              ; preds = %5, %rb_type.exit
   br label %28
 
 28:                                               ; preds = %rb_type.exit, %rb_type.exit.thread
-  %.sink33 = phi ptr [ %27, %rb_type.exit.thread ], [ null, %rb_type.exit ]
+  %.sink31 = phi ptr [ %27, %rb_type.exit.thread ], [ null, %rb_type.exit ]
   %.sink = phi i64 [ 0, %rb_type.exit.thread ], [ %1, %rb_type.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink33, ptr %29, align 8, !tbaa !23
+  store ptr %.sink31, ptr %29, align 8, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %30, align 8, !tbaa !24
   %31 = icmp eq i64 %2, 20
@@ -345,9 +345,8 @@ rb_type.exit.thread:                              ; preds = %5, %rb_type.exit
 
 38:                                               ; preds = %35
   store i32 1, ptr %37, align 4, !tbaa !25
-  %39 = and i64 %3, 1
-  %.not.i25 = icmp eq i64 %39, 0
-  br i1 %.not.i25, label %42, label %40
+  %39 = trunc i64 %3 to i1
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
   %41 = ashr i64 %3, 1
@@ -358,9 +357,9 @@ rb_type.exit.thread:                              ; preds = %5, %rb_type.exit
   br label %rb_num2ull_inline.exit
 
 rb_num2ull_inline.exit:                           ; preds = %40, %42
-  %.0.i26 = phi i64 [ %41, %40 ], [ %43, %42 ]
+  %.0.i25 = phi i64 [ %41, %40 ], [ %43, %42 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.0.i26, ptr %44, align 8, !tbaa !27
+  store i64 %.0.i25, ptr %44, align 8, !tbaa !27
   br label %46
 
 45:                                               ; preds = %35
@@ -369,23 +368,22 @@ rb_num2ull_inline.exit:                           ; preds = %40, %42
 
 46:                                               ; preds = %45, %rb_num2ull_inline.exit
   %47 = and i64 %4, -5
-  %.not31 = icmp eq i64 %47, 0
-  br i1 %.not31, label %rb_num2ull_inline.exit29, label %48
+  %.not29 = icmp eq i64 %47, 0
+  br i1 %.not29, label %rb_num2ull_inline.exit27, label %48
 
 48:                                               ; preds = %46
-  %49 = and i64 %4, 1
-  %.not.i27 = icmp eq i64 %49, 0
-  br i1 %.not.i27, label %52, label %50
+  %49 = trunc i64 %4 to i1
+  br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
   %51 = ashr i64 %4, 1
-  br label %rb_num2ull_inline.exit29
+  br label %rb_num2ull_inline.exit27
 
 52:                                               ; preds = %48
   %53 = tail call i64 @rb_num2ull(i64 noundef %4) #12
-  br label %rb_num2ull_inline.exit29
+  br label %rb_num2ull_inline.exit27
 
-rb_num2ull_inline.exit29:                         ; preds = %52, %50, %46
+rb_num2ull_inline.exit27:                         ; preds = %52, %50, %46
   %54 = phi i64 [ 0, %46 ], [ %51, %50 ], [ %53, %52 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %54, ptr %55, align 8, !tbaa !26
@@ -425,9 +423,8 @@ define internal fastcc void @dump_object(i64 noundef %0, ptr noundef %1) unnamed
   br label %dump_append_special_const.exit
 
 15:                                               ; preds = %11
-  %16 = and i64 %0, 1
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %19, label %17
+  %16 = trunc i64 %0 to i1
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
   %18 = ashr i64 %0, 1
@@ -436,8 +433,8 @@ define internal fastcc void @dump_object(i64 noundef %0, ptr noundef %1) unnamed
 
 19:                                               ; preds = %15
   %20 = and i64 %0, 2
-  %.not16.i = icmp eq i64 %20, 0
-  br i1 %.not16.i, label %23, label %21
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %23, label %21
 
 21:                                               ; preds = %19
   %22 = tail call double @rb_float_value(i64 noundef %0) #13
@@ -639,7 +636,7 @@ dump_append_ref.exit239:                          ; preds = %.lr.ph.i.i234, %82
     i32 3, label %242
     i32 12, label %266
     i32 4, label %276
-    i32 1, label %RB_FL_TEST.exit279
+    i32 1, label %RB_FL_TEST.exit280
     i32 11, label %286
     i32 29, label %292
   ]
@@ -711,8 +708,8 @@ vm_ci_mid.exit:                                   ; preds = %105
 
 134:                                              ; preds = %100
   %135 = and i64 %101, 8192
-  %.not.i241 = icmp eq i64 %135, 0
-  br i1 %.not.i241, label %136, label %RB_FL_TEST.exit
+  %.not.i242 = icmp eq i64 %135, 0
+  br i1 %.not.i242, label %136, label %RB_FL_TEST.exit
 
 136:                                              ; preds = %134
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i64 noundef 17)
@@ -722,10 +719,10 @@ vm_ci_mid.exit:                                   ; preds = %105
 RB_FL_TEST.exit:                                  ; preds = %136, %134
   %137 = phi i64 [ %.pre378, %136 ], [ %101, %134 ]
   %138 = and i64 %137, 31
-  %.not.i242 = icmp eq i64 %138, 27
+  %.not.i243 = icmp eq i64 %138, 27
   %139 = and i64 %137, 536870912
   %.not217374 = icmp eq i64 %139, 0
-  %.not217 = or i1 %.not.i242, %.not217374
+  %.not217 = or i1 %.not.i243, %.not217374
   br i1 %.not217, label %rbimpl_RB_TYPE_P_fastpath.exit.i, label %140
 
 140:                                              ; preds = %RB_FL_TEST.exit
@@ -784,8 +781,8 @@ CHILLED_STRING_P.exit.thread:                     ; preds = %rbimpl_RB_TYPE_P_fa
   br label %RB_ENCODING_GET.exit
 
 RB_ENCODING_GET.exit:                             ; preds = %159, %165
-  %.0.i244 = phi i32 [ %166, %165 ], [ %163, %159 ]
-  %167 = call ptr @rb_enc_from_index(i32 noundef %.0.i244) #12
+  %.0.i245 = phi i32 [ %166, %165 ], [ %163, %159 ]
+  %167 = call ptr @rb_enc_from_index(i32 noundef %.0.i245) #12
   %168 = getelementptr i8, ptr %167, i64 8
   %.val229 = load ptr, ptr %168, align 8, !tbaa !47
   %169 = load i64, ptr %38, align 8, !tbaa !17
@@ -793,15 +790,15 @@ RB_ENCODING_GET.exit:                             ; preds = %159, %165
   %171 = lshr i32 %170, 22
   %172 = and i32 %171, 127
   %173 = icmp eq i32 %172, 127
-  br i1 %173, label %174, label %RB_ENCODING_GET.exit246
+  br i1 %173, label %174, label %RB_ENCODING_GET.exit247
 
 174:                                              ; preds = %RB_ENCODING_GET.exit
   %175 = call i32 @rb_enc_get_index(i64 noundef %0) #12
-  br label %RB_ENCODING_GET.exit246
+  br label %RB_ENCODING_GET.exit247
 
-RB_ENCODING_GET.exit246:                          ; preds = %RB_ENCODING_GET.exit, %174
-  %.0.i245 = phi i32 [ %175, %174 ], [ %172, %RB_ENCODING_GET.exit ]
-  %176 = call ptr @rb_enc_from_index(i32 noundef %.0.i245) #12
+RB_ENCODING_GET.exit247:                          ; preds = %RB_ENCODING_GET.exit, %174
+  %.0.i246 = phi i32 [ %175, %174 ], [ %172, %RB_ENCODING_GET.exit ]
+  %176 = call ptr @rb_enc_from_index(i32 noundef %.0.i246) #12
   %177 = getelementptr i8, ptr %176, i64 8
   %.val230 = load ptr, ptr %177, align 8, !tbaa !47
   %178 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val230) #13
@@ -809,7 +806,7 @@ RB_ENCODING_GET.exit246:                          ; preds = %RB_ENCODING_GET.exi
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   br label %179
 
-179:                                              ; preds = %RB_ENCODING_GET.exit246, %152
+179:                                              ; preds = %RB_ENCODING_GET.exit247, %152
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i64 noundef 15)
   %180 = load i64, ptr %38, align 8, !tbaa !17
   %181 = trunc i64 %180 to i32
@@ -856,33 +853,33 @@ default.unreachable:                              ; preds = %179
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i64 noundef 9)
   %194 = load i64, ptr %38, align 8, !tbaa !17
   %195 = and i64 %194, 32768
-  %.not.i.i247 = icmp eq i64 %195, 0
-  br i1 %.not.i.i247, label %196, label %199
+  %.not.i.i248 = icmp eq i64 %195, 0
+  br i1 %.not.i.i248, label %196, label %199
 
 196:                                              ; preds = %193
   %197 = lshr i64 %194, 16
   %198 = and i64 %197, 15
-  br label %RB_FL_TEST.exit253
+  br label %RB_FL_TEST.exit254
 
 199:                                              ; preds = %193
   %200 = add i64 %0, 24
   %201 = inttoptr i64 %200 to ptr
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load i64, ptr %202, align 8, !tbaa !49
-  br label %RB_FL_TEST.exit253
+  br label %RB_FL_TEST.exit254
 
-RB_FL_TEST.exit253:                               ; preds = %196, %199
-  %.0.i248 = phi i64 [ %198, %196 ], [ %203, %199 ]
-  call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %.0.i248)
+RB_FL_TEST.exit254:                               ; preds = %196, %199
+  %.0.i249 = phi i64 [ %198, %196 ], [ %203, %199 ]
+  call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %.0.i249)
   %204 = load i64, ptr %38, align 8, !tbaa !17
   %205 = and i64 %204, 31
-  %.not.i250 = icmp eq i64 %205, 27
+  %.not.i251 = icmp eq i64 %205, 27
   %206 = and i64 %204, 16384
   %.not216373 = icmp eq i64 %206, 0
-  %.not216 = or i1 %.not.i250, %.not216373
+  %.not216 = or i1 %.not.i251, %.not216373
   br i1 %.not216, label %RCLASS_SINGLETON_P.exit.thread, label %207
 
-207:                                              ; preds = %RB_FL_TEST.exit253
+207:                                              ; preds = %RB_FL_TEST.exit254
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i64 noundef 12)
   %208 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %209 = load i64, ptr %208, align 8, !tbaa !54
@@ -893,8 +890,8 @@ RB_FL_TEST.exit253:                               ; preds = %196, %199
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.28, i64 noundef 11)
   %211 = load i64, ptr %38, align 8, !tbaa !17
   %212 = and i64 %211, 8192
-  %.not.i254 = icmp eq i64 %212, 0
-  br i1 %.not.i254, label %216, label %213
+  %.not.i255 = icmp eq i64 %212, 0
+  br i1 %.not.i255, label %216, label %213
 
 213:                                              ; preds = %210
   %214 = lshr i64 %211, 15
@@ -907,52 +904,52 @@ RB_FL_TEST.exit253:                               ; preds = %196, %199
   br label %rb_array_len.exit
 
 rb_array_len.exit:                                ; preds = %213, %216
-  %.0.i255 = phi i64 [ %215, %213 ], [ %218, %216 ]
-  call fastcc void @dump_append_ld(ptr noundef nonnull %1, i64 noundef %.0.i255)
+  %.0.i256 = phi i64 [ %215, %213 ], [ %218, %216 ]
+  call fastcc void @dump_append_ld(ptr noundef nonnull %1, i64 noundef %.0.i256)
   %219 = load i64, ptr %38, align 8, !tbaa !17
   %220 = and i64 %219, 8192
-  %.not.i256 = icmp eq i64 %220, 0
-  br i1 %.not.i256, label %224, label %221
+  %.not.i257 = icmp eq i64 %220, 0
+  br i1 %.not.i257, label %224, label %221
 
 221:                                              ; preds = %rb_array_len.exit
   %222 = lshr i64 %219, 15
   %223 = and i64 %222, 127
-  br label %rb_array_len.exit258
+  br label %rb_array_len.exit259
 
 224:                                              ; preds = %rb_array_len.exit
   %225 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %226 = load i64, ptr %225, align 8, !tbaa !34
-  br label %rb_array_len.exit258
+  br label %rb_array_len.exit259
 
-rb_array_len.exit258:                             ; preds = %221, %224
-  %.0.i257 = phi i64 [ %223, %221 ], [ %226, %224 ]
-  %227 = icmp sgt i64 %.0.i257, 0
-  br i1 %227, label %RB_FL_TEST.exit263, label %RB_FL_TEST.exit268
+rb_array_len.exit259:                             ; preds = %221, %224
+  %.0.i258 = phi i64 [ %223, %221 ], [ %226, %224 ]
+  %227 = icmp sgt i64 %.0.i258, 0
+  br i1 %227, label %RB_FL_TEST.exit264, label %RB_FL_TEST.exit269
 
-RB_FL_TEST.exit263:                               ; preds = %rb_array_len.exit258
+RB_FL_TEST.exit264:                               ; preds = %rb_array_len.exit259
   %228 = and i64 %219, 31
-  %.not.i260 = icmp eq i64 %228, 27
+  %.not.i261 = icmp eq i64 %228, 27
   %229 = and i64 %219, 4096
   %.not214371 = icmp eq i64 %229, 0
-  %.not214 = or i1 %.not.i260, %.not214371
-  br i1 %.not214, label %RB_FL_TEST.exit268, label %230
+  %.not214 = or i1 %.not.i261, %.not214371
+  br i1 %.not214, label %RB_FL_TEST.exit269, label %230
 
-230:                                              ; preds = %RB_FL_TEST.exit263
+230:                                              ; preds = %RB_FL_TEST.exit264
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, i64 noundef 15)
   %.pre = load i64, ptr %38, align 8, !tbaa !17
   %.pre381 = and i64 %.pre, 8192
-  br label %RB_FL_TEST.exit268
+  br label %RB_FL_TEST.exit269
 
-RB_FL_TEST.exit268:                               ; preds = %230, %RB_FL_TEST.exit263, %rb_array_len.exit258
-  %.pre-phi = phi i64 [ %.pre381, %230 ], [ %220, %RB_FL_TEST.exit263 ], [ %220, %rb_array_len.exit258 ]
-  %231 = phi i64 [ %.pre, %230 ], [ %219, %RB_FL_TEST.exit263 ], [ %219, %rb_array_len.exit258 ]
+RB_FL_TEST.exit269:                               ; preds = %230, %RB_FL_TEST.exit264, %rb_array_len.exit259
+  %.pre-phi = phi i64 [ %.pre381, %230 ], [ %220, %RB_FL_TEST.exit264 ], [ %220, %rb_array_len.exit259 ]
+  %231 = phi i64 [ %.pre, %230 ], [ %219, %RB_FL_TEST.exit264 ], [ %219, %rb_array_len.exit259 ]
   %232 = and i64 %231, 31
-  %.not.i265 = icmp eq i64 %232, 27
+  %.not.i266 = icmp eq i64 %232, 27
   %.not215372 = icmp eq i64 %.pre-phi, 0
-  %.not215 = or i1 %.not.i265, %.not215372
+  %.not215 = or i1 %.not.i266, %.not215372
   br i1 %.not215, label %RCLASS_SINGLETON_P.exit.thread, label %233
 
-233:                                              ; preds = %RB_FL_TEST.exit268
+233:                                              ; preds = %RB_FL_TEST.exit269
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i64 noundef 17)
   br label %RCLASS_SINGLETON_P.exit.thread
 
@@ -999,42 +996,42 @@ RB_FL_TEST.exit268:                               ; preds = %230, %RB_FL_TEST.ex
 251:                                              ; preds = %248
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, i64 noundef 9)
   call fastcc void @dump_append_string_value(ptr noundef nonnull %1, i64 noundef %249)
-  br label %rbimpl_RB_TYPE_P_fastpath.exit.i274
+  br label %rbimpl_RB_TYPE_P_fastpath.exit.i275
 
 252:                                              ; preds = %248
   %253 = call i64 @rb_class_real(i64 noundef %0) #13
   %254 = call i64 @rb_mod_name(i64 noundef %253) #12
   %255 = and i64 %254, -5
   %.not370 = icmp eq i64 %255, 0
-  br i1 %.not370, label %rbimpl_RB_TYPE_P_fastpath.exit.i274, label %256
+  br i1 %.not370, label %rbimpl_RB_TYPE_P_fastpath.exit.i275, label %256
 
 256:                                              ; preds = %252
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.32, i64 noundef 21)
   %257 = inttoptr i64 %254 to ptr
   %258 = load i64, ptr %257, align 8, !tbaa !17, !noalias !63
   %259 = and i64 %258, 8192
-  %.not.i.i269 = icmp eq i64 %259, 0
+  %.not.i.i270 = icmp eq i64 %259, 0
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 24
-  br i1 %.not.i.i269, label %RSTRING_PTR.exit273, label %261
+  br i1 %.not.i.i270, label %RSTRING_PTR.exit274, label %261
 
 261:                                              ; preds = %256
   %.sroa.2.0.copyload.i = load ptr, ptr %260, align 8
-  br label %RSTRING_PTR.exit273
+  br label %RSTRING_PTR.exit274
 
-RSTRING_PTR.exit273:                              ; preds = %256, %261
-  %.sroa.2.0.i272 = phi ptr [ %.sroa.2.0.copyload.i, %261 ], [ %260, %256 ]
-  %262 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i272) #13
-  call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.2.0.i272, i64 noundef %262)
+RSTRING_PTR.exit274:                              ; preds = %256, %261
+  %.sroa.2.0.i273 = phi ptr [ %.sroa.2.0.copyload.i, %261 ], [ %260, %256 ]
+  %262 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i273) #13
+  call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.2.0.i273, i64 noundef %262)
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
-  br label %rbimpl_RB_TYPE_P_fastpath.exit.i274
+  br label %rbimpl_RB_TYPE_P_fastpath.exit.i275
 
-rbimpl_RB_TYPE_P_fastpath.exit.i274:              ; preds = %251, %RSTRING_PTR.exit273, %252
+rbimpl_RB_TYPE_P_fastpath.exit.i275:              ; preds = %251, %RSTRING_PTR.exit274, %252
   %263 = load i64, ptr %38, align 8, !tbaa !17
   %264 = and i64 %263, 8223
   %or.cond368 = icmp eq i64 %264, 8194
   br i1 %or.cond368, label %265, label %RCLASS_SINGLETON_P.exit.thread
 
-265:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i274
+265:                                              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i275
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.33, i64 noundef 18)
   br label %RCLASS_SINGLETON_P.exit.thread
 
@@ -1062,19 +1059,19 @@ rbimpl_RB_TYPE_P_fastpath.exit.i274:              ; preds = %251, %RSTRING_PTR.e
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 1)
   br label %RCLASS_SINGLETON_P.exit.thread
 
-RB_FL_TEST.exit279:                               ; preds = %100
+RB_FL_TEST.exit280:                               ; preds = %100
   %278 = and i64 %101, 31
-  %.not.i276 = icmp eq i64 %278, 27
+  %.not.i277 = icmp eq i64 %278, 27
   %279 = and i64 %101, 8192
   %.not210369 = icmp eq i64 %279, 0
-  %.not210 = or i1 %.not.i276, %.not210369
+  %.not210 = or i1 %.not.i277, %.not210369
   br i1 %.not210, label %281, label %280
 
-280:                                              ; preds = %RB_FL_TEST.exit279
+280:                                              ; preds = %RB_FL_TEST.exit280
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i64 noundef 17)
   br label %281
 
-281:                                              ; preds = %280, %RB_FL_TEST.exit279
+281:                                              ; preds = %280, %RB_FL_TEST.exit280
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.36, i64 noundef 10)
   %282 = call fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0)
   %283 = zext i32 %282 to i64
@@ -1103,7 +1100,7 @@ RB_FL_TEST.exit279:                               ; preds = %100
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i64 noundef 2)
   br label %dump_append_special_const.exit
 
-RCLASS_SINGLETON_P.exit.thread:                   ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i274, %265, %128, %131, %100, %286, %289, %281, %285, %266, %271, %246, %234, %236, %RB_FL_TEST.exit268, %233, %RB_FL_TEST.exit253, %207, %188, %192, %123, %vm_ci_mid.exit, %124, %105, %276, %132
+RCLASS_SINGLETON_P.exit.thread:                   ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i275, %265, %128, %131, %100, %286, %289, %281, %285, %266, %271, %246, %234, %236, %RB_FL_TEST.exit269, %233, %RB_FL_TEST.exit254, %207, %188, %192, %123, %vm_ci_mid.exit, %124, %105, %276, %132
   call void @rb_objspace_reachable_objects_from(i64 noundef %0, ptr noundef nonnull @reachable_object_i, ptr noundef nonnull %1) #12
   %293 = load i64, ptr %37, align 8, !tbaa !29
   %.not221 = icmp eq i64 %293, 0
@@ -1166,28 +1163,27 @@ RCLASS_SINGLETON_P.exit.thread:                   ; preds = %rbimpl_RB_TYPE_P_fa
 316:                                              ; preds = %313, %295
   %317 = call i64 @rb_obj_memsize_of(i64 noundef %0) #12
   %.not225 = icmp eq i64 %317, 0
-  br i1 %.not225, label %RB_FL_TEST.exit284, label %318
+  br i1 %.not225, label %RB_FL_TEST.exit285, label %318
 
 318:                                              ; preds = %316
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.44, i64 noundef 12)
   call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %317)
-  br label %RB_FL_TEST.exit284
+  br label %RB_FL_TEST.exit285
 
-RB_FL_TEST.exit284:                               ; preds = %318, %316
+RB_FL_TEST.exit285:                               ; preds = %318, %316
   %319 = load i64, ptr %38, align 8, !tbaa !17
   %320 = and i64 %319, 31
-  %.not.i281 = icmp eq i64 %320, 27
+  %.not.i282 = icmp eq i64 %320, 27
   %321 = and i64 %319, 512
   %.not226376 = icmp eq i64 %321, 0
-  %.not226 = or i1 %.not.i281, %.not226376
+  %.not226 = or i1 %.not.i282, %.not226376
   br i1 %.not226, label %329, label %322
 
-322:                                              ; preds = %RB_FL_TEST.exit284
+322:                                              ; preds = %RB_FL_TEST.exit285
   call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.45, i64 noundef 14)
   %323 = call i64 @rb_obj_id(i64 noundef %0) #12
-  %324 = and i64 %323, 1
-  %.not.i285 = icmp eq i64 %324, 0
-  br i1 %.not.i285, label %327, label %325
+  %324 = trunc i64 %323 to i1
+  br i1 %324, label %325, label %327
 
 325:                                              ; preds = %322
   %326 = ashr i64 %323, 1
@@ -1202,7 +1198,7 @@ rb_num2ulong_inline.exit:                         ; preds = %325, %327
   call fastcc void @dump_append_lu(ptr noundef nonnull %1, i64 noundef %.0.i286)
   br label %329
 
-329:                                              ; preds = %rb_num2ulong_inline.exit, %RB_FL_TEST.exit284
+329:                                              ; preds = %rb_num2ulong_inline.exit, %RB_FL_TEST.exit285
   %330 = call i64 @rb_obj_gc_flags(i64 noundef %0, ptr noundef nonnull %5, i64 noundef 48) #12
   %.not227 = icmp eq i64 %330, 0
   br i1 %.not227, label %344, label %331

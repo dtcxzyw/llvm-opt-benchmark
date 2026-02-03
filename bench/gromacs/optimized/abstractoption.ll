@@ -935,8 +935,8 @@ define void @_ZN3gmx21AbstractOptionStorage6finishEv(ptr noundef nonnull align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i64, ptr %13, align 8, !tbaa !15
   %15 = and i64 %14, 21
-  %or.cond19.not = icmp eq i64 %15, 16
-  br i1 %or.cond19.not, label %16, label %27
+  %or.cond18.not = icmp eq i64 %15, 16
+  br i1 %or.cond18.not, label %16, label %27
 
 16:                                               ; preds = %9
   %17 = tail call ptr @__cxa_allocate_exception(i64 24) #28
@@ -1016,8 +1016,8 @@ define void @_ZN3gmx21AbstractOptionStorage16setMinValueCountEi(ptr noundef nonn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = and i64 %7, 32
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %10, label %9
+  %.not21 = icmp eq i64 %8, 0
+  br i1 %.not21, label %10, label %9
 
 9:                                                ; preds = %2
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx21AbstractOptionStorage16setMinValueCountEiENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 176) #29
@@ -1143,88 +1143,87 @@ define void @_ZN3gmx21AbstractOptionStorage16setMaxValueCountEi(ptr noundef nonn
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %14, align 4, !tbaa !27
-  %15 = and i64 %7, 1
-  %16 = icmp ne i64 %15, 0
-  %17 = icmp ne i32 %1, -1
-  %or.cond = and i1 %17, %16
-  br i1 %or.cond, label %18, label %36
+  %15 = trunc i64 %7 to i1
+  %16 = icmp ne i32 %1, -1
+  %or.cond = and i1 %16, %15
+  br i1 %or.cond, label %17, label %35
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %0, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(98) %0)
-  %23 = load i32, ptr %14, align 4, !tbaa !27
-  %24 = icmp sgt i32 %22, %23
-  br i1 %24, label %25, label %36
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %0, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(98) %0)
+  %22 = load i32, ptr %14, align 4, !tbaa !27
+  %23 = icmp sgt i32 %21, %22
+  br i1 %23, label %24, label %35
 
-25:                                               ; preds = %18
-  %26 = tail call ptr @__cxa_allocate_exception(i64 24) #28
+24:                                               ; preds = %17
+  %25 = tail call ptr @__cxa_allocate_exception(i64 24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.5)
-          to label %27 unwind label %.thread
+          to label %26 unwind label %.thread
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %28 unwind label %.thread18
+          to label %27 unwind label %.thread18
 
-28:                                               ; preds = %27
+27:                                               ; preds = %26
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx21AbstractOptionStorage16setMaxValueCountEi, ptr %29, align 8, !tbaa !30
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx21AbstractOptionStorage16setMaxValueCountEi, ptr %28, align 8, !tbaa !30
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 193, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !31
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %26, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %30 unwind label %33
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %25, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %29 unwind label %32
 
-30:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr %26, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
-          to label %38 unwind label %33
+29:                                               ; preds = %27
+  invoke void @__cxa_throw(ptr %25, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #29
+          to label %37 unwind label %32
 
-.thread:                                          ; preds = %25
-  %31 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %24
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split
 
-.thread18:                                        ; preds = %27
-  %32 = landingpad { ptr, i32 }
+.thread18:                                        ; preds = %26
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   br label %.sink.split
 
-33:                                               ; preds = %28, %30
-  %.0 = phi i1 [ false, %30 ], [ true, %28 ]
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %27, %29
+  %.0 = phi i1 [ false, %29 ], [ true, %27 ]
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #28
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0, label %35, label %37
+  br i1 %.0, label %34, label %36
 
 .sink.split:                                      ; preds = %.thread, %.thread18
-  %.pn.pn17.ph = phi { ptr, i32 } [ %32, %.thread18 ], [ %31, %.thread ]
+  %.pn.pn17.ph = phi { ptr, i32 } [ %31, %.thread18 ], [ %30, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %35
+  br label %34
 
-35:                                               ; preds = %.sink.split, %33
-  %.pn.pn17 = phi { ptr, i32 } [ %34, %33 ], [ %.pn.pn17.ph, %.sink.split ]
-  call void @__cxa_free_exception(ptr %26) #28
-  br label %37
+34:                                               ; preds = %.sink.split, %32
+  %.pn.pn17 = phi { ptr, i32 } [ %33, %32 ], [ %.pn.pn17.ph, %.sink.split ]
+  call void @__cxa_free_exception(ptr %25) #28
+  br label %36
 
-36:                                               ; preds = %18, %13
+35:                                               ; preds = %17, %13
   ret void
 
-37:                                               ; preds = %33, %35
-  %.pn.pn16 = phi { ptr, i32 } [ %34, %33 ], [ %.pn.pn17, %35 ]
+36:                                               ; preds = %32, %34
+  %.pn.pn16 = phi { ptr, i32 } [ %33, %32 ], [ %.pn.pn17, %34 ]
   resume { ptr, i32 } %.pn.pn16
 
-38:                                               ; preds = %30
+37:                                               ; preds = %29
   unreachable
 }
 
@@ -1257,9 +1256,8 @@ define noundef zeroext i1 @_ZNK3gmx10OptionInfo5isSetEv(ptr noundef nonnull read
   %3 = load ptr, ptr %2, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !15
-  %6 = and i64 %5, 1
-  %7 = icmp ne i64 %6, 0
-  ret i1 %7
+  %6 = trunc i64 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

@@ -569,7 +569,7 @@ osq_channel_parameters.exit.i:                    ; preds = %228, %226, %200
   %241 = shl nuw nsw i32 1, %115
   %242 = and i32 %241, %114
   %.not189.i.i = icmp eq i32 %242, 0
-  %243 = icmp ne i32 %107, 0
+  %243 = trunc i32 %106 to i1
   br i1 %.not1908.i.i, label %.preheader.us.preheader.i.i, label %.loopexit.i
 
 .preheader.us.preheader.i.i:                      ; preds = %.preheader.lr.ph.i.i
@@ -1116,7 +1116,7 @@ update_residue_parameter.exit.us.i.i:             ; preds = %597, %595, %590, %5
   br label %600
 
 600:                                              ; preds = %update_residue_parameter.exit.us.i.i, %550
-  %or.cond7.us.i.i = and i1 %243, %or.cond.us.i.i
+  %or.cond7.us.i.i = and i1 %or.cond.us.i.i, %243
   br i1 %or.cond7.us.i.i, label %601, label %608
 
 601:                                              ; preds = %600

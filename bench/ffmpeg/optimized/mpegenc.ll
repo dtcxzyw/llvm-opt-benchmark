@@ -733,230 +733,229 @@ define internal range(i32 -2147483648, 1) i32 @mpeg_mux_write_packet(ptr noundef
   %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = load i32, ptr %19, align 8, !tbaa !48
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %26
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !89
-  %25 = and i32 %24, 1
-  %26 = icmp ne i32 %25, 0
-  br label %27
+  %25 = trunc i32 %24 to i1
+  br label %26
 
-27:                                               ; preds = %22, %2
-  %28 = phi i1 [ false, %2 ], [ %26, %22 ]
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %30 = load i32, ptr %29, align 8, !tbaa !90
-  %31 = sext i32 %30 to i64
-  %32 = tail call i64 @av_rescale(i64 noundef %31, i64 noundef 90000, i64 noundef 1000000) #9
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !91
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !92
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %38 = load i64, ptr %37, align 8, !tbaa !85
-  %39 = icmp eq i64 %38, -9223372036854775808
-  br i1 %39, label %40, label %._crit_edge
+26:                                               ; preds = %22, %2
+  %27 = phi i1 [ false, %2 ], [ %25, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %29 = load i32, ptr %28, align 8, !tbaa !90
+  %30 = sext i32 %29 to i64
+  %31 = tail call i64 @av_rescale(i64 noundef %30, i64 noundef 90000, i64 noundef 1000000) #9
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !91
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !92
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %37 = load i64, ptr %36, align 8, !tbaa !85
+  %38 = icmp eq i64 %37, -9223372036854775808
+  br i1 %38, label %39, label %._crit_edge
 
-._crit_edge:                                      ; preds = %27
-  %.pre123 = shl i64 %32, 32
+._crit_edge:                                      ; preds = %26
+  %.pre123 = shl i64 %31, 32
   %.pre124 = ashr exact i64 %.pre123, 32
-  %.pre125 = add nsw i64 %.pre124, %36
-  br label %66
+  %.pre125 = add nsw i64 %.pre124, %35
+  br label %65
 
-40:                                               ; preds = %27
-  %cond = icmp eq i64 %36, -9223372036854775808
-  br i1 %cond, label %55, label %41
+39:                                               ; preds = %26
+  %cond = icmp eq i64 %35, -9223372036854775808
+  br i1 %cond, label %54, label %40
 
-41:                                               ; preds = %40
-  %sext = shl i64 %32, 32
-  %42 = ashr exact i64 %sext, 32
-  %43 = icmp slt i64 %36, %42
-  br i1 %43, label %44, label %47
+40:                                               ; preds = %39
+  %sext = shl i64 %31, 32
+  %41 = ashr exact i64 %sext, 32
+  %42 = icmp slt i64 %35, %41
+  br i1 %42, label %43, label %46
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %46 = load i32, ptr %45, align 8, !tbaa !93
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %47, label %50
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %45 = load i32, ptr %44, align 8, !tbaa !93
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %46, label %49
 
-47:                                               ; preds = %44, %41
-  %48 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %49 = load i32, ptr %48, align 8, !tbaa !30
-  %.not112 = icmp eq i32 %49, 0
-  br i1 %.not112, label %58, label %50
+46:                                               ; preds = %43, %40
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %48 = load i32, ptr %47, align 8, !tbaa !30
+  %.not112 = icmp eq i32 %48, 0
+  br i1 %.not112, label %57, label %49
 
-50:                                               ; preds = %44, %47
-  %51 = sub nsw i64 0, %36
-  %52 = tail call i64 @av_rescale(i64 noundef %51, i64 noundef 1000000, i64 noundef 90000) #9
-  %53 = trunc i64 %52 to i32
-  %54 = add i32 %30, %53
-  store i32 %54, ptr %29, align 8, !tbaa !90
-  br label %55
+49:                                               ; preds = %43, %46
+  %50 = sub nsw i64 0, %35
+  %51 = tail call i64 @av_rescale(i64 noundef %50, i64 noundef 1000000, i64 noundef 90000) #9
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %29, %52
+  store i32 %53, ptr %28, align 8, !tbaa !90
+  br label %54
 
-55:                                               ; preds = %40, %50
-  %56 = phi i32 [ %30, %40 ], [ %54, %50 ]
-  store i64 0, ptr %37, align 8, !tbaa !85
-  %57 = sext i32 %56 to i64
-  br label %60
+54:                                               ; preds = %39, %49
+  %55 = phi i32 [ %29, %39 ], [ %53, %49 ]
+  store i64 0, ptr %36, align 8, !tbaa !85
+  %56 = sext i32 %55 to i64
+  br label %59
 
-58:                                               ; preds = %47
-  %59 = sub nsw i64 %36, %42
-  store i64 %59, ptr %37, align 8, !tbaa !85
-  store i32 0, ptr %29, align 8, !tbaa !90
-  br label %60
+57:                                               ; preds = %46
+  %58 = sub nsw i64 %35, %41
+  store i64 %58, ptr %36, align 8, !tbaa !85
+  store i32 0, ptr %28, align 8, !tbaa !90
+  br label %59
 
-60:                                               ; preds = %58, %55
-  %61 = phi i64 [ %59, %58 ], [ 0, %55 ]
-  %62 = phi i64 [ 0, %58 ], [ %57, %55 ]
-  %63 = tail call i64 @av_rescale(i64 noundef %62, i64 noundef 90000, i64 noundef 1000000) #9
-  %sext114 = shl i64 %63, 32
-  %64 = ashr exact i64 %sext114, 32
-  %65 = add nsw i64 %64, %36
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.33, i64 noundef %61, i64 noundef %65) #8
+59:                                               ; preds = %57, %54
+  %60 = phi i64 [ %58, %57 ], [ 0, %54 ]
+  %61 = phi i64 [ 0, %57 ], [ %56, %54 ]
+  %62 = tail call i64 @av_rescale(i64 noundef %61, i64 noundef 90000, i64 noundef 1000000) #9
+  %sext114 = shl i64 %62, 32
+  %63 = ashr exact i64 %sext114, 32
+  %64 = add nsw i64 %63, %35
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.33, i64 noundef %60, i64 noundef %64) #8
   %.pre = load i32, ptr %3, align 4, !tbaa !86
-  br label %66
+  br label %65
 
-66:                                               ; preds = %._crit_edge, %60
-  %.pre-phi126 = phi i64 [ %.pre125, %._crit_edge ], [ %65, %60 ]
-  %.pre-phi = phi i64 [ %.pre124, %._crit_edge ], [ %64, %60 ]
-  %67 = phi i32 [ %4, %._crit_edge ], [ %.pre, %60 ]
-  %.not115 = icmp eq i64 %36, -9223372036854775808
+65:                                               ; preds = %._crit_edge, %59
+  %.pre-phi126 = phi i64 [ %.pre125, %._crit_edge ], [ %64, %59 ]
+  %.pre-phi = phi i64 [ %.pre124, %._crit_edge ], [ %63, %59 ]
+  %66 = phi i32 [ %4, %._crit_edge ], [ %.pre, %59 ]
+  %.not115 = icmp eq i64 %35, -9223372036854775808
   %.099 = select i1 %.not115, i64 -9223372036854775808, i64 %.pre-phi126
-  %.not117 = icmp eq i64 %34, -9223372036854775808
-  %68 = add nsw i64 %.pre-phi, %34
-  %.097 = select i1 %.not117, i64 -9223372036854775808, i64 %68
-  %69 = sitofp i64 %.099 to double
-  %70 = fdiv nsz double %69, 9.000000e+04
-  %71 = sitofp i64 %.097 to double
-  %72 = fdiv nsz double %71, 9.000000e+04
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %74 = load i32, ptr %73, align 8, !tbaa !89
-  %75 = icmp ne i64 %.097, -9223372036854775808
-  %76 = zext i1 %75 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.34, double noundef %70, double noundef %72, i32 noundef %74, i32 noundef %67, i32 noundef %76) #8
-  %77 = load ptr, ptr %18, align 8, !tbaa !47
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !51
-  %80 = icmp eq i32 %79, 65555
-  br i1 %80, label %81, label %87
+  %.not117 = icmp eq i64 %33, -9223372036854775808
+  %67 = add nsw i64 %.pre-phi, %33
+  %.097 = select i1 %.not117, i64 -9223372036854775808, i64 %67
+  %68 = sitofp i64 %.099 to double
+  %69 = fdiv nsz double %68, 9.000000e+04
+  %70 = sitofp i64 %.097 to double
+  %71 = fdiv nsz double %70, 9.000000e+04
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %73 = load i32, ptr %72, align 8, !tbaa !89
+  %74 = icmp ne i64 %.097, -9223372036854775808
+  %75 = zext i1 %74 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.34, double noundef %69, double noundef %71, i32 noundef %73, i32 noundef %66, i32 noundef %75) #8
+  %76 = load ptr, ptr %18, align 8, !tbaa !47
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !51
+  %79 = icmp eq i32 %78, 65555
+  br i1 %79, label %80, label %86
 
-81:                                               ; preds = %66
-  %82 = icmp slt i32 %6, 3
-  br i1 %82, label %83, label %84
+80:                                               ; preds = %65
+  %81 = icmp slt i32 %6, 3
+  br i1 %81, label %82, label %83
 
-83:                                               ; preds = %81
+82:                                               ; preds = %80
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %6) #8
   br label %.loopexit
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %86 = add nsw i32 %6, -3
-  br label %87
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %85 = add nsw i32 %6, -3
+  br label %86
 
-87:                                               ; preds = %84, %66
-  %.096 = phi ptr [ %85, %84 ], [ %8, %66 ]
-  %.095 = phi i32 [ %86, %84 ], [ %6, %66 ]
-  %88 = load ptr, ptr %17, align 8, !tbaa !72
-  %89 = tail call i64 @av_fifo_can_write(ptr noundef %88) #8
-  %90 = sext i32 %.095 to i64
-  %91 = icmp ult i64 %89, %90
-  br i1 %91, label %92, label %97
+86:                                               ; preds = %83, %65
+  %.096 = phi ptr [ %84, %83 ], [ %8, %65 ]
+  %.095 = phi i32 [ %85, %83 ], [ %6, %65 ]
+  %87 = load ptr, ptr %17, align 8, !tbaa !72
+  %88 = tail call i64 @av_fifo_can_write(ptr noundef %87) #8
+  %89 = sext i32 %.095 to i64
+  %90 = icmp ult i64 %88, %89
+  br i1 %90, label %91, label %96
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %17, align 8, !tbaa !72
-  %94 = sub nuw i64 %90, %89
-  %95 = tail call i32 @av_fifo_grow2(ptr noundef %93, i64 noundef %94) #8
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %.loopexit, label %97
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %17, align 8, !tbaa !72
+  %93 = sub nuw i64 %89, %88
+  %94 = tail call i32 @av_fifo_grow2(ptr noundef %92, i64 noundef %93) #8
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %.loopexit, label %96
 
-97:                                               ; preds = %92, %87
-  %98 = tail call noalias ptr @av_mallocz(i64 noundef 32) #8
-  %.not119 = icmp eq ptr %98, null
-  br i1 %.not119, label %.loopexit, label %99
+96:                                               ; preds = %91, %86
+  %97 = tail call noalias ptr @av_mallocz(i64 noundef 32) #8
+  %.not119 = icmp eq ptr %97, null
+  br i1 %.not119, label %.loopexit, label %98
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %101 = load ptr, ptr %100, align 8, !tbaa !94
-  %.not120 = icmp eq ptr %101, null
-  br i1 %.not120, label %102, label %103
+98:                                               ; preds = %96
+  %99 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !94
+  %.not120 = icmp eq ptr %100, null
+  br i1 %.not120, label %101, label %102
 
-102:                                              ; preds = %99
-  store ptr %98, ptr %100, align 8, !tbaa !94
-  br label %107
+101:                                              ; preds = %98
+  store ptr %97, ptr %99, align 8, !tbaa !94
+  br label %106
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !95
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr %98, ptr %106, align 8, !tbaa !96
-  br label %107
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !95
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  store ptr %97, ptr %105, align 8, !tbaa !96
+  br label %106
 
-107:                                              ; preds = %103, %102
-  %108 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr %98, ptr %108, align 8, !tbaa !95
-  %109 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %110 = load ptr, ptr %109, align 8, !tbaa !98
-  %.not121 = icmp eq ptr %110, null
-  br i1 %.not121, label %111, label %112
+106:                                              ; preds = %102, %101
+  %107 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr %97, ptr %107, align 8, !tbaa !95
+  %108 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %109 = load ptr, ptr %108, align 8, !tbaa !98
+  %.not121 = icmp eq ptr %109, null
+  br i1 %.not121, label %110, label %111
 
-111:                                              ; preds = %107
-  store ptr %98, ptr %109, align 8, !tbaa !98
-  br label %112
+110:                                              ; preds = %106
+  store ptr %97, ptr %108, align 8, !tbaa !98
+  br label %111
 
-112:                                              ; preds = %111, %107
-  store i64 %.097, ptr %98, align 8, !tbaa !99
-  %113 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i64 %.099, ptr %113, align 8, !tbaa !100
-  %114 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i32 %.095, ptr %114, align 8, !tbaa !101
-  %115 = getelementptr inbounds nuw i8, ptr %98, i64 20
-  store i32 %.095, ptr %115, align 4, !tbaa !102
-  %116 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %117 = load i32, ptr %116, align 8, !tbaa !30
-  %118 = icmp ne i32 %117, 0
-  %or.cond = select i1 %118, i1 %28, i1 false
-  br i1 %or.cond, label %119, label %136
+111:                                              ; preds = %110, %106
+  store i64 %.097, ptr %97, align 8, !tbaa !99
+  %112 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 %.099, ptr %112, align 8, !tbaa !100
+  %113 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store i32 %.095, ptr %113, align 8, !tbaa !101
+  %114 = getelementptr inbounds nuw i8, ptr %97, i64 20
+  store i32 %.095, ptr %114, align 4, !tbaa !102
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %116 = load i32, ptr %115, align 8, !tbaa !30
+  %117 = icmp ne i32 %116, 0
+  %or.cond = select i1 %117, i1 %27, i1 false
+  br i1 %or.cond, label %118, label %135
 
-119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %121 = load i32, ptr %120, align 4, !tbaa !24
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %129, label %123
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %120 = load i32, ptr %119, align 4, !tbaa !24
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %128, label %122
 
-123:                                              ; preds = %119
-  br i1 %75, label %124, label %136
+122:                                              ; preds = %118
+  br i1 %74, label %123, label %135
 
-124:                                              ; preds = %123
-  %125 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  %126 = load i64, ptr %125, align 8, !tbaa !103
-  %127 = sub nsw i64 %.097, %126
-  %128 = icmp sgt i64 %127, 35999
-  br i1 %128, label %129, label %136
+123:                                              ; preds = %122
+  %124 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %125 = load i64, ptr %124, align 8, !tbaa !103
+  %126 = sub nsw i64 %.097, %125
+  %127 = icmp sgt i64 %126, 35999
+  br i1 %127, label %128, label %135
 
-129:                                              ; preds = %124, %119
-  %130 = load ptr, ptr %17, align 8, !tbaa !72
-  %131 = tail call i64 @av_fifo_can_read(ptr noundef %130) #8
-  %132 = trunc i64 %131 to i32
-  %133 = getelementptr inbounds nuw i8, ptr %17, i64 60
-  store i32 %132, ptr %133, align 4, !tbaa !104
-  %134 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i32 1, ptr %134, align 8, !tbaa !105
-  %135 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store i64 %.097, ptr %135, align 8, !tbaa !103
-  br label %136
+128:                                              ; preds = %123, %118
+  %129 = load ptr, ptr %17, align 8, !tbaa !72
+  %130 = tail call i64 @av_fifo_can_read(ptr noundef %129) #8
+  %131 = trunc i64 %130 to i32
+  %132 = getelementptr inbounds nuw i8, ptr %17, i64 60
+  store i32 %131, ptr %132, align 4, !tbaa !104
+  %133 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  store i32 1, ptr %133, align 8, !tbaa !105
+  %134 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  store i64 %.097, ptr %134, align 8, !tbaa !103
+  br label %135
 
-136:                                              ; preds = %123, %124, %129, %112
-  %137 = load ptr, ptr %17, align 8, !tbaa !72
-  %138 = tail call i32 @av_fifo_write(ptr noundef %137, ptr noundef %.096, i64 noundef %90) #8
-  br label %139
+135:                                              ; preds = %122, %123, %128, %111
+  %136 = load ptr, ptr %17, align 8, !tbaa !72
+  %137 = tail call i32 @av_fifo_write(ptr noundef %136, ptr noundef %.096, i64 noundef %89) #8
+  br label %138
 
-139:                                              ; preds = %139, %136
-  %140 = tail call fastcc i32 @output_packet(ptr noundef nonnull %0, i32 noundef 0)
-  %.not122 = icmp eq i32 %140, 0
-  br i1 %.not122, label %.loopexit, label %139
+138:                                              ; preds = %138, %135
+  %139 = tail call fastcc i32 @output_packet(ptr noundef nonnull %0, i32 noundef 0)
+  %.not122 = icmp eq i32 %139, 0
+  br i1 %.not122, label %.loopexit, label %138
 
-.loopexit:                                        ; preds = %139, %97, %92, %83
-  %.0 = phi i32 [ -22, %83 ], [ %95, %92 ], [ -12, %97 ], [ 0, %139 ]
+.loopexit:                                        ; preds = %138, %96, %91, %82
+  %.0 = phi i32 [ -22, %82 ], [ %94, %91 ], [ -12, %96 ], [ 0, %138 ]
   ret i32 %.0
 }
 

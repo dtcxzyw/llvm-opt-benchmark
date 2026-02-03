@@ -300,9 +300,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation1
   %16 = and i64 %13, -8
   %17 = inttoptr i64 %16 to ptr
   %18 = atomicrmw add ptr %17, i32 2 monotonic, align 4
-  %19 = and i32 %18, 1
-  %.not1.i.i = icmp eq i32 %19, 0
-  br i1 %.not1.i.i, label %20, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, align 8
@@ -322,15 +321,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %11, %15, 
   store i64 %28, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 8), align 8
   %29 = and i64 %28, 7
   %.not.i.i7 = icmp eq i64 %29, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %30
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8, label %30
 
 30:                                               ; preds = %26
   %31 = and i64 %28, -8
   %32 = inttoptr i64 %31 to ptr
   %33 = atomicrmw add ptr %32, i32 2 monotonic, align 4
-  %34 = and i32 %33, 1
-  %.not1.i.i8 = icmp eq i32 %34, 0
-  br i1 %.not1.i.i8, label %35, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
+  %34 = trunc i32 %33 to i1
+  br i1 %34, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8, label %35
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 8), align 8
@@ -338,27 +336,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %11, %15, 
   %38 = and i64 %37, -8
   %39 = inttoptr i64 %38 to ptr
   store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 8), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9: ; preds = %26, %30, %35
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8: ; preds = %26, %30, %35
   %40 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE)
           to label %41 unwind label %73
 
-41:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
+41:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 16), align 8
   %44 = and i64 %43, 7
-  %.not.i.i10 = icmp eq i64 %44, 0
-  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit12, label %45
+  %.not.i.i9 = icmp eq i64 %44, 0
+  br i1 %.not.i.i9, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, label %45
 
 45:                                               ; preds = %41
   %46 = and i64 %43, -8
   %47 = inttoptr i64 %46 to ptr
   %48 = atomicrmw add ptr %47, i32 2 monotonic, align 4
-  %49 = and i32 %48, 1
-  %.not1.i.i11 = icmp eq i32 %49, 0
-  br i1 %.not1.i.i11, label %50, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit12
+  %49 = trunc i32 %48 to i1
+  br i1 %49, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 16), align 8
@@ -366,14 +363,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9: ; preds = %26, %30,
   %53 = and i64 %52, -8
   %54 = inttoptr i64 %53 to ptr
   store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 16), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit12
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit12: ; preds = %41, %45, %50
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %41, %45, %50
   %55 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenELm3EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes) #19
   br label %56
 
-56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit12, %6, %2
+56:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, %6, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %57 = load i64, ptr %1, align 8, !noalias !7
   store i64 %57, ptr %3, align 8, !alias.scope !7
@@ -385,9 +382,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit12: ; preds = %41, %45
   %60 = and i64 %57, -8
   %61 = inttoptr i64 %60 to ptr
   %62 = atomicrmw add ptr %61, i32 2 monotonic, align 4, !noalias !7
-  %63 = and i32 %62, 1
-  %.not1.i.i.i = icmp eq i32 %63, 0
-  br i1 %.not1.i.i.i, label %64, label %_ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %_ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit, label %64
 
 64:                                               ; preds = %59
   store ptr %61, ptr %3, align 8, !alias.scope !7
@@ -401,8 +397,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
   %66 = load ptr, ptr %3, align 8
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 7
-  %.not.i.i13 = icmp eq i64 %68, 0
-  br i1 %.not.i.i13, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %69
+  %.not.i.i11 = icmp eq i64 %68, 0
+  br i1 %.not.i.i11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %69
 
 69:                                               ; preds = %65
   %70 = and i64 %67, -8
@@ -413,35 +409,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit: ; pr
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %65, %69
   ret void
 
-73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %.05 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 16), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 8), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ]
+73:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %.05 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 16), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit8 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes, i64 8), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ]
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %75
 
-75:                                               ; preds = %73, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15
-  %76 = phi ptr [ %.05, %73 ], [ %77, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15 ]
+75:                                               ; preds = %73, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13
+  %76 = phi ptr [ %.05, %73 ], [ %77, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -8
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = and i64 %79, 7
-  %.not.i.i14 = icmp eq i64 %80, 0
-  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15, label %81
+  %.not.i.i12 = icmp eq i64 %80, 0
+  br i1 %.not.i.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13, label %81
 
 81:                                               ; preds = %75
   %82 = and i64 %79, -8
   %83 = inttoptr i64 %82 to ptr
   %84 = atomicrmw sub ptr %83, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15: ; preds = %75, %81
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13: ; preds = %75, %81
   %85 = icmp eq ptr %77, @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes
   br i1 %85, label %.loopexit, label %75
 
-.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15, %.thread
-  %86 = phi { ptr, i32 } [ %10, %.thread ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15 ]
+.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13, %.thread
+  %86 = phi { ptr, i32 } [ %10, %.thread ], [ %74, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit13 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyEE12validSchemes) #19
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15
 
 87:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17PxOsdMeshTopology9GetSchemeEv.exit
   %88 = landingpad { ptr, i32 }
@@ -449,16 +445,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15: ; preds = %75, %81
   %89 = load ptr, ptr %3, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %90, 7
-  %.not.i.i16 = icmp eq i64 %91, 0
-  br i1 %.not.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17, label %92
+  %.not.i.i14 = icmp eq i64 %91, 0
+  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15, label %92
 
 92:                                               ; preds = %87
   %93 = and i64 %90, -8
   %94 = inttoptr i64 %93 to ptr
   %95 = atomicrmw sub ptr %94, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17: ; preds = %92, %87, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit15: ; preds = %92, %87, %.loopexit
   %.pn = phi { ptr, i32 } [ %86, %.loopexit ], [ %88, %87 ], [ %88, %92 ]
   resume { ptr, i32 } %.pn
 }
@@ -497,9 +493,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %15 = and i64 %12, -8
   %16 = inttoptr i64 %15 to ptr
   %17 = atomicrmw add ptr %16, i32 2 monotonic, align 4
-  %18 = and i32 %17, 1
-  %.not1.i.i = icmp eq i32 %18, 0
-  br i1 %.not1.i.i, label %19, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %18 = trunc i32 %17 to i1
+  br i1 %18, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %19
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations, align 8
@@ -519,15 +514,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %10, %14, 
   store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations, i64 8), align 8
   %28 = and i64 %27, 7
   %.not.i.i4 = icmp eq i64 %28, 0
-  br i1 %.not.i.i4, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit6, label %29
+  br i1 %.not.i.i4, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit5, label %29
 
 29:                                               ; preds = %25
   %30 = and i64 %27, -8
   %31 = inttoptr i64 %30 to ptr
   %32 = atomicrmw add ptr %31, i32 2 monotonic, align 4
-  %33 = and i32 %32, 1
-  %.not1.i.i5 = icmp eq i32 %33, 0
-  br i1 %.not1.i.i5, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit6
+  %33 = trunc i32 %32 to i1
+  br i1 %33, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit5, label %34
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations, i64 8), align 8
@@ -535,14 +529,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %10, %14, 
   %37 = and i64 %36, -8
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations, i64 8), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit6
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit5
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit6: ; preds = %25, %29, %34
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit5: ; preds = %25, %29, %34
   %39 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenELm2EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations) #19
   br label %40
 
-40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit6, %5, %2
+40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit5, %5, %2
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation14_ValidateTokenILm2EEEvNS0_4CodeEPKcRKNS_7TfTokenERKSt5arrayIS5_XT_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(16) @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations)
   ret void
@@ -553,8 +547,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit6: ; preds = %25, %29,
   %44 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyEE17validOrientations, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 7
-  %.not.i.i7 = icmp eq i64 %46, 0
-  br i1 %.not.i.i7, label %.loopexit, label %47
+  %.not.i.i6 = icmp eq i64 %46, 0
+  br i1 %.not.i.i6, label %.loopexit, label %47
 
 47:                                               ; preds = %42
   %48 = and i64 %45, -8
@@ -616,9 +610,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %23 = and i64 %20, -8
   %24 = inttoptr i64 %23 to ptr
   %25 = atomicrmw add ptr %24, i32 2 monotonic, align 4
-  %26 = and i32 %25, 1
-  %.not1.i.i = icmp eq i32 %26, 0
-  br i1 %.not1.i.i, label %27, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %26 = trunc i32 %25 to i1
+  br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, align 8
@@ -638,15 +631,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   store i64 %35, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, i64 8), align 8
   %36 = and i64 %35, 7
   %.not.i.i8 = icmp eq i64 %36, 0
-  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, label %37
+  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %37
 
 37:                                               ; preds = %33
   %38 = and i64 %35, -8
   %39 = inttoptr i64 %38 to ptr
   %40 = atomicrmw add ptr %39, i32 2 monotonic, align 4
-  %41 = and i32 %40, 1
-  %.not1.i.i9 = icmp eq i32 %41, 0
-  br i1 %.not1.i.i9, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, i64 8), align 8
@@ -654,22 +646,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   %45 = and i64 %44, -8
   %46 = inttoptr i64 %45 to ptr
   store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, i64 8), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %37, %42
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9: ; preds = %33, %37, %42
   %47 = load i64, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE5empty, align 8
   store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, i64 16), align 8
   %48 = and i64 %47, 7
-  %.not.i.i11 = icmp eq i64 %48, 0
-  br i1 %.not.i.i11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %49
+  %.not.i.i10 = icmp eq i64 %48, 0
+  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %49
 
-49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
   %50 = and i64 %47, -8
   %51 = inttoptr i64 %50 to ptr
   %52 = atomicrmw add ptr %51, i32 2 monotonic, align 4
-  %53 = and i32 %52, 1
-  %.not1.i.i12 = icmp eq i32 %53, 0
-  br i1 %.not1.i.i12, label %54, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  %53 = trunc i32 %52 to i1
+  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %54
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, i64 16), align 8
@@ -677,14 +668,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %37
   %57 = and i64 %56, -8
   %58 = inttoptr i64 %57 to ptr
   store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, i64 16), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, %49, %54
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, %49, %54
   %59 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenELm3EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision) #19
   br label %60
 
-60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %13, %10
+60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, %13, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %62 = load i64, ptr %61, align 8, !noalias !10
@@ -697,9 +688,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32px
   %65 = and i64 %62, -8
   %66 = inttoptr i64 %65 to ptr
   %67 = atomicrmw add ptr %66, i32 2 monotonic, align 4, !noalias !10
-  %68 = and i32 %67, 1
-  %.not1.i.i.i = icmp eq i32 %68, 0
-  br i1 %.not1.i.i.i, label %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags22GetTriangleSubdivisionEv.exit
+  %68 = trunc i32 %67 to i1
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags22GetTriangleSubdivisionEv.exit, label %69
 
 69:                                               ; preds = %64
   store ptr %66, ptr %3, align 8, !alias.scope !10
@@ -713,8 +703,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags22GetTriangleSubdivisionE
   %71 = load ptr, ptr %3, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 7
-  %.not.i.i14 = icmp eq i64 %73, 0
-  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %74
+  %.not.i.i12 = icmp eq i64 %73, 0
+  br i1 %.not.i.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %74
 
 74:                                               ; preds = %70
   %75 = and i64 %72, -8
@@ -731,8 +721,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %70, %74
   %80 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = and i64 %81, 7
-  %.not.i.i15 = icmp eq i64 %82, 0
-  br i1 %.not.i.i15, label %.loopexit, label %83
+  %.not.i.i13 = icmp eq i64 %82, 0
+  br i1 %.not.i.i13, label %.loopexit, label %83
 
 83:                                               ; preds = %78
   %84 = and i64 %81, -8
@@ -743,7 +733,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %70, %74
 .loopexit:                                        ; preds = %83, %78, %.thread
   %87 = phi { ptr, i32 } [ %17, %.thread ], [ %79, %78 ], [ %79, %83 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyEE24validTriangleSubdivision) #19
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16
 
 88:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags22GetTriangleSubdivisionEv.exit
   %89 = landingpad { ptr, i32 }
@@ -751,16 +741,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %70, %74
   %90 = load ptr, ptr %3, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 7
-  %.not.i.i17 = icmp eq i64 %92, 0
-  br i1 %.not.i.i17, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18, label %93
+  %.not.i.i15 = icmp eq i64 %92, 0
+  br i1 %.not.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16, label %93
 
 93:                                               ; preds = %88
   %94 = and i64 %91, -8
   %95 = inttoptr i64 %94 to ptr
   %96 = atomicrmw sub ptr %95, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18: ; preds = %93, %88, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16: ; preds = %93, %88, %.loopexit
   %.pn = phi { ptr, i32 } [ %87, %.loopexit ], [ %89, %88 ], [ %89, %93 ]
   resume { ptr, i32 } %.pn
 }
@@ -813,9 +803,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %23 = and i64 %20, -8
   %24 = inttoptr i64 %23 to ptr
   %25 = atomicrmw add ptr %24, i32 2 monotonic, align 4
-  %26 = and i32 %25, 1
-  %.not1.i.i = icmp eq i32 %26, 0
-  br i1 %.not1.i.i, label %27, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %26 = trunc i32 %25 to i1
+  br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, align 8
@@ -835,15 +824,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   store i64 %35, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 8), align 8
   %36 = and i64 %35, 7
   %.not.i.i8 = icmp eq i64 %36, 0
-  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, label %37
+  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %37
 
 37:                                               ; preds = %33
   %38 = and i64 %35, -8
   %39 = inttoptr i64 %38 to ptr
   %40 = atomicrmw add ptr %39, i32 2 monotonic, align 4
-  %41 = and i32 %40, 1
-  %.not1.i.i9 = icmp eq i32 %41, 0
-  br i1 %.not1.i.i9, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 8), align 8
@@ -851,27 +839,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   %45 = and i64 %44, -8
   %46 = inttoptr i64 %45 to ptr
   store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 8), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %37, %42
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9: ; preds = %33, %37, %42
   %47 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE)
           to label %48 unwind label %93
 
-48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %50 = load i64, ptr %49, align 8
   store i64 %50, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 16), align 8
   %51 = and i64 %50, 7
-  %.not.i.i11 = icmp eq i64 %51, 0
-  br i1 %.not.i.i11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %52
+  %.not.i.i10 = icmp eq i64 %51, 0
+  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %52
 
 52:                                               ; preds = %48
   %53 = and i64 %50, -8
   %54 = inttoptr i64 %53 to ptr
   %55 = atomicrmw add ptr %54, i32 2 monotonic, align 4
-  %56 = and i32 %55, 1
-  %.not1.i.i12 = icmp eq i32 %56, 0
-  br i1 %.not1.i.i12, label %57, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  %56 = trunc i32 %55 to i1
+  br i1 %56, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %57
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 16), align 8
@@ -879,22 +866,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %37
   %60 = and i64 %59, -8
   %61 = inttoptr i64 %60 to ptr
   store ptr %61, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 16), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %48, %52, %57
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11: ; preds = %48, %52, %57
   %62 = load i64, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE5empty, align 8
   store i64 %62, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 24), align 8
   %63 = and i64 %62, 7
-  %.not.i.i14 = icmp eq i64 %63, 0
-  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16, label %64
+  %.not.i.i12 = icmp eq i64 %63, 0
+  br i1 %.not.i.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %64
 
-64:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+64:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11
   %65 = and i64 %62, -8
   %66 = inttoptr i64 %65 to ptr
   %67 = atomicrmw add ptr %66, i32 2 monotonic, align 4
-  %68 = and i32 %67, 1
-  %.not1.i.i15 = icmp eq i32 %68, 0
-  br i1 %.not1.i.i15, label %69, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16
+  %68 = trunc i32 %67 to i1
+  br i1 %68, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 24), align 8
@@ -902,14 +888,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %48, %52
   %72 = and i64 %71, -8
   %73 = inttoptr i64 %72 to ptr
   store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 24), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %64, %69
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, %64, %69
   %74 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenELm4EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation) #19
   br label %75
 
-75:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16, %13, %10
+75:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %13, %10
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %77 = load i64, ptr %76, align 8, !noalias !13
@@ -922,9 +908,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16: ; preds = %_ZN32px
   %80 = and i64 %77, -8
   %81 = inttoptr i64 %80 to ptr
   %82 = atomicrmw add ptr %81, i32 2 monotonic, align 4, !noalias !13
-  %83 = and i32 %82, 1
-  %.not1.i.i.i = icmp eq i32 %83, 0
-  br i1 %.not1.i.i.i, label %84, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags26GetVertexInterpolationRuleEv.exit
+  %83 = trunc i32 %82 to i1
+  br i1 %83, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags26GetVertexInterpolationRuleEv.exit, label %84
 
 84:                                               ; preds = %79
   store ptr %81, ptr %3, align 8, !alias.scope !13
@@ -938,8 +923,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags26GetVertexInterpolationR
   %86 = load ptr, ptr %3, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %87, 7
-  %.not.i.i17 = icmp eq i64 %88, 0
-  br i1 %.not.i.i17, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %89
+  %.not.i.i14 = icmp eq i64 %88, 0
+  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %89
 
 89:                                               ; preds = %85
   %90 = and i64 %87, -8
@@ -950,35 +935,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags26GetVertexInterpolationR
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %85, %89
   ret void
 
-93:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %.05 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 16), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 8), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ]
+93:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %.05 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 16), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation, i64 8), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ]
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %95
 
-95:                                               ; preds = %93, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19
-  %96 = phi ptr [ %.05, %93 ], [ %97, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19 ]
+95:                                               ; preds = %93, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16
+  %96 = phi ptr [ %.05, %93 ], [ %97, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16 ]
   %97 = getelementptr inbounds i8, ptr %96, i64 -8
   %98 = load ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, 7
-  %.not.i.i18 = icmp eq i64 %100, 0
-  br i1 %.not.i.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19, label %101
+  %.not.i.i15 = icmp eq i64 %100, 0
+  br i1 %.not.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16, label %101
 
 101:                                              ; preds = %95
   %102 = and i64 %99, -8
   %103 = inttoptr i64 %102 to ptr
   %104 = atomicrmw sub ptr %103, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19: ; preds = %95, %101
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16: ; preds = %95, %101
   %105 = icmp eq ptr %97, @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation
   br i1 %105, label %.loopexit, label %95
 
-.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19, %.thread
-  %106 = phi { ptr, i32 } [ %17, %.thread ], [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19 ]
+.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16, %.thread
+  %106 = phi { ptr, i32 } [ %17, %.thread ], [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyEE24validVertexInterpolation) #19
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit21
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18
 
 107:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags26GetVertexInterpolationRuleEv.exit
   %108 = landingpad { ptr, i32 }
@@ -986,16 +971,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit19: ; preds = %95, %101
   %109 = load ptr, ptr %3, align 8
   %110 = ptrtoint ptr %109 to i64
   %111 = and i64 %110, 7
-  %.not.i.i20 = icmp eq i64 %111, 0
-  br i1 %.not.i.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit21, label %112
+  %.not.i.i17 = icmp eq i64 %111, 0
+  br i1 %.not.i.i17, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18, label %112
 
 112:                                              ; preds = %107
   %113 = and i64 %110, -8
   %114 = inttoptr i64 %113 to ptr
   %115 = atomicrmw sub ptr %114, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit21
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit21: ; preds = %112, %107, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18: ; preds = %112, %107, %.loopexit
   %.pn = phi { ptr, i32 } [ %106, %.loopexit ], [ %108, %107 ], [ %108, %112 ]
   resume { ptr, i32 } %.pn
 }
@@ -1048,9 +1033,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation3
   %23 = and i64 %20, -8
   %24 = inttoptr i64 %23 to ptr
   %25 = atomicrmw add ptr %24, i32 2 monotonic, align 4
-  %26 = and i32 %25, 1
-  %.not1.i.i = icmp eq i32 %26, 0
-  br i1 %.not1.i.i, label %27, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %26 = trunc i32 %25 to i1
+  br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, align 8
@@ -1069,15 +1053,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   store i64 %34, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 8), align 8
   %35 = and i64 %34, 7
   %.not.i.i8 = icmp eq i64 %35, 0
-  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, label %36
+  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %36
 
 36:                                               ; preds = %33
   %37 = and i64 %34, -8
   %38 = inttoptr i64 %37 to ptr
   %39 = atomicrmw add ptr %38, i32 2 monotonic, align 4
-  %40 = and i32 %39, 1
-  %.not1.i.i9 = icmp eq i32 %40, 0
-  br i1 %.not1.i.i9, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 8), align 8
@@ -1085,27 +1068,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   %44 = and i64 %43, -8
   %45 = inttoptr i64 %44 to ptr
   store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 8), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %36, %41
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9: ; preds = %33, %36, %41
   %46 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE)
           to label %47 unwind label %137
 
-47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 16), align 8
   %50 = and i64 %49, 7
-  %.not.i.i11 = icmp eq i64 %50, 0
-  br i1 %.not.i.i11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %51
+  %.not.i.i10 = icmp eq i64 %50, 0
+  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %51
 
 51:                                               ; preds = %47
   %52 = and i64 %49, -8
   %53 = inttoptr i64 %52 to ptr
   %54 = atomicrmw add ptr %53, i32 2 monotonic, align 4
-  %55 = and i32 %54, 1
-  %.not1.i.i12 = icmp eq i32 %55, 0
-  br i1 %.not1.i.i12, label %56, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  %55 = trunc i32 %54 to i1
+  br i1 %55, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %56
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 16), align 8
@@ -1113,27 +1095,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %36
   %59 = and i64 %58, -8
   %60 = inttoptr i64 %59 to ptr
   store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 16), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %47, %51, %56
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11: ; preds = %47, %51, %56
   %61 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE)
           to label %62 unwind label %137
 
-62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %64 = load i64, ptr %63, align 8
   store i64 %64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 24), align 8
   %65 = and i64 %64, 7
-  %.not.i.i14 = icmp eq i64 %65, 0
-  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16, label %66
+  %.not.i.i12 = icmp eq i64 %65, 0
+  br i1 %.not.i.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %66
 
 66:                                               ; preds = %62
   %67 = and i64 %64, -8
   %68 = inttoptr i64 %67 to ptr
   %69 = atomicrmw add ptr %68, i32 2 monotonic, align 4
-  %70 = and i32 %69, 1
-  %.not1.i.i15 = icmp eq i32 %70, 0
-  br i1 %.not1.i.i15, label %71, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16
+  %70 = trunc i32 %69 to i1
+  br i1 %70, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %71
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 24), align 8
@@ -1141,27 +1122,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %47, %51
   %74 = and i64 %73, -8
   %75 = inttoptr i64 %74 to ptr
   store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 24), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16: ; preds = %62, %66, %71
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %62, %66, %71
   %76 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE)
           to label %77 unwind label %137
 
-77:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16
+77:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %79 = load i64, ptr %78, align 8
   store i64 %79, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 32), align 8
   %80 = and i64 %79, 7
-  %.not.i.i17 = icmp eq i64 %80, 0
-  br i1 %.not.i.i17, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19, label %81
+  %.not.i.i14 = icmp eq i64 %80, 0
+  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15, label %81
 
 81:                                               ; preds = %77
   %82 = and i64 %79, -8
   %83 = inttoptr i64 %82 to ptr
   %84 = atomicrmw add ptr %83, i32 2 monotonic, align 4
-  %85 = and i32 %84, 1
-  %.not1.i.i18 = icmp eq i32 %85, 0
-  br i1 %.not1.i.i18, label %86, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19
+  %85 = trunc i32 %84 to i1
+  br i1 %85, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15, label %86
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 32), align 8
@@ -1169,27 +1149,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16: ; preds = %62, %66
   %89 = and i64 %88, -8
   %90 = inttoptr i64 %89 to ptr
   store ptr %90, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 32), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19: ; preds = %77, %81, %86
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15: ; preds = %77, %81, %86
   %91 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37PxOsdOpenSubdivTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE)
           to label %92 unwind label %137
 
-92:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19
+92:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load i64, ptr %93, align 8
   store i64 %94, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 40), align 8
   %95 = and i64 %94, 7
-  %.not.i.i20 = icmp eq i64 %95, 0
-  br i1 %.not.i.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22, label %96
+  %.not.i.i16 = icmp eq i64 %95, 0
+  br i1 %.not.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17, label %96
 
 96:                                               ; preds = %92
   %97 = and i64 %94, -8
   %98 = inttoptr i64 %97 to ptr
   %99 = atomicrmw add ptr %98, i32 2 monotonic, align 4
-  %100 = and i32 %99, 1
-  %.not1.i.i21 = icmp eq i32 %100, 0
-  br i1 %.not1.i.i21, label %101, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22
+  %100 = trunc i32 %99 to i1
+  br i1 %100, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17, label %101
 
 101:                                              ; preds = %96
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 40), align 8
@@ -1197,22 +1176,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19: ; preds = %77, %81
   %104 = and i64 %103, -8
   %105 = inttoptr i64 %104 to ptr
   store ptr %105, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 40), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22: ; preds = %92, %96, %101
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17: ; preds = %92, %96, %101
   %106 = load i64, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE5empty, align 8
   store i64 %106, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 48), align 8
   %107 = and i64 %106, 7
-  %.not.i.i23 = icmp eq i64 %107, 0
-  br i1 %.not.i.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25, label %108
+  %.not.i.i18 = icmp eq i64 %107, 0
+  br i1 %.not.i.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19, label %108
 
-108:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22
+108:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17
   %109 = and i64 %106, -8
   %110 = inttoptr i64 %109 to ptr
   %111 = atomicrmw add ptr %110, i32 2 monotonic, align 4
-  %112 = and i32 %111, 1
-  %.not1.i.i24 = icmp eq i32 %112, 0
-  br i1 %.not1.i.i24, label %113, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25
+  %112 = trunc i32 %111 to i1
+  br i1 %112, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19, label %113
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 48), align 8
@@ -1220,14 +1198,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22: ; preds = %92, %96
   %116 = and i64 %115, -8
   %117 = inttoptr i64 %116 to ptr
   store ptr %117, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 48), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit22, %108, %113
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit17, %108, %113
   %118 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenELm7EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation) #19
   br label %119
 
-119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25, %13, %10
+119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19, %13, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %121 = load i64, ptr %120, align 8, !noalias !16
@@ -1240,9 +1218,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit25: ; preds = %_ZN32px
   %124 = and i64 %121, -8
   %125 = inttoptr i64 %124 to ptr
   %126 = atomicrmw add ptr %125, i32 2 monotonic, align 4, !noalias !16
-  %127 = and i32 %126, 1
-  %.not1.i.i.i = icmp eq i32 %127, 0
-  br i1 %.not1.i.i.i, label %128, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags31GetFaceVaryingInterpolationRuleEv.exit
+  %127 = trunc i32 %126 to i1
+  br i1 %127, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags31GetFaceVaryingInterpolationRuleEv.exit, label %128
 
 128:                                              ; preds = %123
   store ptr %125, ptr %3, align 8, !alias.scope !16
@@ -1256,8 +1233,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags31GetFaceVaryingInterpola
   %130 = load ptr, ptr %3, align 8
   %131 = ptrtoint ptr %130 to i64
   %132 = and i64 %131, 7
-  %.not.i.i26 = icmp eq i64 %132, 0
-  br i1 %.not.i.i26, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %133
+  %.not.i.i20 = icmp eq i64 %132, 0
+  br i1 %.not.i.i20, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %133
 
 133:                                              ; preds = %129
   %134 = and i64 %131, -8
@@ -1268,35 +1245,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags31GetFaceVaryingInterpola
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %129, %133
   ret void
 
-137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
-  %.05 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 40), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit19 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 32), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 24), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 16), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 8), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ]
+137:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %.05 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 40), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit15 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 32), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 24), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 16), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation, i64 8), %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ]
   %138 = landingpad { ptr, i32 }
           cleanup
   br label %139
 
-139:                                              ; preds = %137, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28
-  %140 = phi ptr [ %.05, %137 ], [ %141, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28 ]
+139:                                              ; preds = %137, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22
+  %140 = phi ptr [ %.05, %137 ], [ %141, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ]
   %141 = getelementptr inbounds i8, ptr %140, i64 -8
   %142 = load ptr, ptr %141, align 8
   %143 = ptrtoint ptr %142 to i64
   %144 = and i64 %143, 7
-  %.not.i.i27 = icmp eq i64 %144, 0
-  br i1 %.not.i.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28, label %145
+  %.not.i.i21 = icmp eq i64 %144, 0
+  br i1 %.not.i.i21, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22, label %145
 
 145:                                              ; preds = %139
   %146 = and i64 %143, -8
   %147 = inttoptr i64 %146 to ptr
   %148 = atomicrmw sub ptr %147, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28: ; preds = %139, %145
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22: ; preds = %139, %145
   %149 = icmp eq ptr %141, @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation
   br i1 %149, label %.loopexit, label %139
 
-.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28, %.thread
-  %150 = phi { ptr, i32 } [ %17, %.thread ], [ %138, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28 ]
+.loopexit:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22, %.thread
+  %150 = phi { ptr, i32 } [ %17, %.thread ], [ %138, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyEE29validFaceVaryingInterpolation) #19
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit24
 
 151:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags31GetFaceVaryingInterpolationRuleEv.exit
   %152 = landingpad { ptr, i32 }
@@ -1304,16 +1281,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit28: ; preds = %139, %145
   %153 = load ptr, ptr %3, align 8
   %154 = ptrtoint ptr %153 to i64
   %155 = and i64 %154, 7
-  %.not.i.i29 = icmp eq i64 %155, 0
-  br i1 %.not.i.i29, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30, label %156
+  %.not.i.i23 = icmp eq i64 %155, 0
+  br i1 %.not.i.i23, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit24, label %156
 
 156:                                              ; preds = %151
   %157 = and i64 %154, -8
   %158 = inttoptr i64 %157 to ptr
   %159 = atomicrmw sub ptr %158, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit24
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit30: ; preds = %156, %151, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit24: ; preds = %156, %151, %.loopexit
   %.pn = phi { ptr, i32 } [ %150, %.loopexit ], [ %152, %151 ], [ %152, %156 ]
   resume { ptr, i32 } %.pn
 }
@@ -1366,9 +1343,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation2
   %23 = and i64 %20, -8
   %24 = inttoptr i64 %23 to ptr
   %25 = atomicrmw add ptr %24, i32 2 monotonic, align 4
-  %26 = and i32 %25, 1
-  %.not1.i.i = icmp eq i32 %26, 0
-  br i1 %.not1.i.i, label %27, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %26 = trunc i32 %25 to i1
+  br i1 %26, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, align 8
@@ -1388,15 +1364,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   store i64 %35, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, i64 8), align 8
   %36 = and i64 %35, 7
   %.not.i.i8 = icmp eq i64 %36, 0
-  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, label %37
+  br i1 %.not.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %37
 
 37:                                               ; preds = %33
   %38 = and i64 %35, -8
   %39 = inttoptr i64 %38 to ptr
   %40 = atomicrmw add ptr %39, i32 2 monotonic, align 4
-  %41 = and i32 %40, 1
-  %.not1.i.i9 = icmp eq i32 %41, 0
-  br i1 %.not1.i.i9, label %42, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, i64 8), align 8
@@ -1404,22 +1379,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %18, %22, 
   %45 = and i64 %44, -8
   %46 = inttoptr i64 %45 to ptr
   store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, i64 8), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %37, %42
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9: ; preds = %33, %37, %42
   %47 = load i64, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE5empty, align 8
   store i64 %47, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, i64 16), align 8
   %48 = and i64 %47, 7
-  %.not.i.i11 = icmp eq i64 %48, 0
-  br i1 %.not.i.i11, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, label %49
+  %.not.i.i10 = icmp eq i64 %48, 0
+  br i1 %.not.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %49
 
-49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10
+49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9
   %50 = and i64 %47, -8
   %51 = inttoptr i64 %50 to ptr
   %52 = atomicrmw add ptr %51, i32 2 monotonic, align 4
-  %53 = and i32 %52, 1
-  %.not1.i.i12 = icmp eq i32 %53, 0
-  br i1 %.not1.i.i12, label %54, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  %53 = trunc i32 %52 to i1
+  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, label %54
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, i64 16), align 8
@@ -1427,14 +1401,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10: ; preds = %33, %37
   %57 = and i64 %56, -8
   %58 = inttoptr i64 %57 to ptr
   store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, i64 16), align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit10, %49, %54
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit9, %49, %54
   %59 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__7TfTokenELm3EED2Ev, ptr nonnull @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod) #19
   br label %60
 
-60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13, %13, %10
+60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit11, %13, %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %62 = load i64, ptr %61, align 8, !noalias !19
@@ -1447,9 +1421,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit13: ; preds = %_ZN32px
   %65 = and i64 %62, -8
   %66 = inttoptr i64 %65 to ptr
   %67 = atomicrmw add ptr %66, i32 2 monotonic, align 4, !noalias !19
-  %68 = and i32 %67, 1
-  %.not1.i.i.i = icmp eq i32 %68, 0
-  br i1 %.not1.i.i.i, label %69, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags15GetCreaseMethodEv.exit
+  %68 = trunc i32 %67 to i1
+  br i1 %68, label %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags15GetCreaseMethodEv.exit, label %69
 
 69:                                               ; preds = %64
   store ptr %66, ptr %3, align 8, !alias.scope !19
@@ -1463,8 +1436,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags15GetCreaseMethodEv.exit:
   %71 = load ptr, ptr %3, align 8
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 7
-  %.not.i.i14 = icmp eq i64 %73, 0
-  br i1 %.not.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %74
+  %.not.i.i12 = icmp eq i64 %73, 0
+  br i1 %.not.i.i12, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %74
 
 74:                                               ; preds = %70
   %75 = and i64 %72, -8
@@ -1481,8 +1454,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %70, %74
   %80 = load ptr, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = and i64 %81, 7
-  %.not.i.i15 = icmp eq i64 %82, 0
-  br i1 %.not.i.i15, label %.loopexit, label %83
+  %.not.i.i13 = icmp eq i64 %82, 0
+  br i1 %.not.i.i13, label %.loopexit, label %83
 
 83:                                               ; preds = %78
   %84 = and i64 %81, -8
@@ -1493,7 +1466,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %70, %74
 .loopexit:                                        ; preds = %83, %78, %.thread
   %87 = phi { ptr, i32 } [ %17, %.thread ], [ %79, %78 ], [ %79, %83 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyEE17validCreaseMethod) #19
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16
 
 88:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15PxOsdSubdivTags15GetCreaseMethodEv.exit
   %89 = landingpad { ptr, i32 }
@@ -1501,16 +1474,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %70, %74
   %90 = load ptr, ptr %3, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 7
-  %.not.i.i17 = icmp eq i64 %92, 0
-  br i1 %.not.i.i17, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18, label %93
+  %.not.i.i15 = icmp eq i64 %92, 0
+  br i1 %.not.i.i15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16, label %93
 
 93:                                               ; preds = %88
   %94 = and i64 %91, -8
   %95 = inttoptr i64 %94 to ptr
   %96 = atomicrmw sub ptr %95, i32 2 release, align 4
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit18: ; preds = %93, %88, %.loopexit
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16: ; preds = %93, %88, %.loopexit
   %.pn = phi { ptr, i32 } [ %87, %.loopexit ], [ %89, %88 ], [ %89, %93 ]
   resume { ptr, i32 } %.pn
 }

@@ -443,48 +443,47 @@ define internal i32 @be_mbedtls_get_fd(ptr noundef readonly captures(none) %0) #
 define internal void @conn_closed(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = and i32 %1, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp eq i32 %3, 0
-  %or.cond = and i1 %7, %8
-  br i1 %or.cond, label %9, label %13
+  %6 = trunc i32 %1 to i1
+  %7 = icmp eq i32 %3, 0
+  %or.cond = and i1 %7, %6
+  br i1 %or.cond, label %8, label %12
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %11 = load i64, ptr %10, align 8
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %10 = load i64, ptr %9, align 8
+  %11 = and i64 %10, 1
+  %.not = icmp eq i64 %11, 0
   %spec.select = select i1 %.not, i32 32, i32 16
-  br label %18
+  br label %17
 
-13:                                               ; preds = %4
+12:                                               ; preds = %4
   call void @mbedtls_strerror(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 100) #5
-  switch i32 %2, label %15 [
-    i32 -30848, label %16
-    i32 -26496, label %14
+  switch i32 %2, label %14 [
+    i32 -30848, label %15
+    i32 -26496, label %13
   ]
 
-14:                                               ; preds = %13
+13:                                               ; preds = %12
   call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str, i32 noundef -26496, ptr noundef nonnull %5) #5
-  br label %16
+  br label %15
 
-15:                                               ; preds = %13
+14:                                               ; preds = %12
   call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str.1, i32 noundef %2, ptr noundef nonnull %5) #5
-  br label %16
+  br label %15
 
-16:                                               ; preds = %13, %15, %14
-  %.1 = phi i32 [ 32, %15 ], [ 32, %14 ], [ 16, %13 ]
-  %17 = sext i32 %2 to i64
-  call void @bufferevent_ssl_put_error(ptr noundef %0, i64 noundef %17) #5
-  br label %18
+15:                                               ; preds = %12, %14, %13
+  %.1 = phi i32 [ 32, %14 ], [ 32, %13 ], [ 16, %12 ]
+  %16 = sext i32 %2 to i64
+  call void @bufferevent_ssl_put_error(ptr noundef %0, i64 noundef %16) #5
+  br label %17
 
-18:                                               ; preds = %9, %16
-  %.0 = phi i32 [ %.1, %16 ], [ %spec.select, %9 ]
+17:                                               ; preds = %8, %15
+  %.0 = phi i32 [ %.1, %15 ], [ %spec.select, %8 ]
   call void @bufferevent_ssl_stop_reading(ptr noundef %0) #5
   call void @bufferevent_ssl_stop_writing(ptr noundef %0) #5
-  %19 = or i32 %.0, %1
-  %20 = trunc i32 %19 to i16
-  call void @bufferevent_run_eventcb_(ptr noundef %0, i16 noundef signext %20, i32 noundef 0) #5
+  %18 = or i32 %.0, %1
+  %19 = trunc i32 %18 to i16
+  call void @bufferevent_run_eventcb_(ptr noundef %0, i16 noundef signext %19, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

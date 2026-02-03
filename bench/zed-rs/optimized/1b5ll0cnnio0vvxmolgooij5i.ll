@@ -364,9 +364,8 @@ define hidden noundef align 8 ptr @"_ZN100_$LT$futures_util..lock..mutex..MutexL
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = atomicrmw or ptr %9, i64 1 acquire, align 8
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h1eb9703bb89dd6c1E.exit"
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h1eb9703bb89dd6c1E.exit", label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -401,8 +400,8 @@ define hidden noundef align 8 ptr @"_ZN100_$LT$futures_util..lock..mutex..MutexL
   %.sroa.01.0.i.i = phi i8 [ %26, %23 ], [ 0, %19 ]
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = tail call noundef i8 @_ZN4core4sync6atomic11atomic_load17hf7e86d7ad57ff64dE.llvm.15006262148341195119(ptr noundef nonnull align 1 %27, i8 noundef 0), !noalias !42
-  %.not26 = icmp eq i8 %28, 0
-  br i1 %.not26, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf03f011f540019c9E.llvm.5851185471656548919.exit", label %29
+  %.not = icmp eq i8 %28, 0
+  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf03f011f540019c9E.llvm.5851185471656548919.exit", label %29
 
 29:                                               ; preds = %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17h5b5e0b51ed39b19aE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !45
@@ -533,9 +532,8 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5851185471656548919.exit.
 "_ZN4core3ptr108drop_in_place$LT$std..sync..mutex..MutexGuard$LT$slab..Slab$LT$futures_util..lock..mutex..Waiter$GT$$GT$$GT$17hfe09d72005a12abeE.llvm.5851185471656548919.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5851185471656548919.exit.i.i, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = atomicrmw or ptr %9, i64 1 acquire, align 8
-  %79 = and i64 %78, 1
-  %.not27 = icmp eq i64 %79, 0
-  br i1 %.not27, label %92, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h1eb9703bb89dd6c1E.exit15"
+  %79 = trunc i64 %78 to i1
+  br i1 %79, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$futures_util..lock..mutex..MutexGuard$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$GT$$GT$$GT$17h1eb9703bb89dd6c1E.exit15", label %92
 
 80:                                               ; preds = %55
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8

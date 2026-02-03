@@ -1503,9 +1503,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %7 = load ptr, ptr %vfn9, align 8
   %call10 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(280) %5, i32 noundef %6) #10
   %8 = ptrtoint ptr %call5 to i64
-  %and.i.i = and i64 %8, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
+  %tobool.i.i = trunc i64 %8 to i1
+  br i1 %tobool.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %call5, i64 7

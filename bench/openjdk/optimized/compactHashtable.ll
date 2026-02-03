@@ -27,9 +27,7 @@ $_ZN9LogPrefixILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 $_ZN14LogMessageImpl6vwriteEN8LogLevel4typeEPKcP13__va_list_tag = comdat any
 
-$_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv = comdat any
-
-$_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi = comdat any
+$_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE4growEi = comdat any
 
 $_ZTV14LogMessageImpl = comdat any
 
@@ -167,43 +165,59 @@ define hidden void @_ZN22CompactHashtableWriterD2Ev(ptr noundef nonnull readonly
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
-6:                                                ; preds = %.lr.ph, %17
-  %7 = phi i32 [ %3, %.lr.ph ], [ %18, %17 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
+6:                                                ; preds = %.lr.ph, %22
+  %7 = phi i32 [ %3, %.lr.ph ], [ %23, %22 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %17, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
 
 16:                                               ; preds = %12
   store i32 0, ptr %10, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit, label %.loopexit.i.i.i
+
+.loopexit.i.i.i:                                  ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = load ptr, ptr %20, align 8
+  store i32 0, ptr %17, align 4
+  %.not.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit.i.i.i, label %.loopexit.thread.i.i.i
+
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %21) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit.i.i.i
+
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit.i.i.i: ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
+  store ptr null, ptr %20, align 8
   br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
 
-_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit: ; preds = %12, %16
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit: ; preds = %12, %16, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit.i.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %10) #14
   %.pre = load i32, ptr %2, align 4
-  br label %17
+  br label %22
 
-17:                                               ; preds = %6, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
-  %18 = phi i32 [ %7, %6 ], [ %.pre, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit ]
+22:                                               ; preds = %6, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit
+  %23 = phi i32 [ %7, %6 ], [ %.pre, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %6, label %._crit_edge, !llvm.loop !8
+  %24 = sext i32 %23 to i64
+  %25 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %25, label %6, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %17, %1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  tail call void @_Z8FreeHeapPv(ptr noundef %22) #14
+._crit_edge:                                      ; preds = %22, %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load ptr, ptr %26, align 8
+  tail call void @_Z8FreeHeapPv(ptr noundef %27) #14
   ret void
 }
 
@@ -281,38 +295,29 @@ define hidden void @_ZN22CompactHashtableWriter3addEjj(ptr noundef nonnull align
   br i1 %27, label %28, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
 28:                                               ; preds = %.loopexit.i
-  %29 = add nsw i32 %12, 1
-  %30 = icmp sgt i32 %12, -1
-  %31 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %29)
-  %32 = icmp samesign ult i32 %31, 2
-  %or.cond.i.i.i.i.i = select i1 %30, i1 %32, i1 false
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %29, i1 true)
-  %34 = sub nuw nsw i32 32, %33
-  %35 = shl nuw i32 1, %34
-  %.0.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i, i32 %29, i32 %35
-  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.0.i.i.i.i.i)
+  tail call void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE4growEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %12)
   %.pre.i.i = load i32, ptr %11, align 8
   br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
 
 _ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %28, %.loopexit.i
-  %36 = phi i32 [ %.pre.i.i, %28 ], [ %12, %.loopexit.i ]
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %11, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %39, i64 %40
+  %29 = phi i32 [ %.pre.i.i, %28 ], [ %12, %.loopexit.i ]
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %11, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = sext i32 %29 to i64
+  %34 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %32, i64 %33
   %.sroa.3.0.insert.ext = zext i32 %2 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %41, align 4
+  store i64 %.sroa.0.0.insert.insert, ptr %34, align 4
   br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit
 
 _ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE17append_if_missingERKS1_.exit: ; preds = %17, %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE6appendERKS1_.exit.i
-  %42 = load i32, ptr %0, align 8
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %0, align 8
+  %35 = load i32, ptr %0, align 8
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %0, align 8
   ret void
 }
 
@@ -1892,87 +1897,6 @@ declare void @_ZN16LogMessageBuffer6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(p
 
 declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
-  %4 = load i32, ptr %0, align 8
-  %5 = icmp eq i32 %4, %3
-  br i1 %5, label %32, label %6
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store i32 %4, ptr %2, align 4
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %10, label %.loopexit
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %10
-  %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 8) #14
-  br label %.lr.ph.preheader
-
-16:                                               ; preds = %10
-  %17 = and i64 %12, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %22, label %18
-
-18:                                               ; preds = %16
-  %19 = lshr i64 %12, 1
-  %20 = trunc i64 %19 to i8
-  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %4, i32 noundef 8, i8 noundef zeroext %20) #14
-  br label %.lr.ph.preheader
-
-22:                                               ; preds = %16
-  %23 = inttoptr i64 %12 to ptr
-  %24 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %4, i32 noundef 8, ptr noundef nonnull %23) #14
-  br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %22, %18, %14
-  %.0.i = phi ptr [ %15, %14 ], [ %21, %18 ], [ %24, %22 ]
-  %wide.trip.count = zext nneg i32 %4 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %8, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 4
-  store i64 %27, ptr %25, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !18
-
-.loopexit:                                        ; preds = %6
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 1
-  %.not.i22 = icmp eq i64 %30, 0
-  br i1 %.not.i22, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %31
-
-31:                                               ; preds = %.loopexit.thread
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #14
-  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
-
-_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01830, ptr %7, align 8
-  br label %32
-
-32:                                               ; preds = %1, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
-  ret void
-}
-
 declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1980,75 +1904,82 @@ declare noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 nou
 declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
-  %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %9
+define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE4growEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = add nsw i32 %1, 1
+  %4 = icmp sgt i32 %1, -1
+  %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
+  %6 = icmp samesign ult i32 %5, 2
+  %or.cond.i.i = select i1 %4, i1 %6, i1 false
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
+  %8 = sub nuw nsw i32 32, %7
+  %9 = shl nuw i32 1, %8
+  %.0.i.i = select i1 %or.cond.i.i, i32 %3, i32 %9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.0.i.i, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %16
 
-7:                                                ; preds = %2
-  %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #14
-  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+14:                                               ; preds = %2
+  %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i, i32 noundef 8) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i
 
-9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+16:                                               ; preds = %2
+  %17 = trunc i64 %12 to i1
+  br i1 %17, label %18, label %22
 
-11:                                               ; preds = %9
-  %12 = lshr i64 %5, 1
-  %13 = trunc i64 %12 to i8
-  %14 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %1, i32 noundef 8, i8 noundef zeroext %13) #14
-  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+18:                                               ; preds = %16
+  %19 = lshr i64 %12, 1
+  %20 = trunc i64 %19 to i8
+  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i, i32 noundef 8, i8 noundef zeroext %20) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i
 
-15:                                               ; preds = %9
-  %16 = inttoptr i64 %5 to ptr
-  %17 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 8, ptr noundef nonnull %16) #14
-  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
+22:                                               ; preds = %16
+  %23 = inttoptr i64 %12 to ptr
+  %24 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i, i32 noundef 8, ptr noundef nonnull %23) #14
+  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i
 
-_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit: ; preds = %7, %11, %15
-  %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
-  %18 = load i32, ptr %0, align 8
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i: ; preds = %22, %18, %14
+  %.0.i.i1 = phi ptr [ %15, %14 ], [ %21, %18 ], [ %24, %22 ]
+  %25 = load i32, ptr %0, align 8
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph.i, label %.preheader15.i
 
-.lr.ph:                                           ; preds = %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %23
+.lr.ph.i:                                         ; preds = %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %30
 
-.preheader16:                                     ; preds = %23, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %22, null
-  br i1 %.not, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %31
+.preheader15.i:                                   ; preds = %30, %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi.exit, label %38
 
-23:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %.0.i, i64 %indvars.iv
-  %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %25, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 4
-  store i64 %27, ptr %24, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i32, ptr %0, align 8
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %23, label %.preheader16, !llvm.loop !19
+30:                                               ; preds = %30, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
+  %31 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %.0.i.i1, i64 %indvars.iv.i
+  %32 = load ptr, ptr %27, align 8
+  %33 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %32, i64 %indvars.iv.i
+  %34 = load i64, ptr %33, align 4
+  store i64 %34, ptr %31, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %35 = load i32, ptr %0, align 8
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next.i, %36
+  br i1 %37, label %30, label %.preheader15.i, !llvm.loop !18
 
-31:                                               ; preds = %.preheader16
-  %32 = load i64, ptr %4, align 8
-  %33 = and i64 %32, 1
-  %.not.i15 = icmp eq i64 %33, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit, label %34
+38:                                               ; preds = %.preheader15.i
+  %39 = load i64, ptr %11, align 8
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %41, label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi.exit
 
-34:                                               ; preds = %31
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %22) #14
-  br label %_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit
+41:                                               ; preds = %38
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %29) #14
+  br label %_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi.exit
 
-_ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE10deallocateEPS1_.exit: ; preds = %34, %31, %.preheader16
-  store ptr %.0.i, ptr %21, align 8
+_ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayIS1_EE9expand_toEi.exit: ; preds = %.preheader15.i, %38, %41
+  store ptr %.0.i.i1, ptr %28, align 8
   ret void
 }
 
@@ -2113,4 +2044,3 @@ attributes #16 = { noreturn nounwind }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}

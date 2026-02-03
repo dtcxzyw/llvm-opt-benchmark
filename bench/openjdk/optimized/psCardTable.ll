@@ -630,9 +630,8 @@ _ZNK7oopDesc5klassEv.exit.i.i25:                  ; preds = %55, %45
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i25
-  %61 = and i32 %58, 1
-  %.not.i.i.i29 = icmp eq i32 %61, 0
-  br i1 %.not.i.i.i29, label %62, label %65
+  %61 = trunc i32 %58 to i1
+  br i1 %61, label %65, label %62
 
 62:                                               ; preds = %60
   %63 = lshr i32 %58, 3
@@ -785,9 +784,9 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %140, %143
   %150 = mul i64 %148, %20
   %151 = getelementptr inbounds ptr, ptr %2, i64 %150
   %152 = icmp ult ptr %151, %3
-  br i1 %152, label %.lr.ph61, label %._crit_edge62
+  br i1 %152, label %.lr.ph59, label %._crit_edge60
 
-.lr.ph61:                                         ; preds = %._crit_edge
+.lr.ph59:                                         ; preds = %._crit_edge
   %153 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %154 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -800,11 +799,11 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %140, %143
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 808
   br label %163
 
-163:                                              ; preds = %.lr.ph61, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
-  %.058 = phi ptr [ %151, %.lr.ph61 ], [ %440, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %.sroa.6.057 = phi ptr [ %2, %.lr.ph61 ], [ %.sroa.6.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %.sroa.0.056 = phi ptr [ null, %.lr.ph61 ], [ %.sroa.0.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %164 = getelementptr inbounds nuw ptr, ptr %.058, i64 %148
+163:                                              ; preds = %.lr.ph59, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
+  %.056 = phi ptr [ %151, %.lr.ph59 ], [ %440, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
+  %.sroa.6.055 = phi ptr [ %2, %.lr.ph59 ], [ %.sroa.6.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
+  %.sroa.0.054 = phi ptr [ null, %.lr.ph59 ], [ %.sroa.0.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
+  %164 = getelementptr inbounds nuw ptr, ptr %.056, i64 %148
   %165 = icmp ult ptr %164, %3
   %166 = select i1 %165, ptr %164, ptr %3
   %.val = load ptr, ptr %14, align 8
@@ -813,7 +812,7 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %140, %143
   store i32 %167, ptr %10, align 8
   %168 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   store i32 %168, ptr %153, align 4
-  %169 = ptrtoint ptr %.058 to i64
+  %169 = ptrtoint ptr %.056 to i64
   %170 = zext nneg i32 %167 to i64
   %171 = lshr i64 %169, %170
   %172 = sub i64 0, %171
@@ -839,13 +838,13 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %140, %143
   %189 = lshr i64 %188, %170
   %190 = getelementptr inbounds i8, ptr %187, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 1
-  %192 = icmp ult ptr %.058, %166
+  %192 = icmp ult ptr %.056, %166
   br i1 %192, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
 
 .lr.ph.i23:                                       ; preds = %163, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i
-  %.sroa.0.3 = phi ptr [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.056, %163 ]
-  %.sroa.6.3 = phi ptr [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.057, %163 ]
-  %.09.i = phi ptr [ %429, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.058, %163 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.054, %163 ]
+  %.sroa.6.3 = phi ptr [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.055, %163 ]
+  %.09.i = phi ptr [ %429, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.056, %163 ]
   %193 = load ptr, ptr %154, align 8
   %194 = ptrtoint ptr %.09.i to i64
   %195 = load i32, ptr %10, align 8
@@ -868,20 +867,20 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %140, %143
 
 _ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i: ; preds = %.lr.ph.i.i
   %203 = icmp ult ptr %.011.i.i, %191
-  br i1 %203, label %.lr.ph54, label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i
+  br i1 %203, label %.lr.ph52, label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i
 
-.lr.ph.i48thread-pre-split.i:                     ; preds = %.lr.ph54
-  %204 = getelementptr inbounds nuw i8, ptr %.011.i49.i53, i64 1
+.lr.ph.i48thread-pre-split.i:                     ; preds = %.lr.ph52
+  %204 = getelementptr inbounds nuw i8, ptr %.011.i49.i51, i64 1
   %.pr.i = load i8, ptr %204, align 1
   %205 = icmp eq i8 %.pr.i, -1
-  br i1 %205, label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, label %.lr.ph54
+  br i1 %205, label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, label %.lr.ph52
 
-.lr.ph54:                                         ; preds = %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i, %.lr.ph.i48thread-pre-split.i
-  %.011.i49.i53 = phi ptr [ %204, %.lr.ph.i48thread-pre-split.i ], [ %.011.i.i, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i ]
-  %exitcond.not.i50.i = icmp eq ptr %.011.i49.i53, %190
+.lr.ph52:                                         ; preds = %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i, %.lr.ph.i48thread-pre-split.i
+  %.011.i49.i51 = phi ptr [ %204, %.lr.ph.i48thread-pre-split.i ], [ %.011.i.i, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i ]
+  %exitcond.not.i50.i = icmp eq ptr %.011.i49.i51, %190
   br i1 %exitcond.not.i50.i, label %._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge, label %.lr.ph.i48thread-pre-split.i, !llvm.loop !13
 
-._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge: ; preds = %.lr.ph54
+._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge: ; preds = %.lr.ph52
   br label %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, !llvm.loop !13
 
 _ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.lr.ph.i48thread-pre-split.i, %._ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i.loopexit_crit_edge, %_ZN23PSStripeShadowCardTable21find_first_dirty_cardEPKhS1_.exit.i
@@ -902,7 +901,7 @@ _ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.l
   %217 = icmp ugt ptr %166, %216
   %218 = select i1 %217, ptr %216, ptr %166
   %219 = icmp ugt ptr %.sroa.6.3, %212
-  br i1 %219, label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36", label %220
+  br i1 %219, label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit34", label %220
 
 220:                                              ; preds = %207
   %221 = call noundef ptr @_ZNK16ObjectStartArray12object_startEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %212)
@@ -921,37 +920,36 @@ _ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.l
   %232 = shl i64 %230, %231
   %233 = add i64 %232, %229
   %234 = inttoptr i64 %233 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit.i.i30
+  br label %_ZNK7oopDesc5klassEv.exit.i.i29
 
 235:                                              ; preds = %220
   %236 = load ptr, ptr %224, align 8
-  br label %_ZNK7oopDesc5klassEv.exit.i.i30
+  br label %_ZNK7oopDesc5klassEv.exit.i.i29
 
-_ZNK7oopDesc5klassEv.exit.i.i30:                  ; preds = %235, %225
-  %.0.i.i.i31 = phi ptr [ %234, %225 ], [ %236, %235 ]
-  %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i31, i64 8
+_ZNK7oopDesc5klassEv.exit.i.i29:                  ; preds = %235, %225
+  %.0.i.i.i30 = phi ptr [ %234, %225 ], [ %236, %235 ]
+  %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i30, i64 8
   %238 = load i32, ptr %237, align 8
   %239 = icmp sgt i32 %238, 0
   br i1 %239, label %240, label %250
 
-240:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i30
-  %241 = and i32 %238, 1
-  %.not.i.i.i35 = icmp eq i32 %241, 0
-  br i1 %.not.i.i.i35, label %242, label %245
+240:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i29
+  %241 = trunc i32 %238 to i1
+  br i1 %241, label %245, label %242
 
 242:                                              ; preds = %240
   %243 = lshr i32 %238, 3
   %244 = zext nneg i32 %243 to i64
-  br label %_ZN7oopDesc4sizeEv.exit.i32
+  br label %_ZN7oopDesc4sizeEv.exit.i31
 
 245:                                              ; preds = %240
-  %246 = load ptr, ptr %.0.i.i.i31, align 8
+  %246 = load ptr, ptr %.0.i.i.i30, align 8
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 256
   %248 = load ptr, ptr %247, align 8
-  %249 = call noundef i64 %248(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %221) #11
-  br label %_ZN7oopDesc4sizeEv.exit.i32
+  %249 = call noundef i64 %248(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %221) #11
+  br label %_ZN7oopDesc4sizeEv.exit.i31
 
-250:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i30
+250:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i29
   %251 = icmp slt i32 %238, 0
   br i1 %251, label %252, label %272
 
@@ -975,24 +973,24 @@ _ZNK7oopDesc5klassEv.exit.i.i30:                  ; preds = %235, %225
   %269 = sext i32 %268 to i64
   %270 = and i64 %267, %269
   %271 = lshr i64 %270, 3
-  br label %_ZN7oopDesc4sizeEv.exit.i32
+  br label %_ZN7oopDesc4sizeEv.exit.i31
 
 272:                                              ; preds = %250
-  %273 = load ptr, ptr %.0.i.i.i31, align 8
+  %273 = load ptr, ptr %.0.i.i.i30, align 8
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 256
   %275 = load ptr, ptr %274, align 8
-  %276 = call noundef i64 %275(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i31, ptr noundef nonnull align 8 dereferenceable(16) %221) #11
-  br label %_ZN7oopDesc4sizeEv.exit.i32
+  %276 = call noundef i64 %275(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %221) #11
+  br label %_ZN7oopDesc4sizeEv.exit.i31
 
-_ZN7oopDesc4sizeEv.exit.i32:                      ; preds = %272, %252, %245, %242
-  %.0.i1.i.i33 = phi i64 [ %249, %245 ], [ %244, %242 ], [ %271, %252 ], [ %276, %272 ]
-  %277 = getelementptr inbounds ptr, ptr %221, i64 %.0.i1.i.i33
-  br label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36"
+_ZN7oopDesc4sizeEv.exit.i31:                      ; preds = %272, %252, %245, %242
+  %.0.i1.i.i32 = phi i64 [ %249, %245 ], [ %244, %242 ], [ %271, %252 ], [ %276, %272 ]
+  %277 = getelementptr inbounds ptr, ptr %221, i64 %.0.i1.i.i32
+  br label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit34"
 
-"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36": ; preds = %207, %_ZN7oopDesc4sizeEv.exit.i32
-  %.sroa.0.6 = phi ptr [ %221, %_ZN7oopDesc4sizeEv.exit.i32 ], [ %.sroa.0.3, %207 ]
-  %.sroa.6.6 = phi ptr [ %277, %_ZN7oopDesc4sizeEv.exit.i32 ], [ %.sroa.6.3, %207 ]
-  %278 = icmp ugt ptr %.09.i, %.058
+"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit34": ; preds = %207, %_ZN7oopDesc4sizeEv.exit.i31
+  %.sroa.0.6 = phi ptr [ %221, %_ZN7oopDesc4sizeEv.exit.i31 ], [ %.sroa.0.3, %207 ]
+  %.sroa.6.6 = phi ptr [ %277, %_ZN7oopDesc4sizeEv.exit.i31 ], [ %.sroa.6.3, %207 ]
+  %278 = icmp ugt ptr %.09.i, %.056
   %279 = sub i64 %174, %211
   %280 = lshr i64 %279, 3
   %281 = ptrtoint ptr %218 to i64
@@ -1000,8 +998,8 @@ _ZN7oopDesc4sizeEv.exit.i32:                      ; preds = %272, %252, %245, %2
   %283 = lshr i64 %282, 3
   br label %284
 
-284:                                              ; preds = %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36"
-  %.041.i = phi ptr [ %.sroa.0.6, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36" ], [ %341, %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i ]
+284:                                              ; preds = %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit34"
+  %.041.i = phi ptr [ %.sroa.0.6, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit34" ], [ %341, %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i ]
   %285 = load i8, ptr @UseCompressedClassPointers, align 1
   %286 = trunc i8 %285 to i1
   %287 = getelementptr inbounds nuw i8, ptr %.041.i, i64 8
@@ -1034,9 +1032,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %298, %288
   br i1 %303, label %304, label %314
 
 304:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %305 = and i32 %302, 1
-  %.not.i.i.i = icmp eq i32 %305, 0
-  br i1 %.not.i.i.i, label %306, label %309
+  %305 = trunc i32 %302 to i1
+  br i1 %305, label %309, label %306
 
 306:                                              ; preds = %304
   %307 = lshr i32 %302, 3
@@ -1268,14 +1265,14 @@ _ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i: ; preds = %438, %428
   br i1 %439, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", !llvm.loop !15
 
 "_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit": ; preds = %.lr.ph.i23, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i, %201, %163
-  %.sroa.0.4 = phi ptr [ %.sroa.0.056, %163 ], [ %.sroa.0.3, %201 ], [ %.sroa.0.3, %.lr.ph.i23 ], [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
-  %.sroa.6.4 = phi ptr [ %.sroa.6.057, %163 ], [ %.sroa.6.3, %201 ], [ %.sroa.6.3, %.lr.ph.i23 ], [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.054, %163 ], [ %.sroa.0.3, %201 ], [ %.sroa.0.3, %.lr.ph.i23 ], [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
+  %.sroa.6.4 = phi ptr [ %.sroa.6.055, %163 ], [ %.sroa.6.3, %201 ], [ %.sroa.6.3, %.lr.ph.i23 ], [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %440 = getelementptr inbounds ptr, ptr %.058, i64 %149
+  %440 = getelementptr inbounds ptr, ptr %.056, i64 %149
   %441 = icmp ult ptr %440, %3
-  br i1 %441, label %163, label %._crit_edge62, !llvm.loop !16
+  br i1 %441, label %163, label %._crit_edge60, !llvm.loop !16
 
-._crit_edge62:                                    ; preds = %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", %._crit_edge
+._crit_edge60:                                    ; preds = %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", %._crit_edge
   ret void
 }
 
@@ -2909,9 +2906,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -2945,8 +2941,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5797,9 +5793,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %86, %76
   br i1 %90, label %91, label %101
 
 91:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %92 = and i32 %89, 1
-  %.not.i.i.i = icmp eq i32 %92, 0
-  br i1 %.not.i.i.i, label %93, label %96
+  %92 = trunc i32 %89 to i1
+  br i1 %92, label %96, label %93
 
 93:                                               ; preds = %91
   %94 = lshr i32 %89, 3
@@ -5928,9 +5923,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3
@@ -11056,9 +11050,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3
@@ -11419,9 +11412,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %104, %94
   br i1 %108, label %109, label %119
 
 109:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %110 = and i32 %107, 1
-  %.not.i.i.i = icmp eq i32 %110, 0
-  br i1 %.not.i.i.i, label %111, label %114
+  %110 = trunc i32 %107 to i1
+  br i1 %110, label %114, label %111
 
 111:                                              ; preds = %109
   %112 = lshr i32 %107, 3
@@ -11737,9 +11729,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %50 = and i32 %47, 1
-  %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %51, label %54
+  %50 = trunc i32 %47 to i1
+  br i1 %50, label %54, label %51
 
 51:                                               ; preds = %49
   %52 = lshr i32 %47, 3

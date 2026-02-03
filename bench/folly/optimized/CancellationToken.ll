@@ -73,9 +73,8 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEP
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
-  %7 = and i64 %6, 1
-  %.not.i13.i = icmp eq i64 %7, 0
-  br i1 %.not.i13.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i", label %._crit_edge.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %._crit_edge.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i"
 
 "_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -96,23 +95,23 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEP
   unreachable
 
 "_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i": ; preds = %39, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i"
-  %.015.i = phi i64 [ %6, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i" ], [ %.1.i, %39 ]
-  %.sroa.4.014.i = phi i32 [ 0, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i" ], [ %.sroa.4.1.i, %39 ]
-  %15 = and i64 %.015.i, -17179869180
-  %.not.not.i = icmp eq i64 %15, 0
-  br i1 %.not.not.i, label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread", label %16
+  %.013.i = phi i64 [ %6, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i" ], [ %.1.i, %39 ]
+  %.sroa.4.012.i = phi i32 [ 0, %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.lr.ph.i" ], [ %.sroa.4.1.i, %39 ]
+  %15 = and i64 %.013.i, -17179869180
+  %spec.select.i.i.not.not.i = icmp eq i64 %15, 0
+  br i1 %spec.select.i.i.not.not.i, label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit.thread", label %16
 
 16:                                               ; preds = %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i"
-  %17 = and i64 %.015.i, 2
-  %.not12.i = icmp eq i64 %17, 0
-  br i1 %.not12.i, label %34, label %18
+  %17 = and i64 %.013.i, 2
+  %.not.i = icmp eq i64 %17, 0
+  br i1 %.not.i, label %34, label %18
 
 18:                                               ; preds = %16
-  %19 = icmp ult i32 %.sroa.4.014.i, 4000
+  %19 = icmp ult i32 %.sroa.4.012.i, 4000
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = add nuw nsw i32 %.sroa.4.014.i, 1
+  %21 = add nuw nsw i32 %.sroa.4.012.i, 1
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
@@ -148,13 +147,13 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState14tryAddCallbackEP
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %.critedge.i.i.i, %20
-  %.sroa.4.2.i = phi i32 [ %21, %20 ], [ %.sroa.4.014.i, %.critedge.i.i.i ]
+  %.sroa.4.2.i = phi i32 [ %21, %20 ], [ %.sroa.4.012.i, %.critedge.i.i.i ]
   %33 = load atomic i64, ptr %5 acquire, align 8
   br label %39
 
 34:                                               ; preds = %16
-  %35 = or disjoint i64 %.015.i, 2
-  %36 = cmpxchg weak ptr %5, i64 %.015.i, i64 %35 acquire acquire, align 8
+  %35 = or disjoint i64 %.013.i, 2
+  %36 = cmpxchg weak ptr %5, i64 %.013.i, i64 %35 acquire acquire, align 8
   %37 = extractvalue { i64, i1 } %36, 1
   br i1 %37, label %"_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit", label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
 
@@ -163,11 +162,10 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   br label %39
 
 39:                                               ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i
-  %.sroa.4.1.i = phi i32 [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %.sroa.4.014.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
+  %.sroa.4.1.i = phi i32 [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %.sroa.4.012.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
   %.1.i = phi i64 [ %33, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %38, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
-  %40 = and i64 %.1.i, 1
-  %.not.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i", label %._crit_edge.i, !llvm.loop !23
+  %40 = trunc i64 %.1.i to i1
+  br i1 %40, label %._crit_edge.i, label %"_ZZN5folly6detail17CancellationState14tryAddCallbackEPNS_20CancellationCallbackEbENK3$_0clEm.exit.i", !llvm.loop !23
 
 "_ZN5folly6detail17CancellationState7tryLockIZNS1_14tryAddCallbackEPNS_20CancellationCallbackEbE3$_0EEbT_.exit": ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -584,27 +582,26 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellat
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
-  %7 = and i64 %6, 1
-  %.not9.i = icmp eq i64 %7, 0
-  br i1 %.not9.i, label %.lr.ph.i, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %9
 
 9:                                                ; preds = %32, %.lr.ph.i
-  %.0511.i = phi i64 [ %6, %.lr.ph.i ], [ %.1.i, %32 ]
-  %.sroa.4.010.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.4.1.i, %32 ]
-  %10 = and i64 %.0511.i, 2
-  %.not7.i = icmp eq i64 %10, 0
-  br i1 %.not7.i, label %27, label %11
+  %.059.i = phi i64 [ %6, %.lr.ph.i ], [ %.1.i, %32 ]
+  %.sroa.4.08.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.4.1.i, %32 ]
+  %10 = and i64 %.059.i, 2
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %27, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp ult i32 %.sroa.4.010.i, 4000
+  %12 = icmp ult i32 %.sroa.4.08.i, 4000
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = add nuw nsw i32 %.sroa.4.010.i, 1
+  %14 = add nuw nsw i32 %.sroa.4.08.i, 1
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit.i
 
@@ -640,13 +637,13 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState19requestCancellat
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit.i:           ; preds = %.critedge.i.i.i, %13
-  %.sroa.4.2.i = phi i32 [ %14, %13 ], [ %.sroa.4.010.i, %.critedge.i.i.i ]
+  %.sroa.4.2.i = phi i32 [ %14, %13 ], [ %.sroa.4.08.i, %.critedge.i.i.i ]
   %26 = load atomic i64, ptr %5 acquire, align 8
   br label %32
 
 27:                                               ; preds = %9
-  %28 = or disjoint i64 %.0511.i, 3
-  %29 = cmpxchg weak ptr %5, i64 %.0511.i, i64 %28 acq_rel acquire, align 8
+  %28 = or disjoint i64 %.059.i, 3
+  %29 = cmpxchg weak ptr %5, i64 %.059.i, i64 %28 acq_rel acquire, align 8
   %30 = extractvalue { i64, i1 } %29, 1
   br i1 %30, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i
 
@@ -655,11 +652,10 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   br label %32
 
 32:                                               ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i
-  %.sroa.4.1.i = phi i32 [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %.sroa.4.010.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
+  %.sroa.4.1.i = phi i32 [ %.sroa.4.2.i, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %.sroa.4.08.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
   %.1.i = phi i64 [ %26, %_ZN5folly6detail7Sleeper4waitEv.exit.i ], [ %31, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i ]
-  %33 = and i64 %.1.i, 1
-  %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %9, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread, !llvm.loop !48
+  %33 = trunc i64 %.1.i to i1
+  br i1 %33, label %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit.thread, label %9, !llvm.loop !48
 
 _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; preds = %27
   %34 = tail call i64 @pthread_self() #17
@@ -667,8 +663,8 @@ _ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit: ; p
   store i64 %34, ptr %35, align 8, !tbaa !44
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !24
-  %.not23 = icmp eq ptr %37, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq ptr %37, null
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5folly6detail17CancellationState31tryLockAndCancelUnlessCancelledEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -729,24 +725,24 @@ _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
   %60 = load atomic i64, ptr %5 monotonic, align 8
   br label %61
 
-61:                                               ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20, %59
-  %.sroa.4.0.i = phi i32 [ 0, %59 ], [ %.sroa.4.1.lcssa.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20 ]
-  %.0.i = phi i64 [ %60, %59 ], [ %82, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20 ]
-  %62 = and i64 %.0.i, 2
+61:                                               ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21, %59
+  %.sroa.4.0.i = phi i32 [ 0, %59 ], [ %.sroa.4.1.lcssa.i, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21 ]
+  %.0.i14 = phi i64 [ %60, %59 ], [ %82, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21 ]
+  %62 = and i64 %.0.i14, 2
   %.not6.i = icmp eq i64 %62, 0
-  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i14
+  br i1 %.not6.i, label %._crit_edge.i, label %.lr.ph.i15
 
-.lr.ph.i14:                                       ; preds = %61, %_ZN5folly6detail7Sleeper4waitEv.exit.i17
-  %.sroa.4.17.i = phi i32 [ %.sroa.4.2.i18, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ], [ %.sroa.4.0.i, %61 ]
+.lr.ph.i15:                                       ; preds = %61, %_ZN5folly6detail7Sleeper4waitEv.exit.i18
+  %.sroa.4.17.i = phi i32 [ %.sroa.4.2.i19, %_ZN5folly6detail7Sleeper4waitEv.exit.i18 ], [ %.sroa.4.0.i, %61 ]
   %63 = icmp ult i32 %.sroa.4.17.i, 4000
   br i1 %63, label %64, label %66
 
-64:                                               ; preds = %.lr.ph.i14
+64:                                               ; preds = %.lr.ph.i15
   %65 = add nuw nsw i32 %.sroa.4.17.i, 1
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
-  br label %_ZN5folly6detail7Sleeper4waitEv.exit.i17
+  br label %_ZN5folly6detail7Sleeper4waitEv.exit.i18
 
-66:                                               ; preds = %.lr.ph.i14
+66:                                               ; preds = %.lr.ph.i15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !15
   store i64 500000, ptr %38, align 8, !tbaa !18
@@ -754,21 +750,21 @@ _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
 
 67:                                               ; preds = %70, %66
   %68 = invoke i32 @nanosleep(ptr noundef nonnull %2, ptr noundef nonnull %2)
-          to label %.noexc.i.i15 unwind label %74
+          to label %.noexc.i.i16 unwind label %74
 
-.noexc.i.i15:                                     ; preds = %67
+.noexc.i.i16:                                     ; preds = %67
   %69 = icmp eq i32 %68, -1
-  br i1 %69, label %70, label %.critedge.i.i.i16
+  br i1 %69, label %70, label %.critedge.i.i.i17
 
-70:                                               ; preds = %.noexc.i.i15
+70:                                               ; preds = %.noexc.i.i16
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !19
   %73 = icmp eq i32 %72, 4
-  br i1 %73, label %67, label %.critedge.i.i.i16, !llvm.loop !21
+  br i1 %73, label %67, label %.critedge.i.i.i17, !llvm.loop !21
 
-.critedge.i.i.i16:                                ; preds = %70, %.noexc.i.i15
+.critedge.i.i.i17:                                ; preds = %70, %.noexc.i.i16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_ZN5folly6detail7Sleeper4waitEv.exit.i17
+  br label %_ZN5folly6detail7Sleeper4waitEv.exit.i18
 
 74:                                               ; preds = %67
   %75 = landingpad { ptr, i32 }
@@ -777,22 +773,22 @@ _ZN5folly6detail17CancellationState4lockEv.exit.thread: ; preds = %58
   call void @__clang_call_terminate(ptr %76) #16
   unreachable
 
-_ZN5folly6detail7Sleeper4waitEv.exit.i17:         ; preds = %.critedge.i.i.i16, %64
-  %.sroa.4.2.i18 = phi i32 [ %65, %64 ], [ %.sroa.4.17.i, %.critedge.i.i.i16 ]
+_ZN5folly6detail7Sleeper4waitEv.exit.i18:         ; preds = %.critedge.i.i.i17, %64
+  %.sroa.4.2.i19 = phi i32 [ %65, %64 ], [ %.sroa.4.17.i, %.critedge.i.i.i17 ]
   %77 = load atomic i64, ptr %5 monotonic, align 8
   %78 = and i64 %77, 2
-  %.not.i19 = icmp eq i64 %78, 0
-  br i1 %.not.i19, label %._crit_edge.i, label %.lr.ph.i14, !llvm.loop !39
+  %.not.i20 = icmp eq i64 %78, 0
+  br i1 %.not.i20, label %._crit_edge.i, label %.lr.ph.i15, !llvm.loop !39
 
-._crit_edge.i:                                    ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit.i17, %61
-  %.sroa.4.1.lcssa.i = phi i32 [ %.sroa.4.0.i, %61 ], [ %.sroa.4.2.i18, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ]
-  %.1.lcssa.i = phi i64 [ %.0.i, %61 ], [ %77, %_ZN5folly6detail7Sleeper4waitEv.exit.i17 ]
+._crit_edge.i:                                    ; preds = %_ZN5folly6detail7Sleeper4waitEv.exit.i18, %61
+  %.sroa.4.1.lcssa.i = phi i32 [ %.sroa.4.0.i, %61 ], [ %.sroa.4.2.i19, %_ZN5folly6detail7Sleeper4waitEv.exit.i18 ]
+  %.1.lcssa.i = phi i64 [ %.0.i14, %61 ], [ %77, %_ZN5folly6detail7Sleeper4waitEv.exit.i18 ]
   %79 = or disjoint i64 %.1.lcssa.i, 2
   %80 = cmpxchg weak ptr %5, i64 %.1.lcssa.i, i64 %79 acquire monotonic, align 8
   %81 = extractvalue { i64, i1 } %80, 1
-  br i1 %81, label %_ZN5folly6detail17CancellationState4lockEv.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20
+  br i1 %81, label %_ZN5folly6detail17CancellationState4lockEv.exit, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21
 
-_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i20: ; preds = %._crit_edge.i
+_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i21: ; preds = %._crit_edge.i
   %82 = extractvalue { i64, i1 } %80, 0
   br label %61
 
@@ -816,27 +812,26 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState31tryLockAndCancel
   %2 = alloca %struct.timespec, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load atomic i64, ptr %3 acquire, align 8
-  %5 = and i64 %4, 1
-  %.not9 = icmp eq i64 %5, 0
-  br i1 %.not9, label %.lr.ph, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %30
-  %.0511 = phi i64 [ %4, %.lr.ph ], [ %.1, %30 ]
-  %.sroa.4.010 = phi i32 [ 0, %.lr.ph ], [ %.sroa.4.1, %30 ]
-  %8 = and i64 %.0511, 2
-  %.not7 = icmp eq i64 %8, 0
-  br i1 %.not7, label %25, label %9
+  %.059 = phi i64 [ %4, %.lr.ph ], [ %.1, %30 ]
+  %.sroa.4.08 = phi i32 [ 0, %.lr.ph ], [ %.sroa.4.1, %30 ]
+  %8 = and i64 %.059, 2
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %.sroa.4.010, 4000
+  %10 = icmp ult i32 %.sroa.4.08, 4000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add nuw nsw i32 %.sroa.4.010, 1
+  %12 = add nuw nsw i32 %.sroa.4.08, 1
   call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   br label %_ZN5folly6detail7Sleeper4waitEv.exit
 
@@ -872,13 +867,13 @@ define noundef zeroext i1 @_ZN5folly6detail17CancellationState31tryLockAndCancel
   unreachable
 
 _ZN5folly6detail7Sleeper4waitEv.exit:             ; preds = %11, %.critedge.i.i
-  %.sroa.4.2 = phi i32 [ %12, %11 ], [ %.sroa.4.010, %.critedge.i.i ]
+  %.sroa.4.2 = phi i32 [ %12, %11 ], [ %.sroa.4.08, %.critedge.i.i ]
   %24 = load atomic i64, ptr %3 acquire, align 8
   br label %30
 
 25:                                               ; preds = %7
-  %26 = or disjoint i64 %.0511, 3
-  %27 = cmpxchg weak ptr %3, i64 %.0511, i64 %26 acq_rel acquire, align 8
+  %26 = or disjoint i64 %.059, 3
+  %27 = cmpxchg weak ptr %3, i64 %.059, i64 %26 acq_rel acquire, align 8
   %28 = extractvalue { i64, i1 } %27, 1
   br i1 %28, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
 
@@ -887,15 +882,14 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   br label %30
 
 30:                                               ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit, %_ZN5folly6detail7Sleeper4waitEv.exit
-  %.sroa.4.1 = phi i32 [ %.sroa.4.2, %_ZN5folly6detail7Sleeper4waitEv.exit ], [ %.sroa.4.010, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
+  %.sroa.4.1 = phi i32 [ %.sroa.4.2, %_ZN5folly6detail7Sleeper4waitEv.exit ], [ %.sroa.4.08, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
   %.1 = phi i64 [ %24, %_ZN5folly6detail7Sleeper4waitEv.exit ], [ %29, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit ]
-  %31 = and i64 %.1, 1
-  %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %7, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread, !llvm.loop !48
+  %31 = trunc i64 %.1 to i1
+  br i1 %31, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread, label %7, !llvm.loop !48
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.thread: ; preds = %30, %25, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ true, %25 ], [ false, %30 ]
-  ret i1 %.not.lcssa
+  %.0 = phi i1 [ false, %1 ], [ true, %25 ], [ false, %30 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

@@ -5353,9 +5353,8 @@ _ZN9grpc_core24InterceptionChainBuilder4FailEN4absl12lts_202407226StatusE.exit.t
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
 _ZN9grpc_core24InterceptionChainBuilder4FailEN4absl12lts_202407226StatusE.exit: ; preds = %.critedge.i
-  %58 = and i64 %48, 1
-  %.not.i.i = icmp eq i64 %58, 0
-  br i1 %.not.i.i, label %59, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %58 = trunc i64 %48 to i1
+  br i1 %58, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %59
 
 59:                                               ; preds = %_ZN9grpc_core24InterceptionChainBuilder4FailEN4absl12lts_202407226StatusE.exit
   %60 = inttoptr i64 %48 to ptr
@@ -5476,9 +5475,8 @@ declare void @_ZN4absl12lts_2024072220InvalidArgumentErrorESt17basic_string_view
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !283
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr

@@ -1296,12 +1296,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h415909bd64cbc959E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1692,12 +1692,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hb26495161681a732E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1777,12 +1777,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3e05cc0a517e8e59E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2034,12 +2034,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6df817bebba83e7cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2142,12 +2142,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he7f1c9e8f06dbc8aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2284,12 +2284,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he33aeae1b1344db7E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2544,12 +2544,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h55185cebe26bbedbE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2746,12 +2746,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2aa03a9be76f05f4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2891,12 +2891,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h00428a55ab692bfeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3191,12 +3191,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9dce5aeb48515497E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3353,12 +3353,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3211346b78ac8433E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3369,12 +3369,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h199f574055899e21E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -169469,9 +169469,8 @@ define noundef zeroext i1 @_ZN11polars_plan5frame9opt_state8OptFlags18predicate_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN11polars_plan5frame9opt_state8OptFlags19projection_pushdown17hff011a65688deac3E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #15 {
   %2 = load i32, ptr %0, align 4, !noundef !8
-  %3 = and i32 %2, 1
-  %4 = icmp ne i32 %3, 0
-  ret i1 %4
+  %3 = trunc i32 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -180447,9 +180446,8 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   %.sroa.041.0.not = phi i1 [ false, %132 ], [ %180, %177 ], [ false, %161 ], [ false, %153 ]
   %.sroa.062.0 = phi i64 [ %95, %132 ], [ %173, %177 ], [ %95, %161 ], [ %95, %153 ]
   %182 = load i32, ptr %49, align 4, !alias.scope !28145, !noundef !8
-  %183 = and i32 %182, 1
-  %.not304 = icmp eq i32 %183, 0
-  br i1 %.not304, label %226, label %184
+  %183 = trunc i32 %182 to i1
+  br i1 %183, label %184, label %226
 
 184:                                              ; preds = %181
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -180595,8 +180593,8 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 226:                                              ; preds = %215, %181
   %227 = phi i32 [ %.pre, %215 ], [ %182, %181 ]
   %228 = and i32 %227, 4
-  %.not305 = icmp eq i32 %228, 0
-  br i1 %.not305, label %262, label %229
+  %.not304 = icmp eq i32 %228, 0
+  br i1 %.not304, label %262, label %229
 
 229:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -180701,14 +180699,14 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 
 "_ZN4core3ptr96drop_in_place$LT$polars_plan..plans..optimizer..predicate_pushdown..inner..PredicatePushDown$GT$17hde2a8a249d5000a6E.exit195": ; preds = %260
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %.pre314 = load i32, ptr %49, align 4, !alias.scope !28164
+  %.pre313 = load i32, ptr %49, align 4, !alias.scope !28164
   br label %262
 
 262:                                              ; preds = %"_ZN4core3ptr96drop_in_place$LT$polars_plan..plans..optimizer..predicate_pushdown..inner..PredicatePushDown$GT$17hde2a8a249d5000a6E.exit195", %226
-  %263 = phi i32 [ %.pre314, %"_ZN4core3ptr96drop_in_place$LT$polars_plan..plans..optimizer..predicate_pushdown..inner..PredicatePushDown$GT$17hde2a8a249d5000a6E.exit195" ], [ %227, %226 ]
+  %263 = phi i32 [ %.pre313, %"_ZN4core3ptr96drop_in_place$LT$polars_plan..plans..optimizer..predicate_pushdown..inner..PredicatePushDown$GT$17hde2a8a249d5000a6E.exit195" ], [ %227, %226 ]
   %264 = and i32 %263, 32768
-  %.not306 = icmp eq i32 %264, 0
-  br i1 %.not306, label %280, label %265
+  %.not305 = icmp eq i32 %264, 0
+  br i1 %.not305, label %280, label %265
 
 265:                                              ; preds = %262
   call void @llvm.experimental.noalias.scope.decl(metadata !28167)
@@ -180742,31 +180740,31 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i198": ; preds = %.noexc200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !28174
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !28178
-  %.pre316.pre = load i32, ptr %49, align 4, !alias.scope !28183
+  %.pre315.pre = load i32, ptr %49, align 4, !alias.scope !28183
   br label %273
 
 273:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i198", %265
-  %.pre316 = phi i32 [ %.pre316.pre, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i198" ], [ %263, %265 ]
+  %.pre315 = phi i32 [ %.pre315.pre, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i198" ], [ %263, %265 ]
   %274 = getelementptr inbounds nuw i8, ptr %44, i64 52
   %275 = load i8, ptr %274, align 4, !range !430, !noundef !8
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %277, label %280
 
 277:                                              ; preds = %273
-  %278 = and i32 %.pre316, 2048
+  %278 = and i32 %.pre315, 2048
   %279 = icmp ne i32 %278, 0
   invoke void @_ZN11polars_plan5plans9optimizer14collapse_joins8optimize17hbc136a57c6a4ac88E(i64 noundef %.sroa.062.0, ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %279)
           to label %._crit_edge unwind label %116
 
 ._crit_edge:                                      ; preds = %277
-  %.pre315 = load i32, ptr %49, align 4, !alias.scope !28183
+  %.pre314 = load i32, ptr %49, align 4, !alias.scope !28183
   br label %280
 
 280:                                              ; preds = %._crit_edge, %262, %273
-  %281 = phi i32 [ %.pre315, %._crit_edge ], [ %263, %262 ], [ %.pre316, %273 ]
+  %281 = phi i32 [ %.pre314, %._crit_edge ], [ %263, %262 ], [ %.pre315, %273 ]
   %282 = and i32 %281, 16384
-  %.not307 = icmp eq i32 %282, 0
-  br i1 %.not307, label %308, label %283
+  %.not306 = icmp eq i32 %282, 0
+  br i1 %.not306, label %308, label %283
 
 283:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -180832,14 +180830,14 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   store ptr @anon.31516ede0bfaf38948cc5915f43ef47e.1029, ptr %306, align 8, !noalias !28195
   %307 = add i64 %296, 1
   store i64 %307, ptr %84, align 8, !alias.scope !28189, !noalias !28192
-  %.pre317 = load i32, ptr %49, align 4, !alias.scope !28196
+  %.pre316 = load i32, ptr %49, align 4, !alias.scope !28196
   br label %308
 
 308:                                              ; preds = %280, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit207"
-  %309 = phi i32 [ %281, %280 ], [ %.pre317, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit207" ]
+  %309 = phi i32 [ %281, %280 ], [ %.pre316, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit207" ]
   %310 = and i32 %309, 4096
-  %.not308 = icmp eq i32 %310, 0
-  br i1 %.not308, label %311, label %334
+  %.not307 = icmp eq i32 %310, 0
+  br i1 %.not307, label %311, label %334
 
 311:                                              ; preds = %308
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -180903,17 +180901,17 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   store ptr @anon.31516ede0bfaf38948cc5915f43ef47e.1031, ptr %332, align 8, !noalias !28208
   %333 = add i64 %322, 1
   store i64 %333, ptr %84, align 8, !alias.scope !28202, !noalias !28205
-  %.pre318 = load i32, ptr %49, align 4, !alias.scope !28209
+  %.pre317 = load i32, ptr %49, align 4, !alias.scope !28209
   br label %334
 
 334:                                              ; preds = %308, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit212"
-  %335 = phi i32 [ %309, %308 ], [ %.pre318, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit212" ]
+  %335 = phi i32 [ %309, %308 ], [ %.pre317, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit212" ]
   %336 = and i32 %335, 128
-  %.not309 = icmp eq i32 %336, 0
-  br i1 %.not309, label %._crit_edge328, label %337
+  %.not308 = icmp eq i32 %336, 0
+  br i1 %.not308, label %._crit_edge327, label %337
 
-._crit_edge328:                                   ; preds = %334
-  %.pre321.pre.pre = load i64, ptr %84, align 8, !alias.scope !28212, !noalias !28215
+._crit_edge327:                                   ; preds = %334
+  %.pre320.pre.pre = load i64, ptr %84, align 8, !alias.scope !28212, !noalias !28215
   br label %391
 
 337:                                              ; preds = %334
@@ -181067,19 +181065,19 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   %390 = add i64 %378, 1
   store i64 %390, ptr %84, align 8, !alias.scope !28227, !noalias !28230
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %.pre319 = load i32, ptr %49, align 4, !alias.scope !28234
+  %.pre318 = load i32, ptr %49, align 4, !alias.scope !28234
   br label %391
 
-391:                                              ; preds = %._crit_edge328, %386
-  %.pre321.pre = phi i64 [ %390, %386 ], [ %.pre321.pre.pre, %._crit_edge328 ]
-  %392 = phi i32 [ %.pre319, %386 ], [ %335, %._crit_edge328 ]
+391:                                              ; preds = %._crit_edge327, %386
+  %.pre320.pre = phi i64 [ %390, %386 ], [ %.pre320.pre.pre, %._crit_edge327 ]
+  %392 = phi i32 [ %.pre318, %386 ], [ %335, %._crit_edge327 ]
   %393 = and i32 %392, 32
-  %.not310 = icmp eq i32 %393, 0
-  br i1 %.not310, label %405, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit"
+  %.not309 = icmp eq i32 %393, 0
+  br i1 %.not309, label %405, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit"
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit": ; preds = %391
   %394 = load i64, ptr %47, align 8, !range !501, !alias.scope !28237, !noalias !28240, !noundef !8
-  %395 = icmp eq i64 %.pre321.pre, %394
+  %395 = icmp eq i64 %.pre320.pre, %394
   br i1 %395, label %396, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228"
 
 396:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit"
@@ -181087,7 +181085,7 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228_crit_edge" unwind label %397, !noalias !28243
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228_crit_edge": ; preds = %396
-  %.pre320.pre = load i32, ptr %49, align 4, !alias.scope !28244
+  %.pre319.pre = load i32, ptr %49, align 4, !alias.scope !28244
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228"
 
 397:                                              ; preds = %396
@@ -181103,26 +181101,26 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228_crit_edge", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit"
-  %.pre320 = phi i32 [ %.pre320.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228_crit_edge" ], [ %392, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit" ]
+  %.pre319 = phi i32 [ %.pre319.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228_crit_edge" ], [ %392, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h92c30b886c0d1ec0E.exit" ]
   %401 = load ptr, ptr %83, align 8, !alias.scope !28237, !noalias !28240, !nonnull !8, !noundef !8
-  %402 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %401, i64 %.pre321.pre
+  %402 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %401, i64 %.pre320.pre
   store ptr inttoptr (i64 1 to ptr), ptr %402, align 8, !noalias !28243
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store ptr @anon.31516ede0bfaf38948cc5915f43ef47e.1035, ptr %403, align 8, !noalias !28243
-  %404 = add i64 %.pre321.pre, 1
+  %404 = add i64 %.pre320.pre, 1
   store i64 %404, ptr %84, align 8, !alias.scope !28237, !noalias !28240
   br label %405
 
 405:                                              ; preds = %391, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228"
-  %.pre321 = phi i64 [ %.pre321.pre, %391 ], [ %404, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228" ]
-  %406 = phi i32 [ %392, %391 ], [ %.pre320, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228" ]
+  %.pre320 = phi i64 [ %.pre320.pre, %391 ], [ %404, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228" ]
+  %406 = phi i32 [ %392, %391 ], [ %.pre319, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit228" ]
   %407 = and i32 %406, 4096
-  %.not311 = icmp eq i32 %407, 0
-  br i1 %.not311, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a7873fd143f9f9eE.exit", label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1fdb3323f2a7a26dE.exit"
+  %.not310 = icmp eq i32 %407, 0
+  br i1 %.not310, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a7873fd143f9f9eE.exit", label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1fdb3323f2a7a26dE.exit"
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a7873fd143f9f9eE.exit": ; preds = %405
   %408 = load i64, ptr %47, align 8, !range !501, !alias.scope !28247, !noalias !28250, !noundef !8
-  %409 = icmp eq i64 %.pre321, %408
+  %409 = icmp eq i64 %.pre320, %408
   br i1 %409, label %410, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit231"
 
 410:                                              ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a7873fd143f9f9eE.exit"
@@ -181143,16 +181141,16 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit231": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h5a7873fd143f9f9eE.exit", %410
   %415 = load ptr, ptr %83, align 8, !alias.scope !28247, !noalias !28250, !nonnull !8, !noundef !8
-  %416 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %415, i64 %.pre321
+  %416 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %415, i64 %.pre320
   store ptr inttoptr (i64 1 to ptr), ptr %416, align 8, !noalias !28253
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   store ptr @anon.31516ede0bfaf38948cc5915f43ef47e.1037, ptr %417, align 8, !noalias !28253
-  %418 = add i64 %.pre321, 1
+  %418 = add i64 %.pre320, 1
   store i64 %418, ptr %84, align 8, !alias.scope !28247, !noalias !28250
   br label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1fdb3323f2a7a26dE.exit"
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h1fdb3323f2a7a26dE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit231", %405
-  %419 = phi i64 [ %418, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit231" ], [ %.pre321, %405 ]
+  %419 = phi i64 [ %418, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2499aa135325434cE.exit231" ], [ %.pre320, %405 ]
   %420 = load i64, ptr %47, align 8, !range !501, !alias.scope !28212, !noalias !28215, !noundef !8
   %421 = icmp eq i64 %419, %420
   br i1 %421, label %422, label %427
@@ -181207,8 +181205,8 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %439 = load i32, ptr %49, align 4, !alias.scope !28255, !noundef !8
   %440 = and i32 %439, 8
-  %.not312 = icmp eq i32 %440, 0
-  br i1 %.not312, label %442, label %441
+  %.not311 = icmp eq i32 %440, 0
+  br i1 %.not311, label %442, label %441
 
 441:                                              ; preds = %438
   invoke void @_ZN11polars_plan5plans9optimizer20cluster_with_columns8optimize17hf78c4eedd95d467eE(i64 noundef %436, ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
@@ -181217,17 +181215,17 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 442:                                              ; preds = %441, %438
   %443 = load i8, ptr %103, align 1, !range !983
   %.not146.not = icmp ne i8 %443, 2
-  %or.cond297.not313 = select i1 %.sroa.041.0.not, i1 %.not146.not, i1 false
+  %or.cond297.not312 = select i1 %.sroa.041.0.not, i1 %.not146.not, i1 false
   %444 = load i8, ptr %.sroa.044.0.sroa.gep, align 8, !range !430
   %445 = trunc nuw i8 %444 to i1
-  %or.cond299 = select i1 %or.cond297.not313, i1 %445, i1 false
+  %or.cond299 = select i1 %or.cond297.not312, i1 %445, i1 false
   %446 = load i8, ptr %.sroa.044.0.sroa.gep138, align 2, !range !430
   %447 = trunc nuw i8 %446 to i1
   %or.cond301 = select i1 %or.cond299, i1 %447, i1 false
   br i1 %or.cond301, label %448, label %.critedge
 
 .critedge:                                        ; preds = %455, %442
-  %.pre323 = phi i8 [ %.pre323.pre, %455 ], [ %443, %442 ]
+  %.pre322 = phi i8 [ %.pre322.pre, %455 ], [ %443, %442 ]
   br i1 %.not142, label %456, label %462
 
 448:                                              ; preds = %442
@@ -181253,11 +181251,11 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 
 455:                                              ; preds = %452
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.pre323.pre = load i8, ptr %103, align 1, !range !983, !alias.scope !28261
+  %.pre322.pre = load i8, ptr %103, align 1, !range !983, !alias.scope !28261
   br label %.critedge
 
 456:                                              ; preds = %469, %490, %.critedge
-  %457 = phi i8 [ %470, %469 ], [ %.pre322, %490 ], [ %.pre323, %.critedge ]
+  %457 = phi i8 [ %470, %469 ], [ %.pre321, %490 ], [ %.pre322, %.critedge ]
   %.sroa.062.1 = phi i64 [ %436, %469 ], [ %487, %490 ], [ %436, %.critedge ]
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.062.1, ptr %458, align 8
@@ -181273,7 +181271,7 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 462:                                              ; preds = %.critedge
   call void @llvm.experimental.noalias.scope.decl(metadata !28264)
   call void @llvm.experimental.noalias.scope.decl(metadata !28267)
-  %.not.i.i237 = icmp eq i8 %.pre323, 2
+  %.not.i.i237 = icmp eq i8 %.pre322, 2
   br i1 %.not.i.i237, label %463, label %469
 
 463:                                              ; preds = %462
@@ -181305,7 +181303,7 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
   br label %469
 
 469:                                              ; preds = %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i239", %462
-  %470 = phi i8 [ %.pre.i.i240, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i239" ], [ %.pre323, %462 ]
+  %470 = phi i8 [ %.pre.i.i240, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$polars_plan..plans..optimizer..collect_members..MemberCollector$GT$$GT$17h0a1c07812e5a75b6E.exit.i.i239" ], [ %.pre322, %462 ]
   %471 = getelementptr inbounds nuw i8, ptr %44, i64 51
   %472 = load i8, ptr %471, align 1, !range !430, !noundef !8
   %473 = trunc nuw i8 %472 to i1
@@ -181365,7 +181363,7 @@ define void @_ZN11polars_plan5plans9optimizer8optimize17hc91142de087e8188E(ptr d
 
 490:                                              ; preds = %489
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.pre322 = load i8, ptr %103, align 1, !range !983, !alias.scope !28261
+  %.pre321 = load i8, ptr %103, align 1, !range !983, !alias.scope !28261
   br label %456
 
 491:                                              ; preds = %488

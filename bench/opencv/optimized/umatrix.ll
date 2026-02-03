@@ -6500,9 +6500,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %
   br i1 %.not21, label %44, label %26
 
 26:                                               ; preds = %23
-  %27 = and i32 %.val.i, 1
-  %.not22 = icmp eq i32 %27, 0
-  br i1 %.not22, label %28, label %38
+  %27 = trunc i32 %.val.i to i1
+  br i1 %27, label %38, label %28
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

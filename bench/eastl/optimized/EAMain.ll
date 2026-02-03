@@ -558,17 +558,17 @@ entry:
 define dso_local void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %inputCommandLine, i32 noundef %flags) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %inputCommandLine) #21
-  %and = and i32 %flags, 1
-  %tobool.not.not = icmp eq i32 %and, 0
-  %spec.select = zext nneg i32 %and to i64
-  %spec.select39.v = select i1 %tobool.not.not, i64 1, i64 2
+  %tobool.not = trunc i32 %flags to i1
+  %tobool.not.mask = and i32 %flags, 1
+  %spec.select = zext nneg i32 %tobool.not.mask to i64
+  %spec.select39.v = select i1 %tobool.not, i64 2, i64 1
   %spec.select39 = add i64 %call, %spec.select39.v
   %call3 = tail call noalias ptr @calloc(i64 noundef %spec.select39, i64 noundef 1) #19
   %add.ptr = getelementptr inbounds nuw i8, ptr %call3, i64 %spec.select
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %inputCommandLine, i64 %call, i1 false)
   %call4 = tail call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 128, i64 noundef 8) #19
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 %call
-  br i1 %tobool.not.not, label %if.end10, label %if.then9
+  br i1 %tobool.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %entry
   store ptr %call3, ptr %call4, align 8

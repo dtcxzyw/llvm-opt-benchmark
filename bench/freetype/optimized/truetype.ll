@@ -1431,7 +1431,7 @@ tt_size_ready_bytecode.exit.i.i:                  ; preds = %._crit_edge.i.i.i, 
   %575 = xor i8 %.lobit.i.i, 1
   %576 = getelementptr inbounds nuw i8, ptr %516, i64 1099
   store i8 %575, ptr %576, align 1, !tbaa !236
-  %577 = icmp ne i8 %.lobit.i.i, 0
+  %577 = trunc i8 %574 to i1
   br label %580
 
 578:                                              ; preds = %568, %563

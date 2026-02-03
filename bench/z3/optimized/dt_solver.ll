@@ -4144,68 +4144,67 @@ _ZNK10union_findIN2dt6solverEE4findEj.exit:       ; preds = %70
 _ZNK3euf5enode8get_declEv.exit:                   ; preds = %_ZNK10union_findIN2dt6solverEE4findEj.exit, %83
   %86 = phi ptr [ %85, %83 ], [ null, %_ZNK10union_findIN2dt6solverEE4findEj.exit ]
   %87 = tail call noundef ptr @_ZNK8datatype4util26get_recognizer_constructorEP9func_decl(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %86)
-  %88 = and i32 %1, 1
-  %.not27 = icmp eq i32 %88, 0
+  %88 = trunc i32 %1 to i1
   %89 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !453
-  %.not = icmp eq ptr %90, null
-  br i1 %.not27, label %91, label %104
+  %91 = icmp eq ptr %90, null
+  br i1 %88, label %105, label %92
 
-91:                                               ; preds = %_ZNK3euf5enode8get_declEv.exit
-  br i1 %.not, label %103, label %92
+92:                                               ; preds = %_ZNK3euf5enode8get_declEv.exit
+  br i1 %91, label %104, label %93
 
-92:                                               ; preds = %91
-  %93 = load ptr, ptr %90, align 8, !tbaa !470
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 65535
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %_ZNK3euf5enode8get_declEv.exit22
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %90, align 8, !tbaa !470
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  %96 = load i32, ptr %95, align 4
+  %97 = and i32 %96, 65535
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %_ZNK3euf5enode8get_declEv.exit22
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !492
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !492
   br label %_ZNK3euf5enode8get_declEv.exit22
 
-_ZNK3euf5enode8get_declEv.exit22:                 ; preds = %92, %98
-  %101 = phi ptr [ %100, %98 ], [ null, %92 ]
-  %102 = icmp eq ptr %101, %87
-  br i1 %102, label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread, label %103
+_ZNK3euf5enode8get_declEv.exit22:                 ; preds = %93, %99
+  %102 = phi ptr [ %101, %99 ], [ null, %93 ]
+  %103 = icmp eq ptr %102, %87
+  br i1 %103, label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread, label %104
 
-103:                                              ; preds = %_ZNK3euf5enode8get_declEv.exit22, %91
+104:                                              ; preds = %_ZNK3euf5enode8get_declEv.exit22, %92
   tail call void @_ZN2dt6solver27assert_is_constructor_axiomEPN3euf5enodeEP9func_declN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %53, ptr noundef %87, i32 %1)
   br label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread
 
-104:                                              ; preds = %_ZNK3euf5enode8get_declEv.exit
-  br i1 %.not, label %105, label %106
+105:                                              ; preds = %_ZNK3euf5enode8get_declEv.exit
+  br i1 %91, label %106, label %107
 
-105:                                              ; preds = %104
+106:                                              ; preds = %105
   tail call void @_ZN2dt6solver20propagate_recognizerEiPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %.08.i, ptr noundef nonnull %14)
   br label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %90, align 8, !tbaa !470
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %109 = load i32, ptr %108, align 4
-  %110 = and i32 %109, 65535
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %_ZNK3euf5enode8get_declEv.exit23
+107:                                              ; preds = %105
+  %108 = load ptr, ptr %90, align 8, !tbaa !470
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %110 = load i32, ptr %109, align 4
+  %111 = and i32 %110, 65535
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %_ZNK3euf5enode8get_declEv.exit23
 
-112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !492
+113:                                              ; preds = %107
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %115 = load ptr, ptr %114, align 8, !tbaa !492
   br label %_ZNK3euf5enode8get_declEv.exit23
 
-_ZNK3euf5enode8get_declEv.exit23:                 ; preds = %106, %112
-  %115 = phi ptr [ %114, %112 ], [ null, %106 ]
-  %116 = icmp eq ptr %115, %87
-  br i1 %116, label %117, label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread
+_ZNK3euf5enode8get_declEv.exit23:                 ; preds = %107, %113
+  %116 = phi ptr [ %115, %113 ], [ null, %107 ]
+  %117 = icmp eq ptr %116, %87
+  br i1 %117, label %118, label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread
 
-117:                                              ; preds = %_ZNK3euf5enode8get_declEv.exit23
+118:                                              ; preds = %_ZNK3euf5enode8get_declEv.exit23
   tail call void @_ZN2dt6solver24sign_recognizer_conflictEPN3euf5enodeES3_(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %90, ptr noundef nonnull %14)
   br label %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread
 
-_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread: ; preds = %41, %_ZNK8datatype4util14is_recognizer0EPK3app.exit.thread.i.i.i, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, %_ZNK3euf5enode8get_declEv.exit22, %105, %117, %_ZNK3euf5enode8get_declEv.exit23, %103, %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit
+_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit.thread: ; preds = %41, %_ZNK8datatype4util14is_recognizer0EPK3app.exit.thread.i.i.i, %_ZNK3euf13th_euf_solver14bool_var2enodeEj.exit, %_ZNK3euf5enode8get_declEv.exit22, %106, %118, %_ZNK3euf5enode8get_declEv.exit23, %104, %_ZNK2dt6solver13is_recognizerEPN3euf5enodeE.exit
   ret void
 }
 

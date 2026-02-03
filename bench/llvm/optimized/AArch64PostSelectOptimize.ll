@@ -903,10 +903,9 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.i.i: ; preds = %223
   %245 = getelementptr inbounds nuw i32, ptr %242, i64 %244
   %246 = load i32, ptr %245, align 4, !tbaa !264
   %247 = and i32 %240, 31
-  %248 = shl nuw i32 1, %247
-  %249 = and i32 %248, %246
-  %.not9.i.i = icmp eq i32 %249, 0
-  br i1 %.not9.i.i, label %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i, label %250
+  %248 = lshr i32 %246, %247
+  %249 = trunc i32 %248 to i1
+  br i1 %249, label %250, label %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i
 
 250:                                              ; preds = %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.i.i
   %251 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %204, i32 %216) #12
@@ -929,10 +928,9 @@ _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i: ; preds = %_ZNK4ll
   %262 = getelementptr inbounds nuw i32, ptr %259, i64 %261
   %263 = load i32, ptr %262, align 4, !tbaa !264
   %264 = and i32 %257, 31
-  %265 = shl nuw i32 1, %264
-  %266 = and i32 %265, %263
-  %.not10.i.i = icmp eq i32 %266, 0
-  br i1 %.not10.i.i, label %267, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i
+  %265 = lshr i32 %263, %264
+  %266 = trunc i32 %265 to i1
+  br i1 %266, label %_ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i, label %267
 
 _ZN12_GLOBAL__N_125AArch64PostSelectOptimize26foldSimpleCrossClassCopiesERN4llvm12MachineInstrE.exit.i: ; preds = %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit30.i.i, %252
   call void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(504) %204, i32 %218, i32 %216) #12

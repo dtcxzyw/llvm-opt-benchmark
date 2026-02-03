@@ -424,42 +424,41 @@ define noundef i32 @dtrsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.3249 = phi ptr [ %173, %._crit_edge320 ], [ %.2248, %170 ]
   %.6 = phi ptr [ %.7.lcssa, %._crit_edge320 ], [ %.4245, %170 ]
   %.3229 = phi i64 [ %197, %._crit_edge320 ], [ %.2228, %170 ]
-  %199 = and i64 %1, 1
-  %.not257 = icmp ne i64 %199, 0
-  %200 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not257, %200
+  %.not257 = trunc i64 %1 to i1
+  %199 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %199, %.not257
   br i1 %or.cond, label %.lr.ph326, label %.loopexit
 
-.lr.ph326:                                        ; preds = %198, %207
-  %.4325 = phi ptr [ %209, %207 ], [ %.3249, %198 ]
-  %.4235324 = phi i64 [ %210, %207 ], [ 0, %198 ]
-  %.8322 = phi ptr [ %208, %207 ], [ %.6, %198 ]
+.lr.ph326:                                        ; preds = %198, %206
+  %.4325 = phi ptr [ %208, %206 ], [ %.3249, %198 ]
+  %.4235324 = phi i64 [ %209, %206 ], [ 0, %198 ]
+  %.8322 = phi ptr [ %207, %206 ], [ %.6, %198 ]
   %.not259 = icmp sgt i64 %.4235324, %.3229
   %or.cond.not = icmp eq i64 %.4235324, %.3229
-  br i1 %or.cond.not, label %201, label %204
+  br i1 %or.cond.not, label %200, label %203
 
-201:                                              ; preds = %.lr.ph326
-  %202 = load double, ptr %.4325, align 8, !tbaa !3
-  %203 = fdiv double 1.000000e+00, %202
-  store double %203, ptr %.8322, align 8, !tbaa !3
-  br label %204
+200:                                              ; preds = %.lr.ph326
+  %201 = load double, ptr %.4325, align 8, !tbaa !3
+  %202 = fdiv double 1.000000e+00, %201
+  store double %202, ptr %.8322, align 8, !tbaa !3
+  br label %203
 
-204:                                              ; preds = %201, %.lr.ph326
-  br i1 %.not259, label %205, label %207
+203:                                              ; preds = %200, %.lr.ph326
+  br i1 %.not259, label %204, label %206
 
-205:                                              ; preds = %204
-  %206 = load double, ptr %.4325, align 8, !tbaa !3
-  store double %206, ptr %.8322, align 8, !tbaa !3
-  br label %207
+204:                                              ; preds = %203
+  %205 = load double, ptr %.4325, align 8, !tbaa !3
+  store double %205, ptr %.8322, align 8, !tbaa !3
+  br label %206
 
-207:                                              ; preds = %205, %204
-  %208 = getelementptr inbounds nuw i8, ptr %.8322, i64 8
-  %209 = getelementptr inbounds double, ptr %.4325, i64 %3
-  %210 = add nuw nsw i64 %.4235324, 1
-  %exitcond347.not = icmp eq i64 %210, %0
+206:                                              ; preds = %204, %203
+  %207 = getelementptr inbounds nuw i8, ptr %.8322, i64 8
+  %208 = getelementptr inbounds double, ptr %.4325, i64 %3
+  %209 = add nuw nsw i64 %.4235324, 1
+  %exitcond347.not = icmp eq i64 %209, %0
   br i1 %exitcond347.not, label %.loopexit, label %.lr.ph326, !llvm.loop !16
 
-.loopexit:                                        ; preds = %207, %198
+.loopexit:                                        ; preds = %206, %198
   ret i32 0
 }
 

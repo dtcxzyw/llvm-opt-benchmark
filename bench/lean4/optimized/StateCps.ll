@@ -56,9 +56,8 @@ define ptr @l_StateCpsT_run___rarg___lambda__1(ptr noundef %0, ptr noundef %1, p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %3
   %.val.i = load i32, ptr %5, align 4, !tbaa !4
@@ -80,9 +79,8 @@ define ptr @l_StateCpsT_run___rarg___lambda__1(ptr noundef %0, ptr noundef %1, p
 
 lean_inc.exit:                                    ; preds = %13, %12, %10, %3
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not21 = icmp eq i64 %15, 0
-  br i1 %.not21, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_inc.exit
   %17 = load i32, ptr %0, align 4, !tbaa !4
@@ -106,9 +104,8 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not22 = icmp eq i64 %26, 0
-  br i1 %.not22, label %27, label %lean_inc.exit13
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit13, label %27
 
 27:                                               ; preds = %lean_dec.exit
   %.val.i18 = load i32, ptr %24, align 4, !tbaa !4
@@ -129,7 +126,7 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
   br label %lean_inc.exit13
 
 lean_inc.exit13:                                  ; preds = %32, %31, %29, %lean_dec.exit
-  br i1 %.not, label %33, label %lean_dec.exit14
+  br i1 %7, label %lean_dec.exit14, label %33
 
 33:                                               ; preds = %lean_inc.exit13
   %34 = load i32, ptr %5, align 4, !tbaa !4
@@ -229,9 +226,8 @@ define ptr @l_StateCpsT_run_x27___rarg___lambda__1(ptr noundef %0, ptr noundef %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit9
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit9, label %8
 
 8:                                                ; preds = %3
   %.val.i = load i32, ptr %5, align 4, !tbaa !4
@@ -253,9 +249,8 @@ define ptr @l_StateCpsT_run_x27___rarg___lambda__1(ptr noundef %0, ptr noundef %
 
 lean_inc.exit9:                                   ; preds = %13, %12, %10, %3
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not17 = icmp eq i64 %15, 0
-  br i1 %.not17, label %16, label %lean_dec.exit10
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit10, label %16
 
 16:                                               ; preds = %lean_inc.exit9
   %17 = load i32, ptr %0, align 4, !tbaa !4
@@ -279,9 +274,8 @@ lean_dec.exit10:                                  ; preds = %22, %21, %19, %lean
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not18 = icmp eq i64 %26, 0
-  br i1 %.not18, label %27, label %lean_inc.exit
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit, label %27
 
 27:                                               ; preds = %lean_dec.exit10
   %.val.i14 = load i32, ptr %24, align 4, !tbaa !4
@@ -302,7 +296,7 @@ lean_dec.exit10:                                  ; preds = %22, %21, %19, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %32, %31, %29, %lean_dec.exit10
-  br i1 %.not, label %33, label %lean_dec.exit
+  br i1 %7, label %lean_dec.exit, label %33
 
 33:                                               ; preds = %lean_inc.exit
   %34 = load i32, ptr %5, align 4, !tbaa !4
@@ -358,9 +352,8 @@ lean_alloc_closure.exit:                          ; preds = %3
 define ptr @l_StateCpsT_run_x27___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @l_StateCpsT_run_x27___rarg___lambda__1(ptr noundef %0, ptr noundef %1, ptr poison)
   %5 = ptrtoint ptr %2 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 4, !tbaa !4
@@ -485,9 +478,8 @@ lean_alloc_closure.exit:                          ; preds = %7
 define ptr @l_StateCpsT_instMonad___lambda__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @lean_apply_2(ptr noundef %0, ptr noundef %1, ptr noundef %3) #4
   %6 = ptrtoint ptr %2 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %2, align 4, !tbaa !4
@@ -674,9 +666,8 @@ lean_alloc_closure.exit:                          ; preds = %7
 define ptr @l_StateCpsT_instMonad___lambda__10___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @lean_apply_4(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %3, ptr noundef %1) #4
   %6 = ptrtoint ptr %2 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %2, align 4, !tbaa !4
@@ -744,9 +735,8 @@ define ptr @l_StateCpsT_instMonad(ptr noundef readnone captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define ptr @l_StateCpsT_instMonadStateOf___lambda__1(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %3
   %.val.i = load i32, ptr %1, align 4, !tbaa !4
@@ -783,9 +773,8 @@ define ptr @l_StateCpsT_instMonadStateOf___lambda__3(ptr readnone captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_inc.exit11
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_inc.exit11, label %11
 
 11:                                               ; preds = %5
   %.val.i = load i32, ptr %8, align 4, !tbaa !4
@@ -809,9 +798,8 @@ lean_inc.exit11:                                  ; preds = %16, %15, %13, %5
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 1
-  %.not16 = icmp eq i64 %20, 0
-  br i1 %.not16, label %21, label %lean_inc.exit
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %lean_inc.exit, label %21
 
 21:                                               ; preds = %lean_inc.exit11
   %.val.i13 = load i32, ptr %18, align 4, !tbaa !4
@@ -833,9 +821,8 @@ lean_inc.exit11:                                  ; preds = %16, %15, %13, %5
 
 lean_inc.exit:                                    ; preds = %26, %25, %23, %lean_inc.exit11
   %27 = ptrtoint ptr %6 to i64
-  %28 = and i64 %27, 1
-  %.not17 = icmp eq i64 %28, 0
-  br i1 %.not17, label %29, label %lean_dec.exit
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %lean_dec.exit, label %29
 
 29:                                               ; preds = %lean_inc.exit
   %30 = load i32, ptr %6, align 4, !tbaa !4
@@ -870,9 +857,8 @@ define ptr @l_StateCpsT_instMonadStateOf(ptr noundef readnone captures(none) %0,
 define ptr @l_StateCpsT_instMonadStateOf___lambda__2___boxed(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @lean_apply_2(ptr noundef %3, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %0) #4
   %6 = ptrtoint ptr %2 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %2, align 4, !tbaa !4
@@ -907,9 +893,8 @@ define ptr @l_StateCpsT_lift___rarg(ptr noundef %0, ptr noundef %1, ptr readnone
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = ptrtoint ptr %7 to i64
-  %9 = and i64 %8, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %lean_inc.exit
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %lean_inc.exit, label %10
 
 10:                                               ; preds = %5
   %.val.i = load i32, ptr %7, align 4, !tbaa !4
@@ -931,9 +916,8 @@ define ptr @l_StateCpsT_lift___rarg(ptr noundef %0, ptr noundef %1, ptr readnone
 
 lean_inc.exit:                                    ; preds = %15, %14, %12, %5
   %16 = ptrtoint ptr %0 to i64
-  %17 = and i64 %16, 1
-  %.not12 = icmp eq i64 %17, 0
-  br i1 %.not12, label %18, label %lean_dec.exit
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_inc.exit
   %19 = load i32, ptr %0, align 4, !tbaa !4
@@ -1010,9 +994,8 @@ define ptr @l_StateCpsT_instMonadLiftOfMonad___rarg(ptr noundef %0, ptr readnone
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_inc.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_inc.exit, label %11
 
 11:                                               ; preds = %6
   %.val.i = load i32, ptr %8, align 4, !tbaa !4
@@ -1034,9 +1017,8 @@ define ptr @l_StateCpsT_instMonadLiftOfMonad___rarg(ptr noundef %0, ptr readnone
 
 lean_inc.exit:                                    ; preds = %16, %15, %13, %6
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not12 = icmp eq i64 %18, 0
-  br i1 %.not12, label %19, label %lean_dec.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
 19:                                               ; preds = %lean_inc.exit
   %20 = load i32, ptr %0, align 4, !tbaa !4

@@ -13787,9 +13787,8 @@ _ZN4llvm16TargetPassConfig7addPassEPKv.exit20:    ; preds = %_ZNK4llvm16TargetPa
   %83 = load ptr, ptr %82, align 8, !tbaa !337
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 688
   %85 = load i8, ptr %84, align 8
-  %86 = and i8 %85, 1
-  %.not = icmp eq i8 %86, 0
-  br i1 %.not, label %87, label %_ZN4llvm16TargetPassConfig7addPassEPKv.exit40
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %_ZN4llvm16TargetPassConfig7addPassEPKv.exit40, label %87
 
 87:                                               ; preds = %_ZN4llvm16TargetPassConfig7addPassEPKv.exit20
   %88 = load ptr, ptr @_ZN4llvm21TailDuplicateLegacyIDE, align 8, !tbaa !54

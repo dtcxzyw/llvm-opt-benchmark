@@ -303,10 +303,9 @@ define noundef ptr @_Z8ftp2desci(i32 noundef %0) local_unnamed_addr #1 {
 define noundef zeroext i1 @_Z11ftp_is_texti(i32 noundef %0) local_unnamed_addr #1 {
   %or.cond = icmp ult i32 %0, 44
   %2 = zext nneg i32 %0 to i64
-  %3 = shl nuw i64 1, %2
-  %4 = and i64 %3, 17454646163457
-  %5 = icmp ne i64 %4, 0
-  %.0 = select i1 %or.cond, i1 %5, i1 false
+  %3 = lshr i64 17454646163457, %2
+  %4 = trunc i64 %3 to i1
+  %.0 = select i1 %or.cond, i1 %4, i1 false
   ret i1 %.0
 }
 
@@ -314,10 +313,9 @@ define noundef zeroext i1 @_Z11ftp_is_texti(i32 noundef %0) local_unnamed_addr #
 define noundef zeroext i1 @_Z10ftp_is_xdri(i32 noundef %0) local_unnamed_addr #1 {
   %or.cond = icmp ult i32 %0, 44
   %2 = zext nneg i32 %0 to i64
-  %3 = shl nuw i64 1, %2
-  %4 = and i64 %3, 137506324816
-  %5 = icmp ne i64 %4, 0
-  %.0 = select i1 %or.cond, i1 %5, i1 false
+  %3 = lshr i64 137506324816, %2
+  %4 = trunc i64 %3 to i1
+  %.0 = select i1 %or.cond, i1 %4, i1 false
   ret i1 %.0
 }
 

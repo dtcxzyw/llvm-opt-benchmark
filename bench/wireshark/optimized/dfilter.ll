@@ -584,7 +584,7 @@ define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef writ
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %3, ptr %32, align 8
   %33 = call fastcc zeroext i1 @dfwork_parse(ptr noundef %.018, ptr noundef %29)
-  br i1 %33, label %34, label %108
+  br i1 %33, label %34, label %107
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -631,176 +631,175 @@ define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr noundef writ
 
 dfwork_build.exit.thread.i:                       ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %108
+  br label %107
 
 58:                                               ; preds = %39
   store ptr null, ptr %6, align 8
   %59 = load ptr, ptr %52, align 8
   call void @log_syntax_tree(i32 noundef 1, ptr noundef %59, ptr noundef nonnull @.str.60, ptr noundef nonnull %6)
   %60 = load i32, ptr %44, align 8
-  %61 = and i32 %60, 1
-  %62 = icmp ne i32 %61, 0
-  %63 = load ptr, ptr %6, align 8
-  %64 = icmp eq ptr %63, null
-  %or.cond.i.i = select i1 %62, i1 %64, i1 false
-  br i1 %or.cond.i.i, label %65, label %68
+  %61 = trunc i32 %60 to i1
+  %62 = load ptr, ptr %6, align 8
+  %63 = icmp eq ptr %62, null
+  %or.cond.i.i = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond.i.i, label %64, label %67
 
-65:                                               ; preds = %58
-  %66 = load ptr, ptr %52, align 8
-  %67 = call ptr @dump_syntax_tree_str(ptr noundef %66)
-  store ptr %67, ptr %6, align 8
-  br label %68
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %52, align 8
+  %66 = call ptr @dump_syntax_tree_str(ptr noundef %65)
+  store ptr %66, ptr %6, align 8
+  br label %67
 
-68:                                               ; preds = %65, %58
+67:                                               ; preds = %64, %58
   call void @dfw_gencode(ptr noundef %41)
-  %69 = load ptr, ptr %55, align 8
-  %70 = call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #17
-  store ptr null, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 48
-  store ptr null, ptr %72, align 8
-  %.not.i.i.i = icmp eq ptr %69, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i.i, label %dfilter_new.exit.i.i, label %73
+  %68 = load ptr, ptr %55, align 8
+  %69 = call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #17
+  store ptr null, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  store ptr null, ptr %71, align 8
+  %.not.i.i.i = icmp eq ptr %68, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  br i1 %.not.i.i.i, label %dfilter_new.exit.i.i, label %72
 
-73:                                               ; preds = %68
-  %74 = call ptr @g_ptr_array_ref(ptr noundef nonnull %69)
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  store ptr %74, ptr %75, align 8
+72:                                               ; preds = %67
+  %73 = call ptr @g_ptr_array_ref(ptr noundef nonnull %68)
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  store ptr %73, ptr %74, align 8
   br label %dfilter_new.exit.i.i
 
-dfilter_new.exit.i.i:                             ; preds = %73, %68
-  %76 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %70, align 8
-  store ptr null, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %79 = call ptr @dfw_interesting_fields(ptr noundef %41, ptr noundef nonnull %78)
-  %80 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr %79, ptr %80, align 8
-  %81 = load ptr, ptr %43, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  store ptr %81, ptr %82, align 8
+dfilter_new.exit.i.i:                             ; preds = %72, %67
+  %75 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %69, align 8
+  store ptr null, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %78 = call ptr @dfw_interesting_fields(ptr noundef %41, ptr noundef nonnull %77)
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  store ptr %78, ptr %79, align 8
+  %80 = load ptr, ptr %43, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 56
+  store ptr %80, ptr %81, align 8
   store ptr null, ptr %43, align 8
-  %83 = load ptr, ptr %46, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %70, i64 64
-  store ptr %83, ptr %84, align 8
+  %82 = load ptr, ptr %46, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %69, i64 64
+  store ptr %82, ptr %83, align 8
   store ptr null, ptr %46, align 8
-  %85 = load ptr, ptr %48, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %70, i64 72
-  store ptr %85, ptr %86, align 8
+  %84 = load ptr, ptr %48, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %69, i64 72
+  store ptr %84, ptr %85, align 8
   store ptr null, ptr %48, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %41, i64 112
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %72, align 8
-  store ptr null, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %41, i64 120
-  %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %70, i64 104
-  store i32 %90, ptr %91, align 8
-  %92 = load i32, ptr %44, align 8
-  %93 = and i32 %92, 1
-  %.not.i.i = icmp eq i32 %93, 0
-  br i1 %.not.i.i, label %97, label %94
+  %86 = getelementptr inbounds nuw i8, ptr %41, i64 112
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %71, align 8
+  store ptr null, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %41, i64 120
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 104
+  store i32 %89, ptr %90, align 8
+  %91 = load i32, ptr %44, align 8
+  %92 = and i32 %91, 1
+  %.not.i.i = icmp eq i32 %92, 0
+  br i1 %.not.i.i, label %96, label %93
 
-94:                                               ; preds = %dfilter_new.exit.i.i
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  store ptr %95, ptr %96, align 8
+93:                                               ; preds = %dfilter_new.exit.i.i
+  %94 = load ptr, ptr %6, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %69, i64 80
+  store ptr %94, ptr %95, align 8
   br label %dfwork_build.exit.i
 
-97:                                               ; preds = %dfilter_new.exit.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  store ptr null, ptr %98, align 8
-  %99 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %99)
+96:                                               ; preds = %dfilter_new.exit.i.i
+  %97 = getelementptr inbounds nuw i8, ptr %69, i64 80
+  store ptr null, ptr %97, align 8
+  %98 = load ptr, ptr %6, align 8
+  call void @g_free(ptr noundef %98)
   br label %dfwork_build.exit.i
 
-dfwork_build.exit.i:                              ; preds = %97, %94
+dfwork_build.exit.i:                              ; preds = %96, %93
   store ptr null, ptr %6, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %41, i64 68
-  %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 %101, ptr %102, align 8
-  %103 = zext i32 %101 to i64
-  %104 = call noalias ptr @g_malloc0_n(i64 noundef %103, i64 noundef 8) #19
-  %105 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store ptr %104, ptr %105, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %41, i64 68
+  %100 = load i32, ptr %99, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i32 %100, ptr %101, align 8
+  %102 = zext i32 %100 to i64
+  %103 = call noalias ptr @g_malloc0_n(i64 noundef %102, i64 noundef 8) #19
+  %104 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store ptr %103, ptr %104, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %106 = icmp eq ptr %70, null
-  br i1 %106, label %108, label %107
+  %105 = icmp eq ptr %69, null
+  br i1 %105, label %107, label %106
 
-107:                                              ; preds = %dfwork_build.exit.i
+106:                                              ; preds = %dfwork_build.exit.i
   call fastcc void @dfwork_free(ptr noundef %41)
   br label %compile_filter.exit
 
-108:                                              ; preds = %dfwork_build.exit.i, %dfwork_build.exit.thread.i, %28
+107:                                              ; preds = %dfwork_build.exit.i, %dfwork_build.exit.thread.i, %28
   %.sink40.i = phi ptr [ %29, %28 ], [ %41, %dfwork_build.exit.thread.i ], [ %41, %dfwork_build.exit.i ]
   %.034.i = phi ptr [ %29, %28 ], [ null, %dfwork_build.exit.thread.i ], [ null, %dfwork_build.exit.i ]
   %.033.i = phi ptr [ null, %28 ], [ %41, %dfwork_build.exit.thread.i ], [ %41, %dfwork_build.exit.i ]
-  %109 = load ptr, ptr %.sink40.i, align 8
+  %108 = load ptr, ptr %.sink40.i, align 8
   store ptr null, ptr %.sink40.i, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %115, label %111
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %114, label %110
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %117
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %114, label %116
 
-115:                                              ; preds = %111, %108
+114:                                              ; preds = %110, %107
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @.str.2, i64 noundef 572, ptr noundef nonnull @__func__.compile_filter, ptr noundef nonnull @.str.57, ptr noundef %.018)
-  %116 = call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.58)
-  br label %117
+  %115 = call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.58)
+  br label %116
 
-117:                                              ; preds = %115, %111
-  %.1.i = phi ptr [ %116, %115 ], [ %109, %111 ]
+116:                                              ; preds = %114, %110
+  %.1.i = phi ptr [ %115, %114 ], [ %108, %110 ]
   store ptr %.1.i, ptr %7, align 8
   %.not.i25 = icmp eq ptr %.034.i, null
-  br i1 %.not.i25, label %119, label %118
+  br i1 %.not.i25, label %118, label %117
 
-118:                                              ; preds = %117
+117:                                              ; preds = %116
   call fastcc void @dfsyntax_free(ptr noundef nonnull %.034.i)
-  br label %119
+  br label %118
 
-119:                                              ; preds = %118, %117
+118:                                              ; preds = %117, %116
   %.not36.i = icmp eq ptr %.033.i, null
-  br i1 %.not36.i, label %compile_filter.exit, label %120
+  br i1 %.not36.i, label %compile_filter.exit, label %119
 
-120:                                              ; preds = %119
+119:                                              ; preds = %118
   call fastcc void @dfwork_free(ptr noundef nonnull %.033.i)
   br label %compile_filter.exit
 
-compile_filter.exit:                              ; preds = %38, %107, %119, %120
-  %.0.i = phi ptr [ null, %38 ], [ %70, %107 ], [ null, %120 ], [ null, %119 ]
+compile_filter.exit:                              ; preds = %38, %106, %118, %119
+  %.0.i = phi ptr [ null, %38 ], [ %69, %106 ], [ null, %119 ], [ null, %118 ]
   call void @g_free(ptr noundef %.018)
-  %121 = load ptr, ptr %7, align 8
-  %.not23 = icmp eq ptr %121, null
-  br i1 %.not23, label %127, label %122
+  %120 = load ptr, ptr %7, align 8
+  %.not23 = icmp eq ptr %120, null
+  br i1 %.not23, label %126, label %121
 
-122:                                              ; preds = %compile_filter.exit
+121:                                              ; preds = %compile_filter.exit
   %.not.i26 = icmp eq ptr %2, null
-  br i1 %.not.i26, label %124, label %123
+  br i1 %.not.i26, label %123, label %122
 
-123:                                              ; preds = %122
-  store ptr %121, ptr %2, align 8
+122:                                              ; preds = %121
+  store ptr %120, ptr %2, align 8
   br label %compile_failure.exit
 
-124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %126 = load ptr, ptr %125, align 8
-  call void @g_free(ptr noundef %126)
-  call void @g_free(ptr noundef nonnull %121)
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %125 = load ptr, ptr %124, align 8
+  call void @g_free(ptr noundef %125)
+  call void @g_free(ptr noundef nonnull %120)
   br label %compile_failure.exit
 
-127:                                              ; preds = %compile_filter.exit
+126:                                              ; preds = %compile_filter.exit
   store ptr %.0.i, ptr %1, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.51, ptr noundef nonnull %0)
   br label %compile_failure.exit
 
-compile_failure.exit:                             ; preds = %124, %123, %23, %21, %20, %9, %11, %127
-  %.0 = phi i1 [ true, %127 ], [ false, %9 ], [ false, %23 ], [ false, %11 ], [ false, %20 ], [ false, %21 ], [ false, %123 ], [ false, %124 ]
+compile_failure.exit:                             ; preds = %123, %122, %23, %21, %20, %9, %11, %126
+  %.0 = phi i1 [ true, %126 ], [ false, %9 ], [ false, %23 ], [ false, %11 ], [ false, %20 ], [ false, %21 ], [ false, %122 ], [ false, %123 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }

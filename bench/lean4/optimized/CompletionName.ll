@@ -42,9 +42,8 @@ define zeroext range(i8 0, 2) i8 @l___private_Lean_Meta_CompletionName_0__Lean_M
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.018 = phi ptr [ %0, %1 ], [ %.018.be, %.backedge.backedge ]
   %2 = ptrtoint ptr %.018 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %.backedge
   %5 = lshr i64 %2, 1
@@ -104,9 +103,8 @@ define noundef nonnull ptr @l___private_Lean_Meta_CompletionName_0__Lean_Meta_is
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %1
   %.018.i = phi ptr [ %0, %1 ], [ %.018.i.be, %.backedge.i.backedge ]
   %2 = ptrtoint ptr %.018.i to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %.backedge.i
   %5 = lshr i64 %2, 1
@@ -153,9 +151,8 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
 l___private_Lean_Meta_CompletionName_0__Lean_Meta_isInternalNameModuloPrivate.exit: ; preds = %lean_obj_tag.exit.i, %16
   %.1.i = phi i64 [ 1, %lean_obj_tag.exit.i ], [ 3, %16 ]
   %23 = ptrtoint ptr %0 to i64
-  %24 = and i64 %23, 1
-  %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %25, label %lean_dec.exit
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_dec.exit, label %25
 
 25:                                               ; preds = %l___private_Lean_Meta_CompletionName_0__Lean_Meta_isInternalNameModuloPrivate.exit
   %26 = load i32, ptr %0, align 4, !tbaa !8
@@ -187,9 +184,8 @@ define zeroext i8 @l___private_Lean_Meta_CompletionName_0__Lean_Meta_isBlacklist
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %2
   %.018.i = phi ptr [ %1, %2 ], [ %.018.i.be, %.backedge.i.backedge ]
   %3 = ptrtoint ptr %.018.i to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %.backedge.i
   %6 = lshr i64 %3, 1
@@ -235,9 +231,8 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 
 24:                                               ; preds = %lean_obj_tag.exit.i
   %25 = ptrtoint ptr %1 to i64
-  %26 = and i64 %25, 1
-  %.not101 = icmp eq i64 %26, 0
-  br i1 %.not101, label %27, label %lean_inc.exit
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit, label %27
 
 27:                                               ; preds = %24
   %.val.i = load i32, ptr %1, align 4, !tbaa !8
@@ -259,9 +254,8 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
 
 lean_inc.exit:                                    ; preds = %32, %31, %29, %24
   %33 = ptrtoint ptr %0 to i64
-  %34 = and i64 %33, 1
-  %.not102 = icmp eq i64 %34, 0
-  br i1 %.not102, label %35, label %lean_inc.exit51
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %lean_inc.exit51, label %35
 
 35:                                               ; preds = %lean_inc.exit
   %.val.i78 = load i32, ptr %0, align 4, !tbaa !8
@@ -288,7 +282,7 @@ lean_inc.exit51:                                  ; preds = %40, %39, %37, %lean
 
 43:                                               ; preds = %lean_inc.exit51
   %44 = load ptr, ptr @l___private_Lean_Meta_CompletionName_0__Lean_Meta_isBlacklisted___closed__1, align 8, !tbaa !4
-  br i1 %.not101, label %45, label %lean_inc.exit52
+  br i1 %26, label %lean_inc.exit52, label %45
 
 45:                                               ; preds = %43
   %.val.i81 = load i32, ptr %1, align 4, !tbaa !8
@@ -309,7 +303,7 @@ lean_inc.exit51:                                  ; preds = %40, %39, %37, %lean
   br label %lean_inc.exit52
 
 lean_inc.exit52:                                  ; preds = %50, %49, %47, %43
-  br i1 %.not102, label %51, label %lean_inc.exit53
+  br i1 %34, label %lean_inc.exit53, label %51
 
 51:                                               ; preds = %lean_inc.exit52
   %.val.i84 = load i32, ptr %0, align 4, !tbaa !8
@@ -335,7 +329,7 @@ lean_inc.exit53:                                  ; preds = %56, %55, %53, %lean
   br i1 %58, label %59, label %122
 
 59:                                               ; preds = %lean_inc.exit53
-  br i1 %.not101, label %60, label %lean_inc.exit54
+  br i1 %26, label %lean_inc.exit54, label %60
 
 60:                                               ; preds = %59
   %.val.i87 = load i32, ptr %1, align 4, !tbaa !8
@@ -356,7 +350,7 @@ lean_inc.exit53:                                  ; preds = %56, %55, %53, %lean
   br label %lean_inc.exit54
 
 lean_inc.exit54:                                  ; preds = %65, %64, %62, %59
-  br i1 %.not102, label %66, label %lean_inc.exit55
+  br i1 %34, label %lean_inc.exit55, label %66
 
 66:                                               ; preds = %lean_inc.exit54
   %.val.i90 = load i32, ptr %0, align 4, !tbaa !8
@@ -383,7 +377,7 @@ lean_inc.exit55:                                  ; preds = %71, %70, %68, %lean
 
 74:                                               ; preds = %lean_inc.exit55
   %75 = load ptr, ptr @l_Lean_Meta_addToCompletionBlackList___closed__1, align 8, !tbaa !4
-  br i1 %.not101, label %76, label %lean_inc.exit56
+  br i1 %26, label %lean_inc.exit56, label %76
 
 76:                                               ; preds = %74
   %.val.i93 = load i32, ptr %1, align 4, !tbaa !8
@@ -404,7 +398,7 @@ lean_inc.exit55:                                  ; preds = %71, %70, %68, %lean
   br label %lean_inc.exit56
 
 lean_inc.exit56:                                  ; preds = %81, %80, %78, %74
-  br i1 %.not102, label %82, label %lean_inc.exit57
+  br i1 %34, label %lean_inc.exit57, label %82
 
 82:                                               ; preds = %lean_inc.exit56
   %.val.i96 = load i32, ptr %0, align 4, !tbaa !8
@@ -434,7 +428,7 @@ lean_inc.exit57:                                  ; preds = %87, %86, %84, %lean
   br label %lean_dec.exit49
 
 92:                                               ; preds = %lean_inc.exit57
-  br i1 %.not101, label %93, label %lean_dec.exit50
+  br i1 %26, label %lean_dec.exit50, label %93
 
 93:                                               ; preds = %92
   %94 = load i32, ptr %1, align 4, !tbaa !8
@@ -455,7 +449,7 @@ lean_inc.exit57:                                  ; preds = %87, %86, %84, %lean
   br label %lean_dec.exit50
 
 lean_dec.exit50:                                  ; preds = %99, %98, %96, %92
-  br i1 %.not102, label %100, label %lean_dec.exit49
+  br i1 %34, label %lean_dec.exit49, label %100
 
 100:                                              ; preds = %lean_dec.exit50
   %101 = load i32, ptr %0, align 4, !tbaa !8
@@ -476,7 +470,7 @@ lean_dec.exit50:                                  ; preds = %99, %98, %96, %92
   br label %lean_dec.exit49
 
 107:                                              ; preds = %lean_inc.exit55
-  br i1 %.not101, label %108, label %lean_dec.exit48
+  br i1 %26, label %lean_dec.exit48, label %108
 
 108:                                              ; preds = %107
   %109 = load i32, ptr %1, align 4, !tbaa !8
@@ -497,7 +491,7 @@ lean_dec.exit50:                                  ; preds = %99, %98, %96, %92
   br label %lean_dec.exit48
 
 lean_dec.exit48:                                  ; preds = %114, %113, %111, %107
-  br i1 %.not102, label %115, label %lean_dec.exit49
+  br i1 %34, label %lean_dec.exit49, label %115
 
 115:                                              ; preds = %lean_dec.exit48
   %116 = load i32, ptr %0, align 4, !tbaa !8
@@ -518,7 +512,7 @@ lean_dec.exit48:                                  ; preds = %114, %113, %111, %1
   br label %lean_dec.exit49
 
 122:                                              ; preds = %lean_inc.exit53
-  br i1 %.not101, label %123, label %lean_dec.exit46
+  br i1 %26, label %lean_dec.exit46, label %123
 
 123:                                              ; preds = %122
   %124 = load i32, ptr %1, align 4, !tbaa !8
@@ -539,7 +533,7 @@ lean_dec.exit48:                                  ; preds = %114, %113, %111, %1
   br label %lean_dec.exit46
 
 lean_dec.exit46:                                  ; preds = %129, %128, %126, %122
-  br i1 %.not102, label %130, label %lean_dec.exit49
+  br i1 %34, label %lean_dec.exit49, label %130
 
 130:                                              ; preds = %lean_dec.exit46
   %131 = load i32, ptr %0, align 4, !tbaa !8
@@ -560,7 +554,7 @@ lean_dec.exit46:                                  ; preds = %129, %128, %126, %1
   br label %lean_dec.exit49
 
 137:                                              ; preds = %lean_inc.exit51
-  br i1 %.not101, label %138, label %lean_dec.exit44
+  br i1 %26, label %lean_dec.exit44, label %138
 
 138:                                              ; preds = %137
   %139 = load i32, ptr %1, align 4, !tbaa !8
@@ -581,7 +575,7 @@ lean_dec.exit46:                                  ; preds = %129, %128, %126, %1
   br label %lean_dec.exit44
 
 lean_dec.exit44:                                  ; preds = %144, %143, %141, %137
-  br i1 %.not102, label %145, label %lean_dec.exit49
+  br i1 %34, label %lean_dec.exit49, label %145
 
 145:                                              ; preds = %lean_dec.exit44
   %146 = load i32, ptr %0, align 4, !tbaa !8
@@ -603,9 +597,8 @@ lean_dec.exit44:                                  ; preds = %144, %143, %141, %1
 
 l___private_Lean_Meta_CompletionName_0__Lean_Meta_isInternalNameModuloPrivate.exit: ; preds = %17
   %152 = ptrtoint ptr %1 to i64
-  %153 = and i64 %152, 1
-  %.not = icmp eq i64 %153, 0
-  br i1 %.not, label %154, label %lean_dec.exit42
+  %153 = trunc i64 %152 to i1
+  br i1 %153, label %lean_dec.exit42, label %154
 
 154:                                              ; preds = %l___private_Lean_Meta_CompletionName_0__Lean_Meta_isInternalNameModuloPrivate.exit
   %155 = load i32, ptr %1, align 4, !tbaa !8
@@ -627,9 +620,8 @@ l___private_Lean_Meta_CompletionName_0__Lean_Meta_isInternalNameModuloPrivate.ex
 
 lean_dec.exit42:                                  ; preds = %160, %159, %157, %l___private_Lean_Meta_CompletionName_0__Lean_Meta_isInternalNameModuloPrivate.exit
   %161 = ptrtoint ptr %0 to i64
-  %162 = and i64 %161, 1
-  %.not100 = icmp eq i64 %162, 0
-  br i1 %.not100, label %163, label %lean_dec.exit49
+  %162 = trunc i64 %161 to i1
+  br i1 %162, label %lean_dec.exit49, label %163
 
 163:                                              ; preds = %lean_dec.exit42
   %164 = load i32, ptr %0, align 4, !tbaa !8

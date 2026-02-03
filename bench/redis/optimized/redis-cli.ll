@@ -23755,16 +23755,15 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
 
 37:                                               ; preds = %34, %27
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 560), align 8, !tbaa !115
-  %39 = and i32 %38, 1
-  %40 = and i32 %38, 64
+  %39 = and i32 %38, 64
   %.not.i = icmp samesign ult i32 %3, 128
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not202.i = icmp eq i32 %39, 0
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = trunc i32 %38 to i1
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = getelementptr i8, ptr %1, i64 8
-  %.not124.i = icmp eq i32 %40, 0
+  %.not124.i = icmp eq i32 %39, 0
   %.not132.i = icmp eq ptr %4, null
   %46 = load ptr, ptr %0, align 8, !tbaa !82
   %47 = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %46, ptr noundef nonnull @.str.284, i32 noundef %2, i32 noundef %28) #34
@@ -23791,8 +23790,8 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %59 = load i64, ptr %53, align 8, !tbaa !64
   %60 = add i64 %59, 1
   %61 = call i64 @redis_strlcpy(ptr noundef %56, ptr noundef %58, i64 noundef %60) #34
-  %62 = load ptr, ptr %41, align 8, !tbaa !74
-  %63 = load i32, ptr %42, align 8, !tbaa !77
+  %62 = load ptr, ptr %40, align 8, !tbaa !74
+  %63 = load i32, ptr %41, align 8, !tbaa !77
   %64 = load ptr, ptr %4, align 8, !tbaa !24
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %62, i32 noundef %63, ptr noundef %64)
   br label %clusterManagerMigrateKeysInSlot.exit.sink.split
@@ -23844,8 +23843,8 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %41, align 8, !tbaa !74
-  %92 = load i32, ptr %42, align 8, !tbaa !77
+  %91 = load ptr, ptr %40, align 8, !tbaa !74
+  %92 = load i32, ptr %41, align 8, !tbaa !77
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %91, i32 noundef %92, ptr noundef nonnull %88)
   call void @zfree(ptr noundef nonnull %88) #34
   br label %93
@@ -23856,7 +23855,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
 
 94:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not202.i, label %clusterManagerSetSlot.exit.i, label %95
+  br i1 %42, label %95, label %clusterManagerSetSlot.exit.i
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %43, align 8, !tbaa !74
@@ -23874,8 +23873,8 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   br i1 %102, label %103, label %108
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr %41, align 8, !tbaa !74
-  %105 = load i32, ptr %42, align 8, !tbaa !77
+  %104 = load ptr, ptr %40, align 8, !tbaa !74
+  %105 = load i32, ptr %41, align 8, !tbaa !77
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %107 = load ptr, ptr %106, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %104, i32 noundef %105, ptr noundef %107)
@@ -23965,14 +23964,14 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   br i1 %152, label %.thread71.i.i, label %.preheader.i.i
 
 .thread.i.i:                                      ; preds = %147
-  %153 = load ptr, ptr %41, align 8, !tbaa !74
-  %154 = load i32, ptr %42, align 8, !tbaa !77
+  %153 = load ptr, ptr %40, align 8, !tbaa !74
+  %154 = load i32, ptr %41, align 8, !tbaa !77
   %155 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %153, i32 noundef %154, ptr noundef %156)
   %.pr.i.i = load i32, ptr %148, align 8, !tbaa !56
   %157 = icmp eq i32 %.pr.i.i, 6
-  br i1 %157, label %.thread71.i.i, label %.critedge204.i
+  br i1 %157, label %.thread71.i.i, label %.critedge203.i
 
 .thread71.i.i:                                    ; preds = %.thread.i.i, %150
   %158 = load ptr, ptr %43, align 8, !tbaa !74
@@ -23980,7 +23979,7 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %160 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %161 = load ptr, ptr %160, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %158, i32 noundef %159, ptr noundef %161)
-  br label %.critedge204.i
+  br label %.critedge203.i
 
 .preheader.i.i:                                   ; preds = %150
   %162 = load i64, ptr %66, align 8, !tbaa !28
@@ -24052,13 +24051,13 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   %.not126.i = icmp eq i64 %198, 0
   br i1 %.not126.i, label %209, label %199
 
-.critedge204.i:                                   ; preds = %.thread71.i.i, %.thread.i.i
+.critedge203.i:                                   ; preds = %.thread71.i.i, %.thread.i.i
   call void @freeReplyObject(ptr noundef nonnull %141) #34
   br label %.critedge.sink.split.i
 
-.critedge.sink.split.i:                           ; preds = %.critedge204.i, %196
-  %.sink222.i = phi ptr [ %148, %.critedge204.i ], [ %141, %196 ]
-  call void @freeReplyObject(ptr noundef nonnull %.sink222.i) #34
+.critedge.sink.split.i:                           ; preds = %.critedge203.i, %196
+  %.sink221.i = phi ptr [ %148, %.critedge203.i ], [ %141, %196 ]
+  call void @freeReplyObject(ptr noundef nonnull %.sink221.i) #34
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %196, %._crit_edge.i.i
@@ -24071,16 +24070,16 @@ define internal fastcc range(i32 0, 2) i32 @clusterManagerMoveSlot(ptr noundef c
   br label %.thread179.i
 
 199:                                              ; preds = %.loopexit.i.i
-  %200 = load ptr, ptr %41, align 8, !tbaa !74
-  %201 = load i32, ptr %42, align 8, !tbaa !77
+  %200 = load ptr, ptr %40, align 8, !tbaa !74
+  %201 = load i32, ptr %41, align 8, !tbaa !77
   %202 = load ptr, ptr %43, align 8, !tbaa !74
   %203 = load i32, ptr %44, align 8, !tbaa !77
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.305, i64 noundef %198, ptr noundef %200, i32 noundef %201, ptr noundef %202, i32 noundef %203)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @listRewind(ptr noundef nonnull %111, ptr noundef nonnull %9) #34
   %204 = call ptr @listNext(ptr noundef nonnull %9) #34
-  %.not127206.i = icmp eq ptr %204, null
-  br i1 %.not127206.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not127205.i = icmp eq ptr %204, null
+  br i1 %.not127205.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %199, %.lr.ph.i
   %205 = phi ptr [ %208, %.lr.ph.i ], [ %204, %199 ]
@@ -24135,8 +24134,8 @@ clusterManagerSetSlot.exit.i:                     ; preds = %210, %108, %95, %94
 
 .thread190.i:                                     ; preds = %214, %.thread158.i
   %putchar.i = call i32 @putchar(i32 10)
-  %224 = load ptr, ptr %41, align 8, !tbaa !74
-  %225 = load i32, ptr %42, align 8, !tbaa !77
+  %224 = load ptr, ptr %40, align 8, !tbaa !74
+  %225 = load i32, ptr %41, align 8, !tbaa !77
   %226 = getelementptr inbounds nuw i8, ptr %.3107157161.i, i64 32
   %227 = load ptr, ptr %226, align 8, !tbaa !36
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %224, i32 noundef %225, ptr noundef %227)

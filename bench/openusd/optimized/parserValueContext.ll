@@ -2964,9 +2964,8 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
   %21 = and i64 %18, -8
   %22 = inttoptr i64 %21 to ptr
   %23 = atomicrmw add ptr %22, i32 2 monotonic, align 4
-  %24 = and i32 %23, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %25, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Copy_ctor_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSB_12SdfAssetPathEEEC1ERKSE_EUlOT_T0_E_RKSt7variantIJmldSA_SC_SD_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESL_SP_.exit
+  %24 = trunc i32 %23 to i1
+  br i1 %24, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_15_Copy_ctor_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSB_12SdfAssetPathEEEC1ERKSE_EUlOT_T0_E_RKSt7variantIJmldSA_SC_SD_EEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESL_SP_.exit, label %25
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %17, align 8

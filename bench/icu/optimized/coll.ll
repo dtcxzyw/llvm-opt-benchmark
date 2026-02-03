@@ -2328,9 +2328,8 @@ define linkonce_odr noundef ptr @_ZNK6icu_7718ICUCollatorService13handleDefaultE
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i16, ptr %8, align 8, !tbaa !29
-  %10 = and i16 %9, 1
-  %.not7 = icmp eq i16 %10, 0
-  br i1 %.not7, label %12, label %11
+  %10 = trunc i16 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -2343,8 +2342,8 @@ define linkonce_odr noundef ptr @_ZNK6icu_7718ICUCollatorService13handleDefaultE
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = select i1 %13, i32 %17, i32 %15
-  %.not8 = icmp eq i32 %18, 0
-  br i1 %.not8, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %19
+  %.not7 = icmp eq i32 %18, 0
+  br i1 %.not7, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %19
 
 19:                                               ; preds = %12
   %20 = and i16 %9, 30

@@ -561,25 +561,24 @@ define void @_ZN10LabelStack21updateTemporaryStatusEv(ptr noundef align 8 derefe
   tail call void @_ZN6QTimer4stopEv(ptr noundef nonnull align 8 dereferenceable_or_null(16) %8)
   br label %.loopexit
 
-.preheader:                                       ; preds = %1, %14
-  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 6, %1 ]
+.preheader:                                       ; preds = %1, %13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 6, %1 ]
   %9 = tail call noundef i64 @_ZNK13QElapsedTimer7elapsedEv(ptr noundef nonnull align 8 dereferenceable_or_null(16) %2) #17
   %10 = mul nuw nsw i64 %indvars.iv, 200
   %.not = icmp slt i64 %9, %10
-  br i1 %.not, label %14, label %11
+  br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %.preheader
-  %12 = and i64 %indvars.iv, 1
-  %13 = icmp ne i64 %12, 0
-  tail call void @_ZN10LabelStack20toggleTemporaryFlashEb(ptr noundef align 8 dereferenceable_or_null(112) %0, i1 noundef zeroext %13)
+  %12 = trunc i64 %indvars.iv to i1
+  tail call void @_ZN10LabelStack20toggleTemporaryFlashEb(ptr noundef align 8 dereferenceable_or_null(112) %0, i1 noundef zeroext %12)
   br label %.loopexit
 
-14:                                               ; preds = %.preheader
+13:                                               ; preds = %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %15 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !9
+  %14 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %14, %11, %5
+.loopexit:                                        ; preds = %13, %11, %5
   ret void
 }
 

@@ -1921,49 +1921,44 @@ if.end12:                                         ; preds = %if.end, %if.end10
 land.lhs.true:                                    ; preds = %if.end12
   %warningStatuses_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %3 = load i64, ptr %warningStatuses_.i, align 8
-  %and.i.i.i.i = and i64 %3, 1
-  %tobool.i.not.i.i.i = icmp eq i64 %and.i.i.i.i, 0
-  br i1 %tobool.i.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
+  %tobool.i.i.i.i = trunc i64 %3 to i1
+  br i1 %tobool.i.i.i.i, label %if.then.i.i.i, label %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true
   %shr.i.i.i.i.i = lshr i64 %3, 1
   %shr.i.i.i.i.i.i = lshr i64 %3, 58
   %shl.i.i.i.i = shl nsw i64 -1, %shr.i.i.i.i.i.i
   %not.i.i.i.i = xor i64 %shl.i.i.i.i, -1
+  %and.i.i.i.i = and i64 %shr.i.i.i.i.i, %not.i.i.i.i
   %sh_prom.i.i.i = zext nneg i32 %w to i64
-  %4 = shl nuw i64 1, %sh_prom.i.i.i
-  %and.i2.i.i.i = and i64 %shr.i.i.i.i.i, %4
-  %5 = and i64 %and.i2.i.i.i, %not.i.i.i.i
-  br label %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
+  %shr.i.i.i = lshr i64 %and.i.i.i.i, %sh_prom.i.i.i
+  %cmp.i.i.i = trunc i64 %shr.i.i.i to i1
+  br i1 %cmp.i.i.i, label %land.lhs.true25, label %if.then15
 
-if.end.i.i.i:                                     ; preds = %land.lhs.true
-  %6 = inttoptr i64 %3 to ptr
+_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit: ; preds = %land.lhs.true
+  %4 = inttoptr i64 %3 to ptr
   %div2.i.i.i.i.i = lshr i32 %w, 6
   %conv.i.i.i.i.i = zext nneg i32 %div2.i.i.i.i.i to i64
-  %7 = load ptr, ptr %6, align 8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %conv.i.i.i.i.i
+  %5 = load ptr, ptr %4, align 8
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %conv.i.i.i.i.i
   %rem.i.i.i.i.i = and i32 %w, 63
-  %8 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %6 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %sh_prom.i.i.i.i = zext nneg i32 %rem.i.i.i.i.i to i64
-  %shl.i3.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
-  %and.i4.i.i.i = and i64 %8, %shl.i3.i.i.i
-  br label %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
+  %shl.i2.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
+  %and.i3.i.i.i = and i64 %6, %shl.i2.i.i.i
+  %cmp.i.i.i.i.not = icmp eq i64 %and.i3.i.i.i, 0
+  br i1 %cmp.i.i.i.i.not, label %if.then15, label %land.lhs.true25
 
-_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.in.i.i.i = phi i64 [ %5, %if.then.i.i.i ], [ %and.i4.i.i.i, %if.end.i.i.i ]
-  %retval.0.i.i.i.not = icmp eq i64 %retval.0.in.i.i.i, 0
+if.then15:                                        ; preds = %if.then.i.i.i, %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
   %lastMessageSuppressed_ = getelementptr inbounds nuw i8, ptr %this, i64 344
-  br i1 %retval.0.i.i.i.not, label %if.then15, label %land.lhs.true25
-
-if.then15:                                        ; preds = %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
   store i8 1, ptr %lastMessageSuppressed_, align 8
   br label %return
 
 if.end16:                                         ; preds = %if.end12
   %cmp17 = icmp eq i32 %dk, 3
   %lastMessageSuppressed_19 = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %9 = load i8, ptr %lastMessageSuppressed_19, align 8
-  %tobool20 = trunc i8 %9 to i1
+  %7 = load i8, ptr %lastMessageSuppressed_19, align 8
+  %tobool20 = trunc i8 %7 to i1
   %or.cond8 = select i1 %cmp17, i1 %tobool20, i1 false
   br i1 %or.cond8, label %return, label %if.end22
 
@@ -1971,49 +1966,50 @@ if.end22:                                         ; preds = %if.end16
   store i8 0, ptr %lastMessageSuppressed_19, align 8
   br label %if.end28
 
-land.lhs.true25:                                  ; preds = %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
-  store i8 0, ptr %lastMessageSuppressed_, align 8
+land.lhs.true25:                                  ; preds = %if.then.i.i.i, %_ZN6hermes18SourceErrorManager16isWarningEnabledENS_7WarningE.exit
+  %lastMessageSuppressed_1930 = getelementptr inbounds nuw i8, ptr %this, i64 344
+  store i8 0, ptr %lastMessageSuppressed_1930, align 8
   %warningsAreErrors_.i = getelementptr inbounds nuw i8, ptr %this, i64 328
-  %10 = load i64, ptr %warningsAreErrors_.i, align 8
-  %and.i.i.i.i9 = and i64 %10, 1
-  %tobool.i.not.i.i.i10 = icmp eq i64 %and.i.i.i.i9, 0
-  br i1 %tobool.i.not.i.i.i10, label %if.end.i.i.i20, label %if.then.i.i.i11
+  %8 = load i64, ptr %warningsAreErrors_.i, align 8
+  %tobool.i.i.i.i9 = trunc i64 %8 to i1
+  br i1 %tobool.i.i.i.i9, label %if.then.i.i.i20, label %if.end.i.i.i10
 
-if.then.i.i.i11:                                  ; preds = %land.lhs.true25
-  %shr.i.i.i.i.i12 = lshr i64 %10, 1
-  %shr.i.i.i.i.i.i13 = lshr i64 %10, 58
-  %shl.i.i.i.i14 = shl nsw i64 -1, %shr.i.i.i.i.i.i13
-  %not.i.i.i.i15 = xor i64 %shl.i.i.i.i14, -1
-  %sh_prom.i.i.i16 = zext nneg i32 %w to i64
-  %11 = shl nuw i64 1, %sh_prom.i.i.i16
-  %and.i2.i.i.i17 = and i64 %shr.i.i.i.i.i12, %11
-  %12 = and i64 %and.i2.i.i.i17, %not.i.i.i.i15
+if.then.i.i.i20:                                  ; preds = %land.lhs.true25
+  %shr.i.i.i.i.i21 = lshr i64 %8, 1
+  %shr.i.i.i.i.i.i22 = lshr i64 %8, 58
+  %shl.i.i.i.i23 = shl nsw i64 -1, %shr.i.i.i.i.i.i22
+  %not.i.i.i.i24 = xor i64 %shl.i.i.i.i23, -1
+  %and.i.i.i.i25 = and i64 %shr.i.i.i.i.i21, %not.i.i.i.i24
+  %sh_prom.i.i.i26 = zext nneg i32 %w to i64
+  %shr.i.i.i27 = lshr i64 %and.i.i.i.i25, %sh_prom.i.i.i26
+  %cmp.i.i.i28 = trunc i64 %shr.i.i.i27 to i1
   br label %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
 
-if.end.i.i.i20:                                   ; preds = %land.lhs.true25
-  %13 = inttoptr i64 %10 to ptr
-  %div2.i.i.i.i.i21 = lshr i32 %w, 6
-  %conv.i.i.i.i.i22 = zext nneg i32 %div2.i.i.i.i.i21 to i64
-  %14 = load ptr, ptr %13, align 8
-  %arrayidx.i.i.i.i.i.i23 = getelementptr inbounds nuw i64, ptr %14, i64 %conv.i.i.i.i.i22
-  %rem.i.i.i.i.i24 = and i32 %w, 63
-  %15 = load i64, ptr %arrayidx.i.i.i.i.i.i23, align 8
-  %sh_prom.i.i.i.i25 = zext nneg i32 %rem.i.i.i.i.i24 to i64
-  %shl.i3.i.i.i26 = shl nuw i64 1, %sh_prom.i.i.i.i25
-  %and.i4.i.i.i27 = and i64 %15, %shl.i3.i.i.i26
+if.end.i.i.i10:                                   ; preds = %land.lhs.true25
+  %9 = inttoptr i64 %8 to ptr
+  %div2.i.i.i.i.i11 = lshr i32 %w, 6
+  %conv.i.i.i.i.i12 = zext nneg i32 %div2.i.i.i.i.i11 to i64
+  %10 = load ptr, ptr %9, align 8
+  %arrayidx.i.i.i.i.i.i13 = getelementptr inbounds nuw i64, ptr %10, i64 %conv.i.i.i.i.i12
+  %rem.i.i.i.i.i14 = and i32 %w, 63
+  %11 = load i64, ptr %arrayidx.i.i.i.i.i.i13, align 8
+  %sh_prom.i.i.i.i15 = zext nneg i32 %rem.i.i.i.i.i14 to i64
+  %shl.i2.i.i.i16 = shl nuw i64 1, %sh_prom.i.i.i.i15
+  %and.i3.i.i.i17 = and i64 %11, %shl.i2.i.i.i16
+  %cmp.i.i.i.i18 = icmp ne i64 %and.i3.i.i.i17, 0
   br label %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
 
-_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit: ; preds = %if.then.i.i.i11, %if.end.i.i.i20
-  %retval.0.in.i.i.i18 = phi i64 [ %12, %if.then.i.i.i11 ], [ %and.i4.i.i.i27, %if.end.i.i.i20 ]
-  %retval.0.i.i.i19.not = icmp eq i64 %retval.0.in.i.i.i18, 0
-  %spec.select = zext i1 %retval.0.i.i.i19.not to i32
+_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit: ; preds = %if.then.i.i.i20, %if.end.i.i.i10
+  %retval.0.i.i.i19 = phi i1 [ %cmp.i.i.i28, %if.then.i.i.i20 ], [ %cmp.i.i.i.i18, %if.end.i.i.i10 ]
+  %not.retval.0.i.i.i19 = xor i1 %retval.0.i.i.i19, true
+  %spec.select = zext i1 %not.retval.0.i.i.i19 to i32
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end22, %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit
   %dk.addr.0 = phi i32 [ %dk, %if.end22 ], [ %spec.select, %_ZNK6hermes18SourceErrorManager16isWarningAnErrorENS_7WarningE.exit ]
   %externalMessageBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 408
-  %16 = load ptr, ptr %externalMessageBuffer_, align 8
-  %tobool29.not = icmp eq ptr %16, null
+  %12 = load ptr, ptr %externalMessageBuffer_, align 8
+  %tobool29.not = icmp eq ptr %12, null
   br i1 %tobool29.not, label %if.end34, label %if.then30
 
 if.then30:                                        ; preds = %if.end28
@@ -2022,34 +2018,34 @@ if.then30:                                        ; preds = %if.end28
   call void @llvm.lifetime.start.p0(ptr nonnull %dk.addr.i)
   store ptr %loc.coerce, ptr %loc.i, align 8
   store ptr %sm.coerce0, ptr %sm.i, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %sm.i, i64 8
-  store ptr %sm.coerce1, ptr %17, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %sm.i, i64 8
+  store ptr %sm.coerce1, ptr %13, align 8
   store i32 %dk.addr.0, ptr %dk.addr.i, align 4
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %19 = load ptr, ptr %_M_end_of_storage.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %18, %19
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %15 = load ptr, ptr %_M_end_of_storage.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then30
-  store i32 %dk.addr.0, ptr %18, align 8
-  %loc3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 %dk.addr.0, ptr %14, align 8
+  %loc3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %loc.coerce, ptr %loc3.i.i.i.i.i, align 8
-  %sm4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %sm4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %sm.coerce0, ptr %sm4.i.i.i.i.i, align 8
-  %sm.sroa.2.0.sm4.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %sm.sroa.2.0.sm4.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %sm.coerce1, ptr %sm.sroa.2.0.sm4.sroa_idx.i.i.i.i.i, align 8
-  %msg5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %msg5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   tail call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %msg5.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %msg) #24
-  %20 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %16 = load ptr, ptr %_M_finish.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZN6hermes19CollectMessagesRAII10addMessageENS_18SourceErrorManager8DiagKindEN4llvh5SMLocENS3_7SMRangeERKNS3_5TwineE.exit
 
 if.else.i.i:                                      ; preds = %if.then30
-  %storage_.i = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @_ZNSt6vectorIN6hermes19CollectMessagesRAII13StoredMessageESaIS2_EE17_M_realloc_insertIJRNS0_18SourceErrorManager8DiagKindERN4llvh5SMLocERNS9_7SMRangeERKNS9_5TwineEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i, ptr %18, ptr noundef nonnull align 4 dereferenceable(4) %dk.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.i, ptr noundef nonnull align 8 dereferenceable(16) %sm.i, ptr noundef nonnull align 8 dereferenceable(18) %msg)
+  %storage_.i = getelementptr inbounds nuw i8, ptr %12, i64 24
+  call void @_ZNSt6vectorIN6hermes19CollectMessagesRAII13StoredMessageESaIS2_EE17_M_realloc_insertIJRNS0_18SourceErrorManager8DiagKindERN4llvh5SMLocERNS9_7SMRangeERKNS9_5TwineEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i, ptr %14, ptr noundef nonnull align 4 dereferenceable(4) %dk.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %loc.i, ptr noundef nonnull align 8 dereferenceable(16) %sm.i, ptr noundef nonnull align 8 dereferenceable(18) %msg)
   br label %_ZN6hermes19CollectMessagesRAII10addMessageENS_18SourceErrorManager8DiagKindEN4llvh5SMLocENS3_7SMRangeERKNS3_5TwineE.exit
 
 _ZN6hermes19CollectMessagesRAII10addMessageENS_18SourceErrorManager8DiagKindEN4llvh5SMLocENS3_7SMRangeERKNS3_5TwineE.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -2063,18 +2059,18 @@ if.end34:                                         ; preds = %if.end28
   %messageCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom.i = zext i32 %dk.addr.0 to i64
   %arrayidx.i = getelementptr inbounds nuw i32, ptr %messageCount_.i, i64 %idxprom.i
-  %21 = load i32, ptr %arrayidx.i, align 4
-  %inc.i = add i32 %21, 1
+  %17 = load i32, ptr %arrayidx.i, align 4
+  %inc.i = add i32 %17, 1
   store i32 %inc.i, ptr %arrayidx.i, align 4
   tail call void @_ZN6hermes18SourceErrorManager12doGenMessageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE(ptr noundef nonnull align 8 dereferenceable(464) %this, i32 noundef %dk.addr.0, ptr %loc.coerce, ptr %sm.coerce0, ptr %sm.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %msg)
   %cmp.i = icmp eq i32 %dk.addr.0, 0
   br i1 %cmp.i, label %land.rhs.i, label %_ZN6hermes18SourceErrorManager18countAndGenMessageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE.exit
 
 land.rhs.i:                                       ; preds = %if.end34
-  %22 = load i32, ptr %messageCount_.i, align 8
+  %18 = load i32, ptr %messageCount_.i, align 8
   %errorLimit_.i = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %23 = load i32, ptr %errorLimit_.i, align 8
-  %cmp6.i = icmp eq i32 %22, %23
+  %19 = load i32, ptr %errorLimit_.i, align 8
+  %cmp6.i = icmp eq i32 %18, %19
   br i1 %cmp6.i, label %if.then.i, label %_ZN6hermes18SourceErrorManager18countAndGenMessageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineE.exit
 
 if.then.i:                                        ; preds = %land.rhs.i

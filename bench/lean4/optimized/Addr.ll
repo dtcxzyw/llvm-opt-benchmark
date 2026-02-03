@@ -71,9 +71,8 @@ define nonnull ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Ini
   %3 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !8
@@ -95,9 +94,8 @@ define nonnull ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Ini
 
 lean_dec.exit:                                    ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %16, label %lean_dec.exit5
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit5, label %16
 
 16:                                               ; preds = %lean_dec.exit
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -174,9 +172,8 @@ l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic_
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 0, ptr %8, align 2, !tbaa !11
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1.exit
   %12 = load i32, ptr %0, align 4, !tbaa !8
@@ -223,9 +220,8 @@ l___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29_.e
   store i16 0, ptr %9, align 2, !tbaa !11
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1) #7
   %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit5
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %lean_dec.exit5, label %13
 
 13:                                               ; preds = %l___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29_.exit
   %14 = load i32, ptr %1, align 4, !tbaa !8
@@ -247,9 +243,8 @@ l___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29_.e
 
 lean_dec.exit5:                                   ; preds = %19, %18, %16, %l___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29_.exit
   %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not8 = icmp eq i64 %21, 0
-  br i1 %.not8, label %22, label %lean_dec.exit
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %lean_dec.exit, label %22
 
 22:                                               ; preds = %lean_dec.exit5
   %23 = load i32, ptr %0, align 4, !tbaa !8
@@ -289,9 +284,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqMACAddr___boxed(ptr noundef %0, ptr
   %3 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit5
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit5, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !8
@@ -313,9 +307,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqMACAddr___boxed(ptr noundef %0, ptr
 
 lean_dec.exit5:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit5
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -355,9 +348,8 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqIPv4Addr____x40_Std
   %3 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit5
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit5, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !8
@@ -379,9 +371,8 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqIPv4Addr____x40_Std
 
 lean_dec.exit5:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit5
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -421,9 +412,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqIPv4Addr___boxed(ptr noundef %0, pt
   %3 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit5
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit5, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !8
@@ -445,9 +435,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqIPv4Addr___boxed(ptr noundef %0, pt
 
 lean_dec.exit5:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit5
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -525,9 +514,8 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddressV4____
 
 lean_dec.exit5:                                   ; preds = %16, %15, %13
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not8 = icmp eq i64 %18, 0
-  br i1 %.not8, label %19, label %lean_dec.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
 19:                                               ; preds = %lean_dec.exit5
   %20 = load i32, ptr %0, align 4, !tbaa !8
@@ -605,9 +593,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqSocketAddressV4___boxed(ptr noundef
 
 lean_dec.exit5:                                   ; preds = %16, %15, %13
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not8 = icmp eq i64 %18, 0
-  br i1 %.not8, label %19, label %lean_dec.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
 19:                                               ; preds = %lean_dec.exit5
   %20 = load i32, ptr %0, align 4, !tbaa !8
@@ -671,9 +658,8 @@ define nonnull ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Ini
   %3 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit5
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit5, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !8
@@ -695,9 +681,8 @@ define nonnull ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Ini
 
 lean_dec.exit5:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit5
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -774,9 +759,8 @@ l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic_
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 0, ptr %8, align 2, !tbaa !11
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1.exit
   %12 = load i32, ptr %0, align 4, !tbaa !8
@@ -823,9 +807,8 @@ l___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433_
   store i16 0, ptr %9, align 2, !tbaa !11
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1) #7
   %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit5
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %lean_dec.exit5, label %13
 
 13:                                               ; preds = %l___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433_.exit
   %14 = load i32, ptr %1, align 4, !tbaa !8
@@ -847,9 +830,8 @@ l___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433_
 
 lean_dec.exit5:                                   ; preds = %19, %18, %16, %l___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433_.exit
   %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not8 = icmp eq i64 %21, 0
-  br i1 %.not8, label %22, label %lean_dec.exit
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %lean_dec.exit, label %22
 
 22:                                               ; preds = %lean_dec.exit5
   %23 = load i32, ptr %0, align 4, !tbaa !8
@@ -889,9 +871,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqIPv6Addr___boxed(ptr noundef %0, pt
   %3 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %3, ptr noundef %0, ptr noundef %1) #7
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit5
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit5, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %1, align 4, !tbaa !8
@@ -913,9 +894,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqIPv6Addr___boxed(ptr noundef %0, pt
 
 lean_dec.exit5:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not8 = icmp eq i64 %15, 0
-  br i1 %.not8, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit5
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -993,9 +973,8 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddressV6____
 
 lean_dec.exit5:                                   ; preds = %16, %15, %13
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not8 = icmp eq i64 %18, 0
-  br i1 %.not8, label %19, label %lean_dec.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
 19:                                               ; preds = %lean_dec.exit5
   %20 = load i32, ptr %0, align 4, !tbaa !8
@@ -1073,9 +1052,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqSocketAddressV6___boxed(ptr noundef
 
 lean_dec.exit5:                                   ; preds = %16, %15, %13
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not8 = icmp eq i64 %18, 0
-  br i1 %.not8, label %19, label %lean_dec.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
 19:                                               ; preds = %lean_dec.exit5
   %20 = load i32, ptr %0, align 4, !tbaa !8
@@ -1106,9 +1084,8 @@ lean_dec.exit:                                    ; preds = %25, %24, %22, %lean
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1125,50 +1102,49 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %.0.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i17 = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i17, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit20
+  br label %lean_obj_tag.exit19
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i19 = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i19, 24
-  br label %lean_obj_tag.exit20
+  %.val.i17 = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i17, 24
+  br label %lean_obj_tag.exit19
 
-lean_obj_tag.exit20:                              ; preds = %15, %18
+lean_obj_tag.exit19:                              ; preds = %15, %18
   %.0.i18 = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i18, 0
   br i1 %21, label %.sink.split, label %36
 
 22:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i17, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24
+  br label %lean_obj_tag.exit22
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23 = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23, 24
-  br label %lean_obj_tag.exit24
+  %.val.i20 = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20, 24
+  br label %lean_obj_tag.exit22
 
-lean_obj_tag.exit24:                              ; preds = %23, %26
-  %.0.i22 = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22, 0
+lean_obj_tag.exit22:                              ; preds = %23, %26
+  %.0.i21 = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21, 0
   br i1 %29, label %36, label %.sink.split
 
-.sink.split:                                      ; preds = %lean_obj_tag.exit24, %lean_obj_tag.exit20
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24 ]
+.sink.split:                                      ; preds = %lean_obj_tag.exit22, %lean_obj_tag.exit19
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit19 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1177,17 +1153,16 @@ lean_obj_tag.exit24:                              ; preds = %23, %26
   %35 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %34, ptr noundef %31, ptr noundef %33) #7
   br label %36
 
-36:                                               ; preds = %.sink.split, %lean_obj_tag.exit24, %lean_obj_tag.exit20
-  %.0 = phi i8 [ 0, %lean_obj_tag.exit20 ], [ 0, %lean_obj_tag.exit24 ], [ %35, %.sink.split ]
+36:                                               ; preds = %.sink.split, %lean_obj_tag.exit22, %lean_obj_tag.exit19
+  %.0 = phi i8 [ 0, %lean_obj_tag.exit19 ], [ 0, %lean_obj_tag.exit22 ], [ %35, %.sink.split ]
   ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730____boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1204,50 +1179,49 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %.0.i.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i17.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i17.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit20.i
+  br label %lean_obj_tag.exit19.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i19.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i19.i, 24
-  br label %lean_obj_tag.exit20.i
+  %.val.i17.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i17.i, 24
+  br label %lean_obj_tag.exit19.i
 
-lean_obj_tag.exit20.i:                            ; preds = %18, %15
+lean_obj_tag.exit19.i:                            ; preds = %18, %15
   %.0.i18.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i18.i, 0
   br i1 %21, label %.sink.split.i, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
 
 22:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i17.i, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24.i
+  br label %lean_obj_tag.exit22.i
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23.i = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23.i, 24
-  br label %lean_obj_tag.exit24.i
+  %.val.i20.i = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20.i, 24
+  br label %lean_obj_tag.exit22.i
 
-lean_obj_tag.exit24.i:                            ; preds = %26, %23
-  %.0.i22.i = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22.i, 0
+lean_obj_tag.exit22.i:                            ; preds = %26, %23
+  %.0.i21.i = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21.i, 0
   br i1 %29, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit20.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i ]
+.sink.split.i:                                    ; preds = %lean_obj_tag.exit22.i, %lean_obj_tag.exit19.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit19.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1259,9 +1233,9 @@ lean_obj_tag.exit24.i:                            ; preds = %26, %23
   %38 = or disjoint i64 %37, 1
   br label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
 
-l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit20.i, %lean_obj_tag.exit24.i, %.sink.split.i
-  %.0.i = phi i64 [ 1, %lean_obj_tag.exit20.i ], [ 1, %lean_obj_tag.exit24.i ], [ %38, %.sink.split.i ]
-  br i1 %.not.i17.i, label %39, label %lean_dec.exit5
+l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit19.i, %lean_obj_tag.exit22.i, %.sink.split.i
+  %.0.i = phi i64 [ 1, %lean_obj_tag.exit19.i ], [ 1, %lean_obj_tag.exit22.i ], [ %38, %.sink.split.i ]
+  br i1 %13, label %lean_dec.exit5, label %39
 
 39:                                               ; preds = %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
   %40 = load i32, ptr %1, align 4, !tbaa !8
@@ -1282,7 +1256,7 @@ l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.e
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %45, %44, %42, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
-  br i1 %.not.i.i, label %46, label %lean_dec.exit
+  br i1 %4, label %lean_dec.exit, label %46
 
 46:                                               ; preds = %lean_dec.exit5
   %47 = load i32, ptr %0, align 4, !tbaa !8
@@ -1310,9 +1284,8 @@ lean_dec.exit:                                    ; preds = %52, %51, %49, %lean
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @l_Std_Net_instDecidableEqIPAddr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1329,50 +1302,49 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %.0.i.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i17.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i17.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit20.i
+  br label %lean_obj_tag.exit19.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i19.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i19.i, 24
-  br label %lean_obj_tag.exit20.i
+  %.val.i17.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i17.i, 24
+  br label %lean_obj_tag.exit19.i
 
-lean_obj_tag.exit20.i:                            ; preds = %18, %15
+lean_obj_tag.exit19.i:                            ; preds = %18, %15
   %.0.i18.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i18.i, 0
   br i1 %21, label %.sink.split.i, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
 
 22:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i17.i, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24.i
+  br label %lean_obj_tag.exit22.i
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23.i = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23.i, 24
-  br label %lean_obj_tag.exit24.i
+  %.val.i20.i = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20.i, 24
+  br label %lean_obj_tag.exit22.i
 
-lean_obj_tag.exit24.i:                            ; preds = %26, %23
-  %.0.i22.i = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22.i, 0
+lean_obj_tag.exit22.i:                            ; preds = %26, %23
+  %.0.i21.i = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21.i, 0
   br i1 %29, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit20.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i ]
+.sink.split.i:                                    ; preds = %lean_obj_tag.exit22.i, %lean_obj_tag.exit19.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit19.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1381,17 +1353,16 @@ lean_obj_tag.exit24.i:                            ; preds = %26, %23
   %35 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %34, ptr noundef %31, ptr noundef %33) #7
   br label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
 
-l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit20.i, %lean_obj_tag.exit24.i, %.sink.split.i
-  %.0.i = phi i8 [ 0, %lean_obj_tag.exit20.i ], [ 0, %lean_obj_tag.exit24.i ], [ %35, %.sink.split.i ]
+l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit19.i, %lean_obj_tag.exit22.i, %.sink.split.i
+  %.0.i = phi i8 [ 0, %lean_obj_tag.exit19.i ], [ 0, %lean_obj_tag.exit22.i ], [ %35, %.sink.split.i ]
   ret i8 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Net_instDecidableEqIPAddr___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1408,50 +1379,49 @@ lean_obj_tag.exit.i.i:                            ; preds = %8, %5
   %.0.i.i.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i.i.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i17.i.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit.i.i
-  br i1 %.not.i17.i.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit20.i.i
+  br label %lean_obj_tag.exit19.i.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i19.i.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i19.i.i, 24
-  br label %lean_obj_tag.exit20.i.i
+  %.val.i17.i.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i17.i.i, 24
+  br label %lean_obj_tag.exit19.i.i
 
-lean_obj_tag.exit20.i.i:                          ; preds = %18, %15
+lean_obj_tag.exit19.i.i:                          ; preds = %18, %15
   %.0.i18.i.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i18.i.i, 0
   br i1 %21, label %.sink.split.i.i, label %l_Std_Net_instDecidableEqIPAddr.exit
 
 22:                                               ; preds = %lean_obj_tag.exit.i.i
-  br i1 %.not.i17.i.i, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24.i.i
+  br label %lean_obj_tag.exit22.i.i
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23.i.i = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23.i.i, 24
-  br label %lean_obj_tag.exit24.i.i
+  %.val.i20.i.i = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20.i.i, 24
+  br label %lean_obj_tag.exit22.i.i
 
-lean_obj_tag.exit24.i.i:                          ; preds = %26, %23
-  %.0.i22.i.i = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22.i.i, 0
+lean_obj_tag.exit22.i.i:                          ; preds = %26, %23
+  %.0.i21.i.i = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21.i.i, 0
   br i1 %29, label %l_Std_Net_instDecidableEqIPAddr.exit, label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %lean_obj_tag.exit24.i.i, %lean_obj_tag.exit20.i.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i.i ]
+.sink.split.i.i:                                  ; preds = %lean_obj_tag.exit22.i.i, %lean_obj_tag.exit19.i.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit19.i.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1463,9 +1433,9 @@ lean_obj_tag.exit24.i.i:                          ; preds = %26, %23
   %38 = or disjoint i64 %37, 1
   br label %l_Std_Net_instDecidableEqIPAddr.exit
 
-l_Std_Net_instDecidableEqIPAddr.exit:             ; preds = %lean_obj_tag.exit20.i.i, %lean_obj_tag.exit24.i.i, %.sink.split.i.i
-  %.0.i.i = phi i64 [ 1, %lean_obj_tag.exit20.i.i ], [ 1, %lean_obj_tag.exit24.i.i ], [ %38, %.sink.split.i.i ]
-  br i1 %.not.i17.i.i, label %39, label %lean_dec.exit5
+l_Std_Net_instDecidableEqIPAddr.exit:             ; preds = %lean_obj_tag.exit19.i.i, %lean_obj_tag.exit22.i.i, %.sink.split.i.i
+  %.0.i.i = phi i64 [ 1, %lean_obj_tag.exit19.i.i ], [ 1, %lean_obj_tag.exit22.i.i ], [ %38, %.sink.split.i.i ]
+  br i1 %13, label %lean_dec.exit5, label %39
 
 39:                                               ; preds = %l_Std_Net_instDecidableEqIPAddr.exit
   %40 = load i32, ptr %1, align 4, !tbaa !8
@@ -1486,7 +1456,7 @@ l_Std_Net_instDecidableEqIPAddr.exit:             ; preds = %lean_obj_tag.exit20
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %45, %44, %42, %l_Std_Net_instDecidableEqIPAddr.exit
-  br i1 %.not.i.i.i, label %46, label %lean_dec.exit
+  br i1 %4, label %lean_dec.exit, label %46
 
 46:                                               ; preds = %lean_dec.exit5
   %47 = load i32, ptr %0, align 4, !tbaa !8
@@ -1514,9 +1484,8 @@ lean_dec.exit:                                    ; preds = %52, %51, %49, %lean
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1533,50 +1502,49 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %.0.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i15 = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i15, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit18
+  br label %lean_obj_tag.exit17
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i17 = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i17, 24
-  br label %lean_obj_tag.exit18
+  %.val.i15 = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i15, 24
+  br label %lean_obj_tag.exit17
 
-lean_obj_tag.exit18:                              ; preds = %15, %18
+lean_obj_tag.exit17:                              ; preds = %15, %18
   %.0.i16 = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i16, 0
   br i1 %21, label %.sink.split, label %45
 
 22:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i15, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24
+  br label %lean_obj_tag.exit22
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23 = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23, 24
-  br label %lean_obj_tag.exit24
+  %.val.i20 = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20, 24
+  br label %lean_obj_tag.exit22
 
-lean_obj_tag.exit24:                              ; preds = %23, %26
-  %.0.i22 = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22, 0
+lean_obj_tag.exit22:                              ; preds = %23, %26
+  %.0.i21 = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21, 0
   br i1 %29, label %45, label %.sink.split
 
-.sink.split:                                      ; preds = %lean_obj_tag.exit24, %lean_obj_tag.exit18
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit18 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24 ]
+.sink.split:                                      ; preds = %lean_obj_tag.exit22, %lean_obj_tag.exit17
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit17 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1584,30 +1552,29 @@ lean_obj_tag.exit24:                              ; preds = %23, %26
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25 = load i16, ptr %36, align 8, !tbaa !11
+  %.val12.i23 = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26 = load i16, ptr %39, align 8, !tbaa !11
+  %.val.i24 = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
-  %43 = icmp eq i16 %.val12.i25, %.val.i26
-  %narrow.i27 = select i1 %42, i1 %43, i1 false
-  %44 = zext i1 %narrow.i27 to i8
+  %43 = icmp eq i16 %.val12.i23, %.val.i24
+  %narrow.i25 = select i1 %42, i1 %43, i1 false
+  %44 = zext i1 %narrow.i25 to i8
   br label %45
 
-45:                                               ; preds = %.sink.split, %lean_obj_tag.exit24, %lean_obj_tag.exit18
-  %.0.shrunk = phi i8 [ 0, %lean_obj_tag.exit18 ], [ 0, %lean_obj_tag.exit24 ], [ %44, %.sink.split ]
+45:                                               ; preds = %.sink.split, %lean_obj_tag.exit22, %lean_obj_tag.exit17
+  %.0.shrunk = phi i8 [ 0, %lean_obj_tag.exit17 ], [ 0, %lean_obj_tag.exit22 ], [ %44, %.sink.split ]
   ret i8 %.0.shrunk
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956____boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1624,50 +1591,49 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %.0.i.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i15.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i15.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit18.i
+  br label %lean_obj_tag.exit17.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i17.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i17.i, 24
-  br label %lean_obj_tag.exit18.i
+  %.val.i15.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i15.i, 24
+  br label %lean_obj_tag.exit17.i
 
-lean_obj_tag.exit18.i:                            ; preds = %18, %15
+lean_obj_tag.exit17.i:                            ; preds = %18, %15
   %.0.i16.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i16.i, 0
   br i1 %21, label %.sink.split.i, label %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit
 
 22:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i15.i, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24.i
+  br label %lean_obj_tag.exit22.i
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23.i = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23.i, 24
-  br label %lean_obj_tag.exit24.i
+  %.val.i20.i = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20.i, 24
+  br label %lean_obj_tag.exit22.i
 
-lean_obj_tag.exit24.i:                            ; preds = %26, %23
-  %.0.i22.i = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22.i, 0
+lean_obj_tag.exit22.i:                            ; preds = %26, %23
+  %.0.i21.i = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21.i, 0
   br i1 %29, label %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit18.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit18.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i ]
+.sink.split.i:                                    ; preds = %lean_obj_tag.exit22.i, %lean_obj_tag.exit17.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit17.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1675,22 +1641,22 @@ lean_obj_tag.exit24.i:                            ; preds = %26, %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25.i = load i16, ptr %36, align 8, !tbaa !11
+  %.val12.i23.i = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26.i = load i16, ptr %39, align 8, !tbaa !11
+  %.val.i24.i = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
-  %43 = icmp eq i16 %.val12.i25.i, %.val.i26.i
-  %narrow.i27.i = select i1 %42, i1 %43, i1 false
-  %44 = select i1 %narrow.i27.i, i64 3, i64 1
+  %43 = icmp eq i16 %.val12.i23.i, %.val.i24.i
+  %narrow.i25.i = select i1 %42, i1 %43, i1 false
+  %44 = select i1 %narrow.i25.i, i64 3, i64 1
   br label %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit
 
-l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit: ; preds = %lean_obj_tag.exit18.i, %lean_obj_tag.exit24.i, %.sink.split.i
-  %.0.shrunk.i = phi i64 [ 1, %lean_obj_tag.exit18.i ], [ 1, %lean_obj_tag.exit24.i ], [ %44, %.sink.split.i ]
-  br i1 %.not.i15.i, label %45, label %lean_dec.exit5
+l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit: ; preds = %lean_obj_tag.exit17.i, %lean_obj_tag.exit22.i, %.sink.split.i
+  %.0.shrunk.i = phi i64 [ 1, %lean_obj_tag.exit17.i ], [ 1, %lean_obj_tag.exit22.i ], [ %44, %.sink.split.i ]
+  br i1 %13, label %lean_dec.exit5, label %45
 
 45:                                               ; preds = %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit
   %46 = load i32, ptr %1, align 4, !tbaa !8
@@ -1711,7 +1677,7 @@ l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %51, %50, %48, %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit
-  br i1 %.not.i.i, label %52, label %lean_dec.exit
+  br i1 %4, label %lean_dec.exit, label %52
 
 52:                                               ; preds = %lean_dec.exit5
   %53 = load i32, ptr %0, align 4, !tbaa !8
@@ -1739,9 +1705,8 @@ lean_dec.exit:                                    ; preds = %58, %57, %55, %lean
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Net_instDecidableEqSocketAddress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1758,50 +1723,49 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %.0.i.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i15.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i15.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit18.i
+  br label %lean_obj_tag.exit17.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i17.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i17.i, 24
-  br label %lean_obj_tag.exit18.i
+  %.val.i15.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i15.i, 24
+  br label %lean_obj_tag.exit17.i
 
-lean_obj_tag.exit18.i:                            ; preds = %18, %15
+lean_obj_tag.exit17.i:                            ; preds = %18, %15
   %.0.i16.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i16.i, 0
   br i1 %21, label %.sink.split.i, label %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit
 
 22:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i15.i, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24.i
+  br label %lean_obj_tag.exit22.i
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23.i = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23.i, 24
-  br label %lean_obj_tag.exit24.i
+  %.val.i20.i = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20.i, 24
+  br label %lean_obj_tag.exit22.i
 
-lean_obj_tag.exit24.i:                            ; preds = %26, %23
-  %.0.i22.i = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22.i, 0
+lean_obj_tag.exit22.i:                            ; preds = %26, %23
+  %.0.i21.i = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21.i, 0
   br i1 %29, label %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit18.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit18.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i ]
+.sink.split.i:                                    ; preds = %lean_obj_tag.exit22.i, %lean_obj_tag.exit17.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit17.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1809,30 +1773,29 @@ lean_obj_tag.exit24.i:                            ; preds = %26, %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25.i = load i16, ptr %36, align 8, !tbaa !11
+  %.val12.i23.i = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26.i = load i16, ptr %39, align 8, !tbaa !11
+  %.val.i24.i = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
-  %43 = icmp eq i16 %.val12.i25.i, %.val.i26.i
-  %narrow.i27.i = select i1 %42, i1 %43, i1 false
-  %44 = zext i1 %narrow.i27.i to i8
+  %43 = icmp eq i16 %.val12.i23.i, %.val.i24.i
+  %narrow.i25.i = select i1 %42, i1 %43, i1 false
+  %44 = zext i1 %narrow.i25.i to i8
   br label %l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit
 
-l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit: ; preds = %lean_obj_tag.exit18.i, %lean_obj_tag.exit24.i, %.sink.split.i
-  %.0.shrunk.i = phi i8 [ 0, %lean_obj_tag.exit18.i ], [ 0, %lean_obj_tag.exit24.i ], [ %44, %.sink.split.i ]
+l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddress____x40_Std_Net_Addr___hyg_956_.exit: ; preds = %lean_obj_tag.exit17.i, %lean_obj_tag.exit22.i, %.sink.split.i
+  %.0.shrunk.i = phi i8 [ 0, %lean_obj_tag.exit17.i ], [ 0, %lean_obj_tag.exit22.i ], [ %44, %.sink.split.i ]
   ret i8 %.0.shrunk.i
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Net_instDecidableEqSocketAddress___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1849,50 +1812,49 @@ lean_obj_tag.exit.i.i:                            ; preds = %8, %5
   %.0.i.i.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i.i.i, 0
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not.i15.i.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit.i.i
-  br i1 %.not.i15.i.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit18.i.i
+  br label %lean_obj_tag.exit17.i.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %1, i64 4
-  %.val.i17.i.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i17.i.i, 24
-  br label %lean_obj_tag.exit18.i.i
+  %.val.i15.i.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i15.i.i, 24
+  br label %lean_obj_tag.exit17.i.i
 
-lean_obj_tag.exit18.i.i:                          ; preds = %18, %15
+lean_obj_tag.exit17.i.i:                          ; preds = %18, %15
   %.0.i16.i.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i16.i.i, 0
   br i1 %21, label %.sink.split.i.i, label %l_Std_Net_instDecidableEqSocketAddress.exit
 
 22:                                               ; preds = %lean_obj_tag.exit.i.i
-  br i1 %.not.i15.i.i, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit24.i.i
+  br label %lean_obj_tag.exit22.i.i
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %1, i64 4
-  %.val.i23.i.i = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i23.i.i, 24
-  br label %lean_obj_tag.exit24.i.i
+  %.val.i20.i.i = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i20.i.i, 24
+  br label %lean_obj_tag.exit22.i.i
 
-lean_obj_tag.exit24.i.i:                          ; preds = %26, %23
-  %.0.i22.i.i = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i22.i.i, 0
+lean_obj_tag.exit22.i.i:                          ; preds = %26, %23
+  %.0.i21.i.i = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i21.i.i, 0
   br i1 %29, label %l_Std_Net_instDecidableEqSocketAddress.exit, label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %lean_obj_tag.exit24.i.i, %lean_obj_tag.exit18.i.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit18.i.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i.i ]
+.sink.split.i.i:                                  ; preds = %lean_obj_tag.exit22.i.i, %lean_obj_tag.exit17.i.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit17.i.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1900,22 +1862,22 @@ lean_obj_tag.exit24.i.i:                          ; preds = %26, %23
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !4
   %36 = getelementptr i8, ptr %31, i64 16
-  %.val12.i25.i.i = load i16, ptr %36, align 8, !tbaa !11
+  %.val12.i23.i.i = load i16, ptr %36, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr i8, ptr %33, i64 16
-  %.val.i26.i.i = load i16, ptr %39, align 8, !tbaa !11
+  %.val.i24.i.i = load i16, ptr %39, align 8, !tbaa !11
   %40 = load ptr, ptr %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i.i, align 8, !tbaa !4
   %41 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %40, ptr noundef %35, ptr noundef %38) #7
   %42 = icmp ne i8 %41, 0
-  %43 = icmp eq i16 %.val12.i25.i.i, %.val.i26.i.i
-  %narrow.i27.i.i = select i1 %42, i1 %43, i1 false
-  %44 = select i1 %narrow.i27.i.i, i64 3, i64 1
+  %43 = icmp eq i16 %.val12.i23.i.i, %.val.i24.i.i
+  %narrow.i25.i.i = select i1 %42, i1 %43, i1 false
+  %44 = select i1 %narrow.i25.i.i, i64 3, i64 1
   br label %l_Std_Net_instDecidableEqSocketAddress.exit
 
-l_Std_Net_instDecidableEqSocketAddress.exit:      ; preds = %lean_obj_tag.exit18.i.i, %lean_obj_tag.exit24.i.i, %.sink.split.i.i
-  %.0.shrunk.i.i = phi i64 [ 1, %lean_obj_tag.exit18.i.i ], [ 1, %lean_obj_tag.exit24.i.i ], [ %44, %.sink.split.i.i ]
-  br i1 %.not.i15.i.i, label %45, label %lean_dec.exit5
+l_Std_Net_instDecidableEqSocketAddress.exit:      ; preds = %lean_obj_tag.exit17.i.i, %lean_obj_tag.exit22.i.i, %.sink.split.i.i
+  %.0.shrunk.i.i = phi i64 [ 1, %lean_obj_tag.exit17.i.i ], [ 1, %lean_obj_tag.exit22.i.i ], [ %44, %.sink.split.i.i ]
+  br i1 %13, label %lean_dec.exit5, label %45
 
 45:                                               ; preds = %l_Std_Net_instDecidableEqSocketAddress.exit
   %46 = load i32, ptr %1, align 4, !tbaa !8
@@ -1936,7 +1898,7 @@ l_Std_Net_instDecidableEqSocketAddress.exit:      ; preds = %lean_obj_tag.exit18
   br label %lean_dec.exit5
 
 lean_dec.exit5:                                   ; preds = %51, %50, %48, %l_Std_Net_instDecidableEqSocketAddress.exit
-  br i1 %.not.i.i.i, label %52, label %lean_dec.exit
+  br i1 %4, label %lean_dec.exit, label %52
 
 52:                                               ; preds = %lean_dec.exit5
   %53 = load i32, ptr %0, align 4, !tbaa !8
@@ -1971,9 +1933,8 @@ define noundef nonnull ptr @l_Std_Net_AddressFamily_toCtorIdx(i8 noundef zeroext
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Std_Net_AddressFamily_toCtorIdx___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !8
@@ -2003,9 +1964,8 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Net_AddressFamily_noConfusion___rarg___lambda__1(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -2062,9 +2022,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Net_AddressFamily_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit7
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit7, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4, !tbaa !8
@@ -2086,9 +2045,8 @@ define ptr @l_Std_Net_AddressFamily_noConfusion___rarg___boxed(ptr noundef %0, p
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not10 = icmp eq i64 %14, 0
-  br i1 %.not10, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit7
   %16 = load i32, ptr %1, align 4, !tbaa !8
@@ -2116,9 +2074,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Net_AddressFamily_noConfusion___rarg___lambda__1___boxed(ptr noundef returned %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -2164,9 +2121,8 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Net_AddressFamily_ofNat(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.critedge.i, label %4, !prof !15
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %.critedge.i, !prof !13
 
 4:                                                ; preds = %1
   %5 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
@@ -2186,9 +2142,8 @@ lean_nat_eq.exit:                                 ; preds = %4, %.critedge.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Net_AddressFamily_ofNat___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %5, label %l_Std_Net_AddressFamily_ofNat.exit.thread, !prof !15
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %l_Std_Net_AddressFamily_ofNat.exit.thread, label %5, !prof !13
 
 l_Std_Net_AddressFamily_ofNat.exit.thread:        ; preds = %1
   %4 = icmp ne ptr %0, inttoptr (i64 1 to ptr)
@@ -2215,16 +2170,16 @@ l_Std_Net_AddressFamily_ofNat.exit.thread:        ; preds = %1
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %13, %12, %10, %l_Std_Net_AddressFamily_ofNat.exit.thread
-  %..i6.in = phi i1 [ %4, %l_Std_Net_AddressFamily_ofNat.exit.thread ], [ %7, %10 ], [ %7, %12 ], [ %7, %13 ]
-  %14 = select i1 %..i6.in, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %..i5.in = phi i1 [ %4, %l_Std_Net_AddressFamily_ofNat.exit.thread ], [ %7, %10 ], [ %7, %12 ], [ %7, %13 ]
+  %14 = select i1 %..i5.in, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Net_instDecidableEqAddressFamily(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
-lean_dec.exit:
-  %2 = icmp ne i8 %0, 0
-  %3 = icmp eq i8 %1, 0
+lean_nat_eq.exit:
+  %2 = icmp eq i8 %0, 0
+  %3 = icmp ne i8 %1, 0
   %4 = xor i1 %2, %3
   %5 = zext i1 %4 to i8
   ret i8 %5
@@ -2233,9 +2188,8 @@ lean_dec.exit:
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Std_Net_instDecidableEqAddressFamily___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit7, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !8
@@ -2257,9 +2211,8 @@ define noundef nonnull ptr @l_Std_Net_instDecidableEqAddressFamily___boxed(ptr n
 
 lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not10 = icmp eq i64 %13, 0
-  br i1 %.not10, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_dec.exit7
   %15 = load i32, ptr %1, align 4, !tbaa !8
@@ -2281,9 +2234,9 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
 
 lean_dec.exit:                                    ; preds = %20, %19, %17, %lean_dec.exit7
   %21 = and i64 %3, 510
-  %22 = icmp ne i64 %21, 0
+  %22 = icmp eq i64 %21, 0
   %23 = and i64 %12, 510
-  %24 = icmp eq i64 %23, 0
+  %24 = icmp ne i64 %23, 0
   %25 = xor i1 %22, %24
   %26 = select i1 %25, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %26
@@ -2384,9 +2337,8 @@ declare ptr @lean_array_mk(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Net_IPv4Addr_ofParts___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit14
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit14, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %0, align 4, !tbaa !8
@@ -2408,9 +2360,8 @@ define ptr @l_Std_Net_IPv4Addr_ofParts___boxed(ptr noundef %0, ptr noundef %1, p
 
 lean_dec.exit14:                                  ; preds = %13, %12, %10, %4
   %14 = ptrtoint ptr %1 to i64
-  %15 = and i64 %14, 1
-  %.not21 = icmp eq i64 %15, 0
-  br i1 %.not21, label %16, label %lean_dec.exit13
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit13, label %16
 
 16:                                               ; preds = %lean_dec.exit14
   %17 = load i32, ptr %1, align 4, !tbaa !8
@@ -2432,9 +2383,8 @@ lean_dec.exit14:                                  ; preds = %13, %12, %10, %4
 
 lean_dec.exit13:                                  ; preds = %22, %21, %19, %lean_dec.exit14
   %23 = ptrtoint ptr %2 to i64
-  %24 = and i64 %23, 1
-  %.not22 = icmp eq i64 %24, 0
-  br i1 %.not22, label %25, label %lean_dec.exit12
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_dec.exit12, label %25
 
 25:                                               ; preds = %lean_dec.exit13
   %26 = load i32, ptr %2, align 4, !tbaa !8
@@ -2456,9 +2406,8 @@ lean_dec.exit13:                                  ; preds = %22, %21, %19, %lean
 
 lean_dec.exit12:                                  ; preds = %31, %30, %28, %lean_dec.exit13
   %32 = ptrtoint ptr %3 to i64
-  %33 = and i64 %32, 1
-  %.not23 = icmp eq i64 %33, 0
-  br i1 %.not23, label %34, label %lean_dec.exit
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %lean_dec.exit, label %34
 
 34:                                               ; preds = %lean_dec.exit12
   %35 = load i32, ptr %3, align 4, !tbaa !8
@@ -2495,9 +2444,8 @@ lean_dec.exit:                                    ; preds = %40, %39, %37, %lean
 define ptr @l_Std_Net_IPv4Addr_ofString___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @lean_uv_pton_v4(ptr noundef %0) #7
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8
@@ -2527,9 +2475,8 @@ declare ptr @lean_uv_pton_v4(ptr noundef) local_unnamed_addr #1
 define ptr @l_Std_Net_IPv4Addr_toString___boxed(ptr noundef %0) #0 {
   %2 = tail call ptr @lean_uv_ntop_v4(ptr noundef %0) #7
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8
@@ -2772,9 +2719,8 @@ lean_alloc_ctor.exit47:                           ; preds = %lean_alloc_ctor.exi
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Net_IPv6Addr_ofParts___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit30
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit30, label %11
 
 11:                                               ; preds = %8
   %12 = load i32, ptr %0, align 4, !tbaa !8
@@ -2796,9 +2742,8 @@ define ptr @l_Std_Net_IPv6Addr_ofParts___boxed(ptr noundef %0, ptr noundef %1, p
 
 lean_dec.exit30:                                  ; preds = %17, %16, %14, %8
   %18 = ptrtoint ptr %1 to i64
-  %19 = and i64 %18, 1
-  %.not45 = icmp eq i64 %19, 0
-  br i1 %.not45, label %20, label %lean_dec.exit29
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_dec.exit29, label %20
 
 20:                                               ; preds = %lean_dec.exit30
   %21 = load i32, ptr %1, align 4, !tbaa !8
@@ -2820,9 +2765,8 @@ lean_dec.exit30:                                  ; preds = %17, %16, %14, %8
 
 lean_dec.exit29:                                  ; preds = %26, %25, %23, %lean_dec.exit30
   %27 = ptrtoint ptr %2 to i64
-  %28 = and i64 %27, 1
-  %.not46 = icmp eq i64 %28, 0
-  br i1 %.not46, label %29, label %lean_dec.exit28
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %lean_dec.exit28, label %29
 
 29:                                               ; preds = %lean_dec.exit29
   %30 = load i32, ptr %2, align 4, !tbaa !8
@@ -2844,9 +2788,8 @@ lean_dec.exit29:                                  ; preds = %26, %25, %23, %lean
 
 lean_dec.exit28:                                  ; preds = %35, %34, %32, %lean_dec.exit29
   %36 = ptrtoint ptr %3 to i64
-  %37 = and i64 %36, 1
-  %.not47 = icmp eq i64 %37, 0
-  br i1 %.not47, label %38, label %lean_dec.exit27
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %lean_dec.exit27, label %38
 
 38:                                               ; preds = %lean_dec.exit28
   %39 = load i32, ptr %3, align 4, !tbaa !8
@@ -2868,9 +2811,8 @@ lean_dec.exit28:                                  ; preds = %35, %34, %32, %lean
 
 lean_dec.exit27:                                  ; preds = %44, %43, %41, %lean_dec.exit28
   %45 = ptrtoint ptr %4 to i64
-  %46 = and i64 %45, 1
-  %.not48 = icmp eq i64 %46, 0
-  br i1 %.not48, label %47, label %lean_dec.exit26
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %lean_dec.exit26, label %47
 
 47:                                               ; preds = %lean_dec.exit27
   %48 = load i32, ptr %4, align 4, !tbaa !8
@@ -2892,9 +2834,8 @@ lean_dec.exit27:                                  ; preds = %44, %43, %41, %lean
 
 lean_dec.exit26:                                  ; preds = %53, %52, %50, %lean_dec.exit27
   %54 = ptrtoint ptr %5 to i64
-  %55 = and i64 %54, 1
-  %.not49 = icmp eq i64 %55, 0
-  br i1 %.not49, label %56, label %lean_dec.exit25
+  %55 = trunc i64 %54 to i1
+  br i1 %55, label %lean_dec.exit25, label %56
 
 56:                                               ; preds = %lean_dec.exit26
   %57 = load i32, ptr %5, align 4, !tbaa !8
@@ -2916,9 +2857,8 @@ lean_dec.exit26:                                  ; preds = %53, %52, %50, %lean
 
 lean_dec.exit25:                                  ; preds = %62, %61, %59, %lean_dec.exit26
   %63 = ptrtoint ptr %6 to i64
-  %64 = and i64 %63, 1
-  %.not50 = icmp eq i64 %64, 0
-  br i1 %.not50, label %65, label %lean_dec.exit24
+  %64 = trunc i64 %63 to i1
+  br i1 %64, label %lean_dec.exit24, label %65
 
 65:                                               ; preds = %lean_dec.exit25
   %66 = load i32, ptr %6, align 4, !tbaa !8
@@ -2940,9 +2880,8 @@ lean_dec.exit25:                                  ; preds = %62, %61, %59, %lean
 
 lean_dec.exit24:                                  ; preds = %71, %70, %68, %lean_dec.exit25
   %72 = ptrtoint ptr %7 to i64
-  %73 = and i64 %72, 1
-  %.not51 = icmp eq i64 %73, 0
-  br i1 %.not51, label %74, label %lean_dec.exit
+  %73 = trunc i64 %72 to i1
+  br i1 %73, label %lean_dec.exit, label %74
 
 74:                                               ; preds = %lean_dec.exit24
   %75 = load i32, ptr %7, align 4, !tbaa !8
@@ -2987,9 +2926,8 @@ lean_dec.exit:                                    ; preds = %80, %79, %77, %lean
 define ptr @l_Std_Net_IPv6Addr_ofString___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @lean_uv_pton_v6(ptr noundef %0) #7
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8
@@ -3019,9 +2957,8 @@ declare ptr @lean_uv_pton_v6(ptr noundef) local_unnamed_addr #1
 define ptr @l_Std_Net_IPv6Addr_toString___boxed(ptr noundef %0) #0 {
   %2 = tail call ptr @lean_uv_ntop_v6(ptr noundef %0) #7
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8
@@ -3090,9 +3027,8 @@ lean_alloc_ctor.exit:                             ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Net_IPAddr_family(ptr noundef %0) local_unnamed_addr #4 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -3115,9 +3051,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Net_IPAddr_family___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %6, label %l_Std_Net_IPAddr_family.exit.thread
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %l_Std_Net_IPAddr_family.exit.thread, label %6
 
 l_Std_Net_IPAddr_family.exit.thread:              ; preds = %1
   %4 = and i64 %2, 8589934590
@@ -3154,9 +3089,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %l_St
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Net_IPAddr_toString(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -3192,9 +3126,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Net_IPAddr_toString___boxed(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -3224,7 +3157,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
 
 l_Std_Net_IPAddr_toString.exit:                   ; preds = %13, %15
   %.0.i = phi ptr [ %14, %13 ], [ %16, %15 ]
-  br i1 %.not.i.i, label %17, label %lean_dec.exit
+  br i1 %3, label %lean_dec.exit, label %17
 
 17:                                               ; preds = %l_Std_Net_IPAddr_toString.exit
   %18 = load i32, ptr %0, align 4, !tbaa !8
@@ -3251,9 +3184,8 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %l_St
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Net_SocketAddress_family(ptr noundef %0) local_unnamed_addr #4 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -3276,9 +3208,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Net_SocketAddress_family___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %6, label %l_Std_Net_SocketAddress_family.exit.thread
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %l_Std_Net_SocketAddress_family.exit.thread, label %6
 
 l_Std_Net_SocketAddress_family.exit.thread:       ; preds = %1
   %4 = and i64 %2, 8589934590
@@ -3315,9 +3246,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %l_St
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Net_SocketAddress_ipAddr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i58 = icmp eq i64 %3, 0
-  br i1 %.not.i58, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -3346,23 +3276,22 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, 1
-  %.not84 = icmp eq i64 %19, 0
-  br i1 %.not84, label %20, label %lean_inc.exit46
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_inc.exit46, label %20
 
 20:                                               ; preds = %15
-  %.val.i59 = load i32, ptr %17, align 4, !tbaa !8
-  %21 = icmp sgt i32 %.val.i59, 0
+  %.val.i58 = load i32, ptr %17, align 4, !tbaa !8
+  %21 = icmp sgt i32 %.val.i58, 0
   br i1 %21, label %22, label %24, !prof !13
 
 22:                                               ; preds = %20
-  %23 = add nuw i32 %.val.i59, 1
+  %23 = add nuw i32 %.val.i58, 1
   store i32 %23, ptr %17, align 4, !tbaa !8
   br label %lean_inc.exit46
 
 24:                                               ; preds = %20
-  %.not.i60 = icmp eq i32 %.val.i59, 0
-  br i1 %.not.i60, label %lean_inc.exit46, label %25
+  %.not.i59 = icmp eq i32 %.val.i58, 0
+  br i1 %.not.i59, label %lean_inc.exit46, label %25
 
 25:                                               ; preds = %24
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %17) #7
@@ -3370,9 +3299,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 
 lean_inc.exit46:                                  ; preds = %25, %24, %22, %15
   %26 = ptrtoint ptr %13 to i64
-  %27 = and i64 %26, 1
-  %.not85 = icmp eq i64 %27, 0
-  br i1 %.not85, label %28, label %lean_dec.exit41
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %lean_dec.exit41, label %28
 
 28:                                               ; preds = %lean_inc.exit46
   %29 = load i32, ptr %13, align 4, !tbaa !8
@@ -3398,30 +3326,29 @@ lean_dec.exit41:                                  ; preds = %34, %33, %31, %lean
 
 35:                                               ; preds = %14
   %36 = ptrtoint ptr %13 to i64
-  %37 = and i64 %36, 1
-  %.not81 = icmp eq i64 %37, 0
-  br i1 %.not81, label %38, label %lean_inc.exit45
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %lean_inc.exit45, label %38
 
 38:                                               ; preds = %35
-  %.val.i61 = load i32, ptr %13, align 4, !tbaa !8
-  %39 = icmp sgt i32 %.val.i61, 0
+  %.val.i60 = load i32, ptr %13, align 4, !tbaa !8
+  %39 = icmp sgt i32 %.val.i60, 0
   br i1 %39, label %40, label %42, !prof !13
 
 40:                                               ; preds = %38
-  %41 = add nuw i32 %.val.i61, 1
+  %41 = add nuw i32 %.val.i60, 1
   store i32 %41, ptr %13, align 4, !tbaa !8
   br label %lean_inc.exit45
 
 42:                                               ; preds = %38
-  %.not.i62 = icmp eq i32 %.val.i61, 0
-  br i1 %.not.i62, label %lean_inc.exit45, label %43
+  %.not.i61 = icmp eq i32 %.val.i60, 0
+  br i1 %.not.i61, label %lean_inc.exit45, label %43
 
 43:                                               ; preds = %42
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %13) #7
   br label %lean_inc.exit45
 
 lean_inc.exit45:                                  ; preds = %43, %42, %40, %35
-  br i1 %.not.i58, label %44, label %lean_dec.exit40
+  br i1 %3, label %lean_dec.exit40, label %44
 
 44:                                               ; preds = %lean_inc.exit45
   %45 = load i32, ptr %0, align 4, !tbaa !8
@@ -3445,30 +3372,29 @@ lean_dec.exit40:                                  ; preds = %50, %49, %47, %lean
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = ptrtoint ptr %52 to i64
-  %54 = and i64 %53, 1
-  %.not83 = icmp eq i64 %54, 0
-  br i1 %.not83, label %55, label %lean_inc.exit44
+  %54 = trunc i64 %53 to i1
+  br i1 %54, label %lean_inc.exit44, label %55
 
 55:                                               ; preds = %lean_dec.exit40
-  %.val.i64 = load i32, ptr %52, align 4, !tbaa !8
-  %56 = icmp sgt i32 %.val.i64, 0
+  %.val.i63 = load i32, ptr %52, align 4, !tbaa !8
+  %56 = icmp sgt i32 %.val.i63, 0
   br i1 %56, label %57, label %59, !prof !13
 
 57:                                               ; preds = %55
-  %58 = add nuw i32 %.val.i64, 1
+  %58 = add nuw i32 %.val.i63, 1
   store i32 %58, ptr %52, align 4, !tbaa !8
   br label %lean_inc.exit44
 
 59:                                               ; preds = %55
-  %.not.i65 = icmp eq i32 %.val.i64, 0
-  br i1 %.not.i65, label %lean_inc.exit44, label %60
+  %.not.i64 = icmp eq i32 %.val.i63, 0
+  br i1 %.not.i64, label %lean_inc.exit44, label %60
 
 60:                                               ; preds = %59
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %52) #7
   br label %lean_inc.exit44
 
 lean_inc.exit44:                                  ; preds = %60, %59, %57, %lean_dec.exit40
-  br i1 %.not81, label %61, label %lean_dec.exit39
+  br i1 %37, label %lean_dec.exit39, label %61
 
 61:                                               ; preds = %lean_inc.exit44
   %62 = load i32, ptr %13, align 4, !tbaa !8
@@ -3513,23 +3439,22 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit39
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !4
   %77 = ptrtoint ptr %76 to i64
-  %78 = and i64 %77, 1
-  %.not79 = icmp eq i64 %78, 0
-  br i1 %.not79, label %79, label %lean_inc.exit43
+  %78 = trunc i64 %77 to i1
+  br i1 %78, label %lean_inc.exit43, label %79
 
 79:                                               ; preds = %74
-  %.val.i67 = load i32, ptr %76, align 4, !tbaa !8
-  %80 = icmp sgt i32 %.val.i67, 0
+  %.val.i66 = load i32, ptr %76, align 4, !tbaa !8
+  %80 = icmp sgt i32 %.val.i66, 0
   br i1 %80, label %81, label %83, !prof !13
 
 81:                                               ; preds = %79
-  %82 = add nuw i32 %.val.i67, 1
+  %82 = add nuw i32 %.val.i66, 1
   store i32 %82, ptr %76, align 4, !tbaa !8
   br label %lean_inc.exit43
 
 83:                                               ; preds = %79
-  %.not.i68 = icmp eq i32 %.val.i67, 0
-  br i1 %.not.i68, label %lean_inc.exit43, label %84
+  %.not.i67 = icmp eq i32 %.val.i66, 0
+  br i1 %.not.i67, label %lean_inc.exit43, label %84
 
 84:                                               ; preds = %83
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %76) #7
@@ -3537,9 +3462,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit39
 
 lean_inc.exit43:                                  ; preds = %84, %83, %81, %74
   %85 = ptrtoint ptr %13 to i64
-  %86 = and i64 %85, 1
-  %.not80 = icmp eq i64 %86, 0
-  br i1 %.not80, label %87, label %lean_dec.exit38
+  %86 = trunc i64 %85 to i1
+  br i1 %86, label %lean_dec.exit38, label %87
 
 87:                                               ; preds = %lean_inc.exit43
   %88 = load i32, ptr %13, align 4, !tbaa !8
@@ -3565,30 +3489,29 @@ lean_dec.exit38:                                  ; preds = %93, %92, %90, %lean
 
 94:                                               ; preds = %73
   %95 = ptrtoint ptr %13 to i64
-  %96 = and i64 %95, 1
-  %.not = icmp eq i64 %96, 0
-  br i1 %.not, label %97, label %lean_inc.exit42
+  %96 = trunc i64 %95 to i1
+  br i1 %96, label %lean_inc.exit42, label %97
 
 97:                                               ; preds = %94
-  %.val.i70 = load i32, ptr %13, align 4, !tbaa !8
-  %98 = icmp sgt i32 %.val.i70, 0
+  %.val.i69 = load i32, ptr %13, align 4, !tbaa !8
+  %98 = icmp sgt i32 %.val.i69, 0
   br i1 %98, label %99, label %101, !prof !13
 
 99:                                               ; preds = %97
-  %100 = add nuw i32 %.val.i70, 1
+  %100 = add nuw i32 %.val.i69, 1
   store i32 %100, ptr %13, align 4, !tbaa !8
   br label %lean_inc.exit42
 
 101:                                              ; preds = %97
-  %.not.i71 = icmp eq i32 %.val.i70, 0
-  br i1 %.not.i71, label %lean_inc.exit42, label %102
+  %.not.i70 = icmp eq i32 %.val.i69, 0
+  br i1 %.not.i70, label %lean_inc.exit42, label %102
 
 102:                                              ; preds = %101
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %13) #7
   br label %lean_inc.exit42
 
 lean_inc.exit42:                                  ; preds = %102, %101, %99, %94
-  br i1 %.not.i58, label %103, label %lean_dec.exit37
+  br i1 %3, label %lean_dec.exit37, label %103
 
 103:                                              ; preds = %lean_inc.exit42
   %104 = load i32, ptr %0, align 4, !tbaa !8
@@ -3612,30 +3535,29 @@ lean_dec.exit37:                                  ; preds = %109, %108, %106, %l
   %110 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !4
   %112 = ptrtoint ptr %111 to i64
-  %113 = and i64 %112, 1
-  %.not78 = icmp eq i64 %113, 0
-  br i1 %.not78, label %114, label %lean_inc.exit
+  %113 = trunc i64 %112 to i1
+  br i1 %113, label %lean_inc.exit, label %114
 
 114:                                              ; preds = %lean_dec.exit37
-  %.val.i73 = load i32, ptr %111, align 4, !tbaa !8
-  %115 = icmp sgt i32 %.val.i73, 0
+  %.val.i72 = load i32, ptr %111, align 4, !tbaa !8
+  %115 = icmp sgt i32 %.val.i72, 0
   br i1 %115, label %116, label %118, !prof !13
 
 116:                                              ; preds = %114
-  %117 = add nuw i32 %.val.i73, 1
+  %117 = add nuw i32 %.val.i72, 1
   store i32 %117, ptr %111, align 4, !tbaa !8
   br label %lean_inc.exit
 
 118:                                              ; preds = %114
-  %.not.i74 = icmp eq i32 %.val.i73, 0
-  br i1 %.not.i74, label %lean_inc.exit, label %119
+  %.not.i73 = icmp eq i32 %.val.i72, 0
+  br i1 %.not.i73, label %lean_inc.exit, label %119
 
 119:                                              ; preds = %118
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %111) #7
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %119, %118, %116, %lean_dec.exit37
-  br i1 %.not, label %120, label %lean_dec.exit
+  br i1 %96, label %lean_dec.exit, label %120
 
 120:                                              ; preds = %lean_inc.exit
   %121 = load i32, ptr %13, align 4, !tbaa !8
@@ -3659,13 +3581,13 @@ lean_dec.exit:                                    ; preds = %126, %125, %123, %l
   tail call void @lean_inc_heartbeat() #7
   %127 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #7
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %129, label %lean_alloc_ctor.exit76
+  br i1 %128, label %129, label %lean_alloc_ctor.exit75
 
 129:                                              ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
-lean_alloc_ctor.exit76:                           ; preds = %lean_dec.exit
+lean_alloc_ctor.exit75:                           ; preds = %lean_dec.exit
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 1, ptr %127, align 4, !tbaa !8
   store i32 16842768, ptr %130, align 4
@@ -3673,8 +3595,8 @@ lean_alloc_ctor.exit76:                           ; preds = %lean_dec.exit
   store ptr %111, ptr %131, align 8, !tbaa !4
   br label %132
 
-132:                                              ; preds = %lean_dec.exit38, %lean_alloc_ctor.exit76, %lean_dec.exit41, %lean_alloc_ctor.exit
-  %.1 = phi ptr [ %68, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit41 ], [ %0, %lean_dec.exit38 ], [ %127, %lean_alloc_ctor.exit76 ]
+132:                                              ; preds = %lean_dec.exit38, %lean_alloc_ctor.exit75, %lean_dec.exit41, %lean_alloc_ctor.exit
+  %.1 = phi ptr [ %68, %lean_alloc_ctor.exit ], [ %0, %lean_dec.exit41 ], [ %0, %lean_dec.exit38 ], [ %127, %lean_alloc_ctor.exit75 ]
   ret ptr %.1
 }
 
@@ -3725,7 +3647,7 @@ define zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr i8, ptr %0, i64 40
-  %.val = load i8, ptr %7, align 8, !tbaa !16
+  %.val = load i8, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3735,33 +3657,33 @@ define zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr i8, ptr %1, i64 40
-  %.val37 = load i8, ptr %16, align 8, !tbaa !16
+  %.val37 = load i8, ptr %16, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = icmp eq ptr %4, %13
-  br i1 %21, label %lean_string_dec_eq.exit.thread54, label %22
+  br i1 %21, label %lean_string_dec_eq.exit.thread52, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr i8, ptr %4, i64 8
-  %.val.i.i = load i64, ptr %23, align 8, !tbaa !17
+  %.val.i.i = load i64, ptr %23, align 8, !tbaa !16
   %24 = getelementptr i8, ptr %13, i64 8
-  %.val7.i.i = load i64, ptr %24, align 8, !tbaa !17
+  %.val7.i.i = load i64, ptr %24, align 8, !tbaa !16
   %25 = icmp eq i64 %.val.i.i, %.val7.i.i
   br i1 %25, label %lean_string_dec_eq.exit, label %.critedge
 
 lean_string_dec_eq.exit:                          ; preds = %22
   %26 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %4, ptr noundef nonnull %13) #7
-  br i1 %26, label %lean_string_dec_eq.exit.thread54, label %.critedge
+  br i1 %26, label %lean_string_dec_eq.exit.thread52, label %.critedge
 
-lean_string_dec_eq.exit.thread54:                 ; preds = %2, %lean_string_dec_eq.exit
+lean_string_dec_eq.exit.thread52:                 ; preds = %2, %lean_string_dec_eq.exit
   %27 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %28 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %27, ptr noundef %6, ptr noundef %15) #7
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %.critedge, label %30
 
-30:                                               ; preds = %lean_string_dec_eq.exit.thread54
+30:                                               ; preds = %lean_string_dec_eq.exit.thread52
   %31 = icmp eq i8 %.val, 0
   %32 = icmp eq i8 %.val37, 0
   br i1 %31, label %33, label %34
@@ -3774,9 +3696,8 @@ lean_string_dec_eq.exit.thread54:                 ; preds = %2, %lean_string_dec
 
 lean_dec.exit:                                    ; preds = %33, %34
   %35 = ptrtoint ptr %9 to i64
-  %36 = and i64 %35, 1
-  %.not.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i, label %40, label %37
+  %36 = trunc i64 %35 to i1
+  br i1 %36, label %37, label %40
 
 37:                                               ; preds = %lean_dec.exit
   %38 = lshr i64 %35, 1
@@ -3793,50 +3714,49 @@ lean_obj_tag.exit.i:                              ; preds = %40, %37
   %.0.i.i = phi i32 [ %39, %37 ], [ %42, %40 ]
   %43 = icmp eq i32 %.0.i.i, 0
   %44 = ptrtoint ptr %18 to i64
-  %45 = and i64 %44, 1
-  %.not.i17.i = icmp eq i64 %45, 0
+  %45 = trunc i64 %44 to i1
   br i1 %43, label %46, label %54
 
 46:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i17.i, label %50, label %47
+  br i1 %45, label %47, label %50
 
 47:                                               ; preds = %46
   %48 = lshr i64 %44, 1
   %49 = trunc i64 %48 to i32
-  br label %lean_obj_tag.exit20.i
+  br label %lean_obj_tag.exit19.i
 
 50:                                               ; preds = %46
   %51 = getelementptr i8, ptr %18, i64 4
-  %.val.i19.i = load i32, ptr %51, align 4
-  %52 = lshr i32 %.val.i19.i, 24
-  br label %lean_obj_tag.exit20.i
+  %.val.i17.i = load i32, ptr %51, align 4
+  %52 = lshr i32 %.val.i17.i, 24
+  br label %lean_obj_tag.exit19.i
 
-lean_obj_tag.exit20.i:                            ; preds = %50, %47
+lean_obj_tag.exit19.i:                            ; preds = %50, %47
   %.0.i18.i = phi i32 [ %49, %47 ], [ %52, %50 ]
   %53 = icmp eq i32 %.0.i18.i, 0
   br i1 %53, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, label %.critedge
 
 54:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i17.i, label %58, label %55
+  br i1 %45, label %55, label %58
 
 55:                                               ; preds = %54
   %56 = lshr i64 %44, 1
   %57 = trunc i64 %56 to i32
-  br label %lean_obj_tag.exit24.i
+  br label %lean_obj_tag.exit22.i
 
 58:                                               ; preds = %54
   %59 = getelementptr i8, ptr %18, i64 4
-  %.val.i23.i = load i32, ptr %59, align 4
-  %60 = lshr i32 %.val.i23.i, 24
-  br label %lean_obj_tag.exit24.i
+  %.val.i20.i = load i32, ptr %59, align 4
+  %60 = lshr i32 %.val.i20.i, 24
+  br label %lean_obj_tag.exit22.i
 
-lean_obj_tag.exit24.i:                            ; preds = %58, %55
-  %.0.i22.i = phi i32 [ %57, %55 ], [ %60, %58 ]
-  %61 = icmp eq i32 %.0.i22.i, 0
+lean_obj_tag.exit22.i:                            ; preds = %58, %55
+  %.0.i21.i = phi i32 [ %57, %55 ], [ %60, %58 ]
+  %61 = icmp eq i32 %.0.i21.i, 0
   br i1 %61, label %.critedge, label %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
 
-l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit20.i, %lean_obj_tag.exit24.i
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i ]
+l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit: ; preds = %lean_obj_tag.exit19.i, %lean_obj_tag.exit22.i
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit19.i ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i ]
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -3848,9 +3768,8 @@ l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.e
 
 69:                                               ; preds = %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit
   %70 = ptrtoint ptr %11 to i64
-  %71 = and i64 %70, 1
-  %.not.i.i39 = icmp eq i64 %71, 0
-  br i1 %.not.i.i39, label %75, label %72
+  %71 = trunc i64 %70 to i1
+  br i1 %71, label %72, label %75
 
 72:                                               ; preds = %69
   %73 = lshr i64 %70, 1
@@ -3859,58 +3778,57 @@ l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.e
 
 75:                                               ; preds = %69
   %76 = getelementptr i8, ptr %11, i64 4
-  %.val.i.i52 = load i32, ptr %76, align 4
-  %77 = lshr i32 %.val.i.i52, 24
+  %.val.i.i39 = load i32, ptr %76, align 4
+  %77 = lshr i32 %.val.i.i39, 24
   br label %lean_obj_tag.exit.i40
 
 lean_obj_tag.exit.i40:                            ; preds = %75, %72
   %.0.i.i41 = phi i32 [ %74, %72 ], [ %77, %75 ]
   %78 = icmp eq i32 %.0.i.i41, 0
   %79 = ptrtoint ptr %20 to i64
-  %80 = and i64 %79, 1
-  %.not.i17.i42 = icmp eq i64 %80, 0
+  %80 = trunc i64 %79 to i1
   br i1 %78, label %81, label %89
 
 81:                                               ; preds = %lean_obj_tag.exit.i40
-  br i1 %.not.i17.i42, label %85, label %82
+  br i1 %80, label %82, label %85
 
 82:                                               ; preds = %81
   %83 = lshr i64 %79, 1
   %84 = trunc i64 %83 to i32
-  br label %lean_obj_tag.exit20.i49
+  br label %lean_obj_tag.exit19.i49
 
 85:                                               ; preds = %81
   %86 = getelementptr i8, ptr %20, i64 4
-  %.val.i19.i51 = load i32, ptr %86, align 4
-  %87 = lshr i32 %.val.i19.i51, 24
-  br label %lean_obj_tag.exit20.i49
+  %.val.i17.i48 = load i32, ptr %86, align 4
+  %87 = lshr i32 %.val.i17.i48, 24
+  br label %lean_obj_tag.exit19.i49
 
-lean_obj_tag.exit20.i49:                          ; preds = %85, %82
+lean_obj_tag.exit19.i49:                          ; preds = %85, %82
   %.0.i18.i50 = phi i32 [ %84, %82 ], [ %87, %85 ]
   %88 = icmp eq i32 %.0.i18.i50, 0
   br i1 %88, label %.sink.split.i45, label %.critedge
 
 89:                                               ; preds = %lean_obj_tag.exit.i40
-  br i1 %.not.i17.i42, label %93, label %90
+  br i1 %80, label %90, label %93
 
 90:                                               ; preds = %89
   %91 = lshr i64 %79, 1
   %92 = trunc i64 %91 to i32
-  br label %lean_obj_tag.exit24.i43
+  br label %lean_obj_tag.exit22.i43
 
 93:                                               ; preds = %89
   %94 = getelementptr i8, ptr %20, i64 4
-  %.val.i23.i48 = load i32, ptr %94, align 4
-  %95 = lshr i32 %.val.i23.i48, 24
-  br label %lean_obj_tag.exit24.i43
+  %.val.i20.i42 = load i32, ptr %94, align 4
+  %95 = lshr i32 %.val.i20.i42, 24
+  br label %lean_obj_tag.exit22.i43
 
-lean_obj_tag.exit24.i43:                          ; preds = %93, %90
-  %.0.i22.i44 = phi i32 [ %92, %90 ], [ %95, %93 ]
-  %96 = icmp eq i32 %.0.i22.i44, 0
+lean_obj_tag.exit22.i43:                          ; preds = %93, %90
+  %.0.i21.i44 = phi i32 [ %92, %90 ], [ %95, %93 ]
+  %96 = icmp eq i32 %.0.i21.i44, 0
   br i1 %96, label %.critedge, label %.sink.split.i45
 
-.sink.split.i45:                                  ; preds = %lean_obj_tag.exit24.i43, %lean_obj_tag.exit20.i49
-  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i46 = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit20.i49 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit24.i43 ]
+.sink.split.i45:                                  ; preds = %lean_obj_tag.exit22.i43, %lean_obj_tag.exit19.i49
+  %l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.sink.i46 = phi ptr [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, %lean_obj_tag.exit19.i49 ], [ @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, %lean_obj_tag.exit22.i43 ]
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -3919,8 +3837,8 @@ lean_obj_tag.exit24.i43:                          ; preds = %93, %90
   %102 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %101, ptr noundef %98, ptr noundef %100) #7
   br label %.critedge
 
-.critedge:                                        ; preds = %lean_obj_tag.exit24.i, %lean_obj_tag.exit20.i, %22, %.sink.split.i45, %lean_obj_tag.exit24.i43, %lean_obj_tag.exit20.i49, %lean_string_dec_eq.exit.thread54, %33, %34, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, %lean_string_dec_eq.exit
-  %.0 = phi i8 [ 0, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit ], [ 0, %lean_string_dec_eq.exit ], [ 0, %22 ], [ 0, %34 ], [ 0, %33 ], [ 0, %lean_string_dec_eq.exit.thread54 ], [ %102, %.sink.split.i45 ], [ 0, %lean_obj_tag.exit20.i49 ], [ 0, %lean_obj_tag.exit24.i43 ], [ 0, %lean_obj_tag.exit20.i ], [ 0, %lean_obj_tag.exit24.i ]
+.critedge:                                        ; preds = %lean_obj_tag.exit22.i, %lean_obj_tag.exit19.i, %22, %.sink.split.i45, %lean_obj_tag.exit22.i43, %lean_obj_tag.exit19.i49, %lean_string_dec_eq.exit.thread52, %33, %34, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit, %lean_string_dec_eq.exit
+  %.0 = phi i8 [ 0, %l___private_Std_Net_Addr_0__Std_Net_decEqIPAddr____x40_Std_Net_Addr___hyg_730_.exit ], [ 0, %lean_string_dec_eq.exit ], [ 0, %22 ], [ 0, %34 ], [ 0, %33 ], [ 0, %lean_string_dec_eq.exit.thread52 ], [ %102, %.sink.split.i45 ], [ 0, %lean_obj_tag.exit19.i49 ], [ 0, %lean_obj_tag.exit22.i43 ], [ 0, %lean_obj_tag.exit19.i ], [ 0, %lean_obj_tag.exit22.i ]
   ret i8 %.0
 }
 
@@ -3928,9 +3846,8 @@ lean_obj_tag.exit24.i43:                          ; preds = %93, %90
 define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____x40_Std_Net_Addr___hyg_1669____boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____x40_Std_Net_Addr___hyg_1669_(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8
@@ -3952,9 +3869,8 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress___
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !8
@@ -3992,9 +3908,8 @@ define zeroext i8 @l_Std_Net_instDecidableEqInterfaceAddress(ptr noundef readonl
 define nonnull ptr @l_Std_Net_instDecidableEqInterfaceAddress___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @l___private_Std_Net_Addr_0__Std_Net_decEqInterfaceAddress____x40_Std_Net_Addr___hyg_1669_(ptr noundef readonly %0, ptr noundef readonly %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !8
@@ -4016,9 +3931,8 @@ define nonnull ptr @l_Std_Net_instDecidableEqInterfaceAddress___boxed(ptr nounde
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !8
@@ -4169,7 +4083,7 @@ _init_l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_
 _init_l_Std_Net_instInhabitedSocketAddressV4___closed__2.exit: ; preds = %_init_l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1.exit
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i64 0, ptr %44, align 8, !tbaa !17
+  store i64 0, ptr %44, align 8, !tbaa !16
   store i32 1, ptr %40, align 8, !tbaa !8
   store i32 65560, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -4219,7 +4133,7 @@ _init_l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_
 _init_l_Std_Net_instInhabitedSocketAddressV6___closed__1.exit: ; preds = %_init_l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1.exit
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 0, ptr %61, align 8, !tbaa !17
+  store i64 0, ptr %61, align 8, !tbaa !16
   store i32 1, ptr %57, align 8, !tbaa !8
   store i32 65560, ptr %60, align 4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -4293,7 +4207,7 @@ _init_l_Std_Net_AddressFamily_noConfusion___rarg___closed__1.exit: ; preds = %_i
   store i16 0, ptr %84, align 2, !tbaa !11
   store ptr %78, ptr @l_Std_Net_AddressFamily_noConfusion___rarg___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %78) #7
-  store i8 0, ptr @l_Std_Net_instInhabitedAddressFamily, align 1, !tbaa !16
+  store i8 0, ptr @l_Std_Net_instInhabitedAddressFamily, align 1, !tbaa !15
   tail call void @lean_inc_heartbeat() #7
   %85 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
   %86 = icmp eq ptr %85, null
@@ -4384,7 +4298,7 @@ _init_l_Std_Net_IPAddr_instToString___closed__1.exit: ; preds = %_init_l_Std_Net
 _init_l_Std_Net_instInhabitedInterfaceAddress___closed__2.exit: ; preds = %_init_l_Std_Net_IPAddr_instToString___closed__1.exit
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  store i64 0, ptr %117, align 8, !tbaa !17
+  store i64 0, ptr %117, align 8, !tbaa !16
   store i32 1, ptr %113, align 8, !tbaa !8
   store i32 262192, ptr %116, align 4
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -4477,7 +4391,6 @@ attributes #8 = { noreturn nounwind }
 !12 = !{!"short", !6, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = !{!6, !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !6, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}

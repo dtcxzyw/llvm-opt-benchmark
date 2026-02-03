@@ -380,19 +380,18 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = and i32 %.sroa.0.0.copyload.i23, 255
   %22 = zext nneg i32 %21 to i64
-  %switch.gep31 = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %22
-  %switch.load32 = load i32, ptr %switch.gep31, align 4
+  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table._RNvXs1_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtB5_5ColorINtNtCs1LoaDTb72WA_4core7convert4FromNtNtB7_5attrs5ColorE4from, i64 %22
+  %switch.load31 = load i32, ptr %switch.gep30, align 4
   call void @_RNvMs1_NtCsbYUTfhIhMOk_7ratatui5styleNtB5_5Style5reset(ptr noalias noundef nonnull sret([16 x i8]) align 2 captures(none) dereferenceable(16) %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %24 = load i8, ptr %23, align 1, !alias.scope !46, !noundef !7
-  %25 = and i8 %24, 1
-  %.not = icmp eq i8 %25, 0
-  br i1 %.not, label %26, label %28
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %28, label %26
 
 26:                                               ; preds = %28, %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit
   %27 = and i8 %24, 2
-  %.not29 = icmp eq i8 %27, 0
-  br i1 %.not29, label %35, label %37
+  %.not = icmp eq i8 %27, 0
+  br i1 %.not, label %35, label %37
 
 28:                                               ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6StringECs8mTrBI1stz4_15turborepo_vt100.exit
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -407,8 +406,8 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 
 35:                                               ; preds = %37, %26
   %36 = and i8 %24, 4
-  %.not30 = icmp eq i8 %36, 0
-  br i1 %.not30, label %44, label %50
+  %.not29 = icmp eq i8 %36, 0
+  br i1 %.not29, label %44, label %50
 
 37:                                               ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -443,7 +442,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
 
 57:                                               ; preds = %61, %44
   %.sroa.46.0.insert.insert.i26 = and i32 %.sroa.0.0.copyload.i23, -256
-  %.sroa.05.0.insert.insert.i27 = or disjoint i32 %switch.load32, %.sroa.46.0.insert.insert.i26
+  %.sroa.05.0.insert.insert.i27 = or disjoint i32 %switch.load31, %.sroa.46.0.insert.insert.i26
   %.sroa.46.0.insert.insert.i = and i32 %.sroa.0.0.copyload.i, -256
   %.sroa.05.0.insert.insert.i = or disjoint i32 %switch.load, %.sroa.46.0.insert.insert.i
   %58 = call noundef align 8 dereferenceable(40) ptr @_RINvMNtNtCsbYUTfhIhMOk_7ratatui6buffer4cellNtB3_4Cell9set_styleNtNtB7_5style5StyleEB7_(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 2 captures(none) dereferenceable(16) %3)

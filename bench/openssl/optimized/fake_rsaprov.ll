@@ -333,63 +333,60 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %0, 
 define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) #1 {
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 441, ptr noundef nonnull @.str.19, ptr noundef %0) #12
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %31, label %6
+  br i1 %.not, label %29, label %6
 
 6:                                                ; preds = %4
   %7 = load i8, ptr %0, align 1, !tbaa !14
   %8 = zext i8 %7 to i32
-  %9 = icmp ne i8 %7, 0
+  %9 = icmp eq i8 %7, 0
   %10 = and i32 %8, 8
-  %.not23 = icmp eq i32 %10, 0
-  %or.cond27 = and i1 %9, %.not23
-  br i1 %or.cond27, label %11, label %31
+  %.not23 = icmp ne i32 %10, 0
+  %or.cond27.not31 = or i1 %9, %.not23
+  %11 = trunc i8 %7 to i1
+  %12 = icmp eq ptr %2, null
+  %or.cond = and i1 %12, %11
+  %or.cond29 = or i1 %or.cond, %or.cond27.not31
+  br i1 %or.cond29, label %29, label %13
 
-11:                                               ; preds = %6
-  %12 = and i32 %8, 1
-  %13 = icmp ne i32 %12, 0
-  %14 = icmp eq ptr %2, null
-  %or.cond = and i1 %14, %13
-  br i1 %or.cond, label %31, label %15
+13:                                               ; preds = %6
+  %14 = and i32 %8, 2
+  %15 = icmp ne i32 %14, 0
+  %16 = icmp ne ptr %2, null
+  %or.cond3 = and i1 %16, %15
+  br i1 %or.cond3, label %29, label %17
 
-15:                                               ; preds = %11
-  %16 = and i32 %8, 2
-  %17 = icmp ne i32 %16, 0
-  %18 = icmp ne ptr %2, null
-  %or.cond3 = and i1 %18, %17
-  br i1 %or.cond3, label %31, label %19
+17:                                               ; preds = %13
+  br i1 %16, label %18, label %24
 
-19:                                               ; preds = %15
-  br i1 %18, label %20, label %26
-
-20:                                               ; preds = %19
+18:                                               ; preds = %17
   store i64 256, ptr %2, align 8, !tbaa !15
   %.not24 = icmp eq ptr %1, null
-  br i1 %.not24, label %26, label %21
+  br i1 %.not24, label %24, label %19
 
-21:                                               ; preds = %20
-  %22 = trunc i64 %3 to i32
-  %23 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.9, i32 noundef 458, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef %22, i32 noundef 256) #12
-  %.not25 = icmp eq i32 %23, 0
-  br i1 %.not25, label %31, label %24
+19:                                               ; preds = %18
+  %20 = trunc i64 %3 to i32
+  %21 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.9, i32 noundef 458, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef %20, i32 noundef 256) #12
+  %.not25 = icmp eq i32 %21, 0
+  br i1 %.not25, label %29, label %22
 
-24:                                               ; preds = %21
-  %25 = load i64, ptr %2, align 8, !tbaa !15
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 97, i64 %25, i1 false)
-  br label %26
+22:                                               ; preds = %19
+  %23 = load i64, ptr %2, align 8, !tbaa !15
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 97, i64 %23, i1 false)
+  br label %24
 
-26:                                               ; preds = %20, %24, %19
-  %27 = load i8, ptr %0, align 1, !tbaa !14
-  %28 = and i8 %27, -96
-  %.not26 = icmp eq i8 %28, 0
-  br i1 %.not26, label %31, label %29
+24:                                               ; preds = %18, %22, %17
+  %25 = load i8, ptr %0, align 1, !tbaa !14
+  %26 = and i8 %25, -96
+  %.not26 = icmp eq i8 %26, 0
+  br i1 %.not26, label %29, label %27
 
-29:                                               ; preds = %26
-  %30 = or i8 %27, 8
-  store i8 %30, ptr %0, align 1, !tbaa !14
-  br label %31
+27:                                               ; preds = %24
+  %28 = or i8 %25, 8
+  store i8 %28, ptr %0, align 1, !tbaa !14
+  br label %29
 
-31:                                               ; preds = %26, %29, %21, %15, %11, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 0, %11 ], [ 0, %21 ], [ 0, %15 ], [ 1, %29 ], [ 1, %26 ]
+29:                                               ; preds = %24, %27, %19, %13, %6, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %24 ], [ 0, %19 ], [ 0, %13 ], [ 1, %27 ]
   ret i32 %.0
 }
 
@@ -417,58 +414,55 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %0, ptr nounde
 15:                                               ; preds = %12
   %16 = load i8, ptr %0, align 1, !tbaa !14
   %17 = zext i8 %16 to i32
-  %18 = icmp ne i8 %16, 0
+  %18 = icmp eq i8 %16, 0
   %19 = and i32 %17, 8
-  %.not23.i = icmp eq i32 %19, 0
-  %or.cond27.i = and i1 %18, %.not23.i
-  br i1 %or.cond27.i, label %20, label %fake_rsa_dgstsgnvfy_final.exit
+  %.not23.i = icmp ne i32 %19, 0
+  %or.cond27.not31.i = or i1 %18, %.not23.i
+  %20 = trunc i8 %16 to i1
+  %21 = icmp eq ptr %2, null
+  %or.cond.i8 = and i1 %21, %20
+  %or.cond29.i = or i1 %or.cond.i8, %or.cond27.not31.i
+  br i1 %or.cond29.i, label %fake_rsa_dgstsgnvfy_final.exit, label %22
 
-20:                                               ; preds = %15
-  %21 = and i32 %17, 1
-  %22 = icmp ne i32 %21, 0
-  %23 = icmp eq ptr %2, null
-  %or.cond.i9 = and i1 %23, %22
-  br i1 %or.cond.i9, label %fake_rsa_dgstsgnvfy_final.exit, label %24
+22:                                               ; preds = %15
+  %23 = and i32 %17, 2
+  %24 = icmp ne i32 %23, 0
+  %25 = icmp ne ptr %2, null
+  %or.cond3.i = and i1 %25, %24
+  br i1 %or.cond3.i, label %fake_rsa_dgstsgnvfy_final.exit, label %26
 
-24:                                               ; preds = %20
-  %25 = and i32 %17, 2
-  %26 = icmp ne i32 %25, 0
-  %27 = icmp ne ptr %2, null
-  %or.cond3.i = and i1 %27, %26
-  br i1 %or.cond3.i, label %fake_rsa_dgstsgnvfy_final.exit, label %28
+26:                                               ; preds = %22
+  br i1 %25, label %27, label %33
 
-28:                                               ; preds = %24
-  br i1 %27, label %29, label %35
-
-29:                                               ; preds = %28
+27:                                               ; preds = %26
   store i64 256, ptr %2, align 8, !tbaa !15
   %.not24.i = icmp eq ptr %1, null
-  br i1 %.not24.i, label %35, label %30
+  br i1 %.not24.i, label %33, label %28
 
-30:                                               ; preds = %29
-  %31 = trunc i64 %3 to i32
-  %32 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.9, i32 noundef 458, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef %31, i32 noundef 256) #12
-  %.not25.i = icmp eq i32 %32, 0
-  br i1 %.not25.i, label %fake_rsa_dgstsgnvfy_final.exit, label %33
+28:                                               ; preds = %27
+  %29 = trunc i64 %3 to i32
+  %30 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.9, i32 noundef 458, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef %29, i32 noundef 256) #12
+  %.not25.i = icmp eq i32 %30, 0
+  br i1 %.not25.i, label %fake_rsa_dgstsgnvfy_final.exit, label %31
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %2, align 8, !tbaa !15
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 97, i64 %34, i1 false)
-  br label %35
+31:                                               ; preds = %28
+  %32 = load i64, ptr %2, align 8, !tbaa !15
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 97, i64 %32, i1 false)
+  br label %33
 
-35:                                               ; preds = %33, %29, %28
-  %36 = load i8, ptr %0, align 1, !tbaa !14
-  %37 = and i8 %36, -96
-  %.not26.i = icmp eq i8 %37, 0
-  br i1 %.not26.i, label %fake_rsa_dgstsgnvfy_final.exit, label %38
+33:                                               ; preds = %31, %27, %26
+  %34 = load i8, ptr %0, align 1, !tbaa !14
+  %35 = and i8 %34, -96
+  %.not26.i = icmp eq i8 %35, 0
+  br i1 %.not26.i, label %fake_rsa_dgstsgnvfy_final.exit, label %36
 
-38:                                               ; preds = %35
-  %39 = or i8 %36, 8
-  store i8 %39, ptr %0, align 1, !tbaa !14
+36:                                               ; preds = %33
+  %37 = or i8 %34, 8
+  store i8 %37, ptr %0, align 1, !tbaa !14
   br label %fake_rsa_dgstsgnvfy_final.exit
 
-fake_rsa_dgstsgnvfy_final.exit:                   ; preds = %8, %6, %38, %35, %30, %24, %20, %15, %12
-  %.0 = phi i32 [ 1, %35 ], [ 0, %12 ], [ 0, %15 ], [ 0, %20 ], [ 0, %30 ], [ 0, %24 ], [ 1, %38 ], [ 0, %6 ], [ 0, %8 ]
+fake_rsa_dgstsgnvfy_final.exit:                   ; preds = %8, %6, %36, %33, %28, %22, %15, %12
+  %.0 = phi i32 [ 1, %36 ], [ 0, %12 ], [ 0, %15 ], [ 1, %33 ], [ 0, %28 ], [ 0, %22 ], [ 0, %6 ], [ 0, %8 ]
   ret i32 %.0
 }
 
@@ -489,8 +483,8 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_final(ptr noundef %0, ptr 
   %7 = icmp eq i8 %6, 0
   %8 = and i8 %6, 9
   %9 = icmp ne i8 %8, 0
-  %or.cond = or i1 %7, %9
-  br i1 %or.cond, label %fake_rsa_dgstsgnvfy_final.exit, label %10
+  %or.cond29.i = or i1 %7, %9
+  br i1 %or.cond29.i, label %fake_rsa_dgstsgnvfy_final.exit, label %10
 
 10:                                               ; preds = %5
   %11 = and i8 %6, -96
@@ -503,7 +497,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy_final(ptr noundef %0, ptr 
   br label %fake_rsa_dgstsgnvfy_final.exit
 
 fake_rsa_dgstsgnvfy_final.exit:                   ; preds = %3, %5, %10, %12
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %12 ], [ 1, %10 ]
+  %.0.i = phi i32 [ 0, %3 ], [ 0, %5 ], [ 1, %10 ], [ 1, %12 ]
   ret i32 %.0.i
 }
 
@@ -533,8 +527,8 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy(ptr noundef %0, ptr readno
   %16 = icmp eq i8 %15, 0
   %17 = and i8 %15, 9
   %18 = icmp ne i8 %17, 0
-  %or.cond.i6 = or i1 %16, %18
-  br i1 %or.cond.i6, label %fake_rsa_dgstvfy_final.exit, label %19
+  %or.cond29.i.i = or i1 %16, %18
+  br i1 %or.cond29.i.i, label %fake_rsa_dgstvfy_final.exit, label %19
 
 19:                                               ; preds = %14
   %20 = and i8 %15, -96
@@ -547,7 +541,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstvfy(ptr noundef %0, ptr readno
   br label %fake_rsa_dgstvfy_final.exit
 
 fake_rsa_dgstvfy_final.exit:                      ; preds = %7, %5, %21, %19, %14, %11
-  %.0 = phi i32 [ 1, %19 ], [ 0, %11 ], [ 0, %14 ], [ 1, %21 ], [ 0, %5 ], [ 0, %7 ]
+  %.0 = phi i32 [ 1, %21 ], [ 0, %11 ], [ 0, %14 ], [ 1, %19 ], [ 0, %5 ], [ 0, %7 ]
   ret i32 %.0
 }
 

@@ -25320,16 +25320,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %15 = load i8, ptr %14, align 1
-  %16 = and i8 %15, 1
-  %.not103 = icmp eq i8 %16, 0
+  %16 = trunc i8 %15 to i1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %18, %7
-  %.not.i91.not = icmp ugt i64 %19, %11
-  br i1 %.not103, label %104, label %20
+  %.not.i.not = icmp ugt i64 %19, %11
+  br i1 %16, label %20, label %104
 
 20:                                               ; preds = %13
-  br i1 %.not.i91.not, label %.thread, label %21
+  br i1 %.not.i.not, label %.thread, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -25431,7 +25430,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3AAT19KerxSubTableFormat6INS_
   br i1 %103, label %188, label %.thread
 
 104:                                              ; preds = %13
-  br i1 %.not.i91.not, label %.thread, label %105
+  br i1 %.not.i.not, label %.thread, label %105
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -33394,8 +33393,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxS
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %8 = load i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
+  %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
@@ -33415,7 +33413,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxS
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %13
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %24
-  br i1 %.not, label %159, label %29
+  br i1 %9, label %29, label %159
 
 29:                                               ; preds = %4
   %30 = tail call noundef i32 @_ZNK3AAT6LookupIN2OT7IntTypeIjLj4EEEE17get_value_or_nullEjj(ptr noundef nonnull align 1 dereferenceable(13) %28, i32 noundef %1, i32 noundef %6)
@@ -33477,8 +33475,8 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxS
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
-  %.not63 = icmp ugt i64 %82, %85
-  br i1 %.not63, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %86
+  %.not62 = icmp ugt i64 %82, %85
+  br i1 %.not62, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %86
 
 86:                                               ; preds = %54
   %87 = load i8, ptr %76, align 1
@@ -33516,8 +33514,8 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT19KerxSubTableFormat6INS_18KerxS
   %119 = or disjoint i32 %111, %118
   %120 = or disjoint i32 %119, %115
   %121 = or disjoint i32 %120, %107
-  %.not64 = icmp eq i32 %121, 0
-  br i1 %.not64, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %122
+  %.not63 = icmp eq i32 %121, 0
+  br i1 %.not63, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %122
 
 122:                                              ; preds = %86
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -33803,8 +33801,8 @@ _ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE17get_value_or_nullEjj.exit47: ; preds = %.
   %333 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %334 = load i32, ptr %333, align 8
   %335 = zext i32 %334 to i64
-  %.not61 = icmp ugt i64 %332, %335
-  br i1 %.not61, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %336
+  %.not = icmp ugt i64 %332, %335
+  br i1 %.not, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %336
 
 336:                                              ; preds = %_ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE17get_value_or_nullEjj.exit47
   %337 = load i8, ptr %326, align 1
@@ -33833,8 +33831,8 @@ _ZNK3AAT6LookupIN2OT7IntTypeItLj2EEEE17get_value_or_nullEjj.exit47: ; preds = %.
   %360 = or disjoint i32 %352, %359
   %361 = or disjoint i32 %360, %356
   %362 = or disjoint i32 %361, %348
-  %.not62 = icmp eq i32 %362, 0
-  br i1 %.not62, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %363
+  %.not61 = icmp eq i32 %362, 0
+  br i1 %.not61, label %_ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit, label %363
 
 363:                                              ; preds = %336
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -33887,8 +33885,8 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i52: 
 
 _ZN3AATL13kerxTupleKernEijPKvPNS_22hb_aat_apply_context_tE.exit.sink.split: ; preds = %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i52, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i
   %.sink = phi ptr [ %143, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i ], [ %384, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT7IntTypeIsLj2EEEEEbPKT_j.exit.i52 ]
-  %.sink87 = load i8, ptr %.sink, align 1
-  %400 = zext i8 %.sink87 to i16
+  %.sink86 = load i8, ptr %.sink, align 1
+  %400 = zext i8 %.sink86 to i16
   %401 = shl nuw i16 %400, 8
   %402 = getelementptr inbounds nuw i8, ptr %.sink, i64 1
   %403 = load i8, ptr %402, align 1

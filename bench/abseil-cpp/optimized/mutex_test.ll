@@ -5065,10 +5065,10 @@ define internal noundef nonnull ptr @_ZN7testing8internal24ParameterizedTestFact
 
 7:                                                ; preds = %.noexc
   %8 = load i32, ptr %6, align 4, !tbaa !45
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 42
-  %10 = trunc i32 %8 to i8
-  %11 = and i8 %10, 1
-  store i8 %11, ptr %9, align 2, !tbaa !226
+  %9 = trunc i32 %8 to i8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 42
+  %11 = and i8 %9, 1
+  store i8 %11, ptr %10, align 2, !tbaa !226
   %12 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %13 unwind label %20
 

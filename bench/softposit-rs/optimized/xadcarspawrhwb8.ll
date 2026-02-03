@@ -336,12 +336,12 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit113.thread: ; preds =
   ret void
 
 152:                                              ; preds = %142
-  %153 = and i64 %147, 1
-  %154 = and i64 %153, %148
-  %155 = lshr i64 %147, 1
-  %156 = lshr i64 %148, 1
-  %157 = add nuw i64 %156, %155
-  %158 = add nuw i64 %157, %154
+  %153 = lshr i64 %147, 1
+  %154 = lshr i64 %148, 1
+  %155 = add nuw i64 %154, %153
+  %156 = and i64 %147, 1
+  %157 = and i64 %156, %148
+  %158 = add nuw i64 %155, %157
   %159 = shl i64 %158, 1
   %160 = xor i64 %148, %147
   %161 = and i64 %160, 1
@@ -634,12 +634,12 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit86.thread: ; preds = 
   ret void
 
 117:                                              ; preds = %107
-  %118 = and i64 %112, 1
-  %119 = and i64 %118, %113
-  %120 = lshr i64 %112, 1
-  %121 = lshr i64 %113, 1
-  %122 = add nuw i64 %121, %120
-  %123 = add nuw i64 %122, %119
+  %118 = lshr i64 %112, 1
+  %119 = lshr i64 %113, 1
+  %120 = add nuw i64 %119, %118
+  %121 = and i64 %112, 1
+  %122 = and i64 %121, %113
+  %123 = add nuw i64 %120, %122
   %124 = shl i64 %123, 1
   %125 = xor i64 %113, %112
   %126 = and i64 %125, 1

@@ -161571,8 +161571,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hf1a8e6bba5539e04E.exit: ; preds
 
 .outer:                                           ; preds = %._crit_edge.i, %107
   %.ph = phi i64 [ %129, %._crit_edge.i ], [ %84, %107 ]
-  %.sroa.9.0.i.ph = phi i64 [ %117, %._crit_edge.i ], [ %.sroa.433.0.copyload.i, %107 ]
-  %.sroa.7.0.i.ph = phi i64 [ %116, %._crit_edge.i ], [ %.sroa.3.0.copyload.i, %107 ]
+  %.sroa.9.0.i.ph = phi i64 [ %118, %._crit_edge.i ], [ %.sroa.433.0.copyload.i, %107 ]
+  %.sroa.7.0.i.ph = phi i64 [ %117, %._crit_edge.i ], [ %.sroa.3.0.copyload.i, %107 ]
   %.sroa.027.0.i.ph = phi ptr [ %.sroa.027.1.i, %._crit_edge.i ], [ %.pr.i, %107 ]
   %.sroa.11.0.i.ph = phi i64 [ %.sroa.11.1.i, %._crit_edge.i ], [ %.sroa.534.0.copyload.i, %107 ]
   %.sroa.0.1.i.ph = phi i8 [ %119, %._crit_edge.i ], [ %.sroa.0.054.i, %107 ]
@@ -161581,8 +161581,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hf1a8e6bba5539e04E.exit: ; preds
   br label %108
 
 108:                                              ; preds = %.backedge, %.outer
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.0.i.ph, %.outer ], [ %117, %.backedge ]
-  %.sroa.7.0.i = phi i64 [ %.sroa.7.0.i.ph, %.outer ], [ %116, %.backedge ]
+  %.sroa.9.0.i = phi i64 [ %.sroa.9.0.i.ph, %.outer ], [ %118, %.backedge ]
+  %.sroa.7.0.i = phi i64 [ %.sroa.7.0.i.ph, %.outer ], [ %117, %.backedge ]
   %.sroa.027.0.i = phi ptr [ %.sroa.027.0.i.ph, %.outer ], [ %.sroa.027.1.i, %.backedge ]
   %.sroa.11.0.i = phi i64 [ %.sroa.11.0.i.ph, %.outer ], [ %.sroa.11.1.i, %.backedge ]
   %.sroa.0.1.i = phi i8 [ %.sroa.0.1.i.ph, %.outer ], [ %119, %.backedge ]
@@ -161606,10 +161606,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hf1a8e6bba5539e04E.exit: ; preds
   %.sroa.11.1.i = phi i64 [ %112, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha46882e2a64033c3E.exit.i.i" ], [ %.sroa.11.0.i, %108 ]
   %114 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i20, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha46882e2a64033c3E.exit.i.i" ], [ %.sroa.9.0.i, %108 ]
   %115 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha46882e2a64033c3E.exit.i.i" ], [ %.sroa.7.0.i, %108 ]
-  %116 = lshr i64 %115, 1
-  %117 = add i64 %114, -1
-  %118 = trunc i64 %115 to i8
-  %119 = and i8 %118, 1
+  %116 = trunc i64 %115 to i8
+  %117 = lshr i64 %115, 1
+  %118 = add i64 %114, -1
+  %119 = and i8 %116, 1
   %.not21.i = icmp eq i8 %.sroa.0.1.i, 2
   br i1 %.not21.i, label %.backedge, label %121
 

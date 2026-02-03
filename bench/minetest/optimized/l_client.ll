@@ -2050,8 +2050,7 @@ entry:
   %m_csm_restriction_flags.i = getelementptr inbounds nuw i8, ptr %call, i64 1720
   %0 = load i64, ptr %m_csm_restriction_flags.i, align 8, !tbaa !58
   tail call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 0)
-  %and = and i64 %0, 1
-  %tobool7 = icmp ne i64 %and, 0
+  %tobool7 = trunc i64 %0 to i1
   tail call void @_Z12setboolfieldP9lua_StateiPKcb(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.45, i1 noundef zeroext %tobool7)
   %and.1 = and i64 %0, 2
   %tobool7.1 = icmp ne i64 %and.1, 0

@@ -3627,10 +3627,9 @@ define dso_local { i64, i8 } @_ZNK4llvm14DWARFFormValue18getAsReferenceUValEv(pt
 
 4:                                                ; preds = %1
   %5 = zext nneg i16 %2 to i64
-  %6 = shl nuw nsw i64 1, %5
-  %7 = and i64 %6, 73287008256
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit, label %9
+  %6 = lshr i64 73287008256, %5
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %9, label %_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE.exit
 
 8:                                                ; preds = %1
   %cond.old = icmp eq i16 %2, 7968

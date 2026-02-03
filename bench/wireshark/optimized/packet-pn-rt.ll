@@ -684,7 +684,7 @@ addresses_equal.exit190:                          ; preds = %100, %98
   %131 = tail call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %130, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
   %132 = load i32, ptr @hf_pn_rt_data_status_res3, align 4
   %133 = tail call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %132, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
-  br i1 %.0206, label %134, label %143
+  br i1 %.0206, label %134, label %141
 
 134:                                              ; preds = %.thread
   %135 = load i32, ptr @hf_pn_rt_data_status_valid, align 4
@@ -694,37 +694,36 @@ addresses_equal.exit190:                          ; preds = %100, %98
   br i1 %.not180, label %.sink.split215, label %139
 
 139:                                              ; preds = %134
-  %140 = and i8 %4, 6
-  %or.cond29 = icmp eq i8 %140, 4
-  %141 = and i8 %4, 6
-  %142 = icmp eq i8 %141, 6
-  %or.cond = or i1 %or.cond29, %142
-  br i1 %or.cond, label %.sink.split215, label %152
+  %140 = and i8 %4, 7
+  switch i8 %140, label %150 [
+    i8 5, label %.sink.split215
+    i8 7, label %.sink.split215
+  ]
 
-143:                                              ; preds = %.thread
-  br i1 %.0174204, label %144, label %.sink.split215.sink.split
+141:                                              ; preds = %.thread
+  br i1 %.0174204, label %142, label %.sink.split215.sink.split
 
-144:                                              ; preds = %143
-  %145 = load i32, ptr @hf_pn_rt_frame_info_function_meaning_output_conv, align 4
-  %146 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %145, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
+142:                                              ; preds = %141
+  %143 = load i32, ptr @hf_pn_rt_frame_info_function_meaning_output_conv, align 4
+  %144 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
   br label %.sink.split215.sink.split
 
-.sink.split215.sink.split:                        ; preds = %143, %144
-  %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink.ph = phi ptr [ @hf_pn_rt_data_status_redundancy_output_cr, %144 ], [ @hf_pn_rt_data_status_redundancy, %143 ]
-  %147 = load i32, ptr @hf_pn_rt_data_status_valid, align 4
-  %148 = tail call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %147, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
+.sink.split215.sink.split:                        ; preds = %141, %142
+  %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink.ph = phi ptr [ @hf_pn_rt_data_status_redundancy_output_cr, %142 ], [ @hf_pn_rt_data_status_redundancy, %141 ]
+  %145 = load i32, ptr @hf_pn_rt_data_status_valid, align 4
+  %146 = tail call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %145, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
   br label %.sink.split215
 
-.sink.split215:                                   ; preds = %.sink.split215.sink.split, %134, %139
-  %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink = phi ptr [ @hf_pn_rt_data_status_redundancy_input_cr_state_is_primary, %139 ], [ %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink.ph, %.sink.split215.sink.split ], [ @hf_pn_rt_data_status_redundancy_input_cr_state_is_backup, %134 ]
-  %149 = load i32, ptr %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink, align 4
-  %150 = zext i8 %4 to i64
-  %151 = tail call ptr @proto_tree_add_boolean(ptr noundef %123, i32 noundef %149, ptr noundef %0, i32 noundef %1, i32 noundef 1, i64 noundef %150)
-  br label %152
+.sink.split215:                                   ; preds = %.sink.split215.sink.split, %134, %139, %139
+  %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink = phi ptr [ @hf_pn_rt_data_status_redundancy_input_cr_state_is_primary, %139 ], [ %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink.ph, %.sink.split215.sink.split ], [ @hf_pn_rt_data_status_redundancy_input_cr_state_is_backup, %134 ], [ @hf_pn_rt_data_status_redundancy_input_cr_state_is_primary, %139 ]
+  %147 = load i32, ptr %hf_pn_rt_data_status_redundancy_input_cr_state_is_backup.sink.sink, align 4
+  %148 = zext i8 %4 to i64
+  %149 = tail call ptr @proto_tree_add_boolean(ptr noundef %123, i32 noundef %147, ptr noundef %0, i32 noundef %1, i32 noundef 1, i64 noundef %148)
+  br label %150
 
-152:                                              ; preds = %139, %.sink.split215
-  %153 = load i32, ptr @hf_pn_rt_data_status_primary, align 4
-  %154 = tail call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %153, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
+150:                                              ; preds = %.sink.split215, %139
+  %151 = load i32, ptr @hf_pn_rt_data_status_primary, align 4
+  %152 = tail call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %151, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %6)
   ret void
 }
 

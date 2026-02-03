@@ -2336,58 +2336,57 @@ define hidden void @_ZNK8rawspeed10NefDecoder22DecodeSNefUncompressedEv(ptr noun
   %10 = icmp eq i32 %7, 0
   %11 = icmp eq i32 %9, 0
   %or.cond = or i1 %10, %11
-  br i1 %or.cond, label %17, label %12
+  br i1 %or.cond, label %16, label %12
 
 12:                                               ; preds = %1
-  %13 = and i32 %7, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = icmp ugt i32 %7, 3680
-  %or.cond3 = or i1 %15, %14
-  %16 = icmp ugt i32 %9, 2456
-  %or.cond5 = or i1 %or.cond3, %16
-  br i1 %or.cond5, label %17, label %18
+  %13 = trunc i32 %7 to i1
+  %14 = icmp ugt i32 %7, 3680
+  %or.cond3 = or i1 %14, %13
+  %15 = icmp ugt i32 %9, 2456
+  %or.cond5 = or i1 %or.cond3, %15
+  br i1 %or.cond5, label %16, label %17
 
-17:                                               ; preds = %12, %1
+16:                                               ; preds = %12, %1
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.28, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed10NefDecoder22DecodeSNefUncompressedEv, i32 noundef %7, i32 noundef %9) #22
   unreachable
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %.sroa.426.0.insert.ext = zext nneg i32 %9 to i64
   %.sroa.426.0.insert.shift = shl nuw nsw i64 %.sroa.426.0.insert.ext, 32
   %.sroa.025.0.insert.ext = zext nneg i32 %7 to i64
   %.sroa.025.0.insert.insert = or disjoint i64 %.sroa.426.0.insert.shift, %.sroa.025.0.insert.ext
-  store i64 %.sroa.025.0.insert.insert, ptr %21, align 8
-  %22 = load ptr, ptr %19, align 8, !tbaa !25
-  tail call void @_ZN8rawspeed12RawImageData6setCppEj(ptr noundef nonnull align 8 dereferenceable(616) %22, i32 noundef 3)
-  %23 = load ptr, ptr %19, align 8, !tbaa !25
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  store i8 0, ptr %24, align 8, !tbaa !147
-  tail call void @_ZN8rawspeed12RawImageData10createDataEv(ptr noundef nonnull align 8 dereferenceable(616) %23)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !18
-  %.not.i = icmp ugt i32 %5, %26
-  br i1 %.not.i, label %27, label %_ZNK8rawspeed6Buffer10getSubViewEj.exit
+  store i64 %.sroa.025.0.insert.insert, ptr %20, align 8
+  %21 = load ptr, ptr %18, align 8, !tbaa !25
+  tail call void @_ZN8rawspeed12RawImageData6setCppEj(ptr noundef nonnull align 8 dereferenceable(616) %21, i32 noundef 3)
+  %22 = load ptr, ptr %18, align 8, !tbaa !25
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  store i8 0, ptr %23, align 8, !tbaa !147
+  tail call void @_ZN8rawspeed12RawImageData10createDataEv(ptr noundef nonnull align 8 dereferenceable(616) %22)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = load i32, ptr %24, align 8, !tbaa !18
+  %.not.i = icmp ugt i32 %5, %25
+  br i1 %.not.i, label %26, label %_ZNK8rawspeed6Buffer10getSubViewEj.exit
 
-27:                                               ; preds = %18
+26:                                               ; preds = %17
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.53, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEj) #22
   unreachable
 
-_ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %18
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = zext nneg i32 %5 to i64
-  %30 = sub nuw nsw i32 %26, %5
-  %31 = load ptr, ptr %28, align 8, !tbaa !21, !nonnull !22, !noundef !22
-  %32 = icmp sgt i32 %26, -1
+_ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %17
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = zext nneg i32 %5 to i64
+  %29 = sub nuw nsw i32 %25, %5
+  %30 = load ptr, ptr %27, align 8, !tbaa !21, !nonnull !22, !noundef !22
+  %31 = icmp sgt i32 %25, -1
+  tail call void @llvm.assume(i1 %31)
+  %32 = icmp sgt i32 %5, -1
   tail call void @llvm.assume(i1 %32)
-  %33 = icmp sgt i32 %5, -1
-  tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  %.sroa.2.8.insert.ext = zext nneg i32 %30 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %28
+  %.sroa.2.8.insert.ext = zext nneg i32 %29 to i64
   %.sroa.2.8.insert.insert = or disjoint i64 %.sroa.2.8.insert.ext, 244834610708480
-  store ptr %34, ptr %2, align 8
+  store ptr %33, ptr %2, align 8
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.2.8.insert.insert, ptr %.sroa.423.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16

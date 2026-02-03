@@ -6561,7 +6561,6 @@ define internal fastcc void @_ZL19ARM64EmitUnwindCodeRN4llvm10MCStreamerERKNS_5W
 244:                                              ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %245 = add nsw i32 %4, -34
   %.cmp = icmp sgt i32 %4, 39
-  %.zext = and i32 %4, 1
   %246 = lshr i32 %245, 1
   %.urem = add nsw i32 %246, -3
   %.cmp159 = icmp ult i32 %245, 6
@@ -6570,9 +6569,9 @@ define internal fastcc void @_ZL19ARM64EmitUnwindCodeRN4llvm10MCStreamerERKNS_5W
   %249 = load i32, ptr %248, align 8, !tbaa !80
   %250 = add nsw i32 %4, -40
   %251 = icmp ult i32 %250, -11
-  %252 = icmp ne i32 %.zext, 0
+  %252 = trunc i32 %4 to i1
   %253 = icmp eq i32 %247, 2
-  %254 = or i1 %252, %253
+  %254 = or i1 %253, %252
   %or.cond3 = or i1 %251, %254
   %spec.select.v = select i1 %or.cond3, i32 4, i32 3
   %spec.select = lshr i32 %249, %spec.select.v
@@ -6585,7 +6584,8 @@ define internal fastcc void @_ZL19ARM64EmitUnwindCodeRN4llvm10MCStreamerERKNS_5W
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %260 = load i32, ptr %259, align 4, !tbaa !83
   %261 = select i1 %.cmp, i32 32, i32 0
-  %262 = shl nuw nsw i32 %.zext, 6
+  %.zext = shl nuw nsw i32 %4, 6
+  %262 = and i32 %.zext, 64
   %.masked161 = and i32 %260, 255
   %.masked160 = or disjoint i32 %261, %262
   %263 = or i32 %.masked160, %.masked161

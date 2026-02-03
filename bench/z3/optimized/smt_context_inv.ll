@@ -427,8 +427,8 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %7
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
-  %.not27 = icmp eq i32 %12, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph
+  %.not26 = icmp eq i32 %12, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8840
@@ -440,9 +440,9 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %7
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.thread
-  %.129 = phi i1 [ undef, %.lr.ph ], [ %.325, %.thread ]
-  %.01728 = phi ptr [ %9, %.lr.ph ], [ %95, %.thread ]
-  %.sroa.03.0.copyload = load i32, ptr %.01728, align 4, !tbaa !12
+  %.128 = phi i1 [ undef, %.lr.ph ], [ %.325, %.thread ]
+  %.01727 = phi ptr [ %9, %.lr.ph ], [ %95, %.thread ]
+  %.sroa.03.0.copyload = load i32, ptr %.01727, align 4, !tbaa !12
   %23 = lshr i32 %.sroa.03.0.copyload, 1
   %24 = load ptr, ptr %16, align 8, !tbaa !14
   %25 = zext nneg i32 %23 to i64
@@ -482,9 +482,8 @@ _ZNK3smt7context11is_relevantEN3sat7literalE.exit.thread: ; preds = %22, %_ZNK3s
 _Z9is_groundPK4expr.exit:                         ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 30
   %42 = load i8, ptr %41, align 2
-  %43 = and i8 %42, 1
-  %.not26 = icmp eq i8 %43, 0
-  br i1 %.not26, label %thread-pre-split, label %46
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %46, label %thread-pre-split
 
 44:                                               ; preds = %61, %51, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit.thread
   %45 = landingpad { ptr, i32 }
@@ -539,7 +538,7 @@ _Z9is_groundPK4expr.exit:                         ; preds = %35
 
 thread-pre-split:                                 ; preds = %46, %55, %65, %35, %_Z9is_groundPK4expr.exit, %54, %64
   %.220.ph = phi i32 [ 3, %35 ], [ 3, %_Z9is_groundPK4expr.exit ], [ 1, %54 ], [ 1, %64 ], [ 0, %65 ], [ 0, %55 ], [ 0, %46 ]
-  %.4.ph = phi i1 [ %.129, %35 ], [ %.129, %_Z9is_groundPK4expr.exit ], [ true, %54 ], [ true, %64 ], [ %.129, %65 ], [ %.129, %55 ], [ %.129, %46 ]
+  %.4.ph = phi i1 [ %.128, %35 ], [ %.128, %_Z9is_groundPK4expr.exit ], [ true, %54 ], [ true, %64 ], [ %.128, %65 ], [ %.128, %55 ], [ %.128, %46 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !512
   br label %71
 
@@ -604,8 +603,8 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %71, %73, %79
   ]
 
 .thread:                                          ; preds = %_ZNK3smt7context11is_relevantEN3sat7literalE.exit, %94, %94
-  %.325 = phi i1 [ %.4, %94 ], [ %.4, %94 ], [ %.129, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit ]
-  %95 = getelementptr inbounds nuw i8, ptr %.01728, i64 4
+  %.325 = phi i1 [ %.4, %94 ], [ %.4, %94 ], [ %.128, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit ]
+  %95 = getelementptr inbounds nuw i8, ptr %.01727, i64 4
   %.not = icmp eq ptr %95, %15
   br i1 %.not, label %.loopexit, label %22
 
@@ -696,9 +695,8 @@ _ZN11ast_manager7inc_refEP3ast.exit.i6:           ; preds = %27
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 45:                                               ; preds = %24
-  %46 = and i32 %1, 1
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %70, label %47
+  %46 = trunc i32 %1 to i1
+  br i1 %46, label %47, label %70
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104

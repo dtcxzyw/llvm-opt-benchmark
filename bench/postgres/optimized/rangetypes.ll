@@ -257,7 +257,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %90, align 4
-  br label %127
+  br label %126
 
 .thread40:                                        ; preds = %38, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -280,7 +280,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %100, align 4
-  br label %127
+  br label %126
 
 101:                                              ; preds = %93, %91
   %102 = and i8 %.4, 81
@@ -298,7 +298,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
 109:                                              ; preds = %103
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %110, align 4
-  br label %127
+  br label %126
 
 111:                                              ; preds = %.thread40, %103, %101
   %.53943 = phi i8 [ 1, %.thread40 ], [ %.4, %103 ], [ %.4, %101 ]
@@ -322,14 +322,13 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 0, ptr %121, align 2
   %122 = load ptr, ptr %18, align 8
-  %123 = and i8 %.53943, 1
-  %124 = icmp ne i8 %123, 0
-  %125 = call ptr @make_range(ptr noundef %122, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext %124, ptr noundef %17)
-  %126 = ptrtoint ptr %125 to i64
-  br label %127
+  %123 = trunc i8 %.53943 to i1
+  %124 = call ptr @make_range(ptr noundef %122, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext %123, ptr noundef %17)
+  %125 = ptrtoint ptr %124 to i64
+  br label %126
 
-127:                                              ; preds = %111, %109, %99, %89
-  %.0 = phi i64 [ %126, %111 ], [ 0, %109 ], [ 0, %99 ], [ 0, %89 ]
+126:                                              ; preds = %111, %109, %99, %89
+  %.0 = phi i64 [ %125, %111 ], [ 0, %109 ], [ 0, %99 ], [ 0, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -989,13 +988,12 @@ define dso_local i64 @range_recv(ptr noundef readonly captures(none) %0) local_u
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 0, ptr %51, align 2
   %52 = load ptr, ptr %15, align 8
-  %53 = and i32 %16, 1
-  %54 = icmp ne i32 %53, 0
-  %55 = call ptr @make_range(ptr noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %54, ptr noundef null)
-  %56 = ptrtoint ptr %55 to i64
+  %53 = trunc i32 %16 to i1
+  %54 = call ptr @make_range(ptr noundef %52, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %53, ptr noundef null)
+  %55 = ptrtoint ptr %54 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %56
+  ret i64 %55
 }
 
 declare i32 @pq_getmsgbyte(ptr noundef) local_unnamed_addr #1
@@ -3082,20 +3080,19 @@ range_cmp_bound_values.exit.thread12:             ; preds = %25, %23, %28, %rang
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 -1
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, 1
-  %53 = icmp ne i8 %52, 0
+  %52 = trunc i8 %51 to i1
   br label %range_cmp_bound_values.exit.thread.thread
 
 range_cmp_bound_values.exit.thread:               ; preds = %range_cmp_bound_values.exit
-  %54 = icmp eq i32 %34, 0
-  br i1 %54, label %range_cmp_bound_values.exit.thread.thread15, label %range_cmp_bound_values.exit.thread.thread
+  %53 = icmp eq i32 %34, 0
+  br i1 %53, label %range_cmp_bound_values.exit.thread.thread15, label %range_cmp_bound_values.exit.thread.thread
 
 range_cmp_bound_values.exit.thread.thread15:      ; preds = %21, %range_cmp_bound_values.exit.thread
-  %55 = icmp ne i8 %17, %19
+  %54 = icmp ne i8 %17, %19
   br label %range_cmp_bound_values.exit.thread.thread
 
 range_cmp_bound_values.exit.thread.thread:        ; preds = %28, %25, %23, %range_cmp_bound_values.exit.thread, %38, %range_cmp_bound_values.exit.thread12, %range_cmp_bound_values.exit.thread.thread15
-  %.1 = phi i1 [ false, %range_cmp_bound_values.exit.thread12 ], [ %55, %range_cmp_bound_values.exit.thread.thread15 ], [ %53, %38 ], [ false, %range_cmp_bound_values.exit.thread ], [ false, %23 ], [ false, %25 ], [ false, %28 ]
+  %.1 = phi i1 [ false, %range_cmp_bound_values.exit.thread12 ], [ %54, %range_cmp_bound_values.exit.thread.thread15 ], [ %52, %38 ], [ false, %range_cmp_bound_values.exit.thread ], [ false, %23 ], [ false, %25 ], [ false, %28 ]
   ret i1 %.1
 }
 
@@ -3194,7 +3191,7 @@ define dso_local zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef
   %24 = load i8, ptr %13, align 1, !range !7
   %25 = trunc nuw i8 %24 to i1
   %or.cond = select i1 %23, i1 true, i1 %25
-  br i1 %or.cond, label %134, label %26
+  br i1 %or.cond, label %133, label %26
 
 26:                                               ; preds = %21
   %27 = load i64, ptr %10, align 8
@@ -3278,11 +3275,10 @@ range_cmp_bound_values.exit.thread12.i:           ; preds = %range_cmp_bound_val
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -1
   %76 = load i8, ptr %75, align 1
-  %77 = and i8 %76, 1
-  %.not18 = icmp eq i8 %77, 0
+  %77 = trunc i8 %76 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not18, label %79, label %134
+  br i1 %77, label %133, label %79
 
 range_cmp_bound_values.exit.thread.i:             ; preds = %range_cmp_bound_values.exit.i
   %78 = icmp eq i32 %59, 0
@@ -3294,10 +3290,10 @@ bounds_adjacent.exit.thread:                      ; preds = %range_cmp_bound_val
   br label %79
 
 bounds_adjacent.exit:                             ; preds = %46, %range_cmp_bound_values.exit.thread.i
-  %.not19 = icmp eq i8 %42, %44
+  %.not18 = icmp eq i8 %42, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not19, label %79, label %134
+  br i1 %.not18, label %79, label %133
 
 79:                                               ; preds = %63, %bounds_adjacent.exit.thread, %bounds_adjacent.exit
   %80 = load i64, ptr %11, align 8
@@ -3381,25 +3377,24 @@ range_cmp_bound_values.exit.thread12.i14:         ; preds = %range_cmp_bound_val
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 -1
   %129 = load i8, ptr %128, align 1
-  %130 = and i8 %129, 1
-  %131 = icmp ne i8 %130, 0
+  %130 = trunc i8 %129 to i1
   br label %bounds_adjacent.exit16
 
 range_cmp_bound_values.exit.thread.i11:           ; preds = %range_cmp_bound_values.exit.i10
-  %132 = icmp eq i32 %112, 0
-  br i1 %132, label %range_cmp_bound_values.exit.thread.thread15.i13, label %bounds_adjacent.exit16
+  %131 = icmp eq i32 %112, 0
+  br i1 %131, label %range_cmp_bound_values.exit.thread.thread15.i13, label %bounds_adjacent.exit16
 
 range_cmp_bound_values.exit.thread.thread15.i13:  ; preds = %range_cmp_bound_values.exit.thread.i11, %99
-  %133 = icmp ne i8 %95, %97
+  %132 = icmp ne i8 %95, %97
   br label %bounds_adjacent.exit16
 
 bounds_adjacent.exit16:                           ; preds = %101, %103, %106, %range_cmp_bound_values.exit.thread12.i14, %116, %range_cmp_bound_values.exit.thread.i11, %range_cmp_bound_values.exit.thread.thread15.i13
-  %.1.i12 = phi i1 [ false, %range_cmp_bound_values.exit.thread12.i14 ], [ %133, %range_cmp_bound_values.exit.thread.thread15.i13 ], [ %131, %116 ], [ false, %range_cmp_bound_values.exit.thread.i11 ], [ false, %101 ], [ false, %103 ], [ false, %106 ]
+  %.1.i12 = phi i1 [ false, %range_cmp_bound_values.exit.thread12.i14 ], [ %132, %range_cmp_bound_values.exit.thread.thread15.i13 ], [ %130, %116 ], [ false, %range_cmp_bound_values.exit.thread.i11 ], [ false, %101 ], [ false, %103 ], [ false, %106 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %63, %bounds_adjacent.exit, %bounds_adjacent.exit16, %21
+133:                                              ; preds = %63, %bounds_adjacent.exit, %bounds_adjacent.exit16, %21
   %.0 = phi i1 [ false, %21 ], [ true, %bounds_adjacent.exit ], [ %.1.i12, %bounds_adjacent.exit16 ], [ true, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

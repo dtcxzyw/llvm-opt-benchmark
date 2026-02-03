@@ -635,9 +635,8 @@ define dso_local void @SetUserIdAndSecContext(i32 noundef %0, i32 noundef %1) lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @InLocalUserIdChange() local_unnamed_addr #8 {
   %1 = load i32, ptr @SecurityRestrictionContext, align 4
-  %2 = and i32 %1, 1
-  %3 = icmp ne i32 %2, 0
-  ret i1 %3
+  %2 = trunc i32 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

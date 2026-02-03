@@ -1523,22 +1523,22 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
     i32 1, label %517
     i32 3, label %519
     i32 4, label %523
-    i32 29, label %779
+    i32 29, label %778
     i32 6, label %525
     i32 8, label %538
     i32 9, label %540
     i32 11, label %542
     i32 12, label %544
     i32 13, label %556
-    i32 14, label %634
-    i32 16, label %638
-    i32 18, label %641
-    i32 20, label %674
-    i32 21, label %715
-    i32 22, label %723
-    i32 23, label %757
-    i32 24, label %773
-    i32 26, label %777
+    i32 14, label %633
+    i32 16, label %637
+    i32 18, label %640
+    i32 20, label %673
+    i32 21, label %714
+    i32 22, label %722
+    i32 23, label %756
+    i32 24, label %772
+    i32 26, label %776
   ]
 
 517:                                              ; preds = %dissect_pvfs2_error.exit.i
@@ -1656,12 +1656,12 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %575 = load ptr, ptr @g_ascii_table, align 8
   br label %576
 
-576:                                              ; preds = %625, %.lr.ph171.i.i
-  %.098170.i.i = phi ptr [ null, %.lr.ph171.i.i ], [ %.3.i.i, %625 ]
-  %.099169.i.i = phi i32 [ 52, %.lr.ph171.i.i ], [ %627, %625 ]
-  %.0102168.i.i = phi ptr [ %570, %.lr.ph171.i.i ], [ %628, %625 ]
-  %.0105167.i.i = phi i32 [ 0, %.lr.ph171.i.i ], [ %629, %625 ]
-  %.0110166.i.i = phi i32 [ 0, %.lr.ph171.i.i ], [ %630, %625 ]
+576:                                              ; preds = %624, %.lr.ph171.i.i
+  %.098170.i.i = phi ptr [ null, %.lr.ph171.i.i ], [ %.3.i.i, %624 ]
+  %.099169.i.i = phi i32 [ 52, %.lr.ph171.i.i ], [ %626, %624 ]
+  %.0102168.i.i = phi ptr [ %570, %.lr.ph171.i.i ], [ %627, %624 ]
+  %.0105167.i.i = phi i32 [ 0, %.lr.ph171.i.i ], [ %628, %624 ]
+  %.0110166.i.i = phi i32 [ 0, %.lr.ph171.i.i ], [ %629, %624 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %577 = icmp ult i32 %.0105167.i.i, %spec.select.i.i
   br i1 %577, label %.lr.ph.i82.i, label %.critedge.thread.i.i
@@ -1723,311 +1723,310 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %scevgep191.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %596
   br label %.lr.ph163.i.i
 
-.lr.ph163.i.i:                                    ; preds = %602, %.lr.ph163.preheader.i.i
-  %.093162.i.i = phi i32 [ %604, %602 ], [ %594, %.lr.ph163.preheader.i.i ]
-  %.095161.i.i = phi ptr [ %603, %602 ], [ %592, %.lr.ph163.preheader.i.i ]
+.lr.ph163.i.i:                                    ; preds = %601, %.lr.ph163.preheader.i.i
+  %.093162.i.i = phi i32 [ %603, %601 ], [ %594, %.lr.ph163.preheader.i.i ]
+  %.095161.i.i = phi ptr [ %602, %601 ], [ %592, %.lr.ph163.preheader.i.i ]
   %597 = load i8, ptr %.095161.i.i, align 1
   %598 = zext i8 %597 to i64
   %599 = getelementptr i16, ptr %575, i64 %598
   %600 = load i16, ptr %599, align 2
-  %601 = and i16 %600, 1
-  %.not121.i.i = icmp ne i16 %601, 0
+  %.not121.i.i = trunc i16 %600 to i1
   %.not122.i.i = icmp eq i8 %597, 60
   %or.cond124.i.i = or i1 %.not122.i.i, %.not121.i.i
-  br i1 %or.cond124.i.i, label %.critedge2.thread.i.i, label %602
+  br i1 %or.cond124.i.i, label %.critedge2.thread.i.i, label %601
 
-602:                                              ; preds = %.lr.ph163.i.i
-  %603 = getelementptr i8, ptr %.095161.i.i, i64 1
-  %604 = add i32 %.093162.i.i, -1
-  %.not120.i.i = icmp eq i32 %604, 0
+601:                                              ; preds = %.lr.ph163.i.i
+  %602 = getelementptr i8, ptr %.095161.i.i, i64 1
+  %603 = add i32 %.093162.i.i, -1
+  %.not120.i.i = icmp eq i32 %603, 0
   br i1 %.not120.i.i, label %.critedge2.i.i, label %.lr.ph163.i.i, !llvm.loop !18
 
-.critedge2.i.i:                                   ; preds = %602, %590
-  %.095.lcssa.i.i = phi ptr [ %592, %590 ], [ %scevgep191.i.i, %602 ]
-  %605 = load i8, ptr %.095.lcssa.i.i, align 1
-  %606 = icmp eq i8 %605, 60
-  br i1 %606, label %607, label %619
+.critedge2.i.i:                                   ; preds = %601, %590
+  %.095.lcssa.i.i = phi ptr [ %592, %590 ], [ %scevgep191.i.i, %601 ]
+  %604 = load i8, ptr %.095.lcssa.i.i, align 1
+  %605 = icmp eq i8 %604, 60
+  br i1 %605, label %606, label %618
 
 .critedge2.thread.i.i:                            ; preds = %.lr.ph163.i.i
-  br i1 %.not122.i.i, label %607, label %621
+  br i1 %.not122.i.i, label %606, label %620
 
-607:                                              ; preds = %.critedge2.thread.i.i, %.critedge2.i.i
+606:                                              ; preds = %.critedge2.thread.i.i, %.critedge2.i.i
   %.095147.i.i = phi ptr [ %.095161.i.i, %.critedge2.thread.i.i ], [ %.095.lcssa.i.i, %.critedge2.i.i ]
   %.093145.i.i = phi i32 [ %.093162.i.i, %.critedge2.thread.i.i ], [ 0, %.critedge2.i.i ]
-  %608 = add i32 %.093145.i.i, -1
-  %609 = zext i32 %608 to i64
-  %610 = getelementptr i8, ptr %.095147.i.i, i64 %609
-  %611 = load i8, ptr %610, align 1
-  %612 = icmp eq i8 %611, 62
-  br i1 %612, label %613, label %.thread128.i.i
+  %607 = add i32 %.093145.i.i, -1
+  %608 = zext i32 %607 to i64
+  %609 = getelementptr i8, ptr %.095147.i.i, i64 %608
+  %610 = load i8, ptr %609, align 1
+  %611 = icmp eq i8 %610, 62
+  br i1 %611, label %612, label %.thread128.i.i
 
-613:                                              ; preds = %607
-  %614 = getelementptr i8, ptr %.095147.i.i, i64 1
-  %615 = load i8, ptr %614, align 1
-  %.not123.i.i = icmp eq i8 %615, 47
-  br i1 %.not123.i.i, label %625, label %616
+612:                                              ; preds = %606
+  %613 = getelementptr i8, ptr %.095147.i.i, i64 1
+  %614 = load i8, ptr %613, align 1
+  %.not123.i.i = icmp eq i8 %614, 47
+  br i1 %.not123.i.i, label %624, label %615
 
-616:                                              ; preds = %613
-  %617 = load i32, ptr @ett_pvfs_server_config_branch, align 4
-  %618 = call ptr @proto_tree_add_subtree(ptr noundef %558, ptr noundef %0, i32 noundef %.099169.i.i, i32 noundef %.093145.i.i, i32 noundef %617, ptr noundef null, ptr noundef %.095147.i.i)
-  br label %625
+615:                                              ; preds = %612
+  %616 = load i32, ptr @ett_pvfs_server_config_branch, align 4
+  %617 = call ptr @proto_tree_add_subtree(ptr noundef %558, ptr noundef %0, i32 noundef %.099169.i.i, i32 noundef %.093145.i.i, i32 noundef %616, ptr noundef null, ptr noundef %.095147.i.i)
+  br label %624
 
-619:                                              ; preds = %.critedge2.i.i
-  %620 = icmp eq ptr %.098170.i.i, null
-  %spec.select125.i.i = select i1 %620, ptr %558, ptr %.098170.i.i
-  br label %625
+618:                                              ; preds = %.critedge2.i.i
+  %619 = icmp eq ptr %.098170.i.i, null
+  %spec.select125.i.i = select i1 %619, ptr %558, ptr %.098170.i.i
+  br label %624
 
-621:                                              ; preds = %.critedge2.thread.i.i
-  %622 = icmp eq ptr %.098170.i.i, null
-  %spec.select125126.i.i = select i1 %622, ptr %558, ptr %.098170.i.i
-  %623 = load i32, ptr @hf_pvfs_getconfig_response_entry, align 4
-  %624 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %spec.select125126.i.i, i32 noundef %623, ptr noundef %0, i32 noundef %.099169.i.i, i32 noundef %.093162.i.i, ptr noundef %.095161.i.i, ptr noundef nonnull @.str.428, ptr noundef %.095161.i.i)
-  br label %625
+620:                                              ; preds = %.critedge2.thread.i.i
+  %621 = icmp eq ptr %.098170.i.i, null
+  %spec.select125126.i.i = select i1 %621, ptr %558, ptr %.098170.i.i
+  %622 = load i32, ptr @hf_pvfs_getconfig_response_entry, align 4
+  %623 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %spec.select125126.i.i, i32 noundef %622, ptr noundef %0, i32 noundef %.099169.i.i, i32 noundef %.093162.i.i, ptr noundef %.095161.i.i, ptr noundef nonnull @.str.428, ptr noundef %.095161.i.i)
+  br label %624
 
-.thread128.i.i:                                   ; preds = %607, %.critedge.thread.i.i, %587
-  %.2107141.i.i = phi i32 [ %spec.select.i.i, %.critedge.thread.i.i ], [ %582, %587 ], [ %.2107143.i.i, %607 ]
+.thread128.i.i:                                   ; preds = %606, %.critedge.thread.i.i, %587
+  %.2107141.i.i = phi i32 [ %spec.select.i.i, %.critedge.thread.i.i ], [ %582, %587 ], [ %.2107143.i.i, %606 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit.i.i
 
-625:                                              ; preds = %621, %619, %616, %613
-  %.3.i.i = phi ptr [ %618, %616 ], [ %spec.select125.i.i, %619 ], [ %spec.select125126.i.i, %621 ], [ null, %613 ]
-  %626 = add i32 %.099169.i.i, 1
-  %627 = add i32 %626, %.094135.i.i
-  %628 = getelementptr i8, ptr %.1103139.i.i, i64 1
-  %629 = add i32 %.2107143.i.i, 1
+624:                                              ; preds = %620, %618, %615, %612
+  %.3.i.i = phi ptr [ %617, %615 ], [ %spec.select125.i.i, %618 ], [ %spec.select125126.i.i, %620 ], [ null, %612 ]
+  %625 = add i32 %.099169.i.i, 1
+  %626 = add i32 %625, %.094135.i.i
+  %627 = getelementptr i8, ptr %.1103139.i.i, i64 1
+  %628 = add i32 %.2107143.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %630 = add nuw i32 %.0110166.i.i, 1
-  %exitcond.not.i81.i = icmp eq i32 %630, %564
+  %629 = add nuw i32 %.0110166.i.i, 1
+  %exitcond.not.i81.i = icmp eq i32 %629, %564
   br i1 %exitcond.not.i81.i, label %.loopexit.i.i, label %576, !llvm.loop !19
 
-.loopexit.i.i:                                    ; preds = %625, %.thread128.i.i, %571
-  %.099151.i.i = phi i32 [ %.099169.i.i, %.thread128.i.i ], [ 52, %571 ], [ %627, %625 ]
-  %.098149.i.i = phi ptr [ %.098170.i.i, %.thread128.i.i ], [ null, %571 ], [ %.3.i.i, %625 ]
-  %.1106.i.i = phi i32 [ %.2107141.i.i, %.thread128.i.i ], [ 0, %571 ], [ %629, %625 ]
-  %631 = icmp ult i32 %.1106.i.i, %spec.select.i.i
-  br i1 %631, label %632, label %dissect_pvfs2_request.exit
+.loopexit.i.i:                                    ; preds = %624, %.thread128.i.i, %571
+  %.099151.i.i = phi i32 [ %.099169.i.i, %.thread128.i.i ], [ 52, %571 ], [ %626, %624 ]
+  %.098149.i.i = phi ptr [ %.098170.i.i, %.thread128.i.i ], [ null, %571 ], [ %.3.i.i, %624 ]
+  %.1106.i.i = phi i32 [ %.2107141.i.i, %.thread128.i.i ], [ 0, %571 ], [ %628, %624 ]
+  %630 = icmp ult i32 %.1106.i.i, %spec.select.i.i
+  br i1 %630, label %631, label %dissect_pvfs2_request.exit
 
-632:                                              ; preds = %.loopexit.i.i
-  %633 = call ptr @proto_tree_add_expert(ptr noundef %.098149.i.i, ptr noundef %1, ptr noundef nonnull @ei_pvfs_malformed, ptr noundef %0, i32 noundef %.099151.i.i, i32 noundef -1)
+631:                                              ; preds = %.loopexit.i.i
+  %632 = call ptr @proto_tree_add_expert(ptr noundef %.098149.i.i, ptr noundef %1, ptr noundef nonnull @ei_pvfs_malformed, ptr noundef %0, i32 noundef %.099151.i.i, i32 noundef -1)
   br label %dissect_pvfs2_request.exit
 
-634:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %635 = load i32, ptr @hf_pvfs_total_completed, align 4
-  %636 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 40)
-  %637 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %635, ptr noundef %0, i32 noundef 40, i32 noundef 8, i64 noundef %636)
+633:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %634 = load i32, ptr @hf_pvfs_total_completed, align 4
+  %635 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 40)
+  %636 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %634, ptr noundef %0, i32 noundef 40, i32 noundef 8, i64 noundef %635)
   br label %dissect_pvfs2_request.exit
 
-638:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %639 = load i32, ptr @hf_pvfs_prev_value, align 4
-  %640 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %639, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef -2147483648)
+637:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %638 = load i32, ptr @hf_pvfs_prev_value, align 4
+  %639 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %638, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef -2147483648)
   br label %dissect_pvfs2_request.exit
 
-641:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %642 = load i32, ptr @hf_pvfs_fs_id, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %642, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
-  %644 = load i32, ptr @hf_pvfs_bytes_available, align 4
-  %645 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 48)
-  %646 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %644, ptr noundef %0, i32 noundef 48, i32 noundef 8, i64 noundef %645)
-  %647 = load i32, ptr @hf_pvfs_bytes_total, align 4
-  %648 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 56)
-  %649 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %647, ptr noundef %0, i32 noundef 56, i32 noundef 8, i64 noundef %648)
-  %650 = load i32, ptr @hf_pvfs_ram_bytes_total, align 4
-  %651 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 64)
-  %652 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %650, ptr noundef %0, i32 noundef 64, i32 noundef 8, i64 noundef %651)
-  %653 = load i32, ptr @hf_pvfs_ram_bytes_free, align 4
-  %654 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 72)
-  %655 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %653, ptr noundef %0, i32 noundef 72, i32 noundef 8, i64 noundef %654)
-  %656 = load i32, ptr @hf_pvfs_load_average_1s, align 4
-  %657 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 80)
-  %658 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %656, ptr noundef %0, i32 noundef 80, i32 noundef 8, i64 noundef %657)
-  %659 = load i32, ptr @hf_pvfs_load_average_5s, align 4
-  %660 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 88)
-  %661 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %659, ptr noundef %0, i32 noundef 88, i32 noundef 8, i64 noundef %660)
-  %662 = load i32, ptr @hf_pvfs_load_average_15s, align 4
-  %663 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 96)
-  %664 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %662, ptr noundef %0, i32 noundef 96, i32 noundef 8, i64 noundef %663)
-  %665 = load i32, ptr @hf_pvfs_uptime_seconds, align 4
-  %666 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 104)
-  %667 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %665, ptr noundef %0, i32 noundef 104, i32 noundef 8, i64 noundef %666)
-  %668 = load i32, ptr @hf_pvfs_handles_available, align 4
-  %669 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 112)
-  %670 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %668, ptr noundef %0, i32 noundef 112, i32 noundef 8, i64 noundef %669)
-  %671 = load i32, ptr @hf_pvfs_handles_total, align 4
-  %672 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 120)
-  %673 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %671, ptr noundef %0, i32 noundef 120, i32 noundef 8, i64 noundef %672)
+640:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %641 = load i32, ptr @hf_pvfs_fs_id, align 4
+  %642 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %641, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
+  %643 = load i32, ptr @hf_pvfs_bytes_available, align 4
+  %644 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 48)
+  %645 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %643, ptr noundef %0, i32 noundef 48, i32 noundef 8, i64 noundef %644)
+  %646 = load i32, ptr @hf_pvfs_bytes_total, align 4
+  %647 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 56)
+  %648 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %646, ptr noundef %0, i32 noundef 56, i32 noundef 8, i64 noundef %647)
+  %649 = load i32, ptr @hf_pvfs_ram_bytes_total, align 4
+  %650 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 64)
+  %651 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %649, ptr noundef %0, i32 noundef 64, i32 noundef 8, i64 noundef %650)
+  %652 = load i32, ptr @hf_pvfs_ram_bytes_free, align 4
+  %653 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 72)
+  %654 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %652, ptr noundef %0, i32 noundef 72, i32 noundef 8, i64 noundef %653)
+  %655 = load i32, ptr @hf_pvfs_load_average_1s, align 4
+  %656 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 80)
+  %657 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %655, ptr noundef %0, i32 noundef 80, i32 noundef 8, i64 noundef %656)
+  %658 = load i32, ptr @hf_pvfs_load_average_5s, align 4
+  %659 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 88)
+  %660 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %658, ptr noundef %0, i32 noundef 88, i32 noundef 8, i64 noundef %659)
+  %661 = load i32, ptr @hf_pvfs_load_average_15s, align 4
+  %662 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 96)
+  %663 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %661, ptr noundef %0, i32 noundef 96, i32 noundef 8, i64 noundef %662)
+  %664 = load i32, ptr @hf_pvfs_uptime_seconds, align 4
+  %665 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 104)
+  %666 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %664, ptr noundef %0, i32 noundef 104, i32 noundef 8, i64 noundef %665)
+  %667 = load i32, ptr @hf_pvfs_handles_available, align 4
+  %668 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 112)
+  %669 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %667, ptr noundef %0, i32 noundef 112, i32 noundef 8, i64 noundef %668)
+  %670 = load i32, ptr @hf_pvfs_handles_total, align 4
+  %671 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 120)
+  %672 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %670, ptr noundef %0, i32 noundef 120, i32 noundef 8, i64 noundef %671)
   br label %dissect_pvfs2_request.exit
 
-674:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %675 = load i32, ptr @hf_pvfs_mgmt_perf_mon_response_suggested_next_id, align 4
-  %676 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %675, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648)
-  %677 = load i32, ptr @hf_pvfs_end_time_ms, align 4
-  %678 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 48)
-  %679 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %677, ptr noundef %0, i32 noundef 48, i32 noundef 8, i64 noundef %678)
-  %680 = load i32, ptr @hf_pvfs_cur_time_ms, align 4
-  %681 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 56)
-  %682 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %680, ptr noundef %0, i32 noundef 56, i32 noundef 8, i64 noundef %681)
-  %683 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 68)
-  %684 = load i32, ptr @hf_pvfs_mgmt_perf_mon_response_perf_array_count, align 4
-  %685 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %684, ptr noundef %0, i32 noundef 68, i32 noundef 4, i32 noundef -2147483648)
-  %.not.i83.i = icmp eq i32 %683, 0
+673:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %674 = load i32, ptr @hf_pvfs_mgmt_perf_mon_response_suggested_next_id, align 4
+  %675 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %674, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648)
+  %676 = load i32, ptr @hf_pvfs_end_time_ms, align 4
+  %677 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 48)
+  %678 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %676, ptr noundef %0, i32 noundef 48, i32 noundef 8, i64 noundef %677)
+  %679 = load i32, ptr @hf_pvfs_cur_time_ms, align 4
+  %680 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 56)
+  %681 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %679, ptr noundef %0, i32 noundef 56, i32 noundef 8, i64 noundef %680)
+  %682 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 68)
+  %683 = load i32, ptr @hf_pvfs_mgmt_perf_mon_response_perf_array_count, align 4
+  %684 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %683, ptr noundef %0, i32 noundef 68, i32 noundef 4, i32 noundef -2147483648)
+  %.not.i83.i = icmp eq i32 %682, 0
   br i1 %.not.i83.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i84.i
 
-.lr.ph.i84.i:                                     ; preds = %674, %.lr.ph.i84.i
-  %.027.i.i = phi i32 [ %714, %.lr.ph.i84.i ], [ 0, %674 ]
-  %.02526.i.i = phi i32 [ %713, %.lr.ph.i84.i ], [ 72, %674 ]
-  %686 = load i32, ptr @ett_pvfs_mgmt_perf_stat, align 4
-  %687 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %.02526.i.i, i32 noundef 48, i32 noundef %686, ptr noundef null, ptr noundef nonnull @.str.429, i32 noundef %.027.i.i)
-  %688 = load i32, ptr @hf_pvfs_mgmt_perf_stat_valid_flag, align 4
-  %689 = call ptr @proto_tree_add_item(ptr noundef %687, i32 noundef %688, ptr noundef %0, i32 noundef %.02526.i.i, i32 noundef 4, i32 noundef -2147483648)
-  %690 = or disjoint i32 %.02526.i.i, 4
-  %691 = load i32, ptr @hf_pvfs_mgmt_perf_stat_id, align 4
-  %692 = call ptr @proto_tree_add_item(ptr noundef %687, i32 noundef %691, ptr noundef %0, i32 noundef %690, i32 noundef 4, i32 noundef -2147483648)
-  %693 = add i32 %.02526.i.i, 8
-  %694 = load i32, ptr @hf_pvfs_start_time_ms, align 4
-  %695 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %693)
-  %696 = call ptr @proto_tree_add_uint64(ptr noundef %687, i32 noundef %694, ptr noundef %0, i32 noundef %693, i32 noundef 8, i64 noundef %695)
-  %697 = add i32 %.02526.i.i, 16
-  %698 = load i32, ptr @hf_pvfs_bytes_written, align 4
-  %699 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %697)
-  %700 = call ptr @proto_tree_add_uint64(ptr noundef %687, i32 noundef %698, ptr noundef %0, i32 noundef %697, i32 noundef 8, i64 noundef %699)
-  %701 = add i32 %.02526.i.i, 24
-  %702 = load i32, ptr @hf_pvfs_bytes_read, align 4
-  %703 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %701)
-  %704 = call ptr @proto_tree_add_uint64(ptr noundef %687, i32 noundef %702, ptr noundef %0, i32 noundef %701, i32 noundef 8, i64 noundef %703)
-  %705 = add i32 %.02526.i.i, 32
-  %706 = load i32, ptr @hf_pvfs_metadata_write, align 4
-  %707 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %705)
-  %708 = call ptr @proto_tree_add_uint64(ptr noundef %687, i32 noundef %706, ptr noundef %0, i32 noundef %705, i32 noundef 8, i64 noundef %707)
-  %709 = add i32 %.02526.i.i, 40
-  %710 = load i32, ptr @hf_pvfs_metadata_read, align 4
-  %711 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %709)
-  %712 = call ptr @proto_tree_add_uint64(ptr noundef %687, i32 noundef %710, ptr noundef %0, i32 noundef %709, i32 noundef 8, i64 noundef %711)
-  %713 = add i32 %.02526.i.i, 48
-  %714 = add nuw i32 %.027.i.i, 1
-  %exitcond.not.i85.i = icmp eq i32 %714, %683
+.lr.ph.i84.i:                                     ; preds = %673, %.lr.ph.i84.i
+  %.027.i.i = phi i32 [ %713, %.lr.ph.i84.i ], [ 0, %673 ]
+  %.02526.i.i = phi i32 [ %712, %.lr.ph.i84.i ], [ 72, %673 ]
+  %685 = load i32, ptr @ett_pvfs_mgmt_perf_stat, align 4
+  %686 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %.02526.i.i, i32 noundef 48, i32 noundef %685, ptr noundef null, ptr noundef nonnull @.str.429, i32 noundef %.027.i.i)
+  %687 = load i32, ptr @hf_pvfs_mgmt_perf_stat_valid_flag, align 4
+  %688 = call ptr @proto_tree_add_item(ptr noundef %686, i32 noundef %687, ptr noundef %0, i32 noundef %.02526.i.i, i32 noundef 4, i32 noundef -2147483648)
+  %689 = or disjoint i32 %.02526.i.i, 4
+  %690 = load i32, ptr @hf_pvfs_mgmt_perf_stat_id, align 4
+  %691 = call ptr @proto_tree_add_item(ptr noundef %686, i32 noundef %690, ptr noundef %0, i32 noundef %689, i32 noundef 4, i32 noundef -2147483648)
+  %692 = add i32 %.02526.i.i, 8
+  %693 = load i32, ptr @hf_pvfs_start_time_ms, align 4
+  %694 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %692)
+  %695 = call ptr @proto_tree_add_uint64(ptr noundef %686, i32 noundef %693, ptr noundef %0, i32 noundef %692, i32 noundef 8, i64 noundef %694)
+  %696 = add i32 %.02526.i.i, 16
+  %697 = load i32, ptr @hf_pvfs_bytes_written, align 4
+  %698 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %696)
+  %699 = call ptr @proto_tree_add_uint64(ptr noundef %686, i32 noundef %697, ptr noundef %0, i32 noundef %696, i32 noundef 8, i64 noundef %698)
+  %700 = add i32 %.02526.i.i, 24
+  %701 = load i32, ptr @hf_pvfs_bytes_read, align 4
+  %702 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %700)
+  %703 = call ptr @proto_tree_add_uint64(ptr noundef %686, i32 noundef %701, ptr noundef %0, i32 noundef %700, i32 noundef 8, i64 noundef %702)
+  %704 = add i32 %.02526.i.i, 32
+  %705 = load i32, ptr @hf_pvfs_metadata_write, align 4
+  %706 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %704)
+  %707 = call ptr @proto_tree_add_uint64(ptr noundef %686, i32 noundef %705, ptr noundef %0, i32 noundef %704, i32 noundef 8, i64 noundef %706)
+  %708 = add i32 %.02526.i.i, 40
+  %709 = load i32, ptr @hf_pvfs_metadata_read, align 4
+  %710 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %708)
+  %711 = call ptr @proto_tree_add_uint64(ptr noundef %686, i32 noundef %709, ptr noundef %0, i32 noundef %708, i32 noundef 8, i64 noundef %710)
+  %712 = add i32 %.02526.i.i, 48
+  %713 = add nuw i32 %.027.i.i, 1
+  %exitcond.not.i85.i = icmp eq i32 %713, %682
   br i1 %exitcond.not.i85.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i84.i, !llvm.loop !20
 
-715:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %716 = load i32, ptr @hf_pvfs_mgmt_iterate_handles_response_ds_position, align 4
-  %717 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %716, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648)
-  %718 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
-  %719 = load i32, ptr @hf_pvfs_mgmt_iterate_handles_response_handle_count, align 4
-  %720 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %719, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
-  %.not.i87.i = icmp eq i32 %718, 0
+714:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %715 = load i32, ptr @hf_pvfs_mgmt_iterate_handles_response_ds_position, align 4
+  %716 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %715, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648)
+  %717 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
+  %718 = load i32, ptr @hf_pvfs_mgmt_iterate_handles_response_handle_count, align 4
+  %719 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %718, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
+  %.not.i87.i = icmp eq i32 %717, 0
   br i1 %.not.i87.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i88.i
 
-.lr.ph.i88.i:                                     ; preds = %715, %.lr.ph.i88.i
-  %.02.i.i72 = phi i32 [ %722, %.lr.ph.i88.i ], [ 0, %715 ]
-  %.0171.i.i = phi i32 [ %721, %.lr.ph.i88.i ], [ 48, %715 ]
-  %721 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0171.i.i, ptr noundef %21, ptr noundef nonnull @.str.410)
-  %722 = add nuw i32 %.02.i.i72, 1
-  %exitcond.not.i89.i = icmp eq i32 %722, %718
+.lr.ph.i88.i:                                     ; preds = %714, %.lr.ph.i88.i
+  %.02.i.i72 = phi i32 [ %721, %.lr.ph.i88.i ], [ 0, %714 ]
+  %.0171.i.i = phi i32 [ %720, %.lr.ph.i88.i ], [ 48, %714 ]
+  %720 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0171.i.i, ptr noundef %21, ptr noundef nonnull @.str.410)
+  %721 = add nuw i32 %.02.i.i72, 1
+  %exitcond.not.i89.i = icmp eq i32 %721, %717
   br i1 %exitcond.not.i89.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i88.i, !llvm.loop !21
 
-723:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %724 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
-  %725 = load i32, ptr @hf_pvfs_mgmt_dspace_info_list_response_dspace_info_count, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %725, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
-  %727 = icmp ne i32 %724, 0
-  %728 = icmp ne ptr %21, null
-  %or.cond.i91.i = and i1 %728, %727
-  br i1 %or.cond.i91.i, label %.thread.i.i, label %732
+722:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %723 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
+  %724 = load i32, ptr @hf_pvfs_mgmt_dspace_info_list_response_dspace_info_count, align 4
+  %725 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %724, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
+  %726 = icmp ne i32 %723, 0
+  %727 = icmp ne ptr %21, null
+  %or.cond.i91.i = and i1 %727, %726
+  br i1 %or.cond.i91.i, label %.thread.i.i, label %731
 
-.thread.i.i:                                      ; preds = %723
-  %729 = mul i32 %724, 40
-  %730 = load i32, ptr @ett_pvfs_mgmt_dspace_info, align 4
-  %731 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 44, i32 noundef %729, i32 noundef %730, ptr noundef null, ptr noundef nonnull @.str.430, i32 noundef %724)
+.thread.i.i:                                      ; preds = %722
+  %728 = mul i32 %723, 40
+  %729 = load i32, ptr @ett_pvfs_mgmt_dspace_info, align 4
+  %730 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 44, i32 noundef %728, i32 noundef %729, ptr noundef null, ptr noundef nonnull @.str.430, i32 noundef %723)
   br label %.lr.ph.i93.i
 
-732:                                              ; preds = %723
-  %.not.i92.i = icmp eq i32 %724, 0
+731:                                              ; preds = %722
+  %.not.i92.i = icmp eq i32 %723, 0
   br i1 %.not.i92.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i93.i
 
-.lr.ph.i93.i:                                     ; preds = %732, %.thread.i.i
-  %.032.i94.i = phi ptr [ %731, %.thread.i.i ], [ null, %732 ]
-  br label %733
+.lr.ph.i93.i:                                     ; preds = %731, %.thread.i.i
+  %.032.i94.i = phi ptr [ %730, %.thread.i.i ], [ null, %731 ]
+  br label %732
 
-733:                                              ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i93.i
-  %.02126.i.i = phi i32 [ 0, %.lr.ph.i93.i ], [ %756, %dissect_pvfs2_mgmt_dspace_info.exit.i.i ]
-  %.02225.i.i = phi i32 [ 44, %.lr.ph.i93.i ], [ %755, %dissect_pvfs2_mgmt_dspace_info.exit.i.i ]
-  %734 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.02225.i.i)
-  %735 = load i32, ptr @hf_pvfs_error, align 4
-  %736 = sub i32 0, %734
-  %737 = call ptr @proto_tree_add_uint(ptr noundef %.032.i94.i, i32 noundef %735, ptr noundef %0, i32 noundef %.02225.i.i, i32 noundef 4, i32 noundef %736)
-  %.not.i.i.i.i = icmp eq i32 %734, 0
-  br i1 %.not.i.i.i.i, label %dissect_pvfs2_mgmt_dspace_info.exit.i.i, label %738
+732:                                              ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i93.i
+  %.02126.i.i = phi i32 [ 0, %.lr.ph.i93.i ], [ %755, %dissect_pvfs2_mgmt_dspace_info.exit.i.i ]
+  %.02225.i.i = phi i32 [ 44, %.lr.ph.i93.i ], [ %754, %dissect_pvfs2_mgmt_dspace_info.exit.i.i ]
+  %733 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.02225.i.i)
+  %734 = load i32, ptr @hf_pvfs_error, align 4
+  %735 = sub i32 0, %733
+  %736 = call ptr @proto_tree_add_uint(ptr noundef %.032.i94.i, i32 noundef %734, ptr noundef %0, i32 noundef %.02225.i.i, i32 noundef 4, i32 noundef %735)
+  %.not.i.i.i.i = icmp eq i32 %733, 0
+  br i1 %.not.i.i.i.i, label %dissect_pvfs2_mgmt_dspace_info.exit.i.i, label %737
 
-738:                                              ; preds = %733
-  %739 = call ptr @val_to_str(i32 noundef %736, ptr noundef nonnull @names_pvfs_error, ptr noundef nonnull @.str.424)
-  %740 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %740, i32 noundef 25, ptr noundef nonnull @.str.425, ptr noundef %739)
+737:                                              ; preds = %732
+  %738 = call ptr @val_to_str(i32 noundef %735, ptr noundef nonnull @names_pvfs_error, ptr noundef nonnull @.str.424)
+  %739 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %739, i32 noundef 25, ptr noundef nonnull @.str.425, ptr noundef %738)
   br label %dissect_pvfs2_mgmt_dspace_info.exit.i.i
 
-dissect_pvfs2_mgmt_dspace_info.exit.i.i:          ; preds = %738, %733
-  %741 = add i32 %.02225.i.i, 4
-  %742 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %741, ptr noundef %.032.i94.i, ptr noundef nonnull @.str.410)
-  %743 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %742)
-  %744 = load i32, ptr @hf_pvfs_ds_type, align 4
-  %745 = call ptr @proto_tree_add_uint(ptr noundef %.032.i94.i, i32 noundef %744, ptr noundef %0, i32 noundef %742, i32 noundef 4, i32 noundef %743)
-  %746 = add i32 %742, 4
-  %747 = load i32, ptr @hf_pvfs_b_size, align 4
-  %748 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %746)
-  %749 = call ptr @proto_tree_add_uint64(ptr noundef %.032.i94.i, i32 noundef %747, ptr noundef %0, i32 noundef %746, i32 noundef 8, i64 noundef %748)
-  %750 = add i32 %742, 12
-  %751 = load i32, ptr @hf_pvfs_k_size, align 4
-  %752 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %750)
-  %753 = call ptr @proto_tree_add_uint64(ptr noundef %.032.i94.i, i32 noundef %751, ptr noundef %0, i32 noundef %750, i32 noundef 8, i64 noundef %752)
-  %754 = add i32 %742, 20
-  %755 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %754, ptr noundef %.032.i94.i, ptr noundef nonnull @.str.410)
-  %756 = add nuw i32 %.02126.i.i, 1
-  %exitcond.not.i95.i = icmp eq i32 %756, %724
-  br i1 %exitcond.not.i95.i, label %dissect_pvfs2_request.exit, label %733, !llvm.loop !22
+dissect_pvfs2_mgmt_dspace_info.exit.i.i:          ; preds = %737, %732
+  %740 = add i32 %.02225.i.i, 4
+  %741 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %740, ptr noundef %.032.i94.i, ptr noundef nonnull @.str.410)
+  %742 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %741)
+  %743 = load i32, ptr @hf_pvfs_ds_type, align 4
+  %744 = call ptr @proto_tree_add_uint(ptr noundef %.032.i94.i, i32 noundef %743, ptr noundef %0, i32 noundef %741, i32 noundef 4, i32 noundef %742)
+  %745 = add i32 %741, 4
+  %746 = load i32, ptr @hf_pvfs_b_size, align 4
+  %747 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %745)
+  %748 = call ptr @proto_tree_add_uint64(ptr noundef %.032.i94.i, i32 noundef %746, ptr noundef %0, i32 noundef %745, i32 noundef 8, i64 noundef %747)
+  %749 = add i32 %741, 12
+  %750 = load i32, ptr @hf_pvfs_k_size, align 4
+  %751 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %749)
+  %752 = call ptr @proto_tree_add_uint64(ptr noundef %.032.i94.i, i32 noundef %750, ptr noundef %0, i32 noundef %749, i32 noundef 8, i64 noundef %751)
+  %753 = add i32 %741, 20
+  %754 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %753, ptr noundef %.032.i94.i, ptr noundef nonnull @.str.410)
+  %755 = add nuw i32 %.02126.i.i, 1
+  %exitcond.not.i95.i = icmp eq i32 %755, %723
+  br i1 %exitcond.not.i95.i, label %dissect_pvfs2_request.exit, label %732, !llvm.loop !22
 
-757:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %758 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_api, align 4
-  %759 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %758, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648)
-  %760 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_operation, align 4
-  %761 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %760, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
-  %762 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_value, align 4
-  %763 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %762, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648)
-  %764 = load i32, ptr @hf_pvfs_id_gen_t, align 4
-  %765 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 52)
-  %766 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %764, ptr noundef %0, i32 noundef 52, i32 noundef 8, i64 noundef %765)
-  %767 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_flags, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %767, ptr noundef %0, i32 noundef 60, i32 noundef 4, i32 noundef -2147483648)
-  %769 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_tv_sec, align 4
-  %770 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %769, ptr noundef %0, i32 noundef 64, i32 noundef 4, i32 noundef -2147483648)
-  %771 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_tv_usec, align 4
-  %772 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %771, ptr noundef %0, i32 noundef 68, i32 noundef 4, i32 noundef -2147483648)
+756:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %757 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_api, align 4
+  %758 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %757, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef -2147483648)
+  %759 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_operation, align 4
+  %760 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %759, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef -2147483648)
+  %761 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_value, align 4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %761, ptr noundef %0, i32 noundef 48, i32 noundef 4, i32 noundef -2147483648)
+  %763 = load i32, ptr @hf_pvfs_id_gen_t, align 4
+  %764 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 52)
+  %765 = call ptr @proto_tree_add_uint64(ptr noundef %21, i32 noundef %763, ptr noundef %0, i32 noundef 52, i32 noundef 8, i64 noundef %764)
+  %766 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_flags, align 4
+  %767 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %766, ptr noundef %0, i32 noundef 60, i32 noundef 4, i32 noundef -2147483648)
+  %768 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_tv_sec, align 4
+  %769 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %768, ptr noundef %0, i32 noundef 64, i32 noundef 4, i32 noundef -2147483648)
+  %770 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_tv_usec, align 4
+  %771 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %770, ptr noundef %0, i32 noundef 68, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_pvfs2_request.exit
 
-773:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %774 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 40, ptr noundef %21, ptr noundef nonnull @.str.410)
-  %775 = load i32, ptr @hf_pvfs_fs_id, align 4
-  %776 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %775, ptr noundef %0, i32 noundef %774, i32 noundef 4, i32 noundef -2147483648)
+772:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %773 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 40, ptr noundef %21, ptr noundef nonnull @.str.410)
+  %774 = load i32, ptr @hf_pvfs_fs_id, align 4
+  %775 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %774, ptr noundef %0, i32 noundef %773, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_pvfs2_request.exit
 
-777:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %778 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 40, ptr noundef %21, ptr noundef nonnull @.str.410)
+776:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %777 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 40, ptr noundef %21, ptr noundef nonnull @.str.410)
   br label %dissect_pvfs2_request.exit
 
-779:                                              ; preds = %dissect_pvfs2_error.exit.i
-  %780 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
-  %.not.i.i.i75 = icmp eq i32 %780, 0
+778:                                              ; preds = %dissect_pvfs2_error.exit.i
+  %779 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
+  %.not.i.i.i75 = icmp eq i32 %779, 0
   br i1 %.not.i.i.i75, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i76
 
-.lr.ph.i.i.i76:                                   ; preds = %779, %.lr.ph.i.i.i76
-  %.012.i.i.i77 = phi i32 [ %785, %.lr.ph.i.i.i76 ], [ 0, %779 ]
-  %.01011.i.i.i78 = phi i32 [ %784, %.lr.ph.i.i.i76 ], [ 48, %779 ]
-  %781 = load i32, ptr @hf_pvfs_attribute_key, align 4
-  %782 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %781, i32 noundef %.01011.i.i.i78, ptr noundef readonly %1)
-  %783 = load i32, ptr @hf_pvfs_attribute_value, align 4
-  %784 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %783, i32 noundef %782, ptr noundef readonly %1)
-  %785 = add nuw i32 %.012.i.i.i77, 1
-  %exitcond.not.i.i.i79 = icmp eq i32 %785, %780
+.lr.ph.i.i.i76:                                   ; preds = %778, %.lr.ph.i.i.i76
+  %.012.i.i.i77 = phi i32 [ %784, %.lr.ph.i.i.i76 ], [ 0, %778 ]
+  %.01011.i.i.i78 = phi i32 [ %783, %.lr.ph.i.i.i76 ], [ 48, %778 ]
+  %780 = load i32, ptr @hf_pvfs_attribute_key, align 4
+  %781 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %780, i32 noundef %.01011.i.i.i78, ptr noundef readonly %1)
+  %782 = load i32, ptr @hf_pvfs_attribute_value, align 4
+  %783 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %782, i32 noundef %781, ptr noundef readonly %1)
+  %784 = add nuw i32 %.012.i.i.i77, 1
+  %exitcond.not.i.i.i79 = icmp eq i32 %784, %779
   br i1 %exitcond.not.i.i.i79, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i76, !llvm.loop !13
 
-dissect_pvfs2_request.exit:                       ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i88.i, %.lr.ph.i84.i, %.lr.ph.i77.i, %.lr.ph36.i.i, %.lr.ph.i.i.i76, %.lr.ph.i.i119.i, %.lr.ph.i.i.i, %.lr.ph.i114.i, %.lr.ph.i.i, %241, %215, %.preheader.i.i.i, %779, %777, %773, %757, %732, %715, %674, %641, %638, %634, %632, %.loopexit.i.i, %563, %556, %544, %542, %540, %538, %._crit_edge.i.i, %523, %519, %517, %dissect_pvfs2_error.exit.i, %500, %488, %476, %472, %465, %461, %458, %452, %448, %443, %440, %417, %407, %399, %389, %340, %292, %243, %217, %130, %126, %112, %101, %438, %433, %430, %424, %87
+dissect_pvfs2_request.exit:                       ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i88.i, %.lr.ph.i84.i, %.lr.ph.i77.i, %.lr.ph36.i.i, %.lr.ph.i.i.i76, %.lr.ph.i.i119.i, %.lr.ph.i.i.i, %.lr.ph.i114.i, %.lr.ph.i.i, %241, %215, %.preheader.i.i.i, %778, %776, %772, %756, %731, %714, %673, %640, %637, %633, %631, %.loopexit.i.i, %563, %556, %544, %542, %540, %538, %._crit_edge.i.i, %523, %519, %517, %dissect_pvfs2_error.exit.i, %500, %488, %476, %472, %465, %461, %458, %452, %448, %443, %440, %417, %407, %399, %389, %340, %292, %243, %217, %130, %126, %112, %101, %438, %433, %430, %424, %87
   ret void
 }
 

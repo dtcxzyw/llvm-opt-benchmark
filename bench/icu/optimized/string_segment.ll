@@ -765,8 +765,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i:    ; preds = %13, %11, %2
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 0, ptr noundef nonnull %3, i32 noundef %22)
           to label %_ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit unwind label %23
 
-common.resume:                                    ; preds = %60, %23
-  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %61, %60 ]
+common.resume:                                    ; preds = %59, %23
+  %common.resume.op = phi { ptr, i32 } [ %24, %23 ], [ %60, %59 ]
   resume { ptr, i32 } %common.resume.op
 
 23:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i
@@ -784,58 +784,57 @@ _ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit: ; preds = %_ZNK6icu_7713
   %28 = load i16, ptr %27, align 8, !tbaa !12
   %29 = and i16 %28, 1
   %.not.i = icmp eq i16 %29, 0
-  br i1 %.not.i, label %35, label %30
+  br i1 %.not.i, label %34, label %30
 
 30:                                               ; preds = %_ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i16, ptr %31, align 8, !tbaa !12
-  %33 = and i16 %32, 1
-  %34 = icmp ne i16 %33, 0
+  %33 = trunc i16 %32 to i1
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-35:                                               ; preds = %_ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit
-  %36 = icmp slt i16 %28, 0
-  %37 = ashr i16 %28, 5
-  %38 = sext i16 %37 to i32
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %40 = load i32, ptr %39, align 4
-  %41 = select i1 %36, i32 %40, i32 %38
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load i16, ptr %42, align 8, !tbaa !12
-  %44 = icmp slt i16 %43, 0
-  %45 = ashr i16 %43, 5
-  %46 = sext i16 %45 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %48 = load i32, ptr %47, align 4
-  %49 = select i1 %44, i32 %48, i32 %46
-  %50 = and i16 %43, 1
-  %.not9.i = icmp eq i16 %50, 0
-  %51 = icmp eq i32 %41, %49
-  %or.cond.i = and i1 %.not9.i, %51
-  br i1 %or.cond.i, label %52, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+34:                                               ; preds = %_ZNK6icu_7713StringSegment19toTempUnicodeStringEv.exit
+  %35 = icmp slt i16 %28, 0
+  %36 = ashr i16 %28, 5
+  %37 = sext i16 %36 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %39 = load i32, ptr %38, align 4
+  %40 = select i1 %35, i32 %39, i32 %37
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %42 = load i16, ptr %41, align 8, !tbaa !12
+  %43 = icmp slt i16 %42, 0
+  %44 = ashr i16 %42, 5
+  %45 = sext i16 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %47 = load i32, ptr %46, align 4
+  %48 = select i1 %43, i32 %47, i32 %45
+  %49 = and i16 %42, 1
+  %.not9.i = icmp eq i16 %49, 0
+  %50 = icmp eq i32 %40, %48
+  %or.cond.i = and i1 %.not9.i, %50
+  br i1 %or.cond.i, label %51, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-52:                                               ; preds = %35
-  %53 = and i16 %43, 2
-  %.not.i.i.i = icmp eq i16 %53, 0
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load ptr, ptr %55, align 8
-  %57 = select i1 %.not.i.i.i, ptr %56, ptr %54
-  %58 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %57, i32 noundef %41)
-          to label %.noexc unwind label %60
+51:                                               ; preds = %34
+  %52 = and i16 %42, 2
+  %.not.i.i.i = icmp eq i16 %52, 0
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %55 = load ptr, ptr %54, align 8
+  %56 = select i1 %.not.i.i.i, ptr %55, ptr %53
+  %57 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %56, i32 noundef %40)
+          to label %.noexc unwind label %59
 
-.noexc:                                           ; preds = %52
-  %59 = icmp ne i8 %58, 0
+.noexc:                                           ; preds = %51
+  %58 = icmp ne i8 %57, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %35, %30
-  %.0.i = phi i1 [ %34, %30 ], [ %59, %.noexc ], [ false, %35 ]
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc, %34, %30
+  %.0.i = phi i1 [ %33, %30 ], [ %58, %.noexc ], [ false, %34 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i
 
-60:                                               ; preds = %52
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %51
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

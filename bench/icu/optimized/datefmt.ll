@@ -2067,49 +2067,48 @@ _ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBase
   %29 = load i16, ptr %28, align 8, !tbaa !23
   %30 = and i16 %29, 1
   %.not.i.i = icmp eq i16 %30, 0
-  br i1 %.not.i.i, label %36, label %31
+  br i1 %.not.i.i, label %35, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %33 = load i16, ptr %32, align 8, !tbaa !23
-  %34 = and i16 %33, 1
-  %35 = icmp ne i16 %34, 0
+  %34 = trunc i16 %33 to i1
   br label %_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit
 
-36:                                               ; preds = %26
-  %37 = icmp slt i16 %29, 0
-  %38 = ashr i16 %29, 5
-  %39 = sext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %41 = load i32, ptr %40, align 4
-  %42 = select i1 %37, i32 %41, i32 %39
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %44 = load i16, ptr %43, align 8, !tbaa !23
-  %45 = icmp slt i16 %44, 0
-  %46 = ashr i16 %44, 5
-  %47 = sext i16 %46 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 252
-  %49 = load i32, ptr %48, align 4
-  %50 = select i1 %45, i32 %49, i32 %47
-  %51 = and i16 %44, 1
-  %.not9.i.i = icmp eq i16 %51, 0
-  %52 = icmp eq i32 %42, %50
-  %or.cond.i.i = and i1 %.not9.i.i, %52
-  br i1 %or.cond.i.i, label %53, label %_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit
+35:                                               ; preds = %26
+  %36 = icmp slt i16 %29, 0
+  %37 = ashr i16 %29, 5
+  %38 = sext i16 %37 to i32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %40 = load i32, ptr %39, align 4
+  %41 = select i1 %36, i32 %40, i32 %38
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %43 = load i16, ptr %42, align 8, !tbaa !23
+  %44 = icmp slt i16 %43, 0
+  %45 = ashr i16 %43, 5
+  %46 = sext i16 %45 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 252
+  %48 = load i32, ptr %47, align 4
+  %49 = select i1 %44, i32 %48, i32 %46
+  %50 = and i16 %43, 1
+  %.not9.i.i = icmp eq i16 %50, 0
+  %51 = icmp eq i32 %41, %49
+  %or.cond.i.i = and i1 %.not9.i.i, %51
+  br i1 %or.cond.i.i, label %52, label %_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit
 
-53:                                               ; preds = %36
-  %54 = and i16 %44, 2
-  %.not.i.i.i.i = icmp eq i16 %54, 0
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 250
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %57 = load ptr, ptr %56, align 8
-  %58 = select i1 %.not.i.i.i.i, ptr %57, ptr %55
-  %59 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef %58, i32 noundef %42)
-  %60 = icmp ne i8 %59, 0
+52:                                               ; preds = %35
+  %53 = and i16 %43, 2
+  %.not.i.i.i.i = icmp eq i16 %53, 0
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 250
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %56 = load ptr, ptr %55, align 8
+  %57 = select i1 %.not.i.i.i.i, ptr %56, ptr %54
+  %58 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef %57, i32 noundef %41)
+  %59 = icmp ne i8 %58, 0
   br label %_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit
 
-_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit:  ; preds = %16, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i, %53, %36, %31, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit
-  %.0 = phi i1 [ false, %36 ], [ false, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit ], [ %35, %31 ], [ %60, %53 ], [ false, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i ], [ false, %16 ]
+_ZNK6icu_7721DateFmtBestPatternKeyeqERKS0_.exit:  ; preds = %16, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i, %52, %35, %31, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit
+  %.0 = phi i1 [ false, %35 ], [ false, %_ZNK6icu_7714LocaleCacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit ], [ %34, %31 ], [ %59, %52 ], [ false, %_ZNK6icu_778CacheKeyINS_18DateFmtBestPatternEE6equalsERKNS_12CacheKeyBaseE.exit.i ], [ false, %16 ]
   ret i1 %.0
 }
 

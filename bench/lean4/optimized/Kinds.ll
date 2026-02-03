@@ -64,9 +64,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_facetKindForNamespace(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -88,58 +87,56 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not.i43 = icmp eq i64 %15, 0
-  br i1 %.not.i43, label %19, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
   %17 = lshr i64 %14, 1
   %18 = trunc i64 %17 to i32
-  br label %lean_obj_tag.exit46
+  br label %lean_obj_tag.exit45
 
 19:                                               ; preds = %11
   %20 = getelementptr i8, ptr %13, i64 4
-  %.val.i45 = load i32, ptr %20, align 4
-  %21 = lshr i32 %.val.i45, 24
-  br label %lean_obj_tag.exit46
+  %.val.i43 = load i32, ptr %20, align 4
+  %21 = lshr i32 %.val.i43, 24
+  br label %lean_obj_tag.exit45
 
-lean_obj_tag.exit46:                              ; preds = %16, %19
+lean_obj_tag.exit45:                              ; preds = %16, %19
   %.0.i44 = phi i32 [ %18, %16 ], [ %21, %19 ]
   %22 = icmp eq i32 %.0.i44, 1
   br i1 %22, label %23, label %lean_string_dec_eq.exit.thread
 
-23:                                               ; preds = %lean_obj_tag.exit46
+23:                                               ; preds = %lean_obj_tag.exit45
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, 1
-  %.not.i47 = icmp eq i64 %27, 0
-  br i1 %.not.i47, label %31, label %28
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %23
   %29 = lshr i64 %26, 1
   %30 = trunc i64 %29 to i32
-  br label %lean_obj_tag.exit50
+  br label %lean_obj_tag.exit48
 
 31:                                               ; preds = %23
   %32 = getelementptr i8, ptr %25, i64 4
-  %.val.i49 = load i32, ptr %32, align 4
-  %33 = lshr i32 %.val.i49, 24
-  br label %lean_obj_tag.exit50
+  %.val.i46 = load i32, ptr %32, align 4
+  %33 = lshr i32 %.val.i46, 24
+  br label %lean_obj_tag.exit48
 
-lean_obj_tag.exit50:                              ; preds = %28, %31
-  %.0.i48 = phi i32 [ %30, %28 ], [ %33, %31 ]
-  %34 = icmp eq i32 %.0.i48, 0
+lean_obj_tag.exit48:                              ; preds = %28, %31
+  %.0.i47 = phi i32 [ %30, %28 ], [ %33, %31 ]
+  %34 = icmp eq i32 %.0.i47, 0
   br i1 %34, label %35, label %lean_string_dec_eq.exit.thread
 
-35:                                               ; preds = %lean_obj_tag.exit50
+35:                                               ; preds = %lean_obj_tag.exit48
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !4
   %40 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__1, align 8, !tbaa !4
   %41 = icmp eq ptr %39, %40
-  br i1 %41, label %lean_string_dec_eq.exit.thread72, label %42
+  br i1 %41, label %lean_string_dec_eq.exit.thread70, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr i8, ptr %39, i64 8
@@ -151,151 +148,151 @@ lean_obj_tag.exit50:                              ; preds = %28, %31
 
 lean_string_dec_eq.exit:                          ; preds = %42
   %46 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %39, ptr noundef nonnull %40) #3
-  br i1 %46, label %lean_string_dec_eq.exit.thread72, label %lean_string_dec_eq.exit.thread
+  br i1 %46, label %lean_string_dec_eq.exit.thread70, label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit.thread72:                 ; preds = %35, %lean_string_dec_eq.exit
+lean_string_dec_eq.exit.thread70:                 ; preds = %35, %lean_string_dec_eq.exit
   %47 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__2, align 8, !tbaa !4
   %48 = icmp eq ptr %37, %47
-  br i1 %48, label %lean_string_dec_eq.exit53.thread73, label %49
+  br i1 %48, label %lean_string_dec_eq.exit51.thread71, label %49
 
-49:                                               ; preds = %lean_string_dec_eq.exit.thread72
+49:                                               ; preds = %lean_string_dec_eq.exit.thread70
   %50 = getelementptr i8, ptr %37, i64 8
-  %.val.i.i51 = load i64, ptr %50, align 8, !tbaa !8
+  %.val.i.i49 = load i64, ptr %50, align 8, !tbaa !8
   %51 = getelementptr i8, ptr %47, i64 8
-  %.val7.i.i52 = load i64, ptr %51, align 8, !tbaa !8
-  %52 = icmp eq i64 %.val.i.i51, %.val7.i.i52
-  br i1 %52, label %lean_string_dec_eq.exit53, label %lean_string_dec_eq.exit53.thread
+  %.val7.i.i50 = load i64, ptr %51, align 8, !tbaa !8
+  %52 = icmp eq i64 %.val.i.i49, %.val7.i.i50
+  br i1 %52, label %lean_string_dec_eq.exit51, label %lean_string_dec_eq.exit51.thread
 
-lean_string_dec_eq.exit53:                        ; preds = %49
+lean_string_dec_eq.exit51:                        ; preds = %49
   %53 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %47) #3
-  br i1 %53, label %lean_string_dec_eq.exit53.thread73, label %lean_string_dec_eq.exit53.thread
+  br i1 %53, label %lean_string_dec_eq.exit51.thread71, label %lean_string_dec_eq.exit51.thread
 
-lean_string_dec_eq.exit53.thread:                 ; preds = %49, %lean_string_dec_eq.exit53
+lean_string_dec_eq.exit51.thread:                 ; preds = %49, %lean_string_dec_eq.exit51
   %54 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__3, align 8, !tbaa !4
   %55 = icmp eq ptr %37, %54
-  br i1 %55, label %lean_string_dec_eq.exit56.thread74, label %56
+  br i1 %55, label %lean_string_dec_eq.exit54.thread72, label %56
 
-56:                                               ; preds = %lean_string_dec_eq.exit53.thread
-  %.val.i.i54 = load i64, ptr %50, align 8, !tbaa !8
+56:                                               ; preds = %lean_string_dec_eq.exit51.thread
+  %.val.i.i52 = load i64, ptr %50, align 8, !tbaa !8
   %57 = getelementptr i8, ptr %54, i64 8
-  %.val7.i.i55 = load i64, ptr %57, align 8, !tbaa !8
-  %58 = icmp eq i64 %.val.i.i54, %.val7.i.i55
-  br i1 %58, label %lean_string_dec_eq.exit56, label %lean_string_dec_eq.exit56.thread
+  %.val7.i.i53 = load i64, ptr %57, align 8, !tbaa !8
+  %58 = icmp eq i64 %.val.i.i52, %.val7.i.i53
+  br i1 %58, label %lean_string_dec_eq.exit54, label %lean_string_dec_eq.exit54.thread
 
-lean_string_dec_eq.exit56:                        ; preds = %56
+lean_string_dec_eq.exit54:                        ; preds = %56
   %59 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %54) #3
-  br i1 %59, label %lean_string_dec_eq.exit56.thread74, label %lean_string_dec_eq.exit56.thread
+  br i1 %59, label %lean_string_dec_eq.exit54.thread72, label %lean_string_dec_eq.exit54.thread
 
-lean_string_dec_eq.exit56.thread:                 ; preds = %56, %lean_string_dec_eq.exit56
+lean_string_dec_eq.exit54.thread:                 ; preds = %56, %lean_string_dec_eq.exit54
   %60 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__4, align 8, !tbaa !4
   %61 = icmp eq ptr %37, %60
-  br i1 %61, label %lean_string_dec_eq.exit59.thread75, label %62
+  br i1 %61, label %lean_string_dec_eq.exit57.thread73, label %62
 
-62:                                               ; preds = %lean_string_dec_eq.exit56.thread
-  %.val.i.i57 = load i64, ptr %50, align 8, !tbaa !8
+62:                                               ; preds = %lean_string_dec_eq.exit54.thread
+  %.val.i.i55 = load i64, ptr %50, align 8, !tbaa !8
   %63 = getelementptr i8, ptr %60, i64 8
-  %.val7.i.i58 = load i64, ptr %63, align 8, !tbaa !8
-  %64 = icmp eq i64 %.val.i.i57, %.val7.i.i58
-  br i1 %64, label %lean_string_dec_eq.exit59, label %lean_string_dec_eq.exit59.thread
+  %.val7.i.i56 = load i64, ptr %63, align 8, !tbaa !8
+  %64 = icmp eq i64 %.val.i.i55, %.val7.i.i56
+  br i1 %64, label %lean_string_dec_eq.exit57, label %lean_string_dec_eq.exit57.thread
 
-lean_string_dec_eq.exit59:                        ; preds = %62
+lean_string_dec_eq.exit57:                        ; preds = %62
   %65 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %60) #3
-  br i1 %65, label %lean_string_dec_eq.exit59.thread75, label %lean_string_dec_eq.exit59.thread
+  br i1 %65, label %lean_string_dec_eq.exit57.thread73, label %lean_string_dec_eq.exit57.thread
 
-lean_string_dec_eq.exit59.thread:                 ; preds = %62, %lean_string_dec_eq.exit59
+lean_string_dec_eq.exit57.thread:                 ; preds = %62, %lean_string_dec_eq.exit57
   %66 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__5, align 8, !tbaa !4
   %67 = icmp eq ptr %37, %66
-  br i1 %67, label %lean_string_dec_eq.exit62.thread76, label %68
+  br i1 %67, label %lean_string_dec_eq.exit60.thread74, label %68
 
-68:                                               ; preds = %lean_string_dec_eq.exit59.thread
-  %.val.i.i60 = load i64, ptr %50, align 8, !tbaa !8
+68:                                               ; preds = %lean_string_dec_eq.exit57.thread
+  %.val.i.i58 = load i64, ptr %50, align 8, !tbaa !8
   %69 = getelementptr i8, ptr %66, i64 8
-  %.val7.i.i61 = load i64, ptr %69, align 8, !tbaa !8
-  %70 = icmp eq i64 %.val.i.i60, %.val7.i.i61
-  br i1 %70, label %lean_string_dec_eq.exit62, label %lean_string_dec_eq.exit62.thread
+  %.val7.i.i59 = load i64, ptr %69, align 8, !tbaa !8
+  %70 = icmp eq i64 %.val.i.i58, %.val7.i.i59
+  br i1 %70, label %lean_string_dec_eq.exit60, label %lean_string_dec_eq.exit60.thread
 
-lean_string_dec_eq.exit62:                        ; preds = %68
+lean_string_dec_eq.exit60:                        ; preds = %68
   %71 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %66) #3
-  br i1 %71, label %lean_string_dec_eq.exit62.thread76, label %lean_string_dec_eq.exit62.thread
+  br i1 %71, label %lean_string_dec_eq.exit60.thread74, label %lean_string_dec_eq.exit60.thread
 
-lean_string_dec_eq.exit62.thread:                 ; preds = %68, %lean_string_dec_eq.exit62
+lean_string_dec_eq.exit60.thread:                 ; preds = %68, %lean_string_dec_eq.exit60
   %72 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__6, align 8, !tbaa !4
   %73 = icmp eq ptr %37, %72
-  br i1 %73, label %lean_string_dec_eq.exit65.thread77, label %74
+  br i1 %73, label %lean_string_dec_eq.exit63.thread75, label %74
 
-74:                                               ; preds = %lean_string_dec_eq.exit62.thread
-  %.val.i.i63 = load i64, ptr %50, align 8, !tbaa !8
+74:                                               ; preds = %lean_string_dec_eq.exit60.thread
+  %.val.i.i61 = load i64, ptr %50, align 8, !tbaa !8
   %75 = getelementptr i8, ptr %72, i64 8
-  %.val7.i.i64 = load i64, ptr %75, align 8, !tbaa !8
-  %76 = icmp eq i64 %.val.i.i63, %.val7.i.i64
-  br i1 %76, label %lean_string_dec_eq.exit65, label %lean_string_dec_eq.exit65.thread
+  %.val7.i.i62 = load i64, ptr %75, align 8, !tbaa !8
+  %76 = icmp eq i64 %.val.i.i61, %.val7.i.i62
+  br i1 %76, label %lean_string_dec_eq.exit63, label %lean_string_dec_eq.exit63.thread
 
-lean_string_dec_eq.exit65:                        ; preds = %74
+lean_string_dec_eq.exit63:                        ; preds = %74
   %77 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %72) #3
-  br i1 %77, label %lean_string_dec_eq.exit65.thread77, label %lean_string_dec_eq.exit65.thread
+  br i1 %77, label %lean_string_dec_eq.exit63.thread75, label %lean_string_dec_eq.exit63.thread
 
-lean_string_dec_eq.exit65.thread:                 ; preds = %74, %lean_string_dec_eq.exit65
+lean_string_dec_eq.exit63.thread:                 ; preds = %74, %lean_string_dec_eq.exit63
   %78 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__7, align 8, !tbaa !4
   %79 = icmp eq ptr %37, %78
-  br i1 %79, label %lean_string_dec_eq.exit68.thread78, label %80
+  br i1 %79, label %lean_string_dec_eq.exit66.thread76, label %80
 
-80:                                               ; preds = %lean_string_dec_eq.exit65.thread
-  %.val.i.i66 = load i64, ptr %50, align 8, !tbaa !8
+80:                                               ; preds = %lean_string_dec_eq.exit63.thread
+  %.val.i.i64 = load i64, ptr %50, align 8, !tbaa !8
   %81 = getelementptr i8, ptr %78, i64 8
-  %.val7.i.i67 = load i64, ptr %81, align 8, !tbaa !8
-  %82 = icmp eq i64 %.val.i.i66, %.val7.i.i67
-  br i1 %82, label %lean_string_dec_eq.exit68, label %lean_string_dec_eq.exit68.thread
+  %.val7.i.i65 = load i64, ptr %81, align 8, !tbaa !8
+  %82 = icmp eq i64 %.val.i.i64, %.val7.i.i65
+  br i1 %82, label %lean_string_dec_eq.exit66, label %lean_string_dec_eq.exit66.thread
 
-lean_string_dec_eq.exit68:                        ; preds = %80
+lean_string_dec_eq.exit66:                        ; preds = %80
   %83 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %78) #3
-  br i1 %83, label %lean_string_dec_eq.exit68.thread78, label %lean_string_dec_eq.exit68.thread
+  br i1 %83, label %lean_string_dec_eq.exit66.thread76, label %lean_string_dec_eq.exit66.thread
 
-lean_string_dec_eq.exit68.thread:                 ; preds = %80, %lean_string_dec_eq.exit68
+lean_string_dec_eq.exit66.thread:                 ; preds = %80, %lean_string_dec_eq.exit66
   %84 = load ptr, ptr @l_Lake_facetKindForNamespace___closed__8, align 8, !tbaa !4
   %85 = icmp eq ptr %37, %84
-  br i1 %85, label %lean_string_dec_eq.exit71.thread79, label %86
+  br i1 %85, label %lean_string_dec_eq.exit69.thread77, label %86
 
-86:                                               ; preds = %lean_string_dec_eq.exit68.thread
-  %.val.i.i69 = load i64, ptr %50, align 8, !tbaa !8
+86:                                               ; preds = %lean_string_dec_eq.exit66.thread
+  %.val.i.i67 = load i64, ptr %50, align 8, !tbaa !8
   %87 = getelementptr i8, ptr %84, i64 8
-  %.val7.i.i70 = load i64, ptr %87, align 8, !tbaa !8
-  %88 = icmp eq i64 %.val.i.i69, %.val7.i.i70
-  br i1 %88, label %lean_string_dec_eq.exit71, label %lean_string_dec_eq.exit.thread
+  %.val7.i.i68 = load i64, ptr %87, align 8, !tbaa !8
+  %88 = icmp eq i64 %.val.i.i67, %.val7.i.i68
+  br i1 %88, label %lean_string_dec_eq.exit69, label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit71:                        ; preds = %86
+lean_string_dec_eq.exit69:                        ; preds = %86
   %89 = tail call zeroext i1 @lean_string_eq_cold(ptr noundef nonnull %37, ptr noundef nonnull %84) #3
-  br i1 %89, label %lean_string_dec_eq.exit71.thread79, label %lean_string_dec_eq.exit.thread
+  br i1 %89, label %lean_string_dec_eq.exit69.thread77, label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit71.thread79:               ; preds = %lean_string_dec_eq.exit68.thread, %lean_string_dec_eq.exit71
+lean_string_dec_eq.exit69.thread77:               ; preds = %lean_string_dec_eq.exit66.thread, %lean_string_dec_eq.exit69
   %90 = load ptr, ptr @l_Lake_InputDir_keyword, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit68.thread78:               ; preds = %lean_string_dec_eq.exit65.thread, %lean_string_dec_eq.exit68
+lean_string_dec_eq.exit66.thread76:               ; preds = %lean_string_dec_eq.exit63.thread, %lean_string_dec_eq.exit66
   %91 = load ptr, ptr @l_Lake_InputFile_keyword, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit65.thread77:               ; preds = %lean_string_dec_eq.exit62.thread, %lean_string_dec_eq.exit65
+lean_string_dec_eq.exit63.thread75:               ; preds = %lean_string_dec_eq.exit60.thread, %lean_string_dec_eq.exit63
   %92 = load ptr, ptr @l_Lake_ExternLib_keyword, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit62.thread76:               ; preds = %lean_string_dec_eq.exit59.thread, %lean_string_dec_eq.exit62
+lean_string_dec_eq.exit60.thread74:               ; preds = %lean_string_dec_eq.exit57.thread, %lean_string_dec_eq.exit60
   %93 = load ptr, ptr @l_Lake_LeanExe_keyword, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit59.thread75:               ; preds = %lean_string_dec_eq.exit56.thread, %lean_string_dec_eq.exit59
+lean_string_dec_eq.exit57.thread73:               ; preds = %lean_string_dec_eq.exit54.thread, %lean_string_dec_eq.exit57
   %94 = load ptr, ptr @l_Lake_LeanLib_keyword___closed__2, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit56.thread74:               ; preds = %lean_string_dec_eq.exit53.thread, %lean_string_dec_eq.exit56
+lean_string_dec_eq.exit54.thread72:               ; preds = %lean_string_dec_eq.exit51.thread, %lean_string_dec_eq.exit54
   %95 = load ptr, ptr @l_Lake_Module_keyword, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit53.thread73:               ; preds = %lean_string_dec_eq.exit.thread72, %lean_string_dec_eq.exit53
+lean_string_dec_eq.exit51.thread71:               ; preds = %lean_string_dec_eq.exit.thread70, %lean_string_dec_eq.exit51
   %96 = load ptr, ptr @l_Lake_Package_keyword, align 8, !tbaa !4
   br label %lean_string_dec_eq.exit.thread
 
-lean_string_dec_eq.exit.thread:                   ; preds = %86, %42, %lean_obj_tag.exit, %lean_obj_tag.exit46, %lean_obj_tag.exit50, %lean_string_dec_eq.exit71, %lean_string_dec_eq.exit, %lean_string_dec_eq.exit56.thread74, %lean_string_dec_eq.exit62.thread76, %lean_string_dec_eq.exit68.thread78, %lean_string_dec_eq.exit71.thread79, %lean_string_dec_eq.exit65.thread77, %lean_string_dec_eq.exit59.thread75, %lean_string_dec_eq.exit53.thread73
-  %.10 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit46 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit50 ], [ inttoptr (i64 1 to ptr), %lean_string_dec_eq.exit71 ], [ %90, %lean_string_dec_eq.exit71.thread79 ], [ %96, %lean_string_dec_eq.exit53.thread73 ], [ %95, %lean_string_dec_eq.exit56.thread74 ], [ %94, %lean_string_dec_eq.exit59.thread75 ], [ %93, %lean_string_dec_eq.exit62.thread76 ], [ %92, %lean_string_dec_eq.exit65.thread77 ], [ %91, %lean_string_dec_eq.exit68.thread78 ], [ inttoptr (i64 1 to ptr), %lean_string_dec_eq.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %42 ], [ inttoptr (i64 1 to ptr), %86 ]
+lean_string_dec_eq.exit.thread:                   ; preds = %86, %42, %lean_obj_tag.exit, %lean_obj_tag.exit45, %lean_obj_tag.exit48, %lean_string_dec_eq.exit69, %lean_string_dec_eq.exit, %lean_string_dec_eq.exit54.thread72, %lean_string_dec_eq.exit60.thread74, %lean_string_dec_eq.exit66.thread76, %lean_string_dec_eq.exit69.thread77, %lean_string_dec_eq.exit63.thread75, %lean_string_dec_eq.exit57.thread73, %lean_string_dec_eq.exit51.thread71
+  %.10 = phi ptr [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit45 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit48 ], [ inttoptr (i64 1 to ptr), %lean_string_dec_eq.exit69 ], [ %90, %lean_string_dec_eq.exit69.thread77 ], [ %96, %lean_string_dec_eq.exit51.thread71 ], [ %95, %lean_string_dec_eq.exit54.thread72 ], [ %94, %lean_string_dec_eq.exit57.thread73 ], [ %93, %lean_string_dec_eq.exit60.thread74 ], [ %92, %lean_string_dec_eq.exit63.thread75 ], [ %91, %lean_string_dec_eq.exit66.thread76 ], [ inttoptr (i64 1 to ptr), %lean_string_dec_eq.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %42 ], [ inttoptr (i64 1 to ptr), %86 ]
   ret ptr %.10
 }
 
@@ -303,9 +300,8 @@ lean_string_dec_eq.exit.thread:                   ; preds = %86, %42, %lean_obj_
 define ptr @l_Lake_facetKindForNamespace___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @l_Lake_facetKindForNamespace(ptr noundef %0)
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !10

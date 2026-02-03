@@ -173,10 +173,9 @@ define internal fastcc ptr @inner_evp_generic_fetch(ptr noundef nonnull %0, ptr 
 65:                                               ; preds = %54, %59, %56, %.thread91
   %.1 = phi i32 [ 0, %54 ], [ %.2, %59 ], [ %.2, %56 ], [ %36, %.thread91 ]
   %66 = load i8, ptr %44, align 8
-  %67 = and i8 %66, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not98 = icmp eq i8 %67, 0
-  %68 = select i1 %.not98, i32 524556, i32 524557
+  %67 = trunc i8 %66 to i1
+  %68 = select i1 %67, i32 524557, i32 524556
   br label %69
 
 69:                                               ; preds = %65, %31

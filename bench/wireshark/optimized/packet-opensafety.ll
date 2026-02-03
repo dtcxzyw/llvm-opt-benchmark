@@ -3372,10 +3372,10 @@ opensafety_packet_receiver.exit.i113:             ; preds = %786, %785
   %803 = lshr i8 %658, 1
   %.lobit381.i = and i8 %803, 1
   store i8 %.lobit381.i, ptr %802, align 1
-  %804 = and i8 %658, 1
-  %805 = load ptr, ptr %794, align 8
-  %806 = getelementptr inbounds nuw i8, ptr %805, i64 7
-  store i8 %804, ptr %806, align 1
+  %804 = load ptr, ptr %794, align 8
+  %805 = getelementptr inbounds nuw i8, ptr %804, i64 7
+  %806 = and i8 %658, 1
+  store i8 %806, ptr %805, align 1
   %807 = load ptr, ptr %794, align 8
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 2
   %809 = lshr i8 %658, 5

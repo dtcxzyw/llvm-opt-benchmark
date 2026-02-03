@@ -212,7 +212,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %152 = or disjoint i64 %119, %151
   %153 = or disjoint i64 %152, %138
   %154 = add nuw nsw i64 %153, %149
-  %155 = icmp ne i32 %102, 0
+  %155 = trunc i32 %101 to i1
   %156 = icmp ne i32 %106, 0
   %157 = select i1 %155, i1 %156, i1 false
   br i1 %157, label %158, label %178

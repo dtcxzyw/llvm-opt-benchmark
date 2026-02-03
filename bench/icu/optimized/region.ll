@@ -4388,49 +4388,48 @@ define noundef zeroext i1 @_ZNK6icu_776RegioneqERKS0_(ptr noundef nonnull align 
   %5 = load i16, ptr %4, align 8, !tbaa !28
   %6 = and i16 %5, 1
   %.not.i = icmp eq i16 %6, 0
-  br i1 %.not.i, label %12, label %7
+  br i1 %.not.i, label %11, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i16, ptr %8, align 8, !tbaa !28
-  %10 = and i16 %9, 1
-  %11 = icmp ne i16 %10, 0
+  %10 = trunc i16 %9 to i1
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-12:                                               ; preds = %2
-  %13 = icmp slt i16 %5, 0
-  %14 = ashr i16 %5, 5
-  %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = select i1 %13, i32 %17, i32 %15
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load i16, ptr %19, align 8, !tbaa !28
-  %21 = icmp slt i16 %20, 0
-  %22 = ashr i16 %20, 5
-  %23 = sext i16 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %25 = load i32, ptr %24, align 4
-  %26 = select i1 %21, i32 %25, i32 %23
-  %27 = and i16 %20, 1
-  %.not9.i = icmp eq i16 %27, 0
-  %28 = icmp eq i32 %18, %26
-  %or.cond.i = and i1 %.not9.i, %28
-  br i1 %or.cond.i, label %29, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+11:                                               ; preds = %2
+  %12 = icmp slt i16 %5, 0
+  %13 = ashr i16 %5, 5
+  %14 = sext i16 %13 to i32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %16 = load i32, ptr %15, align 4
+  %17 = select i1 %12, i32 %16, i32 %14
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i16, ptr %18, align 8, !tbaa !28
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = and i16 %19, 1
+  %.not9.i = icmp eq i16 %26, 0
+  %27 = icmp eq i32 %17, %25
+  %or.cond.i = and i1 %.not9.i, %27
+  br i1 %or.cond.i, label %28, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-29:                                               ; preds = %12
-  %30 = and i16 %20, 2
-  %.not.i.i.i = icmp eq i16 %30, 0
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = select i1 %.not.i.i.i, ptr %33, ptr %31
-  %35 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %34, i32 noundef %18)
-  %36 = icmp ne i8 %35, 0
+28:                                               ; preds = %11
+  %29 = and i16 %19, 2
+  %.not.i.i.i = icmp eq i16 %29, 0
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %33 = select i1 %.not.i.i.i, ptr %32, ptr %30
+  %34 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %33, i32 noundef %17)
+  %35 = icmp ne i8 %34, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %7, %12, %29
-  %.0.i = phi i1 [ %11, %7 ], [ %36, %29 ], [ false, %12 ]
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %7, %11, %28
+  %.0.i = phi i1 [ %10, %7 ], [ %35, %28 ], [ false, %11 ]
   ret i1 %.0.i
 }
 
@@ -4441,51 +4440,50 @@ define noundef zeroext i1 @_ZNK6icu_776RegionneERKS0_(ptr noundef nonnull align 
   %5 = load i16, ptr %4, align 8, !tbaa !28
   %6 = and i16 %5, 1
   %.not.i.i = icmp eq i16 %6, 0
-  br i1 %.not.i.i, label %12, label %7
+  br i1 %.not.i.i, label %11, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i16, ptr %8, align 8, !tbaa !28
-  %10 = and i16 %9, 1
-  %11 = icmp ne i16 %10, 0
+  %10 = trunc i16 %9 to i1
   br label %_ZNK6icu_7713UnicodeStringneERKS0_.exit
 
-12:                                               ; preds = %2
-  %13 = icmp slt i16 %5, 0
-  %14 = ashr i16 %5, 5
-  %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = select i1 %13, i32 %17, i32 %15
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load i16, ptr %19, align 8, !tbaa !28
-  %21 = icmp slt i16 %20, 0
-  %22 = ashr i16 %20, 5
-  %23 = sext i16 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %25 = load i32, ptr %24, align 4
-  %26 = select i1 %21, i32 %25, i32 %23
-  %27 = and i16 %20, 1
-  %.not9.i.i = icmp eq i16 %27, 0
-  %28 = icmp eq i32 %18, %26
-  %or.cond.i.i = and i1 %.not9.i.i, %28
-  br i1 %or.cond.i.i, label %29, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit
+11:                                               ; preds = %2
+  %12 = icmp slt i16 %5, 0
+  %13 = ashr i16 %5, 5
+  %14 = sext i16 %13 to i32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %16 = load i32, ptr %15, align 4
+  %17 = select i1 %12, i32 %16, i32 %14
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i16, ptr %18, align 8, !tbaa !28
+  %20 = icmp slt i16 %19, 0
+  %21 = ashr i16 %19, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = and i16 %19, 1
+  %.not9.i.i = icmp eq i16 %26, 0
+  %27 = icmp eq i32 %17, %25
+  %or.cond.i.i = and i1 %.not9.i.i, %27
+  br i1 %or.cond.i.i, label %28, label %_ZNK6icu_7713UnicodeStringneERKS0_.exit
 
-29:                                               ; preds = %12
-  %30 = and i16 %20, 2
-  %.not.i.i.i.i = icmp eq i16 %30, 0
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = select i1 %.not.i.i.i.i, ptr %33, ptr %31
-  %35 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %34, i32 noundef %18)
-  %36 = icmp ne i8 %35, 0
+28:                                               ; preds = %11
+  %29 = and i16 %19, 2
+  %.not.i.i.i.i = icmp eq i16 %29, 0
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %32 = load ptr, ptr %31, align 8
+  %33 = select i1 %.not.i.i.i.i, ptr %32, ptr %30
+  %34 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %33, i32 noundef %17)
+  %35 = icmp ne i8 %34, 0
   br label %_ZNK6icu_7713UnicodeStringneERKS0_.exit
 
-_ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %7, %12, %29
-  %.0.i.i = phi i1 [ %11, %7 ], [ %36, %29 ], [ false, %12 ]
-  %37 = xor i1 %.0.i.i, true
-  ret i1 %37
+_ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %7, %11, %28
+  %.0.i.i = phi i1 [ %10, %7 ], [ %35, %28 ], [ false, %11 ]
+  %36 = xor i1 %.0.i.i, true
+  ret i1 %36
 }
 
 ; Function Attrs: mustprogress uwtable

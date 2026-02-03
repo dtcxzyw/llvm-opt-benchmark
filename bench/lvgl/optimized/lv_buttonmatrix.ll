@@ -1905,9 +1905,8 @@ define zeroext i1 @lv_buttonmatrix_get_one_checked(ptr noundef readonly captures
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %4 = load i8, ptr %3, align 4
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 declare void @lv_free(ptr noundef) local_unnamed_addr #1

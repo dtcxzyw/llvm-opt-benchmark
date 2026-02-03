@@ -476,7 +476,7 @@ if.else:                                          ; preds = %land.lhs.true, %sw.
   br i1 %tobool.not, label %if.end95, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %if.else
-  %bf.cast10.not = icmp ne i8 %2, 0
+  %bf.cast10.not = trunc i8 %bf.load to i1
   %Key12 = getelementptr inbounds nuw i8, ptr %event, i64 12
   %5 = load i32, ptr %Key12, align 4
   %cmp13 = icmp eq i32 %5, 27

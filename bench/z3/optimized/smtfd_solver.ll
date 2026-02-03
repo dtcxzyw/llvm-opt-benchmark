@@ -27059,9 +27059,8 @@ define linkonce_odr hidden void @_ZN5smtfd4mbqi9init_termEP4expr(ptr noundef non
 _Z9is_groundPK4expr.exit:                         ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %13 = load i8, ptr %12, align 2
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %_Z9is_groundPK4expr.exit.thread
 
 15:                                               ; preds = %_Z9is_groundPK4expr.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

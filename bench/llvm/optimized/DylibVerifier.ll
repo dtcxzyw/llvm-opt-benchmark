@@ -454,14 +454,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15: ; preds = %113
   %118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.1, i64 noundef 11) #21
-  %.pre104 = load i8, ptr %106, align 1, !tbaa !82
+  %.pre103 = load i8, ptr %106, align 1, !tbaa !82
   br label %119
 
 119:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15, %110
-  %120 = phi i8 [ %.pre104, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15 ], [ %111, %110 ]
-  %121 = and i8 %120, 1
-  %.not102 = icmp eq i8 %121, 0
-  br i1 %.not102, label %128, label %122
+  %120 = phi i8 [ %.pre103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15 ], [ %111, %110 ]
+  %121 = trunc i8 %120 to i1
+  br i1 %121, label %122, label %128
 
 122:                                              ; preds = %119
   %123 = load i64, ptr %105, align 8, !tbaa !11
@@ -868,8 +867,8 @@ _ZN5clang10installapiL12isCppMangledEN4llvm9StringRefE.exit: ; preds = %_ZNK4llv
   %bcmp.i5.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %28, ptr noundef nonnull dereferenceable(4) @.str.21, i64 4)
   %279 = icmp eq i32 %bcmp.i5.i, 0
   %.not.i42 = icmp eq i64 %273, 0
-  %or.cond103 = select i1 %279, i1 true, i1 %.not.i42
-  br i1 %or.cond103, label %_ZN5clang10installapiL12isCppMangledEN4llvm9StringRefE.exit.thread99, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  %or.cond102 = select i1 %279, i1 true, i1 %.not.i42
+  br i1 %or.cond102, label %_ZN5clang10installapiL12isCppMangledEN4llvm9StringRefE.exit.thread99, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZN5clang10installapiL12isCppMangledEN4llvm9StringRefE.exit.thread: ; preds = %276, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread16.i, %_ZNK4llvm9StringRef11starts_withES0_.exit3.thread17.i
   %.not.i42.old = icmp eq i64 %273, 0
@@ -2806,16 +2805,14 @@ define dso_local noundef zeroext i1 @_ZN5clang10installapi13DylibVerifier18compa
   store ptr %3, ptr %6, align 8, !tbaa !249
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %12 = load i8, ptr %11, align 1, !tbaa !82
-  %13 = and i8 %12, 1
-  %.not = icmp eq i8 %13, 0
+  %13 = trunc i8 %12 to i1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %15 = load i8, ptr %14, align 1, !tbaa !82
-  %16 = and i8 %15, 1
-  %.not13 = icmp eq i8 %16, 0
-  br i1 %.not, label %23, label %17
+  %16 = trunc i8 %15 to i1
+  br i1 %13, label %17, label %23
 
 17:                                               ; preds = %4
-  br i1 %.not13, label %18, label %.thread
+  br i1 %16, label %.thread, label %18
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3920
@@ -2831,7 +2828,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10installapi13DylibVerifier18compa
   br label %.thread12
 
 23:                                               ; preds = %4
-  br i1 %.not13, label %.thread, label %24
+  br i1 %16, label %24, label %.thread
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3920
@@ -2848,13 +2845,13 @@ define dso_local noundef zeroext i1 @_ZN5clang10installapi13DylibVerifier18compa
 
 .thread:                                          ; preds = %17, %23
   %29 = and i8 %12, 2
-  %.not15 = icmp eq i8 %29, 0
+  %.not = icmp eq i8 %29, 0
   %30 = and i8 %15, 2
-  %.not16 = icmp eq i8 %30, 0
-  br i1 %.not15, label %38, label %31
+  %.not13 = icmp eq i8 %30, 0
+  br i1 %.not, label %38, label %31
 
 31:                                               ; preds = %.thread
-  br i1 %.not16, label %32, label %.thread12
+  br i1 %.not13, label %32, label %.thread12
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 3920
@@ -2872,7 +2869,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10installapi13DylibVerifier18compa
   br label %.thread12
 
 38:                                               ; preds = %.thread
-  br i1 %.not16, label %.thread12, label %39
+  br i1 %.not13, label %.thread12, label %39
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 3920

@@ -931,9 +931,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isConstTypeEv
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 190
   %6 = load i16, ptr %5, align 2
-  %7 = and i16 %6, 1
-  %8 = icmp ne i16 %7, 0
-  %.0 = select i1 %4, i1 %8, i1 false
+  %7 = trunc i16 %6 to i1
+  %.0 = select i1 %4, i1 %7, i1 false
   ret i1 %.0
 }
 
@@ -1122,19 +1121,18 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isPackedEv(ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1232
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(194) %3) #9
-  br label %16
+  br label %15
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = load ptr, ptr %10, align 8, !tbaa !36
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i16, ptr %12, align 4, !tbaa !68
-  %14 = and i16 %13, 1
-  %15 = icmp ne i16 %14, 0
-  br label %16
+  %14 = trunc i16 %13 to i1
+  br label %15
 
-16:                                               ; preds = %9, %4
-  %.0 = phi i1 [ %8, %4 ], [ %15, %9 ]
+15:                                               ; preds = %9, %4
+  %.0 = phi i1 [ %8, %4 ], [ %14, %9 ]
   ret i1 %.0
 }
 

@@ -6505,251 +6505,250 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
   %.0135.lcssa = phi i32 [ 2, %2 ], [ %.0135.lcssa.ph, %.thread.loopexit ]
   %.0129.lcssa = phi i1 [ true, %2 ], [ %39, %.thread.loopexit ]
   %.0.lcssa = phi i32 [ %1, %2 ], [ %.0.lcssa.ph, %.thread.loopexit ]
-  %40 = and i32 %.0.lcssa, 1
-  %41 = icmp ne i32 %40, 0
-  %42 = and i32 %.0.lcssa, 4
-  %.not159 = icmp eq i32 %42, 0
-  %43 = sub nsw i32 %10, %.0135.lcssa
-  %44 = and i32 %43, 1
-  %45 = icmp eq i32 %44, 0
-  %46 = icmp ne i32 %10, %.0135.lcssa
-  %or.cond = and i1 %46, %45
-  br i1 %or.cond, label %49, label %47
+  %40 = trunc i32 %.0.lcssa to i1
+  %41 = and i32 %.0.lcssa, 4
+  %.not159 = icmp eq i32 %41, 0
+  %42 = sub nsw i32 %10, %.0135.lcssa
+  %43 = and i32 %42, 1
+  %44 = icmp eq i32 %43, 0
+  %45 = icmp ne i32 %10, %.0135.lcssa
+  %or.cond = and i1 %45, %44
+  br i1 %or.cond, label %48, label %46
 
-47:                                               ; preds = %.thread
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
-  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %48) #19
-  br label %150
+46:                                               ; preds = %.thread
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !148
+  tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %47) #19
+  br label %149
 
-49:                                               ; preds = %.thread
-  %50 = ashr exact i32 %43, 1
-  %51 = and i32 %.0.lcssa, 6
-  %or.cond3 = icmp eq i32 %51, 6
-  br i1 %or.cond3, label %52, label %53
+48:                                               ; preds = %.thread
+  %49 = ashr exact i32 %42, 1
+  %50 = and i32 %.0.lcssa, 6
+  %or.cond3 = icmp eq i32 %50, 6
+  br i1 %or.cond3, label %51, label %52
 
-52:                                               ; preds = %49
+51:                                               ; preds = %48
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #19
-  br label %150
+  br label %149
 
-53:                                               ; preds = %49
-  %54 = and i32 %.0.lcssa, 10
-  %or.cond5 = icmp eq i32 %54, 10
-  %55 = and i32 %.0.lcssa, 18
-  %or.cond7 = icmp eq i32 %55, 18
+52:                                               ; preds = %48
+  %53 = and i32 %.0.lcssa, 10
+  %or.cond5 = icmp eq i32 %53, 10
+  %54 = and i32 %.0.lcssa, 18
+  %or.cond7 = icmp eq i32 %54, 18
   %or.cond167 = or i1 %or.cond5, %or.cond7
-  %56 = and i32 %.0.lcssa, 24
-  %or.cond9 = icmp eq i32 %56, 24
+  %55 = and i32 %.0.lcssa, 24
+  %or.cond9 = icmp eq i32 %55, 24
   %or.cond168 = select i1 %or.cond167, i1 true, i1 %or.cond9
-  br i1 %or.cond168, label %57, label %58
+  br i1 %or.cond168, label %56, label %57
 
-57:                                               ; preds = %53
+56:                                               ; preds = %52
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #19
-  br label %150
+  br label %149
 
-58:                                               ; preds = %53
-  %59 = icmp sgt i32 %50, 1
-  %or.cond11 = select i1 %41, i1 %59, i1 false
-  br i1 %or.cond11, label %60, label %61
+57:                                               ; preds = %52
+  %58 = icmp sgt i32 %49, 1
+  %or.cond11 = select i1 %40, i1 %58, i1 false
+  br i1 %or.cond11, label %59, label %60
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #19
-  br label %150
+  br label %149
 
-61:                                               ; preds = %58
-  %62 = sext i32 %50 to i64
-  %63 = shl nsw i64 %62, 3
-  %64 = tail call noalias ptr @zmalloc(i64 noundef %63) #18
-  %65 = icmp sgt i32 %50, 0
-  br i1 %65, label %.lr.ph219.preheader, label %._crit_edge
+60:                                               ; preds = %57
+  %61 = sext i32 %49 to i64
+  %62 = shl nsw i64 %61, 3
+  %63 = tail call noalias ptr @zmalloc(i64 noundef %62) #18
+  %64 = icmp sgt i32 %49, 0
+  br i1 %64, label %.lr.ph219.preheader, label %._crit_edge
 
-.lr.ph219.preheader:                              ; preds = %61
-  %66 = zext i32 %.0135.lcssa to i64
-  %wide.trip.count236 = zext nneg i32 %50 to i64
+.lr.ph219.preheader:                              ; preds = %60
+  %65 = zext i32 %.0135.lcssa to i64
+  %wide.trip.count236 = zext nneg i32 %49 to i64
   br label %.lr.ph219
 
-67:                                               ; preds = %.lr.ph219
+66:                                               ; preds = %.lr.ph219
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, %wide.trip.count236
   br i1 %exitcond237.not, label %._crit_edge, label %.lr.ph219, !llvm.loop !149
 
-.lr.ph219:                                        ; preds = %.lr.ph219.preheader, %67
-  %indvars.iv233 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next234, %67 ]
-  %68 = load ptr, ptr %5, align 8, !tbaa !136
+.lr.ph219:                                        ; preds = %.lr.ph219.preheader, %66
+  %indvars.iv233 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next234, %66 ]
+  %67 = load ptr, ptr %5, align 8, !tbaa !136
   %.idx = shl nuw nsw i64 %indvars.iv233, 4
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %66
-  %71 = load ptr, ptr %70, align 8, !tbaa !146
-  %72 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv233
-  %73 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %72, ptr noundef null) #19
-  %.not166 = icmp eq i32 %73, 0
-  br i1 %.not166, label %67, label %.loopexit
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
+  %70 = load ptr, ptr %69, align 8, !tbaa !146
+  %71 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv233
+  %72 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %71, ptr noundef null) #19
+  %.not166 = icmp eq i32 %72, 0
+  br i1 %.not166, label %66, label %.loopexit
 
-._crit_edge:                                      ; preds = %67, %61
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !150
-  %76 = tail call ptr @lookupKeyWrite(ptr noundef %75, ptr noundef %8) #19
-  %77 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef %76, i32 noundef 3) #19
-  %.not160 = icmp eq i32 %77, 0
-  br i1 %.not160, label %78, label %.loopexit
+._crit_edge:                                      ; preds = %66, %60
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %74 = load ptr, ptr %73, align 8, !tbaa !150
+  %75 = tail call ptr @lookupKeyWrite(ptr noundef %74, ptr noundef %8) #19
+  %76 = tail call i32 @checkType(ptr noundef nonnull %0, ptr noundef %75, i32 noundef 3) #19
+  %.not160 = icmp eq i32 %76, 0
+  br i1 %.not160, label %77, label %.loopexit
 
-78:                                               ; preds = %._crit_edge
-  %79 = icmp eq ptr %76, null
-  br i1 %79, label %80, label %93
+77:                                               ; preds = %._crit_edge
+  %78 = icmp eq ptr %75, null
+  br i1 %78, label %79, label %92
 
-80:                                               ; preds = %78
-  br i1 %.not159, label %81, label %.thread185
+79:                                               ; preds = %77
+  br i1 %.not159, label %80, label %.thread185
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %5, align 8, !tbaa !136
-  %83 = zext nneg i32 %.0135.lcssa to i64
-  %84 = getelementptr ptr, ptr %82, i64 %83
-  %85 = getelementptr i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !146
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !75
-  %89 = tail call fastcc i64 @sdslen(ptr noundef %88)
-  %90 = tail call ptr @zsetTypeCreate(i64 noundef %62, i64 noundef %89)
-  %91 = load ptr, ptr %74, align 8, !tbaa !150
-  %92 = tail call ptr @dbAdd(ptr noundef %91, ptr noundef %8, ptr noundef %90) #19
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %5, align 8, !tbaa !136
+  %82 = zext nneg i32 %.0135.lcssa to i64
+  %83 = getelementptr ptr, ptr %81, i64 %82
+  %84 = getelementptr i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !146
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !75
+  %88 = tail call fastcc i64 @sdslen(ptr noundef %87)
+  %89 = tail call ptr @zsetTypeCreate(i64 noundef %61, i64 noundef %88)
+  %90 = load ptr, ptr %73, align 8, !tbaa !150
+  %91 = tail call ptr @dbAdd(ptr noundef %90, ptr noundef %8, ptr noundef %89) #19
   br label %zsetTypeMaybeConvert.exit
 
-93:                                               ; preds = %78
-  %94 = load i32, ptr %76, align 8
-  %95 = and i32 %94, 240
-  %96 = icmp eq i32 %95, 176
-  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7736), align 8
-  %98 = icmp ult i64 %97, %62
-  %or.cond.i = select i1 %96, i1 %98, i1 false
-  br i1 %or.cond.i, label %99, label %zsetTypeMaybeConvert.exit
+92:                                               ; preds = %77
+  %93 = load i32, ptr %75, align 8
+  %94 = and i32 %93, 240
+  %95 = icmp eq i32 %94, 176
+  %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7736), align 8
+  %97 = icmp ult i64 %96, %61
+  %or.cond.i = select i1 %95, i1 %97, i1 false
+  br i1 %or.cond.i, label %98, label %zsetTypeMaybeConvert.exit
 
-99:                                               ; preds = %93
-  tail call void @zsetConvertAndExpand(ptr noundef nonnull %76, i32 noundef 7, i64 noundef %62)
+98:                                               ; preds = %92
+  tail call void @zsetConvertAndExpand(ptr noundef nonnull %75, i32 noundef 7, i64 noundef %61)
   br label %zsetTypeMaybeConvert.exit
 
-zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
-  %.0123 = phi ptr [ %90, %81 ], [ %76, %93 ], [ %76, %99 ]
-  %100 = tail call i64 @zsetLength(ptr noundef %.0123)
-  br i1 %65, label %.lr.ph224, label %._crit_edge225
+zsetTypeMaybeConvert.exit:                        ; preds = %98, %92, %80
+  %.0123 = phi ptr [ %89, %80 ], [ %75, %92 ], [ %75, %98 ]
+  %99 = tail call i64 @zsetLength(ptr noundef %.0123)
+  br i1 %64, label %.lr.ph224, label %._crit_edge225
 
 .lr.ph224:                                        ; preds = %zsetTypeMaybeConvert.exit
-  %101 = add nuw nsw i32 %.0135.lcssa, 1
-  %102 = zext i32 %101 to i64
-  %wide.trip.count241 = zext nneg i32 %50 to i64
-  br label %103
+  %100 = add nuw nsw i32 %.0135.lcssa, 1
+  %101 = zext i32 %100 to i64
+  %wide.trip.count241 = zext nneg i32 %49 to i64
+  br label %102
 
-103:                                              ; preds = %.lr.ph224, %115
-  %indvars.iv238 = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next239, %115 ]
-  %.1139222 = phi i32 [ 0, %.lr.ph224 ], [ %.3141, %115 ]
-  %.2144221 = phi i32 [ 0, %.lr.ph224 ], [ %.4, %115 ]
-  %.2148220 = phi i32 [ 0, %.lr.ph224 ], [ %spec.select, %115 ]
+102:                                              ; preds = %.lr.ph224, %114
+  %indvars.iv238 = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next239, %114 ]
+  %.1139222 = phi i32 [ 0, %.lr.ph224 ], [ %.3141, %114 ]
+  %.2144221 = phi i32 [ 0, %.lr.ph224 ], [ %.4, %114 ]
+  %.2148220 = phi i32 [ 0, %.lr.ph224 ], [ %spec.select, %114 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %104 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv238
-  %105 = load double, ptr %104, align 8, !tbaa !5
+  %103 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv238
+  %104 = load double, ptr %103, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %106 = load ptr, ptr %5, align 8, !tbaa !136
+  %105 = load ptr, ptr %5, align 8, !tbaa !136
   %.idx246 = shl nuw nsw i64 %indvars.iv238, 4
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx246
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %102
-  %109 = load ptr, ptr %108, align 8, !tbaa !146
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !75
-  %112 = call i32 @zsetAdd(ptr noundef %.0123, double noundef %105, ptr noundef %111, i32 noundef %.0.lcssa, ptr noundef nonnull %4, ptr noundef nonnull %3)
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %115
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx246
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %101
+  %108 = load ptr, ptr %107, align 8, !tbaa !146
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !75
+  %111 = call i32 @zsetAdd(ptr noundef %.0123, double noundef %104, ptr noundef %110, i32 noundef %.0.lcssa, ptr noundef nonnull %4, ptr noundef nonnull %3)
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %114
 
-114:                                              ; preds = %103
+113:                                              ; preds = %102
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-115:                                              ; preds = %103
-  %116 = load i32, ptr %4, align 4, !tbaa !78
-  %117 = lshr i32 %116, 2
-  %118 = and i32 %117, 1
-  %spec.select = add nuw nsw i32 %118, %.2148220
-  %119 = lshr i32 %116, 3
-  %120 = and i32 %119, 1
-  %.4 = add nuw nsw i32 %120, %.2144221
-  %121 = and i32 %116, 1
-  %122 = xor i32 %121, 1
-  %.3141 = add nuw nsw i32 %122, %.1139222
-  %123 = load double, ptr %3, align 8, !tbaa !5
+114:                                              ; preds = %102
+  %115 = load i32, ptr %4, align 4, !tbaa !78
+  %116 = lshr i32 %115, 2
+  %117 = and i32 %116, 1
+  %spec.select = add nuw nsw i32 %117, %.2148220
+  %118 = lshr i32 %115, 3
+  %119 = and i32 %118, 1
+  %.4 = add nuw nsw i32 %119, %.2144221
+  %120 = and i32 %115, 1
+  %121 = xor i32 %120, 1
+  %.3141 = add nuw nsw i32 %121, %.1139222
+  %122 = load double, ptr %3, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %._crit_edge225.loopexit, label %103, !llvm.loop !151
+  br i1 %exitcond242.not, label %._crit_edge225.loopexit, label %102, !llvm.loop !151
 
-._crit_edge225.loopexit:                          ; preds = %115
-  %124 = icmp eq i32 %.3141, 0
+._crit_edge225.loopexit:                          ; preds = %114
+  %123 = icmp eq i32 %.3141, 0
   br label %._crit_edge225
 
 ._crit_edge225:                                   ; preds = %._crit_edge225.loopexit, %zsetTypeMaybeConvert.exit
   %.2148.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %spec.select, %._crit_edge225.loopexit ]
   %.2144.lcssa = phi i32 [ 0, %zsetTypeMaybeConvert.exit ], [ %.4, %._crit_edge225.loopexit ]
-  %.1139.lcssa = phi i1 [ true, %zsetTypeMaybeConvert.exit ], [ %124, %._crit_edge225.loopexit ]
-  %.1125.lcssa = phi double [ 0.000000e+00, %zsetTypeMaybeConvert.exit ], [ %123, %._crit_edge225.loopexit ]
-  %125 = add nuw nsw i32 %.2144.lcssa, %.2148.lcssa
-  %126 = zext nneg i32 %125 to i64
-  %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
-  %128 = add nsw i64 %127, %126
-  store i64 %128, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
-  %129 = load ptr, ptr %74, align 8, !tbaa !150
-  %130 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !75
-  %132 = call i32 @getKeySlot(ptr noundef %131) #19
-  %133 = zext nneg i32 %.2148.lcssa to i64
-  %134 = add i64 %100, %133
-  call void @updateKeysizesHist(ptr noundef %129, i32 noundef %132, i32 noundef 3, i64 noundef %100, i64 noundef %134) #19
-  br i1 %41, label %135, label %137
+  %.1139.lcssa = phi i1 [ true, %zsetTypeMaybeConvert.exit ], [ %123, %._crit_edge225.loopexit ]
+  %.1125.lcssa = phi double [ 0.000000e+00, %zsetTypeMaybeConvert.exit ], [ %122, %._crit_edge225.loopexit ]
+  %124 = add nuw nsw i32 %.2144.lcssa, %.2148.lcssa
+  %125 = zext nneg i32 %124 to i64
+  %126 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
+  %127 = add nsw i64 %126, %125
+  store i64 %127, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !152
+  %128 = load ptr, ptr %73, align 8, !tbaa !150
+  %129 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !75
+  %131 = call i32 @getKeySlot(ptr noundef %130) #19
+  %132 = zext nneg i32 %.2148.lcssa to i64
+  %133 = add i64 %99, %132
+  call void @updateKeysizesHist(ptr noundef %128, i32 noundef %131, i32 noundef 3, i64 noundef %99, i64 noundef %133) #19
+  br i1 %40, label %134, label %136
 
-.thread185:                                       ; preds = %80
-  br i1 %41, label %.thread196, label %137
+.thread185:                                       ; preds = %79
+  br i1 %40, label %.thread196, label %136
 
-135:                                              ; preds = %._crit_edge225
-  br i1 %.1139.lcssa, label %.thread196, label %136
+134:                                              ; preds = %._crit_edge225
+  br i1 %.1139.lcssa, label %.thread196, label %135
 
-136:                                              ; preds = %135
+135:                                              ; preds = %134
   call void @addReplyDouble(ptr noundef nonnull %0, double noundef %.1125.lcssa) #19
   br label %.loopexit
 
-.thread196:                                       ; preds = %.thread185, %135
-  %.1147190202 = phi i32 [ %.2148.lcssa, %135 ], [ 0, %.thread185 ]
-  %.1143192201 = phi i32 [ %.2144.lcssa, %135 ], [ 0, %.thread185 ]
+.thread196:                                       ; preds = %.thread185, %134
+  %.1147190202 = phi i32 [ %.2148.lcssa, %134 ], [ 0, %.thread185 ]
+  %.1143192201 = phi i32 [ %.2144.lcssa, %134 ], [ 0, %.thread185 ]
   call void @addReplyNull(ptr noundef nonnull %0) #19
   br label %.loopexit
 
-137:                                              ; preds = %.thread185, %._crit_edge225
+136:                                              ; preds = %.thread185, %._crit_edge225
   %.1143193 = phi i32 [ 0, %.thread185 ], [ %.2144.lcssa, %._crit_edge225 ]
   %.1147191 = phi i32 [ 0, %.thread185 ], [ %.2148.lcssa, %._crit_edge225 ]
-  %138 = select i1 %.0129.lcssa, i32 0, i32 %.1143193
-  %139 = add nsw i32 %.1147191, %138
-  %140 = sext i32 %139 to i64
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %140) #19
+  %137 = select i1 %.0129.lcssa, i32 0, i32 %.1143193
+  %138 = add nsw i32 %.1147191, %137
+  %139 = sext i32 %138 to i64
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %139) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph219, %114, %137, %.thread196, %136, %._crit_edge
-  %.0146 = phi i32 [ %.2148220, %114 ], [ 0, %._crit_edge ], [ %.2148.lcssa, %136 ], [ %.1147190202, %.thread196 ], [ %.1147191, %137 ], [ 0, %.lr.ph219 ]
-  %.0142 = phi i32 [ %.2144221, %114 ], [ 0, %._crit_edge ], [ %.2144.lcssa, %136 ], [ %.1143192201, %.thread196 ], [ %.1143193, %137 ], [ 0, %.lr.ph219 ]
-  call void @zfree(ptr noundef %64) #19
-  %141 = icmp ne i32 %.0146, 0
-  %142 = icmp ne i32 %.0142, 0
-  %or.cond13 = select i1 %141, i1 true, i1 %142
-  br i1 %or.cond13, label %143, label %150
+.loopexit:                                        ; preds = %.lr.ph219, %113, %136, %.thread196, %135, %._crit_edge
+  %.0146 = phi i32 [ %.2148220, %113 ], [ 0, %._crit_edge ], [ %.2148.lcssa, %135 ], [ %.1147190202, %.thread196 ], [ %.1147191, %136 ], [ 0, %.lr.ph219 ]
+  %.0142 = phi i32 [ %.2144221, %113 ], [ 0, %._crit_edge ], [ %.2144.lcssa, %135 ], [ %.1143192201, %.thread196 ], [ %.1143193, %136 ], [ 0, %.lr.ph219 ]
+  call void @zfree(ptr noundef %63) #19
+  %140 = icmp ne i32 %.0146, 0
+  %141 = icmp ne i32 %.0142, 0
+  %or.cond13 = select i1 %140, i1 true, i1 %141
+  br i1 %or.cond13, label %142, label %149
 
-143:                                              ; preds = %.loopexit
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %145 = load ptr, ptr %144, align 8, !tbaa !150
-  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %8) #19
-  %146 = select i1 %41, ptr @.str.27, ptr @.str.28
-  %147 = load ptr, ptr %144, align 8, !tbaa !150
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 56
-  %149 = load i32, ptr %148, align 8, !tbaa !153
-  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %146, ptr noundef %8, i32 noundef %149) #19
-  br label %150
+142:                                              ; preds = %.loopexit
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %144 = load ptr, ptr %143, align 8, !tbaa !150
+  call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %144, ptr noundef %8) #19
+  %145 = select i1 %40, ptr @.str.27, ptr @.str.28
+  %146 = load ptr, ptr %143, align 8, !tbaa !150
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 56
+  %148 = load i32, ptr %147, align 8, !tbaa !153
+  call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %145, ptr noundef %8, i32 noundef %148) #19
+  br label %149
 
-150:                                              ; preds = %143, %.loopexit, %60, %57, %52, %47
+149:                                              ; preds = %142, %.loopexit, %59, %56, %51, %46
   ret void
 }
 

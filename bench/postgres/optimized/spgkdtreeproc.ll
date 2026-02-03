@@ -58,9 +58,8 @@ define dso_local noundef i64 @spg_kd_choose(ptr noundef readonly captures(none) 
   store i32 1, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, 1
-  %.not = icmp eq i32 %21, 0
-  %.in.idx.i = select i1 %.not, i64 8, i64 0
+  %21 = trunc i32 %20 to i1
+  %.in.idx.i = select i1 %21, i64 0, i64 8
   %.in.i = getelementptr inbounds nuw i8, ptr %13, i64 %.in.idx.i
   %22 = load double, ptr %.in.i, align 8
   %23 = fcmp ule double %18, %22

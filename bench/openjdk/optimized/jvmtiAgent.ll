@@ -546,9 +546,8 @@ _ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit.i: ; preds = %17, %15, %11
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 1096
   %42 = load volatile i64, ptr %41, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %43 = and i64 %42, 1
-  %.not.i.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %44
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %44, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 44:                                               ; preds = %40
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %27, i1 noundef zeroext true, i1 noundef zeroext false) #12
@@ -1063,9 +1062,8 @@ define hidden void @_ZN10JvmtiAgent6unloadEv(ptr noundef nonnull align 8 derefer
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 1096
   %15 = load volatile i64, ptr %14, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %16 = and i64 %15, 1
-  %.not.i.i.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %17
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %17, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 17:                                               ; preds = %13
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %7, i1 noundef zeroext true, i1 noundef zeroext false) #12
@@ -1325,9 +1323,8 @@ define linkonce_odr hidden void @_ZN30AgentJavaThreadEventTransitionD2Ev(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %11 = load volatile i64, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %12 = and i64 %11, 1
-  %.not.i.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %13
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %13, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 13:                                               ; preds = %9
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %4, i1 noundef zeroext true, i1 noundef zeroext false) #12
@@ -1351,8 +1348,8 @@ _ZN20ThreadToNativeFromVMD2Ev.exit:               ; preds = %_ZN18SafepointMecha
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %.not.i.i.i.i1 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i1, label %27, label %23
+  %.not.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i, label %27, label %23
 
 23:                                               ; preds = %_ZN20ThreadToNativeFromVMD2Ev.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40

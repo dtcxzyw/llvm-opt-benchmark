@@ -4073,7 +4073,7 @@ tailrecurse:                                      ; preds = %.thread, %4
 16:                                               ; preds = %15
   %17 = tail call ptr @__errno_location() #29
   store i32 0, ptr %17, align 4, !tbaa !5
-  br label %211
+  br label %210
 
 .loopexit.sink.split:                             ; preds = %15, %tailrecurse
   %.ph283 = xor i1 %14, true
@@ -4109,14 +4109,14 @@ tailrecurse:                                      ; preds = %.thread, %4
 .loopexit175:                                     ; preds = %.thread, %.thread246, %.loopexit
   %35 = or i32 %10, 3
   store i32 %35, ptr %0, align 8, !tbaa !32
-  br label %211
+  br label %210
 
 36:                                               ; preds = %.thread246
   %37 = load ptr, ptr %27, align 8, !tbaa !11
   store ptr %37, ptr %8, align 8, !tbaa !43
   %38 = tail call i32 @raxSeekGreatest(ptr noundef nonnull %0)
   %.not132 = icmp eq i32 %38, 0
-  br i1 %.not132, label %211, label %39
+  br i1 %.not132, label %210, label %39
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %8, align 8, !tbaa !43
@@ -4157,7 +4157,7 @@ raxGetData.exit:                                  ; preds = %44, %46
   %.0.i = phi ptr [ %.0.copyload.i, %46 ], [ null, %44 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i, ptr %58, align 8, !tbaa !40
-  br label %211
+  br label %210
 
 59:                                               ; preds = %.loopexit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4167,7 +4167,7 @@ raxGetData.exit:                                  ; preds = %44, %46
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %63 = load i32, ptr %62, align 8, !tbaa !46
   %.not113 = icmp eq i32 %63, 0
-  br i1 %.not113, label %64, label %210
+  br i1 %.not113, label %64, label %209
 
 64:                                               ; preds = %59
   %65 = icmp ne i64 %61, %.tr174
@@ -4190,7 +4190,7 @@ raxGetData.exit:                                  ; preds = %44, %46
 74:                                               ; preds = %66
   %75 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %0, ptr noundef %.tr173, i64 noundef %.tr174)
   %.not131 = icmp eq i32 %75, 0
-  br i1 %.not131, label %210, label %76
+  br i1 %.not131, label %209, label %76
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %8, align 8, !tbaa !43
@@ -4225,11 +4225,11 @@ raxGetData.exit145:                               ; preds = %76, %80
   %.0.i140 = phi ptr [ %.0.copyload.i144, %80 ], [ null, %76 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.0.i140, ptr %96, align 8, !tbaa !40
-  br label %210
+  br label %209
 
 97:                                               ; preds = %66, %64
   %or.cond3 = or i1 %21, %22
-  br i1 %or.cond3, label %98, label %207
+  br i1 %or.cond3, label %98, label %206
 
 98:                                               ; preds = %97
   %99 = load i32, ptr %5, align 4, !tbaa !5
@@ -4249,7 +4249,7 @@ raxGetData.exit145:                               ; preds = %76, %80
   %108 = getelementptr inbounds nuw i8, ptr %.tr173, i64 %61
   %109 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %0, ptr noundef %108, i64 noundef 1)
   %.not118 = icmp eq i32 %109, 0
-  br i1 %.not118, label %210, label %110
+  br i1 %.not118, label %209, label %110
 
 110:                                              ; preds = %107
   %111 = load i32, ptr %0, align 8, !tbaa !32
@@ -4260,7 +4260,7 @@ raxGetData.exit145:                               ; preds = %76, %80
 113:                                              ; preds = %110
   %114 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %0, i32 noundef 1)
   %.not119 = icmp eq i32 %114, 0
-  br i1 %.not119, label %210, label %115
+  br i1 %.not119, label %209, label %115
 
 115:                                              ; preds = %113, %110
   br i1 %21, label %116, label %118
@@ -4268,13 +4268,13 @@ raxGetData.exit145:                               ; preds = %76, %80
 116:                                              ; preds = %115
   %117 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %0, i32 noundef 1)
   %.not120 = icmp eq i32 %117, 0
-  br i1 %.not120, label %210, label %118
+  br i1 %.not120, label %209, label %118
 
 118:                                              ; preds = %116, %115
   %119 = load i32, ptr %0, align 8, !tbaa !32
   %120 = or i32 %119, 1
   store i32 %120, ptr %0, align 8, !tbaa !32
-  br label %210
+  br label %209
 
 121:                                              ; preds = %103
   %122 = getelementptr inbounds nuw i8, ptr %104, i64 4
@@ -4294,7 +4294,7 @@ raxGetData.exit145:                               ; preds = %76, %80
 131:                                              ; preds = %129
   %132 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %0, i32 noundef 0)
   %.not127 = icmp eq i32 %132, 0
-  br i1 %.not127, label %210, label %140
+  br i1 %.not127, label %209, label %140
 
 133:                                              ; preds = %129
   %134 = load i32, ptr %104, align 4
@@ -4302,12 +4302,12 @@ raxGetData.exit145:                               ; preds = %76, %80
   %136 = zext nneg i32 %135 to i64
   %137 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %0, ptr noundef nonnull %122, i64 noundef %136)
   %.not125 = icmp eq i32 %137, 0
-  br i1 %.not125, label %210, label %138
+  br i1 %.not125, label %209, label %138
 
 138:                                              ; preds = %133
   %139 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %0, i32 noundef 1)
   %.not126 = icmp eq i32 %139, 0
-  br i1 %.not126, label %210, label %140
+  br i1 %.not126, label %209, label %140
 
 140:                                              ; preds = %131, %138, %121
   br i1 %22, label %141, label %.critedge138
@@ -4319,7 +4319,7 @@ raxGetData.exit145:                               ; preds = %76, %80
 143:                                              ; preds = %141
   %144 = tail call i32 @raxSeekGreatest(ptr noundef nonnull %0)
   %.not130 = icmp eq i32 %144, 0
-  br i1 %.not130, label %210, label %145
+  br i1 %.not130, label %209, label %145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %8, align 8, !tbaa !43
@@ -4364,18 +4364,18 @@ raxGetData.exit152:                               ; preds = %145, %149
   %171 = zext nneg i32 %170 to i64
   %172 = tail call i32 @raxIteratorAddChars(ptr noundef nonnull %0, ptr noundef nonnull %168, i64 noundef %171)
   %.not128 = icmp eq i32 %172, 0
-  br i1 %.not128, label %210, label %173
+  br i1 %.not128, label %209, label %173
 
 173:                                              ; preds = %166
   %174 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %0, i32 noundef 1)
   %.not129 = icmp eq i32 %174, 0
-  br i1 %.not129, label %210, label %.critedge138
+  br i1 %.not129, label %209, label %.critedge138
 
 .critedge138:                                     ; preds = %raxGetData.exit152, %173, %140
   %175 = load i32, ptr %0, align 8, !tbaa !32
   %176 = or i32 %175, 1
   store i32 %176, ptr %0, align 8, !tbaa !32
-  br label %210
+  br label %209
 
 .critedge:                                        ; preds = %98
   %177 = load i32, ptr %0, align 8, !tbaa !32
@@ -4385,75 +4385,74 @@ raxGetData.exit152:                               ; preds = %145, %149
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, 4
   %.not122 = icmp eq i32 %181, 0
-  br i1 %.not122, label %198, label %182
+  br i1 %.not122, label %197, label %182
 
 182:                                              ; preds = %.critedge
-  %183 = and i32 %180, 1
-  %184 = icmp ne i32 %183, 0
-  %185 = icmp ne i32 %99, 0
-  %or.cond5 = and i1 %185, %184
+  %183 = trunc i32 %180 to i1
+  %184 = icmp ne i32 %99, 0
+  %or.cond5 = and i1 %184, %183
   %or.cond7 = and i1 %22, %or.cond5
-  br i1 %or.cond7, label %186, label %198
+  br i1 %or.cond7, label %185, label %197
 
-186:                                              ; preds = %182
-  %187 = and i32 %180, 2
-  %.not.i153 = icmp eq i32 %187, 0
-  br i1 %.not.i153, label %188, label %raxGetData.exit159
+185:                                              ; preds = %182
+  %186 = and i32 %180, 2
+  %.not.i153 = icmp eq i32 %186, 0
+  br i1 %.not.i153, label %187, label %raxGetData.exit159
 
-188:                                              ; preds = %186
-  %189 = lshr i32 %180, 3
-  %190 = zext nneg i32 %189 to i64
-  %191 = xor i32 %189, 3
-  %.neg.i155 = add nuw nsw i32 %191, 1
-  %192 = and i32 %.neg.i155, 7
-  %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %179, i64 %190
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 %193
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 12
-  %.0.copyload.i158 = load ptr, ptr %196, align 8
+187:                                              ; preds = %185
+  %188 = lshr i32 %180, 3
+  %189 = zext nneg i32 %188 to i64
+  %190 = xor i32 %188, 3
+  %.neg.i155 = add nuw nsw i32 %190, 1
+  %191 = and i32 %.neg.i155, 7
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %179, i64 %189
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 %192
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 12
+  %.0.copyload.i158 = load ptr, ptr %195, align 8
   br label %raxGetData.exit159
 
-raxGetData.exit159:                               ; preds = %186, %188
-  %.0.i154 = phi ptr [ %.0.copyload.i158, %188 ], [ null, %186 ]
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.0.i154, ptr %197, align 8, !tbaa !40
-  br label %204
+raxGetData.exit159:                               ; preds = %185, %187
+  %.0.i154 = phi ptr [ %.0.copyload.i158, %187 ], [ null, %185 ]
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.0.i154, ptr %196, align 8, !tbaa !40
+  br label %203
 
-198:                                              ; preds = %182, %.critedge
-  br i1 %21, label %199, label %201
+197:                                              ; preds = %182, %.critedge
+  br i1 %21, label %198, label %200
 
-199:                                              ; preds = %198
-  %200 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %0, i32 noundef 0)
-  %.not123 = icmp eq i32 %200, 0
-  br i1 %.not123, label %210, label %201
+198:                                              ; preds = %197
+  %199 = tail call i32 @raxIteratorNextStep(ptr noundef nonnull %0, i32 noundef 0)
+  %.not123 = icmp eq i32 %199, 0
+  br i1 %.not123, label %209, label %200
 
-201:                                              ; preds = %199, %198
-  br i1 %22, label %202, label %204
+200:                                              ; preds = %198, %197
+  br i1 %22, label %201, label %203
 
-202:                                              ; preds = %201
-  %203 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %0, i32 noundef 0)
-  %.not124 = icmp eq i32 %203, 0
-  br i1 %.not124, label %210, label %204
+201:                                              ; preds = %200
+  %202 = tail call i32 @raxIteratorPrevStep(ptr noundef nonnull %0, i32 noundef 0)
+  %.not124 = icmp eq i32 %202, 0
+  br i1 %.not124, label %209, label %203
 
-204:                                              ; preds = %201, %202, %raxGetData.exit159
-  %205 = load i32, ptr %0, align 8, !tbaa !32
-  %206 = or i32 %205, 1
-  store i32 %206, ptr %0, align 8, !tbaa !32
-  br label %210
+203:                                              ; preds = %200, %201, %raxGetData.exit159
+  %204 = load i32, ptr %0, align 8, !tbaa !32
+  %205 = or i32 %204, 1
+  store i32 %205, ptr %0, align 8, !tbaa !32
+  br label %209
 
-207:                                              ; preds = %97
-  %208 = load i32, ptr %0, align 8, !tbaa !32
-  %209 = or i32 %208, 2
-  store i32 %209, ptr %0, align 8, !tbaa !32
-  br label %210
+206:                                              ; preds = %97
+  %207 = load i32, ptr %0, align 8, !tbaa !32
+  %208 = or i32 %207, 2
+  store i32 %208, ptr %0, align 8, !tbaa !32
+  br label %209
 
-210:                                              ; preds = %raxGetData.exit145, %118, %204, %.critedge138, %202, %199, %131, %133, %138, %143, %166, %173, %116, %113, %107, %74, %59, %207
-  %.1 = phi i32 [ 1, %207 ], [ 0, %202 ], [ 0, %59 ], [ 0, %116 ], [ 0, %199 ], [ 0, %131 ], [ 0, %113 ], [ 0, %107 ], [ 0, %74 ], [ 0, %173 ], [ 0, %166 ], [ 0, %143 ], [ 0, %138 ], [ 0, %133 ], [ 1, %.critedge138 ], [ 1, %204 ], [ 1, %118 ], [ 1, %raxGetData.exit145 ]
+209:                                              ; preds = %raxGetData.exit145, %118, %203, %.critedge138, %201, %198, %131, %133, %138, %143, %166, %173, %116, %113, %107, %74, %59, %206
+  %.1 = phi i32 [ 1, %206 ], [ 0, %201 ], [ 0, %59 ], [ 0, %116 ], [ 0, %198 ], [ 0, %131 ], [ 0, %113 ], [ 0, %107 ], [ 0, %74 ], [ 0, %173 ], [ 0, %166 ], [ 0, %143 ], [ 0, %138 ], [ 0, %133 ], [ 1, %.critedge138 ], [ 1, %203 ], [ 1, %118 ], [ 1, %raxGetData.exit145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %211
+  br label %210
 
-211:                                              ; preds = %36, %210, %raxGetData.exit, %.loopexit175, %16
-  %.0 = phi i32 [ 1, %.loopexit175 ], [ 0, %36 ], [ 1, %raxGetData.exit ], [ 0, %16 ], [ %.1, %210 ]
+210:                                              ; preds = %36, %209, %raxGetData.exit, %.loopexit175, %16
+  %.0 = phi i32 [ 1, %.loopexit175 ], [ 0, %36 ], [ 1, %raxGetData.exit ], [ 0, %16 ], [ %.1, %209 ]
   ret i32 %.0
 }
 

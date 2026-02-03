@@ -848,7 +848,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 128
-  br i1 %21, label %119, label %22
+  br i1 %21, label %121, label %22
 
 22:                                               ; preds = %14, %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 824
@@ -864,7 +864,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 
 32:                                               ; preds = %22
   %33 = call noundef zeroext i1 @_ZN2os5Posix21handle_stack_overflowEP10JavaThreadPhS3_PKvPS3_(ptr noundef nonnull %3, ptr noundef %16, ptr noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %5) #12
-  br i1 %33, label %119, label %.critedge
+  br i1 %33, label %121, label %.critedge
 
 .critedge:                                        ; preds = %32, %22
   %34 = load ptr, ptr @_ZN10VM_Version18_cpuinfo_segv_addrE, align 8
@@ -880,13 +880,13 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 1092
   %39 = load volatile i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 8
-  br i1 %40, label %44, label %90
+  br i1 %40, label %44, label %92
 
 .critedge89.thread:                               ; preds = %9
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 1092
   %42 = load volatile i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 8
-  br i1 %43, label %.thread, label %90
+  br i1 %43, label %.thread, label %92
 
 44:                                               ; preds = %.critedge89
   %45 = load ptr, ptr %15, align 8
@@ -896,7 +896,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
   %48 = getelementptr inbounds i8, ptr %46, i64 %47
   %49 = icmp ult ptr %45, %48
   %50 = select i1 %.not.i, i1 %49, i1 false
-  br i1 %50, label %51, label %86
+  br i1 %50, label %51, label %88
 
 51:                                               ; preds = %44
   %52 = call noundef ptr @_ZN13SharedRuntime13get_poll_stubEPh(ptr noundef %12) #12
@@ -905,7 +905,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 .thread:                                          ; preds = %.critedge89.thread
   switch i32 %0, label %thread-pre-split [
     i32 7, label %53
-    i32 8, label %82
+    i32 8, label %84
   ]
 
 53:                                               ; preds = %.thread
@@ -936,143 +936,151 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEi
 66:                                               ; preds = %55
   %67 = tail call noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr noundef %12) #12
   %.not86 = icmp eq ptr %..i, null
-  br i1 %.not86, label %74, label %68
+  br i1 %.not86, label %76, label %68
 
 .thread91:                                        ; preds = %55
   %.not8692 = icmp eq ptr %..i, null
-  br i1 %.not8692, label %.thread97, label %68
+  br i1 %.not8692, label %.thread97, label %.thread111
 
-68:                                               ; preds = %.thread91, %66
-  %69 = phi i1 [ false, %.thread91 ], [ %67, %66 ]
-  %70 = getelementptr inbounds nuw i8, ptr %54, i64 212
-  %71 = load i8, ptr %70, align 4
-  %72 = and i8 %71, 1
-  %73 = icmp ne i8 %72, 0
-  %or.cond5 = or i1 %69, %73
-  br i1 %or.cond5, label %76, label %.thread97
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %54, i64 212
+  %70 = load i8, ptr %69, align 4
+  %71 = trunc i8 %70 to i1
+  %or.cond5 = or i1 %67, %71
+  br i1 %or.cond5, label %78, label %.thread97
 
-74:                                               ; preds = %66
+.thread111:                                       ; preds = %.thread91
+  %72 = getelementptr inbounds nuw i8, ptr %54, i64 212
+  %73 = load i8, ptr %72, align 4
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %.thread113, label %.thread97
+
+.thread113:                                       ; preds = %.thread111
+  %75 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #12
+  br label %82
+
+76:                                               ; preds = %66
   br i1 %67, label %.thread94, label %.thread97
 
-.thread94:                                        ; preds = %.thread100, %74
-  %75 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #12
-  br label %78
-
-76:                                               ; preds = %68
+.thread94:                                        ; preds = %.thread100, %76
   %77 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #12
-  br i1 %69, label %78, label %80
-
-78:                                               ; preds = %.thread94, %76
-  %79 = tail call noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(ptr noundef %12) #12
   br label %80
 
-80:                                               ; preds = %78, %76
-  %.076 = phi ptr [ %79, %78 ], [ %77, %76 ]
-  %81 = tail call noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef nonnull %3, ptr noundef %.076) #12
+78:                                               ; preds = %68
+  %79 = tail call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #12
+  br i1 %67, label %80, label %82
+
+80:                                               ; preds = %.thread94, %78
+  %81 = tail call noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(ptr noundef %12) #12
+  br label %82
+
+82:                                               ; preds = %.thread113, %80, %78
+  %.076 = phi ptr [ %81, %80 ], [ %79, %78 ], [ %75, %.thread113 ]
+  %83 = tail call noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef nonnull %3, ptr noundef %.076) #12
   br label %.thread97.sink.split
 
-82:                                               ; preds = %.thread
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %84 = load i32, ptr %83, align 8
-  switch i32 %84, label %thread-pre-split [
+84:                                               ; preds = %.thread
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %86 = load i32, ptr %85, align 8
+  switch i32 %86, label %thread-pre-split [
     i32 1, label %.thread98
     i32 3, label %.thread98
   ]
 
-.thread98:                                        ; preds = %82, %82
-  %85 = tail call noundef ptr @_ZN13SharedRuntime35continuation_for_implicit_exceptionEP10JavaThreadPhNS_21ImplicitExceptionKindE(ptr noundef nonnull %3, ptr noundef %12, i32 noundef 1) #12
-  br label %111
+.thread98:                                        ; preds = %84, %84
+  %87 = tail call noundef ptr @_ZN13SharedRuntime35continuation_for_implicit_exceptionEP10JavaThreadPhNS_21ImplicitExceptionKindE(ptr noundef nonnull %3, ptr noundef %12, i32 noundef 1) #12
+  br label %113
 
-86:                                               ; preds = %44
-  %87 = call noundef zeroext i1 @_ZN14MacroAssembler24uses_implicit_null_checkEPv(ptr noundef %45) #12
-  br i1 %87, label %88, label %.thread97
+88:                                               ; preds = %44
+  %89 = call noundef zeroext i1 @_ZN14MacroAssembler24uses_implicit_null_checkEPv(ptr noundef %45) #12
+  br i1 %89, label %90, label %.thread97
 
-88:                                               ; preds = %86
-  %89 = call noundef ptr @_ZN13SharedRuntime35continuation_for_implicit_exceptionEP10JavaThreadPhNS_21ImplicitExceptionKindE(ptr noundef nonnull %3, ptr noundef %12, i32 noundef 0) #12
+90:                                               ; preds = %88
+  %91 = call noundef ptr @_ZN13SharedRuntime35continuation_for_implicit_exceptionEP10JavaThreadPhNS_21ImplicitExceptionKindE(ptr noundef nonnull %3, ptr noundef %12, i32 noundef 0) #12
   br label %.thread97.sink.split
 
-90:                                               ; preds = %.critedge89.thread, %.critedge89
-  %91 = phi ptr [ %41, %.critedge89.thread ], [ %38, %.critedge89 ]
-  %92 = load volatile i32, ptr %91, align 4
-  %93 = icmp eq i32 %92, 6
-  br i1 %93, label %98, label %94
+92:                                               ; preds = %.critedge89.thread, %.critedge89
+  %93 = phi ptr [ %41, %.critedge89.thread ], [ %38, %.critedge89 ]
+  %94 = load volatile i32, ptr %93, align 4
+  %95 = icmp eq i32 %94, 6
+  br i1 %95, label %100, label %96
 
-94:                                               ; preds = %90
-  %95 = load volatile i32, ptr %91, align 4
-  %96 = icmp eq i32 %95, 4
-  %97 = icmp eq i32 %0, 7
-  %or.cond8 = and i1 %97, %96
-  br i1 %or.cond8, label %99, label %.thread95
+96:                                               ; preds = %92
+  %97 = load volatile i32, ptr %93, align 4
+  %98 = icmp eq i32 %97, 4
+  %99 = icmp eq i32 %0, 7
+  %or.cond8 = and i1 %99, %98
+  br i1 %or.cond8, label %101, label %.thread95
 
-98:                                               ; preds = %90
+100:                                              ; preds = %92
   switch i32 %0, label %thread-pre-split [
-    i32 7, label %99
+    i32 7, label %101
     i32 11, label %.thread97
   ]
 
-99:                                               ; preds = %98, %94
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 1136
-  %101 = load volatile i8, ptr %100, align 8
-  %102 = trunc i8 %101 to i1
-  br i1 %102, label %103, label %.thread97
+101:                                              ; preds = %100, %96
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 1136
+  %103 = load volatile i8, ptr %102, align 8
+  %104 = trunc i8 %103 to i1
+  br i1 %104, label %105, label %.thread97
 
-103:                                              ; preds = %99
-  %104 = call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #12
-  %105 = call noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr noundef %12) #12
-  br i1 %105, label %106, label %108
+105:                                              ; preds = %101
+  %106 = call noundef ptr @_ZN9Assembler23locate_next_instructionEPh(ptr noundef %12) #12
+  %107 = call noundef zeroext i1 @_ZN18UnsafeMemoryAccess11contains_pcEPh(ptr noundef %12) #12
+  br i1 %107, label %108, label %110
 
-106:                                              ; preds = %103
-  %107 = call noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(ptr noundef %12) #12
-  br label %108
+108:                                              ; preds = %105
+  %109 = call noundef ptr @_ZN18UnsafeMemoryAccess22page_error_continue_pcEPh(ptr noundef %12) #12
+  br label %110
 
-108:                                              ; preds = %106, %103
-  %.075 = phi ptr [ %107, %106 ], [ %104, %103 ]
-  %109 = call noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef nonnull %3, ptr noundef %.075) #12
+110:                                              ; preds = %108, %105
+  %.075 = phi ptr [ %109, %108 ], [ %106, %105 ]
+  %111 = call noundef ptr @_ZN13SharedRuntime20handle_unsafe_accessEP10JavaThreadPh(ptr noundef nonnull %3, ptr noundef %.075) #12
   br label %.thread97.sink.split
 
-.thread95:                                        ; preds = %94
+.thread95:                                        ; preds = %96
   switch i32 %0, label %thread-pre-split [
     i32 11, label %.thread97
     i32 7, label %.thread97
   ]
 
-.thread97.sink.split:                             ; preds = %108, %51, %88, %80
-  %.sink = phi ptr [ %81, %80 ], [ %89, %88 ], [ %52, %51 ], [ %109, %108 ]
+.thread97.sink.split:                             ; preds = %110, %51, %90, %82
+  %.sink = phi ptr [ %83, %82 ], [ %91, %90 ], [ %52, %51 ], [ %111, %110 ]
   store ptr %.sink, ptr %5, align 8
   br label %.thread97
 
-.thread97:                                        ; preds = %.thread97.sink.split, %.thread99, %.thread100, %.thread91, %68, %74, %86, %99, %98, %.thread95, %.thread95
-  %110 = call noundef ptr @_ZN16JNI_FastGetField16find_slowcase_pcEPh(ptr noundef %12) #12
-  %.not87 = icmp eq ptr %110, inttoptr (i64 -1 to ptr)
-  br i1 %.not87, label %thread-pre-split, label %111
+.thread97:                                        ; preds = %.thread97.sink.split, %.thread111, %.thread99, %.thread100, %.thread91, %68, %76, %88, %101, %100, %.thread95, %.thread95
+  %112 = call noundef ptr @_ZN16JNI_FastGetField16find_slowcase_pcEPh(ptr noundef %12) #12
+  %.not87 = icmp eq ptr %112, inttoptr (i64 -1 to ptr)
+  br i1 %.not87, label %thread-pre-split, label %113
 
-thread-pre-split:                                 ; preds = %.thread, %82, %4, %.thread97, %.thread95, %98
-  %.077.ph = phi ptr [ %12, %98 ], [ null, %4 ], [ %12, %.thread95 ], [ %12, %.thread97 ], [ %12, %82 ], [ %12, %.thread ]
+thread-pre-split:                                 ; preds = %.thread, %84, %4, %.thread97, %.thread95, %100
+  %.077.ph = phi ptr [ %12, %100 ], [ null, %4 ], [ %12, %.thread95 ], [ %12, %.thread97 ], [ %12, %84 ], [ %12, %.thread ]
   %.pr = load ptr, ptr %5, align 8
-  br label %111
+  br label %113
 
-111:                                              ; preds = %.thread97, %thread-pre-split, %.thread98
-  %112 = phi ptr [ %.pr, %thread-pre-split ], [ %85, %.thread98 ], [ %110, %.thread97 ]
+113:                                              ; preds = %.thread97, %thread-pre-split, %.thread98
+  %114 = phi ptr [ %.pr, %thread-pre-split ], [ %87, %.thread98 ], [ %112, %.thread97 ]
   %.077 = phi ptr [ %.077.ph, %thread-pre-split ], [ %12, %.thread98 ], [ %12, %.thread97 ]
-  %.not88 = icmp eq ptr %112, null
-  br i1 %.not88, label %119, label %113
+  %.not88 = icmp eq ptr %114, null
+  br i1 %.not88, label %121, label %115
 
-113:                                              ; preds = %111
-  br i1 %8, label %114, label %116
+115:                                              ; preds = %113
+  br i1 %8, label %116, label %118
 
-114:                                              ; preds = %113
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 1120
-  store ptr %.077, ptr %115, align 8
-  br label %116
+116:                                              ; preds = %115
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 1120
+  store ptr %.077, ptr %117, align 8
+  br label %118
 
-116:                                              ; preds = %114, %113
-  %117 = ptrtoint ptr %112 to i64
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  store i64 %117, ptr %118, align 8
-  br label %119
+118:                                              ; preds = %116, %115
+  %119 = ptrtoint ptr %114 to i64
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  store i64 %119, ptr %120, align 8
+  br label %121
 
-119:                                              ; preds = %111, %32, %18, %116
-  %.0 = phi i1 [ true, %32 ], [ false, %18 ], [ true, %116 ], [ false, %111 ]
+121:                                              ; preds = %113, %32, %18, %118
+  %.0 = phi i1 [ true, %32 ], [ false, %18 ], [ true, %118 ], [ false, %113 ]
   ret i1 %.0
 }
 

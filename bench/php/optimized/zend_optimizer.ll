@@ -3358,17 +3358,17 @@ define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr noundef re
     i8 59, label %55
     i8 69, label %55
     i8 113, label %113
-    i8 112, label %206
-    i8 -47, label %281
-    i8 68, label %324
+    i8 112, label %205
+    i8 -47, label %280
+    i8 68, label %323
   ]
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !104
   %10 = and i32 %9, 33554432
-  %.not179 = icmp eq i32 %10, 0
-  br i1 %.not179, label %16, label %11
+  %.not177 = icmp eq i32 %10, 0
+  br i1 %.not177, label %16, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -3389,31 +3389,31 @@ define hidden ptr @zend_optimizer_get_called_func(ptr noundef %0, ptr noundef re
 23:                                               ; preds = %16, %11
   %24 = phi ptr [ %15, %11 ], [ %22, %16 ]
   %25 = load ptr, ptr %24, align 8, !tbaa !20
-  %.not180 = icmp eq ptr %0, null
-  br i1 %.not180, label %zend_hash_find_ptr.exit198.thread, label %26
+  %.not178 = icmp eq ptr %0, null
+  br i1 %.not178, label %zend_hash_find_ptr.exit196.thread, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %28 = tail call ptr @zend_hash_find(ptr noundef nonnull %27, ptr noundef %25) #20
-  %.not.i196 = icmp eq ptr %28, null
-  br i1 %.not.i196, label %zend_hash_find_ptr.exit198.thread, label %zend_hash_find_ptr.exit198
+  %.not.i194 = icmp eq ptr %28, null
+  br i1 %.not.i194, label %zend_hash_find_ptr.exit196.thread, label %zend_hash_find_ptr.exit196
 
-zend_hash_find_ptr.exit198:                       ; preds = %26
+zend_hash_find_ptr.exit196:                       ; preds = %26
   %29 = load ptr, ptr %28, align 8, !tbaa !20, !nonnull !57, !noundef !57
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit198.thread:                ; preds = %26, %23
+zend_hash_find_ptr.exit196.thread:                ; preds = %26, %23
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8, !tbaa !27
   %31 = tail call ptr @zend_hash_find(ptr noundef %30, ptr noundef %25) #20
-  %.not182 = icmp eq ptr %31, null
-  br i1 %.not182, label %.thread, label %32
+  %.not180 = icmp eq ptr %31, null
+  br i1 %.not180, label %.thread, label %32
 
-32:                                               ; preds = %zend_hash_find_ptr.exit198.thread
+32:                                               ; preds = %zend_hash_find_ptr.exit196.thread
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %34 = load ptr, ptr %33, align 8, !tbaa !119
   %35 = load ptr, ptr %31, align 8, !tbaa !20
   %36 = load i8, ptr %35, align 8, !tbaa !20
-  switch i8 %36, label %zend_optimizer_ignore_function.exit.thread218 [
+  switch i8 %36, label %zend_optimizer_ignore_function.exit.thread216 [
     i8 1, label %zend_hash_find_ptr.exit
     i8 2, label %37
   ]
@@ -3422,8 +3422,8 @@ zend_hash_find_ptr.exit198.thread:                ; preds = %26, %23
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = and i32 %39, 1024
-  %.not.i199 = icmp eq i32 %40, 0
-  br i1 %.not.i199, label %zend_optimizer_ignore_function.exit, label %41
+  %.not.i197 = icmp eq i32 %40, 0
+  br i1 %.not.i197, label %zend_optimizer_ignore_function.exit, label %41
 
 41:                                               ; preds = %37
   %42 = ptrtoint ptr %31 to i64
@@ -3438,7 +3438,7 @@ zend_hash_find_ptr.exit198.thread:                ; preds = %26, %23
   %.not15.i = icmp ult i64 %48, %50
   br i1 %.not15.i, label %zend_hash_find_ptr.exit, label %zend_optimizer_ignore_function.exit
 
-zend_optimizer_ignore_function.exit.thread218:    ; preds = %32
+zend_optimizer_ignore_function.exit.thread216:    ; preds = %32
   %51 = icmp eq i8 %36, 4
   tail call void @llvm.assume(i1 %51)
   br label %.thread
@@ -3451,7 +3451,7 @@ zend_optimizer_ignore_function.exit:              ; preds = %37, %41
   %spec.select.i = or i1 %.not16.i, %54
   br i1 %spec.select.i, label %.thread, label %zend_hash_find_ptr.exit
 
-.thread:                                          ; preds = %zend_hash_find_ptr.exit198.thread, %zend_optimizer_ignore_function.exit, %zend_optimizer_ignore_function.exit.thread218
+.thread:                                          ; preds = %zend_hash_find_ptr.exit196.thread, %zend_optimizer_ignore_function.exit, %zend_optimizer_ignore_function.exit.thread216
   br label %zend_hash_find_ptr.exit
 
 55:                                               ; preds = %4, %4
@@ -3464,8 +3464,8 @@ zend_optimizer_ignore_function.exit:              ; preds = %37, %41
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !104
   %62 = and i32 %61, 33554432
-  %.not174 = icmp eq i32 %62, 0
-  br i1 %.not174, label %63, label %.thread222
+  %.not172 = icmp eq i32 %62, 0
+  br i1 %.not172, label %63, label %.thread220
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -3477,9 +3477,9 @@ zend_optimizer_ignore_function.exit:              ; preds = %37, %41
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !20
   %72 = icmp eq i8 %71, 6
-  br i1 %72, label %.thread223, label %zend_hash_find_ptr.exit
+  br i1 %72, label %.thread221, label %zend_hash_find_ptr.exit
 
-.thread222:                                       ; preds = %59
+.thread220:                                       ; preds = %59
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %74 = load i32, ptr %73, align 4, !tbaa !20
   %75 = sext i32 %74 to i64
@@ -3487,38 +3487,38 @@ zend_optimizer_ignore_function.exit:              ; preds = %37, %41
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i8, ptr %77, align 8, !tbaa !20
   %79 = icmp eq i8 %78, 6
-  br i1 %79, label %.thread223, label %zend_hash_find_ptr.exit
+  br i1 %79, label %.thread221, label %zend_hash_find_ptr.exit
 
-.thread223:                                       ; preds = %63, %.thread222
-  %80 = phi ptr [ %76, %.thread222 ], [ %69, %63 ]
+.thread221:                                       ; preds = %63, %.thread220
+  %80 = phi ptr [ %76, %.thread220 ], [ %69, %63 ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %.not176 = icmp eq ptr %0, null
-  br i1 %.not176, label %zend_hash_find_ptr.exit195.thread, label %82
+  %.not174 = icmp eq ptr %0, null
+  br i1 %.not174, label %zend_hash_find_ptr.exit193.thread, label %82
 
-82:                                               ; preds = %.thread223
+82:                                               ; preds = %.thread221
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %84 = load ptr, ptr %81, align 8, !tbaa !20
   %85 = tail call ptr @zend_hash_find(ptr noundef nonnull %83, ptr noundef %84) #20
-  %.not.i193 = icmp eq ptr %85, null
-  br i1 %.not.i193, label %zend_hash_find_ptr.exit195.thread, label %zend_hash_find_ptr.exit195
+  %.not.i191 = icmp eq ptr %85, null
+  br i1 %.not.i191, label %zend_hash_find_ptr.exit193.thread, label %zend_hash_find_ptr.exit193
 
-zend_hash_find_ptr.exit195:                       ; preds = %82
+zend_hash_find_ptr.exit193:                       ; preds = %82
   %86 = load ptr, ptr %85, align 8, !tbaa !20, !nonnull !57, !noundef !57
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit195.thread:                ; preds = %82, %.thread223
+zend_hash_find_ptr.exit193.thread:                ; preds = %82, %.thread221
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8, !tbaa !27
   %88 = load ptr, ptr %81, align 8, !tbaa !20
   %89 = tail call ptr @zend_hash_find(ptr noundef %87, ptr noundef %88) #20
-  %.not178 = icmp eq ptr %89, null
-  br i1 %.not178, label %.thread230, label %90
+  %.not176 = icmp eq ptr %89, null
+  br i1 %.not176, label %.thread228, label %90
 
-90:                                               ; preds = %zend_hash_find_ptr.exit195.thread
+90:                                               ; preds = %zend_hash_find_ptr.exit193.thread
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %92 = load ptr, ptr %91, align 8, !tbaa !119
   %93 = load ptr, ptr %89, align 8, !tbaa !20
   %94 = load i8, ptr %93, align 8, !tbaa !20
-  switch i8 %94, label %zend_optimizer_ignore_function.exit206.thread227 [
+  switch i8 %94, label %zend_optimizer_ignore_function.exit204.thread225 [
     i8 1, label %zend_hash_find_ptr.exit
     i8 2, label %95
   ]
@@ -3527,8 +3527,8 @@ zend_hash_find_ptr.exit195.thread:                ; preds = %82, %.thread223
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !20
   %98 = and i32 %97, 1024
-  %.not.i201 = icmp eq i32 %98, 0
-  br i1 %.not.i201, label %zend_optimizer_ignore_function.exit206, label %99
+  %.not.i199 = icmp eq i32 %98, 0
+  br i1 %.not.i199, label %zend_optimizer_ignore_function.exit204, label %99
 
 99:                                               ; preds = %95
   %100 = ptrtoint ptr %89 to i64
@@ -3540,23 +3540,23 @@ zend_hash_find_ptr.exit195.thread:                ; preds = %82, %.thread223
   %106 = ashr exact i64 %105, 5
   %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 564), align 4, !tbaa !139
   %108 = zext i32 %107 to i64
-  %.not15.i202 = icmp ult i64 %106, %108
-  br i1 %.not15.i202, label %zend_hash_find_ptr.exit, label %zend_optimizer_ignore_function.exit206
+  %.not15.i200 = icmp ult i64 %106, %108
+  br i1 %.not15.i200, label %zend_hash_find_ptr.exit, label %zend_optimizer_ignore_function.exit204
 
-zend_optimizer_ignore_function.exit206.thread227: ; preds = %90
+zend_optimizer_ignore_function.exit204.thread225: ; preds = %90
   %109 = icmp eq i8 %94, 4
   tail call void @llvm.assume(i1 %109)
-  br label %.thread230
+  br label %.thread228
 
-zend_optimizer_ignore_function.exit206:           ; preds = %95, %99
+zend_optimizer_ignore_function.exit204:           ; preds = %95, %99
   %110 = getelementptr inbounds nuw i8, ptr %93, i64 168
   %111 = load ptr, ptr %110, align 8, !tbaa !20
-  %.not16.i203 = icmp eq ptr %111, null
+  %.not16.i201 = icmp eq ptr %111, null
   %112 = icmp ne ptr %111, %92
-  %spec.select.i204 = or i1 %.not16.i203, %112
-  br i1 %spec.select.i204, label %.thread230, label %zend_hash_find_ptr.exit
+  %spec.select.i202 = or i1 %.not16.i201, %112
+  br i1 %spec.select.i202, label %.thread228, label %zend_hash_find_ptr.exit
 
-.thread230:                                       ; preds = %zend_hash_find_ptr.exit195.thread, %zend_optimizer_ignore_function.exit206, %zend_optimizer_ignore_function.exit206.thread227
+.thread228:                                       ; preds = %zend_hash_find_ptr.exit193.thread, %zend_optimizer_ignore_function.exit204, %zend_optimizer_ignore_function.exit204.thread225
   br label %zend_hash_find_ptr.exit
 
 113:                                              ; preds = %4
@@ -3598,7 +3598,7 @@ zend_optimizer_ignore_function.exit206:           ; preds = %95, %99
 138:                                              ; preds = %133
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 29
   %140 = load i8, ptr %139, align 1, !tbaa !82
-  switch i8 %140, label %.thread243 [
+  switch i8 %140, label %.thread241 [
     i8 1, label %141
     i8 0, label %159
   ]
@@ -3627,26 +3627,26 @@ zend_optimizer_ignore_function.exit206:           ; preds = %95, %99
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i8, ptr %156, align 8, !tbaa !20
   %158 = icmp eq i8 %157, 6
-  br i1 %158, label %zend_optimizer_get_class_entry_from_op1.exit, label %.thread243
+  br i1 %158, label %zend_optimizer_get_class_entry_from_op1.exit, label %.thread241
 
 159:                                              ; preds = %138
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !134
-  %.not.i207 = icmp eq ptr %161, null
-  br i1 %.not.i207, label %.thread243, label %162
+  %.not.i205 = icmp eq ptr %161, null
+  br i1 %.not.i205, label %.thread241, label %162
 
 162:                                              ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 28
   %164 = load i32, ptr %163, align 4, !tbaa !120
   %165 = and i32 %164, 2
   %.not22.i = icmp eq i32 %165, 0
-  br i1 %.not22.i, label %166, label %.thread243
+  br i1 %.not22.i, label %166, label %.thread241
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %168 = load i32, ptr %167, align 8, !tbaa !20
   %169 = and i32 %168, 15
-  switch i32 %169, label %.thread243 [
+  switch i32 %169, label %.thread241 [
     i32 1, label %zend_optimizer_get_class_entry_from_op1.exit.thread
     i32 3, label %170
   ]
@@ -3654,14 +3654,14 @@ zend_optimizer_ignore_function.exit206:           ; preds = %95, %99
 170:                                              ; preds = %166
   %171 = and i32 %164, 32
   %.not23.i = icmp eq i32 %171, 0
-  br i1 %.not23.i, label %.thread243, label %zend_optimizer_get_class_entry_from_op1.exit.thread
+  br i1 %.not23.i, label %.thread241, label %zend_optimizer_get_class_entry_from_op1.exit.thread
 
 zend_optimizer_get_class_entry_from_op1.exit:     ; preds = %154
   %172 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !20
   %174 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %173)
   %.not169 = icmp eq ptr %174, null
-  br i1 %.not169, label %.thread243, label %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge
+  br i1 %.not169, label %.thread241, label %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge
 
 zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge: ; preds = %zend_optimizer_get_class_entry_from_op1.exit
   %.pre = load i32, ptr %118, align 4, !tbaa !104
@@ -3669,7 +3669,7 @@ zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from
 
 zend_optimizer_get_class_entry_from_op1.exit.thread: ; preds = %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge, %170, %166
   %175 = phi i32 [ %.pre, %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge ], [ %119, %166 ], [ %119, %170 ]
-  %.1.i235 = phi ptr [ %174, %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge ], [ %161, %166 ], [ %161, %170 ]
+  %.1.i233 = phi ptr [ %174, %zend_optimizer_get_class_entry_from_op1.exit.zend_optimizer_get_class_entry_from_op1.exit.thread_crit_edge ], [ %161, %166 ], [ %161, %170 ]
   %176 = and i32 %175, 33554432
   %.not170 = icmp eq i32 %176, 0
   br i1 %.not170, label %182, label %177
@@ -3694,303 +3694,302 @@ zend_optimizer_get_class_entry_from_op1.exit.thread: ; preds = %zend_optimizer_g
   %190 = phi ptr [ %181, %177 ], [ %188, %182 ]
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !20
-  %193 = getelementptr inbounds nuw i8, ptr %.1.i235, i64 64
+  %193 = getelementptr inbounds nuw i8, ptr %.1.i233, i64 64
   %194 = tail call ptr @zend_hash_find(ptr noundef nonnull %193, ptr noundef %192) #20
-  %.not.i190 = icmp eq ptr %194, null
-  br i1 %.not.i190, label %.thread243, label %195
+  %.not.i188 = icmp eq ptr %194, null
+  br i1 %.not.i188, label %.thread241, label %195
 
 195:                                              ; preds = %189
   %196 = load ptr, ptr %194, align 8, !tbaa !20, !nonnull !57, !noundef !57
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !20
-  %199 = and i32 %198, 1
-  %200 = icmp eq i32 %199, 0
-  %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %202 = load ptr, ptr %201, align 8, !tbaa !20
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %204 = load ptr, ptr %203, align 8, !tbaa !134
-  %205 = icmp ne ptr %202, %204
-  %or.cond.not = select i1 %200, i1 %205, i1 false
-  br i1 %or.cond.not, label %.thread243, label %zend_hash_find_ptr.exit
+  %199 = trunc i32 %198 to i1
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 16
+  %201 = load ptr, ptr %200, align 8, !tbaa !20
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %203 = load ptr, ptr %202, align 8, !tbaa !134
+  %204 = icmp eq ptr %201, %203
+  %or.cond = select i1 %199, i1 true, i1 %204
+  br i1 %or.cond, label %zend_hash_find_ptr.exit, label %.thread241
 
-.thread243:                                       ; preds = %zend_optimizer_get_class_entry_from_op1.exit, %138, %154, %159, %162, %166, %170, %189, %195
+.thread241:                                       ; preds = %zend_optimizer_get_class_entry_from_op1.exit, %138, %154, %159, %162, %166, %170, %189, %195
   br label %zend_hash_find_ptr.exit
 
-206:                                              ; preds = %4
-  %207 = getelementptr inbounds nuw i8, ptr %2, i64 29
-  %208 = load i8, ptr %207, align 1, !tbaa !82
-  %209 = icmp eq i8 %208, 0
-  br i1 %209, label %210, label %zend_hash_find_ptr.exit
+205:                                              ; preds = %4
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 29
+  %207 = load i8, ptr %206, align 1, !tbaa !82
+  %208 = icmp eq i8 %207, 0
+  br i1 %208, label %209, label %zend_hash_find_ptr.exit
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %212 = load i8, ptr %211, align 2, !tbaa !84
-  %213 = icmp eq i8 %212, 1
-  br i1 %213, label %214, label %zend_hash_find_ptr.exit
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %211 = load i8, ptr %210, align 2, !tbaa !84
+  %212 = icmp eq i8 %211, 1
+  br i1 %212, label %213, label %zend_hash_find_ptr.exit
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %216 = load i32, ptr %215, align 4, !tbaa !104
-  %217 = and i32 %216, 33554432
-  %.not161 = icmp eq i32 %217, 0
-  br i1 %.not161, label %223, label %218
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %215 = load i32, ptr %214, align 4, !tbaa !104
+  %216 = and i32 %215, 33554432
+  %.not161 = icmp eq i32 %216, 0
+  br i1 %.not161, label %222, label %217
 
-218:                                              ; preds = %214
-  %219 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %220 = load i32, ptr %219, align 4, !tbaa !20
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i8, ptr %2, i64 %221
-  br label %230
+217:                                              ; preds = %213
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %219 = load i32, ptr %218, align 4, !tbaa !20
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %2, i64 %220
+  br label %229
 
-223:                                              ; preds = %214
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %225 = load ptr, ptr %224, align 8, !tbaa !87
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %227 = load i32, ptr %226, align 4, !tbaa !20
-  %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw %struct._zval_struct, ptr %225, i64 %228
-  br label %230
+222:                                              ; preds = %213
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %224 = load ptr, ptr %223, align 8, !tbaa !87
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %226 = load i32, ptr %225, align 4, !tbaa !20
+  %227 = zext i32 %226 to i64
+  %228 = getelementptr inbounds nuw %struct._zval_struct, ptr %224, i64 %227
+  br label %229
 
-230:                                              ; preds = %223, %218
-  %231 = phi i32 [ %220, %218 ], [ %227, %223 ]
-  %232 = phi ptr [ %222, %218 ], [ %229, %223 ]
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %234 = load i8, ptr %233, align 8, !tbaa !20
-  %235 = icmp eq i8 %234, 6
-  br i1 %235, label %236, label %zend_hash_find_ptr.exit
+229:                                              ; preds = %222, %217
+  %230 = phi i32 [ %219, %217 ], [ %226, %222 ]
+  %231 = phi ptr [ %221, %217 ], [ %228, %222 ]
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %233 = load i8, ptr %232, align 8, !tbaa !20
+  %234 = icmp eq i8 %233, 6
+  br i1 %234, label %235, label %zend_hash_find_ptr.exit
 
-236:                                              ; preds = %230
-  %237 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %238 = load ptr, ptr %237, align 8, !tbaa !134
-  %.not162 = icmp ne ptr %238, null
-  %239 = and i32 %216, 1048576
-  %.not163 = icmp eq i32 %239, 0
-  %or.cond = and i1 %.not163, %.not162
-  br i1 %or.cond, label %240, label %zend_hash_find_ptr.exit
+235:                                              ; preds = %229
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %237 = load ptr, ptr %236, align 8, !tbaa !134
+  %.not162 = icmp ne ptr %237, null
+  %238 = and i32 %215, 1048576
+  %.not163 = icmp eq i32 %238, 0
+  %or.cond270 = and i1 %.not163, %.not162
+  br i1 %or.cond270, label %239, label %zend_hash_find_ptr.exit
 
-240:                                              ; preds = %236
-  %241 = getelementptr inbounds nuw i8, ptr %238, i64 28
-  %242 = load i32, ptr %241, align 4, !tbaa !120
-  %243 = and i32 %242, 2
-  %.not164 = icmp eq i32 %243, 0
-  br i1 %.not164, label %244, label %zend_hash_find_ptr.exit
+239:                                              ; preds = %235
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 28
+  %241 = load i32, ptr %240, align 4, !tbaa !120
+  %242 = and i32 %241, 2
+  %.not164 = icmp eq i32 %242, 0
+  br i1 %.not164, label %243, label %zend_hash_find_ptr.exit
 
-244:                                              ; preds = %240
-  br i1 %.not161, label %248, label %245
+243:                                              ; preds = %239
+  br i1 %.not161, label %247, label %244
 
-245:                                              ; preds = %244
-  %246 = sext i32 %231 to i64
-  %247 = getelementptr inbounds i8, ptr %2, i64 %246
-  br label %253
+244:                                              ; preds = %243
+  %245 = sext i32 %230 to i64
+  %246 = getelementptr inbounds i8, ptr %2, i64 %245
+  br label %252
 
-248:                                              ; preds = %244
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %250 = load ptr, ptr %249, align 8, !tbaa !87
-  %251 = zext i32 %231 to i64
-  %252 = getelementptr inbounds nuw %struct._zval_struct, ptr %250, i64 %251
-  br label %253
+247:                                              ; preds = %243
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %249 = load ptr, ptr %248, align 8, !tbaa !87
+  %250 = zext i32 %230 to i64
+  %251 = getelementptr inbounds nuw %struct._zval_struct, ptr %249, i64 %250
+  br label %252
 
-253:                                              ; preds = %248, %245
-  %254 = phi ptr [ %247, %245 ], [ %252, %248 ]
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
-  %256 = load ptr, ptr %255, align 8, !tbaa !20
-  %257 = getelementptr inbounds nuw i8, ptr %238, i64 64
-  %258 = tail call ptr @zend_hash_find(ptr noundef nonnull %257, ptr noundef %256) #20
-  %.not.i = icmp eq ptr %258, null
-  br i1 %.not.i, label %zend_hash_find_ptr.exit, label %259
+252:                                              ; preds = %247, %244
+  %253 = phi ptr [ %246, %244 ], [ %251, %247 ]
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
+  %255 = load ptr, ptr %254, align 8, !tbaa !20
+  %256 = getelementptr inbounds nuw i8, ptr %237, i64 64
+  %257 = tail call ptr @zend_hash_find(ptr noundef nonnull %256, ptr noundef %255) #20
+  %.not.i = icmp eq ptr %257, null
+  br i1 %.not.i, label %zend_hash_find_ptr.exit, label %258
 
-259:                                              ; preds = %253
-  %260 = load ptr, ptr %258, align 8, !tbaa !20, !nonnull !57, !noundef !57
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  %262 = load i32, ptr %261, align 4, !tbaa !20
-  %263 = and i32 %262, 4
-  %.not167 = icmp eq i32 %263, 0
-  br i1 %.not167, label %270, label %264
+258:                                              ; preds = %252
+  %259 = load ptr, ptr %257, align 8, !tbaa !20, !nonnull !57, !noundef !57
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 4
+  %261 = load i32, ptr %260, align 4, !tbaa !20
+  %262 = and i32 %261, 4
+  %.not167 = icmp eq i32 %262, 0
+  br i1 %.not167, label %269, label %263
 
-264:                                              ; preds = %259
-  %265 = getelementptr inbounds nuw i8, ptr %260, i64 16
-  %266 = load ptr, ptr %265, align 8, !tbaa !20
-  %267 = load ptr, ptr %237, align 8, !tbaa !134
-  %268 = icmp eq ptr %266, %267
-  %269 = select i1 %268, ptr %260, ptr null
+263:                                              ; preds = %258
+  %264 = getelementptr inbounds nuw i8, ptr %259, i64 16
+  %265 = load ptr, ptr %264, align 8, !tbaa !20
+  %266 = load ptr, ptr %236, align 8, !tbaa !134
+  %267 = icmp eq ptr %265, %266
+  %268 = select i1 %267, ptr %259, ptr null
   br label %zend_hash_find_ptr.exit
 
-270:                                              ; preds = %259
-  %271 = and i32 %262, 32
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %zend_hash_find_ptr.exit
+269:                                              ; preds = %258
+  %270 = and i32 %261, 32
+  %271 = icmp eq i32 %270, 0
+  br i1 %271, label %272, label %zend_hash_find_ptr.exit
 
-273:                                              ; preds = %270
-  %274 = getelementptr inbounds nuw i8, ptr %260, i64 16
-  %275 = load ptr, ptr %274, align 8, !tbaa !20
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 28
-  %277 = load i32, ptr %276, align 4, !tbaa !120
-  %278 = and i32 %277, 32
-  %279 = icmp eq i32 %278, 0
-  br i1 %279, label %280, label %zend_hash_find_ptr.exit
+272:                                              ; preds = %269
+  %273 = getelementptr inbounds nuw i8, ptr %259, i64 16
+  %274 = load ptr, ptr %273, align 8, !tbaa !20
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 28
+  %276 = load i32, ptr %275, align 4, !tbaa !120
+  %277 = and i32 %276, 32
+  %278 = icmp eq i32 %277, 0
+  br i1 %278, label %279, label %zend_hash_find_ptr.exit
 
-280:                                              ; preds = %273
+279:                                              ; preds = %272
   store i8 1, ptr %3, align 1, !tbaa !138
   br label %zend_hash_find_ptr.exit
 
-281:                                              ; preds = %4
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %283 = load ptr, ptr %282, align 8, !tbaa !134, !nonnull !57, !noundef !57
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 28
-  %285 = load i32, ptr %284, align 4, !tbaa !120
-  %286 = and i32 %285, 8
-  %.not155 = icmp eq i32 %286, 0
-  br i1 %.not155, label %zend_hash_find_ptr.exit, label %287
+280:                                              ; preds = %4
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %282 = load ptr, ptr %281, align 8, !tbaa !134, !nonnull !57, !noundef !57
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 28
+  %284 = load i32, ptr %283, align 4, !tbaa !120
+  %285 = and i32 %284, 8
+  %.not155 = icmp eq i32 %285, 0
+  br i1 %.not155, label %zend_hash_find_ptr.exit, label %286
 
-287:                                              ; preds = %281
-  %288 = getelementptr inbounds nuw i8, ptr %283, i64 16
-  %289 = load ptr, ptr %288, align 8, !tbaa !20
-  %.not156 = icmp eq ptr %289, null
-  br i1 %.not156, label %zend_hash_find_ptr.exit, label %290
+286:                                              ; preds = %280
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %288 = load ptr, ptr %287, align 8, !tbaa !20
+  %.not156 = icmp eq ptr %288, null
+  br i1 %.not156, label %zend_hash_find_ptr.exit, label %289
 
-290:                                              ; preds = %287
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %292 = load i32, ptr %291, align 4, !tbaa !104
-  %293 = and i32 %292, 33554432
-  %.not157 = icmp eq i32 %293, 0
-  br i1 %.not157, label %299, label %294
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %291 = load i32, ptr %290, align 4, !tbaa !104
+  %292 = and i32 %291, 33554432
+  %.not157 = icmp eq i32 %292, 0
+  br i1 %.not157, label %298, label %293
 
-294:                                              ; preds = %290
-  %295 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %296 = load i32, ptr %295, align 8, !tbaa !20
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds i8, ptr %2, i64 %297
-  br label %306
+293:                                              ; preds = %289
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %295 = load i32, ptr %294, align 8, !tbaa !20
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr inbounds i8, ptr %2, i64 %296
+  br label %305
 
-299:                                              ; preds = %290
-  %300 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %301 = load ptr, ptr %300, align 8, !tbaa !87
-  %302 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %303 = load i32, ptr %302, align 8, !tbaa !20
-  %304 = zext i32 %303 to i64
-  %305 = getelementptr inbounds nuw %struct._zval_struct, ptr %301, i64 %304
-  br label %306
+298:                                              ; preds = %289
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %300 = load ptr, ptr %299, align 8, !tbaa !87
+  %301 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %302 = load i32, ptr %301, align 8, !tbaa !20
+  %303 = zext i32 %302 to i64
+  %304 = getelementptr inbounds nuw %struct._zval_struct, ptr %300, i64 %303
+  br label %305
 
-306:                                              ; preds = %299, %294
-  %307 = phi ptr [ %298, %294 ], [ %305, %299 ]
-  %308 = load ptr, ptr %307, align 8, !tbaa !20
-  %309 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %310 = load i32, ptr %309, align 4, !tbaa !20
-  %311 = tail call ptr @zend_get_property_info(ptr noundef nonnull %289, ptr noundef %308, i32 noundef 1) #20
-  %magicptr = ptrtoint ptr %311 to i64
+305:                                              ; preds = %298, %293
+  %306 = phi ptr [ %297, %293 ], [ %304, %298 ]
+  %307 = load ptr, ptr %306, align 8, !tbaa !20
+  %308 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %309 = load i32, ptr %308, align 4, !tbaa !20
+  %310 = tail call ptr @zend_get_property_info(ptr noundef nonnull %288, ptr noundef %307, i32 noundef 1) #20
+  %magicptr = ptrtoint ptr %310 to i64
   %magicptr.off = add i64 %magicptr, -1
   %switch = icmp ult i64 %magicptr.off, -2
-  br i1 %switch, label %312, label %zend_hash_find_ptr.exit
+  br i1 %switch, label %311, label %zend_hash_find_ptr.exit
 
-312:                                              ; preds = %306
-  %313 = getelementptr inbounds nuw i8, ptr %311, i64 4
-  %314 = load i32, ptr %313, align 4, !tbaa !140
-  %315 = and i32 %314, 4
-  %.not158 = icmp eq i32 %315, 0
-  br i1 %.not158, label %316, label %zend_hash_find_ptr.exit
+311:                                              ; preds = %305
+  %312 = getelementptr inbounds nuw i8, ptr %310, i64 4
+  %313 = load i32, ptr %312, align 4, !tbaa !140
+  %314 = and i32 %313, 4
+  %.not158 = icmp eq i32 %314, 0
+  br i1 %.not158, label %315, label %zend_hash_find_ptr.exit
 
-316:                                              ; preds = %312
-  %317 = getelementptr inbounds nuw i8, ptr %311, i64 64
-  %318 = load ptr, ptr %317, align 8, !tbaa !143
-  %.not159 = icmp eq ptr %318, null
-  br i1 %.not159, label %zend_hash_find_ptr.exit, label %319
+315:                                              ; preds = %311
+  %316 = getelementptr inbounds nuw i8, ptr %310, i64 64
+  %317 = load ptr, ptr %316, align 8, !tbaa !143
+  %.not159 = icmp eq ptr %317, null
+  br i1 %.not159, label %zend_hash_find_ptr.exit, label %318
 
-319:                                              ; preds = %316
-  %320 = zext i32 %310 to i64
-  %321 = getelementptr inbounds nuw ptr, ptr %318, i64 %320
-  %322 = load ptr, ptr %321, align 8, !tbaa !144
-  %.not160 = icmp eq ptr %322, null
-  br i1 %.not160, label %zend_hash_find_ptr.exit, label %323
+318:                                              ; preds = %315
+  %319 = zext i32 %309 to i64
+  %320 = getelementptr inbounds nuw ptr, ptr %317, i64 %319
+  %321 = load ptr, ptr %320, align 8, !tbaa !144
+  %.not160 = icmp eq ptr %321, null
+  br i1 %.not160, label %zend_hash_find_ptr.exit, label %322
 
-323:                                              ; preds = %319
+322:                                              ; preds = %318
   store i8 0, ptr %3, align 1, !tbaa !138
   br label %zend_hash_find_ptr.exit
 
-324:                                              ; preds = %4
-  %325 = getelementptr inbounds nuw i8, ptr %2, i64 29
-  %326 = load i8, ptr %325, align 1, !tbaa !82
-  switch i8 %326, label %zend_hash_find_ptr.exit [
-    i8 1, label %327
-    i8 0, label %348
+323:                                              ; preds = %4
+  %324 = getelementptr inbounds nuw i8, ptr %2, i64 29
+  %325 = load i8, ptr %324, align 1, !tbaa !82
+  switch i8 %325, label %zend_hash_find_ptr.exit [
+    i8 1, label %326
+    i8 0, label %347
   ]
 
-327:                                              ; preds = %324
-  %328 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %329 = load i32, ptr %328, align 4, !tbaa !104
-  %330 = and i32 %329, 33554432
-  %.not24.i213 = icmp eq i32 %330, 0
-  br i1 %.not24.i213, label %336, label %331
+326:                                              ; preds = %323
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %328 = load i32, ptr %327, align 4, !tbaa !104
+  %329 = and i32 %328, 33554432
+  %.not24.i211 = icmp eq i32 %329, 0
+  br i1 %.not24.i211, label %335, label %330
 
-331:                                              ; preds = %327
-  %332 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %333 = load i32, ptr %332, align 8, !tbaa !20
-  %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds i8, ptr %2, i64 %334
-  br label %343
+330:                                              ; preds = %326
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %332 = load i32, ptr %331, align 8, !tbaa !20
+  %333 = sext i32 %332 to i64
+  %334 = getelementptr inbounds i8, ptr %2, i64 %333
+  br label %342
 
-336:                                              ; preds = %327
-  %337 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %338 = load ptr, ptr %337, align 8, !tbaa !87
-  %339 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %340 = load i32, ptr %339, align 8, !tbaa !20
-  %341 = zext i32 %340 to i64
-  %342 = getelementptr inbounds nuw %struct._zval_struct, ptr %338, i64 %341
-  br label %343
+335:                                              ; preds = %326
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %337 = load ptr, ptr %336, align 8, !tbaa !87
+  %338 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %339 = load i32, ptr %338, align 8, !tbaa !20
+  %340 = zext i32 %339 to i64
+  %341 = getelementptr inbounds nuw %struct._zval_struct, ptr %337, i64 %340
+  br label %342
 
-343:                                              ; preds = %336, %331
-  %344 = phi ptr [ %335, %331 ], [ %342, %336 ]
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %346 = load i8, ptr %345, align 8, !tbaa !20
-  %347 = icmp eq i8 %346, 6
-  br i1 %347, label %zend_optimizer_get_class_entry_from_op1.exit214, label %zend_hash_find_ptr.exit
+342:                                              ; preds = %335, %330
+  %343 = phi ptr [ %334, %330 ], [ %341, %335 ]
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %345 = load i8, ptr %344, align 8, !tbaa !20
+  %346 = icmp eq i8 %345, 6
+  br i1 %346, label %zend_optimizer_get_class_entry_from_op1.exit212, label %zend_hash_find_ptr.exit
 
-348:                                              ; preds = %324
-  %349 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %350 = load ptr, ptr %349, align 8, !tbaa !134
-  %.not.i208 = icmp eq ptr %350, null
-  br i1 %.not.i208, label %zend_hash_find_ptr.exit, label %351
+347:                                              ; preds = %323
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %349 = load ptr, ptr %348, align 8, !tbaa !134
+  %.not.i206 = icmp eq ptr %349, null
+  br i1 %.not.i206, label %zend_hash_find_ptr.exit, label %350
 
-351:                                              ; preds = %348
-  %352 = getelementptr inbounds nuw i8, ptr %350, i64 28
-  %353 = load i32, ptr %352, align 4, !tbaa !120
-  %354 = and i32 %353, 2
-  %.not22.i209 = icmp eq i32 %354, 0
-  br i1 %.not22.i209, label %355, label %zend_hash_find_ptr.exit
+350:                                              ; preds = %347
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 28
+  %352 = load i32, ptr %351, align 4, !tbaa !120
+  %353 = and i32 %352, 2
+  %.not22.i207 = icmp eq i32 %353, 0
+  br i1 %.not22.i207, label %354, label %zend_hash_find_ptr.exit
 
-355:                                              ; preds = %351
-  %356 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %357 = load i32, ptr %356, align 8, !tbaa !20
-  %358 = and i32 %357, 15
-  switch i32 %358, label %zend_hash_find_ptr.exit [
-    i32 1, label %zend_optimizer_get_class_entry_from_op1.exit214.thread
-    i32 3, label %359
+354:                                              ; preds = %350
+  %355 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %356 = load i32, ptr %355, align 8, !tbaa !20
+  %357 = and i32 %356, 15
+  switch i32 %357, label %zend_hash_find_ptr.exit [
+    i32 1, label %zend_optimizer_get_class_entry_from_op1.exit212.thread
+    i32 3, label %358
   ]
 
-359:                                              ; preds = %355
-  %360 = and i32 %353, 32
-  %.not23.i212 = icmp eq i32 %360, 0
-  br i1 %.not23.i212, label %zend_hash_find_ptr.exit, label %zend_optimizer_get_class_entry_from_op1.exit214.thread
+358:                                              ; preds = %354
+  %359 = and i32 %352, 32
+  %.not23.i210 = icmp eq i32 %359, 0
+  br i1 %.not23.i210, label %zend_hash_find_ptr.exit, label %zend_optimizer_get_class_entry_from_op1.exit212.thread
 
-zend_optimizer_get_class_entry_from_op1.exit214:  ; preds = %343
-  %361 = getelementptr inbounds nuw i8, ptr %344, i64 16
-  %362 = load ptr, ptr %361, align 8, !tbaa !20
-  %363 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %362)
-  %.not = icmp eq ptr %363, null
-  br i1 %.not, label %zend_hash_find_ptr.exit, label %zend_optimizer_get_class_entry_from_op1.exit214.thread
+zend_optimizer_get_class_entry_from_op1.exit212:  ; preds = %342
+  %360 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %361 = load ptr, ptr %360, align 8, !tbaa !20
+  %362 = tail call ptr @zend_optimizer_get_class_entry(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef %361)
+  %.not = icmp eq ptr %362, null
+  br i1 %.not, label %zend_hash_find_ptr.exit, label %zend_optimizer_get_class_entry_from_op1.exit212.thread
 
-zend_optimizer_get_class_entry_from_op1.exit214.thread: ; preds = %359, %355, %zend_optimizer_get_class_entry_from_op1.exit214
-  %.1.i211264 = phi ptr [ %363, %zend_optimizer_get_class_entry_from_op1.exit214 ], [ %350, %355 ], [ %350, %359 ]
-  %364 = load i8, ptr %.1.i211264, align 8, !tbaa !133
-  %365 = icmp eq i8 %364, 2
-  br i1 %365, label %366, label %zend_hash_find_ptr.exit
+zend_optimizer_get_class_entry_from_op1.exit212.thread: ; preds = %358, %354, %zend_optimizer_get_class_entry_from_op1.exit212
+  %.1.i209262 = phi ptr [ %362, %zend_optimizer_get_class_entry_from_op1.exit212 ], [ %349, %354 ], [ %349, %358 ]
+  %363 = load i8, ptr %.1.i209262, align 8, !tbaa !133
+  %364 = icmp eq i8 %363, 2
+  br i1 %364, label %365, label %zend_hash_find_ptr.exit
 
-366:                                              ; preds = %zend_optimizer_get_class_entry_from_op1.exit214.thread
-  %367 = getelementptr inbounds nuw i8, ptr %.1.i211264, i64 256
-  %368 = load ptr, ptr %367, align 8, !tbaa !145
+365:                                              ; preds = %zend_optimizer_get_class_entry_from_op1.exit212.thread
+  %366 = getelementptr inbounds nuw i8, ptr %.1.i209262, i64 256
+  %367 = load ptr, ptr %366, align 8, !tbaa !145
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %359, %355, %351, %348, %343, %324, %zend_optimizer_get_class_entry_from_op1.exit214, %zend_optimizer_get_class_entry_from_op1.exit214.thread, %316, %306, %319, %312, %287, %281, %273, %280, %264, %270, %zend_optimizer_ignore_function.exit206, %99, %90, %zend_optimizer_ignore_function.exit, %41, %32, %4, %63, %55, %133, %113, %240, %236, %230, %210, %206, %.thread, %.thread222, %.thread230, %.thread243, %253, %366, %323, %195, %zend_hash_find_ptr.exit195, %zend_hash_find_ptr.exit198
-  %.1 = phi ptr [ %196, %195 ], [ %368, %366 ], [ %29, %zend_hash_find_ptr.exit198 ], [ %86, %zend_hash_find_ptr.exit195 ], [ %93, %zend_optimizer_ignore_function.exit206 ], [ %322, %323 ], [ null, %4 ], [ %35, %zend_optimizer_ignore_function.exit ], [ null, %316 ], [ %260, %270 ], [ null, %253 ], [ null, %.thread243 ], [ null, %.thread230 ], [ null, %.thread222 ], [ null, %.thread ], [ null, %206 ], [ null, %210 ], [ null, %230 ], [ null, %236 ], [ null, %359 ], [ null, %240 ], [ null, %113 ], [ null, %133 ], [ null, %55 ], [ null, %63 ], [ %35, %32 ], [ %35, %41 ], [ %93, %90 ], [ %93, %99 ], [ %260, %273 ], [ %260, %280 ], [ %269, %264 ], [ null, %281 ], [ null, %287 ], [ null, %312 ], [ null, %319 ], [ null, %306 ], [ null, %zend_optimizer_get_class_entry_from_op1.exit214.thread ], [ null, %zend_optimizer_get_class_entry_from_op1.exit214 ], [ null, %324 ], [ null, %343 ], [ null, %348 ], [ null, %351 ], [ null, %355 ]
+zend_hash_find_ptr.exit:                          ; preds = %358, %354, %350, %347, %342, %323, %zend_optimizer_get_class_entry_from_op1.exit212, %zend_optimizer_get_class_entry_from_op1.exit212.thread, %315, %305, %318, %311, %286, %280, %272, %279, %263, %269, %zend_optimizer_ignore_function.exit204, %99, %90, %zend_optimizer_ignore_function.exit, %41, %32, %4, %63, %55, %133, %113, %239, %235, %229, %209, %205, %.thread, %.thread220, %.thread228, %.thread241, %252, %365, %322, %195, %zend_hash_find_ptr.exit193, %zend_hash_find_ptr.exit196
+  %.1 = phi ptr [ %196, %195 ], [ %367, %365 ], [ %29, %zend_hash_find_ptr.exit196 ], [ %86, %zend_hash_find_ptr.exit193 ], [ %93, %zend_optimizer_ignore_function.exit204 ], [ %321, %322 ], [ null, %4 ], [ %35, %zend_optimizer_ignore_function.exit ], [ null, %315 ], [ %259, %269 ], [ null, %252 ], [ null, %.thread241 ], [ null, %.thread228 ], [ null, %.thread220 ], [ null, %.thread ], [ null, %205 ], [ null, %209 ], [ null, %229 ], [ null, %235 ], [ null, %358 ], [ null, %239 ], [ null, %113 ], [ null, %133 ], [ null, %55 ], [ null, %63 ], [ %35, %32 ], [ %35, %41 ], [ %93, %90 ], [ %93, %99 ], [ %259, %272 ], [ %259, %279 ], [ %268, %263 ], [ null, %280 ], [ null, %286 ], [ null, %311 ], [ null, %318 ], [ null, %305 ], [ null, %zend_optimizer_get_class_entry_from_op1.exit212.thread ], [ null, %zend_optimizer_get_class_entry_from_op1.exit212 ], [ null, %323 ], [ null, %342 ], [ null, %347 ], [ null, %350 ], [ null, %354 ]
   ret ptr %.1
 }
 

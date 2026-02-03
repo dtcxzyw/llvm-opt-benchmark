@@ -120,7 +120,7 @@ define internal fastcc ptr @inner_loader_fetch(ptr noundef nonnull %0, ptr nound
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 298, ptr noundef nonnull @__func__.inner_loader_fetch) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef 524550, ptr noundef null) #6
-  br label %59
+  br label %58
 
 15:                                               ; preds = %3
   %16 = icmp ne ptr %1, null
@@ -134,7 +134,7 @@ define internal fastcc ptr @inner_loader_fetch(ptr noundef nonnull %0, ptr nound
 20:                                               ; preds = %17
   %21 = call i32 @ossl_method_store_cache_get(ptr noundef nonnull %8, ptr noundef null, i32 noundef %18, ptr noundef nonnull %11, ptr noundef nonnull %4) #6
   %.not59 = icmp eq i32 %21, 0
-  br i1 %.not59, label %.thread, label %43
+  br i1 %.not59, label %.thread, label %42
 
 .thread:                                          ; preds = %15, %20, %17
   %22 = phi i1 [ true, %17 ], [ false, %20 ], [ true, %15 ]
@@ -177,47 +177,46 @@ define internal fastcc ptr @inner_loader_fetch(ptr noundef nonnull %0, ptr nound
 39:                                               ; preds = %35, %.thread
   %.1 = phi i32 [ %.2, %35 ], [ %23, %.thread ]
   %40 = load i8, ptr %27, align 8
-  %41 = and i8 %40, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %42 = icmp ne i8 %41, 0
-  br label %43
+  %41 = trunc i8 %40 to i1
+  br label %42
 
-43:                                               ; preds = %39, %20
-  %.052 = phi i1 [ %42, %39 ], [ true, %20 ]
+42:                                               ; preds = %39, %20
+  %.052 = phi i1 [ %41, %39 ], [ true, %20 ]
   %.051 = phi i32 [ %.1, %39 ], [ %18, %20 ]
-  %44 = icmp ne i32 %.051, 0
-  %or.cond3 = or i1 %16, %44
-  %45 = load ptr, ptr %4, align 8
-  %46 = icmp eq ptr %45, null
-  %or.cond5 = select i1 %or.cond3, i1 %46, i1 false
-  br i1 %or.cond5, label %47, label %59
+  %43 = icmp ne i32 %.051, 0
+  %or.cond3 = or i1 %16, %43
+  %44 = load ptr, ptr %4, align 8
+  %45 = icmp eq ptr %44, null
+  %or.cond5 = select i1 %or.cond3, i1 %45, i1 false
+  br i1 %or.cond5, label %46, label %58
 
-47:                                               ; preds = %43
-  %48 = select i1 %.052, i32 524557, i32 524556
-  %49 = select i1 %.052, ptr @.str.1, ptr @.str.2
-  %50 = icmp eq ptr %1, null
-  br i1 %50, label %51, label %53
+46:                                               ; preds = %42
+  %47 = select i1 %.052, i32 524557, i32 524556
+  %48 = select i1 %.052, ptr @.str.1, ptr @.str.2
+  %49 = icmp eq ptr %1, null
+  br i1 %49, label %50, label %52
 
-51:                                               ; preds = %47
-  %52 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %10, i32 noundef %.051, i64 noundef 0) #6
-  br label %53
+50:                                               ; preds = %46
+  %51 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %10, i32 noundef %.051, i64 noundef 0) #6
+  br label %52
 
-53:                                               ; preds = %51, %47
-  %.050 = phi ptr [ %52, %51 ], [ %1, %47 ]
+52:                                               ; preds = %50, %46
+  %.050 = phi ptr [ %51, %50 ], [ %1, %46 ]
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @__func__.inner_loader_fetch) #6
-  %54 = load ptr, ptr %0, align 8, !tbaa !13
-  %55 = call ptr @ossl_lib_ctx_get_descriptor(ptr noundef %54) #6
-  %56 = icmp eq ptr %.050, null
-  %57 = select i1 %56, ptr @.str.4, ptr %.050
-  %58 = select i1 %.not, ptr @.str.4, ptr %2
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef %48, ptr noundef nonnull @.str.3, ptr noundef nonnull %49, ptr noundef %55, ptr noundef nonnull %57, i32 noundef %.051, ptr noundef nonnull %58) #6
+  %53 = load ptr, ptr %0, align 8, !tbaa !13
+  %54 = call ptr @ossl_lib_ctx_get_descriptor(ptr noundef %53) #6
+  %55 = icmp eq ptr %.050, null
+  %56 = select i1 %55, ptr @.str.4, ptr %.050
+  %57 = select i1 %.not, ptr @.str.4, ptr %2
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef %47, ptr noundef nonnull @.str.3, ptr noundef nonnull %48, ptr noundef %54, ptr noundef nonnull %56, i32 noundef %.051, ptr noundef nonnull %57) #6
   %.pre63 = load ptr, ptr %4, align 8, !tbaa !18
-  br label %59
+  br label %58
 
-59:                                               ; preds = %53, %43, %14
-  %.0 = phi ptr [ null, %14 ], [ %45, %43 ], [ %.pre63, %53 ]
+58:                                               ; preds = %52, %42, %14
+  %.0 = phi ptr [ null, %14 ], [ %44, %42 ], [ %.pre63, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

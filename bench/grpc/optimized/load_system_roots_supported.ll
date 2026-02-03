@@ -697,10 +697,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %40,
   br label %56
 
 56:                                               ; preds = %91, %53
-  %.01231.i = phi i64 [ 0, %53 ], [ %92, %91 ]
+  %.01230.i = phi i64 [ 0, %53 ], [ %92, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
-  %57 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 %.01231.i
+  %57 = getelementptr inbounds nuw ptr, ptr @_ZN9grpc_core12_GLOBAL__N_110kCertFilesE, i64 %.01230.i
   %58 = load ptr, ptr %57, align 8, !tbaa !3, !noalias !34
   store ptr %54, ptr %4, align 8, !tbaa !30, !noalias !34
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #20, !noalias !34
@@ -782,9 +782,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN9grpc_core12_GLOBAL__N_118GetSystemRootCertsEv.exit
 
 .critedge.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %85 = and i64 %76, 1
-  %.not.i.i1.i23.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i1.i23.i, label %86, label %91
+  %85 = trunc i64 %76 to i1
+  br i1 %85, label %91, label %86
 
 86:                                               ; preds = %.critedge.i
   %87 = inttoptr i64 %76 to ptr
@@ -800,7 +799,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %_ZNKSt7__cxx1112bas
 
 91:                                               ; preds = %86, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !34
-  %92 = add nuw nsw i64 %.01231.i, 1
+  %92 = add nuw nsw i64 %.01230.i, 1
   %exitcond.i = icmp eq i64 %92, 5
   br i1 %exitcond.i, label %.critedge17.i, label %56, !llvm.loop !39
 

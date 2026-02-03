@@ -603,9 +603,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hd265c9dd71c0d840E.exit.i: ; preds 
   br label %43
 
 41:                                               ; preds = %35
-  %42 = and i64 %36, 1
-  %.not35.i = icmp eq i64 %42, 0
-  br i1 %.not35.i, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17hdcf23a431521e1b3E.exit", label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17h311b262dc722bfe6E.exit.thread"
+  %42 = trunc i64 %36 to i1
+  br i1 %42, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17h311b262dc722bfe6E.exit.thread", label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10start_recv17hdcf23a431521e1b3E.exit"
 
 43:                                               ; preds = %39, %24
   %.sroa.09.0.i = phi i64 [ %25, %24 ], [ %spec.select.i, %39 ]

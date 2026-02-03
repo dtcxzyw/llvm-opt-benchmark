@@ -1564,9 +1564,8 @@ define hidden void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef non
   %5 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN12outputStream6indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i8, ptr %6, align 4
-  %8 = and i8 %7, 1
-  %.not22 = icmp eq i8 %8, 0
-  %9 = select i1 %.not22, ptr @.str.12, ptr @.str.11
+  %8 = trunc i8 %7 to i1
+  %9 = select i1 %8, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %9) #12
   %10 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN12outputStream6indentEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.13) #12
@@ -1610,37 +1609,37 @@ define hidden void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef non
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph26, label %._crit_edge27
+  br i1 %29, label %.lr.ph25, label %._crit_edge26
 
-.lr.ph26:                                         ; preds = %._crit_edge
+.lr.ph25:                                         ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %31
 
-31:                                               ; preds = %.lr.ph26, %38
-  %indvars.iv29 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next30, %38 ]
+31:                                               ; preds = %.lr.ph25, %38
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next29, %38 ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #12
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds nuw %class.VerificationType, ptr %32, i64 %indvars.iv29
+  %33 = getelementptr inbounds nuw %class.VerificationType, ptr %32, i64 %indvars.iv28
   tail call void @_ZNK16VerificationType8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %1) #12
   %34 = load i32, ptr %27, align 8
   %35 = add nsw i32 %34, -1
   %36 = zext i32 %35 to i64
-  %.not = icmp eq i64 %indvars.iv29, %36
+  %.not = icmp eq i64 %indvars.iv28, %36
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %31
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.15) #12
-  %.pre32 = load i32, ptr %27, align 8
+  %.pre31 = load i32, ptr %27, align 8
   br label %38
 
 38:                                               ; preds = %31, %37
-  %39 = phi i32 [ %34, %31 ], [ %.pre32, %37 ]
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %39 = phi i32 [ %34, %31 ], [ %.pre31, %37 ]
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next30, %40
-  br i1 %41, label %31, label %._crit_edge27, !llvm.loop !55
+  %41 = icmp slt i64 %indvars.iv.next29, %40
+  br i1 %41, label %31, label %._crit_edge26, !llvm.loop !55
 
-._crit_edge27:                                    ; preds = %38, %._crit_edge
+._crit_edge26:                                    ; preds = %38, %._crit_edge
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #12
   ret void
 }
@@ -1761,9 +1760,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP6Symbol13Growa
   br label %_ZN13GrowableArrayIP6SymbolE8allocateEv.exit
 
 9:                                                ; preds = %2
-  %10 = and i64 %5, 1
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %10 = trunc i64 %5 to i1
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
   %12 = lshr i64 %5, 1
@@ -1780,25 +1778,25 @@ _ZN13GrowableArrayIP6SymbolE8allocateEv.exit:     ; preds = %7, %11, %15
   %.0.i = phi ptr [ %8, %7 ], [ %14, %11 ], [ %17, %15 ]
   %18 = load i32, ptr %0, align 8
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %.preheader16
+  br i1 %19, label %.lr.ph, label %.preheader15
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP6SymbolE8allocateEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
-.preheader16.loopexit:                            ; preds = %25
+.preheader15.loopexit:                            ; preds = %25
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.preheader16
+  br label %.preheader15
 
-.preheader16:                                     ; preds = %.preheader16.loopexit, %_ZN13GrowableArrayIP6SymbolE8allocateEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP6SymbolE8allocateEv.exit ], [ %21, %.preheader16.loopexit ]
+.preheader15:                                     ; preds = %.preheader15.loopexit, %_ZN13GrowableArrayIP6SymbolE8allocateEv.exit
+  %.0.lcssa = phi i32 [ 0, %_ZN13GrowableArrayIP6SymbolE8allocateEv.exit ], [ %21, %.preheader15.loopexit ]
   %22 = load i32, ptr %3, align 4
   %23 = icmp slt i32 %.0.lcssa, %22
-  br i1 %23, label %.lr.ph19.preheader, label %.preheader
+  br i1 %23, label %.lr.ph18.preheader, label %.preheader
 
-.lr.ph19.preheader:                               ; preds = %.preheader16
+.lr.ph18.preheader:                               ; preds = %.preheader15
   %24 = zext nneg i32 %.0.lcssa to i64
-  br label %.lr.ph19
+  br label %.lr.ph18
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
@@ -1811,29 +1809,28 @@ _ZN13GrowableArrayIP6SymbolE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !56
+  br i1 %32, label %25, label %.preheader15.loopexit, !llvm.loop !56
 
-.preheader:                                       ; preds = %.lr.ph19, %.preheader16
+.preheader:                                       ; preds = %.lr.ph18, %.preheader15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit, label %39
 
-.lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
-  %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
-  %37 = trunc nuw i64 %indvars.iv.next22 to i32
+  %37 = trunc nuw i64 %indvars.iv.next21 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !57
+  br i1 %38, label %.lr.ph18, label %.preheader, !llvm.loop !57
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
-  %41 = and i64 %40, 1
-  %.not.i15 = icmp eq i64 %41, 0
-  br i1 %.not.i15, label %_ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit, label %42
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %_ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit
 
 42:                                               ; preds = %39
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %34) #12

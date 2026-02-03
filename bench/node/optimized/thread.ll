@@ -231,8 +231,8 @@ do.body.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %for.cond.preheader.i, label %uv_thread_getaffinity.exit
 
 for.cond.preheader.i:                             ; preds = %do.body.i
-  %cmp813.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp813.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
+  %cmp812.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp812.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %cond.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cond.end.i ], [ 0, %for.cond.preheader.i ]
@@ -340,8 +340,8 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool.not, label %for.cond.preheader, label %if.then6
 
 for.cond.preheader:                               ; preds = %do.body
-  %cmp813.not = icmp eq i32 %call, 0
-  br i1 %cmp813.not, label %return, label %for.body
+  %cmp812.not = icmp eq i32 %call, 0
+  br i1 %cmp812.not, label %return, label %for.body
 
 if.then6:                                         ; preds = %do.body
   %sub = sub nsw i32 0, %call5

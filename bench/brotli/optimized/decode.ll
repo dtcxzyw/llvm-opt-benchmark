@@ -2125,18 +2125,18 @@ BrotliPullByte.exit:                              ; preds = %.lr.ph
 21:                                               ; preds = %.preheader172._crit_edge, %BrotliPullByte.exit
   %22 = phi i64 [ %19, %BrotliPullByte.exit ], [ %.pre308, %.preheader172._crit_edge ]
   %.lcssa201 = phi i64 [ 7, %BrotliPullByte.exit ], [ %11, %.preheader172._crit_edge ]
-  %23 = and i64 %22, 1
   store i64 %.lcssa201, ptr %3, align 8, !tbaa !46
-  %24 = lshr i64 %22, 1
-  store i64 %24, ptr %1, align 8, !tbaa !47
-  %.not67.not = icmp eq i64 %23, 0
-  %25 = trunc nuw nsw i64 %23 to i32
+  %23 = lshr i64 %22, 1
+  store i64 %23, ptr %1, align 8, !tbaa !47
+  %.not67 = trunc i64 %22 to i1
+  %24 = trunc i64 %22 to i32
+  %25 = and i32 %24, 1
   %26 = load i32, ptr %6, align 4
   %27 = and i32 %26, -8
   %28 = or disjoint i32 %27, %25
   store i32 0, ptr %7, align 4, !tbaa !54
   store i32 %28, ptr %6, align 4
-  br i1 %.not67.not, label %206, label %29
+  br i1 %.not67, label %29, label %206
 
 29:                                               ; preds = %21
   store i32 1, ptr %2, align 8, !tbaa !112

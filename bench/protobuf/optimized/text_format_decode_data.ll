@@ -391,7 +391,7 @@ cleanup.action81:                                 ; preds = %lpad35, %cleanup.ac
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32) #17
   unreachable
 
-lpad88.loopexit:                                  ; preds = %if.then7.i.i, %if.then.i, %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i, %if.then7.i54.i
+lpad88.loopexit:                                  ; preds = %if.then7.i.i, %if.then.i, %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit40.i, %if.then7.i50.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup115
@@ -476,8 +476,7 @@ if.end17.i.i:                                     ; preds = %if.else8.i.i, %if.e
   %29 = icmp ult i8 %28, 26
   %30 = load i8, ptr %is_all_upper_.i.i, align 1
   %31 = and i8 %30, 1
-  %tobool32.i.i.i = icmp ne i8 %31, 0
-  %tobool3.i.i.i = select i1 %29, i1 %tobool32.i.i.i, i1 false
+  %frombool.i.i.i = select i1 %29, i8 %31, i8 0
   br label %if.then100
 
 if.end5.i:                                        ; preds = %if.end95
@@ -489,19 +488,18 @@ if.then8.i:                                       ; preds = %if.end5.i
   %cmp10.not.i = icmp ne i8 %32, 96
   %33 = add i8 %14, -65
   %34 = icmp ult i8 %33, 26
-  %or.cond80.i = or i1 %34, %cmp10.not.i
-  br i1 %or.cond80.i, label %if.then12.i, label %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i
+  %or.cond74.i = or i1 %34, %cmp10.not.i
+  br i1 %or.cond74.i, label %if.then12.i, label %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit40.i
 
 if.then12.i:                                      ; preds = %if.then8.i
   %inc.i.i = add nsw i32 %22, 1
   store i32 %inc.i.i, ptr %segment_len_.i.i, align 4
   %35 = load i8, ptr %is_all_upper_.i.i, align 1
   %36 = and i8 %35, 1
-  %tobool32.i.i = icmp ne i8 %36, 0
-  %tobool3.i.i = select i1 %34, i1 %tobool32.i.i, i1 false
+  %frombool.i.i = select i1 %34, i8 %36, i8 0
   br label %if.then100
 
-_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i: ; preds = %if.then8.i
+_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit40.i: ; preds = %if.then8.i
   %37 = trunc i32 %22 to i8
   %38 = load i8, ptr %builder, align 8
   %39 = shl i8 %38, 7
@@ -510,7 +508,7 @@ _ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFir
   %call.i21.i55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %decode_data_.i, i8 noundef signext %spec.select.i17.i)
           to label %call.i21.i.noexc unwind label %lpad88.loopexit
 
-call.i21.i.noexc:                                 ; preds = %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i
+call.i21.i.noexc:                                 ; preds = %_ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit40.i
   store i8 0, ptr %builder, align 8
   store i8 0, ptr %op_.i.i, align 2
   store i32 1, ptr %segment_len_.i.i, align 4
@@ -528,55 +526,56 @@ if.end15.i:                                       ; preds = %if.end5.i
 
 if.then20.i:                                      ; preds = %if.end15.i
   store i8 96, ptr %op_.i.i, align 2
-  %inc.i44.i = add nsw i32 %22, 1
-  store i32 %inc.i44.i, ptr %segment_len_.i.i, align 4
+  %inc.i42.i = add nsw i32 %22, 1
+  store i32 %inc.i42.i, ptr %segment_len_.i.i, align 4
   %42 = add i8 %14, -65
   %43 = icmp ult i8 %42, 26
+  %frombool.i44.i = zext i1 %43 to i8
   br label %if.then100
 
 if.end22.i:                                       ; preds = %if.end15.i
   %44 = load i8, ptr %op_.i.i, align 2
   %45 = trunc i32 %22 to i8
-  %conv2.i51.i = or i8 %44, %45
+  %conv2.i47.i = or i8 %44, %45
   %46 = load i8, ptr %builder, align 8
   %47 = shl i8 %46, 7
-  %spec.select.i52.i = or i8 %conv2.i51.i, %47
-  %cmp.not.i53.i = icmp eq i8 %spec.select.i52.i, 0
-  br i1 %cmp.not.i53.i, label %if.else.i60.i, label %if.then7.i54.i
+  %spec.select.i48.i = or i8 %conv2.i47.i, %47
+  %cmp.not.i49.i = icmp eq i8 %spec.select.i48.i, 0
+  br i1 %cmp.not.i49.i, label %if.else.i56.i, label %if.then7.i50.i
 
-if.then7.i54.i:                                   ; preds = %if.end22.i
-  %call.i56.i56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %decode_data_.i, i8 noundef signext %spec.select.i52.i)
-          to label %if.else.i60.i unwind label %lpad88.loopexit
+if.then7.i50.i:                                   ; preds = %if.end22.i
+  %call.i52.i56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %decode_data_.i, i8 noundef signext %spec.select.i48.i)
+          to label %if.else.i56.i unwind label %lpad88.loopexit
 
-if.else.i60.i:                                    ; preds = %if.then7.i54.i, %if.end22.i
+if.else.i56.i:                                    ; preds = %if.then7.i50.i, %if.end22.i
   store i8 0, ptr %builder, align 8
   store i8 0, ptr %op_.i.i, align 2
   store i32 0, ptr %segment_len_.i.i, align 4
   store i8 1, ptr %is_all_upper_.i.i, align 1
-  br i1 %cmp19.i, label %if.end17.i68.i, label %if.else8.i64.i
+  br i1 %cmp19.i, label %if.end17.i64.i, label %if.else8.i60.i
 
-if.else8.i64.i:                                   ; preds = %if.else.i60.i
-  %arrayidx.i7.i65.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 %idxprom.i.i
-  %48 = load i8, ptr %arrayidx.i7.i65.i, align 1
-  %cmp12.i66.i = icmp eq i8 %14, %48
-  br i1 %cmp12.i66.i, label %if.end17.i68.i, label %if.else
+if.else8.i60.i:                                   ; preds = %if.else.i56.i
+  %arrayidx.i7.i61.i = getelementptr inbounds nuw i8, ptr @_ZN4absl12lts_2023080214ascii_internal8kToLowerE, i64 %idxprom.i.i
+  %48 = load i8, ptr %arrayidx.i7.i61.i, align 1
+  %cmp12.i62.i = icmp eq i8 %14, %48
+  br i1 %cmp12.i62.i, label %if.end17.i64.i, label %if.else
 
-if.end17.i68.i:                                   ; preds = %if.else8.i64.i, %if.else.i60.i
-  %.sink.i69.i = phi i8 [ 32, %if.else8.i64.i ], [ 64, %if.else.i60.i ]
-  store i8 %.sink.i69.i, ptr %op_.i.i, align 2
+if.end17.i64.i:                                   ; preds = %if.else8.i60.i, %if.else.i56.i
+  %.sink.i65.i = phi i8 [ 32, %if.else8.i60.i ], [ 64, %if.else.i56.i ]
+  store i8 %.sink.i65.i, ptr %op_.i.i, align 2
   store i32 1, ptr %segment_len_.i.i, align 4
   %49 = add i8 %14, -65
   %50 = icmp ult i8 %49, 26
+  %frombool.i.i70.i = zext i1 %50 to i8
   br label %if.then100
 
-if.then100:                                       ; preds = %if.then12.i, %call.i21.i.noexc, %if.then20.i, %if.end17.i.i, %if.end17.i68.i
-  %frombool.i.i.sink.shrunk = phi i1 [ %tobool3.i.i, %if.then12.i ], [ false, %call.i21.i.noexc ], [ %43, %if.then20.i ], [ %tobool3.i.i.i, %if.end17.i.i ], [ %50, %if.end17.i68.i ]
-  %frombool.i.i.sink = zext i1 %frombool.i.i.sink.shrunk to i8
+if.then100:                                       ; preds = %if.then12.i, %call.i21.i.noexc, %if.then20.i, %if.end17.i.i, %if.end17.i64.i
+  %frombool.i.i.sink = phi i8 [ %frombool.i.i, %if.then12.i ], [ 0, %call.i21.i.noexc ], [ %frombool.i44.i, %if.then20.i ], [ %frombool.i.i.i, %if.end17.i.i ], [ %frombool.i.i70.i, %if.end17.i64.i ]
   store i8 %frombool.i.i.sink, ptr %is_all_upper_.i.i, align 1
   %inc = add nsw i32 %x.0104, 1
   br label %for.inc
 
-if.else:                                          ; preds = %if.else8.i.i, %if.else8.i64.i
+if.else:                                          ; preds = %if.else8.i.i, %if.else8.i60.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
   %call.i57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 0)
           to label %invoke.cont.i59 unwind label %lpad.i58

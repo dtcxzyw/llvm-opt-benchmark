@@ -2729,24 +2729,23 @@ entry:
   %Valid.i = getelementptr inbounds nuw i8, ptr %V, i64 9
   %0 = load i8, ptr %Valid.i, align 1
   %tobool.i = trunc i8 %0 to i1
+  br i1 %tobool.i, label %if.end, label %return
+
+if.end:                                           ; preds = %entry
+  %Value.i = getelementptr inbounds nuw i8, ptr %V, i64 8
   %Valid.i2 = getelementptr inbounds nuw i8, ptr %this, i64 9
   %1 = load i8, ptr %Valid.i2, align 1
   %tobool.i3 = trunc i8 %1 to i1
-  %or.cond = select i1 %tobool.i, i1 %tobool.i3, i1 false
-  br i1 %or.cond, label %land.rhs.i, label %return
-
-land.rhs.i:                                       ; preds = %entry
-  %Value.i = getelementptr inbounds nuw i8, ptr %V, i64 8
   %Value.i4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %Value.i4, align 8
   %3 = load i8, ptr %Value.i, align 8
   %4 = xor i8 %3, %2
-  %5 = and i8 %4, 1
-  %cmp.i = icmp ne i8 %5, 0
+  %cmp.i = trunc i8 %4 to i1
+  %5 = select i1 %tobool.i3, i1 %cmp.i, i1 false
   br label %return
 
-return:                                           ; preds = %land.rhs.i, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ %cmp.i, %land.rhs.i ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i1 [ %5, %if.end ], [ false, %entry ]
   ret i1 %retval.0
 }
 

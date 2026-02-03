@@ -49,11 +49,10 @@ define i32 @av_timecode_get_smpte_from_framenum(ptr noundef readonly captures(no
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !10
-  %7 = and i32 %6, 1
-  %.not = icmp eq i32 %7, 0
+  %7 = trunc i32 %6 to i1
   %8 = load i32, ptr %0, align 4, !tbaa !11
   %9 = add nsw i32 %8, %1
-  br i1 %.not, label %av_timecode_adjust_ntsc_framenum2.exit, label %10
+  br i1 %7, label %10, label %av_timecode_adjust_ntsc_framenum2.exit
 
 10:                                               ; preds = %2
   %.not.i = icmp ne i32 %4, 0
@@ -137,44 +136,45 @@ av_timecode_get_smpte.exit:                       ; preds = %av_timecode_adjust_
   %53 = urem i32 %28, 60
   %54 = tail call i32 @llvm.smax.i32(i32 %52, i32 0)
   %55 = srem i32 %.0.i20, 40
-  %56 = shl nuw nsw i32 %7, 30
+  %56 = shl i32 %6, 30
+  %57 = and i32 %56, 1073741824
   %.lhs.trunc.i = trunc nsw i32 %55 to i8
-  %57 = sdiv i8 %.lhs.trunc.i, 10
-  %.sext.i = sext i8 %57 to i32
-  %58 = shl nsw i32 %.sext.i, 28
-  %59 = srem i8 %.lhs.trunc.i, 10
-  %.sext49.i = sext i8 %59 to i32
-  %60 = shl nsw i32 %.sext49.i, 24
+  %58 = sdiv i8 %.lhs.trunc.i, 10
+  %.sext.i = sext i8 %58 to i32
+  %59 = shl nsw i32 %.sext.i, 28
+  %60 = srem i8 %.lhs.trunc.i, 10
+  %.sext49.i = sext i8 %60 to i32
+  %61 = shl nsw i32 %.sext49.i, 24
   %.lhs.trunc50.i = trunc nuw nsw i32 %53 to i8
-  %61 = udiv i8 %.lhs.trunc50.i, 10
-  %.zext.i = zext nneg i8 %61 to i32
-  %62 = shl nuw nsw i32 %.zext.i, 20
-  %63 = urem i8 %.lhs.trunc50.i, 10
-  %.zext52.i = zext nneg i8 %63 to i32
-  %64 = shl nuw nsw i32 %.zext52.i, 16
+  %62 = udiv i8 %.lhs.trunc50.i, 10
+  %.zext.i = zext nneg i8 %62 to i32
+  %63 = shl nuw nsw i32 %.zext.i, 20
+  %64 = urem i8 %.lhs.trunc50.i, 10
+  %.zext52.i = zext nneg i8 %64 to i32
+  %65 = shl nuw nsw i32 %.zext52.i, 16
   %.lhs.trunc53.i = trunc nuw nsw i32 %54 to i8
-  %65 = udiv i8 %.lhs.trunc53.i, 10
-  %.zext54.i = zext nneg i8 %65 to i32
-  %66 = shl nuw nsw i32 %.zext54.i, 12
-  %67 = urem i8 %.lhs.trunc53.i, 10
-  %.zext56.i = zext nneg i8 %67 to i32
-  %68 = shl nuw nsw i32 %.zext56.i, 8
+  %66 = udiv i8 %.lhs.trunc53.i, 10
+  %.zext54.i = zext nneg i8 %66 to i32
+  %67 = shl nuw nsw i32 %.zext54.i, 12
+  %68 = urem i8 %.lhs.trunc53.i, 10
+  %.zext56.i = zext nneg i8 %68 to i32
+  %69 = shl nuw nsw i32 %.zext56.i, 8
   %.lhs.trunc57.i = trunc nsw i32 %49 to i8
-  %69 = sdiv i8 %.lhs.trunc57.i, 10
-  %.sext58.i = sext i8 %69 to i32
-  %70 = shl nsw i32 %.sext58.i, 4
-  %71 = srem i8 %.lhs.trunc57.i, 10
-  %.sext60.i = sext i8 %71 to i32
-  %72 = or i32 %.031.i, %56
-  %73 = or i32 %72, %58
-  %74 = or i32 %73, %60
-  %75 = or i32 %74, %.sext60.i
-  %76 = or i32 %75, %70
-  %77 = or i32 %76, %62
-  %78 = or i32 %77, %64
-  %79 = or i32 %78, %66
-  %80 = or i32 %79, %68
-  ret i32 %80
+  %70 = sdiv i8 %.lhs.trunc57.i, 10
+  %.sext58.i = sext i8 %70 to i32
+  %71 = shl nsw i32 %.sext58.i, 4
+  %72 = srem i8 %.lhs.trunc57.i, 10
+  %.sext60.i = sext i8 %72 to i32
+  %73 = or i32 %.031.i, %57
+  %74 = or i32 %73, %59
+  %75 = or i32 %74, %61
+  %76 = or i32 %75, %.sext60.i
+  %77 = or i32 %76, %71
+  %78 = or i32 %77, %63
+  %79 = or i32 %78, %65
+  %80 = or i32 %79, %67
+  %81 = or i32 %80, %69
+  ret i32 %81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

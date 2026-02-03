@@ -1186,10 +1186,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2
   br label %_ZN3satlsERSoNS_7literalE.exit.i
 
 15:                                               ; preds = %10
-  %16 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i.i = icmp eq i32 %16, 0
-  %17 = select i1 %.not.not.i.i, ptr @.str.10, ptr @.str.9
-  %18 = zext nneg i32 %16 to i64
+  %16 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %17 = select i1 %16, ptr @.str.9, ptr @.str.10
+  %.mask.i.i = and i32 %.sroa.0.0.copyload.i, 1
+  %18 = zext nneg i32 %.mask.i.i to i64
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %17, i64 noundef %18)
   %20 = lshr i32 %.sroa.0.0.copyload.i, 1
   %21 = zext nneg i32 %20 to i64

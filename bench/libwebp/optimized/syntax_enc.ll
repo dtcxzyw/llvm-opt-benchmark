@@ -639,7 +639,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
 ._crit_edge115:                                   ; preds = %309, %286
   %.074.lcssa = phi i32 [ %287, %286 ], [ %310, %309 ]
   %314 = icmp ne i32 %.074.lcssa, 0
-  %315 = icmp ne i64 %158, 0
+  %315 = trunc i64 %.075.lcssa to i1
   %or.cond = select i1 %314, i1 %315, i1 false
   br i1 %or.cond, label %316, label %322
 

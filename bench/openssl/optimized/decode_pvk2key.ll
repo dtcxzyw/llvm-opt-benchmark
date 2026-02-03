@@ -49,8 +49,8 @@ define internal void @pvk2key_freectx(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef range(i32 0, 2) i32 @pvk2key_does_selection(ptr readnone captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 0
-  %4 = and i32 %1, 1
-  %.0 = select i1 %3, i32 1, i32 %4
+  %. = and i32 %1, 1
+  %.0 = select i1 %3, i32 1, i32 %.
   ret i32 %.0
 }
 

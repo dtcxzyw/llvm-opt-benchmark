@@ -650,7 +650,7 @@ define internal fastcc void @scsi_log_print_sense_hdr(ptr noundef %0, ptr nounde
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 2080, i64 noundef 128) #9
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %75, label %8
+  br i1 %7, label %74, label %8
 
 8:                                                ; preds = %4
   %9 = icmp eq ptr %1, null
@@ -713,46 +713,45 @@ define internal fastcc void @scsi_log_print_sense_hdr(ptr noundef %0, ptr nounde
   %46 = sub nsw i64 %26, %44
   %47 = load i8, ptr %3, align 1
   %48 = icmp ugt i8 %47, 111
-  %49 = and i8 %47, 1
-  %50 = icmp ne i8 %49, 0
-  %51 = and i1 %48, %50
-  %52 = select i1 %51, ptr @.str.27, ptr @.str.28
-  %53 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %45, i64 noundef %46, ptr noundef nonnull %52) #10
-  %54 = load i8, ptr %3, align 1
-  %55 = icmp ugt i8 %54, 113
-  br i1 %55, label %56, label %62
+  %49 = trunc i8 %47 to i1
+  %50 = and i1 %48, %49
+  %51 = select i1 %50, ptr @.str.27, ptr @.str.28
+  %52 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %45, i64 noundef %46, ptr noundef nonnull %51) #10
+  %53 = load i8, ptr %3, align 1
+  %54 = icmp ugt i8 %53, 113
+  br i1 %54, label %55, label %61
 
-56:                                               ; preds = %41
-  %57 = sext i32 %53 to i64
-  %58 = add nsw i64 %44, %57
-  %59 = getelementptr i8, ptr %25, i64 %58
-  %60 = sub nsw i64 %26, %58
-  %61 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %59, i64 noundef %60, ptr noundef nonnull @.str.29) #10
-  br label %62
+55:                                               ; preds = %41
+  %56 = sext i32 %52 to i64
+  %57 = add nsw i64 %44, %56
+  %58 = getelementptr i8, ptr %25, i64 %57
+  %59 = sub nsw i64 %26, %57
+  %60 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %58, i64 noundef %59, ptr noundef nonnull @.str.29) #10
+  br label %61
 
-62:                                               ; preds = %56, %41
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull %63, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #11
+61:                                               ; preds = %55, %41
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull %62, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #11
   tail call void @kfree(ptr noundef nonnull %6) #10
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
-  %65 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 2080, i64 noundef 128) #9
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %75, label %67
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
+  %64 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %63, i32 noundef 2080, i64 noundef 128) #9
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %74, label %66
 
-67:                                               ; preds = %62
-  %68 = tail call fastcc i64 @sdev_format_header(ptr noundef nonnull %65, ptr noundef %1, i32 noundef %2)
-  %69 = getelementptr i8, ptr %65, i64 %68
-  %70 = sub nsw i64 128, %68
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %74 = load i8, ptr %73, align 1
-  tail call fastcc void @scsi_format_extd_sense(ptr noundef %69, i64 noundef %70, i8 noundef zeroext %72, i8 noundef zeroext %74)
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull %63, ptr noundef nonnull @.str.2, ptr noundef nonnull %65) #11
-  tail call void @kfree(ptr noundef nonnull %65) #10
-  br label %75
+66:                                               ; preds = %61
+  %67 = tail call fastcc i64 @sdev_format_header(ptr noundef nonnull %64, ptr noundef %1, i32 noundef %2)
+  %68 = getelementptr i8, ptr %64, i64 %67
+  %69 = sub nsw i64 128, %67
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %71 = load i8, ptr %70, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %73 = load i8, ptr %72, align 1
+  tail call fastcc void @scsi_format_extd_sense(ptr noundef %68, i64 noundef %69, i8 noundef zeroext %71, i8 noundef zeroext %73)
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull %62, ptr noundef nonnull @.str.2, ptr noundef nonnull %64) #11
+  tail call void @kfree(ptr noundef nonnull %64) #10
+  br label %74
 
-75:                                               ; preds = %67, %62, %4
+74:                                               ; preds = %66, %61, %4
   ret void
 }
 

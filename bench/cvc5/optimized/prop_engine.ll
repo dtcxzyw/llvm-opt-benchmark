@@ -3922,9 +3922,9 @@ define hidden void @_ZN4cvc58internal4prop10PropEngine25printSatisfyingAssignmen
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !401
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %.sroa.073.091 = load ptr, ptr %9, align 8, !tbaa !404
-  %.not92 = icmp eq ptr %.sroa.073.091, null
-  br i1 %.not92, label %._crit_edge, label %.lr.ph
+  %.sroa.073.090 = load ptr, ptr %9, align 8, !tbaa !404
+  %.not91 = icmp eq ptr %.sroa.073.090, null
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3935,9 +3935,9 @@ define hidden void @_ZN4cvc58internal4prop10PropEngine25printSatisfyingAssignmen
   ret void
 
 12:                                               ; preds = %.lr.ph, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEED2Ev.exit
-  %.sroa.073.093 = phi ptr [ %.sroa.073.091, %.lr.ph ], [ %.sroa.073.0, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEED2Ev.exit ]
+  %.sroa.073.092 = phi ptr [ %.sroa.073.090, %.lr.ph ], [ %.sroa.073.0, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.073.093, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.073.092, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !294
   store ptr %14, ptr %2, align 8, !tbaa !294
   %15 = load i64, ptr %14, align 8
@@ -3964,22 +3964,21 @@ define hidden void @_ZN4cvc58internal4prop10PropEngine25printSatisfyingAssignmen
   %29 = or i64 %15, 1152920405095219200
   store i64 %29, ptr %14, align 8
   tail call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %.pre94.pre = load i64, ptr %14, align 8
+  %.pre93.pre = load i64, ptr %14, align 8
   br label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit
 
 _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit: ; preds = %20, %26, %28
-  %.pre94 = phi i64 [ %25, %20 ], [ %15, %26 ], [ %.pre94.pre, %28 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.073.093, i64 16
+  %.pre93 = phi i64 [ %25, %20 ], [ %15, %26 ], [ %.pre93.pre, %28 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.073.092, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !74
   store i64 %31, ptr %10, align 8, !tbaa !74
-  %32 = and i64 %31, 1
-  %.not90 = icmp eq i64 %32, 0
-  br i1 %.not90, label %33, label %70
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %70, label %33
 
 33:                                               ; preds = %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %14, ptr %3, align 8, !tbaa !294
-  %34 = lshr i64 %.pre94, 40
+  %34 = lshr i64 %.pre93, 40
   %35 = trunc nuw nsw i64 %34 to i32
   %36 = and i32 %35, 1048575
   %37 = icmp samesign ult i32 %36, 1048574
@@ -3989,7 +3988,7 @@ _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5
   %39 = add nuw nsw i32 %36, 1
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 40
-  %42 = and i64 %.pre94, -1152920405095219201
+  %42 = and i64 %.pre93, -1152920405095219201
   %43 = or i64 %41, %42
   store i64 %43, ptr %14, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
@@ -3999,7 +3998,7 @@ _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5
   br i1 %45, label %46, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !297
 
 46:                                               ; preds = %44
-  %47 = or i64 %.pre94, 1152920405095219200
+  %47 = or i64 %.pre93, 1152920405095219200
   store i64 %47, ptr %14, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %65
@@ -4066,7 +4065,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal1
   resume { ptr, i32 } %.pn.pn.pn
 
 70:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit
-  %71 = phi i64 [ %.pre, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.pre94, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit ]
+  %71 = phi i64 [ %.pre, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.pre93, %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEEC2IKS3_KS5_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit ]
   %72 = and i64 %71, 1152920405095219200
   %.not.i.i.i = icmp eq i64 %72, 1152920405095219200
   br i1 %.not.i.i.i, label %_ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEED2Ev.exit, label %73, !prof !297
@@ -4093,7 +4092,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._ZN4cvc58internal1
 
 _ZNSt4pairIN4cvc58internal12NodeTemplateILb1EEENS1_4prop10SatLiteralEED2Ev.exit: ; preds = %70, %73, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.sroa.073.0 = load ptr, ptr %.sroa.073.093, align 8, !tbaa !404
+  %.sroa.073.0 = load ptr, ptr %.sroa.073.092, align 8, !tbaa !404
   %.not = icmp eq ptr %.sroa.073.0, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !405
 }

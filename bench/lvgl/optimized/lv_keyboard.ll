@@ -353,9 +353,8 @@ define i32 @lv_keyboard_get_mode(ptr noundef readonly captures(address_is_null) 
 define zeroext i1 @lv_keyboard_get_popovers(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable

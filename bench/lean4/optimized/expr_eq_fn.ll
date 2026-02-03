@@ -806,28 +806,26 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4leaneqERKNS_8list_refINS_8pair_refINS_4nameENS_10data_valueEEEEES7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat {
-  %.01524 = load ptr, ptr %0, align 8, !tbaa !32
-  %.01825 = load ptr, ptr %1, align 8, !tbaa !32
-  %3 = ptrtoint ptr %.01524 to i64
-  %4 = and i64 %3, 1
-  %.not26 = icmp eq i64 %4, 0
-  br i1 %.not26, label %.lr.ph, label %._crit_edge
+  %.01523 = load ptr, ptr %0, align 8, !tbaa !32
+  %.01824 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = ptrtoint ptr %.01523 to i64
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %24
-  %.01828 = phi ptr [ %.018, %24 ], [ %.01825, %2 ]
-  %.01527 = phi ptr [ %.015, %24 ], [ %.01524, %2 ]
-  %5 = ptrtoint ptr %.01828 to i64
-  %6 = and i64 %5, 1
-  %.not22 = icmp eq i64 %6, 0
-  br i1 %.not22, label %7, label %.critedge21
+  %.01826 = phi ptr [ %.018, %24 ], [ %.01824, %2 ]
+  %.01525 = phi ptr [ %.015, %24 ], [ %.01523, %2 ]
+  %5 = ptrtoint ptr %.01826 to i64
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %.critedge21, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = icmp eq ptr %.01527, %.01828
+  %8 = icmp eq ptr %.01525, %.01826
   br i1 %8, label %.critedge21, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.01527, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %.01828, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.01525, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01826, i64 8
   %12 = load ptr, ptr %10, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %11, align 8, !tbaa !33
@@ -847,24 +845,22 @@ _ZN4leanneINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit: ; preds =
   br i1 %23, label %24, label %.critedge21
 
 24:                                               ; preds = %_ZN4leanneINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit
-  %25 = getelementptr inbounds nuw i8, ptr %.01527, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %.01828, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.01525, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.01826, i64 16
   %.015 = load ptr, ptr %25, align 8, !tbaa !32
   %.018 = load ptr, ptr %26, align 8, !tbaa !32
   %27 = ptrtoint ptr %.015 to i64
-  %28 = and i64 %27, 1
-  %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !62
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %24, %2
-  %.018.lcssa = phi ptr [ %.01825, %2 ], [ %.018, %24 ]
+  %.018.lcssa = phi ptr [ %.01824, %2 ], [ %.018, %24 ]
   %29 = ptrtoint ptr %.018.lcssa to i64
-  %30 = and i64 %29, 1
-  %31 = icmp ne i64 %30, 0
+  %30 = trunc i64 %29 to i1
   br label %.critedge21
 
 .critedge21:                                      ; preds = %9, %.lr.ph, %_ZN4leanneINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit, %7, %._crit_edge
-  %.1 = phi i1 [ %31, %._crit_edge ], [ false, %9 ], [ false, %.lr.ph ], [ true, %7 ], [ false, %_ZN4leanneINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit ]
+  %.1 = phi i1 [ %30, %._crit_edge ], [ false, %9 ], [ false, %.lr.ph ], [ true, %7 ], [ false, %_ZN4leanneINS_4nameENS_10data_valueEEEbRKNS_8pair_refIT_T0_EES8_.exit ]
   ret i1 %.1
 }
 

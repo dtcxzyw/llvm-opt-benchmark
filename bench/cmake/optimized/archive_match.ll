@@ -2035,99 +2035,97 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_time(ptr noundef %
 validate_time_flag.exit:                          ; preds = %13
   %16 = and i32 %1, 256
   %.not.i11 = icmp eq i32 %16, 0
-  br i1 %.not.i11, label %39, label %17
+  br i1 %.not.i11, label %38, label %17
 
 17:                                               ; preds = %validate_time_flag.exit
-  %18 = and i32 %1, 1
-  %.not37.i = icmp ne i32 %18, 0
-  %19 = and i32 %1, 18
-  %20 = icmp eq i32 %19, 16
-  %or.cond.i = or i1 %.not37.i, %20
-  br i1 %or.cond.i, label %21, label %28
+  %.not37.i = trunc i32 %1 to i1
+  %18 = and i32 %1, 18
+  %19 = icmp eq i32 %18, 16
+  %or.cond.i = or i1 %19, %.not37.i
+  br i1 %or.cond.i, label %20, label %27
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 %1, ptr %22, align 8, !tbaa !64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %2, ptr %23, align 8, !tbaa !65
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %3, ptr %24, align 8, !tbaa !66
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %26 = load i32, ptr %25, align 8, !tbaa !48
-  %27 = or i32 %26, 2
-  store i32 %27, ptr %25, align 8, !tbaa !48
-  br label %28
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i32 %1, ptr %21, align 8, !tbaa !64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %2, ptr %22, align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %3, ptr %23, align 8, !tbaa !66
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %25 = load i32, ptr %24, align 8, !tbaa !48
+  %26 = or i32 %25, 2
+  store i32 %26, ptr %24, align 8, !tbaa !48
+  br label %27
 
-28:                                               ; preds = %21, %17
-  %29 = and i32 %1, 2
-  %.not38.i = icmp ne i32 %29, 0
-  %30 = and i32 %1, 17
-  %31 = icmp eq i32 %30, 16
-  %or.cond44.i = or i1 %.not38.i, %31
-  br i1 %or.cond44.i, label %32, label %39
+27:                                               ; preds = %20, %17
+  %28 = and i32 %1, 2
+  %.not38.i = icmp ne i32 %28, 0
+  %29 = and i32 %1, 17
+  %30 = icmp eq i32 %29, 16
+  %or.cond44.i = or i1 %.not38.i, %30
+  br i1 %or.cond44.i, label %31, label %38
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 %1, ptr %33, align 8, !tbaa !67
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i64 %2, ptr %34, align 8, !tbaa !68
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i64 %3, ptr %35, align 8, !tbaa !69
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %37 = load i32, ptr %36, align 8, !tbaa !48
-  %38 = or i32 %37, 2
-  store i32 %38, ptr %36, align 8, !tbaa !48
-  br label %39
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 %1, ptr %32, align 8, !tbaa !67
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i64 %2, ptr %33, align 8, !tbaa !68
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i64 %3, ptr %34, align 8, !tbaa !69
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %36 = load i32, ptr %35, align 8, !tbaa !48
+  %37 = or i32 %36, 2
+  store i32 %37, ptr %35, align 8, !tbaa !48
+  br label %38
 
-39:                                               ; preds = %32, %28, %validate_time_flag.exit
-  %40 = and i32 %1, 512
-  %.not39.i = icmp eq i32 %40, 0
-  br i1 %.not39.i, label %set_timefilter.exit, label %41
+38:                                               ; preds = %31, %27, %validate_time_flag.exit
+  %39 = and i32 %1, 512
+  %.not39.i = icmp eq i32 %39, 0
+  br i1 %.not39.i, label %set_timefilter.exit, label %40
 
-41:                                               ; preds = %39
-  %42 = and i32 %1, 1
-  %.not40.i = icmp ne i32 %42, 0
-  %43 = and i32 %1, 18
-  %44 = icmp eq i32 %43, 16
-  %or.cond46.i = or i1 %.not40.i, %44
-  br i1 %or.cond46.i, label %45, label %52
+40:                                               ; preds = %38
+  %.not40.i = trunc i32 %1 to i1
+  %41 = and i32 %1, 18
+  %42 = icmp eq i32 %41, 16
+  %or.cond46.i = or i1 %42, %.not40.i
+  br i1 %or.cond46.i, label %43, label %50
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %1, ptr %46, align 8, !tbaa !58
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %2, ptr %47, align 8, !tbaa !59
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 %3, ptr %48, align 8, !tbaa !60
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %50 = load i32, ptr %49, align 8, !tbaa !48
-  %51 = or i32 %50, 2
-  store i32 %51, ptr %49, align 8, !tbaa !48
-  br label %52
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i32 %1, ptr %44, align 8, !tbaa !58
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i64 %2, ptr %45, align 8, !tbaa !59
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %3, ptr %46, align 8, !tbaa !60
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %48 = load i32, ptr %47, align 8, !tbaa !48
+  %49 = or i32 %48, 2
+  store i32 %49, ptr %47, align 8, !tbaa !48
+  br label %50
 
-52:                                               ; preds = %45, %41
-  %53 = and i32 %1, 2
-  %.not41.i = icmp ne i32 %53, 0
-  %54 = and i32 %1, 17
-  %55 = icmp eq i32 %54, 16
-  %or.cond48.i = or i1 %.not41.i, %55
-  br i1 %or.cond48.i, label %56, label %set_timefilter.exit
+50:                                               ; preds = %43, %40
+  %51 = and i32 %1, 2
+  %.not41.i = icmp ne i32 %51, 0
+  %52 = and i32 %1, 17
+  %53 = icmp eq i32 %52, 16
+  %or.cond48.i = or i1 %.not41.i, %53
+  br i1 %or.cond48.i, label %54, label %set_timefilter.exit
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %1, ptr %57, align 8, !tbaa !61
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i64 %2, ptr %58, align 8, !tbaa !62
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i64 %3, ptr %59, align 8, !tbaa !63
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %61 = load i32, ptr %60, align 8, !tbaa !48
-  %62 = or i32 %61, 2
-  store i32 %62, ptr %60, align 8, !tbaa !48
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %1, ptr %55, align 8, !tbaa !61
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i64 %2, ptr %56, align 8, !tbaa !62
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store i64 %3, ptr %57, align 8, !tbaa !63
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %59 = load i32, ptr %58, align 8, !tbaa !48
+  %60 = or i32 %59, 2
+  store i32 %60, ptr %58, align 8, !tbaa !48
   br label %set_timefilter.exit
 
-set_timefilter.exit:                              ; preds = %.sink.split.i, %4, %56, %52, %39
-  %.0 = phi i32 [ 0, %56 ], [ 0, %39 ], [ 0, %52 ], [ -25, %.sink.split.i ], [ -30, %4 ]
+set_timefilter.exit:                              ; preds = %.sink.split.i, %4, %54, %50, %38
+  %.0 = phi i32 [ 0, %54 ], [ 0, %38 ], [ 0, %50 ], [ -25, %.sink.split.i ], [ -30, %4 ]
   ret i32 %.0
 }
 
@@ -2189,99 +2187,97 @@ validate_time_flag.exit:                          ; preds = %12
 26:                                               ; preds = %20
   %27 = and i32 %1, 256
   %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %50, label %28
+  br i1 %.not.i.i, label %49, label %28
 
 28:                                               ; preds = %26
-  %29 = and i32 %1, 1
-  %.not37.i.i = icmp ne i32 %29, 0
-  %30 = and i32 %1, 18
-  %31 = icmp eq i32 %30, 16
-  %or.cond.i.i = or i1 %.not37.i.i, %31
-  br i1 %or.cond.i.i, label %32, label %39
+  %.not37.i.i = trunc i32 %1 to i1
+  %29 = and i32 %1, 18
+  %30 = icmp eq i32 %29, 16
+  %or.cond.i.i = or i1 %30, %.not37.i.i
+  br i1 %or.cond.i.i, label %31, label %38
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 %1, ptr %33, align 8, !tbaa !64
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %23, ptr %34, align 8, !tbaa !65
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 0, ptr %35, align 8, !tbaa !66
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %37 = load i32, ptr %36, align 8, !tbaa !48
-  %38 = or i32 %37, 2
-  store i32 %38, ptr %36, align 8, !tbaa !48
-  br label %39
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i32 %1, ptr %32, align 8, !tbaa !64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %23, ptr %33, align 8, !tbaa !65
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 0, ptr %34, align 8, !tbaa !66
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %36 = load i32, ptr %35, align 8, !tbaa !48
+  %37 = or i32 %36, 2
+  store i32 %37, ptr %35, align 8, !tbaa !48
+  br label %38
 
-39:                                               ; preds = %32, %28
-  %40 = and i32 %1, 2
-  %.not38.i.i = icmp ne i32 %40, 0
-  %41 = and i32 %1, 17
-  %42 = icmp eq i32 %41, 16
-  %or.cond44.i.i = or i1 %.not38.i.i, %42
-  br i1 %or.cond44.i.i, label %43, label %50
+38:                                               ; preds = %31, %28
+  %39 = and i32 %1, 2
+  %.not38.i.i = icmp ne i32 %39, 0
+  %40 = and i32 %1, 17
+  %41 = icmp eq i32 %40, 16
+  %or.cond44.i.i = or i1 %.not38.i.i, %41
+  br i1 %or.cond44.i.i, label %42, label %49
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 %1, ptr %44, align 8, !tbaa !67
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i64 %23, ptr %45, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i64 0, ptr %46, align 8, !tbaa !69
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %48 = load i32, ptr %47, align 8, !tbaa !48
-  %49 = or i32 %48, 2
-  store i32 %49, ptr %47, align 8, !tbaa !48
-  br label %50
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 %1, ptr %43, align 8, !tbaa !67
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i64 %23, ptr %44, align 8, !tbaa !68
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i64 0, ptr %45, align 8, !tbaa !69
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %47 = load i32, ptr %46, align 8, !tbaa !48
+  %48 = or i32 %47, 2
+  store i32 %48, ptr %46, align 8, !tbaa !48
+  br label %49
 
-50:                                               ; preds = %43, %39, %26
-  %51 = and i32 %1, 512
-  %.not39.i.i = icmp eq i32 %51, 0
-  br i1 %.not39.i.i, label %set_timefilter_date.exit, label %52
+49:                                               ; preds = %42, %38, %26
+  %50 = and i32 %1, 512
+  %.not39.i.i = icmp eq i32 %50, 0
+  br i1 %.not39.i.i, label %set_timefilter_date.exit, label %51
 
-52:                                               ; preds = %50
-  %53 = and i32 %1, 1
-  %.not40.i.i = icmp ne i32 %53, 0
-  %54 = and i32 %1, 18
-  %55 = icmp eq i32 %54, 16
-  %or.cond46.i.i = or i1 %.not40.i.i, %55
-  br i1 %or.cond46.i.i, label %56, label %63
+51:                                               ; preds = %49
+  %.not40.i.i = trunc i32 %1 to i1
+  %52 = and i32 %1, 18
+  %53 = icmp eq i32 %52, 16
+  %or.cond46.i.i = or i1 %53, %.not40.i.i
+  br i1 %or.cond46.i.i, label %54, label %61
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %1, ptr %57, align 8, !tbaa !58
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %23, ptr %58, align 8, !tbaa !59
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 0, ptr %59, align 8, !tbaa !60
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %61 = load i32, ptr %60, align 8, !tbaa !48
-  %62 = or i32 %61, 2
-  store i32 %62, ptr %60, align 8, !tbaa !48
-  br label %63
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i32 %1, ptr %55, align 8, !tbaa !58
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i64 %23, ptr %56, align 8, !tbaa !59
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 0, ptr %57, align 8, !tbaa !60
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %59 = load i32, ptr %58, align 8, !tbaa !48
+  %60 = or i32 %59, 2
+  store i32 %60, ptr %58, align 8, !tbaa !48
+  br label %61
 
-63:                                               ; preds = %56, %52
-  %64 = and i32 %1, 2
-  %.not41.i.i = icmp ne i32 %64, 0
-  %65 = and i32 %1, 17
-  %66 = icmp eq i32 %65, 16
-  %or.cond48.i.i = or i1 %.not41.i.i, %66
-  br i1 %or.cond48.i.i, label %67, label %set_timefilter_date.exit
+61:                                               ; preds = %54, %51
+  %62 = and i32 %1, 2
+  %.not41.i.i = icmp ne i32 %62, 0
+  %63 = and i32 %1, 17
+  %64 = icmp eq i32 %63, 16
+  %or.cond48.i.i = or i1 %.not41.i.i, %64
+  br i1 %or.cond48.i.i, label %65, label %set_timefilter_date.exit
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %1, ptr %68, align 8, !tbaa !61
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i64 %23, ptr %69, align 8, !tbaa !62
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i64 0, ptr %70, align 8, !tbaa !63
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %72 = load i32, ptr %71, align 8, !tbaa !48
-  %73 = or i32 %72, 2
-  store i32 %73, ptr %71, align 8, !tbaa !48
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %1, ptr %66, align 8, !tbaa !61
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i64 %23, ptr %67, align 8, !tbaa !62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store i64 0, ptr %68, align 8, !tbaa !63
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %70 = load i32, ptr %69, align 8, !tbaa !48
+  %71 = or i32 %70, 2
+  store i32 %71, ptr %69, align 8, !tbaa !48
   br label %set_timefilter_date.exit
 
-set_timefilter_date.exit:                         ; preds = %.sink.split.i, %3, %67, %63, %50, %25, %19
-  %.0 = phi i32 [ 0, %67 ], [ -25, %19 ], [ -25, %25 ], [ 0, %50 ], [ 0, %63 ], [ -25, %.sink.split.i ], [ -30, %3 ]
+set_timefilter_date.exit:                         ; preds = %.sink.split.i, %3, %65, %61, %49, %25, %19
+  %.0 = phi i32 [ 0, %65 ], [ -25, %19 ], [ -25, %25 ], [ 0, %49 ], [ 0, %61 ], [ -25, %.sink.split.i ], [ -30, %3 ]
   ret i32 %.0
 }
 
@@ -2371,99 +2367,97 @@ validate_time_flag.exit:                          ; preds = %13
 39:                                               ; preds = %32
   %40 = and i32 %1, 256
   %.not.i.i = icmp eq i32 %40, 0
-  br i1 %.not.i.i, label %63, label %41
+  br i1 %.not.i.i, label %62, label %41
 
 41:                                               ; preds = %39
-  %42 = and i32 %1, 1
-  %.not37.i.i = icmp ne i32 %42, 0
-  %43 = and i32 %1, 18
-  %44 = icmp eq i32 %43, 16
-  %or.cond.i.i = or i1 %.not37.i.i, %44
-  br i1 %or.cond.i.i, label %45, label %52
+  %.not37.i.i = trunc i32 %1 to i1
+  %42 = and i32 %1, 18
+  %43 = icmp eq i32 %42, 16
+  %or.cond.i.i = or i1 %43, %.not37.i.i
+  br i1 %or.cond.i.i, label %44, label %51
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 %1, ptr %46, align 8, !tbaa !64
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %36, ptr %47, align 8, !tbaa !65
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 0, ptr %48, align 8, !tbaa !66
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %50 = load i32, ptr %49, align 8, !tbaa !48
-  %51 = or i32 %50, 2
-  store i32 %51, ptr %49, align 8, !tbaa !48
-  br label %52
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i32 %1, ptr %45, align 8, !tbaa !64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %36, ptr %46, align 8, !tbaa !65
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 0, ptr %47, align 8, !tbaa !66
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %49 = load i32, ptr %48, align 8, !tbaa !48
+  %50 = or i32 %49, 2
+  store i32 %50, ptr %48, align 8, !tbaa !48
+  br label %51
 
-52:                                               ; preds = %45, %41
-  %53 = and i32 %1, 2
-  %.not38.i.i = icmp ne i32 %53, 0
-  %54 = and i32 %1, 17
-  %55 = icmp eq i32 %54, 16
-  %or.cond44.i.i = or i1 %.not38.i.i, %55
-  br i1 %or.cond44.i.i, label %56, label %63
+51:                                               ; preds = %44, %41
+  %52 = and i32 %1, 2
+  %.not38.i.i = icmp ne i32 %52, 0
+  %53 = and i32 %1, 17
+  %54 = icmp eq i32 %53, 16
+  %or.cond44.i.i = or i1 %.not38.i.i, %54
+  br i1 %or.cond44.i.i, label %55, label %62
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 %1, ptr %57, align 8, !tbaa !67
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i64 %36, ptr %58, align 8, !tbaa !68
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i64 0, ptr %59, align 8, !tbaa !69
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %61 = load i32, ptr %60, align 8, !tbaa !48
-  %62 = or i32 %61, 2
-  store i32 %62, ptr %60, align 8, !tbaa !48
-  br label %63
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 %1, ptr %56, align 8, !tbaa !67
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i64 %36, ptr %57, align 8, !tbaa !68
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i64 0, ptr %58, align 8, !tbaa !69
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %60 = load i32, ptr %59, align 8, !tbaa !48
+  %61 = or i32 %60, 2
+  store i32 %61, ptr %59, align 8, !tbaa !48
+  br label %62
 
-63:                                               ; preds = %56, %52, %39
-  %64 = and i32 %1, 512
-  %.not39.i.i = icmp eq i32 %64, 0
-  br i1 %.not39.i.i, label %set_timefilter_date_w.exit, label %65
+62:                                               ; preds = %55, %51, %39
+  %63 = and i32 %1, 512
+  %.not39.i.i = icmp eq i32 %63, 0
+  br i1 %.not39.i.i, label %set_timefilter_date_w.exit, label %64
 
-65:                                               ; preds = %63
-  %66 = and i32 %1, 1
-  %.not40.i.i = icmp ne i32 %66, 0
-  %67 = and i32 %1, 18
-  %68 = icmp eq i32 %67, 16
-  %or.cond46.i.i = or i1 %.not40.i.i, %68
-  br i1 %or.cond46.i.i, label %69, label %76
+64:                                               ; preds = %62
+  %.not40.i.i = trunc i32 %1 to i1
+  %65 = and i32 %1, 18
+  %66 = icmp eq i32 %65, 16
+  %or.cond46.i.i = or i1 %66, %.not40.i.i
+  br i1 %or.cond46.i.i, label %67, label %74
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %1, ptr %70, align 8, !tbaa !58
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %36, ptr %71, align 8, !tbaa !59
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 0, ptr %72, align 8, !tbaa !60
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %74 = load i32, ptr %73, align 8, !tbaa !48
-  %75 = or i32 %74, 2
-  store i32 %75, ptr %73, align 8, !tbaa !48
-  br label %76
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i32 %1, ptr %68, align 8, !tbaa !58
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i64 %36, ptr %69, align 8, !tbaa !59
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 0, ptr %70, align 8, !tbaa !60
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %72 = load i32, ptr %71, align 8, !tbaa !48
+  %73 = or i32 %72, 2
+  store i32 %73, ptr %71, align 8, !tbaa !48
+  br label %74
 
-76:                                               ; preds = %69, %65
-  %77 = and i32 %1, 2
-  %.not41.i.i = icmp ne i32 %77, 0
-  %78 = and i32 %1, 17
-  %79 = icmp eq i32 %78, 16
-  %or.cond48.i.i = or i1 %.not41.i.i, %79
-  br i1 %or.cond48.i.i, label %80, label %set_timefilter_date_w.exit
+74:                                               ; preds = %67, %64
+  %75 = and i32 %1, 2
+  %.not41.i.i = icmp ne i32 %75, 0
+  %76 = and i32 %1, 17
+  %77 = icmp eq i32 %76, 16
+  %or.cond48.i.i = or i1 %.not41.i.i, %77
+  br i1 %or.cond48.i.i, label %78, label %set_timefilter_date_w.exit
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %1, ptr %81, align 8, !tbaa !61
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i64 %36, ptr %82, align 8, !tbaa !62
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i64 0, ptr %83, align 8, !tbaa !63
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %85 = load i32, ptr %84, align 8, !tbaa !48
-  %86 = or i32 %85, 2
-  store i32 %86, ptr %84, align 8, !tbaa !48
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %1, ptr %79, align 8, !tbaa !61
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i64 %36, ptr %80, align 8, !tbaa !62
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store i64 0, ptr %81, align 8, !tbaa !63
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %83 = load i32, ptr %82, align 8, !tbaa !48
+  %84 = or i32 %83, 2
+  store i32 %84, ptr %82, align 8, !tbaa !48
   br label %set_timefilter_date_w.exit
 
-set_timefilter_date_w.exit:                       ; preds = %20, %29, %31, %38, %63, %76, %80
-  %.0.i = phi i32 [ -25, %20 ], [ -30, %29 ], [ -25, %31 ], [ -25, %38 ], [ 0, %63 ], [ 0, %76 ], [ 0, %80 ]
+set_timefilter_date_w.exit:                       ; preds = %20, %29, %31, %38, %62, %74, %78
+  %.0.i = phi i32 [ -25, %20 ], [ -30, %29 ], [ -25, %31 ], [ -25, %38 ], [ 0, %62 ], [ 0, %74 ], [ 0, %78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %validate_time_flag.exit.thread
 
@@ -2559,99 +2553,97 @@ define internal fastcc range(i32 -30, 1) i32 @set_timefilter_pathname_mbs(ptr no
   call void @archive_entry_free(ptr noundef nonnull %16) #14
   %25 = and i32 %1, 256
   %.not.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i, label %48, label %26
+  br i1 %.not.i.i, label %47, label %26
 
 26:                                               ; preds = %20
-  %27 = and i32 %1, 1
-  %.not37.i.i = icmp ne i32 %27, 0
-  %28 = and i32 %1, 18
-  %29 = icmp eq i32 %28, 16
-  %or.cond.i.i = or i1 %.not37.i.i, %29
-  br i1 %or.cond.i.i, label %30, label %37
+  %.not37.i.i = trunc i32 %1 to i1
+  %27 = and i32 %1, 18
+  %28 = icmp eq i32 %27, 16
+  %or.cond.i.i = or i1 %28, %.not37.i.i
+  br i1 %or.cond.i.i, label %29, label %36
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 %1, ptr %31, align 8, !tbaa !64
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %23, ptr %32, align 8, !tbaa !65
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %24, ptr %33, align 8, !tbaa !66
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %35 = load i32, ptr %34, align 8, !tbaa !48
-  %36 = or i32 %35, 2
-  store i32 %36, ptr %34, align 8, !tbaa !48
-  br label %37
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i32 %1, ptr %30, align 8, !tbaa !64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %23, ptr %31, align 8, !tbaa !65
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %24, ptr %32, align 8, !tbaa !66
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %34 = load i32, ptr %33, align 8, !tbaa !48
+  %35 = or i32 %34, 2
+  store i32 %35, ptr %33, align 8, !tbaa !48
+  br label %36
 
-37:                                               ; preds = %30, %26
-  %38 = and i32 %1, 2
-  %.not38.i.i = icmp ne i32 %38, 0
-  %39 = and i32 %1, 17
-  %40 = icmp eq i32 %39, 16
-  %or.cond44.i.i = or i1 %.not38.i.i, %40
-  br i1 %or.cond44.i.i, label %41, label %48
+36:                                               ; preds = %29, %26
+  %37 = and i32 %1, 2
+  %.not38.i.i = icmp ne i32 %37, 0
+  %38 = and i32 %1, 17
+  %39 = icmp eq i32 %38, 16
+  %or.cond44.i.i = or i1 %.not38.i.i, %39
+  br i1 %or.cond44.i.i, label %40, label %47
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 %1, ptr %42, align 8, !tbaa !67
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i64 %23, ptr %43, align 8, !tbaa !68
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i64 %24, ptr %44, align 8, !tbaa !69
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %46 = load i32, ptr %45, align 8, !tbaa !48
-  %47 = or i32 %46, 2
-  store i32 %47, ptr %45, align 8, !tbaa !48
-  br label %48
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 %1, ptr %41, align 8, !tbaa !67
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i64 %23, ptr %42, align 8, !tbaa !68
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i64 %24, ptr %43, align 8, !tbaa !69
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %45 = load i32, ptr %44, align 8, !tbaa !48
+  %46 = or i32 %45, 2
+  store i32 %46, ptr %44, align 8, !tbaa !48
+  br label %47
 
-48:                                               ; preds = %41, %37, %20
-  %49 = and i32 %1, 512
-  %.not39.i.i = icmp eq i32 %49, 0
-  br i1 %.not39.i.i, label %set_timefilter_stat.exit, label %50
+47:                                               ; preds = %40, %36, %20
+  %48 = and i32 %1, 512
+  %.not39.i.i = icmp eq i32 %48, 0
+  br i1 %.not39.i.i, label %set_timefilter_stat.exit, label %49
 
-50:                                               ; preds = %48
-  %51 = and i32 %1, 1
-  %.not40.i.i = icmp ne i32 %51, 0
-  %52 = and i32 %1, 18
-  %53 = icmp eq i32 %52, 16
-  %or.cond46.i.i = or i1 %.not40.i.i, %53
-  br i1 %or.cond46.i.i, label %54, label %61
+49:                                               ; preds = %47
+  %.not40.i.i = trunc i32 %1 to i1
+  %50 = and i32 %1, 18
+  %51 = icmp eq i32 %50, 16
+  %or.cond46.i.i = or i1 %51, %.not40.i.i
+  br i1 %or.cond46.i.i, label %52, label %59
 
-54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i32 %1, ptr %55, align 8, !tbaa !58
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %21, ptr %56, align 8, !tbaa !59
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 %22, ptr %57, align 8, !tbaa !60
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %59 = load i32, ptr %58, align 8, !tbaa !48
-  %60 = or i32 %59, 2
-  store i32 %60, ptr %58, align 8, !tbaa !48
-  br label %61
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i32 %1, ptr %53, align 8, !tbaa !58
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i64 %21, ptr %54, align 8, !tbaa !59
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %22, ptr %55, align 8, !tbaa !60
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %57 = load i32, ptr %56, align 8, !tbaa !48
+  %58 = or i32 %57, 2
+  store i32 %58, ptr %56, align 8, !tbaa !48
+  br label %59
 
-61:                                               ; preds = %54, %50
-  %62 = and i32 %1, 2
-  %.not41.i.i = icmp ne i32 %62, 0
-  %63 = and i32 %1, 17
-  %64 = icmp eq i32 %63, 16
-  %or.cond48.i.i = or i1 %.not41.i.i, %64
-  br i1 %or.cond48.i.i, label %65, label %set_timefilter_stat.exit
+59:                                               ; preds = %52, %49
+  %60 = and i32 %1, 2
+  %.not41.i.i = icmp ne i32 %60, 0
+  %61 = and i32 %1, 17
+  %62 = icmp eq i32 %61, 16
+  %or.cond48.i.i = or i1 %.not41.i.i, %62
+  br i1 %or.cond48.i.i, label %63, label %set_timefilter_stat.exit
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %1, ptr %66, align 8, !tbaa !61
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i64 %21, ptr %67, align 8, !tbaa !62
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i64 %22, ptr %68, align 8, !tbaa !63
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %70 = load i32, ptr %69, align 8, !tbaa !48
-  %71 = or i32 %70, 2
-  store i32 %71, ptr %69, align 8, !tbaa !48
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 %1, ptr %64, align 8, !tbaa !61
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i64 %21, ptr %65, align 8, !tbaa !62
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store i64 %22, ptr %66, align 8, !tbaa !63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %68 = load i32, ptr %67, align 8, !tbaa !48
+  %69 = or i32 %68, 2
+  store i32 %69, ptr %67, align 8, !tbaa !48
   br label %set_timefilter_stat.exit
 
-set_timefilter_stat.exit:                         ; preds = %65, %61, %48, %18, %12, %9
-  %.0 = phi i32 [ -25, %9 ], [ -25, %12 ], [ -30, %18 ], [ 0, %48 ], [ 0, %61 ], [ 0, %65 ]
+set_timefilter_stat.exit:                         ; preds = %63, %59, %47, %18, %12, %9
+  %.0 = phi i32 [ -25, %9 ], [ -25, %12 ], [ -30, %18 ], [ 0, %47 ], [ 0, %59 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

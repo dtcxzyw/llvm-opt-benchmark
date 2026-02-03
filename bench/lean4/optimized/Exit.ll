@@ -45,9 +45,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_instMonadExitOfMonadLift___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %3, align 4, !tbaa !4
@@ -83,9 +82,8 @@ define ptr @l_Lake_exitIfErrorCode___rarg(ptr noundef %0, ptr noundef %1, i32 no
 
 4:                                                ; preds = %3
   %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not16 = icmp eq i64 %6, 0
-  br i1 %.not16, label %7, label %lean_dec.exit12
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit12, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -115,9 +113,8 @@ lean_dec.exit12:                                  ; preds = %13, %12, %10, %4
 
 19:                                               ; preds = %3
   %20 = ptrtoint ptr %1 to i64
-  %21 = and i64 %20, 1
-  %.not15 = icmp eq i64 %21, 0
-  br i1 %.not15, label %22, label %lean_dec.exit
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %lean_dec.exit, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %1, align 4, !tbaa !4
@@ -173,9 +170,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_exitIfErrorCode___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %2, align 4, !tbaa !4
@@ -202,9 +198,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %3
 
 14:                                               ; preds = %lean_dec.exit
   %15 = ptrtoint ptr %0 to i64
-  %16 = and i64 %15, 1
-  %.not16.i = icmp eq i64 %16, 0
-  br i1 %.not16.i, label %17, label %lean_dec.exit12.i
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %lean_dec.exit12.i, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %0, align 4, !tbaa !4
@@ -232,9 +227,8 @@ lean_dec.exit12.i:                                ; preds = %23, %22, %20, %14
 
 27:                                               ; preds = %lean_dec.exit
   %28 = ptrtoint ptr %1 to i64
-  %29 = and i64 %28, 1
-  %.not15.i = icmp eq i64 %29, 0
-  br i1 %.not15.i, label %30, label %lean_dec.exit.i
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %lean_dec.exit.i, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %1, align 4, !tbaa !4

@@ -65,24 +65,24 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
   store i64 %24, ptr %25, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %.034, i64 368
   store i64 32768, ptr %26, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i8, ptr %.034, i64 376
-  %28 = trunc nuw nsw i32 %3 to i8
-  %29 = and i8 %28, 1
-  store i8 %29, ptr %27, align 8, !tbaa !26
+  %27 = trunc nuw nsw i32 %3 to i8
+  %28 = getelementptr inbounds nuw i8, ptr %.034, i64 376
+  %29 = and i8 %27, 1
+  store i8 %29, ptr %28, align 8, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %.034, i64 377
-  %31 = lshr i8 %28, 1
+  %31 = lshr i8 %27, 1
   %32 = and i8 %31, 1
   store i8 %32, ptr %30, align 1, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %.034, i64 378
-  %34 = lshr i8 %28, 2
+  %34 = lshr i8 %27, 2
   %35 = and i8 %34, 1
   store i8 %35, ptr %33, align 2, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %.034, i64 379
-  %37 = lshr i8 %28, 4
+  %37 = lshr i8 %27, 4
   %38 = and i8 %37, 1
   store i8 %38, ptr %36, align 1, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %.034, i64 380
-  %40 = lshr i8 %28, 3
+  %40 = lshr i8 %27, 3
   %41 = and i8 %40, 1
   store i8 %41, ptr %39, align 4, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %.034, i64 381

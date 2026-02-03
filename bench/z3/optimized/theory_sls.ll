@@ -615,8 +615,7 @@ define hidden void @_ZN3smt10theory_sls11force_phaseEN3sat7literalE(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !542
   %5 = lshr i32 %1, 1
-  %6 = and i32 %1, 1
-  %.not.i = icmp eq i32 %6, 0
+  %6 = trunc i32 %1 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8872
   %8 = load ptr, ptr %7, align 8, !tbaa !546
   %9 = zext nneg i32 %5 to i64
@@ -624,7 +623,7 @@ define hidden void @_ZN3smt10theory_sls11force_phaseEN3sat7literalE(ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -201326593
-  %14 = select i1 %.not.i, i64 201326592, i64 67108864
+  %14 = select i1 %6, i64 67108864, i64 201326592
   %15 = or disjoint i64 %13, %14
   store i64 %15, ptr %11, align 8
   ret void
@@ -638,8 +637,7 @@ define hidden void @_ZThn56_N3smt10theory_sls11force_phaseEN3sat7literalE(ptr no
   %3 = getelementptr inbounds i8, ptr %0, i64 -40
   %4 = load ptr, ptr %3, align 8, !tbaa !542
   %5 = lshr i32 %1, 1
-  %6 = and i32 %1, 1
-  %.not.i.i = icmp eq i32 %6, 0
+  %6 = trunc i32 %1 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8872
   %8 = load ptr, ptr %7, align 8, !tbaa !546
   %9 = zext nneg i32 %5 to i64
@@ -647,7 +645,7 @@ define hidden void @_ZThn56_N3smt10theory_sls11force_phaseEN3sat7literalE(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -201326593
-  %14 = select i1 %.not.i.i, i64 201326592, i64 67108864
+  %14 = select i1 %6, i64 67108864, i64 201326592
   %15 = or disjoint i64 %13, %14
   store i64 %15, ptr %11, align 8
   ret void

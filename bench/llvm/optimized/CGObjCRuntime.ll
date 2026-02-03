@@ -392,9 +392,8 @@ define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime24EmitValueForIvarAtOffse
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 1
-  %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %36, label %37
+  %35 = trunc i32 %34 to i1
+  br i1 %35, label %37, label %36
 
 36:                                               ; preds = %8
   call void @_ZN5clang7CodeGen15CodeGenFunction29MakeNaturalAlignRawAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6496) %2, ptr noundef %32, i64 %26) #13
@@ -1790,24 +1789,22 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclEKNS1_4DeclEEEDaPT0_.exit: ; p
   %27 = load ptr, ptr %26, align 8, !tbaa !798
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %28, align 8, !tbaa !345
-  %29 = and i64 %.sroa.0.0.copyload.i, 1
-  %.not.i36 = icmp eq i64 %29, 0
-  br i1 %.not.i36, label %_ZNK5clang8QualType16isConstQualifiedEv.exit, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread
+  %29 = trunc i64 %.sroa.0.0.copyload.i to i1
+  br i1 %29, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread, label %_ZNK5clang8QualType16isConstQualifiedEv.exit
 
 _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclEKNS1_4DeclEEEDaPT0_.exit
   %30 = and i64 %.sroa.0.0.copyload.i, -16
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.0.copyload.i.i.i.i.i1.i = load i64, ptr %32, align 8
-  %33 = and i64 %.0.copyload.i.i.i.i.i1.i, 1
-  %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %_ZN5clang7CodeGen13CGObjCRuntime17isWeakLinkedClassEPKNS_17ObjCInterfaceDeclE.exit, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread
+  %33 = trunc i64 %.0.copyload.i.i.i.i.i1.i to i1
+  br i1 %33, label %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread, label %_ZN5clang7CodeGen13CGObjCRuntime17isWeakLinkedClassEPKNS_17ObjCInterfaceDeclE.exit
 
 _ZNK5clang8QualType16isConstQualifiedEv.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14ObjCMethodDeclEKNS1_4DeclEEEDaPT0_.exit, %_ZNK5clang8QualType16isConstQualifiedEv.exit
   %34 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #13
   %35 = load i8, ptr %34, align 8, !tbaa !728
-  %.not42 = icmp eq i8 %35, 61
-  br i1 %.not42, label %36, label %.critedge
+  %.not = icmp eq i8 %35, 61
+  br i1 %.not, label %36, label %.critedge
 
 36:                                               ; preds = %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1861,8 +1858,8 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; pre
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %66 = load i8, ptr %65, align 8
   %67 = and i8 %66, 3
-  %.not.i37 = icmp eq i8 %67, 0
-  br i1 %.not.i37, label %68, label %71
+  %.not.i36 = icmp eq i8 %67, 0
+  br i1 %.not.i36, label %68, label %71
 
 68:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit
   %.0.copyload.i.i.i.i.i = load i64, ptr %7, align 8
@@ -1875,11 +1872,11 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit: ; pre
   br label %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
 
 _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds = %68, %71
-  %.0.i38 = phi ptr [ %72, %71 ], [ %70, %68 ]
+  %.0.i37 = phi ptr [ %72, %71 ], [ %70, %68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %73 = getelementptr inbounds i8, ptr %34, i64 -32
   %74 = load ptr, ptr %73, align 8, !tbaa !733
-  %.not32 = icmp eq ptr %.0.i38, %74
+  %.not32 = icmp eq ptr %.0.i37, %74
   br i1 %.not32, label %_ZN5clang7CodeGen13CGObjCRuntime17isWeakLinkedClassEPKNS_17ObjCInterfaceDeclE.exit, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit, %_ZNK5clang8QualType16isConstQualifiedEv.exit.thread

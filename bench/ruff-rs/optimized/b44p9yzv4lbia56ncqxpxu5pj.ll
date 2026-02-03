@@ -428,9 +428,8 @@ define { ptr, ptr } @_ZN20ruff_python_semantic7binding7Binding10references17h725
 define noundef zeroext i1 @_ZN20ruff_python_semantic7binding7Binding18is_explicit_export17h9e4a505ac6535353E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i16, ptr %2, align 8, !noundef !4
-  %4 = and i16 %3, 1
-  %5 = icmp ne i16 %4, 0
-  ret i1 %5
+  %4 = trunc i16 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

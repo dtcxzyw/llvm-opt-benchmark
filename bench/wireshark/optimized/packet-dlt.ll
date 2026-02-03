@@ -561,8 +561,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %25, %26
 29:                                               ; preds = %4
   %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %31 = zext i8 %30 to i32
-  %32 = and i32 %31, 1
-  %.not153 = icmp eq i32 %32, 0
+  %32 = trunc i8 %30 to i1
   %33 = shl i32 %31, 30
   %34 = and i32 %33, -2147483648
   %35 = xor i32 %34, -2147483648
@@ -635,7 +634,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %25, %26
 
 86:                                               ; preds = %79, %77
   %.2 = phi i32 [ %85, %79 ], [ %.1, %77 ]
-  br i1 %.not153, label %123, label %87
+  br i1 %32, label %87, label %123
 
 87:                                               ; preds = %86
   %88 = load i32, ptr @hf_dlt_ext_hdr, align 4
@@ -1021,8 +1020,8 @@ dissect_dlt_non_verbose_payload.exit:             ; preds = %137, %dissect_dlt_n
 
 305:                                              ; preds = %123
   %306 = zext i8 %.0145 to i32
-  %.not.i154 = icmp eq i8 %.0145, 0
-  br i1 %.not.i154, label %dissect_dlt_verbose_payload.exit, label %.lr.ph.i
+  %.not.i153 = icmp eq i8 %.0145, 0
+  br i1 %.not.i153, label %dissect_dlt_verbose_payload.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %305
   %307 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1479,8 +1478,8 @@ expert_dlt_buffer_too_short.exit.i99.i.i:         ; preds = %491, %490
   store float 0.000000e+00, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double 0.000000e+00, ptr %7, align 8
-  %.not.i.i155 = icmp eq i32 %.078116.i.i, 0
-  br i1 %.not.i.i155, label %507, label %.split.i97.i.i
+  %.not.i.i154 = icmp eq i32 %.078116.i.i, 0
+  br i1 %.not.i.i154, label %507, label %.split.i97.i.i
 
 .split.i97.i.i:                                   ; preds = %494
   %495 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 range(i32 0, 17) %.078116.i.i, i1 true)

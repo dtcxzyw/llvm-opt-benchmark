@@ -1509,14 +1509,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit109: ; preds = %_Z
   %67 = and i32 %3, 2
   %.not88 = icmp eq i32 %67, 0
   %.not89 = icmp ne i32 %67, 0
-  %68 = and i32 %3, 1
-  %.not90 = icmp ne i32 %68, 0
-  %69 = and i32 %3, 48
-  %or.cond101 = icmp ne i32 %69, 0
-  %or.cond.not253 = and i1 %.not90, %or.cond101
-  %70 = and i32 %3, 9
-  %or.cond.not = icmp eq i32 %70, 9
-  %.not95 = icmp eq i32 %68, 0
+  %.not90 = trunc i32 %3 to i1
+  %68 = and i32 %3, 48
+  %or.cond101 = icmp ne i32 %68, 0
+  %or.cond.not253 = and i1 %or.cond101, %.not90
+  %69 = and i32 %3, 9
+  %or.cond.not = icmp eq i32 %69, 9
+  %70 = and i32 %3, 1
+  %.not95 = icmp eq i32 %70, 0
   %brmerge = or i1 %.not89, %or.cond.not253
   br label %71
 

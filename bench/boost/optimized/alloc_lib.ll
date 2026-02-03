@@ -2208,9 +2208,9 @@ spin_acquire_lock.exit:                           ; preds = %9, %2, %6
 115:                                              ; preds = %108
   store ptr %.0293, ptr %112, align 8, !tbaa !37
   %cond = icmp eq ptr %.0293, null
-  br i1 %cond, label %.thread479, label %131
+  br i1 %cond, label %.thread478, label %131
 
-.thread479:                                       ; preds = %115
+.thread478:                                       ; preds = %115
   %116 = shl nuw i32 1, %110
   %117 = xor i32 %116, -1
   %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 4), align 4, !tbaa !27
@@ -2316,18 +2316,17 @@ spin_acquire_lock.exit:                           ; preds = %9, %2, %6
   store i64 %42, ptr %23, align 8, !tbaa !25
   br label %403
 
-.thread:                                          ; preds = %.thread479, %151, %62, %.critedge406, %130, %146, %142, %107, %21
-  %.0288 = phi i64 [ %22, %21 ], [ %42, %107 ], [ %42, %142 ], [ %42, %146 ], [ %42, %130 ], [ %42, %.critedge406 ], [ %42, %62 ], [ %42, %151 ], [ %42, %.thread479 ]
-  %.0 = phi ptr [ %3, %21 ], [ %41, %107 ], [ %41, %142 ], [ %41, %146 ], [ %41, %130 ], [ %41, %.critedge406 ], [ %41, %62 ], [ %41, %151 ], [ %41, %.thread479 ]
+.thread:                                          ; preds = %.thread478, %151, %62, %.critedge406, %130, %146, %142, %107, %21
+  %.0288 = phi i64 [ %22, %21 ], [ %42, %107 ], [ %42, %142 ], [ %42, %146 ], [ %42, %130 ], [ %42, %.critedge406 ], [ %42, %62 ], [ %42, %151 ], [ %42, %.thread478 ]
+  %.0 = phi ptr [ %3, %21 ], [ %41, %107 ], [ %41, %142 ], [ %41, %146 ], [ %41, %130 ], [ %41, %.critedge406 ], [ %41, %62 ], [ %41, %151 ], [ %41, %.thread478 ]
   %160 = icmp ult ptr %.0, %23
   br i1 %160, label %161, label %.critedge400, !prof !22
 
 161:                                              ; preds = %.thread
   %162 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %163 = load i64, ptr %162, align 8, !tbaa !23
-  %164 = and i64 %163, 1
-  %.not436 = icmp eq i64 %164, 0
-  br i1 %.not436, label %.critedge400, label %165, !prof !20
+  %164 = trunc i64 %163 to i1
+  br i1 %164, label %165, label %.critedge400, !prof !22
 
 165:                                              ; preds = %161
   %166 = and i64 %163, 2
@@ -2555,9 +2554,9 @@ spin_acquire_lock.exit:                           ; preds = %9, %2, %6
 268:                                              ; preds = %261
   store ptr %.0305, ptr %265, align 8, !tbaa !37
   %cond424 = icmp eq ptr %.0305, null
-  br i1 %cond424, label %.thread481, label %284
+  br i1 %cond424, label %.thread480, label %284
 
-.thread481:                                       ; preds = %268
+.thread480:                                       ; preds = %268
   %269 = shl nuw i32 1, %263
   %270 = xor i32 %269, -1
   %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 4), align 4, !tbaa !27
@@ -2646,7 +2645,7 @@ spin_acquire_lock.exit:                           ; preds = %9, %2, %6
   tail call void @abort() #18
   unreachable
 
-304:                                              ; preds = %.thread481, %260, %295, %299, %283, %.critedge418, %212
+304:                                              ; preds = %.thread480, %260, %295, %299, %283, %.critedge418, %212
   %305 = or i64 %194, 1
   %306 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %305, ptr %306, align 8, !tbaa !23
@@ -2819,16 +2818,16 @@ spin_acquire_lock.exit:                           ; preds = %9, %2, %6
   unreachable
 
 394:                                              ; preds = %.thread431, %391, %359
-  %.sink488 = phi i64 [ 48, %.thread431 ], [ 16, %391 ], [ 48, %359 ]
-  %.0291.lcssa483.sink = phi ptr [ %.0291, %.thread431 ], [ %386, %391 ], [ %353, %359 ]
-  %.0.sink487 = phi ptr [ %.0, %.thread431 ], [ %.0291, %391 ], [ %.0, %359 ]
-  %.sink486 = phi i64 [ 16, %.thread431 ], [ 48, %391 ], [ 16, %359 ]
+  %.sink487 = phi i64 [ 48, %.thread431 ], [ 16, %391 ], [ 48, %359 ]
+  %.0291.lcssa482.sink = phi ptr [ %.0291, %.thread431 ], [ %386, %391 ], [ %353, %359 ]
+  %.0.sink486 = phi ptr [ %.0, %.thread431 ], [ %.0291, %391 ], [ %.0, %359 ]
+  %.sink485 = phi i64 [ 16, %.thread431 ], [ 48, %391 ], [ 16, %359 ]
   %.0.sink = phi ptr [ %.0, %.thread431 ], [ null, %391 ], [ %.0, %359 ]
-  %395 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink488
-  store ptr %.0291.lcssa483.sink, ptr %395, align 8, !tbaa !37
+  %395 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink487
+  store ptr %.0291.lcssa482.sink, ptr %395, align 8, !tbaa !37
   %396 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %.0.sink487, ptr %396, align 8, !tbaa !42
-  %397 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink486
+  store ptr %.0.sink486, ptr %396, align 8, !tbaa !42
+  %397 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink485
   store ptr %.0.sink, ptr %397, align 8, !tbaa !37
   %398 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 56), align 8, !tbaa !55
   %399 = add i64 %398, -1
@@ -3600,9 +3599,8 @@ define internal fastcc ptr @try_realloc_chunk(ptr noundef %0, ptr noundef nonnul
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !23
-  %16 = and i64 %15, 1
-  %.not283 = icmp eq i64 %16, 0
-  br i1 %.not283, label %.critedge272, label %17, !prof !20
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %17, label %.critedge272, !prof !22
 
 17:                                               ; preds = %13
   %18 = icmp eq i64 %11, 0
@@ -4725,9 +4723,9 @@ spin_acquire_lock.exit:                           ; preds = %12, %3, %8
 123:                                              ; preds = %115
   store ptr %.0355, ptr %120, align 8, !tbaa !37
   %cond = icmp eq ptr %.0355, null
-  br i1 %cond, label %.thread542, label %140
+  br i1 %cond, label %.thread541, label %140
 
-.thread542:                                       ; preds = %123
+.thread541:                                       ; preds = %123
   %124 = shl nuw i32 1, %118
   %125 = xor i32 %124, -1
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4836,18 +4834,17 @@ spin_acquire_lock.exit:                           ; preds = %12, %3, %8
   store i64 %47, ptr %27, align 8, !tbaa !25
   br label %428
 
-.thread:                                          ; preds = %.thread542, %161, %69, %.critedge469, %139, %156, %151, %114, %25
-  %.0350 = phi i64 [ %26, %25 ], [ %47, %114 ], [ %47, %151 ], [ %47, %156 ], [ %47, %139 ], [ %47, %.critedge469 ], [ %47, %69 ], [ %47, %161 ], [ %47, %.thread542 ]
-  %.0 = phi ptr [ %4, %25 ], [ %46, %114 ], [ %46, %151 ], [ %46, %156 ], [ %46, %139 ], [ %46, %.critedge469 ], [ %46, %69 ], [ %46, %161 ], [ %46, %.thread542 ]
+.thread:                                          ; preds = %.thread541, %161, %69, %.critedge469, %139, %156, %151, %114, %25
+  %.0350 = phi i64 [ %26, %25 ], [ %47, %114 ], [ %47, %151 ], [ %47, %156 ], [ %47, %139 ], [ %47, %.critedge469 ], [ %47, %69 ], [ %47, %161 ], [ %47, %.thread541 ]
+  %.0 = phi ptr [ %4, %25 ], [ %46, %114 ], [ %46, %151 ], [ %46, %156 ], [ %46, %139 ], [ %46, %.critedge469 ], [ %46, %69 ], [ %46, %161 ], [ %46, %.thread541 ]
   %171 = icmp ult ptr %.0, %27
   br i1 %171, label %172, label %.critedge463, !prof !22
 
 172:                                              ; preds = %.thread
   %173 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %174 = load i64, ptr %173, align 8, !tbaa !23
-  %175 = and i64 %174, 1
-  %.not499 = icmp eq i64 %175, 0
-  br i1 %.not499, label %.critedge463, label %176, !prof !20
+  %175 = trunc i64 %174 to i1
+  br i1 %175, label %176, label %.critedge463, !prof !22
 
 176:                                              ; preds = %172
   %177 = and i64 %174, 2
@@ -5084,9 +5081,9 @@ spin_acquire_lock.exit:                           ; preds = %12, %3, %8
 288:                                              ; preds = %280
   store ptr %.0367, ptr %285, align 8, !tbaa !37
   %cond487 = icmp eq ptr %.0367, null
-  br i1 %cond487, label %.thread544, label %305
+  br i1 %cond487, label %.thread543, label %305
 
-.thread544:                                       ; preds = %288
+.thread543:                                       ; preds = %288
   %289 = shl nuw i32 1, %283
   %290 = xor i32 %289, -1
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5177,7 +5174,7 @@ spin_acquire_lock.exit:                           ; preds = %12, %3, %8
   tail call void @abort() #18
   unreachable
 
-326:                                              ; preds = %.thread544, %279, %316, %321, %304, %.critedge481, %231
+326:                                              ; preds = %.thread543, %279, %316, %321, %304, %.critedge481, %231
   %327 = or i64 %212, 1
   %328 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %327, ptr %328, align 8, !tbaa !23
@@ -5354,16 +5351,16 @@ spin_acquire_lock.exit:                           ; preds = %12, %3, %8
   unreachable
 
 418:                                              ; preds = %.thread494, %415, %385
-  %.sink551 = phi i64 [ 48, %.thread494 ], [ 16, %415 ], [ 48, %385 ]
-  %.0353.lcssa546.sink = phi ptr [ %.0353, %.thread494 ], [ %412, %415 ], [ %378, %385 ]
-  %.0.sink550 = phi ptr [ %.0, %.thread494 ], [ %.0353, %415 ], [ %.0, %385 ]
-  %.sink549 = phi i64 [ 16, %.thread494 ], [ 48, %415 ], [ 16, %385 ]
+  %.sink550 = phi i64 [ 48, %.thread494 ], [ 16, %415 ], [ 48, %385 ]
+  %.0353.lcssa545.sink = phi ptr [ %.0353, %.thread494 ], [ %412, %415 ], [ %378, %385 ]
+  %.0.sink549 = phi ptr [ %.0, %.thread494 ], [ %.0353, %415 ], [ %.0, %385 ]
+  %.sink548 = phi i64 [ 16, %.thread494 ], [ 48, %415 ], [ 16, %385 ]
   %.0.sink = phi ptr [ %.0, %.thread494 ], [ null, %415 ], [ %.0, %385 ]
-  %419 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink551
-  store ptr %.0353.lcssa546.sink, ptr %419, align 8, !tbaa !37
+  %419 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink550
+  store ptr %.0353.lcssa545.sink, ptr %419, align 8, !tbaa !37
   %420 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %.0.sink550, ptr %420, align 8, !tbaa !42
-  %421 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink549
+  store ptr %.0.sink549, ptr %420, align 8, !tbaa !42
+  %421 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink548
   store ptr %.0.sink, ptr %421, align 8, !tbaa !37
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %423 = load i64, ptr %422, align 8, !tbaa !55
@@ -8118,9 +8115,9 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
 103:                                              ; preds = %96
   store ptr %.0350, ptr %100, align 8, !tbaa !37
   %cond = icmp eq ptr %.0350, null
-  br i1 %cond, label %.thread55, label %119
+  br i1 %cond, label %.thread54, label %119
 
-.thread55:                                        ; preds = %103
+.thread54:                                        ; preds = %103
   %104 = shl nuw i32 1, %98
   %105 = xor i32 %104, -1
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 4), align 4, !tbaa !27
@@ -8226,18 +8223,17 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
   store i64 %30, ptr %11, align 8, !tbaa !25
   br label %.critedge467.thread
 
-.thread:                                          ; preds = %.thread55, %139, %50, %.critedge461, %118, %134, %130, %95, %9
-  %.0345 = phi i64 [ %10, %9 ], [ %30, %95 ], [ %30, %130 ], [ %30, %134 ], [ %30, %118 ], [ %30, %.critedge461 ], [ %30, %50 ], [ %30, %139 ], [ %30, %.thread55 ]
-  %.0 = phi ptr [ %3, %9 ], [ %29, %95 ], [ %29, %130 ], [ %29, %134 ], [ %29, %118 ], [ %29, %.critedge461 ], [ %29, %50 ], [ %29, %139 ], [ %29, %.thread55 ]
+.thread:                                          ; preds = %.thread54, %139, %50, %.critedge461, %118, %134, %130, %95, %9
+  %.0345 = phi i64 [ %10, %9 ], [ %30, %95 ], [ %30, %130 ], [ %30, %134 ], [ %30, %118 ], [ %30, %.critedge461 ], [ %30, %50 ], [ %30, %139 ], [ %30, %.thread54 ]
+  %.0 = phi ptr [ %3, %9 ], [ %29, %95 ], [ %29, %130 ], [ %29, %134 ], [ %29, %118 ], [ %29, %.critedge461 ], [ %29, %50 ], [ %29, %139 ], [ %29, %.thread54 ]
   %148 = icmp ult ptr %.0, %11
   br i1 %148, label %149, label %.critedge455, !prof !22
 
 149:                                              ; preds = %.thread
   %150 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %151 = load i64, ptr %150, align 8, !tbaa !23
-  %152 = and i64 %151, 1
-  %.not12 = icmp eq i64 %152, 0
-  br i1 %.not12, label %.critedge455, label %153, !prof !20
+  %152 = trunc i64 %151 to i1
+  br i1 %152, label %153, label %.critedge455, !prof !22
 
 153:                                              ; preds = %149
   %154 = and i64 %151, 2
@@ -8465,9 +8461,9 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
 256:                                              ; preds = %249
   store ptr %.0362, ptr %253, align 8, !tbaa !37
   %cond479 = icmp eq ptr %.0362, null
-  br i1 %cond479, label %.thread57, label %272
+  br i1 %cond479, label %.thread56, label %272
 
-.thread57:                                        ; preds = %256
+.thread56:                                        ; preds = %256
   %257 = shl nuw i32 1, %251
   %258 = xor i32 %257, -1
   %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 4), align 4, !tbaa !27
@@ -8556,7 +8552,7 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
   tail call void @abort() #18
   unreachable
 
-292:                                              ; preds = %.thread57, %248, %283, %287, %271, %.critedge473, %200
+292:                                              ; preds = %.thread56, %248, %283, %287, %271, %.critedge473, %200
   %293 = or i64 %182, 1
   %294 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %293, ptr %294, align 8, !tbaa !23
@@ -8729,16 +8725,16 @@ define internal fastcc void @mspace_free_lockless(ptr noundef %0) unnamed_addr #
   unreachable
 
 380:                                              ; preds = %.thread7, %377, %347
-  %.sink64 = phi i64 [ 48, %.thread7 ], [ 16, %377 ], [ 48, %347 ]
-  %.0348.lcssa59.sink = phi ptr [ %.0348, %.thread7 ], [ %374, %377 ], [ %341, %347 ]
-  %.0.sink63 = phi ptr [ %.0, %.thread7 ], [ %.0348, %377 ], [ %.0, %347 ]
-  %.sink62 = phi i64 [ 16, %.thread7 ], [ 48, %377 ], [ 16, %347 ]
+  %.sink63 = phi i64 [ 48, %.thread7 ], [ 16, %377 ], [ 48, %347 ]
+  %.0348.lcssa58.sink = phi ptr [ %.0348, %.thread7 ], [ %374, %377 ], [ %341, %347 ]
+  %.0.sink62 = phi ptr [ %.0, %.thread7 ], [ %.0348, %377 ], [ %.0, %347 ]
+  %.sink61 = phi i64 [ 16, %.thread7 ], [ 48, %377 ], [ 16, %347 ]
   %.0.sink = phi ptr [ %.0, %.thread7 ], [ null, %377 ], [ %.0, %347 ]
-  %381 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink64
-  store ptr %.0348.lcssa59.sink, ptr %381, align 8, !tbaa !37
+  %381 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink63
+  store ptr %.0348.lcssa58.sink, ptr %381, align 8, !tbaa !37
   %382 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %.0.sink63, ptr %382, align 8, !tbaa !42
-  %383 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink62
+  store ptr %.0.sink62, ptr %382, align 8, !tbaa !42
+  %383 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink61
   store ptr %.0.sink, ptr %383, align 8, !tbaa !37
   %384 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 56), align 8, !tbaa !55
   %385 = add i64 %384, -1
@@ -9468,9 +9464,8 @@ define internal fastcc ptr @try_realloc_chunk_with_min(ptr noundef %0, i64 nound
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !23
-  %14 = and i64 %13, 1
-  %.not3 = icmp eq i64 %14, 0
-  br i1 %.not3, label %.critedge304, label %15, !prof !20
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %15, label %.critedge304, !prof !22
 
 15:                                               ; preds = %11
   %16 = icmp eq i64 %9, 0
@@ -9509,7 +9504,7 @@ define internal fastcc ptr @try_realloc_chunk_with_min(ptr noundef %0, i64 nound
 
 .mmap_resize.exit_crit_edge:                      ; preds = %25
   %.pre = load i64, ptr %4, align 8, !tbaa !23
-  %.pre4 = and i64 %.pre, -8
+  %.pre3 = and i64 %.pre, -8
   br label %mmap_resize.exit
 
 37:                                               ; preds = %25
@@ -9546,7 +9541,7 @@ define internal fastcc ptr @try_realloc_chunk_with_min(ptr noundef %0, i64 nound
   br label %mmap_resize.exit319
 
 mmap_resize.exit:                                 ; preds = %.mmap_resize.exit_crit_edge, %17
-  %.pre-phi = phi i64 [ %.pre4, %.mmap_resize.exit_crit_edge ], [ %6, %17 ]
+  %.pre-phi = phi i64 [ %.pre3, %.mmap_resize.exit_crit_edge ], [ %6, %17 ]
   %56 = icmp ult i64 %1, 256
   br i1 %56, label %mmap_resize.exit319, label %57
 
@@ -10100,15 +10095,14 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   %.not69.i = icmp eq i64 %33, 0
   %36 = or i1 %.not68.i, %.not69.i
   %or.cond73.i = select i1 %.not.i14, i1 true, i1 %36, !prof !71
-  br i1 %or.cond73.i, label %.critedge.i16, label %37, !prof !72
+  br i1 %or.cond73.i, label %.critedge.i15, label %37, !prof !72
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 %33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !23
-  %41 = and i64 %40, 1
-  %.not3.i = icmp eq i64 %41, 0
-  br i1 %.not3.i, label %.critedge.i16, label %42, !prof !20
+  %41 = trunc i64 %40 to i1
+  br i1 %41, label %42, label %.critedge.i15, !prof !22
 
 42:                                               ; preds = %37
   %43 = add nuw i64 %spec.store.select.i, 23
@@ -10221,8 +10215,8 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   %104 = getelementptr inbounds nuw i8, ptr %94, i64 16
   tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %104)
   %.pre.i = load i64, ptr %19, align 8, !tbaa !23
-  %.pre4.i = and i64 %.pre.i, 3
-  %105 = icmp eq i64 %.pre4.i, 0
+  %.pre3.i = and i64 %.pre.i, 3
+  %105 = icmp eq i64 %.pre3.i, 0
   %106 = select i1 %105, i64 -16, i64 -8
   br label %107
 
@@ -10232,7 +10226,7 @@ spin_acquire_lock.exit:                           ; preds = %11, %5, %8
   store i64 %108, ptr %3, align 8, !tbaa !36
   br label %internal_shrink.exit
 
-.critedge.i16:                                    ; preds = %37, %31
+.critedge.i15:                                    ; preds = %37, %31
   tail call void @abort() #18
   unreachable
 

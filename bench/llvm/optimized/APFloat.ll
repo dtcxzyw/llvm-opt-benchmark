@@ -11630,7 +11630,7 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat34convertFloat8E8M0FNUAPFloatTo
   %10 = and i8 %7, 7
   %11 = icmp ne i8 %10, 3
   %12 = and i1 %9, %11
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %26
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11649,27 +11649,27 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat34convertFloat8E8M0FNUAPFloatTo
   %25 = load ptr, ptr %24, align 8, !noalias !369
   %.0.i.i.i = select i1 %23, ptr %25, ptr %24
   %.sroa.0.0.copyload.i = load i64, ptr %.0.i.i.i, align 8, !noalias !369
-  %26 = and i64 %.sroa.0.0.copyload.i, 1
+  %spec.select.i = and i64 %.sroa.0.0.copyload.i, 1
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L16semFloat8E8M0FNUEEEENS_5APIntEv.exit
 
-27:                                               ; preds = %2
+26:                                               ; preds = %2
   tail call void @llvm.assume(i1 %11)
-  %28 = icmp ne i8 %10, 0
-  tail call void @llvm.assume(i1 %28)
-  %29 = add nuw nsw i32 %5, 128
-  %30 = zext nneg i32 %29 to i64
+  %27 = icmp ne i8 %10, 0
+  tail call void @llvm.assume(i1 %27)
+  %28 = add nuw nsw i32 %5, 128
+  %29 = zext nneg i32 %28 to i64
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L16semFloat8E8M0FNUEEEENS_5APIntEv.exit
 
-_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L16semFloat8E8M0FNUEEEENS_5APIntEv.exit: ; preds = %13, %19, %27
-  %.0.i = phi i64 [ %26, %19 ], [ %30, %27 ], [ %17, %13 ]
-  %31 = shl i8 %7, 4
-  %32 = and i8 %31, -128
-  %33 = zext i8 %32 to i64
-  %34 = and i64 %.0.i, 255
-  %35 = or i64 %34, %33
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 8, ptr %36, align 8, !tbaa !27, !alias.scope !369
-  store i64 %35, ptr %0, align 8, !tbaa !24, !alias.scope !369
+_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L16semFloat8E8M0FNUEEEENS_5APIntEv.exit: ; preds = %13, %19, %26
+  %.0.i = phi i64 [ %spec.select.i, %19 ], [ %29, %26 ], [ %17, %13 ]
+  %30 = shl i8 %7, 4
+  %31 = and i8 %30, -128
+  %32 = zext i8 %31 to i64
+  %33 = and i64 %.0.i, 255
+  %34 = or i64 %33, %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 8, ptr %35, align 8, !tbaa !27, !alias.scope !369
+  store i64 %34, ptr %0, align 8, !tbaa !24, !alias.scope !369
   ret void
 }
 

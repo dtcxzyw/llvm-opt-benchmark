@@ -14668,55 +14668,55 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr nound
   %10 = and i8 %9, 1
   store i8 %10, ptr %8, align 4
   %11 = load i64, ptr %0, align 8
-  %12 = and i64 %11, 1
-  %13 = load i64, ptr %5, align 8
-  %14 = and i64 %13, -2
-  %storemerge.i = or disjoint i64 %14, %12
+  %12 = load i64, ptr %5, align 8
+  %13 = and i64 %12, -2
+  %masksel.i = and i64 %11, 1
+  %storemerge.i = or disjoint i64 %13, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %24, label %17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %23, label %16
 
-17:                                               ; preds = %2
-  %18 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %16, ptr noundef nonnull %1)
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %18, ptr %19, align 8
-  %20 = load i64, ptr %18, align 8
-  %21 = and i64 %20, 3
-  %22 = ptrtoint ptr %5 to i64
-  %23 = or i64 %21, %22
-  store i64 %23, ptr %18, align 8
-  br label %26
+16:                                               ; preds = %2
+  %17 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %15, ptr noundef nonnull %1)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %17, ptr %18, align 8
+  %19 = load i64, ptr %17, align 8
+  %20 = and i64 %19, 3
+  %21 = ptrtoint ptr %5 to i64
+  %22 = or i64 %20, %21
+  store i64 %22, ptr %17, align 8
+  br label %25
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %25, align 8
-  br label %26
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %24, align 8
+  br label %25
 
-26:                                               ; preds = %24, %17
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8
-  %.not14 = icmp eq ptr %28, null
-  br i1 %.not14, label %common.ret, label %29
+25:                                               ; preds = %23, %16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %.not14 = icmp eq ptr %27, null
+  br i1 %.not14, label %common.ret, label %28
 
-common.ret16:                                     ; preds = %29, %common.ret
+common.ret16:                                     ; preds = %28, %common.ret
   ret ptr %5
 
-29:                                               ; preds = %26
-  %30 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %28, ptr noundef nonnull %1)
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %30, ptr %31, align 8
-  %32 = load i64, ptr %30, align 8
-  %33 = and i64 %32, 3
-  %34 = ptrtoint ptr %5 to i64
-  %35 = or i64 %33, %34
-  store i64 %35, ptr %30, align 8
+28:                                               ; preds = %25
+  %29 = tail call noundef ptr @_ZNK8QMapNodeIibE4copyEP8QMapDataIibE(ptr noundef nonnull align 8 dereferenceable(29) %27, ptr noundef nonnull %1)
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %29, ptr %30, align 8
+  %31 = load i64, ptr %29, align 8
+  %32 = and i64 %31, 3
+  %33 = ptrtoint ptr %5 to i64
+  %34 = or i64 %32, %33
+  store i64 %34, ptr %29, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %36, align 8
+common.ret:                                       ; preds = %25
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %35, align 8
   br label %common.ret16
 }
 
@@ -14794,55 +14794,55 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call noundef ptr @_ZN8QMapDataIi5QListIP7QActionEE10createNodeERKiRKS3_P8QMapNodeIiS3_Eb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null, i1 noundef zeroext false)
   %6 = load i64, ptr %0, align 8
-  %7 = and i64 %6, 1
-  %8 = load i64, ptr %5, align 8
-  %9 = and i64 %8, -2
-  %storemerge.i = or disjoint i64 %9, %7
+  %7 = load i64, ptr %5, align 8
+  %8 = and i64 %7, -2
+  %masksel.i = and i64 %6, 1
+  %storemerge.i = or disjoint i64 %8, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %19, label %12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %18, label %11
 
-12:                                               ; preds = %2
-  %13 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %1)
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %14, align 8
-  %15 = load i64, ptr %13, align 8
-  %16 = and i64 %15, 3
-  %17 = ptrtoint ptr %5 to i64
-  %18 = or i64 %16, %17
-  store i64 %18, ptr %13, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %1)
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %12, ptr %13, align 8
+  %14 = load i64, ptr %12, align 8
+  %15 = and i64 %14, 3
+  %16 = ptrtoint ptr %5 to i64
+  %17 = or i64 %15, %16
+  store i64 %17, ptr %12, align 8
+  br label %20
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %20, align 8
-  br label %21
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %19, align 8
+  br label %20
 
-21:                                               ; preds = %19, %12
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not14 = icmp eq ptr %23, null
-  br i1 %.not14, label %common.ret, label %24
+20:                                               ; preds = %18, %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not14 = icmp eq ptr %22, null
+  br i1 %.not14, label %common.ret, label %23
 
-common.ret16:                                     ; preds = %24, %common.ret
+common.ret16:                                     ; preds = %23, %common.ret
   ret ptr %5
 
-24:                                               ; preds = %21
-  %25 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %1)
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %25, ptr %26, align 8
-  %27 = load i64, ptr %25, align 8
-  %28 = and i64 %27, 3
-  %29 = ptrtoint ptr %5 to i64
-  %30 = or i64 %28, %29
-  store i64 %30, ptr %25, align 8
+23:                                               ; preds = %20
+  %24 = tail call noundef ptr @_ZNK8QMapNodeIi5QListIP7QActionEE4copyEP8QMapDataIiS3_E(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull %1)
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %24, ptr %25, align 8
+  %26 = load i64, ptr %24, align 8
+  %27 = and i64 %26, 3
+  %28 = ptrtoint ptr %5 to i64
+  %29 = or i64 %27, %28
+  store i64 %29, ptr %24, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %31, align 8
+common.ret:                                       ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %30, align 8
   br label %common.ret16
 }
 
@@ -21202,7 +21202,7 @@ _ZN6GLArea2mmEv.exit:                             ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1288) %17, ptr noundef nonnull %0)
-  br label %228
+  br label %226
 
 21:                                               ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -21271,9 +21271,9 @@ _Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit:          ; preds = %30, %33
 
 _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit:          ; preds = %59, %62
   %70 = phi i32 [ %61, %59 ], [ %69, %62 ]
-  %.neg61 = add i32 %53, 1
+  %.neg62 = add i32 %53, 1
   %71 = add i32 %55, %70
-  %72 = sub i32 %.neg61, %71
+  %72 = sub i32 %.neg62, %71
   %73 = load ptr, ptr %42, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
@@ -21284,20 +21284,20 @@ _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit:          ; preds = %59, %62
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 1404
   %.sroa.2.0.insert.ext = zext i32 %79 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.050.0.insert.ext = zext i32 %49 to i64
-  %.sroa.050.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.050.0.insert.ext
-  store i64 %.sroa.050.0.insert.insert, ptr %80, align 4
-  br label %228
+  %.sroa.051.0.insert.ext = zext i32 %49 to i64
+  %.sroa.051.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.051.0.insert.ext
+  store i64 %.sroa.051.0.insert.insert, ptr %80, align 4
+  br label %226
 
 81:                                               ; preds = %21
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.0.0.copyload.i = load i32, ptr %82, align 4
   %83 = and i32 %.sroa.0.0.copyload.i, 100663296
-  %or.cond51.not53 = icmp eq i32 %83, 100663296
+  %or.cond52.not54 = icmp eq i32 %83, 100663296
   %84 = icmp eq i32 %23, 1
-  %or.cond52 = and i1 %84, %or.cond51.not53
+  %or.cond53 = and i1 %84, %or.cond52.not54
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1378
-  br i1 %or.cond52, label %167, label %86
+  br i1 %or.cond53, label %166, label %86
 
 86:                                               ; preds = %81
   store i8 1, ptr %85, align 2
@@ -21405,9 +21405,9 @@ _Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit24:        ; preds = %109, %112
 
 _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit26:        ; preds = %138, %141
   %149 = phi i32 [ %140, %138 ], [ %148, %141 ]
-  %.neg58 = add i32 %132, 1
+  %.neg59 = add i32 %132, 1
   %150 = add i32 %134, %149
-  %151 = sub i32 %.neg58, %150
+  %151 = sub i32 %.neg59, %150
   %152 = load ptr, ptr %121, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load ptr, ptr %153, align 8
@@ -21417,102 +21417,102 @@ _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit26:        ; preds = %138, %141
   %158 = fptosi float %157 to i32
   %159 = load i32, ptr %22, align 8
   %.sroa.0.0.copyload.i27 = load i32, ptr %82, align 4
-  %160 = and i32 %159, 1
-  %161 = shl i32 %159, 1
-  %162 = and i32 %161, 4
-  %.1.i = or disjoint i32 %162, %160
-  %163 = lshr i32 %159, 1
-  %164 = and i32 %163, 2
-  %.2.i = or disjoint i32 %.1.i, %164
-  %165 = lshr i32 %.sroa.0.0.copyload.i27, 21
-  %166 = and i32 %165, 112
-  %.5.i = or disjoint i32 %.2.i, %166
+  %spec.select.i = and i32 %159, 1
+  %160 = shl i32 %159, 1
+  %161 = and i32 %160, 4
+  %.1.i = or disjoint i32 %161, %spec.select.i
+  %162 = lshr i32 %159, 1
+  %163 = and i32 %162, 2
+  %.2.i = or disjoint i32 %.1.i, %163
+  %164 = lshr i32 %.sroa.0.0.copyload.i27, 21
+  %165 = and i32 %164, 112
+  %.5.i = or disjoint i32 %.2.i, %165
   tail call void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 dereferenceable(597) %105, i32 noundef %128, i32 noundef %158, i32 noundef %.5.i)
-  br label %228
+  br label %226
 
-167:                                              ; preds = %81
+166:                                              ; preds = %81
   store i8 0, ptr %85, align 2
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %170 = load double, ptr %169, align 8
-  %171 = fcmp ult double %170, 0.000000e+00
-  br i1 %171, label %175, label %172
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %169 = load double, ptr %168, align 8
+  %170 = fcmp ult double %169, 0.000000e+00
+  br i1 %170, label %174, label %171
 
-172:                                              ; preds = %167
-  %173 = fadd double %170, 5.000000e-01
-  %174 = fptosi double %173 to i32
+171:                                              ; preds = %166
+  %172 = fadd double %169, 5.000000e-01
+  %173 = fptosi double %172 to i32
   br label %_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28
 
-175:                                              ; preds = %167
-  %176 = fadd double %170, -1.000000e+00
-  %177 = fptosi double %176 to i32
-  %178 = sitofp i32 %177 to double
-  %179 = fsub double %170, %178
-  %180 = fadd double %179, 5.000000e-01
-  %181 = fptosi double %180 to i32
-  %182 = add nsw i32 %181, %177
+174:                                              ; preds = %166
+  %175 = fadd double %169, -1.000000e+00
+  %176 = fptosi double %175 to i32
+  %177 = sitofp i32 %176 to double
+  %178 = fsub double %169, %177
+  %179 = fadd double %178, 5.000000e-01
+  %180 = fptosi double %179 to i32
+  %181 = add nsw i32 %180, %176
   br label %_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28
 
-_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28:        ; preds = %172, %175
-  %183 = phi i32 [ %174, %172 ], [ %182, %175 ]
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
-  %187 = load ptr, ptr %186, align 8
-  %188 = tail call noundef i32 %187(ptr noundef nonnull align 8 dereferenceable(24) %184, i32 noundef 11)
-  %189 = mul nsw i32 %188, %183
-  %190 = sitofp i32 %189 to float
-  %191 = fptosi float %190 to i32
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
-  %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %197 = load i32, ptr %196, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %199 = load double, ptr %198, align 8
-  %200 = fcmp ult double %199, 0.000000e+00
-  br i1 %200, label %204, label %201
+_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28:        ; preds = %171, %174
+  %182 = phi i32 [ %173, %171 ], [ %181, %174 ]
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
+  %186 = load ptr, ptr %185, align 8
+  %187 = tail call noundef i32 %186(ptr noundef nonnull align 8 dereferenceable(24) %183, i32 noundef 11)
+  %188 = mul nsw i32 %187, %182
+  %189 = sitofp i32 %188 to float
+  %190 = fptosi float %189 to i32
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
+  %194 = load i32, ptr %193, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %196 = load i32, ptr %195, align 4
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %198 = load double, ptr %197, align 8
+  %199 = fcmp ult double %198, 0.000000e+00
+  br i1 %199, label %203, label %200
 
-201:                                              ; preds = %_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28
-  %202 = fadd double %199, 5.000000e-01
-  %203 = fptosi double %202 to i32
+200:                                              ; preds = %_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28
+  %201 = fadd double %198, 5.000000e-01
+  %202 = fptosi double %201 to i32
   br label %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit30
 
-204:                                              ; preds = %_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28
-  %205 = fadd double %199, -1.000000e+00
-  %206 = fptosi double %205 to i32
-  %207 = sitofp i32 %206 to double
-  %208 = fsub double %199, %207
-  %209 = fadd double %208, 5.000000e-01
-  %210 = fptosi double %209 to i32
-  %211 = add nsw i32 %210, %206
+203:                                              ; preds = %_Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit28
+  %204 = fadd double %198, -1.000000e+00
+  %205 = fptosi double %204 to i32
+  %206 = sitofp i32 %205 to double
+  %207 = fsub double %198, %206
+  %208 = fadd double %207, 5.000000e-01
+  %209 = fptosi double %208 to i32
+  %210 = add nsw i32 %209, %205
   br label %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit30
 
-_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit30:        ; preds = %201, %204
-  %212 = phi i32 [ %203, %201 ], [ %211, %204 ]
-  %.neg55 = add i32 %195, 1
-  %213 = add i32 %197, %212
-  %214 = sub i32 %.neg55, %213
-  %215 = load ptr, ptr %184, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 32
-  %217 = load ptr, ptr %216, align 8
-  %218 = tail call noundef i32 %217(ptr noundef nonnull align 8 dereferenceable(24) %184, i32 noundef 11)
-  %219 = mul nsw i32 %218, %214
-  %220 = sitofp i32 %219 to float
-  %221 = fptosi float %220 to i32
-  %222 = load i32, ptr %22, align 8
-  %223 = and i32 %222, 1
-  %224 = shl i32 %222, 1
-  %225 = and i32 %224, 4
-  %.1.i31 = or disjoint i32 %225, %223
-  %226 = lshr i32 %222, 1
-  %227 = and i32 %226, 2
-  %.2.i32 = or disjoint i32 %.1.i31, %227
-  tail call void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 dereferenceable(597) %168, i32 noundef %191, i32 noundef %221, i32 noundef %.2.i32)
-  br label %228
+_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit30:        ; preds = %200, %203
+  %211 = phi i32 [ %202, %200 ], [ %210, %203 ]
+  %.neg56 = add i32 %194, 1
+  %212 = add i32 %196, %211
+  %213 = sub i32 %.neg56, %212
+  %214 = load ptr, ptr %183, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
+  %216 = load ptr, ptr %215, align 8
+  %217 = tail call noundef i32 %216(ptr noundef nonnull align 8 dereferenceable(24) %183, i32 noundef 11)
+  %218 = mul nsw i32 %217, %213
+  %219 = sitofp i32 %218 to float
+  %220 = fptosi float %219 to i32
+  %221 = load i32, ptr %22, align 8
+  %spec.select.i31 = and i32 %221, 1
+  %222 = shl i32 %221, 1
+  %223 = and i32 %222, 4
+  %.1.i32 = or disjoint i32 %223, %spec.select.i31
+  %224 = lshr i32 %221, 1
+  %225 = and i32 %224, 2
+  %.2.i33 = or disjoint i32 %.1.i32, %225
+  tail call void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 dereferenceable(597) %167, i32 noundef %190, i32 noundef %220, i32 noundef %.2.i33)
+  br label %226
 
-228:                                              ; preds = %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit, %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit30, %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit26, %_ZN6GLArea2mmEv.exit
+226:                                              ; preds = %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit, %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit30, %_Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit26, %_ZN6GLArea2mmEv.exit
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
@@ -21730,7 +21730,7 @@ _ZN6GLArea2mmEv.exit:                             ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %12, ptr noundef nonnull %0)
-  br label %84
+  br label %83
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -21792,9 +21792,9 @@ _Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit:          ; preds = %21, %24
 
 61:                                               ; preds = %53, %50
   %62 = phi i32 [ %52, %50 ], [ %60, %53 ]
-  %.neg21 = add i32 %44, 1
+  %.neg22 = add i32 %44, 1
   %63 = add i32 %46, %62
-  %64 = sub i32 %.neg21, %63
+  %64 = sub i32 %.neg22, %63
   %65 = load ptr, ptr %33, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
@@ -21806,23 +21806,23 @@ _Z8QT2VCG_XP7QWidgetP11QMouseEvent.exit:          ; preds = %21, %24
   %73 = load i32, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.0.0.copyload.i = load i32, ptr %74, align 4
-  %75 = and i32 %73, 1
-  %76 = shl i32 %73, 1
-  %77 = and i32 %76, 4
-  %.1.i = or disjoint i32 %77, %75
-  %78 = lshr i32 %73, 1
-  %79 = and i32 %78, 2
-  %.2.i = or disjoint i32 %.1.i, %79
-  %80 = lshr i32 %.sroa.0.0.copyload.i, 21
-  %81 = and i32 %80, 112
-  %.5.i = or disjoint i32 %.2.i, %81
+  %spec.select.i = and i32 %73, 1
+  %75 = shl i32 %73, 1
+  %76 = and i32 %75, 4
+  %.1.i = or disjoint i32 %76, %spec.select.i
+  %77 = lshr i32 %73, 1
+  %78 = and i32 %77, 2
+  %.2.i = or disjoint i32 %.1.i, %78
+  %79 = lshr i32 %.sroa.0.0.copyload.i, 21
+  %80 = and i32 %79, 112
+  %.5.i = or disjoint i32 %.2.i, %80
   tail call void @_ZN3vcg9Trackball7MouseUpEiii(ptr noundef nonnull align 8 dereferenceable(597) %17, i32 noundef %40, i32 noundef %71, i32 noundef %.5.i)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %83 = load ptr, ptr %82, align 8
-  tail call void @_ZN6GLArea14setCursorTrackEPN3vcg9TrackModeE(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef %83)
-  br label %84
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %82 = load ptr, ptr %81, align 8
+  tail call void @_ZN6GLArea14setCursorTrackEPN3vcg9TrackModeE(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef %82)
+  br label %83
 
-84:                                               ; preds = %61, %_ZN6GLArea2mmEv.exit
+83:                                               ; preds = %61, %_ZN6GLArea2mmEv.exit
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
@@ -22709,55 +22709,55 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeI7QString7QCursorE4copyEP8QMapData
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call noundef ptr @_ZN8QMapDataI7QString7QCursorE10createNodeERKS0_RKS1_P8QMapNodeIS0_S1_Eb(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null, i1 noundef zeroext false)
   %6 = load i64, ptr %0, align 8
-  %7 = and i64 %6, 1
-  %8 = load i64, ptr %5, align 8
-  %9 = and i64 %8, -2
-  %storemerge.i = or disjoint i64 %9, %7
+  %7 = load i64, ptr %5, align 8
+  %8 = and i64 %7, -2
+  %masksel.i = and i64 %6, 1
+  %storemerge.i = or disjoint i64 %8, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %19, label %12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %18, label %11
 
-12:                                               ; preds = %2
-  %13 = tail call noundef ptr @_ZNK8QMapNodeI7QString7QCursorE4copyEP8QMapDataIS0_S1_E(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %1)
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %14, align 8
-  %15 = load i64, ptr %13, align 8
-  %16 = and i64 %15, 3
-  %17 = ptrtoint ptr %5 to i64
-  %18 = or i64 %16, %17
-  store i64 %18, ptr %13, align 8
-  br label %21
+11:                                               ; preds = %2
+  %12 = tail call noundef ptr @_ZNK8QMapNodeI7QString7QCursorE4copyEP8QMapDataIS0_S1_E(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull %1)
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %12, ptr %13, align 8
+  %14 = load i64, ptr %12, align 8
+  %15 = and i64 %14, 3
+  %16 = ptrtoint ptr %5 to i64
+  %17 = or i64 %15, %16
+  store i64 %17, ptr %12, align 8
+  br label %20
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %20, align 8
-  br label %21
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %19, align 8
+  br label %20
 
-21:                                               ; preds = %19, %12
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %.not14 = icmp eq ptr %23, null
-  br i1 %.not14, label %common.ret, label %24
+20:                                               ; preds = %18, %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %.not14 = icmp eq ptr %22, null
+  br i1 %.not14, label %common.ret, label %23
 
-common.ret16:                                     ; preds = %24, %common.ret
+common.ret16:                                     ; preds = %23, %common.ret
   ret ptr %5
 
-24:                                               ; preds = %21
-  %25 = tail call noundef ptr @_ZNK8QMapNodeI7QString7QCursorE4copyEP8QMapDataIS0_S1_E(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %1)
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %25, ptr %26, align 8
-  %27 = load i64, ptr %25, align 8
-  %28 = and i64 %27, 3
-  %29 = ptrtoint ptr %5 to i64
-  %30 = or i64 %28, %29
-  store i64 %30, ptr %25, align 8
+23:                                               ; preds = %20
+  %24 = tail call noundef ptr @_ZNK8QMapNodeI7QString7QCursorE4copyEP8QMapDataIS0_S1_E(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull %1)
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %24, ptr %25, align 8
+  %26 = load i64, ptr %24, align 8
+  %27 = and i64 %26, 3
+  %28 = ptrtoint ptr %5 to i64
+  %29 = or i64 %27, %28
+  store i64 %29, ptr %24, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %31, align 8
+common.ret:                                       ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %30, align 8
   br label %common.ret16
 }
 

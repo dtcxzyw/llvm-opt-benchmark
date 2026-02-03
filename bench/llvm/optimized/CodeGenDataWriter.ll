@@ -300,9 +300,8 @@ _ZN4llvm5ErrorD2Ev.exit:
   store i64 %21, ptr %3, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !65
-  %24 = and i32 %23, 1
-  %.not12 = icmp eq i32 %24, 0
-  br i1 %.not12, label %27, label %25
+  %24 = trunc i32 %23 to i1
+  br i1 %24, label %25, label %27
 
 25:                                               ; preds = %7
   %26 = load ptr, ptr %8, align 8, !tbaa !14
@@ -327,8 +326,8 @@ _ZN4llvm5ErrorD2Ev.exit:
   store i64 %40, ptr %4, align 8, !tbaa !30
   %41 = load i32, ptr %22, align 8, !tbaa !65
   %42 = and i32 %41, 2
-  %.not13 = icmp eq i32 %42, 0
-  br i1 %.not13, label %_ZN4llvm5ErrorD2Ev.exit9, label %43
+  %.not12 = icmp eq i32 %42, 0
+  br i1 %.not12, label %_ZN4llvm5ErrorD2Ev.exit9, label %43
 
 43:                                               ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -455,9 +454,8 @@ declare void @_ZNK4llvm23StableFunctionMapRecord9serializeERNS_11raw_ostreamE(pt
 define dso_local void @_ZN4llvm17CodeGenDataWriter15writeHeaderTextERNS_14raw_fd_ostreamE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !65
-  %6 = and i32 %5, 1
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %7
+  %6 = trunc i32 %5 to i1
+  br i1 %6, label %7, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -484,8 +482,8 @@ define dso_local void @_ZN4llvm17CodeGenDataWriter15writeHeaderTextERNS_14raw_fd
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %3
   %21 = load i32, ptr %4, align 8, !tbaa !65
   %22 = and i32 %21, 2
-  %.not7 = icmp eq i32 %22, 0
-  br i1 %.not7, label %_ZN4llvm5ErrorD2Ev.exit, label %23
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -519,9 +517,8 @@ define dso_local void @_ZN4llvm17CodeGenDataWriter9writeTextERNS_14raw_fd_ostrea
   %4 = alloca %"class.llvm::yaml::Output", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !65, !noalias !85
-  %7 = and i32 %6, 1
-  %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i, label %8
+  %7 = trunc i32 %6 to i1
+  br i1 %7, label %8, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -548,8 +545,8 @@ define dso_local void @_ZN4llvm17CodeGenDataWriter9writeTextERNS_14raw_fd_ostrea
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %19, %17, %3
   %22 = load i32, ptr %5, align 8, !tbaa !65, !noalias !85
   %23 = and i32 %22, 2
-  %.not7.i = icmp eq i32 %23, 0
-  br i1 %.not7.i, label %38, label %24
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %38, label %24
 
 24:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -577,9 +574,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %19, %17, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm4yaml6OutputC1ERNS_11raw_ostreamEPvi(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef null, i32 noundef 70) #12
   %39 = load i32, ptr %5, align 8, !tbaa !65
-  %40 = and i32 %39, 1
-  %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %42, label %41
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %41, label %42
 
 41:                                               ; preds = %38
   call void @_ZNK4llvm22OutlinedHashTreeRecord13serializeYAMLERNS_4yaml6OutputE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(128) %4) #12
@@ -589,8 +585,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %19, %17, %3
 42:                                               ; preds = %41, %38
   %43 = phi i32 [ %.pre, %41 ], [ %39, %38 ]
   %44 = and i32 %43, 2
-  %.not7 = icmp eq i32 %44, 0
-  br i1 %.not7, label %47, label %45
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8

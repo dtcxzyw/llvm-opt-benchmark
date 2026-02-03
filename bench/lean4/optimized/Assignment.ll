@@ -45,9 +45,8 @@ define noundef nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCto
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -91,9 +90,8 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %lean_d
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_noConfusion___rarg___lambda__1(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -150,9 +148,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit7
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit7, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -174,9 +171,8 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_noConfusion___rarg___
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not10 = icmp eq i64 %14, 0
-  br i1 %.not10, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit7
   %16 = load i32, ptr %1, align 4, !tbaa !4
@@ -204,9 +200,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_noConfusion___rarg___lambda__1___boxed(ptr noundef returned %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -252,13 +247,12 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 4) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_ofNat(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %lean_nat_le.exit, label %4, !prof !15
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %lean_nat_le.exit, !prof !9
 
 4:                                                ; preds = %1
-  %.not22 = icmp ult ptr %0, inttoptr (i64 5 to ptr)
-  br i1 %.not22, label %6, label %10
+  %.not = icmp ult ptr %0, inttoptr (i64 5 to ptr)
+  br i1 %.not, label %6, label %10
 
 lean_nat_le.exit:                                 ; preds = %1
   %5 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %0) #6
@@ -299,13 +293,12 @@ lean_nat_eq.exit18:                               ; preds = %10, %.critedge.i16
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_ofNat___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %lean_nat_le.exit.i, label %4, !prof !15
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %lean_nat_le.exit.i, !prof !9
 
 4:                                                ; preds = %1
-  %.not22.i = icmp ult ptr %0, inttoptr (i64 5 to ptr)
-  br i1 %.not22.i, label %6, label %10
+  %.not.i3 = icmp ult ptr %0, inttoptr (i64 5 to ptr)
+  br i1 %.not.i3, label %6, label %10
 
 lean_nat_le.exit.i:                               ; preds = %1
   %5 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %0) #6
@@ -340,7 +333,7 @@ lean_nat_eq.exit18.i:                             ; preds = %.critedge.i16.i, %1
 
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_ofNat.exit: ; preds = %lean_nat_eq.exit.i, %lean_nat_eq.exit18.i
   %.1.i = phi i64 [ %..i, %lean_nat_eq.exit.i ], [ %.13.i, %lean_nat_eq.exit18.i ]
-  br i1 %.not.i3, label %13, label %lean_dec.exit
+  br i1 %3, label %lean_dec.exit, label %13
 
 13:                                               ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_ofNat.exit
   %14 = load i32, ptr %0, align 4, !tbaa !4
@@ -387,21 +380,21 @@ define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_instDecida
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %2, %3, %4, %5
   %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
-    i8 0, label %lean_dec.exit
+    i8 0, label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
     i8 1, label %6
     i8 2, label %7
   ]
 
 6:                                                ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
 
 7:                                                ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
 
 8:                                                ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
 
-lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
+l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11: ; preds = %8, %7, %6, %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
   %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
@@ -413,9 +406,8 @@ define noundef nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqA
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i8
-  %6 = and i64 %3, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %6 = trunc i64 %3 to i1
+  br i1 %6, label %lean_dec.exit7, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -439,9 +431,8 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %1 to i64
   %15 = lshr i64 %14, 1
   %16 = trunc i64 %15 to i8
-  %17 = and i64 %14, 1
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %18, label %lean_dec.exit
+  %17 = trunc i64 %14 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_dec.exit7
   %19 = load i32, ptr %1, align 4, !tbaa !4
@@ -521,21 +512,21 @@ define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignm
 l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit: ; preds = %2, %3, %4, %5
   %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
-    i8 0, label %lean_dec.exit
+    i8 0, label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
     i8 1, label %6
     i8 2, label %7
   ]
 
 6:                                                ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
 
 7:                                                ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
 
 8:                                                ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11
 
-lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
+l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit11: ; preds = %8, %7, %6, %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit
   %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
@@ -547,9 +538,8 @@ define noundef nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_beqAssignment___
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i8
-  %6 = and i64 %3, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %6 = trunc i64 %3 to i1
+  br i1 %6, label %lean_dec.exit7, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -573,9 +563,8 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %1 to i64
   %15 = lshr i64 %14, 1
   %16 = trunc i64 %15 to i8
-  %17 = and i64 %14, 1
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %18, label %lean_dec.exit
+  %17 = trunc i64 %14 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_dec.exit7
   %19 = load i32, ptr %1, align 4, !tbaa !4
@@ -657,9 +646,8 @@ define ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString___boxed(
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -697,20 +685,20 @@ l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString.exit: ; preds = %lea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasPosAssignment(i8 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = zext i8 %0 to i32
-  %3 = add nsw i32 %2, -1
-  %switch.and = and i32 %3, -3
+lean_obj_tag.exit:
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -1
+  %switch.and = and i32 %2, -3
   %switch.selectcmp = icmp ne i32 %switch.and, 0
-  %4 = zext i1 %switch.selectcmp to i8
-  ret i8 %4
+  %3 = zext i1 %switch.selectcmp to i8
+  ret i8 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasPosAssignment___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -743,7 +731,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasNegAssignment(i8 noundef zeroext %0) local_unnamed_addr #0 {
-lean_dec.exit:
+lean_obj_tag.exit:
   %1 = add i8 %0, -1
   %switch = icmp ult i8 %1, 2
   %spec.select = zext i1 %switch to i8
@@ -753,9 +741,8 @@ lean_dec.exit:
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasNegAssignment___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -786,7 +773,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext range(i8 0, 3) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addPosAssignment(i8 noundef zeroext %0) local_unnamed_addr #0 {
-lean_dec.exit:
+lean_obj_tag.exit:
   %1 = add i8 %0, -1
   %switch = icmp ult i8 %1, 2
   %spec.select = select i1 %switch, i8 2, i8 0
@@ -796,9 +783,8 @@ lean_dec.exit:
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addPosAssignment___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -829,7 +815,7 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef zeroext range(i8 1, 4) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removePosAssignment(i8 noundef zeroext %0) local_unnamed_addr #0 {
-lean_dec.exit:
+lean_obj_tag.exit:
   %1 = add i8 %0, -1
   %switch = icmp ult i8 %1, 2
   %spec.select = select i1 %switch, i8 1, i8 3
@@ -839,9 +825,8 @@ lean_dec.exit:
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removePosAssignment___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -872,20 +857,20 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 1, 3) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addNegAssignment(i8 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = zext i8 %0 to i32
-  %3 = add nsw i32 %2, -1
-  %switch.and = and i32 %3, -3
+lean_obj_tag.exit:
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -1
+  %switch.and = and i32 %2, -3
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %4 = select i1 %switch.selectcmp, i8 1, i8 2
-  ret i8 %4
+  %3 = select i1 %switch.selectcmp, i8 1, i8 2
+  ret i8 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addNegAssignment___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -918,20 +903,20 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 4) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeNegAssignment(i8 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = zext i8 %0 to i32
-  %3 = add nsw i32 %2, -1
-  %switch.and = and i32 %3, -3
+lean_obj_tag.exit:
+  %1 = zext i8 %0 to i32
+  %2 = add nsw i32 %1, -1
+  %switch.and = and i32 %2, -3
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %4 = select i1 %switch.selectcmp, i8 3, i8 0
-  ret i8 %4
+  %3 = select i1 %switch.selectcmp, i8 3, i8 0
+  ret i8 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeNegAssignment___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -965,33 +950,32 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 3) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp eq i8 %0, 0
-  br i1 %3, label %4, label %8
+  br i1 %3, label %lean_obj_tag.exit, label %lean_obj_tag.exit18
 
-4:                                                ; preds = %2
-  %5 = zext i8 %1 to i32
-  %6 = add nsw i32 %5, -1
-  %switch.and = and i32 %6, -3
+lean_obj_tag.exit:                                ; preds = %2
+  %4 = zext i8 %1 to i32
+  %5 = add nsw i32 %4, -1
+  %switch.and = and i32 %5, -3
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %7 = select i1 %switch.selectcmp, i8 1, i8 2
-  br label %lean_dec.exit
+  %6 = select i1 %switch.selectcmp, i8 1, i8 2
+  br label %lean_dec.exit13
 
-8:                                                ; preds = %2
-  %9 = add i8 %1, -1
-  %switch = icmp ult i8 %9, 2
+lean_obj_tag.exit18:                              ; preds = %2
+  %7 = add i8 %1, -1
+  %switch = icmp ult i8 %7, 2
   %spec.select = select i1 %switch, i8 2, i8 0
-  br label %lean_dec.exit
+  br label %lean_dec.exit13
 
-lean_dec.exit:                                    ; preds = %8, %4
-  %.1 = phi i8 [ %spec.select, %8 ], [ %7, %4 ]
+lean_dec.exit13:                                  ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit18
+  %.1 = phi i8 [ %6, %lean_obj_tag.exit ], [ %spec.select, %lean_obj_tag.exit18 ]
   ret i8 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit7, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -1015,9 +999,8 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %1 to i64
   %13 = lshr i64 %12, 1
   %14 = trunc i64 %13 to i8
-  %15 = and i64 %12, 1
-  %.not10 = icmp eq i64 %15, 0
-  br i1 %.not10, label %16, label %lean_dec.exit
+  %15 = trunc i64 %12 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit7
   %17 = load i32, ptr %1, align 4, !tbaa !4
@@ -1040,60 +1023,59 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
 lean_dec.exit:                                    ; preds = %22, %21, %19, %lean_dec.exit7
   %23 = and i64 %3, 510
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %30
+  br i1 %24, label %lean_obj_tag.exit.i, label %lean_obj_tag.exit18.i
 
-25:                                               ; preds = %lean_dec.exit
-  %26 = trunc i64 %13 to i32
-  %27 = and i32 %26, 255
-  %28 = add nsw i32 %27, -1
-  %switch.and.i = and i32 %28, -3
+lean_obj_tag.exit.i:                              ; preds = %lean_dec.exit
+  %25 = trunc i64 %13 to i32
+  %26 = and i32 %25, 255
+  %27 = add nsw i32 %26, -1
+  %switch.and.i = and i32 %27, -3
   %switch.selectcmp.i = icmp eq i32 %switch.and.i, 0
-  %29 = select i1 %switch.selectcmp.i, i64 2, i64 4
+  %28 = select i1 %switch.selectcmp.i, i64 2, i64 4
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment.exit
 
-30:                                               ; preds = %lean_dec.exit
-  %31 = add i8 %14, -1
-  %switch.i = icmp ult i8 %31, 2
+lean_obj_tag.exit18.i:                            ; preds = %lean_dec.exit
+  %29 = add i8 %14, -1
+  %switch.i = icmp ult i8 %29, 2
   %spec.select.i = select i1 %switch.i, i64 4, i64 0
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment.exit
 
-l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment.exit: ; preds = %25, %30
-  %.1.i = phi i64 [ %spec.select.i, %30 ], [ %29, %25 ]
-  %32 = or disjoint i64 %.1.i, 1
-  %33 = inttoptr i64 %32 to ptr
-  ret ptr %33
+l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_addAssignment.exit: ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit18.i
+  %.1.i = phi i64 [ %28, %lean_obj_tag.exit.i ], [ %spec.select.i, %lean_obj_tag.exit18.i ]
+  %30 = or disjoint i64 %.1.i, 1
+  %31 = inttoptr i64 %30 to ptr
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 4) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp eq i8 %0, 0
-  br i1 %3, label %4, label %8
+  br i1 %3, label %lean_obj_tag.exit, label %lean_obj_tag.exit18
 
-4:                                                ; preds = %2
-  %5 = zext i8 %1 to i32
-  %6 = add nsw i32 %5, -1
-  %switch.and = and i32 %6, -3
+lean_obj_tag.exit:                                ; preds = %2
+  %4 = zext i8 %1 to i32
+  %5 = add nsw i32 %4, -1
+  %switch.and = and i32 %5, -3
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %7 = select i1 %switch.selectcmp, i8 3, i8 0
-  br label %lean_dec.exit
+  %6 = select i1 %switch.selectcmp, i8 3, i8 0
+  br label %lean_dec.exit13
 
-8:                                                ; preds = %2
-  %9 = add i8 %1, -1
-  %switch = icmp ult i8 %9, 2
+lean_obj_tag.exit18:                              ; preds = %2
+  %7 = add i8 %1, -1
+  %switch = icmp ult i8 %7, 2
   %spec.select = select i1 %switch, i8 1, i8 3
-  br label %lean_dec.exit
+  br label %lean_dec.exit13
 
-lean_dec.exit:                                    ; preds = %8, %4
-  %.1 = phi i8 [ %spec.select, %8 ], [ %7, %4 ]
+lean_dec.exit13:                                  ; preds = %lean_obj_tag.exit, %lean_obj_tag.exit18
+  %.1 = phi i8 [ %6, %lean_obj_tag.exit ], [ %spec.select, %lean_obj_tag.exit18 ]
   ret i8 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit7, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -1117,9 +1099,8 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %1 to i64
   %13 = lshr i64 %12, 1
   %14 = trunc i64 %13 to i8
-  %15 = and i64 %12, 1
-  %.not10 = icmp eq i64 %15, 0
-  br i1 %.not10, label %16, label %lean_dec.exit
+  %15 = trunc i64 %12 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit7
   %17 = load i32, ptr %1, align 4, !tbaa !4
@@ -1142,49 +1123,49 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
 lean_dec.exit:                                    ; preds = %22, %21, %19, %lean_dec.exit7
   %23 = and i64 %3, 510
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %30
+  br i1 %24, label %lean_obj_tag.exit.i, label %lean_obj_tag.exit18.i
 
-25:                                               ; preds = %lean_dec.exit
-  %26 = trunc i64 %13 to i32
-  %27 = and i32 %26, 255
-  %28 = add nsw i32 %27, -1
-  %switch.and.i = and i32 %28, -3
+lean_obj_tag.exit.i:                              ; preds = %lean_dec.exit
+  %25 = trunc i64 %13 to i32
+  %26 = and i32 %25, 255
+  %27 = add nsw i32 %26, -1
+  %switch.and.i = and i32 %27, -3
   %switch.selectcmp.i = icmp eq i32 %switch.and.i, 0
-  %29 = select i1 %switch.selectcmp.i, i64 6, i64 0
+  %28 = select i1 %switch.selectcmp.i, i64 6, i64 0
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment.exit
 
-30:                                               ; preds = %lean_dec.exit
-  %31 = add i8 %14, -1
-  %switch.i = icmp ult i8 %31, 2
+lean_obj_tag.exit18.i:                            ; preds = %lean_dec.exit
+  %29 = add i8 %14, -1
+  %switch.i = icmp ult i8 %29, 2
   %spec.select.i = select i1 %switch.i, i64 2, i64 6
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment.exit
 
-l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment.exit: ; preds = %25, %30
-  %.1.i = phi i64 [ %spec.select.i, %30 ], [ %29, %25 ]
-  %32 = or disjoint i64 %.1.i, 1
-  %33 = inttoptr i64 %32 to ptr
-  ret ptr %33
+l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_removeAssignment.exit: ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit18.i
+  %.1.i = phi i64 [ %28, %lean_obj_tag.exit.i ], [ %spec.select.i, %lean_obj_tag.exit18.i ]
+  %30 = or disjoint i64 %.1.i, 1
+  %31 = inttoptr i64 %30 to ptr
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 2) i8 @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp eq i8 %0, 0
-  br i1 %3, label %4, label %6
+  br i1 %3, label %lean_obj_tag.exit, label %lean_obj_tag.exit18
 
-4:                                                ; preds = %2
-  %5 = add i8 %1, -1
-  %switch = icmp ult i8 %5, 2
+lean_obj_tag.exit:                                ; preds = %2
+  %4 = add i8 %1, -1
+  %switch = icmp ult i8 %4, 2
   br label %lean_dec.exit13
 
-6:                                                ; preds = %2
-  %7 = zext i8 %1 to i32
-  %8 = add nsw i32 %7, -1
-  %switch.and = and i32 %8, -3
+lean_obj_tag.exit18:                              ; preds = %2
+  %5 = zext i8 %1 to i32
+  %6 = add nsw i32 %5, -1
+  %switch.and = and i32 %6, -3
   %switch.selectcmp = icmp ne i32 %switch.and, 0
   br label %lean_dec.exit13
 
-lean_dec.exit13:                                  ; preds = %4, %6
-  %.1.in = phi i1 [ %switch.selectcmp, %6 ], [ %switch, %4 ]
+lean_dec.exit13:                                  ; preds = %lean_obj_tag.exit18, %lean_obj_tag.exit
+  %.1.in = phi i1 [ %switch, %lean_obj_tag.exit ], [ %switch.selectcmp, %lean_obj_tag.exit18 ]
   %.1 = zext i1 %.1.in to i8
   ret i8 %.1
 }
@@ -1192,9 +1173,8 @@ lean_dec.exit13:                                  ; preds = %4, %6
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit7, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -1218,9 +1198,8 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %1 to i64
   %13 = lshr i64 %12, 1
   %14 = trunc i64 %13 to i8
-  %15 = and i64 %12, 1
-  %.not10 = icmp eq i64 %15, 0
-  br i1 %.not10, label %16, label %lean_dec.exit
+  %15 = trunc i64 %12 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_dec.exit7
   %17 = load i32, ptr %1, align 4, !tbaa !4
@@ -1243,25 +1222,25 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
 lean_dec.exit:                                    ; preds = %22, %21, %19, %lean_dec.exit7
   %23 = and i64 %3, 510
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %27
+  br i1 %24, label %lean_obj_tag.exit.i, label %lean_obj_tag.exit18.i
 
-25:                                               ; preds = %lean_dec.exit
-  %26 = add i8 %14, -1
-  %switch.i = icmp ult i8 %26, 2
+lean_obj_tag.exit.i:                              ; preds = %lean_dec.exit
+  %25 = add i8 %14, -1
+  %switch.i = icmp ult i8 %25, 2
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment.exit
 
-27:                                               ; preds = %lean_dec.exit
-  %28 = trunc i64 %13 to i32
-  %29 = and i32 %28, 255
-  %30 = add nsw i32 %29, -1
-  %switch.and.i = and i32 %30, -3
+lean_obj_tag.exit18.i:                            ; preds = %lean_dec.exit
+  %26 = trunc i64 %13 to i32
+  %27 = and i32 %26, 255
+  %28 = add nsw i32 %27, -1
+  %switch.and.i = and i32 %28, -3
   %switch.selectcmp.i = icmp ne i32 %switch.and.i, 0
   br label %l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment.exit
 
-l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment.exit: ; preds = %25, %27
-  %.1.in.i = phi i1 [ %switch.selectcmp.i, %27 ], [ %switch.i, %25 ]
-  %31 = select i1 %.1.in.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %31
+l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_hasAssignment.exit: ; preds = %lean_obj_tag.exit.i, %lean_obj_tag.exit18.i
+  %.1.in.i = phi i1 [ %switch.i, %lean_obj_tag.exit.i ], [ %switch.selectcmp.i, %lean_obj_tag.exit18.i ]
+  %29 = select i1 %.1.in.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1274,9 +1253,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
 
 6:                                                ; preds = %5
   %7 = ptrtoint ptr %1 to i64
-  %8 = and i64 %7, 1
-  %.not22 = icmp eq i64 %8, 0
-  br i1 %.not22, label %9, label %lean_inc.exit11
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %lean_inc.exit11, label %9
 
 9:                                                ; preds = %6
   %.val.i = load i32, ptr %1, align 4, !tbaa !4
@@ -1298,9 +1276,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
 
 15:                                               ; preds = %5
   %16 = ptrtoint ptr %2 to i64
-  %17 = and i64 %16, 1
-  %.not21 = icmp eq i64 %17, 0
-  br i1 %.not21, label %18, label %lean_inc.exit11
+  %17 = trunc i64 %16 to i1
+  br i1 %17, label %lean_inc.exit11, label %18
 
 18:                                               ; preds = %15
   %.val.i12 = load i32, ptr %2, align 4, !tbaa !4
@@ -1322,9 +1299,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
 
 24:                                               ; preds = %5
   %25 = ptrtoint ptr %3 to i64
-  %26 = and i64 %25, 1
-  %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %27, label %lean_inc.exit11
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit11, label %27
 
 27:                                               ; preds = %24
   %.val.i15 = load i32, ptr %3, align 4, !tbaa !4
@@ -1346,9 +1322,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
 
 33:                                               ; preds = %5
   %34 = ptrtoint ptr %4 to i64
-  %35 = and i64 %34, 1
-  %.not23 = icmp eq i64 %35, 0
-  br i1 %.not23, label %36, label %lean_inc.exit11
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %lean_inc.exit11, label %36
 
 36:                                               ; preds = %33
   %.val.i18 = load i32, ptr %4, align 4, !tbaa !4
@@ -1402,9 +1377,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
   %6 = ptrtoint ptr %0 to i64
   %7 = lshr i64 %6, 1
   %8 = trunc i64 %7 to i8
-  %9 = and i64 %6, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %lean_dec.exit14
+  %9 = trunc i64 %6 to i1
+  br i1 %9, label %lean_dec.exit14, label %10
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %0, align 4, !tbaa !4
@@ -1427,9 +1401,8 @@ define noundef ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__
 lean_dec.exit14:                                  ; preds = %16, %15, %13, %5
   %17 = tail call ptr @l___private_Std_Tactic_BVDecide_LRAT_Internal_Assignment_0__Std_Tactic_BVDecide_LRAT_Internal_Assignment_instToString_match__1_splitter___rarg(i8 noundef zeroext %8, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %18 = ptrtoint ptr %4 to i64
-  %19 = and i64 %18, 1
-  %.not23 = icmp eq i64 %19, 0
-  br i1 %.not23, label %20, label %lean_dec.exit13
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_dec.exit13, label %20
 
 20:                                               ; preds = %lean_dec.exit14
   %21 = load i32, ptr %4, align 4, !tbaa !4
@@ -1451,9 +1424,8 @@ lean_dec.exit14:                                  ; preds = %16, %15, %13, %5
 
 lean_dec.exit13:                                  ; preds = %26, %25, %23, %lean_dec.exit14
   %27 = ptrtoint ptr %3 to i64
-  %28 = and i64 %27, 1
-  %.not24 = icmp eq i64 %28, 0
-  br i1 %.not24, label %29, label %lean_dec.exit12
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %lean_dec.exit12, label %29
 
 29:                                               ; preds = %lean_dec.exit13
   %30 = load i32, ptr %3, align 4, !tbaa !4
@@ -1475,9 +1447,8 @@ lean_dec.exit13:                                  ; preds = %26, %25, %23, %lean
 
 lean_dec.exit12:                                  ; preds = %35, %34, %32, %lean_dec.exit13
   %36 = ptrtoint ptr %2 to i64
-  %37 = and i64 %36, 1
-  %.not25 = icmp eq i64 %37, 0
-  br i1 %.not25, label %38, label %lean_dec.exit11
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %lean_dec.exit11, label %38
 
 38:                                               ; preds = %lean_dec.exit12
   %39 = load i32, ptr %2, align 4, !tbaa !4
@@ -1499,9 +1470,8 @@ lean_dec.exit12:                                  ; preds = %35, %34, %32, %lean
 
 lean_dec.exit11:                                  ; preds = %44, %43, %41, %lean_dec.exit12
   %45 = ptrtoint ptr %1 to i64
-  %46 = and i64 %45, 1
-  %.not26 = icmp eq i64 %46, 0
-  br i1 %.not26, label %47, label %lean_dec.exit
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %lean_dec.exit, label %47
 
 47:                                               ; preds = %lean_dec.exit11
   %48 = load i32, ptr %1, align 4, !tbaa !4
@@ -1533,9 +1503,8 @@ define noundef nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instE
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_instEntailsPosFinArray___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -1675,7 +1644,7 @@ _init_l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_noConfusion___rarg___closed
   store i16 0, ptr %44, align 2, !tbaa !12
   store ptr %38, ptr @l_Std_Tactic_BVDecide_LRAT_Internal_Assignment_noConfusion___rarg___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %38) #6
-  store i8 0, ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instInhabitedAssignment, align 1, !tbaa !16
+  store i8 0, ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instInhabitedAssignment, align 1, !tbaa !15
   tail call void @lean_inc_heartbeat() #6
   %45 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
   %46 = icmp eq ptr %45, null
@@ -1788,5 +1757,4 @@ attributes #7 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = !{!7, !7, i64 0}
+!15 = !{!7, !7, i64 0}

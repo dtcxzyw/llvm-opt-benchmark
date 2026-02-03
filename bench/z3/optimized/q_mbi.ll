@@ -10051,9 +10051,8 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8subterms8iterat
 _Z9is_groundPK4expr.exit:                         ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 30
   %76 = load i8, ptr %75, align 2
-  %77 = and i8 %76, 1
-  %.not47 = icmp eq i8 %77, 0
-  br i1 %.not47, label %80, label %_Z11is_uninterpPK4expr.exit.thread43
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %_Z11is_uninterpPK4expr.exit.thread43, label %80
 
 78:                                               ; preds = %68
   %79 = landingpad { ptr, i32 }
@@ -10087,9 +10086,9 @@ _Z11is_uninterpPK4expr.exit.thread:               ; preds = %80, %_Z11is_uninter
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_Z11is_uninterpPK4expr.exit41.thread
-  %.02751 = phi ptr [ %139, %_Z11is_uninterpPK4expr.exit41.thread ], [ %90, %.lr.ph.preheader ]
-  %.050 = phi i32 [ %138, %_Z11is_uninterpPK4expr.exit41.thread ], [ 0, %.lr.ph.preheader ]
-  %93 = load ptr, ptr %.02751, align 8, !tbaa !151
+  %.02749 = phi ptr [ %139, %_Z11is_uninterpPK4expr.exit41.thread ], [ %90, %.lr.ph.preheader ]
+  %.048 = phi i32 [ %138, %_Z11is_uninterpPK4expr.exit41.thread ], [ 0, %.lr.ph.preheader ]
+  %93 = load ptr, ptr %.02749, align 8, !tbaa !151
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   %trunc = trunc i32 %95 to i16
@@ -10101,9 +10100,8 @@ _Z11is_uninterpPK4expr.exit.thread:               ; preds = %80, %_Z11is_uninter
 _Z9is_groundPK4expr.exit40:                       ; preds = %.lr.ph
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 30
   %97 = load i8, ptr %96, align 2
-  %98 = and i8 %97, 1
-  %.not48 = icmp eq i8 %98, 0
-  br i1 %.not48, label %99, label %_Z11is_uninterpPK4expr.exit41.thread
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %_Z11is_uninterpPK4expr.exit41.thread, label %99
 
 99:                                               ; preds = %_Z9is_groundPK4expr.exit40
   %100 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -10169,7 +10167,7 @@ _ZNK1q4mbqi6q_body7is_freeEP4expr.exit.thread:    ; preds = %.lr.ph, %_Z11is_uni
   %131 = getelementptr inbounds nuw %"struct.std::pair.357", ptr %129, i64 %130
   store ptr %69, ptr %131, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store i32 %.050, ptr %.sroa.5.0..sroa_idx, align 8
+  store i32 %.048, ptr %.sroa.5.0..sroa_idx, align 8
   %132 = load ptr, ptr %16, align 8, !tbaa !638
   %133 = getelementptr inbounds i8, ptr %132, i64 -4
   %134 = load i32, ptr %133, align 4, !tbaa !88
@@ -10183,8 +10181,8 @@ _ZNK1q4mbqi6q_body7is_freeEP4expr.exit.thread:    ; preds = %.lr.ph, %_Z11is_uni
   br label %141
 
 _Z11is_uninterpPK4expr.exit41.thread:             ; preds = %99, %127, %_ZNK1q4mbqi6q_body7is_freeEP4expr.exit, %_Z11is_uninterpPK4expr.exit41, %_Z9is_groundPK4expr.exit40
-  %138 = add nuw i32 %.050, 1
-  %139 = getelementptr inbounds nuw i8, ptr %.02751, i64 8
+  %138 = add nuw i32 %.048, 1
+  %139 = getelementptr inbounds nuw i8, ptr %.02749, i64 8
   %.not28 = icmp eq ptr %139, %92
   br i1 %.not28, label %_Z11is_uninterpPK4expr.exit.thread43, label %.lr.ph
 

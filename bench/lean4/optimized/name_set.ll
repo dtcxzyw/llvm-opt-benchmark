@@ -18,9 +18,8 @@ define hidden void @_ZN4lean9mk_uniqueERKNS_7rb_treeINS_4nameENS_14name_quick_cm
   %5 = load ptr, ptr %2, align 8, !tbaa !3
   store ptr %5, ptr %0, align 8, !tbaa !3
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i.i, label %8, label %_ZN4lean4nameC2ERKS0_.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZN4lean4nameC2ERKS0_.exit, label %8
 
 8:                                                ; preds = %3
   %.val.i.i.i.i = load i32, ptr %5, align 4, !tbaa !8
@@ -41,19 +40,19 @@ define hidden void @_ZN4lean9mk_uniqueERKNS_7rb_treeINS_4nameENS_14name_quick_cm
   br label %_ZN4lean4nameC2ERKS0_.exit
 
 _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %3, %10, %12, %13
-  %.01127.i.i20 = load ptr, ptr %1, align 8, !tbaa !12
-  %.not28.i.i21 = icmp eq ptr %.01127.i.i20, null
-  br i1 %.not28.i.i21, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph.i.i.preheader
+  %.01127.i.i17 = load ptr, ptr %1, align 8, !tbaa !12
+  %.not28.i.i18 = icmp eq ptr %.01127.i.i17, null
+  br i1 %.not28.i.i18, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4lean4nameC2ERKS0_.exit, %_ZN4lean10object_refD2Ev.exit
   %14 = phi ptr [ %54, %_ZN4lean10object_refD2Ev.exit ], [ %5, %_ZN4lean4nameC2ERKS0_.exit ]
-  %.01127.i.i23 = phi ptr [ %.01127.i.i, %_ZN4lean10object_refD2Ev.exit ], [ %.01127.i.i20, %_ZN4lean4nameC2ERKS0_.exit ]
-  %.0922 = phi i32 [ %55, %_ZN4lean10object_refD2Ev.exit ], [ 1, %_ZN4lean4nameC2ERKS0_.exit ]
+  %.01127.i.i20 = phi ptr [ %.01127.i.i, %_ZN4lean10object_refD2Ev.exit ], [ %.01127.i.i17, %_ZN4lean4nameC2ERKS0_.exit ]
+  %.0919 = phi i32 [ %55, %_ZN4lean10object_refD2Ev.exit ], [ 1, %_ZN4lean4nameC2ERKS0_.exit ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %37
   %15 = phi ptr [ %38, %37 ], [ %14, %.lr.ph.i.i.preheader ]
-  %.01129.i.i = phi ptr [ %.011.i.i, %37 ], [ %.01127.i.i23, %.lr.ph.i.i.preheader ]
+  %.01129.i.i = phi ptr [ %.011.i.i, %37 ], [ %.01127.i.i20, %.lr.ph.i.i.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %.01129.i.i, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = icmp eq ptr %15, %17
@@ -61,9 +60,8 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %3, %10, %12, %13
 
 19:                                               ; preds = %.lr.ph.i.i
   %20 = ptrtoint ptr %15 to i64
-  %21 = and i64 %20, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %22, label %_ZNK4lean4name4hashEv.exit.i.i.i.i.i
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %_ZNK4lean4name4hashEv.exit.i.i.i.i.i, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr i8, ptr %15, i64 24
@@ -74,33 +72,32 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %3, %10, %12, %13
 _ZNK4lean4name4hashEv.exit.i.i.i.i.i:             ; preds = %22, %19
   %.0.i.i.i.i.i.i.i.i = phi i32 [ %24, %22 ], [ 1723, %19 ]
   %25 = ptrtoint ptr %17 to i64
-  %26 = and i64 %25, 1
-  %.not.i.i.i14.i.i.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i14.i.i.i.i.i, label %27, label %_ZNK4lean4name4hashEv.exit17.i.i.i.i.i
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %_ZNK4lean4name4hashEv.exit16.i.i.i.i.i, label %27
 
 27:                                               ; preds = %_ZNK4lean4name4hashEv.exit.i.i.i.i.i
   %28 = getelementptr i8, ptr %17, i64 24
-  %.val.i.i.i16.i.i.i.i.i = load i64, ptr %28, align 8, !tbaa !14
-  %29 = trunc i64 %.val.i.i.i16.i.i.i.i.i to i32
-  br label %_ZNK4lean4name4hashEv.exit17.i.i.i.i.i
+  %.val.i.i.i14.i.i.i.i.i = load i64, ptr %28, align 8, !tbaa !14
+  %29 = trunc i64 %.val.i.i.i14.i.i.i.i.i to i32
+  br label %_ZNK4lean4name4hashEv.exit16.i.i.i.i.i
 
-_ZNK4lean4name4hashEv.exit17.i.i.i.i.i:           ; preds = %27, %_ZNK4lean4name4hashEv.exit.i.i.i.i.i
+_ZNK4lean4name4hashEv.exit16.i.i.i.i.i:           ; preds = %27, %_ZNK4lean4name4hashEv.exit.i.i.i.i.i
   %.0.i.i.i15.i.i.i.i.i = phi i32 [ %29, %27 ], [ 1723, %_ZNK4lean4name4hashEv.exit.i.i.i.i.i ]
   %.not.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i.i.i, %.0.i.i.i15.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %32, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.thread19.i.i
 
-_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.thread19.i.i: ; preds = %_ZNK4lean4name4hashEv.exit17.i.i.i.i.i
+_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.thread19.i.i: ; preds = %_ZNK4lean4name4hashEv.exit16.i.i.i.i.i
   %30 = icmp ult i32 %.0.i.i.i.i.i.i.i.i, %.0.i.i.i15.i.i.i.i.i
   %31 = select i1 %30, i32 -1, i32 1
   br label %37
 
-32:                                               ; preds = %_ZNK4lean4name4hashEv.exit17.i.i.i.i.i
+32:                                               ; preds = %_ZNK4lean4name4hashEv.exit16.i.i.i.i.i
   %33 = invoke zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %17)
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %32
-  %.not18.i.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not18.i.i.i.i.i, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i, label %42
+  %.not17.i.i.i.i.i = icmp eq i8 %33, 0
+  br i1 %.not17.i.i.i.i.i, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i, label %42
 
 _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds = %.noexc
   %34 = load ptr, ptr %0, align 8, !tbaa !3
@@ -129,15 +126,14 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
 
 42:                                               ; preds = %.noexc, %.lr.ph.i.i, %.noexc12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN4lean4nameC1ERKS0_j(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.0922)
+  invoke void @_ZN4lean4nameC1ERKS0_j(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.0919)
           to label %43 unwind label %56
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr %0, align 8, !tbaa !3
   %45 = ptrtoint ptr %44 to i64
-  %46 = and i64 %45, 1
-  %.not.i.i.i13 = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i13, label %47, label %_ZN4lean10object_refD2Ev.exit
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %_ZN4lean10object_refD2Ev.exit, label %47
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %44, align 4, !tbaa !8
@@ -150,8 +146,8 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
   br label %_ZN4lean10object_refD2Ev.exit
 
 52:                                               ; preds = %47
-  %.not.i.i.i.i14 = icmp eq i32 %48, 0
-  br i1 %.not.i.i.i.i14, label %_ZN4lean10object_refD2Ev.exit, label %53
+  %.not.i.i.i.i13 = icmp eq i32 %48, 0
+  br i1 %.not.i.i.i.i13, label %_ZN4lean10object_refD2Ev.exit, label %53
 
 53:                                               ; preds = %52
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %44)
@@ -161,7 +157,7 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %53, %43, %50, %52
   %54 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %54, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %55 = add nuw nsw i32 %.0922, 1
+  %55 = add nuw nsw i32 %.0919, 1
   %.01127.i.i = load ptr, ptr %1, align 8, !tbaa !12
   %.not28.i.i = icmp eq ptr %.01127.i.i, null
   br i1 %.not28.i.i, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph.i.i.preheader, !llvm.loop !16
@@ -199,9 +195,8 @@ declare void @_ZN4lean4nameC1ERKS0_j(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = ptrtoint ptr %2 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %_ZN4lean3decEP11lean_object.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %_ZN4lean3decEP11lean_object.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %2, align 4, !tbaa !8

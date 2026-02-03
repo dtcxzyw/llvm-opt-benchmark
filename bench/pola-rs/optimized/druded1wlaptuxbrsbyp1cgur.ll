@@ -608,12 +608,12 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %5 = call { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h54e4c2d8e024ca8bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 1
-  %.not.not = icmp eq i64 %8, 0
-  %.sroa.3.0 = select i1 %.not.not, i64 undef, i64 %7
-  %9 = insertvalue { i64, i64 } poison, i64 %8, 0
-  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %10
+  %.not = trunc i64 %6 to i1
+  %.sroa.3.0 = select i1 %.not, i64 %7, i64 undef
+  %.sroa.0.0 = and i64 %6, 1
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable

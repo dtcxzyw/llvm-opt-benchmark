@@ -13327,39 +13327,39 @@ declare dso_local ptr @drm_gtf_mode_complex(ptr noundef, i32 noundef, i32 nounde
 define internal void @do_established_modes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = load i16, ptr %0, align 1
   %4 = icmp eq i16 %3, 0
-  br i1 %4, label %5, label %142
+  br i1 %4, label %5, label %143
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %142
+  br i1 %8, label %9, label %143
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, -9
-  br i1 %12, label %13, label %142
+  br i1 %12, label %13, label %143
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr i8, ptr %0, i64 6
   br label %16
 
-16:                                               ; preds = %134, %13
-  %17 = phi i64 [ 0, %13 ], [ %136, %134 ]
-  %18 = phi i32 [ 0, %13 ], [ %135, %134 ]
+16:                                               ; preds = %135, %13
+  %17 = phi i64 [ 0, %13 ], [ %137, %135 ]
+  %18 = phi i32 [ 0, %13 ], [ %136, %135 ]
   %19 = shl nuw nsw i64 %17, 3
   %20 = getelementptr i8, ptr %15, i64 %17
   br label %21
 
-21:                                               ; preds = %.thread7, %16
-  %22 = phi i64 [ 7, %16 ], [ %132, %.thread7 ]
-  %23 = phi i32 [ %18, %16 ], [ %131, %.thread7 ]
+21:                                               ; preds = %.thread6, %16
+  %22 = phi i64 [ 7, %16 ], [ %133, %.thread6 ]
+  %23 = phi i32 [ %18, %16 ], [ %132, %.thread6 ]
   %24 = sub nsw i64 %19, %22
   %25 = add nsw i64 %24, 7
   %26 = icmp sgt i64 %24, 36
-  br i1 %26, label %134, label %27
+  br i1 %26, label %135, label %27
 
 27:                                               ; preds = %21
   %28 = load i8, ptr %20, align 1
@@ -13368,7 +13368,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
   %31 = shl nuw i32 1, %30
   %32 = and i32 %31, %29
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.thread7, label %34
+  br i1 %33, label %.thread6, label %34
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %14, align 8
@@ -13381,32 +13381,31 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %43 = load i16, ptr %42, align 4
   %44 = sext i16 %43 to i32
-  %45 = shl nuw nsw i64 1, %25
-  %.fr15 = freeze i64 %45
-  %46 = and i64 %.fr15, 274913689856
-  %.not = icmp eq i64 %46, 0
-  br i1 %.not, label %.split, label %.split.us
+  %45 = lshr i64 274913689856, %25
+  %.fr14 = freeze i64 %45
+  %46 = trunc i64 %.fr14 to i1
+  br i1 %46, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %34, %.thr_comm.us
-  %47 = phi i64 [ %84, %.thr_comm.us ], [ 0, %34 ]
+.split.us:                                        ; preds = %34, %84
+  %47 = phi i64 [ %85, %84 ], [ 0, %34 ]
   %48 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i16, ptr %49, align 4
   %51 = zext i16 %50 to i32
   %52 = icmp eq i32 %51, %38
-  br i1 %52, label %53, label %.thr_comm.us
+  br i1 %52, label %53, label %84
 
 53:                                               ; preds = %.split.us
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 14
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = icmp eq i32 %56, %41
-  br i1 %57, label %58, label %.thr_comm.us
+  br i1 %57, label %58, label %84
 
 58:                                               ; preds = %53
   %59 = tail call i32 @drm_mode_vrefresh(ptr noundef %48) #22
   %60 = icmp eq i32 %59, %44
-  br i1 %60, label %61, label %.thr_comm.us
+  br i1 %60, label %61, label %84
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 10
@@ -13414,7 +13413,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
   %64 = zext i16 %63 to i32
   %65 = sub nsw i32 %64, %38
   %66 = icmp eq i32 %65, 160
-  br i1 %66, label %67, label %.thr_comm.us
+  br i1 %66, label %67, label %84
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -13422,7 +13421,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
   %70 = zext i16 %69 to i32
   %71 = sub nsw i32 %70, %38
   %72 = icmp eq i32 %71, 80
-  br i1 %72, label %73, label %.thr_comm.us
+  br i1 %72, label %73, label %84
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %48, i64 6
@@ -13430,110 +13429,110 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
   %76 = zext i16 %75 to i32
   %77 = sub nsw i32 %70, %76
   %78 = icmp eq i32 %77, 32
-  br i1 %78, label %79, label %.thr_comm.us
+  br i1 %78, label %79, label %84
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %81 = load i16, ptr %80, align 8
   %82 = zext i16 %81 to i32
   %83 = sub nsw i32 %82, %41
-  %.not16 = icmp eq i32 %83, 3
-  br i1 %.not16, label %.split11.us, label %.thr_comm.us
+  %.not = icmp eq i32 %83, 3
+  br i1 %.not, label %.split10.us, label %84
 
-.thr_comm.us:                                     ; preds = %61, %67, %73, %79, %58, %53, %.split.us
-  %84 = add nuw nsw i64 %47, 1
-  %85 = icmp eq i64 %84, 88
-  br i1 %85, label %.thread7, label %.split.us, !llvm.loop !51
+84:                                               ; preds = %61, %67, %73, %79, %58, %53, %.split.us
+  %85 = add nuw nsw i64 %47, 1
+  %86 = icmp eq i64 %85, 88
+  br i1 %86, label %.thread6, label %.split.us, !llvm.loop !51
 
-86:                                               ; preds = %.split, %95, %100, %121
-  %87 = add nuw nsw i64 %89, 1
-  %88 = icmp eq i64 %87, 88
-  br i1 %88, label %.thread7, label %.split, !llvm.loop !51
+87:                                               ; preds = %.split, %96, %101, %122
+  %88 = add nuw nsw i64 %90, 1
+  %89 = icmp eq i64 %88, 88
+  br i1 %89, label %.thread6, label %.split, !llvm.loop !51
 
-.split:                                           ; preds = %34, %86
-  %89 = phi i64 [ %87, %86 ], [ 0, %34 ]
-  %90 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %89
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %92 = load i16, ptr %91, align 4
-  %93 = zext i16 %92 to i32
-  %94 = icmp eq i32 %93, %38
-  br i1 %94, label %95, label %86
+.split:                                           ; preds = %34, %87
+  %90 = phi i64 [ %88, %87 ], [ 0, %34 ]
+  %91 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %93 = load i16, ptr %92, align 4
+  %94 = zext i16 %93 to i32
+  %95 = icmp eq i32 %94, %38
+  br i1 %95, label %96, label %87
 
-95:                                               ; preds = %.split
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 14
-  %97 = load i16, ptr %96, align 2
-  %98 = zext i16 %97 to i32
-  %99 = icmp eq i32 %98, %41
-  br i1 %99, label %100, label %86
+96:                                               ; preds = %.split
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 14
+  %98 = load i16, ptr %97, align 2
+  %99 = zext i16 %98 to i32
+  %100 = icmp eq i32 %99, %41
+  br i1 %100, label %101, label %87
 
-100:                                              ; preds = %95
-  %101 = tail call i32 @drm_mode_vrefresh(ptr noundef %90) #22
-  %102 = icmp eq i32 %101, %44
-  br i1 %102, label %103, label %86
+101:                                              ; preds = %96
+  %102 = tail call i32 @drm_mode_vrefresh(ptr noundef %91) #22
+  %103 = icmp eq i32 %102, %44
+  br i1 %103, label %104, label %87
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %90, i64 10
-  %105 = load i16, ptr %104, align 2
-  %106 = zext i16 %105 to i32
-  %107 = sub nsw i32 %106, %38
-  %108 = icmp eq i32 %107, 160
-  br i1 %108, label %109, label %.split11.us
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %91, i64 10
+  %106 = load i16, ptr %105, align 2
+  %107 = zext i16 %106 to i32
+  %108 = sub nsw i32 %107, %38
+  %109 = icmp eq i32 %108, 160
+  br i1 %109, label %110, label %.split10.us
 
-109:                                              ; preds = %103
-  %110 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %111 = load i16, ptr %110, align 8
-  %112 = zext i16 %111 to i32
-  %113 = sub nsw i32 %112, %38
-  %114 = icmp eq i32 %113, 80
-  br i1 %114, label %115, label %.split11.us
+110:                                              ; preds = %104
+  %111 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %112 = load i16, ptr %111, align 8
+  %113 = zext i16 %112 to i32
+  %114 = sub nsw i32 %113, %38
+  %115 = icmp eq i32 %114, 80
+  br i1 %115, label %116, label %.split10.us
 
-115:                                              ; preds = %109
-  %116 = getelementptr inbounds nuw i8, ptr %90, i64 6
-  %117 = load i16, ptr %116, align 2
-  %118 = zext i16 %117 to i32
-  %119 = sub nsw i32 %112, %118
-  %120 = icmp eq i32 %119, 32
-  br i1 %120, label %121, label %.split11.us
+116:                                              ; preds = %110
+  %117 = getelementptr inbounds nuw i8, ptr %91, i64 6
+  %118 = load i16, ptr %117, align 2
+  %119 = zext i16 %118 to i32
+  %120 = sub nsw i32 %113, %119
+  %121 = icmp eq i32 %120, 32
+  br i1 %121, label %122, label %.split10.us
 
-121:                                              ; preds = %115
-  %122 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %123 = load i16, ptr %122, align 8
-  %124 = zext i16 %123 to i32
-  %125 = sub nsw i32 %124, %41
-  %126 = icmp eq i32 %125, 3
-  br i1 %126, label %86, label %.split11.us
+122:                                              ; preds = %116
+  %123 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %124 = load i16, ptr %123, align 8
+  %125 = zext i16 %124 to i32
+  %126 = sub nsw i32 %125, %41
+  %127 = icmp eq i32 %126, 3
+  br i1 %127, label %87, label %.split10.us
 
-.split11.us:                                      ; preds = %79, %103, %109, %115, %121
-  %.us-phi = phi ptr [ %90, %103 ], [ %90, %121 ], [ %90, %115 ], [ %90, %109 ], [ %48, %79 ]
-  %127 = tail call ptr @drm_mode_duplicate(ptr noundef %35, ptr noundef %.us-phi) #22
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %.thread7, label %129
+.split10.us:                                      ; preds = %116, %110, %104, %122, %79
+  %.us-phi = phi ptr [ %48, %79 ], [ %91, %122 ], [ %91, %104 ], [ %91, %110 ], [ %91, %116 ]
+  %128 = tail call ptr @drm_mode_duplicate(ptr noundef %35, ptr noundef %.us-phi) #22
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %.thread6, label %130
 
-129:                                              ; preds = %.split11.us
-  tail call void @drm_mode_probed_add(ptr noundef %14, ptr noundef nonnull %127) #22
-  %130 = add i32 %23, 1
-  br label %.thread7
+130:                                              ; preds = %.split10.us
+  tail call void @drm_mode_probed_add(ptr noundef %14, ptr noundef nonnull %128) #22
+  %131 = add i32 %23, 1
+  br label %.thread6
 
-.thread7:                                         ; preds = %.thr_comm.us, %86, %129, %.split11.us, %27
-  %131 = phi i32 [ %130, %129 ], [ %23, %.split11.us ], [ %23, %27 ], [ %23, %86 ], [ %23, %.thr_comm.us ]
-  %132 = add nsw i64 %22, -1
-  %133 = icmp eq i64 %22, 0
-  br i1 %133, label %134, label %21, !llvm.loop !122
+.thread6:                                         ; preds = %87, %84, %130, %.split10.us, %27
+  %132 = phi i32 [ %131, %130 ], [ %23, %.split10.us ], [ %23, %27 ], [ %23, %84 ], [ %23, %87 ]
+  %133 = add nsw i64 %22, -1
+  %134 = icmp eq i64 %22, 0
+  br i1 %134, label %135, label %21, !llvm.loop !122
 
-134:                                              ; preds = %.thread7, %21
-  %135 = phi i32 [ %131, %.thread7 ], [ %23, %21 ]
-  %136 = add nuw nsw i64 %17, 1
-  %137 = icmp eq i64 %136, 6
-  br i1 %137, label %138, label %16, !llvm.loop !123
+135:                                              ; preds = %.thread6, %21
+  %136 = phi i32 [ %132, %.thread6 ], [ %23, %21 ]
+  %137 = add nuw nsw i64 %17, 1
+  %138 = icmp eq i64 %137, 6
+  br i1 %138, label %139, label %16, !llvm.loop !123
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %140 = load i32, ptr %139, align 4
-  %141 = add i32 %140, %135
-  store i32 %141, ptr %139, align 4
-  br label %142
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %141 = load i32, ptr %140, align 4
+  %142 = add i32 %141, %136
+  store i32 %142, ptr %140, align 4
+  br label %143
 
-142:                                              ; preds = %138, %9, %5, %2
+143:                                              ; preds = %139, %9, %5, %2
   ret void
 }
 

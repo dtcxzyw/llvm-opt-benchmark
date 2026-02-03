@@ -486,7 +486,7 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %27, ptr %28, align 8, !tbaa !54
   %.not50 = icmp eq ptr %27, null
-  br i1 %.not50, label %89, label %29
+  br i1 %.not50, label %88, label %29
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -569,15 +569,14 @@ define internal fastcc i32 @return_frame(ptr noundef %0, i32 noundef range(i32 0
   %81 = tail call i32 @ff_filter_frame(ptr noundef %79, ptr noundef %80) #5
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !63
-  %84 = and i32 %83, 1
-  %85 = icmp ne i32 %84, 0
-  %86 = and i1 %.not49, %85
-  %87 = zext i1 %86 to i32
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %87, ptr %88, align 4, !tbaa !29
-  br label %89
+  %84 = trunc i32 %83 to i1
+  %85 = and i1 %.not49, %84
+  %86 = zext i1 %85 to i32
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %86, ptr %87, align 4, !tbaa !29
+  br label %88
 
-89:                                               ; preds = %22, %74
+88:                                               ; preds = %22, %74
   %.0 = phi i32 [ %81, %74 ], [ -12, %22 ]
   ret i32 %.0
 }

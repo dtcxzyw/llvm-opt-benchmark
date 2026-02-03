@@ -1030,7 +1030,7 @@ define internal fastcc void @_raise_signal_tag_changed(ptr noundef %0) unnamed_a
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = load i8, ptr %5, align 1, !tbaa !40
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %23
+  br i1 %.not, label %7, label %22
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !57
@@ -1038,33 +1038,32 @@ define internal fastcc void @_raise_signal_tag_changed(ptr noundef %0) unnamed_a
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !57
   tail call void @dt_control_signal_block_by_func(ptr noundef %9, ptr noundef nonnull @_lib_tagging_tags_changed_callback, ptr noundef nonnull %0) #16
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !93
-  %11 = and i32 %10, 1
-  %12 = icmp ne i32 %11, 0
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %14 = icmp ne i32 %13, 0
-  %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %15, label %19
+  %11 = trunc i32 %10 to i1
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %13 = icmp ne i32 %12, 0
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %18
 
-15:                                               ; preds = %7
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !94
-  %17 = and i32 %16, 1048576
-  %.not7 = icmp eq i32 %17, 0
-  br i1 %.not7, label %19, label %18
+14:                                               ; preds = %7
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !94
+  %16 = and i32 %15, 1048576
+  %.not7 = icmp eq i32 %16, 0
+  br i1 %.not7, label %18, label %17
 
-18:                                               ; preds = %15
+17:                                               ; preds = %14
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.50, i32 noundef 645, ptr noundef nonnull @__FUNCTION__._raise_signal_tag_changed) #16
-  br label %19
+  br label %18
 
-19:                                               ; preds = %15, %18, %7
+18:                                               ; preds = %14, %17, %7
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !57
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %19, i32 noundef 9) #16
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !57
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %20, i32 noundef 9) #16
+  tail call void @dt_control_signal_unblock_by_func(ptr noundef %20, ptr noundef nonnull @_lib_tagging_tags_changed_callback, ptr noundef nonnull %0) #16
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !57
-  tail call void @dt_control_signal_unblock_by_func(ptr noundef %21, ptr noundef nonnull @_lib_tagging_tags_changed_callback, ptr noundef nonnull %0) #16
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !57
-  tail call void @dt_control_signal_unblock_by_func(ptr noundef %22, ptr noundef nonnull @_collection_updated_callback, ptr noundef nonnull %0) #16
-  br label %23
+  tail call void @dt_control_signal_unblock_by_func(ptr noundef %21, ptr noundef nonnull @_collection_updated_callback, ptr noundef nonnull %0) #16
+  br label %22
 
-23:                                               ; preds = %19, %1
+22:                                               ; preds = %18, %1
   ret void
 }
 

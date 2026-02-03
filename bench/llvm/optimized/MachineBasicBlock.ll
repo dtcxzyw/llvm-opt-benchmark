@@ -11689,9 +11689,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock20canSplitCriti
   %20 = load ptr, ptr %19, align 8, !tbaa !731
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 688
   %22 = load i8, ptr %21, align 8
-  %23 = and i8 %22, 1
-  %.not16 = icmp eq i8 %23, 0
-  br i1 %.not16, label %24, label %115
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %115, label %24
 
 24:                                               ; preds = %16
   %25 = tail call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %0)

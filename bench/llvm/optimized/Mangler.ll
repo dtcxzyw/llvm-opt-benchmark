@@ -561,124 +561,120 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %68, %66, %.split, %
   %79 = call noundef i32 @_ZNK4llvm10DataLayout14getPointerSizeEj(ptr noundef nonnull align 8 dereferenceable(496) %13, i32 noundef 0) #14
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 2
   %81 = load i16, ptr %80, align 2, !tbaa !81
-  %82 = and i16 %81, 1
-  %.not.i.i.i.i = icmp eq i16 %82, 0
-  br i1 %.not.i.i.i.i, label %_ZNK4llvm8Function9arg_beginEv.exit.thread.i.i, label %_ZNK4llvm8Function9arg_beginEv.exit.i.i
+  %82 = trunc i16 %81 to i1
+  br i1 %82, label %83, label %_ZNK4llvm8Function9arg_beginEv.exit.i.i
 
-_ZNK4llvm8Function9arg_beginEv.exit.thread.i.i:   ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 96
-  %84 = load ptr, ptr %83, align 8, !tbaa !92
-  br label %_ZNK4llvm8Function4argsEv.exit.i
-
-_ZNK4llvm8Function9arg_beginEv.exit.i.i:          ; preds = %78
+83:                                               ; preds = %78
   call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i42) #14
   %.pre.i.i = load i16, ptr %80, align 2, !tbaa !81
-  %.pre3.i.i = and i16 %.pre.i.i, 1
-  %85 = icmp eq i16 %.pre3.i.i, 0
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 96
-  %87 = load ptr, ptr %86, align 8, !tbaa !92
-  br i1 %85, label %_ZNK4llvm8Function4argsEv.exit.i, label %88
+  br label %_ZNK4llvm8Function9arg_beginEv.exit.i.i
+
+_ZNK4llvm8Function9arg_beginEv.exit.i.i:          ; preds = %83, %78
+  %84 = phi i16 [ %81, %78 ], [ %.pre.i.i, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 96
+  %86 = load ptr, ptr %85, align 8, !tbaa !92
+  %87 = trunc i16 %84 to i1
+  br i1 %87, label %88, label %_ZNK4llvm8Function4argsEv.exit.i
 
 88:                                               ; preds = %_ZNK4llvm8Function9arg_beginEv.exit.i.i
   call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %.0.i.i42) #14
-  %.pre2.i.i = load ptr, ptr %86, align 8, !tbaa !92
+  %.pre1.i.i = load ptr, ptr %85, align 8, !tbaa !92
   br label %_ZNK4llvm8Function4argsEv.exit.i
 
-_ZNK4llvm8Function4argsEv.exit.i:                 ; preds = %88, %_ZNK4llvm8Function9arg_beginEv.exit.i.i, %_ZNK4llvm8Function9arg_beginEv.exit.thread.i.i
-  %89 = phi ptr [ %87, %_ZNK4llvm8Function9arg_beginEv.exit.i.i ], [ %87, %88 ], [ %84, %_ZNK4llvm8Function9arg_beginEv.exit.thread.i.i ]
-  %90 = phi ptr [ %87, %_ZNK4llvm8Function9arg_beginEv.exit.i.i ], [ %.pre2.i.i, %88 ], [ %84, %_ZNK4llvm8Function9arg_beginEv.exit.thread.i.i ]
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 104
-  %92 = load i64, ptr %91, align 8, !tbaa !117
-  %93 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %90, i64 %92
-  %.not20.i = icmp eq ptr %89, %93
+_ZNK4llvm8Function4argsEv.exit.i:                 ; preds = %88, %_ZNK4llvm8Function9arg_beginEv.exit.i.i
+  %89 = phi ptr [ %86, %_ZNK4llvm8Function9arg_beginEv.exit.i.i ], [ %.pre1.i.i, %88 ]
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i.i42, i64 104
+  %91 = load i64, ptr %90, align 8, !tbaa !117
+  %92 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %89, i64 %91
+  %.not20.i = icmp eq ptr %86, %92
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm8Function4argsEv.exit.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %94 = zext i32 %79 to i64
-  br label %104
+  %93 = zext i32 %79 to i64
+  br label %103
 
-._crit_edge.loopexit.i:                           ; preds = %134
-  %95 = zext i32 %.1.i to i64
+._crit_edge.loopexit.i:                           ; preds = %133
+  %94 = zext i32 %.1.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZNK4llvm8Function4argsEv.exit.i
-  %.0.lcssa.i = phi i64 [ 0, %_ZNK4llvm8Function4argsEv.exit.i ], [ %95, %._crit_edge.loopexit.i ]
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %97 = load ptr, ptr %96, align 8, !tbaa !64
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !63
-  %.not.i.i51 = icmp ult ptr %97, %99
-  br i1 %.not.i.i51, label %102, label %100
+  %.0.lcssa.i = phi i64 [ 0, %_ZNK4llvm8Function4argsEv.exit.i ], [ %94, %._crit_edge.loopexit.i ]
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %96 = load ptr, ptr %95, align 8, !tbaa !64
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %98 = load ptr, ptr %97, align 8, !tbaa !63
+  %.not.i.i51 = icmp ult ptr %96, %98
+  br i1 %.not.i.i51, label %101, label %99
 
-100:                                              ; preds = %._crit_edge.i
-  %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 64) #14
+99:                                               ; preds = %._crit_edge.i
+  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext 64) #14
   br label %_ZL18addByteCountSuffixRN4llvm11raw_ostreamEPKNS_8FunctionERKNS_10DataLayoutE.exit
 
-102:                                              ; preds = %._crit_edge.i
-  %103 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  store ptr %103, ptr %96, align 8, !tbaa !64
-  store i8 64, ptr %97, align 1, !tbaa !60
+101:                                              ; preds = %._crit_edge.i
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  store ptr %102, ptr %95, align 8, !tbaa !64
+  store i8 64, ptr %96, align 1, !tbaa !60
   br label %_ZL18addByteCountSuffixRN4llvm11raw_ostreamEPKNS_8FunctionERKNS_10DataLayoutE.exit
 
-104:                                              ; preds = %134, %.lr.ph.i
-  %.023.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %134 ]
-  %.01821.i = phi ptr [ %89, %.lr.ph.i ], [ %135, %134 ]
-  %105 = call noundef zeroext i1 @_ZNK4llvm8Argument16hasStructRetAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %.01821.i) #14
-  br i1 %105, label %134, label %106
+103:                                              ; preds = %133, %.lr.ph.i
+  %.023.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %133 ]
+  %.01821.i = phi ptr [ %86, %.lr.ph.i ], [ %134, %133 ]
+  %104 = call noundef zeroext i1 @_ZNK4llvm8Argument16hasStructRetAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %.01821.i) #14
+  br i1 %104, label %133, label %105
 
-106:                                              ; preds = %104
-  %107 = call noundef zeroext i1 @_ZNK4llvm8Argument29hasPassPointeeByValueCopyAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %.01821.i) #14
+105:                                              ; preds = %103
+  %106 = call noundef zeroext i1 @_ZNK4llvm8Argument29hasPassPointeeByValueCopyAttrEv(ptr noundef nonnull align 8 dereferenceable(40) %.01821.i) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %107, label %108, label %110
+  br i1 %106, label %107, label %109
 
-108:                                              ; preds = %106
-  %109 = call noundef i64 @_ZNK4llvm8Argument29getPassPointeeByValueCopySizeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(40) %.01821.i, ptr noundef nonnull align 8 dereferenceable(496) %13) #14
-  br label %124
+107:                                              ; preds = %105
+  %108 = call noundef i64 @_ZNK4llvm8Argument29getPassPointeeByValueCopySizeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(40) %.01821.i, ptr noundef nonnull align 8 dereferenceable(496) %13) #14
+  br label %123
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %.01821.i, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !118
-  %113 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef %112)
-  %.fca.0.extract.i13.i.i = extractvalue { i64, i8 } %113, 0
-  %.fca.1.extract.i14.i.i = extractvalue { i64, i8 } %113, 1
-  %114 = add i64 %.fca.0.extract.i13.i.i, 7
-  %115 = and i8 %.fca.1.extract.i14.i.i, 1
-  %116 = lshr i64 %114, 3
-  %117 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef %112) #14
-  %118 = zext nneg i8 %117 to i64
-  %119 = shl nuw i64 1, %118
-  %120 = add nsw i64 %116, -1
-  %121 = add i64 %120, %119
-  %.not.i19.i = sub i64 0, %119
-  %122 = and i64 %121, %.not.i19.i
-  store i64 %122, ptr %5, align 8
-  store i8 %115, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %123 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #14
-  br label %124
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %.01821.i, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !118
+  %112 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef %111)
+  %.fca.0.extract.i13.i.i = extractvalue { i64, i8 } %112, 0
+  %.fca.1.extract.i14.i.i = extractvalue { i64, i8 } %112, 1
+  %113 = add i64 %.fca.0.extract.i13.i.i, 7
+  %114 = and i8 %.fca.1.extract.i14.i.i, 1
+  %115 = lshr i64 %113, 3
+  %116 = call i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %13, ptr noundef %111) #14
+  %117 = zext nneg i8 %116 to i64
+  %118 = shl nuw i64 1, %117
+  %119 = add nsw i64 %115, -1
+  %120 = add i64 %119, %118
+  %.not.i19.i = sub i64 0, %118
+  %121 = and i64 %120, %.not.i19.i
+  store i64 %121, ptr %5, align 8
+  store i8 %114, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %122 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #14
+  br label %123
 
-124:                                              ; preds = %110, %108
-  %125 = phi i64 [ %109, %108 ], [ %123, %110 ]
+123:                                              ; preds = %109, %107
+  %124 = phi i64 [ %108, %107 ], [ %122, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %126 = icmp ne i64 %125, 0
-  %127 = zext i1 %126 to i64
-  %128 = sub i64 %125, %127
-  %129 = udiv i64 %128, %94
-  %130 = add i64 %129, %127
-  %131 = trunc i64 %130 to i32
-  %132 = mul i32 %79, %131
-  %133 = add i32 %132, %.023.i
-  br label %134
+  %125 = icmp ne i64 %124, 0
+  %126 = zext i1 %125 to i64
+  %127 = sub i64 %124, %126
+  %128 = udiv i64 %127, %93
+  %129 = add i64 %128, %126
+  %130 = trunc i64 %129 to i32
+  %131 = mul i32 %79, %130
+  %132 = add i32 %131, %.023.i
+  br label %133
 
-134:                                              ; preds = %124, %104
-  %.1.i = phi i32 [ %133, %124 ], [ %.023.i, %104 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.01821.i, i64 40
-  %.not.i50 = icmp eq ptr %135, %93
-  br i1 %.not.i50, label %._crit_edge.loopexit.i, label %104
+133:                                              ; preds = %123, %103
+  %.1.i = phi i32 [ %132, %123 ], [ %.023.i, %103 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.01821.i, i64 40
+  %.not.i50 = icmp eq ptr %134, %92
+  br i1 %.not.i50, label %._crit_edge.loopexit.i, label %103
 
-_ZL18addByteCountSuffixRN4llvm11raw_ostreamEPKNS_8FunctionERKNS_10DataLayoutE.exit: ; preds = %100, %102
-  %.0.i.i52 = phi ptr [ %101, %100 ], [ %1, %102 ]
-  %136 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i52, i64 noundef %.0.lcssa.i) #14
+_ZL18addByteCountSuffixRN4llvm11raw_ostreamEPKNS_8FunctionERKNS_10DataLayoutE.exit: ; preds = %99, %101
+  %.0.i.i52 = phi ptr [ %100, %99 ], [ %1, %101 ]
+  %135 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i52, i64 noundef %.0.lcssa.i) #14
   br label %_ZL18hasByteCountSuffixj.exit
 
 _ZL18hasByteCountSuffixj.exit:                    ; preds = %73, %.critedge, %_ZL18addByteCountSuffixRN4llvm11raw_ostreamEPKNS_8FunctionERKNS_10DataLayoutE.exit, %76, %.split, %_ZN4llvmplERKNS_5TwineES2_.exit

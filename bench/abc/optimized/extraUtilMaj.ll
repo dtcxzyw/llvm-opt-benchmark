@@ -2503,51 +2503,51 @@ define noundef i32 @Gem_FuncCheckMajority(ptr noundef readonly captures(none) %0
 
 Abc_TtIsFullySymmetric.exit.thread19:             ; preds = %2
   %52 = load i64, ptr %24, align 8, !tbaa !39
-  %53 = trunc i64 %52 to i32
-  %54 = and i32 %53, 1
-  store i32 %54, ptr %3, align 4, !tbaa !12
-  br label %55
+  %.not33.i = trunc i64 %52 to i32
+  %53 = and i32 %.not33.i, 1
+  store i32 %53, ptr %3, align 4, !tbaa !12
+  br label %54
 
 Abc_TtIsFullySymmetric.exit:                      ; preds = %37
   store i32 %.129.us.i, ptr %3, align 4, !tbaa !12
   %.not = icmp eq i32 %.129.us.i, -1
-  br i1 %.not, label %Abc_TtIsFullySymmetric.exit.thread, label %55
+  br i1 %.not, label %Abc_TtIsFullySymmetric.exit.thread, label %54
 
-55:                                               ; preds = %Abc_TtIsFullySymmetric.exit.thread19, %Abc_TtIsFullySymmetric.exit
-  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %26)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !16
-  %58 = load i32, ptr %7, align 4
-  %59 = and i32 %58, 15
-  %60 = add nuw nsw i32 %59, 1
-  call void @Extra_PrintBinary2(ptr noundef %57, ptr noundef nonnull %3, i32 noundef %60) #23
-  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
-  %62 = load i32, ptr %7, align 4
-  %63 = and i32 %62, 15
-  %64 = and i32 %62, 1
-  %.not16 = icmp eq i32 %64, 0
-  br i1 %.not16, label %76, label %65
+54:                                               ; preds = %Abc_TtIsFullySymmetric.exit.thread19, %Abc_TtIsFullySymmetric.exit
+  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %26)
+  %56 = load ptr, ptr @stdout, align 8, !tbaa !16
+  %57 = load i32, ptr %7, align 4
+  %58 = and i32 %57, 15
+  %59 = add nuw nsw i32 %58, 1
+  call void @Extra_PrintBinary2(ptr noundef %56, ptr noundef nonnull %3, i32 noundef %59) #23
+  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
+  %61 = load i32, ptr %7, align 4
+  %62 = and i32 %61, 15
+  %63 = and i32 %61, 1
+  %.not16 = icmp eq i32 %63, 0
+  br i1 %.not16, label %75, label %64
 
-65:                                               ; preds = %55
-  %66 = add nuw nsw i32 %26, 1
-  %67 = lshr i32 %66, 1
-  %68 = sub nuw nsw i32 64, %67
-  %69 = zext nneg i32 %68 to i64
-  %70 = lshr i64 -1, %69
-  %71 = trunc nuw nsw i64 %70 to i32
-  %72 = load i32, ptr %3, align 4, !tbaa !12
-  %73 = shl nuw nsw i32 %71, %67
-  %74 = icmp eq i32 %72, %73
-  br i1 %74, label %.critedge, label %76
+64:                                               ; preds = %54
+  %65 = add nuw nsw i32 %26, 1
+  %66 = lshr i32 %65, 1
+  %67 = sub nuw nsw i32 64, %66
+  %68 = zext nneg i32 %67 to i64
+  %69 = lshr i64 -1, %68
+  %70 = trunc nuw nsw i64 %69 to i32
+  %71 = load i32, ptr %3, align 4, !tbaa !12
+  %72 = shl nuw nsw i32 %70, %66
+  %73 = icmp eq i32 %71, %72
+  br i1 %73, label %.critedge, label %75
 
-.critedge:                                        ; preds = %65
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %63)
+.critedge:                                        ; preds = %64
+  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %62)
   br label %Abc_TtIsFullySymmetric.exit.thread
 
-76:                                               ; preds = %65, %55
+75:                                               ; preds = %64, %54
   %putchar = call i32 @putchar(i32 10)
   br label %Abc_TtIsFullySymmetric.exit.thread
 
-Abc_TtIsFullySymmetric.exit.thread:               ; preds = %31, %Abc_TtIsFullySymmetric.exit, %76, %.critedge
+Abc_TtIsFullySymmetric.exit.thread:               ; preds = %31, %Abc_TtIsFullySymmetric.exit, %75, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }

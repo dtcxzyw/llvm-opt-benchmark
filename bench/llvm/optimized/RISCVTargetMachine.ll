@@ -4873,9 +4873,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118onlyAllocateRVVRegERKN4ll
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 34
   %12 = load i8, ptr %11, align 2, !tbaa !487
-  %13 = and i8 %12, 1
-  %14 = icmp ne i8 %13, 0
-  ret i1 %14
+  %13 = trunc i8 %12 to i1
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

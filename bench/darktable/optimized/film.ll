@@ -817,7 +817,7 @@ define void @dt_film_remove(i32 noundef %0) local_unnamed_addr #0 {
   %35 = call i32 @sqlite3_finalize(ptr noundef %34) #11
   %36 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #11
   call void (ptr, ...) @dt_control_log(ptr noundef %36) #11
-  br label %112
+  br label %111
 
 .critedge:                                        ; preds = %25
   %37 = call i32 @sqlite3_finalize(ptr noundef %29) #11
@@ -925,29 +925,28 @@ define void @dt_film_remove(i32 noundef %0) local_unnamed_addr #0 {
   %99 = load ptr, ptr %2, align 8, !tbaa !56
   %100 = call i32 @sqlite3_finalize(ptr noundef %99) #11
   %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !68
-  %102 = and i32 %101, 1
-  %103 = icmp ne i32 %102, 0
-  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
-  %105 = icmp ne i32 %104, 0
-  %or.cond = select i1 %103, i1 %105, i1 false
-  br i1 %or.cond, label %106, label %110
+  %102 = trunc i32 %101 to i1
+  %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
+  %104 = icmp ne i32 %103, 0
+  %or.cond = select i1 %102, i1 %104, i1 false
+  br i1 %or.cond, label %105, label %109
 
-106:                                              ; preds = %96
-  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !16
-  %108 = and i32 %107, 1048576
-  %.not27 = icmp eq i32 %108, 0
-  br i1 %.not27, label %110, label %109
+105:                                              ; preds = %96
+  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !16
+  %107 = and i32 %106, 1048576
+  %.not27 = icmp eq i32 %107, 0
+  br i1 %.not27, label %109, label %108
 
-109:                                              ; preds = %106
+108:                                              ; preds = %105
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.3, i32 noundef 505, ptr noundef nonnull @__FUNCTION__.dt_film_remove) #11
-  br label %110
+  br label %109
 
-110:                                              ; preds = %106, %109, %96
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %111, i32 noundef 15) #11
-  br label %112
+109:                                              ; preds = %105, %108, %96
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %110, i32 noundef 15) #11
+  br label %111
 
-112:                                              ; preds = %110, %33
+111:                                              ; preds = %109, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1004,7 +1003,7 @@ define void @dt_film_remove_empty() local_unnamed_addr #0 {
 .thread:                                          ; preds = %17
   %20 = load ptr, ptr %1, align 8, !tbaa !56
   %21 = call i32 @sqlite3_finalize(ptr noundef %20) #11
-  br label %81
+  br label %80
 
 .lr.ph:                                           ; preds = %17
   %.not21 = icmp eq i32 %3, 0
@@ -1088,35 +1087,34 @@ define void @dt_film_remove_empty() local_unnamed_addr #0 {
   %65 = load ptr, ptr %1, align 8, !tbaa !56
   %66 = call i32 @sqlite3_finalize(ptr noundef %65) #11
   %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !68
-  %68 = and i32 %67, 1
-  %69 = icmp ne i32 %68, 0
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3200), align 8
-  %71 = icmp ne i32 %70, 0
-  %or.cond = select i1 %69, i1 %71, i1 false
-  br i1 %or.cond, label %72, label %76
+  %68 = trunc i32 %67 to i1
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3200), align 8
+  %70 = icmp ne i32 %69, 0
+  %or.cond = select i1 %68, i1 %70, i1 false
+  br i1 %or.cond, label %71, label %75
 
-72:                                               ; preds = %._crit_edge
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !16
-  %74 = and i32 %73, 1048576
-  %.not15 = icmp eq i32 %74, 0
-  br i1 %.not15, label %76, label %75
+71:                                               ; preds = %._crit_edge
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !16
+  %73 = and i32 %72, 1048576
+  %.not15 = icmp eq i32 %73, 0
+  br i1 %.not15, label %75, label %74
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.3, i32 noundef 428, ptr noundef nonnull @__FUNCTION__.dt_film_remove_empty) #11
-  br label %76
+  br label %75
 
-76:                                               ; preds = %72, %75, %._crit_edge
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %77, i32 noundef 17) #11
+75:                                               ; preds = %71, %74, %._crit_edge
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %76, i32 noundef 17) #11
   %.not16 = icmp eq ptr %.1, null
-  br i1 %.not16, label %81, label %78
+  br i1 %.not16, label %80, label %77
 
-78:                                               ; preds = %76
-  %79 = call ptr @g_list_reverse(ptr noundef nonnull %.1) #11
-  %80 = call i32 @g_idle_add(ptr noundef nonnull @ask_and_delete, ptr noundef %79) #11
-  br label %81
+77:                                               ; preds = %75
+  %78 = call ptr @g_list_reverse(ptr noundef nonnull %.1) #11
+  %79 = call i32 @g_idle_add(ptr noundef nonnull @ask_and_delete, ptr noundef %78) #11
+  br label %80
 
-81:                                               ; preds = %.thread, %78, %76
+80:                                               ; preds = %.thread, %77, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

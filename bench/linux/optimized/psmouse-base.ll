@@ -2632,19 +2632,19 @@ define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noun
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = and i64 %9, 2305843009213693951
-  %19 = shl nuw i64 1, %18
-  %20 = and i64 %19, 4193
-  %21 = icmp ne i64 %20, 0
-  %22 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %17, ptr noundef %0, i1 noundef zeroext %21, i1 noundef zeroext %3)
-  %23 = and i1 %3, %22
-  br i1 %23, label %24, label %.thread
+  %19 = lshr i64 4193, %18
+  %20 = trunc i64 %19 to i1
+  %21 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %17, ptr noundef %0, i1 noundef zeroext %20, i1 noundef zeroext %3)
+  %22 = and i1 %3, %21
+  br i1 %22, label %23, label %.thread
 
-24:                                               ; preds = %15
-  %25 = and i64 %19, 77943
+23:                                               ; preds = %15
+  %24 = shl nuw i64 1, %18
+  %25 = and i64 %24, 77943
   %.not.not = icmp eq i64 %25, 0
   br i1 %.not.not, label %26, label %.thread
 
-26:                                               ; preds = %24
+26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef %0) #13
@@ -2660,8 +2660,8 @@ define internal fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noun
   store i32 6, ptr %2, align 4
   br label %.thread
 
-.thread:                                          ; preds = %5, %34, %31, %26, %24, %15, %13
-  %35 = phi i1 [ false, %13 ], [ %22, %15 ], [ false, %34 ], [ false, %31 ], [ true, %24 ], [ true, %26 ], [ false, %5 ]
+.thread:                                          ; preds = %5, %34, %31, %26, %23, %15, %13
+  %35 = phi i1 [ false, %13 ], [ %21, %15 ], [ false, %34 ], [ false, %31 ], [ true, %23 ], [ true, %26 ], [ false, %5 ]
   ret i1 %35
 }
 

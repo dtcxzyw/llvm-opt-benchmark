@@ -127,7 +127,7 @@ define internal fastcc i32 @DwaCompressor_construct(ptr noundef nonnull initiali
   br i1 %.not13.i.i, label %check_for_x86_simd.exit.i, label %check_for_x86_simd.exit.thread.i
 
 check_for_x86_simd.exit.i:                        ; preds = %17
-  %21 = icmp ne i32 %.lobit.i.i, 0
+  %21 = trunc i32 %16 to i1
   %22 = and i32 %11, 536870912
   %23 = icmp ne i32 %22, 0
   %or.cond.i = and i1 %23, %21

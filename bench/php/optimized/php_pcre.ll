@@ -5511,7 +5511,7 @@ define dso_local void @php_pcre_split_impl(ptr noundef readonly captures(none) %
 
 .lr.ph214:                                        ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.not160 = icmp ne i32 %16, 0
+  %.not160 = trunc i64 %4 to i1
   %.not162 = icmp eq i32 %17, 0
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %62 = and i64 %4, 2
@@ -5552,7 +5552,7 @@ define dso_local void @php_pcre_split_impl(ptr noundef readonly captures(none) %
 
 78:                                               ; preds = %74
   %.not161 = icmp eq i64 %76, %.2146
-  %or.cond = and i1 %.not160, %.not161
+  %or.cond = and i1 %.not161, %.not160
   br i1 %or.cond, label %108, label %79
 
 79:                                               ; preds = %78

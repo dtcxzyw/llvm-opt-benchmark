@@ -2321,7 +2321,7 @@ define noundef i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %1, ptr no
 15:                                               ; preds = %13, %11
   %16 = phi i64 [ %12, %11 ], [ %14, %13 ]
   %.not32 = icmp eq i32 %6, -1
-  br i1 %.not32, label %37, label %17
+  br i1 %.not32, label %36, label %17
 
 17:                                               ; preds = %15
   %18 = tail call ptr @proto_registrar_get_nth(i32 noundef %6)
@@ -2334,44 +2334,43 @@ define noundef i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %1, ptr no
 
 21:                                               ; preds = %17
   %22 = tail call ptr @proto_tree_add_uint64(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 8, i64 noundef %16)
-  br label %37
+  br label %36
 
 23:                                               ; preds = %17
   %24 = tail call ptr @proto_tree_add_int64(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 8, i64 noundef %16)
-  br label %37
+  br label %36
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
-  %30 = and i32 %29, 1
-  %31 = icmp ne i32 %30, 0
-  %32 = icmp ult i64 %16, 4294967296
-  %or.cond = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond, label %34, label %33
+  %30 = trunc i32 %29 to i1
+  %31 = icmp ult i64 %16, 4294967296
+  %or.cond = select i1 %30, i1 true, i1 %31
+  br i1 %or.cond, label %33, label %32
 
-33:                                               ; preds = %25
+32:                                               ; preds = %25
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 2301, ptr noundef nonnull @.str.3) #20
   unreachable
 
-34:                                               ; preds = %25
-  %35 = trunc i64 %16 to i32
-  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %35)
-  br label %37
+33:                                               ; preds = %25
+  %34 = trunc i64 %16 to i32
+  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef %34)
+  br label %36
 
-37:                                               ; preds = %21, %23, %34, %15
+36:                                               ; preds = %21, %23, %33, %15
   %.not33 = icmp eq ptr %7, null
-  br i1 %.not33, label %39, label %38
+  br i1 %.not33, label %38, label %37
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   store i64 %16, ptr %7, align 8
-  br label %39
+  br label %38
 
-39:                                               ; preds = %38, %37
+38:                                               ; preds = %37, %36
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 8)
-  %40 = add i32 %1, 8
-  ret i32 %40
+  %39 = add i32 %1, 8
+  ret i32 %39
 }
 
 ; Function Attrs: null_pointer_is_valid

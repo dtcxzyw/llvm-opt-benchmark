@@ -1559,31 +1559,29 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_suspend(ptr noundef %0, i1
   %115 = select i1 %114, i64 64000000, i64 640000000
   br label %116
 
-116:                                              ; preds = %122, %112
-  %117 = phi i64 [ %115, %112 ], [ %123, %122 ]
+116:                                              ; preds = %121, %112
+  %117 = phi i64 [ %115, %112 ], [ %122, %121 ]
   %118 = icmp slt i64 %117, 0
-  br i1 %118, label %119, label %122
+  br i1 %118, label %119, label %121
 
 119:                                              ; preds = %116
   %120 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %108) #21, !srcloc !6
-  %.pre20 = and i32 %120, 1
-  %121 = icmp ne i32 %.pre20, 0
   br label %.loopexit13
 
-122:                                              ; preds = %116
+121:                                              ; preds = %116
   tail call void @__const_udelay(i64 noundef 4295) #21
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !7
-  %123 = add nsw i64 %117, -1001
-  %124 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %108) #21, !srcloc !6
-  %125 = and i32 %124, 1
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %116, label %.loopexit13, !llvm.loop !8
+  %122 = add nsw i64 %117, -1001
+  %123 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %108) #21, !srcloc !6
+  %124 = and i32 %123, 1
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %116, label %.loopexit13, !llvm.loop !8
 
-.loopexit13:                                      ; preds = %122, %119, %100
-  %.pre-phi = phi i1 [ true, %100 ], [ %121, %119 ], [ true, %122 ]
-  %127 = phi i32 [ %109, %100 ], [ %120, %119 ], [ %124, %122 ]
-  %128 = icmp ne i32 %127, -1
-  %129 = and i1 %128, %.pre-phi
+.loopexit13:                                      ; preds = %121, %119, %100
+  %126 = phi i32 [ %120, %119 ], [ %109, %100 ], [ %123, %121 ]
+  %127 = icmp ne i32 %126, -1
+  %128 = trunc i32 %126 to i1
+  %129 = and i1 %127, %128
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %.loopexit13
@@ -1778,7 +1776,7 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_suspend(ptr noundef %0, i1
 
 273:                                              ; preds = %.preheader
   %274 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %265) #21, !srcloc !6
-  %.pre21 = and i32 %274, 256
+  %.pre20 = and i32 %274, 256
   br label %.loopexit
 
 275:                                              ; preds = %.preheader
@@ -1793,8 +1791,8 @@ define dso_local noundef range(i32 -110, 1) i32 @xhci_suspend(ptr noundef %0, i1
   br i1 %281, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %275, %273, %.loopexit12
-  %.pre-phi22 = phi i32 [ %267, %.loopexit12 ], [ %.pre21, %273 ], [ %278, %275 ]
-  %282 = icmp eq i32 %.pre-phi22, 0
+  %.pre-phi = phi i32 [ %267, %.loopexit12 ], [ %.pre20, %273 ], [ %278, %275 ]
+  %282 = icmp eq i32 %.pre-phi, 0
   br i1 %282, label %299, label %283
 
 283:                                              ; preds = %.loopexit

@@ -175,7 +175,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
 
 13:                                               ; preds = %10, %7
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.112) #16
-  br label %99
+  br label %98
 
 14:                                               ; preds = %10
   store i32 960, ptr %8, align 8, !tbaa !33
@@ -288,7 +288,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %70 = load i32, ptr %69, align 8, !tbaa !33
   %71 = and i32 %70, 1
   %.not101 = icmp eq i32 %71, 0
-  br i1 %.not101, label %72, label %89
+  br i1 %.not101, label %72, label %88
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 388
@@ -301,58 +301,58 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %77 = and i32 %67, 1
   %.not104 = icmp eq i32 %77, 0
   %or.cond146 = select i1 %or.cond, i1 %.not104, i1 false
-  br i1 %or.cond146, label %78, label %89
+  br i1 %or.cond146, label %78, label %88
 
 78:                                               ; preds = %72
+  %.not105 = trunc i32 %68 to i1
   %79 = or i32 %67, %66
-  %80 = icmp slt i32 %79, 0
-  %81 = and i32 %68, -2147483647
-  %82 = icmp ne i32 %81, 0
-  %or.cond111 = or i1 %80, %82
-  %83 = icmp sgt i32 %66, %74
-  %or.cond112 = or i1 %83, %or.cond111
-  %84 = icmp sgt i32 %67, %74
-  %or.cond113 = or i1 %84, %or.cond112
-  %85 = icmp sgt i32 %68, %74
-  %or.cond114 = or i1 %85, %or.cond113
-  br i1 %or.cond114, label %89, label %86
+  %80 = or i32 %79, %68
+  %81 = icmp slt i32 %80, 0
+  %or.cond111 = or i1 %81, %.not105
+  %82 = icmp sgt i32 %66, %74
+  %or.cond112 = or i1 %82, %or.cond111
+  %83 = icmp sgt i32 %67, %74
+  %or.cond113 = or i1 %83, %or.cond112
+  %84 = icmp sgt i32 %68, %74
+  %or.cond114 = or i1 %84, %or.cond113
+  br i1 %or.cond114, label %88, label %85
 
-86:                                               ; preds = %78
-  %87 = add nuw nsw i32 %67, %66
-  %88 = add nuw nsw i32 %87, %68
-  %.not106 = icmp eq i32 %88, %74
-  br i1 %.not106, label %90, label %89
+85:                                               ; preds = %78
+  %86 = add nuw nsw i32 %67, %66
+  %87 = add nuw nsw i32 %86, %68
+  %.not106 = icmp eq i32 %87, %74
+  br i1 %.not106, label %89, label %88
 
-89:                                               ; preds = %86, %78, %72, %65
+88:                                               ; preds = %85, %78, %72, %65
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.113) #16
-  br label %99
+  br label %98
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 500
-  %92 = load i32, ptr %91, align 4, !tbaa !38
-  %.not107 = icmp eq i32 %92, 0
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 500
+  %91 = load i32, ptr %90, align 4, !tbaa !38
+  %.not107 = icmp eq i32 %91, 0
   br i1 %.not107, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %90, %.preheader
-  %93 = phi i32 [ %94, %.preheader ], [ 0, %90 ]
-  %94 = add nuw nsw i32 %93, 1
-  %95 = mul nsw i32 %94, %70
-  %96 = icmp slt i32 %95, 1920
-  %97 = icmp samesign ult i32 %93, 9
-  %or.cond115 = and i1 %97, %96
+.preheader:                                       ; preds = %89, %.preheader
+  %92 = phi i32 [ %93, %.preheader ], [ 0, %89 ]
+  %93 = add nuw nsw i32 %92, 1
+  %94 = mul nsw i32 %93, %70
+  %95 = icmp slt i32 %94, 1920
+  %96 = icmp samesign ult i32 %92, 9
+  %or.cond115 = and i1 %96, %95
   br i1 %or.cond115, label %.preheader, label %.critedge.loopexit, !llvm.loop !39
 
 .critedge.loopexit:                               ; preds = %.preheader
-  store i32 %94, ptr %91, align 4, !tbaa !38
+  store i32 %93, ptr %90, align 4, !tbaa !38
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %90
+.critedge:                                        ; preds = %.critedge.loopexit, %89
   tail call fastcc void @init_colormatrix(ptr noundef nonnull %3)
-  %98 = tail call fastcc i32 @init_cscheme(ptr noundef nonnull %3)
-  br label %99
+  %97 = tail call fastcc i32 @init_cscheme(ptr noundef nonnull %3)
+  br label %98
 
-99:                                               ; preds = %.critedge, %89, %13
-  %.0 = phi i32 [ -22, %89 ], [ %98, %.critedge ], [ -22, %13 ]
+98:                                               ; preds = %.critedge, %88, %13
+  %.0 = phi i32 [ -22, %88 ], [ %97, %.critedge ], [ -22, %13 ]
   ret i32 %.0
 }
 

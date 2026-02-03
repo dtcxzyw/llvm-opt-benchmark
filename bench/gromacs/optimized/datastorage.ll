@@ -2238,30 +2238,29 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
   %18 = load i32, ptr %17, align 8, !tbaa !130
   %19 = sext i32 %18 to i64
   %20 = add nsw i64 %19, %16
-  %.not2028 = icmp eq i32 %18, 0
+  %.not2026 = icmp eq i32 %18, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not2028, label %.critedge, label %.lr.ph
+  br i1 %.not2026, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %25
-  %.030 = phi i64 [ %26, %25 ], [ %16, %13 ]
-  %.01929 = phi i32 [ %27, %25 ], [ 0, %13 ]
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.030
+  %.028 = phi i64 [ %26, %25 ], [ %16, %13 ]
+  %.01927 = phi i32 [ %27, %25 ], [ 0, %13 ]
+  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.028
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !151
-  %24 = and i64 %23, 1
-  %.not26 = icmp eq i64 %24, 0
-  br i1 %.not26, label %25, label %.critedge
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = add i64 %.030, 1
-  %27 = add nuw nsw i32 %.01929, 1
+  %26 = add i64 %.028, 1
+  %27 = add nuw nsw i32 %.01927, 1
   %.not20 = icmp eq i64 %26, %20
   br i1 %.not20, label %.critedge, label %.lr.ph, !llvm.loop !153
 
 .critedge:                                        ; preds = %.lr.ph, %25, %13
-  %.019.lcssa = phi i32 [ 0, %13 ], [ %18, %25 ], [ %.01929, %.lr.ph ]
-  %.0.lcssa = phi i64 [ %16, %13 ], [ %20, %25 ], [ %.030, %.lr.ph ]
+  %.019.lcssa = phi i32 [ 0, %13 ], [ %18, %25 ], [ %.01927, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %16, %13 ], [ %20, %25 ], [ %.028, %.lr.ph ]
   br label %28
 
 28:                                               ; preds = %29, %.critedge
@@ -2274,9 +2273,8 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
   %31 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !151
-  %34 = and i64 %33, 1
-  %.not27 = icmp eq i64 %34, 0
-  br i1 %.not27, label %28, label %35, !llvm.loop !154
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %35, label %28, !llvm.loop !154
 
 35:                                               ; preds = %29, %28
   %.018.lcssa = phi i64 [ %.0.lcssa, %28 ], [ %.018, %29 ]
@@ -2287,8 +2285,8 @@ define void @_ZN3gmx24AnalysisDataStorageFrame14finishPointSetEv(ptr noundef non
   %39 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.0.lcssa
   %40 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %.pre, i64 %.018.lcssa
   tail call void @_ZN3gmx8internal28AnalysisDataStorageFrameData11addPointSetEiiNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(84) %36, i32 noundef %38, i32 noundef %spec.select, ptr %39, ptr %40)
-  %.pre35 = load i8, ptr %10, align 4, !tbaa !96, !range !99
-  %41 = trunc nuw i8 %.pre35 to i1
+  %.pre33 = load i8, ptr %10, align 4, !tbaa !96, !range !99
+  %41 = trunc nuw i8 %.pre33 to i1
   br i1 %41, label %42, label %_ZN3gmx24AnalysisDataStorageFrame11clearValuesEv.exit
 
 42:                                               ; preds = %35

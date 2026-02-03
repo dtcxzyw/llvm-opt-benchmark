@@ -614,8 +614,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %7, align 4
-  %8 = and i16 %.val.val, 1
-  %.not = icmp eq i16 %8, 0
+  %8 = trunc i16 %.val.val to i1
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 18
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
@@ -632,8 +631,8 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = and i16 %20, 8
-  %.not93 = icmp eq i16 %21, 0
-  br i1 %.not93, label %.thread, label %slot_deform_heap_tuple_internal.exit29
+  %.not = icmp eq i16 %21, 0
+  br i1 %.not, label %.thread, label %slot_deform_heap_tuple_internal.exit29
 
 .thread:                                          ; preds = %2, %17
   %.06069 = phi i32 [ %18, %17 ], [ 0, %2 ]
@@ -641,7 +640,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  br i1 %.not, label %26, label %134
+  br i1 %8, label %134, label %26
 
 26:                                               ; preds = %.thread
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -649,34 +648,34 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 %29
   %31 = icmp sgt i32 %..i, %15
-  br i1 %31, label %.lr.ph139, label %slot_deform_heap_tuple_internal.exit17
+  br i1 %31, label %.lr.ph, label %slot_deform_heap_tuple_internal.exit17
 
-.lr.ph139:                                        ; preds = %26
+.lr.ph:                                           ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = sext i16 %14 to i64
-  %wide.trip.count193 = sext i32 %..i to i64
+  %wide.trip.count = sext i32 %..i to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph139, %133
-  %indvars.iv191 = phi i64 [ %35, %.lr.ph139 ], [ %indvars.iv.next192, %133 ]
-  %.11136 = phi i32 [ %.06069, %.lr.ph139 ], [ %128, %133 ]
-  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv191
-  %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv191
+36:                                               ; preds = %.lr.ph, %133
+  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %133 ]
+  %.11133 = phi i32 [ %.06069, %.lr.ph ], [ %128, %133 ]
+  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
   %40 = icmp sgt i32 %39, -1
-  %.phi.trans.insert201 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %.pre202 = load i16, ptr %.phi.trans.insert201, align 4
-  br i1 %40, label %._crit_edge200, label %41
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %.pre = load i16, ptr %.phi.trans.insert, align 4
+  br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp eq i16 %.pre202, -1
+  %42 = icmp eq i16 %.pre, -1
   br i1 %42, label %43, label %63
 
 43:                                               ; preds = %41
-  %44 = zext i32 %.11136 to i64
+  %44 = zext i32 %.11133 to i64
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i64
@@ -688,37 +687,37 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %43
-  store i32 %.11136, ptr %37, align 4
-  br label %._crit_edge200
+  store i32 %.11133, ptr %37, align 4
+  br label %._crit_edge
 
 54:                                               ; preds = %43
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 %44
   %56 = load i8, ptr %55, align 1
   %.not.i28 = icmp eq i8 %56, 0
-  br i1 %.not.i28, label %57, label %._crit_edge200
+  br i1 %.not.i28, label %57, label %._crit_edge
 
 57:                                               ; preds = %54
   %58 = zext i8 %46 to i32
-  %59 = add i32 %.11136, -1
+  %59 = add i32 %.11133, -1
   %60 = add i32 %59, %58
   %61 = sub nsw i32 0, %58
   %62 = and i32 %60, %61
-  br label %._crit_edge200
+  br label %._crit_edge
 
 63:                                               ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = zext i8 %65 to i32
-  %67 = add i32 %.11136, -1
+  %67 = add i32 %.11133, -1
   %68 = add i32 %67, %66
   %69 = sub nsw i32 0, %66
   %70 = and i32 %68, %69
   store i32 %70, ptr %37, align 4
-  br label %._crit_edge200
+  br label %._crit_edge
 
-._crit_edge200:                                   ; preds = %36, %54, %57, %63, %53
-  %71 = phi i16 [ %.pre202, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre202, %36 ]
-  %.12 = phi i32 [ %70, %63 ], [ %.11136, %53 ], [ %.11136, %54 ], [ %62, %57 ], [ %39, %36 ]
+._crit_edge:                                      ; preds = %36, %54, %57, %63, %53
+  %71 = phi i16 [ %.pre, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre, %36 ]
+  %.12 = phi i32 [ %70, %63 ], [ %.11133, %53 ], [ %.11133, %54 ], [ %62, %57 ], [ %39, %36 ]
   %.290.i22 = phi i1 [ false, %63 ], [ false, %53 ], [ true, %54 ], [ true, %57 ], [ false, %36 ]
   %72 = zext i32 %.12 to i64
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %72
@@ -729,7 +728,7 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   %78 = sext i16 %71 to i32
   br i1 %76, label %79, label %97
 
-79:                                               ; preds = %._crit_edge200
+79:                                               ; preds = %._crit_edge
   %80 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %78)
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %.split.i, label %94
@@ -768,13 +767,13 @@ define internal void @tts_heap_getsomeattrs(ptr noundef captures(none) %0, i32 n
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-97:                                               ; preds = %._crit_edge200
+97:                                               ; preds = %._crit_edge
   %98 = ptrtoint ptr %73 to i64
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %83, %86, %89, %92, %97
   %.0.i30 = phi i64 [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %93, %92 ], [ %98, %97 ]
-  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv191
+  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   store i64 %.0.i30, ptr %99, align 8
   %100 = load i16, ptr %77, align 4
   %101 = icmp sgt i16 %100, 0
@@ -782,7 +781,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 
 102:                                              ; preds = %fetch_att.exit
   %103 = icmp eq i16 %100, -1
-  br i1 %103, label %104, label %.thread213
+  br i1 %103, label %104, label %.thread212
 
 104:                                              ; preds = %102
   %105 = load i8, ptr %73, align 1
@@ -814,7 +813,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %121 = lshr i32 %120, 2
   br label %.thread71
 
-.thread213:                                       ; preds = %102
+.thread212:                                       ; preds = %102
   %122 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #16
   %123 = trunc i64 %122 to i32
   %124 = add i32 %.12, 1
@@ -831,16 +830,16 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %130 = add i32 %129, %.12
   br label %.thread73
 
-.thread73:                                        ; preds = %126, %.thread213, %.thread71
-  %131 = phi i32 [ %130, %.thread71 ], [ %125, %.thread213 ], [ %128, %126 ]
-  %.091.i18137149 = trunc i64 %indvars.iv191 to i32
-  %132 = add nsw i32 %.091.i18137149, 1
+.thread73:                                        ; preds = %126, %.thread212, %.thread71
+  %131 = phi i32 [ %130, %.thread71 ], [ %125, %.thread212 ], [ %128, %126 ]
+  %.091.i18134175 = trunc i64 %indvars.iv to i32
+  %132 = add nsw i32 %.091.i18134175, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 133:                                              ; preds = %126
-  %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count193
-  br i1 %exitcond194.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
 
 134:                                              ; preds = %.thread
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 23
@@ -849,21 +848,21 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.val, i64 %138
   %140 = icmp sgt i32 %..i, %15
-  br i1 %140, label %.lr.ph, label %slot_deform_heap_tuple_internal.exit17
+  br i1 %140, label %.lr.ph138, label %slot_deform_heap_tuple_internal.exit17
 
-.lr.ph:                                           ; preds = %134
+.lr.ph138:                                        ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = sext i16 %14 to i64
-  %wide.trip.count = sext i32 %..i to i64
+  %wide.trip.count192 = sext i32 %..i to i64
   br label %145
 
-145:                                              ; preds = %.lr.ph, %256
-  %indvars.iv = phi i64 [ %144, %.lr.ph ], [ %indvars.iv.next, %256 ]
-  %.363134 = phi i32 [ %.06069, %.lr.ph ], [ %251, %256 ]
-  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv
-  %147 = trunc nsw i64 %indvars.iv to i32
+145:                                              ; preds = %.lr.ph138, %256
+  %indvars.iv189 = phi i64 [ %144, %.lr.ph138 ], [ %indvars.iv.next190, %256 ]
+  %.363136 = phi i32 [ %.06069, %.lr.ph138 ], [ %251, %256 ]
+  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv189
+  %147 = trunc nsw i64 %indvars.iv189 to i32
   %148 = ashr i32 %147, 3
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
@@ -876,28 +875,28 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %.not.i31, label %156, label %160
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
   store i64 0, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
+  %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 1, ptr %158, align 1
   %159 = add nsw i32 %147, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 160:                                              ; preds = %145
-  %161 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
+  %161 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 0, ptr %161, align 1
   %162 = load i32, ptr %146, align 4
   %163 = icmp sgt i32 %162, -1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4
-  br i1 %163, label %._crit_edge, label %164
+  %.phi.trans.insert200 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %.pre201 = load i16, ptr %.phi.trans.insert200, align 4
+  br i1 %163, label %._crit_edge199, label %164
 
 164:                                              ; preds = %160
-  %165 = icmp eq i16 %.pre, -1
+  %165 = icmp eq i16 %.pre201, -1
   br i1 %165, label %166, label %186
 
 166:                                              ; preds = %164
-  %167 = zext i32 %.363134 to i64
+  %167 = zext i32 %.363136 to i64
   %168 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %169 = load i8, ptr %168, align 4
   %170 = zext i8 %169 to i64
@@ -909,37 +908,37 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %175, label %176, label %177
 
 176:                                              ; preds = %166
-  store i32 %.363134, ptr %146, align 4
-  br label %._crit_edge
+  store i32 %.363136, ptr %146, align 4
+  br label %._crit_edge199
 
 177:                                              ; preds = %166
   %178 = getelementptr inbounds nuw i8, ptr %139, i64 %167
   %179 = load i8, ptr %178, align 1
   %.not.i = icmp eq i8 %179, 0
-  br i1 %.not.i, label %180, label %._crit_edge
+  br i1 %.not.i, label %180, label %._crit_edge199
 
 180:                                              ; preds = %177
   %181 = zext i8 %169 to i32
-  %182 = add i32 %.363134, -1
+  %182 = add i32 %.363136, -1
   %183 = add i32 %182, %181
   %184 = sub nsw i32 0, %181
   %185 = and i32 %183, %184
-  br label %._crit_edge
+  br label %._crit_edge199
 
 186:                                              ; preds = %164
   %187 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = zext i8 %188 to i32
-  %190 = add i32 %.363134, -1
+  %190 = add i32 %.363136, -1
   %191 = add i32 %190, %189
   %192 = sub nsw i32 0, %189
   %193 = and i32 %191, %192
   store i32 %193, ptr %146, align 4
-  br label %._crit_edge
+  br label %._crit_edge199
 
-._crit_edge:                                      ; preds = %160, %177, %180, %186, %176
-  %194 = phi i16 [ %.pre, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre, %160 ]
-  %.464 = phi i32 [ %193, %186 ], [ %.363134, %176 ], [ %.363134, %177 ], [ %185, %180 ], [ %162, %160 ]
+._crit_edge199:                                   ; preds = %160, %177, %180, %186, %176
+  %194 = phi i16 [ %.pre201, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre201, %160 ]
+  %.464 = phi i32 [ %193, %186 ], [ %.363136, %176 ], [ %.363136, %177 ], [ %185, %180 ], [ %162, %160 ]
   %.290.i = phi i1 [ false, %186 ], [ false, %176 ], [ true, %177 ], [ true, %180 ], [ false, %160 ]
   %195 = zext i32 %.464 to i64
   %196 = getelementptr inbounds nuw i8, ptr %139, i64 %195
@@ -950,7 +949,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %201 = sext i16 %194 to i32
   br i1 %199, label %202, label %220
 
-202:                                              ; preds = %._crit_edge
+202:                                              ; preds = %._crit_edge199
   %203 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %201)
   %204 = icmp eq i32 %203, 1
   br i1 %204, label %.split.i33, label %217
@@ -989,13 +988,13 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-220:                                              ; preds = %._crit_edge
+220:                                              ; preds = %._crit_edge199
   %221 = ptrtoint ptr %196 to i64
   br label %fetch_att.exit34
 
 fetch_att.exit34:                                 ; preds = %206, %209, %212, %215, %220
   %.0.i32 = phi i64 [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %216, %215 ], [ %221, %220 ]
-  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
   store i64 %.0.i32, ptr %222, align 8
   %223 = load i16, ptr %200, align 4
   %224 = icmp sgt i16 %223, 0
@@ -1003,7 +1002,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
 
 225:                                              ; preds = %fetch_att.exit34
   %226 = icmp eq i16 %223, -1
-  br i1 %226, label %227, label %.thread215
+  br i1 %226, label %227, label %.thread214
 
 227:                                              ; preds = %225
   %228 = load i8, ptr %196, align 1
@@ -1035,7 +1034,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %244 = lshr i32 %243, 2
   br label %.thread77
 
-.thread215:                                       ; preds = %225
+.thread214:                                       ; preds = %225
   %245 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %196) #16
   %246 = trunc i64 %245 to i32
   %247 = add i32 %.464, 1
@@ -1052,18 +1051,18 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %253 = add i32 %252, %.464
   br label %.thread78
 
-.thread78:                                        ; preds = %249, %.thread215, %.thread77
-  %254 = phi i32 [ %253, %.thread77 ], [ %248, %.thread215 ], [ %251, %249 ]
+.thread78:                                        ; preds = %249, %.thread214, %.thread77
+  %254 = phi i32 [ %253, %.thread77 ], [ %248, %.thread214 ], [ %251, %249 ]
   %255 = add nsw i32 %147, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 256:                                              ; preds = %249
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
+  br i1 %exitcond193.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
 
 slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.thread73, %17
-  %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363134, %156 ]
+  %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363136, %156 ]
   %.0.i = phi i32 [ %15, %17 ], [ %132, %.thread73 ], [ %255, %.thread78 ], [ %159, %156 ]
   %257 = icmp slt i32 %.0.i, %..i
   br i1 %257, label %258, label %slot_deform_heap_tuple_internal.exit17.thread
@@ -1083,17 +1082,17 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %272 = sext i32 %.0.i to i64
-  %wide.trip.count198 = sext i32 %..i to i64
+  %wide.trip.count197 = sext i32 %..i to i64
   br label %273
 
 273:                                              ; preds = %258, %371
-  %indvars.iv195 = phi i64 [ %272, %258 ], [ %indvars.iv.next196, %371 ]
-  %.7141 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
-  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv195
-  br i1 %.not, label %288, label %275
+  %indvars.iv194 = phi i64 [ %272, %258 ], [ %indvars.iv.next195, %371 ]
+  %.7140 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
+  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv194
+  br i1 %8, label %275, label %288
 
 275:                                              ; preds = %273
-  %276 = trunc nsw i64 %indvars.iv195 to i32
+  %276 = trunc nsw i64 %indvars.iv194 to i32
   %277 = ashr i32 %276, 3
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i8, ptr %266, i64 %278
@@ -1106,14 +1105,14 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %.not.i35, label %285, label %288
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv195
+  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
   store i64 0, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv195
+  %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 1, ptr %287, align 1
   br label %371
 
 288:                                              ; preds = %275, %273
-  %289 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv195
+  %289 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 0, ptr %289, align 1
   %290 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %291 = load i16, ptr %290, align 4
@@ -1121,7 +1120,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %292, label %293, label %.sink.split
 
 293:                                              ; preds = %288
-  %294 = zext i32 %.7141 to i64
+  %294 = zext i32 %.7140 to i64
   %295 = getelementptr inbounds nuw i8, ptr %270, i64 %294
   %296 = load i8, ptr %295, align 1
   %.not.i16 = icmp eq i8 %296, 0
@@ -1131,14 +1130,14 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   %297 = getelementptr inbounds nuw i8, ptr %274, i64 12
   %298 = load i8, ptr %297, align 4
   %299 = zext i8 %298 to i32
-  %300 = add i32 %.7141, -1
+  %300 = add i32 %.7140, -1
   %301 = add i32 %300, %299
   %302 = sub nsw i32 0, %299
   %303 = and i32 %301, %302
   br label %304
 
 304:                                              ; preds = %.sink.split, %293
-  %.8 = phi i32 [ %.7141, %293 ], [ %303, %.sink.split ]
+  %.8 = phi i32 [ %.7140, %293 ], [ %303, %.sink.split ]
   %305 = zext i32 %.8 to i64
   %306 = getelementptr inbounds nuw i8, ptr %270, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %274, i64 6
@@ -1192,7 +1191,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 
 fetch_att.exit38:                                 ; preds = %315, %318, %321, %324, %329
   %.0.i36 = phi i64 [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %325, %324 ], [ %330, %329 ]
-  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv195
+  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
   store i64 %.0.i36, ptr %331, align 8
   %332 = load i16, ptr %290, align 4
   %333 = icmp sgt i16 %332, 0
@@ -1260,13 +1259,13 @@ fetch_att.exit38:                                 ; preds = %315, %318, %321, %3
   br label %371
 
 371:                                              ; preds = %285, %368
-  %.9 = phi i32 [ %.7141, %285 ], [ %370, %368 ]
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
+  %.9 = phi i32 [ %.7140, %285 ], [ %370, %368 ]
+  %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
+  br i1 %exitcond198.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
 
-slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
-  %.262 = phi i32 [ %128, %133 ], [ %.06069, %26 ], [ %.06069, %134 ], [ %251, %256 ]
+slot_deform_heap_tuple_internal.exit17:           ; preds = %133, %256, %26, %134
+  %.262 = phi i32 [ %251, %256 ], [ %.06069, %134 ], [ %.06069, %26 ], [ %128, %133 ]
   %372 = trunc i32 %..i to i16
   store i16 %372, ptr %13, align 2
   store i32 %.262, ptr %5, align 4
@@ -1277,10 +1276,10 @@ slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %2
   br label %slot_deform_heap_tuple.exit
 
 slot_deform_heap_tuple_internal.exit17.thread:    ; preds = %371, %slot_deform_heap_tuple_internal.exit29
-  %storemerge144.in = phi i32 [ %.0.i, %slot_deform_heap_tuple_internal.exit29 ], [ %..i, %371 ]
+  %storemerge143.in = phi i32 [ %.0.i, %slot_deform_heap_tuple_internal.exit29 ], [ %..i, %371 ]
   %storemerge = phi i32 [ %.161, %slot_deform_heap_tuple_internal.exit29 ], [ %.9, %371 ]
-  %storemerge144 = trunc i32 %storemerge144.in to i16
-  store i16 %storemerge144, ptr %13, align 2
+  %storemerge143 = trunc i32 %storemerge143.in to i16
+  store i16 %storemerge143, ptr %13, align 2
   store i32 %storemerge, ptr %5, align 4
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %377 = load i16, ptr %376, align 4
@@ -1633,8 +1632,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %7, align 4
-  %8 = and i16 %.val.val, 1
-  %.not = icmp eq i16 %8, 0
+  %8 = trunc i16 %.val.val to i1
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 18
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
@@ -1651,8 +1649,8 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = and i16 %20, 8
-  %.not93 = icmp eq i16 %21, 0
-  br i1 %.not93, label %.thread, label %slot_deform_heap_tuple_internal.exit29
+  %.not = icmp eq i16 %21, 0
+  br i1 %.not, label %.thread, label %slot_deform_heap_tuple_internal.exit29
 
 .thread:                                          ; preds = %2, %17
   %.06069 = phi i32 [ %18, %17 ], [ 0, %2 ]
@@ -1660,7 +1658,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  br i1 %.not, label %26, label %134
+  br i1 %8, label %134, label %26
 
 26:                                               ; preds = %.thread
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -1668,34 +1666,34 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 %29
   %31 = icmp sgt i32 %..i, %15
-  br i1 %31, label %.lr.ph139, label %slot_deform_heap_tuple_internal.exit17
+  br i1 %31, label %.lr.ph, label %slot_deform_heap_tuple_internal.exit17
 
-.lr.ph139:                                        ; preds = %26
+.lr.ph:                                           ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = sext i16 %14 to i64
-  %wide.trip.count193 = sext i32 %..i to i64
+  %wide.trip.count = sext i32 %..i to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph139, %133
-  %indvars.iv191 = phi i64 [ %35, %.lr.ph139 ], [ %indvars.iv.next192, %133 ]
-  %.11136 = phi i32 [ %.06069, %.lr.ph139 ], [ %128, %133 ]
-  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv191
-  %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv191
+36:                                               ; preds = %.lr.ph, %133
+  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %133 ]
+  %.11133 = phi i32 [ %.06069, %.lr.ph ], [ %128, %133 ]
+  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
   %40 = icmp sgt i32 %39, -1
-  %.phi.trans.insert201 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %.pre202 = load i16, ptr %.phi.trans.insert201, align 4
-  br i1 %40, label %._crit_edge200, label %41
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %.pre = load i16, ptr %.phi.trans.insert, align 4
+  br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp eq i16 %.pre202, -1
+  %42 = icmp eq i16 %.pre, -1
   br i1 %42, label %43, label %63
 
 43:                                               ; preds = %41
-  %44 = zext i32 %.11136 to i64
+  %44 = zext i32 %.11133 to i64
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i64
@@ -1707,37 +1705,37 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %43
-  store i32 %.11136, ptr %37, align 4
-  br label %._crit_edge200
+  store i32 %.11133, ptr %37, align 4
+  br label %._crit_edge
 
 54:                                               ; preds = %43
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 %44
   %56 = load i8, ptr %55, align 1
   %.not.i28 = icmp eq i8 %56, 0
-  br i1 %.not.i28, label %57, label %._crit_edge200
+  br i1 %.not.i28, label %57, label %._crit_edge
 
 57:                                               ; preds = %54
   %58 = zext i8 %46 to i32
-  %59 = add i32 %.11136, -1
+  %59 = add i32 %.11133, -1
   %60 = add i32 %59, %58
   %61 = sub nsw i32 0, %58
   %62 = and i32 %60, %61
-  br label %._crit_edge200
+  br label %._crit_edge
 
 63:                                               ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = zext i8 %65 to i32
-  %67 = add i32 %.11136, -1
+  %67 = add i32 %.11133, -1
   %68 = add i32 %67, %66
   %69 = sub nsw i32 0, %66
   %70 = and i32 %68, %69
   store i32 %70, ptr %37, align 4
-  br label %._crit_edge200
+  br label %._crit_edge
 
-._crit_edge200:                                   ; preds = %36, %54, %57, %63, %53
-  %71 = phi i16 [ %.pre202, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre202, %36 ]
-  %.12 = phi i32 [ %70, %63 ], [ %.11136, %53 ], [ %.11136, %54 ], [ %62, %57 ], [ %39, %36 ]
+._crit_edge:                                      ; preds = %36, %54, %57, %63, %53
+  %71 = phi i16 [ %.pre, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre, %36 ]
+  %.12 = phi i32 [ %70, %63 ], [ %.11133, %53 ], [ %.11133, %54 ], [ %62, %57 ], [ %39, %36 ]
   %.290.i22 = phi i1 [ false, %63 ], [ false, %53 ], [ true, %54 ], [ true, %57 ], [ false, %36 ]
   %72 = zext i32 %.12 to i64
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %72
@@ -1748,7 +1746,7 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   %78 = sext i16 %71 to i32
   br i1 %76, label %79, label %97
 
-79:                                               ; preds = %._crit_edge200
+79:                                               ; preds = %._crit_edge
   %80 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %78)
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %.split.i, label %94
@@ -1787,13 +1785,13 @@ define internal void @tts_minimal_getsomeattrs(ptr noundef captures(none) %0, i3
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-97:                                               ; preds = %._crit_edge200
+97:                                               ; preds = %._crit_edge
   %98 = ptrtoint ptr %73 to i64
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %83, %86, %89, %92, %97
   %.0.i30 = phi i64 [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %93, %92 ], [ %98, %97 ]
-  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv191
+  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   store i64 %.0.i30, ptr %99, align 8
   %100 = load i16, ptr %77, align 4
   %101 = icmp sgt i16 %100, 0
@@ -1801,7 +1799,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 
 102:                                              ; preds = %fetch_att.exit
   %103 = icmp eq i16 %100, -1
-  br i1 %103, label %104, label %.thread213
+  br i1 %103, label %104, label %.thread212
 
 104:                                              ; preds = %102
   %105 = load i8, ptr %73, align 1
@@ -1833,7 +1831,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %121 = lshr i32 %120, 2
   br label %.thread71
 
-.thread213:                                       ; preds = %102
+.thread212:                                       ; preds = %102
   %122 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #16
   %123 = trunc i64 %122 to i32
   %124 = add i32 %.12, 1
@@ -1850,16 +1848,16 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %130 = add i32 %129, %.12
   br label %.thread73
 
-.thread73:                                        ; preds = %126, %.thread213, %.thread71
-  %131 = phi i32 [ %130, %.thread71 ], [ %125, %.thread213 ], [ %128, %126 ]
-  %.091.i18137149 = trunc i64 %indvars.iv191 to i32
-  %132 = add nsw i32 %.091.i18137149, 1
+.thread73:                                        ; preds = %126, %.thread212, %.thread71
+  %131 = phi i32 [ %130, %.thread71 ], [ %125, %.thread212 ], [ %128, %126 ]
+  %.091.i18134175 = trunc i64 %indvars.iv to i32
+  %132 = add nsw i32 %.091.i18134175, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 133:                                              ; preds = %126
-  %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count193
-  br i1 %exitcond194.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
 
 134:                                              ; preds = %.thread
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 23
@@ -1868,21 +1866,21 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.val, i64 %138
   %140 = icmp sgt i32 %..i, %15
-  br i1 %140, label %.lr.ph, label %slot_deform_heap_tuple_internal.exit17
+  br i1 %140, label %.lr.ph138, label %slot_deform_heap_tuple_internal.exit17
 
-.lr.ph:                                           ; preds = %134
+.lr.ph138:                                        ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = sext i16 %14 to i64
-  %wide.trip.count = sext i32 %..i to i64
+  %wide.trip.count192 = sext i32 %..i to i64
   br label %145
 
-145:                                              ; preds = %.lr.ph, %256
-  %indvars.iv = phi i64 [ %144, %.lr.ph ], [ %indvars.iv.next, %256 ]
-  %.363134 = phi i32 [ %.06069, %.lr.ph ], [ %251, %256 ]
-  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv
-  %147 = trunc nsw i64 %indvars.iv to i32
+145:                                              ; preds = %.lr.ph138, %256
+  %indvars.iv189 = phi i64 [ %144, %.lr.ph138 ], [ %indvars.iv.next190, %256 ]
+  %.363136 = phi i32 [ %.06069, %.lr.ph138 ], [ %251, %256 ]
+  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv189
+  %147 = trunc nsw i64 %indvars.iv189 to i32
   %148 = ashr i32 %147, 3
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
@@ -1895,28 +1893,28 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %.not.i31, label %156, label %160
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
   store i64 0, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
+  %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 1, ptr %158, align 1
   %159 = add nsw i32 %147, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 160:                                              ; preds = %145
-  %161 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
+  %161 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 0, ptr %161, align 1
   %162 = load i32, ptr %146, align 4
   %163 = icmp sgt i32 %162, -1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4
-  br i1 %163, label %._crit_edge, label %164
+  %.phi.trans.insert200 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %.pre201 = load i16, ptr %.phi.trans.insert200, align 4
+  br i1 %163, label %._crit_edge199, label %164
 
 164:                                              ; preds = %160
-  %165 = icmp eq i16 %.pre, -1
+  %165 = icmp eq i16 %.pre201, -1
   br i1 %165, label %166, label %186
 
 166:                                              ; preds = %164
-  %167 = zext i32 %.363134 to i64
+  %167 = zext i32 %.363136 to i64
   %168 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %169 = load i8, ptr %168, align 4
   %170 = zext i8 %169 to i64
@@ -1928,37 +1926,37 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %175, label %176, label %177
 
 176:                                              ; preds = %166
-  store i32 %.363134, ptr %146, align 4
-  br label %._crit_edge
+  store i32 %.363136, ptr %146, align 4
+  br label %._crit_edge199
 
 177:                                              ; preds = %166
   %178 = getelementptr inbounds nuw i8, ptr %139, i64 %167
   %179 = load i8, ptr %178, align 1
   %.not.i = icmp eq i8 %179, 0
-  br i1 %.not.i, label %180, label %._crit_edge
+  br i1 %.not.i, label %180, label %._crit_edge199
 
 180:                                              ; preds = %177
   %181 = zext i8 %169 to i32
-  %182 = add i32 %.363134, -1
+  %182 = add i32 %.363136, -1
   %183 = add i32 %182, %181
   %184 = sub nsw i32 0, %181
   %185 = and i32 %183, %184
-  br label %._crit_edge
+  br label %._crit_edge199
 
 186:                                              ; preds = %164
   %187 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = zext i8 %188 to i32
-  %190 = add i32 %.363134, -1
+  %190 = add i32 %.363136, -1
   %191 = add i32 %190, %189
   %192 = sub nsw i32 0, %189
   %193 = and i32 %191, %192
   store i32 %193, ptr %146, align 4
-  br label %._crit_edge
+  br label %._crit_edge199
 
-._crit_edge:                                      ; preds = %160, %177, %180, %186, %176
-  %194 = phi i16 [ %.pre, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre, %160 ]
-  %.464 = phi i32 [ %193, %186 ], [ %.363134, %176 ], [ %.363134, %177 ], [ %185, %180 ], [ %162, %160 ]
+._crit_edge199:                                   ; preds = %160, %177, %180, %186, %176
+  %194 = phi i16 [ %.pre201, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre201, %160 ]
+  %.464 = phi i32 [ %193, %186 ], [ %.363136, %176 ], [ %.363136, %177 ], [ %185, %180 ], [ %162, %160 ]
   %.290.i = phi i1 [ false, %186 ], [ false, %176 ], [ true, %177 ], [ true, %180 ], [ false, %160 ]
   %195 = zext i32 %.464 to i64
   %196 = getelementptr inbounds nuw i8, ptr %139, i64 %195
@@ -1969,7 +1967,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %201 = sext i16 %194 to i32
   br i1 %199, label %202, label %220
 
-202:                                              ; preds = %._crit_edge
+202:                                              ; preds = %._crit_edge199
   %203 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %201)
   %204 = icmp eq i32 %203, 1
   br i1 %204, label %.split.i33, label %217
@@ -2008,13 +2006,13 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-220:                                              ; preds = %._crit_edge
+220:                                              ; preds = %._crit_edge199
   %221 = ptrtoint ptr %196 to i64
   br label %fetch_att.exit34
 
 fetch_att.exit34:                                 ; preds = %206, %209, %212, %215, %220
   %.0.i32 = phi i64 [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %216, %215 ], [ %221, %220 ]
-  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
   store i64 %.0.i32, ptr %222, align 8
   %223 = load i16, ptr %200, align 4
   %224 = icmp sgt i16 %223, 0
@@ -2022,7 +2020,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
 
 225:                                              ; preds = %fetch_att.exit34
   %226 = icmp eq i16 %223, -1
-  br i1 %226, label %227, label %.thread215
+  br i1 %226, label %227, label %.thread214
 
 227:                                              ; preds = %225
   %228 = load i8, ptr %196, align 1
@@ -2054,7 +2052,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %244 = lshr i32 %243, 2
   br label %.thread77
 
-.thread215:                                       ; preds = %225
+.thread214:                                       ; preds = %225
   %245 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %196) #16
   %246 = trunc i64 %245 to i32
   %247 = add i32 %.464, 1
@@ -2071,18 +2069,18 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %253 = add i32 %252, %.464
   br label %.thread78
 
-.thread78:                                        ; preds = %249, %.thread215, %.thread77
-  %254 = phi i32 [ %253, %.thread77 ], [ %248, %.thread215 ], [ %251, %249 ]
+.thread78:                                        ; preds = %249, %.thread214, %.thread77
+  %254 = phi i32 [ %253, %.thread77 ], [ %248, %.thread214 ], [ %251, %249 ]
   %255 = add nsw i32 %147, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 256:                                              ; preds = %249
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
+  br i1 %exitcond193.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
 
 slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.thread73, %17
-  %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363134, %156 ]
+  %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363136, %156 ]
   %.0.i = phi i32 [ %15, %17 ], [ %132, %.thread73 ], [ %255, %.thread78 ], [ %159, %156 ]
   %257 = icmp slt i32 %.0.i, %..i
   br i1 %257, label %258, label %slot_deform_heap_tuple_internal.exit17.thread
@@ -2102,17 +2100,17 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %272 = sext i32 %.0.i to i64
-  %wide.trip.count198 = sext i32 %..i to i64
+  %wide.trip.count197 = sext i32 %..i to i64
   br label %273
 
 273:                                              ; preds = %258, %371
-  %indvars.iv195 = phi i64 [ %272, %258 ], [ %indvars.iv.next196, %371 ]
-  %.7141 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
-  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv195
-  br i1 %.not, label %288, label %275
+  %indvars.iv194 = phi i64 [ %272, %258 ], [ %indvars.iv.next195, %371 ]
+  %.7140 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
+  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv194
+  br i1 %8, label %275, label %288
 
 275:                                              ; preds = %273
-  %276 = trunc nsw i64 %indvars.iv195 to i32
+  %276 = trunc nsw i64 %indvars.iv194 to i32
   %277 = ashr i32 %276, 3
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i8, ptr %266, i64 %278
@@ -2125,14 +2123,14 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %.not.i35, label %285, label %288
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv195
+  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
   store i64 0, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv195
+  %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 1, ptr %287, align 1
   br label %371
 
 288:                                              ; preds = %275, %273
-  %289 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv195
+  %289 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 0, ptr %289, align 1
   %290 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %291 = load i16, ptr %290, align 4
@@ -2140,7 +2138,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %292, label %293, label %.sink.split
 
 293:                                              ; preds = %288
-  %294 = zext i32 %.7141 to i64
+  %294 = zext i32 %.7140 to i64
   %295 = getelementptr inbounds nuw i8, ptr %270, i64 %294
   %296 = load i8, ptr %295, align 1
   %.not.i16 = icmp eq i8 %296, 0
@@ -2150,14 +2148,14 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   %297 = getelementptr inbounds nuw i8, ptr %274, i64 12
   %298 = load i8, ptr %297, align 4
   %299 = zext i8 %298 to i32
-  %300 = add i32 %.7141, -1
+  %300 = add i32 %.7140, -1
   %301 = add i32 %300, %299
   %302 = sub nsw i32 0, %299
   %303 = and i32 %301, %302
   br label %304
 
 304:                                              ; preds = %.sink.split, %293
-  %.8 = phi i32 [ %.7141, %293 ], [ %303, %.sink.split ]
+  %.8 = phi i32 [ %.7140, %293 ], [ %303, %.sink.split ]
   %305 = zext i32 %.8 to i64
   %306 = getelementptr inbounds nuw i8, ptr %270, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %274, i64 6
@@ -2211,7 +2209,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 
 fetch_att.exit38:                                 ; preds = %315, %318, %321, %324, %329
   %.0.i36 = phi i64 [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %325, %324 ], [ %330, %329 ]
-  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv195
+  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
   store i64 %.0.i36, ptr %331, align 8
   %332 = load i16, ptr %290, align 4
   %333 = icmp sgt i16 %332, 0
@@ -2279,13 +2277,13 @@ fetch_att.exit38:                                 ; preds = %315, %318, %321, %3
   br label %371
 
 371:                                              ; preds = %285, %368
-  %.9 = phi i32 [ %.7141, %285 ], [ %370, %368 ]
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
+  %.9 = phi i32 [ %.7140, %285 ], [ %370, %368 ]
+  %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
+  br i1 %exitcond198.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
 
-slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
-  %.262 = phi i32 [ %128, %133 ], [ %.06069, %26 ], [ %.06069, %134 ], [ %251, %256 ]
+slot_deform_heap_tuple_internal.exit17:           ; preds = %133, %256, %26, %134
+  %.262 = phi i32 [ %251, %256 ], [ %.06069, %134 ], [ %.06069, %26 ], [ %128, %133 ]
   %372 = trunc i32 %..i to i16
   store i16 %372, ptr %13, align 2
   store i32 %.262, ptr %5, align 4
@@ -2296,10 +2294,10 @@ slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %2
   br label %slot_deform_heap_tuple.exit
 
 slot_deform_heap_tuple_internal.exit17.thread:    ; preds = %371, %slot_deform_heap_tuple_internal.exit29
-  %storemerge144.in = phi i32 [ %.0.i, %slot_deform_heap_tuple_internal.exit29 ], [ %..i, %371 ]
+  %storemerge143.in = phi i32 [ %.0.i, %slot_deform_heap_tuple_internal.exit29 ], [ %..i, %371 ]
   %storemerge = phi i32 [ %.161, %slot_deform_heap_tuple_internal.exit29 ], [ %.9, %371 ]
-  %storemerge144 = trunc i32 %storemerge144.in to i16
-  store i16 %storemerge144, ptr %13, align 2
+  %storemerge143 = trunc i32 %storemerge143.in to i16
+  store i16 %storemerge143, ptr %13, align 2
   store i32 %storemerge, ptr %5, align 4
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %377 = load i16, ptr %376, align 4
@@ -2668,8 +2666,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %7, align 4
-  %8 = and i16 %.val.val, 1
-  %.not = icmp eq i16 %8, 0
+  %8 = trunc i16 %.val.val to i1
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 18
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
@@ -2686,8 +2683,8 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i16, ptr %19, align 4
   %21 = and i16 %20, 8
-  %.not93 = icmp eq i16 %21, 0
-  br i1 %.not93, label %.thread, label %slot_deform_heap_tuple_internal.exit29
+  %.not = icmp eq i16 %21, 0
+  br i1 %.not, label %.thread, label %slot_deform_heap_tuple_internal.exit29
 
 .thread:                                          ; preds = %2, %17
   %.06069 = phi i32 [ %18, %17 ], [ 0, %2 ]
@@ -2695,7 +2692,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  br i1 %.not, label %26, label %134
+  br i1 %8, label %134, label %26
 
 26:                                               ; preds = %.thread
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -2703,34 +2700,34 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   %29 = zext i8 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 %29
   %31 = icmp sgt i32 %..i, %15
-  br i1 %31, label %.lr.ph139, label %slot_deform_heap_tuple_internal.exit17
+  br i1 %31, label %.lr.ph, label %slot_deform_heap_tuple_internal.exit17
 
-.lr.ph139:                                        ; preds = %26
+.lr.ph:                                           ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = sext i16 %14 to i64
-  %wide.trip.count193 = sext i32 %..i to i64
+  %wide.trip.count = sext i32 %..i to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph139, %133
-  %indvars.iv191 = phi i64 [ %35, %.lr.ph139 ], [ %indvars.iv.next192, %133 ]
-  %.11136 = phi i32 [ %.06069, %.lr.ph139 ], [ %128, %133 ]
-  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv191
-  %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv191
+36:                                               ; preds = %.lr.ph, %133
+  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %133 ]
+  %.11133 = phi i32 [ %.06069, %.lr.ph ], [ %128, %133 ]
+  %37 = getelementptr inbounds %struct.CompactAttribute, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   %39 = load i32, ptr %37, align 4
   %40 = icmp sgt i32 %39, -1
-  %.phi.trans.insert201 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %.pre202 = load i16, ptr %.phi.trans.insert201, align 4
-  br i1 %40, label %._crit_edge200, label %41
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %.pre = load i16, ptr %.phi.trans.insert, align 4
+  br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp eq i16 %.pre202, -1
+  %42 = icmp eq i16 %.pre, -1
   br i1 %42, label %43, label %63
 
 43:                                               ; preds = %41
-  %44 = zext i32 %.11136 to i64
+  %44 = zext i32 %.11133 to i64
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i64
@@ -2742,37 +2739,37 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %43
-  store i32 %.11136, ptr %37, align 4
-  br label %._crit_edge200
+  store i32 %.11133, ptr %37, align 4
+  br label %._crit_edge
 
 54:                                               ; preds = %43
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 %44
   %56 = load i8, ptr %55, align 1
   %.not.i28 = icmp eq i8 %56, 0
-  br i1 %.not.i28, label %57, label %._crit_edge200
+  br i1 %.not.i28, label %57, label %._crit_edge
 
 57:                                               ; preds = %54
   %58 = zext i8 %46 to i32
-  %59 = add i32 %.11136, -1
+  %59 = add i32 %.11133, -1
   %60 = add i32 %59, %58
   %61 = sub nsw i32 0, %58
   %62 = and i32 %60, %61
-  br label %._crit_edge200
+  br label %._crit_edge
 
 63:                                               ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = zext i8 %65 to i32
-  %67 = add i32 %.11136, -1
+  %67 = add i32 %.11133, -1
   %68 = add i32 %67, %66
   %69 = sub nsw i32 0, %66
   %70 = and i32 %68, %69
   store i32 %70, ptr %37, align 4
-  br label %._crit_edge200
+  br label %._crit_edge
 
-._crit_edge200:                                   ; preds = %36, %54, %57, %63, %53
-  %71 = phi i16 [ %.pre202, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre202, %36 ]
-  %.12 = phi i32 [ %70, %63 ], [ %.11136, %53 ], [ %.11136, %54 ], [ %62, %57 ], [ %39, %36 ]
+._crit_edge:                                      ; preds = %36, %54, %57, %63, %53
+  %71 = phi i16 [ %.pre, %63 ], [ -1, %53 ], [ -1, %54 ], [ -1, %57 ], [ %.pre, %36 ]
+  %.12 = phi i32 [ %70, %63 ], [ %.11133, %53 ], [ %.11133, %54 ], [ %62, %57 ], [ %39, %36 ]
   %.290.i22 = phi i1 [ false, %63 ], [ false, %53 ], [ true, %54 ], [ true, %57 ], [ false, %36 ]
   %72 = zext i32 %.12 to i64
   %73 = getelementptr inbounds nuw i8, ptr %30, i64 %72
@@ -2783,7 +2780,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   %78 = sext i16 %71 to i32
   br i1 %76, label %79, label %97
 
-79:                                               ; preds = %._crit_edge200
+79:                                               ; preds = %._crit_edge
   %80 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %78)
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %.split.i, label %94
@@ -2822,13 +2819,13 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr noundef captures(none) %0
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-97:                                               ; preds = %._crit_edge200
+97:                                               ; preds = %._crit_edge
   %98 = ptrtoint ptr %73 to i64
   br label %fetch_att.exit
 
 fetch_att.exit:                                   ; preds = %83, %86, %89, %92, %97
   %.0.i30 = phi i64 [ %85, %83 ], [ %88, %86 ], [ %91, %89 ], [ %93, %92 ], [ %98, %97 ]
-  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv191
+  %99 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
   store i64 %.0.i30, ptr %99, align 8
   %100 = load i16, ptr %77, align 4
   %101 = icmp sgt i16 %100, 0
@@ -2836,7 +2833,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
 
 102:                                              ; preds = %fetch_att.exit
   %103 = icmp eq i16 %100, -1
-  br i1 %103, label %104, label %.thread213
+  br i1 %103, label %104, label %.thread212
 
 104:                                              ; preds = %102
   %105 = load i8, ptr %73, align 1
@@ -2868,7 +2865,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %121 = lshr i32 %120, 2
   br label %.thread71
 
-.thread213:                                       ; preds = %102
+.thread212:                                       ; preds = %102
   %122 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #16
   %123 = trunc i64 %122 to i32
   %124 = add i32 %.12, 1
@@ -2885,16 +2882,16 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %130 = add i32 %129, %.12
   br label %.thread73
 
-.thread73:                                        ; preds = %126, %.thread213, %.thread71
-  %131 = phi i32 [ %130, %.thread71 ], [ %125, %.thread213 ], [ %128, %126 ]
-  %.091.i18137149 = trunc i64 %indvars.iv191 to i32
-  %132 = add nsw i32 %.091.i18137149, 1
+.thread73:                                        ; preds = %126, %.thread212, %.thread71
+  %131 = phi i32 [ %130, %.thread71 ], [ %125, %.thread212 ], [ %128, %126 ]
+  %.091.i18134175 = trunc i64 %indvars.iv to i32
+  %132 = add nsw i32 %.091.i18134175, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 133:                                              ; preds = %126
-  %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count193
-  br i1 %exitcond194.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %36, !llvm.loop !12
 
 134:                                              ; preds = %.thread
   %135 = getelementptr inbounds nuw i8, ptr %.val, i64 23
@@ -2903,21 +2900,21 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %.val, i64 %138
   %140 = icmp sgt i32 %..i, %15
-  br i1 %140, label %.lr.ph, label %slot_deform_heap_tuple_internal.exit17
+  br i1 %140, label %.lr.ph138, label %slot_deform_heap_tuple_internal.exit17
 
-.lr.ph:                                           ; preds = %134
+.lr.ph138:                                        ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = sext i16 %14 to i64
-  %wide.trip.count = sext i32 %..i to i64
+  %wide.trip.count192 = sext i32 %..i to i64
   br label %145
 
-145:                                              ; preds = %.lr.ph, %256
-  %indvars.iv = phi i64 [ %144, %.lr.ph ], [ %indvars.iv.next, %256 ]
-  %.363134 = phi i32 [ %.06069, %.lr.ph ], [ %251, %256 ]
-  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv
-  %147 = trunc nsw i64 %indvars.iv to i32
+145:                                              ; preds = %.lr.ph138, %256
+  %indvars.iv189 = phi i64 [ %144, %.lr.ph138 ], [ %indvars.iv.next190, %256 ]
+  %.363136 = phi i32 [ %.06069, %.lr.ph138 ], [ %251, %256 ]
+  %146 = getelementptr inbounds %struct.CompactAttribute, ptr %143, i64 %indvars.iv189
+  %147 = trunc nsw i64 %indvars.iv189 to i32
   %148 = ashr i32 %147, 3
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds i8, ptr %135, i64 %149
@@ -2930,28 +2927,28 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %.not.i31, label %156, label %160
 
 156:                                              ; preds = %145
-  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %157 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
   store i64 0, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
+  %158 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 1, ptr %158, align 1
   %159 = add nsw i32 %147, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 160:                                              ; preds = %145
-  %161 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv
+  %161 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv189
   store i8 0, ptr %161, align 1
   %162 = load i32, ptr %146, align 4
   %163 = icmp sgt i32 %162, -1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4
-  br i1 %163, label %._crit_edge, label %164
+  %.phi.trans.insert200 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %.pre201 = load i16, ptr %.phi.trans.insert200, align 4
+  br i1 %163, label %._crit_edge199, label %164
 
 164:                                              ; preds = %160
-  %165 = icmp eq i16 %.pre, -1
+  %165 = icmp eq i16 %.pre201, -1
   br i1 %165, label %166, label %186
 
 166:                                              ; preds = %164
-  %167 = zext i32 %.363134 to i64
+  %167 = zext i32 %.363136 to i64
   %168 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %169 = load i8, ptr %168, align 4
   %170 = zext i8 %169 to i64
@@ -2963,37 +2960,37 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   br i1 %175, label %176, label %177
 
 176:                                              ; preds = %166
-  store i32 %.363134, ptr %146, align 4
-  br label %._crit_edge
+  store i32 %.363136, ptr %146, align 4
+  br label %._crit_edge199
 
 177:                                              ; preds = %166
   %178 = getelementptr inbounds nuw i8, ptr %139, i64 %167
   %179 = load i8, ptr %178, align 1
   %.not.i = icmp eq i8 %179, 0
-  br i1 %.not.i, label %180, label %._crit_edge
+  br i1 %.not.i, label %180, label %._crit_edge199
 
 180:                                              ; preds = %177
   %181 = zext i8 %169 to i32
-  %182 = add i32 %.363134, -1
+  %182 = add i32 %.363136, -1
   %183 = add i32 %182, %181
   %184 = sub nsw i32 0, %181
   %185 = and i32 %183, %184
-  br label %._crit_edge
+  br label %._crit_edge199
 
 186:                                              ; preds = %164
   %187 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %188 = load i8, ptr %187, align 4
   %189 = zext i8 %188 to i32
-  %190 = add i32 %.363134, -1
+  %190 = add i32 %.363136, -1
   %191 = add i32 %190, %189
   %192 = sub nsw i32 0, %189
   %193 = and i32 %191, %192
   store i32 %193, ptr %146, align 4
-  br label %._crit_edge
+  br label %._crit_edge199
 
-._crit_edge:                                      ; preds = %160, %177, %180, %186, %176
-  %194 = phi i16 [ %.pre, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre, %160 ]
-  %.464 = phi i32 [ %193, %186 ], [ %.363134, %176 ], [ %.363134, %177 ], [ %185, %180 ], [ %162, %160 ]
+._crit_edge199:                                   ; preds = %160, %177, %180, %186, %176
+  %194 = phi i16 [ %.pre201, %186 ], [ -1, %176 ], [ -1, %177 ], [ -1, %180 ], [ %.pre201, %160 ]
+  %.464 = phi i32 [ %193, %186 ], [ %.363136, %176 ], [ %.363136, %177 ], [ %185, %180 ], [ %162, %160 ]
   %.290.i = phi i1 [ false, %186 ], [ false, %176 ], [ true, %177 ], [ true, %180 ], [ false, %160 ]
   %195 = zext i32 %.464 to i64
   %196 = getelementptr inbounds nuw i8, ptr %139, i64 %195
@@ -3004,7 +3001,7 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   %201 = sext i16 %194 to i32
   br i1 %199, label %202, label %220
 
-202:                                              ; preds = %._crit_edge
+202:                                              ; preds = %._crit_edge199
   %203 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 range(i32 -32768, 32768) %201)
   %204 = icmp eq i32 %203, 1
   br i1 %204, label %.split.i33, label %217
@@ -3043,13 +3040,13 @@ fetch_att.exit:                                   ; preds = %83, %86, %89, %92, 
   tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #14
   unreachable
 
-220:                                              ; preds = %._crit_edge
+220:                                              ; preds = %._crit_edge199
   %221 = ptrtoint ptr %196 to i64
   br label %fetch_att.exit34
 
 fetch_att.exit34:                                 ; preds = %206, %209, %212, %215, %220
   %.0.i32 = phi i64 [ %208, %206 ], [ %211, %209 ], [ %214, %212 ], [ %216, %215 ], [ %221, %220 ]
-  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv
+  %222 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv189
   store i64 %.0.i32, ptr %222, align 8
   %223 = load i16, ptr %200, align 4
   %224 = icmp sgt i16 %223, 0
@@ -3057,7 +3054,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
 
 225:                                              ; preds = %fetch_att.exit34
   %226 = icmp eq i16 %223, -1
-  br i1 %226, label %227, label %.thread215
+  br i1 %226, label %227, label %.thread214
 
 227:                                              ; preds = %225
   %228 = load i8, ptr %196, align 1
@@ -3089,7 +3086,7 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %244 = lshr i32 %243, 2
   br label %.thread77
 
-.thread215:                                       ; preds = %225
+.thread214:                                       ; preds = %225
   %245 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %196) #16
   %246 = trunc i64 %245 to i32
   %247 = add i32 %.464, 1
@@ -3106,18 +3103,18 @@ fetch_att.exit34:                                 ; preds = %206, %209, %212, %2
   %253 = add i32 %252, %.464
   br label %.thread78
 
-.thread78:                                        ; preds = %249, %.thread215, %.thread77
-  %254 = phi i32 [ %253, %.thread77 ], [ %248, %.thread215 ], [ %251, %249 ]
+.thread78:                                        ; preds = %249, %.thread214, %.thread77
+  %254 = phi i32 [ %253, %.thread77 ], [ %248, %.thread214 ], [ %251, %249 ]
   %255 = add nsw i32 %147, 1
   br label %slot_deform_heap_tuple_internal.exit29
 
 256:                                              ; preds = %249
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
+  %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
+  br i1 %exitcond193.not, label %slot_deform_heap_tuple_internal.exit17, label %145, !llvm.loop !12
 
 slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.thread73, %17
-  %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363134, %156 ]
+  %.161 = phi i32 [ %18, %17 ], [ %131, %.thread73 ], [ %254, %.thread78 ], [ %.363136, %156 ]
   %.0.i = phi i32 [ %15, %17 ], [ %132, %.thread73 ], [ %255, %.thread78 ], [ %159, %156 ]
   %257 = icmp slt i32 %.0.i, %..i
   br i1 %257, label %258, label %slot_deform_heap_tuple_internal.exit17.thread
@@ -3137,17 +3134,17 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %272 = sext i32 %.0.i to i64
-  %wide.trip.count198 = sext i32 %..i to i64
+  %wide.trip.count197 = sext i32 %..i to i64
   br label %273
 
 273:                                              ; preds = %258, %371
-  %indvars.iv195 = phi i64 [ %272, %258 ], [ %indvars.iv.next196, %371 ]
-  %.7141 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
-  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv195
-  br i1 %.not, label %288, label %275
+  %indvars.iv194 = phi i64 [ %272, %258 ], [ %indvars.iv.next195, %371 ]
+  %.7140 = phi i32 [ %.161, %258 ], [ %.9, %371 ]
+  %274 = getelementptr inbounds %struct.CompactAttribute, ptr %271, i64 %indvars.iv194
+  br i1 %8, label %275, label %288
 
 275:                                              ; preds = %273
-  %276 = trunc nsw i64 %indvars.iv195 to i32
+  %276 = trunc nsw i64 %indvars.iv194 to i32
   %277 = ashr i32 %276, 3
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i8, ptr %266, i64 %278
@@ -3160,14 +3157,14 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %.not.i35, label %285, label %288
 
 285:                                              ; preds = %275
-  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv195
+  %286 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
   store i64 0, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv195
+  %287 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 1, ptr %287, align 1
   br label %371
 
 288:                                              ; preds = %275, %273
-  %289 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv195
+  %289 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv194
   store i8 0, ptr %289, align 1
   %290 = getelementptr inbounds nuw i8, ptr %274, i64 4
   %291 = load i16, ptr %290, align 4
@@ -3175,7 +3172,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   br i1 %292, label %293, label %.sink.split
 
 293:                                              ; preds = %288
-  %294 = zext i32 %.7141 to i64
+  %294 = zext i32 %.7140 to i64
   %295 = getelementptr inbounds nuw i8, ptr %270, i64 %294
   %296 = load i8, ptr %295, align 1
   %.not.i16 = icmp eq i8 %296, 0
@@ -3185,14 +3182,14 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
   %297 = getelementptr inbounds nuw i8, ptr %274, i64 12
   %298 = load i8, ptr %297, align 4
   %299 = zext i8 %298 to i32
-  %300 = add i32 %.7141, -1
+  %300 = add i32 %.7140, -1
   %301 = add i32 %300, %299
   %302 = sub nsw i32 0, %299
   %303 = and i32 %301, %302
   br label %304
 
 304:                                              ; preds = %.sink.split, %293
-  %.8 = phi i32 [ %.7141, %293 ], [ %303, %.sink.split ]
+  %.8 = phi i32 [ %.7140, %293 ], [ %303, %.sink.split ]
   %305 = zext i32 %.8 to i64
   %306 = getelementptr inbounds nuw i8, ptr %270, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %274, i64 6
@@ -3246,7 +3243,7 @@ slot_deform_heap_tuple_internal.exit29:           ; preds = %156, %.thread78, %.
 
 fetch_att.exit38:                                 ; preds = %315, %318, %321, %324, %329
   %.0.i36 = phi i64 [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %325, %324 ], [ %330, %329 ]
-  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv195
+  %331 = getelementptr inbounds i64, ptr %262, i64 %indvars.iv194
   store i64 %.0.i36, ptr %331, align 8
   %332 = load i16, ptr %290, align 4
   %333 = icmp sgt i16 %332, 0
@@ -3314,13 +3311,13 @@ fetch_att.exit38:                                 ; preds = %315, %318, %321, %3
   br label %371
 
 371:                                              ; preds = %285, %368
-  %.9 = phi i32 [ %.7141, %285 ], [ %370, %368 ]
-  %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
+  %.9 = phi i32 [ %.7140, %285 ], [ %370, %368 ]
+  %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
+  br i1 %exitcond198.not, label %slot_deform_heap_tuple_internal.exit17.thread, label %273, !llvm.loop !12
 
-slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %26
-  %.262 = phi i32 [ %128, %133 ], [ %.06069, %26 ], [ %.06069, %134 ], [ %251, %256 ]
+slot_deform_heap_tuple_internal.exit17:           ; preds = %133, %256, %26, %134
+  %.262 = phi i32 [ %251, %256 ], [ %.06069, %134 ], [ %.06069, %26 ], [ %128, %133 ]
   %372 = trunc i32 %..i to i16
   store i16 %372, ptr %13, align 2
   store i32 %.262, ptr %5, align 4
@@ -3331,10 +3328,10 @@ slot_deform_heap_tuple_internal.exit17:           ; preds = %256, %133, %134, %2
   br label %slot_deform_heap_tuple.exit
 
 slot_deform_heap_tuple_internal.exit17.thread:    ; preds = %371, %slot_deform_heap_tuple_internal.exit29
-  %storemerge144.in = phi i32 [ %.0.i, %slot_deform_heap_tuple_internal.exit29 ], [ %..i, %371 ]
+  %storemerge143.in = phi i32 [ %.0.i, %slot_deform_heap_tuple_internal.exit29 ], [ %..i, %371 ]
   %storemerge = phi i32 [ %.161, %slot_deform_heap_tuple_internal.exit29 ], [ %.9, %371 ]
-  %storemerge144 = trunc i32 %storemerge144.in to i16
-  store i16 %storemerge144, ptr %13, align 2
+  %storemerge143 = trunc i32 %storemerge143.in to i16
+  store i16 %storemerge143, ptr %13, align 2
   store i32 %storemerge, ptr %5, align 4
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %377 = load i16, ptr %376, align 4

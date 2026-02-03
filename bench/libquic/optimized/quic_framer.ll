@@ -5289,16 +5289,16 @@ define noundef zeroext i1 @_ZN3net10QuicFramer19ProcessPublicHeaderEPNS_14QuicDa
   %17 = lshr i8 %13, 1
   %.lobit28 = and i8 %17, 1
   store i8 %.lobit28, ptr %16, align 1, !tbaa !252
-  %18 = and i8 %13, 1
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 14
-  store i8 %18, ptr %19, align 2, !tbaa !254
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 14
+  %19 = and i8 %13, 1
+  store i8 %19, ptr %18, align 2, !tbaa !254
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %21 = load i8, ptr %20, align 4, !tbaa !64, !range !141, !noundef !142
   %22 = trunc nuw i8 %21 to i1
   %23 = and i8 %13, -127
-  %or.cond = icmp eq i8 %23, -128
-  %or.cond45 = select i1 %22, i1 %or.cond, i1 false
-  br i1 %or.cond45, label %24, label %29
+  %or.cond.not = icmp eq i8 %23, -128
+  %or.cond44.not = select i1 %22, i1 %or.cond.not, i1 false
+  br i1 %or.cond44.not, label %24, label %29
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5321,8 +5321,8 @@ define noundef zeroext i1 @_ZN3net10QuicFramer19ProcessPublicHeaderEPNS_14QuicDa
 
 36:                                               ; preds = %29
   %37 = and i8 %13, 8
-  %.not44 = icmp eq i8 %37, 0
-  br i1 %.not44, label %47, label %38
+  %.not46 = icmp eq i8 %37, 0
+  br i1 %.not46, label %47, label %38
 
 38:                                               ; preds = %36
   %39 = call noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt64EPm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2)
@@ -5358,13 +5358,13 @@ switch.lookup:                                    ; preds = %47, %45
   %switch.masked = trunc i32 %switch.downshift to i8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 %switch.masked, ptr %54, align 1, !tbaa !257
-  %55 = load i8, ptr %19, align 2, !tbaa !254, !range !141, !noundef !142
+  %55 = load i8, ptr %18, align 2, !tbaa !254, !range !141, !noundef !142
   %56 = trunc nuw i8 %55 to i1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
-  %or.cond36 = select i1 %56, i1 %59, i1 false
-  br i1 %or.cond36, label %60, label %107
+  %or.cond = select i1 %56, i1 %59, i1 false
+  br i1 %or.cond, label %60, label %107
 
 60:                                               ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5476,11 +5476,11 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit: ; preds = %66
 111:                                              ; preds = %107
   %112 = load i8, ptr %4, align 1, !tbaa !14
   %113 = and i8 %112, 7
-  %or.cond38 = icmp eq i8 %113, 4
+  %or.cond37 = icmp eq i8 %113, 4
   %114 = load i32, ptr %57, align 8
   %115 = icmp eq i32 %114, 1
-  %or.cond41 = select i1 %or.cond38, i1 %115, i1 false
-  br i1 %or.cond41, label %116, label %122
+  %or.cond40 = select i1 %or.cond37, i1 %115, i1 false
+  br i1 %or.cond40, label %116, label %122
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -6543,9 +6543,9 @@ define noundef zeroext i1 @_ZN3net10QuicFramer26ProcessAuthenticatedHeaderEPNS_1
   br label %86
 
 49:                                               ; preds = %36, %23
-  %50 = and i8 %22, 1
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 57
-  store i8 %50, ptr %51, align 1, !tbaa !135
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 57
+  %51 = and i8 %22, 1
+  store i8 %51, ptr %50, align 1, !tbaa !135
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 59
   %53 = lshr i8 %22, 2
   store i8 %53, ptr %52, align 1, !tbaa !273
@@ -6587,12 +6587,12 @@ define noundef zeroext i1 @_ZN3net10QuicFramer26ProcessAuthenticatedHeaderEPNS_1
 
 72:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre = load i8, ptr %51, align 1, !tbaa !135, !range !141
+  %.pre = load i8, ptr %50, align 1, !tbaa !135, !range !141
   br label %73
 
 73:                                               ; preds = %._crit_edge, %72
   %74 = phi i64 [ %66, %72 ], [ %.pre11, %._crit_edge ]
-  %75 = phi i8 [ %.pre, %72 ], [ %50, %._crit_edge ]
+  %75 = phi i8 [ %.pre, %72 ], [ %51, %._crit_edge ]
   %76 = trunc i64 %74 to i8
   %77 = and i8 %76, 7
   %78 = shl nuw i8 %75, %77
@@ -8505,9 +8505,9 @@ switch.lookup:
   %switch.gep79 = getelementptr inbounds nuw i64, ptr @switch.table._ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE.2, i64 %14
   %switch.load80 = load i64, ptr %switch.gep79, align 8
   %15 = lshr i8 %2, 4
-  %16 = and i8 %15, 1
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 98
-  store i8 %16, ptr %17, align 2, !tbaa !295
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 98
+  %17 = and i8 %15, 1
+  store i8 %17, ptr %16, align 2, !tbaa !295
   %18 = and i8 %2, 32
   %.not = icmp ne i8 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 97

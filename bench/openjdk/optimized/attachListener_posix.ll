@@ -705,14 +705,13 @@ _ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %16, %_ZN19PosixAtta
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 1096
   %44 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %45 = and i64 %44, 1
-  %.not.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %46
+  %45 = trunc i64 %44 to i1
+  br i1 %45, label %46, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 46:                                               ; preds = %_ZN19PosixAttachListener11write_fullyEiPcm.exit
   %47 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %47, 0
-  br i1 %.not5.i.i, label %48, label %54
+  %.not.i.i.i = icmp eq i32 %47, 0
+  br i1 %.not.i.i.i, label %48, label %54
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 1384
@@ -725,20 +724,19 @@ _ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %16, %_ZN19PosixAtta
 
 53:                                               ; preds = %51
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %6) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 54:                                               ; preds = %51, %48, %46
   %55 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %56 = and i64 %55, 1
-  %.not.i1.i = icmp eq i64 %56, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %57
+  %56 = trunc i64 %55 to i1
+  br i1 %56, label %57, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 57:                                               ; preds = %54
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN19PosixAttachListener11write_fullyEiPcm.exit, %53, %54, %57
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN19PosixAttachListener11write_fullyEiPcm.exit, %53, %54, %57
   ret void
 }
 
@@ -761,14 +759,13 @@ define hidden noundef ptr @_ZN14AttachListener7dequeueEv() local_unnamed_addr #0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %7 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %8 = and i64 %7, 1
-  %.not.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %9
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %9, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 9:                                                ; preds = %0
   %10 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %10, 0
-  br i1 %.not5.i.i, label %11, label %17
+  %.not.i.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i.i, label %11, label %17
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1384
@@ -781,20 +778,19 @@ define hidden noundef ptr @_ZN14AttachListener7dequeueEv() local_unnamed_addr #0
 
 16:                                               ; preds = %14
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %2) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 17:                                               ; preds = %14, %11, %9
   %18 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %19 = and i64 %18, 1
-  %.not.i1.i = icmp eq i64 %19, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %20
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %20, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 20:                                               ; preds = %17
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %0, %16, %17, %20
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %0, %16, %17, %20
   ret ptr %5
 }
 
@@ -857,14 +853,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN14AttachListener7pd_initEv() loca
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %7 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %8 = and i64 %7, 1
-  %.not.i.i = icmp eq i64 %8, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %9
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %9, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 9:                                                ; preds = %0
   %10 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %10, 0
-  br i1 %.not5.i.i, label %11, label %17
+  %.not.i.i.i = icmp eq i32 %10, 0
+  br i1 %.not.i.i.i, label %11, label %17
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1384
@@ -877,20 +872,19 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN14AttachListener7pd_initEv() loca
 
 16:                                               ; preds = %14
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %2) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 17:                                               ; preds = %14, %11, %9
   %18 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %19 = and i64 %18, 1
-  %.not.i1.i = icmp eq i64 %19, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %20
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %20, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 20:                                               ; preds = %17
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %0, %16, %17, %20
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %0, %16, %17, %20
   ret i32 %5
 }
 
@@ -957,14 +951,13 @@ _ZL16listener_cleanupv.exit:                      ; preds = %12, %15
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 1096
   %24 = load volatile i64, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %25 = and i64 %24, 1
-  %.not.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %26
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %26, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 26:                                               ; preds = %._crit_edge
   %27 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %27, 0
-  br i1 %.not5.i.i, label %28, label %34
+  %.not.i.i.i = icmp eq i32 %27, 0
+  br i1 %.not.i.i.i, label %28, label %34
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 1384
@@ -977,25 +970,24 @@ _ZL16listener_cleanupv.exit:                      ; preds = %12, %15
 
 33:                                               ; preds = %31
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %18) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 34:                                               ; preds = %31, %28, %26
   %35 = load volatile i64, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %36 = and i64 %35, 1
-  %.not.i1.i = icmp eq i64 %36, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %37
+  %36 = trunc i64 %35 to i1
+  br i1 %36, label %37, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 37:                                               ; preds = %34
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %18, i1 noundef zeroext false, i1 noundef zeroext false) #18
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %._crit_edge, %33, %34, %37
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %._crit_edge, %33, %34, %37
   %38 = tail call noundef zeroext i1 @_ZN14AttachListener15is_init_triggerEv()
   br label %39
 
-39:                                               ; preds = %0, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
-  %.0 = phi i1 [ %38, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit ], [ false, %0 ]
+39:                                               ; preds = %0, %_ZN15ThreadBlockInVMD2Ev.exit
+  %.0 = phi i1 [ %38, %_ZN15ThreadBlockInVMD2Ev.exit ], [ false, %0 ]
   ret i1 %.0
 }
 

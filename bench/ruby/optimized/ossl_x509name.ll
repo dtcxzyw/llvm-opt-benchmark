@@ -479,8 +479,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i64, ptr %15, align 8, !tbaa !6
   %17 = tail call i32 @rb_keyword_given_p() #8
-  %.not30 = icmp eq i32 %17, 0
-  br i1 %.not30, label %21, label %18
+  %.not27 = icmp eq i32 %17, 0
+  br i1 %.not27, label %21, label %18
 
 18:                                               ; preds = %12
   %19 = tail call i64 @rb_hash_dup(i64 noundef %16) #8
@@ -491,18 +491,18 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
   %.087.i = phi i64 [ 4, %12 ], [ %19, %18 ]
   %.0.i = phi i32 [ %0, %12 ], [ %20, %18 ]
   %22 = icmp samesign ult i32 %.0.i, 2
-  br i1 %22, label %.thread, label %.preheader31
+  br i1 %22, label %.thread, label %.preheader28
 
-.preheader31:                                     ; preds = %21, %.preheader31
-  %exitcond.not = phi i1 [ true, %.preheader31 ], [ false, %21 ]
-  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader31 ], [ %4, %21 ]
-  %indvars.iv = phi i64 [ 1, %.preheader31 ], [ 0, %21 ]
+.preheader28:                                     ; preds = %21, %.preheader28
+  %exitcond.not = phi i1 [ true, %.preheader28 ], [ false, %21 ]
+  %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader28 ], [ %4, %21 ]
+  %indvars.iv = phi i64 [ 1, %.preheader28 ], [ 0, %21 ]
   %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
-  br i1 %exitcond.not, label %.preheader, label %.preheader31, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader, label %.preheader28, !llvm.loop !33
 
-.preheader:                                       ; preds = %.preheader31
+.preheader:                                       ; preds = %.preheader28
   %25 = icmp sgt i32 %.0.i, 2
   br i1 %25, label %26, label %29
 
@@ -518,8 +518,8 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
   br i1 %30, label %rb_scan_args_set.exit, label %.thread
 
 .thread:                                          ; preds = %rb_scan_args_n_opt.exit, %29, %21
-  %.0.i29 = phi i32 [ %.0.i, %21 ], [ %.0.i, %29 ], [ %0, %rb_scan_args_n_opt.exit ]
-  tail call void @rb_error_arity(i32 noundef %.0.i29, i32 noundef 2, i32 noundef 3) #9
+  %.0.i26 = phi i32 [ %.0.i, %21 ], [ %.0.i, %29 ], [ %0, %rb_scan_args_n_opt.exit ]
+  tail call void @rb_error_arity(i32 noundef %.0.i26, i32 noundef 2, i32 noundef 3) #9
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %29
@@ -550,15 +550,14 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %35
   br label %42
 
 42:                                               ; preds = %rbimpl_intern_const.exit, %rb_scan_args_set.exit
-  %.055 = phi i64 [ %41, %rbimpl_intern_const.exit ], [ %.sink, %rb_scan_args_set.exit ]
+  %.052 = phi i64 [ %41, %rbimpl_intern_const.exit ], [ %.sink, %rb_scan_args_set.exit ]
   %43 = load i64, ptr %6, align 16, !tbaa !6
   %.not13 = icmp eq i64 %43, 36
   br i1 %.not13, label %51, label %44
 
 44:                                               ; preds = %42
-  %45 = and i64 %43, 1
-  %.not.i18 = icmp eq i64 %45, 0
-  br i1 %.not.i18, label %48, label %46
+  %45 = trunc i64 %43 to i1
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
   %47 = call i64 @rb_fix2int(i64 noundef %43) #8
@@ -569,8 +568,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %35
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %46, %48
-  %.0.i19 = phi i64 [ %47, %46 ], [ %49, %48 ]
-  %50 = trunc i64 %.0.i19 to i32
+  %.0.i18 = phi i64 [ %47, %46 ], [ %49, %48 ]
+  %50 = trunc i64 %.0.i18 to i32
   br label %51
 
 51:                                               ; preds = %rb_num2int_inline.exit, %42
@@ -581,25 +580,24 @@ rb_num2int_inline.exit:                           ; preds = %46, %48
   br i1 %.not14, label %61, label %54
 
 54:                                               ; preds = %51
-  %55 = and i64 %53, 1
-  %.not.i20 = icmp eq i64 %55, 0
-  br i1 %.not.i20, label %58, label %56
+  %55 = trunc i64 %53 to i1
+  br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
   %57 = call i64 @rb_fix2int(i64 noundef %53) #8
-  br label %rb_num2int_inline.exit22
+  br label %rb_num2int_inline.exit20
 
 58:                                               ; preds = %54
   %59 = call i64 @rb_num2int(i64 noundef %53) #8
-  br label %rb_num2int_inline.exit22
+  br label %rb_num2int_inline.exit20
 
-rb_num2int_inline.exit22:                         ; preds = %56, %58
-  %.0.i21 = phi i64 [ %57, %56 ], [ %59, %58 ]
-  %60 = trunc i64 %.0.i21 to i32
+rb_num2int_inline.exit20:                         ; preds = %56, %58
+  %.0.i19 = phi i64 [ %57, %56 ], [ %59, %58 ]
+  %60 = trunc i64 %.0.i19 to i32
   br label %61
 
-61:                                               ; preds = %51, %rb_num2int_inline.exit22
-  %.09 = phi i32 [ %60, %rb_num2int_inline.exit22 ], [ 0, %51 ]
+61:                                               ; preds = %51, %rb_num2int_inline.exit20
+  %.09 = phi i32 [ %60, %rb_num2int_inline.exit20 ], [ 0, %51 ]
   %62 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_x509name_type) #8
   %.not15 = icmp eq ptr %62, null
   br i1 %.not15, label %63, label %65
@@ -610,21 +608,20 @@ rb_num2int_inline.exit22:                         ; preds = %56, %58
   unreachable
 
 65:                                               ; preds = %61
-  %66 = and i64 %.055, 1
-  %.not.i23 = icmp eq i64 %66, 0
-  br i1 %.not.i23, label %69, label %67
+  %66 = trunc i64 %.052 to i1
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
-  %68 = call i64 @rb_fix2int(i64 noundef %.055) #8
-  br label %rb_num2int_inline.exit25
+  %68 = call i64 @rb_fix2int(i64 noundef %.052) #8
+  br label %rb_num2int_inline.exit22
 
 69:                                               ; preds = %65
-  %70 = call i64 @rb_num2int(i64 noundef %.055) #8
-  br label %rb_num2int_inline.exit25
+  %70 = call i64 @rb_num2int(i64 noundef %.052) #8
+  br label %rb_num2int_inline.exit22
 
-rb_num2int_inline.exit25:                         ; preds = %67, %69
-  %.0.i24 = phi i64 [ %68, %67 ], [ %70, %69 ]
-  %71 = trunc i64 %.0.i24 to i32
+rb_num2int_inline.exit22:                         ; preds = %67, %69
+  %.0.i21 = phi i64 [ %68, %67 ], [ %70, %69 ]
+  %71 = trunc i64 %.0.i21 to i32
   %72 = load i64, ptr %5, align 8, !tbaa !6
   %73 = inttoptr i64 %72 to ptr
   %74 = load i64, ptr %73, align 8, !tbaa !20, !noalias !34
@@ -633,17 +630,17 @@ rb_num2int_inline.exit25:                         ; preds = %67, %69
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %77
 
-77:                                               ; preds = %rb_num2int_inline.exit25
+77:                                               ; preds = %rb_num2int_inline.exit22
   %.sroa.2.0.copyload.i = load ptr, ptr %76, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %rb_num2int_inline.exit25, %77
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %77 ], [ %76, %rb_num2int_inline.exit25 ]
+RSTRING_PTR.exit:                                 ; preds = %rb_num2int_inline.exit22, %77
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %77 ], [ %76, %rb_num2int_inline.exit22 ]
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %79 = load i64, ptr %78, align 8, !tbaa !26
   %80 = add i64 %79, 2147483648
-  %.not.i.i26 = icmp ult i64 %80, 4294967296
-  br i1 %.not.i.i26, label %RSTRING_LENINT.exit, label %81
+  %.not.i.i23 = icmp ult i64 %80, 4294967296
+  br i1 %.not.i.i23, label %RSTRING_LENINT.exit, label %81
 
 81:                                               ; preds = %RSTRING_PTR.exit
   call void @rb_out_of_int(i64 noundef %79) #10
@@ -721,9 +718,8 @@ ossl_x509name_to_s_old.exit:                      ; preds = %16
   br label %29
 
 22:                                               ; preds = %5
-  %23 = and i64 %6, 1
-  %.not.i6 = icmp eq i64 %23, 0
-  br i1 %.not.i6, label %26, label %24
+  %23 = trunc i64 %6 to i1
+  br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
   %25 = ashr i64 %6, 1

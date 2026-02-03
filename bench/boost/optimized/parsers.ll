@@ -1656,9 +1656,8 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIcEENS0_20bas
   %30 = getelementptr inbounds i8, ptr %5, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !71
-  %33 = and i32 %32, 1
-  %.not14 = icmp eq i32 %33, 0
-  br i1 %.not14, label %42, label %34
+  %33 = trunc i32 %32 to i1
+  br i1 %33, label %34, label %42
 
 34:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1874,9 +1873,8 @@ define weak_odr void @_ZN5boost15program_options17parse_config_fileIwEENS0_20bas
   %30 = getelementptr inbounds i8, ptr %5, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !71
-  %33 = and i32 %32, 1
-  %.not14 = icmp eq i32 %33, 0
-  br i1 %.not14, label %42, label %34
+  %33 = trunc i32 %32 to i1
+  br i1 %33, label %34, label %42
 
 34:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3178,9 +3176,8 @@ _ZN5boost15program_options6detail18prefix_name_mapperC2ERKNSt7__cxx1112basic_str
 
 25:                                               ; preds = %23
   %26 = ptrtoint ptr %24 to i64
-  %27 = and i64 %26, 1
-  %.not1.i.i = icmp eq i64 %27, 0
-  br i1 %.not1.i.i, label %28, label %_ZNK5boost6detail8function12basic_vtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EE5clearERNS1_15function_bufferE.exit.i.i
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %_ZNK5boost6detail8function12basic_vtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EE5clearERNS1_15function_bufferE.exit.i.i, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %24, align 8, !tbaa !134
@@ -3385,9 +3382,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nINSt7__cxx1112basic_string
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS8_EE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !134

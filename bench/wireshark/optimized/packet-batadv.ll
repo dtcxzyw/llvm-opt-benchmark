@@ -4505,7 +4505,7 @@ define internal fastcc void @dissect_batadv_unicast_frag(ptr noundef %0, ptr nou
   %75 = zext i16 %74 to i32
   %76 = add nuw nsw i32 %75, %72
   %77 = xor i32 %72, 1
-  %78 = icmp ne i8 %71, 0
+  %78 = trunc i8 %70 to i1
   %79 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 18, ptr noundef %1, i32 noundef %76, ptr noundef null, i32 noundef %77, i32 noundef %spec.store.select.i, i1 noundef zeroext %78)
   %80 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 18, ptr noundef %1, ptr noundef nonnull @.str.318, ptr noundef %79, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %53)
   %.not.i = icmp eq ptr %80, null
@@ -4641,7 +4641,7 @@ dissect_batadv_unicast_frag_v12.exit:             ; preds = %7, %86
   %163 = zext i16 %162 to i32
   %164 = add nuw nsw i32 %163, %160
   %165 = xor i32 %160, 1
-  %166 = icmp ne i8 %159, 0
+  %166 = trunc i8 %158 to i1
   %167 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 20, ptr noundef %1, i32 noundef %164, ptr noundef null, i32 noundef %165, i32 noundef %spec.store.select.i16, i1 noundef zeroext %166)
   %168 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 20, ptr noundef %1, ptr noundef nonnull @.str.318, ptr noundef %167, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %139)
   %.not.i17 = icmp eq ptr %168, null

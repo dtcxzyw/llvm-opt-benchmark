@@ -1251,9 +1251,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %3 = load ptr, ptr %1, align 8, !alias.scope !279, !nonnull !7, !align !14, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %5 = load i32, ptr %4, align 8, !alias.scope !282, !noalias !279, !noundef !7
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  ret i1 %7
+  %6 = trunc i32 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
@@ -4610,9 +4609,8 @@ define hidden noundef zeroext i1 @"_ZN12clap_builder7builder7command7Command14re
   %3 = load ptr, ptr %1, align 8, !nonnull !7, !align !14, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %5 = load i32, ptr %4, align 8, !alias.scope !1350, !noundef !7
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  ret i1 %7
+  %6 = trunc i32 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable

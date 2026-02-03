@@ -910,14 +910,14 @@ dissect_nhrp_hdr.exit:                            ; preds = %97, %178
   %272 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %188, i32 noundef %.4.i, i32 noundef -1, i32 noundef %271, ptr noundef nonnull %12, ptr noundef nonnull @.str.223)
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %274 = load i8, ptr %273, align 4
-  %275 = and i8 %274, 1
-  %276 = or i8 %274, 1
-  store i8 %276, ptr %273, align 4
-  %277 = call ptr @tvb_new_subset_remaining(ptr noundef %188, i32 noundef %.4.i)
-  call fastcc void @_dissect_nhrp(ptr noundef %277, ptr noundef %1, ptr noundef %272, i1 noundef zeroext true, i1 noundef zeroext false)
+  %275 = or i8 %274, 1
+  store i8 %275, ptr %273, align 4
+  %276 = call ptr @tvb_new_subset_remaining(ptr noundef %188, i32 noundef %.4.i)
+  call fastcc void @_dissect_nhrp(ptr noundef %276, ptr noundef %1, ptr noundef %272, i1 noundef zeroext true, i1 noundef zeroext false)
+  %277 = and i8 %274, 1
   %278 = load i8, ptr %273, align 4
   %279 = and i8 %278, -2
-  %280 = or disjoint i8 %279, %275
+  %280 = or disjoint i8 %279, %277
   store i8 %280, ptr %273, align 4
   br label %dissect_nhrp_mand.exit
 
@@ -926,67 +926,67 @@ dissect_nhrp_hdr.exit:                            ; preds = %97, %178
   %283 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %188, i32 noundef %.4.i, i32 noundef -1, i32 noundef %282, ptr noundef nonnull %12, ptr noundef nonnull @.str.223)
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %285 = load i8, ptr %284, align 4
-  %286 = and i8 %285, 1
-  %287 = or i8 %285, 1
-  store i8 %287, ptr %284, align 4
-  %288 = call ptr @tvb_new_subset_remaining(ptr noundef %188, i32 noundef %.4.i)
-  br i1 %49, label %289, label %306
+  %286 = or i8 %285, 1
+  store i8 %286, ptr %284, align 4
+  %287 = call ptr @tvb_new_subset_remaining(ptr noundef %188, i32 noundef %.4.i)
+  br i1 %49, label %288, label %305
 
-289:                                              ; preds = %281
-  br i1 %87, label %290, label %298
+288:                                              ; preds = %281
+  br i1 %87, label %289, label %297
+
+289:                                              ; preds = %288
+  br i1 %89, label %290, label %293
 
 290:                                              ; preds = %289
-  br i1 %89, label %291, label %294
+  %291 = load ptr, ptr @ethertype_subdissector_table, align 8
+  %292 = call i32 @dissector_try_uint(ptr noundef %291, i32 noundef %88, ptr noundef %287, ptr noundef %1, ptr noundef %283)
+  br label %310
 
-291:                                              ; preds = %290
-  %292 = load ptr, ptr @ethertype_subdissector_table, align 8
-  %293 = call i32 @dissector_try_uint(ptr noundef %292, i32 noundef %88, ptr noundef %288, ptr noundef %1, ptr noundef %283)
-  br label %311
-
-294:                                              ; preds = %290
+293:                                              ; preds = %289
   %.not202.i = icmp eq ptr %.040, null
-  br i1 %.not202.i, label %.thread, label %295
+  br i1 %.not202.i, label %.thread, label %294
 
-295:                                              ; preds = %294
-  %296 = load ptr, ptr %.040, align 8
-  %297 = call i32 @dissector_try_uint(ptr noundef %296, i32 noundef %88, ptr noundef %288, ptr noundef %1, ptr noundef %283)
-  br label %311
+294:                                              ; preds = %293
+  %295 = load ptr, ptr %.040, align 8
+  %296 = call i32 @dissector_try_uint(ptr noundef %295, i32 noundef %88, ptr noundef %287, ptr noundef %1, ptr noundef %283)
+  br label %310
 
-298:                                              ; preds = %289
-  %299 = load ptr, ptr @osinl_incl_subdissector_table, align 8
-  %300 = call i32 @dissector_try_uint(ptr noundef %299, i32 noundef %48, ptr noundef %288, ptr noundef %1, ptr noundef %283)
-  %.not201.i = icmp eq i32 %300, 0
-  br i1 %.not201.i, label %301, label %.thread54
+297:                                              ; preds = %288
+  %298 = load ptr, ptr @osinl_incl_subdissector_table, align 8
+  %299 = call i32 @dissector_try_uint(ptr noundef %298, i32 noundef %48, ptr noundef %287, ptr noundef %1, ptr noundef %283)
+  %.not201.i = icmp eq i32 %299, 0
+  br i1 %.not201.i, label %300, label %.thread54
 
-301:                                              ; preds = %298
-  %302 = load ptr, ptr @osinl_excl_subdissector_table, align 8
-  %303 = call i32 @dissector_try_uint(ptr noundef %302, i32 noundef %48, ptr noundef %288, ptr noundef %1, ptr noundef %283)
-  %304 = icmp ne i32 %303, 0
-  %305 = zext i1 %304 to i32
-  br label %311
+300:                                              ; preds = %297
+  %301 = load ptr, ptr @osinl_excl_subdissector_table, align 8
+  %302 = call i32 @dissector_try_uint(ptr noundef %301, i32 noundef %48, ptr noundef %287, ptr noundef %1, ptr noundef %283)
+  %303 = icmp ne i32 %302, 0
+  %304 = zext i1 %303 to i32
+  br label %310
 
-306:                                              ; preds = %281
-  %307 = icmp ult i16 %46, 1536
-  br i1 %307, label %.thread, label %308
+305:                                              ; preds = %281
+  %306 = icmp ult i16 %46, 1536
+  br i1 %306, label %.thread, label %307
 
-308:                                              ; preds = %306
-  %309 = load ptr, ptr @ethertype_subdissector_table, align 8
-  %310 = call i32 @dissector_try_uint(ptr noundef %309, i32 noundef %48, ptr noundef %288, ptr noundef %1, ptr noundef %283)
-  br label %311
+307:                                              ; preds = %305
+  %308 = load ptr, ptr @ethertype_subdissector_table, align 8
+  %309 = call i32 @dissector_try_uint(ptr noundef %308, i32 noundef %48, ptr noundef %287, ptr noundef %1, ptr noundef %283)
+  br label %310
 
-311:                                              ; preds = %308, %301, %295, %291
-  %.0.i25 = phi i32 [ %293, %291 ], [ %297, %295 ], [ %310, %308 ], [ %305, %301 ]
+310:                                              ; preds = %307, %300, %294, %290
+  %.0.i25 = phi i32 [ %292, %290 ], [ %296, %294 ], [ %309, %307 ], [ %304, %300 ]
   %.not203.i = icmp eq i32 %.0.i25, 0
   br i1 %.not203.i, label %.thread, label %.thread54
 
-.thread:                                          ; preds = %306, %294, %311
-  %312 = call i32 @call_data_dissector(ptr noundef %288, ptr noundef %1, ptr noundef %283)
+.thread:                                          ; preds = %305, %293, %310
+  %311 = call i32 @call_data_dissector(ptr noundef %287, ptr noundef %1, ptr noundef %283)
   br label %.thread54
 
-.thread54:                                        ; preds = %298, %.thread, %311
+.thread54:                                        ; preds = %297, %.thread, %310
+  %312 = and i8 %285, 1
   %313 = load i8, ptr %284, align 4
   %314 = and i8 %313, -2
-  %315 = or disjoint i8 %314, %286
+  %315 = or disjoint i8 %314, %312
   store i8 %315, ptr %284, align 4
   br label %dissect_nhrp_mand.exit
 

@@ -3228,7 +3228,7 @@ define dso_local noundef range(i32 0, 20) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = icmp ugt i32 %7, %3
-  br i1 %8, label %9, label %28, !prof !53
+  br i1 %8, label %9, label %27, !prof !53
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -3239,27 +3239,26 @@ define dso_local noundef range(i32 0, 20) i32 @_ZN6asmjit9_abi_1_1010CodeHolder1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8, !tbaa !85
   %17 = icmp ugt i64 %16, %2
-  br i1 %17, label %28, label %18, !prof !41
+  br i1 %17, label %27, label %18, !prof !41
 
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %20, i64 %16, i1 false)
   %21 = icmp ult i64 %16, %2
-  %22 = and i32 %4, 1
-  %23 = icmp ne i32 %22, 0
-  %24 = and i1 %23, %21
-  br i1 %24, label %25, label %28
+  %22 = trunc i32 %4 to i1
+  %23 = and i1 %21, %22
+  br i1 %23, label %24, label %27
 
-25:                                               ; preds = %18
-  %26 = sub nuw i64 %2, %16
-  %27 = getelementptr inbounds i8, ptr %1, i64 %16
-  tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %26, i1 false)
-  br label %28
+24:                                               ; preds = %18
+  %25 = sub nuw i64 %2, %16
+  %26 = getelementptr inbounds i8, ptr %1, i64 %16
+  tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 0, i64 %25, i1 false)
+  br label %27
 
-28:                                               ; preds = %25, %18, %9, %5
-  %29 = phi i32 [ 0, %25 ], [ 0, %18 ], [ 19, %5 ], [ 2, %9 ]
-  ret i32 %29
+27:                                               ; preds = %24, %18, %9, %5
+  %28 = phi i32 [ 0, %24 ], [ 0, %18 ], [ 19, %5 ], [ 2, %9 ]
+  ret i32 %28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

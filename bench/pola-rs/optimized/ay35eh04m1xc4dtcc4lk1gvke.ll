@@ -55120,10 +55120,10 @@ define hidden void @_ZN9polars_io10predicates18SkipBatchPredicate14can_skip_batc
   %139 = load i8, ptr %138, align 1, !noundef !3
   %140 = trunc i64 %135 to i8
   %141 = and i8 %140, 7
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %143 = lshr i8 %139, %141
-  %144 = and i8 %143, 1
-  store i8 %144, ptr %142, align 8
+  %142 = lshr i8 %139, %141
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %144 = and i8 %142, 1
+  store i8 %144, ptr %143, align 8
   store i64 17, ptr %0, align 8
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h97d3f11152d9f649E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
           to label %.invoke unwind label %118

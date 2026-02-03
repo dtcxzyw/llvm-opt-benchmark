@@ -5265,8 +5265,8 @@ define internal fastcc void @basic_avp_reginfo(ptr noundef %0, ptr noundef %1, i
   %36 = tail call ptr @wmem_epan_scope()
   %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %36, ptr noundef nonnull @.str.121, ptr noundef %1, ptr noundef null)
   %38 = load i8, ptr %37, align 1
-  %.not22.i = icmp eq i8 %38, 0
-  br i1 %.not22.i, label %alnumerize.exit, label %.lr.ph.i
+  %.not21.i = icmp eq i8 %38, 0
+  br i1 %.not21.i, label %alnumerize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26
   %39 = load ptr, ptr @g_ascii_table, align 8
@@ -5274,15 +5274,14 @@ define internal fastcc void @basic_avp_reginfo(ptr noundef %0, ptr noundef %1, i
 
 40:                                               ; preds = %48, %.lr.ph.i
   %41 = phi i8 [ %38, %.lr.ph.i ], [ %50, %48 ]
-  %.024.i = phi ptr [ %37, %.lr.ph.i ], [ %49, %48 ]
-  %.01923.i = phi ptr [ %37, %.lr.ph.i ], [ %.1.i, %48 ]
+  %.023.i = phi ptr [ %37, %.lr.ph.i ], [ %49, %48 ]
+  %.01922.i = phi ptr [ %37, %.lr.ph.i ], [ %.1.i, %48 ]
   %42 = zext i8 %41 to i64
   %43 = getelementptr i16, ptr %39, i64 %42
   %44 = load i16, ptr %43, align 2
   %.fr.i = freeze i16 %44
-  %45 = and i16 %.fr.i, 1
-  %.not21.i = icmp eq i16 %45, 0
-  br i1 %.not21.i, label %switch.early.test.i, label %46
+  %45 = trunc i16 %.fr.i to i1
+  br i1 %45, label %46, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %40
   switch i8 %41, label %48 [
@@ -5292,13 +5291,13 @@ switch.early.test.i:                              ; preds = %40
   ]
 
 46:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %40
-  %47 = getelementptr i8, ptr %.01923.i, i64 1
-  store i8 %41, ptr %.01923.i, align 1
+  %47 = getelementptr i8, ptr %.01922.i, i64 1
+  store i8 %41, ptr %.01922.i, align 1
   br label %48
 
 48:                                               ; preds = %46, %switch.early.test.i
-  %.1.i = phi ptr [ %47, %46 ], [ %.01923.i, %switch.early.test.i ]
-  %49 = getelementptr i8, ptr %.024.i, i64 1
+  %.1.i = phi ptr [ %47, %46 ], [ %.01922.i, %switch.early.test.i ]
+  %49 = getelementptr i8, ptr %.023.i, i64 1
   %50 = load i8, ptr %49, align 1
   %.not.i = icmp eq i8 %50, 0
   br i1 %.not.i, label %alnumerize.exit, label %40, !llvm.loop !22
@@ -5498,8 +5497,8 @@ define internal fastcc noundef ptr @build_gen_address_avp(ptr noundef returned i
   %18 = tail call ptr @wmem_epan_scope()
   %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %18, ptr noundef nonnull @.str.121, ptr noundef %2, ptr noundef nonnull @.str.139, ptr noundef null)
   %20 = load i8, ptr %19, align 1
-  %.not22.i = icmp eq i8 %20, 0
-  br i1 %.not22.i, label %alnumerize.exit, label %.lr.ph.i
+  %.not21.i = icmp eq i8 %20, 0
+  br i1 %.not21.i, label %alnumerize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %21 = load ptr, ptr @g_ascii_table, align 8
@@ -5507,15 +5506,14 @@ define internal fastcc noundef ptr @build_gen_address_avp(ptr noundef returned i
 
 22:                                               ; preds = %30, %.lr.ph.i
   %23 = phi i8 [ %20, %.lr.ph.i ], [ %32, %30 ]
-  %.024.i = phi ptr [ %19, %.lr.ph.i ], [ %31, %30 ]
-  %.01923.i = phi ptr [ %19, %.lr.ph.i ], [ %.1.i, %30 ]
+  %.023.i = phi ptr [ %19, %.lr.ph.i ], [ %31, %30 ]
+  %.01922.i = phi ptr [ %19, %.lr.ph.i ], [ %.1.i, %30 ]
   %24 = zext i8 %23 to i64
   %25 = getelementptr i16, ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2
   %.fr.i = freeze i16 %26
-  %27 = and i16 %.fr.i, 1
-  %.not21.i = icmp eq i16 %27, 0
-  br i1 %.not21.i, label %switch.early.test.i, label %28
+  %27 = trunc i16 %.fr.i to i1
+  br i1 %27, label %28, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %22
   switch i8 %23, label %30 [
@@ -5525,13 +5523,13 @@ switch.early.test.i:                              ; preds = %22
   ]
 
 28:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %22
-  %29 = getelementptr i8, ptr %.01923.i, i64 1
-  store i8 %23, ptr %.01923.i, align 1
+  %29 = getelementptr i8, ptr %.01922.i, i64 1
+  store i8 %23, ptr %.01922.i, align 1
   br label %30
 
 30:                                               ; preds = %28, %switch.early.test.i
-  %.1.i = phi ptr [ %29, %28 ], [ %.01923.i, %switch.early.test.i ]
-  %31 = getelementptr i8, ptr %.024.i, i64 1
+  %.1.i = phi ptr [ %29, %28 ], [ %.01922.i, %switch.early.test.i ]
+  %31 = getelementptr i8, ptr %.023.i, i64 1
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, 0
   br i1 %.not.i, label %alnumerize.exit, label %22, !llvm.loop !22
@@ -5573,8 +5571,8 @@ alnumerize.exit:                                  ; preds = %30, %3
   %49 = call ptr @wmem_epan_scope()
   %50 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %49, ptr noundef nonnull @.str.121, ptr noundef %2, ptr noundef nonnull @.str.141, ptr noundef null)
   %51 = load i8, ptr %50, align 1
-  %.not22.i30 = icmp eq i8 %51, 0
-  br i1 %.not22.i30, label %alnumerize.exit40, label %.lr.ph.i31
+  %.not21.i30 = icmp eq i8 %51, 0
+  br i1 %.not21.i30, label %alnumerize.exit39, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %alnumerize.exit
   %52 = load ptr, ptr @g_ascii_table, align 8
@@ -5582,36 +5580,35 @@ alnumerize.exit:                                  ; preds = %30, %3
 
 53:                                               ; preds = %61, %.lr.ph.i31
   %54 = phi i8 [ %51, %.lr.ph.i31 ], [ %63, %61 ]
-  %.024.i32 = phi ptr [ %50, %.lr.ph.i31 ], [ %62, %61 ]
-  %.01923.i33 = phi ptr [ %50, %.lr.ph.i31 ], [ %.1.i36, %61 ]
+  %.023.i32 = phi ptr [ %50, %.lr.ph.i31 ], [ %62, %61 ]
+  %.01922.i33 = phi ptr [ %50, %.lr.ph.i31 ], [ %.1.i36, %61 ]
   %55 = zext i8 %54 to i64
   %56 = getelementptr i16, ptr %52, i64 %55
   %57 = load i16, ptr %56, align 2
   %.fr.i34 = freeze i16 %57
-  %58 = and i16 %.fr.i34, 1
-  %.not21.i35 = icmp eq i16 %58, 0
-  br i1 %.not21.i35, label %switch.early.test.i39, label %59
+  %58 = trunc i16 %.fr.i34 to i1
+  br i1 %58, label %59, label %switch.early.test.i35
 
-switch.early.test.i39:                            ; preds = %53
+switch.early.test.i35:                            ; preds = %53
   switch i8 %54, label %61 [
     i8 95, label %59
     i8 46, label %59
     i8 45, label %59
   ]
 
-59:                                               ; preds = %switch.early.test.i39, %switch.early.test.i39, %switch.early.test.i39, %53
-  %60 = getelementptr i8, ptr %.01923.i33, i64 1
-  store i8 %54, ptr %.01923.i33, align 1
+59:                                               ; preds = %switch.early.test.i35, %switch.early.test.i35, %switch.early.test.i35, %53
+  %60 = getelementptr i8, ptr %.01922.i33, i64 1
+  store i8 %54, ptr %.01922.i33, align 1
   br label %61
 
-61:                                               ; preds = %59, %switch.early.test.i39
-  %.1.i36 = phi ptr [ %60, %59 ], [ %.01923.i33, %switch.early.test.i39 ]
-  %62 = getelementptr i8, ptr %.024.i32, i64 1
+61:                                               ; preds = %59, %switch.early.test.i35
+  %.1.i36 = phi ptr [ %60, %59 ], [ %.01922.i33, %switch.early.test.i35 ]
+  %62 = getelementptr i8, ptr %.023.i32, i64 1
   %63 = load i8, ptr %62, align 1
   %.not.i37 = icmp eq i8 %63, 0
-  br i1 %.not.i37, label %alnumerize.exit40, label %53, !llvm.loop !22
+  br i1 %.not.i37, label %alnumerize.exit39, label %53, !llvm.loop !22
 
-alnumerize.exit40:                                ; preds = %61, %alnumerize.exit
+alnumerize.exit39:                                ; preds = %61, %alnumerize.exit
   %.019.lcssa.i38 = phi ptr [ %50, %alnumerize.exit ], [ %.1.i36, %61 ]
   store i8 0, ptr %.019.lcssa.i38, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5644,47 +5641,46 @@ alnumerize.exit40:                                ; preds = %61, %alnumerize.exi
   %78 = call ptr @wmem_epan_scope()
   %79 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %78, ptr noundef nonnull @.str.121, ptr noundef %2, ptr noundef nonnull @.str.142, ptr noundef null)
   %80 = load i8, ptr %79, align 1
-  %.not22.i41 = icmp eq i8 %80, 0
-  br i1 %.not22.i41, label %alnumerize.exit51, label %.lr.ph.i42
+  %.not21.i40 = icmp eq i8 %80, 0
+  br i1 %.not21.i40, label %alnumerize.exit49, label %.lr.ph.i41
 
-.lr.ph.i42:                                       ; preds = %alnumerize.exit40
+.lr.ph.i41:                                       ; preds = %alnumerize.exit39
   %81 = load ptr, ptr @g_ascii_table, align 8
   br label %82
 
-82:                                               ; preds = %90, %.lr.ph.i42
-  %83 = phi i8 [ %80, %.lr.ph.i42 ], [ %92, %90 ]
-  %.024.i43 = phi ptr [ %79, %.lr.ph.i42 ], [ %91, %90 ]
-  %.01923.i44 = phi ptr [ %79, %.lr.ph.i42 ], [ %.1.i47, %90 ]
+82:                                               ; preds = %90, %.lr.ph.i41
+  %83 = phi i8 [ %80, %.lr.ph.i41 ], [ %92, %90 ]
+  %.023.i42 = phi ptr [ %79, %.lr.ph.i41 ], [ %91, %90 ]
+  %.01922.i43 = phi ptr [ %79, %.lr.ph.i41 ], [ %.1.i46, %90 ]
   %84 = zext i8 %83 to i64
   %85 = getelementptr i16, ptr %81, i64 %84
   %86 = load i16, ptr %85, align 2
-  %.fr.i45 = freeze i16 %86
-  %87 = and i16 %.fr.i45, 1
-  %.not21.i46 = icmp eq i16 %87, 0
-  br i1 %.not21.i46, label %switch.early.test.i50, label %88
+  %.fr.i44 = freeze i16 %86
+  %87 = trunc i16 %.fr.i44 to i1
+  br i1 %87, label %88, label %switch.early.test.i45
 
-switch.early.test.i50:                            ; preds = %82
+switch.early.test.i45:                            ; preds = %82
   switch i8 %83, label %90 [
     i8 95, label %88
     i8 46, label %88
     i8 45, label %88
   ]
 
-88:                                               ; preds = %switch.early.test.i50, %switch.early.test.i50, %switch.early.test.i50, %82
-  %89 = getelementptr i8, ptr %.01923.i44, i64 1
-  store i8 %83, ptr %.01923.i44, align 1
+88:                                               ; preds = %switch.early.test.i45, %switch.early.test.i45, %switch.early.test.i45, %82
+  %89 = getelementptr i8, ptr %.01922.i43, i64 1
+  store i8 %83, ptr %.01922.i43, align 1
   br label %90
 
-90:                                               ; preds = %88, %switch.early.test.i50
-  %.1.i47 = phi ptr [ %89, %88 ], [ %.01923.i44, %switch.early.test.i50 ]
-  %91 = getelementptr i8, ptr %.024.i43, i64 1
+90:                                               ; preds = %88, %switch.early.test.i45
+  %.1.i46 = phi ptr [ %89, %88 ], [ %.01922.i43, %switch.early.test.i45 ]
+  %91 = getelementptr i8, ptr %.023.i42, i64 1
   %92 = load i8, ptr %91, align 1
-  %.not.i48 = icmp eq i8 %92, 0
-  br i1 %.not.i48, label %alnumerize.exit51, label %82, !llvm.loop !22
+  %.not.i47 = icmp eq i8 %92, 0
+  br i1 %.not.i47, label %alnumerize.exit49, label %82, !llvm.loop !22
 
-alnumerize.exit51:                                ; preds = %90, %alnumerize.exit40
-  %.019.lcssa.i49 = phi ptr [ %79, %alnumerize.exit40 ], [ %.1.i47, %90 ]
-  store i8 0, ptr %.019.lcssa.i49, align 1
+alnumerize.exit49:                                ; preds = %90, %alnumerize.exit39
+  %.019.lcssa.i48 = phi ptr [ %79, %alnumerize.exit39 ], [ %.1.i46, %90 ]
+  store i8 0, ptr %.019.lcssa.i48, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %14, ptr %6, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5715,47 +5711,46 @@ alnumerize.exit51:                                ; preds = %90, %alnumerize.exi
   %107 = call ptr @wmem_epan_scope()
   %108 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %107, ptr noundef nonnull @.str.121, ptr noundef %2, ptr noundef nonnull @.str.143, ptr noundef null)
   %109 = load i8, ptr %108, align 1
-  %.not22.i52 = icmp eq i8 %109, 0
-  br i1 %.not22.i52, label %alnumerize.exit62, label %.lr.ph.i53
+  %.not21.i50 = icmp eq i8 %109, 0
+  br i1 %.not21.i50, label %alnumerize.exit59, label %.lr.ph.i51
 
-.lr.ph.i53:                                       ; preds = %alnumerize.exit51
+.lr.ph.i51:                                       ; preds = %alnumerize.exit49
   %110 = load ptr, ptr @g_ascii_table, align 8
   br label %111
 
-111:                                              ; preds = %119, %.lr.ph.i53
-  %112 = phi i8 [ %109, %.lr.ph.i53 ], [ %121, %119 ]
-  %.024.i54 = phi ptr [ %108, %.lr.ph.i53 ], [ %120, %119 ]
-  %.01923.i55 = phi ptr [ %108, %.lr.ph.i53 ], [ %.1.i58, %119 ]
+111:                                              ; preds = %119, %.lr.ph.i51
+  %112 = phi i8 [ %109, %.lr.ph.i51 ], [ %121, %119 ]
+  %.023.i52 = phi ptr [ %108, %.lr.ph.i51 ], [ %120, %119 ]
+  %.01922.i53 = phi ptr [ %108, %.lr.ph.i51 ], [ %.1.i56, %119 ]
   %113 = zext i8 %112 to i64
   %114 = getelementptr i16, ptr %110, i64 %113
   %115 = load i16, ptr %114, align 2
-  %.fr.i56 = freeze i16 %115
-  %116 = and i16 %.fr.i56, 1
-  %.not21.i57 = icmp eq i16 %116, 0
-  br i1 %.not21.i57, label %switch.early.test.i61, label %117
+  %.fr.i54 = freeze i16 %115
+  %116 = trunc i16 %.fr.i54 to i1
+  br i1 %116, label %117, label %switch.early.test.i55
 
-switch.early.test.i61:                            ; preds = %111
+switch.early.test.i55:                            ; preds = %111
   switch i8 %112, label %119 [
     i8 95, label %117
     i8 46, label %117
     i8 45, label %117
   ]
 
-117:                                              ; preds = %switch.early.test.i61, %switch.early.test.i61, %switch.early.test.i61, %111
-  %118 = getelementptr i8, ptr %.01923.i55, i64 1
-  store i8 %112, ptr %.01923.i55, align 1
+117:                                              ; preds = %switch.early.test.i55, %switch.early.test.i55, %switch.early.test.i55, %111
+  %118 = getelementptr i8, ptr %.01922.i53, i64 1
+  store i8 %112, ptr %.01922.i53, align 1
   br label %119
 
-119:                                              ; preds = %117, %switch.early.test.i61
-  %.1.i58 = phi ptr [ %118, %117 ], [ %.01923.i55, %switch.early.test.i61 ]
-  %120 = getelementptr i8, ptr %.024.i54, i64 1
+119:                                              ; preds = %117, %switch.early.test.i55
+  %.1.i56 = phi ptr [ %118, %117 ], [ %.01922.i53, %switch.early.test.i55 ]
+  %120 = getelementptr i8, ptr %.023.i52, i64 1
   %121 = load i8, ptr %120, align 1
-  %.not.i59 = icmp eq i8 %121, 0
-  br i1 %.not.i59, label %alnumerize.exit62, label %111, !llvm.loop !22
+  %.not.i57 = icmp eq i8 %121, 0
+  br i1 %.not.i57, label %alnumerize.exit59, label %111, !llvm.loop !22
 
-alnumerize.exit62:                                ; preds = %119, %alnumerize.exit51
-  %.019.lcssa.i60 = phi ptr [ %108, %alnumerize.exit51 ], [ %.1.i58, %119 ]
-  store i8 0, ptr %.019.lcssa.i60, align 1
+alnumerize.exit59:                                ; preds = %119, %alnumerize.exit49
+  %.019.lcssa.i58 = phi ptr [ %108, %alnumerize.exit49 ], [ %.1.i56, %119 ]
+  store i8 0, ptr %.019.lcssa.i58, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %15, ptr %5, align 8
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5786,48 +5781,47 @@ alnumerize.exit62:                                ; preds = %119, %alnumerize.ex
   %136 = call ptr @wmem_epan_scope()
   %137 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %136, ptr noundef nonnull @.str.121, ptr noundef %2, ptr noundef nonnull @.str.144, ptr noundef null)
   %138 = load i8, ptr %137, align 1
-  %.not22.i63 = icmp eq i8 %138, 0
-  br i1 %.not22.i63, label %alnumerize.exit73, label %.lr.ph.i64
+  %.not21.i60 = icmp eq i8 %138, 0
+  br i1 %.not21.i60, label %alnumerize.exit69, label %.lr.ph.i61
 
-.lr.ph.i64:                                       ; preds = %alnumerize.exit62
+.lr.ph.i61:                                       ; preds = %alnumerize.exit59
   %139 = load ptr, ptr @g_ascii_table, align 8
   br label %140
 
-140:                                              ; preds = %148, %.lr.ph.i64
-  %141 = phi i8 [ %138, %.lr.ph.i64 ], [ %150, %148 ]
-  %.024.i65 = phi ptr [ %137, %.lr.ph.i64 ], [ %149, %148 ]
-  %.01923.i66 = phi ptr [ %137, %.lr.ph.i64 ], [ %.1.i69, %148 ]
+140:                                              ; preds = %148, %.lr.ph.i61
+  %141 = phi i8 [ %138, %.lr.ph.i61 ], [ %150, %148 ]
+  %.023.i62 = phi ptr [ %137, %.lr.ph.i61 ], [ %149, %148 ]
+  %.01922.i63 = phi ptr [ %137, %.lr.ph.i61 ], [ %.1.i66, %148 ]
   %142 = zext i8 %141 to i64
   %143 = getelementptr i16, ptr %139, i64 %142
   %144 = load i16, ptr %143, align 2
-  %.fr.i67 = freeze i16 %144
-  %145 = and i16 %.fr.i67, 1
-  %.not21.i68 = icmp eq i16 %145, 0
-  br i1 %.not21.i68, label %switch.early.test.i72, label %146
+  %.fr.i64 = freeze i16 %144
+  %145 = trunc i16 %.fr.i64 to i1
+  br i1 %145, label %146, label %switch.early.test.i65
 
-switch.early.test.i72:                            ; preds = %140
+switch.early.test.i65:                            ; preds = %140
   switch i8 %141, label %148 [
     i8 95, label %146
     i8 46, label %146
     i8 45, label %146
   ]
 
-146:                                              ; preds = %switch.early.test.i72, %switch.early.test.i72, %switch.early.test.i72, %140
-  %147 = getelementptr i8, ptr %.01923.i66, i64 1
-  store i8 %141, ptr %.01923.i66, align 1
+146:                                              ; preds = %switch.early.test.i65, %switch.early.test.i65, %switch.early.test.i65, %140
+  %147 = getelementptr i8, ptr %.01922.i63, i64 1
+  store i8 %141, ptr %.01922.i63, align 1
   br label %148
 
-148:                                              ; preds = %146, %switch.early.test.i72
-  %.1.i69 = phi ptr [ %147, %146 ], [ %.01923.i66, %switch.early.test.i72 ]
-  %149 = getelementptr i8, ptr %.024.i65, i64 1
+148:                                              ; preds = %146, %switch.early.test.i65
+  %.1.i66 = phi ptr [ %147, %146 ], [ %.01922.i63, %switch.early.test.i65 ]
+  %149 = getelementptr i8, ptr %.023.i62, i64 1
   %150 = load i8, ptr %149, align 1
-  %.not.i70 = icmp eq i8 %150, 0
-  br i1 %.not.i70, label %alnumerize.exit73, label %140, !llvm.loop !22
+  %.not.i67 = icmp eq i8 %150, 0
+  br i1 %.not.i67, label %alnumerize.exit69, label %140, !llvm.loop !22
 
-alnumerize.exit73:                                ; preds = %148, %alnumerize.exit62
-  %.019.lcssa.i71 = phi ptr [ %137, %alnumerize.exit62 ], [ %.1.i69, %148 ]
+alnumerize.exit69:                                ; preds = %148, %alnumerize.exit59
+  %.019.lcssa.i68 = phi ptr [ %137, %alnumerize.exit59 ], [ %.1.i66, %148 ]
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 0, ptr %.019.lcssa.i71, align 1
+  store i8 0, ptr %.019.lcssa.i68, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %151, ptr %4, align 8
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -14,9 +14,8 @@ define noundef nonnull ptr @l_Lake_OpaqueTargetConfig_nonemptyType(ptr noundef r
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Lake_OpaqueTargetConfig_nonemptyType___boxed(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %2, align 4, !tbaa !4
@@ -38,9 +37,8 @@ define noundef nonnull ptr @l_Lake_OpaqueTargetConfig_nonemptyType___boxed(ptr n
 
 lean_dec.exit:                                    ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not9 = icmp eq i64 %14, 0
-  br i1 %.not9, label %15, label %lean_dec.exit6
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit6, label %15
 
 15:                                               ; preds = %lean_dec.exit
   %16 = load i32, ptr %1, align 4, !tbaa !4

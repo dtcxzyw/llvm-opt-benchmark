@@ -1939,9 +1939,8 @@ define noundef zeroext i1 @_ZNK6icu_776NFRuleeqERKS0_(ptr noundef nonnull align 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i16, ptr %24, align 8, !tbaa !23
-  %26 = and i16 %25, 1
-  %.not19 = icmp eq i16 %26, 0
-  br i1 %.not19, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %50
+  %26 = trunc i16 %25 to i1
+  br i1 %26, label %50, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 27:                                               ; preds = %18
   %28 = icmp slt i16 %21, 0
@@ -1972,8 +1971,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %27
   %47 = load ptr, ptr %46, align 8
   %48 = select i1 %.not.i.i.i, ptr %47, ptr %45
   %49 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef %48, i32 noundef %33)
-  %.not20 = icmp eq i8 %49, 0
-  br i1 %.not20, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %50
+  %.not19 = icmp eq i8 %49, 0
+  br i1 %.not19, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %50
 
 50:                                               ; preds = %23, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80

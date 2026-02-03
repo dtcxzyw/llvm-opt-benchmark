@@ -274,9 +274,8 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit.i:    ; preds = %99
 _Z9is_groundPK4expr.exit:                         ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %116, i64 30
   %123 = load i8, ptr %122, align 2
-  %124 = and i8 %123, 1
-  %.not = icmp eq i8 %124, 0
-  br i1 %.not, label %.critedge, label %125
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %125, label %.critedge
 
 125:                                              ; preds = %_Z9is_groundPK4expr.exit, %121
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -368,9 +367,8 @@ _ZNK8rational12is_minus_oneEv.exit:               ; preds = %151
 _Z9is_groundPK4expr.exit47:                       ; preds = %164
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 30
   %173 = load i8, ptr %172, align 2
-  %174 = and i8 %173, 1
-  %.not75 = icmp eq i8 %174, 0
-  br i1 %.not75, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread, label %.critedge38
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %.critedge38, label %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread
 
 .critedge38:                                      ; preds = %169, %_Z9is_groundPK4expr.exit47
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

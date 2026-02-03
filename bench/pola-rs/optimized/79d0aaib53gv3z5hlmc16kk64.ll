@@ -5131,9 +5131,9 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
 477:                                              ; preds = %.lr.ph237, %.backedge
   %.sroa.22.0235 = phi i64 [ 0, %.lr.ph237 ], [ %492, %.backedge ]
   %.sroa.19.0234 = phi i64 [ %.sroa.6.sroa.7.0.copyload, %.lr.ph237 ], [ %.sroa.19.1, %.backedge ]
-  %.sroa.17.0233 = phi i64 [ %.sroa.6.sroa.6.0.copyload, %.lr.ph237 ], [ %490, %.backedge ]
+  %.sroa.17.0233 = phi i64 [ %.sroa.6.sroa.6.0.copyload, %.lr.ph237 ], [ %491, %.backedge ]
   %.sroa.0127.0232 = phi ptr [ %423, %.lr.ph237 ], [ %479, %.backedge ]
-  %.sroa.15.0230 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %.lr.ph237 ], [ %489, %.backedge ]
+  %.sroa.15.0230 = phi i64 [ %.sroa.6.sroa.5.0.copyload, %.lr.ph237 ], [ %490, %.backedge ]
   %.sroa.10130.0229 = phi ptr [ %.sroa.6.sroa.0.0.copyload, %.lr.ph237 ], [ %.sroa.10130.1, %.backedge ]
   %478 = icmp ne ptr %.sroa.0127.0232, null
   tail call void @llvm.assume(i1 %478)
@@ -5162,11 +5162,11 @@ define void @_ZN10polars_row6encode12encode_array17h30bf0f1bc627b9faE(ptr noalia
   %.sroa.19.1 = phi i64 [ %484, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %.sroa.19.0234, %477 ]
   %487 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %.sroa.17.0233, %477 ]
   %488 = phi i64 [ %.sroa.02.0.copyload.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h99e80190ddb5200bE.exit.i.i.i.i" ], [ %.sroa.15.0230, %477 ]
-  %489 = lshr i64 %488, 1
-  %490 = add i64 %487, -1
-  %491 = trunc i64 %488 to i1
+  %489 = trunc i64 %488 to i1
+  %490 = lshr i64 %488, 1
+  %491 = add i64 %487, -1
   %492 = add nuw i64 %.sroa.22.0235, 1
-  br i1 %491, label %.preheader, label %502
+  br i1 %489, label %.preheader, label %502
 
 .preheader:                                       ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17a8be93cf0d19b7E.exit"
   %493 = icmp ult i64 %.val.i.i.i.i.i, %.val1.i.i.i.i.i

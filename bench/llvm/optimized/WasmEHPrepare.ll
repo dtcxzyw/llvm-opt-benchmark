@@ -1042,9 +1042,8 @@ define dso_local void @_ZN4llvm19calculateWasmEHInfoEPKNS_8FunctionERNS_14WasmEH
   %21 = load ptr, ptr %20, align 8, !tbaa !131
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = load i16, ptr %22, align 2, !tbaa !111
-  %24 = and i16 %23, 1
-  %.not.i = icmp eq i16 %24, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit
+  %24 = trunc i16 %23 to i1
+  br i1 %24, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit, label %.critedge
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %19
   %25 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -1067,9 +1066,8 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %19
   %35 = load ptr, ptr %34, align 8, !tbaa !79, !noalias !149
   %36 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 -22
   %37 = load i16, ptr %36, align 2, !tbaa !111, !noalias !149
-  %38 = and i16 %37, 1
-  %.not.i.i = icmp eq i16 %38, 0
-  %spec.select.v.i.i = select i1 %.not.i.i, i64 32, i64 64
+  %38 = trunc i16 %37 to i1
+  %spec.select.v.i.i = select i1 %38, i64 64, i64 32
   %spec.select.i.i33 = getelementptr inbounds nuw i8, ptr %35, i64 %spec.select.v.i.i
   %39 = load ptr, ptr %spec.select.i.i33, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

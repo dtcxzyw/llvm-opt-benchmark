@@ -19,9 +19,8 @@ declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define ptr @l_ReaderT_orElse___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %4
   %.val.i = load i32, ptr %3, align 4, !tbaa !4
@@ -69,9 +68,8 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not19 = icmp eq i64 %26, 0
-  br i1 %.not19, label %27, label %lean_inc.exit14
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit14, label %27
 
 27:                                               ; preds = %lean_alloc_closure.exit
   %.val.i16 = load i32, ptr %24, align 4, !tbaa !4
@@ -93,9 +91,8 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
 
 lean_inc.exit14:                                  ; preds = %32, %31, %29, %lean_alloc_closure.exit
   %33 = ptrtoint ptr %0 to i64
-  %34 = and i64 %33, 1
-  %.not20 = icmp eq i64 %34, 0
-  br i1 %.not20, label %35, label %lean_dec.exit
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %lean_dec.exit, label %35
 
 35:                                               ; preds = %lean_inc.exit14
   %36 = load i32, ptr %0, align 4, !tbaa !4
@@ -126,9 +123,8 @@ declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
 define ptr @l_ReaderT_orElse___rarg___lambda__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @lean_apply_2(ptr noundef %0, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1) #4
   %5 = ptrtoint ptr %2 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %2, align 4, !tbaa !4
@@ -183,9 +179,8 @@ define ptr @l_ReaderT_failure___rarg(ptr noundef %0, ptr noundef readnone captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !4
@@ -207,9 +202,8 @@ define ptr @l_ReaderT_failure___rarg(ptr noundef %0, ptr noundef readnone captur
 
 lean_inc.exit:                                    ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not6 = icmp eq i64 %14, 0
-  br i1 %.not6, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -263,9 +257,8 @@ define ptr @l_ReaderT_failure___rarg___boxed(ptr noundef %0, ptr noundef %1) #0 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !10
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not.i4 = icmp eq i64 %6, 0
-  br i1 %.not.i4, label %7, label %lean_inc.exit.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit.i, label %7
 
 7:                                                ; preds = %2
   %.val.i.i = load i32, ptr %4, align 4, !tbaa !4
@@ -287,9 +280,8 @@ define ptr @l_ReaderT_failure___rarg___boxed(ptr noundef %0, ptr noundef %1) #0 
 
 lean_inc.exit.i:                                  ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not6.i = icmp eq i64 %14, 0
-  br i1 %.not6.i, label %15, label %l_ReaderT_failure___rarg.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %l_ReaderT_failure___rarg.exit, label %15
 
 15:                                               ; preds = %lean_inc.exit.i
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -312,9 +304,8 @@ lean_inc.exit.i:                                  ; preds = %12, %11, %9, %2
 l_ReaderT_failure___rarg.exit:                    ; preds = %lean_inc.exit.i, %18, %20, %21
   %22 = tail call ptr @lean_apply_1(ptr noundef %4, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %25, label %lean_dec.exit
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_dec.exit, label %25
 
 25:                                               ; preds = %l_ReaderT_failure___rarg.exit
   %26 = load i32, ptr %1, align 4, !tbaa !4
@@ -343,9 +334,8 @@ define ptr @l_ReaderT_instAlternativeOfMonad___rarg___lambda__1(ptr noundef %0, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %3
   %.val.i = load i32, ptr %5, align 4, !tbaa !4
@@ -367,9 +357,8 @@ define ptr @l_ReaderT_instAlternativeOfMonad___rarg___lambda__1(ptr noundef %0, 
 
 lean_inc.exit:                                    ; preds = %13, %12, %10, %3
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not6 = icmp eq i64 %15, 0
-  br i1 %.not6, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %lean_inc.exit
   %17 = load i32, ptr %0, align 4, !tbaa !4
@@ -397,9 +386,8 @@ lean_dec.exit:                                    ; preds = %22, %21, %19, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_ReaderT_instAlternativeOfMonad___rarg___lambda__2(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = ptrtoint ptr %4 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit14
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit14, label %8
 
 8:                                                ; preds = %5
   %.val.i = load i32, ptr %4, align 4, !tbaa !4
@@ -447,9 +435,8 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, 1
-  %.not19 = icmp eq i64 %27, 0
-  br i1 %.not19, label %28, label %lean_inc.exit
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %lean_inc.exit, label %28
 
 28:                                               ; preds = %lean_alloc_closure.exit
   %.val.i16 = load i32, ptr %25, align 4, !tbaa !4
@@ -471,9 +458,8 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit14
 
 lean_inc.exit:                                    ; preds = %33, %32, %30, %lean_alloc_closure.exit
   %34 = ptrtoint ptr %0 to i64
-  %35 = and i64 %34, 1
-  %.not20 = icmp eq i64 %35, 0
-  br i1 %.not20, label %36, label %lean_dec.exit
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %lean_dec.exit, label %36
 
 36:                                               ; preds = %lean_inc.exit
   %37 = load i32, ptr %0, align 4, !tbaa !4
@@ -502,9 +488,8 @@ lean_dec.exit:                                    ; preds = %42, %41, %39, %lean
 define noalias nonnull ptr @l_ReaderT_instAlternativeOfMonad___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @l_ReaderT_instApplicativeOfMonad___rarg(ptr noundef %1) #4
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %2
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -596,9 +581,8 @@ define ptr @l_ReaderT_instAlternativeOfMonad___rarg___lambda__1___boxed(ptr noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i5 = icmp eq i64 %7, 0
-  br i1 %.not.i5, label %8, label %lean_inc.exit.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit.i, label %8
 
 8:                                                ; preds = %3
   %.val.i.i = load i32, ptr %5, align 4, !tbaa !4
@@ -620,9 +604,8 @@ define ptr @l_ReaderT_instAlternativeOfMonad___rarg___lambda__1___boxed(ptr noun
 
 lean_inc.exit.i:                                  ; preds = %13, %12, %10, %3
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not6.i = icmp eq i64 %15, 0
-  br i1 %.not6.i, label %16, label %l_ReaderT_instAlternativeOfMonad___rarg___lambda__1.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %l_ReaderT_instAlternativeOfMonad___rarg___lambda__1.exit, label %16
 
 16:                                               ; preds = %lean_inc.exit.i
   %17 = load i32, ptr %0, align 4, !tbaa !4
@@ -645,9 +628,8 @@ lean_inc.exit.i:                                  ; preds = %13, %12, %10, %3
 l_ReaderT_instAlternativeOfMonad___rarg___lambda__1.exit: ; preds = %lean_inc.exit.i, %19, %21, %22
   %23 = tail call ptr @lean_apply_1(ptr noundef %5, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   %24 = ptrtoint ptr %2 to i64
-  %25 = and i64 %24, 1
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %26, label %lean_dec.exit
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %lean_dec.exit, label %26
 
 26:                                               ; preds = %l_ReaderT_instAlternativeOfMonad___rarg___lambda__1.exit
   %27 = load i32, ptr %2, align 4, !tbaa !4
@@ -731,9 +713,8 @@ lean_alloc_closure.exit:                          ; preds = %3
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_instMonadControlReaderT___lambda__3(ptr noundef readnone captures(none) %0, ptr noundef returned %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %3
   %.val.i = load i32, ptr %1, align 4, !tbaa !4
@@ -766,9 +747,8 @@ define ptr @l_instMonadControlReaderT(ptr noundef readnone captures(none) %0, pt
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_instMonadControlReaderT___lambda__3___boxed(ptr readnone captures(none) %0, ptr noundef returned %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not.i9 = icmp eq i64 %5, 0
-  br i1 %.not.i9, label %6, label %l_instMonadControlReaderT___lambda__3.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_instMonadControlReaderT___lambda__3.exit, label %6
 
 6:                                                ; preds = %3
   %.val.i.i = load i32, ptr %1, align 4, !tbaa !4
@@ -790,9 +770,8 @@ define noundef ptr @l_instMonadControlReaderT___lambda__3___boxed(ptr readnone c
 
 l_instMonadControlReaderT___lambda__3.exit:       ; preds = %3, %8, %10, %11
   %12 = ptrtoint ptr %2 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit6
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit6, label %14
 
 14:                                               ; preds = %l_instMonadControlReaderT___lambda__3.exit
   %15 = load i32, ptr %2, align 4, !tbaa !4
@@ -813,7 +792,7 @@ l_instMonadControlReaderT___lambda__3.exit:       ; preds = %3, %8, %10, %11
   br label %lean_dec.exit6
 
 lean_dec.exit6:                                   ; preds = %20, %19, %17, %l_instMonadControlReaderT___lambda__3.exit
-  br i1 %.not.i9, label %21, label %lean_dec.exit
+  br i1 %5, label %lean_dec.exit, label %21
 
 21:                                               ; preds = %lean_dec.exit6
   %22 = load i32, ptr %1, align 4, !tbaa !4
@@ -846,9 +825,8 @@ define ptr @l_ReaderT_tryFinally___rarg___lambda__1(ptr noundef %0, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define ptr @l_ReaderT_tryFinally___rarg(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = ptrtoint ptr %5 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %lean_inc.exit
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %lean_inc.exit, label %9
 
 9:                                                ; preds = %6
   %.val.i = load i32, ptr %5, align 4, !tbaa !4

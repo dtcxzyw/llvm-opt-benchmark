@@ -226,17 +226,17 @@ define internal i32 @test_allocate_from_text(i32 noundef %0) #0 {
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = shl nuw i64 1, %4
-  %9 = and i64 %8, 91268355073
-  %.not7.i = icmp ne i64 %9, 0
-  br i1 %.not7.i, label %11, label %10
+  %8 = lshr i64 91268355073, %4
+  %.not7.i = trunc i64 %8 to i1
+  br i1 %.not7.i, label %10, label %9
 
-10:                                               ; preds = %7
+9:                                                ; preds = %7
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 626, ptr noundef nonnull @.str.87, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload) #7
-  br label %11
+  br label %10
 
-11:                                               ; preds = %10, %7
-  %12 = zext i1 %.not7.i to i32
+10:                                               ; preds = %9, %7
+  %11 = trunc i64 %8 to i32
+  %12 = and i32 %11, 1
   br label %check_int_from_text.exit
 
 13:                                               ; preds = %1
@@ -284,8 +284,8 @@ define internal i32 @test_allocate_from_text(i32 noundef %0) #0 {
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.3, i32 noundef 653, ptr noundef nonnull @.str.91, ptr noundef %.sroa.0.0.copyload, ptr noundef %.sroa.4.0.copyload, i32 noundef %31, i32 noundef %32) #7
   br label %check_int_from_text.exit
 
-check_int_from_text.exit:                         ; preds = %11, %17, %24, %27, %28, %30
-  %.0.i = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ %12, %11 ], [ %.sroa.6.0.copyload, %28 ]
+check_int_from_text.exit:                         ; preds = %10, %17, %24, %27, %28, %30
+  %.0.i = phi i32 [ 0, %17 ], [ 0, %24 ], [ 0, %27 ], [ 0, %30 ], [ %12, %10 ], [ %.sroa.6.0.copyload, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i

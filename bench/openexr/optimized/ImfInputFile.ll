@@ -2679,7 +2679,7 @@ define void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstItera
   %9 = icmp ne i32 %.sroa.12.0.copyload, 1
   %10 = icmp ne i32 %.sroa.13.0.copyload, 1
   %or.cond = select i1 %9, i1 true, i1 %10
-  br i1 %or.cond, label %61, label %.preheader
+  br i1 %or.cond, label %62, label %.preheader
 
 .preheader:                                       ; preds = %7
   %.not53 = icmp sgt i32 %2, %3
@@ -2715,121 +2715,120 @@ define void @_ZN7Imf_3_49InputFile4Data10fillBufferENS_11FrameBuffer13ConstItera
   %35 = trunc nuw i32 %34 to i16
   %36 = icmp ugt i32 %31, -2147483648
   %37 = icmp eq i32 %31, -2147483648
-  %38 = and i32 %32, 1
-  %.not.i.i = icmp ne i32 %38, 0
-  %or.cond.i.i.not58 = select i1 %37, i1 %.not.i.i, i1 false
-  %39 = icmp samesign ugt i32 %20, 2139095039
-  %40 = icmp samesign ugt i32 %20, 1199566847
-  %41 = add nuw nsw i32 %20, 134221823
-  %42 = lshr i32 %20, 13
-  %43 = and i32 %42, 1
-  %44 = add nuw nsw i32 %41, %43
-  %45 = lshr i32 %44, 13
-  %46 = or i32 %45, %33
-  %47 = trunc i32 %46 to i16
-  %48 = or disjoint i16 %23, 31744
-  %49 = icmp eq i32 %20, 2139095040
-  %50 = and i32 %42, 1023
-  %51 = icmp eq i32 %50, 0
-  %52 = zext i1 %51 to i16
-  %53 = trunc nuw nsw i32 %50 to i16
-  %54 = or i16 %53, %52
-  %55 = fptoui double %.sroa.14.0.copyload to i32
-  %56 = sext i32 %2 to i64
-  %57 = add i32 %3, 1
-  %brmerge = select i1 %36, i1 true, i1 %or.cond.i.i.not58
-  %58 = zext i1 %brmerge to i16
-  %spec.select56 = add nuw i16 %35, %58
-  %. = select i1 %40, i16 %48, i16 %47, !prof !107
-  %59 = select i1 %49, i16 0, i16 %54
-  %60 = or disjoint i16 %23, %59
-  %spec.select = or disjoint i16 %60, 31744
+  %.not.i.i = trunc i32 %32 to i16
+  %38 = icmp samesign ugt i32 %20, 2139095039
+  %39 = icmp samesign ugt i32 %20, 1199566847
+  %40 = add nuw nsw i32 %20, 134221823
+  %41 = lshr i32 %20, 13
+  %42 = and i32 %41, 1
+  %43 = add nuw nsw i32 %40, %42
+  %44 = lshr i32 %43, 13
+  %45 = or i32 %44, %33
+  %46 = trunc i32 %45 to i16
+  %47 = or disjoint i16 %23, 31744
+  %48 = icmp eq i32 %20, 2139095040
+  %49 = and i32 %41, 1023
+  %50 = icmp eq i32 %49, 0
+  %51 = zext i1 %50 to i16
+  %52 = trunc nuw nsw i32 %49 to i16
+  %53 = or i16 %52, %51
+  %54 = fptoui double %.sroa.14.0.copyload to i32
+  %55 = sext i32 %2 to i64
+  %56 = add i32 %3, 1
+  %57 = and i16 %.not.i.i, 1
+  %58 = select i1 %37, i16 %57, i16 0
+  %59 = select i1 %36, i16 1, i16 %58
+  %spec.select56 = add nuw i16 %59, %35
+  %. = select i1 %39, i16 %47, i16 %46, !prof !107
+  %60 = select i1 %48, i16 0, i16 %53
+  %61 = or disjoint i16 %23, %60
+  %spec.select = or disjoint i16 %61, 31744
   %spec.select69 = select i1 %25, i16 %23, i16 %spec.select56
-  %spec.select.. = select i1 %39, i16 %spec.select, i16 %., !prof !107
+  %spec.select.. = select i1 %38, i16 %spec.select, i16 %., !prof !107
   %.0.i.i = select i1 %24, i16 %spec.select.., i16 %spec.select69
-  br label %66
+  br label %67
 
-61:                                               ; preds = %7
-  %62 = tail call ptr @__cxa_allocate_exception(i64 72) #26
-  invoke void @_ZN7Iex_3_46ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull @.str.16)
-          to label %63 unwind label %64
+62:                                               ; preds = %7
+  %63 = tail call ptr @__cxa_allocate_exception(i64 72) #26
+  invoke void @_ZN7Iex_3_46ArgExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %63, ptr noundef nonnull @.str.16)
+          to label %64 unwind label %65
 
-63:                                               ; preds = %61
-  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTIN7Iex_3_46ArgExcE, ptr nonnull @_ZN7Iex_3_46ArgExcD1Ev) #28
+64:                                               ; preds = %62
+  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTIN7Iex_3_46ArgExcE, ptr nonnull @_ZN7Iex_3_46ArgExcD1Ev) #28
   unreachable
 
-64:                                               ; preds = %61
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %62
+  %66 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %62) #26
-  resume { ptr, i32 } %65
+  tail call void @__cxa_free_exception(ptr nonnull %63) #26
+  resume { ptr, i32 } %66
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   ret void
 
-66:                                               ; preds = %.lr.ph55, %.loopexit
-  %indvars.iv = phi i64 [ %56, %.lr.ph55 ], [ %indvars.iv.next, %.loopexit ]
-  br i1 %11, label %67, label %70
+67:                                               ; preds = %.lr.ph55, %.loopexit
+  %indvars.iv = phi i64 [ %55, %.lr.ph55 ], [ %indvars.iv.next, %.loopexit ]
+  br i1 %11, label %68, label %71
 
-67:                                               ; preds = %66
-  %68 = sub nsw i64 %indvars.iv, %12
-  %69 = mul i64 %68, %.sroa.10.0.copyload
-  br label %72
+68:                                               ; preds = %67
+  %69 = sub nsw i64 %indvars.iv, %12
+  %70 = mul i64 %69, %.sroa.10.0.copyload
+  br label %73
 
-70:                                               ; preds = %66
-  %71 = mul i64 %.sroa.10.0.copyload, %indvars.iv
-  br label %72
+71:                                               ; preds = %67
+  %72 = mul i64 %.sroa.10.0.copyload, %indvars.iv
+  br label %73
 
-72:                                               ; preds = %70, %67
-  %.pn = phi i64 [ %69, %67 ], [ %71, %70 ]
+73:                                               ; preds = %71, %68
+  %.pn = phi i64 [ %70, %68 ], [ %72, %71 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.pn
   switch i32 %.sroa.0.0.copyload, label %.loopexit [
-    i32 0, label %73
+    i32 0, label %74
     i32 1, label %_ZN9Imath_3_24halfC2Ef.exit
-    i32 2, label %78
+    i32 2, label %79
   ]
 
-73:                                               ; preds = %72
+74:                                               ; preds = %73
   br i1 %17, label %.lr.ph52, label %.loopexit
 
-.lr.ph52:                                         ; preds = %73, %.lr.ph52
-  %.04051 = phi i32 [ %75, %.lr.ph52 ], [ 0, %73 ]
-  %.250 = phi ptr [ %74, %.lr.ph52 ], [ %gep, %73 ]
-  store i32 %55, ptr %.250, align 4, !tbaa !106
-  %74 = getelementptr inbounds nuw i8, ptr %.250, i64 %.sroa.6.0.copyload
-  %75 = add nuw nsw i32 %.04051, 1
-  %exitcond62.not = icmp eq i32 %75, %6
+.lr.ph52:                                         ; preds = %74, %.lr.ph52
+  %.04051 = phi i32 [ %76, %.lr.ph52 ], [ 0, %74 ]
+  %.250 = phi ptr [ %75, %.lr.ph52 ], [ %gep, %74 ]
+  store i32 %54, ptr %.250, align 4, !tbaa !106
+  %75 = getelementptr inbounds nuw i8, ptr %.250, i64 %.sroa.6.0.copyload
+  %76 = add nuw nsw i32 %.04051, 1
+  %exitcond62.not = icmp eq i32 %76, %6
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph52, !llvm.loop !188
 
-_ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %72
+_ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %73
   br i1 %17, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %_ZN9Imath_3_24halfC2Ef.exit, %.lr.ph49
-  %.03948 = phi i32 [ %77, %.lr.ph49 ], [ 0, %_ZN9Imath_3_24halfC2Ef.exit ]
-  %.347 = phi ptr [ %76, %.lr.ph49 ], [ %gep, %_ZN9Imath_3_24halfC2Ef.exit ]
+  %.03948 = phi i32 [ %78, %.lr.ph49 ], [ 0, %_ZN9Imath_3_24halfC2Ef.exit ]
+  %.347 = phi ptr [ %77, %.lr.ph49 ], [ %gep, %_ZN9Imath_3_24halfC2Ef.exit ]
   store i16 %.0.i.i, ptr %.347, align 2, !tbaa !183
-  %76 = getelementptr inbounds nuw i8, ptr %.347, i64 %.sroa.6.0.copyload
-  %77 = add nuw nsw i32 %.03948, 1
-  %exitcond61.not = icmp eq i32 %77, %6
+  %77 = getelementptr inbounds nuw i8, ptr %.347, i64 %.sroa.6.0.copyload
+  %78 = add nuw nsw i32 %.03948, 1
+  %exitcond61.not = icmp eq i32 %78, %6
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph49, !llvm.loop !189
 
-78:                                               ; preds = %72
+79:                                               ; preds = %73
   br i1 %17, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %78, %.lr.ph
-  %.046 = phi i32 [ %80, %.lr.ph ], [ 0, %78 ]
-  %.445 = phi ptr [ %79, %.lr.ph ], [ %gep, %78 ]
+.lr.ph:                                           ; preds = %79, %.lr.ph
+  %.046 = phi i32 [ %81, %.lr.ph ], [ 0, %79 ]
+  %.445 = phi ptr [ %80, %.lr.ph ], [ %gep, %79 ]
   store float %16, ptr %.445, align 4, !tbaa !190
-  %79 = getelementptr inbounds nuw i8, ptr %.445, i64 %.sroa.6.0.copyload
-  %80 = add nuw nsw i32 %.046, 1
-  %exitcond.not = icmp eq i32 %80, %6
+  %80 = getelementptr inbounds nuw i8, ptr %.445, i64 %.sroa.6.0.copyload
+  %81 = add nuw nsw i32 %.046, 1
+  %exitcond.not = icmp eq i32 %81, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !191
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph49, %.lr.ph52, %78, %_ZN9Imath_3_24halfC2Ef.exit, %73, %72
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph49, %.lr.ph52, %79, %_ZN9Imath_3_24halfC2Ef.exit, %74, %73
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond64.not = icmp eq i32 %57, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge, label %66, !llvm.loop !192
+  %exitcond64.not = icmp eq i32 %56, %lftr.wideiv
+  br i1 %exitcond64.not, label %._crit_edge, label %67, !llvm.loop !192
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable

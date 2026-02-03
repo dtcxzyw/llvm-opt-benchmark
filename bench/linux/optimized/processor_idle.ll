@@ -872,115 +872,110 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
 define internal fastcc void @acpi_processor_setup_cpuidle_dev(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8
-  %5 = and i16 %4, 256
-  %6 = icmp eq i16 %5, 0
-  br i1 %6, label %.loopexit, label %7
+  %5 = icmp ne ptr %1, null
+  %6 = and i16 %4, 257
+  %7 = icmp eq i16 %6, 257
+  %or.cond = and i1 %5, %7
+  br i1 %or.cond, label %8, label %.loopexit
 
-7:                                                ; preds = %2
-  %8 = and i16 %4, 1
-  %9 = icmp ne i16 %8, 0
-  %10 = icmp ne ptr %1, null
-  %11 = and i1 %10, %9
-  br i1 %11, label %12, label %.loopexit
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i32, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %10, ptr %11, align 4
+  %12 = load i16, ptr %3, align 8
+  %13 = and i16 %12, 128
+  %14 = icmp eq i16 %13, 0
+  br i1 %14, label %17, label %15
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %14, ptr %15, align 4
-  %16 = load i16, ptr %3, align 8
-  %17 = and i16 %16, 128
-  %18 = icmp eq i16 %17, 0
-  br i1 %18, label %21, label %19
-
-19:                                               ; preds = %12
-  %20 = tail call i32 @acpi_processor_ffh_lpi_probe(i32 noundef %14)
+15:                                               ; preds = %8
+  %16 = tail call i32 @acpi_processor_ffh_lpi_probe(i32 noundef %10)
   br label %.loopexit
 
-21:                                               ; preds = %12
-  %22 = load i32, ptr @max_cstate, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %25
+17:                                               ; preds = %8
+  %18 = load i32, ptr @max_cstate, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %21
 
-24:                                               ; preds = %21
+20:                                               ; preds = %17
   store i32 1, ptr @max_cstate, align 4
-  br label %25
+  br label %21
 
-25:                                               ; preds = %21, %24
-  %26 = phi i32 [ 1, %24 ], [ %22, %21 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %29 = add i32 %26, -1
-  %30 = tail call i32 @llvm.umin.i32(i32 %29, i32 6)
-  %31 = add nuw nsw i32 %30, 2
-  %32 = zext nneg i32 %31 to i64
-  br label %33
+21:                                               ; preds = %17, %20
+  %22 = phi i32 [ 1, %20 ], [ %18, %17 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %25 = add i32 %22, -1
+  %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 6)
+  %27 = add nuw nsw i32 %26, 2
+  %28 = zext nneg i32 %27 to i64
+  br label %29
 
-33:                                               ; preds = %73, %25
-  %34 = phi i64 [ 1, %25 ], [ %75, %73 ]
-  %35 = phi i32 [ 1, %25 ], [ %74, %73 ]
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %36
-  %38 = getelementptr %struct.acpi_processor_cx, ptr %27, i64 %34
-  %39 = load i8, ptr %38, align 4
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %73, label %41
+29:                                               ; preds = %69, %21
+  %30 = phi i64 [ 1, %21 ], [ %71, %69 ]
+  %31 = phi i32 [ 1, %21 ], [ %70, %69 ]
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr %struct.cpuidle_state, ptr getelementptr inbounds nuw (i8, ptr @acpi_idle_driver, i64 24), i64 %32
+  %34 = getelementptr %struct.acpi_processor_cx, ptr %23, i64 %30
+  %35 = load i8, ptr %34, align 4
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %69, label %37
 
-41:                                               ; preds = %33
-  %42 = getelementptr ptr, ptr @acpi_cstate, i64 %36
-  %43 = ptrtoint ptr %42 to i64
-  %44 = load i32, ptr %15, align 4
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr i64, ptr @__per_cpu_offset, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %43
-  %49 = inttoptr i64 %48 to ptr
-  store ptr %38, ptr %49, align 8
-  %50 = load i32, ptr %28, align 8
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %34, %51
-  br i1 %52, label %57, label %53
+37:                                               ; preds = %29
+  %38 = getelementptr ptr, ptr @acpi_cstate, i64 %32
+  %39 = ptrtoint ptr %38 to i64
+  %40 = load i32, ptr %11, align 4
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr i64, ptr @__per_cpu_offset, i64 %41
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, %39
+  %45 = inttoptr i64 %44 to ptr
+  store ptr %34, ptr %45, align 8
+  %46 = load i32, ptr %24, align 8
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %30, %47
+  br i1 %48, label %53, label %49
 
-53:                                               ; preds = %41
-  %54 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %55 = load i32, ptr %54, align 8
-  %56 = or i32 %55, 4
-  store i32 %56, ptr %54, align 8
-  br label %57
+49:                                               ; preds = %37
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %51 = load i32, ptr %50, align 8
+  %52 = or i32 %51, 4
+  store i32 %52, ptr %50, align 8
+  br label %53
 
-57:                                               ; preds = %53, %41
-  %58 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp eq i8 %59, 3
-  br i1 %60, label %61, label %70
+53:                                               ; preds = %49, %37
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp eq i8 %55, 3
+  br i1 %56, label %57, label %66
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %63 = load i32, ptr %62, align 8
-  %64 = or i32 %63, 32
-  store i32 %64, ptr %62, align 8
-  %65 = load i16, ptr %3, align 8
-  %66 = and i16 %65, 32
-  %67 = icmp eq i16 %66, 0
-  br i1 %67, label %70, label %68
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %59 = load i32, ptr %58, align 8
+  %60 = or i32 %59, 32
+  store i32 %60, ptr %58, align 8
+  %61 = load i16, ptr %3, align 8
+  %62 = and i16 %61, 32
+  %63 = icmp eq i16 %62, 0
+  br i1 %63, label %66, label %64
 
-68:                                               ; preds = %61
-  %69 = or i32 %63, 96
-  store i32 %69, ptr %62, align 8
-  br label %70
+64:                                               ; preds = %57
+  %65 = or i32 %59, 96
+  store i32 %65, ptr %58, align 8
+  br label %66
 
-70:                                               ; preds = %68, %61, %57
-  %71 = add i32 %35, 1
-  %72 = icmp eq i32 %71, 10
-  br i1 %72, label %.loopexit, label %73
+66:                                               ; preds = %64, %57, %53
+  %67 = add i32 %31, 1
+  %68 = icmp eq i32 %67, 10
+  br i1 %68, label %.loopexit, label %69
 
-73:                                               ; preds = %70, %33
-  %74 = phi i32 [ %71, %70 ], [ %35, %33 ]
-  %75 = add nuw nsw i64 %34, 1
-  %76 = icmp eq i64 %75, %32
-  br i1 %76, label %.loopexit, label %33, !llvm.loop !17
+69:                                               ; preds = %66, %29
+  %70 = phi i32 [ %67, %66 ], [ %31, %29 ]
+  %71 = add nuw nsw i64 %30, 1
+  %72 = icmp eq i64 %71, %28
+  br i1 %72, label %.loopexit, label %29, !llvm.loop !17
 
-.loopexit:                                        ; preds = %73, %70, %19, %7, %2
+.loopexit:                                        ; preds = %69, %66, %15, %2
   ret void
 }
 

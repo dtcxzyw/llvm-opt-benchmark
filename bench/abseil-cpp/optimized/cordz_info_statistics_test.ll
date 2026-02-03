@@ -11962,22 +11962,21 @@ _ZNK4absl12Notification15HasBeenNotifiedEv.exit.i.i.i.i.i: ; preds = %.loopexit.
   br label %83
 
 .critedge.preheader.i.i.i.i.i:                    ; preds = %1, %.critedge.preheader.i.i.i.i.i.backedge
-  %.0.idx64.i.i.i.i.i = phi i64 [ %.0.idx64.i.i.i.i.i.be, %.critedge.preheader.i.i.i.i.i.backedge ], [ 0, %1 ]
-  %.0.ptr65.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx64.i.i.i.i.i
+  %.0.idx62.i.i.i.i.i = phi i64 [ %.0.idx62.i.i.i.i.i.be, %.critedge.preheader.i.i.i.i.i.backedge ], [ 0, %1 ]
+  %.0.ptr63.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx62.i.i.i.i.i
   %18 = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
   %.not39.i.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not39.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %19
 
 19:                                               ; preds = %.critedge.preheader.i.i.i.i.i
-  %20 = load i8, ptr %.0.ptr65.i.i.i.i.i, align 16, !tbaa !58
-  %21 = and i8 %20, 1
-  %.not59.i.i.i.i.i = icmp eq i8 %21, 0
-  br i1 %.not59.i.i.i.i.i, label %41, label %22
+  %20 = load i8, ptr %.0.ptr63.i.i.i.i.i, align 16, !tbaa !58
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %41
 
 22:                                               ; preds = %19
   %23 = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
   %.not43.i.i.i.i.i = icmp eq i32 %23, 0
-  %24 = load i64, ptr %.0.ptr65.i.i.i.i.i, align 16, !tbaa !58
+  %24 = load i64, ptr %.0.ptr63.i.i.i.i.i, align 16, !tbaa !58
   %25 = add nsw i64 %24, -1
   %.not.i48.i.i.i.i.i = icmp eq i64 %25, 0
   br i1 %.not43.i.i.i.i.i, label %29, label %26
@@ -12009,7 +12008,7 @@ _ZNK4absl12Notification15HasBeenNotifiedEv.exit.i.i.i.i.i: ; preds = %.loopexit.
   unreachable
 
 _ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit.i.i.i.i.i: ; preds = %30, %29, %27, %26
-  %36 = getelementptr inbounds nuw i8, ptr %.0.ptr65.i.i.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0.ptr63.i.i.i.i.i, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !58
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = atomicrmw sub ptr %38, i32 2 acq_rel, align 4
@@ -12021,7 +12020,7 @@ _ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit.i.i.i.i.i: ; preds
   br label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i.i.i.i.i
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i.i.i.i.i: ; preds = %40, %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit.i.i.i.i.i
-  store i8 0, ptr %.0.ptr65.i.i.i.i.i, align 16, !tbaa !58
+  store i8 0, ptr %.0.ptr63.i.i.i.i.i, align 16, !tbaa !58
   br label %.critedge.i.i.i.i.i
 
 41:                                               ; preds = %19
@@ -12122,30 +12121,30 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit53.i.i.i.i.i: ; preds = %70, %67
 
 78:                                               ; preds = %.sink.split.i.i.i.i.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i.i.i.i.i
   %.133.i.i.i.i.i = phi ptr [ %.032.i.i.i.i.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit.i.i.i.i.i ], [ %.133.ph.i.i.i.i.i, %.sink.split.i.i.i.i.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.0.ptr65.i.i.i.i.i, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.0.ptr63.i.i.i.i.i, i64 8
   store ptr %.133.i.i.i.i.i, ptr %79, align 8, !tbaa !58
-  store i64 1, ptr %.0.ptr65.i.i.i.i.i, align 16, !tbaa !58
+  store i64 1, ptr %.0.ptr63.i.i.i.i.i, align 16, !tbaa !58
   %80 = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
   %.not42.i.i.i.i.i = icmp eq i32 %80, 0
   br i1 %.not42.i.i.i.i.i, label %.critedge.i.i.i.i.i, label %81
 
 81:                                               ; preds = %78
-  call void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierEl(ptr noundef nonnull align 8 dereferenceable(16) %.0.ptr65.i.i.i.i.i, i32 noundef 0, i64 noundef 1)
+  call void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierEl(ptr noundef nonnull align 8 dereferenceable(16) %.0.ptr63.i.i.i.i.i, i32 noundef 0, i64 noundef 1)
   br label %.critedge.i.i.i.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %81, %78, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i.i.i.i.i, %.critedge.preheader.i.i.i.i.i
-  %.0.add.i.i.i.i.i = add nuw nsw i64 %.0.idx64.i.i.i.i.i, 16
+  %.0.add.i.i.i.i.i = add nuw nsw i64 %.0.idx62.i.i.i.i.i, 16
   %.not37.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i, 32
   br i1 %.not37.i.i.i.i.i, label %.loopexit.i.i.i.i.i, label %.critedge.preheader.i.i.i.i.i.backedge
 
 .critedge.preheader.i.i.i.i.i.backedge:           ; preds = %.critedge.i.i.i.i.i, %.loopexit.i.i.i.i.i
-  %.0.idx64.i.i.i.i.i.be = phi i64 [ %.0.add.i.i.i.i.i, %.critedge.i.i.i.i.i ], [ 0, %.loopexit.i.i.i.i.i ]
+  %.0.idx62.i.i.i.i.i.be = phi i64 [ %.0.add.i.i.i.i.i, %.critedge.i.i.i.i.i ], [ 0, %.loopexit.i.i.i.i.i ]
   br label %.critedge.preheader.i.i.i.i.i, !llvm.loop !451
 
 82:                                               ; preds = %76, %72
-  %.sink72.i.i.i.i.i = phi ptr [ %6, %72 ], [ %7, %76 ]
+  %.sink70.i.i.i.i.i = phi ptr [ %6, %72 ], [ %7, %76 ]
   %.pn44.i.i.i.i.i = phi { ptr, i32 } [ %73, %72 ], [ %77, %76 ]
-  call void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink72.i.i.i.i.i) #22
+  call void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink70.i.i.i.i.i) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -12153,15 +12152,14 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit53.i.i.i.i.i: ; preds = %70, %67
   resume { ptr, i32 } %.pn44.i.i.i.i.i
 
 83:                                               ; preds = %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i, %_ZNK4absl12Notification15HasBeenNotifiedEv.exit.i.i.i.i.i
-  %.029.idx66.i.i.i.i.i = phi i64 [ 0, %_ZNK4absl12Notification15HasBeenNotifiedEv.exit.i.i.i.i.i ], [ %.029.add.i.i.i.i.i, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i ]
-  %.029.ptr67.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.029.idx66.i.i.i.i.i
-  %84 = load i8, ptr %.029.ptr67.i.i.i.i.i, align 16, !tbaa !58
-  %85 = and i8 %84, 1
-  %.not60.i.i.i.i.i = icmp eq i8 %85, 0
-  br i1 %.not60.i.i.i.i.i, label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i, label %86
+  %.029.idx64.i.i.i.i.i = phi i64 [ 0, %_ZNK4absl12Notification15HasBeenNotifiedEv.exit.i.i.i.i.i ], [ %.029.add.i.i.i.i.i, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i ]
+  %.029.ptr65.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.029.idx64.i.i.i.i.i
+  %84 = load i8, ptr %.029.ptr65.i.i.i.i.i, align 16, !tbaa !58
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i
 
 86:                                               ; preds = %83
-  %87 = load i64, ptr %.029.ptr67.i.i.i.i.i, align 16, !tbaa !58
+  %87 = load i64, ptr %.029.ptr65.i.i.i.i.i, align 16, !tbaa !58
   %88 = add nsw i64 %87, -1
   %.not.i46.i.i.i.i.i = icmp eq i64 %88, 0
   br i1 %.not.i46.i.i.i.i.i, label %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit47.i.i.i.i.i, label %89, !prof !437
@@ -12172,7 +12170,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit53.i.i.i.i.i: ; preds = %70, %67
   br label %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit47.i.i.i.i.i
 
 _ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit47.i.i.i.i.i: ; preds = %89, %86
-  %91 = getelementptr inbounds nuw i8, ptr %.029.ptr67.i.i.i.i.i, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.029.ptr65.i.i.i.i.i, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !58
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = atomicrmw sub ptr %93, i32 2 acq_rel, align 4
@@ -12184,7 +12182,7 @@ _ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit47.i.i.i.i.i: ; pre
   br label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit55.i.i.i.i.i: ; preds = %95, %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit47.i.i.i.i.i, %83
-  %.029.add.i.i.i.i.i = add nuw nsw i64 %.029.idx66.i.i.i.i.i, 16
+  %.029.add.i.i.i.i.i = add nuw nsw i64 %.029.idx64.i.i.i.i.i, 16
   %.not.i.i.i.i.i = icmp eq i64 %.029.add.i.i.i.i.i, 32
   br i1 %.not.i.i.i.i.i, label %"_ZN4absl22internal_any_invocable7InvokeRIvRZNS_13cord_internal12_GLOBAL__N_141CordzInfoStatisticsTest_ThreadSafety_Test8TestBodyEvE3$_1JEEET_OT0_DpOT1_.exit", label %83
 

@@ -110,7 +110,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %51, label %.lr.ph.us, label %.lr.ph87.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph87, %._crit_edge.us
-  %.06186.us = phi i32 [ %66, %._crit_edge.us ], [ 0, %.lr.ph87 ]
+  %.06186.us = phi i32 [ %65, %._crit_edge.us ], [ 0, %.lr.ph87 ]
   %.185.us = phi ptr [ %.2.us, %._crit_edge.us ], [ %.06396, %.lr.ph87 ]
   %.16584.us = phi ptr [ %.3.us, %._crit_edge.us ], [ %.06495, %.lr.ph87 ]
   %.16883.us = phi ptr [ %.370.us113, %._crit_edge.us ], [ %.06794, %.lr.ph87 ]
@@ -140,30 +140,28 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
 ._crit_edge.us:                                   ; preds = %57, %.thread
   %62 = phi ptr [ %56, %.thread ], [ %60, %57 ]
   %.370.us113 = phi ptr [ %55, %.thread ], [ %59, %57 ]
-  %63 = and i32 %.06186.us, 1
-  %.not75.us = icmp ne i32 %63, 0
-  %64 = icmp eq i32 %.06186.us, %52
-  %or.cond.us = select i1 %.not75.us, i1 true, i1 %64
-  %65 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %.185.us, i64 %53
+  %.not75.us = trunc i32 %.06186.us to i1
+  %63 = icmp eq i32 %.06186.us, %52
+  %or.cond.us = select i1 %.not75.us, i1 true, i1 %63
+  %64 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %.185.us, i64 %53
   %.3.us = select i1 %or.cond.us, ptr %62, ptr %.185.us
-  %.2.us = select i1 %or.cond.us, ptr %62, ptr %65
-  %66 = add nuw nsw i32 %.06186.us, 1
-  %exitcond101.not = icmp eq i32 %66, %47
+  %.2.us = select i1 %or.cond.us, ptr %62, ptr %64
+  %65 = add nuw nsw i32 %.06186.us, 1
+  %exitcond101.not = icmp eq i32 %65, %47
   br i1 %exitcond101.not, label %._crit_edge88, label %.lr.ph.us, !llvm.loop !20
 
 .lr.ph87.split:                                   ; preds = %.lr.ph87, %.lr.ph87.split
-  %.06186 = phi i32 [ %70, %.lr.ph87.split ], [ 0, %.lr.ph87 ]
+  %.06186 = phi i32 [ %68, %.lr.ph87.split ], [ 0, %.lr.ph87 ]
   %.185 = phi ptr [ %.2, %.lr.ph87.split ], [ %.06396, %.lr.ph87 ]
   %.16584 = phi ptr [ %.3, %.lr.ph87.split ], [ %.06495, %.lr.ph87 ]
-  %67 = and i32 %.06186, 1
-  %.not75 = icmp ne i32 %67, 0
-  %68 = icmp eq i32 %.06186, %52
-  %or.cond = select i1 %.not75, i1 true, i1 %68
-  %69 = getelementptr inbounds %struct.opj_tgt_node, ptr %.185, i64 %53
+  %.not75 = trunc i32 %.06186 to i1
+  %66 = icmp eq i32 %.06186, %52
+  %or.cond = select i1 %.not75, i1 true, i1 %66
+  %67 = getelementptr inbounds %struct.opj_tgt_node, ptr %.185, i64 %53
   %.3 = select i1 %or.cond, ptr %.16584, ptr %.185
-  %.2 = select i1 %or.cond, ptr %.16584, ptr %69
-  %70 = add nuw nsw i32 %.06186, 1
-  %exitcond.not = icmp eq i32 %70, %47
+  %.2 = select i1 %or.cond, ptr %.16584, ptr %67
+  %68 = add nuw nsw i32 %.06186, 1
+  %exitcond.not = icmp eq i32 %68, %47
   br i1 %exitcond.not, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !20
 
 ._crit_edge88:                                    ; preds = %.lr.ph87.split, %._crit_edge.us, %.preheader
@@ -181,17 +179,17 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %.not12.i, label %opj_tgt_reset.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
-  %.011.i = phi ptr [ %74, %.lr.ph.i ], [ %33, %._crit_edge ]
-  %.0810.i = phi i32 [ %75, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %71 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  store i32 999, ptr %71, align 8, !tbaa !22
-  %72 = getelementptr inbounds nuw i8, ptr %.011.i, i64 12
-  store i32 0, ptr %72, align 4, !tbaa !23
-  %73 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
-  store i32 0, ptr %73, align 8, !tbaa !24
-  %74 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
-  %75 = add nuw i32 %.0810.i, 1
-  %exitcond.not.i = icmp eq i32 %75, %38
+  %.011.i = phi ptr [ %72, %.lr.ph.i ], [ %33, %._crit_edge ]
+  %.0810.i = phi i32 [ %73, %.lr.ph.i ], [ 0, %._crit_edge ]
+  %69 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
+  store i32 999, ptr %69, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw i8, ptr %.011.i, i64 12
+  store i32 0, ptr %70, align 4, !tbaa !23
+  %71 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
+  store i32 0, ptr %71, align 8, !tbaa !24
+  %72 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
+  %73 = add nuw i32 %.0810.i, 1
+  %exitcond.not.i = icmp eq i32 %73, %38
   br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !25
 
 opj_tgt_reset.exit:                               ; preds = %.lr.ph.i, %._crit_edge, %35, %30, %7
@@ -259,7 +257,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %.not92 = icmp eq i32 %11, %2
-  br i1 %.not92, label %90, label %12
+  br i1 %.not92, label %88, label %12
 
 12:                                               ; preds = %9, %7
   store i32 %1, ptr %0, align 8, !tbaa !3
@@ -381,7 +379,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.us:                                        ; preds = %.lr.ph110, %._crit_edge.us
   %.174109.us = phi ptr [ %.3.us141, %._crit_edge.us ], [ %.073120, %.lr.ph110 ]
   %.176108.us = phi ptr [ %.378.us, %._crit_edge.us ], [ %.075119, %.lr.ph110 ]
-  %.081107.us = phi i32 [ %85, %._crit_edge.us ], [ 0, %.lr.ph110 ]
+  %.081107.us = phi i32 [ %84, %._crit_edge.us ], [ 0, %.lr.ph110 ]
   %.184106.us = phi ptr [ %.285.us, %._crit_edge.us ], [ %.083117, %.lr.ph110 ]
   br label %73
 
@@ -409,30 +407,28 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 ._crit_edge.us:                                   ; preds = %76, %.thread139
   %81 = phi ptr [ %75, %.thread139 ], [ %79, %76 ]
   %.3.us141 = phi ptr [ %74, %.thread139 ], [ %78, %76 ]
-  %82 = and i32 %.081107.us, 1
-  %.not94.us = icmp ne i32 %82, 0
-  %83 = icmp eq i32 %.081107.us, %71
-  %or.cond.us = select i1 %.not94.us, i1 true, i1 %83
-  %84 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %.184106.us, i64 %72
-  %.285.us = select i1 %or.cond.us, ptr %81, ptr %84
+  %.not94.us = trunc i32 %.081107.us to i1
+  %82 = icmp eq i32 %.081107.us, %71
+  %or.cond.us = select i1 %.not94.us, i1 true, i1 %82
+  %83 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %.184106.us, i64 %72
+  %.285.us = select i1 %or.cond.us, ptr %81, ptr %83
   %.378.us = select i1 %or.cond.us, ptr %81, ptr %.184106.us
-  %85 = add nuw nsw i32 %.081107.us, 1
-  %exitcond124.not = icmp eq i32 %85, %66
+  %84 = add nuw nsw i32 %.081107.us, 1
+  %exitcond124.not = icmp eq i32 %84, %66
   br i1 %exitcond124.not, label %._crit_edge111, label %.lr.ph.us, !llvm.loop !28
 
 .lr.ph110.split:                                  ; preds = %.lr.ph110, %.lr.ph110.split
   %.176108 = phi ptr [ %.378, %.lr.ph110.split ], [ %.075119, %.lr.ph110 ]
-  %.081107 = phi i32 [ %89, %.lr.ph110.split ], [ 0, %.lr.ph110 ]
+  %.081107 = phi i32 [ %87, %.lr.ph110.split ], [ 0, %.lr.ph110 ]
   %.184106 = phi ptr [ %.285, %.lr.ph110.split ], [ %.083117, %.lr.ph110 ]
-  %86 = and i32 %.081107, 1
-  %.not94 = icmp ne i32 %86, 0
-  %87 = icmp eq i32 %.081107, %71
-  %or.cond = select i1 %.not94, i1 true, i1 %87
-  %88 = getelementptr inbounds %struct.opj_tgt_node, ptr %.184106, i64 %72
-  %.285 = select i1 %or.cond, ptr %.176108, ptr %88
+  %.not94 = trunc i32 %.081107 to i1
+  %85 = icmp eq i32 %.081107, %71
+  %or.cond = select i1 %.not94, i1 true, i1 %85
+  %86 = getelementptr inbounds %struct.opj_tgt_node, ptr %.184106, i64 %72
+  %.285 = select i1 %or.cond, ptr %.176108, ptr %86
   %.378 = select i1 %or.cond, ptr %.176108, ptr %.184106
-  %89 = add nuw nsw i32 %.081107, 1
-  %exitcond.not = icmp eq i32 %89, %66
+  %87 = add nuw nsw i32 %.081107, 1
+  %exitcond.not = icmp eq i32 %87, %66
   br i1 %exitcond.not, label %._crit_edge111, label %.lr.ph110.split, !llvm.loop !28
 
 ._crit_edge111:                                   ; preds = %.lr.ph110.split, %._crit_edge.us, %.preheader
@@ -446,39 +442,39 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 ._crit_edge:                                      ; preds = %._crit_edge111, %57
   %.073.lcssa = phi ptr [ %61, %57 ], [ %.174.lcssa, %._crit_edge111 ]
   store ptr null, ptr %.073.lcssa, align 8, !tbaa !17
-  br label %90
+  br label %88
 
-90:                                               ; preds = %9, %._crit_edge
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !14
-  %.not12.i = icmp eq i32 %92, 0
+88:                                               ; preds = %9, %._crit_edge
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !14
+  %.not12.i = icmp eq i32 %90, 0
   br i1 %.not12.i, label %opj_tgt_reset.exit, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !15
+.lr.ph.preheader.i:                               ; preds = %88
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %92 = load ptr, ptr %91, align 8, !tbaa !15
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.011.i = phi ptr [ %98, %.lr.ph.i ], [ %94, %.lr.ph.preheader.i ]
-  %.0810.i = phi i32 [ %99, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %95 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  store i32 999, ptr %95, align 8, !tbaa !22
-  %96 = getelementptr inbounds nuw i8, ptr %.011.i, i64 12
-  store i32 0, ptr %96, align 4, !tbaa !23
-  %97 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
-  store i32 0, ptr %97, align 8, !tbaa !24
-  %98 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
-  %99 = add nuw i32 %.0810.i, 1
-  %exitcond.not.i = icmp eq i32 %99, %92
+  %.011.i = phi ptr [ %96, %.lr.ph.i ], [ %92, %.lr.ph.preheader.i ]
+  %.0810.i = phi i32 [ %97, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %93 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
+  store i32 999, ptr %93, align 8, !tbaa !22
+  %94 = getelementptr inbounds nuw i8, ptr %.011.i, i64 12
+  store i32 0, ptr %94, align 4, !tbaa !23
+  %95 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
+  store i32 0, ptr %95, align 8, !tbaa !24
+  %96 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
+  %97 = add nuw i32 %.0810.i, 1
+  %exitcond.not.i = icmp eq i32 %97, %90
   br i1 %exitcond.not.i, label %opj_tgt_reset.exit, label %.lr.ph.i, !llvm.loop !25
 
 opj_tgt_reset.exit.sink.split:                    ; preds = %47, %50, %36, %33
   tail call void @opj_free(ptr noundef nonnull %0) #6
   br label %opj_tgt_reset.exit
 
-opj_tgt_reset.exit:                               ; preds = %.lr.ph.i, %opj_tgt_reset.exit.sink.split, %90, %4
-  %.0 = phi ptr [ %0, %90 ], [ null, %4 ], [ null, %opj_tgt_reset.exit.sink.split ], [ %0, %.lr.ph.i ]
+opj_tgt_reset.exit:                               ; preds = %.lr.ph.i, %opj_tgt_reset.exit.sink.split, %88, %4
+  %.0 = phi ptr [ %0, %88 ], [ null, %4 ], [ null, %opj_tgt_reset.exit.sink.split ], [ %0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0

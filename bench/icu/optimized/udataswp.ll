@@ -432,12 +432,12 @@ declare i32 @uprv_compareInvEbcdic_77(ptr noundef, ptr noundef, i32 noundef, ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray16PK12UDataSwapperPKviPvP10UErrorCode(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(address_is_null) %4) #8 {
   %6 = icmp eq ptr %4, null
-  br i1 %6, label %23, label %7
+  br i1 %6, label %21, label %7
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %4, align 4, !tbaa !9
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %23
+  br i1 %9, label %10, label %21
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %0, null
@@ -445,32 +445,29 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_copyArray16PK12
   %or.cond = or i1 %11, %12
   %13 = icmp slt i32 %2, 0
   %or.cond3 = or i1 %or.cond, %13
-  br i1 %or.cond3, label %18, label %14
+  %14 = trunc i32 %2 to i1
+  %15 = icmp eq ptr %3, null
+  %or.cond5 = or i1 %15, %14
+  %or.cond26 = or i1 %or.cond3, %or.cond5
+  br i1 %or.cond26, label %16, label %17
 
-14:                                               ; preds = %10
-  %15 = and i32 %2, 1
-  %16 = icmp ne i32 %15, 0
-  %17 = icmp eq ptr %3, null
-  %or.cond5 = or i1 %16, %17
-  br i1 %or.cond5, label %18, label %19
-
-18:                                               ; preds = %14, %10
+16:                                               ; preds = %10
   store i32 1, ptr %4, align 4, !tbaa !9
-  br label %23
+  br label %21
 
-19:                                               ; preds = %14
-  %20 = icmp eq i32 %2, 0
+17:                                               ; preds = %10
+  %18 = icmp eq i32 %2, 0
   %.not24 = icmp eq ptr %1, %3
-  %or.cond25 = or i1 %20, %.not24
-  br i1 %or.cond25, label %23, label %21
+  %or.cond27 = or i1 %18, %.not24
+  br i1 %or.cond27, label %21, label %19
 
-21:                                               ; preds = %19
-  %22 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %1, i64 %22, i1 false)
-  br label %23
+19:                                               ; preds = %17
+  %20 = zext nneg i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %1, i64 %20, i1 false)
+  br label %21
 
-23:                                               ; preds = %19, %21, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ %2, %21 ], [ %2, %19 ]
+21:                                               ; preds = %17, %19, %5, %7, %16
+  %.0 = phi i32 [ 0, %5 ], [ 0, %16 ], [ 0, %7 ], [ %2, %19 ], [ %2, %17 ]
   ret i32 %.0
 }
 
@@ -580,42 +577,39 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray16PK12
   %or.cond = or i1 %11, %12
   %13 = icmp slt i32 %2, 0
   %or.cond3 = or i1 %or.cond, %13
-  br i1 %or.cond3, label %18, label %14
+  %14 = trunc i32 %2 to i1
+  %15 = icmp eq ptr %3, null
+  %or.cond5 = or i1 %15, %14
+  %or.cond31 = or i1 %or.cond3, %or.cond5
+  br i1 %or.cond31, label %16, label %17
 
-14:                                               ; preds = %10
-  %15 = and i32 %2, 1
-  %16 = icmp ne i32 %15, 0
-  %17 = icmp eq ptr %3, null
-  %or.cond5 = or i1 %16, %17
-  br i1 %or.cond5, label %18, label %19
-
-18:                                               ; preds = %14, %10
+16:                                               ; preds = %10
   store i32 1, ptr %4, align 4, !tbaa !9
   br label %.loopexit
 
-19:                                               ; preds = %14
+17:                                               ; preds = %10
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %19
-  %20 = lshr exact i32 %2, 1
+.lr.ph.preheader:                                 ; preds = %17
+  %18 = lshr exact i32 %2, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02332 = phi i32 [ %25, %.lr.ph ], [ %20, %.lr.ph.preheader ]
-  %.02431 = phi ptr [ %24, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.02530 = phi ptr [ %21, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %21 = getelementptr inbounds nuw i8, ptr %.02530, i64 2
-  %22 = load i16, ptr %.02530, align 2, !tbaa !39
-  %23 = tail call i16 @llvm.bswap.i16(i16 %22)
-  %24 = getelementptr inbounds nuw i8, ptr %.02431, i64 2
-  store i16 %23, ptr %.02431, align 2, !tbaa !39
-  %25 = add nsw i32 %.02332, -1
-  %26 = icmp samesign ugt i32 %.02332, 1
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  %.02334 = phi i32 [ %23, %.lr.ph ], [ %18, %.lr.ph.preheader ]
+  %.02433 = phi ptr [ %22, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.02532 = phi ptr [ %19, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.02532, i64 2
+  %20 = load i16, ptr %.02532, align 2, !tbaa !39
+  %21 = tail call i16 @llvm.bswap.i16(i16 %20)
+  %22 = getelementptr inbounds nuw i8, ptr %.02433, i64 2
+  store i16 %21, ptr %.02433, align 2, !tbaa !39
+  %23 = add nsw i32 %.02334, -1
+  %24 = icmp samesign ugt i32 %.02334, 1
+  br i1 %24, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
-.loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
-  %.0 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %7 ], [ 0, %19 ], [ %2, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %17, %5, %7, %16
+  %.0 = phi i32 [ 0, %5 ], [ 0, %16 ], [ 0, %7 ], [ 0, %17 ], [ %2, %.lr.ph ]
   ret i32 %.0
 }
 

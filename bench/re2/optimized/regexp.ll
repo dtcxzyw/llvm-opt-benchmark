@@ -3196,8 +3196,8 @@ cond.end57:                                       ; preds = %cond.end.thread, %c
   %cond58 = phi i32 [ %23, %cond.false56 ], [ 1, %cond.end.thread ]
   tail call void @_ZN3re219ConvertRunesToBytesEbPiiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %cmp48, ptr noundef %cond44, i32 noundef %cond58, ptr noundef nonnull %prefix)
   %24 = load i16, ptr %parse_flags_.i36, align 2
-  %25 = trunc i16 %24 to i8
-  %frombool62 = and i8 %25, 1
+  %cmp61 = trunc i16 %24 to i8
+  %frombool62 = and i8 %cmp61, 1
   store i8 %frombool62, ptr %foldcase, align 1
   br label %return
 
@@ -3297,8 +3297,8 @@ cond.end42:                                       ; preds = %cond.end35.thread, 
   %cond43 = phi i32 [ %17, %cond.false41 ], [ 1, %cond.end35.thread ]
   tail call void @_ZN3re219ConvertRunesToBytesEbPiiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %cmp29, ptr noundef %cond3626, i32 noundef %cond43, ptr noundef nonnull %prefix)
   %18 = load i16, ptr %parse_flags_.i, align 2
-  %19 = trunc i16 %18 to i8
-  %frombool47 = and i8 %19, 1
+  %cmp46 = trunc i16 %18 to i8
+  %frombool47 = and i8 %cmp46, 1
   store i8 %frombool47, ptr %foldcase, align 1
   br label %return
 

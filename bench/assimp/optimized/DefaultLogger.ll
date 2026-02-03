@@ -405,29 +405,28 @@ define noundef ptr @_ZN6Assimp13DefaultLogger6createEPKcNS_6Logger11LogSeverityE
   br label %42
 
 42:                                               ; preds = %34, %32
-  %43 = and i32 %2, 1
-  %44 = icmp ne i32 %43, 0
-  %45 = icmp ne ptr %0, null
-  %or.cond = and i1 %45, %44
-  br i1 %or.cond, label %46, label %55
+  %43 = trunc i32 %2 to i1
+  %44 = icmp ne ptr %0, null
+  %or.cond = and i1 %44, %43
+  br i1 %or.cond, label %45, label %54
 
-46:                                               ; preds = %42
-  %47 = load i8, ptr %0, align 1
-  %.not15 = icmp eq i8 %47, 0
-  br i1 %.not15, label %55, label %48
+45:                                               ; preds = %42
+  %46 = load i8, ptr %0, align 1
+  %.not15 = icmp eq i8 %46, 0
+  br i1 %.not15, label %54, label %47
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
-  %50 = tail call noundef ptr @_ZN6Assimp9LogStream19createDefaultStreamE18aiDefaultLogStreamPKcPNS_8IOSystemE(i32 noundef 1, ptr noundef nonnull %0, ptr noundef %3)
-  %51 = load ptr, ptr %49, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef %50, i32 noundef 15)
-  br label %55
+47:                                               ; preds = %45
+  %48 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
+  %49 = tail call noundef ptr @_ZN6Assimp9LogStream19createDefaultStreamE18aiDefaultLogStreamPKcPNS_8IOSystemE(i32 noundef 1, ptr noundef nonnull %0, ptr noundef %3)
+  %50 = load ptr, ptr %48, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(12) %48, ptr noundef %49, i32 noundef 15)
+  br label %54
 
-55:                                               ; preds = %48, %46, %42
-  %56 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
-  ret ptr %56
+54:                                               ; preds = %47, %45, %42
+  %55 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
+  ret ptr %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

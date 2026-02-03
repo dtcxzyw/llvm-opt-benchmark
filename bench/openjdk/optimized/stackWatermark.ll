@@ -858,9 +858,8 @@ define hidden noundef zeroext i1 @_ZN14StackWatermark13is_frame_safeERK5frame(pt
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %2
-  %11 = and i32 %4, 1
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %20
+  %11 = trunc i32 %4 to i1
+  br i1 %11, label %20, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %1, align 8
@@ -1108,9 +1107,8 @@ define hidden void @_ZN14StackWatermark11process_oneEv(ptr noundef nonnull align
 
 14:                                               ; preds = %1
   %15 = load volatile i32, ptr %3, align 8
-  %16 = and i32 %15, 1
-  %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %_ZN11MutexLockerD2Ev.exit
+  %16 = trunc i32 %15 to i1
+  br i1 %16, label %_ZN11MutexLockerD2Ev.exit, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1186,9 +1184,8 @@ define hidden noundef zeroext i1 @_ZNK14StackWatermark18processing_startedEv(ptr
 define hidden noundef zeroext i1 @_ZNK14StackWatermark20processing_completedEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i32, ptr %2, align 8
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1232,9 +1229,8 @@ define hidden noundef i64 @_ZN14StackWatermark14last_processedEv(ptr noundef non
 
 10:                                               ; preds = %1
   %11 = load volatile i32, ptr %3, align 8
-  %12 = and i32 %11, 1
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %_ZN11MutexLockerD2Ev.exit
+  %12 = trunc i32 %11 to i1
+  br i1 %12, label %_ZN11MutexLockerD2Ev.exit, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1276,9 +1272,8 @@ define hidden noundef zeroext i1 @_ZNK14StackWatermark28processing_completed_acq
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1329,9 +1324,8 @@ define hidden void @_ZN14StackWatermark17finish_processingEPv(ptr noundef nonnul
 
 15:                                               ; preds = %11, %2
   %16 = load volatile i32, ptr %4, align 8
-  %17 = and i32 %16, 1
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %_ZN11MutexLockerD2Ev.exit
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %_ZN11MutexLockerD2Ev.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40

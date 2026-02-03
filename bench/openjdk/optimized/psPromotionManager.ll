@@ -1032,18 +1032,18 @@ define hidden void @_ZN18PSPromotionManager18drain_stacks_depthEb(ptr noundef no
   %.pre = load ptr, ptr %6, align 8
   br label %19
 
-19:                                               ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109, %2
-  %20 = phi ptr [ %520, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109 ], [ %.pre, %2 ]
-  %.not121 = icmp eq ptr %20, null
-  br i1 %.not121, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, label %.lr.ph
+19:                                               ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108, %2
+  %20 = phi ptr [ %520, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108 ], [ %.pre, %2 ]
+  %.not120 = icmp eq ptr %20, null
+  br i1 %.not120, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, label %.lr.ph
 
 _ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader: ; preds = %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit, %19
   %21 = load volatile i32, ptr %14, align 8
   %22 = load volatile i32, ptr %15, align 8
   %23 = sub i32 %21, %22
   %24 = and i32 %23, 131071
-  %.not.i8122 = icmp ugt i32 %24, %5
-  br i1 %.not.i8122, label %.lr.ph123, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109
+  %.not.i8121 = icmp ugt i32 %24, %5
+  br i1 %.not.i8121, label %.lr.ph122, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108
 
 .lr.ph:                                           ; preds = %19, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit
   %25 = phi ptr [ %284, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit ], [ %20, %19 ]
@@ -1098,8 +1098,8 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i.i: ; preds = %42, %38
   %53 = load volatile i32, ptr %15, align 8
   %54 = sub i32 %52, %53
   %55 = and i32 %54, 131070
-  %.not115 = icmp eq i32 %55, 131070
-  br i1 %.not115, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.thread
+  %.not114 = icmp eq i32 %55, 131070
+  br i1 %.not114, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.thread
 
 _ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.thread: ; preds = %51
   %56 = load ptr, ptr %16, align 8
@@ -1220,13 +1220,13 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i: ; preds = %_ZN5StackI1
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i
 
 _ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i: ; preds = %112, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i
-  %.0.i24 = phi i32 [ 0, %112 ], [ %76, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i ], [ %76, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i ]
+  %.0.i23 = phi i32 [ 0, %112 ], [ %76, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i ], [ %76, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i ]
   %116 = load i8, ptr @UseCompressedOops, align 1
   %117 = trunc i8 %116 to i1
   %118 = load i8, ptr @UseCompressedClassPointers, align 1
   %119 = trunc i8 %118 to i1
   %120 = sext i32 %71 to i64
-  %121 = icmp slt i32 %.0.i24, %71
+  %121 = icmp slt i32 %.0.i23, %71
   br i1 %117, label %122, label %178
 
 122:                                              ; preds = %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i
@@ -1237,7 +1237,7 @@ _ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i: ; preds = %112, %_ZN5S
   br i1 %121, label %.lr.ph.preheader.i.i, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %122
-  %127 = sext i32 %.0.i24 to i64
+  %127 = sext i32 %.0.i23 to i64
   %128 = getelementptr inbounds i32, ptr %125, i64 %127
   br label %.lr.ph.i.i
 
@@ -1246,8 +1246,8 @@ _ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i: ; preds = %112, %_ZN5S
   %129 = load i32, ptr %.09.i.i, align 4
   %130 = zext i32 %129 to i64
   %131 = load i64, ptr @_ZN10PSScavenge37_young_generation_boundary_compressedE, align 8
-  %.not.i48 = icmp ugt i64 %131, %130
-  br i1 %.not.i48, label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, label %132
+  %.not.i47 = icmp ugt i64 %131, %130
+  br i1 %.not.i47, label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit, label %132
 
 132:                                              ; preds = %.lr.ph.i.i
   %133 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -1263,10 +1263,10 @@ _ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i: ; preds = %112, %_ZN5S
   %142 = load volatile i32, ptr %15, align 8
   %143 = sub i32 %141, %142
   %144 = and i32 %143, 131070
-  %.not.i.i.i49 = icmp eq i32 %144, 131070
-  br i1 %.not.i.i.i49, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i52, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i50
+  %.not.i.i.i48 = icmp eq i32 %144, 131070
+  br i1 %.not.i.i.i48, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i51, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i49
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i50: ; preds = %132
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i49: ; preds = %132
   %145 = load ptr, ptr %16, align 8
   %146 = zext i32 %141 to i64
   %147 = getelementptr inbounds nuw %class.ScannerTask, ptr %145, i64 %146
@@ -1277,20 +1277,20 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   store volatile i32 %149, ptr %14, align 8
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i52: ; preds = %132
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i51: ; preds = %132
   %150 = load i64, ptr %8, align 8
   %151 = load i64, ptr %9, align 8
   %152 = icmp eq i64 %150, %151
-  br i1 %152, label %153, label %._crit_edge.i.i.i.i53
+  br i1 %152, label %153, label %._crit_edge.i.i.i.i52
 
-._crit_edge.i.i.i.i53:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i52
-  %.pre.i.i.i.i55 = load ptr, ptr %6, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i56
+._crit_edge.i.i.i.i52:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i51
+  %.pre.i.i.i.i54 = load ptr, ptr %6, align 8
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i55
 
-153:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i52
+153:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i51
   %154 = load i64, ptr %10, align 8
-  %.not.i.i.i.i.i58 = icmp eq i64 %154, 0
-  br i1 %.not.i.i.i.i.i58, label %161, label %155
+  %.not.i.i.i.i.i57 = icmp eq i64 %154, 0
+  br i1 %.not.i.i.i.i.i57, label %161, label %155
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr %12, align 8
@@ -1300,7 +1300,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i52:
   store ptr %159, ptr %12, align 8
   %160 = add i64 %154, -1
   store i64 %160, ptr %10, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i59
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i58
 
 161:                                              ; preds = %153
   %162 = shl i64 %150, 3
@@ -1308,35 +1308,35 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i52:
   %164 = load ptr, ptr %7, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = tail call noundef ptr %165(ptr noundef nonnull align 8 dereferenceable(72) %7, i64 noundef %163) #12
-  %.pre.i.i.i.i.i63 = load i64, ptr %9, align 8
-  %.pre2.i.i.i.i.i64 = shl i64 %.pre.i.i.i.i.i63, 3
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i59
+  %.pre.i.i.i.i.i62 = load i64, ptr %9, align 8
+  %.pre2.i.i.i.i.i63 = shl i64 %.pre.i.i.i.i.i62, 3
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i58
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i59: ; preds = %161, %155
-  %.pre-phi.i.i.i.i.i60 = phi i64 [ %.pre2.i.i.i.i.i64, %161 ], [ %157, %155 ]
-  %.0.i.i.i.i.i61 = phi ptr [ %166, %161 ], [ %156, %155 ]
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i58: ; preds = %161, %155
+  %.pre-phi.i.i.i.i.i59 = phi i64 [ %.pre2.i.i.i.i.i63, %161 ], [ %157, %155 ]
+  %.0.i.i.i.i.i60 = phi ptr [ %166, %161 ], [ %156, %155 ]
   %167 = load ptr, ptr %6, align 8
   %168 = icmp eq ptr %167, null
-  %169 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i61, i64 %.pre-phi.i.i.i.i.i60
+  %169 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i60, i64 %.pre-phi.i.i.i.i.i59
   store ptr %167, ptr %169, align 8
-  store ptr %.0.i.i.i.i.i61, ptr %6, align 8
+  store ptr %.0.i.i.i.i.i60, ptr %6, align 8
   %170 = load i64, ptr %9, align 8
-  %spec.select.i.i.i.i.i62 = select i1 %168, i64 0, i64 %170
+  %spec.select.i.i.i.i.i61 = select i1 %168, i64 0, i64 %170
   %171 = load i64, ptr %13, align 8
-  %172 = add i64 %171, %spec.select.i.i.i.i.i62
+  %172 = add i64 %171, %spec.select.i.i.i.i.i61
   store i64 %172, ptr %13, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i56
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i55
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i56: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i59, %._crit_edge.i.i.i.i53
-  %173 = phi ptr [ %.0.i.i.i.i.i61, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i59 ], [ %.pre.i.i.i.i55, %._crit_edge.i.i.i.i53 ]
-  %.0.i.i.i.i57 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i59 ], [ %150, %._crit_edge.i.i.i.i53 ]
-  %174 = getelementptr inbounds %class.ScannerTask, ptr %173, i64 %.0.i.i.i.i57
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i55: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i58, %._crit_edge.i.i.i.i52
+  %173 = phi ptr [ %.0.i.i.i.i.i60, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i58 ], [ %.pre.i.i.i.i54, %._crit_edge.i.i.i.i52 ]
+  %.0.i.i.i.i56 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i58 ], [ %150, %._crit_edge.i.i.i.i52 ]
+  %174 = getelementptr inbounds %class.ScannerTask, ptr %173, i64 %.0.i.i.i.i56
   store ptr %140, ptr %174, align 8
-  %175 = add i64 %.0.i.i.i.i57, 1
+  %175 = add i64 %.0.i.i.i.i56, 1
   store i64 %175, ptr %8, align 8
   br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit
 
-_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i50, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i56
+_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds = %.lr.ph.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i49, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i55
   %176 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 4
   %177 = icmp ult ptr %176, %126
   br i1 %177, label %.lr.ph.i.i, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit, !llvm.loop !15
@@ -1349,7 +1349,7 @@ _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit: ; preds =
   br i1 %121, label %.lr.ph.i, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit
 
 .lr.ph.i:                                         ; preds = %178
-  %183 = sext i32 %.0.i24 to i64
+  %183 = sext i32 %.0.i23 to i64
   %184 = getelementptr inbounds ptr, ptr %181, i64 %183
   br label %185
 
@@ -1387,7 +1387,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i:
   br i1 %200, label %201, label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i
-  %.pre.i.i.i.i.i46 = load ptr, ptr %6, align 8
+  %.pre.i.i.i.i.i45 = load ptr, ptr %6, align 8
   br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i
 
 201:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i
@@ -1431,11 +1431,11 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i: ; preds = %
   br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i
 
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  %221 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i46, %._crit_edge.i.i.i.i.i ]
-  %.0.i.i.i.i.i47 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i ], [ %198, %._crit_edge.i.i.i.i.i ]
-  %222 = getelementptr inbounds %class.ScannerTask, ptr %221, i64 %.0.i.i.i.i.i47
+  %221 = phi ptr [ %.0.i.i.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i45, %._crit_edge.i.i.i.i.i ]
+  %.0.i.i.i.i.i46 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i ], [ %198, %._crit_edge.i.i.i.i.i ]
+  %222 = getelementptr inbounds %class.ScannerTask, ptr %221, i64 %.0.i.i.i.i.i46
   store ptr %.09.i, ptr %222, align 8
-  %223 = add i64 %.0.i.i.i.i.i47, 1
+  %223 = add i64 %.0.i.i.i.i.i46, 1
   store i64 %223, ptr %8, align 8
   br label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i
 
@@ -1445,9 +1445,8 @@ _ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i: ; preds 
   br i1 %225, label %185, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit, !llvm.loop !16
 
 226:                                              ; preds = %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit
-  %227 = and i64 %61, 1
-  %.not8.i = icmp eq i64 %227, 0
-  br i1 %.not8.i, label %263, label %228
+  %227 = trunc i64 %61 to i1
+  br i1 %227, label %228, label %263
 
 228:                                              ; preds = %226
   %229 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i, i64 -1
@@ -1546,8 +1545,8 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit: ; pre
   %.not = icmp eq ptr %284, null
   br i1 %.not, label %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, label %.lr.ph, !llvm.loop !17
 
-.lr.ph123:                                        ; preds = %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
-  %285 = phi i32 [ %516, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23 ], [ %21, %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader ]
+.lr.ph122:                                        ; preds = %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22
+  %285 = phi i32 [ %516, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22 ], [ %21, %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader ]
   %286 = add i32 %285, 131071
   %287 = and i32 %286, 131071
   store volatile i32 %287, ptr %14, align 8
@@ -1565,7 +1564,7 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit: ; pre
   %switch.i = icmp ult i32 %.off.i, 131070
   br i1 %switch.i, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread, label %296
 
-296:                                              ; preds = %.lr.ph123
+296:                                              ; preds = %.lr.ph122
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   %297 = load volatile i64, ptr %15, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %297 to i32
@@ -1578,18 +1577,18 @@ _ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit: ; pre
 300:                                              ; preds = %296
   %301 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.08.0.insert.insert11.i.i, i64 %297, ptr nonnull %15) #12, !srcloc !19
   %302 = icmp eq i64 %301, %297
-  br i1 %302, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread112, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
+  br i1 %302, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread111, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread112: ; preds = %300
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread111: ; preds = %300
   %303 = load volatile i32, ptr %15, align 8
   br label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread
 
 _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit: ; preds = %296, %300
   store volatile i64 %.sroa.08.0.insert.insert11.i.i, ptr %15, align 8
   %304 = load volatile i32, ptr %15, align 8
-  br label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109
+  br label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread: ; preds = %.lr.ph123, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread112
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread: ; preds = %.lr.ph122, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread111
   %305 = and i64 %291, 2
   %.not.i9 = icmp eq i64 %305, 0
   br i1 %.not.i9, label %469, label %306
@@ -1615,10 +1614,10 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.t
   %321 = load volatile i32, ptr %15, align 8
   %322 = sub i32 %320, %321
   %323 = and i32 %322, 131070
-  %.not.i.i.i30 = icmp eq i32 %323, 131070
-  br i1 %.not.i.i.i30, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i32, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i31
+  %.not.i.i.i29 = icmp eq i32 %323, 131070
+  br i1 %.not.i.i.i29, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i31, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i30
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i31: ; preds = %317
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i30: ; preds = %317
   %324 = load ptr, ptr %16, align 8
   %325 = zext i32 %320 to i64
   %326 = getelementptr inbounds nuw %class.ScannerTask, ptr %324, i64 %325
@@ -1627,22 +1626,22 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %328 = and i32 %327, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   store volatile i32 %328, ptr %14, align 8
-  br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25
+  br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i24
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i32: ; preds = %317
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i31: ; preds = %317
   %329 = load i64, ptr %8, align 8
   %330 = load i64, ptr %9, align 8
   %331 = icmp eq i64 %329, %330
-  br i1 %331, label %332, label %._crit_edge.i.i.i.i33
+  br i1 %331, label %332, label %._crit_edge.i.i.i.i32
 
-._crit_edge.i.i.i.i33:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i32
-  %.pre.i.i.i.i35 = load ptr, ptr %6, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i36
+._crit_edge.i.i.i.i32:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i31
+  %.pre.i.i.i.i34 = load ptr, ptr %6, align 8
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i35
 
-332:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i32
+332:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i31
   %333 = load i64, ptr %10, align 8
-  %.not.i.i.i.i.i38 = icmp eq i64 %333, 0
-  br i1 %.not.i.i.i.i.i38, label %340, label %334
+  %.not.i.i.i.i.i37 = icmp eq i64 %333, 0
+  br i1 %.not.i.i.i.i.i37, label %340, label %334
 
 334:                                              ; preds = %332
   %335 = load ptr, ptr %12, align 8
@@ -1652,7 +1651,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i32:
   store ptr %338, ptr %12, align 8
   %339 = add i64 %333, -1
   store i64 %339, ptr %10, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i39
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i38
 
 340:                                              ; preds = %332
   %341 = shl i64 %329, 3
@@ -1660,72 +1659,72 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i32:
   %343 = load ptr, ptr %7, align 8
   %344 = load ptr, ptr %343, align 8
   %345 = tail call noundef ptr %344(ptr noundef nonnull align 8 dereferenceable(72) %7, i64 noundef %342) #12
-  %.pre.i.i.i.i.i43 = load i64, ptr %9, align 8
-  %.pre2.i.i.i.i.i44 = shl i64 %.pre.i.i.i.i.i43, 3
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i39
+  %.pre.i.i.i.i.i42 = load i64, ptr %9, align 8
+  %.pre2.i.i.i.i.i43 = shl i64 %.pre.i.i.i.i.i42, 3
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i38
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i39: ; preds = %340, %334
-  %.pre-phi.i.i.i.i.i40 = phi i64 [ %.pre2.i.i.i.i.i44, %340 ], [ %336, %334 ]
-  %.0.i.i.i.i.i41 = phi ptr [ %345, %340 ], [ %335, %334 ]
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i38: ; preds = %340, %334
+  %.pre-phi.i.i.i.i.i39 = phi i64 [ %.pre2.i.i.i.i.i43, %340 ], [ %336, %334 ]
+  %.0.i.i.i.i.i40 = phi ptr [ %345, %340 ], [ %335, %334 ]
   %346 = load ptr, ptr %6, align 8
   %347 = icmp eq ptr %346, null
-  %348 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i41, i64 %.pre-phi.i.i.i.i.i40
+  %348 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i40, i64 %.pre-phi.i.i.i.i.i39
   store ptr %346, ptr %348, align 8
-  store ptr %.0.i.i.i.i.i41, ptr %6, align 8
+  store ptr %.0.i.i.i.i.i40, ptr %6, align 8
   %349 = load i64, ptr %9, align 8
-  %spec.select.i.i.i.i.i42 = select i1 %347, i64 0, i64 %349
+  %spec.select.i.i.i.i.i41 = select i1 %347, i64 0, i64 %349
   %350 = load i64, ptr %13, align 8
-  %351 = add i64 %350, %spec.select.i.i.i.i.i42
+  %351 = add i64 %350, %spec.select.i.i.i.i.i41
   store i64 %351, ptr %13, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i36
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i35
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i36: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i39, %._crit_edge.i.i.i.i33
-  %352 = phi ptr [ %.0.i.i.i.i.i41, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i39 ], [ %.pre.i.i.i.i35, %._crit_edge.i.i.i.i33 ]
-  %.0.i.i.i.i37 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i39 ], [ %329, %._crit_edge.i.i.i.i33 ]
-  %353 = getelementptr inbounds %class.ScannerTask, ptr %352, i64 %.0.i.i.i.i37
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i35: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i38, %._crit_edge.i.i.i.i32
+  %352 = phi ptr [ %.0.i.i.i.i.i40, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i38 ], [ %.pre.i.i.i.i34, %._crit_edge.i.i.i.i32 ]
+  %.0.i.i.i.i36 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i38 ], [ %329, %._crit_edge.i.i.i.i32 ]
+  %353 = getelementptr inbounds %class.ScannerTask, ptr %352, i64 %.0.i.i.i.i36
   store ptr %292, ptr %353, align 8
-  %354 = add i64 %.0.i.i.i.i37, 1
+  %354 = add i64 %.0.i.i.i.i36, 1
   store i64 %354, ptr %8, align 8
-  br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25
+  br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i24
 
 355:                                              ; preds = %306
   %356 = inttoptr i64 %309 to ptr
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 %312
   %358 = load i32, ptr %357, align 4
   store i32 %358, ptr %313, align 4
-  br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25
+  br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i24
 
-_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25: ; preds = %355, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i36, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i31
-  %.0.i26 = phi i32 [ 0, %355 ], [ %319, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i31 ], [ %319, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i36 ]
+_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i24: ; preds = %355, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i35, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i30
+  %.0.i25 = phi i32 [ 0, %355 ], [ %319, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i30 ], [ %319, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i35 ]
   %359 = load i8, ptr @UseCompressedOops, align 1
   %360 = trunc i8 %359 to i1
   %361 = load i8, ptr @UseCompressedClassPointers, align 1
   %362 = trunc i8 %361 to i1
   %363 = sext i32 %314 to i64
-  %364 = icmp slt i32 %.0.i26, %314
+  %364 = icmp slt i32 %.0.i25, %314
   br i1 %360, label %365, label %421
 
-365:                                              ; preds = %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25
+365:                                              ; preds = %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i24
   %366 = select i1 %362, i64 16, i64 20
   %367 = add nsw i64 %366, %309
   %368 = inttoptr i64 %367 to ptr
   %369 = getelementptr inbounds i32, ptr %368, i64 %363
-  br i1 %364, label %.lr.ph.preheader.i.i27, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
+  br i1 %364, label %.lr.ph.preheader.i.i26, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22
 
-.lr.ph.preheader.i.i27:                           ; preds = %365
-  %370 = sext i32 %.0.i26 to i64
+.lr.ph.preheader.i.i26:                           ; preds = %365
+  %370 = sext i32 %.0.i25 to i64
   %371 = getelementptr inbounds i32, ptr %368, i64 %370
-  br label %.lr.ph.i.i28
+  br label %.lr.ph.i.i27
 
-.lr.ph.i.i28:                                     ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103, %.lr.ph.preheader.i.i27
-  %.09.i.i29 = phi ptr [ %419, %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103 ], [ %371, %.lr.ph.preheader.i.i27 ]
-  %372 = load i32, ptr %.09.i.i29, align 4
+.lr.ph.i.i27:                                     ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102, %.lr.ph.preheader.i.i26
+  %.09.i.i28 = phi ptr [ %419, %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102 ], [ %371, %.lr.ph.preheader.i.i26 ]
+  %372 = load i32, ptr %.09.i.i28, align 4
   %373 = zext i32 %372 to i64
   %374 = load i64, ptr @_ZN10PSScavenge37_young_generation_boundary_compressedE, align 8
-  %.not.i86 = icmp ugt i64 %374, %373
-  br i1 %.not.i86, label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103, label %375
+  %.not.i85 = icmp ugt i64 %374, %373
+  br i1 %.not.i85, label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102, label %375
 
-375:                                              ; preds = %.lr.ph.i.i28
+375:                                              ; preds = %.lr.ph.i.i27
   %376 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %377 = ptrtoint ptr %376 to i64
   %378 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
@@ -1734,15 +1733,15 @@ _ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25: ; preds = %355, %_ZN
   %381 = add i64 %380, %377
   %382 = inttoptr i64 %381 to ptr
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %382, i64 0) #12, !srcloc !14
-  %383 = getelementptr inbounds nuw i8, ptr %.09.i.i29, i64 1
+  %383 = getelementptr inbounds nuw i8, ptr %.09.i.i28, i64 1
   %384 = load volatile i32, ptr %14, align 8
   %385 = load volatile i32, ptr %15, align 8
   %386 = sub i32 %384, %385
   %387 = and i32 %386, 131070
-  %.not.i.i.i87 = icmp eq i32 %387, 131070
-  br i1 %.not.i.i.i87, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i90, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i88
+  %.not.i.i.i86 = icmp eq i32 %387, 131070
+  br i1 %.not.i.i.i86, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i89, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i87
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i88: ; preds = %375
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i87: ; preds = %375
   %388 = load ptr, ptr %16, align 8
   %389 = zext i32 %384 to i64
   %390 = getelementptr inbounds nuw %class.ScannerTask, ptr %388, i64 %389
@@ -1751,22 +1750,22 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i
   %392 = and i32 %391, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   store volatile i32 %392, ptr %14, align 8
-  br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103
+  br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i90: ; preds = %375
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i89: ; preds = %375
   %393 = load i64, ptr %8, align 8
   %394 = load i64, ptr %9, align 8
   %395 = icmp eq i64 %393, %394
-  br i1 %395, label %396, label %._crit_edge.i.i.i.i91
+  br i1 %395, label %396, label %._crit_edge.i.i.i.i90
 
-._crit_edge.i.i.i.i91:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i90
-  %.pre.i.i.i.i93 = load ptr, ptr %6, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i94
+._crit_edge.i.i.i.i90:                            ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i89
+  %.pre.i.i.i.i92 = load ptr, ptr %6, align 8
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i93
 
-396:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i90
+396:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i89
   %397 = load i64, ptr %10, align 8
-  %.not.i.i.i.i.i96 = icmp eq i64 %397, 0
-  br i1 %.not.i.i.i.i.i96, label %404, label %398
+  %.not.i.i.i.i.i95 = icmp eq i64 %397, 0
+  br i1 %.not.i.i.i.i.i95, label %404, label %398
 
 398:                                              ; preds = %396
   %399 = load ptr, ptr %12, align 8
@@ -1776,7 +1775,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i90:
   store ptr %402, ptr %12, align 8
   %403 = add i64 %397, -1
   store i64 %403, ptr %10, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i97
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i96
 
 404:                                              ; preds = %396
   %405 = shl i64 %393, 3
@@ -1784,57 +1783,57 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i90:
   %407 = load ptr, ptr %7, align 8
   %408 = load ptr, ptr %407, align 8
   %409 = tail call noundef ptr %408(ptr noundef nonnull align 8 dereferenceable(72) %7, i64 noundef %406) #12
-  %.pre.i.i.i.i.i101 = load i64, ptr %9, align 8
-  %.pre2.i.i.i.i.i102 = shl i64 %.pre.i.i.i.i.i101, 3
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i97
+  %.pre.i.i.i.i.i100 = load i64, ptr %9, align 8
+  %.pre2.i.i.i.i.i101 = shl i64 %.pre.i.i.i.i.i100, 3
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i96
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i97: ; preds = %404, %398
-  %.pre-phi.i.i.i.i.i98 = phi i64 [ %.pre2.i.i.i.i.i102, %404 ], [ %400, %398 ]
-  %.0.i.i.i.i.i99 = phi ptr [ %409, %404 ], [ %399, %398 ]
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i96: ; preds = %404, %398
+  %.pre-phi.i.i.i.i.i97 = phi i64 [ %.pre2.i.i.i.i.i101, %404 ], [ %400, %398 ]
+  %.0.i.i.i.i.i98 = phi ptr [ %409, %404 ], [ %399, %398 ]
   %410 = load ptr, ptr %6, align 8
   %411 = icmp eq ptr %410, null
-  %412 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i99, i64 %.pre-phi.i.i.i.i.i98
+  %412 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i98, i64 %.pre-phi.i.i.i.i.i97
   store ptr %410, ptr %412, align 8
-  store ptr %.0.i.i.i.i.i99, ptr %6, align 8
+  store ptr %.0.i.i.i.i.i98, ptr %6, align 8
   %413 = load i64, ptr %9, align 8
-  %spec.select.i.i.i.i.i100 = select i1 %411, i64 0, i64 %413
+  %spec.select.i.i.i.i.i99 = select i1 %411, i64 0, i64 %413
   %414 = load i64, ptr %13, align 8
-  %415 = add i64 %414, %spec.select.i.i.i.i.i100
+  %415 = add i64 %414, %spec.select.i.i.i.i.i99
   store i64 %415, ptr %13, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i94
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i93
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i94: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i97, %._crit_edge.i.i.i.i91
-  %416 = phi ptr [ %.0.i.i.i.i.i99, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i97 ], [ %.pre.i.i.i.i93, %._crit_edge.i.i.i.i91 ]
-  %.0.i.i.i.i95 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i97 ], [ %393, %._crit_edge.i.i.i.i91 ]
-  %417 = getelementptr inbounds %class.ScannerTask, ptr %416, i64 %.0.i.i.i.i95
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i93: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i96, %._crit_edge.i.i.i.i90
+  %416 = phi ptr [ %.0.i.i.i.i.i98, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i96 ], [ %.pre.i.i.i.i92, %._crit_edge.i.i.i.i90 ]
+  %.0.i.i.i.i94 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i96 ], [ %393, %._crit_edge.i.i.i.i90 ]
+  %417 = getelementptr inbounds %class.ScannerTask, ptr %416, i64 %.0.i.i.i.i94
   store ptr %383, ptr %417, align 8
-  %418 = add i64 %.0.i.i.i.i95, 1
+  %418 = add i64 %.0.i.i.i.i94, 1
   store i64 %418, ptr %8, align 8
-  br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103
+  br label %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102
 
-_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103: ; preds = %.lr.ph.i.i28, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i88, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i94
-  %419 = getelementptr inbounds nuw i8, ptr %.09.i.i29, i64 4
+_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102: ; preds = %.lr.ph.i.i27, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i87, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i93
+  %419 = getelementptr inbounds nuw i8, ptr %.09.i.i28, i64 4
   %420 = icmp ult ptr %419, %369
-  br i1 %420, label %.lr.ph.i.i28, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23, !llvm.loop !15
+  br i1 %420, label %.lr.ph.i.i27, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22, !llvm.loop !15
 
-421:                                              ; preds = %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i25
+421:                                              ; preds = %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit.i24
   %422 = select i1 %362, i64 16, i64 24
   %423 = add nsw i64 %422, %309
   %424 = inttoptr i64 %423 to ptr
   %425 = getelementptr inbounds ptr, ptr %424, i64 %363
-  br i1 %364, label %.lr.ph.i66, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
+  br i1 %364, label %.lr.ph.i65, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22
 
-.lr.ph.i66:                                       ; preds = %421
-  %426 = sext i32 %.0.i26 to i64
+.lr.ph.i65:                                       ; preds = %421
+  %426 = sext i32 %.0.i25 to i64
   %427 = getelementptr inbounds ptr, ptr %424, i64 %426
   br label %428
 
-428:                                              ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72, %.lr.ph.i66
-  %.09.i68 = phi ptr [ %427, %.lr.ph.i66 ], [ %467, %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72 ]
-  %429 = load ptr, ptr %.09.i68, align 8
+428:                                              ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71, %.lr.ph.i65
+  %.09.i67 = phi ptr [ %427, %.lr.ph.i65 ], [ %467, %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71 ]
+  %429 = load ptr, ptr %.09.i67, align 8
   %430 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
-  %.not.i.i69 = icmp ult ptr %429, %430
-  br i1 %.not.i.i69, label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72, label %431
+  %.not.i.i68 = icmp ult ptr %429, %430
+  br i1 %.not.i.i68, label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71, label %431
 
 431:                                              ; preds = %428
   tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %429, i64 0) #12, !srcloc !14
@@ -1842,34 +1841,34 @@ _ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103: ; pred
   %433 = load volatile i32, ptr %15, align 8
   %434 = sub i32 %432, %433
   %435 = and i32 %434, 131070
-  %.not.i.i.i.i70 = icmp eq i32 %435, 131070
-  br i1 %.not.i.i.i.i70, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i73, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i71
+  %.not.i.i.i.i69 = icmp eq i32 %435, 131070
+  br i1 %.not.i.i.i.i69, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i72, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i70
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i71: ; preds = %431
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i70: ; preds = %431
   %436 = load ptr, ptr %16, align 8
   %437 = zext i32 %432 to i64
   %438 = getelementptr inbounds nuw %class.ScannerTask, ptr %436, i64 %437
-  store ptr %.09.i68, ptr %438, align 8
+  store ptr %.09.i67, ptr %438, align 8
   %439 = add i32 %432, 1
   %440 = and i32 %439, 131071
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   store volatile i32 %440, ptr %14, align 8
-  br label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72
+  br label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i73: ; preds = %431
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i72: ; preds = %431
   %441 = load i64, ptr %8, align 8
   %442 = load i64, ptr %9, align 8
   %443 = icmp eq i64 %441, %442
-  br i1 %443, label %444, label %._crit_edge.i.i.i.i.i74
+  br i1 %443, label %444, label %._crit_edge.i.i.i.i.i73
 
-._crit_edge.i.i.i.i.i74:                          ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i73
-  %.pre.i.i.i.i.i75 = load ptr, ptr %6, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i76
+._crit_edge.i.i.i.i.i73:                          ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i72
+  %.pre.i.i.i.i.i74 = load ptr, ptr %6, align 8
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i75
 
-444:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i73
+444:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i72
   %445 = load i64, ptr %10, align 8
-  %.not.i.i.i.i.i.i78 = icmp eq i64 %445, 0
-  br i1 %.not.i.i.i.i.i.i78, label %452, label %446
+  %.not.i.i.i.i.i.i77 = icmp eq i64 %445, 0
+  br i1 %.not.i.i.i.i.i.i77, label %452, label %446
 
 446:                                              ; preds = %444
   %447 = load ptr, ptr %12, align 8
@@ -1879,7 +1878,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i7
   store ptr %450, ptr %12, align 8
   %451 = add i64 %445, -1
   store i64 %451, ptr %10, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i79
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i78
 
 452:                                              ; preds = %444
   %453 = shl i64 %441, 3
@@ -1887,43 +1886,42 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i.i.i7
   %455 = load ptr, ptr %7, align 8
   %456 = load ptr, ptr %455, align 8
   %457 = tail call noundef ptr %456(ptr noundef nonnull align 8 dereferenceable(72) %7, i64 noundef %454) #12
-  %.pre.i.i.i.i.i.i83 = load i64, ptr %9, align 8
-  %.pre2.i.i.i.i.i.i84 = shl i64 %.pre.i.i.i.i.i.i83, 3
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i79
+  %.pre.i.i.i.i.i.i82 = load i64, ptr %9, align 8
+  %.pre2.i.i.i.i.i.i83 = shl i64 %.pre.i.i.i.i.i.i82, 3
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i78
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i79: ; preds = %452, %446
-  %.pre-phi.i.i.i.i.i.i80 = phi i64 [ %.pre2.i.i.i.i.i.i84, %452 ], [ %448, %446 ]
-  %.0.i.i.i.i.i.i81 = phi ptr [ %457, %452 ], [ %447, %446 ]
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i78: ; preds = %452, %446
+  %.pre-phi.i.i.i.i.i.i79 = phi i64 [ %.pre2.i.i.i.i.i.i83, %452 ], [ %448, %446 ]
+  %.0.i.i.i.i.i.i80 = phi ptr [ %457, %452 ], [ %447, %446 ]
   %458 = load ptr, ptr %6, align 8
   %459 = icmp eq ptr %458, null
-  %460 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i81, i64 %.pre-phi.i.i.i.i.i.i80
+  %460 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i80, i64 %.pre-phi.i.i.i.i.i.i79
   store ptr %458, ptr %460, align 8
-  store ptr %.0.i.i.i.i.i.i81, ptr %6, align 8
+  store ptr %.0.i.i.i.i.i.i80, ptr %6, align 8
   %461 = load i64, ptr %9, align 8
-  %spec.select.i.i.i.i.i.i82 = select i1 %459, i64 0, i64 %461
+  %spec.select.i.i.i.i.i.i81 = select i1 %459, i64 0, i64 %461
   %462 = load i64, ptr %13, align 8
-  %463 = add i64 %462, %spec.select.i.i.i.i.i.i82
+  %463 = add i64 %462, %spec.select.i.i.i.i.i.i81
   store i64 %463, ptr %13, align 8
-  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i76
+  br label %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i75
 
-_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i76: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i79, %._crit_edge.i.i.i.i.i74
-  %464 = phi ptr [ %.0.i.i.i.i.i.i81, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i79 ], [ %.pre.i.i.i.i.i75, %._crit_edge.i.i.i.i.i74 ]
-  %.0.i.i.i.i.i77 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i79 ], [ %441, %._crit_edge.i.i.i.i.i74 ]
-  %465 = getelementptr inbounds %class.ScannerTask, ptr %464, i64 %.0.i.i.i.i.i77
-  store ptr %.09.i68, ptr %465, align 8
-  %466 = add i64 %.0.i.i.i.i.i77, 1
+_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i75: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i78, %._crit_edge.i.i.i.i.i73
+  %464 = phi ptr [ %.0.i.i.i.i.i.i80, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i78 ], [ %.pre.i.i.i.i.i74, %._crit_edge.i.i.i.i.i73 ]
+  %.0.i.i.i.i.i76 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i.i.i78 ], [ %441, %._crit_edge.i.i.i.i.i73 ]
+  %465 = getelementptr inbounds %class.ScannerTask, ptr %464, i64 %.0.i.i.i.i.i76
+  store ptr %.09.i67, ptr %465, align 8
+  %466 = add i64 %.0.i.i.i.i.i76, 1
   store i64 %466, ptr %8, align 8
-  br label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72
+  br label %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71
 
-_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i76, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i71, %428
-  %467 = getelementptr inbounds nuw i8, ptr %.09.i68, i64 8
+_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i.i.i75, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i.i.i70, %428
+  %467 = getelementptr inbounds nuw i8, ptr %.09.i67, i64 8
   %468 = icmp ult ptr %467, %425
-  br i1 %468, label %428, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23, !llvm.loop !16
+  br i1 %468, label %428, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22, !llvm.loop !16
 
 469:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread
-  %470 = and i64 %291, 1
-  %.not8.i10 = icmp eq i64 %470, 0
-  br i1 %.not8.i10, label %499, label %471
+  %470 = trunc i64 %291 to i1
+  br i1 %470, label %471, label %499
 
 471:                                              ; preds = %469
   %472 = getelementptr inbounds i8, ptr %292, i64 -1
@@ -1943,35 +1941,35 @@ _ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72: ; pred
 
 485:                                              ; preds = %471
   %486 = tail call noundef ptr @_ZN18PSPromotionManager31copy_unmarked_to_survivor_spaceILb0EEEP7oopDescS2_8markWord(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull %481, i64 %482)
-  %.pre.i.i11 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %.pre8.i.i12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %.pre9.i.i13 = ptrtoint ptr %.pre.i.i11 to i64
-  %.pre10.i.i14 = zext nneg i32 %.pre8.i.i12 to i64
-  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i15
+  %.pre.i.i13 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %.pre8.i.i14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %.pre9.i.i15 = ptrtoint ptr %.pre.i.i13 to i64
+  %.pre10.i.i16 = zext nneg i32 %.pre8.i.i14 to i64
+  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i17
 
 487:                                              ; preds = %471
   %488 = and i64 %482, -4
   %489 = inttoptr i64 %488 to ptr
-  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i15
+  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i17
 
-_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i15: ; preds = %487, %485
-  %.pre-phi11.i.i16 = phi i64 [ %.pre10.i.i14, %485 ], [ %478, %487 ]
-  %.pre-phi.i.i17 = phi i64 [ %.pre9.i.i13, %485 ], [ %475, %487 ]
-  %.0.i.i.i18 = phi ptr [ %486, %485 ], [ %489, %487 ]
-  %490 = ptrtoint ptr %.0.i.i.i18 to i64
-  %491 = sub i64 %490, %.pre-phi.i.i17
-  %492 = lshr i64 %491, %.pre-phi11.i.i16
+_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i17: ; preds = %487, %485
+  %.pre-phi11.i.i18 = phi i64 [ %.pre10.i.i16, %485 ], [ %478, %487 ]
+  %.pre-phi.i.i19 = phi i64 [ %.pre9.i.i15, %485 ], [ %475, %487 ]
+  %.0.i.i.i20 = phi ptr [ %486, %485 ], [ %489, %487 ]
+  %490 = ptrtoint ptr %.0.i.i.i20 to i64
+  %491 = sub i64 %490, %.pre-phi.i.i19
+  %492 = lshr i64 %491, %.pre-phi11.i.i18
   %493 = trunc i64 %492 to i32
   store i32 %493, ptr %472, align 4
   %494 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
   %495 = icmp ult ptr %472, %494
-  %496 = icmp uge ptr %.0.i.i.i18, %494
-  %or.cond.i.i19 = and i1 %495, %496
-  br i1 %or.cond.i.i19, label %497, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
+  %496 = icmp uge ptr %.0.i.i.i20, %494
+  %or.cond.i.i21 = and i1 %495, %496
+  br i1 %or.cond.i.i21, label %497, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22
 
-497:                                              ; preds = %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i15
+497:                                              ; preds = %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i17
   %498 = ptrtoint ptr %472 to i64
-  br label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23.sink.split
+  br label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22.sink.split
 
 499:                                              ; preds = %469
   %500 = load ptr, ptr %292, align 8
@@ -1982,48 +1980,48 @@ _ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i15: ;
 
 504:                                              ; preds = %499
   %505 = tail call noundef ptr @_ZN18PSPromotionManager31copy_unmarked_to_survivor_spaceILb0EEEP7oopDescS2_8markWord(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull %500, i64 %501)
-  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20
+  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i10
 
 506:                                              ; preds = %499
   %507 = and i64 %501, -4
   %508 = inttoptr i64 %507 to ptr
-  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20
+  br label %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i10
 
-_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20: ; preds = %506, %504
-  %.0.i.i2.i21 = phi ptr [ %508, %506 ], [ %505, %504 ]
-  store ptr %.0.i.i2.i21, ptr %292, align 8
+_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i10: ; preds = %506, %504
+  %.0.i.i2.i11 = phi ptr [ %508, %506 ], [ %505, %504 ]
+  store ptr %.0.i.i2.i11, ptr %292, align 8
   %509 = load ptr, ptr @_ZN10PSScavenge26_young_generation_boundaryE, align 8
   %510 = icmp ugt ptr %509, %292
-  %511 = icmp uge ptr %.0.i.i2.i21, %509
-  %or.cond.i3.i22 = and i1 %510, %511
-  br i1 %or.cond.i3.i22, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23.sink.split, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
+  %511 = icmp uge ptr %.0.i.i2.i11, %509
+  %or.cond.i3.i12 = and i1 %510, %511
+  br i1 %or.cond.i3.i12, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22.sink.split, label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22
 
-_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23.sink.split: ; preds = %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20, %497
-  %.sink = phi i64 [ %498, %497 ], [ %291, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20 ]
+_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22.sink.split: ; preds = %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i10, %497
+  %.sink = phi i64 [ %498, %497 ], [ %291, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i10 ]
   %.pn = load ptr, ptr @_ZN10PSScavenge11_card_tableE, align 8
-  %.sink160.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
-  %.sink160 = load ptr, ptr %.sink160.in, align 8
+  %.sink159.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
+  %.sink159 = load ptr, ptr %.sink159.in, align 8
   %512 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %513 = zext nneg i32 %512 to i64
   %514 = lshr i64 %.sink, %513
-  %515 = getelementptr inbounds i8, ptr %.sink160, i64 %514
+  %515 = getelementptr inbounds i8, ptr %.sink159, i64 %514
   store i8 0, ptr %515, align 1
-  br label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23
+  br label %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22
 
-_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23: ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i72, %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit103, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23.sink.split, %365, %421, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i15, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i20
+_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22: ; preds = %_ZN18PSPromotionManager22claim_or_forward_depthIP7oopDescEEvPT_.exit.i71, %_ZN18PSPromotionManager22claim_or_forward_depthI9narrowOopEEvPT_.exit102, %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22.sink.split, %365, %421, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i.i17, %_ZN18PSPromotionManager22copy_to_survivor_spaceILb0EEEP7oopDescS2_.exit.i1.i10
   %516 = load volatile i32, ptr %14, align 8
   %517 = load volatile i32, ptr %15, align 8
   %518 = sub i32 %516, %517
   %519 = and i32 %518, 131071
   %.not.i8 = icmp ugt i32 %519, %5
-  br i1 %.not.i8, label %.lr.ph123, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109, !llvm.loop !20
+  br i1 %.not.i8, label %.lr.ph122, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108, !llvm.loop !20
 
-_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109: ; preds = %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit23, %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
+_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108: ; preds = %_ZN18PSPromotionManager29process_popped_location_depthE11ScannerTask.exit22, %_ZN17OverflowTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE12pop_overflowERS0_.exit.preheader, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit
   %520 = load ptr, ptr %6, align 8
   %521 = icmp eq ptr %520, null
   br i1 %521, label %522, label %19, !llvm.loop !21
 
-522:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread109
+522:                                              ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread108
   ret void
 }
 
@@ -2356,9 +2354,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %25, %15
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %31 = and i32 %28, 1
-  %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %32, label %35
+  %31 = trunc i32 %28 to i1
+  br i1 %31, label %35, label %32
 
 32:                                               ; preds = %30
   %33 = lshr i32 %28, 3
@@ -2873,9 +2870,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %22, %12
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %28 = and i32 %25, 1
-  %.not.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i, label %29, label %32
+  %28 = trunc i32 %25 to i1
+  br i1 %28, label %32, label %29
 
 29:                                               ; preds = %27
   %30 = lshr i32 %25, 3
@@ -3110,9 +3106,9 @@ _ZN19PSYoungPromotionLAB8allocateEm.exit79.thread: ; preds = %126, %_ZN19PSYoung
   %176 = and i64 %174, %175
   %177 = inttoptr i64 %176 to ptr
   %178 = icmp ugt ptr %170, %177
-  br i1 %178, label %_ZN17PSOldPromotionLAB8allocateEm.exit.thread128, label %_ZN17PSOldPromotionLAB8allocateEm.exit
+  br i1 %178, label %_ZN17PSOldPromotionLAB8allocateEm.exit.thread127, label %_ZN17PSOldPromotionLAB8allocateEm.exit
 
-_ZN17PSOldPromotionLAB8allocateEm.exit.thread128: ; preds = %169
+_ZN17PSOldPromotionLAB8allocateEm.exit.thread127: ; preds = %169
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %180 = load ptr, ptr %179, align 8
   call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %180, ptr noundef %162, ptr noundef nonnull %170) #12
@@ -3126,7 +3122,7 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %_ZN19PSYoungPromoti
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %183 = load i8, ptr %182, align 1
   %184 = trunc i8 %183 to i1
-  br i1 %184, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, label %185
+  br i1 %184, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread, label %185
 
 185:                                              ; preds = %_ZN17PSOldPromotionLAB8allocateEm.exit.thread
   %186 = load i64, ptr @OldPLABSize, align 8
@@ -3145,8 +3141,8 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %_ZN19PSYoungPromoti
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 120
   %196 = load ptr, ptr %195, align 8
   %197 = call noundef ptr %196(ptr noundef nonnull align 8 dereferenceable(56) %193, i64 noundef %.0.i1.i) #12
-  %.not.i.i88 = icmp eq ptr %197, null
-  br i1 %.not.i.i88, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %198
+  %.not.i.i = icmp eq ptr %197, null
+  br i1 %.not.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %198
 
 198:                                              ; preds = %192
   %199 = getelementptr inbounds ptr, ptr %197, i64 %.0.i1.i
@@ -3168,7 +3164,7 @@ _ZN17PSOldPromotionLAB8allocateEm.exit.thread:    ; preds = %_ZN19PSYoungPromoti
 
 _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i:     ; preds = %192
   %211 = call noundef zeroext i1 @_ZN8PSOldGen19expand_for_allocateEm(ptr noundef nonnull align 8 dereferenceable(128) %190, i64 noundef %.0.i1.i) #12
-  br i1 %211, label %192, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, !llvm.loop !22
+  br i1 %211, label %192, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread, !llvm.loop !22
 
 212:                                              ; preds = %198, %209
   %213 = call noundef zeroext i1 @_ZNK13YoungGCTracer42should_report_promotion_outside_plab_eventEv(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE) #12
@@ -3190,15 +3186,15 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i:     ; preds = %192
   %225 = shl i64 %223, %224
   %226 = add i64 %225, %222
   %227 = inttoptr i64 %226 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit19.i90
+  br label %_ZNK7oopDesc5klassEv.exit19.i89
 
 228:                                              ; preds = %214
   %229 = load ptr, ptr %11, align 8
-  br label %_ZNK7oopDesc5klassEv.exit19.i90
+  br label %_ZNK7oopDesc5klassEv.exit19.i89
 
-_ZNK7oopDesc5klassEv.exit19.i90:                  ; preds = %228, %218
-  %.0.i18.i91 = phi ptr [ %227, %218 ], [ %229, %228 ]
-  call void @_ZNK13YoungGCTracer35report_promotion_outside_plab_eventEP5Klassmjb(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE, ptr noundef %.0.i18.i91, i64 noundef %215, i32 noundef %74, i1 noundef zeroext true) #12
+_ZNK7oopDesc5klassEv.exit19.i89:                  ; preds = %228, %218
+  %.0.i18.i90 = phi ptr [ %227, %218 ], [ %229, %228 ]
+  call void @_ZNK13YoungGCTracer35report_promotion_outside_plab_eventEP5Klassmjb(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE, ptr noundef %.0.i18.i90, i64 noundef %215, i32 noundef %74, i1 noundef zeroext true) #12
   br label %_ZN18PSPromotionManager21promotion_trace_eventEP7oopDescS1_mjbPK14PSPromotionLAB.exit
 
 230:                                              ; preds = %185
@@ -3208,14 +3204,14 @@ _ZNK7oopDesc5klassEv.exit19.i90:                  ; preds = %228, %218
   %233 = getelementptr inbounds nuw i8, ptr %231, i64 88
   br label %234
 
-234:                                              ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94, %230
+234:                                              ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i93, %230
   %235 = load ptr, ptr %233, align 8
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 120
   %238 = load ptr, ptr %237, align 8
   %239 = call noundef ptr %238(ptr noundef nonnull align 8 dereferenceable(56) %235, i64 noundef %232) #12
-  %.not.i.i93 = icmp eq ptr %239, null
-  br i1 %.not.i.i93, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94, label %240
+  %.not.i.i92 = icmp eq ptr %239, null
+  br i1 %.not.i.i92, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i93, label %240
 
 240:                                              ; preds = %234
   %241 = getelementptr inbounds ptr, ptr %239, i64 %232
@@ -3235,9 +3231,9 @@ _ZNK7oopDesc5klassEv.exit19.i90:                  ; preds = %228, %218
   call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %252, ptr noundef nonnull %239, ptr noundef nonnull %241) #12
   br label %254
 
-_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94:   ; preds = %234
+_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i93:   ; preds = %234
   %253 = call noundef zeroext i1 @_ZN8PSOldGen19expand_for_allocateEm(ptr noundef nonnull align 8 dereferenceable(128) %231, i64 noundef %232) #12
-  br i1 %253, label %234, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, !llvm.loop !22
+  br i1 %253, label %234, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread, !llvm.loop !22
 
 254:                                              ; preds = %240, %251
   %255 = load i64, ptr @OldPLABSize, align 8
@@ -3248,8 +3244,8 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94:   ; preds = %234
   %259 = ptrtoint ptr %256 to i64
   %260 = sub i64 %258, %259
   %261 = lshr i64 %260, 3
-  %.not.i96 = icmp ugt i64 %.0.i1.i, %261
-  br i1 %.not.i96, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, label %262
+  %.not.i95 = icmp ugt i64 %.0.i1.i, %261
+  br i1 %.not.i95, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread, label %262
 
 262:                                              ; preds = %254
   %263 = getelementptr inbounds nuw ptr, ptr %256, i64 %.0.i1.i
@@ -3262,19 +3258,19 @@ _ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94:   ; preds = %234
   %269 = and i64 %267, %268
   %270 = inttoptr i64 %269 to ptr
   %271 = icmp ugt ptr %263, %270
-  br i1 %271, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread133, label %_ZN17PSOldPromotionLAB8allocateEm.exit98
+  br i1 %271, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread132, label %_ZN17PSOldPromotionLAB8allocateEm.exit97
 
-_ZN17PSOldPromotionLAB8allocateEm.exit98.thread133: ; preds = %262
+_ZN17PSOldPromotionLAB8allocateEm.exit97.thread132: ; preds = %262
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %273 = load ptr, ptr %272, align 8
   call void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(ptr noundef nonnull align 8 dereferenceable(72) %273, ptr noundef %256, ptr noundef nonnull %263) #12
   br label %274
 
-_ZN17PSOldPromotionLAB8allocateEm.exit98:         ; preds = %262
-  %.not.i99 = icmp eq ptr %256, null
-  br i1 %.not.i99, label %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread, label %274
+_ZN17PSOldPromotionLAB8allocateEm.exit97:         ; preds = %262
+  %.not.i98 = icmp eq ptr %256, null
+  br i1 %.not.i98, label %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread, label %274
 
-274:                                              ; preds = %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread133, %_ZN17PSOldPromotionLAB8allocateEm.exit98
+274:                                              ; preds = %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread132, %_ZN17PSOldPromotionLAB8allocateEm.exit97
   %275 = call noundef zeroext i1 @_ZNK13YoungGCTracer41should_report_promotion_in_new_plab_eventEv(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE) #12
   br i1 %275, label %276, label %_ZN18PSPromotionManager21promotion_trace_eventEP7oopDescS1_mjbPK14PSPromotionLAB.exit
 
@@ -3300,26 +3296,26 @@ _ZN17PSOldPromotionLAB8allocateEm.exit98:         ; preds = %262
   %293 = shl i64 %291, %292
   %294 = add i64 %293, %290
   %295 = inttoptr i64 %294 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit.i100
+  br label %_ZNK7oopDesc5klassEv.exit.i99
 
 296:                                              ; preds = %276
   %297 = load ptr, ptr %11, align 8
-  br label %_ZNK7oopDesc5klassEv.exit.i100
+  br label %_ZNK7oopDesc5klassEv.exit.i99
 
-_ZNK7oopDesc5klassEv.exit.i100:                   ; preds = %296, %286
-  %.0.i.i101 = phi ptr [ %295, %286 ], [ %297, %296 ]
-  call void @_ZNK13YoungGCTracer34report_promotion_in_new_plab_eventEP5Klassmjbm(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE, ptr noundef %.0.i.i101, i64 noundef %277, i32 noundef %74, i1 noundef zeroext true, i64 noundef %283) #12
+_ZNK7oopDesc5klassEv.exit.i99:                    ; preds = %296, %286
+  %.0.i.i100 = phi ptr [ %295, %286 ], [ %297, %296 ]
+  call void @_ZNK13YoungGCTracer34report_promotion_in_new_plab_eventEP5Klassmjbm(ptr noundef nonnull align 8 dereferenceable(84) @_ZN10PSScavenge10_gc_tracerE, ptr noundef %.0.i.i100, i64 noundef %277, i32 noundef %74, i1 noundef zeroext true, i64 noundef %283) #12
   br label %_ZN18PSPromotionManager21promotion_trace_eventEP7oopDescS1_mjbPK14PSPromotionLAB.exit
 
-_ZN17PSOldPromotionLAB8allocateEm.exit98.thread:  ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i94, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, %254, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread, %_ZN17PSOldPromotionLAB8allocateEm.exit98
+_ZN17PSOldPromotionLAB8allocateEm.exit97.thread:  ; preds = %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i93, %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, %254, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread, %_ZN17PSOldPromotionLAB8allocateEm.exit97
   store i8 1, ptr %182, align 1
   %.sroa.03.0.copyload = load i64, ptr %8, align 8
   %298 = call noundef ptr @_ZN18PSPromotionManager20oop_promotion_failedEP7oopDesc8markWord(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull %1, i64 %.sroa.03.0.copyload)
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-_ZN18PSPromotionManager21promotion_trace_eventEP7oopDescS1_mjbPK14PSPromotionLAB.exit: ; preds = %212, %_ZNK7oopDesc5klassEv.exit19.i90, %274, %_ZNK7oopDesc5klassEv.exit.i100, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread128, %_ZN19PSYoungPromotionLAB8allocateEm.exit, %101, %_ZNK7oopDesc5klassEv.exit19.i, %135, %_ZNK7oopDesc5klassEv.exit.i81, %_ZN17PSOldPromotionLAB8allocateEm.exit
-  %299 = phi i1 [ true, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread128 ], [ true, %_ZN17PSOldPromotionLAB8allocateEm.exit ], [ false, %_ZNK7oopDesc5klassEv.exit.i81 ], [ false, %135 ], [ false, %_ZNK7oopDesc5klassEv.exit19.i ], [ false, %101 ], [ false, %_ZN19PSYoungPromotionLAB8allocateEm.exit ], [ true, %_ZNK7oopDesc5klassEv.exit.i100 ], [ true, %274 ], [ true, %_ZNK7oopDesc5klassEv.exit19.i90 ], [ true, %212 ]
-  %.1 = phi ptr [ %162, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread128 ], [ %162, %_ZN17PSOldPromotionLAB8allocateEm.exit ], [ %128, %_ZNK7oopDesc5klassEv.exit.i81 ], [ %128, %135 ], [ %100, %_ZNK7oopDesc5klassEv.exit19.i ], [ %100, %101 ], [ %79, %_ZN19PSYoungPromotionLAB8allocateEm.exit ], [ %256, %_ZNK7oopDesc5klassEv.exit.i100 ], [ %256, %274 ], [ %197, %_ZNK7oopDesc5klassEv.exit19.i90 ], [ %197, %212 ]
+_ZN18PSPromotionManager21promotion_trace_eventEP7oopDescS1_mjbPK14PSPromotionLAB.exit: ; preds = %212, %_ZNK7oopDesc5klassEv.exit19.i89, %274, %_ZNK7oopDesc5klassEv.exit.i99, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread127, %_ZN19PSYoungPromotionLAB8allocateEm.exit, %101, %_ZNK7oopDesc5klassEv.exit19.i, %135, %_ZNK7oopDesc5klassEv.exit.i81, %_ZN17PSOldPromotionLAB8allocateEm.exit
+  %299 = phi i1 [ true, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread127 ], [ true, %_ZN17PSOldPromotionLAB8allocateEm.exit ], [ false, %_ZNK7oopDesc5klassEv.exit.i81 ], [ false, %135 ], [ false, %_ZNK7oopDesc5klassEv.exit19.i ], [ false, %101 ], [ false, %_ZN19PSYoungPromotionLAB8allocateEm.exit ], [ true, %_ZNK7oopDesc5klassEv.exit.i99 ], [ true, %274 ], [ true, %_ZNK7oopDesc5klassEv.exit19.i89 ], [ true, %212 ]
+  %.1 = phi ptr [ %162, %_ZN17PSOldPromotionLAB8allocateEm.exit.thread127 ], [ %162, %_ZN17PSOldPromotionLAB8allocateEm.exit ], [ %128, %_ZNK7oopDesc5klassEv.exit.i81 ], [ %128, %135 ], [ %100, %_ZNK7oopDesc5klassEv.exit19.i ], [ %100, %101 ], [ %79, %_ZN19PSYoungPromotionLAB8allocateEm.exit ], [ %256, %_ZNK7oopDesc5klassEv.exit.i99 ], [ %256, %274 ], [ %197, %_ZNK7oopDesc5klassEv.exit19.i89 ], [ %197, %212 ]
   switch i64 %.0.i1.i, label %329 [
     i64 8, label %300
     i64 7, label %304
@@ -3501,8 +3497,8 @@ _ZNK7oopDesc13is_stackChunkEv.exit.i:             ; preds = %388, %378
   %397 = inttoptr i64 %396 to ptr
   %398 = load volatile i8, ptr %397, align 1
   %399 = and i8 %398, 8
-  %.not.i106 = icmp eq i8 %399, 0
-  br i1 %.not.i106, label %400, label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
+  %.not.i105 = icmp eq i8 %399, 0
+  br i1 %.not.i105, label %400, label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
 
 400:                                              ; preds = %393
   call void @_ZN17stackChunkOopDesc9transformEv(ptr noundef nonnull align 8 dereferenceable(16) %.1) #12
@@ -3520,7 +3516,7 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit: ; preds = %_ZN
 
 _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._crit_edge: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %405, label %_ZNK7oopDesc5klassEv.exit.i112, label %_ZNK7oopDesc5klassEv.exit.thread.i
+  br i1 %405, label %_ZNK7oopDesc5klassEv.exit.i111, label %_ZNK7oopDesc5klassEv.exit.thread.i
 
 406:                                              ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
   br i1 %405, label %407, label %417
@@ -3542,8 +3538,8 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._crit_edge: ; p
   br label %_ZNK7oopDesc11is_objArrayEv.exit
 
 _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %407, %417
-  %.0.i.i108 = phi ptr [ %416, %407 ], [ %418, %417 ]
-  %419 = getelementptr inbounds nuw i8, ptr %.0.i.i108, i64 12
+  %.0.i.i107 = phi ptr [ %416, %407 ], [ %418, %417 ]
+  %419 = getelementptr inbounds nuw i8, ptr %.0.i.i107, i64 12
   %420 = load i32, ptr %419, align 4
   %421 = icmp eq i32 %420, 6
   %422 = load i8, ptr @PSChunkLargeArrays, align 1
@@ -3559,8 +3555,8 @@ _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %407, %417
   %429 = load volatile i32, ptr %428, align 8
   %430 = sub i32 %427, %429
   %431 = and i32 %430, 131070
-  %.not.i.i109 = icmp eq i32 %431, 131070
-  br i1 %.not.i.i109, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i
+  %.not.i.i108 = icmp eq i32 %431, 131070
+  br i1 %.not.i.i108, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.i.i, label %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i
 
 _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i: ; preds = %424
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -3634,18 +3630,18 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i: ; preds = %454,
 
 _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i, %._crit_edge.i.i.i
   %468 = phi ptr [ %.0.i.i.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
-  %.0.i.i.i110 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %441, %._crit_edge.i.i.i ]
-  %469 = getelementptr inbounds %class.ScannerTask, ptr %468, i64 %.0.i.i.i110
+  %.0.i.i.i109 = phi i64 [ 0, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE12push_segmentEv.exit.i.i.i ], [ %441, %._crit_edge.i.i.i ]
+  %469 = getelementptr inbounds %class.ScannerTask, ptr %468, i64 %.0.i.i.i109
   store ptr %425, ptr %469, align 8
-  %470 = add i64 %.0.i.i.i110, 1
+  %470 = add i64 %.0.i.i.i109, 1
   store i64 %470, ptr %440, align 8
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
 471:                                              ; preds = %_ZNK7oopDesc11is_objArrayEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %405, label %_ZNK7oopDesc5klassEv.exit.i112, label %_ZNK7oopDesc5klassEv.exit.thread.i
+  br i1 %405, label %_ZNK7oopDesc5klassEv.exit.i111, label %_ZNK7oopDesc5klassEv.exit.thread.i
 
-_ZNK7oopDesc5klassEv.exit.i112:                   ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._crit_edge, %471
+_ZNK7oopDesc5klassEv.exit.i111:                   ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._crit_edge, %471
   %472 = load i32, ptr %377, align 8
   %473 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %474 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
@@ -3667,9 +3663,9 @@ _ZNK7oopDesc5klassEv.exit.thread.i:               ; preds = %_ZN21ContinuationGC
   %487 = icmp eq i32 %486, 5
   br i1 %487, label %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit, label %_ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i
 
-_ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds = %_ZNK7oopDesc5klassEv.exit.thread.i, %_ZNK7oopDesc5klassEv.exit.i112
-  %488 = phi i32 [ %482, %_ZNK7oopDesc5klassEv.exit.i112 ], [ %486, %_ZNK7oopDesc5klassEv.exit.thread.i ]
-  %.0.i.i.i111 = phi ptr [ %480, %_ZNK7oopDesc5klassEv.exit.i112 ], [ %484, %_ZNK7oopDesc5klassEv.exit.thread.i ]
+_ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds = %_ZNK7oopDesc5klassEv.exit.thread.i, %_ZNK7oopDesc5klassEv.exit.i111
+  %488 = phi i32 [ %482, %_ZNK7oopDesc5klassEv.exit.i111 ], [ %486, %_ZNK7oopDesc5klassEv.exit.thread.i ]
+  %.0.i.i.i110 = phi ptr [ %480, %_ZNK7oopDesc5klassEv.exit.i111 ], [ %484, %_ZNK7oopDesc5klassEv.exit.thread.i ]
   %489 = load ptr, ptr @_ZN10PSScavenge14_ref_processorE, align 8
   %490 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %489, ptr %490, align 8
@@ -3679,10 +3675,10 @@ _ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i: ; preds
   %492 = sext i32 %488 to i64
   %493 = getelementptr inbounds ptr, ptr @_ZN30OopOopIterateBackwardsDispatchI21PSPushContentsClosureE6_tableE, i64 %492
   %494 = load ptr, ptr %493, align 8
-  call void %494(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef nonnull %.0.i.i.i111) #12
+  call void %494(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef nonnull %.0.i.i.i110) #12
   br label %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit
 
-_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i112, %_ZNK7oopDesc5klassEv.exit.thread.i, %_ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i
+_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit: ; preds = %_ZNK7oopDesc5klassEv.exit.i111, %_ZNK7oopDesc5klassEv.exit.thread.i, %_ZN7oopDesc21oop_iterate_backwardsI21PSPushContentsClosureEEvPT_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %495 = load i8, ptr @_ZN11StringDedup8_enabledE, align 1
   %496 = trunc i8 %495 to i1
@@ -3708,9 +3704,9 @@ _ZN18PSPromotionManager13push_contentsEP7oopDesc.exit: ; preds = %_ZNK7oopDesc5k
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
 
 _ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %500, %508
-  %.0.i.i115 = phi ptr [ %507, %500 ], [ %509, %508 ]
+  %.0.i.i114 = phi ptr [ %507, %500 ], [ %509, %508 ]
   %510 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
-  %511 = icmp eq ptr %.0.i.i115, %510
+  %511 = icmp eq ptr %.0.i.i114, %510
   br i1 %511, label %512, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
 512:                                              ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
@@ -3737,10 +3733,10 @@ _ZNK7oopDesc3ageEv.exit.i:                        ; preds = %522, %513
   %.0.in.in.in.i.i = phi i64 [ %523, %522 ], [ %514, %513 ]
   %.0.in.in.i.i = trunc i64 %.0.in.in.in.i.i to i32
   %.0.in.i.i = lshr i32 %.0.in.in.i.i, 3
-  %.0.i.i116 = and i32 %.0.in.i.i, 15
+  %.0.i.i115 = and i32 %.0.in.i.i, 15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %524 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %525 = icmp ult i32 %.0.i.i116, %524
+  %525 = icmp ult i32 %.0.i.i115, %524
   br i1 %525, label %539, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
 526:                                              ; preds = %512
@@ -3787,8 +3783,8 @@ _ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit: ; preds = %526
   call void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %.1, i64 noundef %.0.i1.i) #12
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-_ZN18PSPromotionManager10push_depthE11ScannerTask.exit: ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %542, %544, %539, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit, %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread
-  %.0 = phi ptr [ %298, %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread ], [ %336, %542 ], [ %.1, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit ], [ %.1, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit ], [ %.1, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit ], [ %.1, %539 ], [ %336, %544 ], [ %.1, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i ], [ %.1, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i ], [ %.1, %_ZNK7oopDesc3ageEv.exit.i ]
+_ZN18PSPromotionManager10push_depthE11ScannerTask.exit: ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %542, %544, %539, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit, %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread
+  %.0 = phi ptr [ %298, %_ZN17PSOldPromotionLAB8allocateEm.exit97.thread ], [ %336, %542 ], [ %.1, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit ], [ %.1, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit ], [ %.1, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit ], [ %.1, %539 ], [ %336, %544 ], [ %.1, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i ], [ %.1, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i ], [ %.1, %_ZNK7oopDesc3ageEv.exit.i ]
   ret ptr %.0
 }
 
@@ -5031,9 +5027,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -5067,8 +5062,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -7919,9 +7914,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %86, %76
   br i1 %90, label %91, label %101
 
 91:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %92 = and i32 %89, 1
-  %.not.i.i.i = icmp eq i32 %92, 0
-  br i1 %.not.i.i.i, label %93, label %96
+  %92 = trunc i32 %89 to i1
+  br i1 %92, label %96, label %93
 
 93:                                               ; preds = %91
   %94 = lshr i32 %89, 3
@@ -8050,9 +8044,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %45, %35
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %51 = and i32 %48, 1
-  %.not.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not.i.i.i, label %52, label %55
+  %51 = trunc i32 %48 to i1
+  br i1 %51, label %55, label %52
 
 52:                                               ; preds = %50
   %53 = lshr i32 %48, 3

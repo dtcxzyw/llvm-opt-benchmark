@@ -2823,7 +2823,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
   %58 = getelementptr i8, ptr %22, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 9
   %60 = load i8, ptr %59, align 1
-  switch i8 %60, label %123 [
+  switch i8 %60, label %122 [
     i8 -52, label %.thread7
     i8 -61, label %61
     i8 -24, label %67
@@ -2854,7 +2854,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %63, 8
   store i64 %66, ptr %62, align 8
-  br label %124
+  br label %123
 
 67:                                               ; preds = %53
   %68 = ptrtoint ptr %58 to i64
@@ -2869,7 +2869,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
   store i64 %76, ptr %74, align 8
   %77 = inttoptr i64 %76 to ptr
   store i64 %73, ptr %77, align 8
-  br label %124
+  br label %123
 
 78:                                               ; preds = %53, %53
   %79 = ptrtoint ptr %58 to i64
@@ -2877,7 +2877,7 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = add i64 %82, %79
-  br label %124
+  br label %123
 
 84:                                               ; preds = %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53
   %85 = and i8 %60, 15
@@ -2921,31 +2921,30 @@ define dso_local noundef range(i32 0, 2) i32 @poke_int3_handler(ptr noundef capt
 
 116:                                              ; preds = %111, %104, %96
   %117 = phi i8 [ %103, %96 ], [ %115, %111 ], [ %109, %104 ]
-  %118 = and i8 %117, 1
-  %119 = icmp ne i8 %118, 0
-  %120 = xor i1 %92, %119
-  %121 = select i1 %120, i64 0, i64 %89
-  %122 = add i64 %121, %86
-  br label %124
+  %118 = trunc i8 %117 to i1
+  %119 = xor i1 %92, %118
+  %120 = select i1 %119, i64 0, i64 %89
+  %121 = add i64 %120, %86
+  br label %123
 
-123:                                              ; preds = %53
+122:                                              ; preds = %53
   tail call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #20, !srcloc !158
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2221, i32 0, i64 12) #20, !srcloc !159
   unreachable
 
-124:                                              ; preds = %116, %78, %67, %61
-  %125 = phi i64 [ %65, %61 ], [ %72, %67 ], [ %83, %78 ], [ %122, %116 ]
-  store i64 %125, ptr %19, align 8
+123:                                              ; preds = %116, %78, %67, %61
+  %124 = phi i64 [ %65, %61 ], [ %72, %67 ], [ %83, %78 ], [ %121, %116 ]
+  store i64 %124, ptr %19, align 8
   br label %.thread7
 
-.thread7:                                         ; preds = %38, %124, %53, %48, %46
-  %126 = phi i32 [ 0, %53 ], [ 0, %46 ], [ 0, %48 ], [ 1, %124 ], [ 0, %38 ]
+.thread7:                                         ; preds = %38, %123, %53, %48, %46
+  %125 = phi i32 [ 0, %53 ], [ 0, %46 ], [ 0, %48 ], [ 1, %123 ], [ 0, %38 ]
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @bp_desc, i64 12), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @bp_desc, i64 12)) #20, !srcloc !160
   br label %.thread6
 
 .thread6:                                         ; preds = %15, %6, %.thread7, %1
-  %127 = phi i32 [ %126, %.thread7 ], [ 0, %1 ], [ 0, %6 ], [ 0, %15 ]
-  ret i32 %127
+  %126 = phi i32 [ %125, %.thread7 ], [ 0, %1 ], [ 0, %6 ], [ 0, %15 ]
+  ret i32 %126
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

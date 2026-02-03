@@ -1690,9 +1690,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RB_SYMBOL_P.exit
   br label %52
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %6, %rbimpl_RB_TYPE_P_fastpath.exit
-  %25 = and i64 %3, 1
-  %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %28, label %26
+  %25 = trunc i64 %3 to i1
+  br i1 %25, label %26, label %28
 
 26:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread
   %27 = ashr i64 %3, 1
@@ -1707,8 +1706,8 @@ rb_num2long_inline.exit:                          ; preds = %26, %28
   %30 = inttoptr i64 %0 to ptr
   %31 = load i64, ptr %30, align 8, !tbaa !11
   %32 = and i64 %31, 1040384
-  %.not.i28 = icmp eq i64 %32, 0
-  br i1 %.not.i28, label %36, label %33
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %36, label %33
 
 33:                                               ; preds = %rb_num2long_inline.exit
   %34 = lshr i64 %31, 13
@@ -1721,12 +1720,12 @@ rb_num2long_inline.exit:                          ; preds = %26, %28
   br label %internal_RSTRUCT_LEN.exit
 
 internal_RSTRUCT_LEN.exit:                        ; preds = %33, %36
-  %.0.i29 = phi i64 [ %35, %33 ], [ %38, %36 ]
+  %.0.i28 = phi i64 [ %35, %33 ], [ %38, %36 ]
   %39 = icmp slt i64 %.0.i27, 0
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %41 = add i64 %.0.i29, %.0.i27
+  %41 = add i64 %.0.i28, %.0.i27
   %42 = icmp slt i64 %41, 0
   br i1 %42, label %43, label %50
 
@@ -1737,7 +1736,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %33, %36
   br label %52
 
 46:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %.not = icmp sgt i64 %.0.i29, %.0.i27
+  %.not = icmp sgt i64 %.0.i28, %.0.i27
   br i1 %.not, label %50, label %47
 
 47:                                               ; preds = %46
@@ -1758,9 +1757,8 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %33, %36
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal fastcc void @invalid_struct_pos(i64 noundef %0, i64 noundef %1) unnamed_addr #7 {
-  %3 = and i64 %1, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %20, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %20
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #20
@@ -1785,9 +1783,9 @@ define internal fastcc void @invalid_struct_pos(i64 noundef %0, i64 noundef %1) 
 internal_RSTRUCT_LEN.exit:                        ; preds = %10, %13
   %.0.i = phi i64 [ %12, %10 ], [ %15, %13 ]
   %16 = and i64 %5, 2147483648
-  %.not10 = icmp eq i64 %16, 0
+  %.not = icmp eq i64 %16, 0
   %17 = load i64, ptr @rb_eIndexError, align 8, !tbaa !7
-  br i1 %.not10, label %19, label %18
+  br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %internal_RSTRUCT_LEN.exit
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.48, i64 noundef %6, i64 noundef %.0.i) #22
@@ -2134,9 +2132,8 @@ define hidden void @InitVM_Struct() local_unnamed_addr #0 {
   br label %rb_class_of.exit
 
 41:                                               ; preds = %38
-  %42 = and i64 %30, 1
-  %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %43, label %rb_class_of.exit
+  %42 = trunc i64 %30 to i1
+  br i1 %42, label %rb_class_of.exit, label %43
 
 43:                                               ; preds = %41
   %44 = and i64 %30, 254
@@ -2569,8 +2566,8 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
   br label %17
 
 17:                                               ; preds = %.lr.ph, %rb_num2long_inline.exit
-  %.016 = phi i64 [ 0, %.lr.ph ], [ %31, %rb_num2long_inline.exit ]
-  %.01115 = phi i64 [ %4, %.lr.ph ], [ %30, %rb_num2long_inline.exit ]
+  %.015 = phi i64 [ 0, %.lr.ph ], [ %31, %rb_num2long_inline.exit ]
+  %.01114 = phi i64 [ %4, %.lr.ph ], [ %30, %rb_num2long_inline.exit ]
   %18 = load i64, ptr %5, align 8, !tbaa !11
   %19 = and i64 %18, 1040384
   %.not.i.i = icmp eq i64 %19, 0
@@ -2582,12 +2579,11 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
 
 internal_RSTRUCT_GET.exit:                        ; preds = %17, %20
   %.0.i.i = phi ptr [ %21, %20 ], [ %15, %17 ]
-  %22 = getelementptr i64, ptr %.0.i.i, i64 %.016
+  %22 = getelementptr i64, ptr %.0.i.i, i64 %.015
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = tail call i64 @rb_hash(i64 noundef %23) #20
-  %25 = and i64 %24, 1
-  %.not.i12 = icmp eq i64 %25, 0
-  br i1 %.not.i12, label %28, label %26
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %26, label %28
 
 26:                                               ; preds = %internal_RSTRUCT_GET.exit
   %27 = ashr i64 %24, 1
@@ -2598,9 +2594,9 @@ internal_RSTRUCT_GET.exit:                        ; preds = %17, %20
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %26, %28
-  %.0.i13 = phi i64 [ %27, %26 ], [ %29, %28 ]
-  %30 = tail call i64 @rb_st_hash_uint(i64 noundef %.01115, i64 noundef %.0.i13) #28
-  %31 = add nuw nsw i64 %.016, 1
+  %.0.i12 = phi i64 [ %27, %26 ], [ %29, %28 ]
+  %30 = tail call i64 @rb_st_hash_uint(i64 noundef %.01114, i64 noundef %.0.i12) #28
+  %31 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %31, %.0.i
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !45
 
@@ -2610,8 +2606,8 @@ rb_num2long_inline.exit:                          ; preds = %26, %28
   %33 = and i64 %32, 4611686018427387903
   %34 = icmp slt i64 %32, 0
   %masksel.i = select i1 %34, i64 -4611686018427387904, i64 0
-  %.0.i14 = or disjoint i64 %masksel.i, %33
-  %35 = shl nsw i64 %.0.i14, 1
+  %.0.i13 = or disjoint i64 %masksel.i, %33
+  %35 = shl nsw i64 %.0.i13, 1
   %36 = or disjoint i64 %35, 1
   ret i64 %36
 }

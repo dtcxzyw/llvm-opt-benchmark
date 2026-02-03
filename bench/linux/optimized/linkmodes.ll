@@ -89,48 +89,47 @@ define internal i32 @linkmodes_prepare_data(ptr readnone captures(none) %0, ptr 
 define internal i32 @linkmodes_reply_size(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = and i32 %4, 1
-  %6 = icmp ne i32 %5, 0
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %9 = tail call i32 @ethnl_bitset_size(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %6) #7
-  %10 = icmp slt i32 %9, 0
-  br i1 %10, label %34, label %11
+  %5 = trunc i32 %4 to i1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %8 = tail call i32 @ethnl_bitset_size(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %5) #7
+  %9 = icmp slt i32 %8, 0
+  br i1 %9, label %33, label %10
 
-11:                                               ; preds = %2
-  %12 = add nuw i32 %9, 40
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
-  %15 = icmp eq i8 %14, 0
-  br i1 %15, label %16, label %22
+10:                                               ; preds = %2
+  %11 = add nuw i32 %8, 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %13 = load i8, ptr %12, align 8, !range !5, !noundef !6
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %15, label %21
 
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %18 = tail call i32 @ethnl_bitset_size(ptr noundef nonnull %17, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %6) #7
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %34, label %20
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %17 = tail call i32 @ethnl_bitset_size(ptr noundef nonnull %16, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %5) #7
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %33, label %19
 
-20:                                               ; preds = %16
-  %21 = add i32 %18, %12
-  br label %22
+19:                                               ; preds = %15
+  %20 = add i32 %17, %11
+  br label %21
 
-22:                                               ; preds = %20, %11
-  %23 = phi i32 [ %12, %11 ], [ %21, %20 ]
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 25
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp eq i8 %25, 0
-  %27 = add i32 %23, 8
-  %28 = select i1 %26, i32 %23, i32 %27
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %30 = load i8, ptr %29, align 2
-  %31 = icmp eq i8 %30, 0
-  %32 = add i32 %28, 8
-  %33 = select i1 %31, i32 %28, i32 %32
-  br label %34
+21:                                               ; preds = %19, %10
+  %22 = phi i32 [ %11, %10 ], [ %20, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 25
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 0
+  %26 = add i32 %22, 8
+  %27 = select i1 %25, i32 %22, i32 %26
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %29 = load i8, ptr %28, align 2
+  %30 = icmp eq i8 %29, 0
+  %31 = add i32 %27, 8
+  %32 = select i1 %30, i32 %27, i32 %31
+  br label %33
 
-34:                                               ; preds = %22, %16, %2
-  %35 = phi i32 [ %9, %2 ], [ %18, %16 ], [ %33, %22 ]
-  ret i32 %35
+33:                                               ; preds = %21, %15, %2
+  %34 = phi i32 [ %8, %2 ], [ %17, %15 ], [ %32, %21 ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -144,112 +143,111 @@ define internal range(i32 -90, 1) i32 @linkmodes_fill_reply(ptr noundef %0, ptr 
   %10 = alloca i8, align 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = and i32 %12, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  %16 = load i8, ptr %15, align 1
+  %13 = trunc i32 %12 to i1
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 19
+  %15 = load i8, ptr %14, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i8 %16, ptr %10, align 1
-  %17 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %10) #7
+  store i8 %15, ptr %10, align 1
+  %16 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %69
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %68
 
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %22 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %21, ptr noundef nonnull %20, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %14) #7
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %69, label %24
+18:                                               ; preds = %3
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %21 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %13) #7
+  %22 = icmp slt i32 %21, 0
+  br i1 %22, label %68, label %23
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %26 = load i8, ptr %25, align 8, !range !5, !noundef !6
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %28, label %32
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %25 = load i8, ptr %24, align 8, !range !5, !noundef !6
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %27, label %31
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %30 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %29, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %14) #7
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %69, label %32
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %29 = call i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %28, ptr noundef null, i32 noundef 102, ptr noundef nonnull @link_mode_names, i1 noundef zeroext %13) #7
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %68, label %31
 
-32:                                               ; preds = %28, %24
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %34 = load i32, ptr %33, align 4
+31:                                               ; preds = %27, %23
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %33 = load i32, ptr %32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 %34, ptr %9, align 4
-  %35 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %9) #7
+  store i32 %33, ptr %9, align 4
+  %34 = call i32 @nla_put(ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %9) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %69
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %68
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %39 = load i8, ptr %38, align 4
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %38 = load i8, ptr %37, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i8 %39, ptr %8, align 1
-  %40 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %8) #7
+  store i8 %38, ptr %8, align 1
+  %39 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %69
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %68
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %49, label %46
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %48, label %45
 
-46:                                               ; preds = %42
+45:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i32 %44, ptr %7, align 4
-  %47 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %7) #7
+  store i32 %43, ptr %7, align 4
+  %46 = call i32 @nla_put(ptr noundef %0, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %69
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %68
 
-49:                                               ; preds = %46, %42
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 25
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %56, label %53
+48:                                               ; preds = %45, %41
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 25
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %55, label %52
 
-53:                                               ; preds = %49
+52:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i8 %51, ptr %6, align 1
-  %54 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %6) #7
+  store i8 %50, ptr %6, align 1
+  %53 = call i32 @nla_put(ptr noundef %0, i32 noundef 7, i32 noundef 1, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %69
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %68
 
-56:                                               ; preds = %53, %49
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  %58 = load i8, ptr %57, align 2
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %63, label %60
+55:                                               ; preds = %52, %48
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 26
+  %57 = load i8, ptr %56, align 2
+  %58 = icmp eq i8 %57, 0
+  br i1 %58, label %62, label %59
 
-60:                                               ; preds = %56
+59:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i8 %58, ptr %5, align 1
-  %61 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %5) #7
+  store i8 %57, ptr %5, align 1
+  %60 = call i32 @nla_put(ptr noundef %0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %69
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %68
 
-63:                                               ; preds = %60, %56
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 27
-  %65 = load i8, ptr %64, align 1
+62:                                               ; preds = %59, %55
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 27
+  %64 = load i8, ptr %63, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i8 %65, ptr %4, align 1
-  %66 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 1, ptr noundef nonnull %4) #7
+  store i8 %64, ptr %4, align 1
+  %65 = call i32 @nla_put(ptr noundef %0, i32 noundef 10, i32 noundef 1, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %67 = icmp eq i32 %66, 0
-  %68 = select i1 %67, i32 0, i32 -90
-  br label %69
+  %66 = icmp eq i32 %65, 0
+  %67 = select i1 %66, i32 0, i32 -90
+  br label %68
 
-69:                                               ; preds = %63, %60, %53, %46, %37, %32, %28, %19, %3
-  %70 = phi i32 [ -90, %3 ], [ -90, %19 ], [ -90, %28 ], [ -90, %37 ], [ -90, %32 ], [ -90, %46 ], [ -90, %53 ], [ -90, %60 ], [ %68, %63 ]
-  ret i32 %70
+68:                                               ; preds = %62, %59, %52, %45, %36, %31, %27, %18, %3
+  %69 = phi i32 [ -90, %3 ], [ -90, %18 ], [ -90, %27 ], [ -90, %36 ], [ -90, %31 ], [ -90, %45 ], [ -90, %52 ], [ -90, %59 ], [ %67, %62 ]
+  ret i32 %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

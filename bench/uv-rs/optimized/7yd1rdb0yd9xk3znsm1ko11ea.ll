@@ -1655,9 +1655,8 @@ default.unreachable:                              ; preds = %85, %60, %3
   %.sroa.3.0.i.pn.i.pn.i = phi i64 [ %51, %49 ], [ %53, %52 ], [ %36, %34 ]
   store i64 %.sroa.3.0.i.pn.i.pn.i, ptr %16, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %59 = and i64 %.sroa.3.0.i.pn.i.pn.i, 1
-  %.not = icmp eq i64 %59, 0
-  br i1 %.not, label %60, label %85
+  %59 = trunc i64 %.sroa.3.0.i.pn.i.pn.i to i1
+  br i1 %59, label %85, label %60
 
 60:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1760,8 +1759,8 @@ default.unreachable:                              ; preds = %85, %60, %3
   %95 = load i64, ptr %16, align 8, !noundef !3
   br label %96
 
-96:                                               ; preds = %247, %94
-  %.sroa.0.0 = phi i64 [ %95, %94 ], [ %249, %247 ]
+96:                                               ; preds = %248, %94
+  %.sroa.0.0 = phi i64 [ %95, %94 ], [ %250, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %97 = load i8, ptr %18, align 8, !range !13, !alias.scope !238, !noundef !3
   %switch.i.i = icmp samesign ult i8 %97, 2
@@ -1860,7 +1859,7 @@ common.resume:                                    ; preds = %.thread, %148, %213
           to label %131 unwind label %91
 
 131:                                              ; preds = %129
-  br i1 %130, label %247, label %132
+  br i1 %130, label %248, label %132
 
 132:                                              ; preds = %93, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2118,7 +2117,8 @@ common.resume:                                    ; preds = %.thread, %148, %213
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.pn.i52, i64 -8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %246 = load i64, ptr %.sroa.0.0.i, align 8, !noundef !3
-  %.sroa.0.2 = xor i64 %246, %59
+  %247 = and i64 %.sroa.3.0.i.pn.i.pn.i, 1
+  %.sroa.0.2 = xor i64 %246, %247
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %"_ZN4core3ptr53drop_in_place$LT$uv_pep508..marker..algebra..Node$GT$17ha2c46996209fed03E.exit"
 
@@ -2127,14 +2127,14 @@ common.resume:                                    ; preds = %.thread, %148, %213
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i64 %.sroa.0.1
 
-247:                                              ; preds = %131
+248:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %248 = load i64, ptr %16, align 8, !noundef !3
-  %249 = xor i64 %248, 1
+  %249 = load i64, ptr %16, align 8, !noundef !3
+  %250 = xor i64 %249, 1
   br label %96
 
-250:                                              ; preds = %.thread
-  %251 = landingpad { ptr, i32 }
+251:                                              ; preds = %.thread
+  %252 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #27
   unreachable
@@ -2142,7 +2142,7 @@ common.resume:                                    ; preds = %.thread, %148, %213
 .thread:                                          ; preds = %91, %54, %21
   %.pn71 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %21 ], [ %92, %91 ], [ %55, %54 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$uv_pep508..marker..algebra..Node$GT$17ha2c46996209fed03E"(ptr noalias noundef nonnull align 8 dereferenceable(352) %17) #29
-          to label %common.resume unwind label %250
+          to label %common.resume unwind label %251
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6630,9 +6630,8 @@ define hidden noundef range(i64 -1, 9223372036854775807) i64 @_ZN9uv_pep5086mark
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN9uv_pep5086marker7algebra6NodeId13is_complement17hf9d4c993712aad21E.llvm.7299562655320913624(i64 noundef %0) unnamed_addr #4 {
-  %2 = and i64 %0, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -8252,9 +8251,8 @@ define noundef zeroext i1 @"_ZN71_$LT$uv_pep508..marker..algebra..NodeId$u20$as$
   br label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit
 
 27:                                               ; preds = %2
-  %28 = and i64 %20, 1
-  %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %35, label %62
+  %28 = trunc i64 %20 to i1
+  br i1 %28, label %62, label %35
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48

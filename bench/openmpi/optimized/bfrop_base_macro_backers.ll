@@ -2676,9 +2676,8 @@ define void @PMIx_Info_required(ptr noundef captures(none) %0) local_unnamed_add
 define zeroext i1 @PMIx_Info_is_required(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr i8, ptr %0, i64 512
   %.val = load i32, ptr %2, align 8, !tbaa !80
-  %3 = and i32 %.val, 1
-  %4 = icmp ne i32 %3, 0
-  ret i1 %4
+  %3 = trunc i32 %.val to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

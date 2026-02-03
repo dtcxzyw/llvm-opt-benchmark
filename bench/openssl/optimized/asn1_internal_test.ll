@@ -143,15 +143,15 @@ define internal range(i32 0, 2) i32 @test_tbl_standard() #0 {
 define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
   br label %1
 
-1:                                                ; preds = %0, %17
-  %.035 = phi i32 [ 1, %0 ], [ %.1, %17 ]
-  %.02134 = phi i64 [ 0, %0 ], [ %18, %17 ]
-  %.02333 = phi i32 [ -1, %0 ], [ %3, %17 ]
-  %.02532 = phi ptr [ @standard_methods, %0 ], [ %19, %17 ]
+1:                                                ; preds = %0, %16
+  %.035 = phi i32 [ 1, %0 ], [ %.1, %16 ]
+  %.02134 = phi i64 [ 0, %0 ], [ %17, %16 ]
+  %.02333 = phi i32 [ -1, %0 ], [ %3, %16 ]
+  %.02532 = phi ptr [ @standard_methods, %0 ], [ %18, %16 ]
   %2 = load ptr, ptr %.02532, align 8, !tbaa !13
   %3 = load i32, ptr %2, align 8, !tbaa !16
   %4 = icmp slt i32 %3, %.02333
-  br i1 %4, label %20, label %.thread
+  br i1 %4, label %19, label %.thread
 
 .thread:                                          ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -159,56 +159,56 @@ define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
   %7 = icmp ne ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !20
-  %10 = trunc i64 %9 to i32
-  %spec.select = and i32 %10, 1
-  %11 = zext i1 %7 to i32
-  %12 = xor i32 %spec.select, %11
-  %13 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 95, ptr noundef nonnull @.str.13, i32 noundef %12) #4
-  %.not30 = icmp eq i32 %13, 0
-  br i1 %.not30, label %14, label %17
+  %.not = trunc i64 %9 to i32
+  %spec.select = and i32 %.not, 1
+  %10 = zext i1 %7 to i32
+  %11 = xor i32 %spec.select, %10
+  %12 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 95, ptr noundef nonnull @.str.13, i32 noundef %11) #4
+  %.not30 = icmp eq i32 %12, 0
+  br i1 %.not30, label %13, label %16
 
-14:                                               ; preds = %.thread
-  %15 = load i32, ptr %2, align 8, !tbaa !16
-  %16 = tail call ptr @OBJ_nid2sn(i32 noundef %15) #4
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.14, i64 noundef %.02134, i32 noundef %15, ptr noundef %16) #4
-  br label %17
+13:                                               ; preds = %.thread
+  %14 = load i32, ptr %2, align 8, !tbaa !16
+  %15 = tail call ptr @OBJ_nid2sn(i32 noundef %14) #4
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.14, i64 noundef %.02134, i32 noundef %14, ptr noundef %15) #4
+  br label %16
 
-17:                                               ; preds = %.thread, %14
-  %.1 = phi i32 [ %.035, %.thread ], [ 0, %14 ]
-  %18 = add nuw nsw i64 %.02134, 1
-  %19 = getelementptr inbounds nuw i8, ptr %.02532, i64 8
-  %exitcond.not = icmp eq i64 %18, 15
-  br i1 %exitcond.not, label %20, label %1, !llvm.loop !21
+16:                                               ; preds = %.thread, %13
+  %.1 = phi i32 [ %.035, %.thread ], [ 0, %13 ]
+  %17 = add nuw nsw i64 %.02134, 1
+  %18 = getelementptr inbounds nuw i8, ptr %.02532, i64 8
+  %exitcond.not = icmp eq i64 %17, 15
+  br i1 %exitcond.not, label %19, label %1, !llvm.loop !21
 
-20:                                               ; preds = %1, %17
-  %.0.lcssa = phi i32 [ %.035, %1 ], [ %.1, %17 ]
-  %.124 = phi i32 [ 0, %1 ], [ %3, %17 ]
-  %21 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.8, i32 noundef %.124, i32 noundef 0) #4
-  %.not31 = icmp eq i32 %21, 0
-  br i1 %.not31, label %23, label %22
+19:                                               ; preds = %1, %16
+  %.0.lcssa = phi i32 [ %.035, %1 ], [ %.1, %16 ]
+  %.124 = phi i32 [ 0, %1 ], [ %3, %16 ]
+  %20 = tail call i32 @test_int_ne(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.8, i32 noundef %.124, i32 noundef 0) #4
+  %.not31 = icmp eq i32 %20, 0
+  br i1 %.not31, label %22, label %21
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.6, i32 noundef 103, ptr noundef nonnull @.str.16) #4
   br label %.loopexit
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.17) #4
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %24
-  %.12237 = phi i64 [ 0, %23 ], [ %28, %24 ]
-  %.12636 = phi ptr [ @standard_methods, %23 ], [ %29, %24 ]
-  %25 = load ptr, ptr %.12636, align 8, !tbaa !13
-  %26 = load i32, ptr %25, align 8, !tbaa !16
-  %27 = tail call ptr @OBJ_nid2sn(i32 noundef %26) #4
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.14, i64 noundef %.12237, i32 noundef %26, ptr noundef %27) #4
-  %28 = add nuw nsw i64 %.12237, 1
-  %29 = getelementptr inbounds nuw i8, ptr %.12636, i64 8
-  %exitcond38.not = icmp eq i64 %28, 15
-  br i1 %exitcond38.not, label %.loopexit, label %24, !llvm.loop !22
+23:                                               ; preds = %22, %23
+  %.12237 = phi i64 [ 0, %22 ], [ %27, %23 ]
+  %.12636 = phi ptr [ @standard_methods, %22 ], [ %28, %23 ]
+  %24 = load ptr, ptr %.12636, align 8, !tbaa !13
+  %25 = load i32, ptr %24, align 8, !tbaa !16
+  %26 = tail call ptr @OBJ_nid2sn(i32 noundef %25) #4
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.14, i64 noundef %.12237, i32 noundef %25, ptr noundef %26) #4
+  %27 = add nuw nsw i64 %.12237, 1
+  %28 = getelementptr inbounds nuw i8, ptr %.12636, i64 8
+  %exitcond38.not = icmp eq i64 %27, 15
+  br i1 %exitcond38.not, label %.loopexit, label %23, !llvm.loop !22
 
-.loopexit:                                        ; preds = %24, %22
-  %.027 = phi i32 [ %.0.lcssa, %22 ], [ 0, %24 ]
+.loopexit:                                        ; preds = %23, %21
+  %.027 = phi i32 [ %.0.lcssa, %21 ], [ 0, %23 ]
   ret i32 %.027
 }
 

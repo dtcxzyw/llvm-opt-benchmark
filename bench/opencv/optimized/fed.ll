@@ -219,69 +219,68 @@ _Z21fed_is_prime_internalRKi.exit.thread.backedge: ; preds = %_Z21fed_is_prime_i
   ]
 
 66:                                               ; preds = %65
-  %67 = and i32 %storemerge.in, 1
-  %68 = icmp ne i32 %67, 0
-  %69 = urem i32 %storemerge, 3
-  %70 = icmp eq i32 %69, 0
-  %or.cond.i = or i1 %68, %70
-  %71 = urem i32 %storemerge, 5
-  %72 = icmp eq i32 %71, 0
-  %or.cond22.i = or i1 %72, %or.cond.i
-  %73 = urem i32 %storemerge, 7
-  %74 = icmp eq i32 %73, 0
-  %or.cond24.i = or i1 %74, %or.cond22.i
-  br i1 %or.cond24.i, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %75
+  %67 = trunc i32 %storemerge.in to i1
+  %68 = urem i32 %storemerge, 3
+  %69 = icmp eq i32 %68, 0
+  %or.cond.i = or i1 %69, %67
+  %70 = urem i32 %storemerge, 5
+  %71 = icmp eq i32 %70, 0
+  %or.cond22.i = or i1 %71, %or.cond.i
+  %72 = urem i32 %storemerge, 7
+  %73 = icmp eq i32 %72, 0
+  %or.cond24.i = or i1 %73, %or.cond22.i
+  br i1 %or.cond24.i, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge, label %74
 
-75:                                               ; preds = %66
-  %76 = uitofp nneg i32 %storemerge to float
-  %77 = fadd float %76, 1.000000e+00
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %77)
-  %78 = fptosi float %sqrt.i to i32
-  %.not25.i = icmp slt i32 %78, 11
+74:                                               ; preds = %66
+  %75 = uitofp nneg i32 %storemerge to float
+  %76 = fadd float %75, 1.000000e+00
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %76)
+  %77 = fptosi float %sqrt.i to i32
+  %.not25.i = icmp slt i32 %77, 11
   br i1 %.not25.i, label %.preheader97, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %75, %.lr.ph.i
-  %.027.i = phi i32 [ %81, %.lr.ph.i ], [ 11, %75 ]
-  %.01826.i = phi i1 [ %spec.select.i, %.lr.ph.i ], [ true, %75 ]
-  %79 = urem i32 %storemerge, %.027.i
-  %80 = icmp ne i32 %79, 0
-  %spec.select.i = select i1 %80, i1 %.01826.i, i1 false
-  %81 = add nuw nsw i32 %.027.i, 2
-  %.not.i = icmp sgt i32 %81, %78
+.lr.ph.i:                                         ; preds = %74, %.lr.ph.i
+  %.027.i = phi i32 [ %80, %.lr.ph.i ], [ 11, %74 ]
+  %.01826.i = phi i1 [ %spec.select.i, %.lr.ph.i ], [ true, %74 ]
+  %78 = urem i32 %storemerge, %.027.i
+  %79 = icmp ne i32 %78, 0
+  %spec.select.i = select i1 %79, i1 %.01826.i, i1 false
+  %80 = add nuw nsw i32 %.027.i, 2
+  %.not.i = icmp sgt i32 %80, %77
   br i1 %.not.i, label %_Z21fed_is_prime_internalRKi.exit, label %.lr.ph.i, !llvm.loop !22
 
 _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   br i1 %spec.select.i, label %.preheader97, label %_Z21fed_is_prime_internalRKi.exit.thread.backedge
 
-.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %75, %65, %65, %65, %65
-  %82 = icmp sgt i32 %.lcssa101124, 0
-  br i1 %82, label %.preheader.lr.ph, label %.loopexit
+.preheader97:                                     ; preds = %_Z21fed_is_prime_internalRKi.exit, %74, %65, %65, %65, %65
+  %81 = icmp sgt i32 %.lcssa101124, 0
+  br i1 %81, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader97
-  %83 = load ptr, ptr %4, align 8, !tbaa !9
+  %82 = load ptr, ptr %4, align 8, !tbaa !9
   %wide.trip.count = zext nneg i32 %.lcssa101124 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %88
-  %indvars.iv113 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next114, %88 ]
-  %.040103 = phi i32 [ 0, %.preheader.lr.ph ], [ %85, %88 ]
-  br label %84
+.preheader:                                       ; preds = %.preheader.lr.ph, %87
+  %indvars.iv113 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next114, %87 ]
+  %.040103 = phi i32 [ 0, %.preheader.lr.ph ], [ %84, %87 ]
+  br label %83
 
-84:                                               ; preds = %.preheader, %84
-  %.1 = phi i32 [ %85, %84 ], [ %.040103, %.preheader ]
-  %85 = add nsw i32 %.1, 1
-  %86 = mul nsw i32 %85, %63
-  %87 = srem i32 %86, %storemerge
-  %.not.not = icmp sgt i32 %87, %.lcssa101124
-  br i1 %.not.not, label %84, label %88, !llvm.loop !23
+83:                                               ; preds = %.preheader, %83
+  %.1 = phi i32 [ %84, %83 ], [ %.040103, %.preheader ]
+  %84 = add nsw i32 %.1, 1
+  %85 = mul nsw i32 %84, %63
+  %86 = srem i32 %85, %storemerge
+  %.not.not = icmp sgt i32 %86, %.lcssa101124
+  br i1 %.not.not, label %83, label %87, !llvm.loop !23
 
-88:                                               ; preds = %84
-  %89 = sext i32 %87 to i64
-  %90 = getelementptr float, ptr %.sroa.086.1, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 -4
-  %92 = load float, ptr %91, align 4, !tbaa !3
-  %93 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv113
-  store float %92, ptr %93, align 4, !tbaa !3
+87:                                               ; preds = %83
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr float, ptr %.sroa.086.1, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 -4
+  %91 = load float, ptr %90, align 4, !tbaa !3
+  %92 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv113
+  store float %91, ptr %92, align 4, !tbaa !3
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
@@ -291,8 +290,8 @@ _Z21fed_is_prime_internalRKi.exit:                ; preds = %.lr.ph.i
   %.not.i.i.i61 = icmp eq ptr %.sroa.086.1, null
   br i1 %.not.i.i.i61, label %_ZNSt6vectorIfSaIfEED2Ev.exit62, label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %88, %.loopexit
-  %.lcssa101123129 = phi i32 [ %.lcssa101123, %.loopexit ], [ %.lcssa101124, %88 ]
+.loopexit.thread:                                 ; preds = %87, %.loopexit
+  %.lcssa101123129 = phi i32 [ %.lcssa101123, %.loopexit ], [ %.lcssa101124, %87 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.086.1) #12
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit62
 

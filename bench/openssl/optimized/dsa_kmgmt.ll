@@ -991,12 +991,12 @@ define internal i32 @dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   %10 = and i32 %1, 7
   %11 = icmp eq i32 %10, 0
   %or.cond32 = or i1 %11, %or.cond
-  br i1 %or.cond32, label %38, label %12
+  br i1 %or.cond32, label %37, label %12
 
 12:                                               ; preds = %4
   %13 = tail call ptr @OSSL_PARAM_BLD_new() #7
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %38, label %15
+  br i1 %14, label %37, label %15
 
 15:                                               ; preds = %12
   %16 = and i32 %1, 132
@@ -1009,7 +1009,7 @@ define internal i32 @dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   %.not45 = icmp eq i32 %19, 0
   %20 = and i32 %1, 3
   %.not27 = icmp eq i32 %20, 0
-  br i1 %.not27, label %33, label %22
+  br i1 %.not27, label %32, label %22
 
 .thread:                                          ; preds = %15
   %21 = and i32 %1, 3
@@ -1020,62 +1020,61 @@ define internal i32 @dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   br i1 %.not45, label %.thread39, label %.thread36
 
 .thread36:                                        ; preds = %.thread, %22
-  %23 = and i32 %1, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !45
   call void @DSA_get0_key(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
-  %24 = icmp ne i32 %23, 0
-  %25 = load ptr, ptr %5, align 8
-  %26 = icmp ne ptr %25, null
-  %or.cond.i = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond.i, label %27, label %29
+  %23 = trunc i32 %1 to i1
+  %24 = load ptr, ptr %5, align 8
+  %25 = icmp ne ptr %24, null
+  %or.cond.i = select i1 %23, i1 %25, i1 false
+  br i1 %or.cond.i, label %26, label %28
 
-27:                                               ; preds = %.thread36
-  %28 = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %25) #7
-  %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %dsa_key_todata.exit.thread, label %29
+26:                                               ; preds = %.thread36
+  %27 = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %24) #7
+  %.not.i = icmp eq i32 %27, 0
+  br i1 %.not.i, label %dsa_key_todata.exit.thread, label %28
 
-29:                                               ; preds = %27, %.thread36
-  %30 = load ptr, ptr %6, align 8, !tbaa !45
-  %.not11.i = icmp eq ptr %30, null
-  br i1 %.not11.i, label %dsa_key_todata.exit, label %31
+28:                                               ; preds = %26, %.thread36
+  %29 = load ptr, ptr %6, align 8, !tbaa !45
+  %.not11.i = icmp eq ptr %29, null
+  br i1 %.not11.i, label %dsa_key_todata.exit, label %30
 
-31:                                               ; preds = %29
-  %32 = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull %30) #7
-  %.not12.i = icmp eq i32 %32, 0
+30:                                               ; preds = %28
+  %31 = call i32 @ossl_param_build_set_bn(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull %29) #7
+  %.not12.i = icmp eq i32 %31, 0
   br i1 %.not12.i, label %dsa_key_todata.exit.thread, label %dsa_key_todata.exit
 
-dsa_key_todata.exit.thread:                       ; preds = %31, %27
+dsa_key_todata.exit.thread:                       ; preds = %30, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread39
 
-dsa_key_todata.exit:                              ; preds = %29, %31
+dsa_key_todata.exit:                              ; preds = %28, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread42
 
-33:                                               ; preds = %17
+32:                                               ; preds = %17
   br i1 %.not45, label %.thread39, label %.thread42
 
-.thread42:                                        ; preds = %dsa_key_todata.exit, %.thread, %33
-  %34 = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %13) #7
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread39, label %36
+.thread42:                                        ; preds = %dsa_key_todata.exit, %.thread, %32
+  %33 = call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %13) #7
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.thread39, label %35
 
-36:                                               ; preds = %.thread42
-  %37 = call i32 %2(ptr noundef nonnull %34, ptr noundef %3) #7
-  call void @OSSL_PARAM_free(ptr noundef nonnull %34) #7
+35:                                               ; preds = %.thread42
+  %36 = call i32 %2(ptr noundef nonnull %33, ptr noundef %3) #7
+  call void @OSSL_PARAM_free(ptr noundef nonnull %33) #7
   br label %.thread39
 
-.thread39:                                        ; preds = %dsa_key_todata.exit.thread, %22, %33, %.thread42, %36
-  %.2 = phi i32 [ %37, %36 ], [ 0, %.thread42 ], [ 0, %33 ], [ 0, %22 ], [ 0, %dsa_key_todata.exit.thread ]
+.thread39:                                        ; preds = %dsa_key_todata.exit.thread, %22, %32, %.thread42, %35
+  %.2 = phi i32 [ %36, %35 ], [ 0, %.thread42 ], [ 0, %32 ], [ 0, %22 ], [ 0, %dsa_key_todata.exit.thread ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %13) #7
-  br label %38
+  br label %37
 
-38:                                               ; preds = %12, %4, %.thread39
+37:                                               ; preds = %12, %4, %.thread39
   %.0 = phi i32 [ %.2, %.thread39 ], [ 0, %4 ], [ 0, %12 ]
   ret i32 %.0
 }

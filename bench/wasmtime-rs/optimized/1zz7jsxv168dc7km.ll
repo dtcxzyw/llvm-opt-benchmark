@@ -2178,34 +2178,32 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h9bbb94d699ccb790E.llvm.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0, i1 noundef zeroext %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %9, label %4
+  br i1 %3, label %8, label %4
 
 4:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %5 = load ptr, ptr %0, align 8, !alias.scope !130, !nonnull !4, !align !133, !noundef !4
   %6 = load i32, ptr %5, align 4, !range !134, !noalias !130, !noundef !4
-  %7 = and i32 %6, 1
-  %8 = icmp ne i32 %7, 0
-  br label %9
+  %7 = trunc i32 %6 to i1
+  br label %8
 
-9:                                                ; preds = %2, %4
-  %.0.in = phi i1 [ %8, %4 ], [ %1, %2 ]
+8:                                                ; preds = %2, %4
+  %.0.in = phi i1 [ %7, %4 ], [ %1, %2 ]
   ret i1 %.0.in
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020"(ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(4) %0, i1 noundef zeroext %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %8, label %4
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4, !range !134, !alias.scope !135, !noundef !4
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  br label %8
+  %6 = trunc i32 %5 to i1
+  br label %7
 
-8:                                                ; preds = %2, %4
-  %.0.in = phi i1 [ %7, %4 ], [ %1, %2 ]
+7:                                                ; preds = %2, %4
+  %.0.in = phi i1 [ %6, %4 ], [ %1, %2 ]
   ret i1 %.0.in
 }
 
@@ -2619,11 +2617,10 @@ define noundef range(i32 1, 0) i32 @_ZN16wasmtime_runtime2gc7GcStore12clone_gc_r
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 4 dereferenceable(4) %1, ptr noalias noundef readonly align 4 dereferenceable_or_null(4) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !4
-  %5 = icmp ne i32 %4, 0
-  %6 = and i32 %4, 1
-  %.not = icmp eq i32 %6, 0
-  %or.cond = and i1 %5, %.not
-  br i1 %or.cond, label %10, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread"
+  %5 = icmp eq i32 %4, 0
+  %6 = trunc i32 %4 to i1
+  %or.cond = or i1 %5, %6
+  br i1 %or.cond, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread", label %10
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread": ; preds = %3
   %7 = icmp eq ptr %2, null
@@ -2631,9 +2628,8 @@ define void @_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E(
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b518b36f5cf5218E.llvm.10220905185939527020.exit.thread"
   %8 = load i32, ptr %2, align 4, !range !134, !noalias !153, !noundef !4
-  %9 = and i32 %8, 1
-  %.not12 = icmp eq i32 %9, 0
-  br i1 %.not12, label %10, label %.thread
+  %9 = trunc i32 %8 to i1
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %3, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0dc055d5459f1fceE.llvm.10220905185939527020.exit"
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2657,18 +2653,16 @@ define void @_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref17h9fdf5dc242f6b979E(
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref28_$u7b$$u7b$closure$u7d$$u7d$17h765dff367f741c54E.llvm.10220905185939527020"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #8 {
   %2 = load i32, ptr %0, align 4, !range !134, !noundef !4
-  %3 = and i32 %2, 1
-  %4 = icmp ne i32 %3, 0
-  ret i1 %4
+  %3 = trunc i32 %2 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @"_ZN16wasmtime_runtime2gc7GcStore12write_gc_ref28_$u7b$$u7b$closure$u7d$$u7d$17h4b08655aec7b7fe6E.llvm.10220905185939527020"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !133, !noundef !4
   %3 = load i32, ptr %2, align 4, !range !134, !noundef !4
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable

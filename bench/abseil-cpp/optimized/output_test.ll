@@ -1345,9 +1345,8 @@ define internal void @_ZN4absl12_GLOBAL__N_121InvokeFlush_Cord_Test8TestBodyEv(p
 _ZN4absl19str_format_internal11InvokeFlushINS_4CordEEEDTcl15AbslFormatFlushfp_fp0_EEPT_St17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i8, ptr %2, align 8, !tbaa !25, !noalias !88
-  %7 = and i8 %6, 1
-  %.not.i.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i.i.i, label %12, label %8
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %12
 
 8:                                                ; preds = %_ZN4absl19str_format_internal11InvokeFlushINS_4CordEEEDTcl15AbslFormatFlushfp_fp0_EEPT_St17basic_string_viewIcSt11char_traitsIcEE.exit
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1499,9 +1498,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = load i8, ptr %2, align 8, !tbaa !25
-  %58 = and i8 %57, 1
-  %.not.i = icmp eq i8 %58, 0
-  br i1 %.not.i, label %_ZN4absl4CordD2Ev.exit, label %59
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %_ZN4absl4CordD2Ev.exit
 
 59:                                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -1533,9 +1531,8 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %_ZN7testing15Assert
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr %0, align 8, !tbaa !25
-  %3 = and i8 %2, 1
-  %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %5, label %4
+  %3 = trunc i8 %2 to i1
+  br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %0)

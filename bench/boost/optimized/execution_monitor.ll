@@ -2915,12 +2915,11 @@ define void @_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE(ptr nou
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8, !tbaa !62
-  %.not.i.i = icmp ne ptr %9, null
+  %.not.i.i = icmp eq ptr %9, null
   %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, 1
-  %.not1.i.i = icmp eq i64 %11, 0
-  %or.cond = and i1 %.not.i.i, %.not1.i.i
-  br i1 %or.cond, label %12, label %_ZN5boost10function_nIiJEED2Ev.exit
+  %11 = trunc i64 %10 to i1
+  %or.cond = or i1 %.not.i.i, %11
+  br i1 %or.cond, label %_ZN5boost10function_nIiJEED2Ev.exit, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %9, align 8, !tbaa !122
@@ -2958,9 +2957,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIiJEED2Ev(ptr noundef nonn
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIiJEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !122

@@ -27,9 +27,8 @@ declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_instMonad___lambda__2(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef returned %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %4
   %.val.i = load i32, ptr %2, align 4, !tbaa !4
@@ -56,9 +55,8 @@ lean_inc.exit:                                    ; preds = %12, %11, %9, %4
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_instMonad___lambda__3(ptr noundef readnone captures(none) %0, ptr noundef returned %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_inc.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_inc.exit, label %5
 
 5:                                                ; preds = %2
   %.val.i = load i32, ptr %1, align 4, !tbaa !4
@@ -104,9 +102,8 @@ define ptr @l_Id_instMonad___lambda__6(ptr readnone captures(none) %0, ptr readn
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_instMonad___lambda__2___boxed(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef returned %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %2 to i64
-  %6 = and i64 %5, 1
-  %.not.i10 = icmp eq i64 %6, 0
-  br i1 %.not.i10, label %7, label %l_Id_instMonad___lambda__2.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %l_Id_instMonad___lambda__2.exit, label %7
 
 7:                                                ; preds = %4
   %.val.i.i = load i32, ptr %2, align 4, !tbaa !4
@@ -128,9 +125,8 @@ define noundef ptr @l_Id_instMonad___lambda__2___boxed(ptr readnone captures(non
 
 l_Id_instMonad___lambda__2.exit:                  ; preds = %4, %9, %11, %12
   %13 = ptrtoint ptr %3 to i64
-  %14 = and i64 %13, 1
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %l_Id_instMonad___lambda__2.exit
   %16 = load i32, ptr %3, align 4, !tbaa !4
@@ -151,7 +147,7 @@ l_Id_instMonad___lambda__2.exit:                  ; preds = %4, %9, %11, %12
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %21, %20, %18, %l_Id_instMonad___lambda__2.exit
-  br i1 %.not.i10, label %22, label %lean_dec.exit7
+  br i1 %6, label %lean_dec.exit7, label %22
 
 22:                                               ; preds = %lean_dec.exit
   %23 = load i32, ptr %2, align 4, !tbaa !4
@@ -178,9 +174,8 @@ lean_dec.exit7:                                   ; preds = %28, %27, %25, %lean
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_instMonad___lambda__3___boxed(ptr readnone captures(none) %0, ptr noundef returned %1) #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not.i4 = icmp eq i64 %4, 0
-  br i1 %.not.i4, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %.val.i.i = load i32, ptr %1, align 4, !tbaa !4
@@ -227,9 +222,8 @@ lean_dec.exit:                                    ; preds = %9, %17, %16, %14, %
 define ptr @l_Id_instMonad___lambda__5___boxed(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @lean_apply_1(ptr noundef %3, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %6 = ptrtoint ptr %2 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_dec.exit, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %2, align 4, !tbaa !4
@@ -256,9 +250,8 @@ lean_dec.exit:                                    ; preds = %14, %13, %11, %4
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_run___rarg(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -309,9 +302,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_run___rarg___boxed(ptr noundef returned %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -357,9 +349,8 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_instOfNat___rarg(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -410,9 +401,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Id_instOfNat___rarg___boxed(ptr noundef returned %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -477,9 +467,8 @@ l_Id_instOfNat.exit:                              ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 18
   store i16 0, ptr %9, align 2, !tbaa !13
   %10 = ptrtoint ptr %1 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %lean_dec.exit
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %lean_dec.exit, label %12
 
 12:                                               ; preds = %l_Id_instOfNat.exit
   %13 = load i32, ptr %1, align 4, !tbaa !4
@@ -751,9 +740,8 @@ _init_l_Id_instMonad___closed__9.exit:            ; preds = %_init_l_Id_instMona
   %92 = getelementptr i8, ptr %91, i64 16
   %.val.i = load ptr, ptr %92, align 8, !tbaa !11
   %93 = ptrtoint ptr %.val.i to i64
-  %94 = and i64 %93, 1
-  %.not.i4 = icmp eq i64 %94, 0
-  br i1 %.not.i4, label %95, label %_init_l_Id_hasBind.exit
+  %94 = trunc i64 %93 to i1
+  br i1 %94, label %_init_l_Id_hasBind.exit, label %95
 
 95:                                               ; preds = %_init_l_Id_instMonad___closed__9.exit
   %.val.i.i = load i32, ptr %.val.i, align 4, !tbaa !4
@@ -786,18 +774,18 @@ _init_l_Id_hasBind.exit:                          ; preds = %_init_l_Id_instMona
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Id_hasBind.exit, %3
-  %.sink21 = phi ptr [ %4, %3 ], [ %101, %_init_l_Id_hasBind.exit ]
-  %104 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
-  store i32 1, ptr %.sink21, align 4, !tbaa !4
+  %.sink20 = phi ptr [ %4, %3 ], [ %101, %_init_l_Id_hasBind.exit ]
+  %104 = getelementptr inbounds nuw i8, ptr %.sink20, i64 4
+  store i32 1, ptr %.sink20, align 4, !tbaa !4
   store i32 131096, ptr %104, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %105, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %106, align 8, !tbaa !11
   br label %107
 
 107:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink21, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink20, %.sink.split ]
   ret ptr %.0
 }
 

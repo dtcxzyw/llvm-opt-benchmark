@@ -647,23 +647,23 @@ define internal fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info1
   %18 = load i64, ptr %17, align 8, !range !8, !noundef !4
   switch i64 %18, label %default.unreachable545 [
     i64 0, label %20
-    i64 1, label %45
-    i64 2, label %49
-    i64 3, label %45
-    i64 4, label %50
-    i64 5, label %63
-    i64 6, label %45
-    i64 7, label %76
-    i64 8, label %86
-    i64 9, label %121
-    i64 10, label %131
-    i64 11, label %137
-    i64 12, label %172
-    i64 13, label %182
+    i64 1, label %33
+    i64 2, label %37
+    i64 3, label %33
+    i64 4, label %38
+    i64 5, label %48
+    i64 6, label %33
+    i64 7, label %58
+    i64 8, label %68
+    i64 9, label %94
+    i64 10, label %104
+    i64 11, label %110
+    i64 12, label %136
+    i64 13, label %146
   ]
 
-19:                                               ; preds = %4, %45
-  %.sroa.0.0.in = phi ptr [ %8, %45 ], [ %11, %4 ]
+19:                                               ; preds = %4, %33
+  %.sroa.0.0.in = phi ptr [ %8, %33 ], [ %11, %4 ]
   %.sroa.0.0 = load i40, ptr %.sroa.0.0.in, align 1
   ret i40 %.sroa.0.0
 
@@ -680,201 +680,183 @@ default.unreachable545:                           ; preds = %12
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %25, ptr %26, align 8
   %.0..0..promoted455 = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx562 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..sroa_idx.promoted457 = load i8, ptr %.1..1..1..sroa_idx562, align 1
-  %.2..2..2..sroa_idx571 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..sroa_idx.promoted459 = load i8, ptr %.2..2..2..sroa_idx571, align 2
-  %.3..3..3..sroa_idx581 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..sroa_idx399.promoted461 = load i8, ptr %.3..3..3..sroa_idx581, align 1
-  %.4..4..4..sroa_idx591 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx414.promoted463 = load i8, ptr %.4..4..4..sroa_idx591, align 4
+  %.1..1..1..sroa_idx589 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..sroa_idx.promoted457 = load i8, ptr %.1..1..1..sroa_idx589, align 1
+  %.2..2..2..sroa_idx598 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..sroa_idx.promoted459 = load i8, ptr %.2..2..2..sroa_idx598, align 2
+  %.3..3..3..sroa_idx608 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..sroa_idx399.promoted461 = load i8, ptr %.3..3..3..sroa_idx608, align 1
+  %.4..4..4..sroa_idx618 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..sroa_idx414.promoted463 = load i8, ptr %.4..4..4..sroa_idx618, align 4
   %27 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4300f30c2ec56335E"(ptr nonnull align 8 %7)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.lr.ph465.preheader
 
 .lr.ph465.preheader:                              ; preds = %20
-  %29 = trunc nuw i8 %.1..1..1..sroa_idx.promoted457 to i1
-  %30 = trunc nuw i8 %.2..2..2..sroa_idx.promoted459 to i1
-  %31 = trunc nuw i8 %.3..3..3..sroa_idx399.promoted461 to i1
-  %32 = trunc nuw i8 %.4..4..4..sroa_idx414.promoted463 to i1
+  %29 = trunc nuw i8 %.4..4..4..sroa_idx414.promoted463 to i1
   br label %.lr.ph465
 
 .loopexit.loopexit:                               ; preds = %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279
-  %33 = zext i1 %.sroa.7.0.i261 to i8
-  %34 = zext i1 %.sroa.5.0.i262 to i8
-  %35 = zext i1 %.sroa.4.0.i263 to i8
-  %36 = zext i1 %.sroa.3.0.i264 to i8
+  %30 = zext i1 %.sroa.7.0.i261 to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %20
-  %.lcssa464 = phi i8 [ %.4..4..4..sroa_idx414.promoted463, %20 ], [ %33, %.loopexit.loopexit ]
-  %.lcssa462 = phi i8 [ %.3..3..3..sroa_idx399.promoted461, %20 ], [ %34, %.loopexit.loopexit ]
-  %.lcssa460 = phi i8 [ %.2..2..2..sroa_idx.promoted459, %20 ], [ %35, %.loopexit.loopexit ]
-  %.lcssa458 = phi i8 [ %.1..1..1..sroa_idx.promoted457, %20 ], [ %36, %.loopexit.loopexit ]
-  %.lcssa456 = phi i8 [ %.0..0..promoted455, %20 ], [ %210, %.loopexit.loopexit ]
+  %.lcssa464 = phi i8 [ %.4..4..4..sroa_idx414.promoted463, %20 ], [ %30, %.loopexit.loopexit ]
+  %.lcssa462 = phi i8 [ %.3..3..3..sroa_idx399.promoted461, %20 ], [ %171, %.loopexit.loopexit ]
+  %.lcssa460 = phi i8 [ %.2..2..2..sroa_idx.promoted459, %20 ], [ %169, %.loopexit.loopexit ]
+  %.lcssa458 = phi i8 [ %.1..1..1..sroa_idx.promoted457, %20 ], [ %167, %.loopexit.loopexit ]
+  %.lcssa456 = phi i8 [ %.0..0..promoted455, %20 ], [ %165, %.loopexit.loopexit ]
   store i8 %.lcssa456, ptr %8, align 8
-  %.1..1..1..sroa_idx563 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.lcssa458, ptr %.1..1..1..sroa_idx563, align 1
-  %.2..2..2..sroa_idx572 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.lcssa460, ptr %.2..2..2..sroa_idx572, align 2
-  %.3..3..3..sroa_idx582 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %.lcssa462, ptr %.3..3..3..sroa_idx582, align 1
-  %.4..4..4..sroa_idx592 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.lcssa464, ptr %.4..4..4..sroa_idx592, align 4
-  br label %45
+  %.1..1..1..sroa_idx590 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %.lcssa458, ptr %.1..1..1..sroa_idx590, align 1
+  %.2..2..2..sroa_idx599 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %.lcssa460, ptr %.2..2..2..sroa_idx599, align 2
+  %.3..3..3..sroa_idx609 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %.lcssa462, ptr %.3..3..3..sroa_idx609, align 1
+  %.4..4..4..sroa_idx619 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %.lcssa464, ptr %.4..4..4..sroa_idx619, align 4
+  br label %33
 
 .loopexit429.loopexit:                            ; preds = %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308
-  %37 = zext i1 %.sroa.7.0.i290 to i8
-  %38 = zext i1 %.sroa.5.0.i291 to i8
-  %39 = zext i1 %.sroa.4.0.i292 to i8
-  %40 = zext i1 %.sroa.3.0.i293 to i8
+  %31 = zext i1 %.sroa.7.0.i290 to i8
   br label %.loopexit429
 
-.loopexit429:                                     ; preds = %.loopexit429.loopexit, %50
-  %.lcssa448 = phi i8 [ %.4..4..4..sroa_idx414.promoted447, %50 ], [ %37, %.loopexit429.loopexit ]
-  %.lcssa446 = phi i8 [ %.3..3..3..sroa_idx399.promoted445, %50 ], [ %38, %.loopexit429.loopexit ]
-  %.lcssa444 = phi i8 [ %.2..2..2..sroa_idx.promoted443, %50 ], [ %39, %.loopexit429.loopexit ]
-  %.lcssa442 = phi i8 [ %.1..1..1..sroa_idx.promoted441, %50 ], [ %40, %.loopexit429.loopexit ]
-  %.lcssa440 = phi i8 [ %.0..0..promoted439, %50 ], [ %240, %.loopexit429.loopexit ]
+.loopexit429:                                     ; preds = %.loopexit429.loopexit, %38
+  %.lcssa448 = phi i8 [ %.4..4..4..sroa_idx414.promoted447, %38 ], [ %31, %.loopexit429.loopexit ]
+  %.lcssa446 = phi i8 [ %.3..3..3..sroa_idx399.promoted445, %38 ], [ %198, %.loopexit429.loopexit ]
+  %.lcssa444 = phi i8 [ %.2..2..2..sroa_idx.promoted443, %38 ], [ %196, %.loopexit429.loopexit ]
+  %.lcssa442 = phi i8 [ %.1..1..1..sroa_idx.promoted441, %38 ], [ %194, %.loopexit429.loopexit ]
+  %.lcssa440 = phi i8 [ %.0..0..promoted439, %38 ], [ %192, %.loopexit429.loopexit ]
   store i8 %.lcssa440, ptr %8, align 8
-  %.1..1..1..sroa_idx561 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.lcssa442, ptr %.1..1..1..sroa_idx561, align 1
-  %.2..2..2..sroa_idx570 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.lcssa444, ptr %.2..2..2..sroa_idx570, align 2
-  %.3..3..3..sroa_idx580 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %.lcssa446, ptr %.3..3..3..sroa_idx580, align 1
-  %.4..4..4..sroa_idx589 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.lcssa448, ptr %.4..4..4..sroa_idx589, align 4
-  br label %45
+  %.1..1..1..sroa_idx588 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %.lcssa442, ptr %.1..1..1..sroa_idx588, align 1
+  %.2..2..2..sroa_idx597 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %.lcssa444, ptr %.2..2..2..sroa_idx597, align 2
+  %.3..3..3..sroa_idx607 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %.lcssa446, ptr %.3..3..3..sroa_idx607, align 1
+  %.4..4..4..sroa_idx616 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %.lcssa448, ptr %.4..4..4..sroa_idx616, align 4
+  br label %33
 
 .loopexit430.loopexit:                            ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
-  %41 = zext i1 %.sroa.6.0.i323 to i8
-  %42 = zext i1 %.sroa.5.0.i319 to i8
-  %43 = zext i1 %.sroa.4.0.i320 to i8
-  %44 = zext i1 %.sroa.3.0.i321 to i8
+  %32 = zext i1 %.sroa.6.0.i323 to i8
   br label %.loopexit430
 
-.loopexit430:                                     ; preds = %.loopexit430.loopexit, %63
-  %.lcssa434 = phi i8 [ %.4..4..4..sroa_idx414.promoted, %63 ], [ %41, %.loopexit430.loopexit ]
-  %.lcssa433 = phi i8 [ %.3..3..3..sroa_idx399.promoted, %63 ], [ %42, %.loopexit430.loopexit ]
-  %.lcssa432 = phi i8 [ %.2..2..2..sroa_idx.promoted, %63 ], [ %43, %.loopexit430.loopexit ]
-  %.lcssa431 = phi i8 [ %.1..1..1..sroa_idx.promoted, %63 ], [ %44, %.loopexit430.loopexit ]
-  %.lcssa = phi i8 [ %.0..0..promoted, %63 ], [ %270, %.loopexit430.loopexit ]
+.loopexit430:                                     ; preds = %.loopexit430.loopexit, %48
+  %.lcssa434 = phi i8 [ %.4..4..4..sroa_idx414.promoted, %48 ], [ %32, %.loopexit430.loopexit ]
+  %.lcssa433 = phi i8 [ %.3..3..3..sroa_idx399.promoted, %48 ], [ %225, %.loopexit430.loopexit ]
+  %.lcssa432 = phi i8 [ %.2..2..2..sroa_idx.promoted, %48 ], [ %223, %.loopexit430.loopexit ]
+  %.lcssa431 = phi i8 [ %.1..1..1..sroa_idx.promoted, %48 ], [ %221, %.loopexit430.loopexit ]
+  %.lcssa = phi i8 [ %.0..0..promoted, %48 ], [ %219, %.loopexit430.loopexit ]
   store i8 %.lcssa, ptr %8, align 8
-  %.1..1..1..sroa_idx559 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %.lcssa431, ptr %.1..1..1..sroa_idx559, align 1
-  %.2..2..2..sroa_idx568 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %.lcssa432, ptr %.2..2..2..sroa_idx568, align 2
-  %.3..3..3..sroa_idx578 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %.lcssa433, ptr %.3..3..3..sroa_idx578, align 1
-  %.4..4..4..sroa_idx587 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %.lcssa434, ptr %.4..4..4..sroa_idx587, align 4
-  br label %45
+  %.1..1..1..sroa_idx586 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %.lcssa431, ptr %.1..1..1..sroa_idx586, align 1
+  %.2..2..2..sroa_idx595 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %.lcssa432, ptr %.2..2..2..sroa_idx595, align 2
+  %.3..3..3..sroa_idx605 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %.lcssa433, ptr %.3..3..3..sroa_idx605, align 1
+  %.4..4..4..sroa_idx614 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %.lcssa434, ptr %.4..4..4..sroa_idx614, align 4
+  br label %33
 
-45:                                               ; preds = %.loopexit430, %.loopexit429, %.loopexit, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit, %49, %12, %12, %12
-  %46 = load i64, ptr %9, align 8, !noundef !4
-  %47 = load i32, ptr %10, align 8, !noundef !4
+33:                                               ; preds = %.loopexit430, %.loopexit429, %.loopexit, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit, %37, %12, %12, %12
+  %34 = load i64, ptr %9, align 8, !noundef !4
+  %35 = load i32, ptr %10, align 8, !noundef !4
   %.0..0..0..sroa.025.0.copyload = load i40, ptr %8, align 8
-  %48 = call i40 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4b2e3f167d8f733aE"(ptr align 8 %0, i64 %46, i32 %47, i40 %.0..0..0..sroa.025.0.copyload)
+  %36 = call i40 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4b2e3f167d8f733aE"(ptr align 8 %0, i64 %34, i32 %35, i40 %.0..0..0..sroa.025.0.copyload)
   br label %19
 
-49:                                               ; preds = %12
-  %.4..4..4..sroa_idx590 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 1, ptr %.4..4..4..sroa_idx590, align 4
-  br label %45
+37:                                               ; preds = %12
+  %.4..4..4..sroa_idx617 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 1, ptr %.4..4..4..sroa_idx617, align 4
+  br label %33
 
-50:                                               ; preds = %12
-  %51 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %52 = load ptr, ptr %51, align 8, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %54 = load i64, ptr %53, align 8, !noundef !4
-  %55 = getelementptr inbounds { i64, [2 x i64] }, ptr %52, i64 %54
-  store ptr %52, ptr %6, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %55, ptr %56, align 8
+38:                                               ; preds = %12
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %42 = load i64, ptr %41, align 8, !noundef !4
+  %43 = getelementptr inbounds { i64, [2 x i64] }, ptr %40, i64 %42
+  store ptr %40, ptr %6, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %43, ptr %44, align 8
   %.0..0..promoted439 = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx560 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..sroa_idx.promoted441 = load i8, ptr %.1..1..1..sroa_idx560, align 1
-  %.2..2..2..sroa_idx569 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..sroa_idx.promoted443 = load i8, ptr %.2..2..2..sroa_idx569, align 2
-  %.3..3..3..sroa_idx579 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..sroa_idx399.promoted445 = load i8, ptr %.3..3..3..sroa_idx579, align 1
-  %.4..4..4..sroa_idx588 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx414.promoted447 = load i8, ptr %.4..4..4..sroa_idx588, align 4
-  %57 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %6)
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit429, label %.lr.ph449.preheader
+  %.1..1..1..sroa_idx587 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..sroa_idx.promoted441 = load i8, ptr %.1..1..1..sroa_idx587, align 1
+  %.2..2..2..sroa_idx596 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..sroa_idx.promoted443 = load i8, ptr %.2..2..2..sroa_idx596, align 2
+  %.3..3..3..sroa_idx606 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..sroa_idx399.promoted445 = load i8, ptr %.3..3..3..sroa_idx606, align 1
+  %.4..4..4..sroa_idx615 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..sroa_idx414.promoted447 = load i8, ptr %.4..4..4..sroa_idx615, align 4
+  %45 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %6)
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.loopexit429, label %.lr.ph449.preheader
 
-.lr.ph449.preheader:                              ; preds = %50
-  %59 = trunc nuw i8 %.1..1..1..sroa_idx.promoted441 to i1
-  %60 = trunc nuw i8 %.2..2..2..sroa_idx.promoted443 to i1
-  %61 = trunc nuw i8 %.3..3..3..sroa_idx399.promoted445 to i1
-  %62 = trunc nuw i8 %.4..4..4..sroa_idx414.promoted447 to i1
+.lr.ph449.preheader:                              ; preds = %38
+  %47 = trunc nuw i8 %.4..4..4..sroa_idx414.promoted447 to i1
   br label %.lr.ph449
 
-63:                                               ; preds = %12
-  %64 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %65 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
-  %66 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %67 = load i64, ptr %66, align 8, !noundef !4
-  %68 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %65, i64 %67
-  store ptr %65, ptr %5, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %68, ptr %69, align 8
+48:                                               ; preds = %12
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %50 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %52 = load i64, ptr %51, align 8, !noundef !4
+  %53 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %50, i64 %52
+  store ptr %50, ptr %5, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %53, ptr %54, align 8
   %.0..0..promoted = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx558 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..sroa_idx.promoted = load i8, ptr %.1..1..1..sroa_idx558, align 1
-  %.2..2..2..sroa_idx567 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..sroa_idx.promoted = load i8, ptr %.2..2..2..sroa_idx567, align 2
-  %.3..3..3..sroa_idx577 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..sroa_idx399.promoted = load i8, ptr %.3..3..3..sroa_idx577, align 1
-  %.4..4..4..sroa_idx586 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..sroa_idx414.promoted = load i8, ptr %.4..4..4..sroa_idx586, align 4
-  %70 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit430, label %.lr.ph.preheader
+  %.1..1..1..sroa_idx585 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..sroa_idx.promoted = load i8, ptr %.1..1..1..sroa_idx585, align 1
+  %.2..2..2..sroa_idx594 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..sroa_idx.promoted = load i8, ptr %.2..2..2..sroa_idx594, align 2
+  %.3..3..3..sroa_idx604 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..sroa_idx399.promoted = load i8, ptr %.3..3..3..sroa_idx604, align 1
+  %.4..4..4..sroa_idx613 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..sroa_idx414.promoted = load i8, ptr %.4..4..4..sroa_idx613, align 4
+  %55 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %.loopexit430, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %63
-  %72 = trunc nuw i8 %.1..1..1..sroa_idx.promoted to i1
-  %73 = trunc nuw i8 %.2..2..2..sroa_idx.promoted to i1
-  %74 = trunc nuw i8 %.3..3..3..sroa_idx399.promoted to i1
-  %75 = trunc nuw i8 %.4..4..4..sroa_idx414.promoted to i1
+.lr.ph.preheader:                                 ; preds = %48
+  %57 = trunc nuw i8 %.4..4..4..sroa_idx414.promoted to i1
   br label %.lr.ph
 
-76:                                               ; preds = %12
-  %77 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %78 = load i64, ptr %77, align 8, !range !8, !noundef !4
-  switch i64 %78, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit [
-    i64 12, label %79
-    i64 13, label %80
+58:                                               ; preds = %12
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %60 = load i64, ptr %59, align 8, !range !8, !noundef !4
+  switch i64 %60, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit [
+    i64 12, label %61
+    i64 13, label %62
   ]
 
-79:                                               ; preds = %76
+61:                                               ; preds = %58
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %82 = load i64, ptr %81, align 8, !noundef !4
-  %83 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %84 = load i32, ptr %83, align 8, !noundef !4
-  %85 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %82, i32 %84)
-  %.sroa.01.0.extract.trunc.i = trunc i40 %85 to i8
-  %.sroa.2.0.extract.shift.i = lshr i40 %85, 8
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %64 = load i64, ptr %63, align 8, !noundef !4
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %66 = load i32, ptr %65, align 8, !noundef !4
+  %67 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %64, i32 %66)
+  %.sroa.01.0.extract.trunc.i = trunc i40 %67 to i8
+  %.sroa.2.0.extract.shift.i = lshr i40 %67, 8
   %.sroa.2.0.extract.trunc.i = trunc i40 %.sroa.2.0.extract.shift.i to i8
-  %.sroa.32.0.extract.shift.i = lshr i40 %85, 16
+  %.sroa.32.0.extract.shift.i = lshr i40 %67, 16
   %.sroa.32.0.extract.trunc.i = trunc i40 %.sroa.32.0.extract.shift.i to i8
-  %.sroa.43.0.extract.shift.i = lshr i40 %85, 24
+  %.sroa.43.0.extract.shift.i = lshr i40 %67, 24
   %.sroa.43.0.extract.trunc.i = trunc i40 %.sroa.43.0.extract.shift.i to i8
-  %.sroa.54.0.extract.shift.i = lshr i40 %85, 32
+  %.sroa.54.0.extract.shift.i = lshr i40 %67, 32
   %.sroa.54.0.extract.trunc.i = trunc nuw i40 %.sroa.54.0.extract.shift.i to i8
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit
 
-_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit: ; preds = %76, %79, %80
-  %.sroa.7.0.i = phi i8 [ 0, %76 ], [ 0, %79 ], [ %.sroa.54.0.extract.trunc.i, %80 ]
-  %.sroa.5.0.i = phi i8 [ 0, %76 ], [ 1, %79 ], [ %.sroa.43.0.extract.trunc.i, %80 ]
-  %.sroa.4.0.i = phi i8 [ 0, %76 ], [ 0, %79 ], [ %.sroa.32.0.extract.trunc.i, %80 ]
-  %.sroa.3.0.i = phi i8 [ 0, %76 ], [ 0, %79 ], [ %.sroa.2.0.extract.trunc.i, %80 ]
-  %.sroa.0.0.i = phi i8 [ 0, %76 ], [ 0, %79 ], [ %.sroa.01.0.extract.trunc.i, %80 ]
+_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit: ; preds = %58, %61, %62
+  %.sroa.7.0.i = phi i8 [ 0, %58 ], [ 0, %61 ], [ %.sroa.54.0.extract.trunc.i, %62 ]
+  %.sroa.5.0.i = phi i8 [ 0, %58 ], [ 1, %61 ], [ %.sroa.43.0.extract.trunc.i, %62 ]
+  %.sroa.4.0.i = phi i8 [ 0, %58 ], [ 0, %61 ], [ %.sroa.32.0.extract.trunc.i, %62 ]
+  %.sroa.3.0.i = phi i8 [ 0, %58 ], [ 0, %61 ], [ %.sroa.2.0.extract.trunc.i, %62 ]
+  %.sroa.0.0.i = phi i8 [ 0, %58 ], [ 0, %61 ], [ %.sroa.01.0.extract.trunc.i, %62 ]
   %.sroa.7.0.insert.ext.i = zext i8 %.sroa.7.0.i to i40
   %.sroa.7.0.insert.shift.i = shl nuw i40 %.sroa.7.0.insert.ext.i, 32
   %.sroa.5.0.insert.ext.i = zext i8 %.sroa.5.0.i to i40
@@ -889,143 +871,137 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit: ; pred
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.0.0.i to i40
   %.sroa.0.0.insert.insert.i = or disjoint i40 %.sroa.3.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   store i40 %.sroa.0.0.insert.insert.i, ptr %8, align 8
-  br label %45
+  br label %33
 
-86:                                               ; preds = %12
-  %87 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %88 = load i64, ptr %87, align 8, !range !10, !noundef !4
-  %89 = icmp eq i64 %88, 14
-  br i1 %89, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit, label %90
+68:                                               ; preds = %12
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %70 = load i64, ptr %69, align 8, !range !10, !noundef !4
+  %71 = icmp eq i64 %70, 14
+  br i1 %71, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit, label %72
 
-90:                                               ; preds = %86
-  %91 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %87)
-  %.sroa.02.0.extract.trunc.i = trunc i40 %91 to i8
-  %.sroa.2.0.extract.shift.i66 = lshr i40 %91, 8
+72:                                               ; preds = %68
+  %73 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %69)
+  %.sroa.02.0.extract.trunc.i = trunc i40 %73 to i8
+  %.sroa.2.0.extract.shift.i66 = lshr i40 %73, 8
   %.sroa.2.0.extract.trunc.i67 = trunc i40 %.sroa.2.0.extract.shift.i66 to i8
-  %.sroa.33.0.extract.shift.i = lshr i40 %91, 16
+  %.sroa.33.0.extract.shift.i = lshr i40 %73, 16
   %.sroa.33.0.extract.trunc.i = trunc i40 %.sroa.33.0.extract.shift.i to i8
-  %.sroa.44.0.extract.shift.i = lshr i40 %91, 24
+  %.sroa.44.0.extract.shift.i = lshr i40 %73, 24
   %.sroa.44.0.extract.trunc.i = trunc i40 %.sroa.44.0.extract.shift.i to i8
-  %.sroa.55.0.extract.shift.i = lshr i40 %91, 32
+  %.sroa.55.0.extract.shift.i = lshr i40 %73, 32
   %.sroa.55.0.extract.trunc.i = trunc nuw i40 %.sroa.55.0.extract.shift.i to i8
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit
 
-_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit: ; preds = %86, %90
-  %.sroa.5.0.i68 = phi i8 [ %.sroa.44.0.extract.trunc.i, %90 ], [ 0, %86 ]
-  %.sroa.4.0.i69 = phi i8 [ %.sroa.33.0.extract.trunc.i, %90 ], [ 0, %86 ]
-  %.sroa.3.0.i70 = phi i8 [ %.sroa.2.0.extract.trunc.i67, %90 ], [ 0, %86 ]
-  %.sroa.0.0.i71 = phi i8 [ %.sroa.02.0.extract.trunc.i, %90 ], [ 0, %86 ]
-  %.sroa.6.0.i = phi i8 [ %.sroa.55.0.extract.trunc.i, %90 ], [ 0, %86 ]
+_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit: ; preds = %68, %72
+  %.sroa.5.0.i68 = phi i8 [ %.sroa.44.0.extract.trunc.i, %72 ], [ 0, %68 ]
+  %.sroa.4.0.i69 = phi i8 [ %.sroa.33.0.extract.trunc.i, %72 ], [ 0, %68 ]
+  %.sroa.3.0.i70 = phi i8 [ %.sroa.2.0.extract.trunc.i67, %72 ], [ 0, %68 ]
+  %.sroa.0.0.i71 = phi i8 [ %.sroa.02.0.extract.trunc.i, %72 ], [ 0, %68 ]
+  %.sroa.6.0.i = phi i8 [ %.sroa.55.0.extract.trunc.i, %72 ], [ 0, %68 ]
   %.sroa.6.0.insert.ext.i = zext i8 %.sroa.6.0.i to i40
   %.sroa.6.0.insert.shift.i = shl nuw i40 %.sroa.6.0.insert.ext.i, 32
   %.sroa.5.0.insert.ext.i72 = zext i8 %.sroa.5.0.i68 to i40
   %.sroa.5.0.insert.shift.i73 = shl nuw nsw i40 %.sroa.5.0.insert.ext.i72, 24
   %.sroa.4.0.insert.ext.i75 = zext i8 %.sroa.4.0.i69 to i40
   %.sroa.4.0.insert.shift.i76 = shl nuw nsw i40 %.sroa.4.0.insert.ext.i75, 16
-  %92 = or disjoint i40 %.sroa.6.0.insert.shift.i, %.sroa.4.0.insert.shift.i76
-  %.sroa.4.0.insert.insert.i77 = or disjoint i40 %92, %.sroa.5.0.insert.shift.i73
+  %74 = or disjoint i40 %.sroa.6.0.insert.shift.i, %.sroa.4.0.insert.shift.i76
+  %.sroa.4.0.insert.insert.i77 = or disjoint i40 %74, %.sroa.5.0.insert.shift.i73
   %.sroa.3.0.insert.ext.i78 = zext i8 %.sroa.3.0.i70 to i40
   %.sroa.3.0.insert.shift.i79 = shl nuw nsw i40 %.sroa.3.0.insert.ext.i78, 8
   %.sroa.0.0.insert.ext.i81 = zext i8 %.sroa.0.0.i71 to i40
-  %93 = or disjoint i40 %.sroa.3.0.insert.shift.i79, %.sroa.0.0.insert.ext.i81
-  %.sroa.0.0.insert.insert.i82 = or disjoint i40 %93, %.sroa.4.0.insert.insert.i77
+  %75 = or disjoint i40 %.sroa.3.0.insert.shift.i79, %.sroa.0.0.insert.ext.i81
+  %.sroa.0.0.insert.insert.i82 = or disjoint i40 %75, %.sroa.4.0.insert.insert.i77
   store i40 %.sroa.0.0.insert.insert.i82, ptr %8, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %95 = load i64, ptr %94, align 8, !range !10, !noundef !4
-  %96 = icmp eq i64 %95, 14
-  br i1 %96, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110, label %97
+  %76 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %77 = load i64, ptr %76, align 8, !range !10, !noundef !4
+  %78 = icmp eq i64 %77, 14
+  br i1 %78, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110, label %79
 
-97:                                               ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit
-  %98 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %94)
-  %.sroa.02.0.extract.trunc.i83 = trunc i40 %98 to i8
-  %99 = and i40 %98, 16777216
-  %100 = icmp ne i40 %99, 0
-  %101 = and i40 %98, 65536
-  %102 = icmp ne i40 %101, 0
-  %103 = and i8 %.sroa.02.0.extract.trunc.i83, 1
-  %104 = and i40 %98, 256
-  %105 = icmp ne i40 %104, 0
-  %106 = and i40 %98, 4294967296
-  %107 = icmp ne i40 %106, 0
+79:                                               ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit
+  %80 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %76)
+  %.sroa.02.0.extract.trunc.i83 = trunc i40 %80 to i8
+  %.sroa.2.0.extract.shift.i84 = lshr i40 %80, 8
+  %.sroa.2.0.extract.trunc.i85 = trunc i40 %.sroa.2.0.extract.shift.i84 to i8
+  %.sroa.33.0.extract.shift.i86 = lshr i40 %80, 16
+  %.sroa.33.0.extract.trunc.i87 = trunc i40 %.sroa.33.0.extract.shift.i86 to i8
+  %.sroa.44.0.extract.shift.i88 = lshr i40 %80, 24
+  %.sroa.44.0.extract.trunc.i89 = trunc i40 %.sroa.44.0.extract.shift.i88 to i8
+  %81 = and i8 %.sroa.02.0.extract.trunc.i83, 1
+  %82 = and i40 %80, 4294967296
+  %83 = icmp ne i40 %82, 0
   %.0..0..0..pre = load i8, ptr %8, align 8
-  %.1..1..1..sroa_idx556 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %.1..1..1..pre = load i8, ptr %.1..1..1..sroa_idx556, align 1
-  %.2..2..2..sroa_idx565 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %.2..2..2..pre = load i8, ptr %.2..2..2..sroa_idx565, align 2
-  %.3..3..3..sroa_idx575 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.3..3..3..pre = load i8, ptr %.3..3..3..sroa_idx575, align 1
-  %.4..4..4..sroa_idx584 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..pre = load i8, ptr %.4..4..4..sroa_idx584, align 4
-  %108 = or i8 %.0..0..0..pre, %103
+  %.1..1..1..sroa_idx583 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %.1..1..1..pre = load i8, ptr %.1..1..1..sroa_idx583, align 1
+  %.2..2..2..sroa_idx592 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %.2..2..2..pre = load i8, ptr %.2..2..2..sroa_idx592, align 2
+  %.3..3..3..sroa_idx602 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.3..3..3..pre = load i8, ptr %.3..3..3..sroa_idx602, align 1
+  %.4..4..4..sroa_idx611 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..pre = load i8, ptr %.4..4..4..sroa_idx611, align 4
+  %84 = or i8 %.0..0..0..pre, %81
+  %85 = or i8 %.1..1..1..pre, %.sroa.2.0.extract.trunc.i85
+  %86 = or i8 %.2..2..2..pre, %.sroa.33.0.extract.trunc.i87
+  %87 = or i8 %.3..3..3..pre, %.sroa.44.0.extract.trunc.i89
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110
 
-_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110: ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit, %97
-  %.4..4. = phi i8 [ %.4..4..4..pre, %97 ], [ %.sroa.6.0.i, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.3..3. = phi i8 [ %.3..3..3..pre, %97 ], [ %.sroa.5.0.i68, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.2..2. = phi i8 [ %.2..2..2..pre, %97 ], [ %.sroa.4.0.i69, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.1..1. = phi i8 [ %.1..1..1..pre, %97 ], [ %.sroa.3.0.i70, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.0..0. = phi i8 [ %108, %97 ], [ %.sroa.0.0.i71, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.5.0.i92 = phi i1 [ %100, %97 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.4.0.i93 = phi i1 [ %102, %97 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.3.0.i94 = phi i1 [ %105, %97 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.6.0.i96 = phi i1 [ %107, %97 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit110: ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit, %79
+  %.4..4. = phi i8 [ %.4..4..4..pre, %79 ], [ %.sroa.6.0.i, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.3..3. = phi i8 [ %87, %79 ], [ %.sroa.5.0.i68, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.2..2. = phi i8 [ %86, %79 ], [ %.sroa.4.0.i69, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.1..1. = phi i8 [ %85, %79 ], [ %.sroa.3.0.i70, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.0..0. = phi i8 [ %84, %79 ], [ %.sroa.0.0.i71, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.sroa.6.0.i96 = phi i1 [ %83, %79 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
   store i8 %.0..0., ptr %8, align 8
-  %109 = trunc nuw i8 %.1..1. to i1
-  %110 = or i1 %.sroa.3.0.i94, %109
-  %111 = zext i1 %110 to i8
-  %.1..1..1..sroa_idx557 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %111, ptr %.1..1..1..sroa_idx557, align 1
-  %112 = trunc nuw i8 %.2..2. to i1
-  %113 = or i1 %.sroa.4.0.i93, %112
-  %114 = zext i1 %113 to i8
-  %.2..2..2..sroa_idx566 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %114, ptr %.2..2..2..sroa_idx566, align 2
-  %115 = trunc nuw i8 %.3..3. to i1
-  %116 = or i1 %.sroa.5.0.i92, %115
-  %117 = zext i1 %116 to i8
-  %.3..3..3..sroa_idx576 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %117, ptr %.3..3..3..sroa_idx576, align 1
-  %118 = trunc nuw i8 %.4..4. to i1
-  %119 = or i1 %.sroa.6.0.i96, %118
-  %120 = zext i1 %119 to i8
-  %.4..4..4..sroa_idx585 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %120, ptr %.4..4..4..sroa_idx585, align 4
-  br label %45
+  %88 = and i8 %.1..1., 1
+  %.1..1..1..sroa_idx584 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %88, ptr %.1..1..1..sroa_idx584, align 1
+  %89 = and i8 %.2..2., 1
+  %.2..2..2..sroa_idx593 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %89, ptr %.2..2..2..sroa_idx593, align 2
+  %90 = and i8 %.3..3., 1
+  %.3..3..3..sroa_idx603 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %90, ptr %.3..3..3..sroa_idx603, align 1
+  %91 = trunc nuw i8 %.4..4. to i1
+  %92 = or i1 %.sroa.6.0.i96, %91
+  %93 = zext i1 %92 to i8
+  %.4..4..4..sroa_idx612 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %93, ptr %.4..4..4..sroa_idx612, align 4
+  br label %33
 
-121:                                              ; preds = %12
-  %122 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %123 = load i64, ptr %122, align 8, !range !8, !noundef !4
-  switch i64 %123, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138 [
-    i64 12, label %124
-    i64 13, label %125
+94:                                               ; preds = %12
+  %95 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %96 = load i64, ptr %95, align 8, !range !8, !noundef !4
+  switch i64 %96, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138 [
+    i64 12, label %97
+    i64 13, label %98
   ]
 
-124:                                              ; preds = %121
+97:                                               ; preds = %94
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138
 
-125:                                              ; preds = %121
-  %126 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %127 = load i64, ptr %126, align 8, !noundef !4
-  %128 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %129 = load i32, ptr %128, align 8, !noundef !4
-  %130 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %127, i32 %129)
-  %.sroa.01.0.extract.trunc.i111 = trunc i40 %130 to i8
-  %.sroa.2.0.extract.shift.i112 = lshr i40 %130, 8
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %100 = load i64, ptr %99, align 8, !noundef !4
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %102 = load i32, ptr %101, align 8, !noundef !4
+  %103 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %100, i32 %102)
+  %.sroa.01.0.extract.trunc.i111 = trunc i40 %103 to i8
+  %.sroa.2.0.extract.shift.i112 = lshr i40 %103, 8
   %.sroa.2.0.extract.trunc.i113 = trunc i40 %.sroa.2.0.extract.shift.i112 to i8
-  %.sroa.32.0.extract.shift.i114 = lshr i40 %130, 16
+  %.sroa.32.0.extract.shift.i114 = lshr i40 %103, 16
   %.sroa.32.0.extract.trunc.i115 = trunc i40 %.sroa.32.0.extract.shift.i114 to i8
-  %.sroa.43.0.extract.shift.i116 = lshr i40 %130, 24
+  %.sroa.43.0.extract.shift.i116 = lshr i40 %103, 24
   %.sroa.43.0.extract.trunc.i117 = trunc i40 %.sroa.43.0.extract.shift.i116 to i8
-  %.sroa.54.0.extract.shift.i118 = lshr i40 %130, 32
+  %.sroa.54.0.extract.shift.i118 = lshr i40 %103, 32
   %.sroa.54.0.extract.trunc.i119 = trunc nuw i40 %.sroa.54.0.extract.shift.i118 to i8
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138
 
-_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138: ; preds = %121, %124, %125
-  %.sroa.7.0.i120 = phi i8 [ 0, %121 ], [ 0, %124 ], [ %.sroa.54.0.extract.trunc.i119, %125 ]
-  %.sroa.5.0.i121 = phi i8 [ 0, %121 ], [ 1, %124 ], [ %.sroa.43.0.extract.trunc.i117, %125 ]
-  %.sroa.4.0.i122 = phi i8 [ 0, %121 ], [ 0, %124 ], [ %.sroa.32.0.extract.trunc.i115, %125 ]
-  %.sroa.3.0.i123 = phi i8 [ 0, %121 ], [ 0, %124 ], [ %.sroa.2.0.extract.trunc.i113, %125 ]
-  %.sroa.0.0.i124 = phi i8 [ 0, %121 ], [ 0, %124 ], [ %.sroa.01.0.extract.trunc.i111, %125 ]
+_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138: ; preds = %94, %97, %98
+  %.sroa.7.0.i120 = phi i8 [ 0, %94 ], [ 0, %97 ], [ %.sroa.54.0.extract.trunc.i119, %98 ]
+  %.sroa.5.0.i121 = phi i8 [ 0, %94 ], [ 1, %97 ], [ %.sroa.43.0.extract.trunc.i117, %98 ]
+  %.sroa.4.0.i122 = phi i8 [ 0, %94 ], [ 0, %97 ], [ %.sroa.32.0.extract.trunc.i115, %98 ]
+  %.sroa.3.0.i123 = phi i8 [ 0, %94 ], [ 0, %97 ], [ %.sroa.2.0.extract.trunc.i113, %98 ]
+  %.sroa.0.0.i124 = phi i8 [ 0, %94 ], [ 0, %97 ], [ %.sroa.01.0.extract.trunc.i111, %98 ]
   %.sroa.7.0.insert.ext.i125 = zext i8 %.sroa.7.0.i120 to i40
   %.sroa.7.0.insert.shift.i126 = shl nuw i40 %.sroa.7.0.insert.ext.i125, 32
   %.sroa.5.0.insert.ext.i127 = zext i8 %.sroa.5.0.i121 to i40
@@ -1040,35 +1016,35 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138: ; p
   %.sroa.0.0.insert.ext.i136 = zext i8 %.sroa.0.0.i124 to i40
   %.sroa.0.0.insert.insert.i137 = or disjoint i40 %.sroa.3.0.insert.insert.i135, %.sroa.0.0.insert.ext.i136
   store i40 %.sroa.0.0.insert.insert.i137, ptr %8, align 8
-  %.3..3..3..sroa_idx574 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 1, ptr %.3..3..3..sroa_idx574, align 1
-  br label %45
+  %.3..3..3..sroa_idx601 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 1, ptr %.3..3..3..sroa_idx601, align 1
+  br label %33
 
-131:                                              ; preds = %12
-  %132 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %133 = load i64, ptr %132, align 8, !range !10, !noundef !4
-  %134 = icmp eq i64 %133, 14
-  br i1 %134, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166, label %135
+104:                                              ; preds = %12
+  %105 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %106 = load i64, ptr %105, align 8, !range !10, !noundef !4
+  %107 = icmp eq i64 %106, 14
+  br i1 %107, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166, label %108
 
-135:                                              ; preds = %131
-  %136 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %132)
-  %.sroa.02.0.extract.trunc.i139 = trunc i40 %136 to i8
-  %.sroa.2.0.extract.shift.i140 = lshr i40 %136, 8
+108:                                              ; preds = %104
+  %109 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %105)
+  %.sroa.02.0.extract.trunc.i139 = trunc i40 %109 to i8
+  %.sroa.2.0.extract.shift.i140 = lshr i40 %109, 8
   %.sroa.2.0.extract.trunc.i141 = trunc i40 %.sroa.2.0.extract.shift.i140 to i8
-  %.sroa.33.0.extract.shift.i142 = lshr i40 %136, 16
+  %.sroa.33.0.extract.shift.i142 = lshr i40 %109, 16
   %.sroa.33.0.extract.trunc.i143 = trunc i40 %.sroa.33.0.extract.shift.i142 to i8
-  %.sroa.44.0.extract.shift.i144 = lshr i40 %136, 24
+  %.sroa.44.0.extract.shift.i144 = lshr i40 %109, 24
   %.sroa.44.0.extract.trunc.i145 = trunc i40 %.sroa.44.0.extract.shift.i144 to i8
-  %.sroa.55.0.extract.shift.i146 = lshr i40 %136, 32
+  %.sroa.55.0.extract.shift.i146 = lshr i40 %109, 32
   %.sroa.55.0.extract.trunc.i147 = trunc nuw i40 %.sroa.55.0.extract.shift.i146 to i8
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166
 
-_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166: ; preds = %131, %135
-  %.sroa.5.0.i148 = phi i8 [ %.sroa.44.0.extract.trunc.i145, %135 ], [ 0, %131 ]
-  %.sroa.4.0.i149 = phi i8 [ %.sroa.33.0.extract.trunc.i143, %135 ], [ 0, %131 ]
-  %.sroa.3.0.i150 = phi i8 [ %.sroa.2.0.extract.trunc.i141, %135 ], [ 0, %131 ]
-  %.sroa.0.0.i151 = phi i8 [ %.sroa.02.0.extract.trunc.i139, %135 ], [ 0, %131 ]
-  %.sroa.6.0.i152 = phi i8 [ %.sroa.55.0.extract.trunc.i147, %135 ], [ 0, %131 ]
+_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166: ; preds = %104, %108
+  %.sroa.5.0.i148 = phi i8 [ %.sroa.44.0.extract.trunc.i145, %108 ], [ 0, %104 ]
+  %.sroa.4.0.i149 = phi i8 [ %.sroa.33.0.extract.trunc.i143, %108 ], [ 0, %104 ]
+  %.sroa.3.0.i150 = phi i8 [ %.sroa.2.0.extract.trunc.i141, %108 ], [ 0, %104 ]
+  %.sroa.0.0.i151 = phi i8 [ %.sroa.02.0.extract.trunc.i139, %108 ], [ 0, %104 ]
+  %.sroa.6.0.i152 = phi i8 [ %.sroa.55.0.extract.trunc.i147, %108 ], [ 0, %104 ]
   %.sroa.6.0.insert.ext.i153 = zext i8 %.sroa.6.0.i152 to i40
   %.sroa.6.0.insert.shift.i154 = shl nuw i40 %.sroa.6.0.insert.ext.i153, 32
   %.sroa.5.0.insert.ext.i155 = zext i8 %.sroa.5.0.i148 to i40
@@ -1083,64 +1059,64 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %.sroa.0.0.insert.ext.i164 = zext i8 %.sroa.0.0.i151 to i40
   %.sroa.0.0.insert.insert.i165 = or disjoint i40 %.sroa.3.0.insert.insert.i163, %.sroa.0.0.insert.ext.i164
   store i40 %.sroa.0.0.insert.insert.i165, ptr %8, align 8
-  br label %45
+  br label %33
 
-137:                                              ; preds = %12
-  %138 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %139 = load i64, ptr %138, align 8, !range !10, !noundef !4
-  %140 = icmp eq i64 %139, 14
-  br i1 %140, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194, label %141
+110:                                              ; preds = %12
+  %111 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %112 = load i64, ptr %111, align 8, !range !10, !noundef !4
+  %113 = icmp eq i64 %112, 14
+  br i1 %113, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194, label %114
 
-141:                                              ; preds = %137
-  %142 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %138)
-  %.sroa.02.0.extract.trunc.i167 = trunc i40 %142 to i8
-  %.sroa.2.0.extract.shift.i168 = lshr i40 %142, 8
+114:                                              ; preds = %110
+  %115 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %111)
+  %.sroa.02.0.extract.trunc.i167 = trunc i40 %115 to i8
+  %.sroa.2.0.extract.shift.i168 = lshr i40 %115, 8
   %.sroa.2.0.extract.trunc.i169 = trunc i40 %.sroa.2.0.extract.shift.i168 to i8
-  %.sroa.33.0.extract.shift.i170 = lshr i40 %142, 16
+  %.sroa.33.0.extract.shift.i170 = lshr i40 %115, 16
   %.sroa.33.0.extract.trunc.i171 = trunc i40 %.sroa.33.0.extract.shift.i170 to i8
-  %.sroa.44.0.extract.shift.i172 = lshr i40 %142, 24
+  %.sroa.44.0.extract.shift.i172 = lshr i40 %115, 24
   %.sroa.44.0.extract.trunc.i173 = trunc i40 %.sroa.44.0.extract.shift.i172 to i8
-  %.sroa.55.0.extract.shift.i174 = lshr i40 %142, 32
+  %.sroa.55.0.extract.shift.i174 = lshr i40 %115, 32
   %.sroa.55.0.extract.trunc.i175 = trunc nuw i40 %.sroa.55.0.extract.shift.i174 to i8
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194
 
-_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194: ; preds = %137, %141
-  %.sroa.5.0.i176 = phi i8 [ %.sroa.44.0.extract.trunc.i173, %141 ], [ 0, %137 ]
-  %.sroa.4.0.i177 = phi i8 [ %.sroa.33.0.extract.trunc.i171, %141 ], [ 0, %137 ]
-  %.sroa.3.0.i178 = phi i8 [ %.sroa.2.0.extract.trunc.i169, %141 ], [ 0, %137 ]
-  %.sroa.0.0.i179 = phi i8 [ %.sroa.02.0.extract.trunc.i167, %141 ], [ 0, %137 ]
-  %.sroa.6.0.i180 = phi i8 [ %.sroa.55.0.extract.trunc.i175, %141 ], [ 0, %137 ]
+_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194: ; preds = %110, %114
+  %.sroa.5.0.i176 = phi i8 [ %.sroa.44.0.extract.trunc.i173, %114 ], [ 0, %110 ]
+  %.sroa.4.0.i177 = phi i8 [ %.sroa.33.0.extract.trunc.i171, %114 ], [ 0, %110 ]
+  %.sroa.3.0.i178 = phi i8 [ %.sroa.2.0.extract.trunc.i169, %114 ], [ 0, %110 ]
+  %.sroa.0.0.i179 = phi i8 [ %.sroa.02.0.extract.trunc.i167, %114 ], [ 0, %110 ]
+  %.sroa.6.0.i180 = phi i8 [ %.sroa.55.0.extract.trunc.i175, %114 ], [ 0, %110 ]
   %.sroa.6.0.insert.ext.i181 = zext i8 %.sroa.6.0.i180 to i40
   %.sroa.6.0.insert.shift.i182 = shl nuw i40 %.sroa.6.0.insert.ext.i181, 32
   %.sroa.5.0.insert.ext.i183 = zext i8 %.sroa.5.0.i176 to i40
   %.sroa.5.0.insert.shift.i184 = shl nuw nsw i40 %.sroa.5.0.insert.ext.i183, 24
   %.sroa.4.0.insert.ext.i186 = zext i8 %.sroa.4.0.i177 to i40
   %.sroa.4.0.insert.shift.i187 = shl nuw nsw i40 %.sroa.4.0.insert.ext.i186, 16
-  %143 = or disjoint i40 %.sroa.6.0.insert.shift.i182, %.sroa.4.0.insert.shift.i187
-  %.sroa.4.0.insert.insert.i188 = or disjoint i40 %143, %.sroa.5.0.insert.shift.i184
+  %116 = or disjoint i40 %.sroa.6.0.insert.shift.i182, %.sroa.4.0.insert.shift.i187
+  %.sroa.4.0.insert.insert.i188 = or disjoint i40 %116, %.sroa.5.0.insert.shift.i184
   %.sroa.3.0.insert.ext.i189 = zext i8 %.sroa.3.0.i178 to i40
   %.sroa.3.0.insert.shift.i190 = shl nuw nsw i40 %.sroa.3.0.insert.ext.i189, 8
   %.sroa.0.0.insert.ext.i192 = zext i8 %.sroa.0.0.i179 to i40
-  %144 = or disjoint i40 %.sroa.3.0.insert.shift.i190, %.sroa.0.0.insert.ext.i192
-  %.sroa.0.0.insert.insert.i193 = or disjoint i40 %144, %.sroa.4.0.insert.insert.i188
+  %117 = or disjoint i40 %.sroa.3.0.insert.shift.i190, %.sroa.0.0.insert.ext.i192
+  %.sroa.0.0.insert.insert.i193 = or disjoint i40 %117, %.sroa.4.0.insert.insert.i188
   store i40 %.sroa.0.0.insert.insert.i193, ptr %8, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %146 = load i64, ptr %145, align 8, !range !10, !noundef !4
-  %147 = icmp eq i64 %146, 14
-  br i1 %147, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222, label %148
+  %118 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %119 = load i64, ptr %118, align 8, !range !10, !noundef !4
+  %120 = icmp eq i64 %119, 14
+  br i1 %120, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222, label %121
 
-148:                                              ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194
-  %149 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %145)
-  %.sroa.02.0.extract.trunc.i195 = trunc i40 %149 to i8
-  %150 = and i40 %149, 16777216
-  %151 = icmp ne i40 %150, 0
-  %152 = and i40 %149, 65536
-  %153 = icmp ne i40 %152, 0
-  %154 = and i8 %.sroa.02.0.extract.trunc.i195, 1
-  %155 = and i40 %149, 256
-  %156 = icmp ne i40 %155, 0
-  %157 = and i40 %149, 4294967296
-  %158 = icmp ne i40 %157, 0
+121:                                              ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194
+  %122 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E(ptr align 8 %0, ptr align 8 %1, ptr nonnull align 8 %118)
+  %.sroa.02.0.extract.trunc.i195 = trunc i40 %122 to i8
+  %.sroa.2.0.extract.shift.i196 = lshr i40 %122, 8
+  %.sroa.2.0.extract.trunc.i197 = trunc i40 %.sroa.2.0.extract.shift.i196 to i8
+  %.sroa.33.0.extract.shift.i198 = lshr i40 %122, 16
+  %.sroa.33.0.extract.trunc.i199 = trunc i40 %.sroa.33.0.extract.shift.i198 to i8
+  %.sroa.44.0.extract.shift.i200 = lshr i40 %122, 24
+  %.sroa.44.0.extract.trunc.i201 = trunc i40 %.sroa.44.0.extract.shift.i200 to i8
+  %123 = and i8 %.sroa.02.0.extract.trunc.i195, 1
+  %124 = and i40 %122, 4294967296
+  %125 = icmp ne i40 %124, 0
   %.0..0..0.367.pre = load i8, ptr %8, align 8
   %.1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.1..1..1.374.pre = load i8, ptr %.1..1..1..sroa_idx, align 1
@@ -1150,76 +1126,70 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %.3..3..3.403.pre = load i8, ptr %.3..3..3..sroa_idx, align 1
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.4..4..4.418.pre = load i8, ptr %.4..4..4..sroa_idx, align 4
-  %159 = or i8 %.0..0..0.367.pre, %154
+  %126 = or i8 %.0..0..0.367.pre, %123
+  %127 = or i8 %.1..1..1.374.pre, %.sroa.2.0.extract.trunc.i197
+  %128 = or i8 %.2..2..2.388.pre, %.sroa.33.0.extract.trunc.i199
+  %129 = or i8 %.3..3..3.403.pre, %.sroa.44.0.extract.trunc.i201
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222
 
-_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222: ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194, %148
-  %.4..4.418 = phi i8 [ %.4..4..4.418.pre, %148 ], [ %.sroa.6.0.i180, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.3..3.403 = phi i8 [ %.3..3..3.403.pre, %148 ], [ %.sroa.5.0.i176, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.2..2.388 = phi i8 [ %.2..2..2.388.pre, %148 ], [ %.sroa.4.0.i177, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.1..1.374 = phi i8 [ %.1..1..1.374.pre, %148 ], [ %.sroa.3.0.i178, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.0..0.367 = phi i8 [ %159, %148 ], [ %.sroa.0.0.i179, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.5.0.i204 = phi i1 [ %151, %148 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.4.0.i205 = phi i1 [ %153, %148 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.3.0.i206 = phi i1 [ %156, %148 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.6.0.i208 = phi i1 [ %158, %148 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222: ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194, %121
+  %.4..4.418 = phi i8 [ %.4..4..4.418.pre, %121 ], [ %.sroa.6.0.i180, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.3..3.403 = phi i8 [ %129, %121 ], [ %.sroa.5.0.i176, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.2..2.388 = phi i8 [ %128, %121 ], [ %.sroa.4.0.i177, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.1..1.374 = phi i8 [ %127, %121 ], [ %.sroa.3.0.i178, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.0..0.367 = phi i8 [ %126, %121 ], [ %.sroa.0.0.i179, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.sroa.6.0.i208 = phi i1 [ %125, %121 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
   store i8 %.0..0.367, ptr %8, align 8
-  %160 = trunc nuw i8 %.1..1.374 to i1
-  %161 = or i1 %.sroa.3.0.i206, %160
-  %162 = zext i1 %161 to i8
-  %.1..1..1..sroa_idx555 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %162, ptr %.1..1..1..sroa_idx555, align 1
-  %163 = trunc nuw i8 %.2..2.388 to i1
-  %164 = or i1 %.sroa.4.0.i205, %163
-  %165 = zext i1 %164 to i8
-  %.2..2..2..sroa_idx564 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %165, ptr %.2..2..2..sroa_idx564, align 2
-  %166 = trunc nuw i8 %.3..3.403 to i1
-  %167 = or i1 %.sroa.5.0.i204, %166
-  %168 = zext i1 %167 to i8
-  %.3..3..3..sroa_idx573 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  store i8 %168, ptr %.3..3..3..sroa_idx573, align 1
-  %169 = trunc nuw i8 %.4..4.418 to i1
-  %170 = or i1 %.sroa.6.0.i208, %169
-  %171 = zext i1 %170 to i8
-  %.4..4..4..sroa_idx583 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i8 %171, ptr %.4..4..4..sroa_idx583, align 4
-  br label %45
+  %130 = and i8 %.1..1.374, 1
+  %.1..1..1..sroa_idx582 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i8 %130, ptr %.1..1..1..sroa_idx582, align 1
+  %131 = and i8 %.2..2.388, 1
+  %.2..2..2..sroa_idx591 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %131, ptr %.2..2..2..sroa_idx591, align 2
+  %132 = and i8 %.3..3.403, 1
+  %.3..3..3..sroa_idx600 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  store i8 %132, ptr %.3..3..3..sroa_idx600, align 1
+  %133 = trunc nuw i8 %.4..4.418 to i1
+  %134 = or i1 %.sroa.6.0.i208, %133
+  %135 = zext i1 %134 to i8
+  %.4..4..4..sroa_idx610 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i8 %135, ptr %.4..4..4..sroa_idx610, align 4
+  br label %33
 
-172:                                              ; preds = %12
-  %173 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %174 = load i64, ptr %173, align 8, !range !8, !noundef !4
-  switch i64 %174, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251 [
-    i64 12, label %175
-    i64 13, label %176
+136:                                              ; preds = %12
+  %137 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %138 = load i64, ptr %137, align 8, !range !8, !noundef !4
+  switch i64 %138, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251 [
+    i64 12, label %139
+    i64 13, label %140
   ]
 
-175:                                              ; preds = %172
+139:                                              ; preds = %136
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251
 
-176:                                              ; preds = %172
-  %177 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %178 = load i64, ptr %177, align 8, !noundef !4
-  %179 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %180 = load i32, ptr %179, align 8, !noundef !4
-  %181 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %178, i32 %180)
-  %.sroa.01.0.extract.trunc.i224 = trunc i40 %181 to i8
-  %.sroa.2.0.extract.shift.i225 = lshr i40 %181, 8
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %142 = load i64, ptr %141, align 8, !noundef !4
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %144 = load i32, ptr %143, align 8, !noundef !4
+  %145 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %142, i32 %144)
+  %.sroa.01.0.extract.trunc.i224 = trunc i40 %145 to i8
+  %.sroa.2.0.extract.shift.i225 = lshr i40 %145, 8
   %.sroa.2.0.extract.trunc.i226 = trunc i40 %.sroa.2.0.extract.shift.i225 to i8
-  %.sroa.32.0.extract.shift.i227 = lshr i40 %181, 16
+  %.sroa.32.0.extract.shift.i227 = lshr i40 %145, 16
   %.sroa.32.0.extract.trunc.i228 = trunc i40 %.sroa.32.0.extract.shift.i227 to i8
-  %.sroa.43.0.extract.shift.i229 = lshr i40 %181, 24
+  %.sroa.43.0.extract.shift.i229 = lshr i40 %145, 24
   %.sroa.43.0.extract.trunc.i230 = trunc i40 %.sroa.43.0.extract.shift.i229 to i8
-  %.sroa.54.0.extract.shift.i231 = lshr i40 %181, 32
+  %.sroa.54.0.extract.shift.i231 = lshr i40 %145, 32
   %.sroa.54.0.extract.trunc.i232 = trunc nuw i40 %.sroa.54.0.extract.shift.i231 to i8
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251
 
-_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251: ; preds = %172, %175, %176
-  %.sroa.7.0.i233 = phi i8 [ 0, %172 ], [ 0, %175 ], [ %.sroa.54.0.extract.trunc.i232, %176 ]
-  %.sroa.5.0.i234 = phi i8 [ 0, %172 ], [ 1, %175 ], [ %.sroa.43.0.extract.trunc.i230, %176 ]
-  %.sroa.4.0.i235 = phi i8 [ 0, %172 ], [ 0, %175 ], [ %.sroa.32.0.extract.trunc.i228, %176 ]
-  %.sroa.3.0.i236 = phi i8 [ 0, %172 ], [ 0, %175 ], [ %.sroa.2.0.extract.trunc.i226, %176 ]
-  %.sroa.0.0.i237 = phi i8 [ 0, %172 ], [ 0, %175 ], [ %.sroa.01.0.extract.trunc.i224, %176 ]
+_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251: ; preds = %136, %139, %140
+  %.sroa.7.0.i233 = phi i8 [ 0, %136 ], [ 0, %139 ], [ %.sroa.54.0.extract.trunc.i232, %140 ]
+  %.sroa.5.0.i234 = phi i8 [ 0, %136 ], [ 1, %139 ], [ %.sroa.43.0.extract.trunc.i230, %140 ]
+  %.sroa.4.0.i235 = phi i8 [ 0, %136 ], [ 0, %139 ], [ %.sroa.32.0.extract.trunc.i228, %140 ]
+  %.sroa.3.0.i236 = phi i8 [ 0, %136 ], [ 0, %139 ], [ %.sroa.2.0.extract.trunc.i226, %140 ]
+  %.sroa.0.0.i237 = phi i8 [ 0, %136 ], [ 0, %139 ], [ %.sroa.01.0.extract.trunc.i224, %140 ]
   %.sroa.7.0.insert.ext.i238 = zext i8 %.sroa.7.0.i233 to i40
   %.sroa.7.0.insert.shift.i239 = shl nuw i40 %.sroa.7.0.insert.ext.i238, 32
   %.sroa.5.0.insert.ext.i240 = zext i8 %.sroa.5.0.i234 to i40
@@ -1234,158 +1204,167 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit251: ; p
   %.sroa.0.0.insert.ext.i249 = zext i8 %.sroa.0.0.i237 to i40
   %.sroa.0.0.insert.insert.i250 = or disjoint i40 %.sroa.3.0.insert.insert.i248, %.sroa.0.0.insert.ext.i249
   store i40 %.sroa.0.0.insert.insert.i250, ptr %8, align 8
-  br label %45
+  br label %33
 
-182:                                              ; preds = %12
+146:                                              ; preds = %12
   call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.79fddc410019ed2c53b457c2d17796ca.16, i64 40, ptr nonnull align 8 @anon.79fddc410019ed2c53b457c2d17796ca.17) #11
   unreachable
 
 .lr.ph465:                                        ; preds = %.lr.ph465.preheader, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279
-  %183 = phi ptr [ %211, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %27, %.lr.ph465.preheader ]
-  %184 = phi i8 [ %210, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %.0..0..promoted455, %.lr.ph465.preheader ]
-  %185 = phi i1 [ %.sroa.3.0.i264, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %29, %.lr.ph465.preheader ]
-  %186 = phi i1 [ %.sroa.4.0.i263, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %30, %.lr.ph465.preheader ]
-  %187 = phi i1 [ %.sroa.5.0.i262, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %31, %.lr.ph465.preheader ]
-  %188 = phi i1 [ %.sroa.7.0.i261, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %32, %.lr.ph465.preheader ]
-  %189 = load i64, ptr %183, align 8, !range !8, !noundef !4
-  switch i64 %189, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 [
-    i64 12, label %190
-    i64 13, label %191
+  %147 = phi ptr [ %172, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %27, %.lr.ph465.preheader ]
+  %148 = phi i8 [ %165, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %.0..0..promoted455, %.lr.ph465.preheader ]
+  %149 = phi i8 [ %167, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %.1..1..1..sroa_idx.promoted457, %.lr.ph465.preheader ]
+  %150 = phi i8 [ %169, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %.2..2..2..sroa_idx.promoted459, %.lr.ph465.preheader ]
+  %151 = phi i8 [ %171, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %.3..3..3..sroa_idx399.promoted461, %.lr.ph465.preheader ]
+  %152 = phi i1 [ %.sroa.7.0.i261, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 ], [ %29, %.lr.ph465.preheader ]
+  %153 = load i64, ptr %147, align 8, !range !8, !noundef !4
+  switch i64 %153, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279 [
+    i64 12, label %154
+    i64 13, label %155
   ]
 
-190:                                              ; preds = %.lr.ph465
+154:                                              ; preds = %.lr.ph465
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279
 
-191:                                              ; preds = %.lr.ph465
-  %192 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %193 = load i64, ptr %192, align 8, !noundef !4
-  %194 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %195 = load i32, ptr %194, align 8, !noundef !4
-  %196 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %193, i32 %195)
-  %.sroa.01.0.extract.trunc.i252 = trunc i40 %196 to i8
-  %197 = and i40 %196, 16777216
-  %198 = icmp ne i40 %197, 0
-  %199 = and i40 %196, 65536
-  %200 = icmp ne i40 %199, 0
-  %201 = and i8 %.sroa.01.0.extract.trunc.i252, 1
-  %202 = and i40 %196, 256
-  %203 = icmp ne i40 %202, 0
-  %204 = and i40 %196, 4294967296
-  %205 = icmp ne i40 %204, 0
-  %206 = or i1 %203, %185
-  %207 = or i1 %200, %186
-  %208 = or i1 %198, %187
-  %209 = or i1 %205, %188
+155:                                              ; preds = %.lr.ph465
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %157 = load i64, ptr %156, align 8, !noundef !4
+  %158 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  %159 = load i32, ptr %158, align 8, !noundef !4
+  %160 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %157, i32 %159)
+  %.sroa.01.0.extract.trunc.i252 = trunc i40 %160 to i8
+  %.sroa.2.0.extract.shift.i253 = lshr i40 %160, 8
+  %.sroa.2.0.extract.trunc.i254 = trunc i40 %.sroa.2.0.extract.shift.i253 to i8
+  %.sroa.32.0.extract.shift.i255 = lshr i40 %160, 16
+  %.sroa.32.0.extract.trunc.i256 = trunc i40 %.sroa.32.0.extract.shift.i255 to i8
+  %.sroa.43.0.extract.shift.i257 = lshr i40 %160, 24
+  %.sroa.43.0.extract.trunc.i258 = trunc i40 %.sroa.43.0.extract.shift.i257 to i8
+  %161 = and i8 %.sroa.01.0.extract.trunc.i252, 1
+  %162 = and i40 %160, 4294967296
+  %163 = icmp ne i40 %162, 0
+  %164 = or i1 %163, %152
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279
 
-_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279: ; preds = %.lr.ph465, %190, %191
-  %.sroa.7.0.i261 = phi i1 [ %188, %.lr.ph465 ], [ %188, %190 ], [ %209, %191 ]
-  %.sroa.5.0.i262 = phi i1 [ %187, %.lr.ph465 ], [ true, %190 ], [ %208, %191 ]
-  %.sroa.4.0.i263 = phi i1 [ %186, %.lr.ph465 ], [ %186, %190 ], [ %207, %191 ]
-  %.sroa.3.0.i264 = phi i1 [ %185, %.lr.ph465 ], [ %185, %190 ], [ %206, %191 ]
-  %.sroa.0.0.i265 = phi i8 [ 0, %.lr.ph465 ], [ 0, %190 ], [ %201, %191 ]
-  %210 = or i8 %184, %.sroa.0.0.i265
-  %211 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4300f30c2ec56335E"(ptr nonnull align 8 %7)
-  %212 = icmp eq ptr %211, null
-  br i1 %212, label %.loopexit.loopexit, label %.lr.ph465
+_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit279: ; preds = %.lr.ph465, %154, %155
+  %.sroa.7.0.i261 = phi i1 [ %152, %.lr.ph465 ], [ %152, %154 ], [ %164, %155 ]
+  %.sroa.5.0.i262 = phi i8 [ 0, %.lr.ph465 ], [ 1, %154 ], [ %.sroa.43.0.extract.trunc.i258, %155 ]
+  %.sroa.4.0.i263 = phi i8 [ 0, %.lr.ph465 ], [ 0, %154 ], [ %.sroa.32.0.extract.trunc.i256, %155 ]
+  %.sroa.3.0.i264 = phi i8 [ 0, %.lr.ph465 ], [ 0, %154 ], [ %.sroa.2.0.extract.trunc.i254, %155 ]
+  %.sroa.0.0.i265 = phi i8 [ 0, %.lr.ph465 ], [ 0, %154 ], [ %161, %155 ]
+  %165 = or i8 %148, %.sroa.0.0.i265
+  %166 = or i8 %149, %.sroa.3.0.i264
+  %167 = and i8 %166, 1
+  %168 = or i8 %150, %.sroa.4.0.i263
+  %169 = and i8 %168, 1
+  %170 = or i8 %151, %.sroa.5.0.i262
+  %171 = and i8 %170, 1
+  %172 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4300f30c2ec56335E"(ptr nonnull align 8 %7)
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %.loopexit.loopexit, label %.lr.ph465
 
 .lr.ph449:                                        ; preds = %.lr.ph449.preheader, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308
-  %213 = phi ptr [ %241, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %57, %.lr.ph449.preheader ]
-  %214 = phi i8 [ %240, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %.0..0..promoted439, %.lr.ph449.preheader ]
-  %215 = phi i1 [ %.sroa.3.0.i293, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %59, %.lr.ph449.preheader ]
-  %216 = phi i1 [ %.sroa.4.0.i292, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %60, %.lr.ph449.preheader ]
-  %217 = phi i1 [ %.sroa.5.0.i291, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %61, %.lr.ph449.preheader ]
-  %218 = phi i1 [ %.sroa.7.0.i290, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %62, %.lr.ph449.preheader ]
-  %219 = load i64, ptr %213, align 8, !range !8, !noundef !4
-  switch i64 %219, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 [
-    i64 12, label %220
-    i64 13, label %221
+  %174 = phi ptr [ %199, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %45, %.lr.ph449.preheader ]
+  %175 = phi i8 [ %192, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %.0..0..promoted439, %.lr.ph449.preheader ]
+  %176 = phi i8 [ %194, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %.1..1..1..sroa_idx.promoted441, %.lr.ph449.preheader ]
+  %177 = phi i8 [ %196, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %.2..2..2..sroa_idx.promoted443, %.lr.ph449.preheader ]
+  %178 = phi i8 [ %198, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %.3..3..3..sroa_idx399.promoted445, %.lr.ph449.preheader ]
+  %179 = phi i1 [ %.sroa.7.0.i290, %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 ], [ %47, %.lr.ph449.preheader ]
+  %180 = load i64, ptr %174, align 8, !range !8, !noundef !4
+  switch i64 %180, label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308 [
+    i64 12, label %181
+    i64 13, label %182
   ]
 
-220:                                              ; preds = %.lr.ph449
+181:                                              ; preds = %.lr.ph449
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308
 
-221:                                              ; preds = %.lr.ph449
-  %222 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %223 = load i64, ptr %222, align 8, !noundef !4
-  %224 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %225 = load i32, ptr %224, align 8, !noundef !4
-  %226 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %223, i32 %225)
-  %.sroa.01.0.extract.trunc.i281 = trunc i40 %226 to i8
-  %227 = and i40 %226, 16777216
-  %228 = icmp ne i40 %227, 0
-  %229 = and i40 %226, 65536
-  %230 = icmp ne i40 %229, 0
-  %231 = and i8 %.sroa.01.0.extract.trunc.i281, 1
-  %232 = and i40 %226, 256
-  %233 = icmp ne i40 %232, 0
-  %234 = and i40 %226, 4294967296
-  %235 = icmp ne i40 %234, 0
-  %236 = or i1 %233, %215
-  %237 = or i1 %230, %216
-  %238 = or i1 %228, %217
-  %239 = or i1 %235, %218
+182:                                              ; preds = %.lr.ph449
+  %183 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %184 = load i64, ptr %183, align 8, !noundef !4
+  %185 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  %186 = load i32, ptr %185, align 8, !noundef !4
+  %187 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %184, i32 %186)
+  %.sroa.01.0.extract.trunc.i281 = trunc i40 %187 to i8
+  %.sroa.2.0.extract.shift.i282 = lshr i40 %187, 8
+  %.sroa.2.0.extract.trunc.i283 = trunc i40 %.sroa.2.0.extract.shift.i282 to i8
+  %.sroa.32.0.extract.shift.i284 = lshr i40 %187, 16
+  %.sroa.32.0.extract.trunc.i285 = trunc i40 %.sroa.32.0.extract.shift.i284 to i8
+  %.sroa.43.0.extract.shift.i286 = lshr i40 %187, 24
+  %.sroa.43.0.extract.trunc.i287 = trunc i40 %.sroa.43.0.extract.shift.i286 to i8
+  %188 = and i8 %.sroa.01.0.extract.trunc.i281, 1
+  %189 = and i40 %187, 4294967296
+  %190 = icmp ne i40 %189, 0
+  %191 = or i1 %190, %179
   br label %_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308
 
-_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308: ; preds = %.lr.ph449, %220, %221
-  %.sroa.7.0.i290 = phi i1 [ %218, %.lr.ph449 ], [ %218, %220 ], [ %239, %221 ]
-  %.sroa.5.0.i291 = phi i1 [ %217, %.lr.ph449 ], [ true, %220 ], [ %238, %221 ]
-  %.sroa.4.0.i292 = phi i1 [ %216, %.lr.ph449 ], [ %216, %220 ], [ %237, %221 ]
-  %.sroa.3.0.i293 = phi i1 [ %215, %.lr.ph449 ], [ %215, %220 ], [ %236, %221 ]
-  %.sroa.0.0.i294 = phi i8 [ 0, %.lr.ph449 ], [ 0, %220 ], [ %231, %221 ]
-  %240 = or i8 %214, %.sroa.0.0.i294
-  %241 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %6)
-  %242 = icmp eq ptr %241, null
-  br i1 %242, label %.loopexit429.loopexit, label %.lr.ph449
+_ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308: ; preds = %.lr.ph449, %181, %182
+  %.sroa.7.0.i290 = phi i1 [ %179, %.lr.ph449 ], [ %179, %181 ], [ %191, %182 ]
+  %.sroa.5.0.i291 = phi i8 [ 0, %.lr.ph449 ], [ 1, %181 ], [ %.sroa.43.0.extract.trunc.i287, %182 ]
+  %.sroa.4.0.i292 = phi i8 [ 0, %.lr.ph449 ], [ 0, %181 ], [ %.sroa.32.0.extract.trunc.i285, %182 ]
+  %.sroa.3.0.i293 = phi i8 [ 0, %.lr.ph449 ], [ 0, %181 ], [ %.sroa.2.0.extract.trunc.i283, %182 ]
+  %.sroa.0.0.i294 = phi i8 [ 0, %.lr.ph449 ], [ 0, %181 ], [ %188, %182 ]
+  %192 = or i8 %175, %.sroa.0.0.i294
+  %193 = or i8 %176, %.sroa.3.0.i293
+  %194 = and i8 %193, 1
+  %195 = or i8 %177, %.sroa.4.0.i292
+  %196 = and i8 %195, 1
+  %197 = or i8 %178, %.sroa.5.0.i291
+  %198 = and i8 %197, 1
+  %199 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %6)
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %.loopexit429.loopexit, label %.lr.ph449
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
-  %243 = phi ptr [ %271, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %70, %.lr.ph.preheader ]
-  %244 = phi i8 [ %270, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %.0..0..promoted, %.lr.ph.preheader ]
-  %245 = phi i1 [ %.sroa.3.0.i321, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %72, %.lr.ph.preheader ]
-  %246 = phi i1 [ %.sroa.4.0.i320, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %73, %.lr.ph.preheader ]
-  %247 = phi i1 [ %.sroa.5.0.i319, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %74, %.lr.ph.preheader ]
-  %248 = phi i1 [ %.sroa.6.0.i323, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %75, %.lr.ph.preheader ]
-  %249 = load i64, ptr %243, align 8, !range !10, !noundef !4
-  switch i64 %249, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 [
-    i64 13, label %251
-    i64 12, label %250
+  %201 = phi ptr [ %226, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %55, %.lr.ph.preheader ]
+  %202 = phi i8 [ %219, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %.0..0..promoted, %.lr.ph.preheader ]
+  %203 = phi i8 [ %221, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %.1..1..1..sroa_idx.promoted, %.lr.ph.preheader ]
+  %204 = phi i8 [ %223, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %.2..2..2..sroa_idx.promoted, %.lr.ph.preheader ]
+  %205 = phi i8 [ %225, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %.3..3..3..sroa_idx399.promoted, %.lr.ph.preheader ]
+  %206 = phi i1 [ %.sroa.6.0.i323, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 ], [ %57, %.lr.ph.preheader ]
+  %207 = load i64, ptr %201, align 8, !range !10, !noundef !4
+  switch i64 %207, label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337 [
+    i64 13, label %209
+    i64 12, label %208
   ]
 
-250:                                              ; preds = %.lr.ph
+208:                                              ; preds = %.lr.ph
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
 
-251:                                              ; preds = %.lr.ph
-  %252 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %253 = load i64, ptr %252, align 8, !noundef !4
-  %254 = getelementptr inbounds nuw i8, ptr %243, i64 16
-  %255 = load i32, ptr %254, align 8, !noundef !4
-  %256 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %253, i32 %255)
-  %.sroa.01.0.extract.trunc.i339 = trunc i40 %256 to i8
-  %257 = and i40 %256, 16777216
-  %258 = icmp ne i40 %257, 0
-  %259 = and i40 %256, 65536
-  %260 = icmp ne i40 %259, 0
-  %261 = and i8 %.sroa.01.0.extract.trunc.i339, 1
-  %262 = and i40 %256, 256
-  %263 = icmp ne i40 %262, 0
-  %264 = and i40 %256, 4294967296
-  %265 = icmp ne i40 %264, 0
-  %266 = or i1 %263, %245
-  %267 = or i1 %260, %246
-  %268 = or i1 %258, %247
-  %269 = or i1 %265, %248
+209:                                              ; preds = %.lr.ph
+  %210 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %211 = load i64, ptr %210, align 8, !noundef !4
+  %212 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %213 = load i32, ptr %212, align 8, !noundef !4
+  %214 = call fastcc i40 @_ZN20wasmtime_wit_bindgen5types5Types12type_id_info17h4578f5971b0d48f1E(ptr align 8 %0, ptr align 8 %1, i64 %211, i32 %213)
+  %.sroa.01.0.extract.trunc.i339 = trunc i40 %214 to i8
+  %.sroa.2.0.extract.shift.i340 = lshr i40 %214, 8
+  %.sroa.2.0.extract.trunc.i341 = trunc i40 %.sroa.2.0.extract.shift.i340 to i8
+  %.sroa.32.0.extract.shift.i342 = lshr i40 %214, 16
+  %.sroa.32.0.extract.trunc.i343 = trunc i40 %.sroa.32.0.extract.shift.i342 to i8
+  %.sroa.43.0.extract.shift.i344 = lshr i40 %214, 24
+  %.sroa.43.0.extract.trunc.i345 = trunc i40 %.sroa.43.0.extract.shift.i344 to i8
+  %215 = and i8 %.sroa.01.0.extract.trunc.i339, 1
+  %216 = and i40 %214, 4294967296
+  %217 = icmp ne i40 %216, 0
+  %218 = or i1 %217, %206
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
 
-_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337: ; preds = %.lr.ph, %251, %250
-  %.sroa.5.0.i319 = phi i1 [ %268, %251 ], [ %247, %.lr.ph ], [ true, %250 ]
-  %.sroa.4.0.i320 = phi i1 [ %267, %251 ], [ %246, %.lr.ph ], [ %246, %250 ]
-  %.sroa.3.0.i321 = phi i1 [ %266, %251 ], [ %245, %.lr.ph ], [ %245, %250 ]
-  %.sroa.0.0.i322 = phi i8 [ %261, %251 ], [ 0, %.lr.ph ], [ 0, %250 ]
-  %.sroa.6.0.i323 = phi i1 [ %269, %251 ], [ %248, %.lr.ph ], [ %248, %250 ]
-  %270 = or i8 %244, %.sroa.0.0.i322
-  %271 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
-  %272 = icmp eq ptr %271, null
-  br i1 %272, label %.loopexit430.loopexit, label %.lr.ph
+_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337: ; preds = %.lr.ph, %209, %208
+  %.sroa.5.0.i319 = phi i8 [ %.sroa.43.0.extract.trunc.i345, %209 ], [ 0, %.lr.ph ], [ 1, %208 ]
+  %.sroa.4.0.i320 = phi i8 [ %.sroa.32.0.extract.trunc.i343, %209 ], [ 0, %.lr.ph ], [ 0, %208 ]
+  %.sroa.3.0.i321 = phi i8 [ %.sroa.2.0.extract.trunc.i341, %209 ], [ 0, %.lr.ph ], [ 0, %208 ]
+  %.sroa.0.0.i322 = phi i8 [ %215, %209 ], [ 0, %.lr.ph ], [ 0, %208 ]
+  %.sroa.6.0.i323 = phi i1 [ %218, %209 ], [ %206, %.lr.ph ], [ %206, %208 ]
+  %219 = or i8 %202, %.sroa.0.0.i322
+  %220 = or i8 %203, %.sroa.3.0.i321
+  %221 = and i8 %220, 1
+  %222 = or i8 %204, %.sroa.4.0.i320
+  %223 = and i8 %222, 1
+  %224 = or i8 %205, %.sroa.5.0.i319
+  %225 = and i8 %224, 1
+  %226 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)
+  %227 = icmp eq ptr %226, null
+  br i1 %227, label %.loopexit430.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

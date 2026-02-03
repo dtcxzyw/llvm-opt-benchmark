@@ -845,22 +845,20 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6th
   %.sroa.06.1.i.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %90 ], [ %119, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i.i.i, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !152
-  %126 = shl nuw i64 1, %84
-  %127 = and i64 %125, %126
-  %.not1070 = icmp eq i64 %127, 0
-  br i1 %.not1070, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit..critedge.thread1067_crit_edge
+  %126 = lshr i64 %125, %84
+  %127 = trunc i64 %126 to i1
+  br i1 %127, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit..critedge.thread1067_crit_edge, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread
 
 _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit..critedge.thread1067_crit_edge: ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit
-  %.pre1084 = load i64, ptr %31, align 8
+  %.pre1082 = load i64, ptr %31, align 8
   br label %.critedge.thread1067
 
 _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065: ; preds = %104
   %128 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %129 = load i64, ptr %128, align 8, !tbaa !152
-  %130 = shl nuw i64 1, %84
-  %131 = and i64 %129, %130
-  %.not1069 = icmp eq i64 %131, 0
-  br i1 %.not1069, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread, label %.critedge.thread1067
+  %130 = lshr i64 %129, %84
+  %131 = trunc i64 %130 to i1
+  br i1 %131, label %.critedge.thread1067, label %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread
 
 _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %89, %94, %..loopexit_crit_edge21.i.i.i.i.i.i.i.i, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
@@ -898,7 +896,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6th
   br label %1237
 
 .critedge.thread1067:                             ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit..critedge.thread1067_crit_edge, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065
-  %150 = phi i64 [ %.pre1084, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit..critedge.thread1067_crit_edge ], [ %96, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065 ]
+  %150 = phi i64 [ %.pre1082, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit..critedge.thread1067_crit_edge ], [ %96, %_ZNK4cvc58internal12NodeTemplateILb1EE12getAttributeINS0_4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbEEEENT_10value_typeERKS9_.exit.thread1065 ]
   %151 = load ptr, ptr %48, align 8, !tbaa !21
   store ptr %31, ptr %9, align 8, !tbaa !6
   %152 = lshr i64 %150, 40
@@ -1284,11 +1282,11 @@ _ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3En
   br label %1237
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323.sink.split: ; preds = %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink1176 = phi ptr [ %278, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %258, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %329, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
-  %332 = load ptr, ptr %.sink1176, align 8, !tbaa !3
+  %.sink1174 = phi ptr [ %278, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %258, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %329, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %332 = load ptr, ptr %.sink1174, align 8, !tbaa !3
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8
-  call void %334(ptr noundef nonnull align 8 dereferenceable(16) %.sink1176) #21
+  call void %334(ptr noundef nonnull align 8 dereferenceable(16) %.sink1174) #21
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323: ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit323.sink.split, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers15SygusEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEPNS3_23SygusEnumeratorCallbackEPNS3_15SygusStatisticsEbRKbRKmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZSt11make_uniqueIN4cvc58internal6theory11quantifiers18EnumStreamConcreteEJRNS1_3EnvERPNS3_11TermDbSygusEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -1549,11 +1547,11 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit379: ; preds = %443
   br i1 %459, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !12
 
 .invoke:                                          ; preds = %458, %144
-  %.sink1179 = phi i64 [ %133, %144 ], [ %447, %458 ]
-  %.sink1178 = phi ptr [ %132, %144 ], [ %446, %458 ]
-  %460 = or i64 %.sink1179, 1152920405095219200
-  store i64 %460, ptr %.sink1178, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink1178)
+  %.sink1177 = phi i64 [ %133, %144 ], [ %447, %458 ]
+  %.sink1176 = phi ptr [ %132, %144 ], [ %446, %458 ]
+  %460 = or i64 %.sink1177, 1152920405095219200
+  store i64 %460, ptr %.sink1176, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink1176)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %146
 
 461:                                              ; preds = %443
@@ -2395,8 +2393,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit571: ; preds = %_ZN4cvc58internal1
   %868 = ptrtoint ptr %866 to i64
   %869 = sub i64 %867, %868
   %870 = and i64 %869, 34359738360
-  %.not1077 = icmp eq i64 %870, 0
-  br i1 %.not1077, label %.loopexit, label %.lr.ph.preheader
+  %.not1075 = icmp eq i64 %870, 0
+  br i1 %.not1075, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit571
   %871 = lshr exact i64 %869, 3

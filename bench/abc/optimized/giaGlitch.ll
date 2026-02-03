@@ -1627,7 +1627,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   %28 = load i32, ptr %27, align 4, !tbaa !26
   %.fr = freeze i32 %28
   %29 = and i32 %.fr, 1
-  %sext = sub nsw i32 0, %29
+  %spec.select = sub nsw i32 0, %29
   br label %.split.us
 
 30:                                               ; preds = %.lr.ph, %30
@@ -1646,7 +1646,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   br i1 %exitcond.not, label %.preheader.us.preheader, label %30, !llvm.loop !50
 
 .split.us:                                        ; preds = %._crit_edge.us, %.critedge.preheader.split
-  %.us-phi = phi i32 [ %sext, %.critedge.preheader.split ], [ %.1.us, %._crit_edge.us ]
+  %.us-phi = phi i32 [ %spec.select, %.critedge.preheader.split ], [ %.1.us, %._crit_edge.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.us-phi
 }
@@ -1827,7 +1827,7 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %.fr.i = freeze i32 %61
   %62 = and i32 %.fr.i, 1
-  %sext.i = sub nsw i32 0, %62
+  %spec.select.i = sub nsw i32 0, %62
   br label %Gli_ManSimulateSeqNode.exit
 
 63:                                               ; preds = %63, %.lr.ph.i
@@ -1846,7 +1846,7 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   br i1 %exitcond.not.i, label %.preheader.us.preheader.i, label %63, !llvm.loop !50
 
 Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %.critedge.preheader.split.i
-  %.us-phi.i = phi i32 [ %sext.i, %.critedge.preheader.split.i ], [ %.1.us.i, %._crit_edge.us.i ]
+  %.us-phi.i = phi i32 [ %spec.select.i, %.critedge.preheader.split.i ], [ %.1.us.i, %._crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %.us-phi.i, ptr %72, align 8, !tbaa !39

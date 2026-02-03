@@ -3662,11 +3662,11 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEE5resetEv.exit: ; preds = %2, %40
 
 63:                                               ; preds = %57
   %64 = atomicrmw volatile add ptr %58, i32 1 acq_rel, align 4, !noalias !346
-  %.pre179 = load ptr, ptr %34, align 8, !tbaa !11
+  %.pre178 = load ptr, ptr %34, align 8, !tbaa !11
   br label %_ZNK5clang16CompilerInstance22getHeaderSearchOptsPtrEv.exit
 
 _ZNK5clang16CompilerInstance22getHeaderSearchOptsPtrEv.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEE5resetEv.exit, %60, %63
-  %65 = phi ptr [ %50, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEE5resetEv.exit ], [ %50, %60 ], [ %.pre179, %63 ]
+  %65 = phi ptr [ %50, %_ZN4llvm18IntrusiveRefCntPtrIN5clang9ASTReaderEE5resetEv.exit ], [ %50, %60 ], [ %.pre178, %63 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !176
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3746,11 +3746,11 @@ _ZNSt12__shared_ptrIN5clang19HeaderSearchOptionsELN9__gnu_cxx12_Lock_policyE2EED
 
 106:                                              ; preds = %100
   %107 = atomicrmw volatile add ptr %101, i32 1 acq_rel, align 4, !noalias !347
-  %.pre180 = load ptr, ptr %34, align 8, !tbaa !11
+  %.pre179 = load ptr, ptr %34, align 8, !tbaa !11
   br label %_ZN5clang18CompilerInvocation22getPreprocessorOptsPtrEv.exit
 
 _ZN5clang18CompilerInvocation22getPreprocessorOptsPtrEv.exit: ; preds = %_ZNSt12__shared_ptrIN5clang19HeaderSearchOptionsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %103, %106
-  %108 = phi ptr [ %95, %_ZNSt12__shared_ptrIN5clang19HeaderSearchOptionsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %95, %103 ], [ %.pre180, %106 ]
+  %108 = phi ptr [ %95, %_ZNSt12__shared_ptrIN5clang19HeaderSearchOptionsELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %95, %103 ], [ %.pre179, %106 ]
   %109 = load ptr, ptr %68, align 8, !tbaa !185
   %110 = load ptr, ptr %108, align 8, !tbaa !194
   %111 = load ptr, ptr %66, align 8, !tbaa !176
@@ -4385,8 +4385,8 @@ _ZNSt12__shared_ptrIN5clang23DependencyFileGeneratorELN9__gnu_cxx12_Lock_policyE
 427:                                              ; preds = %417, %_ZNSt12__shared_ptrIN5clang23DependencyFileGeneratorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %429 = load ptr, ptr %428, align 8, !tbaa !249
-  %.not170 = icmp eq ptr %429, null
-  br i1 %.not170, label %430, label %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
+  %.not169 = icmp eq ptr %429, null
+  br i1 %.not169, label %430, label %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
 
 430:                                              ; preds = %427
   %431 = getelementptr inbounds nuw i8, ptr %372, i64 176
@@ -4459,8 +4459,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60: ; preds = %459,
 
 _ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %447, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60, %462, %430
   %.pr = load ptr, ptr %428, align 8, !tbaa !249
-  %.not171 = icmp eq ptr %.pr, null
-  br i1 %.not171, label %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123, label %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
+  %.not170 = icmp eq ptr %.pr, null
+  br i1 %.not170, label %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123, label %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread
 
 _ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread: ; preds = %427, %434, %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %463 = phi ptr [ %.pr, %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %429, %427 ], [ %439, %434 ]
@@ -5349,8 +5349,8 @@ _ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_polic
   %848 = load ptr, ptr %847, align 8, !tbaa !765
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %850 = load ptr, ptr %849, align 8, !tbaa !765
-  %.not172176 = icmp eq ptr %848, %850
-  br i1 %.not172176, label %._crit_edge, label %.lr.ph
+  %.not171175 = icmp eq ptr %848, %850
+  br i1 %.not171175, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123
   %851 = load i8, ptr %372, align 8
@@ -5359,16 +5359,16 @@ _ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_polic
   br i1 %.not26, label %861, label %859
 
 .lr.ph:                                           ; preds = %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123, %.lr.ph
-  %.sroa.0135.0177 = phi ptr [ %858, %.lr.ph ], [ %848, %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123 ]
-  %853 = load ptr, ptr %.sroa.0135.0177, align 8, !tbaa !732
+  %.sroa.0135.0176 = phi ptr [ %858, %.lr.ph ], [ %848, %_ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit123 ]
+  %853 = load ptr, ptr %.sroa.0135.0176, align 8, !tbaa !732
   %854 = load ptr, ptr %139, align 8, !tbaa !247
   %855 = load ptr, ptr %853, align 8, !tbaa !9
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 16
   %857 = load ptr, ptr %856, align 8
   call void %857(ptr noundef nonnull align 8 dereferenceable(56) %853, ptr noundef nonnull align 8 dereferenceable(3288) %854) #26
-  %858 = getelementptr inbounds nuw i8, ptr %.sroa.0135.0177, i64 16
-  %.not172 = icmp eq ptr %858, %850
-  br i1 %.not172, label %._crit_edge, label %.lr.ph
+  %858 = getelementptr inbounds nuw i8, ptr %.sroa.0135.0176, i64 16
+  %.not171 = icmp eq ptr %858, %850
+  br i1 %.not171, label %._crit_edge, label %.lr.ph
 
 859:                                              ; preds = %._crit_edge
   %860 = load ptr, ptr %139, align 8, !tbaa !247
@@ -5390,13 +5390,13 @@ _ZNSt12__shared_ptrIN5clang25ModuleDependencyCollectorELN9__gnu_cxx12_Lock_polic
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %865
   %lhsc = load i8, ptr %867, align 1
   %868 = icmp ne i8 %lhsc, 45
-  %spec.select173 = zext i1 %868 to i64
-  %spec.select174 = select i1 %868, ptr %867, ptr @.str.1
+  %spec.select172 = zext i1 %868 to i64
+  %spec.select173 = select i1 %868, ptr %867, ptr @.str.1
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %865
-  %.sroa.6.0 = phi i64 [ %863, %865 ], [ %spec.select173, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.sroa.0129.0 = phi ptr [ %867, %865 ], [ %spec.select174, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.6.0 = phi i64 [ %863, %865 ], [ %spec.select172, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sroa.0129.0 = phi ptr [ %867, %865 ], [ %spec.select173, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %869 = load ptr, ptr %139, align 8, !tbaa !247
   call void @_ZN5clang22AttachHeaderIncludeGenERNS_12PreprocessorERKNS_23DependencyOutputOptionsEbN4llvm9StringRefEbb(ptr noundef nonnull align 8 dereferenceable(3288) %869, ptr noundef nonnull align 8 dereferenceable(200) %372, i1 noundef zeroext true, ptr %.sroa.0129.0, i64 %.sroa.6.0, i1 noundef zeroext false, i1 noundef zeroext false) #26
   br label %870

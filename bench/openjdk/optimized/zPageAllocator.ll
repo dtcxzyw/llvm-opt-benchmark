@@ -651,7 +651,7 @@ _ZN20EventZPageAllocationC2E14EventStartTime.exit: ; preds = %5, %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 512
   br label %26
 
-26:                                               ; preds = %70, %_ZN20EventZPageAllocationC2E14EventStartTime.exit
+26:                                               ; preds = %69, %_ZN20EventZPageAllocationC2E14EventStartTime.exit
   store i8 %1, ptr %7, align 8
   store i64 %2, ptr %12, align 8
   store i8 %3, ptr %13, align 8
@@ -681,9 +681,8 @@ _ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit.thread: ; preds
 
 36:                                               ; preds = %26
   %.sroa.0.0.copyload.i.i = load i8, ptr %13, align 8
-  %37 = and i8 %.sroa.0.0.copyload.i.i, 1
-  %.not.i = icmp eq i8 %37, 0
-  br i1 %.not.i, label %38, label %_ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit
+  %37 = trunc i8 %.sroa.0.0.copyload.i.i to i1
+  br i1 %37, label %_ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit, label %38
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %24, align 8
@@ -708,7 +707,7 @@ _ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit: ; preds = %36
 48:                                               ; preds = %_ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit.thread, %38
   %49 = call noundef ptr @_ZN14ZPageAllocator19alloc_page_finalizeEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef nonnull %7)
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %70, label %51
+  br i1 %50, label %69, label %51
 
 51:                                               ; preds = %48
   %52 = icmp eq i8 %4, 15
@@ -737,12 +736,11 @@ _ZN14ZPageAllocator19alloc_page_or_stallEP15ZPageAllocation.exit: ; preds = %36
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %49, i64 160
   %67 = load i32, ptr %66, align 4
-  %68 = and i8 %3, 1
-  %69 = icmp ne i8 %68, 0
-  call void @_ZN20EventZPageAllocation6commitEmmmmjb(ptr noundef nonnull align 8 dereferenceable(61) %6, i64 noundef %62, i64 noundef %2, i64 noundef %63, i64 noundef %65, i32 noundef %67, i1 noundef zeroext %69)
+  %68 = trunc i8 %3 to i1
+  call void @_ZN20EventZPageAllocation6commitEmmmmjb(ptr noundef nonnull align 8 dereferenceable(61) %6, i64 noundef %62, i64 noundef %2, i64 noundef %63, i64 noundef %65, i32 noundef %67, i1 noundef zeroext %68)
   br label %.loopexit
 
-70:                                               ; preds = %48
+69:                                               ; preds = %48
   call void @_ZN14ZPageAllocator23free_pages_alloc_failedEP15ZPageAllocation(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef nonnull %7)
   call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %22) #14
   br label %26
@@ -1705,9 +1703,8 @@ define hidden noundef zeroext i1 @_ZN14ZPageAllocator19alloc_page_or_stallEP15ZP
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i = load i8, ptr %6, align 8
-  %7 = and i8 %.sroa.0.0.copyload.i, 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %9, label %_ZN7ZLockerI5ZLockED2Ev.exit.thread
+  %7 = trunc i8 %.sroa.0.0.copyload.i to i1
+  br i1 %7, label %_ZN7ZLockerI5ZLockED2Ev.exit.thread, label %9
 
 _ZN7ZLockerI5ZLockED2Ev.exit.thread:              ; preds = %2, %5
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
@@ -3614,14 +3611,13 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %9 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
-  %10 = and i64 %9, 1
-  %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %11
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %11, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 11:                                               ; preds = %2
   %12 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %12, 0
-  br i1 %.not5.i.i, label %13, label %19
+  %.not.i.i.i = icmp eq i32 %12, 0
+  br i1 %.not.i.i.i, label %13, label %19
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1384
@@ -3634,20 +3630,19 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
 
 18:                                               ; preds = %16
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %1) #14
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 19:                                               ; preds = %16, %13, %11
   %20 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
-  %21 = and i64 %20, 1
-  %.not.i1.i = icmp eq i64 %21, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %22
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %22, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 22:                                               ; preds = %19
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false) #14
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %2, %18, %19, %22
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %2, %18, %19, %22
   ret void
 }
 

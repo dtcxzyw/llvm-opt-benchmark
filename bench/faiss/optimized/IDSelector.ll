@@ -313,23 +313,21 @@ define noundef zeroext i1 @_ZNK5faiss16IDSelectorBitmap9is_memberEl(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !48
   %.not = icmp ult i64 %3, %5
-  br i1 %.not, label %6, label %17
+  br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %3
   %10 = load i8, ptr %9, align 1, !tbaa !35
-  %11 = zext i8 %10 to i32
-  %12 = trunc i64 %1 to i32
-  %13 = and i32 %12, 7
-  %14 = shl nuw nsw i32 1, %13
-  %15 = and i32 %14, %11
-  %16 = icmp ne i32 %15, 0
-  br label %17
+  %11 = trunc i64 %1 to i8
+  %12 = and i8 %11, 7
+  %13 = lshr i8 %10, %12
+  %14 = trunc i8 %13 to i1
+  br label %15
 
-17:                                               ; preds = %2, %6
-  %.0 = phi i1 [ %16, %6 ], [ false, %2 ]
+15:                                               ; preds = %2, %6
+  %.0 = phi i1 [ %14, %6 ], [ false, %2 ]
   ret i1 %.0
 }
 

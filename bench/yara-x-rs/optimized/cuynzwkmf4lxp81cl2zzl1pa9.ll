@@ -53897,31 +53897,31 @@ _ZN6yara_x8compiler8Compiler24check_for_duplicate_tags17h453fc39739a6a249E.exit:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %191, ptr noundef nonnull align 8 dereferenceable(24) %195, i64 24, i1 false)
   %529 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %530 = load i8, ptr %529, align 8, !noundef !6
-  %531 = and i8 %530, 1
-  %532 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %532, ptr noundef nonnull align 8 dereferenceable(24) %192, i64 24, i1 false)
-  %533 = getelementptr inbounds nuw i8, ptr %191, i64 96
-  store i32 %518, ptr %533, align 8
-  %534 = getelementptr inbounds nuw i8, ptr %191, i64 100
-  store i32 %520, ptr %534, align 4
-  %535 = getelementptr inbounds nuw i8, ptr %191, i64 104
-  store i32 %521, ptr %535, align 8
-  %536 = getelementptr inbounds nuw i8, ptr %191, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %536, ptr noundef nonnull align 4 dereferenceable(16) %190, i64 16, i1 false)
-  %537 = getelementptr inbounds nuw i8, ptr %191, i64 48
-  store i64 0, ptr %537, align 8
+  %531 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %531, ptr noundef nonnull align 8 dereferenceable(24) %192, i64 24, i1 false)
+  %532 = getelementptr inbounds nuw i8, ptr %191, i64 96
+  store i32 %518, ptr %532, align 8
+  %533 = getelementptr inbounds nuw i8, ptr %191, i64 100
+  store i32 %520, ptr %533, align 4
+  %534 = getelementptr inbounds nuw i8, ptr %191, i64 104
+  store i32 %521, ptr %534, align 8
+  %535 = getelementptr inbounds nuw i8, ptr %191, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %535, ptr noundef nonnull align 4 dereferenceable(16) %190, i64 16, i1 false)
+  %536 = getelementptr inbounds nuw i8, ptr %191, i64 48
+  store i64 0, ptr %536, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 56
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 64
   store i64 0, ptr %.sroa.524.0..sroa_idx, align 8
-  %538 = getelementptr inbounds nuw i8, ptr %191, i64 88
-  store i64 0, ptr %538, align 8
-  %539 = getelementptr inbounds nuw i8, ptr %191, i64 108
-  %540 = lshr i8 %530, 1
-  %.lobit = and i8 %540, 1
-  store i8 %.lobit, ptr %539, align 4
-  %541 = getelementptr inbounds nuw i8, ptr %191, i64 109
-  store i8 %531, ptr %541, align 1
+  %537 = getelementptr inbounds nuw i8, ptr %191, i64 88
+  store i64 0, ptr %537, align 8
+  %538 = getelementptr inbounds nuw i8, ptr %191, i64 108
+  %539 = lshr i8 %530, 1
+  %.lobit = and i8 %539, 1
+  store i8 %.lobit, ptr %538, align 4
+  %540 = getelementptr inbounds nuw i8, ptr %191, i64 109
+  %541 = and i8 %530, 1
+  store i8 %541, ptr %540, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %190)
   %542 = load i64, ptr %489, align 8, !alias.scope !14224, !noalias !14227, !noundef !6
   %543 = load i64, ptr %508, align 8, !range !135, !alias.scope !14224, !noalias !14227, !noundef !6
@@ -62180,10 +62180,9 @@ define internal fastcc noundef i32 @_ZN6yara_x8compiler8Compiler20c_literal_chai
   %4 = alloca [24 x i8], align 8
   %5 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %5)
-  %6 = and i16 %1, 1
-  %.not = icmp eq i16 %6, 0
+  %6 = trunc i16 %1 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !15264
-  br i1 %.not, label %7, label %10
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -62260,10 +62259,9 @@ define internal fastcc noundef i32 @_ZN6yara_x8compiler8Compiler20c_literal_chai
   %6 = alloca [24 x i8], align 8
   %7 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %7)
-  %8 = and i16 %3, 1
-  %.not = icmp eq i16 %8, 0
+  %8 = trunc i16 %3 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !15269
-  br i1 %.not, label %9, label %12
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1928

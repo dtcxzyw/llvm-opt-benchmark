@@ -135,8 +135,8 @@ define internal void @lv_textarea_event(ptr readnone captures(none) %0, ptr noun
     i32 3, label %42
     i32 2, label %42
     i32 1, label %42
-    i32 29, label %142
-    i32 32, label %196
+    i32 29, label %143
+    i32 32, label %197
   ]
 
 17:                                               ; preds = %14
@@ -278,7 +278,7 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   %63 = load i32, ptr %62, align 4
   %64 = icmp slt i32 %63, 0
   %or.cond.i = select i1 %61, i1 true, i1 %64
-  br i1 %or.cond.i, label %141, label %65
+  br i1 %or.cond.i, label %142, label %65
 
 65:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -295,83 +295,85 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   %74 = call i32 @lv_obj_get_width(ptr noundef %73) #10
   %75 = load ptr, ptr %58, align 8, !tbaa !22
   %76 = icmp slt i32 %67, 0
-  br i1 %76, label %82, label %77
+  br i1 %76, label %83, label %77
 
 77:                                               ; preds = %65
   %.not.i48 = icmp slt i32 %67, %74
-  br i1 %.not.i48, label %78, label %82
+  br i1 %.not.i48, label %78, label %83
 
 78:                                               ; preds = %77
   %79 = call i32 @lv_label_get_letter_on(ptr noundef %75, ptr noundef nonnull %12, i1 noundef zeroext true) #10
   %80 = load ptr, ptr %58, align 8, !tbaa !22
   %81 = call zeroext i1 @lv_label_is_char_under_pos(ptr noundef %80, ptr noundef nonnull %12) #10
-  br label %82
+  %82 = xor i1 %81, true
+  br label %83
 
-82:                                               ; preds = %78, %77, %65
+83:                                               ; preds = %78, %77, %65
   %.080.i = phi i32 [ %79, %78 ], [ 0, %65 ], [ 32767, %77 ]
-  %.0.not.i = phi i1 [ %81, %78 ], [ false, %65 ], [ false, %77 ]
-  %83 = getelementptr inbounds nuw i8, ptr %46, i64 152
-  %84 = load i8, ptr %83, align 8
-  %85 = and i8 %84, 2
-  %.not86.i = icmp eq i8 %85, 0
-  br i1 %.not86.i, label %101, label %86
+  %.0.i = phi i1 [ %82, %78 ], [ true, %65 ], [ true, %77 ]
+  %84 = getelementptr inbounds nuw i8, ptr %46, i64 152
+  %85 = load i8, ptr %84, align 8
+  %86 = and i8 %85, 2
+  %.not86.i = icmp eq i8 %86, 0
+  br i1 %.not86.i, label %100, label %87
 
-86:                                               ; preds = %82
-  %87 = and i8 %84, 1
-  %88 = icmp eq i8 %87, 0
-  %or.cond4.not88.i = select i1 %88, i1 %.0.not.i, i1 false
-  %89 = icmp eq i32 %72, 1
-  %or.cond6.i = select i1 %or.cond4.not88.i, i1 %89, i1 false
-  br i1 %or.cond6.i, label %.thread.i, label %93
+87:                                               ; preds = %83
+  %88 = trunc i8 %85 to i1
+  %or.cond4.i = select i1 %88, i1 true, i1 %.0.i
+  %89 = icmp ne i32 %72, 1
+  %or.cond6.not.i = select i1 %or.cond4.i, i1 true, i1 %89
+  br i1 %or.cond6.not.i, label %93, label %.thread.i
 
-.thread.i:                                        ; preds = %86
+.thread.i:                                        ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %46, i64 144
   store i32 %.080.i, ptr %90, align 8, !tbaa !32
   %91 = getelementptr inbounds nuw i8, ptr %46, i64 148
   store i32 65535, ptr %91, align 4, !tbaa !33
-  %92 = or disjoint i8 %84, 1
-  store i8 %92, ptr %83, align 8
+  %92 = or disjoint i8 %85, 1
+  store i8 %92, ptr %84, align 8
   call void @lv_obj_remove_flag(ptr noundef nonnull %46, i32 noundef 768) #10
-  br label %106
+  br label %104
 
-93:                                               ; preds = %86
-  %94 = icmp ne i8 %87, 0
-  %95 = icmp eq i32 %72, 2
-  %or.cond8.i = select i1 %94, i1 %95, i1 false
-  br i1 %or.cond8.i, label %96, label %98
+93:                                               ; preds = %87
+  %94 = icmp eq i32 %72, 2
+  %or.cond8.i = select i1 %88, i1 %94, i1 false
+  br i1 %or.cond8.i, label %95, label %97
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %46, i64 148
-  store i32 %.080.i, ptr %97, align 4, !tbaa !33
-  br label %101
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %46, i64 148
+  store i32 %.080.i, ptr %96, align 4, !tbaa !33
+  br label %100
 
-98:                                               ; preds = %93
-  %99 = and i32 %72, -9
-  %or.cond10.i = icmp eq i32 %99, 3
-  %or.cond96.i = select i1 %94, i1 %or.cond10.i, i1 false
-  br i1 %or.cond96.i, label %100, label %101
+97:                                               ; preds = %93
+  %98 = and i32 %72, -9
+  %or.cond10.i = icmp eq i32 %98, 3
+  %or.cond95.i = select i1 %88, i1 %or.cond10.i, i1 false
+  br i1 %or.cond95.i, label %99, label %100
 
-100:                                              ; preds = %98
+99:                                               ; preds = %97
   call void @lv_obj_add_flag(ptr noundef nonnull %46, i32 noundef 768) #10
-  %.pre.i = load i8, ptr %83, align 8
-  br label %101
+  %.pre.i = load i8, ptr %84, align 8
+  br label %100
 
-101:                                              ; preds = %100, %98, %96, %82
-  %102 = phi i8 [ %84, %98 ], [ %.pre.i, %100 ], [ %84, %96 ], [ %84, %82 ]
-  %103 = and i8 %102, 1
-  %104 = icmp ne i8 %103, 0
-  %105 = icmp eq i32 %72, 1
-  %or.cond12.i = select i1 %104, i1 true, i1 %105
-  br i1 %or.cond12.i, label %106, label %.thread107.i
+100:                                              ; preds = %99, %97, %95, %83
+  %101 = phi i8 [ %85, %97 ], [ %.pre.i, %99 ], [ %85, %95 ], [ %85, %83 ]
+  %102 = trunc i8 %101 to i1
+  %103 = icmp eq i32 %72, 1
+  %or.cond12.i = select i1 %102, i1 true, i1 %103
+  br i1 %or.cond12.i, label %104, label %105
 
-106:                                              ; preds = %101, %.thread.i
+104:                                              ; preds = %100, %.thread.i
   call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %46, i32 noundef %.080.i)
-  %.pre98.i = load i8, ptr %83, align 8
-  %.pre99.i = and i8 %.pre98.i, 1
-  %107 = icmp eq i8 %.pre99.i, 0
-  br i1 %107, label %.thread107.i, label %108
+  %.pre97.i = load i8, ptr %84, align 8
+  br label %105
 
-108:                                              ; preds = %106
+105:                                              ; preds = %104, %100
+  %106 = phi i8 [ %101, %100 ], [ %.pre97.i, %104 ]
+  %107 = and i8 %106, 1
+  %.not88.i = icmp eq i8 %107, 0
+  br i1 %.not88.i, label %141, label %108
+
+108:                                              ; preds = %105
   %109 = getelementptr inbounds nuw i8, ptr %46, i64 144
   %110 = load i32, ptr %109, align 8, !tbaa !32
   %111 = getelementptr inbounds nuw i8, ptr %46, i64 148
@@ -382,14 +384,14 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 114:                                              ; preds = %108
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 92
   %116 = load i32, ptr %115, align 4, !tbaa !34
-  %.not94.i = icmp eq i32 %116, %112
-  br i1 %.not94.i, label %117, label %120
+  %.not93.i = icmp eq i32 %116, %112
+  br i1 %.not93.i, label %117, label %120
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %119 = load i32, ptr %118, align 8, !tbaa !37
-  %.not95.i = icmp eq i32 %119, %110
-  br i1 %.not95.i, label %136, label %120
+  %.not94.i = icmp eq i32 %119, %110
+  br i1 %.not94.i, label %136, label %120
 
 120:                                              ; preds = %117, %114
   store i32 %112, ptr %115, align 4, !tbaa !34
@@ -402,28 +404,28 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
   br i1 %122, label %125, label %130
 
 125:                                              ; preds = %121
-  %.not92.i = icmp eq i32 %124, %110
-  br i1 %.not92.i, label %126, label %129
+  %.not91.i = icmp eq i32 %124, %110
+  br i1 %.not91.i, label %126, label %129
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %128 = load i32, ptr %127, align 8, !tbaa !37
-  %.not93.i = icmp eq i32 %128, %112
-  br i1 %.not93.i, label %136, label %129
+  %.not92.i = icmp eq i32 %128, %112
+  br i1 %.not92.i, label %136, label %129
 
 129:                                              ; preds = %126, %125
   store i32 %110, ptr %123, align 4, !tbaa !34
   br label %.sink.split.i
 
 130:                                              ; preds = %121
-  %.not90.i = icmp eq i32 %124, 65535
-  br i1 %.not90.i, label %131, label %134
+  %.not89.i = icmp eq i32 %124, 65535
+  br i1 %.not89.i, label %131, label %134
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %133 = load i32, ptr %132, align 8, !tbaa !37
-  %.not91.i = icmp eq i32 %133, 65535
-  br i1 %.not91.i, label %136, label %134
+  %.not90.i = icmp eq i32 %133, 65535
+  br i1 %.not90.i, label %136, label %134
 
 134:                                              ; preds = %131, %130
   store i32 65535, ptr %123, align 4, !tbaa !34
@@ -439,221 +441,221 @@ lv_textarea_get_one_line.exit:                    ; preds = %36
 136:                                              ; preds = %.sink.split.i, %131, %126, %117
   %137 = and i32 %72, -9
   %or.cond14.i = icmp eq i32 %137, 3
-  br i1 %or.cond14.i, label %138, label %.thread107.i
+  br i1 %or.cond14.i, label %138, label %141
 
 138:                                              ; preds = %136
-  %139 = load i8, ptr %83, align 8
+  %139 = load i8, ptr %84, align 8
   %140 = and i8 %139, -2
-  store i8 %140, ptr %83, align 8
-  br label %.thread107.i
-
-.thread107.i:                                     ; preds = %138, %136, %106, %101
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  store i8 %140, ptr %84, align 8
   br label %141
 
-141:                                              ; preds = %.thread107.i, %57
+141:                                              ; preds = %138, %136, %105
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %142
+
+142:                                              ; preds = %141, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %lv_textarea_cursor_left.exit
 
-142:                                              ; preds = %14
-  %143 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #10
-  %144 = tail call ptr @lv_event_get_layer(ptr noundef %1) #10
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 64
-  %146 = load ptr, ptr %145, align 8, !tbaa !22
-  %147 = tail call ptr @lv_label_get_text(ptr noundef %146) #10
-  %148 = load i8, ptr %147, align 1, !tbaa !38
-  %149 = icmp eq i8 %148, 0
-  br i1 %149, label %150, label %lv_textarea_cursor_left.exit
+143:                                              ; preds = %14
+  %144 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #10
+  %145 = tail call ptr @lv_event_get_layer(ptr noundef %1) #10
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 64
+  %147 = load ptr, ptr %146, align 8, !tbaa !22
+  %148 = tail call ptr @lv_label_get_text(ptr noundef %147) #10
+  %149 = load i8, ptr %148, align 1, !tbaa !38
+  %150 = icmp eq i8 %149, 0
+  br i1 %150, label %151, label %lv_textarea_cursor_left.exit
 
-150:                                              ; preds = %142
-  %151 = getelementptr inbounds nuw i8, ptr %143, i64 72
-  %152 = load ptr, ptr %151, align 8, !tbaa !25
-  %.not.i49 = icmp eq ptr %152, null
-  br i1 %.not.i49, label %lv_textarea_cursor_left.exit, label %153
+151:                                              ; preds = %143
+  %152 = getelementptr inbounds nuw i8, ptr %144, i64 72
+  %153 = load ptr, ptr %152, align 8, !tbaa !25
+  %.not.i49 = icmp eq ptr %153, null
+  br i1 %.not.i49, label %lv_textarea_cursor_left.exit, label %154
 
-153:                                              ; preds = %150
-  %154 = load i8, ptr %152, align 1, !tbaa !38
-  %.not25.i = icmp eq i8 %154, 0
-  br i1 %.not25.i, label %lv_textarea_cursor_left.exit, label %155
+154:                                              ; preds = %151
+  %155 = load i8, ptr %153, align 1, !tbaa !38
+  %.not25.i = icmp eq i8 %155, 0
+  br i1 %.not25.i, label %lv_textarea_cursor_left.exit, label %156
 
-155:                                              ; preds = %153
+156:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %7) #10
-  %156 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %144, ptr %156, align 8, !tbaa !39
-  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %143, i32 noundef 524288, ptr noundef nonnull %7) #10
-  %157 = getelementptr inbounds nuw i8, ptr %143, i64 152
-  %158 = load i8, ptr %157, align 8
-  %159 = and i8 %158, 8
-  %.not26.i = icmp eq i8 %159, 0
-  br i1 %.not26.i, label %164, label %160
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %145, ptr %157, align 8, !tbaa !39
+  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %144, i32 noundef 524288, ptr noundef nonnull %7) #10
+  %158 = getelementptr inbounds nuw i8, ptr %144, i64 152
+  %159 = load i8, ptr %158, align 8
+  %160 = and i8 %159, 8
+  %.not26.i = icmp eq i8 %160, 0
+  br i1 %.not26.i, label %165, label %161
 
-160:                                              ; preds = %155
-  %161 = getelementptr inbounds nuw i8, ptr %7, i64 124
-  %162 = load i32, ptr %161, align 4, !tbaa !47
-  %163 = or i32 %162, 1
-  store i32 %163, ptr %161, align 4, !tbaa !47
-  br label %164
+161:                                              ; preds = %156
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 124
+  %163 = load i32, ptr %162, align 4, !tbaa !47
+  %164 = or i32 %163, 1
+  store i32 %164, ptr %162, align 4, !tbaa !47
+  br label %165
 
-164:                                              ; preds = %160, %155
-  %165 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %143, i32 noundef 0, i8 noundef zeroext 18) #10
-  %166 = ptrtoint ptr %165 to i64
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %166 to i32
-  %167 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %143, i32 noundef 0, i8 noundef zeroext 19) #10
-  %168 = ptrtoint ptr %167 to i64
-  %.sroa.0.0.extract.trunc.i27.i = trunc i64 %168 to i32
-  %169 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %143, i32 noundef 0, i8 noundef zeroext 16) #10
-  %170 = ptrtoint ptr %169 to i64
-  %.sroa.0.0.extract.trunc.i28.i = trunc i64 %170 to i32
-  %171 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %143, i32 noundef 0, i8 noundef zeroext 17) #10
-  %172 = ptrtoint ptr %171 to i64
-  %.sroa.0.0.extract.trunc.i29.i = trunc i64 %172 to i32
-  %173 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %143, i32 noundef 0, i8 noundef zeroext 48) #10
-  %174 = ptrtoint ptr %173 to i64
-  %.sroa.0.0.extract.trunc.i30.i = trunc i64 %174 to i32
+165:                                              ; preds = %161, %156
+  %166 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %144, i32 noundef 0, i8 noundef zeroext 18) #10
+  %167 = ptrtoint ptr %166 to i64
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %167 to i32
+  %168 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %144, i32 noundef 0, i8 noundef zeroext 19) #10
+  %169 = ptrtoint ptr %168 to i64
+  %.sroa.0.0.extract.trunc.i27.i = trunc i64 %169 to i32
+  %170 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %144, i32 noundef 0, i8 noundef zeroext 16) #10
+  %171 = ptrtoint ptr %170 to i64
+  %.sroa.0.0.extract.trunc.i28.i = trunc i64 %171 to i32
+  %172 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %144, i32 noundef 0, i8 noundef zeroext 17) #10
+  %173 = ptrtoint ptr %172 to i64
+  %.sroa.0.0.extract.trunc.i29.i = trunc i64 %173 to i32
+  %174 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %144, i32 noundef 0, i8 noundef zeroext 48) #10
+  %175 = ptrtoint ptr %174 to i64
+  %.sroa.0.0.extract.trunc.i30.i = trunc i64 %175 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %175 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %176 = load i32, ptr %175, align 4, !tbaa !29
-  %177 = getelementptr inbounds nuw i8, ptr %143, i64 44
-  %178 = load i32, ptr %177, align 4, !tbaa !30
-  %179 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %180 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %181 = load i32, ptr %180, align 4, !tbaa !48
-  %182 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %183 = getelementptr inbounds nuw i8, ptr %143, i64 52
-  %184 = load i32, ptr %183, align 4, !tbaa !49
-  %185 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %186 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i.i
-  %187 = add nsw i32 %186, %176
-  store i32 %187, ptr %8, align 4, !tbaa !29
-  %188 = add i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i27.i
-  %189 = sub i32 %181, %188
-  store i32 %189, ptr %182, align 4, !tbaa !48
-  %190 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i28.i
-  %191 = add nsw i32 %190, %178
-  store i32 %191, ptr %179, align 4, !tbaa !30
-  %192 = add i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i29.i
-  %193 = sub i32 %184, %192
-  store i32 %193, ptr %185, align 4, !tbaa !49
-  %194 = load ptr, ptr %151, align 8, !tbaa !25
-  %195 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %194, ptr %195, align 8, !tbaa !50
-  call void @lv_draw_label(ptr noundef %144, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+  %176 = getelementptr inbounds nuw i8, ptr %144, i64 40
+  %177 = load i32, ptr %176, align 4, !tbaa !29
+  %178 = getelementptr inbounds nuw i8, ptr %144, i64 44
+  %179 = load i32, ptr %178, align 4, !tbaa !30
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %144, i64 48
+  %182 = load i32, ptr %181, align 4, !tbaa !48
+  %183 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %144, i64 52
+  %185 = load i32, ptr %184, align 4, !tbaa !49
+  %186 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %187 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i.i
+  %188 = add nsw i32 %187, %177
+  store i32 %188, ptr %8, align 4, !tbaa !29
+  %189 = add i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i27.i
+  %190 = sub i32 %182, %189
+  store i32 %190, ptr %183, align 4, !tbaa !48
+  %191 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i28.i
+  %192 = add nsw i32 %191, %179
+  store i32 %192, ptr %180, align 4, !tbaa !30
+  %193 = add i32 %.sroa.0.0.extract.trunc.i30.i, %.sroa.0.0.extract.trunc.i29.i
+  %194 = sub i32 %185, %193
+  store i32 %194, ptr %186, align 4, !tbaa !49
+  %195 = load ptr, ptr %152, align 8, !tbaa !25
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store ptr %195, ptr %196, align 8, !tbaa !50
+  call void @lv_draw_label(ptr noundef %145, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %lv_textarea_cursor_left.exit
 
-196:                                              ; preds = %14
-  %197 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #10
-  %198 = tail call ptr @lv_event_get_layer(ptr noundef %1) #10
-  %199 = getelementptr inbounds nuw i8, ptr %197, i64 64
-  %200 = load ptr, ptr %199, align 8, !tbaa !22
-  %201 = tail call ptr @lv_label_get_text(ptr noundef %200) #10
-  %202 = getelementptr inbounds nuw i8, ptr %197, i64 140
-  %203 = load i8, ptr %202, align 4
-  %204 = and i8 %203, 1
-  %205 = icmp eq i8 %204, 0
-  br i1 %205, label %lv_textarea_cursor_left.exit, label %206
+197:                                              ; preds = %14
+  %198 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #10
+  %199 = tail call ptr @lv_event_get_layer(ptr noundef %1) #10
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 64
+  %201 = load ptr, ptr %200, align 8, !tbaa !22
+  %202 = tail call ptr @lv_label_get_text(ptr noundef %201) #10
+  %203 = getelementptr inbounds nuw i8, ptr %198, i64 140
+  %204 = load i8, ptr %203, align 4
+  %205 = and i8 %204, 1
+  %206 = icmp eq i8 %205, 0
+  br i1 %206, label %lv_textarea_cursor_left.exit, label %207
 
-206:                                              ; preds = %196
+207:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %3) #10
-  %207 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %198, ptr %207, align 8, !tbaa !51
-  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %197, i32 noundef 393216, ptr noundef nonnull %3) #10
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %199, ptr %208, align 8, !tbaa !51
+  call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %198, i32 noundef 393216, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %208 = getelementptr inbounds nuw i8, ptr %197, i64 120
-  %209 = load i32, ptr %208, align 4, !tbaa !29
-  %210 = getelementptr inbounds nuw i8, ptr %197, i64 124
-  %211 = load i32, ptr %210, align 4, !tbaa !30
-  %212 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %213 = getelementptr inbounds nuw i8, ptr %197, i64 128
-  %214 = load i32, ptr %213, align 4, !tbaa !48
-  %215 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %216 = getelementptr inbounds nuw i8, ptr %197, i64 132
-  %217 = load i32, ptr %216, align 4, !tbaa !49
-  %218 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %219 = load ptr, ptr %199, align 8, !tbaa !22
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 40
-  %221 = load i32, ptr %220, align 8, !tbaa !54
-  %222 = add nsw i32 %221, %209
-  store i32 %222, ptr %4, align 4, !tbaa !29
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 44
-  %224 = load i32, ptr %223, align 4, !tbaa !55
-  %225 = add nsw i32 %224, %211
-  store i32 %225, ptr %212, align 4, !tbaa !30
-  %226 = add nsw i32 %221, %214
-  store i32 %226, ptr %215, align 4, !tbaa !48
-  %227 = add nsw i32 %224, %217
-  store i32 %227, ptr %218, align 4, !tbaa !49
-  call void @lv_draw_rect(ptr noundef %198, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  %228 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %197, i32 noundef 393216, i8 noundef zeroext 48) #10
-  %229 = ptrtoint ptr %228 to i64
-  %.sroa.0.0.extract.trunc.i.i50 = trunc i64 %229 to i32
-  %230 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %197, i32 noundef 393216, i8 noundef zeroext 18) #10
-  %231 = ptrtoint ptr %230 to i64
-  %.sroa.0.0.extract.trunc.i30.i51 = trunc i64 %231 to i32
-  %232 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i51, %.sroa.0.0.extract.trunc.i.i50
-  %233 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %197, i32 noundef 393216, i8 noundef zeroext 16) #10
-  %234 = ptrtoint ptr %233 to i64
-  %.sroa.0.0.extract.trunc.i31.i = trunc i64 %234 to i32
-  %235 = add nsw i32 %.sroa.0.0.extract.trunc.i31.i, %.sroa.0.0.extract.trunc.i.i50
+  %209 = getelementptr inbounds nuw i8, ptr %198, i64 120
+  %210 = load i32, ptr %209, align 4, !tbaa !29
+  %211 = getelementptr inbounds nuw i8, ptr %198, i64 124
+  %212 = load i32, ptr %211, align 4, !tbaa !30
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %214 = getelementptr inbounds nuw i8, ptr %198, i64 128
+  %215 = load i32, ptr %214, align 4, !tbaa !48
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %198, i64 132
+  %218 = load i32, ptr %217, align 4, !tbaa !49
+  %219 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %220 = load ptr, ptr %200, align 8, !tbaa !22
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
+  %222 = load i32, ptr %221, align 8, !tbaa !54
+  %223 = add nsw i32 %222, %210
+  store i32 %223, ptr %4, align 4, !tbaa !29
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 44
+  %225 = load i32, ptr %224, align 4, !tbaa !55
+  %226 = add nsw i32 %225, %212
+  store i32 %226, ptr %213, align 4, !tbaa !30
+  %227 = add nsw i32 %222, %215
+  store i32 %227, ptr %216, align 4, !tbaa !48
+  %228 = add nsw i32 %225, %218
+  store i32 %228, ptr %219, align 4, !tbaa !49
+  call void @lv_draw_rect(ptr noundef %199, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %229 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %198, i32 noundef 393216, i8 noundef zeroext 48) #10
+  %230 = ptrtoint ptr %229 to i64
+  %.sroa.0.0.extract.trunc.i.i50 = trunc i64 %230 to i32
+  %231 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %198, i32 noundef 393216, i8 noundef zeroext 18) #10
+  %232 = ptrtoint ptr %231 to i64
+  %.sroa.0.0.extract.trunc.i30.i51 = trunc i64 %232 to i32
+  %233 = add nsw i32 %.sroa.0.0.extract.trunc.i30.i51, %.sroa.0.0.extract.trunc.i.i50
+  %234 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %198, i32 noundef 393216, i8 noundef zeroext 16) #10
+  %235 = ptrtoint ptr %234 to i64
+  %.sroa.0.0.extract.trunc.i31.i = trunc i64 %235 to i32
+  %236 = add nsw i32 %.sroa.0.0.extract.trunc.i31.i, %.sroa.0.0.extract.trunc.i.i50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %197, i64 136
-  %237 = load i32, ptr %236, align 8, !tbaa !56
-  %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %201, i64 %238
-  %240 = load ptr, ptr @lv_text_encoded_size, align 8, !tbaa !57
-  %241 = call zeroext i8 %240(ptr noundef %239) #10
-  %242 = zext i8 %241 to i64
-  %243 = call ptr @lv_memcpy(ptr noundef nonnull %5, ptr noundef %239, i64 noundef %242) #10
-  %244 = load i32, ptr %4, align 4, !tbaa !29
-  %245 = add nsw i32 %232, %244
-  store i32 %245, ptr %4, align 4, !tbaa !29
-  %246 = load i32, ptr %212, align 4, !tbaa !30
-  %247 = add nsw i32 %235, %246
-  store i32 %247, ptr %212, align 4, !tbaa !30
-  %248 = load ptr, ptr %199, align 8, !tbaa !22
-  %249 = call ptr @lv_obj_get_style_prop(ptr noundef %248, i32 noundef 0, i8 noundef zeroext 88) #10
+  %237 = getelementptr inbounds nuw i8, ptr %198, i64 136
+  %238 = load i32, ptr %237, align 8, !tbaa !56
+  %239 = zext i32 %238 to i64
+  %240 = getelementptr inbounds nuw i8, ptr %202, i64 %239
+  %241 = load ptr, ptr @lv_text_encoded_size, align 8, !tbaa !57
+  %242 = call zeroext i8 %241(ptr noundef %240) #10
+  %243 = zext i8 %242 to i64
+  %244 = call ptr @lv_memcpy(ptr noundef nonnull %5, ptr noundef %240, i64 noundef %243) #10
+  %245 = load i32, ptr %4, align 4, !tbaa !29
+  %246 = add nsw i32 %233, %245
+  store i32 %246, ptr %4, align 4, !tbaa !29
+  %247 = load i32, ptr %213, align 4, !tbaa !30
+  %248 = add nsw i32 %236, %247
+  store i32 %248, ptr %213, align 4, !tbaa !30
+  %249 = load ptr, ptr %200, align 8, !tbaa !22
+  %250 = call ptr @lv_obj_get_style_prop(ptr noundef %249, i32 noundef 0, i8 noundef zeroext 88) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %6) #10
-  %250 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %198, ptr %250, align 8, !tbaa !39
-  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %197, i32 noundef 393216, ptr noundef nonnull %6) #10
-  %251 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %252 = load i8, ptr %251, align 4, !tbaa !58
-  %253 = icmp ugt i8 %252, 2
-  br i1 %253, label %258, label %254
+  %251 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %199, ptr %251, align 8, !tbaa !39
+  call void @lv_obj_init_draw_label_dsc(ptr noundef nonnull %198, i32 noundef 393216, ptr noundef nonnull %6) #10
+  %252 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %253 = load i8, ptr %252, align 4, !tbaa !58
+  %254 = icmp ugt i8 %253, 2
+  br i1 %254, label %259, label %255
 
-254:                                              ; preds = %206
-  %255 = ptrtoint ptr %249 to i64
-  %.sroa.0.0.extract.trunc.i32.i = trunc i64 %255 to i24
-  %256 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %.0.copyload1.i = load i24, ptr %256, align 8
-  %257 = call zeroext i1 @lv_color_eq(i24 %.0.copyload1.i, i24 %.sroa.0.0.extract.trunc.i32.i) #10
-  br i1 %257, label %263, label %258
+255:                                              ; preds = %207
+  %256 = ptrtoint ptr %250 to i64
+  %.sroa.0.0.extract.trunc.i32.i = trunc i64 %256 to i24
+  %257 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %.0.copyload1.i = load i24, ptr %257, align 8
+  %258 = call zeroext i1 @lv_color_eq(i24 %.0.copyload1.i, i24 %.sroa.0.0.extract.trunc.i32.i) #10
+  br i1 %258, label %264, label %259
 
-258:                                              ; preds = %254, %206
-  %259 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %5, ptr %259, align 8, !tbaa !50
-  %260 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %261 = load i8, ptr %260, align 8
-  %262 = or i8 %261, 64
-  store i8 %262, ptr %260, align 8
-  call void @lv_draw_label(ptr noundef %198, ptr noundef nonnull %6, ptr noundef nonnull %4) #10
-  br label %263
+259:                                              ; preds = %255, %207
+  %260 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %5, ptr %260, align 8, !tbaa !50
+  %261 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %262 = load i8, ptr %261, align 8
+  %263 = or i8 %262, 64
+  store i8 %263, ptr %261, align 8
+  call void @lv_draw_label(ptr noundef %199, ptr noundef nonnull %6, ptr noundef nonnull %4) #10
+  br label %264
 
-263:                                              ; preds = %258, %254
+264:                                              ; preds = %259, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %lv_textarea_cursor_left.exit
 
-lv_textarea_cursor_left.exit:                     ; preds = %263, %196, %164, %153, %150, %142, %141, %54, %51, %45, %42, %28, %lv_textarea_get_cursor_pos.exit.i, %14, %17, %.split, %.split42, %31, %33, %35, %40, %34, %32, %30, %lv_textarea_cursor_right.exit, %2
+lv_textarea_cursor_left.exit:                     ; preds = %264, %197, %165, %154, %151, %143, %142, %54, %51, %45, %42, %28, %lv_textarea_get_cursor_pos.exit.i, %14, %17, %.split, %.split42, %31, %33, %35, %40, %34, %32, %30, %lv_textarea_cursor_right.exit, %2
   ret void
 }
 

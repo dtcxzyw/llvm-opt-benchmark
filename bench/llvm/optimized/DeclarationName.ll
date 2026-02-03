@@ -2761,7 +2761,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %1, %5
   %.0.i = phi i32 [ %9, %5 ], [ %4, %1 ]
   %.off = add nsw i32 %.0.i, -3
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %10, label %23
+  br i1 %switch, label %10, label %22
 
 10:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2786,12 +2786,11 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit: ; preds = %10
   %18 = load ptr, ptr %17, align 16, !tbaa !52
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i16, ptr %19, align 1
-  %21 = and i16 %20, 1
-  %22 = icmp ne i16 %21, 0
-  br label %23
+  %21 = trunc i16 %20 to i1
+  br label %22
 
-23:                                               ; preds = %.sink.split, %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  %.04 = phi i1 [ false, %_ZNK5clang15DeclarationName11getNameKindEv.exit ], [ %22, %.sink.split ]
+22:                                               ; preds = %.sink.split, %_ZNK5clang15DeclarationName11getNameKindEv.exit
+  %.04 = phi i1 [ false, %_ZNK5clang15DeclarationName11getNameKindEv.exit ], [ %21, %.sink.split ]
   ret i1 %.04
 }
 

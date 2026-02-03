@@ -43516,51 +43516,51 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc19TriangleListDecoderItE6Decode
   %12 = lshr i8 %.0.i, 1
   %.lobit = and i8 %12, 1
   store i8 %.lobit, ptr %11, align 4
-  %13 = and i8 %.0.i, 1
-  %.not = icmp eq i8 %13, 0
+  %13 = trunc i8 %.0.i to i1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 405
-  store i8 %13, ptr %14, align 1
-  br i1 %.not, label %15, label %_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit
+  %15 = and i8 %.0.i, 1
+  store i8 %15, ptr %14, align 1
+  br i1 %13, label %_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit, label %16
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %17 = load i32, ptr %16, align 8
-  %18 = tail call noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %17)
-  %19 = tail call noundef i32 @_ZN5o3dgc19TriangleListDecoderItE4InitEPtlll(ptr noundef nonnull align 8 dereferenceable(406) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %18)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %21 = load i8, ptr %11, align 4, !range !9, !noundef !10
-  %22 = trunc nuw i8 %21 to i1
-  %23 = load i32, ptr %16, align 8
-  %24 = tail call noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryStreamERmbNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(164) %20, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %22, i32 noundef %23)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp sgt i64 %26, 0
-  br i1 %27, label %.lr.ph.i, label %_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit
+16:                                               ; preds = %6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %18 = load i32, ptr %17, align 8
+  %19 = tail call noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %18)
+  %20 = tail call noundef i32 @_ZN5o3dgc19TriangleListDecoderItE4InitEPtlll(ptr noundef nonnull align 8 dereferenceable(406) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %19)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %22 = load i8, ptr %11, align 4, !range !9, !noundef !10
+  %23 = trunc nuw i8 %22 to i1
+  %24 = load i32, ptr %17, align 8
+  %25 = tail call noundef i32 @_ZN5o3dgc22CompressedTriangleFans4LoadERKNS_12BinaryStreamERmbNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(164) %21, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %23, i32 noundef %24)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph.i, label %_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit
 
-.lr.ph.i:                                         ; preds = %15
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %29
+.lr.ph.i:                                         ; preds = %16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %30
 
-29:                                               ; preds = %._crit_edge7.i, %.lr.ph.i
-  %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %._crit_edge7.i ]
-  %30 = load i64, ptr %28, align 8
-  %31 = icmp eq i64 %.06.i, %30
-  %32 = add nuw nsw i64 %.06.i, 1
-  br i1 %31, label %33, label %._crit_edge7.i
+30:                                               ; preds = %._crit_edge7.i, %.lr.ph.i
+  %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %._crit_edge7.i ]
+  %31 = load i64, ptr %29, align 8
+  %32 = icmp eq i64 %.06.i, %31
+  %33 = add nuw nsw i64 %.06.i, 1
+  br i1 %32, label %34, label %._crit_edge7.i
 
-33:                                               ; preds = %29
-  store i64 %32, ptr %28, align 8
+34:                                               ; preds = %30
+  store i64 %33, ptr %29, align 8
   br label %._crit_edge7.i
 
-._crit_edge7.i:                                   ; preds = %33, %29
-  %34 = tail call noundef i32 @_ZN5o3dgc19TriangleListDecoderItE27CompueLocalConnectivityInfoEl(ptr noundef nonnull align 8 dereferenceable(406) %0, i64 noundef %.06.i)
-  %35 = tail call noundef i32 @_ZN5o3dgc19TriangleListDecoderItE14DecompressTFANEl(ptr noundef nonnull align 8 dereferenceable(406) %0, i64 noundef %.06.i)
-  %36 = load i64, ptr %25, align 8
-  %37 = icmp slt i64 %32, %36
-  br i1 %37, label %29, label %_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit, !llvm.loop !337
+._crit_edge7.i:                                   ; preds = %34, %30
+  %35 = tail call noundef i32 @_ZN5o3dgc19TriangleListDecoderItE27CompueLocalConnectivityInfoEl(ptr noundef nonnull align 8 dereferenceable(406) %0, i64 noundef %.06.i)
+  %36 = tail call noundef i32 @_ZN5o3dgc19TriangleListDecoderItE14DecompressTFANEl(ptr noundef nonnull align 8 dereferenceable(406) %0, i64 noundef %.06.i)
+  %37 = load i64, ptr %26, align 8
+  %38 = icmp slt i64 %33, %37
+  br i1 %38, label %30, label %_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit, !llvm.loop !337
 
-_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit: ; preds = %._crit_edge7.i, %15, %6
-  %.0 = phi i32 [ 6, %6 ], [ 0, %15 ], [ 0, %._crit_edge7.i ]
+_ZN5o3dgc19TriangleListDecoderItE10DecompressEv.exit: ; preds = %._crit_edge7.i, %16, %6
+  %.0 = phi i32 [ 6, %6 ], [ 0, %16 ], [ 0, %._crit_edge7.i ]
   ret i32 %.0
 }
 

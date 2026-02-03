@@ -219,9 +219,8 @@ define hidden void @SDL_QuitCPUInfo() local_unnamed_addr #4 {
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_HasAltiVec_REAL() local_unnamed_addr #0 {
   %1 = tail call fastcc i32 @SDL_GetCPUFeatures()
-  %2 = and i32 %1, 1
-  %3 = icmp ne i32 %2, 0
-  ret i1 %3
+  %2 = trunc i32 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: nounwind uwtable

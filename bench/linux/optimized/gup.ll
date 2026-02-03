@@ -4726,7 +4726,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %48
-  br i1 %21, label %._crit_edge125, label %53
+  br i1 %21, label %._crit_edge123, label %53
 
 53:                                               ; preds = %52
   %54 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !52
@@ -4738,9 +4738,9 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !117
   %60 = and i32 %59, 1
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %._crit_edge125, label %.loopexit
+  br i1 %61, label %._crit_edge123, label %.loopexit
 
-._crit_edge125:                                   ; preds = %52, %53
+._crit_edge123:                                   ; preds = %52, %53
   %62 = phi i32 [ %59, %53 ], [ 0, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !annotation !47
@@ -4772,9 +4772,9 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %83 = icmp eq i32 %81, 0
   br label %84
 
-84:                                               ; preds = %710, %._crit_edge125
-  %85 = phi ptr [ %74, %._crit_edge125 ], [ %711, %710 ]
-  %86 = phi i64 [ %34, %._crit_edge125 ], [ %96, %710 ]
+84:                                               ; preds = %710, %._crit_edge123
+  %85 = phi ptr [ %74, %._crit_edge123 ], [ %711, %710 ]
+  %86 = phi i64 [ %34, %._crit_edge123 ], [ %96, %710 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
   %87 = load volatile i64, ptr %85, align 8
@@ -4793,7 +4793,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 
 97:                                               ; preds = %84, %84
   %.not = icmp eq i64 %87, 0
-  br i1 %.not, label %.loopexit46.sink.split, label %.critedge
+  br i1 %.not, label %.loopexit44.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %84, %97
   %.0..0..0..0. = load i64, ptr %12, align 8
@@ -4848,9 +4848,9 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %132 = add i64 %121, -1
   br label %133
 
-133:                                              ; preds = %.loopexit44, %124
-  %134 = phi ptr [ %131, %124 ], [ %705, %.loopexit44 ]
-  %135 = phi i64 [ %115, %124 ], [ %141, %.loopexit44 ]
+133:                                              ; preds = %.loopexit42, %124
+  %134 = phi ptr [ %131, %124 ], [ %705, %.loopexit42 ]
+  %135 = phi i64 [ %115, %124 ], [ %141, %.loopexit42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %136 = load volatile i64, ptr %134, align 8
@@ -4862,7 +4862,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %141 = select i1 %140, i64 %138, i64 %121
   %142 = and i64 %136, 1
   %143 = icmp eq i64 %142, 0
-  br i1 %143, label %.loopexit42, label %144, !prof !5
+  br i1 %143, label %.loopexit40, label %144, !prof !5
 
 144:                                              ; preds = %133
   %145 = call i32 @pud_huge(i64 %136) #9
@@ -4898,7 +4898,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %167 = select i1 %166, i64 %164, i64 %141
   %168 = and i64 %162, 385
   %169 = icmp eq i64 %168, 0
-  br i1 %169, label %.loopexit42, label %170
+  br i1 %169, label %.loopexit40, label %170
 
 170:                                              ; preds = %159
   %171 = call i32 @pmd_huge(i64 %162) #9
@@ -4927,7 +4927,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %184 = and i64 %183, %78
   %185 = icmp eq i64 %184, %78
-  br i1 %185, label %186, label %.critedge32.loopexit38
+  br i1 %185, label %186, label %.critedge32.loopexit36
 
 186:                                              ; preds = %179
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #9
@@ -4946,7 +4946,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %195 = shl nuw nsw i32 1, %194
   %196 = and i32 %191, %195
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %.critedge32.loopexit38
+  br i1 %197, label %198, label %.critedge32.loopexit36
 
 198:                                              ; preds = %190
   br i1 %77, label %203, label %199
@@ -4955,7 +4955,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %200 = shl nuw i32 3, %194
   %201 = and i32 %191, %200
   %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %.critedge32.loopexit38
+  br i1 %202, label %203, label %.critedge32.loopexit36
 
 203:                                              ; preds = %199, %198
   %204 = and i64 %183, 144115188075855872
@@ -4966,13 +4966,13 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   store i32 %180, ptr %14, align 4
   %207 = icmp eq i32 %180, %174
   %208 = select i1 %82, i1 true, i1 %207
-  br i1 %208, label %.critedge32, label %.preheader37, !prof !120
+  br i1 %208, label %.critedge32, label %.preheader35, !prof !120
 
-.preheader37:                                     ; preds = %206
-  br i1 %21, label %.preheader37.split.us, label %.preheader37.split
+.preheader35:                                     ; preds = %206
+  br i1 %21, label %.preheader35.split.us, label %.preheader35.split
 
-.preheader37.split.us:                            ; preds = %.preheader37, %270
-  %209 = phi i32 [ %271, %270 ], [ %180, %.preheader37 ]
+.preheader35.split.us:                            ; preds = %.preheader35, %270
+  %209 = phi i32 [ %271, %270 ], [ %180, %.preheader35 ]
   %210 = add i32 %209, -1
   store i32 %210, ptr %14, align 4
   %211 = sext i32 %210 to i64
@@ -4984,12 +4984,12 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %217 = icmp eq i64 %216, 0
   br i1 %217, label %221, label %218, !prof !9
 
-218:                                              ; preds = %.preheader37.split.us
+218:                                              ; preds = %.preheader35.split.us
   %219 = add nsw i64 %215, -1
   %220 = inttoptr i64 %219 to ptr
   br label %238
 
-221:                                              ; preds = %.preheader37.split.us
+221:                                              ; preds = %.preheader35.split.us
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
           to label %238 [label %222], !srcloc !10
 
@@ -5074,10 +5074,10 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
 270:                                              ; preds = %269, %263
   %271 = load i32, ptr %14, align 4
   %272 = icmp eq i32 %271, %174
-  br i1 %272, label %.critedge32, label %.preheader37.split.us, !llvm.loop !123
+  br i1 %272, label %.critedge32, label %.preheader35.split.us, !llvm.loop !123
 
-.preheader37.split:                               ; preds = %.preheader37, %302
-  %273 = phi i32 [ %274, %302 ], [ %180, %.preheader37 ]
+.preheader35.split:                               ; preds = %.preheader35, %302
+  %273 = phi i32 [ %274, %302 ], [ %180, %.preheader35 ]
   %274 = add i32 %273, -1
   %275 = sext i32 %274 to i64
   %276 = getelementptr ptr, ptr %3, i64 %275
@@ -5088,12 +5088,12 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %281 = icmp eq i64 %280, 0
   br i1 %281, label %285, label %282, !prof !9
 
-282:                                              ; preds = %.preheader37.split
+282:                                              ; preds = %.preheader35.split
   %283 = add nsw i64 %279, -1
   %284 = inttoptr i64 %283 to ptr
   br label %302
 
-285:                                              ; preds = %.preheader37.split
+285:                                              ; preds = %.preheader35.split
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #9
           to label %302 [label %286], !srcloc !10
 
@@ -5126,13 +5126,13 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %303, i32 -5, ptr elementtype(i8) %303) #9, !srcloc !121
   call void @unpin_user_page(ptr noundef %277)
   %304 = icmp eq i32 %274, %174
-  br i1 %304, label %.critedge32.loopexit.split, label %.preheader37.split, !llvm.loop !123
+  br i1 %304, label %.critedge32.loopexit.split, label %.preheader35.split, !llvm.loop !123
 
 305:                                              ; preds = %203
   %306 = trunc i64 %183 to i32
   %307 = and i32 %306, 512
   %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %.critedge32.loopexit38
+  br i1 %308, label %309, label %.critedge32.loopexit36
 
 309:                                              ; preds = %305
   %310 = load i64, ptr @vmemmap_base, align 8
@@ -5148,7 +5148,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %320 = getelementptr %struct.page, ptr %311, i64 %319
   %321 = call ptr @try_grab_folio(ptr noundef %320, i32 noundef 1, i32 noundef %2)
   %322 = icmp eq ptr %321, null
-  br i1 %322, label %.critedge32.loopexit38, label %323
+  br i1 %322, label %.critedge32.loopexit36, label %323
 
 323:                                              ; preds = %309
   %324 = load volatile i64, ptr %321, align 8
@@ -5301,7 +5301,7 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   %414 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %415 = load volatile ptr, ptr %414, align 8
   %416 = icmp eq ptr %415, null
-  br i1 %416, label %.loopexit39, label %417
+  br i1 %416, label %.loopexit37, label %417
 
 417:                                              ; preds = %413
   %418 = ptrtoint ptr %415 to i64
@@ -5310,21 +5310,20 @@ define internal fastcc i32 @internal_get_user_pages_fast(i64 noundef %0, i64 nou
   br i1 %420, label %423, label %421
 
 421:                                              ; preds = %417
-  %422 = and i64 %418, 1
-  %.not36 = icmp eq i64 %422, 0
-  br i1 %.not36, label %.loopexit39, label %450
+  %422 = trunc i64 %418 to i1
+  br i1 %422, label %450, label %.loopexit37
 
 423:                                              ; preds = %417
   %424 = getelementptr inbounds nuw i8, ptr %415, i64 104
   %425 = load ptr, ptr %424, align 8
   %426 = icmp eq ptr %425, @shmem_aops
-  br i1 %426, label %450, label %.loopexit39
+  br i1 %426, label %450, label %.loopexit37
 
-.loopexit39:                                      ; preds = %413, %423, %421
+.loopexit37:                                      ; preds = %413, %423, %421
   store i32 %180, ptr %14, align 4
   br label %427
 
-427:                                              ; preds = %.loopexit39, %403
+427:                                              ; preds = %.loopexit37, %403
   %428 = load i64, ptr @vmemmap_base, align 8
   %429 = ptrtoint ptr %321 to i64
   %430 = sub i64 %429, %428
@@ -5541,7 +5540,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 552:                                              ; preds = %170
   %553 = and i64 %162, %78
   %554 = icmp eq i64 %553, %78
-  br i1 %554, label %555, label %.loopexit42
+  br i1 %554, label %555, label %.loopexit40
 
 555:                                              ; preds = %552
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #9
@@ -5560,7 +5559,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %564 = shl nuw nsw i32 1, %563
   %565 = and i32 %560, %564
   %566 = icmp eq i32 %565, 0
-  br i1 %566, label %567, label %.loopexit42
+  br i1 %566, label %567, label %.loopexit40
 
 567:                                              ; preds = %559
   br i1 %77, label %572, label %568
@@ -5569,7 +5568,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %569 = shl nuw i32 3, %563
   %570 = and i32 %560, %569
   %571 = icmp eq i32 %570, 0
-  br i1 %571, label %572, label %.loopexit42
+  br i1 %571, label %572, label %.loopexit40
 
 572:                                              ; preds = %568, %567
   %573 = load i64, ptr @vmemmap_base, align 8
@@ -5590,11 +5589,11 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %587 = sext i32 %586 to i64
   %588 = getelementptr ptr, ptr %3, i64 %587
   %589 = icmp eq i64 %161, %167
-  br i1 %589, label %.loopexit41, label %.preheader40
+  br i1 %589, label %.loopexit39, label %.preheader38
 
-.preheader40:                                     ; preds = %572, %.preheader40
-  %590 = phi i32 [ %595, %.preheader40 ], [ 0, %572 ]
-  %591 = phi i64 [ %596, %.preheader40 ], [ %161, %572 ]
+.preheader38:                                     ; preds = %572, %.preheader38
+  %590 = phi i32 [ %595, %.preheader38 ], [ 0, %572 ]
+  %591 = phi i64 [ %596, %.preheader38 ], [ %161, %572 ]
   %592 = sext i32 %590 to i64
   %593 = getelementptr %struct.page, ptr %585, i64 %592
   %594 = getelementptr ptr, ptr %588, i64 %592
@@ -5602,22 +5601,22 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %595 = add i32 %590, 1
   %596 = add i64 %591, 4096
   %597 = icmp eq i64 %596, %167
-  br i1 %597, label %.loopexit41, label %.preheader40, !llvm.loop !129
+  br i1 %597, label %.loopexit39, label %.preheader38, !llvm.loop !129
 
-.loopexit41:                                      ; preds = %.preheader40, %572
-  %598 = phi i32 [ 0, %572 ], [ %595, %.preheader40 ]
+.loopexit39:                                      ; preds = %.preheader38, %572
+  %598 = phi i32 [ 0, %572 ], [ %595, %.preheader38 ]
   %599 = call ptr @try_grab_folio(ptr noundef %585, i32 noundef %598, i32 noundef %2)
   %600 = icmp eq ptr %599, null
-  br i1 %600, label %.loopexit42, label %601
+  br i1 %600, label %.loopexit40, label %601
 
-601:                                              ; preds = %.loopexit41
+601:                                              ; preds = %.loopexit39
   %602 = load i64, ptr %160, align 8
   %603 = icmp eq i64 %602, %162
   br i1 %603, label %605, label %604, !prof !9
 
 604:                                              ; preds = %601
   call fastcc void @gup_put_folio(ptr noundef nonnull %599, i32 noundef %598, i32 noundef %2)
-  br label %.loopexit42
+  br label %.loopexit40
 
 605:                                              ; preds = %601
   br i1 %80, label %606, label %660
@@ -5632,7 +5631,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   call void asm sideeffect "523: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 523b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 523) #9, !srcloc !124
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2487, i32 2307, i64 12) #9, !srcloc !125
   call void asm sideeffect "524: nop\0A\09.pushsection .discard.instr_end\0A\09.long 524b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 524) #9, !srcloc !126
-  br label %.loopexit43
+  br label %.loopexit41
 
 611:                                              ; preds = %606
   %612 = load volatile i64, ptr %599, align 8
@@ -5651,7 +5650,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %621 = getelementptr inbounds nuw i8, ptr %599, i64 24
   %622 = load volatile ptr, ptr %621, align 8
   %623 = icmp eq ptr %622, null
-  br i1 %623, label %.loopexit43, label %624
+  br i1 %623, label %.loopexit41, label %624
 
 624:                                              ; preds = %620
   %625 = ptrtoint ptr %622 to i64
@@ -5660,26 +5659,25 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   br i1 %627, label %630, label %628
 
 628:                                              ; preds = %624
-  %629 = and i64 %625, 1
-  %.not35 = icmp eq i64 %629, 0
-  br i1 %.not35, label %.loopexit43, label %660
+  %629 = trunc i64 %625 to i1
+  br i1 %629, label %660, label %.loopexit41
 
 630:                                              ; preds = %624
   %631 = getelementptr inbounds nuw i8, ptr %622, i64 104
   %632 = load ptr, ptr %631, align 8
   %633 = icmp eq ptr %632, @shmem_aops
-  br i1 %633, label %660, label %.loopexit43
+  br i1 %633, label %660, label %.loopexit41
 
-.loopexit43:                                      ; preds = %628, %630, %620, %610
+.loopexit41:                                      ; preds = %628, %630, %620, %610
   %634 = load i64, ptr @vmemmap_base, align 8
   %635 = ptrtoint ptr %599 to i64
   %636 = sub i64 %635, %634
   %637 = ashr exact i64 %636, 6
   %638 = load i64, ptr @zero_pfn, align 8
   %639 = icmp eq i64 %638, %637
-  br i1 %639, label %.loopexit42, label %640
+  br i1 %639, label %.loopexit40, label %640
 
-640:                                              ; preds = %.loopexit43
+640:                                              ; preds = %.loopexit41
   %641 = sext i32 %598 to i64
   %642 = load i64, ptr %599, align 16
   %643 = lshr i64 %642, 58
@@ -5707,11 +5705,11 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %657 = icmp ult i8 %656, 2
   call void @llvm.assume(i1 %657)
   %658 = icmp eq i8 %656, 0
-  br i1 %658, label %.loopexit42, label %659
+  br i1 %658, label %.loopexit40, label %659
 
 659:                                              ; preds = %653
   call void @__folio_put(ptr noundef nonnull %599) #9
-  br label %.loopexit42
+  br label %.loopexit40
 
 660:                                              ; preds = %628, %630, %615, %605
   %661 = and i64 %162, 2
@@ -5741,7 +5739,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %674 = ashr exact i64 %673, 6
   %675 = load i64, ptr @zero_pfn, align 8
   %676 = icmp eq i64 %675, %674
-  br i1 %676, label %.loopexit42, label %677
+  br i1 %676, label %.loopexit40, label %677
 
 677:                                              ; preds = %670
   %678 = sext i32 %598 to i64
@@ -5771,11 +5769,11 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   %694 = icmp ult i8 %693, 2
   call void @llvm.assume(i1 %694)
   %695 = icmp eq i8 %693, 0
-  br i1 %695, label %.loopexit42, label %696
+  br i1 %695, label %.loopexit40, label %696
 
 696:                                              ; preds = %690
   call void @__folio_put(ptr noundef nonnull %599) #9
-  br label %.loopexit42
+  br label %.loopexit40
 
 697:                                              ; preds = %667, %664, %660
   %698 = add i32 %598, %586
@@ -5786,14 +5784,14 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 699:                                              ; preds = %551, %697
   %700 = getelementptr i8, ptr %160, i64 8
   %701 = icmp eq i64 %167, %141
-  br i1 %701, label %.loopexit44, label %159, !llvm.loop !130
+  br i1 %701, label %.loopexit42, label %159, !llvm.loop !130
 
 702:                                              ; preds = %144
   %703 = call fastcc i32 @gup_huge_pud(i64 %.0..0..0..0.1, ptr noundef %134, i64 noundef %135, i64 noundef %141, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %14), !range !131
   %704 = icmp eq i32 %703, 0
-  br i1 %704, label %.loopexit42, label %.loopexit44
+  br i1 %704, label %.loopexit40, label %.loopexit42
 
-.loopexit44:                                      ; preds = %699, %702
+.loopexit42:                                      ; preds = %699, %702
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %705 = getelementptr i8, ptr %134, i64 8
   %706 = icmp eq i64 %141, %121
@@ -5801,57 +5799,57 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
 
 .critedge30:                                      ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit42
+  br label %.loopexit40
 
 .critedge32.loopexit.split:                       ; preds = %302
   store i32 %174, ptr %14, align 4
   br label %.critedge32
 
-.critedge32.loopexit38:                           ; preds = %179, %190, %199, %309, %305
+.critedge32.loopexit36:                           ; preds = %179, %190, %199, %309, %305
   store i32 %180, ptr %14, align 4
   br label %.critedge32
 
-.critedge32:                                      ; preds = %270, %.critedge32.loopexit.split, %.critedge32.loopexit38, %550, %361, %345, %392, %375, %206, %427, %444, %521, %538
+.critedge32:                                      ; preds = %270, %.critedge32.loopexit.split, %.critedge32.loopexit36, %550, %361, %345, %392, %375, %206, %427, %444, %521, %538
   call void @__rcu_read_unlock() #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit42
+  br label %.loopexit40
 
-.loopexit42:                                      ; preds = %702, %133, %.loopexit41, %568, %559, %552, %159, %.critedge32, %.critedge30, %696, %690, %670, %659, %653, %.loopexit43, %604
+.loopexit40:                                      ; preds = %702, %133, %.loopexit39, %568, %559, %552, %159, %.critedge32, %.critedge30, %696, %690, %670, %659, %653, %.loopexit41, %604
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
-707:                                              ; preds = %.loopexit44
+707:                                              ; preds = %.loopexit42
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %708 = getelementptr i8, ptr %114, i64 8
   %709 = icmp eq i64 %121, %96
   br i1 %709, label %710, label %113, !llvm.loop !133
 
-.thread:                                          ; preds = %113, %.loopexit42
+.thread:                                          ; preds = %113, %.loopexit40
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.loopexit46.sink.split
+  br label %.loopexit44.sink.split
 
 710:                                              ; preds = %707
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %711 = getelementptr i8, ptr %85, i64 8
   %712 = icmp eq i64 %96, %38
-  br i1 %712, label %.loopexit46, label %84, !llvm.loop !134
+  br i1 %712, label %.loopexit44, label %84, !llvm.loop !134
 
-.loopexit46.sink.split:                           ; preds = %97, %.thread
+.loopexit44.sink.split:                           ; preds = %97, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.loopexit46
+  br label %.loopexit44
 
-.loopexit46:                                      ; preds = %710, %.loopexit46.sink.split
+.loopexit44:                                      ; preds = %710, %.loopexit44.sink.split
   %713 = and i64 %63, 512
   %714 = icmp eq i64 %713, 0
   br i1 %714, label %716, label %715
 
-715:                                              ; preds = %.loopexit46
+715:                                              ; preds = %.loopexit44
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !135
   br label %716
 
-716:                                              ; preds = %715, %.loopexit46
+716:                                              ; preds = %715, %.loopexit44
   br i1 %21, label %._crit_edge, label %717
 
 ._crit_edge:                                      ; preds = %716
@@ -5864,12 +5862,12 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !136
   %720 = load volatile i32, ptr %719, align 4
   %721 = icmp eq i32 %720, %62
-  %.pre124 = load i32, ptr %14, align 4
+  %.pre122 = load i32, ptr %14, align 4
   br i1 %721, label %822, label %722
 
 722:                                              ; preds = %717
-  %723 = sext i32 %.pre124 to i64
-  %724 = icmp eq i32 %.pre124, 0
+  %723 = sext i32 %.pre122 to i64
+  %724 = icmp eq i32 %.pre122, 0
   br i1 %724, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %722, %818
@@ -6025,7 +6023,7 @@ gup_must_unshare.exit.thread33:                   ; preds = %489, %gup_must_unsh
   br i1 %821, label %.preheader, label %.loopexit, !llvm.loop !137
 
 822:                                              ; preds = %._crit_edge, %717
-  %823 = phi i32 [ %.pre, %._crit_edge ], [ %.pre124, %717 ]
+  %823 = phi i32 [ %.pre, %._crit_edge ], [ %.pre122, %717 ]
   %824 = sext i32 %823 to i64
   br label %.loopexit
 
@@ -7683,9 +7681,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @gup_huge_pud(i64 %0, ptr nou
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %88
-  %93 = and i64 %89, 1
-  %.not = icmp eq i64 %93, 0
-  br i1 %.not, label %98, label %125
+  %93 = trunc i64 %89 to i1
+  br i1 %93, label %125, label %98
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds nuw i8, ptr %86, i64 104

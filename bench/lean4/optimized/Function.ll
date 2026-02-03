@@ -59,9 +59,8 @@ define ptr @l_Function_uncurry___rarg(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !9
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !4
@@ -85,9 +84,8 @@ lean_inc.exit:                                    ; preds = %12, %11, %9, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, 1
-  %.not14 = icmp eq i64 %16, 0
-  br i1 %.not14, label %17, label %lean_inc.exit9
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %lean_inc.exit9, label %17
 
 17:                                               ; preds = %lean_inc.exit
   %.val.i11 = load i32, ptr %14, align 4, !tbaa !4
@@ -109,9 +107,8 @@ lean_inc.exit:                                    ; preds = %12, %11, %9, %2
 
 lean_inc.exit9:                                   ; preds = %22, %21, %19, %lean_inc.exit
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not15 = icmp eq i64 %24, 0
-  br i1 %.not15, label %25, label %lean_dec.exit
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_dec.exit, label %25
 
 25:                                               ; preds = %lean_inc.exit9
   %26 = load i32, ptr %1, align 4, !tbaa !4

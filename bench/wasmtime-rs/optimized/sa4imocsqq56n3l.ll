@@ -16337,9 +16337,8 @@ define hidden void @_ZN17cranelift_codegen8machinst7compile7compile17h3a0d74ff48
 
 252:                                              ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.exit.i1.i128", %243
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %253 = and i8 %180, 1
-  %.not191 = icmp eq i8 %253, 0
-  br i1 %.not191, label %254, label %256
+  %253 = trunc i8 %180 to i1
+  br i1 %253, label %256, label %254
 
 254:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17hf7f4a35ac36f6c19E.llvm.5781664634918412060.exit152", %252
   call void @llvm.lifetime.start.p0(ptr nonnull %21)

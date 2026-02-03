@@ -3921,12 +3921,12 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118CalledSuperDeallocEEEbNS
   call void @_ZN5clang4ento22PathDiagnosticLocation6createERKNS_12ProgramPointERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(696) %71) #20
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %73 = load ptr, ptr %72, align 8, !tbaa !664
-  %.not27 = icmp eq ptr %73, null
+  %.not24 = icmp eq ptr %73, null
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.sroa.0.0.copyload.i = load i32, ptr %74, align 8
-  %.not28 = icmp eq i32 %.sroa.0.0.copyload.i, 0
-  %or.cond29 = select i1 %.not27, i1 true, i1 %.not28
-  br i1 %or.cond29, label %.critedge, label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %.not25 = icmp eq i32 %.sroa.0.0.copyload.i, 0
+  %or.cond26 = select i1 %.not24, i1 true, i1 %.not25
+  br i1 %or.cond26, label %.critedge, label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 .critedge:                                        ; preds = %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

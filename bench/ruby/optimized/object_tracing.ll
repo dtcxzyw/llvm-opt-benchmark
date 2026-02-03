@@ -518,8 +518,8 @@ define internal void @newobj_i(i64 noundef %0, ptr noundef readonly captures(non
   %10 = tail call i64 @rb_tracearg_method_id(ptr noundef nonnull %6) #10
   %11 = tail call i64 @rb_tracearg_defined_class(ptr noundef nonnull %6) #10
   %12 = and i64 %8, -5
-  %.not54 = icmp eq i64 %12, 0
-  br i1 %.not54, label %24, label %13
+  %.not53 = icmp eq i64 %12, 0
+  br i1 %.not53, label %24, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -545,11 +545,11 @@ RSTRING_PTR.exit:                                 ; preds = %13, %20
 24:                                               ; preds = %2, %RSTRING_PTR.exit
   %25 = phi ptr [ %23, %RSTRING_PTR.exit ], [ null, %2 ]
   %26 = and i64 %11, -5
-  %.not55 = icmp ne i64 %26, 0
+  %.not54 = icmp ne i64 %26, 0
   %27 = and i64 %11, 7
-  %.not56 = icmp eq i64 %27, 0
-  %or.cond58 = and i1 %.not55, %.not56
-  br i1 %or.cond58, label %RB_FL_ABLE.exit.i, label %.thread
+  %.not55 = icmp eq i64 %27, 0
+  %or.cond57 = and i1 %.not54, %.not55
+  br i1 %or.cond57, label %RB_FL_ABLE.exit.i, label %.thread
 
 RB_FL_ABLE.exit.i:                                ; preds = %24
   %28 = inttoptr i64 %11 to ptr
@@ -564,8 +564,8 @@ RB_FL_ABLE.exit.i:                                ; preds = %24
 33:                                               ; preds = %RB_FL_ABLE.exit.i
   %34 = tail call i64 @rb_class_path_cached(i64 noundef %11) #10
   %35 = and i64 %34, -5
-  %.not57 = icmp eq i64 %35, 0
-  br i1 %.not57, label %.thread, label %36
+  %.not56 = icmp eq i64 %35, 0
+  br i1 %.not56, label %.thread, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -682,9 +682,8 @@ delete_unique_str.exit49:                         ; preds = %86, %delete_unique_
   store i64 %93, ptr %94, align 8, !tbaa !46
   %95 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %25, ptr %95, align 8, !tbaa !27
-  %96 = and i64 %9, 1
-  %.not.i50 = icmp eq i64 %96, 0
-  br i1 %.not.i50, label %99, label %97
+  %96 = trunc i64 %9 to i1
+  br i1 %96, label %97, label %99
 
 97:                                               ; preds = %delete_unique_str.exit49
   %98 = call i64 @rb_fix2int(i64 noundef %9) #10
@@ -695,8 +694,8 @@ delete_unique_str.exit49:                         ; preds = %86, %delete_unique_
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %97, %99
-  %.0.i51 = phi i64 [ %98, %97 ], [ %100, %99 ]
-  %sext = shl i64 %.0.i51, 32
+  %.0.i50 = phi i64 [ %98, %97 ], [ %100, %99 ]
+  %sext = shl i64 %.0.i50, 32
   %101 = ashr exact i64 %sext, 32
   %102 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i64 %101, ptr %102, align 8, !tbaa !30

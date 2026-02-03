@@ -1128,67 +1128,66 @@ define void @ossl_quic_port_subtick(ptr noundef captures(none) %0, ptr noundef c
 
 17:                                               ; preds = %3
   %18 = load i16, ptr %5, align 2
-  %19 = and i16 %18, 1
-  %.not13 = icmp ne i16 %19, 0
-  %20 = and i16 %18, 24
-  %or.cond.i = icmp eq i16 %20, 0
-  %or.cond = or i1 %.not13, %or.cond.i
-  br i1 %or.cond, label %port_rx_pre.exit, label %21
+  %.not13 = trunc i16 %18 to i1
+  %19 = and i16 %18, 24
+  %or.cond.i = icmp eq i16 %19, 0
+  %or.cond = or i1 %or.cond.i, %.not13
+  br i1 %or.cond, label %port_rx_pre.exit, label %20
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
-  %24 = tail call i32 @ossl_quic_demux_pump(ptr noundef %23) #11
-  %25 = icmp eq i32 %24, -2
-  br i1 %25, label %26, label %port_rx_pre.exit
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !34
+  %23 = tail call i32 @ossl_quic_demux_pump(ptr noundef %22) #11
+  %24 = icmp eq i32 %23, -2
+  br i1 %24, label %25, label %port_rx_pre.exit
 
-26:                                               ; preds = %21
-  %27 = load i16, ptr %5, align 2
-  %28 = and i16 %27, 1
-  %.not.not.i.i = icmp eq i16 %28, 0
-  br i1 %.not.not.i.i, label %29, label %port_rx_pre.exit
+25:                                               ; preds = %20
+  %26 = load i16, ptr %5, align 2
+  %27 = and i16 %26, 1
+  %.not.not.i.i = icmp eq i16 %27, 0
+  br i1 %.not.not.i.i, label %28, label %port_rx_pre.exit
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   tail call void @ERR_new() #11
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1596, ptr noundef nonnull @__func__.ossl_quic_port_raise_net_error) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 387, ptr noundef nonnull @.str.1) #11
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %31 = load ptr, ptr %30, align 8, !tbaa !33
-  tail call void @OSSL_ERR_STATE_save(ptr noundef %31) #11
-  %32 = load i16, ptr %5, align 2
-  %33 = and i16 %32, 1
-  %.not.i.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.i.i, label %34, label %port_transition_failed.exit.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
+  tail call void @OSSL_ERR_STATE_save(ptr noundef %30) #11
+  %31 = load i16, ptr %5, align 2
+  %32 = and i16 %31, 1
+  %.not.i.i.i = icmp eq i16 %32, 0
+  br i1 %.not.i.i.i, label %33, label %port_transition_failed.exit.i.i
 
-34:                                               ; preds = %29
-  %35 = or disjoint i16 %32, 1
-  store i16 %35, ptr %5, align 2
+33:                                               ; preds = %28
+  %34 = or disjoint i16 %31, 1
+  store i16 %34, ptr %5, align 2
   br label %port_transition_failed.exit.i.i
 
-port_transition_failed.exit.i.i:                  ; preds = %34, %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.015.i.i = load ptr, ptr %36, align 8, !tbaa !61
+port_transition_failed.exit.i.i:                  ; preds = %33, %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.015.i.i = load ptr, ptr %35, align 8, !tbaa !61
   %.not1316.i.i = icmp eq ptr %.015.i.i, null
   br i1 %.not1316.i.i, label %port_rx_pre.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %port_transition_failed.exit.i.i, %.lr.ph.i.i
   %.017.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.015.i.i, %port_transition_failed.exit.i.i ]
   tail call void @ossl_quic_channel_raise_net_error(ptr noundef nonnull %.017.i.i) #11
-  %37 = getelementptr i8, ptr %.017.i.i, i64 8
-  %.0.i.i = load ptr, ptr %37, align 8, !tbaa !61
+  %36 = getelementptr i8, ptr %.017.i.i, i64 8
+  %.0.i.i = load ptr, ptr %36, align 8, !tbaa !61
   %.not13.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not13.i.i, label %port_rx_pre.exit, label %.lr.ph.i.i, !llvm.loop !196
 
-port_rx_pre.exit:                                 ; preds = %.lr.ph.i.i, %port_transition_failed.exit.i.i, %26, %21, %17
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.017 = load ptr, ptr %38, align 8, !tbaa !61
+port_rx_pre.exit:                                 ; preds = %.lr.ph.i.i, %port_transition_failed.exit.i.i, %25, %20, %17
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.017 = load ptr, ptr %37, align 8, !tbaa !61
   %.not1418 = icmp eq ptr %.017, null
   br i1 %.not1418, label %.loopexit, label %ossl_quic_tick_result_merge_into.exit.lr.ph
 
 ossl_quic_tick_result_merge_into.exit.lr.ph:      ; preds = %port_rx_pre.exit
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 10
   br label %ossl_quic_tick_result_merge_into.exit
 
 ossl_quic_tick_result_merge_into.exit:            ; preds = %ossl_quic_tick_result_merge_into.exit.lr.ph, %ossl_quic_tick_result_merge_into.exit
@@ -1196,34 +1195,34 @@ ossl_quic_tick_result_merge_into.exit:            ; preds = %ossl_quic_tick_resu
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @ossl_quic_channel_subtick(ptr noundef nonnull %.019, ptr noundef nonnull %4, i32 noundef %2) #11
-  %42 = load i8, ptr %10, align 8, !tbaa !191
-  %.not.i = icmp ne i8 %42, 0
-  %43 = load i8, ptr %39, align 8
-  %44 = icmp ne i8 %43, 0
-  %narrow = select i1 %.not.i, i1 true, i1 %44
-  %45 = zext i1 %narrow to i8
-  store i8 %45, ptr %10, align 8, !tbaa !191
-  %46 = load i8, ptr %11, align 1, !tbaa !193
-  %.not12.i = icmp ne i8 %46, 0
-  %47 = load i8, ptr %40, align 1
-  %48 = icmp ne i8 %47, 0
-  %narrow15 = select i1 %.not12.i, i1 true, i1 %48
-  %49 = zext i1 %narrow15 to i8
-  store i8 %49, ptr %11, align 1, !tbaa !193
-  %50 = load i8, ptr %12, align 2, !tbaa !194
-  %.not13.i = icmp ne i8 %50, 0
-  %51 = load i8, ptr %41, align 2
-  %52 = icmp ne i8 %51, 0
-  %narrow16 = select i1 %.not13.i, i1 true, i1 %52
-  %53 = zext i1 %narrow16 to i8
-  store i8 %53, ptr %12, align 2, !tbaa !194
-  %54 = load i64, ptr %1, align 8
-  %55 = load i64, ptr %4, align 8
-  %..i.i = call i64 @llvm.umin.i64(i64 %54, i64 %55)
+  %41 = load i8, ptr %10, align 8, !tbaa !191
+  %.not.i = icmp ne i8 %41, 0
+  %42 = load i8, ptr %38, align 8
+  %43 = icmp ne i8 %42, 0
+  %narrow = select i1 %.not.i, i1 true, i1 %43
+  %44 = zext i1 %narrow to i8
+  store i8 %44, ptr %10, align 8, !tbaa !191
+  %45 = load i8, ptr %11, align 1, !tbaa !193
+  %.not12.i = icmp ne i8 %45, 0
+  %46 = load i8, ptr %39, align 1
+  %47 = icmp ne i8 %46, 0
+  %narrow15 = select i1 %.not12.i, i1 true, i1 %47
+  %48 = zext i1 %narrow15 to i8
+  store i8 %48, ptr %11, align 1, !tbaa !193
+  %49 = load i8, ptr %12, align 2, !tbaa !194
+  %.not13.i = icmp ne i8 %49, 0
+  %50 = load i8, ptr %40, align 2
+  %51 = icmp ne i8 %50, 0
+  %narrow16 = select i1 %.not13.i, i1 true, i1 %51
+  %52 = zext i1 %narrow16 to i8
+  store i8 %52, ptr %12, align 2, !tbaa !194
+  %53 = load i64, ptr %1, align 8
+  %54 = load i64, ptr %4, align 8
+  %..i.i = call i64 @llvm.umin.i64(i64 %53, i64 %54)
   store i64 %..i.i, ptr %1, align 8, !tbaa !195
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %56 = getelementptr i8, ptr %.019, i64 8
-  %.0 = load ptr, ptr %56, align 8, !tbaa !61
+  %55 = getelementptr i8, ptr %.019, i64 8
+  %.0 = load ptr, ptr %55, align 8, !tbaa !61
   %.not14 = icmp eq ptr %.0, null
   br i1 %.not14, label %.loopexit, label %ossl_quic_tick_result_merge_into.exit, !llvm.loop !197
 

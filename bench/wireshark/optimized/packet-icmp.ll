@@ -1207,77 +1207,77 @@ proto_item_set_generated.exit332:                 ; preds = %193, %202, %205
 .thread377:                                       ; preds = %242, %242, %242, %242, %242, %113, %189, %161, %165, %153, %156, %186, %proto_item_set_generated.exit329, %211, %proto_item_set_generated.exit332
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %244 = load i8, ptr %243, align 4
-  %245 = and i8 %244, 1
-  %246 = or i8 %244, 1
-  store i8 %246, ptr %243, align 4
-  %247 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8)
-  %248 = icmp eq i8 %27, 5
-  br i1 %248, label %249, label %254
+  %245 = or i8 %244, 1
+  store i8 %245, ptr %243, align 4
+  %246 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 8)
+  %247 = icmp eq i8 %27, 5
+  br i1 %247, label %248, label %253
 
-249:                                              ; preds = %.thread377
-  %250 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
-  %251 = shl i8 %250, 2
-  %252 = and i8 %251, 60
-  %narrow = add nuw nsw i8 %252, 8
-  %253 = zext nneg i8 %narrow to i32
+248:                                              ; preds = %.thread377
+  %249 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
+  %250 = shl i8 %249, 2
+  %251 = and i8 %250, 60
+  %narrow = add nuw nsw i8 %251, 8
+  %252 = zext nneg i8 %narrow to i32
   br label %.sink.split
 
-254:                                              ; preds = %.thread377
-  %255 = zext i8 %.0375 to i32
+253:                                              ; preds = %.thread377
+  %254 = zext i8 %.0375 to i32
   %.not322 = icmp eq i8 %.0375, 0
-  br i1 %.not322, label %271, label %256
+  br i1 %.not322, label %270, label %255
 
-256:                                              ; preds = %254
-  %257 = call i32 @tvb_reported_length(ptr noundef %0)
-  %258 = shl nuw nsw i32 %255, 2
-  %259 = add nuw nsw i32 %258, 8
-  %260 = icmp ugt i32 %257, %259
-  br i1 %260, label %261, label %271
+255:                                              ; preds = %253
+  %256 = call i32 @tvb_reported_length(ptr noundef %0)
+  %257 = shl nuw nsw i32 %254, 2
+  %258 = add nuw nsw i32 %257, 8
+  %259 = icmp ugt i32 %256, %258
+  br i1 %259, label %260, label %270
 
-261:                                              ; preds = %256
-  %262 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
-  %263 = zext i16 %262 to i32
-  %264 = icmp samesign ult i32 %258, %263
-  br i1 %264, label %265, label %271
+260:                                              ; preds = %255
+  %261 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
+  %262 = zext i16 %261 to i32
+  %263 = icmp samesign ult i32 %257, %262
+  br i1 %263, label %264, label %270
 
-265:                                              ; preds = %261
-  %266 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
-  %267 = and i8 %266, 15
-  %268 = zext nneg i8 %267 to i32
-  %269 = add nuw nsw i32 %268, %255
-  %270 = shl nuw nsw i32 %269, 2
+264:                                              ; preds = %260
+  %265 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
+  %266 = and i8 %265, 15
+  %267 = zext nneg i8 %266 to i32
+  %268 = add nuw nsw i32 %267, %254
+  %269 = shl nuw nsw i32 %268, 2
   br label %.sink.split
 
-271:                                              ; preds = %261, %256, %254
-  %272 = call i32 @tvb_reported_length(ptr noundef %0)
-  %273 = icmp ugt i32 %272, 136
-  %274 = load i8, ptr @favor_icmp_mpls_ext, align 1, !range !6
-  %275 = trunc nuw i8 %274 to i1
-  %or.cond = select i1 %273, i1 %275, i1 false
-  br i1 %or.cond, label %276, label %279
+270:                                              ; preds = %260, %255, %253
+  %271 = call i32 @tvb_reported_length(ptr noundef %0)
+  %272 = icmp ugt i32 %271, 136
+  %273 = load i8, ptr @favor_icmp_mpls_ext, align 1, !range !6
+  %274 = trunc nuw i8 %273 to i1
+  %or.cond = select i1 %272, i1 %274, i1 false
+  br i1 %or.cond, label %275, label %278
 
-276:                                              ; preds = %271
-  %277 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
-  %278 = icmp ugt i16 %277, 128
-  br i1 %278, label %.sink.split, label %279
+275:                                              ; preds = %270
+  %276 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
+  %277 = icmp ugt i16 %276, 128
+  br i1 %277, label %.sink.split, label %278
 
-.sink.split:                                      ; preds = %276, %249, %265
-  %.sink = phi i32 [ %270, %265 ], [ %253, %249 ], [ 128, %276 ]
-  call void @set_actual_length(ptr noundef %247, i32 noundef %.sink)
-  br label %279
+.sink.split:                                      ; preds = %275, %248, %264
+  %.sink = phi i32 [ %269, %264 ], [ %252, %248 ], [ 128, %275 ]
+  call void @set_actual_length(ptr noundef %246, i32 noundef %.sink)
+  br label %278
 
-279:                                              ; preds = %.sink.split, %276, %271
-  %280 = load ptr, ptr @ip_handle, align 8
-  %281 = call i32 @call_dissector(ptr noundef %280, ptr noundef %247, ptr noundef %1, ptr noundef %72)
+278:                                              ; preds = %.sink.split, %275, %270
+  %279 = load ptr, ptr @ip_handle, align 8
+  %280 = call i32 @call_dissector(ptr noundef %279, ptr noundef %246, ptr noundef %1, ptr noundef %72)
+  %281 = and i8 %244, 1
   %282 = load i8, ptr %243, align 4
   %283 = and i8 %282, -2
-  %284 = or disjoint i8 %283, %245
+  %284 = or disjoint i8 %283, %281
   store i8 %284, ptr %243, align 4
   %285 = call i32 @tvb_reported_length(ptr noundef %0)
   %286 = icmp ugt i32 %285, 136
   br i1 %286, label %287, label %719
 
-287:                                              ; preds = %279
+287:                                              ; preds = %278
   %288 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
   %289 = icmp ult i16 %288, 129
   %290 = load i8, ptr @favor_icmp_mpls_ext, align 1, !range !6
@@ -2058,8 +2058,8 @@ get_best_guess_mstimeofday.exit368:               ; preds = %get_best_guess_msti
   %718 = call i32 @dissect_icmp_extension(ptr noundef %717, ptr noundef %1, ptr noundef %72, ptr poison)
   br label %719
 
-719:                                              ; preds = %242, %113, %.thread378, %.thread380, %716, %.thread423, %._crit_edge, %611, %proto_item_set_generated.exit341, %583, %553, %556, %279, %292, %287, %713, %get_best_guess_mstimeofday.exit368
-  %.0302 = phi ptr [ null, %242 ], [ null, %292 ], [ null, %287 ], [ null, %279 ], [ %.1303, %556 ], [ %.1303, %553 ], [ %.1303, %proto_item_set_generated.exit341 ], [ %.1303, %583 ], [ null, %611 ], [ null, %._crit_edge ], [ null, %.thread423 ], [ null, %get_best_guess_mstimeofday.exit368 ], [ null, %713 ], [ null, %716 ], [ null, %.thread380 ], [ null, %.thread378 ], [ null, %113 ]
+719:                                              ; preds = %242, %113, %.thread378, %.thread380, %716, %.thread423, %._crit_edge, %611, %proto_item_set_generated.exit341, %583, %553, %556, %278, %292, %287, %713, %get_best_guess_mstimeofday.exit368
+  %.0302 = phi ptr [ null, %242 ], [ null, %292 ], [ null, %287 ], [ null, %278 ], [ %.1303, %556 ], [ %.1303, %553 ], [ %.1303, %proto_item_set_generated.exit341 ], [ %.1303, %583 ], [ null, %611 ], [ null, %._crit_edge ], [ null, %.thread423 ], [ null, %get_best_guess_mstimeofday.exit368 ], [ null, %713 ], [ null, %716 ], [ null, %.thread380 ], [ null, %.thread378 ], [ null, %113 ]
   %720 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %721 = load ptr, ptr %720, align 8
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 57

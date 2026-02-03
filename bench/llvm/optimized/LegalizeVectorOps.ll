@@ -22188,112 +22188,108 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_
 
 9:                                                ; preds = %4, %1
   %.0 = phi i32 [ %8, %4 ], [ 0, %1 ]
-  %10 = and i32 %2, 1
-  %11 = icmp ne i32 %10, 0
-  %12 = icmp ult i32 %.0, 65
-  %or.cond3 = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond3, label %._crit_edge, label %13
-
-._crit_edge:                                      ; preds = %9
+  %10 = trunc i32 %2 to i1
+  %11 = icmp ult i32 %.0, 65
+  %or.cond3 = select i1 %10, i1 %11, i1 false
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %18
+  br i1 %or.cond3, label %._crit_edge, label %12
 
-13:                                               ; preds = %9
-  br i1 %11, label %_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit, label %14
+12:                                               ; preds = %9
+  %13 = icmp ne i32 %.0, %.pre
+  %or.cond.not = select i1 %10, i1 true, i1 %13
+  br i1 %or.cond.not, label %24, label %._crit_edge
 
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !142
-  %17 = icmp eq i32 %.0, %16
-  br i1 %17, label %18, label %28
-
-18:                                               ; preds = %._crit_edge, %14
-  %19 = phi i32 [ %.pre, %._crit_edge ], [ %.0, %14 ]
-  store i32 %10, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %20, align 4, !tbaa !118
-  %.not.i.i.i.i = icmp eq i32 %10, 0
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = select i1 %.not.i.i.i.i, ptr %22, ptr %21
-  %24 = select i1 %.not.i.i.i.i, i32 %19, i32 64
-  %25 = zext i32 %24 to i64
-  %.idx.i = shl nuw nsw i64 %25, 5
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
-  %.not6.i = icmp eq i32 %24, 0
+._crit_edge:                                      ; preds = %9, %12
+  %14 = phi i32 [ %.0, %12 ], [ %.pre, %9 ]
+  %15 = and i32 %2, 1
+  store i32 %15, ptr %0, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %16, align 4, !tbaa !118
+  %.not.i.i.i.i = icmp eq i32 %15, 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = select i1 %.not.i.i.i.i, ptr %18, ptr %17
+  %20 = select i1 %.not.i.i.i.i, i32 %14, i32 64
+  %21 = zext i32 %20 to i64
+  %.idx.i = shl nuw nsw i64 %21, 5
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
+  %.not6.i = icmp eq i32 %20, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.i
-  %.07.i = phi ptr [ %27, %.lr.ph.i ], [ %23, %18 ]
+.lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
+  %.07.i = phi ptr [ %23, %.lr.ph.i ], [ %19, %._crit_edge ]
   store ptr null, ptr %.07.i, align 8, !tbaa !119
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   store i32 -1, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !120
-  %27 = getelementptr inbounds nuw i8, ptr %.07.i, i64 32
-  %.not.i = icmp eq ptr %27, %26
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i, i64 32
+  %.not.i = icmp eq ptr %23, %22
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !121
 
-28:                                               ; preds = %14
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !139
-  %31 = zext i32 %16 to i64
-  %32 = shl nuw nsw i64 %31, 5
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %30, i64 noundef %32, i64 noundef 8) #16
+24:                                               ; preds = %12
+  %25 = and i32 %2, 1
+  %.not.i11 = icmp eq i32 %25, 0
+  br i1 %.not.i11, label %26, label %_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit
+
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !139
+  %29 = zext i32 %.pre to i64
+  %30 = shl nuw nsw i64 %29, 5
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %28, i64 noundef %30, i64 noundef 8) #16
   br label %_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit
 
-_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit: ; preds = %13, %28
-  %33 = icmp ugt i32 %.0, 64
-  br i1 %33, label %34, label %._crit_edge.i
+_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit: ; preds = %24, %26
+  %31 = icmp ugt i32 %.0, 64
+  br i1 %31, label %32, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre2.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert3.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre4.i = load i32, ptr %.phi.trans.insert3.i, align 8
-  br label %43
+  %.pre4.i = load i32, ptr %.phi.trans.insert, align 8
+  br label %40
 
-34:                                               ; preds = %_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit
-  %35 = load i32, ptr %0, align 8
-  %36 = and i32 %35, -2
-  store i32 %36, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = zext i32 %.0 to i64
-  %39 = shl nuw nsw i64 %38, 5
-  %40 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %39, i64 noundef 8) #16
-  store ptr %40, ptr %37, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.0, ptr %41, align 8
+32:                                               ; preds = %_ZN4llvm13SmallDenseMapINS_7SDValueES1_Lj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S1_EEE17deallocateBucketsEv.exit
+  %33 = load i32, ptr %0, align 8
+  %34 = and i32 %33, -2
+  store i32 %34, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = zext i32 %.0 to i64
+  %37 = shl nuw nsw i64 %36, 5
+  %38 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %37, i64 noundef 8) #16
+  store ptr %38, ptr %35, align 8
+  store i32 %.0, ptr %.phi.trans.insert, align 8
   %.pre.i = load i32, ptr %0, align 8
-  %42 = and i32 %.pre.i, 1
-  br label %43
+  %39 = and i32 %.pre.i, 1
+  br label %40
 
-43:                                               ; preds = %34, %._crit_edge.i
-  %44 = phi i32 [ %.0, %34 ], [ %.pre4.i, %._crit_edge.i ]
-  %45 = phi ptr [ %40, %34 ], [ %.pre2.i, %._crit_edge.i ]
-  %46 = phi i32 [ %42, %34 ], [ 1, %._crit_edge.i ]
-  store i32 %46, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %47, align 4, !tbaa !118
-  %.not.i.i.i.i.i = icmp eq i32 %46, 0
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = select i1 %.not.i.i.i.i.i, ptr %45, ptr %48
-  %50 = select i1 %.not.i.i.i.i.i, i32 %44, i32 64
-  %51 = zext i32 %50 to i64
-  %.idx.i.i = shl nuw nsw i64 %51, 5
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i
-  %.not6.i.i = icmp eq i32 %50, 0
+40:                                               ; preds = %32, %._crit_edge.i
+  %41 = phi i32 [ %.0, %32 ], [ %.pre4.i, %._crit_edge.i ]
+  %42 = phi ptr [ %38, %32 ], [ %.pre2.i, %._crit_edge.i ]
+  %43 = phi i32 [ %39, %32 ], [ 1, %._crit_edge.i ]
+  store i32 %43, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %44, align 4, !tbaa !118
+  %.not.i.i.i.i.i = icmp eq i32 %43, 0
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = select i1 %.not.i.i.i.i.i, ptr %42, ptr %45
+  %47 = select i1 %.not.i.i.i.i.i, i32 %41, i32 64
+  %48 = zext i32 %47 to i64
+  %.idx.i.i = shl nuw nsw i64 %48, 5
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
+  %.not6.i.i = icmp eq i32 %47, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
-  %.07.i.i = phi ptr [ %53, %.lr.ph.i.i ], [ %49, %43 ]
+.lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %46, %40 ]
   store ptr null, ptr %.07.i.i, align 8, !tbaa !119
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   store i32 -1, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !120
-  %53 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 32
-  %.not.i.i = icmp eq ptr %53, %52
+  %50 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 32
+  %.not.i.i = icmp eq ptr %50, %49
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !121
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i, %43, %18
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueES2_Lj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E9initEmptyEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i, %40, %._crit_edge
   ret void
 }
 

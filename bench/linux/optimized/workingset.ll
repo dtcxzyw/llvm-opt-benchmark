@@ -516,7 +516,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
 
 11:                                               ; preds = %4
   tail call void @_raw_spin_unlock_irq(ptr noundef %2) #6
-  br label %132
+  br label %131
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %8, align 8
@@ -532,7 +532,7 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
 19:                                               ; preds = %15
   tail call void @_raw_spin_unlock(ptr noundef %7) #6
   tail call void @_raw_spin_unlock_irq(ptr noundef %2) #6
-  br label %132
+  br label %131
 
 20:                                               ; preds = %15, %12
   tail call void @list_lru_isolate(ptr noundef %1, ptr noundef %0) #6
@@ -681,13 +681,13 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   tail call void @_raw_spin_unlock_irq(ptr noundef %7) #6
   %113 = load ptr, ptr %8, align 8
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %132, label %115
+  br i1 %114, label %131, label %115
 
 115:                                              ; preds = %112
   %116 = getelementptr i8, ptr %7, i64 8
   %117 = load volatile ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %128, label %119
+  br i1 %118, label %127, label %119
 
 119:                                              ; preds = %115
   %120 = ptrtoint ptr %117 to i64
@@ -695,27 +695,26 @@ define internal noundef range(i32 1, 5) i32 @shadow_lru_isolate(ptr noundef %0, 
   %122 = icmp ne i64 %121, 2
   %123 = icmp ule ptr %117, inttoptr (i64 4096 to ptr)
   %124 = or i1 %123, %122
-  %125 = and i64 %120, 1
-  %126 = icmp ne i64 %125, 0
-  %127 = and i1 %126, %124
-  br i1 %127, label %128, label %129
+  %125 = trunc i64 %120 to i1
+  %126 = and i1 %124, %125
+  br i1 %126, label %127, label %128
 
-128:                                              ; preds = %119, %115
+127:                                              ; preds = %119, %115
   tail call void @inode_add_lru(ptr noundef nonnull %113) #6
   %.pre = load ptr, ptr %8, align 8
-  br label %129
+  br label %128
 
-129:                                              ; preds = %128, %119
-  %130 = phi ptr [ %.pre, %128 ], [ %113, %119 ]
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 136
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %131) #6
-  br label %132
+128:                                              ; preds = %127, %119
+  %129 = phi ptr [ %.pre, %127 ], [ %113, %119 ]
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 136
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %130) #6
+  br label %131
 
-132:                                              ; preds = %129, %112, %19, %11
-  %133 = phi i32 [ 4, %19 ], [ 4, %11 ], [ 1, %129 ], [ 1, %112 ]
-  %134 = tail call i32 @__SCT__cond_resched() #6
+131:                                              ; preds = %128, %112, %19, %11
+  %132 = phi i32 [ 4, %19 ], [ 4, %11 ], [ 1, %128 ], [ 1, %112 ]
+  %133 = tail call i32 @__SCT__cond_resched() #6
   tail call void @_raw_spin_lock_irq(ptr noundef %2) #6
-  ret i32 %133
+  ret i32 %132
 }
 
 ; Function Attrs: null_pointer_is_valid

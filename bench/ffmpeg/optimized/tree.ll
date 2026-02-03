@@ -88,7 +88,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %6 = load ptr, ptr %0, align 8, !tbaa !10
   %.not = icmp eq ptr %6, null
   %.sroa.sel.idx.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br i1 %.not, label %99, label %7
+  br i1 %.not, label %98, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -104,7 +104,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %8, align 8, !tbaa !4
-  br label %104
+  br label %103
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %6, align 8, !tbaa !10
@@ -133,7 +133,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
 26:                                               ; preds = %17
   store ptr %6, ptr %3, align 8, !tbaa !10
   store ptr null, ptr %0, align 8, !tbaa !10
-  br label %104
+  br label %103
 
 27:                                               ; preds = %20, %7
   %.084 = phi i32 [ %10, %7 ], [ %.neg, %20 ]
@@ -143,7 +143,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %30 = getelementptr inbounds nuw ptr, ptr %6, i64 %29
   %31 = call ptr @av_tree_insert(ptr noundef nonnull %30, ptr noundef %.083, ptr noundef %2, ptr noundef %3)
   %.not96 = icmp eq ptr %31, null
-  br i1 %.not96, label %32, label %98
+  br i1 %.not96, label %32, label %97
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %3, align 8, !tbaa !10
@@ -158,116 +158,115 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %42 = add i32 %41, -1
   %43 = add i32 %42, %39
   store i32 %43, ptr %40, align 8, !tbaa !13
-  %44 = and i32 %42, 1
-  %.not97 = icmp ne i32 %44, 0
+  %.not97 = trunc i32 %42 to i1
   %.not98 = icmp eq i32 %43, 0
   %or.cond = or i1 %.not98, %.not97
-  br i1 %or.cond, label %._crit_edge, label %45
+  br i1 %or.cond, label %._crit_edge, label %44
 
 ._crit_edge:                                      ; preds = %32
   %.pre = load ptr, ptr %0, align 8, !tbaa !10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre104 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !13
-  br label %93
+  br label %92
 
-45:                                               ; preds = %32
-  %46 = load ptr, ptr %38, align 8, !tbaa !10
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load i32, ptr %47, align 8, !tbaa !13
-  %49 = shl nsw i32 %48, 1
-  %50 = sub nsw i32 0, %43
-  %51 = icmp eq i32 %49, %50
-  br i1 %51, label %52, label %80
+44:                                               ; preds = %32
+  %45 = load ptr, ptr %38, align 8, !tbaa !10
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !13
+  %48 = shl nsw i32 %47, 1
+  %49 = sub nsw i32 0, %43
+  %50 = icmp eq i32 %48, %49
+  br i1 %50, label %51, label %79
 
-52:                                               ; preds = %45
-  %53 = xor i32 %36, 1
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %46, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !10
-  store ptr %56, ptr %0, align 8, !tbaa !10
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %37
-  %58 = load ptr, ptr %57, align 8, !tbaa !10
-  %59 = load ptr, ptr %38, align 8, !tbaa !10
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %54
-  store ptr %58, ptr %60, align 8, !tbaa !10
-  %61 = load ptr, ptr %38, align 8, !tbaa !10
-  %62 = load ptr, ptr %0, align 8, !tbaa !10
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %37
-  store ptr %61, ptr %63, align 8, !tbaa !10
-  %64 = load ptr, ptr %0, align 8, !tbaa !10
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %54
-  %66 = load ptr, ptr %65, align 8, !tbaa !10
-  store ptr %66, ptr %38, align 8, !tbaa !10
-  %67 = load ptr, ptr %0, align 8, !tbaa !10
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %54
-  store ptr %6, ptr %68, align 8, !tbaa !10
-  %69 = load ptr, ptr %0, align 8, !tbaa !10
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load i32, ptr %70, align 8, !tbaa !13
-  %72 = icmp sgt i32 %71, 0
-  %.neg100 = sext i1 %72 to i32
-  %73 = load ptr, ptr %69, align 8, !tbaa !10
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store i32 %.neg100, ptr %74, align 8, !tbaa !13
-  %75 = load i32, ptr %70, align 8, !tbaa !13
-  %.lobit = lshr i32 %75, 31
-  %76 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !10
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store i32 %.lobit, ptr %78, align 8, !tbaa !13
-  store i32 0, ptr %70, align 8, !tbaa !13
-  %79 = load ptr, ptr %3, align 8, !tbaa !10
-  %.not108 = icmp eq ptr %79, null
-  br i1 %.not108, label %104, label %98
+51:                                               ; preds = %44
+  %52 = xor i32 %36, 1
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %45, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !10
+  store ptr %55, ptr %0, align 8, !tbaa !10
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %37
+  %57 = load ptr, ptr %56, align 8, !tbaa !10
+  %58 = load ptr, ptr %38, align 8, !tbaa !10
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %53
+  store ptr %57, ptr %59, align 8, !tbaa !10
+  %60 = load ptr, ptr %38, align 8, !tbaa !10
+  %61 = load ptr, ptr %0, align 8, !tbaa !10
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %37
+  store ptr %60, ptr %62, align 8, !tbaa !10
+  %63 = load ptr, ptr %0, align 8, !tbaa !10
+  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %53
+  %65 = load ptr, ptr %64, align 8, !tbaa !10
+  store ptr %65, ptr %38, align 8, !tbaa !10
+  %66 = load ptr, ptr %0, align 8, !tbaa !10
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %53
+  store ptr %6, ptr %67, align 8, !tbaa !10
+  %68 = load ptr, ptr %0, align 8, !tbaa !10
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load i32, ptr %69, align 8, !tbaa !13
+  %71 = icmp sgt i32 %70, 0
+  %.neg100 = sext i1 %71 to i32
+  %72 = load ptr, ptr %68, align 8, !tbaa !10
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store i32 %.neg100, ptr %73, align 8, !tbaa !13
+  %74 = load i32, ptr %69, align 8, !tbaa !13
+  %.lobit = lshr i32 %74, 31
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  store i32 %.lobit, ptr %77, align 8, !tbaa !13
+  store i32 0, ptr %69, align 8, !tbaa !13
+  %78 = load ptr, ptr %3, align 8, !tbaa !10
+  %.not108 = icmp eq ptr %78, null
+  br i1 %.not108, label %103, label %97
 
-80:                                               ; preds = %45
-  store ptr %46, ptr %0, align 8, !tbaa !10
-  %81 = load ptr, ptr %38, align 8, !tbaa !10
-  %82 = xor i32 %36, 1
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %83
-  %85 = load ptr, ptr %84, align 8, !tbaa !10
-  store ptr %85, ptr %38, align 8, !tbaa !10
-  %86 = load ptr, ptr %0, align 8, !tbaa !10
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %83
-  store ptr %6, ptr %87, align 8, !tbaa !10
-  %88 = load ptr, ptr %0, align 8, !tbaa !10
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %90 = load i32, ptr %89, align 8, !tbaa !13
-  %.not99 = icmp eq i32 %90, 0
-  %91 = ashr exact i32 %43, 1
-  %spec.select = select i1 %.not99, i32 %91, i32 0
+79:                                               ; preds = %44
+  store ptr %45, ptr %0, align 8, !tbaa !10
+  %80 = load ptr, ptr %38, align 8, !tbaa !10
+  %81 = xor i32 %36, 1
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %82
+  %84 = load ptr, ptr %83, align 8, !tbaa !10
+  store ptr %84, ptr %38, align 8, !tbaa !10
+  %85 = load ptr, ptr %0, align 8, !tbaa !10
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %82
+  store ptr %6, ptr %86, align 8, !tbaa !10
+  %87 = load ptr, ptr %0, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %89 = load i32, ptr %88, align 8, !tbaa !13
+  %.not99 = icmp eq i32 %89, 0
+  %90 = ashr exact i32 %43, 1
+  %spec.select = select i1 %.not99, i32 %90, i32 0
   store i32 %spec.select, ptr %40, align 8, !tbaa !13
-  %92 = sub nsw i32 0, %spec.select
-  store i32 %92, ptr %89, align 8, !tbaa !13
-  br label %93
+  %91 = sub nsw i32 0, %spec.select
+  store i32 %91, ptr %88, align 8, !tbaa !13
+  br label %92
 
-93:                                               ; preds = %._crit_edge, %80
-  %94 = phi i32 [ %.pre104, %._crit_edge ], [ %92, %80 ]
-  %.not101 = icmp eq i32 %94, 0
-  %95 = load ptr, ptr %3, align 8, !tbaa !10
-  %96 = icmp ne ptr %95, null
-  %97 = xor i1 %.not101, %96
-  br i1 %97, label %104, label %98
+92:                                               ; preds = %._crit_edge, %79
+  %93 = phi i32 [ %.pre104, %._crit_edge ], [ %91, %79 ]
+  %.not101 = icmp eq i32 %93, 0
+  %94 = load ptr, ptr %3, align 8, !tbaa !10
+  %95 = icmp ne ptr %94, null
+  %96 = xor i1 %.not101, %95
+  br i1 %96, label %103, label %97
 
-98:                                               ; preds = %52, %93, %27
-  br label %104
+97:                                               ; preds = %51, %92, %27
+  br label %103
 
-99:                                               ; preds = %4
-  %100 = load ptr, ptr %3, align 8, !tbaa !10
-  store ptr %100, ptr %0, align 8, !tbaa !10
+98:                                               ; preds = %4
+  %99 = load ptr, ptr %3, align 8, !tbaa !10
+  store ptr %99, ptr %0, align 8, !tbaa !10
   store ptr null, ptr %3, align 8, !tbaa !10
-  %101 = load ptr, ptr %0, align 8, !tbaa !10
-  %.not90 = icmp eq ptr %101, null
-  br i1 %.not90, label %104, label %102
+  %100 = load ptr, ptr %0, align 8, !tbaa !10
+  %.not90 = icmp eq ptr %100, null
+  br i1 %.not90, label %103, label %101
 
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %1, ptr %103, align 8, !tbaa !4
-  br label %104
+101:                                              ; preds = %98
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  store ptr %1, ptr %102, align 8, !tbaa !4
+  br label %103
 
-104:                                              ; preds = %52, %99, %13, %26, %98, %93, %102
-  %.2 = phi ptr [ null, %26 ], [ null, %102 ], [ %31, %98 ], [ %.083, %93 ], [ %14, %13 ], [ %1, %99 ], [ %.083, %52 ]
+103:                                              ; preds = %51, %98, %13, %26, %97, %92, %101
+  %.2 = phi ptr [ null, %26 ], [ null, %101 ], [ %31, %97 ], [ %.083, %92 ], [ %14, %13 ], [ %1, %98 ], [ %.083, %51 ]
   ret ptr %.2
 }
 

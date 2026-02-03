@@ -274,25 +274,25 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %14 = tail call double @sin(double noundef %7) #10, !tbaa !53
   %15 = fmul double %0, %14
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
-  br label %.preheader26.i
+  br label %.preheader27.i
 
-.preheader26.i:                                   ; preds = %24, %3
+.preheader27.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
   %17 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16, !tbaa !56
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
-20:                                               ; preds = %.preheader26.i
+20:                                               ; preds = %.preheader27.i
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !56
   %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
 
-24:                                               ; preds = %20, %.preheader26.i
+24:                                               ; preds = %20, %.preheader27.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 19
-  br i1 %exitcond.not.i.i, label %.preheader.i, label %.preheader26.i, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %.preheader.i, label %.preheader27.i, !llvm.loop !57
 
 .preheader.i:                                     ; preds = %24, %53
   %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %53 ], [ 1, %24 ]
@@ -347,74 +347,74 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !59
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
-  %54 = and i32 %.149.i.i, 1
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %_ZL8in_imageddiii.exit.thread
+  %..i.i = and i32 %.149.i.i, 1
+  %54 = icmp eq i32 %..i.i, 0
+  br i1 %54, label %55, label %_ZL8in_imageddiii.exit.thread
 
-56:                                               ; preds = %_ZL8in_imageddiii.exit
-  %57 = load ptr, ptr %2, align 8, !tbaa !42
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %57, i32 noundef 2050)
-  br label %97
+55:                                               ; preds = %_ZL8in_imageddiii.exit
+  %56 = load ptr, ptr %2, align 8, !tbaa !42
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %56, i32 noundef 2050)
+  br label %96
 
 _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imageddiii.exit
-  %58 = tail call double @llvm.fabs.f64(double %16)
-  %59 = fcmp ugt double %58, 0x3FE921FB54442D18
-  br i1 %59, label %64, label %60
+  %57 = tail call double @llvm.fabs.f64(double %16)
+  %58 = fcmp ugt double %57, 0x3FE921FB54442D18
+  br i1 %58, label %63, label %59
 
-60:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %61 = fmul double %16, 8.000000e+00
-  %62 = fdiv double %61, 0x4022D97C7F3321D2
-  %63 = tail call double @asin(double noundef %62) #10, !tbaa !53
+59:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %60 = fmul double %16, 8.000000e+00
+  %61 = fdiv double %60, 0x4022D97C7F3321D2
+  %62 = tail call double @asin(double noundef %61) #10, !tbaa !53
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %65 = fcmp olt double %58, 0x3FF921FB54442D18
-  br i1 %65, label %66, label %88
+63:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %64 = fcmp olt double %57, 0x3FF921FB54442D18
+  br i1 %64, label %65, label %87
 
-66:                                               ; preds = %64
-  %67 = fmul double %12, 2.000000e+00
-  %68 = fdiv double %67, 0x400921FB54442D18
-  %69 = fadd double %68, 2.000000e+00
-  %70 = tail call double @llvm.floor.f64(double %69)
-  %71 = fcmp ult double %70, 4.000000e+00
-  %72 = tail call double @llvm.fmuladd.f64(double %70, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %73 = select i1 %71, double %72, double 0x4002D97C7F3321D2
-  %74 = fmul double %58, 4.000000e+00
-  %75 = fdiv double %74, 0x400921FB54442D18
-  %76 = fsub double 2.000000e+00, %75
-  %77 = fsub double %12, %73
-  %78 = fdiv double %77, %76
-  %79 = fadd double %73, %78
-  %80 = fcmp ogt double %16, 0.000000e+00
-  %81 = fcmp olt double %16, 0.000000e+00
-  %82 = sitofp i1 %81 to double
-  %83 = select i1 %80, double 1.000000e+00, double %82
-  %square.i = fmul double %76, %76
-  %84 = fdiv double %square.i, 3.000000e+00
-  %85 = fsub double 1.000000e+00, %84
-  %86 = tail call double @asin(double noundef %85) #10, !tbaa !53
-  %87 = fmul double %83, %86
+65:                                               ; preds = %63
+  %66 = fmul double %12, 2.000000e+00
+  %67 = fdiv double %66, 0x400921FB54442D18
+  %68 = fadd double %67, 2.000000e+00
+  %69 = tail call double @llvm.floor.f64(double %68)
+  %70 = fcmp ult double %69, 4.000000e+00
+  %71 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %72 = select i1 %70, double %71, double 0x4002D97C7F3321D2
+  %73 = fmul double %57, 4.000000e+00
+  %74 = fdiv double %73, 0x400921FB54442D18
+  %75 = fsub double 2.000000e+00, %74
+  %76 = fsub double %12, %72
+  %77 = fdiv double %76, %75
+  %78 = fadd double %72, %77
+  %79 = fcmp ogt double %16, 0.000000e+00
+  %80 = fcmp olt double %16, 0.000000e+00
+  %81 = sitofp i1 %80 to double
+  %82 = select i1 %79, double 1.000000e+00, double %81
+  %square.i = fmul double %75, %75
+  %83 = fdiv double %square.i, 3.000000e+00
+  %84 = fsub double 1.000000e+00, %83
+  %85 = tail call double @asin(double noundef %84) #10, !tbaa !53
+  %86 = fmul double %82, %85
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-88:                                               ; preds = %64
-  %89 = fcmp ogt double %16, 0.000000e+00
-  %90 = fcmp olt double %16, 0.000000e+00
-  %91 = sitofp i1 %90 to double
-  %92 = fmul double %91, 0x3FF921FB54442D18
-  %93 = select i1 %89, double 0x3FF921FB54442D18, double %92
+87:                                               ; preds = %63
+  %88 = fcmp ogt double %16, 0.000000e+00
+  %89 = fcmp olt double %16, 0.000000e+00
+  %90 = sitofp i1 %89 to double
+  %91 = fmul double %90, 0x3FF921FB54442D18
+  %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %88
-  %.sroa.016.0.i = phi double [ %12, %60 ], [ %79, %66 ], [ 0xC00921FB54442D18, %88 ]
-  %.sroa.4.0.i = phi double [ %63, %60 ], [ %87, %66 ], [ %93, %88 ]
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !48
-  %96 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %95)
-  br label %97
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %59, %65, %87
+  %.sroa.016.0.i = phi double [ %12, %59 ], [ %78, %65 ], [ 0xC00921FB54442D18, %87 ]
+  %.sroa.4.0.i = phi double [ %62, %59 ], [ %86, %65 ], [ %92, %87 ]
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !48
+  %95 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %94)
+  br label %96
 
-97:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %56
-  %.sroa.411.0 = phi double [ 0x7FF0000000000000, %56 ], [ %96, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
-  %.sroa.010.0 = phi double [ 0x7FF0000000000000, %56 ], [ %.sroa.016.0.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+96:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %55
+  %.sroa.411.0 = phi double [ 0x7FF0000000000000, %55 ], [ %95, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+  %.sroa.010.0 = phi double [ 0x7FF0000000000000, %55 ], [ %.sroa.016.0.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.010.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.411.0, 1
   ret { double, double } %.fca.1.insert
@@ -491,25 +491,25 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %14 = tail call double @sin(double noundef %7) #10, !tbaa !53
   %15 = fmul double %0, %14
   %16 = tail call double @llvm.fmuladd.f64(double %1, double %13, double %15)
-  br label %.preheader26.i
+  br label %.preheader27.i
 
-.preheader26.i:                                   ; preds = %24, %3
+.preheader27.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
   %17 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16, !tbaa !56
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
-20:                                               ; preds = %.preheader26.i
+20:                                               ; preds = %.preheader27.i
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !56
   %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
 
-24:                                               ; preds = %20, %.preheader26.i
+24:                                               ; preds = %20, %.preheader27.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 19
-  br i1 %exitcond.not.i.i, label %.preheader.i, label %.preheader26.i, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %.preheader.i, label %.preheader27.i, !llvm.loop !57
 
 .preheader.i:                                     ; preds = %24, %53
   %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %53 ], [ 1, %24 ]
@@ -564,66 +564,66 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   br i1 %exitcond64.not.i.i, label %_ZL8in_imageddiii.exit, label %.preheader.i, !llvm.loop !59
 
 _ZL8in_imageddiii.exit:                           ; preds = %53
-  %54 = and i32 %.149.i.i, 1
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %_ZL8in_imageddiii.exit.thread
+  %..i.i = and i32 %.149.i.i, 1
+  %54 = icmp eq i32 %..i.i, 0
+  br i1 %54, label %55, label %_ZL8in_imageddiii.exit.thread
 
-56:                                               ; preds = %_ZL8in_imageddiii.exit
-  %57 = load ptr, ptr %2, align 8, !tbaa !42
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %57, i32 noundef 2050)
+55:                                               ; preds = %_ZL8in_imageddiii.exit
+  %56 = load ptr, ptr %2, align 8, !tbaa !42
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %56, i32 noundef 2050)
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
 _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imageddiii.exit
-  %58 = tail call double @llvm.fabs.f64(double %16)
-  %59 = fcmp ugt double %58, 0x3FE921FB54442D18
-  br i1 %59, label %64, label %60
+  %57 = tail call double @llvm.fabs.f64(double %16)
+  %58 = fcmp ugt double %57, 0x3FE921FB54442D18
+  br i1 %58, label %63, label %59
 
-60:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %61 = fmul double %16, 8.000000e+00
-  %62 = fdiv double %61, 0x4022D97C7F3321D2
-  %63 = tail call double @asin(double noundef %62) #10, !tbaa !53
+59:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %60 = fmul double %16, 8.000000e+00
+  %61 = fdiv double %60, 0x4022D97C7F3321D2
+  %62 = tail call double @asin(double noundef %61) #10, !tbaa !53
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %65 = fcmp olt double %58, 0x3FF921FB54442D18
-  br i1 %65, label %66, label %88
+63:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %64 = fcmp olt double %57, 0x3FF921FB54442D18
+  br i1 %64, label %65, label %87
 
-66:                                               ; preds = %64
-  %67 = fmul double %12, 2.000000e+00
-  %68 = fdiv double %67, 0x400921FB54442D18
-  %69 = fadd double %68, 2.000000e+00
-  %70 = tail call double @llvm.floor.f64(double %69)
-  %71 = fcmp ult double %70, 4.000000e+00
-  %72 = tail call double @llvm.fmuladd.f64(double %70, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %73 = select i1 %71, double %72, double 0x4002D97C7F3321D2
-  %74 = fmul double %58, 4.000000e+00
-  %75 = fdiv double %74, 0x400921FB54442D18
-  %76 = fsub double 2.000000e+00, %75
-  %77 = fsub double %12, %73
-  %78 = fdiv double %77, %76
-  %79 = fadd double %73, %78
-  %80 = fcmp ogt double %16, 0.000000e+00
-  %81 = fcmp olt double %16, 0.000000e+00
-  %82 = sitofp i1 %81 to double
-  %83 = select i1 %80, double 1.000000e+00, double %82
-  %square.i = fmul double %76, %76
-  %84 = fdiv double %square.i, 3.000000e+00
-  %85 = fsub double 1.000000e+00, %84
-  %86 = tail call double @asin(double noundef %85) #10, !tbaa !53
-  %87 = fmul double %83, %86
+65:                                               ; preds = %63
+  %66 = fmul double %12, 2.000000e+00
+  %67 = fdiv double %66, 0x400921FB54442D18
+  %68 = fadd double %67, 2.000000e+00
+  %69 = tail call double @llvm.floor.f64(double %68)
+  %70 = fcmp ult double %69, 4.000000e+00
+  %71 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %72 = select i1 %70, double %71, double 0x4002D97C7F3321D2
+  %73 = fmul double %57, 4.000000e+00
+  %74 = fdiv double %73, 0x400921FB54442D18
+  %75 = fsub double 2.000000e+00, %74
+  %76 = fsub double %12, %72
+  %77 = fdiv double %76, %75
+  %78 = fadd double %72, %77
+  %79 = fcmp ogt double %16, 0.000000e+00
+  %80 = fcmp olt double %16, 0.000000e+00
+  %81 = sitofp i1 %80 to double
+  %82 = select i1 %79, double 1.000000e+00, double %81
+  %square.i = fmul double %75, %75
+  %83 = fdiv double %square.i, 3.000000e+00
+  %84 = fsub double 1.000000e+00, %83
+  %85 = tail call double @asin(double noundef %84) #10, !tbaa !53
+  %86 = fmul double %82, %85
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-88:                                               ; preds = %64
-  %89 = fcmp ogt double %16, 0.000000e+00
-  %90 = fcmp olt double %16, 0.000000e+00
-  %91 = sitofp i1 %90 to double
-  %92 = fmul double %91, 0x3FF921FB54442D18
-  %93 = select i1 %89, double 0x3FF921FB54442D18, double %92
+87:                                               ; preds = %63
+  %88 = fcmp ogt double %16, 0.000000e+00
+  %89 = fcmp olt double %16, 0.000000e+00
+  %90 = sitofp i1 %89 to double
+  %91 = fmul double %90, 0x3FF921FB54442D18
+  %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %88, %66, %60, %56
-  %.sroa.07.0 = phi double [ 0x7FF0000000000000, %56 ], [ %12, %60 ], [ %79, %66 ], [ 0xC00921FB54442D18, %88 ]
-  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %56 ], [ %63, %60 ], [ %87, %66 ], [ %93, %88 ]
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %87, %65, %59, %55
+  %.sroa.07.0 = phi double [ 0x7FF0000000000000, %55 ], [ %12, %59 ], [ %78, %65 ], [ 0xC00921FB54442D18, %87 ]
+  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %55 ], [ %62, %59 ], [ %86, %65 ], [ %92, %87 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.07.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -1094,25 +1094,25 @@ declare double @llvm.floor.f64(double) #6
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 {
   %6 = alloca [12 x [2 x double]], align 16
   %7 = icmp eq i32 %2, 0
-  br i1 %7, label %.preheader26, label %47
+  br i1 %7, label %.preheader27, label %46
 
-.preheader26:                                     ; preds = %5, %15
+.preheader27:                                     ; preds = %5, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %5 ]
   %8 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
   %9 = load double, ptr %8, align 16, !tbaa !56
   %10 = fcmp oeq double %0, %9
   br i1 %10, label %11, label %15
 
-11:                                               ; preds = %.preheader26
+11:                                               ; preds = %.preheader27
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load double, ptr %12, align 8, !tbaa !56
   %14 = fcmp oeq double %1, %13
   br i1 %14, label %_ZL6pnpolyiPA2_ddd.exit, label %15
 
-15:                                               ; preds = %11, %.preheader26
+15:                                               ; preds = %11, %.preheader27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %.preheader, label %.preheader26, !llvm.loop !57
+  br i1 %exitcond.not.i, label %.preheader, label %.preheader27, !llvm.loop !57
 
 .preheader:                                       ; preds = %15, %44
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %44 ], [ 1, %15 ]
@@ -1167,153 +1167,153 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   br i1 %exitcond64.not.i, label %45, label %.preheader, !llvm.loop !59
 
 45:                                               ; preds = %44
-  %46 = and i32 %.149.i, 1
+  %..i = and i32 %.149.i, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
-47:                                               ; preds = %5
+46:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double 0xC00921FB54442D1A, ptr %6, align 16, !tbaa !56
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double 0x3FE921FB54442D21, ptr %48, align 8, !tbaa !56
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %50 = sitofp i32 %3 to double
-  %51 = tail call double @llvm.fmuladd.f64(double %50, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %52 = fadd double %51, -1.000000e-15
-  store double %52, ptr %49, align 16, !tbaa !56
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double 0x3FE921FB54442D21, ptr %53, align 8, !tbaa !56
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %52, ptr %54, align 16, !tbaa !56
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store double 0x4002D97C7F3321D4, ptr %55, align 8, !tbaa !56
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %57 = fadd double %50, 1.000000e+00
-  %58 = tail call double @llvm.fmuladd.f64(double %57, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %59 = fadd double %58, 1.000000e-15
-  store double %59, ptr %56, align 16, !tbaa !56
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store double 0x4002D97C7F3321D4, ptr %60, align 8, !tbaa !56
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store double %59, ptr %61, align 16, !tbaa !56
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store double 0x3FE921FB54442D21, ptr %62, align 8, !tbaa !56
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store double 0x400921FB54442D1A, ptr %63, align 16, !tbaa !56
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store double 0x3FE921FB54442D21, ptr %64, align 8, !tbaa !56
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store double 0x400921FB54442D1A, ptr %65, align 16, !tbaa !56
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store double 0xBFE921FB54442D21, ptr %66, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %68 = sitofp i32 %4 to double
-  %69 = fadd double %68, 1.000000e+00
-  %70 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %71 = fadd double %70, 1.000000e-15
-  store double %71, ptr %67, align 16, !tbaa !56
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store double 0xBFE921FB54442D21, ptr %72, align 8, !tbaa !56
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store double %71, ptr %73, align 16, !tbaa !56
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store double 0xC002D97C7F3321D4, ptr %74, align 8, !tbaa !56
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %76 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %77 = fadd double %76, -1.000000e-15
-  store double %77, ptr %75, align 16, !tbaa !56
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  store double 0xC002D97C7F3321D4, ptr %78, align 8, !tbaa !56
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  store double %77, ptr %79, align 16, !tbaa !56
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  store double 0xBFE921FB54442D21, ptr %80, align 8, !tbaa !56
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  store double 0xC00921FB54442D1A, ptr %81, align 16, !tbaa !56
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  store double 0xBFE921FB54442D21, ptr %82, align 8, !tbaa !56
-  br label %83
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store double 0x3FE921FB54442D21, ptr %47, align 8, !tbaa !56
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %49 = sitofp i32 %3 to double
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %51 = fadd double %50, -1.000000e-15
+  store double %51, ptr %48, align 16, !tbaa !56
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store double 0x3FE921FB54442D21, ptr %52, align 8, !tbaa !56
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store double %51, ptr %53, align 16, !tbaa !56
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store double 0x4002D97C7F3321D4, ptr %54, align 8, !tbaa !56
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %56 = fadd double %49, 1.000000e+00
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %58 = fadd double %57, 1.000000e-15
+  store double %58, ptr %55, align 16, !tbaa !56
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store double 0x4002D97C7F3321D4, ptr %59, align 8, !tbaa !56
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store double %58, ptr %60, align 16, !tbaa !56
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store double 0x3FE921FB54442D21, ptr %61, align 8, !tbaa !56
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store double 0x400921FB54442D1A, ptr %62, align 16, !tbaa !56
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store double 0x3FE921FB54442D21, ptr %63, align 8, !tbaa !56
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  store double 0x400921FB54442D1A, ptr %64, align 16, !tbaa !56
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store double 0xBFE921FB54442D21, ptr %65, align 8, !tbaa !56
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %67 = sitofp i32 %4 to double
+  %68 = fadd double %67, 1.000000e+00
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %70 = fadd double %69, 1.000000e-15
+  store double %70, ptr %66, align 16, !tbaa !56
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store double 0xBFE921FB54442D21, ptr %71, align 8, !tbaa !56
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store double %70, ptr %72, align 16, !tbaa !56
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  store double 0xC002D97C7F3321D4, ptr %73, align 8, !tbaa !56
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %75 = tail call double @llvm.fmuladd.f64(double %67, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %76 = fadd double %75, -1.000000e-15
+  store double %76, ptr %74, align 16, !tbaa !56
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  store double 0xC002D97C7F3321D4, ptr %77, align 8, !tbaa !56
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  store double %76, ptr %78, align 16, !tbaa !56
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  store double 0xBFE921FB54442D21, ptr %79, align 8, !tbaa !56
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  store double 0xC00921FB54442D1A, ptr %80, align 16, !tbaa !56
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  store double 0xBFE921FB54442D21, ptr %81, align 8, !tbaa !56
+  br label %82
 
-83:                                               ; preds = %91, %47
-  %indvars.iv.i13 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i14, %91 ]
-  %84 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv.i13
-  %85 = load double, ptr %84, align 16, !tbaa !56
-  %86 = fcmp oeq double %0, %85
-  br i1 %86, label %87, label %91
+82:                                               ; preds = %90, %46
+  %indvars.iv.i13 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i14, %90 ]
+  %83 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv.i13
+  %84 = load double, ptr %83, align 16, !tbaa !56
+  %85 = fcmp oeq double %0, %84
+  br i1 %85, label %86, label %90
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %89 = load double, ptr %88, align 8, !tbaa !56
-  %90 = fcmp oeq double %1, %89
-  br i1 %90, label %_ZL6pnpolyiPA2_ddd.exit25, label %91
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %88 = load double, ptr %87, align 8, !tbaa !56
+  %89 = fcmp oeq double %1, %88
+  br i1 %89, label %_ZL6pnpolyiPA2_ddd.exit26, label %90
 
-91:                                               ; preds = %87, %83
+90:                                               ; preds = %86, %82
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 12
-  br i1 %exitcond.not.i15, label %.preheader27, label %83, !llvm.loop !57
+  br i1 %exitcond.not.i15, label %.preheader28, label %82, !llvm.loop !57
 
-.preheader27:                                     ; preds = %91, %120
-  %indvars.iv60.i16 = phi i64 [ %indvars.iv.next61.i21, %120 ], [ 1, %91 ]
-  %.sroa.09.057.i17 = phi double [ %93, %120 ], [ 0xC00921FB54442D1A, %91 ]
-  %.sroa.9.056.i18 = phi double [ %95, %120 ], [ 0x3FE921FB54442D21, %91 ]
-  %.04855.i19 = phi i32 [ %.149.i20, %120 ], [ 0, %91 ]
-  %92 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv60.i16
-  %93 = load double, ptr %92, align 16, !tbaa !56
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %95 = load double, ptr %94, align 8, !tbaa !56
-  %96 = fcmp olt double %.sroa.9.056.i18, %95
-  %97 = select i1 %96, double %.sroa.9.056.i18, double %95
-  %98 = fcmp ogt double %1, %97
-  br i1 %98, label %99, label %120
+.preheader28:                                     ; preds = %90, %119
+  %indvars.iv60.i16 = phi i64 [ %indvars.iv.next61.i21, %119 ], [ 1, %90 ]
+  %.sroa.09.057.i17 = phi double [ %92, %119 ], [ 0xC00921FB54442D1A, %90 ]
+  %.sroa.9.056.i18 = phi double [ %94, %119 ], [ 0x3FE921FB54442D21, %90 ]
+  %.04855.i19 = phi i32 [ %.149.i20, %119 ], [ 0, %90 ]
+  %91 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv60.i16
+  %92 = load double, ptr %91, align 16, !tbaa !56
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %94 = load double, ptr %93, align 8, !tbaa !56
+  %95 = fcmp olt double %.sroa.9.056.i18, %94
+  %96 = select i1 %95, double %.sroa.9.056.i18, double %94
+  %97 = fcmp ogt double %1, %96
+  br i1 %97, label %98, label %119
 
-99:                                               ; preds = %.preheader27
-  %100 = fcmp ogt double %.sroa.9.056.i18, %95
-  %101 = select i1 %100, double %.sroa.9.056.i18, double %95
-  %102 = fcmp ugt double %1, %101
-  br i1 %102, label %120, label %103
+98:                                               ; preds = %.preheader28
+  %99 = fcmp ogt double %.sroa.9.056.i18, %94
+  %100 = select i1 %99, double %.sroa.9.056.i18, double %94
+  %101 = fcmp ugt double %1, %100
+  br i1 %101, label %119, label %102
 
-103:                                              ; preds = %99
-  %104 = fcmp ogt double %.sroa.09.057.i17, %93
-  %105 = select i1 %104, double %.sroa.09.057.i17, double %93
-  %106 = fcmp ole double %0, %105
-  %107 = fcmp une double %.sroa.9.056.i18, %95
-  %or.cond.i24 = and i1 %107, %106
-  br i1 %or.cond.i24, label %108, label %120
+102:                                              ; preds = %98
+  %103 = fcmp ogt double %.sroa.09.057.i17, %92
+  %104 = select i1 %103, double %.sroa.09.057.i17, double %92
+  %105 = fcmp ole double %0, %104
+  %106 = fcmp une double %.sroa.9.056.i18, %94
+  %or.cond.i25 = and i1 %106, %105
+  br i1 %or.cond.i25, label %107, label %119
 
-108:                                              ; preds = %103
-  %109 = fcmp oeq double %.sroa.09.057.i17, %93
-  br i1 %109, label %118, label %110
+107:                                              ; preds = %102
+  %108 = fcmp oeq double %.sroa.09.057.i17, %92
+  br i1 %108, label %117, label %109
 
-110:                                              ; preds = %108
-  %111 = fsub double %1, %.sroa.9.056.i18
-  %112 = fsub double %93, %.sroa.09.057.i17
-  %113 = fmul double %111, %112
-  %114 = fsub double %95, %.sroa.9.056.i18
-  %115 = fdiv double %113, %114
-  %116 = fadd double %.sroa.09.057.i17, %115
-  %117 = fcmp ugt double %0, %116
-  br i1 %117, label %120, label %118
+109:                                              ; preds = %107
+  %110 = fsub double %1, %.sroa.9.056.i18
+  %111 = fsub double %92, %.sroa.09.057.i17
+  %112 = fmul double %110, %111
+  %113 = fsub double %94, %.sroa.9.056.i18
+  %114 = fdiv double %112, %113
+  %115 = fadd double %.sroa.09.057.i17, %114
+  %116 = fcmp ugt double %0, %115
+  br i1 %116, label %119, label %117
 
-118:                                              ; preds = %110, %108
-  %119 = add nsw i32 %.04855.i19, 1
-  br label %120
+117:                                              ; preds = %109, %107
+  %118 = add nsw i32 %.04855.i19, 1
+  br label %119
 
-120:                                              ; preds = %118, %110, %103, %99, %.preheader27
-  %.149.i20 = phi i32 [ %119, %118 ], [ %.04855.i19, %110 ], [ %.04855.i19, %.preheader27 ], [ %.04855.i19, %103 ], [ %.04855.i19, %99 ]
+119:                                              ; preds = %117, %109, %102, %98, %.preheader28
+  %.149.i20 = phi i32 [ %118, %117 ], [ %.04855.i19, %109 ], [ %.04855.i19, %.preheader28 ], [ %.04855.i19, %102 ], [ %.04855.i19, %98 ]
   %indvars.iv.next61.i21 = add nuw nsw i64 %indvars.iv60.i16, 1
   %exitcond64.not.i22 = icmp eq i64 %indvars.iv.next61.i21, 12
-  br i1 %exitcond64.not.i22, label %121, label %.preheader27, !llvm.loop !59
+  br i1 %exitcond64.not.i22, label %120, label %.preheader28, !llvm.loop !59
 
-121:                                              ; preds = %120
-  %122 = and i32 %.149.i20, 1
-  br label %_ZL6pnpolyiPA2_ddd.exit25
+120:                                              ; preds = %119
+  %..i23 = and i32 %.149.i20, 1
+  br label %_ZL6pnpolyiPA2_ddd.exit26
 
-_ZL6pnpolyiPA2_ddd.exit25:                        ; preds = %87, %121
-  %.0.i23 = phi i32 [ %122, %121 ], [ 1, %87 ]
+_ZL6pnpolyiPA2_ddd.exit26:                        ; preds = %86, %120
+  %.0.i24 = phi i32 [ %..i23, %120 ], [ 1, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL6pnpolyiPA2_ddd.exit
 
-_ZL6pnpolyiPA2_ddd.exit:                          ; preds = %11, %45, %_ZL6pnpolyiPA2_ddd.exit25
-  %.0 = phi i32 [ %.0.i23, %_ZL6pnpolyiPA2_ddd.exit25 ], [ %46, %45 ], [ 1, %11 ]
+_ZL6pnpolyiPA2_ddd.exit:                          ; preds = %11, %45, %_ZL6pnpolyiPA2_ddd.exit26
+  %.0 = phi i32 [ %.0.i24, %_ZL6pnpolyiPA2_ddd.exit26 ], [ %..i, %45 ], [ 1, %11 ]
   ret i32 %.0
 }
 

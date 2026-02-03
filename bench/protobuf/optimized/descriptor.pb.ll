@@ -830,11 +830,10 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf33FeatureSet_Utf8Validation_IsValidEi(i32 noundef %value) local_unnamed_addr #4 {
 entry:
   %or.cond = icmp ult i32 %value, 4
-  %0 = shl nuw nsw i32 1, %value
-  %1 = and i32 %0, 13
-  %cmp2 = icmp ne i32 %1, 0
-  %2 = select i1 %or.cond, i1 %cmp2, i1 false
-  ret i1 %2
+  %shr = lshr i32 13, %value
+  %cmp2 = trunc i32 %shr to i1
+  %0 = select i1 %or.cond, i1 %cmp2, i1 false
+  ret i1 %0
 }
 
 ; Function Attrs: mustprogress uwtable

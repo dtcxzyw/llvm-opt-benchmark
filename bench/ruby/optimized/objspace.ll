@@ -622,9 +622,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %9
   br label %rb_class_of.exit
 
 23:                                               ; preds = %20
-  %24 = and i64 %.06, 1
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %25, label %rb_class_of.exit
+  %24 = trunc i64 %.06 to i1
+  br i1 %24, label %rb_class_of.exit, label %25
 
 25:                                               ; preds = %23
   %26 = and i64 %.06, 254
@@ -636,8 +635,8 @@ rb_class_of.exit:                                 ; preds = %18, %20, %21, %22, 
   %.0.in.i = phi ptr [ %19, %18 ], [ @rb_cNilClass, %21 ], [ @rb_cTrueClass, %22 ], [ @rb_cFalseClass, %20 ], [ @rb_cInteger, %23 ], [ %spec.select.i, %25 ]
   %.0.i7 = load i64, ptr %.0.in.i, align 8, !tbaa !6
   %28 = and i64 %.0.i7, -5
-  %.not.i8 = icmp eq i64 %28, 0
-  br i1 %.not.i8, label %wrap_klass_iow.exit, label %29
+  %.not.i = icmp eq i64 %28, 0
+  br i1 %.not.i, label %wrap_klass_iow.exit, label %29
 
 29:                                               ; preds = %rb_class_of.exit
   %30 = and i64 %.0.i7, 7
@@ -665,9 +664,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %29
   br label %rb_class_of.exit.i
 
 39:                                               ; preds = %37
-  %40 = and i64 %.0.i7, 1
-  %.not.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i, label %41, label %rb_class_of.exit.i
+  %40 = trunc i64 %.0.i7 to i1
+  br i1 %40, label %rb_class_of.exit.i, label %41
 
 41:                                               ; preds = %39
   %42 = and i64 %.0.i7, 254
@@ -761,9 +759,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %23
   br label %rb_class_of.exit.i
 
 33:                                               ; preds = %31
-  %34 = and i64 %21, 1
-  %.not.i.i = icmp eq i64 %34, 0
-  br i1 %.not.i.i, label %35, label %rb_class_of.exit.i
+  %34 = trunc i64 %21 to i1
+  br i1 %34, label %rb_class_of.exit.i, label %35
 
 35:                                               ; preds = %33
   %36 = and i64 %21, 254

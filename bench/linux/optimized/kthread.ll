@@ -907,13 +907,12 @@ define dso_local zeroext i1 @kthread_is_per_cpu(ptr noundef readonly captures(no
 
 10:                                               ; preds = %5
   %11 = load volatile i64, ptr %3, align 8
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
+  %12 = trunc i64 %11 to i1
   br label %.thread
 
 .thread:                                          ; preds = %5, %1, %10
-  %14 = phi i1 [ %13, %10 ], [ false, %1 ], [ false, %5 ]
-  ret i1 %14
+  %13 = phi i1 [ %12, %10 ], [ false, %1 ], [ false, %5 ]
+  ret i1 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

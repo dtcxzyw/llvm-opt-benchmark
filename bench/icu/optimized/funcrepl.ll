@@ -241,9 +241,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7716FunctionRep
   store i16 2, ptr %6, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i16, ptr %7, align 8, !tbaa !16
-  %9 = and i16 %8, 1
-  %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %11, label %10
+  %9 = trunc i16 %8 to i1
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
   invoke void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -256,8 +255,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7716FunctionRep
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = select i1 %12, i32 %16, i32 %14
-  %.not24 = icmp eq i32 %17, 0
-  br i1 %.not24, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %18
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %18
 
 18:                                               ; preds = %11
   %19 = and i16 %8, 30

@@ -341,9 +341,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_send(ptr noundef %0, ptr noundef
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %0, ptr %18, align 8, !tbaa !51
   %19 = ptrtoint ptr %14 to i64
-  %20 = and i64 %19, 1
-  %.not56 = icmp eq i64 %20, 0
-  br i1 %.not56, label %21, label %_ZL8lean_incP11lean_object.exit
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %_ZL8lean_incP11lean_object.exit, label %21
 
 21:                                               ; preds = %4
   %.val.i = load i32, ptr %14, align 4, !tbaa !36
@@ -365,9 +364,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_send(ptr noundef %0, ptr noundef
 
 _ZL8lean_incP11lean_object.exit:                  ; preds = %26, %25, %23, %4
   %27 = ptrtoint ptr %0 to i64
-  %28 = and i64 %27, 1
-  %.not57 = icmp eq i64 %28, 0
-  br i1 %.not57, label %29, label %_ZL8lean_incP11lean_object.exit36
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %_ZL8lean_incP11lean_object.exit36, label %29
 
 29:                                               ; preds = %_ZL8lean_incP11lean_object.exit
   %.val.i49 = load i32, ptr %0, align 4, !tbaa !36
@@ -389,9 +387,8 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %26, %25, %23, %4
 
 _ZL8lean_incP11lean_object.exit36:                ; preds = %34, %33, %31, %_ZL8lean_incP11lean_object.exit
   %35 = ptrtoint ptr %2 to i64
-  %36 = and i64 %35, 1
-  %.not.i52 = icmp eq i64 %36, 0
-  br i1 %.not.i52, label %40, label %37
+  %36 = trunc i64 %35 to i1
+  br i1 %36, label %37, label %40
 
 37:                                               ; preds = %_ZL8lean_incP11lean_object.exit36
   %38 = lshr i64 %35, 1
@@ -400,8 +397,8 @@ _ZL8lean_incP11lean_object.exit36:                ; preds = %34, %33, %31, %_ZL8
 
 40:                                               ; preds = %_ZL8lean_incP11lean_object.exit36
   %41 = getelementptr i8, ptr %2, i64 4
-  %.val.i53 = load i32, ptr %41, align 4
-  %42 = lshr i32 %.val.i53, 24
+  %.val.i52 = load i32, ptr %41, align 4
+  %42 = lshr i32 %.val.i52, 24
   br label %_ZL12lean_obj_tagP11lean_object.exit
 
 _ZL12lean_obj_tagP11lean_object.exit:             ; preds = %37, %40
@@ -434,7 +431,7 @@ _ZL12lean_obj_tagP11lean_object.exit:             ; preds = %37, %40
   br i1 %52, label %53, label %89
 
 53:                                               ; preds = %51
-  br i1 %.not56, label %54, label %_ZL8lean_decP11lean_object.exit37
+  br i1 %20, label %_ZL8lean_decP11lean_object.exit37, label %54
 
 54:                                               ; preds = %53
   %55 = load i32, ptr %14, align 4, !tbaa !36
@@ -474,7 +471,7 @@ _ZL12lean_obj_tagP11lean_object.exit:             ; preds = %37, %40
   br label %_ZL8lean_decP11lean_object.exit37
 
 _ZL8lean_decP11lean_object.exit37:                ; preds = %59, %67, %66, %64, %53
-  br i1 %.not57, label %68, label %_ZL8lean_decP11lean_object.exit38
+  br i1 %28, label %_ZL8lean_decP11lean_object.exit38, label %68
 
 68:                                               ; preds = %_ZL8lean_decP11lean_object.exit37
   %69 = load i32, ptr %0, align 4, !tbaa !36
@@ -496,9 +493,8 @@ _ZL8lean_decP11lean_object.exit37:                ; preds = %59, %67, %66, %64, 
 
 _ZL8lean_decP11lean_object.exit38:                ; preds = %74, %73, %71, %_ZL8lean_decP11lean_object.exit37
   %75 = ptrtoint ptr %1 to i64
-  %76 = and i64 %75, 1
-  %.not58 = icmp eq i64 %76, 0
-  br i1 %.not58, label %77, label %_ZL8lean_decP11lean_object.exit39
+  %76 = trunc i64 %75 to i1
+  br i1 %76, label %_ZL8lean_decP11lean_object.exit39, label %77
 
 77:                                               ; preds = %_ZL8lean_decP11lean_object.exit38
   %78 = load i32, ptr %1, align 4, !tbaa !36
@@ -543,18 +539,18 @@ _ZL8lean_decP11lean_object.exit39:                ; preds = %83, %82, %80, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %89, %_ZL8lean_decP11lean_object.exit39
-  %.sink75 = phi ptr [ %86, %_ZL8lean_decP11lean_object.exit39 ], [ %90, %89 ]
-  %.sink72 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit39 ], [ 131096, %89 ]
+  %.sink71 = phi ptr [ %86, %_ZL8lean_decP11lean_object.exit39 ], [ %90, %89 ]
+  %.sink68 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit39 ], [ 131096, %89 ]
   %.sink = phi ptr [ %85, %_ZL8lean_decP11lean_object.exit39 ], [ %14, %89 ]
-  %93 = getelementptr inbounds nuw i8, ptr %.sink75, i64 4
-  store i32 1, ptr %.sink75, align 4, !tbaa !36
-  store i32 %.sink72, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %.sink75, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.sink71, i64 4
+  store i32 1, ptr %.sink71, align 4, !tbaa !36
+  store i32 %.sink68, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %.sink71, i64 8
   store ptr %.sink, ptr %94, align 8, !tbaa !30
-  %95 = getelementptr inbounds nuw i8, ptr %.sink75, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.sink71, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.sink75
+  ret ptr %.sink71
 }
 
 declare { ptr, i64 } @uv_buf_init(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -604,9 +600,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_recv(ptr noundef %0, i64 noundef
   store ptr %14, ptr %22, align 8, !tbaa !19
   store ptr %21, ptr %5, align 8, !tbaa !3
   %23 = ptrtoint ptr %21 to i64
-  %24 = and i64 %23, 1
-  %.not39 = icmp eq i64 %24, 0
-  br i1 %.not39, label %25, label %_ZL8lean_incP11lean_object.exit21
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %_ZL8lean_incP11lean_object.exit21, label %25
 
 25:                                               ; preds = %12
   %.val.i = load i32, ptr %21, align 4, !tbaa !36
@@ -628,9 +623,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_recv(ptr noundef %0, i64 noundef
 
 _ZL8lean_incP11lean_object.exit21:                ; preds = %30, %29, %27, %12
   %31 = ptrtoint ptr %0 to i64
-  %32 = and i64 %31, 1
-  %.not40 = icmp eq i64 %32, 0
-  br i1 %.not40, label %33, label %_ZL8lean_incP11lean_object.exit
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %_ZL8lean_incP11lean_object.exit, label %33
 
 33:                                               ; preds = %_ZL8lean_incP11lean_object.exit21
   %.val.i32 = load i32, ptr %0, align 4, !tbaa !36
@@ -660,9 +654,8 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %38, %37, %35, %_ZL8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @_ZN4lean17event_loop_unlockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
   %43 = ptrtoint ptr %14 to i64
-  %44 = and i64 %43, 1
-  %.not41 = icmp eq i64 %44, 0
-  br i1 %.not41, label %45, label %_ZL8lean_decP11lean_object.exit24
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %_ZL8lean_decP11lean_object.exit24, label %45
 
 45:                                               ; preds = %42
   %46 = load i32, ptr %14, align 4, !tbaa !36
@@ -683,7 +676,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %38, %37, %35, %_ZL8
   br label %_ZL8lean_decP11lean_object.exit24
 
 _ZL8lean_decP11lean_object.exit24:                ; preds = %51, %50, %48, %42
-  br i1 %.not39, label %52, label %_ZL8lean_decP11lean_object.exit22
+  br i1 %24, label %_ZL8lean_decP11lean_object.exit22, label %52
 
 52:                                               ; preds = %_ZL8lean_decP11lean_object.exit24
   %53 = load i32, ptr %21, align 4, !tbaa !36
@@ -723,7 +716,7 @@ _ZL8lean_decP11lean_object.exit24:                ; preds = %51, %50, %48, %42
   br label %_ZL8lean_decP11lean_object.exit22
 
 _ZL8lean_decP11lean_object.exit22:                ; preds = %57, %65, %64, %62, %_ZL8lean_decP11lean_object.exit24
-  br i1 %.not40, label %66, label %_ZL8lean_decP11lean_object.exit
+  br i1 %32, label %_ZL8lean_decP11lean_object.exit, label %66
 
 66:                                               ; preds = %_ZL8lean_decP11lean_object.exit22
   %67 = load i32, ptr %0, align 4, !tbaa !36
@@ -766,17 +759,17 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %72, %71, %69, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %77, %_ZL8lean_decP11lean_object.exit, %7
-  %.sink59 = phi ptr [ %9, %7 ], [ %74, %_ZL8lean_decP11lean_object.exit ], [ %78, %77 ]
-  %.sink56 = phi i32 [ 16908312, %7 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %77 ]
+  %.sink56 = phi ptr [ %9, %7 ], [ %74, %_ZL8lean_decP11lean_object.exit ], [ %78, %77 ]
+  %.sink53 = phi i32 [ 16908312, %7 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %77 ]
   %.sink = phi ptr [ %8, %7 ], [ %73, %_ZL8lean_decP11lean_object.exit ], [ %21, %77 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
-  store i32 1, ptr %.sink59, align 4, !tbaa !36
-  store i32 %.sink56, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.sink56, i64 4
+  store i32 1, ptr %.sink56, align 4, !tbaa !36
+  store i32 %.sink53, ptr %81, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
   store ptr %.sink, ptr %82, align 8, !tbaa !30
-  %83 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %83, align 8, !tbaa !30
-  ret ptr %.sink59
+  ret ptr %.sink56
 }
 
 declare i32 @uv_udp_recv_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -808,9 +801,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_wait_readable(ptr noundef %0, pt
   tail call void @lean_mark_mt(ptr noundef %12)
   store ptr %12, ptr %4, align 8, !tbaa !3
   %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, 1
-  %.not31 = icmp eq i64 %14, 0
-  br i1 %.not31, label %15, label %_ZL8lean_incP11lean_object.exit16
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %_ZL8lean_incP11lean_object.exit16, label %15
 
 15:                                               ; preds = %11
   %.val.i = load i32, ptr %12, align 4, !tbaa !36
@@ -832,9 +824,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_wait_readable(ptr noundef %0, pt
 
 _ZL8lean_incP11lean_object.exit16:                ; preds = %20, %19, %17, %11
   %21 = ptrtoint ptr %0 to i64
-  %22 = and i64 %21, 1
-  %.not32 = icmp eq i64 %22, 0
-  br i1 %.not32, label %23, label %_ZL8lean_incP11lean_object.exit
+  %22 = trunc i64 %21 to i1
+  br i1 %22, label %_ZL8lean_incP11lean_object.exit, label %23
 
 23:                                               ; preds = %_ZL8lean_incP11lean_object.exit16
   %.val.i24 = load i32, ptr %0, align 4, !tbaa !36
@@ -863,7 +854,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %28, %27, %25, %_ZL8
 32:                                               ; preds = %_ZL8lean_incP11lean_object.exit
   store ptr null, ptr %4, align 8, !tbaa !3
   tail call void @_ZN4lean17event_loop_unlockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
-  br i1 %.not31, label %33, label %_ZL8lean_decP11lean_object.exit17
+  br i1 %14, label %_ZL8lean_decP11lean_object.exit17, label %33
 
 33:                                               ; preds = %32
   %34 = load i32, ptr %12, align 4, !tbaa !36
@@ -903,7 +894,7 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %28, %27, %25, %_ZL8
   br label %_ZL8lean_decP11lean_object.exit17
 
 _ZL8lean_decP11lean_object.exit17:                ; preds = %38, %46, %45, %43, %32
-  br i1 %.not32, label %47, label %_ZL8lean_decP11lean_object.exit
+  br i1 %22, label %_ZL8lean_decP11lean_object.exit, label %47
 
 47:                                               ; preds = %_ZL8lean_decP11lean_object.exit17
   %48 = load i32, ptr %0, align 4, !tbaa !36
@@ -946,17 +937,17 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %53, %52, %50, %_ZL8
   unreachable
 
 _ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %58, %_ZL8lean_decP11lean_object.exit, %6
-  %.sink48 = phi ptr [ %8, %6 ], [ %55, %_ZL8lean_decP11lean_object.exit ], [ %59, %58 ]
-  %.sink45 = phi i32 [ 16908312, %6 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %58 ]
+  %.sink46 = phi ptr [ %8, %6 ], [ %55, %_ZL8lean_decP11lean_object.exit ], [ %59, %58 ]
+  %.sink43 = phi i32 [ 16908312, %6 ], [ 16908312, %_ZL8lean_decP11lean_object.exit ], [ 131096, %58 ]
   %.sink = phi ptr [ %7, %6 ], [ %54, %_ZL8lean_decP11lean_object.exit ], [ %12, %58 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sink48, i64 4
-  store i32 1, ptr %.sink48, align 4, !tbaa !36
-  store i32 %.sink45, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %.sink48, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink46, i64 4
+  store i32 1, ptr %.sink46, align 4, !tbaa !36
+  store i32 %.sink43, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %.sink46, i64 8
   store ptr %.sink, ptr %63, align 8, !tbaa !30
-  %64 = getelementptr inbounds nuw i8, ptr %.sink48, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.sink46, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %64, align 8, !tbaa !30
-  ret ptr %.sink48
+  ret ptr %.sink46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -985,9 +976,8 @@ define noalias noundef nonnull ptr @lean_uv_udp_cancel_recv(ptr noundef readonly
   %13 = tail call i32 @uv_udp_recv_stop(ptr noundef %12)
   %14 = load ptr, ptr %4, align 8, !tbaa !3
   %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, 1
-  %.not20 = icmp eq i64 %16, 0
-  br i1 %.not20, label %17, label %_ZL8lean_decP11lean_object.exit14
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %_ZL8lean_decP11lean_object.exit14, label %17
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %14, align 4, !tbaa !36
@@ -1016,9 +1006,8 @@ _ZL8lean_decP11lean_object.exit14:                ; preds = %23, %22, %20, %11
 
 26:                                               ; preds = %_ZL8lean_decP11lean_object.exit14
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not21 = icmp eq i64 %28, 0
-  br i1 %.not21, label %29, label %_ZL8lean_decP11lean_object.exit13
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %_ZL8lean_decP11lean_object.exit13, label %29
 
 29:                                               ; preds = %26
   %30 = load i32, ptr %25, align 4, !tbaa !36
@@ -1044,9 +1033,8 @@ _ZL8lean_decP11lean_object.exit13:                ; preds = %35, %34, %32, %26
 
 36:                                               ; preds = %_ZL8lean_decP11lean_object.exit13, %_ZL8lean_decP11lean_object.exit14
   %37 = ptrtoint ptr %.val to i64
-  %38 = and i64 %37, 1
-  %.not22 = icmp eq i64 %38, 0
-  br i1 %.not22, label %39, label %_ZL8lean_decP11lean_object.exit
+  %38 = trunc i64 %37 to i1
+  br i1 %38, label %_ZL8lean_decP11lean_object.exit, label %39
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %.val, align 4, !tbaa !36
@@ -1078,15 +1066,15 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %45, %44, %42, %36
   unreachable
 
 _ZL20lean_io_result_mk_okP11lean_object.exit:     ; preds = %_ZL8lean_decP11lean_object.exit, %7
-  %.sink34 = phi ptr [ %8, %7 ], [ %46, %_ZL8lean_decP11lean_object.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
-  store i32 1, ptr %.sink34, align 4, !tbaa !36
+  %.sink31 = phi ptr [ %8, %7 ], [ %46, %_ZL8lean_decP11lean_object.exit ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sink31, i64 4
+  store i32 1, ptr %.sink31, align 4, !tbaa !36
   store i32 131096, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sink31, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %50, align 8, !tbaa !30
-  %51 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.sink31, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %51, align 8, !tbaa !30
-  ret ptr %.sink34
+  ret ptr %.sink31
 }
 
 declare i32 @uv_udp_recv_stop(ptr noundef) local_unnamed_addr #1
@@ -1360,10 +1348,9 @@ define noalias noundef nonnull ptr @lean_uv_udp_set_membership(ptr noundef reado
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4lean17lean_ip_addr_ntopEP11lean_objectPcm(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 16)
   %9 = ptrtoint ptr %2 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
+  %10 = trunc i64 %9 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %.not, label %11, label %13
+  br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr i8, ptr %2, i64 8
@@ -1555,9 +1542,8 @@ define internal void @"_ZZN4lean27initialize_libuv_udp_socketEvEN3$_08__invokeEP
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not1.i = icmp eq i64 %7, 0
-  br i1 %.not1.i, label %8, label %_ZL8lean_incP11lean_object.exit10.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZL8lean_incP11lean_object.exit10.i, label %8
 
 8:                                                ; preds = %5
   %.val.i.i = load i32, ptr %1, align 4, !tbaa !36
@@ -1591,9 +1577,8 @@ _ZL8lean_incP11lean_object.exit10.i:              ; preds = %13, %12, %10, %5
 
 19:                                               ; preds = %16
   %20 = ptrtoint ptr %1 to i64
-  %21 = and i64 %20, 1
-  %.not2.i = icmp eq i64 %21, 0
-  br i1 %.not2.i, label %22, label %_ZL8lean_incP11lean_object.exit.i
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %_ZL8lean_incP11lean_object.exit.i, label %22
 
 22:                                               ; preds = %19
   %.val.i11.i = load i32, ptr %1, align 4, !tbaa !36
@@ -1611,11 +1596,11 @@ _ZL8lean_incP11lean_object.exit10.i:              ; preds = %13, %12, %10, %5
 
 27:                                               ; preds = %26
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %1)
-  %.pre3.i = load ptr, ptr %17, align 8, !tbaa !19
+  %.pre1.i = load ptr, ptr %17, align 8, !tbaa !19
   br label %_ZL8lean_incP11lean_object.exit.i
 
 _ZL8lean_incP11lean_object.exit.i:                ; preds = %27, %26, %24, %19
-  %28 = phi ptr [ %.pre3.i, %27 ], [ %18, %26 ], [ %18, %24 ], [ %18, %19 ]
+  %28 = phi ptr [ %.pre1.i, %27 ], [ %18, %26 ], [ %18, %24 ], [ %18, %19 ]
   %29 = tail call ptr @lean_apply_1(ptr noundef %1, ptr noundef %28)
   br label %"_ZZN4lean27initialize_libuv_udp_socketEvENK3$_0clEPvP11lean_object.exit"
 
@@ -1642,9 +1627,8 @@ define internal void @"_ZZ16lean_uv_udp_sendEN3$_08__invokeEP13uv_udp_send_si"(p
   tail call void @_ZN4lean30lean_promise_resolve_with_codeEiP11lean_object(i32 noundef %1, ptr noundef %4)
   %5 = load ptr, ptr %3, align 8, !tbaa !48
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %_ZL8lean_decP11lean_object.exit8.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZL8lean_decP11lean_object.exit8.i, label %8
 
 8:                                                ; preds = %2
   %9 = load i32, ptr %5, align 4, !tbaa !36
@@ -1668,9 +1652,8 @@ _ZL8lean_decP11lean_object.exit8.i:               ; preds = %14, %13, %11, %2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 1
-  %.not1.i = icmp eq i64 %18, 0
-  br i1 %.not1.i, label %19, label %_ZL8lean_decP11lean_object.exit7.i
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %_ZL8lean_decP11lean_object.exit7.i, label %19
 
 19:                                               ; preds = %_ZL8lean_decP11lean_object.exit8.i
   %20 = load i32, ptr %16, align 4, !tbaa !36
@@ -1694,9 +1677,8 @@ _ZL8lean_decP11lean_object.exit7.i:               ; preds = %25, %24, %22, %_ZL8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, 1
-  %.not2.i = icmp eq i64 %29, 0
-  br i1 %.not2.i, label %30, label %"_ZZ16lean_uv_udp_sendENK3$_0clEP13uv_udp_send_si.exit"
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %"_ZZ16lean_uv_udp_sendENK3$_0clEP13uv_udp_send_si.exit", label %30
 
 30:                                               ; preds = %_ZL8lean_decP11lean_object.exit7.i
   %31 = load i32, ptr %27, align 4, !tbaa !36
@@ -1814,9 +1796,8 @@ _ZL15lean_alloc_ctorjjj.exit.i:                   ; preds = %23
 
 33:                                               ; preds = %5
   %34 = ptrtoint ptr %12 to i64
-  %35 = and i64 %34, 1
-  %.not1.i = icmp eq i64 %35, 0
-  br i1 %.not1.i, label %36, label %_ZL8lean_decP11lean_object.exit25.i
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %_ZL8lean_decP11lean_object.exit25.i, label %36
 
 36:                                               ; preds = %33
   %37 = load i32, ptr %12, align 4, !tbaa !36
@@ -1849,19 +1830,18 @@ _ZL8lean_decP11lean_object.exit25.i:              ; preds = %42, %41, %39, %33
   unreachable
 
 _ZN4lean12mk_except_okEP11lean_object.exit.i:     ; preds = %_ZL8lean_decP11lean_object.exit25.i, %_ZL15lean_alloc_ctorjjj.exit.i
-  %.sink22.i = phi ptr [ %30, %_ZL15lean_alloc_ctorjjj.exit.i ], [ %45, %_ZL8lean_decP11lean_object.exit25.i ]
-  %.sink19.i = phi i32 [ 16842768, %_ZL15lean_alloc_ctorjjj.exit.i ], [ 65552, %_ZL8lean_decP11lean_object.exit25.i ]
-  %.sink16.i = phi ptr [ %24, %_ZL15lean_alloc_ctorjjj.exit.i ], [ %44, %_ZL8lean_decP11lean_object.exit25.i ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 4
-  store i32 1, ptr %.sink22.i, align 4, !tbaa !36
-  store i32 %.sink19.i, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %.sink22.i, i64 8
-  store ptr %.sink16.i, ptr %49, align 8, !tbaa !30
-  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink22.i, ptr noundef %10)
+  %.sink19.i = phi ptr [ %30, %_ZL15lean_alloc_ctorjjj.exit.i ], [ %45, %_ZL8lean_decP11lean_object.exit25.i ]
+  %.sink16.i = phi i32 [ 16842768, %_ZL15lean_alloc_ctorjjj.exit.i ], [ 65552, %_ZL8lean_decP11lean_object.exit25.i ]
+  %.sink13.i = phi ptr [ %24, %_ZL15lean_alloc_ctorjjj.exit.i ], [ %44, %_ZL8lean_decP11lean_object.exit25.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sink19.i, i64 4
+  store i32 1, ptr %.sink19.i, align 4, !tbaa !36
+  store i32 %.sink16.i, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sink19.i, i64 8
+  store ptr %.sink13.i, ptr %49, align 8, !tbaa !30
+  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink19.i, ptr noundef %10)
   %50 = ptrtoint ptr %10 to i64
-  %51 = and i64 %50, 1
-  %.not2.i = icmp eq i64 %51, 0
-  br i1 %.not2.i, label %52, label %_ZL8lean_decP11lean_object.exit24.i
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %_ZL8lean_decP11lean_object.exit24.i, label %52
 
 52:                                               ; preds = %_ZN4lean12mk_except_okEP11lean_object.exit.i
   %53 = load i32, ptr %10, align 4, !tbaa !36
@@ -1884,9 +1864,8 @@ _ZN4lean12mk_except_okEP11lean_object.exit.i:     ; preds = %_ZL8lean_decP11lean
 _ZL8lean_decP11lean_object.exit24.i:              ; preds = %58, %57, %55, %_ZN4lean12mk_except_okEP11lean_object.exit.i
   %59 = load ptr, ptr %0, align 8, !tbaa !21
   %60 = ptrtoint ptr %59 to i64
-  %61 = and i64 %60, 1
-  %.not3.i = icmp eq i64 %61, 0
-  br i1 %.not3.i, label %62, label %"_ZZ16lean_uv_udp_recvENK3$_1clEP8uv_udp_slPK8uv_buf_tPK8sockaddrj.exit"
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %"_ZZ16lean_uv_udp_recvENK3$_1clEP8uv_udp_slPK8uv_buf_tPK8sockaddrj.exit", label %62
 
 62:                                               ; preds = %_ZL8lean_decP11lean_object.exit24.i
   %63 = load i32, ptr %59, align 4, !tbaa !36
@@ -1970,19 +1949,18 @@ define internal void @"_ZZ25lean_uv_udp_wait_readableEN3$_18__invokeEP8uv_udp_sl
   unreachable
 
 _ZN4lean12mk_except_okEP11lean_object.exit.i:     ; preds = %18, %12
-  %.sink13.i = phi ptr [ %13, %12 ], [ %21, %18 ]
-  %.sink10.i = phi i32 [ 16842768, %12 ], [ 65552, %18 ]
-  %.sink7.i = phi ptr [ inttoptr (i64 1 to ptr), %12 ], [ %20, %18 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 4
-  store i32 1, ptr %.sink13.i, align 4, !tbaa !36
-  store i32 %.sink10.i, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 8
-  store ptr %.sink7.i, ptr %30, align 8, !tbaa !30
-  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink13.i, ptr noundef %10)
+  %.sink12.i = phi ptr [ %13, %12 ], [ %21, %18 ]
+  %.sink9.i = phi i32 [ 16842768, %12 ], [ 65552, %18 ]
+  %.sink6.i = phi ptr [ inttoptr (i64 1 to ptr), %12 ], [ %20, %18 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 4
+  store i32 1, ptr %.sink12.i, align 4, !tbaa !36
+  store i32 %.sink9.i, ptr %29, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 8
+  store ptr %.sink6.i, ptr %30, align 8, !tbaa !30
+  tail call void @_ZN4lean20lean_promise_resolveEP11lean_objectS1_(ptr noundef nonnull %.sink12.i, ptr noundef %10)
   %31 = ptrtoint ptr %10 to i64
-  %32 = and i64 %31, 1
-  %.not.i = icmp eq i64 %32, 0
-  br i1 %.not.i, label %33, label %_ZL8lean_decP11lean_object.exit12.i
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %_ZL8lean_decP11lean_object.exit12.i, label %33
 
 33:                                               ; preds = %_ZN4lean12mk_except_okEP11lean_object.exit.i
   %34 = load i32, ptr %10, align 4, !tbaa !36
@@ -2005,9 +1983,8 @@ _ZN4lean12mk_except_okEP11lean_object.exit.i:     ; preds = %18, %12
 _ZL8lean_decP11lean_object.exit12.i:              ; preds = %39, %38, %36, %_ZN4lean12mk_except_okEP11lean_object.exit.i
   %40 = load ptr, ptr %0, align 8, !tbaa !21
   %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %41, 1
-  %.not1.i = icmp eq i64 %42, 0
-  br i1 %.not1.i, label %43, label %"_ZZ25lean_uv_udp_wait_readableENK3$_1clEP8uv_udp_slPK8uv_buf_tPK8sockaddrj.exit"
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %"_ZZ25lean_uv_udp_wait_readableENK3$_1clEP8uv_udp_slPK8uv_buf_tPK8sockaddrj.exit", label %43
 
 43:                                               ; preds = %_ZL8lean_decP11lean_object.exit12.i
   %44 = load i32, ptr %40, align 4, !tbaa !36

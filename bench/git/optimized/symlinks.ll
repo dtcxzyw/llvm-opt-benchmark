@@ -508,15 +508,15 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   %56 = sext i32 %.1 to i64
   %57 = icmp eq i64 %24, %56
   %or.cond121 = select i1 %.not107, i1 %57, i1 false
-  br i1 %or.cond121, label %144, label %58
+  br i1 %or.cond121, label %143, label %58
 
 58:                                               ; preds = %longest_path_match.exit
   %59 = and i32 %4, 1
   store i32 %59, ptr %3, align 4, !tbaa !4
-  %.not108 = icmp ne i32 %59, 0
+  %.not108 = trunc i32 %4 to i1
   %60 = icmp eq i32 %2, %.1
   %or.cond116 = select i1 %.not108, i1 %60, i1 false
-  br i1 %or.cond116, label %144, label %61
+  br i1 %or.cond116, label %143, label %61
 
 61:                                               ; preds = %58, %reset_lstat_cache.exit
   %62 = phi i64 [ %.pre, %reset_lstat_cache.exit ], [ %24, %58 ]
@@ -725,44 +725,43 @@ longest_path_match.exit:                          ; preds = %.lr.ph.i, %44, %49,
   br label %reset_lstat_cache.exit119
 
 130:                                              ; preds = %.loopexit
-  %131 = and i32 %4, 1
-  %132 = icmp ne i32 %131, 0
-  %133 = icmp sgt i32 %.089128, 0
-  %or.cond3 = and i1 %132, %133
-  br i1 %or.cond3, label %134, label %138
+  %131 = trunc i32 %4 to i1
+  %132 = icmp sgt i32 %.089128, 0
+  %or.cond3 = and i1 %132, %131
+  br i1 %or.cond3, label %133, label %137
 
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %69, align 8, !tbaa !28
-  %136 = zext nneg i32 %.089128 to i64
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
-  store i8 0, ptr %137, align 1, !tbaa !18
-  store i64 %136, ptr %64, align 8, !tbaa !27
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %69, align 8, !tbaa !28
+  %135 = zext nneg i32 %.089128 to i64
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
+  store i8 0, ptr %136, align 1, !tbaa !18
+  store i64 %135, ptr %64, align 8, !tbaa !27
   br label %reset_lstat_cache.exit119
 
-138:                                              ; preds = %130
+137:                                              ; preds = %130
   store i64 0, ptr %64, align 8, !tbaa !17
-  %139 = load ptr, ptr %69, align 8, !tbaa !14
-  %.not9.i.i118 = icmp eq ptr %139, @strbuf_slopbuf
-  br i1 %.not9.i.i118, label %reset_lstat_cache.exit119, label %140
+  %138 = load ptr, ptr %69, align 8, !tbaa !14
+  %.not9.i.i118 = icmp eq ptr %138, @strbuf_slopbuf
+  br i1 %.not9.i.i118, label %reset_lstat_cache.exit119, label %139
 
-140:                                              ; preds = %138
-  store i8 0, ptr %139, align 1, !tbaa !18
+139:                                              ; preds = %137
+  store i8 0, ptr %138, align 1, !tbaa !18
   br label %reset_lstat_cache.exit119
 
-reset_lstat_cache.exit119:                        ; preds = %140, %138, %134, %126
-  %.sink = phi i32 [ 1, %134 ], [ %123, %126 ], [ 0, %138 ], [ 0, %140 ]
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %141, align 8, !tbaa !23
+reset_lstat_cache.exit119:                        ; preds = %139, %137, %133, %126
+  %.sink = phi i32 [ 1, %133 ], [ %123, %126 ], [ 0, %137 ], [ 0, %139 ]
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.sink, ptr %140, align 8, !tbaa !23
   %.not114 = icmp eq i32 %.0, 0
-  br i1 %.not114, label %144, label %142
+  br i1 %.not114, label %143, label %141
 
-142:                                              ; preds = %reset_lstat_cache.exit119
-  %143 = tail call ptr @__errno_location() #11
-  store i32 %.0, ptr %143, align 4, !tbaa !4
-  br label %144
+141:                                              ; preds = %reset_lstat_cache.exit119
+  %142 = tail call ptr @__errno_location() #11
+  store i32 %.0, ptr %142, align 4, !tbaa !4
+  br label %143
 
-144:                                              ; preds = %longest_path_match.exit, %reset_lstat_cache.exit119, %142, %58
-  %.088 = phi i32 [ %2, %58 ], [ %.1, %longest_path_match.exit ], [ %.394, %142 ], [ %.394, %reset_lstat_cache.exit119 ]
+143:                                              ; preds = %longest_path_match.exit, %reset_lstat_cache.exit119, %141, %58
+  %.088 = phi i32 [ %2, %58 ], [ %.1, %longest_path_match.exit ], [ %.394, %141 ], [ %.394, %reset_lstat_cache.exit119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.088
 }

@@ -290,9 +290,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %24, align 8, !tbaa !15
   %25 = load i32, ptr %4, align 8, !tbaa !33
-  %26 = and i32 %25, 1
-  %.not33 = icmp eq i32 %26, 0
-  br i1 %.not33, label %37, label %27
+  %26 = trunc i32 %25 to i1
+  br i1 %26, label %27, label %37
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -320,8 +319,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %27, %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %39, align 8, !tbaa !15
   %40 = and i32 %38, 2
-  %.not34 = icmp eq i32 %40, 0
-  br i1 %.not34, label %51, label %41
+  %.not33 = icmp eq i32 %40, 0
+  br i1 %.not33, label %51, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -341,16 +340,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %27, %33
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit23: ; preds = %41, %47
   %.0.i.i22 = phi ptr [ %50, %47 ], [ %44, %41 ]
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %.0.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %43)
-  %.pre36 = load i32, ptr %4, align 8, !tbaa !33
+  %.pre35 = load i32, ptr %4, align 8, !tbaa !33
   br label %51
 
 51:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit23, %37
-  %52 = phi i32 [ %.pre36, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit23 ], [ %38, %37 ]
+  %52 = phi i32 [ %.pre35, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit23 ], [ %38, %37 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %53, align 8, !tbaa !15
   %54 = and i32 %52, 4
-  %.not35 = icmp eq i32 %54, 0
-  br i1 %.not35, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit32, label %55
+  %.not34 = icmp eq i32 %54, 0
+  br i1 %.not34, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit32, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40

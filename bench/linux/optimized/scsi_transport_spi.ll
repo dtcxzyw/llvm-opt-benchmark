@@ -335,7 +335,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load ptr, ptr %73, align 8
   %75 = icmp ne ptr %74, null
-  %76 = icmp ne i16 %44, 0
+  %76 = trunc i16 %43 to i1
   %77 = select i1 %75, i1 %76, i1 false
   br i1 %77, label %78, label %89
 

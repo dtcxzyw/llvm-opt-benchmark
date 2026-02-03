@@ -1158,14 +1158,13 @@ define hidden noundef zeroext i1 @_Z42_hb_unicode_is_emoji_Extended_Pictographic
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = and i32 %0, 7
-  %40 = shl nuw nsw i32 1, %39
-  %41 = and i32 %40, %38
-  %42 = icmp ne i32 %41, 0
+  %40 = lshr i32 %38, %39
+  %41 = trunc i32 %40 to i1
   br label %_ZL34_hb_emoji_is_Extended_Pictographicj.exit
 
 _ZL34_hb_emoji_is_Extended_Pictographicj.exit:    ; preds = %1, %3
-  %43 = phi i1 [ %42, %3 ], [ false, %1 ]
-  ret i1 %43
+  %42 = phi i1 [ %41, %3 ], [ false, %1 ]
+  ret i1 %42
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)

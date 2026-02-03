@@ -3545,9 +3545,8 @@ define noundef range(i16 1920, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFla
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen2ir8memflags8MemFlags7aligned17hf1353e09c39ca27fE(i16 noundef %0) unnamed_addr #12 {
-  %2 = and i16 %0, 1
-  %3 = icmp ne i16 %2, 0
-  ret i1 %3
+  %2 = trunc i16 %0 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -3774,9 +3773,8 @@ define noundef zeroext i1 @"_ZN80_$LT$cranelift_codegen..ir..memflags..MemFlags$
   br i1 %27, label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread, label %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
 
 _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: ; preds = %29, %2, %22
-  %28 = and i16 %15, 1
-  %.not = icmp eq i16 %28, 0
-  br i1 %.not, label %36, label %38
+  %28 = trunc i16 %15 to i1
+  br i1 %28, label %38, label %36
 
 29:                                               ; preds = %2, %19, %20, %21
   %.sroa.0.0.i.ph = phi i16 [ 13, %21 ], [ 12, %20 ], [ %17, %19 ], [ 0, %2 ]
@@ -3804,8 +3802,8 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
 
 36:                                               ; preds = %38, %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
   %37 = and i16 %15, 2
-  %.not64 = icmp eq i16 %37, 0
-  br i1 %.not64, label %44, label %46
+  %.not = icmp eq i16 %37, 0
+  br i1 %.not, label %44, label %46
 
 38:                                               ; preds = %_ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3824,8 +3822,8 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
 
 44:                                               ; preds = %46, %36
   %45 = and i16 %15, 8
-  %.not65 = icmp eq i16 %45, 0
-  br i1 %.not65, label %52, label %54
+  %.not64 = icmp eq i16 %45, 0
+  br i1 %.not64, label %52, label %54
 
 46:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3844,8 +3842,8 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
 
 52:                                               ; preds = %54, %44
   %53 = and i16 %15, 4
-  %.not66 = icmp eq i16 %53, 0
-  br i1 %.not66, label %60, label %62
+  %.not65 = icmp eq i16 %53, 0
+  br i1 %.not65, label %60, label %62
 
 54:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3864,8 +3862,8 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags9trap_code17hcf03bb87fb184572E.exit: 
 
 60:                                               ; preds = %62, %52
   %61 = and i16 %15, 16
-  %.not67 = icmp eq i16 %61, 0
-  br i1 %.not67, label %68, label %71
+  %.not66 = icmp eq i16 %61, 0
+  br i1 %.not66, label %68, label %71
 
 62:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

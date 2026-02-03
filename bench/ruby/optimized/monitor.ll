@@ -448,9 +448,8 @@ define internal noundef i64 @monitor_enter_for_cond(i64 noundef %0) #0 {
 rb_obj_write.exit:                                ; preds = %1, %12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !24
-  %15 = and i64 %14, 1
-  %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %18, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %18
 
 16:                                               ; preds = %rb_obj_write.exit
   %17 = ashr i64 %14, 1

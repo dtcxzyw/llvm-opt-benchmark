@@ -73,9 +73,8 @@ _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %5
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 1
-  %.not5.i = icmp eq i32 %15, 0
-  br i1 %.not5.i, label %77, label %16
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %16, label %77
 
 16:                                               ; preds = %_Z12qobject_castIP7QWidgetET_P7QObject.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

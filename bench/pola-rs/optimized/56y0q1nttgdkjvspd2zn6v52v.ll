@@ -9615,10 +9615,10 @@ default.unreachable38:                            ; preds = %27
   %43 = load i8, ptr %42, align 1, !noundef !3
   %44 = trunc i64 %39 to i8
   %45 = and i8 %44, 7
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %47 = lshr i8 %43, %45
-  %48 = and i8 %47, 1
-  store i8 %48, ptr %46, align 1
+  %46 = lshr i8 %43, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %48 = and i8 %46, 1
+  store i8 %48, ptr %47, align 1
   store i8 1, ptr %0, align 16
   br label %355
 
@@ -123456,9 +123456,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12672)
@@ -123483,10 +123483,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -123787,9 +123787,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12711)
@@ -123814,10 +123814,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -124118,9 +124118,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12750)
@@ -124145,10 +124145,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -124449,9 +124449,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12789)
@@ -124476,10 +124476,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -124780,9 +124780,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12828)
@@ -124807,10 +124807,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -125111,9 +125111,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12867)
@@ -125138,10 +125138,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -125442,9 +125442,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12906)
@@ -125469,10 +125469,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -125773,9 +125773,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12945)
@@ -125800,10 +125800,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -126104,9 +126104,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12984)
@@ -126131,10 +126131,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -126435,9 +126435,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13023)
@@ -126462,10 +126462,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -126766,9 +126766,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13062)
@@ -126793,10 +126793,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -127097,9 +127097,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13101)
@@ -127124,10 +127124,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -127428,9 +127428,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13140)
@@ -127455,10 +127455,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -127747,9 +127747,9 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   br label %38
 
 38:                                               ; preds = %._crit_edge.i.i, %34
-  %39 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
+  %39 = phi i64 [ %56, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
   %40 = phi i64 [ %49, %._crit_edge.i.i ], [ %.promoted13.i, %34 ]
-  %.pre.i12.i = phi i64 [ %54, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
+  %.pre.i12.i = phi i64 [ %55, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
   %41 = phi ptr [ %50, %._crit_edge.i.i ], [ %.promoted11.i, %34 ]
   %42 = phi i64 [ %51, %._crit_edge.i.i ], [ %.promoted10.i, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13179)
@@ -127774,10 +127774,10 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   %51 = phi i64 [ %46, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %42, %38 ]
   %52 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %39, %38 ]
   %53 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %38 ]
-  %54 = lshr i64 %53, 1
-  %55 = add i64 %52, -1
-  %56 = trunc i64 %53 to i1
-  br i1 %56, label %57, label %38
+  %54 = trunc i64 %53 to i1
+  %55 = lshr i64 %53, 1
+  %56 = add i64 %52, -1
+  br i1 %54, label %57, label %38
 
 57:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -128068,9 +128068,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13218)
@@ -128095,10 +128095,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -128399,9 +128399,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13257)
@@ -128426,10 +128426,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -128730,9 +128730,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13296)
@@ -128757,10 +128757,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -129049,9 +129049,9 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   br label %38
 
 38:                                               ; preds = %._crit_edge.i.i, %34
-  %39 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
+  %39 = phi i64 [ %56, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
   %40 = phi i64 [ %49, %._crit_edge.i.i ], [ %.promoted13.i, %34 ]
-  %.pre.i12.i = phi i64 [ %54, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
+  %.pre.i12.i = phi i64 [ %55, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
   %41 = phi ptr [ %50, %._crit_edge.i.i ], [ %.promoted11.i, %34 ]
   %42 = phi i64 [ %51, %._crit_edge.i.i ], [ %.promoted10.i, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13335)
@@ -129076,10 +129076,10 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   %51 = phi i64 [ %46, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %42, %38 ]
   %52 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %39, %38 ]
   %53 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %38 ]
-  %54 = lshr i64 %53, 1
-  %55 = add i64 %52, -1
-  %56 = trunc i64 %53 to i1
-  br i1 %56, label %57, label %38
+  %54 = trunc i64 %53 to i1
+  %55 = lshr i64 %53, 1
+  %56 = add i64 %52, -1
+  br i1 %54, label %57, label %38
 
 57:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -129370,9 +129370,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13374)
@@ -129397,10 +129397,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -129701,9 +129701,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13413)
@@ -129728,10 +129728,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -130032,9 +130032,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13452)
@@ -130059,10 +130059,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -130363,9 +130363,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13491)
@@ -130390,10 +130390,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -130694,9 +130694,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13530)
@@ -130721,10 +130721,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -131025,9 +131025,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13569)
@@ -131052,10 +131052,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -131356,9 +131356,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13608)
@@ -131383,10 +131383,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -131687,9 +131687,9 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   br label %42
 
 42:                                               ; preds = %._crit_edge.i.i, %38
-  %43 = phi i64 [ %59, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
+  %43 = phi i64 [ %60, %._crit_edge.i.i ], [ %.promoted.i, %38 ]
   %44 = phi i64 [ %53, %._crit_edge.i.i ], [ %.promoted13.i, %38 ]
-  %.pre.i12.i = phi i64 [ %58, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
+  %.pre.i12.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %38 ]
   %45 = phi ptr [ %54, %._crit_edge.i.i ], [ %.promoted11.i, %38 ]
   %46 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted10.i, %38 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13647)
@@ -131714,10 +131714,10 @@ define hidden void @_ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_wind
   %55 = phi i64 [ %50, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %46, %42 ]
   %56 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %43, %42 ]
   %57 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %42 ]
-  %58 = lshr i64 %57, 1
-  %59 = add i64 %56, -1
-  %60 = trunc i64 %57 to i1
-  br i1 %60, label %61, label %42
+  %58 = trunc i64 %57 to i1
+  %59 = lshr i64 %57, 1
+  %60 = add i64 %56, -1
+  br i1 %58, label %61, label %42
 
 61:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -132006,9 +132006,9 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   br label %38
 
 38:                                               ; preds = %._crit_edge.i.i, %34
-  %39 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
+  %39 = phi i64 [ %56, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
   %40 = phi i64 [ %49, %._crit_edge.i.i ], [ %.promoted13.i, %34 ]
-  %.pre.i12.i = phi i64 [ %54, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
+  %.pre.i12.i = phi i64 [ %55, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
   %41 = phi ptr [ %50, %._crit_edge.i.i ], [ %.promoted11.i, %34 ]
   %42 = phi i64 [ %51, %._crit_edge.i.i ], [ %.promoted10.i, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13686)
@@ -132033,10 +132033,10 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   %51 = phi i64 [ %46, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %42, %38 ]
   %52 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %39, %38 ]
   %53 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %38 ]
-  %54 = lshr i64 %53, 1
-  %55 = add i64 %52, -1
-  %56 = trunc i64 %53 to i1
-  br i1 %56, label %57, label %38
+  %54 = trunc i64 %53 to i1
+  %55 = lshr i64 %53, 1
+  %56 = add i64 %52, -1
+  br i1 %54, label %57, label %38
 
 57:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -132315,9 +132315,9 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   br label %38
 
 38:                                               ; preds = %._crit_edge.i.i, %34
-  %39 = phi i64 [ %55, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
+  %39 = phi i64 [ %56, %._crit_edge.i.i ], [ %.promoted.i, %34 ]
   %40 = phi i64 [ %49, %._crit_edge.i.i ], [ %.promoted13.i, %34 ]
-  %.pre.i12.i = phi i64 [ %54, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
+  %.pre.i12.i = phi i64 [ %55, %._crit_edge.i.i ], [ %.phi.trans.insert.i.promoted.i, %34 ]
   %41 = phi ptr [ %50, %._crit_edge.i.i ], [ %.promoted11.i, %34 ]
   %42 = phi i64 [ %51, %._crit_edge.i.i ], [ %.promoted10.i, %34 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13725)
@@ -132342,10 +132342,10 @@ common.resume:                                    ; preds = %84, %68, %74, %77, 
   %51 = phi i64 [ %46, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %42, %38 ]
   %52 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %39, %38 ]
   %53 = phi i64 [ %.sroa.02.0.copyload.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i" ], [ %.pre.i12.i, %38 ]
-  %54 = lshr i64 %53, 1
-  %55 = add i64 %52, -1
-  %56 = trunc i64 %53 to i1
-  br i1 %56, label %57, label %38
+  %54 = trunc i64 %53 to i1
+  %55 = lshr i64 %53, 1
+  %56 = add i64 %52, -1
+  br i1 %54, label %57, label %38
 
 57:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -133067,8 +133067,8 @@ common.resume:                                    ; preds = %.body.i73, %396, %4
   br label %193
 
 193:                                              ; preds = %._crit_edge.i.i.i, %190
-  %194 = phi i64 [ %207, %._crit_edge.i.i.i ], [ %.promoted.i.i, %190 ]
-  %.pre.i12.i.i = phi i64 [ %206, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %190 ]
+  %194 = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.promoted.i.i, %190 ]
+  %.pre.i12.i.i = phi i64 [ %207, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %190 ]
   %195 = phi ptr [ %202, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %190 ]
   %196 = phi i64 [ %203, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %190 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13823)
@@ -133091,10 +133091,10 @@ common.resume:                                    ; preds = %.body.i73, %396, %4
   %203 = phi i64 [ %200, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %193 ]
   %204 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %194, %193 ]
   %205 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %193 ]
-  %206 = lshr i64 %205, 1
-  %207 = add i64 %204, -1
-  %208 = trunc i64 %205 to i1
-  br i1 %208, label %209, label %193
+  %206 = trunc i64 %205 to i1
+  %207 = lshr i64 %205, 1
+  %208 = add i64 %204, -1
+  br i1 %206, label %209, label %193
 
 209:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !13800
@@ -133762,8 +133762,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hb5d4a50e1cb5866
   br label %369
 
 369:                                              ; preds = %._crit_edge.i.i.i84, %366
-  %370 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %366 ]
-  %.pre.i12.i.i83 = phi i64 [ %382, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %366 ]
+  %370 = phi i64 [ %384, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %366 ]
+  %.pre.i12.i.i83 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %366 ]
   %371 = phi ptr [ %378, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %366 ]
   %372 = phi i64 [ %379, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %366 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !13927)
@@ -133786,10 +133786,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hb5d4a50e1cb5866
   %379 = phi i64 [ %376, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %372, %369 ]
   %380 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %370, %369 ]
   %381 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %369 ]
-  %382 = lshr i64 %381, 1
-  %383 = add i64 %380, -1
-  %384 = trunc i64 %381 to i1
-  br i1 %384, label %385, label %369
+  %382 = trunc i64 %381 to i1
+  %383 = lshr i64 %381, 1
+  %384 = add i64 %380, -1
+  br i1 %382, label %385, label %369
 
 385:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !13904
@@ -134546,8 +134546,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14031)
@@ -134570,10 +134570,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !14008
@@ -135244,8 +135244,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hc1a3f0bcf0f91ee
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14135)
@@ -135268,10 +135268,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hc1a3f0bcf0f91ee
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !14112
@@ -136025,8 +136025,8 @@ common.resume:                                    ; preds = %.body.i73, %396, %4
   br label %193
 
 193:                                              ; preds = %._crit_edge.i.i.i, %190
-  %194 = phi i64 [ %207, %._crit_edge.i.i.i ], [ %.promoted.i.i, %190 ]
-  %.pre.i12.i.i = phi i64 [ %206, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %190 ]
+  %194 = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.promoted.i.i, %190 ]
+  %.pre.i12.i.i = phi i64 [ %207, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %190 ]
   %195 = phi ptr [ %202, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %190 ]
   %196 = phi i64 [ %203, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %190 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14239)
@@ -136049,10 +136049,10 @@ common.resume:                                    ; preds = %.body.i73, %396, %4
   %203 = phi i64 [ %200, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %193 ]
   %204 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %194, %193 ]
   %205 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %193 ]
-  %206 = lshr i64 %205, 1
-  %207 = add i64 %204, -1
-  %208 = trunc i64 %205 to i1
-  br i1 %208, label %209, label %193
+  %206 = trunc i64 %205 to i1
+  %207 = lshr i64 %205, 1
+  %208 = add i64 %204, -1
+  br i1 %206, label %209, label %193
 
 209:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !14216
@@ -136720,8 +136720,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h369c5a7ec3bca40
   br label %369
 
 369:                                              ; preds = %._crit_edge.i.i.i84, %366
-  %370 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %366 ]
-  %.pre.i12.i.i83 = phi i64 [ %382, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %366 ]
+  %370 = phi i64 [ %384, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %366 ]
+  %.pre.i12.i.i83 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %366 ]
   %371 = phi ptr [ %378, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %366 ]
   %372 = phi i64 [ %379, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %366 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14343)
@@ -136744,10 +136744,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h369c5a7ec3bca40
   %379 = phi i64 [ %376, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %372, %369 ]
   %380 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %370, %369 ]
   %381 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %369 ]
-  %382 = lshr i64 %381, 1
-  %383 = add i64 %380, -1
-  %384 = trunc i64 %381 to i1
-  br i1 %384, label %385, label %369
+  %382 = trunc i64 %381 to i1
+  %383 = lshr i64 %381, 1
+  %384 = add i64 %380, -1
+  br i1 %382, label %385, label %369
 
 385:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !14320
@@ -137504,8 +137504,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14447)
@@ -137528,10 +137528,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !14424
@@ -138202,8 +138202,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h2de40af264ad443
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14551)
@@ -138226,10 +138226,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h2de40af264ad443
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !14528
@@ -138986,8 +138986,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14655)
@@ -139010,10 +139010,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !14632
@@ -139684,8 +139684,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h603f735ef95a580
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14759)
@@ -139708,10 +139708,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h603f735ef95a580
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !14736
@@ -140468,8 +140468,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14863)
@@ -140492,10 +140492,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !14840
@@ -141166,8 +141166,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h0630070cc070ea3
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !14967)
@@ -141190,10 +141190,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h0630070cc070ea3
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !14944
@@ -141952,8 +141952,8 @@ common.resume:                                    ; preds = %.body.i81, %404, %4
   br label %196
 
 196:                                              ; preds = %._crit_edge.i.i.i, %193
-  %197 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %193 ]
-  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %193 ]
+  %197 = phi i64 [ %211, %._crit_edge.i.i.i ], [ %.promoted.i.i, %193 ]
+  %.pre.i12.i.i = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %193 ]
   %198 = phi ptr [ %205, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %193 ]
   %199 = phi i64 [ %206, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %193 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15068)
@@ -141976,10 +141976,10 @@ common.resume:                                    ; preds = %.body.i81, %404, %4
   %206 = phi i64 [ %203, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %199, %196 ]
   %207 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %197, %196 ]
   %208 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %196 ]
-  %209 = lshr i64 %208, 1
-  %210 = add i64 %207, -1
-  %211 = trunc i64 %208 to i1
-  br i1 %211, label %212, label %196
+  %209 = trunc i64 %208 to i1
+  %210 = lshr i64 %208, 1
+  %211 = add i64 %207, -1
+  br i1 %209, label %212, label %196
 
 212:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !15048
@@ -142654,8 +142654,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hd43b407b641a382
   br label %377
 
 377:                                              ; preds = %._crit_edge.i.i.i92, %374
-  %378 = phi i64 [ %391, %._crit_edge.i.i.i92 ], [ %.promoted.i.i85, %374 ]
-  %.pre.i12.i.i91 = phi i64 [ %390, %._crit_edge.i.i.i92 ], [ %.phi.trans.insert.i.promoted.i.i89, %374 ]
+  %378 = phi i64 [ %392, %._crit_edge.i.i.i92 ], [ %.promoted.i.i85, %374 ]
+  %.pre.i12.i.i91 = phi i64 [ %391, %._crit_edge.i.i.i92 ], [ %.phi.trans.insert.i.promoted.i.i89, %374 ]
   %379 = phi ptr [ %386, %._crit_edge.i.i.i92 ], [ %.promoted11.i.i87, %374 ]
   %380 = phi i64 [ %387, %._crit_edge.i.i.i92 ], [ %.promoted10.i.i86, %374 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15169)
@@ -142678,10 +142678,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hd43b407b641a382
   %387 = phi i64 [ %384, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i105" ], [ %380, %377 ]
   %388 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i106, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i105" ], [ %378, %377 ]
   %389 = phi i64 [ %.sroa.02.0.copyload.i.i.i107, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i105" ], [ %.pre.i12.i.i91, %377 ]
-  %390 = lshr i64 %389, 1
-  %391 = add i64 %388, -1
-  %392 = trunc i64 %389 to i1
-  br i1 %392, label %393, label %377
+  %390 = trunc i64 %389 to i1
+  %391 = lshr i64 %389, 1
+  %392 = add i64 %388, -1
+  br i1 %390, label %393, label %377
 
 393:                                              ; preds = %._crit_edge.i.i.i92
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !15149
@@ -143438,8 +143438,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15273)
@@ -143462,10 +143462,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !15250
@@ -144136,8 +144136,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h8e744b27622e80a
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15377)
@@ -144160,10 +144160,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h8e744b27622e80a
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !15354
@@ -144920,8 +144920,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15482)
@@ -144944,10 +144944,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !15458
@@ -145618,8 +145618,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h84464cb9d7f436e
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15587)
@@ -145642,10 +145642,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17h84464cb9d7f436e
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !15563
@@ -146404,8 +146404,8 @@ common.resume:                                    ; preds = %.body.i81, %404, %4
   br label %196
 
 196:                                              ; preds = %._crit_edge.i.i.i, %193
-  %197 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %193 ]
-  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %193 ]
+  %197 = phi i64 [ %211, %._crit_edge.i.i.i ], [ %.promoted.i.i, %193 ]
+  %.pre.i12.i.i = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %193 ]
   %198 = phi ptr [ %205, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %193 ]
   %199 = phi i64 [ %206, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %193 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15688)
@@ -146428,10 +146428,10 @@ common.resume:                                    ; preds = %.body.i81, %404, %4
   %206 = phi i64 [ %203, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %199, %196 ]
   %207 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %197, %196 ]
   %208 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %196 ]
-  %209 = lshr i64 %208, 1
-  %210 = add i64 %207, -1
-  %211 = trunc i64 %208 to i1
-  br i1 %211, label %212, label %196
+  %209 = trunc i64 %208 to i1
+  %210 = lshr i64 %208, 1
+  %211 = add i64 %207, -1
+  br i1 %209, label %212, label %196
 
 212:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !15668
@@ -147106,8 +147106,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hfe592ca840c8716
   br label %377
 
 377:                                              ; preds = %._crit_edge.i.i.i92, %374
-  %378 = phi i64 [ %391, %._crit_edge.i.i.i92 ], [ %.promoted.i.i85, %374 ]
-  %.pre.i12.i.i91 = phi i64 [ %390, %._crit_edge.i.i.i92 ], [ %.phi.trans.insert.i.promoted.i.i89, %374 ]
+  %378 = phi i64 [ %392, %._crit_edge.i.i.i92 ], [ %.promoted.i.i85, %374 ]
+  %.pre.i12.i.i91 = phi i64 [ %391, %._crit_edge.i.i.i92 ], [ %.phi.trans.insert.i.promoted.i.i89, %374 ]
   %379 = phi ptr [ %386, %._crit_edge.i.i.i92 ], [ %.promoted11.i.i87, %374 ]
   %380 = phi i64 [ %387, %._crit_edge.i.i.i92 ], [ %.promoted10.i.i86, %374 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15789)
@@ -147130,10 +147130,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hfe592ca840c8716
   %387 = phi i64 [ %384, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i105" ], [ %380, %377 ]
   %388 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i106, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i105" ], [ %378, %377 ]
   %389 = phi i64 [ %.sroa.02.0.copyload.i.i.i107, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i105" ], [ %.pre.i12.i.i91, %377 ]
-  %390 = lshr i64 %389, 1
-  %391 = add i64 %388, -1
-  %392 = trunc i64 %389 to i1
-  br i1 %392, label %393, label %377
+  %390 = trunc i64 %389 to i1
+  %391 = lshr i64 %389, 1
+  %392 = add i64 %388, -1
+  br i1 %390, label %393, label %377
 
 393:                                              ; preds = %._crit_edge.i.i.i92
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !15769
@@ -147890,8 +147890,8 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   br label %195
 
 195:                                              ; preds = %._crit_edge.i.i.i, %192
-  %196 = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
-  %.pre.i12.i.i = phi i64 [ %208, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
+  %196 = phi i64 [ %210, %._crit_edge.i.i.i ], [ %.promoted.i.i, %192 ]
+  %.pre.i12.i.i = phi i64 [ %209, %._crit_edge.i.i.i ], [ %.phi.trans.insert.i.promoted.i.i, %192 ]
   %197 = phi ptr [ %204, %._crit_edge.i.i.i ], [ %.promoted11.i.i, %192 ]
   %198 = phi i64 [ %205, %._crit_edge.i.i.i ], [ %.promoted10.i.i, %192 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15893)
@@ -147914,10 +147914,10 @@ common.resume:                                    ; preds = %.body.i73, %400, %4
   %205 = phi i64 [ %202, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %198, %195 ]
   %206 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %196, %195 ]
   %207 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i" ], [ %.pre.i12.i.i, %195 ]
-  %208 = lshr i64 %207, 1
-  %209 = add i64 %206, -1
-  %210 = trunc i64 %207 to i1
-  br i1 %210, label %211, label %195
+  %208 = trunc i64 %207 to i1
+  %209 = lshr i64 %207, 1
+  %210 = add i64 %206, -1
+  br i1 %208, label %211, label %195
 
 211:                                              ; preds = %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !15870
@@ -148588,8 +148588,8 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hba74994e34c15e6
   br label %373
 
 373:                                              ; preds = %._crit_edge.i.i.i84, %370
-  %374 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
-  %.pre.i12.i.i83 = phi i64 [ %386, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
+  %374 = phi i64 [ %388, %._crit_edge.i.i.i84 ], [ %.promoted.i.i77, %370 ]
+  %.pre.i12.i.i83 = phi i64 [ %387, %._crit_edge.i.i.i84 ], [ %.phi.trans.insert.i.promoted.i.i81, %370 ]
   %375 = phi ptr [ %382, %._crit_edge.i.i.i84 ], [ %.promoted11.i.i79, %370 ]
   %376 = phi i64 [ %383, %._crit_edge.i.i.i84 ], [ %.promoted10.i.i78, %370 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15997)
@@ -148612,10 +148612,10 @@ _ZN14polars_compute7rolling8no_nulls24rolling_apply_agg_window17hba74994e34c15e6
   %383 = phi i64 [ %380, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %376, %373 ]
   %384 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i.i98, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %374, %373 ]
   %385 = phi i64 [ %.sroa.02.0.copyload.i.i.i99, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha48567a85c11fd37E.exit.i.i.i97" ], [ %.pre.i12.i.i83, %373 ]
-  %386 = lshr i64 %385, 1
-  %387 = add i64 %384, -1
-  %388 = trunc i64 %385 to i1
-  br i1 %388, label %389, label %373
+  %386 = trunc i64 %385 to i1
+  %387 = lshr i64 %385, 1
+  %388 = add i64 %384, -1
+  br i1 %386, label %389, label %373
 
 389:                                              ; preds = %._crit_edge.i.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !15974

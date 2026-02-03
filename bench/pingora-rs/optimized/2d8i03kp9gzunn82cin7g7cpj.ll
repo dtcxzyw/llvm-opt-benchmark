@@ -11025,8 +11025,7 @@ define noundef zeroext i1 @_ZN12pingora_core9protocols4http2v26server11HttpSessi
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9d8b18c35fc59a1E.exit":
   %1 = getelementptr i8, ptr %0, i64 408
   %2 = load i8, ptr %1, align 8, !range !9, !noundef !7
-  %3 = and i8 %2, 1
-  %spec.select = icmp ne i8 %3, 0
+  %spec.select = trunc i8 %2 to i1
   ret i1 %spec.select
 }
 

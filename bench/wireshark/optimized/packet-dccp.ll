@@ -764,13 +764,13 @@ proto_item_set_hidden.exit603:                    ; preds = %170, %177, %180
   %201 = call ptr @val_to_str_const(i32 noundef %200, ptr noundef nonnull @dccp_packet_type_vals, ptr noundef nonnull @.str.229)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef nonnull @.str.228, ptr noundef %201)
   %202 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
-  %203 = and i8 %202, 1
-  %204 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i8 %203, ptr %204, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %204 = and i8 %202, 1
+  store i8 %204, ptr %203, align 4
   %205 = load i32, ptr @hf_dccp_x, align 4
-  %206 = zext nneg i8 %203 to i64
+  %206 = zext nneg i8 %204 to i64
   %207 = call ptr @proto_tree_add_boolean(ptr noundef %56, i32 noundef %205, ptr noundef %0, i32 noundef 8, i32 noundef 1, i64 noundef %206)
-  %208 = load i8, ptr %204, align 4, !range !6, !noundef !7
+  %208 = load i8, ptr %203, align 4, !range !6, !noundef !7
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %246
 
@@ -1078,7 +1078,7 @@ proto_item_set_hidden.exit609:                    ; preds = %322, %319, %315, %3
   br label %619
 
 376:                                              ; preds = %277, %277
-  %377 = load i8, ptr %204, align 4, !range !6, !noundef !7
+  %377 = load i8, ptr %203, align 4, !range !6, !noundef !7
   %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %379, label %429
 

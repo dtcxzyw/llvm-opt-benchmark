@@ -129,237 +129,236 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RangeVarGetRelidExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = and i32 %2, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %.not106 = icmp eq ptr %9, null
-  br i1 %.not106, label %23, label %10
+  %6 = trunc i32 %2 to i1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %.not106 = icmp eq ptr %8, null
+  br i1 %.not106, label %22, label %9
 
-10:                                               ; preds = %5
-  %11 = load i32, ptr @MyDatabaseId, align 4
-  %12 = tail call ptr @get_database_name(i32 noundef %11) #18
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %12) #19
-  %.not107 = icmp eq i32 %13, 0
-  br i1 %.not107, label %23, label %14
+9:                                                ; preds = %5
+  %10 = load i32, ptr @MyDatabaseId, align 4
+  %11 = tail call ptr @get_database_name(i32 noundef %10) #18
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %11) #19
+  %.not107 = icmp eq i32 %12, 0
+  br i1 %.not107, label %22, label %13
 
-14:                                               ; preds = %10
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  %16 = tail call i32 @errcode(i32 noundef 1088) #18
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %17, ptr noundef %19, ptr noundef %21) #18
+13:                                               ; preds = %9
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  %15 = tail call i32 @errcode(i32 noundef 1088) #18
+  %16 = load ptr, ptr %7, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %16, ptr noundef %18, ptr noundef %20) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__func__.RangeVarGetRelidExtended) #18
   unreachable
 
-23:                                               ; preds = %10, %5
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+22:                                               ; preds = %9, %5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not112 = icmp eq ptr %3, null
-  %27 = icmp eq i32 %1, 0
-  %28 = and i32 %2, 6
-  %.not115 = icmp eq i32 %28, 0
+  %26 = icmp eq i32 %1, 0
+  %27 = and i32 %2, 6
+  %.not115 = icmp eq i32 %27, 0
   %.pre = load i64, ptr @SharedInvalidMessageCounter, align 8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %95, %23
-  %30 = phi i64 [ %.pre, %23 ], [ %96, %95 ]
-  %.096 = phi i1 [ false, %23 ], [ true, %95 ]
-  %.095 = phi i32 [ 0, %23 ], [ %.094, %95 ]
-  %31 = load i8, ptr %24, align 1
-  %32 = icmp eq i8 %31, 116
-  br i1 %32, label %33, label %44
+28:                                               ; preds = %94, %22
+  %29 = phi i64 [ %.pre, %22 ], [ %95, %94 ]
+  %.096 = phi i1 [ false, %22 ], [ true, %94 ]
+  %.095 = phi i32 [ 0, %22 ], [ %.094, %94 ]
+  %30 = load i8, ptr %23, align 1
+  %31 = icmp eq i8 %30, 116
+  br i1 %31, label %32, label %43
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr @myTempNamespace, align 4
-  %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %RelnameGetRelid.exit, label %35
+32:                                               ; preds = %28
+  %33 = load i32, ptr @myTempNamespace, align 4
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %RelnameGetRelid.exit, label %34
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %25, align 8
-  %.not110 = icmp eq ptr %36, null
-  br i1 %.not110, label %RelnameGetRelid.exit.sink.split, label %37
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %24, align 8
+  %.not110 = icmp eq ptr %35, null
+  br i1 %.not110, label %RelnameGetRelid.exit.sink.split, label %36
 
-37:                                               ; preds = %35
-  %38 = tail call i32 @LookupExplicitNamespace(ptr noundef nonnull %36, i1 noundef zeroext %7)
-  %39 = load i32, ptr @myTempNamespace, align 4
-  %.not111 = icmp eq i32 %38, %39
-  br i1 %.not111, label %RelnameGetRelid.exit.sink.split, label %40
+36:                                               ; preds = %34
+  %37 = tail call i32 @LookupExplicitNamespace(ptr noundef nonnull %35, i1 noundef zeroext %6)
+  %38 = load i32, ptr @myTempNamespace, align 4
+  %.not111 = icmp eq i32 %37, %38
+  br i1 %.not111, label %RelnameGetRelid.exit.sink.split, label %39
 
-40:                                               ; preds = %37
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  %42 = tail call i32 @errcode(i32 noundef 101056644) #18
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #18
+39:                                               ; preds = %36
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
+  %41 = tail call i32 @errcode(i32 noundef 101056644) #18
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.RangeVarGetRelidExtended) #18
   unreachable
 
-44:                                               ; preds = %29
-  %45 = load ptr, ptr %25, align 8
-  %.not108 = icmp eq ptr %45, null
-  br i1 %.not108, label %49, label %46
+43:                                               ; preds = %28
+  %44 = load ptr, ptr %24, align 8
+  %.not108 = icmp eq ptr %44, null
+  br i1 %.not108, label %48, label %45
 
-46:                                               ; preds = %44
-  %47 = tail call i32 @LookupExplicitNamespace(ptr noundef nonnull %45, i1 noundef zeroext %7)
-  %48 = icmp eq i32 %47, 0
-  %or.cond.not = select i1 %7, i1 %48, i1 false
+45:                                               ; preds = %43
+  %46 = tail call i32 @LookupExplicitNamespace(ptr noundef nonnull %44, i1 noundef zeroext %6)
+  %47 = icmp eq i32 %46, 0
+  %or.cond.not = select i1 %6, i1 %47, i1 false
   br i1 %or.cond.not, label %RelnameGetRelid.exit, label %RelnameGetRelid.exit.sink.split
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %26, align 8
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %25, align 8
   tail call fastcc void @recomputeNamespacePath()
-  %51 = load ptr, ptr @activeSearchPath, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %.not.i = icmp eq ptr %51, null
+  %50 = load ptr, ptr @activeSearchPath, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %RelnameGetRelid.exit, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %49
-  %54 = load i32, ptr %52, align 4
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph33.i, label %RelnameGetRelid.exit
+.lr.ph.split.i:                                   ; preds = %48
+  %53 = load i32, ptr %51, align 4
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %.lr.ph33.i, label %RelnameGetRelid.exit
 
-56:                                               ; preds = %.lr.ph33.i
+55:                                               ; preds = %.lr.ph33.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %57 = load i32, ptr %52, align 4
-  %58 = sext i32 %57 to i64
-  %59 = icmp slt i64 %indvars.iv.next.i, %58
-  br i1 %59, label %.lr.ph33.i, label %RelnameGetRelid.exit
+  %56 = load i32, ptr %51, align 4
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next.i, %57
+  br i1 %58, label %.lr.ph33.i, label %RelnameGetRelid.exit
 
-.lr.ph33.i:                                       ; preds = %.lr.ph.split.i, %56
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %.lr.ph.split.i ]
-  %60 = load ptr, ptr %53, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv.i
-  %62 = load i32, ptr %61, align 8
-  %63 = tail call i32 @get_relname_relid(ptr noundef %50, i32 noundef %62) #18
-  %.not18.i = icmp eq i32 %63, 0
-  br i1 %.not18.i, label %56, label %RelnameGetRelid.exit
+.lr.ph33.i:                                       ; preds = %.lr.ph.split.i, %55
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %.lr.ph.split.i ]
+  %59 = load ptr, ptr %52, align 8
+  %60 = getelementptr inbounds nuw %union.ListCell, ptr %59, i64 %indvars.iv.i
+  %61 = load i32, ptr %60, align 8
+  %62 = tail call i32 @get_relname_relid(ptr noundef %49, i32 noundef %61) #18
+  %.not18.i = icmp eq i32 %62, 0
+  br i1 %.not18.i, label %55, label %RelnameGetRelid.exit
 
-RelnameGetRelid.exit.sink.split:                  ; preds = %46, %35, %37
-  %.sink134 = phi i32 [ %34, %35 ], [ %38, %37 ], [ %47, %46 ]
-  %64 = load ptr, ptr %26, align 8
-  %65 = tail call i32 @get_relname_relid(ptr noundef %64, i32 noundef %.sink134) #18
+RelnameGetRelid.exit.sink.split:                  ; preds = %45, %34, %36
+  %.sink134 = phi i32 [ %33, %34 ], [ %37, %36 ], [ %46, %45 ]
+  %63 = load ptr, ptr %25, align 8
+  %64 = tail call i32 @get_relname_relid(ptr noundef %63, i32 noundef %.sink134) #18
   br label %RelnameGetRelid.exit
 
-RelnameGetRelid.exit:                             ; preds = %.lr.ph33.i, %56, %RelnameGetRelid.exit.sink.split, %.lr.ph.split.i, %49, %46, %33
-  %.094 = phi i32 [ 0, %49 ], [ 0, %46 ], [ 0, %33 ], [ %65, %RelnameGetRelid.exit.sink.split ], [ 0, %.lr.ph.split.i ], [ %63, %.lr.ph33.i ], [ 0, %56 ]
-  br i1 %.not112, label %67, label %66
+RelnameGetRelid.exit:                             ; preds = %.lr.ph33.i, %55, %RelnameGetRelid.exit.sink.split, %.lr.ph.split.i, %48, %45, %32
+  %.094 = phi i32 [ 0, %48 ], [ 0, %45 ], [ 0, %32 ], [ %64, %RelnameGetRelid.exit.sink.split ], [ 0, %.lr.ph.split.i ], [ %62, %.lr.ph33.i ], [ 0, %55 ]
+  br i1 %.not112, label %66, label %65
 
-66:                                               ; preds = %RelnameGetRelid.exit
+65:                                               ; preds = %RelnameGetRelid.exit
   tail call void %3(ptr noundef %0, i32 noundef %.094, i32 noundef %.095, ptr noundef %4) #18
-  br label %67
+  br label %66
 
-67:                                               ; preds = %66, %RelnameGetRelid.exit
-  br i1 %27, label %98, label %68
+66:                                               ; preds = %65, %RelnameGetRelid.exit
+  br i1 %26, label %97, label %67
+
+67:                                               ; preds = %66
+  br i1 %.096, label %68, label %72
 
 68:                                               ; preds = %67
-  br i1 %.096, label %69, label %73
+  %69 = icmp eq i32 %.094, %.095
+  br i1 %69, label %97, label %70
 
-69:                                               ; preds = %68
-  %70 = icmp eq i32 %.094, %.095
-  br i1 %70, label %98, label %71
-
-71:                                               ; preds = %69
+70:                                               ; preds = %68
   %.not113 = icmp eq i32 %.095, 0
-  br i1 %.not113, label %73, label %72
+  br i1 %.not113, label %72, label %71
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   tail call void @UnlockRelationOid(i32 noundef %.095, i32 noundef %1) #18
-  br label %73
+  br label %72
 
-73:                                               ; preds = %71, %72, %68
+72:                                               ; preds = %70, %71, %67
   %.not114 = icmp eq i32 %.094, 0
-  br i1 %.not114, label %74, label %75
+  br i1 %.not114, label %73, label %74
 
-74:                                               ; preds = %73
+73:                                               ; preds = %72
   tail call void @AcceptInvalidationMessages() #18
-  br label %95
+  br label %94
 
-75:                                               ; preds = %73
-  br i1 %.not115, label %76, label %77
+74:                                               ; preds = %72
+  br i1 %.not115, label %75, label %76
 
-76:                                               ; preds = %75
+75:                                               ; preds = %74
   tail call void @LockRelationOid(i32 noundef %.094, i32 noundef %1) #18
-  br label %95
+  br label %94
 
-77:                                               ; preds = %75
-  %78 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %.094, i32 noundef %1) #18
-  br i1 %78, label %95, label %79
+76:                                               ; preds = %74
+  %77 = tail call zeroext i1 @ConditionalLockRelationOid(i32 noundef %.094, i32 noundef %1) #18
+  br i1 %77, label %94, label %78
 
-79:                                               ; preds = %77
-  %80 = and i32 %2, 4
-  %.not116 = icmp eq i32 %80, 0
-  %81 = select i1 %.not116, i32 21, i32 14
-  %82 = load ptr, ptr %25, align 8
-  %.not117 = icmp eq ptr %82, null
-  %83 = tail call zeroext i1 @errstart(i32 noundef %81, ptr noundef null) #18
-  br i1 %.not117, label %90, label %84
+78:                                               ; preds = %76
+  %79 = and i32 %2, 4
+  %.not116 = icmp eq i32 %79, 0
+  %80 = select i1 %.not116, i32 21, i32 14
+  %81 = load ptr, ptr %24, align 8
+  %.not117 = icmp eq ptr %81, null
+  %82 = tail call zeroext i1 @errstart(i32 noundef %80, ptr noundef null) #18
+  br i1 %.not117, label %89, label %83
 
-84:                                               ; preds = %79
-  br i1 %83, label %85, label %.sink.split
+83:                                               ; preds = %78
+  br i1 %82, label %84, label %.sink.split
 
-85:                                               ; preds = %84
-  %86 = tail call i32 @errcode(i32 noundef 50463045) #18
+84:                                               ; preds = %83
+  %85 = tail call i32 @errcode(i32 noundef 50463045) #18
+  %86 = load ptr, ptr %24, align 8
   %87 = load ptr, ptr %25, align 8
-  %88 = load ptr, ptr %26, align 8
-  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %87, ptr noundef %88) #18
+  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %86, ptr noundef %87) #18
   br label %.sink.split.sink.split
 
-90:                                               ; preds = %79
-  br i1 %83, label %91, label %.sink.split
+89:                                               ; preds = %78
+  br i1 %82, label %90, label %.sink.split
 
-91:                                               ; preds = %90
-  %92 = tail call i32 @errcode(i32 noundef 50463045) #18
-  %93 = load ptr, ptr %26, align 8
-  %94 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %93) #18
+90:                                               ; preds = %89
+  %91 = tail call i32 @errcode(i32 noundef 50463045) #18
+  %92 = load ptr, ptr %25, align 8
+  %93 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %92) #18
   br label %.sink.split.sink.split
 
-95:                                               ; preds = %76, %77, %74
-  %96 = load i64, ptr @SharedInvalidMessageCounter, align 8
-  %97 = icmp eq i64 %30, %96
-  br i1 %97, label %98, label %29
+94:                                               ; preds = %75, %76, %73
+  %95 = load i64, ptr @SharedInvalidMessageCounter, align 8
+  %96 = icmp eq i64 %29, %95
+  br i1 %96, label %97, label %28
 
-98:                                               ; preds = %95, %69, %67
-  %.094.lcssa = phi i32 [ %.094, %95 ], [ %.095, %69 ], [ %.094, %67 ]
+97:                                               ; preds = %94, %68, %66
+  %.094.lcssa = phi i32 [ %.094, %94 ], [ %.095, %68 ], [ %.094, %66 ]
   %.not118 = icmp eq i32 %.094.lcssa, 0
-  br i1 %.not118, label %99, label %.sink.split
+  br i1 %.not118, label %98, label %.sink.split
 
-99:                                               ; preds = %98
-  %100 = select i1 %7, i32 14, i32 21
-  %101 = load ptr, ptr %25, align 8
-  %.not119 = icmp eq ptr %101, null
-  %102 = tail call zeroext i1 @errstart(i32 noundef %100, ptr noundef null) #18
-  br i1 %.not119, label %109, label %103
+98:                                               ; preds = %97
+  %99 = select i1 %6, i32 14, i32 21
+  %100 = load ptr, ptr %24, align 8
+  %.not119 = icmp eq ptr %100, null
+  %101 = tail call zeroext i1 @errstart(i32 noundef %99, ptr noundef null) #18
+  br i1 %.not119, label %108, label %102
 
-103:                                              ; preds = %99
-  br i1 %102, label %104, label %.sink.split
+102:                                              ; preds = %98
+  br i1 %101, label %103, label %.sink.split
 
-104:                                              ; preds = %103
-  %105 = tail call i32 @errcode(i32 noundef 16908420) #18
+103:                                              ; preds = %102
+  %104 = tail call i32 @errcode(i32 noundef 16908420) #18
+  %105 = load ptr, ptr %24, align 8
   %106 = load ptr, ptr %25, align 8
-  %107 = load ptr, ptr %26, align 8
-  %108 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %106, ptr noundef %107) #18
+  %107 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %105, ptr noundef %106) #18
   br label %.sink.split.sink.split
 
-109:                                              ; preds = %99
-  br i1 %102, label %110, label %.sink.split
+108:                                              ; preds = %98
+  br i1 %101, label %109, label %.sink.split
 
-110:                                              ; preds = %109
-  %111 = tail call i32 @errcode(i32 noundef 16908420) #18
-  %112 = load ptr, ptr %26, align 8
-  %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %112) #18
+109:                                              ; preds = %108
+  %110 = tail call i32 @errcode(i32 noundef 16908420) #18
+  %111 = load ptr, ptr %25, align 8
+  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %111) #18
   br label %.sink.split.sink.split
 
-.sink.split.sink.split:                           ; preds = %85, %91, %104, %110
-  %.sink = phi i32 [ 639, %110 ], [ 634, %104 ], [ 606, %91 ], [ 601, %85 ]
+.sink.split.sink.split:                           ; preds = %84, %90, %103, %109
+  %.sink = phi i32 [ 639, %109 ], [ 634, %103 ], [ 606, %90 ], [ 601, %84 ]
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.RangeVarGetRelidExtended) #18
   br label %.sink.split
 
-.sink.split:                                      ; preds = %84, %90, %103, %109, %.sink.split.sink.split, %98
-  %.0 = phi i32 [ %.094.lcssa, %98 ], [ 0, %.sink.split.sink.split ], [ 0, %109 ], [ 0, %103 ], [ 0, %90 ], [ 0, %84 ]
+.sink.split:                                      ; preds = %83, %89, %102, %108, %.sink.split.sink.split, %97
+  %.0 = phi i32 [ %.094.lcssa, %97 ], [ 0, %.sink.split.sink.split ], [ 0, %108 ], [ 0, %102 ], [ 0, %89 ], [ 0, %83 ]
   ret i32 %.0
 }
 

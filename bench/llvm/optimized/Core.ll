@@ -9733,48 +9733,44 @@ define dso_local i32 @LLVMCountParams(ptr noundef readonly captures(none) %0) lo
 define dso_local void @LLVMGetParams(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !294
-  %5 = and i16 %4, 1
-  %.not.i.i.i = icmp eq i16 %5, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm8Function9arg_beginEv.exit.thread.i, label %_ZN4llvm8Function9arg_beginEv.exit.i
+  %5 = trunc i16 %4 to i1
+  br i1 %5, label %6, label %_ZN4llvm8Function9arg_beginEv.exit.i
 
-_ZN4llvm8Function9arg_beginEv.exit.thread.i:      ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !315
-  br label %_ZN4llvm8Function4argsEv.exit
-
-_ZN4llvm8Function9arg_beginEv.exit.i:             ; preds = %2
+6:                                                ; preds = %2
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
   %.pre.i = load i16, ptr %3, align 2, !tbaa !294
-  %.pre3.i = and i16 %.pre.i, 1
-  %8 = icmp eq i16 %.pre3.i, 0
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !315
-  br i1 %8, label %_ZN4llvm8Function4argsEv.exit, label %11
+  br label %_ZN4llvm8Function9arg_beginEv.exit.i
+
+_ZN4llvm8Function9arg_beginEv.exit.i:             ; preds = %6, %2
+  %7 = phi i16 [ %4, %2 ], [ %.pre.i, %6 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8, !tbaa !315
+  %10 = trunc i16 %7 to i1
+  br i1 %10, label %11, label %_ZN4llvm8Function4argsEv.exit
 
 11:                                               ; preds = %_ZN4llvm8Function9arg_beginEv.exit.i
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
-  %.pre2.i = load ptr, ptr %9, align 8, !tbaa !315
+  %.pre1.i = load ptr, ptr %8, align 8, !tbaa !315
   br label %_ZN4llvm8Function4argsEv.exit
 
-_ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9arg_beginEv.exit.thread.i, %_ZN4llvm8Function9arg_beginEv.exit.i, %11
-  %12 = phi ptr [ %10, %_ZN4llvm8Function9arg_beginEv.exit.i ], [ %10, %11 ], [ %7, %_ZN4llvm8Function9arg_beginEv.exit.thread.i ]
-  %13 = phi ptr [ %10, %_ZN4llvm8Function9arg_beginEv.exit.i ], [ %.pre2.i, %11 ], [ %7, %_ZN4llvm8Function9arg_beginEv.exit.thread.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %15 = load i64, ptr %14, align 8, !tbaa !303
-  %16 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %13, i64 %15
-  %.not11 = icmp eq ptr %12, %16
+_ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9arg_beginEv.exit.i, %11
+  %12 = phi ptr [ %9, %_ZN4llvm8Function9arg_beginEv.exit.i ], [ %.pre1.i, %11 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %14 = load i64, ptr %13, align 8, !tbaa !303
+  %15 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %12, i64 %14
+  %.not11 = icmp eq ptr %9, %15
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm8Function4argsEv.exit
   ret void
 
 .lr.ph:                                           ; preds = %_ZN4llvm8Function4argsEv.exit, %.lr.ph
-  %.013 = phi ptr [ %17, %.lr.ph ], [ %1, %_ZN4llvm8Function4argsEv.exit ]
-  %.01012 = phi ptr [ %18, %.lr.ph ], [ %12, %_ZN4llvm8Function4argsEv.exit ]
-  %17 = getelementptr inbounds nuw i8, ptr %.013, i64 8
+  %.013 = phi ptr [ %16, %.lr.ph ], [ %1, %_ZN4llvm8Function4argsEv.exit ]
+  %.01012 = phi ptr [ %17, %.lr.ph ], [ %9, %_ZN4llvm8Function4argsEv.exit ]
+  %16 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   store ptr %.01012, ptr %.013, align 8, !tbaa !219
-  %18 = getelementptr inbounds nuw i8, ptr %.01012, i64 40
-  %.not = icmp eq ptr %18, %16
+  %17 = getelementptr inbounds nuw i8, ptr %.01012, i64 40
+  %.not = icmp eq ptr %17, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -9782,9 +9778,8 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
 define dso_local ptr @LLVMGetParam(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2, !tbaa !294
-  %5 = and i16 %4, 1
-  %.not.i.i = icmp eq i16 %5, 0
-  br i1 %.not.i.i, label %_ZN4llvm8Function9arg_beginEv.exit, label %6
+  %5 = trunc i16 %4 to i1
+  br i1 %5, label %6, label %_ZN4llvm8Function9arg_beginEv.exit
 
 6:                                                ; preds = %2
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
@@ -9809,37 +9804,33 @@ define dso_local ptr @LLVMGetParamParent(ptr noundef readonly captures(none) %0)
 define dso_local ptr @LLVMGetFirstParam(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2, !tbaa !294
-  %4 = and i16 %3, 1
-  %.not.i.i = icmp eq i16 %4, 0
-  br i1 %.not.i.i, label %_ZN4llvm8Function9arg_beginEv.exit.thread, label %_ZN4llvm8Function9arg_beginEv.exit
+  %4 = trunc i16 %3 to i1
+  br i1 %4, label %5, label %_ZN4llvm8Function9arg_beginEv.exit
 
-_ZN4llvm8Function9arg_beginEv.exit.thread:        ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !315
-  br label %_ZN4llvm8Function7arg_endEv.exit
-
-_ZN4llvm8Function9arg_beginEv.exit:               ; preds = %1
+5:                                                ; preds = %1
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
   %.pre = load i16, ptr %2, align 2, !tbaa !294
-  %.pre9 = and i16 %.pre, 1
-  %7 = icmp eq i16 %.pre9, 0
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %9 = load ptr, ptr %8, align 8, !tbaa !315
-  br i1 %7, label %_ZN4llvm8Function7arg_endEv.exit, label %10
+  br label %_ZN4llvm8Function9arg_beginEv.exit
+
+_ZN4llvm8Function9arg_beginEv.exit:               ; preds = %1, %5
+  %6 = phi i16 [ %3, %1 ], [ %.pre, %5 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %8 = load ptr, ptr %7, align 8, !tbaa !315
+  %9 = trunc i16 %6 to i1
+  br i1 %9, label %10, label %_ZN4llvm8Function7arg_endEv.exit
 
 10:                                               ; preds = %_ZN4llvm8Function9arg_beginEv.exit
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
-  %.pre8 = load ptr, ptr %8, align 8, !tbaa !315
+  %.pre7 = load ptr, ptr %7, align 8, !tbaa !315
   br label %_ZN4llvm8Function7arg_endEv.exit
 
-_ZN4llvm8Function7arg_endEv.exit:                 ; preds = %_ZN4llvm8Function9arg_beginEv.exit.thread, %_ZN4llvm8Function9arg_beginEv.exit, %10
-  %11 = phi ptr [ %9, %_ZN4llvm8Function9arg_beginEv.exit ], [ %9, %10 ], [ %6, %_ZN4llvm8Function9arg_beginEv.exit.thread ]
-  %12 = phi ptr [ %9, %_ZN4llvm8Function9arg_beginEv.exit ], [ %.pre8, %10 ], [ %6, %_ZN4llvm8Function9arg_beginEv.exit.thread ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %14 = load i64, ptr %13, align 8, !tbaa !303
-  %15 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %12, i64 %14
-  %16 = icmp eq ptr %11, %15
-  %spec.select = select i1 %16, ptr null, ptr %11
+_ZN4llvm8Function7arg_endEv.exit:                 ; preds = %_ZN4llvm8Function9arg_beginEv.exit, %10
+  %11 = phi ptr [ %8, %_ZN4llvm8Function9arg_beginEv.exit ], [ %.pre7, %10 ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %13 = load i64, ptr %12, align 8, !tbaa !303
+  %14 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %11, i64 %13
+  %15 = icmp eq ptr %8, %14
+  %spec.select = select i1 %15, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -9847,41 +9838,34 @@ _ZN4llvm8Function7arg_endEv.exit:                 ; preds = %_ZN4llvm8Function9a
 define dso_local ptr @LLVMGetLastParam(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2, !tbaa !294
-  %4 = and i16 %3, 1
-  %.not.i.i = icmp eq i16 %4, 0
-  br i1 %.not.i.i, label %_ZN4llvm8Function7arg_endEv.exit.thread, label %_ZN4llvm8Function7arg_endEv.exit
+  %4 = trunc i16 %3 to i1
+  br i1 %4, label %5, label %_ZN4llvm8Function7arg_endEv.exit
 
-_ZN4llvm8Function7arg_endEv.exit.thread:          ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !315
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load i64, ptr %7, align 8, !tbaa !303
-  br label %_ZN4llvm8Function9arg_beginEv.exit
-
-_ZN4llvm8Function7arg_endEv.exit:                 ; preds = %1
+5:                                                ; preds = %1
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
   %.pre = load i16, ptr %2, align 2, !tbaa !294
-  %.pre9 = and i16 %.pre, 1
-  %9 = icmp eq i16 %.pre9, 0
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !315
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = load i64, ptr %12, align 8, !tbaa !303
-  br i1 %9, label %_ZN4llvm8Function9arg_beginEv.exit, label %14
+  br label %_ZN4llvm8Function7arg_endEv.exit
 
-14:                                               ; preds = %_ZN4llvm8Function7arg_endEv.exit
+_ZN4llvm8Function7arg_endEv.exit:                 ; preds = %1, %5
+  %6 = phi i16 [ %3, %1 ], [ %.pre, %5 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %8 = load ptr, ptr %7, align 8, !tbaa !315
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %10 = load i64, ptr %9, align 8, !tbaa !303
+  %11 = trunc i16 %6 to i1
+  br i1 %11, label %12, label %_ZN4llvm8Function9arg_beginEv.exit
+
+12:                                               ; preds = %_ZN4llvm8Function7arg_endEv.exit
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #35
-  %.pre8 = load ptr, ptr %10, align 8, !tbaa !315
+  %.pre7 = load ptr, ptr %7, align 8, !tbaa !315
   br label %_ZN4llvm8Function9arg_beginEv.exit
 
-_ZN4llvm8Function9arg_beginEv.exit:               ; preds = %_ZN4llvm8Function7arg_endEv.exit.thread, %_ZN4llvm8Function7arg_endEv.exit, %14
-  %15 = phi i64 [ %13, %_ZN4llvm8Function7arg_endEv.exit ], [ %13, %14 ], [ %8, %_ZN4llvm8Function7arg_endEv.exit.thread ]
-  %16 = phi ptr [ %11, %_ZN4llvm8Function7arg_endEv.exit ], [ %11, %14 ], [ %6, %_ZN4llvm8Function7arg_endEv.exit.thread ]
-  %17 = phi ptr [ %11, %_ZN4llvm8Function7arg_endEv.exit ], [ %.pre8, %14 ], [ %6, %_ZN4llvm8Function7arg_endEv.exit.thread ]
-  %18 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %16, i64 %15
-  %19 = icmp eq ptr %18, %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 -40
-  %spec.select = select i1 %19, ptr null, ptr %20
+_ZN4llvm8Function9arg_beginEv.exit:               ; preds = %_ZN4llvm8Function7arg_endEv.exit, %12
+  %13 = phi ptr [ %8, %_ZN4llvm8Function7arg_endEv.exit ], [ %.pre7, %12 ]
+  %14 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %8, i64 %10
+  %15 = icmp eq ptr %14, %13
+  %16 = getelementptr inbounds i8, ptr %14, i64 -40
+  %spec.select = select i1 %15, ptr null, ptr %16
   ret ptr %spec.select
 }
 
@@ -9901,9 +9885,8 @@ define dso_local ptr @LLVMGetNextParam(ptr noundef readonly captures(none) %0) l
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %12 = load i16, ptr %11, align 2, !tbaa !294
-  %13 = and i16 %12, 1
-  %.not.i.i = icmp eq i16 %13, 0
-  br i1 %.not.i.i, label %_ZN4llvm8Function9arg_beginEv.exit, label %14
+  %13 = trunc i16 %12 to i1
+  br i1 %13, label %14, label %_ZN4llvm8Function9arg_beginEv.exit
 
 14:                                               ; preds = %10
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %3) #35
@@ -9936,9 +9919,8 @@ define dso_local ptr @LLVMGetPreviousParam(ptr noundef readonly captures(none) %
   %7 = load ptr, ptr %6, align 8, !tbaa !316
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %9 = load i16, ptr %8, align 2, !tbaa !294
-  %10 = and i16 %9, 1
-  %.not.i.i = icmp eq i16 %10, 0
-  br i1 %.not.i.i, label %_ZN4llvm8Function9arg_beginEv.exit, label %11
+  %10 = trunc i16 %9 to i1
+  br i1 %10, label %11, label %_ZN4llvm8Function9arg_beginEv.exit
 
 11:                                               ; preds = %5
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %7) #35
@@ -11420,9 +11402,8 @@ define dso_local ptr @LLVMGetUnwindDest(ptr noundef readonly captures(none) %0) 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2, !tbaa !294
-  %6 = and i16 %5, 1
-  %.not.i = icmp eq i16 %6, 0
-  br i1 %.not.i, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread, label %7
+  %6 = trunc i16 %5 to i1
+  br i1 %6, label %7, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -11438,9 +11419,8 @@ define dso_local ptr @LLVMGetUnwindDest(ptr noundef readonly captures(none) %0) 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !294
-  %19 = and i16 %18, 1
-  %.not.i15 = icmp eq i16 %19, 0
-  br i1 %.not.i15, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread, label %20
+  %19 = trunc i16 %18 to i1
+  br i1 %19, label %20, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 -8
@@ -14212,13 +14192,12 @@ declare void @_ZN4llvm15CatchSwitchInst10addHandlerEPNS_10BasicBlockE(ptr nounde
 define dso_local range(i32 -2, 134217727) i32 @LLVMGetNumHandlers(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2, !tbaa !294
-  %4 = and i16 %3, 1
-  %.not.i = icmp eq i16 %4, 0
+  %4 = trunc i16 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 134217727
-  %..i = select i1 %.not.i, i32 -1, i32 -2
-  %8 = add nsw i32 %..i, %7
+  %..i = select i1 %4, i32 -2, i32 -1
+  %8 = add nsw i32 %7, %..i
   ret i32 %8
 }
 
@@ -14228,9 +14207,8 @@ define dso_local void @LLVMGetHandlers(ptr noundef readonly captures(none) %0, p
   %4 = load ptr, ptr %3, align 8, !tbaa !263, !noalias !410
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = load i16, ptr %5, align 2, !tbaa !294, !noalias !410
-  %7 = and i16 %6, 1
-  %.not.i.i = icmp eq i16 %7, 0
-  %spec.select.v.i.i = select i1 %.not.i.i, i64 32, i64 64
+  %7 = trunc i16 %6 to i1
+  %spec.select.v.i.i = select i1 %7, i64 64, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !noalias !410
   %10 = shl i32 %9, 5

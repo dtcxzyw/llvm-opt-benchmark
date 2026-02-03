@@ -118,12 +118,12 @@ $_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6hermes3hbc20DebugScopeDescriptor5FlagsC2Ej(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(2) initializes((0, 2)) %this, i32 noundef %bits) unnamed_addr #0 align 2 {
 entry:
-  %0 = trunc i32 %bits to i8
-  %frombool = and i8 %0, 1
+  %cmp = trunc i32 %bits to i8
+  %frombool = and i8 %cmp, 1
   store i8 %frombool, ptr %this, align 1
   %isDynamic = getelementptr inbounds nuw i8, ptr %this, i64 1
-  %1 = lshr i8 %0, 1
-  %frombool4 = and i8 %1, 1
+  %0 = lshr i8 %cmp, 1
+  %frombool4 = and i8 %0, 1
   store i8 %frombool4, ptr %isDynamic, align 1
   ret void
 }
@@ -972,25 +972,25 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %5 = load i64, ptr %flags, align 8
-  %6 = trunc i64 %5 to i8
-  %frombool.i = and i8 %6, 1
-  %7 = lshr i8 %6, 1
-  %frombool4.i = and i8 %7, 1
+  %cmp.i = trunc i64 %5 to i8
+  %frombool.i = and i8 %cmp.i, 1
+  %6 = lshr i8 %cmp.i, 1
+  %frombool4.i = and i8 %6, 1
   %ref.tmp11.sroa.2.0.insert.ext = zext nneg i8 %frombool4.i to i16
   %ref.tmp11.sroa.2.0.insert.shift = shl nuw nsw i16 %ref.tmp11.sroa.2.0.insert.ext, 8
   %ref.tmp11.sroa.0.0.insert.ext = zext nneg i8 %frombool.i to i16
   %ref.tmp11.sroa.0.0.insert.insert = or disjoint i16 %ref.tmp11.sroa.2.0.insert.shift, %ref.tmp11.sroa.0.0.insert.ext
   store i16 %ref.tmp11.sroa.0.0.insert.insert, ptr %flags.i, align 8
-  %cmp.i = icmp ugt i64 %3, 4
-  br i1 %cmp.i, label %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread, label %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit
+  %cmp.i6 = icmp ugt i64 %3, 4
+  br i1 %cmp.i6, label %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread, label %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread: ; preds = %if.end
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %names.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef %3, i64 noundef 16) #16
   br label %for.body.lr.ph
 
 _ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit: ; preds = %if.end
-  %cmp1422.not = icmp eq i64 %3, 0
-  br i1 %cmp1422.not, label %nrvo.skipdtor, label %for.body.lr.ph
+  %cmp1423.not = icmp eq i64 %3, 0
+  br i1 %cmp1423.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit.thread, %_ZN4llvh15SmallVectorImplINS_9StringRefEE7reserveEm.exit
   %stringTableOffset_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -998,49 +998,49 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh15SmallVect
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit
-  %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit ]
-  %offset.addr.023 = phi i32 [ %add8, %for.body.lr.ph ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit ]
+  %i.025 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit ]
+  %offset.addr.024 = phi i32 [ %add8, %for.body.lr.ph ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %strOffset.i)
-  %call.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %add.ptr.i.i, i64 %conv3.i, i32 noundef %offset.addr.023, ptr noundef nonnull %strOffset.i) #16
-  %add.i = add i32 %call.i, %offset.addr.023
-  %8 = load i64, ptr %strOffset.i, align 8
-  %conv.i6 = trunc i64 %8 to i32
-  %9 = load i32, ptr %stringTableOffset_.i.i, align 8
-  %conv.i.i7 = zext i32 %9 to i64
-  %10 = load i64, ptr %Length.i.i.i.i, align 8
-  %sub.i.i.i = sub i64 %10, %conv.i.i7
-  %11 = load ptr, ptr %ref_.i.i, align 8
-  %add.ptr.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %11, i64 %conv.i.i7
+  %call.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %add.ptr.i.i, i64 %conv3.i, i32 noundef %offset.addr.024, ptr noundef nonnull %strOffset.i) #16
+  %add.i = add i32 %call.i, %offset.addr.024
+  %7 = load i64, ptr %strOffset.i, align 8
+  %conv.i7 = trunc i64 %7 to i32
+  %8 = load i32, ptr %stringTableOffset_.i.i, align 8
+  %conv.i.i8 = zext i32 %8 to i64
+  %9 = load i64, ptr %Length.i.i.i.i, align 8
+  %sub.i.i.i = sub i64 %9, %conv.i.i8
+  %10 = load ptr, ptr %ref_.i.i, align 8
+  %add.ptr.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %10, i64 %conv.i.i8
   call void @llvm.lifetime.start.p0(ptr nonnull %strSize.i.i)
-  %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %add.ptr.i.i.i.i8, i64 %sub.i.i.i, i32 noundef %conv.i6, ptr noundef nonnull %strSize.i.i) #16
-  %add.i.i = add i32 %call.i.i, %conv.i6
+  %call.i.i = call noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %add.ptr.i.i.i.i9, i64 %sub.i.i.i, i32 noundef %conv.i7, ptr noundef nonnull %strSize.i.i) #16
+  %add.i.i = add i32 %call.i.i, %conv.i7
   %idx.ext.i.i = zext i32 %add.i.i to i64
-  %add.ptr.i.i9 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i8, i64 %idx.ext.i.i
-  %12 = load i64, ptr %strSize.i.i, align 8
+  %add.ptr.i.i10 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i9, i64 %idx.ext.i.i
+  %11 = load i64, ptr %strSize.i.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %strSize.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %strOffset.i)
-  %13 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %14 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %13, %14
-  br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit, label %if.then.i13
+  %12 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %13 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %12, %13
+  br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit, label %if.then.i14
 
-if.then.i13:                                      ; preds = %for.body
+if.then.i14:                                      ; preds = %for.body
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %names.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 16) #16
   %.pre.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit
 
-_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; preds = %for.body, %if.then.i13
-  %15 = phi i32 [ %.pre.i, %if.then.i13 ], [ %13, %for.body ]
-  %16 = load ptr, ptr %names.i, align 8
-  %conv.i3.i = zext i32 %15 to i64
-  %add.ptr.i.i15 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %16, i64 %conv.i3.i
-  store ptr %add.ptr.i.i9, ptr %add.ptr.i.i15, align 1
-  %name.sroa.2.0.add.ptr.i.i15.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i15, i64 8
-  store i64 %12, ptr %name.sroa.2.0.add.ptr.i.i15.sroa_idx, align 1
-  %17 = load i32, ptr %Size.i.i.i.i.i.i, align 8
-  %add.i16 = add i32 %17, 1
-  store i32 %add.i16, ptr %Size.i.i.i.i.i.i, align 8
-  %inc = add nuw i64 %i.024, 1
+_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; preds = %for.body, %if.then.i14
+  %14 = phi i32 [ %.pre.i, %if.then.i14 ], [ %12, %for.body ]
+  %15 = load ptr, ptr %names.i, align 8
+  %conv.i3.i = zext i32 %14 to i64
+  %add.ptr.i.i16 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i
+  store ptr %add.ptr.i.i10, ptr %add.ptr.i.i16, align 1
+  %name.sroa.2.0.add.ptr.i.i16.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i16, i64 8
+  store i64 %11, ptr %name.sroa.2.0.add.ptr.i.i16.sroa_idx, align 1
+  %16 = load i32, ptr %Size.i.i.i.i.i.i, align 8
+  %add.i17 = add i32 %16, 1
+  store i32 %add.i17, ptr %Size.i.i.i.i.i.i, align 8
+  %inc = add nuw i64 %i.025, 1
   %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !14
 

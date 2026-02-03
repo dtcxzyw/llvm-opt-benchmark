@@ -42,8 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.20" = type { [128 x i8] }
 %class.anon.21 = type { i32, i32, i32, %"class.llvm::SmallVector.16" }
 %"struct.llvm::LegalityPredicates::TypePairAndMemDesc" = type { %"class.llvm::LLT", %"class.llvm::LLT", %"class.llvm::LLT", i64 }
-%"struct.__gnu_cxx::__ops::_Iter_pred" = type { %class.anon.51 }
-%class.anon.51 = type { %"struct.llvm::LegalityPredicates::TypePairAndMemDesc" }
 %"struct.llvm::LegalityQuery::MemDesc" = type <{ %"class.llvm::LLT", i64, i32, [4 x i8] }>
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
@@ -57,8 +55,6 @@ $_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEaSERKS4_ = comdat any
 $_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEaSEOS4_ = comdat any
 
 $_ZSt9__find_ifIPKSt5tupleIJN4llvm3LLTES2_S2_EEN9__gnu_cxx5__ops16_Iter_equals_valIS4_EEET_SA_SA_T0_St26random_access_iterator_tag = comdat any
-
-$_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_ = comdat any
 
 $_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 
@@ -2405,121 +2401,634 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT
   ret ptr %.028
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS5_18TypePairAndMemDescEEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #2 align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS5_18TypePairAndMemDescEEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #4 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !24
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %4, align 8, !tbaa !59
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val3 = load ptr, ptr %5, align 8, !tbaa !71
-  %6 = load i32, ptr %.val, align 8, !tbaa !47
-  %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %7
-  %9 = load i64, ptr %8, align 8, !tbaa !7
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !54
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %12
-  %14 = load i64, ptr %13, align 8, !tbaa !7
-  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !55
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %17
-  %19 = load i64, ptr %18, align 8, !tbaa !7
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !74
-  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %.val.i.i.i = load ptr, ptr %22, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %.val5.i.i.i = load i32, ptr %23, align 8, !tbaa !15
-  %24 = zext i32 %.val5.i.i.i to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::LegalityPredicates::TypePairAndMemDesc", ptr %.val.i.i.i, i64 %24
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %9, ptr %3, align 8
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %14, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %19, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %21, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %27 = lshr i64 %24, 2
-  %.not.i.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !71
+  %5 = load i32, ptr %.val, align 8, !tbaa !47
+  %6 = zext i32 %5 to i64
+  %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %6
+  %8 = load i64, ptr %7, align 8, !tbaa !7
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !54
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %11
+  %13 = load i64, ptr %12, align 8, !tbaa !7
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !55
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %16
+  %18 = load i64, ptr %17, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !74
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %.val.i.i.i = load ptr, ptr %21, align 8, !tbaa !13
+  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %.val5.i.i.i = load i32, ptr %22, align 8, !tbaa !15
+  %23 = zext i32 %.val5.i.i.i to i64
+  %.idx1.i.i.i.i = shl nuw nsw i64 %23, 5
+  %24 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx1.i.i.i.i
+  %25 = lshr i64 %23, 2
+  %.not.i.i.i.i = icmp eq i64 %25, 0
+  br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %2, %38
-  %.032.i.i.i.i.i.i.i.i.i = phi i64 [ %40, %38 ], [ %27, %2 ]
-  %.02931.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %38 ], [ %.val.i.i.i, %2 ]
-  %28 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.02931.i.i.i.i.i.i.i.i.i)
-  br i1 %28, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %29
+.lr.ph.i.preheader.i.i.i.i.i.i.i.i:               ; preds = %2
+  %26 = and i64 %18, -7
+  %spec.select.i.i.i.i154.i.i.i.i.i.i.i.i = icmp ne i64 %26, 0
+  %27 = and i64 %18, 2
+  %28 = and i64 %18, 6
+  %29 = icmp eq i64 %28, 2
+  %or.cond.i.i155.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i.i154.i.i.i.i.i.i.i.i, %29
+  %30 = trunc i64 %18 to i1
+  %or.cond7.i.i156.i.i.i.i.i.i.i.i = or i1 %or.cond.i.i155.i.i.i.i.i.i.i.i, %30
+  %31 = lshr i64 %18, 8
+  %.sroa.0.0.insert.ext.i.i.i.i157.i.i.i.i.i.i.i.i = and i64 %31, 65535
+  %.not.i.i1.i.i158.i.i.i.i.i.i.i.i = icmp ne i64 %27, 0
+  %32 = and i1 %.not.i.i1.i.i158.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i154.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i.i159.i.i.i.i.i.i.i.i = select i1 %32, i64 48, i64 32
+  %.0.in.i4.i.i160.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i3.i.i159.i.i.i.i.i.i.i.i
+  %33 = mul nuw nsw i64 %.0.in.i4.i.i160.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i157.i.i.i.i.i.i.i.i
+  %34 = and i64 %33, 4294967295
+  %35 = trunc i64 %18 to i8
+  %36 = lshr i8 %35, 3
+  %37 = and i8 %36, 1
+  %38 = and i64 %.idx1.i.i.i.i, 137438953344
+  %scevgep.i.i.i.i.i.i.i.i = getelementptr i8, ptr %.val.i.i.i, i64 %38
+  %.0.in.i.i.i179..i.i.i.i.i.i.i.i = select i1 %or.cond7.i.i156.i.i.i.i.i.i.i.i, i64 %.0.in.i4.i.i160.i.i.i.i.i.i.i.i, i64 %34
+  %..i.i.i.i.i.i.i.i = select i1 %or.cond7.i.i156.i.i.i.i.i.i.i.i, i8 0, i8 %37
+  br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-29:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 32
-  %31 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %30)
-  br i1 %31, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %32
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i
+  %.032.i.i.i.i.i.i.i.i.i = phi i64 [ %151, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i ], [ %25, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i ]
+  %.02931.i.i.i.i.i.i.i.i.i = phi ptr [ %150, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i ], [ %.val.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i.i.i.i ]
+  %39 = load i64, ptr %.02931.i.i.i.i.i.i.i.i.i, align 8
+  %spec.select.i.i151.i.i.i.i.i.i.i.i = icmp eq i64 %8, %39
+  br i1 %spec.select.i.i151.i.i.i.i.i.i.i.i, label %40, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 64
-  %34 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %33)
-  br i1 %34, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %35
+40:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 8
+  %42 = load i64, ptr %41, align 8
+  %spec.select.i9.i152.i.i.i.i.i.i.i.i = icmp eq i64 %13, %42
+  br i1 %spec.select.i9.i152.i.i.i.i.i.i.i.i, label %43, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 96
-  %37 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  br i1 %37, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %38
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 24
+  %45 = load i64, ptr %44, align 8, !tbaa !77
+  %.not.i153.i.i.i.i.i.i.i.i = icmp ult i64 %20, %45
+  br i1 %.not.i153.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i161.i.i.i.i.i.i.i.i
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 128
-  %40 = add nsw i64 %.032.i.i.i.i.i.i.i.i.i, -1
-  %41 = icmp sgt i64 %.032.i.i.i.i.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, !llvm.loop !77
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i161.i.i.i.i.i.i.i.i: ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, -7
+  %spec.select.i.i.i10.i164.i.i.i.i.i.i.i.i = icmp ne i64 %48, 0
+  %49 = and i64 %47, 2
+  %50 = and i64 %47, 6
+  %51 = icmp eq i64 %50, 2
+  %or.cond.i11.i165.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i164.i.i.i.i.i.i.i.i, %51
+  %52 = trunc i64 %47 to i1
+  %or.cond7.i12.i166.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i165.i.i.i.i.i.i.i.i, %52
+  br i1 %or.cond7.i12.i166.i.i.i.i.i.i.i.i, label %53, label %55
 
-._crit_edge.loopexit.i.i.i.i.i.i.i.i.i:           ; preds = %38
-  %.pre.i.i.i.i.i.i.i.i.i = ptrtoint ptr %39 to i64
-  %.pre33.i.i.i.i.i.i.i.i.i = sub i64 %26, %.pre.i.i.i.i.i.i.i.i.i
-  %42 = ashr exact i64 %.pre33.i.i.i.i.i.i.i.i.i, 5
+53:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i161.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i174.i.i.i.i.i.i.i.i = icmp ne i64 %49, 0
+  %54 = and i1 %.not.i.i.i21.i174.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i164.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i175.i.i.i.i.i.i.i.i = select i1 %54, i64 48, i64 32
+  %.0.in.i.i23.i176.i.i.i.i.i.i.i.i = lshr i64 %47, %.0.in.v.i.i22.i175.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.i.i.i.i.i.i.i.i
+
+55:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i161.i.i.i.i.i.i.i.i
+  %56 = lshr i64 %47, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i167.i.i.i.i.i.i.i.i = and i64 %56, 65535
+  %.not.i.i1.i14.i168.i.i.i.i.i.i.i.i = icmp ne i64 %49, 0
+  %57 = and i1 %.not.i.i1.i14.i168.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i164.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i169.i.i.i.i.i.i.i.i = select i1 %57, i64 48, i64 32
+  %.0.in.i4.i16.i170.i.i.i.i.i.i.i.i = lshr i64 %47, %.0.in.v.i3.i15.i169.i.i.i.i.i.i.i.i
+  %58 = mul nuw nsw i64 %.0.in.i4.i16.i170.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i167.i.i.i.i.i.i.i.i
+  %59 = and i64 %58, 4294967295
+  %60 = trunc i64 %47 to i8
+  %61 = lshr i8 %60, 3
+  %62 = and i8 %61, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.i.i.i.i.i.i.i.i: ; preds = %55, %53
+  %.sroa.06.0.i17.i172.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i176.i.i.i.i.i.i.i.i, %53 ], [ %59, %55 ]
+  %.sroa.3.0.i18.i173.i.i.i.i.i.i.i.i = phi i8 [ 0, %53 ], [ %62, %55 ]
+  %63 = icmp eq i64 %.0.in.i.i.i179..i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i172.i.i.i.i.i.i.i.i
+  %64 = icmp eq i8 %..i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i173.i.i.i.i.i.i.i.i
+  %65 = and i1 %63, %64
+  br i1 %65, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.i.i.i.i.i.i.i.i, %43, %40, %.lr.ph.i.i.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 32
+  %67 = load i64, ptr %66, align 8
+  %spec.select.i.i121.i.i.i.i.i.i.i.i = icmp eq i64 %8, %67
+  br i1 %spec.select.i.i121.i.i.i.i.i.i.i.i, label %68, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i
+
+68:                                               ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 40
+  %70 = load i64, ptr %69, align 8
+  %spec.select.i9.i122.i.i.i.i.i.i.i.i = icmp eq i64 %13, %70
+  br i1 %spec.select.i9.i122.i.i.i.i.i.i.i.i, label %71, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i
+
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 56
+  %73 = load i64, ptr %72, align 8, !tbaa !77
+  %.not.i123.i.i.i.i.i.i.i.i = icmp ult i64 %20, %73
+  br i1 %.not.i123.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i131.i.i.i.i.i.i.i.i
+
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i131.i.i.i.i.i.i.i.i: ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 48
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, -7
+  %spec.select.i.i.i10.i134.i.i.i.i.i.i.i.i = icmp ne i64 %76, 0
+  %77 = and i64 %75, 2
+  %78 = and i64 %75, 6
+  %79 = icmp eq i64 %78, 2
+  %or.cond.i11.i135.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i134.i.i.i.i.i.i.i.i, %79
+  %80 = trunc i64 %75 to i1
+  %or.cond7.i12.i136.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i135.i.i.i.i.i.i.i.i, %80
+  br i1 %or.cond7.i12.i136.i.i.i.i.i.i.i.i, label %81, label %83
+
+81:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i131.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i144.i.i.i.i.i.i.i.i = icmp ne i64 %77, 0
+  %82 = and i1 %.not.i.i.i21.i144.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i134.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i145.i.i.i.i.i.i.i.i = select i1 %82, i64 48, i64 32
+  %.0.in.i.i23.i146.i.i.i.i.i.i.i.i = lshr i64 %75, %.0.in.v.i.i22.i145.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.i.i.i.i.i.i.i.i
+
+83:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i131.i.i.i.i.i.i.i.i
+  %84 = lshr i64 %75, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i137.i.i.i.i.i.i.i.i = and i64 %84, 65535
+  %.not.i.i1.i14.i138.i.i.i.i.i.i.i.i = icmp ne i64 %77, 0
+  %85 = and i1 %.not.i.i1.i14.i138.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i134.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i139.i.i.i.i.i.i.i.i = select i1 %85, i64 48, i64 32
+  %.0.in.i4.i16.i140.i.i.i.i.i.i.i.i = lshr i64 %75, %.0.in.v.i3.i15.i139.i.i.i.i.i.i.i.i
+  %86 = mul nuw nsw i64 %.0.in.i4.i16.i140.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i137.i.i.i.i.i.i.i.i
+  %87 = and i64 %86, 4294967295
+  %88 = trunc i64 %75 to i8
+  %89 = lshr i8 %88, 3
+  %90 = and i8 %89, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.i.i.i.i.i.i.i.i: ; preds = %83, %81
+  %.sroa.06.0.i17.i142.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i146.i.i.i.i.i.i.i.i, %81 ], [ %87, %83 ]
+  %.sroa.3.0.i18.i143.i.i.i.i.i.i.i.i = phi i8 [ 0, %81 ], [ %90, %83 ]
+  %91 = icmp eq i64 %.0.in.i.i.i179..i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i142.i.i.i.i.i.i.i.i
+  %92 = icmp eq i8 %..i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i143.i.i.i.i.i.i.i.i
+  %93 = and i1 %91, %92
+  br i1 %93, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.i.i.i.i.i.i.i.i, %71, %68, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.thread.i.i.i.i.i.i.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 64
+  %95 = load i64, ptr %94, align 8
+  %spec.select.i.i91.i.i.i.i.i.i.i.i = icmp eq i64 %8, %95
+  br i1 %spec.select.i.i91.i.i.i.i.i.i.i.i, label %96, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i
+
+96:                                               ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i
+  %97 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 72
+  %98 = load i64, ptr %97, align 8
+  %spec.select.i9.i92.i.i.i.i.i.i.i.i = icmp eq i64 %13, %98
+  br i1 %spec.select.i9.i92.i.i.i.i.i.i.i.i, label %99, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i
+
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 88
+  %101 = load i64, ptr %100, align 8, !tbaa !77
+  %.not.i93.i.i.i.i.i.i.i.i = icmp ult i64 %20, %101
+  br i1 %.not.i93.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i101.i.i.i.i.i.i.i.i
+
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i101.i.i.i.i.i.i.i.i: ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 80
+  %103 = load i64, ptr %102, align 8
+  %104 = and i64 %103, -7
+  %spec.select.i.i.i10.i104.i.i.i.i.i.i.i.i = icmp ne i64 %104, 0
+  %105 = and i64 %103, 2
+  %106 = and i64 %103, 6
+  %107 = icmp eq i64 %106, 2
+  %or.cond.i11.i105.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i104.i.i.i.i.i.i.i.i, %107
+  %108 = trunc i64 %103 to i1
+  %or.cond7.i12.i106.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i105.i.i.i.i.i.i.i.i, %108
+  br i1 %or.cond7.i12.i106.i.i.i.i.i.i.i.i, label %109, label %111
+
+109:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i101.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i114.i.i.i.i.i.i.i.i = icmp ne i64 %105, 0
+  %110 = and i1 %.not.i.i.i21.i114.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i104.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i115.i.i.i.i.i.i.i.i = select i1 %110, i64 48, i64 32
+  %.0.in.i.i23.i116.i.i.i.i.i.i.i.i = lshr i64 %103, %.0.in.v.i.i22.i115.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.i.i.i.i.i.i.i.i
+
+111:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i101.i.i.i.i.i.i.i.i
+  %112 = lshr i64 %103, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i107.i.i.i.i.i.i.i.i = and i64 %112, 65535
+  %.not.i.i1.i14.i108.i.i.i.i.i.i.i.i = icmp ne i64 %105, 0
+  %113 = and i1 %.not.i.i1.i14.i108.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i104.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i109.i.i.i.i.i.i.i.i = select i1 %113, i64 48, i64 32
+  %.0.in.i4.i16.i110.i.i.i.i.i.i.i.i = lshr i64 %103, %.0.in.v.i3.i15.i109.i.i.i.i.i.i.i.i
+  %114 = mul nuw nsw i64 %.0.in.i4.i16.i110.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i107.i.i.i.i.i.i.i.i
+  %115 = and i64 %114, 4294967295
+  %116 = trunc i64 %103 to i8
+  %117 = lshr i8 %116, 3
+  %118 = and i8 %117, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.i.i.i.i.i.i.i.i: ; preds = %111, %109
+  %.sroa.06.0.i17.i112.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i116.i.i.i.i.i.i.i.i, %109 ], [ %115, %111 ]
+  %.sroa.3.0.i18.i113.i.i.i.i.i.i.i.i = phi i8 [ 0, %109 ], [ %118, %111 ]
+  %119 = icmp eq i64 %.0.in.i.i.i179..i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i112.i.i.i.i.i.i.i.i
+  %120 = icmp eq i8 %..i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i113.i.i.i.i.i.i.i.i
+  %121 = and i1 %119, %120
+  br i1 %121, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit16", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.i.i.i.i.i.i.i.i, %99, %96, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.thread.i.i.i.i.i.i.i.i
+  %122 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 96
+  %123 = load i64, ptr %122, align 8
+  %spec.select.i.i61.i.i.i.i.i.i.i.i = icmp eq i64 %8, %123
+  br i1 %spec.select.i.i61.i.i.i.i.i.i.i.i, label %124, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i
+
+124:                                              ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 104
+  %126 = load i64, ptr %125, align 8
+  %spec.select.i9.i62.i.i.i.i.i.i.i.i = icmp eq i64 %13, %126
+  br i1 %spec.select.i9.i62.i.i.i.i.i.i.i.i, label %127, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i
+
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 120
+  %129 = load i64, ptr %128, align 8, !tbaa !77
+  %.not.i63.i.i.i.i.i.i.i.i = icmp ult i64 %20, %129
+  br i1 %.not.i63.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i71.i.i.i.i.i.i.i.i
+
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i71.i.i.i.i.i.i.i.i: ; preds = %127
+  %130 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 112
+  %131 = load i64, ptr %130, align 8
+  %132 = and i64 %131, -7
+  %spec.select.i.i.i10.i74.i.i.i.i.i.i.i.i = icmp ne i64 %132, 0
+  %133 = and i64 %131, 2
+  %134 = and i64 %131, 6
+  %135 = icmp eq i64 %134, 2
+  %or.cond.i11.i75.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i74.i.i.i.i.i.i.i.i, %135
+  %136 = trunc i64 %131 to i1
+  %or.cond7.i12.i76.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i75.i.i.i.i.i.i.i.i, %136
+  br i1 %or.cond7.i12.i76.i.i.i.i.i.i.i.i, label %137, label %139
+
+137:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i71.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i84.i.i.i.i.i.i.i.i = icmp ne i64 %133, 0
+  %138 = and i1 %.not.i.i.i21.i84.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i74.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i85.i.i.i.i.i.i.i.i = select i1 %138, i64 48, i64 32
+  %.0.in.i.i23.i86.i.i.i.i.i.i.i.i = lshr i64 %131, %.0.in.v.i.i22.i85.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.i.i.i.i.i.i.i.i
+
+139:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i71.i.i.i.i.i.i.i.i
+  %140 = lshr i64 %131, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i77.i.i.i.i.i.i.i.i = and i64 %140, 65535
+  %.not.i.i1.i14.i78.i.i.i.i.i.i.i.i = icmp ne i64 %133, 0
+  %141 = and i1 %.not.i.i1.i14.i78.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i74.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i79.i.i.i.i.i.i.i.i = select i1 %141, i64 48, i64 32
+  %.0.in.i4.i16.i80.i.i.i.i.i.i.i.i = lshr i64 %131, %.0.in.v.i3.i15.i79.i.i.i.i.i.i.i.i
+  %142 = mul nuw nsw i64 %.0.in.i4.i16.i80.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i77.i.i.i.i.i.i.i.i
+  %143 = and i64 %142, 4294967295
+  %144 = trunc i64 %131 to i8
+  %145 = lshr i8 %144, 3
+  %146 = and i8 %145, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.i.i.i.i.i.i.i.i: ; preds = %139, %137
+  %.sroa.06.0.i17.i82.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i86.i.i.i.i.i.i.i.i, %137 ], [ %143, %139 ]
+  %.sroa.3.0.i18.i83.i.i.i.i.i.i.i.i = phi i8 [ 0, %137 ], [ %146, %139 ]
+  %147 = icmp eq i64 %.0.in.i.i.i179..i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i82.i.i.i.i.i.i.i.i
+  %148 = icmp eq i8 %..i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i83.i.i.i.i.i.i.i.i
+  %149 = and i1 %147, %148
+  br i1 %149, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.i.i.i.i.i.i.i.i, %127, %124, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.thread.i.i.i.i.i.i.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 128
+  %151 = add nsw i64 %.032.i.i.i.i.i.i.i.i.i, -1
+  %152 = icmp sgt i64 %.032.i.i.i.i.i.i.i.i.i, 1
+  br i1 %152, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, !llvm.loop !79
+
+._crit_edge.loopexit.i.i.i.i.i.i.i.i.i:           ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.thread.i.i.i.i.i.i.i.i
+  %153 = and i32 %.val5.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, %2
-  %.pre-phi34.i.i.i.i.i.i.i.i.i = phi i64 [ %42, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %24, %2 ]
-  %.029.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i, %2 ]
-  switch i64 %.pre-phi34.i.i.i.i.i.i.i.i.i, label %53 [
-    i64 3, label %43
-    i64 2, label %47
-    i64 1, label %51
+  %.pre-phi34.i.i.i.i.i.i.i.i.i = phi i32 [ %153, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %.val5.i.i.i, %2 ]
+  %.029.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i, %2 ]
+  switch i32 %.pre-phi34.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i [
+    i32 3, label %154
+    i32 2, label %199
+    i32 1, label %244
   ]
 
-43:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
-  %44 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.029.lcssa.i.i.i.i.i.i.i.i.i)
-  br i1 %44, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %45
+154:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i
+  %155 = load i64, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, align 8
+  %spec.select.i.i31.i.i.i.i.i.i.i.i = icmp eq i64 %8, %155
+  br i1 %spec.select.i.i31.i.i.i.i.i.i.i.i, label %156, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, i64 32
-  br label %47
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, i64 8
+  %158 = load i64, ptr %157, align 8
+  %spec.select.i9.i32.i.i.i.i.i.i.i.i = icmp eq i64 %13, %158
+  br i1 %spec.select.i9.i32.i.i.i.i.i.i.i.i, label %159, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i
 
-47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %48 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i.i.i.i.i.i.i.i)
-  br i1 %48, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %49
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, i64 24
+  %161 = load i64, ptr %160, align 8, !tbaa !77
+  %.not.i33.i.i.i.i.i.i.i.i = icmp ult i64 %20, %161
+  br i1 %.not.i33.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i, label %162
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i.i.i, i64 32
-  br label %51
+162:                                              ; preds = %159
+  %163 = and i64 %18, -7
+  %spec.select.i.i.i.i34.i.i.i.i.i.i.i.i = icmp ne i64 %163, 0
+  %164 = and i64 %18, 2
+  %165 = and i64 %18, 6
+  %166 = icmp eq i64 %165, 2
+  %or.cond.i.i35.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i.i34.i.i.i.i.i.i.i.i, %166
+  %167 = trunc i64 %18 to i1
+  %or.cond7.i.i36.i.i.i.i.i.i.i.i = or i1 %or.cond.i.i35.i.i.i.i.i.i.i.i, %167
+  br i1 %or.cond7.i.i36.i.i.i.i.i.i.i.i, label %168, label %170
 
-51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %50, %49 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
-  %52 = call noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.2.i.i.i.i.i.i.i.i.i)
-  br i1 %52, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %53
+168:                                              ; preds = %162
+  %.not.i.i.i.i57.i.i.i.i.i.i.i.i = icmp ne i64 %164, 0
+  %169 = and i1 %.not.i.i.i.i57.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i34.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i.i58.i.i.i.i.i.i.i.i = select i1 %169, i64 48, i64 32
+  %.0.in.i.i.i59.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i.i.i58.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i41.i.i.i.i.i.i.i.i
 
-53:                                               ; preds = %51, %._crit_edge.i.i.i.i.i.i.i.i.i
+170:                                              ; preds = %162
+  %171 = lshr i64 %18, 8
+  %.sroa.0.0.insert.ext.i.i.i.i37.i.i.i.i.i.i.i.i = and i64 %171, 65535
+  %.not.i.i1.i.i38.i.i.i.i.i.i.i.i = icmp ne i64 %164, 0
+  %172 = and i1 %.not.i.i1.i.i38.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i34.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i.i39.i.i.i.i.i.i.i.i = select i1 %172, i64 48, i64 32
+  %.0.in.i4.i.i40.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i3.i.i39.i.i.i.i.i.i.i.i
+  %173 = mul nuw nsw i64 %.0.in.i4.i.i40.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i37.i.i.i.i.i.i.i.i
+  %174 = and i64 %173, 4294967295
+  %175 = trunc i64 %18 to i8
+  %176 = lshr i8 %175, 3
+  %177 = and i8 %176, 1
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i41.i.i.i.i.i.i.i.i
+
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i41.i.i.i.i.i.i.i.i: ; preds = %170, %168
+  %.sroa.06.0.i.i42.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i.i59.i.i.i.i.i.i.i.i, %168 ], [ %174, %170 ]
+  %.sroa.3.0.i.i43.i.i.i.i.i.i.i.i = phi i8 [ 0, %168 ], [ %177, %170 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, i64 16
+  %179 = load i64, ptr %178, align 8
+  %180 = and i64 %179, -7
+  %spec.select.i.i.i10.i44.i.i.i.i.i.i.i.i = icmp ne i64 %180, 0
+  %181 = and i64 %179, 2
+  %182 = and i64 %179, 6
+  %183 = icmp eq i64 %182, 2
+  %or.cond.i11.i45.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i44.i.i.i.i.i.i.i.i, %183
+  %184 = trunc i64 %179 to i1
+  %or.cond7.i12.i46.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i45.i.i.i.i.i.i.i.i, %184
+  br i1 %or.cond7.i12.i46.i.i.i.i.i.i.i.i, label %185, label %187
+
+185:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i41.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i54.i.i.i.i.i.i.i.i = icmp ne i64 %181, 0
+  %186 = and i1 %.not.i.i.i21.i54.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i44.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i55.i.i.i.i.i.i.i.i = select i1 %186, i64 48, i64 32
+  %.0.in.i.i23.i56.i.i.i.i.i.i.i.i = lshr i64 %179, %.0.in.v.i.i22.i55.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.i.i.i.i.i.i.i.i
+
+187:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i41.i.i.i.i.i.i.i.i
+  %188 = lshr i64 %179, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i47.i.i.i.i.i.i.i.i = and i64 %188, 65535
+  %.not.i.i1.i14.i48.i.i.i.i.i.i.i.i = icmp ne i64 %181, 0
+  %189 = and i1 %.not.i.i1.i14.i48.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i44.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i49.i.i.i.i.i.i.i.i = select i1 %189, i64 48, i64 32
+  %.0.in.i4.i16.i50.i.i.i.i.i.i.i.i = lshr i64 %179, %.0.in.v.i3.i15.i49.i.i.i.i.i.i.i.i
+  %190 = mul nuw nsw i64 %.0.in.i4.i16.i50.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i47.i.i.i.i.i.i.i.i
+  %191 = and i64 %190, 4294967295
+  %192 = trunc i64 %179 to i8
+  %193 = lshr i8 %192, 3
+  %194 = and i8 %193, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.i.i.i.i.i.i.i.i: ; preds = %187, %185
+  %.sroa.06.0.i17.i52.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i56.i.i.i.i.i.i.i.i, %185 ], [ %191, %187 ]
+  %.sroa.3.0.i18.i53.i.i.i.i.i.i.i.i = phi i8 [ 0, %185 ], [ %194, %187 ]
+  %195 = icmp eq i64 %.sroa.06.0.i.i42.i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i52.i.i.i.i.i.i.i.i
+  %196 = icmp eq i8 %.sroa.3.0.i.i43.i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i53.i.i.i.i.i.i.i.i
+  %197 = and i1 %195, %196
+  br i1 %197, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.i.i.i.i.i.i.i.i, %159, %156, %154
+  %198 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i.i.i, i64 32
+  br label %199
+
+199:                                              ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
+  %.1.i.i.i.i.i.i.i.i.i = phi ptr [ %198, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.thread.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
+  %200 = load i64, ptr %.1.i.i.i.i.i.i.i.i.i, align 8
+  %spec.select.i.i1.i.i.i.i.i.i.i.i = icmp eq i64 %8, %200
+  br i1 %spec.select.i.i1.i.i.i.i.i.i.i.i, label %201, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i
+
+201:                                              ; preds = %199
+  %202 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i.i.i, i64 8
+  %203 = load i64, ptr %202, align 8
+  %spec.select.i9.i2.i.i.i.i.i.i.i.i = icmp eq i64 %13, %203
+  br i1 %spec.select.i9.i2.i.i.i.i.i.i.i.i, label %204, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i
+
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i.i.i, i64 24
+  %206 = load i64, ptr %205, align 8, !tbaa !77
+  %.not.i3.i.i.i.i.i.i.i.i = icmp ult i64 %20, %206
+  br i1 %.not.i3.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i, label %207
+
+207:                                              ; preds = %204
+  %208 = and i64 %18, -7
+  %spec.select.i.i.i.i4.i.i.i.i.i.i.i.i = icmp ne i64 %208, 0
+  %209 = and i64 %18, 2
+  %210 = and i64 %18, 6
+  %211 = icmp eq i64 %210, 2
+  %or.cond.i.i5.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i.i4.i.i.i.i.i.i.i.i, %211
+  %212 = trunc i64 %18 to i1
+  %or.cond7.i.i6.i.i.i.i.i.i.i.i = or i1 %or.cond.i.i5.i.i.i.i.i.i.i.i, %212
+  br i1 %or.cond7.i.i6.i.i.i.i.i.i.i.i, label %213, label %215
+
+213:                                              ; preds = %207
+  %.not.i.i.i.i27.i.i.i.i.i.i.i.i = icmp ne i64 %209, 0
+  %214 = and i1 %.not.i.i.i.i27.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i4.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i.i28.i.i.i.i.i.i.i.i = select i1 %214, i64 48, i64 32
+  %.0.in.i.i.i29.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i.i.i28.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i11.i.i.i.i.i.i.i.i
+
+215:                                              ; preds = %207
+  %216 = lshr i64 %18, 8
+  %.sroa.0.0.insert.ext.i.i.i.i7.i.i.i.i.i.i.i.i = and i64 %216, 65535
+  %.not.i.i1.i.i8.i.i.i.i.i.i.i.i = icmp ne i64 %209, 0
+  %217 = and i1 %.not.i.i1.i.i8.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i4.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i.i9.i.i.i.i.i.i.i.i = select i1 %217, i64 48, i64 32
+  %.0.in.i4.i.i10.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i3.i.i9.i.i.i.i.i.i.i.i
+  %218 = mul nuw nsw i64 %.0.in.i4.i.i10.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i7.i.i.i.i.i.i.i.i
+  %219 = and i64 %218, 4294967295
+  %220 = trunc i64 %18 to i8
+  %221 = lshr i8 %220, 3
+  %222 = and i8 %221, 1
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i11.i.i.i.i.i.i.i.i
+
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i11.i.i.i.i.i.i.i.i: ; preds = %215, %213
+  %.sroa.06.0.i.i12.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i.i29.i.i.i.i.i.i.i.i, %213 ], [ %219, %215 ]
+  %.sroa.3.0.i.i13.i.i.i.i.i.i.i.i = phi i8 [ 0, %213 ], [ %222, %215 ]
+  %223 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i.i.i, i64 16
+  %224 = load i64, ptr %223, align 8
+  %225 = and i64 %224, -7
+  %spec.select.i.i.i10.i14.i.i.i.i.i.i.i.i = icmp ne i64 %225, 0
+  %226 = and i64 %224, 2
+  %227 = and i64 %224, 6
+  %228 = icmp eq i64 %227, 2
+  %or.cond.i11.i15.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i14.i.i.i.i.i.i.i.i, %228
+  %229 = trunc i64 %224 to i1
+  %or.cond7.i12.i16.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i15.i.i.i.i.i.i.i.i, %229
+  br i1 %or.cond7.i12.i16.i.i.i.i.i.i.i.i, label %230, label %232
+
+230:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i11.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i24.i.i.i.i.i.i.i.i = icmp ne i64 %226, 0
+  %231 = and i1 %.not.i.i.i21.i24.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i14.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i25.i.i.i.i.i.i.i.i = select i1 %231, i64 48, i64 32
+  %.0.in.i.i23.i26.i.i.i.i.i.i.i.i = lshr i64 %224, %.0.in.v.i.i22.i25.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.i.i.i.i.i.i.i.i
+
+232:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i11.i.i.i.i.i.i.i.i
+  %233 = lshr i64 %224, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i17.i.i.i.i.i.i.i.i = and i64 %233, 65535
+  %.not.i.i1.i14.i18.i.i.i.i.i.i.i.i = icmp ne i64 %226, 0
+  %234 = and i1 %.not.i.i1.i14.i18.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i14.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i19.i.i.i.i.i.i.i.i = select i1 %234, i64 48, i64 32
+  %.0.in.i4.i16.i20.i.i.i.i.i.i.i.i = lshr i64 %224, %.0.in.v.i3.i15.i19.i.i.i.i.i.i.i.i
+  %235 = mul nuw nsw i64 %.0.in.i4.i16.i20.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i17.i.i.i.i.i.i.i.i
+  %236 = and i64 %235, 4294967295
+  %237 = trunc i64 %224 to i8
+  %238 = lshr i8 %237, 3
+  %239 = and i8 %238, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.i.i.i.i.i.i.i.i: ; preds = %232, %230
+  %.sroa.06.0.i17.i22.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i26.i.i.i.i.i.i.i.i, %230 ], [ %236, %232 ]
+  %.sroa.3.0.i18.i23.i.i.i.i.i.i.i.i = phi i8 [ 0, %230 ], [ %239, %232 ]
+  %240 = icmp eq i64 %.sroa.06.0.i.i12.i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i22.i.i.i.i.i.i.i.i
+  %241 = icmp eq i8 %.sroa.3.0.i.i13.i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i23.i.i.i.i.i.i.i.i
+  %242 = and i1 %240, %241
+  br i1 %242, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.i.i.i.i.i.i.i.i, %204, %201, %199
+  %243 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i.i.i, i64 32
+  br label %244
+
+244:                                              ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i
+  %.2.i.i.i.i.i.i.i.i.i = phi ptr [ %243, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.thread.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
+  %245 = load i64, ptr %.2.i.i.i.i.i.i.i.i.i, align 8
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %8, %245
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %246, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i
+
+246:                                              ; preds = %244
+  %247 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i.i.i.i, i64 8
+  %248 = load i64, ptr %247, align 8
+  %spec.select.i9.i.i.i.i.i.i.i.i.i = icmp eq i64 %13, %248
+  br i1 %spec.select.i9.i.i.i.i.i.i.i.i.i, label %249, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i
+
+249:                                              ; preds = %246
+  %250 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i.i.i.i, i64 24
+  %251 = load i64, ptr %250, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %20, %251
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i, label %252
+
+252:                                              ; preds = %249
+  %253 = and i64 %18, -7
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %253, 0
+  %254 = and i64 %18, 2
+  %255 = and i64 %18, 6
+  %256 = icmp eq i64 %255, 2
+  %or.cond.i.i.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i.i, %256
+  %257 = trunc i64 %18 to i1
+  %or.cond7.i.i.i.i.i.i.i.i.i.i = or i1 %or.cond.i.i.i.i.i.i.i.i.i.i, %257
+  br i1 %or.cond7.i.i.i.i.i.i.i.i.i.i, label %258, label %260
+
+258:                                              ; preds = %252
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %254, 0
+  %259 = and i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i.i.i.i.i.i.i.i.i.i = select i1 %259, i64 48, i64 32
+  %.0.in.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i.i.i.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i.i.i.i.i.i.i
+
+260:                                              ; preds = %252
+  %261 = lshr i64 %18, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %261, 65535
+  %.not.i.i1.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %254, 0
+  %262 = and i1 %.not.i.i1.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i.i.i.i.i.i.i = select i1 %262, i64 48, i64 32
+  %.0.in.i4.i.i.i.i.i.i.i.i.i.i = lshr i64 %18, %.0.in.v.i3.i.i.i.i.i.i.i.i.i.i
+  %263 = mul nuw nsw i64 %.0.in.i4.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i.i
+  %264 = and i64 %263, 4294967295
+  %265 = trunc i64 %18 to i8
+  %266 = lshr i8 %265, 3
+  %267 = and i8 %266, 1
+  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i.i.i.i.i.i.i
+
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %260, %258
+  %.sroa.06.0.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i.i.i.i.i.i.i, %258 ], [ %264, %260 ]
+  %.sroa.3.0.i.i.i.i.i.i.i.i.i.i = phi i8 [ 0, %258 ], [ %267, %260 ]
+  %268 = getelementptr inbounds nuw i8, ptr %.2.i.i.i.i.i.i.i.i.i, i64 16
+  %269 = load i64, ptr %268, align 8
+  %270 = and i64 %269, -7
+  %spec.select.i.i.i10.i.i.i.i.i.i.i.i.i = icmp ne i64 %270, 0
+  %271 = and i64 %269, 2
+  %272 = and i64 %269, 6
+  %273 = icmp eq i64 %272, 2
+  %or.cond.i11.i.i.i.i.i.i.i.i.i = and i1 %spec.select.i.i.i10.i.i.i.i.i.i.i.i.i, %273
+  %274 = trunc i64 %269 to i1
+  %or.cond7.i12.i.i.i.i.i.i.i.i.i = or i1 %or.cond.i11.i.i.i.i.i.i.i.i.i, %274
+  br i1 %or.cond7.i12.i.i.i.i.i.i.i.i.i, label %275, label %277
+
+275:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i.i.i.i.i.i.i
+  %.not.i.i.i21.i.i.i.i.i.i.i.i.i = icmp ne i64 %271, 0
+  %276 = and i1 %.not.i.i.i21.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i.i.i.i.i.i.i.i.i
+  %.0.in.v.i.i22.i.i.i.i.i.i.i.i.i = select i1 %276, i64 48, i64 32
+  %.0.in.i.i23.i.i.i.i.i.i.i.i.i = lshr i64 %269, %.0.in.v.i.i22.i.i.i.i.i.i.i.i.i
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.i.i.i.i.i.i.i.i
+
+277:                                              ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i.i.i.i.i.i.i
+  %278 = lshr i64 %269, 8
+  %.sroa.0.0.insert.ext.i.i.i13.i.i.i.i.i.i.i.i.i = and i64 %278, 65535
+  %.not.i.i1.i14.i.i.i.i.i.i.i.i.i = icmp ne i64 %271, 0
+  %279 = and i1 %.not.i.i1.i14.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i10.i.i.i.i.i.i.i.i.i
+  %.0.in.v.i3.i15.i.i.i.i.i.i.i.i.i = select i1 %279, i64 48, i64 32
+  %.0.in.i4.i16.i.i.i.i.i.i.i.i.i = lshr i64 %269, %.0.in.v.i3.i15.i.i.i.i.i.i.i.i.i
+  %280 = mul nuw nsw i64 %.0.in.i4.i16.i.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i13.i.i.i.i.i.i.i.i.i
+  %281 = and i64 %280, 4294967295
+  %282 = trunc i64 %269 to i8
+  %283 = lshr i8 %282, 3
+  %284 = and i8 %283, 1
+  br label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.i.i.i.i.i.i.i.i: ; preds = %277, %275
+  %.sroa.06.0.i17.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.in.i.i23.i.i.i.i.i.i.i.i.i, %275 ], [ %281, %277 ]
+  %.sroa.3.0.i18.i.i.i.i.i.i.i.i.i = phi i8 [ 0, %275 ], [ %284, %277 ]
+  %285 = icmp eq i64 %.sroa.06.0.i.i.i.i.i.i.i.i.i.i, %.sroa.06.0.i17.i.i.i.i.i.i.i.i.i
+  %286 = icmp eq i8 %.sroa.3.0.i.i.i.i.i.i.i.i.i.i, %.sroa.3.0.i18.i.i.i.i.i.i.i.i.i
+  %287 = and i1 %285, %286
+  br i1 %287, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit", label %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i
+
+_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.i.i.i.i.i.i.i.i, %249, %246, %244, %._crit_edge.i.i.i.i.i.i.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %29, %32, %35, %43, %47, %51, %53
-  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %47 ], [ %25, %53 ], [ %.2.i.i.i.i.i.i.i.i.i, %51 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %43 ], [ %.02931.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %30, %29 ], [ %33, %32 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %54 = icmp ne ptr %25, %.028.i.i.i.i.i.i.i.i.i
-  ret i1 %54
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit": ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit90.i.i.i.i.i.i.i.i
+  %288 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 96
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit16": ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit120.i.i.i.i.i.i.i.i
+  %289 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 64
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18": ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit150.i.i.i.i.i.i.i.i
+  %290 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 32
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit"
+
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit": ; preds = %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.i.i.i.i.i.i.i.i, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit16", %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18", %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit30.i.i.i.i.i.i.i.i ], [ %24, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.thread.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit.i.i.i.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit60.i.i.i.i.i.i.i.i ], [ %290, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit18" ], [ %289, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit16" ], [ %288, %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS1_18TypePairAndMemDescEEE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit.loopexit.split.loop.exit" ], [ %.02931.i.i.i.i.i.i.i.i.i, %_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_.exit180.i.i.i.i.i.i.i.i ]
+  %291 = icmp ne ptr %24, %.028.i.i.i.i.i.i.i.i.i
+  ret i1 %291
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2615,114 +3124,6 @@ _ZSt4copyIPKN4llvm18LegalityPredicates18TypePairAndMemDescEPS2_ET0_T_S7_S6_.exit
   ret i1 false
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18TypePairAndMemDesc12isCompatibleERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = load i64, ptr %0, align 8
-  %4 = load i64, ptr %1, align 8
-  %spec.select.i = icmp eq i64 %3, %4
-  br i1 %spec.select.i, label %5, label %55
-
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %6, align 8
-  %9 = load i64, ptr %7, align 8
-  %spec.select.i9 = icmp eq i64 %8, %9
-  br i1 %spec.select.i9, label %10, label %55
-
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !78
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !78
-  %.not = icmp ult i64 %12, %14
-  br i1 %.not, label %55, label %15
-
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i64, ptr %16, align 8
-  %18 = and i64 %17, -7
-  %spec.select.i.i.i = icmp ne i64 %18, 0
-  %19 = and i64 %17, 2
-  %20 = and i64 %17, 6
-  %21 = icmp eq i64 %20, 2
-  %or.cond.i = and i1 %spec.select.i.i.i, %21
-  %22 = and i64 %17, 1
-  %23 = icmp ne i64 %22, 0
-  %or.cond8.i = or i1 %23, %or.cond.i
-  br i1 %or.cond8.i, label %24, label %26
-
-24:                                               ; preds = %15
-  %.not.i.i.i = icmp ne i64 %19, 0
-  %25 = and i1 %.not.i.i.i, %spec.select.i.i.i
-  %.0.in.v.i.i = select i1 %25, i64 48, i64 32
-  %.0.in.i.i = lshr i64 %17, %.0.in.v.i.i
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-
-26:                                               ; preds = %15
-  %27 = lshr i64 %17, 8
-  %.sroa.0.0.insert.ext.i.i.i = and i64 %27, 65535
-  %.not.i.i1.i = icmp ne i64 %19, 0
-  %28 = and i1 %.not.i.i1.i, %spec.select.i.i.i
-  %.0.in.v.i3.i = select i1 %28, i64 48, i64 32
-  %.0.in.i4.i = lshr i64 %17, %.0.in.v.i3.i
-  %29 = mul nuw nsw i64 %.0.in.i4.i, %.sroa.0.0.insert.ext.i.i.i
-  %30 = and i64 %29, 4294967295
-  %31 = trunc i64 %17 to i8
-  %32 = lshr i8 %31, 3
-  %33 = and i8 %32, 1
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %24, %26
-  %.sroa.06.0.i = phi i64 [ %.0.in.i.i, %24 ], [ %30, %26 ]
-  %.sroa.3.0.i = phi i8 [ 0, %24 ], [ %33, %26 ]
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = and i64 %35, -7
-  %spec.select.i.i.i10 = icmp ne i64 %36, 0
-  %37 = and i64 %35, 2
-  %38 = and i64 %35, 6
-  %39 = icmp eq i64 %38, 2
-  %or.cond.i11 = and i1 %spec.select.i.i.i10, %39
-  %40 = and i64 %35, 1
-  %41 = icmp ne i64 %40, 0
-  %or.cond8.i12 = or i1 %41, %or.cond.i11
-  br i1 %or.cond8.i12, label %42, label %44
-
-42:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %.not.i.i.i21 = icmp ne i64 %37, 0
-  %43 = and i1 %.not.i.i.i21, %spec.select.i.i.i10
-  %.0.in.v.i.i22 = select i1 %43, i64 48, i64 32
-  %.0.in.i.i23 = lshr i64 %35, %.0.in.v.i.i22
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit24
-
-44:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %45 = lshr i64 %35, 8
-  %.sroa.0.0.insert.ext.i.i.i13 = and i64 %45, 65535
-  %.not.i.i1.i14 = icmp ne i64 %37, 0
-  %46 = and i1 %.not.i.i1.i14, %spec.select.i.i.i10
-  %.0.in.v.i3.i15 = select i1 %46, i64 48, i64 32
-  %.0.in.i4.i16 = lshr i64 %35, %.0.in.v.i3.i15
-  %47 = mul nuw nsw i64 %.0.in.i4.i16, %.sroa.0.0.insert.ext.i.i.i13
-  %48 = and i64 %47, 4294967295
-  %49 = trunc i64 %35 to i8
-  %50 = lshr i8 %49, 3
-  %51 = and i8 %50, 1
-  br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit24
-
-_ZNK4llvm3LLT13getSizeInBitsEv.exit24:            ; preds = %42, %44
-  %.sroa.06.0.i17 = phi i64 [ %.0.in.i.i23, %42 ], [ %48, %44 ]
-  %.sroa.3.0.i18 = phi i8 [ 0, %42 ], [ %51, %44 ]
-  %52 = icmp eq i64 %.sroa.06.0.i, %.sroa.06.0.i17
-  %53 = icmp eq i8 %.sroa.3.0.i, %.sroa.3.0.i18
-  %54 = and i1 %52, %53
-  br label %55
-
-55:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit24, %10, %5, %2
-  %56 = phi i1 [ false, %10 ], [ false, %5 ], [ false, %2 ], [ %54, %_ZNK4llvm3LLT13getSizeInBitsEv.exit24 ]
-  ret i1 %56
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8isScalarEjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #4 align 2 {
   %.val = load i32, ptr %0, align 8, !tbaa !80
@@ -2731,9 +3132,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8
-  %7 = and i64 %6, 1
-  %8 = icmp ne i64 %7, 0
-  ret i1 %8
+  %7 = trunc i64 %6 to i1
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3021,10 +3421,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
-  %9 = and i64 %8, 1
-  %.not.i.i.i = icmp eq i64 %9, 0
+  %9 = trunc i64 %8 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %9, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = and i64 %8, 2
@@ -3083,10 +3482,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
-  %9 = and i64 %8, 1
-  %.not.i.i.i = icmp eq i64 %9, 0
+  %9 = trunc i64 %8 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %9, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = and i64 %8, 2
@@ -3151,89 +3549,87 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %13 = and i64 %10, 6
   %14 = icmp eq i64 %13, 2
   %or.cond.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i, %14
-  %15 = and i64 %10, 1
-  %16 = icmp ne i64 %15, 0
-  %or.cond8.i.i.i.i = or i1 %16, %or.cond.i.i.i.i
-  br i1 %or.cond8.i.i.i.i, label %17, label %19
+  %15 = trunc i64 %10 to i1
+  %or.cond7.i.i.i.i = or i1 %or.cond.i.i.i.i, %15
+  br i1 %or.cond7.i.i.i.i, label %16, label %18
 
-17:                                               ; preds = %2
+16:                                               ; preds = %2
   %.not.i.i.i.i.i.i = icmp ne i64 %12, 0
-  %18 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i.i.i.i.i = select i1 %18, i64 48, i64 32
+  %17 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i.i.i.i.i = select i1 %17, i64 48, i64 32
   %.0.in.i.i.i.i.i = lshr i64 %10, %.0.in.v.i.i.i.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-19:                                               ; preds = %2
-  %20 = lshr i64 %10, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %20, 65535
+18:                                               ; preds = %2
+  %19 = lshr i64 %10, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %19, 65535
   %.not.i.i1.i.i.i.i = icmp ne i64 %12, 0
-  %21 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i3.i.i.i.i = select i1 %21, i64 48, i64 32
+  %20 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i = select i1 %20, i64 48, i64 32
   %.0.in.i4.i.i.i.i = lshr i64 %10, %.0.in.v.i3.i.i.i.i
-  %22 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %23 = and i64 %22, 4294967295
-  %24 = trunc i64 %10 to i8
-  %25 = lshr i8 %24, 3
-  %26 = and i8 %25, 1
+  %21 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %22 = and i64 %21, 4294967295
+  %23 = trunc i64 %10 to i8
+  %24 = lshr i8 %23, 3
+  %25 = and i8 %24, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %19, %17
-  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %17 ], [ %23, %19 ]
-  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %17 ], [ %26, %19 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %18, %16
+  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %16 ], [ %22, %18 ]
+  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %16 ], [ %25, %18 ]
   store i64 %.sroa.06.0.i.i.i.i, ptr %3, align 8
   %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
-  %27 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
+  %26 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !100
-  %30 = zext i32 %29 to i64
-  %31 = load ptr, ptr %5, align 8, !tbaa !59
-  %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
-  %33 = load i64, ptr %32, align 8
-  %34 = and i64 %33, -7
-  %spec.select.i.i.i7.i.i.i = icmp ne i64 %34, 0
-  %35 = and i64 %33, 2
-  %36 = and i64 %33, 6
-  %37 = icmp eq i64 %36, 2
-  %or.cond.i8.i.i.i = and i1 %spec.select.i.i.i7.i.i.i, %37
-  %38 = and i64 %33, 1
-  %39 = icmp ne i64 %38, 0
-  %or.cond8.i9.i.i.i = or i1 %39, %or.cond.i8.i.i.i
-  br i1 %or.cond8.i9.i.i.i, label %40, label %42
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !100
+  %29 = zext i32 %28 to i64
+  %30 = load ptr, ptr %5, align 8, !tbaa !59
+  %31 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %30, i64 %29
+  %32 = load i64, ptr %31, align 8
+  %33 = and i64 %32, -7
+  %spec.select.i.i.i7.i.i.i = icmp ne i64 %33, 0
+  %34 = and i64 %32, 2
+  %35 = and i64 %32, 6
+  %36 = icmp eq i64 %35, 2
+  %or.cond.i8.i.i.i = and i1 %spec.select.i.i.i7.i.i.i, %36
+  %37 = trunc i64 %32 to i1
+  %or.cond7.i9.i.i.i = or i1 %or.cond.i8.i.i.i, %37
+  br i1 %or.cond7.i9.i.i.i, label %38, label %40
+
+38:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  %.not.i.i.i18.i.i.i = icmp ne i64 %34, 0
+  %39 = and i1 %.not.i.i.i18.i.i.i, %spec.select.i.i.i7.i.i.i
+  %.0.in.v.i.i19.i.i.i = select i1 %39, i64 48, i64 32
+  %.0.in.i.i20.i.i.i = lshr i64 %32, %.0.in.v.i.i19.i.i.i
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11smallerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 40:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %.not.i.i.i18.i.i.i = icmp ne i64 %35, 0
-  %41 = and i1 %.not.i.i.i18.i.i.i, %spec.select.i.i.i7.i.i.i
-  %.0.in.v.i.i19.i.i.i = select i1 %41, i64 48, i64 32
-  %.0.in.i.i20.i.i.i = lshr i64 %33, %.0.in.v.i.i19.i.i.i
+  %41 = lshr i64 %32, 8
+  %.sroa.0.0.insert.ext.i.i.i10.i.i.i = and i64 %41, 65535
+  %.not.i.i1.i11.i.i.i = icmp ne i64 %34, 0
+  %42 = and i1 %.not.i.i1.i11.i.i.i, %spec.select.i.i.i7.i.i.i
+  %.0.in.v.i3.i12.i.i.i = select i1 %42, i64 48, i64 32
+  %.0.in.i4.i13.i.i.i = lshr i64 %32, %.0.in.v.i3.i12.i.i.i
+  %43 = mul nuw nsw i64 %.0.in.i4.i13.i.i.i, %.sroa.0.0.insert.ext.i.i.i10.i.i.i
+  %44 = and i64 %43, 4294967295
+  %45 = trunc i64 %32 to i8
+  %46 = lshr i8 %45, 3
+  %47 = and i8 %46, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11smallerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-42:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %43 = lshr i64 %33, 8
-  %.sroa.0.0.insert.ext.i.i.i10.i.i.i = and i64 %43, 65535
-  %.not.i.i1.i11.i.i.i = icmp ne i64 %35, 0
-  %44 = and i1 %.not.i.i1.i11.i.i.i, %spec.select.i.i.i7.i.i.i
-  %.0.in.v.i3.i12.i.i.i = select i1 %44, i64 48, i64 32
-  %.0.in.i4.i13.i.i.i = lshr i64 %33, %.0.in.v.i3.i12.i.i.i
-  %45 = mul nuw nsw i64 %.0.in.i4.i13.i.i.i, %.sroa.0.0.insert.ext.i.i.i10.i.i.i
-  %46 = and i64 %45, 4294967295
-  %47 = trunc i64 %33 to i8
-  %48 = lshr i8 %47, 3
-  %49 = and i8 %48, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11smallerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
-
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11smallerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %40, %42
-  %.sroa.06.0.i14.i.i.i = phi i64 [ %.0.in.i.i20.i.i.i, %40 ], [ %46, %42 ]
-  %.sroa.3.0.i15.i.i.i = phi i8 [ 0, %40 ], [ %49, %42 ]
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11smallerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %38, %40
+  %.sroa.06.0.i14.i.i.i = phi i64 [ %.0.in.i.i20.i.i.i, %38 ], [ %44, %40 ]
+  %.sroa.3.0.i15.i.i.i = phi i8 [ 0, %38 ], [ %47, %40 ]
   store i64 %.sroa.06.0.i14.i.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.sroa.3.0.i15.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %50 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #12
-  %51 = icmp ult i64 %27, %50
+  %48 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #12
+  %49 = icmp ult i64 %26, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %51
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3278,89 +3674,87 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %13 = and i64 %10, 6
   %14 = icmp eq i64 %13, 2
   %or.cond.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i, %14
-  %15 = and i64 %10, 1
-  %16 = icmp ne i64 %15, 0
-  %or.cond8.i.i.i.i = or i1 %16, %or.cond.i.i.i.i
-  br i1 %or.cond8.i.i.i.i, label %17, label %19
+  %15 = trunc i64 %10 to i1
+  %or.cond7.i.i.i.i = or i1 %or.cond.i.i.i.i, %15
+  br i1 %or.cond7.i.i.i.i, label %16, label %18
 
-17:                                               ; preds = %2
+16:                                               ; preds = %2
   %.not.i.i.i.i.i.i = icmp ne i64 %12, 0
-  %18 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i.i.i.i.i = select i1 %18, i64 48, i64 32
+  %17 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i.i.i.i.i = select i1 %17, i64 48, i64 32
   %.0.in.i.i.i.i.i = lshr i64 %10, %.0.in.v.i.i.i.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-19:                                               ; preds = %2
-  %20 = lshr i64 %10, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %20, 65535
+18:                                               ; preds = %2
+  %19 = lshr i64 %10, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %19, 65535
   %.not.i.i1.i.i.i.i = icmp ne i64 %12, 0
-  %21 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i3.i.i.i.i = select i1 %21, i64 48, i64 32
+  %20 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i = select i1 %20, i64 48, i64 32
   %.0.in.i4.i.i.i.i = lshr i64 %10, %.0.in.v.i3.i.i.i.i
-  %22 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %23 = and i64 %22, 4294967295
-  %24 = trunc i64 %10 to i8
-  %25 = lshr i8 %24, 3
-  %26 = and i8 %25, 1
+  %21 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %22 = and i64 %21, 4294967295
+  %23 = trunc i64 %10 to i8
+  %24 = lshr i8 %23, 3
+  %25 = and i8 %24, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %19, %17
-  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %17 ], [ %23, %19 ]
-  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %17 ], [ %26, %19 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %18, %16
+  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %16 ], [ %22, %18 ]
+  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %16 ], [ %25, %18 ]
   store i64 %.sroa.06.0.i.i.i.i, ptr %3, align 8
   %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
-  %27 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
+  %26 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !103
-  %30 = zext i32 %29 to i64
-  %31 = load ptr, ptr %5, align 8, !tbaa !59
-  %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
-  %33 = load i64, ptr %32, align 8
-  %34 = and i64 %33, -7
-  %spec.select.i.i.i7.i.i.i = icmp ne i64 %34, 0
-  %35 = and i64 %33, 2
-  %36 = and i64 %33, 6
-  %37 = icmp eq i64 %36, 2
-  %or.cond.i8.i.i.i = and i1 %spec.select.i.i.i7.i.i.i, %37
-  %38 = and i64 %33, 1
-  %39 = icmp ne i64 %38, 0
-  %or.cond8.i9.i.i.i = or i1 %39, %or.cond.i8.i.i.i
-  br i1 %or.cond8.i9.i.i.i, label %40, label %42
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i32, ptr %27, align 4, !tbaa !103
+  %29 = zext i32 %28 to i64
+  %30 = load ptr, ptr %5, align 8, !tbaa !59
+  %31 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %30, i64 %29
+  %32 = load i64, ptr %31, align 8
+  %33 = and i64 %32, -7
+  %spec.select.i.i.i7.i.i.i = icmp ne i64 %33, 0
+  %34 = and i64 %32, 2
+  %35 = and i64 %32, 6
+  %36 = icmp eq i64 %35, 2
+  %or.cond.i8.i.i.i = and i1 %spec.select.i.i.i7.i.i.i, %36
+  %37 = trunc i64 %32 to i1
+  %or.cond7.i9.i.i.i = or i1 %or.cond.i8.i.i.i, %37
+  br i1 %or.cond7.i9.i.i.i, label %38, label %40
+
+38:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  %.not.i.i.i18.i.i.i = icmp ne i64 %34, 0
+  %39 = and i1 %.not.i.i.i18.i.i.i, %spec.select.i.i.i7.i.i.i
+  %.0.in.v.i.i19.i.i.i = select i1 %39, i64 48, i64 32
+  %.0.in.i.i20.i.i.i = lshr i64 %32, %.0.in.v.i.i19.i.i.i
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates10largerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 40:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %.not.i.i.i18.i.i.i = icmp ne i64 %35, 0
-  %41 = and i1 %.not.i.i.i18.i.i.i, %spec.select.i.i.i7.i.i.i
-  %.0.in.v.i.i19.i.i.i = select i1 %41, i64 48, i64 32
-  %.0.in.i.i20.i.i.i = lshr i64 %33, %.0.in.v.i.i19.i.i.i
+  %41 = lshr i64 %32, 8
+  %.sroa.0.0.insert.ext.i.i.i10.i.i.i = and i64 %41, 65535
+  %.not.i.i1.i11.i.i.i = icmp ne i64 %34, 0
+  %42 = and i1 %.not.i.i1.i11.i.i.i, %spec.select.i.i.i7.i.i.i
+  %.0.in.v.i3.i12.i.i.i = select i1 %42, i64 48, i64 32
+  %.0.in.i4.i13.i.i.i = lshr i64 %32, %.0.in.v.i3.i12.i.i.i
+  %43 = mul nuw nsw i64 %.0.in.i4.i13.i.i.i, %.sroa.0.0.insert.ext.i.i.i10.i.i.i
+  %44 = and i64 %43, 4294967295
+  %45 = trunc i64 %32 to i8
+  %46 = lshr i8 %45, 3
+  %47 = and i8 %46, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates10largerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-42:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %43 = lshr i64 %33, 8
-  %.sroa.0.0.insert.ext.i.i.i10.i.i.i = and i64 %43, 65535
-  %.not.i.i1.i11.i.i.i = icmp ne i64 %35, 0
-  %44 = and i1 %.not.i.i1.i11.i.i.i, %spec.select.i.i.i7.i.i.i
-  %.0.in.v.i3.i12.i.i.i = select i1 %44, i64 48, i64 32
-  %.0.in.i4.i13.i.i.i = lshr i64 %33, %.0.in.v.i3.i12.i.i.i
-  %45 = mul nuw nsw i64 %.0.in.i4.i13.i.i.i, %.sroa.0.0.insert.ext.i.i.i10.i.i.i
-  %46 = and i64 %45, 4294967295
-  %47 = trunc i64 %33 to i8
-  %48 = lshr i8 %47, 3
-  %49 = and i8 %48, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates10largerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
-
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates10largerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %40, %42
-  %.sroa.06.0.i14.i.i.i = phi i64 [ %.0.in.i.i20.i.i.i, %40 ], [ %46, %42 ]
-  %.sroa.3.0.i15.i.i.i = phi i8 [ 0, %40 ], [ %49, %42 ]
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates10largerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %38, %40
+  %.sroa.06.0.i14.i.i.i = phi i64 [ %.0.in.i.i20.i.i.i, %38 ], [ %44, %40 ]
+  %.sroa.3.0.i15.i.i.i = phi i8 [ 0, %38 ], [ %47, %40 ]
   store i64 %.sroa.06.0.i14.i.i.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.sroa.3.0.i15.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %50 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #12
-  %51 = icmp ugt i64 %27, %50
+  %48 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #12
+  %49 = icmp ugt i64 %26, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %51
+  ret i1 %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3545,10 +3939,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
-  %9 = and i64 %8, 1
-  %.not.i.i.i = icmp eq i64 %9, 0
+  %9 = trunc i64 %8 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %9, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %10 = and i64 %8, 2
@@ -3606,10 +3999,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !7
-  %8 = and i64 %7, 1
-  %.not.i.i.i = icmp eq i64 %8, 0
+  %8 = trunc i64 %7 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  br i1 %8, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   %9 = and i64 %7, 2
@@ -3676,45 +4068,44 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %11 = and i64 %8, 6
   %12 = icmp eq i64 %11, 2
   %or.cond.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i, %12
-  %13 = and i64 %8, 1
-  %14 = icmp ne i64 %13, 0
-  %or.cond8.i.i.i.i = or i1 %14, %or.cond.i.i.i.i
-  br i1 %or.cond8.i.i.i.i, label %15, label %17
+  %13 = trunc i64 %8 to i1
+  %or.cond7.i.i.i.i = or i1 %or.cond.i.i.i.i, %13
+  br i1 %or.cond7.i.i.i.i, label %14, label %16
 
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   %.not.i.i.i.i.i.i = icmp ne i64 %10, 0
-  %16 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i.i.i.i.i = select i1 %16, i64 48, i64 32
+  %15 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i.i.i.i.i = select i1 %15, i64 48, i64 32
   %.0.in.i.i.i.i.i = lshr i64 %8, %.0.in.v.i.i.i.i.i
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-17:                                               ; preds = %2
-  %18 = lshr i64 %8, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %18, 65535
+16:                                               ; preds = %2
+  %17 = lshr i64 %8, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %17, 65535
   %.not.i.i1.i.i.i.i = icmp ne i64 %10, 0
-  %19 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i3.i.i.i.i = select i1 %19, i64 48, i64 32
+  %18 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i = select i1 %18, i64 48, i64 32
   %.0.in.i4.i.i.i.i = lshr i64 %8, %.0.in.v.i3.i.i.i.i
-  %20 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %21 = and i64 %20, 4294967295
-  %22 = trunc i64 %8 to i8
-  %23 = lshr i8 %22, 3
-  %24 = and i8 %23, 1
+  %19 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %20 = and i64 %19, 4294967295
+  %21 = trunc i64 %8 to i8
+  %22 = lshr i8 %21, 3
+  %23 = and i8 %22, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %15, %17
-  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %15 ], [ %21, %17 ]
-  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %15 ], [ %24, %17 ]
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates6sizeIsEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %14, %16
+  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %14 ], [ %20, %16 ]
+  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %14 ], [ %23, %16 ]
   store i64 %.sroa.06.0.i.i.i.i, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %25 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !119
-  %28 = zext i32 %27 to i64
-  %29 = icmp eq i64 %25, %28
+  %24 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !119
+  %27 = zext i32 %26 to i64
+  %28 = icmp eq i64 %24, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %29
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3758,77 +4149,75 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %10 = and i64 %7, 6
   %11 = icmp eq i64 %10, 2
   %or.cond.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i, %11
-  %12 = and i64 %7, 1
-  %13 = icmp ne i64 %12, 0
-  %or.cond8.i.i.i.i = or i1 %13, %or.cond.i.i.i.i
-  br i1 %or.cond8.i.i.i.i, label %14, label %16
+  %12 = trunc i64 %7 to i1
+  %or.cond7.i.i.i.i = or i1 %or.cond.i.i.i.i, %12
+  br i1 %or.cond7.i.i.i.i, label %13, label %15
 
-14:                                               ; preds = %2
+13:                                               ; preds = %2
   %.not.i.i.i.i.i.i = icmp ne i64 %9, 0
-  %15 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i.i.i.i.i = select i1 %15, i64 48, i64 32
+  %14 = and i1 %.not.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i.i.i.i.i = select i1 %14, i64 48, i64 32
   %.0.in.i.i.i.i.i = lshr i64 %7, %.0.in.v.i.i.i.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-16:                                               ; preds = %2
-  %17 = lshr i64 %7, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %17, 65535
+15:                                               ; preds = %2
+  %16 = lshr i64 %7, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %16, 65535
   %.not.i.i1.i.i.i.i = icmp ne i64 %9, 0
-  %18 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
-  %.0.in.v.i3.i.i.i.i = select i1 %18, i64 48, i64 32
+  %17 = and i1 %.not.i.i1.i.i.i.i, %spec.select.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i = select i1 %17, i64 48, i64 32
   %.0.in.i4.i.i.i.i = lshr i64 %7, %.0.in.v.i3.i.i.i.i
-  %19 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %20 = and i64 %19, 4294967295
-  %21 = trunc i64 %7 to i8
-  %22 = lshr i8 %21, 3
-  %23 = and i8 %22, 1
+  %18 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %19 = and i64 %18, 4294967295
+  %20 = trunc i64 %7 to i8
+  %21 = lshr i8 %20, 3
+  %22 = and i8 %21, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %16, %14
-  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %14 ], [ %20, %16 ]
-  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %14 ], [ %23, %16 ]
-  %24 = zext i32 %.val2 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, -7
-  %spec.select.i.i.i7.i.i.i = icmp ne i64 %27, 0
-  %28 = and i64 %26, 2
-  %29 = and i64 %26, 6
-  %30 = icmp eq i64 %29, 2
-  %or.cond.i8.i.i.i = and i1 %spec.select.i.i.i7.i.i.i, %30
-  %31 = and i64 %26, 1
-  %32 = icmp ne i64 %31, 0
-  %or.cond8.i9.i.i.i = or i1 %32, %or.cond.i8.i.i.i
-  br i1 %or.cond8.i9.i.i.i, label %33, label %35
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %15, %13
+  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %13 ], [ %19, %15 ]
+  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %13 ], [ %22, %15 ]
+  %23 = zext i32 %.val2 to i64
+  %24 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %23
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, -7
+  %spec.select.i.i.i7.i.i.i = icmp ne i64 %26, 0
+  %27 = and i64 %25, 2
+  %28 = and i64 %25, 6
+  %29 = icmp eq i64 %28, 2
+  %or.cond.i8.i.i.i = and i1 %spec.select.i.i.i7.i.i.i, %29
+  %30 = trunc i64 %25 to i1
+  %or.cond7.i9.i.i.i = or i1 %or.cond.i8.i.i.i, %30
+  br i1 %or.cond7.i9.i.i.i, label %31, label %33
+
+31:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
+  %.not.i.i.i18.i.i.i = icmp ne i64 %27, 0
+  %32 = and i1 %.not.i.i.i18.i.i.i, %spec.select.i.i.i7.i.i.i
+  %.0.in.v.i.i19.i.i.i = select i1 %32, i64 48, i64 32
+  %.0.in.i.i20.i.i.i = lshr i64 %25, %.0.in.v.i.i19.i.i.i
+  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 33:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %.not.i.i.i18.i.i.i = icmp ne i64 %28, 0
-  %34 = and i1 %.not.i.i.i18.i.i.i, %spec.select.i.i.i7.i.i.i
-  %.0.in.v.i.i19.i.i.i = select i1 %34, i64 48, i64 32
-  %.0.in.i.i20.i.i.i = lshr i64 %26, %.0.in.v.i.i19.i.i.i
+  %34 = lshr i64 %25, 8
+  %.sroa.0.0.insert.ext.i.i.i10.i.i.i = and i64 %34, 65535
+  %.not.i.i1.i11.i.i.i = icmp ne i64 %27, 0
+  %35 = and i1 %.not.i.i1.i11.i.i.i, %spec.select.i.i.i7.i.i.i
+  %.0.in.v.i3.i12.i.i.i = select i1 %35, i64 48, i64 32
+  %.0.in.i4.i13.i.i.i = lshr i64 %25, %.0.in.v.i3.i12.i.i.i
+  %36 = mul nuw nsw i64 %.0.in.i4.i13.i.i.i, %.sroa.0.0.insert.ext.i.i.i10.i.i.i
+  %37 = and i64 %36, 4294967295
+  %38 = trunc i64 %25 to i8
+  %39 = lshr i8 %38, 3
+  %40 = and i8 %39, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-35:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i
-  %36 = lshr i64 %26, 8
-  %.sroa.0.0.insert.ext.i.i.i10.i.i.i = and i64 %36, 65535
-  %.not.i.i1.i11.i.i.i = icmp ne i64 %28, 0
-  %37 = and i1 %.not.i.i1.i11.i.i.i, %spec.select.i.i.i7.i.i.i
-  %.0.in.v.i3.i12.i.i.i = select i1 %37, i64 48, i64 32
-  %.0.in.i4.i13.i.i.i = lshr i64 %26, %.0.in.v.i3.i12.i.i.i
-  %38 = mul nuw nsw i64 %.0.in.i4.i13.i.i.i, %.sroa.0.0.insert.ext.i.i.i10.i.i.i
-  %39 = and i64 %38, 4294967295
-  %40 = trunc i64 %26 to i8
-  %41 = lshr i8 %40, 3
-  %42 = and i8 %41, 1
-  br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
-
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %33, %35
-  %.sroa.06.0.i14.i.i.i = phi i64 [ %.0.in.i.i20.i.i.i, %33 ], [ %39, %35 ]
-  %.sroa.3.0.i15.i.i.i = phi i8 [ 0, %33 ], [ %42, %35 ]
-  %43 = icmp eq i64 %.sroa.06.0.i.i.i.i, %.sroa.06.0.i14.i.i.i
-  %44 = icmp eq i8 %.sroa.3.0.i.i.i.i, %.sroa.3.0.i15.i.i.i
-  %45 = and i1 %43, %44
-  ret i1 %45
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates8sameSizeEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %31, %33
+  %.sroa.06.0.i14.i.i.i = phi i64 [ %.0.in.i.i20.i.i.i, %31 ], [ %37, %33 ]
+  %.sroa.3.0.i15.i.i.i = phi i8 [ 0, %31 ], [ %40, %33 ]
+  %41 = icmp eq i64 %.sroa.06.0.i.i.i.i, %.sroa.06.0.i14.i.i.i
+  %42 = icmp eq i8 %.sroa.3.0.i.i.i.i, %.sroa.3.0.i15.i.i.i
+  %43 = and i1 %41, %42
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3872,54 +4261,53 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %10 = and i64 %7, 6
   %11 = icmp eq i64 %10, 2
   %or.cond.i.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i.i, %11
-  %12 = and i64 %7, 1
-  %13 = icmp ne i64 %12, 0
-  %or.cond8.i.i.i.i.i = or i1 %13, %or.cond.i.i.i.i.i
-  br i1 %or.cond8.i.i.i.i.i, label %14, label %16
+  %12 = trunc i64 %7 to i1
+  %or.cond7.i.i.i.i.i = or i1 %or.cond.i.i.i.i.i, %12
+  br i1 %or.cond7.i.i.i.i.i, label %13, label %15
 
-14:                                               ; preds = %2
+13:                                               ; preds = %2
   %.not.i.i.i.i.i.i.i = icmp ne i64 %9, 0
-  %15 = and i1 %.not.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
-  %.0.in.v.i.i.i.i.i.i = select i1 %15, i64 48, i64 32
+  %14 = and i1 %.not.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
+  %.0.in.v.i.i.i.i.i.i = select i1 %14, i64 48, i64 32
   %.0.in.i.i.i.i.i.i = lshr i64 %7, %.0.in.v.i.i.i.i.i.i
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
 
-16:                                               ; preds = %2
-  %17 = lshr i64 %7, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i = and i64 %17, 65535
+15:                                               ; preds = %2
+  %16 = lshr i64 %7, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i = and i64 %16, 65535
   %.not.i.i1.i.i.i.i.i = icmp ne i64 %9, 0
-  %18 = and i1 %.not.i.i1.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
-  %.0.in.v.i3.i.i.i.i.i = select i1 %18, i64 48, i64 32
+  %17 = and i1 %.not.i.i1.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i.i = select i1 %17, i64 48, i64 32
   %.0.in.i4.i.i.i.i.i = lshr i64 %7, %.0.in.v.i3.i.i.i.i.i
-  %19 = mul nuw nsw i64 %.0.in.i4.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i
-  %20 = and i64 %19, 4294967295
-  %21 = trunc i64 %7 to i8
-  %22 = lshr i8 %21, 3
-  %23 = and i8 %22, 1
+  %18 = mul nuw nsw i64 %.0.in.i4.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i
+  %19 = and i64 %18, 4294967295
+  %20 = trunc i64 %7 to i8
+  %21 = lshr i8 %20, 3
+  %22 = and i8 %21, 1
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %16, %14
-  %.sroa.06.0.i.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i.i, %14 ], [ %20, %16 ]
-  %.sroa.3.0.i.i.i.i.i = phi i8 [ 0, %14 ], [ %23, %16 ]
-  %24 = add nuw nsw i64 %.sroa.06.0.i.i.i.i.i, 7
-  %25 = lshr i64 %24, 3
-  store i64 %25, ptr %3, align 8
+_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %15, %13
+  %.sroa.06.0.i.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i.i, %13 ], [ %19, %15 ]
+  %.sroa.3.0.i.i.i.i.i = phi i8 [ 0, %13 ], [ %22, %15 ]
+  %23 = add nuw nsw i64 %.sroa.06.0.i.i.i.i.i, 7
+  %24 = lshr i64 %23, 3
+  store i64 %24, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  %26 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
-  %27 = trunc i64 %26 to i32
-  %.not.i.i.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %28
+  %25 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
+  %26 = trunc i64 %25 to i32
+  %.not.i.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %27
 
-28:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
-  %29 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %30 = icmp samesign ugt i32 %29, 1
+27:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
+  %28 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %26)
+  %29 = icmp samesign ugt i32 %28, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %28
-  %31 = phi i1 [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %30, %28 ]
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %27
+  %30 = phi i1 [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %29, %27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %31
+  ret i1 %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3961,57 +4349,56 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %9 = and i64 %6, 6
   %10 = icmp eq i64 %9, 2
   %or.cond.i.i.i.i.i = and i1 %spec.select.i.i.i.i.i.i.i, %10
-  %11 = and i64 %6, 1
-  %12 = icmp ne i64 %11, 0
-  %or.cond8.i.i.i.i.i = or i1 %12, %or.cond.i.i.i.i.i
-  br i1 %or.cond8.i.i.i.i.i, label %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, label %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i
+  %11 = trunc i64 %6 to i1
+  %or.cond7.i.i.i.i.i = or i1 %or.cond.i.i.i.i.i, %11
+  br i1 %or.cond7.i.i.i.i.i, label %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, label %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i
 
 _ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i:          ; preds = %2
   %.not.i.i.i.i.i.i.i = icmp ne i64 %8, 0
-  %13 = and i1 %.not.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
-  %14 = select i1 %13, i64 1970324836974592, i64 30064771072
-  %15 = and i64 %14, %6
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %21, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
+  %12 = and i1 %.not.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
+  %13 = select i1 %12, i64 1970324836974592, i64 30064771072
+  %14 = and i64 %13, %6
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %20, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
 _ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i:   ; preds = %2
-  %17 = lshr i64 %6, 8
+  %16 = lshr i64 %6, 8
   %.not.i.i1.i.i.i.i.i = icmp ne i64 %8, 0
-  %18 = and i1 %.not.i.i1.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
-  %.0.in.v.i3.i.i.i.i.i = select i1 %18, i64 48, i64 32
+  %17 = and i1 %.not.i.i1.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i
+  %.0.in.v.i3.i.i.i.i.i = select i1 %17, i64 48, i64 32
   %.0.in.i4.i.i.i.i.i = lshr i64 %6, %.0.in.v.i3.i.i.i.i.i
-  %19 = mul i64 %.0.in.i4.i.i.i.i.i, %17
-  %.zext.i4.i.i.i = and i64 %19, 7
-  %20 = icmp eq i64 %.zext.i4.i.i.i, 0
-  br i1 %20, label %.thread.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
+  %18 = mul i64 %.0.in.i4.i.i.i.i.i, %16
+  %.zext.i4.i.i.i = and i64 %18, 7
+  %19 = icmp eq i64 %.zext.i4.i.i.i, 0
+  br i1 %19, label %.thread.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-21:                                               ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i
-  %.0.in.v.i.i.i10.i.i.i = select i1 %13, i64 48, i64 32
+20:                                               ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i
+  %.0.in.v.i.i.i10.i.i.i = select i1 %12, i64 48, i64 32
   %.0.in.i.i.i11.i.i.i = lshr i64 %6, %.0.in.v.i.i.i10.i.i.i
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
 
 .thread.i.i.i:                                    ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i = and i64 %17, 65535
-  %22 = mul nuw nsw i64 %.0.in.i4.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i
-  %23 = and i64 %22, 4294967295
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i.i = and i64 %16, 65535
+  %21 = mul nuw nsw i64 %.0.in.i4.i.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i.i
+  %22 = and i64 %21, 4294967295
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %.thread.i.i.i, %21
-  %.sroa.06.0.i.i8.i.i.i = phi i64 [ %.0.in.i.i.i11.i.i.i, %21 ], [ %23, %.thread.i.i.i ]
-  %24 = add nuw nsw i64 %.sroa.06.0.i.i8.i.i.i, 7
-  %25 = lshr i64 %24, 3
-  %.not.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %26
+_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i:       ; preds = %.thread.i.i.i, %20
+  %.sroa.06.0.i.i8.i.i.i = phi i64 [ %.0.in.i.i.i11.i.i.i, %20 ], [ %22, %.thread.i.i.i ]
+  %23 = add nuw nsw i64 %.sroa.06.0.i.i8.i.i.i, 7
+  %24 = lshr i64 %23, 3
+  %.not.i.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit", label %25
 
-26:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
-  %27 = trunc nuw nsw i64 %25 to i32
-  %28 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %27)
-  %29 = icmp samesign ugt i32 %28, 1
+25:                                               ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i
+  %26 = trunc nuw nsw i64 %24 to i32
+  %27 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %26)
+  %28 = icmp samesign ugt i32 %27, 1
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %26
-  %30 = phi i1 [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i ], [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i ], [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %29, %26 ]
-  ret i1 %30
+"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit": ; preds = %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i, %25
+  %29 = phi i1 [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.i.i.i ], [ true, %_ZNK4llvm3LLT11isByteSizedEv.exit.thread.i.i.i ], [ true, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i.i ], [ %28, %25 ]
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -4245,9 +4632,9 @@ attributes #14 = { builtin nounwind }
 !74 = !{!75, !36, i64 8}
 !75 = !{!"_ZTSN4llvm13LegalityQuery7MemDescE", !58, i64 0, !36, i64 8, !76, i64 16}
 !76 = !{!"_ZTSN4llvm14AtomicOrderingE", !5, i64 0}
-!77 = distinct !{!77, !34}
-!78 = !{!79, !36, i64 24}
-!79 = !{!"_ZTSN4llvm18LegalityPredicates18TypePairAndMemDescE", !58, i64 0, !58, i64 8, !58, i64 16, !36, i64 24}
+!77 = !{!78, !36, i64 24}
+!78 = !{!"_ZTSN4llvm18LegalityPredicates18TypePairAndMemDescE", !58, i64 0, !58, i64 8, !58, i64 16, !36, i64 24}
+!79 = distinct !{!79, !34}
 !80 = !{!81, !4, i64 0}
 !81 = !{!"_ZTSZN4llvm18LegalityPredicates8isScalarEjE3$_0", !4, i64 0}
 !82 = !{!83, !4, i64 0}

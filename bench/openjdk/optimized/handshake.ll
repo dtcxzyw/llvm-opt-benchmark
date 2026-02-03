@@ -527,14 +527,13 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   store i32 %86, ptr %84, align 4
   %87 = load volatile i64, ptr %65, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %88 = and i64 %87, 1
-  %.not.i = icmp eq i64 %88, 0
-  br i1 %.not.i, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit, label %89
+  %88 = trunc i64 %87 to i1
+  br i1 %88, label %89, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
 
 89:                                               ; preds = %77
   %90 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i = icmp eq i32 %90, 0
-  br i1 %.not5.i, label %91, label %96
+  %.not.i = icmp eq i32 %90, 0
+  br i1 %.not.i, label %91, label %96
 
 91:                                               ; preds = %89
   %92 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %66, i1 noundef zeroext true, i1 noundef zeroext false)
@@ -557,14 +556,13 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %97 = load volatile i64, ptr %65, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %98 = and i64 %97, 1
-  %.not.i.i = icmp eq i64 %98, 0
-  br i1 %.not.i.i, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit, label %99
+  %98 = trunc i64 %97 to i1
+  br i1 %98, label %99, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
 
 99:                                               ; preds = %96
   %100 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %100, 0
-  br i1 %.not5.i.i, label %101, label %_ZN14HandshakeState13has_operationEbb.exit.thread
+  %.not.i.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i, label %101, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 101:                                              ; preds = %99
   %102 = call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #11
@@ -574,7 +572,7 @@ define hidden void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandl
   %104 = load volatile ptr, ptr %70, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %_ZN14HandshakeState13has_operationEbb.exit.thread39, label %.preheader.i.i.i
+  br i1 %105, label %_ZN14HandshakeState13has_operationEbb.exit.thread40, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %103, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %.011.i.i.i = phi ptr [ %120, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ %104, %103 ]
@@ -601,25 +599,25 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i: ; preds
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i: ; preds = %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i, %.preheader.i.i.i
   %119 = phi ptr [ %.0.i.i.i, %.preheader.i.i.i ], [ %spec.select15.i.i, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i ]
   %120 = load ptr, ptr %.011.i.i.i, align 8
-  %.not.i.i.i = icmp eq ptr %120, null
-  br i1 %.not.i.i.i, label %121, label %.preheader.i.i.i, !llvm.loop !9
+  %.not.i.i.i38 = icmp eq ptr %120, null
+  br i1 %.not.i.i.i38, label %121, label %.preheader.i.i.i, !llvm.loop !9
 
 121:                                              ; preds = %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %122 = icmp eq ptr %119, null
-  br i1 %122, label %_ZN14HandshakeState13has_operationEbb.exit.thread39, label %_ZN14HandshakeState13has_operationEbb.exit
+  br i1 %122, label %_ZN14HandshakeState13has_operationEbb.exit.thread40, label %_ZN14HandshakeState13has_operationEbb.exit
 
-_ZN14HandshakeState13has_operationEbb.exit.thread39: ; preds = %103, %121
+_ZN14HandshakeState13has_operationEbb.exit.thread40: ; preds = %103, %121
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #11
   br label %125
 
 _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %121
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %124 = load ptr, ptr %123, align 8
-  %.not41 = icmp eq ptr %124, null
+  %.not42 = icmp eq ptr %124, null
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #11
-  br i1 %.not41, label %125, label %_ZN14HandshakeState13has_operationEbb.exit.thread
+  br i1 %.not42, label %125, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
-125:                                              ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread39, %_ZN14HandshakeState13has_operationEbb.exit
+125:                                              ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread40, %_ZN14HandshakeState13has_operationEbb.exit
   %126 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %8) #11
   br i1 %126, label %127, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
@@ -630,9 +628,8 @@ _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %121
 _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %101, %125, %_ZN14HandshakeState13has_operationEbb.exit, %99
   %128 = load volatile i64, ptr %65, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %129 = and i64 %128, 1
-  %.not.i1.i = icmp eq i64 %129, 0
-  br i1 %.not.i1.i, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit, label %130
+  %129 = trunc i64 %128 to i1
+  br i1 %129, label %130, label %_ZN18SafepointMechanism14should_processEP10JavaThreadb.exit
 
 130:                                              ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false) #11
@@ -698,7 +695,7 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26, label %6
+  br i1 %.not, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
@@ -713,7 +710,7 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1092
   %15 = load volatile i32, ptr %14, align 4
-  switch i32 %15, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26 [
+  switch i32 %15, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25 [
     i32 4, label %16
     i32 10, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread
   ]
@@ -727,18 +724,18 @@ define hidden noundef range(i32 0, 5) i32 @_ZN14HandshakeState11try_processEP18H
 19:                                               ; preds = %16
   %20 = load volatile ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
+  br i1 %.not.i.i, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
 
 _ZN14HandshakeState30possibly_can_process_handshakeEv.exit: ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 936
   %22 = load volatile ptr, ptr %21, align 8
-  %.not29 = icmp eq ptr %22, null
-  br i1 %.not29, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread
+  %.not28 = icmp eq ptr %22, null
+  br i1 %.not28, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread
 
 _ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %16, %6, %12, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = tail call noundef zeroext i1 @_ZN5Mutex8try_lockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
-  br i1 %24, label %25, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
+  br i1 %24, label %25, label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25
 
 25:                                               ; preds = %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread
   %26 = load volatile ptr, ptr %4, align 8
@@ -769,13 +766,12 @@ _ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread: ; preds = %16
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1096
   %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %42 = and i64 %41, 1
-  %.not.i18 = icmp eq i64 %42, 0
-  br i1 %.not.i18, label %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i, label %_ZN14HandshakeState15claim_handshakeEv.exit
+  %42 = trunc i64 %41 to i1
+  br i1 %42, label %_ZN14HandshakeState15claim_handshakeEv.exit, label %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i
 
 _ZN14HandshakeState34have_non_self_executable_operationEv.exit.i: ; preds = %36, %38, %25
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
-  br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
+  br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25
 
 _ZN14HandshakeState15claim_handshakeEv.exit:      ; preds = %38
   %43 = load ptr, ptr %0, align 8
@@ -784,7 +780,7 @@ _ZN14HandshakeState15claim_handshakeEv.exit:      ; preds = %38
 
 45:                                               ; preds = %_ZN14HandshakeState15claim_handshakeEv.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
-  br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
+  br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25
 
 46:                                               ; preds = %_ZN14HandshakeState15claim_handshakeEv.exit
   %47 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -807,8 +803,8 @@ _ZN14HandshakeState15claim_handshakeEv.exit:      ; preds = %38
   %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %54) #11
   %spec.select.i.i = select i1 %58, ptr %.0.i.i, ptr %.011.i.i
   %59 = load ptr, ptr %.011.i.i, align 8
-  %.not.i.i19 = icmp eq ptr %59, null
-  br i1 %.not.i.i19, label %60, label %.preheader.i.i, !llvm.loop !9
+  %.not.i.i18 = icmp eq ptr %59, null
+  br i1 %.not.i.i18, label %60, label %.preheader.i.i, !llvm.loop !9
 
 60:                                               ; preds = %.preheader.i.i
   %61 = icmp eq ptr %spec.select.i.i, null
@@ -822,8 +818,8 @@ _ZN14HandshakeState15claim_handshakeEv.exit:      ; preds = %38
 _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
   %.012.i.i = phi ptr [ %64, %62 ], [ null, %46 ], [ null, %60 ]
   %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not30 = icmp eq ptr %65, null
-  br i1 %.not30, label %75, label %66
+  %.not29 = icmp eq ptr %65, null
+  br i1 %.not29, label %75, label %66
 
 66:                                               ; preds = %_ZN14HandshakeState6get_opEv.exit
   %67 = ptrtoint ptr %.012.i.i to i64
@@ -847,8 +843,8 @@ _ZN14HandshakeState6get_opEv.exit:                ; preds = %46, %60, %62
   br i1 %80, label %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit, label %81
 
 81:                                               ; preds = %75
-  %.not.i20 = icmp eq ptr %76, %48
-  br i1 %.not.i20, label %83, label %82
+  %.not.i19 = icmp eq ptr %76, %48
+  br i1 %.not.i19, label %83, label %82
 
 82:                                               ; preds = %81
   tail call void @_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind(ptr noundef nonnull %76, i32 noundef 0) #11
@@ -887,7 +883,7 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, 
   br label %98
 
 98:                                               ; preds = %96, %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit
-  %.0.i21 = phi i64 [ %97, %96 ], [ 0, %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit ]
+  %.0.i20 = phi i64 [ %97, %96 ], [ 0, %_ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit ]
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 1128
   %100 = load volatile i32, ptr %99, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -904,17 +900,17 @@ _ZN18HandshakeOperation7prepareEP10JavaThreadP6Thread.exit: ; preds = %75, %83, 
   br label %108
 
 108:                                              ; preds = %103, %98
-  %.not.i22 = icmp eq i64 %.0.i21, 0
-  br i1 %.not.i22, label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit, label %109
+  %.not.i21 = icmp eq i64 %.0.i20, 0
+  br i1 %.not.i21, label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit, label %109
 
 109:                                              ; preds = %108
   %110 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #11
   %111 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not7.i23 = icmp eq ptr %111, null
-  br i1 %.not7.i23, label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit, label %112
+  %.not7.i22 = icmp eq ptr %111, null
+  br i1 %.not7.i22, label %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = sub nsw i64 %110, %.0.i21
+  %113 = sub nsw i64 %110, %.0.i20
   %114 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -939,8 +935,8 @@ _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit: ; preds = %108, %109, 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #11
   %128 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE50ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not31 = icmp eq ptr %128, null
-  br i1 %.not31, label %140, label %129
+  %.not30 = icmp eq ptr %128, null
+  br i1 %.not30, label %140, label %129
 
 129:                                              ; preds = %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit
   %130 = load ptr, ptr %48, align 8
@@ -960,9 +956,9 @@ _ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit: ; preds = %108, %109, 
 140:                                              ; preds = %_ZN18HandshakeOperation12do_handshakeEP10JavaThread.exit, %129
   %141 = icmp eq ptr %.012.i.i, %1
   %142 = select i1 %141, i32 4, i32 3
-  br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26
+  br label %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25
 
-_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread26: ; preds = %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread, %12, %19, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit, %2, %140, %45
+_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread25: ; preds = %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread, %12, %19, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit, %2, %140, %45
   %.0 = phi i32 [ %142, %140 ], [ 1, %45 ], [ 1, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit ], [ 0, %2 ], [ 1, %12 ], [ 1, %19 ], [ 2, %_ZN14HandshakeState30possibly_can_process_handshakeEv.exit.thread ], [ 2, %_ZN14HandshakeState34have_non_self_executable_operationEv.exit.i ]
   ret i32 %.0
 }
@@ -2519,9 +2515,8 @@ define hidden noundef zeroext i1 @_ZN14HandshakeState15claim_handshakeEv(ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1096
   %21 = load volatile i64, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %22 = and i64 %21, 1
-  %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %_ZN14HandshakeState34have_non_self_executable_operationEv.exit, label %23
+  %22 = trunc i64 %21 to i1
+  br i1 %22, label %23, label %_ZN14HandshakeState34have_non_self_executable_operationEv.exit
 
 _ZN14HandshakeState34have_non_self_executable_operationEv.exit: ; preds = %16, %4, %18
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #11
@@ -2729,14 +2724,13 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.i, %23
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %27 = load volatile i64, ptr %26, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %28 = and i64 %27, 1
-  %.not.i.i5 = icmp eq i64 %28, 0
-  br i1 %.not.i.i5, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 29:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   %30 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %30, 0
-  br i1 %.not5.i.i, label %31, label %_ZN14HandshakeState13has_operationEbb.exit.thread
+  %.not.i.i.i = icmp eq i32 %30, 0
+  br i1 %.not.i.i.i, label %31, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 1400
@@ -2775,8 +2769,8 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i: ; preds
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i: ; preds = %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i, %.preheader.i.i.i
   %51 = phi ptr [ %.0.i.i.i, %.preheader.i.i.i ], [ %spec.select15.i.i, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i ]
   %52 = load ptr, ptr %.011.i.i.i, align 8
-  %.not.i.i.i = icmp eq ptr %52, null
-  br i1 %.not.i.i.i, label %53, label %.preheader.i.i.i, !llvm.loop !9
+  %.not.i.i.i12 = icmp eq ptr %52, null
+  br i1 %.not.i.i.i12, label %53, label %.preheader.i.i.i, !llvm.loop !9
 
 53:                                               ; preds = %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %54 = icmp eq ptr %51, null
@@ -2799,18 +2793,17 @@ _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %53
 
 59:                                               ; preds = %57
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %4) #11
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %31, %57, %_ZN14HandshakeState13has_operationEbb.exit, %29
   %60 = load volatile i64, ptr %26, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %61 = and i64 %60, 1
-  %.not.i1.i = icmp eq i64 %61, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %62
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %62, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 62:                                               ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext false) #11
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 63:                                               ; preds = %1
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2821,9 +2814,9 @@ _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %31, %57, %_ZN14Han
   call void @_ZN9Handshake7executeEP16HandshakeClosureP17ThreadsListHandleP10JavaThread(ptr noundef nonnull %2, ptr noundef null, ptr noundef %5)
   %66 = load i8, ptr %65, align 8
   %67 = trunc i8 %66 to i1
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %62, %_ZN14HandshakeState13has_operationEbb.exit.thread, %59, %_ZN11MutexLockerD2Ev.exit, %63
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %62, %_ZN14HandshakeState13has_operationEbb.exit.thread, %59, %_ZN11MutexLockerD2Ev.exit, %63
   %.0 = phi i1 [ %67, %63 ], [ true, %_ZN11MutexLockerD2Ev.exit ], [ true, %59 ], [ true, %_ZN14HandshakeState13has_operationEbb.exit.thread ], [ true, %62 ]
   ret i1 %.0
 }
@@ -3496,14 +3489,13 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %9, %10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %12 = load volatile i64, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %13 = and i64 %12, 1
-  %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 14:                                               ; preds = %_ZN18HandshakeSpinYield8wait_rawEl.exit
   %15 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %15, 0
-  br i1 %.not5.i.i, label %16, label %_ZN14HandshakeState13has_operationEbb.exit.thread
+  %.not.i.i.i = icmp eq i32 %15, 0
+  br i1 %.not.i.i.i, label %16, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1400
@@ -3515,7 +3507,7 @@ _ZN18HandshakeSpinYield8wait_rawEl.exit:          ; preds = %9, %10
   %21 = load volatile ptr, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %_ZN14HandshakeState13has_operationEbb.exit.thread7, label %.preheader.i.i.i
+  br i1 %22, label %_ZN14HandshakeState13has_operationEbb.exit.thread8, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %19, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %.011.i.i.i = phi ptr [ %37, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i ], [ %21, %19 ]
@@ -3542,14 +3534,14 @@ _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i: ; preds
 _ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i: ; preds = %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i, %.preheader.i.i.i
   %36 = phi ptr [ %.0.i.i.i, %.preheader.i.i.i ], [ %spec.select15.i.i, %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.i.i ]
   %37 = load ptr, ptr %.011.i.i.i, align 8
-  %.not.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i, label %38, label %.preheader.i.i.i, !llvm.loop !9
+  %.not.i.i.i6 = icmp eq ptr %37, null
+  br i1 %.not.i.i.i6, label %38, label %.preheader.i.i.i, !llvm.loop !9
 
 38:                                               ; preds = %_ZL36no_suspend_no_async_exception_filterP18HandshakeOperation.exit.thread.i.i
   %39 = icmp eq ptr %36, null
-  br i1 %39, label %_ZN14HandshakeState13has_operationEbb.exit.thread7, label %_ZN14HandshakeState13has_operationEbb.exit
+  br i1 %39, label %_ZN14HandshakeState13has_operationEbb.exit.thread8, label %_ZN14HandshakeState13has_operationEbb.exit
 
-_ZN14HandshakeState13has_operationEbb.exit.thread7: ; preds = %19, %38
+_ZN14HandshakeState13has_operationEbb.exit.thread8: ; preds = %19, %38
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #11
   br label %42
 
@@ -3560,26 +3552,25 @@ _ZN14HandshakeState13has_operationEbb.exit:       ; preds = %38
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #11
   br i1 %.not, label %42, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
-42:                                               ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread7, %_ZN14HandshakeState13has_operationEbb.exit
+42:                                               ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread8, %_ZN14HandshakeState13has_operationEbb.exit
   %43 = tail call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %1) #11
   br i1 %43, label %44, label %_ZN14HandshakeState13has_operationEbb.exit.thread
 
 44:                                               ; preds = %42
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %1) #11
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 _ZN14HandshakeState13has_operationEbb.exit.thread: ; preds = %16, %42, %_ZN14HandshakeState13has_operationEbb.exit, %14
   %45 = load volatile i64, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %46 = and i64 %45, 1
-  %.not.i1.i = icmp eq i64 %46, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %47
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %47, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 47:                                               ; preds = %_ZN14HandshakeState13has_operationEbb.exit.thread
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false) #11
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN18HandshakeSpinYield8wait_rawEl.exit, %44, %_ZN14HandshakeState13has_operationEbb.exit.thread, %47
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN18HandshakeSpinYield8wait_rawEl.exit, %44, %_ZN14HandshakeState13has_operationEbb.exit.thread, %47
   ret void
 }
 

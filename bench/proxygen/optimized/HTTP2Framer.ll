@@ -1838,8 +1838,7 @@ invoke.cont45:                                    ; preds = %_ZN5folly2io6detail
   %and.i = call noundef range(i32 0, -2147483648) i32 @llvm.bswap.i32(i32 %21)
   store i32 %and.i, ptr %outPromisedStream, align 4
   %cmp47 = icmp eq i32 %21, 0
-  %and = and i32 %and.i, 1
-  %tobool48.not = icmp ne i32 %and, 0
+  %tobool48.not = trunc i32 %and.i to i1
   %or.cond.not39 = or i1 %cmp47, %tobool48.not
   %cmp51 = icmp ult i32 %sub, %conv.i
   %or.cond38 = select i1 %or.cond.not39, i1 true, i1 %cmp51

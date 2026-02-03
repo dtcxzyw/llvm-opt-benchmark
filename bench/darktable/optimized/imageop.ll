@@ -3322,34 +3322,33 @@ dt_iop_gui_update_expanded.exit:                  ; preds = %48, %45, %dt_iop_is
 
 64:                                               ; preds = %59
   %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %66 = and i32 %65, 1
-  %67 = icmp ne i32 %66, 0
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3252), align 4
-  %69 = icmp ne i32 %68, 0
-  %or.cond = select i1 %67, i1 %69, i1 false
-  br i1 %or.cond, label %70, label %74
+  %66 = trunc i32 %65 to i1
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3252), align 4
+  %68 = icmp ne i32 %67, 0
+  %or.cond = select i1 %66, i1 %68, i1 false
+  br i1 %or.cond, label %69, label %73
 
-70:                                               ; preds = %64
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %72 = and i32 %71, 1048576
-  %.not27 = icmp eq i32 %72, 0
-  br i1 %.not27, label %74, label %73
+69:                                               ; preds = %64
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %71 = and i32 %70, 1048576
+  %.not27 = icmp eq i32 %71, 0
+  br i1 %.not27, label %73, label %72
 
-73:                                               ; preds = %70
+72:                                               ; preds = %69
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.82, i32 noundef 2256, ptr noundef nonnull @__FUNCTION__.dt_iop_gui_update) #25
-  br label %74
+  br label %73
 
-74:                                               ; preds = %73, %70, %64
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %75, i32 noundef 30) #25
+73:                                               ; preds = %72, %69, %64
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 30) #25
   br label %dt_iop_is_hidden.exit.thread
 
-dt_iop_is_hidden.exit.thread:                     ; preds = %17, %9, %1, %6, %dt_iop_gui_update_expanded.exit, %56, %59, %74
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
-  %78 = load i32, ptr %77, align 8, !tbaa !268
-  %79 = add nsw i32 %78, -1
-  store i32 %79, ptr %77, align 8, !tbaa !268
+dt_iop_is_hidden.exit.thread:                     ; preds = %17, %9, %1, %6, %dt_iop_gui_update_expanded.exit, %56, %59, %73
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 96
+  %77 = load i32, ptr %76, align 8, !tbaa !268
+  %78 = add nsw i32 %77, -1
+  store i32 %78, ptr %76, align 8, !tbaa !268
   ret void
 }
 
@@ -4219,29 +4218,28 @@ dt_iop_is_hidden.exit:                            ; preds = %27
 
 36:                                               ; preds = %34
   %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %38 = and i32 %37, 1
-  %39 = icmp ne i32 %38, 0
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3308), align 4
-  %41 = icmp ne i32 %40, 0
-  %or.cond = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %46
+  %38 = trunc i32 %37 to i1
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3308), align 4
+  %40 = icmp ne i32 %39, 0
+  %or.cond = select i1 %38, i1 %40, i1 false
+  br i1 %or.cond, label %41, label %45
 
-42:                                               ; preds = %36
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %44 = and i32 %43, 1048576
-  %.not24 = icmp eq i32 %44, 0
-  br i1 %.not24, label %46, label %45
+41:                                               ; preds = %36
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %43 = and i32 %42, 1048576
+  %.not24 = icmp eq i32 %43, 0
+  br i1 %.not24, label %45, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %41
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, i32 noundef 1286, ptr noundef nonnull @__FUNCTION__.dt_iop_set_module_trouble_message) #25
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %42, %36
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %47, i32 noundef 44, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #25
+45:                                               ; preds = %44, %41, %36
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %46, i32 noundef 44, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #25
   br label %dt_iop_is_hidden.exit.thread
 
-dt_iop_is_hidden.exit.thread:                     ; preds = %30, %22, %18, %19, %46, %34, %dt_iop_is_hidden.exit
+dt_iop_is_hidden.exit.thread:                     ; preds = %30, %22, %18, %19, %45, %34, %dt_iop_is_hidden.exit
   ret void
 }
 
@@ -6858,68 +6856,67 @@ define internal range(i32 0, 2) i32 @_gui_off_button_press(ptr readnone captures
   %6 = tail call i32 %5() #25
   %7 = and i32 %6, 1
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %20, label %8
+  br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %10 = and i32 %9, 1
-  %11 = icmp ne i32 %10, 0
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3252), align 4
-  %13 = icmp ne i32 %12, 0
-  %or.cond = select i1 %11, i1 %13, i1 false
-  br i1 %or.cond, label %14, label %18
+  %10 = trunc i32 %9 to i1
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3252), align 4
+  %12 = icmp ne i32 %11, 0
+  %or.cond = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond, label %13, label %17
 
-14:                                               ; preds = %8
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %16 = and i32 %15, 1048576
-  %.not5 = icmp eq i32 %16, 0
-  br i1 %.not5, label %18, label %17
+13:                                               ; preds = %8
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %15 = and i32 %14, 1048576
+  %.not5 = icmp eq i32 %15, 0
+  br i1 %.not5, label %17, label %16
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.82, i32 noundef 1072, ptr noundef nonnull @__FUNCTION__._gui_off_button_press) #25
-  br label %18
+  br label %17
 
-18:                                               ; preds = %17, %14, %8
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %19, i32 noundef 30) #25
-  br label %20
+17:                                               ; preds = %16, %13, %8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %18, i32 noundef 30) #25
+  br label %19
 
-20:                                               ; preds = %18, %3
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %23 = load i32, ptr %22, align 8, !tbaa !268
-  %.not6 = icmp eq i32 %23, 0
-  br i1 %.not6, label %24, label %39
+19:                                               ; preds = %17, %3
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %22 = load i32, ptr %21, align 8, !tbaa !268
+  %.not6 = icmp eq i32 %22, 0
+  br i1 %.not6, label %23, label %38
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load i32, ptr %25, align 8, !tbaa !413
-  %27 = tail call i32 @gtk_accelerator_get_default_mod_mask() #25
-  %28 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !94
-  %29 = or i32 %28, %26
-  %30 = and i32 %29, %27
-  %.not8 = icmp eq i32 %30, 4
-  br i1 %.not8, label %31, label %39
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %25 = load i32, ptr %24, align 8, !tbaa !413
+  %26 = tail call i32 @gtk_accelerator_get_default_mod_mask() #25
+  %27 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !94
+  %28 = or i32 %27, %25
+  %29 = and i32 %28, %26
+  %.not8 = icmp eq i32 %29, 4
+  br i1 %.not8, label %30, label %38
 
-31:                                               ; preds = %24
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %dt_dev_gui_module.exit, label %33
+30:                                               ; preds = %23
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %dt_dev_gui_module.exit, label %32
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  %35 = load ptr, ptr %34, align 8, !tbaa !294
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 88
+  %34 = load ptr, ptr %33, align 8, !tbaa !294
   br label %dt_dev_gui_module.exit
 
-dt_dev_gui_module.exit:                           ; preds = %31, %33
-  %36 = phi ptr [ %35, %33 ], [ null, %31 ]
-  %37 = icmp eq ptr %36, %2
-  %38 = select i1 %37, ptr null, ptr %2
-  tail call void @dt_iop_request_focus(ptr noundef %38)
-  br label %39
+dt_dev_gui_module.exit:                           ; preds = %30, %32
+  %35 = phi ptr [ %34, %32 ], [ null, %30 ]
+  %36 = icmp eq ptr %35, %2
+  %37 = select i1 %36, ptr null, ptr %2
+  tail call void @dt_iop_request_focus(ptr noundef %37)
+  br label %38
 
-39:                                               ; preds = %20, %24, %dt_dev_gui_module.exit
-  %.0 = phi i32 [ 1, %dt_dev_gui_module.exit ], [ 0, %24 ], [ 0, %20 ]
+38:                                               ; preds = %19, %23, %dt_dev_gui_module.exit
+  %.0 = phi i32 [ 1, %dt_dev_gui_module.exit ], [ 0, %23 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -7489,30 +7486,29 @@ dt_iop_connect_accels_multi.exit:                 ; preds = %91, %94, %98, %101
   %104 = load ptr, ptr %84, align 8, !tbaa !35
   call void @dt_dev_pixelpipe_rebuild(ptr noundef %104) #25
   %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %106 = and i32 %105, 1
-  %107 = icmp ne i32 %106, 0
-  %108 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3244), align 4
-  %109 = icmp ne i32 %108, 0
-  %or.cond = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond, label %110, label %114
+  %106 = trunc i32 %105 to i1
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3244), align 4
+  %108 = icmp ne i32 %107, 0
+  %or.cond = select i1 %106, i1 %108, i1 false
+  br i1 %or.cond, label %109, label %113
 
-110:                                              ; preds = %dt_iop_connect_accels_multi.exit
-  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %112 = and i32 %111, 1048576
-  %.not74 = icmp eq i32 %112, 0
-  br i1 %.not74, label %114, label %113
+109:                                              ; preds = %dt_iop_connect_accels_multi.exit
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %111 = and i32 %110, 1048576
+  %.not74 = icmp eq i32 %111, 0
+  br i1 %.not74, label %113, label %112
 
-113:                                              ; preds = %110
+112:                                              ; preds = %109
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.82, i32 noundef 3082, ptr noundef nonnull @__FUNCTION__._on_drag_motion) #25
-  br label %114
+  br label %113
 
-114:                                              ; preds = %110, %113, %dt_iop_connect_accels_multi.exit
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %115, i32 noundef 28) #25
+113:                                              ; preds = %109, %112, %dt_iop_connect_accels_multi.exit
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %114, i32 noundef 28) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %11, %._crit_edge, %114, %58, %56, %54, %69, %71, %.loopexit, %6
+._crit_edge.thread:                               ; preds = %11, %._crit_edge, %113, %58, %56, %54, %69, %71, %.loopexit, %6
   ret i32 1
 }
 
@@ -10433,30 +10429,29 @@ dt_iop_connect_accels_multi.exit:                 ; preds = %50, %53, %57, %60
   %63 = load ptr, ptr %43, align 8, !tbaa !35
   call void @dt_dev_pixelpipe_rebuild(ptr noundef %63) #25
   %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %65 = and i32 %64, 1
-  %66 = icmp ne i32 %65, 0
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3244), align 4
-  %68 = icmp ne i32 %67, 0
-  %or.cond = select i1 %66, i1 %68, i1 false
-  br i1 %or.cond, label %69, label %73
+  %65 = trunc i32 %64 to i1
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3244), align 4
+  %67 = icmp ne i32 %66, 0
+  %or.cond = select i1 %65, i1 %67, i1 false
+  br i1 %or.cond, label %68, label %72
 
-69:                                               ; preds = %dt_iop_connect_accels_multi.exit
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %71 = and i32 %70, 1048576
-  %.not17 = icmp eq i32 %71, 0
-  br i1 %.not17, label %73, label %72
+68:                                               ; preds = %dt_iop_connect_accels_multi.exit
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %70 = and i32 %69, 1048576
+  %.not17 = icmp eq i32 %70, 0
+  br i1 %.not17, label %72, label %71
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.82, i32 noundef 709, ptr noundef nonnull @__FUNCTION__._gui_moveup_callback) #25
-  br label %73
+  br label %72
 
-73:                                               ; preds = %69, %72, %dt_iop_connect_accels_multi.exit
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 28) #25
+72:                                               ; preds = %68, %71, %dt_iop_connect_accels_multi.exit
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %73, i32 noundef 28) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %dt_iop_gui_get_next_visible_module.exit.thread
 
-dt_iop_gui_get_next_visible_module.exit.thread:   ; preds = %10, %73, %25, %dt_iop_gui_get_next_visible_module.exit
+dt_iop_gui_get_next_visible_module.exit.thread:   ; preds = %10, %72, %25, %dt_iop_gui_get_next_visible_module.exit
   ret void
 }
 
@@ -10581,30 +10576,29 @@ dt_iop_connect_accels_multi.exit:                 ; preds = %47, %50, %54, %57
   %60 = load ptr, ptr %11, align 8, !tbaa !35
   call void @dt_dev_pixelpipe_rebuild(ptr noundef %60) #25
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %62 = and i32 %61, 1
-  %63 = icmp ne i32 %62, 0
-  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3244), align 4
-  %65 = icmp ne i32 %64, 0
-  %or.cond = select i1 %63, i1 %65, i1 false
-  br i1 %or.cond, label %66, label %70
+  %62 = trunc i32 %61 to i1
+  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3244), align 4
+  %64 = icmp ne i32 %63, 0
+  %or.cond = select i1 %62, i1 %64, i1 false
+  br i1 %or.cond, label %65, label %69
 
-66:                                               ; preds = %dt_iop_connect_accels_multi.exit
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %68 = and i32 %67, 1048576
-  %.not17 = icmp eq i32 %68, 0
-  br i1 %.not17, label %70, label %69
+65:                                               ; preds = %dt_iop_connect_accels_multi.exit
+  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %67 = and i32 %66, 1048576
+  %.not17 = icmp eq i32 %67, 0
+  br i1 %.not17, label %69, label %68
 
-69:                                               ; preds = %66
+68:                                               ; preds = %65
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.82, i32 noundef 673, ptr noundef nonnull @__FUNCTION__._gui_movedown_callback) #25
-  br label %70
+  br label %69
 
-70:                                               ; preds = %66, %69, %dt_iop_connect_accels_multi.exit
-  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %71, i32 noundef 28) #25
+69:                                               ; preds = %65, %68, %dt_iop_connect_accels_multi.exit
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %70, i32 noundef 28) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %dt_iop_gui_get_previous_visible_module.exit.thread
 
-dt_iop_gui_get_previous_visible_module.exit.thread: ; preds = %10, %70, %22, %dt_iop_gui_get_previous_visible_module.exit
+dt_iop_gui_get_previous_visible_module.exit.thread: ; preds = %10, %69, %22, %dt_iop_gui_get_previous_visible_module.exit
   ret void
 }
 
@@ -10663,266 +10657,264 @@ define internal void @_gui_delete_callback(ptr readnone captures(none) %0, ptr n
   %.15695 = phi ptr [ %.3, %._crit_edge ], [ %.055105, %13 ], [ %11, %19 ]
   %22 = load i32, ptr %7, align 16, !tbaa !240
   %.not75 = icmp eq i32 %22, 0
-  br i1 %.not75, label %35, label %23
+  br i1 %.not75, label %34, label %23
 
 23:                                               ; preds = %.thread92
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %25 = and i32 %24, 1
-  %26 = icmp ne i32 %25, 0
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3228), align 4
-  %28 = icmp ne i32 %27, 0
-  %or.cond = select i1 %26, i1 %28, i1 false
-  br i1 %or.cond, label %29, label %33
+  %25 = trunc i32 %24 to i1
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3228), align 4
+  %27 = icmp ne i32 %26, 0
+  %or.cond = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond, label %28, label %32
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %31 = and i32 %30, 1048576
-  %.not76 = icmp eq i32 %31, 0
-  br i1 %.not76, label %33, label %32
+28:                                               ; preds = %23
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %30 = and i32 %29, 1048576
+  %.not76 = icmp eq i32 %30, 0
+  br i1 %.not76, label %32, label %31
 
-32:                                               ; preds = %29
+31:                                               ; preds = %28
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.82, i32 noundef 516, ptr noundef nonnull @__FUNCTION__._gui_delete_callback) #25
-  br label %33
+  br label %32
 
-33:                                               ; preds = %29, %32, %23
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %34, i32 noundef 24) #25
-  br label %35
+32:                                               ; preds = %28, %31, %23
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %33, i32 noundef 24) #25
+  br label %34
 
-35:                                               ; preds = %33, %.thread92
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 952
-  %37 = load i32, ptr %36, align 8, !tbaa !43
-  %38 = icmp eq i32 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %.15695, i64 864
-  %40 = load ptr, ptr %39, align 16, !tbaa !264
-  %.not.i = icmp eq ptr %40, null
-  br i1 %.not.i, label %42, label %41
+34:                                               ; preds = %32, %.thread92
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 952
+  %36 = load i32, ptr %35, align 8, !tbaa !43
+  %37 = icmp eq i32 %36, 0
+  %38 = getelementptr inbounds nuw i8, ptr %.15695, i64 864
+  %39 = load ptr, ptr %38, align 16, !tbaa !264
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %41, label %40
 
-41:                                               ; preds = %35
+40:                                               ; preds = %34
   tail call fastcc void @_gui_set_single_expanded(ptr noundef nonnull %.15695, i32 noundef 1)
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %35
+41:                                               ; preds = %40, %34
   tail call void @dt_iop_request_focus(ptr noundef nonnull %.15695)
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %45 = load i32, ptr %44, align 8, !tbaa !268
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %44, align 8, !tbaa !268
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %48 = load ptr, ptr %47, align 16, !tbaa !42
-  %.not4.i = icmp eq ptr %48, null
-  br i1 %.not4.i, label %dt_iop_is_hidden.exit.thread, label %49
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
+  %44 = load i32, ptr %43, align 8, !tbaa !268
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %43, align 8, !tbaa !268
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 944
+  %47 = load ptr, ptr %46, align 16, !tbaa !42
+  %.not4.i = icmp eq ptr %47, null
+  br i1 %.not4.i, label %dt_iop_is_hidden.exit.thread, label %48
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 104
-  %51 = load ptr, ptr %50, align 8, !tbaa !104
-  %52 = tail call i32 %51() #25
-  %53 = and i32 %52, 32
-  %.not.i.i = icmp eq i32 %53, 0
-  br i1 %.not.i.i, label %54, label %dt_iop_is_hidden.exit.thread
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 104
+  %50 = load ptr, ptr %49, align 8, !tbaa !104
+  %51 = tail call i32 %50() #25
+  %52 = and i32 %51, 32
+  %.not.i.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i, label %53, label %dt_iop_is_hidden.exit.thread
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 216
-  %56 = load ptr, ptr %55, align 8, !tbaa !117
-  %.not3.i.i = icmp eq ptr %56, null
-  br i1 %.not3.i.i, label %57, label %dt_iop_is_hidden.exit
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 216
+  %55 = load ptr, ptr %54, align 8, !tbaa !117
+  %.not3.i.i = icmp eq ptr %55, null
+  br i1 %.not3.i.i, label %56, label %dt_iop_is_hidden.exit
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 496
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.76, ptr noundef nonnull %58) #25
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 496
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.76, ptr noundef nonnull %57) #25
   br label %dt_iop_is_hidden.exit.thread
 
-dt_iop_is_hidden.exit:                            ; preds = %54
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
-  %60 = load ptr, ptr %59, align 8, !tbaa !282
-  %61 = tail call ptr @dt_ui_center(ptr noundef %60) #25
-  tail call void @gtk_widget_grab_focus(ptr noundef %61) #25
+dt_iop_is_hidden.exit:                            ; preds = %53
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
+  %59 = load ptr, ptr %58, align 8, !tbaa !282
+  %60 = tail call ptr @dt_ui_center(ptr noundef %59) #25
+  tail call void @gtk_widget_grab_focus(ptr noundef %60) #25
   tail call void @dt_iop_gui_cleanup_module(ptr noundef nonnull %1)
   br label %dt_iop_is_hidden.exit.thread
 
-dt_iop_is_hidden.exit.thread:                     ; preds = %57, %49, %42, %dt_iop_is_hidden.exit
+dt_iop_is_hidden.exit.thread:                     ; preds = %56, %48, %41, %dt_iop_is_hidden.exit
   tail call void @dt_dev_module_remove(ptr noundef nonnull %7, ptr noundef nonnull %1) #25
-  br i1 %38, label %62, label %.loopexit
+  br i1 %37, label %61, label %.loopexit
 
-62:                                               ; preds = %dt_iop_is_hidden.exit.thread
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 2024
-  %.057107 = load ptr, ptr %63, align 8, !tbaa !38
+61:                                               ; preds = %dt_iop_is_hidden.exit.thread
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 2024
+  %.057107 = load ptr, ptr %62, align 8, !tbaa !38
   %.not78108 = icmp eq ptr %.057107, null
   br i1 %.not78108, label %.thread97, label %.lr.ph111
 
-.lr.ph111:                                        ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 476
-  %65 = load i32, ptr %64, align 4, !tbaa !366
-  br label %68
+.lr.ph111:                                        ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 476
+  %64 = load i32, ptr %63, align 4, !tbaa !366
+  br label %67
 
-66:                                               ; preds = %68
-  %67 = getelementptr inbounds nuw i8, ptr %.057109, i64 8
-  %.057 = load ptr, ptr %67, align 8, !tbaa !38
+65:                                               ; preds = %67
+  %66 = getelementptr inbounds nuw i8, ptr %.057109, i64 8
+  %.057 = load ptr, ptr %66, align 8, !tbaa !38
   %.not78 = icmp eq ptr %.057, null
-  br i1 %.not78, label %.thread97, label %68
+  br i1 %.not78, label %.thread97, label %67
 
-68:                                               ; preds = %.lr.ph111, %66
-  %.057109 = phi ptr [ %.057107, %.lr.ph111 ], [ %.057, %66 ]
-  %69 = load ptr, ptr %.057109, align 8, !tbaa !40
-  %70 = load ptr, ptr %69, align 8, !tbaa !418
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 476
-  %72 = load i32, ptr %71, align 4, !tbaa !366
-  %73 = icmp ne i32 %72, %65
-  %.not79 = icmp eq ptr %70, %1
-  %or.cond83 = or i1 %.not79, %73
-  br i1 %or.cond83, label %66, label %.thread97
+67:                                               ; preds = %.lr.ph111, %65
+  %.057109 = phi ptr [ %.057107, %.lr.ph111 ], [ %.057, %65 ]
+  %68 = load ptr, ptr %.057109, align 8, !tbaa !40
+  %69 = load ptr, ptr %68, align 8, !tbaa !418
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 476
+  %71 = load i32, ptr %70, align 4, !tbaa !366
+  %72 = icmp ne i32 %71, %64
+  %.not79 = icmp eq ptr %69, %1
+  %or.cond83 = or i1 %.not79, %72
+  br i1 %or.cond83, label %65, label %.thread97
 
-.thread97:                                        ; preds = %66, %68, %62
-  %.161 = phi ptr [ null, %62 ], [ %70, %68 ], [ null, %66 ]
-  %74 = icmp eq ptr %.161, null
-  %spec.select = select i1 %74, ptr %.15695, ptr %.161
+.thread97:                                        ; preds = %65, %67, %61
+  %.161 = phi ptr [ null, %61 ], [ %69, %67 ], [ null, %65 ]
+  %73 = icmp eq ptr %.161, null
+  %spec.select = select i1 %73, ptr %.15695, ptr %.161
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %75 = getelementptr inbounds nuw i8, ptr %spec.select, i64 784
-  %76 = load ptr, ptr %75, align 16, !tbaa !45
-  call void @g_hash_table_iter_init(ptr noundef nonnull %3, ptr noundef %76) #25
-  %77 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #25
-  %.not17.i = icmp eq i32 %77, 0
+  %74 = getelementptr inbounds nuw i8, ptr %spec.select, i64 784
+  %75 = load ptr, ptr %74, align 16, !tbaa !45
+  call void @g_hash_table_iter_init(ptr noundef nonnull %3, ptr noundef %75) #25
+  %76 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #25
+  %.not17.i = icmp eq i32 %76, 0
   br i1 %.not17.i, label %dt_iop_update_multi_priority.exit, label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %.thread97
-  %78 = getelementptr inbounds nuw i8, ptr %spec.select, i64 664
-  br label %80
+  %77 = getelementptr inbounds nuw i8, ptr %spec.select, i64 664
+  br label %79
 
-.loopexit.i:                                      ; preds = %94, %80
-  %79 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #25
-  %.not.i86 = icmp eq i32 %79, 0
-  br i1 %.not.i86, label %dt_iop_update_multi_priority.exit, label %80
+.loopexit.i:                                      ; preds = %93, %79
+  %78 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #25
+  %.not.i86 = icmp eq i32 %78, 0
+  br i1 %.not.i86, label %dt_iop_update_multi_priority.exit, label %79
 
-80:                                               ; preds = %.loopexit.i, %.lr.ph18.i
-  %81 = load ptr, ptr %4, align 8, !tbaa !98
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 760
-  %83 = load ptr, ptr %82, align 8, !tbaa !30
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 408
-  store i32 0, ptr %84, align 4, !tbaa !44
-  %85 = load ptr, ptr %78, align 8, !tbaa !35
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 2024
-  %.014.i = load ptr, ptr %86, align 8, !tbaa !38
+79:                                               ; preds = %.loopexit.i, %.lr.ph18.i
+  %80 = load ptr, ptr %4, align 8, !tbaa !98
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 760
+  %82 = load ptr, ptr %81, align 8, !tbaa !30
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 408
+  store i32 0, ptr %83, align 4, !tbaa !44
+  %84 = load ptr, ptr %77, align 8, !tbaa !35
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 2024
+  %.014.i = load ptr, ptr %85, align 8, !tbaa !38
   %.not1315.i = icmp eq ptr %.014.i, null
   br i1 %.not1315.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %80, %94
-  %.016.i = phi ptr [ %.0.i, %94 ], [ %.014.i, %80 ]
-  %87 = load ptr, ptr %.016.i, align 8, !tbaa !40
-  %88 = load ptr, ptr %87, align 8, !tbaa !418
-  %89 = icmp eq ptr %88, %81
-  br i1 %89, label %90, label %94
+.lr.ph.i:                                         ; preds = %79, %93
+  %.016.i = phi ptr [ %.0.i, %93 ], [ %.014.i, %79 ]
+  %86 = load ptr, ptr %.016.i, align 8, !tbaa !40
+  %87 = load ptr, ptr %86, align 8, !tbaa !418
+  %88 = icmp eq ptr %87, %80
+  br i1 %88, label %89, label %93
 
-90:                                               ; preds = %.lr.ph.i
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !420
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 408
-  store i32 0, ptr %93, align 4, !tbaa !44
-  br label %94
+89:                                               ; preds = %.lr.ph.i
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  %91 = load ptr, ptr %90, align 8, !tbaa !420
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 408
+  store i32 0, ptr %92, align 4, !tbaa !44
+  br label %93
 
-94:                                               ; preds = %90, %.lr.ph.i
-  %95 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
-  %.0.i = load ptr, ptr %95, align 8, !tbaa !38
+93:                                               ; preds = %89, %.lr.ph.i
+  %94 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
+  %.0.i = load ptr, ptr %94, align 8, !tbaa !38
   %.not13.i = icmp eq ptr %.0.i, null
   br i1 %.not13.i, label %.loopexit.i, label %.lr.ph.i
 
 dt_iop_update_multi_priority.exit:                ; preds = %.loopexit.i, %.thread97
-  %96 = getelementptr inbounds nuw i8, ptr %spec.select, i64 952
-  store i32 0, ptr %96, align 8, !tbaa !43
+  %95 = getelementptr inbounds nuw i8, ptr %spec.select, i64 952
+  store i32 0, ptr %95, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.259115 = load ptr, ptr %63, align 8, !tbaa !38
+  %.259115 = load ptr, ptr %62, align 8, !tbaa !38
   %.not80116 = icmp eq ptr %.259115, null
   br i1 %.not80116, label %.loopexit, label %.lr.ph118
 
-.lr.ph118:                                        ; preds = %dt_iop_update_multi_priority.exit, %102
-  %.259117 = phi ptr [ %.259, %102 ], [ %.259115, %dt_iop_update_multi_priority.exit ]
-  %97 = load ptr, ptr %.259117, align 8, !tbaa !40
-  %98 = load ptr, ptr %97, align 8, !tbaa !418
-  %99 = icmp eq ptr %98, %spec.select
-  br i1 %99, label %100, label %102
+.lr.ph118:                                        ; preds = %dt_iop_update_multi_priority.exit, %101
+  %.259117 = phi ptr [ %.259, %101 ], [ %.259115, %dt_iop_update_multi_priority.exit ]
+  %96 = load ptr, ptr %.259117, align 8, !tbaa !40
+  %97 = load ptr, ptr %96, align 8, !tbaa !418
+  %98 = icmp eq ptr %97, %spec.select
+  br i1 %98, label %99, label %101
 
-100:                                              ; preds = %.lr.ph118
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 56
-  store i32 0, ptr %101, align 8, !tbaa !429
-  br label %102
+99:                                               ; preds = %.lr.ph118
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 56
+  store i32 0, ptr %100, align 8, !tbaa !429
+  br label %101
 
-102:                                              ; preds = %100, %.lr.ph118
-  %103 = getelementptr inbounds nuw i8, ptr %.259117, i64 8
-  %.259 = load ptr, ptr %103, align 8, !tbaa !38
+101:                                              ; preds = %99, %.lr.ph118
+  %102 = getelementptr inbounds nuw i8, ptr %.259117, i64 8
+  %.259 = load ptr, ptr %102, align 8, !tbaa !38
   %.not80 = icmp eq ptr %.259, null
   br i1 %.not80, label %.loopexit, label %.lr.ph118
 
-.loopexit:                                        ; preds = %102, %dt_iop_update_multi_priority.exit, %dt_iop_is_hidden.exit.thread
-  %104 = load i32, ptr %7, align 16, !tbaa !240
-  %.not81 = icmp eq i32 %104, 0
-  br i1 %.not81, label %117, label %105
+.loopexit:                                        ; preds = %101, %dt_iop_update_multi_priority.exit, %dt_iop_is_hidden.exit.thread
+  %103 = load i32, ptr %7, align 16, !tbaa !240
+  %.not81 = icmp eq i32 %103, 0
+  br i1 %.not81, label %115, label %104
 
-105:                                              ; preds = %.loopexit
-  %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
-  %107 = and i32 %106, 1
+104:                                              ; preds = %.loopexit
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !338
+  %106 = trunc i32 %105 to i1
+  %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3232), align 8
   %108 = icmp ne i32 %107, 0
-  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3232), align 8
-  %110 = icmp ne i32 %109, 0
-  %or.cond3 = select i1 %108, i1 %110, i1 false
-  br i1 %or.cond3, label %111, label %115
+  %or.cond3 = select i1 %106, i1 %108, i1 false
+  br i1 %or.cond3, label %109, label %113
 
-111:                                              ; preds = %105
-  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
-  %113 = and i32 %112, 1048576
-  %.not82 = icmp eq i32 %113, 0
-  br i1 %.not82, label %115, label %114
+109:                                              ; preds = %104
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !47
+  %111 = and i32 %110, 1048576
+  %.not82 = icmp eq i32 %111, 0
+  br i1 %.not82, label %113, label %112
 
-114:                                              ; preds = %111
+112:                                              ; preds = %109
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.82, i32 noundef 571, ptr noundef nonnull @__FUNCTION__._gui_delete_callback) #25
+  br label %113
+
+113:                                              ; preds = %109, %112, %104
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %114, i32 noundef 25) #25
   br label %115
 
-115:                                              ; preds = %111, %114, %105
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !339
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %116, i32 noundef 25) #25
-  br label %117
+115:                                              ; preds = %113, %.loopexit
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
+  %117 = load i32, ptr %116, align 16, !tbaa !240
+  %.not.i87 = icmp eq i32 %117, 0
+  br i1 %.not.i87, label %dt_iop_connect_accels_multi.exit, label %118
 
-117:                                              ; preds = %115, %.loopexit
-  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
-  %119 = load i32, ptr %118, align 16, !tbaa !240
-  %.not.i87 = icmp eq i32 %119, 0
-  br i1 %.not.i87, label %dt_iop_connect_accels_multi.exit, label %120
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %46, align 16, !tbaa !42
+  %120 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %119)
+  %.not5.i = icmp eq ptr %120, null
+  br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %121
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %47, align 16, !tbaa !42
-  %122 = call ptr @dt_iop_get_module_preferred_instance(ptr noundef readnone %121)
-  %.not5.i = icmp eq ptr %122, null
-  br i1 %.not5.i, label %dt_iop_connect_accels_multi.exit, label %123
+121:                                              ; preds = %118
+  call void @dt_accel_connect_instance_iop(ptr noundef nonnull %120) #25
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 456
+  %123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %122, ptr noundef nonnull dereferenceable(9) @.str.169) #28
+  %.not6.i = icmp eq i32 %123, 0
+  br i1 %.not6.i, label %124, label %dt_iop_connect_accels_multi.exit
 
-123:                                              ; preds = %120
-  call void @dt_accel_connect_instance_iop(ptr noundef nonnull %122) #25
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 456
-  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(9) @.str.169) #28
-  %.not6.i = icmp eq i32 %125, 0
-  br i1 %.not6.i, label %126, label %dt_iop_connect_accels_multi.exit
-
-126:                                              ; preds = %123
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 2192
-  store ptr %122, ptr %128, align 16, !tbaa !316
+124:                                              ; preds = %121
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !284
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 2192
+  store ptr %120, ptr %126, align 16, !tbaa !316
   br label %dt_iop_connect_accels_multi.exit
 
-dt_iop_connect_accels_multi.exit:                 ; preds = %117, %120, %123, %126
+dt_iop_connect_accels_multi.exit:                 ; preds = %115, %118, %121, %124
   call void @dt_action_cleanup_instance_iop(ptr noundef nonnull %1) #25
-  %129 = getelementptr inbounds nuw i8, ptr %7, i64 2064
-  %130 = load ptr, ptr %129, align 16, !tbaa !430
-  %131 = call ptr @g_list_append(ptr noundef %130, ptr noundef nonnull %1) #25
-  store ptr %131, ptr %129, align 16, !tbaa !430
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 2064
+  %128 = load ptr, ptr %127, align 16, !tbaa !430
+  %129 = call ptr @g_list_append(ptr noundef %128, ptr noundef nonnull %1) #25
+  store ptr %129, ptr %127, align 16, !tbaa !430
   call void @dt_dev_pixelpipe_rebuild(ptr noundef nonnull %7) #25
   call void (...) @dt_control_queue_redraw_center() #25
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 96
-  %134 = load i32, ptr %133, align 8, !tbaa !268
-  %135 = add nsw i32 %134, -1
-  store i32 %135, ptr %133, align 8, !tbaa !268
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !267
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 96
+  %132 = load i32, ptr %131, align 8, !tbaa !268
+  %133 = add nsw i32 %132, -1
+  store i32 %133, ptr %131, align 8, !tbaa !268
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %dt_iop_connect_accels_multi.exit

@@ -630,15 +630,15 @@ define hidden void @_ZNK11ZForwarding6verifyEv(ptr noundef nonnull align 8 deref
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %16, label %.preheader27
+  br i1 %.not9, label %16, label %.preheader25
 
-.preheader27:                                     ; preds = %6
+.preheader25:                                     ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  %.not46 = icmp eq i64 %10, 0
-  br i1 %.not46, label %._crit_edge44, label %.lr.ph43
+  %.not44 = icmp eq i64 %10, 0
+  br i1 %.not44, label %._crit_edge42, label %.lr.ph41
 
-.lr.ph43:                                         ; preds = %.preheader27
+.lr.ph41:                                         ; preds = %.preheader25
   %11 = ptrtoint ptr %0 to i64
   %12 = add i64 %11, 184
   %13 = inttoptr i64 %12 to ptr
@@ -652,19 +652,18 @@ define hidden void @_ZNK11ZForwarding6verifyEv(ptr noundef nonnull align 8 deref
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.10, i32 noundef 373, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #14
   unreachable
 
-18:                                               ; preds = %.lr.ph43, %131
-  %.042 = phi i32 [ 0, %.lr.ph43 ], [ %.1, %131 ]
-  %.0741 = phi i64 [ 0, %.lr.ph43 ], [ %.18, %131 ]
-  %storemerge40 = phi i64 [ 0, %.lr.ph43 ], [ %.pre-phi, %131 ]
-  %19 = getelementptr inbounds %class.ZForwardingEntry, ptr %13, i64 %storemerge40
+18:                                               ; preds = %.lr.ph41, %131
+  %.040 = phi i32 [ 0, %.lr.ph41 ], [ %.1, %131 ]
+  %.0739 = phi i64 [ 0, %.lr.ph41 ], [ %.18, %131 ]
+  %storemerge38 = phi i64 [ 0, %.lr.ph41 ], [ %.pre-phi, %131 ]
+  %19 = getelementptr inbounds %class.ZForwardingEntry, ptr %13, i64 %storemerge38
   %20 = load volatile i64, ptr %19, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  %21 = and i64 %20, 1
-  %.not25 = icmp eq i64 %21, 0
-  br i1 %.not25, label %._crit_edge47, label %22
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %22, label %._crit_edge45
 
-._crit_edge47:                                    ; preds = %18
-  %.pre48 = add nuw i64 %storemerge40, 1
+._crit_edge45:                                    ; preds = %18
+  %.pre46 = add nuw i64 %storemerge38, 1
   br label %131
 
 22:                                               ; preds = %18
@@ -708,9 +707,9 @@ _ZNK5ZPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5ZPage22ob
   br i1 %37, label %.preheader, label %40
 
 .preheader:                                       ; preds = %_ZNK5ZPage16object_max_countEv.exit
-  %storemerge1038 = add nuw i64 %storemerge40, 1
+  %storemerge1036 = add nuw i64 %storemerge38, 1
   %38 = load i64, ptr %9, align 8
-  %39 = icmp ult i64 %storemerge1038, %38
+  %39 = icmp ult i64 %storemerge1036, %38
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 40:                                               ; preds = %_ZNK5ZPage16object_max_countEv.exit
@@ -720,13 +719,12 @@ _ZNK5ZPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5ZPage22ob
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %54
-  %storemerge1039 = phi i64 [ %storemerge10, %54 ], [ %storemerge1038, %.preheader ]
-  %42 = getelementptr inbounds %class.ZForwardingEntry, ptr %13, i64 %storemerge1039
+  %storemerge1037 = phi i64 [ %storemerge10, %54 ], [ %storemerge1036, %.preheader ]
+  %42 = getelementptr inbounds %class.ZForwardingEntry, ptr %13, i64 %storemerge1037
   %43 = load volatile i64, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  %44 = and i64 %43, 1
-  %.not26 = icmp eq i64 %44, 0
-  br i1 %.not26, label %54, label %45
+  %44 = trunc i64 %43 to i1
+  br i1 %44, label %45, label %54
 
 45:                                               ; preds = %.lr.ph
   %46 = lshr i64 %43, 46
@@ -752,7 +750,7 @@ _ZNK5ZPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5ZPage22ob
   unreachable
 
 54:                                               ; preds = %49, %.lr.ph
-  %storemerge10 = add nuw i64 %storemerge1039, 1
+  %storemerge10 = add nuw i64 %storemerge1037, 1
   %55 = load i64, ptr %9, align 8
   %56 = icmp ult i64 %storemerge10, %55
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !15
@@ -792,9 +790,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %75, %65
   br i1 %79, label %80, label %90
 
 80:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %81 = and i32 %78, 1
-  %.not.i.i.i = icmp eq i32 %81, 0
-  br i1 %.not.i.i.i, label %82, label %85
+  %81 = trunc i32 %78 to i1
+  br i1 %81, label %85, label %82
 
 82:                                               ; preds = %80
   %83 = lshr i32 %78, 3
@@ -862,8 +859,8 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %82, %85, %92, %112
   unreachable
 
 _ZNK5ZPage16object_alignmentEv.exit.sink.split:   ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit, %120
-  %.sink53 = phi ptr [ @ZObjectAlignmentMedium, %120 ], [ %15, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
-  %123 = load i32, ptr %.sink53, align 4
+  %.sink51 = phi ptr [ @ZObjectAlignmentMedium, %120 ], [ %15, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
+  %123 = load i32, ptr %.sink51, align 4
   %124 = sext i32 %123 to i64
   br label %_ZNK5ZPage16object_alignmentEv.exit
 
@@ -873,26 +870,26 @@ _ZNK5ZPage16object_alignmentEv.exit:              ; preds = %_ZNK5ZPage16object_
   %126 = add i64 %125, %.0.i13
   %127 = sub nsw i64 0, %.0.i13
   %128 = and i64 %126, %127
-  %129 = add i64 %128, %.0741
-  %130 = add i32 %.042, 1
+  %129 = add i64 %128, %.0739
+  %130 = add i32 %.040, 1
   br label %131
 
-131:                                              ; preds = %._crit_edge47, %_ZNK5ZPage16object_alignmentEv.exit
-  %.pre-phi = phi i64 [ %.pre48, %._crit_edge47 ], [ %storemerge1038, %_ZNK5ZPage16object_alignmentEv.exit ]
-  %.18 = phi i64 [ %.0741, %._crit_edge47 ], [ %129, %_ZNK5ZPage16object_alignmentEv.exit ]
-  %.1 = phi i32 [ %.042, %._crit_edge47 ], [ %130, %_ZNK5ZPage16object_alignmentEv.exit ]
+131:                                              ; preds = %._crit_edge45, %_ZNK5ZPage16object_alignmentEv.exit
+  %.pre-phi = phi i64 [ %.pre46, %._crit_edge45 ], [ %storemerge1036, %_ZNK5ZPage16object_alignmentEv.exit ]
+  %.18 = phi i64 [ %.0739, %._crit_edge45 ], [ %129, %_ZNK5ZPage16object_alignmentEv.exit ]
+  %.1 = phi i32 [ %.040, %._crit_edge45 ], [ %130, %_ZNK5ZPage16object_alignmentEv.exit ]
   %132 = load i64, ptr %9, align 8
   %133 = icmp ult i64 %.pre-phi, %132
-  br i1 %133, label %18, label %._crit_edge44.loopexit, !llvm.loop !16
+  br i1 %133, label %18, label %._crit_edge42.loopexit, !llvm.loop !16
 
-._crit_edge44.loopexit:                           ; preds = %131
+._crit_edge42.loopexit:                           ; preds = %131
   %.pre = load ptr, ptr %7, align 8
-  br label %._crit_edge44
+  br label %._crit_edge42
 
-._crit_edge44:                                    ; preds = %._crit_edge44.loopexit, %.preheader27
-  %134 = phi ptr [ %8, %.preheader27 ], [ %.pre, %._crit_edge44.loopexit ]
-  %.07.lcssa = phi i64 [ 0, %.preheader27 ], [ %.18, %._crit_edge44.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %.preheader27 ], [ %.1, %._crit_edge44.loopexit ]
+._crit_edge42:                                    ; preds = %._crit_edge42.loopexit, %.preheader25
+  %134 = phi ptr [ %8, %.preheader25 ], [ %.pre, %._crit_edge42.loopexit ]
+  %.07.lcssa = phi i64 [ 0, %.preheader25 ], [ %.18, %._crit_edge42.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %.preheader25 ], [ %.1, %._crit_edge42.loopexit ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %136 = load i8, ptr %135, align 4
   %137 = trunc i8 %136 to i1

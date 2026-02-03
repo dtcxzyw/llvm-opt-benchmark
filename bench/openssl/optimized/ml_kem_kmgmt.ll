@@ -721,8 +721,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond19, label %92, label %15
 
 15:                                               ; preds = %3
-  %16 = and i32 %1, 1
-  %17 = icmp ne i32 %16, 0
+  %16 = trunc i32 %1 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -735,17 +734,18 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   store i64 0, ptr %8, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !34
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !20
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %20, label %ml_kem_key_fromdata.exit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %19, label %ml_kem_key_fromdata.exit.thread
 
-20:                                               ; preds = %15
+19:                                               ; preds = %15
+  %20 = and i32 %1, 1
   %21 = load ptr, ptr %0, align 8, !tbaa !14
-  %.not38.i = icmp eq i32 %16, 0
+  %.not38.i = icmp eq i32 %20, 0
   br i1 %.not38.i, label %.thread73.i, label %22
 
-22:                                               ; preds = %20
+22:                                               ; preds = %19
   %23 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.8) #7
   %.not39.i = icmp eq ptr %23, null
   br i1 %.not39.i, label %.thread.i, label %24
@@ -794,7 +794,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #7
   br label %ml_kem_key_fromdata.exit.thread
 
-.thread73.i:                                      ; preds = %34, %33, %.thread.i, %20
+.thread73.i:                                      ; preds = %34, %33, %.thread.i, %19
   %38 = call ptr @OSSL_PARAM_locate_const(ptr noundef %2, ptr noundef nonnull @.str.2) #7
   %.not45.i = icmp eq ptr %38, null
   br i1 %.not45.i, label %.thread75.i, label %39
@@ -924,7 +924,7 @@ ml_kem_key_fromdata.exit:                         ; preds = %74, %.thread58.i, %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %88 = icmp sgt i32 %.0.i, 0
-  %or.cond3 = and i1 %17, %88
+  %or.cond3 = and i1 %88, %16
   br i1 %or.cond3, label %89, label %92
 
 89:                                               ; preds = %ml_kem_key_fromdata.exit

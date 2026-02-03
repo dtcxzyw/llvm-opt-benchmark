@@ -418,7 +418,7 @@ ossl_quic_reactor_tick.exit:                      ; preds = %.lr.ph.i.i, %31, %4
   %64 = lshr i8 %62, 1
   %65 = and i8 %64, 1
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 8, !tbaa !16
-  %66 = icmp ne i8 %63, 0
+  %66 = trunc i8 %62 to i1
   %67 = and i8 %62, 3
   %.not36 = icmp eq i8 %67, 0
   %.not33 = icmp eq i64 %.sroa.0.0.copyload.i, -1
@@ -477,7 +477,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   %87 = zext nneg i8 %63 to i16
   store i16 %87, ptr %27, align 4, !tbaa !36
   %88 = icmp sgt i32 %.sink.i.i, -1
-  %or.cond61.not.i.i = and i1 %66, %88
+  %or.cond61.not.i.i = and i1 %88, %66
   %.1.i.i = zext i1 %or.cond61.not.i.i to i64
   %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond61.not.i.i, i64 8, i64 0
   %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx

@@ -16051,10 +16051,9 @@ define noundef zeroext i1 @_ZN13wasmtime_wasi8bindings4sync9generated4wasi10file
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN13wasmtime_wasi8bindings4sync9generated4wasi10filesystem5types9PathFlags10intersects17hc55cb8dd87f2a66fE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, i8 noundef %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1, !noundef !5
-  %4 = and i8 %1, 1
-  %5 = and i8 %4, %3
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %4 = and i8 %3, %1
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

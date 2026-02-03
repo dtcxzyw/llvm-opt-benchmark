@@ -10272,28 +10272,28 @@ define internal fastcc void @_ZN12_GLOBAL__N_115FusionCandidateC2EPN4llvm4LoopER
   %38 = load ptr, ptr %9, align 8, !tbaa !288
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !291
-  %.not79 = icmp eq ptr %38, %40
-  br i1 %.not79, label %.critedge55.thread, label %.lr.ph81
+  %.not77 = icmp eq ptr %38, %40
+  br i1 %.not77, label %.critedge55.thread, label %.lr.ph79
 
-.lr.ph81:                                         ; preds = %6, %.critedge55
-  %.080 = phi ptr [ %92, %.critedge55 ], [ %38, %6 ]
-  %41 = load ptr, ptr %.080, align 8, !tbaa !292
+.lr.ph79:                                         ; preds = %6, %.critedge55
+  %.078 = phi ptr [ %92, %.critedge55 ], [ %38, %6 ]
+  %41 = load ptr, ptr %.078, align 8, !tbaa !292
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = load i16, ptr %42, align 2, !tbaa !418
   %44 = and i16 %43, 32767
   %.not70 = icmp eq i16 %44, 0
   br i1 %.not70, label %45, label %.critedge55.thread.sink.split
 
-45:                                               ; preds = %.lr.ph81
+45:                                               ; preds = %.lr.ph79
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %.sroa.065.076 = load ptr, ptr %46, align 8, !tbaa !293
-  %.not7177 = icmp eq ptr %.sroa.065.076, %47
-  br i1 %.not7177, label %.critedge55, label %.lr.ph
+  %.sroa.065.074 = load ptr, ptr %46, align 8, !tbaa !293
+  %.not7175 = icmp eq ptr %.sroa.065.074, %47
+  br i1 %.not7175, label %.critedge55, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %90
-  %.sroa.065.078 = phi ptr [ %.sroa.065.0, %90 ], [ %.sroa.065.076, %45 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.065.078, i64 -24
+  %.sroa.065.076 = phi ptr [ %.sroa.065.0, %90 ], [ %.sroa.065.074, %45 ]
+  %48 = getelementptr inbounds i8, ptr %.sroa.065.076, i64 -24
   %49 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction8mayThrowEb(ptr noundef nonnull align 8 dereferenceable(72) %48, i1 noundef zeroext false) #20
   br i1 %49, label %.critedge55.thread.sink.split, label %50
 
@@ -10305,18 +10305,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_115FusionCandidateC2EPN4llvm4LoopER
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.sroa.065.078, i64 -22
+  %53 = getelementptr inbounds i8, ptr %.sroa.065.076, i64 -22
   %54 = load i16, ptr %53, align 2, !tbaa !418
-  %55 = and i16 %54, 1
-  %.not73 = icmp eq i16 %55, 0
-  br i1 %.not73, label %60, label %.critedge55.thread.sink.split
+  %55 = trunc i16 %54 to i1
+  br i1 %55, label %.critedge55.thread.sink.split, label %60
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %.sroa.065.078, i64 -22
+  %57 = getelementptr inbounds i8, ptr %.sroa.065.076, i64 -22
   %58 = load i16, ptr %57, align 2, !tbaa !418
-  %59 = and i16 %58, 1
-  %.not75 = icmp eq i16 %59, 0
-  br i1 %.not75, label %60, label %.critedge55.thread.sink.split
+  %59 = trunc i16 %58 to i1
+  br i1 %59, label %.critedge55.thread.sink.split, label %60
 
 60:                                               ; preds = %52, %50, %56
   %61 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction16mayWriteToMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %48) #20
@@ -10377,17 +10375,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit64: 
   br label %90
 
 90:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit64, %75
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.065.078, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.065.076, i64 8
   %.sroa.065.0 = load ptr, ptr %91, align 8, !tbaa !293
   %.not71 = icmp eq ptr %.sroa.065.0, %47
   br i1 %.not71, label %.critedge55, label %.lr.ph
 
 .critedge55:                                      ; preds = %90, %45
-  %92 = getelementptr inbounds nuw i8, ptr %.080, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.078, i64 8
   %.not = icmp eq ptr %92, %40
-  br i1 %.not, label %.critedge55.thread, label %.lr.ph81
+  br i1 %.not, label %.critedge55.thread, label %.lr.ph79
 
-.critedge55.thread.sink.split:                    ; preds = %.lr.ph81, %56, %52, %.lr.ph
+.critedge55.thread.sink.split:                    ; preds = %.lr.ph79, %56, %52, %.lr.ph
   store i32 0, ptr %25, align 8, !tbaa !26
   store i32 0, ptr %21, align 8, !tbaa !26
   store i8 0, ptr %27, align 8, !tbaa !417

@@ -2719,115 +2719,114 @@ define internal void @_event_rule_append(ptr noundef %0, ptr noundef %1) #1 {
   tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %23, i32 noundef 17, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
   br label %24
 
-24:                                               ; preds = %36, %2
-  %.01.i = phi i32 [ 0, %2 ], [ %37, %36 ]
+24:                                               ; preds = %35, %2
+  %.01.i = phi i32 [ 0, %2 ], [ %36, %35 ]
   %25 = tail call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef %.01.i) #21
   %26 = tail call ptr @dt_metadata_get_name(i32 noundef %25) #21
   %27 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.127, ptr noundef %26) #21
   %28 = tail call i32 @dt_conf_get_int(ptr noundef %27) #21
-  %29 = and i32 %28, 1
   tail call void @g_free(ptr noundef %27) #21
-  %30 = tail call i32 @dt_metadata_get_type(i32 noundef %25) #21
-  %31 = icmp eq i32 %30, 2
-  %32 = icmp ne i32 %29, 0
-  %or.cond.i = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond.i, label %36, label %33
+  %29 = tail call i32 @dt_metadata_get_type(i32 noundef %25) #21
+  %30 = icmp eq i32 %29, 2
+  %31 = trunc i32 %28 to i1
+  %or.cond.i = select i1 %30, i1 true, i1 %31
+  br i1 %or.cond.i, label %35, label %32
 
-33:                                               ; preds = %24
-  %34 = add nuw nsw i32 %.01.i, 19
-  %35 = tail call ptr @dt_collection_name(i32 noundef %34) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %35, i32 noundef %34, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  br label %36
+32:                                               ; preds = %24
+  %33 = add nuw nsw i32 %.01.i, 19
+  %34 = tail call ptr @dt_collection_name(i32 noundef %33) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %34, i32 noundef %33, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  br label %35
 
-36:                                               ; preds = %33, %24
-  %37 = add nuw nsw i32 %.01.i, 1
-  %exitcond.not.i = icmp eq i32 %37, 9
+35:                                               ; preds = %32, %24
+  %36 = add nuw nsw i32 %.01.i, 1
+  %exitcond.not.i = icmp eq i32 %36, 9
   br i1 %exitcond.not.i, label %_rule_show_popup.exit, label %24
 
-_rule_show_popup.exit:                            ; preds = %36
-  %38 = tail call ptr @dt_collection_name(i32 noundef 33) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %38, i32 noundef 33, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %39 = tail call ptr @dt_collection_name(i32 noundef 35) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %39, i32 noundef 35, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %40 = tail call ptr @dt_collection_name(i32 noundef 18) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %40, i32 noundef 18, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %41 = tail call ptr @dt_collection_name(i32 noundef 34) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %41, i32 noundef 34, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %42 = tail call ptr @dt_collection_name(i32 noundef 15) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %42, i32 noundef 15, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %43 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.128, i32 noundef 5) #21
-  %44 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %43) #21
-  %45 = tail call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %10) #21
-  %46 = tail call ptr @gtk_bin_get_child(ptr noundef %45) #21
-  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %13) #21
-  tail call void @gtk_label_set_xalign(ptr noundef %47, float noundef 0.000000e+00) #21
-  tail call void @gtk_widget_set_sensitive(ptr noundef %44, i32 noundef 0) #21
-  tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %44) #21
-  %48 = tail call ptr @dt_collection_name(i32 noundef 9) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %48, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %49 = tail call ptr @dt_collection_name(i32 noundef 10) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %49, i32 noundef 10, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %50 = tail call ptr @dt_collection_name(i32 noundef 11) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %50, i32 noundef 11, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %51 = tail call ptr @dt_collection_name(i32 noundef 12) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %51, i32 noundef 12, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %52 = tail call ptr @dt_collection_name(i32 noundef 13) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %52, i32 noundef 13, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %53 = tail call ptr @dt_collection_name(i32 noundef 14) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %53, i32 noundef 14, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %54 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.129, i32 noundef 5) #21
-  %55 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %54) #21
-  %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %10) #21
-  %57 = tail call ptr @gtk_bin_get_child(ptr noundef %56) #21
-  %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %13) #21
-  tail call void @gtk_label_set_xalign(ptr noundef %58, float noundef 0.000000e+00) #21
-  tail call void @gtk_widget_set_sensitive(ptr noundef %55, i32 noundef 0) #21
-  tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %55) #21
-  %59 = tail call ptr @dt_collection_name(i32 noundef 3) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %59, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %60 = tail call ptr @dt_collection_name(i32 noundef 4) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %60, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %61 = tail call ptr @dt_collection_name(i32 noundef 5) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %61, i32 noundef 5, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %62 = tail call ptr @dt_collection_name(i32 noundef 6) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %62, i32 noundef 6, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %63 = tail call ptr @dt_collection_name(i32 noundef 41) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %63, i32 noundef 41, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %64 = tail call ptr @dt_collection_name(i32 noundef 7) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %64, i32 noundef 7, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %65 = tail call ptr @dt_collection_name(i32 noundef 8) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %65, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %66 = tail call ptr @dt_collection_name(i32 noundef 16) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %66, i32 noundef 16, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %67 = tail call ptr @dt_collection_name(i32 noundef 36) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %67, i32 noundef 36, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %68 = tail call ptr @dt_collection_name(i32 noundef 37) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %68, i32 noundef 37, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %69 = tail call ptr @dt_collection_name(i32 noundef 38) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %69, i32 noundef 38, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %70 = tail call ptr @dt_collection_name(i32 noundef 39) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %70, i32 noundef 39, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %71 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.130, i32 noundef 5) #21
-  %72 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %71) #21
-  %73 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %10) #21
-  %74 = tail call ptr @gtk_bin_get_child(ptr noundef %73) #21
-  %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %13) #21
-  tail call void @gtk_label_set_xalign(ptr noundef %75, float noundef 0.000000e+00) #21
-  tail call void @gtk_widget_set_sensitive(ptr noundef %72, i32 noundef 0) #21
-  tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %72) #21
-  %76 = tail call ptr @dt_collection_name(i32 noundef 40) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %76, i32 noundef 40, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %77 = tail call ptr @dt_collection_name(i32 noundef 29) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %77, i32 noundef 29, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %78 = tail call ptr @dt_collection_name(i32 noundef 30) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %78, i32 noundef 30, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %79 = tail call ptr @dt_collection_name(i32 noundef 31) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %79, i32 noundef 31, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %80 = tail call ptr @dt_collection_name(i32 noundef 32) #21
-  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %80, i32 noundef 32, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
-  %81 = tail call i64 @gtk_menu_get_type() #22
-  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %81) #21
-  tail call void @dt_gui_menu_popup(ptr noundef %82, ptr noundef %0, i32 noundef 8, i32 noundef 2) #21
+_rule_show_popup.exit:                            ; preds = %35
+  %37 = tail call ptr @dt_collection_name(i32 noundef 33) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %37, i32 noundef 33, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %38 = tail call ptr @dt_collection_name(i32 noundef 35) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %38, i32 noundef 35, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %39 = tail call ptr @dt_collection_name(i32 noundef 18) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %39, i32 noundef 18, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %40 = tail call ptr @dt_collection_name(i32 noundef 34) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %40, i32 noundef 34, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %41 = tail call ptr @dt_collection_name(i32 noundef 15) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %41, i32 noundef 15, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %42 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.128, i32 noundef 5) #21
+  %43 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %42) #21
+  %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %43, i64 noundef %10) #21
+  %45 = tail call ptr @gtk_bin_get_child(ptr noundef %44) #21
+  %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %13) #21
+  tail call void @gtk_label_set_xalign(ptr noundef %46, float noundef 0.000000e+00) #21
+  tail call void @gtk_widget_set_sensitive(ptr noundef %43, i32 noundef 0) #21
+  tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %43) #21
+  %47 = tail call ptr @dt_collection_name(i32 noundef 9) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %47, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %48 = tail call ptr @dt_collection_name(i32 noundef 10) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %48, i32 noundef 10, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %49 = tail call ptr @dt_collection_name(i32 noundef 11) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %49, i32 noundef 11, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %50 = tail call ptr @dt_collection_name(i32 noundef 12) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %50, i32 noundef 12, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %51 = tail call ptr @dt_collection_name(i32 noundef 13) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %51, i32 noundef 13, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %52 = tail call ptr @dt_collection_name(i32 noundef 14) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %52, i32 noundef 14, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %53 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.129, i32 noundef 5) #21
+  %54 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %53) #21
+  %55 = tail call ptr @g_type_check_instance_cast(ptr noundef %54, i64 noundef %10) #21
+  %56 = tail call ptr @gtk_bin_get_child(ptr noundef %55) #21
+  %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %13) #21
+  tail call void @gtk_label_set_xalign(ptr noundef %57, float noundef 0.000000e+00) #21
+  tail call void @gtk_widget_set_sensitive(ptr noundef %54, i32 noundef 0) #21
+  tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %54) #21
+  %58 = tail call ptr @dt_collection_name(i32 noundef 3) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %58, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %59 = tail call ptr @dt_collection_name(i32 noundef 4) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %59, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %60 = tail call ptr @dt_collection_name(i32 noundef 5) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %60, i32 noundef 5, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %61 = tail call ptr @dt_collection_name(i32 noundef 6) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %61, i32 noundef 6, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %62 = tail call ptr @dt_collection_name(i32 noundef 41) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %62, i32 noundef 41, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %63 = tail call ptr @dt_collection_name(i32 noundef 7) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %63, i32 noundef 7, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %64 = tail call ptr @dt_collection_name(i32 noundef 8) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %64, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %65 = tail call ptr @dt_collection_name(i32 noundef 16) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %65, i32 noundef 16, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %66 = tail call ptr @dt_collection_name(i32 noundef 36) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %66, i32 noundef 36, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %67 = tail call ptr @dt_collection_name(i32 noundef 37) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %67, i32 noundef 37, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %68 = tail call ptr @dt_collection_name(i32 noundef 38) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %68, i32 noundef 38, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %69 = tail call ptr @dt_collection_name(i32 noundef 39) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %69, i32 noundef 39, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %70 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.130, i32 noundef 5) #21
+  %71 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %70) #21
+  %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef %10) #21
+  %73 = tail call ptr @gtk_bin_get_child(ptr noundef %72) #21
+  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef %13) #21
+  tail call void @gtk_label_set_xalign(ptr noundef %74, float noundef 0.000000e+00) #21
+  tail call void @gtk_widget_set_sensitive(ptr noundef %71, i32 noundef 0) #21
+  tail call void @gtk_menu_shell_append(ptr noundef %5, ptr noundef %71) #21
+  %75 = tail call ptr @dt_collection_name(i32 noundef 40) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %75, i32 noundef 40, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %76 = tail call ptr @dt_collection_name(i32 noundef 29) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %76, i32 noundef 29, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %77 = tail call ptr @dt_collection_name(i32 noundef 30) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %77, i32 noundef 30, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %78 = tail call ptr @dt_collection_name(i32 noundef 31) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %78, i32 noundef 31, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %79 = tail call ptr @dt_collection_name(i32 noundef 32) #21
+  tail call fastcc void @_popup_add_item(ptr noundef %5, ptr noundef %79, i32 noundef 32, i32 noundef 0, ptr noundef nonnull @_event_append_rule, ptr noundef %1, float noundef 5.000000e-01)
+  %80 = tail call i64 @gtk_menu_get_type() #22
+  %81 = tail call ptr @g_type_check_instance_cast(ptr noundef %5, i64 noundef %80) #21
+  tail call void @dt_gui_menu_popup(ptr noundef %81, ptr noundef %0, i32 noundef 8, i32 noundef 2) #21
   ret void
 }
 
@@ -4773,7 +4772,7 @@ _rule_populate_prop_combo_add.exit:               ; preds = %9, %_filters_get.ex
   %24 = load i32, ptr %18, align 8, !tbaa !183
   %25 = add nsw i32 %24, -1
   store i32 %25, ptr %18, align 8, !tbaa !183
-  br label %144
+  br label %143
 
 26:                                               ; preds = %1
   %27 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.124, i32 noundef 5) #21
@@ -5285,58 +5284,57 @@ _rule_populate_prop_combo_add.exit64.i:           ; preds = %34, %_rule_populate
   %117 = tail call ptr @dt_metadata_get_name(i32 noundef %116) #21
   %118 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.127, ptr noundef %117) #21
   %119 = tail call i32 @dt_conf_get_int(ptr noundef %118) #21
-  %120 = and i32 %119, 1
   tail call void @g_free(ptr noundef %118) #21
-  %121 = tail call i32 @dt_metadata_get_type(i32 noundef %116) #21
-  %122 = icmp eq i32 %121, 2
-  %123 = icmp ne i32 %120, 0
-  %or.cond.i = select i1 %122, i1 true, i1 %123
-  br i1 %or.cond.i, label %_rule_populate_prop_combo_add.exit209.i, label %124
+  %120 = tail call i32 @dt_metadata_get_type(i32 noundef %116) #21
+  %121 = icmp eq i32 %120, 2
+  %122 = trunc i32 %119 to i1
+  %or.cond.i = select i1 %121, i1 true, i1 %122
+  br i1 %or.cond.i, label %_rule_populate_prop_combo_add.exit209.i, label %123
 
-124:                                              ; preds = %_rule_populate_prop_combo_add.exit64.i
-  %125 = add nuw nsw i64 %indvars.iv.i, 19
-  br label %127
+123:                                              ; preds = %_rule_populate_prop_combo_add.exit64.i
+  %124 = add nuw nsw i64 %indvars.iv.i, 19
+  br label %126
 
-126:                                              ; preds = %127
+125:                                              ; preds = %126
   %indvars.iv.next.i.i206.i = add nuw nsw i64 %indvars.iv.i.i205.i, 1
   %exitcond.i.i207.i = icmp eq i64 %indvars.iv.next.i.i206.i, 26
-  br i1 %exitcond.i.i207.i, label %_rule_populate_prop_combo_add.exit209.i, label %127
+  br i1 %exitcond.i.i207.i, label %_rule_populate_prop_combo_add.exit209.i, label %126
 
-127:                                              ; preds = %126, %124
-  %indvars.iv.i.i205.i = phi i64 [ 0, %124 ], [ %indvars.iv.next.i.i206.i, %126 ]
-  %128 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i205.i
-  %129 = load i32, ptr %128, align 8, !tbaa !130
-  %130 = zext i32 %129 to i64
-  %131 = icmp eq i64 %125, %130
-  br i1 %131, label %_filters_get.exit.i208.i, label %126
+126:                                              ; preds = %125, %123
+  %indvars.iv.i.i205.i = phi i64 [ 0, %123 ], [ %indvars.iv.next.i.i206.i, %125 ]
+  %127 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i205.i
+  %128 = load i32, ptr %127, align 8, !tbaa !130
+  %129 = zext i32 %128 to i64
+  %130 = icmp eq i64 %124, %129
+  br i1 %130, label %_filters_get.exit.i208.i, label %125
 
-_filters_get.exit.i208.i:                         ; preds = %127
-  %132 = trunc nuw nsw i64 %125 to i32
-  %133 = tail call ptr @dt_collection_name(i32 noundef %132) #21
-  %134 = inttoptr i64 %125 to ptr
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %3, ptr noundef %133, i32 noundef 2, ptr noundef nonnull %134, ptr noundef null, i32 noundef 1) #21
+_filters_get.exit.i208.i:                         ; preds = %126
+  %131 = trunc nuw nsw i64 %124 to i32
+  %132 = tail call ptr @dt_collection_name(i32 noundef %131) #21
+  %133 = inttoptr i64 %124 to ptr
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %3, ptr noundef %132, i32 noundef 2, ptr noundef nonnull %133, ptr noundef null, i32 noundef 1) #21
   br label %_rule_populate_prop_combo_add.exit209.i
 
-_rule_populate_prop_combo_add.exit209.i:          ; preds = %126, %_filters_get.exit.i208.i, %_rule_populate_prop_combo_add.exit64.i
+_rule_populate_prop_combo_add.exit209.i:          ; preds = %125, %_filters_get.exit.i208.i, %_rule_populate_prop_combo_add.exit64.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.not.i, label %.preheader.i, label %_rule_populate_prop_combo_add.exit64.i
 
 _populate_rules_combo.exit:                       ; preds = %112, %_filters_get.exit.i203.i
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %136 = load i32, ptr %135, align 8, !tbaa !183
-  %137 = add nsw i32 %136, 1
-  store i32 %137, ptr %135, align 8, !tbaa !183
-  %138 = load ptr, ptr %2, align 8, !tbaa !208
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !129
-  %141 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %138, i32 noundef %140) #21
-  %142 = load i32, ptr %135, align 8, !tbaa !183
-  %143 = add nsw i32 %142, -1
-  store i32 %143, ptr %135, align 8, !tbaa !183
-  br label %144
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %135 = load i32, ptr %134, align 8, !tbaa !183
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %134, align 8, !tbaa !183
+  %137 = load ptr, ptr %2, align 8, !tbaa !208
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %139 = load i32, ptr %138, align 4, !tbaa !129
+  %140 = tail call i32 @dt_bauhaus_combobox_set_from_value(ptr noundef %137, i32 noundef %139) #21
+  %141 = load i32, ptr %134, align 8, !tbaa !183
+  %142 = add nsw i32 %141, -1
+  store i32 %142, ptr %134, align 8, !tbaa !183
+  br label %143
 
-144:                                              ; preds = %_populate_rules_combo.exit, %_rule_populate_prop_combo_add.exit
+143:                                              ; preds = %_populate_rules_combo.exit, %_rule_populate_prop_combo_add.exit
   ret void
 }
 
@@ -12466,7 +12464,7 @@ _topbar_populate_prop_combo_add.exit192:          ; preds = %_topbar_populate_pr
 _topbar_populate_prop_combo_add.exit206:          ; preds = %_topbar_populate_prop_combo_add.exit192
   %75 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
   %76 = icmp eq i32 %26, %75
-  br i1 %76, label %108, label %110
+  br i1 %76, label %107, label %109
 
 77:                                               ; preds = %_topbar_populate_prop_combo_add.exit136, %_topbar_populate_prop_combo_add.exit220
   %indvars.iv = phi i64 [ 0, %_topbar_populate_prop_combo_add.exit136 ], [ %indvars.iv.next, %_topbar_populate_prop_combo_add.exit220 ]
@@ -12475,784 +12473,783 @@ _topbar_populate_prop_combo_add.exit206:          ; preds = %_topbar_populate_pr
   %80 = tail call ptr @dt_metadata_get_name(i32 noundef %79) #21
   %81 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.127, ptr noundef %80) #21
   %82 = tail call i32 @dt_conf_get_int(ptr noundef %81) #21
-  %83 = and i32 %82, 1
   tail call void @g_free(ptr noundef %81) #21
-  %84 = tail call i32 @dt_metadata_get_type(i32 noundef %79) #21
-  %85 = icmp eq i32 %84, 2
-  %86 = icmp ne i32 %83, 0
-  %or.cond = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond, label %_topbar_populate_prop_combo_add.exit220, label %87
+  %83 = tail call i32 @dt_metadata_get_type(i32 noundef %79) #21
+  %84 = icmp eq i32 %83, 2
+  %85 = trunc i32 %82 to i1
+  %or.cond = select i1 %84, i1 true, i1 %85
+  br i1 %or.cond, label %_topbar_populate_prop_combo_add.exit220, label %86
 
-87:                                               ; preds = %77
-  %88 = add nuw nsw i64 %indvars.iv, 19
-  br label %90
+86:                                               ; preds = %77
+  %87 = add nuw nsw i64 %indvars.iv, 19
+  br label %89
 
-89:                                               ; preds = %90
+88:                                               ; preds = %89
   %indvars.iv.next.i.i208 = add nuw nsw i64 %indvars.iv.i.i207, 1
   %exitcond.i.i209 = icmp eq i64 %indvars.iv.next.i.i208, 26
-  br i1 %exitcond.i.i209, label %_topbar_populate_prop_combo_add.exit220, label %90
+  br i1 %exitcond.i.i209, label %_topbar_populate_prop_combo_add.exit220, label %89
 
-90:                                               ; preds = %89, %87
-  %indvars.iv.i.i207 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i.i208, %89 ]
-  %91 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i207
-  %92 = load i32, ptr %91, align 8, !tbaa !130
-  %93 = zext i32 %92 to i64
-  %94 = icmp eq i64 %88, %93
-  br i1 %94, label %_filters_get.exit.preheader.i210, label %89
+89:                                               ; preds = %88, %86
+  %indvars.iv.i.i207 = phi i64 [ 0, %86 ], [ %indvars.iv.next.i.i208, %88 ]
+  %90 = getelementptr inbounds nuw %struct._filter_t, ptr @filters, i64 %indvars.iv.i.i207
+  %91 = load i32, ptr %90, align 8, !tbaa !130
+  %92 = zext i32 %91 to i64
+  %93 = icmp eq i64 %87, %92
+  br i1 %93, label %_filters_get.exit.preheader.i210, label %88
 
-_filters_get.exit.preheader.i210:                 ; preds = %90
-  %95 = load i32, ptr %28, align 8, !tbaa !122
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.lr.ph.preheader.i212, label %_filters_get.exit._crit_edge.i211
+_filters_get.exit.preheader.i210:                 ; preds = %89
+  %94 = load i32, ptr %28, align 8, !tbaa !122
+  %95 = icmp sgt i32 %94, 0
+  br i1 %95, label %.lr.ph.preheader.i212, label %_filters_get.exit._crit_edge.i211
 
 .lr.ph.preheader.i212:                            ; preds = %_filters_get.exit.preheader.i210
-  %wide.trip.count.i213 = zext nneg i32 %95 to i64
+  %wide.trip.count.i213 = zext nneg i32 %94 to i64
   br label %.lr.ph.i214
 
 .lr.ph.i214:                                      ; preds = %_filters_get.exit.i217, %.lr.ph.preheader.i212
   %indvars.iv.i215 = phi i64 [ 0, %.lr.ph.preheader.i212 ], [ %indvars.iv.next.i218, %_filters_get.exit.i217 ]
-  %97 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i215
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 368
-  %99 = load i32, ptr %98, align 8, !tbaa !187
-  %.not13.i216 = icmp eq i32 %99, 0
-  br i1 %.not13.i216, label %_filters_get.exit.i217, label %100
+  %96 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i215
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 368
+  %98 = load i32, ptr %97, align 8, !tbaa !187
+  %.not13.i216 = icmp eq i32 %98, 0
+  br i1 %.not13.i216, label %_filters_get.exit.i217, label %99
 
-100:                                              ; preds = %.lr.ph.i214
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !129
-  %103 = zext i32 %102 to i64
-  %104 = icmp eq i64 %88, %103
-  br i1 %104, label %_topbar_populate_prop_combo_add.exit220, label %_filters_get.exit.i217
+99:                                               ; preds = %.lr.ph.i214
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !129
+  %102 = zext i32 %101 to i64
+  %103 = icmp eq i64 %87, %102
+  br i1 %103, label %_topbar_populate_prop_combo_add.exit220, label %_filters_get.exit.i217
 
-_filters_get.exit.i217:                           ; preds = %100, %.lr.ph.i214
+_filters_get.exit.i217:                           ; preds = %99, %.lr.ph.i214
   %indvars.iv.next.i218 = add nuw nsw i64 %indvars.iv.i215, 1
   %exitcond.not.i219 = icmp eq i64 %indvars.iv.next.i218, %wide.trip.count.i213
   br i1 %exitcond.not.i219, label %_filters_get.exit._crit_edge.i211, label %.lr.ph.i214
 
 _filters_get.exit._crit_edge.i211:                ; preds = %_filters_get.exit.i217, %_filters_get.exit.preheader.i210
-  %105 = trunc nuw nsw i64 %88 to i32
-  %106 = tail call ptr @dt_collection_name(i32 noundef range(i32 0, 42) %105) #21
-  %107 = inttoptr i64 %88 to ptr
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %106, i32 noundef 1, ptr noundef nonnull %107, ptr noundef null, i32 noundef 1) #21
+  %104 = trunc nuw nsw i64 %87 to i32
+  %105 = tail call ptr @dt_collection_name(i32 noundef range(i32 0, 42) %104) #21
+  %106 = inttoptr i64 %87 to ptr
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %105, i32 noundef 1, ptr noundef nonnull %106, ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit220
 
-_topbar_populate_prop_combo_add.exit220:          ; preds = %89, %100, %_filters_get.exit._crit_edge.i211, %77
+_topbar_populate_prop_combo_add.exit220:          ; preds = %88, %99, %_filters_get.exit._crit_edge.i211, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %.preheader, label %77
 
-108:                                              ; preds = %_topbar_populate_prop_combo_add.exit206
-  %109 = add nsw i32 %26, -1
-  tail call void @dt_bauhaus_combobox_remove_at(ptr noundef %0, i32 noundef %109) #21
-  br label %110
+107:                                              ; preds = %_topbar_populate_prop_combo_add.exit206
+  %108 = add nsw i32 %26, -1
+  tail call void @dt_bauhaus_combobox_remove_at(ptr noundef %0, i32 noundef %108) #21
+  br label %109
 
-110:                                              ; preds = %108, %_topbar_populate_prop_combo_add.exit206
-  %111 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.129, i32 noundef 5) #21
-  tail call void @dt_bauhaus_combobox_add_section(ptr noundef %0, ptr noundef %111) #21
-  %112 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
-  br label %114
+109:                                              ; preds = %107, %_topbar_populate_prop_combo_add.exit206
+  %110 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.129, i32 noundef 5) #21
+  tail call void @dt_bauhaus_combobox_add_section(ptr noundef %0, ptr noundef %110) #21
+  %111 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
+  br label %113
 
-113:                                              ; preds = %114
+112:                                              ; preds = %113
   %indvars.iv.next.i.i222 = add nuw nsw i64 %indvars.iv.i.i221, 1
   %exitcond.i.i223 = icmp eq i64 %indvars.iv.next.i.i222, 26
-  br i1 %exitcond.i.i223, label %_topbar_populate_prop_combo_add.exit234.preheader, label %114
+  br i1 %exitcond.i.i223, label %_topbar_populate_prop_combo_add.exit234.preheader, label %113
 
-114:                                              ; preds = %113, %110
-  %indvars.iv.i.i221 = phi i64 [ 0, %110 ], [ %indvars.iv.next.i.i222, %113 ]
-  %115 = icmp eq i64 %indvars.iv.i.i221, 21
-  br i1 %115, label %_filters_get.exit.preheader.i224, label %113
+113:                                              ; preds = %112, %109
+  %indvars.iv.i.i221 = phi i64 [ 0, %109 ], [ %indvars.iv.next.i.i222, %112 ]
+  %114 = icmp eq i64 %indvars.iv.i.i221, 21
+  br i1 %114, label %_filters_get.exit.preheader.i224, label %112
 
-_filters_get.exit.preheader.i224:                 ; preds = %114
-  %116 = load i32, ptr %28, align 8, !tbaa !122
-  %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %.lr.ph.preheader.i226, label %_filters_get.exit._crit_edge.i225
+_filters_get.exit.preheader.i224:                 ; preds = %113
+  %115 = load i32, ptr %28, align 8, !tbaa !122
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %.lr.ph.preheader.i226, label %_filters_get.exit._crit_edge.i225
 
 .lr.ph.preheader.i226:                            ; preds = %_filters_get.exit.preheader.i224
-  %wide.trip.count.i227 = zext nneg i32 %116 to i64
+  %wide.trip.count.i227 = zext nneg i32 %115 to i64
   br label %.lr.ph.i228
 
 .lr.ph.i228:                                      ; preds = %_filters_get.exit.i231, %.lr.ph.preheader.i226
   %indvars.iv.i229 = phi i64 [ 0, %.lr.ph.preheader.i226 ], [ %indvars.iv.next.i232, %_filters_get.exit.i231 ]
-  %118 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i229
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 368
-  %120 = load i32, ptr %119, align 8, !tbaa !187
-  %.not13.i230 = icmp eq i32 %120, 0
-  br i1 %.not13.i230, label %_filters_get.exit.i231, label %121
+  %117 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i229
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 368
+  %119 = load i32, ptr %118, align 8, !tbaa !187
+  %.not13.i230 = icmp eq i32 %119, 0
+  br i1 %.not13.i230, label %_filters_get.exit.i231, label %120
 
-121:                                              ; preds = %.lr.ph.i228
-  %122 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  %123 = load i32, ptr %122, align 4, !tbaa !129
-  %124 = icmp eq i32 %123, 3
-  br i1 %124, label %_topbar_populate_prop_combo_add.exit234.preheader, label %_filters_get.exit.i231
+120:                                              ; preds = %.lr.ph.i228
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 4
+  %122 = load i32, ptr %121, align 4, !tbaa !129
+  %123 = icmp eq i32 %122, 3
+  br i1 %123, label %_topbar_populate_prop_combo_add.exit234.preheader, label %_filters_get.exit.i231
 
-_filters_get.exit.i231:                           ; preds = %121, %.lr.ph.i228
+_filters_get.exit.i231:                           ; preds = %120, %.lr.ph.i228
   %indvars.iv.next.i232 = add nuw nsw i64 %indvars.iv.i229, 1
   %exitcond.not.i233 = icmp eq i64 %indvars.iv.next.i232, %wide.trip.count.i227
   br i1 %exitcond.not.i233, label %_filters_get.exit._crit_edge.i225, label %.lr.ph.i228
 
 _filters_get.exit._crit_edge.i225:                ; preds = %_filters_get.exit.i231, %_filters_get.exit.preheader.i224
-  %125 = tail call ptr @dt_collection_name(i32 noundef 3) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %125, i32 noundef 1, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef null, i32 noundef 1) #21
+  %124 = tail call ptr @dt_collection_name(i32 noundef 3) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %124, i32 noundef 1, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit234.preheader
 
-_topbar_populate_prop_combo_add.exit234.preheader: ; preds = %113, %121, %_filters_get.exit._crit_edge.i225
+_topbar_populate_prop_combo_add.exit234.preheader: ; preds = %112, %120, %_filters_get.exit._crit_edge.i225
   br label %_topbar_populate_prop_combo_add.exit234
 
-126:                                              ; preds = %_topbar_populate_prop_combo_add.exit234
+125:                                              ; preds = %_topbar_populate_prop_combo_add.exit234
   %indvars.iv.next.i.i236 = add nuw nsw i64 %indvars.iv.i.i235, 1
   %exitcond.i.i237 = icmp eq i64 %indvars.iv.next.i.i236, 26
   br i1 %exitcond.i.i237, label %_topbar_populate_prop_combo_add.exit248.preheader, label %_topbar_populate_prop_combo_add.exit234
 
-_topbar_populate_prop_combo_add.exit234:          ; preds = %_topbar_populate_prop_combo_add.exit234.preheader, %126
-  %indvars.iv.i.i235 = phi i64 [ %indvars.iv.next.i.i236, %126 ], [ 0, %_topbar_populate_prop_combo_add.exit234.preheader ]
-  %127 = icmp eq i64 %indvars.iv.i.i235, 20
-  br i1 %127, label %_filters_get.exit.preheader.i238, label %126
+_topbar_populate_prop_combo_add.exit234:          ; preds = %_topbar_populate_prop_combo_add.exit234.preheader, %125
+  %indvars.iv.i.i235 = phi i64 [ %indvars.iv.next.i.i236, %125 ], [ 0, %_topbar_populate_prop_combo_add.exit234.preheader ]
+  %126 = icmp eq i64 %indvars.iv.i.i235, 20
+  br i1 %126, label %_filters_get.exit.preheader.i238, label %125
 
 _filters_get.exit.preheader.i238:                 ; preds = %_topbar_populate_prop_combo_add.exit234
-  %128 = load i32, ptr %28, align 8, !tbaa !122
-  %129 = icmp sgt i32 %128, 0
-  br i1 %129, label %.lr.ph.preheader.i240, label %_filters_get.exit._crit_edge.i239
+  %127 = load i32, ptr %28, align 8, !tbaa !122
+  %128 = icmp sgt i32 %127, 0
+  br i1 %128, label %.lr.ph.preheader.i240, label %_filters_get.exit._crit_edge.i239
 
 .lr.ph.preheader.i240:                            ; preds = %_filters_get.exit.preheader.i238
-  %wide.trip.count.i241 = zext nneg i32 %128 to i64
+  %wide.trip.count.i241 = zext nneg i32 %127 to i64
   br label %.lr.ph.i242
 
 .lr.ph.i242:                                      ; preds = %_filters_get.exit.i245, %.lr.ph.preheader.i240
   %indvars.iv.i243 = phi i64 [ 0, %.lr.ph.preheader.i240 ], [ %indvars.iv.next.i246, %_filters_get.exit.i245 ]
-  %130 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i243
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 368
-  %132 = load i32, ptr %131, align 8, !tbaa !187
-  %.not13.i244 = icmp eq i32 %132, 0
-  br i1 %.not13.i244, label %_filters_get.exit.i245, label %133
+  %129 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i243
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 368
+  %131 = load i32, ptr %130, align 8, !tbaa !187
+  %.not13.i244 = icmp eq i32 %131, 0
+  br i1 %.not13.i244, label %_filters_get.exit.i245, label %132
 
-133:                                              ; preds = %.lr.ph.i242
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  %135 = load i32, ptr %134, align 4, !tbaa !129
-  %136 = icmp eq i32 %135, 4
-  br i1 %136, label %_topbar_populate_prop_combo_add.exit248.preheader, label %_filters_get.exit.i245
+132:                                              ; preds = %.lr.ph.i242
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %134 = load i32, ptr %133, align 4, !tbaa !129
+  %135 = icmp eq i32 %134, 4
+  br i1 %135, label %_topbar_populate_prop_combo_add.exit248.preheader, label %_filters_get.exit.i245
 
-_filters_get.exit.i245:                           ; preds = %133, %.lr.ph.i242
+_filters_get.exit.i245:                           ; preds = %132, %.lr.ph.i242
   %indvars.iv.next.i246 = add nuw nsw i64 %indvars.iv.i243, 1
   %exitcond.not.i247 = icmp eq i64 %indvars.iv.next.i246, %wide.trip.count.i241
   br i1 %exitcond.not.i247, label %_filters_get.exit._crit_edge.i239, label %.lr.ph.i242
 
 _filters_get.exit._crit_edge.i239:                ; preds = %_filters_get.exit.i245, %_filters_get.exit.preheader.i238
-  %137 = tail call ptr @dt_collection_name(i32 noundef 4) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %137, i32 noundef 1, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef null, i32 noundef 1) #21
+  %136 = tail call ptr @dt_collection_name(i32 noundef 4) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %136, i32 noundef 1, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit248.preheader
 
-_topbar_populate_prop_combo_add.exit248.preheader: ; preds = %126, %133, %_filters_get.exit._crit_edge.i239
+_topbar_populate_prop_combo_add.exit248.preheader: ; preds = %125, %132, %_filters_get.exit._crit_edge.i239
   br label %_topbar_populate_prop_combo_add.exit248
 
-138:                                              ; preds = %_topbar_populate_prop_combo_add.exit248
+137:                                              ; preds = %_topbar_populate_prop_combo_add.exit248
   %indvars.iv.next.i.i250 = add nuw nsw i64 %indvars.iv.i.i249, 1
   %exitcond.i.i251 = icmp eq i64 %indvars.iv.next.i.i250, 26
   br i1 %exitcond.i.i251, label %_topbar_populate_prop_combo_add.exit262.preheader, label %_topbar_populate_prop_combo_add.exit248
 
-_topbar_populate_prop_combo_add.exit248:          ; preds = %_topbar_populate_prop_combo_add.exit248.preheader, %138
-  %indvars.iv.i.i249 = phi i64 [ %indvars.iv.next.i.i250, %138 ], [ 0, %_topbar_populate_prop_combo_add.exit248.preheader ]
-  %139 = icmp eq i64 %indvars.iv.i.i249, 10
-  br i1 %139, label %_filters_get.exit.preheader.i252, label %138
+_topbar_populate_prop_combo_add.exit248:          ; preds = %_topbar_populate_prop_combo_add.exit248.preheader, %137
+  %indvars.iv.i.i249 = phi i64 [ %indvars.iv.next.i.i250, %137 ], [ 0, %_topbar_populate_prop_combo_add.exit248.preheader ]
+  %138 = icmp eq i64 %indvars.iv.i.i249, 10
+  br i1 %138, label %_filters_get.exit.preheader.i252, label %137
 
 _filters_get.exit.preheader.i252:                 ; preds = %_topbar_populate_prop_combo_add.exit248
-  %140 = load i32, ptr %28, align 8, !tbaa !122
-  %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph.preheader.i254, label %_filters_get.exit._crit_edge.i253
+  %139 = load i32, ptr %28, align 8, !tbaa !122
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %.lr.ph.preheader.i254, label %_filters_get.exit._crit_edge.i253
 
 .lr.ph.preheader.i254:                            ; preds = %_filters_get.exit.preheader.i252
-  %wide.trip.count.i255 = zext nneg i32 %140 to i64
+  %wide.trip.count.i255 = zext nneg i32 %139 to i64
   br label %.lr.ph.i256
 
 .lr.ph.i256:                                      ; preds = %_filters_get.exit.i259, %.lr.ph.preheader.i254
   %indvars.iv.i257 = phi i64 [ 0, %.lr.ph.preheader.i254 ], [ %indvars.iv.next.i260, %_filters_get.exit.i259 ]
-  %142 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i257
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 368
-  %144 = load i32, ptr %143, align 8, !tbaa !187
-  %.not13.i258 = icmp eq i32 %144, 0
-  br i1 %.not13.i258, label %_filters_get.exit.i259, label %145
+  %141 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i257
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 368
+  %143 = load i32, ptr %142, align 8, !tbaa !187
+  %.not13.i258 = icmp eq i32 %143, 0
+  br i1 %.not13.i258, label %_filters_get.exit.i259, label %144
 
-145:                                              ; preds = %.lr.ph.i256
-  %146 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %147 = load i32, ptr %146, align 4, !tbaa !129
-  %148 = icmp eq i32 %147, 5
-  br i1 %148, label %_topbar_populate_prop_combo_add.exit262.preheader, label %_filters_get.exit.i259
+144:                                              ; preds = %.lr.ph.i256
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 4
+  %146 = load i32, ptr %145, align 4, !tbaa !129
+  %147 = icmp eq i32 %146, 5
+  br i1 %147, label %_topbar_populate_prop_combo_add.exit262.preheader, label %_filters_get.exit.i259
 
-_filters_get.exit.i259:                           ; preds = %145, %.lr.ph.i256
+_filters_get.exit.i259:                           ; preds = %144, %.lr.ph.i256
   %indvars.iv.next.i260 = add nuw nsw i64 %indvars.iv.i257, 1
   %exitcond.not.i261 = icmp eq i64 %indvars.iv.next.i260, %wide.trip.count.i255
   br i1 %exitcond.not.i261, label %_filters_get.exit._crit_edge.i253, label %.lr.ph.i256
 
 _filters_get.exit._crit_edge.i253:                ; preds = %_filters_get.exit.i259, %_filters_get.exit.preheader.i252
-  %149 = tail call ptr @dt_collection_name(i32 noundef 5) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %149, i32 noundef 1, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef null, i32 noundef 1) #21
+  %148 = tail call ptr @dt_collection_name(i32 noundef 5) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %148, i32 noundef 1, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit262.preheader
 
-_topbar_populate_prop_combo_add.exit262.preheader: ; preds = %138, %145, %_filters_get.exit._crit_edge.i253
+_topbar_populate_prop_combo_add.exit262.preheader: ; preds = %137, %144, %_filters_get.exit._crit_edge.i253
   br label %_topbar_populate_prop_combo_add.exit262
 
-150:                                              ; preds = %_topbar_populate_prop_combo_add.exit262
+149:                                              ; preds = %_topbar_populate_prop_combo_add.exit262
   %indvars.iv.next.i.i264 = add nuw nsw i64 %indvars.iv.i.i263, 1
   %exitcond.i.i265 = icmp eq i64 %indvars.iv.next.i.i264, 26
   br i1 %exitcond.i.i265, label %_topbar_populate_prop_combo_add.exit276.preheader, label %_topbar_populate_prop_combo_add.exit262
 
-_topbar_populate_prop_combo_add.exit262:          ; preds = %_topbar_populate_prop_combo_add.exit262.preheader, %150
-  %indvars.iv.i.i263 = phi i64 [ %indvars.iv.next.i.i264, %150 ], [ 0, %_topbar_populate_prop_combo_add.exit262.preheader ]
-  %151 = icmp eq i64 %indvars.iv.i.i263, 13
-  br i1 %151, label %_filters_get.exit.preheader.i266, label %150
+_topbar_populate_prop_combo_add.exit262:          ; preds = %_topbar_populate_prop_combo_add.exit262.preheader, %149
+  %indvars.iv.i.i263 = phi i64 [ %indvars.iv.next.i.i264, %149 ], [ 0, %_topbar_populate_prop_combo_add.exit262.preheader ]
+  %150 = icmp eq i64 %indvars.iv.i.i263, 13
+  br i1 %150, label %_filters_get.exit.preheader.i266, label %149
 
 _filters_get.exit.preheader.i266:                 ; preds = %_topbar_populate_prop_combo_add.exit262
-  %152 = load i32, ptr %28, align 8, !tbaa !122
-  %153 = icmp sgt i32 %152, 0
-  br i1 %153, label %.lr.ph.preheader.i268, label %_filters_get.exit._crit_edge.i267
+  %151 = load i32, ptr %28, align 8, !tbaa !122
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %.lr.ph.preheader.i268, label %_filters_get.exit._crit_edge.i267
 
 .lr.ph.preheader.i268:                            ; preds = %_filters_get.exit.preheader.i266
-  %wide.trip.count.i269 = zext nneg i32 %152 to i64
+  %wide.trip.count.i269 = zext nneg i32 %151 to i64
   br label %.lr.ph.i270
 
 .lr.ph.i270:                                      ; preds = %_filters_get.exit.i273, %.lr.ph.preheader.i268
   %indvars.iv.i271 = phi i64 [ 0, %.lr.ph.preheader.i268 ], [ %indvars.iv.next.i274, %_filters_get.exit.i273 ]
-  %154 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i271
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 368
-  %156 = load i32, ptr %155, align 8, !tbaa !187
-  %.not13.i272 = icmp eq i32 %156, 0
-  br i1 %.not13.i272, label %_filters_get.exit.i273, label %157
+  %153 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i271
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 368
+  %155 = load i32, ptr %154, align 8, !tbaa !187
+  %.not13.i272 = icmp eq i32 %155, 0
+  br i1 %.not13.i272, label %_filters_get.exit.i273, label %156
 
-157:                                              ; preds = %.lr.ph.i270
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %159 = load i32, ptr %158, align 4, !tbaa !129
-  %160 = icmp eq i32 %159, 6
-  br i1 %160, label %_topbar_populate_prop_combo_add.exit276.preheader, label %_filters_get.exit.i273
+156:                                              ; preds = %.lr.ph.i270
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 4
+  %158 = load i32, ptr %157, align 4, !tbaa !129
+  %159 = icmp eq i32 %158, 6
+  br i1 %159, label %_topbar_populate_prop_combo_add.exit276.preheader, label %_filters_get.exit.i273
 
-_filters_get.exit.i273:                           ; preds = %157, %.lr.ph.i270
+_filters_get.exit.i273:                           ; preds = %156, %.lr.ph.i270
   %indvars.iv.next.i274 = add nuw nsw i64 %indvars.iv.i271, 1
   %exitcond.not.i275 = icmp eq i64 %indvars.iv.next.i274, %wide.trip.count.i269
   br i1 %exitcond.not.i275, label %_filters_get.exit._crit_edge.i267, label %.lr.ph.i270
 
 _filters_get.exit._crit_edge.i267:                ; preds = %_filters_get.exit.i273, %_filters_get.exit.preheader.i266
-  %161 = tail call ptr @dt_collection_name(i32 noundef 6) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %161, i32 noundef 1, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef null, i32 noundef 1) #21
+  %160 = tail call ptr @dt_collection_name(i32 noundef 6) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %160, i32 noundef 1, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit276.preheader
 
-_topbar_populate_prop_combo_add.exit276.preheader: ; preds = %150, %157, %_filters_get.exit._crit_edge.i267
+_topbar_populate_prop_combo_add.exit276.preheader: ; preds = %149, %156, %_filters_get.exit._crit_edge.i267
   br label %_topbar_populate_prop_combo_add.exit276
 
-162:                                              ; preds = %_topbar_populate_prop_combo_add.exit276
+161:                                              ; preds = %_topbar_populate_prop_combo_add.exit276
   %indvars.iv.next.i.i278 = add nuw nsw i64 %indvars.iv.i.i277, 1
   %exitcond.i.i279 = icmp eq i64 %indvars.iv.next.i.i278, 26
   br i1 %exitcond.i.i279, label %_topbar_populate_prop_combo_add.exit290.preheader, label %_topbar_populate_prop_combo_add.exit276
 
-_topbar_populate_prop_combo_add.exit276:          ; preds = %_topbar_populate_prop_combo_add.exit276.preheader, %162
-  %indvars.iv.i.i277 = phi i64 [ %indvars.iv.next.i.i278, %162 ], [ 0, %_topbar_populate_prop_combo_add.exit276.preheader ]
-  %163 = icmp eq i64 %indvars.iv.i.i277, 14
-  br i1 %163, label %_filters_get.exit.preheader.i280, label %162
+_topbar_populate_prop_combo_add.exit276:          ; preds = %_topbar_populate_prop_combo_add.exit276.preheader, %161
+  %indvars.iv.i.i277 = phi i64 [ %indvars.iv.next.i.i278, %161 ], [ 0, %_topbar_populate_prop_combo_add.exit276.preheader ]
+  %162 = icmp eq i64 %indvars.iv.i.i277, 14
+  br i1 %162, label %_filters_get.exit.preheader.i280, label %161
 
 _filters_get.exit.preheader.i280:                 ; preds = %_topbar_populate_prop_combo_add.exit276
-  %164 = load i32, ptr %28, align 8, !tbaa !122
-  %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %.lr.ph.preheader.i282, label %_filters_get.exit._crit_edge.i281
+  %163 = load i32, ptr %28, align 8, !tbaa !122
+  %164 = icmp sgt i32 %163, 0
+  br i1 %164, label %.lr.ph.preheader.i282, label %_filters_get.exit._crit_edge.i281
 
 .lr.ph.preheader.i282:                            ; preds = %_filters_get.exit.preheader.i280
-  %wide.trip.count.i283 = zext nneg i32 %164 to i64
+  %wide.trip.count.i283 = zext nneg i32 %163 to i64
   br label %.lr.ph.i284
 
 .lr.ph.i284:                                      ; preds = %_filters_get.exit.i287, %.lr.ph.preheader.i282
   %indvars.iv.i285 = phi i64 [ 0, %.lr.ph.preheader.i282 ], [ %indvars.iv.next.i288, %_filters_get.exit.i287 ]
-  %166 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i285
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 368
-  %168 = load i32, ptr %167, align 8, !tbaa !187
-  %.not13.i286 = icmp eq i32 %168, 0
-  br i1 %.not13.i286, label %_filters_get.exit.i287, label %169
+  %165 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i285
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 368
+  %167 = load i32, ptr %166, align 8, !tbaa !187
+  %.not13.i286 = icmp eq i32 %167, 0
+  br i1 %.not13.i286, label %_filters_get.exit.i287, label %168
 
-169:                                              ; preds = %.lr.ph.i284
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 4
-  %171 = load i32, ptr %170, align 4, !tbaa !129
-  %172 = icmp eq i32 %171, 41
-  br i1 %172, label %_topbar_populate_prop_combo_add.exit290.preheader, label %_filters_get.exit.i287
+168:                                              ; preds = %.lr.ph.i284
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  %170 = load i32, ptr %169, align 4, !tbaa !129
+  %171 = icmp eq i32 %170, 41
+  br i1 %171, label %_topbar_populate_prop_combo_add.exit290.preheader, label %_filters_get.exit.i287
 
-_filters_get.exit.i287:                           ; preds = %169, %.lr.ph.i284
+_filters_get.exit.i287:                           ; preds = %168, %.lr.ph.i284
   %indvars.iv.next.i288 = add nuw nsw i64 %indvars.iv.i285, 1
   %exitcond.not.i289 = icmp eq i64 %indvars.iv.next.i288, %wide.trip.count.i283
   br i1 %exitcond.not.i289, label %_filters_get.exit._crit_edge.i281, label %.lr.ph.i284
 
 _filters_get.exit._crit_edge.i281:                ; preds = %_filters_get.exit.i287, %_filters_get.exit.preheader.i280
-  %173 = tail call ptr @dt_collection_name(i32 noundef 41) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %173, i32 noundef 1, ptr noundef nonnull inttoptr (i64 41 to ptr), ptr noundef null, i32 noundef 1) #21
+  %172 = tail call ptr @dt_collection_name(i32 noundef 41) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %172, i32 noundef 1, ptr noundef nonnull inttoptr (i64 41 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit290.preheader
 
-_topbar_populate_prop_combo_add.exit290.preheader: ; preds = %162, %169, %_filters_get.exit._crit_edge.i281
+_topbar_populate_prop_combo_add.exit290.preheader: ; preds = %161, %168, %_filters_get.exit._crit_edge.i281
   br label %_topbar_populate_prop_combo_add.exit290
 
-174:                                              ; preds = %_topbar_populate_prop_combo_add.exit290
+173:                                              ; preds = %_topbar_populate_prop_combo_add.exit290
   %indvars.iv.next.i.i292 = add nuw nsw i64 %indvars.iv.i.i291, 1
   %exitcond.i.i293 = icmp eq i64 %indvars.iv.next.i.i292, 26
   br i1 %exitcond.i.i293, label %_topbar_populate_prop_combo_add.exit304.preheader, label %_topbar_populate_prop_combo_add.exit290
 
-_topbar_populate_prop_combo_add.exit290:          ; preds = %_topbar_populate_prop_combo_add.exit290.preheader, %174
-  %indvars.iv.i.i291 = phi i64 [ %indvars.iv.next.i.i292, %174 ], [ 0, %_topbar_populate_prop_combo_add.exit290.preheader ]
-  %175 = icmp eq i64 %indvars.iv.i.i291, 11
-  br i1 %175, label %_filters_get.exit.preheader.i294, label %174
+_topbar_populate_prop_combo_add.exit290:          ; preds = %_topbar_populate_prop_combo_add.exit290.preheader, %173
+  %indvars.iv.i.i291 = phi i64 [ %indvars.iv.next.i.i292, %173 ], [ 0, %_topbar_populate_prop_combo_add.exit290.preheader ]
+  %174 = icmp eq i64 %indvars.iv.i.i291, 11
+  br i1 %174, label %_filters_get.exit.preheader.i294, label %173
 
 _filters_get.exit.preheader.i294:                 ; preds = %_topbar_populate_prop_combo_add.exit290
-  %176 = load i32, ptr %28, align 8, !tbaa !122
-  %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %.lr.ph.preheader.i296, label %_filters_get.exit._crit_edge.i295
+  %175 = load i32, ptr %28, align 8, !tbaa !122
+  %176 = icmp sgt i32 %175, 0
+  br i1 %176, label %.lr.ph.preheader.i296, label %_filters_get.exit._crit_edge.i295
 
 .lr.ph.preheader.i296:                            ; preds = %_filters_get.exit.preheader.i294
-  %wide.trip.count.i297 = zext nneg i32 %176 to i64
+  %wide.trip.count.i297 = zext nneg i32 %175 to i64
   br label %.lr.ph.i298
 
 .lr.ph.i298:                                      ; preds = %_filters_get.exit.i301, %.lr.ph.preheader.i296
   %indvars.iv.i299 = phi i64 [ 0, %.lr.ph.preheader.i296 ], [ %indvars.iv.next.i302, %_filters_get.exit.i301 ]
-  %178 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i299
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 368
-  %180 = load i32, ptr %179, align 8, !tbaa !187
-  %.not13.i300 = icmp eq i32 %180, 0
-  br i1 %.not13.i300, label %_filters_get.exit.i301, label %181
+  %177 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i299
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 368
+  %179 = load i32, ptr %178, align 8, !tbaa !187
+  %.not13.i300 = icmp eq i32 %179, 0
+  br i1 %.not13.i300, label %_filters_get.exit.i301, label %180
 
-181:                                              ; preds = %.lr.ph.i298
-  %182 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  %183 = load i32, ptr %182, align 4, !tbaa !129
-  %184 = icmp eq i32 %183, 7
-  br i1 %184, label %_topbar_populate_prop_combo_add.exit304.preheader, label %_filters_get.exit.i301
+180:                                              ; preds = %.lr.ph.i298
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 4
+  %182 = load i32, ptr %181, align 4, !tbaa !129
+  %183 = icmp eq i32 %182, 7
+  br i1 %183, label %_topbar_populate_prop_combo_add.exit304.preheader, label %_filters_get.exit.i301
 
-_filters_get.exit.i301:                           ; preds = %181, %.lr.ph.i298
+_filters_get.exit.i301:                           ; preds = %180, %.lr.ph.i298
   %indvars.iv.next.i302 = add nuw nsw i64 %indvars.iv.i299, 1
   %exitcond.not.i303 = icmp eq i64 %indvars.iv.next.i302, %wide.trip.count.i297
   br i1 %exitcond.not.i303, label %_filters_get.exit._crit_edge.i295, label %.lr.ph.i298
 
 _filters_get.exit._crit_edge.i295:                ; preds = %_filters_get.exit.i301, %_filters_get.exit.preheader.i294
-  %185 = tail call ptr @dt_collection_name(i32 noundef 7) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %185, i32 noundef 1, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef null, i32 noundef 1) #21
+  %184 = tail call ptr @dt_collection_name(i32 noundef 7) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %184, i32 noundef 1, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit304.preheader
 
-_topbar_populate_prop_combo_add.exit304.preheader: ; preds = %174, %181, %_filters_get.exit._crit_edge.i295
+_topbar_populate_prop_combo_add.exit304.preheader: ; preds = %173, %180, %_filters_get.exit._crit_edge.i295
   br label %_topbar_populate_prop_combo_add.exit304
 
-186:                                              ; preds = %_topbar_populate_prop_combo_add.exit304
+185:                                              ; preds = %_topbar_populate_prop_combo_add.exit304
   %indvars.iv.next.i.i306 = add nuw nsw i64 %indvars.iv.i.i305, 1
   %exitcond.i.i307 = icmp eq i64 %indvars.iv.next.i.i306, 26
   br i1 %exitcond.i.i307, label %_topbar_populate_prop_combo_add.exit318.preheader, label %_topbar_populate_prop_combo_add.exit304
 
-_topbar_populate_prop_combo_add.exit304:          ; preds = %_topbar_populate_prop_combo_add.exit304.preheader, %186
-  %indvars.iv.i.i305 = phi i64 [ %indvars.iv.next.i.i306, %186 ], [ 0, %_topbar_populate_prop_combo_add.exit304.preheader ]
-  %187 = icmp eq i64 %indvars.iv.i.i305, 12
-  br i1 %187, label %_filters_get.exit.preheader.i308, label %186
+_topbar_populate_prop_combo_add.exit304:          ; preds = %_topbar_populate_prop_combo_add.exit304.preheader, %185
+  %indvars.iv.i.i305 = phi i64 [ %indvars.iv.next.i.i306, %185 ], [ 0, %_topbar_populate_prop_combo_add.exit304.preheader ]
+  %186 = icmp eq i64 %indvars.iv.i.i305, 12
+  br i1 %186, label %_filters_get.exit.preheader.i308, label %185
 
 _filters_get.exit.preheader.i308:                 ; preds = %_topbar_populate_prop_combo_add.exit304
-  %188 = load i32, ptr %28, align 8, !tbaa !122
-  %189 = icmp sgt i32 %188, 0
-  br i1 %189, label %.lr.ph.preheader.i310, label %_filters_get.exit._crit_edge.i309
+  %187 = load i32, ptr %28, align 8, !tbaa !122
+  %188 = icmp sgt i32 %187, 0
+  br i1 %188, label %.lr.ph.preheader.i310, label %_filters_get.exit._crit_edge.i309
 
 .lr.ph.preheader.i310:                            ; preds = %_filters_get.exit.preheader.i308
-  %wide.trip.count.i311 = zext nneg i32 %188 to i64
+  %wide.trip.count.i311 = zext nneg i32 %187 to i64
   br label %.lr.ph.i312
 
 .lr.ph.i312:                                      ; preds = %_filters_get.exit.i315, %.lr.ph.preheader.i310
   %indvars.iv.i313 = phi i64 [ 0, %.lr.ph.preheader.i310 ], [ %indvars.iv.next.i316, %_filters_get.exit.i315 ]
-  %190 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i313
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 368
-  %192 = load i32, ptr %191, align 8, !tbaa !187
-  %.not13.i314 = icmp eq i32 %192, 0
-  br i1 %.not13.i314, label %_filters_get.exit.i315, label %193
+  %189 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i313
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 368
+  %191 = load i32, ptr %190, align 8, !tbaa !187
+  %.not13.i314 = icmp eq i32 %191, 0
+  br i1 %.not13.i314, label %_filters_get.exit.i315, label %192
 
-193:                                              ; preds = %.lr.ph.i312
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %195 = load i32, ptr %194, align 4, !tbaa !129
-  %196 = icmp eq i32 %195, 8
-  br i1 %196, label %_topbar_populate_prop_combo_add.exit318.preheader, label %_filters_get.exit.i315
+192:                                              ; preds = %.lr.ph.i312
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 4
+  %194 = load i32, ptr %193, align 4, !tbaa !129
+  %195 = icmp eq i32 %194, 8
+  br i1 %195, label %_topbar_populate_prop_combo_add.exit318.preheader, label %_filters_get.exit.i315
 
-_filters_get.exit.i315:                           ; preds = %193, %.lr.ph.i312
+_filters_get.exit.i315:                           ; preds = %192, %.lr.ph.i312
   %indvars.iv.next.i316 = add nuw nsw i64 %indvars.iv.i313, 1
   %exitcond.not.i317 = icmp eq i64 %indvars.iv.next.i316, %wide.trip.count.i311
   br i1 %exitcond.not.i317, label %_filters_get.exit._crit_edge.i309, label %.lr.ph.i312
 
 _filters_get.exit._crit_edge.i309:                ; preds = %_filters_get.exit.i315, %_filters_get.exit.preheader.i308
-  %197 = tail call ptr @dt_collection_name(i32 noundef 8) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %197, i32 noundef 1, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef null, i32 noundef 1) #21
+  %196 = tail call ptr @dt_collection_name(i32 noundef 8) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %196, i32 noundef 1, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit318.preheader
 
-_topbar_populate_prop_combo_add.exit318.preheader: ; preds = %186, %193, %_filters_get.exit._crit_edge.i309
+_topbar_populate_prop_combo_add.exit318.preheader: ; preds = %185, %192, %_filters_get.exit._crit_edge.i309
   br label %_topbar_populate_prop_combo_add.exit318
 
-198:                                              ; preds = %_topbar_populate_prop_combo_add.exit318
+197:                                              ; preds = %_topbar_populate_prop_combo_add.exit318
   %indvars.iv.next.i.i320 = add nuw nsw i64 %indvars.iv.i.i319, 1
   %exitcond.i.i321 = icmp eq i64 %indvars.iv.next.i.i320, 26
   br i1 %exitcond.i.i321, label %_topbar_populate_prop_combo_add.exit332.preheader, label %_topbar_populate_prop_combo_add.exit318
 
-_topbar_populate_prop_combo_add.exit318:          ; preds = %_topbar_populate_prop_combo_add.exit318.preheader, %198
-  %indvars.iv.i.i319 = phi i64 [ %indvars.iv.next.i.i320, %198 ], [ 0, %_topbar_populate_prop_combo_add.exit318.preheader ]
-  %199 = icmp eq i64 %indvars.iv.i.i319, 8
-  br i1 %199, label %_filters_get.exit.preheader.i322, label %198
+_topbar_populate_prop_combo_add.exit318:          ; preds = %_topbar_populate_prop_combo_add.exit318.preheader, %197
+  %indvars.iv.i.i319 = phi i64 [ %indvars.iv.next.i.i320, %197 ], [ 0, %_topbar_populate_prop_combo_add.exit318.preheader ]
+  %198 = icmp eq i64 %indvars.iv.i.i319, 8
+  br i1 %198, label %_filters_get.exit.preheader.i322, label %197
 
 _filters_get.exit.preheader.i322:                 ; preds = %_topbar_populate_prop_combo_add.exit318
-  %200 = load i32, ptr %28, align 8, !tbaa !122
-  %201 = icmp sgt i32 %200, 0
-  br i1 %201, label %.lr.ph.preheader.i324, label %_filters_get.exit._crit_edge.i323
+  %199 = load i32, ptr %28, align 8, !tbaa !122
+  %200 = icmp sgt i32 %199, 0
+  br i1 %200, label %.lr.ph.preheader.i324, label %_filters_get.exit._crit_edge.i323
 
 .lr.ph.preheader.i324:                            ; preds = %_filters_get.exit.preheader.i322
-  %wide.trip.count.i325 = zext nneg i32 %200 to i64
+  %wide.trip.count.i325 = zext nneg i32 %199 to i64
   br label %.lr.ph.i326
 
 .lr.ph.i326:                                      ; preds = %_filters_get.exit.i329, %.lr.ph.preheader.i324
   %indvars.iv.i327 = phi i64 [ 0, %.lr.ph.preheader.i324 ], [ %indvars.iv.next.i330, %_filters_get.exit.i329 ]
-  %202 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i327
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 368
-  %204 = load i32, ptr %203, align 8, !tbaa !187
-  %.not13.i328 = icmp eq i32 %204, 0
-  br i1 %.not13.i328, label %_filters_get.exit.i329, label %205
+  %201 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i327
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 368
+  %203 = load i32, ptr %202, align 8, !tbaa !187
+  %.not13.i328 = icmp eq i32 %203, 0
+  br i1 %.not13.i328, label %_filters_get.exit.i329, label %204
 
-205:                                              ; preds = %.lr.ph.i326
-  %206 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  %207 = load i32, ptr %206, align 4, !tbaa !129
-  %208 = icmp eq i32 %207, 16
-  br i1 %208, label %_topbar_populate_prop_combo_add.exit332.preheader, label %_filters_get.exit.i329
+204:                                              ; preds = %.lr.ph.i326
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 4
+  %206 = load i32, ptr %205, align 4, !tbaa !129
+  %207 = icmp eq i32 %206, 16
+  br i1 %207, label %_topbar_populate_prop_combo_add.exit332.preheader, label %_filters_get.exit.i329
 
-_filters_get.exit.i329:                           ; preds = %205, %.lr.ph.i326
+_filters_get.exit.i329:                           ; preds = %204, %.lr.ph.i326
   %indvars.iv.next.i330 = add nuw nsw i64 %indvars.iv.i327, 1
   %exitcond.not.i331 = icmp eq i64 %indvars.iv.next.i330, %wide.trip.count.i325
   br i1 %exitcond.not.i331, label %_filters_get.exit._crit_edge.i323, label %.lr.ph.i326
 
 _filters_get.exit._crit_edge.i323:                ; preds = %_filters_get.exit.i329, %_filters_get.exit.preheader.i322
-  %209 = tail call ptr @dt_collection_name(i32 noundef 16) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %209, i32 noundef 1, ptr noundef nonnull inttoptr (i64 16 to ptr), ptr noundef null, i32 noundef 1) #21
+  %208 = tail call ptr @dt_collection_name(i32 noundef 16) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %208, i32 noundef 1, ptr noundef nonnull inttoptr (i64 16 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit332.preheader
 
-_topbar_populate_prop_combo_add.exit332.preheader: ; preds = %198, %205, %_filters_get.exit._crit_edge.i323
+_topbar_populate_prop_combo_add.exit332.preheader: ; preds = %197, %204, %_filters_get.exit._crit_edge.i323
   br label %_topbar_populate_prop_combo_add.exit332
 
-210:                                              ; preds = %_topbar_populate_prop_combo_add.exit332
+209:                                              ; preds = %_topbar_populate_prop_combo_add.exit332
   %indvars.iv.next.i.i334 = add nuw nsw i64 %indvars.iv.i.i333, 1
   %exitcond.i.i335 = icmp eq i64 %indvars.iv.next.i.i334, 26
   br i1 %exitcond.i.i335, label %_topbar_populate_prop_combo_add.exit346.preheader, label %_topbar_populate_prop_combo_add.exit332
 
-_topbar_populate_prop_combo_add.exit332:          ; preds = %_topbar_populate_prop_combo_add.exit332.preheader, %210
-  %indvars.iv.i.i333 = phi i64 [ %indvars.iv.next.i.i334, %210 ], [ 0, %_topbar_populate_prop_combo_add.exit332.preheader ]
-  %211 = icmp eq i64 %indvars.iv.i.i333, 22
-  br i1 %211, label %_filters_get.exit.preheader.i336, label %210
+_topbar_populate_prop_combo_add.exit332:          ; preds = %_topbar_populate_prop_combo_add.exit332.preheader, %209
+  %indvars.iv.i.i333 = phi i64 [ %indvars.iv.next.i.i334, %209 ], [ 0, %_topbar_populate_prop_combo_add.exit332.preheader ]
+  %210 = icmp eq i64 %indvars.iv.i.i333, 22
+  br i1 %210, label %_filters_get.exit.preheader.i336, label %209
 
 _filters_get.exit.preheader.i336:                 ; preds = %_topbar_populate_prop_combo_add.exit332
-  %212 = load i32, ptr %28, align 8, !tbaa !122
-  %213 = icmp sgt i32 %212, 0
-  br i1 %213, label %.lr.ph.preheader.i338, label %_filters_get.exit._crit_edge.i337
+  %211 = load i32, ptr %28, align 8, !tbaa !122
+  %212 = icmp sgt i32 %211, 0
+  br i1 %212, label %.lr.ph.preheader.i338, label %_filters_get.exit._crit_edge.i337
 
 .lr.ph.preheader.i338:                            ; preds = %_filters_get.exit.preheader.i336
-  %wide.trip.count.i339 = zext nneg i32 %212 to i64
+  %wide.trip.count.i339 = zext nneg i32 %211 to i64
   br label %.lr.ph.i340
 
 .lr.ph.i340:                                      ; preds = %_filters_get.exit.i343, %.lr.ph.preheader.i338
   %indvars.iv.i341 = phi i64 [ 0, %.lr.ph.preheader.i338 ], [ %indvars.iv.next.i344, %_filters_get.exit.i343 ]
-  %214 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i341
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 368
-  %216 = load i32, ptr %215, align 8, !tbaa !187
-  %.not13.i342 = icmp eq i32 %216, 0
-  br i1 %.not13.i342, label %_filters_get.exit.i343, label %217
+  %213 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i341
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 368
+  %215 = load i32, ptr %214, align 8, !tbaa !187
+  %.not13.i342 = icmp eq i32 %215, 0
+  br i1 %.not13.i342, label %_filters_get.exit.i343, label %216
 
-217:                                              ; preds = %.lr.ph.i340
-  %218 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  %219 = load i32, ptr %218, align 4, !tbaa !129
-  %220 = icmp eq i32 %219, 36
-  br i1 %220, label %_topbar_populate_prop_combo_add.exit346.preheader, label %_filters_get.exit.i343
+216:                                              ; preds = %.lr.ph.i340
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  %218 = load i32, ptr %217, align 4, !tbaa !129
+  %219 = icmp eq i32 %218, 36
+  br i1 %219, label %_topbar_populate_prop_combo_add.exit346.preheader, label %_filters_get.exit.i343
 
-_filters_get.exit.i343:                           ; preds = %217, %.lr.ph.i340
+_filters_get.exit.i343:                           ; preds = %216, %.lr.ph.i340
   %indvars.iv.next.i344 = add nuw nsw i64 %indvars.iv.i341, 1
   %exitcond.not.i345 = icmp eq i64 %indvars.iv.next.i344, %wide.trip.count.i339
   br i1 %exitcond.not.i345, label %_filters_get.exit._crit_edge.i337, label %.lr.ph.i340
 
 _filters_get.exit._crit_edge.i337:                ; preds = %_filters_get.exit.i343, %_filters_get.exit.preheader.i336
-  %221 = tail call ptr @dt_collection_name(i32 noundef 36) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %221, i32 noundef 1, ptr noundef nonnull inttoptr (i64 36 to ptr), ptr noundef null, i32 noundef 1) #21
+  %220 = tail call ptr @dt_collection_name(i32 noundef 36) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %220, i32 noundef 1, ptr noundef nonnull inttoptr (i64 36 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit346.preheader
 
-_topbar_populate_prop_combo_add.exit346.preheader: ; preds = %210, %217, %_filters_get.exit._crit_edge.i337
+_topbar_populate_prop_combo_add.exit346.preheader: ; preds = %209, %216, %_filters_get.exit._crit_edge.i337
   br label %_topbar_populate_prop_combo_add.exit346
 
-222:                                              ; preds = %_topbar_populate_prop_combo_add.exit346
+221:                                              ; preds = %_topbar_populate_prop_combo_add.exit346
   %indvars.iv.next.i.i348 = add nuw nsw i64 %indvars.iv.i.i347, 1
   %exitcond.i.i349 = icmp eq i64 %indvars.iv.next.i.i348, 26
   br i1 %exitcond.i.i349, label %_topbar_populate_prop_combo_add.exit360.preheader, label %_topbar_populate_prop_combo_add.exit346
 
-_topbar_populate_prop_combo_add.exit346:          ; preds = %_topbar_populate_prop_combo_add.exit346.preheader, %222
-  %indvars.iv.i.i347 = phi i64 [ %indvars.iv.next.i.i348, %222 ], [ 0, %_topbar_populate_prop_combo_add.exit346.preheader ]
-  %223 = icmp eq i64 %indvars.iv.i.i347, 23
-  br i1 %223, label %_filters_get.exit.preheader.i350, label %222
+_topbar_populate_prop_combo_add.exit346:          ; preds = %_topbar_populate_prop_combo_add.exit346.preheader, %221
+  %indvars.iv.i.i347 = phi i64 [ %indvars.iv.next.i.i348, %221 ], [ 0, %_topbar_populate_prop_combo_add.exit346.preheader ]
+  %222 = icmp eq i64 %indvars.iv.i.i347, 23
+  br i1 %222, label %_filters_get.exit.preheader.i350, label %221
 
 _filters_get.exit.preheader.i350:                 ; preds = %_topbar_populate_prop_combo_add.exit346
-  %224 = load i32, ptr %28, align 8, !tbaa !122
-  %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %.lr.ph.preheader.i352, label %_filters_get.exit._crit_edge.i351
+  %223 = load i32, ptr %28, align 8, !tbaa !122
+  %224 = icmp sgt i32 %223, 0
+  br i1 %224, label %.lr.ph.preheader.i352, label %_filters_get.exit._crit_edge.i351
 
 .lr.ph.preheader.i352:                            ; preds = %_filters_get.exit.preheader.i350
-  %wide.trip.count.i353 = zext nneg i32 %224 to i64
+  %wide.trip.count.i353 = zext nneg i32 %223 to i64
   br label %.lr.ph.i354
 
 .lr.ph.i354:                                      ; preds = %_filters_get.exit.i357, %.lr.ph.preheader.i352
   %indvars.iv.i355 = phi i64 [ 0, %.lr.ph.preheader.i352 ], [ %indvars.iv.next.i358, %_filters_get.exit.i357 ]
-  %226 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i355
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 368
-  %228 = load i32, ptr %227, align 8, !tbaa !187
-  %.not13.i356 = icmp eq i32 %228, 0
-  br i1 %.not13.i356, label %_filters_get.exit.i357, label %229
+  %225 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i355
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 368
+  %227 = load i32, ptr %226, align 8, !tbaa !187
+  %.not13.i356 = icmp eq i32 %227, 0
+  br i1 %.not13.i356, label %_filters_get.exit.i357, label %228
 
-229:                                              ; preds = %.lr.ph.i354
-  %230 = getelementptr inbounds nuw i8, ptr %226, i64 4
-  %231 = load i32, ptr %230, align 4, !tbaa !129
-  %232 = icmp eq i32 %231, 37
-  br i1 %232, label %_topbar_populate_prop_combo_add.exit360.preheader, label %_filters_get.exit.i357
+228:                                              ; preds = %.lr.ph.i354
+  %229 = getelementptr inbounds nuw i8, ptr %225, i64 4
+  %230 = load i32, ptr %229, align 4, !tbaa !129
+  %231 = icmp eq i32 %230, 37
+  br i1 %231, label %_topbar_populate_prop_combo_add.exit360.preheader, label %_filters_get.exit.i357
 
-_filters_get.exit.i357:                           ; preds = %229, %.lr.ph.i354
+_filters_get.exit.i357:                           ; preds = %228, %.lr.ph.i354
   %indvars.iv.next.i358 = add nuw nsw i64 %indvars.iv.i355, 1
   %exitcond.not.i359 = icmp eq i64 %indvars.iv.next.i358, %wide.trip.count.i353
   br i1 %exitcond.not.i359, label %_filters_get.exit._crit_edge.i351, label %.lr.ph.i354
 
 _filters_get.exit._crit_edge.i351:                ; preds = %_filters_get.exit.i357, %_filters_get.exit.preheader.i350
-  %233 = tail call ptr @dt_collection_name(i32 noundef 37) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %233, i32 noundef 1, ptr noundef nonnull inttoptr (i64 37 to ptr), ptr noundef null, i32 noundef 1) #21
+  %232 = tail call ptr @dt_collection_name(i32 noundef 37) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %232, i32 noundef 1, ptr noundef nonnull inttoptr (i64 37 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit360.preheader
 
-_topbar_populate_prop_combo_add.exit360.preheader: ; preds = %222, %229, %_filters_get.exit._crit_edge.i351
+_topbar_populate_prop_combo_add.exit360.preheader: ; preds = %221, %228, %_filters_get.exit._crit_edge.i351
   br label %_topbar_populate_prop_combo_add.exit360
 
-234:                                              ; preds = %_topbar_populate_prop_combo_add.exit360
+233:                                              ; preds = %_topbar_populate_prop_combo_add.exit360
   %indvars.iv.next.i.i362 = add nuw nsw i64 %indvars.iv.i.i361, 1
   %exitcond.i.i363 = icmp eq i64 %indvars.iv.next.i.i362, 26
   br i1 %exitcond.i.i363, label %_topbar_populate_prop_combo_add.exit374.preheader, label %_topbar_populate_prop_combo_add.exit360
 
-_topbar_populate_prop_combo_add.exit360:          ; preds = %_topbar_populate_prop_combo_add.exit360.preheader, %234
-  %indvars.iv.i.i361 = phi i64 [ %indvars.iv.next.i.i362, %234 ], [ 0, %_topbar_populate_prop_combo_add.exit360.preheader ]
-  %235 = icmp eq i64 %indvars.iv.i.i361, 24
-  br i1 %235, label %_filters_get.exit.preheader.i364, label %234
+_topbar_populate_prop_combo_add.exit360:          ; preds = %_topbar_populate_prop_combo_add.exit360.preheader, %233
+  %indvars.iv.i.i361 = phi i64 [ %indvars.iv.next.i.i362, %233 ], [ 0, %_topbar_populate_prop_combo_add.exit360.preheader ]
+  %234 = icmp eq i64 %indvars.iv.i.i361, 24
+  br i1 %234, label %_filters_get.exit.preheader.i364, label %233
 
 _filters_get.exit.preheader.i364:                 ; preds = %_topbar_populate_prop_combo_add.exit360
-  %236 = load i32, ptr %28, align 8, !tbaa !122
-  %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %.lr.ph.preheader.i366, label %_filters_get.exit._crit_edge.i365
+  %235 = load i32, ptr %28, align 8, !tbaa !122
+  %236 = icmp sgt i32 %235, 0
+  br i1 %236, label %.lr.ph.preheader.i366, label %_filters_get.exit._crit_edge.i365
 
 .lr.ph.preheader.i366:                            ; preds = %_filters_get.exit.preheader.i364
-  %wide.trip.count.i367 = zext nneg i32 %236 to i64
+  %wide.trip.count.i367 = zext nneg i32 %235 to i64
   br label %.lr.ph.i368
 
 .lr.ph.i368:                                      ; preds = %_filters_get.exit.i371, %.lr.ph.preheader.i366
   %indvars.iv.i369 = phi i64 [ 0, %.lr.ph.preheader.i366 ], [ %indvars.iv.next.i372, %_filters_get.exit.i371 ]
-  %238 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i369
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 368
-  %240 = load i32, ptr %239, align 8, !tbaa !187
-  %.not13.i370 = icmp eq i32 %240, 0
-  br i1 %.not13.i370, label %_filters_get.exit.i371, label %241
+  %237 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i369
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 368
+  %239 = load i32, ptr %238, align 8, !tbaa !187
+  %.not13.i370 = icmp eq i32 %239, 0
+  br i1 %.not13.i370, label %_filters_get.exit.i371, label %240
 
-241:                                              ; preds = %.lr.ph.i368
-  %242 = getelementptr inbounds nuw i8, ptr %238, i64 4
-  %243 = load i32, ptr %242, align 4, !tbaa !129
-  %244 = icmp eq i32 %243, 38
-  br i1 %244, label %_topbar_populate_prop_combo_add.exit374.preheader, label %_filters_get.exit.i371
+240:                                              ; preds = %.lr.ph.i368
+  %241 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  %242 = load i32, ptr %241, align 4, !tbaa !129
+  %243 = icmp eq i32 %242, 38
+  br i1 %243, label %_topbar_populate_prop_combo_add.exit374.preheader, label %_filters_get.exit.i371
 
-_filters_get.exit.i371:                           ; preds = %241, %.lr.ph.i368
+_filters_get.exit.i371:                           ; preds = %240, %.lr.ph.i368
   %indvars.iv.next.i372 = add nuw nsw i64 %indvars.iv.i369, 1
   %exitcond.not.i373 = icmp eq i64 %indvars.iv.next.i372, %wide.trip.count.i367
   br i1 %exitcond.not.i373, label %_filters_get.exit._crit_edge.i365, label %.lr.ph.i368
 
 _filters_get.exit._crit_edge.i365:                ; preds = %_filters_get.exit.i371, %_filters_get.exit.preheader.i364
-  %245 = tail call ptr @dt_collection_name(i32 noundef 38) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %245, i32 noundef 1, ptr noundef nonnull inttoptr (i64 38 to ptr), ptr noundef null, i32 noundef 1) #21
+  %244 = tail call ptr @dt_collection_name(i32 noundef 38) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %244, i32 noundef 1, ptr noundef nonnull inttoptr (i64 38 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit374.preheader
 
-_topbar_populate_prop_combo_add.exit374.preheader: ; preds = %234, %241, %_filters_get.exit._crit_edge.i365
+_topbar_populate_prop_combo_add.exit374.preheader: ; preds = %233, %240, %_filters_get.exit._crit_edge.i365
   br label %_topbar_populate_prop_combo_add.exit374
 
-246:                                              ; preds = %_topbar_populate_prop_combo_add.exit374
+245:                                              ; preds = %_topbar_populate_prop_combo_add.exit374
   %indvars.iv.next.i.i376 = add nuw nsw i64 %indvars.iv.i.i375, 1
   %exitcond.i.i377 = icmp eq i64 %indvars.iv.next.i.i376, 26
   br i1 %exitcond.i.i377, label %_topbar_populate_prop_combo_add.exit388, label %_topbar_populate_prop_combo_add.exit374
 
-_topbar_populate_prop_combo_add.exit374:          ; preds = %_topbar_populate_prop_combo_add.exit374.preheader, %246
-  %indvars.iv.i.i375 = phi i64 [ %indvars.iv.next.i.i376, %246 ], [ 0, %_topbar_populate_prop_combo_add.exit374.preheader ]
-  %247 = icmp eq i64 %indvars.iv.i.i375, 25
-  br i1 %247, label %_filters_get.exit.preheader.i378, label %246
+_topbar_populate_prop_combo_add.exit374:          ; preds = %_topbar_populate_prop_combo_add.exit374.preheader, %245
+  %indvars.iv.i.i375 = phi i64 [ %indvars.iv.next.i.i376, %245 ], [ 0, %_topbar_populate_prop_combo_add.exit374.preheader ]
+  %246 = icmp eq i64 %indvars.iv.i.i375, 25
+  br i1 %246, label %_filters_get.exit.preheader.i378, label %245
 
 _filters_get.exit.preheader.i378:                 ; preds = %_topbar_populate_prop_combo_add.exit374
-  %248 = load i32, ptr %28, align 8, !tbaa !122
-  %249 = icmp sgt i32 %248, 0
-  br i1 %249, label %.lr.ph.preheader.i380, label %_filters_get.exit._crit_edge.i379
+  %247 = load i32, ptr %28, align 8, !tbaa !122
+  %248 = icmp sgt i32 %247, 0
+  br i1 %248, label %.lr.ph.preheader.i380, label %_filters_get.exit._crit_edge.i379
 
 .lr.ph.preheader.i380:                            ; preds = %_filters_get.exit.preheader.i378
-  %wide.trip.count.i381 = zext nneg i32 %248 to i64
+  %wide.trip.count.i381 = zext nneg i32 %247 to i64
   br label %.lr.ph.i382
 
 .lr.ph.i382:                                      ; preds = %_filters_get.exit.i385, %.lr.ph.preheader.i380
   %indvars.iv.i383 = phi i64 [ 0, %.lr.ph.preheader.i380 ], [ %indvars.iv.next.i386, %_filters_get.exit.i385 ]
-  %250 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i383
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 368
-  %252 = load i32, ptr %251, align 8, !tbaa !187
-  %.not13.i384 = icmp eq i32 %252, 0
-  br i1 %.not13.i384, label %_filters_get.exit.i385, label %253
+  %249 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i383
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 368
+  %251 = load i32, ptr %250, align 8, !tbaa !187
+  %.not13.i384 = icmp eq i32 %251, 0
+  br i1 %.not13.i384, label %_filters_get.exit.i385, label %252
 
-253:                                              ; preds = %.lr.ph.i382
-  %254 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  %255 = load i32, ptr %254, align 4, !tbaa !129
-  %256 = icmp eq i32 %255, 39
-  br i1 %256, label %_topbar_populate_prop_combo_add.exit388, label %_filters_get.exit.i385
+252:                                              ; preds = %.lr.ph.i382
+  %253 = getelementptr inbounds nuw i8, ptr %249, i64 4
+  %254 = load i32, ptr %253, align 4, !tbaa !129
+  %255 = icmp eq i32 %254, 39
+  br i1 %255, label %_topbar_populate_prop_combo_add.exit388, label %_filters_get.exit.i385
 
-_filters_get.exit.i385:                           ; preds = %253, %.lr.ph.i382
+_filters_get.exit.i385:                           ; preds = %252, %.lr.ph.i382
   %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i383, 1
   %exitcond.not.i387 = icmp eq i64 %indvars.iv.next.i386, %wide.trip.count.i381
   br i1 %exitcond.not.i387, label %_filters_get.exit._crit_edge.i379, label %.lr.ph.i382
 
 _filters_get.exit._crit_edge.i379:                ; preds = %_filters_get.exit.i385, %_filters_get.exit.preheader.i378
-  %257 = tail call ptr @dt_collection_name(i32 noundef 39) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %257, i32 noundef 1, ptr noundef nonnull inttoptr (i64 39 to ptr), ptr noundef null, i32 noundef 1) #21
+  %256 = tail call ptr @dt_collection_name(i32 noundef 39) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %256, i32 noundef 1, ptr noundef nonnull inttoptr (i64 39 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit388
 
-_topbar_populate_prop_combo_add.exit388:          ; preds = %246, %253, %_filters_get.exit._crit_edge.i379
-  %258 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
-  %259 = icmp eq i32 %112, %258
-  br i1 %259, label %260, label %262
+_topbar_populate_prop_combo_add.exit388:          ; preds = %245, %252, %_filters_get.exit._crit_edge.i379
+  %257 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
+  %258 = icmp eq i32 %111, %257
+  br i1 %258, label %259, label %261
 
-260:                                              ; preds = %_topbar_populate_prop_combo_add.exit388
-  %261 = add nsw i32 %112, -1
-  tail call void @dt_bauhaus_combobox_remove_at(ptr noundef %0, i32 noundef %261) #21
-  br label %262
+259:                                              ; preds = %_topbar_populate_prop_combo_add.exit388
+  %260 = add nsw i32 %111, -1
+  tail call void @dt_bauhaus_combobox_remove_at(ptr noundef %0, i32 noundef %260) #21
+  br label %261
 
-262:                                              ; preds = %260, %_topbar_populate_prop_combo_add.exit388
-  %263 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.130, i32 noundef 5) #21
-  tail call void @dt_bauhaus_combobox_add_section(ptr noundef %0, ptr noundef %263) #21
-  %264 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
-  br label %266
+261:                                              ; preds = %259, %_topbar_populate_prop_combo_add.exit388
+  %262 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.130, i32 noundef 5) #21
+  tail call void @dt_bauhaus_combobox_add_section(ptr noundef %0, ptr noundef %262) #21
+  %263 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
+  br label %265
 
-265:                                              ; preds = %266
+264:                                              ; preds = %265
   %indvars.iv.next.i.i390 = add nuw nsw i64 %indvars.iv.i.i389, 1
   %exitcond.i.i391 = icmp eq i64 %indvars.iv.next.i.i390, 26
-  br i1 %exitcond.i.i391, label %_topbar_populate_prop_combo_add.exit402.preheader, label %266
+  br i1 %exitcond.i.i391, label %_topbar_populate_prop_combo_add.exit402.preheader, label %265
 
-266:                                              ; preds = %265, %262
-  %indvars.iv.i.i389 = phi i64 [ 0, %262 ], [ %indvars.iv.next.i.i390, %265 ]
-  %267 = icmp eq i64 %indvars.iv.i.i389, 15
-  br i1 %267, label %_filters_get.exit.preheader.i392, label %265
+265:                                              ; preds = %264, %261
+  %indvars.iv.i.i389 = phi i64 [ 0, %261 ], [ %indvars.iv.next.i.i390, %264 ]
+  %266 = icmp eq i64 %indvars.iv.i.i389, 15
+  br i1 %266, label %_filters_get.exit.preheader.i392, label %264
 
-_filters_get.exit.preheader.i392:                 ; preds = %266
-  %268 = load i32, ptr %28, align 8, !tbaa !122
-  %269 = icmp sgt i32 %268, 0
-  br i1 %269, label %.lr.ph.preheader.i394, label %_filters_get.exit._crit_edge.i393
+_filters_get.exit.preheader.i392:                 ; preds = %265
+  %267 = load i32, ptr %28, align 8, !tbaa !122
+  %268 = icmp sgt i32 %267, 0
+  br i1 %268, label %.lr.ph.preheader.i394, label %_filters_get.exit._crit_edge.i393
 
 .lr.ph.preheader.i394:                            ; preds = %_filters_get.exit.preheader.i392
-  %wide.trip.count.i395 = zext nneg i32 %268 to i64
+  %wide.trip.count.i395 = zext nneg i32 %267 to i64
   br label %.lr.ph.i396
 
 .lr.ph.i396:                                      ; preds = %_filters_get.exit.i399, %.lr.ph.preheader.i394
   %indvars.iv.i397 = phi i64 [ 0, %.lr.ph.preheader.i394 ], [ %indvars.iv.next.i400, %_filters_get.exit.i399 ]
-  %270 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i397
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 368
-  %272 = load i32, ptr %271, align 8, !tbaa !187
-  %.not13.i398 = icmp eq i32 %272, 0
-  br i1 %.not13.i398, label %_filters_get.exit.i399, label %273
+  %269 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i397
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 368
+  %271 = load i32, ptr %270, align 8, !tbaa !187
+  %.not13.i398 = icmp eq i32 %271, 0
+  br i1 %.not13.i398, label %_filters_get.exit.i399, label %272
 
-273:                                              ; preds = %.lr.ph.i396
-  %274 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  %275 = load i32, ptr %274, align 4, !tbaa !129
-  %276 = icmp eq i32 %275, 40
-  br i1 %276, label %_topbar_populate_prop_combo_add.exit402.preheader, label %_filters_get.exit.i399
+272:                                              ; preds = %.lr.ph.i396
+  %273 = getelementptr inbounds nuw i8, ptr %269, i64 4
+  %274 = load i32, ptr %273, align 4, !tbaa !129
+  %275 = icmp eq i32 %274, 40
+  br i1 %275, label %_topbar_populate_prop_combo_add.exit402.preheader, label %_filters_get.exit.i399
 
-_filters_get.exit.i399:                           ; preds = %273, %.lr.ph.i396
+_filters_get.exit.i399:                           ; preds = %272, %.lr.ph.i396
   %indvars.iv.next.i400 = add nuw nsw i64 %indvars.iv.i397, 1
   %exitcond.not.i401 = icmp eq i64 %indvars.iv.next.i400, %wide.trip.count.i395
   br i1 %exitcond.not.i401, label %_filters_get.exit._crit_edge.i393, label %.lr.ph.i396
 
 _filters_get.exit._crit_edge.i393:                ; preds = %_filters_get.exit.i399, %_filters_get.exit.preheader.i392
-  %277 = tail call ptr @dt_collection_name(i32 noundef 40) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %277, i32 noundef 1, ptr noundef nonnull inttoptr (i64 40 to ptr), ptr noundef null, i32 noundef 1) #21
+  %276 = tail call ptr @dt_collection_name(i32 noundef 40) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %276, i32 noundef 1, ptr noundef nonnull inttoptr (i64 40 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit402.preheader
 
-_topbar_populate_prop_combo_add.exit402.preheader: ; preds = %265, %273, %_filters_get.exit._crit_edge.i393
+_topbar_populate_prop_combo_add.exit402.preheader: ; preds = %264, %272, %_filters_get.exit._crit_edge.i393
   br label %_topbar_populate_prop_combo_add.exit402
 
-278:                                              ; preds = %_topbar_populate_prop_combo_add.exit402
+277:                                              ; preds = %_topbar_populate_prop_combo_add.exit402
   %indvars.iv.next.i.i404 = add nuw nsw i64 %indvars.iv.i.i403, 1
   %exitcond.i.i405 = icmp eq i64 %indvars.iv.next.i.i404, 26
   br i1 %exitcond.i.i405, label %_topbar_populate_prop_combo_add.exit416.preheader, label %_topbar_populate_prop_combo_add.exit402
 
-_topbar_populate_prop_combo_add.exit402:          ; preds = %_topbar_populate_prop_combo_add.exit402.preheader, %278
-  %indvars.iv.i.i403 = phi i64 [ %indvars.iv.next.i.i404, %278 ], [ 0, %_topbar_populate_prop_combo_add.exit402.preheader ]
-  %279 = icmp eq i64 %indvars.iv.i.i403, 16
-  br i1 %279, label %_filters_get.exit.preheader.i406, label %278
+_topbar_populate_prop_combo_add.exit402:          ; preds = %_topbar_populate_prop_combo_add.exit402.preheader, %277
+  %indvars.iv.i.i403 = phi i64 [ %indvars.iv.next.i.i404, %277 ], [ 0, %_topbar_populate_prop_combo_add.exit402.preheader ]
+  %278 = icmp eq i64 %indvars.iv.i.i403, 16
+  br i1 %278, label %_filters_get.exit.preheader.i406, label %277
 
 _filters_get.exit.preheader.i406:                 ; preds = %_topbar_populate_prop_combo_add.exit402
-  %280 = load i32, ptr %28, align 8, !tbaa !122
-  %281 = icmp sgt i32 %280, 0
-  br i1 %281, label %.lr.ph.preheader.i408, label %_filters_get.exit._crit_edge.i407
+  %279 = load i32, ptr %28, align 8, !tbaa !122
+  %280 = icmp sgt i32 %279, 0
+  br i1 %280, label %.lr.ph.preheader.i408, label %_filters_get.exit._crit_edge.i407
 
 .lr.ph.preheader.i408:                            ; preds = %_filters_get.exit.preheader.i406
-  %wide.trip.count.i409 = zext nneg i32 %280 to i64
+  %wide.trip.count.i409 = zext nneg i32 %279 to i64
   br label %.lr.ph.i410
 
 .lr.ph.i410:                                      ; preds = %_filters_get.exit.i413, %.lr.ph.preheader.i408
   %indvars.iv.i411 = phi i64 [ 0, %.lr.ph.preheader.i408 ], [ %indvars.iv.next.i414, %_filters_get.exit.i413 ]
-  %282 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i411
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 368
-  %284 = load i32, ptr %283, align 8, !tbaa !187
-  %.not13.i412 = icmp eq i32 %284, 0
-  br i1 %.not13.i412, label %_filters_get.exit.i413, label %285
+  %281 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i411
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 368
+  %283 = load i32, ptr %282, align 8, !tbaa !187
+  %.not13.i412 = icmp eq i32 %283, 0
+  br i1 %.not13.i412, label %_filters_get.exit.i413, label %284
 
-285:                                              ; preds = %.lr.ph.i410
-  %286 = getelementptr inbounds nuw i8, ptr %282, i64 4
-  %287 = load i32, ptr %286, align 4, !tbaa !129
-  %288 = icmp eq i32 %287, 29
-  br i1 %288, label %_topbar_populate_prop_combo_add.exit416.preheader, label %_filters_get.exit.i413
+284:                                              ; preds = %.lr.ph.i410
+  %285 = getelementptr inbounds nuw i8, ptr %281, i64 4
+  %286 = load i32, ptr %285, align 4, !tbaa !129
+  %287 = icmp eq i32 %286, 29
+  br i1 %287, label %_topbar_populate_prop_combo_add.exit416.preheader, label %_filters_get.exit.i413
 
-_filters_get.exit.i413:                           ; preds = %285, %.lr.ph.i410
+_filters_get.exit.i413:                           ; preds = %284, %.lr.ph.i410
   %indvars.iv.next.i414 = add nuw nsw i64 %indvars.iv.i411, 1
   %exitcond.not.i415 = icmp eq i64 %indvars.iv.next.i414, %wide.trip.count.i409
   br i1 %exitcond.not.i415, label %_filters_get.exit._crit_edge.i407, label %.lr.ph.i410
 
 _filters_get.exit._crit_edge.i407:                ; preds = %_filters_get.exit.i413, %_filters_get.exit.preheader.i406
-  %289 = tail call ptr @dt_collection_name(i32 noundef 29) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %289, i32 noundef 1, ptr noundef nonnull inttoptr (i64 29 to ptr), ptr noundef null, i32 noundef 1) #21
+  %288 = tail call ptr @dt_collection_name(i32 noundef 29) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %288, i32 noundef 1, ptr noundef nonnull inttoptr (i64 29 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit416.preheader
 
-_topbar_populate_prop_combo_add.exit416.preheader: ; preds = %278, %285, %_filters_get.exit._crit_edge.i407
+_topbar_populate_prop_combo_add.exit416.preheader: ; preds = %277, %284, %_filters_get.exit._crit_edge.i407
   br label %_topbar_populate_prop_combo_add.exit416
 
-290:                                              ; preds = %_topbar_populate_prop_combo_add.exit416
+289:                                              ; preds = %_topbar_populate_prop_combo_add.exit416
   %indvars.iv.next.i.i418 = add nuw nsw i64 %indvars.iv.i.i417, 1
   %exitcond.i.i419 = icmp eq i64 %indvars.iv.next.i.i418, 26
   br i1 %exitcond.i.i419, label %_topbar_populate_prop_combo_add.exit430.preheader, label %_topbar_populate_prop_combo_add.exit416
 
-_topbar_populate_prop_combo_add.exit416:          ; preds = %_topbar_populate_prop_combo_add.exit416.preheader, %290
-  %indvars.iv.i.i417 = phi i64 [ %indvars.iv.next.i.i418, %290 ], [ 0, %_topbar_populate_prop_combo_add.exit416.preheader ]
-  %291 = icmp eq i64 %indvars.iv.i.i417, 17
-  br i1 %291, label %_filters_get.exit.preheader.i420, label %290
+_topbar_populate_prop_combo_add.exit416:          ; preds = %_topbar_populate_prop_combo_add.exit416.preheader, %289
+  %indvars.iv.i.i417 = phi i64 [ %indvars.iv.next.i.i418, %289 ], [ 0, %_topbar_populate_prop_combo_add.exit416.preheader ]
+  %290 = icmp eq i64 %indvars.iv.i.i417, 17
+  br i1 %290, label %_filters_get.exit.preheader.i420, label %289
 
 _filters_get.exit.preheader.i420:                 ; preds = %_topbar_populate_prop_combo_add.exit416
-  %292 = load i32, ptr %28, align 8, !tbaa !122
-  %293 = icmp sgt i32 %292, 0
-  br i1 %293, label %.lr.ph.preheader.i422, label %_filters_get.exit._crit_edge.i421
+  %291 = load i32, ptr %28, align 8, !tbaa !122
+  %292 = icmp sgt i32 %291, 0
+  br i1 %292, label %.lr.ph.preheader.i422, label %_filters_get.exit._crit_edge.i421
 
 .lr.ph.preheader.i422:                            ; preds = %_filters_get.exit.preheader.i420
-  %wide.trip.count.i423 = zext nneg i32 %292 to i64
+  %wide.trip.count.i423 = zext nneg i32 %291 to i64
   br label %.lr.ph.i424
 
 .lr.ph.i424:                                      ; preds = %_filters_get.exit.i427, %.lr.ph.preheader.i422
   %indvars.iv.i425 = phi i64 [ 0, %.lr.ph.preheader.i422 ], [ %indvars.iv.next.i428, %_filters_get.exit.i427 ]
-  %294 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i425
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 368
-  %296 = load i32, ptr %295, align 8, !tbaa !187
-  %.not13.i426 = icmp eq i32 %296, 0
-  br i1 %.not13.i426, label %_filters_get.exit.i427, label %297
+  %293 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i425
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 368
+  %295 = load i32, ptr %294, align 8, !tbaa !187
+  %.not13.i426 = icmp eq i32 %295, 0
+  br i1 %.not13.i426, label %_filters_get.exit.i427, label %296
 
-297:                                              ; preds = %.lr.ph.i424
-  %298 = getelementptr inbounds nuw i8, ptr %294, i64 4
-  %299 = load i32, ptr %298, align 4, !tbaa !129
-  %300 = icmp eq i32 %299, 30
-  br i1 %300, label %_topbar_populate_prop_combo_add.exit430.preheader, label %_filters_get.exit.i427
+296:                                              ; preds = %.lr.ph.i424
+  %297 = getelementptr inbounds nuw i8, ptr %293, i64 4
+  %298 = load i32, ptr %297, align 4, !tbaa !129
+  %299 = icmp eq i32 %298, 30
+  br i1 %299, label %_topbar_populate_prop_combo_add.exit430.preheader, label %_filters_get.exit.i427
 
-_filters_get.exit.i427:                           ; preds = %297, %.lr.ph.i424
+_filters_get.exit.i427:                           ; preds = %296, %.lr.ph.i424
   %indvars.iv.next.i428 = add nuw nsw i64 %indvars.iv.i425, 1
   %exitcond.not.i429 = icmp eq i64 %indvars.iv.next.i428, %wide.trip.count.i423
   br i1 %exitcond.not.i429, label %_filters_get.exit._crit_edge.i421, label %.lr.ph.i424
 
 _filters_get.exit._crit_edge.i421:                ; preds = %_filters_get.exit.i427, %_filters_get.exit.preheader.i420
-  %301 = tail call ptr @dt_collection_name(i32 noundef 30) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %301, i32 noundef 1, ptr noundef nonnull inttoptr (i64 30 to ptr), ptr noundef null, i32 noundef 1) #21
+  %300 = tail call ptr @dt_collection_name(i32 noundef 30) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %300, i32 noundef 1, ptr noundef nonnull inttoptr (i64 30 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit430.preheader
 
-_topbar_populate_prop_combo_add.exit430.preheader: ; preds = %290, %297, %_filters_get.exit._crit_edge.i421
+_topbar_populate_prop_combo_add.exit430.preheader: ; preds = %289, %296, %_filters_get.exit._crit_edge.i421
   br label %_topbar_populate_prop_combo_add.exit430
 
 _topbar_populate_prop_combo_add.exit430:          ; preds = %_topbar_populate_prop_combo_add.exit430.preheader, %_topbar_populate_prop_combo_add.exit430
@@ -13261,60 +13258,60 @@ _topbar_populate_prop_combo_add.exit430:          ; preds = %_topbar_populate_pr
   %exitcond.i.i433 = icmp eq i64 %indvars.iv.next.i.i432, 26
   br i1 %exitcond.i.i433, label %_topbar_populate_prop_combo_add.exit444, label %_topbar_populate_prop_combo_add.exit430
 
-302:                                              ; preds = %_topbar_populate_prop_combo_add.exit444
+301:                                              ; preds = %_topbar_populate_prop_combo_add.exit444
   %indvars.iv.next.i.i446 = add nuw nsw i64 %indvars.iv.i.i445, 1
   %exitcond.i.i447 = icmp eq i64 %indvars.iv.next.i.i446, 26
   br i1 %exitcond.i.i447, label %_topbar_populate_prop_combo_add.exit458, label %_topbar_populate_prop_combo_add.exit444
 
-_topbar_populate_prop_combo_add.exit444:          ; preds = %_topbar_populate_prop_combo_add.exit430, %302
-  %indvars.iv.i.i445 = phi i64 [ %indvars.iv.next.i.i446, %302 ], [ 0, %_topbar_populate_prop_combo_add.exit430 ]
-  %303 = icmp eq i64 %indvars.iv.i.i445, 18
-  br i1 %303, label %_filters_get.exit.preheader.i448, label %302
+_topbar_populate_prop_combo_add.exit444:          ; preds = %_topbar_populate_prop_combo_add.exit430, %301
+  %indvars.iv.i.i445 = phi i64 [ %indvars.iv.next.i.i446, %301 ], [ 0, %_topbar_populate_prop_combo_add.exit430 ]
+  %302 = icmp eq i64 %indvars.iv.i.i445, 18
+  br i1 %302, label %_filters_get.exit.preheader.i448, label %301
 
 _filters_get.exit.preheader.i448:                 ; preds = %_topbar_populate_prop_combo_add.exit444
-  %304 = load i32, ptr %28, align 8, !tbaa !122
-  %305 = icmp sgt i32 %304, 0
-  br i1 %305, label %.lr.ph.preheader.i450, label %_filters_get.exit._crit_edge.i449
+  %303 = load i32, ptr %28, align 8, !tbaa !122
+  %304 = icmp sgt i32 %303, 0
+  br i1 %304, label %.lr.ph.preheader.i450, label %_filters_get.exit._crit_edge.i449
 
 .lr.ph.preheader.i450:                            ; preds = %_filters_get.exit.preheader.i448
-  %wide.trip.count.i451 = zext nneg i32 %304 to i64
+  %wide.trip.count.i451 = zext nneg i32 %303 to i64
   br label %.lr.ph.i452
 
 .lr.ph.i452:                                      ; preds = %_filters_get.exit.i455, %.lr.ph.preheader.i450
   %indvars.iv.i453 = phi i64 [ 0, %.lr.ph.preheader.i450 ], [ %indvars.iv.next.i456, %_filters_get.exit.i455 ]
-  %306 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i453
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 368
-  %308 = load i32, ptr %307, align 8, !tbaa !187
-  %.not13.i454 = icmp eq i32 %308, 0
-  br i1 %.not13.i454, label %_filters_get.exit.i455, label %309
+  %305 = getelementptr inbounds nuw %struct.dt_lib_filtering_rule_t, ptr %1, i64 %indvars.iv.i453
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 368
+  %307 = load i32, ptr %306, align 8, !tbaa !187
+  %.not13.i454 = icmp eq i32 %307, 0
+  br i1 %.not13.i454, label %_filters_get.exit.i455, label %308
 
-309:                                              ; preds = %.lr.ph.i452
-  %310 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  %311 = load i32, ptr %310, align 4, !tbaa !129
-  %312 = icmp eq i32 %311, 32
-  br i1 %312, label %_topbar_populate_prop_combo_add.exit458, label %_filters_get.exit.i455
+308:                                              ; preds = %.lr.ph.i452
+  %309 = getelementptr inbounds nuw i8, ptr %305, i64 4
+  %310 = load i32, ptr %309, align 4, !tbaa !129
+  %311 = icmp eq i32 %310, 32
+  br i1 %311, label %_topbar_populate_prop_combo_add.exit458, label %_filters_get.exit.i455
 
-_filters_get.exit.i455:                           ; preds = %309, %.lr.ph.i452
+_filters_get.exit.i455:                           ; preds = %308, %.lr.ph.i452
   %indvars.iv.next.i456 = add nuw nsw i64 %indvars.iv.i453, 1
   %exitcond.not.i457 = icmp eq i64 %indvars.iv.next.i456, %wide.trip.count.i451
   br i1 %exitcond.not.i457, label %_filters_get.exit._crit_edge.i449, label %.lr.ph.i452
 
 _filters_get.exit._crit_edge.i449:                ; preds = %_filters_get.exit.i455, %_filters_get.exit.preheader.i448
-  %313 = tail call ptr @dt_collection_name(i32 noundef 32) #21
-  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %313, i32 noundef 1, ptr noundef nonnull inttoptr (i64 32 to ptr), ptr noundef null, i32 noundef 1) #21
+  %312 = tail call ptr @dt_collection_name(i32 noundef 32) #21
+  tail call void @dt_bauhaus_combobox_add_full(ptr noundef %0, ptr noundef %312, i32 noundef 1, ptr noundef nonnull inttoptr (i64 32 to ptr), ptr noundef null, i32 noundef 1) #21
   br label %_topbar_populate_prop_combo_add.exit458
 
-_topbar_populate_prop_combo_add.exit458:          ; preds = %302, %309, %_filters_get.exit._crit_edge.i449
-  %314 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
-  %315 = icmp eq i32 %264, %314
-  br i1 %315, label %316, label %318
+_topbar_populate_prop_combo_add.exit458:          ; preds = %301, %308, %_filters_get.exit._crit_edge.i449
+  %313 = tail call i32 @dt_bauhaus_combobox_length(ptr noundef %0) #21
+  %314 = icmp eq i32 %263, %313
+  br i1 %314, label %315, label %317
 
-316:                                              ; preds = %_topbar_populate_prop_combo_add.exit458
-  %317 = add nsw i32 %264, -1
-  tail call void @dt_bauhaus_combobox_remove_at(ptr noundef %0, i32 noundef %317) #21
-  br label %318
+315:                                              ; preds = %_topbar_populate_prop_combo_add.exit458
+  %316 = add nsw i32 %263, -1
+  tail call void @dt_bauhaus_combobox_remove_at(ptr noundef %0, i32 noundef %316) #21
+  br label %317
 
-318:                                              ; preds = %316, %_topbar_populate_prop_combo_add.exit458
+317:                                              ; preds = %315, %_topbar_populate_prop_combo_add.exit458
   ret void
 }
 

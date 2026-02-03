@@ -2716,8 +2716,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %sw.bb12, %if.then3.
   %childIsFixedWidth_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %26 = load ptr, ptr %childIsFixedWidth_.i, align 8
   %27 = load i64, ptr %26, align 8
-  %and.i = and i64 %27, 1
-  %tobool.i = icmp ne i64 %and.i, 0
+  %tobool.i = trunc i64 %27 to i1
   %call10.i = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %25, i32 noundef %22, i32 noundef %24, i1 noundef zeroext %tobool.i, ptr noundef %buffer)
   br label %return
 
@@ -2764,8 +2763,7 @@ _ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc.exit: ; preds = %sw.bb14
   %childIsFixedWidth_.i45 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %39 = load ptr, ptr %childIsFixedWidth_.i45, align 8
   %40 = load i64, ptr %39, align 8
-  %and.i.i = and i64 %40, 1
-  %tobool.i16.i = icmp ne i64 %and.i.i, 0
+  %tobool.i16.i = trunc i64 %40 to i1
   %add.ptr.i46 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %call10.i47 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %38, i32 noundef %35, i32 noundef %37, i1 noundef zeroext %tobool.i16.i, ptr noundef nonnull %add.ptr.i46)
   %add.i = add nsw i32 %call10.i47, 8
@@ -2843,8 +2841,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
   %childIsFixedWidth_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %11 = load ptr, ptr %childIsFixedWidth_, align 8
   %12 = load i64, ptr %11, align 8
-  %and.i = and i64 %12, 1
-  %tobool.i7 = icmp ne i64 %and.i, 0
+  %tobool.i7 = trunc i64 %12 to i1
   %call10 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %10, i32 noundef %7, i32 noundef %9, i1 noundef zeroext %tobool.i7, ptr noundef %buffer)
   ret i32 %call10
 }
@@ -2894,8 +2891,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
   %childIsFixedWidth_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %11 = load ptr, ptr %childIsFixedWidth_, align 8
   %12 = load i64, ptr %11, align 8
-  %and.i = and i64 %12, 1
-  %tobool.i16 = icmp ne i64 %and.i, 0
+  %tobool.i16 = trunc i64 %12 to i1
   %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %call10 = tail call noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(224) %10, i32 noundef %7, i32 noundef %9, i1 noundef zeroext %tobool.i16, ptr noundef nonnull %add.ptr)
   %add = add nsw i32 %call10, 8

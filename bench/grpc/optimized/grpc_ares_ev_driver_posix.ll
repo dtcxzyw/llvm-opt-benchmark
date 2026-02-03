@@ -966,9 +966,8 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosix14ShutdownLockedEN4abs
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = load i64, ptr %1, align 8, !tbaa !66
   store i64 %6, ptr %3, align 8, !tbaa !66
-  %7 = and i64 %6, 1
-  %.not.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i, label %8, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %8
 
 8:                                                ; preds = %2
   %9 = inttoptr i64 %6 to ptr
@@ -981,9 +980,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %2, %8
 
 11:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %12 = load i64, ptr %3, align 8, !tbaa !66
-  %13 = and i64 %12, 1
-  %.not.i.i2 = icmp eq i64 %13, 0
-  br i1 %.not.i.i2, label %14, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %14
 
 14:                                               ; preds = %11
   %15 = inttoptr i64 %12 to ptr
@@ -1041,9 +1039,8 @@ declare void @_Z16grpc_fd_shutdownP7grpc_fdN4absl12lts_202407226StatusE(ptr noun
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !66
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -1098,9 +1095,9 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
 
 13:                                               ; preds = %12
   %14 = load i64, ptr %6, align 8, !tbaa !66
-  %.not.i10 = icmp eq i64 %14, 1
+  %.not.i9 = icmp eq i64 %14, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not.i10, label %17, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  br i1 %.not.i9, label %17, label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
 15:                                               ; preds = %12
   %16 = landingpad { ptr, i32 }
@@ -1110,7 +1107,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
 
 17:                                               ; preds = %13
   %18 = icmp eq i32 %1, 1
-  br i1 %18, label %19, label %_ZN4absl12lts_202407226StatusD2Ev.exit21
+  br i1 %18, label %19, label %_ZN4absl12lts_202407226StatusD2Ev.exit15
 
 19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1119,9 +1116,9 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
 
 20:                                               ; preds = %19
   %21 = load i64, ptr %7, align 8, !tbaa !66
-  %.not.i15 = icmp eq i64 %21, 1
+  %.not.i12 = icmp eq i64 %21, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not.i15, label %_ZN4absl12lts_202407226StatusD2Ev.exit21, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  br i1 %.not.i12, label %_ZN4absl12lts_202407226StatusD2Ev.exit15, label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
@@ -1131,14 +1128,13 @@ define linkonce_odr noundef i32 @_ZN9grpc_core24GrpcPolledFdFactoryPosix15Config
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
   %24 = phi i64 [ %14, %13 ], [ %9, %8 ], [ %21, %20 ]
-  %25 = and i64 %24, 1
-  %.not.i.i20 = icmp eq i64 %25, 0
-  br i1 %.not.i.i20, label %26, label %_ZN4absl12lts_202407226StatusD2Ev.exit21
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %_ZN4absl12lts_202407226StatusD2Ev.exit15, label %26
 
 26:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %27 = inttoptr i64 %24 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %27)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit21 unwind label %28
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit15 unwind label %28
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
@@ -1147,10 +1143,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %13, %8
   call void @__clang_call_terminate(ptr %30) #20
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit21:         ; preds = %20, %17, %_ZN4absl12lts_202407226StatusD2Ev.exit, %26
-  %.0730 = phi i32 [ -1, %26 ], [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 0, %17 ], [ 0, %20 ]
+_ZN4absl12lts_202407226StatusD2Ev.exit15:         ; preds = %20, %17, %_ZN4absl12lts_202407226StatusD2Ev.exit, %26
+  %.0723 = phi i32 [ -1, %26 ], [ -1, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ 0, %17 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.0730
+  ret i32 %.0723
 
 31:                                               ; preds = %22, %15, %10
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %16, %15 ], [ %11, %10 ]

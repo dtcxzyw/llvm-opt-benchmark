@@ -3408,7 +3408,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK4llvm18FunctionComparator16co
   %.sroa.0.0.copyload.i67 = load ptr, ptr %6, align 8, !tbaa !142
   %7 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpAttrsENS_13AttributeListES1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i67)
   %.not.not = icmp eq i32 %7, 0
-  br i1 %.not.not, label %8, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br i1 %.not.not, label %8, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !14
@@ -3421,11 +3421,11 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZNK4llvm18FunctionComparator16co
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %16 = load i16, ptr %15, align 2, !tbaa !76
   %17 = lshr i16 %16, 14
-  %.lobit106 = and i16 %17, 1
-  %18 = zext nneg i16 %.lobit106 to i64
+  %.lobit104 = and i16 %17, 1
+  %18 = zext nneg i16 %.lobit104 to i64
   %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %13, i64 %18)
-  %.not51.not = icmp eq i16 %.lobit, %.lobit106
-  br i1 %.not51.not, label %19, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  %.not51.not = icmp eq i16 %.lobit, %.lobit104
+  br i1 %.not51.not, label %19, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 19:                                               ; preds = %8
   %.not = icmp eq i16 %12, 0
@@ -3454,32 +3454,32 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %30
   %.not.not.i.i = icmp eq i32 %.fr.i.i, 0
   %.inv.i.i = icmp sgt i32 %.fr.i.i, -1
   %spec.select.i.i = select i1 %.inv.i.i, i32 1, i32 -1
-  br i1 %.not.not.i.i, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br i1 %.not.not.i.i, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit: ; preds = %20
   %.0.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %24, i64 %29)
-  br label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %30, %19
   %33 = load ptr, ptr %0, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 67108864
-  %.lobit107 = lshr exact i32 %36, 26
-  %37 = zext nneg i32 %.lobit107 to i64
+  %.lobit105 = lshr exact i32 %36, 26
+  %37 = zext nneg i32 %.lobit105 to i64
   %38 = load ptr, ptr %4, align 8, !tbaa !112
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = lshr i32 %40, 26
-  %.lobit109 = and i32 %41, 1
-  %42 = zext nneg i32 %.lobit109 to i64
+  %.lobit107 = and i32 %41, 1
+  %42 = zext nneg i32 %.lobit107 to i64
   %.0.i68 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %37, i64 %42)
-  %.not53.not = icmp eq i32 %.lobit107, %.lobit109
-  br i1 %.not53.not, label %43, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  %.not53.not = icmp eq i32 %.lobit105, %.lobit107
+  br i1 %.not53.not, label %43, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 43:                                               ; preds = %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread
-  %.not108 = icmp eq i32 %36, 0
-  br i1 %.not108, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, label %_ZNK4llvm12GlobalObject10getSectionEv.exit
+  %.not106 = icmp eq i32 %36, 0
+  br i1 %.not106, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, label %_ZNK4llvm12GlobalObject10getSectionEv.exit
 
 _ZNK4llvm12GlobalObject10getSectionEv.exit:       ; preds = %43
   %44 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject14getSectionImplEv(ptr noundef nonnull align 8 dereferenceable(56) %33) #18
@@ -3514,11 +3514,11 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78: ; preds = %55
   %.not.not.i.i80 = icmp eq i32 %.fr.i.i79, 0
   %.inv.i.i81 = icmp sgt i32 %.fr.i.i79, -1
   %spec.select.i.i82 = select i1 %.inv.i.i81, i32 1, i32 -1
-  br i1 %.not.not.i.i80, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br i1 %.not.not.i.i80, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84: ; preds = %_ZNK4llvm12GlobalObject10getSectionEv.exit74
   %.0.i.i75 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %46, i64 %.sroa.4.0.i71)
-  br label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78, %55, %43
   %58 = load ptr, ptr %0, align 8, !tbaa !14
@@ -3537,7 +3537,7 @@ _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread: ; preds = 
   %71 = zext i1 %70 to i64
   %.0.i85 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %64, i64 %71)
   %.not55 = xor i1 %63, %70
-  br i1 %.not55, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95, label %72
+  br i1 %.not55, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93, label %72
 
 72:                                               ; preds = %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 2
@@ -3552,20 +3552,19 @@ _ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread: ; preds = 
   %82 = zext nneg i16 %81 to i64
   %.0.i86 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %77, i64 %82)
   %.not56.not = icmp eq i16 %76, %81
-  br i1 %.not56.not, label %83, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br i1 %.not56.not, label %83, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 83:                                               ; preds = %72
   %84 = tail call noundef i32 @_ZNK4llvm18FunctionComparator8cmpTypesEPNS_4TypeES2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %60, ptr noundef nonnull %67)
   %.not57.not = icmp eq i32 %84, 0
-  br i1 %.not57.not, label %85, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95
+  br i1 %.not57.not, label %85, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93
 
 85:                                               ; preds = %83
   %86 = load ptr, ptr %0, align 8, !tbaa !14
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %88 = load i16, ptr %87, align 2, !tbaa !76
-  %89 = and i16 %88, 1
-  %.not.i.i = icmp eq i16 %89, 0
-  br i1 %.not.i.i, label %_ZNK4llvm8Function9arg_beginEv.exit, label %90
+  %89 = trunc i16 %88 to i1
+  br i1 %89, label %90, label %_ZNK4llvm8Function9arg_beginEv.exit
 
 90:                                               ; preds = %85
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %86) #18
@@ -3577,47 +3576,45 @@ _ZNK4llvm8Function9arg_beginEv.exit:              ; preds = %85, %90
   %93 = load ptr, ptr %4, align 8, !tbaa !112
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = load i16, ptr %94, align 2, !tbaa !76
-  %96 = and i16 %95, 1
-  %.not.i.i87 = icmp eq i16 %96, 0
-  br i1 %.not.i.i87, label %_ZNK4llvm8Function9arg_beginEv.exit88, label %97
+  %96 = trunc i16 %95 to i1
+  br i1 %96, label %97, label %_ZNK4llvm8Function9arg_beginEv.exit87
 
 97:                                               ; preds = %_ZNK4llvm8Function9arg_beginEv.exit
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %93) #18
-  br label %_ZNK4llvm8Function9arg_beginEv.exit88
+  br label %_ZNK4llvm8Function9arg_beginEv.exit87
 
-_ZNK4llvm8Function9arg_beginEv.exit88:            ; preds = %_ZNK4llvm8Function9arg_beginEv.exit, %97
+_ZNK4llvm8Function9arg_beginEv.exit87:            ; preds = %_ZNK4llvm8Function9arg_beginEv.exit, %97
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 96
   %99 = load ptr, ptr %98, align 8, !tbaa !180
   %100 = load ptr, ptr %0, align 8, !tbaa !14
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 2
   %102 = load i16, ptr %101, align 2, !tbaa !76
-  %103 = and i16 %102, 1
-  %.not.i.i89 = icmp eq i16 %103, 0
-  br i1 %.not.i.i89, label %_ZNK4llvm8Function7arg_endEv.exit, label %104
+  %103 = trunc i16 %102 to i1
+  br i1 %103, label %104, label %_ZNK4llvm8Function7arg_endEv.exit
 
-104:                                              ; preds = %_ZNK4llvm8Function9arg_beginEv.exit88
+104:                                              ; preds = %_ZNK4llvm8Function9arg_beginEv.exit87
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %100) #18
   br label %_ZNK4llvm8Function7arg_endEv.exit
 
-_ZNK4llvm8Function7arg_endEv.exit:                ; preds = %_ZNK4llvm8Function9arg_beginEv.exit88, %104
+_ZNK4llvm8Function7arg_endEv.exit:                ; preds = %_ZNK4llvm8Function9arg_beginEv.exit87, %104
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 96
   %106 = load ptr, ptr %105, align 8, !tbaa !180
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 104
   %108 = load i64, ptr %107, align 8, !tbaa !202
   %109 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %106, i64 %108
-  %.not58110 = icmp eq ptr %92, %109
-  br i1 %.not58110, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95, label %.lr.ph
+  %.not58108 = icmp eq ptr %92, %109
+  br i1 %.not58108, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm8Function7arg_endEv.exit, %.lr.ph
-  %.035112 = phi ptr [ %112, %.lr.ph ], [ %99, %_ZNK4llvm8Function7arg_endEv.exit ]
-  %.036111 = phi ptr [ %111, %.lr.ph ], [ %92, %_ZNK4llvm8Function7arg_endEv.exit ]
-  %110 = tail call noundef i32 @_ZNK4llvm18FunctionComparator9cmpValuesEPKNS_5ValueES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %.036111, ptr noundef %.035112)
-  %111 = getelementptr inbounds nuw i8, ptr %.036111, i64 40
-  %112 = getelementptr inbounds nuw i8, ptr %.035112, i64 40
+  %.035110 = phi ptr [ %112, %.lr.ph ], [ %99, %_ZNK4llvm8Function7arg_endEv.exit ]
+  %.036109 = phi ptr [ %111, %.lr.ph ], [ %92, %_ZNK4llvm8Function7arg_endEv.exit ]
+  %110 = tail call noundef i32 @_ZNK4llvm18FunctionComparator9cmpValuesEPKNS_5ValueES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %.036109, ptr noundef %.035110)
+  %111 = getelementptr inbounds nuw i8, ptr %.036109, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %.035110, i64 40
   %.not58 = icmp eq ptr %111, %109
-  br i1 %.not58, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95, label %.lr.ph, !llvm.loop !203
+  br i1 %.not58, label %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93, label %.lr.ph, !llvm.loop !203
 
-_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread95: ; preds = %.lr.ph, %_ZNK4llvm8Function7arg_endEv.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %83, %72, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread, %8, %1
+_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread93: ; preds = %.lr.ph, %_ZNK4llvm8Function7arg_endEv.exit, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %83, %72, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread, %8, %1
   %.1 = phi i32 [ %7, %1 ], [ %84, %83 ], [ %.0.i86, %72 ], [ %.0.i85, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84.thread ], [ %.0.i.i75, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit84 ], [ %.0.i68, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit.thread ], [ %.0.i.i, %_ZNK4llvm18FunctionComparator6cmpMemENS_9StringRefES1_.exit ], [ %.0.i, %8 ], [ %spec.select.i.i82, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i78 ], [ %spec.select.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i ], [ 0, %_ZNK4llvm8Function7arg_endEv.exit ], [ 0, %.lr.ph ]
   ret i32 %.1
 }

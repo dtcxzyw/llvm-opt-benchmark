@@ -4587,104 +4587,102 @@ define dso_local range(i32 -22, 1) i32 @pci_back_from_sleep(ptr noundef %0) #4 a
 define dso_local range(i32 -22, 1) i32 @pci_finish_runtime_suspend(ptr noundef %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %3 = load i16, ptr %2, align 4
-  %4 = and i16 %3, 1
-  %5 = icmp ne i16 %4, 0
-  %6 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext %5)
-  %7 = icmp eq i32 %6, -1
-  br i1 %7, label %68, label %8
+  %4 = trunc i16 %3 to i1
+  %5 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext %4)
+  %6 = icmp eq i32 %5, -1
+  br i1 %6, label %66, label %7
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 157
-  %12 = load i24, ptr %11, align 1
-  %13 = and i24 %12, 62
-  %14 = icmp eq i24 %13, 0
-  br i1 %14, label %.loopexit, label %15
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 157
+  %11 = load i24, ptr %10, align 1
+  %12 = and i24 %11, 62
+  %13 = icmp eq i24 %12, 0
+  br i1 %13, label %.loopexit, label %14
 
-15:                                               ; preds = %8
-  %16 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext true)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %18 = load i8, ptr %17, align 4
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.loopexit, label %20
+14:                                               ; preds = %7
+  %15 = tail call fastcc i32 @pci_target_state(ptr noundef %0, i1 noundef zeroext true)
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %17 = load i8, ptr %16, align 4
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %.loopexit, label %19
 
-20:                                               ; preds = %15
-  %21 = load i24, ptr %11, align 1
-  %22 = lshr i24 %21, 1
-  %23 = and i24 %22, 31
-  %24 = zext nneg i24 %23 to i32
-  %25 = shl nuw i32 1, %16
-  %26 = and i32 %25, %24
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.loopexit, label %28
+19:                                               ; preds = %14
+  %20 = load i24, ptr %10, align 1
+  %21 = lshr i24 %20, 1
+  %22 = and i24 %21, 31
+  %23 = zext nneg i24 %22 to i32
+  %24 = shl nuw i32 1, %15
+  %25 = and i32 %24, %23
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.loopexit, label %27
 
-28:                                               ; preds = %20
-  %29 = load i16, ptr %2, align 4
-  %30 = and i16 %29, 1
-  %31 = icmp eq i16 %30, 0
-  br i1 %31, label %.preheader, label %.loopexit
+27:                                               ; preds = %19
+  %28 = load i16, ptr %2, align 4
+  %29 = and i16 %28, 1
+  %30 = icmp eq i16 %29, 0
+  br i1 %30, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %28, %36
-  %32 = phi ptr [ %34, %36 ], [ %10, %28 ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %43, label %36
+.preheader:                                       ; preds = %27, %35
+  %31 = phi ptr [ %33, %35 ], [ %9, %27 ]
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %42, label %35
 
-36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 404
-  %40 = load i16, ptr %39, align 4
-  %41 = and i16 %40, 1
-  %42 = icmp eq i16 %41, 0
-  br i1 %42, label %.preheader, label %.loopexit, !llvm.loop !51
+35:                                               ; preds = %.preheader
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 404
+  %39 = load i16, ptr %38, align 4
+  %40 = and i16 %39, 1
+  %41 = icmp eq i16 %40, 0
+  br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !51
 
-43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds nuw i8, ptr %32, i64 272
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit, label %47
+42:                                               ; preds = %.preheader
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 272
+  %44 = load ptr, ptr %43, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.loopexit, label %46
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 220
-  %49 = load i16, ptr %48, align 4
-  %50 = and i16 %49, 1
-  %51 = icmp ne i16 %50, 0
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 220
+  %48 = load i16, ptr %47, align 4
+  %49 = trunc i16 %48 to i1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %47, %43, %28, %20, %15, %8
-  %52 = phi i1 [ %51, %47 ], [ false, %8 ], [ false, %20 ], [ true, %28 ], [ false, %43 ], [ false, %15 ], [ true, %36 ]
-  %53 = tail call fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %6, i1 noundef zeroext %52)
-  %54 = tail call fastcc i32 @__pci_set_power_state(ptr noundef %0, i32 noundef %6, i1 noundef zeroext false), !range !17
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %68, label %56
+.loopexit:                                        ; preds = %35, %46, %42, %27, %19, %14, %7
+  %50 = phi i1 [ %49, %46 ], [ false, %7 ], [ false, %19 ], [ true, %27 ], [ false, %42 ], [ false, %14 ], [ true, %35 ]
+  %51 = tail call fastcc i32 @__pci_enable_wake(ptr noundef %0, i32 noundef %5, i1 noundef zeroext %50)
+  %52 = tail call fastcc i32 @__pci_set_power_state(ptr noundef %0, i32 noundef %5, i1 noundef zeroext false), !range !17
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %66, label %54
 
-56:                                               ; preds = %.loopexit
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp ne ptr %58, null
-  %.pre = load i24, ptr %11, align 1
-  %60 = and i24 %.pre, 2048
+54:                                               ; preds = %.loopexit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp ne ptr %56, null
+  %.pre = load i24, ptr %10, align 1
+  %58 = and i24 %.pre, 2048
+  %59 = icmp eq i24 %58, 0
+  %or.cond = select i1 %57, i1 %59, i1 false
+  %60 = and i24 %.pre, 16384
   %61 = icmp eq i24 %60, 0
-  %or.cond = select i1 %59, i1 %61, i1 false
-  %62 = and i24 %.pre, 16384
-  %63 = icmp eq i24 %62, 0
-  %or.cond12 = select i1 %or.cond, i1 true, i1 %63
-  br i1 %or.cond12, label %68, label %64
+  %or.cond12 = select i1 %or.cond, i1 true, i1 %61
+  br i1 %or.cond12, label %66, label %62
 
-64:                                               ; preds = %56
-  %65 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext false) #27
+62:                                               ; preds = %54
+  %63 = tail call i32 @acpi_pci_wakeup(ptr noundef %0, i1 noundef zeroext false) #27
   tail call void @pci_pme_active(ptr noundef %0, i1 noundef zeroext false)
-  %66 = load i24, ptr %11, align 1
-  %67 = and i24 %66, -16385
-  store i24 %67, ptr %11, align 1
-  br label %68
+  %64 = load i24, ptr %10, align 1
+  %65 = and i24 %64, -16385
+  store i24 %65, ptr %10, align 1
+  br label %66
 
-68:                                               ; preds = %56, %64, %.loopexit, %1
-  %69 = phi i32 [ -5, %1 ], [ 0, %.loopexit ], [ %54, %56 ], [ %54, %64 ]
-  ret i32 %69
+66:                                               ; preds = %54, %62, %.loopexit, %1
+  %67 = phi i32 [ -5, %1 ], [ 0, %.loopexit ], [ %52, %54 ], [ %52, %62 ]
+  ret i32 %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4746,13 +4744,12 @@ define dso_local zeroext i1 @pci_dev_run_wake(ptr noundef %0) #4 align 16 {
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 220
   %43 = load i16, ptr %42, align 4
-  %44 = and i16 %43, 1
-  %45 = icmp ne i16 %44, 0
+  %44 = trunc i16 %43 to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %41, %37, %21, %13, %8, %1
-  %46 = phi i1 [ %45, %41 ], [ false, %1 ], [ false, %13 ], [ true, %21 ], [ false, %37 ], [ false, %8 ], [ true, %30 ]
-  ret i1 %46
+  %45 = phi i1 [ %44, %41 ], [ false, %1 ], [ false, %13 ], [ true, %21 ], [ false, %37 ], [ false, %8 ], [ true, %30 ]
+  ret i1 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

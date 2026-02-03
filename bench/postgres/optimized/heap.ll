@@ -2634,9 +2634,8 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr i8, ptr %.val70.i, i64 20
   %.val.val.i.i = load i16, ptr %161, align 4
-  %162 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %162, 0
-  br i1 %.not.i.i.i, label %163, label %198
+  %162 = trunc i16 %.val.val.i.i to i1
+  br i1 %162, label %198, label %163
 
 163:                                              ; preds = %158
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 456
@@ -2706,8 +2705,8 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   %199 = getelementptr i8, ptr %.val70.i, i64 26
   %.val20.i.i = load i8, ptr %199, align 1
   %200 = and i8 %.val20.i.i, 8
-  %.not.i21.i.i = icmp eq i8 %200, 0
-  br i1 %.not.i21.i.i, label %fastgetattr.exit.i, label %201
+  %.not.i.i.i = icmp eq i8 %200, 0
+  br i1 %.not.i.i.i, label %fastgetattr.exit.i, label %201
 
 201:                                              ; preds = %198
   %202 = call i64 @nocachegetattr(ptr noundef nonnull %148, i32 noundef 28, ptr noundef %160) #11

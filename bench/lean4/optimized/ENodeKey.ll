@@ -15,9 +15,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_Grind_isSameExpr_unsafe__1(ptr nou
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Lean_Meta_Grind_isSameExpr_unsafe__1___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4, !tbaa !4
@@ -39,9 +38,8 @@ define noundef nonnull ptr @l_Lean_Meta_Grind_isSameExpr_unsafe__1___boxed(ptr n
 
 lean_dec.exit:                                    ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not8 = icmp eq i64 %13, 0
-  br i1 %.not8, label %14, label %lean_dec.exit5
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit5, label %14
 
 14:                                               ; preds = %lean_dec.exit
   %15 = load i32, ptr %0, align 4, !tbaa !4
@@ -77,9 +75,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_Grind_isSameExpr(ptr noundef readn
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Lean_Meta_Grind_isSameExpr___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit5, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4, !tbaa !4
@@ -101,9 +98,8 @@ define noundef nonnull ptr @l_Lean_Meta_Grind_isSameExpr___boxed(ptr noundef %0,
 
 lean_dec.exit5:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not8 = icmp eq i64 %13, 0
-  br i1 %.not8, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_dec.exit5
   %15 = load i32, ptr %0, align 4, !tbaa !4
@@ -138,9 +134,8 @@ define noundef i64 @l_Lean_Meta_Grind_instHashableENodeKey_unsafe__1(ptr noundef
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Lean_Meta_Grind_instHashableENodeKey_unsafe__1___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -188,9 +183,8 @@ define noundef i64 @l_Lean_Meta_Grind_instHashableENodeKey(ptr noundef %0) local
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Lean_Meta_Grind_instHashableENodeKey___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -239,9 +233,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_Grind_instBEqENodeKey(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Lean_Meta_Grind_instBEqENodeKey___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit5, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4, !tbaa !4
@@ -263,9 +256,8 @@ define noundef nonnull ptr @l_Lean_Meta_Grind_instBEqENodeKey___boxed(ptr nounde
 
 lean_dec.exit5:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not8 = icmp eq i64 %13, 0
-  br i1 %.not8, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_dec.exit5
   %15 = load i32, ptr %0, align 4, !tbaa !4

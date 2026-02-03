@@ -4649,12 +4649,12 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %20, %31, %33
   %37 = load ptr, ptr %.0.val, align 8, !tbaa !49
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %39 = load i8, ptr %38, align 2
-  %40 = and i8 %39, 1
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 74
-  %42 = load i8, ptr %41, align 2
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 74
+  %41 = and i8 %39, 1
+  %42 = load i8, ptr %40, align 2
   %43 = and i8 %42, -2
-  %44 = or disjoint i8 %43, %40
-  store i8 %44, ptr %41, align 2
+  %44 = or disjoint i8 %43, %41
+  store i8 %44, ptr %40, align 2
   br label %45
 
 45:                                               ; preds = %18, %_ZN4llvm5ErrorD2Ev.exit11

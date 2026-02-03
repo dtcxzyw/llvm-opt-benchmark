@@ -23350,7 +23350,7 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw19crxParseImageHeaderEPhii(ptr no
   %or.cond = icmp ugt i32 %2, 15
   %.not = icmp eq ptr %1, null
   %or.cond92 = or i1 %.not, %or.cond
-  br i1 %or.cond92, label %129, label %5
+  br i1 %or.cond92, label %125, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -23536,17 +23536,17 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
   br label %.thread
 
 .thread:                                          ; preds = %_ZN6LibRaw5sgetnEiPh.exit117, %106, %100
-  switch i32 %12, label %129 [
+  switch i32 %12, label %125 [
     i32 256, label %110
     i32 512, label %110
   ]
 
 110:                                              ; preds = %.thread, %.thread
   %.not81 = icmp eq i32 %91, 0
-  br i1 %.not81, label %129, label %111
+  br i1 %.not81, label %125, label %111
 
 111:                                              ; preds = %110
-  switch i8 %68, label %129 [
+  switch i8 %68, label %125 [
     i8 1, label %112
     i8 0, label %114
     i8 3, label %114
@@ -23554,14 +23554,14 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
 
 112:                                              ; preds = %111
   %113 = icmp ugt i8 %54, 15
-  br i1 %113, label %129, label %116
+  br i1 %113, label %125, label %116
 
 114:                                              ; preds = %111, %111
   %115 = icmp ugt i8 %54, 14
-  br i1 %115, label %129, label %116
+  br i1 %115, label %125, label %116
 
 116:                                              ; preds = %114, %112
-  switch i8 %59, label %129 [
+  switch i8 %59, label %125 [
     i8 1, label %117
     i8 4, label %119
   ]
@@ -23578,37 +23578,33 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
   %or.cond131 = select i1 %or.cond129, i1 true, i1 %118
   %.old133 = icmp samesign ugt i8 %72, 3
   %or.cond135 = select i1 %or.cond131, i1 true, i1 %.old133
-  br i1 %or.cond135, label %129, label %128
+  br i1 %or.cond135, label %125, label %124
 
 119:                                              ; preds = %116
-  %120 = and i32 %22, 1
-  %.not85 = icmp ne i32 %120, 0
-  %121 = and i32 %31, 1
-  %.not86 = icmp ne i32 %121, 0
+  %.not85 = trunc i8 %21 to i1
+  %.not86 = trunc i8 %30 to i1
   %or.cond123.not138 = select i1 %.not85, i1 true, i1 %.not86
-  %122 = and i32 %40, 1
-  %.not87 = icmp ne i32 %122, 0
+  %.not87 = trunc i8 %39 to i1
   %or.cond124.not137 = select i1 %or.cond123.not138, i1 true, i1 %.not87
-  %123 = and i32 %49, 1
-  %.not88 = icmp ne i32 %123, 0
+  %.not88 = trunc i8 %48 to i1
   %or.cond125.not136 = select i1 %or.cond124.not137, i1 true, i1 %.not88
-  %124 = icmp samesign ugt i8 %63, 3
-  %or.cond126 = select i1 %or.cond125.not136, i1 true, i1 %124
-  %125 = icmp eq i8 %54, 8
-  %or.cond127 = select i1 %or.cond126, i1 true, i1 %125
-  %126 = icmp sgt i32 %41, %23
-  %or.cond128 = select i1 %or.cond127, i1 true, i1 %126
+  %120 = icmp samesign ugt i8 %63, 3
+  %or.cond126 = select i1 %or.cond125.not136, i1 true, i1 %120
+  %121 = icmp eq i8 %54, 8
+  %or.cond127 = select i1 %or.cond126, i1 true, i1 %121
+  %122 = icmp sgt i32 %41, %23
+  %or.cond128 = select i1 %or.cond127, i1 true, i1 %122
   %.old130 = icmp sgt i32 %50, %32
   %or.cond132 = select i1 %or.cond128, i1 true, i1 %.old130
-  %127 = icmp samesign ugt i8 %72, 3
-  %or.cond134 = select i1 %or.cond132, i1 true, i1 %127
-  br i1 %or.cond134, label %129, label %128
+  %123 = icmp samesign ugt i8 %72, 3
+  %or.cond134 = select i1 %or.cond132, i1 true, i1 %123
+  br i1 %or.cond134, label %125, label %124
 
-128:                                              ; preds = %117, %119
-  br label %129
+124:                                              ; preds = %117, %119
+  br label %125
 
-129:                                              ; preds = %128, %.thread, %110, %112, %111, %114, %117, %116, %119, %4
-  %.073 = phi i32 [ -1, %4 ], [ -1, %.thread ], [ -1, %111 ], [ -1, %110 ], [ -1, %114 ], [ -1, %119 ], [ -1, %116 ], [ 0, %128 ], [ -1, %117 ], [ -1, %112 ]
+125:                                              ; preds = %124, %.thread, %110, %112, %111, %114, %117, %116, %119, %4
+  %.073 = phi i32 [ -1, %4 ], [ -1, %.thread ], [ -1, %111 ], [ -1, %110 ], [ -1, %114 ], [ -1, %119 ], [ -1, %116 ], [ 0, %124 ], [ -1, %117 ], [ -1, %112 ]
   ret i32 %.073
 }
 

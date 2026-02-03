@@ -6267,9 +6267,8 @@ define void @_ZN6icu_7713DecimalFormat17setPositivePrefixERKNS_13UnicodeStringE(
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %13 = load i16, ptr %12, align 8, !tbaa !20
-  %14 = and i16 %13, 1
-  %.not = icmp eq i16 %14, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %41
+  %14 = trunc i16 %13 to i1
+  br i1 %14, label %41, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 15:                                               ; preds = %7
   %16 = icmp slt i16 %9, 0
@@ -6300,8 +6299,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %15
   %35 = load ptr, ptr %34, align 8
   %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
   %37 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %36, i32 noundef %21)
-  %.not4 = icmp eq i8 %37, 0
-  br i1 %.not4, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !25
@@ -6374,9 +6373,8 @@ define void @_ZN6icu_7713DecimalFormat17setNegativePrefixERKNS_13UnicodeStringE(
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %13 = load i16, ptr %12, align 8, !tbaa !20
-  %14 = and i16 %13, 1
-  %.not = icmp eq i16 %14, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %41
+  %14 = trunc i16 %13 to i1
+  br i1 %14, label %41, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 15:                                               ; preds = %7
   %16 = icmp slt i16 %9, 0
@@ -6407,8 +6405,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %15
   %35 = load ptr, ptr %34, align 8
   %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
   %37 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %36, i32 noundef %21)
-  %.not4 = icmp eq i8 %37, 0
-  br i1 %.not4, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !25
@@ -6479,9 +6477,8 @@ define void @_ZN6icu_7713DecimalFormat17setPositiveSuffixERKNS_13UnicodeStringE(
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %13 = load i16, ptr %12, align 8, !tbaa !20
-  %14 = and i16 %13, 1
-  %.not = icmp eq i16 %14, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %41
+  %14 = trunc i16 %13 to i1
+  br i1 %14, label %41, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 15:                                               ; preds = %7
   %16 = icmp slt i16 %9, 0
@@ -6512,8 +6509,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %15
   %35 = load ptr, ptr %34, align 8
   %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
   %37 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %36, i32 noundef %21)
-  %.not4 = icmp eq i8 %37, 0
-  br i1 %.not4, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !25
@@ -6584,9 +6581,8 @@ define void @_ZN6icu_7713DecimalFormat17setNegativeSuffixERKNS_13UnicodeStringE(
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %13 = load i16, ptr %12, align 8, !tbaa !20
-  %14 = and i16 %13, 1
-  %.not = icmp eq i16 %14, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %41
+  %14 = trunc i16 %13 to i1
+  br i1 %14, label %41, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 15:                                               ; preds = %7
   %16 = icmp slt i16 %9, 0
@@ -6617,8 +6613,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %15
   %35 = load ptr, ptr %34, align 8
   %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
   %37 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %36, i32 noundef %21)
-  %.not4 = icmp eq i8 %37, 0
-  br i1 %.not4, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
+  %.not = icmp eq i8 %37, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %41
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !25
@@ -6905,9 +6901,8 @@ define void @_ZN6icu_7713DecimalFormat15setPadCharacterERKNS_13UnicodeStringE(pt
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %14 = load i16, ptr %13, align 8, !tbaa !20
-  %15 = and i16 %14, 1
-  %.not = icmp eq i16 %15, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %56
+  %15 = trunc i16 %14 to i1
+  br i1 %15, label %56, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 16:                                               ; preds = %8
   %17 = icmp slt i16 %10, 0
@@ -6938,8 +6933,8 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %16
   %36 = load ptr, ptr %35, align 8
   %37 = select i1 %.not.i.i.i, ptr %36, ptr %34
   %38 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %37, i32 noundef %22)
-  %.not5 = icmp eq i8 %38, 0
-  br i1 %.not5, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %56
+  %.not = icmp eq i8 %38, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge, label %56
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit._ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread_crit_edge: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
   %.pre = load i16, ptr %9, align 8, !tbaa !20

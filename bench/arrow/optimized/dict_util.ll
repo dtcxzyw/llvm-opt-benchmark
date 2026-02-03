@@ -35,14 +35,14 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !36
   %26 = icmp sgt i64 %7, 0
-  switch i32 %16, label %354 [
+  switch i32 %16, label %333 [
     i32 2, label %27
-    i32 3, label %74
-    i32 4, label %121
-    i32 5, label %168
-    i32 6, label %215
-    i32 7, label %262
-    i32 8, label %309
+    i32 3, label %71
+    i32 4, label %115
+    i32 5, label %159
+    i32 6, label %203
+    i32 7, label %247
+    i32 8, label %291
   ]
 
 27:                                               ; preds = %11
@@ -59,590 +59,558 @@ define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr n
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.split.us.i
-  %.023.us.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %.1.us.i, %31 ]
-  %.01822.us.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %46, %31 ]
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.01822.us.i
+  %.021.us.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %.1.us.i, %31 ]
+  %.01820.us.i = phi i64 [ 0, %.lr.ph.split.us.i ], [ %45, %31 ]
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %.01820.us.i
   %33 = load i8, ptr %32, align 1, !tbaa !41
   %34 = zext i8 %33 to i64
   %35 = add nsw i64 %30, %34
   %36 = lshr i64 %35, 3
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !41
-  %39 = zext i8 %38 to i32
-  %40 = trunc i64 %35 to i32
-  %41 = and i32 %40, 7
-  %42 = xor i32 %39, -1
-  %43 = lshr i32 %42, %41
-  %44 = and i32 %43, 1
-  %45 = zext nneg i32 %44 to i64
-  %.1.us.i = add nuw nsw i64 %.023.us.i, %45
-  %46 = add nuw nsw i64 %.01822.us.i, 1
-  %exitcond25.not.i = icmp eq i64 %46, %7
-  br i1 %exitcond25.not.i, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %31, !llvm.loop !42
+  %39 = trunc i64 %35 to i8
+  %40 = and i8 %39, 7
+  %41 = lshr i8 %38, %40
+  %42 = and i8 %41, 1
+  %43 = xor i8 %42, 1
+  %44 = zext nneg i8 %43 to i64
+  %.1.us.i = add nuw nsw i64 %.021.us.i, %44
+  %45 = add nuw nsw i64 %.01820.us.i, 1
+  %exitcond23.not.i = icmp eq i64 %45, %7
+  br i1 %exitcond23.not.i, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %31, !llvm.loop !42
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %72
-  %.023.i = phi i64 [ %.1.i, %72 ], [ 0, %.lr.ph.i ]
-  %.01822.i = phi i64 [ %73, %72 ], [ 0, %.lr.ph.i ]
-  %47 = add nsw i64 %.01822.i, %23
-  %48 = lshr i64 %47, 3
-  %49 = getelementptr inbounds nuw i8, ptr %18, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !41
-  %51 = zext i8 %50 to i32
-  %52 = trunc i64 %47 to i32
-  %53 = and i32 %52, 7
-  %54 = shl nuw nsw i32 1, %53
-  %55 = and i32 %54, %51
-  %.not20.i = icmp eq i32 %55, 0
-  br i1 %.not20.i, label %72, label %56
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %69
+  %.021.i = phi i64 [ %.1.i, %69 ], [ 0, %.lr.ph.i ]
+  %.01820.i = phi i64 [ %70, %69 ], [ 0, %.lr.ph.i ]
+  %46 = add nsw i64 %.01820.i, %23
+  %47 = lshr i64 %46, 3
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !41
+  %50 = trunc i64 %46 to i8
+  %51 = and i8 %50, 7
+  %52 = lshr i8 %49, %51
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %69
 
-56:                                               ; preds = %.lr.ph.split.i
-  %57 = getelementptr inbounds nuw i8, ptr %28, i64 %.01822.i
-  %58 = load i8, ptr %57, align 1, !tbaa !41
-  %59 = zext i8 %58 to i64
-  %60 = load i64, ptr %29, align 8, !tbaa !40
-  %61 = add nsw i64 %60, %59
-  %62 = lshr i64 %61, 3
-  %63 = getelementptr inbounds nuw i8, ptr %21, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !41
-  %65 = zext i8 %64 to i32
-  %66 = trunc i64 %61 to i32
-  %67 = and i32 %66, 7
-  %68 = xor i32 %65, -1
-  %69 = lshr i32 %68, %67
-  %70 = and i32 %69, 1
-  %71 = zext nneg i32 %70 to i64
-  br label %72
+54:                                               ; preds = %.lr.ph.split.i
+  %55 = getelementptr inbounds nuw i8, ptr %28, i64 %.01820.i
+  %56 = load i8, ptr %55, align 1, !tbaa !41
+  %57 = zext i8 %56 to i64
+  %58 = load i64, ptr %29, align 8, !tbaa !40
+  %59 = add nsw i64 %58, %57
+  %60 = lshr i64 %59, 3
+  %61 = getelementptr inbounds nuw i8, ptr %21, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !41
+  %63 = trunc i64 %59 to i8
+  %64 = and i8 %63, 7
+  %65 = lshr i8 %62, %64
+  %66 = and i8 %65, 1
+  %67 = xor i8 %66, 1
+  %68 = zext nneg i8 %67 to i64
+  br label %69
 
-72:                                               ; preds = %56, %.lr.ph.split.i
-  %.pn.i = phi i64 [ %71, %56 ], [ 1, %.lr.ph.split.i ]
-  %.1.i = add nuw nsw i64 %.pn.i, %.023.i
-  %73 = add nuw nsw i64 %.01822.i, 1
-  %exitcond.not.i = icmp eq i64 %73, %7
+69:                                               ; preds = %54, %.lr.ph.split.i
+  %.pn.i = phi i64 [ %68, %54 ], [ 1, %.lr.ph.split.i ]
+  %.1.i = add nuw nsw i64 %.pn.i, %.021.i
+  %70 = add nuw nsw i64 %.01820.i, 1
+  %exitcond.not.i = icmp eq i64 %70, %7
   br i1 %exitcond.not.i, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i, !llvm.loop !42
 
-74:                                               ; preds = %11
-  %75 = getelementptr inbounds i8, ptr %25, i64 %23
+71:                                               ; preds = %11
+  %72 = getelementptr inbounds i8, ptr %25, i64 %23
   br i1 %26, label %.lr.ph.i16, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
 
-.lr.ph.i16:                                       ; preds = %74
+.lr.ph.i16:                                       ; preds = %71
   %.not.i17 = icmp eq ptr %18, null
-  %76 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i17, label %.lr.ph.split.us.i25, label %.lr.ph.split.i18
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i17, label %.lr.ph.split.us.i24, label %.lr.ph.split.i18
 
-.lr.ph.split.us.i25:                              ; preds = %.lr.ph.i16
-  %77 = load i64, ptr %76, align 8, !tbaa !40
-  br label %78
+.lr.ph.split.us.i24:                              ; preds = %.lr.ph.i16
+  %74 = load i64, ptr %73, align 8, !tbaa !40
+  br label %75
 
-78:                                               ; preds = %78, %.lr.ph.split.us.i25
-  %.023.us.i26 = phi i64 [ 0, %.lr.ph.split.us.i25 ], [ %.1.us.i28, %78 ]
-  %.01822.us.i27 = phi i64 [ 0, %.lr.ph.split.us.i25 ], [ %93, %78 ]
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 %.01822.us.i27
-  %80 = load i8, ptr %79, align 1, !tbaa !41
-  %81 = sext i8 %80 to i64
-  %82 = add nsw i64 %77, %81
-  %83 = lshr i64 %82, 3
-  %84 = getelementptr inbounds nuw i8, ptr %21, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !41
-  %86 = zext i8 %85 to i32
-  %87 = trunc i64 %82 to i32
-  %88 = and i32 %87, 7
-  %89 = xor i32 %86, -1
-  %90 = lshr i32 %89, %88
-  %91 = and i32 %90, 1
-  %92 = zext nneg i32 %91 to i64
-  %.1.us.i28 = add nuw nsw i64 %.023.us.i26, %92
-  %93 = add nuw nsw i64 %.01822.us.i27, 1
-  %exitcond25.not.i29 = icmp eq i64 %93, %7
-  br i1 %exitcond25.not.i29, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %78, !llvm.loop !44
+75:                                               ; preds = %75, %.lr.ph.split.us.i24
+  %.021.us.i25 = phi i64 [ 0, %.lr.ph.split.us.i24 ], [ %.1.us.i27, %75 ]
+  %.01820.us.i26 = phi i64 [ 0, %.lr.ph.split.us.i24 ], [ %89, %75 ]
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %.01820.us.i26
+  %77 = load i8, ptr %76, align 1, !tbaa !41
+  %78 = sext i8 %77 to i64
+  %79 = add nsw i64 %74, %78
+  %80 = lshr i64 %79, 3
+  %81 = getelementptr inbounds nuw i8, ptr %21, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !41
+  %83 = trunc i64 %79 to i8
+  %84 = and i8 %83, 7
+  %85 = lshr i8 %82, %84
+  %86 = and i8 %85, 1
+  %87 = xor i8 %86, 1
+  %88 = zext nneg i8 %87 to i64
+  %.1.us.i27 = add nuw nsw i64 %.021.us.i25, %88
+  %89 = add nuw nsw i64 %.01820.us.i26, 1
+  %exitcond23.not.i28 = icmp eq i64 %89, %7
+  br i1 %exitcond23.not.i28, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %75, !llvm.loop !44
 
-.lr.ph.split.i18:                                 ; preds = %.lr.ph.i16, %119
-  %.023.i19 = phi i64 [ %.1.i23, %119 ], [ 0, %.lr.ph.i16 ]
-  %.01822.i20 = phi i64 [ %120, %119 ], [ 0, %.lr.ph.i16 ]
-  %94 = add nsw i64 %.01822.i20, %23
-  %95 = lshr i64 %94, 3
-  %96 = getelementptr inbounds nuw i8, ptr %18, i64 %95
-  %97 = load i8, ptr %96, align 1, !tbaa !41
-  %98 = zext i8 %97 to i32
-  %99 = trunc i64 %94 to i32
-  %100 = and i32 %99, 7
-  %101 = shl nuw nsw i32 1, %100
-  %102 = and i32 %101, %98
-  %.not20.i21 = icmp eq i32 %102, 0
-  br i1 %.not20.i21, label %119, label %103
+.lr.ph.split.i18:                                 ; preds = %.lr.ph.i16, %113
+  %.021.i19 = phi i64 [ %.1.i22, %113 ], [ 0, %.lr.ph.i16 ]
+  %.01820.i20 = phi i64 [ %114, %113 ], [ 0, %.lr.ph.i16 ]
+  %90 = add nsw i64 %.01820.i20, %23
+  %91 = lshr i64 %90, 3
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !41
+  %94 = trunc i64 %90 to i8
+  %95 = and i8 %94, 7
+  %96 = lshr i8 %93, %95
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %113
 
-103:                                              ; preds = %.lr.ph.split.i18
-  %104 = getelementptr inbounds nuw i8, ptr %75, i64 %.01822.i20
-  %105 = load i8, ptr %104, align 1, !tbaa !41
-  %106 = sext i8 %105 to i64
-  %107 = load i64, ptr %76, align 8, !tbaa !40
-  %108 = add nsw i64 %107, %106
-  %109 = lshr i64 %108, 3
-  %110 = getelementptr inbounds nuw i8, ptr %21, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !41
-  %112 = zext i8 %111 to i32
-  %113 = trunc i64 %108 to i32
-  %114 = and i32 %113, 7
-  %115 = xor i32 %112, -1
-  %116 = lshr i32 %115, %114
-  %117 = and i32 %116, 1
-  %118 = zext nneg i32 %117 to i64
+98:                                               ; preds = %.lr.ph.split.i18
+  %99 = getelementptr inbounds nuw i8, ptr %72, i64 %.01820.i20
+  %100 = load i8, ptr %99, align 1, !tbaa !41
+  %101 = sext i8 %100 to i64
+  %102 = load i64, ptr %73, align 8, !tbaa !40
+  %103 = add nsw i64 %102, %101
+  %104 = lshr i64 %103, 3
+  %105 = getelementptr inbounds nuw i8, ptr %21, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !41
+  %107 = trunc i64 %103 to i8
+  %108 = and i8 %107, 7
+  %109 = lshr i8 %106, %108
+  %110 = and i8 %109, 1
+  %111 = xor i8 %110, 1
+  %112 = zext nneg i8 %111 to i64
+  br label %113
+
+113:                                              ; preds = %98, %.lr.ph.split.i18
+  %.pn.i21 = phi i64 [ %112, %98 ], [ 1, %.lr.ph.split.i18 ]
+  %.1.i22 = add nuw nsw i64 %.pn.i21, %.021.i19
+  %114 = add nuw nsw i64 %.01820.i20, 1
+  %exitcond.not.i23 = icmp eq i64 %114, %7
+  br i1 %exitcond.not.i23, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i18, !llvm.loop !44
+
+115:                                              ; preds = %11
+  %116 = getelementptr inbounds i16, ptr %25, i64 %23
+  br i1 %26, label %.lr.ph.i30, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+
+.lr.ph.i30:                                       ; preds = %115
+  %.not.i31 = icmp eq ptr %18, null
+  %117 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i31, label %.lr.ph.split.us.i38, label %.lr.ph.split.i32
+
+.lr.ph.split.us.i38:                              ; preds = %.lr.ph.i30
+  %118 = load i64, ptr %117, align 8, !tbaa !40
   br label %119
 
-119:                                              ; preds = %103, %.lr.ph.split.i18
-  %.pn.i22 = phi i64 [ %118, %103 ], [ 1, %.lr.ph.split.i18 ]
-  %.1.i23 = add nuw nsw i64 %.pn.i22, %.023.i19
-  %120 = add nuw nsw i64 %.01822.i20, 1
-  %exitcond.not.i24 = icmp eq i64 %120, %7
-  br i1 %exitcond.not.i24, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i18, !llvm.loop !44
+119:                                              ; preds = %119, %.lr.ph.split.us.i38
+  %.021.us.i39 = phi i64 [ 0, %.lr.ph.split.us.i38 ], [ %.1.us.i41, %119 ]
+  %.01820.us.i40 = phi i64 [ 0, %.lr.ph.split.us.i38 ], [ %133, %119 ]
+  %120 = getelementptr inbounds nuw i16, ptr %116, i64 %.01820.us.i40
+  %121 = load i16, ptr %120, align 2, !tbaa !45
+  %122 = zext i16 %121 to i64
+  %123 = add nsw i64 %118, %122
+  %124 = lshr i64 %123, 3
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 %124
+  %126 = load i8, ptr %125, align 1, !tbaa !41
+  %127 = trunc i64 %123 to i8
+  %128 = and i8 %127, 7
+  %129 = lshr i8 %126, %128
+  %130 = and i8 %129, 1
+  %131 = xor i8 %130, 1
+  %132 = zext nneg i8 %131 to i64
+  %.1.us.i41 = add nuw nsw i64 %.021.us.i39, %132
+  %133 = add nuw nsw i64 %.01820.us.i40, 1
+  %exitcond23.not.i42 = icmp eq i64 %133, %7
+  br i1 %exitcond23.not.i42, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %119, !llvm.loop !47
 
-121:                                              ; preds = %11
-  %122 = getelementptr inbounds i16, ptr %25, i64 %23
-  br i1 %26, label %.lr.ph.i31, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+.lr.ph.split.i32:                                 ; preds = %.lr.ph.i30, %157
+  %.021.i33 = phi i64 [ %.1.i36, %157 ], [ 0, %.lr.ph.i30 ]
+  %.01820.i34 = phi i64 [ %158, %157 ], [ 0, %.lr.ph.i30 ]
+  %134 = add nsw i64 %.01820.i34, %23
+  %135 = lshr i64 %134, 3
+  %136 = getelementptr inbounds nuw i8, ptr %18, i64 %135
+  %137 = load i8, ptr %136, align 1, !tbaa !41
+  %138 = trunc i64 %134 to i8
+  %139 = and i8 %138, 7
+  %140 = lshr i8 %137, %139
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %142, label %157
 
-.lr.ph.i31:                                       ; preds = %121
-  %.not.i32 = icmp eq ptr %18, null
-  %123 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i32, label %.lr.ph.split.us.i40, label %.lr.ph.split.i33
+142:                                              ; preds = %.lr.ph.split.i32
+  %143 = getelementptr inbounds nuw i16, ptr %116, i64 %.01820.i34
+  %144 = load i16, ptr %143, align 2, !tbaa !45
+  %145 = zext i16 %144 to i64
+  %146 = load i64, ptr %117, align 8, !tbaa !40
+  %147 = add nsw i64 %146, %145
+  %148 = lshr i64 %147, 3
+  %149 = getelementptr inbounds nuw i8, ptr %21, i64 %148
+  %150 = load i8, ptr %149, align 1, !tbaa !41
+  %151 = trunc i64 %147 to i8
+  %152 = and i8 %151, 7
+  %153 = lshr i8 %150, %152
+  %154 = and i8 %153, 1
+  %155 = xor i8 %154, 1
+  %156 = zext nneg i8 %155 to i64
+  br label %157
 
-.lr.ph.split.us.i40:                              ; preds = %.lr.ph.i31
-  %124 = load i64, ptr %123, align 8, !tbaa !40
-  br label %125
+157:                                              ; preds = %142, %.lr.ph.split.i32
+  %.pn.i35 = phi i64 [ %156, %142 ], [ 1, %.lr.ph.split.i32 ]
+  %.1.i36 = add nuw nsw i64 %.pn.i35, %.021.i33
+  %158 = add nuw nsw i64 %.01820.i34, 1
+  %exitcond.not.i37 = icmp eq i64 %158, %7
+  br i1 %exitcond.not.i37, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i32, !llvm.loop !47
 
-125:                                              ; preds = %125, %.lr.ph.split.us.i40
-  %.023.us.i41 = phi i64 [ 0, %.lr.ph.split.us.i40 ], [ %.1.us.i43, %125 ]
-  %.01822.us.i42 = phi i64 [ 0, %.lr.ph.split.us.i40 ], [ %140, %125 ]
-  %126 = getelementptr inbounds nuw i16, ptr %122, i64 %.01822.us.i42
-  %127 = load i16, ptr %126, align 2, !tbaa !45
-  %128 = zext i16 %127 to i64
-  %129 = add nsw i64 %124, %128
-  %130 = lshr i64 %129, 3
-  %131 = getelementptr inbounds nuw i8, ptr %21, i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !41
-  %133 = zext i8 %132 to i32
-  %134 = trunc i64 %129 to i32
-  %135 = and i32 %134, 7
-  %136 = xor i32 %133, -1
-  %137 = lshr i32 %136, %135
-  %138 = and i32 %137, 1
-  %139 = zext nneg i32 %138 to i64
-  %.1.us.i43 = add nuw nsw i64 %.023.us.i41, %139
-  %140 = add nuw nsw i64 %.01822.us.i42, 1
-  %exitcond25.not.i44 = icmp eq i64 %140, %7
-  br i1 %exitcond25.not.i44, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %125, !llvm.loop !47
+159:                                              ; preds = %11
+  %160 = getelementptr inbounds i16, ptr %25, i64 %23
+  br i1 %26, label %.lr.ph.i44, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
 
-.lr.ph.split.i33:                                 ; preds = %.lr.ph.i31, %166
-  %.023.i34 = phi i64 [ %.1.i38, %166 ], [ 0, %.lr.ph.i31 ]
-  %.01822.i35 = phi i64 [ %167, %166 ], [ 0, %.lr.ph.i31 ]
-  %141 = add nsw i64 %.01822.i35, %23
-  %142 = lshr i64 %141, 3
-  %143 = getelementptr inbounds nuw i8, ptr %18, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !41
-  %145 = zext i8 %144 to i32
-  %146 = trunc i64 %141 to i32
-  %147 = and i32 %146, 7
-  %148 = shl nuw nsw i32 1, %147
-  %149 = and i32 %148, %145
-  %.not20.i36 = icmp eq i32 %149, 0
-  br i1 %.not20.i36, label %166, label %150
+.lr.ph.i44:                                       ; preds = %159
+  %.not.i45 = icmp eq ptr %18, null
+  %161 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i45, label %.lr.ph.split.us.i52, label %.lr.ph.split.i46
 
-150:                                              ; preds = %.lr.ph.split.i33
-  %151 = getelementptr inbounds nuw i16, ptr %122, i64 %.01822.i35
-  %152 = load i16, ptr %151, align 2, !tbaa !45
-  %153 = zext i16 %152 to i64
-  %154 = load i64, ptr %123, align 8, !tbaa !40
-  %155 = add nsw i64 %154, %153
-  %156 = lshr i64 %155, 3
-  %157 = getelementptr inbounds nuw i8, ptr %21, i64 %156
-  %158 = load i8, ptr %157, align 1, !tbaa !41
-  %159 = zext i8 %158 to i32
-  %160 = trunc i64 %155 to i32
-  %161 = and i32 %160, 7
-  %162 = xor i32 %159, -1
-  %163 = lshr i32 %162, %161
-  %164 = and i32 %163, 1
-  %165 = zext nneg i32 %164 to i64
-  br label %166
+.lr.ph.split.us.i52:                              ; preds = %.lr.ph.i44
+  %162 = load i64, ptr %161, align 8, !tbaa !40
+  br label %163
 
-166:                                              ; preds = %150, %.lr.ph.split.i33
-  %.pn.i37 = phi i64 [ %165, %150 ], [ 1, %.lr.ph.split.i33 ]
-  %.1.i38 = add nuw nsw i64 %.pn.i37, %.023.i34
-  %167 = add nuw nsw i64 %.01822.i35, 1
-  %exitcond.not.i39 = icmp eq i64 %167, %7
-  br i1 %exitcond.not.i39, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i33, !llvm.loop !47
+163:                                              ; preds = %163, %.lr.ph.split.us.i52
+  %.021.us.i53 = phi i64 [ 0, %.lr.ph.split.us.i52 ], [ %.1.us.i55, %163 ]
+  %.01820.us.i54 = phi i64 [ 0, %.lr.ph.split.us.i52 ], [ %177, %163 ]
+  %164 = getelementptr inbounds nuw i16, ptr %160, i64 %.01820.us.i54
+  %165 = load i16, ptr %164, align 2, !tbaa !45
+  %166 = sext i16 %165 to i64
+  %167 = add nsw i64 %162, %166
+  %168 = lshr i64 %167, 3
+  %169 = getelementptr inbounds nuw i8, ptr %21, i64 %168
+  %170 = load i8, ptr %169, align 1, !tbaa !41
+  %171 = trunc i64 %167 to i8
+  %172 = and i8 %171, 7
+  %173 = lshr i8 %170, %172
+  %174 = and i8 %173, 1
+  %175 = xor i8 %174, 1
+  %176 = zext nneg i8 %175 to i64
+  %.1.us.i55 = add nuw nsw i64 %.021.us.i53, %176
+  %177 = add nuw nsw i64 %.01820.us.i54, 1
+  %exitcond23.not.i56 = icmp eq i64 %177, %7
+  br i1 %exitcond23.not.i56, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %163, !llvm.loop !48
 
-168:                                              ; preds = %11
-  %169 = getelementptr inbounds i16, ptr %25, i64 %23
-  br i1 %26, label %.lr.ph.i46, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+.lr.ph.split.i46:                                 ; preds = %.lr.ph.i44, %201
+  %.021.i47 = phi i64 [ %.1.i50, %201 ], [ 0, %.lr.ph.i44 ]
+  %.01820.i48 = phi i64 [ %202, %201 ], [ 0, %.lr.ph.i44 ]
+  %178 = add nsw i64 %.01820.i48, %23
+  %179 = lshr i64 %178, 3
+  %180 = getelementptr inbounds nuw i8, ptr %18, i64 %179
+  %181 = load i8, ptr %180, align 1, !tbaa !41
+  %182 = trunc i64 %178 to i8
+  %183 = and i8 %182, 7
+  %184 = lshr i8 %181, %183
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %201
 
-.lr.ph.i46:                                       ; preds = %168
-  %.not.i47 = icmp eq ptr %18, null
-  %170 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i47, label %.lr.ph.split.us.i55, label %.lr.ph.split.i48
+186:                                              ; preds = %.lr.ph.split.i46
+  %187 = getelementptr inbounds nuw i16, ptr %160, i64 %.01820.i48
+  %188 = load i16, ptr %187, align 2, !tbaa !45
+  %189 = sext i16 %188 to i64
+  %190 = load i64, ptr %161, align 8, !tbaa !40
+  %191 = add nsw i64 %190, %189
+  %192 = lshr i64 %191, 3
+  %193 = getelementptr inbounds nuw i8, ptr %21, i64 %192
+  %194 = load i8, ptr %193, align 1, !tbaa !41
+  %195 = trunc i64 %191 to i8
+  %196 = and i8 %195, 7
+  %197 = lshr i8 %194, %196
+  %198 = and i8 %197, 1
+  %199 = xor i8 %198, 1
+  %200 = zext nneg i8 %199 to i64
+  br label %201
 
-.lr.ph.split.us.i55:                              ; preds = %.lr.ph.i46
-  %171 = load i64, ptr %170, align 8, !tbaa !40
-  br label %172
+201:                                              ; preds = %186, %.lr.ph.split.i46
+  %.pn.i49 = phi i64 [ %200, %186 ], [ 1, %.lr.ph.split.i46 ]
+  %.1.i50 = add nuw nsw i64 %.pn.i49, %.021.i47
+  %202 = add nuw nsw i64 %.01820.i48, 1
+  %exitcond.not.i51 = icmp eq i64 %202, %7
+  br i1 %exitcond.not.i51, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i46, !llvm.loop !48
 
-172:                                              ; preds = %172, %.lr.ph.split.us.i55
-  %.023.us.i56 = phi i64 [ 0, %.lr.ph.split.us.i55 ], [ %.1.us.i58, %172 ]
-  %.01822.us.i57 = phi i64 [ 0, %.lr.ph.split.us.i55 ], [ %187, %172 ]
-  %173 = getelementptr inbounds nuw i16, ptr %169, i64 %.01822.us.i57
-  %174 = load i16, ptr %173, align 2, !tbaa !45
-  %175 = sext i16 %174 to i64
-  %176 = add nsw i64 %171, %175
-  %177 = lshr i64 %176, 3
-  %178 = getelementptr inbounds nuw i8, ptr %21, i64 %177
-  %179 = load i8, ptr %178, align 1, !tbaa !41
-  %180 = zext i8 %179 to i32
-  %181 = trunc i64 %176 to i32
-  %182 = and i32 %181, 7
-  %183 = xor i32 %180, -1
-  %184 = lshr i32 %183, %182
-  %185 = and i32 %184, 1
-  %186 = zext nneg i32 %185 to i64
-  %.1.us.i58 = add nuw nsw i64 %.023.us.i56, %186
-  %187 = add nuw nsw i64 %.01822.us.i57, 1
-  %exitcond25.not.i59 = icmp eq i64 %187, %7
-  br i1 %exitcond25.not.i59, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %172, !llvm.loop !48
+203:                                              ; preds = %11
+  %204 = getelementptr inbounds i32, ptr %25, i64 %23
+  br i1 %26, label %.lr.ph.i58, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
 
-.lr.ph.split.i48:                                 ; preds = %.lr.ph.i46, %213
-  %.023.i49 = phi i64 [ %.1.i53, %213 ], [ 0, %.lr.ph.i46 ]
-  %.01822.i50 = phi i64 [ %214, %213 ], [ 0, %.lr.ph.i46 ]
-  %188 = add nsw i64 %.01822.i50, %23
-  %189 = lshr i64 %188, 3
-  %190 = getelementptr inbounds nuw i8, ptr %18, i64 %189
-  %191 = load i8, ptr %190, align 1, !tbaa !41
-  %192 = zext i8 %191 to i32
-  %193 = trunc i64 %188 to i32
-  %194 = and i32 %193, 7
-  %195 = shl nuw nsw i32 1, %194
-  %196 = and i32 %195, %192
-  %.not20.i51 = icmp eq i32 %196, 0
-  br i1 %.not20.i51, label %213, label %197
+.lr.ph.i58:                                       ; preds = %203
+  %.not.i59 = icmp eq ptr %18, null
+  %205 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i59, label %.lr.ph.split.us.i66, label %.lr.ph.split.i60
 
-197:                                              ; preds = %.lr.ph.split.i48
-  %198 = getelementptr inbounds nuw i16, ptr %169, i64 %.01822.i50
-  %199 = load i16, ptr %198, align 2, !tbaa !45
-  %200 = sext i16 %199 to i64
-  %201 = load i64, ptr %170, align 8, !tbaa !40
-  %202 = add nsw i64 %201, %200
-  %203 = lshr i64 %202, 3
-  %204 = getelementptr inbounds nuw i8, ptr %21, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !41
-  %206 = zext i8 %205 to i32
-  %207 = trunc i64 %202 to i32
-  %208 = and i32 %207, 7
-  %209 = xor i32 %206, -1
-  %210 = lshr i32 %209, %208
-  %211 = and i32 %210, 1
-  %212 = zext nneg i32 %211 to i64
-  br label %213
+.lr.ph.split.us.i66:                              ; preds = %.lr.ph.i58
+  %206 = load i64, ptr %205, align 8, !tbaa !40
+  br label %207
 
-213:                                              ; preds = %197, %.lr.ph.split.i48
-  %.pn.i52 = phi i64 [ %212, %197 ], [ 1, %.lr.ph.split.i48 ]
-  %.1.i53 = add nuw nsw i64 %.pn.i52, %.023.i49
-  %214 = add nuw nsw i64 %.01822.i50, 1
-  %exitcond.not.i54 = icmp eq i64 %214, %7
-  br i1 %exitcond.not.i54, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i48, !llvm.loop !48
+207:                                              ; preds = %207, %.lr.ph.split.us.i66
+  %.021.us.i67 = phi i64 [ 0, %.lr.ph.split.us.i66 ], [ %.1.us.i69, %207 ]
+  %.01820.us.i68 = phi i64 [ 0, %.lr.ph.split.us.i66 ], [ %221, %207 ]
+  %208 = getelementptr inbounds nuw i32, ptr %204, i64 %.01820.us.i68
+  %209 = load i32, ptr %208, align 4, !tbaa !49
+  %210 = zext i32 %209 to i64
+  %211 = add nsw i64 %206, %210
+  %212 = lshr i64 %211, 3
+  %213 = getelementptr inbounds nuw i8, ptr %21, i64 %212
+  %214 = load i8, ptr %213, align 1, !tbaa !41
+  %215 = trunc i64 %211 to i8
+  %216 = and i8 %215, 7
+  %217 = lshr i8 %214, %216
+  %218 = and i8 %217, 1
+  %219 = xor i8 %218, 1
+  %220 = zext nneg i8 %219 to i64
+  %.1.us.i69 = add nuw nsw i64 %.021.us.i67, %220
+  %221 = add nuw nsw i64 %.01820.us.i68, 1
+  %exitcond23.not.i70 = icmp eq i64 %221, %7
+  br i1 %exitcond23.not.i70, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %207, !llvm.loop !51
 
-215:                                              ; preds = %11
-  %216 = getelementptr inbounds i32, ptr %25, i64 %23
-  br i1 %26, label %.lr.ph.i61, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+.lr.ph.split.i60:                                 ; preds = %.lr.ph.i58, %245
+  %.021.i61 = phi i64 [ %.1.i64, %245 ], [ 0, %.lr.ph.i58 ]
+  %.01820.i62 = phi i64 [ %246, %245 ], [ 0, %.lr.ph.i58 ]
+  %222 = add nsw i64 %.01820.i62, %23
+  %223 = lshr i64 %222, 3
+  %224 = getelementptr inbounds nuw i8, ptr %18, i64 %223
+  %225 = load i8, ptr %224, align 1, !tbaa !41
+  %226 = trunc i64 %222 to i8
+  %227 = and i8 %226, 7
+  %228 = lshr i8 %225, %227
+  %229 = trunc i8 %228 to i1
+  br i1 %229, label %230, label %245
 
-.lr.ph.i61:                                       ; preds = %215
-  %.not.i62 = icmp eq ptr %18, null
-  %217 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i62, label %.lr.ph.split.us.i70, label %.lr.ph.split.i63
-
-.lr.ph.split.us.i70:                              ; preds = %.lr.ph.i61
-  %218 = load i64, ptr %217, align 8, !tbaa !40
-  br label %219
-
-219:                                              ; preds = %219, %.lr.ph.split.us.i70
-  %.023.us.i71 = phi i64 [ 0, %.lr.ph.split.us.i70 ], [ %.1.us.i73, %219 ]
-  %.01822.us.i72 = phi i64 [ 0, %.lr.ph.split.us.i70 ], [ %234, %219 ]
-  %220 = getelementptr inbounds nuw i32, ptr %216, i64 %.01822.us.i72
-  %221 = load i32, ptr %220, align 4, !tbaa !49
-  %222 = zext i32 %221 to i64
-  %223 = add nsw i64 %218, %222
-  %224 = lshr i64 %223, 3
-  %225 = getelementptr inbounds nuw i8, ptr %21, i64 %224
-  %226 = load i8, ptr %225, align 1, !tbaa !41
-  %227 = zext i8 %226 to i32
-  %228 = trunc i64 %223 to i32
-  %229 = and i32 %228, 7
-  %230 = xor i32 %227, -1
-  %231 = lshr i32 %230, %229
-  %232 = and i32 %231, 1
-  %233 = zext nneg i32 %232 to i64
-  %.1.us.i73 = add nuw nsw i64 %.023.us.i71, %233
-  %234 = add nuw nsw i64 %.01822.us.i72, 1
-  %exitcond25.not.i74 = icmp eq i64 %234, %7
-  br i1 %exitcond25.not.i74, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %219, !llvm.loop !51
-
-.lr.ph.split.i63:                                 ; preds = %.lr.ph.i61, %260
-  %.023.i64 = phi i64 [ %.1.i68, %260 ], [ 0, %.lr.ph.i61 ]
-  %.01822.i65 = phi i64 [ %261, %260 ], [ 0, %.lr.ph.i61 ]
-  %235 = add nsw i64 %.01822.i65, %23
+230:                                              ; preds = %.lr.ph.split.i60
+  %231 = getelementptr inbounds nuw i32, ptr %204, i64 %.01820.i62
+  %232 = load i32, ptr %231, align 4, !tbaa !49
+  %233 = zext i32 %232 to i64
+  %234 = load i64, ptr %205, align 8, !tbaa !40
+  %235 = add nsw i64 %234, %233
   %236 = lshr i64 %235, 3
-  %237 = getelementptr inbounds nuw i8, ptr %18, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr %21, i64 %236
   %238 = load i8, ptr %237, align 1, !tbaa !41
-  %239 = zext i8 %238 to i32
-  %240 = trunc i64 %235 to i32
-  %241 = and i32 %240, 7
-  %242 = shl nuw nsw i32 1, %241
-  %243 = and i32 %242, %239
-  %.not20.i66 = icmp eq i32 %243, 0
-  br i1 %.not20.i66, label %260, label %244
+  %239 = trunc i64 %235 to i8
+  %240 = and i8 %239, 7
+  %241 = lshr i8 %238, %240
+  %242 = and i8 %241, 1
+  %243 = xor i8 %242, 1
+  %244 = zext nneg i8 %243 to i64
+  br label %245
 
-244:                                              ; preds = %.lr.ph.split.i63
-  %245 = getelementptr inbounds nuw i32, ptr %216, i64 %.01822.i65
-  %246 = load i32, ptr %245, align 4, !tbaa !49
-  %247 = zext i32 %246 to i64
-  %248 = load i64, ptr %217, align 8, !tbaa !40
-  %249 = add nsw i64 %248, %247
-  %250 = lshr i64 %249, 3
-  %251 = getelementptr inbounds nuw i8, ptr %21, i64 %250
-  %252 = load i8, ptr %251, align 1, !tbaa !41
-  %253 = zext i8 %252 to i32
-  %254 = trunc i64 %249 to i32
-  %255 = and i32 %254, 7
-  %256 = xor i32 %253, -1
-  %257 = lshr i32 %256, %255
-  %258 = and i32 %257, 1
-  %259 = zext nneg i32 %258 to i64
-  br label %260
+245:                                              ; preds = %230, %.lr.ph.split.i60
+  %.pn.i63 = phi i64 [ %244, %230 ], [ 1, %.lr.ph.split.i60 ]
+  %.1.i64 = add nuw nsw i64 %.pn.i63, %.021.i61
+  %246 = add nuw nsw i64 %.01820.i62, 1
+  %exitcond.not.i65 = icmp eq i64 %246, %7
+  br i1 %exitcond.not.i65, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i60, !llvm.loop !51
 
-260:                                              ; preds = %244, %.lr.ph.split.i63
-  %.pn.i67 = phi i64 [ %259, %244 ], [ 1, %.lr.ph.split.i63 ]
-  %.1.i68 = add nuw nsw i64 %.pn.i67, %.023.i64
-  %261 = add nuw nsw i64 %.01822.i65, 1
-  %exitcond.not.i69 = icmp eq i64 %261, %7
-  br i1 %exitcond.not.i69, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i63, !llvm.loop !51
+247:                                              ; preds = %11
+  %248 = getelementptr inbounds i32, ptr %25, i64 %23
+  br i1 %26, label %.lr.ph.i72, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
 
-262:                                              ; preds = %11
-  %263 = getelementptr inbounds i32, ptr %25, i64 %23
-  br i1 %26, label %.lr.ph.i76, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+.lr.ph.i72:                                       ; preds = %247
+  %.not.i73 = icmp eq ptr %18, null
+  %249 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i73, label %.lr.ph.split.us.i80, label %.lr.ph.split.i74
 
-.lr.ph.i76:                                       ; preds = %262
-  %.not.i77 = icmp eq ptr %18, null
-  %264 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i77, label %.lr.ph.split.us.i85, label %.lr.ph.split.i78
+.lr.ph.split.us.i80:                              ; preds = %.lr.ph.i72
+  %250 = load i64, ptr %249, align 8, !tbaa !40
+  br label %251
 
-.lr.ph.split.us.i85:                              ; preds = %.lr.ph.i76
-  %265 = load i64, ptr %264, align 8, !tbaa !40
-  br label %266
+251:                                              ; preds = %251, %.lr.ph.split.us.i80
+  %.021.us.i81 = phi i64 [ 0, %.lr.ph.split.us.i80 ], [ %.1.us.i83, %251 ]
+  %.01820.us.i82 = phi i64 [ 0, %.lr.ph.split.us.i80 ], [ %265, %251 ]
+  %252 = getelementptr inbounds nuw i32, ptr %248, i64 %.01820.us.i82
+  %253 = load i32, ptr %252, align 4, !tbaa !49
+  %254 = sext i32 %253 to i64
+  %255 = add nsw i64 %250, %254
+  %256 = lshr i64 %255, 3
+  %257 = getelementptr inbounds nuw i8, ptr %21, i64 %256
+  %258 = load i8, ptr %257, align 1, !tbaa !41
+  %259 = trunc i64 %255 to i8
+  %260 = and i8 %259, 7
+  %261 = lshr i8 %258, %260
+  %262 = and i8 %261, 1
+  %263 = xor i8 %262, 1
+  %264 = zext nneg i8 %263 to i64
+  %.1.us.i83 = add nuw nsw i64 %.021.us.i81, %264
+  %265 = add nuw nsw i64 %.01820.us.i82, 1
+  %exitcond23.not.i84 = icmp eq i64 %265, %7
+  br i1 %exitcond23.not.i84, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %251, !llvm.loop !52
 
-266:                                              ; preds = %266, %.lr.ph.split.us.i85
-  %.023.us.i86 = phi i64 [ 0, %.lr.ph.split.us.i85 ], [ %.1.us.i88, %266 ]
-  %.01822.us.i87 = phi i64 [ 0, %.lr.ph.split.us.i85 ], [ %281, %266 ]
-  %267 = getelementptr inbounds nuw i32, ptr %263, i64 %.01822.us.i87
-  %268 = load i32, ptr %267, align 4, !tbaa !49
-  %269 = sext i32 %268 to i64
-  %270 = add nsw i64 %265, %269
-  %271 = lshr i64 %270, 3
-  %272 = getelementptr inbounds nuw i8, ptr %21, i64 %271
-  %273 = load i8, ptr %272, align 1, !tbaa !41
-  %274 = zext i8 %273 to i32
-  %275 = trunc i64 %270 to i32
-  %276 = and i32 %275, 7
-  %277 = xor i32 %274, -1
-  %278 = lshr i32 %277, %276
-  %279 = and i32 %278, 1
-  %280 = zext nneg i32 %279 to i64
-  %.1.us.i88 = add nuw nsw i64 %.023.us.i86, %280
-  %281 = add nuw nsw i64 %.01822.us.i87, 1
-  %exitcond25.not.i89 = icmp eq i64 %281, %7
-  br i1 %exitcond25.not.i89, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %266, !llvm.loop !52
+.lr.ph.split.i74:                                 ; preds = %.lr.ph.i72, %289
+  %.021.i75 = phi i64 [ %.1.i78, %289 ], [ 0, %.lr.ph.i72 ]
+  %.01820.i76 = phi i64 [ %290, %289 ], [ 0, %.lr.ph.i72 ]
+  %266 = add nsw i64 %.01820.i76, %23
+  %267 = lshr i64 %266, 3
+  %268 = getelementptr inbounds nuw i8, ptr %18, i64 %267
+  %269 = load i8, ptr %268, align 1, !tbaa !41
+  %270 = trunc i64 %266 to i8
+  %271 = and i8 %270, 7
+  %272 = lshr i8 %269, %271
+  %273 = trunc i8 %272 to i1
+  br i1 %273, label %274, label %289
 
-.lr.ph.split.i78:                                 ; preds = %.lr.ph.i76, %307
-  %.023.i79 = phi i64 [ %.1.i83, %307 ], [ 0, %.lr.ph.i76 ]
-  %.01822.i80 = phi i64 [ %308, %307 ], [ 0, %.lr.ph.i76 ]
-  %282 = add nsw i64 %.01822.i80, %23
-  %283 = lshr i64 %282, 3
-  %284 = getelementptr inbounds nuw i8, ptr %18, i64 %283
-  %285 = load i8, ptr %284, align 1, !tbaa !41
-  %286 = zext i8 %285 to i32
-  %287 = trunc i64 %282 to i32
-  %288 = and i32 %287, 7
-  %289 = shl nuw nsw i32 1, %288
-  %290 = and i32 %289, %286
-  %.not20.i81 = icmp eq i32 %290, 0
-  br i1 %.not20.i81, label %307, label %291
+274:                                              ; preds = %.lr.ph.split.i74
+  %275 = getelementptr inbounds nuw i32, ptr %248, i64 %.01820.i76
+  %276 = load i32, ptr %275, align 4, !tbaa !49
+  %277 = sext i32 %276 to i64
+  %278 = load i64, ptr %249, align 8, !tbaa !40
+  %279 = add nsw i64 %278, %277
+  %280 = lshr i64 %279, 3
+  %281 = getelementptr inbounds nuw i8, ptr %21, i64 %280
+  %282 = load i8, ptr %281, align 1, !tbaa !41
+  %283 = trunc i64 %279 to i8
+  %284 = and i8 %283, 7
+  %285 = lshr i8 %282, %284
+  %286 = and i8 %285, 1
+  %287 = xor i8 %286, 1
+  %288 = zext nneg i8 %287 to i64
+  br label %289
 
-291:                                              ; preds = %.lr.ph.split.i78
-  %292 = getelementptr inbounds nuw i32, ptr %263, i64 %.01822.i80
-  %293 = load i32, ptr %292, align 4, !tbaa !49
-  %294 = sext i32 %293 to i64
-  %295 = load i64, ptr %264, align 8, !tbaa !40
-  %296 = add nsw i64 %295, %294
-  %297 = lshr i64 %296, 3
-  %298 = getelementptr inbounds nuw i8, ptr %21, i64 %297
-  %299 = load i8, ptr %298, align 1, !tbaa !41
-  %300 = zext i8 %299 to i32
-  %301 = trunc i64 %296 to i32
-  %302 = and i32 %301, 7
-  %303 = xor i32 %300, -1
-  %304 = lshr i32 %303, %302
-  %305 = and i32 %304, 1
-  %306 = zext nneg i32 %305 to i64
-  br label %307
+289:                                              ; preds = %274, %.lr.ph.split.i74
+  %.pn.i77 = phi i64 [ %288, %274 ], [ 1, %.lr.ph.split.i74 ]
+  %.1.i78 = add nuw nsw i64 %.pn.i77, %.021.i75
+  %290 = add nuw nsw i64 %.01820.i76, 1
+  %exitcond.not.i79 = icmp eq i64 %290, %7
+  br i1 %exitcond.not.i79, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i74, !llvm.loop !52
 
-307:                                              ; preds = %291, %.lr.ph.split.i78
-  %.pn.i82 = phi i64 [ %306, %291 ], [ 1, %.lr.ph.split.i78 ]
-  %.1.i83 = add nuw nsw i64 %.pn.i82, %.023.i79
-  %308 = add nuw nsw i64 %.01822.i80, 1
-  %exitcond.not.i84 = icmp eq i64 %308, %7
-  br i1 %exitcond.not.i84, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i78, !llvm.loop !52
+291:                                              ; preds = %11
+  %292 = getelementptr inbounds i64, ptr %25, i64 %23
+  br i1 %26, label %.lr.ph.i86, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
 
-309:                                              ; preds = %11
-  %310 = getelementptr inbounds i64, ptr %25, i64 %23
-  br i1 %26, label %.lr.ph.i91, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+.lr.ph.i86:                                       ; preds = %291
+  %.not.i87 = icmp eq ptr %18, null
+  %293 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i87, label %.lr.ph.split.us.i94, label %.lr.ph.split.i88
 
-.lr.ph.i91:                                       ; preds = %309
-  %.not.i92 = icmp eq ptr %18, null
-  %311 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i92, label %.lr.ph.split.us.i100, label %.lr.ph.split.i93
+.lr.ph.split.us.i94:                              ; preds = %.lr.ph.i86
+  %294 = load i64, ptr %293, align 8, !tbaa !40
+  br label %295
 
-.lr.ph.split.us.i100:                             ; preds = %.lr.ph.i91
-  %312 = load i64, ptr %311, align 8, !tbaa !40
-  br label %313
+295:                                              ; preds = %295, %.lr.ph.split.us.i94
+  %.021.us.i95 = phi i64 [ 0, %.lr.ph.split.us.i94 ], [ %.1.us.i97, %295 ]
+  %.01820.us.i96 = phi i64 [ 0, %.lr.ph.split.us.i94 ], [ %308, %295 ]
+  %296 = getelementptr inbounds nuw i64, ptr %292, i64 %.01820.us.i96
+  %297 = load i64, ptr %296, align 8, !tbaa !53
+  %298 = add i64 %297, %294
+  %299 = lshr i64 %298, 3
+  %300 = getelementptr inbounds nuw i8, ptr %21, i64 %299
+  %301 = load i8, ptr %300, align 1, !tbaa !41
+  %302 = trunc i64 %298 to i8
+  %303 = and i8 %302, 7
+  %304 = lshr i8 %301, %303
+  %305 = and i8 %304, 1
+  %306 = xor i8 %305, 1
+  %307 = zext nneg i8 %306 to i64
+  %.1.us.i97 = add nuw nsw i64 %.021.us.i95, %307
+  %308 = add nuw nsw i64 %.01820.us.i96, 1
+  %exitcond23.not.i98 = icmp eq i64 %308, %7
+  br i1 %exitcond23.not.i98, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %295, !llvm.loop !54
 
-313:                                              ; preds = %313, %.lr.ph.split.us.i100
-  %.023.us.i101 = phi i64 [ 0, %.lr.ph.split.us.i100 ], [ %.1.us.i103, %313 ]
-  %.01822.us.i102 = phi i64 [ 0, %.lr.ph.split.us.i100 ], [ %327, %313 ]
-  %314 = getelementptr inbounds nuw i64, ptr %310, i64 %.01822.us.i102
-  %315 = load i64, ptr %314, align 8, !tbaa !53
-  %316 = add i64 %315, %312
-  %317 = lshr i64 %316, 3
-  %318 = getelementptr inbounds nuw i8, ptr %21, i64 %317
-  %319 = load i8, ptr %318, align 1, !tbaa !41
-  %320 = zext i8 %319 to i32
-  %321 = trunc i64 %316 to i32
-  %322 = and i32 %321, 7
-  %323 = xor i32 %320, -1
-  %324 = lshr i32 %323, %322
-  %325 = and i32 %324, 1
-  %326 = zext nneg i32 %325 to i64
-  %.1.us.i103 = add nuw nsw i64 %.023.us.i101, %326
-  %327 = add nuw nsw i64 %.01822.us.i102, 1
-  %exitcond25.not.i104 = icmp eq i64 %327, %7
-  br i1 %exitcond25.not.i104, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %313, !llvm.loop !54
+.lr.ph.split.i88:                                 ; preds = %.lr.ph.i86, %331
+  %.021.i89 = phi i64 [ %.1.i92, %331 ], [ 0, %.lr.ph.i86 ]
+  %.01820.i90 = phi i64 [ %332, %331 ], [ 0, %.lr.ph.i86 ]
+  %309 = add nsw i64 %.01820.i90, %23
+  %310 = lshr i64 %309, 3
+  %311 = getelementptr inbounds nuw i8, ptr %18, i64 %310
+  %312 = load i8, ptr %311, align 1, !tbaa !41
+  %313 = trunc i64 %309 to i8
+  %314 = and i8 %313, 7
+  %315 = lshr i8 %312, %314
+  %316 = trunc i8 %315 to i1
+  br i1 %316, label %317, label %331
 
-.lr.ph.split.i93:                                 ; preds = %.lr.ph.i91, %352
-  %.023.i94 = phi i64 [ %.1.i98, %352 ], [ 0, %.lr.ph.i91 ]
-  %.01822.i95 = phi i64 [ %353, %352 ], [ 0, %.lr.ph.i91 ]
-  %328 = add nsw i64 %.01822.i95, %23
-  %329 = lshr i64 %328, 3
-  %330 = getelementptr inbounds nuw i8, ptr %18, i64 %329
-  %331 = load i8, ptr %330, align 1, !tbaa !41
-  %332 = zext i8 %331 to i32
-  %333 = trunc i64 %328 to i32
-  %334 = and i32 %333, 7
-  %335 = shl nuw nsw i32 1, %334
-  %336 = and i32 %335, %332
-  %.not20.i96 = icmp eq i32 %336, 0
-  br i1 %.not20.i96, label %352, label %337
+317:                                              ; preds = %.lr.ph.split.i88
+  %318 = getelementptr inbounds nuw i64, ptr %292, i64 %.01820.i90
+  %319 = load i64, ptr %318, align 8, !tbaa !53
+  %320 = load i64, ptr %293, align 8, !tbaa !40
+  %321 = add i64 %320, %319
+  %322 = lshr i64 %321, 3
+  %323 = getelementptr inbounds nuw i8, ptr %21, i64 %322
+  %324 = load i8, ptr %323, align 1, !tbaa !41
+  %325 = trunc i64 %321 to i8
+  %326 = and i8 %325, 7
+  %327 = lshr i8 %324, %326
+  %328 = and i8 %327, 1
+  %329 = xor i8 %328, 1
+  %330 = zext nneg i8 %329 to i64
+  br label %331
 
-337:                                              ; preds = %.lr.ph.split.i93
-  %338 = getelementptr inbounds nuw i64, ptr %310, i64 %.01822.i95
+331:                                              ; preds = %317, %.lr.ph.split.i88
+  %.pn.i91 = phi i64 [ %330, %317 ], [ 1, %.lr.ph.split.i88 ]
+  %.1.i92 = add nuw nsw i64 %.pn.i91, %.021.i89
+  %332 = add nuw nsw i64 %.01820.i90, 1
+  %exitcond.not.i93 = icmp eq i64 %332, %7
+  br i1 %exitcond.not.i93, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i88, !llvm.loop !54
+
+333:                                              ; preds = %11
+  %334 = getelementptr inbounds i64, ptr %25, i64 %23
+  br i1 %26, label %.lr.ph.i100, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+
+.lr.ph.i100:                                      ; preds = %333
+  %.not.i101 = icmp eq ptr %18, null
+  %335 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  br i1 %.not.i101, label %.lr.ph.split.us.i108, label %.lr.ph.split.i102
+
+.lr.ph.split.us.i108:                             ; preds = %.lr.ph.i100
+  %336 = load i64, ptr %335, align 8, !tbaa !40
+  br label %337
+
+337:                                              ; preds = %337, %.lr.ph.split.us.i108
+  %.021.us.i109 = phi i64 [ 0, %.lr.ph.split.us.i108 ], [ %.1.us.i111, %337 ]
+  %.01820.us.i110 = phi i64 [ 0, %.lr.ph.split.us.i108 ], [ %350, %337 ]
+  %338 = getelementptr inbounds nuw i64, ptr %334, i64 %.01820.us.i110
   %339 = load i64, ptr %338, align 8, !tbaa !53
-  %340 = load i64, ptr %311, align 8, !tbaa !40
-  %341 = add i64 %340, %339
-  %342 = lshr i64 %341, 3
-  %343 = getelementptr inbounds nuw i8, ptr %21, i64 %342
-  %344 = load i8, ptr %343, align 1, !tbaa !41
-  %345 = zext i8 %344 to i32
-  %346 = trunc i64 %341 to i32
-  %347 = and i32 %346, 7
-  %348 = xor i32 %345, -1
-  %349 = lshr i32 %348, %347
-  %350 = and i32 %349, 1
-  %351 = zext nneg i32 %350 to i64
-  br label %352
+  %340 = add nsw i64 %339, %336
+  %341 = lshr i64 %340, 3
+  %342 = getelementptr inbounds nuw i8, ptr %21, i64 %341
+  %343 = load i8, ptr %342, align 1, !tbaa !41
+  %344 = trunc i64 %340 to i8
+  %345 = and i8 %344, 7
+  %346 = lshr i8 %343, %345
+  %347 = and i8 %346, 1
+  %348 = xor i8 %347, 1
+  %349 = zext nneg i8 %348 to i64
+  %.1.us.i111 = add nuw nsw i64 %.021.us.i109, %349
+  %350 = add nuw nsw i64 %.01820.us.i110, 1
+  %exitcond23.not.i112 = icmp eq i64 %350, %7
+  br i1 %exitcond23.not.i112, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %337, !llvm.loop !55
 
-352:                                              ; preds = %337, %.lr.ph.split.i93
-  %.pn.i97 = phi i64 [ %351, %337 ], [ 1, %.lr.ph.split.i93 ]
-  %.1.i98 = add nuw nsw i64 %.pn.i97, %.023.i94
-  %353 = add nuw nsw i64 %.01822.i95, 1
-  %exitcond.not.i99 = icmp eq i64 %353, %7
-  br i1 %exitcond.not.i99, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i93, !llvm.loop !54
+.lr.ph.split.i102:                                ; preds = %.lr.ph.i100, %373
+  %.021.i103 = phi i64 [ %.1.i106, %373 ], [ 0, %.lr.ph.i100 ]
+  %.01820.i104 = phi i64 [ %374, %373 ], [ 0, %.lr.ph.i100 ]
+  %351 = add nsw i64 %.01820.i104, %23
+  %352 = lshr i64 %351, 3
+  %353 = getelementptr inbounds nuw i8, ptr %18, i64 %352
+  %354 = load i8, ptr %353, align 1, !tbaa !41
+  %355 = trunc i64 %351 to i8
+  %356 = and i8 %355, 7
+  %357 = lshr i8 %354, %356
+  %358 = trunc i8 %357 to i1
+  br i1 %358, label %359, label %373
 
-354:                                              ; preds = %11
-  %355 = getelementptr inbounds i64, ptr %25, i64 %23
-  br i1 %26, label %.lr.ph.i106, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit
+359:                                              ; preds = %.lr.ph.split.i102
+  %360 = getelementptr inbounds nuw i64, ptr %334, i64 %.01820.i104
+  %361 = load i64, ptr %360, align 8, !tbaa !53
+  %362 = load i64, ptr %335, align 8, !tbaa !40
+  %363 = add nsw i64 %362, %361
+  %364 = lshr i64 %363, 3
+  %365 = getelementptr inbounds nuw i8, ptr %21, i64 %364
+  %366 = load i8, ptr %365, align 1, !tbaa !41
+  %367 = trunc i64 %363 to i8
+  %368 = and i8 %367, 7
+  %369 = lshr i8 %366, %368
+  %370 = and i8 %369, 1
+  %371 = xor i8 %370, 1
+  %372 = zext nneg i8 %371 to i64
+  br label %373
 
-.lr.ph.i106:                                      ; preds = %354
-  %.not.i107 = icmp eq ptr %18, null
-  %356 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  br i1 %.not.i107, label %.lr.ph.split.us.i115, label %.lr.ph.split.i108
+373:                                              ; preds = %359, %.lr.ph.split.i102
+  %.pn.i105 = phi i64 [ %372, %359 ], [ 1, %.lr.ph.split.i102 ]
+  %.1.i106 = add nuw nsw i64 %.pn.i105, %.021.i103
+  %374 = add nuw nsw i64 %.01820.i104, 1
+  %exitcond.not.i107 = icmp eq i64 %374, %7
+  br i1 %exitcond.not.i107, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i102, !llvm.loop !55
 
-.lr.ph.split.us.i115:                             ; preds = %.lr.ph.i106
-  %357 = load i64, ptr %356, align 8, !tbaa !40
-  br label %358
-
-358:                                              ; preds = %358, %.lr.ph.split.us.i115
-  %.023.us.i116 = phi i64 [ 0, %.lr.ph.split.us.i115 ], [ %.1.us.i118, %358 ]
-  %.01822.us.i117 = phi i64 [ 0, %.lr.ph.split.us.i115 ], [ %372, %358 ]
-  %359 = getelementptr inbounds nuw i64, ptr %355, i64 %.01822.us.i117
-  %360 = load i64, ptr %359, align 8, !tbaa !53
-  %361 = add nsw i64 %360, %357
-  %362 = lshr i64 %361, 3
-  %363 = getelementptr inbounds nuw i8, ptr %21, i64 %362
-  %364 = load i8, ptr %363, align 1, !tbaa !41
-  %365 = zext i8 %364 to i32
-  %366 = trunc i64 %361 to i32
-  %367 = and i32 %366, 7
-  %368 = xor i32 %365, -1
-  %369 = lshr i32 %368, %367
-  %370 = and i32 %369, 1
-  %371 = zext nneg i32 %370 to i64
-  %.1.us.i118 = add nuw nsw i64 %.023.us.i116, %371
-  %372 = add nuw nsw i64 %.01822.us.i117, 1
-  %exitcond25.not.i119 = icmp eq i64 %372, %7
-  br i1 %exitcond25.not.i119, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %358, !llvm.loop !55
-
-.lr.ph.split.i108:                                ; preds = %.lr.ph.i106, %397
-  %.023.i109 = phi i64 [ %.1.i113, %397 ], [ 0, %.lr.ph.i106 ]
-  %.01822.i110 = phi i64 [ %398, %397 ], [ 0, %.lr.ph.i106 ]
-  %373 = add nsw i64 %.01822.i110, %23
-  %374 = lshr i64 %373, 3
-  %375 = getelementptr inbounds nuw i8, ptr %18, i64 %374
-  %376 = load i8, ptr %375, align 1, !tbaa !41
-  %377 = zext i8 %376 to i32
-  %378 = trunc i64 %373 to i32
-  %379 = and i32 %378, 7
-  %380 = shl nuw nsw i32 1, %379
-  %381 = and i32 %380, %377
-  %.not20.i111 = icmp eq i32 %381, 0
-  br i1 %.not20.i111, label %397, label %382
-
-382:                                              ; preds = %.lr.ph.split.i108
-  %383 = getelementptr inbounds nuw i64, ptr %355, i64 %.01822.i110
-  %384 = load i64, ptr %383, align 8, !tbaa !53
-  %385 = load i64, ptr %356, align 8, !tbaa !40
-  %386 = add nsw i64 %385, %384
-  %387 = lshr i64 %386, 3
-  %388 = getelementptr inbounds nuw i8, ptr %21, i64 %387
-  %389 = load i8, ptr %388, align 1, !tbaa !41
-  %390 = zext i8 %389 to i32
-  %391 = trunc i64 %386 to i32
-  %392 = and i32 %391, 7
-  %393 = xor i32 %390, -1
-  %394 = lshr i32 %393, %392
-  %395 = and i32 %394, 1
-  %396 = zext nneg i32 %395 to i64
-  br label %397
-
-397:                                              ; preds = %382, %.lr.ph.split.i108
-  %.pn.i112 = phi i64 [ %396, %382 ], [ 1, %.lr.ph.split.i108 ]
-  %.1.i113 = add nuw nsw i64 %.pn.i112, %.023.i109
-  %398 = add nuw nsw i64 %.01822.i110, 1
-  %exitcond.not.i114 = icmp eq i64 %398, %7
-  br i1 %exitcond.not.i114, label %_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i108, !llvm.loop !55
-
-_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit: ; preds = %352, %313, %307, %266, %260, %219, %213, %172, %166, %125, %119, %78, %72, %31, %397, %358, %354, %309, %262, %215, %168, %121, %74, %27, %9
-  %.0 = phi i64 [ %10, %9 ], [ %.1.i23, %119 ], [ %.1.i, %72 ], [ %.1.us.i58, %172 ], [ %.1.us.i73, %219 ], [ %.1.us.i88, %266 ], [ %.1.us.i103, %313 ], [ %.1.i113, %397 ], [ 0, %27 ], [ %.1.i38, %166 ], [ 0, %74 ], [ %.1.i53, %213 ], [ 0, %121 ], [ %.1.i68, %260 ], [ 0, %168 ], [ %.1.i83, %307 ], [ 0, %215 ], [ %.1.us.i118, %358 ], [ 0, %262 ], [ %.1.us.i, %31 ], [ 0, %309 ], [ %.1.us.i28, %78 ], [ 0, %354 ], [ %.1.us.i43, %125 ], [ %.1.i98, %352 ]
+_ZN5arrow9dict_util12_GLOBAL__N_116LogicalNullCountINS_9UInt8TypeEEElRKNS_9ArraySpanE.exit: ; preds = %331, %295, %289, %251, %245, %207, %201, %163, %157, %119, %113, %75, %69, %31, %373, %337, %333, %291, %247, %203, %159, %115, %71, %27, %9
+  %.0 = phi i64 [ %10, %9 ], [ %.1.i22, %113 ], [ %.1.i, %69 ], [ %.1.us.i55, %163 ], [ %.1.us.i69, %207 ], [ %.1.us.i83, %251 ], [ %.1.us.i97, %295 ], [ %.1.i106, %373 ], [ 0, %27 ], [ %.1.i36, %157 ], [ 0, %71 ], [ %.1.i50, %201 ], [ 0, %115 ], [ %.1.i64, %245 ], [ 0, %159 ], [ %.1.i78, %289 ], [ 0, %203 ], [ %.1.us.i111, %337 ], [ 0, %247 ], [ %.1.us.i, %31 ], [ 0, %291 ], [ %.1.us.i27, %75 ], [ 0, %333 ], [ %.1.us.i41, %119 ], [ %.1.i92, %331 ]
   ret i64 %.0
 }
 

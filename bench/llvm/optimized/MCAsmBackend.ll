@@ -228,9 +228,8 @@ _ZNSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   store i32 0, ptr %43, align 4, !tbaa !26, !noalias !20
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %45 = load i8, ptr %44, align 8, !noalias !20
-  %46 = and i8 %45, 1
-  %.not.i.i = icmp eq i8 %46, 0
-  %47 = select i1 %.not.i.i, i32 2, i32 3
+  %46 = trunc i8 %45 to i1
+  %47 = select i1 %46, i32 3, i32 2
   call void @_ZN4llvm18StringTableBuilderC1ENS0_4KindENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(38) %41, i32 noundef %47, i8 0) #15, !noalias !20
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %49 = getelementptr inbounds nuw i8, ptr %23, i64 368
@@ -285,8 +284,8 @@ _ZNSt10unique_ptrIN4llvm27MCWinCOFFObjectTargetWriterESt14default_deleteIS1_EED2
   store i64 %67, ptr %4, align 8, !tbaa !64, !noalias !61
   call void @_ZN4llvm15ELFObjectWriterC1ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamEb(ptr noundef nonnull align 8 dereferenceable(208) %66, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %16) #15, !noalias !61
   %68 = load ptr, ptr %4, align 8, !tbaa !64, !noalias !61
-  %.not.i.i11 = icmp eq ptr %68, null
-  br i1 %.not.i.i11, label %_ZNSt10unique_ptrIN4llvm23MCELFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm23MCELFObjectTargetWriterEEclEPS1_.exit.i.i
+  %.not.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN4llvm23MCELFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm23MCELFObjectTargetWriterEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm23MCELFObjectTargetWriterEEclEPS1_.exit.i.i: ; preds = %64
   %69 = load ptr, ptr %68, align 8, !tbaa !3, !noalias !61
@@ -308,8 +307,8 @@ _ZNSt10unique_ptrIN4llvm23MCELFObjectTargetWriterESt14default_deleteIS1_EED2Ev.e
   store ptr %73, ptr %7, align 8, !tbaa !73, !alias.scope !72
   call void @_ZN4llvm23createSPIRVObjectWriterESt10unique_ptrINS_25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(48) %2) #15
   %74 = load ptr, ptr %7, align 8, !tbaa !73
-  %.not.i14 = icmp eq ptr %74, null
-  br i1 %.not.i14, label %_ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i
+  %.not.i13 = icmp eq ptr %74, null
+  br i1 %.not.i13, label %_ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm25MCSPIRVObjectTargetWriterEEclEPS1_.exit.i: ; preds = %72
   %75 = load ptr, ptr %74, align 8, !tbaa !3
@@ -330,8 +329,8 @@ _ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev
   store ptr %79, ptr %8, align 8, !tbaa !82, !alias.scope !81
   call void @_ZN4llvm22createWasmObjectWriterESt10unique_ptrINS_24MCWasmObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(48) %2) #15
   %80 = load ptr, ptr %8, align 8, !tbaa !82
-  %.not.i15 = icmp eq ptr %80, null
-  br i1 %.not.i15, label %_ZNSt10unique_ptrIN4llvm24MCWasmObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm24MCWasmObjectTargetWriterEEclEPS1_.exit.i
+  %.not.i14 = icmp eq ptr %80, null
+  br i1 %.not.i14, label %_ZNSt10unique_ptrIN4llvm24MCWasmObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm24MCWasmObjectTargetWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm24MCWasmObjectTargetWriterEEclEPS1_.exit.i: ; preds = %78
   %81 = load ptr, ptr %80, align 8, !tbaa !3
@@ -352,8 +351,8 @@ _ZNSt10unique_ptrIN4llvm24MCWasmObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   store ptr %85, ptr %9, align 8, !tbaa !91, !alias.scope !90
   call void @_ZN4llvm22createGOFFObjectWriterESt10unique_ptrINS_24MCGOFFObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(48) %2) #15
   %86 = load ptr, ptr %9, align 8, !tbaa !91
-  %.not.i16 = icmp eq ptr %86, null
-  br i1 %.not.i16, label %_ZNSt10unique_ptrIN4llvm24MCGOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i
+  %.not.i15 = icmp eq ptr %86, null
+  br i1 %.not.i15, label %_ZNSt10unique_ptrIN4llvm24MCGOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i: ; preds = %84
   %87 = load ptr, ptr %86, align 8, !tbaa !3
@@ -374,8 +373,8 @@ _ZNSt10unique_ptrIN4llvm24MCGOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.
   store ptr %91, ptr %10, align 8, !tbaa !100, !alias.scope !99
   call void @_ZN4llvm23createXCOFFObjectWriterESt10unique_ptrINS_25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(48) %2) #15
   %92 = load ptr, ptr %10, align 8, !tbaa !100
-  %.not.i17 = icmp eq ptr %92, null
-  br i1 %.not.i17, label %_ZNSt10unique_ptrIN4llvm25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm25MCXCOFFObjectTargetWriterEEclEPS1_.exit.i
+  %.not.i16 = icmp eq ptr %92, null
+  br i1 %.not.i16, label %_ZNSt10unique_ptrIN4llvm25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm25MCXCOFFObjectTargetWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm25MCXCOFFObjectTargetWriterEEclEPS1_.exit.i: ; preds = %90
   %93 = load ptr, ptr %92, align 8, !tbaa !3
@@ -428,8 +427,8 @@ _ZNSt10unique_ptrIN4llvm25MCDXContainerTargetWriterESt14default_deleteIS1_EED2Ev
 
 113:                                              ; preds = %_ZNSt10unique_ptrIN4llvm25MCDXContainerTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm24MCGOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm24MCWasmObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm23MCELFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm27MCWinCOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit
   %114 = load ptr, ptr %5, align 8, !tbaa !12
-  %.not.i20 = icmp eq ptr %114, null
-  br i1 %.not.i20, label %_ZNSt10unique_ptrIN4llvm20MCObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm20MCObjectTargetWriterEEclEPS1_.exit.i
+  %.not.i19 = icmp eq ptr %114, null
+  br i1 %.not.i19, label %_ZNSt10unique_ptrIN4llvm20MCObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm20MCObjectTargetWriterEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4llvm20MCObjectTargetWriterEEclEPS1_.exit.i: ; preds = %113
   %115 = load ptr, ptr %114, align 8, !tbaa !3

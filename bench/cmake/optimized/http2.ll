@@ -6144,16 +6144,16 @@ define internal fastcc i32 @fr_print(ptr noundef readonly captures(none) %0, ptr
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4, !tbaa !93
-  switch i8 %5, label %85 [
+  switch i8 %5, label %86 [
     i8 0, label %6
     i8 1, label %17
-    i8 2, label %26
-    i8 3, label %33
-    i8 4, label %42
-    i8 5, label %52
-    i8 6, label %60
-    i8 7, label %68
-    i8 8, label %81
+    i8 2, label %27
+    i8 3, label %34
+    i8 4, label %43
+    i8 5, label %53
+    i8 6, label %61
+    i8 7, label %69
+    i8 8, label %82
   ]
 
 6:                                                ; preds = %2
@@ -6167,121 +6167,122 @@ define internal fastcc i32 @fr_print(ptr noundef readonly captures(none) %0, ptr
   %14 = load i64, ptr %13, align 8, !tbaa !93
   %15 = trunc i64 %14 to i32
   %16 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.33, i32 noundef %8, i32 noundef %12, i32 noundef %15) #11
-  br label %93
+  br label %94
 
 17:                                               ; preds = %2
   %18 = load i64, ptr %0, align 8, !tbaa !93
   %19 = trunc i64 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %21 = load i8, ptr %20, align 1, !tbaa !93
-  %22 = zext i8 %21 to i32
-  %23 = lshr i32 %22, 2
-  %.lobit57 = and i32 %23, 1
-  %24 = and i32 %22, 1
-  %25 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.34, i32 noundef %19, i32 noundef %.lobit57, i32 noundef %24) #11
-  br label %93
+  %22 = lshr i8 %21, 2
+  %23 = and i8 %22, 1
+  %.lobit57 = zext nneg i8 %23 to i32
+  %24 = and i8 %21, 1
+  %25 = zext nneg i8 %24 to i32
+  %26 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.34, i32 noundef %19, i32 noundef %.lobit57, i32 noundef %25) #11
+  br label %94
 
-26:                                               ; preds = %2
-  %27 = load i64, ptr %0, align 8, !tbaa !93
-  %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %30 = load i8, ptr %29, align 1, !tbaa !93
-  %31 = zext i8 %30 to i32
-  %32 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.35, i32 noundef %28, i32 noundef %31) #11
-  br label %93
+27:                                               ; preds = %2
+  %28 = load i64, ptr %0, align 8, !tbaa !93
+  %29 = trunc i64 %28 to i32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %31 = load i8, ptr %30, align 1, !tbaa !93
+  %32 = zext i8 %31 to i32
+  %33 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.35, i32 noundef %29, i32 noundef %32) #11
+  br label %94
 
-33:                                               ; preds = %2
-  %34 = load i64, ptr %0, align 8, !tbaa !93
-  %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %37 = load i8, ptr %36, align 1, !tbaa !93
-  %38 = zext i8 %37 to i32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !93
-  %41 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.36, i32 noundef %35, i32 noundef %38, i32 noundef %40) #11
-  br label %93
+34:                                               ; preds = %2
+  %35 = load i64, ptr %0, align 8, !tbaa !93
+  %36 = trunc i64 %35 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %38 = load i8, ptr %37, align 1, !tbaa !93
+  %39 = zext i8 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load i32, ptr %40, align 8, !tbaa !93
+  %42 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.36, i32 noundef %36, i32 noundef %39, i32 noundef %41) #11
+  br label %94
 
-42:                                               ; preds = %2
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %44 = load i8, ptr %43, align 1, !tbaa !93
-  %45 = and i8 %44, 1
-  %.not56 = icmp eq i8 %45, 0
-  br i1 %.not56, label %48, label %46
+43:                                               ; preds = %2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %45 = load i8, ptr %44, align 1, !tbaa !93
+  %46 = and i8 %45, 1
+  %.not56 = icmp eq i8 %46, 0
+  br i1 %.not56, label %49, label %47
 
-46:                                               ; preds = %42
-  %47 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.37) #11
-  br label %93
+47:                                               ; preds = %43
+  %48 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.37) #11
+  br label %94
 
-48:                                               ; preds = %42
-  %49 = load i64, ptr %0, align 8, !tbaa !93
-  %50 = trunc i64 %49 to i32
-  %51 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.38, i32 noundef %50) #11
-  br label %93
+49:                                               ; preds = %43
+  %50 = load i64, ptr %0, align 8, !tbaa !93
+  %51 = trunc i64 %50 to i32
+  %52 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.38, i32 noundef %51) #11
+  br label %94
 
-52:                                               ; preds = %2
-  %53 = load i64, ptr %0, align 8, !tbaa !93
-  %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %56 = load i8, ptr %55, align 1, !tbaa !93
-  %57 = lshr i8 %56, 2
-  %.lobit = and i8 %57, 1
-  %58 = zext nneg i8 %.lobit to i32
-  %59 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.39, i32 noundef %54, i32 noundef %58) #11
-  br label %93
+53:                                               ; preds = %2
+  %54 = load i64, ptr %0, align 8, !tbaa !93
+  %55 = trunc i64 %54 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %57 = load i8, ptr %56, align 1, !tbaa !93
+  %58 = lshr i8 %57, 2
+  %.lobit = and i8 %58, 1
+  %59 = zext nneg i8 %.lobit to i32
+  %60 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.39, i32 noundef %55, i32 noundef %59) #11
+  br label %94
 
-60:                                               ; preds = %2
-  %61 = load i64, ptr %0, align 8, !tbaa !93
-  %62 = trunc i64 %61 to i32
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %64 = load i8, ptr %63, align 1, !tbaa !93
-  %65 = and i8 %64, 1
-  %66 = zext nneg i8 %65 to i32
-  %67 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.40, i32 noundef %62, i32 noundef %66) #11
-  br label %93
+61:                                               ; preds = %2
+  %62 = load i64, ptr %0, align 8, !tbaa !93
+  %63 = trunc i64 %62 to i32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %65 = load i8, ptr %64, align 1, !tbaa !93
+  %66 = and i8 %65, 1
+  %67 = zext nneg i8 %66 to i32
+  %68 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.40, i32 noundef %63, i32 noundef %67) #11
+  br label %94
 
-68:                                               ; preds = %2
+69:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %70 = load i64, ptr %69, align 8, !tbaa !93
-  %. = tail call i64 @llvm.umin.i64(i64 %70, i64 127)
-  %.not = icmp eq i64 %70, 0
-  br i1 %.not, label %74, label %71
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = load i64, ptr %70, align 8, !tbaa !93
+  %. = tail call i64 @llvm.umin.i64(i64 %71, i64 127)
+  %.not = icmp eq i64 %71, 0
+  br i1 %.not, label %75, label %72
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !93
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %73, i64 %., i1 false)
-  br label %74
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %74 = load ptr, ptr %73, align 8, !tbaa !93
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %74, i64 %., i1 false)
+  br label %75
 
-74:                                               ; preds = %71, %68
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %.
-  store i8 0, ptr %75, align 1, !tbaa !93
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %77 = load i32, ptr %76, align 4, !tbaa !93
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %79 = load i32, ptr %78, align 8, !tbaa !93
-  %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.41, i32 noundef %77, ptr noundef nonnull %3, i32 noundef %79) #11
+75:                                               ; preds = %72, %69
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 %.
+  store i8 0, ptr %76, align 1, !tbaa !93
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %78 = load i32, ptr %77, align 4, !tbaa !93
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load i32, ptr %79, align 8, !tbaa !93
+  %81 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.41, i32 noundef %78, ptr noundef nonnull %3, i32 noundef %80) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %93
+  br label %94
 
-81:                                               ; preds = %2
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !93
-  %84 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.42, i32 noundef %83) #11
-  br label %93
+82:                                               ; preds = %2
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !93
+  %85 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.42, i32 noundef %84) #11
+  br label %94
 
-85:                                               ; preds = %2
-  %86 = zext i8 %5 to i32
-  %87 = load i64, ptr %0, align 8, !tbaa !93
-  %88 = trunc i64 %87 to i32
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %90 = load i8, ptr %89, align 1, !tbaa !93
-  %91 = zext i8 %90 to i32
-  %92 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.43, i32 noundef %86, i32 noundef %88, i32 noundef %91) #11
-  br label %93
+86:                                               ; preds = %2
+  %87 = zext i8 %5 to i32
+  %88 = load i64, ptr %0, align 8, !tbaa !93
+  %89 = trunc i64 %88 to i32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %91 = load i8, ptr %90, align 1, !tbaa !93
+  %92 = zext i8 %91 to i32
+  %93 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.43, i32 noundef %87, i32 noundef %89, i32 noundef %92) #11
+  br label %94
 
-93:                                               ; preds = %85, %81, %74, %60, %52, %48, %46, %33, %26, %17, %6
-  %.0 = phi i32 [ %92, %85 ], [ %16, %6 ], [ %25, %17 ], [ %32, %26 ], [ %41, %33 ], [ %47, %46 ], [ %51, %48 ], [ %59, %52 ], [ %67, %60 ], [ %80, %74 ], [ %84, %81 ]
+94:                                               ; preds = %86, %82, %75, %61, %53, %49, %47, %34, %27, %17, %6
+  %.0 = phi i32 [ %93, %86 ], [ %16, %6 ], [ %26, %17 ], [ %33, %27 ], [ %42, %34 ], [ %48, %47 ], [ %52, %49 ], [ %60, %53 ], [ %68, %61 ], [ %81, %75 ], [ %85, %82 ]
   ret i32 %.0
 }
 

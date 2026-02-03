@@ -6221,9 +6221,8 @@ define dso_local noundef zeroext i1 @_ZN8V3Config24containsMTaskProfileDataEv() 
 
 _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %0, %3, %5
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN16V3ConfigResolver1sEvE11s_singleton, i64 400), align 8, !tbaa !124
-  %8 = and i8 %7, 1
-  %9 = icmp ne i8 %8, 0
-  ret i1 %9
+  %8 = trunc i8 %7 to i1
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable

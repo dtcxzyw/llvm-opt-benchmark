@@ -1055,8 +1055,8 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit216:     ; preds = %_ZNSt4pairIKNSt7__c
 _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit216
   %311 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %312 = load i8, ptr %311, align 8, !tbaa !36
-  %.not.i.i1.i218 = icmp eq i8 %312, -1
-  br i1 %.not.i.i1.i218, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core12experimental4JsonEED2Ev.exit, label %313, !prof !20
+  %.not.i.i.i218 = icmp eq i8 %312, -1
+  br i1 %.not.i.i.i218, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core12experimental4JsonEED2Ev.exit, label %313, !prof !20
 
 313:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1075,9 +1075,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %_ZN9grpc_core12expe
   unreachable
 
 317:                                              ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit216
-  %318 = and i64 %309, 1
-  %.not.i.i2.i = icmp eq i64 %318, 0
-  br i1 %.not.i.i2.i, label %319, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core12experimental4JsonEED2Ev.exit
+  %318 = trunc i64 %309 to i1
+  br i1 %318, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core12experimental4JsonEED2Ev.exit, label %319
 
 319:                                              ; preds = %317
   %320 = inttoptr i64 %309 to ptr
@@ -2109,8 +2108,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDat
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8, !tbaa !36
-  %.not.i.i1 = icmp eq i8 %6, -1
-  br i1 %.not.i.i1, label %_ZN9grpc_core12experimental4JsonD2Ev.exit, label %7, !prof !20
+  %.not.i.i = icmp eq i8 %6, -1
+  br i1 %.not.i.i, label %_ZN9grpc_core12experimental4JsonD2Ev.exit, label %7, !prof !20
 
 7:                                                ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2131,9 +2130,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   unreachable
 
 12:                                               ; preds = %1
-  %13 = and i64 %3, 1
-  %.not.i.i2 = icmp eq i64 %13, 0
-  br i1 %.not.i.i2, label %14, label %_ZN9grpc_core12experimental4JsonD2Ev.exit
+  %13 = trunc i64 %3 to i1
+  br i1 %13, label %_ZN9grpc_core12experimental4JsonD2Ev.exit, label %14
 
 14:                                               ; preds = %12
   %15 = inttoptr i64 %3 to ptr

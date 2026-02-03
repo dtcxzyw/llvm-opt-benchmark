@@ -1210,33 +1210,32 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 20:                                               ; preds = %4
   %21 = icmp ne i8 %13, 46
   %.not13.not.i = or i1 %.not.not21.i, %21
-  br i1 %.not13.not.i, label %35, label %22
+  br i1 %.not13.not.i, label %34, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %11) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 74
   %25 = load i8, ptr %24, align 2
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %28, align 8
+  %26 = trunc i8 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %27, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %29 = select i1 %27, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %29, label %30, label %_ZNK5clang4Type13isIntegerTypeEv.exit
+  %28 = select i1 %26, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %28, label %29, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
-30:                                               ; preds = %22
-  %31 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %11) #20
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %33 = load i40, ptr %32, align 8
-  %34 = icmp sgt i40 %33, -1
+29:                                               ; preds = %22
+  %30 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %11) #20
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
+  %32 = load i40, ptr %31, align 8
+  %33 = icmp sgt i40 %32, -1
   br label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
-35:                                               ; preds = %20
-  %36 = icmp eq i8 %13, 10
+34:                                               ; preds = %20
+  %35 = icmp eq i8 %13, 10
   br label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
-_ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %15, %22, %30, %35
-  %.1.i = phi i1 [ %36, %35 ], [ %34, %30 ], [ %spec.select.i, %15 ], [ false, %22 ]
+_ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %15, %22, %29, %34
+  %.1.i = phi i1 [ %35, %34 ], [ %33, %29 ], [ %spec.select.i, %15 ], [ false, %22 ]
   ret i1 %.1.i
 }
 

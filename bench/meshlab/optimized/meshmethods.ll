@@ -1278,30 +1278,29 @@ define void @_Z25applyColorByVertexQualityR9MeshModelP16TransferFunctionffff(ptr
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %.not14 = icmp eq ptr %8, %10
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %8, %10
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %20
   %11 = phi ptr [ %21, %20 ], [ %10, %6 ]
-  %.sroa.08.015 = phi ptr [ %22, %20 ], [ %8, %6 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 20
+  %.sroa.08.014 = phi ptr [ %22, %20 ], [ %8, %6 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 20
   %13 = load i32, ptr %12, align 4
-  %14 = and i32 %13, 1
-  %.not13 = icmp eq i32 %14, 0
-  br i1 %.not13, label %15, label %20
+  %14 = trunc i32 %13 to i1
+  br i1 %14, label %20, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 36
   %17 = load float, ptr %16, align 4
   %18 = tail call i32 @_ZN16TransferFunction17getColorByQualityEfffff(ptr noundef nonnull align 8 dereferenceable(16492) %1, float noundef %17, float noundef %2, float noundef %3, float noundef %4, float noundef %5)
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 40
   store i32 %18, ptr %19, align 4
   %.pre = load ptr, ptr %9, align 8
   br label %20
 
 20:                                               ; preds = %.lr.ph, %15
   %21 = phi ptr [ %11, %.lr.ph ], [ %.pre, %15 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 48
   %.not = icmp eq ptr %22, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 

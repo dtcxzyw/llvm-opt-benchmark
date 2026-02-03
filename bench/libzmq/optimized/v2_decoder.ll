@@ -147,23 +147,23 @@ define noundef i32 @_ZN3zmq12v2_decoder_t11flags_readyEPKh(ptr noundef nonnull a
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i8, ptr %4, align 8, !tbaa !29
-  %6 = and i8 %5, 1
-  %7 = lshr i8 %5, 1
-  %8 = and i8 %7, 2
-  %spec.select = or disjoint i8 %6, %8
+  %spec.store.select = and i8 %5, 1
+  %6 = lshr i8 %5, 1
+  %7 = and i8 %6, 2
+  %spec.select = or disjoint i8 %spec.store.select, %7
   store i8 %spec.select, ptr %3, align 8
-  %9 = and i8 %5, 2
-  %.not4 = icmp eq i8 %9, 0
+  %8 = and i8 %5, 2
+  %.not4 = icmp eq i8 %8, 0
   %spec.select7 = select i1 %.not4, i64 1, i64 8
   %spec.select8 = select i1 %.not4, i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t19one_byte_size_readyEPKh to i64), i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t21eight_byte_size_readyEPKh to i64)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %10, align 8, !tbaa !26
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %spec.select7, ptr %11, align 8, !tbaa !27
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select8, ptr %12, align 8, !tbaa !28
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %13, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %9, align 8, !tbaa !26
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %spec.select7, ptr %10, align 8, !tbaa !27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %spec.select8, ptr %11, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %12, align 8, !tbaa !28
   ret i32 0
 }
 

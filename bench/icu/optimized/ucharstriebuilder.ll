@@ -580,8 +580,8 @@ define void @_ZN6icu_7717UCharsTrieBuilder11buildUCharsE22UStringTrieBuildOption
   %33 = load ptr, ptr %28, align 8, !tbaa !22
   call void @_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %4, ptr noundef nonnull align 4 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(64) %22)
   %34 = load i32, ptr %17, align 4, !tbaa !34
-  %.not3141 = icmp sgt i32 %34, 1
-  br i1 %.not3141, label %.lr.ph, label %.thread39
+  %.not3140 = icmp sgt i32 %34, 1
+  br i1 %.not3140, label %.lr.ph, label %.thread39
 
 .lr.ph:                                           ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -640,9 +640,8 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
 
 66:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
   %67 = load i16, ptr %39, align 8, !tbaa !7
-  %68 = and i16 %67, 1
-  %.not = icmp eq i16 %68, 0
-  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %97
+  %68 = trunc i16 %67 to i1
+  br i1 %68, label %97, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread
 
 69:                                               ; preds = %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit
   %70 = icmp slt i16 %64, 0
@@ -671,8 +670,8 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %90
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %83
-  %.not40 = icmp eq i8 %87, 0
-  br i1 %.not40, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %97
+  %.not = icmp eq i8 %87, 0
+  br i1 %.not, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %97
 
 88:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit.i
   %89 = landingpad { ptr, i32 }

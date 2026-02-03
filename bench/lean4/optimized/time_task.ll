@@ -613,9 +613,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 29:                                               ; preds = %27
   %30 = load ptr, ptr %3, align 8, !tbaa !59
   %31 = ptrtoint ptr %30 to i64
-  %32 = and i64 %31, 1
-  %.not.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i, label %33, label %_ZN4lean4nameC2ERKS0_.exit
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %_ZN4lean4nameC2ERKS0_.exit, label %33
 
 33:                                               ; preds = %29
   %.val.i.i.i.i = load i32, ptr %30, align 4, !tbaa !61
@@ -665,7 +664,7 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %37, %35, %29, %38
   store ptr %0, ptr %48, align 8, !tbaa !65
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %30, ptr %49, align 8, !tbaa !59
-  br i1 %.not.i.i.i, label %50, label %63
+  br i1 %32, label %63, label %50
 
 50:                                               ; preds = %.noexc.i13
   %.val.i.i.i.i.i.i.i.i.i.i = load i32, ptr %30, align 4, !tbaa !61
@@ -695,8 +694,8 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %37, %35, %29, %38
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef 16) #24
   %.pr.i = load ptr, ptr %47, align 8, !tbaa !72
-  %.not.i.i.i.i15 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i15, label %.body.thread.i, label %58
+  %.not.i.i.i.i14 = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i.i.i14, label %.body.thread.i, label %58
 
 58:                                               ; preds = %.body3.i
   %59 = invoke noundef zeroext i1 %.pr.i(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
@@ -717,20 +716,19 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %37, %35, %29, %38
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %66 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   store i64 %66, ptr %65, align 8, !tbaa !55
-  %.val.i.i.i.i14 = load ptr, ptr %44, align 8, !tbaa !59
-  %67 = ptrtoint ptr %.val.i.i.i.i14 to i64
-  %68 = and i64 %67, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %68, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %69, label %83
+  %.val.i.i.i.i15 = load ptr, ptr %44, align 8, !tbaa !59
+  %67 = ptrtoint ptr %.val.i.i.i.i15 to i64
+  %68 = trunc i64 %67 to i1
+  br i1 %68, label %83, label %69
 
 69:                                               ; preds = %63
-  %70 = load i32, ptr %.val.i.i.i.i14, align 4, !tbaa !61
+  %70 = load i32, ptr %.val.i.i.i.i15, align 4, !tbaa !61
   %71 = icmp sgt i32 %70, 1
   br i1 %71, label %72, label %74, !prof !64
 
 72:                                               ; preds = %69
   %73 = add nsw i32 %70, -1
-  store i32 %73, ptr %.val.i.i.i.i14, align 4, !tbaa !61
+  store i32 %73, ptr %.val.i.i.i.i15, align 4, !tbaa !61
   br label %83
 
 74:                                               ; preds = %69
@@ -738,7 +736,7 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %37, %35, %29, %38
   br i1 %.not.i.i.i.i.i.i.i.i, label %83, label %75
 
 75:                                               ; preds = %74
-  invoke void @lean_dec_ref_cold(ptr noundef nonnull %.val.i.i.i.i14)
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %.val.i.i.i.i15)
           to label %83 unwind label %76
 
 76:                                               ; preds = %75
@@ -801,8 +799,8 @@ _ZNKSt8functionIFvNSt6chrono8durationIdSt5ratioILl1ELl1EEEEEEclES4_.exit.i.i: ; 
 
 99:                                               ; preds = %_ZNKSt8functionIFvNSt6chrono8durationIdSt5ratioILl1ELl1EEEEEEclES4_.exit.i.i, %87
   %100 = phi ptr [ %.pre.i.i, %_ZNKSt8functionIFvNSt6chrono8durationIdSt5ratioILl1ELl1EEEEEEclES4_.exit.i.i ], [ %96, %87 ]
-  %.not.i.i.i17 = icmp eq ptr %100, null
-  br i1 %.not.i.i.i17, label %"_ZZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7optionsENS_4nameEEN3$_0D2Ev.exit", label %101
+  %.not.i.i.i = icmp eq ptr %100, null
+  br i1 %.not.i.i.i, label %"_ZZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7optionsENS_4nameEEN3$_0D2Ev.exit", label %101
 
 101:                                              ; preds = %99
   %102 = invoke noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %46, i32 noundef 3)
@@ -1055,9 +1053,8 @@ _ZN4lean7xtimeitD2Ev.exit:                        ; preds = %25, %23, %1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc void @"_ZZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7optionsENS_4nameEEN3$_0D2Ev"(ptr %.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = ptrtoint ptr %.8.val to i64
-  %2 = and i64 %1, 1
-  %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %3, label %_ZN4lean10object_refD2Ev.exit
+  %2 = trunc i64 %1 to i1
+  br i1 %2, label %_ZN4lean10object_refD2Ev.exit, label %3
 
 3:                                                ; preds = %0
   %4 = load i32, ptr %.8.val, align 4, !tbaa !61
@@ -1278,9 +1275,8 @@ define noundef ptr @lean_profileit(ptr noundef %0, ptr noundef %1, ptr noundef %
 9:                                                ; preds = %4
   %10 = load ptr, ptr %8, align 8, !tbaa !59
   %11 = ptrtoint ptr %10 to i64
-  %12 = and i64 %11, 1
-  %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %13, label %_ZN4lean10object_refD2Ev.exit
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %_ZN4lean10object_refD2Ev.exit, label %13
 
 13:                                               ; preds = %9
   %14 = load i32, ptr %10, align 4, !tbaa !61
@@ -1366,9 +1362,8 @@ declare void @_ZN4lean13string_to_stdB5cxx11EP11lean_object(ptr dead_on_unwind w
 define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !59
   %3 = ptrtoint ptr %2 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %5, label %_ZN4lean3decEP11lean_object.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %_ZN4lean3decEP11lean_object.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %2, align 4, !tbaa !61
@@ -2014,9 +2009,8 @@ _ZN4lean7sstreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %19, label %16
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %_ZN4lean7sstreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit.i.i.i
   %17 = lshr i64 %14, 1
@@ -2233,9 +2227,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvNSt6chrono8durat
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.val8.i, ptr %9, align 8, !tbaa !59
   %10 = ptrtoint ptr %.val8.i to i64
-  %11 = and i64 %10, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %12, label %"_ZNSt14_Function_base13_Base_managerIZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_7optionsENS1_4nameEE3$_0E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i"
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_7optionsENS1_4nameEE3$_0E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i", label %12
 
 12:                                               ; preds = %6
   %.val.i.i.i.i.i.i.i.i = load i32, ptr %.val8.i, align 4, !tbaa !61
@@ -2274,9 +2267,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvNSt6chrono8durat
   %23 = getelementptr i8, ptr %.val9.i, i64 8
   %.val.i.i = load ptr, ptr %23, align 8, !tbaa !59
   %24 = ptrtoint ptr %.val.i.i to i64
-  %25 = and i64 %24, 1
-  %.not.i.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i.i, label %26, label %"_ZZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7optionsENS_4nameEEN3$_0D2Ev.exit.i.i"
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %"_ZZN4lean9time_taskC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7optionsENS_4nameEEN3$_0D2Ev.exit.i.i", label %26
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %.val.i.i, align 4, !tbaa !61

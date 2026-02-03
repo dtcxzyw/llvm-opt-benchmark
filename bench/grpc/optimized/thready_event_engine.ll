@@ -1404,9 +1404,8 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine11DNSResol
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS7_EEED2Ev.exit
 
 79:                                               ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %80 = and i64 %73, 1
-  %.not.i.i1.i = icmp eq i64 %80, 0
-  br i1 %.not.i.i1.i, label %81, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS7_EEED2Ev.exit
+  %80 = trunc i64 %73 to i1
+  br i1 %80, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS7_EEED2Ev.exit, label %81
 
 81:                                               ; preds = %79
   %82 = inttoptr i64 %73 to ptr
@@ -1585,17 +1584,16 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine11DNSResol
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine11DNSResolverEEclEPS3_.exit.i
   store ptr null, ptr %4, align 8, !tbaa !95
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit1
 
 9:                                                ; preds = %1
-  %10 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %10, 0
-  br i1 %.not.i.i1, label %11, label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  %10 = trunc i64 %2 to i1
+  br i1 %10, label %_ZN4absl12lts_202407226StatusD2Ev.exit1, label %11
 
 11:                                               ; preds = %9
   %12 = inttoptr i64 %2 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit2 unwind label %13
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit1 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -1604,7 +1602,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverES
   tail call void @__clang_call_terminate(ptr %15) #28
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit2:          ; preds = %11, %9, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS3_EED2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit1:          ; preds = %11, %9, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine11DNSResolverESt14default_deleteIS3_EED2Ev.exit
   ret void
 }
 
@@ -2848,9 +2846,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !79
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -3846,9 +3843,8 @@ _ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14Creat
   %45 = load ptr, ptr %42, align 16, !tbaa !3
   call void %45(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %3) #25
   %46 = load i64, ptr %29, align 16, !tbaa !79
-  %47 = and i64 %46, 1
-  %.not.i.i.i5.i.i.i.i.i = icmp eq i64 %47, 0
-  br i1 %.not.i.i.i5.i.i.i.i.i, label %48, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i.i
+  %47 = trunc i64 %46 to i1
+  br i1 %47, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i.i, label %48
 
 48:                                               ; preds = %44
   %49 = inttoptr i64 %46 to ptr
@@ -3866,8 +3862,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i.i: ; preds = %48, %44
   %53 = load ptr, ptr %25, align 16, !tbaa !65
   call void %53(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %20, ptr noundef nonnull align 16 dereferenceable(32) %20) #25
   %.val.i.i.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !49
-  %.not.i.i1.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
-  br i1 %.not.i.i1.i.i.i.i.i.i, label %80, label %54
+  %.not.i.i.i5.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
+  br i1 %.not.i.i.i5.i.i.i.i.i, label %80, label %54
 
 54:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i.i, i64 8
@@ -3936,9 +3932,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %81 = load i64, ptr %5, align 8, !tbaa !79
-  %82 = and i64 %81, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %82, 0
-  br i1 %.not.i.i.i.i.i.i, label %83, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_1JSG_EvEEvOT0_DpOT1_.exit"
+  %82 = trunc i64 %81 to i1
+  br i1 %82, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_1JSG_EvEEvOT0_DpOT1_.exit", label %83
 
 83:                                               ; preds = %80
   %84 = inttoptr i64 %81 to ptr
@@ -4036,9 +4031,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %30, %28
 define internal fastcc void @"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1clESE_ENUlvE_D2Ev"(ptr noundef nonnull align 16 dereferenceable(56) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 16, !tbaa !79
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %5, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = inttoptr i64 %3 to ptr
@@ -4059,8 +4053,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1, %5
   tail call void %12(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %10) #25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %13, align 8, !tbaa !49
-  %.not.i.i1 = icmp eq ptr %.val, null
-  br i1 %.not.i.i1, label %_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %14
+  %.not.i.i = icmp eq ptr %.val, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %14
 
 14:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -4171,9 +4165,8 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit.i.i.i.i.i: ; preds = %_ZN4absl12lts_20
 
 _ZN4absl12lts_2024072222internal_any_invocable4ImplIFvNS0_6StatusEEEclES3_.exit.i.i.i.i.i: ; preds = %18
   %24 = load i64, ptr %2, align 8, !tbaa !79
-  %25 = and i64 %24, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %26, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEEN3$_1clESG_EUlvE_JEvEEvOT0_DpOT1_.exit"
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEEN3$_1clESG_EUlvE_JEvEEvOT0_DpOT1_.exit", label %26
 
 26:                                               ; preds = %_ZN4absl12lts_2024072222internal_any_invocable4ImplIFvNS0_6StatusEEEclES3_.exit.i.i.i.i.i
   %27 = inttoptr i64 %24 to ptr
@@ -4218,9 +4211,8 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteMan
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load i64, ptr %9, align 8, !tbaa !79
-  %11 = and i64 %10, 1
-  %.not.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i, label %12, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i, label %12
 
 12:                                               ; preds = %8
   %13 = inttoptr i64 %10 to ptr
@@ -4241,8 +4233,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %12, %8
   tail call void %19(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %17, ptr noundef nonnull align 16 dereferenceable(32) %17) #25
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val.i = load ptr, ptr %20, align 8, !tbaa !49
-  %.not.i.i1.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i1.i, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1clESE_ENUlvE_D2Ev.exit", label %21
+  %.not.i.i.i = icmp eq ptr %.val.i, null
+  br i1 %.not.i.i.i, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1clESE_ENUlvE_D2Ev.exit", label %21
 
 21:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
@@ -4424,9 +4416,8 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14d
   br label %69
 
 57:                                               ; preds = %48
-  %58 = and i64 %50, 1
-  %.not.i.i1.i.i.i.i.i.i.i = icmp eq i64 %58, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i.i, label %59, label %69
+  %58 = trunc i64 %50 to i1
+  br i1 %58, label %69, label %59
 
 59:                                               ; preds = %57
   %60 = inttoptr i64 %50 to ptr
@@ -4526,17 +4517,16 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointE
 
 _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointEEclEPS3_.exit.i
   store ptr null, ptr %4, align 8, !tbaa !121
-  br label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  br label %_ZN4absl12lts_202407226StatusD2Ev.exit1
 
 9:                                                ; preds = %1
-  %10 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %10, 0
-  br i1 %.not.i.i1, label %11, label %_ZN4absl12lts_202407226StatusD2Ev.exit2
+  %10 = trunc i64 %2 to i1
+  br i1 %10, label %_ZN4absl12lts_202407226StatusD2Ev.exit1, label %11
 
 11:                                               ; preds = %9
   %12 = inttoptr i64 %2 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit2 unwind label %13
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit1 unwind label %13
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -4545,7 +4535,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14d
   tail call void @__clang_call_terminate(ptr %15) #28
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit2:          ; preds = %11, %9, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit
+_ZN4absl12lts_202407226StatusD2Ev.exit1:          ; preds = %11, %9, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS3_EED2Ev.exit
   ret void
 }
 
@@ -4574,9 +4564,8 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14d
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EEED2Ev.exit
 
 10:                                               ; preds = %1
-  %11 = and i64 %3, 1
-  %.not.i.i1.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i1.i, label %12, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EEED2Ev.exit
+  %11 = trunc i64 %3 to i1
+  br i1 %11, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EEED2Ev.exit, label %12
 
 12:                                               ; preds = %10
   %13 = inttoptr i64 %3 to ptr
@@ -4645,9 +4634,8 @@ _ZNKSt14default_deleteIN17grpc_event_engine12experimental11EventEngine8EndpointE
   br label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine7ConnectENS0_12AnyInvocableIFvNS0_8StatusOrISt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteISA_EEEEEEERKNS9_15ResolvedAddressERKNS4_14EndpointConfigENS4_15MemoryAllocatorENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEN3$_0clESE_EUlvE_JEvEEvOT0_DpOT1_.exit"
 
 21:                                               ; preds = %_ZN4absl12lts_2024072222internal_any_invocable4ImplIFvNS0_8StatusOrISt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS8_EEEEEEclESC_.exit.i.i.i.i.i
-  %22 = and i64 %14, 1
-  %.not.i.i1.i.i.i.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i, label %23, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine7ConnectENS0_12AnyInvocableIFvNS0_8StatusOrISt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteISA_EEEEEEERKNS9_15ResolvedAddressERKNS4_14EndpointConfigENS4_15MemoryAllocatorENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEN3$_0clESE_EUlvE_JEvEEvOT0_DpOT1_.exit"
+  %22 = trunc i64 %14 to i1
+  br i1 %22, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine7ConnectENS0_12AnyInvocableIFvNS0_8StatusOrISt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteISA_EEEEEEERKNS9_15ResolvedAddressERKNS4_14EndpointConfigENS4_15MemoryAllocatorENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEN3$_0clESE_EUlvE_JEvEEvOT0_DpOT1_.exit", label %23
 
 23:                                               ; preds = %21
   %24 = inttoptr i64 %14 to ptr
@@ -4709,9 +4697,8 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14d
   br label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine7ConnectEN4absl12lts_2024072212AnyInvocableIFvNS3_8StatusOrISt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS8_EEEEEEERKNS7_15ResolvedAddressERKNS0_14EndpointConfigENS0_15MemoryAllocatorENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEN3$_0clESC_ENUlvE_D2Ev.exit"
 
 17:                                               ; preds = %8
-  %18 = and i64 %10, 1
-  %.not.i.i1.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i1.i.i, label %19, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine7ConnectEN4absl12lts_2024072212AnyInvocableIFvNS3_8StatusOrISt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS8_EEEEEEERKNS7_15ResolvedAddressERKNS0_14EndpointConfigENS0_15MemoryAllocatorENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEN3$_0clESC_ENUlvE_D2Ev.exit"
+  %18 = trunc i64 %10 to i1
+  br i1 %18, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine7ConnectEN4absl12lts_2024072212AnyInvocableIFvNS3_8StatusOrISt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS8_EEEEEEERKNS7_15ResolvedAddressERKNS0_14EndpointConfigENS0_15MemoryAllocatorENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEN3$_0clESC_ENUlvE_D2Ev.exit", label %19
 
 19:                                               ; preds = %17
   %20 = inttoptr i64 %10 to ptr
@@ -4979,9 +4966,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i.i.i: ; preds = %64
   br label %88
 
 76:                                               ; preds = %64
-  %77 = and i64 %66, 1
-  %.not.i.i1.i.i.i.i.i.i.i = icmp eq i64 %77, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i.i, label %78, label %88
+  %77 = trunc i64 %66 to i1
+  br i1 %77, label %88, label %78
 
 78:                                               ; preds = %76
   %79 = inttoptr i64 %66 to ptr
@@ -5131,9 +5117,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %1
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EED2Ev.exit
 
 12:                                               ; preds = %1
-  %13 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %13, 0
-  br i1 %.not.i.i1, label %14, label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EED2Ev.exit
+  %13 = trunc i64 %2 to i1
+  br i1 %13, label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EED2Ev.exit, label %14
 
 14:                                               ; preds = %12
   %15 = inttoptr i64 %2 to ptr
@@ -5174,9 +5159,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %1
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev.exit
 
 13:                                               ; preds = %1
-  %14 = and i64 %3, 1
-  %.not.i.i1.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i1.i, label %15, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev.exit
+  %14 = trunc i64 %3 to i1
+  br i1 %14, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS7_EEED2Ev.exit, label %15
 
 15:                                               ; preds = %13
   %16 = inttoptr i64 %3 to ptr
@@ -5255,9 +5239,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i.i: ; preds = %_ZN4absl12lts_202
   br label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver14LookupHostnameENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINS4_11EventEngine15ResolvedAddressESaISB_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEESK_EN3$_0clESE_EUlvE_JEvEEvOT0_DpOT1_.exit"
 
 30:                                               ; preds = %_ZN4absl12lts_2024072222internal_any_invocable4ImplIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS8_EEEEEEclESB_.exit.i.i.i.i.i
-  %31 = and i64 %20, 1
-  %.not.i.i1.i.i.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i, label %32, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver14LookupHostnameENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINS4_11EventEngine15ResolvedAddressESaISB_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEESK_EN3$_0clESE_EUlvE_JEvEEvOT0_DpOT1_.exit"
+  %31 = trunc i64 %20 to i1
+  br i1 %31, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver14LookupHostnameENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINS4_11EventEngine15ResolvedAddressESaISB_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEESK_EN3$_0clESE_EUlvE_JEvEEvOT0_DpOT1_.exit", label %32
 
 32:                                               ; preds = %30
   %33 = inttoptr i64 %20 to ptr
@@ -5317,9 +5300,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i:       ; preds = %8
   br label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver14LookupHostnameEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINS0_11EventEngine15ResolvedAddressESaIS9_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEESI_EN3$_0clESC_ENUlvE_D2Ev.exit"
 
 20:                                               ; preds = %8
-  %21 = and i64 %10, 1
-  %.not.i.i1.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i1.i.i, label %22, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver14LookupHostnameEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINS0_11EventEngine15ResolvedAddressESaIS9_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEESI_EN3$_0clESC_ENUlvE_D2Ev.exit"
+  %21 = trunc i64 %10 to i1
+  br i1 %21, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver14LookupHostnameEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINS0_11EventEngine15ResolvedAddressESaIS9_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEESI_EN3$_0clESC_ENUlvE_D2Ev.exit", label %22
 
 22:                                               ; preds = %20
   %23 = inttoptr i64 %10 to ptr
@@ -5519,9 +5501,8 @@ _ZSt8_DestroyIPN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVR
   br label %96
 
 84:                                               ; preds = %63
-  %85 = and i64 %65, 1
-  %.not.i.i1.i.i.i.i.i.i.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i.i, label %86, label %96
+  %85 = trunc i64 %65 to i1
+  br i1 %85, label %96, label %86
 
 86:                                               ; preds = %84
   %87 = inttoptr i64 %65 to ptr
@@ -5724,9 +5705,8 @@ _ZSt8_DestroyIPN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVR
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EED2Ev.exit
 
 21:                                               ; preds = %1
-  %22 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %22, 0
-  br i1 %.not.i.i1, label %23, label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EED2Ev.exit
+  %22 = trunc i64 %2 to i1
+  br i1 %22, label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EED2Ev.exit, label %23
 
 23:                                               ; preds = %21
   %24 = inttoptr i64 %2 to ptr
@@ -5796,9 +5776,8 @@ _ZSt8_DestroyIPN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVR
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS8_EEED2Ev.exit
 
 22:                                               ; preds = %1
-  %23 = and i64 %3, 1
-  %.not.i.i1.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i1.i, label %24, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS8_EEED2Ev.exit
+  %23 = trunc i64 %3 to i1
+  br i1 %23, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS8_EEED2Ev.exit, label %24
 
 24:                                               ; preds = %22
   %25 = inttoptr i64 %3 to ptr
@@ -5906,9 +5885,8 @@ _ZSt8_DestroyIPN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVR
   br label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupSRVENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINS4_11EventEngine11DNSResolver9SRVRecordESaISC_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEEEN3$_0clESF_EUlvE_JEvEEvOT0_DpOT1_.exit"
 
 39:                                               ; preds = %_ZN4absl12lts_2024072222internal_any_invocable4ImplIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS9_EEEEEEclESC_.exit.i.i.i.i.i
-  %40 = and i64 %20, 1
-  %.not.i.i1.i.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i, label %41, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupSRVENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINS4_11EventEngine11DNSResolver9SRVRecordESaISC_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEEEN3$_0clESF_EUlvE_JEvEEvOT0_DpOT1_.exit"
+  %40 = trunc i64 %20 to i1
+  br i1 %40, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupSRVENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINS4_11EventEngine11DNSResolver9SRVRecordESaISC_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEEEN3$_0clESF_EUlvE_JEvEEvOT0_DpOT1_.exit", label %41
 
 41:                                               ; preds = %39
   %42 = inttoptr i64 %20 to ptr
@@ -5997,9 +5975,8 @@ _ZSt8_DestroyIPN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVR
   br label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupSRVEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINS0_11EventEngine11DNSResolver9SRVRecordESaISA_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEEEN3$_0clESD_ENUlvE_D2Ev.exit"
 
 29:                                               ; preds = %8
-  %30 = and i64 %10, 1
-  %.not.i.i1.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i1.i.i, label %31, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupSRVEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINS0_11EventEngine11DNSResolver9SRVRecordESaISA_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEEEN3$_0clESD_ENUlvE_D2Ev.exit"
+  %30 = trunc i64 %10 to i1
+  br i1 %30, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupSRVEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINS0_11EventEngine11DNSResolver9SRVRecordESaISA_EEEEEEESt17basic_string_viewIcSt11char_traitsIcEEEN3$_0clESD_ENUlvE_D2Ev.exit", label %31
 
 31:                                               ; preds = %29
   %32 = inttoptr i64 %10 to ptr
@@ -6199,9 +6176,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %96
 
 84:                                               ; preds = %63
-  %85 = and i64 %65, 1
-  %.not.i.i1.i.i.i.i.i.i.i = icmp eq i64 %85, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i.i, label %86, label %96
+  %85 = trunc i64 %65 to i1
+  br i1 %85, label %96, label %86
 
 86:                                               ; preds = %84
   %87 = inttoptr i64 %65 to ptr
@@ -6404,9 +6380,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 21:                                               ; preds = %1
-  %22 = and i64 %2, 1
-  %.not.i.i1 = icmp eq i64 %22, 0
-  br i1 %.not.i.i1, label %23, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
+  %22 = trunc i64 %2 to i1
+  br i1 %22, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %23
 
 23:                                               ; preds = %21
   %24 = inttoptr i64 %2 to ptr
@@ -6476,9 +6451,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEED2Ev.exit
 
 22:                                               ; preds = %1
-  %23 = and i64 %3, 1
-  %.not.i.i1.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i1.i, label %24, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEED2Ev.exit
+  %23 = trunc i64 %3 to i1
+  br i1 %23, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEED2Ev.exit, label %24
 
 24:                                               ; preds = %22
   %25 = inttoptr i64 %3 to ptr
@@ -6586,9 +6560,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupTXTENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEEESt17basic_string_viewIcSD_EEN3$_0clESI_EUlvE_JEvEEvOT0_DpOT1_.exit"
 
 39:                                               ; preds = %_ZN4absl12lts_2024072222internal_any_invocable4ImplIFvNS0_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEEEclESD_.exit.i.i.i.i.i
-  %40 = and i64 %20, 1
-  %.not.i.i1.i.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i1.i.i.i.i.i.i, label %41, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupTXTENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEEESt17basic_string_viewIcSD_EEN3$_0clESI_EUlvE_JEvEEvOT0_DpOT1_.exit"
+  %40 = trunc i64 %20 to i1
+  br i1 %40, label %"_ZN4absl12lts_2024072222internal_any_invocable7InvokeRIvRZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupTXTENS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEEESt17basic_string_viewIcSD_EEN3$_0clESI_EUlvE_JEvEEvOT0_DpOT1_.exit", label %41
 
 41:                                               ; preds = %39
   %42 = inttoptr i64 %20 to ptr
@@ -6677,9 +6650,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupTXTEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEEESt17basic_string_viewIcSB_EEN3$_0clESG_ENUlvE_D2Ev.exit"
 
 29:                                               ; preds = %8
-  %30 = and i64 %10, 1
-  %.not.i.i1.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i1.i.i, label %31, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupTXTEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEEESt17basic_string_viewIcSB_EEN3$_0clESG_ENUlvE_D2Ev.exit"
+  %30 = trunc i64 %10 to i1
+  br i1 %30, label %"_ZZZN17grpc_event_engine12experimental18ThreadyEventEngine18ThreadyDNSResolver9LookupTXTEN4absl12lts_2024072212AnyInvocableIFvNS4_8StatusOrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEEESt17basic_string_viewIcSB_EEN3$_0clESG_ENUlvE_D2Ev.exit", label %31
 
 31:                                               ; preds = %29
   %32 = inttoptr i64 %10 to ptr

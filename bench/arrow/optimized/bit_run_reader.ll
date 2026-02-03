@@ -24,71 +24,67 @@ define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr noundef nonnull align 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %13, align 8, !tbaa !14
-  br label %57
+  br label %54
 
 14:                                               ; preds = %4
   %15 = lshr i64 %2, 3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !15
-  %18 = zext i8 %17 to i16
-  %19 = trunc i64 %2 to i16
-  %20 = and i16 %19, 7
+  %18 = trunc i64 %2 to i8
+  %19 = and i8 %18, 7
+  %20 = lshr i8 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = xor i16 %18, -1
-  %23 = lshr i16 %22, %20
-  %24 = trunc i16 %23 to i8
-  %25 = and i8 %24, 1
-  store i8 %25, ptr %21, align 8, !tbaa !16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %26, align 8, !tbaa !14
-  %27 = icmp sgt i64 %10, 63
-  br i1 %27, label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, label %28, !prof !17
+  %22 = and i8 %20, 1
+  %23 = xor i8 %22, 1
+  store i8 %23, ptr %21, align 8, !tbaa !16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %24, align 8, !tbaa !14
+  %25 = icmp sgt i64 %10, 63
+  br i1 %25, label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, label %26, !prof !17
 
-28:                                               ; preds = %14
-  %29 = ashr i64 %10, 3
-  %30 = and i64 %10, 7
-  %31 = icmp ne i64 %30, 0
-  %32 = zext i1 %31 to i64
-  %33 = add nsw i64 %29, %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %6, i64 %33, i1 false)
-  %34 = add nsw i64 %10, -1
-  %35 = lshr i64 %34, 3
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !15
-  %38 = zext i8 %37 to i32
-  %39 = trunc i64 %34 to i32
-  %40 = and i32 %39, 7
-  %41 = shl nuw nsw i32 1, %40
-  %42 = and i32 %41, %38
-  %.not.i = icmp eq i32 %42, 0
-  %.neg.i.i = sext i1 %.not.i to i8
-  %43 = sdiv i64 %10, 8
-  %44 = getelementptr inbounds i8, ptr %26, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !15
-  %46 = xor i8 %45, %.neg.i.i
-  %47 = srem i64 %10, 8
-  %48 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !15
-  %50 = and i8 %46, %49
-  %51 = xor i8 %50, %45
-  store i8 %51, ptr %44, align 1, !tbaa !15
+26:                                               ; preds = %14
+  %27 = ashr i64 %10, 3
+  %28 = and i64 %10, 7
+  %29 = icmp ne i64 %28, 0
+  %30 = zext i1 %29 to i64
+  %31 = add nsw i64 %27, %30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 1 %6, i64 %31, i1 false)
+  %32 = add nsw i64 %10, -1
+  %33 = lshr i64 %32, 3
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %33
+  %35 = load i8, ptr %34, align 1, !tbaa !15
+  %36 = trunc i64 %32 to i8
+  %37 = and i8 %36, 7
+  %38 = lshr i8 %35, %37
+  %39 = or i8 %38, -2
+  %.neg.i = add nsw i8 %39, 1
+  %40 = sdiv i64 %10, 8
+  %41 = getelementptr inbounds i8, ptr %24, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !15
+  %43 = xor i8 %.neg.i, %42
+  %44 = srem i64 %10, 8
+  %45 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !15
+  %47 = and i8 %43, %46
+  %48 = xor i8 %47, %42
+  store i8 %48, ptr %41, align 1, !tbaa !15
   %.pre = load i8, ptr %21, align 8, !tbaa !16, !range !18
   br label %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit
 
-_ZN5arrow8internal12BitRunReader8LoadWordEl.exit: ; preds = %14, %28
-  %.pre9.in = phi ptr [ %26, %28 ], [ %6, %14 ]
-  %52 = phi i8 [ %.pre, %28 ], [ %25, %14 ]
+_ZN5arrow8internal12BitRunReader8LoadWordEl.exit: ; preds = %14, %26
+  %.pre9.in = phi ptr [ %24, %26 ], [ %6, %14 ]
+  %49 = phi i8 [ %.pre, %26 ], [ %23, %14 ]
   %.pre9 = load i64, ptr %.pre9.in, align 1
-  %53 = zext nneg i8 %52 to i64
-  %54 = sub nsw i64 0, %53
-  %spec.select = xor i64 %.pre9, %54
-  %55 = load i64, ptr %7, align 8, !tbaa !11
-  %notmask.i = shl nsw i64 -1, %55
-  %56 = and i64 %notmask.i, %spec.select
-  store i64 %56, ptr %26, align 8, !tbaa !14
-  br label %57
+  %50 = zext i8 %49 to i64
+  %51 = sub nsw i64 0, %50
+  %spec.select = xor i64 %.pre9, %51
+  %52 = load i64, ptr %7, align 8, !tbaa !11
+  %notmask.i = shl nsw i64 -1, %52
+  %53 = and i64 %notmask.i, %spec.select
+  store i64 %53, ptr %24, align 8, !tbaa !14
+  br label %54
 
-57:                                               ; preds = %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, %12
+54:                                               ; preds = %_ZN5arrow8internal12BitRunReader8LoadWordEl.exit, %12
   ret void
 }
 

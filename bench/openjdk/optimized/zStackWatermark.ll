@@ -344,9 +344,8 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
 
 12:                                               ; preds = %1
   %13 = load volatile i32, ptr %2, align 8
-  %14 = and i32 %13, 1
-  %.not17 = icmp eq i32 %14, 0
-  br i1 %.not17, label %15, label %17
+  %14 = trunc i32 %13 to i1
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %12
   %16 = tail call noundef i64 @_ZN14StackWatermark18last_processed_rawEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #12
@@ -356,11 +355,11 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
 17:                                               ; preds = %12, %15
   %18 = phi i32 [ %.pre, %15 ], [ %8, %12 ]
   %19 = phi i64 [ %16, %15 ], [ 0, %12 ]
-  %.not1220 = icmp slt i32 %18, 0
-  br i1 %.not1220, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not1219 = icmp slt i32 %18, 0
+  br i1 %.not1219, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %17
-  %.pre24 = add nsw i32 %18, 1
+  %.pre23 = add nsw i32 %18, 1
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %17
@@ -389,7 +388,7 @@ define hidden void @_ZN15ZStackWatermark18save_old_watermarkEv(ptr noundef nonnu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %.._crit_edge_crit_edge, %.loopexit.loopexit
-  %29 = phi i32 [ %28, %.loopexit.loopexit ], [ %.pre24, %.._crit_edge_crit_edge ], [ %21, %27 ]
+  %29 = phi i32 [ %28, %.loopexit.loopexit ], [ %.pre23, %.._crit_edge_crit_edge ], [ %21, %27 ]
   store i32 %29, ptr %7, align 8
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds %struct.ZColorWatermark, ptr %6, i64 %30
@@ -578,9 +577,8 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
 
 15:                                               ; preds = %2
   %16 = load volatile i32, ptr %5, align 8
-  %17 = and i32 %16, 1
-  %.not17.i = icmp eq i32 %17, 0
-  br i1 %.not17.i, label %18, label %20
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
   %19 = tail call noundef i64 @_ZN14StackWatermark18last_processed_rawEv(ptr noundef nonnull align 8 dereferenceable(296) %0) #12
@@ -590,11 +588,11 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
 20:                                               ; preds = %18, %15
   %21 = phi i32 [ %.pre.i, %18 ], [ %11, %15 ]
   %22 = phi i64 [ %19, %18 ], [ 0, %15 ]
-  %.not1220.i = icmp slt i32 %21, 0
-  br i1 %.not1220.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
+  %.not1219.i = icmp slt i32 %21, 0
+  br i1 %.not1219.i, label %.._crit_edge_crit_edge.i, label %.lr.ph.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %20
-  %.pre24.i = add nsw i32 %21, 1
+  %.pre23.i = add nsw i32 %21, 1
   br label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %20
@@ -623,7 +621,7 @@ define hidden void @_ZN15ZStackWatermark21start_processing_implEPv(ptr noundef n
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %30, %.loopexit.loopexit.i, %.._crit_edge_crit_edge.i
-  %32 = phi i32 [ %31, %.loopexit.loopexit.i ], [ %.pre24.i, %.._crit_edge_crit_edge.i ], [ %24, %30 ]
+  %32 = phi i32 [ %31, %.loopexit.loopexit.i ], [ %.pre23.i, %.._crit_edge_crit_edge.i ], [ %24, %30 ]
   store i32 %32, ptr %10, align 8
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.ZColorWatermark, ptr %9, i64 %33

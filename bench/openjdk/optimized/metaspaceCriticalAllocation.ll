@@ -316,14 +316,13 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge, %15
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   %17 = load volatile i64, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
-  %18 = and i64 %17, 1
-  %.not.i.i2 = icmp eq i64 %18, 0
-  br i1 %.not.i.i2, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 19:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   %20 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %20, 0
-  br i1 %.not5.i.i, label %21, label %27
+  %.not.i.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i.i, label %21, label %27
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 1384
@@ -336,20 +335,19 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge, %15
 
 26:                                               ; preds = %24
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %3) #7
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
 27:                                               ; preds = %24, %21, %19
   %28 = load volatile i64, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
-  %29 = and i64 %28, 1
-  %.not.i1.i = icmp eq i64 %29, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %30
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %30, label %_ZN15ThreadBlockInVMD2Ev.exit
 
 30:                                               ; preds = %27
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %3, i1 noundef zeroext false, i1 noundef zeroext false) #7
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN11MutexLockerD2Ev.exit, %26, %27, %30
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN11MutexLockerD2Ev.exit, %26, %27, %30
   ret void
 }
 

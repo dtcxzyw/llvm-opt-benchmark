@@ -734,17 +734,16 @@ define noundef zeroext i1 @_ZN3g2o20EdgeSE2PointXYOffset4readERSi(ptr noundef no
 ..critedge_crit_edge.i:                           ; preds = %17
   %.pre = load ptr, ptr %1, align 8, !tbaa !35
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre11 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %1, i64 %.pre11
-  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert12, i64 32
-  %.pre14 = load i32, ptr %.phi.trans.insert13, align 8, !tbaa !127
+  %.pre10 = load i64, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert11 = getelementptr inbounds i8, ptr %1, i64 %.pre10
+  %.phi.trans.insert12 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert11, i64 32
+  %.pre13 = load i32, ptr %.phi.trans.insert12, align 8, !tbaa !127
   br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !136
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %8, %..critedge_crit_edge.i
-  %20 = phi i32 [ %.pre14, %..critedge_crit_edge.i ], [ %15, %8 ]
-  %21 = and i32 %20, 1
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %22, label %54
+  %20 = phi i32 [ %.pre13, %..critedge_crit_edge.i ], [ %15, %8 ]
+  %21 = trunc i32 %20 to i1
+  br i1 %21, label %54, label %22
 
 22:                                               ; preds = %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -783,12 +782,12 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   br i1 %25, label %24, label %.critedge2..critedge_crit_edge.i, !llvm.loop !137
 
 .critedge2..critedge_crit_edge.i:                 ; preds = %.critedge2.i
-  %.pre15 = load ptr, ptr %1, align 8, !tbaa !35
-  %.phi.trans.insert16 = getelementptr i8, ptr %.pre15, i64 -24
-  %.pre17 = load i64, ptr %.phi.trans.insert16, align 8
-  %.phi.trans.insert18 = getelementptr inbounds i8, ptr %1, i64 %.pre17
-  %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert18, i64 32
-  %.pre20 = load i32, ptr %.phi.trans.insert19, align 8, !tbaa !127
+  %.pre14 = load ptr, ptr %1, align 8, !tbaa !35
+  %.phi.trans.insert15 = getelementptr i8, ptr %.pre14, i64 -24
+  %.pre16 = load i64, ptr %.phi.trans.insert15, align 8
+  %.phi.trans.insert17 = getelementptr inbounds i8, ptr %1, i64 %.pre16
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert17, i64 32
+  %.pre19 = load i32, ptr %.phi.trans.insert18, align 8, !tbaa !127
   br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, !llvm.loop !137
 
 42:                                               ; preds = %34
@@ -809,10 +808,9 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   br i1 %48, label %34, label %.critedge2.i, !llvm.loop !138
 
 _ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %24, %.critedge2..critedge_crit_edge.i
-  %49 = phi i32 [ %.pre20, %.critedge2..critedge_crit_edge.i ], [ %31, %24 ]
-  %50 = and i32 %49, 1
-  %.not10 = icmp eq i32 %50, 0
-  br i1 %.not10, label %54, label %51
+  %49 = phi i32 [ %.pre19, %.critedge2..critedge_crit_edge.i ], [ %31, %24 ]
+  %50 = trunc i32 %49 to i1
+  br i1 %50, label %51, label %54
 
 51:                                               ; preds = %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
   store double 1.000000e+00, ptr %23, align 16, !tbaa !51
@@ -823,8 +821,9 @@ _ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMat
   br label %54
 
 54:                                               ; preds = %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, %51, %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
+  %.0 = xor i1 %21, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not
+  ret i1 %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERi(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0

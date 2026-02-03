@@ -4015,34 +4015,34 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm21RISCVGenSubtargetInfo9
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(304) %0) #24
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %16, label %7
+  br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  switch i32 %1, label %15 [
+  switch i32 %1, label %13 [
     i32 0, label %8
     i32 1, label %11
-    i32 2, label %13
-    i32 3, label %16
+    i32 2, label %12
+    i32 3, label %14
   ]
 
 8:                                                ; preds = %7
   %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
   %10 = add nuw nsw i32 %9, 1
-  br label %16
+  br label %14
 
 11:                                               ; preds = %7
-  %12 = and i32 %6, 1
-  br label %16
+  %spec.select = and i32 %6, 1
+  br label %14
+
+12:                                               ; preds = %7
+  %spec.select27 = and i32 %6, 1
+  br label %14
 
 13:                                               ; preds = %7
-  %14 = and i32 %6, 1
-  br label %16
-
-15:                                               ; preds = %7
   unreachable
 
-16:                                               ; preds = %13, %11, %7, %2, %8
-  %.0 = phi i32 [ %10, %8 ], [ 0, %7 ], [ 0, %2 ], [ %14, %13 ], [ %12, %11 ]
+14:                                               ; preds = %12, %11, %7, %2, %8
+  %.0 = phi i32 [ %10, %8 ], [ 0, %7 ], [ 0, %2 ], [ %spec.select27, %12 ], [ %spec.select, %11 ]
   ret i32 %.0
 }
 

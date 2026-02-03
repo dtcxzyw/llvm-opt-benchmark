@@ -7396,9 +7396,8 @@ _ZNK7testing8internal11MatcherBaseIRKN4absl8crc32c_tEE15MatchAndExplainES5_PNS_1
 
 _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl8crc32c_tEE15MatchAndExplainES5_PNS_19MatchResultListenerE.exit
   %47 = load i64, ptr %44, align 8, !tbaa !39
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %61, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %61
 
 49:                                               ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i
   %50 = load ptr, ptr %45, align 8, !tbaa !55
@@ -7411,18 +7410,17 @@ _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i: ; preds
   %54 = landingpad { ptr, i32 }
           cleanup
   %55 = load i64, ptr %44, align 8, !tbaa !39
-  %56 = and i64 %55, 1
-  %.not.i.i.i.i2.i.i.i.i.i.i = icmp eq i64 %56, 0
-  br i1 %.not.i.i.i.i2.i.i.i.i.i.i, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i, label %57
+  %56 = trunc i64 %55 to i1
+  br i1 %56, label %57, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %45, align 8, !tbaa !55
   %59 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !55
   %60 = shl i64 %59, 4
   call void @_ZdlPvm(ptr noundef %58, i64 noundef %60) #23
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i
+  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i: ; preds = %57, %53
+_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i: ; preds = %57, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.body
@@ -7640,8 +7638,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-.body:                                            ; preds = %35, %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i, %73, %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %36, %35 ], [ %74, %73 ], [ %54, %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i ]
+.body:                                            ; preds = %35, %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i, %73, %75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44 ], [ %36, %35 ], [ %74, %73 ], [ %54, %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i ]
   call void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %9) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
@@ -7865,9 +7863,8 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14ComparisonBaseINS0_9E
 
 _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i: ; preds = %2
   %12 = load i64, ptr %9, align 8, !tbaa !39
-  %13 = and i64 %12, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing8internal14UniversalPrintIN4absl8crc32c_tEEEvRKT_PSo.exit, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %_ZN7testing8internal14UniversalPrintIN4absl8crc32c_tEEEvRKT_PSo.exit
 
 14:                                               ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i
   %15 = load ptr, ptr %10, align 8, !tbaa !55
@@ -7880,18 +7877,17 @@ _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i: ; preds
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %9, align 8, !tbaa !39
-  %21 = and i64 %20, 1
-  %.not.i.i.i.i2.i.i.i.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i.i2.i.i.i.i.i.i, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i, label %22
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %22, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %10, align 8, !tbaa !55
   %24 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !55
   %25 = shl i64 %24, 4
   call void @_ZdlPvm(ptr noundef %23, i64 noundef %25) #23
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i
+  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i: ; preds = %22, %18
+_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i: ; preds = %22, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %19
@@ -7928,9 +7924,8 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14ComparisonBaseINS0_9E
 
 _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i: ; preds = %2
   %12 = load i64, ptr %9, align 8, !tbaa !39
-  %13 = and i64 %12, 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN7testing8internal14UniversalPrintIN4absl8crc32c_tEEEvRKT_PSo.exit, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %_ZN7testing8internal14UniversalPrintIN4absl8crc32c_tEEEvRKT_PSo.exit
 
 14:                                               ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i
   %15 = load ptr, ptr %10, align 8, !tbaa !55
@@ -7943,18 +7938,17 @@ _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit.i.i.i.i.i.i: ; preds
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %9, align 8, !tbaa !39
-  %21 = and i64 %20, 1
-  %.not.i.i.i.i2.i.i.i.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i.i2.i.i.i.i.i.i, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i, label %22
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %22, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %10, align 8, !tbaa !55
   %24 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !55
   %25 = shl i64 %24, 4
   call void @_ZdlPvm(ptr noundef %23, i64 noundef %25) #23
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i
+  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit3.i.i.i.i.i.i: ; preds = %22, %18
+_ZN4absl19str_format_internal10StreamableD2Ev.exit2.i.i.i.i.i.i: ; preds = %22, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %19

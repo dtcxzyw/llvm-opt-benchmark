@@ -15,9 +15,8 @@ define noundef nonnull ptr @l_Std_DTreeMap_Internal_instInhabitedImpl(ptr nounde
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_DTreeMap_Internal_Impl_size___rarg(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -39,9 +38,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %lean_inc.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_inc.exit, label %16
 
 16:                                               ; preds = %11
   %.val.i6 = load i32, ptr %13, align 4, !tbaa !8
@@ -54,8 +52,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   br label %lean_inc.exit
 
 20:                                               ; preds = %16
-  %.not.i7 = icmp eq i32 %.val.i6, 0
-  br i1 %.not.i7, label %lean_inc.exit, label %21
+  %.not.i = icmp eq i32 %.val.i6, 0
+  br i1 %.not.i, label %lean_inc.exit, label %21
 
 21:                                               ; preds = %20
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %13) #4
@@ -93,9 +91,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_DTreeMap_Internal_Impl_size___rarg___boxed(ptr noundef %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -117,9 +114,8 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not.i3 = icmp eq i64 %15, 0
-  br i1 %.not.i3, label %16, label %l_Std_DTreeMap_Internal_Impl_size___rarg.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %l_Std_DTreeMap_Internal_Impl_size___rarg.exit, label %16
 
 16:                                               ; preds = %11
   %.val.i6.i = load i32, ptr %13, align 4, !tbaa !8
@@ -132,8 +128,8 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   br label %l_Std_DTreeMap_Internal_Impl_size___rarg.exit
 
 20:                                               ; preds = %16
-  %.not.i7.i = icmp eq i32 %.val.i6.i, 0
-  br i1 %.not.i7.i, label %l_Std_DTreeMap_Internal_Impl_size___rarg.exit, label %21
+  %.not.i.i = icmp eq i32 %.val.i6.i, 0
+  br i1 %.not.i.i, label %l_Std_DTreeMap_Internal_Impl_size___rarg.exit, label %21
 
 21:                                               ; preds = %20
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %13) #4
@@ -141,7 +137,7 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
 
 l_Std_DTreeMap_Internal_Impl_size___rarg.exit:    ; preds = %lean_obj_tag.exit.i, %11, %18, %20, %21
   %.0.i = phi ptr [ %13, %11 ], [ %13, %21 ], [ %13, %20 ], [ %13, %18 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit.i ]
-  br i1 %.not.i.i, label %22, label %lean_dec.exit
+  br i1 %3, label %lean_dec.exit, label %22
 
 22:                                               ; preds = %l_Std_DTreeMap_Internal_Impl_size___rarg.exit
   %23 = load i32, ptr %0, align 4, !tbaa !8
@@ -168,9 +164,8 @@ lean_dec.exit:                                    ; preds = %28, %27, %25, %l_St
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_DTreeMap_Internal_Impl_toListModel___rarg(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -199,9 +194,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = tail call ptr @l_Std_DTreeMap_Internal_Impl_toListModel___rarg(ptr noundef %17)
   %21 = ptrtoint ptr %15 to i64
-  %22 = and i64 %21, 1
-  %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %23, label %lean_inc.exit22
+  %22 = trunc i64 %21 to i1
+  br i1 %22, label %lean_inc.exit22, label %23
 
 23:                                               ; preds = %11
   %.val.i23 = load i32, ptr %15, align 4, !tbaa !8
@@ -214,8 +208,8 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   br label %lean_inc.exit22
 
 27:                                               ; preds = %23
-  %.not.i24 = icmp eq i32 %.val.i23, 0
-  br i1 %.not.i24, label %lean_inc.exit22, label %28
+  %.not.i = icmp eq i32 %.val.i23, 0
+  br i1 %.not.i, label %lean_inc.exit22, label %28
 
 28:                                               ; preds = %27
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %15) #4
@@ -223,23 +217,22 @@ lean_obj_tag.exit:                                ; preds = %4, %7
 
 lean_inc.exit22:                                  ; preds = %28, %27, %25, %11
   %29 = ptrtoint ptr %13 to i64
-  %30 = and i64 %29, 1
-  %.not29 = icmp eq i64 %30, 0
-  br i1 %.not29, label %31, label %lean_inc.exit
+  %30 = trunc i64 %29 to i1
+  br i1 %30, label %lean_inc.exit, label %31
 
 31:                                               ; preds = %lean_inc.exit22
-  %.val.i25 = load i32, ptr %13, align 4, !tbaa !8
-  %32 = icmp sgt i32 %.val.i25, 0
+  %.val.i24 = load i32, ptr %13, align 4, !tbaa !8
+  %32 = icmp sgt i32 %.val.i24, 0
   br i1 %32, label %33, label %35, !prof !11
 
 33:                                               ; preds = %31
-  %34 = add nuw i32 %.val.i25, 1
+  %34 = add nuw i32 %.val.i24, 1
   store i32 %34, ptr %13, align 4, !tbaa !8
   br label %lean_inc.exit
 
 35:                                               ; preds = %31
-  %.not.i26 = icmp eq i32 %.val.i25, 0
-  br i1 %.not.i26, label %lean_inc.exit, label %36
+  %.not.i25 = icmp eq i32 %.val.i24, 0
+  br i1 %.not.i25, label %lean_inc.exit, label %36
 
 36:                                               ; preds = %35
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %13) #4
@@ -267,13 +260,13 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   tail call void @lean_inc_heartbeat() #4
   %44 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %lean_alloc_ctor.exit28
+  br i1 %45, label %46, label %lean_alloc_ctor.exit27
 
 46:                                               ; preds = %lean_alloc_ctor.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
-lean_alloc_ctor.exit28:                           ; preds = %lean_alloc_ctor.exit
+lean_alloc_ctor.exit27:                           ; preds = %lean_alloc_ctor.exit
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 1, ptr %44, align 4, !tbaa !8
   store i32 16908312, ptr %47, align 4
@@ -284,8 +277,8 @@ lean_alloc_ctor.exit28:                           ; preds = %lean_alloc_ctor.exi
   %50 = tail call ptr @l_List_appendTR___rarg(ptr noundef %20, ptr noundef nonnull %44) #4
   br label %51
 
-51:                                               ; preds = %lean_obj_tag.exit, %lean_alloc_ctor.exit28
-  %.0 = phi ptr [ %50, %lean_alloc_ctor.exit28 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
+51:                                               ; preds = %lean_obj_tag.exit, %lean_alloc_ctor.exit27
+  %.0 = phi ptr [ %50, %lean_alloc_ctor.exit27 ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ]
   ret ptr %.0
 }
 
@@ -319,9 +312,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 define ptr @l_Std_DTreeMap_Internal_Impl_toListModel___rarg___boxed(ptr noundef %0) #1 {
   %2 = tail call ptr @l_Std_DTreeMap_Internal_Impl_toListModel___rarg(ptr noundef %0)
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8

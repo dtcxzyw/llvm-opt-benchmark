@@ -870,14 +870,14 @@ define hidden void @HIDAPI_UpdateDeviceProperties(ptr noundef %0) local_unnamed_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %7
 
-7:                                                ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
+7:                                                ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @SDL_GetJoystickFromID_REAL(i32 noundef %10) #9
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %28, label %12
+  br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %7
   %13 = tail call i32 @SDL_GetJoystickProperties_REAL(ptr noundef nonnull %11) #9
@@ -885,31 +885,30 @@ define hidden void @HIDAPI_UpdateDeviceProperties(ptr noundef %0) local_unnamed_
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %11) #9
-  %18 = and i32 %17, 1
-  %.not.i = icmp ne i32 %18, 0
-  %19 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.7, i1 noundef zeroext %.not.i) #9
-  %20 = and i32 %17, 2
-  %.not18.i = icmp ne i32 %20, 0
-  %21 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.8, i1 noundef zeroext %.not18.i) #9
-  %22 = and i32 %17, 4
-  %.not19.i = icmp ne i32 %22, 0
-  %23 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.9, i1 noundef zeroext %.not19.i) #9
-  %24 = and i32 %17, 16
-  %.not20.i = icmp ne i32 %24, 0
-  %25 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.10, i1 noundef zeroext %.not20.i) #9
-  %26 = and i32 %17, 32
-  %.not21.i = icmp ne i32 %26, 0
-  %27 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.11, i1 noundef zeroext %.not21.i) #9
-  br label %28
+  %.not.i = trunc i32 %17 to i1
+  %18 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.7, i1 noundef zeroext %.not.i) #9
+  %19 = and i32 %17, 2
+  %.not18.i = icmp ne i32 %19, 0
+  %20 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.8, i1 noundef zeroext %.not18.i) #9
+  %21 = and i32 %17, 4
+  %.not19.i = icmp ne i32 %21, 0
+  %22 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.9, i1 noundef zeroext %.not19.i) #9
+  %23 = and i32 %17, 16
+  %.not20.i = icmp ne i32 %23, 0
+  %24 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.10, i1 noundef zeroext %.not20.i) #9
+  %25 = and i32 %17, 32
+  %.not21.i = icmp ne i32 %25, 0
+  %26 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %13, ptr noundef nonnull @.str.11, i1 noundef zeroext %.not21.i) #9
+  br label %27
 
-28:                                               ; preds = %12, %7
+27:                                               ; preds = %12, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %2, align 4
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %7, label %._crit_edge, !llvm.loop !18
+  %28 = load i32, ptr %2, align 4
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %28, %1
+._crit_edge:                                      ; preds = %27, %1
   tail call void @SDL_UnlockJoysticks_REAL() #9
   ret void
 }
@@ -2458,12 +2457,12 @@ HIDAPI_GetDeviceByIndex.exit.thread:              ; preds = %18, %2
 
 33:                                               ; preds = %HIDAPI_GetDeviceByIndex.exit.thread, %29, %20
   %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.30, i32 noundef %1) #9
-  br label %83
+  br label %82
 
 35:                                               ; preds = %29
   %36 = tail call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #11
   %.not35 = icmp eq ptr %36, null
-  br i1 %.not35, label %83, label %37
+  br i1 %.not35, label %82, label %37
 
 37:                                               ; preds = %35
   store ptr %.027.i, ptr %36, align 8
@@ -2486,7 +2485,7 @@ HIDAPI_GetDeviceByIndex.exit.thread:              ; preds = %18, %2
 48:                                               ; preds = %37
   tail call void @SDL_free_REAL(ptr noundef nonnull %36) #9
   %49 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31) #9
-  br label %83
+  br label %82
 
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.027.i, i64 84
@@ -2504,7 +2503,7 @@ HIDAPI_GetDeviceByIndex.exit.thread:              ; preds = %18, %2
 59:                                               ; preds = %50
   tail call void @HIDAPI_JoystickDisconnected(ptr noundef nonnull %.027.i, i32 noundef %27)
   tail call void @SDL_free_REAL(ptr noundef nonnull %36) #9
-  br label %83
+  br label %82
 
 60:                                               ; preds = %50
   %61 = tail call i32 @SDL_GetJoystickProperties_REAL(ptr noundef nonnull %0) #9
@@ -2512,39 +2511,38 @@ HIDAPI_GetDeviceByIndex.exit.thread:              ; preds = %18, %2
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 104
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 %64(ptr noundef nonnull %.027.i, ptr noundef nonnull %0) #9
-  %66 = and i32 %65, 1
-  %.not.i37 = icmp ne i32 %66, 0
-  %67 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.7, i1 noundef zeroext %.not.i37) #9
-  %68 = and i32 %65, 2
-  %.not18.i38 = icmp ne i32 %68, 0
-  %69 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.8, i1 noundef zeroext %.not18.i38) #9
-  %70 = and i32 %65, 4
-  %.not19.i39 = icmp ne i32 %70, 0
-  %71 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.9, i1 noundef zeroext %.not19.i39) #9
-  %72 = and i32 %65, 16
-  %.not20.i = icmp ne i32 %72, 0
-  %73 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.10, i1 noundef zeroext %.not20.i) #9
-  %74 = and i32 %65, 32
-  %.not21.i = icmp ne i32 %74, 0
-  %75 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.11, i1 noundef zeroext %.not21.i) #9
-  %76 = getelementptr inbounds nuw i8, ptr %.027.i, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %.not36 = icmp eq ptr %77, null
-  br i1 %.not36, label %81, label %78
+  %.not.i37 = trunc i32 %65 to i1
+  %66 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.7, i1 noundef zeroext %.not.i37) #9
+  %67 = and i32 %65, 2
+  %.not18.i38 = icmp ne i32 %67, 0
+  %68 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.8, i1 noundef zeroext %.not18.i38) #9
+  %69 = and i32 %65, 4
+  %.not19.i39 = icmp ne i32 %69, 0
+  %70 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.9, i1 noundef zeroext %.not19.i39) #9
+  %71 = and i32 %65, 16
+  %.not20.i = icmp ne i32 %71, 0
+  %72 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.10, i1 noundef zeroext %.not20.i) #9
+  %73 = and i32 %65, 32
+  %.not21.i = icmp ne i32 %73, 0
+  %74 = tail call zeroext i1 @SDL_SetBooleanProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.11, i1 noundef zeroext %.not21.i) #9
+  %75 = getelementptr inbounds nuw i8, ptr %.027.i, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %.not36 = icmp eq ptr %76, null
+  br i1 %.not36, label %80, label %77
 
-78:                                               ; preds = %60
-  %79 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %77) #9
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %79, ptr %80, align 8
-  br label %81
+77:                                               ; preds = %60
+  %78 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %76) #9
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %78, ptr %79, align 8
+  br label %80
 
-81:                                               ; preds = %78, %60
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr %36, ptr %82, align 8
-  br label %83
+80:                                               ; preds = %77, %60
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr %36, ptr %81, align 8
+  br label %82
 
-83:                                               ; preds = %35, %81, %59, %48, %33
-  %.0 = phi i1 [ %34, %33 ], [ %49, %48 ], [ true, %81 ], [ false, %59 ], [ false, %35 ]
+82:                                               ; preds = %35, %80, %59, %48, %33
+  %.0 = phi i1 [ %34, %33 ], [ %49, %48 ], [ true, %80 ], [ false, %59 ], [ false, %35 ]
   ret i1 %.0
 }
 

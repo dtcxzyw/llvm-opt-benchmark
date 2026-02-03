@@ -91,7 +91,7 @@ define hidden void @_ZN8rawspeed20SonyArw1DecompressorC2ENS_8RawImageE(ptr nound
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %36
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -101,34 +101,33 @@ define hidden void @_ZN8rawspeed20SonyArw1DecompressorC2ENS_8RawImageE(ptr nound
   %25 = icmp eq i32 %22, 0
   %26 = icmp eq i32 %24, 0
   %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %32, label %27
+  br i1 %or.cond, label %31, label %27
 
 27:                                               ; preds = %20
-  %28 = and i32 %24, 1
-  %29 = icmp ne i32 %28, 0
-  %30 = icmp ugt i32 %22, 4600
-  %or.cond3 = or i1 %30, %29
-  %31 = icmp ugt i32 %24, 3072
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %31
-  br i1 %or.cond5, label %32, label %36
+  %28 = trunc i32 %24 to i1
+  %29 = icmp ugt i32 %22, 4600
+  %or.cond3 = or i1 %29, %28
+  %30 = icmp ugt i32 %24, 3072
+  %or.cond5 = or i1 %30, %or.cond3
+  br i1 %or.cond5, label %31, label %35
 
-32:                                               ; preds = %27, %20
+31:                                               ; preds = %27, %20
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed20SonyArw1DecompressorC2ENS_8RawImageE, i32 noundef %22, i32 noundef %24) #11
-          to label %33 unwind label %34
+          to label %32 unwind label %33
 
-33:                                               ; preds = %32
+32:                                               ; preds = %31
   unreachable
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %36
 
-36:                                               ; preds = %27
+35:                                               ; preds = %27
   ret void
 
-37:                                               ; preds = %34, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %35, %34 ]
+36:                                               ; preds = %33, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %34, %33 ]
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   resume { ptr, i32 } %.pn
 }

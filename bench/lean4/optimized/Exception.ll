@@ -107,9 +107,8 @@ define ptr @l_Lean_Elab_throwPostpone___rarg(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -131,9 +130,8 @@ define ptr @l_Lean_Elab_throwPostpone___rarg(ptr noundef %0) #0 {
 
 lean_inc.exit:                                    ; preds = %11, %10, %8, %1
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not7 = icmp eq i64 %13, 0
-  br i1 %.not7, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_inc.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -190,9 +188,8 @@ define ptr @l_Lean_Elab_throwUnsupportedSyntax___rarg(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -214,9 +211,8 @@ define ptr @l_Lean_Elab_throwUnsupportedSyntax___rarg(ptr noundef %0) #0 {
 
 lean_inc.exit:                                    ; preds = %11, %10, %8, %1
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not7 = icmp eq i64 %13, 0
-  br i1 %.not7, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_inc.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -340,9 +336,8 @@ lean_alloc_ctor.exit15:                           ; preds = %lean_alloc_ctor.exi
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = ptrtoint ptr %19 to i64
-  %21 = and i64 %20, 1
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %22, label %lean_inc.exit
+  %21 = trunc i64 %20 to i1
+  br i1 %21, label %lean_inc.exit, label %22
 
 22:                                               ; preds = %lean_alloc_ctor.exit15
   %.val.i = load i32, ptr %19, align 4, !tbaa !8
@@ -364,9 +359,8 @@ lean_alloc_ctor.exit15:                           ; preds = %lean_alloc_ctor.exi
 
 lean_inc.exit:                                    ; preds = %27, %26, %24, %lean_alloc_ctor.exit15
   %28 = ptrtoint ptr %0 to i64
-  %29 = and i64 %28, 1
-  %.not17 = icmp eq i64 %29, 0
-  br i1 %.not17, label %30, label %lean_dec.exit
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %lean_dec.exit, label %30
 
 30:                                               ; preds = %lean_inc.exit
   %31 = load i32, ptr %0, align 4, !tbaa !8
@@ -420,9 +414,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Elab_isAutoBoundImplicitLocalException_x3f(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -438,7 +431,7 @@ define ptr @l_Lean_Elab_isAutoBoundImplicitLocalException_x3f(ptr noundef %0) lo
 lean_obj_tag.exit:                                ; preds = %4, %7
   %.0.i14 = phi i32 [ %6, %4 ], [ %9, %7 ]
   %10 = icmp eq i32 %.0.i14, 0
-  br i1 %10, label %35, label %11
+  br i1 %10, label %33, label %11
 
 11:                                               ; preds = %lean_obj_tag.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -447,45 +440,43 @@ lean_obj_tag.exit:                                ; preds = %4, %7
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = load ptr, ptr @l_Lean_Elab_throwAutoBoundImplicitLocal___rarg___closed__3, align 8, !tbaa !4
   %17 = ptrtoint ptr %13 to i64
-  %18 = and i64 %17, 1
-  %19 = icmp ne i64 %18, 0
-  %20 = ptrtoint ptr %16 to i64
-  %21 = and i64 %20, 1
-  %22 = icmp ne i64 %21, 0
-  %or.cond = select i1 %19, i1 %22, i1 false, !prof !14
-  br i1 %or.cond, label %23, label %lean_nat_eq.exit, !prof !14
+  %18 = trunc i64 %17 to i1
+  %19 = ptrtoint ptr %16 to i64
+  %20 = trunc i64 %19 to i1
+  %or.cond = select i1 %18, i1 %20, i1 false, !prof !14
+  br i1 %or.cond, label %21, label %lean_nat_eq.exit, !prof !14
 
-23:                                               ; preds = %11
-  %24 = icmp eq ptr %13, %16
-  br i1 %24, label %26, label %35
+21:                                               ; preds = %11
+  %22 = icmp eq ptr %13, %16
+  br i1 %22, label %24, label %33
 
 lean_nat_eq.exit:                                 ; preds = %11
-  %25 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %13, ptr noundef %16) #3
-  br i1 %25, label %26, label %35
+  %23 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %13, ptr noundef %16) #3
+  br i1 %23, label %24, label %33
 
-26:                                               ; preds = %23, %lean_nat_eq.exit
-  %27 = load ptr, ptr @l_Lean_Elab_throwAutoBoundImplicitLocal___rarg___closed__2, align 8, !tbaa !4
-  %28 = load ptr, ptr @l_Lean_Elab_isAutoBoundImplicitLocalException_x3f___closed__2, align 8, !tbaa !4
-  %29 = tail call ptr @l_Lean_KVMap_getName(ptr noundef %15, ptr noundef %27, ptr noundef %28) #3
+24:                                               ; preds = %21, %lean_nat_eq.exit
+  %25 = load ptr, ptr @l_Lean_Elab_throwAutoBoundImplicitLocal___rarg___closed__2, align 8, !tbaa !4
+  %26 = load ptr, ptr @l_Lean_Elab_isAutoBoundImplicitLocalException_x3f___closed__2, align 8, !tbaa !4
+  %27 = tail call ptr @l_Lean_KVMap_getName(ptr noundef %15, ptr noundef %25, ptr noundef %26) #3
   tail call void @lean_inc_heartbeat() #3
-  %30 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %lean_alloc_ctor.exit
+  %28 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %lean_alloc_ctor.exit
 
-32:                                               ; preds = %26
+30:                                               ; preds = %24
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-lean_alloc_ctor.exit:                             ; preds = %26
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 1, ptr %30, align 4, !tbaa !8
-  store i32 16842768, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %29, ptr %34, align 8, !tbaa !4
-  br label %35
+lean_alloc_ctor.exit:                             ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i32 1, ptr %28, align 4, !tbaa !8
+  store i32 16842768, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %27, ptr %32, align 8, !tbaa !4
+  br label %33
 
-35:                                               ; preds = %23, %lean_nat_eq.exit, %lean_obj_tag.exit, %lean_alloc_ctor.exit
-  %.0 = phi ptr [ %30, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %lean_nat_eq.exit ], [ inttoptr (i64 1 to ptr), %23 ]
+33:                                               ; preds = %21, %lean_nat_eq.exit, %lean_obj_tag.exit, %lean_alloc_ctor.exit
+  %.0 = phi ptr [ %28, %lean_alloc_ctor.exit ], [ inttoptr (i64 1 to ptr), %lean_obj_tag.exit ], [ inttoptr (i64 1 to ptr), %lean_nat_eq.exit ], [ inttoptr (i64 1 to ptr), %21 ]
   ret ptr %.0
 }
 
@@ -495,9 +486,8 @@ declare ptr @l_Lean_KVMap_getName(ptr noundef, ptr noundef, ptr noundef) local_u
 define ptr @l_Lean_Elab_isAutoBoundImplicitLocalException_x3f___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @l_Lean_Elab_isAutoBoundImplicitLocalException_x3f(ptr noundef %0)
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8
@@ -595,9 +585,8 @@ define ptr @l_Lean_Elab_throwAbortCommand___rarg(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -619,9 +608,8 @@ define ptr @l_Lean_Elab_throwAbortCommand___rarg(ptr noundef %0) #0 {
 
 lean_inc.exit:                                    ; preds = %11, %10, %8, %1
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not7 = icmp eq i64 %13, 0
-  br i1 %.not7, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_inc.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -676,9 +664,8 @@ define ptr @l_Lean_Elab_throwAbortTerm___rarg(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -700,9 +687,8 @@ define ptr @l_Lean_Elab_throwAbortTerm___rarg(ptr noundef %0) #0 {
 
 lean_inc.exit:                                    ; preds = %11, %10, %8, %1
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not7 = icmp eq i64 %13, 0
-  br i1 %.not7, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_inc.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -757,9 +743,8 @@ define ptr @l_Lean_Elab_throwAbortTactic___rarg(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -781,9 +766,8 @@ define ptr @l_Lean_Elab_throwAbortTactic___rarg(ptr noundef %0) #0 {
 
 lean_inc.exit:                                    ; preds = %11, %10, %8, %1
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not7 = icmp eq i64 %13, 0
-  br i1 %.not7, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_inc.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -836,9 +820,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Lean_Elab_isAbortTacticException(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -854,45 +837,42 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Elab_isAbortTacticException(ptr noundef
 lean_obj_tag.exit:                                ; preds = %4, %7
   %.0.i6 = phi i32 [ %6, %4 ], [ %9, %7 ]
   %10 = icmp eq i32 %.0.i6, 0
-  br i1 %10, label %25, label %11
+  br i1 %10, label %23, label %11
 
 11:                                               ; preds = %lean_obj_tag.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
   %15 = ptrtoint ptr %13 to i64
-  %16 = and i64 %15, 1
-  %17 = icmp ne i64 %16, 0
-  %18 = ptrtoint ptr %14 to i64
-  %19 = and i64 %18, 1
-  %20 = icmp ne i64 %19, 0
-  %or.cond = select i1 %17, i1 %20, i1 false, !prof !14
-  br i1 %or.cond, label %21, label %.critedge.i, !prof !14
+  %16 = trunc i64 %15 to i1
+  %17 = ptrtoint ptr %14 to i64
+  %18 = trunc i64 %17 to i1
+  %or.cond = select i1 %16, i1 %18, i1 false, !prof !14
+  br i1 %or.cond, label %19, label %.critedge.i, !prof !14
 
-21:                                               ; preds = %11
-  %22 = icmp eq ptr %13, %14
+19:                                               ; preds = %11
+  %20 = icmp eq ptr %13, %14
   br label %lean_nat_eq.exit
 
 .critedge.i:                                      ; preds = %11
-  %23 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %13, ptr noundef %14) #3
+  %21 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %13, ptr noundef %14) #3
   br label %lean_nat_eq.exit
 
-lean_nat_eq.exit:                                 ; preds = %21, %.critedge.i
-  %.0.i = phi i1 [ %22, %21 ], [ %23, %.critedge.i ]
-  %24 = zext i1 %.0.i to i8
-  br label %25
+lean_nat_eq.exit:                                 ; preds = %19, %.critedge.i
+  %.0.i = phi i1 [ %20, %19 ], [ %21, %.critedge.i ]
+  %22 = zext i1 %.0.i to i8
+  br label %23
 
-25:                                               ; preds = %lean_obj_tag.exit, %lean_nat_eq.exit
-  %.0 = phi i8 [ %24, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ]
+23:                                               ; preds = %lean_obj_tag.exit, %lean_nat_eq.exit
+  %.0 = phi i8 [ %22, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ]
   ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lean_Elab_isAbortTacticException___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %7, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -915,179 +895,246 @@ lean_obj_tag.exit.i:                              ; preds = %7, %4
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
   %15 = ptrtoint ptr %13 to i64
-  %16 = and i64 %15, 1
-  %17 = icmp ne i64 %16, 0
-  %18 = ptrtoint ptr %14 to i64
-  %19 = and i64 %18, 1
-  %20 = icmp ne i64 %19, 0
-  %or.cond.i = select i1 %17, i1 %20, i1 false, !prof !14
-  br i1 %or.cond.i, label %21, label %.critedge.i.i, !prof !14
+  %16 = trunc i64 %15 to i1
+  %17 = ptrtoint ptr %14 to i64
+  %18 = trunc i64 %17 to i1
+  %or.cond.i = select i1 %16, i1 %18, i1 false, !prof !14
+  br i1 %or.cond.i, label %19, label %.critedge.i.i, !prof !14
 
-21:                                               ; preds = %11
-  %22 = icmp eq ptr %13, %14
+19:                                               ; preds = %11
+  %20 = icmp eq ptr %13, %14
   br label %lean_nat_eq.exit.i
 
 .critedge.i.i:                                    ; preds = %11
-  %23 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %13, ptr noundef %14) #3
+  %21 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %13, ptr noundef %14) #3
   br label %lean_nat_eq.exit.i
 
-lean_nat_eq.exit.i:                               ; preds = %.critedge.i.i, %21
-  %.0.i.i = phi i1 [ %22, %21 ], [ %23, %.critedge.i.i ]
-  %24 = select i1 %.0.i.i, i64 3, i64 1
+lean_nat_eq.exit.i:                               ; preds = %.critedge.i.i, %19
+  %.0.i.i = phi i1 [ %20, %19 ], [ %21, %.critedge.i.i ]
+  %22 = select i1 %.0.i.i, i64 3, i64 1
   br label %l_Lean_Elab_isAbortTacticException.exit
 
 l_Lean_Elab_isAbortTacticException.exit:          ; preds = %lean_obj_tag.exit.i, %lean_nat_eq.exit.i
-  %.0.i = phi i64 [ %24, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ]
-  br i1 %.not.i.i, label %25, label %lean_dec.exit
+  %.0.i = phi i64 [ %22, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ]
+  br i1 %3, label %lean_dec.exit, label %23
 
-25:                                               ; preds = %l_Lean_Elab_isAbortTacticException.exit
-  %26 = load i32, ptr %0, align 4, !tbaa !8
-  %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %28, label %30, !prof !11
+23:                                               ; preds = %l_Lean_Elab_isAbortTacticException.exit
+  %24 = load i32, ptr %0, align 4, !tbaa !8
+  %25 = icmp sgt i32 %24, 1
+  br i1 %25, label %26, label %28, !prof !11
 
-28:                                               ; preds = %25
-  %29 = add nsw i32 %26, -1
-  store i32 %29, ptr %0, align 4, !tbaa !8
+26:                                               ; preds = %23
+  %27 = add nsw i32 %24, -1
+  store i32 %27, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-30:                                               ; preds = %25
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %lean_dec.exit, label %31
+28:                                               ; preds = %23
+  %.not.i = icmp eq i32 %24, 0
+  br i1 %.not.i, label %lean_dec.exit, label %29
 
-31:                                               ; preds = %30
+29:                                               ; preds = %28
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %31, %30, %28, %l_Lean_Elab_isAbortTacticException.exit
-  %32 = inttoptr i64 %.0.i to ptr
-  ret ptr %32
+lean_dec.exit:                                    ; preds = %29, %28, %26, %l_Lean_Elab_isAbortTacticException.exit
+  %30 = inttoptr i64 %.0.i to ptr
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Lean_Elab_isAbortExceptionId(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @l_Lean_Elab_throwAbortCommand___rarg___closed__1, align 8, !tbaa !4
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %5 = icmp ne i64 %4, 0
-  %6 = ptrtoint ptr %2 to i64
-  %7 = and i64 %6, 1
-  %8 = icmp ne i64 %7, 0
-  %or.cond = select i1 %5, i1 %8, i1 false, !prof !14
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %2 to i64
+  %6 = trunc i64 %5 to i1
+  %or.cond = select i1 %4, i1 %6, i1 false, !prof !14
   br i1 %or.cond, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
 
 lean_nat_eq.exit:                                 ; preds = %1
-  %9 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %2) #3
-  br i1 %9, label %32, label %11
+  %7 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %2) #3
+  br i1 %7, label %30, label %9
 
 lean_nat_eq.exit.thread:                          ; preds = %1
   %.not = icmp eq ptr %0, %2
-  br i1 %.not, label %32, label %.thread
+  br i1 %.not, label %30, label %.thread
 
 .thread:                                          ; preds = %lean_nat_eq.exit.thread
+  %8 = load ptr, ptr @l_Lean_Elab_throwAbortTerm___rarg___closed__1, align 8, !tbaa !4
+  br label %11
+
+9:                                                ; preds = %lean_nat_eq.exit
   %10 = load ptr, ptr @l_Lean_Elab_throwAbortTerm___rarg___closed__1, align 8, !tbaa !4
-  br label %13
+  br i1 %4, label %11, label %lean_nat_eq.exit13.thread22, !prof !15
 
-11:                                               ; preds = %lean_nat_eq.exit
-  %12 = load ptr, ptr @l_Lean_Elab_throwAbortTerm___rarg___closed__1, align 8, !tbaa !4
-  br i1 %5, label %13, label %lean_nat_eq.exit13.thread25, !prof !15
+11:                                               ; preds = %.thread, %9
+  %12 = phi ptr [ %8, %.thread ], [ %10, %9 ]
+  %13 = ptrtoint ptr %12 to i64
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_nat_eq.exit13.thread, label %lean_nat_eq.exit13, !prof !11
 
-13:                                               ; preds = %.thread, %11
-  %14 = phi ptr [ %10, %.thread ], [ %12, %11 ]
-  %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, 1
-  %.not22 = icmp eq i64 %16, 0
-  br i1 %.not22, label %lean_nat_eq.exit13, label %lean_nat_eq.exit13.thread, !prof !16
+lean_nat_eq.exit13:                               ; preds = %11
+  %15 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %12) #3
+  br i1 %15, label %30, label %19
 
-lean_nat_eq.exit13:                               ; preds = %13
-  %17 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %14) #3
-  br i1 %17, label %32, label %21
+lean_nat_eq.exit13.thread22:                      ; preds = %9
+  %16 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %10) #3
+  br i1 %16, label %30, label %.thread23
 
-lean_nat_eq.exit13.thread25:                      ; preds = %11
-  %18 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %12) #3
-  br i1 %18, label %32, label %.thread26
-
-.thread26:                                        ; preds = %lean_nat_eq.exit13.thread25
-  %19 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
+.thread23:                                        ; preds = %lean_nat_eq.exit13.thread22
+  %17 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
   br label %.critedge.i14
 
-lean_nat_eq.exit13.thread:                        ; preds = %13
-  %.not23 = icmp eq ptr %0, %14
-  br i1 %.not23, label %32, label %.thread19
+lean_nat_eq.exit13.thread:                        ; preds = %11
+  %.not21 = icmp eq ptr %0, %12
+  br i1 %.not21, label %30, label %.thread19
 
 .thread19:                                        ; preds = %lean_nat_eq.exit13.thread
+  %18 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
+  br label %21
+
+19:                                               ; preds = %lean_nat_eq.exit13
   %20 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
-  br label %23
+  br i1 %4, label %21, label %.critedge.i14, !prof !16
 
-21:                                               ; preds = %lean_nat_eq.exit13
-  %22 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
-  br i1 %5, label %23, label %.critedge.i14, !prof !17
+21:                                               ; preds = %.thread19, %19
+  %22 = phi ptr [ %18, %.thread19 ], [ %20, %19 ]
+  %23 = ptrtoint ptr %22 to i64
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %25, label %.critedge.i14, !prof !11
 
-23:                                               ; preds = %.thread19, %21
-  %24 = phi ptr [ %20, %.thread19 ], [ %22, %21 ]
-  %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not24 = icmp eq i64 %26, 0
-  br i1 %.not24, label %.critedge.i14, label %27, !prof !16
-
-27:                                               ; preds = %23
-  %28 = icmp eq ptr %0, %24
+25:                                               ; preds = %21
+  %26 = icmp eq ptr %0, %22
   br label %lean_nat_eq.exit16
 
-.critedge.i14:                                    ; preds = %.thread26, %23, %21
-  %29 = phi ptr [ %24, %23 ], [ %22, %21 ], [ %19, %.thread26 ]
-  %30 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %29) #3
+.critedge.i14:                                    ; preds = %.thread23, %21, %19
+  %27 = phi ptr [ %22, %21 ], [ %20, %19 ], [ %17, %.thread23 ]
+  %28 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %27) #3
   br label %lean_nat_eq.exit16
 
-lean_nat_eq.exit16:                               ; preds = %27, %.critedge.i14
-  %.0.i15 = phi i1 [ %28, %27 ], [ %30, %.critedge.i14 ]
-  %31 = zext i1 %.0.i15 to i8
-  br label %32
+lean_nat_eq.exit16:                               ; preds = %25, %.critedge.i14
+  %.0.i15 = phi i1 [ %26, %25 ], [ %28, %.critedge.i14 ]
+  %29 = zext i1 %.0.i15 to i8
+  br label %30
 
-32:                                               ; preds = %lean_nat_eq.exit13.thread25, %lean_nat_eq.exit13.thread, %lean_nat_eq.exit.thread, %lean_nat_eq.exit, %lean_nat_eq.exit16, %lean_nat_eq.exit13
-  %.1 = phi i8 [ 1, %lean_nat_eq.exit13 ], [ %31, %lean_nat_eq.exit16 ], [ 1, %lean_nat_eq.exit ], [ 1, %lean_nat_eq.exit.thread ], [ 1, %lean_nat_eq.exit13.thread ], [ 1, %lean_nat_eq.exit13.thread25 ]
+30:                                               ; preds = %lean_nat_eq.exit13.thread22, %lean_nat_eq.exit13.thread, %lean_nat_eq.exit.thread, %lean_nat_eq.exit, %lean_nat_eq.exit16, %lean_nat_eq.exit13
+  %.1 = phi i8 [ 1, %lean_nat_eq.exit13 ], [ %29, %lean_nat_eq.exit16 ], [ 1, %lean_nat_eq.exit ], [ 1, %lean_nat_eq.exit.thread ], [ 1, %lean_nat_eq.exit13.thread ], [ 1, %lean_nat_eq.exit13.thread22 ]
   ret i8 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lean_Elab_isAbortExceptionId___boxed(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i8 @l_Lean_Elab_isAbortExceptionId(ptr noundef %0)
+  %2 = load ptr, ptr @l_Lean_Elab_throwAbortCommand___rarg___closed__1, align 8, !tbaa !4
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  %5 = ptrtoint ptr %2 to i64
+  %6 = trunc i64 %5 to i1
+  %or.cond.i = select i1 %4, i1 %6, i1 false, !prof !14
+  br i1 %or.cond.i, label %lean_nat_eq.exit.thread.i, label %lean_nat_eq.exit.i, !prof !14
 
-5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
+lean_nat_eq.exit.i:                               ; preds = %1
+  %7 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %2) #3
+  br i1 %7, label %l_Lean_Elab_isAbortExceptionId.exit, label %9
 
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+lean_nat_eq.exit.thread.i:                        ; preds = %1
+  %.not.i3 = icmp eq ptr %0, %2
+  br i1 %.not.i3, label %l_Lean_Elab_isAbortExceptionId.exit, label %.thread.i
+
+.thread.i:                                        ; preds = %lean_nat_eq.exit.thread.i
+  %8 = load ptr, ptr @l_Lean_Elab_throwAbortTerm___rarg___closed__1, align 8, !tbaa !4
+  br label %11
+
+9:                                                ; preds = %lean_nat_eq.exit.i
+  %10 = load ptr, ptr @l_Lean_Elab_throwAbortTerm___rarg___closed__1, align 8, !tbaa !4
+  br i1 %4, label %11, label %lean_nat_eq.exit13.thread22.i, !prof !15
+
+11:                                               ; preds = %9, %.thread.i
+  %12 = phi ptr [ %8, %.thread.i ], [ %10, %9 ]
+  %13 = ptrtoint ptr %12 to i64
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_nat_eq.exit13.thread.i, label %lean_nat_eq.exit13.i, !prof !11
+
+lean_nat_eq.exit13.i:                             ; preds = %11
+  %15 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %12) #3
+  br i1 %15, label %l_Lean_Elab_isAbortExceptionId.exit, label %19
+
+lean_nat_eq.exit13.thread22.i:                    ; preds = %9
+  %16 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %10) #3
+  br i1 %16, label %l_Lean_Elab_isAbortExceptionId.exit.thread, label %.thread23.i
+
+.thread23.i:                                      ; preds = %lean_nat_eq.exit13.thread22.i
+  %17 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
+  br label %.critedge.i14.i
+
+lean_nat_eq.exit13.thread.i:                      ; preds = %11
+  %.not21.i = icmp eq ptr %0, %12
+  br i1 %.not21.i, label %l_Lean_Elab_isAbortExceptionId.exit, label %.thread19.i
+
+.thread19.i:                                      ; preds = %lean_nat_eq.exit13.thread.i
+  %18 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
+  br label %21
+
+19:                                               ; preds = %lean_nat_eq.exit13.i
+  %20 = load ptr, ptr @l_Lean_Elab_throwAbortTactic___rarg___closed__1, align 8, !tbaa !4
+  br i1 %4, label %21, label %.critedge.i14.i, !prof !16
+
+21:                                               ; preds = %19, %.thread19.i
+  %22 = phi ptr [ %18, %.thread19.i ], [ %20, %19 ]
+  %23 = ptrtoint ptr %22 to i64
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %25, label %.critedge.i14.i, !prof !11
+
+25:                                               ; preds = %21
+  %26 = icmp eq ptr %0, %22
+  br label %lean_nat_eq.exit16.i
+
+.critedge.i14.i:                                  ; preds = %21, %19, %.thread23.i
+  %27 = phi ptr [ %22, %21 ], [ %20, %19 ], [ %17, %.thread23.i ]
+  %28 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef %27) #3
+  br label %lean_nat_eq.exit16.i
+
+lean_nat_eq.exit16.i:                             ; preds = %.critedge.i14.i, %25
+  %.0.i15.i = phi i1 [ %26, %25 ], [ %28, %.critedge.i14.i ]
+  %29 = zext i1 %.0.i15.i to i8
+  br label %l_Lean_Elab_isAbortExceptionId.exit
+
+l_Lean_Elab_isAbortExceptionId.exit:              ; preds = %lean_nat_eq.exit.i, %lean_nat_eq.exit.thread.i, %lean_nat_eq.exit13.i, %lean_nat_eq.exit13.thread.i, %lean_nat_eq.exit16.i
+  %.1.i = phi i8 [ 1, %lean_nat_eq.exit13.i ], [ %29, %lean_nat_eq.exit16.i ], [ 1, %lean_nat_eq.exit.i ], [ 1, %lean_nat_eq.exit.thread.i ], [ 1, %lean_nat_eq.exit13.thread.i ]
+  br i1 %4, label %lean_dec.exit, label %l_Lean_Elab_isAbortExceptionId.exit.thread
+
+l_Lean_Elab_isAbortExceptionId.exit.thread:       ; preds = %lean_nat_eq.exit13.thread22.i, %l_Lean_Elab_isAbortExceptionId.exit
+  %.1.i5 = phi i8 [ %.1.i, %l_Lean_Elab_isAbortExceptionId.exit ], [ 1, %lean_nat_eq.exit13.thread22.i ]
+  %30 = load i32, ptr %0, align 4, !tbaa !8
+  %31 = icmp sgt i32 %30, 1
+  br i1 %31, label %32, label %34, !prof !11
+
+32:                                               ; preds = %l_Lean_Elab_isAbortExceptionId.exit.thread
+  %33 = add nsw i32 %30, -1
+  store i32 %33, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+34:                                               ; preds = %l_Lean_Elab_isAbortExceptionId.exit.thread
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %lean_dec.exit, label %35
 
-11:                                               ; preds = %10
+35:                                               ; preds = %34
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = shl nuw nsw i8 %2, 1
-  %13 = or disjoint i8 %12, 1
-  %14 = zext nneg i8 %13 to i64
-  %15 = inttoptr i64 %14 to ptr
-  ret ptr %15
+lean_dec.exit:                                    ; preds = %35, %34, %32, %l_Lean_Elab_isAbortExceptionId.exit
+  %.1.i6 = phi i8 [ %.1.i, %l_Lean_Elab_isAbortExceptionId.exit ], [ %.1.i5, %32 ], [ %.1.i5, %34 ], [ %.1.i5, %35 ]
+  %36 = zext nneg i8 %.1.i6 to i64
+  %37 = shl nuw nsw i64 %36, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = inttoptr i64 %38 to ptr
+  ret ptr %39
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Lean_Elab_mkMessageCore(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = ptrtoint ptr %1 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %lean_inc.exit
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %lean_inc.exit, label %9
 
 9:                                                ; preds = %6
   %.val.i = load i32, ptr %1, align 4, !tbaa !8
@@ -1138,7 +1185,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 lean_alloc_ctor.exit23:                           ; preds = %lean_alloc_ctor.exit
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store i64 0, ptr %27, align 8, !tbaa !18
+  store i64 0, ptr %27, align 8, !tbaa !17
   store i32 1, ptr %23, align 8, !tbaa !8
   store i32 327736, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1152,7 +1199,7 @@ lean_alloc_ctor.exit23:                           ; preds = %lean_alloc_ctor.exi
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %2, ptr %32, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 49
-  store i8 %3, ptr %33, align 1, !tbaa !20
+  store i8 %3, ptr %33, align 1, !tbaa !19
   ret ptr %23
 }
 
@@ -1163,9 +1210,8 @@ define noalias nonnull ptr @l_Lean_Elab_mkMessageCore___boxed(ptr noundef %0, pt
   %7 = ptrtoint ptr %3 to i64
   %8 = lshr i64 %7, 1
   %9 = trunc i64 %8 to i8
-  %10 = and i64 %7, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit11
+  %10 = trunc i64 %7 to i1
+  br i1 %10, label %lean_dec.exit11, label %11
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %3, align 4, !tbaa !8
@@ -1188,9 +1234,8 @@ define noalias nonnull ptr @l_Lean_Elab_mkMessageCore___boxed(ptr noundef %0, pt
 lean_dec.exit11:                                  ; preds = %17, %16, %14, %6
   %18 = tail call ptr @l_Lean_Elab_mkMessageCore(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %9, ptr noundef %4, ptr noundef %5)
   %19 = ptrtoint ptr %5 to i64
-  %20 = and i64 %19, 1
-  %.not16 = icmp eq i64 %20, 0
-  br i1 %.not16, label %21, label %lean_dec.exit10
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %lean_dec.exit10, label %21
 
 21:                                               ; preds = %lean_dec.exit11
   %22 = load i32, ptr %5, align 4, !tbaa !8
@@ -1212,9 +1257,8 @@ lean_dec.exit11:                                  ; preds = %17, %16, %14, %6
 
 lean_dec.exit10:                                  ; preds = %27, %26, %24, %lean_dec.exit11
   %28 = ptrtoint ptr %4 to i64
-  %29 = and i64 %28, 1
-  %.not17 = icmp eq i64 %29, 0
-  br i1 %.not17, label %30, label %lean_dec.exit
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %lean_dec.exit, label %30
 
 30:                                               ; preds = %lean_dec.exit10
   %31 = load i32, ptr %4, align 4, !tbaa !8
@@ -1805,8 +1849,7 @@ attributes #4 = { noreturn nounwind }
 !13 = !{!"short", !6, i64 0}
 !14 = !{!"branch_weights", i32 4000000, i32 4001}
 !15 = !{!"branch_weights", !"expected", i32 1073473456, i32 1074010192}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!"branch_weights", !"expected", i32 1932767629, i32 214716019}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !6, i64 0}
-!20 = !{!6, !6, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 1932767629, i32 214716019}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!6, !6, i64 0}

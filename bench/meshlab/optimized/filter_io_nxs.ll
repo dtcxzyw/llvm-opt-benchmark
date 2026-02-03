@@ -12221,9 +12221,8 @@ define linkonce_odr noundef i32 @_ZN9VcgLoaderI6CMeshOE12getTrianglesEjP8Triangl
   store i32 %22, ptr %4, align 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 1
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %.outer.split, !llvm.loop !53
+  %25 = trunc i32 %24 to i1
+  br i1 %25, label %.outer.split, label %26, !llvm.loop !53
 
 26:                                               ; preds = %20
   %27 = sext i32 %.031.ph55 to i64

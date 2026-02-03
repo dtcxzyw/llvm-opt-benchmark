@@ -54,9 +54,8 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %9, %5
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %16, label %lean_array_fset.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_array_fset.exit, label %16
 
 16:                                               ; preds = %lean_ensure_exclusive_array.exit.i.i
   %17 = load i32, ptr %13, align 4, !tbaa !4
@@ -78,9 +77,8 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %9, %5
 
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %19, %21, %22
   store ptr %3, ptr %12, align 8, !tbaa !9
-  %23 = and i64 %6, 1
-  %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %24, label %lean_dec.exit
+  %23 = trunc i64 %6 to i1
+  br i1 %23, label %lean_dec.exit, label %24
 
 24:                                               ; preds = %lean_array_fset.exit
   %25 = load i32, ptr %2, align 4, !tbaa !4
@@ -112,9 +110,8 @@ define ptr @l_Array_setIfInBounds___rarg(ptr noundef %0, ptr noundef %1, ptr nou
   %6 = or disjoint i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %1 to i64
-  %9 = and i64 %8, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit11, label %10, !prof !14
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %10, label %lean_dec.exit11, !prof !14
 
 10:                                               ; preds = %3
   %11 = icmp ult ptr %1, %7
@@ -126,9 +123,8 @@ lean_dec.exit11:                                  ; preds = %3
 
 13:                                               ; preds = %10, %lean_dec.exit11
   %14 = ptrtoint ptr %2 to i64
-  %15 = and i64 %14, 1
-  %.not14 = icmp eq i64 %15, 0
-  br i1 %.not14, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %2, align 4, !tbaa !4
@@ -164,9 +160,8 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %26, %23
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %24
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = ptrtoint ptr %30 to i64
-  %32 = and i64 %31, 1
-  %.not.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i, label %33, label %lean_array_fset.exit
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %lean_array_fset.exit, label %33
 
 33:                                               ; preds = %lean_ensure_exclusive_array.exit.i.i
   %34 = load i32, ptr %30, align 4, !tbaa !4
@@ -223,9 +218,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 define ptr @l_Array_setIfInBounds___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @l_Array_setIfInBounds___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -257,9 +251,8 @@ define ptr @l_Array_setD___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %6 = or disjoint i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %1 to i64
-  %9 = and i64 %8, 1
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit11, label %10, !prof !14
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %10, label %lean_dec.exit11, !prof !14
 
 10:                                               ; preds = %3
   %11 = icmp ult ptr %1, %7
@@ -271,9 +264,8 @@ lean_dec.exit11:                                  ; preds = %3
 
 13:                                               ; preds = %10, %lean_dec.exit11
   %14 = ptrtoint ptr %2 to i64
-  %15 = and i64 %14, 1
-  %.not14 = icmp eq i64 %15, 0
-  br i1 %.not14, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %2, align 4, !tbaa !4
@@ -309,9 +301,8 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %26, %23
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %24
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = ptrtoint ptr %30 to i64
-  %32 = and i64 %31, 1
-  %.not.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i, label %33, label %lean_array_fset.exit
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %lean_array_fset.exit, label %33
 
 33:                                               ; preds = %lean_ensure_exclusive_array.exit.i.i
   %34 = load i32, ptr %30, align 4, !tbaa !4
@@ -368,9 +359,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 define ptr @l_Array_setD___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @l_Array_setD___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_dec.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4, !tbaa !4
@@ -397,18 +387,17 @@ lean_dec.exit:                                    ; preds = %13, %12, %10, %3
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_set_x21___boxed(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
-  %6 = and i64 %5, 1
-  %.not.i5 = icmp eq i64 %6, 0
-  br i1 %.not.i5, label %28, label %7
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %7, label %28
 
 7:                                                ; preds = %4
   %8 = lshr i64 %5, 1
   %9 = getelementptr i8, ptr %1, i64 8
   %.val.i = load i64, ptr %9, align 8, !tbaa !12
   %10 = icmp ult i64 %8, %.val.i
-  br i1 %10, label %12, label %lean_array_set.exit.thread8
+  br i1 %10, label %12, label %lean_array_set.exit.thread7
 
-lean_array_set.exit.thread8:                      ; preds = %7
+lean_array_set.exit.thread7:                      ; preds = %7
   %11 = tail call ptr @lean_array_set_panic(ptr noundef nonnull %1, ptr noundef %3) #4
   br label %lean_dec.exit
 
@@ -427,9 +416,8 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %14, %12
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %8
   %18 = load ptr, ptr %17, align 8, !tbaa !9
   %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, 1
-  %.not.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i, label %21, label %lean_array_set.exit.thread
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %lean_array_set.exit.thread, label %21
 
 21:                                               ; preds = %lean_ensure_exclusive_array.exit.i.i
   %22 = load i32, ptr %18, align 4, !tbaa !4
@@ -472,9 +460,9 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %35, %34, %32, %lean_array_set.exit.thread8, %lean_array_set.exit.thread
-  %.1.i7 = phi ptr [ %.0.i.i.i, %lean_array_set.exit.thread ], [ %11, %lean_array_set.exit.thread8 ], [ %29, %32 ], [ %29, %34 ], [ %29, %35 ]
-  ret ptr %.1.i7
+lean_dec.exit:                                    ; preds = %35, %34, %32, %lean_array_set.exit.thread7, %lean_array_set.exit.thread
+  %.1.i6 = phi ptr [ %.0.i.i.i, %lean_array_set.exit.thread ], [ %11, %lean_array_set.exit.thread7 ], [ %29, %32 ], [ %29, %34 ], [ %29, %35 ]
+  ret ptr %.1.i6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -792,6 +780,6 @@ attributes #5 = { noreturn nounwind }
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{!"branch_weights", i32 4000000, i32 4001}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !7, i64 0}

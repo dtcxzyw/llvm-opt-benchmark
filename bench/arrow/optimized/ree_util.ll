@@ -320,9 +320,9 @@ define noundef i64 @_ZN5arrow8ree_util16LogicalNullCountERKNS_9ArraySpanE(ptr no
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !60, !noalias !65
   %19 = icmp sgt i64 %18, 0
-  switch i32 %6, label %88 [
+  switch i32 %6, label %78 [
     i32 5, label %20
-    i32 7, label %54
+    i32 7, label %49
   ]
 
 20:                                               ; preds = %1
@@ -364,162 +364,156 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i: ; preds = %_ZSt7a
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %.lr.ph.split.i
-  %.042.i = phi i64 [ 0, %.lr.ph.split.i ], [ %.1.i, %.critedge.i ]
-  %.sroa.9.041.i = phi i64 [ %34, %.lr.ph.split.i ], [ %53, %.critedge.i ]
-  %.sroa.5.040.i = phi i64 [ 0, %.lr.ph.split.i ], [ %.sroa.speculated.i.i.i.i, %.critedge.i ]
-  %38 = add nsw i64 %.sroa.9.041.i, %37
+  %.041.i = phi i64 [ 0, %.lr.ph.split.i ], [ %.1.i, %.critedge.i ]
+  %.sroa.9.040.i = phi i64 [ %34, %.lr.ph.split.i ], [ %48, %.critedge.i ]
+  %.sroa.5.039.i = phi i64 [ 0, %.lr.ph.split.i ], [ %.pre48.i, %.critedge.i ]
+  %38 = add nsw i64 %.sroa.9.040.i, %37
   %39 = lshr i64 %38, 3
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !73
-  %42 = zext i8 %41 to i32
-  %43 = trunc i64 %38 to i32
-  %44 = and i32 %43, 7
-  %45 = shl nuw nsw i32 1, %44
-  %46 = and i32 %45, %42
-  %.not37.i = icmp eq i32 %46, 0
-  %47 = getelementptr inbounds i16, ptr %21, i64 %.sroa.9.041.i
-  %48 = load i16, ptr %47, align 2, !tbaa !66
-  %49 = sext i16 %48 to i64
-  %50 = sub nsw i64 %49, %9
-  %.sroa.speculated4.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %50, i64 0)
-  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %11, i64 %.sroa.speculated4.i.i.i.i)
-  %51 = sub i64 %.042.i, %.sroa.5.040.i
-  %52 = add i64 %51, %.sroa.speculated.i.i.i.i
-  %.1.i = select i1 %.not37.i, i64 %52, i64 %.042.i
-  %53 = add nsw i64 %.sroa.9.041.i, 1
-  %.not36.not.i = icmp sgt i64 %11, %.sroa.speculated4.i.i.i.i
+  %42 = trunc i64 %38 to i8
+  %43 = and i8 %42, 7
+  %44 = lshr i8 %41, %43
+  %45 = trunc i8 %44 to i1
+  %.phi.trans.insert.i = getelementptr inbounds i16, ptr %21, i64 %.sroa.9.040.i
+  %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2, !tbaa !66
+  %.pre44.i = sext i16 %.pre.i to i64
+  %.pre45.i = sub nsw i64 %.pre44.i, %9
+  %.pre47.i = tail call i64 @llvm.smax.i64(i64 %.pre45.i, i64 0)
+  %.pre48.i = tail call noundef i64 @llvm.smin.i64(i64 %11, i64 %.pre47.i)
+  %46 = sub i64 %.041.i, %.sroa.5.039.i
+  %47 = add i64 %46, %.pre48.i
+  %.1.i = select i1 %45, i64 %.041.i, i64 %47
+  %48 = add nsw i64 %.sroa.9.040.i, 1
+  %.not36.not.i = icmp sgt i64 %11, %.pre47.i
   br i1 %.not36.not.i, label %.critedge.i, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !74
 
-54:                                               ; preds = %1
-  %55 = getelementptr inbounds i32, ptr %15, i64 %13
+49:                                               ; preds = %1
+  %50 = getelementptr inbounds i32, ptr %15, i64 %13
   br i1 %19, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i
 
-_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %54, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i
-  %.017.i.i.i.i.i12.i21 = phi ptr [ %.1.i.i.i.i.i17.i26, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ], [ %55, %54 ]
-  %.01116.i.i.i.i.i13.i22 = phi i64 [ %.112.i.i.i.i.i16.i25, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %54 ]
-  %56 = lshr i64 %.01116.i.i.i.i.i13.i22, 1
-  %57 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i12.i21, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !75, !noalias !76
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %9, %59
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %62 = xor i64 %56, -1
-  %63 = add nsw i64 %.01116.i.i.i.i.i13.i22, %62
-  %.112.i.i.i.i.i16.i25 = select i1 %60, i64 %56, i64 %63
-  %.1.i.i.i.i.i17.i26 = select i1 %60, ptr %.017.i.i.i.i.i12.i21, ptr %61
-  %64 = icmp sgt i64 %.112.i.i.i.i.i16.i25, 0
-  br i1 %64, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i, !llvm.loop !79
+_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %49, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i
+  %.017.i.i.i.i.i12.i24 = phi ptr [ %.1.i.i.i.i.i17.i29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ], [ %50, %49 ]
+  %.01116.i.i.i.i.i13.i25 = phi i64 [ %.112.i.i.i.i.i16.i28, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %49 ]
+  %51 = lshr i64 %.01116.i.i.i.i.i13.i25, 1
+  %52 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i12.i24, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !75, !noalias !76
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %9, %54
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %57 = xor i64 %51, -1
+  %58 = add nsw i64 %.01116.i.i.i.i.i13.i25, %57
+  %.112.i.i.i.i.i16.i28 = select i1 %55, i64 %51, i64 %58
+  %.1.i.i.i.i.i17.i29 = select i1 %55, ptr %.017.i.i.i.i.i12.i24, ptr %56
+  %59 = icmp sgt i64 %.112.i.i.i.i.i16.i28, 0
+  br i1 %59, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i, !llvm.loop !79
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i: ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i, %54
-  %.0.lcssa.i.i.i.i.i10.i7 = phi ptr [ %55, %54 ], [ %.1.i.i.i.i.i17.i26, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ]
-  %65 = ptrtoint ptr %55 to i64
-  %66 = ptrtoint ptr %.0.lcssa.i.i.i.i.i10.i7 to i64
-  %67 = sub i64 %66, %65
-  %68 = ashr exact i64 %67, 2
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i: ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i, %49
+  %.0.lcssa.i.i.i.i.i10.i7 = phi ptr [ %50, %49 ], [ %.1.i.i.i.i.i17.i29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ]
+  %60 = ptrtoint ptr %50 to i64
+  %61 = ptrtoint ptr %.0.lcssa.i.i.i.i.i10.i7 to i64
+  %62 = sub i64 %61, %60
+  %63 = ashr exact i64 %62, 2
   br i1 %16, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i
-  %69 = load ptr, ptr %7, align 8, !tbaa !72
-  %.not.i9 = icmp eq ptr %69, null
+  %64 = load ptr, ptr %7, align 8, !tbaa !72
+  %.not.i9 = icmp eq ptr %64, null
   br i1 %.not.i9, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i10
 
 .lr.ph.split.i10:                                 ; preds = %.lr.ph.i8
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %71 = load i64, ptr %70, align 8, !tbaa !59
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %66 = load i64, ptr %65, align 8, !tbaa !59
   br label %.critedge.i11
 
 .critedge.i11:                                    ; preds = %.critedge.i11, %.lr.ph.split.i10
-  %.042.i12 = phi i64 [ 0, %.lr.ph.split.i10 ], [ %.1.i18, %.critedge.i11 ]
-  %.sroa.9.041.i13 = phi i64 [ %68, %.lr.ph.split.i10 ], [ %87, %.critedge.i11 ]
-  %.sroa.5.040.i14 = phi i64 [ 0, %.lr.ph.split.i10 ], [ %.sroa.speculated.i.i.i.i17, %.critedge.i11 ]
-  %72 = add nsw i64 %.sroa.9.041.i13, %71
-  %73 = lshr i64 %72, 3
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !73
-  %76 = zext i8 %75 to i32
-  %77 = trunc i64 %72 to i32
-  %78 = and i32 %77, 7
-  %79 = shl nuw nsw i32 1, %78
-  %80 = and i32 %79, %76
-  %.not37.i15 = icmp eq i32 %80, 0
-  %81 = getelementptr inbounds i32, ptr %55, i64 %.sroa.9.041.i13
-  %82 = load i32, ptr %81, align 4, !tbaa !75
-  %83 = sext i32 %82 to i64
-  %84 = sub nsw i64 %83, %9
-  %.sroa.speculated4.i.i.i.i16 = tail call i64 @llvm.smax.i64(i64 %84, i64 0)
-  %.sroa.speculated.i.i.i.i17 = tail call noundef i64 @llvm.smin.i64(i64 %11, i64 %.sroa.speculated4.i.i.i.i16)
-  %85 = sub i64 %.042.i12, %.sroa.5.040.i14
-  %86 = add i64 %85, %.sroa.speculated.i.i.i.i17
-  %.1.i18 = select i1 %.not37.i15, i64 %86, i64 %.042.i12
-  %87 = add nsw i64 %.sroa.9.041.i13, 1
-  %.not36.not.i19 = icmp sgt i64 %11, %.sroa.speculated4.i.i.i.i16
-  br i1 %.not36.not.i19, label %.critedge.i11, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !80
+  %.041.i12 = phi i64 [ 0, %.lr.ph.split.i10 ], [ %.1.i21, %.critedge.i11 ]
+  %.sroa.9.040.i13 = phi i64 [ %63, %.lr.ph.split.i10 ], [ %77, %.critedge.i11 ]
+  %.sroa.5.039.i14 = phi i64 [ 0, %.lr.ph.split.i10 ], [ %.pre48.i20, %.critedge.i11 ]
+  %67 = add nsw i64 %.sroa.9.040.i13, %66
+  %68 = lshr i64 %67, 3
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !73
+  %71 = trunc i64 %67 to i8
+  %72 = and i8 %71, 7
+  %73 = lshr i8 %70, %72
+  %74 = trunc i8 %73 to i1
+  %.phi.trans.insert.i15 = getelementptr inbounds i32, ptr %50, i64 %.sroa.9.040.i13
+  %.pre.i16 = load i32, ptr %.phi.trans.insert.i15, align 4, !tbaa !75
+  %.pre44.i17 = sext i32 %.pre.i16 to i64
+  %.pre45.i18 = sub nsw i64 %.pre44.i17, %9
+  %.pre47.i19 = tail call i64 @llvm.smax.i64(i64 %.pre45.i18, i64 0)
+  %.pre48.i20 = tail call noundef i64 @llvm.smin.i64(i64 %11, i64 %.pre47.i19)
+  %75 = sub i64 %.041.i12, %.sroa.5.039.i14
+  %76 = add i64 %75, %.pre48.i20
+  %.1.i21 = select i1 %74, i64 %.041.i12, i64 %76
+  %77 = add nsw i64 %.sroa.9.040.i13, 1
+  %.not36.not.i22 = icmp sgt i64 %11, %.pre47.i19
+  br i1 %.not36.not.i22, label %.critedge.i11, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !80
 
-88:                                               ; preds = %1
-  %89 = getelementptr inbounds i64, ptr %15, i64 %13
+78:                                               ; preds = %1
+  %79 = getelementptr inbounds i64, ptr %15, i64 %13
   br i1 %19, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i
 
-_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %88, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i
-  %.017.i.i.i.i.i12.i41 = phi ptr [ %.1.i.i.i.i.i17.i46, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ], [ %89, %88 ]
-  %.01116.i.i.i.i.i13.i42 = phi i64 [ %.112.i.i.i.i.i16.i45, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %88 ]
-  %90 = lshr i64 %.01116.i.i.i.i.i13.i42, 1
-  %91 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i12.i41, i64 %90
-  %92 = load i64, ptr %91, align 8, !tbaa !81, !noalias !82
-  %93 = icmp slt i64 %9, %92
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %95 = xor i64 %90, -1
-  %96 = add nsw i64 %.01116.i.i.i.i.i13.i42, %95
-  %.112.i.i.i.i.i16.i45 = select i1 %93, i64 %90, i64 %96
-  %.1.i.i.i.i.i17.i46 = select i1 %93, ptr %.017.i.i.i.i.i12.i41, ptr %94
-  %97 = icmp sgt i64 %.112.i.i.i.i.i16.i45, 0
-  br i1 %97, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i, !llvm.loop !85
+_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %78, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i
+  %.017.i.i.i.i.i12.i45 = phi ptr [ %.1.i.i.i.i.i17.i50, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ], [ %79, %78 ]
+  %.01116.i.i.i.i.i13.i46 = phi i64 [ %.112.i.i.i.i.i16.i49, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %78 ]
+  %80 = lshr i64 %.01116.i.i.i.i.i13.i46, 1
+  %81 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i12.i45, i64 %80
+  %82 = load i64, ptr %81, align 8, !tbaa !81, !noalias !82
+  %83 = icmp slt i64 %9, %82
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %85 = xor i64 %80, -1
+  %86 = add nsw i64 %.01116.i.i.i.i.i13.i46, %85
+  %.112.i.i.i.i.i16.i49 = select i1 %83, i64 %80, i64 %86
+  %.1.i.i.i.i.i17.i50 = select i1 %83, ptr %.017.i.i.i.i.i12.i45, ptr %84
+  %87 = icmp sgt i64 %.112.i.i.i.i.i16.i49, 0
+  br i1 %87, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i, !llvm.loop !85
 
-_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i: ; preds = %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i, %88
-  %.0.lcssa.i.i.i.i.i10.i27 = phi ptr [ %89, %88 ], [ %.1.i.i.i.i.i17.i46, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ]
-  %98 = ptrtoint ptr %89 to i64
-  %99 = ptrtoint ptr %.0.lcssa.i.i.i.i.i10.i27 to i64
-  %100 = sub i64 %99, %98
-  %101 = ashr exact i64 %100, 3
-  br i1 %16, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, label %.lr.ph.i28
+_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i: ; preds = %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i, %78
+  %.0.lcssa.i.i.i.i.i10.i30 = phi ptr [ %79, %78 ], [ %.1.i.i.i.i.i17.i50, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ]
+  %88 = ptrtoint ptr %79 to i64
+  %89 = ptrtoint ptr %.0.lcssa.i.i.i.i.i10.i30 to i64
+  %90 = sub i64 %89, %88
+  %91 = ashr exact i64 %90, 3
+  br i1 %16, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, label %.lr.ph.i31
 
-.lr.ph.i28:                                       ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i
-  %102 = load ptr, ptr %7, align 8, !tbaa !72
-  %.not.i29 = icmp eq ptr %102, null
-  br i1 %.not.i29, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i30
+.lr.ph.i31:                                       ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i
+  %92 = load ptr, ptr %7, align 8, !tbaa !72
+  %.not.i32 = icmp eq ptr %92, null
+  br i1 %.not.i32, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, label %.lr.ph.split.i33
 
-.lr.ph.split.i30:                                 ; preds = %.lr.ph.i28
-  %103 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %104 = load i64, ptr %103, align 8, !tbaa !59
-  br label %.critedge.i31
+.lr.ph.split.i33:                                 ; preds = %.lr.ph.i31
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %94 = load i64, ptr %93, align 8, !tbaa !59
+  br label %.critedge.i34
 
-.critedge.i31:                                    ; preds = %.critedge.i31, %.lr.ph.split.i30
-  %.042.i32 = phi i64 [ 0, %.lr.ph.split.i30 ], [ %.1.i38, %.critedge.i31 ]
-  %.sroa.9.041.i33 = phi i64 [ %101, %.lr.ph.split.i30 ], [ %119, %.critedge.i31 ]
-  %.sroa.5.040.i34 = phi i64 [ 0, %.lr.ph.split.i30 ], [ %.sroa.speculated.i.i.i.i37, %.critedge.i31 ]
-  %105 = add nsw i64 %.sroa.9.041.i33, %104
-  %106 = lshr i64 %105, 3
-  %107 = getelementptr inbounds nuw i8, ptr %102, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !73
-  %109 = zext i8 %108 to i32
-  %110 = trunc i64 %105 to i32
-  %111 = and i32 %110, 7
-  %112 = shl nuw nsw i32 1, %111
-  %113 = and i32 %112, %109
-  %.not37.i35 = icmp eq i32 %113, 0
-  %114 = getelementptr inbounds i64, ptr %89, i64 %.sroa.9.041.i33
-  %115 = load i64, ptr %114, align 8, !tbaa !81
-  %116 = sub nsw i64 %115, %9
-  %.sroa.speculated4.i.i.i.i36 = tail call i64 @llvm.smax.i64(i64 %116, i64 0)
-  %.sroa.speculated.i.i.i.i37 = tail call noundef i64 @llvm.smin.i64(i64 %11, i64 %.sroa.speculated4.i.i.i.i36)
-  %117 = sub i64 %.042.i32, %.sroa.5.040.i34
-  %118 = add i64 %117, %.sroa.speculated.i.i.i.i37
-  %.1.i38 = select i1 %.not37.i35, i64 %118, i64 %.042.i32
-  %119 = add nsw i64 %.sroa.9.041.i33, 1
-  %.not36.not.i39 = icmp sgt i64 %11, %.sroa.speculated4.i.i.i.i36
-  br i1 %.not36.not.i39, label %.critedge.i31, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !86
+.critedge.i34:                                    ; preds = %.critedge.i34, %.lr.ph.split.i33
+  %.041.i35 = phi i64 [ 0, %.lr.ph.split.i33 ], [ %.1.i42, %.critedge.i34 ]
+  %.sroa.9.040.i36 = phi i64 [ %91, %.lr.ph.split.i33 ], [ %105, %.critedge.i34 ]
+  %.sroa.5.039.i37 = phi i64 [ 0, %.lr.ph.split.i33 ], [ %.pre46.i, %.critedge.i34 ]
+  %95 = add nsw i64 %.sroa.9.040.i36, %94
+  %96 = lshr i64 %95, 3
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !73
+  %99 = trunc i64 %95 to i8
+  %100 = and i8 %99, 7
+  %101 = lshr i8 %98, %100
+  %102 = trunc i8 %101 to i1
+  %.phi.trans.insert.i38 = getelementptr inbounds i64, ptr %79, i64 %.sroa.9.040.i36
+  %.pre.i39 = load i64, ptr %.phi.trans.insert.i38, align 8, !tbaa !81
+  %.pre44.i40 = sub nsw i64 %.pre.i39, %9
+  %.pre45.i41 = tail call i64 @llvm.smax.i64(i64 %.pre44.i40, i64 0)
+  %.pre46.i = tail call noundef i64 @llvm.smin.i64(i64 %11, i64 %.pre45.i41)
+  %103 = sub i64 %.041.i35, %.sroa.5.039.i37
+  %104 = add i64 %103, %.pre46.i
+  %.1.i42 = select i1 %102, i64 %.041.i35, i64 %104
+  %105 = add nsw i64 %.sroa.9.040.i36, 1
+  %.not36.not.i43 = icmp sgt i64 %11, %.pre45.i41
+  br i1 %.not36.not.i43, label %.critedge.i34, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !86
 
-_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit: ; preds = %.critedge.i11, %.critedge.i, %.critedge.i31, %.lr.ph.i28, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i, %.lr.ph.i8, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i, %.lr.ph.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i
-  %.0 = phi i64 [ %.1.i38, %.critedge.i31 ], [ %.1.i, %.critedge.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i ], [ 0, %.lr.ph.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i ], [ 0, %.lr.ph.i8 ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i ], [ 0, %.lr.ph.i28 ], [ %.1.i18, %.critedge.i11 ]
+_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit: ; preds = %.critedge.i11, %.critedge.i, %.critedge.i34, %.lr.ph.i31, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i, %.lr.ph.i8, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i, %.lr.ph.i, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i
+  %.0 = phi i64 [ %.1.i42, %.critedge.i34 ], [ %.1.i, %.critedge.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i ], [ 0, %.lr.ph.i ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i ], [ 0, %.lr.ph.i8 ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i ], [ 0, %.lr.ph.i31 ], [ %.1.i21, %.critedge.i11 ]
   ret i64 %.0
 }
 

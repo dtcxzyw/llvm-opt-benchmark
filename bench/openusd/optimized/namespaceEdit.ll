@@ -380,9 +380,8 @@ _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_
   %50 = and i64 %47, -8
   %51 = inttoptr i64 %50 to ptr
   %52 = atomicrmw add ptr %51, i32 2 monotonic, align 4, !noalias !4
-  %53 = and i32 %52, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %53, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %54, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7SdfPathE.exit
+  %53 = trunc i32 %52 to i1
+  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7SdfPathE.exit, label %54
 
 54:                                               ; preds = %49
   store ptr %51, ptr %8, align 8, !alias.scope !4
@@ -733,9 +732,8 @@ _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_
   %50 = and i64 %47, -8
   %51 = inttoptr i64 %50 to ptr
   %52 = atomicrmw add ptr %51, i32 2 monotonic, align 4, !noalias !9
-  %53 = and i32 %52, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %53, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %54, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7SdfPathE.exit
+  %53 = trunc i32 %52 to i1
+  br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7SdfPathE.exit, label %54
 
 54:                                               ; preds = %49
   store ptr %51, ptr %8, align 8, !alias.scope !9
@@ -895,9 +893,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %2, %13, %26
   %34 = and i64 %31, -8
   %35 = inttoptr i64 %34 to ptr
   %36 = atomicrmw add ptr %35, i32 2 monotonic, align 4
-  %37 = and i32 %36, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7TfTokenE.exit
+  %37 = trunc i32 %36 to i1
+  br i1 %37, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7TfTokenE.exit, label %38
 
 38:                                               ; preds = %33
   store ptr %35, ptr %8, align 8
@@ -1138,9 +1135,8 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdi
   %12 = and i64 %9, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4
-  %15 = and i32 %14, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %16, label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_RootKeyENS0_7TfTokenENS0_7SdfPathEEEC2ERKS5_.exit
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_RootKeyENS0_7TfTokenENS0_7SdfPathEEEC2ERKS5_.exit, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %0, align 8
@@ -1774,9 +1770,8 @@ _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_
   %57 = and i64 %54, -8
   %58 = inttoptr i64 %57 to ptr
   %59 = atomicrmw add ptr %58, i32 2 monotonic, align 4, !noalias !20
-  %60 = and i32 %59, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %60, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %61, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7SdfPathE.exit
+  %60 = trunc i32 %59 to i1
+  br i1 %60, label %_ZN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace5_NodeC2ERKNS_7SdfPathE.exit, label %61
 
 61:                                               ; preds = %56
   store ptr %58, ptr %12, align 8, !alias.scope !20
@@ -8885,9 +8880,8 @@ define linkonce_odr void @_ZZNSt8__detail9__variant17_Copy_assign_baseILb0EJN32p
   %12 = and i64 %9, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4
-  %15 = and i32 %14, 1
-  %.not1.i.i = icmp eq i32 %15, 0
-  br i1 %.not1.i.i, label %16, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %1, align 8
@@ -8964,9 +8958,8 @@ _ZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserve
   %52 = and i64 %49, -8
   %53 = inttoptr i64 %52 to ptr
   %54 = atomicrmw add ptr %53, i32 2 monotonic, align 4
-  %55 = and i32 %54, 1
-  %.not1.i.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not1.i.i.i.i, label %56, label %_ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_RootKeyENS2_7TfTokenENS2_7SdfPathEEJRKS5_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
+  %55 = trunc i32 %54 to i1
+  br i1 %55, label %_ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__26SdfNamespaceEdit_Namespace8_RootKeyENS2_7TfTokenENS2_7SdfPathEEJRKS5_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit, label %56
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %3, align 8

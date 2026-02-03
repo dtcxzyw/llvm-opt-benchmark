@@ -399,7 +399,7 @@ define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr
   br i1 %65, label %37, label %66, !llvm.loop !24
 
 66:                                               ; preds = %63
-  %.not.i91 = icmp ne i64 %38, 0
+  %.not.i91 = trunc i64 %.05770.i to i1
   %.not.i.i = icmp eq i64 %35, 0
   %or.cond.i = or i1 %.not.i.i, %.not.i91
   br i1 %or.cond.i, label %_ZL12bpmnode_sortP7BPMNodem.exit, label %.lr.ph.preheader.i.i
@@ -577,60 +577,60 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
   store i32 2, ptr %117, align 4, !tbaa !15
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr null, ptr %118, align 8, !tbaa !46
-  %.not83142 = icmp eq i32 %3, 0
-  br i1 %.not83142, label %.preheader131, label %.lr.ph144
+  %.not83141 = icmp eq i32 %3, 0
+  br i1 %.not83141, label %.preheader131, label %.lr.ph143
 
-.lr.ph144:                                        ; preds = %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130
+.lr.ph143:                                        ; preds = %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130
   %119 = getelementptr inbounds nuw i8, ptr %75, i64 24
   br label %122
 
 .preheader131:                                    ; preds = %122, %_ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130
   %120 = shl i64 %.1, 1
   %121 = add i64 %120, -2
-  %.not84145 = icmp eq i64 %121, 2
-  %.pre161 = add i32 %3, -1
-  br i1 %.not84145, label %._crit_edge148, label %.lr.ph147
+  %.not84144 = icmp eq i64 %121, 2
+  %.pre159 = add i32 %3, -1
+  br i1 %.not84144, label %._crit_edge147, label %.lr.ph146
 
-122:                                              ; preds = %.lr.ph144, %122
-  %indvars.iv158 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next159, %122 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv158
+122:                                              ; preds = %.lr.ph143, %122
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next157, %122 ]
+  %123 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv156
   store ptr %75, ptr %123, align 8, !tbaa !40
-  %124 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv158
+  %124 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv156
   store ptr %119, ptr %124, align 8, !tbaa !40
-  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %.not83 = icmp eq i64 %indvars.iv.next159, %80
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
+  %.not83 = icmp eq i64 %indvars.iv.next157, %80
   br i1 %.not83, label %.preheader131, label %122, !llvm.loop !47
 
-.lr.ph147:                                        ; preds = %.preheader131, %.lr.ph147
-  %.3146 = phi i32 [ %125, %.lr.ph147 ], [ 2, %.preheader131 ]
-  call fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr noundef %5, ptr noundef %12, i64 noundef %.1, i32 noundef %.pre161, i32 noundef %.3146)
-  %125 = add i32 %.3146, 1
+.lr.ph146:                                        ; preds = %.preheader131, %.lr.ph146
+  %.3145 = phi i32 [ %125, %.lr.ph146 ], [ 2, %.preheader131 ]
+  call fastcc void @_ZL10boundaryPMP8BPMListsP7BPMNodemii(ptr noundef %5, ptr noundef %12, i64 noundef %.1, i32 noundef %.pre159, i32 noundef %.3145)
+  %125 = add i32 %.3145, 1
   %126 = zext i32 %125 to i64
   %.not84 = icmp eq i64 %121, %126
-  br i1 %.not84, label %._crit_edge148.loopexit, label %.lr.ph147, !llvm.loop !48
+  br i1 %.not84, label %._crit_edge147.loopexit, label %.lr.ph146, !llvm.loop !48
 
-._crit_edge148.loopexit:                          ; preds = %.lr.ph147
+._crit_edge147.loopexit:                          ; preds = %.lr.ph146
   %.pre = load ptr, ptr %85, align 8, !tbaa !39
-  br label %._crit_edge148
+  br label %._crit_edge147
 
-._crit_edge148:                                   ; preds = %.preheader131, %._crit_edge148.loopexit
-  %127 = phi ptr [ %.pre, %._crit_edge148.loopexit ], [ %84, %.preheader131 ]
-  %128 = zext i32 %.pre161 to i64
+._crit_edge147:                                   ; preds = %.preheader131, %._crit_edge147.loopexit
+  %127 = phi ptr [ %.pre, %._crit_edge147.loopexit ], [ %84, %.preheader131 ]
+  %128 = zext i32 %.pre159 to i64
   %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
-  %.0153 = load ptr, ptr %129, align 8, !tbaa !40
-  %.not85154 = icmp eq ptr %.0153, null
-  br i1 %.not85154, label %.loopexit, label %.preheader
+  %.0152 = load ptr, ptr %129, align 8, !tbaa !40
+  %.not85153 = icmp eq ptr %.0152, null
+  br i1 %.not85153, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge148, %._crit_edge152
-  %.0155 = phi ptr [ %.0, %._crit_edge152 ], [ %.0153, %._crit_edge148 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.0155, i64 4
+.preheader:                                       ; preds = %._crit_edge147, %._crit_edge151
+  %.0154 = phi ptr [ %.0, %._crit_edge151 ], [ %.0152, %._crit_edge147 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.0154, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !15
-  %.not86149 = icmp eq i32 %131, 0
-  br i1 %.not86149, label %._crit_edge152, label %.lr.ph151
+  %.not86148 = icmp eq i32 %131, 0
+  br i1 %.not86148, label %._crit_edge151, label %.lr.ph150
 
-.lr.ph151:                                        ; preds = %.preheader, %.lr.ph151
-  %.4150 = phi i32 [ %140, %.lr.ph151 ], [ 0, %.preheader ]
-  %132 = zext i32 %.4150 to i64
+.lr.ph150:                                        ; preds = %.preheader, %.lr.ph150
+  %.4149 = phi i32 [ %140, %.lr.ph150 ], [ 0, %.preheader ]
+  %132 = zext i32 %.4149 to i64
   %133 = getelementptr inbounds nuw %struct.BPMNode, ptr %12, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !15
@@ -639,19 +639,19 @@ _ZL14bpmnode_createP8BPMListsijP7BPMNode.exit130: ; preds = %._crit_edge63.i124,
   %138 = load i32, ptr %137, align 4, !tbaa !10
   %139 = add i32 %138, 1
   store i32 %139, ptr %137, align 4, !tbaa !10
-  %140 = add i32 %.4150, 1
+  %140 = add i32 %.4149, 1
   %141 = load i32, ptr %130, align 4, !tbaa !15
   %.not86 = icmp eq i32 %140, %141
-  br i1 %.not86, label %._crit_edge152, label %.lr.ph151, !llvm.loop !49
+  br i1 %.not86, label %._crit_edge151, label %.lr.ph150, !llvm.loop !49
 
-._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader
-  %142 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
+._crit_edge151:                                   ; preds = %.lr.ph150, %.preheader
+  %142 = getelementptr inbounds nuw i8, ptr %.0154, i64 8
   %.0 = load ptr, ptr %142, align 8, !tbaa !40
   %.not85 = icmp eq ptr %.0, null
   br i1 %.not85, label %.loopexit, label %.preheader, !llvm.loop !50
 
-.loopexit:                                        ; preds = %._crit_edge152, %._crit_edge148, %_ZL12bpmnode_sortP7BPMNodem.exit
-  %143 = phi ptr [ %84, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %127, %._crit_edge148 ], [ %127, %._crit_edge152 ]
+.loopexit:                                        ; preds = %._crit_edge151, %._crit_edge147, %_ZL12bpmnode_sortP7BPMNodem.exit
+  %143 = phi ptr [ %84, %_ZL12bpmnode_sortP7BPMNodem.exit ], [ %127, %._crit_edge147 ], [ %127, %._crit_edge151 ]
   %144 = load ptr, ptr %76, align 8, !tbaa !36
   tail call void @free(ptr noundef %144) #33
   %145 = load ptr, ptr %79, align 8, !tbaa !37

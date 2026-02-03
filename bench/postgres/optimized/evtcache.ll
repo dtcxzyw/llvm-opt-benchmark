@@ -160,9 +160,8 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %6, align 1
   %73 = getelementptr i8, ptr %65, i64 20
   %.val.val.i.i.i = load i16, ptr %73, align 4
-  %74 = and i16 %.val.val.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i16 %74, 0
-  br i1 %.not.i.i.i.i, label %75, label %114
+  %74 = trunc i16 %.val.val.i.i.i to i1
+  br i1 %74, label %114, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %64, i64 120
@@ -236,8 +235,8 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   %115 = getelementptr inbounds nuw i8, ptr %65, i64 23
   %.val20.i.i.i = load i8, ptr %115, align 1
   %116 = and i8 %.val20.i.i.i, 64
-  %.not.i21.i.i.i = icmp eq i8 %116, 0
-  br i1 %.not.i21.i.i.i, label %117, label %118
+  %.not.i.i.i.i = icmp eq i8 %116, 0
+  br i1 %.not.i.i.i.i, label %117, label %118
 
 117:                                              ; preds = %114
   store i8 1, ptr %6, align 1

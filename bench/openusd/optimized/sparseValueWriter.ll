@@ -4711,9 +4711,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %15,
   %34 = and i64 %31, -8
   %35 = inttoptr i64 %34 to ptr
   %36 = atomicrmw add ptr %35, i32 2 monotonic, align 4
-  %37 = and i32 %36, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not1.i.i.i.i.i, label %38, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
+  %37 = trunc i32 %36 to i1
+  br i1 %37, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit, label %38
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %29, align 8
@@ -5097,9 +5096,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %14,
   %33 = and i64 %30, -8
   %34 = inttoptr i64 %33 to ptr
   %35 = atomicrmw add ptr %34, i32 2 monotonic, align 4
-  %36 = and i32 %35, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %36, 0
-  br i1 %.not1.i.i.i.i.i, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
+  %36 = trunc i32 %35 to i1
+  br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %28, align 8
@@ -6126,9 +6124,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i: 
   %49 = and i64 %46, -8
   %50 = inttoptr i64 %49 to ptr
   %51 = atomicrmw add ptr %50, i32 2 monotonic, align 4, !noalias !62
-  %52 = and i32 %51, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i, label %53, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
+  %52 = trunc i32 %51 to i1
+  br i1 %52, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %53
 
 53:                                               ; preds = %48
   store ptr %50, ptr %44, align 8, !alias.scope !57, !noalias !60
@@ -7372,9 +7369,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %14,
   %33 = and i64 %30, -8
   %34 = inttoptr i64 %33 to ptr
   %35 = atomicrmw add ptr %34, i32 2 monotonic, align 4
-  %36 = and i32 %35, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %36, 0
-  br i1 %.not1.i.i.i.i.i, label %37, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit
+  %36 = trunc i32 %35 to i1
+  br i1 %36, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit, label %37
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %28, align 8
@@ -7438,9 +7434,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i: ; preds = %5
   %72 = and i64 %69, -8
   %73 = inttoptr i64 %72 to ptr
   %74 = atomicrmw add ptr %73, i32 2 monotonic, align 4
-  %75 = and i32 %74, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %75, 0
-  br i1 %.not1.i.i.i.i.i.i, label %76, label %_ZN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterC2EOS0_.exit
+  %75 = trunc i32 %74 to i1
+  br i1 %75, label %_ZN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterC2EOS0_.exit, label %76
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %67, align 8
@@ -7703,9 +7698,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
   %37 = and i64 %34, -8
   %38 = inttoptr i64 %37 to ptr
   %39 = atomicrmw add ptr %38, i32 2 monotonic, align 4
-  %40 = and i32 %39, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %41, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i, label %41
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %32, align 8
@@ -7833,9 +7827,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
   %51 = and i64 %48, -8
   %52 = inttoptr i64 %51 to ptr
   %53 = atomicrmw add ptr %52, i32 2 monotonic, align 4
-  %54 = and i32 %53, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %54, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %55, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
+  %54 = trunc i32 %53 to i1
+  br i1 %54, label %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i, label %55
 
 55:                                               ; preds = %50
   store ptr %52, ptr %46, align 8
@@ -7851,7 +7844,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i: ; preds 
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr null, ptr %61, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %59)
-          to label %62 unwind label %.thread53
+          to label %62 unwind label %.thread52
 
 62:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -7919,9 +7912,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i: 
   %96 = and i64 %93, -8
   %97 = inttoptr i64 %96 to ptr
   %98 = atomicrmw add ptr %97, i32 2 monotonic, align 4, !noalias !74
-  %99 = and i32 %98, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %99, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i, label %100, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
+  %99 = trunc i32 %98 to i1
+  br i1 %99, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %100
 
 100:                                              ; preds = %95
   store ptr %97, ptr %91, align 8, !alias.scope !69, !noalias !72
@@ -7952,11 +7944,11 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterE
   %.0.lcssa.i.i.i = phi ptr [ %20, %62 ], [ %112, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
   %113 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 64
   %.not10.i.i.i26 = icmp eq ptr %1, %5
-  br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39, label %.lr.ph.i.i.i27
+  br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, label %.lr.ph.i.i.i27
 
-.lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36
-  %.012.i.i.i28 = phi ptr [ %159, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36 ], [ %113, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %158, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36 ], [ %1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+.lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
+  %.012.i.i.i28 = phi ptr [ %159, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35 ], [ %113, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %158, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35 ], [ %1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %114 = load i32, ptr %.0911.i.i.i29, align 8, !alias.scope !78, !noalias !75
@@ -8005,21 +7997,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i33
   store i64 %140, ptr %138, align 8, !alias.scope !75, !noalias !78
   %141 = and i64 %140, 7
   %.not.i.i5.i.i.i.i.i.i.i.i.i.i34 = icmp eq i64 %141, 0
-  br i1 %.not.i.i5.i.i.i.i.i.i.i.i.i.i34, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36, label %142
+  br i1 %.not.i.i5.i.i.i.i.i.i.i.i.i.i34, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35, label %142
 
 142:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i33
   %143 = and i64 %140, -8
   %144 = inttoptr i64 %143 to ptr
   %145 = atomicrmw add ptr %144, i32 2 monotonic, align 4, !noalias !80
-  %146 = and i32 %145, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i.i.i35 = icmp eq i32 %146, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i35, label %147, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36
+  %146 = trunc i32 %145 to i1
+  br i1 %146, label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35, label %147
 
 147:                                              ; preds = %142
   store ptr %144, ptr %138, align 8, !alias.scope !75, !noalias !78
-  br label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36
+  br label %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35
 
-_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36: ; preds = %147, %142, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i33
+_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35: ; preds = %147, %142, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i.i.i.i.i33
   %148 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
   %149 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
   %150 = load i64, ptr %149, align 8, !alias.scope !78, !noalias !75
@@ -8037,36 +8028,36 @@ _ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAtt
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %.0911.i.i.i29) #18
   %158 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 64
   %159 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 64
-  %.not.i.i.i37 = icmp eq ptr %158, %5
-  br i1 %.not.i.i.i37, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39, label %.lr.ph.i.i.i27, !llvm.loop !63
+  %.not.i.i.i36 = icmp eq ptr %158, %5
+  br i1 %.not.i.i.i36, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, label %.lr.ph.i.i.i27, !llvm.loop !63
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39: ; preds = %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i38 = phi ptr [ %113, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %159, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i36 ]
+_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38: ; preds = %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
+  %.0.lcssa.i.i.i37 = phi ptr [ %113, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %159, %_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i35 ]
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not.i40 = icmp eq ptr %6, null
-  br i1 %.not.i40, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE13_M_deallocateEPS1_m.exit, label %161
+  %.not.i39 = icmp eq ptr %6, null
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE13_M_deallocateEPS1_m.exit, label %161
 
-161:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39
+161:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38
   %162 = load ptr, ptr %160, align 8
   %163 = ptrtoint ptr %162 to i64
   %164 = sub i64 %163, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %164) #19
   br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit39, %161
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValueWriterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38, %161
   store ptr %20, ptr %0, align 8
-  store ptr %.0.lcssa.i.i.i38, ptr %4, align 8
+  store ptr %.0.lcssa.i.i.i37, ptr %4, align 8
   %165 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdUtilsSparseAttrValueWriter", ptr %20, i64 %16
   store ptr %165, ptr %160, align 8
   ret void
 
-166:                                              ; preds = %.thread53
+166:                                              ; preds = %.thread52
   %167 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %171 unwind label %172
 
-.thread53:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
+.thread52:                                        ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeC2ERKS0_.exit.i.i.i
   %168 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %21) #18
@@ -8086,7 +8077,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__29UsdUtilsSparseAttrValue
   tail call void @__clang_call_terminate(ptr %174) #17
   unreachable
 
-175:                                              ; preds = %.thread53
+175:                                              ; preds = %.thread52
   unreachable
 }
 

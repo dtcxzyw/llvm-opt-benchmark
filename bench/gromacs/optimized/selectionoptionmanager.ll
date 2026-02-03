@@ -681,8 +681,8 @@ define void @_ZN3gmx22SelectionOptionManager4Impl27requestUnsetRequiredOptionsEv
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !44
-  %.not11 = icmp eq ptr %3, %5
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %3, %5
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -691,10 +691,10 @@ define void @_ZN3gmx22SelectionOptionManager4Impl27requestUnsetRequiredOptionsEv
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
-  %.pre13 = phi ptr [ %5, %.lr.ph ], [ %.pre14, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
+  %.pre12 = phi ptr [ %5, %.lr.ph ], [ %.pre13, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
   %10 = phi ptr [ %5, %.lr.ph ], [ %41, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
-  %.sroa.07.012 = phi ptr [ %3, %.lr.ph ], [ %42, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
-  %11 = load ptr, ptr %.sroa.07.012, align 8, !tbaa !47
+  %.sroa.07.011 = phi ptr [ %3, %.lr.ph ], [ %42, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
+  %11 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i64, ptr %12, align 8, !tbaa !48
   %14 = and i64 %13, 17
@@ -765,7 +765,7 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_r
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
-  %.pre = phi ptr [ %.pre.pre, %39 ], [ %.pre13, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i ]
+  %.pre = phi ptr [ %.pre.pre, %39 ], [ %.pre12, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i ]
   store ptr %33, ptr %6, align 8, !tbaa !41
   store ptr %38, ptr %7, align 8, !tbaa !43
   %40 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %33, i64 %31
@@ -773,9 +773,9 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_r
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit: ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %18, %9
-  %.pre14 = phi ptr [ %.pre, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.pre13, %18 ], [ %.pre13, %9 ]
+  %.pre13 = phi ptr [ %.pre, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.pre12, %18 ], [ %.pre12, %9 ]
   %41 = phi ptr [ %.pre, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %10, %18 ], [ %10, %9 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.07.012, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 8
   %.not = icmp eq ptr %42, %41
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !56
 

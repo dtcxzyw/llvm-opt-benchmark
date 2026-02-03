@@ -2934,7 +2934,7 @@ dissect_radiotap_flags.exit:                      ; preds = %268, %.sink.split.i
   %520 = and i8 %519, -2
   %521 = or disjoint i8 %520, %.lobit838
   store i8 %521, ptr %117, align 4
-  %522 = icmp ne i8 %.lobit838, 0
+  %522 = trunc i8 %516 to i1
   br label %523
 
 523:                                              ; preds = %513, %515

@@ -223,9 +223,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i64, ptr %4, align 8, !tbaa !12
-  %45 = and i64 %.pre, 1
-  %.not.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i, label %46, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %45 = trunc i64 %.pre to i1
+  br i1 %45, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %47 = inttoptr i64 %.pre to ptr
@@ -312,9 +311,8 @@ define void @_ZN9grpc_core20UnixSockaddrPopulateESt17basic_string_viewIcSt11char
 .lr.ph.i.i.i.i:                                   ; preds = %24, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %25, %24 ]
   %28 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !12
-  %29 = and i64 %28, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %30, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = inttoptr i64 %28 to ptr
@@ -421,9 +419,8 @@ declare void @_ZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202407226Status
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !12
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -569,9 +566,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i64, ptr %4, align 8, !tbaa !12
-  %45 = and i64 %.pre, 1
-  %.not.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i, label %46, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %45 = trunc i64 %.pre to i1
+  br i1 %45, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %47 = inttoptr i64 %.pre to ptr
@@ -648,9 +644,8 @@ define void @_ZN9grpc_core28UnixAbstractSockaddrPopulateESt17basic_string_viewIc
 .lr.ph.i.i.i.i:                                   ; preds = %24, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %35, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %25, %24 ]
   %28 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !12
-  %29 = and i64 %28, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %30, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i.i
   %31 = inttoptr i64 %28 to ptr
@@ -772,9 +767,8 @@ define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev(
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load i64, ptr %.05.i.i.i, align 8, !tbaa !12
-  %6 = and i64 %5, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i.i.i.i, label %7, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i
   %8 = inttoptr i64 %5 to ptr
@@ -943,9 +937,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i64, ptr %4, align 8, !tbaa !12
-  %45 = and i64 %.pre, 1
-  %.not.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i, label %46, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %45 = trunc i64 %.pre to i1
+  br i1 %45, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %46
 
 46:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %47 = inttoptr i64 %.pre to ptr
@@ -1073,9 +1066,8 @@ define void @_ZN9grpc_core17VSockaddrPopulateESt17basic_string_viewIcSt11char_tr
 .lr.ph.i.i.i.i:                                   ; preds = %41, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %52, %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i ], [ %42, %41 ]
   %45 = load i64, ptr %.05.i.i.i.i, align 8, !tbaa !12
-  %46 = and i64 %45, 1
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %46, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %47, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %_ZSt8_DestroyIN4absl12lts_202407226StatusEEvPT_.exit.i.i.i.i, label %47
 
 47:                                               ; preds = %.lr.ph.i.i.i.i
   %48 = inttoptr i64 %45 to ptr
@@ -2375,9 +2367,8 @@ define void @_ZN9grpc_core16StringToSockaddrESt17basic_string_viewIcSt11char_tra
 
 _ZN4absl12lts_202407228StatusOrI21grpc_resolved_addressEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES2_T_EE5valueEiE4typeELi0EEEOS7_.exit: ; preds = %20
   %.pre = load i64, ptr %5, align 8, !tbaa !12
-  %22 = and i64 %.pre, 1
-  %.not.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i, label %23, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %22 = trunc i64 %.pre to i1
+  br i1 %22, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %23
 
 23:                                               ; preds = %_ZN4absl12lts_202407228StatusOrI21grpc_resolved_addressEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES2_T_EE5valueEiE4typeELi0EEEOS7_.exit
   %24 = inttoptr i64 %.pre to ptr

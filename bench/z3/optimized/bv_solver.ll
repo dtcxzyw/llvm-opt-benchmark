@@ -2516,10 +2516,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53: ; preds = %116
           to label %_ZN3satlsERSoNS_7literalE.exit unwind label %145
 
 121:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53
-  %122 = and i32 %.sroa.04.0.copyload, 1
-  %.not.not.i = icmp eq i32 %122, 0
-  %123 = select i1 %.not.not.i, ptr @.str.47, ptr @.str.46
-  %124 = zext nneg i32 %122 to i64
+  %122 = trunc i32 %.sroa.04.0.copyload to i1
+  %123 = select i1 %122, ptr @.str.46, ptr @.str.47
+  %.mask.i = and i32 %.sroa.04.0.copyload, 1
+  %124 = zext nneg i32 %.mask.i to i64
   %125 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %123, i64 noundef %124)
           to label %.noexc55 unwind label %145
 
@@ -5141,10 +5141,9 @@ _ZNK3euf6solver13bool_var2exprEj.exit.i:          ; preds = %_ZNK6vectorIP4exprL
   br label %_ZNK3euf6solver12literal2exprEN3sat7literalE.exit
 
 63:                                               ; preds = %_ZNK3euf6solver13bool_var2exprEj.exit.i
-  %64 = and i32 %.sroa.0.0.copyload, 1
-  %.not10.i = icmp eq i32 %64, 0
+  %64 = trunc i32 %.sroa.0.0.copyload to i1
   %65 = load ptr, ptr %6, align 8, !tbaa !411, !noalias !671
-  br i1 %.not10.i, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i, label %69
+  br i1 %64, label %69, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %63
   store ptr %.pre.i.then.val.i, ptr %4, align 8, !tbaa !150, !alias.scope !671
@@ -6085,10 +6084,10 @@ define hidden noundef zeroext i1 @_ZN2bv6solver19propagate_eq_occursERKNS0_9eq_o
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 23:                                               ; preds = %17
-  %24 = and i32 %.sroa.024.0.copyload, 1
-  %.not.not.i = icmp eq i32 %24, 0
-  %25 = select i1 %.not.not.i, ptr @.str.47, ptr @.str.46
-  %26 = zext nneg i32 %24 to i64
+  %24 = trunc i32 %.sroa.024.0.copyload to i1
+  %25 = select i1 %24, ptr @.str.46, ptr @.str.47
+  %.mask.i = and i32 %.sroa.024.0.copyload, 1
+  %26 = zext nneg i32 %.mask.i to i64
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %25, i64 noundef %26)
   %28 = lshr i32 %.sroa.024.0.copyload, 1
   %29 = zext nneg i32 %28 to i64
@@ -6118,10 +6117,10 @@ _ZN3satlsERSoNS_7literalE.exit:                   ; preds = %21, %23
   br label %_ZN3satlsERSoNS_7literalE.exit56
 
 45:                                               ; preds = %39
-  %46 = and i32 %.sroa.024.0.copyload, 1
-  %.not.not.i55 = icmp eq i32 %46, 0
-  %47 = select i1 %.not.not.i55, ptr @.str.47, ptr @.str.46
-  %48 = zext nneg i32 %46 to i64
+  %46 = trunc i32 %.sroa.024.0.copyload to i1
+  %47 = select i1 %46, ptr @.str.46, ptr @.str.47
+  %.mask.i55 = and i32 %.sroa.024.0.copyload, 1
+  %48 = zext nneg i32 %.mask.i55 to i64
   %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %47, i64 noundef %48)
   %50 = lshr i32 %.sroa.024.0.copyload, 1
   %51 = zext nneg i32 %50 to i64
@@ -6247,11 +6246,11 @@ _ZN3satlsERSoNS_7literalE.exit56:                 ; preds = %43, %45
   br label %_ZN3satlsERSoNS_7literalE.exit58
 
 137:                                              ; preds = %131
-  %138 = and i32 %.sroa.024.0.copyload, 1
-  %139 = xor i32 %138, 1
-  %.not.not.i57.not = icmp eq i32 %138, 0
-  %140 = select i1 %.not.not.i57.not, ptr @.str.46, ptr @.str.47
-  %141 = zext nneg i32 %139 to i64
+  %138 = xor i32 %.sroa.024.0.copyload, 1
+  %139 = trunc i32 %138 to i1
+  %140 = select i1 %139, ptr @.str.46, ptr @.str.47
+  %.mask.i57 = and i32 %138, 1
+  %141 = zext nneg i32 %.mask.i57 to i64
   %142 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef nonnull %140, i64 noundef %141)
   %143 = lshr i32 %.sroa.024.0.copyload, 1
   %144 = zext nneg i32 %143 to i64
@@ -6274,11 +6273,11 @@ _ZN3satlsERSoNS_7literalE.exit58:                 ; preds = %135, %137
   br label %_ZN3satlsERSoNS_7literalE.exit60
 
 153:                                              ; preds = %147
-  %154 = and i32 %.sroa.024.0.copyload, 1
-  %155 = xor i32 %154, 1
-  %.not.not.i59.not = icmp eq i32 %154, 0
-  %156 = select i1 %.not.not.i59.not, ptr @.str.46, ptr @.str.47
-  %157 = zext nneg i32 %155 to i64
+  %154 = xor i32 %.sroa.024.0.copyload, 1
+  %155 = trunc i32 %154 to i1
+  %156 = select i1 %155, ptr @.str.46, ptr @.str.47
+  %.mask.i59 = and i32 %154, 1
+  %157 = zext nneg i32 %.mask.i59 to i64
   %158 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %148, ptr noundef nonnull %156, i64 noundef %157)
   %159 = lshr i32 %.sroa.024.0.copyload, 1
   %160 = zext nneg i32 %159 to i64
@@ -6387,10 +6386,10 @@ _ZN3sat6solver6assignENS_7literalENS_13justificationE.exit: ; preds = %186, %191
   br label %_ZN3satlsERSoNS_7literalE.exit62
 
 210:                                              ; preds = %204
-  %211 = and i32 %.sroa.024.0.copyload, 1
-  %.not.not.i61 = icmp eq i32 %211, 0
-  %212 = select i1 %.not.not.i61, ptr @.str.47, ptr @.str.46
-  %213 = zext nneg i32 %211 to i64
+  %211 = trunc i32 %.sroa.024.0.copyload to i1
+  %212 = select i1 %211, ptr @.str.46, ptr @.str.47
+  %.mask.i61 = and i32 %.sroa.024.0.copyload, 1
+  %213 = zext nneg i32 %.mask.i61 to i64
   %214 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef nonnull %212, i64 noundef %213)
   %215 = lshr i32 %.sroa.024.0.copyload, 1
   %216 = zext nneg i32 %215 to i64
@@ -6413,10 +6412,10 @@ _ZN3satlsERSoNS_7literalE.exit62:                 ; preds = %208, %210
   br label %_ZN3satlsERSoNS_7literalE.exit64
 
 225:                                              ; preds = %219
-  %226 = and i32 %.sroa.024.0.copyload, 1
-  %.not.not.i63 = icmp eq i32 %226, 0
-  %227 = select i1 %.not.not.i63, ptr @.str.47, ptr @.str.46
-  %228 = zext nneg i32 %226 to i64
+  %226 = trunc i32 %.sroa.024.0.copyload to i1
+  %227 = select i1 %226, ptr @.str.46, ptr @.str.47
+  %.mask.i63 = and i32 %.sroa.024.0.copyload, 1
+  %228 = zext nneg i32 %.mask.i63 to i64
   %229 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef nonnull %227, i64 noundef %228)
   %230 = lshr i32 %.sroa.024.0.copyload, 1
   %231 = zext nneg i32 %230 to i64
@@ -7913,10 +7912,10 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2bv6solver18di
   br label %_ZN3satlsERSoNS_7literalE.exit
 
 19:                                               ; preds = %13
-  %20 = and i32 %.sroa.04.0.copyload, 1
-  %.not.not.i = icmp eq i32 %20, 0
-  %21 = select i1 %.not.not.i, ptr @.str.47, ptr @.str.46
-  %22 = zext nneg i32 %20 to i64
+  %20 = trunc i32 %.sroa.04.0.copyload to i1
+  %21 = select i1 %20, ptr @.str.46, ptr @.str.47
+  %.mask.i = and i32 %.sroa.04.0.copyload, 1
+  %22 = zext nneg i32 %.mask.i to i64
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %21, i64 noundef %22)
   %24 = lshr i32 %.sroa.04.0.copyload, 1
   %25 = zext nneg i32 %24 to i64
@@ -7970,10 +7969,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %31
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i
 
 49:                                               ; preds = %44
-  %50 = and i32 %.sroa.0.0.copyload.i.i, 1
-  %.not.not.i.i.i = icmp eq i32 %50, 0
-  %51 = select i1 %.not.not.i.i.i, ptr @.str.47, ptr @.str.46
-  %52 = zext nneg i32 %50 to i64
+  %50 = trunc i32 %.sroa.0.0.copyload.i.i to i1
+  %51 = select i1 %50, ptr @.str.46, ptr @.str.47
+  %.mask.i.i.i = and i32 %.sroa.0.0.copyload.i.i, 1
+  %52 = zext nneg i32 %.mask.i.i.i to i64
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %51, i64 noundef %52)
   %54 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %55 = zext nneg i32 %54 to i64
@@ -8024,10 +8023,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i41: ; preds = %_ZN3satlsERSoRK7sve
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i49
 
 73:                                               ; preds = %68
-  %74 = and i32 %.sroa.0.0.copyload.i.i47, 1
-  %.not.not.i.i.i48 = icmp eq i32 %74, 0
-  %75 = select i1 %.not.not.i.i.i48, ptr @.str.47, ptr @.str.46
-  %76 = zext nneg i32 %74 to i64
+  %74 = trunc i32 %.sroa.0.0.copyload.i.i47 to i1
+  %75 = select i1 %74, ptr @.str.46, ptr @.str.47
+  %.mask.i.i.i48 = and i32 %.sroa.0.0.copyload.i.i47, 1
+  %76 = zext nneg i32 %.mask.i.i.i48 to i64
   %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %75, i64 noundef %76)
   %78 = lshr i32 %.sroa.0.0.copyload.i.i47, 1
   %79 = zext nneg i32 %78 to i64
@@ -8133,10 +8132,10 @@ _ZNK3euf5enode10get_th_varEi.exit58:              ; preds = %118, %_ZNK3euf5enod
   br label %_ZN3satlsERSoNS_7literalE.exit60
 
 140:                                              ; preds = %_ZNK3euf5enode10get_th_varEi.exit58
-  %141 = and i32 %.sroa.01.0.copyload, 1
-  %.not.not.i59 = icmp eq i32 %141, 0
-  %142 = select i1 %.not.not.i59, ptr @.str.47, ptr @.str.46
-  %143 = zext nneg i32 %141 to i64
+  %141 = trunc i32 %.sroa.01.0.copyload to i1
+  %142 = select i1 %141, ptr @.str.46, ptr @.str.47
+  %.mask.i59 = and i32 %.sroa.01.0.copyload, 1
+  %143 = zext nneg i32 %.mask.i59 to i64
   %144 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull %142, i64 noundef %143)
   %145 = lshr i32 %.sroa.01.0.copyload, 1
   %146 = zext nneg i32 %145 to i64
@@ -8159,10 +8158,10 @@ _ZN3satlsERSoNS_7literalE.exit60:                 ; preds = %138, %140
   br label %_ZN3satlsERSoNS_7literalE.exit62
 
 157:                                              ; preds = %_ZN3satlsERSoNS_7literalE.exit60
-  %158 = and i32 %.sroa.0.0.copyload, 1
-  %.not.not.i61 = icmp eq i32 %158, 0
-  %159 = select i1 %.not.not.i61, ptr @.str.47, ptr @.str.46
-  %160 = zext nneg i32 %158 to i64
+  %158 = trunc i32 %.sroa.0.0.copyload to i1
+  %159 = select i1 %158, ptr @.str.46, ptr @.str.47
+  %.mask.i61 = and i32 %.sroa.0.0.copyload, 1
+  %160 = zext nneg i32 %.mask.i61 to i64
   %161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef nonnull %159, i64 noundef %160)
   %162 = lshr i32 %.sroa.0.0.copyload, 1
   %163 = zext nneg i32 %162 to i64
@@ -8209,10 +8208,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i63: ; preds = %165
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i71
 
 183:                                              ; preds = %178
-  %184 = and i32 %.sroa.0.0.copyload.i.i69, 1
-  %.not.not.i.i.i70 = icmp eq i32 %184, 0
-  %185 = select i1 %.not.not.i.i.i70, ptr @.str.47, ptr @.str.46
-  %186 = zext nneg i32 %184 to i64
+  %184 = trunc i32 %.sroa.0.0.copyload.i.i69 to i1
+  %185 = select i1 %184, ptr @.str.46, ptr @.str.47
+  %.mask.i.i.i70 = and i32 %.sroa.0.0.copyload.i.i69, 1
+  %186 = zext nneg i32 %.mask.i.i.i70 to i64
   %187 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %185, i64 noundef %186)
   %188 = lshr i32 %.sroa.0.0.copyload.i.i69, 1
   %189 = zext nneg i32 %188 to i64
@@ -8263,10 +8262,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i75: ; preds = %_ZN3satlsERSoRK7sve
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i83
 
 207:                                              ; preds = %202
-  %208 = and i32 %.sroa.0.0.copyload.i.i81, 1
-  %.not.not.i.i.i82 = icmp eq i32 %208, 0
-  %209 = select i1 %.not.not.i.i.i82, ptr @.str.47, ptr @.str.46
-  %210 = zext nneg i32 %208 to i64
+  %208 = trunc i32 %.sroa.0.0.copyload.i.i81 to i1
+  %209 = select i1 %208, ptr @.str.46, ptr @.str.47
+  %.mask.i.i.i82 = and i32 %.sroa.0.0.copyload.i.i81, 1
+  %210 = zext nneg i32 %.mask.i.i.i82 to i64
   %211 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %209, i64 noundef %210)
   %212 = lshr i32 %.sroa.0.0.copyload.i.i81, 1
   %213 = zext nneg i32 %212 to i64

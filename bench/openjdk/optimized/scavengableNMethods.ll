@@ -25,9 +25,8 @@ define hidden void @_ZN19ScavengableNMethods16register_nmethodEP7nmethod(ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %18
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

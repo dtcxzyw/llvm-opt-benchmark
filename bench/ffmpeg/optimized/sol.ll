@@ -49,7 +49,7 @@ define internal range(i32 -1, 1) i32 @sol_read_header(ptr noundef %0) #1 {
   %4 = tail call i32 @avio_rl16(ptr noundef %3) #3
   %5 = tail call i32 @avio_rl32(ptr noundef %3) #3
   %.not = icmp eq i32 %5, 5001043
-  br i1 %.not, label %6, label %28
+  br i1 %.not, label %6, label %27
 
 6:                                                ; preds = %1
   %7 = tail call i32 @avio_rl16(ptr noundef %3) #3
@@ -59,65 +59,65 @@ define internal range(i32 -1, 1) i32 @sol_read_header(ptr noundef %0) #1 {
   br i1 %.not35, label %.split, label %.split31
 
 .split:                                           ; preds = %6
-  %10 = and i32 %8, 1
-  %.not.i.not = icmp eq i32 %10, 0
-  %spec.select = select i1 %.not.i.not, i32 65541, i32 81923
+  %.not.i = trunc i32 %8 to i1
+  %spec.select = select i1 %.not.i, i32 81923, i32 65541
+  %spec.select67 = and i32 %8, 1
   br label %sol_codec_type.exit
 
 .split31:                                         ; preds = %6
-  %11 = tail call i32 @avio_r8(ptr noundef %3) #3
-  %12 = and i32 %8, 1
-  %.not.i39 = icmp eq i32 %12, 0
+  %10 = tail call i32 @avio_r8(ptr noundef %3) #3
+  %11 = and i32 %8, 1
+  %.not.i39 = icmp eq i32 %11, 0
   br i1 %.not.i39, label %.thread, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.split31
-  %13 = and i32 %8, 16
-  %.not.i4263 = icmp eq i32 %13, 0
+  %12 = and i32 %8, 16
+  %.not.i4263 = icmp eq i32 %12, 0
   %.0.i4364 = select i1 %.not.i4263, i32 1, i32 2
-  %14 = and i32 %8, 4
-  %.not6.i = icmp eq i32 %14, 0
-  br i1 %.not6.i, label %17, label %sol_codec_type.exit
+  %13 = and i32 %8, 4
+  %.not6.i = icmp eq i32 %13, 0
+  br i1 %.not6.i, label %16, label %sol_codec_type.exit
 
 .thread:                                          ; preds = %.split31
-  %15 = and i32 %8, 4
-  %.not4.i = icmp eq i32 %15, 0
+  %14 = and i32 %8, 4
+  %.not4.i = icmp eq i32 %14, 0
   %..i = select i1 %.not4.i, i32 65541, i32 65536
-  %16 = and i32 %8, 16
-  %.not.i42 = icmp eq i32 %16, 0
+  %15 = and i32 %8, 16
+  %.not.i42 = icmp eq i32 %15, 0
   %.0.i43 = select i1 %.not.i42, i32 1, i32 2
   br label %sol_codec_type.exit
 
-17:                                               ; preds = %.thread.thread
-  %18 = icmp eq i32 %4, 3213
-  %..i46 = select i1 %18, i32 1, i32 2
+16:                                               ; preds = %.thread.thread
+  %17 = icmp eq i32 %4, 3213
+  %..i46 = select i1 %17, i32 1, i32 2
   br label %sol_codec_type.exit
 
-sol_codec_type.exit:                              ; preds = %.split, %.thread, %17, %.thread.thread
-  %phi.call51 = phi i32 [ %..i, %.thread ], [ %spec.select, %.split ], [ 81923, %.thread.thread ], [ 81923, %17 ]
-  %phi.call3249 = phi i32 [ %.0.i43, %.thread ], [ 1, %.split ], [ %.0.i4364, %.thread.thread ], [ %.0.i4364, %17 ]
-  %.029 = phi i32 [ 0, %.thread ], [ %10, %.split ], [ 3, %.thread.thread ], [ %..i46, %17 ]
-  %19 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #3
-  %.not36 = icmp eq ptr %19, null
-  br i1 %.not36, label %28, label %20
+sol_codec_type.exit:                              ; preds = %.split, %.thread, %16, %.thread.thread
+  %phi.call51 = phi i32 [ %..i, %.thread ], [ %spec.select, %.split ], [ 81923, %.thread.thread ], [ 81923, %16 ]
+  %phi.call3249 = phi i32 [ %.0.i43, %.thread ], [ 1, %.split ], [ %.0.i4364, %.thread.thread ], [ %.0.i4364, %16 ]
+  %.029 = phi i32 [ 0, %.thread ], [ %spec.select67, %.split ], [ 3, %.thread.thread ], [ %..i46, %16 ]
+  %18 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #3
+  %.not36 = icmp eq ptr %18, null
+  br i1 %.not36, label %27, label %19
 
-20:                                               ; preds = %sol_codec_type.exit
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
-  store i32 1, ptr %22, align 8, !tbaa !34
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %.029, ptr %23, align 8, !tbaa !37
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %phi.call51, ptr %24, align 4, !tbaa !38
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  tail call void @av_channel_layout_default(ptr noundef nonnull %25, i32 noundef %phi.call3249) #3
-  %26 = load ptr, ptr %21, align 8, !tbaa !27
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 152
-  store i32 %7, ptr %27, align 8, !tbaa !39
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %19, i32 noundef 64, i32 noundef 1, i32 noundef %7) #3
-  br label %28
+19:                                               ; preds = %sol_codec_type.exit
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  store i32 1, ptr %21, align 8, !tbaa !34
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 %.029, ptr %22, align 8, !tbaa !37
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 %phi.call51, ptr %23, align 4, !tbaa !38
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  tail call void @av_channel_layout_default(ptr noundef nonnull %24, i32 noundef %phi.call3249) #3
+  %25 = load ptr, ptr %20, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
+  store i32 %7, ptr %26, align 8, !tbaa !39
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %18, i32 noundef 64, i32 noundef 1, i32 noundef %7) #3
+  br label %27
 
-28:                                               ; preds = %sol_codec_type.exit, %1, %20
-  %.0 = phi i32 [ -1, %1 ], [ 0, %20 ], [ -1, %sol_codec_type.exit ]
+27:                                               ; preds = %sol_codec_type.exit, %1, %19
+  %.0 = phi i32 [ -1, %1 ], [ 0, %19 ], [ -1, %sol_codec_type.exit ]
   ret i32 %.0
 }
 

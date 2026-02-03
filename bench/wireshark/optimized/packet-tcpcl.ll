@@ -1327,9 +1327,9 @@ define internal i32 @dissect_message(ptr noundef %0, ptr noundef %1, ptr noundef
   %113 = load i32, ptr @hf_tcpclv4_chdr_flags, align 4
   %114 = load i32, ptr @ett_tcpclv4_chdr_flags, align 4
   %115 = tail call ptr @proto_tree_add_bitmask(ptr noundef %53, ptr noundef %0, i32 noundef 5, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @v4_chdr_flags, i32 noundef 0)
-  %116 = and i8 %112, 1
-  %117 = getelementptr inbounds nuw i8, ptr %61, i64 41
-  store i8 %116, ptr %117, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %61, i64 41
+  %117 = and i8 %112, 1
+  store i8 %117, ptr %116, align 1
   br label %118
 
 118:                                              ; preds = %106, %111

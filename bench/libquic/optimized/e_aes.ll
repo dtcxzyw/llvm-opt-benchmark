@@ -328,98 +328,96 @@ define internal range(i32 0, 2) i32 @aes_init_key(ptr noundef readonly captures(
   %13 = icmp ne i32 %3, 0
   %or.cond3 = or i1 %13, %or.cond
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4, !tbaa !6
-  %15 = lshr i32 %14, 9
-  %16 = trunc i32 %15 to i8
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  br i1 %or.cond3, label %38, label %19
+  %15 = and i32 %14, 512
+  %16 = icmp ne i32 %15, 0
+  br i1 %or.cond3, label %36, label %17
 
-19:                                               ; preds = %4
-  %or.cond5 = and i1 %11, %18
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  br i1 %or.cond5, label %21, label %27
+17:                                               ; preds = %4
+  %or.cond5 = and i1 %11, %16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  br i1 %or.cond5, label %19, label %25
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i32, ptr %22, align 8, !tbaa !17
-  %24 = shl i32 %23, 3
-  %25 = tail call i32 @AES_set_decrypt_key(ptr noundef %1, i32 noundef %24, ptr noundef %6) #10
-  store ptr @AES_decrypt, ptr %20, align 8, !tbaa !18
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  store ptr @bsaes_cbc_encrypt, ptr %26, align 8, !tbaa !20
-  br label %58
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = load i32, ptr %20, align 8, !tbaa !17
+  %22 = shl i32 %21, 3
+  %23 = tail call i32 @AES_set_decrypt_key(ptr noundef %1, i32 noundef %22, ptr noundef %6) #10
+  store ptr @AES_decrypt, ptr %18, align 8, !tbaa !18
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  store ptr @bsaes_cbc_encrypt, ptr %24, align 8, !tbaa !20
+  br label %56
 
-27:                                               ; preds = %19
-  %.not = icmp eq i8 %17, 0
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i32, ptr %28, align 8, !tbaa !17
-  %30 = shl i32 %29, 3
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  br i1 %.not, label %35, label %32
+25:                                               ; preds = %17
+  %.not = icmp eq i32 %15, 0
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load i32, ptr %26, align 8, !tbaa !17
+  %28 = shl i32 %27, 3
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  br i1 %.not, label %33, label %30
 
-32:                                               ; preds = %27
-  %33 = tail call i32 @vpaes_set_decrypt_key(ptr noundef %1, i32 noundef %30, ptr noundef %6) #10
-  store ptr @vpaes_decrypt, ptr %20, align 8, !tbaa !18
-  %34 = select i1 %11, ptr @vpaes_cbc_encrypt, ptr null
-  store ptr %34, ptr %31, align 8, !tbaa !20
-  br label %58
+30:                                               ; preds = %25
+  %31 = tail call i32 @vpaes_set_decrypt_key(ptr noundef %1, i32 noundef %28, ptr noundef %6) #10
+  store ptr @vpaes_decrypt, ptr %18, align 8, !tbaa !18
+  %32 = select i1 %11, ptr @vpaes_cbc_encrypt, ptr null
+  store ptr %32, ptr %29, align 8, !tbaa !20
+  br label %56
 
-35:                                               ; preds = %27
-  %36 = tail call i32 @AES_set_decrypt_key(ptr noundef %1, i32 noundef %30, ptr noundef %6) #10
-  store ptr @AES_decrypt, ptr %20, align 8, !tbaa !18
-  %37 = select i1 %11, ptr @AES_cbc_encrypt, ptr null
-  store ptr %37, ptr %31, align 8, !tbaa !20
-  br label %58
+33:                                               ; preds = %25
+  %34 = tail call i32 @AES_set_decrypt_key(ptr noundef %1, i32 noundef %28, ptr noundef %6) #10
+  store ptr @AES_decrypt, ptr %18, align 8, !tbaa !18
+  %35 = select i1 %11, ptr @AES_cbc_encrypt, ptr null
+  store ptr %35, ptr %29, align 8, !tbaa !20
+  br label %56
 
-38:                                               ; preds = %4
-  %39 = icmp eq i32 %10, 5
-  %or.cond7 = and i1 %39, %18
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  br i1 %or.cond7, label %41, label %47
+36:                                               ; preds = %4
+  %37 = icmp eq i32 %10, 5
+  %or.cond7 = and i1 %37, %16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  br i1 %or.cond7, label %39, label %45
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load i32, ptr %42, align 8, !tbaa !17
-  %44 = shl i32 %43, 3
-  %45 = tail call i32 @AES_set_encrypt_key(ptr noundef %1, i32 noundef %44, ptr noundef %6) #10
-  store ptr @AES_encrypt, ptr %40, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  store ptr @bsaes_ctr32_encrypt_blocks, ptr %46, align 8, !tbaa !20
-  br label %58
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load i32, ptr %40, align 8, !tbaa !17
+  %42 = shl i32 %41, 3
+  %43 = tail call i32 @AES_set_encrypt_key(ptr noundef %1, i32 noundef %42, ptr noundef %6) #10
+  store ptr @AES_encrypt, ptr %38, align 8, !tbaa !18
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  store ptr @bsaes_ctr32_encrypt_blocks, ptr %44, align 8, !tbaa !20
+  br label %56
 
-47:                                               ; preds = %38
-  %.not67 = icmp eq i8 %17, 0
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !17
-  %50 = shl i32 %49, 3
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  br i1 %.not67, label %55, label %52
+45:                                               ; preds = %36
+  %.not67 = icmp eq i32 %15, 0
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !17
+  %48 = shl i32 %47, 3
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  br i1 %.not67, label %53, label %50
 
-52:                                               ; preds = %47
-  %53 = tail call i32 @vpaes_set_encrypt_key(ptr noundef %1, i32 noundef %50, ptr noundef %6) #10
-  store ptr @vpaes_encrypt, ptr %40, align 8, !tbaa !18
-  %54 = select i1 %11, ptr @vpaes_cbc_encrypt, ptr null
-  store ptr %54, ptr %51, align 8, !tbaa !20
-  br label %58
+50:                                               ; preds = %45
+  %51 = tail call i32 @vpaes_set_encrypt_key(ptr noundef %1, i32 noundef %48, ptr noundef %6) #10
+  store ptr @vpaes_encrypt, ptr %38, align 8, !tbaa !18
+  %52 = select i1 %11, ptr @vpaes_cbc_encrypt, ptr null
+  store ptr %52, ptr %49, align 8, !tbaa !20
+  br label %56
 
-55:                                               ; preds = %47
-  %56 = tail call i32 @AES_set_encrypt_key(ptr noundef %1, i32 noundef %50, ptr noundef %6) #10
-  store ptr @AES_encrypt, ptr %40, align 8, !tbaa !18
-  %57 = select i1 %11, ptr @AES_cbc_encrypt, ptr null
-  store ptr %57, ptr %51, align 8, !tbaa !20
-  br label %58
+53:                                               ; preds = %45
+  %54 = tail call i32 @AES_set_encrypt_key(ptr noundef %1, i32 noundef %48, ptr noundef %6) #10
+  store ptr @AES_encrypt, ptr %38, align 8, !tbaa !18
+  %55 = select i1 %11, ptr @AES_cbc_encrypt, ptr null
+  store ptr %55, ptr %49, align 8, !tbaa !20
+  br label %56
 
-58:                                               ; preds = %52, %55, %41, %32, %35, %21
-  %.065 = phi i32 [ %25, %21 ], [ %33, %32 ], [ %36, %35 ], [ %45, %41 ], [ %53, %52 ], [ %56, %55 ]
-  %59 = icmp slt i32 %.065, 0
-  br i1 %59, label %60, label %61
+56:                                               ; preds = %50, %53, %39, %30, %33, %19
+  %.065 = phi i32 [ %23, %19 ], [ %31, %30 ], [ %34, %33 ], [ %43, %39 ], [ %51, %50 ], [ %54, %53 ]
+  %57 = icmp slt i32 %.065, 0
+  br i1 %57, label %58, label %59
 
-60:                                               ; preds = %58
+58:                                               ; preds = %56
   tail call void @ERR_put_error(i32 noundef 30, i32 noundef 0, i32 noundef 100, ptr noundef nonnull @.str, i32 noundef 333) #10
-  br label %61
+  br label %59
 
-61:                                               ; preds = %58, %60
-  %.0 = phi i32 [ 0, %60 ], [ 1, %58 ]
+59:                                               ; preds = %56, %58
+  %.0 = phi i32 [ 0, %58 ], [ 1, %56 ]
   ret i32 %.0
 }
 

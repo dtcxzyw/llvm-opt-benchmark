@@ -952,9 +952,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713StringMatch
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i16, ptr %8, align 8, !tbaa !17
-  %10 = and i16 %9, 1
-  %.not = icmp eq i16 %10, 0
-  br i1 %.not, label %12, label %11
+  %10 = trunc i16 %9 to i1
+  br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -967,8 +966,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713StringMatch
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = select i1 %13, i32 %17, i32 %15
-  %.not31 = icmp eq i32 %18, 0
-  br i1 %.not31, label %21, label %19
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %12
   %20 = and i16 %9, 30
@@ -1413,9 +1412,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713StringMatch
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i16, ptr %5, align 8, !tbaa !17
-  %7 = and i16 %6, 1
-  %.not = icmp eq i16 %7, 0
-  br i1 %.not, label %9, label %8
+  %7 = trunc i16 %6 to i1
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -1428,8 +1426,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713StringMatch
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = select i1 %10, i32 %14, i32 %12
-  %.not5 = icmp eq i32 %15, 0
-  br i1 %.not5, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %16
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %_ZN6icu_7713UnicodeString8truncateEi.exit, label %16
 
 16:                                               ; preds = %9
   %17 = and i16 %6, 30
@@ -1454,9 +1452,8 @@ define noundef nonnull ptr @_ZThn16_NK6icu_7713StringMatcher17toReplacerPatternE
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i16, ptr %5, align 8, !tbaa !17
-  %7 = and i16 %6, 1
-  %.not.i = icmp eq i16 %7, 0
-  br i1 %.not.i, label %9, label %8
+  %7 = trunc i16 %6 to i1
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -1469,8 +1466,8 @@ define noundef nonnull ptr @_ZThn16_NK6icu_7713StringMatcher17toReplacerPatternE
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = select i1 %10, i32 %14, i32 %12
-  %.not5.i = icmp eq i32 %15, 0
-  br i1 %.not5.i, label %_ZNK6icu_7713StringMatcher17toReplacerPatternERNS_13UnicodeStringEa.exit, label %16
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %_ZNK6icu_7713StringMatcher17toReplacerPatternERNS_13UnicodeStringEa.exit, label %16
 
 16:                                               ; preds = %9
   %17 = and i16 %6, 30

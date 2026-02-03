@@ -310,9 +310,8 @@ $_ZN4llvm8DenseMapIPKN5clang9FileEntryEbNS_12DenseMapInfoIS4_vEENS_6detail12Dens
 define dso_local noundef ptr @_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
-  %5 = and i64 %4, 1
-  %.not12 = icmp eq i64 %5, 0
-  br i1 %.not12, label %14, label %6
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
   %.not11 = icmp eq ptr %1, null
@@ -336,8 +335,8 @@ define dso_local noundef ptr @_ZN5clang14HeaderFileInfo19getControllingMacroEPNS
 16:                                               ; preds = %14
   %17 = load i64, ptr %15, align 8
   %18 = and i64 %17, 68719476736
-  %.not13 = icmp eq i64 %18, 0
-  br i1 %.not13, label %23, label %19
+  %.not12 = icmp eq i64 %18, 0
+  br i1 %.not12, label %23, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %1, align 8, !tbaa !8
@@ -9638,9 +9637,8 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i33: ; preds = %.preheader
   %69 = load ptr, ptr %68, align 8, !tbaa !777
   %70 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !3
-  %72 = and i64 %71, 1
-  %.not12.i.i = icmp eq i64 %72, 0
-  br i1 %.not12.i.i, label %74, label %73
+  %72 = trunc i64 %71 to i1
+  br i1 %72, label %73, label %74
 
 73:                                               ; preds = %67
   %.not11.i.i = icmp eq ptr %69, null
@@ -9654,8 +9652,8 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i33: ; preds = %.preheader
 76:                                               ; preds = %74
   %77 = load i64, ptr %75, align 8
   %78 = and i64 %77, 68719476736
-  %.not13.i.i = icmp eq i64 %78, 0
-  br i1 %.not13.i.i, label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit, label %79
+  %.not12.i.i = icmp eq i64 %78, 0
+  br i1 %.not12.i.i, label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit, label %79
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %69, align 8, !tbaa !8
@@ -9686,10 +9684,10 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   br i1 %.not24, label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit, label %93
 
 93:                                               ; preds = %91
-  br i1 %4, label %.preheader86, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit"
+  br i1 %4, label %.preheader85, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit"
 
-.preheader86:                                     ; preds = %93, %.preheader86
-  %.05.i.i.i.i36 = phi ptr [ %97, %.preheader86 ], [ %2, %93 ]
+.preheader85:                                     ; preds = %93, %.preheader85
+  %.05.i.i.i.i36 = phi ptr [ %97, %.preheader85 ], [ %2, %93 ]
   %94 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i36, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i37 = load i64, ptr %94, align 8
   %95 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i37, 4
@@ -9698,9 +9696,9 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   %97 = inttoptr i64 %96 to ptr
   %.not7.i.i.i.i39 = icmp eq i64 %96, 0
   %.not.i.i.i.i40 = or i1 %.not.i.i.i.i.i.i.i.i38, %.not7.i.i.i.i39
-  br i1 %.not.i.i.i.i40, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41, label %.preheader86
+  br i1 %.not.i.i.i.i40, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41, label %.preheader85
 
-_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41: ; preds = %.preheader86
+_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41: ; preds = %.preheader85
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 640
   tail call void @_ZNK5clang9ModuleMap23resolveHeaderDirectivesEPKNS_9FileEntryE(ptr noundef nonnull align 8 dereferenceable(1448) %98, ptr noundef %97) #23
   %99 = load i16, ptr %16, align 8
@@ -9727,24 +9725,23 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41: ; preds = %.preheader86
   %109 = load ptr, ptr %108, align 8, !tbaa !777
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %111 = load i64, ptr %110, align 8, !tbaa !3
-  %112 = and i64 %111, 1
-  %.not12.i.i47 = icmp eq i64 %112, 0
-  br i1 %.not12.i.i47, label %114, label %113
+  %112 = trunc i64 %111 to i1
+  br i1 %112, label %113, label %114
 
 113:                                              ; preds = %107
-  %.not11.i.i48 = icmp eq ptr %109, null
-  br i1 %.not11.i.i48, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49
+  %.not11.i.i49 = icmp eq ptr %109, null
+  br i1 %.not11.i.i49, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i50
 
 114:                                              ; preds = %107
   %115 = inttoptr i64 %111 to ptr
-  %.not.i.i51 = icmp eq i64 %111, 0
-  br i1 %.not.i.i51, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %116
+  %.not.i.i47 = icmp eq i64 %111, 0
+  br i1 %.not.i.i47, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %116
 
 116:                                              ; preds = %114
   %117 = load i64, ptr %115, align 8
   %118 = and i64 %117, 68719476736
-  %.not13.i.i52 = icmp eq i64 %118, 0
-  br i1 %.not13.i.i52, label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit, label %119
+  %.not12.i.i48 = icmp eq i64 %118, 0
+  br i1 %.not12.i.i48, label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit, label %119
 
 119:                                              ; preds = %116
   %120 = load ptr, ptr %109, align 8, !tbaa !8
@@ -9753,7 +9750,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41: ; preds = %.preheader86
   tail call void %122(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(24) %115) #23
   br label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit
 
-_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49: ; preds = %113
+_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i50: ; preds = %113
   %123 = lshr i64 %111, 1
   %124 = load ptr, ptr %109, align 8, !tbaa !8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
@@ -9761,17 +9758,16 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   %127 = tail call noundef ptr %126(ptr noundef nonnull align 8 dereferenceable(8) %109, i64 noundef %123) #23
   %128 = ptrtoint ptr %127 to i64
   store i64 %128, ptr %110, align 8, !tbaa !3
-  %.not5.i50 = icmp eq ptr %127, null
-  br i1 %.not5.i50, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit
+  %.not5.i51 = icmp eq ptr %127, null
+  br i1 %.not5.i51, label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit", label %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit
 
-_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %116, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49, %119, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41, %105, %79, %76, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i33, %65, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i, %91
+_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %116, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i50, %119, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i41, %105, %79, %76, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i33, %65, %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i, %91
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 2280
   %130 = load ptr, ptr %129, align 8, !tbaa !777
   %131 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !3
-  %133 = and i64 %132, 1
-  %.not12.i = icmp eq i64 %133, 0
-  br i1 %.not12.i, label %135, label %134
+  %133 = trunc i64 %132 to i1
+  br i1 %133, label %134, label %135
 
 134:                                              ; preds = %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit
   %.not11.i = icmp eq ptr %130, null
@@ -9779,21 +9775,21 @@ _ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit: ; preds = %.l
 
 135:                                              ; preds = %_ZNK5clang12Preprocessor15alreadyIncludedENS_12FileEntryRefE.exit
   %136 = inttoptr i64 %132 to ptr
-  %.not.i55 = icmp eq i64 %132, 0
-  br i1 %.not.i55, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread, label %137
+  %.not.i53 = icmp eq i64 %132, 0
+  br i1 %.not.i53, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread, label %137
 
 137:                                              ; preds = %135
   %138 = load i64, ptr %136, align 8
   %139 = and i64 %138, 68719476736
-  %.not13.i = icmp eq i64 %139, 0
-  br i1 %.not13.i, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81, label %140
+  %.not12.i = icmp eq i64 %139, 0
+  br i1 %.not12.i, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread80, label %140
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %130, align 8, !tbaa !8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load ptr, ptr %142, align 8
   tail call void %143(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull align 8 dereferenceable(24) %136) #23
-  br label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81
+  br label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread80
 
 _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit: ; preds = %134
   %144 = lshr i64 %132, 1
@@ -9804,25 +9800,25 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   %149 = ptrtoint ptr %148 to i64
   store i64 %149, ptr %131, align 8, !tbaa !3
   %.not25 = icmp eq ptr %148, null
-  br i1 %.not25, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81
+  br i1 %.not25, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread80
 
-_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81: ; preds = %140, %137, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit
-  %.0.i5484 = phi ptr [ %148, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit ], [ %136, %137 ], [ %136, %140 ]
+_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread80: ; preds = %140, %137, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit
+  %.0.i5483 = phi ptr [ %148, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit ], [ %136, %137 ], [ %136, %140 ]
   %.not26 = icmp eq ptr %5, null
   br i1 %.not26, label %152, label %150
 
-150:                                              ; preds = %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81
-  %151 = tail call noundef zeroext i1 @_ZN5clang12Preprocessor27isMacroDefinedInLocalModuleEPKNS_14IdentifierInfoEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.0.i5484, ptr noundef nonnull %5)
+150:                                              ; preds = %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread80
+  %151 = tail call noundef zeroext i1 @_ZN5clang12Preprocessor27isMacroDefinedInLocalModuleEPKNS_14IdentifierInfoEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.0.i5483, ptr noundef nonnull %5)
   br i1 %151, label %.critedge, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread
 
-152:                                              ; preds = %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread81
-  %153 = load i64, ptr %.0.i5484, align 8
+152:                                              ; preds = %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread80
+  %153 = load i64, ptr %.0.i5483, align 8
   %154 = and i64 %153, 33554432
-  %.not3.i56 = icmp eq i64 %154, 0
+  %.not3.i55 = icmp eq i64 %154, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  br i1 %.not3.i56, label %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread85, label %155
+  br i1 %.not3.i55, label %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread84, label %155
 
-_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread85: ; preds = %152
+_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread84: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread
 
@@ -9832,21 +9828,21 @@ _ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread85: ; 
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load i64, ptr %158, align 8
   %160 = and i64 %159, 4194304
-  %.not.i57 = icmp eq i64 %160, 0
-  br i1 %.not.i57, label %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread, label %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit
+  %.not.i56 = icmp eq i64 %160, 0
+  br i1 %.not.i56, label %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread, label %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit
 
 _ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread: ; preds = %155
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge
 
 _ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit: ; preds = %155
-  call void @_ZN5clang12Preprocessor18getMacroDefinitionEPKNS_14IdentifierInfoE(ptr dead_on_unwind nonnull writable sret(%"class.clang::MacroDefinition") align 8 %11, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.0.i5484)
+  call void @_ZN5clang12Preprocessor18getMacroDefinitionEPKNS_14IdentifierInfoE(ptr dead_on_unwind nonnull writable sret(%"class.clang::MacroDefinition") align 8 %11, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.0.i5483)
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %11, align 8
-  %.not.i.i58 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
+  %.not.i.i57 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i, 7
   %161 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %162 = load i64, ptr %161, align 8
   %163 = icmp ne i64 %162, 0
-  %164 = select i1 %.not.i.i58, i1 true, i1 %163
+  %164 = select i1 %.not.i.i57, i1 true, i1 %163
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %164, label %.critedge, label %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread
 
@@ -9860,7 +9856,7 @@ _ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit: ; preds = %
   call void @_ZN4llvm17TrackingStatistic17RegisterStatisticEv(ptr noundef nonnull align 8 dereferenceable(33) @_ZL24NumMultiIncludeFileOptzn) #23
   br label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit"
 
-_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread: ; preds = %135, %134, %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread85, %150, %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit
+_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread: ; preds = %135, %134, %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit.thread84, %150, %_ZN5clang12Preprocessor14isMacroDefinedEPKNS_14IdentifierInfoE.exit, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %170 = load ptr, ptr %169, align 8, !tbaa !586
   %171 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang12HeaderSearch11getFileInfoENS_12FileEntryRefE(ptr noundef nonnull align 8 dereferenceable(2296) %170, ptr %2)
@@ -9871,16 +9867,16 @@ _ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE
   br label %174
 
 174:                                              ; preds = %174, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread
-  %.05.i.i.i.i60 = phi ptr [ %2, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread ], [ %178, %174 ]
-  %175 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i60, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i61 = load i64, ptr %175, align 8
-  %176 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i61, 4
-  %.not.i.i.i.i.i.i.i.i62 = icmp eq i64 %176, 0
-  %177 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i61, -8
+  %.05.i.i.i.i59 = phi ptr [ %2, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.thread ], [ %178, %174 ]
+  %175 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i59, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i60 = load i64, ptr %175, align 8
+  %176 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i60, 4
+  %.not.i.i.i.i.i.i.i.i61 = icmp eq i64 %176, 0
+  %177 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i60, -8
   %178 = inttoptr i64 %177 to ptr
-  %.not7.i.i.i.i63 = icmp eq i64 %177, 0
-  %.not.i.i.i.i64 = or i1 %.not.i.i.i.i.i.i.i.i62, %.not7.i.i.i.i63
-  br i1 %.not.i.i.i.i64, label %_ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit, label %174
+  %.not7.i.i.i.i62 = icmp eq i64 %177, 0
+  %.not.i.i.i.i63 = or i1 %.not.i.i.i.i.i.i.i.i61, %.not7.i.i.i.i62
+  br i1 %.not.i.i.i.i63, label %_ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit, label %174
 
 _ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit: ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 1696
@@ -9896,8 +9892,8 @@ _ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit: ; preds = %174
   store i8 %181, ptr %6, align 1, !tbaa !469
   br label %"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit"
 
-"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit": ; preds = %101, %105, %113, %114, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49, %61, %65, %73, %74, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i, %168, %.critedge, %93, %51, %.loopexit, %89, %_ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit
-  %.0 = phi i1 [ true, %_ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit ], [ false, %61 ], [ false, %89 ], [ false, %168 ], [ false, %.loopexit ], [ false, %51 ], [ false, %93 ], [ false, %.critedge ], [ false, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i ], [ false, %74 ], [ false, %73 ], [ false, %65 ], [ false, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i49 ], [ false, %114 ], [ false, %113 ], [ false, %105 ], [ false, %101 ]
+"_ZZN5clang12HeaderSearch22ShouldEnterIncludeFileERNS_12PreprocessorENS_12FileEntryRefEbbPNS_6ModuleERbENK3$_0clEv.exit": ; preds = %101, %105, %113, %114, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i50, %61, %65, %73, %74, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i, %168, %.critedge, %93, %51, %.loopexit, %89, %_ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit
+  %.0 = phi i1 [ true, %_ZN5clang12Preprocessor12markIncludedENS_12FileEntryRefE.exit ], [ false, %61 ], [ false, %89 ], [ false, %168 ], [ false, %.loopexit ], [ false, %51 ], [ false, %93 ], [ false, %.critedge ], [ false, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i ], [ false, %74 ], [ false, %73 ], [ false, %65 ], [ false, %_ZN5clang14HeaderFileInfo19getControllingMacroEPNS_26ExternalPreprocessorSourceE.exit.i50 ], [ false, %114 ], [ false, %113 ], [ false, %105 ], [ false, %101 ]
   ret i1 %.0
 }
 

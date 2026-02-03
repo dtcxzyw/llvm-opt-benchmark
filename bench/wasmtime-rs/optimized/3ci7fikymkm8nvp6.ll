@@ -1303,14 +1303,14 @@ define void @"_ZN13wasmtime_wasi8preview0156_$LT$impl$u20$core..convert..From$LT
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8, !noundef !5
-  %11 = and i16 %10, 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %4, ptr %12, align 2
+  %spec.select.i = and i16 %10, 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i8 %4, ptr %11, align 2
   store i64 %6, ptr %0, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %8, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %11, ptr %14, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %8, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %spec.select.i, ptr %13, align 8
   ret void
 }
 
@@ -1327,8 +1327,8 @@ define noundef range(i16 0, 32) i16 @"_ZN13wasmtime_wasi8preview0136_$LT$impl$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i32 0, 2) i32 @"_ZN13wasmtime_wasi8preview0144_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Lookupflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Lookupflags$GT$4from17h4ee7b151d93522e5E"(i32 noundef %0) unnamed_addr #5 {
-  %2 = and i32 %0, 1
-  ret i32 %2
+  %spec.select = and i32 %0, 1
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1351,8 +1351,8 @@ define noundef range(i64 0, 536870912) i64 @"_ZN13wasmtime_wasi8preview0134_$LT$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i16 0, 2) i16 @"_ZN13wasmtime_wasi8preview0148_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Subclockflags$GT$$u20$for$u20$wasmtime_wasi..preview1..types..Subclockflags$GT$4from17hf13f92735cb0173fE"(i16 noundef %0) unnamed_addr #5 {
-  %2 = and i16 %0, 1
-  ret i16 %2
+  %spec.select = and i16 %0, 1
+  ret i16 %spec.select
 }
 
 ; Function Attrs: nonlazybind uwtable

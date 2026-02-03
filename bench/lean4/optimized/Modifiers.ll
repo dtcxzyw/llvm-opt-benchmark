@@ -79,9 +79,8 @@ define ptr @l_Lean_mkPrivateName___boxed(ptr noundef %0, ptr noundef %1) local_u
   %7 = tail call ptr @l_Lean_privateToUserName(ptr noundef %1) #3
   %8 = tail call ptr @l_Lean_Name_append(ptr noundef %6, ptr noundef %7) #3
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %2
   %12 = load i32, ptr %0, align 4, !tbaa !8
@@ -108,9 +107,8 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %2
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Lean_isPrivateNameFromImportedModule(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_inc.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_inc.exit, label %5
 
 5:                                                ; preds = %2
   %.val.i = load i32, ptr %1, align 4, !tbaa !8
@@ -133,9 +131,8 @@ define zeroext range(i8 0, 2) i8 @l_Lean_isPrivateNameFromImportedModule(ptr nou
 lean_inc.exit:                                    ; preds = %10, %9, %7, %2
   %11 = tail call ptr @lean_private_to_user_name(ptr noundef %1) #3
   %12 = ptrtoint ptr %11 to i64
-  %13 = and i64 %12, 1
-  %.not.i28 = icmp eq i64 %13, 0
-  br i1 %.not.i28, label %17, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %17
 
 14:                                               ; preds = %lean_inc.exit
   %15 = lshr i64 %12, 1
@@ -144,8 +141,8 @@ lean_inc.exit:                                    ; preds = %10, %9, %7, %2
 
 17:                                               ; preds = %lean_inc.exit
   %18 = getelementptr i8, ptr %11, i64 4
-  %.val.i29 = load i32, ptr %18, align 4
-  %19 = lshr i32 %.val.i29, 24
+  %.val.i28 = load i32, ptr %18, align 4
+  %19 = lshr i32 %.val.i28, 24
   br label %lean_obj_tag.exit
 
 lean_obj_tag.exit:                                ; preds = %14, %17
@@ -154,7 +151,7 @@ lean_obj_tag.exit:                                ; preds = %14, %17
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not, label %22, label %lean_dec.exit19
+  br i1 %4, label %lean_dec.exit19, label %22
 
 22:                                               ; preds = %21
   %23 = load i32, ptr %1, align 4, !tbaa !8
@@ -178,30 +175,29 @@ lean_obj_tag.exit:                                ; preds = %14, %17
   %30 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %30, align 8, !tbaa !4
   %31 = ptrtoint ptr %.val to i64
-  %32 = and i64 %31, 1
-  %.not33 = icmp eq i64 %32, 0
-  br i1 %.not33, label %33, label %lean_inc.exit20
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %lean_inc.exit20, label %33
 
 33:                                               ; preds = %29
-  %.val.i30 = load i32, ptr %.val, align 4, !tbaa !8
-  %34 = icmp sgt i32 %.val.i30, 0
+  %.val.i29 = load i32, ptr %.val, align 4, !tbaa !8
+  %34 = icmp sgt i32 %.val.i29, 0
   br i1 %34, label %35, label %37, !prof !11
 
 35:                                               ; preds = %33
-  %36 = add nuw i32 %.val.i30, 1
+  %36 = add nuw i32 %.val.i29, 1
   store i32 %36, ptr %.val, align 4, !tbaa !8
   br label %lean_inc.exit20
 
 37:                                               ; preds = %33
-  %.not.i31 = icmp eq i32 %.val.i30, 0
-  br i1 %.not.i31, label %lean_inc.exit20, label %38
+  %.not.i30 = icmp eq i32 %.val.i29, 0
+  br i1 %.not.i30, label %lean_inc.exit20, label %38
 
 38:                                               ; preds = %37
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.val) #3
   br label %lean_inc.exit20
 
 lean_inc.exit20:                                  ; preds = %38, %37, %35, %29
-  br i1 %.not.i28, label %39, label %lean_dec.exit18
+  br i1 %13, label %lean_dec.exit18, label %39
 
 39:                                               ; preds = %lean_inc.exit20
   %40 = load i32, ptr %11, align 4, !tbaa !8
@@ -229,7 +225,7 @@ lean_dec.exit18:                                  ; preds = %45, %44, %42, %lean
   %50 = tail call ptr @l_Lean_privateToUserName(ptr noundef %.val) #3
   %51 = tail call ptr @l_Lean_Name_append(ptr noundef %49, ptr noundef %50) #3
   %52 = tail call zeroext i8 @lean_name_eq(ptr noundef %51, ptr noundef %1) #3
-  br i1 %.not, label %53, label %lean_dec.exit17
+  br i1 %4, label %lean_dec.exit17, label %53
 
 53:                                               ; preds = %lean_dec.exit18
   %54 = load i32, ptr %1, align 4, !tbaa !8
@@ -251,9 +247,8 @@ lean_dec.exit18:                                  ; preds = %45, %44, %42, %lean
 
 lean_dec.exit17:                                  ; preds = %59, %58, %56, %lean_dec.exit18
   %60 = ptrtoint ptr %51 to i64
-  %61 = and i64 %60, 1
-  %.not35 = icmp eq i64 %61, 0
-  br i1 %.not35, label %62, label %lean_dec.exit
+  %61 = trunc i64 %60 to i1
+  br i1 %61, label %lean_dec.exit, label %62
 
 62:                                               ; preds = %lean_dec.exit17
   %63 = load i32, ptr %51, align 4, !tbaa !8
@@ -291,9 +286,8 @@ declare zeroext i8 @lean_name_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 define nonnull ptr @l_Lean_isPrivateNameFromImportedModule___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @l_Lean_isPrivateNameFromImportedModule(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %0, align 4, !tbaa !8

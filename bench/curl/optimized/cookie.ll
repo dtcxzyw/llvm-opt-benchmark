@@ -306,13 +306,13 @@ define hidden ptr @Curl_cookie_add(ptr noundef %0, ptr noundef %1, i1 noundef ze
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %15 = load i8, ptr %14, align 8, !tbaa !94
   %16 = icmp ugt i8 %15, 49
-  br i1 %16, label %601, label %17
+  br i1 %16, label %600, label %17
 
 17:                                               ; preds = %8
   %18 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !84
   %19 = tail call ptr %18(i64 noundef 1, i64 noundef 120) #12
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %601, label %20
+  br i1 %.not, label %600, label %20
 
 20:                                               ; preds = %17
   br i1 %2, label %21, label %337
@@ -1570,101 +1570,100 @@ is_public_suffix.exit.thread:                     ; preds = %496, %490, %493, %i
   %542 = getelementptr inbounds nuw %struct.Curl_llist, ptr %1, i64 %541
   call void @Curl_llist_append(ptr noundef nonnull %542, ptr noundef nonnull %19, ptr noundef nonnull %19) #12
   %543 = load i8, ptr %474, align 8
-  %544 = and i8 %543, 1
-  %545 = icmp ne i8 %544, 0
-  %or.cond = and i1 %491, %545
-  br i1 %or.cond, label %546, label %570
+  %544 = trunc i8 %543 to i1
+  %or.cond = and i1 %491, %544
+  br i1 %or.cond, label %545, label %569
 
-546:                                              ; preds = %538
-  %547 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %548 = load i64, ptr %547, align 2
-  %549 = and i64 %548, 2147483648
-  %.not81 = icmp eq i64 %549, 0
-  br i1 %.not81, label %570, label %550
+545:                                              ; preds = %538
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %547 = load i64, ptr %546, align 2
+  %548 = and i64 %547, 2147483648
+  %.not81 = icmp eq i64 %548, 0
+  br i1 %.not81, label %569, label %549
 
-550:                                              ; preds = %546
-  %551 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %552 = load ptr, ptr %551, align 8, !tbaa !78
-  %.not82 = icmp eq ptr %552, null
-  br i1 %.not82, label %557, label %553
+549:                                              ; preds = %545
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %551 = load ptr, ptr %550, align 8, !tbaa !78
+  %.not82 = icmp eq ptr %551, null
+  br i1 %.not82, label %556, label %552
 
-553:                                              ; preds = %550
-  %554 = getelementptr inbounds nuw i8, ptr %552, i64 8
-  %555 = load i32, ptr %554, align 8, !tbaa !79
-  %556 = icmp sgt i32 %555, 0
-  br i1 %556, label %557, label %570
+552:                                              ; preds = %549
+  %553 = getelementptr inbounds nuw i8, ptr %551, i64 8
+  %554 = load i32, ptr %553, align 8, !tbaa !79
+  %555 = icmp sgt i32 %554, 0
+  br i1 %555, label %556, label %569
 
-557:                                              ; preds = %553, %550
-  %558 = load i8, ptr %13, align 1, !tbaa !92, !range !112, !noundef !113
-  %559 = trunc nuw i8 %558 to i1
-  %560 = select i1 %559, ptr @.str.3, ptr @.str.4
-  %561 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %562 = load ptr, ptr %561, align 8, !tbaa !98
-  %563 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %564 = load ptr, ptr %563, align 8, !tbaa !108
-  %565 = load ptr, ptr %539, align 8, !tbaa !106
-  %566 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  %567 = load ptr, ptr %566, align 8, !tbaa !102
-  %568 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %569 = load i64, ptr %568, align 8, !tbaa !103
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %560, ptr noundef %562, ptr noundef %564, ptr noundef %565, ptr noundef %567, i64 noundef %569) #12
-  br label %570
+556:                                              ; preds = %552, %549
+  %557 = load i8, ptr %13, align 1, !tbaa !92, !range !112, !noundef !113
+  %558 = trunc nuw i8 %557 to i1
+  %559 = select i1 %558, ptr @.str.3, ptr @.str.4
+  %560 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %561 = load ptr, ptr %560, align 8, !tbaa !98
+  %562 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %563 = load ptr, ptr %562, align 8, !tbaa !108
+  %564 = load ptr, ptr %539, align 8, !tbaa !106
+  %565 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %566 = load ptr, ptr %565, align 8, !tbaa !102
+  %567 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  %568 = load i64, ptr %567, align 8, !tbaa !103
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %559, ptr noundef %561, ptr noundef %563, ptr noundef %564, ptr noundef %566, i64 noundef %568) #12
+  br label %569
 
-570:                                              ; preds = %546, %553, %557, %538
-  %571 = load i8, ptr %13, align 1, !tbaa !92, !range !112, !noundef !113
-  %572 = trunc nuw i8 %571 to i1
-  br i1 %572, label %577, label %573
+569:                                              ; preds = %545, %552, %556, %538
+  %570 = load i8, ptr %13, align 1, !tbaa !92, !range !112, !noundef !113
+  %571 = trunc nuw i8 %570 to i1
+  br i1 %571, label %576, label %572
 
-573:                                              ; preds = %570
-  %574 = getelementptr inbounds nuw i8, ptr %1, i64 2024
-  %575 = load i32, ptr %574, align 8, !tbaa !114
-  %576 = add i32 %575, 1
-  store i32 %576, ptr %574, align 8, !tbaa !114
-  br label %577
+572:                                              ; preds = %569
+  %573 = getelementptr inbounds nuw i8, ptr %1, i64 2024
+  %574 = load i32, ptr %573, align 8, !tbaa !114
+  %575 = add i32 %574, 1
+  store i32 %575, ptr %573, align 8, !tbaa !114
+  br label %576
 
-577:                                              ; preds = %573, %570
-  %578 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %579 = load i64, ptr %578, align 8, !tbaa !103
-  %.not83 = icmp eq i64 %579, 0
-  br i1 %.not83, label %601, label %580
+576:                                              ; preds = %572, %569
+  %577 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  %578 = load i64, ptr %577, align 8, !tbaa !103
+  %.not83 = icmp eq i64 %578, 0
+  br i1 %.not83, label %600, label %579
 
-580:                                              ; preds = %577
-  %581 = getelementptr inbounds nuw i8, ptr %1, i64 2016
-  %582 = load i64, ptr %581, align 8, !tbaa !86
-  %583 = icmp slt i64 %579, %582
-  br i1 %583, label %584, label %601
+579:                                              ; preds = %576
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 2016
+  %581 = load i64, ptr %580, align 8, !tbaa !86
+  %582 = icmp slt i64 %578, %581
+  br i1 %582, label %583, label %600
 
-584:                                              ; preds = %580
-  store i64 %579, ptr %581, align 8, !tbaa !86
-  br label %601
+583:                                              ; preds = %579
+  store i64 %578, ptr %580, align 8, !tbaa !86
+  br label %600
 
 parse_cookie_header.exit.thread:                  ; preds = %450, %378, %362, %414, %411, %sanitize_cookie_path.exit.i96, %422, %437, %106, %107, %237, %140, %154, %sanitize_cookie_path.exit.i, %sub_0, %sanitize_cookie_path.exit.thread118.i, %454, %.critedge.thread.i, %345, %455, %cookie_tailmatch.exit.thread.i, %122, %61, %232, %73, %69, %62, %91, %87, %80, %296, %134, %130, %123, %236, %sanitize_cookie_path.exit.thread348.i, %79, %225, %.thread375.i, %330, %279, %.thread387.i, %21, %is_public_suffix.exit.thread110, %parse_cookie_header.exit, %is_public_suffix.exit.thread, %477, %464, %465, %.tail
-  %585 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
-  %586 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %587 = load ptr, ptr %586, align 8, !tbaa !106
-  call void %585(ptr noundef %587) #12
-  %588 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
-  %589 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  %590 = load ptr, ptr %589, align 8, !tbaa !102
-  call void %588(ptr noundef %590) #12
-  %591 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
-  %592 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  %593 = load ptr, ptr %592, align 8, !tbaa !101
-  call void %591(ptr noundef %593) #12
-  %594 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
-  %595 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %596 = load ptr, ptr %595, align 8, !tbaa !98
-  call void %594(ptr noundef %596) #12
-  %597 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
-  %598 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %599 = load ptr, ptr %598, align 8, !tbaa !108
-  call void %597(ptr noundef %599) #12
-  %600 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
-  call void %600(ptr noundef nonnull %19) #12
-  br label %601
+  %584 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %585 = getelementptr inbounds nuw i8, ptr %19, i64 96
+  %586 = load ptr, ptr %585, align 8, !tbaa !106
+  call void %584(ptr noundef %586) #12
+  %587 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %588 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  %589 = load ptr, ptr %588, align 8, !tbaa !102
+  call void %587(ptr noundef %589) #12
+  %590 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %591 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  %592 = load ptr, ptr %591, align 8, !tbaa !101
+  call void %590(ptr noundef %592) #12
+  %593 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %594 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %595 = load ptr, ptr %594, align 8, !tbaa !98
+  call void %593(ptr noundef %595) #12
+  %596 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %597 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %598 = load ptr, ptr %597, align 8, !tbaa !108
+  call void %596(ptr noundef %598) #12
+  %599 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  call void %599(ptr noundef nonnull %19) #12
+  br label %600
 
-601:                                              ; preds = %577, %580, %584, %17, %8, %parse_cookie_header.exit.thread
-  %.063 = phi ptr [ null, %8 ], [ null, %parse_cookie_header.exit.thread ], [ null, %17 ], [ %19, %584 ], [ %19, %580 ], [ %19, %577 ]
+600:                                              ; preds = %576, %579, %583, %17, %8, %parse_cookie_header.exit.thread
+  %.063 = phi ptr [ null, %8 ], [ null, %parse_cookie_header.exit.thread ], [ null, %17 ], [ %19, %583 ], [ %19, %579 ], [ %19, %576 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret ptr %.063
 }

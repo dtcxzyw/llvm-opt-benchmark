@@ -6525,9 +6525,8 @@ define dso_local noundef zeroext i1 @php_date_initialize(ptr noundef captures(no
 
 update_errors_warnings.exit:                      ; preds = %33, %36
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @date_globals, i64 24), align 8, !tbaa !82
-  %40 = and i32 %5, 1
-  %.not147 = icmp eq i32 %40, 0
-  br i1 %.not147, label %thread-pre-split.thread, label %41
+  %40 = trunc i32 %5 to i1
+  br i1 %40, label %41, label %thread-pre-split.thread
 
 41:                                               ; preds = %update_errors_warnings.exit
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 16

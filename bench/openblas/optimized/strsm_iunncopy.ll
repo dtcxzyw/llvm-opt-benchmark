@@ -472,49 +472,48 @@ define noundef i32 @strsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.3363 = phi ptr [ %195, %._crit_edge481 ], [ %.2362, %192 ]
   %.6 = phi ptr [ %.7.lcssa, %._crit_edge481 ], [ %.4359, %192 ]
   %.3343 = phi i64 [ %222, %._crit_edge481 ], [ %.2342, %192 ]
-  %224 = and i64 %1, 1
-  %.not381 = icmp ne i64 %224, 0
-  %225 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not381, %225
+  %.not381 = trunc i64 %1 to i1
+  %224 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %224, %.not381
   br i1 %or.cond, label %.lr.ph490, label %.loopexit
 
 .lr.ph490:                                        ; preds = %223
-  %226 = sub i64 0, %.3343
-  br label %227
+  %225 = sub i64 0, %.3343
+  br label %226
 
-227:                                              ; preds = %.lr.ph490, %.thread410
-  %.4489 = phi ptr [ %.3363, %.lr.ph490 ], [ %239, %.thread410 ]
-  %.4349488 = phi i64 [ 0, %.lr.ph490 ], [ %241, %.thread410 ]
-  %.8486 = phi ptr [ %.6, %.lr.ph490 ], [ %240, %.thread410 ]
+226:                                              ; preds = %.lr.ph490, %.thread410
+  %.4489 = phi ptr [ %.3363, %.lr.ph490 ], [ %238, %.thread410 ]
+  %.4349488 = phi i64 [ 0, %.lr.ph490 ], [ %240, %.thread410 ]
+  %.8486 = phi ptr [ %.6, %.lr.ph490 ], [ %239, %.thread410 ]
   %.not382 = icmp slt i64 %.4349488, %.3343
-  br i1 %.not382, label %.thread409, label %228
+  br i1 %.not382, label %.thread409, label %227
 
-228:                                              ; preds = %227
-  %229 = sub nsw i64 %.4349488, %.3343
-  %230 = icmp slt i64 %229, 1
-  br i1 %230, label %231, label %.thread410
+227:                                              ; preds = %226
+  %228 = sub nsw i64 %.4349488, %.3343
+  %229 = icmp slt i64 %228, 1
+  br i1 %229, label %230, label %.thread410
 
-231:                                              ; preds = %228
-  %232 = mul nsw i64 %229, %3
-  %233 = getelementptr inbounds float, ptr %.4489, i64 %232
-  %234 = load float, ptr %233, align 4, !tbaa !3
-  %235 = fdiv float 1.000000e+00, %234
-  %236 = getelementptr inbounds nuw float, ptr %.8486, i64 %.4349488
-  %237 = getelementptr inbounds float, ptr %236, i64 %226
-  store float %235, ptr %237, align 4, !tbaa !3
+230:                                              ; preds = %227
+  %231 = mul nsw i64 %228, %3
+  %232 = getelementptr inbounds float, ptr %.4489, i64 %231
+  %233 = load float, ptr %232, align 4, !tbaa !3
+  %234 = fdiv float 1.000000e+00, %233
+  %235 = getelementptr inbounds nuw float, ptr %.8486, i64 %.4349488
+  %236 = getelementptr inbounds float, ptr %235, i64 %225
+  store float %234, ptr %236, align 4, !tbaa !3
   br label %.thread410
 
-.thread409:                                       ; preds = %227
-  %238 = load float, ptr %.4489, align 4, !tbaa !3
-  store float %238, ptr %.8486, align 4, !tbaa !3
+.thread409:                                       ; preds = %226
+  %237 = load float, ptr %.4489, align 4, !tbaa !3
+  store float %237, ptr %.8486, align 4, !tbaa !3
   br label %.thread410
 
-.thread410:                                       ; preds = %231, %228, %.thread409
-  %239 = getelementptr inbounds nuw i8, ptr %.4489, i64 4
-  %240 = getelementptr inbounds nuw i8, ptr %.8486, i64 4
-  %241 = add nuw nsw i64 %.4349488, 1
-  %exitcond507.not = icmp eq i64 %241, %0
-  br i1 %exitcond507.not, label %.loopexit, label %227, !llvm.loop !17
+.thread410:                                       ; preds = %230, %227, %.thread409
+  %238 = getelementptr inbounds nuw i8, ptr %.4489, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %.8486, i64 4
+  %240 = add nuw nsw i64 %.4349488, 1
+  %exitcond507.not = icmp eq i64 %240, %0
+  br i1 %exitcond507.not, label %.loopexit, label %226, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread410, %223
   ret i32 0

@@ -299,13 +299,13 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %8 = load i8, ptr %7, align 4
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %210, label %10
+  br i1 %9, label %209, label %10
 
 10:                                               ; preds = %2
   %11 = load i16, ptr %6, align 2
   %12 = lshr i16 %11, 4
   %13 = and i16 %12, 15
-  switch i16 %13, label %210 [
+  switch i16 %13, label %209 [
     i16 10, label %14
     i16 4, label %15
     i16 5, label %15
@@ -320,7 +320,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = tail call i32 @pci_enable_device(ptr noundef %0) #13
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %199
+  br i1 %17, label %18, label %198
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -410,261 +410,260 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(no
 66:                                               ; preds = %60, %54
   %67 = phi i32 [ %65, %60 ], [ %55, %54 ]
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %201, label %69
+  br i1 %68, label %200, label %69
 
 69:                                               ; preds = %66
   call void @pci_set_master(ptr noundef %0) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 -1, i64 20, i1 false)
-  %70 = and i32 %67, 1
-  %71 = icmp ne i32 %70, 0
-  %72 = load i8, ptr @pcie_pme_msi_disabled, align 1, !range !5
-  %73 = icmp ne i8 %72, 0
-  %74 = select i1 %71, i1 %73, i1 false
-  br i1 %74, label %130, label %75
+  %70 = trunc i32 %67 to i1
+  %71 = load i8, ptr @pcie_pme_msi_disabled, align 1, !range !5
+  %72 = icmp ne i8 %71, 0
+  %73 = select i1 %70, i1 %72, i1 false
+  br i1 %73, label %129, label %74
 
-75:                                               ; preds = %69
-  %76 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 32, i32 noundef 6) #13
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %130, label %78
+74:                                               ; preds = %69
+  %75 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 32, i32 noundef 6) #13
+  %76 = icmp slt i32 %75, 0
+  br i1 %76, label %129, label %77
 
-78:                                               ; preds = %75
+77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2, !annotation !7
-  %79 = and i32 %67, 21
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %88, label %81
+  %78 = and i32 %67, 21
+  %79 = icmp eq i32 %78, 0
+  br i1 %79, label %87, label %80
 
-81:                                               ; preds = %78
-  %82 = call i32 @pcie_capability_read_word(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %3) #13
-  %83 = load i16, ptr %3, align 2
-  %84 = lshr i16 %83, 9
-  %85 = and i16 %84, 31
-  %86 = zext nneg i16 %85 to i32
-  %87 = add nuw nsw i32 %86, 1
-  br label %88
+80:                                               ; preds = %77
+  %81 = call i32 @pcie_capability_read_word(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %3) #13
+  %82 = load i16, ptr %3, align 2
+  %83 = lshr i16 %82, 9
+  %84 = and i16 %83, 31
+  %85 = zext nneg i16 %84 to i32
+  %86 = add nuw nsw i32 %85, 1
+  br label %87
 
-88:                                               ; preds = %81, %78
-  %89 = phi i32 [ 0, %78 ], [ %86, %81 ]
-  %90 = phi i32 [ 0, %78 ], [ %87, %81 ]
-  %91 = and i32 %67, 8
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %105, label %93
+87:                                               ; preds = %80, %77
+  %88 = phi i32 [ 0, %77 ], [ %85, %80 ]
+  %89 = phi i32 [ 0, %77 ], [ %86, %80 ]
+  %90 = and i32 %67, 8
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %104, label %92
 
-93:                                               ; preds = %88
-  %94 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef 29) #13
-  %95 = icmp eq i16 %94, 0
-  br i1 %95, label %105, label %96
+92:                                               ; preds = %87
+  %93 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef 29) #13
+  %94 = icmp eq i16 %93, 0
+  br i1 %94, label %104, label %95
 
-96:                                               ; preds = %93
-  %97 = zext i16 %94 to i32
-  %98 = add nuw nsw i32 %97, 4
-  %99 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %98, ptr noundef nonnull %3) #13
-  %100 = load i16, ptr %3, align 2
-  %101 = and i16 %100, 31
-  %102 = zext nneg i16 %101 to i32
-  %103 = add nuw nsw i32 %102, 1
-  %104 = call i32 @llvm.umax.i32(i32 %90, i32 %103)
-  br label %105
+95:                                               ; preds = %92
+  %96 = zext i16 %93 to i32
+  %97 = add nuw nsw i32 %96, 4
+  %98 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %97, ptr noundef nonnull %3) #13
+  %99 = load i16, ptr %3, align 2
+  %100 = and i16 %99, 31
+  %101 = zext nneg i16 %100 to i32
+  %102 = add nuw nsw i32 %101, 1
+  %103 = call i32 @llvm.umax.i32(i32 %89, i32 %102)
+  br label %104
 
-105:                                              ; preds = %96, %93, %88
-  %106 = phi i32 [ 0, %88 ], [ 0, %93 ], [ %102, %96 ]
-  %107 = phi i32 [ %90, %88 ], [ %90, %93 ], [ %104, %96 ]
+104:                                              ; preds = %95, %92, %87
+  %105 = phi i32 [ 0, %87 ], [ 0, %92 ], [ %101, %95 ]
+  %106 = phi i32 [ %89, %87 ], [ %89, %92 ], [ %103, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %108 = icmp samesign ugt i32 %107, %76
-  br i1 %108, label %109, label %110
+  %107 = icmp samesign ugt i32 %106, %75
+  br i1 %107, label %108, label %109
 
-109:                                              ; preds = %105
+108:                                              ; preds = %104
   call void @pci_free_irq_vectors(ptr noundef %0) #13
-  br label %130
+  br label %129
 
-110:                                              ; preds = %105
-  %111 = icmp eq i32 %107, %76
-  br i1 %111, label %115, label %112
+109:                                              ; preds = %104
+  %110 = icmp eq i32 %106, %75
+  br i1 %110, label %114, label %111
 
-112:                                              ; preds = %110
+111:                                              ; preds = %109
   call void @pci_free_irq_vectors(ptr noundef %0) #13
-  %113 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef %107, i32 noundef %107, i32 noundef 6) #13
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %130, label %115
+  %112 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef %106, i32 noundef %106, i32 noundef 6) #13
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %129, label %114
 
-115:                                              ; preds = %112, %110
-  br i1 %80, label %120, label %116
+114:                                              ; preds = %111, %109
+  br i1 %79, label %119, label %115
 
-116:                                              ; preds = %115
-  %117 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef %89) #13
-  store i32 %117, ptr %5, align 16
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %117, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %117, ptr %119, align 16
-  br label %120
+115:                                              ; preds = %114
+  %116 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef %88) #13
+  store i32 %116, ptr %5, align 16
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %116, ptr %117, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %116, ptr %118, align 16
+  br label %119
 
-120:                                              ; preds = %116, %115
-  %121 = and i32 %67, 2
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %126, label %123
+119:                                              ; preds = %115, %114
+  %120 = and i32 %67, 2
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %125, label %122
 
-123:                                              ; preds = %120
-  %124 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %124, ptr %125, align 4
-  br label %126
+122:                                              ; preds = %119
+  %123 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %123, ptr %124, align 4
+  br label %125
 
-126:                                              ; preds = %123, %120
-  br i1 %92, label %.thread, label %127
+125:                                              ; preds = %122, %119
+  br i1 %91, label %.thread, label %126
 
-127:                                              ; preds = %126
-  %128 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef %106) #13
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %128, ptr %129, align 4
+126:                                              ; preds = %125
+  %127 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef %105) #13
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %127, ptr %128, align 4
   br label %.thread
 
-130:                                              ; preds = %112, %109, %75, %69
-  %131 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #13
-  %132 = icmp slt i32 %131, 0
-  br i1 %132, label %138, label %.preheader
+129:                                              ; preds = %111, %108, %74, %69
+  %130 = call i32 @pci_alloc_irq_vectors(ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #13
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %137, label %.preheader
 
-.preheader:                                       ; preds = %130, %.preheader
-  %133 = phi i64 [ %136, %.preheader ], [ 0, %130 ]
-  %134 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
-  %135 = getelementptr i32, ptr %5, i64 %133
-  store i32 %134, ptr %135, align 4
-  %136 = add nuw nsw i64 %133, 1
-  %137 = icmp eq i64 %136, 5
-  br i1 %137, label %.thread, label %.preheader, !llvm.loop !8
+.preheader:                                       ; preds = %129, %.preheader
+  %132 = phi i64 [ %135, %.preheader ], [ 0, %129 ]
+  %133 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
+  %134 = getelementptr i32, ptr %5, i64 %132
+  store i32 %133, ptr %134, align 4
+  %135 = add nuw nsw i64 %132, 1
+  %136 = icmp eq i64 %135, 5
+  br i1 %136, label %.thread, label %.preheader, !llvm.loop !8
 
-138:                                              ; preds = %130
-  %139 = and i32 %67, 4
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %198, label %.thread
+137:                                              ; preds = %129
+  %138 = and i32 %67, 4
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %197, label %.thread
 
-.thread:                                          ; preds = %.preheader, %127, %126, %138
-  %141 = phi i32 [ %139, %138 ], [ %67, %126 ], [ %67, %127 ], [ %67, %.preheader ]
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  br label %144
+.thread:                                          ; preds = %.preheader, %126, %125, %137
+  %140 = phi i32 [ %138, %137 ], [ %67, %125 ], [ %67, %126 ], [ %67, %.preheader ]
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  br label %143
 
-144:                                              ; preds = %191, %.thread
-  %145 = phi i64 [ 0, %.thread ], [ %193, %191 ]
-  %146 = phi i32 [ 0, %.thread ], [ %192, %191 ]
-  %147 = trunc i64 %145 to i32
-  %148 = shl nuw nsw i32 1, %147
-  %149 = and i32 %148, %141
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %191, label %151
+143:                                              ; preds = %190, %.thread
+  %144 = phi i64 [ 0, %.thread ], [ %192, %190 ]
+  %145 = phi i32 [ 0, %.thread ], [ %191, %190 ]
+  %146 = trunc i64 %144 to i32
+  %147 = shl nuw nsw i32 1, %146
+  %148 = and i32 %147, %140
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %190, label %150
 
-151:                                              ; preds = %144
-  %152 = getelementptr i32, ptr %5, i64 %145
-  %153 = load i32, ptr %152, align 4
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
-  %155 = call noalias noundef align 8 dereferenceable_or_null(760) ptr @kmalloc_trace(ptr noundef %154, i32 noundef 3520, i64 noundef 760) #15
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %188, label %157
+150:                                              ; preds = %143
+  %151 = getelementptr i32, ptr %5, i64 %144
+  %152 = load i32, ptr %151, align 4
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
+  %154 = call noalias noundef align 8 dereferenceable_or_null(760) ptr @kmalloc_trace(ptr noundef %153, i32 noundef 3520, i64 noundef 760) #15
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %187, label %156
 
-157:                                              ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %0, ptr %158, align 8
-  store i32 %153, ptr %155, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store i32 %148, ptr %159, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %161 = getelementptr inbounds nuw i8, ptr %155, i64 128
-  store ptr @pcie_port_bus_type, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %155, i64 720
-  store ptr @release_pcie_device, ptr %162, align 8
-  %163 = load ptr, ptr %142, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %167
+156:                                              ; preds = %150
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  store ptr %0, ptr %157, align 8
+  store i32 %152, ptr %154, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  store i32 %147, ptr %158, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 128
+  store ptr @pcie_port_bus_type, ptr %160, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 720
+  store ptr @release_pcie_device, ptr %161, align 8
+  %162 = load ptr, ptr %141, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %166
 
-165:                                              ; preds = %157
-  %166 = load ptr, ptr %143, align 8
-  br label %167
+164:                                              ; preds = %156
+  %165 = load ptr, ptr %142, align 8
+  br label %166
 
-167:                                              ; preds = %165, %157
-  %168 = phi ptr [ %166, %165 ], [ %163, %157 ]
-  %169 = load i16, ptr %6, align 2
-  %170 = shl i16 %169, 4
-  %171 = and i16 %170, 3840
-  %172 = zext nneg i16 %171 to i32
-  %173 = add nsw i32 %148, -1024
-  %174 = add nsw i32 %173, %172
-  %175 = call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %160, ptr noundef nonnull @.str.7, ptr noundef %168, i32 noundef %174) #13
-  %176 = getelementptr inbounds nuw i8, ptr %155, i64 96
-  store ptr %143, ptr %176, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %155, i64 252
-  %178 = load i16, ptr %177, align 4
-  %179 = and i16 %178, 8
-  %180 = icmp eq i16 %179, 0
-  br i1 %180, label %181, label %183
+166:                                              ; preds = %164, %156
+  %167 = phi ptr [ %165, %164 ], [ %162, %156 ]
+  %168 = load i16, ptr %6, align 2
+  %169 = shl i16 %168, 4
+  %170 = and i16 %169, 3840
+  %171 = zext nneg i16 %170 to i32
+  %172 = add nsw i32 %147, -1024
+  %173 = add nsw i32 %172, %171
+  %174 = call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %159, ptr noundef nonnull @.str.7, ptr noundef %167, i32 noundef %173) #13
+  %175 = getelementptr inbounds nuw i8, ptr %154, i64 96
+  store ptr %142, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %154, i64 252
+  %177 = load i16, ptr %176, align 4
+  %178 = and i16 %177, 8
+  %179 = icmp eq i16 %178, 0
+  br i1 %179, label %180, label %182
 
-181:                                              ; preds = %167
-  %182 = or i16 %178, 2
-  store i16 %182, ptr %177, align 4
-  br label %183
+180:                                              ; preds = %166
+  %181 = or i16 %177, 2
+  store i16 %181, ptr %176, align 4
+  br label %182
 
-183:                                              ; preds = %181, %167
-  %184 = call i32 @device_register(ptr noundef nonnull %160) #13
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %187, label %186
+182:                                              ; preds = %180, %166
+  %183 = call i32 @device_register(ptr noundef nonnull %159) #13
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %186, label %185
 
-186:                                              ; preds = %183
-  call void @put_device(ptr noundef nonnull %160) #13
-  br label %188
+185:                                              ; preds = %182
+  call void @put_device(ptr noundef nonnull %159) #13
+  br label %187
 
-187:                                              ; preds = %183
-  call void @pm_runtime_no_callbacks(ptr noundef nonnull %160) #13
-  br label %188
+186:                                              ; preds = %182
+  call void @pm_runtime_no_callbacks(ptr noundef nonnull %159) #13
+  br label %187
 
-188:                                              ; preds = %187, %186, %151
-  %189 = phi i32 [ 0, %186 ], [ 1, %187 ], [ 0, %151 ]
-  %190 = add i32 %189, %146
-  br label %191
+187:                                              ; preds = %186, %185, %150
+  %188 = phi i32 [ 0, %185 ], [ 1, %186 ], [ 0, %150 ]
+  %189 = add i32 %188, %145
+  br label %190
 
-191:                                              ; preds = %188, %144
-  %192 = phi i32 [ %190, %188 ], [ %146, %144 ]
-  %193 = add nuw nsw i64 %145, 1
-  %194 = icmp eq i64 %193, 5
-  br i1 %194, label %195, label %144, !llvm.loop !11
+190:                                              ; preds = %187, %143
+  %191 = phi i32 [ %189, %187 ], [ %145, %143 ]
+  %192 = add nuw nsw i64 %144, 1
+  %193 = icmp eq i64 %192, 5
+  br i1 %193, label %194, label %143, !llvm.loop !11
 
-195:                                              ; preds = %191
-  %196 = icmp eq i32 %192, 0
-  br i1 %196, label %197, label %201
+194:                                              ; preds = %190
+  %195 = icmp eq i32 %191, 0
+  br i1 %195, label %196, label %200
 
-197:                                              ; preds = %195
+196:                                              ; preds = %194
   call void @pci_free_irq_vectors(ptr noundef %0) #13
+  br label %197
+
+197:                                              ; preds = %196, %137
+  call void @pci_disable_device(ptr noundef %0) #13
   br label %198
 
-198:                                              ; preds = %197, %138
-  call void @pci_disable_device(ptr noundef %0) #13
-  br label %199
-
-199:                                              ; preds = %198, %15
-  %200 = phi i32 [ -19, %198 ], [ %16, %15 ]
+198:                                              ; preds = %197, %15
+  %199 = phi i32 [ -19, %197 ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %210
+  br label %209
 
-201:                                              ; preds = %66, %195
+200:                                              ; preds = %66, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %202 = call i32 @pci_save_state(ptr noundef %0) #13
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i32 5, ptr %203, align 8
-  %204 = call zeroext i1 @pci_bridge_d3_possible(ptr noundef %0) #13
-  br i1 %204, label %205, label %210
+  %201 = call i32 @pci_save_state(ptr noundef %0) #13
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store i32 5, ptr %202, align 8
+  %203 = call zeroext i1 @pci_bridge_d3_possible(ptr noundef %0) #13
+  br i1 %203, label %204, label %209
 
-205:                                              ; preds = %201
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  call void @pm_runtime_set_autosuspend_delay(ptr noundef nonnull %206, i32 noundef 100) #13
-  call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %206, i1 noundef zeroext true) #13
-  %207 = call i64 @ktime_get_mono_fast_ns() #13
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store volatile i64 %207, ptr %208, align 8
-  %209 = call i32 @__pm_runtime_suspend(ptr noundef nonnull %206, i32 noundef 13) #13
-  call void @pm_runtime_allow(ptr noundef nonnull %206) #13
-  br label %210
+204:                                              ; preds = %200
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void @pm_runtime_set_autosuspend_delay(ptr noundef nonnull %205, i32 noundef 100) #13
+  call void @__pm_runtime_use_autosuspend(ptr noundef nonnull %205, i1 noundef zeroext true) #13
+  %206 = call i64 @ktime_get_mono_fast_ns() #13
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store volatile i64 %206, ptr %207, align 8
+  %208 = call i32 @__pm_runtime_suspend(ptr noundef nonnull %205, i32 noundef 13) #13
+  call void @pm_runtime_allow(ptr noundef nonnull %205) #13
+  br label %209
 
-210:                                              ; preds = %199, %205, %201, %10, %2
-  %211 = phi i32 [ -19, %10 ], [ -19, %2 ], [ %200, %199 ], [ 0, %205 ], [ 0, %201 ]
-  ret i32 %211
+209:                                              ; preds = %198, %204, %200, %10, %2
+  %210 = phi i32 [ -19, %10 ], [ -19, %2 ], [ %199, %198 ], [ 0, %204 ], [ 0, %200 ]
+  ret i32 %210
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

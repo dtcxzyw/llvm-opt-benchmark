@@ -632,9 +632,8 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   store i8 0, ptr %5, align 1
   %42 = getelementptr i8, ptr %33, i64 20
   %.val.val.i.i = load i16, ptr %42, align 4
-  %43 = and i16 %.val.val.i.i, 1
-  %.not.i.i.i = icmp eq i16 %43, 0
-  br i1 %.not.i.i.i, label %44, label %85
+  %43 = trunc i16 %.val.val.i.i to i1
+  br i1 %43, label %85, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr %struct.CompactAttribute, ptr %14, i64 %32
@@ -716,8 +715,8 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   %92 = and i32 %87, 7
   %93 = shl nuw nsw i32 1, %92
   %94 = and i32 %93, %91
-  %.not.i20.i.i = icmp eq i32 %94, 0
-  br i1 %.not.i20.i.i, label %95, label %96
+  %.not.i.i.i = icmp eq i32 %94, 0
+  br i1 %.not.i.i.i, label %95, label %96
 
 95:                                               ; preds = %85
   store i8 1, ptr %5, align 1

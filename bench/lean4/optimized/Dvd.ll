@@ -8,15 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Nat_decidable__dvd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not.i5 = icmp eq i64 %4, 0
-  br i1 %.not.i5, label %.critedge.i6, label %5, !prof !4
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i5, !prof !4
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, 1
-  %.not11.i = icmp eq i64 %7, 0
-  br i1 %.not11.i, label %.critedge.i6, label %8, !prof !4
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i5, !prof !4
 
 8:                                                ; preds = %5
   %9 = lshr i64 %6, 1
@@ -31,16 +29,15 @@ define zeroext range(i8 0, 2) i8 @l_Nat_decidable__dvd(ptr noundef %0, ptr nound
   %16 = inttoptr i64 %15 to ptr
   br label %lean_nat_mod.exit
 
-.critedge.i6:                                     ; preds = %5, %2
+.critedge.i5:                                     ; preds = %5, %2
   %17 = tail call ptr @lean_nat_big_mod(ptr noundef %1, ptr noundef %0) #3
   br label %lean_nat_mod.exit
 
-lean_nat_mod.exit:                                ; preds = %8, %11, %.critedge.i6
-  %.1.i = phi ptr [ %17, %.critedge.i6 ], [ %16, %11 ], [ %1, %8 ]
+lean_nat_mod.exit:                                ; preds = %8, %11, %.critedge.i5
+  %.1.i = phi ptr [ %17, %.critedge.i5 ], [ %16, %11 ], [ %1, %8 ]
   %18 = ptrtoint ptr %.1.i to i64
-  %19 = and i64 %18, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %21, label %lean_nat_eq.exit.thread, !prof !4
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_nat_eq.exit.thread, label %21, !prof !4
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_nat_mod.exit
   %20 = icmp eq ptr %.1.i, inttoptr (i64 1 to ptr)
@@ -50,7 +47,7 @@ lean_nat_eq.exit.thread:                          ; preds = %lean_nat_mod.exit
   %22 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.1.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %23 = load i32, ptr %.1.i, align 4, !tbaa !5
   %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %27, !prof !10
+  br i1 %24, label %25, label %27, !prof !4
 
 25:                                               ; preds = %21
   %26 = add nsw i32 %23, -1
@@ -74,15 +71,13 @@ lean_dec.exit:                                    ; preds = %28, %27, %25, %lean
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Nat_decidable__dvd___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = and i64 %3, 1
-  %.not.i5.i = icmp eq i64 %4, 0
-  br i1 %.not.i5.i, label %.critedge.i6.i, label %5, !prof !4
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %.critedge.i5.i, !prof !4
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, 1
-  %.not11.i.i = icmp eq i64 %7, 0
-  br i1 %.not11.i.i, label %.critedge.i6.i, label %8, !prof !4
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %.critedge.i5.i, !prof !4
 
 8:                                                ; preds = %5
   %9 = lshr i64 %6, 1
@@ -97,16 +92,15 @@ define nonnull ptr @l_Nat_decidable__dvd___boxed(ptr noundef %0, ptr noundef %1)
   %16 = inttoptr i64 %15 to ptr
   br label %lean_nat_mod.exit.i
 
-.critedge.i6.i:                                   ; preds = %5, %2
+.critedge.i5.i:                                   ; preds = %5, %2
   %17 = tail call ptr @lean_nat_big_mod(ptr noundef %1, ptr noundef %0) #3
   br label %lean_nat_mod.exit.i
 
-lean_nat_mod.exit.i:                              ; preds = %.critedge.i6.i, %11, %8
-  %.1.i.i = phi ptr [ %17, %.critedge.i6.i ], [ %16, %11 ], [ %1, %8 ]
+lean_nat_mod.exit.i:                              ; preds = %.critedge.i5.i, %11, %8
+  %.1.i.i = phi ptr [ %17, %.critedge.i5.i ], [ %16, %11 ], [ %1, %8 ]
   %18 = ptrtoint ptr %.1.i.i to i64
-  %19 = and i64 %18, 1
-  %.not.i8 = icmp eq i64 %19, 0
-  br i1 %.not.i8, label %21, label %lean_nat_eq.exit.thread.i, !prof !4
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_nat_eq.exit.thread.i, label %21, !prof !4
 
 lean_nat_eq.exit.thread.i:                        ; preds = %lean_nat_mod.exit.i
   %20 = icmp eq ptr %.1.i.i, inttoptr (i64 1 to ptr)
@@ -116,7 +110,7 @@ lean_nat_eq.exit.thread.i:                        ; preds = %lean_nat_mod.exit.i
   %22 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.1.i.i, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
   %23 = load i32, ptr %.1.i.i, align 4, !tbaa !5
   %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %27, !prof !10
+  br i1 %24, label %25, label %27, !prof !4
 
 25:                                               ; preds = %21
   %26 = add nsw i32 %23, -1
@@ -133,12 +127,12 @@ lean_nat_eq.exit.thread.i:                        ; preds = %lean_nat_mod.exit.i
 
 l_Nat_decidable__dvd.exit:                        ; preds = %lean_nat_eq.exit.thread.i, %25, %27, %28
   %.in.i = phi i1 [ %20, %lean_nat_eq.exit.thread.i ], [ %22, %25 ], [ %22, %27 ], [ %22, %28 ]
-  br i1 %.not.i5.i, label %29, label %lean_dec.exit5
+  br i1 %4, label %lean_dec.exit5, label %29
 
 29:                                               ; preds = %l_Nat_decidable__dvd.exit
   %30 = load i32, ptr %1, align 4, !tbaa !5
   %31 = icmp sgt i32 %30, 1
-  br i1 %31, label %32, label %34, !prof !10
+  br i1 %31, label %32, label %34, !prof !4
 
 32:                                               ; preds = %29
   %33 = add nsw i32 %30, -1
@@ -155,14 +149,13 @@ l_Nat_decidable__dvd.exit:                        ; preds = %lean_nat_eq.exit.th
 
 lean_dec.exit5:                                   ; preds = %35, %34, %32, %l_Nat_decidable__dvd.exit
   %36 = ptrtoint ptr %0 to i64
-  %37 = and i64 %36, 1
-  %.not9 = icmp eq i64 %37, 0
-  br i1 %.not9, label %38, label %lean_dec.exit
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %lean_dec.exit, label %38
 
 38:                                               ; preds = %lean_dec.exit5
   %39 = load i32, ptr %0, align 4, !tbaa !5
   %40 = icmp sgt i32 %39, 1
-  br i1 %40, label %41, label %43, !prof !10
+  br i1 %40, label %41, label %43, !prof !4
 
 41:                                               ; preds = %38
   %42 = add nsw i32 %39, -1
@@ -209,7 +202,7 @@ define ptr @initialize_Init_Data_Nat_Dvd(i8 noundef zeroext %0, ptr noundef read
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !5
   %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16, !prof !10
+  br i1 %13, label %14, label %16, !prof !4
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %12, -1
@@ -235,7 +228,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 21:                                               ; preds = %lean_dec_ref.exit
   %22 = load i32, ptr %18, align 4, !tbaa !5
   %23 = icmp sgt i32 %22, 1
-  br i1 %23, label %24, label %26, !prof !10
+  br i1 %23, label %24, label %26, !prof !4
 
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
@@ -266,9 +259,9 @@ lean_dec_ref.exit9:                               ; preds = %24, %26, %27
   store i32 1, ptr %.sink21, align 4, !tbaa !5
   store i32 131096, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %32, align 8, !tbaa !11
+  store ptr inttoptr (i64 1 to ptr), ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %33, align 8, !tbaa !11
+  store ptr inttoptr (i64 1 to ptr), ptr %33, align 8, !tbaa !10
   br label %34
 
 34:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
@@ -305,12 +298,11 @@ attributes #4 = { noreturn nounwind }
 !1 = !{i32 4, !"probe-stack", !"inline-asm"}
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{!6, !7, i64 0}
 !6 = !{!"", !7, i64 0, !7, i64 4, !7, i64 6, !7, i64 7}
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"any pointer", !8, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"any pointer", !8, i64 0}

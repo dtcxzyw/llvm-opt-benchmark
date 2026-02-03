@@ -180,7 +180,7 @@ prepare_to_stream.exit.i:                         ; preds = %.prepare_to_stream.
 
 39:                                               ; preds = %prepare_to_stream.exit.i, %16
   %.0.i = phi ptr [ %31, %prepare_to_stream.exit.i ], [ null, %16 ]
-  %.not.i59.i = icmp ne i32 %29, 0
+  %.not.i59.i = trunc i32 %4 to i1
   %.not56.i = icmp eq ptr %.0.i, null
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 152

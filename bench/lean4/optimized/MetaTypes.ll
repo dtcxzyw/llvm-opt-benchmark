@@ -55,9 +55,8 @@ define noundef nonnull ptr @l_Lean_Meta_TransparencyMode_toCtorIdx___boxed(ptr n
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -101,9 +100,8 @@ l_Lean_Meta_TransparencyMode_toCtorIdx.exit:      ; preds = %lean_dec.exit, %13,
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Meta_TransparencyMode_noConfusion___rarg___lambda__1(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -160,9 +158,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Meta_TransparencyMode_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit7
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit7, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -184,9 +181,8 @@ define ptr @l_Lean_Meta_TransparencyMode_noConfusion___rarg___boxed(ptr noundef 
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not10 = icmp eq i64 %14, 0
-  br i1 %.not10, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit7
   %16 = load i32, ptr %1, align 4, !tbaa !4
@@ -214,9 +210,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Meta_TransparencyMode_noConfusion___rarg___lambda__1___boxed(ptr noundef returned %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -279,21 +274,21 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_beqTransparencyMode____x40_Init_Me
 l_Lean_Meta_TransparencyMode_toCtorIdx.exit:      ; preds = %2, %3, %4, %5
   %.0.i9 = phi ptr [ inttoptr (i64 7 to ptr), %5 ], [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %8 [
-    i8 0, label %lean_dec.exit
+    i8 0, label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit11
     i8 1, label %6
     i8 2, label %7
   ]
 
 6:                                                ; preds = %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit11
 
 7:                                                ; preds = %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit11
 
 8:                                                ; preds = %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_Meta_TransparencyMode_toCtorIdx.exit11
 
-lean_dec.exit:                                    ; preds = %8, %7, %6, %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
+l_Lean_Meta_TransparencyMode_toCtorIdx.exit11:    ; preds = %8, %7, %6, %l_Lean_Meta_TransparencyMode_toCtorIdx.exit
   %.0.i10 = phi ptr [ inttoptr (i64 7 to ptr), %8 ], [ inttoptr (i64 5 to ptr), %7 ], [ inttoptr (i64 3 to ptr), %6 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_TransparencyMode_toCtorIdx.exit ]
   %9 = icmp eq ptr %.0.i9, %.0.i10
   %10 = zext i1 %9 to i8
@@ -305,9 +300,8 @@ define noundef nonnull ptr @l_Lean_Meta_beqTransparencyMode____x40_Init_MetaType
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i8
-  %6 = and i64 %3, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %6 = trunc i64 %3 to i1
+  br i1 %6, label %lean_dec.exit7, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -331,9 +325,8 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %1 to i64
   %15 = lshr i64 %14, 1
   %16 = trunc i64 %15 to i8
-  %17 = and i64 %14, 1
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %18, label %lean_dec.exit
+  %17 = trunc i64 %14 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_dec.exit7
   %19 = load i32, ptr %1, align 4, !tbaa !4
@@ -416,9 +409,8 @@ define noundef nonnull ptr @l_Lean_Meta_EtaStructMode_toCtorIdx___boxed(ptr noun
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i8
-  %5 = and i64 %2, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit
+  %5 = trunc i64 %2 to i1
+  br i1 %5, label %lean_dec.exit, label %6
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -488,9 +480,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_Meta_EtaStructMode_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit7
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit7, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -512,9 +503,8 @@ define ptr @l_Lean_Meta_EtaStructMode_noConfusion___rarg___boxed(ptr noundef %0,
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not10 = icmp eq i64 %14, 0
-  br i1 %.not10, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit7
   %16 = load i32, ptr %1, align 4, !tbaa !4
@@ -555,17 +545,17 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_beqEtaStructMode____x40_Init_MetaT
 l_Lean_Meta_EtaStructMode_toCtorIdx.exit:         ; preds = %2, %3, %4
   %.0.i9 = phi ptr [ inttoptr (i64 5 to ptr), %4 ], [ inttoptr (i64 3 to ptr), %3 ], [ inttoptr (i64 1 to ptr), %2 ]
   switch i8 %1, label %6 [
-    i8 0, label %lean_dec.exit
+    i8 0, label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit11
     i8 1, label %5
   ]
 
 5:                                                ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit11
 
 6:                                                ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit
-  br label %lean_dec.exit
+  br label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit11
 
-lean_dec.exit:                                    ; preds = %6, %5, %l_Lean_Meta_EtaStructMode_toCtorIdx.exit
+l_Lean_Meta_EtaStructMode_toCtorIdx.exit11:       ; preds = %6, %5, %l_Lean_Meta_EtaStructMode_toCtorIdx.exit
   %.0.i10 = phi ptr [ inttoptr (i64 5 to ptr), %6 ], [ inttoptr (i64 3 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_EtaStructMode_toCtorIdx.exit ]
   %7 = icmp eq ptr %.0.i9, %.0.i10
   %8 = zext i1 %7 to i8
@@ -577,9 +567,8 @@ define noundef nonnull ptr @l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes__
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 1
   %5 = trunc i64 %4 to i8
-  %6 = and i64 %3, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %6 = trunc i64 %3 to i1
+  br i1 %6, label %lean_dec.exit7, label %7
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 4, !tbaa !4
@@ -603,9 +592,8 @@ lean_dec.exit7:                                   ; preds = %13, %12, %10, %2
   %14 = ptrtoint ptr %1 to i64
   %15 = lshr i64 %14, 1
   %16 = trunc i64 %15 to i8
-  %17 = and i64 %14, 1
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %18, label %lean_dec.exit
+  %17 = trunc i64 %14 to i1
+  br i1 %17, label %lean_dec.exit, label %18
 
 18:                                               ; preds = %lean_dec.exit7
   %19 = load i32, ptr %1, align 4, !tbaa !4
@@ -879,9 +867,8 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
 define nonnull ptr @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268____boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call zeroext i8 @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !4
@@ -903,9 +890,8 @@ define nonnull ptr @l_Lean_Meta_DSimp_beqConfig____x40_Init_MetaTypes___hyg_268_
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -1024,279 +1010,275 @@ define zeroext i8 @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757_(p
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 43
   %90 = load i8, ptr %89, align 1, !tbaa !15
   %91 = ptrtoint ptr %4 to i64
-  %92 = and i64 %91, 1
-  %93 = icmp ne i64 %92, 0
-  %94 = ptrtoint ptr %48 to i64
-  %95 = and i64 %94, 1
-  %96 = icmp ne i64 %95, 0
-  %or.cond = select i1 %93, i1 %96, i1 false, !prof !16
-  br i1 %or.cond, label %97, label %lean_nat_eq.exit, !prof !16
+  %92 = trunc i64 %91 to i1
+  %93 = ptrtoint ptr %48 to i64
+  %94 = trunc i64 %93 to i1
+  %or.cond = select i1 %92, i1 %94, i1 false, !prof !16
+  br i1 %or.cond, label %95, label %lean_nat_eq.exit, !prof !16
 
-97:                                               ; preds = %2
-  %98 = icmp eq ptr %4, %48
-  br i1 %98, label %100, label %.critedge
+95:                                               ; preds = %2
+  %96 = icmp eq ptr %4, %48
+  br i1 %96, label %98, label %.critedge
 
 lean_nat_eq.exit:                                 ; preds = %2
-  %99 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %4, ptr noundef %48) #7
-  br i1 %99, label %100, label %.critedge
+  %97 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %4, ptr noundef %48) #7
+  br i1 %97, label %98, label %.critedge
 
-100:                                              ; preds = %97, %lean_nat_eq.exit
-  %101 = ptrtoint ptr %6 to i64
-  %102 = and i64 %101, 1
-  %103 = icmp ne i64 %102, 0
-  %104 = ptrtoint ptr %50 to i64
-  %105 = and i64 %104, 1
-  %106 = icmp ne i64 %105, 0
-  %or.cond293 = select i1 %103, i1 %106, i1 false, !prof !16
-  br i1 %or.cond293, label %107, label %lean_nat_eq.exit288, !prof !16
+98:                                               ; preds = %95, %lean_nat_eq.exit
+  %99 = ptrtoint ptr %6 to i64
+  %100 = trunc i64 %99 to i1
+  %101 = ptrtoint ptr %50 to i64
+  %102 = trunc i64 %101 to i1
+  %or.cond291 = select i1 %100, i1 %102, i1 false, !prof !16
+  br i1 %or.cond291, label %103, label %lean_nat_eq.exit288, !prof !16
 
-107:                                              ; preds = %100
-  %108 = icmp eq ptr %6, %50
-  br i1 %108, label %110, label %.critedge
+103:                                              ; preds = %98
+  %104 = icmp eq ptr %6, %50
+  br i1 %104, label %106, label %.critedge
 
-lean_nat_eq.exit288:                              ; preds = %100
-  %109 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %6, ptr noundef %50) #7
-  br i1 %109, label %110, label %.critedge
+lean_nat_eq.exit288:                              ; preds = %98
+  %105 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %6, ptr noundef %50) #7
+  br i1 %105, label %106, label %.critedge
 
-110:                                              ; preds = %107, %lean_nat_eq.exit288
-  %111 = icmp eq i8 %8, 0
+106:                                              ; preds = %103, %lean_nat_eq.exit288
+  %107 = icmp eq i8 %8, 0
   %.not = icmp eq i8 %52, 0
-  br i1 %111, label %113, label %112
+  br i1 %107, label %109, label %108
 
-112:                                              ; preds = %110
-  br i1 %.not, label %.critedge, label %186
+108:                                              ; preds = %106
+  br i1 %.not, label %.critedge, label %182
 
-113:                                              ; preds = %110
-  br i1 %.not, label %186, label %.critedge
+109:                                              ; preds = %106
+  br i1 %.not, label %182, label %.critedge
 
-.critedge249:                                     ; preds = %120, %119
-  %114 = icmp eq i8 %46, 0
-  br i1 %114, label %115, label %.critedge
+.critedge249:                                     ; preds = %116, %115
+  %110 = icmp eq i8 %46, 0
+  br i1 %110, label %111, label %.critedge
 
-115:                                              ; preds = %.critedge249
-  %116 = icmp eq i8 %90, 0
-  %.250 = zext i1 %116 to i8
+111:                                              ; preds = %.critedge249
+  %112 = icmp eq i8 %90, 0
+  %.250 = zext i1 %112 to i8
   br label %.critedge
 
-.critedge252:                                     ; preds = %124, %123
-  %117 = icmp eq i8 %44, 0
-  %118 = icmp eq i8 %88, 0
+.critedge252:                                     ; preds = %120, %119
+  %113 = icmp eq i8 %44, 0
+  %114 = icmp eq i8 %88, 0
+  br i1 %113, label %115, label %116
+
+115:                                              ; preds = %.critedge252
+  br i1 %114, label %.critedge249, label %.critedge
+
+116:                                              ; preds = %.critedge252
+  br i1 %114, label %.critedge, label %.critedge249
+
+.critedge254:                                     ; preds = %124, %123
+  %117 = icmp eq i8 %42, 0
+  %118 = icmp eq i8 %86, 0
   br i1 %117, label %119, label %120
 
-119:                                              ; preds = %.critedge252
-  br i1 %118, label %.critedge249, label %.critedge
+119:                                              ; preds = %.critedge254
+  br i1 %118, label %.critedge252, label %.critedge
 
-120:                                              ; preds = %.critedge252
-  br i1 %118, label %.critedge, label %.critedge249
+120:                                              ; preds = %.critedge254
+  br i1 %118, label %.critedge, label %.critedge252
 
-.critedge254:                                     ; preds = %128, %127
-  %121 = icmp eq i8 %42, 0
-  %122 = icmp eq i8 %86, 0
+.critedge256:                                     ; preds = %128, %127
+  %121 = icmp eq i8 %40, 0
+  %122 = icmp eq i8 %84, 0
   br i1 %121, label %123, label %124
 
-123:                                              ; preds = %.critedge254
-  br i1 %122, label %.critedge252, label %.critedge
+123:                                              ; preds = %.critedge256
+  br i1 %122, label %.critedge254, label %.critedge
 
-124:                                              ; preds = %.critedge254
-  br i1 %122, label %.critedge, label %.critedge252
+124:                                              ; preds = %.critedge256
+  br i1 %122, label %.critedge, label %.critedge254
 
-.critedge256:                                     ; preds = %132, %131
-  %125 = icmp eq i8 %40, 0
-  %126 = icmp eq i8 %84, 0
+.critedge258:                                     ; preds = %132, %131
+  %125 = icmp eq i8 %38, 0
+  %126 = icmp eq i8 %82, 0
   br i1 %125, label %127, label %128
 
-127:                                              ; preds = %.critedge256
-  br i1 %126, label %.critedge254, label %.critedge
+127:                                              ; preds = %.critedge258
+  br i1 %126, label %.critedge256, label %.critedge
 
-128:                                              ; preds = %.critedge256
-  br i1 %126, label %.critedge, label %.critedge254
+128:                                              ; preds = %.critedge258
+  br i1 %126, label %.critedge, label %.critedge256
 
-.critedge258:                                     ; preds = %136, %135
-  %129 = icmp eq i8 %38, 0
-  %130 = icmp eq i8 %82, 0
+.critedge260:                                     ; preds = %136, %135
+  %129 = icmp eq i8 %36, 0
+  %130 = icmp eq i8 %80, 0
   br i1 %129, label %131, label %132
 
-131:                                              ; preds = %.critedge258
-  br i1 %130, label %.critedge256, label %.critedge
+131:                                              ; preds = %.critedge260
+  br i1 %130, label %.critedge258, label %.critedge
 
-132:                                              ; preds = %.critedge258
-  br i1 %130, label %.critedge, label %.critedge256
+132:                                              ; preds = %.critedge260
+  br i1 %130, label %.critedge, label %.critedge258
 
-.critedge260:                                     ; preds = %140, %139
-  %133 = icmp eq i8 %36, 0
-  %134 = icmp eq i8 %80, 0
+.critedge262:                                     ; preds = %140, %139
+  %133 = icmp eq i8 %34, 0
+  %134 = icmp eq i8 %78, 0
   br i1 %133, label %135, label %136
 
-135:                                              ; preds = %.critedge260
-  br i1 %134, label %.critedge258, label %.critedge
+135:                                              ; preds = %.critedge262
+  br i1 %134, label %.critedge260, label %.critedge
 
-136:                                              ; preds = %.critedge260
-  br i1 %134, label %.critedge, label %.critedge258
+136:                                              ; preds = %.critedge262
+  br i1 %134, label %.critedge, label %.critedge260
 
-.critedge262:                                     ; preds = %144, %143
-  %137 = icmp eq i8 %34, 0
-  %138 = icmp eq i8 %78, 0
+.critedge264:                                     ; preds = %144, %143
+  %137 = icmp eq i8 %32, 0
+  %138 = icmp eq i8 %76, 0
   br i1 %137, label %139, label %140
 
-139:                                              ; preds = %.critedge262
-  br i1 %138, label %.critedge260, label %.critedge
+139:                                              ; preds = %.critedge264
+  br i1 %138, label %.critedge262, label %.critedge
 
-140:                                              ; preds = %.critedge262
-  br i1 %138, label %.critedge, label %.critedge260
+140:                                              ; preds = %.critedge264
+  br i1 %138, label %.critedge, label %.critedge262
 
-.critedge264:                                     ; preds = %148, %147
-  %141 = icmp eq i8 %32, 0
-  %142 = icmp eq i8 %76, 0
+.critedge266:                                     ; preds = %148, %147
+  %141 = icmp eq i8 %30, 0
+  %142 = icmp eq i8 %74, 0
   br i1 %141, label %143, label %144
 
-143:                                              ; preds = %.critedge264
-  br i1 %142, label %.critedge262, label %.critedge
+143:                                              ; preds = %.critedge266
+  br i1 %142, label %.critedge264, label %.critedge
 
-144:                                              ; preds = %.critedge264
-  br i1 %142, label %.critedge, label %.critedge262
+144:                                              ; preds = %.critedge266
+  br i1 %142, label %.critedge, label %.critedge264
 
-.critedge266:                                     ; preds = %152, %151
-  %145 = icmp eq i8 %30, 0
-  %146 = icmp eq i8 %74, 0
+.critedge268:                                     ; preds = %152, %151
+  %145 = icmp eq i8 %28, 0
+  %146 = icmp eq i8 %72, 0
   br i1 %145, label %147, label %148
 
-147:                                              ; preds = %.critedge266
-  br i1 %146, label %.critedge264, label %.critedge
+147:                                              ; preds = %.critedge268
+  br i1 %146, label %.critedge266, label %.critedge
 
-148:                                              ; preds = %.critedge266
-  br i1 %146, label %.critedge, label %.critedge264
+148:                                              ; preds = %.critedge268
+  br i1 %146, label %.critedge, label %.critedge266
 
-.critedge268:                                     ; preds = %156, %155
-  %149 = icmp eq i8 %28, 0
-  %150 = icmp eq i8 %72, 0
+.critedge270:                                     ; preds = %157, %156
+  %149 = icmp eq i8 %26, 0
+  %150 = icmp eq i8 %70, 0
   br i1 %149, label %151, label %152
 
-151:                                              ; preds = %.critedge268
-  br i1 %150, label %.critedge266, label %.critedge
+151:                                              ; preds = %.critedge270
+  br i1 %150, label %.critedge268, label %.critedge
 
-152:                                              ; preds = %.critedge268
-  br i1 %150, label %.critedge, label %.critedge266
+152:                                              ; preds = %.critedge270
+  br i1 %150, label %.critedge, label %.critedge268
 
-.critedge270:                                     ; preds = %161, %160
-  %153 = icmp eq i8 %26, 0
-  %154 = icmp eq i8 %70, 0
-  br i1 %153, label %155, label %156
+153:                                              ; preds = %164, %165
+  %154 = icmp eq i8 %24, 0
+  %155 = icmp eq i8 %68, 0
+  br i1 %154, label %156, label %157
 
-155:                                              ; preds = %.critedge270
-  br i1 %154, label %.critedge268, label %.critedge
+156:                                              ; preds = %153
+  br i1 %155, label %.critedge270, label %.critedge
 
-156:                                              ; preds = %.critedge270
-  br i1 %154, label %.critedge, label %.critedge268
+157:                                              ; preds = %153
+  br i1 %155, label %.critedge, label %.critedge270
 
-157:                                              ; preds = %168, %169
-  %158 = icmp eq i8 %24, 0
-  %159 = icmp eq i8 %68, 0
-  br i1 %158, label %160, label %161
-
-160:                                              ; preds = %157
-  br i1 %159, label %.critedge270, label %.critedge
-
-161:                                              ; preds = %157
-  br i1 %159, label %.critedge, label %.critedge270
-
-.critedge272:                                     ; preds = %173, %172
-  switch i8 %20, label %163 [
+.critedge272:                                     ; preds = %169, %168
+  switch i8 %20, label %159 [
     i8 0, label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
-    i8 1, label %162
+    i8 1, label %158
   ]
 
-162:                                              ; preds = %.critedge272
+158:                                              ; preds = %.critedge272
   br label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
 
-163:                                              ; preds = %.critedge272
+159:                                              ; preds = %.critedge272
   br label %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
 
-l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i:       ; preds = %163, %162, %.critedge272
-  %.0.i9.i = phi ptr [ inttoptr (i64 5 to ptr), %163 ], [ inttoptr (i64 3 to ptr), %162 ], [ inttoptr (i64 1 to ptr), %.critedge272 ]
-  switch i8 %64, label %165 [
+l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i:       ; preds = %159, %158, %.critedge272
+  %.0.i9.i = phi ptr [ inttoptr (i64 5 to ptr), %159 ], [ inttoptr (i64 3 to ptr), %158 ], [ inttoptr (i64 1 to ptr), %.critedge272 ]
+  switch i8 %64, label %161 [
     i8 0, label %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
-    i8 1, label %164
+    i8 1, label %160
   ]
 
-164:                                              ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
+160:                                              ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
   br label %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
 
-165:                                              ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
+161:                                              ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i
   br label %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
 
-l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i, %164, %165
-  %.0.i10.i = phi ptr [ inttoptr (i64 5 to ptr), %165 ], [ inttoptr (i64 3 to ptr), %164 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i ]
-  %.not294 = icmp eq ptr %.0.i9.i, %.0.i10.i
-  br i1 %.not294, label %166, label %.critedge
+l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i, %160, %161
+  %.0.i10.i = phi ptr [ inttoptr (i64 5 to ptr), %161 ], [ inttoptr (i64 3 to ptr), %160 ], [ inttoptr (i64 1 to ptr), %l_Lean_Meta_EtaStructMode_toCtorIdx.exit.i ]
+  %.not292 = icmp eq ptr %.0.i9.i, %.0.i10.i
+  br i1 %.not292, label %162, label %.critedge
 
-166:                                              ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
-  %167 = icmp eq i8 %22, 0
-  %.not295 = icmp eq i8 %66, 0
-  br i1 %167, label %169, label %168
+162:                                              ; preds = %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit
+  %163 = icmp eq i8 %22, 0
+  %.not293 = icmp eq i8 %66, 0
+  br i1 %163, label %165, label %164
 
-168:                                              ; preds = %166
-  br i1 %.not295, label %.critedge, label %157
+164:                                              ; preds = %162
+  br i1 %.not293, label %.critedge, label %153
 
-169:                                              ; preds = %166
-  br i1 %.not295, label %157, label %.critedge
+165:                                              ; preds = %162
+  br i1 %.not293, label %153, label %.critedge
 
-.critedge278:                                     ; preds = %177, %176
-  %170 = icmp eq i8 %18, 0
-  %171 = icmp eq i8 %62, 0
+.critedge278:                                     ; preds = %173, %172
+  %166 = icmp eq i8 %18, 0
+  %167 = icmp eq i8 %62, 0
+  br i1 %166, label %168, label %169
+
+168:                                              ; preds = %.critedge278
+  br i1 %167, label %.critedge272, label %.critedge
+
+169:                                              ; preds = %.critedge278
+  br i1 %167, label %.critedge, label %.critedge272
+
+.critedge280:                                     ; preds = %177, %176
+  %170 = icmp eq i8 %16, 0
+  %171 = icmp eq i8 %60, 0
   br i1 %170, label %172, label %173
 
-172:                                              ; preds = %.critedge278
-  br i1 %171, label %.critedge272, label %.critedge
+172:                                              ; preds = %.critedge280
+  br i1 %171, label %.critedge278, label %.critedge
 
-173:                                              ; preds = %.critedge278
-  br i1 %171, label %.critedge, label %.critedge272
+173:                                              ; preds = %.critedge280
+  br i1 %171, label %.critedge, label %.critedge278
 
-.critedge280:                                     ; preds = %181, %180
-  %174 = icmp eq i8 %16, 0
-  %175 = icmp eq i8 %60, 0
+.critedge282:                                     ; preds = %181, %180
+  %174 = icmp eq i8 %14, 0
+  %175 = icmp eq i8 %58, 0
   br i1 %174, label %176, label %177
 
-176:                                              ; preds = %.critedge280
-  br i1 %175, label %.critedge278, label %.critedge
+176:                                              ; preds = %.critedge282
+  br i1 %175, label %.critedge280, label %.critedge
 
-177:                                              ; preds = %.critedge280
-  br i1 %175, label %.critedge, label %.critedge278
+177:                                              ; preds = %.critedge282
+  br i1 %175, label %.critedge, label %.critedge280
 
-.critedge282:                                     ; preds = %185, %184
-  %178 = icmp eq i8 %14, 0
-  %179 = icmp eq i8 %58, 0
+.critedge284:                                     ; preds = %186, %185
+  %178 = icmp eq i8 %12, 0
+  %179 = icmp eq i8 %56, 0
   br i1 %178, label %180, label %181
 
-180:                                              ; preds = %.critedge282
-  br i1 %179, label %.critedge280, label %.critedge
+180:                                              ; preds = %.critedge284
+  br i1 %179, label %.critedge282, label %.critedge
 
-181:                                              ; preds = %.critedge282
-  br i1 %179, label %.critedge, label %.critedge280
+181:                                              ; preds = %.critedge284
+  br i1 %179, label %.critedge, label %.critedge282
 
-.critedge284:                                     ; preds = %190, %189
-  %182 = icmp eq i8 %12, 0
-  %183 = icmp eq i8 %56, 0
-  br i1 %182, label %184, label %185
+182:                                              ; preds = %108, %109
+  %183 = icmp eq i8 %10, 0
+  %184 = icmp eq i8 %54, 0
+  br i1 %183, label %185, label %186
 
-184:                                              ; preds = %.critedge284
-  br i1 %183, label %.critedge282, label %.critedge
+185:                                              ; preds = %182
+  br i1 %184, label %.critedge284, label %.critedge
 
-185:                                              ; preds = %.critedge284
-  br i1 %183, label %.critedge, label %.critedge282
+186:                                              ; preds = %182
+  br i1 %184, label %.critedge, label %.critedge284
 
-186:                                              ; preds = %112, %113
-  %187 = icmp eq i8 %10, 0
-  %188 = icmp eq i8 %54, 0
-  br i1 %187, label %189, label %190
-
-189:                                              ; preds = %186
-  br i1 %188, label %.critedge284, label %.critedge
-
-190:                                              ; preds = %186
-  br i1 %188, label %.critedge, label %.critedge284
-
-.critedge:                                        ; preds = %107, %97, %168, %112, %113, %169, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %lean_nat_eq.exit288, %190, %189, %185, %184, %181, %180, %177, %176, %173, %172, %161, %160, %156, %155, %152, %151, %148, %147, %144, %143, %140, %139, %136, %135, %132, %131, %128, %127, %124, %123, %120, %119, %.critedge249, %115, %lean_nat_eq.exit
-  %.0 = phi i8 [ 0, %113 ], [ 0, %185 ], [ 0, %181 ], [ 0, %177 ], [ 0, %173 ], [ 0, %lean_nat_eq.exit288 ], [ 0, %161 ], [ 0, %156 ], [ 0, %152 ], [ 0, %148 ], [ 0, %144 ], [ 0, %140 ], [ 0, %136 ], [ 0, %132 ], [ 0, %128 ], [ 0, %124 ], [ 0, %120 ], [ %90, %.critedge249 ], [ 0, %190 ], [ %.250, %115 ], [ 0, %119 ], [ 0, %123 ], [ 0, %169 ], [ 0, %lean_nat_eq.exit ], [ 0, %127 ], [ 0, %131 ], [ 0, %135 ], [ 0, %139 ], [ 0, %143 ], [ 0, %147 ], [ 0, %151 ], [ 0, %155 ], [ 0, %160 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %176 ], [ 0, %172 ], [ 0, %180 ], [ 0, %184 ], [ 0, %189 ], [ 0, %112 ], [ 0, %168 ], [ 0, %97 ], [ 0, %107 ]
+.critedge:                                        ; preds = %103, %95, %164, %108, %109, %165, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit, %lean_nat_eq.exit288, %186, %185, %181, %180, %177, %176, %173, %172, %169, %168, %157, %156, %152, %151, %148, %147, %144, %143, %140, %139, %136, %135, %132, %131, %128, %127, %124, %123, %120, %119, %116, %115, %.critedge249, %111, %lean_nat_eq.exit
+  %.0 = phi i8 [ 0, %109 ], [ 0, %181 ], [ 0, %177 ], [ 0, %173 ], [ 0, %169 ], [ 0, %lean_nat_eq.exit288 ], [ 0, %157 ], [ 0, %152 ], [ 0, %148 ], [ 0, %144 ], [ 0, %140 ], [ 0, %136 ], [ 0, %132 ], [ 0, %128 ], [ 0, %124 ], [ 0, %120 ], [ 0, %116 ], [ %90, %.critedge249 ], [ 0, %186 ], [ %.250, %111 ], [ 0, %115 ], [ 0, %119 ], [ 0, %165 ], [ 0, %lean_nat_eq.exit ], [ 0, %123 ], [ 0, %127 ], [ 0, %131 ], [ 0, %135 ], [ 0, %139 ], [ 0, %143 ], [ 0, %147 ], [ 0, %151 ], [ 0, %156 ], [ 0, %l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit ], [ 0, %172 ], [ 0, %168 ], [ 0, %176 ], [ 0, %180 ], [ 0, %185 ], [ 0, %108 ], [ 0, %164 ], [ 0, %95 ], [ 0, %103 ]
   ret i8 %.0
 }
 
@@ -1304,9 +1286,8 @@ l_Lean_Meta_beqEtaStructMode____x40_Init_MetaTypes___hyg_106_.exit: ; preds = %l
 define nonnull ptr @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757____boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call zeroext i8 @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757_(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !4
@@ -1328,9 +1309,8 @@ define nonnull ptr @l_Lean_Meta_Simp_beqConfig____x40_Init_MetaTypes___hyg_757__
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !4
@@ -1366,9 +1346,8 @@ define zeroext range(i8 0, 2) i8 @l_List_hasDecEq___at_Lean_Meta_beqOccurrences_
   %.020 = phi ptr [ %1, %2 ], [ %38, %.backedge.backedge ]
   %.018 = phi ptr [ %0, %2 ], [ %34, %.backedge.backedge ]
   %3 = ptrtoint ptr %.018 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %.backedge
   %6 = lshr i64 %3, 1
@@ -1385,50 +1364,49 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %.0.i23 = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i23, 0
   %12 = ptrtoint ptr %.020 to i64
-  %13 = and i64 %12, 1
-  %.not.i24 = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %22
 
 14:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i24, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit27
+  br label %lean_obj_tag.exit26
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %.020, i64 4
-  %.val.i26 = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i26, 24
-  br label %lean_obj_tag.exit27
+  %.val.i24 = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i24, 24
+  br label %lean_obj_tag.exit26
 
-lean_obj_tag.exit27:                              ; preds = %15, %18
+lean_obj_tag.exit26:                              ; preds = %15, %18
   %.0.i25 = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i25, 0
   %. = zext i1 %21 to i8
   br label %.loopexit
 
 22:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i24, label %26, label %23
+  br i1 %13, label %23, label %26
 
 23:                                               ; preds = %22
   %24 = lshr i64 %12, 1
   %25 = trunc i64 %24 to i32
-  br label %lean_obj_tag.exit31
+  br label %lean_obj_tag.exit29
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %.020, i64 4
-  %.val.i30 = load i32, ptr %27, align 4
-  %28 = lshr i32 %.val.i30, 24
-  br label %lean_obj_tag.exit31
+  %.val.i27 = load i32, ptr %27, align 4
+  %28 = lshr i32 %.val.i27, 24
+  br label %lean_obj_tag.exit29
 
-lean_obj_tag.exit31:                              ; preds = %23, %26
-  %.0.i29 = phi i32 [ %25, %23 ], [ %28, %26 ]
-  %29 = icmp eq i32 %.0.i29, 0
+lean_obj_tag.exit29:                              ; preds = %23, %26
+  %.0.i28 = phi i32 [ %25, %23 ], [ %28, %26 ]
+  %29 = icmp eq i32 %.0.i28, 0
   br i1 %29, label %.loopexit, label %30
 
-30:                                               ; preds = %lean_obj_tag.exit31
+30:                                               ; preds = %lean_obj_tag.exit29
   %31 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %.018, i64 16
@@ -1438,36 +1416,33 @@ lean_obj_tag.exit31:                              ; preds = %23, %26
   %37 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !10
   %39 = ptrtoint ptr %32 to i64
-  %40 = and i64 %39, 1
-  %41 = icmp ne i64 %40, 0
-  %42 = ptrtoint ptr %36 to i64
-  %43 = and i64 %42, 1
-  %44 = icmp ne i64 %43, 0
-  %or.cond = select i1 %41, i1 %44, i1 false, !prof !16
-  br i1 %or.cond, label %45, label %lean_nat_eq.exit, !prof !16
+  %40 = trunc i64 %39 to i1
+  %41 = ptrtoint ptr %36 to i64
+  %42 = trunc i64 %41 to i1
+  %or.cond = select i1 %40, i1 %42, i1 false, !prof !16
+  br i1 %or.cond, label %43, label %lean_nat_eq.exit, !prof !16
 
-45:                                               ; preds = %30
-  %46 = icmp eq ptr %32, %36
-  br i1 %46, label %.backedge.backedge, label %.loopexit
+43:                                               ; preds = %30
+  %44 = icmp eq ptr %32, %36
+  br i1 %44, label %.backedge.backedge, label %.loopexit
 
 lean_nat_eq.exit:                                 ; preds = %30
-  %47 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %32, ptr noundef %36) #7
-  br i1 %47, label %.backedge.backedge, label %.loopexit
+  %45 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %32, ptr noundef %36) #7
+  br i1 %45, label %.backedge.backedge, label %.loopexit
 
-.backedge.backedge:                               ; preds = %lean_nat_eq.exit, %45
+.backedge.backedge:                               ; preds = %lean_nat_eq.exit, %43
   br label %.backedge
 
-.loopexit:                                        ; preds = %lean_nat_eq.exit, %lean_obj_tag.exit31, %45, %lean_obj_tag.exit27
-  %.1 = phi i8 [ %., %lean_obj_tag.exit27 ], [ 0, %45 ], [ 0, %lean_obj_tag.exit31 ], [ 0, %lean_nat_eq.exit ]
+.loopexit:                                        ; preds = %lean_nat_eq.exit, %lean_obj_tag.exit29, %43, %lean_obj_tag.exit26
+  %.1 = phi i8 [ %., %lean_obj_tag.exit26 ], [ 0, %43 ], [ 0, %lean_obj_tag.exit29 ], [ 0, %lean_nat_eq.exit ]
   ret i8 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 1
@@ -1483,52 +1458,51 @@ define zeroext range(i8 0, 2) i8 @l_Lean_Meta_beqOccurrences____x40_Init_MetaTyp
 lean_obj_tag.exit:                                ; preds = %5, %8
   %.0.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not.i26 = icmp eq i64 %12, 0
-  switch i32 %.0.i, label %79 [
+  %12 = trunc i64 %11 to i1
+  switch i32 %.0.i, label %77 [
     i32 0, label %13
     i32 1, label %21
   ]
 
 13:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i26, label %17, label %14
+  br i1 %12, label %14, label %17
 
 14:                                               ; preds = %13
   %15 = lshr i64 %11, 1
   %16 = trunc i64 %15 to i32
-  br label %lean_obj_tag.exit21
+  br label %lean_obj_tag.exit20
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %1, i64 4
-  %.val.i20 = load i32, ptr %18, align 4
-  %19 = lshr i32 %.val.i20, 24
-  br label %lean_obj_tag.exit21
+  %.val.i18 = load i32, ptr %18, align 4
+  %19 = lshr i32 %.val.i18, 24
+  br label %lean_obj_tag.exit20
 
-lean_obj_tag.exit21:                              ; preds = %14, %17
+lean_obj_tag.exit20:                              ; preds = %14, %17
   %.0.i19 = phi i32 [ %16, %14 ], [ %19, %17 ]
   %20 = icmp eq i32 %.0.i19, 0
   br label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 21:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i26, label %25, label %22
+  br i1 %12, label %22, label %25
 
 22:                                               ; preds = %21
   %23 = lshr i64 %11, 1
   %24 = trunc i64 %23 to i32
-  br label %lean_obj_tag.exit25
+  br label %lean_obj_tag.exit23
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %1, i64 4
-  %.val.i24 = load i32, ptr %26, align 4
-  %27 = lshr i32 %.val.i24, 24
-  br label %lean_obj_tag.exit25
+  %.val.i21 = load i32, ptr %26, align 4
+  %27 = lshr i32 %.val.i21, 24
+  br label %lean_obj_tag.exit23
 
-lean_obj_tag.exit25:                              ; preds = %22, %25
-  %.0.i23 = phi i32 [ %24, %22 ], [ %27, %25 ]
-  %28 = icmp eq i32 %.0.i23, 1
+lean_obj_tag.exit23:                              ; preds = %22, %25
+  %.0.i22 = phi i32 [ %24, %22 ], [ %27, %25 ]
+  %28 = icmp eq i32 %.0.i22, 1
   br i1 %28, label %29, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-29:                                               ; preds = %lean_obj_tag.exit25
+29:                                               ; preds = %lean_obj_tag.exit23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1539,9 +1513,8 @@ lean_obj_tag.exit25:                              ; preds = %22, %25
   %.020.i = phi ptr [ %33, %29 ], [ %69, %.backedge.i.backedge ]
   %.018.i = phi ptr [ %31, %29 ], [ %65, %.backedge.i.backedge ]
   %34 = ptrtoint ptr %.018.i to i64
-  %35 = and i64 %34, 1
-  %.not.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i, label %39, label %36
+  %35 = trunc i64 %34 to i1
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.backedge.i
   %37 = lshr i64 %34, 1
@@ -1558,49 +1531,48 @@ lean_obj_tag.exit.i:                              ; preds = %39, %36
   %.0.i23.i = phi i32 [ %38, %36 ], [ %41, %39 ]
   %42 = icmp eq i32 %.0.i23.i, 0
   %43 = ptrtoint ptr %.020.i to i64
-  %44 = and i64 %43, 1
-  %.not.i24.i = icmp eq i64 %44, 0
+  %44 = trunc i64 %43 to i1
   br i1 %42, label %45, label %53
 
 45:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i24.i, label %49, label %46
+  br i1 %44, label %46, label %49
 
 46:                                               ; preds = %45
   %47 = lshr i64 %43, 1
   %48 = trunc i64 %47 to i32
-  br label %lean_obj_tag.exit27.i
+  br label %lean_obj_tag.exit26.i
 
 49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %.020.i, i64 4
-  %.val.i26.i = load i32, ptr %50, align 4
-  %51 = lshr i32 %.val.i26.i, 24
-  br label %lean_obj_tag.exit27.i
+  %.val.i24.i = load i32, ptr %50, align 4
+  %51 = lshr i32 %.val.i24.i, 24
+  br label %lean_obj_tag.exit26.i
 
-lean_obj_tag.exit27.i:                            ; preds = %49, %46
+lean_obj_tag.exit26.i:                            ; preds = %49, %46
   %.0.i25.i = phi i32 [ %48, %46 ], [ %51, %49 ]
   %52 = icmp eq i32 %.0.i25.i, 0
   br label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 53:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i24.i, label %57, label %54
+  br i1 %44, label %54, label %57
 
 54:                                               ; preds = %53
   %55 = lshr i64 %43, 1
   %56 = trunc i64 %55 to i32
-  br label %lean_obj_tag.exit31.i
+  br label %lean_obj_tag.exit29.i
 
 57:                                               ; preds = %53
   %58 = getelementptr i8, ptr %.020.i, i64 4
-  %.val.i30.i = load i32, ptr %58, align 4
-  %59 = lshr i32 %.val.i30.i, 24
-  br label %lean_obj_tag.exit31.i
+  %.val.i27.i = load i32, ptr %58, align 4
+  %59 = lshr i32 %.val.i27.i, 24
+  br label %lean_obj_tag.exit29.i
 
-lean_obj_tag.exit31.i:                            ; preds = %57, %54
-  %.0.i29.i = phi i32 [ %56, %54 ], [ %59, %57 ]
-  %60 = icmp eq i32 %.0.i29.i, 0
+lean_obj_tag.exit29.i:                            ; preds = %57, %54
+  %.0.i28.i = phi i32 [ %56, %54 ], [ %59, %57 ]
+  %60 = icmp eq i32 %.0.i28.i, 0
   br i1 %60, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit, label %61
 
-61:                                               ; preds = %lean_obj_tag.exit31.i
+61:                                               ; preds = %lean_obj_tag.exit29.i
   %62 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !10
   %64 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
@@ -1610,147 +1582,141 @@ lean_obj_tag.exit31.i:                            ; preds = %57, %54
   %68 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !10
   %70 = ptrtoint ptr %63 to i64
-  %71 = and i64 %70, 1
-  %72 = icmp ne i64 %71, 0
-  %73 = ptrtoint ptr %67 to i64
-  %74 = and i64 %73, 1
-  %75 = icmp ne i64 %74, 0
-  %or.cond.i = select i1 %72, i1 %75, i1 false, !prof !16
-  br i1 %or.cond.i, label %76, label %lean_nat_eq.exit.i, !prof !16
+  %71 = trunc i64 %70 to i1
+  %72 = ptrtoint ptr %67 to i64
+  %73 = trunc i64 %72 to i1
+  %or.cond.i = select i1 %71, i1 %73, i1 false, !prof !16
+  br i1 %or.cond.i, label %74, label %lean_nat_eq.exit.i, !prof !16
 
-76:                                               ; preds = %61
-  %77 = icmp eq ptr %63, %67
-  br i1 %77, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+74:                                               ; preds = %61
+  %75 = icmp eq ptr %63, %67
+  br i1 %75, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 lean_nat_eq.exit.i:                               ; preds = %61
-  %78 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %63, ptr noundef %67) #7
-  br i1 %78, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+  %76 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %63, ptr noundef %67) #7
+  br i1 %76, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-.backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %76
+.backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %74
   br label %.backedge.i
 
-79:                                               ; preds = %lean_obj_tag.exit
-  br i1 %.not.i26, label %83, label %80
+77:                                               ; preds = %lean_obj_tag.exit
+  br i1 %12, label %78, label %81
 
-80:                                               ; preds = %79
-  %81 = lshr i64 %11, 1
-  %82 = trunc i64 %81 to i32
-  br label %lean_obj_tag.exit29
+78:                                               ; preds = %77
+  %79 = lshr i64 %11, 1
+  %80 = trunc i64 %79 to i32
+  br label %lean_obj_tag.exit26
 
-83:                                               ; preds = %79
-  %84 = getelementptr i8, ptr %1, i64 4
-  %.val.i28 = load i32, ptr %84, align 4
-  %85 = lshr i32 %.val.i28, 24
-  br label %lean_obj_tag.exit29
+81:                                               ; preds = %77
+  %82 = getelementptr i8, ptr %1, i64 4
+  %.val.i24 = load i32, ptr %82, align 4
+  %83 = lshr i32 %.val.i24, 24
+  br label %lean_obj_tag.exit26
 
-lean_obj_tag.exit29:                              ; preds = %80, %83
-  %.0.i27 = phi i32 [ %82, %80 ], [ %85, %83 ]
-  %86 = icmp eq i32 %.0.i27, 2
-  br i1 %86, label %87, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+lean_obj_tag.exit26:                              ; preds = %78, %81
+  %.0.i25 = phi i32 [ %80, %78 ], [ %83, %81 ]
+  %84 = icmp eq i32 %.0.i25, 2
+  br i1 %84, label %85, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-87:                                               ; preds = %lean_obj_tag.exit29
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+85:                                               ; preds = %lean_obj_tag.exit26
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !10
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !10
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !10
-  br label %.backedge.i41
+  br label %.backedge.i38
 
-.backedge.i41:                                    ; preds = %.backedge.i41.backedge, %87
-  %.020.i30 = phi ptr [ %91, %87 ], [ %127, %.backedge.i41.backedge ]
-  %.018.i31 = phi ptr [ %89, %87 ], [ %123, %.backedge.i41.backedge ]
-  %92 = ptrtoint ptr %.018.i31 to i64
-  %93 = and i64 %92, 1
-  %.not.i.i32 = icmp eq i64 %93, 0
-  br i1 %.not.i.i32, label %97, label %94
+.backedge.i38:                                    ; preds = %.backedge.i38.backedge, %85
+  %.020.i27 = phi ptr [ %89, %85 ], [ %125, %.backedge.i38.backedge ]
+  %.018.i28 = phi ptr [ %87, %85 ], [ %121, %.backedge.i38.backedge ]
+  %90 = ptrtoint ptr %.018.i28 to i64
+  %91 = trunc i64 %90 to i1
+  br i1 %91, label %92, label %95
 
-94:                                               ; preds = %.backedge.i41
-  %95 = lshr i64 %92, 1
-  %96 = trunc i64 %95 to i32
-  br label %lean_obj_tag.exit.i33
+92:                                               ; preds = %.backedge.i38
+  %93 = lshr i64 %90, 1
+  %94 = trunc i64 %93 to i32
+  br label %lean_obj_tag.exit.i30
 
-97:                                               ; preds = %.backedge.i41
-  %98 = getelementptr i8, ptr %.018.i31, i64 4
-  %.val.i.i48 = load i32, ptr %98, align 4
-  %99 = lshr i32 %.val.i.i48, 24
-  br label %lean_obj_tag.exit.i33
+95:                                               ; preds = %.backedge.i38
+  %96 = getelementptr i8, ptr %.018.i28, i64 4
+  %.val.i.i29 = load i32, ptr %96, align 4
+  %97 = lshr i32 %.val.i.i29, 24
+  br label %lean_obj_tag.exit.i30
 
-lean_obj_tag.exit.i33:                            ; preds = %97, %94
-  %.0.i23.i34 = phi i32 [ %96, %94 ], [ %99, %97 ]
-  %100 = icmp eq i32 %.0.i23.i34, 0
-  %101 = ptrtoint ptr %.020.i30 to i64
-  %102 = and i64 %101, 1
-  %.not.i24.i43 = icmp eq i64 %102, 0
-  br i1 %100, label %103, label %111
+lean_obj_tag.exit.i30:                            ; preds = %95, %92
+  %.0.i23.i31 = phi i32 [ %94, %92 ], [ %97, %95 ]
+  %98 = icmp eq i32 %.0.i23.i31, 0
+  %99 = ptrtoint ptr %.020.i27 to i64
+  %100 = trunc i64 %99 to i1
+  br i1 %98, label %101, label %109
 
-103:                                              ; preds = %lean_obj_tag.exit.i33
-  br i1 %.not.i24.i43, label %107, label %104
+101:                                              ; preds = %lean_obj_tag.exit.i30
+  br i1 %100, label %102, label %105
 
-104:                                              ; preds = %103
-  %105 = lshr i64 %101, 1
-  %106 = trunc i64 %105 to i32
-  br label %lean_obj_tag.exit27.i44
+102:                                              ; preds = %101
+  %103 = lshr i64 %99, 1
+  %104 = trunc i64 %103 to i32
+  br label %lean_obj_tag.exit26.i40
 
-107:                                              ; preds = %103
-  %108 = getelementptr i8, ptr %.020.i30, i64 4
-  %.val.i26.i47 = load i32, ptr %108, align 4
-  %109 = lshr i32 %.val.i26.i47, 24
-  br label %lean_obj_tag.exit27.i44
+105:                                              ; preds = %101
+  %106 = getelementptr i8, ptr %.020.i27, i64 4
+  %.val.i24.i39 = load i32, ptr %106, align 4
+  %107 = lshr i32 %.val.i24.i39, 24
+  br label %lean_obj_tag.exit26.i40
 
-lean_obj_tag.exit27.i44:                          ; preds = %107, %104
-  %.0.i25.i45 = phi i32 [ %106, %104 ], [ %109, %107 ]
-  %110 = icmp eq i32 %.0.i25.i45, 0
+lean_obj_tag.exit26.i40:                          ; preds = %105, %102
+  %.0.i25.i41 = phi i32 [ %104, %102 ], [ %107, %105 ]
+  %108 = icmp eq i32 %.0.i25.i41, 0
   br label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-111:                                              ; preds = %lean_obj_tag.exit.i33
-  br i1 %.not.i24.i43, label %115, label %112
+109:                                              ; preds = %lean_obj_tag.exit.i30
+  br i1 %100, label %110, label %113
 
-112:                                              ; preds = %111
-  %113 = lshr i64 %101, 1
-  %114 = trunc i64 %113 to i32
-  br label %lean_obj_tag.exit31.i36
+110:                                              ; preds = %109
+  %111 = lshr i64 %99, 1
+  %112 = trunc i64 %111 to i32
+  br label %lean_obj_tag.exit29.i33
 
-115:                                              ; preds = %111
-  %116 = getelementptr i8, ptr %.020.i30, i64 4
-  %.val.i30.i42 = load i32, ptr %116, align 4
-  %117 = lshr i32 %.val.i30.i42, 24
-  br label %lean_obj_tag.exit31.i36
+113:                                              ; preds = %109
+  %114 = getelementptr i8, ptr %.020.i27, i64 4
+  %.val.i27.i32 = load i32, ptr %114, align 4
+  %115 = lshr i32 %.val.i27.i32, 24
+  br label %lean_obj_tag.exit29.i33
 
-lean_obj_tag.exit31.i36:                          ; preds = %115, %112
-  %.0.i29.i37 = phi i32 [ %114, %112 ], [ %117, %115 ]
-  %118 = icmp eq i32 %.0.i29.i37, 0
-  br i1 %118, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit, label %119
+lean_obj_tag.exit29.i33:                          ; preds = %113, %110
+  %.0.i28.i34 = phi i32 [ %112, %110 ], [ %115, %113 ]
+  %116 = icmp eq i32 %.0.i28.i34, 0
+  br i1 %116, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit, label %117
 
-119:                                              ; preds = %lean_obj_tag.exit31.i36
-  %120 = getelementptr inbounds nuw i8, ptr %.018.i31, i64 8
+117:                                              ; preds = %lean_obj_tag.exit29.i33
+  %118 = getelementptr inbounds nuw i8, ptr %.018.i28, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !10
+  %120 = getelementptr inbounds nuw i8, ptr %.018.i28, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !10
-  %122 = getelementptr inbounds nuw i8, ptr %.018.i31, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.020.i27, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !10
-  %124 = getelementptr inbounds nuw i8, ptr %.020.i30, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.020.i27, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !10
-  %126 = getelementptr inbounds nuw i8, ptr %.020.i30, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !10
-  %128 = ptrtoint ptr %121 to i64
-  %129 = and i64 %128, 1
-  %130 = icmp ne i64 %129, 0
-  %131 = ptrtoint ptr %125 to i64
-  %132 = and i64 %131, 1
-  %133 = icmp ne i64 %132, 0
-  %or.cond.i38 = select i1 %130, i1 %133, i1 false, !prof !16
-  br i1 %or.cond.i38, label %134, label %lean_nat_eq.exit.i39, !prof !16
+  %126 = ptrtoint ptr %119 to i64
+  %127 = trunc i64 %126 to i1
+  %128 = ptrtoint ptr %123 to i64
+  %129 = trunc i64 %128 to i1
+  %or.cond.i35 = select i1 %127, i1 %129, i1 false, !prof !16
+  br i1 %or.cond.i35, label %130, label %lean_nat_eq.exit.i36, !prof !16
 
-134:                                              ; preds = %119
-  %135 = icmp eq ptr %121, %125
-  br i1 %135, label %.backedge.i41.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+130:                                              ; preds = %117
+  %131 = icmp eq ptr %119, %123
+  br i1 %131, label %.backedge.i38.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-lean_nat_eq.exit.i39:                             ; preds = %119
-  %136 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %121, ptr noundef %125) #7
-  br i1 %136, label %.backedge.i41.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+lean_nat_eq.exit.i36:                             ; preds = %117
+  %132 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %119, ptr noundef %123) #7
+  br i1 %132, label %.backedge.i38.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-.backedge.i41.backedge:                           ; preds = %lean_nat_eq.exit.i39, %134
-  br label %.backedge.i41
+.backedge.i38.backedge:                           ; preds = %lean_nat_eq.exit.i36, %130
+  br label %.backedge.i38
 
-l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_nat_eq.exit.i, %76, %lean_obj_tag.exit31.i, %lean_nat_eq.exit.i39, %134, %lean_obj_tag.exit31.i36, %lean_obj_tag.exit27.i44, %lean_obj_tag.exit27.i, %lean_obj_tag.exit29, %lean_obj_tag.exit25, %lean_obj_tag.exit21
-  %.0.shrunk = phi i1 [ false, %lean_nat_eq.exit.i39 ], [ false, %lean_obj_tag.exit25 ], [ %20, %lean_obj_tag.exit21 ], [ false, %lean_obj_tag.exit29 ], [ %52, %lean_obj_tag.exit27.i ], [ %110, %lean_obj_tag.exit27.i44 ], [ false, %lean_obj_tag.exit31.i36 ], [ false, %134 ], [ false, %lean_obj_tag.exit31.i ], [ false, %76 ], [ false, %lean_nat_eq.exit.i ]
+l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_nat_eq.exit.i, %74, %lean_obj_tag.exit29.i, %lean_nat_eq.exit.i36, %130, %lean_obj_tag.exit29.i33, %lean_obj_tag.exit26.i40, %lean_obj_tag.exit26.i, %lean_obj_tag.exit26, %lean_obj_tag.exit23, %lean_obj_tag.exit20
+  %.0.shrunk = phi i1 [ false, %lean_nat_eq.exit.i36 ], [ false, %lean_obj_tag.exit23 ], [ %20, %lean_obj_tag.exit20 ], [ false, %lean_obj_tag.exit26 ], [ %52, %lean_obj_tag.exit26.i ], [ %108, %lean_obj_tag.exit26.i40 ], [ false, %lean_obj_tag.exit29.i33 ], [ false, %130 ], [ false, %lean_obj_tag.exit29.i ], [ false, %74 ], [ false, %lean_nat_eq.exit.i ]
   %.0 = zext i1 %.0.shrunk to i8
   ret i8 %.0
 }
@@ -1763,9 +1729,8 @@ define nonnull ptr @l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_Me
   %.020.i = phi ptr [ %1, %2 ], [ %39, %.backedge.i.backedge ]
   %.018.i = phi ptr [ %0, %2 ], [ %35, %.backedge.i.backedge ]
   %3 = ptrtoint ptr %.018.i to i64
-  %4 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %8, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %8
 
 5:                                                ; preds = %.backedge.i
   %6 = lshr i64 %3, 1
@@ -1782,50 +1747,49 @@ lean_obj_tag.exit.i:                              ; preds = %8, %5
   %.0.i23.i = phi i32 [ %7, %5 ], [ %10, %8 ]
   %11 = icmp eq i32 %.0.i23.i, 0
   %12 = ptrtoint ptr %.020.i to i64
-  %13 = and i64 %12, 1
-  %.not.i24.i = icmp eq i64 %13, 0
+  %13 = trunc i64 %12 to i1
   br i1 %11, label %14, label %23
 
 14:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i24.i, label %18, label %15
+  br i1 %13, label %15, label %18
 
 15:                                               ; preds = %14
   %16 = lshr i64 %12, 1
   %17 = trunc i64 %16 to i32
-  br label %lean_obj_tag.exit27.i
+  br label %lean_obj_tag.exit26.i
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %.020.i, i64 4
-  %.val.i26.i = load i32, ptr %19, align 4
-  %20 = lshr i32 %.val.i26.i, 24
-  br label %lean_obj_tag.exit27.i
+  %.val.i24.i = load i32, ptr %19, align 4
+  %20 = lshr i32 %.val.i24.i, 24
+  br label %lean_obj_tag.exit26.i
 
-lean_obj_tag.exit27.i:                            ; preds = %18, %15
+lean_obj_tag.exit26.i:                            ; preds = %18, %15
   %.0.i25.i = phi i32 [ %17, %15 ], [ %20, %18 ]
   %21 = icmp eq i32 %.0.i25.i, 0
   %22 = select i1 %21, i64 3, i64 1
   br label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 23:                                               ; preds = %lean_obj_tag.exit.i
-  br i1 %.not.i24.i, label %27, label %24
+  br i1 %13, label %24, label %27
 
 24:                                               ; preds = %23
   %25 = lshr i64 %12, 1
   %26 = trunc i64 %25 to i32
-  br label %lean_obj_tag.exit31.i
+  br label %lean_obj_tag.exit29.i
 
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %.020.i, i64 4
-  %.val.i30.i = load i32, ptr %28, align 4
-  %29 = lshr i32 %.val.i30.i, 24
-  br label %lean_obj_tag.exit31.i
+  %.val.i27.i = load i32, ptr %28, align 4
+  %29 = lshr i32 %.val.i27.i, 24
+  br label %lean_obj_tag.exit29.i
 
-lean_obj_tag.exit31.i:                            ; preds = %27, %24
-  %.0.i29.i = phi i32 [ %26, %24 ], [ %29, %27 ]
-  %30 = icmp eq i32 %.0.i29.i, 0
+lean_obj_tag.exit29.i:                            ; preds = %27, %24
+  %.0.i28.i = phi i32 [ %26, %24 ], [ %29, %27 ]
+  %30 = icmp eq i32 %.0.i28.i, 0
   br i1 %30, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit, label %31
 
-31:                                               ; preds = %lean_obj_tag.exit31.i
+31:                                               ; preds = %lean_obj_tag.exit29.i
   %32 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
@@ -1835,86 +1799,81 @@ lean_obj_tag.exit31.i:                            ; preds = %27, %24
   %38 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = ptrtoint ptr %33 to i64
-  %41 = and i64 %40, 1
-  %42 = icmp ne i64 %41, 0
-  %43 = ptrtoint ptr %37 to i64
-  %44 = and i64 %43, 1
-  %45 = icmp ne i64 %44, 0
-  %or.cond.i = select i1 %42, i1 %45, i1 false, !prof !16
-  br i1 %or.cond.i, label %46, label %lean_nat_eq.exit.i, !prof !16
+  %41 = trunc i64 %40 to i1
+  %42 = ptrtoint ptr %37 to i64
+  %43 = trunc i64 %42 to i1
+  %or.cond.i = select i1 %41, i1 %43, i1 false, !prof !16
+  br i1 %or.cond.i, label %44, label %lean_nat_eq.exit.i, !prof !16
 
-46:                                               ; preds = %31
-  %47 = icmp eq ptr %33, %37
-  br i1 %47, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+44:                                               ; preds = %31
+  %45 = icmp eq ptr %33, %37
+  br i1 %45, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 lean_nat_eq.exit.i:                               ; preds = %31
-  %48 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %33, ptr noundef %37) #7
-  br i1 %48, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+  %46 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %33, ptr noundef %37) #7
+  br i1 %46, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
-.backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %46
+.backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %44
   br label %.backedge.i
 
-l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_obj_tag.exit31.i, %46, %lean_nat_eq.exit.i, %lean_obj_tag.exit27.i
-  %.1.i = phi i64 [ %22, %lean_obj_tag.exit27.i ], [ 1, %lean_nat_eq.exit.i ], [ 1, %46 ], [ 1, %lean_obj_tag.exit31.i ]
-  %49 = ptrtoint ptr %1 to i64
-  %50 = and i64 %49, 1
-  %.not = icmp eq i64 %50, 0
-  br i1 %.not, label %51, label %lean_dec.exit5
+l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_obj_tag.exit29.i, %44, %lean_nat_eq.exit.i, %lean_obj_tag.exit26.i
+  %.1.i = phi i64 [ %22, %lean_obj_tag.exit26.i ], [ 1, %lean_nat_eq.exit.i ], [ 1, %44 ], [ 1, %lean_obj_tag.exit29.i ]
+  %47 = ptrtoint ptr %1 to i64
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %lean_dec.exit5, label %49
 
-51:                                               ; preds = %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
-  %52 = load i32, ptr %1, align 4, !tbaa !4
-  %53 = icmp sgt i32 %52, 1
-  br i1 %53, label %54, label %56, !prof !9
+49:                                               ; preds = %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+  %50 = load i32, ptr %1, align 4, !tbaa !4
+  %51 = icmp sgt i32 %50, 1
+  br i1 %51, label %52, label %54, !prof !9
 
-54:                                               ; preds = %51
-  %55 = add nsw i32 %52, -1
-  store i32 %55, ptr %1, align 4, !tbaa !4
+52:                                               ; preds = %49
+  %53 = add nsw i32 %50, -1
+  store i32 %53, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit5
 
-56:                                               ; preds = %51
-  %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %57
+54:                                               ; preds = %49
+  %.not.i = icmp eq i32 %50, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %55
 
-57:                                               ; preds = %56
+55:                                               ; preds = %54
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #7
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %57, %56, %54, %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
-  %58 = ptrtoint ptr %0 to i64
-  %59 = and i64 %58, 1
-  %.not8 = icmp eq i64 %59, 0
-  br i1 %.not8, label %60, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %55, %54, %52, %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
+  %56 = ptrtoint ptr %0 to i64
+  %57 = trunc i64 %56 to i1
+  br i1 %57, label %lean_dec.exit, label %58
 
-60:                                               ; preds = %lean_dec.exit5
-  %61 = load i32, ptr %0, align 4, !tbaa !4
-  %62 = icmp sgt i32 %61, 1
-  br i1 %62, label %63, label %65, !prof !9
+58:                                               ; preds = %lean_dec.exit5
+  %59 = load i32, ptr %0, align 4, !tbaa !4
+  %60 = icmp sgt i32 %59, 1
+  br i1 %60, label %61, label %63, !prof !9
 
-63:                                               ; preds = %60
-  %64 = add nsw i32 %61, -1
-  store i32 %64, ptr %0, align 4, !tbaa !4
+61:                                               ; preds = %58
+  %62 = add nsw i32 %59, -1
+  store i32 %62, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-65:                                               ; preds = %60
-  %.not.i6 = icmp eq i32 %61, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %66
+63:                                               ; preds = %58
+  %.not.i6 = icmp eq i32 %59, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %64
 
-66:                                               ; preds = %65
+64:                                               ; preds = %63
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %66, %65, %63, %lean_dec.exit5
-  %67 = inttoptr i64 %.1.i to ptr
-  ret ptr %67
+lean_dec.exit:                                    ; preds = %64, %63, %61, %lean_dec.exit5
+  %65 = inttoptr i64 %.1.i to ptr
+  ret ptr %65
 }
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call zeroext i8 @l_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231_(ptr noundef %0, ptr noundef %1)
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit5
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit5, label %6
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %1, align 4, !tbaa !4
@@ -1936,9 +1895,8 @@ define nonnull ptr @l_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231_
 
 lean_dec.exit5:                                   ; preds = %12, %11, %9, %2
   %13 = ptrtoint ptr %0 to i64
-  %14 = and i64 %13, 1
-  %.not8 = icmp eq i64 %14, 0
-  br i1 %.not8, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit5
   %16 = load i32, ptr %0, align 4, !tbaa !4

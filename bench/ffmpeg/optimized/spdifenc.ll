@@ -484,7 +484,7 @@ define internal range(i32 -1094995529, 1) i32 @spdif_header_mpeg(ptr noundef %0,
   %22 = zext nneg i8 %21 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.14, i32 noundef %11, i32 noundef %14, i32 noundef %22) #8
   %23 = icmp eq i32 %11, 2
-  %24 = icmp ne i8 %21, 0
+  %24 = trunc i8 %20 to i1
   %or.cond3 = and i1 %23, %24
   br i1 %or.cond3, label %25, label %28
 

@@ -186,230 +186,227 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %_ZN1
   %35 = load volatile i8, ptr @_ZN13ThreadIdTable9_has_workE, align 1
   %36 = load i8, ptr @_ZN26ProtectionDomainCacheTable13_dead_entriesE, align 1
   %37 = or i8 %36, %35
-  %38 = and i8 %37, 1
-  %39 = icmp ne i8 %38, 0
-  %40 = or i1 %19, %39
-  %41 = or i1 %18, %40
-  %42 = or i1 %26, %41
-  %43 = or i1 %30, %42
-  %44 = or i1 %31, %43
-  %45 = or i1 %32, %44
-  %46 = or i1 %33, %45
-  %47 = or i1 %34, %46
-  %48 = call noundef zeroext i1 @_ZN10OopStorage26has_cleanup_work_and_resetEv() #5
-  %49 = or i1 %48, %47
-  %50 = load ptr, ptr @_ZN10JavaThread16_oop_handle_listE, align 8
-  %51 = icmp ne ptr %50, null
-  %52 = or i1 %51, %49
-  %53 = load i8, ptr @_ZN20ClassLoaderDataGraph25_safepoint_cleanup_neededE, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %55, label %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
+  %38 = trunc i8 %37 to i1
+  %39 = or i1 %19, %38
+  %40 = or i1 %18, %39
+  %41 = or i1 %26, %40
+  %42 = or i1 %30, %41
+  %43 = or i1 %31, %42
+  %44 = or i1 %32, %43
+  %45 = or i1 %33, %44
+  %46 = or i1 %34, %45
+  %47 = call noundef zeroext i1 @_ZN10OopStorage26has_cleanup_work_and_resetEv() #5
+  %48 = or i1 %47, %46
+  %49 = load ptr, ptr @_ZN10JavaThread16_oop_handle_listE, align 8
+  %50 = icmp ne ptr %49, null
+  %51 = or i1 %50, %48
+  %52 = load i8, ptr @_ZN20ClassLoaderDataGraph25_safepoint_cleanup_neededE, align 1
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
 
-55:                                               ; preds = %24
-  %56 = load i8, ptr @_ZN20ClassLoaderDataGraph30_should_clean_deallocate_listsE, align 1
-  %57 = trunc i8 %56 to i1
-  br i1 %57, label %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit, label %58
+54:                                               ; preds = %24
+  %55 = load i8, ptr @_ZN20ClassLoaderDataGraph30_should_clean_deallocate_listsE, align 1
+  %56 = trunc i8 %55 to i1
+  br i1 %56, label %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit, label %57
 
-58:                                               ; preds = %55
-  %59 = load i8, ptr @_ZN13InstanceKlass31_should_clean_previous_versionsE, align 1
-  %60 = trunc i8 %59 to i1
+57:                                               ; preds = %54
+  %58 = load i8, ptr @_ZN13InstanceKlass31_should_clean_previous_versionsE, align 1
+  %59 = trunc i8 %58 to i1
   br label %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
 
-_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit: ; preds = %24, %55, %58
-  %61 = phi i1 [ false, %24 ], [ true, %55 ], [ %60, %58 ]
+_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit: ; preds = %24, %54, %57
+  %60 = phi i1 [ false, %24 ], [ true, %54 ], [ %59, %57 ]
   store i8 0, ptr @_ZN20ClassLoaderDataGraph25_safepoint_cleanup_neededE, align 1
-  %62 = or i1 %52, %61
-  %63 = call noundef zeroext i1 @_ZN11JvmtiTagMap32has_object_free_events_and_resetEv() #5
-  %64 = or i1 %62, %63
-  %65 = call noundef zeroext i1 @_ZN11OopMapCache16has_cleanup_workEv() #5
-  %66 = or i1 %64, %65
-  br i1 %66, label %69, label %_ZN13MonitorLocker4waitEl.exit
+  %61 = or i1 %51, %60
+  %62 = call noundef zeroext i1 @_ZN11JvmtiTagMap32has_object_free_events_and_resetEv() #5
+  %63 = or i1 %61, %62
+  %64 = call noundef zeroext i1 @_ZN11OopMapCache16has_cleanup_workEv() #5
+  %65 = or i1 %63, %64
+  br i1 %65, label %68, label %_ZN13MonitorLocker4waitEl.exit
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
-  %67 = load i64, ptr @ServiceThreadCleanupInterval, align 8
-  %68 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef %67) #5
+  %66 = load i64, ptr @ServiceThreadCleanupInterval, align 8
+  %67 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef %66) #5
   br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, !llvm.loop !7
 
-69:                                               ; preds = %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
-  %70 = trunc i8 %35 to i1
-  %71 = trunc i8 %36 to i1
-  br i1 %19, label %72, label %73
+68:                                               ; preds = %_ZN20ClassLoaderDataGraph33should_clean_metaspaces_and_resetEv.exit
+  %69 = trunc i8 %35 to i1
+  %70 = trunc i8 %36 to i1
+  br i1 %19, label %71, label %72
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void @_ZN23JvmtiDeferredEventQueue7dequeueEv(ptr dead_on_unwind nonnull writable sret(%class.JvmtiDeferredEvent) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) @_ZN13ServiceThread20_jvmti_service_queueE) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store ptr %3, ptr @_ZN13ServiceThread12_jvmti_eventE, align 8
-  br label %73
+  br label %72
 
-73:                                               ; preds = %72, %69
-  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %74
+72:                                               ; preds = %71, %68
+  br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %73
 
-74:                                               ; preds = %73
+73:                                               ; preds = %72
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %11) #5
   br label %_ZN13MonitorLockerD2Ev.exit
 
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %73, %74
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %72, %73
   store volatile i32 6, ptr %6, align 4
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %75 = load volatile i64, ptr %7, align 8
+  %74 = load volatile i64, ptr %7, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %76 = and i64 %75, 1
-  %.not.i.i27 = icmp eq i64 %76, 0
-  br i1 %.not.i.i27, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %77
+  %75 = trunc i64 %74 to i1
+  br i1 %75, label %76, label %_ZN15ThreadBlockInVMD2Ev.exit
 
-77:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %78 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %78, 0
-  br i1 %.not5.i.i, label %79, label %84
+76:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
+  %77 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %.not.i.i.i = icmp eq i32 %77, 0
+  br i1 %.not.i.i.i, label %78, label %83
 
-79:                                               ; preds = %77
-  %80 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %8, i1 noundef zeroext false, i1 noundef zeroext false) #5
-  br i1 %80, label %84, label %81
+78:                                               ; preds = %76
+  %79 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %8, i1 noundef zeroext false, i1 noundef zeroext false) #5
+  br i1 %79, label %83, label %80
 
-81:                                               ; preds = %79
-  %82 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %0) #5
-  br i1 %82, label %83, label %84
+80:                                               ; preds = %78
+  %81 = call noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10JavaThread(ptr noundef nonnull %0) #5
+  br i1 %81, label %82, label %83
 
-83:                                               ; preds = %81
+82:                                               ; preds = %80
   call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-84:                                               ; preds = %81, %79, %77
-  %85 = load volatile i64, ptr %7, align 8
+83:                                               ; preds = %80, %78, %76
+  %84 = load volatile i64, ptr %7, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %86 = and i64 %85, 1
-  %.not.i1.i = icmp eq i64 %86, 0
-  br i1 %.not.i1.i, label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit, label %87
+  %85 = trunc i64 %84 to i1
+  br i1 %85, label %86, label %_ZN15ThreadBlockInVMD2Ev.exit
 
-87:                                               ; preds = %84
+86:                                               ; preds = %83
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext false) #5
-  br label %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+  br label %_ZN15ThreadBlockInVMD2Ev.exit
 
-_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %83, %84, %87
-  br i1 %31, label %88, label %89
+_ZN15ThreadBlockInVMD2Ev.exit:                    ; preds = %_ZN13MonitorLockerD2Ev.exit, %82, %83, %86
+  br i1 %31, label %87, label %88
 
-88:                                               ; preds = %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
+87:                                               ; preds = %_ZN15ThreadBlockInVMD2Ev.exit
   call void @_ZN11StringTable18do_concurrent_workEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %89
+  br label %88
 
-89:                                               ; preds = %88, %_ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit
-  br i1 %32, label %90, label %91
+88:                                               ; preds = %87, %_ZN15ThreadBlockInVMD2Ev.exit
+  br i1 %32, label %89, label %90
 
-90:                                               ; preds = %89
+89:                                               ; preds = %88
   call void @_ZN11SymbolTable18do_concurrent_workEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %91
+  br label %90
 
-91:                                               ; preds = %90, %89
-  br i1 %33, label %92, label %93
+90:                                               ; preds = %89, %88
+  br i1 %33, label %91, label %92
 
-92:                                               ; preds = %91
+91:                                               ; preds = %90
   call void @_ZN16FinalizerService18do_concurrent_workEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %93
+  br label %92
 
-93:                                               ; preds = %92, %91
-  br i1 %19, label %94, label %96
+92:                                               ; preds = %91, %90
+  br i1 %19, label %93, label %95
 
-94:                                               ; preds = %93
-  %95 = load ptr, ptr @_ZN13ServiceThread12_jvmti_eventE, align 8
-  call void @_ZN18JvmtiDeferredEvent4postEv(ptr noundef nonnull align 8 dereferenceable(32) %95) #5
+93:                                               ; preds = %92
+  %94 = load ptr, ptr @_ZN13ServiceThread12_jvmti_eventE, align 8
+  call void @_ZN18JvmtiDeferredEvent4postEv(ptr noundef nonnull align 8 dereferenceable(32) %94) #5
   store ptr null, ptr @_ZN13ServiceThread12_jvmti_eventE, align 8
-  br label %96
+  br label %95
 
-96:                                               ; preds = %94, %93
-  %97 = load i8, ptr @UseNotificationThread, align 1
-  %98 = trunc i8 %97 to i1
-  br i1 %98, label %107, label %99
+95:                                               ; preds = %93, %92
+  %96 = load i8, ptr @UseNotificationThread, align 1
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %106, label %98
 
-99:                                               ; preds = %96
-  br i1 %18, label %100, label %101
+98:                                               ; preds = %95
+  br i1 %18, label %99, label %100
 
-100:                                              ; preds = %99
+99:                                               ; preds = %98
   call void @_ZN17LowMemoryDetector22process_sensor_changesEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %101
+  br label %100
 
-101:                                              ; preds = %100, %99
-  br i1 %26, label %102, label %104
+100:                                              ; preds = %99, %98
+  br i1 %26, label %101, label %103
 
-102:                                              ; preds = %101
+101:                                              ; preds = %100
   call void @_ZN10GCNotifier16sendNotificationEP10JavaThread(ptr noundef %1) #5
-  %103 = load ptr, ptr %9, align 8
-  %.not = icmp eq ptr %103, null
-  br i1 %.not, label %104, label %124
+  %102 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %102, null
+  br i1 %.not, label %103, label %123
 
-104:                                              ; preds = %102, %101
-  br i1 %30, label %105, label %107
+103:                                              ; preds = %101, %100
+  br i1 %30, label %104, label %106
 
-105:                                              ; preds = %104
+104:                                              ; preds = %103
   call void @_ZN11DCmdFactory17send_notificationEP10JavaThread(ptr noundef %1) #5
-  %106 = load ptr, ptr %9, align 8
-  %.not34 = icmp eq ptr %106, null
-  br i1 %.not34, label %107, label %124
+  %105 = load ptr, ptr %9, align 8
+  %.not33 = icmp eq ptr %105, null
+  br i1 %.not33, label %106, label %123
 
-107:                                              ; preds = %104, %105, %96
-  br i1 %34, label %108, label %109
+106:                                              ; preds = %103, %104, %95
+  br i1 %34, label %107, label %108
 
-108:                                              ; preds = %107
+107:                                              ; preds = %106
   call void @_ZN19ResolvedMethodTable18do_concurrent_workEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %109
+  br label %108
 
-109:                                              ; preds = %108, %107
-  br i1 %70, label %110, label %111
+108:                                              ; preds = %107, %106
+  br i1 %69, label %109, label %110
 
-110:                                              ; preds = %109
+109:                                              ; preds = %108
   call void @_ZN13ThreadIdTable18do_concurrent_workEP10JavaThread(ptr noundef nonnull %0) #5
-  br label %111
+  br label %110
 
-111:                                              ; preds = %110, %109
-  br i1 %71, label %112, label %113
+110:                                              ; preds = %109, %108
+  br i1 %70, label %111, label %112
 
-112:                                              ; preds = %111
+111:                                              ; preds = %110
   call void @_ZN26ProtectionDomainCacheTable6unlinkEv() #5
-  br label %113
+  br label %112
 
-113:                                              ; preds = %112, %111
-  br i1 %48, label %.preheader, label %_ZL19cleanup_oopstoragesv.exit
+112:                                              ; preds = %111, %110
+  br i1 %47, label %.preheader, label %_ZL19cleanup_oopstoragesv.exit
 
-.preheader:                                       ; preds = %113, %.preheader
-  %.sroa.0.07.i = phi i32 [ %116, %.preheader ], [ 0, %113 ]
-  %114 = call noundef ptr @_ZN13OopStorageSet11get_storageINS_2IdEEEP10OopStorageT_(i32 noundef %.sroa.0.07.i) #5
-  %115 = call noundef zeroext i1 @_ZN10OopStorage19delete_empty_blocksEv(ptr noundef nonnull align 8 dereferenceable(126) %114) #5
-  %116 = add nuw nsw i32 %.sroa.0.07.i, 1
-  %.not.i = icmp eq i32 %116, 15
+.preheader:                                       ; preds = %112, %.preheader
+  %.sroa.0.07.i = phi i32 [ %115, %.preheader ], [ 0, %112 ]
+  %113 = call noundef ptr @_ZN13OopStorageSet11get_storageINS_2IdEEEP10OopStorageT_(i32 noundef %.sroa.0.07.i) #5
+  %114 = call noundef zeroext i1 @_ZN10OopStorage19delete_empty_blocksEv(ptr noundef nonnull align 8 dereferenceable(126) %113) #5
+  %115 = add nuw nsw i32 %.sroa.0.07.i, 1
+  %.not.i = icmp eq i32 %115, 15
   br i1 %.not.i, label %_ZL19cleanup_oopstoragesv.exit, label %.preheader
 
-_ZL19cleanup_oopstoragesv.exit:                   ; preds = %.preheader, %113
-  br i1 %51, label %117, label %118
+_ZL19cleanup_oopstoragesv.exit:                   ; preds = %.preheader, %112
+  br i1 %50, label %116, label %117
 
-117:                                              ; preds = %_ZL19cleanup_oopstoragesv.exit
+116:                                              ; preds = %_ZL19cleanup_oopstoragesv.exit
   call void @_ZN10JavaThread19release_oop_handlesEv() #5
-  br label %118
+  br label %117
 
-118:                                              ; preds = %117, %_ZL19cleanup_oopstoragesv.exit
-  br i1 %61, label %119, label %120
+117:                                              ; preds = %116, %_ZL19cleanup_oopstoragesv.exit
+  br i1 %60, label %118, label %119
 
-119:                                              ; preds = %118
+118:                                              ; preds = %117
   call void @_ZN20ClassLoaderDataGraph30safepoint_and_clean_metaspacesEv() #5
-  br label %120
+  br label %119
 
-120:                                              ; preds = %119, %118
-  br i1 %63, label %121, label %122
+119:                                              ; preds = %118, %117
+  br i1 %62, label %120, label %121
 
-121:                                              ; preds = %120
+120:                                              ; preds = %119
   call void @_ZN11JvmtiTagMap28flush_all_object_free_eventsEv() #5
-  br label %122
+  br label %121
 
-122:                                              ; preds = %121, %120
-  br i1 %65, label %123, label %.backedge
+121:                                              ; preds = %120, %119
+  br i1 %64, label %122, label %.backedge
 
-123:                                              ; preds = %122
+122:                                              ; preds = %121
   call void @_ZN11OopMapCache7cleanupEv() #5
   br label %.backedge
 
-.backedge:                                        ; preds = %123, %122
+.backedge:                                        ; preds = %122, %121
   br label %10, !llvm.loop !10
 
-124:                                              ; preds = %105, %102
+123:                                              ; preds = %104, %101
   ret void
 }
 

@@ -9759,7 +9759,7 @@ connAddrSockName.exit.thread:                     ; preds = %194, %197, %210, %2
   %429 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %bcmp464 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2048) %428, ptr noundef nonnull dereferenceable(2048) %429, i64 2048)
   %430 = icmp ne i32 %bcmp464, 0
-  %431 = icmp ne i32 %423, 0
+  %431 = trunc i32 %422 to i1
   %or.cond49 = select i1 %431, i1 %430, i1 false
   br i1 %or.cond49, label %432, label %433
 
@@ -10816,26 +10816,26 @@ define dso_local void @clusterSendFailoverAuthIfNeeded(ptr noundef %0, ptr nound
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %48 = load i32, ptr %47, align 8, !tbaa !82
-  %49 = and i32 %48, 1
-  %50 = icmp ne i32 %49, 0
-  %51 = icmp eq ptr %4, null
-  %or.cond = select i1 %50, i1 true, i1 %51
-  br i1 %or.cond, label %58, label %52
+  %49 = trunc i32 %48 to i1
+  %50 = icmp eq ptr %4, null
+  %or.cond = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond, label %57, label %51
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %54 = load i32, ptr %53, align 8, !tbaa !82
-  %55 = and i32 %54, 8
-  %56 = icmp ne i32 %55, 0
-  %57 = icmp ne i8 %14, 0
-  %or.cond3 = select i1 %56, i1 true, i1 %57
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %53 = load i32, ptr %52, align 8, !tbaa !82
+  %54 = and i32 %53, 8
+  %55 = icmp ne i32 %54, 0
+  %56 = icmp ne i8 %14, 0
+  %or.cond3 = select i1 %55, i1 true, i1 %56
   br i1 %or.cond3, label %83, label %.thread60
 
-58:                                               ; preds = %46
-  %.not58 = icmp eq i32 %49, 0
+57:                                               ; preds = %46
+  %58 = and i32 %48, 1
+  %.not58 = icmp eq i32 %58, 0
   br i1 %.not58, label %66, label %59
 
-59:                                               ; preds = %58
+59:                                               ; preds = %57
   %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
   %61 = icmp sgt i32 %60, 3
   br i1 %61, label %157, label %62
@@ -10847,8 +10847,8 @@ define dso_local void @clusterSendFailoverAuthIfNeeded(ptr noundef %0, ptr nound
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.123, ptr noundef nonnull %63, ptr noundef %65) #33
   br label %157
 
-66:                                               ; preds = %58
-  br i1 %51, label %67, label %..thread60_crit_edge
+66:                                               ; preds = %57
+  br i1 %50, label %67, label %..thread60_crit_edge
 
 ..thread60_crit_edge:                             ; preds = %66
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -10867,8 +10867,8 @@ define dso_local void @clusterSendFailoverAuthIfNeeded(ptr noundef %0, ptr nound
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.124, ptr noundef nonnull %71, ptr noundef %73) #33
   br label %157
 
-.thread60:                                        ; preds = %..thread60_crit_edge, %52
-  %74 = phi i32 [ %.pre, %..thread60_crit_edge ], [ %54, %52 ]
+.thread60:                                        ; preds = %..thread60_crit_edge, %51
+  %74 = phi i32 [ %.pre, %..thread60_crit_edge ], [ %53, %51 ]
   %75 = and i32 %74, 8
   %76 = icmp ne i32 %75, 0
   %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8
@@ -10883,7 +10883,7 @@ define dso_local void @clusterSendFailoverAuthIfNeeded(ptr noundef %0, ptr nound
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.125, ptr noundef nonnull %80, ptr noundef %82) #33
   br label %157
 
-83:                                               ; preds = %52
+83:                                               ; preds = %51
   %84 = tail call i64 @mstime() #33
   %85 = load ptr, ptr %3, align 8, !tbaa !59
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 2232
@@ -12920,167 +12920,166 @@ define dso_local void @clusterFailoverReplaceYourMaster() local_unnamed_addr #3 
   %3 = load ptr, ptr %2, align 8, !tbaa !59
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8, !tbaa !82
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp eq ptr %3, null
-  %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %86, label %9
+  %6 = trunc i32 %5 to i1
+  %7 = icmp eq ptr %3, null
+  %or.cond = select i1 %6, i1 true, i1 %7
+  br i1 %or.cond, label %85, label %8
 
-9:                                                ; preds = %0
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2168
-  %11 = load i32, ptr %10, align 8, !tbaa !39
-  %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph.i.i, label %clusterSetNodeAsMaster.exit
+8:                                                ; preds = %0
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2168
+  %10 = load i32, ptr %9, align 8, !tbaa !39
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph.i.i, label %clusterSetNodeAsMaster.exit
 
-.lr.ph.i.i:                                       ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2176
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
-  %wide.trip.count.i.i = zext nneg i32 %11 to i64
-  br label %15
+.lr.ph.i.i:                                       ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2176
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %wide.trip.count.i.i = zext nneg i32 %10 to i64
+  br label %14
 
-15:                                               ; preds = %39, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %39 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !46
-  %18 = icmp eq ptr %17, %1
-  br i1 %18, label %19, label %39
+14:                                               ; preds = %38, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.i
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
+  %17 = icmp eq ptr %16, %1
+  br i1 %17, label %18, label %38
 
-19:                                               ; preds = %15
-  %20 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %21 = add nuw nsw i32 %20, 1
-  %22 = icmp slt i32 %21, %11
-  br i1 %22, label %23, label %31
+18:                                               ; preds = %14
+  %19 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %20 = add nuw nsw i32 %19, 1
+  %21 = icmp slt i32 %20, %10
+  br i1 %21, label %22, label %30
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
-  %25 = xor i32 %20, -1
-  %26 = add nsw i32 %11, %25
-  %27 = zext nneg i32 %21 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %14, i64 %27
-  %29 = sext i32 %26 to i64
-  %30 = shl nsw i64 %29, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %28, i64 %30, i1 false)
-  %.pre.i.i = load i32, ptr %10, align 8, !tbaa !39
-  br label %31
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.i
+  %24 = xor i32 %19, -1
+  %25 = add nsw i32 %10, %24
+  %26 = zext nneg i32 %20 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %13, i64 %26
+  %28 = sext i32 %25 to i64
+  %29 = shl nsw i64 %28, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %27, i64 %29, i1 false)
+  %.pre.i.i = load i32, ptr %9, align 8, !tbaa !39
+  br label %30
 
-31:                                               ; preds = %23, %19
-  %32 = phi i32 [ %.pre.i.i, %23 ], [ %11, %19 ]
-  %33 = add nsw i32 %32, -1
-  store i32 %33, ptr %10, align 8, !tbaa !39
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %clusterSetNodeAsMaster.exit
+30:                                               ; preds = %22, %18
+  %31 = phi i32 [ %.pre.i.i, %22 ], [ %10, %18 ]
+  %32 = add nsw i32 %31, -1
+  store i32 %32, ptr %9, align 8, !tbaa !39
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %clusterSetNodeAsMaster.exit
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %37 = load i32, ptr %36, align 8, !tbaa !82
-  %38 = and i32 %37, -257
-  store i32 %38, ptr %36, align 8, !tbaa !82
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %36 = load i32, ptr %35, align 8, !tbaa !82
+  %37 = and i32 %36, -257
+  store i32 %37, ptr %35, align 8, !tbaa !82
   br label %clusterSetNodeAsMaster.exit
 
-39:                                               ; preds = %15
+38:                                               ; preds = %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %clusterSetNodeAsMaster.exit, label %15, !llvm.loop !145
+  br i1 %exitcond.not.i.i, label %clusterSetNodeAsMaster.exit, label %14, !llvm.loop !145
 
-clusterSetNodeAsMaster.exit:                      ; preds = %39, %35, %31, %9
-  %40 = load ptr, ptr @myself, align 8, !tbaa !46
-  %.not11.i = icmp eq ptr %1, %40
+clusterSetNodeAsMaster.exit:                      ; preds = %38, %34, %30, %8
+  %39 = load ptr, ptr @myself, align 8, !tbaa !46
+  %.not11.i = icmp eq ptr %1, %39
   %.pre.i = load i32, ptr %4, align 8, !tbaa !82
-  %41 = or i32 %.pre.i, 256
-  %spec.select.i = select i1 %.not11.i, i32 %.pre.i, i32 %41
-  %42 = and i32 %spec.select.i, -4
-  %43 = or disjoint i32 %42, 1
-  store i32 %43, ptr %4, align 8, !tbaa !82
+  %40 = or i32 %.pre.i, 256
+  %spec.select.i = select i1 %.not11.i, i32 %.pre.i, i32 %40
+  %41 = and i32 %spec.select.i, -4
+  %42 = or disjoint i32 %41, 1
+  store i32 %42, ptr %4, align 8, !tbaa !82
   store ptr null, ptr %2, align 8, !tbaa !59
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 393384
-  %46 = load i32, ptr %45, align 8, !tbaa !57
-  %47 = or i32 %46, 6
-  store i32 %47, ptr %45, align 8, !tbaa !57
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 393384
+  %45 = load i32, ptr %44, align 8, !tbaa !57
+  %46 = or i32 %45, 6
+  store i32 %46, ptr %44, align 8, !tbaa !57
   tail call void @replicationUnsetMaster() #33
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  br label %49
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  br label %48
 
-49:                                               ; preds = %clusterSetNodeAsMaster.exit, %clusterAddSlot.exit
+48:                                               ; preds = %clusterSetNodeAsMaster.exit, %clusterAddSlot.exit
   %indvars.iv = phi i64 [ 0, %clusterSetNodeAsMaster.exit ], [ %indvars.iv.next, %clusterAddSlot.exit ]
-  %50 = trunc nuw nsw i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %.zext = lshr i64 %indvars.iv, 3
-  %51 = and i64 %.zext, 536870911
-  %52 = and i32 %50, 7
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %51
-  %54 = load i8, ptr %53, align 1, !tbaa !50
-  %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 1, %52
-  %57 = and i32 %56, %55
-  %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %clusterAddSlot.exit, label %58
+  %50 = and i64 %.zext, 536870911
+  %51 = and i32 %49, 7
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %50
+  %53 = load i8, ptr %52, align 1, !tbaa !50
+  %54 = zext i8 %53 to i32
+  %55 = shl nuw nsw i32 1, %51
+  %56 = and i32 %55, %54
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %clusterAddSlot.exit, label %57
 
-58:                                               ; preds = %49
-  %59 = tail call i32 @clusterDelSlot(i32 noundef %50)
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 262192
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
-  %63 = load ptr, ptr %62, align 8, !tbaa !46
-  %.not.i8 = icmp eq ptr %63, null
-  br i1 %.not.i8, label %64, label %clusterAddSlot.exit
+57:                                               ; preds = %48
+  %58 = tail call i32 @clusterDelSlot(i32 noundef %49)
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 262192
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %62 = load ptr, ptr %61, align 8, !tbaa !46
+  %.not.i8 = icmp eq ptr %62, null
+  br i1 %.not.i8, label %63, label %clusterAddSlot.exit
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr @myself, align 8, !tbaa !46
-  %66 = tail call i32 @clusterNodeSetSlotBit(ptr noundef %65, i32 noundef %50)
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 262192
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv
-  store ptr %65, ptr %69, align 8, !tbaa !46
+63:                                               ; preds = %57
+  %64 = load ptr, ptr @myself, align 8, !tbaa !46
+  %65 = tail call i32 @clusterNodeSetSlotBit(ptr noundef %64, i32 noundef %49)
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 262192
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  store ptr %64, ptr %68, align 8, !tbaa !46
   br label %clusterAddSlot.exit
 
-clusterAddSlot.exit:                              ; preds = %64, %58, %49
+clusterAddSlot.exit:                              ; preds = %63, %57, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
-  br i1 %exitcond.not, label %70, label %49, !llvm.loop !271
+  br i1 %exitcond.not, label %69, label %48, !llvm.loop !271
 
-70:                                               ; preds = %clusterAddSlot.exit
+69:                                               ; preds = %clusterAddSlot.exit
   tail call void @clusterUpdateState()
-  %71 = tail call i32 @clusterSaveConfig(i32 noundef 1)
-  %72 = icmp eq i32 %71, -1
-  br i1 %72, label %73, label %clusterSaveConfigOrDie.exit
+  %70 = tail call i32 @clusterSaveConfig(i32 noundef 1)
+  %71 = icmp eq i32 %70, -1
+  br i1 %71, label %72, label %clusterSaveConfigOrDie.exit
 
-73:                                               ; preds = %70
-  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
-  %75 = icmp sgt i32 %74, 3
-  br i1 %75, label %77, label %76
+72:                                               ; preds = %69
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
+  %74 = icmp sgt i32 %73, 3
+  br i1 %74, label %76, label %75
 
-76:                                               ; preds = %73
+75:                                               ; preds = %72
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.38) #33
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %73
+76:                                               ; preds = %75, %72
   tail call void @exit(i32 noundef 1) #37
   unreachable
 
-clusterSaveConfigOrDie.exit:                      ; preds = %70
+clusterSaveConfigOrDie.exit:                      ; preds = %69
   tail call void @clusterBroadcastPong(i32 noundef 0)
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 393352
-  %80 = load ptr, ptr %79, align 8, !tbaa !124
-  %.not.i9 = icmp eq ptr %80, null
-  br i1 %.not.i9, label %resetManualFailover.exit, label %81
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 393352
+  %79 = load ptr, ptr %78, align 8, !tbaa !124
+  %.not.i9 = icmp eq ptr %79, null
+  br i1 %.not.i9, label %resetManualFailover.exit, label %80
 
-81:                                               ; preds = %clusterSaveConfigOrDie.exit
+80:                                               ; preds = %clusterSaveConfigOrDie.exit
   tail call void @unpauseActions(i32 noundef 2) #33
   %.pre.i10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
   br label %resetManualFailover.exit
 
-resetManualFailover.exit:                         ; preds = %clusterSaveConfigOrDie.exit, %81
-  %82 = phi ptr [ %.pre.i10, %81 ], [ %78, %clusterSaveConfigOrDie.exit ]
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 393344
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 393368
-  store i32 0, ptr %84, align 8, !tbaa !122
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 393360
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %85, align 8, !tbaa !123
-  br label %86
+resetManualFailover.exit:                         ; preds = %clusterSaveConfigOrDie.exit, %80
+  %81 = phi ptr [ %.pre.i10, %80 ], [ %77, %clusterSaveConfigOrDie.exit ]
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 393344
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 393368
+  store i32 0, ptr %83, align 8, !tbaa !122
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 393360
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
+  store i64 -1, ptr %84, align 8, !tbaa !123
+  br label %85
 
-86:                                               ; preds = %0, %resetManualFailover.exit
+85:                                               ; preds = %0, %resetManualFailover.exit
   ret void
 }
 
@@ -15372,22 +15371,22 @@ sdslen.exit116.thread:                            ; preds = %39, %sdslen.exit116
   %146 = load i8, ptr %145, align 1, !tbaa !50
   %147 = zext i8 %146 to i32
   %148 = lshr i32 %147, %144
-  %149 = and i32 %148, 1
-  %150 = icmp ne i32 %149, 0
-  %151 = icmp eq i32 %.090127, -1
-  %or.cond9 = and i1 %151, %150
+  %149 = trunc i32 %148 to i1
+  %150 = icmp eq i32 %.090127, -1
+  %or.cond9 = and i1 %150, %149
   %spec.select = select i1 %or.cond9, i32 %.0128, i32 %.090127
   %.not109 = icmp eq i32 %spec.select, -1
-  br i1 %.not109, label %162, label %152
+  br i1 %.not109, label %162, label %151
 
-152:                                              ; preds = %141
-  %153 = icmp eq i32 %149, 0
+151:                                              ; preds = %141
+  %152 = and i32 %148, 1
+  %153 = icmp eq i32 %152, 0
   %154 = icmp eq i32 %.0128, 16383
   %or.cond5 = or i1 %154, %153
   br i1 %or.cond5, label %155, label %162
 
-155:                                              ; preds = %152
-  %or.cond7 = and i1 %154, %150
+155:                                              ; preds = %151
+  %or.cond7 = and i1 %154, %149
   %spec.select114 = select i1 %or.cond7, i32 16384, i32 %.0128
   %156 = add nsw i32 %spec.select114, -1
   %157 = icmp eq i32 %spec.select, %156
@@ -15401,10 +15400,10 @@ sdslen.exit116.thread:                            ; preds = %39, %sdslen.exit116
   %161 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.7126, ptr noundef nonnull @.str.156, i32 noundef %spec.select, i32 noundef %156) #33
   br label %162
 
-162:                                              ; preds = %158, %160, %152, %141
-  %.8 = phi ptr [ %.7126, %141 ], [ %.7126, %152 ], [ %159, %158 ], [ %161, %160 ]
-  %.292 = phi i32 [ -1, %141 ], [ %spec.select, %152 ], [ -1, %158 ], [ -1, %160 ]
-  %.1 = phi i32 [ %.0128, %141 ], [ %.0128, %152 ], [ %spec.select114, %158 ], [ %spec.select114, %160 ]
+162:                                              ; preds = %158, %160, %151, %141
+  %.8 = phi ptr [ %.7126, %141 ], [ %.7126, %151 ], [ %159, %158 ], [ %161, %160 ]
+  %.292 = phi i32 [ -1, %141 ], [ %spec.select, %151 ], [ -1, %158 ], [ -1, %160 ]
+  %.1 = phi i32 [ %.0128, %141 ], [ %.0128, %151 ], [ %spec.select114, %158 ], [ %spec.select114, %160 ]
   %163 = add nsw i32 %.1, 1
   %164 = icmp slt i32 %.1, 16383
   br i1 %164, label %141, label %representSlotInfo.exit, !llvm.loop !298

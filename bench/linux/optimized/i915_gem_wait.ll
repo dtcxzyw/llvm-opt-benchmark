@@ -450,78 +450,77 @@ define dso_local i32 @i915_gem_object_wait(ptr noundef readonly captures(none) %
   br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %.thread
-  %62 = and i32 %1, 1
-  %63 = icmp ne i32 %62, 0
-  br label %64
+  %62 = trunc i32 %1 to i1
+  br label %63
 
-64:                                               ; preds = %82, %61
-  %65 = phi ptr [ %59, %61 ], [ %85, %82 ]
-  %66 = phi i64 [ %2, %61 ], [ %84, %82 ]
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %68 = load volatile i64, ptr %67, align 8
-  %69 = and i64 %68, 1
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %79
+63:                                               ; preds = %81, %61
+  %64 = phi ptr [ %59, %61 ], [ %84, %81 ]
+  %65 = phi i64 [ %2, %61 ], [ %83, %81 ]
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 48
+  %67 = load volatile i64, ptr %66, align 8
+  %68 = and i64 %67, 1
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %70, label %78
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, @i915_fence_ops
-  br i1 %74, label %75, label %77
+70:                                               ; preds = %63
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, @i915_fence_ops
+  br i1 %73, label %74, label %76
 
-75:                                               ; preds = %71
-  %76 = call i64 @i915_request_wait_timeout(ptr noundef nonnull %65, i32 noundef %1, i64 noundef %66) #6
-  br label %79
+74:                                               ; preds = %70
+  %75 = call i64 @i915_request_wait_timeout(ptr noundef nonnull %64, i32 noundef %1, i64 noundef %65) #6
+  br label %78
 
-77:                                               ; preds = %71
-  %78 = call i64 @dma_fence_wait_timeout(ptr noundef nonnull %65, i1 noundef zeroext %63, i64 noundef %66) #6
-  br label %79
+76:                                               ; preds = %70
+  %77 = call i64 @dma_fence_wait_timeout(ptr noundef nonnull %64, i1 noundef zeroext %62, i64 noundef %65) #6
+  br label %78
 
-79:                                               ; preds = %77, %75, %64
-  %80 = phi i64 [ %76, %75 ], [ %78, %77 ], [ %66, %64 ]
-  %81 = icmp slt i64 %80, 1
-  br i1 %81, label %.loopexit, label %82
+78:                                               ; preds = %76, %74, %63
+  %79 = phi i64 [ %75, %74 ], [ %77, %76 ], [ %65, %63 ]
+  %80 = icmp slt i64 %79, 1
+  br i1 %80, label %.loopexit, label %81
 
-82:                                               ; preds = %79
-  %83 = icmp eq i64 %66, 0
-  %84 = select i1 %83, i64 0, i64 %80
-  %85 = call ptr @dma_resv_iter_next_unlocked(ptr noundef nonnull %5) #6
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %.loopexit, label %64, !llvm.loop !20
+81:                                               ; preds = %78
+  %82 = icmp eq i64 %65, 0
+  %83 = select i1 %82, i64 0, i64 %79
+  %84 = call ptr @dma_resv_iter_next_unlocked(ptr noundef nonnull %5) #6
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %.loopexit, label %63, !llvm.loop !20
 
-.loopexit:                                        ; preds = %82, %79, %.thread
-  %87 = phi i64 [ %10, %.thread ], [ %80, %79 ], [ %80, %82 ]
-  %88 = load ptr, ptr %58, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread10, label %90
+.loopexit:                                        ; preds = %81, %78, %.thread
+  %86 = phi i64 [ %10, %.thread ], [ %79, %78 ], [ %79, %81 ]
+  %87 = load ptr, ptr %58, align 8
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %.thread10, label %89
 
-90:                                               ; preds = %.loopexit
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  %92 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %91, i32 -1, ptr nonnull elementtype(i32) %91) #6, !srcloc !14
-  %93 = icmp eq i32 %92, 1
-  br i1 %93, label %97, label %94
+89:                                               ; preds = %.loopexit
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 56
+  %91 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %90, i32 -1, ptr nonnull elementtype(i32) %90) #6, !srcloc !14
+  %92 = icmp eq i32 %91, 1
+  br i1 %92, label %96, label %93
 
-94:                                               ; preds = %90
-  %95 = icmp sgt i32 %92, 0
-  br i1 %95, label %.thread10, label %96, !prof !13
+93:                                               ; preds = %89
+  %94 = icmp sgt i32 %91, 0
+  br i1 %94, label %.thread10, label %95, !prof !13
 
-96:                                               ; preds = %94
-  call void @refcount_warn_saturate(ptr noundef nonnull %91, i32 noundef 3) #6
+95:                                               ; preds = %93
+  call void @refcount_warn_saturate(ptr noundef nonnull %90, i32 noundef 3) #6
   br label %.thread10
 
-97:                                               ; preds = %90
+96:                                               ; preds = %89
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
-  call void @dma_fence_release(ptr noundef nonnull %91) #6, !callees !16
+  call void @dma_fence_release(ptr noundef nonnull %90) #6, !callees !16
   br label %.thread10
 
-.thread10:                                        ; preds = %94, %96, %97, %.loopexit
+.thread10:                                        ; preds = %93, %95, %96, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %98 = icmp slt i64 %87, 0
-  %99 = trunc i64 %87 to i32
-  %100 = icmp eq i64 %87, 0
-  %101 = select i1 %100, i32 -62, i32 0
-  %102 = select i1 %98, i32 %99, i32 %101
-  ret i32 %102
+  %97 = icmp slt i64 %86, 0
+  %98 = trunc i64 %86 to i32
+  %99 = icmp eq i64 %86, 0
+  %100 = select i1 %99, i32 -62, i32 0
+  %101 = select i1 %97, i32 %98, i32 %100
+  ret i32 %101
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -662,10 +661,9 @@ declare dso_local i64 @nsecs_to_jiffies(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_gem_object_wait_migration(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #6
-  %4 = and i32 %1, 1
-  %5 = icmp ne i32 %4, 0
-  %6 = tail call i32 @i915_gem_object_wait_moving_fence(ptr noundef %0, i1 noundef zeroext %5) #6
-  ret i32 %6
+  %4 = trunc i32 %1 to i1
+  %5 = tail call i32 @i915_gem_object_wait_moving_fence(ptr noundef %0, i1 noundef zeroext %4) #6
+  ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid

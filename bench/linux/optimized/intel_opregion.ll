@@ -327,76 +327,74 @@ define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonl
   %70 = icmp sle i64 %69, %67
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
   %71 = load i32, ptr %7, align 1
-  %72 = and i32 %71, 1
-  %73 = icmp ne i32 %72, 0
-  %74 = select i1 %73, i1 %70, i1 false
-  br i1 %74, label %.lr.ph, label %._crit_edge
+  %72 = trunc i32 %71 to i1
+  %73 = select i1 %72, i1 %70, i1 false
+  br i1 %73, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
-  %75 = phi i64 [ %78, %.lr.ph ], [ 10, %60 ]
-  %76 = shl i64 %75, 1
-  call void @usleep_range_state(i64 noundef %75, i64 noundef %76, i32 noundef 2) #12
-  %77 = icmp slt i64 %75, 1000
-  %78 = select i1 %77, i64 %76, i64 %75
-  %79 = call i64 @ktime_get_raw() #12
-  %80 = icmp sle i64 %79, %67
+  %74 = phi i64 [ %77, %.lr.ph ], [ 10, %60 ]
+  %75 = shl i64 %74, 1
+  call void @usleep_range_state(i64 noundef %74, i64 noundef %75, i32 noundef 2) #12
+  %76 = icmp slt i64 %74, 1000
+  %77 = select i1 %76, i64 %75, i64 %74
+  %78 = call i64 @ktime_get_raw() #12
+  %79 = icmp sle i64 %78, %67
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  %81 = load i32, ptr %7, align 1
-  %82 = and i32 %81, 1
-  %83 = icmp ne i32 %82, 0
-  %84 = select i1 %83, i1 %80, i1 false
-  br i1 %84, label %.lr.ph, label %._crit_edge
+  %80 = load i32, ptr %7, align 1
+  %81 = trunc i32 %80 to i1
+  %82 = select i1 %81, i1 %79, i1 false
+  br i1 %82, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60
-  %.lcssa4 = phi i32 [ %71, %60 ], [ %81, %.lr.ph ]
-  %.lcssa = phi i1 [ %73, %60 ], [ %83, %.lr.ph ]
-  br i1 %.lcssa, label %85, label %91
+  %.lcssa4 = phi i32 [ %71, %60 ], [ %80, %.lr.ph ]
+  %.lcssa = phi i1 [ %72, %60 ], [ %81, %.lr.ph ]
+  br i1 %.lcssa, label %83, label %89
 
-85:                                               ; preds = %._crit_edge
-  %86 = icmp eq ptr %0, null
-  br i1 %86, label %89, label %87
+83:                                               ; preds = %._crit_edge
+  %84 = icmp eq ptr %0, null
+  br i1 %84, label %87, label %85
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %8, align 8
-  br label %89
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %8, align 8
+  br label %87
 
-89:                                               ; preds = %87, %85
-  %90 = phi ptr [ %88, %87 ], [ null, %85 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %90, i32 noundef 1, ptr noundef nonnull @.str.27) #12
+87:                                               ; preds = %85, %83
+  %88 = phi ptr [ %86, %85 ], [ null, %83 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 1, ptr noundef nonnull @.str.27) #12
   br label %.thread
 
-91:                                               ; preds = %._crit_edge
-  %92 = lshr i32 %.lcssa4, 5
-  %93 = and i32 %92, 7
-  %94 = icmp eq i32 %93, 1
-  br i1 %94, label %101, label %95
+89:                                               ; preds = %._crit_edge
+  %90 = lshr i32 %.lcssa4, 5
+  %91 = and i32 %90, 7
+  %92 = icmp eq i32 %91, 1
+  br i1 %92, label %99, label %93
 
-95:                                               ; preds = %91
-  %96 = icmp eq ptr %0, null
-  br i1 %96, label %99, label %97
+93:                                               ; preds = %89
+  %94 = icmp eq ptr %0, null
+  br i1 %94, label %97, label %95
 
-97:                                               ; preds = %95
-  %98 = load ptr, ptr %8, align 8
-  br label %99
+95:                                               ; preds = %93
+  %96 = load ptr, ptr %8, align 8
+  br label %97
 
-99:                                               ; preds = %97, %95
-  %100 = phi ptr [ %98, %97 ], [ null, %95 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %100, i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %93) #12
+97:                                               ; preds = %95, %93
+  %98 = phi ptr [ %96, %95 ], [ null, %93 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %98, i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %91) #12
   br label %.thread
 
-101:                                              ; preds = %91
-  %102 = icmp eq ptr %3, null
-  br i1 %102, label %.thread, label %103
+99:                                               ; preds = %89
+  %100 = icmp eq ptr %3, null
+  br i1 %100, label %.thread, label %101
 
-103:                                              ; preds = %101
-  %104 = load i32, ptr %51, align 1
-  store i32 %104, ptr %3, align 4
+101:                                              ; preds = %99
+  %102 = load i32, ptr %51, align 1
+  store i32 %102, ptr %3, align 4
   br label %.thread
 
-.thread:                                          ; preds = %22, %16, %4, %103, %101, %99, %89, %47
-  %105 = phi i32 [ -16, %47 ], [ -110, %89 ], [ -5, %99 ], [ 0, %101 ], [ 0, %103 ], [ -22, %22 ], [ -22, %16 ], [ -19, %4 ]
+.thread:                                          ; preds = %22, %16, %4, %101, %99, %97, %87, %47
+  %103 = phi i32 [ -16, %47 ], [ -110, %87 ], [ -5, %97 ], [ 0, %99 ], [ 0, %101 ], [ -22, %22 ], [ -22, %16 ], [ -19, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %105
+  ret i32 %103
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

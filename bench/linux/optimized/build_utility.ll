@@ -2026,12 +2026,11 @@ define dso_local void @calc_load_nohz_start() local_unnamed_addr #0 align 16 {
   %17 = load volatile i64, ptr @calc_load_update, align 8
   %18 = sub i64 %16, %17
   %19 = icmp sgt i64 %18, -1
-  %20 = and i32 %15, 1
-  %21 = icmp ne i32 %20, 0
-  %22 = xor i1 %21, %19
-  %23 = zext i1 %22 to i64
-  %24 = getelementptr %struct.atomic64_t, ptr @calc_load_nohz, i64 %23
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %24, i64 %14, ptr elementtype(i64) %24) #44, !srcloc !75
+  %20 = trunc i32 %15 to i1
+  %21 = xor i1 %19, %20
+  %22 = zext i1 %21 to i64
+  %23 = getelementptr %struct.atomic64_t, ptr @calc_load_nohz, i64 %22
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %14, ptr elementtype(i64) %23) #44, !srcloc !75
   br label %.thread
 
 .thread:                                          ; preds = %0, %13
@@ -2061,12 +2060,11 @@ define dso_local void @calc_load_nohz_remote(ptr noundef captures(none) %0) loca
   %16 = load volatile i64, ptr @calc_load_update, align 8
   %17 = sub i64 %15, %16
   %18 = icmp sgt i64 %17, -1
-  %19 = and i32 %14, 1
-  %20 = icmp ne i32 %19, 0
-  %21 = xor i1 %20, %18
-  %22 = zext i1 %21 to i64
-  %23 = getelementptr %struct.atomic64_t, ptr @calc_load_nohz, i64 %22
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %13, ptr elementtype(i64) %23) #44, !srcloc !75
+  %19 = trunc i32 %14 to i1
+  %20 = xor i1 %18, %19
+  %21 = zext i1 %20 to i64
+  %22 = getelementptr %struct.atomic64_t, ptr @calc_load_nohz, i64 %21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, i64 %13, ptr elementtype(i64) %22) #44, !srcloc !75
   br label %.thread
 
 .thread:                                          ; preds = %1, %12
@@ -2559,9 +2557,8 @@ define internal fastcc i64 @wait_for_common(ptr noundef %0, i64 noundef %1, i32 
   br i1 %30, label %.critedge.us, label %.critedge5, !llvm.loop !82
 
 .split:                                           ; preds = %9
-  %31 = and i32 %2, 1
-  %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %.split.split, label %.split.split.us
+  %31 = trunc i32 %2 to i1
+  br i1 %31, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %44
   %32 = phi i64 [ %45, %44 ], [ %1, %.split ]
@@ -2645,8 +2642,8 @@ define internal fastcc i64 @wait_for_common(ptr noundef %0, i64 noundef %1, i32 
   %71 = select i1 %69, i1 %70, i1 false
   br i1 %71, label %.split.split, label %.critedge5, !llvm.loop !82
 
-.critedge5:                                       ; preds = %44, %36, %.split.split.us, %58, %66, %25
-  %.us-phi = phi i64 [ -512, %58 ], [ %26, %25 ], [ %67, %66 ], [ %45, %44 ], [ -512, %36 ], [ -512, %.split.split.us ]
+.critedge5:                                       ; preds = %58, %66, %44, %36, %.split.split.us, %25
+  %.us-phi = phi i64 [ %26, %25 ], [ -512, %36 ], [ -512, %.split.split.us ], [ %45, %44 ], [ %67, %66 ], [ -512, %58 ]
   store volatile i32 0, ptr %19, align 8
   %72 = load volatile ptr, ptr %12, align 8
   %73 = icmp eq ptr %72, %12

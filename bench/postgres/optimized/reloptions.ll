@@ -1432,9 +1432,8 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i, i64 20
   %.val.val.i = load i16, ptr %5, align 4
-  %6 = and i16 %.val.val.i, 1
-  %.not.i.i = icmp eq i16 %6, 0
-  br i1 %.not.i.i, label %7, label %46
+  %6 = trunc i16 %.val.val.i to i1
+  br i1 %6, label %46, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 520
@@ -1507,14 +1506,14 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noun
 46:                                               ; preds = %3
   %47 = getelementptr i8, ptr %.val.i, i64 26
   %.val20.i = load i8, ptr %47, align 1
-  %.not.i21.i = icmp sgt i8 %.val20.i, -1
-  br i1 %.not.i21.i, label %fastgetattr.exit, label %48
+  %.not.i.i = icmp sgt i8 %.val20.i, -1
+  br i1 %.not.i.i, label %fastgetattr.exit, label %48
 
 48:                                               ; preds = %46
   %49 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %1) #13
   br label %50
 
-50:                                               ; preds = %28, %31, %34, %37, %42, %44, %48
+50:                                               ; preds = %44, %48, %28, %31, %34, %37, %42
   %.1.i.ph = phi i64 [ %38, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %45, %44 ], [ %43, %42 ], [ %49, %48 ]
   %.val = load ptr, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 22

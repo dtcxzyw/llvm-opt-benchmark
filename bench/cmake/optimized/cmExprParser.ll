@@ -101,18 +101,18 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 .preheader:                                       ; preds = %8, %1
   br label %12
 
-11:                                               ; preds = %300, %304, %225, %85
-  %.1279 = phi ptr [ %.0, %225 ], [ %.3281, %300 ], [ %.3281, %304 ], [ %.0, %85 ]
-  %.1203.idx = phi i64 [ %.0202.add, %225 ], [ %.3205.idx, %300 ], [ %.3205.idx, %304 ], [ %.0202.idx, %85 ]
-  %.1200 = phi i32 [ %.0199, %225 ], [ 3, %300 ], [ 3, %304 ], [ %spec.select, %85 ]
-  %.1194 = phi ptr [ %208, %225 ], [ %301, %300 ], [ %301, %304 ], [ %86, %85 ]
-  %.1186 = phi i32 [ %227, %225 ], [ 15, %300 ], [ 15, %304 ], [ %73, %85 ]
-  %.1 = phi i32 [ %.7, %225 ], [ %.6, %300 ], [ %.6, %304 ], [ -2, %85 ]
+11:                                               ; preds = %301, %305, %225, %85
+  %.1280 = phi ptr [ %.0, %225 ], [ %.3282, %301 ], [ %.3282, %305 ], [ %.0, %85 ]
+  %.1203.idx = phi i64 [ %.0202.add, %225 ], [ %.3205.idx, %301 ], [ %.3205.idx, %305 ], [ %.0202.idx, %85 ]
+  %.1200 = phi i32 [ %.0199, %225 ], [ 3, %301 ], [ 3, %305 ], [ %spec.select, %85 ]
+  %.1194 = phi ptr [ %208, %225 ], [ %302, %301 ], [ %302, %305 ], [ %86, %85 ]
+  %.1186 = phi i32 [ %227, %225 ], [ 15, %301 ], [ 15, %305 ], [ %73, %85 ]
+  %.1 = phi i32 [ %.7, %225 ], [ %.6, %301 ], [ %.6, %305 ], [ -2, %85 ]
   %.1203.add = add nsw i64 %.1203.idx, 1
   br label %12
 
 12:                                               ; preds = %.preheader, %11
-  %.0 = phi ptr [ %.1279, %11 ], [ %5, %.preheader ]
+  %.0 = phi ptr [ %.1280, %11 ], [ %5, %.preheader ]
   %.0202.idx = phi i64 [ %.1203.add, %11 ], [ 0, %.preheader ]
   %.0199 = phi i32 [ %.1200, %11 ], [ 0, %.preheader ]
   %.0193 = phi ptr [ %.1194, %11 ], [ %4, %.preheader ]
@@ -143,11 +143,11 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 20:                                               ; preds = %.thread, %19, %15
   %.not226 = icmp slt i64 %.0202.idx, 199
-  br i1 %.not226, label %21, label %309
+  br i1 %.not226, label %21, label %311
 
 21:                                               ; preds = %20
   %22 = icmp eq i32 %.0185, 19
-  br i1 %22, label %.loopexit339, label %23
+  br i1 %22, label %.loopexit340, label %23
 
 23:                                               ; preds = %21
   %24 = sext i32 %.0185 to i64
@@ -476,15 +476,15 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br label %191
 
 191:                                              ; preds = %104, %107, %109, %114, %116, %121, %123, %128, %130, %135, %140, %142, %147, %152, %154, %167, %171, %176, %178, %180, %183, %186, %188, %103
-  %.sroa.0278.0 = phi i64 [ %100, %103 ], [ %100, %104 ], [ %108, %107 ], [ %113, %109 ], [ %115, %114 ], [ %120, %116 ], [ %122, %121 ], [ %127, %123 ], [ %129, %128 ], [ %134, %130 ], [ %139, %135 ], [ %141, %140 ], [ %146, %142 ], [ %151, %147 ], [ %153, %152 ], [ %158, %154 ], [ %170, %167 ], [ %175, %171 ], [ %177, %176 ], [ %179, %178 ], [ %182, %180 ], [ %185, %183 ], [ %187, %186 ], [ %190, %188 ]
+  %.sroa.0279.0 = phi i64 [ %100, %103 ], [ %100, %104 ], [ %108, %107 ], [ %113, %109 ], [ %115, %114 ], [ %120, %116 ], [ %122, %121 ], [ %127, %123 ], [ %129, %128 ], [ %134, %130 ], [ %139, %135 ], [ %141, %140 ], [ %146, %142 ], [ %151, %147 ], [ %153, %152 ], [ %158, %154 ], [ %170, %167 ], [ %175, %171 ], [ %177, %176 ], [ %179, %178 ], [ %182, %180 ], [ %185, %183 ], [ %187, %186 ], [ %190, %188 ]
   %192 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %.not239 = icmp eq i32 %192, 0
-  br i1 %.not239, label %._crit_edge373, label %193
+  br i1 %.not239, label %._crit_edge374, label %193
 
-._crit_edge373:                                   ; preds = %191
+._crit_edge374:                                   ; preds = %191
   %.phi.trans.insert = getelementptr inbounds i8, ptr @_ZL4yyr1, i64 %94
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !13
-  %.pre376 = sext i8 %.pre to i64
+  %.pre377 = sext i8 %.pre to i64
   br label %205
 
 193:                                              ; preds = %191
@@ -504,14 +504,14 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   %fputc240 = call i32 @fputc(i32 10, ptr %204)
   br label %205
 
-205:                                              ; preds = %._crit_edge373, %193
-  %.pre-phi = phi i64 [ %.pre376, %._crit_edge373 ], [ %200, %193 ]
+205:                                              ; preds = %._crit_edge374, %193
+  %.pre-phi = phi i64 [ %.pre377, %._crit_edge374 ], [ %200, %193 ]
   %206 = sub nsw i64 0, %97
   %207 = getelementptr inbounds %"struct.cmExprParserHelper::ParserType", ptr %.0193, i64 %206
   %.0202.add = sub nsw i64 %.0202.idx, %97
   %.ptr227 = getelementptr inbounds i8, ptr %3, i64 %.0202.add
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store i64 %.sroa.0278.0, ptr %208, align 8, !tbaa !4
+  store i64 %.sroa.0279.0, ptr %208, align 8, !tbaa !4
   %209 = add nsw i64 %.pre-phi, -17
   %210 = getelementptr inbounds i8, ptr @_ZL7yypgoto, i64 %209
   %211 = load i8, ptr %210, align 1, !tbaa !13
@@ -599,12 +599,12 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br label %250
 
 250:                                              ; preds = %238, %249, %246, %240
-  %.5283 = phi ptr [ %.0, %238 ], [ %.0, %240 ], [ %5, %249 ], [ %245, %246 ]
+  %.5284 = phi ptr [ %.0, %238 ], [ %.0, %240 ], [ %5, %249 ], [ %245, %246 ]
   %.0178 = phi ptr [ @.str.10, %238 ], [ %.0, %240 ], [ @.str.10, %249 ], [ %245, %246 ]
   %.0177 = phi i1 [ true, %238 ], [ false, %240 ], [ true, %249 ], [ %248, %246 ]
   %251 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
   call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %251, ptr noundef %.0178)
-  br i1 %.0177, label %309, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
+  br i1 %.0177, label %311, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
 
 252:                                              ; preds = %236
   %253 = icmp slt i32 %.3, 1
@@ -612,7 +612,7 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
 
 254:                                              ; preds = %252
   %255 = icmp eq i32 %.3, 0
-  br i1 %255, label %.thread310, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
+  br i1 %255, label %.thread311, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
 
 256:                                              ; preds = %252
   %257 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
@@ -635,222 +635,223 @@ define dso_local noundef i32 @_Z14cmExpr_yyparsePv(ptr noundef %0) local_unnamed
   br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
 
 _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit: ; preds = %236, %250, %258, %256, %46, %254
-  %.3281 = phi ptr [ %.0, %254 ], [ %.0, %258 ], [ %.0, %236 ], [ %.0, %46 ], [ %.0, %256 ], [ %.5283, %250 ]
+  %.3282 = phi ptr [ %.0, %254 ], [ %.0, %258 ], [ %.0, %236 ], [ %.0, %46 ], [ %.0, %256 ], [ %.5284, %250 ]
   %.6 = phi i32 [ %.3, %254 ], [ -2, %258 ], [ %.3, %236 ], [ 257, %46 ], [ -2, %256 ], [ %.3, %250 ]
   br label %268
 
-268:                                              ; preds = %297, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
-  %.3205.idx = phi i64 [ %.0202.idx, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %.3205.add293, %297 ]
-  %.3196 = phi ptr [ %.0193, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %298, %297 ]
-  %.2187 = phi i32 [ %.0185, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %299, %297 ]
+268:                                              ; preds = %298, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
+  %.3205.idx = phi i64 [ %.0202.idx, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %.3205.add294, %298 ]
+  %.3196 = phi ptr [ %.0193, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %299, %298 ]
+  %.2187 = phi i32 [ %.0185, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit ], [ %300, %298 ]
   %269 = sext i32 %.2187 to i64
   %270 = shl nuw i64 1, %269
   %271 = and i64 %270, 1925219999776
-  %.not244 = icmp ne i64 %271, 0
-  %272 = and i64 %270, 271655771743
-  %.not245 = icmp eq i64 %272, 0
-  %or.cond = or i1 %.not244, %.not245
-  br i1 %or.cond, label %279, label %273
+  %.not244 = icmp eq i64 %271, 0
+  %272 = lshr i64 271655771743, %269
+  %273 = trunc i64 %272 to i1
+  %or.cond = select i1 %.not244, i1 %273, i1 false
+  br i1 %or.cond, label %274, label %280
 
-273:                                              ; preds = %268
-  %274 = getelementptr inbounds i8, ptr @_ZL6yypact, i64 %269
-  %275 = load i8, ptr %274, align 1, !tbaa !13
-  %276 = sext i8 %275 to i64
-  %277 = and i64 %276, 4294967295
-  %278 = icmp eq i64 %277, 4294967295
-  br i1 %278, label %300, label %279
+274:                                              ; preds = %268
+  %275 = getelementptr inbounds i8, ptr @_ZL6yypact, i64 %269
+  %276 = load i8, ptr %275, align 1, !tbaa !13
+  %277 = sext i8 %276 to i64
+  %278 = and i64 %277, 4294967295
+  %279 = icmp eq i64 %278, 4294967295
+  br i1 %279, label %301, label %280
 
-279:                                              ; preds = %273, %268
-  %280 = icmp eq i64 %.3205.idx, 0
-  br i1 %280, label %.loopexit339, label %281
+280:                                              ; preds = %274, %268
+  %281 = icmp eq i64 %.3205.idx, 0
+  br i1 %281, label %.loopexit340, label %282
 
-281:                                              ; preds = %279
-  %282 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
-  %.not4.i259 = icmp eq i32 %282, 0
+282:                                              ; preds = %280
+  %283 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
+  %.not4.i259 = icmp eq i32 %283, 0
   br i1 %.not4.i259, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
 
-_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread: ; preds = %281
-  %.3205.add290 = add nsw i64 %.3205.idx, -1
-  %.ptr228291 = getelementptr inbounds i8, ptr %3, i64 %.3205.add290
-  %283 = load i8, ptr %.ptr228291, align 1, !tbaa !13
-  br label %297
+_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread: ; preds = %282
+  %.3205.add291 = add nsw i64 %.3205.idx, -1
+  %.ptr228292 = getelementptr inbounds i8, ptr %3, i64 %.3205.add291
+  %284 = load i8, ptr %.ptr228292, align 1, !tbaa !13
+  br label %298
 
-_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263: ; preds = %281
-  %284 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %269
-  %285 = load i8, ptr %284, align 1, !tbaa !13
-  %286 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %286, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.12) #16
-  %288 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %289 = and i64 %270, 2146959423
-  %.not336 = icmp eq i64 %289, 0
-  %.str.19..str.20.i.i260 = select i1 %.not336, ptr @.str.20, ptr @.str.19
-  %290 = sext i8 %285 to i64
-  %291 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %290
-  %292 = load ptr, ptr %291, align 8, !tbaa !16
-  %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %292) #16
-  %fputc.i.i261 = call i32 @fputc(i32 41, ptr %288)
-  %294 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %fputc.i262 = call i32 @fputc(i32 10, ptr %294)
-  %.pr289 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
+_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263: ; preds = %282
+  %285 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %269
+  %286 = load i8, ptr %285, align 1, !tbaa !13
+  %287 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.12) #16
+  %289 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %290 = and i64 %270, 2146959423
+  %.not337 = icmp eq i64 %290, 0
+  %.str.19..str.20.i.i260 = select i1 %.not337, ptr @.str.20, ptr @.str.19
+  %291 = sext i8 %286 to i64
+  %292 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %291
+  %293 = load ptr, ptr %292, align 8, !tbaa !16
+  %294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i260, ptr noundef %293) #16
+  %fputc.i.i261 = call i32 @fputc(i32 41, ptr %289)
+  %295 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %fputc.i262 = call i32 @fputc(i32 10, ptr %295)
+  %.pr290 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
   %.3205.add = add nsw i64 %.3205.idx, -1
   %.ptr228 = getelementptr inbounds i8, ptr %3, i64 %.3205.add
-  %295 = load i8, ptr %.ptr228, align 1, !tbaa !13
-  %.not248 = icmp eq i32 %.pr289, 0
-  br i1 %.not248, label %297, label %296
+  %296 = load i8, ptr %.ptr228, align 1, !tbaa !13
+  %.not247 = icmp eq i32 %.pr290, 0
+  br i1 %.not247, label %298, label %297
 
-296:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
+297:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
   call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.ptr228)
-  br label %297
+  br label %298
 
-297:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread, %296, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
-  %.in337 = phi i8 [ %283, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %295, %296 ], [ %295, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
-  %.3205.add293 = phi i64 [ %.3205.add290, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %.3205.add, %296 ], [ %.3205.add, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
-  %298 = getelementptr inbounds i8, ptr %.3196, i64 -8
-  %299 = sext i8 %.in337 to i32
+298:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread, %297, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263
+  %.in338 = phi i8 [ %284, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %296, %297 ], [ %296, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
+  %.3205.add294 = phi i64 [ %.3205.add291, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263.thread ], [ %.3205.add, %297 ], [ %.3205.add, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit263 ]
+  %299 = getelementptr inbounds i8, ptr %.3196, i64 -8
+  %300 = sext i8 %.in338 to i32
   br label %268, !llvm.loop !18
 
-300:                                              ; preds = %273
-  %301 = getelementptr inbounds nuw i8, ptr %.3196, i64 8
-  %302 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %302, ptr %301, align 8, !tbaa !4
-  %303 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
-  %.not246 = icmp eq i32 %303, 0
-  br i1 %.not246, label %11, label %304
+301:                                              ; preds = %274
+  %302 = getelementptr inbounds nuw i8, ptr %.3196, i64 8
+  %303 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %303, ptr %302, align 8, !tbaa !4
+  %304 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
+  %.not245 = icmp eq i32 %304, 0
+  br i1 %.not245, label %11, label %305
 
-304:                                              ; preds = %300
-  %305 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %306 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %305, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #16
-  %307 = load ptr, ptr @stderr, align 8, !tbaa !10
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPKN18cmExprParserHelper10ParserTypeEPv(ptr noundef %307, i32 noundef 25)
+305:                                              ; preds = %301
+  %306 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %307 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %306, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7) #16
   %308 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %fputc247 = call i32 @fputc(i32 10, ptr %308)
+  %309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %308, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.47) #16
+  %fputc.i264 = call i32 @fputc(i32 41, ptr %308)
+  %310 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %fputc246 = call i32 @fputc(i32 10, ptr %310)
   br label %11
 
-309:                                              ; preds = %250, %20
-  %.2280 = phi ptr [ %.5283, %250 ], [ %.0, %20 ]
+311:                                              ; preds = %250, %20
+  %.2281 = phi ptr [ %.5284, %250 ], [ %.0, %20 ]
   %.2 = phi i32 [ %.3, %250 ], [ %.0180, %20 ]
-  %310 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
-  call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %310, ptr noundef nonnull @.str.13)
-  br label %.loopexit339
+  %312 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
+  call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %312, ptr noundef nonnull @.str.13)
+  br label %.loopexit340
 
-.loopexit339:                                     ; preds = %21, %279, %309
-  %.6284 = phi ptr [ %.3281, %279 ], [ %.2280, %309 ], [ %.0, %21 ]
-  %.4206 = phi ptr [ %3, %279 ], [ %.0202.ptr, %309 ], [ %.0202.ptr, %21 ]
-  %.0191 = phi i32 [ 1, %279 ], [ 2, %309 ], [ 0, %21 ]
-  %.9 = phi i32 [ %.6, %279 ], [ %.2, %309 ], [ %.0180, %21 ]
-  %.not249 = icmp eq i32 %.9, -2
-  br i1 %.not249, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268, label %311
+.loopexit340:                                     ; preds = %21, %280, %311
+  %.6285 = phi ptr [ %.3282, %280 ], [ %.2281, %311 ], [ %.0, %21 ]
+  %.4206 = phi ptr [ %3, %280 ], [ %.0202.ptr, %311 ], [ %.0202.ptr, %21 ]
+  %.0191 = phi i32 [ 1, %280 ], [ 2, %311 ], [ 0, %21 ]
+  %.9 = phi i32 [ %.6, %280 ], [ %.2, %311 ], [ %.0180, %21 ]
+  %.not248 = icmp eq i32 %.9, -2
+  br i1 %.not248, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269, label %313
 
-311:                                              ; preds = %.loopexit339
+313:                                              ; preds = %.loopexit340
   %or.cond11 = icmp ult i32 %.9, 272
-  br i1 %or.cond11, label %.thread310, label %316
+  br i1 %or.cond11, label %.thread311, label %318
 
-.thread310:                                       ; preds = %254, %311
-  %.6284301325 = phi ptr [ %.6284, %311 ], [ %.0, %254 ]
-  %.4206303323 = phi ptr [ %.4206, %311 ], [ %.0202.ptr, %254 ]
-  %.0191307319 = phi i32 [ %.0191, %311 ], [ 1, %254 ]
-  %.9309317 = phi i32 [ %.9, %311 ], [ 0, %254 ]
-  %312 = zext nneg i32 %.9309317 to i64
-  %313 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %312
-  %314 = load i8, ptr %313, align 1, !tbaa !13
-  %315 = sext i8 %314 to i32
-  br label %316
+.thread311:                                       ; preds = %254, %313
+  %.6285302326 = phi ptr [ %.6285, %313 ], [ %.0, %254 ]
+  %.4206304324 = phi ptr [ %.4206, %313 ], [ %.0202.ptr, %254 ]
+  %.0191308320 = phi i32 [ %.0191, %313 ], [ 1, %254 ]
+  %.9310318 = phi i32 [ %.9, %313 ], [ 0, %254 ]
+  %314 = zext nneg i32 %.9310318 to i64
+  %315 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %314
+  %316 = load i8, ptr %315, align 1, !tbaa !13
+  %317 = sext i8 %316 to i32
+  br label %318
 
-316:                                              ; preds = %311, %.thread310
-  %.6284301324 = phi ptr [ %.6284301325, %.thread310 ], [ %.6284, %311 ]
-  %.4206303322 = phi ptr [ %.4206303323, %.thread310 ], [ %.4206, %311 ]
-  %.0191307318 = phi i32 [ %.0191307319, %.thread310 ], [ %.0191, %311 ]
-  %317 = phi i32 [ %315, %.thread310 ], [ 2, %311 ]
-  %318 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
-  %.not4.i264 = icmp eq i32 %318, 0
-  br i1 %.not4.i264, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread, label %319
+318:                                              ; preds = %313, %.thread311
+  %.6285302325 = phi ptr [ %.6285302326, %.thread311 ], [ %.6285, %313 ]
+  %.4206304323 = phi ptr [ %.4206304324, %.thread311 ], [ %.4206, %313 ]
+  %.0191308319 = phi i32 [ %.0191308320, %.thread311 ], [ %.0191, %313 ]
+  %319 = phi i32 [ %317, %.thread311 ], [ 2, %313 ]
+  %320 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
+  %.not4.i265 = icmp eq i32 %320, 0
+  br i1 %.not4.i265, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread, label %321
 
-319:                                              ; preds = %316
-  %320 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.14) #16
+321:                                              ; preds = %318
   %322 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %323 = icmp slt i32 %317, 17
-  %.str.19..str.20.i.i265 = select i1 %323, ptr @.str.19, ptr @.str.20
-  %324 = sext i32 %317 to i64
-  %325 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %324
-  %326 = load ptr, ptr %325, align 8, !tbaa !16
-  %327 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i265, ptr noundef %326) #16
-  %fputc.i.i266 = call i32 @fputc(i32 41, ptr %322)
-  %328 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %fputc.i267 = call i32 @fputc(i32 10, ptr %328)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268
+  %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %322, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.14) #16
+  %324 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %325 = icmp slt i32 %319, 17
+  %.str.19..str.20.i.i266 = select i1 %325, ptr @.str.19, ptr @.str.20
+  %326 = sext i32 %319 to i64
+  %327 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %326
+  %328 = load ptr, ptr %327, align 8, !tbaa !16
+  %329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %324, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i266, ptr noundef %328) #16
+  %fputc.i.i267 = call i32 @fputc(i32 41, ptr %324)
+  %330 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %fputc.i268 = call i32 @fputc(i32 10, ptr %330)
+  br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269
 
-_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268: ; preds = %319, %.loopexit339
-  %.0191308.ph = phi i32 [ %.0191307318, %319 ], [ %.0191, %.loopexit339 ]
-  %.4206304.ph = phi ptr [ %.4206303322, %319 ], [ %.4206, %.loopexit339 ]
-  %.6284302.ph = phi ptr [ %.6284301324, %319 ], [ %.6284, %.loopexit339 ]
-  %.pr326 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
-  %.not250 = icmp eq i32 %.pr326, 0
-  br i1 %.not250, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread, label %329
+_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269: ; preds = %321, %.loopexit340
+  %.0191309.ph = phi i32 [ %.0191308319, %321 ], [ %.0191, %.loopexit340 ]
+  %.4206305.ph = phi ptr [ %.4206304323, %321 ], [ %.4206, %.loopexit340 ]
+  %.6285303.ph = phi ptr [ %.6285302325, %321 ], [ %.6285, %.loopexit340 ]
+  %.pr327 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
+  %.not249 = icmp eq i32 %.pr327, 0
+  br i1 %.not249, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread, label %331
 
-329:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268
-  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.4206304.ph)
-  br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread
+331:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269
+  call fastcc void @_ZL14yy_stack_printPaS_(ptr noundef %3, ptr noundef %.4206305.ph)
+  br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread
 
-_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread: ; preds = %316, %329, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268
-  %.6284302335 = phi ptr [ %.6284302.ph, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268 ], [ %.6284302.ph, %329 ], [ %.6284301324, %316 ]
-  %.4206304334 = phi ptr [ %.4206304.ph, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268 ], [ %.4206304.ph, %329 ], [ %.4206303322, %316 ]
-  %.0191308332 = phi i32 [ %.0191308.ph, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268 ], [ %.0191308.ph, %329 ], [ %.0191307318, %316 ]
-  %.not251356 = icmp eq ptr %.4206304334, %3
-  %330 = load i32, ptr @cmExpr_yydebug, align 4
-  %331 = icmp eq i32 %330, 0
-  %or.cond400 = select i1 %.not251356, i1 true, i1 %331
-  br i1 %or.cond400, label %._crit_edge, label %.lr.ph.split
+_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread: ; preds = %318, %331, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269
+  %.6285303336 = phi ptr [ %.6285303.ph, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269 ], [ %.6285303.ph, %331 ], [ %.6285302325, %318 ]
+  %.4206305335 = phi ptr [ %.4206305.ph, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269 ], [ %.4206305.ph, %331 ], [ %.4206304323, %318 ]
+  %.0191309333 = phi i32 [ %.0191309.ph, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269 ], [ %.0191309.ph, %331 ], [ %.0191308319, %318 ]
+  %.not250357 = icmp eq ptr %.4206305335, %3
+  %332 = load i32, ptr @cmExpr_yydebug, align 4
+  %333 = icmp eq i32 %332, 0
+  %or.cond401 = select i1 %.not250357, i1 true, i1 %333
+  br i1 %or.cond401, label %._crit_edge, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273
-  %332 = phi i32 [ %348, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread ]
-  %.5207357 = phi ptr [ %349, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273 ], [ %.4206304334, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread ]
-  %.not4.i269 = icmp eq i32 %332, 0
-  br i1 %.not4.i269, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273, label %333
+.lr.ph.split:                                     ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274
+  %334 = phi i32 [ %350, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread ]
+  %.5207358 = phi ptr [ %351, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274 ], [ %.4206305335, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread ]
+  %.not4.i270 = icmp eq i32 %334, 0
+  br i1 %.not4.i270, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274, label %335
 
-333:                                              ; preds = %.lr.ph.split
-  %334 = load i8, ptr %.5207357, align 1, !tbaa !13
-  %335 = sext i8 %334 to i64
-  %336 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %335
-  %337 = load i8, ptr %336, align 1, !tbaa !13
-  %338 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %338, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15) #16
+335:                                              ; preds = %.lr.ph.split
+  %336 = load i8, ptr %.5207358, align 1, !tbaa !13
+  %337 = sext i8 %336 to i64
+  %338 = getelementptr inbounds i8, ptr @_ZL6yystos, i64 %337
+  %339 = load i8, ptr %338, align 1, !tbaa !13
   %340 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %341 = shl nuw i64 1, %335
-  %342 = and i64 %341, 2146959423
-  %.not338 = icmp eq i64 %342, 0
-  %.str.19..str.20.i.i270 = select i1 %.not338, ptr @.str.20, ptr @.str.19
-  %343 = sext i8 %337 to i64
-  %344 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %343
-  %345 = load ptr, ptr %344, align 8, !tbaa !16
-  %346 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i270, ptr noundef %345) #16
-  %fputc.i.i271 = call i32 @fputc(i32 41, ptr %340)
-  %347 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %fputc.i272 = call i32 @fputc(i32 10, ptr %347)
-  %.pre374 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
-  br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273
+  %341 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %340, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15) #16
+  %342 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %343 = shl nuw i64 1, %337
+  %344 = and i64 %343, 2146959423
+  %.not339 = icmp eq i64 %344, 0
+  %.str.19..str.20.i.i271 = select i1 %.not339, ptr @.str.20, ptr @.str.19
+  %345 = sext i8 %339 to i64
+  %346 = getelementptr inbounds ptr, ptr @_ZL7yytname, i64 %345
+  %347 = load ptr, ptr %346, align 8, !tbaa !16
+  %348 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %342, ptr noundef nonnull @.str.18, ptr noundef nonnull %.str.19..str.20.i.i271, ptr noundef %347) #16
+  %fputc.i.i272 = call i32 @fputc(i32 41, ptr %342)
+  %349 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %fputc.i273 = call i32 @fputc(i32 10, ptr %349)
+  %.pre375 = load i32, ptr @cmExpr_yydebug, align 4, !tbaa !8
+  br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274
 
-_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273: ; preds = %.lr.ph.split, %333
-  %348 = phi i32 [ 0, %.lr.ph.split ], [ %.pre374, %333 ]
-  %349 = getelementptr inbounds i8, ptr %.5207357, i64 -1
-  %.not251 = icmp eq ptr %349, %3
-  br i1 %.not251, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274: ; preds = %.lr.ph.split, %335
+  %350 = phi i32 [ 0, %.lr.ph.split ], [ %.pre375, %335 ]
+  %351 = getelementptr inbounds i8, ptr %.5207358, i64 -1
+  %.not250 = icmp eq ptr %351, %3
+  br i1 %.not250, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit273, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit268.thread
-  %.not252 = icmp eq ptr %.6284302335, %5
-  br i1 %.not252, label %351, label %350
+._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit274, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit269.thread
+  %.not251 = icmp eq ptr %.6285303336, %5
+  br i1 %.not251, label %353, label %352
 
-350:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %.6284302335) #17
-  br label %351
+352:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef %.6285303336) #17
+  br label %353
 
-351:                                              ; preds = %._crit_edge, %350
+353:                                              ; preds = %._crit_edge, %352
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0191308332
+  ret i32 %.0191309333
 }
 
 ; Function Attrs: nofree nounwind

@@ -2003,19 +2003,18 @@ cleanup.cont:                                     ; preds = %cleanup
 
 invoke.cont5:                                     ; preds = %cleanup.cont
   %8 = load i8, ptr %output, align 1
-  %9 = and i8 %8, 1
-  %cmp.i.i.not.i.i = icmp eq i8 %9, 0
-  br i1 %cmp.i.i.not.i.i, label %_ZN4absl12lts_202308024CordaSEOS1_.exit, label %if.then.i.i7
+  %cmp.i.i.i.i = trunc i8 %8 to i1
+  br i1 %cmp.i.i.i.i, label %if.then.i.i7, label %_ZN4absl12lts_202308024CordaSEOS1_.exit
 
 if.then.i.i7:                                     ; preds = %invoke.cont5
   invoke void @_ZN4absl12lts_202308024Cord9InlineRep9UnrefTreeEv(ptr noundef nonnull align 8 dereferenceable(16) %output)
           to label %_ZN4absl12lts_202308024CordaSEOS1_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i7
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #24
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #24
   unreachable
 
 _ZN4absl12lts_202308024CordaSEOS1_.exit:          ; preds = %invoke.cont5, %if.then.i.i7
@@ -2025,32 +2024,30 @@ _ZN4absl12lts_202308024CordaSEOS1_.exit:          ; preds = %invoke.cont5, %if.t
 
 cleanup7:                                         ; preds = %_ZN4absl12lts_202308024CordaSEOS1_.exit, %cleanup
   %buffer_.i = getelementptr inbounds nuw i8, ptr %cord_output_stream, i64 40
-  %12 = load i8, ptr %buffer_.i, align 8
-  %13 = and i8 %12, 1
-  %cmp.i.not.i.i = icmp eq i8 %13, 0
-  br i1 %cmp.i.not.i.i, label %if.then.i.i10, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i
+  %11 = load i8, ptr %buffer_.i, align 8
+  %cmp.i.i.i9 = trunc i8 %11 to i1
+  br i1 %cmp.i.i.i9, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %cleanup7
-  %14 = load ptr, ptr %buffer_.i, align 8
-  call void @_ZdlPv(ptr noundef %14) #19
+  %12 = load ptr, ptr %buffer_.i, align 8
+  call void @_ZdlPv(ptr noundef %12) #19
   br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i
 
 _ZN4absl12lts_2023080210CordBufferD2Ev.exit.i:    ; preds = %if.then.i.i10, %cleanup7
   %cord_.i = getelementptr inbounds nuw i8, ptr %cord_output_stream, i64 8
-  %15 = load i8, ptr %cord_.i, align 8
-  %16 = and i8 %15, 1
-  %cmp.i.i.not.i.i8 = icmp eq i8 %16, 0
-  br i1 %cmp.i.i.not.i.i8, label %_ZN6google8protobuf2io16CordOutputStreamD2Ev.exit, label %if.then.i1.i
+  %13 = load i8, ptr %cord_.i, align 8
+  %cmp.i.i.i.i11 = trunc i8 %13 to i1
+  br i1 %cmp.i.i.i.i11, label %if.then.i1.i, label %_ZN6google8protobuf2io16CordOutputStreamD2Ev.exit
 
 if.then.i1.i:                                     ; preds = %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i
   invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %cord_.i)
-          to label %_ZN6google8protobuf2io16CordOutputStreamD2Ev.exit unwind label %terminate.lpad.i.i9
+          to label %_ZN6google8protobuf2io16CordOutputStreamD2Ev.exit unwind label %terminate.lpad.i.i12
 
-terminate.lpad.i.i9:                              ; preds = %if.then.i1.i
-  %17 = landingpad { ptr, i32 }
+terminate.lpad.i.i12:                             ; preds = %if.then.i1.i
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #24
   unreachable
 
 _ZN6google8protobuf2io16CordOutputStreamD2Ev.exit: ; preds = %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i, %if.then.i1.i
@@ -2075,31 +2072,29 @@ define linkonce_odr hidden void @_ZN6google8protobuf2io16CordOutputStreamD2Ev(pt
 entry:
   %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %buffer_, align 8
-  %1 = and i8 %0, 1
-  %cmp.i.not.i = icmp eq i8 %1, 0
-  br i1 %cmp.i.not.i, label %if.then.i, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit
+  %cmp.i.i = trunc i8 %0 to i1
+  br i1 %cmp.i.i, label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = load ptr, ptr %buffer_, align 8
-  tail call void @_ZdlPv(ptr noundef %2) #19
+  %1 = load ptr, ptr %buffer_, align 8
+  tail call void @_ZdlPv(ptr noundef %1) #19
   br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit
 
 _ZN4absl12lts_2023080210CordBufferD2Ev.exit:      ; preds = %entry, %if.then.i
   %cord_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load i8, ptr %cord_, align 8
-  %4 = and i8 %3, 1
-  %cmp.i.i.not.i = icmp eq i8 %4, 0
-  br i1 %cmp.i.i.not.i, label %_ZN4absl12lts_202308024CordD2Ev.exit, label %if.then.i1
+  %2 = load i8, ptr %cord_, align 8
+  %cmp.i.i.i = trunc i8 %2 to i1
+  br i1 %cmp.i.i.i, label %if.then.i1, label %_ZN4absl12lts_202308024CordD2Ev.exit
 
 if.then.i1:                                       ; preds = %_ZN4absl12lts_2023080210CordBufferD2Ev.exit
   invoke void @_ZN4absl12lts_202308024Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %cord_)
           to label %_ZN4absl12lts_202308024CordD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i1
-  %5 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #24
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #24
   unreachable
 
 _ZN4absl12lts_202308024CordD2Ev.exit:             ; preds = %_ZN4absl12lts_2023080210CordBufferD2Ev.exit, %if.then.i1

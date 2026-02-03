@@ -648,9 +648,8 @@ define hidden zeroext i1 @epl_wmem_iarray_is_empty(ptr noundef readonly captures
 define hidden zeroext i1 @epl_wmem_iarray_is_sorted(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  ret i1 %5
+  %4 = trunc i8 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

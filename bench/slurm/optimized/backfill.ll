@@ -6475,25 +6475,25 @@ define internal noundef i32 @_set_hetjob_details(ptr noundef captures(none) %0, 
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %167
+  br i1 %6, label %7, label %165
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %167, label %10
+  br i1 %.not, label %165, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %12 = load i32, ptr %11, align 8
   %.not16 = icmp eq i32 %12, 0
-  br i1 %.not16, label %13, label %167
+  br i1 %.not16, label %13, label %165
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %15 = load ptr, ptr %14, align 8
   %.not17 = icmp eq ptr %15, null
-  br i1 %.not17, label %167, label %16
+  br i1 %.not17, label %165, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -6536,12 +6536,12 @@ _hetjob_any_resv.exit:                            ; preds = %24, %26
   %32 = tail call ptr @list_iterator_create(ptr noundef %.val19) #15
   br label %33
 
-33:                                               ; preds = %85, %_hetjob_any_resv.exit
-  %.05.i = phi i32 [ %spec.store.select.i, %_hetjob_any_resv.exit ], [ %.4.i, %85 ]
-  %.0.i = phi i32 [ 0, %_hetjob_any_resv.exit ], [ %.3.i, %85 ]
+33:                                               ; preds = %83, %_hetjob_any_resv.exit
+  %.05.i = phi i32 [ %spec.store.select.i, %_hetjob_any_resv.exit ], [ %.4.i, %83 ]
+  %.0.i = phi i32 [ 0, %_hetjob_any_resv.exit ], [ %.3.i, %83 ]
   %34 = tail call ptr @list_next(ptr noundef %32) #15
   %.not24.i = icmp eq ptr %34, null
-  br i1 %.not24.i, label %89, label %35
+  br i1 %.not24.i, label %87, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 656
@@ -6656,99 +6656,97 @@ _adjust_hetjob_prio.exit37.i:                     ; preds = %75, %74, %71, %61
   %.4.i = phi i32 [ %.38.i, %_adjust_hetjob_prio.exit37.i ], [ %.16.lcssa.i, %._crit_edge.i ]
   %.3.i = phi i32 [ %78, %_adjust_hetjob_prio.exit37.i ], [ %.2.lcssa.i, %._crit_edge.i ]
   %80 = load i16, ptr @bf_hetjob_prio, align 2
-  %81 = zext nneg i16 %80 to i32
-  %82 = and i32 %81, 1
-  %83 = icmp ne i32 %82, 0
-  %84 = icmp eq i32 %.4.i, 0
-  %or.cond.i = select i1 %83, i1 %84, i1 false
-  br i1 %or.cond.i, label %89, label %85
+  %81 = trunc i16 %80 to i1
+  %82 = icmp eq i32 %.4.i, 0
+  %or.cond.i = select i1 %81, i1 %82, i1 false
+  br i1 %or.cond.i, label %87, label %83
 
-85:                                               ; preds = %79
-  %86 = and i32 %81, 2
-  %87 = icmp ne i32 %86, 0
-  %88 = icmp eq i32 %.4.i, 65533
-  %or.cond3.i = select i1 %87, i1 %88, i1 false
-  br i1 %or.cond3.i, label %89, label %33, !llvm.loop !26
+83:                                               ; preds = %79
+  %84 = and i16 %80, 2
+  %85 = icmp ne i16 %84, 0
+  %86 = icmp eq i32 %.4.i, 65533
+  %or.cond3.i = select i1 %85, i1 %86, i1 false
+  br i1 %or.cond3.i, label %87, label %33, !llvm.loop !26
 
-89:                                               ; preds = %85, %79, %33
-  %.5.i = phi i32 [ %.05.i, %33 ], [ 0, %79 ], [ 65533, %85 ]
-  %.1.i = phi i32 [ %.0.i, %33 ], [ %.3.i, %79 ], [ %.3.i, %85 ]
+87:                                               ; preds = %83, %79, %33
+  %.5.i = phi i32 [ %.05.i, %33 ], [ 0, %79 ], [ 65533, %83 ]
+  %.1.i = phi i32 [ %.0.i, %33 ], [ %.3.i, %79 ], [ %.3.i, %83 ]
   tail call void @list_iterator_destroy(ptr noundef %32) #15
-  %90 = icmp eq i32 %.5.i, 0
-  %91 = icmp eq i32 %.1.i, 0
-  %or.cond5.i.not84 = select i1 %90, i1 true, i1 %91
+  %88 = icmp eq i32 %.5.i, 0
+  %89 = icmp eq i32 %.1.i, 0
+  %or.cond5.i.not84 = select i1 %88, i1 true, i1 %89
   %.pre = load i16, ptr @bf_hetjob_prio, align 2
-  %92 = and i16 %.pre, 4
-  %.not28.i = icmp eq i16 %92, 0
+  %90 = and i16 %.pre, 4
+  %.not28.i = icmp eq i16 %90, 0
   %or.cond = select i1 %or.cond5.i.not84, i1 true, i1 %.not28.i
-  br i1 %or.cond, label %_hetjob_calc_prio_tier.exit, label %93
+  br i1 %or.cond, label %_hetjob_calc_prio_tier.exit, label %91
 
-93:                                               ; preds = %89
-  %94 = udiv i32 %.5.i, %.1.i
+91:                                               ; preds = %87
+  %92 = udiv i32 %.5.i, %.1.i
   br label %_hetjob_calc_prio_tier.exit
 
-_hetjob_calc_prio_tier.exit:                      ; preds = %89, %93
-  %.6.i = phi i32 [ %.5.i, %89 ], [ %94, %93 ]
-  %95 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %.6.i, ptr %95, align 4
+_hetjob_calc_prio_tier.exit:                      ; preds = %87, %91
+  %.6.i = phi i32 [ %.5.i, %87 ], [ %92, %91 ]
+  %93 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i32 %.6.i, ptr %93, align 4
   %.val20 = load ptr, ptr %14, align 8
-  %96 = and i16 %.pre, 1
-  %sext.i = sub nsw i16 0, %96
-  %spec.store.select.i21 = sext i16 %sext.i to i32
-  %97 = tail call ptr @list_iterator_create(ptr noundef %.val20) #15
-  br label %98
+  %94 = and i16 %.pre, 1
+  %95 = zext nneg i16 %94 to i32
+  %spec.store.select.i21 = sub nsw i32 0, %95
+  %96 = tail call ptr @list_iterator_create(ptr noundef %.val20) #15
+  br label %97
 
-98:                                               ; preds = %152, %_hetjob_calc_prio_tier.exit
-  %.06.i = phi i32 [ %spec.store.select.i21, %_hetjob_calc_prio_tier.exit ], [ %.5.i27, %152 ]
-  %.023.i = phi i32 [ 0, %_hetjob_calc_prio_tier.exit ], [ %.3.i28, %152 ]
-  %99 = tail call ptr @list_next(ptr noundef %97) #15
-  %.not31.i = icmp eq ptr %99, null
-  br i1 %.not31.i, label %.thread.i, label %100
+97:                                               ; preds = %151, %_hetjob_calc_prio_tier.exit
+  %.06.i = phi i32 [ %spec.store.select.i21, %_hetjob_calc_prio_tier.exit ], [ %.5.i27, %151 ]
+  %.023.i = phi i32 [ 0, %_hetjob_calc_prio_tier.exit ], [ %.3.i28, %151 ]
+  %98 = tail call ptr @list_next(ptr noundef %96) #15
+  %.not31.i = icmp eq ptr %98, null
+  br i1 %.not31.i, label %.thread.i, label %99
 
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 656
-  %102 = load ptr, ptr %101, align 8
-  %.not32.i = icmp eq ptr %102, null
-  br i1 %.not32.i, label %136, label %103
+99:                                               ; preds = %97
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 656
+  %101 = load ptr, ptr %100, align 8
+  %.not32.i = icmp eq ptr %101, null
+  br i1 %.not32.i, label %135, label %102
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %99, i64 680
-  %105 = load ptr, ptr %104, align 8
-  %.not33.i = icmp eq ptr %105, null
-  br i1 %.not33.i, label %136, label %106
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 680
+  %104 = load ptr, ptr %103, align 8
+  %.not33.i = icmp eq ptr %104, null
+  br i1 %.not33.i, label %135, label %105
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %.not34.i = icmp eq ptr %108, null
-  br i1 %.not34.i, label %136, label %109
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %.not34.i = icmp eq ptr %107, null
+  br i1 %.not34.i, label %135, label %108
 
-109:                                              ; preds = %106
-  %110 = tail call i32 @list_count(ptr noundef nonnull %102) #15
-  %.not35.i = icmp eq i32 %110, 0
-  br i1 %.not35.i, label %136, label %.preheader.i
+108:                                              ; preds = %105
+  %109 = tail call i32 @list_count(ptr noundef nonnull %101) #15
+  %.not35.i = icmp eq i32 %109, 0
+  br i1 %.not35.i, label %135, label %.preheader.i
 
-.preheader.i:                                     ; preds = %109
-  %111 = load ptr, ptr %104, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = load i16, ptr @bf_hetjob_prio, align 2
-  %.fr.i = freeze i16 %114
-  %115 = zext i16 %.fr.i to i32
-  %116 = and i32 %115, 1
-  %.not15.i.i22 = icmp eq i32 %116, 0
-  %117 = and i32 %115, 4
-  %.not17.i.i23 = icmp eq i32 %117, 0
+.preheader.i:                                     ; preds = %108
+  %110 = load ptr, ptr %103, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8
+  %113 = load i16, ptr @bf_hetjob_prio, align 2
+  %.fr.i = freeze i16 %113
+  %114 = zext i16 %.fr.i to i32
+  %115 = and i32 %114, 1
+  %.not15.i.i22 = icmp eq i32 %115, 0
+  %116 = and i32 %114, 4
+  %.not17.i.i23 = icmp eq i32 %116, 0
   br i1 %.not15.i.i22, label %.preheader.split.us.i, label %.preheader.split.preheader.i
 
 .preheader.split.preheader.i:                     ; preds = %.preheader.i
-  %wide.trip.count.i = zext i32 %110 to i64
+  %wide.trip.count.i = zext i32 %109 to i64
   br label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i
-  %118 = and i32 %115, 2
-  %.not16.i.i33 = icmp eq i32 %118, 0
-  %wide.trip.count55.i = zext i32 %110 to i64
+  %117 = and i32 %114, 2
+  %.not16.i.i33 = icmp eq i32 %117, 0
+  %wide.trip.count55.i = zext i32 %109 to i64
   br i1 %.not16.i.i33, label %.preheader.split.us.split.us.i, label %.preheader.split.us.split.i
 
 .preheader.split.us.split.us.i:                   ; preds = %.preheader.split.us.i
@@ -6756,163 +6754,162 @@ _hetjob_calc_prio_tier.exit:                      ; preds = %89, %93
 
 .preheader.split.us.split.us.split.us.i:          ; preds = %.preheader.split.us.split.us.i, %_adjust_hetjob_prio.exit.us.us.us.i
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %_adjust_hetjob_prio.exit.us.us.us.i ], [ 0, %.preheader.split.us.split.us.i ]
-  %.216.us.us.us.i = phi i32 [ %122, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %.023.i, %.preheader.split.us.split.us.i ]
+  %.216.us.us.us.i = phi i32 [ %121, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %.023.i, %.preheader.split.us.split.us.i ]
   %.1715.us.us.us.i = phi i32 [ %spec.select.i34, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %.06.i, %.preheader.split.us.split.us.i ]
-  %119 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv52.i
-  %120 = load i32, ptr %119, align 4
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.thread.i, label %_adjust_hetjob_prio.exit.us.us.us.i
+  %118 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv52.i
+  %119 = load i32, ptr %118, align 4
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %.thread.i, label %_adjust_hetjob_prio.exit.us.us.us.i
 
 _adjust_hetjob_prio.exit.us.us.us.i:              ; preds = %.preheader.split.us.split.us.split.us.i
   %.not.i.us.us.us.i = icmp eq i32 %.1715.us.us.us.i, 0
-  %spec.select.i34 = select i1 %.not.i.us.us.us.i, i32 %120, i32 %.1715.us.us.us.i
-  %122 = add i32 %.216.us.us.us.i, 1
+  %spec.select.i34 = select i1 %.not.i.us.us.us.i, i32 %119, i32 %.1715.us.us.us.i
+  %121 = add i32 %.216.us.us.us.i, 1
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count55.i
   br i1 %exitcond56.not.i, label %.split.us.i, label %.preheader.split.us.split.us.split.us.i, !llvm.loop !27
 
 .preheader.split.us.split.us.split.i:             ; preds = %.preheader.split.us.split.us.i, %_adjust_hetjob_prio.exit.us.us.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %_adjust_hetjob_prio.exit.us.us.i ], [ 0, %.preheader.split.us.split.us.i ]
-  %.216.us.us.i = phi i32 [ %126, %_adjust_hetjob_prio.exit.us.us.i ], [ %.023.i, %.preheader.split.us.split.us.i ]
+  %.216.us.us.i = phi i32 [ %125, %_adjust_hetjob_prio.exit.us.us.i ], [ %.023.i, %.preheader.split.us.split.us.i ]
   %.1715.us.us.i = phi i32 [ %spec.select.us.us.i, %_adjust_hetjob_prio.exit.us.us.i ], [ %.06.i, %.preheader.split.us.split.us.i ]
-  %123 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv47.i
-  %124 = load i32, ptr %123, align 4
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.thread.i, label %_adjust_hetjob_prio.exit.us.us.i
+  %122 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv47.i
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %.thread.i, label %_adjust_hetjob_prio.exit.us.us.i
 
 _adjust_hetjob_prio.exit.us.us.i:                 ; preds = %.preheader.split.us.split.us.split.i
-  %spec.select.us.us.i = add i32 %124, %.1715.us.us.i
-  %126 = add i32 %.216.us.us.i, 1
+  %spec.select.us.us.i = add i32 %123, %.1715.us.us.i
+  %125 = add i32 %.216.us.us.i, 1
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count55.i
   br i1 %exitcond51.not.i, label %.split.us.i, label %.preheader.split.us.split.us.split.i, !llvm.loop !27
 
 .preheader.split.us.split.i:                      ; preds = %.preheader.split.us.i, %_adjust_hetjob_prio.exit.us.i
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %_adjust_hetjob_prio.exit.us.i ], [ 0, %.preheader.split.us.i ]
-  %.216.us.i = phi i32 [ %130, %_adjust_hetjob_prio.exit.us.i ], [ %.023.i, %.preheader.split.us.i ]
+  %.216.us.i = phi i32 [ %129, %_adjust_hetjob_prio.exit.us.i ], [ %.023.i, %.preheader.split.us.i ]
   %.1715.us.i = phi i32 [ %.28.us.i, %_adjust_hetjob_prio.exit.us.i ], [ %.06.i, %.preheader.split.us.i ]
-  %127 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv42.i
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %.thread.i, label %_adjust_hetjob_prio.exit.us.i
+  %126 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv42.i
+  %127 = load i32, ptr %126, align 4
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %.thread.i, label %_adjust_hetjob_prio.exit.us.i
 
 _adjust_hetjob_prio.exit.us.i:                    ; preds = %.preheader.split.us.split.i
   %.not.i.us.i = icmp eq i32 %.1715.us.i, 0
-  %.18.i.us.i = tail call i32 @llvm.umax.i32(i32 %.1715.us.i, i32 %128)
-  %.28.us.i = select i1 %.not.i.us.i, i32 %128, i32 %.18.i.us.i
-  %130 = add i32 %.216.us.i, 1
+  %.18.i.us.i = tail call i32 @llvm.umax.i32(i32 %.1715.us.i, i32 %127)
+  %.28.us.i = select i1 %.not.i.us.i, i32 %127, i32 %.18.i.us.i
+  %129 = add i32 %.216.us.i, 1
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next43.i, %wide.trip.count55.i
   br i1 %exitcond46.not.i, label %.split.us.thread.i, label %.preheader.split.us.split.i, !llvm.loop !27
 
 .split.us.thread.i:                               ; preds = %_adjust_hetjob_prio.exit.us.i
-  %.us-phi1966.i = add i32 %110, %.023.i
-  br label %152
+  %.us-phi1966.i = add i32 %109, %.023.i
+  br label %151
 
 .preheader.split.i:                               ; preds = %_adjust_hetjob_prio.exit.i24, %.preheader.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.split.preheader.i ], [ %indvars.iv.next.i, %_adjust_hetjob_prio.exit.i24 ]
-  %.216.i = phi i32 [ %.023.i, %.preheader.split.preheader.i ], [ %134, %_adjust_hetjob_prio.exit.i24 ]
+  %.216.i = phi i32 [ %.023.i, %.preheader.split.preheader.i ], [ %133, %_adjust_hetjob_prio.exit.i24 ]
   %.1715.i = phi i32 [ %.06.i, %.preheader.split.preheader.i ], [ %.28.i, %_adjust_hetjob_prio.exit.i24 ]
-  %131 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.i
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %.thread.i, label %_adjust_hetjob_prio.exit.i24
+  %130 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.i
+  %131 = load i32, ptr %130, align 4
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %.thread.i, label %_adjust_hetjob_prio.exit.i24
 
 _adjust_hetjob_prio.exit.i24:                     ; preds = %.preheader.split.i
   %.not.i.i25 = icmp eq i32 %.1715.i, 0
-  %..i.i26 = tail call i32 @llvm.umin.i32(i32 %.1715.i, i32 %132)
-  %.28.i = select i1 %.not.i.i25, i32 %132, i32 %..i.i26
-  %134 = add i32 %.216.i, 1
+  %..i.i26 = tail call i32 @llvm.umin.i32(i32 %.1715.i, i32 %131)
+  %.28.i = select i1 %.not.i.i25, i32 %131, i32 %..i.i26
+  %133 = add i32 %.216.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.split.us.i, label %.preheader.split.i, !llvm.loop !27
 
 .split.us.i:                                      ; preds = %_adjust_hetjob_prio.exit.i24, %_adjust_hetjob_prio.exit.us.us.i, %_adjust_hetjob_prio.exit.us.us.us.i
   %.us-phi18.i = phi i32 [ %spec.select.us.us.i, %_adjust_hetjob_prio.exit.us.us.i ], [ %spec.select.i34, %_adjust_hetjob_prio.exit.us.us.us.i ], [ %.28.i, %_adjust_hetjob_prio.exit.i24 ]
-  %.us-phi19.i = add i32 %110, %.023.i
-  %135 = icmp eq i32 %.us-phi18.i, 0
-  br i1 %135, label %.thread.i, label %152
+  %.us-phi19.i = add i32 %109, %.023.i
+  %134 = icmp eq i32 %.us-phi18.i, 0
+  br i1 %134, label %.thread.i, label %151
 
-136:                                              ; preds = %109, %106, %103, %100
-  %137 = getelementptr inbounds nuw i8, ptr %99, i64 720
-  %138 = load i32, ptr %137, align 8
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %.thread.i, label %140
+135:                                              ; preds = %108, %105, %102, %99
+  %136 = getelementptr inbounds nuw i8, ptr %98, i64 720
+  %137 = load i32, ptr %136, align 8
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %.thread.i, label %139
 
-140:                                              ; preds = %136
+139:                                              ; preds = %135
   %.not.i37.i = icmp eq i32 %.06.i, 0
   %.pre.pre.i = load i16, ptr @bf_hetjob_prio, align 2
-  br i1 %.not.i37.i, label %_adjust_hetjob_prio.exit45.i, label %141
+  br i1 %.not.i37.i, label %_adjust_hetjob_prio.exit45.i, label %140
 
-141:                                              ; preds = %140
-  %142 = zext nneg i16 %.pre.pre.i to i32
-  %143 = and i32 %142, 1
-  %.not15.i38.i = icmp eq i32 %143, 0
-  br i1 %.not15.i38.i, label %145, label %144
+140:                                              ; preds = %139
+  %141 = zext nneg i16 %.pre.pre.i to i32
+  %142 = and i32 %141, 1
+  %.not15.i38.i = icmp eq i32 %142, 0
+  br i1 %.not15.i38.i, label %144, label %143
 
-144:                                              ; preds = %141
-  %..i39.i = tail call i32 @llvm.umin.i32(i32 %.06.i, i32 %138)
+143:                                              ; preds = %140
+  %..i39.i = tail call i32 @llvm.umin.i32(i32 %.06.i, i32 %137)
   br label %_adjust_hetjob_prio.exit45.i
 
-145:                                              ; preds = %141
-  %146 = and i32 %142, 2
-  %.not16.i42.i = icmp eq i32 %146, 0
-  br i1 %.not16.i42.i, label %148, label %147
+144:                                              ; preds = %140
+  %145 = and i32 %141, 2
+  %.not16.i42.i = icmp eq i32 %145, 0
+  br i1 %.not16.i42.i, label %147, label %146
 
-147:                                              ; preds = %145
-  %.18.i43.i = tail call i32 @llvm.umax.i32(i32 %.06.i, i32 %138)
+146:                                              ; preds = %144
+  %.18.i43.i = tail call i32 @llvm.umax.i32(i32 %.06.i, i32 %137)
   br label %_adjust_hetjob_prio.exit45.i
 
-148:                                              ; preds = %145
-  %149 = and i32 %142, 4
-  %.not17.i44.i = icmp eq i32 %149, 0
-  %150 = select i1 %.not17.i44.i, i32 0, i32 %138
-  %spec.select11.i = add i32 %150, %.06.i
+147:                                              ; preds = %144
+  %148 = and i32 %141, 4
+  %.not17.i44.i = icmp eq i32 %148, 0
+  %149 = select i1 %.not17.i44.i, i32 0, i32 %137
+  %spec.select11.i = add i32 %149, %.06.i
   br label %_adjust_hetjob_prio.exit45.i
 
-_adjust_hetjob_prio.exit45.i:                     ; preds = %148, %147, %144, %140
-  %.4.i35 = phi i32 [ %spec.select11.i, %148 ], [ %..i39.i, %144 ], [ %138, %140 ], [ %.18.i43.i, %147 ]
-  %151 = add i32 %.023.i, 1
-  br label %152
+_adjust_hetjob_prio.exit45.i:                     ; preds = %147, %146, %143, %139
+  %.4.i35 = phi i32 [ %spec.select11.i, %147 ], [ %..i39.i, %143 ], [ %137, %139 ], [ %.18.i43.i, %146 ]
+  %150 = add i32 %.023.i, 1
+  br label %151
 
-152:                                              ; preds = %_adjust_hetjob_prio.exit45.i, %.split.us.i, %.split.us.thread.i
-  %153 = phi i16 [ %.pre.pre.i, %_adjust_hetjob_prio.exit45.i ], [ %.fr.i, %.split.us.i ], [ %.fr.i, %.split.us.thread.i ]
+151:                                              ; preds = %_adjust_hetjob_prio.exit45.i, %.split.us.i, %.split.us.thread.i
+  %152 = phi i16 [ %.pre.pre.i, %_adjust_hetjob_prio.exit45.i ], [ %.fr.i, %.split.us.i ], [ %.fr.i, %.split.us.thread.i ]
   %.5.i27 = phi i32 [ %.4.i35, %_adjust_hetjob_prio.exit45.i ], [ %.us-phi18.i, %.split.us.i ], [ %.28.us.i, %.split.us.thread.i ]
-  %.3.i28 = phi i32 [ %151, %_adjust_hetjob_prio.exit45.i ], [ %.us-phi19.i, %.split.us.i ], [ %.us-phi1966.i, %.split.us.thread.i ]
-  %154 = and i16 %153, 1
-  %155 = icmp ne i16 %154, 0
-  %156 = icmp eq i32 %.5.i27, 1
-  %or.cond.i29 = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond.i29, label %.thread.i, label %98, !llvm.loop !28
+  %.3.i28 = phi i32 [ %150, %_adjust_hetjob_prio.exit45.i ], [ %.us-phi19.i, %.split.us.i ], [ %.us-phi1966.i, %.split.us.thread.i ]
+  %153 = trunc i16 %152 to i1
+  %154 = icmp eq i32 %.5.i27, 1
+  %or.cond.i29 = select i1 %153, i1 %154, i1 false
+  br i1 %or.cond.i29, label %.thread.i, label %97, !llvm.loop !28
 
-.thread.i:                                        ; preds = %152, %136, %.split.us.i, %98, %.preheader.split.i, %.preheader.split.us.split.i, %.preheader.split.us.split.us.split.i, %.preheader.split.us.split.us.split.us.i
-  %.6.i30 = phi i32 [ 0, %.preheader.split.us.split.us.split.us.i ], [ 0, %.preheader.split.us.split.us.split.i ], [ 0, %.preheader.split.i ], [ 0, %.preheader.split.us.split.i ], [ 0, %136 ], [ 1, %152 ], [ 0, %.split.us.i ], [ %.06.i, %98 ]
-  %.1.i31 = phi i32 [ %.216.us.us.us.i, %.preheader.split.us.split.us.split.us.i ], [ %.216.us.us.i, %.preheader.split.us.split.us.split.i ], [ %.216.i, %.preheader.split.i ], [ %.216.us.i, %.preheader.split.us.split.i ], [ %.023.i, %136 ], [ %.3.i28, %152 ], [ %.us-phi19.i, %.split.us.i ], [ %.023.i, %98 ]
-  tail call void @list_iterator_destroy(ptr noundef %97) #15
-  %157 = icmp ne i32 %.6.i30, 0
-  %158 = icmp ne i32 %.1.i31, 0
-  %or.cond3.i32 = select i1 %157, i1 %158, i1 false
-  br i1 %or.cond3.i32, label %159, label %_hetjob_calc_prio.exit
+.thread.i:                                        ; preds = %151, %135, %.split.us.i, %97, %.preheader.split.i, %.preheader.split.us.split.i, %.preheader.split.us.split.us.split.i, %.preheader.split.us.split.us.split.us.i
+  %.6.i30 = phi i32 [ 0, %.preheader.split.us.split.us.split.us.i ], [ 0, %.preheader.split.us.split.us.split.i ], [ 0, %.preheader.split.i ], [ 0, %.preheader.split.us.split.i ], [ 0, %135 ], [ 1, %151 ], [ 0, %.split.us.i ], [ %.06.i, %97 ]
+  %.1.i31 = phi i32 [ %.216.us.us.us.i, %.preheader.split.us.split.us.split.us.i ], [ %.216.us.us.i, %.preheader.split.us.split.us.split.i ], [ %.216.i, %.preheader.split.i ], [ %.216.us.i, %.preheader.split.us.split.i ], [ %.023.i, %135 ], [ %.3.i28, %151 ], [ %.us-phi19.i, %.split.us.i ], [ %.023.i, %97 ]
+  tail call void @list_iterator_destroy(ptr noundef %96) #15
+  %155 = icmp ne i32 %.6.i30, 0
+  %156 = icmp ne i32 %.1.i31, 0
+  %or.cond3.i32 = select i1 %155, i1 %156, i1 false
+  br i1 %or.cond3.i32, label %157, label %_hetjob_calc_prio.exit
 
-159:                                              ; preds = %.thread.i
-  %160 = load i16, ptr @bf_hetjob_prio, align 2
-  %161 = and i16 %160, 4
-  %.not36.i = icmp eq i16 %161, 0
-  br i1 %.not36.i, label %_hetjob_calc_prio.exit, label %162
+157:                                              ; preds = %.thread.i
+  %158 = load i16, ptr @bf_hetjob_prio, align 2
+  %159 = and i16 %158, 4
+  %.not36.i = icmp eq i16 %159, 0
+  br i1 %.not36.i, label %_hetjob_calc_prio.exit, label %160
 
-162:                                              ; preds = %159
-  %163 = udiv i32 %.6.i30, %.1.i31
+160:                                              ; preds = %157
+  %161 = udiv i32 %.6.i30, %.1.i31
   br label %_hetjob_calc_prio.exit
 
-_hetjob_calc_prio.exit:                           ; preds = %.thread.i, %159, %162
-  %.7.i = phi i32 [ %.6.i30, %159 ], [ %163, %162 ], [ %.6.i30, %.thread.i ]
-  %164 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 %.7.i, ptr %164, align 4
-  %165 = load ptr, ptr %14, align 8
-  %166 = tail call i32 @list_for_each(ptr noundef %165, ptr noundef nonnull @_foreach_het_job_details, ptr noundef nonnull %22) #15
-  br label %167
+_hetjob_calc_prio.exit:                           ; preds = %.thread.i, %157, %160
+  %.7.i = phi i32 [ %.6.i30, %157 ], [ %161, %160 ], [ %.6.i30, %.thread.i ]
+  %162 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 %.7.i, ptr %162, align 4
+  %163 = load ptr, ptr %14, align 8
+  %164 = tail call i32 @list_for_each(ptr noundef %163, ptr noundef nonnull @_foreach_het_job_details, ptr noundef nonnull %22) #15
+  br label %165
 
-167:                                              ; preds = %_hetjob_calc_prio.exit, %13, %10, %7, %2
+165:                                              ; preds = %_hetjob_calc_prio.exit, %13, %10, %7, %2
   ret i32 0
 }
 

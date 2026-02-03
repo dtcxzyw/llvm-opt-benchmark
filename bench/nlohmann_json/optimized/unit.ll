@@ -9433,70 +9433,69 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest6Stringa
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %27 = load i32, ptr %26, align 4, !tbaa !318
-  %28 = and i32 %27, 1
-  %29 = icmp ne i32 %28, 0
-  br i1 %29, label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit, label %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit
+  %28 = trunc i32 %27 to i1
+  br i1 %28, label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit, label %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
-  %.sroa.06.010 = phi ptr [ %34, %.lr.ph ], [ %23, %20 ]
-  %30 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !179
-  %31 = load ptr, ptr %30, align 8, !tbaa !31
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
-  %.not = icmp eq ptr %34, %25
+  %.sroa.06.010 = phi ptr [ %33, %.lr.ph ], [ %23, %20 ]
+  %29 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !179
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(40) %0)
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
+  %.not = icmp eq ptr %33, %25
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 _ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit: ; preds = %._crit_edge
-  %35 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
-  %37 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
-  %38 = and i64 %37, 31
-  %39 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %36, i64 %38
-  %40 = atomicrmw add ptr %39, i32 1 seq_cst, align 4
-  %41 = load i32, ptr %26, align 4, !tbaa !318
-  %42 = and i32 %41, 1
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
+  %34 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
+  %36 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
+  %37 = and i64 %36, 31
+  %38 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %35, i64 %37
+  %39 = atomicrmw add ptr %38, i32 1 seq_cst, align 4
+  %40 = load i32, ptr %26, align 4, !tbaa !318
+  %41 = and i32 %40, 1
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
 
-44:                                               ; preds = %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit
-  %45 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 2232
-  %47 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
-  %48 = and i64 %47, 31
-  %49 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %46, i64 %48
-  %50 = atomicrmw add ptr %49, i32 1 seq_cst, align 4
+43:                                               ; preds = %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit
+  %44 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 2232
+  %46 = atomicrmw add ptr @_ZZN7doctest6detail15MultiLaneAtomicIiE8myAtomicEvE11laneCounter, i64 1 seq_cst, align 8
+  %47 = and i64 %46, 31
+  %48 = getelementptr inbounds nuw %"struct.doctest::detail::MultiLaneAtomic<int>::CacheLineAlignedAtomic", ptr %45, i64 %47
+  %49 = atomicrmw add ptr %48, i32 1 seq_cst, align 4
   br label %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
 
-_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit: ; preds = %44, %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit, %._crit_edge
-  %51 = call noundef zeroext i1 @_ZN7doctest6detail16isDebuggerActiveEv()
-  br i1 %51, label %52, label %66
+_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit: ; preds = %43, %_ZN7doctest12_GLOBAL__N_19addAssertENS_10assertType4EnumE.exit, %._crit_edge
+  %50 = call noundef zeroext i1 @_ZN7doctest6detail16isDebuggerActiveEv()
+  br i1 %50, label %51, label %65
 
-52:                                               ; preds = %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
-  %53 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 121
-  %55 = load i8, ptr %54, align 1, !tbaa !308, !range !22, !noundef !23
-  %56 = trunc nuw i8 %55 to i1
-  %or.cond = or i1 %29, %56
-  br i1 %or.cond, label %66, label %57
+51:                                               ; preds = %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
+  %52 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 121
+  %54 = load i8, ptr %53, align 1, !tbaa !308, !range !22, !noundef !23
+  %55 = trunc nuw i8 %54 to i1
+  %or.cond = or i1 %28, %55
+  br i1 %or.cond, label %65, label %56
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !292
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %66, label %61
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %58 = load ptr, ptr %57, align 8, !tbaa !292
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %65, label %60
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 57
-  %63 = load i8, ptr %62, align 1, !tbaa !212, !range !22, !noundef !23
-  %64 = trunc nuw i8 %63 to i1
-  %65 = xor i1 %64, true
-  br label %66
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 57
+  %62 = load i8, ptr %61, align 1, !tbaa !212, !range !22, !noundef !23
+  %63 = trunc nuw i8 %62 to i1
+  %64 = xor i1 %63, true
+  br label %65
 
-66:                                               ; preds = %57, %61, %52, %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
-  %67 = phi i1 [ false, %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit ], [ false, %52 ], [ true, %57 ], [ %65, %61 ]
-  ret i1 %67
+65:                                               ; preds = %56, %60, %51, %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit
+  %66 = phi i1 [ false, %_ZN7doctest12_GLOBAL__N_115addFailedAssertENS_10assertType4EnumE.exit ], [ false, %51 ], [ true, %56 ], [ %64, %60 ]
+  ret i1 %66
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -34814,7 +34813,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 11:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   invoke fastcc void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter12logTestStartEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
-          to label %12 unwind label %121
+          to label %12 unwind label %109
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr %6, align 8, !tbaa !696
@@ -34829,293 +34828,272 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load ptr, ptr %21, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %.0.i.i, i32 noundef %19, ptr noundef nonnull @.str.457)
-          to label %23 unwind label %121
+          to label %23 unwind label %109
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i8, ptr %24, align 8, !tbaa !196, !range !22, !noundef !23
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load ptr, ptr %27, align 8, !tbaa !692
-  %28 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %.noexc, label %30
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val = load ptr, ptr %26, align 8, !tbaa !692
+  %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest5ColorlsERSoNS0_4EnumE(ptr noundef nonnull align 8 dereferenceable(8) %.val, i32 noundef 2)
+          to label %.noexc unwind label %109
 
-30:                                               ; preds = %23
-  %31 = tail call i32 @isatty(i32 noundef 1) #49
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %38
-
-33:                                               ; preds = %30
-  %34 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  %36 = load i8, ptr %35, align 8, !tbaa !74, !range !22, !noundef !23
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.noexc, label %38
-
-38:                                               ; preds = %33, %30
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull @.str.222, i64 noundef 1)
-          to label %.noexc61 unwind label %121
-
-.noexc61:                                         ; preds = %38
-  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull @.str.211, i64 noundef 6)
-          to label %.noexc unwind label %121
-
-.noexc:                                           ; preds = %33, %23, %.noexc61
-  %.0.i.i22 = select i1 %26, ptr @.str.53, ptr @.str.52
-  %41 = select i1 %26, i64 11, i64 5
-  %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull %.0.i.i22, i64 noundef %41)
-          to label %.noexc23 unwind label %121
+.noexc:                                           ; preds = %23
+  %28 = trunc nuw i8 %25 to i1
+  %spec.select = select i1 %28, ptr @.str.53, ptr @.str.52
+  %29 = select i1 %28, i64 11, i64 5
+  %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull %spec.select, i64 noundef %29)
+          to label %.noexc23 unwind label %109
 
 .noexc23:                                         ; preds = %.noexc
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull @.str.483, i64 noundef 2)
-          to label %_ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit unwind label %121
+  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.val, ptr noundef nonnull @.str.483, i64 noundef 2)
+          to label %_ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit unwind label %109
 
 _ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit: ; preds = %.noexc23
-  %44 = load ptr, ptr %27, align 8, !tbaa !692
-  %45 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit, label %47
+  %32 = load ptr, ptr %26, align 8, !tbaa !692
+  %33 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit, label %35
 
-47:                                               ; preds = %_ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit
-  %48 = tail call i32 @isatty(i32 noundef 1) #49
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %55
+35:                                               ; preds = %_ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit
+  %36 = tail call i32 @isatty(i32 noundef 1) #49
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %43
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 120
-  %53 = load i8, ptr %52, align 8, !tbaa !74, !range !22, !noundef !23
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit, label %55
+38:                                               ; preds = %35
+  %39 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
+  %41 = load i8, ptr %40, align 8, !tbaa !74, !range !22, !noundef !23
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit, label %43
 
-55:                                               ; preds = %50, %47
-  %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.222, i64 noundef 1)
-          to label %.noexc26 unwind label %121
+43:                                               ; preds = %38, %35
+  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.222, i64 noundef 1)
+          to label %.noexc26 unwind label %109
 
-.noexc26:                                         ; preds = %55
-  %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.211, i64 noundef 6)
-          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit unwind label %121
+.noexc26:                                         ; preds = %43
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.211, i64 noundef 6)
+          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit unwind label %109
 
-_ZN7doctest5ColorlsERSoNS0_4EnumE.exit:           ; preds = %50, %_ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit, %.noexc26
-  %58 = load i8, ptr %24, align 8, !tbaa !196, !range !22, !noundef !23
-  %59 = trunc nuw i8 %58 to i1
-  %60 = select i1 %59, ptr @.str.481, ptr @.str.482
-  %61 = select i1 %59, i64 19, i64 27
-  %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %60, i64 noundef %61)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %121
+_ZN7doctest5ColorlsERSoNS0_4EnumE.exit:           ; preds = %38, %_ZN7doctest12_GLOBAL__N_115ConsoleReporter34successOrFailColoredStringToStreamEbNS_10assertType4EnumEPKc.exit, %.noexc26
+  %46 = load i8, ptr %24, align 8, !tbaa !196, !range !22, !noundef !23
+  %47 = trunc nuw i8 %46 to i1
+  %48 = select i1 %47, ptr @.str.481, ptr @.str.482
+  %49 = select i1 %47, i64 19, i64 27
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %48, i64 noundef %49)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %109
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit
-  %63 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32, label %65
+  %51 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32, label %53
 
-65:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %66 = tail call i32 @isatty(i32 noundef 1) #49
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %73
+53:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+  %54 = tail call i32 @isatty(i32 noundef 1) #49
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %61
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 120
-  %71 = load i8, ptr %70, align 8, !tbaa !74, !range !22, !noundef !23
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32, label %73
+56:                                               ; preds = %53
+  %57 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
+  %59 = load i8, ptr %58, align 8, !tbaa !74, !range !22, !noundef !23
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32, label %61
 
-73:                                               ; preds = %68, %65
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.222, i64 noundef 1)
-          to label %.noexc30 unwind label %121
+61:                                               ; preds = %56, %53
+  %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.222, i64 noundef 1)
+          to label %.noexc30 unwind label %109
 
-.noexc30:                                         ; preds = %73
-  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.214, i64 noundef 6)
-          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32 unwind label %121
+.noexc30:                                         ; preds = %61
+  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.214, i64 noundef 6)
+          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32 unwind label %109
 
-_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32:         ; preds = %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.noexc30
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %77 = load i8, ptr %76, align 1, !tbaa !37
-  %78 = load ptr, ptr %1, align 8
-  %79 = icmp slt i8 %77, 0
-  %.0.i.i.i = select i1 %79, ptr %78, ptr %1
+_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32:         ; preds = %56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.noexc30
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 23
+  %65 = load i8, ptr %64, align 1, !tbaa !37
+  %66 = load ptr, ptr %1, align 8
+  %67 = icmp slt i8 %65, 0
+  %.0.i.i.i = select i1 %67, ptr %66, ptr %1
   %.not.i.i33 = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i33, label %80, label %88
+  br i1 %.not.i.i33, label %68, label %76
 
-80:                                               ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32
-  %81 = load ptr, ptr %44, align 8, !tbaa !31
-  %82 = getelementptr i8, ptr %81, i64 -24
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %44, i64 %83
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load i32, ptr %85, align 8, !tbaa !63
-  %87 = or i32 %86, 1
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %84, i32 noundef %87)
-          to label %_ZN7doctestlsERSoRKNS_6StringE.exit unwind label %121
+68:                                               ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32
+  %69 = load ptr, ptr %32, align 8, !tbaa !31
+  %70 = getelementptr i8, ptr %69, i64 -24
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %32, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %74 = load i32, ptr %73, align 8, !tbaa !63
+  %75 = or i32 %74, 1
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %72, i32 noundef %75)
+          to label %_ZN7doctestlsERSoRKNS_6StringE.exit unwind label %109
 
-88:                                               ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32
-  %89 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i) #49
-  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %.0.i.i.i, i64 noundef %89)
-          to label %_ZN7doctestlsERSoRKNS_6StringE.exit unwind label %121
+76:                                               ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit32
+  %77 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i) #49
+  %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %.0.i.i.i, i64 noundef %77)
+          to label %_ZN7doctestlsERSoRKNS_6StringE.exit unwind label %109
 
-_ZN7doctestlsERSoRKNS_6StringE.exit:              ; preds = %80, %88
-  %91 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull @.str.325, i64 noundef 1)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37 unwind label %121
+_ZN7doctestlsERSoRKNS_6StringE.exit:              ; preds = %68, %76
+  %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.325, i64 noundef 1)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37 unwind label %109
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %_ZN7doctestlsERSoRKNS_6StringE.exit
-  %92 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4344
-  %94 = getelementptr inbounds nuw i8, ptr %92, i64 4352
-  %95 = load ptr, ptr %94, align 8, !tbaa !282
-  %96 = load ptr, ptr %93, align 8, !tbaa !284
-  %97 = ptrtoint ptr %95 to i64
-  %98 = ptrtoint ptr %96 to i64
-  %99 = sub i64 %97, %98
-  %100 = sdiv exact i64 %99, 24
-  %101 = trunc i64 %100 to i32
-  %.not = icmp eq i32 %101, 0
-  br i1 %.not, label %.loopexit, label %102
+  %80 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4344
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 4352
+  %83 = load ptr, ptr %82, align 8, !tbaa !282
+  %84 = load ptr, ptr %81, align 8, !tbaa !284
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = sdiv exact i64 %87, 24
+  %89 = trunc i64 %88 to i32
+  %.not = icmp eq i32 %89, 0
+  br i1 %.not, label %.loopexit, label %90
 
-102:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
-  %103 = and i64 %100, 4294967295
-  %.not.i = icmp eq i64 %103, 0
-  %spec.select.i = select i1 %.not.i, ptr null, ptr %96
-  %104 = load ptr, ptr %27, align 8, !tbaa !692
-  %105 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41, label %107
+90:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
+  %91 = and i64 %88, 4294967295
+  %.not.i = icmp eq i64 %91, 0
+  %spec.select.i = select i1 %.not.i, ptr null, ptr %84
+  %92 = load ptr, ptr %26, align 8, !tbaa !692
+  %93 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41, label %95
 
-107:                                              ; preds = %102
-  %108 = tail call i32 @isatty(i32 noundef 1) #49
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %115
+95:                                               ; preds = %90
+  %96 = tail call i32 @isatty(i32 noundef 1) #49
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %103
 
-110:                                              ; preds = %107
-  %111 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 120
-  %113 = load i8, ptr %112, align 8, !tbaa !74, !range !22, !noundef !23
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41, label %115
+98:                                               ; preds = %95
+  %99 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 120
+  %101 = load i8, ptr %100, align 8, !tbaa !74, !range !22, !noundef !23
+  %102 = icmp eq i8 %101, 0
+  br i1 %102, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41, label %103
 
-115:                                              ; preds = %110, %107
-  %116 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.222, i64 noundef 1)
-          to label %.noexc39 unwind label %123
+103:                                              ; preds = %98, %95
+  %104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.222, i64 noundef 1)
+          to label %.noexc39 unwind label %111
 
-.noexc39:                                         ; preds = %115
-  %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.221, i64 noundef 3)
-          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41 unwind label %123
+.noexc39:                                         ; preds = %103
+  %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.221, i64 noundef 3)
+          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41 unwind label %111
 
-_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41:         ; preds = %110, %102, %.noexc39
-  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %104, ptr noundef nonnull @.str.341, i64 noundef 10)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader unwind label %123
+_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41:         ; preds = %98, %90, %.noexc39
+  %106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.341, i64 noundef 10)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader unwind label %111
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader: ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41
-  %119 = icmp sgt i32 %101, 0
-  br i1 %119, label %.lr.ph.preheader, label %.loopexit
+  %107 = icmp sgt i32 %89, 0
+  br i1 %107, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader
-  %120 = and i64 %100, 2147483647
+  %108 = and i64 %88, 2147483647
   br label %.lr.ph
 
-121:                                              ; preds = %.noexc61, %38, %_ZN7doctestlsERSoRKNS_6StringE.exit, %88, %80, %.noexc30, %73, %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit, %.noexc26, %55, %.noexc23, %.noexc, %12, %11
-  %122 = landingpad { ptr, i32 }
+109:                                              ; preds = %_ZN7doctestlsERSoRKNS_6StringE.exit, %76, %68, %.noexc30, %61, %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit, %.noexc26, %43, %.noexc23, %.noexc, %23, %12, %11
+  %110 = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %157
 
-123:                                              ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41, %.noexc39, %115
-  %124 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit41, %.noexc39, %103
+  %112 = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %157
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53
-  %indvars.iv = phi i64 [ %120, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53 ]
-  %125 = load ptr, ptr %27, align 8, !tbaa !692
-  %126 = icmp eq i64 %indvars.iv, %120
-  %127 = select i1 %126, ptr @.str, ptr @.str.342
-  %128 = select i1 %126, i64 0, i64 10
-  %129 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull %127, i64 noundef %128)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 unwind label %149
+  %indvars.iv = phi i64 [ %108, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53 ]
+  %113 = load ptr, ptr %26, align 8, !tbaa !692
+  %114 = icmp eq i64 %indvars.iv, %108
+  %115 = select i1 %114, ptr @.str, ptr @.str.342
+  %116 = select i1 %114, i64 0, i64 10
+  %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull %115, i64 noundef %116)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46 unwind label %137
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %.lr.ph
-  %130 = getelementptr %"class.doctest::String", ptr %spec.select.i, i64 %indvars.iv
-  %131 = getelementptr i8, ptr %130, i64 -24
-  %132 = getelementptr i8, ptr %130, i64 -1
-  %133 = load i8, ptr %132, align 1, !tbaa !37
-  %134 = load ptr, ptr %131, align 8
-  %135 = icmp slt i8 %133, 0
-  %.0.i.i.i47 = select i1 %135, ptr %134, ptr %131
+  %118 = getelementptr %"class.doctest::String", ptr %spec.select.i, i64 %indvars.iv
+  %119 = getelementptr i8, ptr %118, i64 -24
+  %120 = getelementptr i8, ptr %118, i64 -1
+  %121 = load i8, ptr %120, align 1, !tbaa !37
+  %122 = load ptr, ptr %119, align 8
+  %123 = icmp slt i8 %121, 0
+  %.0.i.i.i47 = select i1 %123, ptr %122, ptr %119
   %.not.i.i48 = icmp eq ptr %.0.i.i.i47, null
-  br i1 %.not.i.i48, label %136, label %144
+  br i1 %.not.i.i48, label %124, label %132
 
-136:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
-  %137 = load ptr, ptr %125, align 8, !tbaa !31
-  %138 = getelementptr i8, ptr %137, i64 -24
-  %139 = load i64, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %125, i64 %139
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
-  %142 = load i32, ptr %141, align 8, !tbaa !63
-  %143 = or i32 %142, 1
-  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %140, i32 noundef %143)
-          to label %_ZN7doctestlsERSoRKNS_6StringE.exit51 unwind label %149
+124:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
+  %125 = load ptr, ptr %113, align 8, !tbaa !31
+  %126 = getelementptr i8, ptr %125, i64 -24
+  %127 = load i64, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %113, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %130 = load i32, ptr %129, align 8, !tbaa !63
+  %131 = or i32 %130, 1
+  invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %128, i32 noundef %131)
+          to label %_ZN7doctestlsERSoRKNS_6StringE.exit51 unwind label %137
 
-144:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
-  %145 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i47) #49
-  %146 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull %.0.i.i.i47, i64 noundef %145)
-          to label %_ZN7doctestlsERSoRKNS_6StringE.exit51 unwind label %149
+132:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46
+  %133 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i47) #49
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull %.0.i.i.i47, i64 noundef %133)
+          to label %_ZN7doctestlsERSoRKNS_6StringE.exit51 unwind label %137
 
-_ZN7doctestlsERSoRKNS_6StringE.exit51:            ; preds = %136, %144
-  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef nonnull @.str.325, i64 noundef 1)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53 unwind label %149
+_ZN7doctestlsERSoRKNS_6StringE.exit51:            ; preds = %124, %132
+  %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull @.str.325, i64 noundef 1)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53 unwind label %137
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53: ; preds = %_ZN7doctestlsERSoRKNS_6StringE.exit51
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %148 = icmp sgt i64 %indvars.iv, 1
-  br i1 %148, label %.lr.ph, label %.loopexit, !llvm.loop !699
+  %136 = icmp sgt i64 %indvars.iv, 1
+  br i1 %136, label %.lr.ph, label %.loopexit, !llvm.loop !699
 
-149:                                              ; preds = %_ZN7doctestlsERSoRKNS_6StringE.exit51, %144, %136, %.lr.ph
-  %150 = landingpad { ptr, i32 }
+137:                                              ; preds = %_ZN7doctestlsERSoRKNS_6StringE.exit51, %132, %124, %.lr.ph
+  %138 = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %157
 
 .loopexit:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit53, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37
-  %151 = load ptr, ptr %27, align 8, !tbaa !692
-  %152 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull @.str.325, i64 noundef 1)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55 unwind label %167
+  %139 = load ptr, ptr %26, align 8, !tbaa !692
+  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull @.str.325, i64 noundef 1)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55 unwind label %155
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55: ; preds = %.loopexit
-  %153 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
-  %154 = trunc nuw i8 %153 to i1
-  br i1 %154, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59, label %155
+  %141 = load i8, ptr @_ZN7doctest6detail11g_no_colorsE, align 1, !tbaa !10, !range !22, !noundef !23
+  %142 = trunc nuw i8 %141 to i1
+  br i1 %142, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59, label %143
 
-155:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55
-  %156 = tail call i32 @isatty(i32 noundef 1) #49
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %158, label %163
+143:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55
+  %144 = tail call i32 @isatty(i32 noundef 1) #49
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %146, label %151
 
-158:                                              ; preds = %155
-  %159 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 120
-  %161 = load i8, ptr %160, align 8, !tbaa !74, !range !22, !noundef !23
-  %162 = icmp eq i8 %161, 0
-  br i1 %162, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59, label %163
+146:                                              ; preds = %143
+  %147 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 120
+  %149 = load i8, ptr %148, align 8, !tbaa !74, !range !22, !noundef !23
+  %150 = icmp eq i8 %149, 0
+  br i1 %150, label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59, label %151
 
-163:                                              ; preds = %158, %155
-  %164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull @.str.222, i64 noundef 1)
-          to label %.noexc57 unwind label %167
+151:                                              ; preds = %146, %143
+  %152 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull @.str.222, i64 noundef 1)
+          to label %.noexc57 unwind label %155
 
-.noexc57:                                         ; preds = %163
-  %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %151, ptr noundef nonnull @.str.221, i64 noundef 3)
-          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59 unwind label %167
+.noexc57:                                         ; preds = %151
+  %153 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull @.str.221, i64 noundef 3)
+          to label %_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59 unwind label %155
 
-_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59:         ; preds = %158, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %.noexc57, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %166 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #49
+_ZN7doctest5ColorlsERSoNS0_4EnumE.exit59:         ; preds = %146, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55, %.noexc57, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
+  %154 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #49
   ret void
 
-167:                                              ; preds = %.noexc57, %163, %.loopexit
-  %168 = landingpad { ptr, i32 }
+155:                                              ; preds = %.noexc57, %151, %.loopexit
+  %156 = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %157
 
-169:                                              ; preds = %167, %149, %123, %121
-  %.pn.pn.pn = phi { ptr, i32 } [ %122, %121 ], [ %168, %167 ], [ %150, %149 ], [ %124, %123 ]
-  %170 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #49
+157:                                              ; preds = %155, %137, %111, %109
+  %.pn.pn.pn = phi { ptr, i32 } [ %110, %109 ], [ %156, %155 ], [ %138, %137 ], [ %112, %111 ]
+  %158 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #49
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -35268,17 +35246,17 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %18
   %34 = load i32, ptr %33, align 8, !tbaa !298
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %35, align 8, !tbaa !692
-  %36 = and i32 %34, 1
-  %.not.i.i8 = icmp eq i32 %36, 0
-  %37 = select i1 %.not.i.i8, i32 2, i32 6
-  %38 = select i1 %32, i32 %37, i32 19
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest5ColorlsERSoNS0_4EnumE(ptr noundef nonnull align 8 dereferenceable(8) %.val, i32 noundef %38)
+  %.not.i.i8 = trunc i32 %34 to i1
+  %36 = select i1 %.not.i.i8, i32 6, i32 2
+  %37 = select i1 %32, i32 %36, i32 19
+  %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7doctest5ColorlsERSoNS0_4EnumE(ptr noundef nonnull align 8 dereferenceable(8) %.val, i32 noundef %37)
           to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %30
-  %brmerge.i.not = and i1 %.not.i.i8, %32
+  %39 = xor i1 %32, true
+  %brmerge.i = or i1 %39, %.not.i.i8
   %.str.480.mux.i = select i1 %32, ptr @.str.51, ptr @.str.480
-  br i1 %brmerge.i.not, label %40, label %_ZN7doctest12_GLOBAL__N_115ConsoleReporter22getSuccessOrFailStringEbNS_10assertType4EnumEPKc.exit.i
+  br i1 %brmerge.i, label %_ZN7doctest12_GLOBAL__N_115ConsoleReporter22getSuccessOrFailStringEbNS_10assertType4EnumEPKc.exit.i, label %40
 
 40:                                               ; preds = %.noexc
   %41 = and i32 %34, 2
@@ -35371,9 +35349,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %8
 
 28:                                               ; preds = %20
   %29 = load i32, ptr %23, align 4, !tbaa !318
-  %30 = and i32 %29, 1
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %31, label %_ZN7doctest12_GLOBAL__N_115ConsoleReporter22getSuccessOrFailStringEbNS_10assertType4EnumEPKc.exit
+  %30 = trunc i32 %29 to i1
+  br i1 %30, label %_ZN7doctest12_GLOBAL__N_115ConsoleReporter22getSuccessOrFailStringEbNS_10assertType4EnumEPKc.exit, label %31
 
 31:                                               ; preds = %28
   %32 = and i32 %29, 2

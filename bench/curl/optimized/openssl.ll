@@ -948,488 +948,488 @@ define hidden i32 @Curl_ossl_ctx_init(ptr noundef captures(none) %0, ptr noundef
   %23 = load ptr, ptr %22, align 8, !tbaa !116
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 121
   %25 = load i8, ptr %24, align 1
-  %26 = and i8 %25, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %28 = load ptr, ptr %27, align 8, !tbaa !82
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %33, label %29
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %27 = load ptr, ptr %26, align 8, !tbaa !82
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %32, label %28
 
-29:                                               ; preds = %10
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 649
-  %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, 8
-  %.not7.i = icmp eq i8 %32, 0
-  br i1 %.not7.i, label %33, label %41
+28:                                               ; preds = %10
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 649
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, 8
+  %.not7.i = icmp eq i8 %31, 0
+  br i1 %.not7.i, label %32, label %40
 
-33:                                               ; preds = %29, %10
-  %34 = tail call i32 @RAND_status() #13
-  %.not9.i = icmp eq i32 %34, 0
-  br i1 %.not9.i, label %ossl_seed.exit, label %35
+32:                                               ; preds = %28, %10
+  %33 = tail call i32 @RAND_status() #13
+  %.not9.i = icmp eq i32 %33, 0
+  br i1 %.not9.i, label %ossl_seed.exit, label %34
 
-35:                                               ; preds = %33
-  %36 = load ptr, ptr %27, align 8, !tbaa !82
-  %.not8.i = icmp eq ptr %36, null
-  br i1 %.not8.i, label %41, label %37
+34:                                               ; preds = %32
+  %35 = load ptr, ptr %26, align 8, !tbaa !82
+  %.not8.i = icmp eq ptr %35, null
+  br i1 %.not8.i, label %40, label %36
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 649
-  %39 = load i8, ptr %38, align 1
-  %40 = or i8 %39, 8
-  store i8 %40, ptr %38, align 1
-  br label %41
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 649
+  %38 = load i8, ptr %37, align 1
+  %39 = or i8 %38, 8
+  store i8 %39, ptr %37, align 1
+  br label %40
 
-ossl_seed.exit:                                   ; preds = %33
+ossl_seed.exit:                                   ; preds = %32
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.61) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-41:                                               ; preds = %29, %37, %35
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 128
-  store i64 1, ptr %42, align 8, !tbaa !117
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %44 = load i32, ptr %43, align 8, !tbaa !118
-  switch i32 %44, label %57 [
-    i32 3, label %45
-    i32 5, label %51
+40:                                               ; preds = %28, %36, %34
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  store i64 1, ptr %41, align 8, !tbaa !117
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %43 = load i32, ptr %42, align 8, !tbaa !118
+  switch i32 %43, label %56 [
+    i32 3, label %44
+    i32 5, label %50
   ]
 
-45:                                               ; preds = %41
-  switch i8 %17, label %50 [
-    i8 0, label %46
-    i8 1, label %46
-    i8 4, label %46
-    i8 5, label %46
-    i8 6, label %46
-    i8 7, label %46
-    i8 2, label %48
-    i8 3, label %49
+44:                                               ; preds = %40
+  switch i8 %17, label %49 [
+    i8 0, label %45
+    i8 1, label %45
+    i8 4, label %45
+    i8 5, label %45
+    i8 6, label %45
+    i8 7, label %45
+    i8 2, label %47
+    i8 3, label %48
   ]
 
-46:                                               ; preds = %45, %45, %45, %45, %45, %45
-  %47 = tail call ptr @TLS_client_method() #13
-  br label %58
+45:                                               ; preds = %44, %44, %44, %44, %44, %44
+  %46 = tail call ptr @TLS_client_method() #13
+  br label %57
 
-48:                                               ; preds = %45
+47:                                               ; preds = %44
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-49:                                               ; preds = %45
+48:                                               ; preds = %44
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-50:                                               ; preds = %45
+49:                                               ; preds = %44
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-51:                                               ; preds = %41
-  %52 = getelementptr inbounds nuw i8, ptr %14, i64 116
-  %53 = load i32, ptr %52, align 4, !tbaa !120
-  switch i32 %53, label %54 [
-    i32 0, label %55
-    i32 458752, label %55
+50:                                               ; preds = %40
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 116
+  %52 = load i32, ptr %51, align 4, !tbaa !120
+  switch i32 %52, label %53 [
+    i32 0, label %54
+    i32 458752, label %54
   ]
 
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-55:                                               ; preds = %51, %51
-  %56 = tail call ptr @TLS_method() #13
-  br label %58
+54:                                               ; preds = %50, %50
+  %55 = tail call ptr @TLS_method() #13
+  br label %57
 
-57:                                               ; preds = %41
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i32 noundef %44) #13
+56:                                               ; preds = %40
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i32 noundef %43) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-58:                                               ; preds = %46, %55
-  %.0216 = phi ptr [ %47, %46 ], [ %56, %55 ]
-  %59 = tail call ptr @SSL_CTX_new(ptr noundef %.0216) #13
-  store ptr %59, ptr %0, align 8, !tbaa !121
-  %.not253 = icmp eq ptr %59, null
-  br i1 %.not253, label %60, label %79
+57:                                               ; preds = %45, %54
+  %.0216 = phi ptr [ %46, %45 ], [ %55, %54 ]
+  %58 = tail call ptr @SSL_CTX_new(ptr noundef %.0216) #13
+  store ptr %58, ptr %0, align 8, !tbaa !121
+  %.not253 = icmp eq ptr %58, null
+  br i1 %.not253, label %59, label %78
 
-60:                                               ; preds = %58
-  %61 = tail call i64 @ERR_peek_error() #13
+59:                                               ; preds = %57
+  %60 = tail call i64 @ERR_peek_error() #13
   store i8 0, ptr %11, align 16, !tbaa !126
-  %62 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
-  %63 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %11, i64 noundef 256, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef %62) #13
-  %64 = icmp ult i32 %63, 254
-  br i1 %64, label %65, label %71
+  %61 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
+  %62 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %11, i64 noundef 256, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef %61) #13
+  %63 = icmp ult i32 %62, 254
+  br i1 %63, label %64, label %70
 
-65:                                               ; preds = %60
-  %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %11, i64 %66
-  %68 = sub nuw nsw i64 254, %66
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store i8 58, ptr %67, align 1, !tbaa !126
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  store i8 32, ptr %69, align 1, !tbaa !126
-  store i8 0, ptr %70, align 1, !tbaa !126
-  br label %71
+64:                                               ; preds = %59
+  %65 = zext nneg i32 %62 to i64
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 %65
+  %67 = sub nuw nsw i64 254, %65
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 1
+  store i8 58, ptr %66, align 1, !tbaa !126
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 2
+  store i8 32, ptr %68, align 1, !tbaa !126
+  store i8 0, ptr %69, align 1, !tbaa !126
+  br label %70
 
-71:                                               ; preds = %65, %60
-  %.021.i = phi i64 [ %68, %65 ], [ 256, %60 ]
-  %.0.i313 = phi ptr [ %70, %65 ], [ %11, %60 ]
-  call void @ERR_error_string_n(i64 noundef %61, ptr noundef nonnull %.0.i313, i64 noundef %.021.i) #13
-  %72 = load i8, ptr %.0.i313, align 1, !tbaa !126
-  %.not.i314 = icmp eq i8 %72, 0
-  br i1 %.not.i314, label %73, label %ossl_strerror.exit
+70:                                               ; preds = %64, %59
+  %.021.i = phi i64 [ %67, %64 ], [ 256, %59 ]
+  %.0.i313 = phi ptr [ %69, %64 ], [ %11, %59 ]
+  call void @ERR_error_string_n(i64 noundef %60, ptr noundef nonnull %.0.i313, i64 noundef %.021.i) #13
+  %71 = load i8, ptr %.0.i313, align 1, !tbaa !126
+  %.not.i314 = icmp eq i8 %71, 0
+  br i1 %.not.i314, label %72, label %ossl_strerror.exit
 
-73:                                               ; preds = %71
-  %.not23.i = icmp eq i64 %61, 0
-  %74 = select i1 %.not23.i, i64 8, i64 13
-  %75 = icmp samesign ult i64 %74, %.021.i
-  br i1 %75, label %76, label %ossl_strerror.exit
+72:                                               ; preds = %70
+  %.not23.i = icmp eq i64 %60, 0
+  %73 = select i1 %.not23.i, i64 8, i64 13
+  %74 = icmp samesign ult i64 %73, %.021.i
+  br i1 %74, label %75, label %ossl_strerror.exit
 
-76:                                               ; preds = %73
-  %77 = select i1 %.not23.i, ptr @.str.63, ptr @.str.62
-  %78 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i313, ptr noundef nonnull dereferenceable(1) %77) #13
+75:                                               ; preds = %72
+  %76 = select i1 %.not23.i, ptr @.str.63, ptr @.str.62
+  %77 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i313, ptr noundef nonnull dereferenceable(1) %76) #13
   br label %ossl_strerror.exit
 
-ossl_strerror.exit:                               ; preds = %71, %73, %76
+ossl_strerror.exit:                               ; preds = %70, %72, %75
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i313) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-79:                                               ; preds = %58
+78:                                               ; preds = %57
   %.not254 = icmp eq ptr %6, null
-  br i1 %.not254, label %82, label %80
+  br i1 %.not254, label %81, label %79
 
-80:                                               ; preds = %79
-  %81 = tail call i32 %6(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %7) #13
-  %.not255 = icmp eq i32 %81, 0
-  br i1 %.not255, label %82, label %ossl_set_ssl_version_min_max.exit.thread
+79:                                               ; preds = %78
+  %80 = tail call i32 %6(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %7) #13
+  %.not255 = icmp eq i32 %80, 0
+  br i1 %.not255, label %81, label %ossl_set_ssl_version_min_max.exit.thread
 
-82:                                               ; preds = %80, %79
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 608
-  %84 = load ptr, ptr %83, align 8, !tbaa !127
-  %.not256 = icmp eq ptr %84, null
-  br i1 %.not256, label %93, label %85
+81:                                               ; preds = %79, %78
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 608
+  %83 = load ptr, ptr %82, align 8, !tbaa !127
+  %.not256 = icmp eq ptr %83, null
+  br i1 %.not256, label %92, label %84
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 2658
-  %87 = load i64, ptr %86, align 2
-  %88 = and i64 %87, 2147483648
-  %.not257 = icmp eq i64 %88, 0
-  br i1 %.not257, label %93, label %89
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 2658
+  %86 = load i64, ptr %85, align 2
+  %87 = and i64 %86, 2147483648
+  %.not257 = icmp eq i64 %87, 0
+  br i1 %.not257, label %92, label %88
 
-89:                                               ; preds = %85
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %0, align 8, !tbaa !121
+  tail call void @SSL_CTX_set_msg_callback(ptr noundef %89, ptr noundef nonnull @ossl_trace) #13
   %90 = load ptr, ptr %0, align 8, !tbaa !121
-  tail call void @SSL_CTX_set_msg_callback(ptr noundef %90, ptr noundef nonnull @ossl_trace) #13
-  %91 = load ptr, ptr %0, align 8, !tbaa !121
-  %92 = tail call i64 @SSL_CTX_ctrl(ptr noundef %91, i32 noundef 16, i64 noundef 0, ptr noundef %1) #13
-  br label %93
+  %91 = tail call i64 @SSL_CTX_ctrl(ptr noundef %90, i32 noundef 16, i64 noundef 0, ptr noundef %1) #13
+  br label %92
 
-93:                                               ; preds = %89, %85, %82
-  %94 = getelementptr inbounds nuw i8, ptr %15, i64 192
-  %95 = load i16, ptr %94, align 8
-  %96 = and i16 %95, 8
-  %.not258 = icmp eq i16 %96, 0
+92:                                               ; preds = %88, %84, %81
+  %93 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  %94 = load i16, ptr %93, align 8
+  %95 = and i16 %94, 8
+  %.not258 = icmp eq i16 %95, 0
   %spec.select = select i1 %.not258, i64 2181185616, i64 2181187664
-  switch i8 %17, label %114 [
+  switch i8 %17, label %113 [
     i8 2, label %ossl_set_ssl_version_min_max.exit.thread
     i8 3, label %ossl_set_ssl_version_min_max.exit.thread
-    i8 0, label %97
-    i8 1, label %97
-    i8 4, label %97
-    i8 5, label %97
-    i8 6, label %97
-    i8 7, label %97
+    i8 0, label %96
+    i8 1, label %96
+    i8 4, label %96
+    i8 5, label %96
+    i8 6, label %96
+    i8 7, label %96
   ]
 
-97:                                               ; preds = %93, %93, %93, %93, %93, %93
-  %98 = load ptr, ptr %0, align 8, !tbaa !121
-  %99 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %1) #13
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 120
-  %101 = load i8, ptr %100, align 8, !tbaa !113
-  switch i8 %101, label %.thread.fold.split.i [
+96:                                               ; preds = %92, %92, %92, %92, %92, %92
+  %97 = load ptr, ptr %0, align 8, !tbaa !121
+  %98 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %1) #13
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 120
+  %100 = load i8, ptr %99, align 8, !tbaa !113
+  switch i8 %100, label %.thread.fold.split.i [
     i8 1, label %.thread.i
     i8 4, label %.thread.i
-    i8 5, label %102
-    i8 6, label %103
-    i8 7, label %104
-    i8 0, label %106
+    i8 5, label %101
+    i8 6, label %102
+    i8 7, label %103
+    i8 0, label %105
   ]
 
-102:                                              ; preds = %97
+101:                                              ; preds = %96
   br label %.thread.i
 
-103:                                              ; preds = %97
+102:                                              ; preds = %96
   br label %.thread.i
 
-104:                                              ; preds = %97
+103:                                              ; preds = %96
   br label %.thread.i
 
-.thread.fold.split.i:                             ; preds = %97
+.thread.fold.split.i:                             ; preds = %96
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread.fold.split.i, %104, %103, %102, %97, %97
-  %.01016.i = phi i64 [ 769, %97 ], [ 772, %104 ], [ 771, %103 ], [ 770, %102 ], [ 769, %97 ], [ 0, %.thread.fold.split.i ]
-  %105 = tail call i64 @SSL_CTX_ctrl(ptr noundef %98, i32 noundef 123, i64 noundef %.01016.i, ptr noundef null) #13
-  %.not12.i = icmp eq i64 %105, 0
-  br i1 %.not12.i, label %ossl_set_ssl_version_min_max.exit.thread, label %106
+.thread.i:                                        ; preds = %.thread.fold.split.i, %103, %102, %101, %96, %96
+  %.01016.i = phi i64 [ 769, %96 ], [ 772, %103 ], [ 771, %102 ], [ 770, %101 ], [ 769, %96 ], [ 0, %.thread.fold.split.i ]
+  %104 = tail call i64 @SSL_CTX_ctrl(ptr noundef %97, i32 noundef 123, i64 noundef %.01016.i, ptr noundef null) #13
+  %.not12.i = icmp eq i64 %104, 0
+  br i1 %.not12.i, label %ossl_set_ssl_version_min_max.exit.thread, label %105
 
-106:                                              ; preds = %.thread.i, %97
-  %107 = getelementptr inbounds nuw i8, ptr %99, i64 116
-  %108 = load i32, ptr %107, align 4, !tbaa !120
-  %109 = zext i32 %108 to i64
-  %110 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 48)
-  %111 = and i64 %110, -281474976645124
-  %112 = icmp eq i64 %111, 4
-  %switch.offset.i = add nuw nsw i64 %110, 765
-  %.0.i315 = select i1 %112, i64 %switch.offset.i, i64 0
-  %113 = tail call i64 @SSL_CTX_ctrl(ptr noundef %98, i32 noundef 124, i64 noundef %.0.i315, ptr noundef null) #13
-  %.not13.i = icmp eq i64 %113, 0
+105:                                              ; preds = %.thread.i, %96
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 116
+  %107 = load i32, ptr %106, align 4, !tbaa !120
+  %108 = zext i32 %107 to i64
+  %109 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 48)
+  %110 = and i64 %109, -281474976645124
+  %111 = icmp eq i64 %110, 4
+  %switch.offset.i = add nuw nsw i64 %109, 765
+  %.0.i315 = select i1 %111, i64 %switch.offset.i, i64 0
+  %112 = tail call i64 @SSL_CTX_ctrl(ptr noundef %97, i32 noundef 124, i64 noundef %.0.i315, ptr noundef null) #13
+  %.not13.i = icmp eq i64 %112, 0
   br i1 %.not13.i, label %ossl_set_ssl_version_min_max.exit.thread, label %ossl_set_ssl_version_min_max.exit
 
-114:                                              ; preds = %93
+113:                                              ; preds = %92
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-ossl_set_ssl_version_min_max.exit:                ; preds = %106
-  %115 = load ptr, ptr %0, align 8, !tbaa !121
-  %116 = tail call i64 @SSL_CTX_set_options(ptr noundef %115, i64 noundef %spec.select) #13
-  %117 = load ptr, ptr %0, align 8, !tbaa !121
-  %118 = tail call i64 @SSL_CTX_ctrl(ptr noundef %117, i32 noundef 33, i64 noundef 2, ptr noundef null) #13
-  %119 = icmp ne ptr %4, null
-  %120 = icmp ne i64 %5, 0
-  %or.cond = and i1 %119, %120
-  br i1 %or.cond, label %121, label %126
+ossl_set_ssl_version_min_max.exit:                ; preds = %105
+  %114 = load ptr, ptr %0, align 8, !tbaa !121
+  %115 = tail call i64 @SSL_CTX_set_options(ptr noundef %114, i64 noundef %spec.select) #13
+  %116 = load ptr, ptr %0, align 8, !tbaa !121
+  %117 = tail call i64 @SSL_CTX_ctrl(ptr noundef %116, i32 noundef 33, i64 noundef 2, ptr noundef null) #13
+  %118 = icmp ne ptr %4, null
+  %119 = icmp ne i64 %5, 0
+  %or.cond = and i1 %118, %119
+  br i1 %or.cond, label %120, label %125
 
-121:                                              ; preds = %ossl_set_ssl_version_min_max.exit
-  %122 = load ptr, ptr %0, align 8, !tbaa !121
-  %123 = trunc i64 %5 to i32
-  %124 = tail call i32 @SSL_CTX_set_alpn_protos(ptr noundef %122, ptr noundef nonnull %4, i32 noundef %123) #13
-  %.not260 = icmp eq i32 %124, 0
-  br i1 %.not260, label %126, label %125
+120:                                              ; preds = %ossl_set_ssl_version_min_max.exit
+  %121 = load ptr, ptr %0, align 8, !tbaa !121
+  %122 = trunc i64 %5 to i32
+  %123 = tail call i32 @SSL_CTX_set_alpn_protos(ptr noundef %121, ptr noundef nonnull %4, i32 noundef %122) #13
+  %.not260 = icmp eq i32 %123, 0
+  br i1 %.not260, label %125, label %124
 
-125:                                              ; preds = %121
+124:                                              ; preds = %120
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-126:                                              ; preds = %121, %ossl_set_ssl_version_min_max.exit
-  %127 = icmp ne ptr %19, null
-  %128 = icmp ne ptr %21, null
-  %or.cond5 = select i1 %127, i1 true, i1 %128
-  %129 = icmp ne ptr %23, null
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %129
-  br i1 %or.cond7, label %130, label %141
+125:                                              ; preds = %120, %ossl_set_ssl_version_min_max.exit
+  %126 = icmp ne ptr %19, null
+  %127 = icmp ne ptr %21, null
+  %or.cond5 = select i1 %126, i1 true, i1 %127
+  %128 = icmp ne ptr %23, null
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %128
+  br i1 %or.cond7, label %129, label %140
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %0, align 8, !tbaa !121
-  %132 = getelementptr inbounds nuw i8, ptr %15, i64 160
-  %133 = load ptr, ptr %132, align 8, !tbaa !128
-  %134 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  %135 = load ptr, ptr %134, align 8, !tbaa !129
-  %136 = getelementptr inbounds nuw i8, ptr %15, i64 176
-  %137 = load ptr, ptr %136, align 8, !tbaa !130
-  %138 = getelementptr inbounds nuw i8, ptr %15, i64 184
-  %139 = load ptr, ptr %138, align 8, !tbaa !131
-  %140 = tail call fastcc i32 @cert_stuff(ptr noundef nonnull %2, ptr noundef %131, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %133, ptr noundef %135, ptr noundef %137, ptr noundef %139)
-  %.not261.not = icmp eq i32 %140, 0
-  br i1 %.not261.not, label %ossl_set_ssl_version_min_max.exit.thread, label %141
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %0, align 8, !tbaa !121
+  %131 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %132 = load ptr, ptr %131, align 8, !tbaa !128
+  %133 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  %134 = load ptr, ptr %133, align 8, !tbaa !129
+  %135 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %136 = load ptr, ptr %135, align 8, !tbaa !130
+  %137 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  %138 = load ptr, ptr %137, align 8, !tbaa !131
+  %139 = tail call fastcc i32 @cert_stuff(ptr noundef nonnull %2, ptr noundef %130, ptr noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %132, ptr noundef %134, ptr noundef %136, ptr noundef %138)
+  %.not261.not = icmp eq i32 %139, 0
+  br i1 %.not261.not, label %ossl_set_ssl_version_min_max.exit.thread, label %140
 
-141:                                              ; preds = %130, %126
-  %142 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %143 = load ptr, ptr %142, align 8, !tbaa !132
-  %.not263 = icmp eq ptr %143, null
-  br i1 %.not263, label %160, label %144
+140:                                              ; preds = %129, %125
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %142 = load ptr, ptr %141, align 8, !tbaa !132
+  %.not263 = icmp eq ptr %142, null
+  br i1 %.not263, label %159, label %143
 
-144:                                              ; preds = %141
-  %145 = load ptr, ptr %0, align 8, !tbaa !121
-  %146 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %145, ptr noundef nonnull %143) #13
-  %.not266 = icmp eq i32 %146, 0
-  br i1 %.not266, label %147, label %148
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %0, align 8, !tbaa !121
+  %145 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %144, ptr noundef nonnull %142) #13
+  %.not266 = icmp eq i32 %145, 0
+  br i1 %.not266, label %146, label %147
 
-147:                                              ; preds = %144
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %143) #13
+146:                                              ; preds = %143
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %142) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 2658
-  %150 = load i64, ptr %149, align 2
-  %151 = and i64 %150, 2147483648
-  %.not268 = icmp eq i64 %151, 0
-  br i1 %.not268, label %160, label %152
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 2658
+  %149 = load i64, ptr %148, align 2
+  %150 = and i64 %149, 2147483648
+  %.not268 = icmp eq i64 %150, 0
+  br i1 %.not268, label %159, label %151
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %2, i64 4864
-  %154 = load ptr, ptr %153, align 8, !tbaa !89
-  %.not269 = icmp eq ptr %154, null
-  br i1 %.not269, label %159, label %155
+151:                                              ; preds = %147
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 4864
+  %153 = load ptr, ptr %152, align 8, !tbaa !89
+  %.not269 = icmp eq ptr %153, null
+  br i1 %.not269, label %158, label %154
 
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !90
-  %158 = icmp sgt i32 %157, 0
-  br i1 %158, label %159, label %160
+154:                                              ; preds = %151
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %156 = load i32, ptr %155, align 8, !tbaa !90
+  %157 = icmp sgt i32 %156, 0
+  br i1 %157, label %158, label %159
 
-159:                                              ; preds = %155, %152
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %143) #13
-  br label %160
+158:                                              ; preds = %154, %151
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, ptr noundef nonnull %142) #13
+  br label %159
 
-160:                                              ; preds = %148, %155, %159, %141
-  %161 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %162 = load ptr, ptr %161, align 8, !tbaa !133
-  %.not270 = icmp eq ptr %162, null
-  br i1 %.not270, label %178, label %163
+159:                                              ; preds = %147, %154, %158, %140
+  %160 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %161 = load ptr, ptr %160, align 8, !tbaa !133
+  %.not270 = icmp eq ptr %161, null
+  br i1 %.not270, label %177, label %162
 
-163:                                              ; preds = %160
-  %164 = load ptr, ptr %0, align 8, !tbaa !121
-  %165 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef %164, ptr noundef nonnull %162) #13
-  %.not271 = icmp eq i32 %165, 0
-  br i1 %.not271, label %.critedge, label %166
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %0, align 8, !tbaa !121
+  %164 = tail call i32 @SSL_CTX_set_ciphersuites(ptr noundef %163, ptr noundef nonnull %161) #13
+  %.not271 = icmp eq i32 %164, 0
+  br i1 %.not271, label %.critedge, label %165
 
-.critedge:                                        ; preds = %163
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, ptr noundef nonnull %162) #13
+.critedge:                                        ; preds = %162
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, ptr noundef nonnull %161) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %2, i64 2658
-  %168 = load i64, ptr %167, align 2
-  %169 = and i64 %168, 2147483648
-  %.not273 = icmp eq i64 %169, 0
-  br i1 %.not273, label %178, label %170
+165:                                              ; preds = %162
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 2658
+  %167 = load i64, ptr %166, align 2
+  %168 = and i64 %167, 2147483648
+  %.not273 = icmp eq i64 %168, 0
+  br i1 %.not273, label %177, label %169
 
-170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 4864
-  %172 = load ptr, ptr %171, align 8, !tbaa !89
-  %.not274 = icmp eq ptr %172, null
-  br i1 %.not274, label %177, label %173
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 4864
+  %171 = load ptr, ptr %170, align 8, !tbaa !89
+  %.not274 = icmp eq ptr %171, null
+  br i1 %.not274, label %176, label %172
 
-173:                                              ; preds = %170
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %175 = load i32, ptr %174, align 8, !tbaa !90
-  %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %177, label %178
+172:                                              ; preds = %169
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %174 = load i32, ptr %173, align 8, !tbaa !90
+  %175 = icmp sgt i32 %174, 0
+  br i1 %175, label %176, label %177
 
-177:                                              ; preds = %173, %170
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %162) #13
-  br label %178
+176:                                              ; preds = %172, %169
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %161) #13
+  br label %177
 
-178:                                              ; preds = %166, %173, %177, %160
-  %179 = load ptr, ptr %0, align 8, !tbaa !121
-  tail call void @SSL_CTX_set_post_handshake_auth(ptr noundef %179, i32 noundef 1) #13
-  %180 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %181 = load ptr, ptr %180, align 8, !tbaa !134
-  %.not275 = icmp eq ptr %181, null
-  br i1 %.not275, label %185, label %182
+177:                                              ; preds = %165, %172, %176, %159
+  %178 = load ptr, ptr %0, align 8, !tbaa !121
+  tail call void @SSL_CTX_set_post_handshake_auth(ptr noundef %178, i32 noundef 1) #13
+  %179 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %180 = load ptr, ptr %179, align 8, !tbaa !134
+  %.not275 = icmp eq ptr %180, null
+  br i1 %.not275, label %184, label %181
 
-182:                                              ; preds = %178
-  %183 = load ptr, ptr %0, align 8, !tbaa !121
-  %184 = tail call i64 @SSL_CTX_ctrl(ptr noundef %183, i32 noundef 92, i64 noundef 0, ptr noundef nonnull %181) #13
-  %.not276 = icmp eq i64 %184, 0
-  br i1 %.not276, label %.critedge312, label %185
+181:                                              ; preds = %177
+  %182 = load ptr, ptr %0, align 8, !tbaa !121
+  %183 = tail call i64 @SSL_CTX_ctrl(ptr noundef %182, i32 noundef 92, i64 noundef 0, ptr noundef nonnull %180) #13
+  %.not276 = icmp eq i64 %183, 0
+  br i1 %.not276, label %.critedge312, label %184
 
-.critedge312:                                     ; preds = %182
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %181) #13
+.critedge312:                                     ; preds = %181
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %180) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-185:                                              ; preds = %182, %178
-  %186 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %187 = load ptr, ptr %186, align 8, !tbaa !135
-  %.not277 = icmp eq ptr %187, null
-  br i1 %.not277, label %230, label %188
+184:                                              ; preds = %181, %177
+  %185 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %186 = load ptr, ptr %185, align 8, !tbaa !135
+  %.not277 = icmp eq ptr %186, null
+  br i1 %.not277, label %229, label %187
 
-188:                                              ; preds = %185
-  %189 = tail call zeroext i1 @Curl_auth_allowed_to_host(ptr noundef nonnull %2) #13
-  br i1 %189, label %190, label %230
+187:                                              ; preds = %184
+  %188 = tail call zeroext i1 @Curl_auth_allowed_to_host(ptr noundef nonnull %2) #13
+  br i1 %188, label %189, label %229
 
-190:                                              ; preds = %188
-  %191 = load ptr, ptr %186, align 8, !tbaa !135
-  %192 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %193 = load ptr, ptr %192, align 8, !tbaa !136
-  %194 = getelementptr inbounds nuw i8, ptr %2, i64 2658
-  %195 = load i64, ptr %194, align 2
-  %196 = and i64 %195, 2147483648
-  %.not279 = icmp eq i64 %196, 0
-  br i1 %.not279, label %205, label %197
+189:                                              ; preds = %187
+  %190 = load ptr, ptr %185, align 8, !tbaa !135
+  %191 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %192 = load ptr, ptr %191, align 8, !tbaa !136
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 2658
+  %194 = load i64, ptr %193, align 2
+  %195 = and i64 %194, 2147483648
+  %.not279 = icmp eq i64 %195, 0
+  br i1 %.not279, label %204, label %196
 
-197:                                              ; preds = %190
-  %198 = getelementptr inbounds nuw i8, ptr %2, i64 4864
-  %199 = load ptr, ptr %198, align 8, !tbaa !89
-  %.not280 = icmp eq ptr %199, null
-  br i1 %.not280, label %204, label %200
+196:                                              ; preds = %189
+  %197 = getelementptr inbounds nuw i8, ptr %2, i64 4864
+  %198 = load ptr, ptr %197, align 8, !tbaa !89
+  %.not280 = icmp eq ptr %198, null
+  br i1 %.not280, label %203, label %199
 
-200:                                              ; preds = %197
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %202 = load i32, ptr %201, align 8, !tbaa !90
-  %203 = icmp sgt i32 %202, 0
-  br i1 %203, label %204, label %205
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
+  %201 = load i32, ptr %200, align 8, !tbaa !90
+  %202 = icmp sgt i32 %201, 0
+  br i1 %202, label %203, label %204
 
-204:                                              ; preds = %200, %197
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.12, ptr noundef %191) #13
-  br label %205
+203:                                              ; preds = %199, %196
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.12, ptr noundef %190) #13
+  br label %204
 
-205:                                              ; preds = %204, %200, %190
-  %206 = load ptr, ptr %0, align 8, !tbaa !121
-  %207 = tail call i32 @SSL_CTX_set_srp_username(ptr noundef %206, ptr noundef %191) #13
-  %.not281 = icmp eq i32 %207, 0
-  br i1 %.not281, label %208, label %209
+204:                                              ; preds = %203, %199, %189
+  %205 = load ptr, ptr %0, align 8, !tbaa !121
+  %206 = tail call i32 @SSL_CTX_set_srp_username(ptr noundef %205, ptr noundef %190) #13
+  %.not281 = icmp eq i32 %206, 0
+  br i1 %.not281, label %207, label %208
 
-208:                                              ; preds = %205
+207:                                              ; preds = %204
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.13) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-209:                                              ; preds = %205
-  %210 = load ptr, ptr %0, align 8, !tbaa !121
-  %211 = tail call i32 @SSL_CTX_set_srp_password(ptr noundef %210, ptr noundef %193) #13
-  %.not282 = icmp eq i32 %211, 0
-  br i1 %.not282, label %212, label %213
+208:                                              ; preds = %204
+  %209 = load ptr, ptr %0, align 8, !tbaa !121
+  %210 = tail call i32 @SSL_CTX_set_srp_password(ptr noundef %209, ptr noundef %192) #13
+  %.not282 = icmp eq i32 %210, 0
+  br i1 %.not282, label %211, label %212
 
-212:                                              ; preds = %209
+211:                                              ; preds = %208
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.14) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %142, align 8, !tbaa !132
-  %.not283 = icmp eq ptr %214, null
-  br i1 %.not283, label %215, label %230
+212:                                              ; preds = %208
+  %213 = load ptr, ptr %141, align 8, !tbaa !132
+  %.not283 = icmp eq ptr %213, null
+  br i1 %.not283, label %214, label %229
 
-215:                                              ; preds = %213
-  %216 = load i64, ptr %194, align 2
-  %217 = and i64 %216, 2147483648
-  %.not284 = icmp eq i64 %217, 0
-  br i1 %.not284, label %226, label %218
+214:                                              ; preds = %212
+  %215 = load i64, ptr %193, align 2
+  %216 = and i64 %215, 2147483648
+  %.not284 = icmp eq i64 %216, 0
+  br i1 %.not284, label %225, label %217
 
-218:                                              ; preds = %215
-  %219 = getelementptr inbounds nuw i8, ptr %2, i64 4864
-  %220 = load ptr, ptr %219, align 8, !tbaa !89
-  %.not285 = icmp eq ptr %220, null
-  br i1 %.not285, label %225, label %221
+217:                                              ; preds = %214
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 4864
+  %219 = load ptr, ptr %218, align 8, !tbaa !89
+  %.not285 = icmp eq ptr %219, null
+  br i1 %.not285, label %224, label %220
 
-221:                                              ; preds = %218
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %223 = load i32, ptr %222, align 8, !tbaa !90
-  %224 = icmp sgt i32 %223, 0
-  br i1 %224, label %225, label %226
+220:                                              ; preds = %217
+  %221 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %222 = load i32, ptr %221, align 8, !tbaa !90
+  %223 = icmp sgt i32 %222, 0
+  br i1 %223, label %224, label %225
 
-225:                                              ; preds = %221, %218
+224:                                              ; preds = %220, %217
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #13
-  br label %226
+  br label %225
 
-226:                                              ; preds = %225, %221, %215
-  %227 = load ptr, ptr %0, align 8, !tbaa !121
-  %228 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %227, ptr noundef nonnull @.str.16) #13
-  %.not286 = icmp eq i32 %228, 0
-  br i1 %.not286, label %229, label %230
+225:                                              ; preds = %224, %220, %214
+  %226 = load ptr, ptr %0, align 8, !tbaa !121
+  %227 = tail call i32 @SSL_CTX_set_cipher_list(ptr noundef %226, ptr noundef nonnull @.str.16) #13
+  %.not286 = icmp eq i32 %227, 0
+  br i1 %.not286, label %228, label %229
 
-229:                                              ; preds = %226
+228:                                              ; preds = %225
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %2, ptr noundef nonnull @.str.17) #13
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-230:                                              ; preds = %226, %213, %188, %185
-  %231 = load ptr, ptr %0, align 8, !tbaa !121
-  %232 = zext nneg i8 %26 to i32
-  tail call void @SSL_CTX_set_verify(ptr noundef %231, i32 noundef %232, ptr noundef null) #13
+229:                                              ; preds = %225, %212, %187, %184
+  %230 = load ptr, ptr %0, align 8, !tbaa !121
+  %231 = and i8 %25, 1
+  %232 = zext nneg i8 %231 to i32
+  tail call void @SSL_CTX_set_verify(ptr noundef %230, i32 noundef %232, ptr noundef null) #13
   %233 = tail call zeroext i1 @Curl_tls_keylog_enabled() #13
   br i1 %233, label %234, label %236
 
-234:                                              ; preds = %230
+234:                                              ; preds = %229
   %235 = load ptr, ptr %0, align 8, !tbaa !121
   tail call void @SSL_CTX_set_keylog_callback(ptr noundef %235, ptr noundef nonnull @ossl_keylog_callback) #13
   br label %236
 
-236:                                              ; preds = %234, %230
+236:                                              ; preds = %234, %229
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %241, label %237
 
@@ -1669,8 +1669,8 @@ ossl_set_ssl_version_min_max.exit:                ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %ossl_set_ssl_version_min_max.exit.thread
 
-ossl_set_ssl_version_min_max.exit.thread:         ; preds = %212, %229, %208, %106, %.thread.i, %ossl_seed.exit, %285, %349, %248, %.critedge312, %.critedge, %130, %93, %93, %80, %284, %268, %260, %147, %125, %114, %ossl_strerror.exit, %57, %54, %50, %49, %48
-  %.0 = phi i32 [ 35, %54 ], [ 35, %57 ], [ 35, %50 ], [ 35, %ossl_seed.exit ], [ 35, %114 ], [ %81, %80 ], [ 4, %93 ], [ 35, %125 ], [ 0, %285 ], [ %259, %260 ], [ %250, %248 ], [ 35, %284 ], [ 27, %268 ], [ 58, %130 ], [ 35, %106 ], [ 59, %.critedge312 ], [ 59, %.critedge ], [ 59, %147 ], [ 27, %ossl_strerror.exit ], [ 4, %48 ], [ 4, %49 ], [ 4, %93 ], [ 0, %349 ], [ 35, %.thread.i ], [ 43, %212 ], [ 59, %229 ], [ 43, %208 ]
+ossl_set_ssl_version_min_max.exit.thread:         ; preds = %211, %228, %207, %105, %.thread.i, %ossl_seed.exit, %285, %349, %248, %.critedge312, %.critedge, %129, %92, %92, %79, %284, %268, %260, %146, %124, %113, %ossl_strerror.exit, %56, %53, %49, %48, %47
+  %.0 = phi i32 [ 35, %53 ], [ 35, %56 ], [ 35, %49 ], [ 35, %ossl_seed.exit ], [ 35, %113 ], [ %80, %79 ], [ 4, %92 ], [ 35, %124 ], [ 0, %285 ], [ %259, %260 ], [ %250, %248 ], [ 35, %284 ], [ 27, %268 ], [ 58, %129 ], [ 35, %105 ], [ 59, %.critedge312 ], [ 59, %.critedge ], [ 59, %146 ], [ 27, %ossl_strerror.exit ], [ 4, %47 ], [ 4, %48 ], [ 4, %92 ], [ 0, %349 ], [ 35, %.thread.i ], [ 43, %211 ], [ 59, %228 ], [ 43, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }

@@ -2338,28 +2338,27 @@ declare i32 @g_idle_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_raise_signal_mipmap_updated(ptr noundef %0) #2 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !191
-  %3 = and i32 %2, 1
-  %4 = icmp ne i32 %3, 0
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3212), align 4
-  %6 = icmp ne i32 %5, 0
-  %or.cond = select i1 %4, i1 %6, i1 false
-  br i1 %or.cond, label %7, label %11
+  %3 = trunc i32 %2 to i1
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3212), align 4
+  %5 = icmp ne i32 %4, 0
+  %or.cond = select i1 %3, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %10
 
-7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
-  %9 = and i32 %8, 1048576
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %11, label %10
+6:                                                ; preds = %1
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %8 = and i32 %7, 1048576
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %10, label %9
 
-10:                                               ; preds = %7
+9:                                                ; preds = %6
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.13, i32 noundef 823, ptr noundef nonnull @__FUNCTION__._raise_signal_mipmap_updated) #19
-  br label %11
+  br label %10
 
-11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !192
-  %13 = ptrtoint ptr %0 to i64
-  %14 = trunc i64 %13 to i32
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %12, i32 noundef 20, i32 noundef %14) #19
+10:                                               ; preds = %9, %6, %1
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !192
+  %12 = ptrtoint ptr %0 to i64
+  %13 = trunc i64 %12 to i32
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %11, i32 noundef 20, i32 noundef %13) #19
   ret i32 0
 }
 

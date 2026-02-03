@@ -4708,8 +4708,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br i1 %cmp.i194, label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.epilog
-  %and4.i = and i8 %56, 1
-  %tobool.not.i = icmp ne i8 %and4.i, 0
+  %tobool.not.i = trunc i8 %56 to i1
   br i1 %tobool.not.i, label %if.end.i213, label %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
 
 if.end.i213:                                      ; preds = %if.end.i
@@ -5789,8 +5788,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
-  %and4.i = and i8 %0, 1
-  %tobool.not.i = icmp ne i8 %and4.i, 0
+  %tobool.not.i = trunc i8 %0 to i1
   br i1 %tobool.not.i, label %if.end.i32, label %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
 
 if.end.i32:                                       ; preds = %if.end.i

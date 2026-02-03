@@ -1367,16 +1367,15 @@ define internal noundef zeroext i1 @_ZZNK12_GLOBAL__N_122RawPtrRefMemberChecker1
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %12 = load i8, ptr %11, align 2
-  %13 = and i8 %12, 1
-  %.not14.i.i = icmp eq i8 %13, 0
-  br i1 %.not14.i.i, label %_ZNK12_GLOBAL__N_122RawPtrRefMemberChecker15visitRecordDeclEPKN5clang10RecordDeclE.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZNK12_GLOBAL__N_122RawPtrRefMemberChecker15visitRecordDeclEPKN5clang10RecordDeclE.exit
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 512
-  %.not15.i.i = icmp eq i32 %17, 0
-  br i1 %.not15.i.i, label %18, label %_ZNK12_GLOBAL__N_122RawPtrRefMemberChecker15visitRecordDeclEPKN5clang10RecordDeclE.exit
+  %.not14.i.i = icmp eq i32 %17, 0
+  br i1 %.not14.i.i, label %18, label %_ZNK12_GLOBAL__N_122RawPtrRefMemberChecker15visitRecordDeclEPKN5clang10RecordDeclE.exit
 
 18:                                               ; preds = %14
   %19 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl8isLambdaEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #20
@@ -1385,8 +1384,8 @@ define internal noundef zeroext i1 @_ZZNK12_GLOBAL__N_122RawPtrRefMemberChecker1
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %21, align 8, !tbaa !72
-  %.not16.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i, 0
-  br i1 %.not16.i.i, label %_ZNK12_GLOBAL__N_122RawPtrRefMemberChecker15visitRecordDeclEPKN5clang10RecordDeclE.exit, label %22
+  %.not15.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i, 0
+  br i1 %.not15.i.i, label %_ZNK12_GLOBAL__N_122RawPtrRefMemberChecker15visitRecordDeclEPKN5clang10RecordDeclE.exit, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 72

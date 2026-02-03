@@ -2396,9 +2396,8 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl30PropertiesAffixPatternProvid
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i16, ptr %8, align 8, !tbaa !109
-  %10 = and i16 %9, 1
-  %.not19 = icmp eq i16 %10, 0
-  br i1 %.not19, label %.critedge, label %34
+  %10 = trunc i16 %9 to i1
+  br i1 %10, label %34, label %.critedge
 
 11:                                               ; preds = %1
   %12 = icmp slt i16 %5, 0
@@ -2429,8 +2428,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
   %31 = load ptr, ptr %30, align 8
   %32 = select i1 %.not.i.i.i.i, ptr %31, ptr %29
   %33 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %32, i32 noundef %17)
-  %.not20 = icmp eq i8 %33, 0
-  br i1 %.not20, label %.critedge, label %34
+  %.not19 = icmp eq i8 %33, 0
+  br i1 %.not19, label %.critedge, label %34
 
 34:                                               ; preds = %7, %_ZNK6icu_7713UnicodeStringneERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2445,9 +2444,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i16, ptr %40, align 8, !tbaa !109
-  %42 = and i16 %41, 1
-  %.not21 = icmp eq i16 %42, 0
-  br i1 %.not21, label %.thread, label %68
+  %42 = trunc i16 %41 to i1
+  br i1 %42, label %68, label %.thread
 
 43:                                               ; preds = %34
   %44 = icmp slt i16 %37, 0
@@ -2481,8 +2479,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
           to label %67 unwind label %86
 
 67:                                               ; preds = %60
-  %.not22 = icmp eq i8 %66, 0
-  br i1 %.not22, label %.thread, label %68
+  %.not20 = icmp eq i8 %66, 0
+  br i1 %.not20, label %.thread, label %68
 
 68:                                               ; preds = %39, %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144

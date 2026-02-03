@@ -6556,25 +6556,24 @@ define internal noundef zeroext i8 @elem_xmode(ptr noundef %0, ptr noundef %1, p
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = and i8 %9, 1
-  %15 = icmp ne i8 %14, 0
-  %16 = tail call ptr @tfs_get_string(i1 noundef zeroext %15, ptr noundef nonnull @tfs_ansi_a_xmode_tfo_mode)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.1006, ptr noundef %16)
-  %17 = add i32 %3, 1
-  %18 = icmp ugt i32 %4, 1
-  br i1 %18, label %19, label %23
+  %14 = trunc i8 %9 to i1
+  %15 = tail call ptr @tfs_get_string(i1 noundef zeroext %14, ptr noundef nonnull @tfs_ansi_a_xmode_tfo_mode)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.1006, ptr noundef %15)
+  %16 = add i32 %3, 1
+  %17 = icmp ugt i32 %4, 1
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %6
-  %20 = add i32 %4, -1
-  %21 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %17, i32 noundef %20)
-  %22 = add i32 %4, %3
-  br label %23
+18:                                               ; preds = %6
+  %19 = add i32 %4, -1
+  %20 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_extraneous_data, ptr noundef %0, i32 noundef %16, i32 noundef %19)
+  %21 = add i32 %4, %3
+  br label %22
 
-23:                                               ; preds = %19, %6
-  %.0 = phi i32 [ %22, %19 ], [ %17, %6 ]
-  %24 = sub i32 %.0, %3
-  %25 = trunc i32 %24 to i8
-  ret i8 %25
+22:                                               ; preds = %18, %6
+  %.0 = phi i32 [ %21, %18 ], [ %16, %6 ]
+  %23 = sub i32 %.0, %3
+  %24 = trunc i32 %23 to i8
+  ret i8 %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

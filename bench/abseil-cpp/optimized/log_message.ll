@@ -1096,8 +1096,8 @@ define dso_local void @_ZN4absl12log_internal10LogMessage14LogMessageDataC2EPKci
   store i32 %34, ptr %32, align 8, !tbaa !79
   %35 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   store i64 %35, ptr %0, align 8, !tbaa !31
-  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx13, align 8, !tbaa !44
+  %.sroa.4.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx12, align 8, !tbaa !44
   %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %.not.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i, label %_ZN4absl12log_internal12_GLOBAL__N_18BasenameESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.preheader.i
@@ -1161,9 +1161,8 @@ _ZN4absl12log_internal12_GLOBAL__N_18BasenameESt17basic_string_viewIcSt11char_tr
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %25, %24 ]
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %17) #27
   %58 = load i64, ptr %14, align 8, !tbaa !31
-  %59 = and i64 %58, 1
-  %.not.i.i.i11 = icmp eq i64 %59, 0
-  br i1 %.not.i.i.i11, label %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EED2Ev.exit, label %60
+  %59 = trunc i64 %58 to i1
+  br i1 %59, label %60, label %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EED2Ev.exit
 
 60:                                               ; preds = %.body
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1625,9 +1624,8 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN4absl12log_internal10LogM
   tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #27
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %6 = load i64, ptr %5, align 8, !tbaa !31
-  %7 = and i64 %6, 1
-  %.not.i.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EED2Ev.exit.i.i, label %8
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %8, label %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EED2Ev.exit.i.i
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 152
@@ -2082,11 +2080,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %29,
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %39 = load i64, ptr %38, align 8, !tbaa !31, !noalias !115
-  %40 = and i64 %39, 1
-  %.not.i.i.i.i = icmp eq i64 %40, 0
+  %40 = trunc i64 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 160
   %42 = load i64, ptr %41, align 8, !noalias !115
-  %.sink.i.i.i.i = select i1 %.not.i.i.i.i, i64 16, i64 %42
+  %.sink.i.i.i.i = select i1 %40, i64 %42, i64 16
   %.sink1.i.i.i.i = lshr i64 %39, 1
   %.not.i.i.i = icmp eq i64 %.sink1.i.i.i.i, %.sink.i.i.i.i
   br i1 %.not.i.i.i, label %48, label %43, !prof !114
@@ -2094,7 +2091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %29,
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %45 = load ptr, ptr %44, align 8, !noalias !115
-  %.sink2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %44, ptr %45
+  %.sink2.i.i.i.i = select i1 %40, ptr %45, ptr %44
   %46 = getelementptr inbounds nuw ptr, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr %1, ptr %46, align 8, !tbaa !112
   %47 = add i64 %39, 2
@@ -2265,9 +2262,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %29,
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %39 = load i64, ptr %38, align 8, !tbaa !31
-  %40 = and i64 %39, 1
-  %.not.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i, label %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EE5clearEv.exit, label %41
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %41, label %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EE5clearEv.exit
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 152
@@ -2284,11 +2280,10 @@ _ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EE5clearEv.exit: ; preds = %35, 
   store i64 0, ptr %38, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 144
   %49 = load i64, ptr %48, align 8, !tbaa !31, !noalias !118
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i = icmp eq i64 %50, 0
+  %50 = trunc i64 %49 to i1
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 160
   %52 = load i64, ptr %51, align 8, !noalias !118
-  %.sink.i.i.i.i = select i1 %.not.i.i.i.i, i64 16, i64 %52
+  %.sink.i.i.i.i = select i1 %50, i64 %52, i64 16
   %.sink1.i.i.i.i = lshr i64 %49, 1
   %.not.i.i.i = icmp eq i64 %.sink1.i.i.i.i, %.sink.i.i.i.i
   br i1 %.not.i.i.i, label %58, label %53, !prof !114
@@ -2296,7 +2291,7 @@ _ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EE5clearEv.exit: ; preds = %35, 
 53:                                               ; preds = %_ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EE5clearEv.exit
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %55 = load ptr, ptr %54, align 8, !noalias !118
-  %.sink2.i.i.i.i = select i1 %.not.i.i.i.i, ptr %54, ptr %55
+  %.sink2.i.i.i.i = select i1 %50, ptr %55, ptr %54
   %56 = getelementptr inbounds nuw ptr, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr %1, ptr %56, align 8, !tbaa !112
   %57 = add i64 %49, 2
@@ -2452,11 +2447,10 @@ _ZNK4absl12log_internal10LogMessage7IsFatalEv.exit.thread: ; preds = %1, %8, %_Z
   %9 = load ptr, ptr %2, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load i64, ptr %10, align 8, !tbaa !31
-  %12 = and i64 %11, 1
-  %.not.i.i.i.i = icmp eq i64 %12, 0
+  %12 = trunc i64 %11 to i1
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = select i1 %.not.i.i.i.i, ptr %13, ptr %14
+  %15 = select i1 %12, ptr %14, ptr %13
   %16 = lshr i64 %11, 1
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %18 = load i8, ptr %17, align 8, !tbaa !56, !range !41, !noundef !42
@@ -2780,11 +2774,10 @@ define dso_local void @_ZN4absl12log_internal10LogMessage12PrepareToDieEv(ptr no
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %15 = load i64, ptr %14, align 8, !tbaa !31
-  %16 = and i64 %15, 1
-  %.not.i.i.i.i = icmp eq i64 %16, 0
+  %16 = trunc i64 %15 to i1
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %18 = load ptr, ptr %17, align 8
-  %19 = select i1 %.not.i.i.i.i, ptr %17, ptr %18
+  %19 = select i1 %16, ptr %18, ptr %17
   %20 = lshr i64 %15, 1
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %22 = load i8, ptr %21, align 8, !tbaa !56, !range !41, !noundef !42
@@ -3611,15 +3604,14 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl23inlined_vector_internal7StorageIPNS_7LogSinkELm16ESaIS3_EE15EmplaceBackSlowIJRKS3_EEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %0, align 8, !tbaa !31, !noalias !125
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
+  %4 = trunc i64 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !125
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noalias !125
   %.sink1.i = lshr i64 %3, 1
   %9 = shl i64 %8, 1
-  %10 = select i1 %.not.i, i64 32, i64 %9
+  %10 = select i1 %4, i64 %9, i64 32
   %11 = icmp ugt i64 %10, 1152921504606846975
   br i1 %11, label %12, label %_ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8AllocateERS4_m.exit.i, !prof !114
 
@@ -3641,11 +3633,11 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8Allocate
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sink1.i
   %17 = load ptr, ptr %1, align 8, !tbaa !112
   store ptr %17, ptr %16, align 8, !tbaa !112
-  %.not.i15 = icmp eq i64 %.sink1.i, 0
-  br i1 %.not.i15, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIPNS_7LogSinkEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i.preheader
+  %.not.i = icmp eq i64 %.sink1.i, 0
+  br i1 %.not.i, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIPNS_7LogSinkEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8AllocateERS4_m.exit.i
-  %.sink2.i = select i1 %.not.i, ptr %5, ptr %6
+  %.sink2.i = select i1 %4, ptr %6, ptr %5
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -3660,7 +3652,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8Allocate
   br i1 %exitcond.not.i, label %_ZN4absl23inlined_vector_internal17ConstructElementsISaIPNS_7LogSinkEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !128
 
 _ZN4absl23inlined_vector_internal17ConstructElementsISaIPNS_7LogSinkEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit: ; preds = %.lr.ph.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8AllocateERS4_m.exit.i
-  br i1 %.not.i, label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIPNS_7LogSinkEEED2Ev.exit, label %23
+  br i1 %4, label %23, label %_ZN4absl23inlined_vector_internal21AllocationTransactionISaIPNS_7LogSinkEEED2Ev.exit
 
 23:                                               ; preds = %_ZN4absl23inlined_vector_internal17ConstructElementsISaIPNS_7LogSinkEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvRNS_8internal13type_identityIT_E4typeENSt16allocator_traitsISC_E7pointerERT0_NSH_9size_typeE.exit
   %24 = shl i64 %8, 3

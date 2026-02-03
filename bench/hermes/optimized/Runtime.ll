@@ -1252,9 +1252,8 @@ land.lhs.true:                                    ; preds = %if.then.i.i
 if.then35:                                        ; preds = %land.lhs.true
   %flags_.i = getelementptr inbounds nuw i8, ptr %18, i64 10
   %bf.load.i = load i8, ptr %flags_.i, align 2
-  %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool.i24.not = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.i24.not, label %if.then41, label %if.end49
+  %tobool.i24 = trunc i8 %bf.load.i to i1
+  br i1 %tobool.i24, label %if.end49, label %if.then41
 
 if.then41:                                        ; preds = %if.then35
   store i32 %1, ptr %arrayidx, align 8
@@ -1575,9 +1574,8 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
 if.then27:                                        ; preds = %if.then6.i.i
   %flags_.i = getelementptr inbounds nuw i8, ptr %13, i64 10
   %bf.load.i = load i8, ptr %flags_.i, align 2
-  %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool.i.not = icmp eq i8 %bf.clear.i, 0
-  br i1 %tobool.i.not, label %if.then33, label %if.end41
+  %tobool.i = trunc i8 %bf.load.i to i1
+  br i1 %tobool.i, label %if.end41, label %if.then33
 
 if.then33:                                        ; preds = %if.then27
   store i32 %1, ptr %arrayidx, align 8
@@ -8207,18 +8205,17 @@ if.end8.i.i194:                                   ; preds = %lor.lhs.false.i.i18
 sw.bb20:                                          ; preds = %entry
   %shr.i.mask.i = and i64 %0, -140737488355328
   %cmp.i = icmp eq i64 %shr.i.mask.i, -1407374883553280
-  %leftKind_.i.i.i319 = getelementptr inbounds nuw i8, ptr %msg1, i64 8
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb20
-  %and.i = and i64 %0, 1
-  %tobool.i.not = icmp eq i64 %and.i, 0
-  br i1 %tobool.i.not, label %if.else, label %if.then25
+  %tobool.i = trunc i64 %0 to i1
+  %leftKind_.i.i.i233 = getelementptr inbounds nuw i8, ptr %msg1, i64 8
+  br i1 %tobool.i, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.then
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  %28 = load i32, ptr %leftKind_.i.i.i319, align 8, !noalias !161
+  %28 = load i32, ptr %leftKind_.i.i.i233, align 8, !noalias !161
   switch i32 %28, label %if.end8.i.i242 [
     i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit270
     i32 1, label %if.then4.i.i265
@@ -8324,7 +8321,7 @@ if.end8.i.i280:                                   ; preds = %lor.lhs.false.i.i27
 if.else:                                          ; preds = %if.then
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %36 = load i32, ptr %leftKind_.i.i.i319, align 8, !noalias !181
+  %36 = load i32, ptr %leftKind_.i.i.i233, align 8, !noalias !181
   switch i32 %36, label %if.end8.i.i328 [
     i32 0, label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit356
     i32 1, label %if.then4.i.i351
@@ -8430,7 +8427,8 @@ if.end8.i.i366:                                   ; preds = %lor.lhs.false.i.i35
 if.end:                                           ; preds = %sw.bb20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
-  %44 = load i32, ptr %leftKind_.i.i.i319, align 8, !noalias !201
+  %leftKind_.i.i.i405 = getelementptr inbounds nuw i8, ptr %msg1, i64 8
+  %44 = load i32, ptr %leftKind_.i.i.i405, align 8, !noalias !201
   switch i32 %44, label %if.end8.i.i414 [
     i32 0, label %if.then.i.i438
     i32 1, label %if.then4.i.i437

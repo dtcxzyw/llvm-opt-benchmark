@@ -111,12 +111,11 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
 
 10:                                               ; preds = %3
   %11 = load atomic i64, ptr %7 seq_cst, align 128, !noalias !30
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
+  %12 = trunc i64 %11 to i1
   br label %"_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h93574e533811b171E.exit"
 
 "_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h93574e533811b171E.exit": ; preds = %3, %10
-  %.0.i = phi i1 [ %13, %10 ], [ true, %3 ]
+  %.0.i = phi i1 [ %12, %10 ], [ true, %3 ]
   ret i1 %.0.i
 }
 
@@ -134,12 +133,11 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
 
 10:                                               ; preds = %3
   %11 = load atomic i64, ptr %7 seq_cst, align 128, !noalias !33
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
+  %12 = trunc i64 %11 to i1
   br label %"_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h77056ead12a7036cE.exit"
 
 "_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h77056ead12a7036cE.exit": ; preds = %3, %10
-  %.0.i = phi i1 [ %13, %10 ], [ true, %3 ]
+  %.0.i = phi i1 [ %12, %10 ], [ true, %3 ]
   ret i1 %.0.i
 }
 
@@ -151,16 +149,15 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
   %5 = load atomic i64, ptr %4 seq_cst, align 128
   %.unshifted.i = xor i64 %5, %3
   %6 = icmp ult i64 %.unshifted.i, 2
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = load atomic i64, ptr %4 seq_cst, align 128
-  %9 = and i64 %8, 1
-  %10 = icmp ne i64 %9, 0
-  br label %11
+  %9 = trunc i64 %8 to i1
+  br label %10
 
-11:                                               ; preds = %1, %7
-  %.0 = phi i1 [ %10, %7 ], [ true, %1 ]
+10:                                               ; preds = %1, %7
+  %.0 = phi i1 [ %9, %7 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -172,16 +169,15 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
   %5 = load atomic i64, ptr %4 seq_cst, align 128
   %.unshifted.i = xor i64 %5, %3
   %6 = icmp ult i64 %.unshifted.i, 2
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = load atomic i64, ptr %4 seq_cst, align 128
-  %9 = and i64 %8, 1
-  %10 = icmp ne i64 %9, 0
-  br label %11
+  %9 = trunc i64 %8 to i1
+  br label %10
 
-11:                                               ; preds = %1, %7
-  %.0 = phi i1 [ %10, %7 ], [ true, %1 ]
+10:                                               ; preds = %1, %7
+  %.0 = phi i1 [ %9, %7 ], [ true, %1 ]
   ret i1 %.0
 }
 
@@ -199,12 +195,11 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
 
 10:                                               ; preds = %3
   %11 = load atomic i64, ptr %7 seq_cst, align 128, !noalias !36
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
+  %12 = trunc i64 %11 to i1
   br label %"_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h77056ead12a7036cE.exit"
 
 "_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h77056ead12a7036cE.exit": ; preds = %3, %10
-  %.0.i = phi i1 [ %13, %10 ], [ true, %3 ]
+  %.0.i = phi i1 [ %12, %10 ], [ true, %3 ]
   ret i1 %.0.i
 }
 
@@ -222,12 +217,11 @@ define hidden noundef zeroext i1 @"_ZN111_$LT$crossbeam_channel..flavors..list..
 
 10:                                               ; preds = %3
   %11 = load atomic i64, ptr %7 seq_cst, align 128, !noalias !39
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
+  %12 = trunc i64 %11 to i1
   br label %"_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h93574e533811b171E.exit"
 
 "_ZN111_$LT$crossbeam_channel..flavors..list..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h93574e533811b171E.exit": ; preds = %3, %10
-  %.0.i = phi i1 [ %13, %10 ], [ true, %3 ]
+  %.0.i = phi i1 [ %12, %10 ], [ true, %3 ]
   ret i1 %.0.i
 }
 
@@ -2246,18 +2240,16 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %6
 define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$15is_disconnected17ha3c4d183874915b5E.llvm.15562554790014090263"(ptr noundef nonnull readonly align 128 captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load atomic i64, ptr %2 seq_cst, align 128
-  %4 = and i64 %3, 1
-  %5 = icmp ne i64 %4, 0
-  ret i1 %5
+  %4 = trunc i64 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$15is_disconnected17hfe769843bc8a2ff9E.llvm.15562554790014090263"(ptr noundef nonnull readonly align 128 captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load atomic i64, ptr %2 seq_cst, align 128
-  %4 = and i64 %3, 1
-  %5 = icmp ne i64 %4, 0
-  ret i1 %5
+  %4 = trunc i64 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable

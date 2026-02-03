@@ -727,13 +727,13 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit299.i: ; p
   %320 = and i32 %319, 64
   %321 = and i32 %317, -65
   %322 = or disjoint i32 %321, %320
-  %storemerge30.i = select i1 %or.cond.i301.i, i32 %322, i32 %317
+  %storemerge29.i = select i1 %or.cond.i301.i, i32 %322, i32 %317
   %323 = shl i32 %312, 19
   %324 = and i32 %323, 8388608
-  %325 = and i32 %storemerge30.i, -8388609
+  %325 = and i32 %storemerge29.i, -8388609
   %326 = or disjoint i32 %325, %324
-  %storemerge30.mux.i = select i1 %spec.select.i.i300.i, i32 %322, i32 %326
-  %327 = select i1 %128, i32 %storemerge30.i, i32 %storemerge30.mux.i
+  %storemerge29.mux.i = select i1 %spec.select.i.i300.i, i32 %322, i32 %326
+  %327 = select i1 %128, i32 %storemerge29.i, i32 %storemerge29.mux.i
   br i1 %130, label %345, label %328
 
 328:                                              ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit299.i
@@ -845,13 +845,13 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit299.i: ; p
   br label %.critedge.sink.split.i
 
 417:                                              ; preds = %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i
-  br i1 %130, label %._crit_edge47.i, label %418
+  br i1 %130, label %._crit_edge46.i, label %418
 
-._crit_edge47.i:                                  ; preds = %417
-  %.phi.trans.insert48.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val227.pre.i = load ptr, ptr %.phi.trans.insert48.i, align 8, !tbaa !41
-  %.phi.trans.insert50.i = getelementptr i8, ptr %.val54.val, i64 104
-  %.val.val.i315.pre.i = load ptr, ptr %.phi.trans.insert50.i, align 8, !tbaa !206
+._crit_edge46.i:                                  ; preds = %417
+  %.phi.trans.insert47.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val227.pre.i = load ptr, ptr %.phi.trans.insert47.i, align 8, !tbaa !41
+  %.phi.trans.insert49.i = getelementptr i8, ptr %.val54.val, i64 104
+  %.val.val.i315.pre.i = load ptr, ptr %.phi.trans.insert49.i, align 8, !tbaa !206
   br label %437
 
 418:                                              ; preds = %417
@@ -877,11 +877,11 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit299.i: ; p
   %436 = or disjoint i32 %433, %435
   br label %437
 
-437:                                              ; preds = %418, %._crit_edge47.i
-  %.val.val.i315.i = phi ptr [ %.val.val.i313.i, %418 ], [ %.val.val.i315.pre.i, %._crit_edge47.i ]
-  %.val227.i = phi ptr [ %.val252.i, %418 ], [ %.val227.pre.i, %._crit_edge47.i ]
-  %438 = phi i32 [ %436, %418 ], [ %170, %._crit_edge47.i ]
-  %.3.i = phi i32 [ %419, %418 ], [ %.0.i.i, %._crit_edge47.i ]
+437:                                              ; preds = %418, %._crit_edge46.i
+  %.val.val.i315.i = phi ptr [ %.val.val.i313.i, %418 ], [ %.val.val.i315.pre.i, %._crit_edge46.i ]
+  %.val227.i = phi ptr [ %.val252.i, %418 ], [ %.val227.pre.i, %._crit_edge46.i ]
+  %438 = phi i32 [ %436, %418 ], [ %170, %._crit_edge46.i ]
+  %.3.i = phi i32 [ %419, %418 ], [ %.0.i.i, %._crit_edge46.i ]
   %439 = add nuw nsw i32 %.3.i, 1
   %440 = zext nneg i32 %.3.i to i64
   %441 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val227.i, i64 %440
@@ -984,16 +984,16 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit322.i: ; p
   %522 = and i32 %521, 64
   %523 = and i32 %519, -65
   %524 = or disjoint i32 %523, %522
-  %storemerge28.i = select i1 %or.cond.i324.i, i32 %524, i32 %519
-  %brmerge56.i = or i1 %128, %spec.select.i.i323.i
+  %storemerge27.i = select i1 %or.cond.i324.i, i32 %524, i32 %519
+  %brmerge55.i = or i1 %128, %spec.select.i.i323.i
   %525 = shl i32 %514, 19
   %526 = and i32 %525, 8388608
-  %527 = and i32 %storemerge28.i, -8388609
+  %527 = and i32 %storemerge27.i, -8388609
   %528 = or disjoint i32 %527, %526
-  %storemerge61.i = select i1 %brmerge56.i, i32 %storemerge28.i, i32 %528
-  %storemerge28.mux.i = select i1 %spec.select.i.i323.i, i32 %524, i32 %528
-  %529 = select i1 %128, i32 %storemerge28.i, i32 %storemerge28.mux.i
-  store i32 %storemerge61.i, ptr %7, align 8
+  %storemerge60.i = select i1 %brmerge55.i, i32 %storemerge27.i, i32 %528
+  %storemerge27.mux.i = select i1 %spec.select.i.i323.i, i32 %524, i32 %528
+  %529 = select i1 %128, i32 %storemerge27.i, i32 %storemerge27.mux.i
+  store i32 %storemerge60.i, ptr %7, align 8
   br i1 %.not225.i, label %.critedge.i, label %530
 
 530:                                              ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit322.i
@@ -1197,10 +1197,10 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit344.i: ; p
   br i1 %.not224.i, label %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i, label %698
 
 ._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i: ; preds = %696
-  %.phi.trans.insert43.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val238.pre.i = load ptr, ptr %.phi.trans.insert43.i, align 8, !tbaa !41
-  %.phi.trans.insert45.i = getelementptr inbounds nuw i8, ptr %.val54.val, i64 104
-  %.pre46.i = load ptr, ptr %.phi.trans.insert45.i, align 8, !tbaa !206
+  %.phi.trans.insert42.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val238.pre.i = load ptr, ptr %.phi.trans.insert42.i, align 8, !tbaa !41
+  %.phi.trans.insert44.i = getelementptr inbounds nuw i8, ptr %.val54.val, i64 104
+  %.pre45.i = load ptr, ptr %.phi.trans.insert44.i, align 8, !tbaa !206
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i
 
 698:                                              ; preds = %696
@@ -1224,7 +1224,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit344.i: ; p
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i
 
 _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i: ; preds = %698, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i
-  %714 = phi ptr [ %.val.val.i351.i, %698 ], [ %.pre46.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i ]
+  %714 = phi ptr [ %.val.val.i351.i, %698 ], [ %.pre45.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i ]
   %.val238.i = phi ptr [ %.val267.i, %698 ], [ %.val238.pre.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i ]
   %715 = phi i32 [ %713, %698 ], [ %697, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i ]
   %.7.i = phi i32 [ %699, %698 ], [ %.6.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354_crit_edge.i ]
@@ -1268,16 +1268,16 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i: ; p
   %749 = and i32 %748, 64
   %750 = and i32 %746, -65
   %751 = or disjoint i32 %750, %749
-  %storemerge23.i = select i1 %or.cond.i356.i, i32 %751, i32 %746
-  %brmerge57.i = or i1 %128, %spec.select.i.i355.i
+  %storemerge22.i = select i1 %or.cond.i356.i, i32 %751, i32 %746
+  %brmerge56.i = or i1 %128, %spec.select.i.i355.i
   %752 = shl i32 %741, 19
   %753 = and i32 %752, 8388608
-  %754 = and i32 %storemerge23.i, -8388609
+  %754 = and i32 %storemerge22.i, -8388609
   %755 = or disjoint i32 %754, %753
-  %storemerge60.i = select i1 %brmerge57.i, i32 %storemerge23.i, i32 %755
-  %storemerge23.mux.i = select i1 %spec.select.i.i355.i, i32 %751, i32 %755
-  %756 = select i1 %128, i32 %storemerge23.i, i32 %storemerge23.mux.i
-  store i32 %storemerge60.i, ptr %7, align 8
+  %storemerge59.i = select i1 %brmerge56.i, i32 %storemerge22.i, i32 %755
+  %storemerge22.mux.i = select i1 %spec.select.i.i355.i, i32 %751, i32 %755
+  %756 = select i1 %128, i32 %storemerge22.i, i32 %storemerge22.mux.i
+  store i32 %storemerge59.i, ptr %7, align 8
   br i1 %.not225.i, label %.critedge.i, label %757
 
 757:                                              ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i
@@ -1307,10 +1307,10 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i: ; p
   br i1 %130, label %._crit_edge.i, label %779
 
 ._crit_edge.i:                                    ; preds = %778
-  %.phi.trans.insert39.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val229.pre.i = load ptr, ptr %.phi.trans.insert39.i, align 8, !tbaa !41
-  %.phi.trans.insert41.i = getelementptr i8, ptr %.val54.val, i64 104
-  %.val.val.i363.pre.i = load ptr, ptr %.phi.trans.insert41.i, align 8, !tbaa !206
+  %.phi.trans.insert38.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val229.pre.i = load ptr, ptr %.phi.trans.insert38.i, align 8, !tbaa !41
+  %.phi.trans.insert40.i = getelementptr i8, ptr %.val54.val, i64 104
+  %.val.val.i363.pre.i = load ptr, ptr %.phi.trans.insert40.i, align 8, !tbaa !206
   br label %798
 
 779:                                              ; preds = %778
@@ -1433,8 +1433,8 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit370.i: ; p
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i
 
 _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i: ; preds = %866, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit370.i
-  %storemerge54.i = phi i32 [ %872, %866 ], [ %865, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit370.i ]
-  store i32 %storemerge54.i, ptr %7, align 8
+  %storemerge53.i = phi i32 [ %872, %866 ], [ %865, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit370.i ]
+  store i32 %storemerge53.i, ptr %7, align 8
   br i1 %.not225.i, label %892, label %873
 
 873:                                              ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i
@@ -1444,7 +1444,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i: ; preds
   %877 = xor i32 %876, -1
   %878 = shl i32 %877, 8
   %879 = and i32 %878, 3840
-  %880 = and i32 %storemerge54.i, -125832961
+  %880 = and i32 %storemerge53.i, -125832961
   %881 = or disjoint i32 %879, %880
   %882 = getelementptr inbounds nuw i8, ptr %851, i64 40
   %883 = load i64, ptr %882, align 8, !tbaa !48
@@ -1460,7 +1460,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i: ; preds
   br label %892
 
 892:                                              ; preds = %873, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i
-  %893 = phi i32 [ %891, %873 ], [ %storemerge54.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i ]
+  %893 = phi i32 [ %891, %873 ], [ %storemerge53.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit.i ]
   br i1 %.not15.i, label %.critedge.i, label %894
 
 894:                                              ; preds = %892
@@ -1580,10 +1580,10 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit376.i: ; p
   br i1 %130, label %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i, label %989
 
 ._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i: ; preds = %988
-  %.phi.trans.insert35.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val241.pre.i = load ptr, ptr %.phi.trans.insert35.i, align 8, !tbaa !41
-  %.phi.trans.insert37.i = getelementptr inbounds nuw i8, ptr %.val54.val, i64 104
-  %.pre38.i = load ptr, ptr %.phi.trans.insert37.i, align 8, !tbaa !206
+  %.phi.trans.insert34.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val241.pre.i = load ptr, ptr %.phi.trans.insert34.i, align 8, !tbaa !41
+  %.phi.trans.insert36.i = getelementptr inbounds nuw i8, ptr %.val54.val, i64 104
+  %.pre37.i = load ptr, ptr %.phi.trans.insert36.i, align 8, !tbaa !206
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i
 
 989:                                              ; preds = %988
@@ -1610,7 +1610,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit376.i: ; p
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i
 
 _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i: ; preds = %989, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i
-  %1008 = phi ptr [ %.val.val.i388.i, %989 ], [ %.pre38.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i ]
+  %1008 = phi ptr [ %.val.val.i388.i, %989 ], [ %.pre37.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i ]
   %.val241.i = phi ptr [ %.val259.i, %989 ], [ %.val241.pre.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i ]
   %1009 = phi i32 [ %1007, %989 ], [ %170, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i ]
   %.11.i = phi i32 [ %990, %989 ], [ %.0.i.i, %._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391_crit_edge.i ]
@@ -1644,7 +1644,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i: ; p
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i
 
 _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i: ; preds = %1026, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i
-  %storemerge53.i = phi i32 [ %1032, %1026 ], [ %1025, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i ]
+  %storemerge52.i = phi i32 [ %1032, %1026 ], [ %1025, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit391.i ]
   %1033 = add nuw nsw i32 %.11.i, 1
   br i1 %.not224.i, label %1048, label %1034
 
@@ -1660,12 +1660,12 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i: ; pr
   %1043 = zext i16 %1042 to i32
   %1044 = shl i32 %1043, 24
   %1045 = and i32 %1044, 117440512
-  %1046 = and i32 %storemerge53.i, -117440513
+  %1046 = and i32 %storemerge52.i, -117440513
   %1047 = or disjoint i32 %1045, %1046
   br label %1048
 
 1048:                                             ; preds = %1034, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i
-  %1049 = phi i32 [ %1047, %1034 ], [ %storemerge53.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i ]
+  %1049 = phi i32 [ %1047, %1034 ], [ %storemerge52.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i ]
   %.12.i = phi i32 [ %1035, %1034 ], [ %1033, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i ]
   %or.cond11.i = and i1 %130, %128
   br i1 %or.cond11.i, label %1050, label %1067
@@ -1788,8 +1788,8 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit393.i: ; pr
 ._ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit408_crit_edge.i: ; preds = %1141
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val242.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !41
-  %.phi.trans.insert34.i = getelementptr inbounds nuw i8, ptr %.val54.val, i64 104
-  %.pre.i = load ptr, ptr %.phi.trans.insert34.i, align 8, !tbaa !206
+  %.phi.trans.insert33.i = getelementptr inbounds nuw i8, ptr %.val54.val, i64 104
+  %.pre.i = load ptr, ptr %.phi.trans.insert33.i, align 8, !tbaa !206
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit408.i
 
 1143:                                             ; preds = %1141
@@ -1847,8 +1847,8 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit408.i: ; p
   br label %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i
 
 _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i: ; preds = %1177, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit408.i
-  %storemerge52.i = phi i32 [ %1183, %1177 ], [ %1176, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit408.i ]
-  store i32 %storemerge52.i, ptr %7, align 8
+  %storemerge51.i = phi i32 [ %1183, %1177 ], [ %1176, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit408.i ]
+  store i32 %storemerge51.i, ptr %7, align 8
   br i1 %.not225.i, label %.critedge.i, label %1184
 
 1184:                                             ; preds = %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i
@@ -1858,7 +1858,7 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i: ; pr
   %1188 = xor i32 %1187, -1
   %1189 = shl i32 %1188, 8
   %1190 = and i32 %1189, 3840
-  %1191 = and i32 %storemerge52.i, -125832961
+  %1191 = and i32 %storemerge51.i, -125832961
   %1192 = or disjoint i32 %1190, %1191
   %1193 = getelementptr inbounds nuw i8, ptr %1162, i64 56
   %1194 = load i64, ptr %1193, align 8, !tbaa !48
@@ -1888,12 +1888,12 @@ _ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i: ; pr
   br label %.critedge.sink.split.i
 
 .critedge.sink.split.i:                           ; preds = %.thread.i, %1184, %1103, %982, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit376.i, %757, %671, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit332.i, %530, %398, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit.i
-  %.sink59.i = phi i32 [ %987, %982 ], [ %675, %671 ], [ %283, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit.i ], [ %416, %398 ], [ %550, %530 ], [ %616, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit332.i ], [ %777, %757 ], [ %948, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit376.i ], [ %1120, %1103 ], [ %1202, %1184 ], [ %1211, %.thread.i ]
-  store i32 %.sink59.i, ptr %7, align 8
+  %.sink58.i = phi i32 [ %987, %982 ], [ %675, %671 ], [ %283, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit.i ], [ %416, %398 ], [ %550, %530 ], [ %616, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit332.i ], [ %777, %757 ], [ %948, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit376.i ], [ %1120, %1103 ], [ %1202, %1184 ], [ %1211, %.thread.i ]
+  store i32 %.sink58.i, ptr %7, align 8
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.sink.split.i, %1203, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i, %1084, %949, %892, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit344.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit322.i, %381, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i
-  %1212 = phi i32 [ %storemerge52.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i ], [ %170, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i ], [ %170, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i ], [ %893, %892 ], [ %397, %381 ], [ %980, %949 ], [ %529, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit322.i ], [ %1102, %1084 ], [ %1083, %1203 ], [ %669, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit344.i ], [ %756, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i ], [ %.sink59.i, %.critedge.sink.split.i ]
+  %1212 = phi i32 [ %storemerge51.i, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper4setXERKN4llvm6MCInstEjj.exit410.i ], [ %170, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i ], [ %170, %_ZN4llvm5X86II14getOperandBiasERKNS_11MCInstrDescE.exit.i ], [ %893, %892 ], [ %397, %381 ], [ %980, %949 ], [ %529, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit322.i ], [ %1102, %1084 ], [ %1083, %1203 ], [ %669, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit344.i ], [ %756, %_ZN12_GLOBAL__N_121X86OpcodePrefixHelper6setBB2ERKN4llvm6MCInstEj.exit354.i ], [ %.sink58.i, %.critedge.sink.split.i ]
   switch i32 %119, label %_ZNK12_GLOBAL__N_116X86MCCodeEmitter19emitVEXOpcodePrefixEiRKN4llvm6MCInstERKNS1_15MCSubtargetInfoERNS1_15SmallVectorImplIcEE.exit [
     i32 0, label %1213
     i32 1, label %1219

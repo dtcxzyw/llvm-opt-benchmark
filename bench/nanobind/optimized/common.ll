@@ -2348,48 +2348,47 @@ define noundef zeroext i1 @_ZN8nanobind6detail10load_cmplxEP7_objecthPSt7complex
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = icmp eq ptr %.val, @PyComplex_Type
-  %6 = and i8 %1, 1
-  %7 = icmp ne i8 %6, 0
-  %or.cond = or i1 %7, %5
-  br i1 %or.cond, label %8, label %18
+  %6 = trunc i8 %1 to i1
+  %or.cond = or i1 %5, %6
+  br i1 %or.cond, label %7, label %17
 
-8:                                                ; preds = %3
-  %9 = invoke { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %0)
-          to label %10 unwind label %19
+7:                                                ; preds = %3
+  %8 = invoke { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %0)
+          to label %9 unwind label %18
 
-10:                                               ; preds = %8
-  %11 = extractvalue { double, double } %9, 0
-  %12 = extractvalue { double, double } %9, 1
-  %13 = fcmp une double %11, -1.000000e+00
-  br i1 %13, label %.critedge, label %14
+9:                                                ; preds = %7
+  %10 = extractvalue { double, double } %8, 0
+  %11 = extractvalue { double, double } %8, 1
+  %12 = fcmp une double %10, -1.000000e+00
+  br i1 %12, label %.critedge, label %13
 
-14:                                               ; preds = %10
-  %15 = invoke ptr @PyErr_Occurred()
-          to label %16 unwind label %19
+13:                                               ; preds = %9
+  %14 = invoke ptr @PyErr_Occurred()
+          to label %15 unwind label %18
 
-16:                                               ; preds = %14
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.critedge, label %17
+15:                                               ; preds = %13
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %.critedge, label %16
 
-.critedge:                                        ; preds = %16, %10
-  store double %11, ptr %2, align 8
+.critedge:                                        ; preds = %15, %9
+  store double %10, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %12, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %18
+  store double %11, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %17
 
-17:                                               ; preds = %16
+16:                                               ; preds = %15
   invoke void @PyErr_Clear()
-          to label %18 unwind label %19
+          to label %17 unwind label %18
 
-18:                                               ; preds = %3, %17, %.critedge
-  %.1 = phi i1 [ true, %.critedge ], [ false, %17 ], [ false, %3 ]
+17:                                               ; preds = %3, %16, %.critedge
+  %.1 = phi i1 [ true, %.critedge ], [ false, %16 ], [ false, %3 ]
   ret i1 %.1
 
-19:                                               ; preds = %17, %14, %8
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %16, %13, %7
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #28
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #28
   unreachable
 }
 
@@ -2456,62 +2455,61 @@ define noundef zeroext i1 @_ZN8nanobind6detail8load_f32EP7_objecthPf(ptr noundef
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.val, @PyFloat_Type
-  %5 = and i8 %1, 1
-  %.not33 = icmp ne i8 %5, 0
-  br i1 %.not, label %6, label %14, !prof !4
+  %.not33 = trunc i8 %1 to i1
+  br i1 %.not, label %5, label %13, !prof !4
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load double, ptr %7, align 8
-  %9 = fptrunc double %8 to float
-  %10 = fpext float %9 to double
-  %11 = fcmp oeq double %8, %10
-  %12 = fcmp uno double %8, 0.000000e+00
-  %13 = or i1 %12, %11
-  %or.cond36 = select i1 %.not33, i1 true, i1 %13
-  br i1 %or.cond36, label %.sink.split, label %24
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load double, ptr %6, align 8
+  %8 = fptrunc double %7 to float
+  %9 = fpext float %8 to double
+  %10 = fcmp oeq double %7, %9
+  %11 = fcmp uno double %7, 0.000000e+00
+  %12 = or i1 %11, %10
+  %or.cond36 = select i1 %.not33, i1 true, i1 %12
+  br i1 %or.cond36, label %.sink.split, label %23
 
-14:                                               ; preds = %3
-  br i1 %.not33, label %15, label %24
+13:                                               ; preds = %3
+  br i1 %.not33, label %14, label %23
 
-15:                                               ; preds = %14
-  %16 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %0)
-          to label %17 unwind label %25
+14:                                               ; preds = %13
+  %15 = invoke double @PyFloat_AsDouble(ptr noundef nonnull %0)
+          to label %16 unwind label %24
 
-17:                                               ; preds = %15
-  %18 = fcmp une double %16, -1.000000e+00
-  br i1 %18, label %.critedge, label %19
+16:                                               ; preds = %14
+  %17 = fcmp une double %15, -1.000000e+00
+  br i1 %17, label %.critedge, label %18
 
-19:                                               ; preds = %17
-  %20 = invoke ptr @PyErr_Occurred()
-          to label %21 unwind label %25
+18:                                               ; preds = %16
+  %19 = invoke ptr @PyErr_Occurred()
+          to label %20 unwind label %24
 
-21:                                               ; preds = %19
-  %.not34 = icmp eq ptr %20, null
-  br i1 %.not34, label %.critedge, label %23
+20:                                               ; preds = %18
+  %.not34 = icmp eq ptr %19, null
+  br i1 %.not34, label %.critedge, label %22
 
-.critedge:                                        ; preds = %17, %21
-  %22 = fptrunc double %16 to float
+.critedge:                                        ; preds = %16, %20
+  %21 = fptrunc double %15 to float
   br label %.sink.split
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   invoke void @PyErr_Clear()
-          to label %24 unwind label %25
+          to label %23 unwind label %24
 
-.sink.split:                                      ; preds = %6, %.critedge
-  %.sink = phi float [ %22, %.critedge ], [ %9, %6 ]
+.sink.split:                                      ; preds = %5, %.critedge
+  %.sink = phi float [ %21, %.critedge ], [ %8, %5 ]
   store float %.sink, ptr %2, align 4
-  br label %24
+  br label %23
 
-24:                                               ; preds = %.sink.split, %14, %23, %6
-  %.1 = phi i1 [ false, %23 ], [ false, %6 ], [ false, %14 ], [ true, %.sink.split ]
+23:                                               ; preds = %.sink.split, %13, %22, %5
+  %.1 = phi i1 [ false, %22 ], [ false, %5 ], [ false, %13 ], [ true, %.sink.split ]
   ret i1 %.1
 
-25:                                               ; preds = %23, %19, %15
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %22, %18, %14
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #28
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #28
   unreachable
 }
 

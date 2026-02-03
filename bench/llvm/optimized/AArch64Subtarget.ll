@@ -14273,30 +14273,30 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm23AArch64GenSubtargetInf
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(304) %0) #24
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %14, label %7
+  br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  switch i32 %1, label %13 [
+  switch i32 %1, label %12 [
     i32 0, label %8
-    i32 1, label %14
+    i32 1, label %13
     i32 2, label %11
-    i32 3, label %14
+    i32 3, label %13
   ]
 
 8:                                                ; preds = %7
   %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
   %10 = add nuw nsw i32 %9, 1
-  br label %14
+  br label %13
 
 11:                                               ; preds = %7
-  %12 = and i32 %6, 1
-  br label %14
+  %spec.select = and i32 %6, 1
+  br label %13
 
-13:                                               ; preds = %7
+12:                                               ; preds = %7
   unreachable
 
-14:                                               ; preds = %11, %7, %7, %2, %8
-  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ], [ 0, %2 ], [ 0, %7 ], [ 0, %7 ]
+13:                                               ; preds = %11, %7, %7, %2, %8
+  %.0 = phi i32 [ %10, %8 ], [ %spec.select, %11 ], [ 0, %2 ], [ 0, %7 ], [ 0, %7 ]
   ret i32 %.0
 }
 

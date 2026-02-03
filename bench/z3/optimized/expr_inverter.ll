@@ -1610,9 +1610,8 @@ define hidden noundef zeroext i1 @_ZN13expr_inverterclEP9func_decljPKP4exprR7obj
 _Z9is_groundPK4expr.exit:                         ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 30
   %15 = load i8, ptr %14, align 2
-  %16 = and i8 %15, 1
-  %.not24 = icmp eq i8 %16, 0
-  br i1 %.not24, label %.thread, label %7
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %7, label %.thread
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24

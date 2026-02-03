@@ -1490,9 +1490,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %66, %54, %5
   %76 = and i64 %73, -8
   %77 = inttoptr i64 %76 to ptr
   %78 = atomicrmw add ptr %77, i32 2 monotonic, align 4, !noalias !15
-  %79 = and i32 %78, 1
-  %.not1.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not1.i.i.i, label %80, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i
+  %79 = trunc i32 %78 to i1
+  br i1 %79, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i, label %80
 
 80:                                               ; preds = %75
   store ptr %77, ptr %7, align 8, !alias.scope !15
@@ -1705,9 +1704,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124_GetChildNameBeneathPathERK
   %170 = and i64 %167, -8
   %171 = inttoptr i64 %170 to ptr
   %172 = atomicrmw add ptr %171, i32 2 monotonic, align 4
-  %173 = and i32 %172, 1
-  %.not1.i.i.i.i.i = icmp eq i32 %173, 0
-  br i1 %.not1.i.i.i.i.i, label %174, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
+  %173 = trunc i32 %172 to i1
+  br i1 %173, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, label %174
 
 174:                                              ; preds = %169
   %175 = load ptr, ptr %154, align 8
@@ -2931,9 +2929,8 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE12_M_check_len
   %25 = and i64 %22, -8
   %26 = inttoptr i64 %25 to ptr
   %27 = atomicrmw add ptr %26, i32 2 monotonic, align 4
-  %28 = and i32 %27, 1
-  %.not1.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not1.i.i.i.i, label %29, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
+  %28 = trunc i32 %27 to i1
+  br i1 %28, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %29
 
 29:                                               ; preds = %24
   store ptr %26, ptr %21, align 8

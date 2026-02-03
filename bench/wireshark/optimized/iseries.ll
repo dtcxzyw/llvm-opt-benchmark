@@ -1120,16 +1120,15 @@ define internal fastcc i32 @append_hex_digits(ptr noundef writeonly captures(non
   br i1 %27, label %.preheader, label %.loopexit.backedge, !llvm.loop !28
 
 29:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  %30 = and i32 %.03760, 1
-  %.not48 = icmp ne i32 %30, 0
+  %.not48 = trunc i32 %.03760 to i1
   %brmerge = select i1 %.not48, i1 true, i1 %.161
   br i1 %brmerge, label %.loopexit49.sink.split, label %.loopexit49
 
 .loopexit49.sink.split:                           ; preds = %29
   %.str.30.mux = select i1 %.not48, ptr @.str.30, ptr @.str.31
   store i32 -13, ptr %4, align 4
-  %31 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.30.mux)
-  store ptr %31, ptr %5, align 8
+  %30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.30.mux)
+  store ptr %30, ptr %5, align 8
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %11, %29, %.loopexit49.sink.split

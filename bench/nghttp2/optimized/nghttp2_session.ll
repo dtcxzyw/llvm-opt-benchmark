@@ -249,12 +249,12 @@ define hidden range(i32 0, 2) i32 @nghttp2_session_is_my_stream_id(ptr noundef r
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = and i32 %1, 1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2675
-  %7 = load i8, ptr %6, align 1, !tbaa !37
-  %.not = icmp ne i8 %7, 0
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2675
+  %6 = load i8, ptr %5, align 1, !tbaa !37
+  %.not = icmp ne i8 %6, 0
+  %7 = and i32 %1, 1
   %8 = zext i1 %.not to i32
-  %spec.select = xor i32 %5, %8
+  %spec.select = xor i32 %7, %8
   br label %9
 
 9:                                                ; preds = %4, %2
@@ -11857,7 +11857,7 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
   %39 = tail call noundef i32 @llvm.smin.i32(i32 %38, i32 %.val115)
   %40 = sext i32 %39 to i64
   %41 = icmp slt i32 %39, 1
-  br i1 %41, label %173, label %42
+  br i1 %41, label %172, label %42
 
 42:                                               ; preds = %19
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -11936,13 +11936,13 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
 
 83:                                               ; preds = %72, %72, %72
   %84 = trunc nsw i64 %82 to i32
-  br label %173
+  br label %172
 
 85:                                               ; preds = %72
   %86 = icmp slt i64 %82, 0
   %87 = icmp ult i64 %.098, %82
   %or.cond = or i1 %86, %87
-  br i1 %or.cond, label %173, label %88
+  br i1 %or.cond, label %172, label %88
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
@@ -11956,155 +11956,154 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
   %94 = load i32, ptr %7, align 4, !tbaa !94
   %95 = and i32 %94, 1
   %.not108 = icmp eq i32 %95, 0
-  br i1 %.not108, label %106, label %96
+  br i1 %.not108, label %105, label %96
 
 96:                                               ; preds = %88
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 25
   store i8 1, ptr %97, align 1, !tbaa !166
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %99 = load i8, ptr %98, align 8, !tbaa !265
-  %100 = and i8 %99, 1
-  %.not109 = icmp ne i8 %100, 0
-  %101 = and i32 %94, 2
-  %102 = icmp eq i32 %101, 0
-  %or.cond119 = and i1 %102, %.not109
-  br i1 %or.cond119, label %103, label %106
+  %.not109 = trunc i8 %99 to i1
+  %100 = and i32 %94, 2
+  %101 = icmp eq i32 %100, 0
+  %or.cond119 = and i1 %101, %.not109
+  br i1 %or.cond119, label %102, label %105
 
-103:                                              ; preds = %96
-  %104 = load i8, ptr %93, align 1, !tbaa !113
-  %105 = or i8 %104, 1
-  store i8 %105, ptr %93, align 1, !tbaa !113
-  br label %106
+102:                                              ; preds = %96
+  %103 = load i8, ptr %93, align 1, !tbaa !113
+  %104 = or i8 %103, 1
+  store i8 %104, ptr %93, align 1, !tbaa !113
+  br label %105
 
-106:                                              ; preds = %96, %103, %88
-  %107 = and i32 %94, 4
-  %.not110 = icmp eq i32 %107, 0
-  br i1 %.not110, label %114, label %108
+105:                                              ; preds = %96, %102, %88
+  %106 = and i32 %94, 4
+  %.not110 = icmp eq i32 %106, 0
+  br i1 %.not110, label %113, label %107
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 2288
-  %110 = load ptr, ptr %109, align 8, !tbaa !165
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %173, label %112
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2288
+  %109 = load ptr, ptr %108, align 8, !tbaa !165
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %172, label %111
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  store i8 1, ptr %113, align 2, !tbaa !266
-  br label %114
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  store i8 1, ptr %112, align 2, !tbaa !266
+  br label %113
 
-114:                                              ; preds = %112, %106
+113:                                              ; preds = %111, %105
   store i64 %82, ptr %3, align 8, !tbaa !113
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %115, align 8, !tbaa !113
-  %116 = add nuw i64 %82, 256
-  %117 = call noundef i64 @llvm.umin.i64(i64 %.098, i64 %116)
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %114, align 8, !tbaa !113
+  %115 = add nuw i64 %82, 256
+  %116 = call noundef i64 @llvm.umin.i64(i64 %.098, i64 %115)
   %.not.i = icmp ugt i64 %.098, %82
-  br i1 %.not.i, label %118, label %session_call_select_padding.exit
+  br i1 %.not.i, label %117, label %session_call_select_padding.exit
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %120 = load ptr, ptr %119, align 8, !tbaa !267
-  %.not26.i = icmp eq ptr %120, null
-  br i1 %.not26.i, label %121, label %124
+117:                                              ; preds = %113
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  %119 = load ptr, ptr %118, align 8, !tbaa !267
+  %.not26.i = icmp eq ptr %119, null
+  br i1 %.not26.i, label %120, label %123
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %123 = load ptr, ptr %122, align 8, !tbaa !268
-  %.not27.i = icmp eq ptr %123, null
-  br i1 %.not27.i, label %session_call_select_padding.exit, label %124
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 2248
+  %122 = load ptr, ptr %121, align 8, !tbaa !268
+  %.not27.i = icmp eq ptr %122, null
+  br i1 %.not27.i, label %session_call_select_padding.exit, label %123
 
-124:                                              ; preds = %121, %118
-  %.sink34.i = phi ptr [ %120, %118 ], [ %123, %121 ]
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 2384
-  %126 = load ptr, ptr %125, align 8, !tbaa !93
-  %127 = call i64 %.sink34.i(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %117, ptr noundef %126) #16
-  %128 = load i64, ptr %3, align 8, !tbaa !113
-  %129 = icmp slt i64 %127, %128
-  %130 = icmp sgt i64 %127, %117
-  %or.cond.i = or i1 %130, %129
-  %spec.select.i = select i1 %or.cond.i, i64 -902, i64 %127
+123:                                              ; preds = %120, %117
+  %.sink34.i = phi ptr [ %119, %117 ], [ %122, %120 ]
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 2384
+  %125 = load ptr, ptr %124, align 8, !tbaa !93
+  %126 = call i64 %.sink34.i(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %116, ptr noundef %125) #16
+  %127 = load i64, ptr %3, align 8, !tbaa !113
+  %128 = icmp slt i64 %126, %127
+  %129 = icmp sgt i64 %126, %116
+  %or.cond.i = or i1 %129, %128
+  %spec.select.i = select i1 %or.cond.i, i64 -902, i64 %126
   br label %session_call_select_padding.exit
 
-session_call_select_padding.exit:                 ; preds = %114, %121, %124
-  %.0.i = phi i64 [ %spec.select.i, %124 ], [ %82, %121 ], [ %82, %114 ]
-  %131 = trunc i64 %.0.i to i32
-  %132 = icmp sgt i32 %131, -901
-  br i1 %132, label %133, label %173
+session_call_select_padding.exit:                 ; preds = %113, %120, %123
+  %.0.i = phi i64 [ %spec.select.i, %123 ], [ %82, %120 ], [ %82, %113 ]
+  %130 = trunc i64 %.0.i to i32
+  %131 = icmp sgt i32 %130, -901
+  br i1 %131, label %132, label %172
 
-133:                                              ; preds = %session_call_select_padding.exit
-  %134 = sub nsw i64 %.0.i, %82
-  store i64 %134, ptr %115, align 8, !tbaa !113
-  %135 = load ptr, ptr %89, align 8, !tbaa !159
-  call void @nghttp2_frame_pack_frame_hd(ptr noundef %135, ptr noundef nonnull %3) #16
-  %136 = load i64, ptr %115, align 8, !tbaa !113
-  %137 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %138 = load i8, ptr %137, align 2, !tbaa !266
-  %139 = zext i8 %138 to i32
-  call void @nghttp2_frame_add_pad(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %136, i32 noundef %139) #16
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %141 = load ptr, ptr %140, align 8, !tbaa !110
-  %142 = load i64, ptr %141, align 8, !tbaa !113
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i64 %142, ptr %143, align 8, !tbaa !269
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 2675
-  %145 = load i8, ptr %144, align 1, !tbaa !37
-  %.not.i117 = icmp eq i8 %145, 0
-  br i1 %.not.i117, label %session_reschedule_stream.exit, label %146
+132:                                              ; preds = %session_call_select_padding.exit
+  %133 = sub nsw i64 %.0.i, %82
+  store i64 %133, ptr %114, align 8, !tbaa !113
+  %134 = load ptr, ptr %89, align 8, !tbaa !159
+  call void @nghttp2_frame_pack_frame_hd(ptr noundef %134, ptr noundef nonnull %3) #16
+  %135 = load i64, ptr %114, align 8, !tbaa !113
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  %137 = load i8, ptr %136, align 2, !tbaa !266
+  %138 = zext i8 %137 to i32
+  call void @nghttp2_frame_add_pad(ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %135, i32 noundef %138) #16
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %140 = load ptr, ptr %139, align 8, !tbaa !110
+  %141 = load i64, ptr %140, align 8, !tbaa !113
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store i64 %141, ptr %142, align 8, !tbaa !269
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 2675
+  %144 = load i8, ptr %143, align 1, !tbaa !37
+  %.not.i117 = icmp eq i8 %144, 0
+  br i1 %.not.i117, label %session_reschedule_stream.exit, label %145
 
-146:                                              ; preds = %133
-  %147 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %148 = load i8, ptr %147, align 8, !tbaa !138
-  %149 = and i8 %148, 127
-  %150 = icmp samesign ult i8 %149, 8
-  br i1 %150, label %152, label %151
+145:                                              ; preds = %132
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %147 = load i8, ptr %146, align 8, !tbaa !138
+  %148 = and i8 %147, 127
+  %149 = icmp samesign ult i8 %148, 8
+  br i1 %149, label %151, label %150
 
-151:                                              ; preds = %146
+150:                                              ; preds = %145
   call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.1, i32 noundef 961, ptr noundef nonnull @__PRETTY_FUNCTION__.session_sched_reschedule_stream) #17
   unreachable
 
-152:                                              ; preds = %146
-  %.not.i.i = icmp sgt i8 %148, -1
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %154 = zext nneg i8 %149 to i64
-  %155 = getelementptr inbounds nuw %struct.anon, ptr %153, i64 %154
-  br i1 %.not.i.i, label %session_reschedule_stream.exit, label %156
+151:                                              ; preds = %145
+  %.not.i.i = icmp sgt i8 %147, -1
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %153 = zext nneg i8 %148 to i64
+  %154 = getelementptr inbounds nuw %struct.anon, ptr %152, i64 %153
+  br i1 %.not.i.i, label %session_reschedule_stream.exit, label %155
 
-156:                                              ; preds = %152
-  %157 = call i64 @nghttp2_pq_size(ptr noundef nonnull %155) #16
-  %158 = icmp eq i64 %157, 1
-  br i1 %158, label %session_reschedule_stream.exit, label %159
+155:                                              ; preds = %151
+  %156 = call i64 @nghttp2_pq_size(ptr noundef nonnull %154) #16
+  %157 = icmp eq i64 %156, 1
+  br i1 %157, label %session_reschedule_stream.exit, label %158
 
-159:                                              ; preds = %156
-  %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @nghttp2_pq_remove(ptr noundef nonnull %155, ptr noundef nonnull %160) #16
-  %161 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %162 = load i64, ptr %161, align 8, !tbaa !270
-  %163 = add i64 %162, %142
-  store i64 %163, ptr %161, align 8, !tbaa !270
-  %164 = call i32 @nghttp2_pq_push(ptr noundef nonnull %155, ptr noundef nonnull %160) #16
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %session_reschedule_stream.exit, label %166
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @nghttp2_pq_remove(ptr noundef nonnull %154, ptr noundef nonnull %159) #16
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %161 = load i64, ptr %160, align 8, !tbaa !270
+  %162 = add i64 %161, %141
+  store i64 %162, ptr %160, align 8, !tbaa !270
+  %163 = call i32 @nghttp2_pq_push(ptr noundef nonnull %154, ptr noundef nonnull %159) #16
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %session_reschedule_stream.exit, label %165
 
-166:                                              ; preds = %159
+165:                                              ; preds = %158
   call void @__assert_fail(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.1, i32 noundef 975, ptr noundef nonnull @__PRETTY_FUNCTION__.session_sched_reschedule_stream) #17
   unreachable
 
-session_reschedule_stream.exit:                   ; preds = %133, %152, %156, %159
-  %167 = load i64, ptr %3, align 8, !tbaa !113
-  %168 = icmp eq i64 %167, 0
-  br i1 %168, label %169, label %172
+session_reschedule_stream.exit:                   ; preds = %132, %151, %155, %158
+  %166 = load i64, ptr %3, align 8, !tbaa !113
+  %167 = icmp eq i64 %166, 0
+  br i1 %167, label %168, label %171
 
-169:                                              ; preds = %session_reschedule_stream.exit
-  %170 = load i32, ptr %7, align 4, !tbaa !94
-  %171 = and i32 %170, 3
-  %or.cond114.not = icmp eq i32 %171, 3
-  br i1 %or.cond114.not, label %173, label %172
+168:                                              ; preds = %session_reschedule_stream.exit
+  %169 = load i32, ptr %7, align 4, !tbaa !94
+  %170 = and i32 %169, 3
+  %or.cond114.not = icmp eq i32 %170, 3
+  br i1 %or.cond114.not, label %172, label %171
 
-172:                                              ; preds = %169, %session_reschedule_stream.exit
-  br label %173
+171:                                              ; preds = %168, %session_reschedule_stream.exit
+  br label %172
 
-173:                                              ; preds = %169, %session_call_select_padding.exit, %108, %85, %19, %172, %83
-  %.0 = phi i32 [ 0, %172 ], [ %84, %83 ], [ -902, %19 ], [ -902, %85 ], [ -902, %108 ], [ %131, %session_call_select_padding.exit ], [ -535, %169 ]
+172:                                              ; preds = %168, %session_call_select_padding.exit, %107, %85, %19, %171, %83
+  %.0 = phi i32 [ 0, %171 ], [ %84, %83 ], [ -902, %19 ], [ -902, %85 ], [ -902, %107 ], [ %130, %session_call_select_padding.exit ], [ -535, %168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

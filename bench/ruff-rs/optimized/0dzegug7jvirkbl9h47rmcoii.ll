@@ -102255,9 +102255,9 @@ define noundef ptr @"_ZN89_$LT$ruff_linter..message..text..TextEmitter$u20$as$u2
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 1
-  %54 = load i8, ptr %0, align 1, !range !2164
-  %55 = getelementptr inbounds nuw i8, ptr %14, i64 9
+  %53 = load i8, ptr %0, align 1, !range !2164
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 9
+  %55 = and i8 %52, 1
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -102525,8 +102525,8 @@ define noundef ptr @"_ZN89_$LT$ruff_linter..message..text..TextEmitter$u20$as$u2
   call void @"_ZN45_$LT$$RF$str$u20$as$u20$colored..Colorize$GT$5color17h0f465c41b9cd32f1E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %15, ptr noalias noundef nonnull readonly align 1 @anon.158f56963078a041553d42a6ce1813d5.124, i64 noundef 1, i32 6)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.sroa.0133.0223, ptr %14, align 8
-  store i8 %53, ptr %55, align 1
-  store i8 %54, ptr %56, align 8
+  store i8 %55, ptr %54, align 1
+  store i8 %53, ptr %56, align 8
   store ptr %22, ptr %16, align 8
   store ptr @"_ZN79_$LT$ruff_source_file..line_index..OneIndexed$u20$as$u20$core..fmt..Display$GT$3fmt17h6a6353dbed995497E", ptr %.sroa.4106.0..sroa_idx, align 8
   store ptr %15, ptr %57, align 8

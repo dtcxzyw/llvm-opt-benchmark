@@ -477,7 +477,7 @@ define hidden range(i32 0, 3) i32 @ssl_get_prev_session(ptr noundef %0, ptr noun
   %27 = load i64, ptr %26, align 8, !tbaa !73
   %28 = call i32 @tls_process_ticket(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %23, i64 noundef %20, ptr noundef %25, i64 noundef %27) #14
   %.not33 = icmp eq i32 %28, 0
-  br i1 %.not33, label %114, label %.ssl_lookup_session.exit.thread_crit_edge
+  br i1 %.not33, label %113, label %.ssl_lookup_session.exit.thread_crit_edge
 
 .ssl_lookup_session.exit.thread_crit_edge:        ; preds = %22
   %.pr.pre = load ptr, ptr %7, align 8, !tbaa !67
@@ -589,7 +589,7 @@ ssl_lookup_session.exit.thread44:                 ; preds = %76, %61
 
 ssl_lookup_session.exit:                          ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %114
+  br label %113
 
 ssl_lookup_session.exit.thread:                   ; preds = %.ssl_lookup_session.exit.thread_crit_edge, %ssl_lookup_session.exit.thread44
   %.pr = phi ptr [ %.pr.pre, %.ssl_lookup_session.exit.thread_crit_edge ], [ %63, %ssl_lookup_session.exit.thread44 ]
@@ -620,56 +620,55 @@ ssl_lookup_session.exit.thread:                   ; preds = %.ssl_lookup_session
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %91 = load i8, ptr %90, align 8, !tbaa !77
-  %92 = and i8 %91, 1
-  %.not36 = icmp ne i8 %92, 0
-  %93 = icmp eq i32 %82, 0
-  %or.cond38 = and i1 %93, %.not36
-  br i1 %or.cond38, label %94, label %96
+  %.not36 = trunc i8 %91 to i1
+  %92 = icmp eq i32 %82, 0
+  %or.cond38 = and i1 %92, %.not36
+  br i1 %or.cond38, label %93, label %95
 
-94:                                               ; preds = %89
+93:                                               ; preds = %89
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 208, ptr noundef nonnull @.str, i32 noundef 488) #14
-  %95 = load ptr, ptr %7, align 8, !tbaa !67
-  call void @SSL_SESSION_free(ptr noundef %95)
-  br label %114
+  %94 = load ptr, ptr %7, align 8, !tbaa !67
+  call void @SSL_SESSION_free(ptr noundef %94)
+  br label %113
 
-96:                                               ; preds = %89
-  %97 = getelementptr inbounds nuw i8, ptr %80, i64 168
-  %98 = load i64, ptr %97, align 8, !tbaa !21
-  %99 = call i64 @time(ptr noundef null) #14
-  %100 = load ptr, ptr %7, align 8, !tbaa !67
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 176
-  %102 = load i64, ptr %101, align 8, !tbaa !22
-  %103 = sub nsw i64 %99, %102
-  %104 = icmp slt i64 %98, %103
-  br i1 %104, label %105, label %110
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds nuw i8, ptr %80, i64 168
+  %97 = load i64, ptr %96, align 8, !tbaa !21
+  %98 = call i64 @time(ptr noundef null) #14
+  %99 = load ptr, ptr %7, align 8, !tbaa !67
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 176
+  %101 = load i64, ptr %100, align 8, !tbaa !22
+  %102 = sub nsw i64 %98, %101
+  %103 = icmp slt i64 %97, %102
+  br i1 %103, label %104, label %109
 
-105:                                              ; preds = %96
+104:                                              ; preds = %95
   %.not37 = icmp eq i32 %.02751, 0
-  br i1 %.not37, label %ssl_lookup_session.exit.thread.thread, label %106
+  br i1 %.not37, label %ssl_lookup_session.exit.thread.thread, label %105
 
-106:                                              ; preds = %105
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %108 = load ptr, ptr %107, align 8, !tbaa !56
-  %109 = call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %108, ptr noundef nonnull %100, i32 noundef 1)
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %107 = load ptr, ptr %106, align 8, !tbaa !56
+  %108 = call fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %107, ptr noundef nonnull %99, i32 noundef 1)
   %.pre = load ptr, ptr %7, align 8, !tbaa !67
   br label %ssl_lookup_session.exit.thread.thread
 
-110:                                              ; preds = %96
-  store ptr %100, ptr %1, align 8, !tbaa !67
-  %111 = load i32, ptr %8, align 4, !tbaa !31
-  store i32 %111, ptr %2, align 4, !tbaa !31
-  br label %114
+109:                                              ; preds = %95
+  store ptr %99, ptr %1, align 8, !tbaa !67
+  %110 = load i32, ptr %8, align 4, !tbaa !31
+  store i32 %110, ptr %2, align 4, !tbaa !31
+  br label %113
 
-ssl_lookup_session.exit.thread.thread:            ; preds = %56, %.thread, %105, %106, %ssl_lookup_session.exit.thread, %78, %85
-  %112 = phi ptr [ %80, %85 ], [ %100, %105 ], [ %.pre, %106 ], [ null, %ssl_lookup_session.exit.thread ], [ %80, %78 ], [ null, %.thread ], [ null, %56 ]
-  %113 = phi i32 [ %79, %85 ], [ %79, %105 ], [ %79, %106 ], [ %.ph, %ssl_lookup_session.exit.thread ], [ %79, %78 ], [ %29, %.thread ], [ %29, %56 ]
+ssl_lookup_session.exit.thread.thread:            ; preds = %56, %.thread, %104, %105, %ssl_lookup_session.exit.thread, %78, %85
+  %111 = phi ptr [ %80, %85 ], [ %99, %104 ], [ %.pre, %105 ], [ null, %ssl_lookup_session.exit.thread ], [ %80, %78 ], [ null, %.thread ], [ null, %56 ]
+  %112 = phi i32 [ %79, %85 ], [ %79, %104 ], [ %79, %105 ], [ %.ph, %ssl_lookup_session.exit.thread ], [ %79, %78 ], [ %29, %.thread ], [ %29, %56 ]
   store ptr null, ptr %1, align 8, !tbaa !67
-  store i32 %113, ptr %2, align 4, !tbaa !31
-  call void @SSL_SESSION_free(ptr noundef %112)
-  br label %114
+  store i32 %112, ptr %2, align 4, !tbaa !31
+  call void @SSL_SESSION_free(ptr noundef %111)
+  br label %113
 
-114:                                              ; preds = %ssl_lookup_session.exit, %22, %ssl_lookup_session.exit.thread.thread, %110, %94
-  %.0 = phi i32 [ 0, %ssl_lookup_session.exit.thread.thread ], [ 1, %94 ], [ 0, %110 ], [ 2, %ssl_lookup_session.exit ], [ 1, %22 ]
+113:                                              ; preds = %ssl_lookup_session.exit, %22, %ssl_lookup_session.exit.thread.thread, %109, %93
+  %.0 = phi i32 [ 0, %ssl_lookup_session.exit.thread.thread ], [ 1, %93 ], [ 0, %109 ], [ 2, %ssl_lookup_session.exit ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

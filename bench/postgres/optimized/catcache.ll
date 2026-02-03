@@ -3664,10 +3664,9 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val, i64 20
   %.val.val = load i16, ptr %6, align 4
-  %7 = and i16 %.val.val, 1
-  %.not.i = icmp eq i16 %7, 0
+  %7 = trunc i16 %.val.val to i1
   %8 = add i32 %1, -1
-  br i1 %.not.i, label %9, label %50
+  br i1 %7, label %50, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3749,8 +3748,8 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef %1, ptr noun
   %57 = and i32 %8, 7
   %58 = shl nuw nsw i32 1, %57
   %59 = and i32 %58, %56
-  %.not.i20 = icmp eq i32 %59, 0
-  br i1 %.not.i20, label %60, label %61
+  %.not.i = icmp eq i32 %59, 0
+  br i1 %.not.i, label %60, label %61
 
 60:                                               ; preds = %50
   store i8 1, ptr %3, align 1

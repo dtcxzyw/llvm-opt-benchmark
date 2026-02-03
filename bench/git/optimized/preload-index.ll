@@ -230,23 +230,22 @@ stop_progress.exit:                               ; preds = %69, %71
   %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !45
   %trace_perf_key.val58 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %.not.i = icmp eq i32 %trace_perf_key.val, 0
-  %75 = and i8 %trace_perf_key.val58, 1
-  %.not5361 = icmp ne i8 %75, 0
+  %.not5361 = trunc i8 %trace_perf_key.val58 to i1
   %.not53 = select i1 %.not.i, i1 %.not5361, i1 false
-  br i1 %.not53, label %78, label %76
+  br i1 %.not53, label %77, label %75
 
-76:                                               ; preds = %.loopexit
-  %77 = call i64 @getnanotime() #10
-  call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %77, ptr noundef nonnull @.str.7) #10
-  br label %78
+75:                                               ; preds = %.loopexit
+  %76 = call i64 @getnanotime() #10
+  call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %76, ptr noundef nonnull @.str.7) #10
+  br label %77
 
-78:                                               ; preds = %76, %.loopexit
-  %79 = sext i32 %68 to i64
-  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %79) #10
+77:                                               ; preds = %75, %.loopexit
+  %78 = sext i32 %68 to i64
+  call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @.str.8, i64 noundef %78) #10
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 175, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef null) #10
   br label %select.unfold.thread
 
-select.unfold.thread:                             ; preds = %11, %select.unfold, %3, %78
+select.unfold.thread:                             ; preds = %11, %select.unfold, %3, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -325,7 +324,7 @@ define internal noalias noundef ptr @preload_thread(ptr noundef %0) #0 {
 23:                                               ; preds = %mark_fsmonitor_valid.exit, %1
   %.049 = phi ptr [ %10, %1 ], [ %24, %mark_fsmonitor_valid.exit ]
   %.047 = phi i32 [ %spec.select, %1 ], [ %.148, %mark_fsmonitor_valid.exit ]
-  %.1 = phi i32 [ %spec.select, %1 ], [ %86, %mark_fsmonitor_valid.exit ]
+  %.1 = phi i32 [ %spec.select, %1 ], [ %85, %mark_fsmonitor_valid.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %25 = load ptr, ptr %.049, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -433,40 +432,39 @@ define internal noalias noundef ptr @preload_thread(ptr noundef %0) #0 {
   %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !45
   %trace_fsmonitor.val7.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %.not.i.i = icmp eq i32 %trace_fsmonitor.val.i, 0
-  %84 = and i8 %trace_fsmonitor.val7.i, 1
-  %.not68.i = icmp ne i8 %84, 0
+  %.not68.i = trunc i8 %trace_fsmonitor.val7.i to i1
   %.not6.i = select i1 %.not.i.i, i1 %.not68.i, i1 false
-  br i1 %.not6.i, label %mark_fsmonitor_valid.exit, label %85
+  br i1 %.not6.i, label %mark_fsmonitor_valid.exit, label %84
 
-85:                                               ; preds = %79
+84:                                               ; preds = %79
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.10, i32 noundef 49, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.11, ptr noundef nonnull %55) #10
   br label %mark_fsmonitor_valid.exit
 
-mark_fsmonitor_valid.exit:                        ; preds = %85, %79, %75, %72, %66, %64, %60, %57, %49, %29, %23
-  %.148 = phi i32 [ %.2, %60 ], [ %.047, %23 ], [ %.047, %29 ], [ %.2, %64 ], [ %.2, %57 ], [ %.2, %49 ], [ %.2, %66 ], [ %.2, %72 ], [ %.2, %75 ], [ %.2, %79 ], [ %.2, %85 ]
+mark_fsmonitor_valid.exit:                        ; preds = %84, %79, %75, %72, %66, %64, %60, %57, %49, %29, %23
+  %.148 = phi i32 [ %.2, %60 ], [ %.047, %23 ], [ %.047, %29 ], [ %.2, %64 ], [ %.2, %57 ], [ %.2, %49 ], [ %.2, %66 ], [ %.2, %72 ], [ %.2, %75 ], [ %.2, %79 ], [ %.2, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %86 = add nsw i32 %.1, -1
-  %87 = icmp sgt i32 %.1, 1
-  br i1 %87, label %23, label %88, !llvm.loop !54
+  %85 = add nsw i32 %.1, -1
+  %86 = icmp sgt i32 %.1, 1
+  br i1 %86, label %23, label %87, !llvm.loop !54
 
-88:                                               ; preds = %mark_fsmonitor_valid.exit
-  %89 = load ptr, ptr %18, align 8, !tbaa !38
-  %.not63 = icmp eq ptr %89, null
-  br i1 %.not63, label %99, label %90
+87:                                               ; preds = %mark_fsmonitor_valid.exit
+  %88 = load ptr, ptr %18, align 8, !tbaa !38
+  %.not63 = icmp eq ptr %88, null
+  br i1 %.not63, label %98, label %89
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %92 = call i32 @pthread_mutex_lock(ptr noundef nonnull %91) #10
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !27
-  %95 = load i64, ptr %89, align 8, !tbaa !51
-  %96 = sext i32 %.148 to i64
-  %97 = add i64 %95, %96
-  call void @display_progress(ptr noundef %94, i64 noundef %97) #10
-  %98 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %91) #10
-  br label %99
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %91 = call i32 @pthread_mutex_lock(ptr noundef nonnull %90) #10
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !27
+  %94 = load i64, ptr %88, align 8, !tbaa !51
+  %95 = sext i32 %.148 to i64
+  %96 = add i64 %94, %95
+  call void @display_progress(ptr noundef %93, i64 noundef %96) #10
+  %97 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %90) #10
+  br label %98
 
-99:                                               ; preds = %90, %88
+98:                                               ; preds = %89, %87
   call void @strbuf_release(ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr null

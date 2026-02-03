@@ -14373,9 +14373,8 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$async_lock..rwlock..raw..RawRead$u2
 
 7:                                                ; preds = %_ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.exit, %3
   %8 = phi i64 [ %storemerge, %_ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.exit ], [ %.pr, %3 ]
-  %9 = and i64 %8, 1
-  %.not.not.not.not.not = icmp ne i64 %9, 0
-  br i1 %.not.not.not.not.not, label %12, label %10
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
   %11 = icmp slt i64 %8, 0
@@ -14400,7 +14399,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$async_lock..rwlock..raw..RawRead$u2
   unreachable
 
 "_ZN90_$LT$event_listener_strategy..NonBlocking$u20$as$u20$event_listener_strategy..Strategy$GT$4poll17hf8d9b90d0e14a051E.llvm.18440006897943885896.exit": ; preds = %21, %15
-  ret i1 %.not.not.not.not.not
+  ret i1 %9
 
 _ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.exit: ; preds = %44, %37, %15
   %storemerge = phi i64 [ %.sroa.08.0.i, %15 ], [ %47, %44 ], [ %43, %37 ]
@@ -14427,10 +14426,10 @@ _ZN4core4sync6atomic11atomic_load17hbd9f5c8bebbf52e1E.llvm.18440006897943885896.
           to label %37 unwind label %.body.i, !noalias !2829
 
 common.resume:                                    ; preds = %.body, %.body.i
-  %.lcssa34.sink = phi ptr [ %33, %.body ], [ %13, %.body.i ]
+  %.lcssa36.sink = phi ptr [ %33, %.body ], [ %13, %.body.i ]
   %storemerge8 = phi ptr [ %32, %.body ], [ null, %.body.i ]
   %common.resume.op = phi { ptr, i32 } [ %36, %.body ], [ %28, %.body.i ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa34.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa36.sink, i64 noundef 56, i64 noundef 8) #37, !noalias !4
   store ptr %storemerge8, ptr %5, align 8
   resume { ptr, i32 } %common.resume.op
 

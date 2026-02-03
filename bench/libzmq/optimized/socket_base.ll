@@ -8114,7 +8114,7 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %3, %10, %12
   %.not41 = icmp eq i32 %31, 0
   br i1 %.not41, label %35, label %.loopexit57, !prof !116
 
-33:                                               ; preds = %64, %51, %40, %39, %38, %35, %30
+33:                                               ; preds = %63, %50, %40, %39, %38, %35, %30
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -8144,82 +8144,77 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %3, %10, %12
           to label %45 unwind label %33
 
 45:                                               ; preds = %40
-  switch i32 %44, label %._crit_edge [
+  switch i32 %44, label %76 [
     i32 0, label %.loopexit57
     i32 -2, label %46
   ], !prof !207
 
-._crit_edge:                                      ; preds = %45
-  %.pre = and i32 %2, 1
-  br label %77
-
 46:                                               ; preds = %45
-  %47 = and i32 %2, 1
-  %.not43 = icmp ne i32 %47, 0
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 0
-  %or.cond = select i1 %.not43, i1 true, i1 %50
-  br i1 %or.cond, label %77, label %51
+  %.not43 = trunc i32 %2 to i1
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %48 = load i32, ptr %47, align 4
+  %49 = icmp eq i32 %48, 0
+  %or.cond = select i1 %.not43, i1 true, i1 %49
+  br i1 %or.cond, label %76, label %50
 
-51:                                               ; preds = %46
-  %52 = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %53 unwind label %33
+50:                                               ; preds = %46
+  %51 = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+          to label %52 unwind label %33
 
-53:                                               ; preds = %51
-  %.not44 = icmp eq i32 %52, 0
-  br i1 %.not44, label %64, label %54, !prof !116
+52:                                               ; preds = %50
+  %.not44 = icmp eq i32 %51, 0
+  br i1 %.not44, label %63, label %53, !prof !116
 
-54:                                               ; preds = %53
-  %55 = tail call ptr @__errno_location() #39
-  %56 = load i32, ptr %55, align 4, !tbaa !17
-  %57 = tail call ptr @strerror(i32 noundef %56) #37
-  %58 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.9, ptr noundef %57, ptr noundef nonnull @.str.1, i32 noundef 1247) #42
-  %60 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %61 = tail call i32 @fflush(ptr noundef %60)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %57)
-          to label %64 unwind label %62
+53:                                               ; preds = %52
+  %54 = tail call ptr @__errno_location() #39
+  %55 = load i32, ptr %54, align 4, !tbaa !17
+  %56 = tail call ptr @strerror(i32 noundef %55) #37
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.9, ptr noundef %56, ptr noundef nonnull @.str.1, i32 noundef 1247) #42
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %60 = tail call i32 @fflush(ptr noundef %59)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %56)
+          to label %63 unwind label %61
 
-62:                                               ; preds = %54
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %53
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-64:                                               ; preds = %54, %53
-  %65 = invoke noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %66 unwind label %33
+63:                                               ; preds = %53, %52
+  %64 = invoke noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
+          to label %65 unwind label %33
 
-66:                                               ; preds = %64
-  %.not45 = icmp eq i32 %65, 0
-  br i1 %.not45, label %.loopexit57, label %67, !prof !116
+65:                                               ; preds = %63
+  %.not45 = icmp eq i32 %64, 0
+  br i1 %.not45, label %.loopexit57, label %66, !prof !116
 
-67:                                               ; preds = %66
-  %68 = tail call ptr @__errno_location() #39
-  %69 = load i32, ptr %68, align 4, !tbaa !17
-  %70 = tail call ptr @strerror(i32 noundef %69) #37
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.9, ptr noundef %70, ptr noundef nonnull @.str.1, i32 noundef 1249) #42
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !100
-  %74 = tail call i32 @fflush(ptr noundef %73)
-  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %70)
-          to label %.loopexit57 unwind label %75
+66:                                               ; preds = %65
+  %67 = tail call ptr @__errno_location() #39
+  %68 = load i32, ptr %67, align 4, !tbaa !17
+  %69 = tail call ptr @strerror(i32 noundef %68) #37
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.9, ptr noundef %69, ptr noundef nonnull @.str.1, i32 noundef 1249) #42
+  %72 = load ptr, ptr @stderr, align 8, !tbaa !100
+  %73 = tail call i32 @fflush(ptr noundef %72)
+  invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %69)
+          to label %.loopexit57 unwind label %74
 
-75:                                               ; preds = %67
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %66
+  %75 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-77:                                               ; preds = %._crit_edge, %46
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %47, %46 ]
-  %78 = tail call ptr @__errno_location() #39
-  %79 = load i32, ptr %78, align 4, !tbaa !17
-  %.not46 = icmp eq i32 %79, 11
-  %.not47 = icmp eq i32 %.pre-phi, 0
+76:                                               ; preds = %45, %46
+  %77 = tail call ptr @__errno_location() #39
+  %78 = load i32, ptr %77, align 4, !tbaa !17
+  %.not46 = icmp eq i32 %78, 11
+  %79 = and i32 %2, 1
+  %.not47 = icmp eq i32 %79, 0
   %or.cond54 = and i1 %.not47, %.not46
   br i1 %or.cond54, label %80, label %.loopexit57, !prof !208
 
-80:                                               ; preds = %77
+80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %82 = load i32, ptr %81, align 4, !tbaa !209
   %83 = icmp eq i32 %82, 0
@@ -8284,7 +8279,7 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %3, %10, %12
   br i1 %105, label %.loopexit57, label %106
 
 106:                                              ; preds = %104
-  %107 = load i32, ptr %78, align 4, !tbaa !17
+  %107 = load i32, ptr %77, align 4, !tbaa !17
   %.not49 = icmp eq i32 %107, 11
   br i1 %.not49, label %108, label %.loopexit57, !prof !116
 
@@ -8302,11 +8297,11 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %3, %10, %12
   br i1 %114, label %115, label %.outer, !llvm.loop !210
 
 115:                                              ; preds = %111
-  store i32 11, ptr %78, align 4, !tbaa !17
+  store i32 11, ptr %77, align 4, !tbaa !17
   br label %.loopexit57
 
-.loopexit57:                                      ; preds = %104, %106, %98, %32, %45, %67, %66, %77, %80, %115, %.critedge, %21
-  %.0 = phi i32 [ -1, %21 ], [ -1, %.critedge ], [ %44, %45 ], [ -1, %32 ], [ 0, %66 ], [ -1, %77 ], [ -1, %115 ], [ 0, %67 ], [ -1, %80 ], [ -1, %98 ], [ -1, %106 ], [ 0, %104 ]
+.loopexit57:                                      ; preds = %104, %106, %98, %32, %45, %66, %65, %76, %80, %115, %.critedge, %21
+  %.0 = phi i32 [ -1, %21 ], [ -1, %.critedge ], [ %44, %45 ], [ -1, %32 ], [ 0, %65 ], [ -1, %76 ], [ -1, %115 ], [ 0, %66 ], [ -1, %80 ], [ -1, %98 ], [ -1, %106 ], [ 0, %104 ]
   br i1 %7, label %116, label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit
 
 116:                                              ; preds = %.loopexit57
@@ -8334,8 +8329,8 @@ _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %.loopexit57, %116, 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %33, %62, %75, %28
-  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %63, %62 ], [ %76, %75 ], [ %34, %33 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit64, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp65, %.loopexit.loopexit.split-lp ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp, %33, %61, %74, %28
+  %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %62, %61 ], [ %75, %74 ], [ %34, %33 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit64, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp65, %.loopexit.loopexit.split-lp ]
   call void @_ZN3zmq22scoped_optional_lock_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
@@ -8483,9 +8478,9 @@ _ZN3zmq22scoped_optional_lock_tC2EPNS_7mutex_tE.exit: ; preds = %3, %10, %12
           to label %_ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit unwind label %48
 
 _ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit: ; preds = %.noexc51
-  %63 = and i8 %62, 1
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1692
-  store i8 %63, ptr %64, align 4, !tbaa !142
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1692
+  %64 = and i8 %62, 1
+  store i8 %64, ptr %63, align 4, !tbaa !142
   br label %.loopexit66
 
 .critedge49:                                      ; preds = %45
@@ -8547,9 +8542,9 @@ _ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit: ; preds = %.noexc51
           to label %_ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit57 unwind label %48
 
 _ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit57: ; preds = %.noexc55
-  %93 = and i8 %92, 1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 1692
-  store i8 %93, ptr %94, align 4, !tbaa !142
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1692
+  %94 = and i8 %92, 1
+  store i8 %94, ptr %93, align 4, !tbaa !142
   br label %.loopexit66
 
 95:                                               ; preds = %66
@@ -8649,9 +8644,9 @@ _ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit57: ; preds = %.noexc55
           to label %_ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit62 unwind label %.loopexit.split-lp
 
 _ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE.exit62: ; preds = %.noexc60
-  %134 = and i8 %133, 1
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 1692
-  store i8 %134, ptr %135, align 4, !tbaa !142
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1692
+  %135 = and i8 %133, 1
+  store i8 %135, ptr %134, align 4, !tbaa !142
   br label %.loopexit66
 
 136:                                              ; preds = %119
@@ -8735,9 +8730,9 @@ define void @_ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE(ptr noundef nonn
 
 14:                                               ; preds = %9, %5, %2
   %15 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %16 = and i8 %15, 1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1692
-  store i8 %16, ptr %17, align 4, !tbaa !142
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1692
+  %17 = and i8 %15, 1
+  store i8 %17, ptr %16, align 4, !tbaa !142
   ret void
 }
 

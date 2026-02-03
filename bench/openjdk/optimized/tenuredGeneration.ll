@@ -621,9 +621,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %20, %10
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %26 = and i32 %23, 1
-  %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %27, label %30
+  %26 = trunc i32 %23 to i1
+  br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
   %28 = lshr i32 %23, 3
@@ -1033,9 +1032,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %21, %11
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %27 = and i32 %24, 1
-  %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %28, label %31
+  %27 = trunc i32 %24 to i1
+  br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
   %29 = lshr i32 %24, 3

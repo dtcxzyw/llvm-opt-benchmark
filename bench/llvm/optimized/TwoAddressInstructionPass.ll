@@ -16323,104 +16323,97 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
 28:                                               ; preds = %22, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E10destroyAllEv.exit
   %.0 = phi i32 [ %spec.store.select, %22 ], [ 0, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E10destroyAllEv.exit ]
   %29 = load i32, ptr %0, align 8
-  %30 = and i32 %29, 1
-  %31 = icmp ne i32 %30, 0
-  %32 = icmp ult i32 %.0, 5
-  %or.cond3 = select i1 %31, i1 %32, i1 false
-  br i1 %or.cond3, label %._crit_edge, label %33
-
-._crit_edge:                                      ; preds = %28
+  %30 = trunc i32 %29 to i1
+  %31 = icmp ugt i32 %.0, 4
   %.pre = load i32, ptr %5, align 8
-  br label %37
+  %32 = icmp ne i32 %.0, %.pre
+  %or.cond28 = select i1 %30, i1 %31, i1 %32
+  %33 = and i32 %29, 1
+  br i1 %or.cond28, label %43, label %34
 
-33:                                               ; preds = %28
-  br i1 %31, label %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit, label %34
-
-34:                                               ; preds = %33
-  %35 = load i32, ptr %5, align 8, !tbaa !438
-  %36 = icmp eq i32 %.0, %35
-  br i1 %36, label %37, label %47
-
-37:                                               ; preds = %._crit_edge, %34
-  %38 = phi i32 [ %.pre, %._crit_edge ], [ %.0, %34 ]
-  store i32 %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %39, align 4, !tbaa !429
-  %.not.i.i.i.i = icmp eq i32 %30, 0
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = select i1 %.not.i.i.i.i, ptr %41, ptr %40
-  %43 = select i1 %.not.i.i.i.i, i32 %38, i32 4
-  %44 = zext i32 %43 to i64
-  %.idx.i11 = mul nuw nsw i64 %44, 56
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i11
-  %.not5.i = icmp eq i32 %43, 0
+34:                                               ; preds = %28
+  store i32 %33, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %35, align 4, !tbaa !429
+  %.not.i.i.i.i = icmp eq i32 %33, 0
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = select i1 %.not.i.i.i.i, ptr %37, ptr %36
+  %39 = select i1 %.not.i.i.i.i, i32 %.pre, i32 4
+  %40 = zext i32 %39 to i64
+  %.idx.i11 = mul nuw nsw i64 %40, 56
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i11
+  %.not5.i = icmp eq i32 %39, 0
   br i1 %.not5.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i12
 
-.lr.ph.i12:                                       ; preds = %37, %.lr.ph.i12
-  %.06.i = phi ptr [ %46, %.lr.ph.i12 ], [ %42, %37 ]
+.lr.ph.i12:                                       ; preds = %34, %.lr.ph.i12
+  %.06.i = phi ptr [ %42, %.lr.ph.i12 ], [ %38, %34 ]
   store i32 -1, ptr %.06.i, align 4, !tbaa !66
-  %46 = getelementptr inbounds nuw i8, ptr %.06.i, i64 56
-  %.not.i13 = icmp eq ptr %46, %45
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i, i64 56
+  %.not.i13 = icmp eq ptr %42, %41
   br i1 %.not.i13, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i12, !llvm.loop !432
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !435
-  %50 = zext i32 %35 to i64
-  %51 = mul nuw nsw i64 %50, 56
-  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %49, i64 noundef %51, i64 noundef 8) #18
+43:                                               ; preds = %28
+  %.not.i14 = icmp eq i32 %33, 0
+  br i1 %.not.i14, label %44, label %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit
+
+44:                                               ; preds = %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !435
+  %47 = zext i32 %.pre to i64
+  %48 = mul nuw nsw i64 %47, 56
+  tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %46, i64 noundef %48, i64 noundef 8) #18
   br label %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit
 
-_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit: ; preds = %33, %47
-  %52 = icmp ugt i32 %.0, 4
-  br i1 %52, label %53, label %._crit_edge.i
+_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit: ; preds = %43, %44
+  %49 = icmp ugt i32 %.0, 4
+  br i1 %49, label %50, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre2.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre4.i = load i32, ptr %5, align 8
-  br label %61
+  br label %58
 
-53:                                               ; preds = %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit
-  %54 = load i32, ptr %0, align 8
-  %55 = and i32 %54, -2
-  store i32 %55, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = zext i32 %.0 to i64
-  %58 = mul nuw nsw i64 %57, 56
-  %59 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %58, i64 noundef 8) #18
-  store ptr %59, ptr %56, align 8
+50:                                               ; preds = %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEE17deallocateBucketsEv.exit
+  %51 = load i32, ptr %0, align 8
+  %52 = and i32 %51, -2
+  store i32 %52, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = zext i32 %.0 to i64
+  %55 = mul nuw nsw i64 %54, 56
+  %56 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %55, i64 noundef 8) #18
+  store ptr %56, ptr %53, align 8
   store i32 %.0, ptr %5, align 8
   %.pre.i = load i32, ptr %0, align 8
-  %60 = and i32 %.pre.i, 1
-  br label %61
+  %57 = and i32 %.pre.i, 1
+  br label %58
 
-61:                                               ; preds = %53, %._crit_edge.i
-  %62 = phi i32 [ %.0, %53 ], [ %.pre4.i, %._crit_edge.i ]
-  %63 = phi ptr [ %59, %53 ], [ %.pre2.i, %._crit_edge.i ]
-  %64 = phi i32 [ %60, %53 ], [ 1, %._crit_edge.i ]
-  store i32 %64, ptr %0, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %65, align 4, !tbaa !429
-  %.not.i.i.i.i.i = icmp eq i32 %64, 0
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = select i1 %.not.i.i.i.i.i, ptr %63, ptr %66
-  %68 = select i1 %.not.i.i.i.i.i, i32 %62, i32 4
-  %69 = zext i32 %68 to i64
-  %.idx.i.i = mul nuw nsw i64 %69, 56
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i
-  %.not5.i.i = icmp eq i32 %68, 0
+58:                                               ; preds = %50, %._crit_edge.i
+  %59 = phi i32 [ %.0, %50 ], [ %.pre4.i, %._crit_edge.i ]
+  %60 = phi ptr [ %56, %50 ], [ %.pre2.i, %._crit_edge.i ]
+  %61 = phi i32 [ %57, %50 ], [ 1, %._crit_edge.i ]
+  store i32 %61, ptr %0, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %62, align 4, !tbaa !429
+  %.not.i.i.i.i.i = icmp eq i32 %61, 0
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %64 = select i1 %.not.i.i.i.i.i, ptr %60, ptr %63
+  %65 = select i1 %.not.i.i.i.i.i, i32 %59, i32 4
+  %66 = zext i32 %65 to i64
+  %.idx.i.i = mul nuw nsw i64 %66, 56
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i
+  %.not5.i.i = icmp eq i32 %65, 0
   br i1 %.not5.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
-  %.06.i.i = phi ptr [ %71, %.lr.ph.i.i ], [ %67, %61 ]
+.lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
+  %.06.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %64, %58 ]
   store i32 -1, ptr %.06.i.i, align 4, !tbaa !66
-  %71 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 56
-  %.not.i.i = icmp eq ptr %71, %70
+  %68 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 56
+  %.not.i.i = icmp eq ptr %68, %67
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !432
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i12, %61, %37
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E9initEmptyEv.exit: ; preds = %.lr.ph.i12, %.lr.ph.i.i, %58, %34
   ret void
 }
 

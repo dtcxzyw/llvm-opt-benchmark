@@ -45413,8 +45413,8 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder31extend_each_repeat
   tail call fastcc void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder27extend_from_slice_unchecked17hf0d8bf6a81897a19E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   br label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder41extend_each_repeated_from_slice_unchecked17h3f6eeccf36da2fd9E.exit
 
-24:                                               ; preds = %48, %.lr.ph.i
-  %.sroa.0.04.i = phi i64 [ %3, %.lr.ph.i ], [ %25, %48 ]
+24:                                               ; preds = %47, %.lr.ph.i
+  %.sroa.0.04.i = phi i64 [ %3, %.lr.ph.i ], [ %25, %47 ]
   %25 = add i64 %.sroa.0.04.i, 1
   %26 = lshr i64 %.sroa.0.04.i, 3
   %27 = icmp ult i64 %26, %2
@@ -45423,36 +45423,36 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder31extend_each_repeat
   %29 = load i8, ptr %28, align 1, !alias.scope !6480, !noalias !6477, !noundef !3
   %30 = trunc i64 %.sroa.0.04.i to i8
   %31 = and i8 %30, 7
-  %32 = shl nuw i8 1, %31
-  %33 = and i8 %32, %29
-  %34 = icmp ne i8 %33, 0
-  %35 = load i64, ptr %12, align 8, !alias.scope !6477, !noalias !6480, !noundef !3
-  %36 = and i64 %35, 63
-  %37 = add i64 %36, %5
-  %38 = icmp ult i64 %37, 64
-  br i1 %38, label %40, label %39, !prof !3500
+  %32 = lshr i8 %29, %31
+  %33 = load i64, ptr %12, align 8, !alias.scope !6477, !noalias !6480, !noundef !3
+  %34 = and i64 %33, 63
+  %35 = add i64 %34, %5
+  %36 = icmp ult i64 %35, 64
+  br i1 %36, label %39, label %37, !prof !3500
+
+37:                                               ; preds = %24
+  %38 = trunc i8 %32 to i1
+  tail call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_slow17h6b1eb0ecaf954308E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %5, i1 noundef zeroext %38), !noalias !6480
+  br label %47
 
 39:                                               ; preds = %24
-  tail call void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_slow17h6b1eb0ecaf954308E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %5, i1 noundef zeroext %34), !noalias !6480
-  br label %48
+  %.mask.i = and i8 %32, 1
+  %40 = zext nneg i8 %.mask.i to i64
+  %41 = shl nuw i64 %40, %21
+  %42 = sub i64 %41, %40
+  %43 = shl i64 %42, %34
+  %44 = load i64, ptr %22, align 8, !alias.scope !6477, !noalias !6480, !noundef !3
+  %45 = or i64 %44, %43
+  store i64 %45, ptr %22, align 8, !alias.scope !6477, !noalias !6480
+  %46 = add i64 %33, %5
+  store i64 %46, ptr %12, align 8, !alias.scope !6477, !noalias !6480
+  br label %47
 
-40:                                               ; preds = %24
-  %41 = zext i1 %34 to i64
-  %42 = shl nuw i64 %41, %21
-  %43 = sub i64 %42, %41
-  %44 = shl i64 %43, %36
-  %45 = load i64, ptr %22, align 8, !alias.scope !6477, !noalias !6480, !noundef !3
-  %46 = or i64 %45, %44
-  store i64 %46, ptr %22, align 8, !alias.scope !6477, !noalias !6480
-  %47 = add i64 %35, %5
-  store i64 %47, ptr %12, align 8, !alias.scope !6477, !noalias !6480
-  br label %48
-
-48:                                               ; preds = %40, %39
+47:                                               ; preds = %39, %37
   %exitcond.not.i = icmp eq i64 %25, %4
   br i1 %exitcond.not.i, label %_ZN12polars_arrow6bitmap7builder13BitmapBuilder41extend_each_repeated_from_slice_unchecked17h3f6eeccf36da2fd9E.exit, label %24
 
-_ZN12polars_arrow6bitmap7builder13BitmapBuilder41extend_each_repeated_from_slice_unchecked17h3f6eeccf36da2fd9E.exit: ; preds = %48, %19, %.preheader.i, %23
+_ZN12polars_arrow6bitmap7builder13BitmapBuilder41extend_each_repeated_from_slice_unchecked17h3f6eeccf36da2fd9E.exit: ; preds = %47, %19, %.preheader.i, %23
   ret void
 }
 
@@ -45824,8 +45824,8 @@ define void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder24gather_extend_from
   %39 = load i8, ptr %38, align 1, !noundef !3
   %40 = trunc i64 %35 to i8
   %41 = and i8 %40, 7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6527)
   %42 = lshr i8 %39, %41
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6527)
   %43 = and i8 %42, 1
   %44 = zext nneg i8 %43 to i64
   %45 = and i64 %31, 63
@@ -46052,8 +46052,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   %53 = load i8, ptr %52, align 1, !alias.scope !6545, !noalias !6555, !noundef !3
   %54 = trunc i64 %49 to i8
   %55 = and i8 %54, 7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6556)
   %56 = lshr i8 %53, %55
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6556)
   %57 = and i8 %56, 1
   %58 = zext nneg i8 %57 to i64
   %59 = and i64 %45, 63
@@ -46212,8 +46212,8 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap8as_slice17h81250cb7ba2cc8daE.exit: ; p
   %56 = load i8, ptr %55, align 1, !alias.scope !6573, !noalias !6583, !noundef !3
   %57 = trunc i64 %52 to i8
   %58 = and i8 %57, 7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6584)
   %59 = lshr i8 %56, %58
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6584)
   %60 = and i8 %59, 1
   %61 = zext nneg i8 %60 to i64
   %62 = and i64 %48, 63

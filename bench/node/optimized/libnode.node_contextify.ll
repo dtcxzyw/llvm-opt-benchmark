@@ -1167,8 +1167,7 @@ _ZNK4node10contextify17ContextifyContext12global_proxyEv.exit: ; preds = %_ZNK4n
   %ref.tmp.sroa.324.0.extract.shift = lshr i64 %call24, 32
   %ref.tmp.sroa.324.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.324.0.extract.shift to i32
   %attributes.0 = select i1 %tobool.i399, i32 %ref.tmp.sroa.324.0.extract.trunc, i32 0
-  %and = and i32 %attributes.0, 1
-  %tobool = icmp ne i32 %and, 0
+  %tobool = trunc i32 %attributes.0 to i1
   %25 = load ptr, ptr %context_.i, align 8, !nonnull !5, !noundef !5
   %add.ptr.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %25, i64 11
   %26 = load i8, ptr %add.ptr.i.i.i.i38, align 1
@@ -1202,8 +1201,7 @@ _ZNK4node10contextify17ContextifyContext7sandboxEv.exit: ; preds = %_ZNK4node10c
   %ref.tmp27.sroa.326.0.extract.shift = lshr i64 %call42, 32
   %ref.tmp27.sroa.326.0.extract.trunc = trunc nuw i64 %ref.tmp27.sroa.326.0.extract.shift to i32
   %attributes.1 = select i1 %tobool.i405, i32 %ref.tmp27.sroa.326.0.extract.trunc, i32 %attributes.0
-  %and46 = and i32 %attributes.1, 1
-  %tobool47 = icmp ne i32 %and46, 0
+  %tobool47 = trunc i32 %attributes.1 to i1
   %37 = select i1 %tobool, i1 true, i1 %tobool47
   br i1 %37, label %if.end201, label %if.end51
 

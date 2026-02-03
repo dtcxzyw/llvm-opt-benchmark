@@ -124,224 +124,228 @@ define hidden void @lj_dispatch_update(ptr noundef captures(none) %0) local_unna
   %11 = or disjoint i32 %10, %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %13 = load i8, ptr %12, align 1, !tbaa !50
-  %14 = zext i8 %13 to i32
   %.not97 = icmp sgt i8 %13, -1
-  %15 = and i32 %14, 12
-  %.not98 = icmp eq i32 %15, 0
+  %14 = select i1 %.not97, i32 0, i32 68
+  %15 = and i8 %13, 12
+  %.not98 = icmp eq i8 %15, 0
   %16 = select i1 %.not98, i32 0, i32 4
-  %17 = and i32 %14, 3
-  %18 = select i1 %.not97, i32 %16, i32 68
-  %19 = or i32 %18, %11
-  %20 = or i32 %19, %17
-  %21 = zext i8 %3 to i32
-  %.not101 = icmp eq i32 %20, %21
-  br i1 %.not101, label %lj_dispatch_init_hotcount.exit, label %22
+  %17 = or i32 %11, %14
+  %18 = or i32 %17, %16
+  %19 = trunc nuw nsw i32 %18 to i8
+  %20 = and i8 %13, 3
+  %21 = or i8 %20, %19
+  %22 = zext i8 %3 to i32
+  %23 = zext nneg i8 %21 to i32
+  %.not101 = icmp eq i8 %3, %21
+  br i1 %.not101, label %lj_dispatch_init_hotcount.exit, label %24
 
-22:                                               ; preds = %1
-  %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 3976
-  store i8 %23, ptr %2, align 2, !tbaa !47
-  %25 = and i32 %11, 48
-  %26 = icmp eq i32 %25, 16
-  br i1 %26, label %27, label %40
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3976
+  store i8 %21, ptr %2, align 2, !tbaa !47
+  %26 = and i32 %23, 48
+  %27 = icmp eq i32 %26, 16
+  br i1 %27, label %28, label %41
 
-27:                                               ; preds = %22
-  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 158), align 2, !tbaa !4
-  %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %29
-  %31 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 164), align 2, !tbaa !4
-  %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %32
-  %34 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 140), align 2, !tbaa !4
-  %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %35
-  %37 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 170), align 2, !tbaa !4
-  %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %38
-  br label %47
+28:                                               ; preds = %24
+  %29 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 158), align 2, !tbaa !4
+  %30 = zext i16 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %30
+  %32 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 164), align 2, !tbaa !4
+  %33 = zext i16 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %33
+  %35 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 140), align 2, !tbaa !4
+  %36 = zext i16 %35 to i64
+  %37 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %36
+  %38 = load i16, ptr getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 170), align 2, !tbaa !4
+  %39 = zext i16 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %39
+  br label %48
 
-40:                                               ; preds = %22
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 5848
-  %42 = load ptr, ptr %41, align 8, !tbaa !8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 5872
-  %44 = load ptr, ptr %43, align 8, !tbaa !8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 5896
-  %46 = load ptr, ptr %45, align 8, !tbaa !8
-  br label %47
+41:                                               ; preds = %24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 5848
+  %43 = load ptr, ptr %42, align 8, !tbaa !8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 5872
+  %45 = load ptr, ptr %44, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 5896
+  %47 = load ptr, ptr %46, align 8, !tbaa !8
+  br label %48
 
-47:                                               ; preds = %40, %27
-  %.094 = phi ptr [ %30, %27 ], [ %42, %40 ]
-  %.093 = phi ptr [ %33, %27 ], [ %44, %40 ]
-  %.092 = phi ptr [ %36, %27 ], [ @lj_vm_IITERN, %40 ]
-  %.091 = phi ptr [ %39, %27 ], [ %46, %40 ]
-  %.pn.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 178), %27 ], [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 180), %40 ]
-  %.pn102.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 184), %27 ], [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 186), %40 ]
+48:                                               ; preds = %41, %28
+  %.094 = phi ptr [ %31, %28 ], [ %43, %41 ]
+  %.093 = phi ptr [ %34, %28 ], [ %45, %41 ]
+  %.092 = phi ptr [ %37, %28 ], [ @lj_vm_IITERN, %41 ]
+  %.091 = phi ptr [ %40, %28 ], [ %47, %41 ]
+  %.pn.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 178), %28 ], [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 180), %41 ]
+  %.pn102.in.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 184), %28 ], [ getelementptr inbounds nuw (i8, ptr @lj_bc_ofs, i64 186), %41 ]
   %.pn102.in = load i16, ptr %.pn102.in.in, align 2, !tbaa !4
   %.pn102 = zext i16 %.pn102.in to i64
   %.089 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %.pn102
   %.pn.in = load i16, ptr %.pn.in.in, align 2, !tbaa !4
   %.pn = zext i16 %.pn.in to i64
   %.090 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %.pn
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 5840
-  store ptr %.094, ptr %48, align 8, !tbaa !8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5864
-  store ptr %.093, ptr %49, align 8, !tbaa !8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 5768
-  store ptr %.092, ptr %50, align 8, !tbaa !8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 5888
-  store ptr %.091, ptr %51, align 8, !tbaa !8
-  %52 = xor i32 %20, %21
-  %53 = and i32 %52, 100
-  %.not103 = icmp eq i32 %53, 0
-  %54 = and i32 %19, 4
-  %.not104 = icmp eq i32 %54, 0
-  br i1 %.not103, label %68, label %55
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5840
+  store ptr %.094, ptr %49, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 5864
+  store ptr %.093, ptr %50, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 5768
+  store ptr %.092, ptr %51, align 8, !tbaa !8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 5888
+  store ptr %.091, ptr %52, align 8, !tbaa !8
+  %53 = xor i32 %23, %22
+  %54 = and i32 %53, 100
+  %.not103 = icmp eq i32 %54, 0
+  %55 = and i32 %23, 4
+  %.not104 = icmp eq i32 %55, 0
+  br i1 %.not103, label %70, label %56
 
-55:                                               ; preds = %47
-  br i1 %.not104, label %56, label %63
+56:                                               ; preds = %48
+  br i1 %.not104, label %57, label %64
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 5208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %24, ptr noundef nonnull align 8 dereferenceable(712) %57, i64 712, i1 false)
-  %58 = and i32 %14, 2
-  %.not107 = icmp eq i32 %58, 0
-  br i1 %.not107, label %.loopexit116, label %59
+57:                                               ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 5208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %25, ptr noundef nonnull align 8 dereferenceable(712) %58, i64 712, i1 false)
+  %59 = and i32 %23, 2
+  %.not107 = icmp eq i32 %59, 0
+  br i1 %.not107, label %.loopexit116, label %60
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4560
-  store ptr @lj_vm_rethook, ptr %60, align 8, !tbaa !8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4568
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   store ptr @lj_vm_rethook, ptr %61, align 8, !tbaa !8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4576
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4568
   store ptr @lj_vm_rethook, ptr %62, align 8, !tbaa !8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4576
+  store ptr @lj_vm_rethook, ptr %63, align 8, !tbaa !8
   br label %.loopexit116.sink.split
 
-63:                                               ; preds = %55
-  %64 = select i1 %.not, ptr @lj_vm_inshook, ptr @lj_vm_record
-  %65 = select i1 %.not97, ptr %64, ptr @lj_vm_profhook
-  br label %66
+64:                                               ; preds = %56
+  %65 = and i32 %23, 32
+  %.not109 = icmp eq i32 %65, 0
+  %66 = select i1 %.not109, ptr @lj_vm_inshook, ptr @lj_vm_record
+  %67 = select i1 %.not97, ptr %66, ptr @lj_vm_profhook
+  br label %68
 
-66:                                               ; preds = %63, %66
-  %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
-  store ptr %65, ptr %67, align 8, !tbaa !8
+68:                                               ; preds = %64, %68
+  %indvars.iv = phi i64 [ 0, %64 ], [ %indvars.iv.next, %68 ]
+  %69 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  store ptr %67, ptr %69, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 89
-  br i1 %exitcond.not, label %.loopexit116, label %66, !llvm.loop !51
+  br i1 %exitcond.not, label %.loopexit116, label %68, !llvm.loop !51
 
-68:                                               ; preds = %47
-  br i1 %.not104, label %69, label %.loopexit116
+70:                                               ; preds = %48
+  br i1 %.not104, label %71, label %.loopexit116
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4608
-  store ptr %.094, ptr %70, align 8, !tbaa !8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4632
-  store ptr %.093, ptr %71, align 8, !tbaa !8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4536
-  store ptr %.092, ptr %72, align 8, !tbaa !8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4656
-  store ptr %.091, ptr %73, align 8, !tbaa !8
-  %74 = and i32 %14, 2
-  %.not105 = icmp eq i32 %74, 0
-  br i1 %.not105, label %79, label %75
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4608
+  store ptr %.094, ptr %72, align 8, !tbaa !8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4632
+  store ptr %.093, ptr %73, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4536
+  store ptr %.092, ptr %74, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4656
+  store ptr %.091, ptr %75, align 8, !tbaa !8
+  %76 = and i32 %23, 2
+  %.not105 = icmp eq i32 %76, 0
+  br i1 %.not105, label %81, label %77
 
-75:                                               ; preds = %69
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4560
-  store ptr @lj_vm_rethook, ptr %76, align 8, !tbaa !8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4568
-  store ptr @lj_vm_rethook, ptr %77, align 8, !tbaa !8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 4576
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 4560
   store ptr @lj_vm_rethook, ptr %78, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4568
+  store ptr @lj_vm_rethook, ptr %79, align 8, !tbaa !8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4576
+  store ptr @lj_vm_rethook, ptr %80, align 8, !tbaa !8
   br label %.loopexit116.sink.split
 
-79:                                               ; preds = %69
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 5792
-  %81 = load ptr, ptr %80, align 8, !tbaa !8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4560
-  store ptr %81, ptr %82, align 8, !tbaa !8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 5800
-  %84 = load ptr, ptr %83, align 8, !tbaa !8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4568
-  store ptr %84, ptr %85, align 8, !tbaa !8
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 5808
-  %87 = load ptr, ptr %86, align 8, !tbaa !8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 4576
-  store ptr %87, ptr %88, align 8, !tbaa !8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 5816
-  %90 = load ptr, ptr %89, align 8, !tbaa !8
+81:                                               ; preds = %71
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 5792
+  %83 = load ptr, ptr %82, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 4560
+  store ptr %83, ptr %84, align 8, !tbaa !8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 5800
+  %86 = load ptr, ptr %85, align 8, !tbaa !8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4568
+  store ptr %86, ptr %87, align 8, !tbaa !8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 5808
+  %89 = load ptr, ptr %88, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4576
+  store ptr %89, ptr %90, align 8, !tbaa !8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 5816
+  %92 = load ptr, ptr %91, align 8, !tbaa !8
   br label %.loopexit116.sink.split
 
-.loopexit116.sink.split:                          ; preds = %59, %75, %79
-  %.sink = phi ptr [ %90, %79 ], [ @lj_vm_rethook, %75 ], [ @lj_vm_rethook, %59 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 4584
-  store ptr %.sink, ptr %91, align 8, !tbaa !8
+.loopexit116.sink.split:                          ; preds = %60, %77, %81
+  %.sink = phi ptr [ %92, %81 ], [ @lj_vm_rethook, %77 ], [ @lj_vm_rethook, %60 ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 4584
+  store ptr %.sink, ptr %93, align 8, !tbaa !8
   br label %.loopexit116
 
-.loopexit116:                                     ; preds = %66, %.loopexit116.sink.split, %68, %56
-  %92 = and i32 %52, 1
-  %.not110 = icmp eq i32 %92, 0
-  %.pre = and i32 %20, 1
-  %93 = icmp eq i32 %.pre, 0
-  br i1 %.not110, label %.loopexit, label %94
+.loopexit116:                                     ; preds = %68, %.loopexit116.sink.split, %70, %57
+  %94 = and i32 %53, 1
+  %.not110 = icmp eq i32 %94, 0
+  %.pre = and i32 %23, 1
+  %95 = icmp eq i32 %.pre, 0
+  br i1 %.not110, label %.loopexit, label %96
 
-94:                                               ; preds = %.loopexit116
-  br i1 %93, label %.preheader, label %.preheader114
+96:                                               ; preds = %.loopexit116
+  br i1 %95, label %.preheader, label %.preheader114
 
-.preheader:                                       ; preds = %94, %.preheader
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.preheader ], [ 89, %94 ]
-  %95 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv126
-  %96 = load i16, ptr %95, align 2, !tbaa !4
-  %97 = zext i16 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %97
-  %99 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv126
-  store ptr %98, ptr %99, align 8, !tbaa !8
+.preheader:                                       ; preds = %96, %.preheader
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.preheader ], [ 89, %96 ]
+  %97 = getelementptr inbounds nuw i16, ptr @lj_bc_ofs, i64 %indvars.iv126
+  %98 = load i16, ptr %97, align 2, !tbaa !4
+  %99 = zext i16 %98 to i64
+  %100 = getelementptr inbounds nuw i8, ptr @lj_vm_asm_begin, i64 %99
+  %101 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv126
+  store ptr %100, ptr %101, align 8, !tbaa !8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 154
   br i1 %exitcond129.not, label %.loopexit.thread, label %.preheader, !llvm.loop !52
 
-.preheader114:                                    ; preds = %94, %.preheader114
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.preheader114 ], [ 89, %94 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv122
-  store ptr @lj_vm_callhook, ptr %100, align 8, !tbaa !8
+.preheader114:                                    ; preds = %96, %.preheader114
+  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.preheader114 ], [ 89, %96 ]
+  %102 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv122
+  store ptr @lj_vm_callhook, ptr %102, align 8, !tbaa !8
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 154
-  br i1 %exitcond125.not, label %.loopexit.thread133, label %.preheader114, !llvm.loop !53
+  br i1 %exitcond125.not, label %.loopexit.thread132, label %.preheader114, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.loopexit116
-  br i1 %93, label %.loopexit.thread, label %.loopexit.thread133
+  br i1 %95, label %.loopexit.thread, label %.loopexit.thread132
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 4688
-  store ptr %.090, ptr %101, align 8, !tbaa !8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  store ptr %.089, ptr %102, align 8, !tbaa !8
-  br label %.loopexit.thread133
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 4688
+  store ptr %.090, ptr %103, align 8, !tbaa !8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  store ptr %.089, ptr %104, align 8, !tbaa !8
+  br label %.loopexit.thread132
 
-.loopexit.thread133:                              ; preds = %.preheader114, %.loopexit.thread, %.loopexit
-  %.not112 = icmp ne i32 %7, 0
-  %103 = and i32 %21, 16
-  %.not113 = icmp eq i32 %103, 0
+.loopexit.thread132:                              ; preds = %.preheader114, %.loopexit.thread, %.loopexit
+  %105 = and i32 %23, 16
+  %.not112 = icmp ne i32 %105, 0
+  %106 = and i32 %22, 16
+  %.not113 = icmp eq i32 %106, 0
   %or.cond = and i1 %.not113, %.not112
-  br i1 %or.cond, label %104, label %lj_dispatch_init_hotcount.exit
+  br i1 %or.cond, label %107, label %lj_dispatch_init_hotcount.exit
 
-104:                                              ; preds = %.loopexit.thread133
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 2396
-  %106 = load i32, ptr %105, align 4, !tbaa !44
-  %.tr.i = trunc i32 %106 to i16
-  %107 = shl i16 %.tr.i, 1
-  %108 = add i16 %107, -1
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3848
-  br label %110
+107:                                              ; preds = %.loopexit.thread132
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2396
+  %109 = load i32, ptr %108, align 4, !tbaa !44
+  %.tr.i = trunc i32 %109 to i16
+  %110 = shl i16 %.tr.i, 1
+  %111 = add i16 %110, -1
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 3848
+  br label %113
 
-110:                                              ; preds = %110, %104
-  %indvars.iv.i = phi i64 [ 0, %104 ], [ %indvars.iv.next.i, %110 ]
-  %111 = getelementptr inbounds nuw i16, ptr %109, i64 %indvars.iv.i
-  store i16 %108, ptr %111, align 2, !tbaa !4
+113:                                              ; preds = %113, %107
+  %indvars.iv.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i, %113 ]
+  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %indvars.iv.i
+  store i16 %111, ptr %114, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %lj_dispatch_init_hotcount.exit, label %110, !llvm.loop !46
+  br i1 %exitcond.not.i, label %lj_dispatch_init_hotcount.exit, label %113, !llvm.loop !46
 
-lj_dispatch_init_hotcount.exit:                   ; preds = %110, %.loopexit.thread133, %1
+lj_dispatch_init_hotcount.exit:                   ; preds = %113, %.loopexit.thread132, %1
   ret void
 }
 

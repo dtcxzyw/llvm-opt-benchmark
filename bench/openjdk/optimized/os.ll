@@ -4583,13 +4583,12 @@ define internal fastcc void @_ZL10hemi_splitIjEvPT_j(ptr noundef nonnull capture
 
 .lr.ph22:                                         ; preds = %.lr.ph22.preheader, %.lr.ph22
   %indvars.iv = phi i64 [ 0, %.lr.ph22.preheader ], [ %indvars.iv.next, %.lr.ph22 ]
-  %6 = and i64 %indvars.iv, 1
-  %.not.i = icmp eq i64 %6, 0
-  %7 = trunc nuw i64 %indvars.iv to i32
-  %8 = lshr i32 %7, 1
+  %6 = trunc nuw i64 %indvars.iv to i32
+  %7 = trunc i64 %indvars.iv to i1
+  %8 = lshr i32 %6, 1
   %9 = xor i32 %8, -1
   %10 = add i32 %1, %9
-  %.pn.in = select i1 %.not.i, i32 %8, i32 %10
+  %.pn.in = select i1 %7, i32 %10, i32 %8
   %.pn = zext i32 %.pn.in to i64
   %.in = getelementptr inbounds nuw i32, ptr %5, i64 %.pn
   %11 = load i32, ptr %.in, align 4

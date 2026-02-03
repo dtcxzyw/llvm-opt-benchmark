@@ -7729,7 +7729,7 @@ define dso_local void @slurmdb_pack_assoc_cond(ptr noundef readonly captures(add
 
 7:                                                ; preds = %6
   tail call void @packbool(i1 noundef zeroext false, ptr noundef %2) #6
-  br label %106
+  br label %105
 
 8:                                                ; preds = %6
   tail call void @packbool(i1 noundef zeroext true, ptr noundef %2) #6
@@ -7768,11 +7768,11 @@ define dso_local void @slurmdb_pack_assoc_cond(ptr noundef readonly captures(add
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @slurm_pack_list(ptr noundef %39, ptr noundef nonnull @packstr_func, ptr noundef %2, i16 noundef zeroext %1) #6
-  br label %106
+  br label %105
 
 41:                                               ; preds = %3
   %42 = icmp samesign ugt i16 %1, 10239
-  br i1 %42, label %43, label %104
+  br i1 %42, label %43, label %103
 
 43:                                               ; preds = %41
   %.not = icmp eq ptr %0, null
@@ -7797,7 +7797,7 @@ define dso_local void @slurmdb_pack_assoc_cond(ptr noundef readonly captures(add
   tail call void @pack16(i16 noundef zeroext 0, ptr noundef %2) #6
   tail call void @pack16(i16 noundef zeroext 0, ptr noundef %2) #6
   tail call void @pack16(i16 noundef zeroext 0, ptr noundef %2) #6
-  br label %106
+  br label %105
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %0, align 8
@@ -7844,36 +7844,36 @@ define dso_local void @slurmdb_pack_assoc_cond(ptr noundef readonly captures(add
   %84 = and i16 %83, 1
   tail call void @pack16(i16 noundef zeroext %84, ptr noundef %2) #6
   %85 = load i32, ptr %60, align 8
-  %86 = trunc i32 %85 to i16
-  %87 = and i16 %86, 1
-  tail call void @pack16(i16 noundef zeroext %87, ptr noundef %2) #6
-  %88 = load i32, ptr %60, align 8
-  %89 = trunc i32 %88 to i16
-  %90 = lshr i16 %89, 3
-  %91 = and i16 %90, 1
-  tail call void @pack16(i16 noundef zeroext %91, ptr noundef %2) #6
-  %92 = load i32, ptr %60, align 8
-  %93 = trunc i32 %92 to i16
-  %94 = lshr i16 %93, 4
-  %95 = and i16 %94, 1
-  tail call void @pack16(i16 noundef zeroext %95, ptr noundef %2) #6
-  %96 = load i32, ptr %60, align 8
-  %97 = trunc i32 %96 to i16
-  %98 = lshr i16 %97, 5
-  %99 = and i16 %98, 1
-  tail call void @pack16(i16 noundef zeroext %99, ptr noundef %2) #6
-  %100 = load i32, ptr %60, align 8
-  %101 = trunc i32 %100 to i16
-  %102 = lshr i16 %101, 6
-  %103 = and i16 %102, 1
-  tail call void @pack16(i16 noundef zeroext %103, ptr noundef %2) #6
-  br label %106
+  %.not106 = trunc i32 %85 to i16
+  %86 = and i16 %.not106, 1
+  tail call void @pack16(i16 noundef zeroext %86, ptr noundef %2) #6
+  %87 = load i32, ptr %60, align 8
+  %88 = trunc i32 %87 to i16
+  %89 = lshr i16 %88, 3
+  %90 = and i16 %89, 1
+  tail call void @pack16(i16 noundef zeroext %90, ptr noundef %2) #6
+  %91 = load i32, ptr %60, align 8
+  %92 = trunc i32 %91 to i16
+  %93 = lshr i16 %92, 4
+  %94 = and i16 %93, 1
+  tail call void @pack16(i16 noundef zeroext %94, ptr noundef %2) #6
+  %95 = load i32, ptr %60, align 8
+  %96 = trunc i32 %95 to i16
+  %97 = lshr i16 %96, 5
+  %98 = and i16 %97, 1
+  tail call void @pack16(i16 noundef zeroext %98, ptr noundef %2) #6
+  %99 = load i32, ptr %60, align 8
+  %100 = trunc i32 %99 to i16
+  %101 = lshr i16 %100, 6
+  %102 = and i16 %101, 1
+  tail call void @pack16(i16 noundef zeroext %102, ptr noundef %2) #6
+  br label %105
 
-104:                                              ; preds = %41
-  %105 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.slurmdb_pack_assoc_cond, i32 noundef %4) #6
-  br label %106
+103:                                              ; preds = %41
+  %104 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.slurmdb_pack_assoc_cond, i32 noundef %4) #6
+  br label %105
 
-106:                                              ; preds = %8, %104, %45, %44, %7
+105:                                              ; preds = %8, %103, %45, %44, %7
   ret void
 }
 
@@ -14781,7 +14781,7 @@ define dso_local void @slurmdb_pack_qos_cond(ptr noundef readonly captures(addre
 
 6:                                                ; preds = %5
   tail call void @packbool(i1 noundef zeroext false, ptr noundef %2) #6
-  br label %44
+  br label %43
 
 7:                                                ; preds = %5
   tail call void @packbool(i1 noundef zeroext true, ptr noundef %2) #6
@@ -14802,11 +14802,11 @@ define dso_local void @slurmdb_pack_qos_cond(ptr noundef readonly captures(addre
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i16, ptr %21, align 8
   tail call void @pack16(i16 noundef zeroext %22, ptr noundef %2) #6
-  br label %44
+  br label %43
 
 23:                                               ; preds = %3
   %24 = icmp samesign ugt i16 %1, 10239
-  br i1 %24, label %25, label %44
+  br i1 %24, label %25, label %43
 
 25:                                               ; preds = %23
   %.not.not = icmp eq ptr %0, null
@@ -14819,7 +14819,7 @@ define dso_local void @slurmdb_pack_qos_cond(ptr noundef readonly captures(addre
   tail call void @pack32(i32 noundef -2, ptr noundef %2) #6
   tail call void @pack16(i16 noundef zeroext 0, ptr noundef %2) #6
   tail call void @pack16(i16 noundef zeroext 0, ptr noundef %2) #6
-  br label %44
+  br label %43
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %0, align 8
@@ -14838,11 +14838,11 @@ define dso_local void @slurmdb_pack_qos_cond(ptr noundef readonly captures(addre
   tail call void @pack16(i16 noundef zeroext %40, ptr noundef %2) #6
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i16, ptr %41, align 8
-  %43 = and i16 %42, 1
-  tail call void @pack16(i16 noundef zeroext %43, ptr noundef %2) #6
-  br label %44
+  %. = and i16 %42, 1
+  tail call void @pack16(i16 noundef zeroext %., ptr noundef %2) #6
+  br label %43
 
-44:                                               ; preds = %26, %27, %7, %23, %6
+43:                                               ; preds = %26, %27, %7, %23, %6
   ret void
 }
 

@@ -124,10 +124,9 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash18check_bloom_filterEj(ptr nound
   %24 = load i64, ptr %23, align 8, !tbaa !31
   %25 = lshr i64 %24, %20
   %26 = lshr i64 %24, %22
-  %27 = and i64 %26, 1
-  %28 = and i64 %27, %25
-  %29 = icmp ne i64 %28, 0
-  ret i1 %29
+  %27 = and i64 %25, %26
+  %28 = trunc i64 %27 to i1
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -160,10 +159,9 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkERKNSt7__cxx1112basic_stri
   %26 = load i64, ptr %25, align 8, !tbaa !31
   %27 = lshr i64 %26, %22
   %28 = lshr i64 %26, %24
-  %29 = and i64 %28, 1
-  %30 = and i64 %29, %27
-  %.not.i = icmp eq i64 %30, 0
-  br i1 %.not.i, label %_ZNK4LIEF3ELF7GnuHash5checkEj.exit, label %31
+  %29 = and i64 %27, %28
+  %30 = trunc i64 %29 to i1
+  br i1 %30, label %31, label %_ZNK4LIEF3ELF7GnuHash5checkEj.exit
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -217,10 +215,9 @@ define noundef zeroext i1 @_ZNK4LIEF3ELF7GnuHash5checkEj(ptr noundef nonnull rea
   %24 = load i64, ptr %23, align 8, !tbaa !31
   %25 = lshr i64 %24, %20
   %26 = lshr i64 %24, %22
-  %27 = and i64 %26, 1
-  %28 = and i64 %27, %25
-  %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %44, label %29
+  %27 = and i64 %25, %26
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %44
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40

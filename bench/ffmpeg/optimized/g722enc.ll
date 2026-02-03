@@ -37,89 +37,88 @@ define internal range(i32 -12, 1) i32 @g722_encode_init(ptr noundef %0) #0 {
   br i1 %.not, label %.sink.split, label %9
 
 9:                                                ; preds = %1
-  %10 = and i32 %8, 1
-  %.not57 = icmp ne i32 %10, 0
-  %11 = icmp sgt i32 %8, 32768
-  %or.cond = or i1 %11, %.not57
-  br i1 %or.cond, label %12, label %15
+  %.not57 = trunc i32 %8 to i1
+  %10 = icmp sgt i32 %8, 32768
+  %or.cond = or i1 %10, %.not57
+  br i1 %or.cond, label %11, label %14
 
-12:                                               ; preds = %9
-  %13 = icmp eq i32 %8, 1
-  %14 = tail call i32 @llvm.smin.i32(i32 %8, i32 32769)
-  %spec.select = add nsw i32 %14, -1
-  %.052 = select i1 %13, i32 2, i32 %spec.select
+11:                                               ; preds = %9
+  %12 = icmp eq i32 %8, 1
+  %13 = tail call i32 @llvm.smin.i32(i32 %8, i32 32769)
+  %spec.select = add nsw i32 %13, -1
+  %.052 = select i1 %12, i32 2, i32 %spec.select
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3, i32 noundef %.052, i32 noundef %8) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %1, %12
-  %.052.sink = phi i32 [ %.052, %12 ], [ 320, %1 ]
+.sink.split:                                      ; preds = %1, %11
+  %.052.sink = phi i32 [ %.052, %11 ], [ 320, %1 ]
   store i32 %.052.sink, ptr %7, align 8, !tbaa !33
-  br label %15
+  br label %14
 
-15:                                               ; preds = %.sink.split, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  store i32 22, ptr %16, align 4, !tbaa !34
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %18 = load i32, ptr %17, align 4, !tbaa !35
-  %.not58 = icmp eq i32 %18, 0
-  br i1 %.not58, label %.critedge, label %19
+14:                                               ; preds = %.sink.split, %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 396
+  store i32 22, ptr %15, align 4, !tbaa !34
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 492
+  %17 = load i32, ptr %16, align 4, !tbaa !35
+  %.not58 = icmp eq i32 %17, 0
+  br i1 %.not58, label %.critedge, label %18
 
-19:                                               ; preds = %15
-  %or.cond63 = icmp ugt i32 %18, 16
+18:                                               ; preds = %14
+  %or.cond63 = icmp ugt i32 %17, 16
   br i1 %or.cond63, label %thread-pre-split, label %thread-pre-split.thread
 
-thread-pre-split:                                 ; preds = %19
-  %20 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
-  %21 = tail call i32 @llvm.umin.i32(i32 %20, i32 16)
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4, i32 noundef %21, i32 noundef %18) #8
-  store i32 %21, ptr %17, align 4, !tbaa !35
-  %.not59 = icmp eq i32 %20, 0
+thread-pre-split:                                 ; preds = %18
+  %19 = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
+  %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 16)
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.4, i32 noundef %20, i32 noundef %17) #8
+  store i32 %20, ptr %16, align 4, !tbaa !35
+  %.not59 = icmp eq i32 %19, 0
   br i1 %.not59, label %.critedge, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %19, %thread-pre-split
-  %22 = phi i32 [ %21, %thread-pre-split ], [ %18, %19 ]
-  %23 = shl nuw nsw i32 1, %22
-  %24 = shl nuw nsw i32 128, %22
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 2208
-  %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 2176
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 2192
-  br label %31
+thread-pre-split.thread:                          ; preds = %18, %thread-pre-split
+  %21 = phi i32 [ %20, %thread-pre-split ], [ %17, %18 ]
+  %22 = shl nuw nsw i32 1, %21
+  %23 = shl nuw nsw i32 128, %21
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 2208
+  %26 = zext nneg i32 %22 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 2176
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 2192
+  br label %30
 
-30:                                               ; preds = %39
-  br i1 %.not66, label %31, label %.critedge, !llvm.loop !36
+29:                                               ; preds = %38
+  br i1 %.not66, label %30, label %.critedge, !llvm.loop !36
 
-31:                                               ; preds = %thread-pre-split.thread, %30
-  %.not66 = phi i1 [ true, %thread-pre-split.thread ], [ false, %30 ]
-  %indvars.iv = phi i64 [ 0, %thread-pre-split.thread ], [ 1, %30 ]
-  %32 = tail call noalias ptr @av_calloc(i64 noundef %25, i64 noundef 8) #8
-  %33 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
-  store ptr %32, ptr %33, align 8, !tbaa !38
-  %34 = tail call noalias ptr @av_calloc(i64 noundef %27, i64 noundef 128) #8
-  %35 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
-  store ptr %34, ptr %35, align 8, !tbaa !40
-  %36 = tail call noalias ptr @av_calloc(i64 noundef %27, i64 noundef 16) #8
-  %37 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  store ptr %36, ptr %37, align 8, !tbaa !42
-  %38 = load ptr, ptr %33, align 8, !tbaa !38
-  %.not60 = icmp eq ptr %38, null
-  br i1 %.not60, label %.loopexit, label %39
+30:                                               ; preds = %thread-pre-split.thread, %29
+  %.not66 = phi i1 [ true, %thread-pre-split.thread ], [ false, %29 ]
+  %indvars.iv = phi i64 [ 0, %thread-pre-split.thread ], [ 1, %29 ]
+  %31 = tail call noalias ptr @av_calloc(i64 noundef %24, i64 noundef 8) #8
+  %32 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  store ptr %31, ptr %32, align 8, !tbaa !38
+  %33 = tail call noalias ptr @av_calloc(i64 noundef %26, i64 noundef 128) #8
+  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  store ptr %33, ptr %34, align 8, !tbaa !40
+  %35 = tail call noalias ptr @av_calloc(i64 noundef %26, i64 noundef 16) #8
+  %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  store ptr %35, ptr %36, align 8, !tbaa !42
+  %37 = load ptr, ptr %32, align 8, !tbaa !38
+  %.not60 = icmp eq ptr %37, null
+  br i1 %.not60, label %.loopexit, label %38
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr %35, align 8, !tbaa !40
-  %.not61 = icmp eq ptr %40, null
-  %.not62 = icmp eq ptr %36, null
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %34, align 8, !tbaa !40
+  %.not61 = icmp eq ptr %39, null
+  %.not62 = icmp eq ptr %35, null
   %or.cond64 = select i1 %.not61, i1 true, i1 %.not62
-  br i1 %or.cond64, label %.loopexit, label %30
+  br i1 %or.cond64, label %.loopexit, label %29
 
-.critedge:                                        ; preds = %30, %thread-pre-split, %15
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 2224
-  tail call void @ff_g722dsp_init(ptr noundef nonnull %41) #8
+.critedge:                                        ; preds = %29, %thread-pre-split, %14
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 2224
+  tail call void @ff_g722dsp_init(ptr noundef nonnull %40) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %39, %31, %.critedge
-  %.1 = phi i32 [ 0, %.critedge ], [ -12, %31 ], [ -12, %39 ]
+.loopexit:                                        ; preds = %38, %30, %.critedge
+  %.1 = phi i32 [ 0, %.critedge ], [ -12, %30 ], [ -12, %38 ]
   ret i32 %.1
 }
 

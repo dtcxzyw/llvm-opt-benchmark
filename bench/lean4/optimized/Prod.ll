@@ -12,9 +12,8 @@ define noalias nonnull ptr @l_Prod_swap___rarg(ptr noundef readonly captures(non
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %2, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i = load i32, ptr %5, align 4, !tbaa !8
@@ -36,9 +35,8 @@ define noalias nonnull ptr @l_Prod_swap___rarg(ptr noundef readonly captures(non
 
 lean_inc.exit:                                    ; preds = %13, %12, %10, %1
   %14 = ptrtoint ptr %4 to i64
-  %15 = and i64 %14, 1
-  %.not13 = icmp eq i64 %15, 0
-  br i1 %.not13, label %16, label %lean_inc.exit9
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_inc.exit9, label %16
 
 16:                                               ; preds = %lean_inc.exit
   %.val.i10 = load i32, ptr %4, align 4, !tbaa !8
@@ -107,9 +105,8 @@ lean_alloc_closure.exit:                          ; preds = %2
 define noalias nonnull ptr @l_Prod_swap___rarg___boxed(ptr noundef %0) #0 {
   %2 = tail call ptr @l_Prod_swap___rarg(ptr noundef %0)
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load i32, ptr %0, align 4, !tbaa !8

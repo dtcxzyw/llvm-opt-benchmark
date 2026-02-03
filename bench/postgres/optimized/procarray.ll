@@ -5309,7 +5309,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   br label %7
 
 7:                                                ; preds = %3, %._crit_edge47
-  %.02948 = phi i32 [ 0, %3 ], [ %59, %._crit_edge47 ]
+  %.02948 = phi i32 [ 0, %3 ], [ %58, %._crit_edge47 ]
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9, !prof !40
@@ -5332,10 +5332,10 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %16 = load ptr, ptr @allProcs, align 8
   br label %17
 
-17:                                               ; preds = %.lr.ph, %49
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.03043 = phi i32 [ 0, %.lr.ph ], [ %.131, %49 ]
-  %.03541 = phi i1 [ false, %.lr.ph ], [ %.136, %49 ]
+17:                                               ; preds = %.lr.ph, %48
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
+  %.03043 = phi i32 [ 0, %.lr.ph ], [ %.131, %48 ]
+  %.03541 = phi i1 [ false, %.lr.ph ], [ %.136, %48 ]
   %18 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
@@ -5351,7 +5351,7 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %29 = load ptr, ptr @MyProc, align 8
   %30 = icmp eq ptr %21, %29
   %or.cond40 = select i1 %.not38, i1 true, i1 %30
-  br i1 %or.cond40, label %49, label %31
+  br i1 %or.cond40, label %48, label %31
 
 31:                                               ; preds = %17
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 60
@@ -5363,44 +5363,43 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
   %36 = load i32, ptr %2, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %2, align 4
-  br label %49
+  br label %48
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %1, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %1, align 4
-  %41 = and i8 %26, 1
-  %42 = icmp ne i8 %41, 0
-  %43 = icmp slt i32 %.03043, 10
-  %or.cond = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond, label %44, label %49
+  %41 = trunc i8 %26 to i1
+  %42 = icmp slt i32 %.03043, 10
+  %or.cond = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond, label %43, label %48
 
-44:                                               ; preds = %38
-  %45 = load i32, ptr %32, align 4
-  %46 = add nsw i32 %.03043, 1
-  %47 = sext i32 %.03043 to i64
-  %48 = getelementptr inbounds i32, ptr %4, i64 %47
-  store i32 %45, ptr %48, align 4
-  br label %49
+43:                                               ; preds = %38
+  %44 = load i32, ptr %32, align 4
+  %45 = add nsw i32 %.03043, 1
+  %46 = sext i32 %.03043 to i64
+  %47 = getelementptr inbounds i32, ptr %4, i64 %46
+  store i32 %44, ptr %47, align 4
+  br label %48
 
-49:                                               ; preds = %35, %44, %38, %17
-  %.136 = phi i1 [ true, %35 ], [ %.03541, %17 ], [ true, %38 ], [ true, %44 ]
-  %.131 = phi i32 [ %.03043, %35 ], [ %.03043, %17 ], [ %.03043, %38 ], [ %46, %44 ]
+48:                                               ; preds = %35, %43, %38, %17
+  %.136 = phi i1 [ true, %35 ], [ %.03541, %17 ], [ true, %38 ], [ true, %43 ]
+  %.131 = phi i32 [ %.03043, %35 ], [ %.03043, %17 ], [ %.03043, %38 ], [ %45, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %5, align 4
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %17, label %._crit_edge, !llvm.loop !64
+  %49 = load i32, ptr %5, align 4
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next, %50
+  br i1 %51, label %17, label %._crit_edge, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %49
-  %53 = load ptr, ptr @MainLWLockArray, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 512
-  tail call void @LWLockRelease(ptr noundef nonnull %54) #14
+._crit_edge:                                      ; preds = %48
+  %52 = load ptr, ptr @MainLWLockArray, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
+  tail call void @LWLockRelease(ptr noundef nonnull %53) #14
   br i1 %.136, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %._crit_edge
-  %55 = icmp sgt i32 %.131, 0
-  br i1 %55, label %.lr.ph46.preheader, label %._crit_edge47
+  %54 = icmp sgt i32 %.131, 0
+  br i1 %54, label %.lr.ph46.preheader, label %._crit_edge47
 
 .lr.ph46.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %.131 to i64
@@ -5408,23 +5407,23 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
 
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
   %indvars.iv49 = phi i64 [ 0, %.lr.ph46.preheader ], [ %indvars.iv.next50, %.lr.ph46 ]
-  %56 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv49
-  %57 = load i32, ptr %56, align 4
-  %58 = tail call i32 @kill(i32 noundef %57, i32 noundef 15) #14
+  %55 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv49
+  %56 = load i32, ptr %55, align 4
+  %57 = tail call i32 @kill(i32 noundef %56, i32 noundef 15) #14
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !65
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   tail call void @pg_usleep(i64 noundef 100000) #14
-  %59 = add nuw nsw i32 %.02948, 1
-  %exitcond53 = icmp eq i32 %59, 50
+  %58 = add nuw nsw i32 %.02948, 1
+  %exitcond53 = icmp eq i32 %58, 50
   br i1 %exitcond53, label %.critedge, label %7, !llvm.loop !66
 
 .critedge.critedge:                               ; preds = %10
-  %60 = load ptr, ptr @MainLWLockArray, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 512
-  tail call void @LWLockRelease(ptr noundef nonnull %61) #14
+  %59 = load ptr, ptr @MainLWLockArray, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 512
+  tail call void @LWLockRelease(ptr noundef nonnull %60) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge47, %.critedge.critedge

@@ -1658,7 +1658,7 @@ define dso_local void @select_idle_routine(ptr noundef %0) local_unnamed_addr #2
 
 thread-pre-split.thread:                          ; preds = %7
   %9 = load volatile ptr, ptr @__SCK__x86_idle, align 8
-  br label %47
+  br label %46
 
 10:                                               ; preds = %7
   store i1 true, ptr @select_idle_routine.__already_done, align 1
@@ -1672,54 +1672,53 @@ thread-pre-split:                                 ; preds = %10, %1
   %14 = icmp ne ptr %13, null
   %15 = icmp eq i64 %12, 3
   %16 = select i1 %14, i1 true, i1 %15
-  br i1 %16, label %47, label %17
+  br i1 %16, label %46, label %17
 
 17:                                               ; preds = %thread-pre-split
   %18 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %19 = and i64 %18, 35184372088832
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %41
+  br i1 %20, label %21, label %40
 
 21:                                               ; preds = %17
   %22 = icmp eq i64 %12, 2
-  br i1 %22, label %45, label %23
+  br i1 %22, label %44, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr i8, ptr %0, i64 56
   %25 = load volatile i64, ptr %24, align 8
   %26 = and i64 %25, 8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %45, label %28
+  br i1 %27, label %44, label %28
 
 28:                                               ; preds = %23
   %29 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %30 = and i64 %29, 17592186044416
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %45
+  br i1 %31, label %32, label %44
 
 32:                                               ; preds = %28
   %33 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 5, i32 0) #19, !srcloc !71
   %34 = extractvalue { i32, i32, i32, i32 } %33, 2
-  %35 = and i32 %34, 1
-  %36 = icmp ne i32 %35, 0
-  %37 = extractvalue { i32, i32, i32, i32 } %33, 3
-  %38 = and i32 %37, 240
-  %39 = icmp eq i32 %38, 0
-  %40 = select i1 %36, i1 %39, i1 false
-  br i1 %40, label %45, label %41
+  %35 = trunc i32 %34 to i1
+  %36 = extractvalue { i32, i32, i32, i32 } %33, 3
+  %37 = and i32 %36, 240
+  %38 = icmp eq i32 %37, 0
+  %39 = select i1 %35, i1 %38, i1 false
+  br i1 %39, label %44, label %40
 
-41:                                               ; preds = %32, %17
-  %42 = phi ptr [ @.str.2, %17 ], [ @.str.3, %32 ]
-  %43 = phi ptr [ @amd_e400_idle, %17 ], [ @mwait_idle, %32 ]
-  %44 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %42) #23
-  br label %45
+40:                                               ; preds = %32, %17
+  %41 = phi ptr [ @.str.2, %17 ], [ @.str.3, %32 ]
+  %42 = phi ptr [ @amd_e400_idle, %17 ], [ @mwait_idle, %32 ]
+  %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %41) #23
+  br label %44
 
-45:                                               ; preds = %41, %32, %28, %23, %21
-  %46 = phi ptr [ @default_idle, %32 ], [ @default_idle, %21 ], [ @default_idle, %23 ], [ @default_idle, %28 ], [ %43, %41 ]
-  tail call void @__static_call_update(ptr noundef nonnull @__SCK__x86_idle, ptr noundef nonnull @__SCT__x86_idle, ptr noundef nonnull %46) #19
-  br label %47
+44:                                               ; preds = %40, %32, %28, %23, %21
+  %45 = phi ptr [ @default_idle, %32 ], [ @default_idle, %21 ], [ @default_idle, %23 ], [ @default_idle, %28 ], [ %42, %40 ]
+  tail call void @__static_call_update(ptr noundef nonnull @__SCK__x86_idle, ptr noundef nonnull @__SCT__x86_idle, ptr noundef nonnull %45) #19
+  br label %46
 
-47:                                               ; preds = %thread-pre-split.thread, %45, %thread-pre-split
+46:                                               ; preds = %thread-pre-split.thread, %44, %thread-pre-split
   ret void
 }
 

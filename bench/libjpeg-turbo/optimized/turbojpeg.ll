@@ -7077,83 +7077,83 @@ define range(i32 -1, 1) i32 @tjCompress(ptr noundef %0, ptr noundef %1, i32 noun
   store i64 %17, ptr %13, align 8, !tbaa !53
   %18 = and i32 %10, 512
   %.not27 = icmp eq i32 %18, 0
-  br i1 %.not27, label %32, label %19
+  br i1 %.not27, label %31, label %19
 
 19:                                               ; preds = %16
   %20 = tail call i64 @tj3YUVBufSize(i32 noundef %2, i32 noundef 4, i32 noundef %4, i32 noundef %8)
   %21 = icmp eq i64 %20, 0
   %22 = select i1 %21, i64 -1, i64 %20
-  switch i32 %5, label %30 [
+  switch i32 %5, label %29 [
     i32 1, label %getPixelFormat.exit
     i32 3, label %23
-    i32 4, label %25
+    i32 4, label %24
   ]
 
 23:                                               ; preds = %19
-  %24 = and i32 %10, 1
+  %..i = and i32 %10, 1
   br label %getPixelFormat.exit
 
-25:                                               ; preds = %19
-  %26 = and i32 %10, 64
-  %.not.i = icmp eq i32 %26, 0
-  %27 = and i32 %10, 1
-  br i1 %.not.i, label %29, label %28
+24:                                               ; preds = %19
+  %25 = and i32 %10, 64
+  %.not.i = icmp eq i32 %25, 0
+  %26 = and i32 %10, 1
+  br i1 %.not.i, label %28, label %27
 
-28:                                               ; preds = %25
-  %.12.i = xor i32 %27, 5
+27:                                               ; preds = %24
+  %.12.i = xor i32 %26, 5
   br label %getPixelFormat.exit
 
-29:                                               ; preds = %25
-  %.13.i = or disjoint i32 %27, 2
+28:                                               ; preds = %24
+  %.13.i = or disjoint i32 %26, 2
   br label %getPixelFormat.exit
 
-30:                                               ; preds = %19
+29:                                               ; preds = %19
   br label %getPixelFormat.exit
 
-getPixelFormat.exit:                              ; preds = %19, %23, %28, %29, %30
-  %.0.i = phi i32 [ -1, %30 ], [ %24, %23 ], [ 6, %19 ], [ %.12.i, %28 ], [ %.13.i, %29 ]
-  %31 = tail call range(i32 -1, 1) i32 @tjEncodeYUV3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.0.i, ptr noundef %6, i32 noundef 4, i32 noundef %8, i32 noundef %10)
-  br label %43
+getPixelFormat.exit:                              ; preds = %19, %23, %27, %28, %29
+  %.0.i = phi i32 [ -1, %29 ], [ %..i, %23 ], [ 6, %19 ], [ %.12.i, %27 ], [ %.13.i, %28 ]
+  %30 = tail call range(i32 -1, 1) i32 @tjEncodeYUV3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.0.i, ptr noundef %6, i32 noundef 4, i32 noundef %8, i32 noundef %10)
+  br label %41
 
-32:                                               ; preds = %16
-  switch i32 %5, label %40 [
-    i32 1, label %getPixelFormat.exit32
-    i32 3, label %33
-    i32 4, label %35
+31:                                               ; preds = %16
+  switch i32 %5, label %38 [
+    i32 1, label %getPixelFormat.exit33
+    i32 3, label %32
+    i32 4, label %33
   ]
 
-33:                                               ; preds = %32
-  %34 = and i32 %10, 1
-  br label %getPixelFormat.exit32
+32:                                               ; preds = %31
+  %..i32 = and i32 %10, 1
+  br label %getPixelFormat.exit33
 
-35:                                               ; preds = %32
-  %36 = and i32 %10, 64
-  %.not.i28 = icmp eq i32 %36, 0
-  %37 = and i32 %10, 1
-  br i1 %.not.i28, label %39, label %38
+33:                                               ; preds = %31
+  %34 = and i32 %10, 64
+  %.not.i28 = icmp eq i32 %34, 0
+  %35 = and i32 %10, 1
+  br i1 %.not.i28, label %37, label %36
 
-38:                                               ; preds = %35
-  %.12.i29 = xor i32 %37, 5
-  br label %getPixelFormat.exit32
+36:                                               ; preds = %33
+  %.12.i29 = xor i32 %35, 5
+  br label %getPixelFormat.exit33
 
-39:                                               ; preds = %35
-  %.13.i31 = or disjoint i32 %37, 2
-  br label %getPixelFormat.exit32
+37:                                               ; preds = %33
+  %.13.i31 = or disjoint i32 %35, 2
+  br label %getPixelFormat.exit33
 
-40:                                               ; preds = %32
-  br label %getPixelFormat.exit32
+38:                                               ; preds = %31
+  br label %getPixelFormat.exit33
 
-getPixelFormat.exit32:                            ; preds = %32, %33, %38, %39, %40
-  %.0.i30 = phi i32 [ -1, %40 ], [ %34, %33 ], [ 6, %32 ], [ %.12.i29, %38 ], [ %.13.i31, %39 ]
-  %41 = or i32 %10, 1024
-  %42 = call i32 @tjCompress2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.0.i30, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %8, i32 noundef %9, i32 noundef %41)
+getPixelFormat.exit33:                            ; preds = %31, %32, %36, %37, %38
+  %.0.i30 = phi i32 [ -1, %38 ], [ %..i32, %32 ], [ 6, %31 ], [ %.12.i29, %36 ], [ %.13.i31, %37 ]
+  %39 = or i32 %10, 1024
+  %40 = call i32 @tjCompress2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.0.i30, ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %8, i32 noundef %9, i32 noundef %39)
   %.pre = load i64, ptr %13, align 8, !tbaa !53
-  br label %43
+  br label %41
 
-43:                                               ; preds = %getPixelFormat.exit32, %getPixelFormat.exit
-  %44 = phi i64 [ %22, %getPixelFormat.exit ], [ %.pre, %getPixelFormat.exit32 ]
-  %.0 = phi i32 [ %31, %getPixelFormat.exit ], [ %42, %getPixelFormat.exit32 ]
-  store i64 %44, ptr %7, align 8, !tbaa !53
+41:                                               ; preds = %getPixelFormat.exit33, %getPixelFormat.exit
+  %42 = phi i64 [ %22, %getPixelFormat.exit ], [ %.pre, %getPixelFormat.exit33 ]
+  %.0 = phi i32 [ %30, %getPixelFormat.exit ], [ %40, %getPixelFormat.exit33 ]
+  store i64 %42, ptr %7, align 8, !tbaa !53
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
@@ -9453,37 +9453,37 @@ processFlags.exit:                                ; preds = %32, %47
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tjEncodeYUV(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
-  switch i32 %5, label %17 [
+  switch i32 %5, label %16 [
     i32 1, label %getPixelFormat.exit
     i32 3, label %10
-    i32 4, label %12
+    i32 4, label %11
   ]
 
 10:                                               ; preds = %9
-  %11 = and i32 %8, 1
+  %..i = and i32 %8, 1
   br label %getPixelFormat.exit
 
-12:                                               ; preds = %9
-  %13 = and i32 %8, 64
-  %.not.i = icmp eq i32 %13, 0
-  %14 = and i32 %8, 1
-  br i1 %.not.i, label %16, label %15
+11:                                               ; preds = %9
+  %12 = and i32 %8, 64
+  %.not.i = icmp eq i32 %12, 0
+  %13 = and i32 %8, 1
+  br i1 %.not.i, label %15, label %14
 
-15:                                               ; preds = %12
-  %.12.i = xor i32 %14, 5
+14:                                               ; preds = %11
+  %.12.i = xor i32 %13, 5
   br label %getPixelFormat.exit
 
-16:                                               ; preds = %12
-  %.13.i = or disjoint i32 %14, 2
+15:                                               ; preds = %11
+  %.13.i = or disjoint i32 %13, 2
   br label %getPixelFormat.exit
 
-17:                                               ; preds = %9
+16:                                               ; preds = %9
   br label %getPixelFormat.exit
 
-getPixelFormat.exit:                              ; preds = %9, %10, %15, %16, %17
-  %.0.i = phi i32 [ -1, %17 ], [ %11, %10 ], [ 6, %9 ], [ %.12.i, %15 ], [ %.13.i, %16 ]
-  %18 = tail call range(i32 -1, 1) i32 @tjEncodeYUV3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.0.i, ptr noundef %6, i32 noundef 4, i32 noundef %7, i32 noundef %8)
-  ret i32 %18
+getPixelFormat.exit:                              ; preds = %9, %10, %14, %15, %16
+  %.0.i = phi i32 [ -1, %16 ], [ %..i, %10 ], [ 6, %9 ], [ %.12.i, %14 ], [ %.13.i, %15 ]
+  %17 = tail call range(i32 -1, 1) i32 @tjEncodeYUV3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %.0.i, ptr noundef %6, i32 noundef 4, i32 noundef %7, i32 noundef %8)
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10378,43 +10378,43 @@ define range(i32 -1, 1) i32 @tjDecompress(ptr noundef %0, ptr noundef %1, i64 no
 
 11:                                               ; preds = %9
   %12 = tail call range(i32 -1, 1) i32 @tjDecompressToYUV2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef %8)
-  br label %23
+  br label %22
 
 13:                                               ; preds = %9
-  switch i32 %7, label %21 [
+  switch i32 %7, label %20 [
     i32 1, label %getPixelFormat.exit
     i32 3, label %14
-    i32 4, label %16
+    i32 4, label %15
   ]
 
 14:                                               ; preds = %13
-  %15 = and i32 %8, 1
+  %..i = and i32 %8, 1
   br label %getPixelFormat.exit
 
-16:                                               ; preds = %13
-  %17 = and i32 %8, 64
-  %.not.i = icmp eq i32 %17, 0
-  %18 = and i32 %8, 1
-  br i1 %.not.i, label %20, label %19
+15:                                               ; preds = %13
+  %16 = and i32 %8, 64
+  %.not.i = icmp eq i32 %16, 0
+  %17 = and i32 %8, 1
+  br i1 %.not.i, label %19, label %18
 
-19:                                               ; preds = %16
-  %.12.i = xor i32 %18, 5
+18:                                               ; preds = %15
+  %.12.i = xor i32 %17, 5
   br label %getPixelFormat.exit
 
-20:                                               ; preds = %16
-  %.13.i = or disjoint i32 %18, 2
+19:                                               ; preds = %15
+  %.13.i = or disjoint i32 %17, 2
   br label %getPixelFormat.exit
 
-21:                                               ; preds = %13
+20:                                               ; preds = %13
   br label %getPixelFormat.exit
 
-getPixelFormat.exit:                              ; preds = %13, %14, %19, %20, %21
-  %.0.i = phi i32 [ -1, %21 ], [ %15, %14 ], [ 6, %13 ], [ %.12.i, %19 ], [ %.13.i, %20 ]
-  %22 = tail call i32 @tjDecompress2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %.0.i, i32 noundef %8)
-  br label %23
+getPixelFormat.exit:                              ; preds = %13, %14, %18, %19, %20
+  %.0.i = phi i32 [ -1, %20 ], [ %..i, %14 ], [ 6, %13 ], [ %.12.i, %18 ], [ %.13.i, %19 ]
+  %21 = tail call i32 @tjDecompress2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %.0.i, i32 noundef %8)
+  br label %22
 
-23:                                               ; preds = %getPixelFormat.exit, %11
-  %.0 = phi i32 [ %12, %11 ], [ %22, %getPixelFormat.exit ]
+22:                                               ; preds = %getPixelFormat.exit, %11
+  %.0 = phi i32 [ %12, %11 ], [ %21, %getPixelFormat.exit ]
   ret i32 %.0
 }
 

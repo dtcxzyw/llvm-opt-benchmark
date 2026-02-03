@@ -145,11 +145,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
   br i1 %.not.i.i, label %_ZN6google8protobuf11MessageLiteD2Ev.exit, label %.noexc.i.i
 
 .noexc.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %9 = and i64 %7, 1
-  %.not1.i.i = icmp eq i64 %9, 0
+  %9 = trunc i64 %7 to i1
   %10 = and i64 %7, -4
   %11 = inttoptr i64 %10 to ptr
-  br i1 %.not1.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, label %12, !prof !22
+  br i1 %9, label %12, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i, !prof !22
 
 12:                                               ; preds = %.noexc.i.i
   %13 = load ptr, ptr %11, align 8, !tbaa !23
@@ -191,11 +190,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1, 
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit, label %.noexc.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %9 = and i64 %7, 1
-  %.not1.i.i.i = icmp eq i64 %9, 0
+  %9 = trunc i64 %7 to i1
   %10 = and i64 %7, -4
   %11 = inttoptr i64 %10 to ptr
-  br i1 %.not1.i.i.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i.i, label %12, !prof !22
+  br i1 %9, label %12, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i.i.i, !prof !22
 
 12:                                               ; preds = %.noexc.i.i.i
   %13 = load ptr, ptr %11, align 8, !tbaa !23
@@ -329,7 +327,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal19ImplicitW
   %sext = shl i64 %7, 32
   %12 = ashr exact i64 %sext, 32
   %13 = icmp slt i64 %11, %12
-  br i1 %13, label %14, label %17, !prof !33
+  br i1 %13, label %14, label %17, !prof !22
 
 14:                                               ; preds = %3
   %15 = trunc i64 %7 to i32
@@ -354,12 +352,12 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf11MessageLite16Inter
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream14AppendUntilEndIZNS2_12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS5_lE_EES5_S5_RKT_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !38
+  %10 = load i32, ptr %9, align 4, !tbaa !37
   %11 = sext i32 %10 to i64
   %12 = icmp sgt i64 %8, %11
   br i1 %12, label %41, label %.preheader
@@ -370,13 +368,13 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 thread-pre-split:                                 ; preds = %_ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlS4_lE_clES4_l.exit
   %14 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %.pr = load i32, ptr %9, align 4, !tbaa !38
+  %.pr = load i32, ptr %9, align 4, !tbaa !37
   %15 = icmp sgt i32 %.pr, 16
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %thread-pre-split
   %.01526 = phi ptr [ %14, %thread-pre-split ], [ %1, %.preheader ]
-  %16 = load ptr, ptr %4, align 8, !tbaa !34
+  %16 = load ptr, ptr %4, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %.01526 to i64
@@ -399,7 +397,7 @@ _ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx111
   br i1 %.not, label %.loopexit, label %thread-pre-split
 
 ._crit_edge.loopexit:                             ; preds = %thread-pre-split
-  %.pre = load ptr, ptr %4, align 8, !tbaa !34
+  %.pre = load ptr, ptr %4, align 8, !tbaa !33
   %.pre29 = sext i32 %.pr to i64
   %.pre30 = ptrtoint ptr %14 to i64
   br label %._crit_edge
@@ -481,7 +479,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFvvEJEEvRS_OT_DpOT0_EUlvE_EERS6_ENUlvE_8__invokeEv() #12 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !20
-  %3 = load ptr, ptr %2, align 8, !tbaa !39
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   tail call void %3()
   ret void
 }
@@ -545,7 +543,7 @@ attributes #18 = { builtin allocsize(0) }
 !19 = !{!7, !7, i64 0}
 !20 = !{!6, !6, i64 0}
 !21 = !{!18, !16, i64 0}
-!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !23 = !{!24, !25, i64 0}
 !24 = !{!"_ZTSN6google8protobuf8internal16InternalMetadata13ContainerBaseE", !25, i64 0}
 !25 = !{!"p1 _ZTSN6google8protobuf5ArenaE", !6, i64 0}
@@ -556,11 +554,10 @@ attributes #18 = { builtin allocsize(0) }
 !30 = !{!"_ZTSN6google8protobuf2io19EpsCopyOutputStreamE", !16, i64 0, !16, i64 8, !7, i64 16, !31, i64 48, !32, i64 56, !32, i64 57, !32, i64 58}
 !31 = !{!"p1 _ZTSN6google8protobuf2io20ZeroCopyOutputStreamE", !6, i64 0}
 !32 = !{!"bool", !7, i64 0}
-!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!34 = !{!35, !16, i64 8}
-!35 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !16, i64 0, !16, i64 8, !16, i64 16, !36, i64 24, !36, i64 28, !37, i64 32, !7, i64 40, !11, i64 72, !36, i64 80, !36, i64 84}
-!36 = !{!"int", !7, i64 0}
-!37 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !6, i64 0}
-!38 = !{!35, !36, i64 28}
-!39 = !{!40, !6, i64 0}
-!40 = !{!"_ZTSZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0}
+!33 = !{!34, !16, i64 8}
+!34 = !{!"_ZTSN6google8protobuf8internal18EpsCopyInputStreamE", !16, i64 0, !16, i64 8, !16, i64 16, !35, i64 24, !35, i64 28, !36, i64 32, !7, i64 40, !11, i64 72, !35, i64 80, !35, i64 84}
+!35 = !{!"int", !7, i64 0}
+!36 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !6, i64 0}
+!37 = !{!34, !35, i64 28}
+!38 = !{!39, !6, i64 0}
+!39 = !{!"_ZTSZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0}

@@ -3794,18 +3794,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %13
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !10
-  %19 = shl nuw i32 1, %15
-  %.fr.i = freeze i32 %18
-  %.fr44.i = freeze i32 %19
-  %20 = and i32 %.fr.i, %.fr44.i
-  %.not.i = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %.not.i, ptr %11, ptr %10
-  %spec.select46.i = select i1 %.not.i, ptr %8, ptr %7
+  %19 = lshr i32 %18, %15
+  %.fr.i = freeze i32 %19
+  %20 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %20, ptr %10, ptr %11
+  %spec.select44.i = select i1 %20, ptr %7, ptr %8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %13, %9
   %.026.i = phi ptr [ %11, %9 ], [ %11, %13 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select46.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select44.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinIhLb1EE21SplitCategoricalInnerILb0EEEijjjPKjiPKiiPiS7_.exit
 
@@ -3843,22 +3841,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %13
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i: ; preds = %38
   %39 = add nsw i32 %36, %24
   %40 = load i32, ptr %3, align 4, !tbaa !10
-  %41 = shl nuw nsw i32 1, %39
-  %42 = and i32 %40, %41
-  %.not45.i = icmp eq i32 %42, 0
-  br i1 %.not45.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, label %43
+  %41 = lshr i32 %40, %39
+  %42 = trunc i32 %41 to i1
+  br i1 %42, label %43, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %38
   br label %43
 
 43:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %25
   %.sink.i = phi ptr [ %.026.i, %25 ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %10, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
-  %.sink55.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
+  %.sink53.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %44 = add nsw i32 %.0..0..0..i, 1
   store i32 %44, ptr %.sink.i, align 4, !tbaa !10
   %45 = sext i32 %.0..0..0..i to i64
-  %46 = getelementptr inbounds i32, ptr %.sink55.i, i64 %45
+  %46 = getelementptr inbounds i32, ptr %.sink53.i, i64 %45
   store i32 %27, ptr %46, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5185,18 +5182,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %14
   %17 = zext nneg i32 %15 to i64
   %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !10
-  %20 = shl nuw i32 1, %16
-  %.fr.i = freeze i32 %19
-  %.fr48.i = freeze i32 %20
-  %21 = and i32 %.fr.i, %.fr48.i
-  %.not.i = icmp eq i32 %21, 0
-  %spec.select.i = select i1 %.not.i, ptr %12, ptr %11
-  %spec.select50.i = select i1 %.not.i, ptr %9, ptr %8
+  %20 = lshr i32 %19, %16
+  %.fr.i = freeze i32 %20
+  %21 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %21, ptr %11, ptr %12
+  %spec.select48.i = select i1 %21, ptr %8, ptr %9
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %14, %10
   %.029.i = phi ptr [ %12, %10 ], [ %12, %14 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select50.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select48.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %22 = icmp sgt i32 %7, 0
   br i1 %22, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinIhLb0EE21SplitCategoricalInnerILb1EEEijjjPKjiPKiiPiS7_.exit
 
@@ -5236,22 +5231,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i: ; preds = %35
   %40 = zext nneg i32 %38 to i64
   %41 = getelementptr inbounds nuw i32, ptr %4, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !10
-  %43 = shl nuw i32 1, %39
-  %44 = and i32 %42, %43
-  %.not49.i = icmp eq i32 %44, 0
-  br i1 %.not49.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i, label %45
+  %43 = lshr i32 %42, %39
+  %44 = trunc i32 %43 to i1
+  br i1 %44, label %45, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i, %35
   br label %45
 
 45:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i, %26
   %.sink.i = phi ptr [ %.029.i, %26 ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
-  %.sink60.i = phi ptr [ %.0.i, %26 ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
+  %.sink58.i = phi ptr [ %.0.i, %26 ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %46 = add nsw i32 %.0..0..0..i, 1
   store i32 %46, ptr %.sink.i, align 4, !tbaa !10
   %47 = sext i32 %.0..0..0..i to i64
-  %48 = getelementptr inbounds i32, ptr %.sink60.i, i64 %47
+  %48 = getelementptr inbounds i32, ptr %.sink58.i, i64 %47
   store i32 %28, ptr %48, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -5328,18 +5322,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %13
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !10
-  %19 = shl nuw i32 1, %15
-  %.fr.i = freeze i32 %18
-  %.fr44.i = freeze i32 %19
-  %20 = and i32 %.fr.i, %.fr44.i
-  %.not.i = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %.not.i, ptr %11, ptr %10
-  %spec.select46.i = select i1 %.not.i, ptr %8, ptr %7
+  %19 = lshr i32 %18, %15
+  %.fr.i = freeze i32 %19
+  %20 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %20, ptr %10, ptr %11
+  %spec.select44.i = select i1 %20, ptr %7, ptr %8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %13, %9
   %.026.i = phi ptr [ %11, %9 ], [ %11, %13 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select46.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select44.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinIhLb0EE21SplitCategoricalInnerILb0EEEijjjPKjiPKiiPiS7_.exit
 
@@ -5376,22 +5368,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i: ; preds = %32
   %37 = zext nneg i32 %35 to i64
   %38 = getelementptr inbounds nuw i32, ptr %3, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !10
-  %40 = shl nuw i32 1, %36
-  %41 = and i32 %39, %40
-  %.not45.i = icmp eq i32 %41, 0
-  br i1 %.not45.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, label %42
+  %40 = lshr i32 %39, %36
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %42, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %32
   br label %42
 
 42:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %25
   %.sink.i = phi ptr [ %.026.i, %25 ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %10, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
-  %.sink55.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
+  %.sink53.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %43 = add nsw i32 %.0..0..0..i, 1
   store i32 %43, ptr %.sink.i, align 4, !tbaa !10
   %44 = sext i32 %.0..0..0..i to i64
-  %45 = getelementptr inbounds i32, ptr %.sink55.i, i64 %44
+  %45 = getelementptr inbounds i32, ptr %.sink53.i, i64 %44
   store i32 %27, ptr %45, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6696,18 +6687,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %14
   %17 = zext nneg i32 %15 to i64
   %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !10
-  %20 = shl nuw i32 1, %16
-  %.fr.i = freeze i32 %19
-  %.fr48.i = freeze i32 %20
-  %21 = and i32 %.fr.i, %.fr48.i
-  %.not.i = icmp eq i32 %21, 0
-  %spec.select.i = select i1 %.not.i, ptr %12, ptr %11
-  %spec.select50.i = select i1 %.not.i, ptr %9, ptr %8
+  %20 = lshr i32 %19, %16
+  %.fr.i = freeze i32 %20
+  %21 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %21, ptr %11, ptr %12
+  %spec.select48.i = select i1 %21, ptr %8, ptr %9
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %14, %10
   %.029.i = phi ptr [ %12, %10 ], [ %12, %14 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select50.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select48.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %22 = icmp sgt i32 %7, 0
   br i1 %22, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinItLb0EE21SplitCategoricalInnerILb1EEEijjjPKjiPKiiPiS7_.exit
 
@@ -6747,22 +6736,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i: ; preds = %35
   %40 = zext nneg i32 %38 to i64
   %41 = getelementptr inbounds nuw i32, ptr %4, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !10
-  %43 = shl nuw i32 1, %39
-  %44 = and i32 %42, %43
-  %.not49.i = icmp eq i32 %44, 0
-  br i1 %.not49.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i, label %45
+  %43 = lshr i32 %42, %39
+  %44 = trunc i32 %43 to i1
+  br i1 %44, label %45, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i, %35
   br label %45
 
 45:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i, %26
   %.sink.i = phi ptr [ %.029.i, %26 ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
-  %.sink60.i = phi ptr [ %.0.i, %26 ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
+  %.sink58.i = phi ptr [ %.0.i, %26 ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %46 = add nsw i32 %.0..0..0..i, 1
   store i32 %46, ptr %.sink.i, align 4, !tbaa !10
   %47 = sext i32 %.0..0..0..i to i64
-  %48 = getelementptr inbounds i32, ptr %.sink60.i, i64 %47
+  %48 = getelementptr inbounds i32, ptr %.sink58.i, i64 %47
   store i32 %28, ptr %48, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6839,18 +6827,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %13
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !10
-  %19 = shl nuw i32 1, %15
-  %.fr.i = freeze i32 %18
-  %.fr44.i = freeze i32 %19
-  %20 = and i32 %.fr.i, %.fr44.i
-  %.not.i = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %.not.i, ptr %11, ptr %10
-  %spec.select46.i = select i1 %.not.i, ptr %8, ptr %7
+  %19 = lshr i32 %18, %15
+  %.fr.i = freeze i32 %19
+  %20 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %20, ptr %10, ptr %11
+  %spec.select44.i = select i1 %20, ptr %7, ptr %8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %13, %9
   %.026.i = phi ptr [ %11, %9 ], [ %11, %13 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select46.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select44.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinItLb0EE21SplitCategoricalInnerILb0EEEijjjPKjiPKiiPiS7_.exit
 
@@ -6887,22 +6873,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i: ; preds = %32
   %37 = zext nneg i32 %35 to i64
   %38 = getelementptr inbounds nuw i32, ptr %3, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !10
-  %40 = shl nuw i32 1, %36
-  %41 = and i32 %39, %40
-  %.not45.i = icmp eq i32 %41, 0
-  br i1 %.not45.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, label %42
+  %40 = lshr i32 %39, %36
+  %41 = trunc i32 %40 to i1
+  br i1 %41, label %42, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %32
   br label %42
 
 42:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %25
   %.sink.i = phi ptr [ %.026.i, %25 ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %10, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
-  %.sink55.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
+  %.sink53.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %43 = add nsw i32 %.0..0..0..i, 1
   store i32 %43, ptr %.sink.i, align 4, !tbaa !10
   %44 = sext i32 %.0..0..0..i to i64
-  %45 = getelementptr inbounds i32, ptr %.sink55.i, i64 %44
+  %45 = getelementptr inbounds i32, ptr %.sink53.i, i64 %44
   store i32 %27, ptr %45, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -8203,18 +8188,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %14
   %17 = zext nneg i32 %15 to i64
   %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !10
-  %20 = shl nuw i32 1, %16
-  %.fr.i = freeze i32 %19
-  %.fr48.i = freeze i32 %20
-  %21 = and i32 %.fr.i, %.fr48.i
-  %.not.i = icmp eq i32 %21, 0
-  %spec.select.i = select i1 %.not.i, ptr %12, ptr %11
-  %spec.select50.i = select i1 %.not.i, ptr %9, ptr %8
+  %20 = lshr i32 %19, %16
+  %.fr.i = freeze i32 %20
+  %21 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %21, ptr %11, ptr %12
+  %spec.select48.i = select i1 %21, ptr %8, ptr %9
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %14, %10
   %.029.i = phi ptr [ %12, %10 ], [ %12, %14 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select50.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select48.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %22 = icmp sgt i32 %7, 0
   br i1 %22, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinIjLb0EE21SplitCategoricalInnerILb1EEEijjjPKjiPKiiPiS7_.exit
 
@@ -8253,22 +8236,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i: ; preds = %34
   %39 = zext nneg i32 %37 to i64
   %40 = getelementptr inbounds nuw i32, ptr %4, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !10
-  %42 = shl nuw i32 1, %38
-  %43 = and i32 %41, %42
-  %.not49.i = icmp eq i32 %43, 0
-  br i1 %.not49.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i, label %44
+  %42 = lshr i32 %41, %38
+  %43 = trunc i32 %42 to i1
+  br i1 %43, label %44, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i, %34
   br label %44
 
 44:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i, %26
   %.sink.i = phi ptr [ %.029.i, %26 ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
-  %.sink60.i = phi ptr [ %.0.i, %26 ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
+  %.sink58.i = phi ptr [ %.0.i, %26 ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.thread.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %45 = add nsw i32 %.0..0..0..i, 1
   store i32 %45, ptr %.sink.i, align 4, !tbaa !10
   %46 = sext i32 %.0..0..0..i to i64
-  %47 = getelementptr inbounds i32, ptr %.sink60.i, i64 %46
+  %47 = getelementptr inbounds i32, ptr %.sink58.i, i64 %46
   store i32 %28, ptr %47, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -8345,18 +8327,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i: ; preds = %13
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr inbounds nuw i32, ptr %3, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !10
-  %19 = shl nuw i32 1, %15
-  %.fr.i = freeze i32 %18
-  %.fr44.i = freeze i32 %19
-  %20 = and i32 %.fr.i, %.fr44.i
-  %.not.i = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %.not.i, ptr %11, ptr %10
-  %spec.select46.i = select i1 %.not.i, ptr %8, ptr %7
+  %19 = lshr i32 %18, %15
+  %.fr.i = freeze i32 %19
+  %20 = trunc i32 %.fr.i to i1
+  %spec.select.i = select i1 %20, ptr %10, ptr %11
+  %spec.select44.i = select i1 %20, ptr %7, ptr %8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i, %13, %9
   %.026.i = phi ptr [ %11, %9 ], [ %11, %13 ], [ %spec.select.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
-  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select46.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
+  %.0.i = phi ptr [ %8, %9 ], [ %8, %13 ], [ %spec.select44.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit.i ]
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.i, label %_ZNK8LightGBM8DenseBinIjLb0EE21SplitCategoricalInnerILb0EEEijjjPKjiPKiiPiS7_.exit
 
@@ -8392,22 +8372,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i: ; preds = %32
   %36 = zext nneg i32 %34 to i64
   %37 = getelementptr inbounds nuw i32, ptr %3, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !10
-  %39 = shl nuw i32 1, %35
-  %40 = and i32 %38, %39
-  %.not45.i = icmp eq i32 %40, 0
-  br i1 %.not45.i, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, label %41
+  %39 = lshr i32 %38, %35
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %41, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %32
   br label %41
 
 41:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i, %25
   %.sink.i = phi ptr [ %.026.i, %25 ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %10, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
-  %.sink55.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
+  %.sink53.i = phi ptr [ %.0.i, %25 ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.thread.i ], [ %7, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit35.i ]
   %.0..0..0..i = load i32, ptr %.sink.i, align 4, !tbaa !10
   %42 = add nsw i32 %.0..0..0..i, 1
   store i32 %42, ptr %.sink.i, align 4, !tbaa !10
   %43 = sext i32 %.0..0..0..i to i64
-  %44 = getelementptr inbounds i32, ptr %.sink55.i, i64 %43
+  %44 = getelementptr inbounds i32, ptr %.sink53.i, i64 %43
   store i32 %27, ptr %44, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -24154,18 +24133,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %14
   %17 = zext nneg i32 %15 to i64
   %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !10
-  %20 = shl nuw i32 1, %16
-  %.fr = freeze i32 %19
-  %.fr48 = freeze i32 %20
-  %21 = and i32 %.fr, %.fr48
-  %.not = icmp eq i32 %21, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select50 = select i1 %.not, ptr %9, ptr %8
+  %20 = lshr i32 %19, %16
+  %.fr = freeze i32 %20
+  %21 = trunc i32 %.fr to i1
+  %spec.select = select i1 %21, ptr %11, ptr %12
+  %spec.select48 = select i1 %21, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %14, %10
   %.029 = phi ptr [ %12, %10 ], [ %12, %14 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select50, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %10 ], [ %9, %14 ], [ %spec.select48, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %22 = icmp sgt i32 %7, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -24175,12 +24152,12 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %14
   %.not.i37 = icmp sgt i32 %5, 0
   %25 = zext i1 %13 to i32
   %26 = sub i32 %25, %1
-  %wide.trip.count57 = zext nneg i32 %7 to i64
+  %wide.trip.count55 = zext nneg i32 %7 to i64
   br i1 %.not.i37, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %44 ], [ 0, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv54
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %44 ], [ 0, %.lr.ph ]
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv52
   %28 = load i32, ptr %27, align 4, !tbaa !10
   %29 = ashr i32 %28, 1
   %30 = sext i32 %29 to i64
@@ -24199,25 +24176,24 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %14
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us: ; preds = %.lr.ph.split.us
   %40 = add i32 %26, %37
   %41 = load i32, ptr %4, align 4, !tbaa !10
-  %42 = shl nuw i32 1, %40
-  %43 = and i32 %41, %42
-  %.not49.us = icmp eq i32 %43, 0
-  %. = select i1 %.not49.us, ptr %12, ptr %11
-  %.72 = select i1 %.not49.us, ptr %9, ptr %8
+  %42 = lshr i32 %41, %40
+  %43 = trunc i32 %42 to i1
+  %. = select i1 %43, ptr %11, ptr %12
+  %.70 = select i1 %43, ptr %8, ptr %9
   br label %44
 
 44:                                               ; preds = %.lr.ph.split.us, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us
-  %.029.sink67 = phi ptr [ %., %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us ], [ %.029, %.lr.ph.split.us ]
-  %.0.sink = phi ptr [ %.72, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us ], [ %.0, %.lr.ph.split.us ]
-  %45 = load i32, ptr %.029.sink67, align 4, !tbaa !10
+  %.029.sink65 = phi ptr [ %., %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us ], [ %.029, %.lr.ph.split.us ]
+  %.0.sink = phi ptr [ %.70, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us ], [ %.0, %.lr.ph.split.us ]
+  %45 = load i32, ptr %.029.sink65, align 4, !tbaa !10
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %.029.sink67, align 4, !tbaa !10
+  store i32 %46, ptr %.029.sink65, align 4, !tbaa !10
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds i32, ptr %.0.sink, i64 %47
   store i32 %28, ptr %48, align 4, !tbaa !10
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !552
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
+  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !552
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %44, %.thread
   %.0..0..0..0.31 = load i32, ptr %11, align 4, !tbaa !10
@@ -24250,7 +24226,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit39.us: ; preds = %.lr.ph.split
   %64 = getelementptr inbounds i32, ptr %.0., i64 %63
   store i32 %50, ptr %64, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count57
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !552
 }
 
@@ -35692,18 +35668,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !10
-  %36 = shl nuw i32 1, %32
-  %.fr = freeze i32 %35
-  %.fr55 = freeze i32 %36
-  %37 = and i32 %.fr, %.fr55
-  %.not = icmp eq i32 %37, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select57 = select i1 %.not, ptr %9, ptr %8
+  %36 = lshr i32 %35, %32
+  %.fr = freeze i32 %36
+  %37 = trunc i32 %.fr to i1
+  %spec.select = select i1 %37, ptr %11, ptr %12
+  %spec.select55 = select i1 %37, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %30, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %.032 = phi ptr [ %12, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit ], [ %12, %30 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit ], [ %9, %30 ], [ %spec.select57, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit ], [ %9, %30 ], [ %spec.select55, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %38 = icmp sgt i32 %7, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -35730,15 +35704,15 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 46:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %.sroa.11.061 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %79 ]
-  %.sroa.7.060 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %79 ]
+  %.sroa.11.059 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %79 ]
+  %.sroa.7.058 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %79 ]
   %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = icmp slt i32 %.sroa.7.060, %48
+  %49 = icmp slt i32 %.sroa.7.058, %48
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
-  %50 = sext i32 %.sroa.11.061 to i64
+  %50 = sext i32 %.sroa.11.059 to i64
   %51 = load i32, ptr %41, align 8, !tbaa !248
   %52 = sext i32 %51 to i64
   %53 = load i32, ptr %42, align 8
@@ -35746,7 +35720,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i ], [ %50, %.lr.ph.i.i ]
-  %54 = phi i32 [ %spec.select54, %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.060, %.lr.ph.i.i ]
+  %54 = phi i32 [ %spec.select54, %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.058, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.next.i
   %56 = load i8, ptr %55, align 1, !tbaa !9
@@ -35762,8 +35736,8 @@ _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8Ligh
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %46
-  %.sroa.7.1 = phi i32 [ %.sroa.7.060, %46 ], [ %spec.select54, %._crit_edge.i.i.loopexit ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.061, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.058, %46 ], [ %spec.select54, %._crit_edge.i.i.loopexit ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.059, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
   %61 = icmp eq i32 %.sroa.7.1, %48
   br i1 %61, label %62, label %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit
 
@@ -35793,22 +35767,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42: ; preds = %69
   %74 = zext nneg i32 %72 to i64
   %75 = getelementptr inbounds nuw i32, ptr %4, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !10
-  %77 = shl nuw i32 1, %73
-  %78 = and i32 %76, %77
-  %.not56 = icmp eq i32 %78, 0
-  br i1 %.not56, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread, label %79
+  %77 = lshr i32 %76, %73
+  %78 = trunc i32 %77 to i1
+  br i1 %78, label %79, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread: ; preds = %69, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42
   br label %79
 
 79:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread
   %.sink = phi ptr [ %.032, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
-  %.sink72 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
+  %.sink70 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
   %.0..0..0. = load i32, ptr %.sink, align 4, !tbaa !10
   %80 = add nsw i32 %.0..0..0., 1
   store i32 %80, ptr %.sink, align 4, !tbaa !10
   %81 = sext i32 %.0..0..0. to i64
-  %82 = getelementptr inbounds i32, ptr %.sink72, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.sink70, i64 %81
   store i32 %48, ptr %82, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -35862,18 +35835,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !10
-  %36 = shl nuw i32 1, %32
-  %.fr = freeze i32 %35
-  %.fr52 = freeze i32 %36
-  %37 = and i32 %.fr, %.fr52
-  %.not = icmp eq i32 %37, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select54 = select i1 %.not, ptr %9, ptr %8
+  %36 = lshr i32 %35, %32
+  %.fr = freeze i32 %36
+  %37 = trunc i32 %.fr to i1
+  %spec.select = select i1 %37, ptr %11, ptr %12
+  %spec.select52 = select i1 %37, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %30, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit
   %.029 = phi ptr [ %12, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit ], [ %12, %30 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit ], [ %9, %30 ], [ %spec.select54, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIhEC2EPKNS_9SparseBinIhEEi.exit ], [ %9, %30 ], [ %spec.select52, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %38 = icmp sgt i32 %7, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -35900,15 +35871,15 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 46:                                               ; preds = %.lr.ph, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread ]
-  %.sroa.11.058 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread ]
-  %.sroa.7.057 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread ]
+  %.sroa.11.056 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread ]
+  %.sroa.7.055 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread ]
   %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = icmp slt i32 %.sroa.7.057, %48
+  %49 = icmp slt i32 %.sroa.7.055, %48
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
-  %50 = sext i32 %.sroa.11.058 to i64
+  %50 = sext i32 %.sroa.11.056 to i64
   %51 = load i32, ptr %41, align 8, !tbaa !248
   %52 = sext i32 %51 to i64
   %53 = load i32, ptr %42, align 8
@@ -35916,7 +35887,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i ], [ %50, %.lr.ph.i.i ]
-  %54 = phi i32 [ %spec.select51, %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.057, %.lr.ph.i.i ]
+  %54 = phi i32 [ %spec.select51, %_ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.055, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.next.i
   %56 = load i8, ptr %55, align 1, !tbaa !9
@@ -35932,8 +35903,8 @@ _ZNK8LightGBM9SparseBinIhE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8Ligh
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %46
-  %.sroa.7.1 = phi i32 [ %.sroa.7.057, %46 ], [ %spec.select51, %._crit_edge.i.i.loopexit ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.058, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.055, %46 ], [ %spec.select51, %._crit_edge.i.i.loopexit ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.056, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
   %61 = icmp eq i32 %.sroa.7.1, %48
   br i1 %61, label %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit, label %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread
 
@@ -35957,22 +35928,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38: ; preds = %66
   %72 = zext nneg i32 %70 to i64
   %73 = getelementptr inbounds nuw i32, ptr %4, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !10
-  %75 = shl nuw i32 1, %71
-  %76 = and i32 %74, %75
-  %.not53 = icmp eq i32 %76, 0
-  br i1 %.not53, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread, label %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread
+  %75 = lshr i32 %74, %71
+  %76 = trunc i32 %75 to i1
+  br i1 %76, label %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread: ; preds = %66, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38
   br label %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread
 
 _ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit.thread: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit, %._crit_edge.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread
   %.sink = phi ptr [ %.029, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.029, %._crit_edge.i.i ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
-  %.sink69 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.0, %._crit_edge.i.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
+  %.sink67 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIhE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.0, %._crit_edge.i.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
   %.0..0..0. = load i32, ptr %.sink, align 4, !tbaa !10
   %77 = add nsw i32 %.0..0..0., 1
   store i32 %77, ptr %.sink, align 4, !tbaa !10
   %78 = sext i32 %.0..0..0. to i64
-  %79 = getelementptr inbounds i32, ptr %.sink69, i64 %78
+  %79 = getelementptr inbounds i32, ptr %.sink67, i64 %78
   store i32 %48, ptr %79, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -42825,18 +42795,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !10
-  %36 = shl nuw i32 1, %32
-  %.fr = freeze i32 %35
-  %.fr55 = freeze i32 %36
-  %37 = and i32 %.fr, %.fr55
-  %.not = icmp eq i32 %37, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select57 = select i1 %.not, ptr %9, ptr %8
+  %36 = lshr i32 %35, %32
+  %.fr = freeze i32 %36
+  %37 = trunc i32 %.fr to i1
+  %spec.select = select i1 %37, ptr %11, ptr %12
+  %spec.select55 = select i1 %37, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %30, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %.032 = phi ptr [ %12, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit ], [ %12, %30 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit ], [ %9, %30 ], [ %spec.select57, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit ], [ %9, %30 ], [ %spec.select55, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %38 = icmp sgt i32 %7, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -42863,15 +42831,15 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 46:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %.sroa.11.061 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %79 ]
-  %.sroa.7.060 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %79 ]
+  %.sroa.11.059 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %79 ]
+  %.sroa.7.058 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %79 ]
   %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = icmp slt i32 %.sroa.7.060, %48
+  %49 = icmp slt i32 %.sroa.7.058, %48
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
-  %50 = sext i32 %.sroa.11.061 to i64
+  %50 = sext i32 %.sroa.11.059 to i64
   %51 = load i32, ptr %41, align 8, !tbaa !327
   %52 = sext i32 %51 to i64
   %53 = load i32, ptr %42, align 8
@@ -42879,7 +42847,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i ], [ %50, %.lr.ph.i.i ]
-  %54 = phi i32 [ %spec.select54, %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.060, %.lr.ph.i.i ]
+  %54 = phi i32 [ %spec.select54, %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.058, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.next.i
   %56 = load i8, ptr %55, align 1, !tbaa !9
@@ -42895,8 +42863,8 @@ _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8Ligh
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %46
-  %.sroa.7.1 = phi i32 [ %.sroa.7.060, %46 ], [ %spec.select54, %._crit_edge.i.i.loopexit ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.061, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.058, %46 ], [ %spec.select54, %._crit_edge.i.i.loopexit ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.059, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
   %61 = icmp eq i32 %.sroa.7.1, %48
   br i1 %61, label %62, label %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit
 
@@ -42926,22 +42894,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42: ; preds = %69
   %74 = zext nneg i32 %72 to i64
   %75 = getelementptr inbounds nuw i32, ptr %4, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !10
-  %77 = shl nuw i32 1, %73
-  %78 = and i32 %76, %77
-  %.not56 = icmp eq i32 %78, 0
-  br i1 %.not56, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread, label %79
+  %77 = lshr i32 %76, %73
+  %78 = trunc i32 %77 to i1
+  br i1 %78, label %79, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread: ; preds = %69, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42
   br label %79
 
 79:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread
   %.sink = phi ptr [ %.032, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
-  %.sink72 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
+  %.sink70 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
   %.0..0..0. = load i32, ptr %.sink, align 4, !tbaa !10
   %80 = add nsw i32 %.0..0..0., 1
   store i32 %80, ptr %.sink, align 4, !tbaa !10
   %81 = sext i32 %.0..0..0. to i64
-  %82 = getelementptr inbounds i32, ptr %.sink72, i64 %81
+  %82 = getelementptr inbounds i32, ptr %.sink70, i64 %81
   store i32 %48, ptr %82, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -42995,18 +42962,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !10
-  %36 = shl nuw i32 1, %32
-  %.fr = freeze i32 %35
-  %.fr52 = freeze i32 %36
-  %37 = and i32 %.fr, %.fr52
-  %.not = icmp eq i32 %37, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select54 = select i1 %.not, ptr %9, ptr %8
+  %36 = lshr i32 %35, %32
+  %.fr = freeze i32 %36
+  %37 = trunc i32 %.fr to i1
+  %spec.select = select i1 %37, ptr %11, ptr %12
+  %spec.select52 = select i1 %37, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %30, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit
   %.029 = phi ptr [ %12, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit ], [ %12, %30 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit ], [ %9, %30 ], [ %spec.select54, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorItEC2EPKNS_9SparseBinItEEi.exit ], [ %9, %30 ], [ %spec.select52, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %38 = icmp sgt i32 %7, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -43033,15 +42998,15 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 46:                                               ; preds = %.lr.ph, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread ]
-  %.sroa.11.058 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread ]
-  %.sroa.7.057 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread ]
+  %.sroa.11.056 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread ]
+  %.sroa.7.055 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread ]
   %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = icmp slt i32 %.sroa.7.057, %48
+  %49 = icmp slt i32 %.sroa.7.055, %48
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
-  %50 = sext i32 %.sroa.11.058 to i64
+  %50 = sext i32 %.sroa.11.056 to i64
   %51 = load i32, ptr %41, align 8, !tbaa !327
   %52 = sext i32 %51 to i64
   %53 = load i32, ptr %42, align 8
@@ -43049,7 +43014,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i ], [ %50, %.lr.ph.i.i ]
-  %54 = phi i32 [ %spec.select51, %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.057, %.lr.ph.i.i ]
+  %54 = phi i32 [ %spec.select51, %_ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.055, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.next.i
   %56 = load i8, ptr %55, align 1, !tbaa !9
@@ -43065,8 +43030,8 @@ _ZNK8LightGBM9SparseBinItE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8Ligh
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %46
-  %.sroa.7.1 = phi i32 [ %.sroa.7.057, %46 ], [ %spec.select51, %._crit_edge.i.i.loopexit ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.058, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.055, %46 ], [ %spec.select51, %._crit_edge.i.i.loopexit ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.056, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
   %61 = icmp eq i32 %.sroa.7.1, %48
   br i1 %61, label %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit, label %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread
 
@@ -43090,22 +43055,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38: ; preds = %66
   %72 = zext nneg i32 %70 to i64
   %73 = getelementptr inbounds nuw i32, ptr %4, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !10
-  %75 = shl nuw i32 1, %71
-  %76 = and i32 %74, %75
-  %.not53 = icmp eq i32 %76, 0
-  br i1 %.not53, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread, label %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread
+  %75 = lshr i32 %74, %71
+  %76 = trunc i32 %75 to i1
+  br i1 %76, label %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread: ; preds = %66, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38
   br label %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread
 
 _ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit.thread: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit, %._crit_edge.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread
   %.sink = phi ptr [ %.029, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.029, %._crit_edge.i.i ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
-  %.sink69 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.0, %._crit_edge.i.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
+  %.sink67 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorItE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.0, %._crit_edge.i.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
   %.0..0..0. = load i32, ptr %.sink, align 4, !tbaa !10
   %77 = add nsw i32 %.0..0..0., 1
   store i32 %77, ptr %.sink, align 4, !tbaa !10
   %78 = sext i32 %.0..0..0. to i64
-  %79 = getelementptr inbounds i32, ptr %.sink69, i64 %78
+  %79 = getelementptr inbounds i32, ptr %.sink67, i64 %78
   store i32 %48, ptr %79, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -49807,18 +49771,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !10
-  %36 = shl nuw i32 1, %32
-  %.fr = freeze i32 %35
-  %.fr55 = freeze i32 %36
-  %37 = and i32 %.fr, %.fr55
-  %.not = icmp eq i32 %37, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select57 = select i1 %.not, ptr %9, ptr %8
+  %36 = lshr i32 %35, %32
+  %.fr = freeze i32 %36
+  %37 = trunc i32 %.fr to i1
+  %spec.select = select i1 %37, ptr %11, ptr %12
+  %spec.select55 = select i1 %37, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %30, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit
   %.032 = phi ptr [ %12, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit ], [ %12, %30 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit ], [ %9, %30 ], [ %spec.select57, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit ], [ %9, %30 ], [ %spec.select55, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %38 = icmp sgt i32 %7, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -49845,15 +49807,15 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 46:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %.sroa.11.061 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %78 ]
-  %.sroa.7.060 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %78 ]
+  %.sroa.11.059 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %78 ]
+  %.sroa.7.058 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %78 ]
   %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = icmp slt i32 %.sroa.7.060, %48
+  %49 = icmp slt i32 %.sroa.7.058, %48
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
-  %50 = sext i32 %.sroa.11.061 to i64
+  %50 = sext i32 %.sroa.11.059 to i64
   %51 = load i32, ptr %41, align 8, !tbaa !406
   %52 = sext i32 %51 to i64
   %53 = load i32, ptr %42, align 8
@@ -49861,7 +49823,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 _ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i ], [ %50, %.lr.ph.i.i ]
-  %54 = phi i32 [ %spec.select54, %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.060, %.lr.ph.i.i ]
+  %54 = phi i32 [ %spec.select54, %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.058, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.next.i
   %56 = load i8, ptr %55, align 1, !tbaa !9
@@ -49877,8 +49839,8 @@ _ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8Ligh
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %46
-  %.sroa.7.1 = phi i32 [ %.sroa.7.060, %46 ], [ %spec.select54, %._crit_edge.i.i.loopexit ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.061, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.058, %46 ], [ %spec.select54, %._crit_edge.i.i.loopexit ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.059, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
   %61 = icmp eq i32 %.sroa.7.1, %48
   br i1 %61, label %62, label %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit
 
@@ -49907,22 +49869,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42: ; preds = %68
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds nuw i32, ptr %4, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !10
-  %76 = shl nuw i32 1, %72
-  %77 = and i32 %75, %76
-  %.not56 = icmp eq i32 %77, 0
-  br i1 %.not56, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread, label %78
+  %76 = lshr i32 %75, %72
+  %77 = trunc i32 %76 to i1
+  br i1 %77, label %78, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread: ; preds = %68, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42
   br label %78
 
 78:                                               ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread
   %.sink = phi ptr [ %.032, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
-  %.sink72 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
+  %.sink70 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42.thread ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit42 ]
   %.0..0..0. = load i32, ptr %.sink, align 4, !tbaa !10
   %79 = add nsw i32 %.0..0..0., 1
   store i32 %79, ptr %.sink, align 4, !tbaa !10
   %80 = sext i32 %.0..0..0. to i64
-  %81 = getelementptr inbounds i32, ptr %.sink72, i64 %80
+  %81 = getelementptr inbounds i32, ptr %.sink70, i64 %80
   store i32 %48, ptr %81, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -49976,18 +49937,16 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
   %33 = zext nneg i32 %31 to i64
   %34 = getelementptr inbounds nuw i32, ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !10
-  %36 = shl nuw i32 1, %32
-  %.fr = freeze i32 %35
-  %.fr52 = freeze i32 %36
-  %37 = and i32 %.fr, %.fr52
-  %.not = icmp eq i32 %37, 0
-  %spec.select = select i1 %.not, ptr %12, ptr %11
-  %spec.select54 = select i1 %.not, ptr %9, ptr %8
+  %36 = lshr i32 %35, %32
+  %.fr = freeze i32 %36
+  %37 = trunc i32 %.fr to i1
+  %spec.select = select i1 %37, ptr %11, ptr %12
+  %spec.select52 = select i1 %37, ptr %8, ptr %9
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit, %30, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit
   %.029 = phi ptr [ %12, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit ], [ %12, %30 ], [ %spec.select, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
-  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit ], [ %9, %30 ], [ %spec.select54, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
+  %.0 = phi ptr [ %9, %_ZN8LightGBM17SparseBinIteratorIjEC2EPKNS_9SparseBinIjEEi.exit ], [ %9, %30 ], [ %spec.select52, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit ]
   %38 = icmp sgt i32 %7, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -50014,15 +49973,15 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 46:                                               ; preds = %.lr.ph, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread ]
-  %.sroa.11.058 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread ]
-  %.sroa.7.057 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread ]
+  %.sroa.11.056 = phi i32 [ %storemerge7.i.i.i, %.lr.ph ], [ %.sroa.11.1, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread ]
+  %.sroa.7.055 = phi i32 [ %storemerge.i.i.i, %.lr.ph ], [ %.sroa.7.1, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread ]
   %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !10
-  %49 = icmp slt i32 %.sroa.7.057, %48
+  %49 = icmp slt i32 %.sroa.7.055, %48
   br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %46
-  %50 = sext i32 %.sroa.11.058 to i64
+  %50 = sext i32 %.sroa.11.056 to i64
   %51 = load i32, ptr %41, align 8, !tbaa !406
   %52 = sext i32 %51 to i64
   %53 = load i32, ptr %42, align 8
@@ -50030,7 +49989,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit: ; preds = %30
 
 _ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i ], [ %50, %.lr.ph.i.i ]
-  %54 = phi i32 [ %spec.select51, %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.057, %.lr.ph.i.i ]
+  %54 = phi i32 [ %spec.select51, %_ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i ], [ %.sroa.7.055, %.lr.ph.i.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.next.i
   %56 = load i8, ptr %55, align 1, !tbaa !9
@@ -50046,8 +50005,8 @@ _ZNK8LightGBM9SparseBinIjE15NextNonzeroFastEPiS2_.exit.i.i: ; preds = %_ZNK8Ligh
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %46
-  %.sroa.7.1 = phi i32 [ %.sroa.7.057, %46 ], [ %spec.select51, %._crit_edge.i.i.loopexit ]
-  %.sroa.11.1 = phi i32 [ %.sroa.11.058, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.055, %46 ], [ %spec.select51, %._crit_edge.i.i.loopexit ]
+  %.sroa.11.1 = phi i32 [ %.sroa.11.056, %46 ], [ %60, %._crit_edge.i.i.loopexit ]
   %61 = icmp eq i32 %.sroa.7.1, %48
   br i1 %61, label %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit, label %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread
 
@@ -50070,22 +50029,21 @@ _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38: ; preds = %66
   %71 = zext nneg i32 %69 to i64
   %72 = getelementptr inbounds nuw i32, ptr %4, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !10
-  %74 = shl nuw i32 1, %70
-  %75 = and i32 %73, %74
-  %.not53 = icmp eq i32 %75, 0
-  br i1 %.not53, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread, label %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread
+  %74 = lshr i32 %73, %70
+  %75 = trunc i32 %74 to i1
+  br i1 %75, label %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread, label %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread
 
 _ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread: ; preds = %66, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38
   br label %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread
 
 _ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit.thread: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit, %._crit_edge.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread
   %.sink = phi ptr [ %.029, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit ], [ %12, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.029, %._crit_edge.i.i ], [ %11, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
-  %.sink69 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.0, %._crit_edge.i.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
+  %.sink67 = phi ptr [ %.0, %_ZN8LightGBM17SparseBinIteratorIjE6RawGetEi.exit ], [ %9, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38.thread ], [ %.0, %._crit_edge.i.i ], [ %8, %_ZN8LightGBM6CommonL12FindInBitsetIjEEbPKjiT_.exit38 ]
   %.0..0..0. = load i32, ptr %.sink, align 4, !tbaa !10
   %76 = add nsw i32 %.0..0..0., 1
   store i32 %76, ptr %.sink, align 4, !tbaa !10
   %77 = sext i32 %.0..0..0. to i64
-  %78 = getelementptr inbounds i32, ptr %.sink69, i64 %77
+  %78 = getelementptr inbounds i32, ptr %.sink67, i64 %77
   store i32 %48, ptr %78, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

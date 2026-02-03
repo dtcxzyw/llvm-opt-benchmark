@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.159" = type { %"struct.std::_Head_base.162" }
 %"struct.std::_Head_base.162" = type { ptr }
 
-$_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev = comdat any
-
 $_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev = comdat any
 
 $_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev = comdat any
@@ -401,9 +399,8 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit: ; preds = %90
 
 114:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit
   %115 = ptrtoint ptr %113 to i64
-  %116 = and i64 %115, 1
-  %.not3.i.i88 = icmp eq i64 %116, 0
-  br i1 %.not3.i.i88, label %122, label %117
+  %116 = trunc i64 %115 to i1
+  br i1 %116, label %117, label %122
 
 117:                                              ; preds = %114
   %118 = and i64 %115, -2
@@ -428,71 +425,71 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit: ; pr
   %127 = load ptr, ptr %44, align 8, !tbaa !164
   %128 = load i32, ptr %102, align 8, !tbaa !199, !noalias !203
   %129 = icmp ugt i32 %128, 1008
-  br i1 %129, label %130, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit23.i
+  br i1 %129, label %130, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit22.i
 
 130:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit
   %131 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-          to label %.noexc99 unwind label %459
+          to label %.noexc98 unwind label %459
 
-.noexc99:                                         ; preds = %130
+.noexc98:                                         ; preds = %130
   br i1 %131, label %132, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i
 
-132:                                              ; preds = %.noexc99
+132:                                              ; preds = %.noexc98
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !203
   invoke void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %13, ptr noundef nonnull @.str.65, i32 noundef 62, i32 noundef 2)
-          to label %.noexc100 unwind label %459
+          to label %.noexc99 unwind label %459
 
-.noexc100:                                        ; preds = %132
+.noexc99:                                         ; preds = %132
   %133 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull @.str.67, i64 noundef 41)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i91 unwind label %153, !noalias !203
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i90 unwind label %153, !noalias !203
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i91: ; preds = %.noexc100
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i90: ; preds = %.noexc99
   %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef nonnull align 8 dereferenceable(1028) %101)
-          to label %_ZNSolsEPKv.exit.i92 unwind label %153, !noalias !203
+          to label %_ZNSolsEPKv.exit.i91 unwind label %153, !noalias !203
 
-_ZNSolsEPKv.exit.i92:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i91
+_ZNSolsEPKv.exit.i91:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i90
   %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull @.str.68, i64 noundef 15)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i93 unwind label %153, !noalias !203
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i92 unwind label %153, !noalias !203
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i93: ; preds = %_ZNSolsEPKv.exit.i92
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i92: ; preds = %_ZNSolsEPKv.exit.i91
   %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %135, i64 noundef 1024)
-          to label %_ZNSolsEj.exit.i94 unwind label %153, !noalias !203
+          to label %_ZNSolsEj.exit.i93 unwind label %153, !noalias !203
 
-_ZNSolsEj.exit.i94:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i93
+_ZNSolsEj.exit.i93:                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i92
   %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull @.str.69, i64 noundef 22)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i95 unwind label %153, !noalias !203
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i94 unwind label %153, !noalias !203
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i95: ; preds = %_ZNSolsEj.exit.i94
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i94: ; preds = %_ZNSolsEj.exit.i93
   %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %137, i64 noundef 16)
-          to label %_ZNSolsEj.exit18.i96 unwind label %153, !noalias !203
+          to label %_ZNSolsEj.exit18.i95 unwind label %153, !noalias !203
 
-_ZNSolsEj.exit18.i96:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i95
+_ZNSolsEj.exit18.i95:                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i94
   %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %139, ptr noundef nonnull @.str.70, i64 noundef 19)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i97 unwind label %153, !noalias !203
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i96 unwind label %153, !noalias !203
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i97: ; preds = %_ZNSolsEj.exit18.i96
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i96: ; preds = %_ZNSolsEj.exit18.i95
   %141 = load i32, ptr %102, align 8, !tbaa !199, !noalias !203
   %142 = zext i32 %141 to i64
   %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %139, i64 noundef %142)
-          to label %.critedge.i98 unwind label %153, !noalias !203
+          to label %.critedge.i97 unwind label %153, !noalias !203
 
-.critedge.i98:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i97
+.critedge.i97:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i96
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %13) #25, !noalias !203
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !203
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i98, %.noexc99
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i97, %.noexc98
   %144 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-          to label %.noexc101 unwind label %459
+          to label %.noexc100 unwind label %459
 
-.noexc101:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i
+.noexc100:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 16), ptr %144, align 8, !tbaa !3, !noalias !203
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr %0, ptr %145, align 8, !tbaa !206, !noalias !203
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit22.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit
   %146 = zext nneg i32 %128 to i64
   %147 = getelementptr inbounds nuw i8, ptr %101, i64 %146
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 16), ptr %147, align 8, !tbaa !3, !noalias !203
@@ -505,35 +502,34 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
   %152 = inttoptr i64 %151 to ptr
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-153:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i97, %_ZNSolsEj.exit18.i96, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i95, %_ZNSolsEj.exit.i94, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i93, %_ZNSolsEPKv.exit.i92, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i91, %.noexc100
+153:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i96, %_ZNSolsEj.exit18.i95, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i94, %_ZNSolsEj.exit.i93, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i92, %_ZNSolsEPKv.exit.i91, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i90, %.noexc99
   %154 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %13) #25, !noalias !203
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !203
-  br label %.body102
+  br label %.body101
 
-_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit23.i, %.noexc101
-  %storemerge.i90 = phi ptr [ %152, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit23.i ], [ %144, %.noexc101 ]
-  store ptr %storemerge.i90, ptr %17, align 8, !tbaa !200
+_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit22.i, %.noexc100
+  %storemerge.i89 = phi ptr [ %152, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit22.i ], [ %144, %.noexc100 ]
+  store ptr %storemerge.i89, ptr %17, align 8, !tbaa !200
   %155 = load ptr, ptr %127, align 8, !tbaa !3
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load ptr, ptr %156, align 8
   invoke void %157(ptr dead_on_unwind nonnull writable sret(%"class.net::QuicArenaScopedPtr") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef nonnull %17, ptr noundef nonnull %101)
-          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit106 unwind label %461
+          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit104 unwind label %461
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit106: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit104: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %158 = load ptr, ptr %16, align 8, !tbaa !202
   store ptr %158, ptr %126, align 8, !tbaa !202
   store ptr null, ptr %16, align 8, !tbaa !202
   %159 = load ptr, ptr %17, align 8, !tbaa !200
-  %.not.i.i107 = icmp eq ptr %159, null
-  br i1 %.not.i.i107, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit, label %160
+  %.not.i.i105 = icmp eq ptr %159, null
+  br i1 %.not.i.i105, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit, label %160
 
-160:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit106
+160:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit104
   %161 = ptrtoint ptr %159 to i64
-  %162 = and i64 %161, 1
-  %.not3.i.i108 = icmp eq i64 %162, 0
-  br i1 %.not3.i.i108, label %168, label %163
+  %162 = trunc i64 %161 to i1
+  br i1 %162, label %163, label %168
 
 163:                                              ; preds = %160
   %164 = and i64 %161, -2
@@ -550,7 +546,7 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit106: ; preds = %_ZN3net17Qui
   call void %171(ptr noundef nonnull align 8 dereferenceable(8) %159) #25
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit: ; preds = %168, %163, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit106
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit: ; preds = %168, %163, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit104
   store ptr null, ptr %17, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 2352
@@ -567,21 +563,20 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = load ptr, ptr %177, align 8
   invoke void %178(ptr dead_on_unwind nonnull writable sret(%"class.net::QuicArenaScopedPtr") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull %19, ptr noundef nonnull %101)
-          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114 unwind label %478
+          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit109 unwind label %478
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114: ; preds = %174
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit109: ; preds = %174
   %179 = load ptr, ptr %18, align 8, !tbaa !202
   store ptr %179, ptr %172, align 8, !tbaa !202
   store ptr null, ptr %18, align 8, !tbaa !202
   %180 = load ptr, ptr %19, align 8, !tbaa !200
-  %.not.i.i115 = icmp eq ptr %180, null
-  br i1 %.not.i.i115, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit, label %181
+  %.not.i.i110 = icmp eq ptr %180, null
+  br i1 %.not.i.i110, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit, label %181
 
-181:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114
+181:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit109
   %182 = ptrtoint ptr %180 to i64
-  %183 = and i64 %182, 1
-  %.not3.i.i116 = icmp eq i64 %183, 0
-  br i1 %.not3.i.i116, label %189, label %184
+  %183 = trunc i64 %182 to i1
+  br i1 %183, label %184, label %189
 
 184:                                              ; preds = %181
   %185 = and i64 %182, -2
@@ -598,7 +593,7 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114: ; preds = %174
   call void %192(ptr noundef nonnull align 8 dereferenceable(8) %180) #25
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; preds = %189, %184, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; preds = %189, %184, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit109
   store ptr null, ptr %19, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -616,21 +611,20 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; p
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %199 = load ptr, ptr %198, align 8
   invoke void %199(ptr dead_on_unwind nonnull writable sret(%"class.net::QuicArenaScopedPtr") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef nonnull %22, ptr noundef nonnull %101)
-          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit122 unwind label %496
+          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114 unwind label %496
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit122: ; preds = %195
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114: ; preds = %195
   %200 = load ptr, ptr %21, align 8, !tbaa !202
   store ptr %200, ptr %193, align 8, !tbaa !202
   store ptr null, ptr %21, align 8, !tbaa !202
   %201 = load ptr, ptr %22, align 8, !tbaa !200
-  %.not.i.i123 = icmp eq ptr %201, null
-  br i1 %.not.i.i123, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128, label %202
+  %.not.i.i115 = icmp eq ptr %201, null
+  br i1 %.not.i.i115, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit118, label %202
 
-202:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit122
+202:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114
   %203 = ptrtoint ptr %201 to i64
-  %204 = and i64 %203, 1
-  %.not3.i.i124 = icmp eq i64 %204, 0
-  br i1 %.not3.i.i124, label %210, label %205
+  %204 = trunc i64 %203 to i1
+  br i1 %204, label %205, label %210
 
 205:                                              ; preds = %202
   %206 = and i64 %203, -2
@@ -638,16 +632,16 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit122: ; preds = %195
   %208 = load ptr, ptr %207, align 8, !tbaa !3
   %209 = load ptr, ptr %208, align 8
   call void %209(ptr noundef nonnull align 8 dereferenceable(8) %207) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit118
 
 210:                                              ; preds = %202
   %211 = load ptr, ptr %201, align 8, !tbaa !3
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
   call void %213(ptr noundef nonnull align 8 dereferenceable(8) %201) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit118
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128: ; preds = %210, %205, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit122
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit118: ; preds = %210, %205, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit114
   store ptr null, ptr %22, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -656,71 +650,71 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128: 
   %215 = load ptr, ptr %44, align 8, !tbaa !164
   %216 = load i32, ptr %102, align 8, !tbaa !199, !noalias !210
   %217 = icmp ugt i32 %216, 1008
-  br i1 %217, label %218, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit23.i
+  br i1 %217, label %218, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit22.i
 
-218:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128
+218:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit118
   %219 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-          to label %.noexc138 unwind label %512
+          to label %.noexc128 unwind label %512
 
-.noexc138:                                        ; preds = %218
+.noexc128:                                        ; preds = %218
   br i1 %219, label %220, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i
 
-220:                                              ; preds = %.noexc138
+220:                                              ; preds = %.noexc128
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !210
   invoke void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %12, ptr noundef nonnull @.str.65, i32 noundef 62, i32 noundef 2)
-          to label %.noexc139 unwind label %512
+          to label %.noexc129 unwind label %512
 
-.noexc139:                                        ; preds = %220
+.noexc129:                                        ; preds = %220
   %221 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %222 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %221, ptr noundef nonnull @.str.67, i64 noundef 41)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i130 unwind label %241, !noalias !210
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i120 unwind label %241, !noalias !210
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i130: ; preds = %.noexc139
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i120: ; preds = %.noexc129
   %223 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %221, ptr noundef nonnull align 8 dereferenceable(1028) %101)
-          to label %_ZNSolsEPKv.exit.i131 unwind label %241, !noalias !210
+          to label %_ZNSolsEPKv.exit.i121 unwind label %241, !noalias !210
 
-_ZNSolsEPKv.exit.i131:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i130
+_ZNSolsEPKv.exit.i121:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i120
   %224 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %223, ptr noundef nonnull @.str.68, i64 noundef 15)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i132 unwind label %241, !noalias !210
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i122 unwind label %241, !noalias !210
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i132: ; preds = %_ZNSolsEPKv.exit.i131
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i122: ; preds = %_ZNSolsEPKv.exit.i121
   %225 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %223, i64 noundef 1024)
-          to label %_ZNSolsEj.exit.i133 unwind label %241, !noalias !210
+          to label %_ZNSolsEj.exit.i123 unwind label %241, !noalias !210
 
-_ZNSolsEj.exit.i133:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i132
+_ZNSolsEj.exit.i123:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i122
   %226 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %225, ptr noundef nonnull @.str.69, i64 noundef 22)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i134 unwind label %241, !noalias !210
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i124 unwind label %241, !noalias !210
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i134: ; preds = %_ZNSolsEj.exit.i133
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i124: ; preds = %_ZNSolsEj.exit.i123
   %227 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %225, i64 noundef 16)
-          to label %_ZNSolsEj.exit18.i135 unwind label %241, !noalias !210
+          to label %_ZNSolsEj.exit18.i125 unwind label %241, !noalias !210
 
-_ZNSolsEj.exit18.i135:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i134
+_ZNSolsEj.exit18.i125:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i124
   %228 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %227, ptr noundef nonnull @.str.70, i64 noundef 19)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i136 unwind label %241, !noalias !210
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i126 unwind label %241, !noalias !210
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i136: ; preds = %_ZNSolsEj.exit18.i135
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i126: ; preds = %_ZNSolsEj.exit18.i125
   %229 = load i32, ptr %102, align 8, !tbaa !199, !noalias !210
   %230 = zext i32 %229 to i64
   %231 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %227, i64 noundef %230)
-          to label %.critedge.i137 unwind label %241, !noalias !210
+          to label %.critedge.i127 unwind label %241, !noalias !210
 
-.critedge.i137:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i136
+.critedge.i127:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i126
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %12) #25, !noalias !210
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !210
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i137, %.noexc138
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i127, %.noexc128
   %232 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-          to label %.noexc140 unwind label %512
+          to label %.noexc130 unwind label %512
 
-.noexc140:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i
+.noexc130:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 16), ptr %232, align 8, !tbaa !3, !noalias !210
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store ptr %0, ptr %233, align 8, !tbaa !213, !noalias !210
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit128
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit22.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit118
   %234 = zext nneg i32 %216 to i64
   %235 = getelementptr inbounds nuw i8, ptr %101, i64 %234
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 16), ptr %235, align 8, !tbaa !3, !noalias !210
@@ -733,35 +727,34 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit23
   %240 = inttoptr i64 %239 to ptr
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-241:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i136, %_ZNSolsEj.exit18.i135, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i134, %_ZNSolsEj.exit.i133, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i132, %_ZNSolsEPKv.exit.i131, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i130, %.noexc139
+241:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i126, %_ZNSolsEj.exit18.i125, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i124, %_ZNSolsEj.exit.i123, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i122, %_ZNSolsEPKv.exit.i121, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i120, %.noexc129
   %242 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %12) #25, !noalias !210
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !210
-  br label %.body141
+  br label %.body131
 
-_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit23.i, %.noexc140
-  %storemerge.i129 = phi ptr [ %240, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit23.i ], [ %232, %.noexc140 ]
-  store ptr %storemerge.i129, ptr %25, align 8, !tbaa !200
+_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit22.i, %.noexc130
+  %storemerge.i119 = phi ptr [ %240, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit22.i ], [ %232, %.noexc130 ]
+  store ptr %storemerge.i119, ptr %25, align 8, !tbaa !200
   %243 = load ptr, ptr %215, align 8, !tbaa !3
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
   %245 = load ptr, ptr %244, align 8
   invoke void %245(ptr dead_on_unwind nonnull writable sret(%"class.net::QuicArenaScopedPtr") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %215, ptr noundef nonnull %25, ptr noundef nonnull %101)
-          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit145 unwind label %514
+          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit134 unwind label %514
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit145: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit134: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %246 = load ptr, ptr %24, align 8, !tbaa !202
   store ptr %246, ptr %214, align 8, !tbaa !202
   store ptr null, ptr %24, align 8, !tbaa !202
   %247 = load ptr, ptr %25, align 8, !tbaa !200
-  %.not.i.i146 = icmp eq ptr %247, null
-  br i1 %.not.i.i146, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit, label %248
+  %.not.i.i135 = icmp eq ptr %247, null
+  br i1 %.not.i.i135, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit, label %248
 
-248:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit145
+248:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit134
   %249 = ptrtoint ptr %247 to i64
-  %250 = and i64 %249, 1
-  %.not3.i.i147 = icmp eq i64 %250, 0
-  br i1 %.not3.i.i147, label %256, label %251
+  %250 = trunc i64 %249 to i1
+  br i1 %250, label %251, label %256
 
 251:                                              ; preds = %248
   %252 = and i64 %249, -2
@@ -778,7 +771,7 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit145: ; preds = %_ZN3net17Qui
   call void %259(ptr noundef nonnull align 8 dereferenceable(8) %247) #25
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit: ; preds = %256, %251, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit145
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit: ; preds = %256, %251, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit134
   store ptr null, ptr %25, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 2376
@@ -786,71 +779,71 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit: 
   %261 = load ptr, ptr %44, align 8, !tbaa !164
   %262 = load i32, ptr %102, align 8, !tbaa !199, !noalias !215
   %263 = icmp ugt i32 %262, 1008
-  br i1 %263, label %264, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit23.i
+  br i1 %263, label %264, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit22.i
 
 264:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit
   %265 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-          to label %.noexc160 unwind label %529
+          to label %.noexc147 unwind label %529
 
-.noexc160:                                        ; preds = %264
+.noexc147:                                        ; preds = %264
   br i1 %265, label %266, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i
 
-266:                                              ; preds = %.noexc160
+266:                                              ; preds = %.noexc147
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !215
   invoke void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %11, ptr noundef nonnull @.str.65, i32 noundef 62, i32 noundef 2)
-          to label %.noexc161 unwind label %529
+          to label %.noexc148 unwind label %529
 
-.noexc161:                                        ; preds = %266
+.noexc148:                                        ; preds = %266
   %267 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %268 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %267, ptr noundef nonnull @.str.67, i64 noundef 41)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i152 unwind label %287, !noalias !215
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i139 unwind label %287, !noalias !215
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i152: ; preds = %.noexc161
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i139: ; preds = %.noexc148
   %269 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %267, ptr noundef nonnull align 8 dereferenceable(1028) %101)
-          to label %_ZNSolsEPKv.exit.i153 unwind label %287, !noalias !215
+          to label %_ZNSolsEPKv.exit.i140 unwind label %287, !noalias !215
 
-_ZNSolsEPKv.exit.i153:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i152
+_ZNSolsEPKv.exit.i140:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i139
   %270 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %269, ptr noundef nonnull @.str.68, i64 noundef 15)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i154 unwind label %287, !noalias !215
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i141 unwind label %287, !noalias !215
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i154: ; preds = %_ZNSolsEPKv.exit.i153
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i141: ; preds = %_ZNSolsEPKv.exit.i140
   %271 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %269, i64 noundef 1024)
-          to label %_ZNSolsEj.exit.i155 unwind label %287, !noalias !215
+          to label %_ZNSolsEj.exit.i142 unwind label %287, !noalias !215
 
-_ZNSolsEj.exit.i155:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i154
+_ZNSolsEj.exit.i142:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i141
   %272 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %271, ptr noundef nonnull @.str.69, i64 noundef 22)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i156 unwind label %287, !noalias !215
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i143 unwind label %287, !noalias !215
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i156: ; preds = %_ZNSolsEj.exit.i155
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i143: ; preds = %_ZNSolsEj.exit.i142
   %273 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %271, i64 noundef 16)
-          to label %_ZNSolsEj.exit18.i157 unwind label %287, !noalias !215
+          to label %_ZNSolsEj.exit18.i144 unwind label %287, !noalias !215
 
-_ZNSolsEj.exit18.i157:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i156
+_ZNSolsEj.exit18.i144:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i143
   %274 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %273, ptr noundef nonnull @.str.70, i64 noundef 19)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i158 unwind label %287, !noalias !215
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i145 unwind label %287, !noalias !215
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i158: ; preds = %_ZNSolsEj.exit18.i157
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i145: ; preds = %_ZNSolsEj.exit18.i144
   %275 = load i32, ptr %102, align 8, !tbaa !199, !noalias !215
   %276 = zext i32 %275 to i64
   %277 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %273, i64 noundef %276)
-          to label %.critedge.i159 unwind label %287, !noalias !215
+          to label %.critedge.i146 unwind label %287, !noalias !215
 
-.critedge.i159:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i158
+.critedge.i146:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i145
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #25, !noalias !215
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !215
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i159, %.noexc160
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i146, %.noexc147
   %278 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-          to label %.noexc162 unwind label %529
+          to label %.noexc149 unwind label %529
 
-.noexc162:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i
+.noexc149:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 16), ptr %278, align 8, !tbaa !3, !noalias !215
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store ptr %0, ptr %279, align 8, !tbaa !218, !noalias !215
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit22.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit
   %280 = zext nneg i32 %262 to i64
   %281 = getelementptr inbounds nuw i8, ptr %101, i64 %280
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 16), ptr %281, align 8, !tbaa !3, !noalias !215
@@ -863,35 +856,34 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit23.i:
   %286 = inttoptr i64 %285 to ptr
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-287:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i158, %_ZNSolsEj.exit18.i157, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i156, %_ZNSolsEj.exit.i155, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i154, %_ZNSolsEPKv.exit.i153, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i152, %.noexc161
+287:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i145, %_ZNSolsEj.exit18.i144, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i143, %_ZNSolsEj.exit.i142, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i141, %_ZNSolsEPKv.exit.i140, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i139, %.noexc148
   %288 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %11) #25, !noalias !215
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !215
-  br label %.body163
+  br label %.body150
 
-_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit23.i, %.noexc162
-  %storemerge.i151 = phi ptr [ %286, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit23.i ], [ %278, %.noexc162 ]
-  store ptr %storemerge.i151, ptr %27, align 8, !tbaa !200
+_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit22.i, %.noexc149
+  %storemerge.i138 = phi ptr [ %286, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit22.i ], [ %278, %.noexc149 ]
+  store ptr %storemerge.i138, ptr %27, align 8, !tbaa !200
   %289 = load ptr, ptr %261, align 8, !tbaa !3
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %291 = load ptr, ptr %290, align 8
   invoke void %291(ptr dead_on_unwind nonnull writable sret(%"class.net::QuicArenaScopedPtr") align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef nonnull %27, ptr noundef nonnull %101)
-          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit167 unwind label %531
+          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit153 unwind label %531
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit167: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit153: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %292 = load ptr, ptr %26, align 8, !tbaa !202
   store ptr %292, ptr %260, align 8, !tbaa !202
   store ptr null, ptr %26, align 8, !tbaa !202
   %293 = load ptr, ptr %27, align 8, !tbaa !200
-  %.not.i.i168 = icmp eq ptr %293, null
-  br i1 %.not.i.i168, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit, label %294
+  %.not.i.i154 = icmp eq ptr %293, null
+  br i1 %.not.i.i154, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit, label %294
 
-294:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit167
+294:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit153
   %295 = ptrtoint ptr %293 to i64
-  %296 = and i64 %295, 1
-  %.not3.i.i169 = icmp eq i64 %296, 0
-  br i1 %.not3.i.i169, label %302, label %297
+  %296 = trunc i64 %295 to i1
+  br i1 %296, label %297, label %302
 
 297:                                              ; preds = %294
   %298 = and i64 %295, -2
@@ -908,7 +900,7 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit167: ; preds = %_ZN3net17Qui
   call void %305(ptr noundef nonnull align 8 dereferenceable(8) %293) #25
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit: ; preds = %302, %297, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit167
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit: ; preds = %302, %297, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit153
   store ptr null, ptr %27, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 2384
@@ -916,71 +908,71 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit: ; p
   %307 = load ptr, ptr %44, align 8, !tbaa !164
   %308 = load i32, ptr %102, align 8, !tbaa !199, !noalias !220
   %309 = icmp ugt i32 %308, 1008
-  br i1 %309, label %310, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit23.i
+  br i1 %309, label %310, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit22.i
 
 310:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit
   %311 = invoke noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-          to label %.noexc182 unwind label %546
+          to label %.noexc166 unwind label %546
 
-.noexc182:                                        ; preds = %310
+.noexc166:                                        ; preds = %310
   br i1 %311, label %312, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i
 
-312:                                              ; preds = %.noexc182
+312:                                              ; preds = %.noexc166
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !220
   invoke void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %10, ptr noundef nonnull @.str.65, i32 noundef 62, i32 noundef 2)
-          to label %.noexc183 unwind label %546
+          to label %.noexc167 unwind label %546
 
-.noexc183:                                        ; preds = %312
+.noexc167:                                        ; preds = %312
   %313 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef nonnull @.str.67, i64 noundef 41)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i174 unwind label %333, !noalias !220
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i158 unwind label %333, !noalias !220
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i174: ; preds = %.noexc183
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i158: ; preds = %.noexc167
   %315 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr noundef nonnull align 8 dereferenceable(1028) %101)
-          to label %_ZNSolsEPKv.exit.i175 unwind label %333, !noalias !220
+          to label %_ZNSolsEPKv.exit.i159 unwind label %333, !noalias !220
 
-_ZNSolsEPKv.exit.i175:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i174
+_ZNSolsEPKv.exit.i159:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i158
   %316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %315, ptr noundef nonnull @.str.68, i64 noundef 15)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i176 unwind label %333, !noalias !220
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i160 unwind label %333, !noalias !220
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i176: ; preds = %_ZNSolsEPKv.exit.i175
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i160: ; preds = %_ZNSolsEPKv.exit.i159
   %317 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %315, i64 noundef 1024)
-          to label %_ZNSolsEj.exit.i177 unwind label %333, !noalias !220
+          to label %_ZNSolsEj.exit.i161 unwind label %333, !noalias !220
 
-_ZNSolsEj.exit.i177:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i176
+_ZNSolsEj.exit.i161:                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i160
   %318 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %317, ptr noundef nonnull @.str.69, i64 noundef 22)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i178 unwind label %333, !noalias !220
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i162 unwind label %333, !noalias !220
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i178: ; preds = %_ZNSolsEj.exit.i177
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i162: ; preds = %_ZNSolsEj.exit.i161
   %319 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %317, i64 noundef 16)
-          to label %_ZNSolsEj.exit18.i179 unwind label %333, !noalias !220
+          to label %_ZNSolsEj.exit18.i163 unwind label %333, !noalias !220
 
-_ZNSolsEj.exit18.i179:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i178
+_ZNSolsEj.exit18.i163:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i162
   %320 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %319, ptr noundef nonnull @.str.70, i64 noundef 19)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i180 unwind label %333, !noalias !220
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i164 unwind label %333, !noalias !220
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i180: ; preds = %_ZNSolsEj.exit18.i179
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i164: ; preds = %_ZNSolsEj.exit18.i163
   %321 = load i32, ptr %102, align 8, !tbaa !199, !noalias !220
   %322 = zext i32 %321 to i64
   %323 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %319, i64 noundef %322)
-          to label %.critedge.i181 unwind label %333, !noalias !220
+          to label %.critedge.i165 unwind label %333, !noalias !220
 
-.critedge.i181:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i180
+.critedge.i165:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i164
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #25, !noalias !220
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !220
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i181, %.noexc182
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i: ; preds = %.critedge.i165, %.noexc166
   %324 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-          to label %.noexc184 unwind label %546
+          to label %.noexc168 unwind label %546
 
-.noexc184:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i
+.noexc168:                                        ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 16), ptr %324, align 8, !tbaa !3, !noalias !220
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store ptr %0, ptr %325, align 8, !tbaa !223, !noalias !220
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit23.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit22.i: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit
   %326 = zext nneg i32 %308 to i64
   %327 = getelementptr inbounds nuw i8, ptr %101, i64 %326
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 16), ptr %327, align 8, !tbaa !3, !noalias !220
@@ -993,35 +985,34 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.e
   %332 = inttoptr i64 %331 to ptr
   br label %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
 
-333:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i180, %_ZNSolsEj.exit18.i179, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i178, %_ZNSolsEj.exit.i177, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i176, %_ZNSolsEPKv.exit.i175, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i174, %.noexc183
+333:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19.i164, %_ZNSolsEj.exit18.i163, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17.i162, %_ZNSolsEj.exit.i161, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit16.i160, %_ZNSolsEPKv.exit.i159, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15.i158, %.noexc167
   %334 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %10) #25, !noalias !220
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !220
-  br label %.body185
+  br label %.body169
 
-_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit23.i, %.noexc184
-  %storemerge.i173 = phi ptr [ %332, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit23.i ], [ %324, %.noexc184 ]
-  store ptr %storemerge.i173, ptr %29, align 8, !tbaa !200
+_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit22.i, %.noexc168
+  %storemerge.i157 = phi ptr [ %332, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit22.i ], [ %324, %.noexc168 ]
+  store ptr %storemerge.i157, ptr %29, align 8, !tbaa !200
   %335 = load ptr, ptr %307, align 8, !tbaa !3
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %337 = load ptr, ptr %336, align 8
   invoke void %337(ptr dead_on_unwind nonnull writable sret(%"class.net::QuicArenaScopedPtr") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %307, ptr noundef nonnull %29, ptr noundef nonnull %101)
-          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit189 unwind label %548
+          to label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit172 unwind label %548
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit189: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit172: ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %338 = load ptr, ptr %28, align 8, !tbaa !202
   store ptr %338, ptr %306, align 8, !tbaa !202
   store ptr null, ptr %28, align 8, !tbaa !202
   %339 = load ptr, ptr %29, align 8, !tbaa !200
-  %.not.i.i190 = icmp eq ptr %339, null
-  br i1 %.not.i.i190, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit, label %340
+  %.not.i.i173 = icmp eq ptr %339, null
+  br i1 %.not.i.i173, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit, label %340
 
-340:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit189
+340:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit172
   %341 = ptrtoint ptr %339 to i64
-  %342 = and i64 %341, 1
-  %.not3.i.i191 = icmp eq i64 %342, 0
-  br i1 %.not3.i.i191, label %348, label %343
+  %342 = trunc i64 %341 to i1
+  br i1 %342, label %343, label %348
 
 343:                                              ; preds = %340
   %344 = and i64 %341, -2
@@ -1038,7 +1029,7 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit189: ; preds = %_ZN3net17Qui
   call void %351(ptr noundef nonnull align 8 dereferenceable(8) %339) #25
   br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit: ; preds = %348, %343, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit189
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit: ; preds = %348, %343, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit172
   store ptr null, ptr %29, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 2392
@@ -1175,8 +1166,8 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.e
 424:                                              ; preds = %422
   %425 = load ptr, ptr %389, align 8, !tbaa !226
   store ptr %421, ptr %389, align 8, !tbaa !226
-  %.not.i.i195 = icmp eq ptr %425, null
-  br i1 %.not.i.i195, label %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i
+  %.not.i.i176 = icmp eq ptr %425, null
+  br i1 %.not.i.i176, label %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i: ; preds = %424
   %426 = load ptr, ptr %425, align 8, !tbaa !3
@@ -1188,50 +1179,49 @@ _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i: 
 429:                                              ; preds = %60, %54, %9
   %430 = landingpad { ptr, i32 }
           cleanup
-  br label %620
+  br label %711
 
 431:                                              ; preds = %63
   %432 = landingpad { ptr, i32 }
           cleanup
-  br label %619
+  br label %710
 
 433:                                              ; preds = %65
   %434 = landingpad { ptr, i32 }
           cleanup
-  br label %618
+  br label %709
 
 435:                                              ; preds = %71
   %436 = landingpad { ptr, i32 }
           cleanup
-  br label %617
+  br label %708
 
 437:                                              ; preds = %73
   %438 = landingpad { ptr, i32 }
           cleanup
-  br label %616
+  br label %707
 
 439:                                              ; preds = %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EEC2Ev.exit
   %440 = landingpad { ptr, i32 }
           cleanup
-  br label %615
+  br label %706
 
 441:                                              ; preds = %88
   %442 = landingpad { ptr, i32 }
           cleanup
-  br label %614
+  br label %705
 
 443:                                              ; preds = %90
   %444 = landingpad { ptr, i32 }
           cleanup
   %445 = load ptr, ptr %15, align 8, !tbaa !200
-  %.not.i.i196 = icmp eq ptr %445, null
-  br i1 %.not.i.i196, label %458, label %446
+  %.not.i.i177 = icmp eq ptr %445, null
+  br i1 %.not.i.i177, label %458, label %446
 
 446:                                              ; preds = %443
   %447 = ptrtoint ptr %445 to i64
-  %448 = and i64 %447, 1
-  %.not3.i.i197 = icmp eq i64 %448, 0
-  br i1 %.not3.i.i197, label %454, label %449
+  %448 = trunc i64 %447 to i1
+  br i1 %448, label %449, label %454
 
 449:                                              ; preds = %446
   %450 = and i64 %447, -2
@@ -1251,25 +1241,24 @@ _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i: 
 458:                                              ; preds = %443, %449, %454
   store ptr null, ptr %15, align 8, !tbaa !200
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %613
+  br label %704
 
 459:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit.i, %132, %130
   %460 = landingpad { ptr, i32 }
           cleanup
-  br label %.body102
+  br label %.body101
 
 461:                                              ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %462 = landingpad { ptr, i32 }
           cleanup
   %463 = load ptr, ptr %17, align 8, !tbaa !200
-  %.not.i.i202 = icmp eq ptr %463, null
-  br i1 %.not.i.i202, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit207, label %464
+  %.not.i.i181 = icmp eq ptr %463, null
+  br i1 %.not.i.i181, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit184, label %464
 
 464:                                              ; preds = %461
   %465 = ptrtoint ptr %463 to i64
-  %466 = and i64 %465, 1
-  %.not3.i.i203 = icmp eq i64 %466, 0
-  br i1 %.not3.i.i203, label %472, label %467
+  %466 = trunc i64 %465 to i1
+  br i1 %466, label %467, label %472
 
 467:                                              ; preds = %464
   %468 = and i64 %465, -2
@@ -1277,23 +1266,23 @@ _ZNKSt14default_deleteIN3net30QuicSentPacketManagerInterfaceEEclEPS1_.exit.i.i: 
   %470 = load ptr, ptr %469, align 8, !tbaa !3
   %471 = load ptr, ptr %470, align 8
   call void %471(ptr noundef nonnull align 8 dereferenceable(8) %469) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit207
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit184
 
 472:                                              ; preds = %464
   %473 = load ptr, ptr %463, align 8, !tbaa !3
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   %475 = load ptr, ptr %474, align 8
   call void %475(ptr noundef nonnull align 8 dereferenceable(8) %463) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit207
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit184
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit207: ; preds = %472, %467, %461
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit184: ; preds = %472, %467, %461
   store ptr null, ptr %17, align 8, !tbaa !200
-  br label %.body102
+  br label %.body101
 
-.body102:                                         ; preds = %459, %153, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit207
-  %.pn45 = phi { ptr, i32 } [ %462, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit207 ], [ %460, %459 ], [ %154, %153 ]
+.body101:                                         ; preds = %459, %153, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit184
+  %.pn45 = phi { ptr, i32 } [ %462, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit184 ], [ %460, %459 ], [ %154, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %612
+  br label %690
 
 476:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev.exit
   %477 = landingpad { ptr, i32 }
@@ -1304,14 +1293,13 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
   %479 = landingpad { ptr, i32 }
           cleanup
   %480 = load ptr, ptr %19, align 8, !tbaa !200
-  %.not.i.i208 = icmp eq ptr %480, null
-  br i1 %.not.i.i208, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213, label %481
+  %.not.i.i185 = icmp eq ptr %480, null
+  br i1 %.not.i.i185, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit188, label %481
 
 481:                                              ; preds = %478
   %482 = ptrtoint ptr %480 to i64
-  %483 = and i64 %482, 1
-  %.not3.i.i209 = icmp eq i64 %483, 0
-  br i1 %.not3.i.i209, label %489, label %484
+  %483 = trunc i64 %482 to i1
+  br i1 %483, label %484, label %489
 
 484:                                              ; preds = %481
   %485 = and i64 %482, -2
@@ -1319,24 +1307,24 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_127RetransmissionAlarmDelegateEED2Ev
   %487 = load ptr, ptr %486, align 8, !tbaa !3
   %488 = load ptr, ptr %487, align 8
   call void %488(ptr noundef nonnull align 8 dereferenceable(8) %486) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit188
 
 489:                                              ; preds = %481
   %490 = load ptr, ptr %480, align 8, !tbaa !3
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   %492 = load ptr, ptr %491, align 8
   call void %492(ptr noundef nonnull align 8 dereferenceable(8) %480) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit188
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213: ; preds = %489, %484, %478
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit188: ; preds = %489, %484, %478
   store ptr null, ptr %19, align 8, !tbaa !200
   br label %493
 
-493:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213, %476
-  %.pn47 = phi { ptr, i32 } [ %479, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213 ], [ %477, %476 ]
+493:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit188, %476
+  %.pn47 = phi { ptr, i32 } [ %479, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit188 ], [ %477, %476 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %611
+  br label %676
 
 494:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit
   %495 = landingpad { ptr, i32 }
@@ -1347,14 +1335,13 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213: 
   %497 = landingpad { ptr, i32 }
           cleanup
   %498 = load ptr, ptr %22, align 8, !tbaa !200
-  %.not.i.i214 = icmp eq ptr %498, null
-  br i1 %.not.i.i214, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219, label %499
+  %.not.i.i189 = icmp eq ptr %498, null
+  br i1 %.not.i.i189, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit192, label %499
 
 499:                                              ; preds = %496
   %500 = ptrtoint ptr %498 to i64
-  %501 = and i64 %500, 1
-  %.not3.i.i215 = icmp eq i64 %501, 0
-  br i1 %.not3.i.i215, label %507, label %502
+  %501 = trunc i64 %500 to i1
+  br i1 %501, label %502, label %507
 
 502:                                              ; preds = %499
   %503 = and i64 %500, -2
@@ -1362,42 +1349,41 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit213: 
   %505 = load ptr, ptr %504, align 8, !tbaa !3
   %506 = load ptr, ptr %505, align 8
   call void %506(ptr noundef nonnull align 8 dereferenceable(8) %504) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit192
 
 507:                                              ; preds = %499
   %508 = load ptr, ptr %498, align 8, !tbaa !3
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = load ptr, ptr %509, align 8
   call void %510(ptr noundef nonnull align 8 dereferenceable(8) %498) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit192
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219: ; preds = %507, %502, %496
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit192: ; preds = %507, %502, %496
   store ptr null, ptr %22, align 8, !tbaa !200
   br label %511
 
-511:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219, %494
-  %.pn49 = phi { ptr, i32 } [ %497, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219 ], [ %495, %494 ]
+511:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit192, %494
+  %.pn49 = phi { ptr, i32 } [ %497, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit192 ], [ %495, %494 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %610
+  br label %662
 
 512:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit.i, %220, %218
   %513 = landingpad { ptr, i32 }
           cleanup
-  br label %.body141
+  br label %.body131
 
 514:                                              ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_120TimeoutAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %515 = landingpad { ptr, i32 }
           cleanup
   %516 = load ptr, ptr %25, align 8, !tbaa !200
-  %.not.i.i220 = icmp eq ptr %516, null
-  br i1 %.not.i.i220, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit225, label %517
+  %.not.i.i193 = icmp eq ptr %516, null
+  br i1 %.not.i.i193, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit196, label %517
 
 517:                                              ; preds = %514
   %518 = ptrtoint ptr %516 to i64
-  %519 = and i64 %518, 1
-  %.not3.i.i221 = icmp eq i64 %519, 0
-  br i1 %.not3.i.i221, label %525, label %520
+  %519 = trunc i64 %518 to i1
+  br i1 %519, label %520, label %525
 
 520:                                              ; preds = %517
   %521 = and i64 %518, -2
@@ -1405,41 +1391,40 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit219: 
   %523 = load ptr, ptr %522, align 8, !tbaa !3
   %524 = load ptr, ptr %523, align 8
   call void %524(ptr noundef nonnull align 8 dereferenceable(8) %522) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit225
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit196
 
 525:                                              ; preds = %517
   %526 = load ptr, ptr %516, align 8, !tbaa !3
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8
   call void %528(ptr noundef nonnull align 8 dereferenceable(8) %516) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit225
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit196
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit225: ; preds = %525, %520, %514
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit196: ; preds = %525, %520, %514
   store ptr null, ptr %25, align 8, !tbaa !200
-  br label %.body141
+  br label %.body131
 
-.body141:                                         ; preds = %512, %241, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit225
-  %.pn51 = phi { ptr, i32 } [ %515, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit225 ], [ %513, %512 ], [ %242, %241 ]
+.body131:                                         ; preds = %512, %241, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit196
+  %.pn51 = phi { ptr, i32 } [ %515, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit196 ], [ %513, %512 ], [ %242, %241 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %609
+  br label %648
 
 529:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit.i, %266, %264
   %530 = landingpad { ptr, i32 }
           cleanup
-  br label %.body163
+  br label %.body150
 
 531:                                              ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117PingAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %532 = landingpad { ptr, i32 }
           cleanup
   %533 = load ptr, ptr %27, align 8, !tbaa !200
-  %.not.i.i226 = icmp eq ptr %533, null
-  br i1 %.not.i.i226, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231, label %534
+  %.not.i.i197 = icmp eq ptr %533, null
+  br i1 %.not.i.i197, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit200, label %534
 
 534:                                              ; preds = %531
   %535 = ptrtoint ptr %533 to i64
-  %536 = and i64 %535, 1
-  %.not3.i.i227 = icmp eq i64 %536, 0
-  br i1 %.not3.i.i227, label %542, label %537
+  %536 = trunc i64 %535 to i1
+  br i1 %536, label %537, label %542
 
 537:                                              ; preds = %534
   %538 = and i64 %535, -2
@@ -1447,41 +1432,40 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit22
   %540 = load ptr, ptr %539, align 8, !tbaa !3
   %541 = load ptr, ptr %540, align 8
   call void %541(ptr noundef nonnull align 8 dereferenceable(8) %539) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit200
 
 542:                                              ; preds = %534
   %543 = load ptr, ptr %533, align 8, !tbaa !3
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 8
   %545 = load ptr, ptr %544, align 8
   call void %545(ptr noundef nonnull align 8 dereferenceable(8) %533) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit200
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231: ; preds = %542, %537, %531
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit200: ; preds = %542, %537, %531
   store ptr null, ptr %27, align 8, !tbaa !200
-  br label %.body163
+  br label %.body150
 
-.body163:                                         ; preds = %529, %287, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231
-  %.pn53 = phi { ptr, i32 } [ %532, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231 ], [ %530, %529 ], [ %288, %287 ]
+.body150:                                         ; preds = %529, %287, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit200
+  %.pn53 = phi { ptr, i32 } [ %532, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit200 ], [ %530, %529 ], [ %288, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %608
+  br label %634
 
 546:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit.i, %312, %310
   %547 = landingpad { ptr, i32 }
           cleanup
-  br label %.body185
+  br label %.body169
 
 548:                                              ; preds = %_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_.exit
   %549 = landingpad { ptr, i32 }
           cleanup
   %550 = load ptr, ptr %29, align 8, !tbaa !200
-  %.not.i.i232 = icmp eq ptr %550, null
-  br i1 %.not.i.i232, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit237, label %551
+  %.not.i.i201 = icmp eq ptr %550, null
+  br i1 %.not.i.i201, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit204, label %551
 
 551:                                              ; preds = %548
   %552 = ptrtoint ptr %550 to i64
-  %553 = and i64 %552, 1
-  %.not3.i.i233 = icmp eq i64 %553, 0
-  br i1 %.not3.i.i233, label %559, label %554
+  %553 = trunc i64 %552 to i1
+  br i1 %553, label %554, label %559
 
 554:                                              ; preds = %551
   %555 = and i64 %552, -2
@@ -1489,23 +1473,23 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit231: 
   %557 = load ptr, ptr %556, align 8, !tbaa !3
   %558 = load ptr, ptr %557, align 8
   call void %558(ptr noundef nonnull align 8 dereferenceable(8) %556) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit237
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit204
 
 559:                                              ; preds = %551
   %560 = load ptr, ptr %550, align 8, !tbaa !3
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 8
   %562 = load ptr, ptr %561, align 8
   call void %562(ptr noundef nonnull align 8 dereferenceable(8) %550) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit237
+  br label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit204
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit237: ; preds = %559, %554, %548
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit204: ; preds = %559, %554, %548
   store ptr null, ptr %29, align 8, !tbaa !200
-  br label %.body185
+  br label %.body169
 
-.body185:                                         ; preds = %546, %333, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit237
-  %.pn55 = phi { ptr, i32 } [ %549, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit237 ], [ %547, %546 ], [ %334, %333 ]
+.body169:                                         ; preds = %546, %333, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit204
+  %.pn55 = phi { ptr, i32 } [ %549, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit204 ], [ %547, %546 ], [ %334, %333 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %607
+  br label %620
 
 563:                                              ; preds = %360, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.exit
   %564 = landingpad { ptr, i32 }
@@ -1538,7 +1522,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_125MtuDiscoveryAlarmDelegateEED2Ev.e
           cleanup
   br label %598
 
-575:                                              ; preds = %.noexc238, %585, %591, %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE5resetEPS1_.exit, %420
+575:                                              ; preds = %.noexc205, %585, %591, %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE5resetEPS1_.exit, %420
   %576 = landingpad { ptr, i32 }
           cleanup
   br label %595
@@ -1569,13 +1553,13 @@ _ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 3344
   store i64 %588, ptr %589, align 8, !tbaa !242
   %590 = invoke noundef i64 @_ZN3net14QuicConnection23GetLimitedMaxPacketSizeEm(ptr noundef nonnull align 8 dereferenceable(3372) %0, i64 noundef %588)
-          to label %.noexc238 unwind label %575
+          to label %.noexc205 unwind label %575
 
-.noexc238:                                        ; preds = %585
+.noexc205:                                        ; preds = %585
   invoke void @_ZN3net19QuicPacketGenerator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(472) %353, i64 noundef %590)
           to label %591 unwind label %575
 
-591:                                              ; preds = %.noexc238
+591:                                              ; preds = %.noexc205
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %593 = load i32, ptr %592, align 4, !tbaa !243
   invoke void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248) %86, i32 noundef %593)
@@ -1632,78 +1616,253 @@ _ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE
 
 606:                                              ; preds = %605, %563
   %.pn57.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn, %605 ], [ %564, %563 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %306) #25
-  br label %607
+  %607 = load ptr, ptr %306, align 8, !tbaa !202
+  %.not.i.i207 = icmp eq ptr %607, null
+  br i1 %.not.i.i207, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit208, label %608
 
-607:                                              ; preds = %606, %.body185
-  %.pn57.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn, %606 ], [ %.pn55, %.body185 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %260) #25
-  br label %608
+608:                                              ; preds = %606
+  %609 = ptrtoint ptr %607 to i64
+  %610 = trunc i64 %609 to i1
+  br i1 %610, label %611, label %616
 
-608:                                              ; preds = %607, %.body163
-  %.pn57.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn, %607 ], [ %.pn53, %.body163 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %214) #25
-  br label %609
+611:                                              ; preds = %608
+  %612 = and i64 %609, -2
+  %613 = inttoptr i64 %612 to ptr
+  %614 = load ptr, ptr %613, align 8, !tbaa !3
+  %615 = load ptr, ptr %614, align 8
+  call void %615(ptr noundef nonnull align 8 dereferenceable(24) %613) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit208
 
-609:                                              ; preds = %608, %.body141
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn, %608 ], [ %.pn51, %.body141 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %193) #25
-  br label %610
+616:                                              ; preds = %608
+  %617 = load ptr, ptr %607, align 8, !tbaa !3
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 8
+  %619 = load ptr, ptr %618, align 8
+  call void %619(ptr noundef nonnull align 8 dereferenceable(24) %607) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit208
 
-610:                                              ; preds = %609, %511
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn, %609 ], [ %.pn49, %511 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %172) #25
-  br label %611
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit208: ; preds = %606, %611, %616
+  store ptr null, ptr %306, align 8, !tbaa !202
+  br label %620
 
-611:                                              ; preds = %610, %493
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn, %610 ], [ %.pn47, %493 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %126) #25
-  br label %612
+620:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit208, %.body169
+  %.pn57.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit208 ], [ %.pn55, %.body169 ]
+  %621 = load ptr, ptr %260, align 8, !tbaa !202
+  %.not.i.i209 = icmp eq ptr %621, null
+  br i1 %.not.i.i209, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit210, label %622
 
-612:                                              ; preds = %611, %.body102
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %611 ], [ %.pn45, %.body102 ]
-  call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %103) #25
-  br label %613
+622:                                              ; preds = %620
+  %623 = ptrtoint ptr %621 to i64
+  %624 = trunc i64 %623 to i1
+  br i1 %624, label %625, label %630
 
-613:                                              ; preds = %612, %458
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %612 ], [ %444, %458 ]
+625:                                              ; preds = %622
+  %626 = and i64 %623, -2
+  %627 = inttoptr i64 %626 to ptr
+  %628 = load ptr, ptr %627, align 8, !tbaa !3
+  %629 = load ptr, ptr %628, align 8
+  call void %629(ptr noundef nonnull align 8 dereferenceable(24) %627) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit210
+
+630:                                              ; preds = %622
+  %631 = load ptr, ptr %621, align 8, !tbaa !3
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 8
+  %633 = load ptr, ptr %632, align 8
+  call void %633(ptr noundef nonnull align 8 dereferenceable(24) %621) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit210
+
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit210: ; preds = %620, %625, %630
+  store ptr null, ptr %260, align 8, !tbaa !202
+  br label %634
+
+634:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit210, %.body150
+  %.pn57.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit210 ], [ %.pn53, %.body150 ]
+  %635 = load ptr, ptr %214, align 8, !tbaa !202
+  %.not.i.i211 = icmp eq ptr %635, null
+  br i1 %.not.i.i211, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit212, label %636
+
+636:                                              ; preds = %634
+  %637 = ptrtoint ptr %635 to i64
+  %638 = trunc i64 %637 to i1
+  br i1 %638, label %639, label %644
+
+639:                                              ; preds = %636
+  %640 = and i64 %637, -2
+  %641 = inttoptr i64 %640 to ptr
+  %642 = load ptr, ptr %641, align 8, !tbaa !3
+  %643 = load ptr, ptr %642, align 8
+  call void %643(ptr noundef nonnull align 8 dereferenceable(24) %641) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit212
+
+644:                                              ; preds = %636
+  %645 = load ptr, ptr %635, align 8, !tbaa !3
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 8
+  %647 = load ptr, ptr %646, align 8
+  call void %647(ptr noundef nonnull align 8 dereferenceable(24) %635) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit212
+
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit212: ; preds = %634, %639, %644
+  store ptr null, ptr %214, align 8, !tbaa !202
+  br label %648
+
+648:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit212, %.body131
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit212 ], [ %.pn51, %.body131 ]
+  %649 = load ptr, ptr %193, align 8, !tbaa !202
+  %.not.i.i213 = icmp eq ptr %649, null
+  br i1 %.not.i.i213, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit214, label %650
+
+650:                                              ; preds = %648
+  %651 = ptrtoint ptr %649 to i64
+  %652 = trunc i64 %651 to i1
+  br i1 %652, label %653, label %658
+
+653:                                              ; preds = %650
+  %654 = and i64 %651, -2
+  %655 = inttoptr i64 %654 to ptr
+  %656 = load ptr, ptr %655, align 8, !tbaa !3
+  %657 = load ptr, ptr %656, align 8
+  call void %657(ptr noundef nonnull align 8 dereferenceable(24) %655) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit214
+
+658:                                              ; preds = %650
+  %659 = load ptr, ptr %649, align 8, !tbaa !3
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 8
+  %661 = load ptr, ptr %660, align 8
+  call void %661(ptr noundef nonnull align 8 dereferenceable(24) %649) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit214
+
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit214: ; preds = %648, %653, %658
+  store ptr null, ptr %193, align 8, !tbaa !202
+  br label %662
+
+662:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit214, %511
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit214 ], [ %.pn49, %511 ]
+  %663 = load ptr, ptr %172, align 8, !tbaa !202
+  %.not.i.i215 = icmp eq ptr %663, null
+  br i1 %.not.i.i215, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit216, label %664
+
+664:                                              ; preds = %662
+  %665 = ptrtoint ptr %663 to i64
+  %666 = trunc i64 %665 to i1
+  br i1 %666, label %667, label %672
+
+667:                                              ; preds = %664
+  %668 = and i64 %665, -2
+  %669 = inttoptr i64 %668 to ptr
+  %670 = load ptr, ptr %669, align 8, !tbaa !3
+  %671 = load ptr, ptr %670, align 8
+  call void %671(ptr noundef nonnull align 8 dereferenceable(24) %669) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit216
+
+672:                                              ; preds = %664
+  %673 = load ptr, ptr %663, align 8, !tbaa !3
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 8
+  %675 = load ptr, ptr %674, align 8
+  call void %675(ptr noundef nonnull align 8 dereferenceable(24) %663) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit216
+
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit216: ; preds = %662, %667, %672
+  store ptr null, ptr %172, align 8, !tbaa !202
+  br label %676
+
+676:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit216, %493
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit216 ], [ %.pn47, %493 ]
+  %677 = load ptr, ptr %126, align 8, !tbaa !202
+  %.not.i.i217 = icmp eq ptr %677, null
+  br i1 %.not.i.i217, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit218, label %678
+
+678:                                              ; preds = %676
+  %679 = ptrtoint ptr %677 to i64
+  %680 = trunc i64 %679 to i1
+  br i1 %680, label %681, label %686
+
+681:                                              ; preds = %678
+  %682 = and i64 %679, -2
+  %683 = inttoptr i64 %682 to ptr
+  %684 = load ptr, ptr %683, align 8, !tbaa !3
+  %685 = load ptr, ptr %684, align 8
+  call void %685(ptr noundef nonnull align 8 dereferenceable(24) %683) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit218
+
+686:                                              ; preds = %678
+  %687 = load ptr, ptr %677, align 8, !tbaa !3
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 8
+  %689 = load ptr, ptr %688, align 8
+  call void %689(ptr noundef nonnull align 8 dereferenceable(24) %677) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit218
+
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit218: ; preds = %676, %681, %686
+  store ptr null, ptr %126, align 8, !tbaa !202
+  br label %690
+
+690:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit218, %.body101
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit218 ], [ %.pn45, %.body101 ]
+  %691 = load ptr, ptr %103, align 8, !tbaa !202
+  %.not.i.i219 = icmp eq ptr %691, null
+  br i1 %.not.i.i219, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit220, label %692
+
+692:                                              ; preds = %690
+  %693 = ptrtoint ptr %691 to i64
+  %694 = trunc i64 %693 to i1
+  br i1 %694, label %695, label %700
+
+695:                                              ; preds = %692
+  %696 = and i64 %693, -2
+  %697 = inttoptr i64 %696 to ptr
+  %698 = load ptr, ptr %697, align 8, !tbaa !3
+  %699 = load ptr, ptr %698, align 8
+  call void %699(ptr noundef nonnull align 8 dereferenceable(24) %697) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit220
+
+700:                                              ; preds = %692
+  %701 = load ptr, ptr %691, align 8, !tbaa !3
+  %702 = getelementptr inbounds nuw i8, ptr %701, i64 8
+  %703 = load ptr, ptr %702, align 8
+  call void %703(ptr noundef nonnull align 8 dereferenceable(24) %691) #25
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit220
+
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit220: ; preds = %690, %695, %700
+  store ptr null, ptr %103, align 8, !tbaa !202
+  br label %704
+
+704:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit220, %458
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit220 ], [ %444, %458 ]
   call void @_ZN3net22QuicSentEntropyManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %89) #25
-  br label %614
+  br label %705
 
-614:                                              ; preds = %613, %441
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %613 ], [ %442, %441 ]
+705:                                              ; preds = %704, %441
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %704 ], [ %442, %441 ]
   call void @_ZN3net25QuicReceivedPacketManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %86) #25
-  br label %615
+  br label %706
 
-615:                                              ; preds = %614, %439
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %614 ], [ %440, %439 ]
+706:                                              ; preds = %705, %439
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %705 ], [ %440, %439 ]
   call void @_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %83) #25
   call void @_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #25
   call void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %76) #25
-  br label %616
+  br label %707
 
-616:                                              ; preds = %615, %437
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %615 ], [ %438, %437 ]
+707:                                              ; preds = %706, %437
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %706 ], [ %438, %437 ]
   call void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %72) #25
-  br label %617
+  br label %708
 
-617:                                              ; preds = %616, %435
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %616 ], [ %436, %435 ]
+708:                                              ; preds = %707, %435
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %707 ], [ %436, %435 ]
   call void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %70) #25
-  br label %618
+  br label %709
 
-618:                                              ; preds = %617, %433
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %617 ], [ %434, %433 ]
+709:                                              ; preds = %708, %433
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %708 ], [ %434, %433 ]
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %64) #25
-  br label %619
+  br label %710
 
-619:                                              ; preds = %618, %431
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %618 ], [ %432, %431 ]
+710:                                              ; preds = %709, %431
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %709 ], [ %432, %431 ]
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %62) #25
-  br label %620
+  br label %711
 
-620:                                              ; preds = %619, %429
-  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %619 ], [ %430, %429 ]
+711:                                              ; preds = %710, %429
+  %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %710 ], [ %430, %429 ]
   call void @_ZN3net10QuicFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %34) #25
   resume { ptr, i32 } %.pn57.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
@@ -1724,45 +1883,13 @@ declare void @_ZN3net25QuicReceivedPacketManagerC1EPNS_19QuicConnectionStatsE(pt
 
 declare void @_ZN3net22QuicSentEntropyManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !202
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %15, label %3
-
-3:                                                ; preds = %1
-  %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not3.i = icmp eq i64 %5, 0
-  br i1 %.not3.i, label %11, label %6
-
-6:                                                ; preds = %3
-  %7 = and i64 %4, -2
-  %8 = inttoptr i64 %7 to ptr
-  %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %8) #25
-  br label %15
-
-11:                                               ; preds = %3
-  %12 = load ptr, ptr %2, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
-  br label %15
-
-15:                                               ; preds = %11, %6, %1
-  store ptr null, ptr %0, align 8, !tbaa !202
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN3net17QuicOneBlockArenaILj1024EE3NewINS_12_GLOBAL__N_117SendAlarmDelegateEJPNS_14QuicConnectionEEEENS_18QuicArenaScopedPtrIT_EEDpOT0_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1028) %1, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.logging::LogMessage", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %5 = load i32, ptr %4, align 8, !tbaa !199
   %6 = icmp ugt i32 %5, 1008
-  br i1 %6, label %7, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit23
+  br i1 %6, label %7, label %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit22
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
@@ -1817,7 +1944,7 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit: ; p
   store ptr %.0.val, ptr %22, align 8, !tbaa !245
   br label %30
 
-_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit23: ; preds = %2
+_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit22: ; preds = %2
   %23 = zext nneg i32 %5 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 16), ptr %24, align 8, !tbaa !3
@@ -1830,8 +1957,8 @@ _ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit23: ;
   %29 = inttoptr i64 %28 to ptr
   br label %30
 
-30:                                               ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit23, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit
-  %storemerge = phi ptr [ %29, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit23 ], [ %21, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit ]
+30:                                               ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit22, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit
+  %storemerge = phi ptr [ %29, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit22 ], [ %21, %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !208
   ret void
 
@@ -1848,15 +1975,15 @@ declare void @_ZN3net19QuicPacketGeneratorC1EmPNS_10QuicFramerEPNS_10QuicRandomE
 declare void @_ZN3net19QuicConnectionStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 declare void @_ZN3net21QuicSentPacketManagerC1ENS_11PerspectiveEhPKNS_9QuicClockEPNS_19QuicConnectionStatsENS_21CongestionControlTypeENS_17LossDetectionTypeEPNS0_26MultipathDelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(776), i32 noundef, i8 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN3net30QuicMultipathSentPacketManagerC1EPNS_30QuicSentPacketManagerInterfaceEPNS_36QuicConnectionCloseDelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) unnamed_addr #1
 
@@ -1873,22 +2000,22 @@ define void @_ZN3net14QuicConnection18SetMaxPacketLengthEm(ptr noundef nonnull a
 declare void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr noundef nonnull align 8 dereferenceable(248), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26)) unnamed_addr #6
+declare void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3net19QuicConnectionStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #6
+declare void @_ZN3net19QuicConnectionStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3net19QuicPacketGeneratorD1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #6
+declare void @_ZN3net19QuicPacketGeneratorD1Ev(ptr noundef nonnull align 8 dereferenceable(472)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3net22QuicSentEntropyManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #6
+declare void @_ZN3net22QuicSentEntropyManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3net25QuicReceivedPacketManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #6
+declare void @_ZN3net25QuicReceivedPacketManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !247
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %3
@@ -1942,7 +2069,7 @@ _ZNKSt14default_deleteISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketES_IS3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !179
   %.not8.i = icmp eq ptr %2, %0
   br i1 %.not8.i, label %_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EE8_M_clearEv.exit, label %.lr.ph.i
@@ -1961,7 +2088,7 @@ _ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EE8_M_clearEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !257
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit, label %3
@@ -1997,13 +2124,13 @@ _ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3net10QuicFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #6
+declare void @_ZN3net10QuicFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net14QuicConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(3372) initializes((0, 32)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net14QuicConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(3372) initializes((0, 32)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN3net14QuicConnectionE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3net14QuicConnectionE, i64 416), ptr %2, align 8, !tbaa !3
@@ -2092,7 +2219,7 @@ _ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPa
   %47 = load ptr, ptr %20, align 8, !tbaa !275, !noalias !272
   %48 = load ptr, ptr %29, align 8, !tbaa !259
   %49 = icmp ult ptr %44, %48
-  br i1 %49, label %.lr.ph.i.i.i.i, label %.loopexit28
+  br i1 %49, label %.lr.ph.i.i.i.i, label %.loopexit22
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i, %.lr.ph.i.i.i.i
   %.06.i.pn.i.i.i = phi ptr [ %.06.i.i.i.i, %.lr.ph.i.i.i.i ], [ %44, %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i ]
@@ -2100,9 +2227,9 @@ _ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPa
   %50 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !260
   tail call void @_ZdlPv(ptr noundef %50) #27
   %51 = icmp ult ptr %.06.i.i.i.i, %48
-  br i1 %51, label %.lr.ph.i.i.i.i, label %.loopexit28, !llvm.loop !261
+  br i1 %51, label %.lr.ph.i.i.i.i, label %.loopexit22, !llvm.loop !261
 
-.loopexit28:                                      ; preds = %.lr.ph.i.i.i.i, %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i
+.loopexit22:                                      ; preds = %.lr.ph.i.i.i.i, %_ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPacketERS4_PS4_EEEvT_S8_.exit.i
   store ptr %46, ptr %25, align 8, !tbaa !260
   store ptr %47, ptr %27, align 8, !tbaa !260
   store ptr %45, ptr %28, align 8, !tbaa !260
@@ -2116,8 +2243,8 @@ _ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPa
   %.pre.i1 = load ptr, ptr %52, align 8, !tbaa !179
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.loopexit28
-  %53 = phi ptr [ %.pre.i1, %._crit_edge.loopexit.i ], [ %.sroa.01.05.i, %.loopexit28 ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.loopexit22
+  %53 = phi ptr [ %.pre.i1, %._crit_edge.loopexit.i ], [ %.sroa.01.05.i, %.loopexit22 ]
   %.not8.i.i.i = icmp eq ptr %53, %52
   br i1 %.not8.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -2130,8 +2257,8 @@ _ZN4base26STLDeleteContainerPointersISt15_Deque_iteratorIPN3net19QuicEncryptedPa
   %.not.i.i.i = icmp eq ptr %54, %52
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !256
 
-.lr.ph.i:                                         ; preds = %.loopexit28, %.noexc
-  %.sroa.01.07.i = phi ptr [ %.sroa.01.0.i, %.noexc ], [ %.sroa.01.05.i, %.loopexit28 ]
+.lr.ph.i:                                         ; preds = %.loopexit22, %.noexc
+  %.sroa.01.07.i = phi ptr [ %.sroa.01.0.i, %.noexc ], [ %.sroa.01.05.i, %.loopexit22 ]
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !277
   %58 = icmp eq ptr %57, null
@@ -2195,9 +2322,8 @@ _ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EE
 
 77:                                               ; preds = %_ZNSt10unique_ptrIN3net30QuicSentPacketManagerInterfaceESt14default_deleteIS1_EED2Ev.exit
   %78 = ptrtoint ptr %76 to i64
-  %79 = and i64 %78, 1
-  %.not3.i.i = icmp eq i64 %79, 0
-  br i1 %.not3.i.i, label %85, label %80
+  %79 = trunc i64 %78 to i1
+  br i1 %79, label %80, label %85
 
 80:                                               ; preds = %77
   %81 = and i64 %78, -2
@@ -2219,13 +2345,12 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit: ; preds = %_ZNSt10unique_p
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %90 = load ptr, ptr %89, align 8, !tbaa !202
   %.not.i.i5 = icmp eq ptr %90, null
-  br i1 %.not.i.i5, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7, label %91
+  br i1 %.not.i.i5, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit6, label %91
 
 91:                                               ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit
   %92 = ptrtoint ptr %90 to i64
-  %93 = and i64 %92, 1
-  %.not3.i.i6 = icmp eq i64 %93, 0
-  br i1 %.not3.i.i6, label %99, label %94
+  %93 = trunc i64 %92 to i1
+  br i1 %93, label %94, label %99
 
 94:                                               ; preds = %91
   %95 = and i64 %92, -2
@@ -2233,27 +2358,26 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit: ; preds = %_ZNSt10unique_p
   %97 = load ptr, ptr %96, align 8, !tbaa !3
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef nonnull align 8 dereferenceable(24) %96) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit6
 
 99:                                               ; preds = %91
   %100 = load ptr, ptr %90, align 8, !tbaa !3
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   tail call void %102(ptr noundef nonnull align 8 dereferenceable(24) %90) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit6
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit, %94, %99
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit6: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit, %94, %99
   store ptr null, ptr %89, align 8, !tbaa !202
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 2368
   %104 = load ptr, ptr %103, align 8, !tbaa !202
-  %.not.i.i8 = icmp eq ptr %104, null
-  br i1 %.not.i.i8, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10, label %105
+  %.not.i.i7 = icmp eq ptr %104, null
+  br i1 %.not.i.i7, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit8, label %105
 
-105:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7
+105:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit6
   %106 = ptrtoint ptr %104 to i64
-  %107 = and i64 %106, 1
-  %.not3.i.i9 = icmp eq i64 %107, 0
-  br i1 %.not3.i.i9, label %113, label %108
+  %107 = trunc i64 %106 to i1
+  br i1 %107, label %108, label %113
 
 108:                                              ; preds = %105
   %109 = and i64 %106, -2
@@ -2261,27 +2385,26 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7: ; preds = %_ZN3net18QuicA
   %111 = load ptr, ptr %110, align 8, !tbaa !3
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull align 8 dereferenceable(24) %110) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit8
 
 113:                                              ; preds = %105
   %114 = load ptr, ptr %104, align 8, !tbaa !3
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   tail call void %116(ptr noundef nonnull align 8 dereferenceable(24) %104) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit8
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit7, %108, %113
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit8: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit6, %108, %113
   store ptr null, ptr %103, align 8, !tbaa !202
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 2360
   %118 = load ptr, ptr %117, align 8, !tbaa !202
-  %.not.i.i11 = icmp eq ptr %118, null
-  br i1 %.not.i.i11, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13, label %119
+  %.not.i.i9 = icmp eq ptr %118, null
+  br i1 %.not.i.i9, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10, label %119
 
-119:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10
+119:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit8
   %120 = ptrtoint ptr %118 to i64
-  %121 = and i64 %120, 1
-  %.not3.i.i12 = icmp eq i64 %121, 0
-  br i1 %.not3.i.i12, label %127, label %122
+  %121 = trunc i64 %120 to i1
+  br i1 %121, label %122, label %127
 
 122:                                              ; preds = %119
   %123 = and i64 %120, -2
@@ -2289,27 +2412,26 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10: ; preds = %_ZN3net18Quic
   %125 = load ptr, ptr %124, align 8, !tbaa !3
   %126 = load ptr, ptr %125, align 8
   tail call void %126(ptr noundef nonnull align 8 dereferenceable(24) %124) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10
 
 127:                                              ; preds = %119
   %128 = load ptr, ptr %118, align 8, !tbaa !3
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8
   tail call void %130(ptr noundef nonnull align 8 dereferenceable(24) %118) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10, %122, %127
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit8, %122, %127
   store ptr null, ptr %117, align 8, !tbaa !202
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2352
   %132 = load ptr, ptr %131, align 8, !tbaa !202
-  %.not.i.i14 = icmp eq ptr %132, null
-  br i1 %.not.i.i14, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16, label %133
+  %.not.i.i11 = icmp eq ptr %132, null
+  br i1 %.not.i.i11, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit12, label %133
 
-133:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13
+133:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10
   %134 = ptrtoint ptr %132 to i64
-  %135 = and i64 %134, 1
-  %.not3.i.i15 = icmp eq i64 %135, 0
-  br i1 %.not3.i.i15, label %141, label %136
+  %135 = trunc i64 %134 to i1
+  br i1 %135, label %136, label %141
 
 136:                                              ; preds = %133
   %137 = and i64 %134, -2
@@ -2317,27 +2439,26 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13: ; preds = %_ZN3net18Quic
   %139 = load ptr, ptr %138, align 8, !tbaa !3
   %140 = load ptr, ptr %139, align 8
   tail call void %140(ptr noundef nonnull align 8 dereferenceable(24) %138) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit12
 
 141:                                              ; preds = %133
   %142 = load ptr, ptr %132, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   tail call void %144(ptr noundef nonnull align 8 dereferenceable(24) %132) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit12
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit13, %136, %141
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit12: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit10, %136, %141
   store ptr null, ptr %131, align 8, !tbaa !202
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %146 = load ptr, ptr %145, align 8, !tbaa !202
-  %.not.i.i17 = icmp eq ptr %146, null
-  br i1 %.not.i.i17, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19, label %147
+  %.not.i.i13 = icmp eq ptr %146, null
+  br i1 %.not.i.i13, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit14, label %147
 
-147:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16
+147:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit12
   %148 = ptrtoint ptr %146 to i64
-  %149 = and i64 %148, 1
-  %.not3.i.i18 = icmp eq i64 %149, 0
-  br i1 %.not3.i.i18, label %155, label %150
+  %149 = trunc i64 %148 to i1
+  br i1 %149, label %150, label %155
 
 150:                                              ; preds = %147
   %151 = and i64 %148, -2
@@ -2345,27 +2466,26 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16: ; preds = %_ZN3net18Quic
   %153 = load ptr, ptr %152, align 8, !tbaa !3
   %154 = load ptr, ptr %153, align 8
   tail call void %154(ptr noundef nonnull align 8 dereferenceable(24) %152) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit14
 
 155:                                              ; preds = %147
   %156 = load ptr, ptr %146, align 8, !tbaa !3
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
   tail call void %158(ptr noundef nonnull align 8 dereferenceable(24) %146) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit14
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16, %150, %155
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit14: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit12, %150, %155
   store ptr null, ptr %145, align 8, !tbaa !202
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %160 = load ptr, ptr %159, align 8, !tbaa !202
-  %.not.i.i20 = icmp eq ptr %160, null
-  br i1 %.not.i.i20, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22, label %161
+  %.not.i.i15 = icmp eq ptr %160, null
+  br i1 %.not.i.i15, label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16, label %161
 
-161:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19
+161:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit14
   %162 = ptrtoint ptr %160 to i64
-  %163 = and i64 %162, 1
-  %.not3.i.i21 = icmp eq i64 %163, 0
-  br i1 %.not3.i.i21, label %169, label %164
+  %163 = trunc i64 %162 to i1
+  br i1 %163, label %164, label %169
 
 164:                                              ; preds = %161
   %165 = and i64 %162, -2
@@ -2373,16 +2493,16 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19: ; preds = %_ZN3net18Quic
   %167 = load ptr, ptr %166, align 8, !tbaa !3
   %168 = load ptr, ptr %167, align 8
   tail call void %168(ptr noundef nonnull align 8 dereferenceable(24) %166) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16
 
 169:                                              ; preds = %161
   %170 = load ptr, ptr %160, align 8, !tbaa !3
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8
   tail call void %172(ptr noundef nonnull align 8 dereferenceable(24) %160) #25
-  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22
+  br label %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16
 
-_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit19, %164, %169
+_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit14, %164, %169
   store ptr null, ptr %159, align 8, !tbaa !202
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   tail call void @_ZN3net22QuicSentEntropyManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(128) %173) #25
@@ -2390,10 +2510,10 @@ _ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22: ; preds = %_ZN3net18Quic
   tail call void @_ZN3net25QuicReceivedPacketManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %174) #25
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %176 = load ptr, ptr %175, align 8, !tbaa !247
-  %.not.i23 = icmp eq ptr %176, null
-  br i1 %.not.i23, label %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit, label %177
+  %.not.i17 = icmp eq ptr %176, null
+  br i1 %.not.i17, label %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit, label %177
 
-177:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22
+177:                                              ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16
   %178 = load ptr, ptr %176, align 8, !tbaa !248
   %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !251
@@ -2436,42 +2556,42 @@ _ZNKSt14default_deleteISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketES_IS3
   tail call void @_ZdlPv(ptr noundef nonnull %176) #27
   br label %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit
 
-_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit22, %_ZNKSt14default_deleteISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketES_IS3_EESaIS5_EEEclEPS7_.exit.i
+_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit: ; preds = %_ZN3net18QuicArenaScopedPtrINS_9QuicAlarmEED2Ev.exit16, %_ZNKSt14default_deleteISt6vectorISt10unique_ptrIN3net19QuicEncryptedPacketES_IS3_EESaIS5_EEEclEPS7_.exit.i
   store ptr null, ptr %175, align 8, !tbaa !247
   %188 = load ptr, ptr %52, align 8, !tbaa !179
   %.not8.i.i = icmp eq ptr %188, %52
-  br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit, label %.lr.ph.i.i24
+  br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit, label %.lr.ph.i.i18
 
-.lr.ph.i.i24:                                     ; preds = %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit, %.lr.ph.i.i24
-  %.09.i.i = phi ptr [ %189, %.lr.ph.i.i24 ], [ %188, %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit ]
+.lr.ph.i.i18:                                     ; preds = %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit, %.lr.ph.i.i18
+  %.09.i.i = phi ptr [ %189, %.lr.ph.i.i18 ], [ %188, %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit ]
   %189 = load ptr, ptr %.09.i.i, align 8, !tbaa !179
   %190 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   tail call void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %190) #25
   tail call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #27
-  %.not.i.i25 = icmp eq ptr %189, %52
-  br i1 %.not.i.i25, label %_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit, label %.lr.ph.i.i24, !llvm.loop !256
+  %.not.i.i19 = icmp eq ptr %189, %52
+  br i1 %.not.i.i19, label %_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit, label %.lr.ph.i.i18, !llvm.loop !256
 
-_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i24, %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit
+_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i18, %_ZNSt10unique_ptrISt6vectorIS_IN3net19QuicEncryptedPacketESt14default_deleteIS2_EESaIS5_EES3_IS7_EED2Ev.exit
   %191 = load ptr, ptr %17, align 8, !tbaa !257
-  %.not.i.i26 = icmp eq ptr %191, null
-  br i1 %.not.i.i26, label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit, label %192
+  %.not.i.i20 = icmp eq ptr %191, null
+  br i1 %.not.i.i20, label %_ZNSt5dequeIPN3net19QuicEncryptedPacketESaIS2_EED2Ev.exit, label %192
 
 192:                                              ; preds = %_ZNSt7__cxx1110_List_baseIN3net16SerializedPacketESaIS2_EED2Ev.exit
   %193 = load ptr, ptr %23, align 8, !tbaa !258
   %194 = load ptr, ptr %29, align 8, !tbaa !259
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = icmp ult ptr %193, %195
-  br i1 %196, label %.lr.ph.i.i.i27, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
+  br i1 %196, label %.lr.ph.i.i.i21, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
 
-.lr.ph.i.i.i27:                                   ; preds = %192, %.lr.ph.i.i.i27
-  %.06.i.i.i = phi ptr [ %198, %.lr.ph.i.i.i27 ], [ %193, %192 ]
+.lr.ph.i.i.i21:                                   ; preds = %192, %.lr.ph.i.i.i21
+  %.06.i.i.i = phi ptr [ %198, %.lr.ph.i.i.i21 ], [ %193, %192 ]
   %197 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !260
   tail call void @_ZdlPv(ptr noundef %197) #27
   %198 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %199 = icmp ult ptr %.06.i.i.i, %194
-  br i1 %199, label %.lr.ph.i.i.i27, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !261
+  br i1 %199, label %.lr.ph.i.i.i21, label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i, !llvm.loop !261
 
-_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i27
+_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i21
   %.pre.i.i = load ptr, ptr %17, align 8, !tbaa !257
   br label %_ZNSt11_Deque_baseIPN3net19QuicEncryptedPacketESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i
 
@@ -2586,7 +2706,7 @@ define void @_ZThn24_N3net14QuicConnectionD1Ev(ptr noundef %0) unnamed_addr #9 a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net14QuicConnectionD0Ev(ptr noundef nonnull align 8 dereferenceable(3372) %0) unnamed_addr #2 align 2 {
+define void @_ZN3net14QuicConnectionD0Ev(ptr noundef nonnull align 8 dereferenceable(3372) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN3net14QuicConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(3372) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
@@ -2617,7 +2737,7 @@ define void @_ZThn24_N3net14QuicConnectionD0Ev(ptr noundef %0) unnamed_addr #9 a
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 declare void @_ZN3net9QuicUtils21ClearSerializedPacketEPNS_16SerializedPacketE(ptr noundef) local_unnamed_addr #1
 
@@ -3306,7 +3426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %20, 
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #6
+declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
@@ -9711,7 +9831,7 @@ declare noundef zeroext i1 @_ZNK3net9IPAddress16IsIPv4MappedIPv6Ev(ptr noundef n
 declare void @_ZN3net27ConvertIPv4MappedIPv6ToIPv4ERKNS_9IPAddressE(ptr dead_on_unwind writable sret(%"class.net::IPAddress") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN3net9IPAddressD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #6
+declare void @_ZN3net9IPAddressD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #5
 
 declare noundef zeroext i1 @_ZNK3net9IPAddressneERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
@@ -12204,7 +12324,7 @@ define noundef zeroext i1 @_ZNK3net14QuicConnection19ScopedPacketBundler13Should
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net14QuicConnection19ScopedPacketBundlerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !451
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12319,7 +12439,7 @@ define void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerC2EPS0_(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net14QuicConnection29ScopedRetransmissionSchedulerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !tbaa !456, !range !240, !noundef !241
   %4 = trunc nuw i8 %3 to i1
@@ -12670,13 +12790,13 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
-declare void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #6
+declare void @_ZN3net16SerializedPacketD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #6
+declare void @_ZN3net22QuicPacketPublicHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @llround(double noundef) local_unnamed_addr #6
+declare i64 @llround(double noundef) local_unnamed_addr #5
 
 declare noundef i32 @_ZN3net16GetAddressFamilyERKNS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
@@ -12791,7 +12911,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -12980,7 +13100,7 @@ _ZN3net14QuicConnection13OnPingTimeoutEv.exit:    ; preds = %1, %_ZN3net14QuicCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3net9QuicAlarm8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+define linkonce_odr void @_ZN3net9QuicAlarm8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
   ret void
 }
 
@@ -13029,12 +13149,12 @@ declare noundef i32 @_ZN7logging18GetVlogLevelHelperEPKcm(ptr noundef, i64 nound
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
+declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #6
+declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #5
 
 declare void @_ZN3net16SerializedPacketC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
@@ -13253,11 +13373,11 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

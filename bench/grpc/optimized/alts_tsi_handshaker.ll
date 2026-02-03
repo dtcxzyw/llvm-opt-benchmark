@@ -2429,9 +2429,8 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit75:      ; preds = %.critedge
 
 79:                                               ; preds = %72
   %80 = load i64, ptr %13, align 8, !tbaa !141
-  %81 = and i64 %80, 1
-  %.not.i.i = icmp eq i64 %81, 0
-  br i1 %.not.i.i, label %82, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %81 = trunc i64 %80 to i1
+  br i1 %81, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %82
 
 82:                                               ; preds = %79
   %83 = inttoptr i64 %80 to ptr
@@ -2728,9 +2727,8 @@ declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4ab
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #23 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !141
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr
@@ -3120,9 +3118,8 @@ define internal void @_ZL41on_handshaker_service_resp_recv_dedicatedPvN4absl12lt
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %3, align 8, !tbaa !141
-  %10 = and i64 %9, 1
-  %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %11, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %11
 
 11:                                               ; preds = %8
   %12 = inttoptr i64 %9 to ptr

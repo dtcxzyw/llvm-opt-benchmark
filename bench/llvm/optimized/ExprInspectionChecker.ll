@@ -11229,9 +11229,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 260:                                              ; preds = %258
   %261 = getelementptr inbounds nuw i8, ptr %113, i64 50
   %262 = load i8, ptr %261, align 2
-  %263 = and i8 %262, 1
-  %.not73 = icmp eq i8 %263, 0
-  br i1 %.not73, label %266, label %264
+  %263 = trunc i8 %262 to i1
+  br i1 %263, label %264, label %266
 
 264:                                              ; preds = %260
   %265 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull @.str.78)

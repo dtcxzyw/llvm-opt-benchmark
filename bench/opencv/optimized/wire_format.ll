@@ -15987,9 +15987,8 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %2, %_ZN6google8pro
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN6google8protobuf8internal24ComputeUnknownFieldsSizeERKNS1_16InternalMetadataEmPNS1_10CachedSizeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %0, align 8, !tbaa !259
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %10, label %6, !prof !19
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %10, !prof !47
 
 6:                                                ; preds = %3
   %7 = and i64 %4, -4
@@ -16265,9 +16264,8 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread127: ; preds = %
   %105 = load ptr, ptr %4, align 8, !tbaa !48
   %106 = load i64, ptr %11, align 8, !tbaa !44
   %107 = load i64, ptr %9, align 8, !tbaa !259
-  %108 = and i64 %107, 1
-  %.not187 = icmp eq i64 %108, 0
-  br i1 %.not187, label %113, label %109, !prof !47
+  %108 = trunc i64 %107 to i1
+  br i1 %108, label %109, label %113, !prof !19
 
 109:                                              ; preds = %.noexc
   %110 = and i64 %107, -4
@@ -16584,11 +16582,10 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !259
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
+  %3 = trunc i64 %2 to i1
   %4 = and i64 %2, -4
   %5 = inttoptr i64 %4 to ptr
-  br i1 %.not, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, label %6, !prof !19
+  br i1 %3, label %6, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, !prof !47
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %5, align 8, !tbaa !268

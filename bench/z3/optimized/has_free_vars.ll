@@ -479,8 +479,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13contains_vars3imp14visit_chi
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !42
-  %.not2034 = icmp eq i32 %17, 0
-  br i1 %.not2034, label %.loopexit, label %.lr.ph
+  %.not2033 = icmp eq i32 %17, 0
+  br i1 %.not2033, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -491,7 +491,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13contains_vars3imp14visit_chi
 
 22:                                               ; preds = %.lr.ph, %_ZN13contains_vars3imp5visitEP4exprjRb.exit
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %23, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
-  %.135 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
+  %.134 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
   %23 = add nsw i64 %indvars.iv, -1
   %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !34
@@ -507,14 +507,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13contains_vars3imp14visit_chi
 _Z9is_groundPK4expr.exit.i:                       ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 30
   %31 = load i8, ptr %30, align 2
-  %32 = and i8 %31, 1
-  %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %_Z9is_groundPK4expr.exit.thread.i, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit, label %_Z9is_groundPK4expr.exit.thread.i
 
 _Z9is_groundPK4expr.exit.thread.i:                ; preds = %_Z9is_groundPK4expr.exit.i, %22
   %33 = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE9find_coreERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %5)
-  %.not4.i = icmp eq ptr %33, null
-  br i1 %.not4.i, label %34, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %34, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit
 
 34:                                               ; preds = %_Z9is_groundPK4expr.exit.thread.i
   %35 = load ptr, ptr %20, align 8, !tbaa !15
@@ -550,7 +549,7 @@ _ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i: ; preds = %43, %37
   br label %_ZN13contains_vars3imp5visitEP4exprjRb.exit
 
 _ZN13contains_vars3imp5visitEP4exprjRb.exit:      ; preds = %_Z9is_groundPK4expr.exit.i, %_Z9is_groundPK4expr.exit.thread.i, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i
-  %.2 = phi i1 [ false, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i ], [ %.135, %_Z9is_groundPK4expr.exit.thread.i ], [ %.135, %_Z9is_groundPK4expr.exit.i ]
+  %.2 = phi i1 [ %.134, %_Z9is_groundPK4expr.exit.i ], [ false, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i ], [ %.134, %_Z9is_groundPK4expr.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not20.wide = icmp eq i64 %23, 0
   br i1 %.not20.wide, label %.loopexit, label %22, !llvm.loop !49
@@ -579,14 +578,13 @@ _ZN13contains_vars3imp5visitEP4exprjRb.exit:      ; preds = %_Z9is_groundPK4expr
 _Z9is_groundPK4expr.exit.i30:                     ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 30
   %66 = load i8, ptr %65, align 2
-  %67 = and i8 %66, 1
-  %.not.i31 = icmp eq i8 %67, 0
-  br i1 %.not.i31, label %_Z9is_groundPK4expr.exit.thread.i24, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit32
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit31, label %_Z9is_groundPK4expr.exit.thread.i24
 
 _Z9is_groundPK4expr.exit.thread.i24:              ; preds = %_Z9is_groundPK4expr.exit.i30, %56
   %68 = call noundef ptr @_ZNK14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE9find_coreERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(12) %4)
-  %.not4.i25 = icmp eq ptr %68, null
-  br i1 %.not4.i25, label %69, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit32
+  %.not.i25 = icmp eq ptr %68, null
+  br i1 %.not.i25, label %69, label %_ZN13contains_vars3imp5visitEP4exprjRb.exit31
 
 69:                                               ; preds = %_Z9is_groundPK4expr.exit.thread.i24
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -620,16 +618,16 @@ _ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i26: ; preds = %79, %73
   %86 = load i32, ptr %85, align 4, !tbaa !27
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 4, !tbaa !27
-  br label %_ZN13contains_vars3imp5visitEP4exprjRb.exit32
+  br label %_ZN13contains_vars3imp5visitEP4exprjRb.exit31
 
-_ZN13contains_vars3imp5visitEP4exprjRb.exit32:    ; preds = %_Z9is_groundPK4expr.exit.i30, %_Z9is_groundPK4expr.exit.thread.i24, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i26
-  %.3 = phi i1 [ false, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i26 ], [ true, %_Z9is_groundPK4expr.exit.thread.i24 ], [ true, %_Z9is_groundPK4expr.exit.i30 ]
+_ZN13contains_vars3imp5visitEP4exprjRb.exit31:    ; preds = %_Z9is_groundPK4expr.exit.i30, %_Z9is_groundPK4expr.exit.thread.i24, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i26
+  %.3 = phi i1 [ true, %_Z9is_groundPK4expr.exit.i30 ], [ false, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backERKS0_.exit.i26 ], [ true, %_Z9is_groundPK4expr.exit.thread.i24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN13contains_vars3imp5visitEP4exprjRb.exit, %15, %3, %52, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32, %8, %13
-  %.033 = phi i1 [ true, %3 ], [ true, %8 ], [ %.3, %_ZN13contains_vars3imp5visitEP4exprjRb.exit32 ], [ true, %13 ], [ true, %52 ], [ true, %15 ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
-  ret i1 %.033
+.loopexit:                                        ; preds = %_ZN13contains_vars3imp5visitEP4exprjRb.exit, %15, %3, %52, %_ZN13contains_vars3imp5visitEP4exprjRb.exit31, %8, %13
+  %.032 = phi i1 [ true, %3 ], [ true, %8 ], [ %.3, %_ZN13contains_vars3imp5visitEP4exprjRb.exit31 ], [ true, %13 ], [ true, %52 ], [ true, %15 ], [ %.2, %_ZN13contains_vars3imp5visitEP4exprjRb.exit ]
+  ret i1 %.032
 }
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0

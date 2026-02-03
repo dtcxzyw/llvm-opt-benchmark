@@ -929,66 +929,66 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %70, %58
   br i1 %161, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader4
-  %162 = lshr i32 1398103, %2
-  %163 = and i32 %162, 1
-  %164 = getelementptr i8, ptr %159, i64 24
-  br label %165
+  %.not144 = lshr i32 1398103, %2
+  %162 = and i32 %.not144, 1
+  %163 = getelementptr i8, ptr %159, i64 24
+  br label %164
 
-165:                                              ; preds = %.lr.ph, %175
-  %.01289 = phi i64 [ 0, %.lr.ph ], [ %177, %175 ]
-  %166 = mul i64 %.01289, %77
-  %167 = getelementptr i8, ptr %158, i64 %166
-  %168 = tail call ptr @_PyLong_FromByteArray(ptr noundef %167, i64 noundef %77, i32 noundef %163, i32 noundef %.sroa.7.0.copyload) #12
-  %.not145 = icmp eq ptr %168, null
-  br i1 %.not145, label %169, label %175
+164:                                              ; preds = %.lr.ph, %174
+  %.01289 = phi i64 [ 0, %.lr.ph ], [ %176, %174 ]
+  %165 = mul i64 %.01289, %77
+  %166 = getelementptr i8, ptr %158, i64 %165
+  %167 = tail call ptr @_PyLong_FromByteArray(ptr noundef %166, i64 noundef %77, i32 noundef %162, i32 noundef %.sroa.7.0.copyload) #12
+  %.not145 = icmp eq ptr %167, null
+  br i1 %.not145, label %168, label %174
 
-169:                                              ; preds = %165
-  %170 = load i32, ptr %159, align 8, !tbaa !17
-  %.not.i159 = icmp sgt i32 %170, -1
-  br i1 %.not.i159, label %171, label %.critedge
+168:                                              ; preds = %164
+  %169 = load i32, ptr %159, align 8, !tbaa !17
+  %.not.i159 = icmp sgt i32 %169, -1
+  br i1 %.not.i159, label %170, label %.critedge
 
-171:                                              ; preds = %169
-  %172 = add nsw i32 %170, -1
-  store i32 %172, ptr %159, align 8, !tbaa !17
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %.critedge
+170:                                              ; preds = %168
+  %171 = add nsw i32 %169, -1
+  store i32 %171, ptr %159, align 8, !tbaa !17
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %173, label %.critedge
 
-174:                                              ; preds = %171
+173:                                              ; preds = %170
   tail call void @_Py_Dealloc(ptr noundef nonnull %159) #12
   br label %.critedge
 
-175:                                              ; preds = %165
-  %.val179 = load ptr, ptr %164, align 8, !tbaa !43
-  %176 = getelementptr ptr, ptr %.val179, i64 %.01289
-  store ptr %168, ptr %176, align 8, !tbaa !18
-  %177 = add nuw nsw i64 %.01289, 1
-  %178 = icmp slt i64 %177, %79
-  br i1 %178, label %165, label %.loopexit, !llvm.loop !52
+174:                                              ; preds = %164
+  %.val179 = load ptr, ptr %163, align 8, !tbaa !43
+  %175 = getelementptr ptr, ptr %.val179, i64 %.01289
+  store ptr %167, ptr %175, align 8, !tbaa !18
+  %176 = add nuw nsw i64 %.01289, 1
+  %177 = icmp slt i64 %176, %79
+  br i1 %177, label %164, label %.loopexit, !llvm.loop !52
 
 default.unreachable39:                            ; preds = %82
   unreachable
 
-.loopexit:                                        ; preds = %175, %126, %103, %.preheader4, %.preheader2, %.preheader, %129, %134
-  %.0117 = phi ptr [ %111, %.preheader2 ], [ %88, %.preheader ], [ %133, %129 ], [ %138, %134 ], [ %159, %.preheader4 ], [ %111, %126 ], [ %88, %103 ], [ %159, %175 ]
-  %.0114 = phi i32 [ %1, %.preheader2 ], [ %1, %.preheader ], [ %1, %129 ], [ %1, %134 ], [ %.2116, %.preheader4 ], [ %1, %126 ], [ %1, %103 ], [ %.2116, %175 ]
-  %179 = trunc i32 %.0114 to i8
-  %180 = call fastcc ptr @make_array(ptr noundef nonnull %0, i8 noundef signext %179, ptr noundef nonnull %.0117)
-  %181 = load i32, ptr %.0117, align 8, !tbaa !17
-  %.not.i161 = icmp sgt i32 %181, -1
-  br i1 %.not.i161, label %182, label %.critedge
+.loopexit:                                        ; preds = %174, %126, %103, %.preheader4, %.preheader2, %.preheader, %129, %134
+  %.0117 = phi ptr [ %111, %.preheader2 ], [ %88, %.preheader ], [ %133, %129 ], [ %138, %134 ], [ %159, %.preheader4 ], [ %111, %126 ], [ %88, %103 ], [ %159, %174 ]
+  %.0114 = phi i32 [ %1, %.preheader2 ], [ %1, %.preheader ], [ %1, %129 ], [ %1, %134 ], [ %.2116, %.preheader4 ], [ %1, %126 ], [ %1, %103 ], [ %.2116, %174 ]
+  %178 = trunc i32 %.0114 to i8
+  %179 = call fastcc ptr @make_array(ptr noundef nonnull %0, i8 noundef signext %178, ptr noundef nonnull %.0117)
+  %180 = load i32, ptr %.0117, align 8, !tbaa !17
+  %.not.i161 = icmp sgt i32 %180, -1
+  br i1 %.not.i161, label %181, label %.critedge
 
-182:                                              ; preds = %.loopexit
-  %183 = add nsw i32 %181, -1
-  store i32 %183, ptr %.0117, align 8, !tbaa !17
-  %184 = icmp eq i32 %183, 0
-  br i1 %184, label %185, label %.critedge
+181:                                              ; preds = %.loopexit
+  %182 = add nsw i32 %180, -1
+  store i32 %182, ptr %.0117, align 8, !tbaa !17
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %.critedge
 
-185:                                              ; preds = %182
+184:                                              ; preds = %181
   call void @_Py_Dealloc(ptr noundef nonnull %.0117) #12
   br label %.critedge
 
-.critedge:                                        ; preds = %169, %171, %174, %120, %122, %125, %97, %99, %102, %185, %182, %.loopexit, %Py_DECREF.exit.sink.split.i, %70, %_Py_NewRef.exit.i, %58, %56, %49, %157, %106, %83, %129, %134, %80, %40, %34, %31, %18, %10
-  %.0 = phi ptr [ null, %31 ], [ null, %34 ], [ null, %157 ], [ null, %80 ], [ null, %10 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ null, %18 ], [ null, %83 ], [ null, %129 ], [ null, %134 ], [ null, %106 ], [ null, %40 ], [ %180, %185 ], [ null, %97 ], [ null, %120 ], [ null, %49 ], [ %68, %70 ], [ null, %56 ], [ null, %58 ], [ %68, %_Py_NewRef.exit.i ], [ %180, %.loopexit ], [ %180, %182 ], [ null, %102 ], [ null, %99 ], [ null, %125 ], [ null, %122 ], [ null, %174 ], [ null, %171 ], [ null, %169 ]
+.critedge:                                        ; preds = %168, %170, %173, %120, %122, %125, %97, %99, %102, %184, %181, %.loopexit, %Py_DECREF.exit.sink.split.i, %70, %_Py_NewRef.exit.i, %58, %56, %49, %157, %106, %83, %129, %134, %80, %40, %34, %31, %18, %10
+  %.0 = phi ptr [ null, %31 ], [ null, %34 ], [ null, %157 ], [ null, %80 ], [ null, %10 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ], [ null, %18 ], [ null, %83 ], [ null, %129 ], [ null, %134 ], [ null, %106 ], [ null, %40 ], [ %179, %184 ], [ null, %97 ], [ null, %120 ], [ null, %49 ], [ %68, %70 ], [ null, %56 ], [ null, %58 ], [ %68, %_Py_NewRef.exit.i ], [ %179, %.loopexit ], [ %179, %181 ], [ null, %102 ], [ null, %99 ], [ null, %125 ], [ null, %122 ], [ null, %173 ], [ null, %170 ], [ null, %168 ]
   ret ptr %.0
 }
 

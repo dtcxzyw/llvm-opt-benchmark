@@ -148,7 +148,7 @@ tailrecurse:                                      ; preds = %.loopexit, %10
   store i64 %.072.lcssa, ptr %72, align 8, !tbaa !12
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not399.i = icmp eq i64 %70, 0
-  %.not394.i = icmp ne i64 %70, 0
+  %.not394.i = trunc i64 %69 to i1
   %.not378.i = icmp eq i32 %.tr278, 0
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %75 = add i64 %.070.lcssa, %.073.lcssa

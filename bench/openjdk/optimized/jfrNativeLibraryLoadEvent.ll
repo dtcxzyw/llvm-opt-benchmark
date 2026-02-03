@@ -312,9 +312,8 @@ _ZL6commitI22EventNativeLibraryLoad22NativeLibraryLoadEventEvRKT0_.exit.thread: 
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 1096
   %47 = load volatile i64, ptr %46, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
-  %48 = and i64 %47, 1
-  %.not.i.i.i.i.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %49
+  %48 = trunc i64 %47 to i1
+  br i1 %48, label %49, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 49:                                               ; preds = %45
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %32, i1 noundef zeroext true, i1 noundef zeroext false) #14
@@ -500,9 +499,8 @@ _ZL6commitI24EventNativeLibraryUnload24NativeLibraryUnloadEventEvRKT0_.exit.thre
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 1096
   %37 = load volatile i64, ptr %36, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
-  %38 = and i64 %37, 1
-  %.not.i.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, label %39
+  %38 = trunc i64 %37 to i1
+  br i1 %38, label %39, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i
 
 39:                                               ; preds = %35
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %22, i1 noundef zeroext true, i1 noundef zeroext false) #14

@@ -14,9 +14,8 @@ define noundef nonnull ptr @l___private_Init_Dynamic_0__TypeNameData(ptr noundef
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_TypeName_mk___rarg(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -67,9 +66,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_TypeName_mk___rarg___boxed(ptr noundef returned %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -115,9 +113,8 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l___private_Init_Dynamic_0__TypeName_typeNameImpl___rarg(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -168,9 +165,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l___private_Init_Dynamic_0__TypeName_typeNameImpl___rarg___boxed(ptr noundef returned %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -218,9 +214,8 @@ define ptr @l___private_Init_Dynamic_0__Dynamic_typeNameImpl(ptr noundef readonl
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !4
@@ -249,9 +244,8 @@ define ptr @l___private_Init_Dynamic_0__Dynamic_typeNameImpl___boxed(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l___private_Init_Dynamic_0__Dynamic_typeNameImpl.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l___private_Init_Dynamic_0__Dynamic_typeNameImpl.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !4
@@ -273,9 +267,8 @@ define ptr @l___private_Init_Dynamic_0__Dynamic_typeNameImpl___boxed(ptr noundef
 
 l___private_Init_Dynamic_0__Dynamic_typeNameImpl.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l___private_Init_Dynamic_0__Dynamic_typeNameImpl.exit
   %15 = load i32, ptr %0, align 4, !tbaa !4
@@ -311,9 +304,8 @@ define ptr @l___private_Init_Dynamic_0__Dynamic_get_x3fImpl___rarg(ptr noundef r
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %6 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %lean_inc.exit
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %lean_inc.exit, label %12
 
 12:                                               ; preds = %9
   %.val.i = load i32, ptr %6, align 4, !tbaa !4
@@ -394,9 +386,8 @@ define ptr @l___private_Init_Dynamic_0__Dynamic_get_x3fImpl___rarg___boxed(ptr n
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %6 to i64
-  %11 = and i64 %10, 1
-  %.not.i8 = icmp eq i64 %11, 0
-  br i1 %.not.i8, label %12, label %lean_inc.exit.i
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %lean_inc.exit.i, label %12
 
 12:                                               ; preds = %9
   %.val.i.i = load i32, ptr %6, align 4, !tbaa !4
@@ -437,9 +428,8 @@ lean_alloc_ctor.exit.i:                           ; preds = %lean_inc.exit.i
 l___private_Init_Dynamic_0__Dynamic_get_x3fImpl___rarg.exit: ; preds = %2, %lean_alloc_ctor.exit.i
   %.0.i = phi ptr [ %18, %lean_alloc_ctor.exit.i ], [ inttoptr (i64 1 to ptr), %2 ]
   %23 = ptrtoint ptr %1 to i64
-  %24 = and i64 %23, 1
-  %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %25, label %lean_dec.exit5
+  %24 = trunc i64 %23 to i1
+  br i1 %24, label %lean_dec.exit5, label %25
 
 25:                                               ; preds = %l___private_Init_Dynamic_0__Dynamic_get_x3fImpl___rarg.exit
   %26 = load i32, ptr %1, align 4, !tbaa !4
@@ -461,9 +451,8 @@ l___private_Init_Dynamic_0__Dynamic_get_x3fImpl___rarg.exit: ; preds = %2, %lean
 
 lean_dec.exit5:                                   ; preds = %31, %30, %28, %l___private_Init_Dynamic_0__Dynamic_get_x3fImpl___rarg.exit
   %32 = ptrtoint ptr %0 to i64
-  %33 = and i64 %32, 1
-  %.not9 = icmp eq i64 %33, 0
-  br i1 %.not9, label %34, label %lean_dec.exit
+  %33 = trunc i64 %32 to i1
+  br i1 %33, label %lean_dec.exit, label %34
 
 34:                                               ; preds = %lean_dec.exit5
   %35 = load i32, ptr %0, align 4, !tbaa !4

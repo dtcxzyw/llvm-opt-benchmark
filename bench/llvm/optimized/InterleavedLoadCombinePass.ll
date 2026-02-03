@@ -4327,9 +4327,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110VectorInfo13comput
   store i64 0, ptr %26, align 8, !tbaa !135
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %29 = load i16, ptr %28, align 2, !tbaa !209
-  %30 = and i16 %29, 1
-  %.not = icmp eq i16 %30, 0
-  br i1 %.not, label %31, label %.loopexit
+  %30 = trunc i16 %29 to i1
+  br i1 %30, label %_ZN4llvm5APIntD2Ev.exit.i69, label %31
 
 31:                                               ; preds = %3
   %32 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
@@ -5367,11 +5366,11 @@ _ZNSt8_Rb_treeIPN4llvm11InstructionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M
   br label %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit
 
 _ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds = %441, %_ZNSt8_Rb_treeIPN4llvm11InstructionES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
-  %.val110 = load ptr, ptr %34, align 8, !tbaa !110
-  %455 = getelementptr i8, ptr %.val110, i64 32
-  %.val.val111 = load i32, ptr %455, align 8, !tbaa !127
-  %.not113 = icmp eq i32 %.val.val111, 0
-  br i1 %.not113, label %.loopexit, label %.lr.ph
+  %.val112 = load ptr, ptr %34, align 8, !tbaa !110
+  %455 = getelementptr i8, ptr %.val112, i64 32
+  %.val.val113 = load i32, ptr %455, align 8, !tbaa !127
+  %.not = icmp eq i32 %.val.val113, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit
   %456 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -5600,51 +5599,52 @@ _ZN12_GLOBAL__N_110PolynomialD2Ev.exit:           ; preds = %_ZN4llvm23SmallVect
   %540 = icmp samesign ult i64 %indvars.iv.next, %539
   br i1 %540, label %471, label %.loopexit, !llvm.loop !348
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit, %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %33, %31, %3
-  %.0 = phi i1 [ false, %31 ], [ false, %3 ], [ false, %33 ], [ true, %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ], [ true, %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit ]
-  %541 = load i32, ptr %27, align 8, !tbaa !133
-  %542 = icmp ugt i32 %541, 64
-  br i1 %542, label %543, label %_ZN4llvm5APIntD2Ev.exit.i69
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit, %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %33, %31
+  %.0.ph = phi i1 [ false, %31 ], [ false, %33 ], [ true, %_ZNSt3setIPN4llvm11InstructionESt4lessIS2_ESaIS2_EE6insertEOS2_.exit ], [ true, %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit ]
+  %.pr = load i32, ptr %27, align 8, !tbaa !133
+  %541 = icmp ugt i32 %.pr, 64
+  br i1 %541, label %542, label %_ZN4llvm5APIntD2Ev.exit.i69
 
-543:                                              ; preds = %.loopexit
-  %544 = load ptr, ptr %26, align 8, !tbaa !135
-  %545 = icmp eq ptr %544, null
-  br i1 %545, label %_ZN4llvm5APIntD2Ev.exit.i69, label %546
+542:                                              ; preds = %.loopexit
+  %543 = load ptr, ptr %26, align 8, !tbaa !135
+  %544 = icmp eq ptr %543, null
+  br i1 %544, label %_ZN4llvm5APIntD2Ev.exit.i69, label %545
 
-546:                                              ; preds = %543
-  call void @_ZdaPv(ptr noundef nonnull %544) #21
+545:                                              ; preds = %542
+  call void @_ZdaPv(ptr noundef nonnull %543) #21
   br label %_ZN4llvm5APIntD2Ev.exit.i69
 
-_ZN4llvm5APIntD2Ev.exit.i69:                      ; preds = %546, %543, %.loopexit
+_ZN4llvm5APIntD2Ev.exit.i69:                      ; preds = %3, %545, %542, %.loopexit
+  %.096 = phi i1 [ %.0.ph, %.loopexit ], [ %.0.ph, %545 ], [ %.0.ph, %542 ], [ false, %3 ]
   %.val.i.i70 = load ptr, ptr %22, align 8, !tbaa !25
   %.val2.i.i71 = load i32, ptr %24, align 8, !tbaa !26
   %.not5.i.i.i72 = icmp eq i32 %.val2.i.i71, 0
   br i1 %.not5.i.i.i72, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84, label %.lr.ph.i.preheader.i.i73
 
 .lr.ph.i.preheader.i.i73:                         ; preds = %_ZN4llvm5APIntD2Ev.exit.i69
-  %547 = zext i32 %.val2.i.i71 to i64
-  %.idx.i.i74 = mul nuw nsw i64 %547, 24
-  %548 = getelementptr inbounds nuw i8, ptr %.val.i.i70, i64 %.idx.i.i74
+  %546 = zext i32 %.val2.i.i71 to i64
+  %.idx.i.i74 = mul nuw nsw i64 %546, 24
+  %547 = getelementptr inbounds nuw i8, ptr %.val.i.i70, i64 %.idx.i.i74
   br label %.lr.ph.i.i.i75
 
 .lr.ph.i.i.i75:                                   ; preds = %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80, %.lr.ph.i.preheader.i.i73
-  %.06.i.i.i76 = phi ptr [ %549, %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80 ], [ %548, %.lr.ph.i.preheader.i.i73 ]
-  %549 = getelementptr inbounds i8, ptr %.06.i.i.i76, i64 -24
-  %550 = getelementptr i8, ptr %.06.i.i.i76, i64 -16
-  %.val.i.i.i77 = load ptr, ptr %550, align 8
-  %551 = getelementptr i8, ptr %.06.i.i.i76, i64 -8
-  %.val4.i.i.i78 = load i32, ptr %551, align 8, !tbaa !133
-  %552 = icmp ult i32 %.val4.i.i.i78, 65
-  %553 = icmp eq ptr %.val.i.i.i77, null
-  %or.cond.i.i.i.i79 = select i1 %552, i1 true, i1 %553
-  br i1 %or.cond.i.i.i.i79, label %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80, label %554
+  %.06.i.i.i76 = phi ptr [ %548, %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80 ], [ %547, %.lr.ph.i.preheader.i.i73 ]
+  %548 = getelementptr inbounds i8, ptr %.06.i.i.i76, i64 -24
+  %549 = getelementptr i8, ptr %.06.i.i.i76, i64 -16
+  %.val.i.i.i77 = load ptr, ptr %549, align 8
+  %550 = getelementptr i8, ptr %.06.i.i.i76, i64 -8
+  %.val4.i.i.i78 = load i32, ptr %550, align 8, !tbaa !133
+  %551 = icmp ult i32 %.val4.i.i.i78, 65
+  %552 = icmp eq ptr %.val.i.i.i77, null
+  %or.cond.i.i.i.i79 = select i1 %551, i1 true, i1 %552
+  br i1 %or.cond.i.i.i.i79, label %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80, label %553
 
-554:                                              ; preds = %.lr.ph.i.i.i75
+553:                                              ; preds = %.lr.ph.i.i.i75
   call void @_ZdaPv(ptr noundef nonnull %.val.i.i.i77) #21
   br label %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80
 
-_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80: ; preds = %554, %.lr.ph.i.i.i75
-  %.not.i.i.i81 = icmp eq ptr %.val.i.i70, %549
+_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80: ; preds = %553, %.lr.ph.i.i.i75
+  %.not.i.i.i81 = icmp eq ptr %.val.i.i70, %548
   br i1 %.not.i.i.i81, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i82, label %.lr.ph.i.i.i75, !llvm.loop !155
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i82: ; preds = %_ZNSt4pairIN12_GLOBAL__N_110Polynomial4BOpsEN4llvm5APIntEED2Ev.exit.i.i.i80
@@ -5652,17 +5652,17 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5A
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i82, %_ZN4llvm5APIntD2Ev.exit.i69
-  %555 = phi ptr [ %.pre.i.i83, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i82 ], [ %.val.i.i70, %_ZN4llvm5APIntD2Ev.exit.i69 ]
-  %556 = icmp eq ptr %555, %23
-  br i1 %556, label %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit85, label %557
+  %554 = phi ptr [ %.pre.i.i83, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i82 ], [ %.val.i.i70, %_ZN4llvm5APIntD2Ev.exit.i69 ]
+  %555 = icmp eq ptr %554, %23
+  br i1 %555, label %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit85, label %556
 
-557:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84
-  call void @free(ptr noundef %555) #20
+556:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84
+  call void @free(ptr noundef %554) #20
   br label %_ZN12_GLOBAL__N_110PolynomialD2Ev.exit85
 
-_ZN12_GLOBAL__N_110PolynomialD2Ev.exit85:         ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84, %557
+_ZN12_GLOBAL__N_110PolynomialD2Ev.exit85:         ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN12_GLOBAL__N_110Polynomial4BOpsENS_5APIntEELb0EE13destroy_rangeEPS6_S8_.exit.i.i84, %556
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  ret i1 %.0
+  ret i1 %.096
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

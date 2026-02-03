@@ -389,9 +389,8 @@ define void @_ZN9grpc_core29MaybeRewriteIllegalStatusCodeEN4absl12lts_202407226S
   %9 = alloca %"class.absl::lts_20240722::AlphaNum", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = load i64, ptr %1, align 8, !tbaa !50
-  %12 = and i64 %11, 1
-  %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %16, label %13
+  %12 = trunc i64 %11 to i1
+  br i1 %12, label %13, label %16
 
 13:                                               ; preds = %4
   %14 = lshr i64 %11, 2

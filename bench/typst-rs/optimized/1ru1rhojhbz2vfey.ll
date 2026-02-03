@@ -119040,37 +119040,37 @@ define hidden { i64, i64 } @_ZN5typst4text4font4book8FontBook17find_best_variant
   %52 = load i32, ptr %51, align 8, !alias.scope !23768, !noalias !23773, !noundef !5
   %53 = load i32, ptr %16, align 8, !alias.scope !23771, !noalias !23775, !noundef !5
   %54 = xor i32 %53, %52
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %56 = load ptr, ptr %55, align 8, !alias.scope !23768, !noalias !23773, !nonnull !5, !noundef !5
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %58 = load i64, ptr %57, align 8, !alias.scope !23768, !noalias !23773, !noundef !5
-  %59 = load ptr, ptr %17, align 8, !alias.scope !23771, !noalias !23775, !nonnull !5, !noundef !5
-  %60 = load i64, ptr %18, align 8, !alias.scope !23771, !noalias !23775, !noundef !5
+  %55 = trunc i32 %54 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %57 = load ptr, ptr %56, align 8, !alias.scope !23768, !noalias !23773, !nonnull !5, !noundef !5
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %59 = load i64, ptr %58, align 8, !alias.scope !23768, !noalias !23773, !noundef !5
+  %60 = load ptr, ptr %17, align 8, !alias.scope !23771, !noalias !23775, !nonnull !5, !noundef !5
+  %61 = load i64, ptr %18, align 8, !alias.scope !23771, !noalias !23775, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !23776
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !23776
   store ptr @_ZN20unicode_segmentation4word16has_alphanumeric17hbe73756c12ca5c1aE.llvm.4930786928582598558, ptr %.sroa.417.0..sroa_idx.i.i, align 8, !noalias !23776
-  store ptr %56, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !23776
-  store i64 %58, ptr %.sroa.619.0..sroa_idx.i.i, align 8, !noalias !23776
+  store ptr %57, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !23776
+  store i64 %59, ptr %.sroa.619.0..sroa_idx.i.i, align 8, !noalias !23776
   store i8 19, ptr %.sroa.720.0..sroa_idx.i.i, align 8, !noalias !23776
   store i8 19, ptr %.sroa.821.0..sroa_idx.i.i, align 1, !noalias !23776
   store ptr @_ZN20unicode_segmentation4word16has_alphanumeric17hbe73756c12ca5c1aE.llvm.4930786928582598558, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !noalias !23776
-  store ptr %59, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23776
-  store i64 %60, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23776
+  store ptr %60, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23776
+  store i64 %61, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23776
   store i8 19, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23776
   store i8 19, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !23776
   store i8 0, ptr %19, align 8, !noalias !23776
-  %61 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6cb90b9bb6ea7aefE.llvm.4930786928582598558"(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, i64 noundef 0), !noalias !23780
+  %62 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6cb90b9bb6ea7aefE.llvm.4930786928582598558"(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, i64 noundef 0), !noalias !23780
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23776
-  %62 = trunc i32 %54 to i8
-  %63 = and i8 %62, 1
-  %64 = lshr i8 %62, 1
+  %63 = and i8 %55, 1
+  %64 = lshr i8 %55, 1
   %65 = and i8 %64, 1
   br label %66
 
 66:                                               ; preds = %47, %50
   %.sroa.510.sroa.0.1 = phi i8 [ %.sroa.510.sroa.0.080, %47 ], [ %65, %50 ]
-  %.sroa.510.sroa.5.1 = phi i64 [ %.sroa.510.sroa.5.081, %47 ], [ %58, %50 ]
-  %.sroa.05.1 = phi i64 [ %.sroa.05.091, %47 ], [ %61, %50 ]
+  %.sroa.510.sroa.5.1 = phi i64 [ %.sroa.510.sroa.5.081, %47 ], [ %59, %50 ]
+  %.sroa.05.1 = phi i64 [ %.sroa.05.091, %47 ], [ %62, %50 ]
   %.sroa.47.0 = phi i8 [ 2, %47 ], [ %63, %50 ]
   %67 = getelementptr inbounds nuw i8, ptr %48, i64 52
   %68 = getelementptr inbounds nuw i8, ptr %48, i64 56
@@ -119257,37 +119257,37 @@ define hidden { i64, i64 } @_ZN5typst4text4font4book8FontBook17find_best_variant
   %31 = load i32, ptr %30, align 8, !alias.scope !23800, !noalias !23805, !noundef !5
   %32 = load i32, ptr %14, align 8, !alias.scope !23803, !noalias !23807, !noundef !5
   %33 = xor i32 %32, %31
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %35 = load ptr, ptr %34, align 8, !alias.scope !23800, !noalias !23805, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %37 = load i64, ptr %36, align 8, !alias.scope !23800, !noalias !23805, !noundef !5
-  %38 = load ptr, ptr %15, align 8, !alias.scope !23803, !noalias !23807, !nonnull !5, !noundef !5
-  %39 = load i64, ptr %16, align 8, !alias.scope !23803, !noalias !23807, !noundef !5
+  %34 = trunc i32 %33 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %36 = load ptr, ptr %35, align 8, !alias.scope !23800, !noalias !23805, !nonnull !5, !noundef !5
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %38 = load i64, ptr %37, align 8, !alias.scope !23800, !noalias !23805, !noundef !5
+  %39 = load ptr, ptr %15, align 8, !alias.scope !23803, !noalias !23807, !nonnull !5, !noundef !5
+  %40 = load i64, ptr %16, align 8, !alias.scope !23803, !noalias !23807, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !23808
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !23808
   store ptr @_ZN20unicode_segmentation4word16has_alphanumeric17hbe73756c12ca5c1aE.llvm.4930786928582598558, ptr %.sroa.417.0..sroa_idx.i.i, align 8, !noalias !23808
-  store ptr %35, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !23808
-  store i64 %37, ptr %.sroa.619.0..sroa_idx.i.i, align 8, !noalias !23808
+  store ptr %36, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !23808
+  store i64 %38, ptr %.sroa.619.0..sroa_idx.i.i, align 8, !noalias !23808
   store i8 19, ptr %.sroa.720.0..sroa_idx.i.i, align 8, !noalias !23808
   store i8 19, ptr %.sroa.821.0..sroa_idx.i.i, align 1, !noalias !23808
   store ptr @_ZN20unicode_segmentation4word16has_alphanumeric17hbe73756c12ca5c1aE.llvm.4930786928582598558, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !noalias !23808
-  store ptr %38, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23808
-  store i64 %39, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23808
+  store ptr %39, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23808
+  store i64 %40, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23808
   store i8 19, ptr %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !23808
   store i8 19, ptr %.sroa.10.sroa.7.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !23808
   store i8 0, ptr %17, align 8, !noalias !23808
-  %40 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6cb90b9bb6ea7aefE.llvm.4930786928582598558"(ptr noalias noundef nonnull align 8 dereferenceable(96) %6, i64 noundef 0), !noalias !23812
+  %41 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6cb90b9bb6ea7aefE.llvm.4930786928582598558"(ptr noalias noundef nonnull align 8 dereferenceable(96) %6, i64 noundef 0), !noalias !23812
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !23808
-  %41 = trunc i32 %33 to i8
-  %42 = and i8 %41, 1
-  %43 = lshr i8 %41, 1
+  %42 = and i8 %34, 1
+  %43 = lshr i8 %34, 1
   %44 = and i8 %43, 1
   br label %45
 
 45:                                               ; preds = %26, %29
   %.sroa.510.sroa.0.1 = phi i8 [ %.sroa.510.sroa.0.064, %26 ], [ %44, %29 ]
-  %.sroa.510.sroa.5.1 = phi i64 [ %.sroa.510.sroa.5.065, %26 ], [ %37, %29 ]
-  %.sroa.05.1 = phi i64 [ %.sroa.05.074, %26 ], [ %40, %29 ]
+  %.sroa.510.sroa.5.1 = phi i64 [ %.sroa.510.sroa.5.065, %26 ], [ %38, %29 ]
+  %.sroa.05.1 = phi i64 [ %.sroa.05.074, %26 ], [ %41, %29 ]
   %.sroa.47.0 = phi i8 [ 2, %26 ], [ %42, %29 ]
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 52
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 56

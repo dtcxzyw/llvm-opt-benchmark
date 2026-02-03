@@ -897,8 +897,8 @@ define internal fastcc i64 @node_find(i64 noundef %0, i32 noundef %1) unnamed_ad
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %15
 
-15:                                               ; preds = %.thread26, %9
-  %.019 = phi i64 [ 0, %9 ], [ %47, %.thread26 ]
+15:                                               ; preds = %.thread25, %9
+  %.019 = phi i64 [ 0, %9 ], [ %47, %.thread25 ]
   %16 = load i64, ptr %12, align 8, !tbaa !20
   %17 = and i64 %16, 8192
   %.not.i = icmp eq i64 %17, 0
@@ -948,9 +948,8 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   br label %rb_class_of.exit
 
 37:                                               ; preds = %34
-  %38 = and i64 %26, 1
-  %.not.i24 = icmp eq i64 %38, 0
-  br i1 %.not.i24, label %39, label %rb_class_of.exit
+  %38 = trunc i64 %26 to i1
+  br i1 %38, label %rb_class_of.exit, label %39
 
 39:                                               ; preds = %37
   %40 = and i64 %26, 254
@@ -963,15 +962,15 @@ rb_class_of.exit:                                 ; preds = %31, %34, %35, %36, 
   %.0.i23 = load i64, ptr %.0.in.i, align 8, !tbaa !47
   %42 = load i64, ptr @rb_cNode, align 8, !tbaa !47
   %43 = icmp eq i64 %.0.i23, %42
-  br i1 %43, label %44, label %.thread26
+  br i1 %43, label %44, label %.thread25
 
 44:                                               ; preds = %rb_class_of.exit
   %45 = tail call fastcc i64 @node_find(i64 noundef %26, i32 noundef %1)
   %46 = and i64 %45, -5
   %.not = icmp eq i64 %46, 0
-  br i1 %.not, label %.thread26, label %.loopexit
+  br i1 %.not, label %.thread25, label %.loopexit
 
-.thread26:                                        ; preds = %rb_class_of.exit, %44
+.thread25:                                        ; preds = %rb_class_of.exit, %44
   %47 = add nuw nsw i64 %.019, 1
   br label %15, !llvm.loop !113
 

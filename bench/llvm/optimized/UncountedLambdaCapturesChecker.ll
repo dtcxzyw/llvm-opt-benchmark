@@ -4491,7 +4491,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_130UncountedLambdaCapturesChecker1
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %.sroa.2.0..sroa_idx.i.i58 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %.sroa.2.0..sroa_idx.i.i57 = getelementptr inbounds nuw i8, ptr %9, i64 56
   br label %60
 
 60:                                               ; preds = %.lr.ph86, %.critedge
@@ -4538,14 +4538,13 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit: ; preds = %60
   store ptr %15, ptr %33, align 8, !tbaa !217
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %.084, align 8
-  %75 = and i64 %.0.copyload.i.i.i.i.i.i, 1
-  %.not.i.i = icmp eq i64 %75, 0
+  %75 = trunc i64 %.0.copyload.i.i.i.i.i.i to i1
   %76 = load ptr, ptr %34, align 8, !tbaa !219
   %77 = load ptr, ptr %35, align 8, !tbaa !220
   %78 = ptrtoint ptr %76 to i64
   %79 = ptrtoint ptr %77 to i64
   %80 = sub i64 %78, %79
-  br i1 %.not.i.i, label %81, label %88
+  br i1 %75, label %88, label %81
 
 81:                                               ; preds = %74
   %82 = icmp ult i64 %80, 9
@@ -4811,8 +4810,8 @@ _ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefE
   %211 = load ptr, ptr %210, align 8
   call void %211(ptr noundef nonnull align 8 dereferenceable(120) %208, ptr noundef nonnull %18) #19
   %212 = load ptr, ptr %18, align 8, !tbaa !283
-  %.not.i19.i = icmp eq ptr %212, null
-  br i1 %.not.i19.i, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i
+  %.not.i.i = icmp eq ptr %212, null
+  br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i: ; preds = %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
   %213 = load ptr, ptr %212, align 8, !tbaa !7
@@ -5086,14 +5085,13 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit49.thread: ; preds = %_ZNK12_G
   store ptr %7, ptr %52, align 8, !tbaa !217
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef null, i64 noundef 0, i32 noundef 0) #19
   %.0.copyload.i.i.i.i.i.i52 = load i64, ptr %.084, align 8
-  %308 = and i64 %.0.copyload.i.i.i.i.i.i52, 1
-  %.not.i.i53 = icmp eq i64 %308, 0
+  %308 = trunc i64 %.0.copyload.i.i.i.i.i.i52 to i1
   %309 = load ptr, ptr %53, align 8, !tbaa !219
   %310 = load ptr, ptr %54, align 8, !tbaa !220
   %311 = ptrtoint ptr %309 to i64
   %312 = ptrtoint ptr %310 to i64
   %313 = sub i64 %311, %312
-  br i1 %.not.i.i53, label %314, label %321
+  br i1 %308, label %321, label %314
 
 314:                                              ; preds = %._crit_edge
   %315 = icmp ult i64 %313, 9
@@ -5101,14 +5099,14 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit49.thread: ; preds = %_ZNK12_G
 
 316:                                              ; preds = %314
   %317 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.4, i64 noundef 9) #19
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i54
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
 
 318:                                              ; preds = %314
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %310, ptr noundef nonnull align 1 dereferenceable(9) @.str.4, i64 9, i1 false)
   %319 = load ptr, ptr %54, align 8, !tbaa !220
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 9
   store ptr %320, ptr %54, align 8, !tbaa !220
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i54
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
 
 321:                                              ; preds = %._crit_edge
   %322 = icmp ult i64 %313, 20
@@ -5116,16 +5114,16 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit49.thread: ; preds = %_ZNK12_G
 
 323:                                              ; preds = %321
   %324 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.5, i64 noundef 20) #19
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i54
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
 
 325:                                              ; preds = %321
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %310, ptr noundef nonnull align 1 dereferenceable(20) @.str.5, i64 20, i1 false)
   %326 = load ptr, ptr %54, align 8, !tbaa !220
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 20
   store ptr %327, ptr %54, align 8, !tbaa !220
-  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i54
+  br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
 
-_ZN4llvm11raw_ostreamlsEPKc.exit.i54:             ; preds = %325, %323, %318, %316
+_ZN4llvm11raw_ostreamlsEPKc.exit.i53:             ; preds = %325, %323, %318, %316
   %328 = load ptr, ptr %53, align 8, !tbaa !219
   %329 = load ptr, ptr %54, align 8, !tbaa !220
   %330 = ptrtoint ptr %328 to i64
@@ -5134,11 +5132,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i54:             ; preds = %325, %323, %318, %3
   %333 = icmp ult i64 %332, 76
   br i1 %333, label %334, label %336
 
-334:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i54
+334:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
   %335 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull @.str.11, i64 noundef 76) #19
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8.i
 
-336:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i54
+336:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %329, ptr noundef nonnull align 1 dereferenceable(76) @.str.11, i64 76, i1 false)
   %337 = getelementptr inbounds nuw i8, ptr %329, i64 76
   store ptr %337, ptr %54, align 8, !tbaa !220
@@ -5147,7 +5145,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i54:             ; preds = %325, %323, %318, %3
 _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %336, %334
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %338 = getelementptr inbounds nuw i8, ptr %.084, i64 8
-  %.sroa.0.0.copyload.i.i55 = load i32, ptr %338, align 8, !tbaa !224
+  %.sroa.0.0.copyload.i.i54 = load i32, ptr %338, align 8, !tbaa !224
   %339 = load ptr, ptr %36, align 8, !tbaa !58
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
   %341 = load ptr, ptr %340, align 8, !tbaa !225
@@ -5158,13 +5156,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %336, %334
   store i32 1, ptr %9, align 8, !tbaa !243
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   store ptr %345, ptr %56, align 8, !tbaa !249
-  store i32 %.sroa.0.0.copyload.i.i55, ptr %57, align 8, !tbaa !224
+  store i32 %.sroa.0.0.copyload.i.i54, ptr %57, align 8, !tbaa !224
   store ptr %345, ptr %58, align 8, !tbaa !250
   %346 = call { i64, i8 } @_ZNK5clang4ento22PathDiagnosticLocation8genRangeEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %9, i64 4) #19
-  %.fca.0.extract.i.i56 = extractvalue { i64, i8 } %346, 0
-  %.fca.1.extract.i.i57 = extractvalue { i64, i8 } %346, 1
-  store i64 %.fca.0.extract.i.i56, ptr %59, align 8
-  store i8 %.fca.1.extract.i.i57, ptr %.sroa.2.0..sroa_idx.i.i58, align 8
+  %.fca.0.extract.i.i55 = extractvalue { i64, i8 } %346, 0
+  %.fca.1.extract.i.i56 = extractvalue { i64, i8 } %346, 1
+  store i64 %.fca.0.extract.i.i55, ptr %59, align 8
+  store i8 %.fca.1.extract.i.i56, ptr %.sroa.2.0..sroa_idx.i.i57, align 8
   %347 = load ptr, ptr %52, align 8, !tbaa !251
   %348 = load ptr, ptr %347, align 8, !tbaa !207
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
@@ -5188,8 +5186,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %336, %334
   store ptr %358, ptr %357, align 8, !tbaa !9, !noalias !297
   %359 = icmp eq ptr %348, null
   %360 = icmp ne i64 %350, 0
-  %or.cond.i.i.i2.i.i.i.i59 = and i1 %359, %360
-  br i1 %or.cond.i.i.i2.i.i.i.i59, label %361, label %362
+  %or.cond.i.i.i2.i.i.i.i58 = and i1 %359, %360
+  br i1 %or.cond.i.i.i2.i.i.i.i58, label %361, label %362
 
 361:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8.i
   call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #20, !noalias !297
@@ -5199,32 +5197,32 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8.i:              ; preds = %336, %334
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !297
   store i64 %350, ptr %5, align 8, !tbaa !12, !noalias !297
   %363 = icmp ugt i64 %350, 15
-  br i1 %363, label %364, label %._crit_edge.i.i.i.i3.i.i.i.i60
+  br i1 %363, label %364, label %._crit_edge.i.i.i.i3.i.i.i.i59
 
 364:                                              ; preds = %362
   %365 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %357, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0) #19, !noalias !297
   store ptr %365, ptr %357, align 8, !tbaa !14, !noalias !297
   %366 = load i64, ptr %5, align 8, !tbaa !12, !noalias !297
   store i64 %366, ptr %358, align 8, !tbaa !16, !noalias !297
-  br label %._crit_edge.i.i.i.i3.i.i.i.i60
+  br label %._crit_edge.i.i.i.i3.i.i.i.i59
 
-._crit_edge.i.i.i.i3.i.i.i.i60:                   ; preds = %364, %362
+._crit_edge.i.i.i.i3.i.i.i.i59:                   ; preds = %364, %362
   %367 = phi ptr [ %365, %364 ], [ %358, %362 ]
   switch i64 %350, label %370 [
     i64 1, label %368
-    i64 0, label %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i61
+    i64 0, label %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i60
   ]
 
-368:                                              ; preds = %._crit_edge.i.i.i.i3.i.i.i.i60
+368:                                              ; preds = %._crit_edge.i.i.i.i3.i.i.i.i59
   %369 = load i8, ptr %348, align 1, !tbaa !16, !noalias !297
   store i8 %369, ptr %367, align 1, !tbaa !16, !noalias !297
-  br label %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i61
+  br label %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i60
 
-370:                                              ; preds = %._crit_edge.i.i.i.i3.i.i.i.i60
+370:                                              ; preds = %._crit_edge.i.i.i.i3.i.i.i.i59
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %367, ptr align 1 %348, i64 %350, i1 false), !noalias !297
-  br label %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i61
+  br label %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i60
 
-_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i61: ; preds = %370, %368, %._crit_edge.i.i.i.i3.i.i.i.i60
+_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i60: ; preds = %370, %368, %._crit_edge.i.i.i.i3.i.i.i.i59
   %371 = load i64, ptr %5, align 8, !tbaa !12, !noalias !297
   %372 = getelementptr inbounds nuw i8, ptr %351, i64 64
   store i64 %371, ptr %372, align 8, !tbaa !17, !noalias !297
@@ -5266,17 +5264,17 @@ _ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefE
   %392 = load ptr, ptr %391, align 8
   call void %392(ptr noundef nonnull align 8 dereferenceable(120) %389, ptr noundef nonnull %10) #19
   %393 = load ptr, ptr %10, align 8, !tbaa !283
-  %.not.i11.i = icmp eq ptr %393, null
-  br i1 %.not.i11.i, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i63, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62
+  %.not.i.i61 = icmp eq ptr %393, null
+  br i1 %.not.i.i61, label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i63, label %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62
 
-_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62: ; preds = %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i61
+_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62: ; preds = %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i60
   %394 = load ptr, ptr %393, align 8, !tbaa !7
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8
   call void %396(ptr noundef nonnull align 8 dereferenceable(488) %393) #19
   br label %_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i63
 
-_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i63: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62, %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i61
+_ZNSt10unique_ptrIN5clang4ento14BasicBugReportESt14default_deleteIS2_EED2Ev.exit.i63: ; preds = %_ZNKSt14default_deleteIN5clang4ento9BugReportEEclEPS2_.exit.i.i62, %_ZSt11make_uniqueIN5clang4ento14BasicBugReportEJRKNS1_7BugTypeEN4llvm9StringRefERNS1_22PathDiagnosticLocationEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i60
   store ptr null, ptr %10, align 8, !tbaa !283
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #19

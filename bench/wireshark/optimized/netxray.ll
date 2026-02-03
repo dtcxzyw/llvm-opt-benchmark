@@ -953,9 +953,9 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
 78:                                               ; preds = %20
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %80 = load i8, ptr %79, align 4
-  %81 = and i8 %80, 1
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 %81, ptr %82, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %82 = and i8 %80, 1
+  store i8 %82, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %84 = load i8, ptr %83, align 1
   %85 = and i8 %84, 31
@@ -1028,9 +1028,9 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
 120:                                              ; preds = %20, %20, %20
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %122 = load i8, ptr %121, align 4
-  %123 = and i8 %122, 1
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 %123, ptr %124, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %124 = and i8 %122, 1
+  store i8 %124, ptr %123, align 8
   br label %183
 
 125:                                              ; preds = %20

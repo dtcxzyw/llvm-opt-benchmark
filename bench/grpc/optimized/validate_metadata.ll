@@ -195,9 +195,8 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   %27 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i.i) #14, !noalias !23
   call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %2, i64 %27, ptr nonnull %.0.i.i.i)
   %.val.pre = load i64, ptr %2, align 8, !tbaa !12
-  %28 = and i64 %.val.pre, 1
-  %.not.i.i1 = icmp eq i64 %28, 0
-  br i1 %.not.i.i1, label %29, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %28 = trunc i64 %.val.pre to i1
+  br i1 %28, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %29
 
 29:                                               ; preds = %.loopexit
   %30 = inttoptr i64 %.val.pre to ptr
@@ -212,8 +211,8 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %.loopexit, %29
-  %.val6 = phi i64 [ %.val.pre, %29 ], [ %.val.pre, %.loopexit ], [ 1, %17 ]
-  %34 = icmp eq i64 %.val6, 1
+  %.val4 = phi i64 [ %.val.pre, %29 ], [ %.val.pre, %.loopexit ], [ 1, %17 ]
+  %34 = icmp eq i64 %.val4, 1
   %35 = zext i1 %34 to i32
   ret i32 %35
 }
@@ -304,9 +303,8 @@ define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readon
 23:                                               ; preds = %.lr.ph.i.i
   call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %2, i64 20, ptr nonnull @.str.4)
   %.val.pre = load i64, ptr %2, align 8, !tbaa !12
-  %24 = and i64 %.val.pre, 1
-  %.not.i.i1 = icmp eq i64 %24, 0
-  br i1 %.not.i.i1, label %25, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %24 = trunc i64 %.val.pre to i1
+  br i1 %24, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %25
 
 25:                                               ; preds = %23
   %26 = inttoptr i64 %.val.pre to ptr
@@ -321,8 +319,8 @@ define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readon
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %13, %1, %23, %25
-  %.val5 = phi i64 [ %.val.pre, %25 ], [ %.val.pre, %23 ], [ 1, %1 ], [ 1, %13 ]
-  %30 = icmp eq i64 %.val5, 1
+  %.val3 = phi i64 [ %.val.pre, %25 ], [ %.val.pre, %23 ], [ 1, %1 ], [ 1, %13 ]
+  %30 = icmp eq i64 %.val3, 1
   %31 = zext i1 %30 to i32
   ret i32 %31
 }

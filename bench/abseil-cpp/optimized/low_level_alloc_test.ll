@@ -79,7 +79,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %263
 
 11:                                               ; preds = %6, %2
   %.023 = phi ptr [ null, %2 ], [ %8, %6 ]
@@ -118,7 +118,7 @@ define internal fastcc void @_ZN4absl13base_internal12_GLOBAL__N_14TestEbbi(i1 n
 23:                                               ; preds = %199, %155, %.thread.i.i.i.i.i, %.noexc, %111, %_ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit74, %_ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit, %33, %31
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %263
 
 25:                                               ; preds = %15, %20, %17
   %26 = call i32 @rand() #24
@@ -637,12 +637,12 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 .loopexit131:                                     ; preds = %_ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit94, %240
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %263
 
 .loopexit.split-lp:                               ; preds = %246
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %263
 
 ._crit_edge:                                      ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSG_8iteratorE.exit100, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSG_8iteratorE.exit100.thread, %.preheader
   %.val.i.i101163 = phi i64 [ %.val1.i78146, %.preheader ], [ 1, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSG_8iteratorE.exit100.thread ], [ %.val1.i78.pre, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE5eraseENSG_8iteratorE.exit100 ]
@@ -685,7 +685,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8, !tbaa !53
   invoke void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_12CommonFieldsEmNS_11FunctionRefIFvPKNS0_6ctrl_tEPvEEE(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 8, ptr nonnull %4, ptr nonnull @_ZN4absl19functional_internal12InvokeObjectIZNS_18container_internal12raw_hash_setINS2_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEE13destroy_slotsEvEUlPKNS2_6ctrl_tEPvE_vJSL_SM_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
-          to label %.noexc.i unwind label %261
+          to label %.noexc.i unwind label %260
 
 .noexc.i:                                         ; preds = %256
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -695,27 +695,26 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val3.i.i.i = load ptr, ptr %13, align 8, !tbaa !14
   %258 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !9
-  %259 = and i64 %258, 1
-  %260 = icmp ne i64 %259, 0
-  invoke void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %3, i64 noundef %.val2.i.i.i, ptr noundef %.val3.i.i.i, i64 noundef 8, i64 noundef 8, i1 noundef zeroext %260)
-          to label %.noexc1.i unwind label %261
+  %259 = trunc i64 %258 to i1
+  invoke void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %3, i64 noundef %.val2.i.i.i, ptr noundef %.val3.i.i.i, i64 noundef 8, i64 noundef 8, i1 noundef zeroext %259)
+          to label %.noexc1.i unwind label %260
 
 .noexc1.i:                                        ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit
 
-261:                                              ; preds = %.noexc.i, %256
-  %262 = landingpad { ptr, i32 }
+260:                                              ; preds = %.noexc.i, %256
+  %261 = landingpad { ptr, i32 }
           catch ptr null
-  %263 = extractvalue { ptr, i32 } %262, 0
-  call void @__clang_call_terminate(ptr %263) #25
+  %262 = extractvalue { ptr, i32 } %261, 0
+  call void @__clang_call_terminate(ptr %262) #25
   unreachable
 
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev.exit: ; preds = %254, %255, %.noexc1.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-264:                                              ; preds = %.loopexit131, %.loopexit.split-lp, %23, %9
+263:                                              ; preds = %.loopexit131, %.loopexit.split-lp, %23, %9
   %.pn27.pn = phi { ptr, i32 } [ %10, %9 ], [ %24, %23 ], [ %lpad.loopexit, %.loopexit131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -769,7 +768,7 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !53
   invoke void @_ZN4absl18container_internal20IterateOverFullSlotsERKNS0_12CommonFieldsEmNS_11FunctionRefIFvPKNS0_6ctrl_tEPvEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 8, ptr nonnull %3, ptr nonnull @_ZN4absl19functional_internal12InvokeObjectIZNS_18container_internal12raw_hash_setINS2_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS7_EEE13destroy_slotsEvEUlPKNS2_6ctrl_tEPvE_vJSL_SM_EEET0_NS0_7VoidPtrEDpNS0_8ForwardTIT1_E4typeE)
-          to label %.noexc unwind label %17
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -781,10 +780,9 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
   %.val3.i.i = load ptr, ptr %12, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !9
-  %15 = and i64 %14, 1
-  %16 = icmp ne i64 %15, 0
-  invoke void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %2, i64 noundef %.val2.i.i, ptr noundef %.val3.i.i, i64 noundef 8, i64 noundef 8, i1 noundef zeroext %16)
-          to label %.noexc1 unwind label %17
+  %15 = trunc i64 %14 to i1
+  invoke void @_ZN4absl18container_internal22DeallocateBackingArrayILm8ESaIcEEEvPvmPNS0_6ctrl_tEmmb(ptr noundef nonnull %2, i64 noundef %.val2.i.i, ptr noundef %.val3.i.i, i64 noundef 8, i64 noundef 8, i1 noundef zeroext %15)
+          to label %.noexc1 unwind label %16
 
 .noexc1:                                          ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -793,11 +791,11 @@ define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17No
 _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE15destructor_implEv.exit: ; preds = %.noexc1, %8, %6
   ret void
 
-17:                                               ; preds = %.noexc, %10
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %.noexc, %10
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #25
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #25
   unreachable
 }
 

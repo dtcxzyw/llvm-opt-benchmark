@@ -6607,55 +6607,55 @@ _ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10cre
   store ptr @_ZN10QArrayData11shared_nullE, ptr %11, align 8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   %13 = load i64, ptr %0, align 8
-  %14 = and i64 %13, 1
-  %15 = load i64, ptr %5, align 8
-  %16 = and i64 %15, -2
-  %storemerge.i = or disjoint i64 %16, %14
+  %14 = load i64, ptr %5, align 8
+  %15 = and i64 %14, -2
+  %masksel.i = and i64 %13, 1
+  %storemerge.i = or disjoint i64 %15, %masksel.i
   store i64 %storemerge.i, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %.not = icmp eq ptr %18, null
-  br i1 %.not, label %26, label %19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %25, label %18
 
-19:                                               ; preds = %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit
-  %20 = tail call noundef ptr @_ZNK8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE4copyEP8QMapDataIS0_S4_E(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %1)
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %20, ptr %21, align 8
-  %22 = load i64, ptr %20, align 8
-  %23 = and i64 %22, 3
-  %24 = ptrtoint ptr %5 to i64
-  %25 = or i64 %23, %24
-  store i64 %25, ptr %20, align 8
-  br label %28
+18:                                               ; preds = %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit
+  %19 = tail call noundef ptr @_ZNK8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE4copyEP8QMapDataIS0_S4_E(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull %1)
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %19, ptr %20, align 8
+  %21 = load i64, ptr %19, align 8
+  %22 = and i64 %21, 3
+  %23 = ptrtoint ptr %5 to i64
+  %24 = or i64 %22, %23
+  store i64 %24, ptr %19, align 8
+  br label %27
 
-26:                                               ; preds = %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %27, align 8
-  br label %28
+25:                                               ; preds = %_ZN8QMapDataI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE10createNodeERKS0_RKS4_P8QMapNodeIS0_S4_Eb.exit
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %26, align 8
+  br label %27
 
-28:                                               ; preds = %26, %19
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %.not14 = icmp eq ptr %30, null
-  br i1 %.not14, label %common.ret, label %31
+27:                                               ; preds = %25, %18
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %.not14 = icmp eq ptr %29, null
+  br i1 %.not14, label %common.ret, label %30
 
-common.ret16:                                     ; preds = %31, %common.ret
+common.ret16:                                     ; preds = %30, %common.ret
   ret ptr %5
 
-31:                                               ; preds = %28
-  %32 = tail call noundef ptr @_ZNK8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE4copyEP8QMapDataIS0_S4_E(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull %1)
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %32, ptr %33, align 8
-  %34 = load i64, ptr %32, align 8
-  %35 = and i64 %34, 3
-  %36 = ptrtoint ptr %5 to i64
-  %37 = or i64 %35, %36
-  store i64 %37, ptr %32, align 8
+30:                                               ; preds = %27
+  %31 = tail call noundef ptr @_ZNK8QMapNodeI7QStringN14StructureSynth5Model9Rendering17TemplatePrimitiveEE4copyEP8QMapDataIS0_S4_E(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull %1)
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %31, ptr %32, align 8
+  %33 = load i64, ptr %31, align 8
+  %34 = and i64 %33, 3
+  %35 = ptrtoint ptr %5 to i64
+  %36 = or i64 %34, %35
+  store i64 %36, ptr %31, align 8
   br label %common.ret16
 
-common.ret:                                       ; preds = %28
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %38, align 8
+common.ret:                                       ; preds = %27
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %37, align 8
   br label %common.ret16
 }
 

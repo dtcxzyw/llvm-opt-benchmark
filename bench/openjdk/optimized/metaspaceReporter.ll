@@ -313,153 +313,152 @@ define hidden void @_ZN9metaspace17MetaspaceReporter12print_reportEP12outputStre
 
 11:                                               ; preds = %3
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str) #3
-  br label %118
+  br label %117
 
 12:                                               ; preds = %3
-  %13 = and i32 %2, 1
-  %14 = icmp ne i32 %13, 0
-  %15 = and i32 %2, 16
-  %16 = icmp ne i32 %15, 0
-  %17 = and i32 %2, 2
-  %18 = icmp ne i32 %17, 0
-  %19 = and i32 %2, 4
-  %.not = icmp eq i32 %19, 0
-  call void @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC1EP12outputStreammbbb(ptr noundef nonnull align 8 dereferenceable(7528) %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %14, i1 noundef zeroext %16, i1 noundef zeroext %18) #3
-  br i1 %14, label %20, label %21
+  %13 = trunc i32 %2 to i1
+  %14 = and i32 %2, 16
+  %15 = icmp ne i32 %14, 0
+  %16 = and i32 %2, 2
+  %17 = icmp ne i32 %16, 0
+  %18 = and i32 %2, 4
+  %.not = icmp eq i32 %18, 0
+  call void @_ZN9metaspace28PrintCLDMetaspaceInfoClosureC1EP12outputStreammbbb(ptr noundef nonnull align 8 dereferenceable(7528) %4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %13, i1 noundef zeroext %15, i1 noundef zeroext %17) #3
+  br i1 %13, label %19, label %20
 
-20:                                               ; preds = %12
+19:                                               ; preds = %12
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.15) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %12
+20:                                               ; preds = %19, %12
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %4) #3
-  br i1 %.not, label %.loopexit, label %22
+  br i1 %.not, label %.loopexit, label %21
 
-22:                                               ; preds = %21
+21:                                               ; preds = %20
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1528
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 7448
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 7480
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1560
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1528
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 7448
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 7480
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1560
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %22, %38
-  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %38 ]
-  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
-  %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi, i64 %31
+switch.lookup:                                    ; preds = %21, %37
+  %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %37 ]
+  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
+  %29 = load i64, ptr %28, align 8
+  %30 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %32 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %28) #3
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %switch.load, i64 noundef %28, ptr noundef %32) #3
-  %.not152 = icmp eq i64 %30, 0
-  br i1 %.not152, label %37, label %33
+  %31 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %27) #3
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %switch.load, i64 noundef %27, ptr noundef %31) #3
+  %.not152 = icmp eq i64 %29, 0
+  br i1 %.not152, label %36, label %32
 
-33:                                               ; preds = %switch.lookup
+32:                                               ; preds = %switch.lookup
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.18) #3
-  %34 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
-  %35 = load i64, ptr %34, align 8
-  call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %30, i64 noundef %35) #3
+  %33 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
+  %34 = load i64, ptr %33, align 8
+  call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %29, i64 noundef %34) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19) #3
-  %36 = getelementptr inbounds nuw %"struct.metaspace::ClmsStats", ptr %26, i64 %indvars.iv
-  call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %36, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %18) #3
-  br label %38
+  %35 = getelementptr inbounds nuw %"struct.metaspace::ClmsStats", ptr %25, i64 %indvars.iv
+  call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %35, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %17) #3
+  br label %37
 
-37:                                               ; preds = %switch.lookup
+36:                                               ; preds = %switch.lookup
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %33
+37:                                               ; preds = %36, %32
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %switch.lookup, !llvm.loop !6
 
-.loopexit:                                        ; preds = %38, %21
+.loopexit:                                        ; preds = %37, %20
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %40 = load i64, ptr %39, align 8
-  %41 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %40) #3
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %40, ptr noundef %41) #3
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 7512
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 7520
-  %45 = load i64, ptr %44, align 8
-  call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %43, i64 noundef %45) #3
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %39 = load i64, ptr %38, align 8
+  %40 = call noundef ptr @_ZN9metaspace14loaders_pluralEm(i64 noundef %39) #3
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.21, i64 noundef %39, ptr noundef %40) #3
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 7512
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 7520
+  %44 = load i64, ptr %43, align 8
+  call void @_ZN9metaspace23print_number_of_classesEP12outputStreammm(ptr noundef nonnull %0, i64 noundef %42, i64 noundef %44) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19) #3
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %46, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %18) #3
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  call void @_ZNK9metaspace9ClmsStats8print_onEP12outputStreammb(ptr noundef nonnull align 8 dereferenceable(1472) %45, ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %17) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.9) #3
   call fastcc void @_ZN9metaspaceL8print_vsEP12outputStreamm(ptr noundef nonnull %0, i64 noundef %1)
-  %47 = and i32 %2, 8
-  %.not150 = icmp eq i32 %47, 0
-  br i1 %.not150, label %61, label %48
+  %46 = and i32 %2, 8
+  %.not150 = icmp eq i32 %46, 0
+  br i1 %.not150, label %60, label %47
 
-48:                                               ; preds = %.loopexit
+47:                                               ; preds = %.loopexit
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %49 = load i8, ptr @UseCompressedClassPointers, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = select i1 %50, ptr @.str.23, ptr @.str.24
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %51) #3
-  %52 = load i8, ptr @UseCompressedClassPointers, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %54, label %55
+  %48 = load i8, ptr @UseCompressedClassPointers, align 1
+  %49 = trunc i8 %48 to i1
+  %50 = select i1 %49, ptr @.str.23, ptr @.str.24
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %50) #3
+  %51 = load i8, ptr @UseCompressedClassPointers, align 1
+  %52 = trunc i8 %51 to i1
+  br i1 %52, label %53, label %54
 
-54:                                               ; preds = %48
+53:                                               ; preds = %47
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25) #3
-  br label %55
+  br label %54
 
-55:                                               ; preds = %54, %48
-  %56 = call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #3
-  call void @_ZNK9metaspace16VirtualSpaceList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %56, ptr noundef nonnull %0) #3
+54:                                               ; preds = %53, %47
+  %55 = call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #3
+  call void @_ZNK9metaspace16VirtualSpaceList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %57 = load i8, ptr @UseCompressedClassPointers, align 1
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %61
+  %56 = load i8, ptr @UseCompressedClassPointers, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %60
 
-59:                                               ; preds = %55
+58:                                               ; preds = %54
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26) #3
-  %60 = call noundef ptr @_ZN9metaspace16VirtualSpaceList12vslist_classEv() #3
-  call void @_ZNK9metaspace16VirtualSpaceList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull %0) #3
+  %59 = call noundef ptr @_ZN9metaspace16VirtualSpaceList12vslist_classEv() #3
+  call void @_ZNK9metaspace16VirtualSpaceList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  br label %61
+  br label %60
 
-61:                                               ; preds = %55, %59, %.loopexit
+60:                                               ; preds = %54, %58, %.loopexit
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %62 = load i8, ptr @UseCompressedClassPointers, align 1
-  %63 = trunc i8 %62 to i1
-  %64 = select i1 %63, ptr @.str.23, ptr @.str.24
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %64) #3
+  %61 = load i8, ptr @UseCompressedClassPointers, align 1
+  %62 = trunc i8 %61 to i1
+  %63 = select i1 %62, ptr @.str.23, ptr @.str.24
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %63) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %5, i8 0, i64 60, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %65, i8 0, i64 120, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %64, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, i8 0, i64 60, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, i8 0, i64 120, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %65, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %7, i8 0, i64 60, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %67, i8 0, i64 120, i1 false)
-  %68 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
-  call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %68, ptr noundef nonnull %5) #3
-  %69 = load i8, ptr @UseCompressedClassPointers, align 1
-  %70 = trunc i8 %69 to i1
-  %71 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
-  call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %71, ptr noundef nonnull %5) #3
-  br i1 %70, label %72, label %74
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %66, i8 0, i64 120, i1 false)
+  %67 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
+  call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %67, ptr noundef nonnull %5) #3
+  %68 = load i8, ptr @UseCompressedClassPointers, align 1
+  %69 = trunc i8 %68 to i1
+  %70 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
+  call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %70, ptr noundef nonnull %5) #3
+  br i1 %69, label %71, label %73
 
-72:                                               ; preds = %61
-  %73 = call noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() #3
-  call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %73, ptr noundef nonnull %6) #3
+71:                                               ; preds = %60
+  %72 = call noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() #3
+  call void @_ZNK9metaspace12ChunkManager17add_to_statisticsEPNS_17ChunkManagerStatsE(ptr noundef nonnull align 8 dereferenceable(376) %72, ptr noundef nonnull %6) #3
   call void @_ZN9metaspace17ChunkManagerStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(184) %5) #3
   call void @_ZN9metaspace17ChunkManagerStats3addERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(184) %6) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25) #3
@@ -469,101 +468,101 @@ switch.lookup:                                    ; preds = %22, %38
   call void @_ZNK9metaspace17ChunkManagerStats8print_onEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull %0, i64 noundef %1) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.28) #3
-  br label %74
+  br label %73
 
-74:                                               ; preds = %61, %72
-  %.sink = phi ptr [ %7, %72 ], [ %5, %61 ]
+73:                                               ; preds = %60, %71
+  %.sink = phi ptr [ %7, %71 ], [ %5, %60 ]
   call void @_ZNK9metaspace17ChunkManagerStats8print_onEP12outputStreamm(ptr noundef nonnull align 8 dereferenceable(184) %.sink, ptr noundef nonnull %0, i64 noundef %1) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %75 = and i32 %2, 32
-  %.not151 = icmp eq i32 %75, 0
-  br i1 %.not151, label %86, label %76
+  %74 = and i32 %2, 32
+  %.not151 = icmp eq i32 %74, 0
+  br i1 %.not151, label %85, label %75
 
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.29) #3
-  %77 = load i8, ptr @UseCompressedClassPointers, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %80
+  %76 = load i8, ptr @UseCompressedClassPointers, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %79
 
-79:                                               ; preds = %76
+78:                                               ; preds = %75
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.25) #3
-  br label %80
+  br label %79
 
-80:                                               ; preds = %79, %76
-  %81 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
-  call void @_ZNK9metaspace12ChunkManager8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(376) %81, ptr noundef nonnull %0) #3
+79:                                               ; preds = %78, %75
+  %80 = call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #3
+  call void @_ZNK9metaspace12ChunkManager8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(376) %80, ptr noundef nonnull %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %82 = load i8, ptr @UseCompressedClassPointers, align 1
-  %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %86
+  %81 = load i8, ptr @UseCompressedClassPointers, align 1
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %80
+83:                                               ; preds = %79
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26) #3
-  %85 = call noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() #3
-  call void @_ZNK9metaspace12ChunkManager8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(376) %85, ptr noundef nonnull %0) #3
+  %84 = call noundef ptr @_ZN9metaspace12ChunkManager18chunkmanager_classEv() #3
+  call void @_ZNK9metaspace12ChunkManager8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(376) %84, ptr noundef nonnull %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  br label %86
+  br label %85
 
-86:                                               ; preds = %80, %84, %74
+85:                                               ; preds = %79, %83, %73
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.30) #3
-  %87 = call noundef i64 @_ZN9metaspace15RunningCounters15committed_wordsEv() #3
+  %86 = call noundef i64 @_ZN9metaspace15RunningCounters15committed_wordsEv() #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.31) #3
-  call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %87, i64 noundef %1, i32 noundef -1) #3
+  call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %86, i64 noundef %1, i32 noundef -1) #3
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.32) #3
-  call void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind nonnull writable sret(%"struct.metaspace::InUseChunkStats") align 8 %8, ptr noundef nonnull align 8 dereferenceable(736) %46) #3
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 792
-  call void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind nonnull writable sret(%"struct.metaspace::InUseChunkStats") align 8 %9, ptr noundef nonnull align 8 dereferenceable(736) %88) #3
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %92 = load i64, ptr %91, align 8
-  %93 = add i64 %92, %90
-  %94 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %97 = load i64, ptr %96, align 8
-  %98 = add i64 %97, %95
+  call void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind nonnull writable sret(%"struct.metaspace::InUseChunkStats") align 8 %8, ptr noundef nonnull align 8 dereferenceable(736) %45) #3
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 792
+  call void @_ZNK9metaspace10ArenaStats6totalsEv(ptr dead_on_unwind nonnull writable sret(%"struct.metaspace::InUseChunkStats") align 8 %9, ptr noundef nonnull align 8 dereferenceable(736) %87) #3
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %91 = load i64, ptr %90, align 8
+  %92 = add i64 %91, %89
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %96 = load i64, ptr %95, align 8
+  %97 = add i64 %96, %94
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33) #3
-  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %93, i64 noundef %87, i64 noundef %1, i32 noundef 6) #3
+  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %92, i64 noundef %86, i64 noundef %1, i32 noundef 6) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #3
-  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %98, i64 noundef %87, i64 noundef %1, i32 noundef 6) #3
+  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %97, i64 noundef %86, i64 noundef %1, i32 noundef 6) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %99 = call noundef i64 @_ZNK9metaspace17ChunkManagerStats25total_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(184) %7) #3
+  %98 = call noundef i64 @_ZNK9metaspace17ChunkManagerStats25total_committed_word_sizeEv(ptr noundef nonnull align 8 dereferenceable(184) %7) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #3
-  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %99, i64 noundef %87, i64 noundef %1, i32 noundef 6) #3
+  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %98, i64 noundef %86, i64 noundef %1, i32 noundef 6) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 776
-  %101 = load i64, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 1512
-  %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, %101
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 784
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 1520
-  %108 = load i64, ptr %107, align 8
-  %109 = add i64 %108, %106
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 776
+  %100 = load i64, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 1512
+  %102 = load i64, ptr %101, align 8
+  %103 = add i64 %102, %100
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 784
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 1520
+  %107 = load i64, ptr %106, align 8
+  %108 = add i64 %107, %105
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.36) #3
-  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %109, i64 noundef %87, i64 noundef %1, i32 noundef 6) #3
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.37, i64 noundef %104) #3
+  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %108, i64 noundef %86, i64 noundef %1, i32 noundef 6) #3
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.37, i64 noundef %103) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %110 = add i64 %98, %93
-  %111 = add i64 %110, %99
-  %112 = add i64 %111, %109
+  %109 = add i64 %97, %92
+  %110 = add i64 %109, %98
+  %111 = add i64 %110, %108
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.38) #3
-  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %112, i64 noundef %87, i64 noundef %1, i32 noundef 6) #3
+  call void @_ZN9metaspace33print_scaled_words_and_percentageEP12outputStreammmmi(ptr noundef nonnull %0, i64 noundef %111, i64 noundef %86, i64 noundef %1, i32 noundef 6) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  %113 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %115 = load i32, ptr %114, align 4
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.39, i32 noundef %115) #3
-  %116 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8
-  %117 = call noundef i64 @_ZNK9metaspace15ChunkHeaderPool22memory_footprint_wordsEv(ptr noundef nonnull align 8 dereferenceable(48) %116) #3
-  call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %117, i64 noundef %1, i32 noundef -1) #3
+  %112 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %114 = load i32, ptr %113, align 4
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.39, i32 noundef %114) #3
+  %115 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8
+  %116 = call noundef i64 @_ZNK9metaspace15ChunkHeaderPool22memory_footprint_wordsEv(ptr noundef nonnull align 8 dereferenceable(48) %115) #3
+  call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %0, i64 noundef %116, i64 noundef %1, i32 noundef -1) #3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
@@ -576,9 +575,9 @@ switch.lookup:                                    ; preds = %22, %38
   call fastcc void @_ZN9metaspaceL14print_settingsEP12outputStreamm(ptr noundef nonnull %0, i64 noundef %1)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3
-  br label %118
+  br label %117
 
-118:                                              ; preds = %86, %11
+117:                                              ; preds = %85, %11
   ret void
 }
 

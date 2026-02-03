@@ -9617,61 +9617,58 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit51:          ; preds = %.preheader132, %_ZN
   %15 = or i64 %.sroa.0124.4, -9223372036854775808
   %spec.select183 = select i1 %.not.i54.not, i64 %.sroa.0124.4, i64 %15
   %16 = and i64 %spec.select183, 4611686018427387904
-  %17 = and i64 %1, 1
   %.not.i59 = icmp ne i64 %16, 0
-  %18 = icmp ne i64 %17, 0
-  %19 = select i1 %.not.i59, i1 true, i1 %18
-  br i1 %19, label %.preheader129, label %_ZN5clang13SanitizerMaskoRERKS0_.exit61
+  %17 = trunc i64 %1 to i1
+  %18 = select i1 %.not.i59, i1 true, i1 %17
+  br i1 %18, label %.preheader129, label %_ZN5clang13SanitizerMaskoRERKS0_.exit61
 
 .preheader129:                                    ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit51
-  %20 = or i64 %1, 2
-  %.pre156 = and i64 %1, 1
-  %21 = icmp ne i64 %.pre156, 0
+  %19 = or i64 %1, 2
+  %.pre156 = trunc i64 %1 to i1
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit61
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit61:          ; preds = %.preheader129, %_ZN5clang13SanitizerMaskoRERKS0_.exit51
-  %.pre-phi157 = phi i1 [ %21, %.preheader129 ], [ false, %_ZN5clang13SanitizerMaskoRERKS0_.exit51 ]
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload = phi i64 [ %20, %.preheader129 ], [ %1, %_ZN5clang13SanitizerMaskoRERKS0_.exit51 ]
-  %22 = and i64 %spec.select183, 6917529027641081856
-  %.not.i64 = icmp ne i64 %22, 0
-  %23 = select i1 %.not.i64, i1 true, i1 %.pre-phi157
-  br i1 %23, label %.preheader128, label %_ZN5clang13SanitizerMaskoRERKS0_.exit66
+  %.pre-phi157 = phi i1 [ %.pre156, %.preheader129 ], [ false, %_ZN5clang13SanitizerMaskoRERKS0_.exit51 ]
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload = phi i64 [ %19, %.preheader129 ], [ %1, %_ZN5clang13SanitizerMaskoRERKS0_.exit51 ]
+  %20 = and i64 %spec.select183, 6917529027641081856
+  %.not.i64 = icmp ne i64 %20, 0
+  %21 = select i1 %.not.i64, i1 true, i1 %.pre-phi157
+  br i1 %21, label %.preheader128, label %_ZN5clang13SanitizerMaskoRERKS0_.exit66
 
 .preheader128:                                    ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit61
-  %24 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload, 4
+  %22 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload, 4
   %.pre158 = and i64 %spec.select183, 6917529027641081856
-  %25 = icmp ne i64 %.pre158, 0
+  %23 = icmp ne i64 %.pre158, 0
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit66
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit66:          ; preds = %.preheader128, %_ZN5clang13SanitizerMaskoRERKS0_.exit61
-  %.pre-phi159 = phi i1 [ %25, %.preheader128 ], [ false, %_ZN5clang13SanitizerMaskoRERKS0_.exit61 ]
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload = phi i64 [ %24, %.preheader128 ], [ %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload, %_ZN5clang13SanitizerMaskoRERKS0_.exit61 ]
-  %26 = and i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload, 9
-  %27 = icmp ne i64 %26, 0
-  %28 = select i1 %.pre-phi159, i1 true, i1 %27
-  %29 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload, 16
-  %spec.select184 = select i1 %28, i64 %29, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload
-  %30 = and i64 %spec.select183, 6917637604548542464
-  %31 = and i64 %spec.select184, 1
-  %.not.i74 = icmp ne i64 %30, 0
-  %32 = icmp ne i64 %31, 0
-  %33 = select i1 %.not.i74, i1 true, i1 %32
-  %34 = or i64 %spec.select184, 32
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload = select i1 %33, i64 %34, i64 %spec.select184
-  %35 = and i64 %spec.select183, 1048576
-  %36 = and i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload, 128
-  %.not.i79 = icmp ne i64 %35, 0
-  %37 = icmp ne i64 %36, 0
-  %38 = select i1 %.not.i79, i1 true, i1 %37
-  %39 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload, 256
-  %.sroa.27.4 = select i1 %38, i64 %39, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload = select i1 %38, i64 1, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload
+  %.pre-phi159 = phi i1 [ %23, %.preheader128 ], [ false, %_ZN5clang13SanitizerMaskoRERKS0_.exit61 ]
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload = phi i64 [ %22, %.preheader128 ], [ %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.28.0.copyload, %_ZN5clang13SanitizerMaskoRERKS0_.exit61 ]
+  %24 = and i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload, 9
+  %25 = icmp ne i64 %24, 0
+  %26 = select i1 %.pre-phi159, i1 true, i1 %25
+  %27 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload, 16
+  %spec.select184 = select i1 %26, i64 %27, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.26.0.copyload
+  %28 = and i64 %spec.select183, 6917637604548542464
+  %.not.i74 = icmp ne i64 %28, 0
+  %29 = trunc i64 %spec.select184 to i1
+  %30 = select i1 %.not.i74, i1 true, i1 %29
+  %31 = or i64 %spec.select184, 32
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload = select i1 %30, i64 %31, i64 %spec.select184
+  %32 = and i64 %spec.select183, 1048576
+  %33 = and i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload, 128
+  %.not.i79 = icmp ne i64 %32, 0
+  %34 = icmp ne i64 %33, 0
+  %35 = select i1 %.not.i79, i1 true, i1 %34
+  %36 = or i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload, 256
+  %.sroa.27.4 = select i1 %35, i64 %36, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload = select i1 %35, i64 1, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.22.0.copyload
   %.not.i84 = icmp ne i64 %spec.select183, 0
-  %40 = icmp ne i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload, 0
-  %41 = select i1 %.not.i84, i1 true, i1 %40
-  %42 = or i64 %.sroa.27.4, 1024
-  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.226.0.copyload = select i1 %41, i64 %42, i64 0
-  %.sroa.0124.0..sroa.0124.0..sroa.0124.0..sroa.025.0.copyload = select i1 %41, i64 %spec.select183, i64 0
+  %37 = icmp ne i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.2.0.copyload, 0
+  %38 = select i1 %.not.i84, i1 true, i1 %37
+  %39 = or i64 %.sroa.27.4, 1024
+  %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.226.0.copyload = select i1 %38, i64 %39, i64 0
+  %.sroa.0124.0..sroa.0124.0..sroa.0124.0..sroa.025.0.copyload = select i1 %38, i64 %spec.select183, i64 0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0124.0..sroa.0124.0..sroa.0124.0..sroa.025.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.27.0..sroa.27.0..sroa.27.8..sroa.226.0.copyload, 1
   ret { i64, i64 } %.fca.1.insert

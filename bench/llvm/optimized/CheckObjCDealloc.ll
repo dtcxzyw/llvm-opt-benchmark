@@ -1727,9 +1727,8 @@ _ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20
   br label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread
 
 _ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit: ; preds = %17
-  %48 = and i64 %15, 1
-  %.not = icmp eq i64 %48, 0
-  %.5 = select i1 %.not, i32 1, i32 2
+  %48 = trunc i64 %15 to i1
+  %.5 = select i1 %48, i32 2, i32 1
   br label %_ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread
 
 _ZL31isSynthesizedRetainablePropertyPKN5clang20ObjCPropertyImplDeclEPPKNS_12ObjCIvarDeclEPPKNS_16ObjCPropertyDeclE.exit.thread: ; preds = %36, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28isNibLoadedIvarWithoutRetainEPKN5clang20ObjCPropertyImplDeclE.exit, %20, %25, %38, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.i, %17, %5, %2, %select.unfold, %_ZNK5clang16ObjCPropertyDecl13getSetterKindEv.exit
@@ -2612,9 +2611,8 @@ _ZNK12_GLOBAL__N_118ObjCDeallocChecker34findPropertyOnDeallocatingInstanceEPKN5c
   %.val25.i.i = load ptr, ptr %225, align 8, !tbaa !480
   %226 = getelementptr inbounds nuw i8, ptr %.val25.i.i, i64 72
   %227 = load i64, ptr %226, align 8
-  %228 = and i64 %227, 1
-  %.not9.i.i.i = icmp eq i64 %228, 0
-  br i1 %.not9.i.i.i, label %229, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i
+  %228 = trunc i64 %227 to i1
+  br i1 %228, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i, label %229
 
 229:                                              ; preds = %224
   %230 = getelementptr inbounds nuw i8, ptr %.val25.i.i, i64 16
@@ -2630,15 +2628,15 @@ _ZNK12_GLOBAL__N_118ObjCDeallocChecker34findPropertyOnDeallocatingInstanceEPKN5c
   br label %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.i.i.i:     ; preds = %235, %229
-  %.0.i.i.i27.i.i = phi ptr [ %236, %235 ], [ %234, %229 ]
-  %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27.i.i, i64 8
+  %.0.i.i.i26.i.i = phi ptr [ %236, %235 ], [ %234, %229 ]
+  %237 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.i.i, i64 8
   %238 = load i16, ptr %237, align 8
   %239 = and i16 %238, 127
   %.not.i.i.i = icmp eq i16 %239, 21
   br i1 %.not.i.i.i, label %240, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i
 
 240:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i
-  %241 = getelementptr inbounds i8, ptr %.0.i.i.i27.i.i, i64 -8
+  %241 = getelementptr inbounds i8, ptr %.0.i.i.i26.i.i, i64 -8
   %242 = load i64, ptr %241, align 8, !tbaa !74
   %243 = and i64 %242, 7
   %244 = icmp ne i64 %243, 0
@@ -2652,19 +2650,19 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i.i:     ; preds = %235, %229
   %250 = and i64 %249, 7
   %251 = icmp eq i64 %250, 0
   %252 = and i64 %249, -8
-  %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27.i.i, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i26.i.i, i64 40
   %254 = load ptr, ptr %253, align 8, !tbaa !616
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
   %256 = select i1 %251, i64 %252, i64 0
   %257 = call i64 @_ZNK5clang11DeclContext6lookupENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(32) %255, i64 %256) #20
-  %.not1012.i.i.i = icmp eq i64 %257, 0
-  br i1 %.not1012.i.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i, label %.lr.ph.i.i.i
+  %.not911.i.i.i = icmp eq i64 %257, 0
+  br i1 %.not911.i.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %247, %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i
-  %.sroa.01.013.i.i.i = phi i64 [ %275, %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i ], [ %257, %247 ]
-  %258 = and i64 %.sroa.01.013.i.i.i, 4
+  %.sroa.01.012.i.i.i = phi i64 [ %275, %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i ], [ %257, %247 ]
+  %258 = and i64 %.sroa.01.012.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %258, 0
-  %259 = and i64 %.sroa.01.013.i.i.i, -8
+  %259 = and i64 %.sroa.01.012.i.i.i, -8
   %260 = inttoptr i64 %259 to ptr
   %.not.not7.i.i.i.i = icmp eq i64 %259, 0
   %.not.not.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not.not7.i.i.i.i
@@ -2684,8 +2682,8 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit.i.thread.i.i: ; preds = %.lr.ph.i.i.i
   %267 = load i32, ptr %266, align 4
   %268 = and i32 %267, 127
   %269 = icmp ne i32 %268, 73
-  %.not2211.i63.i.i = icmp eq ptr %265, null
-  %.not22.i64.i.i = or i1 %.not2211.i63.i.i, %269
+  %.not2210.i63.i.i = icmp eq ptr %265, null
+  %.not22.i64.i.i = or i1 %.not2210.i63.i.i, %269
   br i1 %.not22.i64.i.i, label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i, label %270
 
 270:                                              ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.thread.i.i
@@ -2698,29 +2696,28 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit.i.thread.i.i: ; preds = %.lr.ph.i.i.i
 _ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i:  ; preds = %270, %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.thread.i.i
   %274 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %275 = load i64, ptr %274, align 8
-  %.not10.i.i.i = icmp eq i64 %275, 0
-  br i1 %.not10.i.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i, label %.lr.ph.i.i.i
+  %.not9.i.i.i = icmp eq i64 %275, 0
+  br i1 %.not9.i.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i, label %.lr.ph.i.i.i
 
 _ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.i: ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.i.i
   %276 = getelementptr inbounds nuw i8, ptr %260, i64 72
   %277 = load i64, ptr %276, align 8
   %278 = and i64 %277, 16384
-  %.not.i.i85.i.i = icmp eq i64 %278, 0
-  br i1 %.not.i.i85.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.thread.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i
+  %.not.i.i84.i.i = icmp eq i64 %278, 0
+  br i1 %.not.i.i84.i.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.thread.i, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.thread.i: ; preds = %270, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.i
-  %.1.i.i6587.i72.i = phi ptr [ %260, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.i ], [ %265, %270 ]
+  %.1.i.i6586.i72.i = phi ptr [ %260, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.i ], [ %265, %270 ]
   %279 = phi i64 [ %277, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.i ], [ %272, %270 ]
-  %280 = and i64 %279, 1
-  %.not71.i.i = icmp eq i64 %280, 0
-  br i1 %.not71.i.i, label %282, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28getValueReleasedByNillingOutERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit.i
+  %280 = trunc i64 %279 to i1
+  br i1 %280, label %_ZNK12_GLOBAL__N_118ObjCDeallocChecker28getValueReleasedByNillingOutERKN5clang4ento14ObjCMethodCallERNS2_14CheckerContextE.exit.i, label %282
 
 _ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i: ; preds = %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.i, %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.i.i, %247, %240, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i.i, %224
   %281 = load ptr, ptr %225, align 8, !tbaa !480
   br label %282
 
 282:                                              ; preds = %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.thread.i
-  %.018.i.i = phi ptr [ %.1.i.i6587.i72.i, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.thread.i ], [ %281, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i ]
+  %.018.i.i = phi ptr [ %.1.i.i6586.i72.i, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.i.thread.i ], [ %281, %_ZNK12_GLOBAL__N_118ObjCDeallocChecker24findShadowedPropertyDeclEPKN5clang20ObjCPropertyImplDeclE.exit.thread.i.i ]
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.0.copyload.i.i.i.i7.i.i44.i = load i64, ptr %283, align 8
   %284 = and i64 %.0.copyload.i.i.i.i7.i.i44.i, -8

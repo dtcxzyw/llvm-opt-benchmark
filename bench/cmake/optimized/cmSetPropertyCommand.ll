@@ -3206,7 +3206,7 @@ _ZN18SetPropertyCommand36HandleAndValidateTestDirectoryScopesER17cmExecutionStat
 
 252:                                              ; preds = %243
   %253 = or i8 %.3145.ph, %.3149.ph
-  %254 = icmp ne i8 %253, 0
+  %254 = trunc nuw i8 %253 to i1
   %255 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116HandleSourceModeER17cmExecutionStatusRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EERKS8_SG_bbbRKSt6vectorIP10cmMakefileSaISJ_EEb(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext %209, i1 noundef zeroext %210, i1 noundef zeroext %211, ptr noundef nonnull align 8 dereferenceable(24) %18, i1 noundef zeroext %254)
           to label %_ZN18SetPropertyCommand36HandleAndValidateTestDirectoryScopesER17cmExecutionStatusbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERP10cmMakefile.exit.thread unwind label %246
 

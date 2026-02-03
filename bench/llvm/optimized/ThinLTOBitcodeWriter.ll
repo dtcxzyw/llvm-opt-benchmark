@@ -4757,9 +4757,8 @@ define internal void @"_ZN4llvm12function_refIFvPNS_8FunctionEEE11callback_fnIZN
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = load i16, ptr %22, align 2, !tbaa !388
-  %24 = and i16 %23, 1
-  %.not.i.i.i = icmp eq i16 %24, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm8Function9arg_beginEv.exit.i, label %25
+  %24 = trunc i16 %23 to i1
+  br i1 %24, label %25, label %_ZN4llvm8Function9arg_beginEv.exit.i
 
 25:                                               ; preds = %21
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #18
@@ -4775,74 +4774,76 @@ _ZN4llvm8Function9arg_beginEv.exit.i:             ; preds = %25, %21
 
 31:                                               ; preds = %_ZN4llvm8Function9arg_beginEv.exit.i
   %32 = load i16, ptr %22, align 2, !tbaa !388
-  %33 = and i16 %32, 1
-  %.not.i.i.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.i.i.i, label %_ZN4llvm8Function4argsEv.exit.i, label %_ZN4llvm8Function9arg_beginEv.exit.i.i
+  %33 = trunc i16 %32 to i1
+  br i1 %33, label %34, label %_ZN4llvm8Function9arg_beginEv.exit.i.i
 
-_ZN4llvm8Function9arg_beginEv.exit.i.i:           ; preds = %31
+34:                                               ; preds = %31
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #18
   %.pre.i.i = load i16, ptr %22, align 2, !tbaa !388
-  %.pre3.i.i = and i16 %.pre.i.i, 1
-  %34 = icmp eq i16 %.pre3.i.i, 0
-  %35 = load ptr, ptr %26, align 8, !tbaa !389
-  br i1 %34, label %_ZN4llvm8Function4argsEv.exit.i, label %36
+  %.pre.i = load ptr, ptr %26, align 8, !tbaa !389
+  br label %_ZN4llvm8Function9arg_beginEv.exit.i.i
 
-36:                                               ; preds = %_ZN4llvm8Function9arg_beginEv.exit.i.i
+_ZN4llvm8Function9arg_beginEv.exit.i.i:           ; preds = %34, %31
+  %35 = phi ptr [ %27, %31 ], [ %.pre.i, %34 ]
+  %36 = phi i16 [ %32, %31 ], [ %.pre.i.i, %34 ]
+  %37 = trunc i16 %36 to i1
+  br i1 %37, label %38, label %_ZN4llvm8Function4argsEv.exit.i
+
+38:                                               ; preds = %_ZN4llvm8Function9arg_beginEv.exit.i.i
   tail call void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #18
-  %.pre2.i.i = load ptr, ptr %26, align 8, !tbaa !389
+  %.pre1.i.i = load ptr, ptr %26, align 8, !tbaa !389
   br label %_ZN4llvm8Function4argsEv.exit.i
 
-_ZN4llvm8Function4argsEv.exit.i:                  ; preds = %36, %_ZN4llvm8Function9arg_beginEv.exit.i.i, %31
-  %37 = phi ptr [ %35, %_ZN4llvm8Function9arg_beginEv.exit.i.i ], [ %35, %36 ], [ %27, %31 ]
-  %38 = phi ptr [ %35, %_ZN4llvm8Function9arg_beginEv.exit.i.i ], [ %.pre2.i.i, %36 ], [ %27, %31 ]
-  %39 = load i64, ptr %18, align 8, !tbaa !377
-  %40 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %38, i64 %39
+_ZN4llvm8Function4argsEv.exit.i:                  ; preds = %38, %_ZN4llvm8Function9arg_beginEv.exit.i.i
+  %39 = phi ptr [ %35, %_ZN4llvm8Function9arg_beginEv.exit.i.i ], [ %.pre1.i.i, %38 ]
+  %40 = load i64, ptr %18, align 8, !tbaa !377
+  %41 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %39, i64 %40
   br label %.critedge22.i
 
-.critedge22.i:                                    ; preds = %41, %_ZN4llvm8Function4argsEv.exit.i
-  %.pn.i = phi ptr [ %37, %_ZN4llvm8Function4argsEv.exit.i ], [ %.016.i, %41 ]
+.critedge22.i:                                    ; preds = %42, %_ZN4llvm8Function4argsEv.exit.i
+  %.pn.i = phi ptr [ %35, %_ZN4llvm8Function4argsEv.exit.i ], [ %.016.i, %42 ]
   %.016.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 40
-  %.not19.i = icmp eq ptr %.016.i, %40
-  br i1 %.not19.i, label %.critedge24.i, label %41
+  %.not19.i = icmp eq ptr %.016.i, %41
+  br i1 %.not19.i, label %.critedge24.i, label %42
 
-41:                                               ; preds = %.critedge22.i
-  %42 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !244
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 255
-  %47 = icmp ne i32 %46, 12
-  %.not2033.i = icmp eq ptr %43, null
-  %.not20.i = or i1 %.not2033.i, %47
-  %48 = icmp ugt i32 %45, 16639
-  %or.cond34.i = or i1 %48, %.not20.i
+42:                                               ; preds = %.critedge22.i
+  %43 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 48
+  %44 = load ptr, ptr %43, align 8, !tbaa !244
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i32, ptr %45, align 8
+  %47 = and i32 %46, 255
+  %48 = icmp ne i32 %47, 12
+  %.not2033.i = icmp eq ptr %44, null
+  %.not20.i = or i1 %.not2033.i, %48
+  %49 = icmp ugt i32 %46, 16639
+  %or.cond34.i = or i1 %49, %.not20.i
   br i1 %or.cond34.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit", label %.critedge22.i
 
 .critedge24.i:                                    ; preds = %.critedge22.i
-  %49 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
-  br i1 %49, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit", label %50
+  %50 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
+  br i1 %50, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit", label %51
 
-50:                                               ; preds = %.critedge24.i
-  %51 = load ptr, ptr %6, align 8, !tbaa !390
-  %52 = load ptr, ptr %51, align 8, !tbaa !392
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !394
-  %55 = tail call noundef nonnull align 8 dereferenceable(56) ptr %52(i64 noundef %54, ptr noundef nonnull align 8 dereferenceable(136) %1) #18
-  %56 = tail call i32 @_ZN4llvm31computeFunctionBodyMemoryAccessERNS_8FunctionERNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(56) %55) #18
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit"
+51:                                               ; preds = %.critedge24.i
+  %52 = load ptr, ptr %6, align 8, !tbaa !390
+  %53 = load ptr, ptr %52, align 8, !tbaa !392
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %55 = load i64, ptr %54, align 8, !tbaa !394
+  %56 = tail call noundef nonnull align 8 dereferenceable(56) ptr %53(i64 noundef %55, ptr noundef nonnull align 8 dereferenceable(136) %1) #18
+  %57 = tail call i32 @_ZN4llvm31computeFunctionBodyMemoryAccessERNS_8FunctionERNS_9AAResultsE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(56) %56) #18
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit"
 
-58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !395
+59:                                               ; preds = %51
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !395
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !396
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !396
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.306") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !396
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.306") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !396
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !396
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !396
   br label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit"
 
-"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit": ; preds = %41, %2, %17, %_ZN4llvm8Function9arg_beginEv.exit.i, %.critedge24.i, %50, %58
+"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_0clEPS7_.exit": ; preds = %42, %2, %17, %_ZN4llvm8Function9arg_beginEv.exit.i, %.critedge24.i, %51, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

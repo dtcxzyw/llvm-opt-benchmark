@@ -1337,9 +1337,8 @@ if.then98:                                        ; preds = %invoke.cont95
 
 land.lhs.true.i:                                  ; preds = %if.then98
   %19 = load i64, ptr %id_, align 8
-  %rem.i = and i64 %19, 1
-  %cmp2.not.i.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp2.not.i.not, label %if.else103, label %if.end107.thread
+  %cmp2.not.i = trunc i64 %19 to i1
+  br i1 %cmp2.not.i, label %if.end107.thread, label %if.else103
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit: ; preds = %if.then98
   %20 = load i64, ptr %id_, align 8
@@ -4124,8 +4123,8 @@ invoke.cont9:                                     ; preds = %entry
   %brmerge = select i1 %spec.select.i, i1 true, i1 %cmp.i
   %7 = and i32 %bf.load, 32
   %bf.cast.not.i = icmp eq i32 %7, 0
-  %or.cond74 = select i1 %brmerge, i1 true, i1 %bf.cast.not.i
-  br i1 %or.cond74, label %if.end, label %land.rhs.i
+  %or.cond72 = select i1 %brmerge, i1 true, i1 %bf.cast.not.i
+  br i1 %or.cond72, label %if.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %invoke.cont9
   %sendWindow_.i = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -4252,7 +4251,7 @@ land.lhs.true108:                                 ; preds = %invoke.cont104
   %cmp111 = icmp eq i32 %18, 25
   %or.cond1.not = select i1 %cmp111, i1 %bf.cast, i1 false
   %spec.select = select i1 %or.cond1.not, i1 %tobool, i1 false
-  br i1 %spec.select, label %land.lhs.true155, label %if.then.i66
+  br i1 %spec.select, label %land.lhs.true155, label %if.then.i64
 
 sw.bb115:                                         ; preds = %if.end102
   invoke void @_ZN8proxygen15HTTPTransaction18markEgressCompleteEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
@@ -4285,12 +4284,12 @@ land.lhs.true130:                                 ; preds = %invoke.cont116
   %23 = load i8, ptr %unidirectional.i.i, align 8
   %tobool.i.i25 = trunc i8 %23 to i1
   %24 = select i1 %tobool.i.i.i.i, i1 %tobool.i.i25, i1 false
-  br i1 %24, label %if.then.i, label %if.then.i66
+  br i1 %24, label %if.then.i, label %if.then.i64
 
 if.then.i:                                        ; preds = %land.lhs.true130
   %direction_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %25 = load i8, ptr %direction_.i.i, align 8
-  switch i8 %25, label %if.then.i66 [
+  switch i8 %25, label %if.then.i64 [
     i8 0, label %land.lhs.true.i.i
     i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i
   ]
@@ -4298,18 +4297,17 @@ if.then.i:                                        ; preds = %land.lhs.true130
 land.lhs.true.i.i:                                ; preds = %if.then.i
   %id_.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %26 = load i64, ptr %id_.i.i26, align 8
-  %rem.i.i = and i64 %26, 1
-  %cmp2.not.i.not.i = icmp ne i64 %rem.i.i, 0
-  %or.cond76 = select i1 %cmp2.not.i.not.i, i1 %tobool, i1 false
-  br i1 %or.cond76, label %land.lhs.true155, label %if.then.i66
+  %cmp2.not.i.i = trunc i64 %26 to i1
+  %or.cond74 = select i1 %cmp2.not.i.i, i1 %tobool, i1 false
+  br i1 %or.cond74, label %land.lhs.true155, label %if.then.i64
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i: ; preds = %if.then.i
   %id_5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %27 = load i64, ptr %id_5.i.i, align 8
   %rem6.i.i = and i64 %27, 1
   %cmp7.i.i = icmp eq i64 %rem6.i.i, 0
-  %or.cond75 = select i1 %cmp7.i.i, i1 %tobool, i1 false
-  br i1 %or.cond75, label %land.lhs.true155, label %if.then.i66
+  %or.cond73 = select i1 %cmp7.i.i, i1 %tobool, i1 false
+  br i1 %or.cond73, label %land.lhs.true155, label %if.then.i64
 
 invoke.cont136:                                   ; preds = %if.end102
   %28 = load i8, ptr %ingressState_.i, align 2
@@ -4338,9 +4336,8 @@ if.then.i34:                                      ; preds = %land.lhs.true138
 land.lhs.true.i.i42:                              ; preds = %if.then.i34
   %id_.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %34 = load i64, ptr %id_.i.i43, align 8
-  %rem.i.i44 = and i64 %34, 1
-  %cmp2.not.i.not.i45 = icmp eq i64 %rem.i.i44, 0
-  br i1 %cmp2.not.i.not.i45, label %if.end146, label %if.then141
+  %cmp2.not.i.i44 = trunc i64 %34 to i1
+  br i1 %cmp2.not.i.i44, label %if.then141, label %if.end146
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i36: ; preds = %if.then.i34
   %id_5.i.i37 = getelementptr inbounds nuw i8, ptr %this, i64 248
@@ -4353,7 +4350,7 @@ if.then141:                                       ; preds = %land.lhs.true138, %
   %bf.load143 = load i32, ptr %aborted_, align 8
   %bf.set145 = or i32 %bf.load143, 4096
   store i32 %bf.set145, ptr %aborted_, align 8
-  br label %if.then.i66
+  br label %if.then.i64
 
 if.end146:                                        ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i36, %land.lhs.true.i.i42, %if.then.i34, %invoke.cont136
   invoke void @_ZN8proxygen15HTTPTransaction19markIngressCompleteEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
@@ -4363,66 +4360,65 @@ invoke.cont147:                                   ; preds = %if.end146
   br i1 %cmp.i16, label %land.lhs.true149, label %sw.epilog
 
 land.lhs.true149:                                 ; preds = %invoke.cont147
-  %hasValue.i.i.i.i47 = getelementptr inbounds nuw i8, ptr %this, i64 448
-  %36 = load i8, ptr %hasValue.i.i.i.i47, align 8
-  %tobool.i.i.i.i48 = trunc i8 %36 to i1
-  %unidirectional.i.i49 = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %37 = load i8, ptr %unidirectional.i.i49, align 8
-  %tobool.i.i50 = trunc i8 %37 to i1
-  %38 = select i1 %tobool.i.i.i.i48, i1 %tobool.i.i50, i1 false
-  br i1 %38, label %if.then.i52, label %if.then.i66
+  %hasValue.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %this, i64 448
+  %36 = load i8, ptr %hasValue.i.i.i.i46, align 8
+  %tobool.i.i.i.i47 = trunc i8 %36 to i1
+  %unidirectional.i.i48 = getelementptr inbounds nuw i8, ptr %this, i64 440
+  %37 = load i8, ptr %unidirectional.i.i48, align 8
+  %tobool.i.i49 = trunc i8 %37 to i1
+  %38 = select i1 %tobool.i.i.i.i47, i1 %tobool.i.i49, i1 false
+  br i1 %38, label %if.then.i51, label %if.then.i64
 
-if.then.i52:                                      ; preds = %land.lhs.true149
-  %direction_.i.i53 = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %39 = load i8, ptr %direction_.i.i53, align 8
+if.then.i51:                                      ; preds = %land.lhs.true149
+  %direction_.i.i52 = getelementptr inbounds nuw i8, ptr %this, i64 240
+  %39 = load i8, ptr %direction_.i.i52, align 8
   switch i8 %39, label %invoke.cont150 [
-    i8 0, label %land.lhs.true.i.i60
-    i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54
+    i8 0, label %land.lhs.true.i.i59
+    i8 1, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i53
   ]
 
-land.lhs.true.i.i60:                              ; preds = %if.then.i52
-  %id_.i.i61 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %40 = load i64, ptr %id_.i.i61, align 8
-  %rem.i.i62 = and i64 %40, 1
-  %cmp2.not.i.not.i63 = icmp eq i64 %rem.i.i62, 0
-  %or.cond77 = select i1 %cmp2.not.i.not.i63, i1 %tobool, i1 false
-  br i1 %or.cond77, label %land.lhs.true155, label %if.then.i66
+land.lhs.true.i.i59:                              ; preds = %if.then.i51
+  %id_.i.i60 = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %40 = load i64, ptr %id_.i.i60, align 8
+  %cmp2.not.i.i61 = trunc i64 %40 to i1
+  %cmp2.not.i.i61.not = xor i1 %cmp2.not.i.i61, true
+  %or.cond75 = select i1 %cmp2.not.i.i61.not, i1 %tobool, i1 false
+  br i1 %or.cond75, label %land.lhs.true155, label %if.then.i64
 
-_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54: ; preds = %if.then.i52
-  %id_5.i.i55 = getelementptr inbounds nuw i8, ptr %this, i64 248
-  %41 = load i64, ptr %id_5.i.i55, align 8
-  %rem6.i.i56 = and i64 %41, 1
-  %cmp7.i.i57 = icmp ne i64 %rem6.i.i56, 0
-  %or.cond78 = select i1 %cmp7.i.i57, i1 %tobool, i1 false
-  br i1 %or.cond78, label %land.lhs.true155, label %if.then.i66
+_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i53: ; preds = %if.then.i51
+  %id_5.i.i54 = getelementptr inbounds nuw i8, ptr %this, i64 248
+  %41 = load i64, ptr %id_5.i.i54, align 8
+  %cmp7.i.i56 = trunc i64 %41 to i1
+  %or.cond76 = select i1 %cmp7.i.i56, i1 %tobool, i1 false
+  br i1 %or.cond76, label %land.lhs.true155, label %if.then.i64
 
-invoke.cont150:                                   ; preds = %if.then.i52
-  br i1 %tobool, label %land.lhs.true155, label %if.then.i66
+invoke.cont150:                                   ; preds = %if.then.i51
+  br i1 %tobool, label %land.lhs.true155, label %if.then.i64
 
 sw.epilog:                                        ; preds = %invoke.cont119, %land.lhs.true121, %if.then126, %invoke.cont147, %invoke.cont104, %if.end102
-  br i1 %tobool, label %land.lhs.true155, label %if.then.i66
+  br i1 %tobool, label %land.lhs.true155, label %if.then.i64
 
-land.lhs.true155:                                 ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54, %land.lhs.true.i.i60, %land.lhs.true.i.i, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.lhs.true108, %invoke.cont150, %sw.epilog
+land.lhs.true155:                                 ; preds = %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i53, %land.lhs.true.i.i59, %land.lhs.true.i.i, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.lhs.true108, %invoke.cont150, %sw.epilog
   %42 = load ptr, ptr %handler_, align 8
   %tobool157.not = icmp eq ptr %42, null
-  br i1 %tobool157.not, label %if.then.i66, label %if.then158
+  br i1 %tobool157.not, label %if.then.i64, label %if.then158
 
 if.then158:                                       ; preds = %land.lhs.true155
   %vtable = load ptr, ptr %42, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %43 = load ptr, ptr %vfn, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(96) %error) #30
-  br label %if.then.i66
+  br label %if.then.i64
 
-if.then.i66:                                      ; preds = %if.then141, %if.then158, %land.lhs.true155, %sw.epilog, %invoke.cont150, %land.lhs.true108, %land.lhs.true130, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true149, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i54, %land.lhs.true.i.i60
-  %guardCount_.i67 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %44 = load i32, ptr %guardCount_.i67, align 8
+if.then.i64:                                      ; preds = %if.then141, %if.then158, %land.lhs.true155, %sw.epilog, %invoke.cont150, %land.lhs.true108, %land.lhs.true130, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true149, %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i53, %land.lhs.true.i.i59
+  %guardCount_.i65 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %44 = load i32, ptr %guardCount_.i65, align 8
   %dec.i = add i32 %44, -1
-  store i32 %dec.i, ptr %guardCount_.i67, align 8
+  store i32 %dec.i, ptr %guardCount_.i65, align 8
   %cmp5.i = icmp eq i32 %dec.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit
 
-if.then6.i:                                       ; preds = %if.then.i66
+if.then6.i:                                       ; preds = %if.then.i64
   %vtable.i = load ptr, ptr %add.ptr, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %45 = load ptr, ptr %vfn.i, align 8
@@ -4436,7 +4432,7 @@ terminate.lpad.i:                                 ; preds = %if.then6.i
   call void @__clang_call_terminate(ptr %47) #32
   unreachable
 
-_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.i66, %if.then6.i
+_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.i64, %if.then6.i
   ret void
 
 ehcleanup:                                        ; preds = %lpad25, %lpad

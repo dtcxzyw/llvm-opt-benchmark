@@ -28,9 +28,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none)
 define dso_local zeroext i1 @i915_mitigate_clear_residuals() local_unnamed_addr #0 align 16 {
   %1 = load volatile i64, ptr @mitigations, align 8
-  %2 = and i64 %1, 1
-  %3 = icmp ne i64 %2, 0
-  ret i1 %3
+  %2 = trunc i64 %1 to i1
+  ret i1 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -53407,10 +53407,9 @@ define { ptr, ptr } @"_ZN110_$LT$$RF$mut$u20$ruff_python_ast..nodes..FStringValu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast5nodes11FStringPart11quote_style17h26572e160fb316cfE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #20 {
-  %.sroa.0.0.in.in.in.in = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.0.0.in.in.in = load i8, ptr %.sroa.0.0.in.in.in.in, align 8, !noundef !3
-  %.sroa.0.0.in.in = and i8 %.sroa.0.0.in.in.in, 1
-  %.sroa.0.0.in = icmp ne i8 %.sroa.0.0.in.in, 0
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load i8, ptr %2, align 8
+  %.sroa.0.0.in = trunc i8 %3 to i1
   ret i1 %.sroa.0.0.in
 }
 
@@ -53490,24 +53489,23 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %24, %22, %
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = and i8 %9, 2
   %.not.i.i = icmp eq i8 %27, 0
-  %28 = and i8 %9, 1
-  %.not.i1.not.i = icmp eq i8 %28, 0
-  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.416.anon.18ff8fbd04110e1d2a6adbb6cd15703a.415.i = select i1 %.not.i1.not.i, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.415, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.416
-  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.414.anon.18ff8fbd04110e1d2a6adbb6cd15703a.413.i = select i1 %.not.i1.not.i, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.413, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.414
+  %.not.i1.i = trunc i8 %9 to i1
+  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.416.anon.18ff8fbd04110e1d2a6adbb6cd15703a.415.i = select i1 %.not.i1.i, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.416, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.415
+  %anon.18ff8fbd04110e1d2a6adbb6cd15703a.414.anon.18ff8fbd04110e1d2a6adbb6cd15703a.413.i = select i1 %.not.i1.i, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.414, ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.413
   %.sroa.5.0.i = select i1 %.not.i.i, i64 1, i64 3
   %.sroa.0.0.i46 = select i1 %.not.i.i, ptr %anon.18ff8fbd04110e1d2a6adbb6cd15703a.416.anon.18ff8fbd04110e1d2a6adbb6cd15703a.415.i, ptr %anon.18ff8fbd04110e1d2a6adbb6cd15703a.414.anon.18ff8fbd04110e1d2a6adbb6cd15703a.413.i
   store ptr %.sroa.0.0.i46, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.5.0.i, ptr %29, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.5.0.i, ptr %28, align 8
   store ptr %6, ptr %7, align 8
   %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN83_$LT$ruff_python_ast..str_prefix..AnyStringPrefix$u20$as$u20$core..fmt..Display$GT$3fmt17h5411ae7b32a476deE", ptr %.sroa.434.0..sroa_idx, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %5, ptr %30, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %5, ptr %29, align 8
   %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hfc39d5013205085cE", ptr %.sroa.438.0..sroa_idx, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %0, ptr %31, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %0, ptr %30, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hfc39d5013205085cE", ptr %.sroa.442.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -53518,24 +53516,24 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %24, %22, %
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 -536870880, ptr %.sroa.6.0..sroa_idx, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i16 2, ptr %32, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store i16 2, ptr %31, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i16 2, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 1, ptr %.sroa.617.0..sroa_idx, align 8
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 -536870880, ptr %.sroa.720.0..sroa_idx, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i16 2, ptr %33, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store i16 2, ptr %32, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i16 2, ptr %.sroa.527.0..sroa_idx, align 8
   %.sroa.729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i64 2, ptr %.sroa.729.0..sroa_idx, align 8
   %.sroa.830.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 -536870880, ptr %.sroa.830.0..sroa_idx, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  store i16 2, ptr %34, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  store i16 2, ptr %33, align 8
   %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i16 2, ptr %.sroa.4.0..sroa_idx13, align 8
   %.sroa.617.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -53543,8 +53541,8 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %24, %22, %
   %.sroa.720.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i32 -536870880, ptr %.sroa.720.0..sroa_idx21, align 8
   %.val = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val45 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val45 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7485
   store ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.417, ptr %3, align 8
   %.sroa.5.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -53557,13 +53555,13 @@ _ZN4core3fmt9Formatter9write_fmt17h246f77ba8320be7bE.exit: ; preds = %24, %22, %
   store ptr %4, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 4, ptr %.sroa.11.0..sroa_idx, align 8
-  %36 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val45, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !7485
+  %35 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val45, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !7485
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7485
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i1 %36
+  ret i1 %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -53628,8 +53626,7 @@ define noundef zeroext i1 @"_ZN92_$LT$ruff_python_ast..nodes..FStringFlags$u20$a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @"_ZN92_$LT$ruff_python_ast..nodes..FStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17h57dc0ac808f5b93aE"(i8 noundef %0) unnamed_addr #18 {
-  %2 = and i8 %0, 1
-  %.not = icmp ne i8 %2, 0
+  %.not = trunc i8 %0 to i1
   ret i1 %.not
 }
 
@@ -54481,8 +54478,7 @@ define noundef range(i8 0, 4) i8 @_ZN15ruff_python_ast5nodes18StringLiteralFlags
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17hba841a79e4c7f5ebE"(i8 noundef %0) unnamed_addr #18 {
-  %2 = and i8 %0, 1
-  %.not = icmp ne i8 %2, 0
+  %.not = trunc i8 %0 to i1
   ret i1 %.not
 }
 
@@ -55522,8 +55518,7 @@ define noundef zeroext i1 @"_ZN97_$LT$ruff_python_ast..nodes..BytesLiteralFlags$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @"_ZN97_$LT$ruff_python_ast..nodes..BytesLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17hcc3b6792a32b40b3E"(i8 noundef %0) unnamed_addr #18 {
-  %2 = and i8 %0, 1
-  %.not = icmp ne i8 %2, 0
+  %.not = trunc i8 %0 to i1
   ret i1 %.not
 }
 
@@ -55764,8 +55759,7 @@ define noundef i8 @_ZN15ruff_python_ast5nodes14AnyStringFlags18with_triple_quote
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17h702703188cd01f13E"(i8 noundef %0) unnamed_addr #18 {
-  %2 = and i8 %0, 1
-  %.not = icmp ne i8 %2, 0
+  %.not = trunc i8 %0 to i1
   ret i1 %.not
 }
 
@@ -55917,69 +55911,69 @@ define noundef range(i8 0, 20) i8 @"_ZN128_$LT$ruff_python_ast..nodes..StringLit
   %4 = alloca [48 x i8], align 8
   %5 = and i8 %0, 24
   %or.cond = icmp eq i8 %5, 0
-  br i1 %or.cond, label %6, label %22
+  br i1 %or.cond, label %6, label %19
 
 6:                                                ; preds = %1
   %7 = and i8 %0, 32
   %.not2.i = icmp eq i8 %7, 0
-  br i1 %.not2.i, label %8, label %15
+  br i1 %.not2.i, label %8, label %14
 
 8:                                                ; preds = %6
   %9 = and i8 %0, 64
   %.not3.i = icmp eq i8 %9, 0
-  br i1 %.not3.i, label %10, label %18
+  br i1 %.not3.i, label %10, label %16
 
 10:                                               ; preds = %8
   %11 = and i8 %0, 4
   %.not4.i = icmp eq i8 %11, 0
-  br i1 %.not4.i, label %.thread, label %13
+  br i1 %.not4.i, label %.thread, label %12
 
 .thread:                                          ; preds = %10
-  %12 = and i8 %0, 1
+  %masksel.i14 = and i8 %0, 1
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-13:                                               ; preds = %10
-  %14 = and i8 %0, 5
+12:                                               ; preds = %10
+  %13 = and i8 %0, 5
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-15:                                               ; preds = %6
-  %16 = and i8 %0, 1
-  %17 = or disjoint i8 %16, 8
+14:                                               ; preds = %6
+  %masksel.i24 = and i8 %0, 1
+  %15 = or disjoint i8 %masksel.i24, 8
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-18:                                               ; preds = %8
-  %19 = and i8 %0, 1
-  %20 = or disjoint i8 %19, 16
+16:                                               ; preds = %8
+  %masksel.i = and i8 %0, 1
+  %17 = or disjoint i8 %masksel.i, 16
   br label %_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit
 
-_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit: ; preds = %.thread, %13, %15, %18
-  %.sroa.02.0.i = phi i8 [ %17, %15 ], [ %14, %13 ], [ %20, %18 ], [ %12, %.thread ]
-  %21 = and i8 %0, 2
-  %.sroa.0.0.i8 = or disjoint i8 %.sroa.02.0.i, %21
+_ZN15ruff_python_ast5nodes18StringLiteralFlags11with_prefix17hc49e3269aa094cc7E.exit: ; preds = %.thread, %12, %14, %16
+  %.sroa.02.0.i = phi i8 [ %15, %14 ], [ %13, %12 ], [ %17, %16 ], [ %masksel.i14, %.thread ]
+  %18 = and i8 %0, 2
+  %.sroa.0.0.i8 = or disjoint i8 %.sroa.02.0.i, %18
   ret i8 %.sroa.0.0.i8
 
-22:                                               ; preds = %1
+19:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %23 = tail call { i8, i8 } @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17h20f4b55334950d5aE"(i8 noundef %0)
-  %24 = extractvalue { i8, i8 } %23, 0
-  %25 = extractvalue { i8, i8 } %23, 1
-  store i8 %24, ptr %2, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %25, ptr %26, align 1
+  %20 = tail call { i8, i8 } @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17h20f4b55334950d5aE"(i8 noundef %0)
+  %21 = extractvalue { i8, i8 } %20, 0
+  %22 = extractvalue { i8, i8 } %20, 1
+  store i8 %21, ptr %2, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %22, ptr %23, align 1
   store ptr %2, ptr %3, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN83_$LT$ruff_python_ast..str_prefix..AnyStringPrefix$u20$as$u20$core..fmt..Display$GT$3fmt17h5411ae7b32a476deE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.448, ptr %4, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %30, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %27, align 8
   call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.449) #57
   unreachable
 }
@@ -56014,59 +56008,59 @@ define noundef range(i8 0, 12) i8 @"_ZN127_$LT$ruff_python_ast..nodes..BytesLite
   %4 = alloca [48 x i8], align 8
   %5 = and i8 %0, 24
   %or.cond.not = icmp eq i8 %5, 8
-  br i1 %or.cond.not, label %6, label %17
+  br i1 %or.cond.not, label %6, label %15
 
 6:                                                ; preds = %1
   %7 = and i8 %0, 32
   %.not2.i = icmp eq i8 %7, 0
-  br i1 %.not2.i, label %8, label %11
+  br i1 %.not2.i, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = and i8 %0, 64
   %.not6.i = icmp eq i8 %9, 0
-  br i1 %.not6.i, label %.thread16, label %14
+  br i1 %.not6.i, label %.thread16, label %12
 
 .thread16:                                        ; preds = %8
-  %10 = and i8 %0, 1
+  %masksel.i20 = and i8 %0, 1
   br label %_ZN15ruff_python_ast5nodes17BytesLiteralFlags11with_prefix17hab9f57ef6ba03279E.exit
 
-11:                                               ; preds = %6
-  %12 = and i8 %0, 1
-  %13 = or disjoint i8 %12, 4
+10:                                               ; preds = %6
+  %masksel.i = and i8 %0, 1
+  %11 = or disjoint i8 %masksel.i, 4
   br label %_ZN15ruff_python_ast5nodes17BytesLiteralFlags11with_prefix17hab9f57ef6ba03279E.exit
 
-14:                                               ; preds = %8
-  %15 = and i8 %0, 9
+12:                                               ; preds = %8
+  %13 = and i8 %0, 9
   br label %_ZN15ruff_python_ast5nodes17BytesLiteralFlags11with_prefix17hab9f57ef6ba03279E.exit
 
-_ZN15ruff_python_ast5nodes17BytesLiteralFlags11with_prefix17hab9f57ef6ba03279E.exit: ; preds = %.thread16, %11, %14
-  %.sroa.0.0.i6 = phi i8 [ %15, %14 ], [ %13, %11 ], [ %10, %.thread16 ]
-  %16 = and i8 %0, 2
-  %.sroa.0.0.i9 = or disjoint i8 %.sroa.0.0.i6, %16
+_ZN15ruff_python_ast5nodes17BytesLiteralFlags11with_prefix17hab9f57ef6ba03279E.exit: ; preds = %.thread16, %10, %12
+  %.sroa.0.0.i6 = phi i8 [ %13, %12 ], [ %11, %10 ], [ %masksel.i20, %.thread16 ]
+  %14 = and i8 %0, 2
+  %.sroa.0.0.i9 = or disjoint i8 %.sroa.0.0.i6, %14
   ret i8 %.sroa.0.0.i9
 
-17:                                               ; preds = %1
+15:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %18 = tail call { i8, i8 } @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17h20f4b55334950d5aE"(i8 noundef %0)
-  %19 = extractvalue { i8, i8 } %18, 0
-  %20 = extractvalue { i8, i8 } %18, 1
-  store i8 %19, ptr %2, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %20, ptr %21, align 1
+  %16 = tail call { i8, i8 } @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17h20f4b55334950d5aE"(i8 noundef %0)
+  %17 = extractvalue { i8, i8 } %16, 0
+  %18 = extractvalue { i8, i8 } %16, 1
+  store i8 %17, ptr %2, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 %18, ptr %19, align 1
   store ptr %2, ptr %3, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN83_$LT$ruff_python_ast..str_prefix..AnyStringPrefix$u20$as$u20$core..fmt..Display$GT$3fmt17h5411ae7b32a476deE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr @anon.18ff8fbd04110e1d2a6adbb6cd15703a.451, ptr %4, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %25, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %23, align 8
   call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.452) #57
   unreachable
 }

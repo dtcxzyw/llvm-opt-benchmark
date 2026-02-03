@@ -3915,135 +3915,135 @@ Vec_QuePop.exit:                                  ; preds = %140, %Vec_QueMoveDo
   %240 = getelementptr inbounds i32, ptr %.val101, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !52
   %242 = and i32 %230, 31
-  %243 = shl nuw i32 1, %242
-  %244 = and i32 %241, %243
-  %245 = icmp ne i32 %244, 0
-  %or.cond = and i1 %119, %245
-  br i1 %or.cond, label %246, label %248
+  %243 = lshr i32 %241, %242
+  %244 = trunc i32 %243 to i1
+  %or.cond = and i1 %119, %244
+  br i1 %or.cond, label %245, label %247
 
-246:                                              ; preds = %237
-  %247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %230)
+245:                                              ; preds = %237
+  %246 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %230)
   br label %313
 
-248:                                              ; preds = %237
-  %249 = add nsw i32 %230, 1
-  %250 = load i32, ptr %27, align 4, !tbaa !99
-  %.not.i.not.i = icmp slt i32 %230, %250
-  br i1 %.not.i.not.i, label %Vec_BitSetEntry.exit, label %251
+247:                                              ; preds = %237
+  %248 = add nsw i32 %230, 1
+  %249 = load i32, ptr %27, align 4, !tbaa !99
+  %.not.i.not.i = icmp slt i32 %230, %249
+  br i1 %.not.i.not.i, label %Vec_BitSetEntry.exit, label %250
 
-251:                                              ; preds = %248
-  %252 = load i32, ptr %20, align 8, !tbaa !96
-  %253 = shl nsw i32 %252, 1
-  %.not.i117 = icmp slt i32 %230, %253
-  %.not.i.i.not.i = icmp sgt i32 %252, %230
-  br i1 %.not.i117, label %258, label %254
+250:                                              ; preds = %247
+  %251 = load i32, ptr %20, align 8, !tbaa !96
+  %252 = shl nsw i32 %251, 1
+  %.not.i117 = icmp slt i32 %230, %252
+  %.not.i.i.not.i = icmp sgt i32 %251, %230
+  br i1 %.not.i117, label %257, label %253
 
-254:                                              ; preds = %251
-  br i1 %.not.i.i.not.i, label %Vec_BitGrow.exit.i.i, label %255
+253:                                              ; preds = %250
+  br i1 %.not.i.i.not.i, label %Vec_BitGrow.exit.i.i, label %254
 
-255:                                              ; preds = %254
-  %256 = ashr i32 %249, 5
-  %257 = and i32 %249, 31
+254:                                              ; preds = %253
+  %255 = ashr i32 %248, 5
+  %256 = and i32 %248, 31
   br label %Vec_BitGrow.exit.sink.split.i.i
 
-258:                                              ; preds = %251
-  br i1 %.not.i.i.not.i, label %Vec_BitGrow.exit.i.i, label %259
+257:                                              ; preds = %250
+  br i1 %.not.i.i.not.i, label %Vec_BitGrow.exit.i.i, label %258
 
-259:                                              ; preds = %258
-  %260 = ashr i32 %252, 4
-  %261 = and i32 %252, 15
+258:                                              ; preds = %257
+  %259 = ashr i32 %251, 4
+  %260 = and i32 %251, 15
   br label %Vec_BitGrow.exit.sink.split.i.i
 
-Vec_BitGrow.exit.sink.split.i.i:                  ; preds = %259, %255
-  %.sink178 = phi i32 [ %261, %259 ], [ %257, %255 ]
-  %.sink176 = phi i32 [ %260, %259 ], [ %256, %255 ]
-  %262 = icmp ne i32 %.sink178, 0
-  %263 = zext i1 %262 to i32
-  %264 = add nsw i32 %.sink176, %263
-  %265 = sext i32 %264 to i64
-  %266 = shl nsw i64 %265, 2
-  %267 = call ptr @realloc(ptr noundef nonnull %.val101, i64 noundef %266) #27
-  store ptr %267, ptr %28, align 8, !tbaa !98
-  %268 = shl nsw i32 %264, 5
-  store i32 %268, ptr %20, align 8, !tbaa !96
+Vec_BitGrow.exit.sink.split.i.i:                  ; preds = %258, %254
+  %.sink178 = phi i32 [ %260, %258 ], [ %256, %254 ]
+  %.sink176 = phi i32 [ %259, %258 ], [ %255, %254 ]
+  %261 = icmp ne i32 %.sink178, 0
+  %262 = zext i1 %261 to i32
+  %263 = add nsw i32 %.sink176, %262
+  %264 = sext i32 %263 to i64
+  %265 = shl nsw i64 %264, 2
+  %266 = call ptr @realloc(ptr noundef nonnull %.val101, i64 noundef %265) #27
+  store ptr %266, ptr %28, align 8, !tbaa !98
+  %267 = shl nsw i32 %263, 5
+  store i32 %267, ptr %20, align 8, !tbaa !96
   br label %Vec_BitGrow.exit.i.i
 
-Vec_BitGrow.exit.i.i:                             ; preds = %Vec_BitGrow.exit.sink.split.i.i, %258, %254
-  %269 = phi ptr [ %267, %Vec_BitGrow.exit.sink.split.i.i ], [ %126, %258 ], [ %126, %254 ]
-  %270 = phi ptr [ %267, %Vec_BitGrow.exit.sink.split.i.i ], [ %127, %258 ], [ %127, %254 ]
-  %271 = ashr i32 %250, 5
-  %272 = ashr i32 %249, 5
-  %273 = icmp eq i32 %271, %272
-  br i1 %273, label %274, label %284
+Vec_BitGrow.exit.i.i:                             ; preds = %Vec_BitGrow.exit.sink.split.i.i, %257, %253
+  %268 = phi ptr [ %266, %Vec_BitGrow.exit.sink.split.i.i ], [ %126, %257 ], [ %126, %253 ]
+  %269 = phi ptr [ %266, %Vec_BitGrow.exit.sink.split.i.i ], [ %127, %257 ], [ %127, %253 ]
+  %270 = ashr i32 %249, 5
+  %271 = ashr i32 %248, 5
+  %272 = icmp eq i32 %270, %271
+  br i1 %272, label %273, label %283
 
-274:                                              ; preds = %Vec_BitGrow.exit.i.i
-  %275 = sub nsw i32 %249, %250
-  %276 = shl nsw i32 -1, %275
-  %277 = xor i32 %276, -1
-  %278 = shl i32 %277, %250
-  %279 = xor i32 %278, -1
-  %280 = sext i32 %272 to i64
-  %281 = getelementptr inbounds i32, ptr %269, i64 %280
-  %282 = load i32, ptr %281, align 4, !tbaa !52
-  %283 = and i32 %282, %279
-  store i32 %283, ptr %281, align 4, !tbaa !52
+273:                                              ; preds = %Vec_BitGrow.exit.i.i
+  %274 = sub nsw i32 %248, %249
+  %275 = shl nsw i32 -1, %274
+  %276 = xor i32 %275, -1
+  %277 = shl i32 %276, %249
+  %278 = xor i32 %277, -1
+  %279 = sext i32 %271 to i64
+  %280 = getelementptr inbounds i32, ptr %268, i64 %279
+  %281 = load i32, ptr %280, align 4, !tbaa !52
+  %282 = and i32 %281, %278
+  store i32 %282, ptr %280, align 4, !tbaa !52
   br label %.loopexit.i.i
 
-284:                                              ; preds = %Vec_BitGrow.exit.i.i
-  %285 = and i32 %250, 31
-  %.not63.i.i = icmp eq i32 %285, 0
-  %286 = shl nsw i32 -1, %285
-  %287 = xor i32 %286, -1
-  %288 = select i1 %.not63.i.i, i32 -1, i32 %287
-  %289 = and i32 %249, 31
-  %290 = shl nsw i32 -1, %289
-  %291 = sext i32 %271 to i64
-  %292 = getelementptr inbounds i32, ptr %270, i64 %291
-  %293 = load i32, ptr %292, align 4, !tbaa !52
-  %294 = and i32 %293, %288
-  store i32 %294, ptr %292, align 4, !tbaa !52
-  %295 = sext i32 %272 to i64
-  %296 = getelementptr inbounds i32, ptr %270, i64 %295
-  %297 = load i32, ptr %296, align 4, !tbaa !52
-  %298 = and i32 %297, %290
-  store i32 %298, ptr %296, align 4, !tbaa !52
-  %.167.i.i = add nsw i32 %271, 1
-  %299 = icmp slt i32 %.167.i.i, %272
-  br i1 %299, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
+283:                                              ; preds = %Vec_BitGrow.exit.i.i
+  %284 = and i32 %249, 31
+  %.not63.i.i = icmp eq i32 %284, 0
+  %285 = shl nsw i32 -1, %284
+  %286 = xor i32 %285, -1
+  %287 = select i1 %.not63.i.i, i32 -1, i32 %286
+  %288 = and i32 %248, 31
+  %289 = shl nsw i32 -1, %288
+  %290 = sext i32 %270 to i64
+  %291 = getelementptr inbounds i32, ptr %269, i64 %290
+  %292 = load i32, ptr %291, align 4, !tbaa !52
+  %293 = and i32 %292, %287
+  store i32 %293, ptr %291, align 4, !tbaa !52
+  %294 = sext i32 %271 to i64
+  %295 = getelementptr inbounds i32, ptr %269, i64 %294
+  %296 = load i32, ptr %295, align 4, !tbaa !52
+  %297 = and i32 %296, %289
+  store i32 %297, ptr %295, align 4, !tbaa !52
+  %.167.i.i = add nsw i32 %270, 1
+  %298 = icmp slt i32 %.167.i.i, %271
+  br i1 %298, label %.lr.ph.preheader.i.i, label %.loopexit.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %284
-  %300 = shl nsw i64 %291, 2
-  %301 = getelementptr i8, ptr %270, i64 %300
-  %scevgep.i.i = getelementptr i8, ptr %301, i64 4
-  %302 = add nsw i32 %272, -2
-  %303 = sub nsw i32 %302, %271
-  %304 = zext i32 %303 to i64
-  %305 = shl nuw nsw i64 %304, 2
-  %306 = add nuw nsw i64 %305, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i, i8 0, i64 %306, i1 false), !tbaa !52
+.lr.ph.preheader.i.i:                             ; preds = %283
+  %299 = shl nsw i64 %290, 2
+  %300 = getelementptr i8, ptr %269, i64 %299
+  %scevgep.i.i = getelementptr i8, ptr %300, i64 4
+  %301 = add nsw i32 %271, -2
+  %302 = sub nsw i32 %301, %270
+  %303 = zext i32 %302 to i64
+  %304 = shl nuw nsw i64 %303, 2
+  %305 = add nuw nsw i64 %304, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i, i8 0, i64 %305, i1 false), !tbaa !52
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.preheader.i.i, %284, %274
-  %307 = phi ptr [ %270, %.lr.ph.preheader.i.i ], [ %270, %284 ], [ %269, %274 ]
-  store i32 %249, ptr %27, align 4, !tbaa !99
-  %.phi.trans.insert154 = getelementptr inbounds i32, ptr %307, i64 %239
+.loopexit.i.i:                                    ; preds = %.lr.ph.preheader.i.i, %283, %273
+  %306 = phi ptr [ %269, %.lr.ph.preheader.i.i ], [ %269, %283 ], [ %268, %273 ]
+  store i32 %248, ptr %27, align 4, !tbaa !99
+  %.phi.trans.insert154 = getelementptr inbounds i32, ptr %306, i64 %239
   %.pre155 = load i32, ptr %.phi.trans.insert154, align 4, !tbaa !52
   br label %Vec_BitSetEntry.exit
 
-Vec_BitSetEntry.exit:                             ; preds = %248, %.loopexit.i.i
-  %308 = phi i32 [ %.pre155, %.loopexit.i.i ], [ %241, %248 ]
-  %309 = phi ptr [ %269, %.loopexit.i.i ], [ %126, %248 ]
-  %310 = phi ptr [ %307, %.loopexit.i.i ], [ %127, %248 ]
-  %.val101153 = phi ptr [ %307, %.loopexit.i.i ], [ %.val101, %248 ]
+Vec_BitSetEntry.exit:                             ; preds = %247, %.loopexit.i.i
+  %307 = phi i32 [ %.pre155, %.loopexit.i.i ], [ %241, %247 ]
+  %308 = phi ptr [ %268, %.loopexit.i.i ], [ %126, %247 ]
+  %309 = phi ptr [ %306, %.loopexit.i.i ], [ %127, %247 ]
+  %.val101153 = phi ptr [ %306, %.loopexit.i.i ], [ %.val101, %247 ]
+  %310 = shl nuw i32 1, %242
   %311 = getelementptr inbounds i32, ptr %.val101153, i64 %239
-  %312 = or i32 %308, %243
+  %312 = or i32 %307, %310
   store i32 %312, ptr %311, align 4, !tbaa !52
   br label %313
 
-313:                                              ; preds = %Vec_BitSetEntry.exit, %246
-  %314 = phi ptr [ %309, %Vec_BitSetEntry.exit ], [ %126, %246 ]
-  %315 = phi ptr [ %310, %Vec_BitSetEntry.exit ], [ %127, %246 ]
-  %.val101152 = phi ptr [ %.val101153, %Vec_BitSetEntry.exit ], [ %.val101, %246 ]
+313:                                              ; preds = %Vec_BitSetEntry.exit, %245
+  %314 = phi ptr [ %308, %Vec_BitSetEntry.exit ], [ %126, %245 ]
+  %315 = phi ptr [ %309, %Vec_BitSetEntry.exit ], [ %127, %245 ]
+  %.val101152 = phi ptr [ %.val101153, %Vec_BitSetEntry.exit ], [ %.val101, %245 ]
   br i1 %.not82, label %329, label %316
 
 316:                                              ; preds = %313

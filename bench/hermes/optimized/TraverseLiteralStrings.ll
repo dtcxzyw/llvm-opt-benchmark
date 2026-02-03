@@ -468,8 +468,7 @@ sw.bb11.i:                                        ; preds = %if.then48
   br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 sw.bb13.i:                                        ; preds = %if.then48
-  %13 = and i32 %i.050, 1
-  %cmp14.i = icmp ne i32 %13, 0
+  %cmp14.i = trunc i32 %i.050 to i1
   br label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
 
 _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then48, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i
@@ -480,8 +479,8 @@ _ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit: ; preds = %if.then
   store i64 %agg.tmp49.sroa.2.0.copyload, ptr %8, align 8
   %frombool.i = zext i1 %retval.0.i to i8
   store i8 %frombool.i, ptr %__args.addr.i30, align 1
-  %14 = load ptr, ptr %_M_manager.i.i31, align 8
-  %tobool.not.i.i32 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_manager.i.i31, align 8
+  %tobool.not.i.i32 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i32, label %if.then.i34, label %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35
 
 if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
@@ -489,8 +488,8 @@ if.then.i34:                                      ; preds = %_ZN12_GLOBAL__N_111
   unreachable
 
 _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit35: ; preds = %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit
-  %15 = load ptr, ptr %_M_invoker.i33, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
+  %14 = load ptr, ptr %_M_invoker.i33, align 8
+  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i29, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr.i30) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.i29)
   call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i30)
   br label %for.inc56

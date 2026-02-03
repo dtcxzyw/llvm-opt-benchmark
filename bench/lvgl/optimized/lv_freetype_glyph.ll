@@ -279,7 +279,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %11, align 4, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %10, i8 0, i64 10, i1 false)
-  br label %47
+  br label %46
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -313,7 +313,7 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = call ptr @lv_cache_acquire_or_create(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %14) #8
   %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %46
+  br i1 %28, label %29, label %45
 
 29:                                               ; preds = %18
   %30 = call ptr @lv_cache_entry_get_data(ptr noundef nonnull %27) #8
@@ -321,34 +321,33 @@ define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readon
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false), !tbaa.struct !76
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 76
   %33 = load i32, ptr %32, align 4, !tbaa !64
-  %34 = and i32 %33, 1
-  %35 = icmp ne i32 %34, 0
-  %36 = icmp eq i32 %3, 0
-  %or.cond = and i1 %36, %35
-  br i1 %or.cond, label %37, label %44
+  %34 = trunc i32 %33 to i1
+  %35 = icmp eq i32 %3, 0
+  %or.cond = and i1 %35, %34
+  br i1 %or.cond, label %36, label %43
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %39 = load i16, ptr %38, align 2, !tbaa !58
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %41 = load i16, ptr %40, align 2, !tbaa !60
-  %42 = add i16 %41, %39
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i16 %42, ptr %43, align 8, !tbaa !54
-  br label %44
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %38 = load i16, ptr %37, align 2, !tbaa !58
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %40 = load i16, ptr %39, align 2, !tbaa !60
+  %41 = add i16 %40, %38
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i16 %41, ptr %42, align 8, !tbaa !54
+  br label %43
 
-44:                                               ; preds = %37, %29
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %45, align 8, !tbaa !81
+43:                                               ; preds = %36, %29
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %44, align 8, !tbaa !81
   call void @lv_cache_release(ptr noundef %26, ptr noundef nonnull %27, ptr noundef null) #8
+  br label %45
+
+45:                                               ; preds = %18, %43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
-46:                                               ; preds = %18, %44
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %47
-
-47:                                               ; preds = %46, %9
-  %.0 = phi i1 [ true, %9 ], [ %28, %46 ]
+46:                                               ; preds = %45, %9
+  %.0 = phi i1 [ true, %9 ], [ %28, %45 ]
   ret i1 %.0
 }
 

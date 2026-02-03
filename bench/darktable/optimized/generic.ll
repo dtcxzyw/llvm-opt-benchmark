@@ -189,8 +189,8 @@ define void @_ZN6LibRaw15packed_load_rawEv(ptr noundef nonnull align 8 dereferen
 
 38:                                               ; preds = %.lr.ph73, %._crit_edge66
   %.071 = phi i64 [ 0, %.lr.ph73 ], [ %.1.lcssa, %._crit_edge66 ]
-  %.03770 = phi i32 [ 0, %.lr.ph73 ], [ %150, %._crit_edge66 ]
-  %.04369 = phi i32 [ 0, %.lr.ph73 ], [ %151, %._crit_edge66 ]
+  %.03770 = phi i32 [ 0, %.lr.ph73 ], [ %149, %._crit_edge66 ]
+  %.04369 = phi i32 [ 0, %.lr.ph73 ], [ %150, %._crit_edge66 ]
   tail call void @_ZN6LibRaw11checkCancelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %39 = load i32, ptr %11, align 8, !tbaa !79
   %40 = and i32 %39, 2
@@ -265,11 +265,11 @@ define void @_ZN6LibRaw15packed_load_rawEv(ptr noundef nonnull align 8 dereferen
   tail call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #7
   unreachable
 
-.lr.ph65:                                         ; preds = %.preheader, %145
-  %84 = phi i16 [ %147, %145 ], [ %81, %.preheader ]
-  %.164 = phi i64 [ %.2.lcssa, %145 ], [ %.071, %.preheader ]
-  %.23963 = phi i32 [ %.340.lcssa, %145 ], [ %.138, %.preheader ]
-  %.04162 = phi i32 [ %146, %145 ], [ 0, %.preheader ]
+.lr.ph65:                                         ; preds = %.preheader, %144
+  %84 = phi i16 [ %146, %144 ], [ %81, %.preheader ]
+  %.164 = phi i64 [ %.2.lcssa, %144 ], [ %.071, %.preheader ]
+  %.23963 = phi i32 [ %.340.lcssa, %144 ], [ %.138, %.preheader ]
+  %.04162 = phi i32 [ %145, %144 ], [ 0, %.preheader ]
   %85 = load i32, ptr %7, align 8, !tbaa !87
   %86 = sub i32 %.23963, %85
   %87 = icmp slt i32 %86, 0
@@ -329,60 +329,59 @@ define void @_ZN6LibRaw15packed_load_rawEv(ptr noundef nonnull align 8 dereferen
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds nuw i16, ptr %111, i64 %119
   store i16 %110, ptr %120, align 2, !tbaa !80
-  %121 = and i32 %114, 1
-  %.not52 = icmp ne i32 %121, 0
-  %122 = urem i32 %.04162, 10
-  %123 = icmp eq i32 %122, 9
-  %or.cond = and i1 %123, %.not52
-  br i1 %or.cond, label %124, label %145
+  %.not52 = trunc i32 %114 to i1
+  %121 = urem i32 %.04162, 10
+  %122 = icmp eq i32 %121, 9
+  %or.cond = and i1 %122, %.not52
+  br i1 %or.cond, label %123, label %144
 
-124:                                              ; preds = %._crit_edge
-  %125 = load ptr, ptr %6, align 8, !tbaa !76
-  %126 = load ptr, ptr %125, align 8, !tbaa !77
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 56
-  %128 = load ptr, ptr %127, align 8
-  %129 = tail call noundef i32 %128(ptr noundef nonnull align 8 dereferenceable(8) %125)
-  %.not53 = icmp eq i32 %129, 0
-  br i1 %.not53, label %145, label %130
+123:                                              ; preds = %._crit_edge
+  %124 = load ptr, ptr %6, align 8, !tbaa !76
+  %125 = load ptr, ptr %124, align 8, !tbaa !77
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
+  %127 = load ptr, ptr %126, align 8
+  %128 = tail call noundef i32 %127(ptr noundef nonnull align 8 dereferenceable(8) %124)
+  %.not53 = icmp eq i32 %128, 0
+  br i1 %.not53, label %144, label %129
 
-130:                                              ; preds = %124
-  %131 = load i16, ptr %34, align 4, !tbaa !82
-  %132 = zext i16 %131 to i32
-  %133 = load i16, ptr %35, align 8, !tbaa !81
-  %134 = zext i16 %133 to i32
-  %135 = add nuw nsw i32 %134, %132
-  %136 = icmp slt i32 %.042, %135
-  br i1 %136, label %137, label %145
+129:                                              ; preds = %123
+  %130 = load i16, ptr %34, align 4, !tbaa !82
+  %131 = zext i16 %130 to i32
+  %132 = load i16, ptr %35, align 8, !tbaa !81
+  %133 = zext i16 %132 to i32
+  %134 = add nuw nsw i32 %133, %131
+  %135 = icmp slt i32 %.042, %134
+  br i1 %135, label %136, label %144
 
-137:                                              ; preds = %130
-  %138 = load i16, ptr %36, align 2, !tbaa !84
-  %139 = zext i16 %138 to i32
-  %140 = load i16, ptr %37, align 2, !tbaa !83
-  %141 = zext i16 %140 to i32
-  %142 = add nuw nsw i32 %141, %139
-  %143 = icmp samesign ult i32 %.04162, %142
-  br i1 %143, label %144, label %145
+136:                                              ; preds = %129
+  %137 = load i16, ptr %36, align 2, !tbaa !84
+  %138 = zext i16 %137 to i32
+  %139 = load i16, ptr %37, align 2, !tbaa !83
+  %140 = zext i16 %139 to i32
+  %141 = add nuw nsw i32 %140, %138
+  %142 = icmp samesign ult i32 %.04162, %141
+  br i1 %142, label %143, label %144
 
-144:                                              ; preds = %137
+143:                                              ; preds = %136
   tail call void @_ZN6LibRaw6derrorEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  br label %145
+  br label %144
 
-145:                                              ; preds = %._crit_edge, %124, %130, %137, %144
-  %146 = add nuw nsw i32 %.04162, 1
-  %147 = load i16, ptr %3, align 2, !tbaa !74
-  %148 = zext i16 %147 to i32
-  %149 = icmp samesign ult i32 %146, %148
-  br i1 %149, label %.lr.ph65, label %._crit_edge66, !llvm.loop !94
+144:                                              ; preds = %._crit_edge, %123, %129, %136, %143
+  %145 = add nuw nsw i32 %.04162, 1
+  %146 = load i16, ptr %3, align 2, !tbaa !74
+  %147 = zext i16 %146 to i32
+  %148 = icmp samesign ult i32 %145, %147
+  br i1 %148, label %.lr.ph65, label %._crit_edge66, !llvm.loop !94
 
-._crit_edge66:                                    ; preds = %145, %.preheader
-  %.239.lcssa = phi i32 [ %.138, %.preheader ], [ %.340.lcssa, %145 ]
-  %.1.lcssa = phi i64 [ %.071, %.preheader ], [ %.2.lcssa, %145 ]
-  %150 = add i32 %.neg, %.239.lcssa
-  %151 = add nuw nsw i32 %.04369, 1
-  %152 = load i16, ptr %2, align 8, !tbaa !75
-  %153 = zext i16 %152 to i32
-  %154 = icmp samesign ult i32 %151, %153
-  br i1 %154, label %38, label %._crit_edge74, !llvm.loop !95
+._crit_edge66:                                    ; preds = %144, %.preheader
+  %.239.lcssa = phi i32 [ %.138, %.preheader ], [ %.340.lcssa, %144 ]
+  %.1.lcssa = phi i64 [ %.071, %.preheader ], [ %.2.lcssa, %144 ]
+  %149 = add i32 %.neg, %.239.lcssa
+  %150 = add nuw nsw i32 %.04369, 1
+  %151 = load i16, ptr %2, align 8, !tbaa !75
+  %152 = zext i16 %151 to i32
+  %153 = icmp samesign ult i32 %150, %152
+  br i1 %153, label %38, label %._crit_edge74, !llvm.loop !95
 
 ._crit_edge74:                                    ; preds = %._crit_edge66, %21
   ret void

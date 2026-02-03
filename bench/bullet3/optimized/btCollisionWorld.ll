@@ -842,9 +842,8 @@ _ZN9btVector36setMaxERKS_.exit:                   ; preds = %_Z8btSetMaxIfEvRT_R
   %107 = load ptr, ptr %106, align 8, !tbaa !38
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %109 = load i32, ptr %108, align 8, !tbaa !68
-  %110 = and i32 %109, 1
-  %.not22 = icmp eq i32 %110, 0
-  br i1 %.not22, label %111, label %.critedge
+  %110 = trunc i32 %109 to i1
+  br i1 %110, label %.critedge, label %111
 
 111:                                              ; preds = %99
   %112 = fsub float %105, %104

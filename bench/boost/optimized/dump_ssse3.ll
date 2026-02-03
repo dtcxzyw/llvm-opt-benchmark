@@ -2567,12 +2567,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIDsSt11char_traitsIDsEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
-  %.pre9.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.pre8.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %18
 
 18:                                               ; preds = %16, %12, %3
   %19 = phi ptr [ %.pre.i, %16 ], [ %6, %12 ], [ %6, %3 ]
-  %20 = phi i64 [ %.pre9.i, %16 ], [ %8, %12 ], [ %8, %3 ]
+  %20 = phi i64 [ %.pre8.i, %16 ], [ %8, %12 ], [ %8, %3 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !63
@@ -2580,9 +2580,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %18
-  %26 = and i32 %23, 1
-  %.not8.i = icmp eq i32 %26, 0
-  br i1 %.not8.i, label %.critedge, label %27
+  %26 = trunc i32 %23 to i1
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %25
   %28 = or i32 %23, 4
@@ -2902,11 +2901,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIDsSt11char_traitsIDsEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre22 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre21 = load i64, ptr %.phi.trans.insert, align 8
   br label %19
 
 19:                                               ; preds = %17, %13, %9
-  %20 = phi i64 [ %.pre22, %17 ], [ %5, %13 ], [ %5, %9 ]
+  %20 = phi i64 [ %.pre21, %17 ], [ %5, %13 ], [ %5, %9 ]
   %21 = phi ptr [ %.pre, %17 ], [ %3, %13 ], [ %3, %9 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -2915,9 +2914,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %19
-  %27 = and i32 %24, 1
-  %.not21 = icmp eq i32 %27, 0
-  br i1 %.not21, label %_ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit, label %28
+  %27 = trunc i32 %24 to i1
+  br i1 %27, label %28, label %_ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit
 
 28:                                               ; preds = %26
   %29 = or i32 %24, 4
@@ -2947,7 +2945,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
 
 _ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit: ; preds = %34
   %44 = icmp eq i32 %43, -1
-  %.pre24 = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre23 = load ptr, ptr %0, align 8, !tbaa !3
   br i1 %44, label %70, label %_ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit
 
 45:                                               ; preds = %34
@@ -2995,7 +2993,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13: ; p
           to label %_ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit_crit_edge unwind label %66
 
 _ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit_crit_edge: ; preds = %_ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13
-  %.pre23 = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre22 = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit
 
 64:                                               ; preds = %63
@@ -3016,7 +3014,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNS
           to label %81 unwind label %116
 
 70:                                               ; preds = %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit
-  %71 = getelementptr i8, ptr %.pre24, i64 -24
+  %71 = getelementptr i8, ptr %.pre23, i64 -24
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -3043,7 +3041,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNS
   resume { ptr, i32 } %.pn
 
 _ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit: ; preds = %26, %28, %_ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit_crit_edge, %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit, %70
-  %82 = phi ptr [ %.pre23, %_ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit_crit_edge ], [ %.pre24, %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit ], [ %.pre24, %70 ], [ %21, %28 ], [ %21, %26 ]
+  %82 = phi ptr [ %.pre22, %_ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit_crit_edge ], [ %.pre23, %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit ], [ %.pre23, %70 ], [ %21, %28 ], [ %21, %26 ]
   %83 = getelementptr i8, ptr %82, i64 -24
   %84 = load i64, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 %84
@@ -3150,12 +3148,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIDiSt11char_traitsIDiEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert.i = getelementptr i8, ptr %.pre.i, i64 -24
-  %.pre9.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.pre8.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %18
 
 18:                                               ; preds = %16, %12, %3
   %19 = phi ptr [ %.pre.i, %16 ], [ %6, %12 ], [ %6, %3 ]
-  %20 = phi i64 [ %.pre9.i, %16 ], [ %8, %12 ], [ %8, %3 ]
+  %20 = phi i64 [ %.pre8.i, %16 ], [ %8, %12 ], [ %8, %3 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !63
@@ -3163,9 +3161,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %18
-  %26 = and i32 %23, 1
-  %.not8.i = icmp eq i32 %26, 0
-  br i1 %.not8.i, label %.critedge, label %27
+  %26 = trunc i32 %23 to i1
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %25
   %28 = or i32 %23, 4
@@ -3464,11 +3461,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIDiSt11char_traitsIDiEE5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 -24
-  %.pre22 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre21 = load i64, ptr %.phi.trans.insert, align 8
   br label %19
 
 19:                                               ; preds = %17, %13, %9
-  %20 = phi i64 [ %.pre22, %17 ], [ %5, %13 ], [ %5, %9 ]
+  %20 = phi i64 [ %.pre21, %17 ], [ %5, %13 ], [ %5, %9 ]
   %21 = phi ptr [ %.pre, %17 ], [ %3, %13 ], [ %3, %9 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -3477,9 +3474,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %19
-  %27 = and i32 %24, 1
-  %.not21 = icmp eq i32 %27, 0
-  br i1 %.not21, label %_ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit, label %28
+  %27 = trunc i32 %24 to i1
+  br i1 %27, label %28, label %_ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit
 
 28:                                               ; preds = %26
   %29 = or i32 %24, 4
@@ -3509,7 +3505,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
 
 _ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit: ; preds = %34
   %44 = icmp eq i32 %43, -1
-  %.pre24 = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre23 = load ptr, ptr %0, align 8, !tbaa !3
   br i1 %44, label %70, label %_ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit
 
 45:                                               ; preds = %34
@@ -3557,7 +3553,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13: ; p
           to label %_ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit_crit_edge unwind label %66
 
 _ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit_crit_edge: ; preds = %_ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13
-  %.pre23 = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre22 = load ptr, ptr %0, align 8, !tbaa !3
   br label %_ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit
 
 64:                                               ; preds = %63
@@ -3578,7 +3574,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNS
           to label %81 unwind label %116
 
 70:                                               ; preds = %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit
-  %71 = getelementptr i8, ptr %.pre24, i64 -24
+  %71 = getelementptr i8, ptr %.pre23, i64 -24
   %72 = load i64, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %0, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -3605,7 +3601,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNS
   resume { ptr, i32 } %.pn
 
 _ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit: ; preds = %26, %28, %_ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit_crit_edge, %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit, %70
-  %82 = phi ptr [ %.pre23, %_ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit_crit_edge ], [ %.pre24, %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit ], [ %.pre24, %70 ], [ %21, %28 ], [ %21, %26 ]
+  %82 = phi ptr [ %.pre22, %_ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit13._ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit_crit_edge ], [ %.pre23, %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit ], [ %.pre23, %70 ], [ %21, %28 ], [ %21, %26 ]
   %83 = getelementptr i8, ptr %82, i64 -24
   %84 = load i64, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 %84

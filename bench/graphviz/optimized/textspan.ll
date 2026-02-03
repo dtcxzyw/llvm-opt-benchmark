@@ -175,57 +175,56 @@ translate_postscript_fontname.exit:               ; preds = %._crit_edge.i, %bse
   %44 = load ptr, ptr %4, align 8, !tbaa !8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8
-  %47 = and i32 %46, 1
-  %48 = icmp ne i32 %47, 0
-  %49 = and i32 %46, 2
-  %50 = icmp ne i32 %49, 0
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %52 = load double, ptr %51, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double 0.000000e+00, ptr %53, align 8, !tbaa !26
-  %54 = fmul double %52, 1.200000e+00
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store double %54, ptr %55, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double 0.000000e+00, ptr %56, align 8, !tbaa !28
-  %57 = fmul double %52, 1.000000e-01
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %57, ptr %58, align 8, !tbaa !29
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
-  %60 = load ptr, ptr %44, align 8, !tbaa !16
-  %61 = load ptr, ptr %1, align 8, !tbaa !30
-  %62 = call double @estimate_text_width_1pt(ptr noundef %60, ptr noundef %61, i1 noundef zeroext %48, i1 noundef zeroext %50) #16
-  %63 = fmul double %52, %62
-  store double %63, ptr %53, align 8, !tbaa !26
+  %47 = trunc i32 %46 to i1
+  %48 = and i32 %46, 2
+  %49 = icmp ne i32 %48, 0
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %51 = load double, ptr %50, align 8, !tbaa !25
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store double 0.000000e+00, ptr %52, align 8, !tbaa !26
+  %53 = fmul double %51, 1.200000e+00
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store double %53, ptr %54, align 8, !tbaa !27
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store double 0.000000e+00, ptr %55, align 8, !tbaa !28
+  %56 = fmul double %51, 1.000000e-01
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store double %56, ptr %57, align 8, !tbaa !29
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
+  %59 = load ptr, ptr %44, align 8, !tbaa !16
+  %60 = load ptr, ptr %1, align 8, !tbaa !30
+  %61 = call double @estimate_text_width_1pt(ptr noundef %59, ptr noundef %60, i1 noundef zeroext %47, i1 noundef zeroext %49) #16
+  %62 = fmul double %51, %61
+  store double %62, ptr %52, align 8, !tbaa !26
   %.not.i18 = icmp eq ptr %.024, null
   br i1 %.not.i18, label %estimate_textspan_size.exit.thread25, label %estimate_textspan_size.exit.thread20
 
 estimate_textspan_size.exit.thread20:             ; preds = %43
   store ptr @.str.59, ptr %.024, align 8, !tbaa !3
-  br label %64
+  br label %63
 
 estimate_textspan_size.exit:                      ; preds = %38
-  br i1 %40, label %64, label %estimate_textspan_size.exit.thread25
+  br i1 %40, label %63, label %estimate_textspan_size.exit.thread25
 
-64:                                               ; preds = %estimate_textspan_size.exit.thread20, %estimate_textspan_size.exit
-  %65 = load ptr, ptr %3, align 8, !tbaa !3
-  %.not17 = icmp eq ptr %65, null
-  %66 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %67 = load ptr, ptr %5, align 8, !tbaa !16
-  br i1 %.not17, label %70, label %68
+63:                                               ; preds = %estimate_textspan_size.exit.thread20, %estimate_textspan_size.exit
+  %64 = load ptr, ptr %3, align 8, !tbaa !3
+  %.not17 = icmp eq ptr %64, null
+  %65 = load ptr, ptr @stderr, align 8, !tbaa !18
+  %66 = load ptr, ptr %5, align 8, !tbaa !16
+  br i1 %.not17, label %69, label %67
 
-68:                                               ; preds = %64
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str, ptr noundef %67, ptr noundef nonnull %65) #17
+67:                                               ; preds = %63
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str, ptr noundef %66, ptr noundef nonnull %64) #17
   br label %estimate_textspan_size.exit.thread25
 
-70:                                               ; preds = %64
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.1, ptr noundef %67) #17
+69:                                               ; preds = %63
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.1, ptr noundef %66) #17
   br label %estimate_textspan_size.exit.thread25
 
-estimate_textspan_size.exit.thread25:             ; preds = %43, %.thread, %68, %70, %estimate_textspan_size.exit
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload = load double, ptr %72, align 8, !tbaa !31
+estimate_textspan_size.exit.thread25:             ; preds = %43, %.thread, %67, %69, %estimate_textspan_size.exit
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.0.0.copyload = load double, ptr %71, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

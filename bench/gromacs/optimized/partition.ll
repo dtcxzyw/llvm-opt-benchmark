@@ -5249,7 +5249,7 @@ _ZL22set_zones_numHomeAtomsP12gmx_domdec_t.exit545: ; preds = %2010, %2003
   %2026 = getelementptr inbounds nuw i8, ptr %162, i64 936
   %2027 = load ptr, ptr %2026, align 8, !tbaa !555
   %2028 = or i8 %.2400, %.1407
-  %2029 = icmp ne i8 %2028, 0
+  %2029 = trunc nuw i8 %2028 to i1
   call void @_ZN3gmx12HaloExchange5setupEP12gmx_domdec_tP7t_stateRK11gmx_ddbox_tP10t_forcerecb(ptr noundef nonnull align 8 dereferenceable(168) %2027, ptr noundef nonnull %162, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(200) %91, ptr noundef nonnull %15, i1 noundef zeroext %2029)
   br label %3120
 

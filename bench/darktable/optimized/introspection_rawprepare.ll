@@ -1213,80 +1213,79 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !155
   tail call void @dt_image_cache_write_release(ptr noundef %138, ptr noundef %127, i32 noundef 1) #22
   %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !156
-  %140 = and i32 %139, 1
-  %141 = icmp ne i32 %140, 0
-  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3304), align 8
-  %143 = icmp ne i32 %142, 0
-  %or.cond = select i1 %141, i1 %143, i1 false
-  br i1 %or.cond, label %144, label %148
+  %140 = trunc i32 %139 to i1
+  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3304), align 8
+  %142 = icmp ne i32 %141, 0
+  %or.cond = select i1 %140, i1 %142, i1 false
+  br i1 %or.cond, label %143, label %147
 
-144:                                              ; preds = %124
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !157
-  %146 = and i32 %145, 1048576
-  %.not68 = icmp eq i32 %146, 0
-  br i1 %.not68, label %148, label %147
+143:                                              ; preds = %124
+  %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !157
+  %145 = and i32 %144, 1048576
+  %.not68 = icmp eq i32 %145, 0
+  br i1 %.not68, label %147, label %146
 
-147:                                              ; preds = %144
+146:                                              ; preds = %143
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 746, ptr noundef nonnull @__FUNCTION__.commit_params) #22
-  br label %148
+  br label %147
 
-148:                                              ; preds = %144, %147, %124
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !158
-  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %149, i32 noundef 43) #22
+147:                                              ; preds = %143, %146, %124
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !158
+  tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %148, i32 noundef 43) #22
   br label %_image_set_rawcrops.exit.thread
 
-_image_set_rawcrops.exit.thread:                  ; preds = %109, %148
-  %150 = load ptr, ptr %17, align 8, !tbaa !91
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 640
-  %152 = tail call i32 @dt_image_is_rawprepare_supported(ptr noundef nonnull %151) #22
-  %.not69 = icmp eq i32 %152, 0
+_image_set_rawcrops.exit.thread:                  ; preds = %109, %147
+  %149 = load ptr, ptr %17, align 8, !tbaa !91
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 640
+  %151 = tail call i32 @dt_image_is_rawprepare_supported(ptr noundef nonnull %150) #22
+  %.not69 = icmp eq i32 %151, 0
   %.pre98.pre = load ptr, ptr %17, align 8, !tbaa !91
-  br i1 %.not69, label %167, label %153
+  br i1 %.not69, label %166, label %152
 
-153:                                              ; preds = %_image_set_rawcrops.exit.thread
-  %154 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2060
-  %155 = load i32, ptr %154, align 4, !tbaa !159
-  %156 = and i32 %155, 128
-  %.not.i = icmp eq i32 %156, 0
-  br i1 %.not.i, label %160, label %157
+152:                                              ; preds = %_image_set_rawcrops.exit.thread
+  %153 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2060
+  %154 = load i32, ptr %153, align 4, !tbaa !159
+  %155 = and i32 %154, 128
+  %.not.i = icmp eq i32 %155, 0
+  br i1 %.not.i, label %159, label %156
 
-157:                                              ; preds = %153
-  %158 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2368
-  %159 = load i32, ptr %158, align 16, !tbaa !160
-  switch i32 %159, label %_image_is_normalized.exit.thread [
-    i32 1065353216, label %167
-    i32 1, label %167
+156:                                              ; preds = %152
+  %157 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2368
+  %158 = load i32, ptr %157, align 16, !tbaa !160
+  switch i32 %158, label %_image_is_normalized.exit.thread [
+    i32 1065353216, label %166
+    i32 1, label %166
   ]
 
-160:                                              ; preds = %153
-  %161 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2128
-  %162 = load i32, ptr %161, align 16, !tbaa !161
-  %163 = icmp eq i32 %162, 1
-  br i1 %163, label %_image_is_normalized.exit, label %_image_is_normalized.exit.thread
+159:                                              ; preds = %152
+  %160 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2128
+  %161 = load i32, ptr %160, align 16, !tbaa !161
+  %162 = icmp eq i32 %161, 1
+  br i1 %162, label %_image_is_normalized.exit, label %_image_is_normalized.exit.thread
 
-_image_is_normalized.exit:                        ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2132
-  %165 = load i32, ptr %164, align 4, !tbaa !162
-  %166 = icmp eq i32 %165, 1
-  br i1 %166, label %167, label %_image_is_normalized.exit.thread
+_image_is_normalized.exit:                        ; preds = %159
+  %163 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 2132
+  %164 = load i32, ptr %163, align 4, !tbaa !162
+  %165 = icmp eq i32 %164, 1
+  br i1 %165, label %166, label %_image_is_normalized.exit.thread
 
-167:                                              ; preds = %157, %157, %_image_is_normalized.exit, %_image_set_rawcrops.exit.thread
-  %168 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %168, align 16, !tbaa !163
+166:                                              ; preds = %156, %156, %_image_is_normalized.exit, %_image_set_rawcrops.exit.thread
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 0, ptr %167, align 16, !tbaa !163
   br label %_image_is_normalized.exit.thread
 
-_image_is_normalized.exit.thread:                 ; preds = %157, %160, %167, %_image_is_normalized.exit
-  %169 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 528
-  %170 = load i32, ptr %169, align 16, !tbaa !143
-  %.not71 = icmp eq i32 %170, 0
-  br i1 %.not71, label %173, label %171
+_image_is_normalized.exit.thread:                 ; preds = %156, %159, %166, %_image_is_normalized.exit
+  %168 = getelementptr inbounds nuw i8, ptr %.pre98.pre, i64 528
+  %169 = load i32, ptr %168, align 16, !tbaa !143
+  %.not71 = icmp eq i32 %169, 0
+  br i1 %.not71, label %172, label %170
 
-171:                                              ; preds = %_image_is_normalized.exit.thread
-  %172 = getelementptr inbounds nuw i8, ptr %3, i64 220
-  store i32 0, ptr %172, align 4, !tbaa !164
-  br label %173
+170:                                              ; preds = %_image_is_normalized.exit.thread
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 220
+  store i32 0, ptr %171, align 4, !tbaa !164
+  br label %172
 
-173:                                              ; preds = %171, %_image_is_normalized.exit.thread
+172:                                              ; preds = %170, %_image_is_normalized.exit.thread
   ret void
 }
 

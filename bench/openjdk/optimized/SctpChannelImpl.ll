@@ -216,18 +216,18 @@ define hidden void @getControlData(ptr noundef %0, ptr noundef writeonly capture
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %31
-  %.019 = phi ptr [ %32, %31 ], [ %8, %6 ]
+.lr.ph:                                           ; preds = %6, %30
+  %.019 = phi ptr [ %31, %30 ], [ %8, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 132
-  br i1 %11, label %12, label %31
+  br i1 %11, label %12, label %30
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.019, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %31
+  br i1 %15, label %16, label %30
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %.019, i64 16
@@ -239,23 +239,23 @@ define hidden void @getControlData(ptr noundef %0, ptr noundef writeonly capture
   store i16 %20, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.019, i64 20
   %23 = load i16, ptr %22, align 4
-  %24 = trunc i16 %23 to i8
-  %25 = and i8 %24, 1
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  store i8 %25, ptr %26, align 2
-  %27 = getelementptr inbounds nuw i8, ptr %.019, i64 24
-  %28 = load i32, ptr %27, align 4
-  %29 = tail call i32 @ntohl(i32 noundef %28) #13
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %29, ptr %30, align 4
+  %.not16 = trunc i16 %23 to i8
+  %24 = and i8 %.not16, 1
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  store i8 %24, ptr %25, align 2
+  %26 = getelementptr inbounds nuw i8, ptr %.019, i64 24
+  %27 = load i32, ptr %26, align 4
+  %28 = tail call i32 @ntohl(i32 noundef %27) #13
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %29, align 4
   br label %.loopexit
 
-31:                                               ; preds = %.lr.ph, %12
-  %32 = tail call ptr @__cmsg_nxthdr(ptr noundef %0, ptr noundef nonnull %.019) #12
-  %.not = icmp eq ptr %32, null
+30:                                               ; preds = %.lr.ph, %12
+  %31 = tail call ptr @__cmsg_nxthdr(ptr noundef %0, ptr noundef nonnull %.019) #12
+  %.not = icmp eq ptr %31, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %31, %2, %6, %16
+.loopexit:                                        ; preds = %30, %2, %6, %16
   ret void
 }
 

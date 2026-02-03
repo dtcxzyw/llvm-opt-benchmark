@@ -146,9 +146,8 @@ _Z7deallocI7obj_mapI9func_declP3appEEvPT_.exit.i: ; preds = %_ZN7obj_mapI9func_d
 
 _ZN10scoped_ptrI7obj_mapI9func_declP3appEEaSEPS4_.exit: ; preds = %_Z7deallocI7obj_mapI9func_declP3appEEvPT_.exit.i, %5, %1
   %22 = load i8, ptr %2, align 8
-  %23 = and i8 %22, 1
-  %.not2 = icmp eq i8 %23, 0
-  br i1 %.not2, label %_ZN10scoped_ptrI7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEEEaSEPS8_.exit, label %24
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %_ZN10scoped_ptrI7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEEEaSEPS8_.exit
 
 24:                                               ; preds = %_ZN10scoped_ptrI7obj_mapI9func_declP3appEEaSEPS4_.exit
   %25 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
@@ -453,9 +452,8 @@ define hidden void @_ZN18macro_substitutionD2Ev(ptr noundef nonnull align 8 dere
 
 11:                                               ; preds = %.noexc1, %.noexc
   %12 = phi i8 [ %.pre.i, %.noexc1 ], [ %5, %.noexc ]
-  %13 = and i8 %12, 1
-  %.not1.i = icmp eq i8 %13, 0
-  br i1 %.not1.i, label %_ZN18macro_substitution5resetEv.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZN18macro_substitution5resetEv.exit
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8, !tbaa !98
@@ -581,9 +579,8 @@ define hidden void @_ZN18macro_substitution5resetEv(ptr noundef nonnull align 8 
 
 11:                                               ; preds = %7, %1
   %12 = phi i8 [ %.pre, %7 ], [ %5, %1 ]
-  %13 = and i8 %12, 1
-  %.not1 = icmp eq i8 %13, 0
-  br i1 %.not1, label %18, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8, !tbaa !98
@@ -942,9 +939,8 @@ define hidden void @_ZN18macro_substitution7cleanupEv(ptr noundef nonnull align 
 
 11:                                               ; preds = %7, %1
   %12 = phi i8 [ %.pre.i, %7 ], [ %5, %1 ]
-  %13 = and i8 %12, 1
-  %.not1.i = icmp eq i8 %13, 0
-  br i1 %.not1.i, label %_ZN18macro_substitution5resetEv.exit, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZN18macro_substitution5resetEv.exit
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8, !tbaa !98
@@ -969,9 +965,8 @@ _ZN18macro_substitution5resetEv.exit:             ; preds = %11, %14
 
 23:                                               ; preds = %20, %_ZN18macro_substitution5resetEv.exit
   %24 = phi i8 [ %.pre, %20 ], [ %18, %_ZN18macro_substitution5resetEv.exit ]
-  %25 = and i8 %24, 1
-  %.not1 = icmp eq i8 %25, 0
-  br i1 %.not1, label %29, label %26
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1032,8 +1027,8 @@ _ZN11ast_manager7inc_refEP3ast.exit20:            ; preds = %_ZN11ast_manager7in
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 2
-  %.not62 = icmp eq i8 %27, 0
-  br i1 %.not62, label %_ZN11ast_manager7inc_refEP3ast.exit22, label %28
+  %.not61 = icmp eq i8 %27, 0
+  br i1 %.not61, label %_ZN11ast_manager7inc_refEP3ast.exit22, label %28
 
 28:                                               ; preds = %_ZN11ast_manager7inc_refEP3ast.exit20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1056,9 +1051,8 @@ _ZN11ast_manager7inc_refEP3ast.exit20:            ; preds = %_ZN11ast_manager7in
 
 _ZN11ast_manager7inc_refEP3ast.exit22:            ; preds = %32, %28, %_ZN11ast_manager7inc_refEP3ast.exit20
   %36 = load i8, ptr %25, align 8
-  %37 = and i8 %36, 1
-  %.not63 = icmp eq i8 %37, 0
-  br i1 %.not63, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit, label %38
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit
 
 38:                                               ; preds = %_ZN11ast_manager7inc_refEP3ast.exit22
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1226,9 +1220,8 @@ _ZN11ast_manager7dec_refEP3ast.exit30:            ; preds = %_ZN11ast_manager7in
 
 111:                                              ; preds = %_ZN11ast_manager7dec_refEP3ast.exit30, %_ZN11ast_manager7dec_refEP3ast.exit
   %112 = phi i8 [ %.pre, %_ZN11ast_manager7dec_refEP3ast.exit30 ], [ %60, %_ZN11ast_manager7dec_refEP3ast.exit ]
-  %113 = and i8 %112, 1
-  %.not61 = icmp eq i8 %113, 0
-  br i1 %.not61, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit, label %114
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %_ZN11ast_manager7inc_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1395,7 +1388,7 @@ define hidden void @_ZN18macro_substitution5eraseEP9func_decl(ptr noundef nonnul
   %28 = icmp eq i32 %27, %13
   %29 = icmp eq ptr %23, %1
   %or.cond.i.i.i = and i1 %29, %28
-  br i1 %or.cond.i.i.i, label %.loopexit62, label %32
+  br i1 %or.cond.i.i.i, label %.loopexit61, label %32
 
 30:                                               ; preds = %.lr.ph.i.i.i
   %31 = icmp eq ptr %23, null
@@ -1418,7 +1411,7 @@ define hidden void @_ZN18macro_substitution5eraseEP9func_decl(ptr noundef nonnul
   %39 = icmp eq i32 %38, %13
   %40 = icmp eq ptr %34, %1
   %or.cond31.i.i.i = and i1 %40, %39
-  br i1 %or.cond31.i.i.i, label %.loopexit62, label %44
+  br i1 %or.cond31.i.i.i, label %.loopexit61, label %44
 
 41:                                               ; preds = %.lr.ph38.i.i.i
   %42 = icmp eq ptr %34, null
@@ -1436,7 +1429,7 @@ define hidden void @_ZN18macro_substitution5eraseEP9func_decl(ptr noundef nonnul
   %.137.i.i.i.be = phi ptr [ %43, %41 ], [ %.old.i.i.i, %44 ]
   br label %.lr.ph38.i.i.i, !llvm.loop !127
 
-.loopexit62:                                      ; preds = %25, %36
+.loopexit61:                                      ; preds = %25, %36
   %.026.i.i.i = phi ptr [ %.137.i.i.i, %36 ], [ %.035.i.i.i, %25 ]
   %45 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !106
@@ -1444,7 +1437,7 @@ define hidden void @_ZN18macro_substitution5eraseEP9func_decl(ptr noundef nonnul
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %_ZN11ast_manager7dec_refEP3ast.exit, label %48
 
-48:                                               ; preds = %.loopexit62
+48:                                               ; preds = %.loopexit61
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !107
   %51 = add i32 %50, -1
@@ -1457,22 +1450,21 @@ define hidden void @_ZN18macro_substitution5eraseEP9func_decl(ptr noundef nonnul
   %.pre = load ptr, ptr %10, align 8, !tbaa !13
   br label %_ZN11ast_manager7dec_refEP3ast.exit
 
-_ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.loopexit62, %48, %53
-  %54 = phi ptr [ %11, %.loopexit62 ], [ %11, %48 ], [ %.pre, %53 ]
+_ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %.loopexit61, %48, %53
+  %54 = phi ptr [ %11, %.loopexit61 ], [ %11, %48 ], [ %.pre, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !123
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %55, align 8, !tbaa !106
   call void @_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6removeERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre89 = load i8, ptr %6, align 8
+  %.pre88 = load i8, ptr %6, align 8
   br label %_ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread
 
 _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41, %.preheader.i.i.i, %_ZN11ast_manager7dec_refEP3ast.exit, %2
-  %56 = phi i8 [ %7, %44 ], [ %7, %2 ], [ %7, %.preheader.i.i.i ], [ %.pre89, %_ZN11ast_manager7dec_refEP3ast.exit ], [ %7, %41 ], [ %7, %30 ]
-  %57 = and i8 %56, 1
-  %.not56 = icmp eq i8 %57, 0
-  br i1 %.not56, label %_ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit.thread, label %58
+  %56 = phi i8 [ %7, %44 ], [ %7, %2 ], [ %7, %.preheader.i.i.i ], [ %.pre88, %_ZN11ast_manager7dec_refEP3ast.exit ], [ %7, %41 ], [ %7, %30 ]
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %_ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit.thread
 
 58:                                               ; preds = %_ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1508,7 +1500,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41
   %77 = icmp eq i32 %76, %62
   %78 = icmp eq ptr %72, %1
   %or.cond.i.i.i12 = and i1 %78, %77
-  br i1 %or.cond.i.i.i12, label %.loopexit59, label %81
+  br i1 %or.cond.i.i.i12, label %.loopexit58, label %81
 
 79:                                               ; preds = %.lr.ph.i.i.i10
   %80 = icmp eq ptr %72, null
@@ -1531,7 +1523,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41
   %88 = icmp eq i32 %87, %62
   %89 = icmp eq ptr %83, %1
   %or.cond31.i.i.i18 = and i1 %89, %88
-  br i1 %or.cond31.i.i.i18, label %.loopexit59, label %93
+  br i1 %or.cond31.i.i.i18, label %.loopexit58, label %93
 
 90:                                               ; preds = %.lr.ph38.i.i.i16
   %91 = icmp eq ptr %83, null
@@ -1549,7 +1541,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41
   %.137.i.i.i17.be = phi ptr [ %92, %90 ], [ %.old.i.i.i19, %93 ]
   br label %.lr.ph38.i.i.i16, !llvm.loop !129
 
-.loopexit59:                                      ; preds = %74, %85
+.loopexit58:                                      ; preds = %74, %85
   %.026.i.i.i23 = phi ptr [ %.137.i.i.i17, %85 ], [ %.035.i.i.i11, %74 ]
   %94 = getelementptr inbounds nuw i8, ptr %.026.i.i.i23, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !116
@@ -1557,7 +1549,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41
   %.not.i26 = icmp eq ptr %95, null
   br i1 %.not.i26, label %_ZN11ast_manager7dec_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit, label %97
 
-97:                                               ; preds = %.loopexit59
+97:                                               ; preds = %.loopexit58
   %98 = load i32, ptr %95, align 4
   %99 = add i32 %98, 1073741823
   %100 = and i32 %99, 1073741823
@@ -1573,7 +1565,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41
   call void @_ZN18dependency_managerIN11ast_manager22expr_dependency_configEE3delEPNS2_10dependencyE(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull %95)
   br label %_ZN11ast_manager7dec_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit
 
-_ZN11ast_manager7dec_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit: ; preds = %.loopexit59, %97, %105
+_ZN11ast_manager7dec_refEPN18dependency_managerINS_22expr_dependency_configEE10dependencyE.exit: ; preds = %.loopexit58, %97, %105
   %107 = load ptr, ptr %59, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !124
@@ -1675,11 +1667,11 @@ _ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_co
 
 151:                                              ; preds = %146
   call void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %145, ptr noundef nonnull %1)
-  %.pre90 = load ptr, ptr %0, align 8, !tbaa !98
+  %.pre89 = load ptr, ptr %0, align 8, !tbaa !98
   br label %_ZN11ast_manager7dec_refEP3ast.exit46
 
 _ZN11ast_manager7dec_refEP3ast.exit46:            ; preds = %.loopexit, %146, %151
-  %152 = phi ptr [ %145, %.loopexit ], [ %145, %146 ], [ %.pre90, %151 ]
+  %152 = phi ptr [ %145, %.loopexit ], [ %145, %146 ], [ %.pre89, %151 ]
   %.not.i47 = icmp eq ptr %144, null
   br i1 %.not.i47, label %_ZN11ast_manager7dec_refEP3ast.exit48, label %153
 
@@ -2079,9 +2071,8 @@ _ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i: ; preds = %59, %70
 
 _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit: ; preds = %64, %78, %75, %_ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i, %.preheader.i.i.i14, %.loopexit
   %81 = phi i8 [ %43, %78 ], [ %43, %.loopexit ], [ %.pre, %_ZNK7obj_mapI9func_declP3appE9find_coreEPS0_.exit.i ], [ %43, %.preheader.i.i.i14 ], [ %43, %75 ], [ %43, %64 ]
-  %82 = and i8 %81, 1
-  %.not44 = icmp eq i8 %82, 0
-  br i1 %.not44, label %_ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit, label %83
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %_ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE4findEPS0_RS6_.exit
 
 83:                                               ; preds = %_ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40

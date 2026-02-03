@@ -42,9 +42,8 @@ define noundef nonnull ptr @l_Lake_ConfigLang_toCtorIdx(i8 noundef zeroext %0) l
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Lake_ConfigLang_toCtorIdx___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -74,9 +73,8 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lake_ConfigLang_noConfusion___rarg___lambda__1(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -133,9 +131,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_ConfigLang_noConfusion___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #1 {
   %4 = ptrtoint ptr %0 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_dec.exit7
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_dec.exit7, label %6
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 4, !tbaa !4
@@ -157,9 +154,8 @@ define ptr @l_Lake_ConfigLang_noConfusion___rarg___boxed(ptr noundef %0, ptr nou
 
 lean_dec.exit7:                                   ; preds = %12, %11, %9, %3
   %13 = ptrtoint ptr %1 to i64
-  %14 = and i64 %13, 1
-  %.not10 = icmp eq i64 %14, 0
-  br i1 %.not10, label %15, label %lean_dec.exit
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit, label %15
 
 15:                                               ; preds = %lean_dec.exit7
   %16 = load i32, ptr %1, align 4, !tbaa !4
@@ -187,9 +183,8 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lake_ConfigLang_noConfusion___rarg___lambda__1___boxed(ptr noundef returned %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !4
@@ -236,16 +231,15 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 define ptr @l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i8 %0, 0
   %4 = ptrtoint ptr %1 to i64
-  %5 = and i64 %4, 1
-  %.not22 = icmp eq i64 %5, 0
+  %5 = trunc i64 %4 to i1
   br i1 %3, label %6, label %10
 
 6:                                                ; preds = %2
-  br i1 %.not22, label %lean_nat_le.exit, label %7, !prof !15
+  br i1 %5, label %7, label %lean_nat_le.exit, !prof !9
 
 7:                                                ; preds = %6
-  %.not23 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
-  br i1 %.not23, label %14, label %9
+  %.not22 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
+  br i1 %.not22, label %14, label %9
 
 lean_nat_le.exit:                                 ; preds = %6
   %8 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 2049 to ptr), ptr noundef %1) #5
@@ -255,7 +249,7 @@ lean_nat_le.exit:                                 ; preds = %6
   br label %14
 
 10:                                               ; preds = %2
-  br i1 %.not22, label %lean_nat_le.exit21, label %11, !prof !15
+  br i1 %5, label %11, label %lean_nat_le.exit21, !prof !9
 
 11:                                               ; preds = %10
   %.not = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
@@ -280,9 +274,8 @@ declare ptr @l_Repr_addAppParen(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____boxed(ptr noundef %0, ptr noundef %1) #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit5, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -306,23 +299,22 @@ lean_dec.exit5:                                   ; preds = %11, %10, %8, %2
   %12 = and i64 %3, 510
   %13 = icmp eq i64 %12, 0
   %14 = ptrtoint ptr %1 to i64
-  %15 = and i64 %14, 1
-  %.not22.i = icmp eq i64 %15, 0
+  %15 = trunc i64 %14 to i1
   br i1 %13, label %16, label %19
 
 16:                                               ; preds = %lean_dec.exit5
-  br i1 %.not22.i, label %lean_nat_le.exit.i, label %17, !prof !15
+  br i1 %15, label %17, label %lean_nat_le.exit.i, !prof !9
 
 17:                                               ; preds = %16
-  %.not23.i = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
-  br i1 %.not23.i, label %l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_.exit.thread, label %l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_.exit.thread16
+  %.not22.i = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
+  br i1 %.not22.i, label %l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_.exit.thread, label %l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_.exit.thread16
 
 lean_nat_le.exit.i:                               ; preds = %16
   %18 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 2049 to ptr), ptr noundef %1) #5
   br i1 %18, label %l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_.exit, label %l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9_.exit.thread12
 
 19:                                               ; preds = %lean_dec.exit5
-  br i1 %.not22.i, label %lean_nat_le.exit21.i, label %20, !prof !15
+  br i1 %15, label %20, label %lean_nat_le.exit21.i, !prof !9
 
 20:                                               ; preds = %19
   %.not.i8 = icmp ult ptr %1, inttoptr (i64 2049 to ptr)
@@ -377,9 +369,8 @@ lean_dec.exit:                                    ; preds = %l___private_Lake_Co
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @l_Lake_ConfigLang_ofNat(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %.critedge.i, label %4, !prof !15
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %.critedge.i, !prof !9
 
 4:                                                ; preds = %1
   %5 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
@@ -399,9 +390,8 @@ lean_nat_eq.exit:                                 ; preds = %4, %.critedge.i
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @l_Lake_ConfigLang_ofNat___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %5, label %l_Lake_ConfigLang_ofNat.exit.thread, !prof !15
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %l_Lake_ConfigLang_ofNat.exit.thread, label %5, !prof !9
 
 l_Lake_ConfigLang_ofNat.exit.thread:              ; preds = %1
   %4 = icmp ne ptr %0, inttoptr (i64 1 to ptr)
@@ -428,16 +418,16 @@ l_Lake_ConfigLang_ofNat.exit.thread:              ; preds = %1
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %13, %12, %10, %l_Lake_ConfigLang_ofNat.exit.thread
-  %..i6.in = phi i1 [ %4, %l_Lake_ConfigLang_ofNat.exit.thread ], [ %7, %10 ], [ %7, %12 ], [ %7, %13 ]
-  %14 = select i1 %..i6.in, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  %..i5.in = phi i1 [ %4, %l_Lake_ConfigLang_ofNat.exit.thread ], [ %7, %10 ], [ %7, %12 ], [ %7, %13 ]
+  %14 = select i1 %..i5.in, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext range(i8 0, 2) i8 @l_Lake_instDecidableEqConfigLang(i8 noundef zeroext %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-lean_dec.exit:
-  %2 = icmp ne i8 %0, 0
-  %3 = icmp eq i8 %1, 0
+lean_nat_eq.exit:
+  %2 = icmp eq i8 %0, 0
+  %3 = icmp ne i8 %1, 0
   %4 = xor i1 %2, %3
   %5 = zext i1 %4 to i8
   ret i8 %5
@@ -446,9 +436,8 @@ lean_dec.exit:
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @l_Lake_instDecidableEqConfigLang___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit7
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %lean_dec.exit7, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 4, !tbaa !4
@@ -470,9 +459,8 @@ define noundef nonnull ptr @l_Lake_instDecidableEqConfigLang___boxed(ptr noundef
 
 lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
   %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, 1
-  %.not10 = icmp eq i64 %13, 0
-  br i1 %.not10, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %lean_dec.exit7
   %15 = load i32, ptr %1, align 4, !tbaa !4
@@ -494,9 +482,9 @@ lean_dec.exit7:                                   ; preds = %11, %10, %8, %2
 
 lean_dec.exit:                                    ; preds = %20, %19, %17, %lean_dec.exit7
   %21 = and i64 %3, 510
-  %22 = icmp ne i64 %21, 0
+  %22 = icmp eq i64 %21, 0
   %23 = and i64 %12, 510
-  %24 = icmp eq i64 %23, 0
+  %24 = icmp ne i64 %23, 0
   %25 = xor i1 %22, %24
   %26 = select i1 %25, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %26
@@ -510,9 +498,9 @@ define ptr @l_Lake_ConfigLang_ofString_x3f(ptr noundef %0) local_unnamed_addr #1
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i = load i64, ptr %5, align 8, !tbaa !16
+  %.val.i.i = load i64, ptr %5, align 8, !tbaa !15
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val7.i.i = load i64, ptr %6, align 8, !tbaa !16
+  %.val7.i.i = load i64, ptr %6, align 8, !tbaa !15
   %7 = icmp eq i64 %.val.i.i, %.val7.i.i
   br i1 %7, label %lean_string_dec_eq.exit, label %lean_string_dec_eq.exit.thread
 
@@ -526,9 +514,9 @@ lean_string_dec_eq.exit.thread:                   ; preds = %4, %lean_string_dec
   br i1 %10, label %lean_string_dec_eq.exit11.thread13, label %11
 
 11:                                               ; preds = %lean_string_dec_eq.exit.thread
-  %.val.i.i9 = load i64, ptr %5, align 8, !tbaa !16
+  %.val.i.i9 = load i64, ptr %5, align 8, !tbaa !15
   %12 = getelementptr i8, ptr %9, i64 8
-  %.val7.i.i10 = load i64, ptr %12, align 8, !tbaa !16
+  %.val7.i.i10 = load i64, ptr %12, align 8, !tbaa !15
   %13 = icmp eq i64 %.val.i.i9, %.val7.i.i10
   br i1 %13, label %lean_string_dec_eq.exit11, label %lean_string_dec_eq.exit11.thread
 
@@ -557,9 +545,9 @@ define ptr @l_Lake_ConfigLang_ofString_x3f___boxed(ptr noundef %0) local_unnamed
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %0, i64 8
-  %.val.i.i.i = load i64, ptr %5, align 8, !tbaa !16
+  %.val.i.i.i = load i64, ptr %5, align 8, !tbaa !15
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val7.i.i.i = load i64, ptr %6, align 8, !tbaa !16
+  %.val7.i.i.i = load i64, ptr %6, align 8, !tbaa !15
   %7 = icmp eq i64 %.val.i.i.i, %.val7.i.i.i
   br i1 %7, label %lean_string_dec_eq.exit.i, label %lean_string_dec_eq.exit.thread.i
 
@@ -573,9 +561,9 @@ lean_string_dec_eq.exit.thread.i:                 ; preds = %lean_string_dec_eq.
   br i1 %10, label %lean_string_dec_eq.exit11.thread13.i, label %11
 
 11:                                               ; preds = %lean_string_dec_eq.exit.thread.i
-  %.val.i.i9.i = load i64, ptr %5, align 8, !tbaa !16
+  %.val.i.i9.i = load i64, ptr %5, align 8, !tbaa !15
   %12 = getelementptr i8, ptr %9, i64 8
-  %.val7.i.i10.i = load i64, ptr %12, align 8, !tbaa !16
+  %.val7.i.i10.i = load i64, ptr %12, align 8, !tbaa !15
   %13 = icmp eq i64 %.val.i.i9.i, %.val7.i.i10.i
   br i1 %13, label %lean_string_dec_eq.exit11.i, label %l_Lake_ConfigLang_ofString_x3f.exit
 
@@ -594,9 +582,8 @@ lean_string_dec_eq.exit.thread12.i:               ; preds = %lean_string_dec_eq.
 l_Lake_ConfigLang_ofString_x3f.exit:              ; preds = %11, %lean_string_dec_eq.exit11.i, %lean_string_dec_eq.exit11.thread13.i, %lean_string_dec_eq.exit.thread12.i
   %.1.i = phi ptr [ %16, %lean_string_dec_eq.exit.thread12.i ], [ %15, %lean_string_dec_eq.exit11.thread13.i ], [ inttoptr (i64 1 to ptr), %lean_string_dec_eq.exit11.i ], [ inttoptr (i64 1 to ptr), %11 ]
   %17 = ptrtoint ptr %0 to i64
-  %18 = and i64 %17, 1
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %lean_dec.exit
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %lean_dec.exit, label %19
 
 19:                                               ; preds = %l_Lake_ConfigLang_ofString_x3f.exit
   %20 = load i32, ptr %0, align 4, !tbaa !4
@@ -632,9 +619,8 @@ define ptr @l_Lake_ConfigLang_fileExtension(i8 noundef zeroext %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lake_ConfigLang_fileExtension___boxed(ptr noundef %0) #1 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4, !tbaa !4
@@ -782,7 +768,7 @@ _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lan
 _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__5.exit: ; preds = %_init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__4.exit
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i64 0, ptr %44, align 8, !tbaa !16
+  store i64 0, ptr %44, align 8, !tbaa !15
   store i32 1, ptr %40, align 8, !tbaa !4
   store i32 100728856, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -823,7 +809,7 @@ _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lan
 _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__8.exit: ; preds = %_init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__7.exit
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i64 0, ptr %58, align 8, !tbaa !16
+  store i64 0, ptr %58, align 8, !tbaa !15
   store i32 1, ptr %54, align 8, !tbaa !4
   store i32 100728856, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -884,7 +870,7 @@ _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lan
 _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__12.exit: ; preds = %_init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__11.exit
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i64 0, ptr %79, align 8, !tbaa !16
+  store i64 0, ptr %79, align 8, !tbaa !15
   store i32 1, ptr %75, align 8, !tbaa !4
   store i32 100728856, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -924,7 +910,7 @@ _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lan
 _init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__14.exit: ; preds = %_init_l___private_Lake_Config_Lang_0__Lake_reprConfigLang____x40_Lake_Config_Lang___hyg_9____closed__13.exit
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i64 0, ptr %93, align 8, !tbaa !16
+  store i64 0, ptr %93, align 8, !tbaa !15
   store i32 1, ptr %89, align 8, !tbaa !4
   store i32 100728856, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -955,8 +941,8 @@ _init_l_Lake_instReprConfigLang___closed__1.exit: ; preds = %_init_l___private_L
   %102 = load ptr, ptr @l_Lake_instReprConfigLang___closed__1, align 8, !tbaa !10
   store ptr %102, ptr @l_Lake_instReprConfigLang, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %102) #5
-  store i8 1, ptr @l_Lake_ConfigLang_default, align 1, !tbaa !18
-  store i8 1, ptr @l_Lake_instInhabitedConfigLang, align 1, !tbaa !18
+  store i8 1, ptr @l_Lake_ConfigLang_default, align 1, !tbaa !17
+  store i8 1, ptr @l_Lake_instInhabitedConfigLang, align 1, !tbaa !17
   %103 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 4, i64 noundef 4) #5
   store ptr %103, ptr @l_Lake_ConfigLang_ofString_x3f___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %103) #5
@@ -1094,7 +1080,6 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!7, !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!7, !7, i64 0}

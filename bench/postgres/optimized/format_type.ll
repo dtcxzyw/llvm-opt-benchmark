@@ -89,7 +89,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   %7 = zext i16 %2 to i32
   %8 = and i32 %7, 8
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %177
+  br i1 %.not, label %9, label %175
 
 9:                                                ; preds = %6
   %10 = and i32 %7, 2
@@ -98,7 +98,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
 
 11:                                               ; preds = %9
   %12 = tail call ptr @pstrdup(ptr noundef nonnull @.str) #6
-  br label %177
+  br label %175
 
 .split77:                                         ; preds = %9, %.split
   %phi.call = phi i64 [ %5, %.split ], [ 0, %9 ]
@@ -110,7 +110,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   %15 = zext i16 %2 to i32
   %16 = and i32 %15, 8
   %.not88 = icmp eq i32 %16, 0
-  br i1 %.not88, label %17, label %177
+  br i1 %.not88, label %17, label %175
 
 17:                                               ; preds = %14
   %18 = and i32 %15, 2
@@ -119,7 +119,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
 
 19:                                               ; preds = %17
   %20 = tail call ptr @pstrdup(ptr noundef nonnull @.str.1) #6
-  br label %177
+  br label %175
 
 21:                                               ; preds = %17
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -162,7 +162,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   %43 = zext i16 %2 to i32
   %44 = and i32 %43, 8
   %.not93 = icmp eq i32 %44, 0
-  br i1 %.not93, label %45, label %177
+  br i1 %.not93, label %45, label %175
 
 45:                                               ; preds = %42
   %46 = and i32 %43, 2
@@ -171,7 +171,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
 
 47:                                               ; preds = %45
   %48 = tail call ptr @pstrdup(ptr noundef nonnull @.str.4) #6
-  br label %177
+  br label %175
 
 49:                                               ; preds = %45
   %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -193,253 +193,251 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   %.075 = phi ptr [ %41, %52 ], [ %13, %36 ], [ %13, %32 ], [ %13, %24 ]
   %.074 = phi i1 [ true, %52 ], [ false, %36 ], [ false, %32 ], [ false, %24 ]
   %.072 = phi i32 [ %31, %52 ], [ %0, %36 ], [ %0, %32 ], [ %0, %24 ]
-  %59 = zext i16 %2 to i32
-  %60 = and i32 %59, 1
-  %61 = icmp ne i32 %60, 0
-  %62 = icmp sgt i32 %1, -1
-  %63 = and i1 %62, %61
+  %59 = trunc i16 %2 to i1
+  %60 = icmp sgt i32 %1, -1
+  %61 = and i1 %60, %59
   switch i32 %.072, label %.thread [
-    i32 1560, label %64
-    i32 16, label %72
-    i32 1042, label %74
-    i32 700, label %82
-    i32 701, label %84
-    i32 21, label %86
-    i32 23, label %88
-    i32 20, label %90
-    i32 1700, label %92
-    i32 1186, label %99
-    i32 1083, label %106
-    i32 1266, label %113
-    i32 1114, label %120
-    i32 1184, label %127
-    i32 1562, label %134
-    i32 1043, label %141
-    i32 114, label %148
+    i32 1560, label %62
+    i32 16, label %70
+    i32 1042, label %72
+    i32 700, label %80
+    i32 701, label %82
+    i32 21, label %84
+    i32 23, label %86
+    i32 20, label %88
+    i32 1700, label %90
+    i32 1186, label %97
+    i32 1083, label %104
+    i32 1266, label %111
+    i32 1114, label %118
+    i32 1184, label %125
+    i32 1562, label %132
+    i32 1043, label %139
+    i32 114, label %146
   ]
 
-64:                                               ; preds = %58
-  br i1 %63, label %65, label %69
+62:                                               ; preds = %58
+  br i1 %61, label %63, label %67
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %67 = load i32, ptr %66, align 4
-  %68 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %67)
-  br label %150
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %65 = load i32, ptr %64, align 4
+  %66 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %65)
+  br label %148
 
-69:                                               ; preds = %64
-  br i1 %61, label %.thread, label %70
+67:                                               ; preds = %62
+  br i1 %59, label %.thread, label %68
 
-70:                                               ; preds = %69
-  %71 = tail call ptr @pstrdup(ptr noundef nonnull @.str.5) #6
-  br label %150
+68:                                               ; preds = %67
+  %69 = tail call ptr @pstrdup(ptr noundef nonnull @.str.5) #6
+  br label %148
+
+70:                                               ; preds = %58
+  %71 = tail call ptr @pstrdup(ptr noundef nonnull @.str.6) #6
+  br label %148
 
 72:                                               ; preds = %58
-  %73 = tail call ptr @pstrdup(ptr noundef nonnull @.str.6) #6
-  br label %150
+  br i1 %61, label %73, label %77
 
-74:                                               ; preds = %58
-  br i1 %63, label %75, label %79
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %75 = load i32, ptr %74, align 4
+  %76 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %75)
+  br label %148
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %77 = load i32, ptr %76, align 4
-  %78 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %77)
-  br label %150
+77:                                               ; preds = %72
+  br i1 %59, label %.thread, label %78
 
-79:                                               ; preds = %74
-  br i1 %61, label %.thread, label %80
+78:                                               ; preds = %77
+  %79 = tail call ptr @pstrdup(ptr noundef nonnull @.str.7) #6
+  br label %148
 
-80:                                               ; preds = %79
-  %81 = tail call ptr @pstrdup(ptr noundef nonnull @.str.7) #6
-  br label %150
+80:                                               ; preds = %58
+  %81 = tail call ptr @pstrdup(ptr noundef nonnull @.str.8) #6
+  br label %148
 
 82:                                               ; preds = %58
-  %83 = tail call ptr @pstrdup(ptr noundef nonnull @.str.8) #6
-  br label %150
+  %83 = tail call ptr @pstrdup(ptr noundef nonnull @.str.9) #6
+  br label %148
 
 84:                                               ; preds = %58
-  %85 = tail call ptr @pstrdup(ptr noundef nonnull @.str.9) #6
-  br label %150
+  %85 = tail call ptr @pstrdup(ptr noundef nonnull @.str.10) #6
+  br label %148
 
 86:                                               ; preds = %58
-  %87 = tail call ptr @pstrdup(ptr noundef nonnull @.str.10) #6
-  br label %150
+  %87 = tail call ptr @pstrdup(ptr noundef nonnull @.str.11) #6
+  br label %148
 
 88:                                               ; preds = %58
-  %89 = tail call ptr @pstrdup(ptr noundef nonnull @.str.11) #6
-  br label %150
+  %89 = tail call ptr @pstrdup(ptr noundef nonnull @.str.12) #6
+  br label %148
 
 90:                                               ; preds = %58
-  %91 = tail call ptr @pstrdup(ptr noundef nonnull @.str.12) #6
-  br label %150
+  br i1 %61, label %91, label %95
 
-92:                                               ; preds = %58
-  br i1 %63, label %93, label %97
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %93 = load i32, ptr %92, align 4
+  %94 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %93)
+  br label %148
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %95 = load i32, ptr %94, align 4
-  %96 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %95)
-  br label %150
+95:                                               ; preds = %90
+  %96 = tail call ptr @pstrdup(ptr noundef nonnull @.str.13) #6
+  br label %148
 
-97:                                               ; preds = %92
-  %98 = tail call ptr @pstrdup(ptr noundef nonnull @.str.13) #6
-  br label %150
+97:                                               ; preds = %58
+  br i1 %61, label %98, label %102
 
-99:                                               ; preds = %58
-  br i1 %63, label %100, label %104
+98:                                               ; preds = %97
+  %99 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %100 = load i32, ptr %99, align 4
+  %101 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef %100)
+  br label %148
 
-100:                                              ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %102 = load i32, ptr %101, align 4
-  %103 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef %102)
-  br label %150
+102:                                              ; preds = %97
+  %103 = tail call ptr @pstrdup(ptr noundef nonnull @.str.14) #6
+  br label %148
 
-104:                                              ; preds = %99
-  %105 = tail call ptr @pstrdup(ptr noundef nonnull @.str.14) #6
-  br label %150
+104:                                              ; preds = %58
+  br i1 %61, label %105, label %109
 
-106:                                              ; preds = %58
-  br i1 %63, label %107, label %111
+105:                                              ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %107 = load i32, ptr %106, align 4
+  %108 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %107)
+  br label %148
 
-107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %109 = load i32, ptr %108, align 4
-  %110 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %109)
-  br label %150
+109:                                              ; preds = %104
+  %110 = tail call ptr @pstrdup(ptr noundef nonnull @.str.16) #6
+  br label %148
 
-111:                                              ; preds = %106
-  %112 = tail call ptr @pstrdup(ptr noundef nonnull @.str.16) #6
-  br label %150
+111:                                              ; preds = %58
+  br i1 %61, label %112, label %116
 
-113:                                              ; preds = %58
-  br i1 %63, label %114, label %118
+112:                                              ; preds = %111
+  %113 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %114 = load i32, ptr %113, align 4
+  %115 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %114)
+  br label %148
 
-114:                                              ; preds = %113
-  %115 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %116 = load i32, ptr %115, align 4
-  %117 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %116)
-  br label %150
+116:                                              ; preds = %111
+  %117 = tail call ptr @pstrdup(ptr noundef nonnull @.str.17) #6
+  br label %148
 
-118:                                              ; preds = %113
-  %119 = tail call ptr @pstrdup(ptr noundef nonnull @.str.17) #6
-  br label %150
+118:                                              ; preds = %58
+  br i1 %61, label %119, label %123
 
-120:                                              ; preds = %58
-  br i1 %63, label %121, label %125
+119:                                              ; preds = %118
+  %120 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %121 = load i32, ptr %120, align 4
+  %122 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %121)
+  br label %148
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %123 = load i32, ptr %122, align 4
-  %124 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %123)
-  br label %150
+123:                                              ; preds = %118
+  %124 = tail call ptr @pstrdup(ptr noundef nonnull @.str.19) #6
+  br label %148
 
-125:                                              ; preds = %120
-  %126 = tail call ptr @pstrdup(ptr noundef nonnull @.str.19) #6
-  br label %150
+125:                                              ; preds = %58
+  br i1 %61, label %126, label %130
 
-127:                                              ; preds = %58
-  br i1 %63, label %128, label %132
+126:                                              ; preds = %125
+  %127 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %128 = load i32, ptr %127, align 4
+  %129 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %128)
+  br label %148
 
-128:                                              ; preds = %127
-  %129 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %130 = load i32, ptr %129, align 4
-  %131 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %130)
-  br label %150
+130:                                              ; preds = %125
+  %131 = tail call ptr @pstrdup(ptr noundef nonnull @.str.20) #6
+  br label %148
 
-132:                                              ; preds = %127
-  %133 = tail call ptr @pstrdup(ptr noundef nonnull @.str.20) #6
-  br label %150
+132:                                              ; preds = %58
+  br i1 %61, label %133, label %137
 
-134:                                              ; preds = %58
-  br i1 %63, label %135, label %139
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %135 = load i32, ptr %134, align 4
+  %136 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef %135)
+  br label %148
 
-135:                                              ; preds = %134
-  %136 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %137 = load i32, ptr %136, align 4
-  %138 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef %137)
-  br label %150
+137:                                              ; preds = %132
+  %138 = tail call ptr @pstrdup(ptr noundef nonnull @.str.21) #6
+  br label %148
 
-139:                                              ; preds = %134
-  %140 = tail call ptr @pstrdup(ptr noundef nonnull @.str.21) #6
-  br label %150
+139:                                              ; preds = %58
+  br i1 %61, label %140, label %144
 
-141:                                              ; preds = %58
-  br i1 %63, label %142, label %146
+140:                                              ; preds = %139
+  %141 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %142 = load i32, ptr %141, align 4
+  %143 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %142)
+  br label %148
 
-142:                                              ; preds = %141
-  %143 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %144 = load i32, ptr %143, align 4
-  %145 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %144)
-  br label %150
+144:                                              ; preds = %139
+  %145 = tail call ptr @pstrdup(ptr noundef nonnull @.str.22) #6
+  br label %148
 
-146:                                              ; preds = %141
-  %147 = tail call ptr @pstrdup(ptr noundef nonnull @.str.22) #6
-  br label %150
+146:                                              ; preds = %58
+  %147 = tail call ptr @pstrdup(ptr noundef nonnull @.str.23) #6
+  br label %148
 
-148:                                              ; preds = %58
-  %149 = tail call ptr @pstrdup(ptr noundef nonnull @.str.23) #6
-  br label %150
+148:                                              ; preds = %140, %144, %133, %137, %126, %130, %119, %123, %112, %116, %105, %109, %98, %102, %91, %95, %73, %78, %63, %68, %146, %88, %86, %84, %82, %80, %70
+  %.073 = phi ptr [ %143, %140 ], [ %66, %63 ], [ %145, %144 ], [ %69, %68 ], [ %71, %70 ], [ %76, %73 ], [ %147, %146 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %94, %91 ], [ %96, %95 ], [ %101, %98 ], [ %103, %102 ], [ %108, %105 ], [ %110, %109 ], [ %115, %112 ], [ %117, %116 ], [ %122, %119 ], [ %124, %123 ], [ %129, %126 ], [ %131, %130 ], [ %136, %133 ], [ %138, %137 ]
+  %149 = icmp eq ptr %.073, null
+  br i1 %149, label %.thread, label %printTypmod.exit
 
-150:                                              ; preds = %142, %146, %135, %139, %128, %132, %121, %125, %114, %118, %107, %111, %100, %104, %93, %97, %75, %80, %65, %70, %148, %90, %88, %86, %84, %82, %72
-  %.073 = phi ptr [ %145, %142 ], [ %68, %65 ], [ %147, %146 ], [ %71, %70 ], [ %73, %72 ], [ %78, %75 ], [ %149, %148 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %96, %93 ], [ %98, %97 ], [ %103, %100 ], [ %105, %104 ], [ %110, %107 ], [ %112, %111 ], [ %117, %114 ], [ %119, %118 ], [ %124, %121 ], [ %126, %125 ], [ %131, %128 ], [ %133, %132 ], [ %138, %135 ], [ %140, %139 ]
-  %151 = icmp eq ptr %.073, null
-  br i1 %151, label %.thread, label %printTypmod.exit
+.thread:                                          ; preds = %77, %67, %58, %148
+  %150 = and i16 %2, 4
+  %151 = icmp eq i16 %150, 0
+  br i1 %151, label %152, label %154
 
-.thread:                                          ; preds = %79, %69, %58, %150
-  %152 = and i32 %59, 4
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %156
+152:                                              ; preds = %.thread
+  %153 = tail call zeroext i1 @TypeIsVisible(i32 noundef %.072) #6
+  br i1 %153, label %158, label %154
 
-154:                                              ; preds = %.thread
-  %155 = tail call zeroext i1 @TypeIsVisible(i32 noundef %.072) #6
-  br i1 %155, label %160, label %156
+154:                                              ; preds = %152, %.thread
+  %155 = getelementptr inbounds nuw i8, ptr %.076, i64 68
+  %156 = load i32, ptr %155, align 4
+  %157 = tail call ptr @get_namespace_name_or_temp(i32 noundef %156) #6
+  br label %158
 
-156:                                              ; preds = %154, %.thread
-  %157 = getelementptr inbounds nuw i8, ptr %.076, i64 68
-  %158 = load i32, ptr %157, align 4
-  %159 = tail call ptr @get_namespace_name_or_temp(i32 noundef %158) #6
-  br label %160
+158:                                              ; preds = %152, %154
+  %.071 = phi ptr [ %157, %154 ], [ null, %152 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.076, i64 4
+  %160 = tail call ptr @quote_qualified_identifier(ptr noundef %.071, ptr noundef nonnull %159) #6
+  br i1 %61, label %161, label %printTypmod.exit
 
-160:                                              ; preds = %154, %156
-  %.071 = phi ptr [ %159, %156 ], [ null, %154 ]
-  %161 = getelementptr inbounds nuw i8, ptr %.076, i64 4
-  %162 = tail call ptr @quote_qualified_identifier(ptr noundef %.071, ptr noundef nonnull %161) #6
-  br i1 %63, label %163, label %printTypmod.exit
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds nuw i8, ptr %.076, i64 120
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %167
 
-163:                                              ; preds = %160
-  %164 = getelementptr inbounds nuw i8, ptr %.076, i64 120
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %169
-
-167:                                              ; preds = %163
-  %168 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %162, i32 noundef range(i32 0, -2147483648) %1) #6
+165:                                              ; preds = %161
+  %166 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %160, i32 noundef range(i32 0, -2147483648) %1) #6
   br label %printTypmod.exit
 
-169:                                              ; preds = %163
-  %170 = zext nneg i32 %1 to i64
-  %171 = tail call i64 @OidFunctionCall1Coll(i32 noundef %165, i32 noundef 0, i64 noundef %170) #6
-  %172 = inttoptr i64 %171 to ptr
-  %173 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %162, ptr noundef %172) #6
+167:                                              ; preds = %161
+  %168 = zext nneg i32 %1 to i64
+  %169 = tail call i64 @OidFunctionCall1Coll(i32 noundef %163, i32 noundef 0, i64 noundef %168) #6
+  %170 = inttoptr i64 %169 to ptr
+  %171 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %160, ptr noundef %170) #6
   br label %printTypmod.exit
 
-printTypmod.exit:                                 ; preds = %169, %167, %160, %150
-  %.1 = phi ptr [ %.073, %150 ], [ %162, %160 ], [ %168, %167 ], [ %173, %169 ]
-  br i1 %.074, label %174, label %176
+printTypmod.exit:                                 ; preds = %167, %165, %158, %148
+  %.1 = phi ptr [ %.073, %148 ], [ %160, %158 ], [ %166, %165 ], [ %171, %167 ]
+  br i1 %.074, label %172, label %174
 
-174:                                              ; preds = %printTypmod.exit
-  %175 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %.1) #6
-  br label %176
+172:                                              ; preds = %printTypmod.exit
+  %173 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %.1) #6
+  br label %174
 
-176:                                              ; preds = %174, %printTypmod.exit
-  %.3 = phi ptr [ %175, %174 ], [ %.1, %printTypmod.exit ]
+174:                                              ; preds = %172, %printTypmod.exit
+  %.3 = phi ptr [ %173, %172 ], [ %.1, %printTypmod.exit ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %.075) #6
-  br label %177
+  br label %175
 
-177:                                              ; preds = %42, %14, %6, %176, %47, %19, %11
-  %.0 = phi ptr [ %20, %19 ], [ %12, %11 ], [ %.3, %176 ], [ null, %14 ], [ %48, %47 ], [ null, %6 ], [ null, %42 ]
+175:                                              ; preds = %42, %14, %6, %174, %47, %19, %11
+  %.0 = phi ptr [ %20, %19 ], [ %12, %11 ], [ %.3, %174 ], [ null, %14 ], [ %48, %47 ], [ null, %6 ], [ null, %42 ]
   ret ptr %.0
 }
 

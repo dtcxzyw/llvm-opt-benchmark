@@ -1750,14 +1750,14 @@ tailrecurse.backedge:                             ; preds = %162, %192, %193, %1
   %181 = lshr i64 %.val128, 61
   %182 = trunc nuw nsw i64 %181 to i32
   %183 = xor i32 %180, %182
-  %184 = and i32 %183, 1
-  br i1 %179, label %185, label %196
+  br i1 %179, label %184, label %196
 
-185:                                              ; preds = %174
-  %186 = icmp eq i32 %184, 0
+184:                                              ; preds = %174
+  %185 = and i32 %183, 1
+  %186 = icmp eq i32 %185, 0
   br i1 %186, label %187, label %194
 
-187:                                              ; preds = %185
+187:                                              ; preds = %184
   %188 = lshr i32 %155, 4
   %189 = and i32 %188, 16777215
   %190 = lshr i32 %180, 4
@@ -1773,13 +1773,13 @@ tailrecurse.backedge:                             ; preds = %162, %192, %193, %1
   %.not101 = icmp eq i32 %191, 0
   br i1 %.not101, label %.loopexit, label %tailrecurse.backedge
 
-194:                                              ; preds = %185
+194:                                              ; preds = %184
   %195 = and i32 %155, 268435440
   %.not99 = icmp eq i32 %195, 0
   br i1 %.not99, label %.loopexit, label %tailrecurse.backedge
 
 196:                                              ; preds = %174
-  %197 = icmp ne i32 %184, 0
+  %197 = trunc i32 %183 to i1
   %198 = and i32 %180, 268435440
   %.not98 = icmp eq i32 %198, 0
   %or.cond = or i1 %.not98, %197

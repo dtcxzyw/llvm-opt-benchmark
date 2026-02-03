@@ -45,6 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::Timestamp" = type { i64 }
 %"struct.std::atomic.30" = type { %"struct.std::__atomic_base.31" }
 %"struct.std::__atomic_base.31" = type { i64 }
+%"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper>>::Allocated" = type { ptr, i64 }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
 %"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"struct.std::atomic.30", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
 %"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.30"] }
@@ -54,7 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.30"] }
 %"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.30"] }
 %"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.30"] }
-%"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper>>::Allocated" = type { ptr, i64 }
 
 $_ZN4absl12lts_2024072219ReleasableMutexLockD2Ev = comdat any
 
@@ -89,8 +89,6 @@ $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_col
 $_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_ = comdat any
 
 $_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE11ShrinkToFitEv = comdat any
-
-$_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE4SwapEPS8_ = comdat any
 
 $_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE19SwapInlinedElementsINS8_21ElementwiseSwapPolicyEEEvT_PS8_ = comdat any
 
@@ -258,7 +256,7 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl3RunEN4absl12lts_2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i8, ptr %9, align 8, !tbaa !9, !range !30, !noundef !31
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %46, label %12
+  br i1 %11, label %47, label %12
 
 12:                                               ; preds = %2
   store i8 1, ptr %9, align 8, !tbaa !9
@@ -285,121 +283,120 @@ define void @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl3RunEN4absl12lts_2
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %70
+  br label %71
 
 .critedge:                                        ; preds = %12
-  %.not.i.i.i = icmp ne i64 %17, 0
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load i64, ptr %22, align 8, !noalias !37
-  %.not.i.i22 = icmp eq i64 %23, 0
-  %.not.i.i = select i1 %.not.i.i.i, i1 %.not.i.i22, i1 false
-  br i1 %.not.i.i, label %36, label %24, !prof !40
+  %22 = trunc nuw i64 %17 to i1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = load i64, ptr %23, align 8, !noalias !37
+  %.not.i.i21 = icmp eq i64 %24, 0
+  %.not.i.i = select i1 %22, i1 %.not.i.i21, i1 false
+  br i1 %.not.i.i, label %37, label %25, !prof !40
 
-24:                                               ; preds = %.critedge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load ptr, ptr %25, align 16, !noalias !37
-  %.sink2.i.i.i = select i1 %.not.i.i.i, ptr %26, ptr %25
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 16, !tbaa !41
-  tail call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %.sink2.i.i.i) #26
-  %29 = load ptr, ptr %27, align 16, !tbaa !41
-  %30 = getelementptr inbounds nuw i8, ptr %.sink2.i.i.i, i64 16
-  store ptr %29, ptr %30, align 16, !tbaa !41
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !43
-  %33 = getelementptr inbounds nuw i8, ptr %.sink2.i.i.i, i64 24
-  store ptr %32, ptr %33, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %27, align 16, !tbaa !41
-  store ptr null, ptr %31, align 8, !tbaa !43
-  %34 = load i64, ptr %16, align 16, !tbaa !35
-  %35 = add i64 %34, 2
-  store i64 %35, ptr %16, align 16, !tbaa !35
+25:                                               ; preds = %.critedge
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load ptr, ptr %26, align 16, !noalias !37
+  %.sink2.i.i.i = select i1 %22, ptr %27, ptr %26
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = load ptr, ptr %28, align 16, !tbaa !41
+  tail call void %29(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %.sink2.i.i.i) #26
+  %30 = load ptr, ptr %28, align 16, !tbaa !41
+  %31 = getelementptr inbounds nuw i8, ptr %.sink2.i.i.i, i64 16
+  store ptr %30, ptr %31, align 16, !tbaa !41
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !43
+  %34 = getelementptr inbounds nuw i8, ptr %.sink2.i.i.i, i64 24
+  store ptr %33, ptr %34, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %28, align 16, !tbaa !41
+  store ptr null, ptr %32, align 8, !tbaa !43
+  %35 = load i64, ptr %16, align 16, !tbaa !35
+  %36 = add i64 %35, 2
+  store i64 %36, ptr %16, align 16, !tbaa !35
   br label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit
 
-36:                                               ; preds = %.critedge
-  %37 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_(ptr noundef nonnull align 16 dereferenceable(48) %16, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit unwind label %44
+37:                                               ; preds = %.critedge
+  %38 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_(ptr noundef nonnull align 16 dereferenceable(48) %16, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit unwind label %45
 
-_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit: ; preds = %24, %36
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %39 = load ptr, ptr %38, align 16, !tbaa !44
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %39, align 8, !tbaa !33
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %43 = load ptr, ptr %42, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull %40)
-          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17 unwind label %44
+_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit: ; preds = %25, %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %40 = load ptr, ptr %39, align 16, !tbaa !44
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %40, align 8, !tbaa !33
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  %44 = load ptr, ptr %43, align 8
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull %41)
+          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit16 unwind label %45
 
-44:                                               ; preds = %65, %36, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit
-  %45 = landingpad { ptr, i32 }
+45:                                               ; preds = %66, %37, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
-46:                                               ; preds = %2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %48 = load i64, ptr %47, align 16, !tbaa !35, !noalias !45
-  %49 = and i64 %48, 1
-  %.not.i.i.i10 = icmp eq i64 %49, 0
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %51 = load i64, ptr %50, align 8, !noalias !45
-  %.sink.i.i.i11 = select i1 %.not.i.i.i10, i64 1, i64 %51
-  %.sink1.i.i.i12 = lshr i64 %48, 1
-  %.not.i.i13 = icmp eq i64 %.sink1.i.i.i12, %.sink.i.i.i11
-  br i1 %.not.i.i13, label %65, label %52, !prof !40
+47:                                               ; preds = %2
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %49 = load i64, ptr %48, align 16, !tbaa !35, !noalias !45
+  %50 = trunc i64 %49 to i1
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %52 = load i64, ptr %51, align 8, !noalias !45
+  %.sink.i.i.i10 = select i1 %50, i64 %52, i64 1
+  %.sink1.i.i.i11 = lshr i64 %49, 1
+  %.not.i.i12 = icmp eq i64 %.sink1.i.i.i11, %.sink.i.i.i10
+  br i1 %.not.i.i12, label %66, label %53, !prof !40
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %54 = load ptr, ptr %53, align 16, !noalias !45
-  %.sink2.i.i.i14 = select i1 %.not.i.i.i10, ptr %53, ptr %54
-  %55 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i.i.i14, i64 %.sink1.i.i.i12
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %57 = load ptr, ptr %56, align 16, !tbaa !41
-  tail call void %57(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %55) #26
-  %58 = load ptr, ptr %56, align 16, !tbaa !41
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %58, ptr %59, align 16, !tbaa !41
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !43
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr %61, ptr %62, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %56, align 16, !tbaa !41
-  store ptr null, ptr %60, align 8, !tbaa !43
-  %63 = load i64, ptr %47, align 16, !tbaa !35
-  %64 = add i64 %63, 2
-  store i64 %64, ptr %47, align 16, !tbaa !35
-  br label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17
+53:                                               ; preds = %47
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %55 = load ptr, ptr %54, align 16, !noalias !45
+  %.sink2.i.i.i13 = select i1 %50, ptr %55, ptr %54
+  %56 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i.i.i13, i64 %.sink1.i.i.i11
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %58 = load ptr, ptr %57, align 16, !tbaa !41
+  tail call void %58(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %56) #26
+  %59 = load ptr, ptr %57, align 16, !tbaa !41
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store ptr %59, ptr %60, align 16, !tbaa !41
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !43
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr %62, ptr %63, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %57, align 16, !tbaa !41
+  store ptr null, ptr %61, align 8, !tbaa !43
+  %64 = load i64, ptr %48, align 16, !tbaa !35
+  %65 = add i64 %64, 2
+  store i64 %65, ptr %48, align 16, !tbaa !35
+  br label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit16
 
-65:                                               ; preds = %46
-  %66 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_(ptr noundef nonnull align 16 dereferenceable(48) %47, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17 unwind label %44
+66:                                               ; preds = %47
+  %67 = invoke noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_(ptr noundef nonnull align 16 dereferenceable(48) %48, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit16 unwind label %45
 
-_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17: ; preds = %52, %65, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit
+_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit16: ; preds = %53, %66, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %67
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %68
 
-67:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit16
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #27
+  %70 = extractvalue { ptr, i32 } %69, 0
+  call void @__clang_call_terminate(ptr %70) #27
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit17
+_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE12emplace_backIJNS0_12AnyInvocableIFvvEEERNS2_13DebugLocationEEEERS5_DpOT_.exit16
   ret void
 
-70:                                               ; preds = %44, %20
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %21, %20 ]
+71:                                               ; preds = %45, %20
+  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %21, %20 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit18 unwind label %71
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit17 unwind label %72
 
-71:                                               ; preds = %70
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %71
+  %73 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #27
+  %74 = extractvalue { ptr, i32 } %73, 0
+  call void @__clang_call_terminate(ptr %74) #27
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit18:      ; preds = %70
+_ZN4absl12lts_202407229MutexLockD2Ev.exit17:      ; preds = %71
   resume { ptr, i32 } %.pn
 }
 
@@ -461,11 +458,10 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
   store ptr %2, ptr %9, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 16, !tbaa !35
-  %18 = and i64 %17, 1
-  %.not.i.i = icmp eq i64 %18, 0
+  %18 = trunc i64 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 16
-  %21 = select i1 %.not.i.i, ptr %19, ptr %20
+  %21 = select i1 %18, ptr %20, ptr %19
   %22 = lshr i64 %17, 1
   %23 = getelementptr %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -32
@@ -477,10 +473,9 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
 
 28:                                               ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit
   %29 = load i64, ptr %16, align 16, !tbaa !35
-  %30 = and i64 %29, 1
-  %.not.i.i7 = icmp eq i64 %30, 0
+  %30 = trunc i64 %29 to i1
   %31 = load ptr, ptr %19, align 16
-  %32 = select i1 %.not.i.i7, ptr %19, ptr %31
+  %32 = select i1 %30, ptr %31, ptr %19
   %33 = lshr i64 %29, 1
   %34 = getelementptr %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -32
@@ -576,8 +571,8 @@ _ZN9grpc_core7ExecCtxC2Ev.exit:                   ; preds = %15, %_ZN9grpc_core4
   store ptr %83, ptr %9, align 8, !tbaa !61
   %86 = load i64, ptr %4, align 8, !tbaa !48
   %87 = and i64 %86, 4
-  %.not.i10 = icmp eq i64 %87, 0
-  br i1 %.not.i10, label %88, label %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i
+  %.not.i9 = icmp eq i64 %87, 0
+  br i1 %.not.i9, label %88, label %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i
 
 88:                                               ; preds = %85
   %89 = load atomic i8, ptr @_ZN9grpc_core4Fork16support_enabled_E monotonic, align 1
@@ -598,14 +593,14 @@ _ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i:     ; preds = %91, %88, %85
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 16), ptr %5, align 8, !tbaa !33
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %96 = load ptr, ptr %95, align 8, !tbaa !65
-  %.not.i.i.i.i.i.i.i12 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
-  br i1 %.not.i.i.i.i.i.i.i12, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13, label %97
+  %.not.i.i.i.i.i.i.i11 = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
+  br i1 %.not.i.i.i.i.i.i.i11, label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i12, label %97
 
 97:                                               ; preds = %94
   call void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E() #26
-  br label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13
+  br label %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i12
 
-_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13: ; preds = %97, %94
+_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i12: ; preds = %97, %94
   %98 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   store ptr %96, ptr %98, align 8, !tbaa !69
   br label %_ZN9grpc_core7ExecCtxD2Ev.exit
@@ -617,7 +612,7 @@ _ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.
   call void @__clang_call_terminate(ptr %101) #27
   unreachable
 
-_ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i13
+_ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %_ZN9grpc_core4Fork15DecExecCtxCountEv.exit.i, %_ZNSt22_Optional_payload_baseIN9grpc_core15ScopedTimeCacheEE10_M_destroyEv.exit.i.i.i.i12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -632,7 +627,7 @@ common.resume:                                    ; preds = %67, %69, %65
 define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6RefillEv(ptr noundef nonnull align 16 dereferenceable(176) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", align 16
   %3 = tail call noundef i32 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl11RefillInnerEv(ptr noundef nonnull align 16 dereferenceable(176) %0)
-  switch i32 %3, label %default.unreachable3 [
+  switch i32 %3, label %default.unreachable2 [
     i32 0, label %4
     i32 1, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
     i32 2, label %32
@@ -647,11 +642,10 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   br i1 %8, label %.lr.ph.i.i, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
 
 .lr.ph.i.i:                                       ; preds = %4
-  %9 = and i64 %6, 1
-  %.not.i.i = icmp eq i64 %9, 0
+  %9 = trunc i64 %6 to i1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 16
-  %12 = select i1 %.not.i.i, ptr %10, ptr %11
+  %12 = select i1 %9, ptr %11, ptr %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   %.012.i.i = getelementptr inbounds i8, ptr %13, i64 -32
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -702,7 +696,7 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   tail call void %35(ptr noundef nonnull align 16 dereferenceable(176) %0) #26
   br label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
 
-default.unreachable3:                             ; preds = %1
+default.unreachable2:                             ; preds = %1
   unreachable
 
 _ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit: ; preds = %16, %4, %1, %32
@@ -791,166 +785,248 @@ define void @_ZThn8_N9grpc_core14WorkSerializer18WorkSerializerImpl3RunEv(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 3) i32 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl11RefillInnerEv(ptr noundef nonnull align 16 dereferenceable(176) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 16, !tbaa !35
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit, label %5
+  %2 = alloca %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper>>::Allocated", align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load i64, ptr %3, align 16, !tbaa !35
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %6, label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
 
-5:                                                ; preds = %1
-  tail call void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE11ShrinkToFitEv(ptr noundef nonnull align 16 dereferenceable(48) %2)
+6:                                                ; preds = %1
+  tail call void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE11ShrinkToFitEv(ptr noundef nonnull align 16 dereferenceable(48) %3)
   br label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
 
-_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit: ; preds = %1, %5
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  invoke void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE4SwapEPS8_(ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef nonnull align 16 dereferenceable(48) %7)
-          to label %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE4swapERS7_.exit unwind label %47
+_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit: ; preds = %1, %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = load i64, ptr %3, align 16, !tbaa !35
+  %10 = trunc i64 %9 to i1
+  %11 = load i64, ptr %8, align 16, !tbaa !35
+  %12 = trunc i64 %11 to i1
+  br i1 %10, label %13, label %17
 
-_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE4swapERS7_.exit: ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
-  %8 = load i64, ptr %2, align 16, !tbaa !35
-  %.not.i7 = icmp ult i64 %8, 2
-  br i1 %.not.i7, label %9, label %53
+13:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
+  br i1 %12, label %14, label %.thread32.i.i
 
-9:                                                ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE4swapERS7_.exit
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i8 0, ptr %10, align 8, !tbaa !9
-  %11 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.sroa.0.0.copyload.i2.i = load i64, ptr %12, align 16, !tbaa !35
-  %13 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
-          to label %.noexc unwind label %49
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %41
 
-.noexc:                                           ; preds = %9
-  %14 = sub nsw i64 %11, %.sroa.0.0.copyload.i2.i
-  %15 = sdiv i64 %14, 1000000
-  %16 = trunc i64 %15 to i32
-  %17 = invoke noundef i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %16)
-          to label %18 unwind label %49
+17:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
+  br i1 %12, label %.thread32.i.i, label %18
 
-18:                                               ; preds = %.noexc
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 3752
-  %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds %"struct.std::atomic.30", ptr %19, i64 %20
-  %22 = atomicrmw add ptr %21, i64 1 monotonic, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i64, ptr %23, align 8, !tbaa !63
-  %25 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
-          to label %.noexc9 unwind label %51
+18:                                               ; preds = %17
+  invoke void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE19SwapInlinedElementsINS8_21ElementwiseSwapPolicyEEEvT_PS8_(ptr noundef nonnull align 16 dereferenceable(48) %3, ptr noundef nonnull align 16 dereferenceable(48) %8)
+          to label %41 unwind label %82
 
-.noexc9:                                          ; preds = %18
-  %26 = sdiv i64 %24, 1000000
-  %27 = trunc i64 %26 to i32
-  %28 = invoke noundef i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %27)
-          to label %29 unwind label %51
+.thread32.i.i:                                    ; preds = %17, %13
+  %19 = phi i64 [ %9, %17 ], [ %11, %13 ]
+  %.031.i.i = phi ptr [ %3, %17 ], [ %8, %13 ]
+  %.0.i.i = phi ptr [ %8, %17 ], [ %3, %13 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %21 = load ptr, ptr %20, align 16, !tbaa !75
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %23 = load i64, ptr %22, align 8, !tbaa !75
+  %24 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 16
+  %25 = lshr i64 %19, 1
+  %.not.i.i.i = icmp eq i64 %25, 0
+  br i1 %.not.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.i.i, label %.lr.ph.i.i.i
 
-29:                                               ; preds = %.noexc9
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 3912
-  %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds %"struct.std::atomic.30", ptr %30, i64 %31
-  %33 = atomicrmw add ptr %32, i64 1 monotonic, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %35 = load i64, ptr %34, align 16, !tbaa !64
-  %36 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
-          to label %.noexc11 unwind label %47
+.lr.ph.i.i.i:                                     ; preds = %.thread32.i.i, %.lr.ph.i.i.i
+  %.sroa.017.0.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %24, %.thread32.i.i ]
+  %.012.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i ], [ 0, %.thread32.i.i ]
+  %26 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %20, i64 %.012.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 16
+  %28 = load ptr, ptr %27, align 16, !tbaa !41
+  tail call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.017.0.i.i, ptr noundef nonnull align 16 dereferenceable(32) %26) #26
+  %29 = load ptr, ptr %27, align 16, !tbaa !41
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %29, ptr %30, align 16, !tbaa !41
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !43
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store ptr %32, ptr %33, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %27, align 16, !tbaa !41
+  store ptr null, ptr %31, align 8, !tbaa !43
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.i.i, i64 32
+  %35 = add nuw nsw i64 %.012.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %35, %25
+  br i1 %exitcond.not.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !76
 
-.noexc11:                                         ; preds = %29
-  %37 = trunc i64 %35 to i32
-  %38 = invoke noundef i32 @_ZN9grpc_core18Histogram_10000_209BucketForEi(i32 noundef %37)
-          to label %39 unwind label %47
+_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i: ; preds = %.lr.ph.i.i.i
+  %.pre.i.i = load i64, ptr %.031.i.i, align 8, !tbaa !35
+  %.pre33.i.i = lshr i64 %.pre.i.i, 1
+  %.not5.i.i.i = icmp eq i64 %.pre33.i.i, 0
+  br i1 %.not5.i.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.i.i, label %.lr.ph.i15.i.i
 
-39:                                               ; preds = %.noexc11
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 4232
-  %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds %"struct.std::atomic.30", ptr %40, i64 %41
-  %43 = atomicrmw add ptr %42, i64 1 monotonic, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %45 = load i8, ptr %44, align 1, !tbaa !32, !range !30, !noundef !31
-  %46 = trunc nuw i8 %45 to i1
-  %. = select i1 %46, i32 2, i32 1
-  br label %53
+.lr.ph.i15.i.i:                                   ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i, %.lr.ph.i15.i.i
+  %.06.i.i.i = phi i64 [ %36, %.lr.ph.i15.i.i ], [ %.pre33.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i ]
+  %36 = add nsw i64 %.06.i.i.i, -1
+  %37 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %24, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load ptr, ptr %38, align 16, !tbaa !41
+  tail call void %39(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %37, ptr noundef nonnull align 16 dereferenceable(32) %37) #26
+  %.not.i16.i.i = icmp eq i64 %36, 0
+  br i1 %.not.i16.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.i.i, label %.lr.ph.i15.i.i, !llvm.loop !77
 
-47:                                               ; preds = %.noexc11, %29, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE13shrink_to_fitEv.exit
-  %48 = landingpad { ptr, i32 }
+_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.i.i: ; preds = %.lr.ph.i15.i.i, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit.i.i, %.thread32.i.i
+  store ptr %21, ptr %24, align 16, !tbaa !75
+  %40 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 24
+  store i64 %23, ptr %40, align 8, !tbaa !75
+  br label %41
+
+41:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.i.i, %14, %18
+  %42 = load i64, ptr %3, align 16, !tbaa !35
+  %43 = load i64, ptr %8, align 16, !tbaa !35
+  store i64 %43, ptr %3, align 16, !tbaa !35
+  store i64 %42, ptr %8, align 16, !tbaa !35
+  %.not.i = icmp ult i64 %43, 2
+  br i1 %.not.i, label %44, label %88
+
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i8 0, ptr %45, align 8, !tbaa !9
+  %46 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %.sroa.0.0.copyload.i2.i = load i64, ptr %47, align 16, !tbaa !35
+  %48 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
+          to label %.noexc6 unwind label %84
+
+.noexc6:                                          ; preds = %44
+  %49 = sub nsw i64 %46, %.sroa.0.0.copyload.i2.i
+  %50 = sdiv i64 %49, 1000000
+  %51 = trunc i64 %50 to i32
+  %52 = invoke noundef i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %51)
+          to label %53 unwind label %84
+
+53:                                               ; preds = %.noexc6
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 3752
+  %55 = sext i32 %52 to i64
+  %56 = getelementptr inbounds %"struct.std::atomic.30", ptr %54, i64 %55
+  %57 = atomicrmw add ptr %56, i64 1 monotonic, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %59 = load i64, ptr %58, align 8, !tbaa !63
+  %60 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
+          to label %.noexc8 unwind label %86
+
+.noexc8:                                          ; preds = %53
+  %61 = sdiv i64 %59, 1000000
+  %62 = trunc i64 %61 to i32
+  %63 = invoke noundef i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %62)
+          to label %64 unwind label %86
+
+64:                                               ; preds = %.noexc8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 3912
+  %66 = sext i32 %63 to i64
+  %67 = getelementptr inbounds %"struct.std::atomic.30", ptr %65, i64 %66
+  %68 = atomicrmw add ptr %67, i64 1 monotonic, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %70 = load i64, ptr %69, align 16, !tbaa !64
+  %71 = invoke noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
+          to label %.noexc10 unwind label %82
+
+.noexc10:                                         ; preds = %64
+  %72 = trunc i64 %70 to i32
+  %73 = invoke noundef i32 @_ZN9grpc_core18Histogram_10000_209BucketForEi(i32 noundef %72)
+          to label %74 unwind label %82
+
+74:                                               ; preds = %.noexc10
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 4232
+  %76 = sext i32 %73 to i64
+  %77 = getelementptr inbounds %"struct.std::atomic.30", ptr %75, i64 %76
+  %78 = atomicrmw add ptr %77, i64 1 monotonic, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  %80 = load i8, ptr %79, align 1, !tbaa !32, !range !30, !noundef !31
+  %81 = trunc nuw i8 %80 to i1
+  %. = select i1 %81, i32 2, i32 1
+  br label %88
+
+82:                                               ; preds = %.noexc10, %64, %18
+  %83 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %92
 
-49:                                               ; preds = %.noexc, %9
-  %50 = landingpad { ptr, i32 }
+84:                                               ; preds = %.noexc6, %44
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %92
 
-51:                                               ; preds = %.noexc9, %18
-  %52 = landingpad { ptr, i32 }
+86:                                               ; preds = %.noexc8, %53
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %92
 
-53:                                               ; preds = %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE4swapERS7_.exit, %39
-  %.04 = phi i32 [ %., %39 ], [ 0, %_ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EE4swapERS7_.exit ]
-  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %54
+88:                                               ; preds = %41, %74
+  %.04 = phi i32 [ %., %74 ], [ 0, %41 ]
+  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %89
 
-54:                                               ; preds = %53
-  %55 = landingpad { ptr, i32 }
+89:                                               ; preds = %88
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #27
+  %91 = extractvalue { ptr, i32 } %90, 0
+  tail call void @__clang_call_terminate(ptr %91) #27
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %53
+_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %88
   ret i32 %.04
 
-57:                                               ; preds = %51, %49, %47
-  %.pn = phi { ptr, i32 } [ %48, %47 ], [ %52, %51 ], [ %50, %49 ]
-  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit13 unwind label %58
+92:                                               ; preds = %86, %84, %82
+  %.pn = phi { ptr, i32 } [ %83, %82 ], [ %87, %86 ], [ %85, %84 ]
+  invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit12 unwind label %93
 
-58:                                               ; preds = %57
-  %59 = landingpad { ptr, i32 }
+93:                                               ; preds = %92
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #27
+  %95 = extractvalue { ptr, i32 } %94, 0
+  tail call void @__clang_call_terminate(ptr %95) #27
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit13:      ; preds = %57
+_ZN4absl12lts_202407229MutexLockD2Ev.exit12:      ; preds = %92
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializerC2ESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29, !noalias !72
-  %4 = load ptr, ptr %1, align 8, !tbaa !44, !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29, !noalias !78
+  %4 = load ptr, ptr %1, align 8, !tbaa !44, !noalias !78
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75, !noalias !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !81, !noalias !78
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !72
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 16), ptr %3, align 16, !tbaa !33, !noalias !72
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 64), ptr %7, align 8, !tbaa !33, !noalias !72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 16), ptr %3, align 16, !tbaa !33, !noalias !78
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 64), ptr %7, align 8, !tbaa !33, !noalias !78
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %8, align 16, !tbaa !76, !noalias !72
+  store i64 0, ptr %8, align 16, !tbaa !82, !noalias !78
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %4, ptr %9, align 16, !tbaa !44, !noalias !72
+  store ptr %4, ptr %9, align 16, !tbaa !44, !noalias !78
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %6, ptr %10, align 8, !tbaa !75, !noalias !72
+  store ptr %6, ptr %10, align 8, !tbaa !81, !noalias !78
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 0, ptr %11, align 16, !noalias !72
+  store i64 0, ptr %11, align 16, !noalias !78
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i8 0, ptr %12, align 8, !tbaa !9, !noalias !72
+  store i8 0, ptr %12, align 8, !tbaa !9, !noalias !78
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 105
-  store i8 0, ptr %13, align 1, !tbaa !32, !noalias !72
+  store i8 0, ptr %13, align 1, !tbaa !32, !noalias !78
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i64 0, ptr %14, align 16, !tbaa !77, !noalias !72
+  store i64 0, ptr %14, align 16, !tbaa !83, !noalias !78
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i64 0, ptr %15, align 16, !tbaa !76, !noalias !72
-  store ptr %3, ptr %0, align 8, !tbaa !78, !alias.scope !72
+  store i64 0, ptr %15, align 16, !tbaa !82, !noalias !78
+  store ptr %3, ptr %0, align 8, !tbaa !84, !alias.scope !78
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core14WorkSerializerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !78
+  %2 = load ptr, ptr %0, align 8, !tbaa !84
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN9grpc_core14WorkSerializer18WorkSerializerImplENS0_16OrphanableDeleteEED2Ev.exit, label %3
 
@@ -968,14 +1044,14 @@ define void @_ZN9grpc_core14WorkSerializerD2Ev(ptr noundef nonnull align 8 captu
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core14WorkSerializer18WorkSerializerImplENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %1, %3
-  store ptr null, ptr %0, align 8, !tbaa !78
+  store ptr null, ptr %0, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocableIFvvEEENS_13DebugLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::AnyInvocable", align 16
-  %4 = load ptr, ptr %0, align 8, !tbaa !78
+  %4 = load ptr, ptr %0, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !41
   call void %6(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %3) #26
@@ -1027,7 +1103,7 @@ define linkonce_odr void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD2Ev(
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit: ; preds = %1, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !81
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %12
 
@@ -1039,9 +1115,9 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !80
+  store i32 0, ptr %13, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !83
+  store i32 0, ptr %18, align 4, !tbaa !89
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -1053,13 +1129,13 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !75
   %.not.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !85
+  store i32 %28, ptr %13, align 4, !tbaa !90
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 29:                                               ; preds = %25
@@ -1119,7 +1195,7 @@ define linkonce_odr void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD0Ev(
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i: ; preds = %6, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !81
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %12
 
@@ -1131,9 +1207,9 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !80
+  store i32 0, ptr %13, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !83
+  store i32 0, ptr %18, align 4, !tbaa !89
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -1145,13 +1221,13 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !75
   %.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !85
+  store i32 %28, ptr %13, align 4, !tbaa !90
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 29:                                               ; preds = %25
@@ -1212,7 +1288,7 @@ define linkonce_odr void @_ZThn8_N9grpc_core14WorkSerializer18WorkSerializerImpl
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i: ; preds = %6, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !81
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %12
 
@@ -1224,9 +1300,9 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !80
+  store i32 0, ptr %13, align 8, !tbaa !86
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !83
+  store i32 0, ptr %18, align 4, !tbaa !89
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -1238,13 +1314,13 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !75
   %.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !85
+  store i32 %28, ptr %13, align 4, !tbaa !90
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 29:                                               ; preds = %25
@@ -1303,7 +1379,7 @@ define internal void @__cxx_global_var_init.3() #11 section ".text.startup" comd
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 32, ptr %5, align 8
   %6 = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !86
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !91
   %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 6632)
   %8 = extractvalue { i64, i1 } %7, 1
   %9 = extractvalue { i64, i1 } %7, 0
@@ -1320,7 +1396,7 @@ define internal void @__cxx_global_var_init.3() #11 section ".text.startup" comd
   br label %_ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit
 
 _ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit: ; preds = %4, %.loopexit.loopexit.i.i.i
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !96
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !101
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %16
 
@@ -1352,7 +1428,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %1
   %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4 = load i16, ptr %3, align 2, !tbaa !97
+  %4 = load i16, ptr %3, align 2, !tbaa !102
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %.thread8.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, !prof !40
 
@@ -1360,7 +1436,7 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %1
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
   %6 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !97
+  %8 = load i16, ptr %7, align 2, !tbaa !102
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %11, label %.thread7.i, !prof !40
 
@@ -1380,26 +1456,26 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %1
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %.thread8.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
   %13 = phi i16 [ -1, %.thread8.i ], [ %4, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
   %14 = add i16 %13, -1
-  store i16 %14, ptr %3, align 2, !tbaa !97
+  store i16 %14, ptr %3, align 2, !tbaa !102
   br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
 .thread7.i:                                       ; preds = %11, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %15 = load i16, ptr %7, align 2, !tbaa !97
+  %15 = load i16, ptr %7, align 2, !tbaa !102
   %16 = add i16 %15, -1
-  store i16 %16, ptr %7, align 2, !tbaa !97
+  store i16 %16, ptr %7, align 2, !tbaa !102
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
   br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
 _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %.thread7.i
   %17 = phi ptr [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %6, %.thread7.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i16, ptr %17, align 2, !tbaa !100
+  %19 = load i16, ptr %17, align 2, !tbaa !105
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !86
+  %22 = load i64, ptr %21, align 8, !tbaa !91
   %23 = urem i64 %20, %22
-  %24 = load ptr, ptr %18, align 8, !tbaa !96
+  %24 = load ptr, ptr %18, align 8, !tbaa !101
   %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
   ret ptr %25
 }
@@ -1518,11 +1594,10 @@ define linkonce_odr void @_ZN4absl12lts_2024072222internal_any_invocable12EmptyM
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15DestroyContentsEv(ptr noundef nonnull align 16 dereferenceable(48) %0) local_unnamed_addr #17 comdat align 2 {
   %2 = load i64, ptr %0, align 16, !tbaa !35
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
+  %3 = trunc i64 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 16
-  %6 = select i1 %.not, ptr %4, ptr %5
+  %6 = select i1 %3, ptr %5, ptr %4
   %7 = lshr i64 %2, 1
   %.not5.i = icmp eq i64 %7, 0
   br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
@@ -1535,27 +1610,26 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %11 = load ptr, ptr %10, align 16, !tbaa !41
   tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
   %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !101
+  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !77
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load i64, ptr %0, align 16, !tbaa !35
-  %.pre3 = and i64 %.pre, 1
   br label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit, %1
-  %.pre-phi = phi i64 [ %.pre3, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit ], [ %3, %1 ]
-  %.not.i2 = icmp eq i64 %.pre-phi, 0
-  br i1 %.not.i2, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit, label %12
+  %12 = phi i64 [ %.pre, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit ], [ %2, %1 ]
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit
 
-12:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
-  %13 = load ptr, ptr %4, align 16, !tbaa !84
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !84
-  %16 = shl i64 %15, 5
-  tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %16) #30
+14:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
+  %15 = load ptr, ptr %4, align 16, !tbaa !75
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load i64, ptr %16, align 8, !tbaa !75
+  %18 = shl i64 %17, 5
+  tail call void @_ZdlPvm(ptr noundef %15, i64 noundef %18) #30
   br label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit
 
-_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %12
+_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit: ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %14
   ret void
 }
 
@@ -1569,14 +1643,14 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !75
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !85
+  %8 = load i32, ptr %5, align 4, !tbaa !90
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !85
+  store i32 %9, ptr %5, align 4, !tbaa !90
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1609,17 +1683,16 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %0, align 16, !tbaa !35, !noalias !102
-  %5 = and i64 %4, 1
-  %.not.i = icmp eq i64 %5, 0
+  %4 = load i64, ptr %0, align 16, !tbaa !35, !noalias !106
+  %5 = trunc i64 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 16, !noalias !102
+  %7 = load ptr, ptr %6, align 16, !noalias !106
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !noalias !102
-  %.sink2.i = select i1 %.not.i, ptr %6, ptr %7
+  %9 = load i64, ptr %8, align 8, !noalias !106
+  %.sink2.i = select i1 %5, ptr %7, ptr %6
   %.sink1.i = lshr i64 %4, 1
   %10 = shl i64 %9, 1
-  %11 = select i1 %.not.i, i64 2, i64 %10
+  %11 = select i1 %5, i64 %10, i64 2
   %12 = icmp ugt i64 %11, 288230376151711743
   br i1 %12, label %13, label %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, !prof !40
 
@@ -1651,49 +1724,48 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   store ptr %23, ptr %24, align 8, !tbaa !43
   store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %18, align 16, !tbaa !41
   store ptr null, ptr %22, align 8, !tbaa !43
-  %.not.i16 = icmp eq i64 %.sink1.i, 0
-  br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
+  %.not.i = icmp eq i64 %.sink1.i, 0
+  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, %.lr.ph.i
-  %.sroa.023.0 = phi ptr [ %33, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
+  %.sroa.021.0 = phi ptr [ %33, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
   %.012.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
   %25 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %16, i64 %.012.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 16
   %27 = load ptr, ptr %26, align 16, !tbaa !41
-  tail call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.023.0, ptr noundef nonnull align 16 dereferenceable(32) %25) #26
+  tail call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.021.0, ptr noundef nonnull align 16 dereferenceable(32) %25) #26
   %28 = load ptr, ptr %26, align 16, !tbaa !41
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %28, ptr %29, align 16, !tbaa !41
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %31, ptr %32, align 8, !tbaa !43
   store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %26, align 16, !tbaa !41
   store ptr null, ptr %30, align 8, !tbaa !43
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 32
   %34 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %34, %.sink1.i
-  br i1 %exitcond.not.i, label %.lr.ph.i17, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %.lr.ph.i16, label %.lr.ph.i, !llvm.loop !76
 
-.lr.ph.i17:                                       ; preds = %.lr.ph.i, %.lr.ph.i17
-  %.06.i = phi i64 [ %35, %.lr.ph.i17 ], [ %.sink1.i, %.lr.ph.i ]
+.lr.ph.i16:                                       ; preds = %.lr.ph.i, %.lr.ph.i16
+  %.06.i = phi i64 [ %35, %.lr.ph.i16 ], [ %.sink1.i, %.lr.ph.i ]
   %35 = add nsw i64 %.06.i, -1
   %36 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %.sink2.i, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 16, !tbaa !41
   tail call void %38(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %36, ptr noundef nonnull align 16 dereferenceable(32) %36) #26
-  %.not.i18 = icmp eq i64 %35, 0
-  br i1 %.not.i18, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i17, !llvm.loop !101
+  %.not.i17 = icmp eq i64 %35, 0
+  br i1 %.not.i17, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i16, !llvm.loop !77
 
-_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
+_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i16, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
   %39 = load i64, ptr %0, align 16, !tbaa !35
-  %40 = and i64 %39, 1
-  %.not.i19 = icmp eq i64 %40, 0
-  br i1 %.not.i19, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit, label %41
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %41, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
 41:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
-  %42 = load ptr, ptr %6, align 16, !tbaa !84
-  %43 = load i64, ptr %8, align 8, !tbaa !84
+  %42 = load ptr, ptr %6, align 16, !tbaa !75
+  %43 = load i64, ptr %8, align 8, !tbaa !75
   %44 = shl i64 %43, 5
   tail call void @_ZdlPvm(ptr noundef %42, i64 noundef %44) #30
   %.pre = load i64, ptr %0, align 16, !tbaa !35
@@ -1701,8 +1773,8 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit: ; preds = %41, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
   %45 = phi i64 [ %.pre, %41 ], [ %39, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit ]
-  store ptr %16, ptr %6, align 16, !tbaa !84
-  store i64 %11, ptr %8, align 8, !tbaa !84
+  store ptr %16, ptr %6, align 16, !tbaa !75
+  store i64 %11, ptr %8, align 8, !tbaa !75
   %46 = or i64 %45, 1
   %47 = add i64 %46, 2
   store i64 %47, ptr %0, align 16, !tbaa !35
@@ -1721,11 +1793,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #21
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE11ShrinkToFitEv(ptr noundef nonnull align 16 dereferenceable(48) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 16, !tbaa !84
+  %3 = load ptr, ptr %2, align 16, !tbaa !75
   %4 = load i64, ptr %0, align 16, !tbaa !35
   %5 = lshr i64 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !84
+  %7 = load i64, ptr %6, align 8, !tbaa !75
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit, label %9, !prof !40
 
@@ -1789,7 +1861,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 32
   %28 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %28, %5
-  br i1 %exitcond.not.i, label %.lr.ph.i27, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %.lr.ph.i27, label %.lr.ph.i, !llvm.loop !76
 
 .lr.ph.i27:                                       ; preds = %.lr.ph.i, %.lr.ph.i27
   %.06.i = phi i64 [ %29, %.lr.ph.i27 ], [ %5, %.lr.ph.i ]
@@ -1799,7 +1871,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %32 = load ptr, ptr %31, align 16, !tbaa !41
   tail call void %32(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %30) #26
   %.not.i28 = icmp eq i64 %29, 0
-  br i1 %.not.i28, label %33, label %.lr.ph.i27, !llvm.loop !101
+  br i1 %.not.i28, label %33, label %.lr.ph.i27, !llvm.loop !77
 
 33:                                               ; preds = %.lr.ph.i27
   %34 = shl i64 %7, 5
@@ -1808,8 +1880,8 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br i1 %.not67, label %36, label %35
 
 35:                                               ; preds = %33
-  store ptr %.sroa.033.148, ptr %2, align 16, !tbaa !84
-  store i64 %.sroa.10.146, ptr %6, align 8, !tbaa !84
+  store ptr %.sroa.033.148, ptr %2, align 16, !tbaa !75
+  store i64 %.sroa.10.146, ptr %6, align 8, !tbaa !75
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
 36:                                               ; preds = %.thread58, %33
@@ -1823,101 +1895,6 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit: ; preds = %36, %35, %39, %1
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE4SwapEPS8_(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper, 1, std::allocator<grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper>>::Allocated", align 8
-  %4 = load i64, ptr %0, align 16, !tbaa !35
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  %6 = load i64, ptr %1, align 8, !tbaa !35
-  %7 = and i64 %6, 1
-  %.not33 = icmp eq i64 %7, 0
-  br i1 %.not, label %12, label %8
-
-8:                                                ; preds = %2
-  br i1 %.not33, label %.thread32, label %9
-
-9:                                                ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !106
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %36
-
-12:                                               ; preds = %2
-  br i1 %.not33, label %13, label %.thread32
-
-13:                                               ; preds = %12
-  tail call void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE19SwapInlinedElementsINS8_21ElementwiseSwapPolicyEEEvT_PS8_(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull %1)
-  br label %36
-
-.thread32:                                        ; preds = %8, %12
-  %14 = phi i64 [ %4, %12 ], [ %6, %8 ]
-  %.031 = phi ptr [ %0, %12 ], [ %1, %8 ]
-  %.0 = phi ptr [ %1, %12 ], [ %0, %8 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %16 = load ptr, ptr %15, align 16, !tbaa !84
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !84
-  %19 = getelementptr inbounds nuw i8, ptr %.031, i64 16
-  %20 = lshr i64 %14, 1
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.thread32, %.lr.ph.i
-  %.sroa.017.0 = phi ptr [ %29, %.lr.ph.i ], [ %19, %.thread32 ]
-  %.012.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %.thread32 ]
-  %21 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %15, i64 %.012.i
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 16
-  %23 = load ptr, ptr %22, align 16, !tbaa !41
-  tail call void %23(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.017.0, ptr noundef nonnull align 16 dereferenceable(32) %21) #26
-  %24 = load ptr, ptr %22, align 16, !tbaa !41
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %24, ptr %25, align 16, !tbaa !41
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !43
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %27, ptr %28, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %22, align 16, !tbaa !41
-  store ptr null, ptr %26, align 8, !tbaa !43
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 32
-  %30 = add nuw nsw i64 %.012.i, 1
-  %exitcond.not.i = icmp eq i64 %30, %20
-  br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !105
-
-_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit: ; preds = %.lr.ph.i
-  %.pre = load i64, ptr %.031, align 8, !tbaa !35
-  %.pre35 = lshr i64 %.pre, 1
-  %.not5.i = icmp eq i64 %.pre35, 0
-  br i1 %.not5.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15
-
-.lr.ph.i15:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit, %.lr.ph.i15
-  %.06.i = phi i64 [ %31, %.lr.ph.i15 ], [ %.pre35, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit ]
-  %31 = add nsw i64 %.06.i, -1
-  %32 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %19, i64 %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load ptr, ptr %33, align 16, !tbaa !41
-  tail call void %34(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %32, ptr noundef nonnull align 16 dereferenceable(32) %32) #26
-  %.not.i16 = icmp eq i64 %31, 0
-  br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15, !llvm.loop !101
-
-_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i15, %.thread32, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit
-  store ptr %16, ptr %19, align 16, !tbaa !84
-  %35 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  store i64 %18, ptr %35, align 8, !tbaa !84
-  br label %36
-
-36:                                               ; preds = %13, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %9
-  %37 = load i64, ptr %0, align 16, !tbaa !35
-  %38 = load i64, ptr %1, align 8, !tbaa !35
-  store i64 %38, ptr %0, align 16, !tbaa !35
-  store i64 %37, ptr %1, align 8, !tbaa !35
   ret void
 }
 
@@ -2011,7 +1988,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.011.0, i64 32
   %48 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %48, %13
-  br i1 %exitcond.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !76
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i, %.lr.ph.i9
   %.06.i = phi i64 [ %49, %.lr.ph.i9 ], [ %13, %.lr.ph.i ]
@@ -2021,7 +1998,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
   %52 = load ptr, ptr %51, align 16, !tbaa !41
   call void %52(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) %50) #26
   %.not.i10 = icmp eq i64 %49, 0
-  br i1 %.not.i10, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i9, !llvm.loop !101
+  br i1 %.not.i10, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i9, !llvm.loop !77
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i9, %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit
   ret void
@@ -2159,41 +2136,41 @@ attributes #31 = { noreturn }
 !69 = !{!68, !68, i64 0}
 !70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_: argument 0"}
-!74 = distinct !{!74, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_"}
-!75 = !{!22, !23, i64 0}
-!76 = !{!17, !18, i64 0}
-!77 = !{!29, !18, i64 0}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImplE", !6, i64 0}
-!80 = !{!81, !82, i64 8}
-!81 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !82, i64 8, !82, i64 12}
-!82 = !{!"int", !7, i64 0}
-!83 = !{!81, !82, i64 12}
-!84 = !{!7, !7, i64 0}
-!85 = !{!82, !82, i64 0}
-!86 = !{!87, !18, i64 8}
-!87 = !{!"_ZTSN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEEE", !88, i64 0, !18, i64 8, !89, i64 16}
-!88 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
-!89 = !{!"_ZTSSt10unique_ptrIA_N9grpc_core20GlobalStatsCollector4DataESt14default_deleteIS3_EE", !90, i64 0}
-!90 = !{!"_ZTSSt15__uniq_ptr_dataIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_ELb1ELb1EE", !91, i64 0}
-!91 = !{!"_ZTSSt15__uniq_ptr_implIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EE", !92, i64 0}
-!92 = !{!"_ZTSSt5tupleIJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !93, i64 0}
-!93 = !{!"_ZTSSt11_Tuple_implILm0EJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !94, i64 0}
-!94 = !{!"_ZTSSt10_Head_baseILm0EPN9grpc_core20GlobalStatsCollector4DataELb0EE", !95, i64 0}
-!95 = !{!"p1 _ZTSN9grpc_core20GlobalStatsCollector4DataE", !6, i64 0}
-!96 = !{!95, !95, i64 0}
-!97 = !{!98, !99, i64 2}
-!98 = !{!"_ZTSN9grpc_core20PerCpuShardingHelper5StateE", !99, i64 0, !99, i64 2}
-!99 = !{!"short", !7, i64 0}
-!100 = !{!98, !99, i64 0}
-!101 = distinct !{!101, !71}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv: argument 0"}
-!104 = distinct !{!104, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv"}
-!105 = distinct !{!105, !71}
-!106 = !{i64 0, i64 8, !107, i64 8, i64 8, !35}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperE", !6, i64 0}
+!72 = !{i64 0, i64 8, !73, i64 8, i64 8, !35}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperE", !6, i64 0}
+!75 = !{!7, !7, i64 0}
+!76 = distinct !{!76, !71}
+!77 = distinct !{!77, !71}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_: argument 0"}
+!80 = distinct !{!80, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_"}
+!81 = !{!22, !23, i64 0}
+!82 = !{!17, !18, i64 0}
+!83 = !{!29, !18, i64 0}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImplE", !6, i64 0}
+!86 = !{!87, !88, i64 8}
+!87 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !88, i64 8, !88, i64 12}
+!88 = !{!"int", !7, i64 0}
+!89 = !{!87, !88, i64 12}
+!90 = !{!88, !88, i64 0}
+!91 = !{!92, !18, i64 8}
+!92 = !{!"_ZTSN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEEE", !93, i64 0, !18, i64 8, !94, i64 16}
+!93 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
+!94 = !{!"_ZTSSt10unique_ptrIA_N9grpc_core20GlobalStatsCollector4DataESt14default_deleteIS3_EE", !95, i64 0}
+!95 = !{!"_ZTSSt15__uniq_ptr_dataIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_ELb1ELb1EE", !96, i64 0}
+!96 = !{!"_ZTSSt15__uniq_ptr_implIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EE", !97, i64 0}
+!97 = !{!"_ZTSSt5tupleIJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !98, i64 0}
+!98 = !{!"_ZTSSt11_Tuple_implILm0EJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !99, i64 0}
+!99 = !{!"_ZTSSt10_Head_baseILm0EPN9grpc_core20GlobalStatsCollector4DataELb0EE", !100, i64 0}
+!100 = !{!"p1 _ZTSN9grpc_core20GlobalStatsCollector4DataE", !6, i64 0}
+!101 = !{!100, !100, i64 0}
+!102 = !{!103, !104, i64 2}
+!103 = !{!"_ZTSN9grpc_core20PerCpuShardingHelper5StateE", !104, i64 0, !104, i64 2}
+!104 = !{!"short", !7, i64 0}
+!105 = !{!103, !104, i64 0}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv: argument 0"}
+!108 = distinct !{!108, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv"}
 !109 = distinct !{!109, !71}

@@ -110,9 +110,8 @@ define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13DecodeNextBitEv(ptr noun
   %4 = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %4, align 4, !tbaa !20
   store ptr %4, ptr %2, align 8, !tbaa !15
-  %6 = and i32 %5, 1
-  %7 = icmp ne i32 %6, 0
-  ret i1 %7
+  %6 = trunc i32 %5 to i1
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

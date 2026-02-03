@@ -534,8 +534,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt6clause12d
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %9, align 8, !tbaa !30
   %10 = load i32, ptr %0, align 4, !tbaa !3
-  %.not33 = icmp eq i32 %10, 0
-  br i1 %.not33, label %._crit_edge.thread, label %.lr.ph
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -612,9 +612,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   store ptr %24, ptr %43, align 8, !tbaa !16
   %44 = add i32 %39, 1
   store i32 %44, ptr %41, align 4, !tbaa !8
-  %45 = and i32 %20, 1
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %76, label %46
+  %45 = trunc i32 %20 to i1
+  br i1 %45, label %46, label %76
 
 46:                                               ; preds = %38
   %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %42

@@ -6223,7 +6223,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %23 = load i32, ptr %22, align 4, !tbaa !303
   %24 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #26
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %525, label %25
+  br i1 %.not, label %524, label %25
 
 25:                                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7023,77 +7023,76 @@ rt_adjust_levels.exit:                            ; preds = %485, %181, %171, %1
   %487 = load ptr, ptr %90, align 8, !tbaa !297
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 604
   %489 = load i32, ptr %488, align 4, !tbaa !312
-  %490 = and i32 %489, 1
-  %491 = icmp ne i32 %490, 0
-  %or.cond5 = and i1 %30, %491
-  br i1 %or.cond5, label %492, label %dt_iop_alpha_copy.exit
+  %490 = trunc i32 %489 to i1
+  %or.cond5 = and i1 %30, %490
+  br i1 %or.cond5, label %491, label %dt_iop_alpha_copy.exit
 
-492:                                              ; preds = %rt_adjust_levels.exit
-  %493 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %494 = load i32, ptr %493, align 4, !tbaa !207
-  %.not133 = icmp ne i32 %494, 0
+491:                                              ; preds = %rt_adjust_levels.exit
+  %492 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %493 = load i32, ptr %492, align 4, !tbaa !207
+  %.not133 = icmp ne i32 %493, 0
   %.not.i135 = icmp eq i64 %42, 0
   %or.cond164 = or i1 %.not.i135, %.not133
   br i1 %or.cond164, label %dt_iop_alpha_copy.exit, label %.lr.ph.i136
 
-.lr.ph.i136:                                      ; preds = %492, %.lr.ph.i136
-  %.09.i = phi i64 [ %498, %.lr.ph.i136 ], [ 3, %492 ]
-  %495 = getelementptr inbounds nuw float, ptr %2, i64 %.09.i
-  %496 = load float, ptr %495, align 4, !tbaa !22
-  %497 = getelementptr inbounds nuw float, ptr %44, i64 %.09.i
-  store float %496, ptr %497, align 4, !tbaa !22
-  %498 = add nuw i64 %.09.i, 4
-  %499 = icmp ult i64 %498, %42
-  br i1 %499, label %.lr.ph.i136, label %dt_iop_alpha_copy.exit
+.lr.ph.i136:                                      ; preds = %491, %.lr.ph.i136
+  %.09.i = phi i64 [ %497, %.lr.ph.i136 ], [ 3, %491 ]
+  %494 = getelementptr inbounds nuw float, ptr %2, i64 %.09.i
+  %495 = load float, ptr %494, align 4, !tbaa !22
+  %496 = getelementptr inbounds nuw float, ptr %44, i64 %.09.i
+  store float %495, ptr %496, align 4, !tbaa !22
+  %497 = add nuw i64 %.09.i, 4
+  %498 = icmp ult i64 %497, %42
+  br i1 %498, label %.lr.ph.i136, label %dt_iop_alpha_copy.exit
 
-dt_iop_alpha_copy.exit:                           ; preds = %.lr.ph.i136, %492, %rt_adjust_levels.exit
-  %500 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %501 = load i32, ptr %500, align 4, !tbaa !292
-  %..i = call i32 @llvm.smin.i32(i32 %501, i32 %.sroa.6.0.copyload)
-  %502 = sext i32 %..i to i64
-  %503 = shl nsw i64 %502, 4
-  %504 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %505 = load i32, ptr %504, align 4, !tbaa !294
-  %506 = call i32 @llvm.smin.i32(i32 %505, i32 %.sroa.15.0.copyload)
-  %507 = icmp sgt i32 %506, 0
-  br i1 %507, label %.lr.ph.i137, label %rt_copy_in_to_out.exit
+dt_iop_alpha_copy.exit:                           ; preds = %.lr.ph.i136, %491, %rt_adjust_levels.exit
+  %499 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %500 = load i32, ptr %499, align 4, !tbaa !292
+  %..i = call i32 @llvm.smin.i32(i32 %500, i32 %.sroa.6.0.copyload)
+  %501 = sext i32 %..i to i64
+  %502 = shl nsw i64 %501, 4
+  %503 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %504 = load i32, ptr %503, align 4, !tbaa !294
+  %505 = call i32 @llvm.smin.i32(i32 %504, i32 %.sroa.15.0.copyload)
+  %506 = icmp sgt i32 %505, 0
+  br i1 %506, label %.lr.ph.i137, label %rt_copy_in_to_out.exit
 
 .lr.ph.i137:                                      ; preds = %dt_iop_alpha_copy.exit
-  %508 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %509 = load i32, ptr %508, align 4, !tbaa !295
-  %510 = load i32, ptr %5, align 4, !tbaa !293
-  %511 = sub i32 %510, %.sroa.0.0.copyload
-  %512 = sub i32 %509, %.sroa.5.0.copyload
+  %507 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %508 = load i32, ptr %507, align 4, !tbaa !295
+  %509 = load i32, ptr %5, align 4, !tbaa !293
+  %510 = sub i32 %509, %.sroa.0.0.copyload
+  %511 = sub i32 %508, %.sroa.5.0.copyload
+  %512 = sext i32 %510 to i64
   %513 = sext i32 %511 to i64
-  %514 = sext i32 %512 to i64
-  %wide.trip.count.i = zext nneg i32 %506 to i64
-  br label %515
+  %wide.trip.count.i = zext nneg i32 %505 to i64
+  br label %514
 
-515:                                              ; preds = %515, %.lr.ph.i137
-  %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i139, %515 ]
-  %516 = add nsw i64 %indvars.iv.i138, %514
-  %517 = mul nsw i64 %516, %39
-  %518 = add nsw i64 %517, %513
-  %519 = load i32, ptr %500, align 4, !tbaa !292
-  %520 = sext i32 %519 to i64
-  %521 = shl nuw nsw i64 %indvars.iv.i138, 2
-  %522 = mul i64 %521, %520
-  %.idx165 = shl i64 %518, 4
-  %523 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx165
-  %524 = getelementptr inbounds nuw float, ptr %3, i64 %522
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %524, ptr nonnull readonly align 16 %523, i64 %503, i1 false)
+514:                                              ; preds = %514, %.lr.ph.i137
+  %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i139, %514 ]
+  %515 = add nsw i64 %indvars.iv.i138, %513
+  %516 = mul nsw i64 %515, %39
+  %517 = add nsw i64 %516, %512
+  %518 = load i32, ptr %499, align 4, !tbaa !292
+  %519 = sext i32 %518 to i64
+  %520 = shl nuw nsw i64 %indvars.iv.i138, 2
+  %521 = mul i64 %520, %519
+  %.idx165 = shl i64 %517, 4
+  %522 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx165
+  %523 = getelementptr inbounds nuw float, ptr %3, i64 %521
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %523, ptr nonnull readonly align 16 %522, i64 %502, i1 false)
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i139, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %rt_copy_in_to_out.exit, label %515
+  br i1 %exitcond.not.i, label %rt_copy_in_to_out.exit, label %514
 
-rt_copy_in_to_out.exit:                           ; preds = %515, %dt_iop_alpha_copy.exit, %79, %46
-  %.0113 = phi ptr [ null, %79 ], [ null, %46 ], [ %87, %dt_iop_alpha_copy.exit ], [ %87, %515 ]
+rt_copy_in_to_out.exit:                           ; preds = %514, %dt_iop_alpha_copy.exit, %79, %46
+  %.0113 = phi ptr [ null, %79 ], [ null, %46 ], [ %87, %dt_iop_alpha_copy.exit ], [ %87, %514 ]
   call void @free(ptr noundef %44) #26
   call void @dt_dwt_free(ptr noundef %.0113) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %525
+  br label %524
 
-525:                                              ; preds = %6, %rt_copy_in_to_out.exit
+524:                                              ; preds = %6, %rt_copy_in_to_out.exit
   ret void
 }
 

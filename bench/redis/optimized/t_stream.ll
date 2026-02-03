@@ -4501,406 +4501,405 @@ define dso_local i64 @streamReplyWithRange(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %19 = and i32 %8, 1
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %21, label %20
+  br i1 %.not, label %20, label %19
 
-20:                                               ; preds = %11
+19:                                               ; preds = %11
   store i64 0, ptr %10, align 8, !tbaa !25
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %11
+20:                                               ; preds = %19, %11
   %.not100 = icmp eq ptr %6, null
-  %22 = and i32 %8, 4
-  %.not101 = icmp eq i32 %22, 0
+  %21 = and i32 %8, 4
+  %.not101 = icmp eq i32 %21, 0
   %or.cond112 = or i1 %.not100, %.not101
-  br i1 %or.cond112, label %25, label %23
+  br i1 %or.cond112, label %24, label %22
 
-23:                                               ; preds = %21
-  %24 = tail call i64 @streamReplyWithRangeFromConsumerPEL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %7)
-  br label %192
+22:                                               ; preds = %20
+  %23 = tail call i64 @streamReplyWithRangeFromConsumerPEL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %7)
+  br label %191
 
-25:                                               ; preds = %21
-  %26 = and i32 %8, 2
-  %.not102 = icmp eq i32 %26, 0
-  br i1 %.not102, label %27, label %29
+24:                                               ; preds = %20
+  %25 = and i32 %8, 2
+  %.not102 = icmp eq i32 %25, 0
+  br i1 %.not102, label %26, label %28
 
-27:                                               ; preds = %25
-  %28 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #17
-  br label %29
+26:                                               ; preds = %24
+  %27 = tail call ptr @addReplyDeferredLen(ptr noundef %0) #17
+  br label %28
 
-29:                                               ; preds = %27, %25
-  %.085 = phi ptr [ null, %25 ], [ %28, %27 ]
+28:                                               ; preds = %26, %24
+  %.085 = phi ptr [ null, %24 ], [ %27, %26 ]
   call void @streamIteratorStart(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %5)
-  %30 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %38 = getelementptr inbounds nuw i8, ptr %12, i64 600
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 576
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 600
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 576
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %12, i64 584
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 621
-  %42 = icmp ne i32 %19, 0
-  %or.cond = or i1 %.not100, %42
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 621
+  %41 = trunc i32 %8 to i1
+  %or.cond = or i1 %.not100, %41
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not109 = icmp eq ptr %9, null
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not110 = icmp ne i64 %4, 0
-  br label %47
+  br label %46
 
-47:                                               ; preds = %177, %29
-  %.087 = phi i32 [ 0, %29 ], [ %.2, %177 ]
-  %.086 = phi i64 [ 0, %29 ], [ %178, %177 ]
-  %48 = call i32 @streamIteratorGetID(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %13)
-  %.not103 = icmp eq i32 %48, 0
-  br i1 %.not103, label %180, label %49
+46:                                               ; preds = %176, %28
+  %.087 = phi i32 [ 0, %28 ], [ %.2, %176 ]
+  %.086 = phi i64 [ 0, %28 ], [ %177, %176 ]
+  %47 = call i32 @streamIteratorGetID(ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %13)
+  %.not103 = icmp eq i32 %47, 0
+  br i1 %.not103, label %179, label %48
 
-49:                                               ; preds = %47
-  br i1 %.not100, label %streamCompareID.exit, label %50
+48:                                               ; preds = %46
+  br i1 %.not100, label %streamCompareID.exit, label %49
 
-50:                                               ; preds = %49
-  %51 = load i64, ptr %14, align 8, !tbaa !23
-  %52 = load i64, ptr %6, align 8, !tbaa !23
-  %53 = icmp ugt i64 %51, %52
-  br i1 %53, label %60, label %54
+49:                                               ; preds = %48
+  %50 = load i64, ptr %14, align 8, !tbaa !23
+  %51 = load i64, ptr %6, align 8, !tbaa !23
+  %52 = icmp ugt i64 %50, %51
+  br i1 %52, label %59, label %53
 
-54:                                               ; preds = %50
-  %55 = icmp ult i64 %51, %52
-  br i1 %55, label %streamCompareID.exit, label %56
+53:                                               ; preds = %49
+  %54 = icmp ult i64 %50, %51
+  br i1 %54, label %streamCompareID.exit, label %55
 
-56:                                               ; preds = %54
+55:                                               ; preds = %53
+  %56 = load i64, ptr %29, align 8, !tbaa !22
   %57 = load i64, ptr %30, align 8, !tbaa !22
-  %58 = load i64, ptr %31, align 8, !tbaa !22
-  %59 = icmp ugt i64 %57, %58
-  br i1 %59, label %60, label %streamCompareID.exit
+  %58 = icmp ugt i64 %56, %57
+  br i1 %58, label %59, label %streamCompareID.exit
 
-60:                                               ; preds = %56, %50
-  %61 = load i64, ptr %32, align 8, !tbaa !37
-  %.not104 = icmp eq i64 %61, -1
-  br i1 %.not104, label %streamRangeHasTombstones.exit, label %62
+59:                                               ; preds = %55, %49
+  %60 = load i64, ptr %31, align 8, !tbaa !37
+  %.not104 = icmp eq i64 %60, -1
+  br i1 %.not104, label %streamRangeHasTombstones.exit, label %61
 
-62:                                               ; preds = %60
-  %63 = load i64, ptr %33, align 8, !tbaa !21
-  %.not.i = icmp eq i64 %63, 0
-  br i1 %.not.i, label %74, label %64
+61:                                               ; preds = %59
+  %62 = load i64, ptr %32, align 8, !tbaa !21
+  %.not.i = icmp eq i64 %62, 0
+  br i1 %.not.i, label %73, label %63
 
-64:                                               ; preds = %62
-  %65 = load i64, ptr %34, align 8, !tbaa !23
-  %.not.i.i = icmp eq i64 %65, 0
-  br i1 %.not.i.i, label %streamIDEqZero.exit.i, label %67
+63:                                               ; preds = %61
+  %64 = load i64, ptr %33, align 8, !tbaa !23
+  %.not.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i.i, label %streamIDEqZero.exit.i, label %66
 
-streamIDEqZero.exit.i:                            ; preds = %64
-  %66 = load i64, ptr %35, align 8, !tbaa !22
-  %.not21.i = icmp eq i64 %66, 0
-  br i1 %.not21.i, label %74, label %67
+streamIDEqZero.exit.i:                            ; preds = %63
+  %65 = load i64, ptr %34, align 8, !tbaa !22
+  %.not21.i = icmp eq i64 %65, 0
+  br i1 %.not21.i, label %73, label %66
 
-67:                                               ; preds = %streamIDEqZero.exit.i, %64
-  %.sroa.517.0.copyload.i = load i64, ptr %31, align 8, !tbaa !25
-  %68 = icmp ugt i64 %52, %65
-  br i1 %68, label %74, label %69
+66:                                               ; preds = %streamIDEqZero.exit.i, %63
+  %.sroa.517.0.copyload.i = load i64, ptr %30, align 8, !tbaa !25
+  %67 = icmp ugt i64 %51, %64
+  br i1 %67, label %73, label %68
 
-69:                                               ; preds = %67
-  %70 = icmp ult i64 %52, %65
-  br i1 %70, label %streamRangeHasTombstones.exit, label %71
+68:                                               ; preds = %66
+  %69 = icmp ult i64 %51, %64
+  br i1 %69, label %streamRangeHasTombstones.exit, label %70
 
-71:                                               ; preds = %69
-  %72 = load i64, ptr %35, align 8, !tbaa !22
-  %73 = icmp ugt i64 %.sroa.517.0.copyload.i, %72
-  br i1 %73, label %74, label %streamRangeHasTombstones.exit
+70:                                               ; preds = %68
+  %71 = load i64, ptr %34, align 8, !tbaa !22
+  %72 = icmp ugt i64 %.sroa.517.0.copyload.i, %71
+  br i1 %72, label %73, label %streamRangeHasTombstones.exit
 
-74:                                               ; preds = %67, %62, %streamIDEqZero.exit.i, %71
-  %75 = add nuw nsw i64 %61, 1
+73:                                               ; preds = %66, %61, %streamIDEqZero.exit.i, %70
+  %74 = add nuw nsw i64 %60, 1
   br label %.sink.split
 
-streamRangeHasTombstones.exit:                    ; preds = %71, %69, %60
-  %76 = load i64, ptr %36, align 8, !tbaa !35
-  %.not106 = icmp eq i64 %76, 0
-  br i1 %.not106, label %79, label %77
+streamRangeHasTombstones.exit:                    ; preds = %70, %68, %59
+  %75 = load i64, ptr %35, align 8, !tbaa !35
+  %.not106 = icmp eq i64 %75, 0
+  br i1 %.not106, label %78, label %76
 
-77:                                               ; preds = %streamRangeHasTombstones.exit
-  %78 = call i64 @streamEstimateDistanceFromFirstEverEntry(ptr noundef nonnull %1, ptr noundef nonnull %14)
+76:                                               ; preds = %streamRangeHasTombstones.exit
+  %77 = call i64 @streamEstimateDistanceFromFirstEverEntry(ptr noundef nonnull %1, ptr noundef nonnull %14)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %74, %77
-  %.sink = phi i64 [ %78, %77 ], [ %75, %74 ]
-  store i64 %.sink, ptr %32, align 8, !tbaa !37
-  br label %79
+.sink.split:                                      ; preds = %73, %76
+  %.sink = phi i64 [ %77, %76 ], [ %74, %73 ]
+  store i64 %.sink, ptr %31, align 8, !tbaa !37
+  br label %78
 
-79:                                               ; preds = %.sink.split, %streamRangeHasTombstones.exit
+78:                                               ; preds = %.sink.split, %streamRangeHasTombstones.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !24
   br label %streamCompareID.exit
 
-streamCompareID.exit:                             ; preds = %56, %54, %79, %49
-  %.2 = phi i32 [ 1, %79 ], [ %.087, %49 ], [ %.087, %54 ], [ %.087, %56 ]
+streamCompareID.exit:                             ; preds = %55, %53, %78, %48
+  %.2 = phi i32 [ 1, %78 ], [ %.087, %48 ], [ %.087, %53 ], [ %.087, %55 ]
   call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #17
-  %80 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !115
-  %81 = call ptr @sdsnewlen(ptr noundef %80, i64 noundef 44) #17
-  %82 = getelementptr inbounds i8, ptr %81, i64 -1
-  %83 = load i8, ptr %82, align 1, !tbaa !47
-  %84 = and i8 %83, 7
-  switch i8 %84, label %addReplyStreamID.exit [
-    i8 0, label %85
-    i8 1, label %86
-    i8 2, label %88
-    i8 3, label %90
-    i8 4, label %92
+  %79 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !115
+  %80 = call ptr @sdsnewlen(ptr noundef %79, i64 noundef 44) #17
+  %81 = getelementptr inbounds i8, ptr %80, i64 -1
+  %82 = load i8, ptr %81, align 1, !tbaa !47
+  %83 = and i8 %82, 7
+  switch i8 %83, label %addReplyStreamID.exit [
+    i8 0, label %84
+    i8 1, label %85
+    i8 2, label %87
+    i8 3, label %89
+    i8 4, label %91
   ]
 
+84:                                               ; preds = %streamCompareID.exit
+  store i8 0, ptr %81, align 1, !tbaa !47
+  br label %addReplyStreamID.exit
+
 85:                                               ; preds = %streamCompareID.exit
-  store i8 0, ptr %82, align 1, !tbaa !47
+  %86 = getelementptr inbounds i8, ptr %80, i64 -3
+  store i8 0, ptr %86, align 1, !tbaa !47
   br label %addReplyStreamID.exit
 
-86:                                               ; preds = %streamCompareID.exit
-  %87 = getelementptr inbounds i8, ptr %81, i64 -3
-  store i8 0, ptr %87, align 1, !tbaa !47
+87:                                               ; preds = %streamCompareID.exit
+  %88 = getelementptr inbounds i8, ptr %80, i64 -5
+  store i16 0, ptr %88, align 1, !tbaa !48
   br label %addReplyStreamID.exit
 
-88:                                               ; preds = %streamCompareID.exit
-  %89 = getelementptr inbounds i8, ptr %81, i64 -5
-  store i16 0, ptr %89, align 1, !tbaa !48
+89:                                               ; preds = %streamCompareID.exit
+  %90 = getelementptr inbounds i8, ptr %80, i64 -9
+  store i32 0, ptr %90, align 1, !tbaa !50
   br label %addReplyStreamID.exit
 
-90:                                               ; preds = %streamCompareID.exit
-  %91 = getelementptr inbounds i8, ptr %81, i64 -9
-  store i32 0, ptr %91, align 1, !tbaa !50
+91:                                               ; preds = %streamCompareID.exit
+  %92 = getelementptr inbounds i8, ptr %80, i64 -17
+  store i64 0, ptr %92, align 1, !tbaa !25
   br label %addReplyStreamID.exit
 
-92:                                               ; preds = %streamCompareID.exit
-  %93 = getelementptr inbounds i8, ptr %81, i64 -17
-  store i64 0, ptr %93, align 1, !tbaa !25
-  br label %addReplyStreamID.exit
-
-addReplyStreamID.exit:                            ; preds = %streamCompareID.exit, %85, %86, %88, %90, %92
-  %94 = load i64, ptr %14, align 8, !tbaa !23
-  %95 = load i64, ptr %30, align 8, !tbaa !22
-  %96 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %81, ptr noundef nonnull @.str.15, i64 noundef %94, i64 noundef %95) #17
-  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %96) #17
-  %97 = load i64, ptr %13, align 8, !tbaa !25
-  %98 = shl nsw i64 %97, 1
-  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %98) #17
-  %.not107122 = icmp eq i64 %97, 0
+addReplyStreamID.exit:                            ; preds = %streamCompareID.exit, %84, %85, %87, %89, %91
+  %93 = load i64, ptr %14, align 8, !tbaa !23
+  %94 = load i64, ptr %29, align 8, !tbaa !22
+  %95 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %80, ptr noundef nonnull @.str.15, i64 noundef %93, i64 noundef %94) #17
+  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %95) #17
+  %96 = load i64, ptr %13, align 8, !tbaa !25
+  %97 = shl nsw i64 %96, 1
+  call void @addReplyArrayLen(ptr noundef %0, i64 noundef %97) #17
+  %.not107122 = icmp eq i64 %96, 0
   br i1 %.not107122, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %addReplyStreamID.exit, %streamIteratorGetField.exit
-  %.in = phi i64 [ %99, %streamIteratorGetField.exit ], [ %97, %addReplyStreamID.exit ]
-  %99 = add nsw i64 %.in, -1
+  %.in = phi i64 [ %98, %streamIteratorGetField.exit ], [ %96, %addReplyStreamID.exit ]
+  %98 = add nsw i64 %.in, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %100 = load i32, ptr %37, align 8, !tbaa !103
-  %101 = and i32 %100, 2
-  %.not.i115 = icmp eq i32 %101, 0
-  br i1 %.not.i115, label %108, label %102
+  %99 = load i32, ptr %36, align 8, !tbaa !103
+  %100 = and i32 %99, 2
+  %.not.i115 = icmp eq i32 %100, 0
+  br i1 %.not.i115, label %107, label %101
 
-102:                                              ; preds = %.lr.ph
-  %103 = load ptr, ptr %40, align 8, !tbaa !106
-  %104 = call ptr @lpGet(ptr noundef %103, ptr noundef nonnull %15, ptr noundef nonnull %38) #17
-  %105 = load ptr, ptr %39, align 8, !tbaa !92
-  %106 = load ptr, ptr %40, align 8, !tbaa !106
-  %107 = call ptr @lpNext(ptr noundef %105, ptr noundef %106) #17
-  store ptr %107, ptr %40, align 8, !tbaa !106
+101:                                              ; preds = %.lr.ph
+  %102 = load ptr, ptr %39, align 8, !tbaa !106
+  %103 = call ptr @lpGet(ptr noundef %102, ptr noundef nonnull %15, ptr noundef nonnull %37) #17
+  %104 = load ptr, ptr %38, align 8, !tbaa !92
+  %105 = load ptr, ptr %39, align 8, !tbaa !106
+  %106 = call ptr @lpNext(ptr noundef %104, ptr noundef %105) #17
+  store ptr %106, ptr %39, align 8, !tbaa !106
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
   br label %streamIteratorGetField.exit
 
-108:                                              ; preds = %.lr.ph
-  %109 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
-  %110 = call ptr @lpGet(ptr noundef %109, ptr noundef nonnull %15, ptr noundef nonnull %38) #17
-  %111 = load ptr, ptr %39, align 8, !tbaa !92
-  %112 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
-  %113 = call ptr @lpNext(ptr noundef %111, ptr noundef %112) #17
-  store ptr %113, ptr %.phi.trans.insert.i, align 8, !tbaa !93
+107:                                              ; preds = %.lr.ph
+  %108 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
+  %109 = call ptr @lpGet(ptr noundef %108, ptr noundef nonnull %15, ptr noundef nonnull %37) #17
+  %110 = load ptr, ptr %38, align 8, !tbaa !92
+  %111 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
+  %112 = call ptr @lpNext(ptr noundef %110, ptr noundef %111) #17
+  store ptr %112, ptr %.phi.trans.insert.i, align 8, !tbaa !93
   br label %streamIteratorGetField.exit
 
-streamIteratorGetField.exit:                      ; preds = %102, %108
-  %.0117 = phi ptr [ %110, %108 ], [ %104, %102 ]
-  %114 = phi ptr [ %113, %108 ], [ %.pre.i, %102 ]
-  %115 = call ptr @lpGet(ptr noundef %114, ptr noundef nonnull %16, ptr noundef nonnull %41) #17
-  %116 = load ptr, ptr %39, align 8, !tbaa !92
-  %117 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
-  %118 = call ptr @lpNext(ptr noundef %116, ptr noundef %117) #17
-  store ptr %118, ptr %.phi.trans.insert.i, align 8, !tbaa !93
-  %119 = load i64, ptr %15, align 8, !tbaa !25
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %.0117, i64 noundef %119) #17
-  %120 = load i64, ptr %16, align 8, !tbaa !25
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %115, i64 noundef %120) #17
+streamIteratorGetField.exit:                      ; preds = %101, %107
+  %.0117 = phi ptr [ %109, %107 ], [ %103, %101 ]
+  %113 = phi ptr [ %112, %107 ], [ %.pre.i, %101 ]
+  %114 = call ptr @lpGet(ptr noundef %113, ptr noundef nonnull %16, ptr noundef nonnull %40) #17
+  %115 = load ptr, ptr %38, align 8, !tbaa !92
+  %116 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
+  %117 = call ptr @lpNext(ptr noundef %115, ptr noundef %116) #17
+  store ptr %117, ptr %.phi.trans.insert.i, align 8, !tbaa !93
+  %118 = load i64, ptr %15, align 8, !tbaa !25
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %.0117, i64 noundef %118) #17
+  %119 = load i64, ptr %16, align 8, !tbaa !25
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef %114, i64 noundef %119) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not107 = icmp eq i64 %99, 0
+  %.not107 = icmp eq i64 %98, 0
   br i1 %.not107, label %._crit_edge, label %.lr.ph, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %streamIteratorGetField.exit, %addReplyStreamID.exit
   store i64 -1, ptr %13, align 8, !tbaa !25
-  br i1 %or.cond, label %177, label %121
+  br i1 %or.cond, label %176, label %120
 
-121:                                              ; preds = %._crit_edge
+120:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  %121 = call i64 @intrev64(i64 noundef %93) #17
   %122 = call i64 @intrev64(i64 noundef %94) #17
-  %123 = call i64 @intrev64(i64 noundef %95) #17
-  store i64 %122, ptr %17, align 16
-  store i64 %123, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %124 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #16
-  %125 = call i64 @commandTimeSnapshot() #17
-  store i64 %125, ptr %124, align 8, !tbaa !38
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store i64 1, ptr %126, align 8, !tbaa !41
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store ptr %7, ptr %127, align 8, !tbaa !42
-  %128 = load ptr, ptr %43, align 8, !tbaa !14
-  %129 = call i32 @raxTryInsert(ptr noundef %128, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %124, ptr noundef null) #17
-  %130 = load ptr, ptr %44, align 8, !tbaa !46
-  %131 = call i32 @raxTryInsert(ptr noundef %130, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %124, ptr noundef null) #17
-  %132 = icmp eq i32 %129, 0
-  br i1 %132, label %133, label %148
+  store i64 %121, ptr %17, align 16
+  store i64 %122, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %123 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #16
+  %124 = call i64 @commandTimeSnapshot() #17
+  store i64 %124, ptr %123, align 8, !tbaa !38
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store i64 1, ptr %125, align 8, !tbaa !41
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  store ptr %7, ptr %126, align 8, !tbaa !42
+  %127 = load ptr, ptr %42, align 8, !tbaa !14
+  %128 = call i32 @raxTryInsert(ptr noundef %127, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %123, ptr noundef null) #17
+  %129 = load ptr, ptr %43, align 8, !tbaa !46
+  %130 = call i32 @raxTryInsert(ptr noundef %129, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %123, ptr noundef null) #17
+  %131 = icmp eq i32 %128, 0
+  br i1 %131, label %132, label %147
 
-133:                                              ; preds = %121
-  call void @zfree(ptr noundef nonnull %124) #17
+132:                                              ; preds = %120
+  call void @zfree(ptr noundef nonnull %123) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %134 = load ptr, ptr %43, align 8, !tbaa !14
-  %135 = call i32 @raxFind(ptr noundef %134, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %18) #17
-  %.not108 = icmp eq i32 %135, 0
-  br i1 %.not108, label %136, label %137, !prof !53
+  %133 = load ptr, ptr %42, align 8, !tbaa !14
+  %134 = call i32 @raxFind(ptr noundef %133, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %18) #17
+  %.not108 = icmp eq i32 %134, 0
+  br i1 %.not108, label %135, label %136, !prof !53
 
-136:                                              ; preds = %133
+135:                                              ; preds = %132
   call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1760) #17
   call void @abort() #18
   unreachable
 
-137:                                              ; preds = %133
-  %138 = load ptr, ptr %18, align 8, !tbaa !54
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %140 = load ptr, ptr %139, align 8, !tbaa !42
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  %142 = load ptr, ptr %141, align 8, !tbaa !46
-  %143 = call i32 @raxRemove(ptr noundef %142, ptr noundef nonnull %17, i64 noundef 16, ptr noundef null) #17
-  store ptr %7, ptr %139, align 8, !tbaa !42
-  %144 = call i64 @commandTimeSnapshot() #17
-  store i64 %144, ptr %138, align 8, !tbaa !38
-  %145 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store i64 1, ptr %145, align 8, !tbaa !41
-  %146 = load ptr, ptr %44, align 8, !tbaa !46
-  %147 = call i32 @raxInsert(ptr noundef %146, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %138, ptr noundef null) #17
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %18, align 8, !tbaa !54
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8, !tbaa !42
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %141 = load ptr, ptr %140, align 8, !tbaa !46
+  %142 = call i32 @raxRemove(ptr noundef %141, ptr noundef nonnull %17, i64 noundef 16, ptr noundef null) #17
+  store ptr %7, ptr %138, align 8, !tbaa !42
+  %143 = call i64 @commandTimeSnapshot() #17
+  store i64 %143, ptr %137, align 8, !tbaa !38
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i64 1, ptr %144, align 8, !tbaa !41
+  %145 = load ptr, ptr %43, align 8, !tbaa !46
+  %146 = call i32 @raxInsert(ptr noundef %145, ptr noundef nonnull %17, i64 noundef 16, ptr noundef nonnull %137, ptr noundef null) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %152
+  br label %151
 
-148:                                              ; preds = %121
-  %149 = icmp eq i32 %129, 1
-  %150 = icmp eq i32 %131, 0
-  %or.cond3 = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond3, label %151, label %152
+147:                                              ; preds = %120
+  %148 = icmp eq i32 %128, 1
+  %149 = icmp eq i32 %130, 0
+  %or.cond3 = select i1 %148, i1 %149, i1 false
+  br i1 %or.cond3, label %150, label %151
 
-151:                                              ; preds = %148
+150:                                              ; preds = %147
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 1770, ptr noundef nonnull @.str.16) #17
   call void @abort() #18
   unreachable
 
-152:                                              ; preds = %148, %137
-  %.089 = phi ptr [ %138, %137 ], [ %124, %148 ]
-  %153 = call i64 @commandTimeSnapshot() #17
-  store i64 %153, ptr %45, align 8, !tbaa !52
-  br i1 %.not109, label %176, label %154
+151:                                              ; preds = %147, %136
+  %.089 = phi ptr [ %137, %136 ], [ %123, %147 ]
+  %152 = call i64 @commandTimeSnapshot() #17
+  store i64 %152, ptr %44, align 8, !tbaa !52
+  br i1 %.not109, label %175, label %153
 
-154:                                              ; preds = %152
-  %155 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !115
-  %156 = call ptr @sdsnewlen(ptr noundef %155, i64 noundef 44) #17
-  %157 = getelementptr inbounds i8, ptr %156, i64 -1
-  %158 = load i8, ptr %157, align 1, !tbaa !47
-  %159 = and i8 %158, 7
-  switch i8 %159, label %createObjectFromStreamID.exit [
-    i8 0, label %160
-    i8 1, label %161
-    i8 2, label %163
-    i8 3, label %165
-    i8 4, label %167
+153:                                              ; preds = %151
+  %154 = load ptr, ptr @SDS_NOINIT, align 8, !tbaa !115
+  %155 = call ptr @sdsnewlen(ptr noundef %154, i64 noundef 44) #17
+  %156 = getelementptr inbounds i8, ptr %155, i64 -1
+  %157 = load i8, ptr %156, align 1, !tbaa !47
+  %158 = and i8 %157, 7
+  switch i8 %158, label %createObjectFromStreamID.exit [
+    i8 0, label %159
+    i8 1, label %160
+    i8 2, label %162
+    i8 3, label %164
+    i8 4, label %166
   ]
 
-160:                                              ; preds = %154
-  store i8 0, ptr %157, align 1, !tbaa !47
+159:                                              ; preds = %153
+  store i8 0, ptr %156, align 1, !tbaa !47
   br label %createObjectFromStreamID.exit
 
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds i8, ptr %156, i64 -3
-  store i8 0, ptr %162, align 1, !tbaa !47
+160:                                              ; preds = %153
+  %161 = getelementptr inbounds i8, ptr %155, i64 -3
+  store i8 0, ptr %161, align 1, !tbaa !47
   br label %createObjectFromStreamID.exit
 
-163:                                              ; preds = %154
-  %164 = getelementptr inbounds i8, ptr %156, i64 -5
-  store i16 0, ptr %164, align 1, !tbaa !48
+162:                                              ; preds = %153
+  %163 = getelementptr inbounds i8, ptr %155, i64 -5
+  store i16 0, ptr %163, align 1, !tbaa !48
   br label %createObjectFromStreamID.exit
 
-165:                                              ; preds = %154
-  %166 = getelementptr inbounds i8, ptr %156, i64 -9
-  store i32 0, ptr %166, align 1, !tbaa !50
+164:                                              ; preds = %153
+  %165 = getelementptr inbounds i8, ptr %155, i64 -9
+  store i32 0, ptr %165, align 1, !tbaa !50
   br label %createObjectFromStreamID.exit
 
-167:                                              ; preds = %154
-  %168 = getelementptr inbounds i8, ptr %156, i64 -17
-  store i64 0, ptr %168, align 1, !tbaa !25
+166:                                              ; preds = %153
+  %167 = getelementptr inbounds i8, ptr %155, i64 -17
+  store i64 0, ptr %167, align 1, !tbaa !25
   br label %createObjectFromStreamID.exit
 
-createObjectFromStreamID.exit:                    ; preds = %154, %160, %161, %163, %165, %167
-  %169 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %156, ptr noundef nonnull @.str.15, i64 noundef %94, i64 noundef %95) #17
-  %170 = call ptr @createObject(i32 noundef 0, ptr noundef %169) #17
-  %171 = load ptr, ptr %9, align 8, !tbaa !151
-  %172 = load ptr, ptr %46, align 8, !tbaa !153
-  call void @streamPropagateXCLAIM(ptr noundef %0, ptr noundef %171, ptr noundef nonnull %6, ptr noundef %172, ptr noundef %170, ptr noundef nonnull %.089)
-  call void @decrRefCount(ptr noundef %170) #17
-  br i1 %.not, label %176, label %173
+createObjectFromStreamID.exit:                    ; preds = %153, %159, %160, %162, %164, %166
+  %168 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %155, ptr noundef nonnull @.str.15, i64 noundef %93, i64 noundef %94) #17
+  %169 = call ptr @createObject(i32 noundef 0, ptr noundef %168) #17
+  %170 = load ptr, ptr %9, align 8, !tbaa !151
+  %171 = load ptr, ptr %45, align 8, !tbaa !153
+  call void @streamPropagateXCLAIM(ptr noundef %0, ptr noundef %170, ptr noundef nonnull %6, ptr noundef %171, ptr noundef %169, ptr noundef nonnull %.089)
+  call void @decrRefCount(ptr noundef %169) #17
+  br i1 %.not, label %175, label %172
 
-173:                                              ; preds = %createObjectFromStreamID.exit
-  %174 = load i64, ptr %10, align 8, !tbaa !25
-  %175 = add i64 %174, 1
-  store i64 %175, ptr %10, align 8, !tbaa !25
+172:                                              ; preds = %createObjectFromStreamID.exit
+  %173 = load i64, ptr %10, align 8, !tbaa !25
+  %174 = add i64 %173, 1
+  store i64 %174, ptr %10, align 8, !tbaa !25
+  br label %175
+
+175:                                              ; preds = %createObjectFromStreamID.exit, %172, %151
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %176
 
-176:                                              ; preds = %createObjectFromStreamID.exit, %173, %152
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %177
+176:                                              ; preds = %175, %._crit_edge
+  %177 = add i64 %.086, 1
+  %178 = icmp eq i64 %4, %177
+  %or.cond113 = select i1 %.not110, i1 %178, i1 false
+  br i1 %or.cond113, label %179, label %46, !llvm.loop !154
 
-177:                                              ; preds = %176, %._crit_edge
-  %178 = add i64 %.086, 1
-  %179 = icmp eq i64 %4, %178
-  %or.cond113 = select i1 %.not110, i1 %179, i1 false
-  br i1 %or.cond113, label %180, label %47, !llvm.loop !154
+179:                                              ; preds = %176, %46
+  %.188 = phi i32 [ %.2, %176 ], [ %.087, %46 ]
+  %.1 = phi i64 [ %4, %176 ], [ %.086, %46 ]
+  %180 = icmp ne ptr %9, null
+  %181 = icmp ne i32 %.188, 0
+  %or.cond5 = select i1 %180, i1 %181, i1 false
+  br i1 %or.cond5, label %182, label %188
 
-180:                                              ; preds = %177, %47
-  %.188 = phi i32 [ %.2, %177 ], [ %.087, %47 ]
-  %.1 = phi i64 [ %4, %177 ], [ %.086, %47 ]
-  %181 = icmp ne ptr %9, null
-  %182 = icmp ne i32 %.188, 0
-  %or.cond5 = select i1 %181, i1 %182, i1 false
-  br i1 %or.cond5, label %183, label %189
+182:                                              ; preds = %179
+  %183 = load ptr, ptr %9, align 8, !tbaa !151
+  %184 = load ptr, ptr %45, align 8, !tbaa !153
+  call void @streamPropagateGroupID(ptr noundef %0, ptr noundef %183, ptr noundef %6, ptr noundef %184)
+  br i1 %.not, label %188, label %185
 
-183:                                              ; preds = %180
-  %184 = load ptr, ptr %9, align 8, !tbaa !151
-  %185 = load ptr, ptr %46, align 8, !tbaa !153
-  call void @streamPropagateGroupID(ptr noundef %0, ptr noundef %184, ptr noundef %6, ptr noundef %185)
-  br i1 %.not, label %189, label %186
+185:                                              ; preds = %182
+  %186 = load i64, ptr %10, align 8, !tbaa !25
+  %187 = add i64 %186, 1
+  store i64 %187, ptr %10, align 8, !tbaa !25
+  br label %188
 
-186:                                              ; preds = %183
-  %187 = load i64, ptr %10, align 8, !tbaa !25
-  %188 = add i64 %187, 1
-  store i64 %188, ptr %10, align 8, !tbaa !25
-  br label %189
-
-189:                                              ; preds = %183, %186, %180
-  %190 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  call void @raxStop(ptr noundef nonnull %190) #17
+188:                                              ; preds = %182, %185, %179
+  %189 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  call void @raxStop(ptr noundef nonnull %189) #17
   %.not111 = icmp eq ptr %.085, null
-  br i1 %.not111, label %192, label %191
+  br i1 %.not111, label %191, label %190
 
-191:                                              ; preds = %189
+190:                                              ; preds = %188
   call void @setDeferredArrayLen(ptr noundef %0, ptr noundef nonnull %.085, i64 noundef %.1) #17
-  br label %192
+  br label %191
 
-192:                                              ; preds = %189, %191, %23
-  %.0 = phi i64 [ %24, %23 ], [ %.1, %191 ], [ %.1, %189 ]
+191:                                              ; preds = %188, %190, %22
+  %.0 = phi i64 [ %23, %22 ], [ %.1, %190 ], [ %.1, %188 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

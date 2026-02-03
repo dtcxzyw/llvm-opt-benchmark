@@ -120,9 +120,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 32:                                               ; preds = %30
   %33 = and i64 %28, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = and i64 %28, 1
-  %.not.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i", label %36
+  %35 = trunc i64 %28 to i1
+  br i1 %35, label %36, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i.i"
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 12

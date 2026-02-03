@@ -4444,9 +4444,8 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 127
   %34 = load i8, ptr %33, align 1
-  %35 = and i8 %34, 1
-  %.not11 = icmp eq i8 %35, 0
-  br i1 %.not11, label %71, label %36
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %36, label %71
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -4498,8 +4497,8 @@ define internal i32 @ipip_rcv(ptr noundef %0) #4 align 16 {
 71:                                               ; preds = %29
   %72 = getelementptr inbounds nuw i8, ptr %32, i64 2816
   %73 = load i32, ptr %72, align 4
-  %.not12 = icmp eq i32 %73, 0
-  br i1 %.not12, label %74, label %.thread8
+  %.not11 = icmp eq i32 %73, 0
+  br i1 %.not11, label %74, label %.thread8
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %32, i64 2968

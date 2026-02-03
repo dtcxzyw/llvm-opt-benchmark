@@ -2905,9 +2905,8 @@ _ZNK6icu_7713UnicodeString7indexOfEPKDsii.exit206: ; preds = %_ZNK6icu_7713Unico
 
 310:                                              ; preds = %.lr.ph.i
   %311 = load i16, ptr %268, align 8, !tbaa !55
-  %312 = and i16 %311, 1
-  %.not.i = icmp eq i16 %312, 0
-  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %312 = trunc i16 %311 to i1
+  br i1 %312, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i
 
 313:                                              ; preds = %.lr.ph.i
   %314 = icmp slt i16 %308, 0
@@ -2937,8 +2936,8 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i: ; preds = %313
           to label %.noexc209 unwind label %339
 
 .noexc209:                                        ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i
-  %.not34.i = icmp eq i8 %331, 0
-  br i1 %.not34.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %.not.i = icmp eq i8 %331, 0
+  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i: ; preds = %.noexc209, %313, %310
   %332 = getelementptr inbounds nuw i8, ptr %.01328.i, i64 8
@@ -4741,9 +4740,8 @@ define noundef ptr @_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13Unico
 
 19:                                               ; preds = %13
   %20 = load i16, ptr %9, align 8, !tbaa !55
-  %21 = and i16 %20, 1
-  %.not = icmp eq i16 %21, 0
-  br i1 %.not, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread, label %.loopexit
+  %21 = trunc i16 %20 to i1
+  br i1 %21, label %.loopexit, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread
 
 22:                                               ; preds = %13
   %23 = icmp slt i16 %17, 0
@@ -4770,8 +4768,8 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit: ; preds = %22
   %38 = load ptr, ptr %12, align 8
   %39 = select i1 %.not.i.i.i.i, ptr %38, ptr %11
   %40 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %39, i32 noundef %28)
-  %.not34 = icmp eq i8 %40, 0
-  br i1 %.not34, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread, label %.loopexit
+  %.not = icmp eq i8 %40, 0
+  br i1 %.not, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread, label %.loopexit
 
 _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread: ; preds = %19, %22, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit
   %41 = getelementptr inbounds nuw i8, ptr %.01328, i64 8
@@ -5277,9 +5275,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7721RuleBasedNu
 
 34:                                               ; preds = %28
   %35 = load i16, ptr %.phi.trans.insert.i, align 8, !tbaa !55
-  %36 = and i16 %35, 1
-  %.not.i = icmp eq i16 %36, 0
-  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %36 = trunc i16 %35 to i1
+  br i1 %36, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i
 
 37:                                               ; preds = %28
   %38 = icmp slt i16 %32, 0
@@ -5306,8 +5303,8 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i: ; preds = %37
   %53 = load ptr, ptr %27, align 8
   %54 = select i1 %.not.i.i.i.i.i, ptr %53, ptr %26
   %55 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef %54, i32 noundef %43)
-  %.not34.i = icmp eq i8 %55, 0
-  br i1 %.not34.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %.not.i = icmp eq i8 %55, 0
+  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i, %37, %34
   %56 = getelementptr inbounds nuw i8, ptr %.01328.i, i64 8
@@ -5418,9 +5415,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7721RuleBasedNu
 
 34:                                               ; preds = %28
   %35 = load i16, ptr %.phi.trans.insert.i, align 8, !tbaa !55
-  %36 = and i16 %35, 1
-  %.not.i = icmp eq i16 %36, 0
-  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %36 = trunc i16 %35 to i1
+  br i1 %36, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i
 
 37:                                               ; preds = %28
   %38 = icmp slt i16 %32, 0
@@ -5447,8 +5443,8 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i: ; preds = %37
   %53 = load ptr, ptr %27, align 8
   %54 = select i1 %.not.i.i.i.i.i, ptr %53, ptr %26
   %55 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef %54, i32 noundef %43)
-  %.not34.i = icmp eq i8 %55, 0
-  br i1 %.not34.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %.not.i = icmp eq i8 %55, 0
+  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i, %37, %34
   %56 = getelementptr inbounds nuw i8, ptr %.01328.i, i64 8
@@ -5851,7 +5847,7 @@ define void @_ZN6icu_7721RuleBasedNumberFormat17setDefaultRuleSetERKNS_13Unicode
   %7 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %8 = load i32, ptr %2, align 4, !tbaa !19
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread, label %10
+  br i1 %9, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5910,9 +5906,8 @@ define void @_ZN6icu_7721RuleBasedNumberFormat17setDefaultRuleSetERKNS_13Unicode
 
 39:                                               ; preds = %33
   %40 = load i16, ptr %29, align 8, !tbaa !55
-  %41 = and i16 %40, 1
-  %.not.i = icmp eq i16 %41, 0
-  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %41 = trunc i16 %40 to i1
+  br i1 %41, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i
 
 42:                                               ; preds = %33
   %43 = icmp slt i16 %37, 0
@@ -5942,8 +5937,8 @@ _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i: ; preds = %42
           to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i
-  %.not34.i = icmp eq i8 %60, 0
-  br i1 %.not34.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
+  %.not.i = icmp eq i8 %60, 0
+  br i1 %.not.i, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit
 
 _ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i: ; preds = %.noexc, %42, %39
   %61 = getelementptr inbounds nuw i8, ptr %.01328.i, i64 8
@@ -5961,7 +5956,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   store ptr %.3.i, ptr %63, align 8, !tbaa !64
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
+  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread
 
 64:                                               ; preds = %17
   %65 = landingpad { ptr, i32 }
@@ -5983,7 +5978,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
 
 70:                                               ; preds = %14
   tail call void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef nonnull align 8 dereferenceable(456) %0)
-  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
+  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread
 
 71:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6036,7 +6031,7 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %72, %.noexc24
 
 92:                                               ; preds = %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
   store i32 1, ptr %2, align 4, !tbaa !19
-  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
+  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread
 
 93:                                               ; preds = %71
   %94 = landingpad { ptr, i32 }
@@ -6070,12 +6065,12 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %72, %.noexc24
   %104 = load ptr, ptr %103, align 8
   %.not16.i25 = icmp eq ptr %104, null
   %or.cond.i26 = select i1 %102, i1 true, i1 %.not16.i25
-  br i1 %or.cond.i26, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread, label %.preheader.i27
+  br i1 %or.cond.i26, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread, label %.preheader.i27
 
 .preheader.i27:                                   ; preds = %100
   %105 = load ptr, ptr %104, align 8, !tbaa !96
   %.not1727.i28 = icmp eq ptr %105, null
-  br i1 %.not1727.i28, label %._crit_edge.i36, label %.lr.ph.i29
+  br i1 %.not1727.i28, label %._crit_edge.i34, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %.preheader.i27
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -6083,9 +6078,9 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %72, %.noexc24
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %109
 
-109:                                              ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, %.lr.ph.i29
-  %110 = phi ptr [ %105, %.lr.ph.i29 ], [ %138, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34 ]
-  %.01328.i30 = phi ptr [ %104, %.lr.ph.i29 ], [ %137, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34 ]
+109:                                              ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32, %.lr.ph.i29
+  %110 = phi ptr [ %105, %.lr.ph.i29 ], [ %138, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32 ]
+  %.01328.i30 = phi ptr [ %104, %.lr.ph.i29 ], [ %137, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32 ]
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %113 = load i16, ptr %112, align 8, !tbaa !55
@@ -6095,9 +6090,8 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %72, %.noexc24
 
 115:                                              ; preds = %109
   %116 = load i16, ptr %11, align 8, !tbaa !55
-  %117 = and i16 %116, 1
-  %.not.i32 = icmp eq i16 %117, 0
-  br i1 %.not.i32, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42
+  %117 = trunc i16 %116 to i1
+  br i1 %117, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32
 
 118:                                              ; preds = %109
   %119 = icmp slt i16 %113, 0
@@ -6113,36 +6107,36 @@ _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %72, %.noexc24
   %129 = load i32, ptr %106, align 4
   %130 = select i1 %126, i32 %129, i32 %128
   %131 = and i16 %125, 1
-  %.not9.i.i.i37 = icmp eq i16 %131, 0
+  %.not9.i.i.i36 = icmp eq i16 %131, 0
   %132 = icmp eq i32 %124, %130
-  %or.cond.i.i.i38 = and i1 %.not9.i.i.i37, %132
-  br i1 %or.cond.i.i.i38, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34
+  %or.cond.i.i.i37 = and i1 %.not9.i.i.i36, %132
+  br i1 %or.cond.i.i.i37, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i38, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32
 
-_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39: ; preds = %118
+_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i38: ; preds = %118
   %133 = and i16 %125, 2
-  %.not.i.i.i.i.i40 = icmp eq i16 %133, 0
+  %.not.i.i.i.i.i39 = icmp eq i16 %133, 0
   %134 = load ptr, ptr %108, align 8
-  %135 = select i1 %.not.i.i.i.i.i40, ptr %134, ptr %107
+  %135 = select i1 %.not.i.i.i.i.i39, ptr %134, ptr %107
   %136 = call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %111, ptr noundef %135, i32 noundef %124)
-  %.not34.i41 = icmp eq i8 %136, 0
-  br i1 %.not34.i41, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42
+  %.not.i40 = icmp eq i8 %136, 0
+  br i1 %.not.i40, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41
 
-_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, %118, %115
+_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i38, %118, %115
   %137 = getelementptr inbounds nuw i8, ptr %.01328.i30, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !96
-  %.not17.i35 = icmp eq ptr %138, null
-  br i1 %.not17.i35, label %._crit_edge.i36, label %109, !llvm.loop !103
+  %.not17.i33 = icmp eq ptr %138, null
+  br i1 %.not17.i33, label %._crit_edge.i34, label %109, !llvm.loop !103
 
-._crit_edge.i36:                                  ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, %.preheader.i27
+._crit_edge.i34:                                  ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i32, %.preheader.i27
   store i32 1, ptr %2, align 4, !tbaa !19
-  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
+  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, %115
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i38, %115
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %110, ptr %139, align 8, !tbaa !64
-  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
+  br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread: ; preds = %._crit_edge.i36, %100, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42, %70, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %92, %3
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41.thread: ; preds = %._crit_edge.i34, %100, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit41, %70, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %92, %3
   ret void
 
 140:                                              ; preds = %97, %69
@@ -6222,9 +6216,8 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
 
 38:                                               ; preds = %32
   %39 = load i16, ptr %20, align 8, !tbaa !55
-  %40 = and i16 %39, 1
-  %.not77 = icmp eq i16 %40, 0
-  br i1 %.not77, label %..thread_crit_edge, label %.loopexit.sink.split
+  %40 = trunc i16 %39 to i1
+  br i1 %40, label %.loopexit.sink.split, label %..thread_crit_edge
 
 41:                                               ; preds = %32
   %42 = icmp slt i16 %36, 0
@@ -6254,9 +6247,9 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
           to label %61 unwind label %127
 
 61:                                               ; preds = %56
-  %.not78 = icmp eq i8 %60, 0
+  %.not77 = icmp eq i8 %60, 0
   %.pre64.pre = load ptr, ptr %.053, align 8, !tbaa !96
-  br i1 %.not78, label %..thread_crit_edge, label %.loopexit.sink.split
+  br i1 %.not77, label %..thread_crit_edge, label %.loopexit.sink.split
 
 ..thread_crit_edge:                               ; preds = %38, %61
   %.pre6471 = phi ptr [ %33, %38 ], [ %.pre64.pre, %61 ]
@@ -6274,9 +6267,8 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
 
 66:                                               ; preds = %.thread
   %67 = load i16, ptr %24, align 8, !tbaa !55
-  %68 = and i16 %67, 1
-  %.not79 = icmp eq i16 %68, 0
-  br i1 %.not79, label %..thread44_crit_edge, label %.loopexit.sink.split
+  %68 = trunc i16 %67 to i1
+  br i1 %68, label %.loopexit.sink.split, label %..thread44_crit_edge
 
 69:                                               ; preds = %.thread
   %70 = icmp slt i16 %62, 0
@@ -6306,9 +6298,9 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
           to label %89 unwind label %127
 
 89:                                               ; preds = %84
-  %.not80 = icmp eq i8 %88, 0
+  %.not78 = icmp eq i8 %88, 0
   %.pre63.pre = load ptr, ptr %.053, align 8, !tbaa !96
-  br i1 %.not80, label %..thread44_crit_edge, label %.loopexit.sink.split
+  br i1 %.not78, label %..thread44_crit_edge, label %.loopexit.sink.split
 
 ..thread44_crit_edge:                             ; preds = %66, %89
   %.pre6372 = phi ptr [ %63, %66 ], [ %.pre63.pre, %89 ]
@@ -6326,9 +6318,8 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
 
 94:                                               ; preds = %.thread44
   %95 = load i16, ptr %28, align 8, !tbaa !55
-  %96 = and i16 %95, 1
-  %.not81 = icmp eq i16 %96, 0
-  br i1 %.not81, label %.thread47, label %._crit_edge61
+  %96 = trunc i16 %95 to i1
+  br i1 %96, label %._crit_edge61, label %.thread47
 
 97:                                               ; preds = %.thread44
   %98 = icmp slt i16 %90, 0
@@ -6358,8 +6349,8 @@ define void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef
           to label %117 unwind label %127
 
 117:                                              ; preds = %112
-  %.not82 = icmp eq i8 %116, 0
-  br i1 %.not82, label %.thread47, label %._crit_edge61
+  %.not79 = icmp eq i8 %116, 0
+  br i1 %.not79, label %.thread47, label %._crit_edge61
 
 ._crit_edge61:                                    ; preds = %94, %117
   %.pre62 = load ptr, ptr %.053, align 8, !tbaa !96

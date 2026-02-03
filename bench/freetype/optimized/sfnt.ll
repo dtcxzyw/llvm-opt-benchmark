@@ -9843,8 +9843,8 @@ tt_face_load_sbix_image.exit.thread41:            ; preds = %51, %95, %28, %14, 
   %198 = add i32 %161, -8
   %199 = tail call fastcc i32 @Load_SBit_Png(ptr noundef %193, i32 noundef 0, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %6, ptr noundef %195, ptr noundef %197, i32 noundef %198, i8 noundef zeroext 1, i8 noundef zeroext range(i8 0, 2) %102)
   %200 = icmp eq i8 %.0127171.i, 0
-  %201 = icmp ne i8 %102, 0
-  %or.cond.i = or i1 %201, %200
+  %201 = trunc i32 %100 to i1
+  %or.cond.i = or i1 %200, %201
   %202 = icmp ne i32 %199, 0
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %202
   br i1 %or.cond3.i, label %218, label %203

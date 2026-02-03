@@ -2954,7 +2954,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC13isZeroFPIdiomERKNS_6M
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC18isExynosScaledAddrERKNS_6MCInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %2, label %16 [
+  switch i32 %2, label %15 [
     i32 5442, label %3
     i32 5443, label %3
     i32 4796, label %3
@@ -3014,19 +3014,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC18isExynosScaledAddrERK
   %9 = lshr i32 %8, 1
   %10 = and i32 %9, 7
   switch i32 %10, label %11 [
-    i32 6, label %16
-    i32 2, label %16
+    i32 6, label %15
+    i32 2, label %15
   ]
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %13 = load i64, ptr %12, align 8, !tbaa !18
-  %14 = and i64 %13, 1
-  %15 = icmp ne i64 %14, 0
-  br label %16
+  %14 = trunc i64 %13 to i1
+  br label %15
 
-16:                                               ; preds = %3, %3, %1, %11
-  %.0 = phi i1 [ %15, %11 ], [ true, %3 ], [ true, %3 ], [ false, %1 ]
+15:                                               ; preds = %3, %3, %1, %11
+  %.0 = phi i1 [ %14, %11 ], [ true, %3 ], [ true, %3 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -3166,7 +3165,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC13hasShiftedRegERKNS_6M
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC12isScaledAddrERKNS_6MCInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %2, label %14 [
+  switch i32 %2, label %13 [
     i32 5442, label %3
     i32 5443, label %3
     i32 4796, label %3
@@ -3224,17 +3223,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC12isScaledAddrERKNS_6MC
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = and i64 %7, 14
   %.not = icmp eq i64 %8, 6
-  br i1 %.not, label %9, label %14
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load i64, ptr %10, align 8, !tbaa !18
-  %12 = and i64 %11, 1
-  %13 = icmp ne i64 %12, 0
-  br label %14
+  %12 = trunc i64 %11 to i1
+  br label %13
 
-14:                                               ; preds = %1, %3, %9
-  %.0 = phi i1 [ %13, %9 ], [ true, %3 ], [ false, %1 ]
+13:                                               ; preds = %1, %3, %9
+  %.0 = phi i1 [ %12, %9 ], [ true, %3 ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -13416,30 +13414,30 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm25AArch64GenMCSubtargetI
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(304) %0) #20
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %14, label %7
+  br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  switch i32 %1, label %13 [
+  switch i32 %1, label %12 [
     i32 0, label %8
-    i32 1, label %14
+    i32 1, label %13
     i32 2, label %11
-    i32 3, label %14
+    i32 3, label %13
   ]
 
 8:                                                ; preds = %7
   %9 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6, i1 true)
   %10 = add nuw nsw i32 %9, 1
-  br label %14
+  br label %13
 
 11:                                               ; preds = %7
-  %12 = and i32 %6, 1
-  br label %14
+  %spec.select = and i32 %6, 1
+  br label %13
 
-13:                                               ; preds = %7
+12:                                               ; preds = %7
   unreachable
 
-14:                                               ; preds = %11, %7, %7, %2, %8
-  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ], [ 0, %2 ], [ 0, %7 ], [ 0, %7 ]
+13:                                               ; preds = %11, %7, %7, %2, %8
+  %.0 = phi i32 [ %10, %8 ], [ %spec.select, %11 ], [ 0, %2 ], [ 0, %7 ], [ 0, %7 ]
   ret i32 %.0
 }
 

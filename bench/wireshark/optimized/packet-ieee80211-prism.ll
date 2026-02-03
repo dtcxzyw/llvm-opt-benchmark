@@ -196,7 +196,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %12 = load ptr, ptr @wlancap_handle, align 8
   %13 = tail call i32 @call_dissector(ptr noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %420
+  br label %419
 
 15:                                               ; preds = %4
   switch i32 %9, label %16 [
@@ -216,7 +216,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = load ptr, ptr @ieee80211_handle, align 8
   %20 = tail call i32 @call_dissector(ptr noundef %19, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %21 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %420
+  br label %419
 
 22:                                               ; preds = %16, %16, %15, %15
   %.0306 = phi i32 [ 0, %15 ], [ 0, %15 ], [ -2147483648, %16 ], [ -2147483648, %16 ]
@@ -878,18 +878,18 @@ prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %2
   %396 = load i16, ptr %54, align 8
   %397 = and i16 %396, 4
   %.not = icmp eq i16 %397, 0
-  br i1 %.not, label %415, label %398
+  br i1 %.not, label %414, label %398
 
 398:                                              ; preds = %395
   %399 = load i32, ptr %23, align 8
-  switch i32 %399, label %415 [
+  switch i32 %399, label %414 [
     i32 0, label %400
     i32 5, label %407
   ]
 
 400:                                              ; preds = %398
   %401 = load i16, ptr %55, align 8
-  switch i16 %401, label %415 [
+  switch i16 %401, label %414 [
     i16 66, label %.sink.split
     i16 44, label %.sink.split
     i16 22, label %.sink.split
@@ -909,7 +909,7 @@ prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %2
 402:                                              ; preds = %400, %400, %400, %400, %400, %400, %400, %400
   %403 = and i16 %396, 1
   %.not314 = icmp eq i16 %403, 0
-  br i1 %.not314, label %415, label %404
+  br i1 %.not314, label %414, label %404
 
 404:                                              ; preds = %402
   %405 = load i16, ptr %57, align 2
@@ -918,20 +918,19 @@ prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %2
   br label %.sink.split
 
 407:                                              ; preds = %398
-  %408 = and i16 %396, 1
-  %409 = icmp ne i16 %408, 0
-  %410 = load i16, ptr %57, align 2
-  %411 = icmp ult i16 %410, 15
-  %or.cond81 = select i1 %409, i1 %411, i1 false
-  br i1 %or.cond81, label %412, label %413
+  %408 = trunc i16 %396 to i1
+  %409 = load i16, ptr %57, align 2
+  %410 = icmp ult i16 %409, 15
+  %or.cond81 = select i1 %408, i1 %410, i1 false
+  br i1 %or.cond81, label %411, label %412
 
-412:                                              ; preds = %407
+411:                                              ; preds = %407
   store i32 6, ptr %23, align 8
-  br label %413
+  br label %412
 
-413:                                              ; preds = %412, %407
-  %414 = load i16, ptr %55, align 8
-  switch i16 %414, label %415 [
+412:                                              ; preds = %411, %407
+  %413 = load i16, ptr %55, align 8
+  switch i16 %413, label %414 [
     i16 66, label %.sink.split
     i16 44, label %.sink.split
     i16 22, label %.sink.split
@@ -940,20 +939,20 @@ prism_rate_return_sig.exit:                       ; preds = %163, %171, %187, %2
     i16 2, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %413, %413, %413, %413, %413, %413, %404, %400, %400, %400, %400, %400, %400
-  %.sink = phi i32 [ %., %404 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ], [ 4, %413 ]
+.sink.split:                                      ; preds = %412, %412, %412, %412, %412, %412, %404, %400, %400, %400, %400, %400, %400
+  %.sink = phi i32 [ %., %404 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %400 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ], [ 4, %412 ]
   store i32 %.sink, ptr %23, align 8
-  br label %415
+  br label %414
 
-415:                                              ; preds = %.sink.split, %400, %413, %398, %402, %395
-  %416 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 144)
-  %417 = load ptr, ptr @ieee80211_radio_handle, align 8
-  %418 = call i32 @call_dissector_with_data(ptr noundef %417, ptr noundef %416, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
-  %419 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %420
+414:                                              ; preds = %.sink.split, %400, %412, %398, %402, %395
+  %415 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 144)
+  %416 = load ptr, ptr @ieee80211_radio_handle, align 8
+  %417 = call i32 @call_dissector_with_data(ptr noundef %416, ptr noundef %415, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %418 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %419
 
-420:                                              ; preds = %415, %18, %11
-  %.0 = phi i32 [ %14, %11 ], [ %419, %415 ], [ %21, %18 ]
+419:                                              ; preds = %414, %18, %11
+  %.0 = phi i32 [ %14, %11 ], [ %418, %414 ], [ %21, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -186,11 +186,11 @@ define hidden noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull readonly alig
 
 5:                                                ; preds = %1
   %6 = and i64 %3, 4
-  %.not9.i = icmp eq i64 %6, 0
+  %.not8.i = icmp eq i64 %6, 0
   %7 = lshr i64 %3, 1
   %8 = and i64 %7, 9223372036854775804
   %9 = inttoptr i64 %8 to ptr
-  br i1 %.not9.i, label %22, label %10
+  br i1 %.not8.i, label %22, label %10
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %9, align 4
@@ -211,12 +211,11 @@ define hidden noundef ptr @_ZNK4Edge7pointeeEv(ptr noundef nonnull readonly alig
   br label %_ZNK13UnifiedOopRef11dereferenceEv.exit
 
 24:                                               ; preds = %1
-  %25 = and i64 %3, 1
-  %.not6.i = icmp eq i64 %25, 0
+  %25 = trunc i64 %3 to i1
   %26 = and i64 %3, 4
   %.not7.i = icmp eq i64 %26, 0
   %27 = lshr i64 %3, 1
-  br i1 %.not6.i, label %38, label %28
+  br i1 %25, label %28, label %38
 
 28:                                               ; preds = %24
   br i1 %.not7.i, label %34, label %29
@@ -270,11 +269,11 @@ define hidden noundef ptr @_ZNK4Edge15reference_ownerEv(ptr noundef nonnull read
 
 8:                                                ; preds = %4
   %9 = and i64 %6, 4
-  %.not9.i.i = icmp eq i64 %9, 0
+  %.not8.i.i = icmp eq i64 %9, 0
   %10 = lshr i64 %6, 1
   %11 = and i64 %10, 9223372036854775804
   %12 = inttoptr i64 %11 to ptr
-  br i1 %.not9.i.i, label %25, label %13
+  br i1 %.not8.i.i, label %25, label %13
 
 13:                                               ; preds = %8
   %14 = load i32, ptr %12, align 4
@@ -295,12 +294,11 @@ define hidden noundef ptr @_ZNK4Edge15reference_ownerEv(ptr noundef nonnull read
   br label %_ZNK4Edge7pointeeEv.exit
 
 27:                                               ; preds = %4
-  %28 = and i64 %6, 1
-  %.not6.i.i = icmp eq i64 %28, 0
+  %28 = trunc i64 %6 to i1
   %29 = and i64 %6, 4
   %.not7.i.i = icmp eq i64 %29, 0
   %30 = lshr i64 %6, 1
-  br i1 %.not6.i.i, label %41, label %31
+  br i1 %28, label %31, label %41
 
 31:                                               ; preds = %27
   br i1 %.not7.i.i, label %37, label %32
@@ -650,9 +648,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -686,8 +683,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

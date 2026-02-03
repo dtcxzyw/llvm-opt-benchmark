@@ -80,9 +80,8 @@ declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp19CalcTangentsProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #2 align 2 {
-  %3 = and i32 %1, 1
-  %4 = icmp ne i32 %3, 0
-  ret i1 %4
+  %3 = trunc i32 %1 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable

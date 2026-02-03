@@ -1122,9 +1122,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfNotice4SendINS_9TfWeakPtrINS_8SdfLayerE
   %65 = and i64 %62, -8
   %66 = inttoptr i64 %65 to ptr
   %67 = atomicrmw add ptr %66, i32 2 monotonic, align 4
-  %68 = and i32 %67, 1
-  %.not1.i.i.i = icmp eq i32 %68, 0
-  br i1 %.not1.i.i.i, label %69, label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfNotice18LayerInfoDidChangeC2ERKNS_7TfTokenE.exit
+  %68 = trunc i32 %67 to i1
+  br i1 %68, label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfNotice18LayerInfoDidChangeC2ERKNS_7TfTokenE.exit, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %60, align 8
@@ -5930,9 +5929,8 @@ select.unfold:                                    ; preds = %33, %._crit_edge.th
   %52 = and i64 %46, -8
   %53 = inttoptr i64 %52 to ptr
   %54 = atomicrmw add ptr %53, i32 2 monotonic, align 4
-  %55 = and i32 %54, 1
-  %.not1.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i, label %56, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ENS0_28TfTokenFastArbitraryLessThanESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
+  %55 = trunc i32 %54 to i1
+  br i1 %55, label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_ENS0_28TfTokenFastArbitraryLessThanESaIS1_EE10_M_insert_IRKS1_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i, label %56
 
 56:                                               ; preds = %51
   store ptr %53, ptr %49, align 8

@@ -424,410 +424,408 @@ define noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3L
           to label %.noexc160 unwind label %.loopexit198
 
 .noexc160:                                        ; preds = %31
-  %34 = and i32 %33, 1
-  %.not25.not.i = icmp eq i32 %34, 0
-  br i1 %.not25.not.i, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread, label %.preheader.i, !llvm.loop !55
+  %.not25.i = trunc i32 %33 to i1
+  br i1 %.not25.i, label %.preheader.i, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread, !llvm.loop !55
 
 _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit: ; preds = %.noexc
-  %35 = icmp sgt i32 %3, 1
-  br i1 %35, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread
+  %34 = icmp sgt i32 %3, 1
+  br i1 %34, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread
 
 _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread: ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit
-  %36 = load i32, ptr %18, align 8, !tbaa !31
-  %37 = add nsw i32 %36, 2
-  %38 = zext i32 %37 to i64
-  %39 = shl i64 %38, 59
-  %40 = load ptr, ptr %15, align 8, !tbaa !30
-  %41 = load ptr, ptr %12, align 8, !tbaa !29
+  %35 = load i32, ptr %18, align 8, !tbaa !31
+  %36 = add nsw i32 %35, 2
+  %37 = zext i32 %36 to i64
+  %38 = shl i64 %37, 59
+  %39 = load ptr, ptr %15, align 8, !tbaa !30
+  %40 = load ptr, ptr %12, align 8, !tbaa !29
+  %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = or i64 %44, %39
+  %43 = sub i64 %41, %42
+  %44 = or i64 %43, %38
   br label %.lr.ph
 
 _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread: ; preds = %.noexc160, %.noexc, %7, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit
-  %46 = phi i1 [ false, %.noexc ], [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ false, %7 ], [ false, %.noexc160 ]
+  %45 = phi i1 [ false, %.noexc ], [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ false, %7 ], [ false, %.noexc160 ]
   %.017.i178 = phi i32 [ -1, %.noexc ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ], [ -1, %7 ], [ -1, %.noexc160 ]
   %.not156225 = icmp sgt i32 %3, 0
   br i1 %.not156225, label %.lr.ph, label %.thread192.thread
 
 .lr.ph:                                           ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread
-  %47 = phi i64 [ %45, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
+  %46 = phi i64 [ %44, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
   %.017.i178255 = phi i32 [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ %.017.i178, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
-  %48 = phi i1 [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ %46, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
-  %49 = lshr i64 %47, 59
-  %50 = trunc nuw nsw i64 %49 to i32
-  %51 = add nsw i32 %50, -2
-  %52 = and i64 %47, 576460752303423487
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %54 = icmp eq i32 %5, 1
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %47 = phi i1 [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ %45, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
+  %48 = lshr i64 %46, 59
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = add nsw i32 %49, -2
+  %51 = and i64 %46, 576460752303423487
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %53 = icmp eq i32 %5, 1
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.not149 = icmp eq i32 %6, 1
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %64
+  br label %63
 
 .loopexit198:                                     ; preds = %31
   %lpad.loopexit200 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
 .loopexit.split-lp199:                            ; preds = %26
   %lpad.loopexit.split-lp201 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
-64:                                               ; preds = %.lr.ph, %.thread
+63:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0102229 = phi i32 [ %4, %.lr.ph ], [ %.2104.ph, %.thread ]
   %.0126227 = phi i32 [ -1, %.lr.ph ], [ %.1127.ph, %.thread ]
   %.0131226 = phi i32 [ -1, %.lr.ph ], [ %.2133.ph, %.thread ]
-  %65 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8, !tbaa !52
-  br i1 %48, label %67, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
+  %64 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %65 = load ptr, ptr %64, align 8, !tbaa !52
+  br i1 %47, label %66, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
 
-67:                                               ; preds = %64
+66:                                               ; preds = %63
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %71, label %68
+  br i1 %.not, label %70, label %67
 
-68:                                               ; preds = %67
-  store i32 %51, ptr %18, align 8, !tbaa !31
-  %69 = load ptr, ptr %12, align 8, !tbaa !29
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %52
-  store ptr %70, ptr %15, align 8, !tbaa !30
-  br label %71
+67:                                               ; preds = %66
+  store i32 %50, ptr %18, align 8, !tbaa !31
+  %68 = load ptr, ptr %12, align 8, !tbaa !29
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %51
+  store ptr %69, ptr %15, align 8, !tbaa !30
+  br label %70
 
-.loopexit:                                        ; preds = %91
+.loopexit:                                        ; preds = %90
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
-.loopexit.split-lp:                               ; preds = %77, %82
+.loopexit.split-lp:                               ; preds = %76, %81
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
-71:                                               ; preds = %68, %67
-  %72 = load ptr, ptr %66, align 8, !tbaa !44
-  %73 = load i8, ptr %72, align 1, !tbaa !54
-  %74 = icmp eq i8 %73, 0
-  br i1 %74, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %.preheader.i161
+70:                                               ; preds = %67, %66
+  %71 = load ptr, ptr %65, align 8, !tbaa !44
+  %72 = load i8, ptr %71, align 1, !tbaa !54
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %.preheader.i161
 
-.preheader.i161:                                  ; preds = %71, %.noexc169
-  %.021.i162 = phi i8 [ %76, %.noexc169 ], [ %73, %71 ]
-  %.018.i163 = phi ptr [ %75, %.noexc169 ], [ %72, %71 ]
-  %75 = getelementptr inbounds nuw i8, ptr %.018.i163, i64 1
-  %76 = load i8, ptr %75, align 1, !tbaa !54
-  %.not.i164 = icmp eq i8 %76, 0
-  br i1 %.not.i164, label %77, label %91
+.preheader.i161:                                  ; preds = %70, %.noexc169
+  %.021.i162 = phi i8 [ %75, %.noexc169 ], [ %72, %70 ]
+  %.018.i163 = phi ptr [ %74, %.noexc169 ], [ %71, %70 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.018.i163, i64 1
+  %75 = load i8, ptr %74, align 1, !tbaa !54
+  %.not.i164 = icmp eq i8 %75, 0
+  br i1 %.not.i164, label %76, label %90
 
-77:                                               ; preds = %.preheader.i161
-  %78 = or i8 %.021.i162, -128
-  %79 = zext i8 %78 to i32
-  %80 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %11, i32 noundef %79)
+76:                                               ; preds = %.preheader.i161
+  %77 = or i8 %.021.i162, -128
+  %78 = zext i8 %77 to i32
+  %79 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %11, i32 noundef %78)
           to label %.noexc167 unwind label %.loopexit.split-lp
 
-.noexc167:                                        ; preds = %77
-  %81 = icmp sgt i32 %80, 1
-  br i1 %81, label %82, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread
+.noexc167:                                        ; preds = %76
+  %80 = icmp sgt i32 %79, 1
+  br i1 %80, label %81, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread
 
-82:                                               ; preds = %.noexc167
-  %83 = load ptr, ptr %15, align 8, !tbaa !30
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %85 = load i8, ptr %83, align 1, !tbaa !54
-  %86 = lshr i8 %85, 1
-  %87 = zext nneg i8 %86 to i32
-  %88 = invoke noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %84, i32 noundef %87)
+81:                                               ; preds = %.noexc167
+  %82 = load ptr, ptr %15, align 8, !tbaa !30
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
+  %84 = load i8, ptr %82, align 1, !tbaa !54
+  %85 = lshr i8 %84, 1
+  %86 = zext nneg i8 %85 to i32
+  %87 = invoke noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %83, i32 noundef %86)
           to label %.noexc168 unwind label %.loopexit.split-lp
 
-.noexc168:                                        ; preds = %82
-  %89 = icmp eq i32 %80, 2
-  %90 = or i32 %88, 256
-  %spec.select.i = select i1 %89, i32 %90, i32 %88
+.noexc168:                                        ; preds = %81
+  %88 = icmp eq i32 %79, 2
+  %89 = or i32 %87, 256
+  %spec.select.i = select i1 %88, i32 %89, i32 %87
   br label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
 
-91:                                               ; preds = %.preheader.i161
-  %92 = zext i8 %.021.i162 to i32
-  %93 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %11, i32 noundef %92)
+90:                                               ; preds = %.preheader.i161
+  %91 = zext i8 %.021.i162 to i32
+  %92 = invoke noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %11, i32 noundef %91)
           to label %.noexc169 unwind label %.loopexit
 
-.noexc169:                                        ; preds = %91
-  %94 = and i32 %93, 1
-  %.not25.not.i165 = icmp eq i32 %94, 0
-  br i1 %.not25.not.i165, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %.preheader.i161, !llvm.loop !55
+.noexc169:                                        ; preds = %90
+  %.not25.i165 = trunc i32 %92 to i1
+  br i1 %.not25.i165, label %.preheader.i161, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, !llvm.loop !55
 
-_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170: ; preds = %.noexc168, %64
-  %.0110 = phi i32 [ %.017.i178255, %64 ], [ %spec.select.i, %.noexc168 ]
-  %95 = icmp slt i32 %.0110, 0
-  br i1 %95, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %96
+_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170: ; preds = %.noexc168, %63
+  %.0110 = phi i32 [ %.017.i178255, %63 ], [ %spec.select.i, %.noexc168 ]
+  %93 = icmp slt i32 %.0110, 0
+  br i1 %93, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %94
 
-96:                                               ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
-  %97 = and i32 %.0110, 384
-  %98 = and i32 %.0110, 2147483263
-  br label %104
+94:                                               ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
+  %95 = and i32 %.0110, 384
+  %96 = and i32 %.0110, 2147483263
+  br label %102
 
-_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds = %.noexc169, %.noexc167, %71, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
-  %99 = load ptr, ptr %1, align 8, !tbaa !44
-  %100 = load ptr, ptr %66, align 8, !tbaa !44
-  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(1) %100) #12
-  %102 = icmp eq i32 %101, 0
-  %103 = load i32, ptr %53, align 4
-  %.2112 = select i1 %102, i32 0, i32 %103
-  br label %104
+_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds = %.noexc169, %.noexc167, %70, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
+  %97 = load ptr, ptr %1, align 8, !tbaa !44
+  %98 = load ptr, ptr %65, align 8, !tbaa !44
+  %99 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(1) %98) #12
+  %100 = icmp eq i32 %99, 0
+  %101 = load i32, ptr %52, align 4
+  %.2112 = select i1 %100, i32 0, i32 %101
+  br label %102
 
-104:                                              ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, %96
-  %105 = phi i1 [ false, %96 ], [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread ]
-  %.1111 = phi i32 [ %98, %96 ], [ %.2112, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread ]
-  %.0108 = phi i32 [ %97, %96 ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread ]
-  %106 = add nsw i32 %.0102229, 7
-  %107 = ashr i32 %106, 3
-  %108 = ashr i32 %.1111, 2
-  %spec.select = select i1 %54, i32 %108, i32 %.1111
-  %109 = icmp sgt i32 %spec.select, %107
-  br i1 %109, label %.thread, label %110
+102:                                              ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, %94
+  %103 = phi i1 [ false, %94 ], [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread ]
+  %.1111 = phi i32 [ %96, %94 ], [ %.2112, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread ]
+  %.0108 = phi i32 [ %95, %94 ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread ]
+  %104 = add nsw i32 %.0102229, 7
+  %105 = ashr i32 %104, 3
+  %106 = ashr i32 %.1111, 2
+  %spec.select = select i1 %53, i32 %106, i32 %.1111
+  %107 = icmp sgt i32 %spec.select, %105
+  br i1 %107, label %.thread, label %108
 
-110:                                              ; preds = %104
-  %111 = icmp ne i32 %.0108, 0
-  %or.cond4 = or i1 %105, %111
-  br i1 %or.cond4, label %112, label %119
+108:                                              ; preds = %102
+  %109 = icmp ne i32 %.0108, 0
+  %or.cond4 = or i1 %103, %109
+  br i1 %or.cond4, label %110, label %117
 
-112:                                              ; preds = %110
-  %113 = load ptr, ptr %55, align 8, !tbaa !46
-  %114 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !46
-  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(1) %115) #12
-  %117 = icmp eq i32 %116, 0
-  %118 = load i32, ptr %56, align 8
-  %spec.select231 = select i1 %117, i32 0, i32 %118
-  br label %138
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %54, align 8, !tbaa !46
+  %112 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !46
+  %114 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %113) #12
+  %115 = icmp eq i32 %114, 0
+  %116 = load i32, ptr %55, align 8
+  %spec.select231 = select i1 %115, i32 0, i32 %116
+  br label %136
 
-119:                                              ; preds = %110
-  %120 = load i32, ptr %18, align 8, !tbaa !31
-  %121 = add nsw i32 %120, 2
-  %122 = zext i32 %121 to i64
-  %123 = shl i64 %122, 59
-  %124 = load ptr, ptr %15, align 8, !tbaa !30
-  %125 = load ptr, ptr %12, align 8, !tbaa !29
-  %126 = ptrtoint ptr %124 to i64
-  %127 = ptrtoint ptr %125 to i64
-  %128 = sub i64 %126, %127
-  %129 = or i64 %128, %123
-  %130 = load ptr, ptr %55, align 8, !tbaa !46
-  %131 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !46
-  %133 = invoke noundef i32 @_ZN6icu_7714LocaleDistance24getDesSuppScriptDistanceERNS_9BytesTrieEmPKcS4_(ptr noundef nonnull align 8 dereferenceable(28) %11, i64 noundef %129, ptr noundef %130, ptr noundef %132)
-          to label %134 unwind label %136
+117:                                              ; preds = %108
+  %118 = load i32, ptr %18, align 8, !tbaa !31
+  %119 = add nsw i32 %118, 2
+  %120 = zext i32 %119 to i64
+  %121 = shl i64 %120, 59
+  %122 = load ptr, ptr %15, align 8, !tbaa !30
+  %123 = load ptr, ptr %12, align 8, !tbaa !29
+  %124 = ptrtoint ptr %122 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = or i64 %126, %121
+  %128 = load ptr, ptr %54, align 8, !tbaa !46
+  %129 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !46
+  %131 = invoke noundef i32 @_ZN6icu_7714LocaleDistance24getDesSuppScriptDistanceERNS_9BytesTrieEmPKcS4_(ptr noundef nonnull align 8 dereferenceable(28) %11, i64 noundef %127, ptr noundef %128, ptr noundef %130)
+          to label %132 unwind label %134
 
-134:                                              ; preds = %119
-  %135 = and i32 %133, -257
-  br label %138
+132:                                              ; preds = %117
+  %133 = and i32 %131, -257
+  br label %136
 
-136:                                              ; preds = %119
-  %137 = landingpad { ptr, i32 }
+134:                                              ; preds = %117
+  %135 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
-138:                                              ; preds = %112, %134
-  %.1109.in = phi i32 [ %133, %134 ], [ %.0108, %112 ]
-  %.0101 = phi i32 [ %135, %134 ], [ %spec.select231, %112 ]
+136:                                              ; preds = %110, %132
+  %.1109.in = phi i32 [ %131, %132 ], [ %.0108, %110 ]
+  %.0101 = phi i32 [ %133, %132 ], [ %spec.select231, %110 ]
   %.1109 = and i32 %.1109.in, 256
-  %139 = add nsw i32 %.0101, %spec.select
-  %140 = icmp sgt i32 %139, %107
-  br i1 %140, label %.thread, label %141
+  %137 = add nsw i32 %.0101, %spec.select
+  %138 = icmp sgt i32 %137, %105
+  br i1 %138, label %.thread, label %139
 
-141:                                              ; preds = %138
-  %142 = load ptr, ptr %57, align 8, !tbaa !47
-  %143 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %144 = load ptr, ptr %143, align 8, !tbaa !47
-  %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(1) %144) #12
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %187, label %147
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %56, align 8, !tbaa !47
+  %141 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %142 = load ptr, ptr %141, align 8, !tbaa !47
+  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull dereferenceable(1) %142) #12
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %185, label %145
 
-147:                                              ; preds = %141
+145:                                              ; preds = %139
   %.not147 = icmp ne i32 %.1109, 0
-  %or.cond158.not = or i1 %105, %.not147
-  br i1 %or.cond158.not, label %148, label %151
+  %or.cond158.not = or i1 %103, %.not147
+  br i1 %or.cond158.not, label %146, label %149
 
-148:                                              ; preds = %147
-  %149 = load i32, ptr %62, align 4, !tbaa !42
-  %150 = add nsw i32 %149, %139
-  br label %187
+146:                                              ; preds = %145
+  %147 = load i32, ptr %61, align 4, !tbaa !42
+  %148 = add nsw i32 %147, %137
+  br label %185
 
-151:                                              ; preds = %147
-  %152 = sub nsw i32 %107, %139
-  %153 = load i32, ptr %58, align 8, !tbaa !43
-  %.not148 = icmp sgt i32 %153, %152
-  br i1 %.not148, label %.thread, label %154
+149:                                              ; preds = %145
+  %150 = sub nsw i32 %105, %137
+  %151 = load i32, ptr %57, align 8, !tbaa !43
+  %.not148 = icmp sgt i32 %151, %150
+  br i1 %.not148, label %.thread, label %152
 
-154:                                              ; preds = %151
-  %155 = load i32, ptr %18, align 8, !tbaa !31
-  %156 = add nsw i32 %155, 2
-  %157 = zext i32 %156 to i64
-  %158 = shl i64 %157, 59
-  %159 = load ptr, ptr %15, align 8, !tbaa !30
-  %160 = load ptr, ptr %12, align 8, !tbaa !29
-  %161 = ptrtoint ptr %159 to i64
-  %162 = ptrtoint ptr %160 to i64
-  %163 = sub i64 %161, %162
-  %164 = or i64 %163, %158
-  %165 = load ptr, ptr %59, align 8, !tbaa !32
-  %166 = load i32, ptr %60, align 8, !tbaa !49
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds i8, ptr %165, i64 %167
-  %169 = load i8, ptr %168, align 1, !tbaa !54
-  %170 = load ptr, ptr %61, align 8, !tbaa !34
-  %171 = zext i8 %169 to i64
-  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
-  %173 = load ptr, ptr %172, align 8, !tbaa !57
-  %174 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %175 = load i32, ptr %174, align 8, !tbaa !49
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds i8, ptr %165, i64 %176
-  %178 = load i8, ptr %177, align 1, !tbaa !54
-  %179 = zext i8 %178 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %170, i64 %179
-  %181 = load ptr, ptr %180, align 8, !tbaa !57
-  %182 = invoke noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_9BytesTrieEmPKcS4_i(ptr noundef nonnull align 8 dereferenceable(28) %11, i64 noundef %164, ptr noundef %173, ptr noundef %181, i32 noundef %152)
-          to label %183 unwind label %185
+152:                                              ; preds = %149
+  %153 = load i32, ptr %18, align 8, !tbaa !31
+  %154 = add nsw i32 %153, 2
+  %155 = zext i32 %154 to i64
+  %156 = shl i64 %155, 59
+  %157 = load ptr, ptr %15, align 8, !tbaa !30
+  %158 = load ptr, ptr %12, align 8, !tbaa !29
+  %159 = ptrtoint ptr %157 to i64
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = or i64 %161, %156
+  %163 = load ptr, ptr %58, align 8, !tbaa !32
+  %164 = load i32, ptr %59, align 8, !tbaa !49
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds i8, ptr %163, i64 %165
+  %167 = load i8, ptr %166, align 1, !tbaa !54
+  %168 = load ptr, ptr %60, align 8, !tbaa !34
+  %169 = zext i8 %167 to i64
+  %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %169
+  %171 = load ptr, ptr %170, align 8, !tbaa !57
+  %172 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %173 = load i32, ptr %172, align 8, !tbaa !49
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds i8, ptr %163, i64 %174
+  %176 = load i8, ptr %175, align 1, !tbaa !54
+  %177 = zext i8 %176 to i64
+  %178 = getelementptr inbounds nuw ptr, ptr %168, i64 %177
+  %179 = load ptr, ptr %178, align 8, !tbaa !57
+  %180 = invoke noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_9BytesTrieEmPKcS4_i(ptr noundef nonnull align 8 dereferenceable(28) %11, i64 noundef %162, ptr noundef %171, ptr noundef %179, i32 noundef %150)
+          to label %181 unwind label %183
 
-183:                                              ; preds = %154
-  %184 = add nsw i32 %182, %139
-  br label %187
+181:                                              ; preds = %152
+  %182 = add nsw i32 %180, %137
+  br label %185
 
-185:                                              ; preds = %154
-  %186 = landingpad { ptr, i32 }
+183:                                              ; preds = %152
+  %184 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
-187:                                              ; preds = %183, %148, %141
-  %.4114 = phi i32 [ %139, %141 ], [ %150, %148 ], [ %184, %183 ]
-  %188 = shl i32 %.4114, 3
-  %189 = icmp eq i32 %188, 0
-  %190 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %189, label %191, label %206
+185:                                              ; preds = %181, %146, %139
+  %.4114 = phi i32 [ %137, %139 ], [ %148, %146 ], [ %182, %181 ]
+  %186 = shl i32 %.4114, 3
+  %187 = icmp eq i32 %186, 0
+  %188 = trunc nuw nsw i64 %indvars.iv to i32
+  br i1 %187, label %189, label %204
 
-191:                                              ; preds = %187
-  %192 = load i32, ptr %63, align 4, !tbaa !50
-  %193 = getelementptr inbounds nuw i8, ptr %66, i64 36
-  %194 = load i32, ptr %193, align 4, !tbaa !50
-  %195 = xor i32 %194, %192
-  %196 = icmp slt i32 %195, %.0102229
-  br i1 %196, label %197, label %.thread
+189:                                              ; preds = %185
+  %190 = load i32, ptr %62, align 4, !tbaa !50
+  %191 = getelementptr inbounds nuw i8, ptr %65, i64 36
+  %192 = load i32, ptr %191, align 4, !tbaa !50
+  %193 = xor i32 %192, %190
+  %194 = icmp slt i32 %193, %.0102229
+  br i1 %194, label %195, label %.thread
 
-197:                                              ; preds = %191
-  br i1 %.not149, label %198, label %202
+195:                                              ; preds = %189
+  br i1 %.not149, label %196, label %200
 
-198:                                              ; preds = %197
+196:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8, !tbaa !52
-  %199 = invoke noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull %10, i32 noundef 1, i32 noundef %.0102229, i32 noundef %5, i32 noundef 0)
-          to label %200 unwind label %204
+  %197 = invoke noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull %10, i32 noundef 1, i32 noundef %.0102229, i32 noundef %5, i32 noundef 0)
+          to label %198 unwind label %202
 
-200:                                              ; preds = %198
-  %201 = icmp sgt i32 %199, -1
+198:                                              ; preds = %196
+  %199 = icmp sgt i32 %197, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %201, label %202, label %.thread
+  br i1 %199, label %200, label %.thread
 
-202:                                              ; preds = %200, %197
-  %203 = icmp eq i32 %192, %194
-  br i1 %203, label %230, label %.thread
+200:                                              ; preds = %198, %195
+  %201 = icmp eq i32 %190, %192
+  br i1 %201, label %228, label %.thread
 
-204:                                              ; preds = %218, %209, %198, %222
-  %205 = landingpad { ptr, i32 }
+202:                                              ; preds = %216, %207, %196, %220
+  %203 = landingpad { ptr, i32 }
           cleanup
-  br label %236
+  br label %234
 
-206:                                              ; preds = %187
-  %207 = icmp slt i32 %188, %.0102229
-  br i1 %207, label %208, label %214
+204:                                              ; preds = %185
+  %205 = icmp slt i32 %186, %.0102229
+  br i1 %205, label %206, label %212
 
-208:                                              ; preds = %206
-  br i1 %.not149, label %209, label %213
+206:                                              ; preds = %204
+  br i1 %.not149, label %207, label %211
 
-209:                                              ; preds = %208
+207:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !52
-  %210 = invoke noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull %9, i32 noundef 1, i32 noundef %.0102229, i32 noundef %5, i32 noundef 0)
-          to label %211 unwind label %204
+  %208 = invoke noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull %9, i32 noundef 1, i32 noundef %.0102229, i32 noundef %5, i32 noundef 0)
+          to label %209 unwind label %202
 
-211:                                              ; preds = %209
-  %212 = icmp sgt i32 %210, -1
+209:                                              ; preds = %207
+  %210 = icmp sgt i32 %208, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %212, label %213, label %.thread
+  br i1 %210, label %211, label %.thread
 
-213:                                              ; preds = %211, %208
+211:                                              ; preds = %209, %206
   br label %.thread
 
-214:                                              ; preds = %206
-  %215 = icmp eq i32 %188, %.0102229
-  %216 = icmp sgt i32 %.0131226, -1
-  %or.cond6 = select i1 %215, i1 %216, i1 false
-  br i1 %or.cond6, label %217, label %.thread
+212:                                              ; preds = %204
+  %213 = icmp eq i32 %186, %.0102229
+  %214 = icmp sgt i32 %.0131226, -1
+  %or.cond6 = select i1 %213, i1 %214, i1 false
+  br i1 %or.cond6, label %215, label %.thread
 
-217:                                              ; preds = %214
-  br i1 %.not149, label %218, label %222
+215:                                              ; preds = %212
+  br i1 %.not149, label %216, label %220
 
-218:                                              ; preds = %217
+216:                                              ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !52
-  %219 = invoke noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull %8, i32 noundef 1, i32 noundef %.0102229, i32 noundef %5, i32 noundef 0)
-          to label %220 unwind label %204
+  %217 = invoke noundef i32 @_ZNK6icu_7714LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull %8, i32 noundef 1, i32 noundef %.0102229, i32 noundef %5, i32 noundef 0)
+          to label %218 unwind label %202
 
-220:                                              ; preds = %218
-  %221 = icmp sgt i32 %219, -1
+218:                                              ; preds = %216
+  %219 = icmp sgt i32 %217, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %221, label %222, label %.thread
+  br i1 %219, label %220, label %.thread
 
-222:                                              ; preds = %220, %217
-  %223 = load ptr, ptr %0, align 8, !tbaa !58
-  %224 = zext nneg i32 %.0131226 to i64
-  %225 = getelementptr inbounds nuw ptr, ptr %2, i64 %224
-  %226 = load ptr, ptr %225, align 8, !tbaa !52
-  %227 = invoke noundef i32 @_ZNK6icu_7713LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr noundef nonnull align 8 dereferenceable(352) %223, ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %226, i32 noundef %.0126227)
-          to label %228 unwind label %204
+220:                                              ; preds = %218, %215
+  %221 = load ptr, ptr %0, align 8, !tbaa !58
+  %222 = zext nneg i32 %.0131226 to i64
+  %223 = getelementptr inbounds nuw ptr, ptr %2, i64 %222
+  %224 = load ptr, ptr %223, align 8, !tbaa !52
+  %225 = invoke noundef i32 @_ZNK6icu_7713LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr noundef nonnull align 8 dereferenceable(352) %221, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %224, i32 noundef %.0126227)
+          to label %226 unwind label %202
 
-228:                                              ; preds = %222
-  %229 = and i32 %227, 1
-  %.not150 = icmp eq i32 %229, 0
-  %spec.select159 = select i1 %.not150, i32 %.0131226, i32 %190
+226:                                              ; preds = %220
+  %227 = and i32 %225, 1
+  %.not150 = icmp eq i32 %227, 0
+  %spec.select159 = select i1 %.not150, i32 %.0131226, i32 %188
   br label %.thread
 
-.thread:                                          ; preds = %151, %104, %138, %200, %202, %213, %211, %220, %228, %214, %191
-  %.2133.ph = phi i32 [ %.0131226, %220 ], [ %spec.select159, %228 ], [ %190, %202 ], [ %.0131226, %211 ], [ %190, %213 ], [ %.0131226, %191 ], [ %.0131226, %200 ], [ %.0131226, %214 ], [ %.0131226, %138 ], [ %.0131226, %104 ], [ %.0131226, %151 ]
-  %.1127.ph = phi i32 [ %.0126227, %220 ], [ %227, %228 ], [ -1, %202 ], [ %.0126227, %211 ], [ -1, %213 ], [ %.0126227, %191 ], [ %.0126227, %200 ], [ %.0126227, %214 ], [ %.0126227, %138 ], [ %.0126227, %104 ], [ %.0126227, %151 ]
-  %.2104.ph = phi i32 [ %.0102229, %220 ], [ %.0102229, %228 ], [ %195, %202 ], [ %.0102229, %211 ], [ %188, %213 ], [ %.0102229, %191 ], [ %.0102229, %200 ], [ %.0102229, %214 ], [ %.0102229, %138 ], [ %.0102229, %104 ], [ %.0102229, %151 ]
+.thread:                                          ; preds = %149, %102, %136, %198, %200, %211, %209, %218, %226, %212, %189
+  %.2133.ph = phi i32 [ %.0131226, %218 ], [ %spec.select159, %226 ], [ %188, %200 ], [ %.0131226, %209 ], [ %188, %211 ], [ %.0131226, %189 ], [ %.0131226, %198 ], [ %.0131226, %212 ], [ %.0131226, %136 ], [ %.0131226, %102 ], [ %.0131226, %149 ]
+  %.1127.ph = phi i32 [ %.0126227, %218 ], [ %225, %226 ], [ -1, %200 ], [ %.0126227, %209 ], [ -1, %211 ], [ %.0126227, %189 ], [ %.0126227, %198 ], [ %.0126227, %212 ], [ %.0126227, %136 ], [ %.0126227, %102 ], [ %.0126227, %149 ]
+  %.2104.ph = phi i32 [ %.0102229, %218 ], [ %.0102229, %226 ], [ %193, %200 ], [ %.0102229, %209 ], [ %186, %211 ], [ %.0102229, %189 ], [ %.0102229, %198 ], [ %.0102229, %212 ], [ %.0102229, %136 ], [ %.0102229, %102 ], [ %.0102229, %149 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread192, label %64, !llvm.loop !59
+  br i1 %exitcond.not, label %.thread192, label %63, !llvm.loop !59
 
-230:                                              ; preds = %202
-  %231 = shl i32 %190, 10
+228:                                              ; preds = %200
+  %229 = shl i32 %188, 10
   br label %.thread192.thread
 
 .thread192:                                       ; preds = %.thread
-  %232 = icmp sgt i32 %.2133.ph, -1
-  br i1 %232, label %233, label %.thread192.thread
+  %230 = icmp sgt i32 %.2133.ph, -1
+  br i1 %230, label %231, label %.thread192.thread
 
-233:                                              ; preds = %.thread192
-  %234 = shl i32 %.2133.ph, 10
-  %235 = or i32 %.2104.ph, %234
+231:                                              ; preds = %.thread192
+  %232 = shl i32 %.2133.ph, 10
+  %233 = or i32 %.2104.ph, %232
   br label %.thread192.thread
 
-.thread192.thread:                                ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread, %230, %.thread192, %233
-  %.5 = phi i32 [ %231, %230 ], [ %235, %233 ], [ -224, %.thread192 ], [ -224, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
+.thread192.thread:                                ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread, %228, %.thread192, %231
+  %.5 = phi i32 [ %229, %228 ], [ %233, %231 ], [ -224, %.thread192 ], [ -224, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %11) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.5
 
-236:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit198, %.loopexit.split-lp199, %204, %185, %136
-  %.pn.pn.pn = phi { ptr, i32 } [ %137, %136 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ], [ %205, %204 ], [ %186, %185 ], [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+234:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit198, %.loopexit.split-lp199, %202, %183, %134
+  %.pn.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp199 ], [ %203, %202 ], [ %184, %183 ], [ %lpad.loopexit200, %.loopexit198 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_779BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %11) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %.pn.pn.pn
@@ -906,9 +904,8 @@ define noundef i32 @_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb(ptr 
 27:                                               ; preds = %.preheader
   %28 = zext i8 %.021 to i32
   %29 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %28)
-  %30 = and i32 %29, 1
-  %.not25.not = icmp eq i32 %30, 0
-  br i1 %.not25.not, label %.thread, label %.preheader, !llvm.loop !55
+  %.not25 = trunc i32 %29 to i1
+  br i1 %.not25, label %.preheader, label %.thread, !llvm.loop !55
 
 .thread:                                          ; preds = %27, %26, %24, %14, %3
   %.017 = phi i32 [ 0, %24 ], [ -1, %3 ], [ -1, %26 ], [ %spec.select, %14 ], [ -1, %27 ]
@@ -943,86 +940,84 @@ define noundef i32 @_ZN6icu_7714LocaleDistance24getDesSuppScriptDistanceERNS_9By
 14:                                               ; preds = %.preheader.i
   %15 = zext i8 %.021.i to i32
   %16 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %15)
-  %17 = and i32 %16, 1
-  %.not25.not.i = icmp eq i32 %17, 0
-  br i1 %.not25.not.i, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, label %.preheader.i, !llvm.loop !55
+  %.not25.i = trunc i32 %16 to i1
+  br i1 %.not25.i, label %.preheader.i, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, !llvm.loop !55
 
 _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit: ; preds = %9
-  %18 = load i8, ptr %3, align 1, !tbaa !54
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, label %.preheader.i14
+  %17 = load i8, ptr %3, align 1, !tbaa !54
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, label %.preheader.i14
 
-.preheader.i14:                                   ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit, %27
-  %.021.i15 = phi i8 [ %21, %27 ], [ %18, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ]
-  %.018.i16 = phi ptr [ %20, %27 ], [ %3, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ]
-  %20 = getelementptr inbounds nuw i8, ptr %.018.i16, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !54
-  %.not.i17 = icmp eq i8 %21, 0
-  br i1 %.not.i17, label %22, label %27
+.preheader.i14:                                   ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit, %26
+  %.021.i15 = phi i8 [ %20, %26 ], [ %17, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ]
+  %.018.i16 = phi ptr [ %19, %26 ], [ %3, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit ]
+  %19 = getelementptr inbounds nuw i8, ptr %.018.i16, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !54
+  %.not.i17 = icmp eq i8 %20, 0
+  br i1 %.not.i17, label %21, label %26
 
-22:                                               ; preds = %.preheader.i14
-  %23 = or i8 %.021.i15, -128
-  %24 = zext i8 %23 to i32
-  %25 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %24)
-  %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread
+21:                                               ; preds = %.preheader.i14
+  %22 = or i8 %.021.i15, -128
+  %23 = zext i8 %22 to i32
+  %24 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %23)
+  %25 = icmp sgt i32 %24, 1
+  br i1 %25, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread
 
-27:                                               ; preds = %.preheader.i14
-  %28 = zext i8 %.021.i15 to i32
-  %29 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %28)
-  %30 = and i32 %29, 1
-  %.not25.not.i18 = icmp eq i32 %30, 0
-  br i1 %.not25.not.i18, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, label %.preheader.i14, !llvm.loop !55
+26:                                               ; preds = %.preheader.i14
+  %27 = zext i8 %.021.i15 to i32
+  %28 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef %27)
+  %.not25.i18 = trunc i32 %28 to i1
+  br i1 %.not25.i18, label %.preheader.i14, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, !llvm.loop !55
 
-_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20: ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !30
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %34 = load i8, ptr %32, align 1, !tbaa !54
-  %35 = lshr i8 %34, 1
-  %36 = zext nneg i8 %35 to i32
-  %37 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %33, i32 noundef %36)
-  %38 = icmp eq i32 %25, 2
-  %39 = or i32 %37, 256
-  %spec.select.i = select i1 %38, i32 %39, i32 %37
-  %40 = icmp slt i32 %spec.select.i, 0
-  br i1 %40, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, label %63
+_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20: ; preds = %21
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !30
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
+  %32 = load i8, ptr %30, align 1, !tbaa !54
+  %33 = lshr i8 %32, 1
+  %34 = zext nneg i8 %33 to i32
+  %35 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %31, i32 noundef %34)
+  %36 = icmp eq i32 %24, 2
+  %37 = or i32 %35, 256
+  %spec.select.i = select i1 %36, i32 %37, i32 %35
+  %38 = icmp slt i32 %spec.select.i, 0
+  br i1 %38, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, label %61
 
-_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread: ; preds = %14, %27, %9, %4, %22, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20
-  %41 = lshr i64 %1, 59
-  %42 = trunc nuw nsw i64 %41 to i32
-  %43 = add nsw i32 %42, -2
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %43, ptr %44, align 8, !tbaa !31
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !29
-  %47 = and i64 %1, 576460752303423487
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %48, ptr %49, align 8, !tbaa !30
-  %50 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #12
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %60, label %53
+_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread: ; preds = %14, %26, %9, %4, %21, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20
+  %39 = lshr i64 %1, 59
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = add nsw i32 %40, -2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %41, ptr %42, align 8, !tbaa !31
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
+  %45 = and i64 %1, 576460752303423487
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %46, ptr %47, align 8, !tbaa !30
+  %48 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %0, i32 noundef 42)
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %58, label %51
 
-53:                                               ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread
-  %54 = load ptr, ptr %49, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
-  %56 = load i8, ptr %54, align 1, !tbaa !54
-  %57 = lshr i8 %56, 1
-  %58 = zext nneg i8 %57 to i32
-  %59 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %55, i32 noundef %58)
-  br label %60
+51:                                               ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread
+  %52 = load ptr, ptr %47, align 8, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %54 = load i8, ptr %52, align 1, !tbaa !54
+  %55 = lshr i8 %54, 1
+  %56 = zext nneg i8 %55 to i32
+  %57 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %53, i32 noundef %56)
+  br label %58
 
-60:                                               ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, %53
-  %.2 = phi i32 [ %59, %53 ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread ]
-  %61 = icmp eq i32 %50, 2
-  %62 = or i32 %.2, 256
-  %spec.select = select i1 %61, i32 %62, i32 %.2
-  br label %63
+58:                                               ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread, %51
+  %.2 = phi i32 [ %57, %51 ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20.thread ]
+  %59 = icmp eq i32 %48, 2
+  %60 = or i32 %.2, 256
+  %spec.select = select i1 %59, i32 %60, i32 %.2
+  br label %61
 
-63:                                               ; preds = %60, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20
-  %.1 = phi i32 [ %spec.select, %60 ], [ %spec.select.i, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20 ]
+61:                                               ; preds = %58, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20
+  %.1 = phi i32 [ %spec.select, %58 ], [ %spec.select.i, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit20 ]
   ret i32 %.1
 }
 

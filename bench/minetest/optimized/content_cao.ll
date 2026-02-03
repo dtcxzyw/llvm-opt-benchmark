@@ -16029,7 +16029,7 @@ if.then.i.i20.i:                                  ; preds = %lpad5.i
   br label %ehcleanup.i
 
 common.resume:                                    ; preds = %lpad, %if.then.i.i63, %ehcleanup.i
-  %common.resume.op = phi { ptr, i32 } [ %8, %ehcleanup.i ], [ %25, %if.then.i.i63 ], [ %25, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %ehcleanup.i ], [ %24, %if.then.i.i63 ], [ %24, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup.i:                                      ; preds = %lpad5.i, %if.then.i.i20.i
@@ -16048,52 +16048,51 @@ _ZNK9ItemStack19getToolCapabilitiesEPK15IItemDefManager.exit: ; preds = %_ZNSt7_
   %11 = load i16, ptr %wear, align 2, !tbaa !391
   %call3 = call { i64, i32 } @_Z14getPunchDamageRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesPK9ItemStackft(ptr noundef nonnull align 8 dereferenceable(56) %m_armor_groups, ptr noundef nonnull %cond-lvalue.i.i, ptr noundef nonnull %punchitem, float noundef %time_from_last_punch, i16 noundef zeroext %11)
   %call3.fca.0.extract = extractvalue { i64, i32 } %call3, 0
-  %12 = and i64 %call3.fca.0.extract, 1
-  %tobool = icmp ne i64 %12, 0
+  %tobool = trunc i64 %call3.fca.0.extract to i1
   %result.sroa.0.4.extract.shift53 = lshr i64 %call3.fca.0.extract, 32
   %result.sroa.0.4.extract.trunc54 = trunc nuw i64 %result.sroa.0.4.extract.shift53 to i32
   %cmp = icmp ne i64 %result.sroa.0.4.extract.shift53, 0
-  %or.cond = and i1 %tobool, %cmp
+  %or.cond = and i1 %cmp, %tobool
   br i1 %or.cond, label %if.then, label %if.end41
 
 if.then:                                          ; preds = %_ZNK9ItemStack19getToolCapabilitiesEPK15IItemDefManager.exit
   %m_hp = getelementptr inbounds nuw i8, ptr %this, i64 584
-  %13 = load i16, ptr %m_hp, align 8, !tbaa !162
-  %conv = zext i16 %13 to i32
+  %12 = load i16, ptr %m_hp, align 8, !tbaa !162
+  %conv = zext i16 %12 to i32
   %cmp5 = icmp slt i32 %result.sroa.0.4.extract.trunc54, %conv
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
-  %14 = trunc i64 %result.sroa.0.4.extract.shift53 to i16
-  %conv10 = sub i16 %13, %14
+  %13 = trunc i64 %result.sroa.0.4.extract.shift53 to i16
+  %conv10 = sub i16 %12, %13
   store i16 %conv10, ptr %m_hp, align 8, !tbaa !162
   br label %if.end
 
 if.else:                                          ; preds = %if.then
   store i16 0, ptr %m_hp, align 8, !tbaa !162
   %m_smgr = getelementptr inbounds nuw i8, ptr %this, i64 440
-  %15 = load ptr, ptr %m_smgr, align 8, !tbaa !375
+  %14 = load ptr, ptr %m_smgr, align 8, !tbaa !375
   %m_env = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %16 = load ptr, ptr %m_env, align 8, !tbaa !199
+  %15 = load ptr, ptr %m_env, align 8, !tbaa !199
   %m_position = getelementptr inbounds nuw i8, ptr %this, i64 536
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %m_position, align 8, !tbaa.struct !110
   %agg.tmp.sroa.2.0.m_position.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 544
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.m_position.sroa_idx, align 8, !tbaa !34
   %visual_size = getelementptr inbounds nuw i8, ptr %this, i64 360
-  %17 = load <2 x float>, ptr %visual_size, align 8, !tbaa !34
-  %18 = fmul nsz <2 x float> %17, splat (float 1.000000e+01)
-  %call16 = call noundef ptr @_Z15createSmokePuffPN3irr5scene13ISceneManagerEP17ClientEnvironmentNS_4core8vector3dIfEENS5_8vector2dIfEE(ptr noundef %15, ptr noundef %16, <2 x float> %agg.tmp.sroa.0.0.copyload, float %agg.tmp.sroa.2.0.copyload, <2 x float> %18)
-  %19 = load ptr, ptr %m_env, align 8, !tbaa !199
-  call void @_ZN17ClientEnvironment15addSimpleObjectEP18ClientSimpleObject(ptr noundef nonnull align 8 dereferenceable(464) %19, ptr noundef %call16)
+  %16 = load <2 x float>, ptr %visual_size, align 8, !tbaa !34
+  %17 = fmul nsz <2 x float> %16, splat (float 1.000000e+01)
+  %call16 = call noundef ptr @_Z15createSmokePuffPN3irr5scene13ISceneManagerEP17ClientEnvironmentNS_4core8vector3dIfEENS5_8vector2dIfEE(ptr noundef %14, ptr noundef %15, <2 x float> %agg.tmp.sroa.0.0.copyload, float %agg.tmp.sroa.2.0.copyload, <2 x float> %17)
+  %18 = load ptr, ptr %m_env, align 8, !tbaa !199
+  call void @_ZN17ClientEnvironment15addSimpleObjectEP18ClientSimpleObject(ptr noundef nonnull align 8 dereferenceable(464) %18, ptr noundef %call16)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then6
   %m_reset_textures_timer = getelementptr inbounds nuw i8, ptr %this, i64 976
-  %20 = load float, ptr %m_reset_textures_timer, align 8, !tbaa !175
-  %cmp18 = fcmp nsz uge float %20, 0.000000e+00
+  %19 = load float, ptr %m_reset_textures_timer, align 8, !tbaa !175
+  %cmp18 = fcmp nsz uge float %19, 0.000000e+00
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
-  %21 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp.i60 = icmp eq i64 %21, 0
+  %20 = load i64, ptr %_M_string_length.i.i, align 8
+  %cmp.i60 = icmp eq i64 %20, 0
   %or.cond68 = select i1 %cmp18, i1 true, i1 %cmp.i60
   br i1 %or.cond68, label %if.end41, label %if.then22
 
@@ -16101,8 +16100,8 @@ if.then22:                                        ; preds = %if.end
   %damage_texture_modifier = getelementptr inbounds nuw i8, ptr %this, i64 232
   %cmp25 = icmp sgt i32 %result.sroa.0.4.extract.trunc54, 1
   %conv28 = sitofp i32 %result.sroa.0.4.extract.trunc54 to double
-  %22 = call nsz double @llvm.fmuladd.f64(double %conv28, double 5.000000e-02, double 0x3FA99999A0000000)
-  %conv31 = fptrunc double %22 to float
+  %21 = call nsz double @llvm.fmuladd.f64(double %conv28, double 5.000000e-02, double 0x3FA99999A0000000)
+  %conv31 = fptrunc double %21 to float
   %storemerge = select i1 %cmp25, float %conv31, float 0x3FA99999A0000000
   %cmp.i61 = fcmp nsz ogt float %storemerge, 1.000000e+00
   %.sroa.speculated = select i1 %cmp.i61, float 1.000000e+00, float %storemerge
@@ -16113,25 +16112,25 @@ if.then22:                                        ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then22
-  %23 = load ptr, ptr %agg.tmp37, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw i8, ptr %agg.tmp37, i64 16
-  %cmp.i.i.i = icmp eq ptr %23, %24
+  %22 = load ptr, ptr %agg.tmp37, align 8, !tbaa !11
+  %23 = getelementptr inbounds nuw i8, ptr %agg.tmp37, i64 16
+  %cmp.i.i.i = icmp eq ptr %22, %23
   br i1 %cmp.i.i.i, label %if.end41, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef %23) #37
+  call void @_ZdlPv(ptr noundef %22) #37
   br label %if.end41
 
 lpad:                                             ; preds = %if.then22
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %agg.tmp37, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw i8, ptr %agg.tmp37, i64 16
-  %cmp.i.i.i62 = icmp eq ptr %26, %27
+  %25 = load ptr, ptr %agg.tmp37, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw i8, ptr %agg.tmp37, i64 16
+  %cmp.i.i.i62 = icmp eq ptr %25, %26
   br i1 %cmp.i.i.i62, label %common.resume, label %if.then.i.i63
 
 if.then.i.i63:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef %26) #37
+  call void @_ZdlPv(ptr noundef %25) #37
   br label %common.resume
 
 if.end41:                                         ; preds = %invoke.cont, %if.then.i.i, %if.end, %_ZNK9ItemStack19getToolCapabilitiesEPK15IItemDefManager.exit

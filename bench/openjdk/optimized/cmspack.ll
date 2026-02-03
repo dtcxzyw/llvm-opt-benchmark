@@ -665,7 +665,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %48, 
 
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us, %IsInkSpace.exit
   %58 = icmp eq i32 %13, 0
-  %59 = icmp ne i32 %11, 0
+  %59 = trunc i32 %10 to i1
   %or.cond = and i1 %58, %59
   br i1 %or.cond, label %60, label %67
 
@@ -814,7 +814,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %50, 
 
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us, %IsInkSpace.exit
   %60 = icmp eq i32 %13, 0
-  %61 = icmp ne i32 %11, 0
+  %61 = trunc i32 %10 to i1
   %or.cond = and i1 %60, %61
   br i1 %or.cond, label %62, label %69
 
@@ -1293,64 +1293,63 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %12 = lshr i32 %.fr, 7
   %13 = and i32 %12, 7
   %14 = lshr i32 %.fr, 23
-  %15 = and i32 %14, 1
   %.not = icmp eq i32 %11, 0
-  %16 = icmp ne i32 %15, 0
-  %17 = icmp ne i32 %13, 0
-  %or.cond3 = and i1 %16, %17
-  br i1 %.not, label %30, label %18
+  %15 = trunc i32 %14 to i1
+  %16 = icmp ne i32 %13, 0
+  %or.cond3 = and i1 %16, %15
+  br i1 %.not, label %29, label %17
 
-18:                                               ; preds = %4
-  br i1 %or.cond3, label %19, label %26
+17:                                               ; preds = %4
+  br i1 %or.cond3, label %18, label %25
 
-19:                                               ; preds = %18
-  %20 = load i8, ptr %2, align 1
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = or disjoint i32 %22, %21
-  %.lobit = lshr i8 %20, 7
-  %24 = zext nneg i8 %.lobit to i32
-  %25 = add nuw nsw i32 %23, %24
-  br label %26
+18:                                               ; preds = %17
+  %19 = load i8, ptr %2, align 1
+  %20 = zext i8 %19 to i32
+  %21 = shl nuw nsw i32 %20, 8
+  %22 = or disjoint i32 %21, %20
+  %.lobit = lshr i8 %19, 7
+  %23 = zext nneg i8 %.lobit to i32
+  %24 = add nuw nsw i32 %22, %23
+  br label %25
 
-26:                                               ; preds = %19, %18
-  %.053 = phi i32 [ %25, %19 ], [ 1, %18 ]
-  %27 = mul i32 %13, %3
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  br label %41
+25:                                               ; preds = %18, %17
+  %.053 = phi i32 [ %24, %18 ], [ 1, %17 ]
+  %26 = mul i32 %13, %3
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
+  br label %40
 
-30:                                               ; preds = %4
-  br i1 %or.cond3, label %31, label %41
+29:                                               ; preds = %4
+  br i1 %or.cond3, label %30, label %40
 
-31:                                               ; preds = %30
-  %32 = mul i32 %7, %3
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = shl nuw nsw i32 %36, 8
-  %38 = or disjoint i32 %37, %36
-  %.lobit60 = lshr i8 %35, 7
-  %39 = zext nneg i8 %.lobit60 to i32
-  %40 = add nuw nsw i32 %38, %39
-  br label %41
+30:                                               ; preds = %29
+  %31 = mul i32 %7, %3
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = shl nuw nsw i32 %35, 8
+  %37 = or disjoint i32 %36, %35
+  %.lobit60 = lshr i8 %34, 7
+  %38 = zext nneg i8 %.lobit60 to i32
+  %39 = add nuw nsw i32 %37, %38
+  br label %40
 
-41:                                               ; preds = %30, %31, %26
-  %.154 = phi i32 [ %.053, %26 ], [ %40, %31 ], [ 1, %30 ]
-  %.052 = phi ptr [ %29, %26 ], [ %2, %31 ], [ %2, %30 ]
+40:                                               ; preds = %29, %30, %25
+  %.154 = phi i32 [ %.053, %25 ], [ %39, %30 ], [ 1, %29 ]
+  %.052 = phi ptr [ %28, %25 ], [ %2, %30 ], [ %2, %29 ]
   %.not70 = icmp eq i32 %7, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %41
-  %42 = and i32 %.fr, 1024
-  %.not57 = icmp eq i32 %42, 0
-  %43 = and i32 %.fr, 8192
-  %.not58 = icmp eq i32 %43, 0
-  %44 = icmp ne i32 %15, 0
-  %45 = icmp ne i32 %.154, 0
-  %or.cond5 = select i1 %44, i1 %45, i1 false
-  %46 = zext i32 %3 to i64
+.lr.ph:                                           ; preds = %40
+  %41 = and i32 %.fr, 1024
+  %.not57 = icmp eq i32 %41, 0
+  %42 = and i32 %.fr, 8192
+  %.not58 = icmp eq i32 %42, 0
+  %43 = trunc i32 %14 to i1
+  %44 = icmp ne i32 %.154, 0
+  %or.cond5 = select i1 %43, i1 %44, i1 false
+  %45 = zext i32 %3 to i64
   %wide.trip.count100 = zext nneg i32 %7 to i64
   br i1 %or.cond5, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1359,44 +1358,44 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %.162.us.us = phi ptr [ %57, %.lr.ph.split.us.split.us ], [ %.052, %.lr.ph.split.us ]
-  %47 = load i8, ptr %.162.us.us, align 1
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw i32 %48, 24
-  %50 = shl nuw nsw i32 %48, 16
-  %51 = or disjoint i32 %49, %50
-  %52 = xor i32 %51, -65536
-  %53 = select i1 %.not58, i32 %51, i32 %52
-  %54 = udiv i32 %53, %.154
-  %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %54, i32 65535)
-  %55 = trunc nuw i32 %spec.store.select.us.us to i16
-  %56 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv97
-  store i16 %55, ptr %56, align 2
-  %57 = getelementptr inbounds nuw i8, ptr %.162.us.us, i64 %46
+  %.162.us.us = phi ptr [ %56, %.lr.ph.split.us.split.us ], [ %.052, %.lr.ph.split.us ]
+  %46 = load i8, ptr %.162.us.us, align 1
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw i32 %47, 24
+  %49 = shl nuw nsw i32 %47, 16
+  %50 = or disjoint i32 %48, %49
+  %51 = xor i32 %50, -65536
+  %52 = select i1 %.not58, i32 %50, i32 %51
+  %53 = udiv i32 %52, %.154
+  %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %53, i32 65535)
+  %54 = trunc nuw i32 %spec.store.select.us.us to i16
+  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv97
+  store i16 %54, ptr %55, align 2
+  %56 = getelementptr inbounds nuw i8, ptr %.162.us.us, i64 %45
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !15
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %.162.us = phi ptr [ %72, %.lr.ph.split.us.split ], [ %.052, %.lr.ph.split.us ]
-  %58 = trunc nuw nsw i64 %indvars.iv92 to i32
-  %59 = xor i32 %58, -1
-  %60 = add nsw i32 %7, %59
-  %61 = load i8, ptr %.162.us, align 1
-  %62 = zext i8 %61 to i32
-  %63 = shl nuw i32 %62, 24
-  %64 = shl nuw nsw i32 %62, 16
-  %65 = or disjoint i32 %63, %64
-  %66 = xor i32 %65, -65536
-  %67 = select i1 %.not58, i32 %65, i32 %66
-  %68 = udiv i32 %67, %.154
-  %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %68, i32 65535)
-  %69 = trunc nuw i32 %spec.store.select.us to i16
-  %70 = zext i32 %60 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %1, i64 %70
-  store i16 %69, ptr %71, align 2
-  %72 = getelementptr inbounds nuw i8, ptr %.162.us, i64 %46
+  %.162.us = phi ptr [ %71, %.lr.ph.split.us.split ], [ %.052, %.lr.ph.split.us ]
+  %57 = trunc nuw nsw i64 %indvars.iv92 to i32
+  %58 = xor i32 %57, -1
+  %59 = add nsw i32 %7, %58
+  %60 = load i8, ptr %.162.us, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw i32 %61, 24
+  %63 = shl nuw nsw i32 %61, 16
+  %64 = or disjoint i32 %62, %63
+  %65 = xor i32 %64, -65536
+  %66 = select i1 %.not58, i32 %64, i32 %65
+  %67 = udiv i32 %66, %.154
+  %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %67, i32 65535)
+  %68 = trunc nuw i32 %spec.store.select.us to i16
+  %69 = zext i32 %59 to i64
+  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
+  store i16 %68, ptr %70, align 2
+  %71 = getelementptr inbounds nuw i8, ptr %.162.us, i64 %45
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count100
   br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !15
@@ -1409,29 +1408,29 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %.162.us63.us = phi ptr [ %78, %.lr.ph.split.split.us.split.us ], [ %.052, %.lr.ph.split.split.us ]
-  %73 = load i8, ptr %.162.us63.us, align 1
-  %74 = zext i8 %73 to i16
-  %75 = shl nuw i16 %74, 8
-  %76 = or disjoint i16 %75, %74
-  %77 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv87
-  store i16 %76, ptr %77, align 2
-  %78 = getelementptr inbounds nuw i8, ptr %.162.us63.us, i64 %46
+  %.162.us63.us = phi ptr [ %77, %.lr.ph.split.split.us.split.us ], [ %.052, %.lr.ph.split.split.us ]
+  %72 = load i8, ptr %.162.us63.us, align 1
+  %73 = zext i8 %72 to i16
+  %74 = shl nuw i16 %73, 8
+  %75 = or disjoint i16 %74, %73
+  %76 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv87
+  store i16 %75, ptr %76, align 2
+  %77 = getelementptr inbounds nuw i8, ptr %.162.us63.us, i64 %45
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count100
   br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !15
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %.162.us63 = phi ptr [ %85, %.lr.ph.split.split.us.split ], [ %.052, %.lr.ph.split.split.us ]
-  %79 = load i8, ptr %.162.us63, align 1
-  %80 = zext i8 %79 to i16
-  %81 = shl nuw i16 %80, 8
-  %82 = or disjoint i16 %81, %80
-  %83 = xor i16 %82, -1
-  %84 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv82
-  store i16 %83, ptr %84, align 2
-  %85 = getelementptr inbounds nuw i8, ptr %.162.us63, i64 %46
+  %.162.us63 = phi ptr [ %84, %.lr.ph.split.split.us.split ], [ %.052, %.lr.ph.split.split.us ]
+  %78 = load i8, ptr %.162.us63, align 1
+  %79 = zext i8 %78 to i16
+  %80 = shl nuw i16 %79, 8
+  %81 = or disjoint i16 %80, %79
+  %82 = xor i16 %81, -1
+  %83 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv82
+  store i16 %82, ptr %83, align 2
+  %84 = getelementptr inbounds nuw i8, ptr %.162.us63, i64 %45
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count100
   br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !15
@@ -1441,44 +1440,44 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %.162.us65 = phi ptr [ %95, %.lr.ph.split.split.split.us ], [ %.052, %.lr.ph.split.split ]
-  %86 = trunc nuw nsw i64 %indvars.iv77 to i32
-  %87 = xor i32 %86, -1
-  %88 = add nsw i32 %7, %87
-  %89 = load i8, ptr %.162.us65, align 1
-  %90 = zext i8 %89 to i16
-  %91 = shl nuw i16 %90, 8
-  %92 = or disjoint i16 %91, %90
-  %93 = zext i32 %88 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %1, i64 %93
-  store i16 %92, ptr %94, align 2
-  %95 = getelementptr inbounds nuw i8, ptr %.162.us65, i64 %46
+  %.162.us65 = phi ptr [ %94, %.lr.ph.split.split.split.us ], [ %.052, %.lr.ph.split.split ]
+  %85 = trunc nuw nsw i64 %indvars.iv77 to i32
+  %86 = xor i32 %85, -1
+  %87 = add nsw i32 %7, %86
+  %88 = load i8, ptr %.162.us65, align 1
+  %89 = zext i8 %88 to i16
+  %90 = shl nuw i16 %89, 8
+  %91 = or disjoint i16 %90, %89
+  %92 = zext i32 %87 to i64
+  %93 = getelementptr inbounds nuw i16, ptr %1, i64 %92
+  store i16 %91, ptr %93, align 2
+  %94 = getelementptr inbounds nuw i8, ptr %.162.us65, i64 %45
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count100
   br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !15
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %.162 = phi ptr [ %106, %.lr.ph.split.split.split ], [ %.052, %.lr.ph.split.split ]
-  %96 = trunc nuw nsw i64 %indvars.iv to i32
-  %97 = xor i32 %96, -1
-  %98 = add nsw i32 %7, %97
-  %99 = load i8, ptr %.162, align 1
-  %100 = zext i8 %99 to i16
-  %101 = shl nuw i16 %100, 8
-  %102 = or disjoint i16 %101, %100
-  %103 = xor i16 %102, -1
-  %104 = zext i32 %98 to i64
-  %105 = getelementptr inbounds nuw i16, ptr %1, i64 %104
-  store i16 %103, ptr %105, align 2
-  %106 = getelementptr inbounds nuw i8, ptr %.162, i64 %46
+  %.162 = phi ptr [ %105, %.lr.ph.split.split.split ], [ %.052, %.lr.ph.split.split ]
+  %95 = trunc nuw nsw i64 %indvars.iv to i32
+  %96 = xor i32 %95, -1
+  %97 = add nsw i32 %7, %96
+  %98 = load i8, ptr %.162, align 1
+  %99 = zext i8 %98 to i16
+  %100 = shl nuw i16 %99, 8
+  %101 = or disjoint i16 %100, %99
+  %102 = xor i16 %101, -1
+  %103 = zext i32 %97 to i64
+  %104 = getelementptr inbounds nuw i16, ptr %1, i64 %103
+  store i16 %102, ptr %104, align 2
+  %105 = getelementptr inbounds nuw i8, ptr %.162, i64 %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count100
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %41
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  ret ptr %107
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %40
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  ret ptr %106
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -1494,60 +1493,59 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %12 = lshr i32 %.fr, 7
   %13 = and i32 %12, 7
   %14 = lshr i32 %.fr, 23
-  %15 = and i32 %14, 1
   %.not = icmp eq i32 %9, %11
-  %16 = icmp ne i32 %15, 0
-  %17 = icmp ne i32 %13, 0
-  %or.cond3 = and i1 %16, %17
-  br i1 %.not, label %29, label %18
+  %15 = trunc i32 %14 to i1
+  %16 = icmp ne i32 %13, 0
+  %or.cond3 = and i1 %16, %15
+  br i1 %.not, label %28, label %17
 
-18:                                               ; preds = %4
-  br i1 %or.cond3, label %19, label %26
+17:                                               ; preds = %4
+  br i1 %or.cond3, label %18, label %25
 
-19:                                               ; preds = %18
-  %20 = load i8, ptr %2, align 1
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = or disjoint i32 %22, %21
-  %.lobit = lshr i8 %20, 7
-  %24 = zext nneg i8 %.lobit to i32
-  %25 = add nuw nsw i32 %23, %24
-  br label %26
+18:                                               ; preds = %17
+  %19 = load i8, ptr %2, align 1
+  %20 = zext i8 %19 to i32
+  %21 = shl nuw nsw i32 %20, 8
+  %22 = or disjoint i32 %21, %20
+  %.lobit = lshr i8 %19, 7
+  %23 = zext nneg i8 %.lobit to i32
+  %24 = add nuw nsw i32 %22, %23
+  br label %25
 
-26:                                               ; preds = %19, %18
-  %.062 = phi i32 [ %25, %19 ], [ 1, %18 ]
-  %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  br label %39
+25:                                               ; preds = %18, %17
+  %.062 = phi i32 [ %24, %18 ], [ 1, %17 ]
+  %26 = zext nneg i32 %13 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
+  br label %38
 
-29:                                               ; preds = %4
-  br i1 %or.cond3, label %30, label %39
+28:                                               ; preds = %4
+  br i1 %or.cond3, label %29, label %38
 
-30:                                               ; preds = %29
-  %31 = zext nneg i32 %7 to i64
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %31
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = shl nuw nsw i32 %34, 8
-  %36 = or disjoint i32 %35, %34
-  %.lobit70 = lshr i8 %33, 7
-  %37 = zext nneg i8 %.lobit70 to i32
-  %38 = add nuw nsw i32 %36, %37
-  br label %39
+29:                                               ; preds = %28
+  %30 = zext nneg i32 %7 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %30
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i32
+  %34 = shl nuw nsw i32 %33, 8
+  %35 = or disjoint i32 %34, %33
+  %.lobit70 = lshr i8 %32, 7
+  %36 = zext nneg i8 %.lobit70 to i32
+  %37 = add nuw nsw i32 %35, %36
+  br label %38
 
-39:                                               ; preds = %29, %30, %26
-  %.163 = phi i32 [ %.062, %26 ], [ %38, %30 ], [ 1, %29 ]
-  %.0 = phi ptr [ %28, %26 ], [ %2, %30 ], [ %2, %29 ]
+38:                                               ; preds = %28, %29, %25
+  %.163 = phi i32 [ %.062, %25 ], [ %37, %29 ], [ 1, %28 ]
+  %.0 = phi ptr [ %27, %25 ], [ %2, %29 ], [ %2, %28 ]
   %.not86 = icmp eq i32 %7, 0
   br i1 %.not86, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %39
+.lr.ph:                                           ; preds = %38
   %.not67 = icmp eq i32 %9, 0
-  %40 = and i32 %.fr, 8192
-  %.not68 = icmp eq i32 %40, 0
-  %41 = icmp ne i32 %15, 0
-  %42 = icmp ne i32 %.163, 0
-  %or.cond5 = select i1 %41, i1 %42, i1 false
+  %39 = and i32 %.fr, 8192
+  %.not68 = icmp eq i32 %39, 0
+  %40 = trunc i32 %14 to i1
+  %41 = icmp ne i32 %.163, 0
+  %or.cond5 = select i1 %40, i1 %41, i1 false
   %wide.trip.count121 = zext nneg i32 %7 to i64
   br i1 %or.cond5, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1556,44 +1554,44 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %.172.us.us = phi ptr [ %53, %.lr.ph.split.us.split.us ], [ %.0, %.lr.ph.split.us ]
-  %43 = load i8, ptr %.172.us.us, align 1
-  %44 = zext i8 %43 to i32
-  %45 = shl nuw i32 %44, 24
-  %46 = shl nuw nsw i32 %44, 16
-  %47 = or disjoint i32 %45, %46
-  %48 = xor i32 %47, -65536
-  %49 = select i1 %.not68, i32 %47, i32 %48
-  %50 = udiv i32 %49, %.163
-  %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %50, i32 65535)
-  %51 = trunc nuw i32 %spec.store.select.us.us to i16
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv118
-  store i16 %51, ptr %52, align 2
-  %53 = getelementptr inbounds nuw i8, ptr %.172.us.us, i64 1
+  %.172.us.us = phi ptr [ %52, %.lr.ph.split.us.split.us ], [ %.0, %.lr.ph.split.us ]
+  %42 = load i8, ptr %.172.us.us, align 1
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw i32 %43, 24
+  %45 = shl nuw nsw i32 %43, 16
+  %46 = or disjoint i32 %44, %45
+  %47 = xor i32 %46, -65536
+  %48 = select i1 %.not68, i32 %46, i32 %47
+  %49 = udiv i32 %48, %.163
+  %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
+  %50 = trunc nuw i32 %spec.store.select.us.us to i16
+  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv118
+  store i16 %50, ptr %51, align 2
+  %52 = getelementptr inbounds nuw i8, ptr %.172.us.us, i64 1
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
   br i1 %exitcond122.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !16
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
-  %.172.us = phi ptr [ %68, %.lr.ph.split.us.split ], [ %.0, %.lr.ph.split.us ]
-  %54 = trunc nuw nsw i64 %indvars.iv113 to i32
-  %55 = xor i32 %54, -1
-  %56 = add nsw i32 %7, %55
-  %57 = load i8, ptr %.172.us, align 1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw i32 %58, 24
-  %60 = shl nuw nsw i32 %58, 16
-  %61 = or disjoint i32 %59, %60
-  %62 = xor i32 %61, -65536
-  %63 = select i1 %.not68, i32 %61, i32 %62
-  %64 = udiv i32 %63, %.163
-  %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %64, i32 65535)
-  %65 = trunc nuw i32 %spec.store.select.us to i16
-  %66 = zext i32 %56 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %1, i64 %66
-  store i16 %65, ptr %67, align 2
-  %68 = getelementptr inbounds nuw i8, ptr %.172.us, i64 1
+  %.172.us = phi ptr [ %67, %.lr.ph.split.us.split ], [ %.0, %.lr.ph.split.us ]
+  %53 = trunc nuw nsw i64 %indvars.iv113 to i32
+  %54 = xor i32 %53, -1
+  %55 = add nsw i32 %7, %54
+  %56 = load i8, ptr %.172.us, align 1
+  %57 = zext i8 %56 to i32
+  %58 = shl nuw i32 %57, 24
+  %59 = shl nuw nsw i32 %57, 16
+  %60 = or disjoint i32 %58, %59
+  %61 = xor i32 %60, -65536
+  %62 = select i1 %.not68, i32 %60, i32 %61
+  %63 = udiv i32 %62, %.163
+  %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %63, i32 65535)
+  %64 = trunc nuw i32 %spec.store.select.us to i16
+  %65 = zext i32 %55 to i64
+  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %65
+  store i16 %64, ptr %66, align 2
+  %67 = getelementptr inbounds nuw i8, ptr %.172.us, i64 1
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count121
   br i1 %exitcond117.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !16
@@ -1606,29 +1604,29 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %.172.us73.us = phi ptr [ %74, %.lr.ph.split.split.us.split.us ], [ %.0, %.lr.ph.split.split.us ]
-  %69 = load i8, ptr %.172.us73.us, align 1
-  %70 = zext i8 %69 to i16
-  %71 = shl nuw i16 %70, 8
-  %72 = or disjoint i16 %71, %70
-  %73 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv108
-  store i16 %72, ptr %73, align 2
-  %74 = getelementptr inbounds nuw i8, ptr %.172.us73.us, i64 1
+  %.172.us73.us = phi ptr [ %73, %.lr.ph.split.split.us.split.us ], [ %.0, %.lr.ph.split.split.us ]
+  %68 = load i8, ptr %.172.us73.us, align 1
+  %69 = zext i8 %68 to i16
+  %70 = shl nuw i16 %69, 8
+  %71 = or disjoint i16 %70, %69
+  %72 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv108
+  store i16 %71, ptr %72, align 2
+  %73 = getelementptr inbounds nuw i8, ptr %.172.us73.us, i64 1
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count121
   br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !16
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %.172.us73 = phi ptr [ %81, %.lr.ph.split.split.us.split ], [ %.0, %.lr.ph.split.split.us ]
-  %75 = load i8, ptr %.172.us73, align 1
-  %76 = zext i8 %75 to i16
-  %77 = shl nuw i16 %76, 8
-  %78 = or disjoint i16 %77, %76
-  %79 = xor i16 %78, -1
-  %80 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv103
-  store i16 %79, ptr %80, align 2
-  %81 = getelementptr inbounds nuw i8, ptr %.172.us73, i64 1
+  %.172.us73 = phi ptr [ %80, %.lr.ph.split.split.us.split ], [ %.0, %.lr.ph.split.split.us ]
+  %74 = load i8, ptr %.172.us73, align 1
+  %75 = zext i8 %74 to i16
+  %76 = shl nuw i16 %75, 8
+  %77 = or disjoint i16 %76, %75
+  %78 = xor i16 %77, -1
+  %79 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv103
+  store i16 %78, ptr %79, align 2
+  %80 = getelementptr inbounds nuw i8, ptr %.172.us73, i64 1
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count121
   br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !16
@@ -1638,60 +1636,60 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %.172.us77 = phi ptr [ %91, %.lr.ph.split.split.split.us ], [ %.0, %.lr.ph.split.split ]
-  %82 = trunc nuw nsw i64 %indvars.iv98 to i32
-  %83 = xor i32 %82, -1
-  %84 = add nsw i32 %7, %83
-  %85 = load i8, ptr %.172.us77, align 1
-  %86 = zext i8 %85 to i16
-  %87 = shl nuw i16 %86, 8
-  %88 = or disjoint i16 %87, %86
-  %89 = zext i32 %84 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %1, i64 %89
-  store i16 %88, ptr %90, align 2
-  %91 = getelementptr inbounds nuw i8, ptr %.172.us77, i64 1
+  %.172.us77 = phi ptr [ %90, %.lr.ph.split.split.split.us ], [ %.0, %.lr.ph.split.split ]
+  %81 = trunc nuw nsw i64 %indvars.iv98 to i32
+  %82 = xor i32 %81, -1
+  %83 = add nsw i32 %7, %82
+  %84 = load i8, ptr %.172.us77, align 1
+  %85 = zext i8 %84 to i16
+  %86 = shl nuw i16 %85, 8
+  %87 = or disjoint i16 %86, %85
+  %88 = zext i32 %83 to i64
+  %89 = getelementptr inbounds nuw i16, ptr %1, i64 %88
+  store i16 %87, ptr %89, align 2
+  %90 = getelementptr inbounds nuw i8, ptr %.172.us77, i64 1
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count121
   br i1 %exitcond102.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !16
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %.172 = phi ptr [ %102, %.lr.ph.split.split.split ], [ %.0, %.lr.ph.split.split ]
-  %92 = trunc nuw nsw i64 %indvars.iv to i32
-  %93 = xor i32 %92, -1
-  %94 = add nsw i32 %7, %93
-  %95 = load i8, ptr %.172, align 1
-  %96 = zext i8 %95 to i16
-  %97 = shl nuw i16 %96, 8
-  %98 = or disjoint i16 %97, %96
-  %99 = xor i16 %98, -1
-  %100 = zext i32 %94 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %1, i64 %100
-  store i16 %99, ptr %101, align 2
-  %102 = getelementptr inbounds nuw i8, ptr %.172, i64 1
+  %.172 = phi ptr [ %101, %.lr.ph.split.split.split ], [ %.0, %.lr.ph.split.split ]
+  %91 = trunc nuw nsw i64 %indvars.iv to i32
+  %92 = xor i32 %91, -1
+  %93 = add nsw i32 %7, %92
+  %94 = load i8, ptr %.172, align 1
+  %95 = zext i8 %94 to i16
+  %96 = shl nuw i16 %95, 8
+  %97 = or disjoint i16 %96, %95
+  %98 = xor i16 %97, -1
+  %99 = zext i32 %93 to i64
+  %100 = getelementptr inbounds nuw i16, ptr %1, i64 %99
+  store i16 %98, ptr %100, align 2
+  %101 = getelementptr inbounds nuw i8, ptr %.172, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count121
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %39
-  %.1.lcssa = phi ptr [ %.0, %39 ], [ %81, %.lr.ph.split.split.us.split ], [ %74, %.lr.ph.split.split.us.split.us ], [ %53, %.lr.ph.split.us.split.us ], [ %91, %.lr.ph.split.split.split.us ], [ %68, %.lr.ph.split.us.split ], [ %102, %.lr.ph.split.split.split ]
-  %103 = icmp eq i32 %13, 0
-  %104 = icmp ne i32 %11, 0
-  %or.cond7 = and i1 %103, %104
-  br i1 %or.cond7, label %105, label %112
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %38
+  %.1.lcssa = phi ptr [ %.0, %38 ], [ %80, %.lr.ph.split.split.us.split ], [ %73, %.lr.ph.split.split.us.split.us ], [ %52, %.lr.ph.split.us.split.us ], [ %90, %.lr.ph.split.split.split.us ], [ %67, %.lr.ph.split.us.split ], [ %101, %.lr.ph.split.split.split ]
+  %102 = icmp eq i32 %13, 0
+  %103 = trunc i32 %10 to i1
+  %or.cond7 = and i1 %102, %103
+  br i1 %or.cond7, label %104, label %111
 
-105:                                              ; preds = %._crit_edge
-  %106 = load i16, ptr %1, align 2
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %108 = add nsw i32 %7, -1
-  %109 = zext i32 %108 to i64
-  %110 = shl nuw nsw i64 %109, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull align 2 %107, i64 %110, i1 false)
-  %111 = getelementptr inbounds nuw i16, ptr %1, i64 %109
-  store i16 %106, ptr %111, align 2
-  br label %112
+104:                                              ; preds = %._crit_edge
+  %105 = load i16, ptr %1, align 2
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %107 = add nsw i32 %7, -1
+  %108 = zext i32 %107 to i64
+  %109 = shl nuw nsw i64 %108, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull align 2 %106, i64 %109, i1 false)
+  %110 = getelementptr inbounds nuw i16, ptr %1, i64 %108
+  store i16 %105, ptr %110, align 2
+  br label %111
 
-112:                                              ; preds = %105, %._crit_edge
+111:                                              ; preds = %104, %._crit_edge
   %narrow = select i1 %.not, i32 %13, i32 0
   %.2.idx = zext nneg i32 %narrow to i64
   %.2 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 %.2.idx
@@ -2110,7 +2108,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %4
   %.1.lcssa = phi ptr [ %.0, %4 ], [ %31, %.lr.ph.split.split.us ], [ %24, %.lr.ph.split.us.split ], [ %21, %.lr.ph.split.us.split.us ], [ %38, %.lr.ph.split.split ]
   %39 = icmp eq i32 %13, 0
-  %40 = icmp ne i32 %11, 0
+  %40 = trunc i32 %10 to i1
   %or.cond = and i1 %39, %40
   br i1 %or.cond, label %41, label %48
 
@@ -3028,7 +3026,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %30
   %90 = icmp eq i32 %13, 0
-  %91 = icmp ne i32 %11, 0
+  %91 = trunc i32 %10 to i1
   %or.cond5 = and i1 %90, %91
   br i1 %or.cond5, label %92, label %99
 
@@ -3296,7 +3294,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %30
   %98 = icmp eq i32 %13, 0
-  %99 = icmp ne i32 %11, 0
+  %99 = trunc i32 %10 to i1
   %or.cond5 = and i1 %98, %99
   br i1 %or.cond5, label %100, label %107
 
@@ -3548,7 +3546,7 @@ define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %4
   %46 = icmp eq i32 %13, 0
-  %47 = icmp ne i32 %11, 0
+  %47 = trunc i32 %10 to i1
   %or.cond = and i1 %46, %47
   br i1 %or.cond, label %48, label %55
 
@@ -3687,7 +3685,7 @@ define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %4
   %46 = icmp eq i32 %13, 0
-  %47 = icmp ne i32 %11, 0
+  %47 = trunc i32 %10 to i1
   %or.cond = and i1 %46, %47
   br i1 %or.cond, label %48, label %55
 
@@ -4129,7 +4127,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
   %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %42, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %78, %.lr.ph.split.split.split.us ], [ %34, %.lr.ph.split.us.split.us.split ], [ %55, %.lr.ph.split.split.us.split.us ], [ %51, %.lr.ph.split.us.split.split ], [ %65, %.lr.ph.split.split.us.split ], [ %92, %.lr.ph.split.split.split ]
   %98 = icmp eq i32 %12, 0
-  %99 = icmp ne i32 %14, 0
+  %99 = trunc i32 %13 to i1
   %or.cond = and i1 %98, %99
   br i1 %or.cond, label %100, label %105
 
@@ -4363,7 +4361,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
   %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %44, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %84, %.lr.ph.split.split.split.us ], [ %35, %.lr.ph.split.us.split.us.split ], [ %59, %.lr.ph.split.split.us.split.us ], [ %54, %.lr.ph.split.us.split.split ], [ %70, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
   %106 = icmp eq i32 %12, 0
-  %107 = icmp ne i32 %14, 0
+  %107 = trunc i32 %13 to i1
   %or.cond = and i1 %106, %107
   br i1 %or.cond, label %108, label %114
 
@@ -5188,60 +5186,60 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %12 = and i32 %11, 7
   %13 = lshr i32 %.fr, 14
   %14 = and i32 %13, 1
-  %15 = lshr i32 %.fr, 23
-  %16 = and i32 %15, 1
   %.not = icmp eq i32 %10, %14
-  %17 = icmp ne i32 %16, 0
-  %18 = icmp ne i32 %12, 0
-  %or.cond3 = and i1 %17, %18
-  br i1 %.not, label %30, label %19
+  %15 = and i32 %.fr, 8388608
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp ne i32 %12, 0
+  %or.cond3 = and i1 %17, %16
+  br i1 %.not, label %29, label %18
 
-19:                                               ; preds = %4
-  br i1 %or.cond3, label %20, label %27
+18:                                               ; preds = %4
+  br i1 %or.cond3, label %19, label %26
 
-20:                                               ; preds = %19
-  %21 = load i8, ptr %2, align 1
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 8
-  %24 = or disjoint i32 %23, %22
-  %.lobit = lshr i8 %21, 7
-  %25 = zext nneg i8 %.lobit to i32
-  %26 = add nuw nsw i32 %24, %25
-  br label %27
+19:                                               ; preds = %18
+  %20 = load i8, ptr %2, align 1
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 8
+  %23 = or disjoint i32 %22, %21
+  %.lobit = lshr i8 %20, 7
+  %24 = zext nneg i8 %.lobit to i32
+  %25 = add nuw nsw i32 %23, %24
+  br label %26
 
-27:                                               ; preds = %20, %19
-  %.053 = phi i32 [ %26, %20 ], [ 0, %19 ]
-  %28 = zext nneg i32 %12 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  br label %40
+26:                                               ; preds = %19, %18
+  %.053 = phi i32 [ %25, %19 ], [ 0, %18 ]
+  %27 = zext nneg i32 %12 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
+  br label %39
 
-30:                                               ; preds = %4
-  br i1 %or.cond3, label %31, label %40
+29:                                               ; preds = %4
+  br i1 %or.cond3, label %30, label %39
 
-31:                                               ; preds = %30
-  %32 = zext nneg i32 %8 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = or disjoint i32 %36, %35
-  %.lobit65 = lshr i8 %34, 7
-  %38 = zext nneg i8 %.lobit65 to i32
-  %39 = add nuw nsw i32 %37, %38
-  br label %40
+30:                                               ; preds = %29
+  %31 = zext nneg i32 %8 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %34 = zext i8 %33 to i32
+  %35 = shl nuw nsw i32 %34, 8
+  %36 = or disjoint i32 %35, %34
+  %.lobit65 = lshr i8 %33, 7
+  %37 = zext nneg i8 %.lobit65 to i32
+  %38 = add nuw nsw i32 %36, %37
+  br label %39
 
-40:                                               ; preds = %30, %31, %27
-  %.154 = phi i32 [ %.053, %27 ], [ %39, %31 ], [ 0, %30 ]
-  %.0 = phi ptr [ %29, %27 ], [ %2, %31 ], [ %2, %30 ]
+39:                                               ; preds = %29, %30, %26
+  %.154 = phi i32 [ %.053, %26 ], [ %38, %30 ], [ 0, %29 ]
+  %.0 = phi ptr [ %28, %26 ], [ %2, %30 ], [ %2, %29 ]
   %.not81 = icmp eq i32 %8, 0
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %40
+.lr.ph:                                           ; preds = %39
   %.not61 = icmp eq i32 %10, 0
-  %41 = shl i32 %.fr, 18
-  %sext = ashr i32 %41, 31
-  %42 = trunc nsw i32 %sext to i16
-  %.not63 = icmp eq i32 %16, 0
+  %40 = shl i32 %.fr, 18
+  %sext = ashr i32 %40, 31
+  %41 = trunc nsw i32 %sext to i16
+  %42 = and i32 %.fr, 8388608
+  %.not63 = icmp eq i32 %42, 0
   %wide.trip.count104 = zext nneg i32 %8 to i64
   br i1 %.not61, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -5253,7 +5251,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %.167.us.us = phi ptr [ %50, %.lr.ph.split.us.split.us ], [ %.0, %.lr.ph.split.us ]
   %43 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv101
   %44 = load i16, ptr %43, align 2
-  %.157.us.us = xor i16 %44, %42
+  %.157.us.us = xor i16 %44, %41
   %45 = zext i16 %.157.us.us to i32
   %46 = mul nuw i32 %45, 65281
   %47 = add nuw i32 %46, 8388608
@@ -5270,7 +5268,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %.167.us = phi ptr [ %61, %.lr.ph.split.us.split ], [ %.0, %.lr.ph.split.us ]
   %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv96
   %52 = load i16, ptr %51, align 2
-  %.157.us = xor i16 %52, %42
+  %.157.us = xor i16 %52, %41
   %53 = zext i16 %.157.us to i32
   %54 = mul nuw i32 %.154, %53
   %55 = add nuw i32 %54, 32768
@@ -5297,7 +5295,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw i16, ptr %1, i64 %65
   %67 = load i16, ptr %66, align 2
-  %.157.us72 = xor i16 %67, %42
+  %.157.us72 = xor i16 %67, %41
   %68 = zext i16 %.157.us72 to i32
   %69 = mul nuw i32 %68, 65281
   %70 = add nuw i32 %69, 8388608
@@ -5318,7 +5316,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds nuw i16, ptr %1, i64 %77
   %79 = load i16, ptr %78, align 2
-  %.157 = xor i16 %79, %42
+  %.157 = xor i16 %79, %41
   %80 = zext i16 %.157 to i32
   %81 = mul nuw i32 %.154, %80
   %82 = add nuw i32 %81, 32768
@@ -5341,11 +5339,11 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %90 = trunc nuw i32 %83 to i16
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split.us, %._crit_edge.loopexit84, %._crit_edge.loopexit82, %40
-  %.056.lcssa = phi i16 [ 0, %40 ], [ %90, %._crit_edge.loopexit84 ], [ %.157.us.us, %.lr.ph.split.us.split.us ], [ %89, %._crit_edge.loopexit82 ], [ %.157.us72, %.lr.ph.split.split.us ]
-  %.1.lcssa = phi ptr [ %.0, %40 ], [ %88, %._crit_edge.loopexit84 ], [ %50, %.lr.ph.split.us.split.us ], [ %61, %._crit_edge.loopexit82 ], [ %73, %.lr.ph.split.split.us ]
+._crit_edge:                                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split.us, %._crit_edge.loopexit84, %._crit_edge.loopexit82, %39
+  %.056.lcssa = phi i16 [ 0, %39 ], [ %90, %._crit_edge.loopexit84 ], [ %.157.us.us, %.lr.ph.split.us.split.us ], [ %89, %._crit_edge.loopexit82 ], [ %.157.us72, %.lr.ph.split.split.us ]
+  %.1.lcssa = phi ptr [ %.0, %39 ], [ %88, %._crit_edge.loopexit84 ], [ %50, %.lr.ph.split.us.split.us ], [ %61, %._crit_edge.loopexit82 ], [ %73, %.lr.ph.split.split.us ]
   %91 = icmp eq i32 %12, 0
-  %92 = icmp ne i32 %14, 0
+  %92 = trunc i32 %13 to i1
   %or.cond5 = and i1 %91, %92
   br i1 %or.cond5, label %93, label %102
 
@@ -5382,63 +5380,63 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %12 = and i32 %11, 7
   %13 = xor i32 %9, %10
   %14 = and i32 %13, 1
-  %15 = lshr i32 %.fr, 23
-  %16 = and i32 %15, 1
   %.not = icmp eq i32 %14, 0
-  %17 = icmp ne i32 %16, 0
-  %18 = icmp ne i32 %12, 0
-  %or.cond3 = and i1 %17, %18
-  br i1 %.not, label %31, label %19
+  %15 = and i32 %.fr, 8388608
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp ne i32 %12, 0
+  %or.cond3 = and i1 %17, %16
+  br i1 %.not, label %30, label %18
 
-19:                                               ; preds = %4
-  br i1 %or.cond3, label %20, label %27
+18:                                               ; preds = %4
+  br i1 %or.cond3, label %19, label %26
 
-20:                                               ; preds = %19
-  %21 = load i8, ptr %2, align 1
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 8
-  %24 = or disjoint i32 %23, %22
-  %.lobit = lshr i8 %21, 7
-  %25 = zext nneg i8 %.lobit to i32
-  %26 = add nuw nsw i32 %24, %25
-  br label %27
+19:                                               ; preds = %18
+  %20 = load i8, ptr %2, align 1
+  %21 = zext i8 %20 to i32
+  %22 = shl nuw nsw i32 %21, 8
+  %23 = or disjoint i32 %22, %21
+  %.lobit = lshr i8 %20, 7
+  %24 = zext nneg i8 %.lobit to i32
+  %25 = add nuw nsw i32 %23, %24
+  br label %26
 
-27:                                               ; preds = %20, %19
-  %.048 = phi i32 [ %26, %20 ], [ 0, %19 ]
-  %28 = mul i32 %12, %3
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %29
-  br label %42
+26:                                               ; preds = %19, %18
+  %.048 = phi i32 [ %25, %19 ], [ 0, %18 ]
+  %27 = mul i32 %12, %3
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
+  br label %41
 
-31:                                               ; preds = %4
-  br i1 %or.cond3, label %32, label %42
+30:                                               ; preds = %4
+  br i1 %or.cond3, label %31, label %41
 
-32:                                               ; preds = %31
-  %33 = mul i32 %8, %3
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = shl nuw nsw i32 %37, 8
-  %39 = or disjoint i32 %38, %37
-  %.lobit56 = lshr i8 %36, 7
-  %40 = zext nneg i8 %.lobit56 to i32
-  %41 = add nuw nsw i32 %39, %40
-  br label %42
+31:                                               ; preds = %30
+  %32 = mul i32 %8, %3
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 8
+  %38 = or disjoint i32 %37, %36
+  %.lobit56 = lshr i8 %35, 7
+  %39 = zext nneg i8 %.lobit56 to i32
+  %40 = add nuw nsw i32 %38, %39
+  br label %41
 
-42:                                               ; preds = %31, %32, %27
-  %.149 = phi i32 [ %.048, %27 ], [ %41, %32 ], [ 0, %31 ]
-  %.046 = phi ptr [ %30, %27 ], [ %2, %32 ], [ %2, %31 ]
+41:                                               ; preds = %30, %31, %26
+  %.149 = phi i32 [ %.048, %26 ], [ %40, %31 ], [ 0, %30 ]
+  %.046 = phi ptr [ %29, %26 ], [ %2, %31 ], [ %2, %30 ]
   %.not64 = icmp eq i32 %8, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %42
-  %43 = and i32 %.fr, 1024
-  %.not52 = icmp eq i32 %43, 0
-  %44 = shl i32 %.fr, 18
-  %sext = ashr i32 %44, 31
-  %45 = trunc nsw i32 %sext to i16
-  %.not54 = icmp eq i32 %16, 0
+.lr.ph:                                           ; preds = %41
+  %42 = and i32 %.fr, 1024
+  %.not52 = icmp eq i32 %42, 0
+  %43 = shl i32 %.fr, 18
+  %sext = ashr i32 %43, 31
+  %44 = trunc nsw i32 %sext to i16
+  %45 = and i32 %.fr, 8388608
+  %.not54 = icmp eq i32 %45, 0
   %46 = zext i32 %3 to i64
   %wide.trip.count82 = zext nneg i32 %8 to i64
   br i1 %.not52, label %.lr.ph.split.us, label %.lr.ph.split
@@ -5451,7 +5449,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %.14758.us.us = phi ptr [ %54, %.lr.ph.split.us.split.us ], [ %.046, %.lr.ph.split.us ]
   %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv79
   %48 = load i16, ptr %47, align 2
-  %.0.us.us = xor i16 %48, %45
+  %.0.us.us = xor i16 %48, %44
   %49 = zext i16 %.0.us.us to i32
   %50 = mul nuw i32 %49, 65281
   %51 = add nuw i32 %50, 8388608
@@ -5468,7 +5466,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %.14758.us = phi ptr [ %65, %.lr.ph.split.us.split ], [ %.046, %.lr.ph.split.us ]
   %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv74
   %56 = load i16, ptr %55, align 2
-  %.0.us = xor i16 %56, %45
+  %.0.us = xor i16 %56, %44
   %57 = zext i16 %.0.us to i32
   %58 = mul nuw i32 %.149, %57
   %59 = add nuw i32 %58, 32768
@@ -5495,7 +5493,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
   %71 = load i16, ptr %70, align 2
-  %.0.us61 = xor i16 %71, %45
+  %.0.us61 = xor i16 %71, %44
   %72 = zext i16 %.0.us61 to i32
   %73 = mul nuw i32 %72, 65281
   %74 = add nuw i32 %73, 8388608
@@ -5516,7 +5514,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw i16, ptr %1, i64 %81
   %83 = load i16, ptr %82, align 2
-  %.0 = xor i16 %83, %45
+  %.0 = xor i16 %83, %44
   %84 = zext i16 %.0 to i32
   %85 = mul nuw i32 %.149, %84
   %86 = add nuw i32 %85, 32768
@@ -5531,7 +5529,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count82
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %42
+._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %41
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 1
   ret ptr %93
 }
@@ -5853,59 +5851,59 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %12 = and i32 %11, 7
   %13 = lshr i32 %.fr, 14
   %14 = and i32 %13, 1
-  %15 = lshr i32 %.fr, 23
-  %16 = and i32 %15, 1
   %.not = icmp eq i32 %10, %14
-  %17 = icmp ne i32 %16, 0
-  %18 = icmp ne i32 %12, 0
-  %or.cond3 = and i1 %17, %18
-  br i1 %.not, label %29, label %19
+  %15 = and i32 %.fr, 8388608
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp ne i32 %12, 0
+  %or.cond3 = and i1 %17, %16
+  br i1 %.not, label %28, label %18
 
-19:                                               ; preds = %4
-  br i1 %or.cond3, label %20, label %25
+18:                                               ; preds = %4
+  br i1 %or.cond3, label %19, label %24
 
-20:                                               ; preds = %19
-  %21 = load i16, ptr %2, align 2
-  %22 = zext i16 %21 to i32
-  %.lobit = lshr i16 %21, 15
-  %23 = zext nneg i16 %.lobit to i32
-  %24 = add nuw nsw i32 %23, %22
-  br label %25
+19:                                               ; preds = %18
+  %20 = load i16, ptr %2, align 2
+  %21 = zext i16 %20 to i32
+  %.lobit = lshr i16 %20, 15
+  %22 = zext nneg i16 %.lobit to i32
+  %23 = add nuw nsw i32 %22, %21
+  br label %24
 
-25:                                               ; preds = %20, %19
-  %.055 = phi i32 [ %24, %20 ], [ 0, %19 ]
-  %26 = shl nuw nsw i32 %12, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  br label %37
+24:                                               ; preds = %19, %18
+  %.055 = phi i32 [ %23, %19 ], [ 0, %18 ]
+  %25 = shl nuw nsw i32 %12, 1
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
+  br label %36
 
-29:                                               ; preds = %4
-  br i1 %or.cond3, label %30, label %37
+28:                                               ; preds = %4
+  br i1 %or.cond3, label %29, label %36
 
-30:                                               ; preds = %29
-  %31 = zext nneg i32 %8 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %2, i64 %31
-  %33 = load i16, ptr %32, align 2
-  %34 = zext i16 %33 to i32
-  %.lobit68 = lshr i16 %33, 15
-  %35 = zext nneg i16 %.lobit68 to i32
-  %36 = add nuw nsw i32 %35, %34
-  br label %37
+29:                                               ; preds = %28
+  %30 = zext nneg i32 %8 to i64
+  %31 = getelementptr inbounds nuw i16, ptr %2, i64 %30
+  %32 = load i16, ptr %31, align 2
+  %33 = zext i16 %32 to i32
+  %.lobit68 = lshr i16 %32, 15
+  %34 = zext nneg i16 %.lobit68 to i32
+  %35 = add nuw nsw i32 %34, %33
+  br label %36
 
-37:                                               ; preds = %29, %30, %25
-  %.156 = phi i32 [ %.055, %25 ], [ %36, %30 ], [ 0, %29 ]
-  %.0 = phi ptr [ %28, %25 ], [ %2, %30 ], [ %2, %29 ]
+36:                                               ; preds = %28, %29, %24
+  %.156 = phi i32 [ %.055, %24 ], [ %35, %29 ], [ 0, %28 ]
+  %.0 = phi ptr [ %27, %24 ], [ %2, %29 ], [ %2, %28 ]
   %.not112 = icmp eq i32 %8, 0
   br i1 %.not112, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37
+.lr.ph:                                           ; preds = %36
   %.not63 = icmp eq i32 %10, 0
-  %38 = and i32 %.fr, 2048
-  %.not64 = icmp eq i32 %38, 0
-  %39 = shl i32 %.fr, 18
-  %sext = ashr i32 %39, 31
-  %40 = trunc nsw i32 %sext to i16
-  %.not66 = icmp eq i32 %16, 0
+  %37 = and i32 %.fr, 2048
+  %.not64 = icmp eq i32 %37, 0
+  %38 = shl i32 %.fr, 18
+  %sext = ashr i32 %38, 31
+  %39 = trunc nsw i32 %sext to i16
+  %40 = and i32 %.fr, 8388608
+  %.not66 = icmp eq i32 %40, 0
   %wide.trip.count165 = zext nneg i32 %8 to i64
   br i1 %.not63, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -5920,7 +5918,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %.170.us.us.us = phi ptr [ %43, %.lr.ph.split.us.split.us.split.us ], [ %.0, %.lr.ph.split.us.split.us ]
   %41 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv162
   %42 = load i16, ptr %41, align 2
-  %.260.us.us.us = xor i16 %42, %40
+  %.260.us.us.us = xor i16 %42, %39
   store i16 %.260.us.us.us, ptr %.170.us.us.us, align 2
   %43 = getelementptr inbounds nuw i8, ptr %.170.us.us.us, i64 2
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
@@ -5932,7 +5930,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %.170.us.us = phi ptr [ %51, %.lr.ph.split.us.split.us.split ], [ %.0, %.lr.ph.split.us.split.us ]
   %44 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv157
   %45 = load i16, ptr %44, align 2
-  %.260.us.us = xor i16 %45, %40
+  %.260.us.us = xor i16 %45, %39
   %46 = zext i16 %.260.us.us to i32
   %47 = mul nuw i32 %.156, %46
   %48 = add nuw i32 %47, 32768
@@ -5953,7 +5951,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv152
   %53 = load i16, ptr %52, align 2
   %rev.us.us101 = tail call i16 @llvm.bswap.i16(i16 %53)
-  %.260.us.us102 = xor i16 %rev.us.us101, %40
+  %.260.us.us102 = xor i16 %rev.us.us101, %39
   store i16 %.260.us.us102, ptr %.170.us.us99, align 2
   %54 = getelementptr inbounds nuw i8, ptr %.170.us.us99, i64 2
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
@@ -5966,7 +5964,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv147
   %56 = load i16, ptr %55, align 2
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %56)
-  %.260.us = xor i16 %rev.us, %40
+  %.260.us = xor i16 %rev.us, %39
   %57 = zext i16 %.260.us to i32
   %58 = mul nuw i32 %.156, %57
   %59 = add nuw i32 %58, 32768
@@ -5993,7 +5991,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %66 = zext i32 %65 to i64
   %67 = getelementptr inbounds nuw i16, ptr %1, i64 %66
   %68 = load i16, ptr %67, align 2
-  %.260.us77.us = xor i16 %68, %40
+  %.260.us77.us = xor i16 %68, %39
   store i16 %.260.us77.us, ptr %.170.us73.us, align 2
   %69 = getelementptr inbounds nuw i8, ptr %.170.us73.us, i64 2
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
@@ -6009,7 +6007,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw i16, ptr %1, i64 %73
   %75 = load i16, ptr %74, align 2
-  %.260.us77 = xor i16 %75, %40
+  %.260.us77 = xor i16 %75, %39
   %76 = zext i16 %.260.us77 to i32
   %77 = mul nuw i32 %.156, %76
   %78 = add nuw i32 %77, 32768
@@ -6034,7 +6032,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %86 = getelementptr inbounds nuw i16, ptr %1, i64 %85
   %87 = load i16, ptr %86, align 2
   %rev.us85 = tail call i16 @llvm.bswap.i16(i16 %87)
-  %.260.us86 = xor i16 %rev.us85, %40
+  %.260.us86 = xor i16 %rev.us85, %39
   store i16 %.260.us86, ptr %.170.us83, align 2
   %88 = getelementptr inbounds nuw i8, ptr %.170.us83, i64 2
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
@@ -6051,7 +6049,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %93 = getelementptr inbounds nuw i16, ptr %1, i64 %92
   %94 = load i16, ptr %93, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %94)
-  %.260 = xor i16 %rev, %40
+  %.260 = xor i16 %rev, %39
   %95 = zext i16 %.260 to i32
   %96 = mul nuw i32 %.156, %95
   %97 = add nuw i32 %96, 32768
@@ -6063,11 +6061,11 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count165
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %37
-  %.058.lcssa = phi i16 [ 0, %37 ], [ %.260.us.us102, %.lr.ph.split.us.split.split.us ], [ %.260.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.260.us86, %.lr.ph.split.split.split.us ], [ %50, %.lr.ph.split.us.split.us.split ], [ %.260.us77.us, %.lr.ph.split.split.us.split.us ], [ %61, %.lr.ph.split.us.split.split ], [ %80, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
-  %.1.lcssa = phi ptr [ %.0, %37 ], [ %54, %.lr.ph.split.us.split.split.us ], [ %43, %.lr.ph.split.us.split.us.split.us ], [ %88, %.lr.ph.split.split.split.us ], [ %51, %.lr.ph.split.us.split.us.split ], [ %69, %.lr.ph.split.split.us.split.us ], [ %62, %.lr.ph.split.us.split.split ], [ %81, %.lr.ph.split.split.us.split ], [ %100, %.lr.ph.split.split.split ]
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %36
+  %.058.lcssa = phi i16 [ 0, %36 ], [ %.260.us.us102, %.lr.ph.split.us.split.split.us ], [ %.260.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.260.us86, %.lr.ph.split.split.split.us ], [ %50, %.lr.ph.split.us.split.us.split ], [ %.260.us77.us, %.lr.ph.split.split.us.split.us ], [ %61, %.lr.ph.split.us.split.split ], [ %80, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
+  %.1.lcssa = phi ptr [ %.0, %36 ], [ %54, %.lr.ph.split.us.split.split.us ], [ %43, %.lr.ph.split.us.split.us.split.us ], [ %88, %.lr.ph.split.split.split.us ], [ %51, %.lr.ph.split.us.split.us.split ], [ %69, %.lr.ph.split.split.us.split.us ], [ %62, %.lr.ph.split.us.split.split ], [ %81, %.lr.ph.split.split.us.split ], [ %100, %.lr.ph.split.split.split ]
   %101 = icmp eq i32 %12, 0
-  %102 = icmp ne i32 %14, 0
+  %102 = trunc i32 %13 to i1
   %or.cond5 = and i1 %101, %102
   br i1 %or.cond5, label %103, label %108
 
@@ -6101,61 +6099,61 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %12 = and i32 %11, 7
   %13 = xor i32 %9, %10
   %14 = and i32 %13, 1
-  %15 = lshr i32 %.fr, 23
-  %16 = and i32 %15, 1
   %.not = icmp eq i32 %14, 0
-  %17 = icmp ne i32 %16, 0
-  %18 = icmp ne i32 %12, 0
-  %or.cond3 = and i1 %17, %18
-  br i1 %.not, label %29, label %19
+  %15 = and i32 %.fr, 8388608
+  %16 = icmp ne i32 %15, 0
+  %17 = icmp ne i32 %12, 0
+  %or.cond3 = and i1 %17, %16
+  br i1 %.not, label %28, label %18
 
-19:                                               ; preds = %4
-  br i1 %or.cond3, label %20, label %25
+18:                                               ; preds = %4
+  br i1 %or.cond3, label %19, label %24
 
-20:                                               ; preds = %19
-  %21 = load i16, ptr %2, align 2
-  %22 = zext i16 %21 to i32
-  %.lobit = lshr i16 %21, 15
-  %23 = zext nneg i16 %.lobit to i32
-  %24 = add nuw nsw i32 %23, %22
-  br label %25
+19:                                               ; preds = %18
+  %20 = load i16, ptr %2, align 2
+  %21 = zext i16 %20 to i32
+  %.lobit = lshr i16 %20, 15
+  %22 = zext nneg i16 %.lobit to i32
+  %23 = add nuw nsw i32 %22, %21
+  br label %24
 
-25:                                               ; preds = %20, %19
-  %.046 = phi i32 [ %24, %20 ], [ 0, %19 ]
-  %26 = mul i32 %12, %3
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  br label %38
+24:                                               ; preds = %19, %18
+  %.046 = phi i32 [ %23, %19 ], [ 0, %18 ]
+  %25 = mul i32 %12, %3
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %26
+  br label %37
 
-29:                                               ; preds = %4
-  br i1 %or.cond3, label %30, label %38
+28:                                               ; preds = %4
+  br i1 %or.cond3, label %29, label %37
 
-30:                                               ; preds = %29
-  %31 = mul i32 %8, %3
-  %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %2, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i32
-  %.lobit57 = lshr i16 %34, 15
-  %36 = zext nneg i16 %.lobit57 to i32
-  %37 = add nuw nsw i32 %36, %35
-  br label %38
+29:                                               ; preds = %28
+  %30 = mul i32 %8, %3
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw i16, ptr %2, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = zext i16 %33 to i32
+  %.lobit57 = lshr i16 %33, 15
+  %35 = zext nneg i16 %.lobit57 to i32
+  %36 = add nuw nsw i32 %35, %34
+  br label %37
 
-38:                                               ; preds = %29, %30, %25
-  %.147 = phi i32 [ %.046, %25 ], [ %37, %30 ], [ 0, %29 ]
-  %.0 = phi ptr [ %28, %25 ], [ %2, %30 ], [ %2, %29 ]
+37:                                               ; preds = %28, %29, %24
+  %.147 = phi i32 [ %.046, %24 ], [ %36, %29 ], [ 0, %28 ]
+  %.0 = phi ptr [ %27, %24 ], [ %2, %29 ], [ %2, %28 ]
   %.not81 = icmp eq i32 %8, 0
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %38
-  %39 = and i32 %.fr, 1024
-  %.not52 = icmp eq i32 %39, 0
-  %40 = and i32 %.fr, 2048
-  %.not53 = icmp eq i32 %40, 0
-  %41 = shl i32 %.fr, 18
-  %sext = ashr i32 %41, 31
-  %42 = trunc nsw i32 %sext to i16
-  %.not55 = icmp eq i32 %16, 0
+.lr.ph:                                           ; preds = %37
+  %38 = and i32 %.fr, 1024
+  %.not52 = icmp eq i32 %38, 0
+  %39 = and i32 %.fr, 2048
+  %.not53 = icmp eq i32 %39, 0
+  %40 = shl i32 %.fr, 18
+  %sext = ashr i32 %40, 31
+  %41 = trunc nsw i32 %sext to i16
+  %42 = and i32 %.fr, 8388608
+  %.not55 = icmp eq i32 %42, 0
   %43 = zext i32 %3 to i64
   %wide.trip.count123 = zext nneg i32 %8 to i64
   br i1 %.not52, label %.lr.ph.split.us, label %.lr.ph.split
@@ -6171,7 +6169,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %.159.us.us.us = phi ptr [ %46, %.lr.ph.split.us.split.us.split.us ], [ %.0, %.lr.ph.split.us.split.us ]
   %44 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv120
   %45 = load i16, ptr %44, align 2
-  %.149.us.us.us = xor i16 %45, %42
+  %.149.us.us.us = xor i16 %45, %41
   store i16 %.149.us.us.us, ptr %.159.us.us.us, align 2
   %46 = getelementptr inbounds nuw i8, ptr %.159.us.us.us, i64 %43
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
@@ -6183,7 +6181,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %.159.us.us = phi ptr [ %54, %.lr.ph.split.us.split.us.split ], [ %.0, %.lr.ph.split.us.split.us ]
   %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv115
   %48 = load i16, ptr %47, align 2
-  %.149.us.us = xor i16 %48, %42
+  %.149.us.us = xor i16 %48, %41
   %49 = zext i16 %.149.us.us to i32
   %50 = mul nuw i32 %.147, %49
   %51 = add nuw i32 %50, 32768
@@ -6204,7 +6202,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv110
   %56 = load i16, ptr %55, align 2
   %rev.us.us76 = tail call i16 @llvm.bswap.i16(i16 %56)
-  %.149.us.us77 = xor i16 %rev.us.us76, %42
+  %.149.us.us77 = xor i16 %rev.us.us76, %41
   store i16 %.149.us.us77, ptr %.159.us.us74, align 2
   %57 = getelementptr inbounds nuw i8, ptr %.159.us.us74, i64 %43
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -6217,7 +6215,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %58 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv105
   %59 = load i16, ptr %58, align 2
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %59)
-  %.149.us = xor i16 %rev.us, %42
+  %.149.us = xor i16 %rev.us, %41
   %60 = zext i16 %.149.us to i32
   %61 = mul nuw i32 %.147, %60
   %62 = add nuw i32 %61, 32768
@@ -6244,7 +6242,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
   %71 = load i16, ptr %70, align 2
-  %.149.us64.us = xor i16 %71, %42
+  %.149.us64.us = xor i16 %71, %41
   store i16 %.149.us64.us, ptr %.159.us60.us, align 2
   %72 = getelementptr inbounds nuw i8, ptr %.159.us60.us, i64 %43
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -6260,7 +6258,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw i16, ptr %1, i64 %76
   %78 = load i16, ptr %77, align 2
-  %.149.us64 = xor i16 %78, %42
+  %.149.us64 = xor i16 %78, %41
   %79 = zext i16 %.149.us64 to i32
   %80 = mul nuw i32 %.147, %79
   %81 = add nuw i32 %80, 32768
@@ -6285,7 +6283,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %89 = getelementptr inbounds nuw i16, ptr %1, i64 %88
   %90 = load i16, ptr %89, align 2
   %rev.us68 = tail call i16 @llvm.bswap.i16(i16 %90)
-  %.149.us69 = xor i16 %rev.us68, %42
+  %.149.us69 = xor i16 %rev.us68, %41
   store i16 %.149.us69, ptr %.159.us66, align 2
   %91 = getelementptr inbounds nuw i8, ptr %.159.us66, i64 %43
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -6302,7 +6300,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %96 = getelementptr inbounds nuw i16, ptr %1, i64 %95
   %97 = load i16, ptr %96, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %97)
-  %.149 = xor i16 %rev, %42
+  %.149 = xor i16 %rev, %41
   %98 = zext i16 %.149 to i32
   %99 = mul nuw i32 %.147, %98
   %100 = add nuw i32 %99, 32768
@@ -6314,7 +6312,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count123
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %38
+._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %37
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 2
   ret ptr %104
 }
@@ -6944,7 +6942,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
   %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %44, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %84, %.lr.ph.split.split.split.us ], [ %35, %.lr.ph.split.us.split.us.split ], [ %59, %.lr.ph.split.split.us.split.us ], [ %54, %.lr.ph.split.us.split.split ], [ %70, %.lr.ph.split.split.us.split ], [ %99, %.lr.ph.split.split.split ]
   %106 = icmp eq i32 %12, 0
-  %107 = icmp ne i32 %14, 0
+  %107 = trunc i32 %13 to i1
   %or.cond = and i1 %106, %107
   br i1 %or.cond, label %108, label %114
 
@@ -7171,7 +7169,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %IsInkSpace.exit
   %.052.lcssa = phi double [ 0.000000e+00, %IsInkSpace.exit ], [ %42, %.lr.ph.split.us.split.split.us ], [ %29, %.lr.ph.split.us.split.us.split.us ], [ %78, %.lr.ph.split.split.split.us ], [ %34, %.lr.ph.split.us.split.us.split ], [ %55, %.lr.ph.split.split.us.split.us ], [ %51, %.lr.ph.split.us.split.split ], [ %65, %.lr.ph.split.split.us.split ], [ %92, %.lr.ph.split.split.split ]
   %98 = icmp eq i32 %12, 0
-  %99 = icmp ne i32 %14, 0
+  %99 = trunc i32 %13 to i1
   %or.cond = and i1 %98, %99
   br i1 %or.cond, label %100, label %105
 
@@ -7388,7 +7386,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us63, %_cmsQuickSaturateWord.exit.us57, %_cmsQuickSaturateWord.exit.us, %4
   %.048.lcssa = phi i16 [ 0, %4 ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
   %105 = icmp eq i32 %12, 0
-  %106 = icmp ne i32 %14, 0
+  %106 = trunc i32 %13 to i1
   %or.cond = and i1 %105, %106
   br i1 %or.cond, label %107, label %112
 
@@ -7621,7 +7619,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us63, %_cmsQuickSaturateWord.exit.us57, %_cmsQuickSaturateWord.exit.us, %4
   %.048.lcssa = phi i8 [ 0, %4 ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
   %121 = icmp eq i32 %12, 0
-  %122 = icmp ne i32 %14, 0
+  %122 = trunc i32 %13 to i1
   %or.cond = and i1 %121, %122
   br i1 %or.cond, label %123, label %127
 

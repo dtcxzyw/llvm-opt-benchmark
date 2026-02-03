@@ -8474,9 +8474,8 @@ _ZN6vectorIP4exprLb0EjE6appendEjPKS1_.exit:       ; preds = %_ZN6vectorIP4exprLb
 _Z9is_groundPK4expr.exit:                         ; preds = %54, %_ZNK11ast_manager10is_impliesEPK4expr.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 30
   %93 = load i8, ptr %92, align 2
-  %94 = and i8 %93, 1
-  %.not = icmp eq i8 %94, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %121, !llvm.loop !483
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %121, label %_Z9is_groundPK4expr.exit.thread, !llvm.loop !483
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %_ZNK11ast_manager6is_iffEPK4expr.exit.thread, %_Z9is_groundPK4expr.exit
   %95 = tail call noundef zeroext i1 @_ZN7datalog4ddnf3imp14process_atomicEP4expr(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %16)
@@ -8751,9 +8750,8 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %10
 _Z9is_groundPK4expr.exit:                         ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 30
   %44 = load i8, ptr %43, align 2
-  %45 = and i8 %44, 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit8.thread, label %46
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_Z9is_groundPK4expr.exit8.thread
 
 46:                                               ; preds = %_Z9is_groundPK4expr.exit
   %47 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %27)
@@ -8789,9 +8787,8 @@ _Z9is_groundPK4expr.exit.thread:                  ; preds = %33
 _Z9is_groundPK4expr.exit8:                        ; preds = %_Z9is_groundPK4expr.exit.thread
   %62 = getelementptr inbounds nuw i8, ptr %27, i64 30
   %63 = load i8, ptr %62, align 2
-  %64 = and i8 %63, 1
-  %.not36 = icmp eq i8 %64, 0
-  br i1 %.not36, label %_Z9is_groundPK4expr.exit8.thread, label %65
+  %64 = trunc i8 %63 to i1
+  br i1 %64, label %65, label %_Z9is_groundPK4expr.exit8.thread
 
 65:                                               ; preds = %_Z9is_groundPK4expr.exit8
   %66 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %29)
@@ -8840,9 +8837,8 @@ _Z9is_groundPK4expr.exit8.thread:                 ; preds = %_Z9is_groundPK4expr
 _Z9is_groundPK4expr.exit11:                       ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %29, i64 30
   %92 = load i8, ptr %91, align 2
-  %93 = and i8 %92, 1
-  %.not37 = icmp eq i8 %93, 0
-  br i1 %.not37, label %_Z9is_groundPK4expr.exit11.thread, label %94
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %94, label %_Z9is_groundPK4expr.exit11.thread
 
 94:                                               ; preds = %_Z9is_groundPK4expr.exit11
   %95 = load i32, ptr %5, align 4, !tbaa !57
@@ -8855,7 +8851,7 @@ _Z9is_groundPK4expr.exit11.thread:                ; preds = %87, %_Z9is_groundPK
   br i1 %98, label %99, label %_Z9is_groundPK4expr.exit11.thread._Z9is_groundPK4expr.exit12.thread_crit_edge
 
 _Z9is_groundPK4expr.exit11.thread._Z9is_groundPK4expr.exit12.thread_crit_edge: ; preds = %_Z9is_groundPK4expr.exit11.thread
-  %.pre39 = load i32, ptr %34, align 4
+  %.pre36 = load i32, ptr %34, align 4
   br label %_Z9is_groundPK4expr.exit12.thread
 
 99:                                               ; preds = %_Z9is_groundPK4expr.exit11.thread
@@ -8864,18 +8860,17 @@ _Z9is_groundPK4expr.exit11.thread._Z9is_groundPK4expr.exit12.thread_crit_edge: ;
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 65535
   %104 = icmp eq i32 %103, 1
-  %.pre40 = load i32, ptr %34, align 4
-  %105 = and i32 %.pre40, 65535
+  %.pre37 = load i32, ptr %34, align 4
+  %105 = and i32 %.pre37, 65535
   %106 = icmp eq i32 %105, 0
-  %or.cond44 = select i1 %104, i1 %106, i1 false
-  br i1 %or.cond44, label %_Z9is_groundPK4expr.exit12, label %_Z9is_groundPK4expr.exit12.thread
+  %or.cond41 = select i1 %104, i1 %106, i1 false
+  br i1 %or.cond41, label %_Z9is_groundPK4expr.exit12, label %_Z9is_groundPK4expr.exit12.thread
 
 _Z9is_groundPK4expr.exit12:                       ; preds = %99
   %107 = getelementptr inbounds nuw i8, ptr %27, i64 30
   %108 = load i8, ptr %107, align 2
-  %109 = and i8 %108, 1
-  %.not38 = icmp eq i8 %109, 0
-  br i1 %.not38, label %_Z9is_groundPK4expr.exit12.thread, label %110
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %_Z9is_groundPK4expr.exit12.thread
 
 110:                                              ; preds = %_Z9is_groundPK4expr.exit12
   %111 = load i32, ptr %5, align 4, !tbaa !57
@@ -8884,7 +8879,7 @@ _Z9is_groundPK4expr.exit12:                       ; preds = %99
   br label %121
 
 _Z9is_groundPK4expr.exit12.thread:                ; preds = %_Z9is_groundPK4expr.exit11.thread._Z9is_groundPK4expr.exit12.thread_crit_edge, %_Z9is_groundPK4expr.exit12, %99
-  %114 = phi i32 [ %.pre39, %_Z9is_groundPK4expr.exit11.thread._Z9is_groundPK4expr.exit12.thread_crit_edge ], [ %.pre40, %99 ], [ %.pre40, %_Z9is_groundPK4expr.exit12 ]
+  %114 = phi i32 [ %.pre36, %_Z9is_groundPK4expr.exit11.thread._Z9is_groundPK4expr.exit12.thread_crit_edge ], [ %.pre37, %99 ], [ %.pre37, %_Z9is_groundPK4expr.exit12 ]
   %115 = and i32 %114, 65535
   %116 = icmp eq i32 %115, 1
   br i1 %116, label %117, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
@@ -10881,7 +10876,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp12compile_exprEP4exprR7obj_
 
 .preheader.i.i.i:                                 ; preds = %38, %3
   %.not2736.i.i.i = icmp eq i32 %23, 0
-  br i1 %.not2736.i.i.i, label %.loopexit98, label %.lr.ph38.i.i.i
+  br i1 %.not2736.i.i.i, label %.loopexit94, label %.lr.ph38.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %38
   %.035.i.i.i = phi ptr [ %39, %38 ], [ %26, %3 ]
@@ -10899,7 +10894,7 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp12compile_exprEP4exprR7obj_
 
 36:                                               ; preds = %.lr.ph.i.i.i
   %37 = icmp eq ptr %29, null
-  br i1 %37, label %.loopexit98, label %38
+  br i1 %37, label %.loopexit94, label %38
 
 38:                                               ; preds = %36, %31
   %39 = getelementptr inbounds nuw i8, ptr %.035.i.i.i, i64 16
@@ -10925,12 +10920,12 @@ define linkonce_odr hidden void @_ZN7datalog4ddnf3imp12compile_exprEP4exprR7obj_
   %49 = getelementptr inbounds nuw i8, ptr %.137.i.i.i, i64 16
   %.not27.i.i.i = icmp eq ptr %49, %26
   %or.cond43.i.i.i = select i1 %48, i1 true, i1 %.not27.i.i.i
-  br i1 %or.cond43.i.i.i, label %.loopexit98, label %.lr.ph38.i.i.i.backedge
+  br i1 %or.cond43.i.i.i, label %.loopexit94, label %.lr.ph38.i.i.i.backedge
 
 50:                                               ; preds = %42
   %.old.i.i.i = getelementptr inbounds nuw i8, ptr %.137.i.i.i, i64 16
   %.not27.old.i.i.i = icmp eq ptr %.old.i.i.i, %26
-  br i1 %.not27.old.i.i.i, label %.loopexit98, label %.lr.ph38.i.i.i.backedge
+  br i1 %.not27.old.i.i.i, label %.loopexit94, label %.lr.ph38.i.i.i.backedge
 
 .lr.ph38.i.i.i.backedge:                          ; preds = %50, %47
   %.137.i.i.i.be = phi ptr [ %49, %47 ], [ %.old.i.i.i, %50 ]
@@ -10973,7 +10968,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %56, %58, %65
   store ptr %52, ptr %2, align 8, !tbaa !385
   br label %398
 
-.loopexit98:                                      ; preds = %36, %47, %50, %.preheader.i.i.i
+.loopexit94:                                      ; preds = %36, %47, %50, %.preheader.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %67 = load i32, ptr %66, align 4
   %trunc = trunc i32 %67 to i16
@@ -10982,12 +10977,11 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %56, %58, %65
     i16 1, label %85
   ]
 
-_Z9is_groundPK4expr.exit:                         ; preds = %.loopexit98
+_Z9is_groundPK4expr.exit:                         ; preds = %.loopexit94
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %69 = load i8, ptr %68, align 2
-  %70 = and i8 %69, 1
-  %.not = icmp eq i8 %70, 0
-  br i1 %.not, label %118, label %71
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %118
 
 71:                                               ; preds = %_Z9is_groundPK4expr.exit
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11022,7 +11016,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit54:    ; preds = %71, %76, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %398
 
-85:                                               ; preds = %.loopexit98
+85:                                               ; preds = %.loopexit94
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !310
@@ -11061,14 +11055,14 @@ _ZN11ast_manager7inc_refEP3ast.exit.i56:          ; preds = %89
 
 103:                                              ; preds = %96
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %98, ptr noundef nonnull %95)
-          to label %._crit_edge112 unwind label %116
+          to label %._crit_edge107 unwind label %116
 
-._crit_edge112:                                   ; preds = %103
+._crit_edge107:                                   ; preds = %103
   %.pre = load ptr, ptr %6, align 8, !tbaa !550
   br label %104
 
-104:                                              ; preds = %._crit_edge112, %96, %94
-  %105 = phi ptr [ %.pre, %._crit_edge112 ], [ %90, %96 ], [ %90, %94 ]
+104:                                              ; preds = %._crit_edge107, %96, %94
+  %105 = phi ptr [ %.pre, %._crit_edge107 ], [ %90, %96 ], [ %90, %94 ]
   store ptr %90, ptr %2, align 8, !tbaa !385
   %.not.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i, label %_ZN7obj_refI3var11ast_managerED2Ev.exit, label %106
@@ -11131,7 +11125,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %_ZNK11ast_manager6i
   %135 = select i1 %131, i1 %134, i1 false
   br i1 %135, label %169, label %_ZNK11ast_manager5is_eqEPK4expr.exit.i
 
-136:                                              ; preds = %.loopexit98
+136:                                              ; preds = %.loopexit94
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZNK11ast_manager6is_iffEPK4expr.exit.thread
 
@@ -11152,11 +11146,11 @@ _ZNK11ast_manager6is_iffEPK4expr.exit:            ; preds = %_ZNK11ast_manager5i
   br i1 %147, label %169, label %_ZNK11ast_manager6is_iffEPK4expr.exit._ZNK11ast_manager6is_iffEPK4expr.exit.thread_crit_edge
 
 _ZNK11ast_manager6is_iffEPK4expr.exit._ZNK11ast_manager6is_iffEPK4expr.exit.thread_crit_edge: ; preds = %_ZNK11ast_manager6is_iffEPK4expr.exit
-  %.pre113 = load i32, ptr %66, align 4
+  %.pre108 = load i32, ptr %66, align 4
   br label %_ZNK11ast_manager6is_iffEPK4expr.exit.thread
 
 _ZNK11ast_manager6is_iffEPK4expr.exit.thread:     ; preds = %118, %_ZNK11ast_manager6is_iffEPK4expr.exit._ZNK11ast_manager6is_iffEPK4expr.exit.thread_crit_edge, %136, %_ZNK11ast_manager5is_eqEPK4expr.exit.i
-  %148 = phi i32 [ %.pre113, %_ZNK11ast_manager6is_iffEPK4expr.exit._ZNK11ast_manager6is_iffEPK4expr.exit.thread_crit_edge ], [ %67, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %67, %136 ], [ %67, %118 ]
+  %148 = phi i32 [ %.pre108, %_ZNK11ast_manager6is_iffEPK4expr.exit._ZNK11ast_manager6is_iffEPK4expr.exit.thread_crit_edge ], [ %67, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %67, %136 ], [ %67, %118 ]
   %149 = phi ptr [ %119, %_ZNK11ast_manager6is_iffEPK4expr.exit._ZNK11ast_manager6is_iffEPK4expr.exit.thread_crit_edge ], [ %119, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %137, %136 ], [ %119, %118 ]
   %150 = and i32 %148, 65535
   %151 = icmp eq i32 %150, 0
@@ -11202,8 +11196,8 @@ _ZNK11ast_manager10is_impliesEPK4expr.exit:       ; preds = %_ZNK11ast_manager6i
   store ptr null, ptr %174, align 8, !tbaa !287
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %176 = load i32, ptr %175, align 8, !tbaa !493
-  %.not105 = icmp eq i32 %176, 0
-  br i1 %.not105, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %.lr.ph
+  %.not = icmp eq i32 %176, 0
+  br i1 %.not, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %169
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -11496,8 +11490,8 @@ _ZNK11ast_manager10is_impliesEPK4expr.exit.thread: ; preds = %152, %_ZNK11ast_ma
   %301 = load i32, ptr %300, align 4
   %302 = and i32 %301, 65535
   %303 = icmp eq i32 %302, 1
-  %.pre114 = load ptr, ptr %10, align 8, !tbaa !404
-  %304 = getelementptr inbounds nuw i8, ptr %.pre114, i64 4
+  %.pre109 = load ptr, ptr %10, align 8, !tbaa !404
+  %304 = getelementptr inbounds nuw i8, ptr %.pre109, i64 4
   %305 = load i32, ptr %304, align 4
   %306 = and i32 %305, 65535
   br i1 %303, label %307, label %_Z9is_groundPK4expr.exit76.thread
@@ -11507,11 +11501,10 @@ _ZNK11ast_manager10is_impliesEPK4expr.exit.thread: ; preds = %152, %_ZNK11ast_ma
   br i1 %308, label %_Z9is_groundPK4expr.exit76, label %_Z9is_groundPK4expr.exit77.thread
 
 _Z9is_groundPK4expr.exit76:                       ; preds = %307
-  %309 = getelementptr inbounds nuw i8, ptr %.pre114, i64 30
+  %309 = getelementptr inbounds nuw i8, ptr %.pre109, i64 30
   %310 = load i8, ptr %309, align 2
-  %311 = and i8 %310, 1
-  %.not94 = icmp eq i8 %311, 0
-  br i1 %.not94, label %_Z9is_groundPK4expr.exit77.thread, label %312
+  %311 = trunc i8 %310 to i1
+  br i1 %311, label %312, label %_Z9is_groundPK4expr.exit77.thread
 
 312:                                              ; preds = %_Z9is_groundPK4expr.exit76
   %313 = call noundef i32 @_ZNK7bv_util11get_bv_sizeEPK4expr(ptr noundef nonnull align 8 dereferenceable(24) %294, ptr noundef nonnull %299)
@@ -11529,15 +11522,14 @@ _Z9is_groundPK4expr.exit76.thread:                ; preds = %298
 _Z9is_groundPK4expr.exit77:                       ; preds = %_Z9is_groundPK4expr.exit76.thread
   %318 = getelementptr inbounds nuw i8, ptr %299, i64 30
   %319 = load i8, ptr %318, align 2
-  %320 = and i8 %319, 1
-  %.not95 = icmp eq i8 %320, 0
-  br i1 %.not95, label %_Z9is_groundPK4expr.exit77.thread, label %321
+  %320 = trunc i8 %319 to i1
+  br i1 %320, label %321, label %_Z9is_groundPK4expr.exit77.thread
 
 321:                                              ; preds = %_Z9is_groundPK4expr.exit77
-  %322 = call noundef i32 @_ZNK7bv_util11get_bv_sizeEPK4expr(ptr noundef nonnull align 8 dereferenceable(24) %294, ptr noundef nonnull %.pre114)
+  %322 = call noundef i32 @_ZNK7bv_util11get_bv_sizeEPK4expr(ptr noundef nonnull align 8 dereferenceable(24) %294, ptr noundef nonnull %.pre109)
   %323 = add i32 %322, -1
   %324 = load ptr, ptr %9, align 8, !tbaa !404
-  call void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_refIS2_11ast_managerEP3varjjS3_(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.pre114, i32 noundef %323, i32 noundef 0, ptr noundef %324)
+  call void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_refIS2_11ast_managerEP3varjjS3_(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %.pre109, i32 noundef %323, i32 noundef 0, ptr noundef %324)
   br label %389
 
 _Z9is_groundPK4expr.exit77.thread:                ; preds = %_Z9is_groundPK4expr.exit76, %307, %_Z9is_groundPK4expr.exit77, %_Z9is_groundPK4expr.exit76.thread
@@ -11545,7 +11537,7 @@ _Z9is_groundPK4expr.exit77.thread:                ; preds = %_Z9is_groundPK4expr
   br i1 %325, label %326, label %_Z9is_groundPK4expr.exit77.thread._Z9is_groundPK4expr.exit78.thread_crit_edge
 
 _Z9is_groundPK4expr.exit77.thread._Z9is_groundPK4expr.exit78.thread_crit_edge: ; preds = %_Z9is_groundPK4expr.exit77.thread
-  %.pre116 = load ptr, ptr %10, align 8, !tbaa !404
+  %.pre111 = load ptr, ptr %10, align 8, !tbaa !404
   br label %_Z9is_groundPK4expr.exit78.thread
 
 326:                                              ; preds = %_Z9is_groundPK4expr.exit77.thread
@@ -11554,36 +11546,35 @@ _Z9is_groundPK4expr.exit77.thread._Z9is_groundPK4expr.exit78.thread_crit_edge: ;
   %329 = load i32, ptr %328, align 4
   %330 = and i32 %329, 65535
   %331 = icmp eq i32 %330, 1
-  %.pre117 = load ptr, ptr %10, align 8, !tbaa !404
+  %.pre112 = load ptr, ptr %10, align 8, !tbaa !404
   br i1 %331, label %332, label %_Z9is_groundPK4expr.exit78.thread
 
 332:                                              ; preds = %326
-  %333 = getelementptr inbounds nuw i8, ptr %.pre117, i64 4
+  %333 = getelementptr inbounds nuw i8, ptr %.pre112, i64 4
   %334 = load i32, ptr %333, align 4
   %335 = and i32 %334, 65535
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %_Z9is_groundPK4expr.exit78, label %_Z9is_groundPK4expr.exit78.thread
 
 _Z9is_groundPK4expr.exit78:                       ; preds = %332
-  %337 = getelementptr inbounds nuw i8, ptr %.pre117, i64 30
+  %337 = getelementptr inbounds nuw i8, ptr %.pre112, i64 30
   %338 = load i8, ptr %337, align 2
-  %339 = and i8 %338, 1
-  %.not96 = icmp eq i8 %339, 0
-  br i1 %.not96, label %_Z9is_groundPK4expr.exit78.thread, label %340
+  %339 = trunc i8 %338 to i1
+  br i1 %339, label %340, label %_Z9is_groundPK4expr.exit78.thread
 
 340:                                              ; preds = %_Z9is_groundPK4expr.exit78
   %341 = load i32, ptr %13, align 4, !tbaa !57
   %342 = load i32, ptr %12, align 4, !tbaa !57
-  call void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_refIS2_11ast_managerEP3varjjS3_(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %327, i32 noundef %341, i32 noundef %342, ptr noundef nonnull %.pre117)
+  call void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_refIS2_11ast_managerEP3varjjS3_(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %327, i32 noundef %341, i32 noundef %342, ptr noundef nonnull %.pre112)
   br label %389
 
 _Z9is_groundPK4expr.exit78.thread:                ; preds = %_Z9is_groundPK4expr.exit77.thread._Z9is_groundPK4expr.exit78.thread_crit_edge, %332, %_Z9is_groundPK4expr.exit78, %326
-  %343 = phi ptr [ %.pre116, %_Z9is_groundPK4expr.exit77.thread._Z9is_groundPK4expr.exit78.thread_crit_edge ], [ %.pre117, %332 ], [ %.pre117, %_Z9is_groundPK4expr.exit78 ], [ %.pre117, %326 ]
+  %343 = phi ptr [ %.pre111, %_Z9is_groundPK4expr.exit77.thread._Z9is_groundPK4expr.exit78.thread_crit_edge ], [ %.pre112, %332 ], [ %.pre112, %_Z9is_groundPK4expr.exit78 ], [ %.pre112, %326 ]
   %344 = call noundef zeroext i1 @_ZNK14bv_recognizers10is_extractEPK4exprRjS3_RPS0_(ptr noundef nonnull align 4 dereferenceable(4) %294, ptr noundef %343, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br i1 %344, label %345, label %_Z9is_groundPK4expr.exit78.thread._Z9is_groundPK4expr.exit79.thread_crit_edge
 
 _Z9is_groundPK4expr.exit78.thread._Z9is_groundPK4expr.exit79.thread_crit_edge: ; preds = %_Z9is_groundPK4expr.exit78.thread
-  %.pre118 = load ptr, ptr %9, align 8, !tbaa !404
+  %.pre113 = load ptr, ptr %9, align 8, !tbaa !404
   br label %_Z9is_groundPK4expr.exit79.thread
 
 345:                                              ; preds = %_Z9is_groundPK4expr.exit78.thread
@@ -11592,31 +11583,30 @@ _Z9is_groundPK4expr.exit78.thread._Z9is_groundPK4expr.exit79.thread_crit_edge: ;
   %348 = load i32, ptr %347, align 4
   %349 = and i32 %348, 65535
   %350 = icmp eq i32 %349, 1
-  %.pre119 = load ptr, ptr %9, align 8, !tbaa !404
+  %.pre114 = load ptr, ptr %9, align 8, !tbaa !404
   br i1 %350, label %351, label %_Z9is_groundPK4expr.exit79.thread
 
 351:                                              ; preds = %345
-  %352 = getelementptr inbounds nuw i8, ptr %.pre119, i64 4
+  %352 = getelementptr inbounds nuw i8, ptr %.pre114, i64 4
   %353 = load i32, ptr %352, align 4
   %354 = and i32 %353, 65535
   %355 = icmp eq i32 %354, 0
   br i1 %355, label %_Z9is_groundPK4expr.exit79, label %_Z9is_groundPK4expr.exit79.thread
 
 _Z9is_groundPK4expr.exit79:                       ; preds = %351
-  %356 = getelementptr inbounds nuw i8, ptr %.pre119, i64 30
+  %356 = getelementptr inbounds nuw i8, ptr %.pre114, i64 30
   %357 = load i8, ptr %356, align 2
-  %358 = and i8 %357, 1
-  %.not97 = icmp eq i8 %358, 0
-  br i1 %.not97, label %_Z9is_groundPK4expr.exit79.thread, label %359
+  %358 = trunc i8 %357 to i1
+  br i1 %358, label %359, label %_Z9is_groundPK4expr.exit79.thread
 
 359:                                              ; preds = %_Z9is_groundPK4expr.exit79
   %360 = load i32, ptr %13, align 4, !tbaa !57
   %361 = load i32, ptr %12, align 4, !tbaa !57
-  call void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_refIS2_11ast_managerEP3varjjS3_(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %346, i32 noundef %360, i32 noundef %361, ptr noundef nonnull %.pre119)
+  call void @_ZN7datalog4ddnf3imp10compile_eqEP4exprR7obj_refIS2_11ast_managerEP3varjjS3_(ptr noundef nonnull align 8 dereferenceable(3296) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %346, i32 noundef %360, i32 noundef %361, ptr noundef nonnull %.pre114)
   br label %389
 
 _Z9is_groundPK4expr.exit79.thread:                ; preds = %_Z9is_groundPK4expr.exit78.thread._Z9is_groundPK4expr.exit79.thread_crit_edge, %351, %_Z9is_groundPK4expr.exit79, %345
-  %362 = phi ptr [ %.pre118, %_Z9is_groundPK4expr.exit78.thread._Z9is_groundPK4expr.exit79.thread_crit_edge ], [ %.pre119, %351 ], [ %.pre119, %_Z9is_groundPK4expr.exit79 ], [ %.pre119, %345 ]
+  %362 = phi ptr [ %.pre113, %_Z9is_groundPK4expr.exit78.thread._Z9is_groundPK4expr.exit79.thread_crit_edge ], [ %.pre114, %351 ], [ %.pre114, %_Z9is_groundPK4expr.exit79 ], [ %.pre114, %345 ]
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 4
   %364 = load i32, ptr %363, align 4
   %365 = and i32 %364, 65535

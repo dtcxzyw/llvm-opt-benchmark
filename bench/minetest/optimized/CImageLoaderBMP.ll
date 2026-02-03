@@ -560,7 +560,7 @@ sw.default:                                       ; preds = %if.end
   br i1 %14, label %exit.loopexit, label %if.end42
 
 if.end42:                                         ; preds = %sw.default
-  %cmp1.not.i = icmp ne i32 %rem35, 0
+  %cmp1.not.i = trunc i8 %7 to i1
   %cmp.i247 = icmp eq i32 %shift.0307, 0
   %or.cond.not.i = or i1 %cmp.i247, %cmp1.not.i
   %inc.i250 = zext i1 %or.cond.not.i to i32
@@ -625,8 +625,7 @@ if.end94:                                         ; preds = %if.else
   %incdec.ptr100 = getelementptr inbounds nuw i8, ptr %p.0310, i64 2
   %div4.i268 = lshr i32 %conv7, 1
   %cmp.i269 = icmp eq i32 %shift.0307, 0
-  %rem.i270 = and i32 %conv7, 1
-  %cmp1.not.i271 = icmp ne i32 %rem.i270, 0
+  %cmp1.not.i271 = trunc i8 %4 to i1
   %or.cond.not.i272 = or i1 %cmp.i269, %cmp1.not.i271
   %inc.i273 = zext i1 %or.cond.not.i272 to i32
   %ret.0.i281 = add nuw nsw i32 %div4.i268, %inc.i273

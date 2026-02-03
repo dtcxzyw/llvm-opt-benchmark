@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/jvmtiDeferredUpdates.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-$_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv = comdat any
-
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 @_ZN20JvmtiDeferredUpdatesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20JvmtiDeferredUpdatesD2Ev
@@ -29,7 +27,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JvmtiDeferredUpdatesD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20JvmtiDeferredUpdatesD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not2 = icmp eq i32 %3, 0
@@ -64,16 +62,32 @@ define hidden void @_ZN20JvmtiDeferredUpdatesD2Ev(ptr noundef nonnull align 8 de
 ._crit_edge:                                      ; preds = %14, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = and i64 %17, 1
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit
 
 19:                                               ; preds = %._crit_edge
   store i32 0, ptr %2, align 8
-  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit, label %.loopexit.i.i.i
+
+.loopexit.i.i.i:                                  ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8
+  store i32 0, ptr %20, align 4
+  %.not.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i, label %.loopexit.thread.i.i.i
+
+.loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %24) #3
+  br label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i
+
+_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i: ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
+  store ptr null, ptr %23, align 8
   br label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit
 
-_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit: ; preds = %._crit_edge, %19
+_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit: ; preds = %._crit_edge, %19, %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i
   ret void
 }
 
@@ -116,7 +130,7 @@ define hidden noundef i32 @_ZN20JvmtiDeferredUpdates37get_and_reset_relock_count
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %13, label %4
+  br i1 %.not, label %18, label %4
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %3, align 8
@@ -124,26 +138,42 @@ define hidden noundef i32 @_ZN20JvmtiDeferredUpdates37get_and_reset_relock_count
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %._crit_edge.i, label %13
+  br i1 %8, label %._crit_edge.i, label %18
 
 ._crit_edge.i:                                    ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = and i64 %10, 1
-  %.not.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i, label %_ZN20JvmtiDeferredUpdatesD2Ev.exit, label %12
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %12, label %_ZN20JvmtiDeferredUpdatesD2Ev.exit
 
 12:                                               ; preds = %._crit_edge.i
   store i32 0, ptr %6, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %14 = load i32, ptr %13, align 4
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %_ZN20JvmtiDeferredUpdatesD2Ev.exit, label %.loopexit.i.i.i.i
+
+.loopexit.i.i.i.i:                                ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %17 = load ptr, ptr %16, align 8
+  store i32 0, ptr %13, align 4
+  %.not.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i, label %.loopexit.thread.i.i.i.i
+
+.loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %17) #3
+  br label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i
+
+_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i: ; preds = %.loopexit.thread.i.i.i.i, %.loopexit.i.i.i.i
+  store ptr null, ptr %16, align 8
   br label %_ZN20JvmtiDeferredUpdatesD2Ev.exit
 
-_ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %12
+_ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %12, %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %3) #3
   store ptr null, ptr %2, align 8
-  br label %13
+  br label %18
 
-13:                                               ; preds = %4, %_ZN20JvmtiDeferredUpdatesD2Ev.exit, %1
+18:                                               ; preds = %4, %_ZN20JvmtiDeferredUpdatesD2Ev.exit, %1
   %.0 = phi i32 [ %5, %_ZN20JvmtiDeferredUpdatesD2Ev.exit ], [ %5, %4 ], [ 0, %1 ]
   ret i32 %.0
 }
@@ -153,7 +183,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaT
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %52, label %5
+  br i1 %.not, label %56, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -215,7 +245,7 @@ _ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit: ; pre
   %34 = icmp sgt i32 %33, 0
   %.neg = sext i1 %34 to i32
   %35 = icmp eq i32 %30, %.neg
-  br i1 %35, label %36, label %52
+  br i1 %35, label %36, label %56
 
 36:                                               ; preds = %32
   store ptr null, ptr %3, align 8
@@ -248,109 +278,39 @@ _ZN17GrowableArrayViewIP29jvmtiDeferredLocalVariableSetE9remove_atEi.exit: ; pre
 ._crit_edge.i:                                    ; preds = %46, %36
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = load i64, ptr %48, align 8
-  %50 = and i64 %49, 1
-  %.not.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i, label %_ZN20JvmtiDeferredUpdatesD2Ev.exit, label %51
+  %50 = trunc i64 %49 to i1
+  br i1 %50, label %51, label %_ZN20JvmtiDeferredUpdatesD2Ev.exit
 
 51:                                               ; preds = %._crit_edge.i
   store i32 0, ptr %6, align 4
-  tail call void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %_ZN20JvmtiDeferredUpdatesD2Ev.exit, label %.loopexit.i.i.i.i
+
+.loopexit.i.i.i.i:                                ; preds = %51
+  %55 = load ptr, ptr %7, align 8
+  store i32 0, ptr %52, align 4
+  %.not.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i, label %.loopexit.thread.i.i.i.i
+
+.loopexit.thread.i.i.i.i:                         ; preds = %.loopexit.i.i.i.i
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %55) #3
+  br label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i
+
+_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i: ; preds = %.loopexit.thread.i.i.i.i, %.loopexit.i.i.i.i
+  store ptr null, ptr %7, align 8
   br label %_ZN20JvmtiDeferredUpdatesD2Ev.exit
 
-_ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %51
+_ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %51, %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit.i.i.i.i
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %4) #3
-  br label %52
+  br label %56
 
-52:                                               ; preds = %32, %_ZN20JvmtiDeferredUpdatesD2Ev.exit, %2
+56:                                               ; preds = %32, %_ZN20JvmtiDeferredUpdatesD2Ev.exit, %2
   ret void
 }
 
 declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
-  %4 = load i32, ptr %0, align 8
-  %5 = icmp eq i32 %4, %3
-  br i1 %5, label %32, label %6
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store i32 %4, ptr %2, align 4
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %10, label %.loopexit
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %10
-  %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %4, i32 noundef 8) #3
-  br label %.lr.ph.preheader
-
-16:                                               ; preds = %10
-  %17 = and i64 %12, 1
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %22, label %18
-
-18:                                               ; preds = %16
-  %19 = lshr i64 %12, 1
-  %20 = trunc i64 %19 to i8
-  %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %4, i32 noundef 8, i8 noundef zeroext %20) #3
-  br label %.lr.ph.preheader
-
-22:                                               ; preds = %16
-  %23 = inttoptr i64 %12 to ptr
-  %24 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %4, i32 noundef 8, ptr noundef nonnull %23) #3
-  br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %22, %18, %14
-  %.0.i = phi ptr [ %15, %14 ], [ %21, %18 ], [ %24, %22 ]
-  %wide.trip.count = zext nneg i32 %4 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !10
-
-.loopexit:                                        ; preds = %6
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i64, ptr %28, align 8
-  %30 = and i64 %29, 1
-  %.not.i22 = icmp eq i64 %30, 0
-  br i1 %.not.i22, label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit, label %31
-
-31:                                               ; preds = %.loopexit.thread
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %8) #3
-  br label %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit
-
-_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01830, ptr %7, align 8
-  br label %32
-
-32:                                               ; preds = %1, %_ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetE10deallocateEPS1_.exit
-  ret void
-}
-
-declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local_unnamed_addr #2
 
@@ -375,4 +335,3 @@ attributes #3 = { nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}

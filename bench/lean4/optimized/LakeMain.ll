@@ -18,9 +18,8 @@ define ptr @_lean_main(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %lean_inc.exit
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %lean_inc.exit, label %12
 
 12:                                               ; preds = %5
   %.val.i = load i32, ptr %9, align 4, !tbaa !4
@@ -42,9 +41,8 @@ define ptr @_lean_main(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 lean_inc.exit:                                    ; preds = %17, %16, %14, %5
   %18 = ptrtoint ptr %7 to i64
-  %19 = and i64 %18, 1
-  %.not20 = icmp eq i64 %19, 0
-  br i1 %.not20, label %20, label %lean_inc.exit15
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %lean_inc.exit15, label %20
 
 20:                                               ; preds = %lean_inc.exit
   %.val.i17 = load i32, ptr %7, align 4, !tbaa !4
@@ -66,9 +64,8 @@ lean_inc.exit:                                    ; preds = %17, %16, %14, %5
 
 lean_inc.exit15:                                  ; preds = %25, %24, %22, %lean_inc.exit
   %26 = ptrtoint ptr %3 to i64
-  %27 = and i64 %26, 1
-  %.not21 = icmp eq i64 %27, 0
-  br i1 %.not21, label %28, label %lean_dec.exit
+  %27 = trunc i64 %26 to i1
+  br i1 %27, label %lean_dec.exit, label %28
 
 28:                                               ; preds = %lean_inc.exit15
   %29 = load i32, ptr %3, align 4, !tbaa !4

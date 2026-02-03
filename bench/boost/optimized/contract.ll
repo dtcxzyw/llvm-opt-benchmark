@@ -140,8 +140,6 @@ $_ZN5boost6detail8function21void_function_invokerIPFvvEvJEE6invokeERNS1_15functi
 
 $_ZN5boost10function_nIvJEE4swapERS1_ = comdat any
 
-$_ZN5boost10function_nIvJEE11move_assignERS1_ = comdat any
-
 $_ZN5boost10function_nIvJEED2Ev = comdat any
 
 $_ZN5boost5mutexC2Ev = comdat any
@@ -251,8 +249,6 @@ $_ZN5boost6detail8function15functor_managerIPFvNS_8contract4fromEEE6manageERKNS1
 $_ZN5boost6detail8function21void_function_invokerIPFvNS_8contract4fromEEvJS4_EE6invokeERNS1_15function_bufferES4_ = comdat any
 
 $_ZN5boost10function_nIvJNS_8contract4fromEEE4swapERS3_ = comdat any
-
-$_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_ = comdat any
 
 $_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev = comdat any
 
@@ -1722,10 +1718,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure_handler_tagENS_8functionIFvvEEEPS6_XadL_ZNS3_15default_handlerILNS3_11failure_keyE0EEEvvEEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1744,17 +1739,16 @@ _ZN5boost8functionIFvvEEC2ERKS2_.exit.i:          ; preds = %18, %16, %_ZN5boost
 
 21:                                               ; preds = %_ZN5boost8functionIFvvEEC2ERKS2_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !59
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1900,9 +1894,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure_handler_tagENS_8functionIFvvEEEPS6_XadL_ZNS3_15default_handlerILNS3_11failure_keyE0EEEvvEEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2011,9 +2004,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_25check_failure_handler_tagENS_8functionIFvvEEEPS6_XadL_ZNS3_15default_handlerILNS3_11failure_keyE0EEEvvEEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !64
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2220,10 +2212,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_h
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE1EEEvS6_EEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2242,17 +2233,16 @@ _ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i: ; preds = %18, %16, %_
 
 21:                                               ; preds = %_ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !68
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2398,9 +2388,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_h
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE1EEEvS6_EEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2509,9 +2498,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_h
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23pre_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE1EEEvS6_EEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !70
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2718,10 +2706,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE2EEEvS6_EEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2740,17 +2727,16 @@ _ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i: ; preds = %18, %16, %_
 
 21:                                               ; preds = %_ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !68
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2896,9 +2882,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE2EEEvS6_EEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3007,9 +2992,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_24post_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE2EEEvS6_EEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !74
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3216,10 +3200,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failur
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE3EEEvS6_EEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3238,17 +3221,16 @@ _ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i: ; preds = %18, %16, %_
 
 21:                                               ; preds = %_ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !68
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3394,9 +3376,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failur
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE3EEEvS6_EEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3505,9 +3486,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failur
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_26except_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE3EEEvS6_EEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !77
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3714,10 +3694,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_h
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE4EEEvS6_EEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3736,17 +3715,16 @@ _ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i: ; preds = %18, %16, %_
 
 21:                                               ; preds = %_ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !68
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3892,9 +3870,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_h
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE4EEEvS6_EEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4003,9 +3980,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_h
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_23old_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE4EEEvS6_EEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !80
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4212,10 +4188,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_fai
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE5EEEvS6_EEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4234,17 +4209,16 @@ _ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i: ; preds = %18, %16, %_
 
 21:                                               ; preds = %_ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !68
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4390,9 +4364,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_fai
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE5EEEvS6_EEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4501,9 +4474,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_fai
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_29entry_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE5EEEvS6_EEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !83
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4710,10 +4682,9 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_fail
 12:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE6EEEvS6_EEE3refEv.exit
   store ptr %11, ptr %2, align 8, !tbaa !57
   %13 = ptrtoint ptr %11 to i64
-  %14 = and i64 %13, 1
-  %.not.i.i.i.i = icmp eq i64 %14, 0
+  %14 = trunc i64 %13 to i1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i.i.i.i, label %18, label %16
+  br i1 %14, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4732,17 +4703,16 @@ _ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i: ; preds = %18, %16, %_
 
 21:                                               ; preds = %_ZN5boost8functionIFvNS_8contract4fromEEEC2ERKS4_.exit.i
   %22 = load ptr, ptr %2, align 8, !tbaa !57
-  %.not.i.i.i = icmp ne ptr %22, null
+  %.not.i.i.i = icmp eq ptr %22, null
   %23 = ptrtoint ptr %22 to i64
-  %24 = and i64 %23, 1
-  %.not1.i.i.i = icmp eq i64 %24, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %25, label %34
+  %24 = trunc i64 %23 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %24
+  br i1 %or.cond.i, label %34, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %22, align 8, !tbaa !68
-  %.not.i.i.i3.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i3.i, label %34, label %27
+  %.not.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4888,9 +4858,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_fail
 11:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE6EEEvS6_EEE3refEv.exit
   store ptr %10, ptr %0, align 8, !tbaa !57
   %12 = ptrtoint ptr %10 to i64
-  %13 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i, label %16, label %14
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4999,9 +4968,8 @@ _ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_fail
 26:                                               ; preds = %_ZN5boost8contract6detail21static_local_var_initINS0_10exception_28exit_inv_failure_handler_tagENS_8functionIFvNS0_4fromEEEEPS7_XadL_ZNS3_20default_from_handlerILNS3_11failure_keyE6EEEvS6_EEE3refEv.exit.i
   store ptr %25, ptr %0, align 8, !tbaa !57, !alias.scope !86
   %27 = ptrtoint ptr %25 to i64
-  %28 = and i64 %27, 1
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %31, label %29
+  %28 = trunc i64 %27 to i1
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8746,148 +8714,254 @@ define linkonce_odr hidden void @_ZN5boost6detail8function21void_function_invoke
 define linkonce_odr hidden void @_ZN5boost10function_nIvJEE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::function_n", align 8
   %4 = icmp eq ptr %1, %0
-  br i1 %4, label %19, label %5
+  br i1 %4, label %96, label %5
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
-  invoke void @_ZN5boost10function_nIvJEE11move_assignERS1_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %6 unwind label %20
+  %6 = icmp eq ptr %0, %3
+  br i1 %6, label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit, label %7
 
-6:                                                ; preds = %5
-  invoke void @_ZN5boost10function_nIvJEE11move_assignERS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %7 unwind label %20
+7:                                                ; preds = %5
+  %8 = load ptr, ptr %0, align 8, !tbaa !57
+  %.not.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i, label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit, label %9
 
-7:                                                ; preds = %6
-  invoke void @_ZN5boost10function_nIvJEE11move_assignERS1_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %8 unwind label %20
+9:                                                ; preds = %7
+  store ptr %8, ptr %3, align 8, !tbaa !57
+  %10 = ptrtoint ptr %8 to i64
+  %11 = trunc i64 %10 to i1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %11, label %13, label %19
 
-8:                                                ; preds = %7
-  %9 = load ptr, ptr %3, align 8, !tbaa !57
-  %.not.i.i = icmp ne ptr %9, null
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, 1
-  %.not1.i.i = icmp eq i64 %11, 0
-  %or.cond = and i1 %.not.i.i, %.not1.i.i
-  br i1 %or.cond, label %12, label %_ZN5boost10function_nIvJEED2Ev.exit
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  br label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %9, align 8, !tbaa !59
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZN5boost10function_nIvJEED2Ev.exit, label %14
-
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 2)
-          to label %_ZN5boost10function_nIvJEED2Ev.exit unwind label %16
-
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %19
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #37
-  unreachable
-
-_ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %12, %14, %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
-
-19:                                               ; preds = %2, %_ZN5boost10function_nIvJEED2Ev.exit
-  ret void
-
-20:                                               ; preds = %7, %6, %5
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %21
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10function_nIvJEE11move_assignERS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = icmp eq ptr %1, %0
-  br i1 %3, label %_ZN5boost10function_nIvJEE5clearEv.exit, label %4
-
-4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !57
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %19, label %6
-
-6:                                                ; preds = %4
-  store ptr %5, ptr %0, align 8, !tbaa !57
-  %7 = ptrtoint ptr %5 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not, label %16, label %10
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  br label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split
-
-12:                                               ; preds = %26, %16
-  %13 = landingpad { ptr, i32 }
-          catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #35
-  store ptr null, ptr %0, align 8, !tbaa !57
+  %17 = extractvalue { ptr, i32 } %16, 0
+  %18 = call ptr @__cxa_begin_catch(ptr %17) #35
+  store ptr null, ptr %3, align 8, !tbaa !57
   invoke void @__cxa_rethrow() #36
-          to label %34 unwind label %28
+          to label %27 unwind label %22
 
-16:                                               ; preds = %6
-  %17 = load ptr, ptr %5, align 8, !tbaa !59
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void %17(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 1)
-          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split unwind label %12
+19:                                               ; preds = %9
+  %20 = load ptr, ptr %8, align 8, !tbaa !59
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void %20(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef 1)
+          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i unwind label %15
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %0, align 8, !tbaa !57
-  %.not.i10 = icmp eq ptr %20, null
-  br i1 %.not.i10, label %_ZN5boost10function_nIvJEE5clearEv.exit, label %21
-
-21:                                               ; preds = %19
-  %22 = ptrtoint ptr %20 to i64
-  %23 = and i64 %22, 1
-  %.not1.i = icmp eq i64 %23, 0
-  br i1 %.not1.i, label %24, label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split
-
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %20, align 8, !tbaa !59
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split, label %26
-
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 2)
-          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split unwind label %12
-
-28:                                               ; preds = %12
-  %29 = landingpad { ptr, i32 }
+22:                                               ; preds = %15
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %30 unwind label %31
+          to label %.body unwind label %24
 
-_ZN5boost10function_nIvJEE5clearEv.exit.sink.split: ; preds = %21, %24, %26, %10, %16
-  %.sink = phi ptr [ %1, %10 ], [ %1, %16 ], [ %0, %26 ], [ %0, %24 ], [ %0, %21 ]
-  store ptr null, ptr %.sink, align 8, !tbaa !57
-  br label %_ZN5boost10function_nIvJEE5clearEv.exit
+_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i: ; preds = %19, %13
+  store ptr null, ptr %0, align 8, !tbaa !57
+  br label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit
 
-_ZN5boost10function_nIvJEE5clearEv.exit:          ; preds = %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split, %19, %2
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #37
+  unreachable
+
+27:                                               ; preds = %15
+  unreachable
+
+_ZN5boost10function_nIvJEE11move_assignERS1_.exit: ; preds = %7, %5, %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i
+  %28 = load ptr, ptr %1, align 8, !tbaa !57
+  %.not.i.i6 = icmp eq ptr %28, null
+  br i1 %.not.i.i6, label %42, label %29
+
+29:                                               ; preds = %_ZN5boost10function_nIvJEE11move_assignERS1_.exit
+  store ptr %28, ptr %0, align 8, !tbaa !57
+  %30 = ptrtoint ptr %28 to i64
+  %31 = trunc i64 %30 to i1
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %31, label %33, label %39
+
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
+  br label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7
+
+35:                                               ; preds = %49, %39
+  %36 = landingpad { ptr, i32 }
+          catch ptr null
+  %37 = extractvalue { ptr, i32 } %36, 0
+  %38 = call ptr @__cxa_begin_catch(ptr %37) #35
+  store ptr null, ptr %0, align 8, !tbaa !57
+  invoke void @__cxa_rethrow() #36
+          to label %56 unwind label %51
+
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %28, align 8, !tbaa !59
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void %40(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %41, i32 noundef 1)
+          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7 unwind label %35
+
+42:                                               ; preds = %_ZN5boost10function_nIvJEE11move_assignERS1_.exit
+  %43 = load ptr, ptr %0, align 8, !tbaa !57
+  %.not.i10.i9 = icmp eq ptr %43, null
+  br i1 %.not.i10.i9, label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit13, label %44
+
+44:                                               ; preds = %42
+  %45 = ptrtoint ptr %43 to i64
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7, label %47
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %43, align 8, !tbaa !59
+  %.not.i.i.i10 = icmp eq ptr %48, null
+  br i1 %.not.i.i.i10, label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7, label %49
+
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %50, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7 unwind label %35
+
+51:                                               ; preds = %35
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %.body unwind label %53
+
+_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7: ; preds = %49, %47, %44, %39, %33
+  %.sink.i8 = phi ptr [ %1, %33 ], [ %1, %39 ], [ %0, %49 ], [ %0, %47 ], [ %0, %44 ]
+  store ptr null, ptr %.sink.i8, align 8, !tbaa !57
+  br label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit13
+
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
+          catch ptr null
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #37
+  unreachable
+
+56:                                               ; preds = %35
+  unreachable
+
+_ZN5boost10function_nIvJEE11move_assignERS1_.exit13: ; preds = %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i7, %42
+  %57 = icmp eq ptr %3, %1
+  %.pr.pre25 = load ptr, ptr %3, align 8, !tbaa !57
+  br i1 %57, label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit21, label %58
+
+58:                                               ; preds = %_ZN5boost10function_nIvJEE11move_assignERS1_.exit13
+  %.not.i.i14 = icmp eq ptr %.pr.pre25, null
+  br i1 %.not.i.i14, label %72, label %59
+
+59:                                               ; preds = %58
+  store ptr %.pr.pre25, ptr %1, align 8, !tbaa !57
+  %60 = ptrtoint ptr %.pr.pre25 to i64
+  %61 = trunc i64 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br i1 %61, label %63, label %69
+
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
+  br label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15
+
+65:                                               ; preds = %79, %69
+  %66 = landingpad { ptr, i32 }
+          catch ptr null
+  %67 = extractvalue { ptr, i32 } %66, 0
+  %68 = call ptr @__cxa_begin_catch(ptr %67) #35
+  store ptr null, ptr %1, align 8, !tbaa !57
+  invoke void @__cxa_rethrow() #36
+          to label %86 unwind label %81
+
+69:                                               ; preds = %59
+  %70 = load ptr, ptr %.pr.pre25, align 8, !tbaa !59
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void %70(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %71, i32 noundef 1)
+          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15 unwind label %65
+
+72:                                               ; preds = %58
+  %73 = load ptr, ptr %1, align 8, !tbaa !57
+  %.not.i10.i17 = icmp eq ptr %73, null
+  br i1 %.not.i10.i17, label %_ZN5boost10function_nIvJEED2Ev.exit, label %74
+
+74:                                               ; preds = %72
+  %75 = ptrtoint ptr %73 to i64
+  %76 = trunc i64 %75 to i1
+  br i1 %76, label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15, label %77
+
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %73, align 8, !tbaa !59
+  %.not.i.i.i18 = icmp eq ptr %78, null
+  br i1 %.not.i.i.i18, label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15, label %79
+
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15 unwind label %65
+
+81:                                               ; preds = %65
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %.body unwind label %83
+
+_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15: ; preds = %79, %77, %74, %69, %63
+  %.sink.i16 = phi ptr [ %3, %63 ], [ %3, %69 ], [ %1, %79 ], [ %1, %77 ], [ %1, %74 ]
+  store ptr null, ptr %.sink.i16, align 8, !tbaa !57
+  %.pr.pre = load ptr, ptr %3, align 8, !tbaa !57
+  br label %_ZN5boost10function_nIvJEE11move_assignERS1_.exit21
+
+83:                                               ; preds = %81
+  %84 = landingpad { ptr, i32 }
+          catch ptr null
+  %85 = extractvalue { ptr, i32 } %84, 0
+  call void @__clang_call_terminate(ptr %85) #37
+  unreachable
+
+86:                                               ; preds = %65
+  unreachable
+
+_ZN5boost10function_nIvJEE11move_assignERS1_.exit21: ; preds = %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15, %_ZN5boost10function_nIvJEE11move_assignERS1_.exit13
+  %.pr = phi ptr [ %.pr.pre, %_ZN5boost10function_nIvJEE5clearEv.exit.sink.split.i15 ], [ %.pr.pre25, %_ZN5boost10function_nIvJEE11move_assignERS1_.exit13 ]
+  %.not.i.i22 = icmp eq ptr %.pr, null
+  %87 = ptrtoint ptr %.pr to i64
+  %88 = trunc i64 %87 to i1
+  %or.cond = or i1 %.not.i.i22, %88
+  br i1 %or.cond, label %_ZN5boost10function_nIvJEED2Ev.exit, label %89
+
+89:                                               ; preds = %_ZN5boost10function_nIvJEE11move_assignERS1_.exit21
+  %90 = load ptr, ptr %.pr, align 8, !tbaa !59
+  %.not.i.i.i23 = icmp eq ptr %90, null
+  br i1 %.not.i.i.i23, label %_ZN5boost10function_nIvJEED2Ev.exit, label %91
+
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %92, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJEED2Ev.exit unwind label %93
+
+93:                                               ; preds = %91
+  %94 = landingpad { ptr, i32 }
+          catch ptr null
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #37
+  unreachable
+
+_ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %89, %91, %72, %_ZN5boost10function_nIvJEE11move_assignERS1_.exit21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %96
+
+96:                                               ; preds = %2, %_ZN5boost10function_nIvJEED2Ev.exit
   ret void
 
-30:                                               ; preds = %28
-  resume { ptr, i32 } %29
-
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
-          catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #37
-  unreachable
-
-34:                                               ; preds = %12
-  unreachable
+.body:                                            ; preds = %51, %81, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %52, %51 ], [ %82, %81 ]
+  call void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8898,9 +8972,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonn
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !59
@@ -11863,148 +11936,254 @@ define linkonce_odr hidden void @_ZN5boost6detail8function21void_function_invoke
 define linkonce_odr hidden void @_ZN5boost10function_nIvJNS_8contract4fromEEE4swapERS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::function_n.2", align 8
   %4 = icmp eq ptr %1, %0
-  br i1 %4, label %19, label %5
+  br i1 %4, label %96, label %5
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
-  invoke void @_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
-          to label %6 unwind label %20
+  %6 = icmp eq ptr %0, %3
+  br i1 %6, label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit, label %7
 
-6:                                                ; preds = %5
-  invoke void @_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %7 unwind label %20
+7:                                                ; preds = %5
+  %8 = load ptr, ptr %0, align 8, !tbaa !57
+  %.not.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i, label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit, label %9
 
-7:                                                ; preds = %6
-  invoke void @_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %8 unwind label %20
+9:                                                ; preds = %7
+  store ptr %8, ptr %3, align 8, !tbaa !57
+  %10 = ptrtoint ptr %8 to i64
+  %11 = trunc i64 %10 to i1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %11, label %13, label %15
 
-8:                                                ; preds = %7
-  %9 = load ptr, ptr %3, align 8, !tbaa !57
-  %.not.i.i = icmp ne ptr %9, null
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, 1
-  %.not1.i.i = icmp eq i64 %11, 0
-  %or.cond = and i1 %.not.i.i, %.not1.i.i
-  br i1 %or.cond, label %12, label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i
 
-12:                                               ; preds = %8
-  %13 = load ptr, ptr %9, align 8, !tbaa !68
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit, label %14
+15:                                               ; preds = %9
+  %16 = load ptr, ptr %8, align 8, !tbaa !68
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 1)
+          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i unwind label %18
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 2)
-          to label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit unwind label %16
-
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #37
-  unreachable
-
-_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit: ; preds = %12, %14, %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
-
-19:                                               ; preds = %2, %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit
-  ret void
-
-20:                                               ; preds = %7, %6, %5
-  %21 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %21
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = icmp eq ptr %1, %0
-  br i1 %3, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit, label %4
-
-4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !57
-  %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %19, label %6
-
-6:                                                ; preds = %4
-  store ptr %5, ptr %0, align 8, !tbaa !57
-  %7 = ptrtoint ptr %5 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not, label %12, label %10
-
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split
-
-12:                                               ; preds = %6
-  %13 = load ptr, ptr %5, align 8, !tbaa !68
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void %13(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 1)
-          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split unwind label %15
-
-15:                                               ; preds = %26, %12
-  %16 = landingpad { ptr, i32 }
-          catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #35
-  store ptr null, ptr %0, align 8, !tbaa !57
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = call ptr @__cxa_begin_catch(ptr %20) #35
+  store ptr null, ptr %3, align 8, !tbaa !57
   invoke void @__cxa_rethrow() #36
-          to label %34 unwind label %28
+          to label %27 unwind label %22
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %0, align 8, !tbaa !57
-  %.not.i10 = icmp eq ptr %20, null
-  br i1 %.not.i10, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit, label %21
-
-21:                                               ; preds = %19
-  %22 = ptrtoint ptr %20 to i64
-  %23 = and i64 %22, 1
-  %.not1.i = icmp eq i64 %23, 0
-  br i1 %.not1.i, label %24, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split
-
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %20, align 8, !tbaa !68
-  %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split, label %26
-
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void %25(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 2)
-          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split unwind label %15
-
-28:                                               ; preds = %15
-  %29 = landingpad { ptr, i32 }
+22:                                               ; preds = %18
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %30 unwind label %31
+          to label %.body unwind label %24
 
-_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split: ; preds = %21, %24, %26, %10, %12
-  %.sink = phi ptr [ %1, %10 ], [ %1, %12 ], [ %0, %26 ], [ %0, %24 ], [ %0, %21 ]
-  store ptr null, ptr %.sink, align 8, !tbaa !57
-  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit
+_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i: ; preds = %15, %13
+  store ptr null, ptr %0, align 8, !tbaa !57
+  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit
 
-_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit: ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split, %19, %2
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #37
+  unreachable
+
+27:                                               ; preds = %18
+  unreachable
+
+_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit: ; preds = %7, %5, %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i
+  %28 = load ptr, ptr %1, align 8, !tbaa !57
+  %.not.i.i6 = icmp eq ptr %28, null
+  br i1 %.not.i.i6, label %42, label %29
+
+29:                                               ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit
+  store ptr %28, ptr %0, align 8, !tbaa !57
+  %30 = ptrtoint ptr %28 to i64
+  %31 = trunc i64 %30 to i1
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %31, label %33, label %35
+
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
+  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7
+
+35:                                               ; preds = %29
+  %36 = load ptr, ptr %28, align 8, !tbaa !68
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void %36(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %37, i32 noundef 1)
+          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7 unwind label %38
+
+38:                                               ; preds = %49, %35
+  %39 = landingpad { ptr, i32 }
+          catch ptr null
+  %40 = extractvalue { ptr, i32 } %39, 0
+  %41 = call ptr @__cxa_begin_catch(ptr %40) #35
+  store ptr null, ptr %0, align 8, !tbaa !57
+  invoke void @__cxa_rethrow() #36
+          to label %56 unwind label %51
+
+42:                                               ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit
+  %43 = load ptr, ptr %0, align 8, !tbaa !57
+  %.not.i10.i9 = icmp eq ptr %43, null
+  br i1 %.not.i10.i9, label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit13, label %44
+
+44:                                               ; preds = %42
+  %45 = ptrtoint ptr %43 to i64
+  %46 = trunc i64 %45 to i1
+  br i1 %46, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7, label %47
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %43, align 8, !tbaa !68
+  %.not.i.i.i10 = icmp eq ptr %48, null
+  br i1 %.not.i.i.i10, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7, label %49
+
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %50, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7 unwind label %38
+
+51:                                               ; preds = %38
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %.body unwind label %53
+
+_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7: ; preds = %49, %47, %44, %35, %33
+  %.sink.i8 = phi ptr [ %1, %33 ], [ %1, %35 ], [ %0, %49 ], [ %0, %47 ], [ %0, %44 ]
+  store ptr null, ptr %.sink.i8, align 8, !tbaa !57
+  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit13
+
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
+          catch ptr null
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #37
+  unreachable
+
+56:                                               ; preds = %38
+  unreachable
+
+_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit13: ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i7, %42
+  %57 = icmp eq ptr %3, %1
+  %.pr.pre25 = load ptr, ptr %3, align 8, !tbaa !57
+  br i1 %57, label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit21, label %58
+
+58:                                               ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit13
+  %.not.i.i14 = icmp eq ptr %.pr.pre25, null
+  br i1 %.not.i.i14, label %72, label %59
+
+59:                                               ; preds = %58
+  store ptr %.pr.pre25, ptr %1, align 8, !tbaa !57
+  %60 = ptrtoint ptr %.pr.pre25 to i64
+  %61 = trunc i64 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br i1 %61, label %63, label %65
+
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
+  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15
+
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %.pr.pre25, align 8, !tbaa !68
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void %66(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %67, i32 noundef 1)
+          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15 unwind label %68
+
+68:                                               ; preds = %79, %65
+  %69 = landingpad { ptr, i32 }
+          catch ptr null
+  %70 = extractvalue { ptr, i32 } %69, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %70) #35
+  store ptr null, ptr %1, align 8, !tbaa !57
+  invoke void @__cxa_rethrow() #36
+          to label %86 unwind label %81
+
+72:                                               ; preds = %58
+  %73 = load ptr, ptr %1, align 8, !tbaa !57
+  %.not.i10.i17 = icmp eq ptr %73, null
+  br i1 %.not.i10.i17, label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit, label %74
+
+74:                                               ; preds = %72
+  %75 = ptrtoint ptr %73 to i64
+  %76 = trunc i64 %75 to i1
+  br i1 %76, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15, label %77
+
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %73, align 8, !tbaa !68
+  %.not.i.i.i18 = icmp eq ptr %78, null
+  br i1 %.not.i.i.i18, label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15, label %79
+
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  invoke void %78(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15 unwind label %68
+
+81:                                               ; preds = %68
+  %82 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %.body unwind label %83
+
+_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15: ; preds = %79, %77, %74, %65, %63
+  %.sink.i16 = phi ptr [ %3, %63 ], [ %3, %65 ], [ %1, %79 ], [ %1, %77 ], [ %1, %74 ]
+  store ptr null, ptr %.sink.i16, align 8, !tbaa !57
+  %.pr.pre = load ptr, ptr %3, align 8, !tbaa !57
+  br label %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit21
+
+83:                                               ; preds = %81
+  %84 = landingpad { ptr, i32 }
+          catch ptr null
+  %85 = extractvalue { ptr, i32 } %84, 0
+  call void @__clang_call_terminate(ptr %85) #37
+  unreachable
+
+86:                                               ; preds = %68
+  unreachable
+
+_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit21: ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15, %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit13
+  %.pr = phi ptr [ %.pr.pre, %_ZN5boost10function_nIvJNS_8contract4fromEEE5clearEv.exit.sink.split.i15 ], [ %.pr.pre25, %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit13 ]
+  %.not.i.i22 = icmp eq ptr %.pr, null
+  %87 = ptrtoint ptr %.pr to i64
+  %88 = trunc i64 %87 to i1
+  %or.cond = or i1 %.not.i.i22, %88
+  br i1 %or.cond, label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit, label %89
+
+89:                                               ; preds = %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit21
+  %90 = load ptr, ptr %.pr, align 8, !tbaa !68
+  %.not.i.i.i23 = icmp eq ptr %90, null
+  br i1 %.not.i.i.i23, label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit, label %91
+
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %92, i32 noundef 2)
+          to label %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit unwind label %93
+
+93:                                               ; preds = %91
+  %94 = landingpad { ptr, i32 }
+          catch ptr null
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #37
+  unreachable
+
+_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit: ; preds = %89, %91, %72, %_ZN5boost10function_nIvJNS_8contract4fromEEE11move_assignERS3_.exit21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %96
+
+96:                                               ; preds = %2, %_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev.exit
   ret void
 
-30:                                               ; preds = %28
-  resume { ptr, i32 } %29
-
-31:                                               ; preds = %28
-  %32 = landingpad { ptr, i32 }
-          catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #37
-  unreachable
-
-34:                                               ; preds = %15
-  unreachable
+.body:                                            ; preds = %51, %81, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %52, %51 ], [ %82, %81 ]
+  call void @_ZN5boost10function_nIvJNS_8contract4fromEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12015,9 +12194,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIvJNS_8contract4fromEEED2E
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIvJNS_8contract4fromEEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIvJNS_8contract4fromEEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !68

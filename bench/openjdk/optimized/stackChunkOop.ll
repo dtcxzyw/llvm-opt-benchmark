@@ -1607,9 +1607,8 @@ define weak_odr hidden void @_ZN17stackChunkOopDesc11do_barriersILNS_11BarrierTy
   %6 = add nsw i64 %5, %4
   %7 = inttoptr i64 %6 to ptr
   %8 = load volatile i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %11, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
   call void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkFrames1E22DoBarriersStackClosureILNS_11BarrierTypeE0EEEEvPT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %2)
@@ -1633,9 +1632,8 @@ define weak_odr hidden void @_ZN17stackChunkOopDesc11do_barriersILNS_11BarrierTy
   %6 = add nsw i64 %5, %4
   %7 = inttoptr i64 %6 to ptr
   %8 = load volatile i8, ptr %7, align 1
-  %9 = and i8 %8, 1
-  %.not.i = icmp eq i8 %9, 0
-  br i1 %.not.i, label %11, label %10
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
   call void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkFrames1E22DoBarriersStackClosureILNS_11BarrierTypeE1EEEEvPT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %2)
@@ -1820,9 +1818,8 @@ define hidden void @_ZN17stackChunkOopDesc40relativize_derived_pointers_concurre
   %10 = add nsw i64 %9, %8
   %11 = inttoptr i64 %10 to ptr
   %12 = load volatile i8, ptr %11, align 1
-  %13 = and i8 %12, 1
-  %.not.i = icmp eq i8 %13, 0
-  br i1 %.not.i, label %15, label %14
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %5
   call void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkFrames1E34EncodeGCModeConcurrentFrameClosureIN22DerivedPointersSupport17RelativizeClosureEEEEvPT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
@@ -1842,8 +1839,8 @@ _ZN17stackChunkOopDesc13iterate_stackI34EncodeGCModeConcurrentFrameClosureIN22De
   %19 = inttoptr i64 %18 to ptr
   %20 = load volatile i8, ptr %19, align 1
   %21 = and i8 %20, 4
-  %.not.i1 = icmp eq i8 %21, 0
-  br i1 %.not.i1, label %27, label %22
+  %.not.i = icmp eq i8 %21, 0
+  br i1 %.not.i, label %27, label %22
 
 22:                                               ; preds = %_ZN17stackChunkOopDesc13iterate_stackI34EncodeGCModeConcurrentFrameClosureIN22DerivedPointersSupport17RelativizeClosureEEEEvPT_.exit
   %23 = load ptr, ptr @ContinuationRelativize_lock, align 8
@@ -1928,9 +1925,8 @@ _ZN6BitMap5clearEv.exit:                          ; preds = %1, %.lr.ph.preheade
   %36 = add nsw i64 %35, %4
   %37 = inttoptr i64 %36 to ptr
   %38 = load volatile i8, ptr %37, align 1
-  %39 = and i8 %38, 1
-  %.not.i1 = icmp eq i8 %39, 0
-  br i1 %.not.i1, label %41, label %40
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %41
 
 40:                                               ; preds = %_ZN6BitMap5clearEv.exit
   call void @_ZN17stackChunkOopDesc13iterate_stackIL11ChunkFrames1E26TransformStackChunkClosureEEvPT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %2)
@@ -5674,9 +5670,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -5710,8 +5705,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

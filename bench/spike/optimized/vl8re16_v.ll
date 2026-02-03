@@ -202,8 +202,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vl8re16_vP
 
 .preheader119:                                    ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %80 = and i64 %38, 1
-  %.not116 = icmp eq i64 %80, 0
+  %80 = trunc i64 %38 to i1
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %83 = add i64 %72, %40
@@ -230,9 +229,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vl8re16_vP
   %97 = and i64 %95, 255
   %98 = getelementptr inbounds nuw i64, ptr %96, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !141
-  %100 = icmp eq i64 %99, %95
-  %or.cond.i = select i1 %.not116, i1 %100, i1 false, !prof !149
-  br i1 %or.cond.i, label %101, label %.critedge.i, !prof !149
+  %100 = icmp ne i64 %99, %95
+  %or.cond.i.not = select i1 %80, i1 true, i1 %100
+  br i1 %or.cond.i.not, label %.critedge.i, label %101, !prof !149
 
 101:                                              ; preds = %86
   %102 = getelementptr inbounds nuw i8, ptr %87, i64 32912
@@ -292,8 +291,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %107, %110, %114
 
 .preheader.lr.ph:                                 ; preds = %125
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %127 = and i64 %38, 1
-  %.not118 = icmp eq i64 %127, 0
+  %127 = trunc i64 %38 to i1
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %.preheader
@@ -325,9 +323,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit:        ; preds = %107, %110, %114
   %144 = and i64 %142, 255
   %145 = getelementptr inbounds nuw i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !141
-  %147 = icmp eq i64 %146, %142
-  %or.cond.i81 = select i1 %.not118, i1 %147, i1 false, !prof !149
-  br i1 %or.cond.i81, label %148, label %.critedge.i82, !prof !149
+  %147 = icmp ne i64 %146, %142
+  %or.cond.i81.not = select i1 %127, i1 true, i1 %147
+  br i1 %or.cond.i81.not, label %.critedge.i82, label %148, !prof !149
 
 148:                                              ; preds = %133
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 32912
@@ -642,8 +640,7 @@ define noundef i64 @_Z20fast_rv64i_vl8re16_vP11processor_t6insn_tm(ptr noundef %
 
 .preheader119:                                    ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %80 = and i64 %38, 1
-  %.not116 = icmp eq i64 %80, 0
+  %80 = trunc i64 %38 to i1
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %83 = add i64 %72, %40
@@ -670,9 +667,9 @@ define noundef i64 @_Z20fast_rv64i_vl8re16_vP11processor_t6insn_tm(ptr noundef %
   %97 = and i64 %95, 255
   %98 = getelementptr inbounds nuw i64, ptr %96, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !141
-  %100 = icmp eq i64 %99, %95
-  %or.cond.i81 = select i1 %.not116, i1 %100, i1 false, !prof !149
-  br i1 %or.cond.i81, label %101, label %.critedge.i82, !prof !149
+  %100 = icmp ne i64 %99, %95
+  %or.cond.i81.not = select i1 %80, i1 true, i1 %100
+  br i1 %or.cond.i81.not, label %.critedge.i82, label %101, !prof !149
 
 101:                                              ; preds = %86
   %102 = getelementptr inbounds nuw i8, ptr %87, i64 32912
@@ -732,8 +729,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
 
 .preheader.lr.ph:                                 ; preds = %125
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %127 = and i64 %38, 1
-  %.not118 = icmp eq i64 %127, 0
+  %127 = trunc i64 %38 to i1
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -765,9 +761,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
   %144 = and i64 %142, 255
   %145 = getelementptr inbounds nuw i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !141
-  %147 = icmp eq i64 %146, %142
-  %or.cond.i = select i1 %.not118, i1 %147, i1 false, !prof !149
-  br i1 %or.cond.i, label %148, label %.critedge.i, !prof !149
+  %147 = icmp ne i64 %146, %142
+  %or.cond.i.not = select i1 %127, i1 true, i1 %147
+  br i1 %or.cond.i.not, label %.critedge.i, label %148, !prof !149
 
 148:                                              ; preds = %133
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 32912
@@ -970,8 +966,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vl8re16_
 
 .preheader119:                                    ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %80 = and i64 %38, 1
-  %.not116 = icmp eq i64 %80, 0
+  %80 = trunc i64 %38 to i1
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %83 = add i64 %72, %40
@@ -998,9 +993,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vl8re16_
   %97 = and i64 %95, 255
   %98 = getelementptr inbounds nuw i64, ptr %96, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !141
-  %100 = icmp eq i64 %99, %95
-  %or.cond.i81 = select i1 %.not116, i1 %100, i1 false, !prof !149
-  br i1 %or.cond.i81, label %101, label %.critedge.i82, !prof !149
+  %100 = icmp ne i64 %99, %95
+  %or.cond.i81.not = select i1 %80, i1 true, i1 %100
+  br i1 %or.cond.i81.not, label %.critedge.i82, label %101, !prof !149
 
 101:                                              ; preds = %86
   %102 = getelementptr inbounds nuw i8, ptr %87, i64 32912
@@ -1060,8 +1055,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
 
 .preheader.lr.ph:                                 ; preds = %125
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %127 = and i64 %38, 1
-  %.not118 = icmp eq i64 %127, 0
+  %127 = trunc i64 %38 to i1
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -1093,9 +1087,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
   %144 = and i64 %142, 255
   %145 = getelementptr inbounds nuw i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !141
-  %147 = icmp eq i64 %146, %142
-  %or.cond.i = select i1 %.not118, i1 %147, i1 false, !prof !149
-  br i1 %or.cond.i, label %148, label %.critedge.i, !prof !149
+  %147 = icmp ne i64 %146, %142
+  %or.cond.i.not = select i1 %127, i1 true, i1 %147
+  br i1 %or.cond.i.not, label %.critedge.i, label %148, !prof !149
 
 148:                                              ; preds = %133
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 32912
@@ -1300,8 +1294,7 @@ define noundef i64 @_Z22logged_rv64i_vl8re16_vP11processor_t6insn_tm(ptr noundef
 
 .preheader119:                                    ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %80 = and i64 %38, 1
-  %.not116 = icmp eq i64 %80, 0
+  %80 = trunc i64 %38 to i1
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %83 = add i64 %72, %40
@@ -1328,9 +1321,9 @@ define noundef i64 @_Z22logged_rv64i_vl8re16_vP11processor_t6insn_tm(ptr noundef
   %97 = and i64 %95, 255
   %98 = getelementptr inbounds nuw i64, ptr %96, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !141
-  %100 = icmp eq i64 %99, %95
-  %or.cond.i81 = select i1 %.not116, i1 %100, i1 false, !prof !149
-  br i1 %or.cond.i81, label %101, label %.critedge.i82, !prof !149
+  %100 = icmp ne i64 %99, %95
+  %or.cond.i81.not = select i1 %80, i1 true, i1 %100
+  br i1 %or.cond.i81.not, label %.critedge.i82, label %101, !prof !149
 
 101:                                              ; preds = %86
   %102 = getelementptr inbounds nuw i8, ptr %87, i64 32912
@@ -1390,8 +1383,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
 
 .preheader.lr.ph:                                 ; preds = %125
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %127 = and i64 %38, 1
-  %.not118 = icmp eq i64 %127, 0
+  %127 = trunc i64 %38 to i1
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -1423,9 +1415,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit86:      ; preds = %107, %110, %114
   %144 = and i64 %142, 255
   %145 = getelementptr inbounds nuw i64, ptr %143, i64 %144
   %146 = load i64, ptr %145, align 8, !tbaa !141
-  %147 = icmp eq i64 %146, %142
-  %or.cond.i = select i1 %.not118, i1 %147, i1 false, !prof !149
-  br i1 %or.cond.i, label %148, label %.critedge.i, !prof !149
+  %147 = icmp ne i64 %146, %142
+  %or.cond.i.not = select i1 %127, i1 true, i1 %147
+  br i1 %or.cond.i.not, label %.critedge.i, label %148, !prof !149
 
 148:                                              ; preds = %133
   %149 = getelementptr inbounds nuw i8, ptr %134, i64 32912
@@ -1644,8 +1636,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vl8re16_vP
 
 .preheader127:                                    ; preds = %73
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %87 = and i64 %45, 1
-  %.not124 = icmp eq i64 %87, 0
+  %87 = trunc i64 %45 to i1
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %90 = add i64 %79, %47
@@ -1672,9 +1663,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vl8re16_vP
   %104 = and i64 %102, 255
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !141
-  %107 = icmp eq i64 %106, %102
-  %or.cond.i87 = select i1 %.not124, i1 %107, i1 false, !prof !149
-  br i1 %or.cond.i87, label %108, label %.critedge.i88, !prof !149
+  %107 = icmp ne i64 %106, %102
+  %or.cond.i87.not = select i1 %87, i1 true, i1 %107
+  br i1 %or.cond.i87.not, label %.critedge.i88, label %108, !prof !149
 
 108:                                              ; preds = %93
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 32912
@@ -1734,8 +1725,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
 
 .preheader.lr.ph:                                 ; preds = %132
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %134 = and i64 %45, 1
-  %.not126 = icmp eq i64 %134, 0
+  %134 = trunc i64 %45 to i1
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -1767,9 +1757,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %151 = and i64 %149, 255
   %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !141
-  %154 = icmp eq i64 %153, %149
-  %or.cond.i = select i1 %.not126, i1 %154, i1 false, !prof !149
-  br i1 %or.cond.i, label %155, label %.critedge.i, !prof !149
+  %154 = icmp ne i64 %153, %149
+  %or.cond.i.not = select i1 %134, i1 true, i1 %154
+  br i1 %or.cond.i.not, label %.critedge.i, label %155, !prof !149
 
 155:                                              ; preds = %140
   %156 = getelementptr inbounds nuw i8, ptr %141, i64 32912
@@ -1990,8 +1980,7 @@ define noundef i64 @_Z20fast_rv64e_vl8re16_vP11processor_t6insn_tm(ptr noundef %
 
 .preheader127:                                    ; preds = %73
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %87 = and i64 %45, 1
-  %.not124 = icmp eq i64 %87, 0
+  %87 = trunc i64 %45 to i1
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %90 = add i64 %79, %47
@@ -2018,9 +2007,9 @@ define noundef i64 @_Z20fast_rv64e_vl8re16_vP11processor_t6insn_tm(ptr noundef %
   %104 = and i64 %102, 255
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !141
-  %107 = icmp eq i64 %106, %102
-  %or.cond.i87 = select i1 %.not124, i1 %107, i1 false, !prof !149
-  br i1 %or.cond.i87, label %108, label %.critedge.i88, !prof !149
+  %107 = icmp ne i64 %106, %102
+  %or.cond.i87.not = select i1 %87, i1 true, i1 %107
+  br i1 %or.cond.i87.not, label %.critedge.i88, label %108, !prof !149
 
 108:                                              ; preds = %93
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 32912
@@ -2080,8 +2069,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
 
 .preheader.lr.ph:                                 ; preds = %132
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %134 = and i64 %45, 1
-  %.not126 = icmp eq i64 %134, 0
+  %134 = trunc i64 %45 to i1
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -2113,9 +2101,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %151 = and i64 %149, 255
   %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !141
-  %154 = icmp eq i64 %153, %149
-  %or.cond.i = select i1 %.not126, i1 %154, i1 false, !prof !149
-  br i1 %or.cond.i, label %155, label %.critedge.i, !prof !149
+  %154 = icmp ne i64 %153, %149
+  %or.cond.i.not = select i1 %134, i1 true, i1 %154
+  br i1 %or.cond.i.not, label %.critedge.i, label %155, !prof !149
 
 155:                                              ; preds = %140
   %156 = getelementptr inbounds nuw i8, ptr %141, i64 32912
@@ -2334,8 +2322,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vl8re16_
 
 .preheader127:                                    ; preds = %73
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %87 = and i64 %45, 1
-  %.not124 = icmp eq i64 %87, 0
+  %87 = trunc i64 %45 to i1
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %90 = add i64 %79, %47
@@ -2362,9 +2349,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vl8re16_
   %104 = and i64 %102, 255
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !141
-  %107 = icmp eq i64 %106, %102
-  %or.cond.i87 = select i1 %.not124, i1 %107, i1 false, !prof !149
-  br i1 %or.cond.i87, label %108, label %.critedge.i88, !prof !149
+  %107 = icmp ne i64 %106, %102
+  %or.cond.i87.not = select i1 %87, i1 true, i1 %107
+  br i1 %or.cond.i87.not, label %.critedge.i88, label %108, !prof !149
 
 108:                                              ; preds = %93
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 32912
@@ -2424,8 +2411,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
 
 .preheader.lr.ph:                                 ; preds = %132
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %134 = and i64 %45, 1
-  %.not126 = icmp eq i64 %134, 0
+  %134 = trunc i64 %45 to i1
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -2457,9 +2443,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %151 = and i64 %149, 255
   %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !141
-  %154 = icmp eq i64 %153, %149
-  %or.cond.i = select i1 %.not126, i1 %154, i1 false, !prof !149
-  br i1 %or.cond.i, label %155, label %.critedge.i, !prof !149
+  %154 = icmp ne i64 %153, %149
+  %or.cond.i.not = select i1 %134, i1 true, i1 %154
+  br i1 %or.cond.i.not, label %.critedge.i, label %155, !prof !149
 
 155:                                              ; preds = %140
   %156 = getelementptr inbounds nuw i8, ptr %141, i64 32912
@@ -2680,8 +2666,7 @@ define noundef i64 @_Z22logged_rv64e_vl8re16_vP11processor_t6insn_tm(ptr noundef
 
 .preheader127:                                    ; preds = %73
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %87 = and i64 %45, 1
-  %.not124 = icmp eq i64 %87, 0
+  %87 = trunc i64 %45 to i1
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %90 = add i64 %79, %47
@@ -2708,9 +2693,9 @@ define noundef i64 @_Z22logged_rv64e_vl8re16_vP11processor_t6insn_tm(ptr noundef
   %104 = and i64 %102, 255
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !141
-  %107 = icmp eq i64 %106, %102
-  %or.cond.i87 = select i1 %.not124, i1 %107, i1 false, !prof !149
-  br i1 %or.cond.i87, label %108, label %.critedge.i88, !prof !149
+  %107 = icmp ne i64 %106, %102
+  %or.cond.i87.not = select i1 %87, i1 true, i1 %107
+  br i1 %or.cond.i87.not, label %.critedge.i88, label %108, !prof !149
 
 108:                                              ; preds = %93
   %109 = getelementptr inbounds nuw i8, ptr %94, i64 32912
@@ -2770,8 +2755,7 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
 
 .preheader.lr.ph:                                 ; preds = %132
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %134 = and i64 %45, 1
-  %.not126 = icmp eq i64 %134, 0
+  %134 = trunc i64 %45 to i1
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.preheader
@@ -2803,9 +2787,9 @@ _ZN5mmu_t4loadItEET_m13xlate_flags_t.exit92:      ; preds = %114, %117, %121
   %151 = and i64 %149, 255
   %152 = getelementptr inbounds nuw i64, ptr %150, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !141
-  %154 = icmp eq i64 %153, %149
-  %or.cond.i = select i1 %.not126, i1 %154, i1 false, !prof !149
-  br i1 %or.cond.i, label %155, label %.critedge.i, !prof !149
+  %154 = icmp ne i64 %153, %149
+  %or.cond.i.not = select i1 %134, i1 true, i1 %154
+  br i1 %or.cond.i.not, label %.critedge.i, label %155, !prof !149
 
 155:                                              ; preds = %140
   %156 = getelementptr inbounds nuw i8, ptr %141, i64 32912
@@ -3528,7 +3512,7 @@ attributes #22 = { nounwind willreturn memory(read) }
 !146 = !{!147, !148, i64 0}
 !147 = !{!"_ZTS11base_endianItE", !148, i64 0}
 !148 = !{!"short", !7, i64 0}
-!149 = !{!"branch_weights", i32 -294967296, i32 6003000}
+!149 = !{!"branch_weights", i32 6003000, i32 -294967296}
 !150 = !{!151, !17, i64 0}
 !151 = !{!"_ZTS11tlb_entry_t", !17, i64 0, !12, i64 8}
 !152 = !{!153, !121, i64 80}

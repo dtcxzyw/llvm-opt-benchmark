@@ -356,8 +356,8 @@ grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBala
 
 .preheader:                                       ; preds = %grpc_lb_v1_ClientStats_mutable_timestamp.exit
   %82 = load i64, ptr %5, align 8, !tbaa !29
-  %.not49 = icmp ult i64 %82, 2
-  br i1 %.not49, label %.loopexit, label %.lr.ph
+  %.not48 = icmp ult i64 %82, 2
+  br i1 %.not48, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -366,17 +366,16 @@ grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBala
 
 85:                                               ; preds = %.lr.ph, %upb_Arena_Malloc.exit
   %86 = phi i64 [ %82, %.lr.ph ], [ %161, %upb_Arena_Malloc.exit ]
-  %.048 = phi i64 [ 0, %.lr.ph ], [ %160, %upb_Arena_Malloc.exit ]
-  %87 = and i64 %86, 1
-  %.not.i.i42 = icmp eq i64 %87, 0
+  %.047 = phi i64 [ 0, %.lr.ph ], [ %160, %upb_Arena_Malloc.exit ]
+  %87 = trunc i64 %86 to i1
   %88 = load ptr, ptr %83, align 8
-  %89 = select i1 %.not.i.i42, ptr %83, ptr %88
-  %90 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %89, i64 %.048
+  %89 = select i1 %87, ptr %88, ptr %83
+  %90 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %89, i64 %.047
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__lb__v1__ClientStatsPerToken_msg_init) #19, !srcloc !23
   %91 = load i64, ptr %84, align 1
   %92 = inttoptr i64 %91 to ptr
-  %.not.i.i43 = icmp eq i64 %91, 0
-  br i1 %.not.i.i43, label %_upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i, label %upb_Message_GetOrCreateMutableArray.exit.i
+  %.not.i.i42 = icmp eq i64 %91, 0
+  br i1 %.not.i.i42, label %_upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i, label %upb_Message_GetOrCreateMutableArray.exit.i
 
 _upb_MiniTableField_ElemSizeLg2_dont_copy_me__upb_internal_use_only.exit.i.i: ; preds = %85
   %93 = load ptr, ptr %14, align 8, !tbaa !18
@@ -451,20 +450,20 @@ upb_Array_Reserve.exit.i.i:                       ; preds = %110
 
 129:                                              ; preds = %118
   %130 = tail call ptr @_upb_Arena_SlowMalloc_dont_copy_me__upb_internal_use_only(ptr noundef nonnull %6, i64 noundef %122)
-  br label %upb_Arena_Malloc.exit.i.i44
+  br label %upb_Arena_Malloc.exit.i.i43
 
 131:                                              ; preds = %118
   %132 = getelementptr inbounds nuw i8, ptr %124, i64 %122
   store ptr %132, ptr %6, align 8, !tbaa !21
-  br label %upb_Arena_Malloc.exit.i.i44
+  br label %upb_Arena_Malloc.exit.i.i43
 
-upb_Arena_Malloc.exit.i.i44:                      ; preds = %131, %129
-  %.0.i.i.i45 = phi ptr [ %130, %129 ], [ %124, %131 ]
-  %.not.i14.i = icmp eq ptr %.0.i.i.i45, null
+upb_Arena_Malloc.exit.i.i43:                      ; preds = %131, %129
+  %.0.i.i.i44 = phi ptr [ %130, %129 ], [ %124, %131 ]
+  %.not.i14.i = icmp eq ptr %.0.i.i.i44, null
   br i1 %.not.i14.i, label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit, label %133, !prof !22
 
-133:                                              ; preds = %upb_Arena_Malloc.exit.i.i44
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i45, i8 0, i64 %120, i1 false)
+133:                                              ; preds = %upb_Arena_Malloc.exit.i.i43
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i.i.i44, i8 0, i64 %120, i1 false)
   %134 = load i64, ptr %111, align 8, !tbaa !34
   %135 = load i64, ptr %.0.i.i, align 8, !tbaa !32
   %136 = and i64 %135, -8
@@ -472,11 +471,11 @@ upb_Arena_Malloc.exit.i.i44:                      ; preds = %131, %129
   %138 = shl i64 %134, 3
   %139 = getelementptr i8, ptr %137, i64 %138
   %140 = getelementptr i8, ptr %139, i64 -8
-  store ptr %.0.i.i.i45, ptr %140, align 8
+  store ptr %.0.i.i.i44, ptr %140, align 8
   br label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit
 
-grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %upb_Message_GetOrCreateMutableArray.exit.i, %upb_Array_Reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i44, %133
-  %.0.i46 = phi ptr [ null, %upb_Array_Reserve.exit.i.i ], [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ %.0.i.i.i45, %133 ], [ null, %upb_Arena_Malloc.exit.i.i44 ]
+grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %upb_Message_GetOrCreateMutableArray.exit.i, %upb_Array_Reserve.exit.i.i, %upb_Arena_Malloc.exit.i.i43, %133
+  %.0.i45 = phi ptr [ null, %upb_Array_Reserve.exit.i.i ], [ null, %upb_Message_GetOrCreateMutableArray.exit.i ], [ %.0.i.i.i44, %133 ], [ null, %upb_Arena_Malloc.exit.i.i43 ]
   %141 = load ptr, ptr %90, align 8, !tbaa !28
   %142 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #18
   %143 = add i64 %142, 7
@@ -499,18 +498,18 @@ grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit: ; preds = %upb_Message
   br label %upb_Arena_Malloc.exit
 
 upb_Arena_Malloc.exit:                            ; preds = %151, %153
-  %.0.i47 = phi ptr [ %152, %151 ], [ %146, %153 ]
+  %.0.i46 = phi ptr [ %152, %151 ], [ %146, %153 ]
   %155 = load ptr, ptr %90, align 8, !tbaa !28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i47, ptr align 1 %155, i64 %142, i1 false)
-  %156 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 8
-  store ptr %.0.i47, ptr %156, align 1
-  %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i46, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i46, ptr align 1 %155, i64 %142, i1 false)
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i45, i64 8
+  store ptr %.0.i46, ptr %156, align 1
+  %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i45, i64 16
   store i64 %142, ptr %.sroa.56.0..sroa_idx.i, align 1
   %157 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %158 = load i64, ptr %157, align 8, !tbaa !36
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i46, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i45, i64 24
   store i64 %158, ptr %159, align 1
-  %160 = add nuw nsw i64 %.048, 1
+  %160 = add nuw nsw i64 %.047, 1
   %161 = load i64, ptr %5, align 8, !tbaa !29
   %162 = lshr i64 %161, 1
   %163 = icmp samesign ult i64 %160, %162

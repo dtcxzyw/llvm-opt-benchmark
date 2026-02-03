@@ -1504,189 +1504,188 @@ define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
-12:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
+12:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = tail call zeroext i1 @EventTriggerSupportsObject(ptr noundef %14) #8
-  br i1 %18, label %19, label %22
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %12
   %20 = and i32 %17, 66
   %.128 = icmp ne i32 %20, 0
-  %21 = and i32 %17, 1
-  %.not29 = icmp ne i32 %21, 0
+  %.not29 = trunc i32 %17 to i1
   tail call void @EventTriggerSQLDropAddObject(ptr noundef %14, i1 noundef zeroext %.not29, i1 noundef zeroext %.128) #8
-  br label %22
+  br label %21
 
-22:                                               ; preds = %19, %12
+21:                                               ; preds = %19, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %8, align 8
-  %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %12, label %.loopexit, !llvm.loop !15
+  %22 = load i32, ptr %8, align 8
+  %23 = sext i32 %22 to i64
+  %24 = icmp slt i64 %indvars.iv.next, %23
+  br i1 %24, label %12, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %22, %3
-  %26 = phi i32 [ %9, %3 ], [ %23, %22 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = icmp sgt i32 %26, 0
-  br i1 %28, label %.lr.ph36, label %._crit_edge
+.loopexit:                                        ; preds = %21, %3
+  %25 = phi i32 [ %9, %3 ], [ %22, %21 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = icmp sgt i32 %25, 0
+  br i1 %27, label %.lr.ph36, label %._crit_edge
 
 .lr.ph36:                                         ; preds = %.loopexit
-  %29 = and i32 %2, 8
-  %.not32 = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = and i32 %2, 2
-  %.not29.i = icmp eq i32 %31, 0
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  br label %36
+  %28 = and i32 %2, 8
+  %.not32 = icmp eq i32 %28, 0
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = and i32 %2, 2
+  %.not29.i = icmp eq i32 %30, 0
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  br label %35
 
-36:                                               ; preds = %.lr.ph36, %95
-  %37 = phi i32 [ %26, %.lr.ph36 ], [ %96, %95 ]
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next39, %95 ]
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %38, i64 %indvars.iv38
-  br i1 %.not32, label %45, label %40
+35:                                               ; preds = %.lr.ph36, %94
+  %36 = phi i32 [ %25, %.lr.ph36 ], [ %95, %94 ]
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next39, %94 ]
+  %37 = load ptr, ptr %0, align 8
+  %38 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %37, i64 %indvars.iv38
+  br i1 %.not32, label %44, label %39
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %30, align 8
-  %42 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %41, i64 %indvars.iv38
-  %43 = load i32, ptr %42, align 4
-  %44 = and i32 %43, 1
-  %.not33 = icmp eq i32 %44, 0
-  br i1 %.not33, label %45, label %95
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %29, align 8
+  %41 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %40, i64 %indvars.iv38
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 1
+  %.not33 = icmp eq i32 %43, 0
+  br i1 %.not33, label %44, label %94
 
-45:                                               ; preds = %40, %36
+44:                                               ; preds = %39, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %46 = load ptr, ptr @object_access_hook, align 8
-  %.not.i = icmp eq ptr %46, null
-  br i1 %.not.i, label %53, label %47
+  %45 = load ptr, ptr @object_access_hook, align 8
+  %.not.i = icmp eq ptr %45, null
+  br i1 %.not.i, label %52, label %46
 
-47:                                               ; preds = %45
-  %48 = load i32, ptr %39, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %52 = load i32, ptr %51, align 4
-  call void @RunObjectDropHook(i32 noundef %48, i32 noundef %50, i32 noundef %52, i32 noundef %2) #8
-  br label %53
+46:                                               ; preds = %44
+  %47 = load i32, ptr %38, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %51 = load i32, ptr %50, align 4
+  call void @RunObjectDropHook(i32 noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %2) #8
+  br label %52
 
-53:                                               ; preds = %47, %45
-  br i1 %.not29.i, label %.critedge.i, label %54
+52:                                               ; preds = %46, %44
+  br i1 %.not29.i, label %.critedge.i, label %53
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %1, align 8
-  call void @table_close(ptr noundef %55, i32 noundef 3) #8
-  call fastcc void @doDeletion(ptr noundef %39, i32 noundef %2)
-  %56 = call ptr @table_open(i32 noundef 2608, i32 noundef 3) #8
-  store ptr %56, ptr %1, align 8
-  br label %57
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %1, align 8
+  call void @table_close(ptr noundef %54, i32 noundef 3) #8
+  call fastcc void @doDeletion(ptr noundef %38, i32 noundef %2)
+  %55 = call ptr @table_open(i32 noundef 2608, i32 noundef 3) #8
+  store ptr %55, ptr %1, align 8
+  br label %56
 
-.critedge.i:                                      ; preds = %53
-  call fastcc void @doDeletion(ptr noundef %39, i32 noundef %2)
-  br label %57
+.critedge.i:                                      ; preds = %52
+  call fastcc void @doDeletion(ptr noundef %38, i32 noundef %2)
+  br label %56
 
-57:                                               ; preds = %.critedge.i, %54
-  %58 = load i32, ptr %39, align 4
-  %59 = zext i32 %58 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %59) #8
-  %60 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %61 = load i32, ptr %60, align 4
-  %62 = zext i32 %61 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %32, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %62) #8
-  %63 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %64 = load i32, ptr %63, align 4
-  %.not30.i = icmp eq i32 %64, 0
-  br i1 %.not30.i, label %67, label %65
+56:                                               ; preds = %.critedge.i, %53
+  %57 = load i32, ptr %38, align 4
+  %58 = zext i32 %57 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %58) #8
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = zext i32 %60 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %31, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %61) #8
+  %62 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %63 = load i32, ptr %62, align 4
+  %.not30.i = icmp eq i32 %63, 0
+  br i1 %.not30.i, label %66, label %64
 
-65:                                               ; preds = %57
-  %66 = sext i32 %64 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %33, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %66) #8
-  br label %67
+64:                                               ; preds = %56
+  %65 = sext i32 %63 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %32, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %65) #8
+  br label %66
 
-67:                                               ; preds = %65, %57
-  %.0.i = phi i32 [ 3, %65 ], [ 2, %57 ]
-  %68 = load ptr, ptr %1, align 8
-  %69 = call ptr @systable_beginscan(ptr noundef %68, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef %.0.i, ptr noundef nonnull %5) #8
-  %70 = call ptr @systable_getnext(ptr noundef %69) #8
-  %.not3132.i = icmp eq ptr %70, null
+66:                                               ; preds = %64, %56
+  %.0.i = phi i32 [ 3, %64 ], [ 2, %56 ]
+  %67 = load ptr, ptr %1, align 8
+  %68 = call ptr @systable_beginscan(ptr noundef %67, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef %.0.i, ptr noundef nonnull %5) #8
+  %69 = call ptr @systable_getnext(ptr noundef %68) #8
+  %.not3132.i = icmp eq ptr %69, null
   br i1 %.not3132.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %67, %.lr.ph.i
-  %71 = phi ptr [ %74, %.lr.ph.i ], [ %70, %67 ]
-  %72 = load ptr, ptr %1, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  call void @CatalogTupleDelete(ptr noundef %72, ptr noundef nonnull %73) #8
-  %74 = call ptr @systable_getnext(ptr noundef %69) #8
-  %.not31.i = icmp eq ptr %74, null
+.lr.ph.i:                                         ; preds = %66, %.lr.ph.i
+  %70 = phi ptr [ %73, %.lr.ph.i ], [ %69, %66 ]
+  %71 = load ptr, ptr %1, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  call void @CatalogTupleDelete(ptr noundef %71, ptr noundef nonnull %72) #8
+  %73 = call ptr @systable_getnext(ptr noundef %68) #8
+  %.not31.i = icmp eq ptr %73, null
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %67
-  call void @systable_endscan(ptr noundef %69) #8
-  %75 = load i32, ptr %39, align 4
-  %76 = load i32, ptr %60, align 4
-  %77 = load i32, ptr %63, align 4
-  call void @deleteSharedDependencyRecordsFor(i32 noundef %75, i32 noundef %76, i32 noundef %77) #8
-  %78 = load i32, ptr %60, align 4
-  %79 = load i32, ptr %39, align 4
-  %80 = load i32, ptr %63, align 4
-  call void @DeleteComments(i32 noundef %78, i32 noundef %79, i32 noundef %80) #8
-  call void @DeleteSecurityLabel(ptr noundef nonnull %39) #8
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %66
+  call void @systable_endscan(ptr noundef %68) #8
+  %74 = load i32, ptr %38, align 4
+  %75 = load i32, ptr %59, align 4
+  %76 = load i32, ptr %62, align 4
+  call void @deleteSharedDependencyRecordsFor(i32 noundef %74, i32 noundef %75, i32 noundef %76) #8
+  %77 = load i32, ptr %59, align 4
+  %78 = load i32, ptr %38, align 4
+  %79 = load i32, ptr %62, align 4
+  call void @DeleteComments(i32 noundef %77, i32 noundef %78, i32 noundef %79) #8
+  call void @DeleteSecurityLabel(ptr noundef nonnull %38) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %81 = call ptr @table_open(i32 noundef 3394, i32 noundef 3) #8
-  %82 = load i32, ptr %60, align 4
-  %83 = zext i32 %82 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %83) #8
-  %84 = load i32, ptr %39, align 4
-  %85 = zext i32 %84 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %34, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %85) #8
-  %86 = load i32, ptr %63, align 4
-  %.not.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i, label %89, label %87
+  %80 = call ptr @table_open(i32 noundef 3394, i32 noundef 3) #8
+  %81 = load i32, ptr %59, align 4
+  %82 = zext i32 %81 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %82) #8
+  %83 = load i32, ptr %38, align 4
+  %84 = zext i32 %83 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %33, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %84) #8
+  %85 = load i32, ptr %62, align 4
+  %.not.i.i = icmp eq i32 %85, 0
+  br i1 %.not.i.i, label %88, label %86
 
-87:                                               ; preds = %._crit_edge.i
-  %88 = sext i32 %86 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %35, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %88) #8
-  br label %89
+86:                                               ; preds = %._crit_edge.i
+  %87 = sext i32 %85 to i64
+  call void @ScanKeyInit(ptr noundef nonnull %34, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %87) #8
+  br label %88
 
-89:                                               ; preds = %87, %._crit_edge.i
-  %.0.i.i = phi i32 [ 3, %87 ], [ 2, %._crit_edge.i ]
-  %90 = call ptr @systable_beginscan(ptr noundef %81, i32 noundef 3395, i1 noundef zeroext true, ptr noundef null, i32 noundef %.0.i.i, ptr noundef nonnull %4) #8
-  %91 = call ptr @systable_getnext(ptr noundef %90) #8
-  %.not1213.i.i = icmp eq ptr %91, null
+88:                                               ; preds = %86, %._crit_edge.i
+  %.0.i.i = phi i32 [ 3, %86 ], [ 2, %._crit_edge.i ]
+  %89 = call ptr @systable_beginscan(ptr noundef %80, i32 noundef 3395, i1 noundef zeroext true, ptr noundef null, i32 noundef %.0.i.i, ptr noundef nonnull %4) #8
+  %90 = call ptr @systable_getnext(ptr noundef %89) #8
+  %.not1213.i.i = icmp eq ptr %90, null
   br i1 %.not1213.i.i, label %deleteOneObject.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %89, %.lr.ph.i.i
-  %92 = phi ptr [ %94, %.lr.ph.i.i ], [ %91, %89 ]
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  call void @CatalogTupleDelete(ptr noundef %81, ptr noundef nonnull %93) #8
-  %94 = call ptr @systable_getnext(ptr noundef %90) #8
-  %.not12.i.i = icmp eq ptr %94, null
+.lr.ph.i.i:                                       ; preds = %88, %.lr.ph.i.i
+  %91 = phi ptr [ %93, %.lr.ph.i.i ], [ %90, %88 ]
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  call void @CatalogTupleDelete(ptr noundef %80, ptr noundef nonnull %92) #8
+  %93 = call ptr @systable_getnext(ptr noundef %89) #8
+  %.not12.i.i = icmp eq ptr %93, null
   br i1 %.not12.i.i, label %deleteOneObject.exit, label %.lr.ph.i.i, !llvm.loop !17
 
-deleteOneObject.exit:                             ; preds = %.lr.ph.i.i, %89
-  call void @systable_endscan(ptr noundef %90) #8
-  call void @table_close(ptr noundef %81, i32 noundef 3) #8
+deleteOneObject.exit:                             ; preds = %.lr.ph.i.i, %88
+  call void @systable_endscan(ptr noundef %89) #8
+  call void @table_close(ptr noundef %80, i32 noundef 3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @CommandCounterIncrement() #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre41 = load i32, ptr %27, align 8
-  br label %95
+  %.pre41 = load i32, ptr %26, align 8
+  br label %94
 
-95:                                               ; preds = %40, %deleteOneObject.exit
-  %96 = phi i32 [ %37, %40 ], [ %.pre41, %deleteOneObject.exit ]
+94:                                               ; preds = %39, %deleteOneObject.exit
+  %95 = phi i32 [ %36, %39 ], [ %.pre41, %deleteOneObject.exit ]
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next39, %97
-  br i1 %98, label %36, label %._crit_edge, !llvm.loop !18
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next39, %96
+  br i1 %97, label %35, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %95, %.preheader, %.loopexit
+._crit_edge:                                      ; preds = %94, %.preheader, %.loopexit
   ret void
 }
 

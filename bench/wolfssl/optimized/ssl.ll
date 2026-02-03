@@ -2081,7 +2081,7 @@ define range(i32 0, 2) i32 @wolfSSL_GetSessionFromCache(ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %98, label %8
+  br i1 %7, label %97, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -2089,7 +2089,7 @@ define range(i32 0, 2) i32 @wolfSSL_GetSessionFromCache(ptr noundef readonly cap
   %.val = load i64, ptr %10, align 8
   %11 = and i64 %.val, 4
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %98
+  br i1 %.not, label %12, label %97
 
 12:                                               ; preds = %8
   %13 = and i64 %.val, 8192
@@ -2102,7 +2102,7 @@ define range(i32 0, 2) i32 @wolfSSL_GetSessionFromCache(ptr noundef readonly cap
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %.not46 = icmp eq i8 %19, 0
-  br i1 %.not46, label %98, label %20
+  br i1 %.not46, label %97, label %20
 
 20:                                               ; preds = %15, %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -2241,22 +2241,21 @@ wolfSSL_DupSession.exit:                          ; preds = %76, %82, %86
   %89 = load ptr, ptr %9, align 16, !tbaa !76
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %91 = load i8, ptr %90, align 8
-  %92 = and i8 %91, 1
-  %.not53 = icmp ne i8 %92, 0
-  %93 = icmp eq ptr %1, %89
-  %or.cond54 = and i1 %93, %.not53
-  br i1 %or.cond54, label %94, label %98
+  %.not53 = trunc i8 %91 to i1
+  %92 = icmp eq ptr %1, %89
+  %or.cond54 = and i1 %92, %.not53
+  br i1 %or.cond54, label %93, label %97
 
-94:                                               ; preds = %.thread
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %95, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
-  %96 = load ptr, ptr %9, align 16, !tbaa !76
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 148
-  store i8 %.0, ptr %97, align 4, !tbaa !77
-  br label %98
+93:                                               ; preds = %.thread
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
+  %95 = load ptr, ptr %9, align 16, !tbaa !76
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 148
+  store i8 %.0, ptr %96, align 4, !tbaa !77
+  br label %97
 
-98:                                               ; preds = %.thread, %94, %15, %8, %2
-  %.038 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %15 ], [ %.2, %94 ], [ %.2, %.thread ]
+97:                                               ; preds = %.thread, %93, %15, %8, %2
+  %.038 = phi i32 [ 0, %8 ], [ 0, %2 ], [ 0, %15 ], [ %.2, %93 ], [ %.2, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

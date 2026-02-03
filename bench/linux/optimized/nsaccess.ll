@@ -439,201 +439,200 @@ define dso_local i32 @acpi_ns_lookup(ptr noundef readonly captures(address_is_nu
 
 102:                                              ; preds = %95
   %103 = icmp ne i32 %98, 0
-  %104 = and i32 %4, 1
-  %105 = icmp ne i32 %104, 0
-  %106 = and i1 %105, %103
-  %107 = zext i1 %106 to i32
-  %108 = and i32 %4, 136
-  %109 = or disjoint i32 %108, %107
-  %110 = and i32 %4, 512
-  %.not37 = icmp eq i32 %110, 0
+  %104 = trunc i32 %4 to i1
+  %105 = and i1 %103, %104
+  %106 = zext i1 %105 to i32
+  %107 = and i32 %4, 136
+  %108 = or disjoint i32 %107, %106
+  %109 = and i32 %4, 512
+  %.not37 = icmp eq i32 %109, 0
   br i1 %.not37, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %102, %139
-  %111 = phi ptr [ %140, %139 ], [ %80, %102 ]
-  %112 = phi i32 [ %119, %139 ], [ %13, %102 ]
-  %113 = phi i32 [ %115, %139 ], [ %97, %102 ]
-  %114 = phi ptr [ %141, %139 ], [ %96, %102 ]
-  %115 = add nsw i32 %113, -1
-  %116 = icmp eq i32 %115, 0
-  %117 = select i1 %116, i32 %2, i32 0
-  %118 = select i1 %116, i32 %109, i32 0
-  %119 = or i32 %118, %112
-  %120 = load i32, ptr %114, align 4
-  store i32 %120, ptr %10, align 4
-  %121 = call i32 @acpi_ns_search_and_enter(i32 noundef %120, ptr noundef %5, ptr noundef nonnull %111, i32 noundef %3, i32 noundef %117, i32 noundef %119, ptr noundef nonnull %9) #4
-  switch i32 %121, label %.loopexit [
-    i32 0, label %122
+.split.us:                                        ; preds = %102, %138
+  %110 = phi ptr [ %139, %138 ], [ %80, %102 ]
+  %111 = phi i32 [ %118, %138 ], [ %13, %102 ]
+  %112 = phi i32 [ %114, %138 ], [ %97, %102 ]
+  %113 = phi ptr [ %140, %138 ], [ %96, %102 ]
+  %114 = add nsw i32 %112, -1
+  %115 = icmp eq i32 %114, 0
+  %116 = select i1 %115, i32 %2, i32 0
+  %117 = select i1 %115, i32 %108, i32 0
+  %118 = or i32 %117, %111
+  %119 = load i32, ptr %113, align 4
+  store i32 %119, ptr %10, align 4
+  %120 = call i32 @acpi_ns_search_and_enter(i32 noundef %119, ptr noundef %5, ptr noundef nonnull %110, i32 noundef %3, i32 noundef %116, i32 noundef %118, ptr noundef nonnull %9) #4
+  switch i32 %120, label %.loopexit [
+    i32 0, label %121
     i32 5, label %.split35.us
   ]
 
-122:                                              ; preds = %.split.us
-  br i1 %116, label %.split33.us, label %123
+121:                                              ; preds = %.split.us
+  br i1 %115, label %.split33.us, label %122
 
-123:                                              ; preds = %122
-  %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 9
-  %126 = load i8, ptr %125, align 1
-  %127 = icmp eq i8 %126, 21
-  br i1 %127, label %128, label %139
+122:                                              ; preds = %121
+  %123 = load ptr, ptr %9, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 9
+  %125 = load i8, ptr %124, align 1
+  %126 = icmp eq i8 %125, 21
+  br i1 %126, label %127, label %138
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %124, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %.loopexit21, label %131
+127:                                              ; preds = %122
+  %128 = load ptr, ptr %123, align 8
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %.loopexit21, label %130
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %129, i64 9
-  %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = call i32 @acpi_ns_opens_scope(i32 noundef %134) #4
-  %136 = icmp eq i32 %135, 0
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 9
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = call i32 @acpi_ns_opens_scope(i32 noundef %133) #4
+  %135 = icmp eq i32 %134, 0
   %.pre58 = load ptr, ptr %9, align 8
-  br i1 %136, label %139, label %137
+  br i1 %135, label %138, label %136
 
-137:                                              ; preds = %131
-  %138 = load ptr, ptr %.pre58, align 8
-  store ptr %138, ptr %9, align 8
-  br label %139
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %.pre58, align 8
+  store ptr %137, ptr %9, align 8
+  br label %138
 
-139:                                              ; preds = %137, %131, %123
-  %140 = phi ptr [ %138, %137 ], [ %.pre58, %131 ], [ %124, %123 ]
-  %141 = getelementptr i8, ptr %114, i64 4
-  %.not.us = icmp eq ptr %140, null
+138:                                              ; preds = %136, %130, %122
+  %139 = phi ptr [ %137, %136 ], [ %.pre58, %130 ], [ %123, %122 ]
+  %140 = getelementptr i8, ptr %113, i64 4
+  %.not.us = icmp eq ptr %139, null
   br i1 %.not.us, label %.thread, label %.split.us, !llvm.loop !11
 
-.split:                                           ; preds = %102, %191
-  %142 = phi ptr [ %192, %191 ], [ %80, %102 ]
-  %143 = phi i32 [ %150, %191 ], [ %13, %102 ]
-  %144 = phi i32 [ %146, %191 ], [ %97, %102 ]
-  %145 = phi ptr [ %193, %191 ], [ %96, %102 ]
-  %146 = add nsw i32 %144, -1
-  %147 = icmp eq i32 %146, 0
-  %148 = select i1 %147, i32 %2, i32 0
-  %149 = select i1 %147, i32 %109, i32 0
-  %150 = or i32 %149, %143
-  %spec.select = select i1 %147, i32 %3, i32 3
-  %151 = load i32, ptr %145, align 4
-  store i32 %151, ptr %10, align 4
-  %152 = call i32 @acpi_ns_search_and_enter(i32 noundef %151, ptr noundef %5, ptr noundef nonnull %142, i32 noundef %spec.select, i32 noundef %148, i32 noundef %150, ptr noundef nonnull %9) #4
-  switch i32 %152, label %.loopexit [
-    i32 0, label %156
+.split:                                           ; preds = %102, %190
+  %141 = phi ptr [ %191, %190 ], [ %80, %102 ]
+  %142 = phi i32 [ %149, %190 ], [ %13, %102 ]
+  %143 = phi i32 [ %145, %190 ], [ %97, %102 ]
+  %144 = phi ptr [ %192, %190 ], [ %96, %102 ]
+  %145 = add nsw i32 %143, -1
+  %146 = icmp eq i32 %145, 0
+  %147 = select i1 %146, i32 %2, i32 0
+  %148 = select i1 %146, i32 %108, i32 0
+  %149 = or i32 %148, %142
+  %spec.select = select i1 %146, i32 %3, i32 3
+  %150 = load i32, ptr %144, align 4
+  store i32 %150, ptr %10, align 4
+  %151 = call i32 @acpi_ns_search_and_enter(i32 noundef %150, ptr noundef %5, ptr noundef nonnull %141, i32 noundef %spec.select, i32 noundef %147, i32 noundef %149, ptr noundef nonnull %9) #4
+  switch i32 %151, label %.loopexit [
+    i32 0, label %155
     i32 5, label %.split35.us
   ]
 
 .split35.us:                                      ; preds = %.split, %.split.us
-  br i1 %.not37, label %.loopexit, label %153
+  br i1 %.not37, label %.loopexit, label %152
 
-153:                                              ; preds = %.split35.us
+152:                                              ; preds = %.split35.us
   call void (ptr, ...) @acpi_os_printf(ptr noundef nonnull @.str.8, ptr noundef nonnull %10) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.split, %.split.us, %153, %.split35.us
-  %154 = phi i32 [ 5, %.split35.us ], [ 5, %153 ], [ %121, %.split.us ], [ %152, %.split ]
-  %155 = load ptr, ptr %9, align 8
-  store ptr %155, ptr %6, align 8
+.loopexit:                                        ; preds = %.split, %.split.us, %152, %.split35.us
+  %153 = phi i32 [ 5, %.split35.us ], [ 5, %152 ], [ %120, %.split.us ], [ %151, %.split ]
+  %154 = load ptr, ptr %9, align 8
+  store ptr %154, ptr %6, align 8
   br label %.loopexit21
 
-156:                                              ; preds = %.split
-  br i1 %147, label %.split33.us, label %157
+155:                                              ; preds = %.split
+  br i1 %146, label %.split33.us, label %156
 
-157:                                              ; preds = %156
-  %158 = load ptr, ptr %9, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 9
-  %160 = load i8, ptr %159, align 1
-  %161 = icmp eq i8 %160, 21
-  br i1 %161, label %162, label %191
+156:                                              ; preds = %155
+  %157 = load ptr, ptr %9, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 9
+  %159 = load i8, ptr %158, align 1
+  %160 = icmp eq i8 %159, 21
+  br i1 %160, label %161, label %190
 
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %158, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %.loopexit21, label %165
+161:                                              ; preds = %156
+  %162 = load ptr, ptr %157, align 8
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %.loopexit21, label %164
 
-165:                                              ; preds = %162
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 9
-  %167 = load i8, ptr %166, align 1
-  %168 = zext i8 %167 to i32
-  %169 = call i32 @acpi_ns_opens_scope(i32 noundef %168) #4
-  %170 = icmp eq i32 %169, 0
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 9
+  %166 = load i8, ptr %165, align 1
+  %167 = zext i8 %166 to i32
+  %168 = call i32 @acpi_ns_opens_scope(i32 noundef %167) #4
+  %169 = icmp eq i32 %168, 0
   %.pre57 = load ptr, ptr %9, align 8
-  br i1 %170, label %191, label %171
+  br i1 %169, label %190, label %170
 
-171:                                              ; preds = %165
-  %172 = load ptr, ptr %.pre57, align 8
-  store ptr %172, ptr %9, align 8
-  br label %191
+170:                                              ; preds = %164
+  %171 = load ptr, ptr %.pre57, align 8
+  store ptr %171, ptr %9, align 8
+  br label %190
 
-.split33.us:                                      ; preds = %156, %122
-  switch i32 %2, label %173 [
-    i32 0, label %186
+.split33.us:                                      ; preds = %155, %121
+  switch i32 %2, label %172 [
+    i32 0, label %185
     i32 21, label %.thread
     i32 22, label %.thread
     i32 27, label %.thread
   ]
 
-173:                                              ; preds = %.split33.us
-  %174 = load ptr, ptr %9, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 9
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = icmp eq i8 %176, 0
-  %179 = icmp eq i32 %2, %177
-  %180 = or i1 %178, %179
-  br i1 %180, label %184, label %181
+172:                                              ; preds = %.split33.us
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 9
+  %175 = load i8, ptr %174, align 1
+  %176 = zext i8 %175 to i32
+  %177 = icmp eq i8 %175, 0
+  %178 = icmp eq i32 %2, %176
+  %179 = or i1 %177, %178
+  br i1 %179, label %183, label %180
 
-181:                                              ; preds = %173
-  %182 = call ptr @acpi_ut_get_type_name(i32 noundef %177) #4
-  %183 = call ptr @acpi_ut_get_type_name(i32 noundef %2) #4
-  call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 696, ptr noundef nonnull @.str.9, ptr noundef nonnull %10, ptr noundef %182, ptr noundef %183) #4
-  br label %184
+180:                                              ; preds = %172
+  %181 = call ptr @acpi_ut_get_type_name(i32 noundef %176) #4
+  %182 = call ptr @acpi_ut_get_type_name(i32 noundef %2) #4
+  call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 696, ptr noundef nonnull @.str.9, ptr noundef nonnull %10, ptr noundef %181, ptr noundef %182) #4
+  br label %183
 
-184:                                              ; preds = %181, %173
-  %185 = icmp eq i32 %2, 0
-  br i1 %185, label %186, label %.thread
+183:                                              ; preds = %180, %172
+  %184 = icmp eq i32 %2, 0
+  br i1 %184, label %185, label %.thread
 
-186:                                              ; preds = %.split33.us, %184
-  %187 = load ptr, ptr %9, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 9
-  %189 = load i8, ptr %188, align 1
-  %190 = zext i8 %189 to i32
+185:                                              ; preds = %.split33.us, %183
+  %186 = load ptr, ptr %9, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 9
+  %188 = load i8, ptr %187, align 1
+  %189 = zext i8 %188 to i32
   br label %.thread
 
-191:                                              ; preds = %171, %165, %157
-  %192 = phi ptr [ %172, %171 ], [ %.pre57, %165 ], [ %158, %157 ]
-  %193 = getelementptr i8, ptr %145, i64 4
-  %.not = icmp eq ptr %192, null
+190:                                              ; preds = %170, %164, %156
+  %191 = phi ptr [ %171, %170 ], [ %.pre57, %164 ], [ %157, %156 ]
+  %192 = getelementptr i8, ptr %144, i64 4
+  %.not = icmp eq ptr %191, null
   br i1 %.not, label %.thread, label %.split, !llvm.loop !11
 
-.thread:                                          ; preds = %191, %139, %.split33.us, %.split33.us, %.split33.us, %184, %186, %53, %84, %95
-  %194 = phi i32 [ %2, %95 ], [ %2, %.split33.us ], [ %87, %84 ], [ %2, %53 ], [ %2, %184 ], [ %190, %186 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %139 ], [ %2, %191 ]
-  %195 = and i32 %4, 2
-  %196 = icmp eq i32 %195, 0
-  %197 = icmp ne ptr %5, null
-  %198 = and i1 %196, %197
-  br i1 %198, label %199, label %206
+.thread:                                          ; preds = %190, %138, %.split33.us, %.split33.us, %.split33.us, %183, %185, %53, %84, %95
+  %193 = phi i32 [ %2, %95 ], [ %2, %.split33.us ], [ %87, %84 ], [ %2, %53 ], [ %2, %183 ], [ %189, %185 ], [ %2, %.split33.us ], [ %2, %.split33.us ], [ %2, %138 ], [ %2, %190 ]
+  %194 = and i32 %4, 2
+  %195 = icmp eq i32 %194, 0
+  %196 = icmp ne ptr %5, null
+  %197 = and i1 %195, %196
+  br i1 %197, label %198, label %205
 
-199:                                              ; preds = %.thread
-  %200 = call i32 @acpi_ns_opens_scope(i32 noundef %194) #4
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %206, label %202
+198:                                              ; preds = %.thread
+  %199 = call i32 @acpi_ns_opens_scope(i32 noundef %193) #4
+  %200 = icmp eq i32 %199, 0
+  br i1 %200, label %205, label %201
 
-202:                                              ; preds = %199
-  %203 = load ptr, ptr %9, align 8
-  %204 = call i32 @acpi_ds_scope_stack_push(ptr noundef %203, i32 noundef %194, ptr noundef nonnull %5) #4
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %.loopexit21
+201:                                              ; preds = %198
+  %202 = load ptr, ptr %9, align 8
+  %203 = call i32 @acpi_ds_scope_stack_push(ptr noundef %202, i32 noundef %193, ptr noundef nonnull %5) #4
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %205, label %.loopexit21
 
-206:                                              ; preds = %202, %199, %.thread
-  %207 = load ptr, ptr %9, align 8
-  store ptr %207, ptr %6, align 8
+205:                                              ; preds = %201, %198, %.thread
+  %206 = load ptr, ptr %9, align 8
+  store ptr %206, ptr %6, align 8
   br label %.loopexit21
 
-.loopexit21:                                      ; preds = %162, %128, %206, %202, %.loopexit, %72, %69, %28, %12, %7
-  %208 = phi i32 [ 12303, %28 ], [ %154, %.loopexit ], [ 0, %206 ], [ 4097, %7 ], [ 3, %12 ], [ 5, %72 ], [ 5, %69 ], [ %204, %202 ], [ 6, %128 ], [ 6, %162 ]
+.loopexit21:                                      ; preds = %161, %127, %205, %201, %.loopexit, %72, %69, %28, %12, %7
+  %207 = phi i32 [ 12303, %28 ], [ %153, %.loopexit ], [ 0, %205 ], [ 4097, %7 ], [ 3, %12 ], [ 5, %72 ], [ 5, %69 ], [ %203, %201 ], [ 6, %127 ], [ 6, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %208
+  ret i32 %207
 }
 
 ; Function Attrs: null_pointer_is_valid

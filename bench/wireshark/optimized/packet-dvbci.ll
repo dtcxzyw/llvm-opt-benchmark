@@ -4868,7 +4868,7 @@ define internal fastcc void @dissect_sac_msg(i32 noundef %0, ptr noundef %1, i32
   %20 = and i8 %19, 1
   %21 = load i32, ptr @hf_dvbci_sac_payload_enc, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %21, ptr noundef %1, i32 noundef %14, i32 noundef 1, i32 noundef 0)
-  %23 = icmp ne i8 %20, 0
+  %23 = trunc i8 %19 to i1
   %or.cond = select i1 %5, i1 %23, i1 false
   br i1 %or.cond, label %24, label %26
 
@@ -5303,101 +5303,100 @@ define internal fastcc void @dissect_dvbci_ami_file_ack(ptr noundef %0, i32 noun
 15:                                               ; preds = %9, %4
   %or.cond4 = phi i1 [ %14, %9 ], [ true, %4 ]
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
-  %17 = and i8 %16, 1
-  %18 = icmp ne i8 %17, 0
-  %19 = load i32, ptr @hf_dvbci_file_ok, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
-  %21 = load i32, ptr @hf_dvbci_req_type, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @dvbci_req_type, ptr noundef nonnull @.str.1006)
-  tail call void @col_append_sep_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.990, ptr noundef %25)
-  %26 = add i32 %1, 2
+  %17 = trunc i8 %16 to i1
+  %18 = load i32, ptr @hf_dvbci_file_ok, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
+  %20 = load i32, ptr @hf_dvbci_req_type, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr @val_to_str_const(i32 noundef %7, ptr noundef nonnull @dvbci_req_type, ptr noundef nonnull @.str.1006)
+  tail call void @col_append_sep_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.990, ptr noundef %24)
+  %25 = add i32 %1, 2
   switch i8 %6, label %.loopexit [
-    i8 2, label %27
-    i8 0, label %27
-    i8 1, label %53
-    i8 3, label %60
+    i8 2, label %26
+    i8 0, label %26
+    i8 1, label %52
+    i8 3, label %59
   ]
 
-27:                                               ; preds = %15, %15
-  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
-  %29 = load i32, ptr @hf_dvbci_file_name_len, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %29, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
-  %31 = add i32 %1, 3
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %33 = load ptr, ptr %32, align 8
-  %34 = zext i8 %28 to i32
-  %35 = tail call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef %34, i32 noundef 0)
-  %.not = icmp eq ptr %35, null
-  br i1 %.not, label %73, label %36
+26:                                               ; preds = %15, %15
+  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
+  %28 = load i32, ptr @hf_dvbci_file_name_len, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
+  %30 = add i32 %1, 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %32 = load ptr, ptr %31, align 8
+  %33 = zext i8 %27 to i32
+  %34 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 0)
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %72, label %35
 
-36:                                               ; preds = %27
-  %37 = load ptr, ptr %23, align 8
-  tail call void @col_append_sep_str(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.1020, ptr noundef nonnull %35)
-  %38 = load i32, ptr @hf_dvbci_file_name, align 4
-  %39 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %38, ptr noundef %0, i32 noundef %31, i32 noundef %34, ptr noundef nonnull %35, ptr noundef nonnull @.str.1069, ptr noundef nonnull %35)
-  %40 = add i32 %31, %34
-  %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %40)
-  %42 = load i32, ptr @hf_dvbci_file_data_len, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %42, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0)
-  %.not92 = icmp eq i32 %41, 0
-  br i1 %.not92, label %.loopexit, label %44
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %22, align 8
+  tail call void @col_append_sep_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.1020, ptr noundef nonnull %34)
+  %37 = load i32, ptr @hf_dvbci_file_name, align 4
+  %38 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %37, ptr noundef %0, i32 noundef %30, i32 noundef %33, ptr noundef nonnull %34, ptr noundef nonnull @.str.1069, ptr noundef nonnull %34)
+  %39 = add i32 %30, %33
+  %40 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %39)
+  %41 = load i32, ptr @hf_dvbci_file_data_len, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %41, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0)
+  %.not92 = icmp eq i32 %40, 0
+  br i1 %.not92, label %.loopexit, label %43
 
-44:                                               ; preds = %36
-  %45 = add i32 %40, 4
-  %46 = load ptr, ptr %23, align 8
-  tail call void @col_append_str(ptr noundef %46, i32 noundef 35, ptr noundef nonnull @.str.1001)
-  %47 = load ptr, ptr %23, align 8
-  tail call void @col_set_fence(ptr noundef %47, i32 noundef 35)
-  %48 = load ptr, ptr %23, align 8
-  tail call void @col_append_str(ptr noundef %48, i32 noundef 35, ptr noundef nonnull @.str.315)
-  %49 = load ptr, ptr %23, align 8
-  tail call void @col_set_fence(ptr noundef %49, i32 noundef 25)
-  %50 = load ptr, ptr @mime_handle, align 8
-  %51 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %45, i32 noundef %41)
-  %52 = tail call i32 @call_dissector(ptr noundef %50, ptr noundef %51, ptr noundef %2, ptr noundef %3)
+43:                                               ; preds = %35
+  %44 = add i32 %39, 4
+  %45 = load ptr, ptr %22, align 8
+  tail call void @col_append_str(ptr noundef %45, i32 noundef 35, ptr noundef nonnull @.str.1001)
+  %46 = load ptr, ptr %22, align 8
+  tail call void @col_set_fence(ptr noundef %46, i32 noundef 35)
+  %47 = load ptr, ptr %22, align 8
+  tail call void @col_append_str(ptr noundef %47, i32 noundef 35, ptr noundef nonnull @.str.315)
+  %48 = load ptr, ptr %22, align 8
+  tail call void @col_set_fence(ptr noundef %48, i32 noundef 25)
+  %49 = load ptr, ptr @mime_handle, align 8
+  %50 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %40)
+  %51 = tail call i32 @call_dissector(ptr noundef %49, ptr noundef %50, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
-53:                                               ; preds = %15
-  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
-  %55 = icmp slt i32 %54, 1
-  br i1 %55, label %73, label %56
+52:                                               ; preds = %15
+  %53 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25)
+  %54 = icmp slt i32 %53, 1
+  br i1 %54, label %72, label %55
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr @hf_dvbci_ami_priv_data, align 4
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %26, i32 noundef %58, i32 noundef 0)
+55:                                               ; preds = %52
+  %56 = load i32, ptr @hf_dvbci_ami_priv_data, align 4
+  %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25)
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef %25, i32 noundef %57, i32 noundef 0)
   br label %.loopexit
 
-60:                                               ; preds = %15
-  %61 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
-  %62 = load i32, ptr @ett_dvbci_ami_req_types, align 4
-  %63 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %26, i32 noundef %61, i32 noundef %62, ptr noundef null, ptr noundef nonnull @.str.1070)
-  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph, label %.loopexit
+59:                                               ; preds = %15
+  %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25)
+  %61 = load i32, ptr @ett_dvbci_ami_req_types, align 4
+  %62 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %25, i32 noundef %60, i32 noundef %61, ptr noundef null, ptr noundef nonnull @.str.1070)
+  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25)
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %60, %.lr.ph
-  %.093 = phi i32 [ %68, %.lr.ph ], [ %26, %60 ]
-  %66 = load i32, ptr @hf_dvbci_req_type, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %66, ptr noundef %0, i32 noundef %.093, i32 noundef 1, i32 noundef 0)
-  %68 = add i32 %.093, 1
-  %69 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %68)
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !26
+.lr.ph:                                           ; preds = %59, %.lr.ph
+  %.093 = phi i32 [ %67, %.lr.ph ], [ %25, %59 ]
+  %65 = load i32, ptr @hf_dvbci_req_type, align 4
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %65, ptr noundef %0, i32 noundef %.093, i32 noundef 1, i32 noundef 0)
+  %67 = add i32 %.093, 1
+  %68 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %67)
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %.lr.ph, %60, %15, %56, %36, %44
-  %or.cond6 = select i1 %or.cond4, i1 true, i1 %18
-  br i1 %or.cond6, label %73, label %71
+.loopexit:                                        ; preds = %.lr.ph, %59, %15, %55, %35, %43
+  %or.cond6 = select i1 %or.cond4, i1 true, i1 %17
+  br i1 %or.cond6, label %72, label %70
 
-71:                                               ; preds = %.loopexit
-  %72 = load ptr, ptr %23, align 8
-  tail call void @col_append_sep_str(ptr noundef %72, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1071)
-  br label %73
+70:                                               ; preds = %.loopexit
+  %71 = load ptr, ptr %22, align 8
+  tail call void @col_append_sep_str(ptr noundef %71, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1071)
+  br label %72
 
-73:                                               ; preds = %.loopexit, %71, %53, %27
+72:                                               ; preds = %.loopexit, %70, %52, %26
   ret void
 }
 

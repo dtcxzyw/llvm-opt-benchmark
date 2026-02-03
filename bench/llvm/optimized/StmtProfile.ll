@@ -4861,32 +4861,32 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17: ; preds = %_ZN4llvm
   %69 = load ptr, ptr %17, align 8, !tbaa !78
   %70 = getelementptr inbounds nuw i8, ptr %.1.i20, i64 32
   %71 = load i32, ptr %70, align 16
-  %72 = and i32 %71, 1
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !79
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %76 = load i32, ptr %75, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i.i.i = icmp ult i32 %74, %76
-  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i, label %77, !prof !82
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %73 = load i32, ptr %72, align 8, !tbaa !79
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 12
+  %75 = load i32, ptr %74, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i.i.i = icmp ult i32 %73, %75
+  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i, label %76, !prof !82
 
-77:                                               ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17
-  %78 = zext i32 %74 to i64
-  %79 = add nuw nsw i64 %78, 1
-  %80 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %69, ptr noundef nonnull %80, i64 noundef %79, i64 noundef 4) #12
-  %.pre.i.i.i.i.i = load i32, ptr %73, align 8, !tbaa !79
+76:                                               ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17
+  %77 = zext i32 %73 to i64
+  %78 = add nuw nsw i64 %77, 1
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %69, ptr noundef nonnull %79, i64 noundef %78, i64 noundef 4) #12
+  %.pre.i.i.i.i.i = load i32, ptr %72, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i: ; preds = %77, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17
-  %81 = phi i32 [ %74, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17 ], [ %.pre.i.i.i.i.i, %77 ]
+_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i: ; preds = %76, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17
+  %80 = phi i32 [ %73, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread17 ], [ %.pre.i.i.i.i.i, %76 ]
+  %81 = and i32 %71, 1
   %82 = load ptr, ptr %69, align 8, !tbaa !83
-  %83 = zext i32 %81 to i64
+  %83 = zext i32 %80 to i64
   %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
-  store i32 %72, ptr %84, align 1
-  %85 = load i32, ptr %73, align 8, !tbaa !79
+  store i32 %81, ptr %84, align 1
+  %85 = load i32, ptr %72, align 8, !tbaa !79
   %86 = add i32 %85, 1
-  store i32 %86, ptr %73, align 8, !tbaa !79
-  %87 = load i32, ptr %75, align 4, !tbaa !81
+  store i32 %86, ptr %72, align 8, !tbaa !79
+  %87 = load i32, ptr %74, align 4, !tbaa !81
   %.not.i.i.not.i.i.i.i = icmp ult i32 %86, %87
   br i1 %.not.i.i.not.i.i.i.i, label %_ZNK5clang10BitIntType7ProfileERN4llvm16FoldingSetNodeIDE.exit, label %88, !prof !82
 
@@ -4895,7 +4895,7 @@ _ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i: ; preds = %77, %_ZNK5clang4Ty
   %90 = add nuw nsw i64 %89, 1
   %91 = getelementptr inbounds nuw i8, ptr %69, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %69, ptr noundef nonnull %91, i64 noundef %90, i64 noundef 4) #12
-  %.pre.i.i.i.i = load i32, ptr %73, align 8, !tbaa !79
+  %.pre.i.i.i.i = load i32, ptr %72, align 8, !tbaa !79
   br label %_ZNK5clang10BitIntType7ProfileERN4llvm16FoldingSetNodeIDE.exit
 
 _ZNK5clang10BitIntType7ProfileERN4llvm16FoldingSetNodeIDE.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit.i.i, %88
@@ -4906,9 +4906,9 @@ _ZNK5clang10BitIntType7ProfileERN4llvm16FoldingSetNodeIDE.exit: ; preds = %_ZN4l
   %96 = zext i32 %92 to i64
   %97 = getelementptr inbounds nuw i32, ptr %95, i64 %96
   store i32 %94, ptr %97, align 1
-  %98 = load i32, ptr %73, align 8, !tbaa !79
+  %98 = load i32, ptr %72, align 8, !tbaa !79
   %99 = add i32 %98, 1
-  store i32 %99, ptr %73, align 8, !tbaa !79
+  store i32 %99, ptr %72, align 8, !tbaa !79
   br label %120
 
 _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread: ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit._ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread_crit_edge, %60
@@ -5380,31 +5380,31 @@ define internal fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitDesignatedIni
   %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
-  %7 = and i32 %6, 1
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !79
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i = icmp ult i32 %9, %11
-  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, label %12, !prof !82
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load i32, ptr %7, align 8, !tbaa !79
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i = icmp ult i32 %8, %10
+  br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit, label %11, !prof !82
 
-12:                                               ; preds = %2
-  %13 = zext i32 %9 to i64
-  %14 = add nuw nsw i64 %13, 1
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %15, i64 noundef %14, i64 noundef 4) #12
-  %.pre.i.i.i = load i32, ptr %8, align 8, !tbaa !79
+11:                                               ; preds = %2
+  %12 = zext i32 %8 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 4) #12
+  %.pre.i.i.i = load i32, ptr %7, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit
 
-_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %2, %12
-  %16 = phi i32 [ %9, %2 ], [ %.pre.i.i.i, %12 ]
+_ZN4llvm16FoldingSetNodeID10AddBooleanEb.exit:    ; preds = %2, %11
+  %15 = phi i32 [ %8, %2 ], [ %.pre.i.i.i, %11 ]
+  %16 = and i32 %6, 1
   %17 = load ptr, ptr %4, align 8, !tbaa !83
-  %18 = zext i32 %16 to i64
+  %18 = zext i32 %15 to i64
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  store i32 %7, ptr %19, align 1
-  %20 = load i32, ptr %8, align 8, !tbaa !79
+  store i32 %16, ptr %19, align 1
+  %20 = load i32, ptr %7, align 8, !tbaa !79
   %21 = add i32 %20, 1
-  store i32 %21, ptr %8, align 8, !tbaa !79
+  store i32 %21, ptr %7, align 8, !tbaa !79
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !278
   %24 = load i32, ptr %5, align 4

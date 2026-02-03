@@ -18,12 +18,11 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZNSt11logic_errorC2ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt11logic_error, i64 16), ptr %0, align 8, !tbaa !4
   %3 = load i8, ptr %1, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %8 = select i1 %.not.i.i.i, ptr %7, ptr %6
+  %8 = select i1 %4, ptr %6, ptr %7
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #10
   %10 = add i64 %9, 25
   %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #11
@@ -122,12 +121,11 @@ _ZNSt3__118__libcpp_refstringaSB8ne210000ERKS0_.exit: ; preds = %2, %13
 define dso_local void @_ZNSt13runtime_errorC2ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt13runtime_error, i64 16), ptr %0, align 8, !tbaa !4
   %3 = load i8, ptr %1, align 8
-  %4 = and i8 %3, 1
-  %.not.i.i.i = icmp eq i8 %4, 0
+  %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %8 = select i1 %.not.i.i.i, ptr %7, ptr %6
+  %8 = select i1 %4, ptr %6, ptr %7
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #10
   %10 = add i64 %9, 25
   %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #11

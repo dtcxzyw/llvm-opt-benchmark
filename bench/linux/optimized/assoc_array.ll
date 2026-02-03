@@ -566,13 +566,13 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 .thread8.us.preheader:                            ; preds = %37, %35, %.thread.us
   %.ph = phi ptr [ %26, %.thread.us ], [ %9, %35 ], [ %9, %37 ]
-  %.ph120 = phi ptr [ %31, %.thread.us ], [ %14, %35 ], [ %14, %37 ]
+  %.ph119 = phi ptr [ %31, %.thread.us ], [ %14, %35 ], [ %14, %37 ]
   br label %.thread8.us
 
 .thread8.us:                                      ; preds = %.thread8.us.preheader, %72
   %42 = phi i32 [ %77, %72 ], [ 0, %.thread8.us.preheader ]
   %43 = phi ptr [ %74, %72 ], [ %.ph, %.thread8.us.preheader ]
-  %44 = phi ptr [ %76, %72 ], [ %.ph120, %.thread8.us.preheader ]
+  %44 = phi ptr [ %76, %72 ], [ %.ph119, %.thread8.us.preheader ]
   %45 = icmp slt i32 %42, 16
   br i1 %45, label %.split.us.us.us, label %.loopexit.split.us.us.us
 
@@ -632,9 +632,8 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   %80 = getelementptr ptr, ptr %46, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %81 to i64
-  %83 = and i64 %82, 1
-  %.not38 = icmp eq i64 %83, 0
-  br i1 %.not38, label %.thread9.us.us.us, label %.split16.us.split.us.us
+  %83 = trunc i64 %82 to i1
+  br i1 %83, label %.split16.us.split.us.us, label %.thread9.us.us.us
 
 .thread9.us.us.us:                                ; preds = %78
   %84 = add nsw i64 %79, 1
@@ -719,8 +718,8 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %118, label %.thread8.preheader, label %119
 
 .thread8.preheader:                               ; preds = %.thread, %119, %117
-  %.ph128 = phi ptr [ %91, %117 ], [ %91, %119 ], [ %108, %.thread ]
-  %.ph129 = phi ptr [ %96, %117 ], [ %96, %119 ], [ %114, %.thread ]
+  %.ph127 = phi ptr [ %91, %117 ], [ %91, %119 ], [ %108, %.thread ]
+  %.ph128 = phi ptr [ %96, %117 ], [ %96, %119 ], [ %114, %.thread ]
   br label %.thread8
 
 119:                                              ; preds = %117
@@ -737,8 +736,8 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 .thread8:                                         ; preds = %.thread8.preheader, %167
   %124 = phi i32 [ %172, %167 ], [ 0, %.thread8.preheader ]
-  %125 = phi ptr [ %169, %167 ], [ %.ph128, %.thread8.preheader ]
-  %126 = phi ptr [ %171, %167 ], [ %.ph129, %.thread8.preheader ]
+  %125 = phi ptr [ %169, %167 ], [ %.ph127, %.thread8.preheader ]
+  %126 = phi ptr [ %171, %167 ], [ %.ph128, %.thread8.preheader ]
   %127 = icmp slt i32 %124, 16
   br i1 %127, label %.split, label %.loopexit.split
 
@@ -756,9 +755,8 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 135:                                              ; preds = %130
   %136 = ptrtoint ptr %133 to i64
-  %137 = and i64 %136, 1
-  %.not = icmp eq i64 %137, 0
-  br i1 %.not, label %138, label %.split16
+  %137 = trunc i64 %136 to i1
+  br i1 %137, label %.split16, label %138
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr %6, align 8
@@ -819,10 +817,10 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   unreachable
 
 167:                                              ; preds = %163, %147
-  %.pre-phi59 = phi i64 [ %164, %163 ], [ %149, %147 ]
+  %.pre-phi58 = phi i64 [ %164, %163 ], [ %149, %147 ]
   %168 = phi i32 [ %161, %163 ], [ %148, %147 ]
   %169 = phi ptr [ %159, %163 ], [ %143, %147 ]
-  %170 = and i64 %.pre-phi59, -4
+  %170 = and i64 %.pre-phi58, -4
   %171 = inttoptr i64 %170 to ptr
   %172 = add i32 %168, 1
   br label %.thread8

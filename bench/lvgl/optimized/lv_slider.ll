@@ -408,9 +408,8 @@ define zeroext i1 @lv_slider_is_dragged(ptr noundef readonly captures(address_is
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i8, ptr %3, align 8
-  %5 = and i8 %4, 1
-  %6 = icmp ne i8 %5, 0
-  ret i1 %6
+  %5 = trunc i8 %4 to i1
+  ret i1 %5
 }
 
 ; Function Attrs: nounwind uwtable

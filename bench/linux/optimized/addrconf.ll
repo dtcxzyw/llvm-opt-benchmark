@@ -3990,11 +3990,11 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
 8:                                                ; preds = %6
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg) #20
   %9 = icmp eq ptr %5, null
-  br i1 %9, label %86, label %10
+  br i1 %9, label %85, label %10
 
 10:                                               ; preds = %8
   store ptr @inet6_addr_del.__msg, ptr %5, align 8
-  br label %86
+  br label %85
 
 11:                                               ; preds = %6
   %12 = tail call ptr @__dev_get_by_index(ptr noundef %0, i32 noundef %1) #20
@@ -4004,11 +4004,11 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
 14:                                               ; preds = %11
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg.26) #20
   %15 = icmp eq ptr %5, null
-  br i1 %15, label %86, label %16
+  br i1 %15, label %85, label %16
 
 16:                                               ; preds = %14
   store ptr @inet6_addr_del.__msg.26, ptr %5, align 8
-  br label %86
+  br label %85
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 184
@@ -4019,11 +4019,11 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
 21:                                               ; preds = %17
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg.27) #20
   %22 = icmp eq ptr %5, null
-  br i1 %22, label %86, label %23
+  br i1 %22, label %85, label %23
 
 23:                                               ; preds = %21
   store ptr @inet6_addr_del.__msg.27, ptr %5, align 8
-  br label %86
+  br label %85
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 616
@@ -4037,12 +4037,12 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   %30 = getelementptr i8, ptr %3, i64 8
   br label %31
 
-31:                                               ; preds = %81, %29
-  %32 = phi ptr [ %27, %29 ], [ %82, %81 ]
+31:                                               ; preds = %80, %29
+  %32 = phi ptr [ %27, %29 ], [ %81, %80 ]
   %33 = getelementptr i8, ptr %32, i64 -184
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %4
-  br i1 %35, label %36, label %81
+  br i1 %35, label %36, label %80
 
 36:                                               ; preds = %31
   %37 = getelementptr i8, ptr %32, i64 -200
@@ -4054,7 +4054,7 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   %43 = icmp eq i64 %38, %39
   %44 = icmp eq i64 %40, %42
   %45 = and i1 %43, %44
-  br i1 %45, label %46, label %81
+  br i1 %45, label %46, label %80
 
 46:                                               ; preds = %36
   %47 = getelementptr i8, ptr %32, i64 -200
@@ -4078,37 +4078,36 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %25) #20
   %58 = getelementptr i8, ptr %32, i64 -156
   %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 1
-  %61 = icmp ne i32 %60, 0
-  %62 = icmp samesign ult i32 %2, 256
-  %63 = or i1 %62, %61
-  br i1 %63, label %66, label %64
+  %60 = trunc i32 %59 to i1
+  %61 = icmp samesign ult i32 %2, 256
+  %62 = or i1 %61, %60
+  br i1 %62, label %65, label %63
 
-64:                                               ; preds = %57
-  %65 = load volatile i64, ptr @jiffies, align 64
-  tail call fastcc void @manage_tempaddrs(ptr noundef nonnull %19, ptr noundef %47, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i64 noundef %65)
-  br label %66
+63:                                               ; preds = %57
+  %64 = load volatile i64, ptr @jiffies, align 64
+  tail call fastcc void @manage_tempaddrs(ptr noundef nonnull %19, ptr noundef %47, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i64 noundef %64)
+  br label %65
 
-66:                                               ; preds = %64, %57
+65:                                               ; preds = %63, %57
   tail call fastcc void @ipv6_del_addr(ptr noundef %47)
   tail call fastcc void @addrconf_verify_rtnl(ptr noundef %0)
-  %67 = load i32, ptr %3, align 4
-  %68 = and i32 %67, 255
-  %69 = icmp eq i32 %68, 255
-  br i1 %69, label %70, label %86
+  %66 = load i32, ptr %3, align 4
+  %67 = and i32 %66, 255
+  %68 = icmp eq i32 %67, 255
+  br i1 %68, label %69, label %85
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  %72 = load ptr, ptr %71, align 16
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 216
-  %74 = load i32, ptr %73, align 8
-  %75 = tail call i32 @rtnl_is_locked() #20
-  %76 = icmp ne i32 %75, 0
-  %77 = load i1, ptr @ipv6_mc_config.__already_done, align 1
-  %78 = select i1 %76, i1 true, i1 %77
-  br i1 %78, label %ipv6_mc_config.exit, label %79, !prof !13
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 2032
+  %71 = load ptr, ptr %70, align 16
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 216
+  %73 = load i32, ptr %72, align 8
+  %74 = tail call i32 @rtnl_is_locked() #20
+  %75 = icmp ne i32 %74, 0
+  %76 = load i1, ptr @ipv6_mc_config.__already_done, align 1
+  %77 = select i1 %75, i1 true, i1 %76
+  br i1 %77, label %ipv6_mc_config.exit, label %78, !prof !13
 
-79:                                               ; preds = %70
+78:                                               ; preds = %69
   store i1 true, ptr @ipv6_mc_config.__already_done, align 1
   tail call void asm sideeffect "1068: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1068b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1068) #20, !srcloc !51
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str, i32 noundef 2932) #20
@@ -4118,30 +4117,30 @@ define internal fastcc noundef range(i32 -99, 1) i32 @inet6_addr_del(ptr noundef
   tail call void asm sideeffect "1071: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1071b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1071) #20, !srcloc !55
   br label %ipv6_mc_config.exit
 
-ipv6_mc_config.exit:                              ; preds = %70, %79
-  tail call void @lock_sock_nested(ptr noundef %72, i32 noundef 0) #20
-  %80 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %72, i32 noundef %74, ptr noundef %3) #20
-  tail call void @release_sock(ptr noundef %72) #20
-  br label %86
+ipv6_mc_config.exit:                              ; preds = %69, %78
+  tail call void @lock_sock_nested(ptr noundef %71, i32 noundef 0) #20
+  %79 = tail call i32 @ipv6_sock_mc_drop(ptr noundef %71, i32 noundef %73, ptr noundef %3) #20
+  tail call void @release_sock(ptr noundef %71) #20
+  br label %85
 
-81:                                               ; preds = %36, %31
-  %82 = load ptr, ptr %32, align 8
-  %83 = icmp eq ptr %82, %26
-  br i1 %83, label %.loopexit, label %31, !llvm.loop !56
+80:                                               ; preds = %36, %31
+  %81 = load ptr, ptr %32, align 8
+  %82 = icmp eq ptr %81, %26
+  br i1 %82, label %.loopexit, label %31, !llvm.loop !56
 
-.loopexit:                                        ; preds = %81, %24
+.loopexit:                                        ; preds = %80, %24
   tail call void @_raw_read_unlock_bh(ptr noundef nonnull %25) #20
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @inet6_addr_del.__msg.28) #20
-  %84 = icmp eq ptr %5, null
-  br i1 %84, label %86, label %85
+  %83 = icmp eq ptr %5, null
+  br i1 %83, label %85, label %84
 
-85:                                               ; preds = %.loopexit
+84:                                               ; preds = %.loopexit
   store ptr @inet6_addr_del.__msg.28, ptr %5, align 8
-  br label %86
+  br label %85
 
-86:                                               ; preds = %85, %.loopexit, %ipv6_mc_config.exit, %66, %23, %21, %16, %14, %10, %8
-  %87 = phi i32 [ -22, %10 ], [ -22, %8 ], [ -19, %16 ], [ -19, %14 ], [ -6, %23 ], [ -6, %21 ], [ 0, %ipv6_mc_config.exit ], [ 0, %66 ], [ -99, %85 ], [ -99, %.loopexit ]
-  ret i32 %87
+85:                                               ; preds = %84, %.loopexit, %ipv6_mc_config.exit, %65, %23, %21, %16, %14, %10, %8
+  %86 = phi i32 [ -22, %10 ], [ -22, %8 ], [ -19, %16 ], [ -19, %14 ], [ -6, %23 ], [ -6, %21 ], [ 0, %ipv6_mc_config.exit ], [ 0, %65 ], [ -99, %84 ], [ -99, %.loopexit ]
+  ret i32 %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

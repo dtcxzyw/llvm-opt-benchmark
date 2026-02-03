@@ -176,12 +176,12 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %26 = phi i64 [ %14, %._crit_edge.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0da6ef33821a5ba5E.exit.i.i.i" ]
   %27 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0da6ef33821a5ba5E.exit.i.i.i" ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = lshr i64 %27, 1
-  store i64 %29, ptr %28, align 8, !alias.scope !26
-  %30 = add i64 %26, -1
-  store i64 %30, ptr %13, align 8, !alias.scope !26
-  %31 = trunc i64 %27 to i8
-  %32 = and i8 %31, 1
+  %29 = trunc i64 %27 to i8
+  %30 = lshr i64 %27, 1
+  store i64 %30, ptr %28, align 8, !alias.scope !26
+  %31 = add i64 %26, -1
+  store i64 %31, ptr %13, align 8, !alias.scope !26
+  %32 = and i8 %29, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %25, %16
@@ -332,12 +332,12 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %25 = phi i64 [ %13, %._crit_edge.i.i.i ], [ %.sroa.0.0.sroa.speculated.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0da6ef33821a5ba5E.exit.i.i.i" ]
   %26 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %.sroa.02.0.copyload.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h0da6ef33821a5ba5E.exit.i.i.i" ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = lshr i64 %26, 1
-  store i64 %28, ptr %27, align 8, !alias.scope !69
-  %29 = add i64 %25, -1
-  store i64 %29, ptr %12, align 8, !alias.scope !69
-  %30 = trunc i64 %26 to i8
-  %31 = and i8 %30, 1
+  %28 = trunc i64 %26 to i8
+  %29 = lshr i64 %26, 1
+  store i64 %29, ptr %27, align 8, !alias.scope !69
+  %30 = add i64 %25, -1
+  store i64 %30, ptr %12, align 8, !alias.scope !69
+  %31 = and i8 %28, 1
   br label %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
 
 "_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i": ; preds = %24, %15

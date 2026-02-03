@@ -1625,12 +1625,11 @@ _ZN3gmx21OptionStorageTemplateINS_9SelectionEE12commitValuesEv.exit: ; preds = %
 define void @_ZN3gmx22SelectionOptionStorage10processAllEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !tbaa !29
-  %4 = and i64 %3, 1
-  %.not = icmp ne i64 %4, 0
+  %4 = trunc i64 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  %or.cond = select i1 %.not, i1 true, i1 %7
+  %or.cond = select i1 %4, i1 true, i1 %7
   br i1 %or.cond, label %12, label %8
 
 8:                                                ; preds = %1

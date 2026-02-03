@@ -564,39 +564,38 @@ process_zlib_error.exit:                          ; preds = %10, %9, %11
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @deflate_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
-  %6 = and i32 %2, 1
-  %7 = icmp ne i32 %6, 0
-  %8 = icmp ne i64 %4, 0
-  %or.cond = and i1 %7, %8
-  br i1 %or.cond, label %13, label %9
+  %6 = trunc i32 %2 to i1
+  %7 = icmp ne i64 %4, 0
+  %or.cond = and i1 %7, %6
+  br i1 %or.cond, label %12, label %8
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !98
-  %12 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %11, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
-  br label %24
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !98
+  %11 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %10, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
+  br label %23
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16424
-  store ptr %3, ptr %14, align 8, !tbaa !99
-  %15 = trunc i64 %4 to i32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16432
-  store i32 %15, ptr %16, align 8, !tbaa !100
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load i32, ptr %17, align 8, !tbaa !95
-  %19 = icmp eq i32 %18, 3
-  br i1 %19, label %20, label %22
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16424
+  store ptr %3, ptr %13, align 8, !tbaa !99
+  %14 = trunc i64 %4 to i32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16432
+  store i32 %14, ptr %15, align 8, !tbaa !100
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load i32, ptr %16, align 8, !tbaa !95
+  %18 = icmp eq i32 %17, 3
+  br i1 %18, label %19, label %21
 
-20:                                               ; preds = %13
-  %21 = tail call fastcc i32 @process_trailer(ptr noundef %0, ptr noundef nonnull %1)
-  br label %24
+19:                                               ; preds = %12
+  %20 = tail call fastcc i32 @process_trailer(ptr noundef %0, ptr noundef nonnull %1)
+  br label %23
 
-22:                                               ; preds = %13
-  %23 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 2)
-  br label %24
+21:                                               ; preds = %12
+  %22 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 2)
+  br label %23
 
-24:                                               ; preds = %22, %20, %9
-  %.0 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %12, %9 ]
+23:                                               ; preds = %21, %19, %8
+  %.0 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %11, %8 ]
   ret i32 %.0
 }
 
@@ -942,41 +941,40 @@ process_zlib_error.exit:                          ; preds = %14, %13, %15, %17
 ; Function Attrs: nounwind uwtable
 define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16424
-  %7 = and i32 %2, 1
-  %8 = icmp ne i32 %7, 0
-  %9 = icmp ne i64 %4, 0
-  %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %14, label %10
+  %7 = trunc i32 %2 to i1
+  %8 = icmp ne i64 %4, 0
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %13, label %9
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !98
-  %13 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %12, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !98
+  %12 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %11, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %exit_zlib.exit
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !95
-  switch i32 %16, label %21 [
-    i32 4, label %17
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = load i32, ptr %14, align 8, !tbaa !95
+  switch i32 %15, label %20 [
+    i32 4, label %16
     i32 0, label %exit_zlib.exit
   ]
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   store ptr %3, ptr %6, align 8, !tbaa !99
-  %18 = trunc i64 %4 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16432
-  store i32 %18, ptr %19, align 8, !tbaa !100
-  %20 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 4)
+  %17 = trunc i64 %4 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16432
+  store i32 %17, ptr %18, align 8, !tbaa !100
+  %19 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 4)
   br label %exit_zlib.exit
 
-21:                                               ; preds = %14
-  %22 = tail call i32 @inflateEnd(ptr noundef nonnull %6) #8
-  store i32 0, ptr %15, align 4, !tbaa !101
+20:                                               ; preds = %13
+  %21 = tail call i32 @inflateEnd(ptr noundef nonnull %6) #8
+  store i32 0, ptr %14, align 4, !tbaa !101
   br label %exit_zlib.exit
 
-exit_zlib.exit:                                   ; preds = %14, %21, %17, %10
-  %.0 = phi i32 [ %20, %17 ], [ %13, %10 ], [ 23, %14 ], [ 23, %21 ]
+exit_zlib.exit:                                   ; preds = %13, %20, %16, %9
+  %.0 = phi i32 [ %19, %16 ], [ %12, %9 ], [ 23, %13 ], [ 23, %20 ]
   ret i32 %.0
 }
 
@@ -1041,82 +1039,81 @@ define internal i32 @brotli_do_write(ptr noundef %0, ptr noundef %1, i32 noundef
   store ptr %3, ptr %7, align 8, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = and i32 %2, 1
-  %11 = icmp ne i32 %10, 0
-  %12 = icmp ne i64 %4, 0
-  %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %17, label %13
+  %10 = trunc i32 %2 to i1
+  %11 = icmp ne i64 %4, 0
+  %or.cond = and i1 %11, %10
+  br i1 %or.cond, label %16, label %12
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !98
-  %16 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %15, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !98
+  %15 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %14, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %.critedge
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16416
-  %19 = load ptr, ptr %18, align 8, !tbaa !106
-  %.not = icmp eq ptr %19, null
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16416
+  %18 = load ptr, ptr %17, align 8, !tbaa !106
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %22
+.preheader:                                       ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %21
 
-22:                                               ; preds = %.preheader, %brotli_map_error.exit
-  store ptr %20, ptr %8, align 8, !tbaa !110
+21:                                               ; preds = %.preheader, %brotli_map_error.exit
+  store ptr %19, ptr %8, align 8, !tbaa !110
   store i64 16384, ptr %9, align 8, !tbaa !109
-  %23 = load ptr, ptr %18, align 8, !tbaa !106
-  %24 = call i32 @BrotliDecoderDecompressStream(ptr noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef null) #8
-  %25 = load ptr, ptr %21, align 8, !tbaa !98
-  %26 = load i64, ptr %9, align 8, !tbaa !109
-  %27 = sub i64 16384, %26
-  %28 = call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %25, i32 noundef %2, ptr noundef nonnull %20, i64 noundef %27) #8
-  %.not31 = icmp eq i32 %28, 0
-  br i1 %.not31, label %29, label %.critedge
+  %22 = load ptr, ptr %17, align 8, !tbaa !106
+  %23 = call i32 @BrotliDecoderDecompressStream(ptr noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef null) #8
+  %24 = load ptr, ptr %20, align 8, !tbaa !98
+  %25 = load i64, ptr %9, align 8, !tbaa !109
+  %26 = sub i64 16384, %25
+  %27 = call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %24, i32 noundef %2, ptr noundef nonnull %19, i64 noundef %26) #8
+  %.not31 = icmp eq i32 %27, 0
+  br i1 %.not31, label %28, label %.critedge
 
-29:                                               ; preds = %22
-  switch i32 %24, label %33 [
+28:                                               ; preds = %21
+  switch i32 %23, label %32 [
     i32 3, label %brotli_map_error.exit
     i32 2, label %brotli_map_error.exit
-    i32 1, label %30
+    i32 1, label %29
   ]
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %18, align 8, !tbaa !106
-  call void @BrotliDecoderDestroyInstance(ptr noundef %31) #8
-  store ptr null, ptr %18, align 8, !tbaa !106
-  %32 = load i64, ptr %6, align 8, !tbaa !109
-  %.not32 = icmp eq i64 %32, 0
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %17, align 8, !tbaa !106
+  call void @BrotliDecoderDestroyInstance(ptr noundef %30) #8
+  store ptr null, ptr %17, align 8, !tbaa !106
+  %31 = load i64, ptr %6, align 8, !tbaa !109
+  %.not32 = icmp eq i64 %31, 0
   %spec.select = select i1 %.not32, i32 0, i32 23
   br label %brotli_map_error.exit
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %18, align 8, !tbaa !106
-  %35 = call i32 @BrotliDecoderGetErrorCode(ptr noundef %34) #8
-  %36 = icmp ugt i32 %35, -31
-  br i1 %36, label %switch.lookup, label %.critedge
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %17, align 8, !tbaa !106
+  %34 = call i32 @BrotliDecoderGetErrorCode(ptr noundef %33) #8
+  %35 = icmp ugt i32 %34, -31
+  br i1 %35, label %switch.lookup, label %.critedge
 
-brotli_map_error.exit:                            ; preds = %30, %29, %29
-  %.2 = phi i32 [ %spec.select, %30 ], [ 0, %29 ], [ 0, %29 ]
-  %37 = load i64, ptr %6, align 8, !tbaa !109
-  %38 = icmp ne i64 %37, 0
-  %39 = icmp eq i32 %24, 3
-  %or.cond3 = select i1 %38, i1 true, i1 %39
-  %40 = icmp eq i32 %.2, 0
-  %or.cond5 = select i1 %or.cond3, i1 %40, i1 false
-  br i1 %or.cond5, label %22, label %.critedge, !llvm.loop !111
+brotli_map_error.exit:                            ; preds = %29, %28, %28
+  %.2 = phi i32 [ %spec.select, %29 ], [ 0, %28 ], [ 0, %28 ]
+  %36 = load i64, ptr %6, align 8, !tbaa !109
+  %37 = icmp ne i64 %36, 0
+  %38 = icmp eq i32 %23, 3
+  %or.cond3 = select i1 %37, i1 true, i1 %38
+  %39 = icmp eq i32 %.2, 0
+  %or.cond5 = select i1 %or.cond3, i1 %39, i1 false
+  br i1 %or.cond5, label %21, label %.critedge, !llvm.loop !111
 
-switch.lookup:                                    ; preds = %33
-  %41 = sext i32 %35 to i64
-  %42 = getelementptr i32, ptr @switch.table.brotli_do_write, i64 %41
-  %switch.gep = getelementptr i8, ptr %42, i64 120
+switch.lookup:                                    ; preds = %32
+  %40 = sext i32 %34 to i64
+  %41 = getelementptr i32, ptr @switch.table.brotli_do_write, i64 %40
+  %switch.gep = getelementptr i8, ptr %41, i64 120
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %brotli_map_error.exit, %33, %switch.lookup, %17, %13
-  %.028 = phi i32 [ 23, %17 ], [ %16, %13 ], [ 23, %33 ], [ %switch.load, %switch.lookup ], [ %.2, %brotli_map_error.exit ], [ %28, %22 ]
+.critedge:                                        ; preds = %21, %brotli_map_error.exit, %32, %switch.lookup, %16, %12
+  %.028 = phi i32 [ 23, %16 ], [ %15, %12 ], [ 23, %32 ], [ %switch.load, %switch.lookup ], [ %.2, %brotli_map_error.exit ], [ %27, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1163,72 +1160,71 @@ define internal i32 @zstd_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   %7 = alloca %struct.ZSTD_outBuffer_s, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = and i32 %2, 1
-  %9 = icmp ne i32 %8, 0
-  %10 = icmp ne i64 %4, 0
-  %or.cond = and i1 %9, %10
-  br i1 %or.cond, label %15, label %11
+  %8 = trunc i32 %2 to i1
+  %9 = icmp ne i64 %4, 0
+  %or.cond = and i1 %9, %8
+  br i1 %or.cond, label %14, label %10
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !98
-  %14 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %13, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !98
+  %13 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %12, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
   br label %.loopexit
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %16, align 8, !tbaa !115
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %15, align 8, !tbaa !115
   store ptr %3, ptr %6, align 8, !tbaa !117
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %4, ptr %17, align 8, !tbaa !118
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 0, ptr %19, align 8, !tbaa !119
-  store ptr %20, ptr %7, align 8, !tbaa !121
-  store i64 16384, ptr %21, align 8, !tbaa !122
-  %23 = load ptr, ptr %22, align 8, !tbaa !112
-  %24 = call i64 @ZSTD_decompressStream(ptr noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %6) #8
-  %25 = call i32 @ZSTD_isError(i64 noundef %24) #8
-  %.not28 = icmp eq i32 %25, 0
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %4, ptr %16, align 8, !tbaa !118
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 0, ptr %18, align 8, !tbaa !119
+  store ptr %19, ptr %7, align 8, !tbaa !121
+  store i64 16384, ptr %20, align 8, !tbaa !122
+  %22 = load ptr, ptr %21, align 8, !tbaa !112
+  %23 = call i64 @ZSTD_decompressStream(ptr noundef %22, ptr noundef nonnull %7, ptr noundef nonnull %6) #8
+  %24 = call i32 @ZSTD_isError(i64 noundef %23) #8
+  %.not28 = icmp eq i32 %24, 0
   br i1 %.not28, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %15, %37
-  %26 = load i64, ptr %19, align 8, !tbaa !119
-  %.not26 = icmp eq i64 %26, 0
-  br i1 %.not26, label %30, label %27
+.lr.ph:                                           ; preds = %14, %36
+  %25 = load i64, ptr %18, align 8, !tbaa !119
+  %.not26 = icmp eq i64 %25, 0
+  br i1 %.not26, label %29, label %26
 
-27:                                               ; preds = %.lr.ph
-  %28 = load ptr, ptr %18, align 8, !tbaa !98
-  %29 = call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %28, i32 noundef %2, ptr noundef nonnull %20, i64 noundef %26) #8
-  %.not27 = icmp eq i32 %29, 0
-  br i1 %.not27, label %30, label %.loopexit
+26:                                               ; preds = %.lr.ph
+  %27 = load ptr, ptr %17, align 8, !tbaa !98
+  %28 = call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %27, i32 noundef %2, ptr noundef nonnull %19, i64 noundef %25) #8
+  %.not27 = icmp eq i32 %28, 0
+  br i1 %.not27, label %29, label %.loopexit
 
-30:                                               ; preds = %27, %.lr.ph
-  %31 = load i64, ptr %16, align 8, !tbaa !115
-  %32 = icmp eq i64 %31, %4
-  br i1 %32, label %33, label %37
+29:                                               ; preds = %26, %.lr.ph
+  %30 = load i64, ptr %15, align 8, !tbaa !115
+  %31 = icmp eq i64 %30, %4
+  br i1 %31, label %32, label %36
 
-33:                                               ; preds = %30
-  %34 = load i64, ptr %19, align 8, !tbaa !119
-  %35 = load i64, ptr %21, align 8, !tbaa !122
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %.loopexit, label %37
+32:                                               ; preds = %29
+  %33 = load i64, ptr %18, align 8, !tbaa !119
+  %34 = load i64, ptr %20, align 8, !tbaa !122
+  %35 = icmp ult i64 %33, %34
+  br i1 %35, label %.loopexit, label %36
 
-37:                                               ; preds = %33, %30
-  store i64 0, ptr %19, align 8, !tbaa !119
-  store ptr %20, ptr %7, align 8, !tbaa !121
-  store i64 16384, ptr %21, align 8, !tbaa !122
-  %38 = load ptr, ptr %22, align 8, !tbaa !112
-  %39 = call i64 @ZSTD_decompressStream(ptr noundef %38, ptr noundef nonnull %7, ptr noundef nonnull %6) #8
-  %40 = call i32 @ZSTD_isError(i64 noundef %39) #8
-  %.not = icmp eq i32 %40, 0
+36:                                               ; preds = %32, %29
+  store i64 0, ptr %18, align 8, !tbaa !119
+  store ptr %19, ptr %7, align 8, !tbaa !121
+  store i64 16384, ptr %20, align 8, !tbaa !122
+  %37 = load ptr, ptr %21, align 8, !tbaa !112
+  %38 = call i64 @ZSTD_decompressStream(ptr noundef %37, ptr noundef nonnull %7, ptr noundef nonnull %6) #8
+  %39 = call i32 @ZSTD_isError(i64 noundef %38) #8
+  %.not = icmp eq i32 %39, 0
   br i1 %.not, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %37, %33, %27, %15, %11
-  %.0 = phi i32 [ %14, %11 ], [ 61, %15 ], [ 61, %37 ], [ 0, %33 ], [ %29, %27 ]
+.loopexit:                                        ; preds = %36, %32, %26, %14, %10
+  %.0 = phi i32 [ %13, %10 ], [ 61, %14 ], [ 61, %36 ], [ 0, %32 ], [ %28, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -1266,27 +1262,26 @@ define internal noundef i32 @error_do_init(ptr readnone captures(none) %0, ptr r
 ; Function Attrs: nounwind uwtable
 define internal i32 @error_do_write(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca [256 x i8], align 16
-  %7 = and i32 %2, 1
-  %8 = icmp ne i32 %7, 0
-  %9 = icmp ne i64 %4, 0
-  %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %14, label %10
+  %7 = trunc i32 %2 to i1
+  %8 = icmp ne i64 %4, 0
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %13, label %9
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !98
-  %13 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %12, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
-  br label %15
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !98
+  %12 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %11, i32 noundef %2, ptr noundef %3, i64 noundef %4) #8
+  br label %14
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Curl_all_content_encodings(ptr noundef nonnull %6, i64 noundef 256)
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %10
-  %.0 = phi i32 [ 61, %14 ], [ %13, %10 ]
+14:                                               ; preds = %13, %9
+  %.0 = phi i32 [ 61, %13 ], [ %12, %9 ]
   ret i32 %.0
 }
 

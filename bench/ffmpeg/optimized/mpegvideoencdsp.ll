@@ -703,52 +703,51 @@ draw_edges_lr.exit:                               ; preds = %20, %12, %28, %.pre
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %1, %40
   %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  %43 = and i32 %6, 1
-  %.not = icmp ne i32 %43, 0
-  %44 = icmp sgt i32 %5, 0
-  %or.cond = and i1 %.not, %44
+  %.not = trunc i32 %6 to i1
+  %43 = icmp sgt i32 %5, 0
+  %or.cond = and i1 %43, %.not
   br i1 %or.cond, label %.lr.ph65, label %.loopexit50
 
 .lr.ph65:                                         ; preds = %draw_edges_lr.exit
   %reass.add42 = shl i32 %4, 1
-  %45 = add i32 %reass.add42, %2
-  %46 = sext i32 %45 to i64
+  %44 = add i32 %reass.add42, %2
+  %45 = sext i32 %44 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %47
+  br label %46
 
-47:                                               ; preds = %.lr.ph65, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %47 ]
+46:                                               ; preds = %.lr.ph65, %46
+  %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %46 ]
   %indvars.iv.next.neg = xor i64 %indvars.iv, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.neg = mul i64 %1, %indvars.iv.next.neg
-  %48 = getelementptr inbounds i8, ptr %38, i64 %.neg
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %38, i64 %46, i1 false)
+  %47 = getelementptr inbounds i8, ptr %38, i64 %.neg
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %38, i64 %45, i1 false)
   %exitcond74.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond74.not, label %.loopexit50, label %47, !llvm.loop !35
+  br i1 %exitcond74.not, label %.loopexit50, label %46, !llvm.loop !35
 
-.loopexit50:                                      ; preds = %47, %draw_edges_lr.exit
-  %49 = and i32 %6, 2
-  %.not41 = icmp ne i32 %49, 0
-  %or.cond68 = and i1 %.not41, %44
+.loopexit50:                                      ; preds = %46, %draw_edges_lr.exit
+  %48 = and i32 %6, 2
+  %.not41 = icmp ne i32 %48, 0
+  %or.cond68 = and i1 %.not41, %43
   br i1 %or.cond68, label %.lr.ph67, label %.loopexit
 
 .lr.ph67:                                         ; preds = %.loopexit50
   %reass.add = shl i32 %4, 1
-  %50 = add i32 %reass.add, %2
-  %51 = sext i32 %50 to i64
+  %49 = add i32 %reass.add, %2
+  %50 = sext i32 %49 to i64
   %wide.trip.count78 = zext nneg i32 %5 to i64
-  br label %52
+  br label %51
 
-52:                                               ; preds = %.lr.ph67, %52
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next76, %52 ]
+51:                                               ; preds = %.lr.ph67, %51
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next76, %51 ]
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %53 = mul nsw i64 %1, %indvars.iv.next76
-  %54 = getelementptr inbounds i8, ptr %42, i64 %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %42, i64 %51, i1 false)
+  %52 = mul nsw i64 %1, %indvars.iv.next76
+  %53 = getelementptr inbounds i8, ptr %42, i64 %52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %42, i64 %50, i1 false)
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %.loopexit, label %52, !llvm.loop !36
+  br i1 %exitcond79.not, label %.loopexit, label %51, !llvm.loop !36
 
-.loopexit:                                        ; preds = %52, %.loopexit50
+.loopexit:                                        ; preds = %51, %.loopexit50
   ret void
 }
 

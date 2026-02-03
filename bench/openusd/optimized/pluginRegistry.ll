@@ -3030,9 +3030,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTo
   %11 = and i64 %8, -8
   %12 = inttoptr i64 %11 to ptr
   %13 = atomicrmw add ptr %12, i32 2 monotonic, align 4
-  %14 = and i32 %13, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %15, label %16
+  %14 = trunc i32 %13 to i1
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %10
   store ptr %12, ptr %7, align 8

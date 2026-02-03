@@ -7505,7 +7505,7 @@ define hidden void @zim_CachingIterator_setFlags(ptr noundef readonly captures(n
   %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #11
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %55, label %8
+  br i1 %7, label %54, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7517,7 +7517,7 @@ define hidden void @zim_CachingIterator_setFlags(ptr noundef readonly captures(n
 
 13:                                               ; preds = %8
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #11
-  br label %55
+  br label %54
 
 .critedge:                                        ; preds = %8
   %14 = load i64, ptr %3, align 8, !tbaa !9
@@ -7536,61 +7536,60 @@ define hidden void @zim_CachingIterator_setFlags(ptr noundef readonly captures(n
 
 26:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.17) #11
-  br label %55
+  br label %54
 
 27:                                               ; preds = %.critedge
   %28 = getelementptr inbounds i8, ptr %10, i64 -48
   %29 = load i64, ptr %28, align 8, !tbaa !11
-  %30 = and i64 %29, 1
-  %.not12 = icmp ne i64 %30, 0
-  %31 = icmp eq i64 %15, 0
-  %or.cond = and i1 %31, %.not12
-  br i1 %or.cond, label %32, label %35
+  %.not12 = trunc i64 %29 to i1
+  %30 = icmp eq i64 %15, 0
+  %or.cond = and i1 %30, %.not12
+  br i1 %or.cond, label %31, label %34
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8, !tbaa !4
-  %34 = call ptr @zend_throw_exception(ptr noundef %33, ptr noundef nonnull @.str.18, i64 noundef 0) #11
-  br label %55
+31:                                               ; preds = %27
+  %32 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8, !tbaa !4
+  %33 = call ptr @zend_throw_exception(ptr noundef %32, ptr noundef nonnull @.str.18, i64 noundef 0) #11
+  br label %54
 
-35:                                               ; preds = %27
-  %36 = and i64 %29, 8
-  %.not13 = icmp ne i64 %36, 0
-  %37 = and i64 %14, 8
-  %38 = icmp eq i64 %37, 0
-  %or.cond16 = and i1 %38, %.not13
-  br i1 %or.cond16, label %39, label %42
+34:                                               ; preds = %27
+  %35 = and i64 %29, 8
+  %.not13 = icmp ne i64 %35, 0
+  %36 = and i64 %14, 8
+  %37 = icmp eq i64 %36, 0
+  %or.cond16 = and i1 %37, %.not13
+  br i1 %or.cond16, label %38, label %41
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8, !tbaa !4
-  %41 = call ptr @zend_throw_exception(ptr noundef %40, ptr noundef nonnull @.str.19, i64 noundef 0) #11
-  br label %55
+38:                                               ; preds = %34
+  %39 = load ptr, ptr @spl_ce_InvalidArgumentException, align 8, !tbaa !4
+  %40 = call ptr @zend_throw_exception(ptr noundef %39, ptr noundef nonnull @.str.19, i64 noundef 0) #11
+  br label %54
 
-42:                                               ; preds = %35
-  %43 = and i64 %14, 256
-  %.not14 = icmp ne i64 %43, 0
-  %44 = and i64 %29, 256
-  %45 = icmp eq i64 %44, 0
-  %or.cond18 = and i1 %.not14, %45
-  br i1 %or.cond18, label %46, label %49
+41:                                               ; preds = %34
+  %42 = and i64 %14, 256
+  %.not14 = icmp ne i64 %42, 0
+  %43 = and i64 %29, 256
+  %44 = icmp eq i64 %43, 0
+  %or.cond18 = and i1 %.not14, %44
+  br i1 %or.cond18, label %45, label %48
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %10, i64 -16
-  %48 = load ptr, ptr %47, align 8, !tbaa !11
-  call void @zend_hash_clean(ptr noundef %48) #11
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %10, i64 -16
+  %47 = load ptr, ptr %46, align 8, !tbaa !11
+  call void @zend_hash_clean(ptr noundef %47) #11
   %.pre = load i64, ptr %28, align 8, !tbaa !11
   %.pre19 = load i64, ptr %3, align 8, !tbaa !9
-  br label %49
+  br label %48
 
-49:                                               ; preds = %46, %42
-  %50 = phi i64 [ %.pre19, %46 ], [ %14, %42 ]
-  %51 = phi i64 [ %.pre, %46 ], [ %29, %42 ]
-  %52 = and i64 %51, -65536
-  %53 = and i64 %50, 65535
-  %54 = or disjoint i64 %53, %52
-  store i64 %54, ptr %28, align 8, !tbaa !11
-  br label %55
+48:                                               ; preds = %45, %41
+  %49 = phi i64 [ %.pre19, %45 ], [ %14, %41 ]
+  %50 = phi i64 [ %.pre, %45 ], [ %29, %41 ]
+  %51 = and i64 %50, -65536
+  %52 = and i64 %49, 65535
+  %53 = or disjoint i64 %52, %51
+  store i64 %53, ptr %28, align 8, !tbaa !11
+  br label %54
 
-55:                                               ; preds = %2, %13, %49, %39, %32, %26
+54:                                               ; preds = %2, %13, %48, %38, %31, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

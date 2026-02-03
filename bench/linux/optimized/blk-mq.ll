@@ -4791,13 +4791,13 @@ define dso_local zeroext i8 @blk_execute_rq(ptr noundef initializes((232, 248)) 
   call void @blk_mq_run_hw_queue(ptr noundef %6, i1 noundef zeroext false)
   %23 = load ptr, ptr %5, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %86, label %25
+  br i1 %24, label %85, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 252
   %27 = load i16, ptr %26, align 4
   %28 = icmp eq i16 %27, 2
-  br i1 %28, label %29, label %86
+  br i1 %28, label %29, label %85
 
 29:                                               ; preds = %25
   %30 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !22
@@ -4814,104 +4814,103 @@ define dso_local zeroext i8 @blk_execute_rq(ptr noundef initializes((232, 248)) 
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = and i32 %.fr7, 257
   %40 = icmp eq i32 %39, 0
-  %41 = and i32 %.fr7, 1
-  %42 = icmp ne i32 %41, 0
+  %41 = trunc i32 %.fr7 to i1
   br i1 %40, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %34, %52
-  %43 = load ptr, ptr %38, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8
-  %46 = call i32 %45(ptr noundef %36, ptr noundef null) #22
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.split6.us, label %.critedge.us
+.split.us:                                        ; preds = %34, %51
+  %42 = load ptr, ptr %38, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 %44(ptr noundef %36, ptr noundef null) #22
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.split6.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.split.us
-  %48 = load volatile i32, ptr %32, align 8
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %.loopexit, label %50
+  %47 = load volatile i32, ptr %32, align 8
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.loopexit, label %49
 
-50:                                               ; preds = %.critedge.us
-  %51 = icmp eq i32 %46, 0
-  br i1 %51, label %52, label %.split6.us
+49:                                               ; preds = %.critedge.us
+  %50 = icmp eq i32 %45, 0
+  br i1 %50, label %51, label %.split6.us
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !121
-  %53 = load volatile i64, ptr %31, align 8
-  %54 = and i64 %53, 8
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.split.us, label %.split6.us, !llvm.loop !122
+  %52 = load volatile i64, ptr %31, align 8
+  %53 = and i64 %52, 8
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %.split.us, label %.split6.us, !llvm.loop !122
 
-.split:                                           ; preds = %34, %80
-  %56 = load ptr, ptr %38, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
-  %58 = load ptr, ptr %57, align 8
-  %59 = call i32 %58(ptr noundef %36, ptr noundef null) #22
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.split6.us, label %61
+.split:                                           ; preds = %34, %79
+  %55 = load ptr, ptr %38, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %57 = load ptr, ptr %56, align 8
+  %58 = call i32 %57(ptr noundef %36, ptr noundef null) #22
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.split6.us, label %60
 
-61:                                               ; preds = %.split
-  %62 = load volatile i64, ptr %31, align 8
-  %63 = and i64 %62, 131072
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %70, !prof !23
+60:                                               ; preds = %.split
+  %61 = load volatile i64, ptr %31, align 8
+  %62 = and i64 %61, 131072
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %69, !prof !23
 
-65:                                               ; preds = %61
-  %66 = load volatile i64, ptr %31, align 8
-  %67 = and i64 %66, 4
-  %68 = icmp eq i64 %67, 0
-  %69 = or i1 %68, %42
-  br i1 %69, label %75, label %71
+64:                                               ; preds = %60
+  %65 = load volatile i64, ptr %31, align 8
+  %66 = and i64 %65, 4
+  %67 = icmp eq i64 %66, 0
+  %68 = or i1 %67, %41
+  br i1 %68, label %74, label %70
 
-70:                                               ; preds = %61
-  br i1 %42, label %.critedge3, label %71
+69:                                               ; preds = %60
+  br i1 %41, label %.critedge3, label %70
 
-71:                                               ; preds = %70, %65
-  %72 = load i64, ptr %33, align 8
-  %73 = and i64 %72, 256
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %.critedge, label %.critedge3
+70:                                               ; preds = %69, %64
+  %71 = load i64, ptr %33, align 8
+  %72 = and i64 %71, 256
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %.critedge, label %.critedge3
 
-75:                                               ; preds = %65
-  br i1 %68, label %.critedge, label %.critedge3
+74:                                               ; preds = %64
+  br i1 %67, label %.critedge, label %.critedge3
 
-.critedge3:                                       ; preds = %71, %70, %75
+.critedge3:                                       ; preds = %70, %69, %74
   store volatile i32 0, ptr %32, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %71, %.critedge3, %75
-  %76 = load volatile i32, ptr %32, align 8
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.loopexit, label %78
+.critedge:                                        ; preds = %70, %.critedge3, %74
+  %75 = load volatile i32, ptr %32, align 8
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %.loopexit, label %77
 
-78:                                               ; preds = %.critedge
-  %79 = icmp eq i32 %59, 0
-  br i1 %79, label %80, label %.split6.us
+77:                                               ; preds = %.critedge
+  %78 = icmp eq i32 %58, 0
+  br i1 %78, label %79, label %.split6.us
 
-80:                                               ; preds = %78
+79:                                               ; preds = %77
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !121
-  %81 = load volatile i64, ptr %31, align 8
-  %82 = and i64 %81, 8
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %.split, label %.split6.us, !llvm.loop !122
+  %80 = load volatile i64, ptr %31, align 8
+  %81 = and i64 %80, 8
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %.split, label %.split6.us, !llvm.loop !122
 
-.split6.us:                                       ; preds = %.split, %78, %80, %.split.us, %50, %52
+.split6.us:                                       ; preds = %.split, %77, %79, %.split.us, %49, %51
   store volatile i32 0, ptr %32, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.us, %.split6.us
-  %84 = call i32 @__SCT__cond_resched() #22
-  %85 = call zeroext i1 @completion_done(ptr noundef nonnull %4) #22
-  br i1 %85, label %.loopexit4, label %34, !llvm.loop !123
+  %83 = call i32 @__SCT__cond_resched() #22
+  %84 = call zeroext i1 @completion_done(ptr noundef nonnull %4) #22
+  br i1 %84, label %.loopexit4, label %34, !llvm.loop !123
 
-86:                                               ; preds = %25, %19
+85:                                               ; preds = %25, %19
   call void @wait_for_completion_io(ptr noundef nonnull %4) #22
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %.loopexit, %86
-  %87 = load i8, ptr %8, align 8
+.loopexit4:                                       ; preds = %.loopexit, %85
+  %86 = load i8, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i8 %87
+  ret i8 %86
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -12262,9 +12261,8 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
   br i1 %30, label %.split.us, label %.split4.us, !llvm.loop !122
 
 .split:                                           ; preds = %4
-  %31 = and i32 %.fr8, 1
-  %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %.split.split, label %.split.split.us
+  %31 = trunc i32 %.fr8 to i1
+  br i1 %31, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %50
   %32 = load ptr, ptr %12, align 8
@@ -12354,13 +12352,13 @@ define dso_local range(i32 0, -2147483648) i32 @blk_mq_poll(ptr noundef %0, i32 
   %79 = icmp eq i64 %78, 0
   br i1 %79, label %.split.split, label %.split4.us, !llvm.loop !122
 
-.split4.us:                                       ; preds = %50, %47, %.split.split.us, %76, %73, %.split.split, %.split.us, %24, %27
-  %.us-phi = phi i32 [ %57, %.split.split ], [ 0, %24 ], [ %20, %.split.us ], [ 0, %27 ], [ 0, %76 ], [ 0, %73 ], [ %35, %.split.split.us ], [ 0, %50 ], [ 0, %47 ]
+.split4.us:                                       ; preds = %76, %73, %.split.split, %50, %47, %.split.split.us, %.split.us, %24, %27
+  %.us-phi = phi i32 [ 0, %24 ], [ 0, %47 ], [ %20, %.split.us ], [ 0, %27 ], [ %35, %.split.split.us ], [ 0, %50 ], [ %57, %.split.split ], [ 0, %76 ], [ 0, %73 ]
   store volatile i32 0, ptr %10, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge.us5, %.critedge, %.critedge.us, %.split4.us
-  %80 = phi i32 [ %.us-phi, %.split4.us ], [ 1, %.critedge.us ], [ 1, %.critedge ], [ 1, %.critedge.us5 ]
+.loopexit:                                        ; preds = %.critedge, %.critedge.us5, %.critedge.us, %.split4.us
+  %80 = phi i32 [ %.us-phi, %.split4.us ], [ 1, %.critedge.us5 ], [ 1, %.critedge.us ], [ 1, %.critedge ]
   ret i32 %80
 }
 
@@ -12458,9 +12456,8 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   br i1 %56, label %.split.us, label %.split8.us, !llvm.loop !122
 
 .split:                                           ; preds = %.loopexit38
-  %57 = and i32 %.fr12, 1
-  %.not = icmp eq i32 %57, 0
-  br i1 %.not, label %.split.split, label %.split.split.us
+  %57 = trunc i32 %.fr12 to i1
+  br i1 %57, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %76
   %58 = load ptr, ptr %38, align 8
@@ -12550,13 +12547,13 @@ define dso_local range(i32 0, -2147483648) i32 @blk_rq_poll(ptr noundef readonly
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %.split.split, label %.split8.us, !llvm.loop !122
 
-.split8.us:                                       ; preds = %76, %73, %.split.split.us, %102, %99, %.split.split, %.split.us, %50, %53
-  %.us-phi = phi i32 [ %83, %.split.split ], [ 0, %50 ], [ %46, %.split.us ], [ 0, %53 ], [ 0, %102 ], [ 0, %99 ], [ %61, %.split.split.us ], [ 0, %76 ], [ 0, %73 ]
+.split8.us:                                       ; preds = %102, %99, %.split.split, %76, %73, %.split.split.us, %.split.us, %50, %53
+  %.us-phi = phi i32 [ 0, %50 ], [ 0, %73 ], [ %46, %.split.us ], [ 0, %53 ], [ %61, %.split.split.us ], [ 0, %76 ], [ %83, %.split.split ], [ 0, %102 ], [ 0, %99 ]
   store volatile i32 0, ptr %36, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge.us9, %.critedge, %.critedge.us, %.split8.us
-  %106 = phi i32 [ %.us-phi, %.split8.us ], [ 1, %.critedge.us ], [ 1, %.critedge ], [ 1, %.critedge.us9 ]
+.loopexit:                                        ; preds = %.critedge, %.critedge.us9, %.critedge.us, %.split8.us
+  %106 = phi i32 [ %.us-phi, %.split8.us ], [ 1, %.critedge.us9 ], [ 1, %.critedge.us ], [ 1, %.critedge ]
   tail call void @blk_queue_exit(ptr noundef %4) #22
   br label %107
 

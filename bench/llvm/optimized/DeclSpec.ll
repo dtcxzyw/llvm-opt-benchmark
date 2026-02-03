@@ -1452,19 +1452,18 @@ define dso_local noundef zeroext i1 @_ZNK5clang8DeclSpec16hasTagDefinitionEv(ptr
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, 4194304
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %11, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 74
   %8 = load i8, ptr %7, align 2
-  %9 = and i8 %8, 1
-  %10 = icmp ne i8 %9, 0
-  br label %11
+  %9 = trunc i8 %8 to i1
+  br label %10
 
-11:                                               ; preds = %1, %4
-  %.0 = phi i1 [ %10, %4 ], [ false, %1 ]
+10:                                               ; preds = %1, %4
+  %.0 = phi i1 [ %9, %4 ], [ false, %1 ]
   ret i1 %.0
 }
 

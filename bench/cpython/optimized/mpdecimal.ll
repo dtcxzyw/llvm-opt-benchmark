@@ -2943,18 +2943,18 @@ define hidden i64 @mpd_qget_ssize(ptr noundef readonly captures(address) %0, ptr
 
 10:                                               ; preds = %2
   %11 = load i8, ptr %0, align 8, !tbaa !19
-  %12 = and i8 %11, 1
-  %13 = icmp sgt i64 %4, -1
-  br i1 %13, label %14, label %17
+  %12 = icmp sgt i64 %4, -1
+  br i1 %12, label %13, label %17
 
-14:                                               ; preds = %10
-  %.not12 = icmp eq i8 %12, 0
+13:                                               ; preds = %10
+  %14 = and i8 %11, 1
+  %.not12 = icmp eq i8 %14, 0
   %15 = sub nsw i64 0, %4
   %16 = select i1 %.not12, i64 %4, i64 %15
   br label %22
 
 17:                                               ; preds = %10
-  %.not11 = icmp ne i8 %12, 0
+  %.not11 = trunc i8 %11 to i1
   %18 = icmp eq i64 %4, -9223372036854775808
   %or.cond = select i1 %.not11, i1 %18, i1 false
   br i1 %or.cond, label %22, label %19
@@ -2965,8 +2965,8 @@ define hidden i64 @mpd_qget_ssize(ptr noundef readonly captures(address) %0, ptr
   store i32 %21, ptr %1, align 4, !tbaa !23
   br label %22
 
-22:                                               ; preds = %17, %19, %14, %7
-  %.0 = phi i64 [ 9223372036854775807, %7 ], [ %16, %14 ], [ 9223372036854775807, %19 ], [ -9223372036854775808, %17 ]
+22:                                               ; preds = %17, %19, %13, %7
+  %.0 = phi i64 [ 9223372036854775807, %7 ], [ %16, %13 ], [ 9223372036854775807, %19 ], [ -9223372036854775808, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -2996,18 +2996,18 @@ define hidden i64 @mpd_qget_i64(ptr noundef readonly captures(address) %0, ptr n
 
 10:                                               ; preds = %2
   %11 = load i8, ptr %0, align 8, !tbaa !19
-  %12 = and i8 %11, 1
-  %13 = icmp sgt i64 %4, -1
-  br i1 %13, label %14, label %17
+  %12 = icmp sgt i64 %4, -1
+  br i1 %12, label %13, label %17
 
-14:                                               ; preds = %10
-  %.not12.i = icmp eq i8 %12, 0
+13:                                               ; preds = %10
+  %14 = and i8 %11, 1
+  %.not12.i = icmp eq i8 %14, 0
   %15 = sub nsw i64 0, %4
   %16 = select i1 %.not12.i, i64 %4, i64 %15
   br label %mpd_qget_ssize.exit
 
 17:                                               ; preds = %10
-  %.not11.i = icmp ne i8 %12, 0
+  %.not11.i = trunc i8 %11 to i1
   %18 = icmp eq i64 %4, -9223372036854775808
   %or.cond.i = select i1 %.not11.i, i1 %18, i1 false
   br i1 %or.cond.i, label %mpd_qget_ssize.exit, label %19
@@ -3018,8 +3018,8 @@ define hidden i64 @mpd_qget_i64(ptr noundef readonly captures(address) %0, ptr n
   store i32 %21, ptr %1, align 4, !tbaa !23
   br label %mpd_qget_ssize.exit
 
-mpd_qget_ssize.exit:                              ; preds = %7, %14, %17, %19
-  %.0.i = phi i64 [ 9223372036854775807, %7 ], [ %16, %14 ], [ 9223372036854775807, %19 ], [ -9223372036854775808, %17 ]
+mpd_qget_ssize.exit:                              ; preds = %7, %13, %17, %19
+  %.0.i = phi i64 [ 9223372036854775807, %7 ], [ %16, %13 ], [ 9223372036854775807, %19 ], [ -9223372036854775808, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0.i
 }
@@ -3074,43 +3074,44 @@ define hidden i32 @mpd_qget_i32(ptr noundef readonly captures(address) %0, ptr n
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 8, !tbaa !19
-  %9 = and i8 %8, 1
-  %10 = icmp sgt i64 %4, -1
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %10, label %15, label %11
+  %9 = icmp sgt i64 %4, -1
+  br i1 %9, label %14, label %10
 
-11:                                               ; preds = %7
-  %.not11.i = icmp ne i8 %9, 0
-  %12 = icmp eq i64 %4, -9223372036854775808
-  %or.cond.i = select i1 %.not11.i, i1 %12, i1 false
+10:                                               ; preds = %7
+  %.not11.i = trunc i8 %8 to i1
+  %11 = icmp eq i64 %4, -9223372036854775808
+  %or.cond.i = select i1 %.not11.i, i1 %11, i1 false
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i, label %.thread, label %mpd_qget_ssize.exit.thread15
 
 mpd_qget_ssize.exit:                              ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mpd_qget_ssize.exit.thread15
 
-mpd_qget_ssize.exit.thread15:                     ; preds = %11, %mpd_qget_ssize.exit
-  %.01019 = phi i32 [ %5, %mpd_qget_ssize.exit ], [ 256, %11 ]
-  %13 = load i32, ptr %1, align 4, !tbaa !23
-  %14 = or i32 %13, %.01019
-  store i32 %14, ptr %1, align 4, !tbaa !23
+mpd_qget_ssize.exit.thread15:                     ; preds = %10, %mpd_qget_ssize.exit
+  %.01019 = phi i32 [ %5, %mpd_qget_ssize.exit ], [ 256, %10 ]
+  %12 = load i32, ptr %1, align 4, !tbaa !23
+  %13 = or i32 %12, %.01019
+  store i32 %13, ptr %1, align 4, !tbaa !23
   br label %23
 
-15:                                               ; preds = %7
-  %.not12.i = icmp eq i8 %9, 0
+14:                                               ; preds = %7
+  %15 = and i8 %8, 1
+  %.not12.i = icmp eq i8 %15, 0
   %16 = sub nsw i64 0, %4
   %17 = select i1 %.not12.i, i64 %4, i64 %16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = add i64 %17, -2147483648
   %or.cond = icmp ult i64 %18, -4294967296
   br i1 %or.cond, label %.thread, label %21
 
-.thread:                                          ; preds = %11, %15
+.thread:                                          ; preds = %10, %14
   %19 = load i32, ptr %1, align 4, !tbaa !23
   %20 = or i32 %19, 256
   store i32 %20, ptr %1, align 4, !tbaa !23
   br label %23
 
-21:                                               ; preds = %15
+21:                                               ; preds = %14
   %22 = trunc nsw i64 %17 to i32
   br label %23
 
@@ -7644,24 +7645,24 @@ mpd_seterror.exit:                                ; preds = %37, %40, %52
 
 63:                                               ; preds = %59
   %64 = load i8, ptr %2, align 8, !tbaa !19
-  %65 = and i8 %64, 1
-  %66 = icmp sgt i64 %60, -1
-  br i1 %66, label %67, label %70
+  %65 = icmp sgt i64 %60, -1
+  br i1 %65, label %66, label %70
 
-67:                                               ; preds = %63
-  %.not12.i = icmp eq i8 %65, 0
+66:                                               ; preds = %63
+  %67 = and i8 %64, 1
+  %.not12.i = icmp eq i8 %67, 0
   %68 = sub nsw i64 0, %60
   %69 = select i1 %.not12.i, i64 %60, i64 %68
   br label %mpd_qget_ssize.exit.thread
 
 70:                                               ; preds = %63
-  %.not11.i = icmp ne i8 %65, 0
+  %.not11.i = trunc i8 %64 to i1
   %71 = icmp eq i64 %60, -9223372036854775808
   %or.cond.i = select i1 %.not11.i, i1 %71, i1 false
   br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %mpd_qget_ssize.exit.thread87
 
-mpd_qget_ssize.exit.thread:                       ; preds = %67, %70
-  %.0.i.ph = phi i64 [ %69, %67 ], [ -9223372036854775808, %70 ]
+mpd_qget_ssize.exit.thread:                       ; preds = %66, %70
+  %.0.i.ph = phi i64 [ %69, %66 ], [ -9223372036854775808, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %72 = load i64, ptr %3, align 8, !tbaa !15
   %73 = icmp sgt i64 %.0.i.ph, %72
@@ -8354,24 +8355,24 @@ mpd_seterror.exit:                                ; preds = %22, %25, %37
 
 48:                                               ; preds = %44
   %49 = load i8, ptr %2, align 8, !tbaa !19
-  %50 = and i8 %49, 1
-  %51 = icmp sgt i64 %45, -1
-  br i1 %51, label %52, label %55
+  %50 = icmp sgt i64 %45, -1
+  br i1 %50, label %51, label %55
 
-52:                                               ; preds = %48
-  %.not12.i = icmp eq i8 %50, 0
+51:                                               ; preds = %48
+  %52 = and i8 %49, 1
+  %.not12.i = icmp eq i8 %52, 0
   %53 = sub nsw i64 0, %45
   %54 = select i1 %.not12.i, i64 %45, i64 %53
   br label %mpd_qget_ssize.exit.thread
 
 55:                                               ; preds = %48
-  %.not11.i = icmp ne i8 %50, 0
+  %.not11.i = trunc i8 %49 to i1
   %56 = icmp eq i64 %45, -9223372036854775808
   %or.cond.i = select i1 %.not11.i, i1 %56, i1 false
   br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %mpd_qget_ssize.exit.thread56
 
-mpd_qget_ssize.exit.thread:                       ; preds = %52, %55
-  %.0.i.ph = phi i64 [ %54, %52 ], [ -9223372036854775808, %55 ]
+mpd_qget_ssize.exit.thread:                       ; preds = %51, %55
+  %.0.i.ph = phi i64 [ %54, %51 ], [ -9223372036854775808, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = load i64, ptr %3, align 8, !tbaa !15
   %58 = icmp sgt i64 %.0.i.ph, %57
@@ -21468,18 +21469,18 @@ _mpd_isint.exit.thread:                           ; preds = %_mpd_cmp_abs.exit.t
 
 95:                                               ; preds = %88
   %96 = load i8, ptr %0, align 8, !tbaa !19
-  %97 = and i8 %96, 1
-  %98 = icmp sgt i64 %89, -1
-  br i1 %98, label %99, label %102
+  %97 = icmp sgt i64 %89, -1
+  br i1 %97, label %98, label %102
 
-99:                                               ; preds = %95
-  %.not12.i = icmp eq i8 %97, 0
+98:                                               ; preds = %95
+  %99 = and i8 %96, 1
+  %.not12.i = icmp eq i8 %99, 0
   %100 = sub nsw i64 0, %89
   %101 = select i1 %.not12.i, i64 %89, i64 %100
   br label %mpd_qget_ssize.exit
 
 102:                                              ; preds = %95
-  %.not11.i = icmp ne i8 %97, 0
+  %.not11.i = trunc i8 %96 to i1
   %103 = icmp eq i64 %89, -9223372036854775808
   %or.cond.i = select i1 %.not11.i, i1 %103, i1 false
   br i1 %or.cond.i, label %mpd_qget_ssize.exit.thread, label %104
@@ -21494,8 +21495,8 @@ mpd_qget_ssize.exit.thread:                       ; preds = %102
   store i32 %106, ptr %8, align 4, !tbaa !23
   br label %mpd_qget_ssize.exit
 
-mpd_qget_ssize.exit:                              ; preds = %92, %99, %104
-  %.0.i37 = phi i64 [ 9223372036854775807, %92 ], [ %101, %99 ], [ 9223372036854775807, %104 ]
+mpd_qget_ssize.exit:                              ; preds = %92, %98, %104
+  %.0.i37 = phi i64 [ 9223372036854775807, %92 ], [ %101, %98 ], [ 9223372036854775807, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %107 = load i64, ptr %4, align 8, !tbaa !15
   %108 = add i64 %107, -1
@@ -32456,39 +32457,38 @@ mpd_qresize.exit.thread.i:                        ; preds = %mpd_qresize.exit.mp
   %77 = getelementptr i8, ptr %76, i64 -8
   %78 = load i64, ptr %77, align 8, !tbaa !3
   %.not = icmp eq i64 %78, 0
-  br i1 %.not, label %79, label %83
+  br i1 %.not, label %79, label %82
 
 79:                                               ; preds = %73
   %80 = load i32, ptr %7, align 4, !tbaa !23
-  %81 = and i32 %80, 1
-  %.not28 = icmp ne i32 %81, 0
-  %82 = lshr i64 %67, 1
-  %.not24 = icmp eq i64 %82, 0
+  %.not28 = trunc i32 %80 to i1
+  %81 = lshr i64 %67, 1
+  %.not24 = icmp eq i64 %81, 0
   %or.cond = select i1 %.not28, i1 true, i1 %.not24
   br i1 %or.cond, label %._crit_edge.loopexit, label %.backedge.backedge
 
-83:                                               ; preds = %73
+82:                                               ; preds = %73
   %.old = lshr i64 %67, 1
   %.not24.old = icmp eq i64 %.old, 0
   br i1 %.not24.old, label %._crit_edge.loopexit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %83, %79
-  %.be = phi i64 [ %.old, %83 ], [ %82, %79 ]
+.backedge.backedge:                               ; preds = %82, %79
+  %.be = phi i64 [ %.old, %82 ], [ %81, %79 ]
   br label %.backedge, !llvm.loop !96
 
-._crit_edge.loopexit:                             ; preds = %70, %79, %83
+._crit_edge.loopexit:                             ; preds = %70, %79, %82
   %.pre = load i32, ptr %7, align 4, !tbaa !23
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %84 = phi i8 [ %71, %._crit_edge.loopexit ], [ %.pre35, %.._crit_edge_crit_edge ]
-  %85 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %.._crit_edge_crit_edge ]
-  %86 = load i32, ptr %5, align 4, !tbaa !23
-  %87 = or i32 %86, %85
-  store i32 %87, ptr %5, align 4, !tbaa !23
-  %88 = and i8 %84, -2
-  %89 = or disjoint i8 %88, %3
-  store i8 %89, ptr %0, align 8, !tbaa !19
+  %83 = phi i8 [ %71, %._crit_edge.loopexit ], [ %.pre35, %.._crit_edge_crit_edge ]
+  %84 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %.._crit_edge_crit_edge ]
+  %85 = load i32, ptr %5, align 4, !tbaa !23
+  %86 = or i32 %85, %84
+  store i32 %86, ptr %5, align 4, !tbaa !23
+  %87 = and i8 %83, -2
+  %88 = or disjoint i8 %87, %3
+  store i8 %88, ptr %0, align 8, !tbaa !19
   br label %mpd_qcopy.exit
 
 mpd_qcopy.exit:                                   ; preds = %mpd_qresize.exit.i, %._crit_edge, %9

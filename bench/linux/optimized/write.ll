@@ -3279,166 +3279,165 @@ define internal fastcc i32 @__nfs_commit_inode(ptr noundef %0, i32 noundef %1, p
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %5, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %8 = and i32 %1, 1
-  %9 = and i32 %1, -2
+  %8 = and i32 %1, -2
   store ptr %0, ptr %6, align 8
-  %10 = getelementptr i8, ptr %0, i64 -184
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store ptr @nfs_commit_completion_ops, ptr %13, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #16, !srcloc !77
-  %14 = getelementptr i8, ptr %0, i64 -176
-  %15 = getelementptr i8, ptr %0, i64 -152
-  %16 = getelementptr i8, ptr %0, i64 -168
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %18 = load volatile i64, ptr %14, align 8
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.thread, label %.lr.ph
+  %9 = getelementptr i8, ptr %0, i64 -184
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  store ptr @nfs_commit_completion_ops, ptr %12, align 8
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, ptr elementtype(i32) %9) #16, !srcloc !77
+  %13 = getelementptr i8, ptr %0, i64 -176
+  %14 = getelementptr i8, ptr %0, i64 -152
+  %15 = getelementptr i8, ptr %0, i64 -168
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %17 = load volatile i64, ptr %13, align 8
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %20 = icmp eq ptr %2, null
-  br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
+  %19 = icmp eq ptr %2, null
+  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %31
-  call void @mutex_lock(ptr noundef %15) #16
-  %21 = load volatile i64, ptr %14, align 8
-  %22 = icmp sgt i64 %21, 0
-  br i1 %22, label %23, label %.thread4
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %30
+  call void @mutex_lock(ptr noundef %14) #16
+  %20 = load volatile i64, ptr %13, align 8
+  %21 = icmp sgt i64 %20, 0
+  br i1 %21, label %22, label %.thread4
 
-23:                                               ; preds = %.lr.ph.split.us
-  %24 = call i32 @nfs_scan_commit_list(ptr noundef %16, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2147483647)
-  call void @mutex_unlock(ptr noundef %15) #16
-  %25 = icmp slt i32 %24, 1
-  br i1 %25, label %.thread, label %26
+22:                                               ; preds = %.lr.ph.split.us
+  %23 = call i32 @nfs_scan_commit_list(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2147483647)
+  call void @mutex_unlock(ptr noundef %14) #16
+  %24 = icmp slt i32 %23, 1
+  br i1 %24, label %.thread, label %25
 
-26:                                               ; preds = %23
-  %27 = call i32 @nfs_generic_commit_list(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %9, ptr noundef nonnull %6)
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.thread, label %29
+25:                                               ; preds = %22
+  %26 = call i32 @nfs_generic_commit_list(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %8, ptr noundef nonnull %6)
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %.thread, label %28
 
-29:                                               ; preds = %26
-  %30 = icmp eq i32 %24, 2147483647
-  br i1 %30, label %31, label %.thread
+28:                                               ; preds = %25
+  %29 = icmp eq i32 %23, 2147483647
+  br i1 %29, label %30, label %.thread
 
-31:                                               ; preds = %29
-  %32 = call i32 @__SCT__cond_resched() #16
-  %33 = load volatile i64, ptr %14, align 8
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %.thread, label %.lr.ph.split.us, !llvm.loop !79
+30:                                               ; preds = %28
+  %31 = call i32 @__SCT__cond_resched() #16
+  %32 = load volatile i64, ptr %13, align 8
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %.thread, label %.lr.ph.split.us, !llvm.loop !79
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %54
-  call void @mutex_lock(ptr noundef %15) #16
-  %35 = load volatile i64, ptr %14, align 8
-  %36 = icmp sgt i64 %35, 0
-  br i1 %36, label %37, label %.thread4
+.lr.ph.split:                                     ; preds = %.lr.ph, %53
+  call void @mutex_lock(ptr noundef %14) #16
+  %34 = load volatile i64, ptr %13, align 8
+  %35 = icmp sgt i64 %34, 0
+  br i1 %35, label %36, label %.thread4
 
 .thread4:                                         ; preds = %.lr.ph.split, %.lr.ph.split.us
-  call void @mutex_unlock(ptr noundef %15) #16
+  call void @mutex_unlock(ptr noundef %14) #16
   br label %.thread
 
-37:                                               ; preds = %.lr.ph.split
-  %38 = call i32 @nfs_scan_commit_list(ptr noundef %16, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2147483647)
-  call void @mutex_unlock(ptr noundef %15) #16
-  %39 = icmp slt i32 %38, 1
-  br i1 %39, label %.thread, label %40
+36:                                               ; preds = %.lr.ph.split
+  %37 = call i32 @nfs_scan_commit_list(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2147483647)
+  call void @mutex_unlock(ptr noundef %14) #16
+  %38 = icmp slt i32 %37, 1
+  br i1 %38, label %.thread, label %39
 
-40:                                               ; preds = %37
-  %41 = call i32 @nfs_generic_commit_list(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %9, ptr noundef nonnull %6)
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %.thread, label %43
+39:                                               ; preds = %36
+  %40 = call i32 @nfs_generic_commit_list(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %8, ptr noundef nonnull %6)
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %.thread, label %42
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %17, align 8
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %52
+42:                                               ; preds = %39
+  %43 = load i32, ptr %16, align 8
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %51
 
-46:                                               ; preds = %43
-  %47 = zext nneg i32 %38 to i64
-  %48 = load i64, ptr %2, align 8
-  %49 = icmp sgt i64 %48, %47
-  %50 = sub nsw i64 %48, %47
-  %51 = select i1 %49, i64 %50, i64 0
-  store i64 %51, ptr %2, align 8
-  br label %52
+45:                                               ; preds = %42
+  %46 = zext nneg i32 %37 to i64
+  %47 = load i64, ptr %2, align 8
+  %48 = icmp sgt i64 %47, %46
+  %49 = sub nsw i64 %47, %46
+  %50 = select i1 %48, i64 %49, i64 0
+  store i64 %50, ptr %2, align 8
+  br label %51
 
-52:                                               ; preds = %46, %43
-  %53 = icmp eq i32 %38, 2147483647
-  br i1 %53, label %54, label %.thread
+51:                                               ; preds = %45, %42
+  %52 = icmp eq i32 %37, 2147483647
+  br i1 %52, label %53, label %.thread
 
-54:                                               ; preds = %52
-  %55 = call i32 @__SCT__cond_resched() #16
-  %56 = load volatile i64, ptr %14, align 8
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.thread, label %.lr.ph.split, !llvm.loop !79
+53:                                               ; preds = %51
+  %54 = call i32 @__SCT__cond_resched() #16
+  %55 = load volatile i64, ptr %13, align 8
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %.thread, label %.lr.ph.split, !llvm.loop !79
 
-.thread:                                          ; preds = %37, %40, %52, %54, %23, %26, %29, %31, %3, %.thread4
-  %58 = phi i32 [ 0, %.thread4 ], [ %24, %23 ], [ 0, %3 ], [ %27, %26 ], [ 0, %29 ], [ 0, %31 ], [ 0, %52 ], [ %41, %40 ], [ %38, %37 ], [ 0, %54 ]
-  %59 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #16, !srcloc !71
-  %60 = icmp ult i8 %59, 2
-  call void @llvm.assume(i1 %60)
-  %61 = icmp eq i8 %59, 0
-  br i1 %61, label %63, label %62
+.thread:                                          ; preds = %36, %39, %51, %53, %22, %25, %28, %30, %3, %.thread4
+  %57 = phi i32 [ 0, %.thread4 ], [ %23, %22 ], [ 0, %3 ], [ %26, %25 ], [ 0, %28 ], [ 0, %30 ], [ 0, %51 ], [ %40, %39 ], [ %37, %36 ], [ 0, %53 ]
+  %58 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, ptr elementtype(i32) %9) #16, !srcloc !71
+  %59 = icmp ult i8 %58, 2
+  call void @llvm.assume(i1 %59)
+  %60 = icmp eq i8 %58, 0
+  br i1 %60, label %62, label %61
 
-62:                                               ; preds = %.thread
-  call void @wake_up_var(ptr noundef %10) #16
-  br label %63
+61:                                               ; preds = %.thread
+  call void @wake_up_var(ptr noundef %9) #16
+  br label %62
 
-63:                                               ; preds = %62, %.thread
-  %64 = icmp eq i32 %58, 0
-  %65 = icmp ne i32 %8, 0
-  %66 = and i1 %65, %64
-  br i1 %66, label %67, label %85
+62:                                               ; preds = %61, %.thread
+  %63 = icmp eq i32 %57, 0
+  %64 = trunc i32 %1 to i1
+  %65 = and i1 %63, %64
+  br i1 %65, label %66, label %84
 
-67:                                               ; preds = %63
-  %68 = call i32 @__SCT__might_resched() #16
-  %69 = load volatile i32, ptr %10, align 4
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %85, label %71
+66:                                               ; preds = %62
+  %67 = call i32 @__SCT__might_resched() #16
+  %68 = load volatile i32, ptr %9, align 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %84, label %70
 
-71:                                               ; preds = %67
-  %72 = call ptr @__var_waitqueue(ptr noundef %10) #16
+70:                                               ; preds = %66
+  %71 = call ptr @__var_waitqueue(ptr noundef %9) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !19
-  call void @init_wait_var_entry(ptr noundef nonnull %4, ptr noundef %10, i32 noundef 0) #16
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %74 = call i64 @prepare_to_wait_event(ptr noundef %72, ptr noundef nonnull %73, i32 noundef 258) #16
-  %75 = load volatile i32, ptr %10, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %._crit_edge, label %.lr.ph17
+  call void @init_wait_var_entry(ptr noundef nonnull %4, ptr noundef %9, i32 noundef 0) #16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %73 = call i64 @prepare_to_wait_event(ptr noundef %71, ptr noundef nonnull %72, i32 noundef 258) #16
+  %74 = load volatile i32, ptr %9, align 4
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %._crit_edge, label %.lr.ph17
 
-.lr.ph17:                                         ; preds = %71, %79
-  %77 = phi i64 [ %80, %79 ], [ %74, %71 ]
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %.thread6.loopexit
+.lr.ph17:                                         ; preds = %70, %78
+  %76 = phi i64 [ %79, %78 ], [ %73, %70 ]
+  %77 = icmp eq i64 %76, 0
+  br i1 %77, label %78, label %.thread6.loopexit
 
-79:                                               ; preds = %.lr.ph17
+78:                                               ; preds = %.lr.ph17
   call void @schedule() #16
-  %80 = call i64 @prepare_to_wait_event(ptr noundef %72, ptr noundef nonnull %73, i32 noundef 258) #16
-  %81 = load volatile i32, ptr %10, align 4
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %._crit_edge, label %.lr.ph17
+  %79 = call i64 @prepare_to_wait_event(ptr noundef %71, ptr noundef nonnull %72, i32 noundef 258) #16
+  %80 = load volatile i32, ptr %9, align 4
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %._crit_edge, label %.lr.ph17
 
-._crit_edge:                                      ; preds = %79, %71
-  call void @finish_wait(ptr noundef %72, ptr noundef nonnull %73) #16
+._crit_edge:                                      ; preds = %78, %70
+  call void @finish_wait(ptr noundef %71, ptr noundef nonnull %72) #16
   br label %.thread6
 
 .thread6.loopexit:                                ; preds = %.lr.ph17
-  %83 = trunc i64 %77 to i32
+  %82 = trunc i64 %76 to i32
   br label %.thread6
 
 .thread6:                                         ; preds = %.thread6.loopexit, %._crit_edge
-  %84 = phi i32 [ 0, %._crit_edge ], [ %83, %.thread6.loopexit ]
+  %83 = phi i32 [ 0, %._crit_edge ], [ %82, %.thread6.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %.thread6, %67, %63
-  %86 = phi i32 [ %58, %63 ], [ %84, %.thread6 ], [ 0, %67 ]
+84:                                               ; preds = %.thread6, %66, %62
+  %85 = phi i32 [ %57, %62 ], [ %83, %.thread6 ], [ 0, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %86
+  ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

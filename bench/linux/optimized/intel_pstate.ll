@@ -2323,7 +2323,7 @@ define internal void @intel_pstate_update_limits(i32 noundef %0) #0 align 16 {
 
 14:                                               ; preds = %8
   store i8 %11, ptr getelementptr inbounds nuw (i8, ptr @global, i64 2), align 2
-  %15 = icmp ne i8 %11, 0
+  %15 = trunc i64 %9 to i1
   tail call void @arch_set_max_freq_ratio(i1 noundef zeroext %15) #26
   br label %16
 

@@ -130,9 +130,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetLut3DRendererERSt10shared_ptrIK
 
 15:                                               ; preds = %.noexc.i.i.i.i.i
   %16 = load i32, ptr %14, align 4, !tbaa !55, !noalias !52
-  %17 = and i32 %16, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %21, label %18
+  %17 = trunc i32 %16 to i1
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -152,8 +151,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetLut3DRendererERSt10shared_ptrIK
 23:                                               ; preds = %21
   %24 = load i32, ptr %22, align 4, !tbaa !55, !noalias !52
   %25 = and i32 %24, 256
-  %.not3.i.i.i.i.i.i.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not3.i.i.i.i.i.i.i.i.i, label %33, label %26
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %25, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %33, label %26
 
 26:                                               ; preds = %23
   %27 = invoke noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
@@ -162,8 +161,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetLut3DRendererERSt10shared_ptrIK
 28:                                               ; preds = %26
   %29 = load i32, ptr %27, align 4, !tbaa !55, !noalias !52
   %30 = and i32 %29, 512
-  %.not4.i.i.i.i.i.i.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not4.i.i.i.i.i.i.i.i.i, label %31, label %33
+  %.not3.i.i.i.i.i.i.i.i.i = icmp eq i32 %30, 0
+  br i1 %.not3.i.i.i.i.i.i.i.i.i, label %31, label %33
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -177,8 +176,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetLut3DRendererERSt10shared_ptrIK
 35:                                               ; preds = %33
   %36 = load i32, ptr %34, align 4, !tbaa !55, !noalias !52
   %37 = and i32 %36, 1024
-  %.not5.i.i.i.i.i.i.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not5.i.i.i.i.i.i.i.i.i, label %45, label %38
+  %.not4.i.i.i.i.i.i.i.i.i = icmp eq i32 %37, 0
+  br i1 %.not4.i.i.i.i.i.i.i.i.i, label %45, label %38
 
 38:                                               ; preds = %35
   %39 = invoke noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv()
@@ -187,8 +186,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetLut3DRendererERSt10shared_ptrIK
 40:                                               ; preds = %38
   %41 = load i32, ptr %39, align 4, !tbaa !55, !noalias !52
   %42 = and i32 %41, 2048
-  %.not6.i.i.i.i.i.i.i.i.i = icmp eq i32 %42, 0
-  br i1 %.not6.i.i.i.i.i.i.i.i.i, label %43, label %45
+  %.not5.i.i.i.i.i.i.i.i.i = icmp eq i32 %42, 0
+  br i1 %.not5.i.i.i.i.i.i.i.i.i, label %43, label %45
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -202,8 +201,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev16GetLut3DRendererERSt10shared_ptrIK
 47:                                               ; preds = %45
   %48 = load i32, ptr %46, align 4, !tbaa !55, !noalias !52
   %49 = and i32 %48, 4096
-  %.not7.i.i.i.i.i.i.i.i.i = icmp eq i32 %49, 0
-  br i1 %.not7.i.i.i.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123GetForwardLut3DRendererERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit, label %50
+  %.not6.i.i.i.i.i.i.i.i.i = icmp eq i32 %49, 0
+  br i1 %.not6.i.i.i.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123GetForwardLut3DRendererERSt10shared_ptrIKNS_11Lut3DOpDataEE.exit, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 48

@@ -1161,8 +1161,8 @@ define hidden void @_ZN17ArchiveHeapLoader18verify_loaded_heapEv() local_unnamed
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_ZN7oopDesc4sizeEv.exit
-  %.032 = phi ptr [ %21, %.lr.ph ], [ %107, %_ZN7oopDesc4sizeEv.exit ]
-  %27 = ptrtoint ptr %.032 to i64
+  %.030 = phi ptr [ %21, %.lr.ph ], [ %107, %_ZN7oopDesc4sizeEv.exit ]
+  %27 = ptrtoint ptr %.030 to i64
   %28 = trunc i64 %27 to i32
   %29 = lshr i32 %28, 3
   %30 = xor i32 %29, %28
@@ -1219,7 +1219,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EmbEmbLN6AnyObj1
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EmbEmbLN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE3putERKmRKb.exit: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EmbEmbLN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EmbEmbLN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE11lookup_nodeEjRKm.exit.thread.i
   %52 = load i8, ptr @UseCompressedClassPointers, align 1
   %53 = trunc i8 %52 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %.032, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   br i1 %53, label %55, label %65
 
 55:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EmbEmbLN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE3putERKmRKb.exit
@@ -1246,9 +1246,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %65, %55
   br i1 %69, label %70, label %80
 
 70:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %71 = and i32 %68, 1
-  %.not.i.i16 = icmp eq i32 %71, 0
-  br i1 %.not.i.i16, label %72, label %75
+  %71 = trunc i32 %68 to i1
+  br i1 %71, label %75, label %72
 
 72:                                               ; preds = %70
   %73 = lshr i32 %68, 3
@@ -1259,7 +1258,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %65, %55
   %76 = load ptr, ptr %.0.i.i, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 256
   %78 = load ptr, ptr %77, align 8
-  %79 = call noundef i64 %78(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.032) #12
+  %79 = call noundef i64 %78(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.030) #12
   br label %_ZN7oopDesc4sizeEv.exit
 
 80:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
@@ -1268,7 +1267,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %65, %55
 
 82:                                               ; preds = %80
   %83 = select i1 %53, i64 12, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %.032, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %.030, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = sext i32 %85 to i64
   %87 = and i32 %68, 63
@@ -1292,23 +1291,23 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %65, %55
   %103 = load ptr, ptr %.0.i.i, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 256
   %105 = load ptr, ptr %104, align 8
-  %106 = call noundef i64 %105(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.032) #12
+  %106 = call noundef i64 %105(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.030) #12
   br label %_ZN7oopDesc4sizeEv.exit
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %72, %75, %82, %102
   %.0.i1.i = phi i64 [ %79, %75 ], [ %74, %72 ], [ %101, %82 ], [ %106, %102 ]
-  %107 = getelementptr inbounds ptr, ptr %.032, i64 %.0.i1.i
+  %107 = getelementptr inbounds ptr, ptr %.030, i64 %.0.i1.i
   %108 = icmp ult ptr %107, %23
-  br i1 %108, label %26, label %.lr.ph34, !llvm.loop !13
+  br i1 %108, label %26, label %.lr.ph32, !llvm.loop !13
 
-.lr.ph34:                                         ; preds = %_ZN7oopDesc4sizeEv.exit, %_ZN7oopDesc4sizeEv.exit23
-  %.01433 = phi ptr [ %183, %_ZN7oopDesc4sizeEv.exit23 ], [ %21, %_ZN7oopDesc4sizeEv.exit ]
+.lr.ph32:                                         ; preds = %_ZN7oopDesc4sizeEv.exit, %_ZN7oopDesc4sizeEv.exit21
+  %.01431 = phi ptr [ %183, %_ZN7oopDesc4sizeEv.exit21 ], [ %21, %_ZN7oopDesc4sizeEv.exit ]
   %109 = load i8, ptr @UseCompressedClassPointers, align 1
   %110 = trunc i8 %109 to i1
-  %111 = getelementptr inbounds nuw i8, ptr %.01433, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.01431, i64 8
   br i1 %110, label %112, label %122
 
-112:                                              ; preds = %.lr.ph34
+112:                                              ; preds = %.lr.ph32
   %113 = load i32, ptr %111, align 8
   %114 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %115 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
@@ -1320,18 +1319,18 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %72, %75, %82, %102
   %121 = inttoptr i64 %120 to ptr
   br label %_ZN7oopDesc11oop_iterateI32VerifyLoadedHeapEmbeddedPointersEEvPT_.exit
 
-122:                                              ; preds = %.lr.ph34
+122:                                              ; preds = %.lr.ph32
   %123 = load ptr, ptr %111, align 8
   br label %_ZN7oopDesc11oop_iterateI32VerifyLoadedHeapEmbeddedPointersEEvPT_.exit
 
 _ZN7oopDesc11oop_iterateI32VerifyLoadedHeapEmbeddedPointersEEvPT_.exit: ; preds = %112, %122
-  %.0.i.i18 = phi ptr [ %121, %112 ], [ %123, %122 ]
-  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i18, i64 12
+  %.0.i.i17 = phi ptr [ %121, %112 ], [ %123, %122 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 12
   %125 = load i32, ptr %124, align 4
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds ptr, ptr @_ZN21OopOopIterateDispatchI32VerifyLoadedHeapEmbeddedPointersE6_tableE, i64 %126
   %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %.01433, ptr noundef %.0.i.i18) #12
+  call void %128(ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(16) %.01431, ptr noundef %.0.i.i17) #12
   %129 = load i8, ptr @UseCompressedClassPointers, align 1
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %141
@@ -1346,43 +1345,42 @@ _ZN7oopDesc11oop_iterateI32VerifyLoadedHeapEmbeddedPointersEEvPT_.exit: ; preds 
   %138 = shl i64 %136, %137
   %139 = add i64 %138, %135
   %140 = inttoptr i64 %139 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit.i19
+  br label %_ZNK7oopDesc5klassEv.exit.i18
 
 141:                                              ; preds = %_ZN7oopDesc11oop_iterateI32VerifyLoadedHeapEmbeddedPointersEEvPT_.exit
   %142 = load ptr, ptr %111, align 8
-  br label %_ZNK7oopDesc5klassEv.exit.i19
+  br label %_ZNK7oopDesc5klassEv.exit.i18
 
-_ZNK7oopDesc5klassEv.exit.i19:                    ; preds = %141, %131
-  %.0.i.i20 = phi ptr [ %140, %131 ], [ %142, %141 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 8
+_ZNK7oopDesc5klassEv.exit.i18:                    ; preds = %141, %131
+  %.0.i.i19 = phi ptr [ %140, %131 ], [ %142, %141 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i19, i64 8
   %144 = load i32, ptr %143, align 8
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %146, label %156
 
-146:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i19
-  %147 = and i32 %144, 1
-  %.not.i.i22 = icmp eq i32 %147, 0
-  br i1 %.not.i.i22, label %148, label %151
+146:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i18
+  %147 = trunc i32 %144 to i1
+  br i1 %147, label %151, label %148
 
 148:                                              ; preds = %146
   %149 = lshr i32 %144, 3
   %150 = zext nneg i32 %149 to i64
-  br label %_ZN7oopDesc4sizeEv.exit23
+  br label %_ZN7oopDesc4sizeEv.exit21
 
 151:                                              ; preds = %146
-  %152 = load ptr, ptr %.0.i.i20, align 8
+  %152 = load ptr, ptr %.0.i.i19, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 256
   %154 = load ptr, ptr %153, align 8
-  %155 = call noundef i64 %154(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %.01433) #12
-  br label %_ZN7oopDesc4sizeEv.exit23
+  %155 = call noundef i64 %154(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %.01431) #12
+  br label %_ZN7oopDesc4sizeEv.exit21
 
-156:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i19
+156:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i18
   %157 = icmp slt i32 %144, 0
   br i1 %157, label %158, label %178
 
 158:                                              ; preds = %156
   %159 = select i1 %130, i64 12, i64 16
-  %160 = getelementptr inbounds nuw i8, ptr %.01433, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr %.01431, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %163 = and i32 %144, 63
@@ -1400,22 +1398,22 @@ _ZNK7oopDesc5klassEv.exit.i19:                    ; preds = %141, %131
   %175 = sext i32 %174 to i64
   %176 = and i64 %173, %175
   %177 = lshr i64 %176, 3
-  br label %_ZN7oopDesc4sizeEv.exit23
+  br label %_ZN7oopDesc4sizeEv.exit21
 
 178:                                              ; preds = %156
-  %179 = load ptr, ptr %.0.i.i20, align 8
+  %179 = load ptr, ptr %.0.i.i19, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 256
   %181 = load ptr, ptr %180, align 8
-  %182 = call noundef i64 %181(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i20, ptr noundef nonnull align 8 dereferenceable(16) %.01433) #12
-  br label %_ZN7oopDesc4sizeEv.exit23
+  %182 = call noundef i64 %181(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %.01431) #12
+  br label %_ZN7oopDesc4sizeEv.exit21
 
-_ZN7oopDesc4sizeEv.exit23:                        ; preds = %148, %151, %158, %178
-  %.0.i1.i21 = phi i64 [ %155, %151 ], [ %150, %148 ], [ %177, %158 ], [ %182, %178 ]
-  %183 = getelementptr inbounds ptr, ptr %.01433, i64 %.0.i1.i21
+_ZN7oopDesc4sizeEv.exit21:                        ; preds = %148, %151, %158, %178
+  %.0.i1.i20 = phi i64 [ %155, %151 ], [ %150, %148 ], [ %177, %158 ], [ %182, %178 ]
+  %183 = getelementptr inbounds ptr, ptr %.01431, i64 %.0.i1.i20
   %184 = icmp ult ptr %183, %23
-  br i1 %184, label %.lr.ph34, label %._crit_edge, !llvm.loop !14
+  br i1 %184, label %.lr.ph32, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %_ZN7oopDesc4sizeEv.exit23, %5
+._crit_edge:                                      ; preds = %_ZN7oopDesc4sizeEv.exit21, %5
   %185 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %185, null
   br i1 %.not.i.i.i.i, label %187, label %186
@@ -2961,9 +2959,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -2997,8 +2994,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -4692,9 +4689,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   br i1 %70, label %71, label %81
 
 71:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %72 = and i32 %69, 1
-  %.not.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i.i, label %73, label %76
+  %72 = trunc i32 %69 to i1
+  br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
   %74 = lshr i32 %69, 3
@@ -5114,9 +5110,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   br i1 %84, label %85, label %95
 
 85:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %86 = and i32 %83, 1
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %87, label %90
+  %86 = trunc i32 %83 to i1
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %85
   %88 = lshr i32 %83, 3

@@ -2505,19 +2505,19 @@ prompt_help_cmd.exit:                             ; preds = %158, %_.exit.sink.s
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %171 = load i32, ptr %22, align 8, !tbaa !80
-  %172 = and i32 %171, 1
-  %173 = icmp ne i32 %172, 0
-  %174 = load i64, ptr %25, align 8
-  %175 = icmp ne i64 %174, 0
-  %or.cond = select i1 %173, i1 true, i1 %175
-  br i1 %or.cond, label %176, label %.loopexit108
+  %172 = trunc i32 %171 to i1
+  %173 = load i64, ptr %25, align 8
+  %174 = icmp ne i64 %173, 0
+  %or.cond = select i1 %172, i1 true, i1 %174
+  br i1 %or.cond, label %175, label %.loopexit108
 
-176:                                              ; preds = %.tail.thread
-  %.not.i75 = icmp eq i32 %172, 0
+175:                                              ; preds = %.tail.thread
+  %176 = and i32 %171, 1
+  %.not.i75 = icmp eq i32 %176, 0
   br i1 %.not.i75, label %.preheader17.i, label %.loopexit
 
-.preheader17.i:                                   ; preds = %176, %180
-  %.062.i = phi ptr [ %182, %180 ], [ %153, %176 ]
+.preheader17.i:                                   ; preds = %175, %180
+  %.062.i = phi ptr [ %182, %180 ], [ %153, %175 ]
   %177 = load i8, ptr %.062.i, align 1, !tbaa !90
   %178 = icmp eq i8 %177, 44
   br i1 %178, label %179, label %180
@@ -2532,9 +2532,9 @@ prompt_help_cmd.exit:                             ; preds = %158, %_.exit.sink.s
   %.not70.i = icmp eq i8 %181, 0
   br i1 %.not70.i, label %.loopexit, label %.preheader17.i, !llvm.loop !115
 
-.loopexit:                                        ; preds = %180, %176
-  %.sink.i = phi i32 [ 10, %176 ], [ 32, %180 ]
-  %183 = call ptr @strbuf_split_buf(ptr noundef nonnull %153, i64 noundef %174, i32 noundef %.sink.i, i32 noundef 0) #16
+.loopexit:                                        ; preds = %180, %175
+  %.sink.i = phi i32 [ 10, %175 ], [ 32, %180 ]
+  %183 = call ptr @strbuf_split_buf(ptr noundef nonnull %153, i64 noundef %173, i32 noundef %.sink.i, i32 noundef 0) #16
   %184 = load ptr, ptr %183, align 8, !tbaa !101
   %.not7123.i = icmp eq ptr %184, null
   br i1 %.not7123.i, label %._crit_edge.i80, label %.lr.ph25.i

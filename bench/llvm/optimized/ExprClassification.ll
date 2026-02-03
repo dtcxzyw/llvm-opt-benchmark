@@ -162,9 +162,8 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !370
   %77 = or i64 %76, %.sroa.0.0.copyload.i43.i
-  %78 = and i64 %77, 1
-  %.not26.i = icmp eq i64 %78, 0
-  br i1 %.not26.i, label %79, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
+  %78 = trunc i64 %77 to i1
+  br i1 %78, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %79
 
 79:                                               ; preds = %71
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -173,20 +172,20 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %.not35.i = icmp eq i64 %82, 0
   %83 = and i64 %76, 8
   %.not.i.i.i = icmp eq i64 %83, 0
-  %or.cond28.i = or i1 %.not.i.i.i, %.not35.i
+  %or.cond27.i = or i1 %.not.i.i.i, %.not35.i
   %.pre.i = and i64 %76, -16
-  %.pre29.i = inttoptr i64 %.pre.i to ptr
-  br i1 %or.cond28.i, label %.critedge2.i, label %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i
+  %.pre28.i = inttoptr i64 %.pre.i to ptr
+  br i1 %or.cond27.i, label %.critedge2.i, label %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i
 
 _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %.pre29.i, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.pre28.i, i64 24
   %.sroa.0.0.copyload.i.i.i.i15 = load i64, ptr %84, align 8, !tbaa !378
   %85 = and i64 %.sroa.0.0.copyload.i.i.i.i15, 2199023255040
   %86 = icmp eq i64 %85, 1536
   br i1 %86, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i, %79
-  %87 = load ptr, ptr %.pre29.i, align 16, !tbaa !367
+  %87 = load ptr, ptr %.pre28.i, align 16, !tbaa !367
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i16 = load i64, ptr %88, align 8, !tbaa !370
   %89 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i16, -16
@@ -217,7 +216,7 @@ _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %79
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i, label %102
 
 102:                                              ; preds = %101
-  %103 = load ptr, ptr %.pre29.i, align 16, !tbaa !367
+  %103 = load ptr, ptr %.pre28.i, align 16, !tbaa !367
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i8, ptr %104, align 16
   %106 = icmp eq i8 %105, 47
@@ -1113,44 +1112,43 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang18ArraySubscriptExpr7getBaseEv
   %18 = and i32 %17, 511
   %19 = add nsw i32 %18, -435
   %spec.select.i.i = icmp ult i32 %19, 20
-  br i1 %spec.select.i.i, label %36, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
+  br i1 %spec.select.i.i, label %35, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
 
 20:                                               ; preds = %1
   %21 = icmp ne i8 %13, 46
   %.not13.not.i.i = or i1 %.not.not21.i.i, %21
-  br i1 %.not13.not.i.i, label %30, label %22
+  br i1 %.not13.not.i.i, label %29, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %11) #8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 74
   %25 = load i8, ptr %24, align 2
-  %26 = and i8 %25, 1
-  %27 = icmp ne i8 %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %28, align 8
+  %26 = trunc i8 %25 to i1
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %27, align 8
   %.not.i.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
-  %29 = select i1 %27, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %29, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
+  %28 = select i1 %26, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %28, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
 
-30:                                               ; preds = %20
-  %31 = icmp eq i8 %13, 10
-  br i1 %31, label %36, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
+29:                                               ; preds = %20
+  %30 = icmp eq i8 %13, 10
+  br i1 %30, label %35, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
 
 _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit:  ; preds = %22
-  %32 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %11) #8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %34 = load i40, ptr %33, align 8
-  %35 = icmp sgt i40 %34, -1
-  br i1 %35, label %36, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
+  %31 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %11) #8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %33 = load i40, ptr %32, align 8
+  %34 = icmp sgt i40 %33, -1
+  br i1 %34, label %35, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
 
-36:                                               ; preds = %15, %30, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+35:                                               ; preds = %15, %29, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread
 
-_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread: ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit, %30, %15, %22, %36
-  %.in = phi ptr [ %37, %36 ], [ %2, %22 ], [ %2, %15 ], [ %2, %30 ], [ %2, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit ]
-  %38 = load ptr, ptr %.in, align 8, !tbaa !379
-  ret ptr %38
+_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread: ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit, %29, %15, %22, %35
+  %.in = phi ptr [ %36, %35 ], [ %2, %22 ], [ %2, %15 ], [ %2, %29 ], [ %2, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit ]
+  %37 = load ptr, ptr %.in, align 8, !tbaa !379
+  ret ptr %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

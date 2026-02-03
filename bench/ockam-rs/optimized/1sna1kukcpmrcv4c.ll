@@ -3822,11 +3822,11 @@ define hidden void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$11coordinates17h080
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load i8, ptr %41, align 8, !range !149, !alias.scope !1027, !noalias !1030, !noundef !17
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1024
-  %43 = and i8 %42, 1
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %19, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %43, ptr %45, align 1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %19, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %45 = and i8 %42, 1
+  store i8 %45, ptr %44, align 1
   br label %46
 
 46:                                               ; preds = %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit17", %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit", %"_ZN4sec15point24EncodedPoint$LT$Size$GT$3tag17h5ec1c78a266e1740E.exit18", %35

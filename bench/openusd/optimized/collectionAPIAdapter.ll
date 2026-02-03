@@ -569,9 +569,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdCollectionsSchemaTok
   %34 = and i64 %31, -8
   %35 = inttoptr i64 %34 to ptr
   %36 = atomicrmw add ptr %35, i32 2 monotonic, align 4, !noalias !4
-  %37 = and i32 %36, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not1.i.i.i.i.i.i, label %38, label %44
+  %37 = trunc i32 %36 to i1
+  br i1 %37, label %44, label %38
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %30, align 8, !noalias !4
@@ -1432,9 +1431,8 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131_Coll
   %7 = and i64 %4, -8
   %8 = inttoptr i64 %7 to ptr
   %9 = atomicrmw add ptr %8, i32 2 monotonic, align 4, !noalias !12
-  %10 = and i32 %9, 1
-  %.not1.i.i.i = icmp eq i32 %10, 0
-  %spec.select = select i1 %.not1.i.i.i, i64 %7, i64 %4
+  %10 = trunc i32 %9 to i1
+  %spec.select = select i1 %10, i64 %4, i64 %7
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPI7GetNameEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPI7GetNameEv.exit: ; preds = %6, %2
@@ -1457,9 +1455,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPI7GetNameEv.exit: ; preds
   %16 = and i64 %.sroa.0.0, -8
   %17 = inttoptr i64 %16 to ptr
   %18 = atomicrmw add ptr %17, i32 2 monotonic, align 4
-  %19 = and i32 %18, 1
-  %.not1.i.i.i.i.i.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i, label %20, label %26
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %26, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %11, align 8
@@ -1522,9 +1519,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPI7GetNameEv.exit: ; preds
   %12 = and i64 %6, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4, !noalias !15
-  %15 = and i32 %14, 1
-  %.not1.i.i.i = icmp eq i32 %15, 0
-  %16 = select i1 %.not1.i.i.i, i64 %12, i64 %6
+  %15 = trunc i32 %14 to i1
+  %16 = select i1 %15, i64 %6, i64 %12
   %.pre = and i64 %16, 7
   %17 = icmp eq i64 %.pre, 0
   %18 = load ptr, ptr %2, align 8
@@ -1561,9 +1557,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNK32pxrInte
   %32 = and i64 %29, -8
   %33 = inttoptr i64 %32 to ptr
   %34 = atomicrmw add ptr %33, i32 2 monotonic, align 4, !noalias !18
-  %35 = and i32 %34, 1
-  %.not1.i.i.i.i.i.i = icmp eq i32 %35, 0
-  br i1 %.not1.i.i.i.i.i.i, label %36, label %42
+  %35 = trunc i32 %34 to i1
+  br i1 %35, label %42, label %36
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %28, align 8, !noalias !18
@@ -1695,9 +1690,8 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE11_M_all
   %16 = and i64 %13, -8
   %17 = inttoptr i64 %16 to ptr
   %18 = atomicrmw add ptr %17, i32 2 monotonic, align 4
-  %19 = and i32 %18, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %20, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %.011.i.i.i.i.i, align 8
@@ -1794,9 +1788,8 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130_Coll
   %16 = and i64 %13, -8
   %17 = inttoptr i64 %16 to ptr
   %18 = atomicrmw add ptr %17, i32 2 monotonic, align 4
-  %19 = and i32 %18, 1
-  %.not1.i.i = icmp eq i32 %19, 0
-  br i1 %.not1.i.i, label %20, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %19 = trunc i32 %18 to i1
+  br i1 %19, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %20
 
 20:                                               ; preds = %15
   store ptr %17, ptr %3, align 8
@@ -1873,9 +1866,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %21, %25
   %49 = and i64 %46, -8
   %50 = inttoptr i64 %49 to ptr
   %51 = atomicrmw add ptr %50, i32 2 monotonic, align 4
-  %52 = and i32 %51, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %53, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %52 = trunc i32 %51 to i1
+  br i1 %52, label %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %53
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %.09.i.i.i.i.i, align 8

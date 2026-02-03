@@ -3136,15 +3136,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 51:                                               ; preds = %_ZNK4i18n12phonenumbers6RegExp14FindAndConsumeEPNS0_11RegExpInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !54
-  %54 = and i32 %53, 1
-  %.not61 = icmp eq i32 %54, 0
+  %54 = trunc i32 %53 to i1
   %55 = load ptr, ptr %19, align 8, !tbaa !100
   %56 = load ptr, ptr %7, align 8, !tbaa !102
   %57 = ptrtoint ptr %55 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 5
-  %. = select i1 %.not61, i64 -1, i64 -2
+  %. = select i1 %54, i64 -2, i64 -1
   %61 = add nsw i64 %60, %.
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -3193,12 +3192,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %87 = sub i64 %85, %86
   %88 = ashr exact i64 %87, 5
   %89 = trunc i64 %88 to i32
-  %.077 = add i32 %89, -1
-  %90 = icmp slt i32 %.077, 1
+  %.076 = add i32 %89, -1
+  %90 = icmp slt i32 %.076, 1
   %91 = and i64 %61, 2147483648
   %92 = icmp ne i64 %91, 0
-  %.not3078 = select i1 %90, i1 true, i1 %92
-  br i1 %.not3078, label %.critedge, label %.lr.ph
+  %.not3077 = select i1 %90, i1 true, i1 %92
+  br i1 %.not3077, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81
   %93 = load ptr, ptr %19, align 8, !tbaa !100
@@ -3207,28 +3206,28 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %96 = ptrtoint ptr %94 to i64
   %97 = sub i64 %95, %96
   %98 = ashr exact i64 %97, 5
-  %99 = zext nneg i32 %.077 to i64
+  %99 = zext nneg i32 %.076 to i64
   %100 = and i64 %61, 2147483647
   %.not.i.i37.first_iter = icmp ult i64 %100, %98
   br label %101
 
 101:                                              ; preds = %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60
-  %indvars.iv91 = phi i64 [ %100, %.lr.ph ], [ %indvars.iv.next92, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60 ]
+  %indvars.iv90 = phi i64 [ %100, %.lr.ph ], [ %indvars.iv.next91, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60 ]
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60 ]
-  br i1 %.not.i.i37.first_iter, label %102, label %.invoke130
+  br i1 %.not.i.i37.first_iter, label %102, label %.invoke129
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %94, i64 %indvars.iv91
+  %103 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %94, i64 %indvars.iv90
   %.not.i.i40 = icmp ugt i64 %88, %indvars.iv
-  br i1 %.not.i.i40, label %106, label %.invoke130
+  br i1 %.not.i.i40, label %106, label %.invoke129
 
-.invoke130:                                       ; preds = %102, %101
+.invoke129:                                       ; preds = %102, %101
   %104 = phi i64 [ %100, %101 ], [ %indvars.iv, %102 ]
   %105 = phi i64 [ %98, %101 ], [ %88, %102 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.20, i64 noundef %104, i64 noundef %105) #27
-          to label %.cont131 unwind label %117
+          to label %.cont130 unwind label %117
 
-.cont131:                                         ; preds = %.invoke130
+.cont130:                                         ; preds = %.invoke129
   unreachable
 
 106:                                              ; preds = %102
@@ -3248,24 +3247,24 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   %115 = load ptr, ptr %107, align 8, !tbaa !25
   %116 = load ptr, ptr %103, align 8, !tbaa !25
   %bcmp.i.i = call i32 @bcmp(ptr %116, ptr %115, i64 %109)
-  %.not62 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not62, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
+  %.not61 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not61, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
-117:                                              ; preds = %.invoke130
+117:                                              ; preds = %.invoke129
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %161
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60: ; preds = %113, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
+  %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %119 = icmp slt i64 %indvars.iv, 2
-  %120 = icmp slt i64 %indvars.iv91, 1
+  %120 = icmp slt i64 %indvars.iv90, 1
   %.not30 = or i1 %119, %120
   br i1 %.not30, label %.critedge, label %101, !llvm.loop !126
 
 .critedge:                                        ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60, %81
-  %.021.lcssa = phi i64 [ %61, %81 ], [ %indvars.iv.next92, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60 ]
+  %.021.lcssa = phi i64 [ %61, %81 ], [ %indvars.iv.next91, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60 ]
   %.lcssa = phi i1 [ %92, %81 ], [ %120, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread60 ]
   br i1 %.lcssa, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %121
 

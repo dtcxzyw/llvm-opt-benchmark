@@ -3059,9 +3059,8 @@ if.then256:                                       ; preds = %if.end252
   br label %cleanup
 
 if.then265:                                       ; preds = %if.end252
-  %and.i = and i64 %75, 1
-  %tobool.i97.not = icmp eq i64 %and.i, 0
-  br i1 %tobool.i97.not, label %if.else274, label %if.then269
+  %tobool.i97 = trunc i64 %75 to i1
+  br i1 %tobool.i97, label %if.then269, label %if.else274
 
 if.then269:                                       ; preds = %if.then265
   tail call fastcc void @_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer14appendToOutputENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 35)
@@ -5482,9 +5481,8 @@ sw.bb6.i:                                         ; preds = %entry
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 sw.bb9.i:                                         ; preds = %entry
-  %and.i.i = and i64 %retval.sroa.0.0.copyload.i.i13, 1
-  %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  %or.i.i.i = select i1 %tobool.i.not.i, i32 6, i32 22
+  %tobool.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i13 to i1
+  %or.i.i.i = select i1 %tobool.i.i, i32 22, i32 6
   br label %_ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE.exit
 
 sw.bb13.i:                                        ; preds = %entry

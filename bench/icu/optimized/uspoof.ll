@@ -1139,9 +1139,8 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
 
 34:                                               ; preds = %31
   %35 = load i16, ptr %22, align 8, !tbaa !42
-  %36 = and i16 %35, 1
-  %.not = icmp eq i16 %36, 0
-  br i1 %.not, label %.thread, label %61
+  %36 = trunc i16 %35 to i1
+  br i1 %36, label %61, label %.thread
 
 37:                                               ; preds = %31
   %38 = icmp slt i16 %32, 0
@@ -1174,8 +1173,8 @@ define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_77(ptr noundef %0,
           to label %60 unwind label %29
 
 60:                                               ; preds = %53
-  %.not57 = icmp eq i8 %59, 0
-  br i1 %.not57, label %.thread, label %61
+  %.not = icmp eq i8 %59, 0
+  br i1 %.not, label %.thread, label %61
 
 61:                                               ; preds = %34, %60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1661,9 +1660,8 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
 
 35:                                               ; preds = %32
   %36 = load i16, ptr %23, align 8, !tbaa !42
-  %37 = and i16 %36, 1
-  %.not = icmp eq i16 %37, 0
-  br i1 %.not, label %.thread, label %62
+  %37 = trunc i16 %36 to i1
+  br i1 %37, label %62, label %.thread
 
 38:                                               ; preds = %32
   %39 = icmp slt i16 %33, 0
@@ -1696,8 +1694,8 @@ define range(i32 0, 7) i32 @uspoof_areBidiConfusableUnicodeString_77(ptr noundef
           to label %61 unwind label %30
 
 61:                                               ; preds = %54
-  %.not50 = icmp eq i8 %60, 0
-  br i1 %.not50, label %.thread, label %62
+  %.not = icmp eq i8 %60, 0
+  br i1 %.not, label %.thread, label %62
 
 62:                                               ; preds = %35, %61
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

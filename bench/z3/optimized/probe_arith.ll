@@ -8857,7 +8857,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit31:      ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %101 = load i8, ptr %100, align 1, !tbaa !190, !range !108, !noundef !109
   %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %103, label %.thread60
+  br i1 %102, label %103, label %.thread58
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8902,7 +8902,7 @@ _ZNK10arith_util10is_numeralEPK4expr.exit33:      ; preds = %110
 128:                                              ; preds = %125
   %.pre = load i8, ptr %100, align 1, !tbaa !190, !range !108
   %129 = trunc nuw i8 %.pre to i1
-  br i1 %129, label %130, label %.thread60
+  br i1 %129, label %130, label %.thread58
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8916,9 +8916,9 @@ _ZNK10arith_util10is_numeralEPK4expr.exit33:      ; preds = %110
   %135 = load i32, ptr %5, align 8
   %136 = icmp ne i32 %135, 0
   %or.cond50.not = select i1 %133, i1 %136, i1 false
-  br i1 %or.cond50.not, label %_Z17is_uninterp_constPK4expr.exit.thread37, label %.thread60
+  br i1 %or.cond50.not, label %_Z17is_uninterp_constPK4expr.exit.thread37, label %.thread58
 
-.thread60:                                        ; preds = %99, %134, %128
+.thread58:                                        ; preds = %99, %134, %128
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %138 = load ptr, ptr %137, align 8, !tbaa !88
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
@@ -8927,12 +8927,11 @@ _ZNK10arith_util10is_numeralEPK4expr.exit33:      ; preds = %110
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %_Z9is_groundPK4expr.exit, label %_Z17is_uninterp_constPK4expr.exit.thread.invoke
 
-_Z9is_groundPK4expr.exit:                         ; preds = %.thread60
+_Z9is_groundPK4expr.exit:                         ; preds = %.thread58
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 30
   %144 = load i8, ptr %143, align 2
-  %145 = and i8 %144, 1
-  %.not52 = icmp eq i8 %145, 0
-  br i1 %.not52, label %_Z17is_uninterp_constPK4expr.exit.thread.invoke, label %146
+  %145 = trunc i8 %144 to i1
+  br i1 %145, label %146, label %_Z17is_uninterp_constPK4expr.exit.thread.invoke
 
 146:                                              ; preds = %_Z9is_groundPK4expr.exit
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8946,9 +8945,8 @@ _Z9is_groundPK4expr.exit:                         ; preds = %.thread60
 _Z9is_groundPK4expr.exit35:                       ; preds = %146
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 30
   %154 = load i8, ptr %153, align 2
-  %155 = and i8 %154, 1
-  %.not53 = icmp eq i8 %155, 0
-  br i1 %.not53, label %_Z17is_uninterp_constPK4expr.exit.thread.invoke, label %_Z17is_uninterp_constPK4expr.exit.thread37
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %_Z17is_uninterp_constPK4expr.exit.thread37, label %_Z17is_uninterp_constPK4expr.exit.thread.invoke
 
 156:                                              ; preds = %_ZNK3app13get_decl_kindEv.exit
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -8994,7 +8992,7 @@ _Z17is_uninterp_constPK4expr.exit:                ; preds = %180
   %182 = icmp eq i32 %181, -1
   br i1 %182, label %_Z17is_uninterp_constPK4expr.exit.thread37, label %_Z17is_uninterp_constPK4expr.exit.thread.invoke
 
-_Z17is_uninterp_constPK4expr.exit.thread.invoke:  ; preds = %_Z17is_uninterp_constPK4expr.exit, %176, %171, %_ZNK3app13get_decl_kindEv.exit, %52, %164, %160, %156, %_Z9is_groundPK4expr.exit, %_Z9is_groundPK4expr.exit35, %.thread60, %146, %125, %_ZNK10arith_util10is_numeralEPK4expr.exit33, %103, %110, %_ZNK10arith_util10is_numeralEPK4expr.exit31, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread, %88, %61
+_Z17is_uninterp_constPK4expr.exit.thread.invoke:  ; preds = %_Z17is_uninterp_constPK4expr.exit, %176, %171, %_ZNK3app13get_decl_kindEv.exit, %52, %164, %160, %156, %_Z9is_groundPK4expr.exit, %_Z9is_groundPK4expr.exit35, %.thread58, %146, %125, %_ZNK10arith_util10is_numeralEPK4expr.exit33, %103, %110, %_ZNK10arith_util10is_numeralEPK4expr.exit31, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread, %88, %61
   invoke fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr()
           to label %_Z17is_uninterp_constPK4expr.exit.thread.cont unwind label %55
 

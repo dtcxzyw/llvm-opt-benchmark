@@ -1038,87 +1038,87 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i16, ptr %11, align 4
-  %13 = and i16 %12, 1
-  %14 = load volatile i32, ptr @InterruptPending, align 4
-  %.not78 = icmp eq i32 %14, 0
-  br i1 %.not78, label %16, label %15, !prof !16
+  %13 = load volatile i32, ptr @InterruptPending, align 4
+  %.not78 = icmp eq i32 %13, 0
+  br i1 %.not78, label %15, label %14, !prof !16
 
-15:                                               ; preds = %2
+14:                                               ; preds = %2
   tail call void @ProcessInterrupts() #9
   %.pre = load ptr, ptr %5, align 8
-  br label %16
+  br label %15
 
-16:                                               ; preds = %15, %2
-  %17 = phi ptr [ %.pre, %15 ], [ %6, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %21, ptr @CurrentMemoryContext, align 8
-  %23 = call ptr @gistextractpage(ptr noundef %17, ptr noundef nonnull %3) #9
-  %24 = load i32, ptr %1, align 8
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.preheader, label %.thread
+15:                                               ; preds = %14, %2
+  %16 = phi ptr [ %.pre, %14 ], [ %6, %2 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %20, ptr @CurrentMemoryContext, align 8
+  %22 = call ptr @gistextractpage(ptr noundef %16, ptr noundef nonnull %3) #9
+  %23 = load i32, ptr %1, align 8
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %16
-  %.not100 = icmp eq i32 %24, 2147483647
+.preheader:                                       ; preds = %15
+  %.not100 = icmp eq i32 %23, 2147483647
   br i1 %.not100, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
-  %.07483 = phi ptr [ %30, %.lr.ph ], [ %23, %.preheader ]
+  %.07483 = phi ptr [ %29, %.lr.ph ], [ %22, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %26 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @gistextractpage(ptr noundef %27, ptr noundef nonnull %4) #9
-  %29 = load i32, ptr %4, align 4
-  %30 = call ptr @gistjoinvector(ptr noundef %.07483, ptr noundef nonnull %3, ptr noundef %28, i32 noundef %29) #9
-  call void @pfree(ptr noundef %28) #9
+  %25 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @gistextractpage(ptr noundef %26, ptr noundef nonnull %4) #9
+  %28 = load i32, ptr %4, align 4
+  %29 = call ptr @gistjoinvector(ptr noundef %.07483, ptr noundef nonnull %3, ptr noundef %27, i32 noundef %28) #9
+  call void @pfree(ptr noundef %27) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %1, align 8
-  %32 = add i32 %31, 1
-  %33 = sext i32 %32 to i64
-  %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  %30 = load i32, ptr %1, align 8
+  %31 = add i32 %30, 1
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next, %32
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
-.thread:                                          ; preds = %16
-  %35 = call ptr @palloc0(i64 noundef 56) #9
-  %36 = load ptr, ptr %0, align 8
-  %37 = load i32, ptr %3, align 4
-  %38 = load ptr, ptr %18, align 8
-  %39 = call ptr @gistunion(ptr noundef %36, ptr noundef %23, i32 noundef %37, ptr noundef %38) #9
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %39, ptr %40, align 8
-  %41 = load i32, ptr %3, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %43 = call ptr @gistfillitupvec(ptr noundef %23, i32 noundef %41, ptr noundef nonnull %42) #9
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %43, ptr %44, align 8
-  %45 = load i32, ptr %3, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 %45, ptr %46, align 4
-  store ptr %22, ptr @CurrentMemoryContext, align 8
+.thread:                                          ; preds = %15
+  %34 = call ptr @palloc0(i64 noundef 56) #9
+  %35 = load ptr, ptr %0, align 8
+  %36 = load i32, ptr %3, align 4
+  %37 = load ptr, ptr %17, align 8
+  %38 = call ptr @gistunion(ptr noundef %35, ptr noundef %22, i32 noundef %36, ptr noundef %37) #9
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  store ptr %38, ptr %39, align 8
+  %40 = load i32, ptr %3, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %42 = call ptr @gistfillitupvec(ptr noundef %22, i32 noundef %40, ptr noundef nonnull %41) #9
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr %42, ptr %43, align 8
+  %44 = load i32, ptr %3, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 %44, ptr %45, align 4
+  store ptr %21, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr %1, align 8
   br label %.lr.ph92
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader
-  %.074.lcssa = phi ptr [ %23, %.preheader ], [ %30, %.lr.ph ]
-  %47 = load ptr, ptr %0, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i32, ptr %3, align 4
-  %50 = load ptr, ptr %18, align 8
-  %51 = call ptr @gistSplit(ptr noundef %47, ptr noundef %48, ptr noundef %.074.lcssa, i32 noundef %49, ptr noundef %50) #9
-  store ptr %22, ptr @CurrentMemoryContext, align 8
+  %.074.lcssa = phi ptr [ %22, %.preheader ], [ %29, %.lr.ph ]
+  %46 = load ptr, ptr %0, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %3, align 4
+  %49 = load ptr, ptr %17, align 8
+  %50 = call ptr @gistSplit(ptr noundef %46, ptr noundef %47, ptr noundef %.074.lcssa, i32 noundef %48, ptr noundef %49) #9
+  store ptr %21, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr %1, align 8
-  %.not7989 = icmp eq ptr %51, null
+  %.not7989 = icmp eq ptr %50, null
   br i1 %.not7989, label %._crit_edge93, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.thread, %.loopexit
-  %.072103 = phi ptr [ %35, %.thread ], [ %51, %.loopexit ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %53 = zext nneg i16 %13 to i32
+  %.072103 = phi ptr [ %34, %.thread ], [ %50, %.loopexit ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %52 = and i16 %12, 1
+  %53 = zext nneg i16 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1137,7 +1137,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
 60:                                               ; preds = %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %.190, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %52, align 8
+  %63 = load ptr, ptr %51, align 8
   %64 = call ptr @smgr_bulk_get_buf(ptr noundef %63) #9
   call void @gistinitpage(ptr noundef %64, i32 noundef %53) #9
   %65 = getelementptr inbounds nuw i8, ptr %.190, i64 4
@@ -1200,7 +1200,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   store i32 0, ptr %64, align 4
   %100 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 1, ptr %100, align 4
-  %101 = load ptr, ptr %52, align 8
+  %101 = load ptr, ptr %51, align 8
   call void @smgr_bulk_write(ptr noundef %101, i32 noundef %98, ptr noundef nonnull %64, i1 noundef zeroext true) #9
   %102 = lshr i32 %98, 16
   %103 = trunc nuw i32 %102 to i16

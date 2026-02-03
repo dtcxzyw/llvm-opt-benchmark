@@ -1745,273 +1745,272 @@ define void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_InsertEPNS0_9LRUHandleE(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load double, ptr %3, align 8, !tbaa !52
   %5 = fcmp ogt double %4, 0.000000e+00
-  br i1 %5, label %6, label %68
+  br i1 %5, label %6, label %66
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %8 = load i8, ptr %7, align 1, !tbaa !105
-  %9 = and i8 %8, 1
-  %.not = icmp eq i8 %9, 0
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %11 = load i8, ptr %10, align 8, !tbaa !77
-  %12 = and i8 %11, 2
-  %.not57 = icmp eq i8 %12, 0
-  %or.cond = select i1 %.not, i1 %.not57, i1 false
-  br i1 %or.cond, label %68, label %._crit_edge
+  %9 = trunc i8 %8 to i1
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %.pre81 = load i8, ptr %.phi.trans.insert80, align 8, !tbaa !77
+  %10 = and i8 %.pre81, 2
+  %.not = icmp ne i8 %10, 0
+  %or.cond.not98 = select i1 %9, i1 true, i1 %.not
+  br i1 %or.cond.not98, label %._crit_edge79, label %66
 
-._crit_edge:                                      ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %13, ptr %14, align 8, !tbaa !85
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %16 = load ptr, ptr %15, align 8, !tbaa !58
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %16, ptr %17, align 8, !tbaa !84
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %1, ptr %18, align 8, !tbaa !85
-  %19 = load ptr, ptr %14, align 8, !tbaa !85
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %1, ptr %20, align 8, !tbaa !84
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.sink.i = and i8 %11, -13
-  %22 = or disjoint i8 %.sink.i, 4
-  store i8 %22, ptr %21, align 8, !tbaa !77
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load i64, ptr %23, align 8, !tbaa !86
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 16, !tbaa !88
-  %27 = add i64 %26, %24
-  store i64 %27, ptr %25, align 16, !tbaa !88
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load double, ptr %28, align 16, !tbaa !53
-  %30 = uitofp i64 %27 to double
-  %31 = fcmp olt double %29, %30
-  br i1 %31, label %.lr.ph.i, label %..preheader_crit_edge16.i
+._crit_edge79:                                    ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %11, ptr %12, align 8, !tbaa !85
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %14, ptr %15, align 8, !tbaa !84
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %1, ptr %16, align 8, !tbaa !85
+  %17 = load ptr, ptr %12, align 8, !tbaa !85
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr %1, ptr %18, align 8, !tbaa !84
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %.sink.i = and i8 %.pre81, -13
+  %20 = or disjoint i8 %.sink.i, 4
+  store i8 %20, ptr %19, align 8, !tbaa !77
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %22 = load i64, ptr %21, align 8, !tbaa !86
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i64, ptr %23, align 16, !tbaa !88
+  %25 = add i64 %24, %22
+  store i64 %25, ptr %23, align 16, !tbaa !88
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = load double, ptr %26, align 16, !tbaa !53
+  %28 = uitofp i64 %25 to double
+  %29 = fcmp olt double %27, %28
+  br i1 %29, label %.lr.ph.i, label %..preheader_crit_edge16.i
 
-..preheader_crit_edge16.i:                        ; preds = %._crit_edge
+..preheader_crit_edge16.i:                        ; preds = %._crit_edge79
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted7.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !89
   br label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.promoted3.i = load ptr, ptr %32, align 16, !tbaa !59
-  %.promoted5.i = load i64, ptr %33, align 8, !tbaa !89
-  br label %40
+.lr.ph.i:                                         ; preds = %._crit_edge79
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.promoted3.i = load ptr, ptr %30, align 16, !tbaa !59
+  %.promoted5.i = load i64, ptr %31, align 8, !tbaa !89
+  br label %38
 
-..preheader_crit_edge.i:                          ; preds = %40
-  store ptr %45, ptr %32, align 16, !tbaa !59
-  store i64 %51, ptr %25, align 16, !tbaa !88
-  store i64 %52, ptr %33, align 8, !tbaa !89
+..preheader_crit_edge.i:                          ; preds = %38
+  store ptr %43, ptr %30, align 16, !tbaa !59
+  store i64 %49, ptr %23, align 16, !tbaa !88
+  store i64 %50, ptr %31, align 8, !tbaa !89
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %..preheader_crit_edge.i, %..preheader_crit_edge16.i
-  %.promoted7.i = phi i64 [ %.promoted7.pre.i, %..preheader_crit_edge16.i ], [ %52, %..preheader_crit_edge.i ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = load double, ptr %35, align 64, !tbaa !55
-  %37 = uitofp i64 %.promoted7.i to double
-  %38 = fcmp olt double %36, %37
-  br i1 %38, label %.lr.ph8.i, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
+  %.promoted7.i = phi i64 [ %.promoted7.pre.i, %..preheader_crit_edge16.i ], [ %50, %..preheader_crit_edge.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %34 = load double, ptr %33, align 64, !tbaa !55
+  %35 = uitofp i64 %.promoted7.i to double
+  %36 = fcmp olt double %34, %35
+  br i1 %36, label %.lr.ph8.i, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
 
 .lr.ph8.i:                                        ; preds = %.preheader.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.promoted9.i = load ptr, ptr %39, align 8, !tbaa !60
-  br label %55
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.promoted9.i = load ptr, ptr %37, align 8, !tbaa !60
+  br label %53
 
-40:                                               ; preds = %40, %.lr.ph.i
-  %41 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %52, %40 ]
-  %42 = phi ptr [ %.promoted3.i, %.lr.ph.i ], [ %45, %40 ]
-  %43 = phi i64 [ %27, %.lr.ph.i ], [ %51, %40 ]
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !85
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %47 = load i8, ptr %46, align 8, !tbaa !77
-  %48 = and i8 %47, -13
-  %.sink.i.i = or disjoint i8 %48, 8
-  store i8 %.sink.i.i, ptr %46, align 8, !tbaa !77
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %50 = load i64, ptr %49, align 8, !tbaa !86
-  %51 = sub i64 %43, %50
-  %52 = add i64 %50, %41
-  %53 = uitofp i64 %51 to double
-  %54 = fcmp olt double %29, %53
-  br i1 %54, label %40, label %..preheader_crit_edge.i, !llvm.loop !106
+38:                                               ; preds = %38, %.lr.ph.i
+  %39 = phi i64 [ %.promoted5.i, %.lr.ph.i ], [ %50, %38 ]
+  %40 = phi ptr [ %.promoted3.i, %.lr.ph.i ], [ %43, %38 ]
+  %41 = phi i64 [ %25, %.lr.ph.i ], [ %49, %38 ]
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !85
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %45 = load i8, ptr %44, align 8, !tbaa !77
+  %46 = and i8 %45, -13
+  %.sink.i.i = or disjoint i8 %46, 8
+  store i8 %.sink.i.i, ptr %44, align 8, !tbaa !77
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %48 = load i64, ptr %47, align 8, !tbaa !86
+  %49 = sub i64 %41, %48
+  %50 = add i64 %48, %39
+  %51 = uitofp i64 %49 to double
+  %52 = fcmp olt double %27, %51
+  br i1 %52, label %38, label %..preheader_crit_edge.i, !llvm.loop !106
 
-55:                                               ; preds = %55, %.lr.ph8.i
-  %56 = phi ptr [ %.promoted9.i, %.lr.ph8.i ], [ %59, %55 ]
-  %57 = phi i64 [ %.promoted7.i, %.lr.ph8.i ], [ %65, %55 ]
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
-  %61 = load i8, ptr %60, align 8, !tbaa !77
-  %62 = and i8 %61, -13
-  store i8 %62, ptr %60, align 8, !tbaa !77
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %64 = load i64, ptr %63, align 8, !tbaa !86
-  %65 = sub i64 %57, %64
-  %66 = uitofp i64 %65 to double
-  %67 = fcmp olt double %36, %66
-  br i1 %67, label %55, label %._crit_edge.i, !llvm.loop !107
+53:                                               ; preds = %53, %.lr.ph8.i
+  %54 = phi ptr [ %.promoted9.i, %.lr.ph8.i ], [ %57, %53 ]
+  %55 = phi i64 [ %.promoted7.i, %.lr.ph8.i ], [ %63, %53 ]
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %57 = load ptr, ptr %56, align 8, !tbaa !85
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
+  %59 = load i8, ptr %58, align 8, !tbaa !77
+  %60 = and i8 %59, -13
+  store i8 %60, ptr %58, align 8, !tbaa !77
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %62 = load i64, ptr %61, align 8, !tbaa !86
+  %63 = sub i64 %55, %62
+  %64 = uitofp i64 %63 to double
+  %65 = fcmp olt double %34, %64
+  br i1 %65, label %53, label %._crit_edge.i, !llvm.loop !107
 
-._crit_edge.i:                                    ; preds = %55
-  store ptr %59, ptr %39, align 8, !tbaa !60
-  store i64 %65, ptr %34, align 8, !tbaa !89
+._crit_edge.i:                                    ; preds = %53
+  store ptr %57, ptr %37, align 8, !tbaa !60
+  store i64 %63, ptr %32, align 8, !tbaa !89
   br label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
 
-68:                                               ; preds = %6, %2
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %70 = load double, ptr %69, align 8, !tbaa !54
-  %71 = fcmp ogt double %70, 0.000000e+00
-  br i1 %71, label %72, label %._crit_edge80
+66:                                               ; preds = %6, %2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %68 = load double, ptr %67, align 8, !tbaa !54
+  %69 = fcmp ogt double %68, 0.000000e+00
+  br i1 %69, label %70, label %._crit_edge76
 
-._crit_edge80:                                    ; preds = %68
-  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.pre82 = load i8, ptr %.phi.trans.insert81, align 8, !tbaa !77
-  br label %131
+._crit_edge76:                                    ; preds = %66
+  %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %.pre78 = load i8, ptr %.phi.trans.insert77, align 8, !tbaa !77
+  br label %129
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %74 = load i8, ptr %73, align 1, !tbaa !105
-  %75 = and i8 %74, 3
-  %or.cond.not = icmp eq i8 %75, 0
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %77 = load i8, ptr %76, align 8, !tbaa !77
-  %78 = and i8 %77, 2
-  %.not58 = icmp eq i8 %78, 0
-  %or.cond97 = select i1 %or.cond.not, i1 %.not58, i1 false
-  br i1 %or.cond97, label %131, label %._crit_edge77
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %72 = load i8, ptr %71, align 1, !tbaa !105
+  %73 = and i8 %72, 3
+  %or.cond.not = icmp eq i8 %73, 0
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %75 = load i8, ptr %74, align 8, !tbaa !77
+  %76 = and i8 %75, 2
+  %.not57 = icmp eq i8 %76, 0
+  %or.cond97 = select i1 %or.cond.not, i1 %.not57, i1 false
+  br i1 %or.cond97, label %129, label %._crit_edge
 
-._crit_edge77:                                    ; preds = %72
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %80 = load ptr, ptr %79, align 16, !tbaa !59
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !85
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %82, ptr %83, align 8, !tbaa !85
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %80, ptr %84, align 8, !tbaa !84
-  store ptr %1, ptr %81, align 8, !tbaa !85
-  %85 = load ptr, ptr %83, align 8, !tbaa !85
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store ptr %1, ptr %86, align 8, !tbaa !84
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %88 = and i8 %77, -13
-  %.sink.i38 = or disjoint i8 %88, 8
-  store i8 %.sink.i38, ptr %87, align 8, !tbaa !77
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %90 = load i64, ptr %89, align 8, !tbaa !86
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %92 = load i64, ptr %91, align 8, !tbaa !89
-  %93 = add i64 %92, %90
-  store i64 %93, ptr %91, align 8, !tbaa !89
-  store ptr %1, ptr %79, align 16, !tbaa !59
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %96 = load double, ptr %95, align 16, !tbaa !53
-  %.promoted.i39 = load i64, ptr %94, align 16, !tbaa !88
-  %97 = uitofp i64 %.promoted.i39 to double
-  %98 = fcmp olt double %96, %97
-  br i1 %98, label %.lr.ph.i48, label %.preheader.i43
+._crit_edge:                                      ; preds = %70
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %78 = load ptr, ptr %77, align 16, !tbaa !59
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %80 = load ptr, ptr %79, align 8, !tbaa !85
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %80, ptr %81, align 8, !tbaa !85
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %78, ptr %82, align 8, !tbaa !84
+  store ptr %1, ptr %79, align 8, !tbaa !85
+  %83 = load ptr, ptr %81, align 8, !tbaa !85
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  store ptr %1, ptr %84, align 8, !tbaa !84
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %86 = and i8 %75, -13
+  %.sink.i38 = or disjoint i8 %86, 8
+  store i8 %.sink.i38, ptr %85, align 8, !tbaa !77
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %88 = load i64, ptr %87, align 8, !tbaa !86
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %90 = load i64, ptr %89, align 8, !tbaa !89
+  %91 = add i64 %90, %88
+  store i64 %91, ptr %89, align 8, !tbaa !89
+  store ptr %1, ptr %77, align 16, !tbaa !59
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %94 = load double, ptr %93, align 16, !tbaa !53
+  %.promoted.i39 = load i64, ptr %92, align 16, !tbaa !88
+  %95 = uitofp i64 %.promoted.i39 to double
+  %96 = fcmp olt double %94, %95
+  br i1 %96, label %.lr.ph.i48, label %.preheader.i43
 
 ..preheader_crit_edge.i52:                        ; preds = %.lr.ph.i48
-  store ptr %108, ptr %79, align 16, !tbaa !59
-  store i64 %114, ptr %94, align 16, !tbaa !88
-  store i64 %115, ptr %91, align 8, !tbaa !89
+  store ptr %106, ptr %77, align 16, !tbaa !59
+  store i64 %112, ptr %92, align 16, !tbaa !88
+  store i64 %113, ptr %89, align 8, !tbaa !89
   br label %.preheader.i43
 
-.preheader.i43:                                   ; preds = %._crit_edge77, %..preheader_crit_edge.i52
-  %.promoted7.i44 = phi i64 [ %115, %..preheader_crit_edge.i52 ], [ %93, %._crit_edge77 ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %100 = load double, ptr %99, align 64, !tbaa !55
-  %101 = uitofp i64 %.promoted7.i44 to double
-  %102 = fcmp olt double %100, %101
-  br i1 %102, label %.lr.ph8.i45, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
+.preheader.i43:                                   ; preds = %._crit_edge, %..preheader_crit_edge.i52
+  %.promoted7.i44 = phi i64 [ %113, %..preheader_crit_edge.i52 ], [ %91, %._crit_edge ]
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %98 = load double, ptr %97, align 64, !tbaa !55
+  %99 = uitofp i64 %.promoted7.i44 to double
+  %100 = fcmp olt double %98, %99
+  br i1 %100, label %.lr.ph8.i45, label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
 
 .lr.ph8.i45:                                      ; preds = %.preheader.i43
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.promoted9.i46 = load ptr, ptr %103, align 8, !tbaa !60
-  br label %118
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.promoted9.i46 = load ptr, ptr %101, align 8, !tbaa !60
+  br label %116
 
-.lr.ph.i48:                                       ; preds = %._crit_edge77, %.lr.ph.i48
-  %104 = phi i64 [ %115, %.lr.ph.i48 ], [ %93, %._crit_edge77 ]
-  %105 = phi ptr [ %108, %.lr.ph.i48 ], [ %1, %._crit_edge77 ]
-  %106 = phi i64 [ %114, %.lr.ph.i48 ], [ %.promoted.i39, %._crit_edge77 ]
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %108 = load ptr, ptr %107, align 8, !tbaa !85
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
-  %110 = load i8, ptr %109, align 8, !tbaa !77
-  %111 = and i8 %110, -13
-  %.sink.i.i51 = or disjoint i8 %111, 8
-  store i8 %.sink.i.i51, ptr %109, align 8, !tbaa !77
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %113 = load i64, ptr %112, align 8, !tbaa !86
-  %114 = sub i64 %106, %113
-  %115 = add i64 %113, %104
-  %116 = uitofp i64 %114 to double
-  %117 = fcmp olt double %96, %116
-  br i1 %117, label %.lr.ph.i48, label %..preheader_crit_edge.i52, !llvm.loop !106
+.lr.ph.i48:                                       ; preds = %._crit_edge, %.lr.ph.i48
+  %102 = phi i64 [ %113, %.lr.ph.i48 ], [ %91, %._crit_edge ]
+  %103 = phi ptr [ %106, %.lr.ph.i48 ], [ %1, %._crit_edge ]
+  %104 = phi i64 [ %112, %.lr.ph.i48 ], [ %.promoted.i39, %._crit_edge ]
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %106 = load ptr, ptr %105, align 8, !tbaa !85
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 64
+  %108 = load i8, ptr %107, align 8, !tbaa !77
+  %109 = and i8 %108, -13
+  %.sink.i.i51 = or disjoint i8 %109, 8
+  store i8 %.sink.i.i51, ptr %107, align 8, !tbaa !77
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %111 = load i64, ptr %110, align 8, !tbaa !86
+  %112 = sub i64 %104, %111
+  %113 = add i64 %111, %102
+  %114 = uitofp i64 %112 to double
+  %115 = fcmp olt double %94, %114
+  br i1 %115, label %.lr.ph.i48, label %..preheader_crit_edge.i52, !llvm.loop !106
 
-118:                                              ; preds = %118, %.lr.ph8.i45
-  %119 = phi ptr [ %.promoted9.i46, %.lr.ph8.i45 ], [ %122, %118 ]
-  %120 = phi i64 [ %.promoted7.i44, %.lr.ph8.i45 ], [ %128, %118 ]
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  %122 = load ptr, ptr %121, align 8, !tbaa !85
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 64
-  %124 = load i8, ptr %123, align 8, !tbaa !77
-  %125 = and i8 %124, -13
-  store i8 %125, ptr %123, align 8, !tbaa !77
-  %126 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %127 = load i64, ptr %126, align 8, !tbaa !86
-  %128 = sub i64 %120, %127
-  %129 = uitofp i64 %128 to double
-  %130 = fcmp olt double %100, %129
-  br i1 %130, label %118, label %._crit_edge.i47, !llvm.loop !107
+116:                                              ; preds = %116, %.lr.ph8.i45
+  %117 = phi ptr [ %.promoted9.i46, %.lr.ph8.i45 ], [ %120, %116 ]
+  %118 = phi i64 [ %.promoted7.i44, %.lr.ph8.i45 ], [ %126, %116 ]
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %120 = load ptr, ptr %119, align 8, !tbaa !85
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 64
+  %122 = load i8, ptr %121, align 8, !tbaa !77
+  %123 = and i8 %122, -13
+  store i8 %123, ptr %121, align 8, !tbaa !77
+  %124 = getelementptr inbounds nuw i8, ptr %120, i64 40
+  %125 = load i64, ptr %124, align 8, !tbaa !86
+  %126 = sub i64 %118, %125
+  %127 = uitofp i64 %126 to double
+  %128 = fcmp olt double %98, %127
+  br i1 %128, label %116, label %._crit_edge.i47, !llvm.loop !107
 
-._crit_edge.i47:                                  ; preds = %118
-  store ptr %122, ptr %103, align 8, !tbaa !60
-  store i64 %128, ptr %91, align 8, !tbaa !89
+._crit_edge.i47:                                  ; preds = %116
+  store ptr %120, ptr %101, align 8, !tbaa !60
+  store i64 %126, ptr %89, align 8, !tbaa !89
   br label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
 
-131:                                              ; preds = %72, %._crit_edge80
-  %132 = phi i8 [ %.pre82, %._crit_edge80 ], [ %77, %72 ]
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %134 = load ptr, ptr %133, align 8, !tbaa !60
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %136 = load ptr, ptr %135, align 8, !tbaa !85
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %136, ptr %137, align 8, !tbaa !85
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %134, ptr %138, align 8, !tbaa !84
-  store ptr %1, ptr %135, align 8, !tbaa !85
-  %139 = load ptr, ptr %137, align 8, !tbaa !85
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  store ptr %1, ptr %140, align 8, !tbaa !84
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %142 = and i8 %132, -13
-  store i8 %142, ptr %141, align 8, !tbaa !77
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %144 = load ptr, ptr %143, align 16, !tbaa !59
-  %145 = icmp eq ptr %134, %144
-  br i1 %145, label %146, label %147
+129:                                              ; preds = %70, %._crit_edge76
+  %130 = phi i8 [ %.pre78, %._crit_edge76 ], [ %75, %70 ]
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %132 = load ptr, ptr %131, align 8, !tbaa !60
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %134 = load ptr, ptr %133, align 8, !tbaa !85
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %134, ptr %135, align 8, !tbaa !85
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %132, ptr %136, align 8, !tbaa !84
+  store ptr %1, ptr %133, align 8, !tbaa !85
+  %137 = load ptr, ptr %135, align 8, !tbaa !85
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  store ptr %1, ptr %138, align 8, !tbaa !84
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %140 = and i8 %130, -13
+  store i8 %140, ptr %139, align 8, !tbaa !77
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %142 = load ptr, ptr %141, align 16, !tbaa !59
+  %143 = icmp eq ptr %132, %142
+  br i1 %143, label %144, label %145
 
-146:                                              ; preds = %131
-  store ptr %1, ptr %143, align 16, !tbaa !59
-  br label %147
+144:                                              ; preds = %129
+  store ptr %1, ptr %141, align 16, !tbaa !59
+  br label %145
 
-147:                                              ; preds = %146, %131
-  store ptr %1, ptr %133, align 8, !tbaa !60
-  %.phi.trans.insert83 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre84 = load i64, ptr %.phi.trans.insert83, align 8, !tbaa !86
+145:                                              ; preds = %144, %129
+  store ptr %1, ptr %131, align 8, !tbaa !60
+  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.pre83 = load i64, ptr %.phi.trans.insert82, align 8, !tbaa !86
   br label %_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit
 
-_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit: ; preds = %._crit_edge.i47, %.preheader.i43, %._crit_edge.i, %.preheader.i, %147
-  %148 = phi i64 [ %90, %._crit_edge.i47 ], [ %90, %.preheader.i43 ], [ %24, %._crit_edge.i ], [ %24, %.preheader.i ], [ %.pre84, %147 ]
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %150 = load i64, ptr %149, align 8, !tbaa !87
-  %151 = add i64 %150, %148
-  store i64 %151, ptr %149, align 8, !tbaa !87
+_ZN7rocksdb9lru_cache13LRUCacheShard16MaintainPoolSizeEv.exit: ; preds = %._crit_edge.i47, %.preheader.i43, %._crit_edge.i, %.preheader.i, %145
+  %146 = phi i64 [ %88, %._crit_edge.i47 ], [ %88, %.preheader.i43 ], [ %22, %._crit_edge.i ], [ %22, %.preheader.i ], [ %.pre83, %145 ]
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %148 = load i64, ptr %147, align 8, !tbaa !87
+  %149 = add i64 %148, %146
+  store i64 %149, ptr %147, align 8, !tbaa !87
   ret void
 }
 
@@ -3470,135 +3469,134 @@ define noundef zeroext i1 @_ZN7rocksdb9lru_cache13LRUCacheShard7ReleaseEPNS0_9LR
   %11 = icmp eq i32 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i8, ptr %12, align 8, !tbaa !77
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
-  %or.cond = and i1 %11, %15
-  br i1 %or.cond, label %16, label %53
+  %14 = trunc i8 %13 to i1
+  %or.cond = and i1 %11, %14
+  br i1 %or.cond, label %15, label %52
 
-16:                                               ; preds = %6
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %18 = load i64, ptr %17, align 64, !tbaa !90
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !68
-  %21 = icmp ugt i64 %18, %20
-  %or.cond3 = or i1 %3, %21
-  br i1 %or.cond3, label %22, label %52
+15:                                               ; preds = %6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %17 = load i64, ptr %16, align 64, !tbaa !90
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8, !tbaa !68
+  %20 = icmp ugt i64 %17, %19
+  %or.cond3 = or i1 %3, %20
+  br i1 %or.cond3, label %21, label %51
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 66
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %25 = load i64, ptr %24, align 8, !tbaa !39
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %28 = load i32, ptr %27, align 8, !tbaa !38
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %30 = load i32, ptr %26, align 32, !tbaa !4
-  %31 = sub nsw i32 32, %30
-  %32 = lshr i32 %28, %31
-  %33 = zext i32 %32 to i64
-  %34 = load ptr, ptr %29, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
-  %.not12.i.i = icmp eq ptr %36, null
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 66
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %24 = load i64, ptr %23, align 8, !tbaa !39
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %27 = load i32, ptr %26, align 8, !tbaa !38
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %29 = load i32, ptr %25, align 32, !tbaa !4
+  %30 = sub nsw i32 32, %29
+  %31 = lshr i32 %27, %30
+  %32 = zext i32 %31 to i64
+  %33 = load ptr, ptr %28, align 8, !tbaa !19
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
+  %.not12.i.i = icmp eq ptr %35, null
   br i1 %.not12.i.i, label %.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %22, %.critedge2.i.i
-  %.pr.i = phi ptr [ %45, %.critedge2.i.i ], [ %36, %22 ]
-  %.013.i.i = phi ptr [ %44, %.critedge2.i.i ], [ %35, %22 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 56
-  %38 = load i32, ptr %37, align 8, !tbaa !38
-  %.not10.i.i = icmp eq i32 %38, %28
-  br i1 %.not10.i.i, label %39, label %.critedge2.i.i
+.lr.ph.i.i:                                       ; preds = %21, %.critedge2.i.i
+  %.pr.i = phi ptr [ %44, %.critedge2.i.i ], [ %35, %21 ]
+  %.013.i.i = phi ptr [ %43, %.critedge2.i.i ], [ %34, %21 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 56
+  %37 = load i32, ptr %36, align 8, !tbaa !38
+  %.not10.i.i = icmp eq i32 %37, %27
+  br i1 %.not10.i.i, label %38, label %.critedge2.i.i
 
-39:                                               ; preds = %.lr.ph.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 48
-  %41 = load i64, ptr %40, align 8, !tbaa !39
-  %42 = icmp eq i64 %25, %41
-  br i1 %42, label %_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i, label %.critedge2.i.i
+38:                                               ; preds = %.lr.ph.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 48
+  %40 = load i64, ptr %39, align 8, !tbaa !39
+  %41 = icmp eq i64 %24, %40
+  br i1 %41, label %_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i, label %.critedge2.i.i
 
-_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i:           ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 66
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %23, ptr nonnull %43, i64 %25)
+_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i:           ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 66
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %22, ptr nonnull %42, i64 %24)
   %.not11.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %.not11.i.i, label %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.i, label %.critedge2.i.i
 
-.critedge2.i.i:                                   ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i, %39, %.lr.ph.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !23
-  %.not.i.i = icmp eq ptr %45, null
+.critedge2.i.i:                                   ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i, %38, %.lr.ph.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !23
+  %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %.thread, label %.lr.ph.i.i, !llvm.loop !40
 
 _ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.i: ; preds = %_ZN7rocksdbneERKNS_5SliceES2_.exit.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !25
-  store ptr %47, ptr %.013.i.i, align 8, !tbaa !23
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %49 = load i32, ptr %48, align 16, !tbaa !20
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %48, align 16, !tbaa !20
+  %45 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !25
+  store ptr %46, ptr %.013.i.i, align 8, !tbaa !23
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %48 = load i32, ptr %47, align 16, !tbaa !20
+  %49 = add i32 %48, -1
+  store i32 %49, ptr %47, align 16, !tbaa !20
   br label %.thread
 
-.thread:                                          ; preds = %.critedge2.i.i, %22, %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.i
-  %51 = and i8 %13, -2
-  store i8 %51, ptr %12, align 8, !tbaa !77
-  br label %54
+.thread:                                          ; preds = %.critedge2.i.i, %21, %_ZN7rocksdb9lru_cache14LRUHandleTable11FindPointerERKNS_5SliceEj.exit.i
+  %50 = and i8 %13, -2
+  store i8 %50, ptr %12, align 8, !tbaa !77
+  br label %53
 
-52:                                               ; preds = %16
+51:                                               ; preds = %15
   tail call void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_InsertEPNS0_9LRUHandleE(ptr noundef nonnull align 64 dereferenceable(256) %0, ptr noundef nonnull %1)
   br label %.critedge
 
-53:                                               ; preds = %6
+52:                                               ; preds = %6
   br i1 %11, label %._crit_edge, label %.critedge
 
-._crit_edge:                                      ; preds = %53
+._crit_edge:                                      ; preds = %52
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.pre = load i64, ptr %.phi.trans.insert, align 64, !tbaa !90
-  br label %54
+  br label %53
 
-54:                                               ; preds = %._crit_edge, %.thread
-  %55 = phi i64 [ %.pre, %._crit_edge ], [ %18, %.thread ]
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %57 = load i64, ptr %56, align 8, !tbaa !86
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %59 = sub i64 %55, %57
-  store i64 %59, ptr %58, align 64, !tbaa !90
+53:                                               ; preds = %._crit_edge, %.thread
+  %54 = phi i64 [ %.pre, %._crit_edge ], [ %17, %.thread ]
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %56 = load i64, ptr %55, align 8, !tbaa !86
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %58 = sub i64 %54, %56
+  store i64 %58, ptr %57, align 64, !tbaa !90
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit unwind label %60
+          to label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit unwind label %59
 
-60:                                               ; preds = %54
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  tail call void @__clang_call_terminate(ptr %62) #32
+  %61 = extractvalue { ptr, i32 } %60, 0
+  tail call void @__clang_call_terminate(ptr %61) #32
   unreachable
 
-_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %54
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !30
-  %65 = load ptr, ptr %64, align 8, !tbaa !31
-  %.not.i = icmp eq ptr %65, null
-  br i1 %.not.i, label %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit, label %66
+_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit: ; preds = %53
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !30
+  %64 = load ptr, ptr %63, align 8, !tbaa !31
+  %.not.i = icmp eq ptr %64, null
+  br i1 %.not.i, label %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit, label %65
 
-66:                                               ; preds = %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %68 = load ptr, ptr %67, align 8, !tbaa !22
-  %69 = load ptr, ptr %1, align 8, !tbaa !34
-  tail call void %65(ptr noundef %69, ptr noundef %68)
+65:                                               ; preds = %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %67 = load ptr, ptr %66, align 8, !tbaa !22
+  %68 = load ptr, ptr %1, align 8, !tbaa !34
+  tail call void %64(ptr noundef %68, ptr noundef %67)
   br label %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit
 
-_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit: ; preds = %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit, %66
+_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit: ; preds = %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit, %65
   tail call void @free(ptr noundef nonnull align 8 dereferenceable(67) %1) #30
   br label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit27
 
-.critedge:                                        ; preds = %52, %53
+.critedge:                                        ; preds = %51, %52
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit27 unwind label %70
+          to label %_ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit27 unwind label %69
 
-70:                                               ; preds = %.critedge
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %.critedge
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #32
+  %71 = extractvalue { ptr, i32 } %70, 0
+  tail call void @__clang_call_terminate(ptr %71) #32
   unreachable
 
 _ZNSt10lock_guardIN7rocksdb4port5MutexEED2Ev.exit27: ; preds = %.critedge, %_ZN7rocksdb9lru_cache9LRUHandle4FreeEPNS_15MemoryAllocatorE.exit, %4

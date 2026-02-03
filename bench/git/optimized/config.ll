@@ -7708,13 +7708,13 @@ _.exit158:                                        ; preds = %47, %49
   call void @strbuf_release(ptr noundef nonnull %8) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %61 = icmp slt i64 %60, 0
-  br i1 %61, label %283, label %62
+  br i1 %61, label %282, label %62
 
 62:                                               ; preds = %53
   %.val = load i64, ptr %10, align 8
   %63 = call fastcc i64 @write_pair(i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %5, i64 %.val)
   %64 = icmp slt i64 %63, 0
-  br i1 %64, label %283, label %251
+  br i1 %64, label %282, label %250
 
 65:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -7964,8 +7964,8 @@ _.exit173:                                        ; preds = %150, %152
   br label %173
 
 173:                                              ; preds = %.lr.ph205, %.thread179.thread
-  %.094204 = phi i64 [ 0, %.lr.ph205 ], [ %227, %.thread179.thread ]
-  %storemerge203 = phi i32 [ 0, %.lr.ph205 ], [ %229, %.thread179.thread ]
+  %.094204 = phi i64 [ 0, %.lr.ph205 ], [ %226, %.thread179.thread ]
+  %storemerge203 = phi i32 [ 0, %.lr.ph205 ], [ %228, %.thread179.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %174 = load ptr, ptr %171, align 8, !tbaa !151
   %175 = sext i32 %storemerge203 to i64
@@ -7986,7 +7986,7 @@ _.exit173:                                        ; preds = %150, %152
   %.not140 = icmp ne i64 %184, 0
   %186 = icmp ult i64 %184, %121
   %or.cond150 = and i1 %.not140, %186
-  br i1 %or.cond150, label %187, label %212
+  br i1 %or.cond150, label %187, label %211
 
 187:                                              ; preds = %185
   %188 = getelementptr i8, ptr %124, i64 %184
@@ -8034,10 +8034,9 @@ _.exit173:                                        ; preds = %150, %152
   %206 = zext i8 %205 to i64
   %207 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %206
   %208 = load i8, ptr %207, align 1, !tbaa !4
-  %209 = and i8 %208, 1
-  %210 = icmp ne i8 %209, 0
-  %211 = icmp ne i8 %205, 10
-  %or.cond7 = and i1 %211, %210
+  %209 = trunc i8 %208 to i1
+  %210 = icmp ne i8 %205, 10
+  %or.cond7 = and i1 %210, %209
   br i1 %or.cond7, label %200, label %.thread230
 
 .thread230:                                       ; preds = %.lr.ph
@@ -8049,7 +8048,7 @@ _.exit173:                                        ; preds = %150, %152
   store i64 %.ph, ptr %15, align 8, !tbaa !16
   br label %.thread179
 
-212:                                              ; preds = %185
+211:                                              ; preds = %185
   store i64 %184, ptr %15, align 8, !tbaa !16
   %.not144 = icmp eq i64 %184, 0
   br i1 %.not144, label %.thread179.thread, label %.thread179
@@ -8058,75 +8057,75 @@ _.exit173:                                        ; preds = %150, %152
   store i64 0, ptr %12, align 8
   br label %.thread179.thread
 
-.thread179:                                       ; preds = %212, %.thread230, %.thread232
-  %213 = phi i64 [ %202, %.thread230 ], [ %184, %212 ], [ %.ph, %.thread232 ]
-  %214 = getelementptr i8, ptr %124, i64 %213
-  %215 = getelementptr i8, ptr %214, i64 -1
-  %216 = load i8, ptr %215, align 1, !tbaa !4
-  %.not145 = icmp eq i8 %216, 10
-  %217 = icmp ugt i64 %213, %.094204
-  br i1 %217, label %218, label %.thread179.thread
+.thread179:                                       ; preds = %211, %.thread230, %.thread232
+  %212 = phi i64 [ %202, %.thread230 ], [ %184, %211 ], [ %.ph, %.thread232 ]
+  %213 = getelementptr i8, ptr %124, i64 %212
+  %214 = getelementptr i8, ptr %213, i64 -1
+  %215 = load i8, ptr %214, align 1, !tbaa !4
+  %.not145 = icmp eq i8 %215, 10
+  %216 = icmp ugt i64 %212, %.094204
+  br i1 %216, label %217, label %.thread179.thread
 
-218:                                              ; preds = %.thread179
-  %219 = getelementptr inbounds nuw i8, ptr %124, i64 %.094204
-  %220 = sub nuw i64 %213, %.094204
-  %221 = call i64 @write_in_full(i32 noundef %34, ptr noundef %219, i64 noundef %220) #31
-  %222 = icmp slt i64 %221, 0
-  br i1 %222, label %.thread181, label %223
+217:                                              ; preds = %.thread179
+  %218 = getelementptr inbounds nuw i8, ptr %124, i64 %.094204
+  %219 = sub nuw i64 %212, %.094204
+  %220 = call i64 @write_in_full(i32 noundef %34, ptr noundef %218, i64 noundef %219) #31
+  %221 = icmp slt i64 %220, 0
+  br i1 %221, label %.thread181, label %222
 
-223:                                              ; preds = %218
-  br i1 %.not145, label %.thread179.thread, label %224
+222:                                              ; preds = %217
+  br i1 %.not145, label %.thread179.thread, label %223
 
-224:                                              ; preds = %223
-  %225 = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %34, ptr noundef nonnull @.str.70, i64 noundef 1) #31
-  %226 = icmp slt i64 %225, 0
-  br i1 %226, label %.thread181, label %.thread179.thread
+223:                                              ; preds = %222
+  %224 = call i64 @write_in_full(i32 noundef range(i32 0, -2147483648) %34, ptr noundef nonnull @.str.70, i64 noundef 1) #31
+  %225 = icmp slt i64 %224, 0
+  br i1 %225, label %.thread181, label %.thread179.thread
 
-.thread181:                                       ; preds = %218, %224
+.thread181:                                       ; preds = %217, %223
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread193
 
-.thread179.thread:                                ; preds = %.thread179.loopexit, %212, %223, %224, %.thread179
-  %227 = load i64, ptr %15, align 8, !tbaa !16
+.thread179.thread:                                ; preds = %.thread179.loopexit, %211, %222, %223, %.thread179
+  %226 = load i64, ptr %15, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %228 = load i32, ptr %13, align 4, !tbaa !14
-  %229 = add nsw i32 %228, 1
-  store i32 %229, ptr %13, align 4, !tbaa !14
-  %230 = load i32, ptr %103, align 8, !tbaa !142
-  %231 = icmp ult i32 %229, %230
-  br i1 %231, label %173, label %._crit_edge, !llvm.loop !154
+  %227 = load i32, ptr %13, align 4, !tbaa !14
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %13, align 4, !tbaa !14
+  %229 = load i32, ptr %103, align 8, !tbaa !142
+  %230 = icmp ult i32 %228, %229
+  br i1 %230, label %173, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %.thread179.thread
-  br i1 %106, label %242, label %232
+  br i1 %106, label %241, label %231
 
-232:                                              ; preds = %._crit_edge
-  %233 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %234 = load i8, ptr %233, align 8
-  %235 = and i8 %234, 2
-  %.not138 = icmp eq i8 %235, 0
-  br i1 %.not138, label %236, label %239
+231:                                              ; preds = %._crit_edge
+  %232 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %233 = load i8, ptr %232, align 8
+  %234 = and i8 %233, 2
+  %.not138 = icmp eq i8 %234, 0
+  br i1 %.not138, label %235, label %238
 
-236:                                              ; preds = %232
-  %237 = call fastcc i64 @write_section(i32 noundef %34, ptr noundef %2, ptr noundef %10)
-  %238 = icmp slt i64 %237, 0
-  br i1 %238, label %.thread193, label %239
+235:                                              ; preds = %231
+  %236 = call fastcc i64 @write_section(i32 noundef %34, ptr noundef %2, ptr noundef %10)
+  %237 = icmp slt i64 %236, 0
+  br i1 %237, label %.thread193, label %238
 
-239:                                              ; preds = %236, %232
+238:                                              ; preds = %235, %231
   %.val152 = load i64, ptr %10, align 8
-  %240 = call fastcc i64 @write_pair(i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %5, i64 %.val152)
-  %241 = icmp slt i64 %240, 0
-  br i1 %241, label %.thread193, label %242
+  %239 = call fastcc i64 @write_pair(i32 noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %5, i64 %.val152)
+  %240 = icmp slt i64 %239, 0
+  br i1 %240, label %.thread193, label %241
 
-242:                                              ; preds = %239, %._crit_edge
-  %243 = icmp ult i64 %227, %121
-  br i1 %243, label %244, label %249
+241:                                              ; preds = %238, %._crit_edge
+  %242 = icmp ult i64 %226, %121
+  br i1 %242, label %243, label %248
 
-244:                                              ; preds = %242
-  %245 = getelementptr inbounds nuw i8, ptr %124, i64 %227
-  %246 = sub nuw nsw i64 %121, %227
-  %247 = call i64 @write_in_full(i32 noundef %34, ptr noundef %245, i64 noundef %246) #31
-  %248 = icmp slt i64 %247, 0
-  br i1 %248, label %.thread193, label %249
+243:                                              ; preds = %241
+  %244 = getelementptr inbounds nuw i8, ptr %124, i64 %226
+  %245 = sub nuw nsw i64 %121, %226
+  %246 = call i64 @write_in_full(i32 noundef %34, ptr noundef %244, i64 noundef %245) #31
+  %247 = icmp slt i64 %246, 0
+  br i1 %247, label %.thread193, label %248
 
 .thread186:                                       ; preds = %_.exit164, %_.exit161, %_.exit167, %_.exit170, %_.exit173, %102, %107
   %.3110.ph = phi i32 [ %42, %107 ], [ %42, %102 ], [ -1, %_.exit173 ], [ %42, %_.exit170 ], [ %42, %_.exit167 ], [ %42, %_.exit161 ], [ %42, %_.exit164 ]
@@ -8139,123 +8138,123 @@ _.exit173:                                        ; preds = %150, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %repo_config_clear.exit
 
-.thread193:                                       ; preds = %.thread181, %236, %239, %244
+.thread193:                                       ; preds = %.thread181, %235, %238, %243
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %283
+  br label %282
 
-249:                                              ; preds = %242, %244
-  %250 = call i32 @munmap(ptr noundef %124, i64 noundef %121) #31
+248:                                              ; preds = %241, %243
+  %249 = call i32 @munmap(ptr noundef %124, i64 noundef %121) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %251
+  br label %250
 
-251:                                              ; preds = %249, %62
-  %.2109 = phi i32 [ %42, %62 ], [ -1, %249 ]
-  %.298 = phi i64 [ undef, %62 ], [ %121, %249 ]
-  %252 = call i32 @commit_lock_file(ptr noundef nonnull %9) #31
-  %253 = icmp slt i32 %252, 0
-  br i1 %253, label %254, label %259
+250:                                              ; preds = %248, %62
+  %.2109 = phi i32 [ %42, %62 ], [ -1, %248 ]
+  %.298 = phi i64 [ undef, %62 ], [ %121, %248 ]
+  %251 = call i32 @commit_lock_file(ptr noundef nonnull %9) #31
+  %252 = icmp slt i32 %251, 0
+  br i1 %252, label %253, label %258
 
-254:                                              ; preds = %251
-  %255 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
-  %.not4.i174 = icmp eq i32 %255, 0
-  br i1 %.not4.i174, label %_.exit176, label %256
+253:                                              ; preds = %250
+  %254 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
+  %.not4.i174 = icmp eq i32 %254, 0
+  br i1 %.not4.i174, label %_.exit176, label %255
 
-256:                                              ; preds = %254
-  %257 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #31
+255:                                              ; preds = %253
+  %256 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #31
   br label %_.exit176
 
-_.exit176:                                        ; preds = %254, %256
-  %.0.i175 = phi ptr [ %257, %256 ], [ @.str.71, %254 ]
-  %258 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i175, ptr noundef %.092) #31
+_.exit176:                                        ; preds = %253, %255
+  %.0.i175 = phi ptr [ %256, %255 ], [ @.str.71, %253 ]
+  %257 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i175, ptr noundef %.092) #31
   br label %repo_config_clear.exit
 
-259:                                              ; preds = %251
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %261 = load ptr, ptr %260, align 8, !tbaa !126
-  %.not.i177 = icmp eq ptr %261, null
-  br i1 %.not.i177, label %repo_config_clear.exit, label %262
+258:                                              ; preds = %250
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %260 = load ptr, ptr %259, align 8, !tbaa !126
+  %.not.i177 = icmp eq ptr %260, null
+  br i1 %.not.i177, label %repo_config_clear.exit, label %261
 
-262:                                              ; preds = %259
-  %263 = getelementptr inbounds nuw i8, ptr %261, i64 48
-  %264 = load i32, ptr %263, align 8, !tbaa !104
-  %.not3.i = icmp eq i32 %264, 0
-  br i1 %.not3.i, label %repo_config_clear.exit, label %265
+261:                                              ; preds = %258
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 48
+  %263 = load i32, ptr %262, align 8, !tbaa !104
+  %.not3.i = icmp eq i32 %263, 0
+  br i1 %.not3.i, label %repo_config_clear.exit, label %264
 
-265:                                              ; preds = %262
-  call void @git_configset_clear(ptr noundef nonnull %261)
+264:                                              ; preds = %261
+  call void @git_configset_clear(ptr noundef nonnull %260)
   br label %repo_config_clear.exit
 
-repo_config_clear.exit:                           ; preds = %265, %262, %259, %.thread186, %52, %validate_comment_string.exit, %write_error.exit, %_.exit176, %_.exit158, %_.exit
-  %.0107 = phi i32 [ -1, %validate_comment_string.exit ], [ -1, %_.exit ], [ %42, %_.exit158 ], [ %.1108, %write_error.exit ], [ %.2109, %_.exit176 ], [ %42, %52 ], [ %.3110.ph, %.thread186 ], [ %.2109, %259 ], [ %.2109, %262 ], [ %.2109, %265 ]
-  %.0105 = phi i32 [ %27, %validate_comment_string.exit ], [ -1, %_.exit ], [ 3, %_.exit158 ], [ 4, %write_error.exit ], [ 4, %_.exit176 ], [ 5, %52 ], [ %.1106.ph, %.thread186 ], [ 0, %259 ], [ 0, %262 ], [ 0, %265 ]
-  %.0103 = phi ptr [ null, %validate_comment_string.exit ], [ %.1104, %_.exit ], [ %.1104, %_.exit158 ], [ %.1104, %write_error.exit ], [ %.1104, %_.exit176 ], [ %.1104, %52 ], [ %.1104, %.thread186 ], [ %.1104, %259 ], [ %.1104, %262 ], [ %.1104, %265 ]
-  %.099 = phi ptr [ null, %validate_comment_string.exit ], [ null, %_.exit ], [ null, %_.exit158 ], [ %.1100, %write_error.exit ], [ null, %_.exit176 ], [ null, %52 ], [ %.3102.ph, %.thread186 ], [ null, %259 ], [ null, %262 ], [ null, %265 ]
-  %.096 = phi i64 [ undef, %validate_comment_string.exit ], [ undef, %_.exit ], [ undef, %_.exit158 ], [ %.197, %write_error.exit ], [ %.298, %_.exit176 ], [ undef, %52 ], [ %.3.ph, %.thread186 ], [ %.298, %259 ], [ %.298, %262 ], [ %.298, %265 ]
-  %266 = call i32 @delete_tempfile(ptr noundef nonnull %9) #31
+repo_config_clear.exit:                           ; preds = %264, %261, %258, %.thread186, %52, %validate_comment_string.exit, %write_error.exit, %_.exit176, %_.exit158, %_.exit
+  %.0107 = phi i32 [ -1, %validate_comment_string.exit ], [ -1, %_.exit ], [ %42, %_.exit158 ], [ %.1108, %write_error.exit ], [ %.2109, %_.exit176 ], [ %42, %52 ], [ %.3110.ph, %.thread186 ], [ %.2109, %258 ], [ %.2109, %261 ], [ %.2109, %264 ]
+  %.0105 = phi i32 [ %27, %validate_comment_string.exit ], [ -1, %_.exit ], [ 3, %_.exit158 ], [ 4, %write_error.exit ], [ 4, %_.exit176 ], [ 5, %52 ], [ %.1106.ph, %.thread186 ], [ 0, %258 ], [ 0, %261 ], [ 0, %264 ]
+  %.0103 = phi ptr [ null, %validate_comment_string.exit ], [ %.1104, %_.exit ], [ %.1104, %_.exit158 ], [ %.1104, %write_error.exit ], [ %.1104, %_.exit176 ], [ %.1104, %52 ], [ %.1104, %.thread186 ], [ %.1104, %258 ], [ %.1104, %261 ], [ %.1104, %264 ]
+  %.099 = phi ptr [ null, %validate_comment_string.exit ], [ null, %_.exit ], [ null, %_.exit158 ], [ %.1100, %write_error.exit ], [ null, %_.exit176 ], [ null, %52 ], [ %.3102.ph, %.thread186 ], [ null, %258 ], [ null, %261 ], [ null, %264 ]
+  %.096 = phi i64 [ undef, %validate_comment_string.exit ], [ undef, %_.exit ], [ undef, %_.exit158 ], [ %.197, %write_error.exit ], [ %.298, %_.exit176 ], [ undef, %52 ], [ %.3.ph, %.thread186 ], [ %.298, %258 ], [ %.298, %261 ], [ %.298, %264 ]
+  %265 = call i32 @delete_tempfile(ptr noundef nonnull %9) #31
   call void @free(ptr noundef %.0103) #31
   %.not149 = icmp eq ptr %.099, null
-  br i1 %.not149, label %269, label %267
+  br i1 %.not149, label %268, label %266
 
-267:                                              ; preds = %repo_config_clear.exit
-  %268 = call i32 @munmap(ptr noundef nonnull %.099, i64 noundef %.096) #31
-  br label %269
+266:                                              ; preds = %repo_config_clear.exit
+  %267 = call i32 @munmap(ptr noundef nonnull %.099, i64 noundef %.096) #31
+  br label %268
 
-269:                                              ; preds = %267, %repo_config_clear.exit
-  %270 = icmp sgt i32 %.0107, -1
-  br i1 %270, label %271, label %273
+268:                                              ; preds = %266, %repo_config_clear.exit
+  %269 = icmp sgt i32 %.0107, -1
+  br i1 %269, label %270, label %272
 
-271:                                              ; preds = %269
-  %272 = call i32 @close(i32 noundef %.0107) #31
-  br label %273
+270:                                              ; preds = %268
+  %271 = call i32 @close(i32 noundef %.0107) #31
+  br label %272
 
-273:                                              ; preds = %271, %269
-  %274 = load ptr, ptr %25, align 8, !tbaa !135
-  call void @free(ptr noundef %274) #31
-  %275 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %276 = load ptr, ptr %275, align 8, !tbaa !137
-  %switch.i = icmp ult ptr %276, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %config_store_data_clear.exit, label %277
+272:                                              ; preds = %270, %268
+  %273 = load ptr, ptr %25, align 8, !tbaa !135
+  call void @free(ptr noundef %273) #31
+  %274 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %275 = load ptr, ptr %274, align 8, !tbaa !137
+  %switch.i = icmp ult ptr %275, inttoptr (i64 2 to ptr)
+  br i1 %switch.i, label %config_store_data_clear.exit, label %276
 
-277:                                              ; preds = %273
-  call void @regfree(ptr noundef nonnull %276) #31
-  %278 = load ptr, ptr %275, align 8, !tbaa !137
-  call void @free(ptr noundef %278) #31
+276:                                              ; preds = %272
+  call void @regfree(ptr noundef nonnull %275) #31
+  %277 = load ptr, ptr %274, align 8, !tbaa !137
+  call void @free(ptr noundef %277) #31
   br label %config_store_data_clear.exit
 
-config_store_data_clear.exit:                     ; preds = %273, %277
-  %279 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %280 = load ptr, ptr %279, align 8, !tbaa !139
-  call void @free(ptr noundef %280) #31
-  %281 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %282 = load ptr, ptr %281, align 8, !tbaa !151
-  call void @free(ptr noundef %282) #31
+config_store_data_clear.exit:                     ; preds = %272, %276
+  %278 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %279 = load ptr, ptr %278, align 8, !tbaa !139
+  call void @free(ptr noundef %279) #31
+  %280 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %281 = load ptr, ptr %280, align 8, !tbaa !151
+  call void @free(ptr noundef %281) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0105
 
-283:                                              ; preds = %.thread193, %53, %62
+282:                                              ; preds = %.thread193, %53, %62
   %.1108 = phi i32 [ %42, %53 ], [ %42, %62 ], [ -1, %.thread193 ]
   %.1100 = phi ptr [ null, %53 ], [ null, %62 ], [ %124, %.thread193 ]
   %.197 = phi i64 [ undef, %53 ], [ undef, %62 ], [ %121, %.thread193 ]
   %.val155 = load ptr, ptr %9, align 8, !tbaa !147
-  %284 = call ptr @get_tempfile_path(ptr noundef %.val155) #31
-  %285 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
-  %.not4.i.i = icmp eq i32 %285, 0
-  br i1 %.not4.i.i, label %write_error.exit, label %286
+  %283 = call ptr @get_tempfile_path(ptr noundef %.val155) #31
+  %284 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !14
+  %.not4.i.i = icmp eq i32 %284, 0
+  br i1 %.not4.i.i, label %write_error.exit, label %285
 
-286:                                              ; preds = %283
-  %287 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.246, i32 noundef 5) #31
+285:                                              ; preds = %282
+  %286 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.246, i32 noundef 5) #31
   br label %write_error.exit
 
-write_error.exit:                                 ; preds = %283, %286
-  %.0.i.i = phi ptr [ %287, %286 ], [ @.str.246, %283 ]
-  %288 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i, ptr noundef %284) #31
+write_error.exit:                                 ; preds = %282, %285
+  %.0.i.i = phi ptr [ %286, %285 ], [ @.str.246, %282 ]
+  %287 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i, ptr noundef %283) #31
   br label %repo_config_clear.exit
 }
 

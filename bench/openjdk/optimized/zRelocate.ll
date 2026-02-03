@@ -1381,360 +1381,349 @@ define hidden noundef i64 @_ZN9ZRelocate15relocate_objectEP11ZForwarding15zaddre
   %31 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %30, i64 %27
   %32 = load volatile i64, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %33 = and i64 %32, 1
-  %34 = icmp eq i64 %33, 0
-  %35 = lshr i64 %32, 46
-  %36 = icmp eq i64 %35, %10
-  %or.cond7.i.i.i = or i1 %34, %36
-  br i1 %or.cond7.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafePm.exit, label %.lr.ph.i.i.i
+  %33 = trunc i64 %32 to i1
+  %34 = lshr i64 %32, 46
+  %35 = icmp ne i64 %34, %10
+  %or.cond.not8.i.i.i = and i1 %35, %33
+  br i1 %or.cond.not8.i.i.i, label %.lr.ph.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafePm.exit
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
-  %.019 = phi i64 [ %40, %.lr.ph.i.i.i ], [ %27, %3 ]
-  %37 = load i64, ptr %11, align 8
-  %38 = add i64 %37, -1
-  %39 = add i64 %.019, 1
-  %40 = and i64 %38, %39
-  %41 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %40
-  %42 = load volatile i64, ptr %41, align 8
+  %.018 = phi i64 [ %39, %.lr.ph.i.i.i ], [ %27, %3 ]
+  %36 = load i64, ptr %11, align 8
+  %37 = add i64 %36, -1
+  %38 = add i64 %.018, 1
+  %39 = and i64 %37, %38
+  %40 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %39
+  %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %43 = and i64 %42, 1
-  %44 = icmp eq i64 %43, 0
-  %45 = lshr i64 %42, 46
-  %46 = icmp eq i64 %45, %10
-  %or.cond.i.i.i = or i1 %44, %46
-  br i1 %or.cond.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafePm.exit, label %.lr.ph.i.i.i, !llvm.loop !18
+  %42 = trunc i64 %41 to i1
+  %43 = lshr i64 %41, 46
+  %44 = icmp ne i64 %43, %10
+  %or.cond.not.i.i.i = and i1 %44, %42
+  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafePm.exit, !llvm.loop !18
 
 _ZN11ZForwarding4findE15zaddress_unsafePm.exit:   ; preds = %.lr.ph.i.i.i, %3
-  %.1 = phi i64 [ %27, %3 ], [ %40, %.lr.ph.i.i.i ]
-  %.pre-phi.i.i = phi i64 [ %33, %3 ], [ %43, %.lr.ph.i.i.i ]
-  %storemerge.lcssa.i.i.i = phi i64 [ %32, %3 ], [ %42, %.lr.ph.i.i.i ]
-  %.not.i.i = icmp eq i64 %.pre-phi.i.i, 0
-  %47 = lshr i64 %storemerge.lcssa.i.i.i, 1
-  %48 = and i64 %47, 35184372088831
-  %49 = load i64, ptr @ZAddressHeapBase, align 8
-  %50 = or i64 %48, %49
-  %51 = icmp eq i64 %50, 0
-  %52 = select i1 %.not.i.i, i1 true, i1 %51
-  br i1 %52, label %53, label %238
+  %.1 = phi i64 [ %27, %3 ], [ %39, %.lr.ph.i.i.i ]
+  %.pre-phi.i.i = phi i1 [ %33, %3 ], [ %42, %.lr.ph.i.i.i ]
+  %storemerge.lcssa.i.i.i = phi i64 [ %32, %3 ], [ %41, %.lr.ph.i.i.i ]
+  %45 = lshr i64 %storemerge.lcssa.i.i.i, 1
+  %46 = and i64 %45, 35184372088831
+  %47 = load i64, ptr @ZAddressHeapBase, align 8
+  %48 = or i64 %46, %47
+  %49 = icmp ne i64 %48, 0
+  %.not20 = select i1 %.pre-phi.i.i, i1 %49, i1 false
+  br i1 %.not20, label %233, label %50
 
-53:                                               ; preds = %_ZN11ZForwarding4findE15zaddress_unsafePm.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = tail call noundef zeroext i1 @_ZN11ZForwarding11retain_pageEP14ZRelocateQueue(ptr noundef nonnull align 8 dereferenceable(184) %1, ptr noundef nonnull %54) #15
-  br i1 %55, label %56, label %194
+50:                                               ; preds = %_ZN11ZForwarding4findE15zaddress_unsafePm.exit
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = tail call noundef zeroext i1 @_ZN11ZForwarding11retain_pageEP14ZRelocateQueue(ptr noundef nonnull align 8 dereferenceable(184) %1, ptr noundef nonnull %51) #15
+  br i1 %52, label %53, label %191
 
-56:                                               ; preds = %53
-  %57 = inttoptr i64 %2 to ptr
-  %58 = load i8, ptr @UseCompressedClassPointers, align 1
-  %59 = trunc i8 %58 to i1
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  br i1 %59, label %61, label %71
+53:                                               ; preds = %50
+  %54 = inttoptr i64 %2 to ptr
+  %55 = load i8, ptr @UseCompressedClassPointers, align 1
+  %56 = trunc i8 %55 to i1
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  br i1 %56, label %58, label %68
 
-61:                                               ; preds = %56
-  %62 = load i32, ptr %60, align 8
-  %63 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %64 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %65 = ptrtoint ptr %63 to i64
-  %66 = zext i32 %62 to i64
-  %67 = zext nneg i32 %64 to i64
-  %68 = shl i64 %66, %67
-  %69 = add i64 %68, %65
-  %70 = inttoptr i64 %69 to ptr
+58:                                               ; preds = %53
+  %59 = load i32, ptr %57, align 8
+  %60 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %61 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %62 = ptrtoint ptr %60 to i64
+  %63 = zext i32 %59 to i64
+  %64 = zext nneg i32 %61 to i64
+  %65 = shl i64 %63, %64
+  %66 = add i64 %65, %62
+  %67 = inttoptr i64 %66 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i.i.i
 
-71:                                               ; preds = %56
-  %72 = load ptr, ptr %60, align 8
+68:                                               ; preds = %53
+  %69 = load ptr, ptr %57, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i.i.i
 
-_ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %71, %61
-  %.0.i.i.i.i = phi ptr [ %70, %61 ], [ %72, %71 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %76, label %86
+_ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %68, %58
+  %.0.i.i.i.i = phi ptr [ %67, %58 ], [ %69, %68 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %73, label %83
 
-76:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i
-  %77 = and i32 %74, 1
-  %.not.i.i.i.i = icmp eq i32 %77, 0
-  br i1 %.not.i.i.i.i, label %78, label %81
+73:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i
+  %74 = trunc i32 %71 to i1
+  br i1 %74, label %78, label %75
 
-78:                                               ; preds = %76
-  %79 = lshr i32 %74, 3
-  %80 = zext nneg i32 %79 to i64
+75:                                               ; preds = %73
+  %76 = lshr i32 %71, 3
+  %77 = zext nneg i32 %76 to i64
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit.i
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %.0.i.i.i.i, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 256
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %57) #15
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %.0.i.i.i.i, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 256
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call noundef i64 %81(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %54) #15
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit.i
 
-86:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i
-  %87 = icmp slt i32 %74, 0
-  br i1 %87, label %88, label %108
+83:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i.i
+  %84 = icmp slt i32 %71, 0
+  br i1 %84, label %85, label %105
 
-88:                                               ; preds = %86
-  %89 = select i1 %59, i64 12, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %57, i64 %89
-  %91 = load i32, ptr %90, align 4
-  %92 = sext i32 %91 to i64
-  %93 = and i32 %74, 63
-  %94 = zext nneg i32 %93 to i64
-  %95 = shl i64 %92, %94
-  %96 = lshr i32 %74, 16
-  %97 = and i32 %96, 255
-  %98 = zext nneg i32 %97 to i64
-  %99 = add i64 %95, %98
-  %100 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %101 = add nsw i32 %100, -1
+85:                                               ; preds = %83
+  %86 = select i1 %56, i64 12, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %54, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %89 = sext i32 %88 to i64
+  %90 = and i32 %71, 63
+  %91 = zext nneg i32 %90 to i64
+  %92 = shl i64 %89, %91
+  %93 = lshr i32 %71, 16
+  %94 = and i32 %93, 255
+  %95 = zext nneg i32 %94 to i64
+  %96 = add i64 %92, %95
+  %97 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %98 = add nsw i32 %97, -1
+  %99 = sext i32 %98 to i64
+  %100 = add i64 %96, %99
+  %101 = sub i32 0, %97
   %102 = sext i32 %101 to i64
-  %103 = add i64 %99, %102
-  %104 = sub i32 0, %100
-  %105 = sext i32 %104 to i64
-  %106 = and i64 %103, %105
-  %107 = lshr i64 %106, 3
+  %103 = and i64 %100, %102
+  %104 = lshr i64 %103, 3
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit.i
 
-108:                                              ; preds = %86
-  %109 = load ptr, ptr %.0.i.i.i.i, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 256
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef i64 %111(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %57) #15
+105:                                              ; preds = %83
+  %106 = load ptr, ptr %.0.i.i.i.i, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 256
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call noundef i64 %108(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %54) #15
   br label %_ZN6ZUtils11object_sizeE8zaddress.exit.i
 
-_ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %108, %88, %81, %78
-  %.0.i1.i.i.i = phi i64 [ %85, %81 ], [ %80, %78 ], [ %107, %88 ], [ %112, %108 ]
-  %113 = shl i64 %.0.i1.i.i.i, 3
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i64
-  %117 = add nuw nsw i64 %116, 4294967295
-  %118 = and i64 %117, 4294967295
-  %119 = getelementptr inbounds nuw ptr, ptr @_ZN10ZAllocator11_relocationE, i64 %118
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i64 @_ZN23ZAllocatorForRelocation12alloc_objectEm(ptr noundef nonnull align 8 dereferenceable(40) %120, i64 noundef %113) #15
-  %122 = icmp eq i64 %121, 0
-  br i1 %122, label %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit.thread, label %123
+_ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %105, %85, %78, %75
+  %.0.i1.i.i.i = phi i64 [ %82, %78 ], [ %77, %75 ], [ %104, %85 ], [ %109, %105 ]
+  %110 = shl i64 %.0.i1.i.i.i, 3
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 41
+  %112 = load i8, ptr %111, align 1
+  %113 = zext i8 %112 to i64
+  %114 = add nuw nsw i64 %113, 4294967295
+  %115 = and i64 %114, 4294967295
+  %116 = getelementptr inbounds nuw ptr, ptr @_ZN10ZAllocator11_relocationE, i64 %115
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call noundef i64 @_ZN23ZAllocatorForRelocation12alloc_objectEm(ptr noundef nonnull align 8 dereferenceable(40) %117, i64 noundef %110) #15
+  %119 = icmp eq i64 %118, 0
+  br i1 %119, label %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit.thread, label %120
 
 _ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit.thread: ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit.i
   tail call void @_ZN11ZForwarding12release_pageEv(ptr noundef nonnull align 8 dereferenceable(184) %1) #15
-  br label %193
+  br label %190
 
-123:                                              ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit.i
-  %124 = inttoptr i64 %121 to ptr
-  %125 = and i64 %.0.i1.i.i.i, 2305843009213693951
-  switch i64 %125, label %155 [
-    i64 8, label %126
-    i64 7, label %130
-    i64 6, label %134
-    i64 5, label %138
-    i64 4, label %142
-    i64 3, label %146
-    i64 2, label %150
-    i64 1, label %153
+120:                                              ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit.i
+  %121 = inttoptr i64 %118 to ptr
+  %122 = and i64 %.0.i1.i.i.i, 2305843009213693951
+  switch i64 %122, label %152 [
+    i64 8, label %123
+    i64 7, label %127
+    i64 6, label %131
+    i64 5, label %135
+    i64 4, label %139
+    i64 3, label %143
+    i64 2, label %147
+    i64 1, label %150
     i64 0, label %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i
   ]
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 56
-  store ptr %128, ptr %129, align 8
-  br label %130
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %125 = load ptr, ptr %124, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 56
+  store ptr %125, ptr %126, align 8
+  br label %127
 
-130:                                              ; preds = %126, %123
-  %131 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  store ptr %132, ptr %133, align 8
-  br label %134
+127:                                              ; preds = %123, %120
+  %128 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 48
+  store ptr %129, ptr %130, align 8
+  br label %131
 
-134:                                              ; preds = %130, %123
-  %135 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  store ptr %136, ptr %137, align 8
-  br label %138
+131:                                              ; preds = %127, %120
+  %132 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %121, i64 40
+  store ptr %133, ptr %134, align 8
+  br label %135
 
-138:                                              ; preds = %134, %123
-  %139 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  store ptr %140, ptr %141, align 8
-  br label %142
+135:                                              ; preds = %131, %120
+  %136 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %121, i64 32
+  store ptr %137, ptr %138, align 8
+  br label %139
 
-142:                                              ; preds = %138, %123
-  %143 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  store ptr %144, ptr %145, align 8
-  br label %146
+139:                                              ; preds = %135, %120
+  %140 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  store ptr %141, ptr %142, align 8
+  br label %143
 
-146:                                              ; preds = %142, %123
-  %147 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %124, i64 16
+143:                                              ; preds = %139, %120
+  %144 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  store ptr %145, ptr %146, align 8
+  br label %147
+
+147:                                              ; preds = %143, %120
+  %148 = load ptr, ptr %57, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %148, ptr %149, align 8
   br label %150
 
-150:                                              ; preds = %146, %123
-  %151 = load ptr, ptr %60, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store ptr %151, ptr %152, align 8
-  br label %153
-
-153:                                              ; preds = %150, %123
-  %154 = load ptr, ptr %57, align 8
-  store ptr %154, ptr %124, align 8
+150:                                              ; preds = %147, %120
+  %151 = load ptr, ptr %54, align 8
+  store ptr %151, ptr %121, align 8
   br label %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i
 
-155:                                              ; preds = %123
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %124, ptr nonnull align 8 %57, i64 %113, i1 false)
+152:                                              ; preds = %120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr nonnull align 8 %54, i64 %110, i1 false)
   br label %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i
 
-_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i: ; preds = %155, %153, %123
-  %156 = load i64, ptr @ZAddressOffsetMask, align 8
-  %157 = and i64 %156, %2
-  %158 = load i64, ptr %1, align 8
-  %159 = sub i64 %157, %158
-  %160 = load i64, ptr %8, align 8
-  %161 = lshr i64 %159, %160
-  %162 = and i64 %156, %121
-  %163 = shl i64 %162, 1
-  %164 = shl i64 %161, 46
-  %165 = or i64 %163, %164
-  %166 = or disjoint i64 %165, 1
+_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i: ; preds = %152, %150, %120
+  %153 = load i64, ptr @ZAddressOffsetMask, align 8
+  %154 = and i64 %153, %2
+  %155 = load i64, ptr %1, align 8
+  %156 = sub i64 %154, %155
+  %157 = load i64, ptr %8, align 8
+  %158 = lshr i64 %156, %157
+  %159 = and i64 %153, %118
+  %160 = shl i64 %159, 1
+  %161 = shl i64 %158, 46
+  %162 = or i64 %160, %161
+  %163 = or disjoint i64 %162, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %167 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.1
-  %168 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %166, i64 0, ptr %167) #15, !srcloc !15
-  %169 = and i64 %168, 1
-  %.not20.i.i.i.i = icmp eq i64 %169, 0
-  br i1 %.not20.i.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, label %.lr.ph21.i.i.i.i
+  %164 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.1
+  %165 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %163, i64 0, ptr %164) #15, !srcloc !15
+  %166 = trunc i64 %165 to i1
+  br i1 %166, label %.lr.ph18.i.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i
 
-.loopexit.i.i.i.i:                                ; preds = %181, %.lr.ph21.i.i.i.i
-  %.4 = phi i64 [ %.2, %.lr.ph21.i.i.i.i ], [ %185, %181 ]
-  %170 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.4
-  %171 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %166, i64 0, ptr %170) #15, !srcloc !15
-  %172 = and i64 %171, 1
-  %.not.i.i.i19.i = icmp eq i64 %172, 0
-  br i1 %.not.i.i.i19.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, label %.lr.ph21.i.i.i.i, !llvm.loop !19
+.loopexit.i.i.i.i:                                ; preds = %178, %.lr.ph18.i.i.i.i
+  %.3 = phi i64 [ %.2, %.lr.ph18.i.i.i.i ], [ %182, %178 ]
+  %167 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.3
+  %168 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %163, i64 0, ptr %167) #15, !srcloc !15
+  %169 = trunc i64 %168 to i1
+  br i1 %169, label %.lr.ph18.i.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, !llvm.loop !19
 
-.lr.ph21.i.i.i.i:                                 ; preds = %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i, %.loopexit.i.i.i.i
-  %.2 = phi i64 [ %.4, %.loopexit.i.i.i.i ], [ %.1, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i ]
-  %173 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.2
-  %174 = load volatile i64, ptr %173, align 8
+.lr.ph18.i.i.i.i:                                 ; preds = %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i, %.loopexit.i.i.i.i
+  %.2 = phi i64 [ %.3, %.loopexit.i.i.i.i ], [ %.1, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i ]
+  %170 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %.2
+  %171 = load volatile i64, ptr %170, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %175 = and i64 %174, 1
-  %.not1518.i.i.i.i = icmp eq i64 %175, 0
-  br i1 %.not1518.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i
+  %172 = trunc i64 %171 to i1
+  br i1 %172, label %.lr.ph.i.i.i.i, label %.loopexit.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph21.i.i.i.i, %181
-  %.3 = phi i64 [ %185, %181 ], [ %.2, %.lr.ph21.i.i.i.i ]
-  %storemerge19.i.i.i.i = phi i64 [ %187, %181 ], [ %174, %.lr.ph21.i.i.i.i ]
-  %176 = lshr i64 %storemerge19.i.i.i.i, 46
-  %177 = icmp eq i64 %176, %161
-  br i1 %177, label %178, label %181
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph18.i.i.i.i, %178
+  %.4 = phi i64 [ %182, %178 ], [ %.2, %.lr.ph18.i.i.i.i ]
+  %storemerge17.i.i.i.i = phi i64 [ %184, %178 ], [ %171, %.lr.ph18.i.i.i.i ]
+  %173 = lshr i64 %storemerge17.i.i.i.i, 46
+  %174 = icmp eq i64 %173, %158
+  br i1 %174, label %175, label %178
 
-178:                                              ; preds = %.lr.ph.i.i.i.i
-  %179 = lshr i64 %storemerge19.i.i.i.i, 1
-  %180 = and i64 %179, 35184372088831
+175:                                              ; preds = %.lr.ph.i.i.i.i
+  %176 = lshr i64 %storemerge17.i.i.i.i, 1
+  %177 = and i64 %176, 35184372088831
   br label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i
 
-181:                                              ; preds = %.lr.ph.i.i.i.i
-  %182 = load i64, ptr %11, align 8
-  %183 = add i64 %182, -1
-  %184 = add i64 %.3, 1
-  %185 = and i64 %183, %184
-  %186 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %185
-  %187 = load volatile i64, ptr %186, align 8
+178:                                              ; preds = %.lr.ph.i.i.i.i
+  %179 = load i64, ptr %11, align 8
+  %180 = add i64 %179, -1
+  %181 = add i64 %.4, 1
+  %182 = and i64 %180, %181
+  %183 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %182
+  %184 = load volatile i64, ptr %183, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %188 = and i64 %187, 1
-  %.not15.i.i.i.i = icmp eq i64 %188, 0
-  br i1 %.not15.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  %185 = trunc i64 %184 to i1
+  br i1 %185, label %.lr.ph.i.i.i.i, label %.loopexit.i.i.i.i, !llvm.loop !20
 
-_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i:    ; preds = %.loopexit.i.i.i.i, %178, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i
-  %.0.i.i.i20.i = phi i64 [ %180, %178 ], [ %162, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i ], [ %162, %.loopexit.i.i.i.i ]
-  %189 = load i64, ptr @ZAddressHeapBase, align 8
-  %190 = or i64 %189, %.0.i.i.i20.i
-  %.not.i = icmp eq i64 %190, %121
-  br i1 %.not.i, label %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit, label %191
+_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i:    ; preds = %.loopexit.i.i.i.i, %175, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i
+  %.0.i.i.i19.i = phi i64 [ %177, %175 ], [ %159, %_ZN6ZUtils20object_copy_disjointE8zaddressS0_m.exit.i ], [ %159, %.loopexit.i.i.i.i ]
+  %186 = load i64, ptr @ZAddressHeapBase, align 8
+  %187 = or i64 %186, %.0.i.i.i19.i
+  %.not.i = icmp eq i64 %187, %118
+  br i1 %.not.i, label %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit, label %188
 
-191:                                              ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i
-  tail call void @_ZN23ZAllocatorForRelocation17undo_alloc_objectE8zaddressm(ptr noundef nonnull align 8 dereferenceable(40) %120, i64 noundef %121, i64 noundef %113) #15
+188:                                              ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i
+  tail call void @_ZN23ZAllocatorForRelocation17undo_alloc_objectE8zaddressm(ptr noundef nonnull align 8 dereferenceable(40) %117, i64 noundef %118, i64 noundef %110) #15
   br label %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit
 
-_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit: ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, %191
-  %.0.i = phi i64 [ %121, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i ], [ %190, %191 ]
+_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit: ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i, %188
+  %.0.i = phi i64 [ %118, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit.i ], [ %187, %188 ]
   tail call void @_ZN11ZForwarding12release_pageEv(ptr noundef nonnull align 8 dereferenceable(184) %1) #15
-  %192 = icmp eq i64 %.0.i, 0
-  br i1 %192, label %193, label %238
+  %189 = icmp eq i64 %.0.i, 0
+  br i1 %189, label %190, label %233
 
-193:                                              ; preds = %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit.thread, %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit
-  tail call void @_ZN14ZRelocateQueue12add_and_waitEP11ZForwarding(ptr noundef nonnull align 8 dereferenceable(120) %54, ptr noundef nonnull %1)
-  br label %194
+190:                                              ; preds = %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit.thread, %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit
+  tail call void @_ZN14ZRelocateQueue12add_and_waitEP11ZForwarding(ptr noundef nonnull align 8 dereferenceable(120) %51, ptr noundef nonnull %1)
+  br label %191
 
-194:                                              ; preds = %193, %53
-  %195 = load i64, ptr @ZAddressOffsetMask, align 8
-  %196 = and i64 %195, %2
-  %197 = load i64, ptr %1, align 8
-  %198 = sub i64 %196, %197
-  %199 = load i64, ptr %8, align 8
-  %200 = lshr i64 %198, %199
-  %201 = load i64, ptr %11, align 8
-  %202 = add i64 %201, 4294967295
-  %203 = trunc i64 %200 to i32
-  %204 = xor i32 %203, -1
-  %205 = shl i32 %203, 15
-  %206 = add i32 %205, %204
-  %207 = lshr i32 %206, 12
+191:                                              ; preds = %190, %50
+  %192 = load i64, ptr @ZAddressOffsetMask, align 8
+  %193 = and i64 %192, %2
+  %194 = load i64, ptr %1, align 8
+  %195 = sub i64 %193, %194
+  %196 = load i64, ptr %8, align 8
+  %197 = lshr i64 %195, %196
+  %198 = load i64, ptr %11, align 8
+  %199 = add i64 %198, 4294967295
+  %200 = trunc i64 %197 to i32
+  %201 = xor i32 %200, -1
+  %202 = shl i32 %200, 15
+  %203 = add i32 %202, %201
+  %204 = lshr i32 %203, 12
+  %205 = xor i32 %204, %203
+  %206 = mul i32 %205, 5
+  %207 = lshr i32 %206, 4
   %208 = xor i32 %207, %206
-  %209 = mul i32 %208, 5
-  %210 = lshr i32 %209, 4
+  %209 = mul i32 %208, 2057
+  %210 = lshr i32 %209, 16
   %211 = xor i32 %210, %209
-  %212 = mul i32 %211, 2057
-  %213 = lshr i32 %212, 16
-  %214 = xor i32 %213, %212
-  %215 = zext i32 %214 to i64
-  %216 = and i64 %202, %215
-  %217 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %30, i64 %216
-  %218 = load volatile i64, ptr %217, align 8
+  %212 = zext i32 %211 to i64
+  %213 = and i64 %199, %212
+  %214 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %30, i64 %213
+  %215 = load volatile i64, ptr %214, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %219 = and i64 %218, 1
-  %220 = icmp eq i64 %219, 0
-  %221 = lshr i64 %218, 46
-  %222 = icmp eq i64 %221, %200
-  %or.cond7.i.i.i.i.i = or i1 %220, %222
-  br i1 %or.cond7.i.i.i.i.i, label %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i.i
+  %216 = trunc i64 %215 to i1
+  %217 = lshr i64 %215, 46
+  %218 = icmp ne i64 %217, %197
+  %or.cond.not8.i.i.i.i.i = and i1 %218, %216
+  br i1 %or.cond.not8.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %194, %.lr.ph.i.i.i.i.i
-  %.0.i.i = phi i64 [ %226, %.lr.ph.i.i.i.i.i ], [ %216, %194 ]
-  %223 = load i64, ptr %11, align 8
-  %224 = add i64 %223, -1
-  %225 = add i64 %.0.i.i, 1
-  %226 = and i64 %224, %225
-  %227 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %226
-  %228 = load volatile i64, ptr %227, align 8
+.lr.ph.i.i.i.i.i:                                 ; preds = %191, %.lr.ph.i.i.i.i.i
+  %.0.i.i = phi i64 [ %222, %.lr.ph.i.i.i.i.i ], [ %213, %191 ]
+  %219 = load i64, ptr %11, align 8
+  %220 = add i64 %219, -1
+  %221 = add i64 %.0.i.i, 1
+  %222 = and i64 %220, %221
+  %223 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %222
+  %224 = load volatile i64, ptr %223, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %229 = and i64 %228, 1
-  %230 = icmp eq i64 %229, 0
-  %231 = lshr i64 %228, 46
-  %232 = icmp eq i64 %231, %200
-  %or.cond.i.i.i.i.i = or i1 %230, %232
-  br i1 %or.cond.i.i.i.i.i, label %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
+  %225 = trunc i64 %224 to i1
+  %226 = lshr i64 %224, 46
+  %227 = icmp ne i64 %226, %197
+  %or.cond.not.i.i.i.i.i = and i1 %227, %225
+  br i1 %or.cond.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit, !llvm.loop !18
 
-_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit: ; preds = %.lr.ph.i.i.i.i.i, %194
-  %.pre-phi.i.i.i.i = phi i64 [ %219, %194 ], [ %229, %.lr.ph.i.i.i.i.i ]
-  %storemerge.lcssa.i.i.i.i.i = phi i64 [ %218, %194 ], [ %228, %.lr.ph.i.i.i.i.i ]
-  %.not.i.i.i.i14 = icmp eq i64 %.pre-phi.i.i.i.i, 0
-  %233 = lshr i64 %storemerge.lcssa.i.i.i.i.i, 1
-  %234 = and i64 %233, 35184372088831
-  %235 = load i64, ptr @ZAddressHeapBase, align 8
-  %236 = or i64 %234, %235
-  %237 = select i1 %.not.i.i.i.i14, i64 0, i64 %236
-  br label %238
+_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit: ; preds = %.lr.ph.i.i.i.i.i, %191
+  %.pre-phi.i.i.i.i = phi i1 [ %216, %191 ], [ %225, %.lr.ph.i.i.i.i.i ]
+  %storemerge.lcssa.i.i.i.i.i = phi i64 [ %215, %191 ], [ %224, %.lr.ph.i.i.i.i.i ]
+  %228 = lshr i64 %storemerge.lcssa.i.i.i.i.i, 1
+  %229 = and i64 %228, 35184372088831
+  %230 = load i64, ptr @ZAddressHeapBase, align 8
+  %231 = or i64 %229, %230
+  %232 = select i1 %.pre-phi.i.i.i.i, i64 %231, i64 0
+  br label %233
 
-238:                                              ; preds = %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit, %_ZN11ZForwarding4findE15zaddress_unsafePm.exit, %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit
-  %.0 = phi i64 [ %237, %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit ], [ %50, %_ZN11ZForwarding4findE15zaddress_unsafePm.exit ], [ %.0.i, %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit ]
+233:                                              ; preds = %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit, %_ZN11ZForwarding4findE15zaddress_unsafePm.exit, %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit
+  %.0 = phi i64 [ %232, %_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddress_unsafe.exit ], [ %48, %_ZN11ZForwarding4findE15zaddress_unsafePm.exit ], [ %.0.i, %_ZL21relocate_object_innerP11ZForwarding8zaddressPm.exit ]
   ret i64 %.0
 }
 
@@ -1774,39 +1763,36 @@ define hidden noundef i64 @_ZN9ZRelocate14forward_objectEP11ZForwarding15zaddres
   %31 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %30, i64 %27
   %32 = load volatile i64, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %33 = and i64 %32, 1
-  %34 = icmp eq i64 %33, 0
-  %35 = lshr i64 %32, 46
-  %36 = icmp eq i64 %35, %10
-  %or.cond7.i.i.i.i = or i1 %34, %36
-  br i1 %or.cond7.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i
+  %33 = trunc i64 %32 to i1
+  %34 = lshr i64 %32, 46
+  %35 = icmp ne i64 %34, %10
+  %or.cond.not8.i.i.i.i = and i1 %35, %33
+  br i1 %or.cond.not8.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
-  %.0.i = phi i64 [ %40, %.lr.ph.i.i.i.i ], [ %27, %3 ]
-  %37 = load i64, ptr %11, align 8
-  %38 = add i64 %37, -1
-  %39 = add i64 %.0.i, 1
-  %40 = and i64 %38, %39
-  %41 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %40
-  %42 = load volatile i64, ptr %41, align 8
+  %.0.i = phi i64 [ %39, %.lr.ph.i.i.i.i ], [ %27, %3 ]
+  %36 = load i64, ptr %11, align 8
+  %37 = add i64 %36, -1
+  %38 = add i64 %.0.i, 1
+  %39 = and i64 %37, %38
+  %40 = getelementptr inbounds %class.ZForwardingEntry, ptr %30, i64 %39
+  %41 = load volatile i64, ptr %40, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %43 = and i64 %42, 1
-  %44 = icmp eq i64 %43, 0
-  %45 = lshr i64 %42, 46
-  %46 = icmp eq i64 %45, %10
-  %or.cond.i.i.i.i = or i1 %44, %46
-  br i1 %or.cond.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  %42 = trunc i64 %41 to i1
+  %43 = lshr i64 %41, 46
+  %44 = icmp ne i64 %43, %10
+  %or.cond.not.i.i.i.i = and i1 %44, %42
+  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, !llvm.loop !18
 
 _ZN11ZForwarding4findE15zaddress_unsafe.exit:     ; preds = %.lr.ph.i.i.i.i, %3
-  %.pre-phi.i.i.i = phi i64 [ %33, %3 ], [ %43, %.lr.ph.i.i.i.i ]
-  %storemerge.lcssa.i.i.i.i = phi i64 [ %32, %3 ], [ %42, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i = icmp eq i64 %.pre-phi.i.i.i, 0
-  %47 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
-  %48 = and i64 %47, 35184372088831
-  %49 = load i64, ptr @ZAddressHeapBase, align 8
-  %50 = or i64 %48, %49
-  %51 = select i1 %.not.i.i.i, i64 0, i64 %50
-  ret i64 %51
+  %.pre-phi.i.i.i = phi i1 [ %33, %3 ], [ %42, %.lr.ph.i.i.i.i ]
+  %storemerge.lcssa.i.i.i.i = phi i64 [ %32, %3 ], [ %41, %.lr.ph.i.i.i.i ]
+  %45 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
+  %46 = and i64 %45, 35184372088831
+  %47 = load i64, ptr @ZAddressHeapBase, align 8
+  %48 = or i64 %46, %47
+  %49 = select i1 %.pre-phi.i.i.i, i64 %48, i64 0
+  ret i64 %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3526,9 +3512,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %17, %7
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %23 = and i32 %20, 1
-  %.not.i.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i.i, label %24, label %27
+  %23 = trunc i32 %20 to i1
+  br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i32 %20, 3
@@ -3618,340 +3603,333 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %24, %27, %34, %54
   %97 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %96, i64 %93
   %98 = load volatile i64, ptr %97, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %99 = and i64 %98, 1
-  %100 = icmp eq i64 %99, 0
-  %101 = lshr i64 %98, 46
-  %102 = icmp eq i64 %101, %76
-  %or.cond7.i.i.i = or i1 %100, %102
-  br i1 %or.cond7.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit, label %.lr.ph.i.i.i
+  %99 = trunc i64 %98 to i1
+  %100 = lshr i64 %98, 46
+  %101 = icmp ne i64 %100, %76
+  %or.cond.not8.i.i.i = and i1 %101, %99
+  br i1 %or.cond.not8.i.i.i, label %.lr.ph.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit, %.lr.ph.i.i.i
-  %.046 = phi i64 [ %106, %.lr.ph.i.i.i ], [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
-  %103 = load i64, ptr %77, align 8
-  %104 = add i64 %103, -1
-  %105 = add i64 %.046, 1
-  %106 = and i64 %104, %105
-  %107 = getelementptr inbounds %class.ZForwardingEntry, ptr %96, i64 %106
-  %108 = load volatile i64, ptr %107, align 8
+  %.043 = phi i64 [ %105, %.lr.ph.i.i.i ], [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
+  %102 = load i64, ptr %77, align 8
+  %103 = add i64 %102, -1
+  %104 = add i64 %.043, 1
+  %105 = and i64 %103, %104
+  %106 = getelementptr inbounds %class.ZForwardingEntry, ptr %96, i64 %105
+  %107 = load volatile i64, ptr %106, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %109 = and i64 %108, 1
-  %110 = icmp eq i64 %109, 0
-  %111 = lshr i64 %108, 46
-  %112 = icmp eq i64 %111, %76
-  %or.cond.i.i.i = or i1 %110, %112
-  br i1 %or.cond.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit, label %.lr.ph.i.i.i, !llvm.loop !18
+  %108 = trunc i64 %107 to i1
+  %109 = lshr i64 %107, 46
+  %110 = icmp ne i64 %109, %76
+  %or.cond.not.i.i.i = and i1 %110, %108
+  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit, !llvm.loop !18
 
 _ZN11ZForwarding4findE8zaddressPm.exit:           ; preds = %.lr.ph.i.i.i, %_ZN6ZUtils11object_sizeE8zaddress.exit
-  %.1 = phi i64 [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %106, %.lr.ph.i.i.i ]
-  %.pre-phi.i.i = phi i64 [ %99, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %109, %.lr.ph.i.i.i ]
-  %storemerge.lcssa.i.i.i = phi i64 [ %98, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %108, %.lr.ph.i.i.i ]
-  %.not.i.i = icmp eq i64 %.pre-phi.i.i, 0
-  %113 = lshr i64 %storemerge.lcssa.i.i.i, 1
-  %114 = and i64 %113, 35184372088831
-  %115 = load i64, ptr @ZAddressHeapBase, align 8
-  %116 = or i64 %114, %115
-  %117 = icmp eq i64 %116, 0
-  %118 = select i1 %.not.i.i, i1 true, i1 %117
-  br i1 %118, label %126, label %119
+  %.1 = phi i64 [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %105, %.lr.ph.i.i.i ]
+  %.pre-phi.i.i = phi i1 [ %99, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %108, %.lr.ph.i.i.i ]
+  %storemerge.lcssa.i.i.i = phi i64 [ %98, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %107, %.lr.ph.i.i.i ]
+  %111 = lshr i64 %storemerge.lcssa.i.i.i, 1
+  %112 = and i64 %111, 35184372088831
+  %113 = load i64, ptr @ZAddressHeapBase, align 8
+  %114 = or i64 %112, %113
+  %115 = icmp ne i64 %114, 0
+  %.not46 = select i1 %.pre-phi.i.i, i1 %115, i1 false
+  br i1 %.not46, label %116, label %123
 
-119:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
-  %120 = load ptr, ptr %60, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %122 = load i64, ptr %121, align 8
-  %123 = shl nuw i64 1, %122
-  %124 = add i64 %59, -1
-  %125 = add i64 %124, %123
+116:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
+  %117 = load ptr, ptr %60, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load i64, ptr %118, align 8
+  %120 = shl nuw i64 1, %119
+  %121 = add i64 %59, -1
+  %122 = add i64 %121, %120
   br label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split
 
-126:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
+123:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
   %.not.i = icmp eq ptr %69, null
-  br i1 %.not.i, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %127
+  br i1 %.not.i, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %124
 
-127:                                              ; preds = %126
-  %128 = load i8, ptr %69, align 8
-  switch i8 %128, label %131 [
-    i8 0, label %129
+124:                                              ; preds = %123
+  %125 = load i8, ptr %69, align 8
+  switch i8 %125, label %128 [
+    i8 0, label %126
     i8 1, label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i
     i8 2, label %_ZNK5ZPage16object_alignmentEv.exit.i.i
   ]
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr @ZObjectAlignmentSmall, align 8
+126:                                              ; preds = %124
+  %127 = load ptr, ptr @ZObjectAlignmentSmall, align 8
   br label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %132, align 1
+128:                                              ; preds = %124
+  %129 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %129, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.21, i32 noundef 112, ptr noundef nonnull @.str.22) #16
   unreachable
 
-_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i: ; preds = %129, %127
-  %.sink10.i.i = phi ptr [ %130, %129 ], [ @ZObjectAlignmentMedium, %127 ]
-  %133 = load i32, ptr %.sink10.i.i, align 4
-  %134 = sext i32 %133 to i64
+_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i: ; preds = %126, %124
+  %.sink10.i.i = phi ptr [ %127, %126 ], [ @ZObjectAlignmentMedium, %124 ]
+  %130 = load i32, ptr %.sink10.i.i, align 4
+  %131 = sext i32 %130 to i64
   br label %_ZNK5ZPage16object_alignmentEv.exit.i.i
 
-_ZNK5ZPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i, %127
-  %.0.i.i.i30 = phi i64 [ 2097152, %127 ], [ %134, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i ]
-  %135 = add i64 %59, -1
-  %136 = add i64 %135, %.0.i.i.i30
-  %137 = sub nsw i64 0, %.0.i.i.i30
-  %138 = and i64 %136, %137
-  %139 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %140 = load volatile i64, ptr %139, align 8
-  %141 = add i64 %138, %140
-  %142 = load i64, ptr @ZAddressOffsetMax, align 8
-  %.not.i.i.i31 = icmp ugt i64 %141, %142
-  %143 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %144 = load i64, ptr %143, align 8
-  %145 = icmp ugt i64 %141, %144
-  %or.cond.i.i = select i1 %.not.i.i.i31, i1 true, i1 %145
+_ZNK5ZPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i, %124
+  %.0.i.i.i29 = phi i64 [ 2097152, %124 ], [ %131, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i ]
+  %132 = add i64 %59, -1
+  %133 = add i64 %132, %.0.i.i.i29
+  %134 = sub nsw i64 0, %.0.i.i.i29
+  %135 = and i64 %133, %134
+  %136 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %137 = load volatile i64, ptr %136, align 8
+  %138 = add i64 %135, %137
+  %139 = load i64, ptr @ZAddressOffsetMax, align 8
+  %.not.i.i.i = icmp ugt i64 %138, %139
+  %140 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %141 = load i64, ptr %140, align 8
+  %142 = icmp ugt i64 %138, %141
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 true, i1 %142
   br i1 %or.cond.i.i, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit
 
 _ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit: ; preds = %_ZNK5ZPage16object_alignmentEv.exit.i.i
-  store volatile i64 %141, ptr %139, align 8
-  %146 = or i64 %140, %115
-  %147 = icmp eq i64 %146, 0
-  br i1 %147, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %148
+  store volatile i64 %138, ptr %136, align 8
+  %143 = or i64 %137, %113
+  %144 = icmp eq i64 %143, 0
+  br i1 %144, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %145
 
-148:                                              ; preds = %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit
-  %149 = load ptr, ptr %60, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 164
-  %151 = load i8, ptr %150, align 4
-  %152 = trunc i8 %151 to i1
-  %153 = add i64 %146, %59
-  %154 = icmp ugt i64 %153, %1
-  %or.cond = select i1 %152, i1 %154, i1 false
-  br i1 %or.cond, label %155, label %158
+145:                                              ; preds = %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit
+  %146 = load ptr, ptr %60, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 164
+  %148 = load i8, ptr %147, align 4
+  %149 = trunc i8 %148 to i1
+  %150 = add i64 %143, %59
+  %151 = icmp ugt i64 %150, %1
+  %or.cond = select i1 %149, i1 %151, i1 false
+  br i1 %or.cond, label %152, label %155
 
-155:                                              ; preds = %148
-  %.not.i32 = icmp eq i64 %1, %146
-  br i1 %.not.i32, label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, label %156
+152:                                              ; preds = %145
+  %.not.i30 = icmp eq i64 %1, %143
+  br i1 %.not.i30, label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, label %153
 
-156:                                              ; preds = %155
-  %157 = inttoptr i64 %146 to ptr
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr nonnull align 8 %3, i64 %59, i1 false)
+153:                                              ; preds = %152
+  %154 = inttoptr i64 %143 to ptr
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %154, ptr nonnull align 8 %3, i64 %59, i1 false)
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
-158:                                              ; preds = %148
-  %159 = inttoptr i64 %146 to ptr
-  %160 = and i64 %.0.i1.i.i, 2305843009213693951
-  switch i64 %160, label %190 [
-    i64 8, label %161
-    i64 7, label %165
-    i64 6, label %169
-    i64 5, label %173
-    i64 4, label %177
-    i64 3, label %181
-    i64 2, label %185
-    i64 1, label %188
+155:                                              ; preds = %145
+  %156 = inttoptr i64 %143 to ptr
+  %157 = and i64 %.0.i1.i.i, 2305843009213693951
+  switch i64 %157, label %187 [
+    i64 8, label %158
+    i64 7, label %162
+    i64 6, label %166
+    i64 5, label %170
+    i64 4, label %174
+    i64 3, label %178
+    i64 2, label %182
+    i64 1, label %185
     i64 0, label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
   ]
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %159, i64 56
-  store ptr %163, ptr %164, align 8
-  br label %165
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 56
+  store ptr %160, ptr %161, align 8
+  br label %162
 
-165:                                              ; preds = %161, %158
-  %166 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  store ptr %167, ptr %168, align 8
-  br label %169
+162:                                              ; preds = %158, %155
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %156, i64 48
+  store ptr %164, ptr %165, align 8
+  br label %166
 
-169:                                              ; preds = %165, %158
-  %170 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %159, i64 40
-  store ptr %171, ptr %172, align 8
-  br label %173
+166:                                              ; preds = %162, %155
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %156, i64 40
+  store ptr %168, ptr %169, align 8
+  br label %170
 
-173:                                              ; preds = %169, %158
-  %174 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %159, i64 32
-  store ptr %175, ptr %176, align 8
-  br label %177
+170:                                              ; preds = %166, %155
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  store ptr %172, ptr %173, align 8
+  br label %174
 
-177:                                              ; preds = %173, %158
-  %178 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  store ptr %179, ptr %180, align 8
-  br label %181
+174:                                              ; preds = %170, %155
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  store ptr %176, ptr %177, align 8
+  br label %178
 
-181:                                              ; preds = %177, %158
-  %182 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %159, i64 16
+178:                                              ; preds = %174, %155
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  store ptr %180, ptr %181, align 8
+  br label %182
+
+182:                                              ; preds = %178, %155
+  %183 = load ptr, ptr %6, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr %183, ptr %184, align 8
   br label %185
 
-185:                                              ; preds = %181, %158
-  %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store ptr %186, ptr %187, align 8
-  br label %188
-
-188:                                              ; preds = %185, %158
-  %189 = load ptr, ptr %3, align 8
-  store ptr %189, ptr %159, align 8
+185:                                              ; preds = %182, %155
+  %186 = load ptr, ptr %3, align 8
+  store ptr %186, ptr %156, align 8
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
-190:                                              ; preds = %158
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %159, ptr nonnull align 8 %3, i64 %59, i1 false)
+187:                                              ; preds = %155
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %156, ptr nonnull align 8 %3, i64 %59, i1 false)
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
-_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %190, %188, %158, %156, %155
-  %191 = load ptr, ptr %60, align 8
-  %192 = load i64, ptr @ZAddressOffsetMask, align 8
-  %193 = and i64 %192, %1
-  %194 = load i64, ptr %191, align 8
-  %195 = sub i64 %193, %194
-  %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %197 = load i64, ptr %196, align 8
-  %198 = lshr i64 %195, %197
-  %199 = and i64 %192, %146
-  %200 = shl i64 %199, 1
-  %201 = shl i64 %198, 46
-  %202 = or i64 %200, %201
-  %203 = or disjoint i64 %202, 1
+_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %187, %185, %155, %153, %152
+  %188 = load ptr, ptr %60, align 8
+  %189 = load i64, ptr @ZAddressOffsetMask, align 8
+  %190 = and i64 %189, %1
+  %191 = load i64, ptr %188, align 8
+  %192 = sub i64 %190, %191
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  %194 = load i64, ptr %193, align 8
+  %195 = lshr i64 %192, %194
+  %196 = and i64 %189, %143
+  %197 = shl i64 %196, 1
+  %198 = shl i64 %195, 46
+  %199 = or i64 %197, %198
+  %200 = or disjoint i64 %199, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %204 = ptrtoint ptr %191 to i64
-  %205 = add i64 %204, 184
-  %206 = inttoptr i64 %205 to ptr
-  %207 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.1
-  %208 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %203, i64 0, ptr %207) #15, !srcloc !15
-  %209 = and i64 %208, 1
-  %.not20.i.i.i = icmp eq i64 %209, 0
-  br i1 %.not20.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, label %.lr.ph21.i.i.i
+  %201 = ptrtoint ptr %188 to i64
+  %202 = add i64 %201, 184
+  %203 = inttoptr i64 %202 to ptr
+  %204 = getelementptr inbounds %class.ZForwardingEntry, ptr %203, i64 %.1
+  %205 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %200, i64 0, ptr %204) #15, !srcloc !15
+  %206 = trunc i64 %205 to i1
+  br i1 %206, label %.lr.ph18.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
 
-.lr.ph21.i.i.i:                                   ; preds = %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
-  %210 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  br label %214
+.lr.ph18.i.i.i:                                   ; preds = %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
+  %207 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  br label %211
 
-.loopexit.i.i.i:                                  ; preds = %223, %214
-  %.4 = phi i64 [ %.2, %214 ], [ %227, %223 ]
-  %211 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.4
-  %212 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %203, i64 0, ptr %211) #15, !srcloc !15
-  %213 = and i64 %212, 1
-  %.not.i.i.i34 = icmp eq i64 %213, 0
-  br i1 %.not.i.i.i34, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, label %214, !llvm.loop !19
+.loopexit.i.i.i:                                  ; preds = %220, %211
+  %.3 = phi i64 [ %.2, %211 ], [ %224, %220 ]
+  %208 = getelementptr inbounds %class.ZForwardingEntry, ptr %203, i64 %.3
+  %209 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %200, i64 0, ptr %208) #15, !srcloc !15
+  %210 = trunc i64 %209 to i1
+  br i1 %210, label %211, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, !llvm.loop !19
 
-214:                                              ; preds = %.loopexit.i.i.i, %.lr.ph21.i.i.i
-  %.2 = phi i64 [ %.1, %.lr.ph21.i.i.i ], [ %.4, %.loopexit.i.i.i ]
-  %215 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %.2
-  %216 = load volatile i64, ptr %215, align 8
+211:                                              ; preds = %.loopexit.i.i.i, %.lr.ph18.i.i.i
+  %.2 = phi i64 [ %.1, %.lr.ph18.i.i.i ], [ %.3, %.loopexit.i.i.i ]
+  %212 = getelementptr inbounds %class.ZForwardingEntry, ptr %203, i64 %.2
+  %213 = load volatile i64, ptr %212, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %217 = and i64 %216, 1
-  %.not1518.i.i.i = icmp eq i64 %217, 0
-  br i1 %.not1518.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i33
+  %214 = trunc i64 %213 to i1
+  br i1 %214, label %.lr.ph.i.i.i32, label %.loopexit.i.i.i
 
-.lr.ph.i.i.i33:                                   ; preds = %214, %223
-  %.3 = phi i64 [ %227, %223 ], [ %.2, %214 ]
-  %storemerge19.i.i.i = phi i64 [ %229, %223 ], [ %216, %214 ]
-  %218 = lshr i64 %storemerge19.i.i.i, 46
-  %219 = icmp eq i64 %218, %198
-  br i1 %219, label %220, label %223
+.lr.ph.i.i.i32:                                   ; preds = %211, %220
+  %.4 = phi i64 [ %224, %220 ], [ %.2, %211 ]
+  %storemerge17.i.i.i = phi i64 [ %226, %220 ], [ %213, %211 ]
+  %215 = lshr i64 %storemerge17.i.i.i, 46
+  %216 = icmp eq i64 %215, %195
+  br i1 %216, label %217, label %220
 
-220:                                              ; preds = %.lr.ph.i.i.i33
-  %221 = lshr i64 %storemerge19.i.i.i, 1
-  %222 = and i64 %221, 35184372088831
+217:                                              ; preds = %.lr.ph.i.i.i32
+  %218 = lshr i64 %storemerge17.i.i.i, 1
+  %219 = and i64 %218, 35184372088831
   br label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
 
-223:                                              ; preds = %.lr.ph.i.i.i33
-  %224 = load i64, ptr %210, align 8
-  %225 = add i64 %224, -1
-  %226 = add i64 %.3, 1
-  %227 = and i64 %225, %226
-  %228 = getelementptr inbounds %class.ZForwardingEntry, ptr %206, i64 %227
-  %229 = load volatile i64, ptr %228, align 8
+220:                                              ; preds = %.lr.ph.i.i.i32
+  %221 = load i64, ptr %207, align 8
+  %222 = add i64 %221, -1
+  %223 = add i64 %.4, 1
+  %224 = and i64 %222, %223
+  %225 = getelementptr inbounds %class.ZForwardingEntry, ptr %203, i64 %224
+  %226 = load volatile i64, ptr %225, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %230 = and i64 %229, 1
-  %.not15.i.i.i = icmp eq i64 %230, 0
-  br i1 %.not15.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i33, !llvm.loop !20
+  %227 = trunc i64 %226 to i1
+  br i1 %227, label %.lr.ph.i.i.i32, label %.loopexit.i.i.i, !llvm.loop !20
 
-_ZN11ZForwarding6insertE8zaddressS0_Pm.exit:      ; preds = %.loopexit.i.i.i, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, %220
-  %.0.i.i.i35 = phi i64 [ %222, %220 ], [ %199, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit ], [ %199, %.loopexit.i.i.i ]
-  %231 = load i64, ptr @ZAddressHeapBase, align 8
-  %232 = or i64 %231, %.0.i.i.i35
-  %.not = icmp eq i64 %232, %146
-  br i1 %.not, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %233
+_ZN11ZForwarding6insertE8zaddressS0_Pm.exit:      ; preds = %.loopexit.i.i.i, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, %217
+  %.0.i.i.i31 = phi i64 [ %219, %217 ], [ %196, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit ], [ %196, %.loopexit.i.i.i ]
+  %228 = load i64, ptr @ZAddressHeapBase, align 8
+  %229 = or i64 %228, %.0.i.i.i31
+  %.not = icmp eq i64 %229, %143
+  br i1 %.not, label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread, label %230
 
-233:                                              ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
-  %234 = load i64, ptr @ZAddressOffsetMask, align 8
-  %235 = and i64 %234, %232
-  %236 = load i8, ptr %69, align 8
-  switch i8 %236, label %239 [
-    i8 0, label %237
-    i8 1, label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39
-    i8 2, label %_ZNK5ZPage16object_alignmentEv.exit.i.i36
+230:                                              ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
+  %231 = load i64, ptr @ZAddressOffsetMask, align 8
+  %232 = and i64 %231, %229
+  %233 = load i8, ptr %69, align 8
+  switch i8 %233, label %236 [
+    i8 0, label %234
+    i8 1, label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36
+    i8 2, label %_ZNK5ZPage16object_alignmentEv.exit.i.i33
   ]
 
-237:                                              ; preds = %233
-  %238 = load ptr, ptr @ZObjectAlignmentSmall, align 8
-  br label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39
+234:                                              ; preds = %230
+  %235 = load ptr, ptr @ZObjectAlignmentSmall, align 8
+  br label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36
 
-239:                                              ; preds = %233
-  %240 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %240, align 1
+236:                                              ; preds = %230
+  %237 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %237, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.21, i32 noundef 112, ptr noundef nonnull @.str.22) #16
   unreachable
 
-_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39: ; preds = %237, %233
-  %.sink8.i.i = phi ptr [ %238, %237 ], [ @ZObjectAlignmentMedium, %233 ]
-  %241 = load i32, ptr %.sink8.i.i, align 4
-  %242 = sext i32 %241 to i64
-  br label %_ZNK5ZPage16object_alignmentEv.exit.i.i36
+_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36: ; preds = %234, %230
+  %.sink8.i.i = phi ptr [ %235, %234 ], [ @ZObjectAlignmentMedium, %230 ]
+  %238 = load i32, ptr %.sink8.i.i, align 4
+  %239 = sext i32 %238 to i64
+  br label %_ZNK5ZPage16object_alignmentEv.exit.i.i33
 
-_ZNK5ZPage16object_alignmentEv.exit.i.i36:        ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39, %233
-  %.0.i.i.i37 = phi i64 [ 2097152, %233 ], [ %242, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39 ]
-  %243 = add i64 %.0.i.i.i37, %135
-  %244 = sub nsw i64 0, %.0.i.i.i37
-  %245 = and i64 %243, %244
-  %246 = load volatile i64, ptr %139, align 8
-  %247 = sub i64 %246, %245
-  %.not.i.i38 = icmp eq i64 %247, %235
-  br i1 %.not.i.i38, label %248, label %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
+_ZNK5ZPage16object_alignmentEv.exit.i.i33:        ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36, %230
+  %.0.i.i.i34 = phi i64 [ 2097152, %230 ], [ %239, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36 ]
+  %240 = add i64 %.0.i.i.i34, %132
+  %241 = sub nsw i64 0, %.0.i.i.i34
+  %242 = and i64 %240, %241
+  %243 = load volatile i64, ptr %136, align 8
+  %244 = sub i64 %243, %242
+  %.not.i.i35 = icmp eq i64 %244, %232
+  br i1 %.not.i.i35, label %245, label %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
 
-248:                                              ; preds = %_ZNK5ZPage16object_alignmentEv.exit.i.i36
-  store volatile i64 %235, ptr %139, align 8
+245:                                              ; preds = %_ZNK5ZPage16object_alignmentEv.exit.i.i33
+  store volatile i64 %232, ptr %136, align 8
   br label %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
 
-_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit: ; preds = %_ZNK5ZPage16object_alignmentEv.exit.i.i36, %248
-  %249 = load ptr, ptr %60, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  %251 = load i64, ptr %250, align 8
-  %252 = shl nuw i64 1, %251
-  %253 = add i64 %252, %135
+_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit: ; preds = %_ZNK5ZPage16object_alignmentEv.exit.i.i33, %245
+  %246 = load ptr, ptr %60, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
+  %248 = load i64, ptr %247, align 8
+  %249 = shl nuw i64 1, %248
+  %250 = add i64 %249, %132
   br label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split
 
-_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split: ; preds = %119, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
-  %.sink80 = phi i64 [ %252, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %123, %119 ]
-  %.sink78 = phi i64 [ %253, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %125, %119 ]
-  %.sink77 = phi ptr [ %249, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %120, %119 ]
-  %.0.ph = phi i64 [ %232, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %116, %119 ]
-  %254 = sub i64 0, %.sink80
-  %255 = and i64 %.sink78, %254
-  %256 = getelementptr inbounds nuw i8, ptr %.sink77, i64 40
-  %257 = load i8, ptr %256, align 8
-  %.not.i.i40 = icmp ne i8 %257, 15
-  %258 = getelementptr inbounds nuw i8, ptr %.sink77, i64 41
-  %259 = load i8, ptr %258, align 1
-  %260 = icmp eq i8 %259, 15
-  %261 = select i1 %.not.i.i40, i1 %260, i1 false
-  %..i41 = select i1 %261, i64 144, i64 152
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 %..i41
-  %263 = load i64, ptr %262, align 8
-  %264 = add i64 %263, %255
-  store i64 %264, ptr %262, align 8
+_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split: ; preds = %116, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
+  %.sink79 = phi i64 [ %249, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %120, %116 ]
+  %.sink77 = phi i64 [ %250, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %122, %116 ]
+  %.sink76 = phi ptr [ %246, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %117, %116 ]
+  %.0.ph = phi i64 [ %229, %_ZNK23ZRelocateSmallAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %114, %116 ]
+  %251 = sub i64 0, %.sink79
+  %252 = and i64 %.sink77, %251
+  %253 = getelementptr inbounds nuw i8, ptr %.sink76, i64 40
+  %254 = load i8, ptr %253, align 8
+  %.not.i.i37 = icmp ne i8 %254, 15
+  %255 = getelementptr inbounds nuw i8, ptr %.sink76, i64 41
+  %256 = load i8, ptr %255, align 1
+  %257 = icmp eq i8 %256, 15
+  %258 = select i1 %.not.i.i37, i1 %257, i1 false
+  %..i38 = select i1 %258, i64 144, i64 152
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 %..i38
+  %260 = load i64, ptr %259, align 8
+  %261 = add i64 %260, %252
+  store i64 %261, ptr %259, align 8
   br label %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread
 
-_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread: ; preds = %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split, %_ZNK5ZPage16object_alignmentEv.exit.i.i, %126, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit
-  %.0 = phi i64 [ 0, %126 ], [ 0, %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit ], [ 0, %_ZNK5ZPage16object_alignmentEv.exit.i.i ], [ %146, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit ], [ %.0.ph, %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split ]
+_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread: ; preds = %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split, %_ZNK5ZPage16object_alignmentEv.exit.i.i, %123, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit
+  %.0 = phi i64 [ 0, %123 ], [ 0, %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit ], [ 0, %_ZNK5ZPage16object_alignmentEv.exit.i.i ], [ %143, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit ], [ %.0.ph, %_ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split ]
   ret i64 %.0
 }
 
@@ -4010,9 +3988,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %38, %28
   br i1 %42, label %43, label %53
 
 43:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %44 = and i32 %41, 1
-  %.not.i.i.i = icmp eq i32 %44, 0
-  br i1 %.not.i.i.i, label %45, label %48
+  %44 = trunc i32 %41 to i1
+  br i1 %44, label %48, label %45
 
 45:                                               ; preds = %43
   %46 = lshr i32 %41, 3
@@ -4070,8 +4047,8 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %45, %48, %55, %75
   %86 = load i32, ptr %85, align 4
   %87 = sub i32 %84, %86
   %88 = and i32 %87, 1
-  %89 = icmp ne i32 %88, 0
-  %.not36 = or i1 %89, %10
+  %89 = trunc i32 %87 to i1
+  %.not36 = or i1 %10, %89
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 104
   br i1 %.not36, label %92, label %91
 
@@ -4531,137 +4508,134 @@ define linkonce_odr hidden void @_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE49
   %143 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %142, i64 %139
   %144 = load volatile i64, ptr %143, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %145 = and i64 %144, 1
-  %146 = icmp eq i64 %145, 0
-  %147 = lshr i64 %144, 46
-  %148 = icmp eq i64 %147, %122
-  %or.cond7.i.i.i.i = or i1 %146, %148
-  br i1 %or.cond7.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i
+  %145 = trunc i64 %144 to i1
+  %146 = lshr i64 %144, 46
+  %147 = icmp ne i64 %146, %122
+  %or.cond.not8.i.i.i.i = and i1 %147, %145
+  br i1 %or.cond.not8.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %117, %.lr.ph.i.i.i.i
-  %.0.i = phi i64 [ %152, %.lr.ph.i.i.i.i ], [ %139, %117 ]
-  %149 = load i64, ptr %123, align 8
-  %150 = add i64 %149, -1
-  %151 = add i64 %.0.i, 1
-  %152 = and i64 %150, %151
-  %153 = getelementptr inbounds %class.ZForwardingEntry, ptr %142, i64 %152
-  %154 = load volatile i64, ptr %153, align 8
+  %.0.i = phi i64 [ %151, %.lr.ph.i.i.i.i ], [ %139, %117 ]
+  %148 = load i64, ptr %123, align 8
+  %149 = add i64 %148, -1
+  %150 = add i64 %.0.i, 1
+  %151 = and i64 %149, %150
+  %152 = getelementptr inbounds %class.ZForwardingEntry, ptr %142, i64 %151
+  %153 = load volatile i64, ptr %152, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %155 = and i64 %154, 1
-  %156 = icmp eq i64 %155, 0
-  %157 = lshr i64 %154, 46
-  %158 = icmp eq i64 %157, %122
-  %or.cond.i.i.i.i = or i1 %156, %158
-  br i1 %or.cond.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  %154 = trunc i64 %153 to i1
+  %155 = lshr i64 %153, 46
+  %156 = icmp ne i64 %155, %122
+  %or.cond.not.i.i.i.i = and i1 %156, %154
+  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, !llvm.loop !18
 
 _ZN11ZForwarding4findE15zaddress_unsafe.exit:     ; preds = %.lr.ph.i.i.i.i, %117
-  %.pre-phi.i.i.i = phi i64 [ %145, %117 ], [ %155, %.lr.ph.i.i.i.i ]
-  %storemerge.lcssa.i.i.i.i = phi i64 [ %144, %117 ], [ %154, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i = icmp eq i64 %.pre-phi.i.i.i, 0
-  %159 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
-  %160 = and i64 %159, 35184372088831
-  %161 = load i64, ptr @ZAddressHeapBase, align 8
-  %162 = or i64 %160, %161
-  %163 = icmp eq i64 %162, 0
-  %164 = select i1 %.not.i.i.i, i1 true, i1 %163
-  br i1 %164, label %207, label %165
+  %.pre-phi.i.i.i = phi i1 [ %145, %117 ], [ %154, %.lr.ph.i.i.i.i ]
+  %storemerge.lcssa.i.i.i.i = phi i64 [ %144, %117 ], [ %153, %.lr.ph.i.i.i.i ]
+  %157 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
+  %158 = and i64 %157, 35184372088831
+  %159 = load i64, ptr @ZAddressHeapBase, align 8
+  %160 = or i64 %158, %159
+  %161 = icmp ne i64 %160, 0
+  %.not32 = select i1 %.pre-phi.i.i.i, i1 %161, i1 false
+  br i1 %.not32, label %162, label %204
 
-165:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
-  %166 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %167 = load i64, ptr @ZAddressOffsetMask, align 8
-  %168 = and i64 %167, %162
-  %169 = lshr i64 %168, 21
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 624
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %169
-  %173 = load volatile ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 1
-  %175 = load i8, ptr %174, align 1
-  %176 = icmp eq i8 %175, 0
-  br i1 %176, label %177, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split
+162:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
+  %163 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
+  %164 = load i64, ptr @ZAddressOffsetMask, align 8
+  %165 = and i64 %164, %160
+  %166 = lshr i64 %165, 21
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 624
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %166
+  %170 = load volatile ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1
+  %172 = load i8, ptr %171, align 1
+  %173 = icmp eq i8 %172, 0
+  br i1 %173, label %174, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split
 
-177:                                              ; preds = %165
-  %178 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 6600
-  %180 = load ptr, ptr %179, align 8
-  %181 = ptrtoint ptr %0 to i64
-  %182 = and i64 %167, %181
-  %183 = lshr i64 %182, 21
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %183
-  %187 = load volatile ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %189 = load i64, ptr %188, align 8
-  %190 = sub i64 %182, %189
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 104
-  %192 = lshr i64 %190, 3
-  %193 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds %class.ZMovableBitMap, ptr %191, i64 %194
-  %196 = load ptr, ptr %195, align 8
-  %197 = lshr i64 %190, 9
-  %198 = getelementptr inbounds nuw i64, ptr %196, i64 %197
-  %199 = and i64 %192, 63
-  %200 = shl nuw i64 1, %199
-  %201 = load volatile i64, ptr %198, align 8
-  br label %202
+174:                                              ; preds = %162
+  %175 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 6600
+  %177 = load ptr, ptr %176, align 8
+  %178 = ptrtoint ptr %0 to i64
+  %179 = and i64 %164, %178
+  %180 = lshr i64 %179, 21
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %180
+  %184 = load volatile ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %186 = load i64, ptr %185, align 8
+  %187 = sub i64 %179, %186
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 104
+  %189 = lshr i64 %187, 3
+  %190 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds %class.ZMovableBitMap, ptr %188, i64 %191
+  %193 = load ptr, ptr %192, align 8
+  %194 = lshr i64 %187, 9
+  %195 = getelementptr inbounds nuw i64, ptr %193, i64 %194
+  %196 = and i64 %189, 63
+  %197 = shl nuw i64 1, %196
+  %198 = load volatile i64, ptr %195, align 8
+  br label %199
 
-202:                                              ; preds = %204, %177
-  %.017.i.i.i.i.i.i.i29 = phi i64 [ %201, %177 ], [ %205, %204 ]
-  %203 = or i64 %.017.i.i.i.i.i.i.i29, %200
-  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30 = icmp eq i64 %203, %.017.i.i.i.i.i.i.i29
-  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %204
+199:                                              ; preds = %201, %174
+  %.017.i.i.i.i.i.i.i29 = phi i64 [ %198, %174 ], [ %202, %201 ]
+  %200 = or i64 %.017.i.i.i.i.i.i.i29, %197
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30 = icmp eq i64 %200, %.017.i.i.i.i.i.i.i29
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %201
 
-204:                                              ; preds = %202
-  %205 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %203, i64 %.017.i.i.i.i.i.i.i29, ptr nonnull %198) #15, !srcloc !15
-  %206 = icmp eq i64 %205, %.017.i.i.i.i.i.i.i29
-  br i1 %206, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %202, !llvm.loop !16
+201:                                              ; preds = %199
+  %202 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %200, i64 %.017.i.i.i.i.i.i.i29, ptr nonnull %195) #15, !srcloc !15
+  %203 = icmp eq i64 %202, %.017.i.i.i.i.i.i.i29
+  br i1 %203, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %199, !llvm.loop !16
 
-207:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
-  %208 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 6600
-  %210 = load ptr, ptr %209, align 8
-  %211 = ptrtoint ptr %0 to i64
-  %212 = load i64, ptr @ZAddressOffsetMask, align 8
-  %213 = and i64 %212, %211
-  %214 = lshr i64 %213, 21
-  %215 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %214
-  %218 = load volatile ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
-  %220 = load i64, ptr %219, align 8
-  %221 = sub i64 %213, %220
-  %222 = getelementptr inbounds nuw i8, ptr %218, i64 104
-  %223 = lshr i64 %221, 3
-  %224 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds %class.ZMovableBitMap, ptr %222, i64 %225
-  %227 = load ptr, ptr %226, align 8
-  %228 = lshr i64 %221, 9
-  %229 = getelementptr inbounds nuw i64, ptr %227, i64 %228
-  %230 = and i64 %223, 63
-  %231 = shl nuw i64 1, %230
-  %232 = load volatile i64, ptr %229, align 8
-  br label %233
+204:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
+  %205 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 6600
+  %207 = load ptr, ptr %206, align 8
+  %208 = ptrtoint ptr %0 to i64
+  %209 = load i64, ptr @ZAddressOffsetMask, align 8
+  %210 = and i64 %209, %208
+  %211 = lshr i64 %210, 21
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %211
+  %215 = load volatile ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %217 = load i64, ptr %216, align 8
+  %218 = sub i64 %210, %217
+  %219 = getelementptr inbounds nuw i8, ptr %215, i64 104
+  %220 = lshr i64 %218, 3
+  %221 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds %class.ZMovableBitMap, ptr %219, i64 %222
+  %224 = load ptr, ptr %223, align 8
+  %225 = lshr i64 %218, 9
+  %226 = getelementptr inbounds nuw i64, ptr %224, i64 %225
+  %227 = and i64 %220, 63
+  %228 = shl nuw i64 1, %227
+  %229 = load volatile i64, ptr %226, align 8
+  br label %230
 
-233:                                              ; preds = %235, %207
-  %.017.i.i.i.i.i.i = phi i64 [ %232, %207 ], [ %236, %235 ]
-  %234 = or i64 %.017.i.i.i.i.i.i, %231
-  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %234, %.017.i.i.i.i.i.i
-  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %235
+230:                                              ; preds = %232, %204
+  %.017.i.i.i.i.i.i = phi i64 [ %229, %204 ], [ %233, %232 ]
+  %231 = or i64 %.017.i.i.i.i.i.i, %228
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %231, %.017.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %232
 
-235:                                              ; preds = %233
-  %236 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %234, i64 %.017.i.i.i.i.i.i, ptr nonnull %229) #15, !srcloc !15
-  %237 = icmp eq i64 %236, %.017.i.i.i.i.i.i
-  br i1 %237, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %233, !llvm.loop !16
+232:                                              ; preds = %230
+  %233 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %231, i64 %.017.i.i.i.i.i.i, ptr nonnull %226) #15, !srcloc !15
+  %234 = icmp eq i64 %233, %.017.i.i.i.i.i.i
+  br i1 %234, label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %230, !llvm.loop !16
 
-_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split: ; preds = %165, %79, %62
+_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split: ; preds = %162, %79, %62
   tail call void @_ZN8ZBarrier21remap_young_relocatedEPV8zpointerS0_(ptr noundef nonnull %0, i64 noundef %2)
   br label %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit
 
-_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit: ; preds = %204, %202, %235, %233, %114, %112, %59, %57, %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split, %14, %13, %1
+_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit: ; preds = %232, %230, %201, %199, %114, %112, %59, %57, %_ZN13ZRelocateWorkI23ZRelocateSmallAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split, %14, %13, %1
   ret void
 }
 
@@ -5358,9 +5332,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %17, %7
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %23 = and i32 %20, 1
-  %.not.i.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i.i, label %24, label %27
+  %23 = trunc i32 %20 to i1
+  br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = lshr i32 %20, 3
@@ -5450,354 +5423,347 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %24, %27, %34, %54
   %97 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %96, i64 %93
   %98 = load volatile i64, ptr %97, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %99 = and i64 %98, 1
-  %100 = icmp eq i64 %99, 0
-  %101 = lshr i64 %98, 46
-  %102 = icmp eq i64 %101, %76
-  %or.cond7.i.i.i = or i1 %100, %102
-  br i1 %or.cond7.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit, label %.lr.ph.i.i.i
+  %99 = trunc i64 %98 to i1
+  %100 = lshr i64 %98, 46
+  %101 = icmp ne i64 %100, %76
+  %or.cond.not8.i.i.i = and i1 %101, %99
+  br i1 %or.cond.not8.i.i.i, label %.lr.ph.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6ZUtils11object_sizeE8zaddress.exit, %.lr.ph.i.i.i
-  %.046 = phi i64 [ %106, %.lr.ph.i.i.i ], [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
-  %103 = load i64, ptr %77, align 8
-  %104 = add i64 %103, -1
-  %105 = add i64 %.046, 1
-  %106 = and i64 %104, %105
-  %107 = getelementptr inbounds %class.ZForwardingEntry, ptr %96, i64 %106
-  %108 = load volatile i64, ptr %107, align 8
+  %.043 = phi i64 [ %105, %.lr.ph.i.i.i ], [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ]
+  %102 = load i64, ptr %77, align 8
+  %103 = add i64 %102, -1
+  %104 = add i64 %.043, 1
+  %105 = and i64 %103, %104
+  %106 = getelementptr inbounds %class.ZForwardingEntry, ptr %96, i64 %105
+  %107 = load volatile i64, ptr %106, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %109 = and i64 %108, 1
-  %110 = icmp eq i64 %109, 0
-  %111 = lshr i64 %108, 46
-  %112 = icmp eq i64 %111, %76
-  %or.cond.i.i.i = or i1 %110, %112
-  br i1 %or.cond.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit, label %.lr.ph.i.i.i, !llvm.loop !18
+  %108 = trunc i64 %107 to i1
+  %109 = lshr i64 %107, 46
+  %110 = icmp ne i64 %109, %76
+  %or.cond.not.i.i.i = and i1 %110, %108
+  br i1 %or.cond.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN11ZForwarding4findE8zaddressPm.exit, !llvm.loop !18
 
 _ZN11ZForwarding4findE8zaddressPm.exit:           ; preds = %.lr.ph.i.i.i, %_ZN6ZUtils11object_sizeE8zaddress.exit
-  %.1 = phi i64 [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %106, %.lr.ph.i.i.i ]
-  %.pre-phi.i.i = phi i64 [ %99, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %109, %.lr.ph.i.i.i ]
-  %storemerge.lcssa.i.i.i = phi i64 [ %98, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %108, %.lr.ph.i.i.i ]
-  %.not.i.i = icmp eq i64 %.pre-phi.i.i, 0
-  %113 = lshr i64 %storemerge.lcssa.i.i.i, 1
-  %114 = and i64 %113, 35184372088831
-  %115 = load i64, ptr @ZAddressHeapBase, align 8
-  %116 = or i64 %114, %115
-  %117 = icmp eq i64 %116, 0
-  %118 = select i1 %.not.i.i, i1 true, i1 %117
-  br i1 %118, label %126, label %119
+  %.1 = phi i64 [ %93, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %105, %.lr.ph.i.i.i ]
+  %.pre-phi.i.i = phi i1 [ %99, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %108, %.lr.ph.i.i.i ]
+  %storemerge.lcssa.i.i.i = phi i64 [ %98, %_ZN6ZUtils11object_sizeE8zaddress.exit ], [ %107, %.lr.ph.i.i.i ]
+  %111 = lshr i64 %storemerge.lcssa.i.i.i, 1
+  %112 = and i64 %111, 35184372088831
+  %113 = load i64, ptr @ZAddressHeapBase, align 8
+  %114 = or i64 %112, %113
+  %115 = icmp ne i64 %114, 0
+  %.not46 = select i1 %.pre-phi.i.i, i1 %115, i1 false
+  br i1 %.not46, label %116, label %123
 
-119:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
-  %120 = load ptr, ptr %60, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %122 = load i64, ptr %121, align 8
-  %123 = shl nuw i64 1, %122
-  %124 = add i64 %59, -1
-  %125 = add i64 %124, %123
+116:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
+  %117 = load ptr, ptr %60, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load i64, ptr %118, align 8
+  %120 = shl nuw i64 1, %119
+  %121 = add i64 %59, -1
+  %122 = add i64 %121, %120
   br label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split
 
-126:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
+123:                                              ; preds = %_ZN11ZForwarding4findE8zaddressPm.exit
   %.not.i = icmp eq ptr %69, null
-  br i1 %.not.i, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %127
+  br i1 %.not.i, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %124
 
-127:                                              ; preds = %126
-  %128 = load i8, ptr %69, align 8
-  switch i8 %128, label %131 [
-    i8 0, label %129
+124:                                              ; preds = %123
+  %125 = load i8, ptr %69, align 8
+  switch i8 %125, label %128 [
+    i8 0, label %126
     i8 1, label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i
     i8 2, label %_ZNK5ZPage16object_alignmentEv.exit.i.i
   ]
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr @ZObjectAlignmentSmall, align 8
+126:                                              ; preds = %124
+  %127 = load ptr, ptr @ZObjectAlignmentSmall, align 8
   br label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %132, align 1
+128:                                              ; preds = %124
+  %129 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %129, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.21, i32 noundef 112, ptr noundef nonnull @.str.22) #16
   unreachable
 
-_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i: ; preds = %129, %127
-  %.sink22.i.i = phi ptr [ %130, %129 ], [ @ZObjectAlignmentMedium, %127 ]
-  %133 = load i32, ptr %.sink22.i.i, align 4
-  %134 = sext i32 %133 to i64
+_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i: ; preds = %126, %124
+  %.sink22.i.i = phi ptr [ %127, %126 ], [ @ZObjectAlignmentMedium, %124 ]
+  %130 = load i32, ptr %.sink22.i.i, align 4
+  %131 = sext i32 %130 to i64
   br label %_ZNK5ZPage16object_alignmentEv.exit.i.i
 
-_ZNK5ZPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i, %127
-  %.0.i.i.i30 = phi i64 [ 2097152, %127 ], [ %134, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i ]
-  %135 = add i64 %59, -1
-  %136 = add i64 %135, %.0.i.i.i30
-  %137 = sub nsw i64 0, %.0.i.i.i30
-  %138 = and i64 %136, %137
-  %139 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %140 = load volatile i64, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  br label %142
+_ZNK5ZPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i, %124
+  %.0.i.i.i29 = phi i64 [ 2097152, %124 ], [ %131, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i ]
+  %132 = add i64 %59, -1
+  %133 = add i64 %132, %.0.i.i.i29
+  %134 = sub nsw i64 0, %.0.i.i.i29
+  %135 = and i64 %133, %134
+  %136 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %137 = load volatile i64, ptr %136, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  br label %139
 
-142:                                              ; preds = %147, %_ZNK5ZPage16object_alignmentEv.exit.i.i
-  %.09.i.i = phi i64 [ %140, %_ZNK5ZPage16object_alignmentEv.exit.i.i ], [ %148, %147 ]
-  %143 = add i64 %.09.i.i, %138
-  %144 = load i64, ptr @ZAddressOffsetMax, align 8
-  %.not.i.i.i31 = icmp ugt i64 %143, %144
-  %145 = load i64, ptr %141, align 8
-  %146 = icmp ugt i64 %143, %145
-  %or.cond.i.i = select i1 %.not.i.i.i31, i1 true, i1 %146
-  br i1 %or.cond.i.i, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %147
+139:                                              ; preds = %144, %_ZNK5ZPage16object_alignmentEv.exit.i.i
+  %.09.i.i = phi i64 [ %137, %_ZNK5ZPage16object_alignmentEv.exit.i.i ], [ %145, %144 ]
+  %140 = add i64 %.09.i.i, %135
+  %141 = load i64, ptr @ZAddressOffsetMax, align 8
+  %.not.i.i.i = icmp ugt i64 %140, %141
+  %142 = load i64, ptr %138, align 8
+  %143 = icmp ugt i64 %140, %142
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 true, i1 %143
+  br i1 %or.cond.i.i, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %144
 
-147:                                              ; preds = %142
-  %148 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %143, i64 %.09.i.i, ptr nonnull %139) #15, !srcloc !15
-  %149 = icmp eq i64 %148, %.09.i.i
-  br i1 %149, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit, label %142, !llvm.loop !39
+144:                                              ; preds = %139
+  %145 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %140, i64 %.09.i.i, ptr nonnull %136) #15, !srcloc !15
+  %146 = icmp eq i64 %145, %.09.i.i
+  br i1 %146, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit, label %139, !llvm.loop !39
 
-_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit: ; preds = %147
-  %150 = load i64, ptr @ZAddressHeapBase, align 8
-  %151 = or i64 %150, %.09.i.i
-  %152 = icmp eq i64 %151, 0
-  br i1 %152, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %153
+_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit: ; preds = %144
+  %147 = load i64, ptr @ZAddressHeapBase, align 8
+  %148 = or i64 %147, %.09.i.i
+  %149 = icmp eq i64 %148, 0
+  br i1 %149, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %150
 
-153:                                              ; preds = %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit
-  %154 = load ptr, ptr %60, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 164
-  %156 = load i8, ptr %155, align 4
-  %157 = trunc i8 %156 to i1
-  %158 = add i64 %151, %59
-  %159 = icmp ugt i64 %158, %1
-  %or.cond = select i1 %157, i1 %159, i1 false
-  br i1 %or.cond, label %160, label %163
+150:                                              ; preds = %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit
+  %151 = load ptr, ptr %60, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 164
+  %153 = load i8, ptr %152, align 4
+  %154 = trunc i8 %153 to i1
+  %155 = add i64 %148, %59
+  %156 = icmp ugt i64 %155, %1
+  %or.cond = select i1 %154, i1 %156, i1 false
+  br i1 %or.cond, label %157, label %160
 
-160:                                              ; preds = %153
-  %.not.i32 = icmp eq i64 %1, %151
-  br i1 %.not.i32, label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, label %161
+157:                                              ; preds = %150
+  %.not.i30 = icmp eq i64 %1, %148
+  br i1 %.not.i30, label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, label %158
 
-161:                                              ; preds = %160
-  %162 = inttoptr i64 %151 to ptr
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %162, ptr align 8 %3, i64 %59, i1 false)
+158:                                              ; preds = %157
+  %159 = inttoptr i64 %148 to ptr
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %159, ptr align 8 %3, i64 %59, i1 false)
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
-163:                                              ; preds = %153
-  %164 = inttoptr i64 %151 to ptr
-  %165 = and i64 %.0.i1.i.i, 2305843009213693951
-  switch i64 %165, label %195 [
-    i64 8, label %166
-    i64 7, label %170
-    i64 6, label %174
-    i64 5, label %178
-    i64 4, label %182
-    i64 3, label %186
-    i64 2, label %190
-    i64 1, label %193
+160:                                              ; preds = %150
+  %161 = inttoptr i64 %148 to ptr
+  %162 = and i64 %.0.i1.i.i, 2305843009213693951
+  switch i64 %162, label %192 [
+    i64 8, label %163
+    i64 7, label %167
+    i64 6, label %171
+    i64 5, label %175
+    i64 4, label %179
+    i64 3, label %183
+    i64 2, label %187
+    i64 1, label %190
     i64 0, label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
   ]
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %164, i64 56
-  store ptr %168, ptr %169, align 8
-  br label %170
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 56
+  store ptr %165, ptr %166, align 8
+  br label %167
 
-170:                                              ; preds = %166, %163
-  %171 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %164, i64 48
-  store ptr %172, ptr %173, align 8
-  br label %174
+167:                                              ; preds = %163, %160
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %161, i64 48
+  store ptr %169, ptr %170, align 8
+  br label %171
 
-174:                                              ; preds = %170, %163
-  %175 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %164, i64 40
-  store ptr %176, ptr %177, align 8
-  br label %178
+171:                                              ; preds = %167, %160
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 40
+  store ptr %173, ptr %174, align 8
+  br label %175
 
-178:                                              ; preds = %174, %163
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %164, i64 32
-  store ptr %180, ptr %181, align 8
-  br label %182
+175:                                              ; preds = %171, %160
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %161, i64 32
+  store ptr %177, ptr %178, align 8
+  br label %179
 
-182:                                              ; preds = %178, %163
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  store ptr %184, ptr %185, align 8
-  br label %186
+179:                                              ; preds = %175, %160
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %161, i64 24
+  store ptr %181, ptr %182, align 8
+  br label %183
 
-186:                                              ; preds = %182, %163
-  %187 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %164, i64 16
+183:                                              ; preds = %179, %160
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  store ptr %185, ptr %186, align 8
+  br label %187
+
+187:                                              ; preds = %183, %160
+  %188 = load ptr, ptr %6, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %188, ptr %189, align 8
   br label %190
 
-190:                                              ; preds = %186, %163
-  %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr %191, ptr %192, align 8
-  br label %193
-
-193:                                              ; preds = %190, %163
-  %194 = load ptr, ptr %3, align 8
-  store ptr %194, ptr %164, align 8
+190:                                              ; preds = %187, %160
+  %191 = load ptr, ptr %3, align 8
+  store ptr %191, ptr %161, align 8
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
-195:                                              ; preds = %163
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %164, ptr align 8 %3, i64 %59, i1 false)
+192:                                              ; preds = %160
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %161, ptr align 8 %3, i64 %59, i1 false)
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
-_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %195, %193, %163, %161, %160
-  %196 = load ptr, ptr %60, align 8
-  %197 = load i64, ptr @ZAddressOffsetMask, align 8
-  %198 = and i64 %197, %1
-  %199 = load i64, ptr %196, align 8
-  %200 = sub i64 %198, %199
-  %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %202 = load i64, ptr %201, align 8
-  %203 = lshr i64 %200, %202
-  %204 = and i64 %197, %151
-  %205 = shl i64 %204, 1
-  %206 = shl i64 %203, 46
-  %207 = or i64 %205, %206
-  %208 = or disjoint i64 %207, 1
+_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %192, %190, %160, %158, %157
+  %193 = load ptr, ptr %60, align 8
+  %194 = load i64, ptr @ZAddressOffsetMask, align 8
+  %195 = and i64 %194, %1
+  %196 = load i64, ptr %193, align 8
+  %197 = sub i64 %195, %196
+  %198 = getelementptr inbounds nuw i8, ptr %193, i64 16
+  %199 = load i64, ptr %198, align 8
+  %200 = lshr i64 %197, %199
+  %201 = and i64 %194, %148
+  %202 = shl i64 %201, 1
+  %203 = shl i64 %200, 46
+  %204 = or i64 %202, %203
+  %205 = or disjoint i64 %204, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %209 = ptrtoint ptr %196 to i64
-  %210 = add i64 %209, 184
-  %211 = inttoptr i64 %210 to ptr
-  %212 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.1
-  %213 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %208, i64 0, ptr %212) #15, !srcloc !15
-  %214 = and i64 %213, 1
-  %.not20.i.i.i = icmp eq i64 %214, 0
-  br i1 %.not20.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, label %.lr.ph21.i.i.i
+  %206 = ptrtoint ptr %193 to i64
+  %207 = add i64 %206, 184
+  %208 = inttoptr i64 %207 to ptr
+  %209 = getelementptr inbounds %class.ZForwardingEntry, ptr %208, i64 %.1
+  %210 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %205, i64 0, ptr %209) #15, !srcloc !15
+  %211 = trunc i64 %210 to i1
+  br i1 %211, label %.lr.ph18.i.i.i, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
 
-.lr.ph21.i.i.i:                                   ; preds = %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
-  %215 = getelementptr inbounds nuw i8, ptr %196, i64 24
-  br label %219
+.lr.ph18.i.i.i:                                   ; preds = %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
+  %212 = getelementptr inbounds nuw i8, ptr %193, i64 24
+  br label %216
 
-.loopexit.i.i.i:                                  ; preds = %228, %219
-  %.4 = phi i64 [ %.2, %219 ], [ %232, %228 ]
-  %216 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.4
-  %217 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %208, i64 0, ptr %216) #15, !srcloc !15
-  %218 = and i64 %217, 1
-  %.not.i.i.i34 = icmp eq i64 %218, 0
-  br i1 %.not.i.i.i34, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, label %219, !llvm.loop !19
+.loopexit.i.i.i:                                  ; preds = %225, %216
+  %.3 = phi i64 [ %.2, %216 ], [ %229, %225 ]
+  %213 = getelementptr inbounds %class.ZForwardingEntry, ptr %208, i64 %.3
+  %214 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %205, i64 0, ptr %213) #15, !srcloc !15
+  %215 = trunc i64 %214 to i1
+  br i1 %215, label %216, label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, !llvm.loop !19
 
-219:                                              ; preds = %.loopexit.i.i.i, %.lr.ph21.i.i.i
-  %.2 = phi i64 [ %.1, %.lr.ph21.i.i.i ], [ %.4, %.loopexit.i.i.i ]
-  %220 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %.2
-  %221 = load volatile i64, ptr %220, align 8
+216:                                              ; preds = %.loopexit.i.i.i, %.lr.ph18.i.i.i
+  %.2 = phi i64 [ %.1, %.lr.ph18.i.i.i ], [ %.3, %.loopexit.i.i.i ]
+  %217 = getelementptr inbounds %class.ZForwardingEntry, ptr %208, i64 %.2
+  %218 = load volatile i64, ptr %217, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %222 = and i64 %221, 1
-  %.not1518.i.i.i = icmp eq i64 %222, 0
-  br i1 %.not1518.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i33
+  %219 = trunc i64 %218 to i1
+  br i1 %219, label %.lr.ph.i.i.i32, label %.loopexit.i.i.i
 
-.lr.ph.i.i.i33:                                   ; preds = %219, %228
-  %.3 = phi i64 [ %232, %228 ], [ %.2, %219 ]
-  %storemerge19.i.i.i = phi i64 [ %234, %228 ], [ %221, %219 ]
-  %223 = lshr i64 %storemerge19.i.i.i, 46
-  %224 = icmp eq i64 %223, %203
-  br i1 %224, label %225, label %228
+.lr.ph.i.i.i32:                                   ; preds = %216, %225
+  %.4 = phi i64 [ %229, %225 ], [ %.2, %216 ]
+  %storemerge17.i.i.i = phi i64 [ %231, %225 ], [ %218, %216 ]
+  %220 = lshr i64 %storemerge17.i.i.i, 46
+  %221 = icmp eq i64 %220, %200
+  br i1 %221, label %222, label %225
 
-225:                                              ; preds = %.lr.ph.i.i.i33
-  %226 = lshr i64 %storemerge19.i.i.i, 1
-  %227 = and i64 %226, 35184372088831
+222:                                              ; preds = %.lr.ph.i.i.i32
+  %223 = lshr i64 %storemerge17.i.i.i, 1
+  %224 = and i64 %223, 35184372088831
   br label %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
 
-228:                                              ; preds = %.lr.ph.i.i.i33
-  %229 = load i64, ptr %215, align 8
-  %230 = add i64 %229, -1
-  %231 = add i64 %.3, 1
-  %232 = and i64 %230, %231
-  %233 = getelementptr inbounds %class.ZForwardingEntry, ptr %211, i64 %232
-  %234 = load volatile i64, ptr %233, align 8
+225:                                              ; preds = %.lr.ph.i.i.i32
+  %226 = load i64, ptr %212, align 8
+  %227 = add i64 %226, -1
+  %228 = add i64 %.4, 1
+  %229 = and i64 %227, %228
+  %230 = getelementptr inbounds %class.ZForwardingEntry, ptr %208, i64 %229
+  %231 = load volatile i64, ptr %230, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %235 = and i64 %234, 1
-  %.not15.i.i.i = icmp eq i64 %235, 0
-  br i1 %.not15.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i33, !llvm.loop !20
+  %232 = trunc i64 %231 to i1
+  br i1 %232, label %.lr.ph.i.i.i32, label %.loopexit.i.i.i, !llvm.loop !20
 
-_ZN11ZForwarding6insertE8zaddressS0_Pm.exit:      ; preds = %.loopexit.i.i.i, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, %225
-  %.0.i.i.i35 = phi i64 [ %227, %225 ], [ %204, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit ], [ %204, %.loopexit.i.i.i ]
-  %236 = load i64, ptr @ZAddressHeapBase, align 8
-  %237 = or i64 %236, %.0.i.i.i35
-  %.not = icmp eq i64 %237, %151
-  br i1 %.not, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %238
+_ZN11ZForwarding6insertE8zaddressS0_Pm.exit:      ; preds = %.loopexit.i.i.i, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit, %222
+  %.0.i.i.i31 = phi i64 [ %224, %222 ], [ %201, %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit ], [ %201, %.loopexit.i.i.i ]
+  %233 = load i64, ptr @ZAddressHeapBase, align 8
+  %234 = or i64 %233, %.0.i.i.i31
+  %.not = icmp eq i64 %234, %148
+  br i1 %.not, label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread, label %235
 
-238:                                              ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
-  %239 = load i64, ptr @ZAddressOffsetMask, align 8
-  %240 = and i64 %239, %237
-  %241 = load i8, ptr %69, align 8
-  switch i8 %241, label %244 [
-    i8 0, label %242
-    i8 1, label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39
-    i8 2, label %_ZNK5ZPage16object_alignmentEv.exit.i.i36
+235:                                              ; preds = %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit
+  %236 = load i64, ptr @ZAddressOffsetMask, align 8
+  %237 = and i64 %236, %234
+  %238 = load i8, ptr %69, align 8
+  switch i8 %238, label %241 [
+    i8 0, label %239
+    i8 1, label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36
+    i8 2, label %_ZNK5ZPage16object_alignmentEv.exit.i.i33
   ]
 
-242:                                              ; preds = %238
-  %243 = load ptr, ptr @ZObjectAlignmentSmall, align 8
-  br label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39
+239:                                              ; preds = %235
+  %240 = load ptr, ptr @ZObjectAlignmentSmall, align 8
+  br label %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36
 
-244:                                              ; preds = %238
-  %245 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %245, align 1
+241:                                              ; preds = %235
+  %242 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %242, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str.21, i32 noundef 112, ptr noundef nonnull @.str.22) #16
   unreachable
 
-_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39: ; preds = %242, %238
-  %.sink15.i.i = phi ptr [ %243, %242 ], [ @ZObjectAlignmentMedium, %238 ]
-  %246 = load i32, ptr %.sink15.i.i, align 4
-  %247 = sext i32 %246 to i64
-  br label %_ZNK5ZPage16object_alignmentEv.exit.i.i36
+_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36: ; preds = %239, %235
+  %.sink15.i.i = phi ptr [ %240, %239 ], [ @ZObjectAlignmentMedium, %235 ]
+  %243 = load i32, ptr %.sink15.i.i, align 4
+  %244 = sext i32 %243 to i64
+  br label %_ZNK5ZPage16object_alignmentEv.exit.i.i33
 
-_ZNK5ZPage16object_alignmentEv.exit.i.i36:        ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39, %238
-  %.0.i.i.i37 = phi i64 [ 2097152, %238 ], [ %247, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i39 ]
-  %248 = add i64 %.0.i.i.i37, %135
-  %249 = sub nsw i64 0, %.0.i.i.i37
-  %250 = and i64 %248, %249
-  %251 = load volatile i64, ptr %139, align 8
-  br label %252
+_ZNK5ZPage16object_alignmentEv.exit.i.i33:        ; preds = %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36, %235
+  %.0.i.i.i34 = phi i64 [ 2097152, %235 ], [ %244, %_ZNK5ZPage16object_alignmentEv.exit.sink.split.i.i36 ]
+  %245 = add i64 %.0.i.i.i34, %132
+  %246 = sub nsw i64 0, %.0.i.i.i34
+  %247 = and i64 %245, %246
+  %248 = load volatile i64, ptr %136, align 8
+  br label %249
 
-252:                                              ; preds = %254, %_ZNK5ZPage16object_alignmentEv.exit.i.i36
-  %.012.i.i = phi i64 [ %251, %_ZNK5ZPage16object_alignmentEv.exit.i.i36 ], [ %255, %254 ]
-  %253 = sub i64 %.012.i.i, %250
-  %.not.i.i38 = icmp eq i64 %253, %240
-  br i1 %.not.i.i38, label %254, label %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
+249:                                              ; preds = %251, %_ZNK5ZPage16object_alignmentEv.exit.i.i33
+  %.012.i.i = phi i64 [ %248, %_ZNK5ZPage16object_alignmentEv.exit.i.i33 ], [ %252, %251 ]
+  %250 = sub i64 %.012.i.i, %247
+  %.not.i.i35 = icmp eq i64 %250, %237
+  br i1 %.not.i.i35, label %251, label %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
 
-254:                                              ; preds = %252
-  %255 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %240, i64 %.012.i.i, ptr nonnull %139) #15, !srcloc !15
-  %256 = icmp eq i64 %255, %.012.i.i
-  br i1 %256, label %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit, label %252, !llvm.loop !40
+251:                                              ; preds = %249
+  %252 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %237, i64 %.012.i.i, ptr nonnull %136) #15, !srcloc !15
+  %253 = icmp eq i64 %252, %.012.i.i
+  br i1 %253, label %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit, label %249, !llvm.loop !40
 
-_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit: ; preds = %252, %254
-  %257 = load ptr, ptr %60, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %259 = load i64, ptr %258, align 8
-  %260 = shl nuw i64 1, %259
-  %261 = add i64 %260, %135
+_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit: ; preds = %249, %251
+  %254 = load ptr, ptr %60, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
+  %256 = load i64, ptr %255, align 8
+  %257 = shl nuw i64 1, %256
+  %258 = add i64 %257, %132
   br label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split
 
-_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split: ; preds = %119, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
-  %.sink85 = phi i64 [ %260, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %123, %119 ]
-  %.sink83 = phi i64 [ %261, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %125, %119 ]
-  %.sink82 = phi ptr [ %257, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %120, %119 ]
-  %.0.ph = phi i64 [ %237, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %116, %119 ]
-  %262 = sub i64 0, %.sink85
-  %263 = and i64 %.sink83, %262
-  %264 = getelementptr inbounds nuw i8, ptr %.sink82, i64 40
-  %265 = load i8, ptr %264, align 8
-  %.not.i.i40 = icmp ne i8 %265, 15
-  %266 = getelementptr inbounds nuw i8, ptr %.sink82, i64 41
-  %267 = load i8, ptr %266, align 1
-  %268 = icmp eq i8 %267, 15
-  %269 = select i1 %.not.i.i40, i1 %268, i1 false
-  %..i41 = select i1 %269, i64 144, i64 152
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 %..i41
-  %271 = load i64, ptr %270, align 8
-  %272 = add i64 %271, %263
-  store i64 %272, ptr %270, align 8
+_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split: ; preds = %116, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit
+  %.sink84 = phi i64 [ %257, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %120, %116 ]
+  %.sink82 = phi i64 [ %258, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %122, %116 ]
+  %.sink81 = phi ptr [ %254, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %117, %116 ]
+  %.0.ph = phi i64 [ %234, %_ZNK24ZRelocateMediumAllocator17undo_alloc_objectEP5ZPage8zaddressm.exit ], [ %114, %116 ]
+  %259 = sub i64 0, %.sink84
+  %260 = and i64 %.sink82, %259
+  %261 = getelementptr inbounds nuw i8, ptr %.sink81, i64 40
+  %262 = load i8, ptr %261, align 8
+  %.not.i.i37 = icmp ne i8 %262, 15
+  %263 = getelementptr inbounds nuw i8, ptr %.sink81, i64 41
+  %264 = load i8, ptr %263, align 1
+  %265 = icmp eq i8 %264, 15
+  %266 = select i1 %.not.i.i37, i1 %265, i1 false
+  %..i38 = select i1 %266, i64 144, i64 152
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 %..i38
+  %268 = load i64, ptr %267, align 8
+  %269 = add i64 %268, %260
+  store i64 %269, ptr %267, align 8
   br label %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread
 
-_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread: ; preds = %142, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split, %126, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit
-  %.0 = phi i64 [ 0, %126 ], [ 0, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit ], [ %.0.ph, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split ], [ %151, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit ], [ 0, %142 ]
+_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread: ; preds = %139, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split, %123, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit
+  %.0 = phi i64 [ 0, %123 ], [ 0, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit ], [ %.0.ph, %_ZNK24ZRelocateMediumAllocator12alloc_objectEP5ZPagem.exit.thread.sink.split ], [ %148, %_ZN11ZForwarding6insertE8zaddressS0_Pm.exit ], [ 0, %139 ]
   ret i64 %.0
 }
 
@@ -5853,9 +5819,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %38, %28
   br i1 %42, label %43, label %53
 
 43:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %44 = and i32 %41, 1
-  %.not.i.i.i = icmp eq i32 %44, 0
-  br i1 %.not.i.i.i, label %45, label %48
+  %44 = trunc i32 %41 to i1
+  br i1 %44, label %48, label %45
 
 45:                                               ; preds = %43
   %46 = lshr i32 %41, 3
@@ -5913,8 +5878,8 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %45, %48, %55, %75
   %86 = load i32, ptr %85, align 4
   %87 = sub i32 %84, %86
   %88 = and i32 %87, 1
-  %89 = icmp ne i32 %88, 0
-  %.not36 = or i1 %89, %10
+  %89 = trunc i32 %87 to i1
+  %.not36 = or i1 %10, %89
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 104
   br i1 %.not36, label %92, label %91
 
@@ -6252,137 +6217,134 @@ define linkonce_odr hidden void @_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE4
   %143 = getelementptr inbounds nuw %class.ZForwardingEntry, ptr %142, i64 %139
   %144 = load volatile i64, ptr %143, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %145 = and i64 %144, 1
-  %146 = icmp eq i64 %145, 0
-  %147 = lshr i64 %144, 46
-  %148 = icmp eq i64 %147, %122
-  %or.cond7.i.i.i.i = or i1 %146, %148
-  br i1 %or.cond7.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i
+  %145 = trunc i64 %144 to i1
+  %146 = lshr i64 %144, 46
+  %147 = icmp ne i64 %146, %122
+  %or.cond.not8.i.i.i.i = and i1 %147, %145
+  br i1 %or.cond.not8.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %117, %.lr.ph.i.i.i.i
-  %.0.i = phi i64 [ %152, %.lr.ph.i.i.i.i ], [ %139, %117 ]
-  %149 = load i64, ptr %123, align 8
-  %150 = add i64 %149, -1
-  %151 = add i64 %.0.i, 1
-  %152 = and i64 %150, %151
-  %153 = getelementptr inbounds %class.ZForwardingEntry, ptr %142, i64 %152
-  %154 = load volatile i64, ptr %153, align 8
+  %.0.i = phi i64 [ %151, %.lr.ph.i.i.i.i ], [ %139, %117 ]
+  %148 = load i64, ptr %123, align 8
+  %149 = add i64 %148, -1
+  %150 = add i64 %.0.i, 1
+  %151 = and i64 %149, %150
+  %152 = getelementptr inbounds %class.ZForwardingEntry, ptr %142, i64 %151
+  %153 = load volatile i64, ptr %152, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %155 = and i64 %154, 1
-  %156 = icmp eq i64 %155, 0
-  %157 = lshr i64 %154, 46
-  %158 = icmp eq i64 %157, %122
-  %or.cond.i.i.i.i = or i1 %156, %158
-  br i1 %or.cond.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  %154 = trunc i64 %153 to i1
+  %155 = lshr i64 %153, 46
+  %156 = icmp ne i64 %155, %122
+  %or.cond.not.i.i.i.i = and i1 %156, %154
+  br i1 %or.cond.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN11ZForwarding4findE15zaddress_unsafe.exit, !llvm.loop !18
 
 _ZN11ZForwarding4findE15zaddress_unsafe.exit:     ; preds = %.lr.ph.i.i.i.i, %117
-  %.pre-phi.i.i.i = phi i64 [ %145, %117 ], [ %155, %.lr.ph.i.i.i.i ]
-  %storemerge.lcssa.i.i.i.i = phi i64 [ %144, %117 ], [ %154, %.lr.ph.i.i.i.i ]
-  %.not.i.i.i = icmp eq i64 %.pre-phi.i.i.i, 0
-  %159 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
-  %160 = and i64 %159, 35184372088831
-  %161 = load i64, ptr @ZAddressHeapBase, align 8
-  %162 = or i64 %160, %161
-  %163 = icmp eq i64 %162, 0
-  %164 = select i1 %.not.i.i.i, i1 true, i1 %163
-  br i1 %164, label %207, label %165
+  %.pre-phi.i.i.i = phi i1 [ %145, %117 ], [ %154, %.lr.ph.i.i.i.i ]
+  %storemerge.lcssa.i.i.i.i = phi i64 [ %144, %117 ], [ %153, %.lr.ph.i.i.i.i ]
+  %157 = lshr i64 %storemerge.lcssa.i.i.i.i, 1
+  %158 = and i64 %157, 35184372088831
+  %159 = load i64, ptr @ZAddressHeapBase, align 8
+  %160 = or i64 %158, %159
+  %161 = icmp ne i64 %160, 0
+  %.not32 = select i1 %.pre-phi.i.i.i, i1 %161, i1 false
+  br i1 %.not32, label %162, label %204
 
-165:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
-  %166 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %167 = load i64, ptr @ZAddressOffsetMask, align 8
-  %168 = and i64 %167, %162
-  %169 = lshr i64 %168, 21
-  %170 = getelementptr inbounds nuw i8, ptr %166, i64 624
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %169
-  %173 = load volatile ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 1
-  %175 = load i8, ptr %174, align 1
-  %176 = icmp eq i8 %175, 0
-  br i1 %176, label %177, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split
+162:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
+  %163 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
+  %164 = load i64, ptr @ZAddressOffsetMask, align 8
+  %165 = and i64 %164, %160
+  %166 = lshr i64 %165, 21
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 624
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %166
+  %170 = load volatile ptr, ptr %169, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1
+  %172 = load i8, ptr %171, align 1
+  %173 = icmp eq i8 %172, 0
+  br i1 %173, label %174, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split
 
-177:                                              ; preds = %165
-  %178 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 6600
-  %180 = load ptr, ptr %179, align 8
-  %181 = ptrtoint ptr %0 to i64
-  %182 = and i64 %167, %181
-  %183 = lshr i64 %182, 21
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds nuw ptr, ptr %185, i64 %183
-  %187 = load volatile ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %189 = load i64, ptr %188, align 8
-  %190 = sub i64 %182, %189
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 104
-  %192 = lshr i64 %190, 3
-  %193 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds %class.ZMovableBitMap, ptr %191, i64 %194
-  %196 = load ptr, ptr %195, align 8
-  %197 = lshr i64 %190, 9
-  %198 = getelementptr inbounds nuw i64, ptr %196, i64 %197
-  %199 = and i64 %192, 63
-  %200 = shl nuw i64 1, %199
-  %201 = load volatile i64, ptr %198, align 8
-  br label %202
+174:                                              ; preds = %162
+  %175 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 6600
+  %177 = load ptr, ptr %176, align 8
+  %178 = ptrtoint ptr %0 to i64
+  %179 = and i64 %164, %178
+  %180 = lshr i64 %179, 21
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %182 = load ptr, ptr %181, align 8
+  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %180
+  %184 = load volatile ptr, ptr %183, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %186 = load i64, ptr %185, align 8
+  %187 = sub i64 %179, %186
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 104
+  %189 = lshr i64 %187, 3
+  %190 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds %class.ZMovableBitMap, ptr %188, i64 %191
+  %193 = load ptr, ptr %192, align 8
+  %194 = lshr i64 %187, 9
+  %195 = getelementptr inbounds nuw i64, ptr %193, i64 %194
+  %196 = and i64 %189, 63
+  %197 = shl nuw i64 1, %196
+  %198 = load volatile i64, ptr %195, align 8
+  br label %199
 
-202:                                              ; preds = %204, %177
-  %.017.i.i.i.i.i.i.i29 = phi i64 [ %201, %177 ], [ %205, %204 ]
-  %203 = or i64 %.017.i.i.i.i.i.i.i29, %200
-  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30 = icmp eq i64 %203, %.017.i.i.i.i.i.i.i29
-  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %204
+199:                                              ; preds = %201, %174
+  %.017.i.i.i.i.i.i.i29 = phi i64 [ %198, %174 ], [ %202, %201 ]
+  %200 = or i64 %.017.i.i.i.i.i.i.i29, %197
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30 = icmp eq i64 %200, %.017.i.i.i.i.i.i.i29
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i30, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %201
 
-204:                                              ; preds = %202
-  %205 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %203, i64 %.017.i.i.i.i.i.i.i29, ptr nonnull %198) #15, !srcloc !15
-  %206 = icmp eq i64 %205, %.017.i.i.i.i.i.i.i29
-  br i1 %206, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %202, !llvm.loop !16
+201:                                              ; preds = %199
+  %202 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %200, i64 %.017.i.i.i.i.i.i.i29, ptr nonnull %195) #15, !srcloc !15
+  %203 = icmp eq i64 %202, %.017.i.i.i.i.i.i.i29
+  br i1 %203, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %199, !llvm.loop !16
 
-207:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
-  %208 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 6600
-  %210 = load ptr, ptr %209, align 8
-  %211 = ptrtoint ptr %0 to i64
-  %212 = load i64, ptr @ZAddressOffsetMask, align 8
-  %213 = and i64 %212, %211
-  %214 = lshr i64 %213, 21
-  %215 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %214
-  %218 = load volatile ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
-  %220 = load i64, ptr %219, align 8
-  %221 = sub i64 %213, %220
-  %222 = getelementptr inbounds nuw i8, ptr %218, i64 104
-  %223 = lshr i64 %221, 3
-  %224 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds %class.ZMovableBitMap, ptr %222, i64 %225
-  %227 = load ptr, ptr %226, align 8
-  %228 = lshr i64 %221, 9
-  %229 = getelementptr inbounds nuw i64, ptr %227, i64 %228
-  %230 = and i64 %223, 63
-  %231 = shl nuw i64 1, %230
-  %232 = load volatile i64, ptr %229, align 8
-  br label %233
+204:                                              ; preds = %_ZN11ZForwarding4findE15zaddress_unsafe.exit
+  %205 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 6600
+  %207 = load ptr, ptr %206, align 8
+  %208 = ptrtoint ptr %0 to i64
+  %209 = load i64, ptr @ZAddressOffsetMask, align 8
+  %210 = and i64 %209, %208
+  %211 = lshr i64 %210, 21
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %211
+  %215 = load volatile ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %217 = load i64, ptr %216, align 8
+  %218 = sub i64 %210, %217
+  %219 = getelementptr inbounds nuw i8, ptr %215, i64 104
+  %220 = lshr i64 %218, 3
+  %221 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds %class.ZMovableBitMap, ptr %219, i64 %222
+  %224 = load ptr, ptr %223, align 8
+  %225 = lshr i64 %218, 9
+  %226 = getelementptr inbounds nuw i64, ptr %224, i64 %225
+  %227 = and i64 %220, 63
+  %228 = shl nuw i64 1, %227
+  %229 = load volatile i64, ptr %226, align 8
+  br label %230
 
-233:                                              ; preds = %235, %207
-  %.017.i.i.i.i.i.i = phi i64 [ %232, %207 ], [ %236, %235 ]
-  %234 = or i64 %.017.i.i.i.i.i.i, %231
-  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %234, %.017.i.i.i.i.i.i
-  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %235
+230:                                              ; preds = %232, %204
+  %.017.i.i.i.i.i.i = phi i64 [ %229, %204 ], [ %233, %232 ]
+  %231 = or i64 %.017.i.i.i.i.i.i, %228
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i = icmp eq i64 %231, %.017.i.i.i.i.i.i
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %232
 
-235:                                              ; preds = %233
-  %236 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %234, i64 %.017.i.i.i.i.i.i, ptr nonnull %229) #15, !srcloc !15
-  %237 = icmp eq i64 %236, %.017.i.i.i.i.i.i
-  br i1 %237, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %233, !llvm.loop !16
+232:                                              ; preds = %230
+  %233 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %231, i64 %.017.i.i.i.i.i.i, ptr nonnull %226) #15, !srcloc !15
+  %234 = icmp eq i64 %233, %.017.i.i.i.i.i.i
+  br i1 %234, label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit, label %230, !llvm.loop !16
 
-_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split: ; preds = %165, %79, %62
+_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split: ; preds = %162, %79, %62
   tail call void @_ZN8ZBarrier21remap_young_relocatedEPV8zpointerS0_(ptr noundef nonnull %0, i64 noundef %2)
   br label %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit
 
-_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit: ; preds = %204, %202, %235, %233, %114, %112, %59, %57, %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split, %14, %13, %1
+_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit: ; preds = %232, %230, %201, %199, %114, %112, %59, %57, %_ZN13ZRelocateWorkI24ZRelocateMediumAllocatorE19add_remset_if_youngEPV8zpointer8zaddress.exit.sink.split, %14, %13, %1
   ret void
 }
 
@@ -8202,9 +8164,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -8238,8 +8199,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -9731,9 +9692,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %80, %70
   br i1 %84, label %85, label %95
 
 85:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %86 = and i32 %83, 1
-  %.not.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i, label %87, label %90
+  %86 = trunc i32 %83 to i1
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %85
   %88 = lshr i32 %83, 3
@@ -9931,9 +9891,8 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %86, %76
   br i1 %90, label %91, label %101
 
 91:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %92 = and i32 %89, 1
-  %.not.i.i.i = icmp eq i32 %92, 0
-  br i1 %.not.i.i.i, label %93, label %96
+  %92 = trunc i32 %89 to i1
+  br i1 %92, label %96, label %93
 
 93:                                               ; preds = %91
   %94 = lshr i32 %89, 3

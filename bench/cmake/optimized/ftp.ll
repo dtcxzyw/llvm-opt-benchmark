@@ -9253,128 +9253,127 @@ define internal fastcc range(i32 0, 11) i32 @ftp_check_ctrl_on_data_wait(ptr nou
   br label %.thread94
 
 33:                                               ; preds = %31
-  %34 = and i32 %32, 1
-  %.not70.not = icmp eq i32 %34, 0
-  br i1 %.not70.not, label %.thread94, label %.critedge
+  %.not70 = trunc i32 %32 to i1
+  br i1 %.not70, label %.critedge, label %.thread94
 
 .critedge:                                        ; preds = %33, %28
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2562
-  %36 = load i64, ptr %35, align 2
-  %37 = and i64 %36, 134217728
-  %.not72 = icmp eq i64 %37, 0
-  br i1 %.not72, label %46, label %38
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2562
+  %35 = load i64, ptr %34, align 2
+  %36 = and i64 %35, 134217728
+  %.not72 = icmp eq i64 %36, 0
+  br i1 %.not72, label %45, label %37
 
-38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  %40 = load ptr, ptr %39, align 8, !tbaa !104
-  %.not73 = icmp eq ptr %40, null
-  br i1 %.not73, label %45, label %41
+37:                                               ; preds = %.critedge
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  %39 = load ptr, ptr %38, align 8, !tbaa !104
+  %.not73 = icmp eq ptr %39, null
+  br i1 %.not73, label %44, label %40
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !105
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %46
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load i32, ptr %41, align 8, !tbaa !105
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %44, label %45
 
-45:                                               ; preds = %41, %38
+44:                                               ; preds = %40, %37
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.144) #10
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %41, %.critedge
-  %47 = load i64, ptr %29, align 8, !tbaa !179
-  %48 = icmp ugt i64 %47, 3
-  br i1 %48, label %49, label %.thread90
+45:                                               ; preds = %44, %40, %.critedge
+  %46 = load i64, ptr %29, align 8, !tbaa !179
+  %47 = icmp ugt i64 %46, 3
+  br i1 %47, label %48, label %.thread90
 
-49:                                               ; preds = %46
-  %50 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 1192
-  %52 = load i64, ptr %51, align 8, !tbaa !239
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !21
-  %55 = add i8 %54, -48
-  %or.cond = icmp ult i8 %55, 10
-  br i1 %or.cond, label %56, label %.thread90
+48:                                               ; preds = %45
+  %49 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %8) #10
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 1192
+  %51 = load i64, ptr %50, align 8, !tbaa !239
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
+  %53 = load i8, ptr %52, align 1, !tbaa !21
+  %54 = add i8 %53, -48
+  %or.cond = icmp ult i8 %54, 10
+  br i1 %or.cond, label %55, label %.thread90
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !21
-  %59 = add i8 %58, -48
-  %or.cond82 = icmp ult i8 %59, 10
-  br i1 %or.cond82, label %60, label %.thread90
+55:                                               ; preds = %48
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !21
+  %58 = add i8 %57, -48
+  %or.cond82 = icmp ult i8 %58, 10
+  br i1 %or.cond82, label %59, label %.thread90
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  %62 = load i8, ptr %61, align 1, !tbaa !21
-  %63 = add i8 %62, -48
-  %or.cond83 = icmp ult i8 %63, 10
-  br i1 %or.cond83, label %64, label %.thread90
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  %61 = load i8, ptr %60, align 1, !tbaa !21
+  %62 = add i8 %61, -48
+  %or.cond83 = icmp ult i8 %62, 10
+  br i1 %or.cond83, label %63, label %.thread90
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 3
-  %66 = load i8, ptr %65, align 1, !tbaa !21
-  %67 = icmp eq i8 %66, 32
-  br i1 %67, label %68, label %.thread90
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 3
+  %65 = load i8, ptr %64, align 1, !tbaa !21
+  %66 = icmp eq i8 %65, 32
+  br i1 %66, label %67, label %.thread90
 
-68:                                               ; preds = %64
-  %69 = tail call i64 @strtol(ptr noundef nonnull captures(none) %53, ptr noundef null, i32 noundef 10) #10
-  %70 = tail call i32 @curlx_sltosi(i64 noundef %69) #10
-  %.not76.not = icmp eq i32 %70, 226
-  br i1 %.not76.not, label %71, label %.thread90
+67:                                               ; preds = %63
+  %68 = tail call i64 @strtol(ptr noundef nonnull captures(none) %52, ptr noundef null, i32 noundef 10) #10
+  %69 = tail call i32 @curlx_sltosi(i64 noundef %68) #10
+  %.not76.not = icmp eq i32 %69, 226
+  br i1 %.not76.not, label %70, label %.thread90
 
-71:                                               ; preds = %68
-  %72 = load i64, ptr %35, align 2
-  %73 = and i64 %72, 134217728
-  %.not74 = icmp eq i64 %73, 0
-  br i1 %.not74, label %.thread94, label %74
+70:                                               ; preds = %67
+  %71 = load i64, ptr %34, align 2
+  %72 = and i64 %71, 134217728
+  %.not74 = icmp eq i64 %72, 0
+  br i1 %.not74, label %.thread94, label %73
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  %76 = load ptr, ptr %75, align 8, !tbaa !104
-  %.not75 = icmp eq ptr %76, null
-  br i1 %.not75, label %81, label %77
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  %75 = load ptr, ptr %74, align 8, !tbaa !104
+  %.not75 = icmp eq ptr %75, null
+  br i1 %.not75, label %80, label %76
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !105
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %81, label %.thread94
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %78 = load i32, ptr %77, align 8, !tbaa !105
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %80, label %.thread94
 
-81:                                               ; preds = %77, %74
+80:                                               ; preds = %76, %73
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.145) #10
   br label %.thread94
 
-.thread90:                                        ; preds = %68, %49, %56, %60, %64, %46
-  %82 = call i32 @Curl_GetFTPResponse(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %83 = load i64, ptr %35, align 2
-  %84 = and i64 %83, 134217728
-  %.not77 = icmp eq i64 %84, 0
-  br i1 %.not77, label %94, label %85
+.thread90:                                        ; preds = %67, %48, %55, %59, %63, %45
+  %81 = call i32 @Curl_GetFTPResponse(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %82 = load i64, ptr %34, align 2
+  %83 = and i64 %82, 134217728
+  %.not77 = icmp eq i64 %83, 0
+  br i1 %.not77, label %93, label %84
 
-85:                                               ; preds = %.thread90
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  %87 = load ptr, ptr %86, align 8, !tbaa !104
-  %.not78 = icmp eq ptr %87, null
-  br i1 %.not78, label %92, label %88
+84:                                               ; preds = %.thread90
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  %86 = load ptr, ptr %85, align 8, !tbaa !104
+  %.not78 = icmp eq ptr %86, null
+  br i1 %.not78, label %91, label %87
 
-88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %90 = load i32, ptr %89, align 8, !tbaa !105
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %92, label %94
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %89 = load i32, ptr %88, align 8, !tbaa !105
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %91, label %93
 
-92:                                               ; preds = %88, %85
-  %93 = load i32, ptr %3, align 4, !tbaa !149
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.146, i32 noundef %93) #10
-  br label %94
+91:                                               ; preds = %87, %84
+  %92 = load i32, ptr %3, align 4, !tbaa !149
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.146, i32 noundef %92) #10
+  br label %93
 
-94:                                               ; preds = %92, %88, %.thread90
-  %95 = load i32, ptr %3, align 4, !tbaa !149
-  %96 = icmp sgt i32 %95, 399
-  %. = select i1 %96, i32 10, i32 8
+93:                                               ; preds = %91, %87, %.thread90
+  %94 = load i32, ptr %3, align 4, !tbaa !149
+  %95 = icmp sgt i32 %94, 399
+  %. = select i1 %95, i32 10, i32 8
   br label %.thread94
 
-.thread94:                                        ; preds = %71, %77, %81, %.thread, %33, %94, %26
-  %.0 = phi i32 [ 10, %26 ], [ %., %94 ], [ 0, %33 ], [ 0, %71 ], [ 10, %.thread ], [ 0, %81 ], [ 0, %77 ]
+.thread94:                                        ; preds = %70, %76, %80, %.thread, %33, %93, %26
+  %.0 = phi i32 [ 10, %26 ], [ %., %93 ], [ 0, %33 ], [ 0, %70 ], [ 10, %.thread ], [ 0, %80 ], [ 0, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

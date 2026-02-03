@@ -543,9 +543,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4lean11for_each_
 
 41:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %42 = ptrtoint ptr %40 to i64
-  %43 = and i64 %42, 1
-  %.not12 = icmp eq i64 %43, 0
-  br i1 %.not12, label %44, label %_ZL8lean_incP11lean_object.exit
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %_ZL8lean_incP11lean_object.exit, label %44
 
 44:                                               ; preds = %41
   %.val.i = load i32, ptr %40, align 4, !tbaa !35
@@ -723,9 +722,8 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4lean11for_each_
 
 41:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %42 = ptrtoint ptr %40 to i64
-  %43 = and i64 %42, 1
-  %.not12 = icmp eq i64 %43, 0
-  br i1 %.not12, label %44, label %_ZL8lean_incP11lean_object.exit
+  %43 = trunc i64 %42 to i1
+  br i1 %43, label %_ZL8lean_incP11lean_object.exit, label %44
 
 44:                                               ; preds = %41
   %.val.i = load i32, ptr %40, align 4, !tbaa !35
@@ -1989,9 +1987,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4lean4exprEEZ
   %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, 1
-  %.not10.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not10.i.i.i, label %11, label %_ZL8lean_incP11lean_object.exit6.i.i.i
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %_ZL8lean_incP11lean_object.exit6.i.i.i, label %11
 
 11:                                               ; preds = %5
   %.val.i.i.i.i = load i32, ptr %8, align 4, !tbaa !35
@@ -2014,9 +2011,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4lean4exprEEZ
 _ZL8lean_incP11lean_object.exit6.i.i.i:           ; preds = %16, %15, %13, %5
   %17 = load ptr, ptr %1, align 8, !tbaa !39
   %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, 1
-  %.not11.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not11.i.i.i, label %20, label %_ZL8lean_incP11lean_object.exit.i.i.i
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZL8lean_incP11lean_object.exit.i.i.i, label %20
 
 20:                                               ; preds = %_ZL8lean_incP11lean_object.exit6.i.i.i
   %.val.i7.i.i.i = load i32, ptr %17, align 4, !tbaa !35
@@ -2094,9 +2090,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4lean4exprEEZ
   %7 = load ptr, ptr %6, align 8, !tbaa !75
   %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = ptrtoint ptr %8 to i64
-  %10 = and i64 %9, 1
-  %.not10.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not10.i.i.i, label %11, label %_ZL8lean_incP11lean_object.exit6.i.i.i
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %_ZL8lean_incP11lean_object.exit6.i.i.i, label %11
 
 11:                                               ; preds = %5
   %.val.i.i.i.i = load i32, ptr %8, align 4, !tbaa !35
@@ -2119,9 +2114,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4lean4exprEEZ
 _ZL8lean_incP11lean_object.exit6.i.i.i:           ; preds = %16, %15, %13, %5
   %17 = load ptr, ptr %1, align 8, !tbaa !39
   %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, 1
-  %.not11.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not11.i.i.i, label %20, label %_ZL8lean_incP11lean_object.exit.i.i.i
+  %19 = trunc i64 %18 to i1
+  br i1 %19, label %_ZL8lean_incP11lean_object.exit.i.i.i, label %20
 
 20:                                               ; preds = %_ZL8lean_incP11lean_object.exit6.i.i.i
   %.val.i7.i.i.i = load i32, ptr %17, align 4, !tbaa !35

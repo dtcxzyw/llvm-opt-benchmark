@@ -255,9 +255,8 @@ define dso_local noundef zeroext i1 @_ZNK12absl_testing15status_internal25Status
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %19 = load i64, ptr %1, align 8, !tbaa !23
-  %20 = and i64 %19, 1
-  %.not.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i, label %24, label %21
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %21, label %24
 
 21:                                               ; preds = %3
   %22 = lshr i64 %19, 2
@@ -627,9 +626,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %154 = load i64, ptr %1, align 8, !tbaa !23
-  %155 = and i64 %154, 1
-  %.not.i83 = icmp eq i64 %155, 0
-  br i1 %.not.i83, label %156, label %162
+  %155 = trunc i64 %154 to i1
+  br i1 %155, label %162, label %156
 
 156:                                              ; preds = %152
   %157 = inttoptr i64 %154 to ptr
@@ -641,14 +639,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
 
 162:                                              ; preds = %152
   %163 = and i64 %154, 2
-  %.not1.i = icmp eq i64 %163, 0
-  %spec.select.i = select i1 %.not1.i, i64 0, i64 27
-  %spec.select2.i = select i1 %.not1.i, ptr null, ptr @_ZN4absl6Status16kMovedFromStringE
+  %.not.i83 = icmp eq i64 %163, 0
+  %spec.select.i = select i1 %.not.i83, i64 0, i64 27
+  %spec.select1.i = select i1 %.not.i83, ptr null, ptr @_ZN4absl6Status16kMovedFromStringE
   br label %164
 
 164:                                              ; preds = %162, %156
   %.sroa.0.0.i = phi i64 [ %spec.select.i, %162 ], [ %161, %156 ]
-  %.sroa.4.0.i = phi ptr [ %spec.select2.i, %162 ], [ %159, %156 ]
+  %.sroa.4.0.i = phi ptr [ %spec.select1.i, %162 ], [ %159, %156 ]
   %165 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %165, ptr %15, align 8, !tbaa !54
   %166 = icmp eq ptr %.sroa.4.0.i, null

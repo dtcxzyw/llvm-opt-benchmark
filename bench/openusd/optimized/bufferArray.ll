@@ -57,9 +57,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayC2ERKNS_7TfToke
   %12 = and i64 %9, -8
   %13 = inttoptr i64 %12 to ptr
   %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4
-  %15 = and i32 %14, 1
-  %.not1.i.i = icmp eq i32 %15, 0
-  br i1 %.not1.i.i, label %16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, label %16
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %8, align 8
@@ -75,15 +74,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %4, %11, %
   store i64 %22, ptr %21, align 8
   %23 = and i64 %22, 7
   %.not.i.i2 = icmp eq i64 %23, 0
-  br i1 %.not.i.i2, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit4, label %24
+  br i1 %.not.i.i2, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit3, label %24
 
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
   %25 = and i64 %22, -8
   %26 = inttoptr i64 %25 to ptr
   %27 = atomicrmw add ptr %26, i32 2 monotonic, align 4
-  %28 = and i32 %27, 1
-  %.not1.i.i3 = icmp eq i32 %28, 0
-  br i1 %.not1.i.i3, label %29, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit4
+  %28 = trunc i32 %27 to i1
+  br i1 %28, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit3, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %21, align 8
@@ -91,9 +89,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %4, %11, %
   %32 = and i64 %31, -8
   %33 = inttoptr i64 %32 to ptr
   store ptr %33, ptr %21, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit4
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit3
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit4: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %24, %29
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit3: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit, %24, %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = atomicrmw add ptr @_ZN32pxrInternal_v0_24__pxrReserved__L14_uniqueVersionE, i64 1 seq_cst, align 8
   store i64 %35, ptr %34, align 8

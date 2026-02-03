@@ -1885,11 +1885,11 @@ proto_item_set_generated.exit347:                 ; preds = %330, %344, %341, %3
 
 371:                                              ; preds = %358
   %372 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %373 = and i8 %372, 1
-  %374 = getelementptr inbounds nuw i8, ptr %285, i64 32
-  %375 = getelementptr inbounds nuw i8, ptr %285, i64 40
-  store i8 %373, ptr %375, align 8
-  store ptr null, ptr %374, align 8
+  %373 = getelementptr inbounds nuw i8, ptr %285, i64 32
+  %374 = getelementptr inbounds nuw i8, ptr %285, i64 40
+  %375 = and i8 %372, 1
+  store i8 %375, ptr %374, align 8
+  store ptr null, ptr %373, align 8
   br label %376
 
 376:                                              ; preds = %371, %358

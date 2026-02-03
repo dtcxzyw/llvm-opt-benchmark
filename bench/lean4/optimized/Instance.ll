@@ -8,9 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_DefaultFormula_instFormulaPosFinDefaultClause(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !4
@@ -52,7 +51,7 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   store i16 1, ptr %16, align 2, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %17, align 8, !tbaa !10
-  br i1 %.not, label %18, label %lean_inc.exit30
+  br i1 %3, label %lean_inc.exit30, label %18
 
 18:                                               ; preds = %lean_alloc_closure.exit
   %.val.i34 = load i32, ptr %0, align 4, !tbaa !4
@@ -94,7 +93,7 @@ lean_alloc_closure.exit37:                        ; preds = %lean_inc.exit30
   store i16 1, ptr %30, align 2, !tbaa !12
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %0, ptr %31, align 8, !tbaa !10
-  br i1 %.not, label %32, label %lean_inc.exit31
+  br i1 %3, label %lean_inc.exit31, label %32
 
 32:                                               ; preds = %lean_alloc_closure.exit37
   %.val.i38 = load i32, ptr %0, align 4, !tbaa !4
@@ -136,7 +135,7 @@ lean_alloc_closure.exit41:                        ; preds = %lean_inc.exit31
   store i16 1, ptr %44, align 2, !tbaa !12
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %0, ptr %45, align 8, !tbaa !10
-  br i1 %.not, label %46, label %lean_inc.exit32
+  br i1 %3, label %lean_inc.exit32, label %46
 
 46:                                               ; preds = %lean_alloc_closure.exit41
   %.val.i42 = load i32, ptr %0, align 4, !tbaa !4
@@ -178,7 +177,7 @@ lean_alloc_closure.exit45:                        ; preds = %lean_inc.exit32
   store i16 1, ptr %58, align 2, !tbaa !12
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %0, ptr %59, align 8, !tbaa !10
-  br i1 %.not, label %60, label %lean_inc.exit33
+  br i1 %3, label %lean_inc.exit33, label %60
 
 60:                                               ; preds = %lean_alloc_closure.exit45
   %.val.i46 = load i32, ptr %0, align 4, !tbaa !4

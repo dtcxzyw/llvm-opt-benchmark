@@ -601,8 +601,8 @@ define dso_local range(i32 0, 3) i32 @spec_yyparse() local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %.thread319, %50, %309, %312
   %.0259 = phi i32 [ 2, %312 ], [ 1, %50 ], [ 1, %309 ], [ 0, %.thread319 ]
   %.5 = phi ptr [ %.0247, %312 ], [ %.1248, %50 ], [ %.1248, %309 ], [ %.1248, %.thread319 ]
-  %.not302 = icmp eq ptr %.5, %1
-  br i1 %.not302, label %313, label %.loopexit.thread
+  %.not301 = icmp eq ptr %.5, %1
+  br i1 %.not301, label %313, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %26, %.loopexit
   %.5367 = phi ptr [ %.5, %.loopexit ], [ %19, %26 ]

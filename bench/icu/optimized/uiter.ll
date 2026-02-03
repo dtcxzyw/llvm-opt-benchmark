@@ -2532,8 +2532,7 @@ define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(pt
 20:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = lshr i32 %1, 1
-  %22 = and i32 %1, 1
-  %.not = icmp eq i32 %22, 0
+  %22 = trunc i32 %1 to i1
   %23 = and i32 %1, -7
   %or.cond = icmp eq i32 %23, 1
   br i1 %or.cond, label %28, label %24
@@ -2554,7 +2553,7 @@ define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(pt
   %spec.select = select i1 %30, i32 %21, i32 -1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select, ptr %31, align 8, !tbaa !28
-  br i1 %.not, label %32, label %33
+  br i1 %22, label %33, label %32
 
 32:                                               ; preds = %29
   store i32 0, ptr %16, align 8, !tbaa !39

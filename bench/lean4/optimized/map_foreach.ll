@@ -75,15 +75,14 @@ define hidden void @_ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %.06.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %14 = ptrtoint ptr %13 to i64
-  %15 = and i64 %14, 1
-  %.not5.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not5.i.i.i, label %.lr.ph.i.i.i, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %11, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i
-  %.06.i.i.i = phi ptr [ %24, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i ], [ %13, %11 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
+  %.05.i.i.i = phi ptr [ %24, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i ], [ %13, %11 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !8
-  %18 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -102,12 +101,11 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i: ; preds = %.lr.ph.i.i
   call void %22(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !8
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i, !llvm.loop !15
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i: ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i, %11
   %27 = add nuw i64 %.06.i.i, 1
@@ -143,15 +141,14 @@ define hidden void @_ZN4lean12smap_foreachEP11lean_objectRKSt8functionIFvS1_S1_E
   %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06.i.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 1
-  %.not5.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not5.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %14, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %27, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i ], [ %16, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %.05.i.i.i.i = phi ptr [ %27, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i ], [ %16, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !8
-  %21 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -170,12 +167,11 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i: ; preds = %.lr.ph.i
   call void %25(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !8
   %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, 1
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i, !llvm.loop !15
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 _ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i: ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i, %14
   %30 = add nuw i64 %.06.i.i.i, 1
@@ -224,15 +220,14 @@ define noundef nonnull ptr @lean_smap_foreach_test(ptr noundef readonly captures
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.06.i.i.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 1
-  %.not5.i.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not5.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %14, %.noexc2
-  %.06.i.i.i.i.i = phi ptr [ %27, %.noexc2 ], [ %16, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
+  %.05.i.i.i.i.i = phi ptr [ %27, %.noexc2 ], [ %16, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !8
-  %21 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -257,12 +252,11 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i.i: ; preds = %.lr.ph
 .noexc2:                                          ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !8
   %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, 1
-  %.not.i.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i, !llvm.loop !15
+  %29 = trunc i64 %28 to i1
+  br i1 %29, label %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
 _ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i: ; preds = %.noexc2, %14
   %30 = add nuw i64 %.06.i.i.i.i, 1
@@ -339,9 +333,8 @@ define linkonce_odr hidden void @_ZN4lean16rbmap_visitor_fn5visitEP11lean_object
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = ptrtoint ptr %1 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %22
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -411,9 +404,8 @@ define linkonce_odr hidden void @_ZN4lean19phashmap_visitor_fn10visit_nodeEP11le
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0.i9
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 1
-  %.not.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i, label %22, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
   %20 = lshr i64 %17, 1

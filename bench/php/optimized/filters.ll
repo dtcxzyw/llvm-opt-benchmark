@@ -244,60 +244,58 @@ define internal range(i32 0, 3) i32 @strfilter_convert_filter(ptr noundef %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %12
 
-12:                                               ; preds = %.lr.ph, %22
-  %13 = phi ptr [ %10, %.lr.ph ], [ %23, %22 ]
+12:                                               ; preds = %.lr.ph, %21
+  %13 = phi ptr [ %10, %.lr.ph ], [ %22, %21 ]
   tail call void @php_stream_bucket_unlink(ptr noundef nonnull %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load i64, ptr %16, align 8, !tbaa !23
   %18 = load i16, ptr %11, align 8
-  %19 = and i16 %18, 1
-  %20 = icmp ne i16 %19, 0
-  %21 = call fastcc i32 @strfilter_convert_append_bucket(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef %15, i64 noundef %17, ptr noundef %7, i1 noundef zeroext %20)
-  %.not28 = icmp eq i32 %21, 0
-  br i1 %.not28, label %22, label %.thread
+  %19 = trunc i16 %18 to i1
+  %20 = call fastcc i32 @strfilter_convert_append_bucket(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef %15, i64 noundef %17, ptr noundef %7, i1 noundef zeroext %19)
+  %.not28 = icmp eq i32 %20, 0
+  br i1 %.not28, label %21, label %.thread
 
-22:                                               ; preds = %12
+21:                                               ; preds = %12
   tail call void @php_stream_bucket_delref(ptr noundef nonnull %13) #18
-  %23 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not = icmp eq ptr %23, null
+  %22 = load ptr, ptr %2, align 8, !tbaa !15
+  %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %12
 
-._crit_edge:                                      ; preds = %22, %6
-  %.022.lcssa = phi ptr [ null, %6 ], [ %13, %22 ]
+._crit_edge:                                      ; preds = %21, %6
+  %.022.lcssa = phi ptr [ null, %6 ], [ %13, %21 ]
   %.not25 = icmp eq i32 %5, 0
-  br i1 %.not25, label %30, label %24
+  br i1 %.not25, label %28, label %23
 
-24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %26 = load i16, ptr %25, align 8
-  %27 = and i16 %26, 1
-  %28 = icmp ne i16 %27, 0
-  %29 = call fastcc i32 @strfilter_convert_append_bucket(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef null, i64 noundef 0, ptr noundef %7, i1 noundef zeroext %28)
-  %.not26 = icmp eq i32 %29, 0
-  br i1 %.not26, label %30, label %33
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %25 = load i16, ptr %24, align 8
+  %26 = trunc i16 %25 to i1
+  %27 = call fastcc i32 @strfilter_convert_append_bucket(ptr noundef %9, ptr noundef %0, ptr noundef %3, ptr noundef null, i64 noundef 0, ptr noundef %7, i1 noundef zeroext %26)
+  %.not26 = icmp eq i32 %27, 0
+  br i1 %.not26, label %28, label %31
 
-30:                                               ; preds = %24, %._crit_edge
+28:                                               ; preds = %23, %._crit_edge
   %.not27 = icmp eq ptr %4, null
-  br i1 %.not27, label %34, label %31
+  br i1 %.not27, label %32, label %29
 
-31:                                               ; preds = %30
-  %32 = load i64, ptr %7, align 8, !tbaa !24
-  store i64 %32, ptr %4, align 8, !tbaa !24
-  br label %34
+29:                                               ; preds = %28
+  %30 = load i64, ptr %7, align 8, !tbaa !24
+  store i64 %30, ptr %4, align 8, !tbaa !24
+  br label %32
 
-33:                                               ; preds = %24
+31:                                               ; preds = %23
   %.not29 = icmp eq ptr %.022.lcssa, null
-  br i1 %.not29, label %34, label %.thread
+  br i1 %.not29, label %32, label %.thread
 
-.thread:                                          ; preds = %12, %33
-  %.132 = phi ptr [ %.022.lcssa, %33 ], [ %13, %12 ]
+.thread:                                          ; preds = %12, %31
+  %.132 = phi ptr [ %.022.lcssa, %31 ], [ %13, %12 ]
   tail call void @php_stream_bucket_delref(ptr noundef nonnull %.132) #18
-  br label %34
+  br label %32
 
-34:                                               ; preds = %33, %.thread, %30, %31
-  %.0 = phi i32 [ 2, %30 ], [ 2, %31 ], [ 0, %.thread ], [ 0, %33 ]
+32:                                               ; preds = %31, %.thread, %28, %29
+  %.0 = phi i32 [ 2, %28 ], [ 2, %29 ], [ 0, %.thread ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

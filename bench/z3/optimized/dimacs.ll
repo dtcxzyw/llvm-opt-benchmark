@@ -615,10 +615,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %2
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i
 
 23:                                               ; preds = %18
-  %24 = and i32 %.sroa.0.0.copyload.i.i, 1
-  %.not.not.i.i.i = icmp eq i32 %24, 0
-  %25 = select i1 %.not.not.i.i.i, ptr @.str.4, ptr @.str.3
-  %26 = zext nneg i32 %24 to i64
+  %24 = trunc i32 %.sroa.0.0.copyload.i.i to i1
+  %25 = select i1 %24, ptr @.str.3, ptr @.str.4
+  %.mask.i.i.i = and i32 %.sroa.0.0.copyload.i.i, 1
+  %26 = zext nneg i32 %.mask.i.i.i to i64
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %25, i64 noundef %26)
   %28 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %29 = zext nneg i32 %28 to i64

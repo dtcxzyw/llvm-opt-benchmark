@@ -9524,40 +9524,38 @@ _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %41, %37, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.pre = load ptr, ptr %1, align 8, !tbaa !117
   %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre, i64 %spec.select
-  %.pre129 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !158
+  %.pre127 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !158
   br label %55
 
 55:                                               ; preds = %_ZN2c43yml4Tree7root_idEv.exit, %46
-  %56 = phi i64 [ %44, %_ZN2c43yml4Tree7root_idEv.exit ], [ %.pre129, %46 ]
+  %56 = phi i64 [ %44, %_ZN2c43yml4Tree7root_idEv.exit ], [ %.pre127, %46 ]
   %57 = phi ptr [ %42, %_ZN2c43yml4Tree7root_idEv.exit ], [ %.pre, %46 ]
-  %58 = and i64 %56, 1
-  %.not109 = icmp eq i64 %58, 0
-  br i1 %.not109, label %86, label %59
+  %58 = trunc i64 %56 to i1
+  br i1 %58, label %59, label %86
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %0, align 8, !tbaa !117
   %61 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %60, i64 %.083
   %62 = load i64, ptr %61, align 8, !tbaa !158
-  %63 = and i64 %62, 1
-  %.not118 = icmp eq i64 %63, 0
-  br i1 %.not118, label %64, label %68
+  %63 = trunc i64 %62 to i1
+  br i1 %63, label %68, label %64
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %66 = load i64, ptr %65, align 8, !tbaa !150
-  %.not119 = icmp eq i64 %66, -1
-  br i1 %.not119, label %68, label %67
+  %.not117 = icmp eq i64 %66, -1
+  br i1 %.not117, label %68, label %67
 
 67:                                               ; preds = %64
   call void @_ZN2c43yml4Tree15remove_childrenEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %.083)
-  %.pre130 = load ptr, ptr %1, align 8, !tbaa !117
-  %.phi.trans.insert131 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre130, i64 %spec.select
-  %.pre132 = load i64, ptr %.phi.trans.insert131, align 8, !tbaa !158
+  %.pre132 = load ptr, ptr %1, align 8, !tbaa !117
+  %.phi.trans.insert133 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre132, i64 %spec.select
+  %.pre134 = load i64, ptr %.phi.trans.insert133, align 8, !tbaa !158
   br label %68
 
 68:                                               ; preds = %64, %67, %59
-  %69 = phi i64 [ %56, %64 ], [ %.pre132, %67 ], [ %56, %59 ]
-  %70 = phi ptr [ %57, %64 ], [ %.pre130, %67 ], [ %57, %59 ]
+  %69 = phi i64 [ %56, %64 ], [ %.pre134, %67 ], [ %56, %59 ]
+  %70 = phi ptr [ %57, %64 ], [ %.pre132, %67 ], [ %57, %59 ]
   %71 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %70, i64 %spec.select
   %72 = and i64 %69, 3
   switch i64 %72, label %85 [
@@ -9590,39 +9588,39 @@ _ZN2c43yml4Tree7root_idEv.exit:                   ; preds = %41, %37, %34
 
 86:                                               ; preds = %55
   %87 = and i64 %56, 8
-  %.not110 = icmp eq i64 %87, 0
-  br i1 %.not110, label %202, label %88
+  %.not109 = icmp eq i64 %87, 0
+  br i1 %.not109, label %202, label %88
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %0, align 8, !tbaa !117
   %90 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %89, i64 %.083
   %91 = load i64, ptr %90, align 8, !tbaa !158
   %92 = and i64 %91, 8
-  %.not115 = icmp eq i64 %92, 0
-  br i1 %.not115, label %93, label %179
+  %.not114 = icmp eq i64 %92, 0
+  br i1 %.not114, label %93, label %179
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 112
   %95 = load i64, ptr %94, align 8, !tbaa !150
-  %.not116 = icmp eq i64 %95, -1
-  br i1 %.not116, label %97, label %96
+  %.not115 = icmp eq i64 %95, -1
+  br i1 %.not115, label %97, label %96
 
 96:                                               ; preds = %93
   call void @_ZN2c43yml4Tree15remove_childrenEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %.083)
-  %.pre133 = load ptr, ptr %0, align 8, !tbaa !117
-  %.pre134 = load ptr, ptr %1, align 8, !tbaa !117
+  %.pre128 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre129 = load ptr, ptr %1, align 8, !tbaa !117
   br label %97
 
 97:                                               ; preds = %96, %93
-  %98 = phi ptr [ %.pre134, %96 ], [ %57, %93 ]
-  %99 = phi ptr [ %.pre133, %96 ], [ %89, %93 ]
+  %98 = phi ptr [ %.pre129, %96 ], [ %57, %93 ]
+  %99 = phi ptr [ %.pre128, %96 ], [ %89, %93 ]
   %100 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %99, i64 %.083
   store i64 0, ptr %100, align 8, !tbaa !153
   %101 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %98, i64 %spec.select
   %102 = load i64, ptr %101, align 8, !tbaa !158
   %103 = and i64 %102, 2
-  %.not117 = icmp eq i64 %103, 0
-  br i1 %.not117, label %142, label %104
+  %.not116 = icmp eq i64 %103, 0
+  br i1 %.not116, label %142, label %104
 
 104:                                              ; preds = %97
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -9799,12 +9797,12 @@ _ZN2c43yml4Tree6to_seqEmm.exit:                   ; preds = %154, %160, %164
   %180 = load ptr, ptr %1, align 8, !tbaa !117
   %181 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %180, i64 %spec.select
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 112
-  %.086121 = load i64, ptr %182, align 8, !tbaa !68
-  %.not91122 = icmp eq i64 %.086121, -1
-  br i1 %.not91122, label %.loopexit, label %.lr.ph
+  %.086119 = load i64, ptr %182, align 8, !tbaa !68
+  %.not91120 = icmp eq i64 %.086119, -1
+  br i1 %.not91120, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %179, %.lr.ph
-  %.086123 = phi i64 [ %.086, %.lr.ph ], [ %.086121, %179 ]
+  %.086121 = phi i64 [ %.086, %.lr.ph ], [ %.086119, %179 ]
   %183 = load ptr, ptr %0, align 8, !tbaa !117
   %184 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %183, i64 %.083
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 120
@@ -9814,7 +9812,7 @@ _ZN2c43yml4Tree6to_seqEmm.exit:                   ; preds = %154, %160, %164
   %188 = load ptr, ptr %0, align 8, !tbaa !117
   %189 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %188, i64 %187
   %190 = load ptr, ptr %1, align 8, !tbaa !117
-  %191 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %190, i64 %.086123
+  %191 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %190, i64 %.086121
   %192 = load i64, ptr %191, align 8, !tbaa !153
   %193 = and i64 %192, -9539
   %194 = load i64, ptr %189, align 8, !tbaa !153
@@ -9824,9 +9822,9 @@ _ZN2c43yml4Tree6to_seqEmm.exit:                   ; preds = %154, %160, %164
   %197 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %198 = getelementptr inbounds nuw i8, ptr %189, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %198, ptr noundef nonnull align 8 dereferenceable(48) %197, i64 48, i1 false), !tbaa.struct !154
-  call void @_ZN2c43yml4Tree10merge_withEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1, i64 noundef %.086123, i64 noundef %187)
+  call void @_ZN2c43yml4Tree10merge_withEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1, i64 noundef %.086121, i64 noundef %187)
   %199 = load ptr, ptr %1, align 8, !tbaa !117
-  %200 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %199, i64 %.086123
+  %200 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %199, i64 %.086121
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 128
   %.086 = load i64, ptr %201, align 8, !tbaa !68
   %.not91 = icmp eq i64 %.086, -1
@@ -9834,39 +9832,39 @@ _ZN2c43yml4Tree6to_seqEmm.exit:                   ; preds = %154, %160, %164
 
 202:                                              ; preds = %86
   %203 = and i64 %56, 4
-  %.not111 = icmp eq i64 %203, 0
-  br i1 %.not111, label %323, label %204
+  %.not110 = icmp eq i64 %203, 0
+  br i1 %.not110, label %323, label %204
 
 204:                                              ; preds = %202
   %205 = load ptr, ptr %0, align 8, !tbaa !117
   %206 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %205, i64 %.083
   %207 = load i64, ptr %206, align 8, !tbaa !158
   %208 = and i64 %207, 4
-  %.not112 = icmp eq i64 %208, 0
-  br i1 %.not112, label %209, label %295
+  %.not111 = icmp eq i64 %208, 0
+  br i1 %.not111, label %209, label %295
 
 209:                                              ; preds = %204
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 112
   %211 = load i64, ptr %210, align 8, !tbaa !150
-  %.not113 = icmp eq i64 %211, -1
-  br i1 %.not113, label %213, label %212
+  %.not112 = icmp eq i64 %211, -1
+  br i1 %.not112, label %213, label %212
 
 212:                                              ; preds = %209
   call void @_ZN2c43yml4Tree15remove_childrenEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %.083)
-  %.pre135 = load ptr, ptr %0, align 8, !tbaa !117
-  %.pre136 = load ptr, ptr %1, align 8, !tbaa !117
+  %.pre130 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre131 = load ptr, ptr %1, align 8, !tbaa !117
   br label %213
 
 213:                                              ; preds = %212, %209
-  %214 = phi ptr [ %.pre136, %212 ], [ %57, %209 ]
-  %215 = phi ptr [ %.pre135, %212 ], [ %205, %209 ]
+  %214 = phi ptr [ %.pre131, %212 ], [ %57, %209 ]
+  %215 = phi ptr [ %.pre130, %212 ], [ %205, %209 ]
   %216 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %215, i64 %.083
   store i64 0, ptr %216, align 8, !tbaa !153
   %217 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %214, i64 %spec.select
   %218 = load i64, ptr %217, align 8, !tbaa !158
   %219 = and i64 %218, 2
-  %.not114 = icmp eq i64 %219, 0
-  br i1 %.not114, label %258, label %220
+  %.not113 = icmp eq i64 %219, 0
+  br i1 %.not113, label %258, label %220
 
 220:                                              ; preds = %213
   %221 = getelementptr inbounds nuw i8, ptr %217, i64 24
@@ -10043,20 +10041,20 @@ _ZN2c43yml4Tree6to_mapEmm.exit:                   ; preds = %270, %276, %280
   %296 = load ptr, ptr %1, align 8, !tbaa !117
   %297 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %296, i64 %spec.select
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 112
-  %.085124 = load i64, ptr %298, align 8, !tbaa !68
-  %.not90125 = icmp eq i64 %.085124, -1
-  br i1 %.not90125, label %.loopexit, label %.lr.ph127
+  %.085122 = load i64, ptr %298, align 8, !tbaa !68
+  %.not90123 = icmp eq i64 %.085122, -1
+  br i1 %.not90123, label %.loopexit, label %.lr.ph125
 
-.lr.ph127:                                        ; preds = %295, %319
+.lr.ph125:                                        ; preds = %295, %319
   %299 = phi ptr [ %320, %319 ], [ %296, %295 ]
-  %.085126 = phi i64 [ %.085, %319 ], [ %.085124, %295 ]
-  %300 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %299, i64 %.085126
+  %.085124 = phi i64 [ %.085, %319 ], [ %.085122, %295 ]
+  %300 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %299, i64 %.085124
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %302 = call noundef i64 @_ZNK2c43yml4Tree10find_childEmRKNS_15basic_substringIKcEE(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %.083, ptr noundef nonnull align 8 dereferenceable(16) %301)
   %303 = icmp eq i64 %302, -1
   br i1 %303, label %304, label %319
 
-304:                                              ; preds = %.lr.ph127
+304:                                              ; preds = %.lr.ph125
   %305 = load ptr, ptr %0, align 8, !tbaa !117
   %306 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %305, i64 %.083
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 120
@@ -10066,7 +10064,7 @@ _ZN2c43yml4Tree6to_mapEmm.exit:                   ; preds = %270, %276, %280
   %310 = load ptr, ptr %0, align 8, !tbaa !117
   %311 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %310, i64 %309
   %312 = load ptr, ptr %1, align 8, !tbaa !117
-  %313 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %312, i64 %.085126
+  %313 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %312, i64 %.085124
   %314 = load i64, ptr %313, align 8, !tbaa !153
   store i64 %314, ptr %311, align 8, !tbaa !153
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 8
@@ -10077,15 +10075,15 @@ _ZN2c43yml4Tree6to_mapEmm.exit:                   ; preds = %270, %276, %280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %318, ptr noundef nonnull align 8 dereferenceable(48) %317, i64 48, i1 false), !tbaa.struct !154
   br label %319
 
-319:                                              ; preds = %304, %.lr.ph127
-  %.084 = phi i64 [ %309, %304 ], [ %302, %.lr.ph127 ]
-  call void @_ZN2c43yml4Tree10merge_withEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1, i64 noundef %.085126, i64 noundef %.084)
+319:                                              ; preds = %304, %.lr.ph125
+  %.084 = phi i64 [ %309, %304 ], [ %302, %.lr.ph125 ]
+  call void @_ZN2c43yml4Tree10merge_withEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1, i64 noundef %.085124, i64 noundef %.084)
   %320 = load ptr, ptr %1, align 8, !tbaa !117
-  %321 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %320, i64 %.085126
+  %321 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %320, i64 %.085124
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 128
   %.085 = load i64, ptr %322, align 8, !tbaa !68
   %.not90 = icmp eq i64 %.085, -1
-  br i1 %.not90, label %.loopexit, label %.lr.ph127, !llvm.loop !169
+  br i1 %.not90, label %.loopexit, label %.lr.ph125, !llvm.loop !169
 
 323:                                              ; preds = %202
   call void (ptr, i32, ptr, ...) @_ZN2c412handle_errorENS_6srclocEPKcz(ptr nonnull @.str, i32 26223, ptr noundef nonnull @.str.118)
@@ -10725,7 +10723,7 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EEC2ERKNS0_9Callback
 
 _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit.thread: ; preds = %.noexc.i
   %36 = load ptr, ptr %31, align 8, !tbaa !178
-  br label %._crit_edge186
+  br label %._crit_edge184
 
 .preheader.i.i:                                   ; preds = %.noexc.i, %47
   %.08.i.i = phi i64 [ %48, %47 ], [ 0, %.noexc.i ]
@@ -10794,8 +10792,8 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
   %60 = load ptr, ptr %31, align 8, !tbaa !178
   %.idx = mul nuw nsw i64 %.pre, 48
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
-  %.not178 = icmp eq i64 %.pre, 0
-  br i1 %.not178, label %._crit_edge186, label %.lr.ph
+  %.not176 = icmp eq i64 %.pre, 0
+  br i1 %.not176, label %._crit_edge184, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10842,18 +10840,18 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
   br label %104
 
 ._crit_edge:                                      ; preds = %_ZN2c43yml4Tree6removeEm.exit
-  %.pre219 = load ptr, ptr %31, align 8, !tbaa !178
-  %.pre220 = load i64, ptr %32, align 8, !tbaa !179
-  %.idx187 = mul nuw nsw i64 %.pre220, 48
-  %103 = getelementptr inbounds nuw i8, ptr %.pre219, i64 %.idx187
-  %.not89182 = icmp eq i64 %.pre220, 0
-  br i1 %.not89182, label %._crit_edge186, label %.lr.ph185
+  %.pre217 = load ptr, ptr %31, align 8, !tbaa !178
+  %.pre218 = load i64, ptr %32, align 8, !tbaa !179
+  %.idx185 = mul nuw nsw i64 %.pre218, 48
+  %103 = getelementptr inbounds nuw i8, ptr %.pre217, i64 %.idx185
+  %.not89180 = icmp eq i64 %.pre218, 0
+  br i1 %.not89180, label %._crit_edge184, label %.lr.ph183
 
 104:                                              ; preds = %.lr.ph, %_ZN2c43yml4Tree6removeEm.exit
-  %.0181 = phi i64 [ -1, %.lr.ph ], [ %.1, %_ZN2c43yml4Tree6removeEm.exit ]
-  %.074180 = phi i64 [ -1, %.lr.ph ], [ %.175, %_ZN2c43yml4Tree6removeEm.exit ]
-  %.078179 = phi ptr [ %60, %.lr.ph ], [ %355, %_ZN2c43yml4Tree6removeEm.exit ]
-  %105 = load i64, ptr %.078179, align 8, !tbaa !158
+  %.0179 = phi i64 [ -1, %.lr.ph ], [ %.1, %_ZN2c43yml4Tree6removeEm.exit ]
+  %.074178 = phi i64 [ -1, %.lr.ph ], [ %.175, %_ZN2c43yml4Tree6removeEm.exit ]
+  %.078177 = phi ptr [ %60, %.lr.ph ], [ %355, %_ZN2c43yml4Tree6removeEm.exit ]
+  %105 = load i64, ptr %.078177, align 8, !tbaa !158
   %106 = and i64 %105, 192
   %.not159 = icmp eq i64 %106, 0
   br i1 %.not159, label %_ZN2c43yml4Tree6removeEm.exit, label %109
@@ -10864,7 +10862,7 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
   br label %387
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %.078179, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %.078177, i64 32
   %111 = load i64, ptr %110, align 8, !tbaa !186
   %.not92 = icmp eq i64 %111, -1
   br i1 %.not92, label %136, label %112
@@ -10892,8 +10890,8 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
 
 120:                                              ; preds = %117
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre188 = load i64, ptr %110, align 8, !tbaa !186
-  %.pre189 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre186 = load i64, ptr %110, align 8, !tbaa !186
+  %.pre187 = load ptr, ptr %0, align 8, !tbaa !117
   br label %123
 
 121:                                              ; preds = %117
@@ -10903,14 +10901,14 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
   br label %387
 
 123:                                              ; preds = %112, %120
-  %124 = phi ptr [ %113, %112 ], [ %.pre189, %120 ]
-  %125 = phi i64 [ %111, %112 ], [ %.pre188, %120 ]
+  %124 = phi ptr [ %113, %112 ], [ %.pre187, %120 ]
+  %125 = phi i64 [ %111, %112 ], [ %.pre186, %120 ]
   %126 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %124, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 104
   %128 = load i64, ptr %127, align 8, !tbaa !139
-  %.not95 = icmp eq i64 %.0181, %125
-  %.074. = select i1 %.not95, i64 %.074180, i64 %125
-  %129 = getelementptr inbounds nuw i8, ptr %.078179, i64 24
+  %.not95 = icmp eq i64 %.0179, %125
+  %.074. = select i1 %.not95, i64 %.074178, i64 %125
+  %129 = getelementptr inbounds nuw i8, ptr %.078177, i64 24
   %130 = load i64, ptr %129, align 8, !tbaa !181
   %131 = invoke noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %130, i64 noundef %128, i64 noundef %.074.)
           to label %_ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit unwind label %132
@@ -10921,7 +10919,7 @@ _ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit: ; preds = %47
   br label %387
 
 _ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit: ; preds = %123
-  %134 = getelementptr inbounds nuw i8, ptr %.078179, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.078177, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !187
   invoke void @_ZN2c43yml4Tree15remove_childrenEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %135)
           to label %.noexc unwind label %132
@@ -10931,7 +10929,7 @@ _ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit: ; preds = %123
           to label %_ZN2c43yml4Tree6removeEm.exit unwind label %132
 
 136:                                              ; preds = %109
-  %137 = getelementptr inbounds nuw i8, ptr %.078179, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.078177, i64 8
   %138 = load i64, ptr %137, align 8, !tbaa !187
   %139 = load ptr, ptr %0, align 8, !tbaa !117
   %140 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %139, i64 %138
@@ -10996,8 +10994,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147: ; preds = %._crit_edg
 
 162:                                              ; preds = %159
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre217 = load i64, ptr %137, align 8, !tbaa !187
-  %.pre218 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre215 = load i64, ptr %137, align 8, !tbaa !187
+  %.pre216 = load ptr, ptr %0, align 8, !tbaa !117
   br label %165
 
 163:                                              ; preds = %159
@@ -11007,14 +11005,14 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147: ; preds = %._crit_edg
   br label %387
 
 165:                                              ; preds = %162, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147
-  %166 = phi ptr [ %.pre218, %162 ], [ %139, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147 ]
-  %167 = phi i64 [ %.pre217, %162 ], [ %138, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147 ]
+  %166 = phi ptr [ %.pre216, %162 ], [ %139, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147 ]
+  %167 = phi i64 [ %.pre215, %162 ], [ %138, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread147 ]
   %168 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %166, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 104
   %170 = load i64, ptr %169, align 8, !tbaa !139
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 136
   %172 = load i64, ptr %171, align 8, !tbaa !134
-  %173 = getelementptr inbounds nuw i8, ptr %.078179, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %.078177, i64 24
   %174 = load i64, ptr %173, align 8, !tbaa !181
   %175 = invoke noundef i64 @_ZN2c43yml4Tree25duplicate_children_no_repEPKS1_mmm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %174, i64 noundef %170, i64 noundef %172)
           to label %_ZN2c43yml4Tree25duplicate_children_no_repEmmm.exit103 unwind label %177
@@ -11040,8 +11038,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
 
 180:                                              ; preds = %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread
   %181 = and i64 %141, 64
-  %.not168 = icmp eq i64 %181, 0
-  br i1 %.not168, label %182, label %188
+  %.not167 = icmp eq i64 %181, 0
+  br i1 %.not167, label %182, label %188
 
 182:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -11058,7 +11056,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
 
 185:                                              ; preds = %182
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.pre190 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre188 = load ptr, ptr %0, align 8, !tbaa !117
   br label %188
 
 186:                                              ; preds = %182
@@ -11068,8 +11066,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
   br label %387
 
 188:                                              ; preds = %185, %180
-  %189 = phi ptr [ %.pre190, %185 ], [ %139, %180 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.078179, i64 24
+  %189 = phi ptr [ %.pre188, %185 ], [ %139, %180 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.078177, i64 24
   %191 = load i64, ptr %190, align 8, !tbaa !181
   %192 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %189, i64 %191
   %193 = load i64, ptr %192, align 8, !tbaa !158
@@ -11100,10 +11098,10 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
 
 204:                                              ; preds = %201
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.pre191 = load i64, ptr %190, align 8, !tbaa !181
-  %.pre192 = load ptr, ptr %0, align 8, !tbaa !117
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre192, i64 %.pre191
-  %.pre193 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !158
+  %.pre189 = load i64, ptr %190, align 8, !tbaa !181
+  %.pre190 = load ptr, ptr %0, align 8, !tbaa !117
+  %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre190, i64 %.pre189
+  %.pre191 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !158
   br label %207
 
 205:                                              ; preds = %201
@@ -11113,29 +11111,29 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
   br label %387
 
 207:                                              ; preds = %188, %196, %204
-  %208 = phi i64 [ %193, %188 ], [ %193, %196 ], [ %.pre193, %204 ]
-  %209 = phi ptr [ %189, %188 ], [ %189, %196 ], [ %.pre192, %204 ]
-  %210 = phi i64 [ %191, %188 ], [ %191, %196 ], [ %.pre191, %204 ]
+  %208 = phi i64 [ %193, %188 ], [ %193, %196 ], [ %.pre191, %204 ]
+  %209 = phi ptr [ %189, %188 ], [ %189, %196 ], [ %.pre190, %204 ]
+  %210 = phi i64 [ %191, %188 ], [ %191, %196 ], [ %.pre189, %204 ]
   %211 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %209, i64 %210
   %212 = and i64 %208, 512
   %.not.i = icmp ne i64 %212, 0
   %213 = and i64 %208, 13
   %214 = icmp ne i64 %213, 0
   %215 = and i1 %.not.i, %214
-  %.pre194 = load i64, ptr %137, align 8, !tbaa !187
+  %.pre192 = load i64, ptr %137, align 8, !tbaa !187
   br i1 %215, label %216, label %._ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread_crit_edge
 
 ._ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread_crit_edge: ; preds = %207
-  %.phi.trans.insert195 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %209, i64 %.pre194
-  %.phi.trans.insert196 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert195, i64 40
-  %.sroa.010.0.copyload.pre = load ptr, ptr %.phi.trans.insert196, align 8, !tbaa !67
-  %.sroa.211.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert195, i64 48
+  %.phi.trans.insert193 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %209, i64 %.pre192
+  %.phi.trans.insert194 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert193, i64 40
+  %.sroa.010.0.copyload.pre = load ptr, ptr %.phi.trans.insert194, align 8, !tbaa !67
+  %.sroa.211.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert193, i64 48
   %.sroa.211.0.copyload.pre = load i64, ptr %.sroa.211.0..sroa_idx.phi.trans.insert, align 8, !tbaa !68
   br label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread
 
 216:                                              ; preds = %207
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 88
-  %218 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %209, i64 %.pre194
+  %218 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %209, i64 %.pre192
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 40
   %.sroa.012.0.copyload = load ptr, ptr %219, align 8, !tbaa !67
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %218, i64 48
@@ -11169,8 +11167,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
   br i1 %.not.i112, label %227, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread
 
 ._crit_edge.i114:                                 ; preds = %227, %226
-  %.not169 = icmp eq i64 %225, %.sroa.213.0.copyload
-  br i1 %.not169, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread
+  %.not168 = icmp eq i64 %225, %.sroa.213.0.copyload
+  br i1 %.not168, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread
 
 233:                                              ; preds = %216
   %234 = icmp eq i64 %225, %.sroa.213.0.copyload
@@ -11178,8 +11176,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %14
 
 _ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150: ; preds = %._crit_edge.i114, %233
   %235 = and i64 %208, 44
-  %.not170 = icmp eq i64 %235, 0
-  br i1 %.not170, label %242, label %236
+  %.not169 = icmp eq i64 %235, 0
+  br i1 %.not169, label %242, label %236
 
 236:                                              ; preds = %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -11196,10 +11194,10 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150: ; preds = %._crit_
 
 239:                                              ; preds = %236
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.pre203 = load i64, ptr %190, align 8, !tbaa !181
-  %.pre204 = load ptr, ptr %0, align 8, !tbaa !117
-  %.phi.trans.insert205 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre204, i64 %.pre203
-  %.pre206 = load i64, ptr %.phi.trans.insert205, align 8, !tbaa !158
+  %.pre201 = load i64, ptr %190, align 8, !tbaa !181
+  %.pre202 = load ptr, ptr %0, align 8, !tbaa !117
+  %.phi.trans.insert203 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre202, i64 %.pre201
+  %.pre204 = load i64, ptr %.phi.trans.insert203, align 8, !tbaa !158
   br label %242
 
 240:                                              ; preds = %236
@@ -11209,12 +11207,11 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150: ; preds = %._crit_
   br label %387
 
 242:                                              ; preds = %239, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150
-  %243 = phi i64 [ %.pre206, %239 ], [ %208, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150 ]
-  %244 = phi ptr [ %.pre204, %239 ], [ %209, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150 ]
-  %245 = phi i64 [ %.pre203, %239 ], [ %210, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150 ]
-  %246 = and i64 %243, 1
-  %.not171 = icmp eq i64 %246, 0
-  br i1 %.not171, label %247, label %253
+  %243 = phi i64 [ %.pre204, %239 ], [ %208, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150 ]
+  %244 = phi ptr [ %.pre202, %239 ], [ %209, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150 ]
+  %245 = phi i64 [ %.pre201, %239 ], [ %210, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150 ]
+  %246 = trunc i64 %243 to i1
+  br i1 %246, label %253, label %247
 
 247:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -11231,8 +11228,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150: ; preds = %._crit_
 
 250:                                              ; preds = %247
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.pre207 = load i64, ptr %190, align 8, !tbaa !181
-  %.pre208 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre205 = load i64, ptr %190, align 8, !tbaa !181
+  %.pre206 = load ptr, ptr %0, align 8, !tbaa !117
   br label %253
 
 251:                                              ; preds = %247
@@ -11242,8 +11239,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread150: ; preds = %._crit_
   br label %387
 
 253:                                              ; preds = %242, %250
-  %254 = phi ptr [ %244, %242 ], [ %.pre208, %250 ]
-  %255 = phi i64 [ %245, %242 ], [ %.pre207, %250 ]
+  %254 = phi ptr [ %244, %242 ], [ %.pre206, %250 ]
+  %255 = phi i64 [ %245, %242 ], [ %.pre205, %250 ]
   %256 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %254, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 72
   %258 = load i64, ptr %137, align 8, !tbaa !187
@@ -11285,8 +11282,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread: ; preds = %.lr.ph.i11
   br i1 %.not.i122, label %269, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread
 
 ._crit_edge.i124:                                 ; preds = %269, %268
-  %.not172 = icmp eq i64 %267, %.sroa.211.0.copyload
-  br i1 %.not172, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread
+  %.not170 = icmp eq i64 %267, %.sroa.211.0.copyload
+  br i1 %.not170, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread
 
 275:                                              ; preds = %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit116.thread
   %276 = icmp eq i64 %267, %.sroa.211.0.copyload
@@ -11307,9 +11304,9 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread: ; preds = %.lr.ph.i12
 
 279:                                              ; preds = %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.pre200 = load i64, ptr %190, align 8, !tbaa !181
-  %.pre201 = load ptr, ptr %0, align 8, !tbaa !117
-  %.pre202 = load i64, ptr %137, align 8, !tbaa !187
+  %.pre198 = load i64, ptr %190, align 8, !tbaa !181
+  %.pre199 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre200 = load i64, ptr %137, align 8, !tbaa !187
   br label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153
 
 280:                                              ; preds = %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread
@@ -11319,9 +11316,9 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread: ; preds = %.lr.ph.i12
   br label %387
 
 _ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153: ; preds = %._crit_edge.i124, %275, %279
-  %282 = phi i64 [ %.pre194, %._crit_edge.i124 ], [ %.pre194, %275 ], [ %.pre202, %279 ]
-  %283 = phi ptr [ %209, %._crit_edge.i124 ], [ %209, %275 ], [ %.pre201, %279 ]
-  %284 = phi i64 [ %210, %._crit_edge.i124 ], [ %210, %275 ], [ %.pre200, %279 ]
+  %282 = phi i64 [ %.pre192, %._crit_edge.i124 ], [ %.pre192, %275 ], [ %.pre200, %279 ]
+  %283 = phi ptr [ %209, %._crit_edge.i124 ], [ %209, %275 ], [ %.pre199, %279 ]
+  %284 = phi i64 [ %210, %._crit_edge.i124 ], [ %210, %275 ], [ %.pre198, %279 ]
   %285 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %283, i64 %284
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
   %287 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %283, i64 %282
@@ -11349,8 +11346,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153: ; preds = %._crit_
 
 294:                                              ; preds = %291
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre209 = load ptr, ptr %0, align 8, !tbaa !117
-  %.pre210.pre = load i64, ptr %137, align 8, !tbaa !187
+  %.pre207 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre208.pre = load i64, ptr %137, align 8, !tbaa !187
   br label %297
 
 295:                                              ; preds = %291
@@ -11360,9 +11357,9 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153: ; preds = %._crit_
   br label %387
 
 297:                                              ; preds = %289, %294
-  %.pre210 = phi i64 [ %138, %289 ], [ %.pre210.pre, %294 ]
-  %298 = phi ptr [ %139, %289 ], [ %.pre209, %294 ]
-  %299 = getelementptr inbounds nuw i8, ptr %.078179, i64 24
+  %.pre208 = phi i64 [ %138, %289 ], [ %.pre208.pre, %294 ]
+  %298 = phi ptr [ %139, %289 ], [ %.pre207, %294 ]
+  %299 = getelementptr inbounds nuw i8, ptr %.078177, i64 24
   %300 = load i64, ptr %299, align 8, !tbaa !181
   %301 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %298, i64 %300
   %302 = load i64, ptr %301, align 8, !tbaa !158
@@ -11372,7 +11369,7 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153: ; preds = %._crit_
 
 305:                                              ; preds = %297
   %306 = getelementptr inbounds nuw i8, ptr %301, i64 40
-  %307 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %298, i64 %.pre210
+  %307 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %298, i64 %.pre208
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 88
   %.sroa.0.0.copyload = load ptr, ptr %308, align 8, !tbaa !67
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %307, i64 96
@@ -11433,10 +11430,10 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156: ; preds = %._crit_
 
 328:                                              ; preds = %325
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %.pre211 = load i64, ptr %299, align 8, !tbaa !181
-  %.pre212 = load ptr, ptr %0, align 8, !tbaa !117
-  %.phi.trans.insert213 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre212, i64 %.pre211
-  %.pre214 = load i64, ptr %.phi.trans.insert213, align 8, !tbaa !158
+  %.pre209 = load i64, ptr %299, align 8, !tbaa !181
+  %.pre210 = load ptr, ptr %0, align 8, !tbaa !117
+  %.phi.trans.insert211 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre210, i64 %.pre209
+  %.pre212 = load i64, ptr %.phi.trans.insert211, align 8, !tbaa !158
   br label %331
 
 329:                                              ; preds = %325
@@ -11446,12 +11443,11 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156: ; preds = %._crit_
   br label %387
 
 331:                                              ; preds = %328, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156
-  %332 = phi i64 [ %.pre214, %328 ], [ %302, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156 ]
-  %333 = phi ptr [ %.pre212, %328 ], [ %298, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156 ]
-  %334 = phi i64 [ %.pre211, %328 ], [ %300, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156 ]
-  %335 = and i64 %332, 1
-  %.not167 = icmp eq i64 %335, 0
-  br i1 %.not167, label %336, label %342
+  %332 = phi i64 [ %.pre212, %328 ], [ %302, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156 ]
+  %333 = phi ptr [ %.pre210, %328 ], [ %298, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156 ]
+  %334 = phi i64 [ %.pre209, %328 ], [ %300, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156 ]
+  %335 = trunc i64 %332 to i1
+  br i1 %335, label %342, label %336
 
 336:                                              ; preds = %331
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -11468,8 +11464,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156: ; preds = %._crit_
 
 339:                                              ; preds = %336
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.pre215 = load i64, ptr %299, align 8, !tbaa !181
-  %.pre216 = load ptr, ptr %0, align 8, !tbaa !117
+  %.pre213 = load i64, ptr %299, align 8, !tbaa !181
+  %.pre214 = load ptr, ptr %0, align 8, !tbaa !117
   br label %342
 
 340:                                              ; preds = %336
@@ -11479,8 +11475,8 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156: ; preds = %._crit_
   br label %387
 
 342:                                              ; preds = %331, %339
-  %343 = phi ptr [ %333, %331 ], [ %.pre216, %339 ]
-  %344 = phi i64 [ %334, %331 ], [ %.pre215, %339 ]
+  %343 = phi ptr [ %333, %331 ], [ %.pre214, %339 ]
+  %344 = phi i64 [ %334, %331 ], [ %.pre213, %339 ]
   %345 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %343, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %347 = load i64, ptr %137, align 8, !tbaa !187
@@ -11490,36 +11486,36 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread156: ; preds = %._crit_
   br label %_ZN2c43yml4Tree6removeEm.exit.sink.split
 
 _ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread: ; preds = %.lr.ph.i130, %322, %._crit_edge.i134, %297
-  invoke void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %300, i64 noundef %.pre210)
+  invoke void @_ZN2c43yml4Tree18duplicate_contentsEPKS1_mm(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %300, i64 noundef %.pre208)
           to label %_ZN2c43yml4Tree6removeEm.exit unwind label %107
 
 _ZN2c43yml4Tree6removeEm.exit.sink.split:         ; preds = %253, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153, %342
-  %.sink248 = phi i64 [ 1, %342 ], [ 1, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153 ], [ 2, %253 ]
+  %.sink246 = phi i64 [ 1, %342 ], [ 1, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit126.thread153 ], [ 2, %253 ]
   %350 = load i64, ptr %137, align 8, !tbaa !187
   %351 = load ptr, ptr %0, align 8, !tbaa !117
   %352 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %351, i64 %350
   %353 = load i64, ptr %352, align 8, !tbaa !153
-  %354 = or i64 %353, %.sink248
+  %354 = or i64 %353, %.sink246
   store i64 %354, ptr %352, align 8, !tbaa !153
   br label %_ZN2c43yml4Tree6removeEm.exit
 
 _ZN2c43yml4Tree6removeEm.exit:                    ; preds = %_ZN2c43yml4Tree6removeEm.exit.sink.split, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread, %.noexc104, %.noexc, %104
-  %.175 = phi i64 [ %.074180, %104 ], [ %.074180, %.noexc104 ], [ %131, %.noexc ], [ %.074180, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread ], [ %.074180, %_ZN2c43yml4Tree6removeEm.exit.sink.split ]
-  %.1 = phi i64 [ %.0181, %104 ], [ %.0181, %.noexc104 ], [ %125, %.noexc ], [ %.0181, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread ], [ %.0181, %_ZN2c43yml4Tree6removeEm.exit.sink.split ]
-  %355 = getelementptr inbounds nuw i8, ptr %.078179, i64 48
+  %.175 = phi i64 [ %.074178, %104 ], [ %.074178, %.noexc104 ], [ %131, %.noexc ], [ %.074178, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread ], [ %.074178, %_ZN2c43yml4Tree6removeEm.exit.sink.split ]
+  %.1 = phi i64 [ %.0179, %104 ], [ %.0179, %.noexc104 ], [ %125, %.noexc ], [ %.0179, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit136.thread ], [ %.0179, %_ZN2c43yml4Tree6removeEm.exit.sink.split ]
+  %355 = getelementptr inbounds nuw i8, ptr %.078177, i64 48
   %.not = icmp eq ptr %355, %61
   br i1 %.not, label %._crit_edge, label %104
 
-._crit_edge186.loopexit:                          ; preds = %_ZN2c43yml4Tree6removeEm.exit140
-  %.pre221 = load ptr, ptr %31, align 8, !tbaa !178
-  br label %._crit_edge186
+._crit_edge184.loopexit:                          ; preds = %_ZN2c43yml4Tree6removeEm.exit140
+  %.pre219 = load ptr, ptr %31, align 8, !tbaa !178
+  br label %._crit_edge184
 
-._crit_edge186:                                   ; preds = %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit.thread, %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit, %._crit_edge186.loopexit, %._crit_edge
-  %356 = phi ptr [ %.pre221, %._crit_edge186.loopexit ], [ %.pre219, %._crit_edge ], [ %36, %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit.thread ], [ %60, %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit ]
+._crit_edge184:                                   ; preds = %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit.thread, %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit, %._crit_edge184.loopexit, %._crit_edge
+  %356 = phi ptr [ %.pre219, %._crit_edge184.loopexit ], [ %.pre217, %._crit_edge ], [ %36, %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit.thread ], [ %60, %_ZN2c43yml6detail17ReferenceResolverC2EPNS0_4TreeE.exit ]
   %.not.i.i.i = icmp eq ptr %356, %27
   br i1 %.not.i.i.i, label %_ZN2c43yml6detail17ReferenceResolverD2Ev.exit, label %357
 
-357:                                              ; preds = %._crit_edge186
+357:                                              ; preds = %._crit_edge184
   %358 = getelementptr inbounds nuw i8, ptr %2, i64 816
   %359 = load ptr, ptr %358, align 8, !tbaa !184
   %360 = load i64, ptr %33, align 8, !tbaa !180
@@ -11535,13 +11531,13 @@ _ZN2c43yml4Tree6removeEm.exit:                    ; preds = %_ZN2c43yml4Tree6rem
   call void @__clang_call_terminate(ptr %365) #43
   unreachable
 
-_ZN2c43yml6detail17ReferenceResolverD2Ev.exit:    ; preds = %357, %._crit_edge186
+_ZN2c43yml6detail17ReferenceResolverD2Ev.exit:    ; preds = %357, %._crit_edge184
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %386
 
-.lr.ph185:                                        ; preds = %._crit_edge, %_ZN2c43yml4Tree6removeEm.exit140
-  %.077183 = phi ptr [ %385, %_ZN2c43yml4Tree6removeEm.exit140 ], [ %.pre219, %._crit_edge ]
-  %366 = getelementptr inbounds nuw i8, ptr %.077183, i64 8
+.lr.ph183:                                        ; preds = %._crit_edge, %_ZN2c43yml4Tree6removeEm.exit140
+  %.077181 = phi ptr [ %385, %_ZN2c43yml4Tree6removeEm.exit140 ], [ %.pre217, %._crit_edge ]
+  %366 = getelementptr inbounds nuw i8, ptr %.077181, i64 8
   %367 = load i64, ptr %366, align 8, !tbaa !187
   %368 = load ptr, ptr %0, align 8, !tbaa !117
   %369 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %368, i64 %367
@@ -11556,16 +11552,16 @@ _ZN2c43yml6detail17ReferenceResolverD2Ev.exit:    ; preds = %357, %._crit_edge18
   %376 = load i64, ptr %375, align 8, !tbaa !153
   %377 = and i64 %376, -961
   store i64 %377, ptr %375, align 8, !tbaa !153
-  %378 = getelementptr inbounds nuw i8, ptr %.077183, i64 32
+  %378 = getelementptr inbounds nuw i8, ptr %.077181, i64 32
   %379 = load i64, ptr %378, align 8, !tbaa !186
   %.not90 = icmp eq i64 %379, -1
   br i1 %.not90, label %_ZN2c43yml4Tree6removeEm.exit140, label %380
 
-380:                                              ; preds = %.lr.ph185
+380:                                              ; preds = %.lr.ph183
   %381 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %374, i64 %379
   %.sroa.0.0.copyload.i = load i64, ptr %381, align 8, !tbaa !153
-  %.not173 = icmp eq i64 %.sroa.0.0.copyload.i, 0
-  br i1 %.not173, label %_ZN2c43yml4Tree6removeEm.exit140, label %382
+  %.not171 = icmp eq i64 %.sroa.0.0.copyload.i, 0
+  br i1 %.not171, label %_ZN2c43yml4Tree6removeEm.exit140, label %382
 
 382:                                              ; preds = %380
   invoke void @_ZN2c43yml4Tree15remove_childrenEm(ptr noundef nonnull align 8 dereferenceable(256) %0, i64 noundef %379)
@@ -11580,10 +11576,10 @@ _ZN2c43yml6detail17ReferenceResolverD2Ev.exit:    ; preds = %357, %._crit_edge18
           cleanup
   br label %387
 
-_ZN2c43yml4Tree6removeEm.exit140:                 ; preds = %.noexc138, %380, %.lr.ph185
-  %385 = getelementptr inbounds nuw i8, ptr %.077183, i64 48
+_ZN2c43yml4Tree6removeEm.exit140:                 ; preds = %.noexc138, %380, %.lr.ph183
+  %385 = getelementptr inbounds nuw i8, ptr %.077181, i64 48
   %.not89 = icmp eq ptr %385, %103
-  br i1 %.not89, label %._crit_edge186.loopexit, label %.lr.ph185
+  br i1 %.not89, label %._crit_edge184.loopexit, label %.lr.ph183
 
 386:                                              ; preds = %1, %_ZN2c43yml6detail17ReferenceResolverD2Ev.exit
   ret void
@@ -17190,9 +17186,8 @@ _ZN2c43yml6Parser5State5resetEPKcm.exit:          ; preds = %_ZN2c43yml6detail5s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %44, i8 0, i64 73, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 48, i1 false)
   %46 = load i32, ptr %0, align 8, !tbaa !285
-  %47 = and i32 %46, 1
-  %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %49, label %48
+  %47 = trunc i32 %46 to i1
+  br i1 %47, label %48, label %49
 
 48:                                               ; preds = %_ZN2c43yml6Parser5State5resetEPKcm.exit
   call void @_ZN2c43yml6Parser18_prepare_locationsEv(ptr noundef nonnull align 8 dereferenceable(2736) %0)
@@ -31630,9 +31625,8 @@ define void @_ZN2c43yml6Parser14_start_seqimapEv(ptr noundef nonnull align 8 der
   %34 = load i64, ptr %33, align 8, !tbaa !151
   %35 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %28, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !158
-  %37 = and i64 %36, 1
-  %.not4 = icmp eq i64 %37, 0
-  br i1 %.not4, label %56, label %38
+  %37 = trunc i64 %36 to i1
+  br i1 %37, label %38, label %56
 
 38:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01)
@@ -31729,11 +31723,11 @@ _ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit: ; preds = %38,
   %73 = load ptr, ptr %66, align 8, !tbaa !244
   call void %68(ptr noundef nonnull %3, i64 noundef 59, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %4, ptr noundef %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre5 = load ptr, ptr %8, align 8, !tbaa !261
+  %.pre4 = load ptr, ptr %8, align 8, !tbaa !261
   br label %74
 
 74:                                               ; preds = %65, %56
-  %75 = phi ptr [ %.pre5, %65 ], [ %57, %56 ]
+  %75 = phi ptr [ %.pre4, %65 ], [ %57, %56 ]
   %76 = load i32, ptr %75, align 8, !tbaa !254
   %77 = and i32 %76, 512
   %78 = icmp eq i32 %77, 0
@@ -31766,11 +31760,11 @@ _ZN2c43yml6Parser18_store_scalar_nullEPKc.exit:   ; preds = %74, %79
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre6 = load ptr, ptr %8, align 8, !tbaa !261
+  %.pre5 = load ptr, ptr %8, align 8, !tbaa !261
   br label %86
 
 86:                                               ; preds = %_ZN2c43yml6Parser18_store_scalar_nullEPKc.exit, %_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit
-  %87 = phi ptr [ %.pre6, %_ZN2c43yml6Parser18_store_scalar_nullEPKc.exit ], [ %50, %_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit ]
+  %87 = phi ptr [ %.pre5, %_ZN2c43yml6Parser18_store_scalar_nullEPKc.exit ], [ %50, %_ZN2c43yml6Parser13_store_scalarENS_15basic_substringIKcEEi.exit ]
   %88 = load i32, ptr %87, align 8, !tbaa !254
   %89 = or i32 %88, 8208
   store i32 %89, ptr %87, align 8, !tbaa !254
@@ -43941,13 +43935,12 @@ _ZN2c43yml4Tree14set_val_anchorEmNS_15basic_substringIKcEE.exit: ; preds = %13, 
   %22 = load ptr, ptr %.pre, align 8, !tbaa !117
   %23 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %22, i64 %1
   %24 = load i64, ptr %23, align 8, !tbaa !158
-  %25 = and i64 %24, 1
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread, label %26
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %26, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread
 
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %.sroa.014.0.copyload = load ptr, ptr %27, align 8, !tbaa !67
+  %.sroa.013.0.copyload = load ptr, ptr %27, align 8, !tbaa !67
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 80
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !68
   %28 = and i64 %24, 4097
@@ -43957,14 +43950,14 @@ _ZN2c43yml4Tree14set_val_anchorEmNS_15basic_substringIKcEE.exit: ; preds = %13, 
   br i1 %or.cond, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit: ; preds = %26
-  %30 = load i8, ptr %.sroa.014.0.copyload, align 1, !tbaa !44
+  %30 = load i8, ptr %.sroa.013.0.copyload, align 1, !tbaa !44
   %31 = icmp eq i8 %30, 42
   br i1 %31, label %32, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread
 
 32:                                               ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit
   %33 = and i64 %24, 512
   %.not.i.not = icmp eq i64 %33, 0
-  br i1 %.not.i.not, label %38, label %34
+  br i1 %.not.i.not, label %37, label %34
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -43981,84 +43974,82 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit: ; preds = %26
   %36 = load ptr, ptr @_ZN2c43yml12_GLOBAL__N_119s_default_callbacksE, align 8, !tbaa !60
   tail call void %35(ptr noundef nonnull @.str.333, i64 noundef 46, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %3, ptr noundef %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre33 = load ptr, ptr %21, align 8, !tbaa !253
-  %.pre34 = load ptr, ptr %.pre33, align 8, !tbaa !117
-  %.phi.trans.insert35 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre34, i64 %1
-  %.pre36 = load i64, ptr %.phi.trans.insert35, align 8, !tbaa !158
-  %.pre37 = and i64 %.pre36, 1
-  %37 = icmp eq i64 %.pre37, 0
-  br label %38
+  %.pre32 = load ptr, ptr %21, align 8, !tbaa !253
+  %.pre33 = load ptr, ptr %.pre32, align 8, !tbaa !117
+  %.phi.trans.insert34 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre33, i64 %1
+  %.pre35 = load i64, ptr %.phi.trans.insert34, align 8, !tbaa !158
+  br label %37
 
-38:                                               ; preds = %34, %32
-  %.pre-phi = phi i1 [ %37, %34 ], [ false, %32 ]
-  %39 = phi i64 [ %.pre36, %34 ], [ %24, %32 ]
-  %40 = phi ptr [ %.pre34, %34 ], [ %22, %32 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 1
-  %42 = add i64 %.sroa.6.0.copyload, -1
-  %43 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %40, i64 %1
-  %.not.i.i.i10 = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i10, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i
+37:                                               ; preds = %34, %32
+  %38 = phi i64 [ %.pre35, %34 ], [ %24, %32 ]
+  %39 = phi ptr [ %.pre33, %34 ], [ %22, %32 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload, i64 1
+  %41 = add i64 %.sroa.6.0.copyload, -1
+  %42 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %39, i64 %1
+  %43 = trunc i64 %38 to i1
+  %.not.i.i.i9 = icmp eq i64 %41, 0
+  br i1 %.not.i.i.i9, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i
 
-_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i: ; preds = %38
-  %44 = load i8, ptr %41, align 1, !tbaa !44
+_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i: ; preds = %37
+  %44 = load i8, ptr %40, align 1, !tbaa !44
   %45 = icmp eq i8 %44, 42
   br i1 %45, label %46, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i
 
 46:                                               ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.copyload, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload, i64 2
   %48 = add i64 %.sroa.6.0.copyload, -2
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i
 
-_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i: ; preds = %46, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i, %38
-  %.sroa.01.0.i.i = phi ptr [ %47, %46 ], [ %41, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i ], [ %41, %38 ]
-  %.sroa.6.0.i.i = phi i64 [ %48, %46 ], [ %42, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i ], [ 0, %38 ]
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 88
+_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i: ; preds = %46, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i, %37
+  %.sroa.01.0.i.i = phi ptr [ %47, %46 ], [ %40, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i ], [ %40, %37 ]
+  %.sroa.6.0.i.i = phi i64 [ %48, %46 ], [ %41, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.i.i ], [ 0, %37 ]
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 88
   store ptr %.sroa.01.0.i.i, ptr %49, align 8, !tbaa !67
-  %.sroa.6.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %43, i64 96
+  %.sroa.6.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %42, i64 96
   store i64 %.sroa.6.0.i.i, ptr %.sroa.6.0..sroa_idx3.i.i, align 8, !tbaa !68
-  br i1 %.pre-phi, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i, label %50
+  br i1 %43, label %50, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i
 
 50:                                               ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 80
   %53 = load i64, ptr %52, align 8, !tbaa !56
   %54 = icmp ult i64 %53, %.sroa.6.0.i.i
   br i1 %54, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i, label %55
 
 55:                                               ; preds = %50
   %56 = icmp eq i64 %.sroa.6.0.i.i, 0
-  br i1 %56, label %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit, label %.lr.ph.i.i.i11
+  br i1 %56, label %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit, label %.lr.ph.i.i.i10
 
-.lr.ph.i.i.i11:                                   ; preds = %55
+.lr.ph.i.i.i10:                                   ; preds = %55
   %57 = sub nuw i64 %53, %.sroa.6.0.i.i
   %58 = load ptr, ptr %51, align 8, !tbaa !166
   %59 = getelementptr i8, ptr %58, i64 %57
   br label %62
 
 60:                                               ; preds = %62
-  %61 = add nuw i64 %.0811.i.i.i12, 1
-  %exitcond.not.i.i.i13 = icmp eq i64 %61, %.sroa.6.0.i.i
-  br i1 %exitcond.not.i.i.i13, label %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit, label %62, !llvm.loop !371
+  %61 = add nuw i64 %.0811.i.i.i11, 1
+  %exitcond.not.i.i.i12 = icmp eq i64 %61, %.sroa.6.0.i.i
+  br i1 %exitcond.not.i.i.i12, label %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit, label %62, !llvm.loop !371
 
-62:                                               ; preds = %60, %.lr.ph.i.i.i11
-  %.0811.i.i.i12 = phi i64 [ 0, %.lr.ph.i.i.i11 ], [ %61, %60 ]
-  %63 = getelementptr i8, ptr %59, i64 %.0811.i.i.i12
+62:                                               ; preds = %60, %.lr.ph.i.i.i10
+  %.0811.i.i.i11 = phi i64 [ 0, %.lr.ph.i.i.i10 ], [ %61, %60 ]
+  %63 = getelementptr i8, ptr %59, i64 %.0811.i.i.i11
   %64 = load i8, ptr %63, align 1, !tbaa !44
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 %.0811.i.i.i12
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i.i, i64 %.0811.i.i.i11
   %66 = load i8, ptr %65, align 1, !tbaa !44
   %.not.i5.i.i = icmp eq i8 %64, %66
   br i1 %.not.i5.i.i, label %60, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i
 
 _ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i: ; preds = %62, %50, %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i.i
-  %67 = getelementptr inbounds nuw i8, ptr %43, i64 72
-  store ptr %41, ptr %67, align 8, !tbaa !67
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %43, i64 80
-  store i64 %42, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !68
+  %67 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  store ptr %40, ptr %67, align 8, !tbaa !67
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 80
+  store i64 %41, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !68
   br label %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit
 
 _ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit: ; preds = %60, %55, %_ZNK2c415basic_substringIKcE9ends_withES2_.exit.i.i
-  %68 = or i64 %39, 129
-  store i64 %68, ptr %43, align 8, !tbaa !153
+  %68 = or i64 %38, 129
+  store i64 %68, ptr %42, align 8, !tbaa !153
   br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit.thread
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread: ; preds = %._crit_edge, %_ZN2c43yml4Tree11set_val_refEmNS_15basic_substringIKcEE.exit, %_ZNK2c415basic_substringIKcE11begins_withEc.exit, %26
@@ -48869,7 +48860,7 @@ define noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_nodeERKNS0_4TreeEm
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %26
   %30 = icmp ule ptr %28, %29
   %31 = select i1 %.not9.i.i, i1 %30, i1 false
-  br i1 %31, label %.thread138, label %35
+  br i1 %31, label %.thread137, label %35
 
 32:                                               ; preds = %22
   %33 = icmp eq i64 %.sroa.788.0.copyload, 0
@@ -48896,27 +48887,27 @@ define noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_nodeERKNS0_4TreeEm
   call void %38(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %7, ptr noundef %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i64, ptr %25, align 8, !tbaa !146
-  %.pre121.pre = load ptr, ptr %23, align 8, !tbaa !147
+  %.pre120.pre = load ptr, ptr %23, align 8, !tbaa !147
   %.not.i67 = icmp eq i64 %.pre, 0
-  br i1 %.not.i67, label %49, label %.thread138, !prof !440
+  br i1 %.not.i67, label %49, label %.thread137, !prof !440
 
-.thread138:                                       ; preds = %27, %35
+.thread137:                                       ; preds = %27, %35
   %44 = phi i64 [ %.pre, %35 ], [ %26, %27 ]
-  %.pre121141 = phi ptr [ %.pre121.pre, %35 ], [ %24, %27 ]
-  %.not9.i68 = icmp uge ptr %.sroa.086.0.copyload, %.pre121141
+  %.pre120140 = phi ptr [ %.pre120.pre, %35 ], [ %24, %27 ]
+  %.not9.i68 = icmp uge ptr %.sroa.086.0.copyload, %.pre120140
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.086.0.copyload, i64 %.sroa.788.0.copyload
-  %46 = getelementptr inbounds nuw i8, ptr %.pre121141, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %.pre120140, i64 %44
   %47 = icmp ule ptr %45, %46
   %48 = select i1 %.not9.i68, i1 %47, i1 false
   br i1 %48, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread
 
 49:                                               ; preds = %35
   %50 = icmp eq i64 %.sroa.788.0.copyload, 0
-  %51 = icmp eq ptr %.sroa.086.0.copyload, %.pre121.pre
-  %or.cond115 = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond115, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread
+  %51 = icmp eq ptr %.sroa.086.0.copyload, %.pre120.pre
+  %or.cond114 = select i1 %50, i1 %51, i1 false
+  br i1 %or.cond114, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread
 
-_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread: ; preds = %49, %.thread138
+_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread: ; preds = %49, %.thread137
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %8, ptr noundef nonnull align 16 dereferenceable(34) @__const._ZNK2c43yml6Parser19_location_from_nodeERKNS0_4TreeEmPNS0_8LocationEm.msg.434, i64 34, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2512
@@ -48936,7 +48927,7 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread: ; preds = %49, %.t
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71
 
-_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71: ; preds = %32, %49, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread, %.thread138
+_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71: ; preds = %32, %49, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71.thread, %.thread137
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.c4::yml::Location") align 8 %10, ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull %.sroa.086.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
@@ -48944,9 +48935,8 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71: ; preds = %32, %49, %_ZNK
   br label %127
 
 .thread99:                                        ; preds = %20, %5
-  %60 = and i64 %18, 1
-  %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.thread105, label %61
+  %60 = trunc i64 %18 to i1
+  br i1 %60, label %61, label %.thread105
 
 61:                                               ; preds = %.thread99
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 72
@@ -48970,13 +48960,13 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71: ; preds = %32, %49, %_ZNK
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 %67
   %71 = icmp ule ptr %69, %70
   %72 = select i1 %.not9.i.i76, i1 %71, i1 false
-  br i1 %72, label %.thread142, label %76
+  br i1 %72, label %.thread141, label %76
 
 73:                                               ; preds = %63
   %74 = icmp eq i64 %.sroa.7.0.copyload, 0
   %75 = icmp eq ptr %.sroa.083.0.copyload, %65
-  %or.cond117 = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond117, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit, label %76
+  %or.cond116 = select i1 %74, i1 %75, i1 false
+  br i1 %or.cond116, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit, label %76
 
 76:                                               ; preds = %68, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -48996,28 +48986,28 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit71: ; preds = %32, %49, %_ZNK
   %84 = load ptr, ptr %77, align 8, !tbaa !244
   call void %79(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %12, ptr noundef %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.pre122 = load i64, ptr %66, align 8, !tbaa !146
-  %.pre123.pre = load ptr, ptr %64, align 8, !tbaa !147
-  %.not.i = icmp eq i64 %.pre122, 0
-  br i1 %.not.i, label %90, label %.thread142, !prof !440
+  %.pre121 = load i64, ptr %66, align 8, !tbaa !146
+  %.pre122.pre = load ptr, ptr %64, align 8, !tbaa !147
+  %.not.i = icmp eq i64 %.pre121, 0
+  br i1 %.not.i, label %90, label %.thread141, !prof !440
 
-.thread142:                                       ; preds = %68, %76
-  %85 = phi i64 [ %.pre122, %76 ], [ %67, %68 ]
-  %.pre123145 = phi ptr [ %.pre123.pre, %76 ], [ %65, %68 ]
-  %.not9.i = icmp uge ptr %.sroa.083.0.copyload, %.pre123145
+.thread141:                                       ; preds = %68, %76
+  %85 = phi i64 [ %.pre121, %76 ], [ %67, %68 ]
+  %.pre122144 = phi ptr [ %.pre122.pre, %76 ], [ %65, %68 ]
+  %.not9.i = icmp uge ptr %.sroa.083.0.copyload, %.pre122144
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.083.0.copyload, i64 %.sroa.7.0.copyload
-  %87 = getelementptr inbounds nuw i8, ptr %.pre123145, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %.pre122144, i64 %85
   %88 = icmp ule ptr %86, %87
   %89 = select i1 %.not9.i, i1 %88, i1 false
   br i1 %89, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread
 
 90:                                               ; preds = %76
   %91 = icmp eq i64 %.sroa.7.0.copyload, 0
-  %92 = icmp eq ptr %.sroa.083.0.copyload, %.pre123.pre
-  %or.cond120 = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond120, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread
+  %92 = icmp eq ptr %.sroa.083.0.copyload, %.pre122.pre
+  %or.cond119 = select i1 %91, i1 %92, i1 false
+  br i1 %or.cond119, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit, label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread
 
-_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread: ; preds = %90, %.thread142
+_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread: ; preds = %90, %.thread141
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %13, ptr noundef nonnull align 16 dereferenceable(34) @__const._ZNK2c43yml6Parser19_location_from_nodeERKNS0_4TreeEmPNS0_8LocationEm.msg.436, i64 34, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 2512
@@ -49037,7 +49027,7 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread: ; preds = %90, %.thr
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit
 
-_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit: ; preds = %73, %90, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread, %.thread142
+_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit: ; preds = %73, %90, %_ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit.thread, %.thread141
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind nonnull writable sret(%"struct.c4::yml::Location") align 8 %15, ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull %.sroa.083.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
@@ -49046,8 +49036,8 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit: ; preds = %73, %90, %_ZNK2c
 
 .thread105:                                       ; preds = %61, %.thread99
   %101 = and i64 %18, 44
-  %.not113 = icmp eq i64 %101, 0
-  br i1 %.not113, label %104, label %102
+  %.not = icmp eq i64 %101, 0
+  br i1 %.not, label %104, label %102
 
 102:                                              ; preds = %.thread105
   %103 = tail call noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_contERKNS0_4TreeEmPNS0_8LocationE(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %2, ptr noundef %3)
@@ -49070,11 +49060,11 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit: ; preds = %73, %90, %_ZNK2c
   br i1 %112, label %127, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %111
-  %.pre124 = load ptr, ptr %1, align 8, !tbaa !117
+  %.pre123 = load ptr, ptr %1, align 8, !tbaa !117
   br label %113
 
 113:                                              ; preds = %._crit_edge, %108
-  %114 = phi ptr [ %.pre124, %._crit_edge ], [ %16, %108 ]
+  %114 = phi ptr [ %.pre123, %._crit_edge ], [ %16, %108 ]
   %115 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %114, i64 %2
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 128
   %117 = load i64, ptr %116, align 8, !tbaa !129
@@ -49083,14 +49073,14 @@ _ZNK2c415basic_substringIcE8is_superENS0_IKcEE.exit: ; preds = %73, %90, %_ZNK2c
 
 118:                                              ; preds = %113
   %119 = tail call noundef zeroext i1 @_ZNK2c43yml6Parser19_location_from_nodeERKNS0_4TreeEmPNS0_8LocationEm(ptr noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i64 noundef %117, ptr noundef %3, i64 noundef 1)
-  br i1 %119, label %127, label %._crit_edge125
+  br i1 %119, label %127, label %._crit_edge124
 
-._crit_edge125:                                   ; preds = %118
-  %.pre126 = load ptr, ptr %1, align 8, !tbaa !117
+._crit_edge124:                                   ; preds = %118
+  %.pre125 = load ptr, ptr %1, align 8, !tbaa !117
   br label %120
 
-120:                                              ; preds = %._crit_edge125, %113
-  %121 = phi ptr [ %.pre126, %._crit_edge125 ], [ %114, %113 ]
+120:                                              ; preds = %._crit_edge124, %113
+  %121 = phi ptr [ %.pre125, %._crit_edge124 ], [ %114, %113 ]
   %122 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %121, i64 %2
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 104
   %124 = load i64, ptr %123, align 8, !tbaa !139
@@ -49148,9 +49138,8 @@ define void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias wri
 
 30:                                               ; preds = %3
   %31 = load i32, ptr %1, align 8, !tbaa !285
-  %32 = and i32 %31, 1
-  %.not50 = icmp eq i32 %32, 0
-  br i1 %.not50, label %33, label %42
+  %32 = trunc i32 %31 to i1
+  br i1 %32, label %42, label %33
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -49230,9 +49219,8 @@ define void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias wri
 
 72:                                               ; preds = %63, %57
   %73 = load i32, ptr %1, align 8, !tbaa !285
-  %74 = and i32 %73, 1
-  %.not51 = icmp eq i32 %74, 0
-  br i1 %.not51, label %75, label %84
+  %74 = trunc i32 %73 to i1
+  br i1 %74, label %84, label %75
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -49372,37 +49360,37 @@ define void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias wri
 139:                                              ; preds = %132
   %.idx = shl nuw nsw i64 %136, 3
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx
-  %.not58 = icmp eq i64 %136, 0
-  br i1 %.not58, label %.loopexit, label %.lr.ph
+  %.not56 = icmp eq i64 %136, 0
+  br i1 %.not56, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139, %143
-  %.03855 = phi ptr [ %144, %143 ], [ %138, %139 ]
-  %141 = load i64, ptr %.03855, align 8, !tbaa !68
+  %.03853 = phi ptr [ %144, %143 ], [ %138, %139 ]
+  %141 = load i64, ptr %.03853, align 8, !tbaa !68
   %142 = icmp ugt i64 %141, %135
   br i1 %142, label %.loopexit, label %143
 
 143:                                              ; preds = %.lr.ph
-  %144 = getelementptr inbounds nuw i8, ptr %.03855, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %.03853, i64 8
   %145 = icmp ult ptr %144, %140
   br i1 %145, label %.lr.ph, label %.loopexit, !llvm.loop !443
 
 .preheader:                                       ; preds = %132, %.preheader
-  %.154 = phi ptr [ %.2, %.preheader ], [ %138, %132 ]
-  %.03653 = phi i64 [ %.137, %.preheader ], [ %136, %132 ]
-  %146 = lshr i64 %.03653, 1
-  %147 = getelementptr inbounds nuw i64, ptr %.154, i64 %146
+  %.152 = phi ptr [ %.2, %.preheader ], [ %138, %132 ]
+  %.03651 = phi i64 [ %.137, %.preheader ], [ %136, %132 ]
+  %146 = lshr i64 %.03651, 1
+  %147 = getelementptr inbounds nuw i64, ptr %.152, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !68
   %149 = icmp ult i64 %148, %135
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %.neg = xor i64 %146, -1
-  %151 = add i64 %.03653, %.neg
+  %151 = add i64 %.03651, %.neg
   %.137 = select i1 %149, i64 %151, i64 %146
-  %.2 = select i1 %149, ptr %150, ptr %.154
+  %.2 = select i1 %149, ptr %150, ptr %.152
   %.not45 = icmp eq i64 %.137, 0
   br i1 %.not45, label %.loopexit, label %.preheader, !llvm.loop !444
 
 .loopexit:                                        ; preds = %.preheader, %.lr.ph, %143, %139
-  %.3 = phi ptr [ null, %139 ], [ null, %143 ], [ %.03855, %.lr.ph ], [ %.2, %.preheader ]
+  %.3 = phi ptr [ null, %139 ], [ null, %143 ], [ %.03853, %.lr.ph ], [ %.2, %.preheader ]
   %.not46 = icmp ult ptr %.3, %138
   br i1 %.not46, label %152, label %161
 
@@ -49425,11 +49413,11 @@ define void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias wri
   call void %155(ptr noundef nonnull %20, i64 noundef 45, ptr noundef nonnull byval(%"struct.c4::yml::Location") align 8 %21, ptr noundef %160)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.pre = load ptr, ptr %97, align 8, !tbaa !236
-  %.pre60 = load i64, ptr %85, align 8, !tbaa !268
+  %.pre58 = load i64, ptr %85, align 8, !tbaa !268
   br label %161
 
 161:                                              ; preds = %.loopexit, %152
-  %162 = phi i64 [ %136, %.loopexit ], [ %.pre60, %152 ]
+  %162 = phi i64 [ %136, %.loopexit ], [ %.pre58, %152 ]
   %163 = phi ptr [ %138, %.loopexit ], [ %.pre, %152 ]
   %164 = getelementptr inbounds nuw i64, ptr %163, i64 %162
   %.not47 = icmp ugt ptr %.3, %164
@@ -49505,9 +49493,9 @@ define void @_ZNK2c43yml6Parser12val_locationEPKc(ptr dead_on_unwind noalias wri
   br label %202
 
 202:                                              ; preds = %186, %197, %27
-  %.sink66 = phi i64 [ 16, %197 ], [ 32, %27 ], [ 16, %186 ]
+  %.sink64 = phi i64 [ 16, %197 ], [ 32, %27 ], [ 16, %186 ]
   %.sink = phi i64 [ %201, %197 ], [ %.sroa.2.0.copyload, %27 ], [ %135, %186 ]
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink66
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink64
   store i64 %.sink, ptr %203, align 8, !tbaa !68
   ret void
 }
@@ -50683,9 +50671,9 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135: ; preds = %._crit_edg
 
 31:                                               ; preds = %.thread, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %.035158 = load i64, ptr %32, align 8, !tbaa !68
-  %.not36159 = icmp eq i64 %.035158, -1
-  br i1 %.not36159, label %.loopexit, label %.lr.ph
+  %.035157 = load i64, ptr %32, align 8, !tbaa !68
+  %.not36158 = icmp eq i64 %.035157, -1
+  br i1 %.not36158, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -50699,10 +50687,10 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135: ; preds = %._crit_edg
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit
-  %.pre168185 = phi ptr [ %7, %.lr.ph ], [ %.pre168186, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit ]
+  %.pre167184 = phi ptr [ %7, %.lr.ph ], [ %.pre167185, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit ]
   %41 = phi ptr [ %7, %.lr.ph ], [ %70, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit ]
   %42 = phi i64 [ %.pre, %.lr.ph ], [ %75, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit ]
-  %.035160 = phi i64 [ %.035158, %.lr.ph ], [ %.035, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit ]
+  %.035159 = phi i64 [ %.035157, %.lr.ph ], [ %.035, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit ]
   %43 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %41, i64 %1
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %45 = load i64, ptr %44, align 8, !tbaa !129
@@ -50750,26 +50738,26 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135: ; preds = %._crit_edg
 69:                                               ; preds = %64, %54
   store ptr %59, ptr %38, align 8, !tbaa !178, !noalias !469
   %.pre.pre.i = load i64, ptr %34, align 8, !tbaa !179, !noalias !469
-  %.pre167.pre = load ptr, ptr %0, align 8, !tbaa !174
-  %.pre168.pre = load ptr, ptr %.pre167.pre, align 8, !tbaa !117
+  %.pre166.pre = load ptr, ptr %0, align 8, !tbaa !174
+  %.pre167.pre = load ptr, ptr %.pre166.pre, align 8, !tbaa !117
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %69, %53
-  %.pre168 = phi ptr [ %.pre168.pre, %69 ], [ %.pre168185, %53 ]
+  %.pre167 = phi ptr [ %.pre167.pre, %69 ], [ %.pre167184, %53 ]
   %.pre.i = phi i64 [ %.pre.pre.i, %69 ], [ %42, %53 ]
   %.sink.i.i = phi i64 [ %50, %69 ], [ 16, %53 ]
   store i64 %.sink.i.i, ptr %35, align 8, !tbaa !180, !noalias !469
   br label %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit
 
 _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit: ; preds = %40, %48, %.sink.split.i.i
-  %.pre168186 = phi ptr [ %.pre168, %.sink.split.i.i ], [ %.pre168185, %48 ], [ %.pre168185, %40 ]
-  %70 = phi ptr [ %.pre168, %.sink.split.i.i ], [ %41, %48 ], [ %41, %40 ]
+  %.pre167185 = phi ptr [ %.pre167, %.sink.split.i.i ], [ %.pre167184, %48 ], [ %.pre167184, %40 ]
+  %70 = phi ptr [ %.pre167, %.sink.split.i.i ], [ %41, %48 ], [ %41, %40 ]
   %71 = phi i64 [ %.pre.i, %.sink.split.i.i ], [ %42, %48 ], [ %42, %40 ]
   %72 = load ptr, ptr %38, align 8, !tbaa !178, !noalias !469
   %73 = getelementptr inbounds nuw %"struct.c4::yml::detail::ReferenceResolver::refdata", ptr %72, i64 %71
   store i64 128, ptr %73, align 8, !tbaa !153
   %.sroa.4129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i64 %.035160, ptr %.sroa.4129.0..sroa_idx, align 8, !tbaa !68
+  store i64 %.035159, ptr %.sroa.4129.0..sroa_idx, align 8, !tbaa !68
   %.sroa.5130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 16
   %.sroa.7132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5130.0..sroa_idx, i8 -1, i64 16, i1 false)
@@ -50779,7 +50767,7 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit: 
   %74 = load i64, ptr %34, align 8, !tbaa !179, !noalias !469
   %75 = add i64 %74, 1
   store i64 %75, ptr %34, align 8, !tbaa !179, !noalias !469
-  %76 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %70, i64 %.035160
+  %76 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %70, i64 %.035159
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %.035 = load i64, ptr %77, align 8, !tbaa !68
   %.not36 = icmp eq i64 %.035, -1
@@ -50796,8 +50784,8 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit: 
 
 82:                                               ; preds = %.thread137
   %..i39 = tail call i64 @llvm.umin.i64(i64 %81, i64 2)
-  %cond165 = icmp eq i64 %81, 0
-  br i1 %cond165, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread, label %.lr.ph.i41
+  %cond164 = icmp eq i64 %81, 0
+  br i1 %cond164, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread, label %.lr.ph.i41
 
 83:                                               ; preds = %.lr.ph.i41
   %84 = add nuw nsw i64 %.01934.i42, 1
@@ -50949,24 +50937,23 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit58
   %145 = load i64, ptr %109, align 8, !tbaa !179, !noalias !476
   %146 = add i64 %145, 1
   store i64 %146, ptr %109, align 8, !tbaa !179, !noalias !476
-  %.pre169 = load ptr, ptr %0, align 8, !tbaa !174
-  %.pre170 = load ptr, ptr %.pre169, align 8, !tbaa !117
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre170, i64 %1
-  %.pre171 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !158
+  %.pre168 = load ptr, ptr %0, align 8, !tbaa !174
+  %.pre169 = load ptr, ptr %.pre168, align 8, !tbaa !117
+  %.phi.trans.insert = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre169, i64 %1
+  %.pre170 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !158
   br label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139
 
 _ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139: ; preds = %._crit_edge.i45, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135, %89, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit58
-  %147 = phi i64 [ %9, %._crit_edge.i45 ], [ %9, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135 ], [ %9, %89 ], [ %.pre171, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit58 ]
-  %148 = phi ptr [ %7, %._crit_edge.i45 ], [ %7, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135 ], [ %7, %89 ], [ %.pre170, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit58 ]
+  %147 = phi i64 [ %9, %._crit_edge.i45 ], [ %9, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135 ], [ %9, %89 ], [ %.pre170, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit58 ]
+  %148 = phi ptr [ %7, %._crit_edge.i45 ], [ %7, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread135 ], [ %7, %89 ], [ %.pre169, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit58 ]
   %149 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %148, i64 %1
   %150 = and i64 %147, 128
   %.not154 = icmp eq i64 %150, 0
   br i1 %.not154, label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread, label %151
 
 151:                                              ; preds = %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139
-  %152 = and i64 %147, 1
-  %.not155 = icmp eq i64 %152, 0
-  br i1 %.not155, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit64.thread, label %153
+  %152 = trunc i64 %147 to i1
+  br i1 %152, label %153, label %_ZNK2c415basic_substringIKcE9ends_withES2_.exit64.thread
 
 153:                                              ; preds = %151
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 72
@@ -51095,15 +51082,15 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit72
   %210 = load i64, ptr %174, align 8, !tbaa !179, !noalias !479
   %211 = add i64 %210, 1
   store i64 %211, ptr %174, align 8, !tbaa !179, !noalias !479
-  %.pre172 = load ptr, ptr %0, align 8, !tbaa !174
-  %.pre173 = load ptr, ptr %.pre172, align 8, !tbaa !117
-  %.phi.trans.insert174 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre173, i64 %1
-  %.pre175 = load i64, ptr %.phi.trans.insert174, align 8, !tbaa !158
+  %.pre171 = load ptr, ptr %0, align 8, !tbaa !174
+  %.pre172 = load ptr, ptr %.pre171, align 8, !tbaa !117
+  %.phi.trans.insert173 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre172, i64 %1
+  %.pre174 = load i64, ptr %.phi.trans.insert173, align 8, !tbaa !158
   br label %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread
 
 _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %20, %27, %._crit_edge.i, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit72, %13
-  %212 = phi i64 [ %9, %13 ], [ %9, %20 ], [ %9, %27 ], [ %9, %._crit_edge.i ], [ %147, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139 ], [ %.pre175, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit72 ], [ %9, %.lr.ph.i ]
-  %213 = phi ptr [ %7, %13 ], [ %7, %20 ], [ %7, %27 ], [ %7, %._crit_edge.i ], [ %148, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139 ], [ %.pre173, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit72 ], [ %7, %.lr.ph.i ]
+  %212 = phi i64 [ %9, %13 ], [ %9, %20 ], [ %9, %27 ], [ %9, %._crit_edge.i ], [ %147, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139 ], [ %.pre174, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit72 ], [ %9, %.lr.ph.i ]
+  %213 = phi ptr [ %7, %13 ], [ %7, %20 ], [ %7, %27 ], [ %7, %._crit_edge.i ], [ %148, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit47.thread139 ], [ %.pre172, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit72 ], [ %7, %.lr.ph.i ]
   %214 = and i64 %212, 258
   %215 = icmp eq i64 %214, 258
   br i1 %215, label %216, label %256
@@ -51162,19 +51149,19 @@ _ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread: ; preds = %.lr.ph.i, %20
 249:                                              ; preds = %243, %230
   store ptr %238, ptr %235, align 8, !tbaa !178, !noalias !482
   %.pre.pre.i76 = load i64, ptr %218, align 8, !tbaa !179, !noalias !482
-  %.pre176.pre.pre = load ptr, ptr %0, align 8, !tbaa !174
-  %.pre177.pre.pre = load ptr, ptr %.pre176.pre.pre, align 8, !tbaa !117
+  %.pre175.pre.pre = load ptr, ptr %0, align 8, !tbaa !174
+  %.pre176.pre.pre = load ptr, ptr %.pre175.pre.pre, align 8, !tbaa !117
   br label %.sink.split.i.i77
 
 .sink.split.i.i77:                                ; preds = %249, %228
-  %.pre177.pre = phi ptr [ %.pre177.pre.pre, %249 ], [ %213, %228 ]
+  %.pre176.pre = phi ptr [ %.pre176.pre.pre, %249 ], [ %213, %228 ]
   %.pre.i78 = phi i64 [ %.pre.pre.i76, %249 ], [ %219, %228 ]
   %.sink.i.i79 = phi i64 [ %225, %249 ], [ 16, %228 ]
   store i64 %.sink.i.i79, ptr %220, align 8, !tbaa !180, !noalias !482
   br label %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80
 
 _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80: ; preds = %216, %223, %.sink.split.i.i77
-  %.pre177 = phi ptr [ %.pre177.pre, %.sink.split.i.i77 ], [ %213, %223 ], [ %213, %216 ]
+  %.pre176 = phi ptr [ %.pre176.pre, %.sink.split.i.i77 ], [ %213, %223 ], [ %213, %216 ]
   %250 = phi i64 [ %.pre.i78, %.sink.split.i.i77 ], [ %219, %223 ], [ %219, %216 ]
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %252 = load ptr, ptr %251, align 8, !tbaa !178, !noalias !482
@@ -51187,13 +51174,13 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80
   %254 = load i64, ptr %218, align 8, !tbaa !179, !noalias !482
   %255 = add i64 %254, 1
   store i64 %255, ptr %218, align 8, !tbaa !179, !noalias !482
-  %.phi.trans.insert178 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre177, i64 %1
-  %.pre179 = load i64, ptr %.phi.trans.insert178, align 8, !tbaa !158
+  %.phi.trans.insert177 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %.pre176, i64 %1
+  %.pre178 = load i64, ptr %.phi.trans.insert177, align 8, !tbaa !158
   br label %256
 
 256:                                              ; preds = %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread
-  %257 = phi i64 [ %.pre179, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80 ], [ %212, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread ]
-  %258 = phi ptr [ %.pre177, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80 ], [ %213, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread ]
+  %257 = phi i64 [ %.pre178, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80 ], [ %212, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread ]
+  %258 = phi ptr [ %.pre176, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit80 ], [ %213, %_ZNK2c415basic_substringIKcE7compareEPS1_m.exit.thread ]
   %259 = and i64 %257, 512
   %.not.i = icmp ne i64 %259, 0
   %260 = and i64 %257, 13
@@ -51298,30 +51285,30 @@ _ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit88
   %306 = load i64, ptr %270, align 8, !tbaa !179, !noalias !485
   %307 = add i64 %306, 1
   store i64 %307, ptr %270, align 8, !tbaa !179, !noalias !485
-  %.pre180 = load ptr, ptr %0, align 8, !tbaa !174
-  %.pre181 = load ptr, ptr %.pre180, align 8, !tbaa !117
+  %.pre179 = load ptr, ptr %0, align 8, !tbaa !174
+  %.pre180 = load ptr, ptr %.pre179, align 8, !tbaa !117
   br label %308
 
 308:                                              ; preds = %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit88, %256
-  %309 = phi ptr [ %.pre181, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit88 ], [ %258, %256 ]
+  %309 = phi ptr [ %.pre180, %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit88 ], [ %258, %256 ]
   %310 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %309, i64 %1
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 112
-  %.0161 = load i64, ptr %311, align 8, !tbaa !68
-  %.not162 = icmp eq i64 %.0161, -1
-  br i1 %.not162, label %.loopexit, label %.lr.ph164
+  %.0160 = load i64, ptr %311, align 8, !tbaa !68
+  %.not161 = icmp eq i64 %.0160, -1
+  br i1 %.not161, label %.loopexit, label %.lr.ph163
 
-.lr.ph164:                                        ; preds = %308, %.lr.ph164
-  %.0163 = phi i64 [ %.0, %.lr.ph164 ], [ %.0161, %308 ]
-  tail call void @_ZN2c43yml6detail17ReferenceResolver23_store_anchors_and_refsEm(ptr noundef nonnull align 8 dereferenceable(832) %0, i64 noundef %.0163)
+.lr.ph163:                                        ; preds = %308, %.lr.ph163
+  %.0162 = phi i64 [ %.0, %.lr.ph163 ], [ %.0160, %308 ]
+  tail call void @_ZN2c43yml6detail17ReferenceResolver23_store_anchors_and_refsEm(ptr noundef nonnull align 8 dereferenceable(832) %0, i64 noundef %.0162)
   %312 = load ptr, ptr %0, align 8, !tbaa !174
   %313 = load ptr, ptr %312, align 8, !tbaa !117
-  %314 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %313, i64 %.0163
+  %314 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %313, i64 %.0162
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 128
   %.0 = load i64, ptr %315, align 8, !tbaa !68
   %.not = icmp eq i64 %.0, -1
-  br i1 %.not, label %.loopexit, label %.lr.ph164, !llvm.loop !488
+  br i1 %.not, label %.loopexit, label %.lr.ph163, !llvm.loop !488
 
-.loopexit:                                        ; preds = %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit, %.lr.ph164, %31, %308
+.loopexit:                                        ; preds = %_ZN2c43yml6detail5stackINS1_17ReferenceResolver7refdataELm16EE4pushERKS4_.exit, %.lr.ph163, %31, %308
   ret void
 }
 

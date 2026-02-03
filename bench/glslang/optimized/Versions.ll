@@ -4798,9 +4798,8 @@ define noundef zeroext i1 @_ZN7glslang14TParseVersions24checkExtensionsRequested
 
 35:                                               ; preds = %28
   %36 = load i32, ptr %12, align 8
-  %37 = and i32 %36, 1
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit34, label %.thread
+  %37 = trunc i32 %36 to i1
+  br i1 %37, label %.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit34
 
 .thread:                                          ; preds = %35
   %38 = load ptr, ptr %13, align 8

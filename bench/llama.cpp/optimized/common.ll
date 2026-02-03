@@ -1476,8 +1476,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %26
 
 26:                                               ; preds = %.lr.ph, %.critedge71
-  %.06382 = phi i64 [ %24, %.lr.ph ], [ %76, %.critedge71 ]
-  %.06481 = phi i64 [ %20, %.lr.ph ], [ %75, %.critedge71 ]
+  %.06382 = phi i64 [ %24, %.lr.ph ], [ %74, %.critedge71 ]
+  %.06481 = phi i64 [ %20, %.lr.ph ], [ %73, %.critedge71 ]
   %.not.i = icmp ult i64 %.06481, %19
   br i1 %.not.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit, label %27
 
@@ -1552,14 +1552,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit: ; preds = %26
   %68 = getelementptr i8, ptr %46, i64 -3
   %69 = load i8, ptr %68, align 1, !tbaa !77, !range !79, !noundef !80
   %70 = trunc nuw i8 %69 to i1
-  %71 = and i32 %49, 1
-  %72 = icmp ne i32 %71, 0
-  %73 = select i1 %70, i1 true, i1 %72
-  %74 = zext i1 %73 to i8
-  store i8 %74, ptr %68, align 1, !tbaa !77
-  %75 = add nuw nsw i64 %.06481, 1
-  %76 = add nsw i64 %.06382, -4
-  %.not.not = icmp samesign ult i64 %75, %22
+  %71 = and i8 %.0, 1
+  %72 = select i1 %70, i8 1, i8 %71
+  store i8 %72, ptr %68, align 1, !tbaa !77
+  %73 = add nuw nsw i64 %.06481, 1
+  %74 = add nsw i64 %.06382, -4
+  %.not.not = icmp samesign ult i64 %73, %22
   br i1 %.not.not, label %26, label %.critedge73, !llvm.loop !92
 
 .critedge73:                                      ; preds = %.critedge71, %.critedge.thread, %39, %42

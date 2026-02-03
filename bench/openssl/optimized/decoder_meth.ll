@@ -458,11 +458,10 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
 39:                                               ; preds = %34, %35, %.thread
   %.1 = phi i32 [ %.2, %35 ], [ 0, %34 ], [ %22, %.thread ]
   %40 = load i8, ptr %26, align 8
-  %41 = and i8 %40, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not66 = icmp eq i8 %41, 0
-  %42 = select i1 %.not66, i32 524556, i32 524557
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, i32 524557, i32 524556
   br label %43
 
 43:                                               ; preds = %39, %20

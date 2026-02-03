@@ -269,8 +269,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %20 = load i16, ptr %19, align 4
   %21 = xor i16 %20, %18
   %22 = and i16 %21, 14
-  %or.cond154 = icmp eq i16 %22, 0
-  br i1 %or.cond154, label %23, label %.thread
+  %or.cond153 = icmp eq i16 %22, 0
+  br i1 %or.cond153, label %23, label %.thread
 
 23:                                               ; preds = %16
   br i1 %3, label %.critedge, label %24
@@ -281,8 +281,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %27 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
-  %.not57109 = icmp eq i32 %13, 0
-  br i1 %.not57109, label %.critedge, label %.lr.ph.preheader
+  %.not57108 = icmp eq i32 %13, 0
+  br i1 %.not57108, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -290,24 +290,24 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
-  %.049111 = phi ptr [ %34, %33 ], [ %26, %.lr.ph.preheader ]
-  %.051110 = phi ptr [ %35, %33 ], [ %30, %.lr.ph.preheader ]
-  %31 = load ptr, ptr %.049111, align 8, !tbaa !34
-  %32 = load ptr, ptr %.051110, align 8, !tbaa !34
+  %.049110 = phi ptr [ %34, %33 ], [ %26, %.lr.ph.preheader ]
+  %.051109 = phi ptr [ %35, %33 ], [ %30, %.lr.ph.preheader ]
+  %31 = load ptr, ptr %.049110, align 8, !tbaa !34
+  %32 = load ptr, ptr %.051109, align 8, !tbaa !34
   %.not58 = icmp eq ptr %31, %32
   br i1 %.not58, label %33, label %.thread
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.049111, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %.051110, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.049110, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.051109, i64 8
   %.not57 = icmp eq ptr %34, %28
   br i1 %.not57, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .critedge:                                        ; preds = %33, %24, %23
-  %.not59112 = icmp eq i32 %8, 0
-  br i1 %.not59112, label %.thread, label %.lr.ph114
+  %.not59111 = icmp eq i32 %8, 0
+  br i1 %.not59111, label %.thread, label %.lr.ph113
 
-.lr.ph114:                                        ; preds = %.critedge
+.lr.ph113:                                        ; preds = %.critedge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -320,11 +320,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %46
 
-46:                                               ; preds = %.lr.ph114, %.thread95
-  %47 = phi i32 [ %8, %.lr.ph114 ], [ %140, %.thread95 ]
-  %.050113 = phi i32 [ 0, %.lr.ph114 ], [ %141, %.thread95 ]
+46:                                               ; preds = %.lr.ph113, %.thread95
+  %47 = phi i32 [ %8, %.lr.ph113 ], [ %140, %.thread95 ]
+  %.050112 = phi i32 [ 0, %.lr.ph113 ], [ %141, %.thread95 ]
   %48 = load ptr, ptr %36, align 8, !tbaa !15
-  %49 = zext i32 %.050113 to i64
+  %49 = zext i32 %.050112 to i64
   %50 = getelementptr inbounds nuw %"class.clang::Token", ptr %48, i64 %49
   %51 = load ptr, ptr %37, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw %"class.clang::Token", ptr %51, i64 %49
@@ -336,7 +336,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   br i1 %.not60, label %57, label %.thread
 
 57:                                               ; preds = %46
-  %.not61 = icmp eq i32 %.050113, 0
+  %.not61 = icmp eq i32 %.050112, 0
   br i1 %.not61, label %65, label %58
 
 58:                                               ; preds = %57
@@ -548,17 +548,17 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESa
 
 124:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread
   %125 = icmp eq i64 %121, 0
-  %.pre133 = load ptr, ptr %6, align 8, !tbaa !279
+  %.pre132 = load ptr, ptr %6, align 8, !tbaa !279
   br i1 %125, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, label %126
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr %5, align 8, !tbaa !279
-  %bcmp.i.i = call i32 @bcmp(ptr %127, ptr %.pre133, i64 %121)
+  %bcmp.i.i = call i32 @bcmp(ptr %127, ptr %.pre132, i64 %121)
   %128 = icmp ne i32 %bcmp.i.i, 0
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge, %124, %126
-  %129 = phi ptr [ %.pre, %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %.pre133, %126 ], [ %.pre133, %124 ]
+  %129 = phi ptr [ %.pre, %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %.pre132, %126 ], [ %.pre132, %124 ]
   %130 = phi i1 [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %128, %126 ], [ false, %124 ]
   %131 = icmp eq ptr %129, %44
   br i1 %131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -591,15 +591,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
   br i1 %130, label %.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87
-  %.pre134 = load i32, ptr %7, align 4, !tbaa !7
+  %.pre133 = load i32, ptr %7, align 4, !tbaa !7
   br label %.thread95
 
 139:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit74
   br i1 %78, label %.thread, label %.thread95
 
 .thread95:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge, %139, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84
-  %140 = phi i32 [ %.pre134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge ], [ %47, %139 ], [ %47, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ]
-  %141 = add i32 %.050113, 1
+  %140 = phi i32 [ %.pre133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge ], [ %47, %139 ], [ %47, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ]
+  %141 = add i32 %.050112, 1
   %.not59 = icmp eq i32 %141, %140
   br i1 %.not59, label %.thread, label %46, !llvm.loop !281
 

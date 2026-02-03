@@ -1779,9 +1779,9 @@ define i64 @Mpm_CutTruthFromDsd(ptr noundef readonly captures(none) %0, ptr noun
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i32 @Mpm_CutCheckDsd6(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = alloca i64, align 8
+  %.not = trunc i64 %1 to i1
   %4 = and i64 %1, 1
-  %.not = icmp ne i64 %4, 0
-  %5 = sext i1 %.not to i64
+  %5 = sub nsw i64 0, %4
   %spec.select = xor i64 %1, %5
   store i64 %spec.select, ptr %3, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6952

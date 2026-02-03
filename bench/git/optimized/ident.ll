@@ -69,58 +69,57 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ident_default_name() local_unnamed_addr #0 {
   %1 = load i32, ptr @ident_config_given, align 4, !tbaa !4
-  %2 = and i32 %1, 1
-  %3 = icmp ne i32 %2, 0
-  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
-  %5 = icmp ne i64 %4, 0
-  %or.cond = select i1 %3, i1 true, i1 %5
-  br i1 %or.cond, label %45, label %6
+  %2 = trunc i32 %1 to i1
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8
+  %4 = icmp ne i64 %3, 0
+  %or.cond = select i1 %2, i1 true, i1 %4
+  br i1 %or.cond, label %44, label %5
 
-6:                                                ; preds = %0
-  %7 = tail call ptr @__errno_location() #18
-  store i32 0, ptr %7, align 4, !tbaa !4
-  %8 = tail call i32 @getuid() #19
-  %9 = tail call ptr @getpwuid(i32 noundef %8) #19
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %10, label %.xgetpwuid_self.exit_crit_edge
+5:                                                ; preds = %0
+  %6 = tail call ptr @__errno_location() #18
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %7 = tail call i32 @getuid() #19
+  %8 = tail call ptr @getpwuid(i32 noundef %7) #19
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %9, label %.xgetpwuid_self.exit_crit_edge
 
-.xgetpwuid_self.exit_crit_edge:                   ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 24
+.xgetpwuid_self.exit_crit_edge:                   ; preds = %5
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !8
   br label %xgetpwuid_self.exit
 
-10:                                               ; preds = %6
+9:                                                ; preds = %5
   store ptr @.str.17, ptr @xgetpwuid_self.fallback, align 8, !tbaa !12
   store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @xgetpwuid_self.fallback, i64 24), align 8, !tbaa !8
   store i1 true, ptr @default_name_is_bogus, align 4
   br label %xgetpwuid_self.exit
 
-xgetpwuid_self.exit:                              ; preds = %.xgetpwuid_self.exit_crit_edge, %10
-  %11 = phi ptr [ %.pre, %.xgetpwuid_self.exit_crit_edge ], [ @.str.18, %10 ]
-  %.0.i = phi ptr [ %9, %.xgetpwuid_self.exit_crit_edge ], [ @xgetpwuid_self.fallback, %10 ]
-  br label %12
+xgetpwuid_self.exit:                              ; preds = %.xgetpwuid_self.exit_crit_edge, %9
+  %10 = phi ptr [ %.pre, %.xgetpwuid_self.exit_crit_edge ], [ @.str.18, %9 ]
+  %.0.i = phi ptr [ %8, %.xgetpwuid_self.exit_crit_edge ], [ @xgetpwuid_self.fallback, %9 ]
+  br label %11
 
-12:                                               ; preds = %43, %xgetpwuid_self.exit
-  %.0.i2 = phi ptr [ %11, %xgetpwuid_self.exit ], [ %44, %43 ]
-  %13 = load i8, ptr %.0.i2, align 1, !tbaa !13
-  switch i8 %13, label %14 [
+11:                                               ; preds = %42, %xgetpwuid_self.exit
+  %.0.i2 = phi ptr [ %10, %xgetpwuid_self.exit ], [ %43, %42 ]
+  %12 = load i8, ptr %.0.i2, align 1, !tbaa !13
+  switch i8 %12, label %13 [
     i8 0, label %copy_gecos.exit
     i8 44, label %copy_gecos.exit
-    i8 38, label %23
+    i8 38, label %22
   ]
 
-14:                                               ; preds = %12
-  %15 = load i64, ptr @git_default_name, align 8, !tbaa !14
-  %.not.i.i.i = icmp eq i64 %15, 0
+13:                                               ; preds = %11
+  %14 = load i64, ptr @git_default_name, align 8, !tbaa !14
+  %.not.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_avail.exit.i.i
 
-strbuf_avail.exit.i.i:                            ; preds = %14
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
-  %.neg.i.i = add i64 %16, 1
-  %.not.i.i = icmp eq i64 %15, %.neg.i.i
+strbuf_avail.exit.i.i:                            ; preds = %13
+  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
+  %.neg.i.i = add i64 %15, 1
+  %.not.i.i = icmp eq i64 %14, %.neg.i.i
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_addch.exit.i
 
-strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %14
+strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %13
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #19
   %.pre.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
   %.pre7.i.i = add i64 %.pre.i.i, 1
@@ -128,37 +127,37 @@ strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.thread.i.i, %strbuf_avail.exit.i.i
   %.pre-phi.i.i = phi i64 [ %.pre7.i.i, %strbuf_avail.exit.thread.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
-  %17 = phi i64 [ %.pre.i.i, %strbuf_avail.exit.thread.i.i ], [ %16, %strbuf_avail.exit.i.i ]
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
+  %16 = phi i64 [ %.pre.i.i, %strbuf_avail.exit.thread.i.i ], [ %15, %strbuf_avail.exit.i.i ]
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
   store i64 %.pre-phi.i.i, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
-  store i8 %13, ptr %19, align 1, !tbaa !13
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
-  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
-  store i8 0, ptr %22, align 1, !tbaa !13
-  br label %43
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %16
+  store i8 %12, ptr %18, align 1, !tbaa !13
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  store i8 0, ptr %21, align 1, !tbaa !13
+  br label %42
 
-23:                                               ; preds = %12
-  %24 = load ptr, ptr %.0.i, align 8, !tbaa !12
-  %25 = load i8, ptr %24, align 1, !tbaa !13
-  %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !13
-  %29 = and i8 %28, 4
-  %.not.i14.i = icmp eq i8 %29, 0
-  %30 = and i8 %25, -33
-  %31 = load i64, ptr @git_default_name, align 8, !tbaa !14
-  %.not.i.i15.i = icmp eq i64 %31, 0
+22:                                               ; preds = %11
+  %23 = load ptr, ptr %.0.i, align 8, !tbaa !12
+  %24 = load i8, ptr %23, align 1, !tbaa !13
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !13
+  %28 = and i8 %27, 4
+  %.not.i14.i = icmp eq i8 %28, 0
+  %29 = and i8 %24, -33
+  %30 = load i64, ptr @git_default_name, align 8, !tbaa !14
+  %.not.i.i15.i = icmp eq i64 %30, 0
   br i1 %.not.i.i15.i, label %strbuf_avail.exit.thread.i20.i, label %strbuf_avail.exit.i16.i
 
-strbuf_avail.exit.i16.i:                          ; preds = %23
-  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
-  %.neg.i17.i = add i64 %32, 1
-  %.not.i18.i = icmp eq i64 %31, %.neg.i17.i
+strbuf_avail.exit.i16.i:                          ; preds = %22
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
+  %.neg.i17.i = add i64 %31, 1
+  %.not.i18.i = icmp eq i64 %30, %.neg.i17.i
   br i1 %.not.i18.i, label %strbuf_avail.exit.thread.i20.i, label %strbuf_addch.exit23.i
 
-strbuf_avail.exit.thread.i20.i:                   ; preds = %strbuf_avail.exit.i16.i, %23
+strbuf_avail.exit.thread.i20.i:                   ; preds = %strbuf_avail.exit.i16.i, %22
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #19
   %.pre.i21.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
   %.pre7.i22.i = add i64 %.pre.i21.i, 1
@@ -166,33 +165,33 @@ strbuf_avail.exit.thread.i20.i:                   ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit23.i:                            ; preds = %strbuf_avail.exit.thread.i20.i, %strbuf_avail.exit.i16.i
   %.pre-phi.i19.i = phi i64 [ %.pre7.i22.i, %strbuf_avail.exit.thread.i20.i ], [ %.neg.i17.i, %strbuf_avail.exit.i16.i ]
-  %33 = phi i64 [ %.pre.i21.i, %strbuf_avail.exit.thread.i20.i ], [ %32, %strbuf_avail.exit.i16.i ]
-  %34 = select i1 %.not.i14.i, i8 %25, i8 %30
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
+  %32 = phi i64 [ %.pre.i21.i, %strbuf_avail.exit.thread.i20.i ], [ %31, %strbuf_avail.exit.i16.i ]
+  %33 = select i1 %.not.i14.i, i8 %24, i8 %29
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
   store i64 %.pre-phi.i19.i, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
-  store i8 %34, ptr %36, align 1, !tbaa !13
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
-  %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
-  store i8 0, ptr %39, align 1, !tbaa !13
-  %40 = load ptr, ptr %.0.i, align 8, !tbaa !12
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #20
-  tail call void @strbuf_add(ptr noundef nonnull @git_default_name, ptr noundef nonnull %41, i64 noundef %42) #19
-  br label %43
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %32
+  store i8 %33, ptr %35, align 1, !tbaa !13
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 8), align 8, !tbaa !17
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
+  store i8 0, ptr %38, align 1, !tbaa !13
+  %39 = load ptr, ptr %.0.i, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #20
+  tail call void @strbuf_add(ptr noundef nonnull @git_default_name, ptr noundef nonnull %40, i64 noundef %41) #19
+  br label %42
 
-43:                                               ; preds = %strbuf_addch.exit23.i, %strbuf_addch.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 1
-  br label %12, !llvm.loop !19
+42:                                               ; preds = %strbuf_addch.exit23.i, %strbuf_addch.exit.i
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 1
+  br label %11, !llvm.loop !19
 
-copy_gecos.exit:                                  ; preds = %12, %12
+copy_gecos.exit:                                  ; preds = %11, %11
   tail call void @strbuf_trim(ptr noundef nonnull @git_default_name) #19
-  br label %45
+  br label %44
 
-45:                                               ; preds = %copy_gecos.exit, %0
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
-  ret ptr %46
+44:                                               ; preds = %copy_gecos.exit, %0
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @git_default_name, i64 16), align 8, !tbaa !18
+  ret ptr %45
 }
 
 declare void @strbuf_trim(ptr noundef) local_unnamed_addr #1
@@ -769,7 +768,7 @@ select.unfold:                                    ; preds = %14, %18
   br i1 %.not73, label %.thread, label %.thread105
 
 .thread:                                          ; preds = %18, %select.unfold
-  %22 = icmp ne i32 %6, 0
+  %22 = trunc i32 %4 to i1
   %23 = load i32, ptr @ident_use_config_only, align 4
   %24 = icmp ne i32 %23, 0
   %or.cond5 = select i1 %22, i1 %24, i1 false
@@ -828,7 +827,7 @@ select.unfold108:                                 ; preds = %35, %39
   br i1 %.not76.not, label %.thread109, label %.thread114
 
 .thread109:                                       ; preds = %39, %select.unfold108
-  %43 = icmp ne i32 %6, 0
+  %43 = trunc i32 %4 to i1
   %44 = load i32, ptr @ident_use_config_only, align 4
   %45 = icmp ne i32 %44, 0
   %or.cond13 = select i1 %43, i1 %45, i1 false

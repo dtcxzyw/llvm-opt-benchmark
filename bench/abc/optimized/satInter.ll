@@ -157,85 +157,84 @@ define i32 @Int_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unna
   br i1 %.not59, label %.critedge2, label %48
 
 48:                                               ; preds = %44
-  %49 = and i32 %46, 1
-  %.not60 = icmp ne i32 %49, 0
-  %50 = and i32 %46, 134217720
-  %.not90 = icmp eq i32 %50, 0
-  %or.cond = or i1 %.not60, %.not90
+  %.not60 = trunc i32 %46 to i1
+  %49 = and i32 %46, 134217720
+  %.not90 = icmp eq i32 %49, 0
+  %or.cond = or i1 %.not90, %.not60
   br i1 %or.cond, label %.loopexit61, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %.15282, i64 32
-  %52 = load ptr, ptr %33, align 8, !tbaa !23
-  br label %53
+  %50 = getelementptr inbounds nuw i8, ptr %.15282, i64 32
+  %51 = load ptr, ptr %33, align 8, !tbaa !23
+  br label %52
 
-53:                                               ; preds = %.lr.ph77, %63
-  %54 = phi i32 [ %46, %.lr.ph77 ], [ %64, %63 ]
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next97, %63 ]
-  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv96
-  %56 = load i32, ptr %55, align 4, !tbaa !24
-  %57 = ashr i32 %56, 1
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %52, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !24
-  %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %63
+52:                                               ; preds = %.lr.ph77, %62
+  %53 = phi i32 [ %46, %.lr.ph77 ], [ %63, %62 ]
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next97, %62 ]
+  %54 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv96
+  %55 = load i32, ptr %54, align 4, !tbaa !24
+  %56 = ashr i32 %55, 1
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i32, ptr %51, i64 %57
+  %59 = load i32, ptr %58, align 4, !tbaa !24
+  %60 = icmp eq i32 %59, 1
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %53
-  store i32 -1, ptr %59, align 4, !tbaa !24
+61:                                               ; preds = %52
+  store i32 -1, ptr %58, align 4, !tbaa !24
   %.pre = load i32, ptr %45, align 4
-  br label %63
+  br label %62
 
-63:                                               ; preds = %53, %62
-  %64 = phi i32 [ %.pre, %62 ], [ %54, %53 ]
+62:                                               ; preds = %52, %61
+  %63 = phi i32 [ %.pre, %61 ], [ %53, %52 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %65 = lshr i32 %64, 3
-  %66 = and i32 %65, 16777215
-  %67 = zext nneg i32 %66 to i64
-  %68 = icmp samesign ult i64 %indvars.iv.next97, %67
-  br i1 %68, label %53, label %.loopexit61, !llvm.loop !27
+  %64 = lshr i32 %63, 3
+  %65 = and i32 %64, 16777215
+  %66 = zext nneg i32 %65 to i64
+  %67 = icmp samesign ult i64 %indvars.iv.next97, %66
+  br i1 %67, label %52, label %.loopexit61, !llvm.loop !27
 
-.loopexit61:                                      ; preds = %63, %48
+.loopexit61:                                      ; preds = %62, %48
   %.152 = load ptr, ptr %.15282, align 8, !tbaa !19
   %.not58 = icmp eq ptr %.152, null
   br i1 %.not58, label %.critedge2, label %44, !llvm.loop !28
 
 .critedge2:                                       ; preds = %44, %.loopexit61, %.critedge.thread
-  %69 = load i32, ptr %2, align 8, !tbaa !29
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.lr.ph87, label %.loopexit
+  %68 = load i32, ptr %2, align 8, !tbaa !29
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %.lr.ph87, label %.loopexit
 
 .lr.ph87:                                         ; preds = %.critedge2
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %72 = load ptr, ptr %71, align 8, !tbaa !23
-  br label %73
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %71 = load ptr, ptr %70, align 8, !tbaa !23
+  br label %72
 
-73:                                               ; preds = %.lr.ph87, %81
-  %74 = phi i32 [ %69, %.lr.ph87 ], [ %82, %81 ]
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next100, %81 ]
-  %.485 = phi i32 [ 0, %.lr.ph87 ], [ %.5, %81 ]
-  %75 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv99
-  %76 = load i32, ptr %75, align 4, !tbaa !24
-  %77 = icmp eq i32 %76, -1
-  br i1 %77, label %78, label %81
+72:                                               ; preds = %.lr.ph87, %80
+  %73 = phi i32 [ %68, %.lr.ph87 ], [ %81, %80 ]
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next100, %80 ]
+  %.485 = phi i32 [ 0, %.lr.ph87 ], [ %.5, %80 ]
+  %74 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv99
+  %75 = load i32, ptr %74, align 4, !tbaa !24
+  %76 = icmp eq i32 %75, -1
+  br i1 %76, label %77, label %80
 
-78:                                               ; preds = %73
-  %79 = add nsw i32 %.485, 1
-  %80 = xor i32 %.485, -1
-  store i32 %80, ptr %75, align 4, !tbaa !24
+77:                                               ; preds = %72
+  %78 = add nsw i32 %.485, 1
+  %79 = xor i32 %.485, -1
+  store i32 %79, ptr %74, align 4, !tbaa !24
   %.pre102 = load i32, ptr %2, align 8, !tbaa !29
-  br label %81
+  br label %80
 
-81:                                               ; preds = %73, %78
-  %82 = phi i32 [ %.pre102, %78 ], [ %74, %73 ]
-  %.5 = phi i32 [ %79, %78 ], [ %.485, %73 ]
+80:                                               ; preds = %72, %77
+  %81 = phi i32 [ %.pre102, %77 ], [ %73, %72 ]
+  %.5 = phi i32 [ %78, %77 ], [ %.485, %72 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next100, %83
-  br i1 %84, label %73, label %.loopexit, !llvm.loop !31
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next100, %82
+  br i1 %83, label %72, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %34, %81, %.preheader63, %.critedge2
-  %.050 = phi i32 [ %.5, %81 ], [ 0, %.critedge2 ], [ %27, %.preheader63 ], [ %41, %34 ]
+.loopexit:                                        ; preds = %34, %80, %.preheader63, %.critedge2
+  %.050 = phi i32 [ %.5, %80 ], [ 0, %.critedge2 ], [ %27, %.preheader63 ], [ %41, %34 ]
   ret i32 %.050
 }
 

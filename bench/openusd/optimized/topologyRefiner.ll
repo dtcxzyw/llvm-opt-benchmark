@@ -1975,9 +1975,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
 27:                                               ; preds = %13, %17
   %28 = phi i32 [ %26, %17 ], [ 0, %13 ]
   %29 = icmp sgt i32 %14, 0
-  br i1 %29, label %.lr.ph63, label %._crit_edge64
+  br i1 %29, label %.lr.ph62, label %._crit_edge63
 
-.lr.ph63:                                         ; preds = %27
+.lr.ph62:                                         ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -1987,8 +1987,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %36
 
-36:                                               ; preds = %.lr.ph63, %.thread53
-  %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %.thread53 ]
+36:                                               ; preds = %.lr.ph62, %.thread53
+  %indvars.iv = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next, %.thread53 ]
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not, label %41, label %38
 
@@ -2009,9 +2009,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
   %47 = load ptr, ptr %31, align 8
   %48 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %47, i64 %46
   %49 = load i8, ptr %48, align 1
-  %50 = and i8 %49, 1
-  %.not56 = icmp eq i8 %50, 0
-  br i1 %.not56, label %51, label %.thread53
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %.thread53, label %51
 
 51:                                               ; preds = %45, %41
   %52 = lshr i16 %43, 3
@@ -2113,8 +2112,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner31selectFeatureAdaptiveC
 
 95:                                               ; preds = %92
   %96 = and i16 %94, 4
-  %.not58 = icmp eq i16 %96, 0
-  br i1 %.not58, label %102, label %.thread
+  %.not57 = icmp eq i16 %96, 0
+  br i1 %.not57, label %102, label %.thread
 
 97:                                               ; preds = %87
   %98 = and i16 %60, 8208
@@ -2138,8 +2137,8 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit: ; preds = %92
   %101 = and i16 %94, 8
-  %.not57 = icmp eq i16 %101, 0
-  br i1 %.not57, label %102, label %.thread
+  %.not56 = icmp eq i16 %101, 0
+  br i1 %.not56, label %102, label %.thread
 
 102:                                              ; preds = %95, %99, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
   %103 = phi i16 [ %94, %95 ], [ %.val.i, %99 ], [ %.pre, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit.thread50 ], [ %94, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit ]
@@ -2149,8 +2148,8 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   br i1 %brmerge, label %.thread53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %102, %130
-  %.059 = phi i32 [ %131, %130 ], [ 0, %102 ]
-  %105 = call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level25doesFaceFVarTopologyMatchEii(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %42, i32 noundef %.059)
+  %.058 = phi i32 [ %131, %130 ], [ 0, %102 ]
+  %105 = call noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level25doesFaceFVarTopologyMatchEii(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %42, i32 noundef %.058)
   br i1 %105, label %130, label %106
 
 106:                                              ; preds = %.lr.ph
@@ -2174,7 +2173,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_120doesFaceHaveFeaturesERKNS0_3Vtr8intern
   %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.preheader.i40 ], [ %indvars.iv.next.i44, %.lr.ph.i42 ]
   %116 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i43
   %117 = load i32, ptr %116, align 4
-  %118 = call i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVTagEii(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %117, i32 noundef %.059)
+  %118 = call i16 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level26getVertexCompositeFVarVTagEii(ptr noundef nonnull align 8 dereferenceable(480) %10, i32 noundef %117, i32 noundef %.058)
   %119 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %6, i64 %indvars.iv.i43
   store i16 %118, ptr %119, align 2
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
@@ -2215,7 +2214,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeature
 
 130:                                              ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit
   %.2 = phi i1 [ false, %.lr.ph ], [ %.0.i38, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeaturesERKNS0_3Vtr8internal5LevelEiRKNS1_8internal11FeatureMaskEi.exit ]
-  %131 = add nuw nsw i32 %.059, 1
+  %131 = add nuw nsw i32 %.058, 1
   %132 = icmp sge i32 %131, %28
   %.not36 = select i1 %.2, i1 true, i1 %132
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -2230,9 +2229,9 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_139doesFaceHaveDistinctFaceVaryingFeature
 .thread53:                                        ; preds = %102, %._crit_edge, %.thread, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge64, label %36, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge63, label %36, !llvm.loop !27
 
-._crit_edge64:                                    ; preds = %.thread53, %27
+._crit_edge63:                                    ; preds = %.thread53, %27
   ret void
 }
 
@@ -2264,11 +2263,11 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner26selectLinearIrregularF
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %wide.trip.count26 = zext nneg i32 %9 to i64
+  %wide.trip.count25 = zext nneg i32 %9 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %34
-  %indvars.iv23 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next24, %34 ]
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next23, %34 ]
   %18 = load i16, ptr %15, align 8
   %19 = and i16 %18, 2
   %.not18.us = icmp eq i16 %19, 0
@@ -2276,15 +2275,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner26selectLinearIrregularF
 
 20:                                               ; preds = %.lr.ph.split.us
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %21, i64 %indvars.iv23
+  %22 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %21, i64 %indvars.iv22
   %23 = load i8, ptr %22, align 1
-  %24 = and i8 %23, 1
-  %.not19.us = icmp eq i8 %24, 0
-  br i1 %.not19.us, label %25, label %34
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %34, label %25
 
 25:                                               ; preds = %20, %.lr.ph.split.us
   %26 = load ptr, ptr %17, align 8
-  %.idx = shl i64 %indvars.iv23, 3
+  %.idx = shl i64 %indvars.iv22, 3
   %27 = getelementptr i8, ptr %26, i64 %.idx
   %28 = load i32, ptr %27, align 4
   %29 = lshr i16 %18, 3
@@ -2294,14 +2292,14 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner26selectLinearIrregularF
   br i1 %.not14.us, label %34, label %32
 
 32:                                               ; preds = %25
-  %33 = trunc nuw nsw i64 %indvars.iv23 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv22 to i32
   tail call void @_ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector10selectFaceEi(ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %33)
   br label %34
 
 34:                                               ; preds = %32, %25, %20
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
-  br i1 %exitcond27.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
+  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %55 ]
@@ -2317,9 +2315,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner26selectLinearIrregularF
   %41 = load ptr, ptr %13, align 8
   %42 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::FTag", ptr %41, i64 %40
   %43 = load i8, ptr %42, align 1
-  %44 = and i8 %43, 1
-  %.not19 = icmp eq i8 %44, 0
-  br i1 %.not19, label %45, label %55
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %55, label %45
 
 45:                                               ; preds = %39, %.lr.ph.split
   %46 = shl nsw i32 %36, 1
@@ -2360,16 +2357,16 @@ declare noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level19isSingle
 define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpFaceHaveFeaturesENS0_3Vtr8internal5Level4VTagEPS6_iRKNS1_8internal11FeatureMaskE(i16 %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, i16 %.0.val) unnamed_addr #10 {
   %.0.val.fr = freeze i16 %.0.val
   %4 = icmp eq i32 %2, 4
-  br i1 %4, label %5, label %47
+  br i1 %4, label %5, label %45
 
 5:                                                ; preds = %3
   %6 = and i16 %0, 128
   %.not.not = icmp eq i16 %6, 0
-  br i1 %.not.not, label %41, label %7
+  br i1 %.not.not, label %39, label %7
 
 7:                                                ; preds = %5
   %.not.i = icmp sgt i16 %0, -1
-  br i1 %.not.i, label %25, label %8
+  br i1 %.not.i, label %23, label %8
 
 8:                                                ; preds = %7
   %9 = lshr i16 %0, 7
@@ -2384,342 +2381,342 @@ define internal fastcc noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__
 
 14:                                               ; preds = %8
   %.not21.i = icmp samesign ult i16 %10, 4
-  br i1 %.not21.i, label %20, label %15
+  br i1 %.not21.i, label %18, label %15
 
 15:                                               ; preds = %14
   %16 = and i16 %0, 4
   %.not23.i = icmp eq i16 %16, 0
-  %17 = select i1 %.not23.i, i16 128, i16 2
-  %18 = and i16 %17, %.0.val.fr
-  %19 = icmp ne i16 %18, 0
+  %.in.in.v.i = select i1 %.not23.i, i16 7, i16 1
+  %.in.in.i = lshr i16 %.0.val.fr, %.in.in.v.i
+  %17 = trunc i16 %.in.in.i to i1
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-20:                                               ; preds = %14
-  %21 = and i16 %0, 256
-  %.not22.i = icmp eq i16 %21, 0
-  br i1 %.not22.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %22
+18:                                               ; preds = %14
+  %19 = and i16 %0, 256
+  %.not22.i = icmp eq i16 %19, 0
+  br i1 %.not22.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %20
 
-22:                                               ; preds = %20
-  %23 = and i16 %.0.val.fr, 64
-  %24 = icmp ne i16 %23, 0
+20:                                               ; preds = %18
+  %21 = and i16 %.0.val.fr, 64
+  %22 = icmp ne i16 %21, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-25:                                               ; preds = %7
-  %26 = and i16 %0, 4
-  %.not16.i = icmp eq i16 %26, 0
-  %27 = and i16 %0, 1024
-  %.not17.i = icmp eq i16 %27, 0
-  br i1 %.not16.i, label %34, label %28
+23:                                               ; preds = %7
+  %24 = and i16 %0, 4
+  %.not16.i = icmp eq i16 %24, 0
+  %25 = and i16 %0, 1024
+  %.not17.i = icmp eq i16 %25, 0
+  br i1 %.not16.i, label %32, label %26
 
-28:                                               ; preds = %25
-  br i1 %.not17.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %29
+26:                                               ; preds = %23
+  br i1 %.not17.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %27
 
-29:                                               ; preds = %28
-  %30 = and i16 %0, 8
-  %.not19.i = icmp eq i16 %30, 0
-  %31 = and i16 %.0.val.fr, 32
-  %32 = icmp ne i16 %31, 0
-  %33 = and i1 %.not19.i, %32
+27:                                               ; preds = %26
+  %28 = and i16 %0, 8
+  %.not19.i = icmp eq i16 %28, 0
+  %29 = and i16 %.0.val.fr, 32
+  %30 = icmp ne i16 %29, 0
+  %31 = and i1 %.not19.i, %30
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-34:                                               ; preds = %25
-  br i1 %.not17.i, label %38, label %35
+32:                                               ; preds = %23
+  br i1 %.not17.i, label %36, label %33
 
-35:                                               ; preds = %34
-  %36 = and i16 %.0.val.fr, 32
-  %37 = icmp ne i16 %36, 0
+33:                                               ; preds = %32
+  %34 = and i16 %.0.val.fr, 32
+  %35 = icmp ne i16 %34, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-38:                                               ; preds = %34
-  %39 = and i16 %.0.val.fr, 16
-  %40 = icmp ne i16 %39, 0
+36:                                               ; preds = %32
+  %37 = and i16 %.0.val.fr, 16
+  %38 = icmp ne i16 %37, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-41:                                               ; preds = %5
-  %42 = and i16 %.0.val.fr, 512
-  %.not30 = icmp eq i16 %42, 0
+39:                                               ; preds = %5
+  %40 = and i16 %.0.val.fr, 512
+  %.not30 = icmp eq i16 %40, 0
   br i1 %.not30, label %.lr.ph, label %.preheader
 
-43:                                               ; preds = %.preheader
+41:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !29
 
-.preheader:                                       ; preds = %41, %43
-  %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %41 ]
-  %44 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv
-  %45 = load i16, ptr %44, align 2
-  %46 = and i16 %45, 8196
-  %or.cond = icmp eq i16 %46, 8192
-  br i1 %or.cond, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %43
+.preheader:                                       ; preds = %39, %41
+  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %39 ]
+  %42 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv
+  %43 = load i16, ptr %42, align 2
+  %44 = and i16 %43, 8196
+  %or.cond = icmp eq i16 %44, 8192
+  br i1 %or.cond, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %41
 
-47:                                               ; preds = %3
-  %48 = and i16 %0, 132
-  %or.cond34 = icmp eq i16 %48, 128
-  br i1 %or.cond34, label %49, label %.loopexit
+45:                                               ; preds = %3
+  %46 = and i16 %0, 132
+  %or.cond34 = icmp eq i16 %46, 128
+  br i1 %or.cond34, label %47, label %.loopexit
 
-49:                                               ; preds = %47
+47:                                               ; preds = %45
   %.not.i37 = icmp sgt i16 %0, -1
-  br i1 %.not.i37, label %65, label %50
+  br i1 %.not.i37, label %63, label %48
 
-50:                                               ; preds = %49
-  %51 = lshr i16 %0, 7
-  %52 = and i16 %51, 15
-  %.not20.i38 = icmp samesign ult i16 %52, 8
-  br i1 %.not20.i38, label %56, label %53
+48:                                               ; preds = %47
+  %49 = lshr i16 %0, 7
+  %50 = and i16 %49, 15
+  %.not20.i38 = icmp samesign ult i16 %50, 8
+  br i1 %.not20.i38, label %54, label %51
 
-53:                                               ; preds = %50
-  %54 = and i16 %.0.val.fr, 256
-  %55 = icmp ne i16 %54, 0
+51:                                               ; preds = %48
+  %52 = and i16 %.0.val.fr, 256
+  %53 = icmp ne i16 %52, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-56:                                               ; preds = %50
-  %.not21.i40 = icmp samesign ult i16 %52, 4
-  br i1 %.not21.i40, label %60, label %57
+54:                                               ; preds = %48
+  %.not21.i40 = icmp samesign ult i16 %50, 4
+  br i1 %.not21.i40, label %58, label %55
 
-57:                                               ; preds = %56
-  %58 = and i16 %.0.val.fr, 128
-  %59 = icmp ne i16 %58, 0
+55:                                               ; preds = %54
+  %56 = and i16 %.0.val.fr, 128
+  %57 = icmp ne i16 %56, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-60:                                               ; preds = %56
-  %61 = and i16 %0, 256
-  %.not22.i42 = icmp eq i16 %61, 0
-  br i1 %.not22.i42, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %62
+58:                                               ; preds = %54
+  %59 = and i16 %0, 256
+  %.not22.i44 = icmp eq i16 %59, 0
+  br i1 %.not22.i44, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %60
 
-62:                                               ; preds = %60
-  %63 = and i16 %.0.val.fr, 64
-  %64 = icmp ne i16 %63, 0
+60:                                               ; preds = %58
+  %61 = and i16 %.0.val.fr, 64
+  %62 = icmp ne i16 %61, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-65:                                               ; preds = %49
-  %66 = and i16 %0, 1024
-  %.not17.i44 = icmp eq i16 %66, 0
-  br i1 %.not17.i44, label %70, label %67
+63:                                               ; preds = %47
+  %64 = and i16 %0, 1024
+  %.not17.i46 = icmp eq i16 %64, 0
+  br i1 %.not17.i46, label %68, label %65
 
-67:                                               ; preds = %65
-  %68 = and i16 %.0.val.fr, 32
-  %69 = icmp ne i16 %68, 0
+65:                                               ; preds = %63
+  %66 = and i16 %.0.val.fr, 32
+  %67 = icmp ne i16 %66, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-70:                                               ; preds = %65
-  %71 = and i16 %.0.val.fr, 16
-  %72 = icmp ne i16 %71, 0
+68:                                               ; preds = %63
+  %69 = and i16 %.0.val.fr, 16
+  %70 = icmp ne i16 %69, 0
   br label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-.loopexit:                                        ; preds = %43, %47
-  %73 = icmp sgt i32 %2, 0
-  br i1 %73, label %.lr.ph, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+.loopexit:                                        ; preds = %41, %45
+  %71 = icmp sgt i32 %2, 0
+  br i1 %71, label %.lr.ph, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-.lr.ph:                                           ; preds = %41, %.loopexit
-  %74 = and i16 %.0.val.fr, 16
-  %75 = and i16 %.0.val.fr, 32
-  %76 = and i16 %.0.val.fr, 256
-  %.not = icmp eq i16 %76, 0
-  %77 = and i16 %.0.val.fr, 64
-  %78 = icmp ne i16 %77, 0
-  %79 = icmp ne i16 %75, 0
-  %.not5 = icmp eq i16 %75, 0
-  %.not6 = icmp eq i16 %74, 0
+.lr.ph:                                           ; preds = %39, %.loopexit
+  %72 = and i16 %.0.val.fr, 16
+  %73 = and i16 %.0.val.fr, 32
+  %74 = and i16 %.0.val.fr, 256
+  %.not = icmp eq i16 %74, 0
+  %75 = and i16 %.0.val.fr, 64
+  %76 = icmp ne i16 %75, 0
+  %77 = icmp ne i16 %73, 0
+  %.not4 = icmp eq i16 %73, 0
+  %.not5 = icmp eq i16 %72, 0
   %wide.trip.count68 = zext nneg i32 %2 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us ], [ 0, %.lr.ph ]
-  %80 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv65
-  %81 = load i16, ptr %80, align 2
-  %82 = and i16 %81, 128
-  %.not31.us = icmp eq i16 %82, 0
-  br i1 %.not31.us, label %83, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us ], [ 0, %.lr.ph ]
+  %78 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv65
+  %79 = load i16, ptr %78, align 2
+  %80 = and i16 %79, 128
+  %.not31.us = icmp eq i16 %80, 0
+  br i1 %.not31.us, label %81, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us
 
-83:                                               ; preds = %.lr.ph.split.us
-  %.not.i47.us = icmp sgt i16 %81, -1
-  br i1 %.not.i47.us, label %93, label %84
+81:                                               ; preds = %.lr.ph.split.us
+  %.not.i49.us = icmp sgt i16 %79, -1
+  br i1 %.not.i49.us, label %90, label %82
 
-84:                                               ; preds = %83
-  %85 = lshr i16 %81, 7
-  %86 = and i16 %85, 14
-  %.not20.i48.us = icmp samesign ult i16 %86, 8
-  br i1 %.not20.i48.us, label %87, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us
+82:                                               ; preds = %81
+  %83 = lshr i16 %79, 7
+  %84 = and i16 %83, 14
+  %.not20.i50.us = icmp samesign ult i16 %84, 8
+  br i1 %.not20.i50.us, label %85, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us
 
-87:                                               ; preds = %84
-  %.not21.i50.us = icmp samesign ult i16 %86, 4
-  br i1 %.not21.i50.us, label %91, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us
+85:                                               ; preds = %82
+  %.not21.i52.us = icmp samesign ult i16 %84, 4
+  br i1 %.not21.i52.us, label %88, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us: ; preds = %87
-  %88 = and i16 %81, 4
-  %.not23.i51.us = icmp eq i16 %88, 0
-  %89 = select i1 %.not23.i51.us, i16 128, i16 2
-  %90 = and i16 %89, %.0.val.fr
-  %.not4.us = icmp eq i16 %90, 0
-  br i1 %.not4.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us: ; preds = %85
+  %86 = and i16 %79, 4
+  %.not23.i53.us = icmp eq i16 %86, 0
+  %.in.in.v.i54.us = select i1 %.not23.i53.us, i16 7, i16 1
+  %.in.in.i55.us = lshr i16 %.0.val.fr, %.in.in.v.i54.us
+  %87 = trunc i16 %.in.in.i55.us to i1
+  br i1 %87, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us
 
-91:                                               ; preds = %87
-  %92 = and i16 %81, 256
-  %.not22.i52.us = icmp ne i16 %92, 0
-  %or.cond3.us = and i1 %.not22.i52.us, %78
-  br i1 %or.cond3.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us
+88:                                               ; preds = %85
+  %89 = and i16 %79, 256
+  %.not22.i56.us = icmp ne i16 %89, 0
+  %or.cond3.us = and i1 %.not22.i56.us, %76
+  br i1 %or.cond3.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us
 
-93:                                               ; preds = %83
-  %94 = and i16 %81, 4
-  %.not16.i53.us = icmp eq i16 %94, 0
-  %95 = and i16 %81, 1024
-  %.not17.i54.us = icmp eq i16 %95, 0
-  br i1 %.not16.i53.us, label %100, label %96
+90:                                               ; preds = %81
+  %91 = and i16 %79, 4
+  %.not16.i57.us = icmp eq i16 %91, 0
+  %92 = and i16 %79, 1024
+  %.not17.i58.us = icmp eq i16 %92, 0
+  br i1 %.not16.i57.us, label %97, label %93
 
-96:                                               ; preds = %93
-  br i1 %.not17.i54.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us, label %97
+93:                                               ; preds = %90
+  br i1 %.not17.i58.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us, label %94
 
-97:                                               ; preds = %96
-  %98 = and i16 %81, 8
-  %.not19.i55.us = icmp eq i16 %98, 0
-  %99 = and i1 %.not19.i55.us, %79
-  br i1 %99, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us
+94:                                               ; preds = %93
+  %95 = and i16 %79, 8
+  %.not19.i59.us = icmp eq i16 %95, 0
+  %96 = and i1 %.not19.i59.us, %77
+  br i1 %96, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us
 
-100:                                              ; preds = %93
-  br i1 %.not17.i54.us, label %102, label %101
+97:                                               ; preds = %90
+  br i1 %.not17.i58.us, label %99, label %98
 
-101:                                              ; preds = %100
-  br i1 %.not5, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+98:                                               ; preds = %97
+  br i1 %.not4, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-102:                                              ; preds = %100
-  br i1 %.not6, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+99:                                               ; preds = %97
+  br i1 %.not5, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us: ; preds = %84, %102, %101, %97, %96, %91, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us, %.lr.ph.split.us
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us: ; preds = %82, %99, %98, %94, %93, %88, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us, %.lr.ph.split.us
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %78, label %.lr.ph.split.split, label %.lr.ph.split.split.us
+  br i1 %76, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39 ], [ 0, %.lr.ph.split ]
-  %103 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv56
-  %104 = load i16, ptr %103, align 2
-  %105 = and i16 %104, 128
-  %.not31.us27 = icmp eq i16 %105, 0
-  br i1 %.not31.us27, label %106, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39 ], [ 0, %.lr.ph.split ]
+  %100 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv56
+  %101 = load i16, ptr %100, align 2
+  %102 = and i16 %101, 128
+  %.not31.us26 = icmp eq i16 %102, 0
+  br i1 %.not31.us26, label %103, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39
 
-106:                                              ; preds = %.lr.ph.split.split.us
-  %.not.i47.us28 = icmp sgt i16 %104, -1
-  br i1 %.not.i47.us28, label %114, label %107
+103:                                              ; preds = %.lr.ph.split.split.us
+  %.not.i49.us27 = icmp sgt i16 %101, -1
+  br i1 %.not.i49.us27, label %110, label %104
 
-107:                                              ; preds = %106
-  %108 = lshr i16 %104, 7
-  %109 = and i16 %108, 14
-  %.not20.i48.us29 = icmp samesign ult i16 %109, 8
-  br i1 %.not20.i48.us29, label %110, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+104:                                              ; preds = %103
+  %105 = lshr i16 %101, 7
+  %106 = and i16 %105, 14
+  %.not20.i50.us28 = icmp samesign ult i16 %106, 8
+  br i1 %.not20.i50.us28, label %107, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-110:                                              ; preds = %107
-  %.not21.i50.us30 = icmp samesign ult i16 %109, 4
-  br i1 %.not21.i50.us30, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us31
+107:                                              ; preds = %104
+  %.not21.i52.us29 = icmp samesign ult i16 %106, 4
+  br i1 %.not21.i52.us29, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us30
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us31: ; preds = %110
-  %111 = and i16 %104, 4
-  %.not23.i51.us32 = icmp eq i16 %111, 0
-  %112 = select i1 %.not23.i51.us32, i16 128, i16 2
-  %113 = and i16 %112, %.0.val.fr
-  %.not4.us33 = icmp eq i16 %113, 0
-  br i1 %.not4.us33, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us30: ; preds = %107
+  %108 = and i16 %101, 4
+  %.not23.i53.us31 = icmp eq i16 %108, 0
+  %.in.in.v.i54.us32 = select i1 %.not23.i53.us31, i16 7, i16 1
+  %.in.in.i55.us33 = lshr i16 %.0.val.fr, %.in.in.v.i54.us32
+  %109 = trunc i16 %.in.in.i55.us33 to i1
+  br i1 %109, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39
 
-114:                                              ; preds = %106
-  %115 = and i16 %104, 4
-  %.not16.i53.us36 = icmp eq i16 %115, 0
-  %116 = and i16 %104, 1024
-  %.not17.i54.us37 = icmp eq i16 %116, 0
-  br i1 %.not16.i53.us36, label %121, label %117
+110:                                              ; preds = %103
+  %111 = and i16 %101, 4
+  %.not16.i57.us36 = icmp eq i16 %111, 0
+  %112 = and i16 %101, 1024
+  %.not17.i58.us37 = icmp eq i16 %112, 0
+  br i1 %.not16.i57.us36, label %117, label %113
 
-117:                                              ; preds = %114
-  br i1 %.not17.i54.us37, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, label %118
+113:                                              ; preds = %110
+  br i1 %.not17.i58.us37, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39, label %114
+
+114:                                              ; preds = %113
+  %115 = and i16 %101, 8
+  %.not19.i59.us38 = icmp eq i16 %115, 0
+  %116 = and i1 %.not19.i59.us38, %77
+  br i1 %116, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39
+
+117:                                              ; preds = %110
+  br i1 %.not17.i58.us37, label %119, label %118
 
 118:                                              ; preds = %117
-  %119 = and i16 %104, 8
-  %.not19.i55.us38 = icmp eq i16 %119, 0
-  %120 = and i1 %.not19.i55.us38, %79
-  br i1 %120, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39
+  br i1 %.not4, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-121:                                              ; preds = %114
-  br i1 %.not17.i54.us37, label %123, label %122
+119:                                              ; preds = %117
+  br i1 %.not5, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-122:                                              ; preds = %121
-  br i1 %.not5, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
-
-123:                                              ; preds = %121
-  br i1 %.not6, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
-
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39: ; preds = %110, %123, %122, %118, %117, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us31, %.lr.ph.split.split.us
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39: ; preds = %107, %119, %118, %114, %113, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us30, %.lr.ph.split.split.us
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count68
   br i1 %exitcond59.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %.lr.ph.split.split.us, !llvm.loop !30
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread ], [ 0, %.lr.ph.split ]
-  %124 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv60
-  %125 = load i16, ptr %124, align 2
-  %126 = and i16 %125, 128
-  %.not31 = icmp eq i16 %126, 0
-  br i1 %.not31, label %127, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread ], [ 0, %.lr.ph.split ]
+  %120 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Level::VTag", ptr %1, i64 %indvars.iv60
+  %121 = load i16, ptr %120, align 2
+  %122 = and i16 %121, 128
+  %.not31 = icmp eq i16 %122, 0
+  br i1 %.not31, label %123, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread
 
-127:                                              ; preds = %.lr.ph.split.split
-  %.not.i47 = icmp sgt i16 %125, -1
-  br i1 %.not.i47, label %134, label %128
+123:                                              ; preds = %.lr.ph.split.split
+  %.not.i49 = icmp sgt i16 %121, -1
+  br i1 %.not.i49, label %130, label %124
+
+124:                                              ; preds = %123
+  %125 = lshr i16 %121, 7
+  %126 = and i16 %125, 14
+  %.not20.i50 = icmp samesign ult i16 %126, 8
+  br i1 %.not20.i50, label %127, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+
+127:                                              ; preds = %124
+  %.not21.i52 = icmp samesign ult i16 %126, 4
+  br i1 %.not21.i52, label %128, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60
 
 128:                                              ; preds = %127
-  %129 = lshr i16 %125, 7
-  %130 = and i16 %129, 14
-  %.not20.i48 = icmp samesign ult i16 %130, 8
-  br i1 %.not20.i48, label %131, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+  %129 = and i16 %121, 256
+  %.not22.i56.not = icmp eq i16 %129, 0
+  br i1 %.not22.i56.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-131:                                              ; preds = %128
-  %.not21.i50 = icmp samesign ult i16 %130, 4
-  br i1 %.not21.i50, label %132, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56
+130:                                              ; preds = %123
+  %131 = and i16 %121, 4
+  %.not16.i57 = icmp eq i16 %131, 0
+  %132 = and i16 %121, 1024
+  %.not17.i58 = icmp eq i16 %132, 0
+  br i1 %.not16.i57, label %137, label %133
 
-132:                                              ; preds = %131
-  %133 = and i16 %125, 256
-  %.not22.i52.not = icmp eq i16 %133, 0
-  br i1 %.not22.i52.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+133:                                              ; preds = %130
+  br i1 %.not17.i58, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread, label %134
 
-134:                                              ; preds = %127
-  %135 = and i16 %125, 4
-  %.not16.i53 = icmp eq i16 %135, 0
-  %136 = and i16 %125, 1024
-  %.not17.i54 = icmp eq i16 %136, 0
-  br i1 %.not16.i53, label %141, label %137
+134:                                              ; preds = %133
+  %135 = and i16 %121, 8
+  %.not19.i59 = icmp eq i16 %135, 0
+  %136 = and i1 %.not19.i59, %77
+  br i1 %136, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread
 
-137:                                              ; preds = %134
-  br i1 %.not17.i54, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread, label %138
+137:                                              ; preds = %130
+  br i1 %.not17.i58, label %139, label %138
 
 138:                                              ; preds = %137
-  %139 = and i16 %125, 8
-  %.not19.i55 = icmp eq i16 %139, 0
-  %140 = and i1 %.not19.i55, %79
-  br i1 %140, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread
+  br i1 %.not4, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-141:                                              ; preds = %134
-  br i1 %.not17.i54, label %143, label %142
+139:                                              ; preds = %137
+  br i1 %.not5, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
 
-142:                                              ; preds = %141
-  br i1 %.not5, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60: ; preds = %127
+  %140 = and i16 %121, 4
+  %.not23.i53 = icmp eq i16 %140, 0
+  %.in.in.v.i54 = select i1 %.not23.i53, i16 7, i16 1
+  %.in.in.i55 = lshr i16 %.0.val.fr, %.in.in.v.i54
+  %141 = trunc i16 %.in.in.i55 to i1
+  br i1 %141, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread
 
-143:                                              ; preds = %141
-  br i1 %.not6, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
-
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56: ; preds = %131
-  %144 = and i16 %125, 4
-  %.not23.i51 = icmp eq i16 %144, 0
-  %145 = select i1 %.not23.i51, i16 128, i16 2
-  %146 = and i16 %145, %.0.val.fr
-  %.not4 = icmp eq i16 %146, 0
-  br i1 %.not4, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit
-
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread: ; preds = %132, %137, %142, %138, %143, %.lr.ph.split.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread: ; preds = %128, %133, %138, %134, %139, %.lr.ph.split.split, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count68
   br i1 %exitcond64.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit, label %.lr.ph.split.split, !llvm.loop !30
 
-_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit: ; preds = %.preheader, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us31, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39, %107, %123, %118, %122, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread, %128, %143, %138, %142, %132, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us, %102, %97, %101, %91, %.loopexit, %70, %67, %62, %60, %57, %53, %38, %35, %29, %28, %22, %20, %15, %11
-  %.0 = phi i1 [ %69, %67 ], [ false, %20 ], [ %72, %70 ], [ true, %132 ], [ %13, %11 ], [ %19, %15 ], [ %24, %22 ], [ false, %28 ], [ %33, %29 ], [ %40, %38 ], [ %37, %35 ], [ %55, %53 ], [ %59, %57 ], [ %64, %62 ], [ false, %60 ], [ true, %122 ], [ false, %.loopexit ], [ true, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us ], [ false, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us ], [ true, %102 ], [ true, %97 ], [ true, %101 ], [ true, %91 ], [ true, %142 ], [ true, %138 ], [ true, %143 ], [ false, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread ], [ true, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56 ], [ true, %128 ], [ true, %118 ], [ false, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.thread.us39 ], [ true, %107 ], [ true, %123 ], [ true, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit56.us31 ], [ true, %.preheader ]
+_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit: ; preds = %.preheader, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us30, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39, %104, %119, %114, %118, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread, %124, %139, %134, %138, %128, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us, %99, %94, %98, %88, %.loopexit, %68, %65, %60, %58, %55, %51, %36, %33, %27, %26, %20, %18, %15, %11
+  %.0 = phi i1 [ %67, %65 ], [ false, %18 ], [ %70, %68 ], [ true, %128 ], [ %13, %11 ], [ %17, %15 ], [ %22, %20 ], [ false, %26 ], [ %31, %27 ], [ %38, %36 ], [ %35, %33 ], [ %53, %51 ], [ %57, %55 ], [ %62, %60 ], [ false, %58 ], [ true, %118 ], [ false, %.loopexit ], [ true, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us ], [ false, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us ], [ true, %99 ], [ true, %94 ], [ true, %98 ], [ true, %88 ], [ true, %138 ], [ true, %134 ], [ true, %139 ], [ false, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread ], [ true, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60 ], [ true, %124 ], [ true, %114 ], [ false, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.thread.us39 ], [ true, %104 ], [ true, %119 ], [ true, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_128doesInfSharpVTagHaveFeaturesENS0_3Vtr8internal5Level4VTagERKNS1_8internal11FeatureMaskE.exit60.us30 ], [ true, %.preheader ]
   ret i1 %.0
 }
 

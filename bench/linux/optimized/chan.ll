@@ -2391,35 +2391,35 @@ define internal fastcc void @ieee80211_recalc_radar_chanctx(ptr noundef %0, ptr 
   br i1 %37, label %15, label %38, !llvm.loop !107
 
 38:                                               ; preds = %32
-  %.not = icmp eq i8 %34, 0
-  br i1 %.not, label %.outer.backedge, label %.loopexit
+  %39 = trunc nuw i8 %34 to i1
+  br i1 %39, label %.loopexit, label %.outer.backedge
 
 .loopexit:                                        ; preds = %38, %.outer
-  %39 = phi i8 [ 0, %.outer ], [ %34, %38 ]
+  %40 = phi i8 [ 0, %.outer ], [ 1, %38 ]
   tail call void @__rcu_read_unlock() #13
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 154
-  %41 = load i8, ptr %40, align 2, !range !11, !noundef !12
-  %42 = icmp eq i8 %41, %39
-  br i1 %42, label %51, label %43
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 154
+  %42 = load i8, ptr %41, align 2, !range !11, !noundef !12
+  %43 = icmp eq i8 %42, %40
+  br i1 %43, label %52, label %44
 
-43:                                               ; preds = %.loopexit
-  store i8 %39, ptr %40, align 2
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1345
-  %45 = load i8, ptr %44, align 1, !range !11, !noundef !12
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %.loopexit
+  store i8 %40, ptr %41, align 2
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1345
+  %46 = load i8, ptr %45, align 1, !range !11, !noundef !12
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %51
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %39, ptr %48, align 8
-  %49 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 64) #13
-  br label %50
-
-50:                                               ; preds = %47, %43
-  tail call fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef 4)
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 %40, ptr %49, align 8
+  %50 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 64) #13
   br label %51
 
-51:                                               ; preds = %50, %.loopexit
+51:                                               ; preds = %48, %44
+  tail call fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef 4)
+  br label %52
+
+52:                                               ; preds = %51, %.loopexit
   ret void
 }
 

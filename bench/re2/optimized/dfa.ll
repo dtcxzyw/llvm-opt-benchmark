@@ -2261,40 +2261,39 @@ lpad:                                             ; preds = %invoke.cont9, %_ZN1
 sw.bb15:                                          ; preds = %if.end5
   %hint_foldcase_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 6
   %22 = load i16, ptr %hint_foldcase_.i.i, align 2
-  %23 = and i16 %22, 1
-  %tobool.i27 = icmp ne i16 %23, 0
+  %tobool.i27 = trunc i16 %22 to i1
   %or.cond1.i = and i1 %4, %tobool.i27
   %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %c
-  %24 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
-  %25 = load i8, ptr %24, align 4
-  %conv.i = zext i8 %25 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
+  %24 = load i8, ptr %23, align 4
+  %conv.i = zext i8 %24 to i32
   %cmp4.not.i = icmp sge i32 %spec.select.i, %conv.i
   %hi_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 5
-  %26 = load i8, ptr %hi_.i, align 1
-  %conv5.i = zext i8 %26 to i32
+  %25 = load i8, ptr %hi_.i, align 1
+  %conv5.i = zext i8 %25 to i32
   %cmp6.i = icmp sle i32 %spec.select.i, %conv5.i
-  %27 = select i1 %cmp4.not.i, i1 %cmp6.i, i1 false
-  br i1 %27, label %if.end18, label %for.inc
+  %26 = select i1 %cmp4.not.i, i1 %cmp6.i, i1 false
+  br i1 %26, label %if.end18, label %for.inc
 
 if.end18:                                         ; preds = %sw.bb15
   %shr.i = lshr i32 %18, 4
   call void @_ZN3re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %newq, i32 noundef %shr.i, i32 noundef %flag)
-  %28 = load i16, ptr %hint_foldcase_.i.i, align 2
-  %29 = lshr i16 %28, 1
-  %cmp21.not = icmp eq i16 %29, 0
+  %27 = load i16, ptr %hint_foldcase_.i.i, align 2
+  %28 = lshr i16 %27, 1
+  %cmp21.not = icmp eq i16 %28, 0
   br i1 %cmp21.not, label %while.cond, label %if.then22
 
 if.then22:                                        ; preds = %if.end18
-  %30 = zext nneg i16 %29 to i64
-  %31 = getelementptr i32, ptr %i.038, i64 %30
-  %add.ptr = getelementptr i8, ptr %31, i64 -4
+  %29 = zext nneg i16 %28 to i64
+  %30 = getelementptr i32, ptr %i.038, i64 %29
+  %add.ptr = getelementptr i8, ptr %30, i64 -4
   br label %for.inc
 
 while.cond:                                       ; preds = %if.end18, %while.cond
   %ip.0 = phi ptr [ %incdec.ptr, %while.cond ], [ %arrayidx.i.i.i, %if.end18 ]
-  %32 = load i32, ptr %ip.0, align 4
-  %33 = and i32 %32, 8
-  %tobool25.not = icmp eq i32 %33, 0
+  %31 = load i32, ptr %ip.0, align 4
+  %32 = and i32 %31, 8
+  %tobool25.not = icmp eq i32 %32, 0
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %ip.0, i64 8
   br i1 %tobool25.not, label %while.cond, label %while.end, !llvm.loop !44
 
@@ -2302,33 +2301,33 @@ while.end:                                        ; preds = %while.cond
   %sub.ptr.lhs.cast = ptrtoint ptr %ip.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %arrayidx.i.i.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %34 = ashr exact i64 %sub.ptr.sub, 1
-  %add.ptr26 = getelementptr inbounds i8, ptr %i.038, i64 %34
+  %33 = ashr exact i64 %sub.ptr.sub, 1
+  %add.ptr26 = getelementptr inbounds i8, ptr %i.038, i64 %33
   br label %for.inc
 
 sw.bb28:                                          ; preds = %if.end5
   %anchor_end_.i = getelementptr inbounds nuw i8, ptr %16, i64 1
-  %35 = load i8, ptr %anchor_end_.i, align 1
-  %tobool.i33 = trunc i8 %35 to i1
+  %34 = load i8, ptr %anchor_end_.i, align 1
+  %tobool.i33 = trunc i8 %34 to i1
   %or.cond = and i1 %cmp31, %tobool.i33
-  %36 = load i32, ptr %kind_, align 8
-  %cmp33.not = icmp ne i32 %36, 3
+  %35 = load i32, ptr %kind_, align 8
+  %cmp33.not = icmp ne i32 %35, 3
   %or.cond21.not = select i1 %or.cond, i1 %cmp33.not, i1 false
   br i1 %or.cond21.not, label %for.inc, label %if.end35
 
 if.end35:                                         ; preds = %sw.bb28
   store i8 1, ptr %ismatch, align 1
-  %37 = load i32, ptr %kind_, align 8
-  %cmp37 = icmp eq i32 %37, 0
+  %36 = load i32, ptr %kind_, align 8
+  %cmp37 = icmp eq i32 %36, 0
   br i1 %cmp37, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end5, %if.end5, %if.end5, %if.end5, %if.end5, %if.end.i.i.i, %if.end.i, %if.end, %sw.bb28, %invoke.cont13, %sw.bb15, %while.end, %if.then22, %if.end35
   %i.1 = phi ptr [ %i.038, %if.end35 ], [ %i.038, %invoke.cont13 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %i.038, %if.end5 ], [ %add.ptr, %if.then22 ], [ %add.ptr26, %while.end ], [ %i.038, %sw.bb15 ], [ %i.038, %sw.bb28 ], [ %i.038, %if.end ], [ %i.038, %if.end.i ], [ %i.038, %if.end.i.i.i ]
   %incdec.ptr40 = getelementptr inbounds nuw i8, ptr %i.1, i64 4
-  %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %39 = load i32, ptr %oldq, align 8
-  %idx.ext.i = sext i32 %39 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %38, i64 %idx.ext.i
+  %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %38 = load i32, ptr %oldq, align 8
+  %idx.ext.i = sext i32 %38 to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %37, i64 %idx.ext.i
   %cmp.not = icmp eq ptr %incdec.ptr40, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !45
 

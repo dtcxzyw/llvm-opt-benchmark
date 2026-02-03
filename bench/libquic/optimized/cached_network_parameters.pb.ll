@@ -249,9 +249,8 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   br i1 %.not, label %78, label %9
 
 9:                                                ; preds = %5
-  %10 = and i32 %7, 1
-  %.not19 = icmp eq i32 %10, 0
-  br i1 %.not19, label %18, label %11
+  %10 = trunc i32 %7 to i1
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -269,8 +268,8 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
 18:                                               ; preds = %11, %9
   %19 = phi i32 [ %.pre, %11 ], [ %7, %9 ]
   %20 = and i32 %19, 2
-  %.not20 = icmp eq i32 %20, 0
-  br i1 %.not20, label %28, label %21
+  %.not19 = icmp eq i32 %20, 0
+  br i1 %.not19, label %28, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -281,14 +280,14 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   store i32 %26, ptr %24, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %23, ptr %27, align 8, !tbaa !23
-  %.pre26 = load i32, ptr %6, align 8, !tbaa !22
+  %.pre25 = load i32, ptr %6, align 8, !tbaa !22
   br label %28
 
 28:                                               ; preds = %21, %18
-  %29 = phi i32 [ %.pre26, %21 ], [ %19, %18 ]
+  %29 = phi i32 [ %.pre25, %21 ], [ %19, %18 ]
   %30 = and i32 %29, 4
-  %.not21 = icmp eq i32 %30, 0
-  br i1 %.not21, label %38, label %31
+  %.not20 = icmp eq i32 %30, 0
+  br i1 %.not20, label %38, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -299,14 +298,14 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   store i32 %36, ptr %34, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %33, ptr %37, align 4, !tbaa !24
-  %.pre27 = load i32, ptr %6, align 8, !tbaa !22
+  %.pre26 = load i32, ptr %6, align 8, !tbaa !22
   br label %38
 
 38:                                               ; preds = %31, %28
-  %39 = phi i32 [ %.pre27, %31 ], [ %29, %28 ]
+  %39 = phi i32 [ %.pre26, %31 ], [ %29, %28 ]
   %40 = and i32 %39, 8
-  %.not22 = icmp eq i32 %40, 0
-  br i1 %.not22, label %48, label %41
+  %.not21 = icmp eq i32 %40, 0
+  br i1 %.not21, label %48, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -317,14 +316,14 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   store i32 %46, ptr %44, align 8, !tbaa !22
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %43, ptr %47, align 8, !tbaa !25
-  %.pre28 = load i32, ptr %6, align 8, !tbaa !22
+  %.pre27 = load i32, ptr %6, align 8, !tbaa !22
   br label %48
 
 48:                                               ; preds = %41, %38
-  %49 = phi i32 [ %.pre28, %41 ], [ %39, %38 ]
+  %49 = phi i32 [ %.pre27, %41 ], [ %39, %38 ]
   %50 = and i32 %49, 16
-  %.not23 = icmp eq i32 %50, 0
-  br i1 %.not23, label %58, label %51
+  %.not22 = icmp eq i32 %50, 0
+  br i1 %.not22, label %58, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -335,14 +334,14 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   store i32 %56, ptr %54, align 8, !tbaa !22
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %53, ptr %57, align 8, !tbaa !26
-  %.pre29 = load i32, ptr %6, align 8, !tbaa !22
+  %.pre28 = load i32, ptr %6, align 8, !tbaa !22
   br label %58
 
 58:                                               ; preds = %51, %48
-  %59 = phi i32 [ %.pre29, %51 ], [ %49, %48 ]
+  %59 = phi i32 [ %.pre28, %51 ], [ %49, %48 ]
   %60 = and i32 %59, 32
-  %.not24 = icmp eq i32 %60, 0
-  br i1 %.not24, label %68, label %61
+  %.not23 = icmp eq i32 %60, 0
+  br i1 %.not23, label %68, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -353,14 +352,14 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   store i32 %66, ptr %64, align 8, !tbaa !22
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %63, ptr %67, align 4, !tbaa !27
-  %.pre30 = load i32, ptr %6, align 8, !tbaa !22
+  %.pre29 = load i32, ptr %6, align 8, !tbaa !22
   br label %68
 
 68:                                               ; preds = %61, %58
-  %69 = phi i32 [ %.pre30, %61 ], [ %59, %58 ]
+  %69 = phi i32 [ %.pre29, %61 ], [ %59, %58 ]
   %70 = and i32 %69, 64
-  %.not25 = icmp eq i32 %70, 0
-  br i1 %.not25, label %78, label %71
+  %.not24 = icmp eq i32 %70, 0
+  br i1 %.not24, label %78, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -555,9 +554,8 @@ define void @_ZN3net23CachedNetworkParameters5ClearEv(ptr noundef nonnull align 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %7 = and i32 %3, 1
-  %.not2 = icmp eq i32 %7, 0
-  br i1 %.not2, label %_ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %8
+  %7 = trunc i32 %3 to i1
+  br i1 %7, label %8, label %_ZN6google8protobuf8internal14ArenaStringPtr19ClearToEmptyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1180,9 +1178,8 @@ declare void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef non
 define void @_ZNK3net23CachedNetworkParameters24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !22
-  %5 = and i32 %4, 1
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %9, label %6
+  %5 = trunc i32 %4 to i1
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1194,73 +1191,73 @@ define void @_ZNK3net23CachedNetworkParameters24SerializeWithCachedSizesEPN6goog
 9:                                                ; preds = %6, %2
   %10 = phi i32 [ %.pre, %6 ], [ %4, %2 ]
   %11 = and i32 %10, 2
-  %.not9 = icmp eq i32 %11, 0
-  br i1 %.not9, label %15, label %12
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !23
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 2, i32 noundef %14, ptr noundef %1)
-  %.pre15 = load i32, ptr %3, align 8, !tbaa !22
+  %.pre14 = load i32, ptr %3, align 8, !tbaa !22
   br label %15
 
 15:                                               ; preds = %12, %9
-  %16 = phi i32 [ %.pre15, %12 ], [ %10, %9 ]
+  %16 = phi i32 [ %.pre14, %12 ], [ %10, %9 ]
   %17 = and i32 %16, 16
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %21, label %18
+  %.not9 = icmp eq i32 %17, 0
+  br i1 %.not9, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8, !tbaa !26
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 3, i32 noundef %20, ptr noundef %1)
-  %.pre16 = load i32, ptr %3, align 8, !tbaa !22
+  %.pre15 = load i32, ptr %3, align 8, !tbaa !22
   br label %21
 
 21:                                               ; preds = %18, %15
-  %22 = phi i32 [ %.pre16, %18 ], [ %16, %15 ]
+  %22 = phi i32 [ %.pre15, %18 ], [ %16, %15 ]
   %23 = and i32 %22, 32
-  %.not11 = icmp eq i32 %23, 0
-  br i1 %.not11, label %27, label %24
+  %.not10 = icmp eq i32 %23, 0
+  br i1 %.not10, label %27, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %26 = load i32, ptr %25, align 4, !tbaa !27
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 4, i32 noundef %26, ptr noundef %1)
-  %.pre17 = load i32, ptr %3, align 8, !tbaa !22
+  %.pre16 = load i32, ptr %3, align 8, !tbaa !22
   br label %27
 
 27:                                               ; preds = %24, %21
-  %28 = phi i32 [ %.pre17, %24 ], [ %22, %21 ]
+  %28 = phi i32 [ %.pre16, %24 ], [ %22, %21 ]
   %29 = and i32 %28, 4
-  %.not12 = icmp eq i32 %29, 0
-  br i1 %.not12, label %33, label %30
+  %.not11 = icmp eq i32 %29, 0
+  br i1 %.not11, label %33, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !24
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 5, i32 noundef %32, ptr noundef %1)
-  %.pre18 = load i32, ptr %3, align 8, !tbaa !22
+  %.pre17 = load i32, ptr %3, align 8, !tbaa !22
   br label %33
 
 33:                                               ; preds = %30, %27
-  %34 = phi i32 [ %.pre18, %30 ], [ %28, %27 ]
+  %34 = phi i32 [ %.pre17, %30 ], [ %28, %27 ]
   %35 = and i32 %34, 8
-  %.not13 = icmp eq i32 %35, 0
-  br i1 %.not13, label %39, label %36
+  %.not12 = icmp eq i32 %35, 0
+  br i1 %.not12, label %39, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load i64, ptr %37, align 8, !tbaa !25
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 6, i64 noundef %38, ptr noundef %1)
-  %.pre19 = load i32, ptr %3, align 8, !tbaa !22
+  %.pre18 = load i32, ptr %3, align 8, !tbaa !22
   br label %39
 
 39:                                               ; preds = %36, %33
-  %40 = phi i32 [ %.pre19, %36 ], [ %34, %33 ]
+  %40 = phi i32 [ %.pre18, %36 ], [ %34, %33 ]
   %41 = and i32 %40, 64
-  %.not14 = icmp eq i32 %41, 0
-  br i1 %.not14, label %45, label %42
+  %.not13 = icmp eq i32 %41, 0
+  br i1 %.not13, label %45, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1296,9 +1293,8 @@ define noundef i32 @_ZNK3net23CachedNetworkParameters8ByteSizeEv(ptr noundef non
   br i1 %.not, label %88, label %5
 
 5:                                                ; preds = %1
-  %6 = and i32 %3, 1
-  %.not17 = icmp eq i32 %6, 0
-  br i1 %.not17, label %18, label %7
+  %6 = trunc i32 %3 to i1
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1328,8 +1324,8 @@ _ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_st
   %19 = phi i32 [ %.pre, %_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %3, %5 ]
   %.1 = phi i32 [ %17, %_ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %5 ]
   %20 = and i32 %19, 2
-  %.not18 = icmp eq i32 %20, 0
-  br i1 %.not18, label %31, label %21
+  %.not17 = icmp eq i32 %20, 0
+  br i1 %.not17, label %31, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1344,21 +1340,21 @@ _ZN6google8protobuf8internal14WireFormatLite10StringSizeERKNSt7__cxx1112basic_st
 27:                                               ; preds = %25
   %28 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream20VarintSize32FallbackEj(i32 noundef %23)
   %29 = add nsw i32 %28, 1
-  %.pre24.pre = load i32, ptr %2, align 8, !tbaa !22
+  %.pre23.pre = load i32, ptr %2, align 8, !tbaa !22
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %21, %25, %27
-  %.pre24 = phi i32 [ %19, %21 ], [ %.pre24.pre, %27 ], [ %19, %25 ]
+  %.pre23 = phi i32 [ %19, %21 ], [ %.pre23.pre, %27 ], [ %19, %25 ]
   %.0.i.i10 = phi i32 [ 11, %21 ], [ %29, %27 ], [ 2, %25 ]
   %30 = add nsw i32 %.0.i.i10, %.1
   br label %31
 
 31:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, %18
-  %32 = phi i32 [ %.pre24, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %19, %18 ]
+  %32 = phi i32 [ %.pre23, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %19, %18 ]
   %.2 = phi i32 [ %30, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit ], [ %.1, %18 ]
   %33 = and i32 %32, 4
-  %.not19 = icmp eq i32 %33, 0
-  br i1 %.not19, label %44, label %34
+  %.not18 = icmp eq i32 %33, 0
+  br i1 %.not18, label %44, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1373,21 +1369,21 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %21, %2
 40:                                               ; preds = %38
   %41 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream20VarintSize32FallbackEj(i32 noundef %36)
   %42 = add nsw i32 %41, 1
-  %.pre25.pre = load i32, ptr %2, align 8, !tbaa !22
+  %.pre24.pre = load i32, ptr %2, align 8, !tbaa !22
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12: ; preds = %34, %38, %40
-  %.pre25 = phi i32 [ %32, %34 ], [ %.pre25.pre, %40 ], [ %32, %38 ]
+  %.pre24 = phi i32 [ %32, %34 ], [ %.pre24.pre, %40 ], [ %32, %38 ]
   %.0.i.i11 = phi i32 [ 11, %34 ], [ %42, %40 ], [ 2, %38 ]
   %43 = add nsw i32 %.0.i.i11, %.2
   br label %44
 
 44:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12, %31
-  %45 = phi i32 [ %.pre25, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12 ], [ %32, %31 ]
+  %45 = phi i32 [ %.pre24, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12 ], [ %32, %31 ]
   %.3 = phi i32 [ %43, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12 ], [ %.2, %31 ]
   %46 = and i32 %45, 8
-  %.not20 = icmp eq i32 %46, 0
-  br i1 %.not20, label %53, label %47
+  %.not19 = icmp eq i32 %46, 0
+  br i1 %.not19, label %53, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1395,15 +1391,15 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12: ; preds = %34, 
   %50 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %49)
   %51 = add i32 %.3, 1
   %52 = add i32 %51, %50
-  %.pre26 = load i32, ptr %2, align 8, !tbaa !22
+  %.pre25 = load i32, ptr %2, align 8, !tbaa !22
   br label %53
 
 53:                                               ; preds = %47, %44
-  %54 = phi i32 [ %.pre26, %47 ], [ %45, %44 ]
+  %54 = phi i32 [ %.pre25, %47 ], [ %45, %44 ]
   %.4 = phi i32 [ %52, %47 ], [ %.3, %44 ]
   %55 = and i32 %54, 16
-  %.not21 = icmp eq i32 %55, 0
-  br i1 %.not21, label %66, label %56
+  %.not20 = icmp eq i32 %55, 0
+  br i1 %.not20, label %66, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1418,21 +1414,21 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit12: ; preds = %34, 
 62:                                               ; preds = %60
   %63 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream20VarintSize32FallbackEj(i32 noundef %58)
   %64 = add nsw i32 %63, 1
-  %.pre27.pre = load i32, ptr %2, align 8, !tbaa !22
+  %.pre26.pre = load i32, ptr %2, align 8, !tbaa !22
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14: ; preds = %56, %60, %62
-  %.pre27 = phi i32 [ %54, %56 ], [ %.pre27.pre, %62 ], [ %54, %60 ]
+  %.pre26 = phi i32 [ %54, %56 ], [ %.pre26.pre, %62 ], [ %54, %60 ]
   %.0.i.i13 = phi i32 [ 11, %56 ], [ %64, %62 ], [ 2, %60 ]
   %65 = add nsw i32 %.0.i.i13, %.4
   br label %66
 
 66:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14, %53
-  %67 = phi i32 [ %.pre27, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14 ], [ %54, %53 ]
+  %67 = phi i32 [ %.pre26, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14 ], [ %54, %53 ]
   %.5 = phi i32 [ %65, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14 ], [ %.4, %53 ]
   %68 = and i32 %67, 32
-  %.not22 = icmp eq i32 %68, 0
-  br i1 %.not22, label %79, label %69
+  %.not21 = icmp eq i32 %68, 0
+  br i1 %.not21, label %79, label %69
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1447,21 +1443,21 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit14: ; preds = %56, 
 75:                                               ; preds = %73
   %76 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream20VarintSize32FallbackEj(i32 noundef %71)
   %77 = add nsw i32 %76, 1
-  %.pre28.pre = load i32, ptr %2, align 8, !tbaa !22
+  %.pre27.pre = load i32, ptr %2, align 8, !tbaa !22
   br label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit16
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit16: ; preds = %69, %73, %75
-  %.pre28 = phi i32 [ %67, %69 ], [ %.pre28.pre, %75 ], [ %67, %73 ]
+  %.pre27 = phi i32 [ %67, %69 ], [ %.pre27.pre, %75 ], [ %67, %73 ]
   %.0.i.i15 = phi i32 [ 11, %69 ], [ %77, %75 ], [ 2, %73 ]
   %78 = add nsw i32 %.0.i.i15, %.5
   br label %79
 
 79:                                               ; preds = %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit16, %66
-  %80 = phi i32 [ %.pre28, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit16 ], [ %67, %66 ]
+  %80 = phi i32 [ %.pre27, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit16 ], [ %67, %66 ]
   %.6 = phi i32 [ %78, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit16 ], [ %.5, %66 ]
   %81 = and i32 %80, 64
-  %.not23 = icmp eq i32 %81, 0
-  br i1 %.not23, label %88, label %82
+  %.not22 = icmp eq i32 %81, 0
+  br i1 %.not22, label %88, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64

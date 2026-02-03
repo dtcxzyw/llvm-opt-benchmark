@@ -2036,9 +2036,8 @@ define dso_local void @_ZNK4llvm13FastMathFlags5printERNS_11raw_ostreamE(ptr nou
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 19:                                               ; preds = %2
-  %20 = and i32 %3, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %_ZN4llvm11raw_ostreamlsEPKc.exit11, label %21
+  %20 = trunc i32 %3 to i1
+  br i1 %20, label %21, label %_ZN4llvm11raw_ostreamlsEPKc.exit11
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2065,8 +2064,8 @@ define dso_local void @_ZNK4llvm13FastMathFlags5printERNS_11raw_ostreamE(ptr nou
 _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %32, %30, %19
   %35 = load i32, ptr %0, align 4, !tbaa !85
   %36 = and i32 %35, 2
-  %.not30 = icmp eq i32 %36, 0
-  br i1 %.not30, label %_ZN4llvm11raw_ostreamlsEPKc.exit14, label %37
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %_ZN4llvm11raw_ostreamlsEPKc.exit14, label %37
 
 37:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2093,8 +2092,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %32, %30, %19
 _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %48, %46, %_ZN4llvm11raw_ostreamlsEPKc.exit11
   %51 = load i32, ptr %0, align 4, !tbaa !85
   %52 = and i32 %51, 4
-  %.not31 = icmp eq i32 %52, 0
-  br i1 %.not31, label %_ZN4llvm11raw_ostreamlsEPKc.exit17, label %53
+  %.not30 = icmp eq i32 %52, 0
+  br i1 %.not30, label %_ZN4llvm11raw_ostreamlsEPKc.exit17, label %53
 
 53:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2121,8 +2120,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %48, %46, %_ZN4llvm1
 _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %64, %62, %_ZN4llvm11raw_ostreamlsEPKc.exit14
   %67 = load i32, ptr %0, align 4, !tbaa !85
   %68 = and i32 %67, 8
-  %.not32 = icmp eq i32 %68, 0
-  br i1 %.not32, label %_ZN4llvm11raw_ostreamlsEPKc.exit20, label %69
+  %.not31 = icmp eq i32 %68, 0
+  br i1 %.not31, label %_ZN4llvm11raw_ostreamlsEPKc.exit20, label %69
 
 69:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2149,8 +2148,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %64, %62, %_ZN4llvm1
 _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %80, %78, %_ZN4llvm11raw_ostreamlsEPKc.exit17
   %83 = load i32, ptr %0, align 4, !tbaa !85
   %84 = and i32 %83, 16
-  %.not33 = icmp eq i32 %84, 0
-  br i1 %.not33, label %_ZN4llvm11raw_ostreamlsEPKc.exit23, label %85
+  %.not32 = icmp eq i32 %84, 0
+  br i1 %.not32, label %_ZN4llvm11raw_ostreamlsEPKc.exit23, label %85
 
 85:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit20
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2177,8 +2176,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %80, %78, %_ZN4llvm1
 _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %96, %94, %_ZN4llvm11raw_ostreamlsEPKc.exit20
   %99 = load i32, ptr %0, align 4, !tbaa !85
   %100 = and i32 %99, 32
-  %.not34 = icmp eq i32 %100, 0
-  br i1 %.not34, label %_ZN4llvm11raw_ostreamlsEPKc.exit26, label %101
+  %.not33 = icmp eq i32 %100, 0
+  br i1 %.not33, label %_ZN4llvm11raw_ostreamlsEPKc.exit26, label %101
 
 101:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit23
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2205,8 +2204,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit23:               ; preds = %96, %94, %_ZN4llvm1
 _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %112, %110, %_ZN4llvm11raw_ostreamlsEPKc.exit23
   %115 = load i32, ptr %0, align 4, !tbaa !85
   %116 = and i32 %115, 64
-  %.not35 = icmp eq i32 %116, 0
-  br i1 %.not35, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %117
+  %.not34 = icmp eq i32 %116, 0
+  br i1 %.not34, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %117
 
 117:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit26
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24

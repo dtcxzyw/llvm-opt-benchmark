@@ -456,44 +456,43 @@ define noundef i32 @dtrsm_iunucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.3343 = phi ptr [ %183, %._crit_edge461 ], [ %.2342, %180 ]
   %.6 = phi ptr [ %.7.lcssa, %._crit_edge461 ], [ %.4339, %180 ]
   %.3323 = phi i64 [ %206, %._crit_edge461 ], [ %.2322, %180 ]
-  %208 = and i64 %1, 1
-  %.not361 = icmp ne i64 %208, 0
-  %209 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not361, %209
+  %.not361 = trunc i64 %1 to i1
+  %208 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %208, %.not361
   br i1 %or.cond, label %.lr.ph470, label %.loopexit
 
 .lr.ph470:                                        ; preds = %207
-  %210 = sub i64 0, %.3323
-  br label %211
+  %209 = sub i64 0, %.3323
+  br label %210
 
-211:                                              ; preds = %.lr.ph470, %.thread390
-  %.4469 = phi ptr [ %.3343, %.lr.ph470 ], [ %217, %.thread390 ]
-  %.4329468 = phi i64 [ 0, %.lr.ph470 ], [ %219, %.thread390 ]
-  %.8466 = phi ptr [ %.6, %.lr.ph470 ], [ %218, %.thread390 ]
+210:                                              ; preds = %.lr.ph470, %.thread390
+  %.4469 = phi ptr [ %.3343, %.lr.ph470 ], [ %216, %.thread390 ]
+  %.4329468 = phi i64 [ 0, %.lr.ph470 ], [ %218, %.thread390 ]
+  %.8466 = phi ptr [ %.6, %.lr.ph470 ], [ %217, %.thread390 ]
   %.not362 = icmp slt i64 %.4329468, %.3323
-  br i1 %.not362, label %.thread389, label %212
+  br i1 %.not362, label %.thread389, label %211
+
+211:                                              ; preds = %210
+  %.not504 = icmp sgt i64 %.4329468, %.3323
+  br i1 %.not504, label %.thread390, label %212
 
 212:                                              ; preds = %211
-  %.not504 = icmp sgt i64 %.4329468, %.3323
-  br i1 %.not504, label %.thread390, label %213
-
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds nuw double, ptr %.8466, i64 %.4329468
-  %215 = getelementptr inbounds double, ptr %214, i64 %210
-  store double 1.000000e+00, ptr %215, align 8, !tbaa !3
+  %213 = getelementptr inbounds nuw double, ptr %.8466, i64 %.4329468
+  %214 = getelementptr inbounds double, ptr %213, i64 %209
+  store double 1.000000e+00, ptr %214, align 8, !tbaa !3
   br label %.thread390
 
-.thread389:                                       ; preds = %211
-  %216 = load double, ptr %.4469, align 8, !tbaa !3
-  store double %216, ptr %.8466, align 8, !tbaa !3
+.thread389:                                       ; preds = %210
+  %215 = load double, ptr %.4469, align 8, !tbaa !3
+  store double %215, ptr %.8466, align 8, !tbaa !3
   br label %.thread390
 
-.thread390:                                       ; preds = %213, %212, %.thread389
-  %217 = getelementptr inbounds nuw i8, ptr %.4469, i64 8
-  %218 = getelementptr inbounds nuw i8, ptr %.8466, i64 8
-  %219 = add nuw nsw i64 %.4329468, 1
-  %exitcond487.not = icmp eq i64 %219, %0
-  br i1 %exitcond487.not, label %.loopexit, label %211, !llvm.loop !17
+.thread390:                                       ; preds = %212, %211, %.thread389
+  %216 = getelementptr inbounds nuw i8, ptr %.4469, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %.8466, i64 8
+  %218 = add nuw nsw i64 %.4329468, 1
+  %exitcond487.not = icmp eq i64 %218, %0
+  br i1 %exitcond487.not, label %.loopexit, label %210, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread390, %207
   ret i32 0

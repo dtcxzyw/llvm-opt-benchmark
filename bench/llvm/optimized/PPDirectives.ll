@@ -2931,7 +2931,7 @@ _ZN5clang17PreprocessorLexer20pushConditionalLevelENS_14SourceLocationEbbb.exit:
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %113
 
-113:                                              ; preds = %.backedge400, %53
+113:                                              ; preds = %.backedge399, %53
   %114 = load ptr, ptr %58, align 8, !tbaa !399
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 192
   %116 = load i64, ptr %115, align 8, !tbaa !400
@@ -3018,35 +3018,34 @@ _ZNSt8optionalIN5clang12Preprocessor16PreambleSkipInfoEE7emplaceIJRNS0_14SourceL
 
 155:                                              ; preds = %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy12beginLexPassEv.exit
   %156 = load i16, ptr %61, align 2, !tbaa !416
-  %157 = and i16 %156, 1
-  %.not385 = icmp eq i16 %157, 0
-  br i1 %.not385, label %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy12beginLexPassEv.exit.backedge, label %.loopexit.thread466
+  %157 = trunc i16 %156 to i1
+  br i1 %157, label %.loopexit.thread465, label %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy12beginLexPassEv.exit.backedge
 
 _ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy12beginLexPassEv.exit.backedge: ; preds = %155, %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy12beginLexPassEv.exit, %144, %148
   br label %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy12beginLexPassEv.exit, !llvm.loop !417
 
-.loopexit.thread466:                              ; preds = %155
-  %.pre404467 = load ptr, ptr %54, align 8, !tbaa !393
+.loopexit.thread465:                              ; preds = %155
+  %.pre403466 = load ptr, ptr %54, align 8, !tbaa !393
   br label %160
 
 .loopexit.thread:                                 ; preds = %_ZNSt8optionalIN5clang12Preprocessor16PreambleSkipInfoEE7emplaceIJRNS0_14SourceLocationES6_RbS7_S6_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS9_.exit, %152
-  %.pre404464 = load ptr, ptr %54, align 8, !tbaa !393
+  %.pre403463 = load ptr, ptr %54, align 8, !tbaa !393
   br label %split
 
 .loopexit:                                        ; preds = %113
   %158 = call noundef zeroext i1 @_ZN5clang5Lexer40LexDependencyDirectiveTokenWhileSkippingERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %114, ptr noundef nonnull align 8 dereferenceable(20) %12) #18
   %.pre = load i16, ptr %60, align 8, !tbaa !36
   %159 = icmp eq i16 %.pre, 1
-  %.pre404 = load ptr, ptr %54, align 8, !tbaa !393
+  %.pre403 = load ptr, ptr %54, align 8, !tbaa !393
   br i1 %159, label %split, label %160
 
-160:                                              ; preds = %.loopexit.thread466, %.loopexit
-  %.pre404468 = phi ptr [ %.pre404467, %.loopexit.thread466 ], [ %.pre404, %.loopexit ]
-  %161 = getelementptr inbounds nuw i8, ptr %.pre404468, i64 24
+160:                                              ; preds = %.loopexit.thread465, %.loopexit
+  %.pre403467 = phi ptr [ %.pre403466, %.loopexit.thread465 ], [ %.pre403, %.loopexit ]
+  %161 = getelementptr inbounds nuw i8, ptr %.pre403467, i64 24
   store i8 1, ptr %161, align 8, !tbaa !418
   %162 = load ptr, ptr %58, align 8, !tbaa !399
-  %.not386 = icmp eq ptr %162, null
-  br i1 %.not386, label %165, label %163
+  %.not385 = icmp eq ptr %162, null
+  br i1 %.not385, label %165, label %163
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 146
@@ -3070,20 +3069,20 @@ _ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bb
   %176 = or disjoint i16 %175, %.lobit.i
   store i16 %176, ptr %71, align 8
   %177 = load i16, ptr %60, align 8, !tbaa !36
-  %.not387 = icmp eq i16 %177, 6
-  br i1 %.not387, label %183, label %178
+  %.not386 = icmp eq i16 %177, 6
+  br i1 %.not386, label %183, label %178
 
 178:                                              ; preds = %165
   %179 = load ptr, ptr %54, align 8, !tbaa !393
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store i8 0, ptr %180, align 8, !tbaa !418
   %181 = load ptr, ptr %58, align 8, !tbaa !399
-  %.not396 = icmp eq ptr %181, null
-  br i1 %.not396, label %.backedge400, label %182, !llvm.loop !421
+  %.not395 = icmp eq ptr %181, null
+  br i1 %.not395, label %.backedge399, label %182, !llvm.loop !421
 
 182:                                              ; preds = %178
   call void @_ZN5clang5Lexer22resetExtendedTokenModeEv(ptr noundef nonnull align 8 dereferenceable(204) %181) #18
-  br label %.backedge400, !llvm.loop !421
+  br label %.backedge399, !llvm.loop !421
 
 183:                                              ; preds = %165
   %184 = load ptr, ptr %72, align 8, !tbaa !277
@@ -3105,12 +3104,12 @@ switch.early.test:                                ; preds = %183
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
   store i8 0, ptr %191, align 8, !tbaa !418
   %192 = load ptr, ptr %58, align 8, !tbaa !399
-  %.not395 = icmp eq ptr %192, null
-  br i1 %.not395, label %.backedge400, label %193, !llvm.loop !421
+  %.not394 = icmp eq ptr %192, null
+  br i1 %.not394, label %.backedge399, label %193, !llvm.loop !421
 
 193:                                              ; preds = %189
   call void @_ZN5clang5Lexer22resetExtendedTokenModeEv(ptr noundef nonnull align 8 dereferenceable(204) %192) #18
-  br label %.backedge400, !llvm.loop !421
+  br label %.backedge399, !llvm.loop !421
 
 194:                                              ; preds = %switch.early.test, %switch.early.test, %183
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3135,8 +3134,8 @@ switch.early.test:                                ; preds = %183
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
   store i8 0, ptr %206, align 8, !tbaa !418
   %207 = load ptr, ptr %58, align 8, !tbaa !399
-  %.not388 = icmp eq ptr %207, null
-  br i1 %.not388, label %211, label %208, !llvm.loop !421
+  %.not387 = icmp eq ptr %207, null
+  br i1 %.not387, label %211, label %208, !llvm.loop !421
 
 208:                                              ; preds = %204
   call void @_ZN5clang5Lexer22resetExtendedTokenModeEv(ptr noundef nonnull align 8 dereferenceable(204) %207) #18
@@ -3300,8 +3299,8 @@ _ZN5clang17PreprocessorLexer19popConditionalLevelERNS_17PPConditionalInfoE.exit:
   %265 = add i32 %259, -1
   store i32 %265, ptr %258, align 8, !tbaa !302
   %266 = and i64 %.sroa.0.0.copyload.i.i, 4294967296
-  %.not392 = icmp eq i64 %266, 0
-  br i1 %.not392, label %267, label %_ZN5clang17PreprocessorLexer19popConditionalLevelERNS_17PPConditionalInfoE.exit.thread
+  %.not391 = icmp eq i64 %266, 0
+  br i1 %.not391, label %267, label %_ZN5clang17PreprocessorLexer19popConditionalLevelERNS_17PPConditionalInfoE.exit.thread
 
 267:                                              ; preds = %_ZN5clang17PreprocessorLexer19popConditionalLevelERNS_17PPConditionalInfoE.exit
   %268 = load ptr, ptr %57, align 8, !tbaa !403
@@ -3334,8 +3333,8 @@ _ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bb
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 26
   store i8 1, ptr %281, align 2, !tbaa !394
   %282 = load ptr, ptr %85, align 8, !tbaa !425
-  %.not393 = icmp eq ptr %282, null
-  br i1 %.not393, label %.thread476, label %283
+  %.not392 = icmp eq ptr %282, null
+  br i1 %.not392, label %.thread475, label %283
 
 283:                                              ; preds = %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy10endLexPassEPKc.exit
   %284 = load i32, ptr %12, align 8, !tbaa !32
@@ -3344,7 +3343,7 @@ _ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bb
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 376
   %287 = load ptr, ptr %286, align 8
   call void %287(ptr noundef nonnull align 8 dereferenceable(8) %282, i32 %284, i32 %.sroa.0294.0.extract.trunc) #18
-  br label %.thread476
+  br label %.thread475
 
 _ZN5clang17PreprocessorLexer19popConditionalLevelERNS_17PPConditionalInfoE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit141.thread, %_ZN5clang17PreprocessorLexer19popConditionalLevelERNS_17PPConditionalInfoE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3493,8 +3492,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %342, %340, %_ZNSt7_
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 26
   store i8 1, ptr %355, align 2, !tbaa !394
   %356 = load ptr, ptr %85, align 8, !tbaa !425
-  %.not391 = icmp eq ptr %356, null
-  br i1 %.not391, label %.thread476, label %357
+  %.not390 = icmp eq ptr %356, null
+  br i1 %.not390, label %.thread475, label %357
 
 357:                                              ; preds = %349
   %358 = getelementptr inbounds i8, ptr %307, i64 -8
@@ -3504,7 +3503,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %342, %340, %_ZNSt7_
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 368
   %362 = load ptr, ptr %361, align 8
   call void %362(ptr noundef nonnull align 8 dereferenceable(8) %356, i32 %359, i32 %.sroa.057.0.copyload) #18
-  br label %.thread476
+  br label %.thread475
 
 363:                                              ; preds = %345, %_ZN5clang17DiagnosticBuilderD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3808,8 +3807,8 @@ _ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit200: ; preds = %.lr.ph
   %498 = getelementptr inbounds nuw i8, ptr %494, i64 26
   store i8 1, ptr %498, align 2, !tbaa !394
   %499 = load ptr, ptr %85, align 8, !tbaa !425
-  %.not390 = icmp eq ptr %499, null
-  br i1 %.not390, label %506, label %500
+  %.not389 = icmp eq ptr %499, null
+  br i1 %.not389, label %506, label %500
 
 500:                                              ; preds = %495
   %501 = load i32, ptr %12, align 8, !tbaa !32
@@ -4305,7 +4304,7 @@ _ZN5clang12Preprocessor26DiscardUntilEndOfDirectiveEv.exit241: ; preds = %.lr.ph
 
 .thread364:                                       ; preds = %712
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread481
+  br label %.thread480
 
 719:                                              ; preds = %712
   call void @_ZNK5clang12Preprocessor26emitMacroExpansionWarningsERKNS_5TokenEb(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %22, i1 noundef zeroext false)
@@ -4332,8 +4331,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   call void @_ZN5clang12Preprocessor18getMacroDefinitionEPKNS_14IdentifierInfoE(ptr dead_on_unwind nonnull writable sret(%"class.clang::MacroDefinition") align 8 %23, ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef %.0.i242)
   %726 = call noundef ptr @_ZNK5clang15MacroDefinition12getMacroInfoEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
   %727 = load ptr, ptr %85, align 8, !tbaa !425
-  %.not389 = icmp eq ptr %727, null
-  br i1 %.not389, label %731, label %.sink.split
+  %.not388 = icmp eq ptr %727, null
+  br i1 %.not388, label %731, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %728 = load ptr, ptr %727, align 8, !tbaa !327
@@ -4358,7 +4357,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   store i8 1, ptr %735, align 1, !tbaa !432
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread476
+  br label %.thread475
 
 _ZN4llvmeqENS_9StringRefES0_.exit208.thread360:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit204, %_ZN4llvmeqENS_9StringRefES0_.exit178, %_ZN4llvmeqENS_9StringRefES0_.exit141, %253, %_ZN4llvmeqENS_9StringRefES0_.exit208
   call void @_ZNK5clang12Preprocessor22SuggestTypoedDirectiveERKNS_5TokenEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr nonnull %.sroa.0308.3, i64 %.sroa.12.3)
@@ -4373,47 +4372,47 @@ _ZN4llvmeqENS_9StringRefES0_.exit208.thread360:   ; preds = %_ZN4llvmeqENS_9Stri
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 24
   store i8 0, ptr %738, align 8, !tbaa !418
   %739 = load ptr, ptr %58, align 8, !tbaa !399
-  %.not394 = icmp eq ptr %739, null
-  br i1 %.not394, label %.thread481, label %740
+  %.not393 = icmp eq ptr %739, null
+  br i1 %.not393, label %.thread480, label %740
 
 740:                                              ; preds = %.thread375
   call void @_ZN5clang5Lexer22resetExtendedTokenModeEv(ptr noundef nonnull align 8 dereferenceable(204) %739) #18
-  br label %.thread481
+  br label %.thread480
 
-.thread476:                                       ; preds = %349, %283, %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy10endLexPassEPKc.exit, %357, %734
+.thread475:                                       ; preds = %349, %283, %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy10endLexPassEPKc.exit, %357, %734
   %.sroa.0320.4.ph = phi i32 [ 0, %734 ], [ %353, %357 ], [ %279, %_ZZN5clang12Preprocessor28SkipExcludedConditionalBlockENS_14SourceLocationES1_bbS1_EN20SkippingRangeStateTy10endLexPassEPKc.exit ], [ %279, %283 ], [ %353, %349 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %._crit_edge
 
-.thread481:                                       ; preds = %740, %.thread375, %.thread364
+.thread480:                                       ; preds = %740, %.thread375, %.thread364
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.backedge400
+  br label %.backedge399
 
 741:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN5clang12Preprocessor19DirectiveEvalResultD2Ev.exit
   %.3 = phi i32 [ %.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.7, %_ZN5clang12Preprocessor19DirectiveEvalResultD2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  switch i32 %.3, label %.loopexit399 [
-    i32 0, label %.backedge400
-    i32 2, label %.backedge400
+  switch i32 %.3, label %.loopexit398 [
+    i32 0, label %.backedge399
+    i32 2, label %.backedge399
     i32 3, label %._crit_edge
   ]
 
-._crit_edge:                                      ; preds = %741, %.thread476
-  %.sroa.0320.4479 = phi i32 [ %.sroa.0320.4.ph, %.thread476 ], [ 0, %741 ]
-  %.pre403 = load ptr, ptr %54, align 8, !tbaa !393
+._crit_edge:                                      ; preds = %741, %.thread475
+  %.sroa.0320.4478 = phi i32 [ %.sroa.0320.4.ph, %.thread475 ], [ 0, %741 ]
+  %.pre402 = load ptr, ptr %54, align 8, !tbaa !393
   br label %split
 
-.backedge400:                                     ; preds = %189, %193, %178, %182, %.thread481, %741, %741
+.backedge399:                                     ; preds = %189, %193, %178, %182, %.thread480, %741, %741
   br label %113, !llvm.loop !421
 
 split:                                            ; preds = %.loopexit, %.loopexit.thread, %._crit_edge
-  %742 = phi ptr [ %.pre403, %._crit_edge ], [ %.pre404464, %.loopexit.thread ], [ %.pre404, %.loopexit ]
-  %.sroa.0320.1 = phi i32 [ %.sroa.0320.4479, %._crit_edge ], [ 0, %.loopexit.thread ], [ 0, %.loopexit ]
+  %742 = phi ptr [ %.pre402, %._crit_edge ], [ %.pre403463, %.loopexit.thread ], [ %.pre403, %.loopexit ]
+  %.sroa.0320.1 = phi i32 [ %.sroa.0320.4478, %._crit_edge ], [ 0, %.loopexit.thread ], [ 0, %.loopexit ]
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 26
   store i8 0, ptr %743, align 2, !tbaa !394
   %744 = load ptr, ptr %85, align 8, !tbaa !425
-  %.not397 = icmp eq ptr %744, null
-  br i1 %.not397, label %.loopexit399, label %745
+  %.not396 = icmp eq ptr %744, null
+  br i1 %.not396, label %.loopexit398, label %745
 
 745:                                              ; preds = %split
   %746 = load i16, ptr %60, align 8, !tbaa !36
@@ -4421,11 +4420,11 @@ split:                                            ; preds = %.loopexit, %.loopex
   %748 = load i32, ptr %65, align 8
   %749 = icmp eq i32 %748, 1
   %or.cond383 = select i1 %747, i1 %749, i1 false
-  br i1 %or.cond383, label %.loopexit399, label %750
+  br i1 %or.cond383, label %.loopexit398, label %750
 
 750:                                              ; preds = %745
-  %.not398 = icmp eq i32 %.sroa.0320.1, 0
-  br i1 %.not398, label %751, label %756
+  %.not397 = icmp eq i32 %.sroa.0320.1, 0
+  br i1 %.not397, label %751, label %756
 
 751:                                              ; preds = %750
   %752 = load ptr, ptr %742, align 8, !tbaa !327
@@ -4445,9 +4444,9 @@ split:                                            ; preds = %.loopexit, %.loopex
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 296
   %760 = load ptr, ptr %759, align 8
   call void %760(ptr noundef nonnull align 8 dereferenceable(8) %744, i64 %.sroa.0.0.insert.insert, i32 %757) #18
-  br label %.loopexit399
+  br label %.loopexit398
 
-.loopexit399:                                     ; preds = %741, %745, %split, %756
+.loopexit398:                                     ; preds = %741, %745, %split, %756
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i8 %27, ptr %26, align 8, !tbaa !310

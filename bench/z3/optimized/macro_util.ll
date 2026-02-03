@@ -3089,9 +3089,8 @@ _ZNK11ast_manager5is_eqEPK4expr.exit.i:           ; preds = %10
 _Z9is_groundPK4expr.exit:                         ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 30
   %35 = load i8, ptr %34, align 2
-  %36 = and i8 %35, 1
-  %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %_Z9is_groundPK4expr.exit.thread, label %44
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %44, label %_Z9is_groundPK4expr.exit.thread
 
 _Z9is_groundPK4expr.exit.thread:                  ; preds = %25, %_Z9is_groundPK4expr.exit
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -3103,9 +3102,8 @@ _Z9is_groundPK4expr.exit.thread:                  ; preds = %25, %_Z9is_groundPK
 _Z9is_groundPK4expr.exit10:                       ; preds = %_Z9is_groundPK4expr.exit.thread
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 30
   %42 = load i8, ptr %41, align 2
-  %43 = and i8 %42, 1
-  %.not37 = icmp eq i8 %43, 0
-  br i1 %.not37, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread, label %44
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %_ZNK11ast_manager5is_eqEPK4exprRPS0_S4_.exit.thread
 
 44:                                               ; preds = %_Z9is_groundPK4expr.exit10, %_Z9is_groundPK4expr.exit
   %45 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %27)
@@ -5767,9 +5765,8 @@ define hidden noundef zeroext i1 @_Z17vars_of_is_subsetP4exprRK10ptr_bufferI3var
 _Z9is_groundPK4expr.exit:                         ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %11 = load i8, ptr %10, align 2
-  %12 = and i8 %11, 1
-  %.not58 = icmp eq i8 %12, 0
-  br i1 %.not58, label %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit, label %156
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %156, label %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit
 
 _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %_Z9is_groundPK4expr.exit, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5792,9 +5789,9 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %_Z9is_groundPK4expr
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %21
 
-21:                                               ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit, %.loopexit64
-  %22 = phi ptr [ %17, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %142, %.loopexit64 ]
-  %23 = phi i32 [ 1, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %.pr, %.loopexit64 ]
+21:                                               ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit, %.loopexit62
+  %22 = phi ptr [ %17, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %142, %.loopexit62 ]
+  %23 = phi i32 [ 1, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %.pr, %.loopexit62 ]
   %24 = add i32 %23, -1
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
@@ -5812,14 +5809,14 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %_Z9is_groundPK4expr
   %31 = load ptr, ptr %1, align 8, !tbaa !207
   %32 = load i32, ptr %20, align 8, !tbaa !203
   %33 = zext i32 %32 to i64
-  %.idx61 = shl nuw nsw i64 %33, 3
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx61
+  %.idx59 = shl nuw nsw i64 %33, 3
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx59
   %35 = lshr i64 %33, 2
-  %.not60 = icmp eq i64 %35, 0
-  br i1 %.not60, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not58 = icmp eq i64 %35, 0
+  br i1 %.not58, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30
-  %36 = and i64 %.idx61, 34359738336
+  %36 = and i64 %.idx59, 34359738336
   %scevgep.i.i.i = getelementptr i8, ptr %31, i64 %36
   br label %37
 
@@ -5840,13 +5837,13 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %_Z9is_groundPK4expr
   %45 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !208
   %47 = icmp eq ptr %46, %27
-  br i1 %47, label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103, label %48
+  br i1 %47, label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit101, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !208
   %51 = icmp eq ptr %50, %27
-  br i1 %51, label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit105, label %52
+  br i1 %51, label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
@@ -5896,34 +5893,34 @@ _ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit: ; preds = %40
   %68 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit
 
-_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103: ; preds = %44
+_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit101: ; preds = %44
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit
 
-_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit105: ; preds = %48
+_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103: ; preds = %48
   %70 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   br label %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit
 
-_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit:          ; preds = %37, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit105, %57, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %57 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %70, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit105 ], [ %69, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103 ], [ %68, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %37 ]
+_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit:          ; preds = %37, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit101, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103, %57, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+  %.028.i.i.i = phi ptr [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %57 ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %70, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit103 ], [ %69, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit101 ], [ %68, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit.loopexit.split.loop.exit ], [ %.02946.i.i.i, %37 ]
   %71 = icmp eq ptr %.028.i.i.i, %34
-  br i1 %71, label %.critedge, label %.loopexit64
+  br i1 %71, label %.critedge, label %.loopexit62
 
 72:                                               ; preds = %21
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %75 = load i32, ptr %74, align 8, !tbaa !79
   %76 = zext i32 %75 to i64
-  %.idx76 = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx76
-  %.not66 = icmp eq i32 %75, 0
-  br i1 %.not66, label %.loopexit64, label %.lr.ph
+  %.idx74 = shl nuw nsw i64 %76, 3
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx74
+  %.not64 = icmp eq i32 %75, 0
+  br i1 %.not64, label %.loopexit62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
-  %.pr84 = phi i32 [ %.pr83, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ], [ %24, %72 ]
+  %.pr82 = phi i32 [ %.pr81, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ], [ %24, %72 ]
   %78 = phi ptr [ %140, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ], [ %22, %72 ]
-  %.01667 = phi ptr [ %141, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ], [ %73, %72 ]
-  %79 = load ptr, ptr %.01667, align 8, !tbaa !73
+  %.01665 = phi ptr [ %141, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ], [ %73, %72 ]
+  %79 = load ptr, ptr %.01665, align 8, !tbaa !73
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, 65535
@@ -5933,9 +5930,8 @@ _ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit:          ; preds = %37, %_ZSt4findIPKP3
 _Z9is_groundPK4expr.exit25:                       ; preds = %.lr.ph
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 30
   %85 = load i8, ptr %84, align 2
-  %86 = and i8 %85, 1
-  %.not59 = icmp eq i8 %86, 0
-  br i1 %.not59, label %_Z9is_groundPK4expr.exit25.thread, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, label %_Z9is_groundPK4expr.exit25.thread
 
 87:                                               ; preds = %130, %123, %.loopexit
   %88 = landingpad { ptr, i32 }
@@ -6093,21 +6089,21 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit48: ; preds = %._crit_edge.i44, 
   br label %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
 
 _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %100, %111, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit48, %_Z9is_groundPK4expr.exit25
-  %.pr83 = phi i32 [ %.pr84, %111 ], [ %.pr84, %_Z9is_groundPK4expr.exit25 ], [ %139, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit48 ], [ %.pr84, %100 ]
+  %.pr81 = phi i32 [ %.pr82, %111 ], [ %.pr82, %_Z9is_groundPK4expr.exit25 ], [ %139, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit48 ], [ %.pr82, %100 ]
   %140 = phi ptr [ %78, %111 ], [ %78, %_Z9is_groundPK4expr.exit25 ], [ %136, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit48 ], [ %78, %100 ]
-  %141 = getelementptr inbounds nuw i8, ptr %.01667, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.01665, i64 8
   %.not = icmp eq ptr %141, %77
-  br i1 %.not, label %.loopexit64, label %.lr.ph
+  br i1 %.not, label %.loopexit62, label %.lr.ph
 
-.loopexit64:                                      ; preds = %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, %72, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit
-  %.pr = phi i32 [ %24, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ %24, %72 ], [ %.pr83, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
+.loopexit62:                                      ; preds = %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, %72, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit
+  %.pr = phi i32 [ %24, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ %24, %72 ], [ %.pr81, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
   %142 = phi ptr [ %22, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ %22, %72 ], [ %140, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
   %143 = icmp eq i32 %.pr, 0
   br i1 %143, label %.critedge, label %21, !llvm.loop !213
 
-.critedge:                                        ; preds = %21, %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit, %.loopexit64
-  %144 = phi ptr [ %22, %21 ], [ %22, %._crit_edge._crit_edge52.i.i.i ], [ %22, %._crit_edge.i.i.i ], [ %22, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ %142, %.loopexit64 ]
-  %.lcssa = phi i1 [ false, %21 ], [ false, %._crit_edge._crit_edge52.i.i.i ], [ false, %._crit_edge.i.i.i ], [ false, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ true, %.loopexit64 ]
+.critedge:                                        ; preds = %21, %._crit_edge._crit_edge52.i.i.i, %._crit_edge.i.i.i, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit, %.loopexit62
+  %144 = phi ptr [ %22, %21 ], [ %22, %._crit_edge._crit_edge52.i.i.i ], [ %22, %._crit_edge.i.i.i ], [ %22, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ %142, %.loopexit62 ]
+  %.lcssa = phi i1 [ false, %21 ], [ false, %._crit_edge._crit_edge52.i.i.i ], [ false, %._crit_edge.i.i.i ], [ false, %_ZSt4findIPKP3varS1_ET_S4_S4_RKT0_.exit ], [ true, %.loopexit62 ]
   %.not.i.i.i49 = icmp eq ptr %144, %17
   %145 = icmp eq ptr %144, null
   %or.cond.i.i.i50 = or i1 %.not.i.i.i49, %145

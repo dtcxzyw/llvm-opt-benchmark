@@ -4182,8 +4182,8 @@ define internal fastcc void @zend_dump_var_set(ptr noundef readonly captures(non
   %8 = load i32, ptr %6, align 4, !tbaa !26
   %9 = load i32, ptr %7, align 8, !tbaa !107
   %10 = sub i32 0, %8
-  %.not12 = icmp eq i32 %9, %10
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %9, %10
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %25
   %11 = phi i32 [ %26, %25 ], [ %9, %3 ]
@@ -4194,10 +4194,9 @@ define internal fastcc void @zend_dump_var_set(ptr noundef readonly captures(non
   %14 = getelementptr inbounds nuw i64, ptr %2, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !173
   %16 = and i64 %indvars.iv, 63
-  %17 = shl nuw i64 1, %16
-  %18 = and i64 %15, %17
-  %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %25, label %19
+  %17 = lshr i64 %15, %16
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %.lr.ph
   br i1 %.0910, label %23, label %20
@@ -4211,11 +4210,11 @@ define internal fastcc void @zend_dump_var_set(ptr noundef readonly captures(non
   %24 = trunc nuw i64 %indvars.iv to i32
   tail call void @zend_dump_var(ptr noundef nonnull %0, i8 noundef zeroext 8, i32 noundef %24)
   %.pre = load i32, ptr %6, align 4, !tbaa !26
-  %.pre13 = load i32, ptr %7, align 8, !tbaa !107
+  %.pre12 = load i32, ptr %7, align 8, !tbaa !107
   br label %25
 
 25:                                               ; preds = %.lr.ph, %23
-  %26 = phi i32 [ %.pre13, %23 ], [ %11, %.lr.ph ]
+  %26 = phi i32 [ %.pre12, %23 ], [ %11, %.lr.ph ]
   %27 = phi i32 [ %.pre, %23 ], [ %12, %.lr.ph ]
   %.2 = phi i1 [ false, %23 ], [ %.0910, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

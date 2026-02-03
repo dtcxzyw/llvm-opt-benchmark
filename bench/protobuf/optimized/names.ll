@@ -635,9 +635,8 @@ invoke.cont1:
   %0 = load ptr, ptr %options_.i, align 8
   %_has_bits_.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i32, ptr %_has_bits_.i, align 4
-  %and.i = and i32 %1, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.else, label %invoke.cont5
+  %cmp.i = trunc i32 %1 to i1
+  br i1 %cmp.i, label %invoke.cont5, label %if.else
 
 invoke.cont5:                                     ; preds = %invoke.cont1
   %java_package_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72

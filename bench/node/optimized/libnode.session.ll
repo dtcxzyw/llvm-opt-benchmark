@@ -17446,24 +17446,24 @@ if.end:                                           ; preds = %entry
   %env_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 176
   %3 = load ptr, ptr %env_.i.i, align 8
   call void @_ZN4node4quic19NgTcp2CallbackScopeC1EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(8) %scope, ptr noundef %3) #30
-  %4 = trunc i32 %flags to i8
-  %frombool = and i8 %4, 1
+  %tobool = trunc i32 %flags to i8
+  %frombool = and i8 %tobool, 1
   %conv = trunc i32 %res to i8
-  %5 = load ptr, ptr %path, align 8
+  %4 = load ptr, ptr %path, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %ref.tmp, align 8
   %address_2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %6 = load i16, ptr %5, align 2
-  %cmp.i.i = icmp eq i16 %6, 2
+  %5 = load i16, ptr %4, align 2
+  %cmp.i.i = icmp eq i16 %5, 2
   %cond.i.i = select i1 %cmp.i.i, i64 16, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i, ptr noundef nonnull align 2 dereferenceable(16) %5, i64 %cond.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 %cond.i.i, i1 false)
   %remote = getelementptr inbounds nuw i8, ptr %path, i64 16
-  %7 = load ptr, ptr %remote, align 8
+  %6 = load ptr, ptr %remote, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %ref.tmp6, align 8
   %address_2.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
-  %8 = load i16, ptr %7, align 2
-  %cmp.i.i5 = icmp eq i16 %8, 2
+  %7 = load i16, ptr %6, align 2
+  %cmp.i.i5 = icmp eq i16 %7, 2
   %cond.i.i6 = select i1 %cmp.i.i5, i64 16, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i4, ptr noundef nonnull align 2 dereferenceable(16) %7, i64 %cond.i.i6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i4, ptr noundef nonnull align 2 dereferenceable(16) %6, i64 %cond.i.i6, i1 false)
   call void @_ZN4node4quic7Session18EmitPathValidationENS0_20PathValidationResultENS1_19PathValidationFlagsERKNS_13SocketAddressES6_(ptr noundef nonnull align 8 dereferenceable(2616) %user_data, i8 noundef zeroext %conv, i8 %frombool, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %ref.tmp6)
   call void @_ZN4node4quic19NgTcp2CallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %scope) #30
   br label %return
@@ -17703,8 +17703,8 @@ if.end:                                           ; preds = %entry
   %env_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 176
   %3 = load ptr, ptr %env_.i.i, align 8
   call void @_ZN4node4quic19NgTcp2CallbackScopeC1EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(8) %scope, ptr noundef %3) #30
-  %4 = trunc i32 %flags to i8
-  %frombool = and i8 %4, 1
+  %tobool = trunc i32 %flags to i8
+  %frombool = and i8 %tobool, 1
   call void @_ZN4node4quic7Session16DatagramReceivedEPKhmNS1_21DatagramReceivedFlagsE(ptr noundef nonnull align 8 dereferenceable(2616) %user_data, ptr noundef %data, i64 noundef %datalen, i8 %frombool)
   call void @_ZN4node4quic19NgTcp2CallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %scope) #30
   br label %return
@@ -20496,8 +20496,8 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load i32, ptr %4, align 8
-  %and.i = and i32 %5, 1
-  tail call void @_ZN4node4quic9LogStream4EmitEPKhmNS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %2, i64 noundef %sub.ptr.sub.i.i, i32 noundef %and.i) #30
+  %cond.i = and i32 %5, 1
+  tail call void @_ZN4node4quic9LogStream4EmitEPKhmNS1_10EmitOptionE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %2, i64 noundef %sub.ptr.sub.i.i, i32 noundef %cond.i) #30
   ret void
 }
 

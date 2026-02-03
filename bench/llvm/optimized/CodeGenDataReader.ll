@@ -1589,9 +1589,8 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm24IndexedCodeGenDataReader11get
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm24IndexedCodeGenDataReader19hasOutlinedHashTreeEv(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4, !tbaa !246
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1662,9 +1661,8 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm21TextCodeGenDataReader11getDat
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm21TextCodeGenDataReader19hasOutlinedHashTreeEv(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !198
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

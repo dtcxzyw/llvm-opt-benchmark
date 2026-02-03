@@ -371,9 +371,8 @@ list_length.exit.i:                               ; preds = %97, %93
   %.val.i.i.i = load ptr, ptr %181, align 8
   %191 = getelementptr i8, ptr %.val.i.i.i, i64 20
   %.val.val.i.i.i = load i16, ptr %191, align 4
-  %192 = and i16 %.val.val.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i16 %192, 0
-  br i1 %.not.i.i.i.i, label %193, label %234
+  %192 = trunc i16 %.val.val.i.i.i to i1
+  br i1 %192, label %234, label %193
 
 193:                                              ; preds = %190
   %194 = zext nneg i32 %168 to i64
@@ -456,8 +455,8 @@ list_length.exit.i:                               ; preds = %97, %93
   %242 = and i32 %235, 7
   %243 = shl nuw nsw i32 1, %242
   %244 = and i32 %243, %241
-  %.not.i20.i.i.i = icmp eq i32 %244, 0
-  br i1 %.not.i20.i.i.i, label %245, label %246
+  %.not.i.i.i.i = icmp eq i32 %244, 0
+  br i1 %.not.i.i.i.i, label %245, label %246
 
 245:                                              ; preds = %234
   store i8 1, ptr %179, align 1

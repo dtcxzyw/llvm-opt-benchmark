@@ -3321,8 +3321,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   store ptr %6, ptr %8, align 8, !noalias !717
   %9 = call noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a049b026c4e1c27E.llvm.3458943816331328394(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !range !420
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !717
-  %10 = and i8 %9, 1
-  %spec.select.i = icmp ne i8 %10, 0
+  %spec.select.i = trunc i8 %9 to i1
   ret i1 %spec.select.i
 }
 
@@ -3515,8 +3514,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
   store ptr %6, ptr %8, align 8, !noalias !772
   %9 = call noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9a049b026c4e1c27E.llvm.3458943816331328394(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !range !420
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !772
-  %10 = and i8 %9, 1
-  %spec.select = icmp ne i8 %10, 0
+  %spec.select = trunc i8 %9 to i1
   ret i1 %spec.select
 }
 

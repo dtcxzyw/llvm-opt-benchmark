@@ -592,9 +592,8 @@ define linkonce_odr hidden void @_ZN5boost9unit_test14class_propertyISt6vectorIN
 
 6:                                                ; preds = %.lr.ph.i.i.i.i
   %7 = ptrtoint ptr %5 to i64
-  %8 = and i64 %7, 1
-  %.not1.i.i.i.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %.not1.i.i.i.i.i.i.i, label %9, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i.i.i
+  %8 = trunc i64 %7 to i1
+  br i1 %8, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i.i.i, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %5, align 8, !tbaa !76
@@ -1080,9 +1079,8 @@ _ZN5boost9unit_test14class_propertyINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 84:                                               ; preds = %.lr.ph.i.i.i.i.i13
   %85 = ptrtoint ptr %83 to i64
-  %86 = and i64 %85, 1
-  %.not1.i.i.i.i.i.i.i.i = icmp eq i64 %86, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i, label %87, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i.i.i.i
+  %86 = trunc i64 %85 to i1
+  br i1 %86, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i.i.i.i, label %87
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %83, align 8, !tbaa !76
@@ -1437,10 +1435,9 @@ define void @_ZN5boost9unit_test9test_unit16add_preconditionERKNS_8functionIFNS_
 9:                                                ; preds = %7
   store ptr %8, ptr %4, align 8, !tbaa !74
   %10 = ptrtoint ptr %8 to i64
-  %11 = and i64 %10, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %11, 0
+  %11 = trunc i64 %10 to i1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not.i.i.i.i.i.i, label %15, label %13
+  br i1 %11, label %13, label %15
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1882,10 +1879,9 @@ _ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resu
 155:                                              ; preds = %153
   store ptr %154, ptr %7, align 8, !tbaa !74, !alias.scope !109
   %156 = ptrtoint ptr %154 to i64
-  %157 = and i64 %156, 1
-  %.not.i.i.i.i = icmp eq i64 %157, 0
+  %157 = trunc i64 %156 to i1
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.0198.0250, i64 8
-  br i1 %.not.i.i.i.i, label %_ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resultEmEEESt6vectorIS7_SaIS7_EEEET_RKNS1_15static_any_baseERKT0_NS_4typeISB_EEN4mpl_5bool_ILb1EEE.exit, label %_ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resultEmEEESt6vectorIS7_SaIS7_EEEET_RKNS1_15static_any_baseERKT0_NS_4typeISB_EEN4mpl_5bool_ILb1EEE.exit.thread290
+  br i1 %157, label %_ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resultEmEEESt6vectorIS7_SaIS7_EEEET_RKNS1_15static_any_baseERKT0_NS_4typeISB_EEN4mpl_5bool_ILb1EEE.exit.thread290, label %_ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resultEmEEESt6vectorIS7_SaIS7_EEEET_RKNS1_15static_any_baseERKT0_NS_4typeISB_EEN4mpl_5bool_ILb1EEE.exit
 
 _ZN5boost9unit_test8for_each5derefINS_8functionIFNS_10test_tools16assertion_resultEmEEESt6vectorIS7_SaIS7_EEEET_RKNS1_15static_any_baseERKT0_NS_4typeISB_EEN4mpl_5bool_ILb1EEE.exit.thread290: ; preds = %155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, ptr noundef nonnull align 8 dereferenceable(24) %158, i64 24, i1 false)
@@ -2162,12 +2158,11 @@ _ZN5boostlsIcEERNS_23basic_wrap_stringstreamIT_EES4_S4_.exit: ; preds = %.noexc1
 _ZN5boost10test_tools16assertion_resultD2Ev.exit: ; preds = %.critedge100, %233, %.noexc.i.i.i189, %244, %225, %.noexc.i.i.i, %214, %_ZN5boostlsIcEERNS_23basic_wrap_stringstreamIT_EES4_S4_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %251 = load ptr, ptr %7, align 8, !tbaa !74
-  %.not.i.i191 = icmp ne ptr %251, null
+  %.not.i.i191 = icmp eq ptr %251, null
   %252 = ptrtoint ptr %251 to i64
-  %253 = and i64 %252, 1
-  %.not1.i.i = icmp eq i64 %253, 0
-  %or.cond = and i1 %.not.i.i191, %.not1.i.i
-  br i1 %or.cond, label %254, label %_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit
+  %253 = trunc i64 %252 to i1
+  %or.cond = or i1 %.not.i.i191, %253
+  br i1 %or.cond, label %_ZN5boost10function_nINS_10test_tools16assertion_resultEJmEED2Ev.exit, label %254
 
 254:                                              ; preds = %_ZN5boost10test_tools16assertion_resultD2Ev.exit
   %255 = load ptr, ptr %251, align 8, !tbaa !76
@@ -2378,9 +2373,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nINS_10test_tools16assertio
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !76
@@ -2610,10 +2604,9 @@ define void @_ZN5boost9unit_test9test_caseC2ENS0_13basic_cstringIKcEERKNS_8funct
 13:                                               ; preds = %3
   store ptr %12, ptr %11, align 8, !tbaa !74
   %14 = ptrtoint ptr %12 to i64
-  %15 = and i64 %14, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %15, 0
+  %15 = trunc i64 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %.not.i.i.i.i.i.i, label %19, label %17
+  br i1 %15, label %17, label %19
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -2660,9 +2653,8 @@ define linkonce_odr hidden void @_ZN5boost9unit_test14class_propertyINS_8functio
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i.i = icmp eq i64 %5, 0
-  br i1 %.not1.i.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !121
@@ -2715,10 +2707,9 @@ define void @_ZN5boost9unit_test9test_caseC2ENS0_13basic_cstringIKcEES4_mRKNS_8f
 18:                                               ; preds = %5
   store ptr %17, ptr %16, align 8, !tbaa !74
   %19 = ptrtoint ptr %17 to i64
-  %20 = and i64 %19, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %20, 0
+  %20 = trunc i64 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %.not.i.i.i.i.i.i, label %24, label %22
+  br i1 %20, label %22, label %24
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -5670,9 +5661,8 @@ define linkonce_odr hidden void @_ZSt8_DestroyIPN5boost8functionIFNS0_10test_too
 
 5:                                                ; preds = %.lr.ph.i.i
   %6 = ptrtoint ptr %4 to i64
-  %7 = and i64 %6, 1
-  %.not1.i.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not1.i.i.i.i.i, label %8, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %4, align 8, !tbaa !76
@@ -5717,9 +5707,8 @@ define linkonce_odr hidden void @_ZSt8_DestroyIPN5boost8functionIFNS0_10test_too
 
 4:                                                ; preds = %.lr.ph.i
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not1.i.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not1.i.i.i.i, label %7, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %3, align 8, !tbaa !76
@@ -6317,10 +6306,9 @@ _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaI
 25:                                               ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE11_M_allocateEm.exit
   store ptr %24, ptr %23, align 8, !tbaa !74
   %26 = ptrtoint ptr %24 to i64
-  %27 = and i64 %26, 1
-  %.not.i.i.i.i.i = icmp eq i64 %27, 0
+  %27 = trunc i64 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %.not.i.i.i.i.i, label %31, label %29
+  br i1 %27, label %29, label %31
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -6348,10 +6336,9 @@ _ZNSt16allocator_traitsISaIN5boost8functionIFNS0_10test_tools16assertion_resultE
 35:                                               ; preds = %.lr.ph.i.i.i.i.i
   store ptr %34, ptr %.016.i.i.i.i.i, align 8, !tbaa !74
   %36 = ptrtoint ptr %34 to i64
-  %37 = and i64 %36, 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, 0
+  %37 = trunc i64 %36 to i1
   %38 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %41, label %39
+  br i1 %37, label %39, label %41
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 8
@@ -6367,8 +6354,8 @@ _ZNSt16allocator_traitsISaIN5boost8functionIFNS0_10test_tools16assertion_resultE
 _ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %41, %39, %.lr.ph.i.i.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i28 = icmp eq ptr %44, %1
-  br i1 %.not.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !184
+  %.not.i.i.i.i.i = icmp eq ptr %44, %1
+  br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !184
 
 46:                                               ; preds = %41
   %47 = landingpad { ptr, i32 }
@@ -6401,48 +6388,47 @@ _ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_
 _ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit: ; preds = %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit ], [ %45, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
-  %.not14.i.i.i.i.i29 = icmp eq ptr %1, %5
-  br i1 %.not14.i.i.i.i.i29, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit41, label %.lr.ph.i.i.i.i.i30
+  %.not14.i.i.i.i.i28 = icmp eq ptr %1, %5
+  br i1 %.not14.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit39, label %.lr.ph.i.i.i.i.i29
 
-.lr.ph.i.i.i.i.i30:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35
-  %.016.i.i.i.i.i31 = phi ptr [ %69, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35 ], [ %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  %.01215.i.i.i.i.i32 = phi ptr [ %68, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
-  store ptr null, ptr %.016.i.i.i.i.i31, align 8, !tbaa !74
-  %58 = load ptr, ptr %.01215.i.i.i.i.i32, align 8, !tbaa !74
-  %.not.i.i.i.i.i.i.i.i.i.i33 = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i33, label %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35, label %59
+.lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33
+  %.016.i.i.i.i.i30 = phi ptr [ %69, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33 ], [ %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  %.01215.i.i.i.i.i31 = phi ptr [ %68, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
+  store ptr null, ptr %.016.i.i.i.i.i30, align 8, !tbaa !74
+  %58 = load ptr, ptr %.01215.i.i.i.i.i31, align 8, !tbaa !74
+  %.not.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i32, label %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33, label %59
 
-59:                                               ; preds = %.lr.ph.i.i.i.i.i30
-  store ptr %58, ptr %.016.i.i.i.i.i31, align 8, !tbaa !74
+59:                                               ; preds = %.lr.ph.i.i.i.i.i29
+  store ptr %58, ptr %.016.i.i.i.i.i30, align 8, !tbaa !74
   %60 = ptrtoint ptr %58 to i64
-  %61 = and i64 %60, 1
-  %.not.i.i.i.i.i.i.i.i.i34 = icmp eq i64 %61, 0
-  %62 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i32, i64 8
-  br i1 %.not.i.i.i.i.i.i.i.i.i34, label %65, label %63
+  %61 = trunc i64 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 8
+  br i1 %61, label %63, label %65
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i31, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i30, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
-  br label %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35
+  br label %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %58, align 8, !tbaa !76
-  %67 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i31, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i30, i64 8
   invoke void %66(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %67, i32 noundef 0)
-          to label %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35 unwind label %70
+          to label %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33 unwind label %70
 
-_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35: ; preds = %65, %63, %.lr.ph.i.i.i.i.i30
-  %68 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i32, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i31, i64 32
-  %.not.i.i.i.i.i36 = icmp eq ptr %68, %5
-  br i1 %.not.i.i.i.i.i36, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit41, label %.lr.ph.i.i.i.i.i30, !llvm.loop !184
+_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33: ; preds = %65, %63, %.lr.ph.i.i.i.i.i29
+  %68 = getelementptr inbounds nuw i8, ptr %.01215.i.i.i.i.i31, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i30, i64 32
+  %.not.i.i.i.i.i34 = icmp eq ptr %68, %5
+  br i1 %.not.i.i.i.i.i34, label %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit39, label %.lr.ph.i.i.i.i.i29, !llvm.loop !184
 
 70:                                               ; preds = %65
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
   %73 = tail call ptr @__cxa_begin_catch(ptr %72) #30
-  invoke void @_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvT_S7_(ptr noundef nonnull %57, ptr noundef nonnull %.016.i.i.i.i.i31)
+  invoke void @_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvT_S7_(ptr noundef nonnull %57, ptr noundef nonnull %.016.i.i.i.i.i30)
           to label %74 unwind label %75
 
 74:                                               ; preds = %70
@@ -6465,22 +6451,21 @@ _ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_
 80:                                               ; preds = %74
   unreachable
 
-_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit41: ; preds = %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit
-  %.0.lcssa.i.i.i.i.i37 = phi ptr [ %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ], [ %69, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i35 ]
+_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit39: ; preds = %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit
+  %.0.lcssa.i.i.i.i.i35 = phi ptr [ %57, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit ], [ %69, %_ZSt10_ConstructIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i33 ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit41, %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %92, %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit41 ]
+.lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit39, %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i
+  %.05.i.i.i = phi ptr [ %92, %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit39 ]
   %81 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !74
-  %.not.i.i.i.i.i.i42 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i.i42, label %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i, label %82
+  %.not.i.i.i.i.i.i40 = icmp eq ptr %81, null
+  br i1 %.not.i.i.i.i.i.i40, label %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i, label %82
 
 82:                                               ; preds = %.lr.ph.i.i.i
   %83 = ptrtoint ptr %81 to i64
-  %84 = and i64 %83, 1
-  %.not1.i.i.i.i.i.i = icmp eq i64 %84, 0
-  br i1 %.not1.i.i.i.i.i.i, label %85, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i.i
+  %84 = trunc i64 %83 to i1
+  br i1 %84, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i.i.i.i, label %85
 
 85:                                               ; preds = %82
   %86 = load ptr, ptr %81, align 8, !tbaa !76
@@ -6508,10 +6493,10 @@ _ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exi
   %.not.i.i.i = icmp eq ptr %92, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !79
 
-_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit41
+_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit39
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not.i43 = icmp eq ptr %6, null
-  br i1 %.not.i43, label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %94
+  %.not.i41 = icmp eq ptr %6, null
+  br i1 %.not.i41, label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %94
 
 94:                                               ; preds = %_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit
   %95 = load ptr, ptr %93, align 8, !tbaa !81
@@ -6522,7 +6507,7 @@ _ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S
 
 _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit, %94
   store ptr %22, ptr %0, align 8, !tbaa !72
-  store ptr %.0.lcssa.i.i.i.i.i37, ptr %4, align 8, !tbaa !73
+  store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !73
   %98 = getelementptr inbounds nuw %"class.boost::function", ptr %22, i64 %16
   store ptr %98, ptr %93, align 8, !tbaa !81
   ret void
@@ -6546,22 +6531,22 @@ _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaI
   invoke void @_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E(ptr noundef %22, ptr noundef nonnull %.0.lpad-body.ph, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %108 unwind label %106
 
-106:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45, %103
+106:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit43, %103
   %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %111 unwind label %112
 
 108:                                              ; preds = %103
-  %.not.i44 = icmp eq ptr %22, null
-  br i1 %.not.i44, label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45, label %109
+  %.not.i42 = icmp eq ptr %22, null
+  br i1 %.not.i42, label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit43, label %109
 
 109:                                              ; preds = %.thread, %108
   %110 = shl nuw nsw i64 %16, 5
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %110) #29
-  br label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45
+  br label %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit43
 
-_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45: ; preds = %109, %108
+_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit43: ; preds = %109, %108
   invoke void @__cxa_rethrow() #28
           to label %115 unwind label %106
 
@@ -6575,7 +6560,7 @@ _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaI
   tail call void @__clang_call_terminate(ptr %114) #31
   unreachable
 
-115:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit45
+115:                                              ; preds = %_ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit43
   unreachable
 }
 
@@ -6587,9 +6572,8 @@ define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN5boost8functionIFNS
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %3 to i64
-  %6 = and i64 %5, 1
-  %.not1.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not1.i.i.i, label %7, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %_ZNK5boost6detail8function12basic_vtableINS_10test_tools16assertion_resultEJmEE5clearERNS1_15function_bufferE.exit.i.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %3, align 8, !tbaa !76

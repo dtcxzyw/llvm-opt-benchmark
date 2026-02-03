@@ -4352,52 +4352,51 @@ define noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorC
   %12 = select i1 %7, i32 %11, i32 %9
   %13 = load i32, ptr %3, align 4, !tbaa !23
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %34, label %15
+  br i1 %14, label %33, label %15
 
 15:                                               ; preds = %4
-  %16 = and i16 %6, 1
-  %17 = icmp ne i16 %16, 0
-  %18 = icmp slt i32 %2, 0
-  %or.cond = or i1 %18, %17
-  br i1 %or.cond, label %21, label %19
+  %16 = trunc i16 %6 to i1
+  %17 = icmp slt i32 %2, 0
+  %or.cond = or i1 %17, %16
+  br i1 %or.cond, label %20, label %18
 
-19:                                               ; preds = %15
+18:                                               ; preds = %15
   %.not = icmp ne i32 %2, 0
   %.pre22.pre = load ptr, ptr %1, align 8, !tbaa !30
-  %20 = icmp eq ptr %.pre22.pre, null
-  %or.cond26 = select i1 %.not, i1 %20, i1 false
-  br i1 %or.cond26, label %21, label %22
+  %19 = icmp eq ptr %.pre22.pre, null
+  %or.cond26 = select i1 %.not, i1 %19, i1 false
+  br i1 %or.cond26, label %20, label %21
 
-21:                                               ; preds = %19, %15
+20:                                               ; preds = %18, %15
   store i32 1, ptr %3, align 4, !tbaa !23
-  br label %34
+  br label %33
 
-22:                                               ; preds = %19
-  %23 = and i16 %6, 2
-  %.not.i = icmp eq i16 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = select i1 %.not.i, ptr %26, ptr %24
-  %28 = icmp slt i32 %12, 1
+21:                                               ; preds = %18
+  %22 = and i16 %6, 2
+  %.not.i = icmp eq i16 %22, 0
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = select i1 %.not.i, ptr %25, ptr %23
+  %27 = icmp slt i32 %12, 1
   %.not19 = icmp sgt i32 %12, %2
-  %or.cond21 = or i1 %28, %.not19
-  %.not20 = icmp eq ptr %27, %.pre22.pre
+  %or.cond21 = or i1 %27, %.not19
+  %.not20 = icmp eq ptr %26, %.pre22.pre
   %or.cond27 = select i1 %or.cond21, i1 true, i1 %.not20
-  br i1 %or.cond27, label %31, label %29
+  br i1 %or.cond27, label %30, label %28
 
-29:                                               ; preds = %22
-  %30 = tail call ptr @u_memcpy_77(ptr noundef %.pre22.pre, ptr noundef %27, i32 noundef %12)
+28:                                               ; preds = %21
+  %29 = tail call ptr @u_memcpy_77(ptr noundef %.pre22.pre, ptr noundef %26, i32 noundef %12)
   %.pre = load ptr, ptr %1, align 8, !tbaa !30
-  br label %31
+  br label %30
 
-31:                                               ; preds = %29, %22
-  %32 = phi ptr [ %.pre, %29 ], [ %.pre22.pre, %22 ]
-  %33 = tail call i32 @u_terminateUChars_77(ptr noundef %32, i32 noundef %2, i32 noundef %12, ptr noundef nonnull %3)
-  br label %34
+30:                                               ; preds = %28, %21
+  %31 = phi ptr [ %.pre, %28 ], [ %.pre22.pre, %21 ]
+  %32 = tail call i32 @u_terminateUChars_77(ptr noundef %31, i32 noundef %2, i32 noundef %12, ptr noundef nonnull %3)
+  br label %33
 
-34:                                               ; preds = %4, %21, %31
-  %.0 = phi i32 [ %33, %31 ], [ %12, %21 ], [ %12, %4 ]
+33:                                               ; preds = %4, %20, %30
+  %.0 = phi i32 [ %32, %30 ], [ %12, %20 ], [ %12, %4 ]
   ret i32 %.0
 }
 
@@ -4899,62 +4898,61 @@ declare ptr @u_strToUTF32WithSub_77(ptr noundef, i32 noundef, ptr noundef, ptr n
 define noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i16, ptr %7, align 8, !tbaa !3
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = icmp eq ptr %1, null
-  %or.cond = or i1 %11, %10
-  %12 = icmp slt i32 %2, 0
-  %or.cond3 = or i1 %12, %or.cond
-  %13 = icmp eq i32 %3, 0
-  %or.cond5 = or i1 %13, %or.cond3
-  br i1 %or.cond5, label %45, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = icmp eq ptr %1, null
+  %or.cond = or i1 %10, %9
+  %11 = icmp slt i32 %2, 0
+  %or.cond3 = or i1 %11, %or.cond
+  %12 = icmp eq i32 %3, 0
+  %or.cond5 = or i1 %12, %or.cond3
+  br i1 %or.cond5, label %44, label %13
 
-14:                                               ; preds = %6
-  %15 = icmp slt i32 %3, 0
-  %16 = zext nneg i32 %2 to i64
-  br i1 %15, label %17, label %.sink.split.i
+13:                                               ; preds = %6
+  %14 = icmp slt i32 %3, 0
+  %15 = zext nneg i32 %2 to i64
+  br i1 %14, label %16, label %.sink.split.i
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i16, ptr %1, i64 %16
-  %19 = load i16, ptr %18, align 2, !tbaa !10
-  %20 = icmp eq i16 %19, 0
-  br i1 %20, label %45, label %.sink.split.i
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %15
+  %18 = load i16, ptr %17, align 2, !tbaa !10
+  %19 = icmp eq i16 %18, 0
+  br i1 %19, label %44, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %14, %17
-  %21 = icmp slt i16 %8, 0
-  %22 = ashr i16 %8, 5
-  %23 = sext i16 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4
-  %26 = select i1 %21, i32 %25, i32 %23
-  %27 = icmp slt i32 %4, 0
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %26)
-  %.027 = select i1 %27, i32 0, i32 %spec.select
-  %28 = icmp slt i32 %5, 0
-  %29 = sub nsw i32 %26, %.027
-  %spec.select29 = tail call i32 @llvm.smin.i32(i32 %5, i32 %29)
-  %.026 = select i1 %28, i32 0, i32 %spec.select29
-  %30 = and i16 %8, 2
-  %.not.i = icmp eq i16 %30, 0
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = select i1 %.not.i, ptr %33, ptr %31
-  %35 = sext i32 %.027 to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %16
-  %38 = tail call ptr @u_strFindFirst_77(ptr noundef %36, i32 noundef %.026, ptr noundef %37, i32 noundef %3)
-  %39 = icmp eq ptr %38, null
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %34 to i64
-  %42 = sub i64 %40, %41
-  %43 = lshr exact i64 %42, 1
-  %44 = trunc i64 %43 to i32
-  %.1 = select i1 %39, i32 -1, i32 %44
-  br label %45
+.sink.split.i:                                    ; preds = %13, %16
+  %20 = icmp slt i16 %8, 0
+  %21 = ashr i16 %8, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = icmp slt i32 %4, 0
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %25)
+  %.027 = select i1 %26, i32 0, i32 %spec.select
+  %27 = icmp slt i32 %5, 0
+  %28 = sub nsw i32 %25, %.027
+  %spec.select29 = tail call i32 @llvm.smin.i32(i32 %5, i32 %28)
+  %.026 = select i1 %27, i32 0, i32 %spec.select29
+  %29 = and i16 %8, 2
+  %.not.i = icmp eq i16 %29, 0
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = select i1 %.not.i, ptr %32, ptr %30
+  %34 = sext i32 %.027 to i64
+  %35 = getelementptr inbounds i16, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %15
+  %37 = tail call ptr @u_strFindFirst_77(ptr noundef %35, i32 noundef %.026, ptr noundef %36, i32 noundef %3)
+  %38 = icmp eq ptr %37, null
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %33 to i64
+  %41 = sub i64 %39, %40
+  %42 = lshr exact i64 %41, 1
+  %43 = trunc i64 %42 to i32
+  %.1 = select i1 %38, i32 -1, i32 %43
+  br label %44
 
-45:                                               ; preds = %17, %6, %.sink.split.i
-  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %6 ], [ -1, %17 ]
+44:                                               ; preds = %16, %6, %.sink.split.i
+  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %6 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -5042,62 +5040,61 @@ declare ptr @u_memchr32_77(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 define noundef i32 @_ZNK6icu_7713UnicodeString11lastIndexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i16, ptr %7, align 8, !tbaa !3
-  %9 = and i16 %8, 1
-  %10 = icmp ne i16 %9, 0
-  %11 = icmp eq ptr %1, null
-  %or.cond = or i1 %11, %10
-  %12 = icmp slt i32 %2, 0
-  %or.cond3 = or i1 %12, %or.cond
-  %13 = icmp eq i32 %3, 0
-  %or.cond5 = or i1 %13, %or.cond3
-  br i1 %or.cond5, label %45, label %14
+  %9 = trunc i16 %8 to i1
+  %10 = icmp eq ptr %1, null
+  %or.cond = or i1 %10, %9
+  %11 = icmp slt i32 %2, 0
+  %or.cond3 = or i1 %11, %or.cond
+  %12 = icmp eq i32 %3, 0
+  %or.cond5 = or i1 %12, %or.cond3
+  br i1 %or.cond5, label %44, label %13
 
-14:                                               ; preds = %6
-  %15 = icmp slt i32 %3, 0
-  %16 = zext nneg i32 %2 to i64
-  br i1 %15, label %17, label %.sink.split.i
+13:                                               ; preds = %6
+  %14 = icmp slt i32 %3, 0
+  %15 = zext nneg i32 %2 to i64
+  br i1 %14, label %16, label %.sink.split.i
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i16, ptr %1, i64 %16
-  %19 = load i16, ptr %18, align 2, !tbaa !10
-  %20 = icmp eq i16 %19, 0
-  br i1 %20, label %45, label %.sink.split.i
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %15
+  %18 = load i16, ptr %17, align 2, !tbaa !10
+  %19 = icmp eq i16 %18, 0
+  br i1 %19, label %44, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %14, %17
-  %21 = icmp slt i16 %8, 0
-  %22 = ashr i16 %8, 5
-  %23 = sext i16 %22 to i32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4
-  %26 = select i1 %21, i32 %25, i32 %23
-  %27 = icmp slt i32 %4, 0
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %26)
-  %.027 = select i1 %27, i32 0, i32 %spec.select
-  %28 = icmp slt i32 %5, 0
-  %29 = sub nsw i32 %26, %.027
-  %spec.select29 = tail call i32 @llvm.smin.i32(i32 %5, i32 %29)
-  %.026 = select i1 %28, i32 0, i32 %spec.select29
-  %30 = and i16 %8, 2
-  %.not.i = icmp eq i16 %30, 0
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = select i1 %.not.i, ptr %33, ptr %31
-  %35 = sext i32 %.027 to i64
-  %36 = getelementptr inbounds i16, ptr %34, i64 %35
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %16
-  %38 = tail call ptr @u_strFindLast_77(ptr noundef %36, i32 noundef %.026, ptr noundef %37, i32 noundef %3)
-  %39 = icmp eq ptr %38, null
-  %40 = ptrtoint ptr %38 to i64
-  %41 = ptrtoint ptr %34 to i64
-  %42 = sub i64 %40, %41
-  %43 = lshr exact i64 %42, 1
-  %44 = trunc i64 %43 to i32
-  %.1 = select i1 %39, i32 -1, i32 %44
-  br label %45
+.sink.split.i:                                    ; preds = %13, %16
+  %20 = icmp slt i16 %8, 0
+  %21 = ashr i16 %8, 5
+  %22 = sext i16 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %24 = load i32, ptr %23, align 4
+  %25 = select i1 %20, i32 %24, i32 %22
+  %26 = icmp slt i32 %4, 0
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 %25)
+  %.027 = select i1 %26, i32 0, i32 %spec.select
+  %27 = icmp slt i32 %5, 0
+  %28 = sub nsw i32 %25, %.027
+  %spec.select29 = tail call i32 @llvm.smin.i32(i32 %5, i32 %28)
+  %.026 = select i1 %27, i32 0, i32 %spec.select29
+  %29 = and i16 %8, 2
+  %.not.i = icmp eq i16 %29, 0
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = select i1 %.not.i, ptr %32, ptr %30
+  %34 = sext i32 %.027 to i64
+  %35 = getelementptr inbounds i16, ptr %33, i64 %34
+  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %15
+  %37 = tail call ptr @u_strFindLast_77(ptr noundef %35, i32 noundef %.026, ptr noundef %36, i32 noundef %3)
+  %38 = icmp eq ptr %37, null
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %33 to i64
+  %41 = sub i64 %39, %40
+  %42 = lshr exact i64 %41, 1
+  %43 = trunc i64 %42 to i32
+  %.1 = select i1 %38, i32 -1, i32 %43
+  br label %44
 
-45:                                               ; preds = %17, %6, %.sink.split.i
-  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %6 ], [ -1, %17 ]
+44:                                               ; preds = %16, %6, %.sink.split.i
+  %.0 = phi i32 [ %.1, %.sink.split.i ], [ -1, %6 ], [ -1, %16 ]
   ret i32 %.0
 }
 
@@ -5275,9 +5272,9 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %54, label %.thread, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %103
-  %.05170 = phi i32 [ %117, %103 ], [ %spec.select60, %.lr.ph ]
-  %.05269 = phi i32 [ %118, %103 ], [ %.254, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %102
+  %.05170 = phi i32 [ %116, %102 ], [ %spec.select60, %.lr.ph ]
+  %.05269 = phi i32 [ %117, %102 ], [ %.254, %.lr.ph ]
   %63 = load i16, ptr %14, align 8, !tbaa !3
   %64 = and i16 %63, 1
   %.not.i = icmp eq i16 %64, 0
@@ -5302,71 +5299,70 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %74 = load ptr, ptr %56, align 8
   %75 = select i1 %.not.i.i, ptr %74, ptr %55
   %76 = load i16, ptr %10, align 8, !tbaa !3
-  %77 = and i16 %76, 1
-  %78 = icmp ne i16 %77, 0
-  %79 = icmp eq ptr %75, null
-  %or.cond.i.i = or i1 %79, %78
-  %80 = icmp slt i32 %.011.i, 0
-  %or.cond3.i.i = or i1 %80, %or.cond.i.i
+  %77 = trunc i16 %76 to i1
+  %78 = icmp eq ptr %75, null
+  %or.cond.i.i = or i1 %78, %77
+  %79 = icmp slt i32 %.011.i, 0
+  %or.cond3.i.i = or i1 %79, %or.cond.i.i
   br i1 %or.cond3.i.i, label %.thread, label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %72
-  %81 = zext nneg i32 %.011.i to i64
-  %82 = icmp slt i16 %76, 0
-  %83 = ashr i16 %76, 5
-  %84 = sext i16 %83 to i32
-  %85 = load i32, ptr %24, align 4
-  %86 = select i1 %82, i32 %85, i32 %84
-  %87 = icmp slt i32 %.05269, 0
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.05269, i32 %86)
-  %.027.i.i = select i1 %87, i32 0, i32 %spec.select.i.i
-  %88 = sub nsw i32 %86, %.027.i.i
-  %spec.select29.i.i = tail call i32 @llvm.smin.i32(i32 %.05170, i32 %88)
-  %89 = and i16 %76, 2
-  %.not.i.i.i = icmp eq i16 %89, 0
-  %90 = load ptr, ptr %58, align 8
-  %91 = select i1 %.not.i.i.i, ptr %90, ptr %57
-  %92 = sext i32 %.027.i.i to i64
-  %93 = getelementptr inbounds i16, ptr %91, i64 %92
-  %94 = getelementptr inbounds nuw i16, ptr %75, i64 %81
-  %95 = tail call ptr @u_strFindFirst_77(ptr noundef %93, i32 noundef %spec.select29.i.i, ptr noundef %94, i32 noundef %spec.select14.i)
-  %96 = icmp eq ptr %95, null
-  %97 = ptrtoint ptr %95 to i64
-  %98 = ptrtoint ptr %91 to i64
-  %99 = sub i64 %97, %98
-  %100 = lshr exact i64 %99, 1
-  %101 = trunc i64 %100 to i32
-  %102 = icmp slt i32 %101, 0
-  %or.cond = select i1 %96, i1 true, i1 %102
-  br i1 %or.cond, label %.thread, label %103
+  %80 = zext nneg i32 %.011.i to i64
+  %81 = icmp slt i16 %76, 0
+  %82 = ashr i16 %76, 5
+  %83 = sext i16 %82 to i32
+  %84 = load i32, ptr %24, align 4
+  %85 = select i1 %81, i32 %84, i32 %83
+  %86 = icmp slt i32 %.05269, 0
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.05269, i32 %85)
+  %.027.i.i = select i1 %86, i32 0, i32 %spec.select.i.i
+  %87 = sub nsw i32 %85, %.027.i.i
+  %spec.select29.i.i = tail call i32 @llvm.smin.i32(i32 %.05170, i32 %87)
+  %88 = and i16 %76, 2
+  %.not.i.i.i = icmp eq i16 %88, 0
+  %89 = load ptr, ptr %58, align 8
+  %90 = select i1 %.not.i.i.i, ptr %89, ptr %57
+  %91 = sext i32 %.027.i.i to i64
+  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %75, i64 %80
+  %94 = tail call ptr @u_strFindFirst_77(ptr noundef %92, i32 noundef %spec.select29.i.i, ptr noundef %93, i32 noundef %spec.select14.i)
+  %95 = icmp eq ptr %94, null
+  %96 = ptrtoint ptr %94 to i64
+  %97 = ptrtoint ptr %90 to i64
+  %98 = sub i64 %96, %97
+  %99 = lshr exact i64 %98, 1
+  %100 = trunc i64 %99 to i32
+  %101 = icmp slt i32 %100, 0
+  %or.cond = select i1 %95, i1 true, i1 %101
+  br i1 %or.cond, label %.thread, label %102
 
-103:                                              ; preds = %.sink.split.i.i.i
-  %104 = load i16, ptr %18, align 8, !tbaa !3
-  %105 = icmp slt i16 %104, 0
-  %106 = ashr i16 %104, 5
-  %107 = sext i16 %106 to i32
-  %108 = load i32, ptr %41, align 4
-  %109 = select i1 %105, i32 %108, i32 %107
-  %spec.select.i.i28 = tail call i32 @llvm.smin.i32(i32 %.048, i32 %109)
+102:                                              ; preds = %.sink.split.i.i.i
+  %103 = load i16, ptr %18, align 8, !tbaa !3
+  %104 = icmp slt i16 %103, 0
+  %105 = ashr i16 %103, 5
+  %106 = sext i16 %105 to i32
+  %107 = load i32, ptr %41, align 4
+  %108 = select i1 %104, i32 %107, i32 %106
+  %spec.select.i.i28 = tail call i32 @llvm.smin.i32(i32 %.048, i32 %108)
   %.07.i.i = select i1 %59, i32 0, i32 %spec.select.i.i28
-  %110 = sub nsw i32 %109, %.07.i.i
-  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %.047, i32 %110)
+  %109 = sub nsw i32 %108, %.07.i.i
+  %spec.select9.i.i = tail call i32 @llvm.smin.i32(i32 %.047, i32 %109)
   %.0.i.i = select i1 %60, i32 0, i32 %spec.select9.i.i
-  %111 = and i16 %104, 2
-  %.not.i.i.i29 = icmp eq i16 %111, 0
-  %112 = load ptr, ptr %62, align 8
-  %113 = select i1 %.not.i.i.i29, ptr %112, ptr %61
-  %114 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %101, i32 noundef %spec.select63, ptr noundef %113, i32 noundef %.07.i.i, i32 noundef %.0.i.i)
-  %115 = add i32 %.05269, %.05170
-  %116 = add nuw i32 %spec.select63, %101
-  %117 = sub i32 %115, %116
-  %118 = add nsw i32 %.047, %101
-  %119 = icmp sgt i32 %117, 0
-  %120 = icmp sge i32 %117, %spec.select63
-  %121 = and i1 %119, %120
-  br i1 %121, label %.lr.ph.split, label %.thread
+  %110 = and i16 %103, 2
+  %.not.i.i.i29 = icmp eq i16 %110, 0
+  %111 = load ptr, ptr %62, align 8
+  %112 = select i1 %.not.i.i.i29, ptr %111, ptr %61
+  %113 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %100, i32 noundef %spec.select63, ptr noundef %112, i32 noundef %.07.i.i, i32 noundef %.0.i.i)
+  %114 = add i32 %.05269, %.05170
+  %115 = add nuw i32 %spec.select63, %100
+  %116 = sub i32 %114, %115
+  %117 = add nsw i32 %.047, %100
+  %118 = icmp sgt i32 %116, 0
+  %119 = icmp sge i32 %116, %spec.select63
+  %120 = and i1 %118, %119
+  br i1 %120, label %.lr.ph.split, label %.thread
 
-.thread:                                          ; preds = %103, %72, %.sink.split.i.i, %.lr.ph.split, %.sink.split.i.i.i, %.lr.ph, %.preheader, %.sink.split.i, %9, %13, %17
+.thread:                                          ; preds = %102, %72, %.sink.split.i.i, %.lr.ph.split, %.sink.split.i.i.i, %.lr.ph, %.preheader, %.sink.split.i, %9, %13, %17
   ret ptr %0
 }
 
@@ -6855,75 +6851,74 @@ define noundef i32 @uhash_hashUnicodeString_77(ptr %0) local_unnamed_addr #5 {
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define signext range(i8 0, 2) i8 @uhash_compareUnicodeString_77(ptr readonly captures(address) %0, ptr readonly captures(address) %1) local_unnamed_addr #18 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %48, label %4
+  br i1 %3, label %47, label %4
 
 4:                                                ; preds = %2
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %48, label %7
+  br i1 %or.cond, label %47, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i16, ptr %8, align 8, !tbaa !3
   %10 = and i16 %9, 1
   %.not.i = icmp eq i16 %10, 0
-  br i1 %.not.i, label %16, label %11
+  br i1 %.not.i, label %15, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i16, ptr %12, align 8, !tbaa !3
-  %14 = and i16 %13, 1
-  %15 = icmp ne i16 %14, 0
+  %14 = trunc i16 %13 to i1
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-16:                                               ; preds = %7
-  %17 = icmp slt i16 %9, 0
-  %18 = ashr i16 %9, 5
-  %19 = sext i16 %18 to i32
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %20, align 4
-  %22 = select i1 %17, i32 %21, i32 %19
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i16, ptr %23, align 8, !tbaa !3
-  %25 = icmp slt i16 %24, 0
-  %26 = ashr i16 %24, 5
-  %27 = sext i16 %26 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = select i1 %25, i32 %29, i32 %27
-  %31 = and i16 %24, 1
-  %.not9.i = icmp eq i16 %31, 0
-  %32 = icmp eq i32 %22, %30
-  %or.cond.i = and i1 %.not9.i, %32
-  br i1 %or.cond.i, label %33, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+15:                                               ; preds = %7
+  %16 = icmp slt i16 %9, 0
+  %17 = ashr i16 %9, 5
+  %18 = sext i16 %17 to i32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = select i1 %16, i32 %20, i32 %18
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = load i16, ptr %22, align 8, !tbaa !3
+  %24 = icmp slt i16 %23, 0
+  %25 = ashr i16 %23, 5
+  %26 = sext i16 %25 to i32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %28 = load i32, ptr %27, align 4
+  %29 = select i1 %24, i32 %28, i32 %26
+  %30 = and i16 %23, 1
+  %.not9.i = icmp eq i16 %30, 0
+  %31 = icmp eq i32 %21, %29
+  %or.cond.i = and i1 %.not9.i, %31
+  br i1 %or.cond.i, label %32, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-33:                                               ; preds = %16
-  %34 = and i16 %24, 2
-  %.not.i.i.i = icmp eq i16 %34, 0
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8
-  %38 = select i1 %.not.i.i.i, ptr %37, ptr %35
-  %39 = and i16 %9, 2
-  %.not.i.i.i.i = icmp eq i16 %39, 0
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8
-  %43 = select i1 %.not.i.i.i.i, ptr %42, ptr %40
-  %44 = shl nsw i32 %22, 1
-  %45 = sext i32 %44 to i64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %43, ptr readonly %38, i64 %45)
-  %46 = icmp eq i32 %bcmp.i.i.i, 0
+32:                                               ; preds = %15
+  %33 = and i16 %23, 2
+  %.not.i.i.i = icmp eq i16 %33, 0
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %36 = load ptr, ptr %35, align 8
+  %37 = select i1 %.not.i.i.i, ptr %36, ptr %34
+  %38 = and i16 %9, 2
+  %.not.i.i.i.i = icmp eq i16 %38, 0
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %42 = select i1 %.not.i.i.i.i, ptr %41, ptr %39
+  %43 = shl nsw i32 %21, 1
+  %44 = sext i32 %43 to i64
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %42, ptr readonly %37, i64 %44)
+  %45 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
 
-_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %11, %16, %33
-  %.0.i = phi i1 [ %15, %11 ], [ %46, %33 ], [ false, %16 ]
-  %47 = zext i1 %.0.i to i8
-  br label %48
+_ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %11, %15, %32
+  %.0.i = phi i1 [ %14, %11 ], [ %45, %32 ], [ false, %15 ]
+  %46 = zext i1 %.0.i to i8
+  br label %47
 
-48:                                               ; preds = %4, %2, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
-  %.0 = phi i8 [ %47, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ 1, %2 ], [ 0, %4 ]
+47:                                               ; preds = %4, %2, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
+  %.0 = phi i8 [ %46, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ], [ 1, %2 ], [ 0, %4 ]
   ret i8 %.0
 }
 

@@ -11123,9 +11123,8 @@ _ZN7LIR_Opr19as_pointer_registerEv.exit._crit_edge: ; preds = %_ZN7LIR_Opr19as_p
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %75, i32 %32, i32 %32) #15
   %77 = load ptr, ptr %0, align 8
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %77, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %16, ptr noundef nonnull @.str.8, i32 noundef 3635) #15
-  %78 = and i64 %49, 1
-  %.not69 = icmp eq i64 %78, 0
-  br i1 %.not69, label %79, label %101
+  %78 = trunc i64 %49 to i1
+  br i1 %78, label %101, label %79
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %0, align 8

@@ -918,16 +918,15 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 185:                                              ; preds = %181
   %186 = load ptr, ptr %125, align 8
   %187 = call zeroext i8 @visibilitymap_get_status(ptr noundef %186, i32 noundef %178, ptr noundef nonnull %126) #6
-  %188 = and i8 %187, 1
-  %.not65.i = icmp eq i8 %188, 0
-  br i1 %.not65.i, label %..critedge_crit_edge.i, label %192
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %192, label %..critedge_crit_edge.i
 
 ..critedge_crit_edge.i:                           ; preds = %185
-  %.pre68.i = load i32, ptr %173, align 4
+  %.pre66.i = load i32, ptr %173, align 4
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %..critedge_crit_edge.i, %181, %175
-  %189 = phi i32 [ %.pre68.i, %..critedge_crit_edge.i ], [ %178, %181 ], [ %178, %175 ]
+  %189 = phi i32 [ %.pre66.i, %..critedge_crit_edge.i ], [ %178, %181 ], [ %178, %175 ]
   %190 = load ptr, ptr %.1, align 8
   %191 = call i64 @PrefetchBuffer(ptr noundef %190, i32 noundef 0, i32 noundef %189) #6
   br label %192
@@ -949,13 +948,13 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 202:                                              ; preds = %196
   %.val.i = load ptr, ptr %122, align 8
   %.not.i59.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i59.i, label %BitmapPrefetch.exit, label %.preheader66.i
+  br i1 %.not.i59.i, label %BitmapPrefetch.exit, label %.preheader64.i
 
-.preheader66.i:                                   ; preds = %202
+.preheader64.i:                                   ; preds = %202
   %203 = getelementptr inbounds nuw i8, ptr %167, i64 16
   br label %204
 
-204:                                              ; preds = %.backedge, %.preheader66.i
+204:                                              ; preds = %.backedge, %.preheader64.i
   %205 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %203, i8 1, ptr nonnull elementtype(i8) %203) #6, !srcloc !7
   %.not.i55 = icmp eq i8 %205, 0
   br i1 %.not.i55, label %208, label %206
@@ -1005,9 +1004,8 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 225:                                              ; preds = %221
   %226 = load ptr, ptr %125, align 8
   %227 = call zeroext i8 @visibilitymap_get_status(ptr noundef %226, i32 noundef %218, ptr noundef nonnull %126) #6
-  %228 = and i8 %227, 1
-  %.not64.i = icmp eq i8 %228, 0
-  br i1 %.not64.i, label %..critedge57_crit_edge.i, label %.backedge
+  %228 = trunc i8 %227 to i1
+  br i1 %228, label %.backedge, label %..critedge57_crit_edge.i
 
 ..critedge57_crit_edge.i:                         ; preds = %225
   %.pre.i56 = load i32, ptr %214, align 4

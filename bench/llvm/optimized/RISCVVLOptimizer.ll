@@ -2891,9 +2891,8 @@ _ZN4llvm7RISCVIIL24isFirstDefTiedToFirstUseERKNS_11MCInstrDescE.exit.i: ; preds 
   %72 = inttoptr i64 %71 to ptr
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 34
   %74 = load i8, ptr %73, align 2, !tbaa !480
-  %75 = and i8 %74, 1
-  %.not.i51.i = icmp eq i8 %75, 0
-  br i1 %.not.i51.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i
 
 _ZL16isVectorRegClassN4llvm8RegisterEPKNS_19MachineRegisterInfoE.exit.i.i: ; preds = %59
   %76 = and i32 %56, 7
@@ -2905,8 +2904,8 @@ _ZL16isVectorRegClassN4llvm8RegisterEPKNS_19MachineRegisterInfoE.exit.i.i: ; pre
   %82 = zext i8 %81 to i32
   %83 = shl nuw nsw i32 1, %76
   %84 = and i32 %83, %82
-  %.not2.i.i = icmp eq i32 %84, 0
-  br i1 %.not2.i.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i
+  %.not.i51.i = icmp eq i32 %84, 0
+  br i1 %.not.i51.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i, label %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i
 
 _ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.i: ; preds = %_ZL16isVectorRegClassN4llvm8RegisterEPKNS_19MachineRegisterInfoE.exit.i.i, %65
   %85 = load i16, ptr %.val41.i, align 8, !tbaa !472

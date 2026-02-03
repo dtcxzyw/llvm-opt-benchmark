@@ -20715,12 +20715,11 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
 120:                                              ; preds = %89
-  %121 = and i8 %91, 1
-  %.not = icmp eq i8 %121, 0
-  %.sroa.0.0.copyload.i92 = load ptr, ptr %1, align 8, !tbaa !29
-  %.sroa.2.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.2.0.copyload.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i93, align 8, !tbaa !30
-  br i1 %.not, label %150, label %122
+  %121 = trunc i8 %91 to i1
+  %.sroa.0.0.copyload.i73 = load ptr, ptr %1, align 8, !tbaa !29
+  %.sroa.2.0..sroa_idx.i74 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.2.0.copyload.i75 = load i64, ptr %.sroa.2.0..sroa_idx.i74, align 8, !tbaa !30
+  br i1 %121, label %122, label %150
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20732,9 +20731,9 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   br i1 %.not.i78, label %130, label %128
 
 128:                                              ; preds = %122
-  store ptr %.sroa.0.0.copyload.i92, ptr %125, align 8, !tbaa !29
+  store ptr %.sroa.0.0.copyload.i73, ptr %125, align 8, !tbaa !29
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store i64 %.sroa.2.0.copyload.i94, ptr %.sroa.56.0..sroa_idx, align 8, !tbaa !30
+  store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.56.0..sroa_idx, align 8, !tbaa !30
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr %129, ptr %124, align 8, !tbaa !996
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
@@ -20763,9 +20762,9 @@ _ZNKSt6vectorIN4llvm9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i79: ; preds =
   %142 = shl nuw nsw i64 %141, 4
   %143 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %142) #20
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %134
-  store ptr %.sroa.0.0.copyload.i92, ptr %144, align 8, !tbaa !29
+  store ptr %.sroa.0.0.copyload.i73, ptr %144, align 8, !tbaa !29
   %.sroa.56.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  store i64 %.sroa.2.0.copyload.i94, ptr %.sroa.56.0..sroa_idx7, align 8, !tbaa !30
+  store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.56.0..sroa_idx7, align 8, !tbaa !30
   %.not10.i.i.i.i.i82 = icmp eq ptr %131, %125
   br i1 %.not10.i.i.i.i.i82, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i87, label %.lr.ph.i.i.i.i.i83
 
@@ -20805,9 +20804,9 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   br i1 %.not.i97, label %158, label %156
 
 156:                                              ; preds = %150
-  store ptr %.sroa.0.0.copyload.i92, ptr %153, align 8, !tbaa !29
+  store ptr %.sroa.0.0.copyload.i73, ptr %153, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i64 %.sroa.2.0.copyload.i94, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !30
+  store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !30
   %157 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store ptr %157, ptr %152, align 8, !tbaa !996
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
@@ -20836,9 +20835,9 @@ _ZNKSt6vectorIN4llvm9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i98: ; preds =
   %170 = shl nuw nsw i64 %169, 4
   %171 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %170) #20
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 %162
-  store ptr %.sroa.0.0.copyload.i92, ptr %172, align 8, !tbaa !29
+  store ptr %.sroa.0.0.copyload.i73, ptr %172, align 8, !tbaa !29
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store i64 %.sroa.2.0.copyload.i94, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !30
+  store i64 %.sroa.2.0.copyload.i75, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !30
   %.not10.i.i.i.i.i101 = icmp eq ptr %159, %153
   br i1 %.not10.i.i.i.i.i101, label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i106, label %.lr.ph.i.i.i.i.i102
 

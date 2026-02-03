@@ -3680,41 +3680,41 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   unreachable
 
 289:                                              ; preds = %240, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit
-  %.0657 = phi i32 [ %200, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ 0, %240 ]
-  %.0656 = phi i32 [ 0, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ -1, %240 ]
-  %.0655 = phi i32 [ %197, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ %253, %240 ]
-  %.0653 = phi i32 [ %231, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ -1, %240 ]
+  %.0645 = phi i32 [ %200, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ 0, %240 ]
+  %.0644 = phi i32 [ 0, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ -1, %240 ]
+  %.0643 = phi i32 [ %197, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ %253, %240 ]
+  %.0641 = phi i32 [ %231, %_ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4_.exit ], [ -1, %240 ]
   call void @_ZN17AbstractAssembler5flushEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 80
   %293 = load ptr, ptr %292, align 8
   %294 = load i32, ptr %34, align 4
-  %295 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %293, i32 noundef %.0657, i32 noundef %.0655, i32 noundef %294, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %95, i32 noundef %.0653) #14
+  %295 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %293, i32 noundef %.0645, i32 noundef %.0643, i32 noundef %294, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %95, i32 noundef %.0641) #14
   %296 = icmp eq ptr %295, null
-  br i1 %296, label %953, label %297
+  br i1 %296, label %952, label %297
 
 297:                                              ; preds = %289
   %298 = load ptr, ptr %1, align 8
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 52
   %300 = load i16, ptr %299, align 4
-  switch i16 %300, label %953 [
+  switch i16 %300, label %952 [
     i16 198, label %301
     i16 199, label %302
   ]
 
 301:                                              ; preds = %297
-  call void @_ZN17ContinuationEntry14set_enter_codeEP7nmethodi(ptr noundef nonnull %295, i32 noundef %.0656) #14
-  br label %953
+  call void @_ZN17ContinuationEntry14set_enter_codeEP7nmethodi(ptr noundef nonnull %295, i32 noundef %.0644) #14
+  br label %952
 
 302:                                              ; preds = %297
   store ptr %295, ptr @_ZN13SharedRuntime18_cont_doYield_stubE, align 8
-  br label %953
+  br label %952
 
 303:                                              ; preds = %6
   %304 = tail call noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(88) %90) #14
   %305 = load ptr, ptr %1, align 8
-  br i1 %304, label %306, label %363
+  br i1 %304, label %306, label %362
 
 306:                                              ; preds = %303
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 52
@@ -3728,970 +3728,969 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   %314 = zext i16 %313 to i32
   %315 = tail call noundef i32 @_ZN13MethodHandles40signature_polymorphic_intrinsic_ref_kindE13vmIntrinsicID(i32 noundef %314) #14
   %.not.i = icmp eq i32 %315, 0
-  br i1 %.not.i, label %319, label %316
+  br i1 %.not.i, label %318, label %316
 
 316:                                              ; preds = %306
-  %317 = and i32 %315, 1
-  %318 = icmp ne i32 %317, 0
-  br label %322
+  %317 = trunc i32 %315 to i1
+  br label %321
 
-319:                                              ; preds = %306
-  switch i16 %313, label %320 [
+318:                                              ; preds = %306
+  switch i16 %313, label %319 [
     i16 397, label %.thread11.i
-    i16 402, label %322
+    i16 402, label %321
   ]
 
-320:                                              ; preds = %319
-  %321 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %321, align 1
+319:                                              ; preds = %318
+  %320 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %320, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1749, ptr noundef nonnull @.str.29, i32 noundef %314) #15
   unreachable
 
-322:                                              ; preds = %319, %316
-  %.0.ph.i = phi i1 [ %318, %316 ], [ false, %319 ]
+321:                                              ; preds = %318, %316
+  %.0.ph.i = phi i1 [ %317, %316 ], [ false, %318 ]
   %.pn16.i = load ptr, ptr %1, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %.pn16.i, i64 8
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %.034.ph.in.in.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 46
   %.034.ph.in.in.i = load i16, ptr %.034.ph.in.in.in.i, align 2
   %.034.ph.in.i = zext i16 %.034.ph.in.in.i to i64
-  %323 = getelementptr %class.VMRegPair, ptr %4, i64 %.034.ph.in.i
-  %324 = getelementptr i8, ptr %323, i64 -8
-  %325 = load ptr, ptr %324, align 8
-  %.not17.i = icmp ult ptr %325, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
-  %326 = ptrtoint ptr %325 to i64
-  %327 = trunc i64 %326 to i32
-  br i1 %.not17.i, label %328, label %331
+  %322 = getelementptr %class.VMRegPair, ptr %4, i64 %.034.ph.in.i
+  %323 = getelementptr i8, ptr %322, i64 -8
+  %324 = load ptr, ptr %323, align 8
+  %.not17.i = icmp ult ptr %324, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
+  %325 = ptrtoint ptr %324 to i64
+  %326 = trunc i64 %325 to i32
+  br i1 %.not17.i, label %327, label %330
 
-328:                                              ; preds = %322
-  %329 = sub i32 %327, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %330 = ashr i32 %329, 1
-  %or.cond.i.i.i = icmp ult i32 %330, 32
-  %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 %330, i32 -1
+327:                                              ; preds = %321
+  %328 = sub i32 %326, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %329 = ashr i32 %328, 1
+  %or.cond.i.i.i = icmp ult i32 %329, 32
+  %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 %329, i32 -1
   br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
 
-331:                                              ; preds = %322
-  %332 = sub i32 %327, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
-  %333 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %334 = mul nsw i32 %333, %332
-  %335 = add nsw i32 %334, 8
+330:                                              ; preds = %321
+  %331 = sub i32 %326, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
+  %332 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
+  %333 = mul nsw i32 %332, %331
+  %334 = add nsw i32 %333, 8
   store i32 4, ptr %15, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 -1, ptr %336, align 4
-  %337 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 -1, ptr %337, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 -1, ptr %338, align 4
-  %339 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 %335, ptr %339, align 8
-  %340 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i8 0, ptr %340, align 4
-  %341 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %341, align 8
-  %342 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr null, ptr %342, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store i32 0, ptr %343, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 -1, ptr %335, align 4
+  %336 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 -1, ptr %336, align 8
+  %337 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store i32 -1, ptr %337, align 4
+  %338 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i32 %334, ptr %338, align 8
+  %339 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  store i8 0, ptr %339, align 4
+  %340 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %340, align 8
+  %341 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store ptr null, ptr %341, align 8
+  %342 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store i32 0, ptr %342, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %15) #14
   br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
 
-.thread11.i:                                      ; preds = %331, %328, %319
-  %.sroa.0.115.i = phi i32 [ %spec.select.i.i.i, %328 ], [ 3, %331 ], [ -1, %319 ]
-  %344 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %345 = load ptr, ptr %344, align 8
-  %.not18.i = icmp ult ptr %345, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
-  br i1 %.not18.i, label %348, label %346
+.thread11.i:                                      ; preds = %330, %327, %318
+  %.sroa.0.115.i = phi i32 [ %spec.select.i.i.i, %327 ], [ 3, %330 ], [ -1, %318 ]
+  %343 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %344 = load ptr, ptr %343, align 8
+  %.not18.i = icmp ult ptr %344, getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617)
+  br i1 %.not18.i, label %347, label %345
 
-346:                                              ; preds = %.thread11.i
-  %347 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %347, align 1
+345:                                              ; preds = %.thread11.i
+  %346 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %346, align 1
   call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 1774, ptr noundef nonnull @.str.30) #15
   unreachable
 
-348:                                              ; preds = %.thread11.i
-  %349 = ptrtoint ptr %345 to i64
-  %350 = trunc i64 %349 to i32
-  %351 = sub i32 %350, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %352 = ashr i32 %351, 1
-  %or.cond.i.i38.i = icmp ult i32 %352, 32
-  %spec.select.i.i39.i = select i1 %or.cond.i.i38.i, i32 %352, i32 -1
+347:                                              ; preds = %.thread11.i
+  %348 = ptrtoint ptr %344 to i64
+  %349 = trunc i64 %348 to i32
+  %350 = sub i32 %349, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %351 = ashr i32 %350, 1
+  %or.cond.i.i38.i = icmp ult i32 %351, 32
+  %spec.select.i.i39.i = select i1 %or.cond.i.i38.i, i32 %351, i32 -1
   br label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
 
-_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit: ; preds = %328, %331, %348
-  %.sroa.0.114.i = phi i32 [ %.sroa.0.115.i, %348 ], [ 3, %331 ], [ %spec.select.i.i.i, %328 ]
-  %.sroa.013.0.i = phi i32 [ %spec.select.i.i39.i, %348 ], [ -1, %331 ], [ -1, %328 ]
+_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit: ; preds = %327, %330, %347
+  %.sroa.0.114.i = phi i32 [ %.sroa.0.115.i, %347 ], [ 3, %330 ], [ %spec.select.i.i.i, %327 ]
+  %.sroa.013.0.i = phi i32 [ %spec.select.i.i39.i, %347 ], [ -1, %330 ], [ -1, %327 ]
   call void @_ZN13MethodHandles31generate_method_handle_dispatchEP14MacroAssembler13vmIntrinsicID8RegisterS3_b(ptr noundef nonnull %0, i32 noundef %314, i32 %.sroa.013.0.i, i32 %.sroa.0.114.i, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %353 = load ptr, ptr %308, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
-  %355 = load ptr, ptr %354, align 8
-  %356 = ptrtoint ptr %355 to i64
-  %357 = sub nsw i64 %356, %312
-  %358 = trunc i64 %357 to i32
+  %352 = load ptr, ptr %308, align 8
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
+  %354 = load ptr, ptr %353, align 8
+  %355 = ptrtoint ptr %354 to i64
+  %356 = sub nsw i64 %355, %312
+  %357 = trunc i64 %356 to i32
   call void @_ZN17AbstractAssembler5flushEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
-  %359 = load ptr, ptr %308, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %359, i64 80
-  %361 = load ptr, ptr %360, align 8
-  %362 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %361, i32 noundef 0, i32 noundef %358, i32 noundef 0, i32 noundef -1, i32 noundef -1, ptr noundef null, i32 noundef -1) #14
-  br label %953
+  %358 = load ptr, ptr %308, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 80
+  %360 = load ptr, ptr %359, align 8
+  %361 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %360, i32 noundef 0, i32 noundef %357, i32 noundef 0, i32 noundef -1, i32 noundef -1, ptr noundef null, i32 noundef -1) #14
+  br label %952
 
-363:                                              ; preds = %303
-  %364 = getelementptr inbounds nuw i8, ptr %305, i64 88
-  %365 = load ptr, ptr %364, align 8
-  %366 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
-  tail call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %366) #14
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
-  %370 = load ptr, ptr %369, align 8
-  %371 = ptrtoint ptr %370 to i64
-  %372 = load ptr, ptr %1, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 46
-  %376 = load i16, ptr %375, align 2
-  %377 = zext i16 %376 to i32
-  %378 = getelementptr inbounds nuw i8, ptr %372, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %378, align 8
-  %379 = and i32 %.sroa.0.0.copyload.i.i, 8
-  %.not = icmp eq i32 %379, 0
-  %380 = select i1 %.not, i32 1, i32 2
-  %381 = add nuw nsw i32 %380, %377
-  %382 = zext nneg i32 %381 to i64
-  %383 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %382, i32 noundef 0) #14
-  %384 = shl nuw nsw i64 %382, 4
-  %385 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %384, i32 noundef 0) #14
-  store i8 15, ptr %383, align 1
-  %386 = load ptr, ptr %1, align 8
-  %387 = getelementptr inbounds nuw i8, ptr %386, i64 40
-  %.sroa.0.0.copyload.i.i578 = load i32, ptr %387, align 8
-  %388 = and i32 %.sroa.0.0.copyload.i.i578, 8
-  %.not658 = icmp eq i32 %388, 0
-  br i1 %.not658, label %391, label %389
+362:                                              ; preds = %303
+  %363 = getelementptr inbounds nuw i8, ptr %305, i64 88
+  %364 = load ptr, ptr %363, align 8
+  %365 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
+  tail call void @_ZN9OopMapSetC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %365) #14
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %367 = load ptr, ptr %366, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
+  %369 = load ptr, ptr %368, align 8
+  %370 = ptrtoint ptr %369 to i64
+  %371 = load ptr, ptr %1, align 8
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 46
+  %375 = load i16, ptr %374, align 2
+  %376 = zext i16 %375 to i32
+  %377 = getelementptr inbounds nuw i8, ptr %371, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %377, align 8
+  %378 = and i32 %.sroa.0.0.copyload.i.i, 8
+  %.not = icmp eq i32 %378, 0
+  %379 = select i1 %.not, i32 1, i32 2
+  %380 = add nuw nsw i32 %379, %376
+  %381 = zext nneg i32 %380 to i64
+  %382 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %381, i32 noundef 0) #14
+  %383 = shl nuw nsw i64 %381, 4
+  %384 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %383, i32 noundef 0) #14
+  store i8 15, ptr %382, align 1
+  %385 = load ptr, ptr %1, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 40
+  %.sroa.0.0.copyload.i.i578 = load i32, ptr %386, align 8
+  %387 = and i32 %.sroa.0.0.copyload.i.i578, 8
+  %.not646 = icmp eq i32 %387, 0
+  br i1 %.not646, label %390, label %388
 
-389:                                              ; preds = %363
-  %390 = getelementptr inbounds nuw i8, ptr %383, i64 1
-  store i8 12, ptr %390, align 1
-  br label %391
+388:                                              ; preds = %362
+  %389 = getelementptr inbounds nuw i8, ptr %382, i64 1
+  store i8 12, ptr %389, align 1
+  br label %390
 
-391:                                              ; preds = %389, %363
-  %.0563 = phi i64 [ 2, %389 ], [ 1, %363 ]
-  %.not682 = icmp eq i16 %376, 0
-  br i1 %.not682, label %._crit_edge, label %.lr.ph.preheader
+390:                                              ; preds = %388, %362
+  %.0563 = phi i64 [ 2, %388 ], [ 1, %362 ]
+  %.not670 = icmp eq i16 %375, 0
+  br i1 %.not670, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %391
-  %wide.trip.count = zext i16 %376 to i64
+.lr.ph.preheader:                                 ; preds = %390
+  %wide.trip.count = zext i16 %375 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv685 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next686, %.lr.ph ]
+  %indvars.iv673 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next674, %.lr.ph ]
   %indvars.iv = phi i64 [ %.0563, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %392 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv685
-  %393 = load i8, ptr %392, align 1
+  %391 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv673
+  %392 = load i8, ptr %391, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %394 = getelementptr inbounds nuw i8, ptr %383, i64 %indvars.iv
-  store i8 %393, ptr %394, align 1
-  %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next686, %wide.trip.count
+  %393 = getelementptr inbounds nuw i8, ptr %382, i64 %indvars.iv
+  store i8 %392, ptr %393, align 1
+  %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next674, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.lr.ph, %391
-  %395 = tail call noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef nonnull %383, ptr noundef %385, i32 noundef %381)
-  %396 = load i32, ptr @_ZN9VMRegImpl14slots_per_wordE, align 4
-  %397 = mul nsw i32 %396, 6
-  %398 = add nsw i32 %397, %395
-  %399 = load ptr, ptr %1, align 8
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 40
-  %.sroa.0.0.copyload.i.i579 = load i32, ptr %400, align 8
-  %401 = and i32 %.sroa.0.0.copyload.i.i579, 8
-  %.not659 = icmp eq i32 %401, 0
-  %402 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %403 = mul nsw i32 %402, %398
-  %.0568 = select i1 %.not659, i32 -1, i32 %403
-  %.0567 = select i1 %.not659, i32 0, i32 %398
-  %404 = select i1 %.not659, i32 0, i32 %396
-  %.0565 = add nsw i32 %404, %398
-  %405 = and i32 %.sroa.0.0.copyload.i.i579, 32
-  %.not660 = icmp eq i32 %405, 0
-  %.0569 = select i1 %.not660, i32 0, i32 %.0565
-  %406 = select i1 %.not660, i32 0, i32 %396
-  %407 = load i32, ptr @_ZL21StackAlignmentInSlots, align 4
-  %.1566 = add i32 %407, 5
-  %408 = add i32 %.1566, %406
-  %409 = add i32 %408, %.0565
-  %410 = sub i32 0, %407
-  %411 = and i32 %409, %410
-  %412 = mul nsw i32 %411, %402
+._crit_edge:                                      ; preds = %.lr.ph, %390
+  %394 = tail call noundef i32 @_ZN13SharedRuntime20c_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef nonnull %382, ptr noundef %384, i32 noundef %380)
+  %395 = load i32, ptr @_ZN9VMRegImpl14slots_per_wordE, align 4
+  %396 = mul nsw i32 %395, 6
+  %397 = add nsw i32 %396, %394
+  %398 = load ptr, ptr %1, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 40
+  %.sroa.0.0.copyload.i.i579 = load i32, ptr %399, align 8
+  %400 = and i32 %.sroa.0.0.copyload.i.i579, 8
+  %.not647 = icmp eq i32 %400, 0
+  %401 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
+  %402 = mul nsw i32 %401, %397
+  %.0568 = select i1 %.not647, i32 -1, i32 %402
+  %.0567 = select i1 %.not647, i32 0, i32 %397
+  %403 = select i1 %.not647, i32 0, i32 %395
+  %.0565 = add nsw i32 %403, %397
+  %404 = and i32 %.sroa.0.0.copyload.i.i579, 32
+  %.not648 = icmp eq i32 %404, 0
+  %.0569 = select i1 %.not648, i32 0, i32 %.0565
+  %405 = select i1 %.not648, i32 0, i32 %395
+  %406 = load i32, ptr @_ZL21StackAlignmentInSlots, align 4
+  %.1566 = add i32 %406, 5
+  %407 = add i32 %.1566, %405
+  %408 = add i32 %407, %.0565
+  %409 = sub i32 0, %406
+  %410 = and i32 %408, %409
+  %411 = mul nsw i32 %410, %401
   store i32 -1, ptr %35, align 8
-  %413 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  store i32 0, ptr %413, align 4
-  %414 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr null, ptr %414, align 8
-  %415 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i8 0, ptr %415, align 8
-  %416 = tail call noundef i32 @_ZN14MacroAssembler8ic_checkEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 8) #14
-  %417 = load ptr, ptr %367, align 8
-  %418 = getelementptr inbounds nuw i8, ptr %417, i64 16
-  %419 = load ptr, ptr %418, align 8
-  %420 = ptrtoint ptr %419 to i64
-  %421 = sub nsw i64 %420, %371
-  %422 = trunc i64 %421 to i32
-  %423 = load ptr, ptr %1, align 8
-  %424 = tail call noundef zeroext i1 @_ZNK6Method20needs_clinit_barrierEv(ptr noundef nonnull align 8 dereferenceable(88) %423) #14
-  br i1 %424, label %425, label %446
+  %412 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  store i32 0, ptr %412, align 4
+  %413 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr null, ptr %413, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i8 0, ptr %414, align 8
+  %415 = tail call noundef i32 @_ZN14MacroAssembler8ic_checkEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 8) #14
+  %416 = load ptr, ptr %366, align 8
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
+  %418 = load ptr, ptr %417, align 8
+  %419 = ptrtoint ptr %418 to i64
+  %420 = sub nsw i64 %419, %370
+  %421 = trunc i64 %420 to i32
+  %422 = load ptr, ptr %1, align 8
+  %423 = tail call noundef zeroext i1 @_ZNK6Method20needs_clinit_barrierEv(ptr noundef nonnull align 8 dereferenceable(88) %422) #14
+  br i1 %423, label %424, label %445
 
-425:                                              ; preds = %._crit_edge
+424:                                              ; preds = %._crit_edge
   store i32 -1, ptr %36, align 8
-  %426 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  store i32 0, ptr %426, align 4
-  %427 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr null, ptr %427, align 8
-  %428 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i8 0, ptr %428, align 8
-  %429 = load ptr, ptr %1, align 8
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  %431 = load ptr, ptr %430, align 8
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 8
-  %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds nuw i8, ptr %433, i64 24
-  %435 = load ptr, ptr %434, align 8
-  tail call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 10, ptr noundef %435) #14
+  %425 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  store i32 0, ptr %425, align 4
+  %426 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store ptr null, ptr %426, align 8
+  %427 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store i8 0, ptr %427, align 8
+  %428 = load ptr, ptr %1, align 8
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
+  %430 = load ptr, ptr %429, align 8
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %432 = load ptr, ptr %431, align 8
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 24
+  %434 = load ptr, ptr %433, align 8
+  tail call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 10, ptr noundef %434) #14
   call void @_ZN14MacroAssembler14clinit_barrierE8RegisterS0_P5LabelS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 10, i32 15, ptr noundef nonnull %36, ptr noundef null) #14
-  %436 = load ptr, ptr @_ZN13SharedRuntime18_wrong_method_blobE, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 36
-  %438 = load i32, ptr %437, align 4
-  %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds i8, ptr %436, i64 %439
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef %440, i32 noundef 6) #14
-  %441 = load ptr, ptr %38, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  %443 = load ptr, ptr %442, align 8
-  call void %443(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %37) #14
-  %444 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %445 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %444, ptr noundef nonnull align 8 dereferenceable(16) %445, i64 16, i1 false)
+  %435 = load ptr, ptr @_ZN13SharedRuntime18_wrong_method_blobE, align 8
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 36
+  %437 = load i32, ptr %436, align 4
+  %438 = sext i32 %437 to i64
+  %439 = getelementptr inbounds i8, ptr %435, i64 %438
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef %439, i32 noundef 6) #14
+  %440 = load ptr, ptr %38, align 8
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 16
+  %442 = load ptr, ptr %441, align 8
+  call void %442(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %37) #14
+  %443 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %444 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %443, ptr noundef nonnull align 8 dereferenceable(16) %444, i64 16, i1 false)
   call void @_ZN14MacroAssembler4jumpE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %37, i32 -1) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %36) #14
-  br label %446
+  br label %445
 
-446:                                              ; preds = %425, %._crit_edge
-  %447 = load i8, ptr @InlineObjectHash, align 1
-  %448 = trunc i8 %447 to i1
+445:                                              ; preds = %424, %._crit_edge
+  %446 = load i8, ptr @InlineObjectHash, align 1
+  %447 = trunc i8 %446 to i1
   %.pre = load ptr, ptr %1, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %.pre, i64 52
-  %450 = load i16, ptr %449, align 4
-  %451 = icmp eq i16 %450, 1
-  %or.cond = select i1 %448, i1 %451, i1 false
-  %452 = icmp eq i16 %450, 91
-  %or.cond717 = select i1 %or.cond, i1 true, i1 %452
-  br i1 %or.cond717, label %453, label %454
+  %448 = getelementptr inbounds nuw i8, ptr %.pre, i64 52
+  %449 = load i16, ptr %448, align 4
+  %450 = icmp eq i16 %449, 1
+  %or.cond = select i1 %447, i1 %450, i1 false
+  %451 = icmp eq i16 %449, 91
+  %or.cond705 = select i1 %or.cond, i1 true, i1 %451
+  br i1 %or.cond705, label %452, label %453
 
-453:                                              ; preds = %446
+452:                                              ; preds = %445
   call void @_ZN13SharedRuntime40inline_check_hashcode_from_object_headerEP14MacroAssemblerRK12methodHandle8RegisterS5_(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 6, i32 0) #14
-  br label %454
+  br label %453
 
-454:                                              ; preds = %446, %453
-  %455 = load i64, ptr @_ZN13StackOverflow23_stack_shadow_zone_sizeE, align 8
-  %456 = trunc i64 %455 to i32
-  %457 = load ptr, ptr %0, align 8
-  %458 = load ptr, ptr %457, align 8
-  call void %458(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %456) #14
+453:                                              ; preds = %445, %452
+  %454 = load i64, ptr @_ZN13StackOverflow23_stack_shadow_zone_sizeE, align 8
+  %455 = trunc i64 %454 to i32
+  %456 = load ptr, ptr %0, align 8
+  %457 = load ptr, ptr %456, align 8
+  call void %457(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %455) #14
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  %459 = add nsw i32 %412, -16
-  call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef %459) #14
-  %460 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %461 = getelementptr inbounds nuw i8, ptr %460, i64 24
+  %458 = add nsw i32 %411, -16
+  call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef %458) #14
+  %459 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 24
+  %461 = load ptr, ptr %460, align 8
   %462 = load ptr, ptr %461, align 8
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 96
-  %465 = load ptr, ptr %464, align 8
-  call void %465(ptr noundef nonnull align 8 dereferenceable(8) %462, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #14
-  %466 = load ptr, ptr %367, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %466, i64 16
-  %468 = load ptr, ptr %467, align 8
-  %469 = ptrtoint ptr %468 to i64
-  %470 = sub nsw i64 %469, %371
-  %471 = trunc i64 %470 to i32
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 96
+  %464 = load ptr, ptr %463, align 8
+  call void %464(ptr noundef nonnull align 8 dereferenceable(8) %461, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #14
+  %465 = load ptr, ptr %366, align 8
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 16
+  %467 = load ptr, ptr %466, align 8
+  %468 = ptrtoint ptr %467 to i64
+  %469 = sub nsw i64 %468, %370
+  %470 = trunc i64 %469 to i32
   store i32 -1, ptr %39, align 4
-  %472 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %473 = shl nsw i32 %411, 1
-  call void @_ZN6OopMapC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %472, i32 noundef %473, i32 noundef 0) #14
-  %474 = shl nuw nsw i32 %377, 1
-  %475 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %474, i32 noundef 4) #14
-  br i1 %.not682, label %._crit_edge681, label %.lr.ph677.preheader
+  %471 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
+  %472 = shl nsw i32 %410, 1
+  call void @_ZN6OopMapC1Eii(ptr noundef nonnull align 8 dereferenceable(32) %471, i32 noundef %472, i32 noundef 0) #14
+  %473 = shl nuw nsw i32 %376, 1
+  %474 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %473, i32 noundef 4) #14
+  br i1 %.not670, label %._crit_edge669, label %.lr.ph665.preheader
 
-.lr.ph677.preheader:                              ; preds = %454
-  %476 = shl nuw nsw i32 %377, 3
-  %477 = zext nneg i32 %476 to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %475, i8 0, i64 %477, i1 false)
-  br label %.lr.ph677
+.lr.ph665.preheader:                              ; preds = %453
+  %475 = shl nuw nsw i32 %376, 3
+  %476 = zext nneg i32 %475 to i64
+  call void @llvm.memset.p0.i64(ptr align 4 %474, i8 0, i64 %476, i1 false)
+  br label %.lr.ph665
 
 .preheader:                                       ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
-  %478 = and i64 %indvars.iv.next691, 4294967294
-  br label %.lr.ph680
+  %477 = and i64 %indvars.iv.next679, 4294967294
+  br label %.lr.ph668
 
-.lr.ph677:                                        ; preds = %.lr.ph677.preheader, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
-  %indvar = phi i32 [ 0, %.lr.ph677.preheader ], [ %indvar.next, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %indvars.iv693 = phi i64 [ 1, %.lr.ph677.preheader ], [ %indvars.iv.next694, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %indvars.iv690 = phi i64 [ 0, %.lr.ph677.preheader ], [ %indvars.iv.next691, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %storemerge676.in = phi i32 [ %381, %.lr.ph677.preheader ], [ %storemerge676, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %.0654675.in = phi i32 [ %377, %.lr.ph677.preheader ], [ %.0654675, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %.sroa.14.0673 = phi i32 [ %474, %.lr.ph677.preheader ], [ %.sroa.14.2, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %.sroa.25.0672 = phi ptr [ %475, %.lr.ph677.preheader ], [ %.sroa.25.2, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
-  %indvars.iv.next691 = add nuw nsw i64 %indvars.iv690, 2
-  %479 = shl nuw i32 %indvar, 1
-  %.0654675 = add nsw i32 %.0654675.in, -1
-  %storemerge676 = add nsw i32 %storemerge676.in, -1
-  %480 = zext i32 %.sroa.14.0673 to i64
-  %481 = icmp eq i64 %indvars.iv690, %480
-  %482 = or disjoint i64 %indvars.iv690, 1
-  br i1 %481, label %_ZN13GrowableArrayIiE8allocateEv.exit.i, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
+.lr.ph665:                                        ; preds = %.lr.ph665.preheader, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
+  %indvar = phi i32 [ 0, %.lr.ph665.preheader ], [ %indvar.next, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %indvars.iv681 = phi i64 [ 1, %.lr.ph665.preheader ], [ %indvars.iv.next682, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %indvars.iv678 = phi i64 [ 0, %.lr.ph665.preheader ], [ %indvars.iv.next679, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %storemerge664.in = phi i32 [ %380, %.lr.ph665.preheader ], [ %storemerge664, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %.0642663.in = phi i32 [ %376, %.lr.ph665.preheader ], [ %.0642663, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %.sroa.13.0661 = phi i32 [ %473, %.lr.ph665.preheader ], [ %.sroa.13.2, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %.sroa.24.0660 = phi ptr [ %474, %.lr.ph665.preheader ], [ %.sroa.24.2, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584 ]
+  %indvars.iv.next679 = add nuw nsw i64 %indvars.iv678, 2
+  %478 = shl nuw i32 %indvar, 1
+  %.0642663 = add nsw i32 %.0642663.in, -1
+  %storemerge664 = add nsw i32 %storemerge664.in, -1
+  %479 = zext i32 %.sroa.13.0661 to i64
+  %480 = icmp eq i64 %indvars.iv678, %479
+  %481 = or disjoint i64 %indvars.iv678, 1
+  br i1 %480, label %_ZN13GrowableArrayIiE8allocateEv.exit.i, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
 
-_ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.lr.ph677
-  %483 = icmp eq i64 %indvars.iv690, 0
-  %484 = trunc nuw nsw i64 %482 to i32
-  %485 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %484, i1 true)
-  %486 = sub nuw nsw i32 32, %485
-  %487 = shl nuw i32 1, %486
-  %.0.i.i.i.i.i = select i1 %483, i32 1, i32 %487
-  %488 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i, i32 noundef 4) #14
-  br i1 %483, label %.preheader16.i, label %.lr.ph.i
+_ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.lr.ph665
+  %482 = icmp eq i64 %indvars.iv678, 0
+  %483 = trunc nuw nsw i64 %481 to i32
+  %484 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %483, i1 true)
+  %485 = sub nuw nsw i32 32, %484
+  %486 = shl nuw i32 1, %485
+  %.0.i.i.i.i.i = select i1 %482, i32 1, i32 %486
+  %487 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i, i32 noundef 4) #14
+  br i1 %482, label %.preheader15.i, label %.lr.ph.i
 
-.preheader16.loopexit.i:                          ; preds = %.lr.ph.i
-  %489 = trunc nuw nsw i64 %indvars.iv690 to i32
-  br label %.preheader16.i
+.preheader15.loopexit.i:                          ; preds = %.lr.ph.i
+  %488 = trunc nuw nsw i64 %indvars.iv678 to i32
+  br label %.preheader15.i
 
-.preheader16.i:                                   ; preds = %.preheader16.loopexit.i, %_ZN13GrowableArrayIiE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i ], [ %489, %.preheader16.loopexit.i ]
-  %490 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i.i
-  br i1 %490, label %.lr.ph19.preheader.i, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
+.preheader15.i:                                   ; preds = %.preheader15.loopexit.i, %_ZN13GrowableArrayIiE8allocateEv.exit.i
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i ], [ %488, %.preheader15.loopexit.i ]
+  %489 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i.i
+  br i1 %489, label %.lr.ph18.preheader.i, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
 
-.lr.ph19.preheader.i:                             ; preds = %.preheader16.i
-  %491 = zext i32 %.0.lcssa.i to i64
-  %492 = shl nuw nsw i64 %491, 2
-  %scevgep = getelementptr i8, ptr %488, i64 %492
-  %493 = xor i32 %.0.lcssa.i, -1
-  %494 = add i32 %.0.i.i.i.i.i, %493
-  %495 = zext i32 %494 to i64
-  %496 = shl nuw nsw i64 %495, 2
-  %497 = add nuw nsw i64 %496, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %497, i1 false)
+.lr.ph18.preheader.i:                             ; preds = %.preheader15.i
+  %490 = zext i32 %.0.lcssa.i to i64
+  %491 = shl nuw nsw i64 %490, 2
+  %scevgep = getelementptr i8, ptr %487, i64 %491
+  %492 = xor i32 %.0.lcssa.i, -1
+  %493 = add i32 %.0.i.i.i.i.i, %492
+  %494 = zext i32 %493 to i64
+  %495 = shl nuw nsw i64 %494, 2
+  %496 = add nuw nsw i64 %495, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %496, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
 
 .lr.ph.i:                                         ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i ]
-  %498 = getelementptr inbounds nuw i32, ptr %488, i64 %indvars.iv.i
-  %499 = getelementptr inbounds nuw i32, ptr %.sroa.25.0672, i64 %indvars.iv.i
-  %500 = load i32, ptr %499, align 4
-  store i32 %500, ptr %498, align 4
+  %497 = getelementptr inbounds nuw i32, ptr %487, i64 %indvars.iv.i
+  %498 = getelementptr inbounds nuw i32, ptr %.sroa.24.0660, i64 %indvars.iv.i
+  %499 = load i32, ptr %498, align 4
+  store i32 %499, ptr %497, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond692.not = icmp eq i64 %indvars.iv.next.i, %indvars.iv690
-  br i1 %exitcond692.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !33
+  %exitcond680.not = icmp eq i64 %indvars.iv.next.i, %indvars.iv678
+  br i1 %exitcond680.not, label %.preheader15.loopexit.i, label %.lr.ph.i, !llvm.loop !33
 
-_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %.lr.ph677, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.25.1 = phi ptr [ %488, %.preheader16.i ], [ %488, %.lr.ph19.preheader.i ], [ %.sroa.25.0672, %.lr.ph677 ]
-  %.sroa.14.1 = phi i32 [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.14.0673, %.lr.ph677 ]
-  %501 = getelementptr inbounds nuw i32, ptr %.sroa.25.1, i64 %indvars.iv690
-  store i32 %.0654675, ptr %501, align 4
-  %502 = zext i32 %.sroa.14.1 to i64
-  %503 = icmp eq i64 %482, %502
-  br i1 %503, label %_ZN13GrowableArrayIiE8allocateEv.exit.i592, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
+_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %.lr.ph665, %.lr.ph18.preheader.i, %.preheader15.i
+  %.sroa.24.1 = phi ptr [ %487, %.preheader15.i ], [ %487, %.lr.ph18.preheader.i ], [ %.sroa.24.0660, %.lr.ph665 ]
+  %.sroa.13.1 = phi i32 [ %.0.i.i.i.i.i, %.preheader15.i ], [ %.0.i.i.i.i.i, %.lr.ph18.preheader.i ], [ %.sroa.13.0661, %.lr.ph665 ]
+  %500 = getelementptr inbounds nuw i32, ptr %.sroa.24.1, i64 %indvars.iv678
+  store i32 %.0642663, ptr %500, align 4
+  %501 = zext i32 %.sroa.13.1 to i64
+  %502 = icmp eq i64 %481, %501
+  br i1 %502, label %_ZN13GrowableArrayIiE8allocateEv.exit.i590, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
 
-_ZN13GrowableArrayIiE8allocateEv.exit.i592:       ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
-  %504 = trunc nuw nsw i64 %indvars.iv.next691 to i32
-  %505 = call range(i32 1, 31) i32 @llvm.ctpop.i32(i32 %504)
-  %506 = icmp samesign ult i32 %505, 2
-  %507 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %504, i1 true)
-  %508 = sub nuw nsw i32 32, %507
-  %509 = shl nuw i32 1, %508
-  %.0.i.i.i.i.i582 = select i1 %506, i32 %504, i32 %509
-  %510 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i582, i32 noundef 4) #14
-  br label %.lr.ph.i603
+_ZN13GrowableArrayIiE8allocateEv.exit.i590:       ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
+  %503 = trunc nuw nsw i64 %indvars.iv.next679 to i32
+  %504 = call range(i32 1, 31) i32 @llvm.ctpop.i32(i32 %503)
+  %505 = icmp samesign ult i32 %504, 2
+  %506 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %503, i1 true)
+  %507 = sub nuw nsw i32 32, %506
+  %508 = shl nuw i32 1, %507
+  %.0.i.i.i.i.i582 = select i1 %505, i32 %503, i32 %508
+  %509 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i582, i32 noundef 4) #14
+  br label %.lr.ph.i600
 
-.preheader16.loopexit.i606:                       ; preds = %.lr.ph.i603
-  %511 = trunc nuw nsw i64 %indvars.iv693 to i32
-  %512 = icmp sgt i32 %.0.i.i.i.i.i582, %511
-  br i1 %512, label %.lr.ph19.preheader.i599, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
+.preheader15.loopexit.i603:                       ; preds = %.lr.ph.i600
+  %510 = trunc nuw nsw i64 %indvars.iv681 to i32
+  %511 = icmp sgt i32 %.0.i.i.i.i.i582, %510
+  br i1 %511, label %.lr.ph18.preheader.i596, label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
 
-.lr.ph19.preheader.i599:                          ; preds = %.preheader16.loopexit.i606
-  %513 = shl nuw nsw i64 %indvars.iv.i604, 2
-  %514 = getelementptr i8, ptr %510, i64 %513
-  %scevgep696 = getelementptr i8, ptr %514, i64 4
-  %smax = call i32 @llvm.smax.i32(i32 %.0.i.i.i.i.i582, i32 %504)
-  %reass.sub = sub i32 %smax, %479
-  %515 = add i32 %reass.sub, -2
-  %516 = zext i32 %515 to i64
-  %517 = shl nuw nsw i64 %516, 2
-  %518 = add nuw nsw i64 %517, 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep696, i8 0, i64 %518, i1 false)
+.lr.ph18.preheader.i596:                          ; preds = %.preheader15.loopexit.i603
+  %512 = shl nuw nsw i64 %indvars.iv.i601, 2
+  %513 = getelementptr i8, ptr %509, i64 %512
+  %scevgep684 = getelementptr i8, ptr %513, i64 4
+  %smax = call i32 @llvm.smax.i32(i32 %.0.i.i.i.i.i582, i32 %503)
+  %reass.sub = sub i32 %smax, %478
+  %514 = add i32 %reass.sub, -2
+  %515 = zext i32 %514 to i64
+  %516 = shl nuw nsw i64 %515, 2
+  %517 = add nuw nsw i64 %516, 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep684, i8 0, i64 %517, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584
 
-.lr.ph.i603:                                      ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit.i592, %.lr.ph.i603
-  %indvars.iv.i604 = phi i64 [ %indvars.iv.next.i605, %.lr.ph.i603 ], [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i592 ]
-  %519 = getelementptr inbounds nuw i32, ptr %510, i64 %indvars.iv.i604
-  %520 = getelementptr inbounds nuw i32, ptr %.sroa.25.1, i64 %indvars.iv.i604
-  %521 = load i32, ptr %520, align 4
-  store i32 %521, ptr %519, align 4
-  %indvars.iv.next.i605 = add nuw nsw i64 %indvars.iv.i604, 1
-  %exitcond695.not = icmp eq i64 %indvars.iv.next.i605, %indvars.iv693
-  br i1 %exitcond695.not, label %.preheader16.loopexit.i606, label %.lr.ph.i603, !llvm.loop !33
+.lr.ph.i600:                                      ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit.i590, %.lr.ph.i600
+  %indvars.iv.i601 = phi i64 [ %indvars.iv.next.i602, %.lr.ph.i600 ], [ 0, %_ZN13GrowableArrayIiE8allocateEv.exit.i590 ]
+  %518 = getelementptr inbounds nuw i32, ptr %509, i64 %indvars.iv.i601
+  %519 = getelementptr inbounds nuw i32, ptr %.sroa.24.1, i64 %indvars.iv.i601
+  %520 = load i32, ptr %519, align 4
+  store i32 %520, ptr %518, align 4
+  %indvars.iv.next.i602 = add nuw nsw i64 %indvars.iv.i601, 1
+  %exitcond683.not = icmp eq i64 %indvars.iv.next.i602, %indvars.iv681
+  br i1 %exitcond683.not, label %.preheader15.loopexit.i603, label %.lr.ph.i600, !llvm.loop !33
 
-_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds = %.lr.ph19.preheader.i599, %.preheader16.loopexit.i606, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
-  %.sroa.25.2 = phi ptr [ %.sroa.25.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %510, %.preheader16.loopexit.i606 ], [ %510, %.lr.ph19.preheader.i599 ]
-  %.sroa.14.2 = phi i32 [ %.sroa.14.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %.0.i.i.i.i.i582, %.preheader16.loopexit.i606 ], [ %.0.i.i.i.i.i582, %.lr.ph19.preheader.i599 ]
-  %522 = getelementptr inbounds nuw i32, ptr %.sroa.25.2, i64 %482
-  store i32 %storemerge676, ptr %522, align 4
-  %indvars.iv.next694 = add nuw nsw i64 %indvars.iv693, 2
+_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit584: ; preds = %.lr.ph18.preheader.i596, %.preheader15.loopexit.i603, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit
+  %.sroa.24.2 = phi ptr [ %.sroa.24.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %509, %.preheader15.loopexit.i603 ], [ %509, %.lr.ph18.preheader.i596 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit ], [ %.0.i.i.i.i.i582, %.preheader15.loopexit.i603 ], [ %.0.i.i.i.i.i582, %.lr.ph18.preheader.i596 ]
+  %521 = getelementptr inbounds nuw i32, ptr %.sroa.24.2, i64 %481
+  store i32 %storemerge664, ptr %521, align 4
+  %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 2
   %indvar.next = add nuw nsw i32 %indvar, 1
-  %exitcond698.not = icmp eq i32 %indvar.next, %377
-  br i1 %exitcond698.not, label %.preheader, label %.lr.ph677, !llvm.loop !34
+  %exitcond686.not = icmp eq i32 %indvar.next, %376
+  br i1 %exitcond686.not, label %.preheader, label %.lr.ph665, !llvm.loop !34
 
-.lr.ph680:                                        ; preds = %.preheader, %553
-  %indvars.iv699 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next700, %553 ]
-  %523 = getelementptr inbounds nuw i32, ptr %.sroa.25.2, i64 %indvars.iv699
-  %524 = load i32, ptr %523, align 4
-  %525 = getelementptr inbounds nuw i8, ptr %523, i64 4
-  %526 = load i32, ptr %525, align 4
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %40, ptr noundef nonnull @.str.10, i32 noundef %524, i32 noundef %526)
-  %527 = load ptr, ptr %40, align 8
-  call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %527) #14
-  %528 = sext i32 %524 to i64
-  %529 = getelementptr inbounds i8, ptr %3, i64 %528
-  %530 = load i8, ptr %529, align 1
-  switch i8 %530, label %549 [
-    i8 13, label %531
-    i8 12, label %531
-    i8 14, label %553
-    i8 6, label %537
-    i8 7, label %541
-    i8 11, label %545
+.lr.ph668:                                        ; preds = %.preheader, %552
+  %indvars.iv687 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next688, %552 ]
+  %522 = getelementptr inbounds nuw i32, ptr %.sroa.24.2, i64 %indvars.iv687
+  %523 = load i32, ptr %522, align 4
+  %524 = getelementptr inbounds nuw i8, ptr %522, i64 4
+  %525 = load i32, ptr %524, align 4
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %40, ptr noundef nonnull @.str.10, i32 noundef %523, i32 noundef %525)
+  %526 = load ptr, ptr %40, align 8
+  call void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %526) #14
+  %527 = sext i32 %523 to i64
+  %528 = getelementptr inbounds i8, ptr %3, i64 %527
+  %529 = load i8, ptr %528, align 1
+  switch i8 %529, label %548 [
+    i8 13, label %530
+    i8 12, label %530
+    i8 14, label %552
+    i8 6, label %536
+    i8 7, label %540
+    i8 11, label %544
   ]
 
-531:                                              ; preds = %.lr.ph680, %.lr.ph680
-  %532 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %528
-  %.sroa.0189.0.copyload = load ptr, ptr %532, align 8
-  %.sroa.2190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %532, i64 8
+530:                                              ; preds = %.lr.ph668, %.lr.ph668
+  %531 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %.sroa.0189.0.copyload = load ptr, ptr %531, align 8
+  %.sroa.2190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %531, i64 8
   %.sroa.2190.0.copyload = load ptr, ptr %.sroa.2190.0..sroa_idx, align 8
-  %533 = sext i32 %526 to i64
-  %534 = getelementptr inbounds %class.VMRegPair, ptr %385, i64 %533
-  %535 = or i32 %524, %401
-  %536 = icmp eq i32 %535, 0
-  call void @_ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %472, i32 noundef %395, i32 noundef %411, ptr %.sroa.0189.0.copyload, ptr %.sroa.2190.0.copyload, ptr noundef nonnull byval(%class.VMRegPair) align 8 %534, i1 noundef zeroext %536, ptr noundef nonnull %39) #14
-  br label %553
+  %532 = sext i32 %525 to i64
+  %533 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %532
+  %534 = or i32 %523, %400
+  %535 = icmp eq i32 %534, 0
+  call void @_ZN14MacroAssembler11object_moveEP6OopMapii9VMRegPairS2_bPi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %471, i32 noundef %394, i32 noundef %410, ptr %.sroa.0189.0.copyload, ptr %.sroa.2190.0.copyload, ptr noundef nonnull byval(%class.VMRegPair) align 8 %533, i1 noundef zeroext %535, ptr noundef nonnull %39) #14
+  br label %552
 
-537:                                              ; preds = %.lr.ph680
-  %538 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %528
-  %.sroa.0187.0.copyload = load ptr, ptr %538, align 8
-  %.sroa.2188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %538, i64 8
+536:                                              ; preds = %.lr.ph668
+  %537 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %.sroa.0187.0.copyload = load ptr, ptr %537, align 8
+  %.sroa.2188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %537, i64 8
   %.sroa.2188.0.copyload = load ptr, ptr %.sroa.2188.0..sroa_idx, align 8
-  %539 = sext i32 %526 to i64
-  %540 = getelementptr inbounds %class.VMRegPair, ptr %385, i64 %539
-  %.sroa.0185.0.copyload = load ptr, ptr %540, align 8
-  %.sroa.2186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %540, i64 8
+  %538 = sext i32 %525 to i64
+  %539 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %538
+  %.sroa.0185.0.copyload = load ptr, ptr %539, align 8
+  %.sroa.2186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %539, i64 8
   %.sroa.2186.0.copyload = load ptr, ptr %.sroa.2186.0..sroa_idx, align 8
   call void @_ZN14MacroAssembler10float_moveE9VMRegPairS0_8Registerii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0187.0.copyload, ptr %.sroa.2188.0.copyload, ptr %.sroa.0185.0.copyload, ptr %.sroa.2186.0.copyload, i32 0, i32 noundef 0, i32 noundef 0) #14
-  br label %553
+  br label %552
 
-541:                                              ; preds = %.lr.ph680
-  %542 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %528
-  %.sroa.0182.0.copyload = load ptr, ptr %542, align 8
-  %.sroa.2183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %542, i64 8
+540:                                              ; preds = %.lr.ph668
+  %541 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %.sroa.0182.0.copyload = load ptr, ptr %541, align 8
+  %.sroa.2183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %541, i64 8
   %.sroa.2183.0.copyload = load ptr, ptr %.sroa.2183.0..sroa_idx, align 8
-  %543 = sext i32 %526 to i64
-  %544 = getelementptr inbounds %class.VMRegPair, ptr %385, i64 %543
-  %.sroa.0180.0.copyload = load ptr, ptr %544, align 8
-  %.sroa.2181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 8
+  %542 = sext i32 %525 to i64
+  %543 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %542
+  %.sroa.0180.0.copyload = load ptr, ptr %543, align 8
+  %.sroa.2181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %543, i64 8
   %.sroa.2181.0.copyload = load ptr, ptr %.sroa.2181.0..sroa_idx, align 8
   call void @_ZN14MacroAssembler11double_moveE9VMRegPairS0_8Registerii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0182.0.copyload, ptr %.sroa.2183.0.copyload, ptr %.sroa.0180.0.copyload, ptr %.sroa.2181.0.copyload, i32 0, i32 noundef 0, i32 noundef 0) #14
-  br label %553
+  br label %552
 
-545:                                              ; preds = %.lr.ph680
-  %546 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %528
-  %.sroa.0177.0.copyload = load ptr, ptr %546, align 8
-  %.sroa.2178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %546, i64 8
+544:                                              ; preds = %.lr.ph668
+  %545 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %.sroa.0177.0.copyload = load ptr, ptr %545, align 8
+  %.sroa.2178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %545, i64 8
   %.sroa.2178.0.copyload = load ptr, ptr %.sroa.2178.0..sroa_idx, align 8
-  %547 = sext i32 %526 to i64
-  %548 = getelementptr inbounds %class.VMRegPair, ptr %385, i64 %547
-  %.sroa.0175.0.copyload = load ptr, ptr %548, align 8
-  %.sroa.2176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %548, i64 8
+  %546 = sext i32 %525 to i64
+  %547 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %546
+  %.sroa.0175.0.copyload = load ptr, ptr %547, align 8
+  %.sroa.2176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %547, i64 8
   %.sroa.2176.0.copyload = load ptr, ptr %.sroa.2176.0..sroa_idx, align 8
   call void @_ZN14MacroAssembler9long_moveE9VMRegPairS0_8Registerii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0177.0.copyload, ptr %.sroa.2178.0.copyload, ptr %.sroa.0175.0.copyload, ptr %.sroa.2176.0.copyload, i32 0, i32 noundef 0, i32 noundef 0) #14
-  br label %553
+  br label %552
 
-549:                                              ; preds = %.lr.ph680
-  %550 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %528
-  %.sroa.0172.0.copyload = load ptr, ptr %550, align 8
-  %.sroa.2173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %550, i64 8
+548:                                              ; preds = %.lr.ph668
+  %549 = getelementptr inbounds %class.VMRegPair, ptr %4, i64 %527
+  %.sroa.0172.0.copyload = load ptr, ptr %549, align 8
+  %.sroa.2173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %549, i64 8
   %.sroa.2173.0.copyload = load ptr, ptr %.sroa.2173.0..sroa_idx, align 8
-  %551 = sext i32 %526 to i64
-  %552 = getelementptr inbounds %class.VMRegPair, ptr %385, i64 %551
-  %.sroa.0171.0.copyload = load ptr, ptr %552, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %552, i64 8
+  %550 = sext i32 %525 to i64
+  %551 = getelementptr inbounds %class.VMRegPair, ptr %384, i64 %550
+  %.sroa.0171.0.copyload = load ptr, ptr %551, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %551, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN14MacroAssembler9move32_64E9VMRegPairS0_8Registerii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.0172.0.copyload, ptr %.sroa.2173.0.copyload, ptr %.sroa.0171.0.copyload, ptr %.sroa.2.0.copyload, i32 0, i32 noundef 0, i32 noundef 0) #14
-  br label %553
+  br label %552
 
-553:                                              ; preds = %531, %537, %541, %545, %549, %.lr.ph680
-  %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 2
-  %554 = icmp samesign ult i64 %indvars.iv.next700, %478
-  br i1 %554, label %.lr.ph680, label %._crit_edge681, !llvm.loop !35
+552:                                              ; preds = %530, %536, %540, %544, %548, %.lr.ph668
+  %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 2
+  %553 = icmp samesign ult i64 %indvars.iv.next688, %477
+  br i1 %553, label %.lr.ph668, label %._crit_edge669, !llvm.loop !35
 
-._crit_edge681:                                   ; preds = %553, %454
-  %555 = load ptr, ptr %1, align 8
-  %556 = getelementptr inbounds nuw i8, ptr %555, i64 40
-  %.sroa.0.0.copyload.i.i585 = load i32, ptr %556, align 8
-  %557 = and i32 %.sroa.0.0.copyload.i.i585, 8
-  %.not662 = icmp eq i32 %557, 0
-  br i1 %.not662, label %594, label %558
+._crit_edge669:                                   ; preds = %552, %453
+  %554 = load ptr, ptr %1, align 8
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 40
+  %.sroa.0.0.copyload.i.i585 = load i32, ptr %555, align 8
+  %556 = and i32 %.sroa.0.0.copyload.i.i585, 8
+  %.not650 = icmp eq i32 %556, 0
+  br i1 %.not650, label %593, label %557
 
-558:                                              ; preds = %._crit_edge681
-  %559 = getelementptr inbounds nuw i8, ptr %555, i64 8
-  %560 = load ptr, ptr %559, align 8
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 8
-  %562 = load ptr, ptr %561, align 8
-  %563 = getelementptr inbounds nuw i8, ptr %562, i64 24
-  %564 = load ptr, ptr %563, align 8
-  %565 = getelementptr inbounds nuw i8, ptr %564, i64 112
-  %566 = load ptr, ptr %565, align 8
-  %567 = icmp eq ptr %566, null
-  br i1 %567, label %_ZNK5Klass11java_mirrorEv.exit, label %568
+557:                                              ; preds = %._crit_edge669
+  %558 = getelementptr inbounds nuw i8, ptr %554, i64 8
+  %559 = load ptr, ptr %558, align 8
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 8
+  %561 = load ptr, ptr %560, align 8
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 24
+  %563 = load ptr, ptr %562, align 8
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 112
+  %565 = load ptr, ptr %564, align 8
+  %566 = icmp eq ptr %565, null
+  br i1 %566, label %_ZNK5Klass11java_mirrorEv.exit, label %567
 
-568:                                              ; preds = %558
-  %569 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %570 = call noundef ptr %569(ptr noundef nonnull %566) #14
+567:                                              ; preds = %557
+  %568 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %569 = call noundef ptr %568(ptr noundef nonnull %565) #14
   br label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %558, %568
-  %571 = phi ptr [ %570, %568 ], [ null, %558 ]
-  %572 = call noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef %571) #14
-  call void @_ZN14MacroAssembler6movoopE8RegisterP8_jobject(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 14, ptr noundef %572) #14
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %557, %567
+  %570 = phi ptr [ %569, %567 ], [ null, %557 ]
+  %571 = call noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef %570) #14
+  call void @_ZN14MacroAssembler6movoopE8RegisterP8_jobject(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 14, ptr noundef %571) #14
   store i32 4, ptr %41, align 8
-  %573 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 -1, ptr %573, align 4
-  %574 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 -1, ptr %574, align 8
-  %575 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i32 -1, ptr %575, align 4
-  %576 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i32 %.0568, ptr %576, align 8
-  %577 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  store i8 0, ptr %577, align 4
-  %578 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %578, align 8
-  %579 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr null, ptr %579, align 8
-  %580 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store i32 0, ptr %580, align 8
+  %572 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 -1, ptr %572, align 4
+  %573 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i32 -1, ptr %573, align 8
+  %574 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  store i32 -1, ptr %574, align 4
+  %575 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i32 %.0568, ptr %575, align 8
+  %576 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  store i8 0, ptr %576, align 4
+  %577 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %577, align 8
+  %578 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store ptr null, ptr %578, align 8
+  %579 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store i32 0, ptr %579, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %41, i32 14) #14
-  %581 = sext i32 %.0567 to i64
-  %582 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %581
-  call void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(32) %472, ptr noundef nonnull %582) #14
+  %580 = sext i32 %.0567 to i64
+  %581 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %580
+  call void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr noundef nonnull align 8 dereferenceable(32) %471, ptr noundef nonnull %581) #14
   store i32 4, ptr %42, align 8
-  %583 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 -1, ptr %583, align 4
-  %584 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 -1, ptr %584, align 8
-  %585 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  store i32 -1, ptr %585, align 4
-  %586 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i32 %.0568, ptr %586, align 8
-  %587 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  store i8 0, ptr %587, align 4
-  %588 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %588, align 8
-  %589 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr null, ptr %589, align 8
-  %590 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store i32 0, ptr %590, align 8
+  %582 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store i32 -1, ptr %582, align 4
+  %583 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i32 -1, ptr %583, align 8
+  %584 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  store i32 -1, ptr %584, align 4
+  %585 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i32 %.0568, ptr %585, align 8
+  %586 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  store i8 0, ptr %586, align 4
+  %587 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %587, align 8
+  %588 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  store ptr null, ptr %588, align 8
+  %589 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i32 0, ptr %589, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %42, i64 21, i1 false)
-  %591 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %592 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %592(ptr noundef nonnull align 8 dereferenceable(40) %588, ptr noundef nonnull align 8 dereferenceable(40) %591) #14
+  %590 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %591 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %591(ptr noundef nonnull align 8 dereferenceable(40) %587, ptr noundef nonnull align 8 dereferenceable(40) %590) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 14, ptr noundef nonnull %14) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, i32 14) #14
-  %593 = add nsw i32 %380, -1
-  br label %594
+  %592 = add nsw i32 %379, -1
+  br label %593
 
-594:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit, %._crit_edge681
-  %.0572 = phi i32 [ %593, %_ZNK5Klass11java_mirrorEv.exit ], [ %380, %._crit_edge681 ]
-  %595 = load ptr, ptr %367, align 8
-  %596 = getelementptr inbounds nuw i8, ptr %595, i64 16
-  %597 = load ptr, ptr %596, align 8
-  %598 = ptrtoint ptr %597 to i64
-  %599 = sub nsw i64 %598, %371
-  %600 = trunc i64 %599 to i32
-  %601 = call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %366, i32 noundef %600, ptr noundef nonnull %472) #14
-  call void @_ZN14MacroAssembler19set_last_Java_frameE8RegisterS0_PhS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 -1, ptr noundef %597, i32 10) #14
-  %602 = load i8, ptr @DTraceMethodProbes, align 1
-  %603 = trunc i8 %602 to i1
-  br i1 %603, label %604, label %606
+593:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit, %._crit_edge669
+  %.0572 = phi i32 [ %592, %_ZNK5Klass11java_mirrorEv.exit ], [ %379, %._crit_edge669 ]
+  %594 = load ptr, ptr %366, align 8
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 16
+  %596 = load ptr, ptr %595, align 8
+  %597 = ptrtoint ptr %596 to i64
+  %598 = sub nsw i64 %597, %370
+  %599 = trunc i64 %598 to i32
+  %600 = call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %365, i32 noundef %599, ptr noundef nonnull %471) #14
+  call void @_ZN14MacroAssembler19set_last_Java_frameE8RegisterS0_PhS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 -1, ptr noundef %596, i32 10) #14
+  %601 = load i8, ptr @DTraceMethodProbes, align 1
+  %602 = trunc i8 %601 to i1
+  br i1 %602, label %603, label %605
 
-604:                                              ; preds = %594
-  call fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %381, i32 noundef %.0572, ptr noundef %385)
-  %605 = load ptr, ptr %1, align 8
-  call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef %605) #14
+603:                                              ; preds = %593
+  call fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %380, i32 noundef %.0572, ptr noundef %384)
+  %604 = load ptr, ptr %1, align 8
+  call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef %604) #14
   call void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZN13SharedRuntime19dtrace_method_entryEP10JavaThreadP6Method, i32 15, i32 6) #14
-  call fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %381, i32 noundef %.0572, ptr noundef %385)
-  br label %606
+  call fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %380, i32 noundef %.0572, ptr noundef %384)
+  br label %605
 
-606:                                              ; preds = %604, %594
-  %607 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not663 = icmp eq ptr %607, null
-  br i1 %.not663, label %610, label %608
+605:                                              ; preds = %603, %593
+  %606 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not651 = icmp eq ptr %606, null
+  br i1 %.not651, label %609, label %607
 
-608:                                              ; preds = %606
-  call fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %381, i32 noundef %.0572, ptr noundef %385)
-  %609 = load ptr, ptr %1, align 8
-  call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef %609) #14
+607:                                              ; preds = %605
+  call fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %380, i32 noundef %.0572, ptr noundef %384)
+  %608 = load ptr, ptr %1, align 8
+  call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef %608) #14
   call void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZN13SharedRuntime21rc_trace_method_entryEP10JavaThreadP6Method, i32 15, i32 6) #14
-  call fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %381, i32 noundef %.0572, ptr noundef %385)
-  br label %610
+  call fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %380, i32 noundef %.0572, ptr noundef %384)
+  br label %609
 
-610:                                              ; preds = %608, %606
+609:                                              ; preds = %607, %605
   store i32 -1, ptr %43, align 8
-  %611 = getelementptr inbounds nuw i8, ptr %43, i64 20
-  store i32 0, ptr %611, align 4
-  %612 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr null, ptr %612, align 8
-  %613 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  store i8 0, ptr %613, align 8
+  %610 = getelementptr inbounds nuw i8, ptr %43, i64 20
+  store i32 0, ptr %610, align 4
+  %611 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  store ptr null, ptr %611, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  store i8 0, ptr %612, align 8
   store i32 -1, ptr %44, align 8
-  %614 = getelementptr inbounds nuw i8, ptr %44, i64 20
-  store i32 0, ptr %614, align 4
-  %615 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr null, ptr %615, align 8
-  %616 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store i8 0, ptr %616, align 8
-  %617 = load ptr, ptr %1, align 8
-  %618 = getelementptr inbounds nuw i8, ptr %617, i64 40
-  %.sroa.0.0.copyload.i.i586 = load i32, ptr %618, align 8
-  %619 = and i32 %.sroa.0.0.copyload.i.i586, 32
-  %.not664 = icmp eq i32 %619, 0
-  br i1 %.not664, label %._crit_edge704, label %620
+  %613 = getelementptr inbounds nuw i8, ptr %44, i64 20
+  store i32 0, ptr %613, align 4
+  %614 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr null, ptr %614, align 8
+  %615 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  store i8 0, ptr %615, align 8
+  %616 = load ptr, ptr %1, align 8
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 40
+  %.sroa.0.0.copyload.i.i586 = load i32, ptr %617, align 8
+  %618 = and i32 %.sroa.0.0.copyload.i.i586, 32
+  %.not652 = icmp eq i32 %618, 0
+  br i1 %.not652, label %._crit_edge692, label %619
 
-._crit_edge704:                                   ; preds = %610
-  %.pre705 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  br label %684
+._crit_edge692:                                   ; preds = %609
+  %.pre693 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  br label %683
 
-620:                                              ; preds = %610
+619:                                              ; preds = %609
   store i32 -1, ptr %45, align 8
-  %621 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  store i32 0, ptr %621, align 4
-  %622 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr null, ptr %622, align 8
-  %623 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i8 0, ptr %623, align 8
+  %620 = getelementptr inbounds nuw i8, ptr %45, i64 20
+  store i32 0, ptr %620, align 4
+  %621 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store ptr null, ptr %621, align 8
+  %622 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store i8 0, ptr %622, align 8
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 14, i32 6) #14
-  %624 = mul nsw i32 %.0569, %402
+  %623 = mul nsw i32 %.0569, %401
   store i32 4, ptr %46, align 8
-  %625 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 -1, ptr %625, align 4
-  %626 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 -1, ptr %626, align 8
-  %627 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  store i32 -1, ptr %627, align 4
-  %628 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 %624, ptr %628, align 8
-  %629 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  store i8 0, ptr %629, align 4
-  %630 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %630, align 8
-  %631 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  store ptr null, ptr %631, align 8
-  %632 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  store i32 0, ptr %632, align 8
+  %624 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i32 -1, ptr %624, align 4
+  %625 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i32 -1, ptr %625, align 8
+  %626 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  store i32 -1, ptr %626, align 4
+  %627 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store i32 %623, ptr %627, align 8
+  %628 = getelementptr inbounds nuw i8, ptr %46, i64 20
+  store i8 0, ptr %628, align 4
+  %629 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %629, align 8
+  %630 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  store ptr null, ptr %630, align 8
+  %631 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  store i32 0, ptr %631, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %46, i64 21, i1 false)
-  %633 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %634 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  call void %634(ptr noundef nonnull align 8 dereferenceable(40) %630, ptr noundef nonnull align 8 dereferenceable(40) %633) #14
+  %632 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %633 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %633(ptr noundef nonnull align 8 dereferenceable(40) %629, ptr noundef nonnull align 8 dereferenceable(40) %632) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 13, ptr noundef nonnull %13) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i32 14, ptr %47, align 8
-  %635 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 -1, ptr %635, align 4
-  %636 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 -1, ptr %636, align 8
-  %637 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  store i32 -1, ptr %637, align 4
-  %638 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 0, ptr %638, align 8
-  %639 = getelementptr inbounds nuw i8, ptr %47, i64 20
-  store i8 0, ptr %639, align 4
-  %640 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %640, align 8
-  %641 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store ptr null, ptr %641, align 8
-  %642 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i32 0, ptr %642, align 8
+  %634 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i32 -1, ptr %634, align 4
+  %635 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i32 -1, ptr %635, align 8
+  %636 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  store i32 -1, ptr %636, align 4
+  %637 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i32 0, ptr %637, align 8
+  %638 = getelementptr inbounds nuw i8, ptr %47, i64 20
+  store i8 0, ptr %638, align 4
+  %639 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %639, align 8
+  %640 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  store ptr null, ptr %640, align 8
+  %641 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store i32 0, ptr %641, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %47) #14
-  %643 = load i32, ptr @LockingMode, align 4
-  switch i32 %643, label %682 [
-    i32 0, label %644
-    i32 1, label %645
+  %642 = load i32, ptr @LockingMode, align 4
+  switch i32 %642, label %681 [
+    i32 0, label %643
+    i32 1, label %644
   ]
 
-644:                                              ; preds = %620
+643:                                              ; preds = %619
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %43, i1 noundef zeroext true) #14
-  br label %683
+  br label %682
 
-645:                                              ; preds = %620
+644:                                              ; preds = %619
   call void @_ZN9Assembler4movlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 noundef 1) #14
   store i32 3, ptr %48, align 8
-  %646 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 -1, ptr %646, align 4
-  %647 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 -1, ptr %647, align 8
-  %648 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  store i32 -1, ptr %648, align 4
-  %649 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %649, align 8
-  %650 = getelementptr inbounds nuw i8, ptr %48, i64 20
-  store i8 0, ptr %650, align 4
-  %651 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %651, align 8
-  %652 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr null, ptr %652, align 8
-  %653 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store i32 0, ptr %653, align 8
+  %645 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 -1, ptr %645, align 4
+  %646 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 -1, ptr %646, align 8
+  %647 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  store i32 -1, ptr %647, align 4
+  %648 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i32 0, ptr %648, align 8
+  %649 = getelementptr inbounds nuw i8, ptr %48, i64 20
+  store i8 0, ptr %649, align 4
+  %650 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %650, align 8
+  %651 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  store ptr null, ptr %651, align 8
+  %652 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  store i32 0, ptr %652, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %48, i64 21, i1 false)
-  %654 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void %634(ptr noundef nonnull align 8 dereferenceable(40) %651, ptr noundef nonnull align 8 dereferenceable(40) %654) #14
+  %653 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  call void %633(ptr noundef nonnull align 8 dereferenceable(40) %650, ptr noundef nonnull align 8 dereferenceable(40) %653) #14
   call void @_ZN9Assembler3orqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, ptr noundef nonnull %12) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i32 13, ptr %49, align 8
-  %655 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i32 -1, ptr %655, align 4
-  %656 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 -1, ptr %656, align 8
-  %657 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i32 -1, ptr %657, align 4
-  %658 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i32 0, ptr %658, align 8
-  %659 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  store i8 0, ptr %659, align 4
-  %660 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %660, align 8
-  %661 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  store ptr null, ptr %661, align 8
-  %662 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  store i32 0, ptr %662, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 -1, ptr %654, align 4
+  %655 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i32 -1, ptr %655, align 8
+  %656 = getelementptr inbounds nuw i8, ptr %49, i64 12
+  store i32 -1, ptr %656, align 4
+  %657 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store i32 0, ptr %657, align 8
+  %658 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  store i8 0, ptr %658, align 4
+  %659 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %659, align 8
+  %660 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  store ptr null, ptr %660, align 8
+  %661 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  store i32 0, ptr %661, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %49, i32 0) #14
   call void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   store i32 3, ptr %50, align 8
-  %663 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 -1, ptr %663, align 4
-  %664 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 -1, ptr %664, align 8
-  %665 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store i32 -1, ptr %665, align 4
-  %666 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i32 0, ptr %666, align 8
-  %667 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  store i8 0, ptr %667, align 4
-  %668 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %668, align 8
-  %669 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store ptr null, ptr %669, align 8
-  %670 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store i32 0, ptr %670, align 8
+  %662 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 -1, ptr %662, align 4
+  %663 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 -1, ptr %663, align 8
+  %664 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 -1, ptr %664, align 4
+  %665 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store i32 0, ptr %665, align 8
+  %666 = getelementptr inbounds nuw i8, ptr %50, i64 20
+  store i8 0, ptr %666, align 4
+  %667 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %667, align 8
+  %668 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  store ptr null, ptr %668, align 8
+  %669 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  store i32 0, ptr %669, align 8
   call void @_ZN14MacroAssembler10cmpxchgptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 13, ptr noundef nonnull %50) #14
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %45, i1 noundef zeroext true) #14
   call void @_ZN14MacroAssembler6subptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 4) #14
-  %671 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %672 = trunc i64 %671 to i32
-  %673 = sub nsw i32 3, %672
-  call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 noundef %673) #14
+  %670 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %671 = trunc i64 %670 to i32
+  %672 = sub nsw i32 3, %671
+  call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 noundef %672) #14
   store i32 13, ptr %51, align 8
-  %674 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i32 -1, ptr %674, align 4
-  %675 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 -1, ptr %675, align 8
-  %676 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i32 -1, ptr %676, align 4
-  %677 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i32 0, ptr %677, align 8
-  %678 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  store i8 0, ptr %678, align 4
-  %679 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %679, align 8
-  %680 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store ptr null, ptr %680, align 8
-  %681 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store i32 0, ptr %681, align 8
+  %673 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 -1, ptr %673, align 4
+  %674 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i32 -1, ptr %674, align 8
+  %675 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 -1, ptr %675, align 4
+  %676 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i32 0, ptr %676, align 8
+  %677 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  store i8 0, ptr %677, align 4
+  %678 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %678, align 8
+  %679 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  store ptr null, ptr %679, align 8
+  %680 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store i32 0, ptr %680, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %51, i32 0) #14
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %43, i1 noundef zeroext true) #14
-  br label %683
+  br label %682
 
-682:                                              ; preds = %620
+681:                                              ; preds = %619
   call void @_ZN14MacroAssembler16lightweight_lockE8RegisterS0_S0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, i32 0, i32 15, i32 10, ptr noundef nonnull align 8 dereferenceable(33) %43) #14
-  br label %683
+  br label %682
 
-683:                                              ; preds = %645, %682, %644
+682:                                              ; preds = %644, %681, %643
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %45) #14
   call void @_ZN14MacroAssembler22inc_held_monitor_countEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %44) #14
-  br label %684
+  br label %683
 
-684:                                              ; preds = %._crit_edge704, %683
-  %685 = phi ptr [ %.pre705, %._crit_edge704 ], [ %634, %683 ]
+683:                                              ; preds = %._crit_edge692, %682
+  %684 = phi ptr [ %.pre693, %._crit_edge692 ], [ %633, %682 ]
   store i32 15, ptr %52, align 8
-  %686 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 -1, ptr %686, align 4
-  %687 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 -1, ptr %687, align 8
-  %688 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  store i32 -1, ptr %688, align 4
-  %689 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i32 960, ptr %689, align 8
-  %690 = getelementptr inbounds nuw i8, ptr %52, i64 20
-  store i8 0, ptr %690, align 4
-  %691 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %691, align 8
-  %692 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store ptr null, ptr %692, align 8
-  %693 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  store i32 0, ptr %693, align 8
+  %685 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 -1, ptr %685, align 4
+  %686 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i32 -1, ptr %686, align 8
+  %687 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  store i32 -1, ptr %687, align 4
+  %688 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  store i32 960, ptr %688, align 8
+  %689 = getelementptr inbounds nuw i8, ptr %52, i64 20
+  store i8 0, ptr %689, align 4
+  %690 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %690, align 8
+  %691 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  store ptr null, ptr %691, align 8
+  %692 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  store i32 0, ptr %692, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %52, i64 21, i1 false)
-  %694 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void %685(ptr noundef nonnull align 8 dereferenceable(40) %691, ptr noundef nonnull align 8 dereferenceable(40) %694) #14
+  %693 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  call void %684(ptr noundef nonnull align 8 dereferenceable(40) %690, ptr noundef nonnull align 8 dereferenceable(40) %693) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 7, ptr noundef nonnull %11) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i32 15, ptr %53, align 8
-  %695 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 -1, ptr %695, align 4
-  %696 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 -1, ptr %696, align 8
-  %697 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 -1, ptr %697, align 4
-  %698 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i32 1092, ptr %698, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  store i8 0, ptr %699, align 4
-  %700 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %700, align 8
-  %701 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr null, ptr %701, align 8
-  %702 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store i32 0, ptr %702, align 8
+  %694 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 -1, ptr %694, align 4
+  %695 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 -1, ptr %695, align 8
+  %696 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 -1, ptr %696, align 4
+  %697 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i32 1092, ptr %697, align 8
+  %698 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  store i8 0, ptr %698, align 4
+  %699 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %699, align 8
+  %700 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  store ptr null, ptr %700, align 8
+  %701 = getelementptr inbounds nuw i8, ptr %53, i64 40
+  store i32 0, ptr %701, align 8
   call void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %53, i32 noundef 4) #14
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef %365, i32 noundef 6) #14
-  %703 = load ptr, ptr %55, align 8
-  %704 = getelementptr inbounds nuw i8, ptr %703, i64 16
-  %705 = load ptr, ptr %704, align 8
-  call void %705(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %54) #14
-  %706 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %707 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %706, ptr noundef nonnull align 8 dereferenceable(16) %707, i64 16, i1 false)
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef %364, i32 noundef 6) #14
+  %702 = load ptr, ptr %55, align 8
+  %703 = getelementptr inbounds nuw i8, ptr %702, i64 16
+  %704 = load ptr, ptr %703, align 8
+  call void %704(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull align 8 dereferenceable(56) %54) #14
+  %705 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %706 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %705, ptr noundef nonnull align 8 dereferenceable(16) %706, i64 16, i1 false)
   call void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %54, i32 0) #14
   call void @_ZN14MacroAssembler35restore_cpu_control_state_after_jniE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 10) #14
-  switch i8 %5, label %712 [
-    i8 4, label %708
-    i8 5, label %709
-    i8 8, label %710
-    i8 9, label %711
-    i8 10, label %714
-    i8 7, label %714
-    i8 6, label %714
-    i8 13, label %714
-    i8 12, label %714
-    i8 14, label %714
-    i8 11, label %714
+  switch i8 %5, label %711 [
+    i8 4, label %707
+    i8 5, label %708
+    i8 8, label %709
+    i8 9, label %710
+    i8 10, label %713
+    i8 7, label %713
+    i8 6, label %713
+    i8 13, label %713
+    i8 12, label %713
+    i8 14, label %713
+    i8 11, label %713
   ]
 
-708:                                              ; preds = %684
+707:                                              ; preds = %683
   call void @_ZN14MacroAssembler6c2boolE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0) #14
-  br label %714
+  br label %713
 
-709:                                              ; preds = %684
+708:                                              ; preds = %683
   call void @_ZN9Assembler6movzwlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 0) #14
-  br label %714
+  br label %713
 
-710:                                              ; preds = %684
+709:                                              ; preds = %683
   call void @_ZN14MacroAssembler16sign_extend_byteE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0) #14
-  br label %714
+  br label %713
 
-711:                                              ; preds = %684
+710:                                              ; preds = %683
   call void @_ZN14MacroAssembler17sign_extend_shortE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0) #14
-  br label %714
+  br label %713
 
-712:                                              ; preds = %684
-  %713 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %713, align 1
+711:                                              ; preds = %683
+  %712 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %712, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 2325) #15
   unreachable
 
-714:                                              ; preds = %684, %684, %684, %684, %684, %684, %684, %711, %710, %709, %708
+713:                                              ; preds = %683, %683, %683, %683, %683, %683, %683, %710, %709, %708, %707
   store i32 -1, ptr %56, align 8
-  %715 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  store i32 0, ptr %715, align 4
-  %716 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr null, ptr %716, align 8
-  %717 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store i8 0, ptr %717, align 8
+  %714 = getelementptr inbounds nuw i8, ptr %56, i64 20
+  store i32 0, ptr %714, align 4
+  %715 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  store ptr null, ptr %715, align 8
+  %716 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  store i8 0, ptr %716, align 8
   store i32 15, ptr %57, align 8
-  %718 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 -1, ptr %718, align 4
-  %719 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 -1, ptr %719, align 8
-  %720 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 -1, ptr %720, align 4
-  %721 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i32 1092, ptr %721, align 8
-  %722 = getelementptr inbounds nuw i8, ptr %57, i64 20
-  store i8 0, ptr %722, align 4
-  %723 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %723, align 8
-  %724 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  store ptr null, ptr %724, align 8
-  %725 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  store i32 0, ptr %725, align 8
+  %717 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 -1, ptr %717, align 4
+  %718 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i32 -1, ptr %718, align 8
+  %719 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  store i32 -1, ptr %719, align 4
+  %720 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store i32 1092, ptr %720, align 8
+  %721 = getelementptr inbounds nuw i8, ptr %57, i64 20
+  store i8 0, ptr %721, align 4
+  %722 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %722, align 8
+  %723 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  store ptr null, ptr %723, align 8
+  %724 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  store i32 0, ptr %724, align 8
   call void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %57, i32 noundef 5) #14
-  %726 = load i8, ptr @UseSystemMemoryBarrier, align 1
-  %727 = trunc i8 %726 to i1
-  br i1 %727, label %729, label %728
+  %725 = load i8, ptr @UseSystemMemoryBarrier, align 1
+  %726 = trunc i8 %725 to i1
+  br i1 %726, label %728, label %727
 
-728:                                              ; preds = %714
+727:                                              ; preds = %713
   call void @_ZN9Assembler6membarENS_16Membar_mask_bitsE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 15) #14
-  br label %729
+  br label %728
 
-729:                                              ; preds = %728, %714
+728:                                              ; preds = %727, %713
   store i32 -1, ptr %58, align 8
-  %730 = getelementptr inbounds nuw i8, ptr %58, i64 20
-  store i32 0, ptr %730, align 4
-  %731 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr null, ptr %731, align 8
-  %732 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  store i8 0, ptr %732, align 8
+  %729 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  store i32 0, ptr %729, align 4
+  %730 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  store ptr null, ptr %730, align 8
+  %731 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store i8 0, ptr %731, align 8
   store i32 -1, ptr %59, align 8
-  %733 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  store i32 0, ptr %733, align 4
-  %734 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr null, ptr %734, align 8
-  %735 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store i8 0, ptr %735, align 8
+  %732 = getelementptr inbounds nuw i8, ptr %59, i64 20
+  store i32 0, ptr %732, align 4
+  %733 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store ptr null, ptr %733, align 8
+  %734 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  store i8 0, ptr %734, align 8
   call void @_ZN14MacroAssembler14safepoint_pollER5Label8Registerbb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %59, i32 15, i1 noundef zeroext true, i1 noundef zeroext false) #14
   store i32 15, ptr %60, align 8
-  %736 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 -1, ptr %736, align 4
-  %737 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 -1, ptr %737, align 8
-  %738 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i32 -1, ptr %738, align 4
-  %739 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i32 1088, ptr %739, align 8
-  %740 = getelementptr inbounds nuw i8, ptr %60, i64 20
-  store i8 0, ptr %740, align 4
-  %741 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %741, align 8
-  %742 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr null, ptr %742, align 8
-  %743 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store i32 0, ptr %743, align 8
+  %735 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 -1, ptr %735, align 4
+  %736 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 -1, ptr %736, align 8
+  %737 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  store i32 -1, ptr %737, align 4
+  %738 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store i32 1088, ptr %738, align 8
+  %739 = getelementptr inbounds nuw i8, ptr %60, i64 20
+  store i8 0, ptr %739, align 4
+  %740 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %740, align 8
+  %741 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store ptr null, ptr %741, align 8
+  %742 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  store i32 0, ptr %742, align 8
   call void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %60, i32 noundef 0) #14
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %58, i1 noundef zeroext true) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %59) #14
@@ -4702,444 +4701,444 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %558, %568
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 0) #14
   call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef -16) #14
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull @_ZN10JavaThread40check_special_condition_for_native_transEPS_, i32 noundef 6) #14
-  %744 = load ptr, ptr %62, align 8
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 16
-  %746 = load ptr, ptr %745, align 8
-  call void %746(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %61) #14
-  %747 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  %748 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %747, ptr noundef nonnull align 8 dereferenceable(16) %748, i64 16, i1 false)
+  %743 = load ptr, ptr %62, align 8
+  %744 = getelementptr inbounds nuw i8, ptr %743, i64 16
+  %745 = load ptr, ptr %744, align 8
+  call void %745(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %61) #14
+  %746 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %747 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %746, ptr noundef nonnull align 8 dereferenceable(16) %747, i64 16, i1 false)
   call void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %61, i32 0) #14
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 12) #14
   call void @_ZN14MacroAssembler15reinit_heapbaseEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN13SharedRuntime21restore_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %58) #14
   store i32 15, ptr %63, align 8
-  %749 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  store i32 -1, ptr %749, align 4
-  %750 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 -1, ptr %750, align 8
-  %751 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  store i32 -1, ptr %751, align 4
-  %752 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store i32 1092, ptr %752, align 8
-  %753 = getelementptr inbounds nuw i8, ptr %63, i64 20
-  store i8 0, ptr %753, align 4
-  %754 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %754, align 8
-  %755 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store ptr null, ptr %755, align 8
-  %756 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  store i32 0, ptr %756, align 8
+  %748 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store i32 -1, ptr %748, align 4
+  %749 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i32 -1, ptr %749, align 8
+  %750 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  store i32 -1, ptr %750, align 4
+  %751 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i32 1092, ptr %751, align 8
+  %752 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  store i8 0, ptr %752, align 4
+  %753 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %753, align 8
+  %754 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  store ptr null, ptr %754, align 8
+  %755 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  store i32 0, ptr %755, align 8
   call void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %63, i32 noundef 8) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %56) #14
   store i32 -1, ptr %64, align 8
-  %757 = getelementptr inbounds nuw i8, ptr %64, i64 20
-  store i32 0, ptr %757, align 4
-  %758 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr null, ptr %758, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  store i8 0, ptr %759, align 8
+  %756 = getelementptr inbounds nuw i8, ptr %64, i64 20
+  store i32 0, ptr %756, align 4
+  %757 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store ptr null, ptr %757, align 8
+  %758 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  store i8 0, ptr %758, align 8
   store i32 -1, ptr %65, align 8
-  %760 = getelementptr inbounds nuw i8, ptr %65, i64 20
-  store i32 0, ptr %760, align 4
-  %761 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr null, ptr %761, align 8
-  %762 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  store i8 0, ptr %762, align 8
+  %759 = getelementptr inbounds nuw i8, ptr %65, i64 20
+  store i32 0, ptr %759, align 4
+  %760 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  store ptr null, ptr %760, align 8
+  %761 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  store i8 0, ptr %761, align 8
   store i32 15, ptr %66, align 8
-  %763 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store i32 -1, ptr %763, align 4
-  %764 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 -1, ptr %764, align 8
-  %765 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  store i32 -1, ptr %765, align 4
-  %766 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i32 1224, ptr %766, align 8
-  %767 = getelementptr inbounds nuw i8, ptr %66, i64 20
-  store i8 0, ptr %767, align 4
-  %768 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %768, align 8
-  %769 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store ptr null, ptr %769, align 8
-  %770 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store i32 0, ptr %770, align 8
+  %762 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 -1, ptr %762, align 4
+  %763 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store i32 -1, ptr %763, align 8
+  %764 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  store i32 -1, ptr %764, align 4
+  %765 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store i32 1224, ptr %765, align 8
+  %766 = getelementptr inbounds nuw i8, ptr %66, i64 20
+  store i8 0, ptr %766, align 4
+  %767 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %767, align 8
+  %768 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  store ptr null, ptr %768, align 8
+  %769 = getelementptr inbounds nuw i8, ptr %66, i64 40
+  store i32 0, ptr %769, align 8
   call void @_ZN9Assembler4cmplE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %66, i32 noundef 2) #14
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %64, i1 noundef zeroext true) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %65) #14
   store i32 -1, ptr %67, align 8
-  %771 = getelementptr inbounds nuw i8, ptr %67, i64 20
-  store i32 0, ptr %771, align 4
-  %772 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr null, ptr %772, align 8
-  %773 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i8 0, ptr %773, align 8
+  %770 = getelementptr inbounds nuw i8, ptr %67, i64 20
+  store i32 0, ptr %770, align 4
+  %771 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store ptr null, ptr %771, align 8
+  %772 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  store i8 0, ptr %772, align 8
   store i32 -1, ptr %68, align 8
-  %774 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  store i32 0, ptr %774, align 4
-  %775 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr null, ptr %775, align 8
-  %776 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store i8 0, ptr %776, align 8
-  %777 = load ptr, ptr %1, align 8
-  %778 = getelementptr inbounds nuw i8, ptr %777, i64 40
-  %.sroa.0.0.copyload.i.i587 = load i32, ptr %778, align 8
-  %779 = and i32 %.sroa.0.0.copyload.i.i587, 32
-  %.not665 = icmp eq i32 %779, 0
-  br i1 %.not665, label %844, label %780
+  %773 = getelementptr inbounds nuw i8, ptr %68, i64 20
+  store i32 0, ptr %773, align 4
+  %774 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  store ptr null, ptr %774, align 8
+  %775 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store i8 0, ptr %775, align 8
+  %776 = load ptr, ptr %1, align 8
+  %777 = getelementptr inbounds nuw i8, ptr %776, i64 40
+  %.sroa.0.0.copyload.i.i587 = load i32, ptr %777, align 8
+  %778 = and i32 %.sroa.0.0.copyload.i.i587, 32
+  %.not653 = icmp eq i32 %778, 0
+  br i1 %.not653, label %843, label %779
 
-780:                                              ; preds = %729
+779:                                              ; preds = %728
   store i32 -1, ptr %69, align 8
-  %781 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  store i32 0, ptr %781, align 4
-  %782 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr null, ptr %782, align 8
-  %783 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store i8 0, ptr %783, align 8
+  %780 = getelementptr inbounds nuw i8, ptr %69, i64 20
+  store i32 0, ptr %780, align 4
+  %781 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  store ptr null, ptr %781, align 8
+  %782 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  store i8 0, ptr %782, align 8
   store i32 14, ptr %70, align 8
-  %784 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  store i32 -1, ptr %784, align 4
-  %785 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 -1, ptr %785, align 8
-  %786 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i32 -1, ptr %786, align 4
-  %787 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i32 0, ptr %787, align 8
-  %788 = getelementptr inbounds nuw i8, ptr %70, i64 20
-  store i8 0, ptr %788, align 4
-  %789 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %789, align 8
-  %790 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  store ptr null, ptr %790, align 8
-  %791 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  store i32 0, ptr %791, align 8
+  %783 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store i32 -1, ptr %783, align 4
+  %784 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i32 -1, ptr %784, align 8
+  %785 = getelementptr inbounds nuw i8, ptr %70, i64 12
+  store i32 -1, ptr %785, align 4
+  %786 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store i32 0, ptr %786, align 8
+  %787 = getelementptr inbounds nuw i8, ptr %70, i64 20
+  store i8 0, ptr %787, align 4
+  %788 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %788, align 8
+  %789 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  store ptr null, ptr %789, align 8
+  %790 = getelementptr inbounds nuw i8, ptr %70, i64 40
+  store i32 0, ptr %790, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %70) #14
-  %792 = load i32, ptr @LockingMode, align 4
-  %793 = icmp eq i32 %792, 1
-  br i1 %793, label %794, label %808
+  %791 = load i32, ptr @LockingMode, align 4
+  %792 = icmp eq i32 %791, 1
+  br i1 %792, label %793, label %807
 
-794:                                              ; preds = %780
+793:                                              ; preds = %779
   store i32 -1, ptr %71, align 8
-  %795 = getelementptr inbounds nuw i8, ptr %71, i64 20
-  store i32 0, ptr %795, align 4
-  %796 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr null, ptr %796, align 8
-  %797 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store i8 0, ptr %797, align 8
-  %798 = mul nsw i32 %.0569, %402
+  %794 = getelementptr inbounds nuw i8, ptr %71, i64 20
+  store i32 0, ptr %794, align 4
+  %795 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store ptr null, ptr %795, align 8
+  %796 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  store i8 0, ptr %796, align 8
+  %797 = mul nsw i32 %.0569, %401
   store i32 4, ptr %72, align 8
-  %799 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 -1, ptr %799, align 4
-  %800 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 -1, ptr %800, align 8
-  %801 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  store i32 -1, ptr %801, align 4
-  %802 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i32 %798, ptr %802, align 8
-  %803 = getelementptr inbounds nuw i8, ptr %72, i64 20
-  store i8 0, ptr %803, align 4
-  %804 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %804, align 8
-  %805 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store ptr null, ptr %805, align 8
-  %806 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  store i32 0, ptr %806, align 8
+  %798 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  store i32 -1, ptr %798, align 4
+  %799 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store i32 -1, ptr %799, align 8
+  %800 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  store i32 -1, ptr %800, align 4
+  %801 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i32 %797, ptr %801, align 8
+  %802 = getelementptr inbounds nuw i8, ptr %72, i64 20
+  store i8 0, ptr %802, align 4
+  %803 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %803, align 8
+  %804 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  store ptr null, ptr %804, align 8
+  %805 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  store i32 0, ptr %805, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %72, i64 21, i1 false)
-  %807 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void %685(ptr noundef nonnull align 8 dereferenceable(40) %804, ptr noundef nonnull align 8 dereferenceable(40) %807) #14
+  %806 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  call void %684(ptr noundef nonnull align 8 dereferenceable(40) %803, ptr noundef nonnull align 8 dereferenceable(40) %806) #14
   call void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %10, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %71, i1 noundef zeroext true) #14
   call void @_ZN14MacroAssembler22dec_held_monitor_countEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN9Assembler6jmpb_0ER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %69, ptr noundef nonnull @.str, i32 noundef 2405) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %71) #14
-  br label %808
+  br label %807
 
-808:                                              ; preds = %794, %780
-  switch i8 %5, label %809 [
-    i8 14, label %810
-    i8 7, label %810
-    i8 6, label %810
+807:                                              ; preds = %793, %779
+  switch i8 %5, label %808 [
+    i8 14, label %809
+    i8 7, label %809
+    i8 6, label %809
   ]
 
-809:                                              ; preds = %808
+808:                                              ; preds = %807
   call void @_ZN13SharedRuntime18save_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
-  br label %810
+  br label %809
 
-810:                                              ; preds = %808, %808, %808, %809
-  %811 = load i32, ptr @LockingMode, align 4
-  switch i32 %811, label %840 [
-    i32 0, label %812
-    i32 1, label %813
+809:                                              ; preds = %807, %807, %807, %808
+  %810 = load i32, ptr @LockingMode, align 4
+  switch i32 %810, label %839 [
+    i32 0, label %811
+    i32 1, label %812
   ]
 
-812:                                              ; preds = %810
+811:                                              ; preds = %809
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %67, i1 noundef zeroext true) #14
-  br label %841
+  br label %840
 
-813:                                              ; preds = %810
-  %814 = mul nsw i32 %.0569, %402
+812:                                              ; preds = %809
+  %813 = mul nsw i32 %.0569, %401
   store i32 4, ptr %73, align 8
-  %815 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 -1, ptr %815, align 4
-  %816 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 -1, ptr %816, align 8
-  %817 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  store i32 -1, ptr %817, align 4
-  %818 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i32 %814, ptr %818, align 8
-  %819 = getelementptr inbounds nuw i8, ptr %73, i64 20
-  store i8 0, ptr %819, align 4
-  %820 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %820, align 8
-  %821 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store ptr null, ptr %821, align 8
-  %822 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store i32 0, ptr %822, align 8
+  %814 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store i32 -1, ptr %814, align 4
+  %815 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 -1, ptr %815, align 8
+  %816 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  store i32 -1, ptr %816, align 4
+  %817 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i32 %813, ptr %817, align 8
+  %818 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  store i8 0, ptr %818, align 4
+  %819 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %819, align 8
+  %820 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  store ptr null, ptr %820, align 8
+  %821 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  store i32 0, ptr %821, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %73, i64 21, i1 false)
-  %823 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void %685(ptr noundef nonnull align 8 dereferenceable(40) %820, ptr noundef nonnull align 8 dereferenceable(40) %823) #14
+  %822 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  call void %684(ptr noundef nonnull align 8 dereferenceable(40) %819, ptr noundef nonnull align 8 dereferenceable(40) %822) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, ptr noundef nonnull %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 0, ptr %74, align 8
-  %824 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i32 -1, ptr %824, align 4
-  %825 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 -1, ptr %825, align 8
-  %826 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  store i32 -1, ptr %826, align 4
-  %827 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i32 0, ptr %827, align 8
-  %828 = getelementptr inbounds nuw i8, ptr %74, i64 20
-  store i8 0, ptr %828, align 4
-  %829 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %829, align 8
-  %830 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store ptr null, ptr %830, align 8
-  %831 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  store i32 0, ptr %831, align 8
+  %823 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 -1, ptr %823, align 4
+  %824 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 -1, ptr %824, align 8
+  %825 = getelementptr inbounds nuw i8, ptr %74, i64 12
+  store i32 -1, ptr %825, align 4
+  %826 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  store i32 0, ptr %826, align 8
+  %827 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  store i8 0, ptr %827, align 4
+  %828 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %828, align 8
+  %829 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  store ptr null, ptr %829, align 8
+  %830 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  store i32 0, ptr %830, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 13, ptr noundef nonnull %74) #14
   call void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   store i32 3, ptr %75, align 8
-  %832 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  store i32 -1, ptr %832, align 4
-  %833 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i32 -1, ptr %833, align 8
-  %834 = getelementptr inbounds nuw i8, ptr %75, i64 12
-  store i32 -1, ptr %834, align 4
-  %835 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i32 0, ptr %835, align 8
-  %836 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  store i8 0, ptr %836, align 4
-  %837 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %837, align 8
-  %838 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store ptr null, ptr %838, align 8
-  %839 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  store i32 0, ptr %839, align 8
+  %831 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  store i32 -1, ptr %831, align 4
+  %832 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i32 -1, ptr %832, align 8
+  %833 = getelementptr inbounds nuw i8, ptr %75, i64 12
+  store i32 -1, ptr %833, align 4
+  %834 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  store i32 0, ptr %834, align 8
+  %835 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  store i8 0, ptr %835, align 4
+  %836 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %836, align 8
+  %837 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  store ptr null, ptr %837, align 8
+  %838 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  store i32 0, ptr %838, align 8
   call void @_ZN14MacroAssembler10cmpxchgptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 13, ptr noundef nonnull %75) #14
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %67, i1 noundef zeroext true) #14
   call void @_ZN14MacroAssembler22dec_held_monitor_countEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  br label %841
+  br label %840
 
-840:                                              ; preds = %810
+839:                                              ; preds = %809
   call void @_ZN14MacroAssembler18lightweight_unlockE8RegisterS0_S0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, i32 0, i32 15, i32 13, ptr noundef nonnull align 8 dereferenceable(33) %67) #14
   call void @_ZN14MacroAssembler22dec_held_monitor_countEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  br label %841
+  br label %840
 
-841:                                              ; preds = %813, %840, %812
+840:                                              ; preds = %812, %839, %811
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %68) #14
-  switch i8 %5, label %842 [
-    i8 14, label %843
-    i8 7, label %843
-    i8 6, label %843
+  switch i8 %5, label %841 [
+    i8 14, label %842
+    i8 7, label %842
+    i8 6, label %842
   ]
 
-842:                                              ; preds = %841
+841:                                              ; preds = %840
   call void @_ZN13SharedRuntime21restore_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
+  br label %842
+
+842:                                              ; preds = %840, %840, %840, %841
+  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %69) #14
   br label %843
 
-843:                                              ; preds = %841, %841, %841, %842
-  call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %69) #14
-  br label %844
+843:                                              ; preds = %842, %728
+  %844 = load i8, ptr @DTraceMethodProbes, align 1
+  %845 = trunc i8 %844 to i1
+  br i1 %845, label %846, label %848
 
-844:                                              ; preds = %843, %729
-  %845 = load i8, ptr @DTraceMethodProbes, align 1
-  %846 = trunc i8 %845 to i1
-  br i1 %846, label %847, label %849
-
-847:                                              ; preds = %844
+846:                                              ; preds = %843
   call void @_ZN13SharedRuntime18save_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
-  %848 = load ptr, ptr %1, align 8
-  call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef %848) #14
+  %847 = load ptr, ptr %1, align 8
+  call void @_ZN14MacroAssembler12mov_metadataE8RegisterP8Metadata(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef %847) #14
   call void @_ZN14MacroAssembler12call_VM_leafEPh8RegisterS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZN13SharedRuntime18dtrace_method_exitEP10JavaThreadP6Method, i32 15, i32 6) #14
   call void @_ZN13SharedRuntime21restore_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
-  br label %849
+  br label %848
 
-849:                                              ; preds = %847, %844
+848:                                              ; preds = %846, %843
   call void @_ZN14MacroAssembler21reset_last_Java_frameEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext false) #14
-  %850 = and i8 %5, -2
-  %or.cond.i = icmp eq i8 %850, 12
-  br i1 %or.cond.i, label %851, label %_Z17is_reference_type9BasicTypeb.exit
+  %849 = and i8 %5, -2
+  %or.cond.i = icmp eq i8 %849, 12
+  br i1 %or.cond.i, label %850, label %_Z17is_reference_type9BasicTypeb.exit
 
-851:                                              ; preds = %849
+850:                                              ; preds = %848
   call void @_ZN14MacroAssembler15resolve_jobjectE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 15, i32 1) #14
   br label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %849, %851
-  %852 = load i8, ptr @CheckJNICalls, align 1
-  %853 = trunc i8 %852 to i1
-  br i1 %853, label %854, label %863
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %848, %850
+  %851 = load i8, ptr @CheckJNICalls, align 1
+  %852 = trunc i8 %851 to i1
+  br i1 %852, label %853, label %862
 
-854:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit
+853:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit
   store i32 15, ptr %76, align 8
-  %855 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  store i32 -1, ptr %855, align 4
-  %856 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 -1, ptr %856, align 8
-  %857 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  store i32 -1, ptr %857, align 4
-  %858 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store i32 1312, ptr %858, align 8
-  %859 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  store i8 0, ptr %859, align 4
-  %860 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %860, align 8
-  %861 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store ptr null, ptr %861, align 8
-  %862 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  store i32 0, ptr %862, align 8
+  %854 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  store i32 -1, ptr %854, align 4
+  %855 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store i32 -1, ptr %855, align 8
+  %856 = getelementptr inbounds nuw i8, ptr %76, i64 12
+  store i32 -1, ptr %856, align 4
+  %857 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  store i32 1312, ptr %857, align 8
+  %858 = getelementptr inbounds nuw i8, ptr %76, i64 20
+  store i8 0, ptr %858, align 4
+  %859 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %859, align 8
+  %860 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  store ptr null, ptr %860, align 8
+  %861 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  store i32 0, ptr %861, align 8
   call void @_ZN14MacroAssembler6movptrE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %76, i32 noundef 0) #14
-  br label %863
+  br label %862
 
-863:                                              ; preds = %854, %_Z17is_reference_type9BasicTypeb.exit
+862:                                              ; preds = %853, %_Z17is_reference_type9BasicTypeb.exit
   store i32 15, ptr %77, align 8
-  %864 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  store i32 -1, ptr %864, align 4
-  %865 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 -1, ptr %865, align 8
-  %866 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  store i32 -1, ptr %866, align 4
-  %867 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store i32 1072, ptr %867, align 8
-  %868 = getelementptr inbounds nuw i8, ptr %77, i64 20
-  store i8 0, ptr %868, align 4
-  %869 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %869, align 8
-  %870 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store ptr null, ptr %870, align 8
-  %871 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store i32 0, ptr %871, align 8
+  %863 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  store i32 -1, ptr %863, align 4
+  %864 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i32 -1, ptr %864, align 8
+  %865 = getelementptr inbounds nuw i8, ptr %77, i64 12
+  store i32 -1, ptr %865, align 4
+  %866 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store i32 1072, ptr %866, align 8
+  %867 = getelementptr inbounds nuw i8, ptr %77, i64 20
+  store i8 0, ptr %867, align 4
+  %868 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %868, align 8
+  %869 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store ptr null, ptr %869, align 8
+  %870 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  store i32 0, ptr %870, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 1, ptr noundef nonnull %77) #14
   store i32 1, ptr %78, align 8
-  %872 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  store i32 -1, ptr %872, align 4
-  %873 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store i32 -1, ptr %873, align 8
-  %874 = getelementptr inbounds nuw i8, ptr %78, i64 12
-  store i32 -1, ptr %874, align 4
-  %875 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store i32 256, ptr %875, align 8
-  %876 = getelementptr inbounds nuw i8, ptr %78, i64 20
-  store i8 0, ptr %876, align 4
-  %877 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %877, align 8
-  %878 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  store ptr null, ptr %878, align 8
-  %879 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  store i32 0, ptr %879, align 8
+  %871 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  store i32 -1, ptr %871, align 4
+  %872 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store i32 -1, ptr %872, align 8
+  %873 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  store i32 -1, ptr %873, align 4
+  %874 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  store i32 256, ptr %874, align 8
+  %875 = getelementptr inbounds nuw i8, ptr %78, i64 20
+  store i8 0, ptr %875, align 4
+  %876 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %876, align 8
+  %877 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  store ptr null, ptr %877, align 8
+  %878 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  store i32 0, ptr %878, align 8
   call void @_ZN9Assembler4movlE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %78, i32 noundef 0) #14
   call void @_ZN14MacroAssembler5leaveEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   store i32 15, ptr %79, align 8
-  %880 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i32 -1, ptr %880, align 4
-  %881 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 -1, ptr %881, align 8
-  %882 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  store i32 -1, ptr %882, align 4
-  %883 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i32 8, ptr %883, align 8
-  %884 = getelementptr inbounds nuw i8, ptr %79, i64 20
-  store i8 0, ptr %884, align 4
-  %885 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %885, align 8
-  %886 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store ptr null, ptr %886, align 8
-  %887 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  store i32 0, ptr %887, align 8
+  %879 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store i32 -1, ptr %879, align 4
+  %880 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store i32 -1, ptr %880, align 8
+  %881 = getelementptr inbounds nuw i8, ptr %79, i64 12
+  store i32 -1, ptr %881, align 4
+  %882 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  store i32 8, ptr %882, align 8
+  %883 = getelementptr inbounds nuw i8, ptr %79, i64 20
+  store i8 0, ptr %883, align 4
+  %884 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %884, align 8
+  %885 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  store ptr null, ptr %885, align 8
+  %886 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  store i32 0, ptr %886, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %79, i64 21, i1 false)
-  %888 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void %685(ptr noundef nonnull align 8 dereferenceable(40) %885, ptr noundef nonnull align 8 dereferenceable(40) %888) #14
+  %887 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  call void %684(ptr noundef nonnull align 8 dereferenceable(40) %884, ptr noundef nonnull align 8 dereferenceable(40) %887) #14
   call void @_ZN9Assembler4cmpqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %8, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %35, i1 noundef zeroext true) #14
   call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %35) #14
-  %889 = load ptr, ptr @_ZN12StubRoutines24_forward_exception_entryE, align 8
-  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef %889, i32 noundef 6) #14
-  %890 = load ptr, ptr %81, align 8
-  %891 = getelementptr inbounds nuw i8, ptr %890, i64 16
-  %892 = load ptr, ptr %891, align 8
-  call void %892(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %80) #14
-  %893 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %894 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %893, ptr noundef nonnull align 8 dereferenceable(16) %894, i64 16, i1 false)
+  %888 = load ptr, ptr @_ZN12StubRoutines24_forward_exception_entryE, align 8
+  call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef %888, i32 noundef 6) #14
+  %889 = load ptr, ptr %81, align 8
+  %890 = getelementptr inbounds nuw i8, ptr %889, i64 16
+  %891 = load ptr, ptr %890, align 8
+  call void %891(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(56) %80) #14
+  %892 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %893 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %892, ptr noundef nonnull align 8 dereferenceable(16) %893, i64 16, i1 false)
   call void @_ZN14MacroAssembler4jumpE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %80, i32 -1) #14
-  %895 = load ptr, ptr %1, align 8
-  %896 = getelementptr inbounds nuw i8, ptr %895, i64 40
-  %.sroa.0.0.copyload.i.i588 = load i32, ptr %896, align 8
-  %897 = and i32 %.sroa.0.0.copyload.i.i588, 32
-  %.not666 = icmp eq i32 %897, 0
-  br i1 %.not666, label %._ZN13GrowableArrayIiED2Ev.exit_crit_edge, label %898
+  %894 = load ptr, ptr %1, align 8
+  %895 = getelementptr inbounds nuw i8, ptr %894, i64 40
+  %.sroa.0.0.copyload.i.i588 = load i32, ptr %895, align 8
+  %896 = and i32 %.sroa.0.0.copyload.i.i588, 32
+  %.not654 = icmp eq i32 %896, 0
+  br i1 %.not654, label %._ZN13GrowableArrayIiED2Ev.exit_crit_edge, label %897
 
-._ZN13GrowableArrayIiED2Ev.exit_crit_edge:        ; preds = %863
-  %.pre706 = mul nsw i32 %.0569, %402
+._ZN13GrowableArrayIiED2Ev.exit_crit_edge:        ; preds = %862
+  %.pre694 = mul nsw i32 %.0569, %401
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
-898:                                              ; preds = %863
+897:                                              ; preds = %862
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %43) #14
-  call fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %381, i32 noundef %.0572, ptr noundef %385)
+  call fastcc void @_ZL9save_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %380, i32 noundef %.0572, ptr noundef %384)
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 7, i32 3) #14
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, i32 13) #14
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 2, i32 15) #14
   call void @_ZN14MacroAssembler12call_VM_leafEPhi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @_ZN13SharedRuntime26complete_monitor_locking_CEP7oopDescP9BasicLockP10JavaThread, i32 noundef 3) #14
-  call fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %381, i32 noundef %.0572, ptr noundef %385)
+  call fastcc void @_ZL12restore_argsP14MacroAssembleriiP9VMRegPair(ptr noundef nonnull %0, i32 noundef %380, i32 noundef %.0572, ptr noundef %384)
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %44, i1 noundef zeroext true) #14
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %67) #14
   call void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  %or.cond14 = icmp eq i8 %850, 6
-  br i1 %or.cond14, label %899, label %900
+  %or.cond14 = icmp eq i8 %849, 6
+  br i1 %or.cond14, label %898, label %899
 
-899:                                              ; preds = %898
+898:                                              ; preds = %897
   call void @_ZN13SharedRuntime18save_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
-  br label %900
+  br label %899
 
-900:                                              ; preds = %898, %899
-  %901 = mul nsw i32 %.0569, %402
+899:                                              ; preds = %897, %898
+  %900 = mul nsw i32 %.0569, %401
   store i32 4, ptr %82, align 8
-  %902 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 -1, ptr %902, align 4
-  %903 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i32 -1, ptr %903, align 8
-  %904 = getelementptr inbounds nuw i8, ptr %82, i64 12
-  store i32 -1, ptr %904, align 4
-  %905 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store i32 %901, ptr %905, align 8
-  %906 = getelementptr inbounds nuw i8, ptr %82, i64 20
-  store i8 0, ptr %906, align 4
-  %907 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %907, align 8
-  %908 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store ptr null, ptr %908, align 8
-  %909 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  store i32 0, ptr %909, align 8
+  %901 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  store i32 -1, ptr %901, align 4
+  %902 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store i32 -1, ptr %902, align 8
+  %903 = getelementptr inbounds nuw i8, ptr %82, i64 12
+  store i32 -1, ptr %903, align 4
+  %904 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  store i32 %900, ptr %904, align 8
+  %905 = getelementptr inbounds nuw i8, ptr %82, i64 20
+  store i8 0, ptr %905, align 4
+  %906 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %906, align 8
+  %907 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  store ptr null, ptr %907, align 8
+  %908 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  store i32 0, ptr %908, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %82, i64 21, i1 false)
-  %910 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void %685(ptr noundef nonnull align 8 dereferenceable(40) %907, ptr noundef nonnull align 8 dereferenceable(40) %910) #14
+  %909 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  call void %684(ptr noundef nonnull align 8 dereferenceable(40) %906, ptr noundef nonnull align 8 dereferenceable(40) %909) #14
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 6, ptr noundef nonnull %7) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 7, i32 3) #14
@@ -5148,82 +5147,82 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %849, %851
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 0) #14
   call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef -16) #14
   store i32 15, ptr %83, align 8
-  %911 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  store i32 -1, ptr %911, align 4
-  %912 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store i32 -1, ptr %912, align 8
-  %913 = getelementptr inbounds nuw i8, ptr %83, i64 12
-  store i32 -1, ptr %913, align 4
-  %914 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i32 8, ptr %914, align 8
-  %915 = getelementptr inbounds nuw i8, ptr %83, i64 20
-  store i8 0, ptr %915, align 4
-  %916 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %916, align 8
-  %917 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  store ptr null, ptr %917, align 8
-  %918 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  store i32 0, ptr %918, align 8
+  %910 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store i32 -1, ptr %910, align 4
+  %911 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store i32 -1, ptr %911, align 8
+  %912 = getelementptr inbounds nuw i8, ptr %83, i64 12
+  store i32 -1, ptr %912, align 4
+  %913 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  store i32 8, ptr %913, align 8
+  %914 = getelementptr inbounds nuw i8, ptr %83, i64 20
+  store i8 0, ptr %914, align 4
+  %915 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %915, align 8
+  %916 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  store ptr null, ptr %916, align 8
+  %917 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  store i32 0, ptr %917, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %83) #14
   store i32 15, ptr %84, align 8
-  %919 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store i32 -1, ptr %919, align 4
-  %920 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i32 -1, ptr %920, align 8
-  %921 = getelementptr inbounds nuw i8, ptr %84, i64 12
-  store i32 -1, ptr %921, align 4
-  %922 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i32 8, ptr %922, align 8
-  %923 = getelementptr inbounds nuw i8, ptr %84, i64 20
-  store i8 0, ptr %923, align 4
-  %924 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %924, align 8
-  %925 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store ptr null, ptr %925, align 8
-  %926 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store i32 0, ptr %926, align 8
+  %918 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 -1, ptr %918, align 4
+  %919 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store i32 -1, ptr %919, align 8
+  %920 = getelementptr inbounds nuw i8, ptr %84, i64 12
+  store i32 -1, ptr %920, align 4
+  %921 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i32 8, ptr %921, align 8
+  %922 = getelementptr inbounds nuw i8, ptr %84, i64 20
+  store i8 0, ptr %922, align 4
+  %923 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %923, align 8
+  %924 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  store ptr null, ptr %924, align 8
+  %925 = getelementptr inbounds nuw i8, ptr %84, i64 40
+  store i32 0, ptr %925, align 8
   call void @_ZN14MacroAssembler6movptrE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %84, i32 noundef 0) #14
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull @_ZN13SharedRuntime28complete_monitor_unlocking_CEP7oopDescP9BasicLockP10JavaThread, i32 noundef 6) #14
-  %927 = load ptr, ptr %86, align 8
-  %928 = getelementptr inbounds nuw i8, ptr %927, i64 16
-  %929 = load ptr, ptr %928, align 8
-  call void %929(ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull align 8 dereferenceable(56) %85) #14
-  %930 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  %931 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %930, ptr noundef nonnull align 8 dereferenceable(16) %931, i64 16, i1 false)
+  %926 = load ptr, ptr %86, align 8
+  %927 = getelementptr inbounds nuw i8, ptr %926, i64 16
+  %928 = load ptr, ptr %927, align 8
+  call void %928(ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull align 8 dereferenceable(56) %85) #14
+  %929 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %930 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %929, ptr noundef nonnull align 8 dereferenceable(16) %930, i64 16, i1 false)
   call void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %85, i32 0) #14
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 12) #14
   call void @_ZN14MacroAssembler15reinit_heapbaseEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   store i32 15, ptr %87, align 8
-  %932 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  store i32 -1, ptr %932, align 4
-  %933 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i32 -1, ptr %933, align 8
-  %934 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  store i32 -1, ptr %934, align 4
-  %935 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store i32 8, ptr %935, align 8
-  %936 = getelementptr inbounds nuw i8, ptr %87, i64 20
-  store i8 0, ptr %936, align 4
-  %937 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %937, align 8
-  %938 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  store ptr null, ptr %938, align 8
-  %939 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  store i32 0, ptr %939, align 8
+  %931 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  store i32 -1, ptr %931, align 4
+  %932 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store i32 -1, ptr %932, align 8
+  %933 = getelementptr inbounds nuw i8, ptr %87, i64 12
+  store i32 -1, ptr %933, align 4
+  %934 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  store i32 8, ptr %934, align 8
+  %935 = getelementptr inbounds nuw i8, ptr %87, i64 20
+  store i8 0, ptr %935, align 4
+  %936 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %936, align 8
+  %937 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  store ptr null, ptr %937, align 8
+  %938 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  store i32 0, ptr %938, align 8
   call void @_ZN14MacroAssembler6movptrE7Address8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %87, i32 3) #14
-  br i1 %or.cond14, label %940, label %941
+  br i1 %or.cond14, label %939, label %940
 
-940:                                              ; preds = %900
+939:                                              ; preds = %899
   call void @_ZN13SharedRuntime21restore_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
-  br label %941
+  br label %940
 
-941:                                              ; preds = %900, %940
+940:                                              ; preds = %899, %939
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %68, i1 noundef zeroext true) #14
   br label %_ZN13GrowableArrayIiED2Ev.exit
 
-_ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._ZN13GrowableArrayIiED2Ev.exit_crit_edge, %941
-  %.pre-phi = phi i32 [ %.pre706, %._ZN13GrowableArrayIiED2Ev.exit_crit_edge ], [ %901, %941 ]
+_ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._ZN13GrowableArrayIiED2Ev.exit_crit_edge, %940
+  %.pre-phi = phi i32 [ %.pre694, %._ZN13GrowableArrayIiED2Ev.exit_crit_edge ], [ %900, %940 ]
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %64) #14
   call void @_ZN9Assembler10vzeroupperEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN13SharedRuntime18save_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
@@ -5231,30 +5230,30 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._ZN13GrowableArray
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef 0) #14
   call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef -16) #14
   call void @_ZN14AddressLiteralC2EPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull @_ZN13SharedRuntime20reguard_yellow_pagesEv, i32 noundef 6) #14
-  %942 = load ptr, ptr %89, align 8
-  %943 = getelementptr inbounds nuw i8, ptr %942, i64 16
-  %944 = load ptr, ptr %943, align 8
-  call void %944(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %88) #14
-  %945 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %946 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %945, ptr noundef nonnull align 8 dereferenceable(16) %946, i64 16, i1 false)
+  %941 = load ptr, ptr %89, align 8
+  %942 = getelementptr inbounds nuw i8, ptr %941, i64 16
+  %943 = load ptr, ptr %942, align 8
+  call void %943(ptr noundef nonnull align 8 dereferenceable(56) %89, ptr noundef nonnull align 8 dereferenceable(56) %88) #14
+  %944 = getelementptr inbounds nuw i8, ptr %88, i64 40
+  %945 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %944, ptr noundef nonnull align 8 dereferenceable(16) %945, i64 16, i1 false)
   call void @_ZN14MacroAssembler4callE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %88, i32 0) #14
   call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 12) #14
   call void @_ZN14MacroAssembler15reinit_heapbaseEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   call void @_ZN13SharedRuntime21restore_native_resultEP14MacroAssembler9BasicTypei(ptr noundef nonnull %0, i8 noundef zeroext %5, i32 poison)
   call void @_ZN9Assembler3jmpER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(33) %65, i1 noundef zeroext true) #14
   call void @_ZN17AbstractAssembler5flushEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
-  %947 = load ptr, ptr %367, align 8
-  %948 = getelementptr inbounds nuw i8, ptr %947, i64 80
-  %949 = load ptr, ptr %948, align 8
-  %950 = sdiv i32 %411, %396
-  %951 = load i32, ptr %39, align 4
-  %spec.select = select i1 %.not659, i32 %951, i32 %403
-  %952 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %949, i32 noundef %422, i32 noundef %471, i32 noundef %950, i32 noundef %spec.select, i32 noundef %.pre-phi, ptr noundef nonnull %366, i32 noundef -1) #14
-  br label %953
+  %946 = load ptr, ptr %366, align 8
+  %947 = getelementptr inbounds nuw i8, ptr %946, i64 80
+  %948 = load ptr, ptr %947, align 8
+  %949 = sdiv i32 %410, %395
+  %950 = load i32, ptr %39, align 4
+  %spec.select = select i1 %.not647, i32 %950, i32 %402
+  %951 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %948, i32 noundef %421, i32 noundef %470, i32 noundef %949, i32 noundef %spec.select, i32 noundef %.pre-phi, ptr noundef nonnull %365, i32 noundef -1) #14
+  br label %952
 
-953:                                              ; preds = %297, %301, %302, %289, %_ZN13GrowableArrayIiED2Ev.exit, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
-  %.0 = phi ptr [ %952, %_ZN13GrowableArrayIiED2Ev.exit ], [ null, %289 ], [ %362, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit ], [ %295, %297 ], [ %295, %302 ], [ %295, %301 ]
+952:                                              ; preds = %297, %301, %302, %289, %_ZN13GrowableArrayIiED2Ev.exit, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
+  %.0 = phi ptr [ %951, %_ZN13GrowableArrayIiED2Ev.exit ], [ null, %289 ], [ %361, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit ], [ %295, %297 ], [ %295, %302 ], [ %295, %301 ]
   ret ptr %.0
 }
 
@@ -9305,9 +9304,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !69
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -9341,8 +9339,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !69
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

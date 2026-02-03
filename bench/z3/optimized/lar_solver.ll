@@ -6366,18 +6366,16 @@ define hidden noundef zeroext i1 @_ZNK2lp10lar_solver17row_has_a_big_numEj(ptr n
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.09.013 = phi ptr [ %18, %.lr.ph ], [ %7, %2 ]
+  %.sroa.09.013 = phi ptr [ %16, %.lr.ph ], [ %7, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 12
   %11 = load i8, ptr %10, align 4
-  %12 = and i8 %11, 1
-  %13 = icmp ne i8 %12, 0
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 28
-  %15 = load i8, ptr %14, align 4
-  %16 = and i8 %15, 1
-  %17 = icmp ne i8 %16, 0
-  %.not2.i = select i1 %13, i1 true, i1 %17
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 40
-  %.not16 = icmp eq ptr %18, %9
+  %12 = trunc i8 %11 to i1
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 28
+  %14 = load i8, ptr %13, align 4
+  %15 = trunc i8 %14 to i1
+  %.not2.i = select i1 %12, i1 true, i1 %15
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 40
+  %.not16 = icmp eq ptr %16, %9
   %or.cond = select i1 %.not2.i, i1 true, i1 %.not16
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 

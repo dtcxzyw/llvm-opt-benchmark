@@ -250,9 +250,8 @@ define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef readonly captu
 _ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
   %20 = getelementptr i8, ptr %8, i64 24
   %.val = load i64, ptr %20, align 8, !tbaa !25
-  %21 = and i64 %.val, 1
-  %22 = icmp ne i64 %21, 0
-  ret i1 %22
+  %21 = trunc i64 %.val to i1
+  ret i1 %21
 
 .loopexit:                                        ; preds = %19, %.preheader.i
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ8opt2bSetPKciPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 179) #15
@@ -354,9 +353,8 @@ define noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef %0, i32 noundef 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr i8, ptr %6, i64 24
   %.val = load i64, ptr %10, align 8, !tbaa !25
-  %11 = and i64 %.val, 1
-  %12 = icmp ne i64 %11, 0
-  ret i1 %12
+  %11 = trunc i64 %.val to i1
+  ret i1 %11
 
 ._crit_edge:                                      ; preds = %5, %3
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZ8ftp2bSetiiPK8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 165) #15
@@ -680,9 +678,8 @@ define noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef readonly captures
 define noundef zeroext i1 @_Z6is_setPK8t_filenm(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !25
-  %4 = and i64 %3, 1
-  %5 = icmp ne i64 %4, 0
-  ret i1 %5
+  %4 = trunc i64 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

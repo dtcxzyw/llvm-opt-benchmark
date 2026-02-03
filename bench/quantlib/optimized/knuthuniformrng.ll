@@ -267,9 +267,8 @@ for.inc103:                                       ; preds = %for.body62, %if.the
   br i1 %cmp61, label %for.body62, label %for.end105, !llvm.loop !24
 
 for.end105:                                       ; preds = %for.inc103
-  %and.i = and i32 %s.0187, 1
-  %cmp.i.not = icmp eq i32 %and.i, 0
-  br i1 %cmp.i.not, label %if.end141, label %for.body111.preheader
+  %cmp.i = trunc i32 %s.0187 to i1
+  br i1 %cmp.i, label %for.body111.preheader, label %if.end141
 
 for.body111.preheader:                            ; preds = %for.end105
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(800) %incdec.ptr.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(800) %call5.i.i.i.i2.i.i70, i64 800, i1 false), !tbaa !18

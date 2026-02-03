@@ -46,9 +46,8 @@ define dso_local noundef i32 @_ZN4absl24synchronization_internal9SemWaiter9Timed
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   store i64 %1, ptr %3, align 8
-  %6 = and i64 %1, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %13, label %7
+  %6 = trunc i64 %1 to i1
+  br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -92,11 +91,11 @@ define dso_local noundef zeroext i1 @_ZN4absl24synchronization_internal9SemWaite
   %3 = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
-  %.fr = freeze i64 %1
+  %.fr60 = freeze i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.not18 = icmp eq i64 %.fr, -1
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.not18 = icmp eq i64 %.fr60, -1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not18, label %.split39.us, label %.split39
 
 .split39.us:                                      ; preds = %2, %.split30.us.us
@@ -153,9 +152,8 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us: ;
   br label %.backedge.us.us
 
 .split39:                                         ; preds = %2
-  %28 = and i64 %.fr, 1
-  %.not.i = icmp eq i64 %28, 0
-  br i1 %.not.i, label %.split39.split.us, label %.split39.split
+  %28 = trunc i64 %.fr60 to i1
+  br i1 %28, label %.split39.split.us, label %.split39.split
 
 .split39.split.us:                                ; preds = %.split39, %.split30.split.us.us
   %.03.us42 = phi i1 [ false, %.split30.split.us.us ], [ true, %.split39 ]
@@ -172,15 +170,15 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us: ;
 
 .split.us:                                        ; preds = %30, %._crit_edge.us50
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.fr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %31 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store i64 %.fr60, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %31 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1)
   %32 = extractvalue { i64, i64 } %31, 0
-  store i64 %32, ptr %5, align 8
+  store i64 %32, ptr %4, align 8
   %33 = extractvalue { i64, i64 } %31, 1
   store i64 %33, ptr %8, align 8
-  %34 = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %34 = call i32 @sem_clockwait(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef 1, ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.split30.split.us.us, label %.lr.ph38.us
@@ -212,15 +210,15 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us47:
 
 .backedge.us33.us:                                ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.fr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %47 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store i64 %.fr60, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %47 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1)
   %48 = extractvalue { i64, i64 } %47, 0
-  store i64 %48, ptr %5, align 8
+  store i64 %48, ptr %4, align 8
   %49 = extractvalue { i64, i64 } %47, 1
   store i64 %49, ptr %8, align 8
-  %50 = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %50 = call i32 @sem_clockwait(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef 1, ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.split30.split.us.us, label %45, !llvm.loop !10
@@ -259,15 +257,15 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
 
 .split:                                           ; preds = %58, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.fr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %59 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1)
+  store i64 %.fr60, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %59 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %60 = extractvalue { i64, i64 } %59, 0
-  store i64 %60, ptr %4, align 8
+  store i64 %60, ptr %5, align 8
   %61 = extractvalue { i64, i64 } %59, 1
   store i64 %61, ptr %7, align 8
-  %62 = call i32 @sem_clockwait(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef 1, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %62 = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %.split30.split, label %.lr.ph37
@@ -278,15 +276,15 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
 
 .backedge:                                        ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.fr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %65 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 1)
+  store i64 %.fr60, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %65 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %66 = extractvalue { i64, i64 } %65, 0
-  store i64 %66, ptr %4, align 8
+  store i64 %66, ptr %5, align 8
   %67 = extractvalue { i64, i64 } %65, 1
   store i64 %67, ptr %7, align 8
-  %68 = call i32 @sem_clockwait(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef 1, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %68 = call i32 @sem_timedwait(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.split30.split, label %70, !llvm.loop !10

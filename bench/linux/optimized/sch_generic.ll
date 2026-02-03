@@ -2948,17 +2948,17 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
 define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
-  br i1 %3, label %.loopexit31, label %.preheader30
+  br i1 %3, label %.loopexit30, label %.preheader29
 
-.preheader30:                                     ; preds = %1, %.loopexit27
-  %4 = phi ptr [ %87, %.loopexit27 ], [ %2, %1 ]
+.preheader29:                                     ; preds = %1, %.loopexit26
+  %4 = phi ptr [ %87, %.loopexit26 ], [ %2, %1 ]
   %5 = getelementptr i8, ptr %4, i64 -408
   %6 = getelementptr i8, ptr %4, i64 648
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.loopexit29, label %9
+  br i1 %8, label %.loopexit28, label %9
 
-9:                                                ; preds = %.preheader30
+9:                                                ; preds = %.preheader29
   %10 = getelementptr i8, ptr %4, i64 -384
   br label %11
 
@@ -2995,15 +2995,15 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %28 = add nuw nsw i64 %13, 1
   %29 = zext i32 %27 to i64
   %30 = icmp samesign ult i64 %28, %29
-  br i1 %30, label %11, label %.loopexit29, !llvm.loop !86
+  br i1 %30, label %11, label %.loopexit28, !llvm.loop !86
 
-.loopexit29:                                      ; preds = %26, %.preheader30
+.loopexit28:                                      ; preds = %26, %.preheader29
   %31 = getelementptr i8, ptr %4, i64 576
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %46, label %34
 
-34:                                               ; preds = %.loopexit29
+34:                                               ; preds = %.loopexit28
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -3026,7 +3026,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   store volatile ptr @noop_qdisc, ptr %35, align 8
   br label %46
 
-46:                                               ; preds = %45, %34, %.loopexit29
+46:                                               ; preds = %45, %34, %.loopexit28
   %47 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #25, !srcloc !95
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !96
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !97
@@ -3035,7 +3035,7 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %49 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #21, !srcloc !32
   %50 = load i32, ptr %6, align 8
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %.loopexit28, label %52
+  br i1 %51, label %.loopexit27, label %52
 
 52:                                               ; preds = %46
   %53 = getelementptr i8, ptr %4, i64 -384
@@ -3057,9 +3057,9 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %62 = load i32, ptr %6, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %61, %63
-  br i1 %64, label %54, label %.loopexit28, !llvm.loop !33
+  br i1 %64, label %54, label %.loopexit27, !llvm.loop !33
 
-.loopexit28:                                      ; preds = %54, %46
+.loopexit27:                                      ; preds = %54, %46
   %65 = getelementptr i8, ptr %4, i64 808
   %66 = tail call i32 @timer_delete(ptr noundef %65) #20
   %67 = icmp eq i32 %66, 0
@@ -3067,16 +3067,16 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %69 = or i1 %68, %67
   br i1 %69, label %73, label %70
 
-70:                                               ; preds = %.loopexit28
+70:                                               ; preds = %.loopexit27
   %71 = getelementptr i8, ptr %4, i64 872
   %72 = load ptr, ptr %71, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72, ptr elementtype(i32) %72) #20, !srcloc !78
   br label %73
 
-73:                                               ; preds = %70, %.loopexit28
+73:                                               ; preds = %70, %.loopexit27
   %74 = load i32, ptr %6, align 8
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.loopexit27, label %76
+  br i1 %75, label %.loopexit26, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr i8, ptr %4, i64 -384
@@ -3093,38 +3093,38 @@ define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address
   %84 = load i32, ptr %6, align 8
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %83, %85
-  br i1 %86, label %78, label %.loopexit27, !llvm.loop !34
+  br i1 %86, label %78, label %.loopexit26, !llvm.loop !34
 
-.loopexit27:                                      ; preds = %78, %73
+.loopexit26:                                      ; preds = %78, %73
   tail call void @_raw_spin_unlock(ptr noundef %48) #20
   tail call void @__local_bh_enable_ip(i64 noundef %47, i32 noundef 512) #20
   %87 = load ptr, ptr %4, align 8
   %88 = icmp eq ptr %87, %0
-  br i1 %88, label %.loopexit31, label %.preheader30, !llvm.loop !98
+  br i1 %88, label %.loopexit30, label %.preheader29, !llvm.loop !98
 
-.loopexit31:                                      ; preds = %.loopexit27, %1
+.loopexit30:                                      ; preds = %.loopexit26, %1
   tail call void @synchronize_net() #20
   %89 = load ptr, ptr %0, align 8
   %90 = icmp eq ptr %89, %0
-  br i1 %90, label %.loopexit26, label %.preheader25
+  br i1 %90, label %.loopexit25, label %.preheader24
 
-.loopexit26.loopexit:                             ; preds = %dev_reset_queue.exit16
-  %.pre39 = load ptr, ptr %0, align 8
-  br label %.loopexit26
+.loopexit25.loopexit:                             ; preds = %dev_reset_queue.exit16
+  %.pre38 = load ptr, ptr %0, align 8
+  br label %.loopexit25
 
-.loopexit26:                                      ; preds = %.loopexit26.loopexit, %.loopexit31
-  %91 = phi ptr [ %.pre39, %.loopexit26.loopexit ], [ %89, %.loopexit31 ]
+.loopexit25:                                      ; preds = %.loopexit25.loopexit, %.loopexit30
+  %91 = phi ptr [ %.pre38, %.loopexit25.loopexit ], [ %89, %.loopexit30 ]
   %92 = icmp eq ptr %91, %0
-  br i1 %92, label %.loopexit23, label %.preheader22
+  br i1 %92, label %.loopexit22, label %.preheader21
 
-.preheader25:                                     ; preds = %.loopexit31, %dev_reset_queue.exit16
-  %93 = phi ptr [ %278, %dev_reset_queue.exit16 ], [ %89, %.loopexit31 ]
+.preheader24:                                     ; preds = %.loopexit30, %dev_reset_queue.exit16
+  %93 = phi ptr [ %278, %dev_reset_queue.exit16 ], [ %89, %.loopexit30 ]
   %94 = getelementptr i8, ptr %93, i64 648
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %.loopexit24, label %97
+  br i1 %96, label %.loopexit23, label %97
 
-97:                                               ; preds = %.preheader25
+97:                                               ; preds = %.preheader24
   %98 = getelementptr i8, ptr %93, i64 -384
   br label %99
 
@@ -3400,23 +3400,23 @@ qdisc_reset.exit:                                 ; preds = %239, %.loopexit6.i
 253:                                              ; preds = %qdisc_reset.exit, %qdisc_reset.exit18
   %254 = phi ptr [ %112, %qdisc_reset.exit18 ], [ %184, %qdisc_reset.exit ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %254) #20
-  %.pre38 = load i32, ptr %94, align 8
+  %.pre37 = load i32, ptr %94, align 8
   br label %dev_reset_queue.exit
 
 dev_reset_queue.exit:                             ; preds = %99, %253
-  %255 = phi i32 [ %100, %99 ], [ %.pre38, %253 ]
+  %255 = phi i32 [ %100, %99 ], [ %.pre37, %253 ]
   %256 = add nuw nsw i64 %101, 1
   %257 = zext i32 %255 to i64
   %258 = icmp samesign ult i64 %256, %257
-  br i1 %258, label %99, label %.loopexit24, !llvm.loop !86
+  br i1 %258, label %99, label %.loopexit23, !llvm.loop !86
 
-.loopexit24:                                      ; preds = %dev_reset_queue.exit, %.preheader25
+.loopexit23:                                      ; preds = %dev_reset_queue.exit, %.preheader24
   %259 = getelementptr i8, ptr %93, i64 576
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %260, null
   br i1 %261, label %dev_reset_queue.exit16, label %262
 
-262:                                              ; preds = %.loopexit24
+262:                                              ; preds = %.loopexit23
   %263 = getelementptr i8, ptr %260, i64 16
   %.val15 = load ptr, ptr %263, align 16
   %264 = icmp eq ptr %.val15, null
@@ -3452,23 +3452,23 @@ dev_reset_queue.exit:                             ; preds = %99, %253
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %277) #20
   br label %dev_reset_queue.exit16
 
-dev_reset_queue.exit16:                           ; preds = %276, %262, %.loopexit24
+dev_reset_queue.exit16:                           ; preds = %276, %262, %.loopexit23
   %278 = load ptr, ptr %93, align 8
   %279 = icmp eq ptr %278, %0
-  br i1 %279, label %.loopexit26.loopexit, label %.preheader25, !llvm.loop !99
+  br i1 %279, label %.loopexit25.loopexit, label %.preheader24, !llvm.loop !99
 
-.loopexit:                                        ; preds = %.critedge, %286, %.preheader22
+.loopexit:                                        ; preds = %.critedge, %286, %.preheader21
   %280 = load ptr, ptr %282, align 8
   %281 = icmp eq ptr %280, %0
-  br i1 %281, label %.loopexit23, label %.preheader22, !llvm.loop !100
+  br i1 %281, label %.loopexit22, label %.preheader21, !llvm.loop !100
 
-.preheader22:                                     ; preds = %.loopexit26, %.loopexit
-  %282 = phi ptr [ %280, %.loopexit ], [ %91, %.loopexit26 ]
+.preheader21:                                     ; preds = %.loopexit25, %.loopexit
+  %282 = phi ptr [ %280, %.loopexit ], [ %91, %.loopexit25 ]
   %283 = getelementptr i8, ptr %282, i64 648
   %284 = getelementptr i8, ptr %282, i64 -384
   %285 = load i32, ptr %283, align 8
-  %.not34 = icmp eq i32 %285, 0
-  br i1 %.not34, label %.loopexit, label %.preheader
+  %.not33 = icmp eq i32 %285, 0
+  br i1 %.not33, label %.loopexit, label %.preheader
 
 286:                                              ; preds = %307
   %287 = add nuw nsw i64 %291, 1
@@ -3481,8 +3481,8 @@ dev_reset_queue.exit16:                           ; preds = %276, %262, %.loopex
   %.be = phi i64 [ %287, %286 ], [ 0, %.critedge ]
   br label %.preheader, !llvm.loop !101
 
-.preheader:                                       ; preds = %.preheader22, %.preheader.backedge
-  %291 = phi i64 [ %.be, %.preheader.backedge ], [ 0, %.preheader22 ]
+.preheader:                                       ; preds = %.preheader21, %.preheader.backedge
+  %291 = phi i64 [ %.be, %.preheader.backedge ], [ 0, %.preheader21 ]
   %292 = load ptr, ptr %284, align 8
   %.split14 = getelementptr %struct.netdev_queue, ptr %292, i64 %291
   %293 = getelementptr i8, ptr %.split14, i64 16
@@ -3504,9 +3504,8 @@ dev_reset_queue.exit16:                           ; preds = %276, %262, %.loopex
 303:                                              ; preds = %.preheader
   %304 = getelementptr inbounds nuw i8, ptr %294, i64 224
   %305 = load volatile i64, ptr %304, align 8
-  %306 = and i64 %305, 1
-  %.not20 = icmp eq i64 %306, 0
-  br i1 %.not20, label %307, label %312
+  %306 = trunc i64 %305 to i1
+  br i1 %306, label %312, label %307
 
 307:                                              ; preds = %300, %303
   %308 = getelementptr inbounds nuw i8, ptr %294, i64 216
@@ -3526,7 +3525,7 @@ dev_reset_queue.exit16:                           ; preds = %276, %262, %.loopex
   %.not = icmp eq i32 %314, 0
   br i1 %.not, label %.loopexit, label %.preheader.backedge
 
-.loopexit23:                                      ; preds = %.loopexit, %.loopexit26
+.loopexit22:                                      ; preds = %.loopexit, %.loopexit25
   ret void
 }
 

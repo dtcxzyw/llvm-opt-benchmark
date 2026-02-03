@@ -379,127 +379,126 @@ define dso_local noundef zeroext i1 @RS_execute(ptr noundef readonly captures(no
   br i1 %14, label %mb_strchr.exit40, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = and i32 %11, 1
-  %.not30 = icmp ne i32 %16, 0
-  %17 = sub nsw i32 %.0.lcssa, %13
-  %18 = icmp sgt i32 %17, 0
-  %or.cond = select i1 %.not30, i1 %18, i1 false
+  %.not30 = trunc i32 %11 to i1
+  %16 = sub nsw i32 %.0.lcssa, %13
+  %17 = icmp sgt i32 %16, 0
+  %or.cond = select i1 %.not30, i1 %17, i1 false
   br i1 %or.cond, label %.lr.ph55, label %.loopexit
 
 .lr.ph55:                                         ; preds = %15, %.lr.ph55
-  %.153 = phi i32 [ %19, %.lr.ph55 ], [ %17, %15 ]
-  %.252 = phi ptr [ %22, %.lr.ph55 ], [ %1, %15 ]
-  %19 = add nsw i32 %.153, -1
-  %20 = tail call i32 @pg_mblen(ptr noundef %.252) #6
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %.252, i64 %21
-  %23 = icmp samesign ugt i32 %.153, 1
-  br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !10
+  %.153 = phi i32 [ %18, %.lr.ph55 ], [ %16, %15 ]
+  %.252 = phi ptr [ %21, %.lr.ph55 ], [ %1, %15 ]
+  %18 = add nsw i32 %.153, -1
+  %19 = tail call i32 @pg_mblen(ptr noundef %.252) #6
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %.252, i64 %20
+  %22 = icmp samesign ugt i32 %.153, 1
+  br i1 %22, label %.lr.ph55, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph55, %15
-  %.126 = phi ptr [ %1, %15 ], [ %22, %.lr.ph55 ]
+  %.126 = phi ptr [ %1, %15 ], [ %21, %.lr.ph55 ]
   %.not3157 = icmp eq ptr %3, null
   br i1 %.not3157, label %mb_strchr.exit40, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %.loopexit, %mb_strchr.exit
-  %.359 = phi ptr [ %71, %mb_strchr.exit ], [ %.126, %.loopexit ]
-  %.02758 = phi ptr [ %68, %mb_strchr.exit ], [ %3, %.loopexit ]
-  %24 = load i32, ptr %.02758, align 8
-  %25 = and i32 %24, 3
-  switch i32 %25, label %62 [
-    i32 1, label %26
-    i32 2, label %44
+  %.359 = phi ptr [ %70, %mb_strchr.exit ], [ %.126, %.loopexit ]
+  %.02758 = phi ptr [ %67, %mb_strchr.exit ], [ %3, %.loopexit ]
+  %23 = load i32, ptr %.02758, align 8
+  %24 = and i32 %23, 3
+  switch i32 %24, label %61 [
+    i32 1, label %25
+    i32 2, label %43
   ]
 
-26:                                               ; preds = %.lr.ph61
-  %27 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
-  %28 = tail call i32 @pg_mblen(ptr noundef %.359) #6
-  %29 = load i8, ptr %27, align 1
-  %30 = icmp eq i8 %29, 0
-  br i1 %30, label %mb_strchr.exit40, label %.lr.ph.i
+25:                                               ; preds = %.lr.ph61
+  %26 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
+  %27 = tail call i32 @pg_mblen(ptr noundef %.359) #6
+  %28 = load i8, ptr %26, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %mb_strchr.exit40, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26, %.loopexit.i
-  %.01520.i = phi ptr [ %41, %.loopexit.i ], [ %27, %26 ]
-  %31 = tail call i32 @pg_mblen(ptr noundef nonnull %.01520.i) #6
-  %32 = icmp eq i32 %31, %28
-  br i1 %32, label %.preheader.i, label %.loopexit.i
+.lr.ph.i:                                         ; preds = %25, %.loopexit.i
+  %.01520.i = phi ptr [ %40, %.loopexit.i ], [ %26, %25 ]
+  %30 = tail call i32 @pg_mblen(ptr noundef nonnull %.01520.i) #6
+  %31 = icmp eq i32 %30, %27
+  br i1 %31, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %33
-  %.016.i = phi i32 [ %34, %33 ], [ %28, %.lr.ph.i ]
+.preheader.i:                                     ; preds = %.lr.ph.i, %32
+  %.016.i = phi i32 [ %33, %32 ], [ %27, %.lr.ph.i ]
   %.not.i = icmp eq i32 %.016.i, 0
-  br i1 %.not.i, label %mb_strchr.exit, label %33
+  br i1 %.not.i, label %mb_strchr.exit, label %32
 
-33:                                               ; preds = %.preheader.i
-  %34 = add i32 %.016.i, -1
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %.01520.i, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %.359, i64 %35
-  %39 = load i8, ptr %38, align 1
-  %.not19.i = icmp eq i8 %37, %39
+32:                                               ; preds = %.preheader.i
+  %33 = add i32 %.016.i, -1
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %.01520.i, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr inbounds i8, ptr %.359, i64 %34
+  %38 = load i8, ptr %37, align 1
+  %.not19.i = icmp eq i8 %36, %38
   br i1 %.not19.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !11
 
-.loopexit.i:                                      ; preds = %33, %.lr.ph.i
-  %40 = sext i32 %31 to i64
-  %41 = getelementptr inbounds i8, ptr %.01520.i, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !12
+.loopexit.i:                                      ; preds = %32, %.lr.ph.i
+  %39 = sext i32 %30 to i64
+  %40 = getelementptr inbounds i8, ptr %.01520.i, i64 %39
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %mb_strchr.exit40, label %.lr.ph.i, !llvm.loop !12
 
-44:                                               ; preds = %.lr.ph61
-  %45 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
-  %46 = tail call i32 @pg_mblen(ptr noundef %.359) #6
-  %47 = load i8, ptr %45, align 1
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %mb_strchr.exit, label %.lr.ph.i32
+43:                                               ; preds = %.lr.ph61
+  %44 = getelementptr inbounds nuw i8, ptr %.02758, i64 16
+  %45 = tail call i32 @pg_mblen(ptr noundef %.359) #6
+  %46 = load i8, ptr %44, align 1
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %mb_strchr.exit, label %.lr.ph.i32
 
-.lr.ph.i32:                                       ; preds = %44, %.loopexit.i34
-  %.01520.i33 = phi ptr [ %59, %.loopexit.i34 ], [ %45, %44 ]
-  %49 = tail call i32 @pg_mblen(ptr noundef nonnull %.01520.i33) #6
-  %50 = icmp eq i32 %49, %46
-  br i1 %50, label %.preheader.i36, label %.loopexit.i34
+.lr.ph.i32:                                       ; preds = %43, %.loopexit.i34
+  %.01520.i33 = phi ptr [ %58, %.loopexit.i34 ], [ %44, %43 ]
+  %48 = tail call i32 @pg_mblen(ptr noundef nonnull %.01520.i33) #6
+  %49 = icmp eq i32 %48, %45
+  br i1 %49, label %.preheader.i36, label %.loopexit.i34
 
-.preheader.i36:                                   ; preds = %.lr.ph.i32, %51
-  %.016.i37 = phi i32 [ %52, %51 ], [ %46, %.lr.ph.i32 ]
+.preheader.i36:                                   ; preds = %.lr.ph.i32, %50
+  %.016.i37 = phi i32 [ %51, %50 ], [ %45, %.lr.ph.i32 ]
   %.not.i38 = icmp eq i32 %.016.i37, 0
-  br i1 %.not.i38, label %mb_strchr.exit40, label %51
+  br i1 %.not.i38, label %mb_strchr.exit40, label %50
 
-51:                                               ; preds = %.preheader.i36
-  %52 = add i32 %.016.i37, -1
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %.01520.i33, i64 %53
-  %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %.359, i64 %53
-  %57 = load i8, ptr %56, align 1
-  %.not19.i39 = icmp eq i8 %55, %57
+50:                                               ; preds = %.preheader.i36
+  %51 = add i32 %.016.i37, -1
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %.01520.i33, i64 %52
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr inbounds i8, ptr %.359, i64 %52
+  %56 = load i8, ptr %55, align 1
+  %.not19.i39 = icmp eq i8 %54, %56
   br i1 %.not19.i39, label %.preheader.i36, label %.loopexit.i34, !llvm.loop !11
 
-.loopexit.i34:                                    ; preds = %51, %.lr.ph.i32
-  %58 = sext i32 %49 to i64
-  %59 = getelementptr inbounds i8, ptr %.01520.i33, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = icmp eq i8 %60, 0
-  br i1 %61, label %mb_strchr.exit, label %.lr.ph.i32, !llvm.loop !12
+.loopexit.i34:                                    ; preds = %50, %.lr.ph.i32
+  %57 = sext i32 %48 to i64
+  %58 = getelementptr inbounds i8, ptr %.01520.i33, i64 %57
+  %59 = load i8, ptr %58, align 1
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %mb_strchr.exit, label %.lr.ph.i32, !llvm.loop !12
 
-62:                                               ; preds = %.lr.ph61
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  %64 = load i32, ptr %.02758, align 8
-  %65 = and i32 %64, 3
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %65) #6
+61:                                               ; preds = %.lr.ph61
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %63 = load i32, ptr %.02758, align 8
+  %64 = and i32 %63, 3
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %64) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 250, ptr noundef nonnull @__func__.RS_execute) #6
   unreachable
 
-mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.preheader.i, %44
-  %67 = getelementptr inbounds nuw i8, ptr %.02758, i64 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 @pg_mblen(ptr noundef %.359) #6
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %.359, i64 %70
-  %.not31 = icmp eq ptr %68, null
+mb_strchr.exit:                                   ; preds = %.loopexit.i34, %.preheader.i, %43
+  %66 = getelementptr inbounds nuw i8, ptr %.02758, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call i32 @pg_mblen(ptr noundef %.359) #6
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %.359, i64 %69
+  %.not31 = icmp eq ptr %67, null
   br i1 %.not31, label %mb_strchr.exit40, label %.lr.ph61, !llvm.loop !13
 
-mb_strchr.exit40:                                 ; preds = %mb_strchr.exit, %26, %.loopexit.i, %.preheader.i36, %.loopexit, %._crit_edge
-  %.028 = phi i1 [ true, %.loopexit ], [ false, %._crit_edge ], [ false, %.loopexit.i ], [ false, %.preheader.i36 ], [ true, %mb_strchr.exit ], [ false, %26 ]
+mb_strchr.exit40:                                 ; preds = %mb_strchr.exit, %25, %.loopexit.i, %.preheader.i36, %.loopexit, %._crit_edge
+  %.028 = phi i1 [ true, %.loopexit ], [ false, %._crit_edge ], [ false, %.loopexit.i ], [ false, %.preheader.i36 ], [ true, %mb_strchr.exit ], [ false, %25 ]
   ret i1 %.028
 }
 

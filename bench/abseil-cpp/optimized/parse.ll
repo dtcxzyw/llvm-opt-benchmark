@@ -3186,8 +3186,8 @@ _ZN4absl7GetFlagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
           to label %677 unwind label %697
 
 677:                                              ; preds = %_ZN4absl7GetFlagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEET_RKNS_14flags_internal4FlagISA_EE.exit47.i
-  %678 = icmp ne i8 %.1.i, 0
-  %679 = select i1 %676, i1 %678, i1 false
+  %678 = trunc nuw i8 %.1.i to i1
+  %679 = and i1 %676, %678
   %680 = zext i1 %679 to i8
   store i1 false, ptr @_ZN4absl14flags_internal12_GLOBAL__N_127tryfromenv_needs_processingE, align 1
   %681 = load ptr, ptr %48, align 8, !tbaa !4
@@ -3276,7 +3276,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 708:                                              ; preds = %700
   %709 = trunc nuw i8 %.2.i to i1
-  %710 = icmp ne i8 %.0791391, 0
+  %710 = trunc nuw i8 %.0791391 to i1
   %711 = select i1 %709, i1 %710, i1 false
   %712 = zext i1 %711 to i8
   %.val124 = load ptr, ptr %112, align 8, !tbaa !71

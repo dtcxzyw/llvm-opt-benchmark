@@ -10,9 +10,8 @@ define ptr @l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Opera
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = ptrtoint ptr %4 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_inc.exit
+  %6 = trunc i64 %5 to i1
+  br i1 %6, label %lean_inc.exit, label %7
 
 7:                                                ; preds = %2
   %.val.i = load i32, ptr %4, align 4, !tbaa !8
@@ -36,9 +35,8 @@ lean_inc.exit:                                    ; preds = %12, %11, %9, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, 1
-  %.not21 = icmp eq i64 %16, 0
-  br i1 %.not21, label %17, label %lean_inc.exit12
+  %16 = trunc i64 %15 to i1
+  br i1 %16, label %lean_inc.exit12, label %17
 
 17:                                               ; preds = %lean_inc.exit
   %.val.i15 = load i32, ptr %14, align 4, !tbaa !8
@@ -62,9 +60,8 @@ lean_inc.exit12:                                  ; preds = %22, %21, %19, %lean
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 1
-  %.not22 = icmp eq i64 %26, 0
-  br i1 %.not22, label %27, label %lean_inc.exit13
+  %26 = trunc i64 %25 to i1
+  br i1 %26, label %lean_inc.exit13, label %27
 
 27:                                               ; preds = %lean_inc.exit12
   %.val.i18 = load i32, ptr %24, align 4, !tbaa !8
@@ -86,9 +83,8 @@ lean_inc.exit12:                                  ; preds = %22, %21, %19, %lean
 
 lean_inc.exit13:                                  ; preds = %32, %31, %29, %lean_inc.exit12
   %33 = ptrtoint ptr %0 to i64
-  %34 = and i64 %33, 1
-  %.not23 = icmp eq i64 %34, 0
-  br i1 %.not23, label %35, label %lean_dec.exit
+  %34 = trunc i64 %33 to i1
+  br i1 %34, label %lean_dec.exit, label %35
 
 35:                                               ; preds = %lean_inc.exit13
   %36 = load i32, ptr %0, align 4, !tbaa !8
@@ -161,9 +157,8 @@ l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Add_0_
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 0, ptr %12, align 2, !tbaa !12
   %13 = ptrtoint ptr %3 to i64
-  %14 = and i64 %13, 1
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %lean_dec.exit10
+  %14 = trunc i64 %13 to i1
+  br i1 %14, label %lean_dec.exit10, label %15
 
 15:                                               ; preds = %l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Add_0__Std_Tactic_BVDecide_BVExpr_bitblast_FullAdderInput_cast_match__1_splitter.exit
   %16 = load i32, ptr %3, align 4, !tbaa !8
@@ -185,9 +180,8 @@ l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Add_0_
 
 lean_dec.exit10:                                  ; preds = %21, %20, %18, %l___private_Std_Tactic_BVDecide_Bitblast_BVExpr_Circuit_Lemmas_Operations_Add_0__Std_Tactic_BVDecide_BVExpr_bitblast_FullAdderInput_cast_match__1_splitter.exit
   %22 = ptrtoint ptr %2 to i64
-  %23 = and i64 %22, 1
-  %.not15 = icmp eq i64 %23, 0
-  br i1 %.not15, label %24, label %lean_dec.exit9
+  %23 = trunc i64 %22 to i1
+  br i1 %23, label %lean_dec.exit9, label %24
 
 24:                                               ; preds = %lean_dec.exit10
   %25 = load i32, ptr %2, align 4, !tbaa !8
@@ -209,9 +203,8 @@ lean_dec.exit10:                                  ; preds = %21, %20, %18, %l___
 
 lean_dec.exit9:                                   ; preds = %30, %29, %27, %lean_dec.exit10
   %31 = ptrtoint ptr %1 to i64
-  %32 = and i64 %31, 1
-  %.not16 = icmp eq i64 %32, 0
-  br i1 %.not16, label %33, label %lean_dec.exit
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %lean_dec.exit, label %33
 
 33:                                               ; preds = %lean_dec.exit9
   %34 = load i32, ptr %1, align 4, !tbaa !8

@@ -108,8 +108,8 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
   %36 = zext nneg i32 %17 to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph265, %296
-  %.0264 = phi i32 [ 0, %.lr.ph265 ], [ %297, %296 ]
+37:                                               ; preds = %.lr.ph265, %295
+  %.0264 = phi i32 [ 0, %.lr.ph265 ], [ %296, %295 ]
   %38 = load ptr, ptr %14, align 8, !tbaa !88
   %39 = sext i32 %.0264 to i64
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
@@ -132,7 +132,7 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 108
   %54 = call i32 @match_pathspec(ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %53, i32 noundef %46, i32 noundef 0, ptr noundef %44, i32 noundef %52) #15
   %.not144 = icmp eq i32 %54, 0
-  br i1 %.not144, label %296, label %55
+  br i1 %.not144, label %295, label %55
 
 55:                                               ; preds = %43
   %56 = load ptr, ptr %21, align 8, !tbaa !93
@@ -144,7 +144,7 @@ define dso_local void @run_diff_files(ptr noundef %0, i32 noundef %1) local_unna
   %59 = sext i32 %58 to i64
   %60 = call i32 @strncmp(ptr noundef nonnull %53, ptr noundef nonnull %56, i64 noundef %59) #16
   %.not146 = icmp eq i32 %60, 0
-  br i1 %.not146, label %61, label %296
+  br i1 %.not146, label %61, label %295
 
 61:                                               ; preds = %57, %55
   %62 = getelementptr inbounds nuw i8, ptr %41, i64 56
@@ -387,7 +387,7 @@ ce_mode_from_stat.exit180:                        ; preds = %.thread30.i176, %12
 .thread228:                                       ; preds = %89, %147
   %.3.ph = phi i32 [ %143, %147 ], [ %.0264, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %296
+  br label %295
 
 157:                                              ; preds = %148, %152
   %158 = getelementptr inbounds nuw i8, ptr %.2128.lcssa298, i64 56
@@ -396,7 +396,7 @@ ce_mode_from_stat.exit180:                        ; preds = %.thread30.i176, %12
   %161 = and i32 %160, 3
   %.not151 = icmp eq i32 %161, %spec.store.select
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not151, label %._crit_edge269, label %296
+  br i1 %.not151, label %._crit_edge269, label %295
 
 ._crit_edge269:                                   ; preds = %157
   %.pre270 = load i32, ptr %158, align 8, !tbaa !92
@@ -409,7 +409,7 @@ ce_mode_from_stat.exit180:                        ; preds = %.thread30.i176, %12
   %164 = getelementptr inbounds nuw i8, ptr %.0126, i64 56
   %165 = and i32 %163, 1074003968
   %or.cond164 = icmp eq i32 %165, 0
-  br i1 %or.cond164, label %166, label %296
+  br i1 %or.cond164, label %166, label %295
 
 166:                                              ; preds = %162
   %167 = and i32 %163, 2129920
@@ -639,7 +639,7 @@ match_stat_with_submodule.exit:                   ; preds = %208, %232
 
 ce_mode_from_stat.exit211:                        ; preds = %ce_mode_from_stat.exit195, %174, %172
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %296
+  br label %295
 
 252:                                              ; preds = %.thread27.i204, %249, %249, %247, %245, %237, %.thread30.i207
   %.3120.ph = phi i32 [ 57344, %249 ], [ 57344, %249 ], [ 16384, %247 ], [ 40960, %245 ], [ %251, %.thread27.i204 ], [ %spec.select253, %.thread30.i207 ], [ %238, %237 ]
@@ -647,7 +647,7 @@ ce_mode_from_stat.exit211:                        ; preds = %ce_mode_from_stat.e
   %253 = icmp ne i32 %.0.i196, 0
   %254 = icmp ne i32 %.3223, 0
   %or.cond4 = select i1 %253, i1 true, i1 %254
-  br i1 %or.cond4, label %283, label %257
+  br i1 %or.cond4, label %282, label %257
 
 .thread299:                                       ; preds = %166
   %255 = getelementptr inbounds nuw i8, ptr %.0126, i64 52
@@ -687,77 +687,75 @@ ce_mode_from_stat.exit211:                        ; preds = %ce_mode_from_stat.e
   %trace_fsmonitor.val.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 8), align 8, !tbaa !119
   %trace_fsmonitor.val7.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_fsmonitor, i64 12), align 4
   %.not.i.i213 = icmp eq i32 %trace_fsmonitor.val.i, 0
-  %276 = and i8 %trace_fsmonitor.val7.i, 1
-  %.not68.i = icmp ne i8 %276, 0
+  %.not68.i = trunc i8 %trace_fsmonitor.val7.i to i1
   %.not6.i = select i1 %.not.i.i213, i1 %.not68.i, i1 false
-  br i1 %.not6.i, label %mark_fsmonitor_valid.exit, label %277
+  br i1 %.not6.i, label %mark_fsmonitor_valid.exit, label %276
 
-277:                                              ; preds = %271
-  %278 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
-  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.14, i32 noundef 49, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.15, ptr noundef nonnull %278) #15
+276:                                              ; preds = %271
+  %277 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
+  call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.14, i32 noundef 49, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.15, ptr noundef nonnull %277) #15
   br label %mark_fsmonitor_valid.exit
 
-mark_fsmonitor_valid.exit:                        ; preds = %257, %263, %266, %271, %277
-  %279 = load i32, ptr %35, align 8, !tbaa !121
-  %.not159 = icmp eq i32 %279, 0
-  br i1 %.not159, label %296, label %.thread238
+mark_fsmonitor_valid.exit:                        ; preds = %257, %263, %266, %271, %276
+  %278 = load i32, ptr %35, align 8, !tbaa !121
+  %.not159 = icmp eq i32 %278, 0
+  br i1 %.not159, label %295, label %.thread238
 
 .thread238:                                       ; preds = %mark_fsmonitor_valid.exit
-  %280 = getelementptr inbounds nuw i8, ptr %.0126, i64 52
-  %281 = load i32, ptr %280, align 4, !tbaa !92
-  %282 = getelementptr inbounds nuw i8, ptr %.0126, i64 72
-  br label %289
+  %279 = getelementptr inbounds nuw i8, ptr %.0126, i64 52
+  %280 = load i32, ptr %279, align 4, !tbaa !92
+  %281 = getelementptr inbounds nuw i8, ptr %.0126, i64 72
+  br label %288
 
-283:                                              ; preds = %252
-  %284 = getelementptr inbounds nuw i8, ptr %.0126, i64 52
-  %285 = load i32, ptr %284, align 4, !tbaa !92
-  %286 = getelementptr inbounds nuw i8, ptr %.0126, i64 72
-  br i1 %253, label %287, label %289
+282:                                              ; preds = %252
+  %283 = getelementptr inbounds nuw i8, ptr %.0126, i64 52
+  %284 = load i32, ptr %283, align 4, !tbaa !92
+  %285 = getelementptr inbounds nuw i8, ptr %.0126, i64 72
+  br i1 %253, label %286, label %288
 
-287:                                              ; preds = %283
-  %288 = call ptr @null_oid() #15
-  br label %289
+286:                                              ; preds = %282
+  %287 = call ptr @null_oid() #15
+  br label %288
 
-289:                                              ; preds = %.thread238, %283, %287
-  %.2119308 = phi i32 [ %.3120.ph, %287 ], [ %.3120.ph, %283 ], [ %.2119309, %.thread238 ]
-  %.0220304 = phi i32 [ %.3223, %287 ], [ %.3223, %283 ], [ 0, %.thread238 ]
-  %290 = phi ptr [ %286, %287 ], [ %286, %283 ], [ %282, %.thread238 ]
-  %291 = phi i32 [ %285, %287 ], [ %285, %283 ], [ %281, %.thread238 ]
-  %292 = phi ptr [ %288, %287 ], [ %286, %283 ], [ %282, %.thread238 ]
-  %bcmp.i214 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %290, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
+288:                                              ; preds = %.thread238, %282, %286
+  %.2119308 = phi i32 [ %.3120.ph, %286 ], [ %.3120.ph, %282 ], [ %.2119309, %.thread238 ]
+  %.0220304 = phi i32 [ %.3223, %286 ], [ %.3223, %282 ], [ 0, %.thread238 ]
+  %289 = phi ptr [ %285, %286 ], [ %285, %282 ], [ %281, %.thread238 ]
+  %290 = phi i32 [ %284, %286 ], [ %284, %282 ], [ %280, %.thread238 ]
+  %291 = phi ptr [ %287, %286 ], [ %285, %282 ], [ %281, %.thread238 ]
+  %bcmp.i214 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %289, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i215 = icmp ne i32 %bcmp.i214, 0
-  %293 = zext i1 %.not.i215 to i32
-  %bcmp.i216 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %292, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
+  %292 = zext i1 %.not.i215 to i32
+  %bcmp.i216 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %291, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i217 = icmp ne i32 %bcmp.i216, 0
-  %294 = zext i1 %.not.i217 to i32
-  %295 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
-  call void @diff_change(ptr noundef nonnull %10, i32 noundef %291, i32 noundef %.2119308, ptr noundef nonnull %290, ptr noundef nonnull %292, i32 noundef %293, i32 noundef %294, ptr noundef nonnull %295, i32 noundef 0, i32 noundef %.0220304) #15
-  br label %296
+  %293 = zext i1 %.not.i217 to i32
+  %294 = getelementptr inbounds nuw i8, ptr %.0126, i64 108
+  call void @diff_change(ptr noundef nonnull %10, i32 noundef %290, i32 noundef %.2119308, ptr noundef nonnull %289, ptr noundef nonnull %291, i32 noundef %292, i32 noundef %293, ptr noundef nonnull %294, i32 noundef 0, i32 noundef %.0220304) #15
+  br label %295
 
-296:                                              ; preds = %43, %57, %289, %162, %ce_mode_from_stat.exit211, %157, %mark_fsmonitor_valid.exit, %.thread228
-  %.1.ph = phi i32 [ %.3.ph, %.thread228 ], [ %.2, %mark_fsmonitor_valid.exit ], [ %149, %157 ], [ %.2, %ce_mode_from_stat.exit211 ], [ %.2, %162 ], [ %.2, %289 ], [ %.0264, %57 ], [ %.0264, %43 ]
-  %297 = add nsw i32 %.1.ph, 1
-  %298 = icmp slt i32 %297, %17
-  br i1 %298, label %37, label %._crit_edge, !llvm.loop !122
+295:                                              ; preds = %43, %57, %288, %162, %ce_mode_from_stat.exit211, %157, %mark_fsmonitor_valid.exit, %.thread228
+  %.1.ph = phi i32 [ %.3.ph, %.thread228 ], [ %.2, %mark_fsmonitor_valid.exit ], [ %149, %157 ], [ %.2, %ce_mode_from_stat.exit211 ], [ %.2, %162 ], [ %.2, %288 ], [ %.0264, %57 ], [ %.0264, %43 ]
+  %296 = add nsw i32 %.1.ph, 1
+  %297 = icmp slt i32 %296, %17
+  br i1 %297, label %37, label %._crit_edge, !llvm.loop !122
 
-._crit_edge:                                      ; preds = %296, %37, %2
+._crit_edge:                                      ; preds = %295, %37, %2
   call void @diffcore_std(ptr noundef nonnull %10) #15
   call void @diff_flush(ptr noundef nonnull %10) #15
   %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !119
   %trace_perf_key.val166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %.not.i218 = icmp eq i32 %trace_perf_key.val, 0
-  %299 = and i8 %trace_perf_key.val166, 1
-  %.not162254 = icmp ne i8 %299, 0
+  %.not162254 = trunc i8 %trace_perf_key.val166 to i1
   %.not162 = select i1 %.not.i218, i1 %.not162254, i1 false
-  br i1 %.not162, label %303, label %300
+  br i1 %.not162, label %301, label %298
 
-300:                                              ; preds = %._crit_edge
-  %301 = call i64 @getnanotime() #15
-  %302 = sub i64 %301, %9
-  call void (ptr, i32, i64, ptr, ...) @trace_performance_fl(ptr noundef nonnull @.str.2, i32 noundef 287, i64 noundef %302, ptr noundef nonnull @.str.3) #15
-  br label %303
+298:                                              ; preds = %._crit_edge
+  %299 = call i64 @getnanotime() #15
+  %300 = sub i64 %299, %9
+  call void (ptr, i32, i64, ptr, ...) @trace_performance_fl(ptr noundef nonnull @.str.2, i32 noundef 287, i64 noundef %300, ptr noundef nonnull @.str.3) #15
+  br label %301
 
-303:                                              ; preds = %300, %._crit_edge
+301:                                              ; preds = %298, %._crit_edge
   ret void
 }
 
@@ -1061,81 +1059,80 @@ declare void @free_commit_list(ptr noundef) local_unnamed_addr #1
 define dso_local void @run_diff_index(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.object_id, align 4
   %4 = alloca [65 x i8], align 16
-  %5 = and i32 %1, 1
-  %.not = icmp eq i32 %5, 0
+  %5 = trunc i32 %1 to i1
+  %6 = and i32 %1, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !126
-  %.not17 = icmp eq i32 %8, 1
-  br i1 %.not17, label %10, label %9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i32, ptr %8, align 8, !tbaa !126
+  %.not16 = icmp eq i32 %9, 1
+  br i1 %.not16, label %11, label %10
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 622, ptr noundef nonnull @.str.10) #19
   unreachable
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2040
-  %12 = load ptr, ptr %11, align 8, !tbaa !58
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 384
-  %14 = load ptr, ptr %13, align 8, !tbaa !59
-  %15 = and i32 %1, 2
-  %.not16 = icmp eq i32 %15, 0
-  %16 = tail call i64 @trace_performance_enter() #15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !127
-  tail call void @refresh_fsmonitor(ptr noundef %14) #15
-  br i1 %.not16, label %21, label %19
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2040
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 384
+  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %16 = and i32 %1, 2
+  %.not = icmp eq i32 %16, 0
+  %17 = tail call i64 @trace_performance_enter() #15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !127
+  tail call void @refresh_fsmonitor(ptr noundef %15) #15
+  br i1 %.not, label %22, label %20
 
-19:                                               ; preds = %10
+20:                                               ; preds = %11
   call void @diff_get_merge_base(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %20 = call ptr @oid_to_hex_r(ptr noundef nonnull %4, ptr noundef nonnull %3) #15
-  br label %29
+  %21 = call ptr @oid_to_hex_r(ptr noundef nonnull %4, ptr noundef nonnull %3) #15
+  br label %30
 
-21:                                               ; preds = %10
-  %22 = load ptr, ptr %18, align 8, !tbaa !129
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %23, i64 32, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 36
-  %25 = load i32, ptr %24, align 4, !tbaa !98
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %25, ptr %26, align 4, !tbaa !98
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !139
-  br label %29
+22:                                               ; preds = %11
+  %23 = load ptr, ptr %19, align 8, !tbaa !129
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %24, i64 32, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 36
+  %26 = load i32, ptr %25, align 4, !tbaa !98
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %26, ptr %27, align 4, !tbaa !98
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !139
+  br label %30
 
-29:                                               ; preds = %21, %19
-  %.0 = phi ptr [ %20, %19 ], [ %28, %21 ]
-  %30 = call fastcc i32 @diff_cache(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %5)
-  %.not18 = icmp eq i32 %30, 0
-  br i1 %.not18, label %33, label %31
+30:                                               ; preds = %22, %20
+  %.0 = phi ptr [ %21, %20 ], [ %29, %22 ]
+  %31 = call fastcc i32 @diff_cache(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %6)
+  %.not17 = icmp eq i32 %31, 0
+  br i1 %.not17, label %34, label %32
 
-31:                                               ; preds = %29
-  %32 = call i32 @common_exit(ptr noundef nonnull @.str.2, i32 noundef 638, i32 noundef 128) #15
-  call void @exit(i32 noundef %32) #19
+32:                                               ; preds = %30
+  %33 = call i32 @common_exit(ptr noundef nonnull @.str.2, i32 noundef 638, i32 noundef 128) #15
+  call void @exit(i32 noundef %33) #19
   unreachable
 
-33:                                               ; preds = %29
-  %34 = select i1 %.not, ptr @.str.1, ptr @.str
-  call void @diff_set_mnemonic_prefix(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, ptr noundef nonnull %34) #15
+34:                                               ; preds = %30
+  %35 = select i1 %5, ptr @.str, ptr @.str.1
+  call void @diff_set_mnemonic_prefix(ptr noundef nonnull %7, ptr noundef nonnull @.str.11, ptr noundef nonnull %35) #15
   call void @diffcore_fix_diff_index() #15
-  call void @diffcore_std(ptr noundef nonnull %6) #15
-  call void @diff_flush(ptr noundef nonnull %6) #15
+  call void @diffcore_std(ptr noundef nonnull %7) #15
+  call void @diff_flush(ptr noundef nonnull %7) #15
   %trace_perf_key.val = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 8), align 8, !tbaa !119
-  %trace_perf_key.val20 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
+  %trace_perf_key.val19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_perf_key, i64 12), align 4
   %.not.i = icmp eq i32 %trace_perf_key.val, 0
-  %35 = and i8 %trace_perf_key.val20, 1
-  %.not1921 = icmp ne i8 %35, 0
-  %.not19 = select i1 %.not.i, i1 %.not1921, i1 false
-  br i1 %.not19, label %38, label %36
+  %.not1820 = trunc i8 %trace_perf_key.val19 to i1
+  %.not18 = select i1 %.not.i, i1 %.not1820, i1 false
+  br i1 %.not18, label %38, label %36
 
-36:                                               ; preds = %33
+36:                                               ; preds = %34
   %37 = call i64 @getnanotime() #15
   call void (ptr, i32, i64, ptr, ...) @trace_performance_leave_fl(ptr noundef nonnull @.str.2, i32 noundef 644, i64 noundef %37, ptr noundef nonnull @.str.12) #15
   br label %38
 
-38:                                               ; preds = %36, %33
+38:                                               ; preds = %36, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

@@ -140,9 +140,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
   %.sroa.05.09 = phi ptr [ %.sroa.05.2, %_ZN4llvm16DenseMapIteratorIPKN5clang4DeclENS1_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EELb0EEppEv.exit ], [ %.pn14.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !16
-  %18 = and i64 %17, 1
-  %.not.i = icmp eq i64 %18, 0
-  br i1 %.not.i, label %27, label %19
+  %18 = trunc i64 %17 to i1
+  br i1 %18, label %19, label %27
 
 19:                                               ; preds = %.lr.ph
   %20 = lshr i64 %17, 1

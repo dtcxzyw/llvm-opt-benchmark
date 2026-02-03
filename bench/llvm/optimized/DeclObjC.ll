@@ -6781,9 +6781,8 @@ declare noundef zeroext i1 @_ZNK5clang11ParmVarDecl19isDestroyedInCalleeEv(ptr n
 define dso_local noundef ptr @_ZNK5clang14ObjCMethodDecl7getBodyEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8, !tbaa !60
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %._crit_edge.i, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !566
@@ -12813,18 +12812,17 @@ define dso_local noundef i32 @_ZN5clang16ObjCProtocolDecl10getODRHashEv(ptr noun
   br label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i
 
 _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i: ; preds = %4, %1
-  %.0.copyload.i.i.i.i2 = phi i64 [ %.0.copyload.i.i.i.pre.i.i, %4 ], [ %.0.copyload.i.i.i.i, %1 ]
-  %9 = icmp ugt i64 %.0.copyload.i.i.i.i2, 7
+  %.0.copyload.i.i.i.i1 = phi i64 [ %.0.copyload.i.i.i.pre.i.i, %4 ], [ %.0.copyload.i.i.i.i, %1 ]
+  %9 = icmp ugt i64 %.0.copyload.i.i.i.i1, 7
   br i1 %9, label %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit, label %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread
 
 _ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit:  ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i
-  %10 = and i64 %.0.copyload.i.i.i.i2, -8
+  %10 = and i64 %.0.copyload.i.i.i.i1, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread, label %15
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread
 
 15:                                               ; preds = %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
@@ -12848,7 +12846,7 @@ _ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread: ; preds = %_ZNK5clang16O
   store i32 0, ptr %24, align 8, !tbaa !508
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 188
   store i32 32, ptr %25, align 4, !tbaa !509
-  %.not.i.i3 = icmp eq i64 %.0.copyload.i.i.i.i2, 0
+  %.not.i.i3 = icmp eq i64 %.0.copyload.i.i.i.i1, 0
   br i1 %.not.i.i3, label %26, label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i4
 
 26:                                               ; preds = %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread
@@ -12860,7 +12858,7 @@ _ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread: ; preds = %_ZNK5clang16O
   br label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i4
 
 _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i4: ; preds = %26, %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread
-  %.0.copyload.i.i.i1.i = phi i64 [ %.0.copyload.i.i.i.pre.i.i5, %26 ], [ %.0.copyload.i.i.i.i2, %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread ]
+  %.0.copyload.i.i.i1.i = phi i64 [ %.0.copyload.i.i.i.pre.i.i5, %26 ], [ %.0.copyload.i.i.i.i1, %_ZNK5clang16ObjCProtocolDecl10hasODRHashEv.exit.thread ]
   %31 = icmp ugt i64 %.0.copyload.i.i.i1.i, 7
   br i1 %31, label %32, label %_ZN5clang16ObjCProtocolDecl13getDefinitionEv.exit
 
@@ -12941,19 +12939,18 @@ define dso_local noundef zeroext i1 @_ZNK5clang16ObjCProtocolDecl10hasODRHashEv(
 _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit: ; preds = %1, %3
   %.0.copyload.i.i.i.i2 = phi i64 [ %.0.copyload.i.i.i.pre.i, %3 ], [ %.0.copyload.i.i.i, %1 ]
   %8 = icmp ugt i64 %.0.copyload.i.i.i.i2, 7
-  br i1 %8, label %9, label %16
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit
   %10 = and i64 %.0.copyload.i.i.i.i2, -8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i8, ptr %12, align 8
-  %14 = and i8 %13, 1
-  %15 = icmp ne i8 %14, 0
-  br label %16
+  %14 = trunc i8 %13 to i1
+  br label %15
 
-16:                                               ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit, %9
-  %.0 = phi i1 [ %15, %9 ], [ false, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit ]
+15:                                               ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit, %9
+  %.0 = phi i1 [ %14, %9 ], [ false, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit ]
   ret i1 %.0
 }
 
@@ -13770,9 +13767,8 @@ _ZnamRKN5clang10ASTContextEm.exit:                ; preds = %23, %26
 define dso_local noundef ptr @_ZNK5clang22ObjCImplementationDecl10init_beginEv(ptr noundef nonnull align 8 dereferenceable(133) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8, !tbaa !60
-  %4 = and i8 %3, 1
-  %.not.i = icmp eq i8 %4, 0
-  br i1 %.not.i, label %._crit_edge.i, label %5
+  %4 = trunc i8 %3 to i1
+  br i1 %4, label %5, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %1
   %.pre.i = load ptr, ptr %2, align 8, !tbaa !668
@@ -14482,12 +14478,11 @@ _ZNK5clang14ObjCMethodDecl9getEndLocEv.exit:      ; preds = %1, %7
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl7hasBodyEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8, !tbaa !60
-  %4 = and i8 %3, 1
-  %5 = icmp ne i8 %4, 0
-  %6 = load ptr, ptr %2, align 8
-  %7 = icmp ne ptr %6, null
-  %8 = select i1 %5, i1 true, i1 %7
-  ret i1 %8
+  %4 = trunc i8 %3 to i1
+  %5 = load ptr, ptr %2, align 8
+  %6 = icmp ne ptr %5, null
+  %7 = select i1 %4, i1 true, i1 %6
+  ret i1 %7
 }
 
 declare void @_ZN5clang9NamedDecl6anchorEv(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2

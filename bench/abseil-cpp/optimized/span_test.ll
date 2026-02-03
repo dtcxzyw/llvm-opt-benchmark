@@ -61845,10 +61845,10 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %8 = load ptr, ptr %1, align 8, !tbaa !143
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !143
-  %.not41 = icmp eq ptr %8, %10
-  br i1 %.not41, label %._crit_edge45, label %.lr.ph44
+  %.not38 = icmp eq ptr %8, %10
+  br i1 %.not38, label %._crit_edge42, label %.lr.ph41
 
-.lr.ph44:                                         ; preds = %2
+.lr.ph41:                                         ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -61856,33 +61856,33 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.4.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sroa.4.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %18
 
-._crit_edge45:                                    ; preds = %._crit_edge, %2
+._crit_edge42:                                    ; preds = %._crit_edge, %2
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.387, i64 noundef 1)
   ret ptr %0
 
-18:                                               ; preds = %.lr.ph44, %._crit_edge
-  %.sroa.031.042 = phi ptr [ %8, %.lr.ph44 ], [ %24, %._crit_edge ]
-  %19 = load ptr, ptr %.sroa.031.042, align 8, !tbaa !132
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.042, i64 8
+18:                                               ; preds = %.lr.ph41, %._crit_edge
+  %.sroa.028.039 = phi ptr [ %8, %.lr.ph41 ], [ %24, %._crit_edge ]
+  %19 = load ptr, ptr %.sroa.028.039, align 8, !tbaa !132
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.028.039, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !126
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %.not3438 = icmp samesign eq i64 %21, 0
-  br i1 %.not3438, label %._crit_edge, label %.lr.ph
+  %.not3135 = icmp samesign eq i64 %21, 0
+  br i1 %.not3135, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN4absl19str_format_internal10StreamableD2Ev.exit21, %18
+._crit_edge:                                      ; preds = %_ZN4absl19str_format_internal10StreamableD2Ev.exit19, %18
   %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.86, i64 noundef 1)
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.031.042, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.039, i64 32
   %.not = icmp eq ptr %24, %10
-  br i1 %.not, label %._crit_edge45, label %18
+  br i1 %.not, label %._crit_edge42, label %18
 
-.lr.ph:                                           ; preds = %18, %_ZN4absl19str_format_internal10StreamableD2Ev.exit21
-  %.040 = phi i64 [ %59, %_ZN4absl19str_format_internal10StreamableD2Ev.exit21 ], [ 0, %18 ]
-  %.sroa.024.039 = phi ptr [ %60, %_ZN4absl19str_format_internal10StreamableD2Ev.exit21 ], [ %19, %18 ]
-  %25 = load i8, ptr %.sroa.024.039, align 1, !tbaa !73
-  %26 = and i64 %.040, 15
+.lr.ph:                                           ; preds = %18, %_ZN4absl19str_format_internal10StreamableD2Ev.exit19
+  %.037 = phi i64 [ %59, %_ZN4absl19str_format_internal10StreamableD2Ev.exit19 ], [ 0, %18 ]
+  %.sroa.021.036 = phi ptr [ %60, %_ZN4absl19str_format_internal10StreamableD2Ev.exit19 ], [ %19, %18 ]
+  %25 = load i8, ptr %.sroa.021.036, align 1, !tbaa !73
+  %26 = and i64 %.037, 15
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %45
 
@@ -61891,7 +61891,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.385, ptr %4, align 8, !tbaa !1665
   store i64 9, ptr %11, align 8, !tbaa !1667
-  %29 = inttoptr i64 %.040 to ptr
+  %29 = inttoptr i64 %.037 to ptr
   store ptr %4, ptr %3, align 8, !tbaa !1668, !alias.scope !1670
   store ptr %29, ptr %13, align 8, !tbaa !73, !alias.scope !1670
   store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchImEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !1673, !alias.scope !1670
@@ -61901,9 +61901,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 _ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit: ; preds = %28
   %31 = load i64, ptr %12, align 8, !tbaa !220
-  %32 = and i64 %31, 1
-  %.not.i.i.i.i = icmp eq i64 %32, 0
-  br i1 %.not.i.i.i.i, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit, label %33
+  %32 = trunc i64 %31 to i1
+  br i1 %32, label %33, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit
 
 33:                                               ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit
   %34 = load ptr, ptr %13, align 8, !tbaa !73
@@ -61921,24 +61920,23 @@ _ZN4absl19str_format_internal10StreamableD2Ev.exit: ; preds = %_ZN4absl19str_for
   %38 = landingpad { ptr, i32 }
           cleanup
   %39 = load i64, ptr %12, align 8, !tbaa !220
-  %40 = and i64 %39, 1
-  %.not.i.i.i.i15 = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i.i15, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit16, label %41
+  %40 = trunc i64 %39 to i1
+  br i1 %40, label %41, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit15
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %13, align 8, !tbaa !73
   %43 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !73
   %44 = shl i64 %43, 4
   call void @_ZdlPvm(ptr noundef %42, i64 noundef %44) #30
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit16
+  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit15
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit16: ; preds = %37, %41
+_ZN4absl19str_format_internal10StreamableD2Ev.exit15: ; preds = %37, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 45:                                               ; preds = %_ZN4absl19str_format_internal10StreamableD2Ev.exit, %.lr.ph
-  %46 = and i64 %.040, 1
+  %46 = and i64 %.037, 1
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %50
 
@@ -61955,54 +61953,52 @@ _ZN4absl19str_format_internal10StreamableD2Ev.exit16: ; preds = %37, %41
   %51 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %6, ptr %5, align 8, !tbaa !1668, !alias.scope !1674
   store ptr %51, ptr %16, align 8, !tbaa !73, !alias.scope !1674
-  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %.sroa.4.0..sroa_idx.i18, align 8, !tbaa !1673, !alias.scope !1674
+  store ptr @_ZN4absl19str_format_internal13FormatArgImpl8DispatchIcEEbNS1_4DataENS0_24FormatConversionSpecImplEPv, ptr %.sroa.4.0..sroa_idx.i17, align 8, !tbaa !1673, !alias.scope !1674
   store i64 2, ptr %15, align 8, !tbaa !220, !alias.scope !1674
   %52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl19str_format_internal10Streamable5PrintERSo(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit19 unwind label %61
+          to label %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit18 unwind label %61
 
-_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit19: ; preds = %50
+_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit18: ; preds = %50
   %53 = load i64, ptr %15, align 8, !tbaa !220
-  %54 = and i64 %53, 1
-  %.not.i.i.i.i20 = icmp eq i64 %54, 0
-  br i1 %.not.i.i.i.i20, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit21, label %55
+  %54 = trunc i64 %53 to i1
+  br i1 %54, label %55, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit19
 
-55:                                               ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit19
+55:                                               ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit18
   %56 = load ptr, ptr %16, align 8, !tbaa !73
-  %57 = load i64, ptr %.sroa.4.0..sroa_idx.i18, align 8, !tbaa !73
+  %57 = load i64, ptr %.sroa.4.0..sroa_idx.i17, align 8, !tbaa !73
   %58 = shl i64 %57, 4
   call void @_ZdlPvm(ptr noundef %56, i64 noundef %58) #30
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit21
+  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit19
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit21: ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit19, %55
+_ZN4absl19str_format_internal10StreamableD2Ev.exit19: ; preds = %_ZN4absl19str_format_internallsERSoRKNS0_10StreamableE.exit18, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %59 = add nuw i64 %.040, 1
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.024.039, i64 1
-  %.not34 = icmp eq ptr %60, %22
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %59 = add nuw i64 %.037, 1
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 1
+  %.not31 = icmp eq ptr %60, %22
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 61:                                               ; preds = %50
   %62 = landingpad { ptr, i32 }
           cleanup
   %63 = load i64, ptr %15, align 8, !tbaa !220
-  %64 = and i64 %63, 1
-  %.not.i.i.i.i22 = icmp eq i64 %64, 0
-  br i1 %.not.i.i.i.i22, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit23, label %65
+  %64 = trunc i64 %63 to i1
+  br i1 %64, label %65, label %_ZN4absl19str_format_internal10StreamableD2Ev.exit20
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %16, align 8, !tbaa !73
-  %67 = load i64, ptr %.sroa.4.0..sroa_idx.i18, align 8, !tbaa !73
+  %67 = load i64, ptr %.sroa.4.0..sroa_idx.i17, align 8, !tbaa !73
   %68 = shl i64 %67, 4
   call void @_ZdlPvm(ptr noundef %66, i64 noundef %68) #30
-  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit23
+  br label %_ZN4absl19str_format_internal10StreamableD2Ev.exit20
 
-_ZN4absl19str_format_internal10StreamableD2Ev.exit23: ; preds = %61, %65
+_ZN4absl19str_format_internal10StreamableD2Ev.exit20: ; preds = %61, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
-69:                                               ; preds = %_ZN4absl19str_format_internal10StreamableD2Ev.exit23, %_ZN4absl19str_format_internal10StreamableD2Ev.exit16
-  %.pn = phi { ptr, i32 } [ %62, %_ZN4absl19str_format_internal10StreamableD2Ev.exit23 ], [ %38, %_ZN4absl19str_format_internal10StreamableD2Ev.exit16 ]
+69:                                               ; preds = %_ZN4absl19str_format_internal10StreamableD2Ev.exit20, %_ZN4absl19str_format_internal10StreamableD2Ev.exit15
+  %.pn = phi { ptr, i32 } [ %62, %_ZN4absl19str_format_internal10StreamableD2Ev.exit20 ], [ %38, %_ZN4absl19str_format_internal10StreamableD2Ev.exit15 ]
   resume { ptr, i32 } %.pn
 }
 

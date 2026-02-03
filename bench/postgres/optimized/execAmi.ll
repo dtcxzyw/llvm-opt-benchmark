@@ -804,8 +804,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 42:                                               ; preds = %6
   %43 = getelementptr inbounds nuw i8, ptr %.tr36, i64 112
   %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 1
-  %.not = icmp ne i32 %45, 0
+  %.not = trunc i32 %44 to i1
   br label %.thread
 
 .thread.loopexit91:                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6

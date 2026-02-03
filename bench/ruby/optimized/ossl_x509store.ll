@@ -421,9 +421,8 @@ define internal noundef i64 @ossl_x509store_set_vfy_cb(i64 noundef %0, i64 nound
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509store_set_flags(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = ashr i64 %1, 1
@@ -451,9 +450,8 @@ rb_num2long_inline.exit:                          ; preds = %4, %6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509store_set_purpose(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #5
@@ -482,9 +480,8 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509store_set_trust(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #5
@@ -525,9 +522,8 @@ define internal noundef i64 @ossl_x509store_set_time(i64 noundef %0, i64 noundef
 6:                                                ; preds = %2
   %7 = tail call ptr @X509_STORE_get0_param(ptr noundef nonnull %3) #5
   %8 = tail call i64 @rb_Integer(i64 noundef %1) #5
-  %9 = and i64 %8, 1
-  %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %12, label %10
+  %9 = trunc i64 %8 to i1
+  br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
   %11 = ashr i64 %8, 1
@@ -1066,9 +1062,8 @@ define internal noundef i64 @ossl_x509stctx_set_error(i64 noundef %0, i64 nounde
   unreachable
 
 6:                                                ; preds = %2
-  %7 = and i64 %1, 1
-  %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %10, label %8
+  %7 = trunc i64 %1 to i1
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = tail call i64 @rb_fix2int(i64 noundef %1) #5
@@ -1167,9 +1162,8 @@ define internal i64 @ossl_x509stctx_get_curr_crl(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509stctx_set_flags(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = ashr i64 %1, 1
@@ -1197,9 +1191,8 @@ rb_num2long_inline.exit:                          ; preds = %4, %6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509stctx_set_purpose(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #5
@@ -1228,9 +1221,8 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509stctx_set_trust(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = and i64 %1, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %1 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call i64 @rb_fix2int(i64 noundef %1) #5
@@ -1260,9 +1252,8 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_x509stctx_set_time(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = tail call i64 @rb_Integer(i64 noundef %1) #5
-  %4 = and i64 %3, 1
-  %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %7, label %5
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = ashr i64 %3, 1

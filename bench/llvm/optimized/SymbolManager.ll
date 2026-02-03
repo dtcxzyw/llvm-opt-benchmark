@@ -1488,7 +1488,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento13SymbolManager14canSymbolica
   %12 = load ptr, ptr %11, align 16, !tbaa !149
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 16
-  switch i8 %14, label %28 [
+  switch i8 %14, label %27 [
     i8 43, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 42, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
     i8 41, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
@@ -1510,19 +1510,18 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8: ; preds = %_ZN5clang4en
   %19 = and i32 %18, 511
   %20 = add nsw i32 %19, -435
   %spec.select.i = icmp ult i32 %20, 20
-  br i1 %spec.select.i, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %28
+  br i1 %spec.select.i, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %27
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %1
   %21 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %12) #21
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 74
   %23 = load i8, ptr %22, align 2
-  %24 = and i8 %23, 1
-  %25 = icmp ne i8 %24, 0
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %26, align 8
+  %24 = trunc i8 %23 to i1
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %25, align 8
   %.not.i.i.i.i.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i, 7
-  %27 = select i1 %25, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %27, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge
+  %26 = select i1 %24, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %26, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge
 
 _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge: ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
   %.pre = load ptr, ptr %7, align 16, !tbaa !149
@@ -1530,26 +1529,26 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge: ; preds = %_ZNK5
   %.sroa.0.0.copyload.i.i.i.i3.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   %.pre11 = and i64 %.sroa.0.0.copyload.i.i.i.i3.pre, -16
   %.pre12 = inttoptr i64 %.pre11 to ptr
-  br label %28
+  br label %27
 
-28:                                               ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge, %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8
+27:                                               ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge, %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8
   %.pre-phi13 = phi ptr [ %.pre12, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge ], [ %11, %1 ], [ %11, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ]
-  %29 = phi ptr [ %.pre, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge ], [ %8, %1 ], [ %8, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ]
-  %30 = load ptr, ptr %.pre-phi13, align 8, !tbaa !149
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i8, ptr %31, align 16
-  %33 = icmp eq i8 %32, 47
-  br i1 %33, label %34, label %36
+  %28 = phi ptr [ %.pre, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit._crit_edge ], [ %8, %1 ], [ %8, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ]
+  %29 = load ptr, ptr %.pre-phi13, align 8, !tbaa !149
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load i8, ptr %30, align 16
+  %32 = icmp eq i8 %31, 47
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %28
-  %35 = tail call noundef zeroext i1 @_ZNK5clang4Type11isUnionTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %29) #21
-  br i1 %35, label %36, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
+33:                                               ; preds = %27
+  %34 = tail call noundef zeroext i1 @_ZNK5clang4Type11isUnionTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %28) #21
+  br i1 %34, label %35, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
 
-36:                                               ; preds = %34, %28
+35:                                               ; preds = %33, %27
   br label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread
 
-_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %1, %1, %1, %1, %1, %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8, %34, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %36
-  %.0 = phi i1 [ true, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ false, %36 ], [ true, %34 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread: ; preds = %1, %1, %1, %1, %1, %1, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8, %33, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit, %35
+  %.0 = phi i1 [ true, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit ], [ false, %35 ], [ true, %33 ], [ true, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread8 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 

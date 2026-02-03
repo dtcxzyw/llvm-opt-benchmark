@@ -256,11 +256,11 @@ define i64 @rsock_s_recvfrom(i64 noundef %0, i32 noundef %1, ptr noundef readonl
 16:                                               ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %30 ]
   %17 = phi i1 [ true, %.preheader ], [ false, %30 ]
-  %.185.i39 = phi i32 [ 1, %.preheader ], [ %.286.i, %30 ]
+  %.185.i37 = phi i32 [ 1, %.preheader ], [ %.286.i, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !39
-  %20 = icmp slt i32 %.185.i39, %1
+  %20 = icmp slt i32 %.185.i37, %1
   %.not103.i = icmp eq ptr %19, null
   br i1 %20, label %21, label %28
 
@@ -268,14 +268,14 @@ define i64 @rsock_s_recvfrom(i64 noundef %0, i32 noundef %1, ptr noundef readonl
   br i1 %.not103.i, label %26, label %22
 
 22:                                               ; preds = %21
-  %23 = sext i32 %.185.i39 to i64
+  %23 = sext i32 %.185.i37 to i64
   %24 = getelementptr inbounds i64, ptr %2, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !10
   store i64 %25, ptr %19, align 8, !tbaa !10
   br label %26
 
 26:                                               ; preds = %22, %21
-  %27 = add nsw i32 %.185.i39, 1
+  %27 = add nsw i32 %.185.i37, 1
   br label %30
 
 28:                                               ; preds = %16
@@ -286,7 +286,7 @@ define i64 @rsock_s_recvfrom(i64 noundef %0, i32 noundef %1, ptr noundef readonl
   br label %30
 
 30:                                               ; preds = %29, %28, %26
-  %.286.i = phi i32 [ %27, %26 ], [ %.185.i39, %29 ], [ %.185.i39, %28 ]
+  %.286.i = phi i32 [ %27, %26 ], [ %.185.i37, %29 ], [ %.185.i37, %28 ]
   br i1 %17, label %16, label %31, !llvm.loop !41
 
 31:                                               ; preds = %30
@@ -303,9 +303,8 @@ rb_scan_args_set.exit:                            ; preds = %31
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %rb_scan_args_set.exit
-  %37 = and i64 %34, 1
-  %.not.i26 = icmp eq i64 %37, 0
-  br i1 %.not.i26, label %40, label %38
+  %37 = trunc i64 %34 to i1
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
   %39 = call i64 @rb_fix2int(i64 noundef %34) #10
@@ -324,21 +323,20 @@ rb_num2int_inline.exit:                           ; preds = %38, %40
   %.sink = phi i32 [ %42, %rb_num2int_inline.exit ], [ 0, %rb_scan_args_set.exit ]
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %.sink, ptr %44, align 4, !tbaa !43
-  %45 = and i64 %15, 1
-  %.not.i27 = icmp eq i64 %45, 0
-  br i1 %.not.i27, label %48, label %46
+  %45 = trunc i64 %15 to i1
+  br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
   %47 = call i64 @rb_fix2int(i64 noundef %15) #10
-  br label %rb_num2int_inline.exit29
+  br label %rb_num2int_inline.exit27
 
 48:                                               ; preds = %43
   %49 = call i64 @rb_num2int(i64 noundef %15) #10
-  br label %rb_num2int_inline.exit29
+  br label %rb_num2int_inline.exit27
 
-rb_num2int_inline.exit29:                         ; preds = %46, %48
-  %.0.i28 = phi i64 [ %47, %46 ], [ %49, %48 ]
-  %sext = shl i64 %.0.i28, 32
+rb_num2int_inline.exit27:                         ; preds = %46, %48
+  %.0.i26 = phi i64 [ %47, %46 ], [ %49, %48 ]
+  %sext = shl i64 %.0.i26, 32
   %50 = ashr exact i64 %sext, 32
   %51 = load i64, ptr %8, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -346,18 +344,18 @@ rb_num2int_inline.exit29:                         ; preds = %46, %48
   %52 = icmp eq i64 %51, 4
   br i1 %52, label %53, label %55
 
-53:                                               ; preds = %rb_num2int_inline.exit29
+53:                                               ; preds = %rb_num2int_inline.exit27
   %54 = call i64 @rb_str_new(ptr noundef null, i64 noundef %50) #10, !callees !46
   br label %rsock_strbuf.exit
 
-55:                                               ; preds = %rb_num2int_inline.exit29
+55:                                               ; preds = %rb_num2int_inline.exit27
   %56 = call i64 @rb_string_value(ptr noundef nonnull %7) #10
   %57 = load i64, ptr %7, align 8, !tbaa !10
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i64, ptr %59, align 8, !tbaa !31
-  %.not.i30 = icmp slt i64 %60, %50
-  br i1 %.not.i30, label %62, label %61
+  %.not.i28 = icmp slt i64 %60, %50
+  br i1 %.not.i28, label %62, label %61
 
 61:                                               ; preds = %55
   call void @rb_str_modify(i64 noundef %57) #10
@@ -373,9 +371,9 @@ rb_num2int_inline.exit29:                         ; preds = %46, %48
   br label %rsock_strbuf.exit
 
 rsock_strbuf.exit:                                ; preds = %53, %64
-  %.0.i31 = phi i64 [ %54, %53 ], [ %65, %64 ]
+  %.0.i29 = phi i64 [ %54, %53 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  store i64 %.0.i31, ptr %8, align 8, !tbaa !10
+  store i64 %.0.i29, ptr %8, align 8, !tbaa !10
   %66 = call i64 @rb_io_taint_check(i64 noundef %0) #10
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -432,10 +430,10 @@ rsock_strbuf.exit:                                ; preds = %53, %64
 
 rsock_is_dgram.exit:                              ; preds = %88
   %95 = load i32, ptr %5, align 4, !tbaa !6
-  %.not32 = icmp eq i32 %95, 2
+  %.not30 = icmp eq i32 %95, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not32, label %.thread, label %134
+  br i1 %.not30, label %.thread, label %134
 
 96:                                               ; preds = %82
   %97 = icmp sgt i64 %86, -1
@@ -565,9 +563,8 @@ define i64 @rsock_s_recvfrom_nonblock(i64 noundef %0, i64 noundef %1, i64 nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 2048, ptr %11, align 4, !tbaa !6
-  %12 = and i64 %2, 1
-  %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %15, label %13
+  %12 = trunc i64 %2 to i1
+  br i1 %12, label %13, label %15
 
 13:                                               ; preds = %6
   %14 = tail call i64 @rb_fix2int(i64 noundef %2) #10
@@ -580,39 +577,38 @@ define i64 @rsock_s_recvfrom_nonblock(i64 noundef %0, i64 noundef %1, i64 nounde
 rb_num2int_inline.exit:                           ; preds = %13, %15
   %.0.i = phi i64 [ %14, %13 ], [ %16, %15 ]
   %17 = trunc i64 %.0.i to i32
-  %18 = and i64 %1, 1
-  %.not.i44 = icmp eq i64 %18, 0
-  br i1 %.not.i44, label %21, label %19
+  %18 = trunc i64 %1 to i1
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %rb_num2int_inline.exit
   %20 = tail call i64 @rb_fix2int(i64 noundef %1) #10
-  br label %rb_num2int_inline.exit46
+  br label %rb_num2int_inline.exit45
 
 21:                                               ; preds = %rb_num2int_inline.exit
   %22 = tail call i64 @rb_num2int(i64 noundef %1) #10
-  br label %rb_num2int_inline.exit46
+  br label %rb_num2int_inline.exit45
 
-rb_num2int_inline.exit46:                         ; preds = %19, %21
-  %.0.i45 = phi i64 [ %20, %19 ], [ %22, %21 ]
-  %sext = shl i64 %.0.i45, 32
+rb_num2int_inline.exit45:                         ; preds = %19, %21
+  %.0.i44 = phi i64 [ %20, %19 ], [ %22, %21 ]
+  %sext = shl i64 %.0.i44, 32
   %23 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %3, ptr %9, align 8, !tbaa !10
   %24 = icmp eq i64 %3, 4
   br i1 %24, label %25, label %27
 
-25:                                               ; preds = %rb_num2int_inline.exit46
+25:                                               ; preds = %rb_num2int_inline.exit45
   %26 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %23) #10, !callees !46
   br label %rsock_strbuf.exit
 
-27:                                               ; preds = %rb_num2int_inline.exit46
+27:                                               ; preds = %rb_num2int_inline.exit45
   %28 = call i64 @rb_string_value(ptr noundef nonnull %9) #10
   %29 = load i64, ptr %9, align 8, !tbaa !10
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !31
-  %.not.i47 = icmp slt i64 %32, %23
-  br i1 %.not.i47, label %34, label %33
+  %.not.i = icmp slt i64 %32, %23
+  br i1 %.not.i, label %34, label %33
 
 33:                                               ; preds = %27
   call void @rb_str_modify(i64 noundef %29) #10
@@ -628,7 +624,7 @@ rb_num2int_inline.exit46:                         ; preds = %19, %21
   br label %rsock_strbuf.exit
 
 rsock_strbuf.exit:                                ; preds = %25, %36
-  %.0.i48 = phi i64 [ %26, %25 ], [ %37, %36 ]
+  %.0.i46 = phi i64 [ %26, %25 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = call i64 @rb_io_taint_check(i64 noundef %0) #10
   %39 = inttoptr i64 %38 to ptr
@@ -649,7 +645,7 @@ rsock_strbuf.exit:                                ; preds = %25, %36
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !12
   call void @rb_io_check_closed(ptr noundef %41) #10
-  %49 = inttoptr i64 %.0.i48 to ptr
+  %49 = inttoptr i64 %.0.i46 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !26, !noalias !54
   %51 = and i64 %50, 8192
   %.not.i.i = icmp eq i64 %51, 0
@@ -694,10 +690,10 @@ RSTRING_PTR.exit:                                 ; preds = %45, %53
 
 rsock_is_dgram.exit:                              ; preds = %60
   %67 = load i32, ptr %7, align 4, !tbaa !6
-  %.not49 = icmp eq i32 %67, 2
+  %.not47 = icmp eq i32 %67, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not49, label %.thread, label %97
+  br i1 %.not47, label %.thread, label %97
 
 68:                                               ; preds = %58
   %69 = icmp slt i64 %54, 0
@@ -732,7 +728,7 @@ rsock_is_dgram.exit:                              ; preds = %60
   br i1 %.not42, label %82, label %81
 
 81:                                               ; preds = %.thread
-  call void @rb_str_set_len(i64 noundef %.0.i48, i64 noundef %54) #10
+  call void @rb_str_set_len(i64 noundef %.0.i46, i64 noundef %54) #10
   br label %82
 
 82:                                               ; preds = %81, %.thread
@@ -766,11 +762,11 @@ rsock_is_dgram.exit:                              ; preds = %60
 
 95:                                               ; preds = %83, %86, %91
   %.035 = phi i64 [ %90, %86 ], [ 4, %83 ], [ %93, %91 ]
-  %96 = call i64 @rb_assoc_new(i64 noundef %.0.i48, i64 noundef %.035) #10
+  %96 = call i64 @rb_assoc_new(i64 noundef %.0.i46, i64 noundef %.035) #10
   br label %97
 
 97:                                               ; preds = %82, %rsock_is_dgram.exit, %95, %75
-  %.0 = phi i64 [ %76, %75 ], [ 4, %rsock_is_dgram.exit ], [ %96, %95 ], [ %.0.i48, %82 ]
+  %.0 = phi i64 [ %76, %75 ], [ 4, %rsock_is_dgram.exit ], [ %96, %95 ], [ %.0.i46, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.0
@@ -784,9 +780,8 @@ declare void @rb_readwrite_syserr_fail(i32 noundef, i32 noundef, ptr noundef) lo
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_read_nonblock(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  %6 = and i64 %1, 1
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %9, label %7
+  %6 = trunc i64 %1 to i1
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
   %8 = ashr i64 %1, 1
@@ -813,8 +808,8 @@ rb_num2long_inline.exit:                          ; preds = %7, %9
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !31
-  %.not.i36 = icmp slt i64 %19, %.0.i
-  br i1 %.not.i36, label %21, label %20
+  %.not.i = icmp slt i64 %19, %.0.i
+  br i1 %.not.i, label %21, label %20
 
 20:                                               ; preds = %14
   call void @rb_str_modify(i64 noundef %16) #10
@@ -830,7 +825,7 @@ rb_num2long_inline.exit:                          ; preds = %7, %9
   br label %rsock_strbuf.exit
 
 rsock_strbuf.exit:                                ; preds = %12, %23
-  %.0.i37 = phi i64 [ %13, %12 ], [ %24, %23 ]
+  %.0.i36 = phi i64 [ %13, %12 ], [ %24, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = call i64 @rb_io_taint_check(i64 noundef %0) #10
   %26 = inttoptr i64 %25 to ptr
@@ -841,11 +836,11 @@ rsock_strbuf.exit:                                ; preds = %12, %23
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %rsock_strbuf.exit
-  call void @rb_str_set_len(i64 noundef %.0.i37, i64 noundef 0) #10
+  call void @rb_str_set_len(i64 noundef %.0.i36, i64 noundef 0) #10
   br label %78
 
 31:                                               ; preds = %rsock_strbuf.exit
-  %32 = inttoptr i64 %.0.i37 to ptr
+  %32 = inttoptr i64 %.0.i36 to ptr
   %33 = load i64, ptr %32, align 8, !tbaa !26, !noalias !57
   %34 = and i64 %33, 8192
   %.not.i.i = icmp eq i64 %34, 0
@@ -924,8 +919,8 @@ read_buffered_data.exit.thread:                   ; preds = %RSTRING_PTR.exit, %
   br i1 %.not, label %73, label %72
 
 72:                                               ; preds = %69
-  call void @rb_str_modify(i64 noundef %.0.i37) #10
-  call void @rb_str_set_len(i64 noundef %.0.i37, i64 noundef %.031) #10
+  call void @rb_str_modify(i64 noundef %.0.i36) #10
+  call void @rb_str_set_len(i64 noundef %.0.i36, i64 noundef %.031) #10
   br label %73
 
 73:                                               ; preds = %72, %69
@@ -941,7 +936,7 @@ read_buffered_data.exit.thread:                   ; preds = %RSTRING_PTR.exit, %
   unreachable
 
 78:                                               ; preds = %73, %75, %63, %30
-  %.0 = phi i64 [ %.0.i37, %30 ], [ %64, %63 ], [ 4, %75 ], [ %.0.i37, %73 ]
+  %.0 = phi i64 [ %.0.i36, %30 ], [ %64, %63 ], [ 4, %75 ], [ %.0.i36, %73 ]
   ret i64 %.0
 }
 
@@ -1159,9 +1154,8 @@ define i32 @rsock_connect(i64 noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   unreachable
 
 34:                                               ; preds = %29
-  %35 = and i64 %30, 1
-  %.not.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i, label %38, label %36
+  %35 = trunc i64 %30 to i1
+  br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
   %37 = call i64 @rb_fix2int(i64 noundef %30) #10

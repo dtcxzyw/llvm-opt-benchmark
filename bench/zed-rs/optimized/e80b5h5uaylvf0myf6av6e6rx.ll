@@ -86,9 +86,8 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
 16:                                               ; preds = %14
   %17 = and i64 %12, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = and i64 %12, 1
-  %.not.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i, label %26, label %20
+  %19 = trunc i64 %12 to i1
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -707,9 +706,8 @@ define hidden { ptr, i64 } @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_
 9:                                                ; preds = %4
   %10 = and i64 %2, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = and i64 %2, 1
-  %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %19, label %13
+  %12 = trunc i64 %2 to i1
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -907,9 +905,8 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$tendril..tendril..Tendril$LT$tendri
 7:                                                ; preds = %5
   %8 = and i64 %3, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = and i64 %3, 1
-  %.not.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i, label %17, label %11
+  %10 = trunc i64 %3 to i1
+  br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1316,9 +1313,8 @@ define void @_ZN16html_to_markdown12html_element11HtmlElement4attr17h7bed20d13dd
 54:                                               ; preds = %52
   %55 = and i64 %50, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = and i64 %50, 1
-  %.not.i.i.i.i = icmp eq i64 %57, 0
-  br i1 %.not.i.i.i.i, label %64, label %58
+  %57 = trunc i64 %50 to i1
+  br i1 %57, label %58, label %64
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %25, i64 36
@@ -1530,9 +1526,8 @@ define void @_ZN16html_to_markdown12html_element11HtmlElement7classes17he829ebe8
 45:                                               ; preds = %43
   %46 = and i64 %41, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = and i64 %41, 1
-  %.not.i.i.i8 = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i8, label %55, label %49
+  %48 = trunc i64 %41 to i1
+  br i1 %48, label %49, label %55
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 36
@@ -1667,9 +1662,8 @@ define hidden void @"_ZN16html_to_markdown12html_element11HtmlElement7classes28_
 9:                                                ; preds = %7
   %10 = and i64 %5, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = and i64 %5, 1
-  %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %19, label %13
+  %12 = trunc i64 %5 to i1
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -1907,9 +1901,8 @@ define hidden noundef zeroext i1 @"_ZN16html_to_markdown12html_element11HtmlElem
 35:                                               ; preds = %33
   %36 = and i64 %31, -2
   %37 = inttoptr i64 %36 to ptr
-  %38 = and i64 %31, 1
-  %.not.i.i = icmp eq i64 %38, 0
-  br i1 %.not.i.i, label %45, label %39
+  %38 = trunc i64 %31 to i1
+  br i1 %38, label %39, label %45
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 36

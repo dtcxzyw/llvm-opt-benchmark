@@ -3435,73 +3435,73 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev17ProcessorMetadataEEaSERKS2_.exit: ; pr
   %51 = load i32, ptr %50, align 8, !tbaa !142
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 %51, ptr %52, align 8, !tbaa !142
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %54 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %53) #29
-  %.not.i.i.i10 = icmp eq i32 %54, 0
-  br i1 %.not.i.i.i10, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %55
+  %53 = trunc i32 %51 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %55 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %54) #29
+  %.not.i.i.i10 = icmp eq i32 %55, 0
+  br i1 %.not.i.i.i10, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %56
 
-55:                                               ; preds = %46
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %54) #31
-          to label %.noexc.i unwind label %62
+56:                                               ; preds = %46
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %55) #31
+          to label %.noexc.i unwind label %63
 
-.noexc.i:                                         ; preds = %55
+.noexc.i:                                         ; preds = %56
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %46
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %58 = load ptr, ptr %57, align 8, !tbaa !27
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN19OpenColorIO_v2_5dev9ProcessorEEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef %58)
-          to label %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.exit unwind label %59
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %59 = load ptr, ptr %58, align 8, !tbaa !27
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN19OpenColorIO_v2_5dev9ProcessorEEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef %59)
+          to label %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.exit unwind label %60
 
-59:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #32
+  %62 = extractvalue { ptr, i32 } %61, 0
+  tail call void @__clang_call_terminate(ptr %62) #32
   unreachable
 
-62:                                               ; preds = %55
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %56
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #32
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #32
   unreachable
 
 _ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.exit: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store ptr null, ptr %57, align 8, !tbaa !27
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr %65, ptr %66, align 8, !tbaa !28
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr %65, ptr %67, align 8, !tbaa !29
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store i64 0, ptr %68, align 8, !tbaa !30
-  %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %53) #29
-  %70 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %53) #29
-  %.not.i.i.i11 = icmp eq i32 %70, 0
-  br i1 %.not.i.i.i11, label %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb.exit, label %71
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store ptr null, ptr %58, align 8, !tbaa !27
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store ptr %66, ptr %67, align 8, !tbaa !28
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr %66, ptr %68, align 8, !tbaa !29
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store i64 0, ptr %69, align 8, !tbaa !30
+  %70 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %54) #29
+  %71 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %54) #29
+  %.not.i.i.i11 = icmp eq i32 %71, 0
+  br i1 %.not.i.i.i11, label %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb.exit, label %72
 
-71:                                               ; preds = %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.exit
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %70) #31
-          to label %.noexc.i12 unwind label %72
+72:                                               ; preds = %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.exit
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %71) #31
+          to label %.noexc.i12 unwind label %73
 
-.noexc.i12:                                       ; preds = %71
+.noexc.i12:                                       ; preds = %72
   unreachable
 
-72:                                               ; preds = %71
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           catch ptr null
-  %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #32
+  %75 = extractvalue { ptr, i32 } %74, 0
+  tail call void @__clang_call_terminate(ptr %75) #32
   unreachable
 
 _ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE6enableEb.exit: ; preds = %_ZN19OpenColorIO_v2_5dev12GenericCacheImSt10shared_ptrINS_9ProcessorEEE5clearEv.exit
-  %75 = trunc i32 %51 to i8
-  %76 = and i8 %75, 1
+  %76 = and i8 %53, 1
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 249
   store i8 %76, ptr %77, align 1, !tbaa !25
-  %78 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %53) #29
+  %78 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %54) #29
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %80 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %79) #29
   %.not.i.i.i14 = icmp eq i32 %80, 0

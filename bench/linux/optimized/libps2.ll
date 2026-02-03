@@ -89,43 +89,42 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0
   %24 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
   %25 = call i32 @__SCT__might_resched() #7
   %26 = load i64, ptr %7, align 8
-  %27 = and i64 %26, 1
-  %.not = icmp eq i64 %27, 0
-  %28 = icmp eq i64 %24, 0
-  %29 = select i1 %.not, i1 true, i1 %28
-  br i1 %29, label %.thread, label %30
+  %27 = trunc i64 %26 to i1
+  %28 = xor i1 %27, true
+  %29 = icmp eq i64 %24, 0
+  %30 = select i1 %27, i1 %29, i1 false
+  %31 = select i1 %28, i1 true, i1 %30
+  br i1 %31, label %.thread, label %32
 
-30:                                               ; preds = %23
+32:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
-  %31 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
+  %33 = call i64 @__msecs_to_jiffies(i32 noundef %2) #7
   call void @init_wait_entry(ptr noundef nonnull %5, i32 noundef 0) #7
-  %32 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
-  %33 = load i64, ptr %7, align 8
-  %34 = and i64 %33, 1
-  %35 = icmp ne i64 %34, 0
-  %36 = icmp ne i64 %31, 0
-  %37 = select i1 %35, i1 true, i1 %36
-  %38 = select i1 %37, i64 %31, i64 1
-  %39 = icmp ne i64 %38, 0
-  %40 = select i1 %35, i1 %39, i1 false
-  br i1 %40, label %.lr.ph, label %._crit_edge
+  %34 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
+  %35 = load i64, ptr %7, align 8
+  %36 = trunc i64 %35 to i1
+  %37 = icmp ne i64 %33, 0
+  %38 = select i1 %36, i1 true, i1 %37
+  %39 = select i1 %38, i64 %33, i64 1
+  %40 = icmp ne i64 %39, 0
+  %41 = select i1 %36, i1 %40, i1 false
+  br i1 %41, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %30, %.lr.ph
-  %41 = phi i64 [ %49, %.lr.ph ], [ %38, %30 ]
-  %42 = call i64 @schedule_timeout(i64 noundef %41) #7
-  %43 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
-  %44 = load i64, ptr %7, align 8
-  %45 = and i64 %44, 1
-  %46 = icmp ne i64 %45, 0
-  %47 = icmp ne i64 %42, 0
+.lr.ph:                                           ; preds = %32, %.lr.ph
+  %42 = phi i64 [ %49, %.lr.ph ], [ %39, %32 ]
+  %43 = call i64 @schedule_timeout(i64 noundef %42) #7
+  %44 = call i64 @prepare_to_wait_event(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 2) #7
+  %45 = load i64, ptr %7, align 8
+  %46 = trunc i64 %45 to i1
+  %47 = icmp ne i64 %43, 0
   %48 = select i1 %46, i1 true, i1 %47
-  %49 = select i1 %48, i64 %42, i64 1
+  %49 = select i1 %48, i64 %43, i64 1
   %50 = icmp ne i64 %49, 0
   %51 = select i1 %46, i1 %50, i1 false
   br i1 %51, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %30
+._crit_edge:                                      ; preds = %.lr.ph, %32
   call void @finish_wait(ptr noundef nonnull %8, ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread

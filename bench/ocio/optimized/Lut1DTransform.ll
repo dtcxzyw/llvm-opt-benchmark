@@ -872,9 +872,8 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev18Lut1DTransformImpl8getValueEmRfS1
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev18Lut1DTransformImpl18getInputHalfDomainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(376) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i32, ptr %2, align 8, !tbaa !67
-  %4 = and i32 %3, 1
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
+  %4 = trunc i32 %3 to i1
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

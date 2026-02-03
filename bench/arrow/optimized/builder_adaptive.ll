@@ -2491,15 +2491,15 @@ define void @_ZN5arrow18AdaptiveIntBuilder13ExpandIntSizeEh(ptr dead_on_unwind n
   %5 = zext i8 %2 to i32
   %6 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %5)
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %.split, label %43
+  br i1 %7, label %.split, label %41
 
 .split:                                           ; preds = %3
   %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
-  switch i32 %8, label %43 [
+  switch i32 %8, label %41 [
     i32 0, label %9
     i32 1, label %10
-    i32 2, label %41
-    i32 3, label %42
+    i32 2, label %39
+    i32 3, label %40
   ]
 
 9:                                                ; preds = %.split
@@ -2510,76 +2510,74 @@ define void @_ZN5arrow18AdaptiveIntBuilder13ExpandIntSizeEh(ptr dead_on_unwind n
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 169
   %12 = load i8, ptr %11, align 1, !tbaa !58, !noalias !188
-  %13 = zext i8 %12 to i32
-  %14 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %13)
-  %15 = icmp eq i32 %14, 1
-  %16 = and i32 %13, 1
-  %cond.i = icmp ne i32 %16, 0
-  %or.cond.i = and i1 %15, %cond.i
-  br i1 %or.cond.i, label %17, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
+  %13 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %12)
+  %14 = icmp eq i8 %13, 1
+  %cond.i = trunc i8 %12 to i1
+  %or.cond.i = and i1 %14, %cond.i
+  br i1 %or.cond.i, label %15, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
 
-17:                                               ; preds = %10
+15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   store i8 2, ptr %11, align 1, !tbaa !58, !noalias !194
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !194
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %19 = load ptr, ptr %18, align 8, !tbaa !103, !noalias !194
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !195, !noalias !194
-  %22 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !194
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !noalias !194
-  call void %24(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(9397) %1, i64 noundef %21), !noalias !194
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %17 = load ptr, ptr %16, align 8, !tbaa !103, !noalias !194
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load i64, ptr %18, align 8, !tbaa !195, !noalias !194
+  %20 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !194
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = load ptr, ptr %21, align 8, !noalias !194
+  call void %22(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(9397) %1, i64 noundef %19), !noalias !194
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  %25 = load ptr, ptr %4, align 8, !tbaa !75, !noalias !199
-  store ptr %25, ptr %0, align 8, !tbaa !75, !alias.scope !199
+  %23 = load ptr, ptr %4, align 8, !tbaa !75, !noalias !199
+  store ptr %23, ptr %0, align 8, !tbaa !75, !alias.scope !199
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !194
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit
 
-27:                                               ; preds = %17
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %29 = load i64, ptr %28, align 8, !tbaa !74, !noalias !194
-  %30 = icmp sgt i64 %29, 0
-  br i1 %30, label %.lr.ph.i.i.i.i.i.preheader.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %27 = load i64, ptr %26, align 8, !tbaa !74, !noalias !194
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph.i.i.i.i.i.preheader.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %32 = load ptr, ptr %31, align 8, !tbaa !69, !noalias !194
-  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %29
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %29
+.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %30 = load ptr, ptr %29, align 8, !tbaa !69, !noalias !194
+  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %27
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i
-  %.010.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.069.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.078.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i ], [ %34, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %35 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -1
-  %36 = load i8, ptr %35, align 1, !tbaa !66, !noalias !194
-  %37 = sext i8 %36 to i16
-  %38 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -2
-  store i16 %37, ptr %38, align 2, !tbaa !200, !noalias !194
-  %39 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %40 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
-  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, !llvm.loop !201
+  %.010.i.i.i.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %.069.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %31, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %.078.i.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -1
+  %34 = load i8, ptr %33, align 1, !tbaa !66, !noalias !194
+  %35 = sext i8 %34 to i16
+  %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -2
+  store i16 %35, ptr %36, align 2, !tbaa !200, !noalias !194
+  %37 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
+  br i1 %38, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, !llvm.loop !201
 
-_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %27, %10
+_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %25, %10
   store ptr null, ptr %0, align 8, !tbaa !75, !alias.scope !188
   br label %_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit
 
-41:                                               ; preds = %.split
+39:                                               ; preds = %.split
   tail call void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIiEENS_6StatusEv(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9397) %1)
   br label %_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit
 
-42:                                               ; preds = %.split
+40:                                               ; preds = %.split
   tail call void @_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIlEENS_6StatusEv(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9397) %1)
   br label %_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit
 
-43:                                               ; preds = %.split, %3
+41:                                               ; preds = %.split, %3
   store ptr null, ptr %0, align 8, !tbaa !75, !alias.scope !202
   br label %_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit
 
-_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit: ; preds = %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, %17, %43, %42, %41, %9
+_ZN5arrow18AdaptiveIntBuilder14ExpandIntSizeNIsEENS_6StatusEv.exit: ; preds = %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIsaEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, %15, %41, %40, %39, %9
   ret void
 }
 
@@ -3845,15 +3843,15 @@ define void @_ZN5arrow19AdaptiveUIntBuilder13ExpandIntSizeEh(ptr dead_on_unwind 
   %5 = zext i8 %2 to i32
   %6 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %5)
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %.split, label %43
+  br i1 %7, label %.split, label %41
 
 .split:                                           ; preds = %3
   %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
-  switch i32 %8, label %43 [
+  switch i32 %8, label %41 [
     i32 0, label %9
     i32 1, label %10
-    i32 2, label %41
-    i32 3, label %42
+    i32 2, label %39
+    i32 3, label %40
   ]
 
 9:                                                ; preds = %.split
@@ -3864,76 +3862,74 @@ define void @_ZN5arrow19AdaptiveUIntBuilder13ExpandIntSizeEh(ptr dead_on_unwind 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 169
   %12 = load i8, ptr %11, align 1, !tbaa !58, !noalias !289
-  %13 = zext i8 %12 to i32
-  %14 = tail call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %13)
-  %15 = icmp eq i32 %14, 1
-  %16 = and i32 %13, 1
-  %cond.i = icmp ne i32 %16, 0
-  %or.cond.i = and i1 %15, %cond.i
-  br i1 %or.cond.i, label %17, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
+  %13 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %12)
+  %14 = icmp eq i8 %13, 1
+  %cond.i = trunc i8 %12 to i1
+  %or.cond.i = and i1 %14, %cond.i
+  br i1 %or.cond.i, label %15, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
 
-17:                                               ; preds = %10
+15:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
   store i8 2, ptr %11, align 1, !tbaa !58, !noalias !295
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !295
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %19 = load ptr, ptr %18, align 8, !tbaa !103, !noalias !295
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !195, !noalias !295
-  %22 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !295
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8, !noalias !295
-  call void %24(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(9397) %1, i64 noundef %21), !noalias !295
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %17 = load ptr, ptr %16, align 8, !tbaa !103, !noalias !295
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %19 = load i64, ptr %18, align 8, !tbaa !195, !noalias !295
+  %20 = load ptr, ptr %1, align 8, !tbaa !53, !noalias !295
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = load ptr, ptr %21, align 8, !noalias !295
+  call void %22(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(9397) %1, i64 noundef %19), !noalias !295
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
-  %25 = load ptr, ptr %4, align 8, !tbaa !75, !noalias !299
-  store ptr %25, ptr %0, align 8, !tbaa !75, !alias.scope !299
+  %23 = load ptr, ptr %4, align 8, !tbaa !75, !noalias !299
+  store ptr %23, ptr %0, align 8, !tbaa !75, !alias.scope !299
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !295
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit
 
-27:                                               ; preds = %17
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %29 = load i64, ptr %28, align 8, !tbaa !74, !noalias !295
-  %30 = icmp sgt i64 %29, 0
-  br i1 %30, label %.lr.ph.i.i.i.i.i.preheader.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %27 = load i64, ptr %26, align 8, !tbaa !74, !noalias !295
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph.i.i.i.i.i.preheader.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i
 
-.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %32 = load ptr, ptr %31, align 8, !tbaa !69, !noalias !295
-  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %29
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %29
+.lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %30 = load ptr, ptr %29, align 8, !tbaa !69, !noalias !295
+  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %27
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %27
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i.i
-  %.010.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.069.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %.078.i.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i.i ], [ %34, %.lr.ph.i.i.i.i.i.preheader.i.i ]
-  %35 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -1
-  %36 = load i8, ptr %35, align 1, !tbaa !66, !noalias !295
-  %37 = zext i8 %36 to i16
-  %38 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -2
-  store i16 %37, ptr %38, align 2, !tbaa !200, !noalias !295
-  %39 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
-  %40 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
-  br i1 %40, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, !llvm.loop !300
+  %.010.i.i.i.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %.069.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i ], [ %31, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %.078.i.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.preheader.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i.i.i, i64 -1
+  %34 = load i8, ptr %33, align 1, !tbaa !66, !noalias !295
+  %35 = zext i8 %34 to i16
+  %36 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i.i.i, i64 -2
+  store i16 %35, ptr %36, align 2, !tbaa !200, !noalias !295
+  %37 = add nsw i64 %.010.i.i.i.i.i.i.i, -1
+  %38 = icmp samesign ugt i64 %.010.i.i.i.i.i.i.i, 1
+  br i1 %38, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, !llvm.loop !300
 
-_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %27, %10
+_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %25, %10
   store ptr null, ptr %0, align 8, !tbaa !75, !alias.scope !289
   br label %_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit
 
-41:                                               ; preds = %.split
+39:                                               ; preds = %.split
   tail call void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNIjEENS_6StatusEv(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9397) %1)
   br label %_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit
 
-42:                                               ; preds = %.split
+40:                                               ; preds = %.split
   tail call void @_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNImEENS_6StatusEv(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9397) %1)
   br label %_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit
 
-43:                                               ; preds = %.split, %3
+41:                                               ; preds = %.split, %3
   store ptr null, ptr %0, align 8, !tbaa !75, !alias.scope !301
   br label %_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit
 
-_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit: ; preds = %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, %17, %43, %42, %41, %9
+_ZN5arrow19AdaptiveUIntBuilder14ExpandIntSizeNItEENS_6StatusEv.exit: ; preds = %_ZN5arrow8internal22AdaptiveIntBuilderBase21ExpandIntSizeInternalIthEENSt9enable_ifIXltstT0_stT_ENS_6StatusEE4typeEv.exit.sink.split.i, %15, %41, %40, %39, %9
   ret void
 }
 
@@ -6610,6 +6606,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #13
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ctpop.i8(i8) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

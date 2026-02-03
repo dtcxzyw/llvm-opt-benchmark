@@ -964,8 +964,8 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %1, %6, %13, %69, 
   %.2 = phi ptr [ %0, %1 ], [ %.119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %79, %69 ], [ %0, %65 ], [ %0, %60 ], [ %0, %13 ], [ %0, %6 ]
   %80 = load i16, ptr %.2, align 8
   %81 = and i16 %80, 511
-  %.not38 = icmp eq i16 %81, 48
-  br i1 %.not38, label %82, label %_ZNK5clang8QualType16isConstQualifiedEv.exit
+  %.not37 = icmp eq i16 %81, 48
+  br i1 %.not37, label %82, label %_ZNK5clang8QualType16isConstQualifiedEv.exit
 
 82:                                               ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
   %83 = getelementptr inbounds nuw i8, ptr %.2, i64 24
@@ -980,21 +980,19 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %1, %6, %13, %69, 
   br i1 %87, label %88, label %_ZNK5clang8QualType16isConstQualifiedEv.exit
 
 88:                                               ; preds = %85
-  %89 = and i64 %.sroa.0.0.copyload.i, 1
-  %.not.i31 = icmp eq i64 %89, 0
-  br i1 %.not.i31, label %90, label %_ZNK5clang8QualType16isConstQualifiedEv.exit
+  %89 = trunc i64 %.sroa.0.0.copyload.i to i1
+  br i1 %89, label %_ZNK5clang8QualType16isConstQualifiedEv.exit, label %90
 
 90:                                               ; preds = %88
   %91 = and i64 %.sroa.0.0.copyload.i, -16
   %92 = inttoptr i64 %91 to ptr
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.0.copyload.i.i.i.i.i1.i = load i64, ptr %93, align 8
-  %94 = and i64 %.0.copyload.i.i.i.i.i1.i, 1
-  %95 = icmp ne i64 %94, 0
+  %94 = trunc i64 %.0.copyload.i.i.i.i.i1.i to i1
   br label %_ZNK5clang8QualType16isConstQualifiedEv.exit
 
 _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %85, %88, %90, %82, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
-  %.0 = phi i1 [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ], [ false, %82 ], [ false, %85 ], [ true, %88 ], [ %95, %90 ]
+  %.0 = phi i1 [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ], [ false, %82 ], [ false, %85 ], [ true, %88 ], [ %94, %90 ]
   ret i1 %.0
 }
 

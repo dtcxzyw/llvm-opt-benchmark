@@ -2032,9 +2032,8 @@ define linkonce_odr hidden void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonn
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %5 = and i64 %4, 1
-  %.not1.i = icmp eq i64 %5, 0
-  br i1 %.not1.i, label %6, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %_ZNK5boost6detail8function12basic_vtableIvJEE5clearERNS1_15function_bufferE.exit.i, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8, !tbaa !29
@@ -33104,12 +33103,11 @@ define internal void @_GLOBAL__sub_I_ext.cpp() #30 section ".text.startup" perso
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr %22, align 8, !tbaa !27
-  %.not.i.i.i = icmp ne ptr %45, null
+  %.not.i.i.i = icmp eq ptr %45, null
   %46 = ptrtoint ptr %45 to i64
-  %47 = and i64 %46, 1
-  %.not1.i.i.i = icmp eq i64 %47, 0
-  %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %48, label %__cxx_global_var_init.11.exit
+  %47 = trunc i64 %46 to i1
+  %or.cond.i = or i1 %.not.i.i.i, %47
+  br i1 %or.cond.i, label %__cxx_global_var_init.11.exit, label %48
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %45, align 8, !tbaa !29
@@ -33167,17 +33165,16 @@ __cxx_global_var_init.11.exit:                    ; preds = %44, %48, %50
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr %19, align 8, !tbaa !27
-  %.not.i.i.i1 = icmp ne ptr %64, null
+  %.not.i.i.i1 = icmp eq ptr %64, null
   %65 = ptrtoint ptr %64 to i64
-  %66 = and i64 %65, 1
-  %.not1.i.i.i2 = icmp eq i64 %66, 0
-  %or.cond.i3 = and i1 %.not.i.i.i1, %.not1.i.i.i2
-  br i1 %or.cond.i3, label %67, label %__cxx_global_var_init.17.exit
+  %66 = trunc i64 %65 to i1
+  %or.cond.i2 = or i1 %.not.i.i.i1, %66
+  br i1 %or.cond.i2, label %__cxx_global_var_init.17.exit, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %64, align 8, !tbaa !29
-  %.not.i.i.i.i4 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i.i4, label %__cxx_global_var_init.17.exit, label %69
+  %.not.i.i.i.i3 = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i3, label %__cxx_global_var_init.17.exit, label %69
 
 69:                                               ; preds = %67
   invoke void %68(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %56, i32 noundef 2)
@@ -33226,17 +33223,16 @@ __cxx_global_var_init.17.exit:                    ; preds = %63, %67, %69
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr %16, align 8, !tbaa !27
-  %.not.i.i.i5 = icmp ne ptr %83, null
+  %.not.i.i.i4 = icmp eq ptr %83, null
   %84 = ptrtoint ptr %83 to i64
-  %85 = and i64 %84, 1
-  %.not1.i.i.i6 = icmp eq i64 %85, 0
-  %or.cond.i7 = and i1 %.not.i.i.i5, %.not1.i.i.i6
-  br i1 %or.cond.i7, label %86, label %__cxx_global_var_init.23.exit
+  %85 = trunc i64 %84 to i1
+  %or.cond.i5 = or i1 %.not.i.i.i4, %85
+  br i1 %or.cond.i5, label %__cxx_global_var_init.23.exit, label %86
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %83, align 8, !tbaa !29
-  %.not.i.i.i.i8 = icmp eq ptr %87, null
-  br i1 %.not.i.i.i.i8, label %__cxx_global_var_init.23.exit, label %88
+  %.not.i.i.i.i6 = icmp eq ptr %87, null
+  br i1 %.not.i.i.i.i6, label %__cxx_global_var_init.23.exit, label %88
 
 88:                                               ; preds = %86
   invoke void %87(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef 2)
@@ -33285,17 +33281,16 @@ __cxx_global_var_init.23.exit:                    ; preds = %82, %86, %88
 
 101:                                              ; preds = %100
   %102 = load ptr, ptr %13, align 8, !tbaa !27
-  %.not.i.i.i9 = icmp ne ptr %102, null
+  %.not.i.i.i7 = icmp eq ptr %102, null
   %103 = ptrtoint ptr %102 to i64
-  %104 = and i64 %103, 1
-  %.not1.i.i.i10 = icmp eq i64 %104, 0
-  %or.cond.i11 = and i1 %.not.i.i.i9, %.not1.i.i.i10
-  br i1 %or.cond.i11, label %105, label %__cxx_global_var_init.29.exit
+  %104 = trunc i64 %103 to i1
+  %or.cond.i8 = or i1 %.not.i.i.i7, %104
+  br i1 %or.cond.i8, label %__cxx_global_var_init.29.exit, label %105
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %102, align 8, !tbaa !29
-  %.not.i.i.i.i12 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i.i12, label %__cxx_global_var_init.29.exit, label %107
+  %.not.i.i.i.i9 = icmp eq ptr %106, null
+  br i1 %.not.i.i.i.i9, label %__cxx_global_var_init.29.exit, label %107
 
 107:                                              ; preds = %105
   invoke void %106(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %94, i32 noundef 2)
@@ -33344,17 +33339,16 @@ __cxx_global_var_init.29.exit:                    ; preds = %101, %105, %107
 
 120:                                              ; preds = %119
   %121 = load ptr, ptr %10, align 8, !tbaa !27
-  %.not.i.i.i13 = icmp ne ptr %121, null
+  %.not.i.i.i10 = icmp eq ptr %121, null
   %122 = ptrtoint ptr %121 to i64
-  %123 = and i64 %122, 1
-  %.not1.i.i.i14 = icmp eq i64 %123, 0
-  %or.cond.i15 = and i1 %.not.i.i.i13, %.not1.i.i.i14
-  br i1 %or.cond.i15, label %124, label %__cxx_global_var_init.37.exit
+  %123 = trunc i64 %122 to i1
+  %or.cond.i11 = or i1 %.not.i.i.i10, %123
+  br i1 %or.cond.i11, label %__cxx_global_var_init.37.exit, label %124
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %121, align 8, !tbaa !29
-  %.not.i.i.i.i16 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i16, label %__cxx_global_var_init.37.exit, label %126
+  %.not.i.i.i.i12 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i.i12, label %__cxx_global_var_init.37.exit, label %126
 
 126:                                              ; preds = %124
   invoke void %125(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %113, i32 noundef 2)
@@ -33403,17 +33397,16 @@ __cxx_global_var_init.37.exit:                    ; preds = %120, %124, %126
 
 139:                                              ; preds = %138
   %140 = load ptr, ptr %7, align 8, !tbaa !27
-  %.not.i.i.i17 = icmp ne ptr %140, null
+  %.not.i.i.i13 = icmp eq ptr %140, null
   %141 = ptrtoint ptr %140 to i64
-  %142 = and i64 %141, 1
-  %.not1.i.i.i18 = icmp eq i64 %142, 0
-  %or.cond.i19 = and i1 %.not.i.i.i17, %.not1.i.i.i18
-  br i1 %or.cond.i19, label %143, label %__cxx_global_var_init.40.exit
+  %142 = trunc i64 %141 to i1
+  %or.cond.i14 = or i1 %.not.i.i.i13, %142
+  br i1 %or.cond.i14, label %__cxx_global_var_init.40.exit, label %143
 
 143:                                              ; preds = %139
   %144 = load ptr, ptr %140, align 8, !tbaa !29
-  %.not.i.i.i.i20 = icmp eq ptr %144, null
-  br i1 %.not.i.i.i.i20, label %__cxx_global_var_init.40.exit, label %145
+  %.not.i.i.i.i15 = icmp eq ptr %144, null
+  br i1 %.not.i.i.i.i15, label %__cxx_global_var_init.40.exit, label %145
 
 145:                                              ; preds = %143
   invoke void %144(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %132, i32 noundef 2)
@@ -33462,17 +33455,16 @@ __cxx_global_var_init.40.exit:                    ; preds = %139, %143, %145
 
 158:                                              ; preds = %157
   %159 = load ptr, ptr %4, align 8, !tbaa !27
-  %.not.i.i.i21 = icmp ne ptr %159, null
+  %.not.i.i.i16 = icmp eq ptr %159, null
   %160 = ptrtoint ptr %159 to i64
-  %161 = and i64 %160, 1
-  %.not1.i.i.i22 = icmp eq i64 %161, 0
-  %or.cond.i23 = and i1 %.not.i.i.i21, %.not1.i.i.i22
-  br i1 %or.cond.i23, label %162, label %__cxx_global_var_init.45.exit
+  %161 = trunc i64 %160 to i1
+  %or.cond.i17 = or i1 %.not.i.i.i16, %161
+  br i1 %or.cond.i17, label %__cxx_global_var_init.45.exit, label %162
 
 162:                                              ; preds = %158
   %163 = load ptr, ptr %159, align 8, !tbaa !29
-  %.not.i.i.i.i24 = icmp eq ptr %163, null
-  br i1 %.not.i.i.i.i24, label %__cxx_global_var_init.45.exit, label %164
+  %.not.i.i.i.i18 = icmp eq ptr %163, null
+  br i1 %.not.i.i.i.i18, label %__cxx_global_var_init.45.exit, label %164
 
 164:                                              ; preds = %162
   invoke void %163(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef nonnull align 8 dereferenceable(24) %151, i32 noundef 2)
@@ -33521,17 +33513,16 @@ __cxx_global_var_init.45.exit:                    ; preds = %158, %162, %164
 
 177:                                              ; preds = %176
   %178 = load ptr, ptr %1, align 8, !tbaa !27
-  %.not.i.i.i25 = icmp ne ptr %178, null
+  %.not.i.i.i19 = icmp eq ptr %178, null
   %179 = ptrtoint ptr %178 to i64
-  %180 = and i64 %179, 1
-  %.not1.i.i.i26 = icmp eq i64 %180, 0
-  %or.cond.i27 = and i1 %.not.i.i.i25, %.not1.i.i.i26
-  br i1 %or.cond.i27, label %181, label %__cxx_global_var_init.51.exit
+  %180 = trunc i64 %179 to i1
+  %or.cond.i20 = or i1 %.not.i.i.i19, %180
+  br i1 %or.cond.i20, label %__cxx_global_var_init.51.exit, label %181
 
 181:                                              ; preds = %177
   %182 = load ptr, ptr %178, align 8, !tbaa !29
-  %.not.i.i.i.i28 = icmp eq ptr %182, null
-  br i1 %.not.i.i.i.i28, label %__cxx_global_var_init.51.exit, label %183
+  %.not.i.i.i.i21 = icmp eq ptr %182, null
+  br i1 %.not.i.i.i.i21, label %__cxx_global_var_init.51.exit, label %183
 
 183:                                              ; preds = %181
   invoke void %182(ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull align 8 dereferenceable(24) %170, i32 noundef 2)

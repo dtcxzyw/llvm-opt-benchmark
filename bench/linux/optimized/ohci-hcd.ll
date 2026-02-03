@@ -3282,7 +3282,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @ohci_rh_suspend(ptr nounde
   %9 = lshr i8 %8, 6
   switch i8 %9, label %default.unreachable [
     i8 1, label %10
-    i8 0, label %96
+    i8 0, label %95
     i8 3, label %17
     i8 2, label %22
   ]
@@ -3296,14 +3296,14 @@ define internal fastcc noundef range(i32 -16, 1) i32 @ohci_rh_suspend(ptr nounde
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15) #14, !srcloc !5
-  br label %96
+  br label %95
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 1
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %96, label %22
+  br i1 %21, label %95, label %22
 
 default.unreachable:                              ; preds = %2
   unreachable
@@ -3384,52 +3384,51 @@ default.unreachable:                              ; preds = %2
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1296
   %68 = load i8, ptr %67, align 8
-  %69 = and i8 %68, 1
-  %70 = icmp ne i8 %69, 0
-  %71 = or i1 %23, %70
-  br i1 %71, label %72, label %75
+  %69 = trunc i8 %68 to i1
+  %70 = or i1 %23, %69
+  br i1 %70, label %71, label %74
 
-72:                                               ; preds = %.loopexit
-  %73 = load i32, ptr %7, align 8
-  %74 = or i32 %73, 1024
-  br label %80
+71:                                               ; preds = %.loopexit
+  %72 = load i32, ptr %7, align 8
+  %73 = or i32 %72, 1024
+  br label %79
 
-75:                                               ; preds = %.loopexit
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 72, ptr nonnull elementtype(i32) %77) #14, !srcloc !9
-  %78 = load i32, ptr %7, align 8
-  %79 = and i32 %78, -1025
-  br label %80
+74:                                               ; preds = %.loopexit
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 72, ptr nonnull elementtype(i32) %76) #14, !srcloc !9
+  %77 = load i32, ptr %7, align 8
+  %78 = and i32 %77, -1025
+  br label %79
 
-80:                                               ; preds = %75, %72
-  %81 = phi i32 [ %79, %75 ], [ %74, %72 ]
-  %82 = or i32 %81, 192
-  store i32 %82, ptr %7, align 8
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %82, ptr nonnull elementtype(i32) %84) #14, !srcloc !9
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %87 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %86) #14, !srcloc !5
-  br i1 %23, label %96, label %88
+79:                                               ; preds = %74, %71
+  %80 = phi i32 [ %78, %74 ], [ %73, %71 ]
+  %81 = or i32 %80, 192
+  store i32 %81, ptr %7, align 8
+  %82 = load ptr, ptr %3, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %81, ptr nonnull elementtype(i32) %83) #14, !srcloc !9
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %85) #14, !srcloc !5
+  br i1 %23, label %95, label %87
 
-88:                                               ; preds = %80
-  %89 = load volatile i64, ptr @jiffies, align 64
-  %90 = add i64 %89, 5
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  store i64 %90, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1052
-  %93 = load i8, ptr %92, align 4
-  %94 = and i8 %93, -2
-  store i8 %94, ptr %92, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store i32 1, ptr %95, align 8
-  br label %96
+87:                                               ; preds = %79
+  %88 = load volatile i64, ptr @jiffies, align 64
+  %89 = add i64 %88, 5
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  store i64 %89, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1052
+  %92 = load i8, ptr %91, align 4
+  %93 = and i8 %92, -2
+  store i8 %93, ptr %91, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  store i32 1, ptr %94, align 8
+  br label %95
 
-96:                                               ; preds = %2, %88, %80, %17, %10
-  %97 = phi i32 [ 0, %80 ], [ 0, %88 ], [ 0, %17 ], [ -16, %2 ], [ -16, %10 ]
-  ret i32 %97
+95:                                               ; preds = %2, %87, %79, %17, %10
+  %96 = phi i32 [ 0, %79 ], [ 0, %87 ], [ 0, %17 ], [ -16, %2 ], [ -16, %10 ]
+  ret i32 %96
 }
 
 ; Function Attrs: null_pointer_is_valid

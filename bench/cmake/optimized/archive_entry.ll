@@ -2940,28 +2940,27 @@ define dso_local i32 @_archive_entry_copy_symlink_l(ptr noundef %0, ptr noundef 
   %5 = icmp eq ptr %1, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 8, !tbaa !31
-  %8 = and i32 %7, 1
-  %.not = icmp ne i32 %8, 0
+  %.not = trunc i32 %7 to i1
   %or.cond14.not = select i1 %5, i1 %.not, i1 false
-  br i1 %or.cond14.not, label %16, label %._crit_edge
+  br i1 %or.cond14.not, label %15, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %10 = and i32 %7, -2
-  store i32 %10, ptr %9, align 8, !tbaa !31
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %12 = tail call i32 @archive_mstring_copy_mbs_len_l(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, ptr noundef %3) #21
-  %13 = icmp ne i32 %12, 0
-  %or.cond = select i1 %5, i1 true, i1 %13
-  %14 = load i32, ptr %9, align 8, !tbaa !31
-  %15 = and i32 %14, -3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %9 = and i32 %7, -2
+  store i32 %9, ptr %8, align 8, !tbaa !31
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %11 = tail call i32 @archive_mstring_copy_mbs_len_l(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef %3) #21
+  %12 = icmp ne i32 %11, 0
+  %or.cond = select i1 %5, i1 true, i1 %12
+  %13 = load i32, ptr %8, align 8, !tbaa !31
+  %14 = and i32 %13, -3
   %masksel = select i1 %or.cond, i32 0, i32 2
-  %storemerge = or disjoint i32 %15, %masksel
-  store i32 %storemerge, ptr %9, align 8, !tbaa !31
-  br label %16
+  %storemerge = or disjoint i32 %14, %masksel
+  store i32 %storemerge, ptr %8, align 8, !tbaa !31
+  br label %15
 
-16:                                               ; preds = %4, %._crit_edge
-  %.0 = phi i32 [ %12, %._crit_edge ], [ 0, %4 ]
+15:                                               ; preds = %4, %._crit_edge
+  %.0 = phi i32 [ %11, %._crit_edge ], [ 0, %4 ]
   ret i32 %.0
 }
 

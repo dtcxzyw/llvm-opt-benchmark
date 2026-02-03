@@ -1723,8 +1723,8 @@ define dso_local void @_ZN5clang10TokenLexer22stringifyVAOPTContentsERN4llvm15Sm
 
 22:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
   %23 = phi i32 [ 0, %.lr.ph ], [ %62, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ]
-  %storemerge47 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ]
-  %24 = zext i32 %storemerge47 to i64
+  %storemerge46 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ]
+  %24 = zext i32 %storemerge46 to i64
   %25 = getelementptr inbounds nuw %"class.clang::Token", ptr %15, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i16, ptr %26, align 8, !tbaa !359
@@ -1732,7 +1732,7 @@ define dso_local void @_ZN5clang10TokenLexer22stringifyVAOPTContentsERN4llvm15Sm
   br i1 %28, label %29, label %40
 
 29:                                               ; preds = %22
-  %30 = add i32 %storemerge47, -1
+  %30 = add i32 %storemerge46, -1
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw %"class.clang::Token", ptr %16, i64 %31
   %33 = call noundef zeroext i1 @_ZN5clang10TokenLexer11pasteTokensERNS_5TokenEN4llvm8ArrayRefIS1_EERj(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(20) %32, ptr nonnull %15, i64 %21, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -1744,18 +1744,18 @@ define dso_local void @_ZN5clang10TokenLexer22stringifyVAOPTContentsERN4llvm15Sm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 8 dereferenceable(20) %32, i64 20, i1 false), !tbaa.struct !401
   %39 = load i32, ptr %6, align 4, !tbaa !23
   %.not32 = icmp eq i32 %39, %12
-  %.pre50.pre = load i32, ptr %18, align 8, !tbaa !346
-  br i1 %.not32, label %._crit_edge, label %._crit_edge49
+  %.pre49.pre = load i32, ptr %18, align 8, !tbaa !346
+  br i1 %.not32, label %._crit_edge, label %._crit_edge48
 
-._crit_edge49:                                    ; preds = %29
-  %.pre55 = zext i32 %39 to i64
+._crit_edge48:                                    ; preds = %29
+  %.pre54 = zext i32 %39 to i64
   br label %40
 
-40:                                               ; preds = %._crit_edge49, %22
-  %.pre-phi56 = phi i64 [ %.pre55, %._crit_edge49 ], [ %24, %22 ]
-  %41 = phi i32 [ %.pre50.pre, %._crit_edge49 ], [ %23, %22 ]
-  %42 = phi i32 [ %39, %._crit_edge49 ], [ %storemerge47, %22 ]
-  %43 = getelementptr inbounds nuw %"class.clang::Token", ptr %16, i64 %.pre-phi56
+40:                                               ; preds = %._crit_edge48, %22
+  %.pre-phi55 = phi i64 [ %.pre54, %._crit_edge48 ], [ %24, %22 ]
+  %41 = phi i32 [ %.pre49.pre, %._crit_edge48 ], [ %23, %22 ]
+  %42 = phi i32 [ %39, %._crit_edge48 ], [ %storemerge46, %22 ]
+  %43 = getelementptr inbounds nuw %"class.clang::Token", ptr %16, i64 %.pre-phi55
   %44 = zext i32 %41 to i64
   %45 = add nuw nsw i64 %44, 1
   %46 = load i32, ptr %19, align 4, !tbaa !347
@@ -1800,11 +1800,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit: ; pr
   br i1 %.not31, label %._crit_edge, label %22, !llvm.loop !405
 
 ._crit_edge:                                      ; preds = %29, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit
-  %.pre50 = phi i32 [ %62, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ], [ %.pre50.pre, %29 ]
-  %.pre51 = load i32, ptr %19, align 4, !tbaa !347
+  %.pre49 = phi i32 [ %62, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ], [ %.pre49.pre, %29 ]
+  %.pre50 = load i32, ptr %19, align 4, !tbaa !347
   %.pre3.i34.pre = load ptr, ptr %5, align 8, !tbaa !345
-  %64 = icmp ult i32 %.pre50, %.pre51
-  %65 = zext i32 %.pre50 to i64
+  %64 = icmp ult i32 %.pre49, %.pre50
+  %65 = zext i32 %.pre49 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %67 = add nuw nsw i64 %65, 1
@@ -1875,15 +1875,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit39: ; 
   %106 = icmp ne i8 %105, 0
   call void @_ZN5clang9MacroArgs17StringifyArgumentEPKNS_5TokenERNS_12PreprocessorEbNS_14SourceLocationES6_(ptr dead_on_unwind nonnull writable sret(%"class.clang::Token") align 8 %7, ptr noundef nonnull %100, ptr noundef nonnull align 8 dereferenceable(3288) %102, i1 noundef zeroext %106, i32 %95, i32 %99) #17
   %107 = load i8, ptr %103, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 18
-  %.pre53 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !24
-  %108 = shl i8 %107, 1
-  %109 = and i8 %108, 2
-  %110 = zext nneg i8 %109 to i16
-  %111 = or i16 %.pre53, %110
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  %113 = or i16 %111, 256
-  store i16 %113, ptr %112, align 2, !tbaa !24
+  %108 = trunc i8 %107 to i1
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 18
+  %110 = load i16, ptr %109, align 2, !tbaa !24
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 18
+  %112 = select i1 %108, i16 258, i16 256
+  %113 = or i16 %112, %110
+  store i16 %113, ptr %111, align 2, !tbaa !24
   %114 = add nsw i32 %9, 1
   %115 = sext i32 %114 to i64
   %116 = load i32, ptr %10, align 8, !tbaa !346
@@ -3475,19 +3473,19 @@ declare i32 @_ZN5clang13SourceManager26createMacroArgExpansionLocENS_14SourceLoc
 define dso_local void @_ZN5clang10TokenLexer34PropagateLineStartLeadingSpaceInfoERNS_5TokenE(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %4 = load i16, ptr %3, align 2, !tbaa !24
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %6 = trunc i16 %4 to i8
-  %7 = and i8 %6, 1
-  %8 = load i8, ptr %5, align 8
+  %5 = trunc i16 %4 to i8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = and i8 %5, 1
+  %8 = load i8, ptr %6, align 8
   %9 = and i8 %8, -2
   %10 = or disjoint i8 %9, %7
-  store i8 %10, ptr %5, align 8
+  store i8 %10, ptr %6, align 8
   %11 = load i16, ptr %3, align 2, !tbaa !24
   %12 = trunc i16 %11 to i8
   %13 = and i8 %12, 2
   %14 = and i8 %10, -3
   %15 = or disjoint i8 %13, %14
-  store i8 %15, ptr %5, align 8
+  store i8 %15, ptr %6, align 8
   ret void
 }
 

@@ -641,10 +641,9 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %241 = getelementptr inbounds nuw i32, ptr %238, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !196
   %243 = and i32 %237, 31
-  %244 = shl nuw i32 1, %243
-  %245 = and i32 %244, %242
-  %.not27.i = icmp eq i32 %245, 0
-  br i1 %.not27.i, label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitINSERTERN4llvm12MachineInstrE.exit, label %246
+  %244 = lshr i32 %242, %243
+  %245 = trunc i32 %244 to i1
+  br i1 %245, label %246, label %_ZN12_GLOBAL__N_120AArch64MIPeepholeOpt11visitINSERTERN4llvm12MachineInstrE.exit
 
 246:                                              ; preds = %233
   %247 = getelementptr inbounds nuw i8, ptr %.sroa.0223.0243, i64 24

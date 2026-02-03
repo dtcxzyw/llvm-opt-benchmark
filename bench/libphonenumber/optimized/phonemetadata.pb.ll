@@ -403,9 +403,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %54, align 8, !tbaa !12
   %55 = load i32, ptr %5, align 8, !tbaa !62
-  %56 = and i32 %55, 1
-  %.not46 = icmp eq i32 %56, 0
-  br i1 %.not46, label %69, label %57
+  %56 = trunc i32 %55 to i1
+  br i1 %56, label %57, label %69
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -442,8 +441,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit._crit_edge: ; preds = %_ZNK6go
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %71, align 8, !tbaa !12
   %72 = and i32 %70, 2
-  %.not47 = icmp eq i32 %72, 0
-  br i1 %.not47, label %83, label %73
+  %.not46 = icmp eq i32 %72, 0
+  br i1 %.not46, label %83, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -466,16 +465,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit30: ; preds = %73, %79
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30._crit_edge unwind label %67
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit30._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30
-  %.pre50 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre49 = load i32, ptr %5, align 8, !tbaa !62
   br label %83
 
 83:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30._crit_edge, %69
-  %84 = phi i32 [ %.pre50, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30._crit_edge ], [ %70, %69 ]
+  %84 = phi i32 [ %.pre49, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit30._crit_edge ], [ %70, %69 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %85, align 8, !tbaa !12
   %86 = and i32 %84, 4
-  %.not48 = icmp eq i32 %86, 0
-  br i1 %.not48, label %97, label %87
+  %.not47 = icmp eq i32 %86, 0
+  br i1 %.not47, label %97, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -498,16 +497,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit36: ; preds = %87, %93
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36._crit_edge unwind label %67
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit36._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36
-  %.pre51 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre50 = load i32, ptr %5, align 8, !tbaa !62
   br label %97
 
 97:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36._crit_edge, %83
-  %98 = phi i32 [ %.pre51, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36._crit_edge ], [ %84, %83 ]
+  %98 = phi i32 [ %.pre50, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36._crit_edge ], [ %84, %83 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %99, align 8, !tbaa !12
   %100 = and i32 %98, 8
-  %.not49 = icmp eq i32 %100, 0
-  br i1 %.not49, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit45, label %101
+  %.not48 = icmp eq i32 %100, 0
+  br i1 %.not48, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit45, label %101
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1630,9 +1629,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh.exit: ; preds = %133
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !62
-  %4 = and i32 %3, 1
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %20, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %20
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1654,8 +1652,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFie
 20:                                               ; preds = %5, %1
   %.0 = phi i64 [ %19, %5 ], [ 0, %1 ]
   %21 = and i32 %3, 2
-  %.not3 = icmp eq i32 %21, 0
-  br i1 %.not3, label %38, label %22
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %38, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1720,9 +1718,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLon
   br label %_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit
 
 35:                                               ; preds = %1
-  %36 = and i32 %3, 1
-  %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %52, label %37
+  %36 = trunc i32 %3 to i1
+  br i1 %36, label %37, label %52
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1744,8 +1741,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLon
 52:                                               ; preds = %37, %35
   %.0.i24 = phi i64 [ %51, %37 ], [ 0, %35 ]
   %53 = and i32 %3, 2
-  %.not3.i = icmp eq i32 %53, 0
-  br i1 %.not3.i, label %_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit, label %54
+  %.not.i = icmp eq i32 %53, 0
+  br i1 %.not.i, label %_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2576,9 +2573,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %61, align 8, !tbaa !12
   %62 = load i32, ptr %5, align 8, !tbaa !62
-  %63 = and i32 %62, 1
-  %.not35 = icmp eq i32 %63, 0
-  br i1 %.not35, label %78, label %64
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %64, label %78
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -2620,8 +2616,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit._crit_edge: ; preds = %_ZNK6go
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %80, align 8, !tbaa !12
   %81 = and i32 %79, 2
-  %.not36 = icmp eq i32 %81, 0
-  br i1 %.not36, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit34, label %82
+  %.not35 = icmp eq i32 %81, 0
+  br i1 %.not35, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit34, label %82
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -4397,9 +4393,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %98, align 8, !tbaa !12
   %99 = load i32, ptr %5, align 8, !tbaa !62
-  %100 = and i32 %99, 1
-  %.not157 = icmp eq i32 %100, 0
-  br i1 %.not157, label %113, label %101
+  %100 = trunc i32 %99 to i1
+  br i1 %100, label %101, label %113
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -4431,12 +4426,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit._crit_edge: ; preds = %_ZNK6go
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i.i.i.i82
-  %lpad.loopexit182 = landingpad { ptr, i32 }
+  %lpad.loopexit181 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc.i70
-  %lpad.loopexit.split-lp183 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp182 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
 
@@ -4450,8 +4445,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit._crit_edge: ; preds = %_ZNK6go
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %115, align 8, !tbaa !12
   %116 = and i32 %114, 2
-  %.not158 = icmp eq i32 %116, 0
-  br i1 %.not158, label %127, label %117
+  %.not157 = icmp eq i32 %116, 0
+  br i1 %.not157, label %127, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4474,16 +4469,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit100: ; preds = %117, %123
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit100._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit100._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit100
-  %.pre185 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre184 = load i32, ptr %5, align 8, !tbaa !62
   br label %127
 
 127:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit100._crit_edge, %113
-  %128 = phi i32 [ %.pre185, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit100._crit_edge ], [ %114, %113 ]
+  %128 = phi i32 [ %.pre184, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit100._crit_edge ], [ %114, %113 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %129, align 8, !tbaa !12
   %130 = and i32 %128, 4
-  %.not159 = icmp eq i32 %130, 0
-  br i1 %.not159, label %141, label %131
+  %.not158 = icmp eq i32 %130, 0
+  br i1 %.not158, label %141, label %131
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -4506,16 +4501,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit106: ; preds = %131, %137
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit106._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit106._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit106
-  %.pre186 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre185 = load i32, ptr %5, align 8, !tbaa !62
   br label %141
 
 141:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit106._crit_edge, %127
-  %142 = phi i32 [ %.pre186, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit106._crit_edge ], [ %128, %127 ]
+  %142 = phi i32 [ %.pre185, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit106._crit_edge ], [ %128, %127 ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %143, align 8, !tbaa !12
   %144 = and i32 %142, 8
-  %.not160 = icmp eq i32 %144, 0
-  br i1 %.not160, label %155, label %145
+  %.not159 = icmp eq i32 %144, 0
+  br i1 %.not159, label %155, label %145
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -4538,16 +4533,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit112: ; preds = %145, %151
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit112._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit112._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit112
-  %.pre187 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre186 = load i32, ptr %5, align 8, !tbaa !62
   br label %155
 
 155:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit112._crit_edge, %141
-  %156 = phi i32 [ %.pre187, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit112._crit_edge ], [ %142, %141 ]
+  %156 = phi i32 [ %.pre186, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit112._crit_edge ], [ %142, %141 ]
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %157, align 8, !tbaa !12
   %158 = and i32 %156, 16
-  %.not161 = icmp eq i32 %158, 0
-  br i1 %.not161, label %169, label %159
+  %.not160 = icmp eq i32 %158, 0
+  br i1 %.not160, label %169, label %159
 
 159:                                              ; preds = %155
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -4570,16 +4565,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit118: ; preds = %159, %165
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit118._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit118._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit118
-  %.pre188 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre187 = load i32, ptr %5, align 8, !tbaa !62
   br label %169
 
 169:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit118._crit_edge, %155
-  %170 = phi i32 [ %.pre188, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit118._crit_edge ], [ %156, %155 ]
+  %170 = phi i32 [ %.pre187, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit118._crit_edge ], [ %156, %155 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %171, align 8, !tbaa !12
   %172 = and i32 %170, 32
-  %.not162 = icmp eq i32 %172, 0
-  br i1 %.not162, label %183, label %173
+  %.not161 = icmp eq i32 %172, 0
+  br i1 %.not161, label %183, label %173
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -4602,16 +4597,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit124: ; preds = %173, %179
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit124._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit124._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit124
-  %.pre189 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre188 = load i32, ptr %5, align 8, !tbaa !62
   br label %183
 
 183:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit124._crit_edge, %169
-  %184 = phi i32 [ %.pre189, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit124._crit_edge ], [ %170, %169 ]
+  %184 = phi i32 [ %.pre188, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit124._crit_edge ], [ %170, %169 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %185, align 8, !tbaa !12
   %186 = and i32 %184, 64
-  %.not163 = icmp eq i32 %186, 0
-  br i1 %.not163, label %197, label %187
+  %.not162 = icmp eq i32 %186, 0
+  br i1 %.not162, label %197, label %187
 
 187:                                              ; preds = %183
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -4634,16 +4629,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit130: ; preds = %187, %193
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit130._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit130._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit130
-  %.pre190 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre189 = load i32, ptr %5, align 8, !tbaa !62
   br label %197
 
 197:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit130._crit_edge, %183
-  %198 = phi i32 [ %.pre190, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit130._crit_edge ], [ %184, %183 ]
+  %198 = phi i32 [ %.pre189, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit130._crit_edge ], [ %184, %183 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %199, align 8, !tbaa !12
   %200 = and i32 %198, 128
-  %.not164 = icmp eq i32 %200, 0
-  br i1 %.not164, label %211, label %201
+  %.not163 = icmp eq i32 %200, 0
+  br i1 %.not163, label %211, label %201
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -4666,16 +4661,16 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136: ; preds = %201, %207
           to label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge unwind label %111
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit136
-  %.pre191 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre190 = load i32, ptr %5, align 8, !tbaa !62
   br label %211
 
 211:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge, %197
-  %212 = phi i32 [ %.pre191, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge ], [ %198, %197 ]
+  %212 = phi i32 [ %.pre190, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge ], [ %198, %197 ]
   %213 = and i32 %212, 256
-  %.not165 = icmp eq i32 %213, 0
+  %.not164 = icmp eq i32 %213, 0
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %215 = load ptr, ptr %214, align 8
-  br i1 %.not165, label %223, label %216
+  br i1 %.not164, label %223, label %216
 
 216:                                              ; preds = %211
   %217 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4688,7 +4683,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 219:                                              ; preds = %218
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %217, ptr %220, align 8, !tbaa !28
-  %.pre192 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre191 = load i32, ptr %5, align 8, !tbaa !62
   br label %225
 
 221:                                              ; preds = %218
@@ -4703,12 +4698,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %225
 
 225:                                              ; preds = %219, %223
-  %226 = phi i32 [ %.pre192, %219 ], [ %212, %223 ]
+  %226 = phi i32 [ %.pre191, %219 ], [ %212, %223 ]
   %227 = and i32 %226, 512
-  %.not166 = icmp eq i32 %227, 0
+  %.not165 = icmp eq i32 %227, 0
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %229 = load ptr, ptr %228, align 8
-  br i1 %.not166, label %237, label %230
+  br i1 %.not165, label %237, label %230
 
 230:                                              ; preds = %225
   %231 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4721,7 +4716,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 233:                                              ; preds = %232
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %231, ptr %234, align 8, !tbaa !32
-  %.pre193 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre192 = load i32, ptr %5, align 8, !tbaa !62
   br label %239
 
 235:                                              ; preds = %232
@@ -4736,12 +4731,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %239
 
 239:                                              ; preds = %233, %237
-  %240 = phi i32 [ %.pre193, %233 ], [ %226, %237 ]
+  %240 = phi i32 [ %.pre192, %233 ], [ %226, %237 ]
   %241 = and i32 %240, 1024
-  %.not167 = icmp eq i32 %241, 0
+  %.not166 = icmp eq i32 %241, 0
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %243 = load ptr, ptr %242, align 8
-  br i1 %.not167, label %251, label %244
+  br i1 %.not166, label %251, label %244
 
 244:                                              ; preds = %239
   %245 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4754,7 +4749,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 247:                                              ; preds = %246
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %245, ptr %248, align 8, !tbaa !33
-  %.pre194 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre193 = load i32, ptr %5, align 8, !tbaa !62
   br label %253
 
 249:                                              ; preds = %246
@@ -4769,12 +4764,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %253
 
 253:                                              ; preds = %247, %251
-  %254 = phi i32 [ %.pre194, %247 ], [ %240, %251 ]
+  %254 = phi i32 [ %.pre193, %247 ], [ %240, %251 ]
   %255 = and i32 %254, 2048
-  %.not168 = icmp eq i32 %255, 0
+  %.not167 = icmp eq i32 %255, 0
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %257 = load ptr, ptr %256, align 8
-  br i1 %.not168, label %265, label %258
+  br i1 %.not167, label %265, label %258
 
 258:                                              ; preds = %253
   %259 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4787,7 +4782,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 261:                                              ; preds = %260
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %259, ptr %262, align 8, !tbaa !34
-  %.pre195 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre194 = load i32, ptr %5, align 8, !tbaa !62
   br label %267
 
 263:                                              ; preds = %260
@@ -4802,12 +4797,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %267
 
 267:                                              ; preds = %261, %265
-  %268 = phi i32 [ %.pre195, %261 ], [ %254, %265 ]
+  %268 = phi i32 [ %.pre194, %261 ], [ %254, %265 ]
   %269 = and i32 %268, 4096
-  %.not169 = icmp eq i32 %269, 0
+  %.not168 = icmp eq i32 %269, 0
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %271 = load ptr, ptr %270, align 8
-  br i1 %.not169, label %279, label %272
+  br i1 %.not168, label %279, label %272
 
 272:                                              ; preds = %267
   %273 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4820,7 +4815,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 275:                                              ; preds = %274
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %273, ptr %276, align 8, !tbaa !35
-  %.pre196 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre195 = load i32, ptr %5, align 8, !tbaa !62
   br label %281
 
 277:                                              ; preds = %274
@@ -4835,12 +4830,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %281
 
 281:                                              ; preds = %275, %279
-  %282 = phi i32 [ %.pre196, %275 ], [ %268, %279 ]
+  %282 = phi i32 [ %.pre195, %275 ], [ %268, %279 ]
   %283 = and i32 %282, 8192
-  %.not170 = icmp eq i32 %283, 0
+  %.not169 = icmp eq i32 %283, 0
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %285 = load ptr, ptr %284, align 8
-  br i1 %.not170, label %293, label %286
+  br i1 %.not169, label %293, label %286
 
 286:                                              ; preds = %281
   %287 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4853,7 +4848,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 289:                                              ; preds = %288
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %287, ptr %290, align 8, !tbaa !36
-  %.pre197 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre196 = load i32, ptr %5, align 8, !tbaa !62
   br label %295
 
 291:                                              ; preds = %288
@@ -4868,12 +4863,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %295
 
 295:                                              ; preds = %289, %293
-  %296 = phi i32 [ %.pre197, %289 ], [ %282, %293 ]
+  %296 = phi i32 [ %.pre196, %289 ], [ %282, %293 ]
   %297 = and i32 %296, 16384
-  %.not171 = icmp eq i32 %297, 0
+  %.not170 = icmp eq i32 %297, 0
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %299 = load ptr, ptr %298, align 8
-  br i1 %.not171, label %307, label %300
+  br i1 %.not170, label %307, label %300
 
 300:                                              ; preds = %295
   %301 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4886,7 +4881,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 303:                                              ; preds = %302
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %301, ptr %304, align 8, !tbaa !37
-  %.pre198 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre197 = load i32, ptr %5, align 8, !tbaa !62
   br label %309
 
 305:                                              ; preds = %302
@@ -4901,12 +4896,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %309
 
 309:                                              ; preds = %303, %307
-  %310 = phi i32 [ %.pre198, %303 ], [ %296, %307 ]
+  %310 = phi i32 [ %.pre197, %303 ], [ %296, %307 ]
   %311 = and i32 %310, 32768
-  %.not172 = icmp eq i32 %311, 0
+  %.not171 = icmp eq i32 %311, 0
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %313 = load ptr, ptr %312, align 8
-  br i1 %.not172, label %321, label %314
+  br i1 %.not171, label %321, label %314
 
 314:                                              ; preds = %309
   %315 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4919,7 +4914,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 317:                                              ; preds = %316
   %318 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %315, ptr %318, align 8, !tbaa !38
-  %.pre199 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre198 = load i32, ptr %5, align 8, !tbaa !62
   br label %323
 
 319:                                              ; preds = %316
@@ -4934,12 +4929,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %323
 
 323:                                              ; preds = %317, %321
-  %324 = phi i32 [ %.pre199, %317 ], [ %310, %321 ]
+  %324 = phi i32 [ %.pre198, %317 ], [ %310, %321 ]
   %325 = and i32 %324, 65536
-  %.not173 = icmp eq i32 %325, 0
+  %.not172 = icmp eq i32 %325, 0
   %326 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %327 = load ptr, ptr %326, align 8
-  br i1 %.not173, label %335, label %328
+  br i1 %.not172, label %335, label %328
 
 328:                                              ; preds = %323
   %329 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4952,7 +4947,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 331:                                              ; preds = %330
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %329, ptr %332, align 8, !tbaa !39
-  %.pre200 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre199 = load i32, ptr %5, align 8, !tbaa !62
   br label %337
 
 333:                                              ; preds = %330
@@ -4967,12 +4962,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %337
 
 337:                                              ; preds = %331, %335
-  %338 = phi i32 [ %.pre200, %331 ], [ %324, %335 ]
+  %338 = phi i32 [ %.pre199, %331 ], [ %324, %335 ]
   %339 = and i32 %338, 131072
-  %.not174 = icmp eq i32 %339, 0
+  %.not173 = icmp eq i32 %339, 0
   %340 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %341 = load ptr, ptr %340, align 8
-  br i1 %.not174, label %349, label %342
+  br i1 %.not173, label %349, label %342
 
 342:                                              ; preds = %337
   %343 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -4985,7 +4980,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 345:                                              ; preds = %344
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %343, ptr %346, align 8, !tbaa !47
-  %.pre201 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre200 = load i32, ptr %5, align 8, !tbaa !62
   br label %351
 
 347:                                              ; preds = %344
@@ -5000,12 +4995,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %351
 
 351:                                              ; preds = %345, %349
-  %352 = phi i32 [ %.pre201, %345 ], [ %338, %349 ]
+  %352 = phi i32 [ %.pre200, %345 ], [ %338, %349 ]
   %353 = and i32 %352, 262144
-  %.not175 = icmp eq i32 %353, 0
+  %.not174 = icmp eq i32 %353, 0
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %355 = load ptr, ptr %354, align 8
-  br i1 %.not175, label %363, label %356
+  br i1 %.not174, label %363, label %356
 
 356:                                              ; preds = %351
   %357 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5018,7 +5013,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 359:                                              ; preds = %358
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %357, ptr %360, align 8, !tbaa !40
-  %.pre202 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre201 = load i32, ptr %5, align 8, !tbaa !62
   br label %365
 
 361:                                              ; preds = %358
@@ -5033,12 +5028,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %365
 
 365:                                              ; preds = %359, %363
-  %366 = phi i32 [ %.pre202, %359 ], [ %352, %363 ]
+  %366 = phi i32 [ %.pre201, %359 ], [ %352, %363 ]
   %367 = and i32 %366, 524288
-  %.not176 = icmp eq i32 %367, 0
+  %.not175 = icmp eq i32 %367, 0
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %369 = load ptr, ptr %368, align 8
-  br i1 %.not176, label %377, label %370
+  br i1 %.not175, label %377, label %370
 
 370:                                              ; preds = %365
   %371 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5051,7 +5046,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 373:                                              ; preds = %372
   %374 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %371, ptr %374, align 8, !tbaa !41
-  %.pre203 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre202 = load i32, ptr %5, align 8, !tbaa !62
   br label %379
 
 375:                                              ; preds = %372
@@ -5066,12 +5061,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %379
 
 379:                                              ; preds = %373, %377
-  %380 = phi i32 [ %.pre203, %373 ], [ %366, %377 ]
+  %380 = phi i32 [ %.pre202, %373 ], [ %366, %377 ]
   %381 = and i32 %380, 1048576
-  %.not177 = icmp eq i32 %381, 0
+  %.not176 = icmp eq i32 %381, 0
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %383 = load ptr, ptr %382, align 8
-  br i1 %.not177, label %391, label %384
+  br i1 %.not176, label %391, label %384
 
 384:                                              ; preds = %379
   %385 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5084,7 +5079,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 387:                                              ; preds = %386
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %385, ptr %388, align 8, !tbaa !42
-  %.pre204 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre203 = load i32, ptr %5, align 8, !tbaa !62
   br label %393
 
 389:                                              ; preds = %386
@@ -5099,12 +5094,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %393
 
 393:                                              ; preds = %387, %391
-  %394 = phi i32 [ %.pre204, %387 ], [ %380, %391 ]
+  %394 = phi i32 [ %.pre203, %387 ], [ %380, %391 ]
   %395 = and i32 %394, 2097152
-  %.not178 = icmp eq i32 %395, 0
+  %.not177 = icmp eq i32 %395, 0
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %397 = load ptr, ptr %396, align 8
-  br i1 %.not178, label %405, label %398
+  br i1 %.not177, label %405, label %398
 
 398:                                              ; preds = %393
   %399 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5117,7 +5112,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 401:                                              ; preds = %400
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %399, ptr %402, align 8, !tbaa !43
-  %.pre205 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre204 = load i32, ptr %5, align 8, !tbaa !62
   br label %407
 
 403:                                              ; preds = %400
@@ -5132,12 +5127,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %407
 
 407:                                              ; preds = %401, %405
-  %408 = phi i32 [ %.pre205, %401 ], [ %394, %405 ]
+  %408 = phi i32 [ %.pre204, %401 ], [ %394, %405 ]
   %409 = and i32 %408, 4194304
-  %.not179 = icmp eq i32 %409, 0
+  %.not178 = icmp eq i32 %409, 0
   %410 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %411 = load ptr, ptr %410, align 8
-  br i1 %.not179, label %419, label %412
+  br i1 %.not178, label %419, label %412
 
 412:                                              ; preds = %407
   %413 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5150,7 +5145,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 415:                                              ; preds = %414
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %413, ptr %416, align 8, !tbaa !44
-  %.pre206 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre205 = load i32, ptr %5, align 8, !tbaa !62
   br label %421
 
 417:                                              ; preds = %414
@@ -5165,12 +5160,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %421
 
 421:                                              ; preds = %415, %419
-  %422 = phi i32 [ %.pre206, %415 ], [ %408, %419 ]
+  %422 = phi i32 [ %.pre205, %415 ], [ %408, %419 ]
   %423 = and i32 %422, 8388608
-  %.not180 = icmp eq i32 %423, 0
+  %.not179 = icmp eq i32 %423, 0
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %425 = load ptr, ptr %424, align 8
-  br i1 %.not180, label %433, label %426
+  br i1 %.not179, label %433, label %426
 
 426:                                              ; preds = %421
   %427 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5183,7 +5178,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
 429:                                              ; preds = %428
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %427, ptr %430, align 8, !tbaa !45
-  %.pre207 = load i32, ptr %5, align 8, !tbaa !62
+  %.pre206 = load i32, ptr %5, align 8, !tbaa !62
   br label %435
 
 431:                                              ; preds = %428
@@ -5198,12 +5193,12 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   br label %435
 
 435:                                              ; preds = %429, %433
-  %436 = phi i32 [ %.pre207, %429 ], [ %422, %433 ]
+  %436 = phi i32 [ %.pre206, %429 ], [ %422, %433 ]
   %437 = and i32 %436, 16777216
-  %.not181 = icmp eq i32 %437, 0
+  %.not180 = icmp eq i32 %437, 0
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %439 = load ptr, ptr %438, align 8
-  br i1 %.not181, label %445, label %440
+  br i1 %.not180, label %445, label %440
 
 440:                                              ; preds = %435
   %441 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
@@ -5241,7 +5236,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit136._crit_edge: ; preds = %_ZNK
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit: ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %449
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %449 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit182, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %449 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit181, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp182, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit156 unwind label %453
 
@@ -11529,9 +11524,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh.exit: ; preds = %931
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLongEv(ptr noundef nonnull align 8 captures(none) dereferenceable(280) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !62
-  %4 = and i32 %3, 1
-  %.not120 = icmp eq i32 %4, 0
-  br i1 %.not120, label %20, label %5
+  %4 = trunc i32 %3 to i1
+  br i1 %4, label %5, label %20
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -11564,8 +11558,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %28
   %.idx = shl nsw i64 %23, 3
   %29 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
-  %.not121124 = icmp eq i32 %22, 0
-  br i1 %.not121124, label %._crit_edge, label %.lr.ph
+  %.not120123 = icmp eq i32 %22, 0
+  br i1 %.not120123, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %.1.lcssa = phi i64 [ %25, %20 ], [ %50, %.lr.ph ]
@@ -11579,15 +11573,15 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %.not.i.i109 = icmp eq ptr %36, null
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %spec.select.i.i110 = select i1 %.not.i.i109, ptr null, ptr %37
-  %.idx134 = shl nsw i64 %32, 3
-  %38 = getelementptr inbounds i8, ptr %spec.select.i.i110, i64 %.idx134
-  %.not122127 = icmp eq i32 %31, 0
-  br i1 %.not122127, label %._crit_edge132, label %.lr.ph131
+  %.idx133 = shl nsw i64 %32, 3
+  %38 = getelementptr inbounds i8, ptr %spec.select.i.i110, i64 %.idx133
+  %.not121126 = icmp eq i32 %31, 0
+  br i1 %.not121126, label %._crit_edge131, label %.lr.ph130
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
-  %.1126 = phi i64 [ %50, %.lr.ph ], [ %25, %20 ]
-  %.sroa.0117.0125 = phi ptr [ %51, %.lr.ph ], [ %spec.select.i.i, %20 ]
-  %39 = load ptr, ptr %.sroa.0117.0125, align 8, !tbaa !67
+  %.1125 = phi i64 [ %50, %.lr.ph ], [ %25, %20 ]
+  %.sroa.0117.0124 = phi ptr [ %51, %.lr.ph ], [ %spec.select.i.i, %20 ]
+  %39 = load ptr, ptr %.sroa.0117.0124, align 8, !tbaa !67
   %40 = tail call noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(88) %39)
   %41 = trunc i64 %40 to i32
   %42 = or i32 %41, 1
@@ -11597,23 +11591,23 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %46 = add nuw nsw i32 %45, 73
   %47 = lshr i32 %46, 6
   %48 = zext nneg i32 %47 to i64
-  %49 = add i64 %40, %.1126
+  %49 = add i64 %40, %.1125
   %50 = add i64 %49, %48
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0125, i64 8
-  %.not121 = icmp eq ptr %51, %29
-  br i1 %.not121, label %._crit_edge, label %.lr.ph
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0124, i64 8
+  %.not120 = icmp eq ptr %51, %29
+  br i1 %.not120, label %._crit_edge, label %.lr.ph
 
-._crit_edge132:                                   ; preds = %.lr.ph131, %._crit_edge
-  %.2.lcssa = phi i64 [ %34, %._crit_edge ], [ %65, %.lr.ph131 ]
+._crit_edge131:                                   ; preds = %.lr.ph130, %._crit_edge
+  %.2.lcssa = phi i64 [ %34, %._crit_edge ], [ %65, %.lr.ph130 ]
   %52 = load i32, ptr %2, align 8, !tbaa !62
   %53 = and i32 %52, 254
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %193, label %67
 
-.lr.ph131:                                        ; preds = %._crit_edge, %.lr.ph131
-  %.2129 = phi i64 [ %65, %.lr.ph131 ], [ %34, %._crit_edge ]
-  %.sroa.0113.0128 = phi ptr [ %66, %.lr.ph131 ], [ %spec.select.i.i110, %._crit_edge ]
-  %54 = load ptr, ptr %.sroa.0113.0128, align 8, !tbaa !67
+.lr.ph130:                                        ; preds = %._crit_edge, %.lr.ph130
+  %.2128 = phi i64 [ %65, %.lr.ph130 ], [ %34, %._crit_edge ]
+  %.sroa.0113.0127 = phi ptr [ %66, %.lr.ph130 ], [ %spec.select.i.i110, %._crit_edge ]
+  %54 = load ptr, ptr %.sroa.0113.0127, align 8, !tbaa !67
   %55 = tail call noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(88) %54)
   %56 = trunc i64 %55 to i32
   %57 = or i32 %56, 1
@@ -11623,13 +11617,13 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %61 = add nuw nsw i32 %60, 73
   %62 = lshr i32 %61, 6
   %63 = zext nneg i32 %62 to i64
-  %64 = add i64 %55, %.2129
+  %64 = add i64 %55, %.2128
   %65 = add i64 %64, %63
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0128, i64 8
-  %.not122 = icmp eq ptr %66, %38
-  br i1 %.not122, label %._crit_edge132, label %.lr.ph131
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0127, i64 8
+  %.not121 = icmp eq ptr %66, %38
+  br i1 %.not121, label %._crit_edge131, label %.lr.ph130
 
-67:                                               ; preds = %._crit_edge132
+67:                                               ; preds = %._crit_edge131
   %68 = and i32 %52, 2
   %.not75 = icmp eq i32 %68, 0
   br i1 %.not75, label %85, label %69
@@ -11796,8 +11790,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers13PhoneMetadata12ByteSizeLo
   %192 = add i64 %191, %189
   br label %193
 
-193:                                              ; preds = %175, %177, %._crit_edge132
-  %.3 = phi i64 [ %192, %177 ], [ %.9, %175 ], [ %.2.lcssa, %._crit_edge132 ]
+193:                                              ; preds = %175, %177, %._crit_edge131
+  %.3 = phi i64 [ %192, %177 ], [ %.9, %175 ], [ %.2.lcssa, %._crit_edge131 ]
   %194 = and i32 %52, 65280
   %.not82 = icmp eq i32 %194, 0
   br i1 %.not82, label %331, label %195
@@ -12252,8 +12246,8 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %490, %
   %512 = load ptr, ptr %511, align 8, !tbaa !4
   %513 = ptrtoint ptr %512 to i64
   %514 = and i64 %513, 1
-  %.not123 = icmp eq i64 %514, 0
-  br i1 %.not123, label %520, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit, !prof !11
+  %.not122 = icmp eq i64 %514, 0
+  br i1 %.not122, label %520, label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit, !prof !11
 
 _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit: ; preds = %510
   %515 = and i64 %513, -2
@@ -14919,9 +14913,8 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !62
-  %14 = and i32 %13, 1
-  %.not.i.not.not = icmp ne i32 %14, 0
-  br i1 %.not.i.not.not, label %15, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
+  %14 = trunc i32 %13 to i1
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -14972,7 +14965,7 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
   br i1 %.not.i.i3.i.i, label %37, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !129
 
 _ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers13PhoneMetadataEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i, %9, %24, %40, %1
-  %47 = phi i1 [ false, %24 ], [ false, %40 ], [ true, %1 ], [ %.not.i.not.not, %9 ], [ %.not.i.not.not, %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i ]
+  %47 = phi i1 [ false, %24 ], [ false, %40 ], [ true, %1 ], [ %14, %9 ], [ %14, %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i ]
   ret i1 %47
 }
 

@@ -2141,13 +2141,13 @@ _ZN4abslL23CheckForMutexCorruptionElPKc.exit:     ; preds = %32, %.critedge
 50:                                               ; preds = %40
   %51 = load ptr, ptr %17, align 8, !tbaa !66
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %158, label %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit
+  br i1 %52, label %157, label %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit
 
 _ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit: ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !67
   %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %51)
-  br i1 %55, label %158, label %56
+  br i1 %55, label %157, label %56
 
 56:                                               ; preds = %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit
   tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #29
@@ -2159,7 +2159,7 @@ _ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit: ; preds =
 59:                                               ; preds = %_ZN4abslL23CheckForMutexCorruptionElPKc.exit
   %60 = and i64 %23, 68
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %78
+  br i1 %61, label %62, label %77
 
 62:                                               ; preds = %59
   %63 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef null, ptr noundef nonnull %1, i64 noundef %23, i32 noundef %.0)
@@ -2176,238 +2176,237 @@ _ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit: ; preds =
   %66 = and i64 %..i98, %23
   %67 = load ptr, ptr %1, align 8, !tbaa !58
   %68 = icmp eq ptr %67, @_ZN4abslL11kExclusiveSE
-  %69 = and i64 %23, 1
-  %.not79 = icmp ne i64 %69, 0
-  %70 = and i1 %.not79, %68
-  %.072.v = select i1 %70, i64 36, i64 4
-  %71 = ptrtoint ptr %63 to i64
-  %.072 = or i64 %66, %71
-  %72 = or i64 %.072, %.072.v
-  %73 = cmpxchg ptr %0, i64 %23, i64 %72 release monotonic, align 8
-  %74 = extractvalue { i64, i1 } %73, 1
-  br i1 %74, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, label %75
+  %.not79 = trunc i64 %23 to i1
+  %69 = and i1 %68, %.not79
+  %.072.v = select i1 %69, i64 36, i64 4
+  %70 = ptrtoint ptr %63 to i64
+  %.072 = or i64 %66, %70
+  %71 = or i64 %.072, %.072.v
+  %72 = cmpxchg ptr %0, i64 %23, i64 %71 release monotonic, align 8
+  %73 = extractvalue { i64, i1 } %72, 1
+  br i1 %73, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, label %74
 
-75:                                               ; preds = %65
-  %76 = load ptr, ptr %12, align 8, !tbaa !91
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store ptr null, ptr %77, align 8, !tbaa !57
+74:                                               ; preds = %65
+  %75 = load ptr, ptr %12, align 8, !tbaa !91
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  store ptr null, ptr %76, align 8, !tbaa !57
   br label %.thread150
 
-78:                                               ; preds = %59
-  %79 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %80 = load i64, ptr %79, align 8, !tbaa !106
+77:                                               ; preds = %59
+  %78 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %79 = load i64, ptr %78, align 8, !tbaa !106
   %trunc.i99 = trunc i32 %.0 to i1
   %..i100 = select i1 %trunc.i99, i64 -33, i64 -1
-  %81 = and i64 %..i100, %80
-  %82 = and i64 %81, %23
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %109
+  %80 = and i64 %..i100, %79
+  %81 = and i64 %80, %23
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %108
 
-84:                                               ; preds = %78
+83:                                               ; preds = %77
   %..i102 = select i1 %trunc.i99, i64 -68, i64 -66
-  %85 = and i64 %..i102, %23
-  %86 = or disjoint i64 %85, 65
-  %87 = cmpxchg ptr %0, i64 %23, i64 %86 acquire monotonic, align 8
-  %88 = extractvalue { i64, i1 } %87, 1
-  br i1 %88, label %89, label %.thread150
+  %84 = and i64 %..i102, %23
+  %85 = or disjoint i64 %84, 65
+  %86 = cmpxchg ptr %0, i64 %23, i64 %85 acquire monotonic, align 8
+  %87 = extractvalue { i64, i1 } %86, 1
+  br i1 %87, label %88, label %.thread150
 
-89:                                               ; preds = %84
-  %90 = and i64 %23, -256
-  %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  %93 = load i64, ptr %92, align 8, !tbaa !74
-  %94 = add nsw i64 %93, 256
-  store i64 %94, ptr %92, align 8, !tbaa !74
+88:                                               ; preds = %83
+  %89 = and i64 %23, -256
+  %90 = inttoptr i64 %89 to ptr
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %92 = load i64, ptr %91, align 8, !tbaa !74
+  %93 = add nsw i64 %92, 256
+  store i64 %93, ptr %91, align 8, !tbaa !74
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94
 
-_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94: ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94, %89
-  %95 = load atomic i64, ptr %0 monotonic, align 8
-  %96 = and i64 %95, -66
-  %97 = or disjoint i64 %96, 1
-  %98 = cmpxchg weak ptr %0, i64 %95, i64 %97 release monotonic, align 8
-  %99 = extractvalue { i64, i1 } %98, 1
-  br i1 %99, label %100, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94
+_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94: ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94, %88
+  %94 = load atomic i64, ptr %0 monotonic, align 8
+  %95 = and i64 %94, -66
+  %96 = or disjoint i64 %95, 1
+  %97 = cmpxchg weak ptr %0, i64 %94, i64 %96 release monotonic, align 8
+  %98 = extractvalue { i64, i1 } %97, 1
+  br i1 %98, label %99, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94
 
-100:                                              ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94
-  %101 = load ptr, ptr %17, align 8, !tbaa !66
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %158, label %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104
+99:                                               ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit94
+  %100 = load ptr, ptr %17, align 8, !tbaa !66
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %157, label %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104
 
-_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104: ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !67
-  %105 = tail call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(32) %101)
-  br i1 %105, label %158, label %106
+_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104: ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !67
+  %104 = tail call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(32) %100)
+  br i1 %104, label %157, label %105
 
-106:                                              ; preds = %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104
+105:                                              ; preds = %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104
   tail call void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1) #29
-  %107 = load ptr, ptr %12, align 8, !tbaa !91
-  tail call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %107)
-  %108 = or i32 %.0, 1
+  %106 = load ptr, ptr %12, align 8, !tbaa !91
+  tail call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %106)
+  %107 = or i32 %.0, 1
   br label %.thread150
 
-109:                                              ; preds = %78
-  %110 = and i64 %23, 64
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %.thread150
+108:                                              ; preds = %77
+  %109 = and i64 %23, 64
+  %110 = icmp eq i64 %109, 0
+  br i1 %110, label %111, label %.thread150
 
-112:                                              ; preds = %109
+111:                                              ; preds = %108
   %..i106 = select i1 %trunc.i99, i64 -71, i64 -69
-  %113 = and i64 %..i106, %23
-  %114 = or disjoint i64 %113, 68
-  %115 = cmpxchg ptr %0, i64 %23, i64 %114 acquire monotonic, align 8
-  %116 = extractvalue { i64, i1 } %115, 1
-  br i1 %116, label %117, label %.thread150
+  %112 = and i64 %..i106, %23
+  %113 = or disjoint i64 %112, 68
+  %114 = cmpxchg ptr %0, i64 %23, i64 %113 acquire monotonic, align 8
+  %115 = extractvalue { i64, i1 } %114, 1
+  br i1 %115, label %116, label %.thread150
 
-117:                                              ; preds = %112
-  %118 = and i64 %23, -256
-  %119 = inttoptr i64 %118 to ptr
-  %120 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %119, ptr noundef nonnull %1, i64 noundef %23, i32 noundef %.0)
-  %.not75 = icmp eq ptr %120, null
-  br i1 %.not75, label %121, label %122, !prof !83
+116:                                              ; preds = %111
+  %117 = and i64 %23, -256
+  %118 = inttoptr i64 %117 to ptr
+  %119 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %118, ptr noundef nonnull %1, i64 noundef %23, i32 noundef %.0)
+  %.not75 = icmp eq ptr %119, null
+  br i1 %.not75, label %120, label %121, !prof !83
 
-121:                                              ; preds = %117
+120:                                              ; preds = %116
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 120), i32 noundef 2082, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13)
   unreachable
 
-122:                                              ; preds = %117
-  %123 = load ptr, ptr %1, align 8, !tbaa !58
-  %124 = icmp eq ptr %123, @_ZN4abslL11kExclusiveSE
-  %125 = shl i64 %23, 5
-  %spec.select86 = and i64 %125, 32
-  %.063 = select i1 %124, i64 %spec.select86, i64 0
-  %126 = ptrtoint ptr %120 to i64
-  %127 = or i64 %.063, %126
-  %invariant.op = or i64 %127, 4
+121:                                              ; preds = %116
+  %122 = load ptr, ptr %1, align 8, !tbaa !58
+  %123 = icmp eq ptr %122, @_ZN4abslL11kExclusiveSE
+  %124 = shl i64 %23, 5
+  %spec.select86 = and i64 %124, 32
+  %.063 = select i1 %123, i64 %spec.select86, i64 0
+  %125 = ptrtoint ptr %119 to i64
+  %126 = or i64 %.063, %125
+  %invariant.op = or i64 %126, 4
   br label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
-_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %122
-  %128 = load atomic i64, ptr %0 monotonic, align 8
-  %129 = and i64 %128, 187
-  %.reass = or i64 %129, %invariant.op
-  %130 = cmpxchg weak ptr %0, i64 %128, i64 %.reass release monotonic, align 8
-  %131 = extractvalue { i64, i1 } %130, 1
-  br i1 %131, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
+_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %121
+  %127 = load atomic i64, ptr %0 monotonic, align 8
+  %128 = and i64 %127, 187
+  %.reass = or i64 %128, %invariant.op
+  %129 = cmpxchg weak ptr %0, i64 %127, i64 %.reass release monotonic, align 8
+  %130 = extractvalue { i64, i1 } %129, 1
+  br i1 %130, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread: ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit, %65
-  %132 = load ptr, ptr %12, align 8, !tbaa !91
-  tail call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %132)
-  %133 = or i32 %.0, 1
+  %131 = load ptr, ptr %12, align 8, !tbaa !91
+  tail call void @_ZN4absl5Mutex5BlockEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %131)
+  %132 = or i32 %.0, 1
   br label %.thread150
 
-.thread150:                                       ; preds = %40, %112, %84, %75, %106, %109, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, %56
-  %.558 = phi i32 [ 0, %56 ], [ %.053, %112 ], [ 0, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.053, %84 ], [ %.053, %75 ], [ %.053, %109 ], [ 0, %106 ], [ %.053, %40 ]
-  %.5 = phi i32 [ %58, %56 ], [ %.0, %112 ], [ %133, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.0, %84 ], [ %.0, %75 ], [ %.0, %109 ], [ %108, %106 ], [ %.0, %40 ]
-  %134 = load ptr, ptr %12, align 8, !tbaa !91
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %136 = load ptr, ptr %135, align 8, !tbaa !57
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.critedge88, label %138
+.thread150:                                       ; preds = %40, %111, %83, %74, %105, %108, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread, %56
+  %.558 = phi i32 [ 0, %56 ], [ %.053, %111 ], [ 0, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.053, %83 ], [ %.053, %74 ], [ %.053, %108 ], [ 0, %105 ], [ %.053, %40 ]
+  %.5 = phi i32 [ %58, %56 ], [ %.0, %111 ], [ %132, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit92.thread ], [ %.0, %83 ], [ %.0, %74 ], [ %.0, %108 ], [ %107, %105 ], [ %.0, %40 ]
+  %133 = load ptr, ptr %12, align 8, !tbaa !91
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  %135 = load ptr, ptr %134, align 8, !tbaa !57
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.critedge88, label %137
 
-138:                                              ; preds = %.thread150
-  %139 = getelementptr inbounds nuw i8, ptr %134, i64 20
-  %140 = load i8, ptr %139, align 4, !tbaa !78, !range !79, !noundef !80
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %.critedge88, label %142, !prof !19
+137:                                              ; preds = %.thread150
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 20
+  %139 = load i8, ptr %138, align 4, !tbaa !78, !range !79, !noundef !80
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %140, label %.critedge88, label %141, !prof !19
 
-142:                                              ; preds = %138
+141:                                              ; preds = %137
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 120), i32 noundef 2103, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   unreachable
 
-.critedge88:                                      ; preds = %.thread150, %138
-  %143 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
-  %.not.i.i.i = icmp eq i32 %143, 221
-  br i1 %.not.i.i.i, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i, label %144, !prof !19
+.critedge88:                                      ; preds = %.thread150, %137
+  %142 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
+  %.not.i.i.i = icmp eq i32 %142, 221
+  br i1 %.not.i.i.i, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i, label %143, !prof !19
 
-144:                                              ; preds = %.critedge88
+143:                                              ; preds = %.critedge88
   tail call fastcc void @"_ZN4absl13base_internal12CallOnceImplIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_"(ptr noundef nonnull @_ZN4absl12_GLOBAL__N_17globalsE)
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
 
-_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i: ; preds = %144, %.critedge88
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4, !tbaa !20
-  %146 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
-  %.not.i.i15.i = icmp eq i32 %146, 221
-  br i1 %.not.i.i15.i, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i, label %147, !prof !19
+_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i: ; preds = %143, %.critedge88
+  %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 12), align 4, !tbaa !20
+  %145 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_17globalsE acquire, align 64
+  %.not.i.i15.i = icmp eq i32 %145, 221
+  br i1 %.not.i.i15.i, label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i, label %146, !prof !19
 
-147:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
+146:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
   tail call fastcc void @"_ZN4absl13base_internal12CallOnceImplIZNS_12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_"(ptr noundef nonnull @_ZN4absl12_GLOBAL__N_17globalsE)
   br label %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
 
-_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %147, %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
+_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %146, %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit.i
   %.sroa.03.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %.sroa.5.0.copyload.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8, !tbaa !20
-  %148 = icmp slt i32 %.558, %145
-  br i1 %148, label %149, label %151
+  %147 = icmp slt i32 %.558, %144
+  br i1 %147, label %148, label %150
 
-149:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  %150 = add nsw i32 %.558, 1
+148:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
+  %149 = add nsw i32 %.558, 1
   br label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %149, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i
-  %.053.be = phi i32 [ %150, %149 ], [ %.1.i, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i ]
+.critedge.backedge:                               ; preds = %148, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i
+  %.053.be = phi i32 [ %149, %148 ], [ %.1.i, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i ]
   br label %.critedge
 
-151:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
+150:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !22
-  %152 = icmp eq i32 %.558, %145
-  br i1 %152, label %153, label %157
+  %151 = icmp eq i32 %.558, %144
+  br i1 %151, label %152, label %156
 
-153:                                              ; preds = %151
+152:                                              ; preds = %150
   invoke void @AbslInternalMutexYield()
-          to label %154 unwind label %.body
+          to label %153 unwind label %.body
 
-154:                                              ; preds = %153
-  %155 = add nsw i32 %.558, 1
+153:                                              ; preds = %152
+  %154 = add nsw i32 %.558, 1
   br label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i
 
-.body:                                            ; preds = %157, %153
-  %156 = landingpad { ptr, i32 }
+.body:                                            ; preds = %156, %152
+  %155 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %156
+  resume { ptr, i32 } %155
 
-157:                                              ; preds = %151
+156:                                              ; preds = %150
   invoke void @AbslInternalSleepFor(i64 %.sroa.03.0.copyload.i, i32 %.sroa.5.0.copyload.i)
           to label %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i unwind label %.body
 
-_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %157, %154
-  %.1.i = phi i32 [ %155, %154 ], [ 0, %157 ]
+_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %156, %153
+  %.1.i = phi i32 [ %154, %153 ], [ 0, %156 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge.backedge
 
-158:                                              ; preds = %100, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit, %50
-  %.2126 = phi i64 [ %23, %50 ], [ %23, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit ], [ %95, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104 ], [ %95, %100 ]
-  %159 = load ptr, ptr %12, align 8, !tbaa !91
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
-  %161 = load ptr, ptr %160, align 8, !tbaa !57
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %.critedge90, label %163
+157:                                              ; preds = %99, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit, %50
+  %.2126 = phi i64 [ %23, %50 ], [ %23, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit ], [ %94, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104 ], [ %94, %99 ]
+  %158 = load ptr, ptr %12, align 8, !tbaa !91
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
+  %160 = load ptr, ptr %159, align 8, !tbaa !57
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %.critedge90, label %162
 
-163:                                              ; preds = %158
-  %164 = getelementptr inbounds nuw i8, ptr %159, i64 20
-  %165 = load i8, ptr %164, align 4, !tbaa !78, !range !79, !noundef !80
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %.critedge90, label %167, !prof !19
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds nuw i8, ptr %158, i64 20
+  %164 = load i8, ptr %163, align 4, !tbaa !78, !range !79, !noundef !80
+  %165 = trunc nuw i8 %164 to i1
+  br i1 %165, label %.critedge90, label %166, !prof !19
 
-167:                                              ; preds = %163
+166:                                              ; preds = %162
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 120), i32 noundef 2109, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   unreachable
 
-.critedge90:                                      ; preds = %158, %163
-  %168 = and i64 %.2126, 16
-  %.not83 = icmp eq i64 %168, 0
-  br i1 %.not83, label %173, label %169
+.critedge90:                                      ; preds = %157, %162
+  %167 = and i64 %.2126, 16
+  %.not83 = icmp eq i64 %167, 0
+  br i1 %.not83, label %172, label %168
 
-169:                                              ; preds = %.critedge90
-  %170 = load ptr, ptr %1, align 8, !tbaa !58
-  %171 = icmp eq ptr %170, @_ZN4abslL11kExclusiveSE
-  %172 = select i1 %171, i32 5, i32 7
-  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %0, i32 noundef %172)
-  br label %173
+168:                                              ; preds = %.critedge90
+  %169 = load ptr, ptr %1, align 8, !tbaa !58
+  %170 = icmp eq ptr %169, @_ZN4abslL11kExclusiveSE
+  %171 = select i1 %170, i32 5, i32 7
+  tail call fastcc void @_ZN4abslL14PostSynchEventEPvi(ptr noundef %0, i32 noundef %171)
+  br label %172
 
-173:                                              ; preds = %169, %.critedge90
+172:                                              ; preds = %168, %.critedge90
   ret void
 }
 
@@ -2537,8 +2536,8 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %31 = call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %3, i32 noundef 40, i32 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
-  %.not53 = icmp eq i32 %31, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
+  %.not52 = icmp eq i32 %31, 0
+  br i1 %.not52, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %30
   %32 = zext i32 %31 to i64
@@ -2546,8 +2545,8 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %.055 = phi i32 [ 2, %.lr.ph.preheader ], [ %42, %41 ]
-  %33 = zext nneg i32 %.055 to i64
+  %.054 = phi i32 [ 2, %.lr.ph.preheader ], [ %42, %41 ]
+  %33 = zext nneg i32 %.054 to i64
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 %33
   %35 = sub nsw i64 960, %33
   %36 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
@@ -2560,7 +2559,7 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   br i1 %or.cond40, label %41, label %._crit_edge
 
 41:                                               ; preds = %.lr.ph
-  %42 = add nuw nsw i32 %38, %.055
+  %42 = add nuw nsw i32 %38, %.054
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %32
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
@@ -2575,19 +2574,18 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %46, ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %49 = shl nuw nsw i64 1, %43
-  %50 = and i64 %49, 933
-  %51 = icmp ne i64 %50, 0
+  %49 = trunc nuw nsw i32 %1 to i16
+  %50 = lshr i16 933, %49
+  %51 = trunc i16 %50 to i1
   %52 = icmp ne ptr %.011.i, null
-  %or.cond = and i1 %51, %52
+  %or.cond = and i1 %52, %51
   br i1 %or.cond, label %56, label %62
 
 .thread48:                                        ; preds = %26
-  %53 = zext nneg i32 %1 to i64
-  %54 = shl nuw nsw i64 1, %53
-  %55 = and i64 %54, 933
-  %.not51 = icmp eq i64 %55, 0
-  br i1 %.not51, label %.thread50, label %56
+  %53 = trunc nuw nsw i32 %1 to i16
+  %54 = lshr i16 933, %53
+  %55 = trunc i16 %54 to i1
+  br i1 %55, label %56, label %.thread50
 
 56:                                               ; preds = %.thread48, %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24

@@ -70,36 +70,36 @@ define void @_ZN9grpc_core23ChannelStackBuilderImpl5BuildEv(ptr dead_on_unwind n
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %.not75 = icmp eq ptr %7, %9
-  br i1 %.not75, label %._crit_edge, label %.lr.ph
+  %.not72 = icmp eq ptr %7, %9
+  br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit, %2
   %.sroa.19.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.19.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ]
   %.sroa.13.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.13.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.047.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.047.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.044.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.044.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ]
   %10 = ptrtoint ptr %.sroa.13.0.lcssa to i64
-  %11 = ptrtoint ptr %.sroa.047.0.lcssa to i64
+  %11 = ptrtoint ptr %.sroa.044.0.lcssa to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %14 = invoke noundef i64 @_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm(ptr noundef %.sroa.047.0.lcssa, i64 noundef %13)
+  %14 = invoke noundef i64 @_Z23grpc_channel_stack_sizePPK19grpc_channel_filterm(ptr noundef %.sroa.044.0.lcssa, i64 noundef %13)
           to label %36 unwind label %75
 
 .lr.ph:                                           ; preds = %2, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit
-  %.sroa.047.079 = phi ptr [ %.sroa.047.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ null, %2 ]
-  %.sroa.13.078 = phi ptr [ %.sroa.13.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ null, %2 ]
-  %.sroa.19.077 = phi ptr [ %.sroa.19.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ null, %2 ]
-  %.sroa.044.076 = phi ptr [ %35, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ %7, %2 ]
-  %15 = load ptr, ptr %.sroa.044.076, align 8, !tbaa !9
-  %.not.i = icmp eq ptr %.sroa.13.078, %.sroa.19.077
+  %.sroa.044.076 = phi ptr [ %.sroa.044.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ null, %2 ]
+  %.sroa.13.075 = phi ptr [ %.sroa.13.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ null, %2 ]
+  %.sroa.19.074 = phi ptr [ %.sroa.19.1, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ null, %2 ]
+  %.sroa.041.073 = phi ptr [ %35, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit ], [ %7, %2 ]
+  %15 = load ptr, ptr %.sroa.041.073, align 8, !tbaa !9
+  %.not.i = icmp eq ptr %.sroa.13.075, %.sroa.19.074
   br i1 %.not.i, label %17, label %16
 
 16:                                               ; preds = %.lr.ph
-  store ptr %15, ptr %.sroa.13.078, align 8, !tbaa !9
+  store ptr %15, ptr %.sroa.13.075, align 8, !tbaa !9
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit
 
 17:                                               ; preds = %.lr.ph
-  %18 = ptrtoint ptr %.sroa.13.078 to i64
-  %19 = ptrtoint ptr %.sroa.047.079 to i64
+  %18 = ptrtoint ptr %.sroa.13.075 to i64
+  %19 = ptrtoint ptr %.sroa.044.076 to i64
   %20 = sub i64 %18, %19
   %21 = icmp eq i64 %20, 9223372036854775800
   br i1 %21, label %22, label %_ZNKSt6vectorIPK19grpc_channel_filterSaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -131,15 +131,15 @@ _ZNKSt6vectorIPK19grpc_channel_filterSaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; pre
   br i1 %31, label %32, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
 32:                                               ; preds = %.noexc32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %.sroa.047.079, i64 %20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %.sroa.044.076, i64 %20, i1 false)
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %32, %.noexc32
-  %.not.i17.i.i = icmp eq ptr %.sroa.047.079, null
+  %.not.i17.i.i = icmp eq ptr %.sroa.044.076, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %33
 
 33:                                               ; preds = %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.079, i64 noundef %20) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.044.076, i64 noundef %20) #21
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
@@ -147,11 +147,11 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gn
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %16
-  %.sroa.19.1 = phi ptr [ %34, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.19.077, %16 ]
-  %.pn60 = phi ptr [ %30, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.078, %16 ]
-  %.sroa.047.1 = phi ptr [ %29, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.047.079, %16 ]
-  %.sroa.13.1 = getelementptr inbounds nuw i8, ptr %.pn60, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.044.076, i64 8
+  %.sroa.19.1 = phi ptr [ %34, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.19.074, %16 ]
+  %.pn57 = phi ptr [ %30, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.13.075, %16 ]
+  %.sroa.044.1 = phi ptr [ %29, %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.044.076, %16 ]
+  %.sroa.13.1 = getelementptr inbounds nuw i8, ptr %.pn57, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.041.073, i64 8
   %.not = icmp eq ptr %35, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -178,7 +178,7 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %45 = load ptr, ptr %44, align 8, !tbaa !29
-  invoke void @_Z23grpc_channel_stack_initiPFvPvN4absl12lts_202407226StatusEES_PPK19grpc_channel_filtermRKN9grpc_core11ChannelArgsEPKcP18grpc_channel_stackPKNS9_10BlackboardEPSH_(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %3, i32 noundef 1, ptr noundef nonnull @"_ZZN9grpc_core23ChannelStackBuilderImpl5BuildEvEN3$_08__invokeEPvN4absl12lts_202407226StatusE", ptr noundef %37, ptr noundef %.sroa.047.0.lcssa, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %41, ptr noundef %37, ptr noundef %43, ptr noundef %45)
+  invoke void @_Z23grpc_channel_stack_initiPFvPvN4absl12lts_202407226StatusEES_PPK19grpc_channel_filtermRKN9grpc_core11ChannelArgsEPKcP18grpc_channel_stackPKNS9_10BlackboardEPSH_(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %3, i32 noundef 1, ptr noundef nonnull @"_ZZN9grpc_core23ChannelStackBuilderImpl5BuildEvEN3$_08__invokeEPvN4absl12lts_202407226StatusE", ptr noundef %37, ptr noundef %.sroa.044.0.lcssa, i64 noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %41, ptr noundef %37, ptr noundef %43, ptr noundef %45)
           to label %46 unwind label %79
 
 46:                                               ; preds = %38
@@ -187,8 +187,8 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   br i1 %48, label %.preheader, label %49
 
 .preheader:                                       ; preds = %46
-  %.not84 = icmp eq ptr %.sroa.13.0.lcssa, %.sroa.047.0.lcssa
-  br i1 %.not84, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph83
+  %.not81 = icmp eq ptr %.sroa.13.0.lcssa, %.sroa.044.0.lcssa
+  br i1 %.not81, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph80
 
 49:                                               ; preds = %46
   invoke void @_Z26grpc_channel_stack_destroyP18grpc_channel_stack(ptr noundef %37)
@@ -202,9 +202,8 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = load i64, ptr %3, align 8, !tbaa !30
   store i64 %52, ptr %5, align 8, !tbaa !30
-  %53 = and i64 %52, 1
-  %.not.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i, label %54, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %53 = trunc i64 %52 to i1
+  br i1 %53, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit, label %54
 
 54:                                               ; preds = %51
   %55 = inttoptr i64 %52 to ptr
@@ -217,9 +216,8 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %54, %51
 
 57:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %58 = load i64, ptr %5, align 8, !tbaa !30
-  %59 = and i64 %58, 1
-  %.not.i.i33 = icmp eq i64 %59, 0
-  br i1 %.not.i.i33, label %60, label %_ZN4absl12lts_202407226StatusD2Ev.exit
+  %59 = trunc i64 %58 to i1
+  br i1 %59, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %60
 
 60:                                               ; preds = %57
   %61 = inttoptr i64 %58 to ptr
@@ -238,7 +236,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %57, %60
   store i64 %65, ptr %0, align 8, !tbaa !30
   store i64 55, ptr %4, align 8, !tbaa !30
   %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %_ZN4absl12lts_202407226StatusD2Ev.exit35, !prof !32
+  br i1 %66, label %67, label %_ZN4absl12lts_202407226StatusD2Ev.exit33, !prof !32
 
 67:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   invoke void @_ZN4absl12lts_2024072217internal_statusor6Helper26HandleInvalidStatusCtorArgEPNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -252,14 +250,13 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %57, %60
 
 _ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrI18grpc_channel_stackEEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit: ; preds = %67
   %.pre = load i64, ptr %4, align 8, !tbaa !30
-  %69 = and i64 %.pre, 1
-  %.not.i.i34 = icmp eq i64 %69, 0
-  br i1 %.not.i.i34, label %70, label %_ZN4absl12lts_202407226StatusD2Ev.exit35
+  %69 = trunc i64 %.pre to i1
+  br i1 %69, label %_ZN4absl12lts_202407226StatusD2Ev.exit33, label %70
 
 70:                                               ; preds = %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrI18grpc_channel_stackEEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit
   %71 = inttoptr i64 %.pre to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %71)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit35 unwind label %72
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit33 unwind label %72
 
 72:                                               ; preds = %70
   %73 = landingpad { ptr, i32 }
@@ -268,7 +265,7 @@ _ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrI18grpc_channel_stackE
   call void @__clang_call_terminate(ptr %74) #22
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrI18grpc_channel_stackEEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit, %70
+_ZN4absl12lts_202407226StatusD2Ev.exit33:         ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %_ZN4absl12lts_202407228StatusOrIN9grpc_core13RefCountedPtrI18grpc_channel_stackEEEC2INS0_6StatusETnNSt9enable_ifIXsr17internal_statusor29IsConstructionFromStatusValidILb0ES5_T_EE5valueEiE4typeELi0EEEOSA_.exit, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
@@ -304,12 +301,12 @@ _ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %_ZN4absl12lts_20240
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
-.lr.ph83:                                         ; preds = %.preheader, %91
-  %.01782 = phi i64 [ %92, %91 ], [ 0, %.preheader ]
-  %86 = invoke noundef ptr @_Z26grpc_channel_stack_elementP18grpc_channel_stackm(ptr noundef %37, i64 noundef %.01782)
+.lr.ph80:                                         ; preds = %.preheader, %91
+  %.01779 = phi i64 [ %92, %91 ], [ 0, %.preheader ]
+  %86 = invoke noundef ptr @_Z26grpc_channel_stack_elementP18grpc_channel_stackm(ptr noundef %37, i64 noundef %.01779)
           to label %87 unwind label %93
 
-87:                                               ; preds = %.lr.ph83
+87:                                               ; preds = %.lr.ph80
   %88 = load ptr, ptr %86, align 8, !tbaa !33
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
   %90 = load ptr, ptr %89, align 8, !tbaa !35
@@ -317,11 +314,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %_ZN4absl12lts_20240
           to label %91 unwind label %93
 
 91:                                               ; preds = %87
-  %92 = add nuw i64 %.01782, 1
+  %92 = add nuw i64 %.01779, 1
   %exitcond.not = icmp eq i64 %92, %13
-  br i1 %exitcond.not, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph83, !llvm.loop !39
+  br i1 %exitcond.not, label %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, label %.lr.ph80, !llvm.loop !39
 
-93:                                               ; preds = %87, %.lr.ph83
+93:                                               ; preds = %87, %.lr.ph80
   %94 = landingpad { ptr, i32 }
           cleanup
   br label %107
@@ -332,16 +329,15 @@ _ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit: ; preds = %91, %.pr
   store i64 1, ptr %0, align 8, !tbaa !30
   br label %96
 
-96:                                               ; preds = %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit35
+96:                                               ; preds = %_ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit33
   %97 = load i64, ptr %3, align 8, !tbaa !30
-  %98 = and i64 %97, 1
-  %.not.i.i37 = icmp eq i64 %98, 0
-  br i1 %.not.i.i37, label %99, label %_ZN4absl12lts_202407226StatusD2Ev.exit38
+  %98 = trunc i64 %97 to i1
+  br i1 %98, label %_ZN4absl12lts_202407226StatusD2Ev.exit35, label %99
 
 99:                                               ; preds = %96
   %100 = inttoptr i64 %97 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %100)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit38 unwind label %101
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit35 unwind label %101
 
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
@@ -350,18 +346,18 @@ _ZN9grpc_core13RefCountedPtrI18grpc_channel_stackED2Ev.exit: ; preds = %91, %.pr
   call void @__clang_call_terminate(ptr %103) #22
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit38:         ; preds = %96, %99
+_ZN4absl12lts_202407226StatusD2Ev.exit35:         ; preds = %96, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not.i.i.i39 = icmp eq ptr %.sroa.047.0.lcssa, null
-  br i1 %.not.i.i.i39, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit, label %104
+  %.not.i.i.i36 = icmp eq ptr %.sroa.044.0.lcssa, null
+  br i1 %.not.i.i.i36, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit, label %104
 
-104:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit38
+104:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit35
   %105 = ptrtoint ptr %.sroa.19.0.lcssa to i64
   %106 = sub i64 %105, %11
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.0.lcssa, i64 noundef %106) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.044.0.lcssa, i64 noundef %106) #21
   br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit38, %104
+_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit35, %104
   ret void
 
 107:                                              ; preds = %93, %85, %81
@@ -375,20 +371,20 @@ _ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit: ; preds = %_ZN4absl12lts_
   br label %109
 
 109:                                              ; preds = %.loopexit, %.loopexit.split-lp, %75, %108, %77
-  %.sroa.19.071 = phi ptr [ %.sroa.19.0.lcssa, %77 ], [ %.sroa.19.0.lcssa, %75 ], [ %.sroa.19.0.lcssa, %108 ], [ %.sroa.13.078, %.loopexit ], [ %.sroa.13.078, %.loopexit.split-lp ]
-  %.sroa.047.063 = phi ptr [ %.sroa.047.0.lcssa, %77 ], [ %.sroa.047.0.lcssa, %75 ], [ %.sroa.047.0.lcssa, %108 ], [ %.sroa.047.079, %.loopexit ], [ %.sroa.047.079, %.loopexit.split-lp ]
+  %.sroa.19.068 = phi ptr [ %.sroa.19.0.lcssa, %77 ], [ %.sroa.19.0.lcssa, %75 ], [ %.sroa.19.0.lcssa, %108 ], [ %.sroa.13.075, %.loopexit ], [ %.sroa.13.075, %.loopexit.split-lp ]
+  %.sroa.044.060 = phi ptr [ %.sroa.044.0.lcssa, %77 ], [ %.sroa.044.0.lcssa, %75 ], [ %.sroa.044.0.lcssa, %108 ], [ %.sroa.044.076, %.loopexit ], [ %.sroa.044.076, %.loopexit.split-lp ]
   %.pn30 = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ], [ %.pn25.pn, %108 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i40 = icmp eq ptr %.sroa.047.063, null
-  br i1 %.not.i.i.i40, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit41, label %110
+  %.not.i.i.i37 = icmp eq ptr %.sroa.044.060, null
+  br i1 %.not.i.i.i37, label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit38, label %110
 
 110:                                              ; preds = %109
-  %111 = ptrtoint ptr %.sroa.19.071 to i64
-  %112 = ptrtoint ptr %.sroa.047.063 to i64
+  %111 = ptrtoint ptr %.sroa.19.068 to i64
+  %112 = ptrtoint ptr %.sroa.044.060 to i64
   %113 = sub i64 %111, %112
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.047.063, i64 noundef %113) #21
-  br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit41
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.044.060, i64 noundef %113) #21
+  br label %_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit38
 
-_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit41: ; preds = %109, %110
+_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EED2Ev.exit38: ; preds = %109, %110
   resume { ptr, i32 } %.pn30
 }
 
@@ -409,9 +405,8 @@ declare void @_Z25grpc_error_to_absl_statusN4absl12lts_202407226StatusE(ptr dead
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !30
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %_ZN4absl12lts_202407226Status5UnrefEm.exit, label %4
 
 4:                                                ; preds = %1
   %5 = inttoptr i64 %2 to ptr

@@ -586,14 +586,14 @@ define hidden void @_ZNK17InterpreterOopMap5printEv(ptr noundef nonnull readonly
   br label %13
 
 13:                                               ; preds = %.lr.ph, %32
-  %.09 = phi i32 [ 0, %.lr.ph ], [ %33, %32 ]
-  %14 = shl nuw nsw i32 %.09, 1
+  %.08 = phi i32 [ 0, %.lr.ph ], [ %33, %32 ]
+  %14 = shl nuw nsw i32 %.08, 1
   %15 = load i32, ptr %2, align 8
   %16 = icmp slt i32 %15, 257
   %17 = load i64, ptr %12, align 8
   %18 = inttoptr i64 %17 to ptr
   %19 = select i1 %16, ptr %12, ptr %18
-  %20 = lshr i32 %.09, 5
+  %20 = lshr i32 %.08, 5
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
   %23 = load i64, ptr %22, align 8
@@ -605,19 +605,18 @@ define hidden void @_ZNK17InterpreterOopMap5printEv(ptr noundef nonnull readonly
   br i1 %.not, label %28, label %.sink.split
 
 28:                                               ; preds = %13
-  %29 = shl nuw nsw i64 1, %25
-  %30 = and i64 %23, %29
-  %.not8 = icmp eq i64 %30, 0
-  br i1 %.not8, label %32, label %.sink.split
+  %29 = lshr i64 %23, %25
+  %30 = trunc i64 %29 to i1
+  br i1 %30, label %.sink.split, label %32
 
 .sink.split:                                      ; preds = %28, %13
   %.str.7.sink = phi ptr [ @.str.7, %13 ], [ @.str.8, %28 ]
   %31 = load ptr, ptr @tty, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull %.str.7.sink, i32 noundef %.09) #17
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull %.str.7.sink, i32 noundef %.08) #17
   br label %32
 
 32:                                               ; preds = %.sink.split, %28
-  %33 = add nuw nsw i32 %.09, 1
+  %33 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %33, %4
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !9
 
@@ -2260,10 +2259,9 @@ define linkonce_odr hidden void @_ZN13VerifyClosure9offset_doEi(ptr noundef nonn
   %16 = load i64, ptr %15, align 8
   %17 = srem i32 %5, 64
   %18 = zext nneg i32 %17 to i64
-  %19 = shl nuw i64 1, %18
-  %20 = and i64 %16, %19
-  %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %21, label %23
+  %19 = lshr i64 %16, %18
+  %20 = trunc i64 %19 to i1
+  br i1 %20, label %23, label %21
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16

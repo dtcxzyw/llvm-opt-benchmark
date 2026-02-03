@@ -1627,7 +1627,7 @@ define internal i64 @pci_read_config(ptr noundef %0, ptr noundef %1, ptr readnon
 23:                                               ; preds = %18, %14
   %24 = phi i64 [ %17, %14 ], [ %22, %18 ]
   %25 = icmp slt i64 %24, %4
-  br i1 %25, label %96, label %26
+  br i1 %25, label %95, label %26
 
 26:                                               ; preds = %23
   %27 = add i64 %5, %4
@@ -1638,116 +1638,115 @@ define internal i64 @pci_read_config(ptr noundef %0, ptr noundef %1, ptr readnon
   %32 = select i1 %28, i64 %29, i64 %5
   %33 = trunc i64 %32 to i32
   tail call void @pci_config_pm_runtime_get(ptr noundef %12) #11
-  %34 = and i64 %4, 1
-  %35 = icmp ne i64 %34, 0
-  %36 = icmp ne i32 %33, 0
-  %37 = and i1 %35, %36
-  br i1 %37, label %38, label %44
+  %34 = trunc i64 %4 to i1
+  %35 = icmp ne i32 %33, 0
+  %36 = and i1 %35, %34
+  br i1 %36, label %37, label %43
 
-38:                                               ; preds = %26
+37:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !annotation !5
-  %39 = trunc i64 %4 to i32
-  %40 = call i32 @pci_user_read_config_byte(ptr noundef %12, i32 noundef %39, ptr noundef nonnull %7) #11
-  %41 = load i8, ptr %7, align 1
-  store i8 %41, ptr %3, align 1
-  %42 = add nsw i64 %4, 1
-  %43 = add i32 %33, -1
+  %38 = trunc i64 %4 to i32
+  %39 = call i32 @pci_user_read_config_byte(ptr noundef %12, i32 noundef %38, ptr noundef nonnull %7) #11
+  %40 = load i8, ptr %7, align 1
+  store i8 %40, ptr %3, align 1
+  %41 = add nsw i64 %4, 1
+  %42 = add i32 %33, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %44
+  br label %43
 
-44:                                               ; preds = %38, %26
-  %45 = phi i64 [ %42, %38 ], [ %4, %26 ]
-  %46 = phi i32 [ %43, %38 ], [ %33, %26 ]
-  %47 = and i64 %45, 3
-  %48 = icmp ne i64 %47, 0
-  %49 = icmp ugt i32 %46, 2
-  %50 = and i1 %48, %49
-  br i1 %50, label %51, label %59
+43:                                               ; preds = %37, %26
+  %44 = phi i64 [ %41, %37 ], [ %4, %26 ]
+  %45 = phi i32 [ %42, %37 ], [ %33, %26 ]
+  %46 = and i64 %44, 3
+  %47 = icmp ne i64 %46, 0
+  %48 = icmp ugt i32 %45, 2
+  %49 = and i1 %47, %48
+  br i1 %49, label %50, label %58
 
-51:                                               ; preds = %44
+50:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2, !annotation !5
-  %52 = trunc i64 %45 to i32
-  %53 = call i32 @pci_user_read_config_word(ptr noundef %12, i32 noundef %52, ptr noundef nonnull %8) #11
-  %54 = load i16, ptr %8, align 2
-  %55 = sub i64 %45, %4
-  %56 = getelementptr i8, ptr %3, i64 %55
-  store i16 %54, ptr %56, align 1
-  %57 = add nsw i64 %45, 2
-  %58 = add i32 %46, -2
+  %51 = trunc i64 %44 to i32
+  %52 = call i32 @pci_user_read_config_word(ptr noundef %12, i32 noundef %51, ptr noundef nonnull %8) #11
+  %53 = load i16, ptr %8, align 2
+  %54 = sub i64 %44, %4
+  %55 = getelementptr i8, ptr %3, i64 %54
+  store i16 %53, ptr %55, align 1
+  %56 = add nsw i64 %44, 2
+  %57 = add i32 %45, -2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %51, %44
-  %60 = phi i64 [ %57, %51 ], [ %45, %44 ]
-  %61 = phi i32 [ %58, %51 ], [ %46, %44 ]
-  %62 = icmp ugt i32 %61, 3
-  br i1 %62, label %.preheader, label %.loopexit
+58:                                               ; preds = %50, %43
+  %59 = phi i64 [ %56, %50 ], [ %44, %43 ]
+  %60 = phi i32 [ %57, %50 ], [ %45, %43 ]
+  %61 = icmp ugt i32 %60, 3
+  br i1 %61, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %59, %.preheader
-  %63 = phi i32 [ %71, %.preheader ], [ %61, %59 ]
-  %64 = phi i64 [ %70, %.preheader ], [ %60, %59 ]
+.preheader:                                       ; preds = %58, %.preheader
+  %62 = phi i32 [ %70, %.preheader ], [ %60, %58 ]
+  %63 = phi i64 [ %69, %.preheader ], [ %59, %58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !5
-  %65 = trunc i64 %64 to i32
-  %66 = call i32 @pci_user_read_config_dword(ptr noundef %12, i32 noundef %65, ptr noundef nonnull %9) #11
-  %67 = load i32, ptr %9, align 4
-  %68 = sub i64 %64, %4
-  %69 = getelementptr i8, ptr %3, i64 %68
-  store i32 %67, ptr %69, align 1
-  %70 = add i64 %64, 4
-  %71 = add i32 %63, -4
-  %72 = call i32 @__SCT__cond_resched() #11
+  %64 = trunc i64 %63 to i32
+  %65 = call i32 @pci_user_read_config_dword(ptr noundef %12, i32 noundef %64, ptr noundef nonnull %9) #11
+  %66 = load i32, ptr %9, align 4
+  %67 = sub i64 %63, %4
+  %68 = getelementptr i8, ptr %3, i64 %67
+  store i32 %66, ptr %68, align 1
+  %69 = add i64 %63, 4
+  %70 = add i32 %62, -4
+  %71 = call i32 @__SCT__cond_resched() #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %73 = icmp ugt i32 %71, 3
-  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !22
+  %72 = icmp ugt i32 %70, 3
+  br i1 %72, label %.preheader, label %.loopexit, !llvm.loop !22
 
-.loopexit:                                        ; preds = %.preheader, %59
-  %74 = phi i64 [ %60, %59 ], [ %70, %.preheader ]
-  %75 = phi i32 [ %61, %59 ], [ %71, %.preheader ]
-  %76 = icmp samesign ugt i32 %75, 1
-  br i1 %76, label %77, label %85
+.loopexit:                                        ; preds = %.preheader, %58
+  %73 = phi i64 [ %59, %58 ], [ %69, %.preheader ]
+  %74 = phi i32 [ %60, %58 ], [ %70, %.preheader ]
+  %75 = icmp samesign ugt i32 %74, 1
+  br i1 %75, label %76, label %84
 
-77:                                               ; preds = %.loopexit
+76:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2, !annotation !5
-  %78 = trunc i64 %74 to i32
-  %79 = call i32 @pci_user_read_config_word(ptr noundef %12, i32 noundef %78, ptr noundef nonnull %10) #11
-  %80 = load i16, ptr %10, align 2
-  %81 = sub i64 %74, %4
-  %82 = getelementptr i8, ptr %3, i64 %81
-  store i16 %80, ptr %82, align 1
-  %83 = add i64 %74, 2
-  %84 = add nsw i32 %75, -2
+  %77 = trunc i64 %73 to i32
+  %78 = call i32 @pci_user_read_config_word(ptr noundef %12, i32 noundef %77, ptr noundef nonnull %10) #11
+  %79 = load i16, ptr %10, align 2
+  %80 = sub i64 %73, %4
+  %81 = getelementptr i8, ptr %3, i64 %80
+  store i16 %79, ptr %81, align 1
+  %82 = add i64 %73, 2
+  %83 = add nsw i32 %74, -2
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %77, %.loopexit
-  %86 = phi i64 [ %83, %77 ], [ %74, %.loopexit ]
-  %87 = phi i32 [ %84, %77 ], [ %75, %.loopexit ]
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %95, label %89
+84:                                               ; preds = %76, %.loopexit
+  %85 = phi i64 [ %82, %76 ], [ %73, %.loopexit ]
+  %86 = phi i32 [ %83, %76 ], [ %74, %.loopexit ]
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %94, label %88
 
-89:                                               ; preds = %85
+88:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1, !annotation !5
-  %90 = trunc i64 %86 to i32
-  %91 = call i32 @pci_user_read_config_byte(ptr noundef %12, i32 noundef %90, ptr noundef nonnull %11) #11
-  %92 = load i8, ptr %11, align 1
-  %93 = sub i64 %86, %4
-  %94 = getelementptr i8, ptr %3, i64 %93
-  store i8 %92, ptr %94, align 1
+  %89 = trunc i64 %85 to i32
+  %90 = call i32 @pci_user_read_config_byte(ptr noundef %12, i32 noundef %89, ptr noundef nonnull %11) #11
+  %91 = load i8, ptr %11, align 1
+  %92 = sub i64 %85, %4
+  %93 = getelementptr i8, ptr %3, i64 %92
+  store i8 %91, ptr %93, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %94
+
+94:                                               ; preds = %88, %84
+  call void @pci_config_pm_runtime_put(ptr noundef %12) #11
   br label %95
 
-95:                                               ; preds = %89, %85
-  call void @pci_config_pm_runtime_put(ptr noundef %12) #11
-  br label %96
-
-96:                                               ; preds = %95, %23
-  %97 = phi i64 [ %31, %95 ], [ 0, %23 ]
-  ret i64 %97
+95:                                               ; preds = %94, %23
+  %96 = phi i64 [ %31, %94 ], [ 0, %23 ]
+  ret i64 %96
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1760,7 +1759,7 @@ define internal i64 @pci_write_config(ptr readnone captures(none) %0, ptr nounde
 
 11:                                               ; preds = %6
   %12 = sext i32 %9 to i64
-  br label %96
+  br label %95
 
 13:                                               ; preds = %6
   %14 = getelementptr i8, ptr %1, i64 1440
@@ -1788,7 +1787,7 @@ define internal i64 @pci_write_config(ptr readnone captures(none) %0, ptr nounde
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   %27 = icmp sgt i64 %4, %26
-  br i1 %27, label %96, label %28
+  br i1 %27, label %95, label %28
 
 28:                                               ; preds = %23
   %29 = add i64 %5, %4
@@ -1799,94 +1798,93 @@ define internal i64 @pci_write_config(ptr readnone captures(none) %0, ptr nounde
   %34 = select i1 %30, i32 %32, i32 %8
   %35 = select i1 %30, i64 %33, i64 %5
   tail call void @pci_config_pm_runtime_get(ptr noundef %7) #11
-  %36 = and i64 %4, 1
-  %37 = icmp ne i64 %36, 0
-  %38 = icmp ne i32 %34, 0
-  %39 = and i1 %37, %38
-  br i1 %39, label %40, label %45
+  %36 = trunc i64 %4 to i1
+  %37 = icmp ne i32 %34, 0
+  %38 = and i1 %37, %36
+  br i1 %38, label %39, label %44
 
-40:                                               ; preds = %28
-  %41 = load i8, ptr %3, align 1
-  %42 = tail call i32 @pci_user_write_config_byte(ptr noundef %7, i32 noundef %31, i8 noundef zeroext %41) #11
-  %43 = add nsw i64 %4, 1
-  %44 = add i32 %34, -1
-  br label %45
+39:                                               ; preds = %28
+  %40 = load i8, ptr %3, align 1
+  %41 = tail call i32 @pci_user_write_config_byte(ptr noundef %7, i32 noundef %31, i8 noundef zeroext %40) #11
+  %42 = add nsw i64 %4, 1
+  %43 = add i32 %34, -1
+  br label %44
 
-45:                                               ; preds = %40, %28
-  %46 = phi i32 [ %44, %40 ], [ %34, %28 ]
-  %47 = phi i64 [ %43, %40 ], [ %4, %28 ]
-  %48 = and i64 %47, 3
-  %49 = icmp ne i64 %48, 0
-  %50 = icmp ugt i32 %46, 2
-  %51 = and i1 %50, %49
-  br i1 %51, label %52, label %60
+44:                                               ; preds = %39, %28
+  %45 = phi i32 [ %43, %39 ], [ %34, %28 ]
+  %46 = phi i64 [ %42, %39 ], [ %4, %28 ]
+  %47 = and i64 %46, 3
+  %48 = icmp ne i64 %47, 0
+  %49 = icmp ugt i32 %45, 2
+  %50 = and i1 %49, %48
+  br i1 %50, label %51, label %59
 
-52:                                               ; preds = %45
-  %53 = sub i64 %47, %4
-  %54 = getelementptr i8, ptr %3, i64 %53
-  %55 = load i16, ptr %54, align 1
-  %56 = trunc i64 %47 to i32
-  %57 = tail call i32 @pci_user_write_config_word(ptr noundef %7, i32 noundef %56, i16 noundef zeroext %55) #11
-  %58 = add nsw i64 %47, 2
-  %59 = add i32 %46, -2
-  br label %60
+51:                                               ; preds = %44
+  %52 = sub i64 %46, %4
+  %53 = getelementptr i8, ptr %3, i64 %52
+  %54 = load i16, ptr %53, align 1
+  %55 = trunc i64 %46 to i32
+  %56 = tail call i32 @pci_user_write_config_word(ptr noundef %7, i32 noundef %55, i16 noundef zeroext %54) #11
+  %57 = add nsw i64 %46, 2
+  %58 = add i32 %45, -2
+  br label %59
 
-60:                                               ; preds = %52, %45
-  %61 = phi i32 [ %59, %52 ], [ %46, %45 ]
-  %62 = phi i64 [ %58, %52 ], [ %47, %45 ]
-  %63 = icmp ugt i32 %61, 3
-  br i1 %63, label %.preheader, label %.loopexit
+59:                                               ; preds = %51, %44
+  %60 = phi i32 [ %58, %51 ], [ %45, %44 ]
+  %61 = phi i64 [ %57, %51 ], [ %46, %44 ]
+  %62 = icmp ugt i32 %60, 3
+  br i1 %62, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %60, %.preheader
-  %64 = phi i64 [ %71, %.preheader ], [ %62, %60 ]
-  %65 = phi i32 [ %72, %.preheader ], [ %61, %60 ]
-  %66 = sub i64 %64, %4
-  %67 = getelementptr i8, ptr %3, i64 %66
-  %68 = load i32, ptr %67, align 1
-  %69 = trunc i64 %64 to i32
-  %70 = tail call i32 @pci_user_write_config_dword(ptr noundef %7, i32 noundef %69, i32 noundef %68) #11
-  %71 = add i64 %64, 4
-  %72 = add i32 %65, -4
-  %73 = icmp ugt i32 %72, 3
-  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !24
+.preheader:                                       ; preds = %59, %.preheader
+  %63 = phi i64 [ %70, %.preheader ], [ %61, %59 ]
+  %64 = phi i32 [ %71, %.preheader ], [ %60, %59 ]
+  %65 = sub i64 %63, %4
+  %66 = getelementptr i8, ptr %3, i64 %65
+  %67 = load i32, ptr %66, align 1
+  %68 = trunc i64 %63 to i32
+  %69 = tail call i32 @pci_user_write_config_dword(ptr noundef %7, i32 noundef %68, i32 noundef %67) #11
+  %70 = add i64 %63, 4
+  %71 = add i32 %64, -4
+  %72 = icmp ugt i32 %71, 3
+  br i1 %72, label %.preheader, label %.loopexit, !llvm.loop !24
 
-.loopexit:                                        ; preds = %.preheader, %60
-  %74 = phi i32 [ %61, %60 ], [ %72, %.preheader ]
-  %75 = phi i64 [ %62, %60 ], [ %71, %.preheader ]
-  %76 = icmp samesign ugt i32 %74, 1
-  br i1 %76, label %77, label %85
+.loopexit:                                        ; preds = %.preheader, %59
+  %73 = phi i32 [ %60, %59 ], [ %71, %.preheader ]
+  %74 = phi i64 [ %61, %59 ], [ %70, %.preheader ]
+  %75 = icmp samesign ugt i32 %73, 1
+  br i1 %75, label %76, label %84
 
-77:                                               ; preds = %.loopexit
-  %78 = sub i64 %75, %4
-  %79 = getelementptr i8, ptr %3, i64 %78
-  %80 = load i16, ptr %79, align 1
-  %81 = trunc i64 %75 to i32
-  %82 = tail call i32 @pci_user_write_config_word(ptr noundef %7, i32 noundef %81, i16 noundef zeroext %80) #11
-  %83 = add i64 %75, 2
-  %84 = add nsw i32 %74, -2
-  br label %85
+76:                                               ; preds = %.loopexit
+  %77 = sub i64 %74, %4
+  %78 = getelementptr i8, ptr %3, i64 %77
+  %79 = load i16, ptr %78, align 1
+  %80 = trunc i64 %74 to i32
+  %81 = tail call i32 @pci_user_write_config_word(ptr noundef %7, i32 noundef %80, i16 noundef zeroext %79) #11
+  %82 = add i64 %74, 2
+  %83 = add nsw i32 %73, -2
+  br label %84
 
-85:                                               ; preds = %77, %.loopexit
-  %86 = phi i32 [ %84, %77 ], [ %74, %.loopexit ]
-  %87 = phi i64 [ %83, %77 ], [ %75, %.loopexit ]
-  %88 = icmp eq i32 %86, 0
-  br i1 %88, label %95, label %89
+84:                                               ; preds = %76, %.loopexit
+  %85 = phi i32 [ %83, %76 ], [ %73, %.loopexit ]
+  %86 = phi i64 [ %82, %76 ], [ %74, %.loopexit ]
+  %87 = icmp eq i32 %85, 0
+  br i1 %87, label %94, label %88
 
-89:                                               ; preds = %85
-  %90 = trunc i64 %87 to i32
-  %91 = sub i64 %87, %4
-  %92 = getelementptr i8, ptr %3, i64 %91
-  %93 = load i8, ptr %92, align 1
-  %94 = tail call i32 @pci_user_write_config_byte(ptr noundef %7, i32 noundef %90, i8 noundef zeroext %93) #11
+88:                                               ; preds = %84
+  %89 = trunc i64 %86 to i32
+  %90 = sub i64 %86, %4
+  %91 = getelementptr i8, ptr %3, i64 %90
+  %92 = load i8, ptr %91, align 1
+  %93 = tail call i32 @pci_user_write_config_byte(ptr noundef %7, i32 noundef %89, i8 noundef zeroext %92) #11
+  br label %94
+
+94:                                               ; preds = %88, %84
+  tail call void @pci_config_pm_runtime_put(ptr noundef %7) #11
   br label %95
 
-95:                                               ; preds = %89, %85
-  tail call void @pci_config_pm_runtime_put(ptr noundef %7) #11
-  br label %96
-
-96:                                               ; preds = %95, %23, %11
-  %97 = phi i64 [ %12, %11 ], [ %35, %95 ], [ 0, %23 ]
-  ret i64 %97
+95:                                               ; preds = %94, %23, %11
+  %96 = phi i64 [ %12, %11 ], [ %35, %94 ], [ 0, %23 ]
+  ret i64 %96
 }
 
 ; Function Attrs: null_pointer_is_valid

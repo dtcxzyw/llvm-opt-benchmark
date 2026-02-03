@@ -8966,7 +8966,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %52, i32 noundef 16, ptr noundef nonnull @.str.23, i32 noundef %45) #13
-  br label %416
+  br label %415
 
 53:                                               ; preds = %44
   store i32 %45, ptr %5, align 8, !tbaa !119
@@ -9291,7 +9291,7 @@ define internal fastcc range(i32 -1, 1) i32 @read_sbr_grid(ptr noundef readonly 
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %261 = load ptr, ptr %260, align 8, !tbaa !61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %261, i32 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %257) #13
-  br label %416
+  br label %415
 
 262:                                              ; preds = %225
   %263 = tail call i32 @llvm.bswap.i32(i32 %233)
@@ -9480,7 +9480,7 @@ get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph2
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %363 = load ptr, ptr %362, align 8, !tbaa !61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %363, i32 noundef 16, ptr noundef nonnull @.str.26, i32 noundef %.0186206) #13
-  br label %416
+  br label %415
 
 364:                                              ; preds = %.lr.ph248
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
@@ -9500,7 +9500,7 @@ get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph2
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %371 = load ptr, ptr %370, align 8, !tbaa !61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %371, i32 noundef 16, ptr noundef nonnull @.str.27) #13
-  br label %416
+  br label %415
 
 ._crit_edge249:                                   ; preds = %364, %.preheader
   %372 = icmp sgt i32 %358, 1
@@ -9568,30 +9568,29 @@ get_bits1_vector.exit:                            ; preds = %.lr.ph226, %.lr.ph2
   %.neg = sext i1 %405 to i32
   store i32 %.neg, ptr %402, align 4, !tbaa !10
   store i32 -1, ptr %403, align 4, !tbaa !10
-  %406 = and i32 %30, 1073741824
-  %407 = icmp ne i32 %406, 0
-  %408 = icmp ne i32 %.0186206, 0
-  %or.cond = and i1 %407, %408
-  br i1 %or.cond, label %409, label %411
+  %406 = trunc i32 %31 to i1
+  %407 = icmp ne i32 %.0186206, 0
+  %or.cond = and i1 %407, %406
+  br i1 %or.cond, label %408, label %410
 
-409:                                              ; preds = %401
-  %410 = sub nsw i32 %359, %.0186206
-  store i32 %410, ptr %403, align 4, !tbaa !10
-  br label %416
+408:                                              ; preds = %401
+  %409 = sub nsw i32 %359, %.0186206
+  store i32 %409, ptr %403, align 4, !tbaa !10
+  br label %415
 
-411:                                              ; preds = %401
-  %412 = icmp eq i32 %31, 2
-  %413 = icmp samesign ugt i32 %.0186206, 1
-  %or.cond3 = and i1 %412, %413
-  br i1 %or.cond3, label %414, label %416
+410:                                              ; preds = %401
+  %411 = icmp eq i32 %31, 2
+  %412 = icmp samesign ugt i32 %.0186206, 1
+  %or.cond3 = and i1 %411, %412
+  br i1 %or.cond3, label %413, label %415
 
-414:                                              ; preds = %411
-  %415 = add nsw i32 %.0186206, -1
-  store i32 %415, ptr %403, align 4, !tbaa !10
-  br label %416
+413:                                              ; preds = %410
+  %414 = add nsw i32 %.0186206, -1
+  store i32 %414, ptr %403, align 4, !tbaa !10
+  br label %415
 
-416:                                              ; preds = %409, %414, %411, %369, %361, %259, %50
-  %.0184 = phi i32 [ -1, %361 ], [ -1, %369 ], [ -1, %259 ], [ -1, %50 ], [ 0, %411 ], [ 0, %414 ], [ 0, %409 ]
+415:                                              ; preds = %408, %413, %410, %369, %361, %259, %50
+  %.0184 = phi i32 [ -1, %361 ], [ -1, %369 ], [ -1, %259 ], [ -1, %50 ], [ 0, %410 ], [ 0, %413 ], [ 0, %408 ]
   ret i32 %.0184
 }
 

@@ -43313,14 +43313,14 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iterato
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %40 = trunc i32 %36 to i8
-  %41 = and i8 %40, 1
+  %37 = trunc i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  %41 = and i8 %37, 1
   store i8 %41, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %39, ptr %42, align 8
+  store ptr %40, ptr %42, align 8
   %43 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   br i1 %43, label %44, label %54
 
@@ -44735,14 +44735,14 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iterato
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %40 = trunc i32 %36 to i8
-  %41 = and i8 %40, 1
+  %37 = trunc i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  %41 = and i8 %37, 1
   store i8 %41, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %39, ptr %42, align 8
+  store ptr %40, ptr %42, align 8
   %43 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   br i1 %43, label %44, label %54
 

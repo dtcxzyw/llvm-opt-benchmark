@@ -809,8 +809,8 @@ define void @"_ZN11wasi_common9snapshots9preview_0158_$LT$impl$u20$core..convert
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i16 0, 2) i16 @"_ZN11wasi_common9snapshots9preview_0162_$LT$impl$u20$core..convert..From$LT$$RF$wasi_common..sched..subscription..RwEventFlags$GT$$u20$for$u20$wasi_common..snapshots..preview_0..types..Eventrwflags$GT$4from17h7e11fa79224a337eE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !noundef !5
-  %3 = trunc i32 %2 to i16
-  %spec.select = and i16 %3, 1
+  %.not = trunc i32 %2 to i16
+  %spec.select = and i16 %.not, 1
   ret i16 %spec.select
 }
 

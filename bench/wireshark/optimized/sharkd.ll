@@ -747,50 +747,49 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @tap_listeners_require_columns()
   %7 = select i1 %6, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 280), ptr null
   %8 = tail call zeroext i1 @have_filtering_tap_listeners()
-  %9 = and i32 %5, 1
-  %10 = icmp ne i32 %9, 0
-  %11 = select i1 %8, i1 true, i1 %10
+  %9 = trunc i32 %5 to i1
+  %10 = select i1 %8, i1 true, i1 %9
   call void @wtap_rec_init(ptr noundef nonnull %1, i64 noundef 1514)
-  %12 = load ptr, ptr @cfile, align 8
-  call void @epan_dissect_init(ptr noundef nonnull %4, ptr noundef %12, i1 noundef zeroext %11, i1 noundef zeroext false)
+  %11 = load ptr, ptr @cfile, align 8
+  call void @epan_dissect_init(ptr noundef nonnull %4, ptr noundef %11, i1 noundef zeroext %10, i1 noundef zeroext false)
   call void @reset_tap_listeners()
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
-  %.not13 = icmp eq i32 %13, 0
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
+  %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %20
-  %.014 = phi i32 [ %30, %20 ], [ 1, %0 ]
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
-  %15 = call ptr @frame_data_sequence_find(ptr noundef %14, i32 noundef %.014)
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %18 = load i64, ptr %17, align 8
-  %19 = call zeroext i1 @wtap_seek_read(ptr noundef %16, i64 noundef %18, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br i1 %19, label %20, label %._crit_edge
+.lr.ph:                                           ; preds = %0, %19
+  %.014 = phi i32 [ %29, %19 ], [ 1, %0 ]
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
+  %14 = call ptr @frame_data_sequence_find(ptr noundef %13, i32 noundef %.014)
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %17 = load i64, ptr %16, align 8
+  %18 = call zeroext i1 @wtap_seek_read(ptr noundef %15, i64 noundef %17, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  br i1 %18, label %19, label %._crit_edge
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 57
-  %22 = load i16, ptr %21, align 1
-  %23 = and i16 %22, -33
-  store i16 %23, ptr %21, align 1
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 57
+  %21 = load i16, ptr %20, align 1
+  %22 = and i16 %21, -33
+  store i16 %22, ptr %20, align 1
   %.not12 = icmp ne i32 %.014, 1
-  %24 = zext i1 %.not12 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store i32 %24, ptr %25, align 8
-  %26 = add i32 %.014, -1
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 100
-  store i32 %26, ptr %27, align 4
-  %28 = load i16, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 48), align 8
-  %29 = zext i16 %28 to i32
-  call void @epan_dissect_run_with_taps(ptr noundef nonnull %4, i32 noundef %29, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %7)
+  %23 = zext i1 %.not12 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  store i32 %23, ptr %24, align 8
+  %25 = add i32 %.014, -1
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 100
+  store i32 %25, ptr %26, align 4
+  %27 = load i16, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 48), align 8
+  %28 = zext i16 %27 to i32
+  call void @epan_dissect_run_with_taps(ptr noundef nonnull %4, i32 noundef %28, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %7)
   call void @wtap_rec_reset(ptr noundef nonnull %1)
   call void @epan_dissect_reset(ptr noundef nonnull %4)
-  %30 = add i32 %.014, 1
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
-  %.not = icmp ugt i32 %30, %31
+  %29 = add i32 %.014, 1
+  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
+  %.not = icmp ugt i32 %29, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %20, %.lr.ph, %0
+._crit_edge:                                      ; preds = %19, %.lr.ph, %0
   call void @wtap_rec_cleanup(ptr noundef nonnull %1)
   call void @epan_dissect_cleanup(ptr noundef nonnull %4)
   call void @draw_tap_listeners(i1 noundef zeroext true)

@@ -2572,107 +2572,106 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %64, %
 define noundef zeroext i1 @_ZNK7rocksdb5Slice9DecodeHexEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !128
-  %5 = and i64 %4, 1
-  %.not = icmp ne i64 %5, 0
+  %.not = trunc i64 %4 to i1
   %.not26 = icmp eq ptr %1, null
   %or.cond = or i1 %.not26, %.not
-  br i1 %or.cond, label %.critedge, label %6
+  br i1 %or.cond, label %.critedge, label %5
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !24
-  %8 = load ptr, ptr %1, align 8, !tbaa !27
-  store i8 0, ptr %8, align 1, !tbaa !25
-  %9 = lshr exact i64 %4, 1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9)
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 0, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %1, align 8, !tbaa !27
+  store i8 0, ptr %7, align 1, !tbaa !25
+  %8 = lshr exact i64 %4, 1
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %8)
   %.not2744 = icmp eq i64 %4, 0
   br i1 %.not2744, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %11
+.lr.ph:                                           ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %10
 
-11:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %.02145 = phi i64 [ 0, %.lr.ph ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
-  %12 = load ptr, ptr %0, align 8, !tbaa !126
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.02145
-  %14 = load i8, ptr %13, align 1, !tbaa !25
-  %15 = add i8 %14, -97
-  %or.cond.i = icmp ult i8 %15, 6
-  %16 = add nsw i8 %14, -32
-  %spec.select.i = select i1 %or.cond.i, i8 %16, i8 %14
-  %17 = icmp slt i8 %spec.select.i, 48
-  br i1 %17, label %.critedge, label %18
+10:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+  %.02145 = phi i64 [ 0, %.lr.ph ], [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
+  %11 = load ptr, ptr %0, align 8, !tbaa !126
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.02145
+  %13 = load i8, ptr %12, align 1, !tbaa !25
+  %14 = add i8 %13, -97
+  %or.cond.i = icmp ult i8 %14, 6
+  %15 = add nsw i8 %13, -32
+  %spec.select.i = select i1 %or.cond.i, i8 %15, i8 %13
+  %16 = icmp slt i8 %spec.select.i, 48
+  br i1 %16, label %.critedge, label %17
 
-18:                                               ; preds = %11
-  %19 = icmp samesign ugt i8 %spec.select.i, 57
-  %20 = add nsw i8 %spec.select.i, -71
-  %or.cond5.i = icmp ult i8 %20, -6
-  %or.cond19.i = select i1 %19, i1 %or.cond5.i, i1 false
-  br i1 %or.cond19.i, label %.critedge, label %21
+17:                                               ; preds = %10
+  %18 = icmp samesign ugt i8 %spec.select.i, 57
+  %19 = add nsw i8 %spec.select.i, -71
+  %or.cond5.i = icmp ult i8 %19, -6
+  %or.cond19.i = select i1 %18, i1 %or.cond5.i, i1 false
+  br i1 %or.cond19.i, label %.critedge, label %20
 
-21:                                               ; preds = %18
-  %22 = icmp samesign ult i8 %spec.select.i, 58
-  %.016.i39.v = select i1 %22, i8 0, i8 9
+20:                                               ; preds = %17
+  %21 = icmp samesign ult i8 %spec.select.i, 58
+  %.016.i39.v = select i1 %21, i8 0, i8 9
   %.016.i39 = add nuw nsw i8 %spec.select.i, %.016.i39.v
-  %23 = add i64 %.02145, 2
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %25 = load i8, ptr %24, align 1, !tbaa !25
-  %26 = add i8 %25, -97
-  %or.cond.i30 = icmp ult i8 %26, 6
-  %27 = add nsw i8 %25, -32
-  %spec.select.i31 = select i1 %or.cond.i30, i8 %27, i8 %25
-  %28 = icmp slt i8 %spec.select.i31, 48
-  br i1 %28, label %.critedge, label %29
+  %22 = add i64 %.02145, 2
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %24 = load i8, ptr %23, align 1, !tbaa !25
+  %25 = add i8 %24, -97
+  %or.cond.i30 = icmp ult i8 %25, 6
+  %26 = add nsw i8 %24, -32
+  %spec.select.i31 = select i1 %or.cond.i30, i8 %26, i8 %24
+  %27 = icmp slt i8 %spec.select.i31, 48
+  br i1 %27, label %.critedge, label %28
 
-29:                                               ; preds = %21
-  %30 = icmp samesign ugt i8 %spec.select.i31, 57
-  %31 = add nsw i8 %spec.select.i31, -71
-  %or.cond5.i32 = icmp ult i8 %31, -6
-  %or.cond19.i33 = select i1 %30, i1 %or.cond5.i32, i1 false
-  br i1 %or.cond19.i33, label %.critedge, label %32
+28:                                               ; preds = %20
+  %29 = icmp samesign ugt i8 %spec.select.i31, 57
+  %30 = add nsw i8 %spec.select.i31, -71
+  %or.cond5.i32 = icmp ult i8 %30, -6
+  %or.cond19.i33 = select i1 %29, i1 %or.cond5.i32, i1 false
+  br i1 %or.cond19.i33, label %.critedge, label %31
 
-32:                                               ; preds = %29
-  %33 = icmp samesign ult i8 %spec.select.i31, 58
-  %.016.i3443.v = select i1 %33, i8 -48, i8 -55
+31:                                               ; preds = %28
+  %32 = icmp samesign ult i8 %spec.select.i31, 58
+  %.016.i3443.v = select i1 %32, i8 -48, i8 -55
   %.016.i3443 = add nsw i8 %spec.select.i31, %.016.i3443.v
-  %34 = shl i8 %.016.i39, 4
-  %35 = or i8 %.016.i3443, %34
-  %36 = load i64, ptr %7, align 8, !tbaa !24
-  %37 = add i64 %36, 1
-  %38 = load ptr, ptr %1, align 8, !tbaa !27
-  %39 = icmp eq ptr %38, %10
-  br i1 %39, label %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  %33 = shl i8 %.016.i39, 4
+  %34 = or i8 %.016.i3443, %33
+  %35 = load i64, ptr %6, align 8, !tbaa !24
+  %36 = add i64 %35, 1
+  %37 = load ptr, ptr %1, align 8, !tbaa !27
+  %38 = icmp eq ptr %37, %9
+  br i1 %38, label %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-40:                                               ; preds = %32
-  %41 = icmp ult i64 %36, 16
-  tail call void @llvm.assume(i1 %41)
+39:                                               ; preds = %31
+  %40 = icmp ult i64 %35, 16
+  tail call void @llvm.assume(i1 %40)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %40, %32
-  %42 = load i64, ptr %10, align 8
-  %43 = select i1 %39, i64 15, i64 %42
-  %44 = icmp ugt i64 %37, %43
-  br i1 %44, label %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %39, %31
+  %41 = load i64, ptr %9, align 8
+  %42 = select i1 %38, i64 15, i64 %41
+  %43 = icmp ugt i64 %36, %42
+  br i1 %43, label %44, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %36, i64 noundef 0, ptr noundef null, i64 noundef 1)
+44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %35, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %45
-  %46 = phi ptr [ %.pre.i, %45 ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %36
-  store i8 %35, ptr %47, align 1, !tbaa !25
-  store i64 %37, ptr %7, align 8, !tbaa !24
-  %48 = load ptr, ptr %1, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %37
-  store i8 0, ptr %49, align 1, !tbaa !25
-  %.not27.not = icmp ult i64 %23, %4
-  br i1 %.not27.not, label %11, label %.critedge, !llvm.loop !140
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %44
+  %45 = phi ptr [ %.pre.i, %44 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %35
+  store i8 %34, ptr %46, align 1, !tbaa !25
+  store i64 %36, ptr %6, align 8, !tbaa !24
+  %47 = load ptr, ptr %1, align 8, !tbaa !27
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %36
+  store i8 0, ptr %48, align 1, !tbaa !25
+  %.not27.not = icmp ult i64 %22, %4
+  br i1 %.not27.not, label %10, label %.critedge, !llvm.loop !140
 
-.critedge:                                        ; preds = %21, %29, %11, %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %18 ], [ false, %11 ], [ false, %29 ], [ false, %21 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
+.critedge:                                        ; preds = %20, %28, %10, %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %5, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %5 ], [ false, %17 ], [ false, %10 ], [ false, %28 ], [ false, %20 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
   ret i1 %.0
 }
 

@@ -12520,9 +12520,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -12530,8 +12529,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -12679,9 +12678,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -12689,8 +12687,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -12838,9 +12836,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -12848,8 +12845,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -12997,9 +12994,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -13007,8 +13003,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -13156,9 +13152,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -13166,8 +13161,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -13315,9 +13310,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -13325,8 +13319,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -13525,9 +13519,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -13535,8 +13528,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -13684,9 +13677,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -13694,8 +13686,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -13843,9 +13835,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -13853,8 +13844,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -14002,9 +13993,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -14012,8 +14002,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -14161,9 +14151,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -14171,8 +14160,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -14320,9 +14309,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -14330,8 +14318,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15
@@ -14479,9 +14467,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
   store ptr %0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = atomicrmw xor ptr %0, i64 3 acq_rel, align 8
-  %11 = and i64 %10, 1
-  %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %12, label %13
+  %11 = trunc i64 %10 to i1
+  br i1 %11, label %13, label %12
 
 12:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.140.llvm.5542961546488995764, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.142.llvm.5542961546488995764) #15
@@ -14489,8 +14476,8 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8comple
 
 13:                                               ; preds = %1
   %14 = and i64 %10, 2
-  %.not5.i = icmp eq i64 %14, 0
-  br i1 %.not5.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5tokio7runtime4task5state5State22transition_to_complete17hb87fabc81cf2520cE.exit, label %15
 
 15:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.143.llvm.5542961546488995764, i64 noundef 37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.144.llvm.5542961546488995764) #15

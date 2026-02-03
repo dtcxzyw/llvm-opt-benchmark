@@ -371,13 +371,12 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_Spline
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %68 = load i8, ptr %67, align 1
   %69 = xor i8 %68, %66
-  %70 = and i8 %69, 1
-  %71 = icmp ne i8 %70, 0
+  %70 = trunc i8 %69 to i1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnoteqERKS1_.exit: ; preds = %2, %6, %12, %18, %26, %32, %38, %44, %50, %56, %64
-  %72 = phi i1 [ true, %56 ], [ true, %50 ], [ true, %44 ], [ true, %38 ], [ true, %32 ], [ true, %26 ], [ true, %18 ], [ true, %12 ], [ true, %6 ], [ true, %2 ], [ %71, %64 ]
-  ret i1 %72
+  %71 = phi i1 [ true, %56 ], [ true, %50 ], [ true, %44 ], [ true, %38 ], [ true, %32 ], [ true, %26 ], [ true, %18 ], [ true, %12 ], [ true, %6 ], [ true, %2 ], [ %70, %64 ]
+  ret i1 %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -5733,10 +5733,10 @@ _ZN14JvmtiAgentList8IteratorD2Ev.exit.thread:     ; preds = %3, %_ZN14JvmtiAgent
   br i1 %.not13, label %40, label %.thread
 
 .thread:                                          ; preds = %_ZN14JvmtiAgentList8IteratorD2Ev.exit, %_ZN14JvmtiAgentList8IteratorD2Ev.exit.thread
-  %.021 = phi ptr [ %37, %_ZN14JvmtiAgentList8IteratorD2Ev.exit.thread ], [ @.str.148, %_ZN14JvmtiAgentList8IteratorD2Ev.exit ]
+  %.020 = phi ptr [ %37, %_ZN14JvmtiAgentList8IteratorD2Ev.exit.thread ], [ @.str.148, %_ZN14JvmtiAgentList8IteratorD2Ev.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull @.str.151, ptr noundef nonnull %.021) #17
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull @.str.151, ptr noundef nonnull %.020) #17
   br label %51
 
 40:                                               ; preds = %_ZN14JvmtiAgentList8IteratorD2Ev.exit.thread
@@ -5773,9 +5773,8 @@ _ZN14JvmtiAgentList8IteratorD2Ev.exit.thread:     ; preds = %3, %_ZN14JvmtiAgent
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %57 = load volatile i64, ptr %56, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
-  %58 = and i64 %57, 1
-  %.not.i.i.i.i17 = icmp eq i64 %58, 0
-  br i1 %.not.i.i.i.i17, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %59
+  %58 = trunc i64 %57 to i1
+  br i1 %58, label %59, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 59:                                               ; preds = %55
   call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %2, i1 noundef zeroext true, i1 noundef zeroext false) #17
@@ -6632,9 +6631,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -6668,8 +6666,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !10
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

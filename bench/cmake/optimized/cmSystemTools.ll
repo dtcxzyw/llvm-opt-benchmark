@@ -22017,9 +22017,9 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %5 = load ptr, ptr %2, align 8, !tbaa !13
   br label %6
 
-6:                                                ; preds = %37, %3
-  %.048.i = phi ptr [ %5, %3 ], [ %spec.select.i, %37 ]
-  %.045.i = phi ptr [ %4, %3 ], [ %.4.i, %37 ]
+6:                                                ; preds = %43, %3
+  %.048.i = phi ptr [ %5, %3 ], [ %spec.select.i, %43 ]
+  %.045.i = phi ptr [ %4, %3 ], [ %.4.i, %43 ]
   %7 = load i8, ptr %.045.i, align 1, !tbaa !26
   %8 = add i8 %7, -48
   %or.cond.i = icmp ult i8 %8, 10
@@ -22029,7 +22029,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %10 = load i8, ptr %.048.i, align 1, !tbaa !26
   %11 = add i8 %10, -48
   %or.cond58.i = icmp ult i8 %11, 10
-  br i1 %or.cond58.i, label %.critedge.i.preheader, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+  br i1 %or.cond58.i, label %.critedge.i.preheader, label %.critedge2.i
 
 .critedge.i.preheader:                            ; preds = %9, %6
   br label %.critedge.i
@@ -22083,25 +22083,37 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
 34:                                               ; preds = %31, %.critedge6.i
   %.043.i = phi i64 [ %33, %31 ], [ %29, %.critedge6.i ]
   %35 = icmp slt i64 %.043.i, 0
-  br i1 %35, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit, label %36
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
-  %.not.i = icmp eq i64 %.043.i, 0
-  br i1 %.not.i, label %37, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+  %37 = and i32 %0, 2
+  %38 = icmp ne i32 %37, 0
+  br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 
-37:                                               ; preds = %36
-  %38 = icmp eq i8 %21, 46
-  %spec.select.idx.i = zext i1 %38 to i64
+39:                                               ; preds = %34
+  %.not.i = icmp eq i64 %.043.i, 0
+  br i1 %.not.i, label %43, label %40
+
+40:                                               ; preds = %39
+  %41 = and i32 %0, 4
+  %42 = icmp ne i32 %41, 0
+  br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+
+43:                                               ; preds = %39
+  %44 = icmp eq i8 %21, 46
+  %spec.select.idx.i = zext i1 %44 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.250.i, i64 %spec.select.idx.i
-  %39 = icmp eq i8 %18, 46
-  %.4.idx.i = zext i1 %39 to i64
+  %45 = icmp eq i8 %18, 46
+  %.4.idx.i = zext i1 %45 to i64
   %.4.i = getelementptr inbounds nuw i8, ptr %.247.i, i64 %.4.idx.i
   br label %6, !llvm.loop !720
 
-_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %9, %34, %36
-  %.sink.i = phi i32 [ 2, %34 ], [ 4, %36 ], [ 1, %9 ]
-  %40 = and i32 %.sink.i, %0
-  %.2.i = icmp ne i32 %40, 0
+.critedge2.i:                                     ; preds = %9
+  %46 = trunc i32 %0 to i1
+  br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+
+_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %36, %40, %.critedge2.i
+  %.2.i = phi i1 [ %46, %.critedge2.i ], [ %42, %40 ], [ %38, %36 ]
   ret i1 %.2.i
 }
 
@@ -22110,9 +22122,9 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %4 = load ptr, ptr %1, align 8, !tbaa !13
   br label %5
 
-5:                                                ; preds = %36, %3
-  %.048.i = phi ptr [ %2, %3 ], [ %spec.select.i, %36 ]
-  %.045.i = phi ptr [ %4, %3 ], [ %.4.i, %36 ]
+5:                                                ; preds = %42, %3
+  %.048.i = phi ptr [ %2, %3 ], [ %spec.select.i, %42 ]
+  %.045.i = phi ptr [ %4, %3 ], [ %.4.i, %42 ]
   %6 = load i8, ptr %.045.i, align 1, !tbaa !26
   %7 = add i8 %6, -48
   %or.cond.i = icmp ult i8 %7, 10
@@ -22122,7 +22134,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
   %9 = load i8, ptr %.048.i, align 1, !tbaa !26
   %10 = add i8 %9, -48
   %or.cond58.i = icmp ult i8 %10, 10
-  br i1 %or.cond58.i, label %.critedge.i.preheader, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+  br i1 %or.cond58.i, label %.critedge.i.preheader, label %.critedge2.i
 
 .critedge.i.preheader:                            ; preds = %8, %5
   br label %.critedge.i
@@ -22176,25 +22188,37 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools14VersionCompareENS_9Comp
 33:                                               ; preds = %30, %.critedge6.i
   %.043.i = phi i64 [ %32, %30 ], [ %28, %.critedge6.i ]
   %34 = icmp slt i64 %.043.i, 0
-  br i1 %34, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit, label %35
+  br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
-  %.not.i = icmp eq i64 %.043.i, 0
-  br i1 %.not.i, label %36, label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+  %36 = and i32 %0, 2
+  %37 = icmp ne i32 %36, 0
+  br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
 
-36:                                               ; preds = %35
-  %37 = icmp eq i8 %20, 46
-  %spec.select.idx.i = zext i1 %37 to i64
+38:                                               ; preds = %33
+  %.not.i = icmp eq i64 %.043.i, 0
+  br i1 %.not.i, label %42, label %39
+
+39:                                               ; preds = %38
+  %40 = and i32 %0, 4
+  %41 = icmp ne i32 %40, 0
+  br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+
+42:                                               ; preds = %38
+  %43 = icmp eq i8 %20, 46
+  %spec.select.idx.i = zext i1 %43 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.250.i, i64 %spec.select.idx.i
-  %38 = icmp eq i8 %17, 46
-  %.4.idx.i = zext i1 %38 to i64
+  %44 = icmp eq i8 %17, 46
+  %.4.idx.i = zext i1 %44 to i64
   %.4.i = getelementptr inbounds nuw i8, ptr %.247.i, i64 %.4.idx.i
   br label %5, !llvm.loop !720
 
-_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %8, %33, %35
-  %.sink.i = phi i32 [ 2, %33 ], [ 4, %35 ], [ 1, %8 ]
-  %39 = and i32 %.sink.i, %0
-  %.2.i = icmp ne i32 %39, 0
+.critedge2.i:                                     ; preds = %8
+  %45 = trunc i32 %0 to i1
+  br label %_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit
+
+_ZN12_GLOBAL__N_114VersionCompareEN13cmSystemTools9CompareOpEPKcS3_.exit: ; preds = %35, %39, %.critedge2.i
+  %.2.i = phi i1 [ %45, %.critedge2.i ], [ %41, %39 ], [ %37, %35 ]
   ret i1 %.2.i
 }
 
@@ -22277,7 +22301,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools19VersionCompareEqualERKN
   br label %5, !llvm.loop !720
 
 _ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %.critedge6.i.i, %8, %30
-  %.2.i.i = phi i1 [ false, %30 ], [ true, %8 ], [ false, %.critedge6.i.i ]
+  %.2.i.i = phi i1 [ true, %8 ], [ false, %30 ], [ false, %.critedge6.i.i ]
   ret i1 %.2.i.i
 }
 
@@ -22368,8 +22392,8 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools21VersionCompareGreaterER
   %.4.i.i = getelementptr inbounds nuw i8, ptr %.247.i.i, i64 %.4.idx.i.i
   br label %5, !llvm.loop !720
 
-_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %8, %33, %35
-  %.2.i.i = phi i1 [ false, %33 ], [ true, %35 ], [ false, %8 ]
+_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %8, %35, %33
+  %.2.i.i = phi i1 [ true, %35 ], [ false, %33 ], [ false, %8 ]
   ret i1 %.2.i.i
 }
 
@@ -22460,8 +22484,8 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools23VersionCompareGreaterEq
   %.4.i.i = getelementptr inbounds nuw i8, ptr %.247.i.i, i64 %.4.idx.i.i
   br label %5, !llvm.loop !720
 
-_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %8, %33, %35
-  %.2.i.i = phi i1 [ false, %33 ], [ true, %35 ], [ true, %8 ]
+_ZN13cmSystemTools14VersionCompareENS_9CompareOpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %8, %35, %33
+  %.2.i.i = phi i1 [ true, %35 ], [ false, %33 ], [ true, %8 ]
   ret i1 %.2.i.i
 }
 

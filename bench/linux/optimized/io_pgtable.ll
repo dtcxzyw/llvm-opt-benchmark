@@ -336,19 +336,19 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %149 = trunc i64 %148 to i32
   %150 = lshr i32 %149, 9
   %151 = and i32 %150, 7
-  %152 = and i64 %148, 1
-  %153 = icmp ne i64 %152, 0
-  %154 = icmp eq i32 %151, 7
-  %155 = and i1 %153, %154
-  br i1 %155, label %218, label %156
+  %152 = trunc i64 %148 to i1
+  %153 = icmp eq i32 %151, 7
+  %154 = and i1 %153, %152
+  br i1 %154, label %218, label %155
 
-156:                                              ; preds = %.preheader31.us
-  %157 = icmp eq i64 %152, 0
+155:                                              ; preds = %.preheader31.us
+  %156 = and i64 %148, 1
+  %157 = icmp eq i64 %156, 0
   %158 = icmp eq i32 %151, 0
   %159 = or i1 %157, %158
   br i1 %159, label %174, label %160
 
-160:                                              ; preds = %156
+160:                                              ; preds = %155
   %161 = icmp eq i32 %151, %146
   br i1 %161, label %162, label %.thread25
 
@@ -366,7 +366,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %173 = getelementptr i64, ptr %166, i64 %172
   br label %.loopexit29.us
 
-174:                                              ; preds = %156
+174:                                              ; preds = %155
   %175 = load i32, ptr %33, align 4
   %176 = icmp eq i32 %175, -1
   br i1 %176, label %177, label %179
@@ -869,8 +869,7 @@ fetch_pte.exit.thread:                            ; preds = %33, %.preheader.i, 
 define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = add i64 %1, -1
   %7 = add i64 %6, %2
-  %8 = and i64 %3, 1
-  %.not = icmp eq i64 %8, 0
+  %8 = trunc i64 %3 to i1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr i8, ptr %0, i64 32
   %11 = getelementptr i8, ptr %0, i64 40
@@ -980,9 +979,9 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   %80 = add i64 %79, -12
   %81 = urem i64 %80, 9
   %82 = shl nuw nsw i64 1, %81
-  br i1 %.not, label %.preheader, label %.preheader15
+  br i1 %8, label %.preheader14, label %.preheader
 
-.preheader15:                                     ; preds = %78, %88
+.preheader14:                                     ; preds = %78, %88
   %83 = phi i64 [ %89, %88 ], [ 0, %78 ]
   %84 = getelementptr i64, ptr %72, i64 %83
   %85 = load volatile i64, ptr %84, align 8
@@ -990,10 +989,10 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %.loopexit
 
-88:                                               ; preds = %.preheader15
+88:                                               ; preds = %.preheader14
   %89 = add nuw nsw i64 %83, 1
   %exitcond.not = icmp eq i64 %89, %82
-  br i1 %exitcond.not, label %.loopexit, label %.preheader15, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.preheader14, !llvm.loop !39
 
 .preheader:                                       ; preds = %78, %.preheader
   %90 = phi i64 [ %97, %.preheader ], [ 0, %78 ]
@@ -1005,11 +1004,11 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   %95 = icmp eq i8 %93, 0
   %96 = select i1 %95, i8 %91, i8 1
   %97 = add nuw nsw i64 %90, 1
-  %exitcond23.not = icmp eq i64 %97, %82
-  br i1 %exitcond23.not, label %.loopexit, label %.preheader, !llvm.loop !41
+  %exitcond22.not = icmp eq i64 %97, %82
+  br i1 %exitcond22.not, label %.loopexit, label %.preheader, !llvm.loop !41
 
-.loopexit:                                        ; preds = %.preheader15, %88, %.preheader
-  %98 = phi i8 [ %96, %.preheader ], [ 1, %.preheader15 ], [ 0, %88 ]
+.loopexit:                                        ; preds = %.preheader, %.preheader14, %88
+  %98 = phi i8 [ 0, %88 ], [ 1, %.preheader14 ], [ %96, %.preheader ]
   %99 = icmp eq i8 %98, 0
   br i1 %99, label %.thread, label %100
 

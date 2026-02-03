@@ -10617,104 +10617,103 @@ _ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntr
   %26 = load ptr, ptr %5, align 8, !tbaa !256
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.0.copyload.i.i.i.i = load i16, ptr %27, align 4
-  %28 = and i16 %.0.copyload.i.i.i.i, 1
-  %29 = icmp ne i16 %28, 0
-  %30 = load ptr, ptr %26, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(44) %26, ptr nonnull @.str.134, i64 19, i1 noundef zeroext %29) #19
-  %33 = load ptr, ptr %5, align 8, !tbaa !256
+  %28 = trunc i16 %.0.copyload.i.i.i.i to i1
+  %29 = load ptr, ptr %26, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %31 = load ptr, ptr %30, align 8
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(44) %26, ptr nonnull @.str.134, i64 19, i1 noundef zeroext %28) #19
+  %32 = load ptr, ptr %5, align 8, !tbaa !256
   %.0.copyload.i.i.i.i8 = load i16, ptr %27, align 4
-  %34 = lshr i16 %.0.copyload.i.i.i.i8, 4
-  %35 = load ptr, ptr %33, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(44) %33, ptr nonnull @.str.130, i64 14, i16 noundef zeroext %34) #19
-  %38 = load ptr, ptr %5, align 8, !tbaa !256
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %.0.copyload.i.i.i9 = load i32, ptr %39, align 2
-  %40 = load ptr, ptr %38, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(44) %38, ptr nonnull @.str.135, i64 17, i32 noundef %.0.copyload.i.i.i9) #19
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %44 = load i32, ptr %43, align 8, !tbaa !199
-  %45 = load ptr, ptr %5, align 8, !tbaa !256
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 248
-  %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(44) %45, ptr nonnull @.str.124, i64 22) #19
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !43
-  %.not.i10 = icmp eq ptr %50, null
-  br i1 %.not.i10, label %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit, label %51
+  %33 = lshr i16 %.0.copyload.i.i.i.i8, 4
+  %34 = load ptr, ptr %32, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %36 = load ptr, ptr %35, align 8
+  tail call void %36(ptr noundef nonnull align 8 dereferenceable(44) %32, ptr nonnull @.str.130, i64 14, i16 noundef zeroext %33) #19
+  %37 = load ptr, ptr %5, align 8, !tbaa !256
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %.0.copyload.i.i.i9 = load i32, ptr %38, align 2
+  %39 = load ptr, ptr %37, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(44) %37, ptr nonnull @.str.135, i64 17, i32 noundef %.0.copyload.i.i.i9) #19
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %43 = load i32, ptr %42, align 8, !tbaa !199
+  %44 = load ptr, ptr %5, align 8, !tbaa !256
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 248
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(44) %44, ptr nonnull @.str.124, i64 22) #19
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !43
+  %.not.i10 = icmp eq ptr %49, null
+  br i1 %.not.i10, label %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit, label %50
 
-51:                                               ; preds = %_ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %53 = add i32 %44, 8
-  %54 = load i32, ptr %52, align 4, !tbaa !357
-  %55 = load ptr, ptr %50, align 8, !tbaa !3
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr nonnull @.str.125, i64 11, i32 noundef %53, i32 noundef %54, ptr noundef null) #19
+50:                                               ; preds = %_ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %52 = add i32 %43, 8
+  %53 = load i32, ptr %51, align 4, !tbaa !357
+  %54 = load ptr, ptr %49, align 8, !tbaa !3
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr nonnull @.str.125, i64 11, i32 noundef %52, i32 noundef %53, ptr noundef null) #19
   br label %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit
 
-_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit: ; preds = %_ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit, %51
-  %58 = load ptr, ptr %5, align 8, !tbaa !256
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %60 = load i16, ptr %59, align 8, !tbaa !358
-  %61 = zext i16 %60 to i64
-  %62 = load ptr, ptr %58, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 336
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(44) %58, ptr nonnull @.str.126, i64 10, i64 %61) #19
-  %65 = load ptr, ptr %5, align 8, !tbaa !256
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  %67 = load i16, ptr %66, align 2, !tbaa !359
-  %68 = zext i16 %67 to i64
-  %69 = load ptr, ptr %65, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 336
-  %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(44) %65, ptr nonnull @.str.127, i64 5, i64 %68) #19
-  %72 = load ptr, ptr %45, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 256
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(44) %45) #19
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !360
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !361
-  %.not16.i = icmp eq ptr %78, %76
+_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit: ; preds = %_ZN4llvm13ScopedPrinter9printEnumIttEEvNS_9StringRefET_NS_8ArrayRefINS_9EnumEntryIT0_EEEE.exit, %50
+  %57 = load ptr, ptr %5, align 8, !tbaa !256
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %59 = load i16, ptr %58, align 8, !tbaa !358
+  %60 = zext i16 %59 to i64
+  %61 = load ptr, ptr %57, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 336
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(44) %57, ptr nonnull @.str.126, i64 10, i64 %60) #19
+  %64 = load ptr, ptr %5, align 8, !tbaa !256
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %66 = load i16, ptr %65, align 2, !tbaa !359
+  %67 = zext i16 %66 to i64
+  %68 = load ptr, ptr %64, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 336
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(44) %64, ptr nonnull @.str.127, i64 5, i64 %67) #19
+  %71 = load ptr, ptr %44, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 256
+  %73 = load ptr, ptr %72, align 8
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(44) %44) #19
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !360
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %77 = load ptr, ptr %76, align 8, !tbaa !361
+  %.not16.i = icmp eq ptr %77, %75
   br i1 %.not16.i, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm9ListScopeD2Ev.exit.i
 
 _ZN4llvm9ListScopeD2Ev.exit.i:                    ; preds = %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit, %_ZN4llvm9ListScopeD2Ev.exit.i
-  %.017.i = phi ptr [ %99, %_ZN4llvm9ListScopeD2Ev.exit.i ], [ %76, %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit ]
-  %79 = load ptr, ptr %5, align 8, !tbaa !256
-  %80 = load ptr, ptr %79, align 8, !tbaa !3
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 272
-  %82 = load ptr, ptr %81, align 8
-  tail call void %82(ptr noundef nonnull align 8 dereferenceable(44) %79, ptr nonnull @.str.128, i64 20) #19
-  %83 = load ptr, ptr %5, align 8, !tbaa !256
-  %84 = load i16, ptr %.017.i, align 2, !tbaa !362
-  %85 = zext i16 %84 to i64
-  %86 = load ptr, ptr %83, align 8, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 336
-  %88 = load ptr, ptr %87, align 8
-  tail call void %88(ptr noundef nonnull align 8 dereferenceable(44) %83, ptr nonnull @.str.129, i64 14, i64 %85) #19
-  %89 = load ptr, ptr %5, align 8, !tbaa !256
-  %90 = getelementptr inbounds nuw i8, ptr %.017.i, i64 2
-  %91 = load i16, ptr %90, align 2, !tbaa !364
-  %92 = zext i16 %91 to i64
-  %93 = load ptr, ptr %89, align 8, !tbaa !3
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 336
-  %95 = load ptr, ptr %94, align 8
-  tail call void %95(ptr noundef nonnull align 8 dereferenceable(44) %89, ptr nonnull @.str.127, i64 5, i64 %92) #19
-  %96 = load ptr, ptr %79, align 8, !tbaa !3
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 280
-  %98 = load ptr, ptr %97, align 8
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(44) %79) #19
-  %99 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
-  %.not.i12 = icmp eq ptr %99, %78
+  %.017.i = phi ptr [ %98, %_ZN4llvm9ListScopeD2Ev.exit.i ], [ %75, %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit ]
+  %78 = load ptr, ptr %5, align 8, !tbaa !256
+  %79 = load ptr, ptr %78, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 272
+  %81 = load ptr, ptr %80, align 8
+  tail call void %81(ptr noundef nonnull align 8 dereferenceable(44) %78, ptr nonnull @.str.128, i64 20) #19
+  %82 = load ptr, ptr %5, align 8, !tbaa !256
+  %83 = load i16, ptr %.017.i, align 2, !tbaa !362
+  %84 = zext i16 %83 to i64
+  %85 = load ptr, ptr %82, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 336
+  %87 = load ptr, ptr %86, align 8
+  tail call void %87(ptr noundef nonnull align 8 dereferenceable(44) %82, ptr nonnull @.str.129, i64 14, i64 %84) #19
+  %88 = load ptr, ptr %5, align 8, !tbaa !256
+  %89 = getelementptr inbounds nuw i8, ptr %.017.i, i64 2
+  %90 = load i16, ptr %89, align 2, !tbaa !364
+  %91 = zext i16 %90 to i64
+  %92 = load ptr, ptr %88, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 336
+  %94 = load ptr, ptr %93, align 8
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(44) %88, ptr nonnull @.str.127, i64 5, i64 %91) #19
+  %95 = load ptr, ptr %78, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 280
+  %97 = load ptr, ptr %96, align 8
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(44) %78) #19
+  %98 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
+  %.not.i12 = icmp eq ptr %98, %77
   br i1 %.not.i12, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZN4llvm9ListScopeD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm9ListScopeD2Ev.exit.i, %_ZN12_GLOBAL__N_118CVSymbolDumperImpl27printLocalVariableAddrRangeERKN4llvm8codeview22LocalVariableAddrRangeEj.exit

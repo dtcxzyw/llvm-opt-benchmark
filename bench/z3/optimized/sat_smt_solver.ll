@@ -3903,13 +3903,13 @@ _ZNK3sat6solver8num_varsEv.exit.i:                ; preds = %.lr.ph.split, %_ZN3
   br i1 %21, label %22, label %_ZN3sat6solver9set_phaseENS_7literalE.exit
 
 22:                                               ; preds = %_ZNK3sat6solver8num_varsEv.exit.i
-  %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 %23
-  %25 = trunc i32 %.sroa.01.0.copyload to i8
-  %26 = and i8 %25, 1
+  %23 = trunc i32 %.sroa.01.0.copyload to i8
+  %24 = zext nneg i32 %20 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %24
+  %26 = and i8 %23, 1
   %27 = xor i8 %26, 1
-  store i8 %27, ptr %24, align 1, !tbaa !584
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %23
+  store i8 %27, ptr %25, align 1, !tbaa !584
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %24
   store i8 %27, ptr %28, align 1, !tbaa !584
   br label %_ZN3sat6solver9set_phaseENS_7literalE.exit
 
@@ -12202,10 +12202,9 @@ _ZNK7obj_mapI4exprN3sat7literalEE5beginEv.exit:   ; preds = %.lr.ph.i.i.i.i, %16
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i32, ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !289
-  %26 = and i32 %.sroa.0.0.copyload, 1
-  %.not.i = icmp eq i32 %26, 0
+  %26 = trunc i32 %.sroa.0.0.copyload to i1
   %27 = sub nsw i32 0, %25
-  %spec.select.i = select i1 %.not.i, i32 %25, i32 %27
+  %spec.select.i = select i1 %26, i32 %27, i32 %25
   %28 = icmp eq i32 %spec.select.i, 1
   br i1 %28, label %29, label %35
 
@@ -13147,10 +13146,10 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %2
   br label %_ZN3satlsERSoNS_7literalE.exit.i
 
 15:                                               ; preds = %10
-  %16 = and i32 %.sroa.0.0.copyload.i, 1
-  %.not.not.i.i = icmp eq i32 %16, 0
-  %17 = select i1 %.not.not.i.i, ptr @.str.37, ptr @.str.36
-  %18 = zext nneg i32 %16 to i64
+  %16 = trunc i32 %.sroa.0.0.copyload.i to i1
+  %17 = select i1 %16, ptr @.str.36, ptr @.str.37
+  %.mask.i.i = and i32 %.sroa.0.0.copyload.i, 1
+  %18 = zext nneg i32 %.mask.i.i to i64
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %17, i64 noundef %18)
   %20 = lshr i32 %.sroa.0.0.copyload.i, 1
   %21 = zext nneg i32 %20 to i64

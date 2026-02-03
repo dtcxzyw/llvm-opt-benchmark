@@ -10636,11 +10636,10 @@ _ZNK4llvm4Pass11getAnalysisINS_16TargetPassConfigEEERT_v.exit: ; preds = %.lr.ph
   %23 = load ptr, ptr %22, align 8, !tbaa !593
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 688
   %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %.not = icmp eq i8 %26, 0
+  %26 = trunc i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 130
   %28 = load i8, ptr %27, align 2, !range !51
-  %29 = select i1 %.not, i8 %28, i8 0
+  %29 = select i1 %26, i8 0, i8 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = load ptr, ptr %8, align 8, !tbaa !581
   %31 = load ptr, ptr %30, align 8, !tbaa !588

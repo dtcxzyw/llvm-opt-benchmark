@@ -3084,9 +3084,8 @@ define hidden void @_ZN6google8protobuf8internal18GenericTypeHandlerINSt7__cxx11
 ; Function Attrs: mustprogress noinline uwtable
 define hidden void @_ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !85
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %8, label %4, !prof !30
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %8, !prof !28
 
 4:                                                ; preds = %1
   %5 = and i64 %2, -4
@@ -3110,9 +3109,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx
 ; Function Attrs: mustprogress noinline uwtable
 define hidden void @_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %0, align 8, !tbaa !85
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %9, label %5, !prof !30
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %9, !prof !28
 
 5:                                                ; preds = %2
   %6 = and i64 %3, -4
@@ -3147,9 +3145,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 ; Function Attrs: mustprogress noinline uwtable
 define hidden void @_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !85
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %9, label %5, !prof !30
+  %4 = trunc i64 %3 to i1
+  br i1 %4, label %5, label %9, !prof !28
 
 5:                                                ; preds = %2
   %6 = and i64 %3, -4
@@ -3448,11 +3445,10 @@ define linkonce_odr hidden void @_ZN6google8protobuf11MessageLiteD2Ev(ptr nounde
   br i1 %.not.i, label %_ZN6google8protobuf8internal16InternalMetadataD2Ev.exit, label %.noexc.i
 
 .noexc.i:                                         ; preds = %1
-  %5 = and i64 %3, 1
-  %.not1.i = icmp eq i64 %5, 0
+  %5 = trunc i64 %3 to i1
   %6 = and i64 %3, -4
   %7 = inttoptr i64 %6 to ptr
-  br i1 %.not1.i, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i, label %8, !prof !28
+  br i1 %5, label %8, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i, !prof !30
 
 8:                                                ; preds = %.noexc.i
   %9 = load ptr, ptr %7, align 8, !tbaa !104
@@ -3660,11 +3656,10 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr %0, align 8, !tbaa !85
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
+  %3 = trunc i64 %2 to i1
   %4 = and i64 %2, -4
   %5 = inttoptr i64 %4 to ptr
-  br i1 %.not, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, label %6, !prof !28
+  br i1 %3, label %6, label %_ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit, !prof !30
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %5, align 8, !tbaa !104

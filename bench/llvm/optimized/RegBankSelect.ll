@@ -2917,8 +2917,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm13RegBankSelect19assignRegisterBank
 
 20:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit, %2
   %.sroa.029.0 = phi ptr [ %12, %2 ], [ %22, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit ]
-  %.not = icmp eq ptr %.sroa.029.0, %9
-  br i1 %.not, label %.critedge, label %21
+  %.not36 = icmp eq ptr %.sroa.029.0, %9
+  br i1 %.not36, label %.critedge, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds i8, ptr %.sroa.029.0, i64 -8
@@ -2983,11 +2983,11 @@ _ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16rever
   %40 = trunc i64 %30 to i32
   %41 = add i32 %.ph.i, %40
   store i32 %41, ptr %16, align 8, !tbaa !26
-  %.not.i39 = icmp eq i32 %41, 0
-  br i1 %.not.i39, label %.loopexit, label %.lr.ph
+  %.not.i40 = icmp eq i32 %41, 0
+  br i1 %.not.i40, label %.loopexit, label %.lr.ph
 
-thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %59, %59, %59, %52
-  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %48, %59 ], [ %48, %59 ], [ %48, %59 ], [ %48, %52 ]
+thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %58, %58, %58, %52
+  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %48, %58 ], [ %48, %58 ], [ %48, %58 ], [ %48, %52 ]
   %.not.i = icmp eq i32 %.pr, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph
 
@@ -3003,7 +3003,7 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 68
   %50 = load i16, ptr %49, align 4, !tbaa !333
   %51 = icmp ugt i16 %50, 305
-  br i1 %51, label %52, label %59
+  br i1 %51, label %52, label %58
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -3011,57 +3011,56 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !329
   %.fr = freeze i64 %56
-  %57 = and i64 %.fr, 1
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %thread-pre-split, label %switch.early.test
+  %57 = trunc i64 %.fr to i1
+  br i1 %57, label %switch.early.test, label %thread-pre-split
 
-59:                                               ; preds = %.lr.ph
+58:                                               ; preds = %.lr.ph
   switch i16 %50, label %switch.early.test [
     i16 10, label %thread-pre-split
     i16 2, label %thread-pre-split
     i16 1, label %thread-pre-split
   ]
 
-switch.early.test:                                ; preds = %52, %59
-  %60 = call noundef zeroext i1 @_ZN4llvm13RegBankSelect11assignInstrERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(70) %47)
-  br i1 %60, label %.thread-pre-split_crit_edge, label %61
+switch.early.test:                                ; preds = %52, %58
+  %59 = call noundef zeroext i1 @_ZN4llvm13RegBankSelect11assignInstrERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(70) %47)
+  br i1 %59, label %.thread-pre-split_crit_edge, label %60
 
 .thread-pre-split_crit_edge:                      ; preds = %switch.early.test
   %.pr.pre = load i32, ptr %16, align 8, !tbaa !26
   br label %thread-pre-split
 
-61:                                               ; preds = %switch.early.test
-  %62 = load ptr, ptr %18, align 8, !tbaa !222
-  %63 = load ptr, ptr %19, align 8, !tbaa !232
-  call void @_ZN4llvm18reportGISelFailureERNS_15MachineFunctionERKNS_16TargetPassConfigERNS_32MachineOptimizationRemarkEmitterEPKcNS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(134) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull @.str.6, ptr nonnull @.str.7, i64 25, ptr noundef nonnull align 8 dereferenceable(70) %47) #23
+60:                                               ; preds = %switch.early.test
+  %61 = load ptr, ptr %18, align 8, !tbaa !222
+  %62 = load ptr, ptr %19, align 8, !tbaa !232
+  call void @_ZN4llvm18reportGISelFailureERNS_15MachineFunctionERKNS_16TargetPassConfigERNS_32MachineOptimizationRemarkEmitterEPKcNS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(134) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull @.str.6, ptr nonnull @.str.7, i64 25, ptr noundef nonnull align 8 dereferenceable(70) %47) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %thread-pre-split, %21, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, %61
-  %.not.i37 = phi i1 [ false, %61 ], [ true, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ], [ true, %21 ], [ true, %thread-pre-split ]
-  %64 = load ptr, ptr %5, align 8, !tbaa !25
-  %65 = icmp eq ptr %64, %15
-  br i1 %65, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit, label %66
+.loopexit:                                        ; preds = %thread-pre-split, %21, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, %60
+  %.not.i38 = phi i1 [ false, %60 ], [ true, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ], [ true, %21 ], [ true, %thread-pre-split ]
+  %63 = load ptr, ptr %5, align 8, !tbaa !25
+  %64 = icmp eq ptr %63, %15
+  br i1 %64, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit, label %65
 
-66:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %64) #23
+65:                                               ; preds = %.loopexit
+  call void @free(ptr noundef %63) #23
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit: ; preds = %.loopexit, %66
+_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit: ; preds = %.loopexit, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not.i37, label %20, label %.critedge
+  br i1 %.not.i38, label %20, label %.critedge
 
 .critedge:                                        ; preds = %20, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit
-  %67 = load ptr, ptr %3, align 8, !tbaa !25
-  %68 = icmp eq ptr %67, %6
-  br i1 %68, label %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit, label %69
+  %66 = load ptr, ptr %3, align 8, !tbaa !25
+  %67 = icmp eq ptr %66, %6
+  br i1 %67, label %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit, label %68
 
-69:                                               ; preds = %.critedge
-  call void @free(ptr noundef %67) #23
+68:                                               ; preds = %.critedge
+  call void @free(ptr noundef %66) #23
   br label %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit
 
-_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %.critedge, %69
+_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %.critedge, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %.not
+  ret i1 %.not36
 }
 
 declare void @_ZN4llvm18reportGISelFailureERNS_15MachineFunctionERKNS_16TargetPassConfigERNS_32MachineOptimizationRemarkEmitterEPKcNS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1065), ptr noundef nonnull align 8 dereferenceable(134), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #4

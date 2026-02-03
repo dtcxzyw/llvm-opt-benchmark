@@ -639,9 +639,8 @@ define void @_ZN6icu_779LocaleKeyC2ERKNS_13UnicodeStringES3_PS2_i(ptr noundef no
   br i1 %.not.i.i, label %30, label %28
 
 28:                                               ; preds = %24
-  %29 = and i16 %27, 1
-  %.not = icmp eq i16 %29, 0
-  br i1 %.not, label %.thread, label %52
+  %29 = trunc i16 %27 to i1
+  br i1 %29, label %52, label %.thread
 
 30:                                               ; preds = %24
   %31 = icmp slt i16 %27, 0
@@ -667,8 +666,8 @@ define void @_ZN6icu_779LocaleKeyC2ERKNS_13UnicodeStringES3_PS2_i(ptr noundef no
           to label %46 unwind label %50
 
 46:                                               ; preds = %39
-  %.not18 = icmp eq i8 %45, 0
-  br i1 %.not18, label %.thread, label %52
+  %.not = icmp eq i8 %45, 0
+  br i1 %.not, label %.thread, label %52
 
 .thread:                                          ; preds = %28, %30, %46
   %47 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %3)

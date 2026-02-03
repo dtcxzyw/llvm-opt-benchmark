@@ -10,9 +10,8 @@ define ptr @l_Lean_Lsp_instFileSourceLocation(ptr noundef readonly captures(none
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -41,9 +40,8 @@ define ptr @l_Lean_Lsp_instFileSourceLocation___boxed(ptr noundef %0) local_unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceLocation.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceLocation.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -65,9 +63,8 @@ define ptr @l_Lean_Lsp_instFileSourceLocation___boxed(ptr noundef %0) local_unna
 
 l_Lean_Lsp_instFileSourceLocation.exit:           ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceLocation.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -94,9 +91,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_Le
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceTextDocumentIdentifier(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -123,9 +119,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceTextDocumentIdentifier___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -173,9 +168,8 @@ define ptr @l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -204,9 +198,8 @@ define ptr @l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier___boxed(ptr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -228,9 +221,8 @@ define ptr @l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier___boxed(ptr
 
 l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceVersionedTextDocumentIdentifier.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -261,9 +253,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentEdit(ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i = load i32, ptr %5, align 4, !tbaa !8
@@ -294,9 +285,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentEdit___boxed(ptr noundef %0) lo
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i3 = icmp eq i64 %7, 0
-  br i1 %.not.i3, label %8, label %l_Lean_Lsp_instFileSourceTextDocumentEdit.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %l_Lean_Lsp_instFileSourceTextDocumentEdit.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i.i = load i32, ptr %5, align 4, !tbaa !8
@@ -318,9 +308,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentEdit___boxed(ptr noundef %0) lo
 
 l_Lean_Lsp_instFileSourceTextDocumentEdit.exit:   ; preds = %1, %10, %12, %13
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %l_Lean_Lsp_instFileSourceTextDocumentEdit.exit
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -349,9 +338,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentItem(ptr noundef readonly captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -380,9 +368,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentItem___boxed(ptr noundef %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceTextDocumentItem.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceTextDocumentItem.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -404,9 +391,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentItem___boxed(ptr noundef %0) lo
 
 l_Lean_Lsp_instFileSourceTextDocumentItem.exit:   ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceTextDocumentItem.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -435,9 +421,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentPositionParams(ptr noundef read
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -466,9 +451,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentPositionParams___boxed(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceTextDocumentPositionParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceTextDocumentPositionParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -490,9 +474,8 @@ define ptr @l_Lean_Lsp_instFileSourceTextDocumentPositionParams___boxed(ptr noun
 
 l_Lean_Lsp_instFileSourceTextDocumentPositionParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceTextDocumentPositionParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -521,9 +504,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams(ptr noundef reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -552,9 +534,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams___boxed(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -576,9 +557,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams___boxed(ptr nound
 
 l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceDidOpenTextDocumentParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -609,9 +589,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams(ptr noundef rea
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i = load i32, ptr %5, align 4, !tbaa !8
@@ -642,9 +621,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams___boxed(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i3 = icmp eq i64 %7, 0
-  br i1 %.not.i3, label %8, label %l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i.i = load i32, ptr %5, align 4, !tbaa !8
@@ -666,9 +644,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams___boxed(ptr nou
 
 l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams.exit: ; preds = %1, %10, %12, %13
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %l_Lean_Lsp_instFileSourceDidChangeTextDocumentParams.exit
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -697,9 +674,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams(ptr noundef reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -728,9 +704,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams___boxed(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -752,9 +727,8 @@ define ptr @l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams___boxed(ptr nound
 
 l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceDidSaveTextDocumentParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -781,9 +755,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_Le
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceDidCloseTextDocumentParams(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -810,9 +783,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceDidCloseTextDocumentParams___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -860,9 +832,8 @@ define ptr @l_Lean_Lsp_instFileSourceCompletionParams(ptr noundef readonly captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -891,9 +862,8 @@ define ptr @l_Lean_Lsp_instFileSourceCompletionParams___boxed(ptr noundef %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceCompletionParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceCompletionParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -915,9 +885,8 @@ define ptr @l_Lean_Lsp_instFileSourceCompletionParams___boxed(ptr noundef %0) lo
 
 l_Lean_Lsp_instFileSourceCompletionParams.exit:   ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceCompletionParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -946,9 +915,8 @@ define ptr @l_Lean_Lsp_instFileSourceHoverParams(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -977,9 +945,8 @@ define ptr @l_Lean_Lsp_instFileSourceHoverParams___boxed(ptr noundef %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceHoverParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceHoverParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1001,9 +968,8 @@ define ptr @l_Lean_Lsp_instFileSourceHoverParams___boxed(ptr noundef %0) local_u
 
 l_Lean_Lsp_instFileSourceHoverParams.exit:        ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceHoverParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1032,9 +998,8 @@ define ptr @l_Lean_Lsp_instFileSourceDeclarationParams(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1063,9 +1028,8 @@ define ptr @l_Lean_Lsp_instFileSourceDeclarationParams___boxed(ptr noundef %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceDeclarationParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceDeclarationParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1087,9 +1051,8 @@ define ptr @l_Lean_Lsp_instFileSourceDeclarationParams___boxed(ptr noundef %0) l
 
 l_Lean_Lsp_instFileSourceDeclarationParams.exit:  ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceDeclarationParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1118,9 +1081,8 @@ define ptr @l_Lean_Lsp_instFileSourceDefinitionParams(ptr noundef readonly captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1149,9 +1111,8 @@ define ptr @l_Lean_Lsp_instFileSourceDefinitionParams___boxed(ptr noundef %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceDefinitionParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceDefinitionParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1173,9 +1134,8 @@ define ptr @l_Lean_Lsp_instFileSourceDefinitionParams___boxed(ptr noundef %0) lo
 
 l_Lean_Lsp_instFileSourceDefinitionParams.exit:   ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceDefinitionParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1204,9 +1164,8 @@ define ptr @l_Lean_Lsp_instFileSourceTypeDefinitionParams(ptr noundef readonly c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1235,9 +1194,8 @@ define ptr @l_Lean_Lsp_instFileSourceTypeDefinitionParams___boxed(ptr noundef %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceTypeDefinitionParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceTypeDefinitionParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1259,9 +1217,8 @@ define ptr @l_Lean_Lsp_instFileSourceTypeDefinitionParams___boxed(ptr noundef %0
 
 l_Lean_Lsp_instFileSourceTypeDefinitionParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceTypeDefinitionParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1292,9 +1249,8 @@ define ptr @l_Lean_Lsp_instFileSourceReferenceParams(ptr noundef readonly captur
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i = load i32, ptr %5, align 4, !tbaa !8
@@ -1325,9 +1281,8 @@ define ptr @l_Lean_Lsp_instFileSourceReferenceParams___boxed(ptr noundef %0) loc
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i3 = icmp eq i64 %7, 0
-  br i1 %.not.i3, label %8, label %l_Lean_Lsp_instFileSourceReferenceParams.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %l_Lean_Lsp_instFileSourceReferenceParams.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i.i = load i32, ptr %5, align 4, !tbaa !8
@@ -1349,9 +1304,8 @@ define ptr @l_Lean_Lsp_instFileSourceReferenceParams___boxed(ptr noundef %0) loc
 
 l_Lean_Lsp_instFileSourceReferenceParams.exit:    ; preds = %1, %10, %12, %13
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %l_Lean_Lsp_instFileSourceReferenceParams.exit
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -1380,9 +1334,8 @@ define ptr @l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams(ptr noundef readon
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1411,9 +1364,8 @@ define ptr @l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams___boxed(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1435,9 +1387,8 @@ define ptr @l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams___boxed(ptr nounde
 
 l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceWaitForDiagnosticsParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1466,9 +1417,8 @@ define ptr @l_Lean_Lsp_instFileSourceDocumentHighlightParams(ptr noundef readonl
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1497,9 +1447,8 @@ define ptr @l_Lean_Lsp_instFileSourceDocumentHighlightParams___boxed(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceDocumentHighlightParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceDocumentHighlightParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1521,9 +1470,8 @@ define ptr @l_Lean_Lsp_instFileSourceDocumentHighlightParams___boxed(ptr noundef
 
 l_Lean_Lsp_instFileSourceDocumentHighlightParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceDocumentHighlightParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1550,9 +1498,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_Le
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceDocumentSymbolParams(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -1579,9 +1526,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceDocumentSymbolParams___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -1627,9 +1573,8 @@ lean_dec.exit:                                    ; preds = %8, %16, %15, %13, %
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceSemanticTokensParams(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -1656,9 +1601,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceSemanticTokensParams___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -1706,9 +1650,8 @@ define ptr @l_Lean_Lsp_instFileSourceSemanticTokensRangeParams(ptr noundef reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1737,9 +1680,8 @@ define ptr @l_Lean_Lsp_instFileSourceSemanticTokensRangeParams___boxed(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceSemanticTokensRangeParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceSemanticTokensRangeParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1761,9 +1703,8 @@ define ptr @l_Lean_Lsp_instFileSourceSemanticTokensRangeParams___boxed(ptr nound
 
 l_Lean_Lsp_instFileSourceSemanticTokensRangeParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceSemanticTokensRangeParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1790,9 +1731,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_Le
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceFoldingRangeParams(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -1819,9 +1759,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceFoldingRangeParams___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -1869,9 +1808,8 @@ define ptr @l_Lean_Lsp_instFileSourcePlainGoalParams(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1900,9 +1838,8 @@ define ptr @l_Lean_Lsp_instFileSourcePlainGoalParams___boxed(ptr noundef %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourcePlainGoalParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourcePlainGoalParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1924,9 +1861,8 @@ define ptr @l_Lean_Lsp_instFileSourcePlainGoalParams___boxed(ptr noundef %0) loc
 
 l_Lean_Lsp_instFileSourcePlainGoalParams.exit:    ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourcePlainGoalParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -1955,9 +1891,8 @@ define ptr @l_Lean_Lsp_instFileSourcePlainTermGoalParams(ptr noundef readonly ca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -1986,9 +1921,8 @@ define ptr @l_Lean_Lsp_instFileSourcePlainTermGoalParams___boxed(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourcePlainTermGoalParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourcePlainTermGoalParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2010,9 +1944,8 @@ define ptr @l_Lean_Lsp_instFileSourcePlainTermGoalParams___boxed(ptr noundef %0)
 
 l_Lean_Lsp_instFileSourcePlainTermGoalParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourcePlainTermGoalParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -2039,9 +1972,8 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_Le
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceRpcConnectParams(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -2068,9 +2000,8 @@ lean_inc.exit:                                    ; preds = %9, %8, %6, %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Lean_Lsp_instFileSourceRpcConnectParams___boxed(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !8
@@ -2120,9 +2051,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcCallParams(ptr noundef readonly captures
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_inc.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %lean_inc.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i = load i32, ptr %5, align 4, !tbaa !8
@@ -2153,9 +2083,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcCallParams___boxed(ptr noundef %0) local
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, 1
-  %.not.i3 = icmp eq i64 %7, 0
-  br i1 %.not.i3, label %8, label %l_Lean_Lsp_instFileSourceRpcCallParams.exit
+  %7 = trunc i64 %6 to i1
+  br i1 %7, label %l_Lean_Lsp_instFileSourceRpcCallParams.exit, label %8
 
 8:                                                ; preds = %1
   %.val.i.i = load i32, ptr %5, align 4, !tbaa !8
@@ -2177,9 +2106,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcCallParams___boxed(ptr noundef %0) local
 
 l_Lean_Lsp_instFileSourceRpcCallParams.exit:      ; preds = %1, %10, %12, %13
   %14 = ptrtoint ptr %0 to i64
-  %15 = and i64 %14, 1
-  %.not = icmp eq i64 %15, 0
-  br i1 %.not, label %16, label %lean_dec.exit
+  %15 = trunc i64 %14 to i1
+  br i1 %15, label %lean_dec.exit, label %16
 
 16:                                               ; preds = %l_Lean_Lsp_instFileSourceRpcCallParams.exit
   %17 = load i32, ptr %0, align 4, !tbaa !8
@@ -2208,9 +2136,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcReleaseParams(ptr noundef readonly captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2239,9 +2166,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcReleaseParams___boxed(ptr noundef %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceRpcReleaseParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceRpcReleaseParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2263,9 +2189,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcReleaseParams___boxed(ptr noundef %0) lo
 
 l_Lean_Lsp_instFileSourceRpcReleaseParams.exit:   ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceRpcReleaseParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -2294,9 +2219,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcKeepAliveParams(ptr noundef readonly cap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2325,9 +2249,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcKeepAliveParams___boxed(ptr noundef %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceRpcKeepAliveParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceRpcKeepAliveParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2349,9 +2272,8 @@ define ptr @l_Lean_Lsp_instFileSourceRpcKeepAliveParams___boxed(ptr noundef %0) 
 
 l_Lean_Lsp_instFileSourceRpcKeepAliveParams.exit: ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceRpcKeepAliveParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -2380,9 +2302,8 @@ define ptr @l_Lean_Lsp_instFileSourceCodeActionParams(ptr noundef readonly captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2411,9 +2332,8 @@ define ptr @l_Lean_Lsp_instFileSourceCodeActionParams___boxed(ptr noundef %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceCodeActionParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceCodeActionParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2435,9 +2355,8 @@ define ptr @l_Lean_Lsp_instFileSourceCodeActionParams___boxed(ptr noundef %0) lo
 
 l_Lean_Lsp_instFileSourceCodeActionParams.exit:   ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceCodeActionParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8
@@ -2466,9 +2385,8 @@ define ptr @l_Lean_Lsp_instFileSourceInlayHintParams(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %lean_inc.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %lean_inc.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2497,9 +2415,8 @@ define ptr @l_Lean_Lsp_instFileSourceInlayHintParams___boxed(ptr noundef %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, 1
-  %.not.i3 = icmp eq i64 %5, 0
-  br i1 %.not.i3, label %6, label %l_Lean_Lsp_instFileSourceInlayHintParams.exit
+  %5 = trunc i64 %4 to i1
+  br i1 %5, label %l_Lean_Lsp_instFileSourceInlayHintParams.exit, label %6
 
 6:                                                ; preds = %1
   %.val.i.i = load i32, ptr %3, align 4, !tbaa !8
@@ -2521,9 +2438,8 @@ define ptr @l_Lean_Lsp_instFileSourceInlayHintParams___boxed(ptr noundef %0) loc
 
 l_Lean_Lsp_instFileSourceInlayHintParams.exit:    ; preds = %1, %8, %10, %11
   %12 = ptrtoint ptr %0 to i64
-  %13 = and i64 %12, 1
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %14, label %lean_dec.exit
+  %13 = trunc i64 %12 to i1
+  br i1 %13, label %lean_dec.exit, label %14
 
 14:                                               ; preds = %l_Lean_Lsp_instFileSourceInlayHintParams.exit
   %15 = load i32, ptr %0, align 4, !tbaa !8

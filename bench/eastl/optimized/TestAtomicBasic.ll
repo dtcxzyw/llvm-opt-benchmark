@@ -4062,18 +4062,17 @@ entry:
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp20, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2697, ptr noundef nonnull @.str.46)
   store i8 15, ptr %atomic23, align 1
   %5 = atomicrmw volatile and ptr %atomic23, i8 1 monotonic, align 1
-  %6 = and i8 %5, 1
-  %cmp28 = icmp ne i8 %6, 0
+  %cmp28 = trunc i8 %5 to i1
   %call30 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp28, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2705, ptr noundef nonnull @.str.57)
-  %7 = load atomic volatile i8, ptr %atomic23 monotonic, align 1
-  %cmp34 = icmp eq i8 %7, 1
+  %6 = load atomic volatile i8, ptr %atomic23 monotonic, align 1
+  %cmp34 = icmp eq i8 %6, 1
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2709, ptr noundef nonnull @.str.57)
   store i8 15, ptr %atomic37, align 1
-  %8 = atomicrmw volatile and ptr %atomic37, i8 -16 monotonic, align 1
-  %cmp42 = icmp ult i8 %8, 16
+  %7 = atomicrmw volatile and ptr %atomic37, i8 -16 monotonic, align 1
+  %cmp42 = icmp ult i8 %7, 16
   %call44 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp42, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2717, ptr noundef nonnull @.str.56)
-  %9 = load atomic volatile i8, ptr %atomic37 monotonic, align 1
-  %cmp48 = icmp eq i8 %9, 0
+  %8 = load atomic volatile i8, ptr %atomic37 monotonic, align 1
+  %cmp48 = icmp eq i8 %8, 0
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2721, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -4269,18 +4268,17 @@ entry:
   %call98 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp96, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2981, ptr noundef nonnull @.str.57)
   store i8 1, ptr %atomic99, align 1
   %14 = atomicrmw volatile and ptr %atomic99, i8 1 seq_cst, align 1
-  %15 = and i8 %14, 1
-  %cmp103 = icmp ne i8 %15, 0
+  %cmp103 = trunc i8 %14 to i1
   %call105 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp103, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2989, ptr noundef nonnull @.str.57)
-  %16 = load atomic volatile i8, ptr %atomic99 monotonic, align 1
-  %cmp109 = icmp eq i8 %16, 1
+  %15 = load atomic volatile i8, ptr %atomic99 monotonic, align 1
+  %cmp109 = icmp eq i8 %15, 1
   %call111 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp109, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2993, ptr noundef nonnull @.str.57)
   store i8 1, ptr %atomic112, align 1
-  %17 = atomicrmw volatile xor ptr %atomic112, i8 1 seq_cst, align 1
-  %cmp116 = icmp eq i8 %17, 1
+  %16 = atomicrmw volatile xor ptr %atomic112, i8 1 seq_cst, align 1
+  %cmp116 = icmp eq i8 %16, 1
   %call118 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp116, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3001, ptr noundef nonnull @.str.56)
-  %18 = load atomic volatile i8, ptr %atomic112 monotonic, align 1
-  %cmp122 = icmp eq i8 %18, 0
+  %17 = load atomic volatile i8, ptr %atomic112 monotonic, align 1
+  %cmp122 = icmp eq i8 %17, 0
   %call124 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp122, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3005, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -4972,19 +4970,18 @@ entry:
   %call22 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp20, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2697, ptr noundef nonnull @.str.46)
   store i16 15, ptr %atomic23, align 2
   %5 = atomicrmw volatile and ptr %atomic23, i16 1 monotonic, align 2
-  %6 = and i16 %5, 1
-  %cmp28 = icmp ne i16 %6, 0
+  %cmp28 = trunc i16 %5 to i1
   %call30 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp28, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2705, ptr noundef nonnull @.str.57)
-  %7 = load atomic volatile i16, ptr %atomic23 monotonic, align 2
-  %cmp34 = icmp eq i16 %7, 1
+  %6 = load atomic volatile i16, ptr %atomic23 monotonic, align 2
+  %cmp34 = icmp eq i16 %6, 1
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2709, ptr noundef nonnull @.str.57)
   store i16 15, ptr %atomic37, align 2
-  %8 = atomicrmw volatile and ptr %atomic37, i16 240 monotonic, align 2
-  %9 = and i16 %8, 240
-  %cmp42 = icmp eq i16 %9, 0
+  %7 = atomicrmw volatile and ptr %atomic37, i16 240 monotonic, align 2
+  %8 = and i16 %7, 240
+  %cmp42 = icmp eq i16 %8, 0
   %call44 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp42, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2717, ptr noundef nonnull @.str.56)
-  %10 = load atomic volatile i16, ptr %atomic37 monotonic, align 2
-  %cmp48 = icmp eq i16 %10, 0
+  %9 = load atomic volatile i16, ptr %atomic37 monotonic, align 2
+  %cmp48 = icmp eq i16 %9, 0
   %call50 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp48, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2721, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -5180,18 +5177,17 @@ entry:
   %call98 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp96, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2981, ptr noundef nonnull @.str.57)
   store i16 1, ptr %atomic99, align 2
   %14 = atomicrmw volatile and ptr %atomic99, i16 1 seq_cst, align 2
-  %15 = and i16 %14, 1
-  %cmp103 = icmp ne i16 %15, 0
+  %cmp103 = trunc i16 %14 to i1
   %call105 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp103, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2989, ptr noundef nonnull @.str.57)
-  %16 = load atomic volatile i16, ptr %atomic99 monotonic, align 2
-  %cmp109 = icmp eq i16 %16, 1
+  %15 = load atomic volatile i16, ptr %atomic99 monotonic, align 2
+  %cmp109 = icmp eq i16 %15, 1
   %call111 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp109, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2993, ptr noundef nonnull @.str.57)
   store i16 1, ptr %atomic112, align 2
-  %17 = atomicrmw volatile xor ptr %atomic112, i16 1 seq_cst, align 2
-  %cmp116 = icmp eq i16 %17, 1
+  %16 = atomicrmw volatile xor ptr %atomic112, i16 1 seq_cst, align 2
+  %cmp116 = icmp eq i16 %16, 1
   %call118 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp116, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3001, ptr noundef nonnull @.str.56)
-  %18 = load atomic volatile i16, ptr %atomic112 monotonic, align 2
-  %cmp122 = icmp eq i16 %18, 0
+  %17 = load atomic volatile i16, ptr %atomic112 monotonic, align 2
+  %cmp122 = icmp eq i16 %17, 0
   %call124 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp122, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3005, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -5883,19 +5879,18 @@ entry:
   %call19 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp17, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2697, ptr noundef nonnull @.str.46)
   store i32 15, ptr %atomic20, align 4
   %5 = atomicrmw volatile and ptr %atomic20, i32 1 monotonic, align 4
-  %6 = and i32 %5, 1
-  %cmp24 = icmp ne i32 %6, 0
+  %cmp24 = trunc i32 %5 to i1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2705, ptr noundef nonnull @.str.57)
-  %7 = load atomic volatile i32, ptr %atomic20 monotonic, align 4
-  %cmp29 = icmp eq i32 %7, 1
+  %6 = load atomic volatile i32, ptr %atomic20 monotonic, align 4
+  %cmp29 = icmp eq i32 %6, 1
   %call31 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2709, ptr noundef nonnull @.str.57)
   store i32 15, ptr %atomic32, align 4
-  %8 = atomicrmw volatile and ptr %atomic32, i32 240 monotonic, align 4
-  %9 = and i32 %8, 240
-  %cmp36 = icmp eq i32 %9, 0
+  %7 = atomicrmw volatile and ptr %atomic32, i32 240 monotonic, align 4
+  %8 = and i32 %7, 240
+  %cmp36 = icmp eq i32 %8, 0
   %call38 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp36, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2717, ptr noundef nonnull @.str.56)
-  %10 = load atomic volatile i32, ptr %atomic32 monotonic, align 4
-  %cmp41 = icmp eq i32 %10, 0
+  %9 = load atomic volatile i32, ptr %atomic32 monotonic, align 4
+  %cmp41 = icmp eq i32 %9, 0
   %call43 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp41, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2721, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -6091,18 +6086,17 @@ entry:
   %call83 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp81, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2981, ptr noundef nonnull @.str.57)
   store i32 1, ptr %atomic84, align 4
   %14 = atomicrmw volatile and ptr %atomic84, i32 1 seq_cst, align 4
-  %15 = and i32 %14, 1
-  %cmp87 = icmp ne i32 %15, 0
+  %cmp87 = trunc i32 %14 to i1
   %call89 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp87, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2989, ptr noundef nonnull @.str.57)
-  %16 = load atomic volatile i32, ptr %atomic84 monotonic, align 4
-  %cmp92 = icmp eq i32 %16, 1
+  %15 = load atomic volatile i32, ptr %atomic84 monotonic, align 4
+  %cmp92 = icmp eq i32 %15, 1
   %call94 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp92, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2993, ptr noundef nonnull @.str.57)
   store i32 1, ptr %atomic95, align 4
-  %17 = atomicrmw volatile xor ptr %atomic95, i32 1 seq_cst, align 4
-  %cmp98 = icmp eq i32 %17, 1
+  %16 = atomicrmw volatile xor ptr %atomic95, i32 1 seq_cst, align 4
+  %cmp98 = icmp eq i32 %16, 1
   %call100 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp98, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3001, ptr noundef nonnull @.str.56)
-  %18 = load atomic volatile i32, ptr %atomic95 monotonic, align 4
-  %cmp103 = icmp eq i32 %18, 0
+  %17 = load atomic volatile i32, ptr %atomic95 monotonic, align 4
+  %cmp103 = icmp eq i32 %17, 0
   %call105 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp103, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3005, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -6794,19 +6788,18 @@ entry:
   %call19 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp17, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2697, ptr noundef nonnull @.str.46)
   store i64 15, ptr %atomic20, align 8
   %5 = atomicrmw volatile and ptr %atomic20, i64 1 monotonic, align 8
-  %6 = and i64 %5, 1
-  %cmp24 = icmp ne i64 %6, 0
+  %cmp24 = trunc i64 %5 to i1
   %call26 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp24, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2705, ptr noundef nonnull @.str.57)
-  %7 = load atomic volatile i64, ptr %atomic20 monotonic, align 8
-  %cmp29 = icmp eq i64 %7, 1
+  %6 = load atomic volatile i64, ptr %atomic20 monotonic, align 8
+  %cmp29 = icmp eq i64 %6, 1
   %call31 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp29, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2709, ptr noundef nonnull @.str.57)
   store i64 15, ptr %atomic32, align 8
-  %8 = atomicrmw volatile and ptr %atomic32, i64 240 monotonic, align 8
-  %9 = and i64 %8, 240
-  %cmp36 = icmp eq i64 %9, 0
+  %7 = atomicrmw volatile and ptr %atomic32, i64 240 monotonic, align 8
+  %8 = and i64 %7, 240
+  %cmp36 = icmp eq i64 %8, 0
   %call38 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp36, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2717, ptr noundef nonnull @.str.56)
-  %10 = load atomic volatile i64, ptr %atomic32 monotonic, align 8
-  %cmp41 = icmp eq i64 %10, 0
+  %9 = load atomic volatile i64, ptr %atomic32 monotonic, align 8
+  %cmp41 = icmp eq i64 %9, 0
   %call43 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp41, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2721, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -7002,18 +6995,17 @@ entry:
   %call83 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp81, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2981, ptr noundef nonnull @.str.57)
   store i64 1, ptr %atomic84, align 8
   %14 = atomicrmw volatile and ptr %atomic84, i64 1 seq_cst, align 8
-  %15 = and i64 %14, 1
-  %cmp87 = icmp ne i64 %15, 0
+  %cmp87 = trunc i64 %14 to i1
   %call89 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp87, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2989, ptr noundef nonnull @.str.57)
-  %16 = load atomic volatile i64, ptr %atomic84 monotonic, align 8
-  %cmp92 = icmp eq i64 %16, 1
+  %15 = load atomic volatile i64, ptr %atomic84 monotonic, align 8
+  %cmp92 = icmp eq i64 %15, 1
   %call94 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp92, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2993, ptr noundef nonnull @.str.57)
   store i64 1, ptr %atomic95, align 8
-  %17 = atomicrmw volatile xor ptr %atomic95, i64 1 seq_cst, align 8
-  %cmp98 = icmp eq i64 %17, 1
+  %16 = atomicrmw volatile xor ptr %atomic95, i64 1 seq_cst, align 8
+  %cmp98 = icmp eq i64 %16, 1
   %call100 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp98, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3001, ptr noundef nonnull @.str.56)
-  %18 = load atomic volatile i64, ptr %atomic95 monotonic, align 8
-  %cmp103 = icmp eq i64 %18, 0
+  %17 = load atomic volatile i64, ptr %atomic95 monotonic, align 8
+  %cmp103 = icmp eq i64 %17, 0
   %call105 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp103, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 3005, ptr noundef nonnull @.str.56)
   ret void
 }
@@ -8382,9 +8374,8 @@ do.body.i24:                                      ; preds = %do.body.i24, %_ZN5e
   br i1 %tobool.i37, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41, label %do.body.i24, !llvm.loop !24
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EE9and_fetchEoNS0_22memory_order_relaxed_sE.exit41: ; preds = %do.body.i24
-  %and17.i38 = and i64 %asmresult.i35, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %cmpxchgRet.i20)
-  %cmp34 = icmp ne i64 %and17.i38, 0
+  %cmp34 = trunc i64 %asmresult.i35 to i1
   %call36 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp34, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2705, ptr noundef nonnull @.str.57)
   %18 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) align 16 dereferenceable(16) %atomic27, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) align 16 dereferenceable(16) %atomic27) #7, !srcloc !11
   %19 = extractvalue { i64, i64 } %18, 0
@@ -9159,9 +9150,8 @@ do.body.i.i124:                                   ; preds = %do.body.i.i124, %_Z
   br i1 %tobool.i.i136, label %_ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit, label %do.body.i.i124, !llvm.loop !46
 
 _ZN5eastl8internal21atomic_integral_widthIoLj16EEaNEo.exit: ; preds = %do.body.i.i124
-  %and17.i.i = and i64 %asmresult.i.i134, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %cmpxchgRet.i.i120)
-  %cmp117 = icmp ne i64 %and17.i.i, 0
+  %cmp117 = trunc i64 %asmresult.i.i134 to i1
   %call119 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp117, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull @.str, i32 noundef 2989, ptr noundef nonnull @.str.57)
   %61 = call noundef { i64, i64 } asm sideeffect "lock; cmpxchg16b $2", "={ax},={dx},=*m,{bx},{cx},{ax},{dx},*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i128) align 16 dereferenceable(16) %atomic111, i64 0, i64 0, i64 0, i64 0, ptr nonnull elementtype(i128) align 16 dereferenceable(16) %atomic111) #7, !srcloc !11
   %62 = extractvalue { i64, i64 } %61, 0

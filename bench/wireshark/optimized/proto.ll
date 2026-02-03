@@ -2956,9 +2956,8 @@ ptvcursor_tree.exit:                              ; preds = %4
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not58 = icmp eq i32 %65, 0
-  br i1 %.not58, label %proto_tree_add_text_node.exit, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %proto_tree_add_text_node.exit
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -3017,9 +3016,8 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
 proto_item_is_hidden.exit52:                      ; preds = %93
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %95 = load i32, ptr %94, align 4
-  %96 = and i32 %95, 1
-  %.not59 = icmp eq i32 %96, 0
-  br i1 %.not59, label %97, label %ptvcursor_tree.exit.thread
+  %96 = trunc i32 %95 to i1
+  br i1 %96, label %ptvcursor_tree.exit.thread, label %97
 
 97:                                               ; preds = %proto_item_is_hidden.exit52, %87
   call void @llvm.va_start.p0(ptr nonnull %7)
@@ -3195,9 +3193,8 @@ define internal fastcc void @proto_tree_set_representation(ptr noundef readonly 
 proto_item_is_hidden.exit:                        ; preds = %7
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 1
-  %.not22 = icmp eq i32 %10, 0
-  br i1 %.not22, label %11, label %proto_item_is_hidden.exit.thread
+  %10 = trunc i32 %9 to i1
+  br i1 %10, label %proto_item_is_hidden.exit.thread, label %11
 
 11:                                               ; preds = %proto_item_is_hidden.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3421,9 +3418,8 @@ define hidden noundef ptr @proto_tree_add_text_internal(ptr noundef %0, ptr noun
 proto_item_is_hidden.exit:                        ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 28
   %70 = load i32, ptr %69, align 4
-  %71 = and i32 %70, 1
-  %.not60 = icmp eq i32 %71, 0
-  br i1 %.not60, label %proto_tree_add_text_node.exit, label %proto_item_is_hidden.exit.thread
+  %71 = trunc i32 %70 to i1
+  br i1 %71, label %proto_item_is_hidden.exit.thread, label %proto_tree_add_text_node.exit
 
 proto_item_is_hidden.exit.thread:                 ; preds = %66, %proto_item_is_hidden.exit
   %72 = getelementptr inbounds nuw i8, ptr %38, i64 56
@@ -3478,9 +3474,8 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
 proto_item_is_hidden.exit56:                      ; preds = %95
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %97 = load i32, ptr %96, align 4
-  %98 = and i32 %97, 1
-  %.not61 = icmp eq i32 %98, 0
-  br i1 %.not61, label %99, label %proto_item_is_hidden.exit56.thread
+  %98 = trunc i32 %97 to i1
+  br i1 %98, label %proto_item_is_hidden.exit56.thread, label %99
 
 99:                                               ; preds = %proto_item_is_hidden.exit56, %89
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -3608,9 +3603,8 @@ define hidden noundef ptr @proto_tree_add_text_valist_internal(ptr noundef %0, p
 proto_item_is_hidden.exit:                        ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 1
-  %.not51 = icmp eq i32 %64, 0
-  br i1 %.not51, label %proto_tree_add_text_node.exit, label %proto_item_is_hidden.exit.thread
+  %64 = trunc i32 %63 to i1
+  br i1 %64, label %proto_item_is_hidden.exit.thread, label %proto_tree_add_text_node.exit
 
 proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_hidden.exit
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -3665,9 +3659,8 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
 proto_item_is_hidden.exit47:                      ; preds = %88
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %90 = load i32, ptr %89, align 4
-  %91 = and i32 %90, 1
-  %.not52 = icmp eq i32 %91, 0
-  br i1 %.not52, label %92, label %proto_item_is_hidden.exit47.thread
+  %91 = trunc i32 %90 to i1
+  br i1 %91, label %proto_item_is_hidden.exit47.thread, label %92
 
 92:                                               ; preds = %proto_item_is_hidden.exit47, %82
   tail call fastcc void @proto_tree_set_representation(ptr noundef %79, ptr noundef %4, ptr noundef %5)
@@ -3935,9 +3928,8 @@ define hidden noundef ptr @proto_tree_add_format_text(ptr noundef %0, ptr nounde
 proto_item_is_hidden.exit:                        ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 1
-  %.not53 = icmp eq i32 %62, 0
-  br i1 %.not53, label %proto_tree_add_text_node.exit, label %proto_item_is_hidden.exit.thread
+  %62 = trunc i32 %61 to i1
+  br i1 %62, label %proto_item_is_hidden.exit.thread, label %proto_tree_add_text_node.exit
 
 proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_hidden.exit
   %63 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -3992,9 +3984,8 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
 proto_item_is_hidden.exit49:                      ; preds = %86
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %88 = load i32, ptr %87, align 4
-  %89 = and i32 %88, 1
-  %.not54 = icmp eq i32 %89, 0
-  br i1 %.not54, label %90, label %proto_item_is_hidden.exit49.thread
+  %89 = trunc i32 %88 to i1
+  br i1 %89, label %proto_item_is_hidden.exit49.thread, label %90
 
 90:                                               ; preds = %proto_item_is_hidden.exit49, %80
   %91 = load ptr, ptr %8, align 8
@@ -4035,9 +4026,8 @@ define void @proto_item_set_text(ptr noundef readonly captures(address_is_null) 
 proto_item_is_hidden.exit:                        ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 1
-  %.not16 = icmp eq i32 %15, 0
-  br i1 %.not16, label %16, label %25
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %25, label %16
 
 16:                                               ; preds = %7, %proto_item_is_hidden.exit
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -4173,9 +4163,8 @@ define hidden noundef ptr @proto_tree_add_format_wsp_text(ptr noundef %0, ptr no
 proto_item_is_hidden.exit:                        ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 1
-  %.not54 = icmp eq i32 %62, 0
-  br i1 %.not54, label %proto_tree_add_text_node.exit, label %proto_item_is_hidden.exit.thread
+  %62 = trunc i32 %61 to i1
+  br i1 %62, label %proto_item_is_hidden.exit.thread, label %proto_tree_add_text_node.exit
 
 proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_hidden.exit
   %63 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -4230,9 +4219,8 @@ proto_tree_add_text_node.exit:                    ; preds = %proto_item_is_hidde
 proto_item_is_hidden.exit50:                      ; preds = %86
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %88 = load i32, ptr %87, align 4
-  %89 = and i32 %88, 1
-  %.not55 = icmp eq i32 %89, 0
-  br i1 %.not55, label %90, label %proto_item_is_hidden.exit50.thread
+  %89 = trunc i32 %88 to i1
+  br i1 %89, label %proto_item_is_hidden.exit50.thread, label %90
 
 90:                                               ; preds = %proto_item_is_hidden.exit50, %80
   %91 = tail call ptr @tvb_format_text_wsp(ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3)
@@ -4499,9 +4487,8 @@ ws_sign_ext32.exit:                               ; preds = %44, %47, %57
 proto_item_is_hidden.exit:                        ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 28
   %119 = load i32, ptr %118, align 4
-  %120 = and i32 %119, 1
-  %.not105 = icmp eq i32 %120, 0
-  br i1 %.not105, label %133, label %proto_item_is_hidden.exit.thread
+  %120 = trunc i32 %119 to i1
+  br i1 %120, label %proto_item_is_hidden.exit.thread, label %133
 
 proto_item_is_hidden.exit.thread:                 ; preds = %115, %proto_item_is_hidden.exit
   %121 = getelementptr inbounds nuw i8, ptr %87, i64 56
@@ -5296,9 +5283,8 @@ define noundef ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1,
 proto_item_is_hidden.exit:                        ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %115 = load i32, ptr %114, align 4
-  %116 = and i32 %115, 1
-  %.not110 = icmp eq i32 %116, 0
-  br i1 %.not110, label %129, label %proto_item_is_hidden.exit.thread
+  %116 = trunc i32 %115 to i1
+  br i1 %116, label %proto_item_is_hidden.exit.thread, label %129
 
 proto_item_is_hidden.exit.thread:                 ; preds = %111, %proto_item_is_hidden.exit
   %117 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -5811,9 +5797,8 @@ test_length.exit:                                 ; preds = %33, %49
 proto_item_is_hidden.exit:                        ; preds = %121
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 28
   %125 = load i32, ptr %124, align 4
-  %126 = and i32 %125, 1
-  %.not94 = icmp eq i32 %126, 0
-  br i1 %.not94, label %139, label %proto_item_is_hidden.exit.thread
+  %126 = trunc i32 %125 to i1
+  br i1 %126, label %proto_item_is_hidden.exit.thread, label %139
 
 proto_item_is_hidden.exit.thread:                 ; preds = %120, %121, %proto_item_is_hidden.exit
   %127 = getelementptr inbounds nuw i8, ptr %88, i64 56
@@ -7161,8 +7146,8 @@ test_length.exit:                                 ; preds = %34, %50
   %63 = trunc nuw nsw i64 %62 to i32
   %64 = ashr i32 %60, %63
   store i32 %64, ptr %4, align 4
-  %.pre102 = load i64, ptr %56, align 8
-  %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.pre102)
+  %.pre101 = load i64, ptr %56, align 8
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.pre101)
   %66 = trunc nuw nsw i64 %65 to i32
   %67 = and i32 %66, 95
   %or.cond.i94 = icmp eq i32 %67, 0
@@ -7287,9 +7272,8 @@ ws_sign_ext32.exit:                               ; preds = %55, %58, %68
 proto_item_is_hidden.exit:                        ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 28
   %135 = load i32, ptr %134, align 4
-  %136 = and i32 %135, 1
-  %.not101 = icmp eq i32 %136, 0
-  br i1 %.not101, label %149, label %proto_item_is_hidden.exit.thread
+  %136 = trunc i32 %135 to i1
+  br i1 %136, label %proto_item_is_hidden.exit.thread, label %149
 
 proto_item_is_hidden.exit.thread:                 ; preds = %130, %131, %proto_item_is_hidden.exit
   %137 = getelementptr inbounds nuw i8, ptr %98, i64 56
@@ -7609,9 +7593,8 @@ get_stringztrunc_value.exit:                      ; preds = %69, %73
 proto_item_is_hidden.exit:                        ; preds = %142
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 28
   %146 = load i32, ptr %145, align 4
-  %147 = and i32 %146, 1
-  %.not109 = icmp eq i32 %147, 0
-  br i1 %.not109, label %160, label %proto_item_is_hidden.exit.thread
+  %147 = trunc i32 %146 to i1
+  br i1 %147, label %proto_item_is_hidden.exit.thread, label %160
 
 proto_item_is_hidden.exit.thread:                 ; preds = %141, %142, %proto_item_is_hidden.exit
   %148 = getelementptr inbounds nuw i8, ptr %109, i64 56
@@ -7949,9 +7932,8 @@ get_uint64_value.exit:                            ; preds = %test_length.exit, %
 proto_item_is_hidden.exit:                        ; preds = %137
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %141 = load i32, ptr %140, align 4
-  %142 = and i32 %141, 1
-  %.not109 = icmp eq i32 %142, 0
-  br i1 %.not109, label %155, label %proto_item_is_hidden.exit.thread
+  %142 = trunc i32 %141 to i1
+  br i1 %142, label %proto_item_is_hidden.exit.thread, label %155
 
 proto_item_is_hidden.exit.thread:                 ; preds = %136, %137, %proto_item_is_hidden.exit
   %143 = getelementptr inbounds nuw i8, ptr %104, i64 56
@@ -8243,9 +8225,8 @@ get_uint64_value.exit:                            ; preds = %45, %report_type_le
 proto_item_is_hidden.exit:                        ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %115 = load i32, ptr %114, align 4
-  %116 = and i32 %115, 1
-  %.not107 = icmp eq i32 %116, 0
-  br i1 %.not107, label %129, label %proto_item_is_hidden.exit.thread
+  %116 = trunc i32 %115 to i1
+  br i1 %116, label %proto_item_is_hidden.exit.thread, label %129
 
 proto_item_is_hidden.exit.thread:                 ; preds = %111, %proto_item_is_hidden.exit
   %117 = getelementptr inbounds nuw i8, ptr %83, i64 56
@@ -8611,9 +8592,8 @@ define noundef ptr @proto_tree_add_item_ret_int64(ptr noundef %0, i32 noundef %1
 proto_item_is_hidden.exit:                        ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 28
   %106 = load i32, ptr %105, align 4
-  %107 = and i32 %106, 1
-  %.not100 = icmp eq i32 %107, 0
-  br i1 %.not100, label %120, label %proto_item_is_hidden.exit.thread
+  %107 = trunc i32 %106 to i1
+  br i1 %107, label %proto_item_is_hidden.exit.thread, label %120
 
 proto_item_is_hidden.exit.thread:                 ; preds = %102, %proto_item_is_hidden.exit
   %108 = getelementptr inbounds nuw i8, ptr %74, i64 56
@@ -9102,9 +9082,8 @@ define noundef ptr @proto_tree_add_item_ret_varint(ptr noundef %0, i32 noundef %
 proto_item_is_hidden.exit:                        ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 28
   %110 = load i32, ptr %109, align 4
-  %111 = and i32 %110, 1
-  %.not116 = icmp eq i32 %111, 0
-  br i1 %.not116, label %124, label %proto_item_is_hidden.exit.thread
+  %111 = trunc i32 %110 to i1
+  br i1 %111, label %proto_item_is_hidden.exit.thread, label %124
 
 proto_item_is_hidden.exit.thread:                 ; preds = %106, %proto_item_is_hidden.exit
   %112 = getelementptr inbounds nuw i8, ptr %78, i64 56
@@ -9359,9 +9338,8 @@ get_uint64_value.exit:                            ; preds = %39, %report_type_le
 proto_item_is_hidden.exit:                        ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 28
   %105 = load i32, ptr %104, align 4
-  %106 = and i32 %105, 1
-  %.not99 = icmp eq i32 %106, 0
-  br i1 %.not99, label %119, label %proto_item_is_hidden.exit.thread
+  %106 = trunc i32 %105 to i1
+  br i1 %106, label %proto_item_is_hidden.exit.thread, label %119
 
 proto_item_is_hidden.exit.thread:                 ; preds = %101, %proto_item_is_hidden.exit
   %107 = getelementptr inbounds nuw i8, ptr %73, i64 56
@@ -9590,9 +9568,8 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 proto_item_is_hidden.exit:                        ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 1
-  %.not71 = icmp eq i32 %97, 0
-  br i1 %.not71, label %110, label %proto_item_is_hidden.exit.thread
+  %97 = trunc i32 %96 to i1
+  br i1 %97, label %proto_item_is_hidden.exit.thread, label %110
 
 proto_item_is_hidden.exit.thread:                 ; preds = %92, %proto_item_is_hidden.exit
   %98 = getelementptr inbounds nuw i8, ptr %64, i64 56
@@ -9848,9 +9825,8 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 proto_item_is_hidden.exit:                        ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 1
-  %.not71 = icmp eq i32 %97, 0
-  br i1 %.not71, label %110, label %proto_item_is_hidden.exit.thread
+  %97 = trunc i32 %96 to i1
+  br i1 %97, label %proto_item_is_hidden.exit.thread, label %110
 
 proto_item_is_hidden.exit.thread:                 ; preds = %92, %proto_item_is_hidden.exit
   %98 = getelementptr inbounds nuw i8, ptr %64, i64 56
@@ -10099,9 +10075,8 @@ define noundef ptr @proto_tree_add_item_ret_ipv4(ptr noundef %0, i32 noundef %1,
 proto_item_is_hidden.exit:                        ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 28
   %99 = load i32, ptr %98, align 4
-  %100 = and i32 %99, 1
-  %.not95 = icmp eq i32 %100, 0
-  br i1 %.not95, label %113, label %proto_item_is_hidden.exit.thread
+  %100 = trunc i32 %99 to i1
+  br i1 %100, label %proto_item_is_hidden.exit.thread, label %113
 
 proto_item_is_hidden.exit.thread:                 ; preds = %95, %proto_item_is_hidden.exit
   %101 = getelementptr inbounds nuw i8, ptr %67, i64 56
@@ -10325,9 +10300,8 @@ proto_registrar_get_nth.exit:                     ; preds = %19
 proto_item_is_hidden.exit:                        ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %90 = load i32, ptr %89, align 4
-  %91 = and i32 %90, 1
-  %.not62 = icmp eq i32 %91, 0
-  br i1 %.not62, label %104, label %proto_item_is_hidden.exit.thread
+  %91 = trunc i32 %90 to i1
+  br i1 %91, label %proto_item_is_hidden.exit.thread, label %104
 
 proto_item_is_hidden.exit.thread:                 ; preds = %86, %proto_item_is_hidden.exit
   %92 = getelementptr inbounds nuw i8, ptr %58, i64 56
@@ -10555,9 +10529,8 @@ proto_registrar_get_nth.exit:                     ; preds = %18
 proto_item_is_hidden.exit:                        ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %90 = load i32, ptr %89, align 4
-  %91 = and i32 %90, 1
-  %.not62 = icmp eq i32 %91, 0
-  br i1 %.not62, label %104, label %proto_item_is_hidden.exit.thread
+  %91 = trunc i32 %90 to i1
+  br i1 %91, label %proto_item_is_hidden.exit.thread, label %104
 
 proto_item_is_hidden.exit.thread:                 ; preds = %86, %proto_item_is_hidden.exit
   %92 = getelementptr inbounds nuw i8, ptr %58, i64 56
@@ -10854,9 +10827,8 @@ get_stringztrunc_value.exit:                      ; preds = %58, %60
 proto_item_is_hidden.exit:                        ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 28
   %124 = load i32, ptr %123, align 4
-  %125 = and i32 %124, 1
-  %.not120 = icmp eq i32 %125, 0
-  br i1 %.not120, label %138, label %proto_item_is_hidden.exit.thread
+  %125 = trunc i32 %124 to i1
+  br i1 %125, label %proto_item_is_hidden.exit.thread, label %138
 
 proto_item_is_hidden.exit.thread:                 ; preds = %120, %proto_item_is_hidden.exit
   %126 = getelementptr inbounds nuw i8, ptr %92, i64 56
@@ -11272,9 +11244,8 @@ get_stringztrunc_value.exit:                      ; preds = %74, %76
 proto_item_is_hidden.exit:                        ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 28
   %151 = load i32, ptr %150, align 4
-  %152 = and i32 %151, 1
-  %.not197 = icmp eq i32 %152, 0
-  br i1 %.not197, label %165, label %proto_item_is_hidden.exit.thread
+  %152 = trunc i32 %151 to i1
+  br i1 %152, label %proto_item_is_hidden.exit.thread, label %165
 
 proto_item_is_hidden.exit.thread:                 ; preds = %147, %proto_item_is_hidden.exit
   %153 = getelementptr inbounds nuw i8, ptr %119, i64 56
@@ -11638,9 +11609,8 @@ define noundef ptr @proto_tree_add_item_ret_time_string(ptr noundef %0, i32 noun
 proto_item_is_hidden.exit:                        ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %97 = load i32, ptr %96, align 4
-  %98 = and i32 %97, 1
-  %.not91 = icmp eq i32 %98, 0
-  br i1 %.not91, label %111, label %proto_item_is_hidden.exit.thread
+  %98 = trunc i32 %97 to i1
+  br i1 %98, label %proto_item_is_hidden.exit.thread, label %111
 
 proto_item_is_hidden.exit.thread:                 ; preds = %93, %proto_item_is_hidden.exit
   %99 = getelementptr inbounds nuw i8, ptr %65, i64 56
@@ -12852,9 +12822,8 @@ test_length.exit:                                 ; preds = %26, %43
 proto_item_is_hidden.exit:                        ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 28
   %105 = load i32, ptr %104, align 4
-  %106 = and i32 %105, 1
-  %.not74 = icmp eq i32 %106, 0
-  br i1 %.not74, label %119, label %proto_item_is_hidden.exit.thread
+  %106 = trunc i32 %105 to i1
+  br i1 %106, label %proto_item_is_hidden.exit.thread, label %119
 
 proto_item_is_hidden.exit.thread:                 ; preds = %100, %101, %proto_item_is_hidden.exit
   %107 = getelementptr inbounds nuw i8, ptr %68, i64 56
@@ -13065,9 +13034,8 @@ test_length.exit:                                 ; preds = %10, %24
 proto_item_is_hidden.exit:                        ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 28
   %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, 1
-  %.not60 = icmp eq i32 %81, 0
-  br i1 %.not60, label %94, label %proto_item_is_hidden.exit.thread
+  %81 = trunc i32 %80 to i1
+  br i1 %81, label %proto_item_is_hidden.exit.thread, label %94
 
 proto_item_is_hidden.exit.thread:                 ; preds = %76, %proto_item_is_hidden.exit
   %82 = getelementptr inbounds nuw i8, ptr %48, i64 56
@@ -13337,9 +13305,8 @@ test_length.exit:                                 ; preds = %11, %25
 proto_item_is_hidden.exit:                        ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %89 = load i32, ptr %88, align 4
-  %90 = and i32 %89, 1
-  %.not77 = icmp eq i32 %90, 0
-  br i1 %.not77, label %105, label %proto_item_is_hidden.exit.thread
+  %90 = trunc i32 %89 to i1
+  br i1 %90, label %proto_item_is_hidden.exit.thread, label %105
 
 proto_item_is_hidden.exit.thread:                 ; preds = %85, %proto_item_is_hidden.exit
   %91 = getelementptr inbounds nuw i8, ptr %52, i64 56
@@ -13733,9 +13700,8 @@ validate_proto_tree_add_bytes_ftype.exit:         ; preds = %29
 proto_item_is_hidden.exit:                        ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 28
   %143 = load i32, ptr %142, align 4
-  %144 = and i32 %143, 1
-  %.not192 = icmp eq i32 %144, 0
-  br i1 %.not192, label %160, label %proto_item_is_hidden.exit.thread
+  %144 = trunc i32 %143 to i1
+  br i1 %144, label %proto_item_is_hidden.exit.thread, label %160
 
 proto_item_is_hidden.exit.thread:                 ; preds = %139, %proto_item_is_hidden.exit
   %145 = getelementptr inbounds nuw i8, ptr %105, i64 56
@@ -14108,9 +14074,8 @@ define noundef ptr @proto_tree_add_time_item(ptr noundef %0, i32 noundef %1, ptr
 proto_item_is_hidden.exit:                        ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 28
   %117 = load i32, ptr %116, align 4
-  %118 = and i32 %117, 1
-  %.not131 = icmp eq i32 %118, 0
-  br i1 %.not131, label %131, label %proto_item_is_hidden.exit.thread
+  %118 = trunc i32 %117 to i1
+  br i1 %118, label %proto_item_is_hidden.exit.thread, label %131
 
 proto_item_is_hidden.exit.thread:                 ; preds = %113, %proto_item_is_hidden.exit
   %119 = getelementptr inbounds nuw i8, ptr %85, i64 56
@@ -14287,9 +14252,8 @@ define noundef ptr @proto_tree_add_none_format(ptr noundef %0, i32 noundef %1, p
 proto_item_is_hidden.exit:                        ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 1
-  %.not57 = icmp eq i32 %64, 0
-  br i1 %.not57, label %77, label %proto_item_is_hidden.exit.thread
+  %64 = trunc i32 %63 to i1
+  br i1 %64, label %proto_item_is_hidden.exit.thread, label %77
 
 proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_hidden.exit
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -14353,9 +14317,8 @@ proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_
 proto_item_is_hidden.exit53:                      ; preds = %96
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 28
   %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, 1
-  %.not58 = icmp eq i32 %99, 0
-  br i1 %.not58, label %100, label %proto_item_is_hidden.exit53.thread
+  %99 = trunc i32 %98 to i1
+  br i1 %99, label %proto_item_is_hidden.exit53.thread, label %100
 
 100:                                              ; preds = %proto_item_is_hidden.exit53, %90
   call void @llvm.va_start.p0(ptr nonnull %9)
@@ -14486,9 +14449,8 @@ define noundef ptr @proto_tree_add_protocol_format(ptr noundef %0, i32 noundef %
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not69 = icmp eq i32 %65, 0
-  br i1 %.not69, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -14580,9 +14542,8 @@ proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_
 proto_item_is_hidden.exit65:                      ; preds = %108
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 28
   %110 = load i32, ptr %109, align 4
-  %111 = and i32 %110, 1
-  %.not70 = icmp eq i32 %111, 0
-  br i1 %.not70, label %112, label %proto_item_is_hidden.exit65.thread
+  %111 = trunc i32 %110 to i1
+  br i1 %111, label %proto_item_is_hidden.exit65.thread, label %112
 
 112:                                              ; preds = %proto_item_is_hidden.exit65, %102
   call void @llvm.va_start.p0(ptr nonnull %10)
@@ -14756,9 +14717,8 @@ test_length.exit:                                 ; preds = %27, %28
 proto_item_is_hidden.exit:                        ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, 1
-  %.not67 = icmp eq i32 %83, 0
-  br i1 %.not67, label %96, label %proto_item_is_hidden.exit.thread
+  %83 = trunc i32 %82 to i1
+  br i1 %83, label %proto_item_is_hidden.exit.thread, label %96
 
 proto_item_is_hidden.exit.thread:                 ; preds = %78, %proto_item_is_hidden.exit
   %84 = getelementptr inbounds nuw i8, ptr %50, i64 56
@@ -14989,9 +14949,8 @@ test_length.exit:                                 ; preds = %28, %29
 proto_item_is_hidden.exit:                        ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %83 = load i32, ptr %82, align 4
-  %84 = and i32 %83, 1
-  %.not68 = icmp eq i32 %84, 0
-  br i1 %.not68, label %97, label %proto_item_is_hidden.exit.thread
+  %84 = trunc i32 %83 to i1
+  br i1 %84, label %proto_item_is_hidden.exit.thread, label %97
 
 proto_item_is_hidden.exit.thread:                 ; preds = %79, %proto_item_is_hidden.exit
   %85 = getelementptr inbounds nuw i8, ptr %51, i64 56
@@ -15101,9 +15060,8 @@ define noundef ptr @proto_tree_add_bytes_format_value(ptr noundef %0, i32 nounde
 proto_item_is_hidden.exit:                        ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 1
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %28, label %29
+  %27 = trunc i32 %26 to i1
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %proto_item_is_hidden.exit, %19
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -15138,9 +15096,8 @@ define internal fastcc void @proto_tree_set_representation_value(ptr noundef rea
 proto_item_is_hidden.exit:                        ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 1
-  %.not69 = icmp eq i32 %15, 0
-  br i1 %.not69, label %.thread, label %proto_item_is_hidden.exit.thread
+  %15 = trunc i32 %14 to i1
+  br i1 %15, label %proto_item_is_hidden.exit.thread, label %.thread
 
 16:                                               ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -15435,9 +15392,8 @@ define noundef ptr @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %1, 
 proto_item_is_hidden.exit:                        ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 1
-  %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %28, label %29
+  %27 = trunc i32 %26 to i1
+  br i1 %27, label %29, label %28
 
 28:                                               ; preds = %proto_item_is_hidden.exit, %19
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -15555,9 +15511,8 @@ define noundef ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %1, ptr noun
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not51 = icmp eq i32 %63, 0
-  br i1 %.not51, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -15670,9 +15625,8 @@ define noundef ptr @proto_tree_add_time_format(ptr noundef %0, i32 noundef %1, p
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -15790,9 +15744,8 @@ define noundef ptr @proto_tree_add_ipxnet(ptr noundef %0, i32 noundef %1, ptr no
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -15896,9 +15849,8 @@ define noundef ptr @proto_tree_add_ipxnet_format(ptr noundef %0, i32 noundef %1,
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -16017,9 +15969,8 @@ define noundef ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %1, ptr noun
 proto_item_is_hidden.exit:                        ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 1
-  %.not46 = icmp eq i32 %64, 0
-  br i1 %.not46, label %77, label %proto_item_is_hidden.exit.thread
+  %64 = trunc i32 %63 to i1
+  br i1 %64, label %proto_item_is_hidden.exit.thread, label %77
 
 proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_hidden.exit
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -16126,9 +16077,8 @@ define noundef ptr @proto_tree_add_ipv4_format(ptr noundef %0, i32 noundef %1, p
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -16247,9 +16197,8 @@ define noundef ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %1, ptr noun
 proto_item_is_hidden.exit:                        ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 1
-  %.not47 = icmp eq i32 %64, 0
-  br i1 %.not47, label %77, label %proto_item_is_hidden.exit.thread
+  %64 = trunc i32 %63 to i1
+  br i1 %64, label %proto_item_is_hidden.exit.thread, label %77
 
 proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_hidden.exit
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -16366,9 +16315,8 @@ define noundef ptr @proto_tree_add_ipv6_format(ptr noundef %0, i32 noundef %1, p
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -16486,9 +16434,8 @@ define noundef ptr @proto_tree_add_guid(ptr noundef %0, i32 noundef %1, ptr noun
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not47 = icmp eq i32 %63, 0
-  br i1 %.not47, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -16600,9 +16547,8 @@ define noundef ptr @proto_tree_add_guid_format(ptr noundef %0, i32 noundef %1, p
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -16720,9 +16666,8 @@ define noundef ptr @proto_tree_add_oid(ptr noundef %0, i32 noundef %1, ptr nound
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -16846,9 +16791,8 @@ define noundef ptr @proto_tree_add_oid_format(ptr noundef %0, i32 noundef %1, pt
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -17017,9 +16961,8 @@ test_length.exit:                                 ; preds = %29, %27
 proto_item_is_hidden.exit:                        ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %82 = load i32, ptr %81, align 4
-  %83 = and i32 %82, 1
-  %.not77 = icmp eq i32 %83, 0
-  br i1 %.not77, label %96, label %proto_item_is_hidden.exit.thread
+  %83 = trunc i32 %82 to i1
+  br i1 %83, label %proto_item_is_hidden.exit.thread, label %96
 
 proto_item_is_hidden.exit.thread:                 ; preds = %78, %proto_item_is_hidden.exit
   %84 = getelementptr inbounds nuw i8, ptr %50, i64 56
@@ -17141,9 +17084,8 @@ define noundef ptr @proto_tree_add_string_format(ptr noundef %0, i32 noundef %1,
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -17261,9 +17203,8 @@ define noundef ptr @proto_tree_add_ether(ptr noundef %0, i32 noundef %1, ptr nou
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -17367,9 +17308,8 @@ define noundef ptr @proto_tree_add_ether_format(ptr noundef %0, i32 noundef %1, 
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -17487,9 +17427,8 @@ define noundef ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr n
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -17591,9 +17530,8 @@ define noundef ptr @proto_tree_add_boolean_format(ptr noundef %0, i32 noundef %1
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -17711,9 +17649,8 @@ define noundef ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %1, ptr nou
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -17818,9 +17755,8 @@ define noundef ptr @proto_tree_add_float_format(ptr noundef %0, i32 noundef %1, 
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -17938,9 +17874,8 @@ define noundef ptr @proto_tree_add_double(ptr noundef %0, i32 noundef %1, ptr no
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -18044,9 +17979,8 @@ define noundef ptr @proto_tree_add_double_format(ptr noundef %0, i32 noundef %1,
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -18164,9 +18098,8 @@ define noundef ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %1, ptr noun
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -18274,9 +18207,8 @@ define noundef ptr @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %1, p
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -18394,9 +18326,8 @@ define noundef ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr no
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not46 = icmp eq i32 %63, 0
-  br i1 %.not46, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -18503,9 +18434,8 @@ define noundef ptr @proto_tree_add_uint64_format(ptr noundef %0, i32 noundef %1,
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -18623,9 +18553,8 @@ define noundef ptr @proto_tree_add_int(ptr noundef %0, i32 noundef %1, ptr nound
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not48 = icmp eq i32 %63, 0
-  br i1 %.not48, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -18728,9 +18657,8 @@ define noundef ptr @proto_tree_add_int_format(ptr noundef %0, i32 noundef %1, pt
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -18848,9 +18776,8 @@ define noundef ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr nou
 proto_item_is_hidden.exit:                        ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %62 = load i32, ptr %61, align 4
-  %63 = and i32 %62, 1
-  %.not48 = icmp eq i32 %63, 0
-  br i1 %.not48, label %76, label %proto_item_is_hidden.exit.thread
+  %63 = trunc i32 %62 to i1
+  br i1 %63, label %proto_item_is_hidden.exit.thread, label %76
 
 proto_item_is_hidden.exit.thread:                 ; preds = %58, %proto_item_is_hidden.exit
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -18953,9 +18880,8 @@ define noundef ptr @proto_tree_add_int64_format(ptr noundef %0, i32 noundef %1, 
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -19074,9 +19000,8 @@ define noundef ptr @proto_tree_add_eui64(ptr noundef %0, i32 noundef %1, ptr nou
 proto_item_is_hidden.exit:                        ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = and i32 %63, 1
-  %.not46 = icmp eq i32 %64, 0
-  br i1 %.not46, label %77, label %proto_item_is_hidden.exit.thread
+  %64 = trunc i32 %63 to i1
+  br i1 %64, label %proto_item_is_hidden.exit.thread, label %77
 
 proto_item_is_hidden.exit.thread:                 ; preds = %59, %proto_item_is_hidden.exit
   %65 = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -19212,9 +19137,8 @@ define noundef ptr @proto_tree_add_eui64_format(ptr noundef %0, i32 noundef %1, 
 proto_item_is_hidden.exit:                        ; preds = %19
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 1
-  %.not18 = icmp eq i32 %22, 0
-  br i1 %.not18, label %23, label %proto_item_is_hidden.exit.thread
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %proto_item_is_hidden.exit.thread, label %23
 
 23:                                               ; preds = %proto_item_is_hidden.exit, %13
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -23937,13 +23861,12 @@ define void @proto_item_append_text(ptr noundef readonly captures(address_is_nul
   %12 = trunc nuw i8 %11 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %13 = and i32 %.pre, 1
-  %.not42 = icmp eq i32 %13, 0
-  %or.cond = select i1 %12, i1 true, i1 %.not42
-  %14 = and i32 %.pre, 1
-  %.not43 = icmp eq i32 %14, 0
-  %or.cond47 = select i1 %or.cond, i1 %.not43, i1 false
-  br i1 %or.cond47, label %15, label %62
+  %.not45 = xor i1 %12, true
+  %13 = trunc i32 %.pre to i1
+  %or.cond = select i1 %.not45, i1 %13, i1 false
+  %14 = trunc i32 %.pre to i1
+  %or.cond46 = select i1 %or.cond, i1 true, i1 %14
+  br i1 %or.cond46, label %62, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -23969,8 +23892,8 @@ define void @proto_item_append_text(ptr noundef readonly captures(address_is_nul
 
 sub_0:                                            ; preds = %19
   %29 = load i8, ptr %1, align 1
-  %.not44 = icmp eq i8 %29, 58
-  br i1 %.not44, label %.tail, label %.tail.thread
+  %.not42 = icmp eq i8 %29, 58
+  br i1 %.not42, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -24109,13 +24032,12 @@ define void @proto_item_prepend_text(ptr noundef readonly captures(address_is_nu
   %13 = trunc nuw i8 %12 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %14 = and i32 %.pre, 1
-  %.not35 = icmp eq i32 %14, 0
-  %or.cond = select i1 %13, i1 true, i1 %.not35
-  %15 = and i32 %.pre, 1
-  %.not36 = icmp eq i32 %15, 0
-  %or.cond40 = select i1 %or.cond, i1 %.not36, i1 false
-  br i1 %or.cond40, label %16, label %64
+  %.not38 = xor i1 %13, true
+  %14 = trunc i32 %.pre to i1
+  %or.cond = select i1 %.not38, i1 %14, i1 false
+  %15 = trunc i32 %.pre to i1
+  %or.cond39 = select i1 %or.cond, i1 true, i1 %15
+  br i1 %or.cond39, label %64, label %16
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -32386,9 +32308,8 @@ test_length.exit:                                 ; preds = %27, %43
 proto_item_is_hidden.exit:                        ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %93 = load i32, ptr %92, align 4
-  %94 = and i32 %93, 1
-  %.not66 = icmp eq i32 %94, 0
-  br i1 %.not66, label %107, label %proto_item_is_hidden.exit.thread
+  %94 = trunc i32 %93 to i1
+  br i1 %94, label %proto_item_is_hidden.exit.thread, label %107
 
 proto_item_is_hidden.exit.thread:                 ; preds = %89, %proto_item_is_hidden.exit
   %95 = getelementptr inbounds nuw i8, ptr %61, i64 56
@@ -32650,9 +32571,8 @@ _proto_tree_add_bits_ret_val.exit.thread:         ; preds = %70
 proto_item_is_hidden.exit.i:                      ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %120 = load i32, ptr %119, align 4
-  %121 = and i32 %120, 1
-  %.not158.i = icmp eq i32 %121, 0
-  br i1 %.not158.i, label %134, label %proto_item_is_hidden.exit.thread.i
+  %121 = trunc i32 %120 to i1
+  br i1 %121, label %proto_item_is_hidden.exit.thread.i, label %134
 
 proto_item_is_hidden.exit.thread.i:               ; preds = %proto_item_is_hidden.exit.i, %116
   %122 = getelementptr inbounds nuw i8, ptr %88, i64 56
@@ -32889,27 +32809,27 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %34 = and i32 %3, 7
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %36 = load i8, ptr %35, align 4
-  %.not165192 = icmp eq i8 %36, 0
-  br i1 %.not165192, label %ws_sign_ext64.exit, label %.lr.ph
+  %.not165191 = icmp eq i8 %36, 0
+  br i1 %.not165191, label %ws_sign_ext64.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %68
   %37 = phi i8 [ %73, %68 ], [ %36, %33 ]
   %38 = phi ptr [ %72, %68 ], [ %35, %33 ]
   %39 = phi ptr [ %71, %68 ], [ %4, %33 ]
-  %.0143198 = phi i32 [ %47, %68 ], [ 0, %33 ]
-  %.0144197 = phi i64 [ %.1, %68 ], [ 0, %33 ]
-  %.0145196 = phi i64 [ %.1146, %68 ], [ 0, %33 ]
-  %.0147195 = phi i64 [ %75, %68 ], [ 0, %33 ]
-  %.0149194 = phi i8 [ %69, %68 ], [ 0, %33 ]
-  %.0150193 = phi i32 [ %.1151, %68 ], [ 0, %33 ]
+  %.0143197 = phi i32 [ %47, %68 ], [ 0, %33 ]
+  %.0144196 = phi i64 [ %.1, %68 ], [ 0, %33 ]
+  %.0145195 = phi i64 [ %.1146, %68 ], [ 0, %33 ]
+  %.0147194 = phi i64 [ %75, %68 ], [ 0, %33 ]
+  %.0149193 = phi i8 [ %69, %68 ], [ 0, %33 ]
+  %.0150192 = phi i32 [ %.1151, %68 ], [ 0, %33 ]
   %40 = zext i8 %37 to i32
   %41 = load i32, ptr %39, align 4
   %42 = add i32 %41, %3
   %43 = tail call i64 @tvb_get_bits64(ptr noundef %2, i32 noundef %42, i32 noundef %40, i32 noundef 0)
-  %44 = add i64 %43, %.0147195
+  %44 = add i64 %43, %.0147194
   %45 = load i8, ptr %38, align 4
   %46 = zext i8 %45 to i32
-  %47 = add nuw nsw i32 %.0143198, %46
+  %47 = add nuw nsw i32 %.0143197, %46
   %48 = icmp samesign ult i32 %47, 65
   br i1 %48, label %50, label %49
 
@@ -32918,7 +32838,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   unreachable
 
 50:                                               ; preds = %.lr.ph
-  %51 = icmp ult i32 %.0150193, 32
+  %51 = icmp ult i32 %.0150192, 32
   br i1 %51, label %52, label %68
 
 52:                                               ; preds = %50
@@ -32927,7 +32847,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %55 = trunc i32 %54 to i8
   %56 = add i8 %45, %55
   %57 = zext i8 %56 to i32
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %.0150193, i32 %57)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.0150192, i32 %57)
   %58 = icmp ult i8 %56, 33
   br i1 %58, label %59, label %68
 
@@ -32938,16 +32858,16 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %62 = sub nuw nsw i32 64, %57
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %61, %63
-  %65 = or i64 %64, %.0145196
+  %65 = or i64 %64, %.0145195
   %66 = shl i64 %43, %63
-  %67 = or i64 %66, %.0144197
+  %67 = or i64 %66, %.0144196
   br label %68
 
 68:                                               ; preds = %52, %59, %50
-  %.1151 = phi i32 [ %spec.select, %59 ], [ %spec.select, %52 ], [ %.0150193, %50 ]
-  %.1146 = phi i64 [ %65, %59 ], [ %.0145196, %52 ], [ %.0145196, %50 ]
-  %.1 = phi i64 [ %67, %59 ], [ %.0144197, %52 ], [ %.0144197, %50 ]
-  %69 = add i8 %.0149194, 1
+  %.1151 = phi i32 [ %spec.select, %59 ], [ %spec.select, %52 ], [ %.0150192, %50 ]
+  %.1146 = phi i64 [ %65, %59 ], [ %.0145195, %52 ], [ %.0145195, %50 ]
+  %.1 = phi i64 [ %67, %59 ], [ %.0144196, %52 ], [ %.0144196, %50 ]
+  %69 = add i8 %.0149193, 1
   %70 = zext i8 %69 to i64
   %71 = getelementptr %struct.crumb_spec_t, ptr %4, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -32981,10 +32901,10 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   br label %ws_sign_ext64.exit
 
 ws_sign_ext64.exit:                               ; preds = %33, %81, %._crit_edge
-  %.0143.lcssa234 = phi i32 [ %47, %._crit_edge ], [ %47, %81 ], [ 0, %33 ]
-  %.0144.lcssa233 = phi i64 [ %.1, %._crit_edge ], [ %.1, %81 ], [ 0, %33 ]
-  %.0145.lcssa232 = phi i64 [ %.1146, %._crit_edge ], [ %.1146, %81 ], [ 0, %33 ]
-  %.0150.lcssa231 = phi i32 [ %76, %._crit_edge ], [ %76, %81 ], [ 7, %33 ]
+  %.0143.lcssa233 = phi i32 [ %47, %._crit_edge ], [ %47, %81 ], [ 0, %33 ]
+  %.0144.lcssa232 = phi i64 [ %.1, %._crit_edge ], [ %.1, %81 ], [ 0, %33 ]
+  %.0145.lcssa231 = phi i64 [ %.1146, %._crit_edge ], [ %.1146, %81 ], [ 0, %33 ]
+  %.0150.lcssa230 = phi i32 [ %76, %._crit_edge ], [ %76, %81 ], [ 7, %33 ]
   %.1148 = phi i64 [ %75, %._crit_edge ], [ %.010.i, %81 ], [ 0, %33 ]
   %.not166 = icmp eq ptr %5, null
   br i1 %.not166, label %90, label %89
@@ -33082,9 +33002,8 @@ ws_sign_ext64.exit:                               ; preds = %33, %81, %._crit_ed
 proto_item_is_hidden.exit:                        ; preds = %136
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 28
   %140 = load i32, ptr %139, align 4
-  %141 = and i32 %140, 1
-  %.not186 = icmp eq i32 %141, 0
-  br i1 %.not186, label %154, label %proto_item_is_hidden.exit.thread
+  %141 = trunc i32 %140 to i1
+  br i1 %141, label %proto_item_is_hidden.exit.thread, label %154
 
 proto_item_is_hidden.exit.thread:                 ; preds = %136, %proto_item_is_hidden.exit
   %142 = getelementptr inbounds nuw i8, ptr %108, i64 56
@@ -33112,8 +33031,8 @@ proto_item_is_hidden.exit.thread:                 ; preds = %136, %proto_item_is
 154:                                              ; preds = %proto_item_is_hidden.exit.thread, %proto_item_is_hidden.exit, %148, %132
   store i8 0, ptr %7, align 16
   %155 = lshr i32 %3, 3
-  %156 = lshr i32 %.0150.lcssa231, 3
-  %157 = and i32 %.0150.lcssa231, -8
+  %156 = lshr i32 %.0150.lcssa230, 3
+  %157 = and i32 %.0150.lcssa230, -8
   %158 = add nsw i32 %157, -1
   %or.cond7 = icmp ult i32 %158, 32
   br i1 %or.cond7, label %159, label %177
@@ -33121,35 +33040,35 @@ proto_item_is_hidden.exit.thread:                 ; preds = %136, %proto_item_is
 159:                                              ; preds = %154
   %160 = sub nuw nsw i32 64, %157
   %161 = zext nneg i32 %160 to i64
-  %162 = lshr i64 %.0144.lcssa233, %161
-  %163 = lshr i64 %.0145.lcssa232, %161
+  %162 = lshr i64 %.0144.lcssa232, %161
+  %163 = lshr i64 %.0145.lcssa231, %161
   %164 = zext nneg i32 %158 to i64
   %165 = shl nuw nsw i64 1, %164
-  %.not.i181203 = icmp sgt i64 %.0145.lcssa232, -1
-  %.not21.i204 = icmp sgt i64 %.0144.lcssa233, -1
-  %..i205 = select i1 %.not21.i204, i8 48, i8 49
-  %.sink.i206 = select i1 %.not.i181203, i8 46, i8 %..i205
-  store i8 %.sink.i206, ptr %7, align 16
-  %.1.i207 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.not.i181202 = icmp sgt i64 %.0145.lcssa231, -1
+  %.not21.i203 = icmp sgt i64 %.0144.lcssa232, -1
+  %..i204 = select i1 %.not21.i203, i8 48, i8 49
+  %.sink.i205 = select i1 %.not.i181202, i8 46, i8 %..i204
+  store i8 %.sink.i205, ptr %7, align 16
+  %.1.i206 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %166
 
 166:                                              ; preds = %159, %173
   %167 = phi i32 [ 1, %159 ], [ %176, %173 ]
   %.in = phi i64 [ %165, %159 ], [ %168, %173 ]
-  %.1.i209 = phi ptr [ %.1.i207, %159 ], [ %.1.i, %173 ]
-  %.0.i180208 = phi ptr [ %7, %159 ], [ %.2.i, %173 ]
+  %.1.i208 = phi ptr [ %.1.i206, %159 ], [ %.1.i, %173 ]
+  %.0.i180207 = phi ptr [ %7, %159 ], [ %.2.i, %173 ]
   %168 = lshr i64 %.in, 1
   %169 = and i32 %167, 3
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %166
-  %172 = getelementptr i8, ptr %.0.i180208, i64 2
-  store i8 32, ptr %.1.i209, align 1
+  %172 = getelementptr i8, ptr %.0.i180207, i64 2
+  store i8 32, ptr %.1.i208, align 1
   br label %173
 
 173:                                              ; preds = %171, %166
-  %.2.i = phi ptr [ %172, %171 ], [ %.1.i209, %166 ]
+  %.2.i = phi ptr [ %172, %171 ], [ %.1.i208, %166 ]
   %174 = and i64 %168, %163
   %.not.i181 = icmp eq i64 %174, 0
   %175 = and i64 %168, %162
@@ -33167,7 +33086,7 @@ other_decode_bitfield_value.exit:                 ; preds = %173
   br label %179
 
 177:                                              ; preds = %154
-  %178 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 256, i32 noundef 2, i64 noundef 256, ptr noundef nonnull @.str.176, i32 noundef %.0143.lcssa234)
+  %178 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 256, i32 noundef 2, i64 noundef 256, ptr noundef nonnull @.str.176, i32 noundef %.0143.lcssa233)
   br label %179
 
 179:                                              ; preds = %177, %other_decode_bitfield_value.exit
@@ -33475,9 +33394,8 @@ define noundef ptr @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 no
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not50 = icmp eq i32 %65, 0
-  br i1 %.not50, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -33620,9 +33538,8 @@ define internal fastcc noundef ptr @proto_tree_add_bits_format_value(ptr noundef
 proto_item_is_hidden.exit.i:                      ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 1
-  %.not115.i = icmp eq i32 %59, 0
-  br i1 %.not115.i, label %72, label %proto_item_is_hidden.exit.thread.i
+  %59 = trunc i32 %58 to i1
+  br i1 %59, label %proto_item_is_hidden.exit.thread.i, label %72
 
 proto_item_is_hidden.exit.thread.i:               ; preds = %proto_item_is_hidden.exit.i, %54
   %60 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -33910,9 +33827,8 @@ define noundef ptr @proto_tree_add_uint64_bits_format_value(ptr noundef %0, i32 
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not50 = icmp eq i32 %65, 0
-  br i1 %.not50, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -34074,9 +33990,8 @@ define hidden noundef ptr @proto_tree_add_float_bits_format_value(ptr noundef %0
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not48 = icmp eq i32 %65, 0
-  br i1 %.not48, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -34237,9 +34152,8 @@ define hidden noundef ptr @proto_tree_add_int_bits_format_value(ptr noundef %0, 
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not50 = icmp eq i32 %65, 0
-  br i1 %.not50, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -34401,9 +34315,8 @@ define hidden noundef ptr @proto_tree_add_int64_bits_format_value(ptr noundef %0
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not50 = icmp eq i32 %65, 0
-  br i1 %.not50, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -34565,9 +34478,8 @@ define hidden noundef ptr @proto_tree_add_boolean_bits_format_value(ptr noundef 
 proto_item_is_hidden.exit:                        ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 1
-  %.not48 = icmp eq i32 %65, 0
-  br i1 %.not48, label %78, label %proto_item_is_hidden.exit.thread
+  %65 = trunc i32 %64 to i1
+  br i1 %65, label %proto_item_is_hidden.exit.thread, label %78
 
 proto_item_is_hidden.exit.thread:                 ; preds = %60, %proto_item_is_hidden.exit
   %66 = getelementptr inbounds nuw i8, ptr %32, i64 56
@@ -34727,9 +34639,8 @@ define noundef ptr @proto_tree_add_ts_23_038_7bits_packed_item(ptr noundef %0, i
 proto_item_is_hidden.exit:                        ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 1
-  %.not54 = icmp eq i32 %62, 0
-  br i1 %.not54, label %75, label %proto_item_is_hidden.exit.thread
+  %62 = trunc i32 %61 to i1
+  br i1 %62, label %proto_item_is_hidden.exit.thread, label %75
 
 proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_hidden.exit
   %63 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -34917,9 +34828,8 @@ define noundef ptr @proto_tree_add_ascii_7bits_item(ptr noundef %0, i32 noundef 
 proto_item_is_hidden.exit:                        ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 1
-  %.not54 = icmp eq i32 %62, 0
-  br i1 %.not54, label %75, label %proto_item_is_hidden.exit.thread
+  %62 = trunc i32 %61 to i1
+  br i1 %62, label %proto_item_is_hidden.exit.thread, label %75
 
 proto_item_is_hidden.exit.thread:                 ; preds = %57, %proto_item_is_hidden.exit
   %63 = getelementptr inbounds nuw i8, ptr %29, i64 56

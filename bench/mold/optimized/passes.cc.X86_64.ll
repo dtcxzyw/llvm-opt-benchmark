@@ -85185,14 +85185,14 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !2826
   %32 = load i32, ptr %31, align 8, !tbaa !2219
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !2758
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = trunc i32 %32 to i8
-  %37 = and i8 %36, 1
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !2758
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
+  %37 = and i8 %33, 1
   store i8 %37, ptr %4, align 8, !tbaa !2827
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %35, ptr %38, align 8, !tbaa !2252
+  store ptr %36, ptr %38, align 8, !tbaa !2252
   %39 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %39, label %44, label %54
@@ -86593,14 +86593,14 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !2837
   %32 = load i32, ptr %31, align 8, !tbaa !2219
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !2758
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  %36 = trunc i32 %32 to i8
-  %37 = and i8 %36, 1
+  %33 = trunc i32 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !2758
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
+  %37 = and i8 %33, 1
   store i8 %37, ptr %4, align 8, !tbaa !2827
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %35, ptr %38, align 8, !tbaa !2252
+  store ptr %36, ptr %38, align 8, !tbaa !2252
   %39 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %39, label %44, label %54
@@ -88814,14 +88814,14 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119s
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !2911
   %24 = load i32, ptr %23, align 8, !tbaa !2219
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !2758
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %28 = trunc i32 %24 to i8
-  %29 = and i8 %28, 1
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !2758
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %29 = and i8 %25, 1
   store i8 %29, ptr %4, align 8, !tbaa !2912
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %27, ptr %30, align 8, !tbaa !2252
+  store ptr %28, ptr %30, align 8, !tbaa !2252
   %31 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIPKcNSt7__cxx1112regex_traitsIcEEE8_M_applyES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.pre, ptr noundef %.pre28, ptr noundef %19, ptr noundef %.019.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %31, label %35, label %43
@@ -90155,14 +90155,14 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119s
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !2922
   %24 = load i32, ptr %23, align 8, !tbaa !2219
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !2758
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %28 = trunc i32 %24 to i8
-  %29 = and i8 %28, 1
+  %25 = trunc i32 %24 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !2758
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %29 = and i8 %25, 1
   store i8 %29, ptr %4, align 8, !tbaa !2912
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %27, ptr %30, align 8, !tbaa !2252
+  store ptr %28, ptr %30, align 8, !tbaa !2252
   %31 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIPKcNSt7__cxx1112regex_traitsIcEEE8_M_applyES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.pre, ptr noundef %.pre28, ptr noundef %19, ptr noundef %.019.lcssa)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %31, label %35, label %43
@@ -96134,24 +96134,24 @@ _ZZN4mold28sort_output_sections_regularINS_6X86_64EEEvRNS_7ContextIT_EEENKUlPNS_
   br i1 %65, label %_ZZN4mold28sort_output_sections_regularINS_6X86_64EEEvRNS_7ContextIT_EEENKUlPNS_5ChunkIS1_EEE_clES8_.exit, label %66
 
 66:                                               ; preds = %62
-  %67 = and i64 %8, 1024
-  %.not32.i = icmp eq i64 %67, 0
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %69 = load i8, ptr %68, align 8, !tbaa !484, !range !438, !noundef !439
-  %70 = icmp eq i32 %6, 8
-  %71 = select i1 %.not.i, i32 1536, i32 1024
-  %72 = trunc i64 %8 to i32
-  %73 = shl i32 %72, 8
+  %67 = trunc i64 %8 to i32
+  %68 = and i64 %8, 1024
+  %.not32.i = icmp eq i64 %68, 0
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %70 = load i8, ptr %69, align 8, !tbaa !484, !range !438, !noundef !439
+  %71 = icmp eq i32 %6, 8
+  %72 = select i1 %.not.i, i32 1536, i32 1024
+  %73 = shl i32 %67, 8
   %74 = and i32 %73, 256
-  %75 = shl i32 %72, 5
+  %75 = shl i32 %67, 5
   %76 = and i32 %75, 128
   %77 = select i1 %.not32.i, i32 64, i32 0
-  %78 = shl nuw nsw i8 %69, 5
+  %78 = shl nuw nsw i8 %70, 5
   %79 = xor i8 %78, 32
   %80 = zext nneg i8 %79 to i32
-  %81 = select i1 %70, i32 16, i32 0
+  %81 = select i1 %71, i32 16, i32 0
   %82 = or disjoint i32 %74, %81
-  %83 = or disjoint i32 %82, %71
+  %83 = or disjoint i32 %82, %72
   %84 = or disjoint i32 %83, %76
   %85 = or disjoint i32 %84, %77
   %86 = or disjoint i32 %85, %80
@@ -96294,24 +96294,24 @@ _ZZN4mold28sort_output_sections_regularINS_6X86_64EEEvRNS_7ContextIT_EEENKUlPNS_
   br i1 %165, label %_ZZN4mold28sort_output_sections_regularINS_6X86_64EEEvRNS_7ContextIT_EEENKUlPNS_5ChunkIS1_EEE_clES8_.exit12, label %166
 
 166:                                              ; preds = %162
-  %167 = and i64 %113, 1024
-  %.not32.i11 = icmp eq i64 %167, 0
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %169 = load i8, ptr %168, align 8, !tbaa !484, !range !438, !noundef !439
-  %170 = icmp eq i32 %111, 8
-  %171 = select i1 %.not.i8, i32 1536, i32 1024
-  %172 = trunc i64 %113 to i32
-  %173 = shl i32 %172, 8
+  %167 = trunc i64 %113 to i32
+  %168 = and i64 %113, 1024
+  %.not32.i11 = icmp eq i64 %168, 0
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %170 = load i8, ptr %169, align 8, !tbaa !484, !range !438, !noundef !439
+  %171 = icmp eq i32 %111, 8
+  %172 = select i1 %.not.i8, i32 1536, i32 1024
+  %173 = shl i32 %167, 8
   %174 = and i32 %173, 256
-  %175 = shl i32 %172, 5
+  %175 = shl i32 %167, 5
   %176 = and i32 %175, 128
   %177 = select i1 %.not32.i11, i32 64, i32 0
-  %178 = shl nuw nsw i8 %169, 5
+  %178 = shl nuw nsw i8 %170, 5
   %179 = xor i8 %178, 32
   %180 = zext nneg i8 %179 to i32
-  %181 = select i1 %170, i32 16, i32 0
+  %181 = select i1 %171, i32 16, i32 0
   %182 = or disjoint i32 %174, %181
-  %183 = or disjoint i32 %182, %171
+  %183 = or disjoint i32 %182, %172
   %184 = or disjoint i32 %183, %176
   %185 = or disjoint i32 %184, %177
   %186 = or disjoint i32 %185, %180

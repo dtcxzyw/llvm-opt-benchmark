@@ -759,9 +759,8 @@ define dso_local noundef i64 @_ZN4llvm10sampleprof32SampleProfileWriterExtBinary
   %17 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %16, i64 %15
   %18 = getelementptr i8, ptr %17, i64 8
   %.val3 = load i64, ptr %18, align 8, !tbaa !54
-  %19 = and i64 %.val3, 1
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %24, label %20
+  %19 = trunc i64 %.val3 to i1
+  br i1 %19, label %20, label %24
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -937,9 +936,8 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   %8 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 8
   %.val7 = load i64, ptr %9, align 8, !tbaa !54
-  %10 = and i64 %.val7, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %18, label %11
+  %10 = trunc i64 %.val7 to i1
+  br i1 %10, label %11, label %18
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -950,8 +948,8 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   store ptr %14, ptr %13, align 8, !tbaa !28
   %16 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17compressAndOutputEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   %17 = extractvalue { i32, ptr } %16, 0
-  %.not22 = icmp eq i32 %17, 0
-  br i1 %.not22, label %._crit_edge, label %67
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %._crit_edge, label %67
 
 ._crit_edge:                                      ; preds = %11
   %.pre = load i64, ptr %9, align 8, !tbaa !54
@@ -4734,7 +4732,7 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20setToCompressSectionENS0
   br i1 %.not10.i, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit.thread, label %.lr.ph.i
 
 _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit.thread: ; preds = %30
-  %.pre89 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsCSE, align 1, !range !173
+  %.pre88 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsCSE, align 1, !range !173
   br label %45
 
 .lr.ph.i:                                         ; preds = %30, %43
@@ -4760,12 +4758,12 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20Sec
   br i1 %27, label %45, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit._ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31_crit_edge
 
 _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit._ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31_crit_edge: ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit
-  %.pre77 = trunc nuw i8 %.pre to i1
+  %.pre76 = trunc nuw i8 %.pre to i1
   br label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31
 
 45:                                               ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit.thread, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit
-  %.pre90 = phi i8 [ %.pre89, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit.thread ], [ %.pre, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit ]
-  %46 = trunc nuw i8 %.pre90 to i1
+  %.pre89 = phi i8 [ %.pre88, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit.thread ], [ %.pre, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit ]
+  %46 = trunc nuw i8 %.pre89 to i1
   %47 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples19ProfileIsPreInlinedE, align 1, !range !173
   %48 = trunc nuw i8 %47 to i1
   %or.cond3 = select i1 %46, i1 true, i1 %48
@@ -4801,9 +4799,9 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20Sec
   br i1 %.not.i30, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31, label %.lr.ph.i28
 
 _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31: ; preds = %62, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit._ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31_crit_edge
-  %.pre-phi78 = phi i1 [ %.pre77, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit._ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31_crit_edge ], [ %46, %62 ]
+  %.pre-phi77 = phi i1 [ %.pre76, %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit._ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31_crit_edge ], [ %46, %62 ]
   %64 = icmp eq i32 %1, 1
-  %or.cond5 = select i1 %64, i1 %.pre-phi78, i1 false
+  %or.cond5 = select i1 %64, i1 %.pre-phi77, i1 false
   br i1 %or.cond5, label %65, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit
 
 65:                                               ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_20SecFuncMetadataFlagsEEEvNS0_7SecTypeET_.exit31
@@ -4923,9 +4921,8 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19Sec
   %128 = getelementptr inbounds nuw %"struct.llvm::sampleprof::SecHdrTableEntry", ptr %127, i64 %126
   %129 = getelementptr i8, ptr %128, i64 8
   %.val3.i = load i64, ptr %129, align 8, !tbaa !54
-  %130 = and i64 %.val3.i, 1
-  %.not.i49 = icmp eq i64 %130, 0
-  br i1 %.not.i49, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit, label %131
+  %130 = trunc i64 %.val3.i to i1
+  br i1 %130, label %131, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
 
 131:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase14addSectionFlagINS0_19SecProfSummaryFlagsEEEvNS0_7SecTypeET_.exit48
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -4954,20 +4951,20 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
   tail call void @_ZN4llvm10sampleprof19SampleProfileWriter14computeSummaryERKNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %140 = tail call { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileWriterBinary12writeSummaryEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   %141 = extractvalue { i32, ptr } %140, 0
-  %.not70 = icmp eq i32 %141, 0
-  br i1 %.not70, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not69 = icmp eq i32 %141, 0
+  br i1 %.not69, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 142:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %143 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase21writeNameTableSectionERKNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %144 = extractvalue { i32, ptr } %143, 0
-  %.not69 = icmp eq i32 %144, 0
-  br i1 %.not69, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not68 = icmp eq i32 %144, 0
+  br i1 %.not68, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 145:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %146 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase23writeCSNameTableSectionEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   %147 = extractvalue { i32, ptr } %146, 0
-  %.not68 = icmp eq i32 %147, 0
-  br i1 %.not68, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not67 = icmp eq i32 %147, 0
+  br i1 %.not67, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 148:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %149 = load ptr, ptr %115, align 8, !tbaa !28
@@ -4990,14 +4987,14 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
   %165 = load ptr, ptr %164, align 8
   %166 = tail call { i32, ptr } %165(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(56) %3) #25
   %167 = extractvalue { i32, ptr } %166, 0
-  %.not67 = icmp eq i32 %167, 0
-  br i1 %.not67, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not66 = icmp eq i32 %167, 0
+  br i1 %.not66, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 168:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %169 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase20writeFuncOffsetTableEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   %170 = extractvalue { i32, ptr } %169, 0
-  %.not66 = icmp eq i32 %170, 0
-  br i1 %.not66, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not65 = icmp eq i32 %170, 0
+  br i1 %.not65, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 171:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %172 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples19ProfileIsProbeBasedE, align 1, !tbaa !214, !range !173, !noundef !174
@@ -5017,8 +5014,8 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
 180:                                              ; preds = %181, %178
   %.sroa.010.0.in.i = phi ptr [ %179, %178 ], [ %.sroa.010.0.i, %181 ]
   %.sroa.010.0.i = load ptr, ptr %.sroa.010.0.in.i, align 8, !tbaa !202
-  %.not.i50 = icmp eq ptr %.sroa.010.0.i, null
-  br i1 %.not.i50, label %.sink.split, label %181
+  %.not.i49 = icmp eq ptr %.sroa.010.0.i, null
+  br i1 %.not.i49, label %.sink.split, label %181
 
 181:                                              ; preds = %180
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i, i64 16
@@ -5030,8 +5027,8 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
 185:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %187 = load ptr, ptr %186, align 8, !tbaa !237
-  %.not.i51 = icmp eq ptr %187, null
-  br i1 %.not.i51, label %.sink.split, label %188
+  %.not.i50 = icmp eq ptr %187, null
+  br i1 %.not.i50, label %.sink.split, label %188
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
@@ -5052,8 +5049,8 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
   %198 = load ptr, ptr %197, align 8
   %199 = tail call { i32, ptr } %198(ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef %1) #25
   %200 = extractvalue { i32, ptr } %199, 0
-  %.not71 = icmp eq i32 %200, 0
-  br i1 %.not71, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not70 = icmp eq i32 %200, 0
+  br i1 %.not70, label %202, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 .sink.split:                                      ; preds = %180, %191, %188, %185, %171
   %201 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #25
@@ -5062,8 +5059,8 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
 202:                                              ; preds = %.sink.split, %195, %168, %148, %145, %142, %139
   %203 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase13addNewSectionENS0_7SecTypeEjm(ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef %1, i32 noundef %2, i64 noundef %138)
   %204 = extractvalue { i32, ptr } %203, 0
-  %.not72 = icmp eq i32 %204, 0
-  br i1 %.not72, label %205, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not71 = icmp eq i32 %204, 0
+  br i1 %.not71, label %205, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 205:                                              ; preds = %202
   %206 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #25

@@ -1594,9 +1594,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %31, %21
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %37 = and i32 %34, 1
-  %.not.i.i = icmp eq i32 %37, 0
-  br i1 %.not.i.i, label %38, label %41
+  %37 = trunc i32 %34 to i1
+  br i1 %37, label %41, label %38
 
 38:                                               ; preds = %36
   %39 = lshr i32 %34, 3
@@ -1821,9 +1820,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %16, %14
   %20 = add nsw i64 %19, %18
   %21 = inttoptr i64 %20 to ptr
   %22 = load volatile i8, ptr %21, align 1
-  %23 = and i8 %22, 1
-  %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %24, label %28
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %28, label %24
 
 24:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %25 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
@@ -1840,7 +1838,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %16, %14
   br label %_ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit
 
 _ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit: ; preds = %28, %29
-  br i1 %.not.i, label %30, label %91
+  br i1 %23, label %91, label %30
 
 30:                                               ; preds = %_ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit
   %31 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -1872,9 +1870,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %50 = and i32 %47, 1
-  %.not.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i, label %51, label %54
+  %50 = trunc i32 %47 to i1
+  br i1 %50, label %54, label %51
 
 51:                                               ; preds = %49
   %52 = lshr i32 %47, 3
@@ -1956,9 +1953,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %8 = add nsw i64 %7, %6
   %9 = inttoptr i64 %8 to ptr
   %10 = load volatile i8, ptr %9, align 1
-  %11 = and i8 %10, 1
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %16
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %16, label %12
 
 12:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %13 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
@@ -1975,7 +1971,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %16, %17
-  ret i1 %.not
+  %.0 = xor i1 %11, true
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2019,7 +2016,7 @@ define hidden void @_ZN11StringDedup5Table11deduplicateEP7oopDesc(ptr noundef %0
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %11, i32 noundef %24) #14
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread20
+  br i1 %31, label %32, label %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread18
 
 32:                                               ; preds = %26, %7
   %33 = load ptr, ptr @_ZN11StringDedup5Table8_bucketsE, align 8
@@ -2092,23 +2089,23 @@ _ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit: ; preds = %53, %_ZN16java
   %73 = load i64, ptr %72, align 8
   %74 = inttoptr i64 %73 to ptr
   %75 = icmp eq i64 %73, 0
-  br i1 %75, label %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread, label %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread20
+  br i1 %75, label %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread, label %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread18
 
 _ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread: ; preds = %_ZN16java_lang_String12value_equalsEP16typeArrayOopDescS1_.exit.thread17.i.i, %32, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit
   tail call void @_ZN11StringDedup5Table7installEP16typeArrayOopDescj(ptr noundef %11, i32 noundef %24)
   br label %161
 
-_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread20: ; preds = %26, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit
-  %.sroa.0.0.i22 = phi ptr [ %74, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit ], [ %30, %26 ]
+_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread18: ; preds = %26, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit
+  %.sroa.0.0.i20 = phi ptr [ %74, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit ], [ %30, %26 ]
   %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11StringDedup9_cur_statE, i64 8), align 8
   %77 = add i64 %76, 1
   store i64 %77, ptr getelementptr inbounds nuw (i8, ptr @_ZN11StringDedup9_cur_statE, i64 8), align 8
   %78 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %79 = tail call noundef ptr %78(ptr noundef nonnull %.sroa.0.0.i22) #14
+  %79 = tail call noundef ptr %78(ptr noundef nonnull %.sroa.0.0.i20) #14
   %.not13 = icmp eq ptr %79, %11
   br i1 %.not13, label %161, label %80
 
-80:                                               ; preds = %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread20
+80:                                               ; preds = %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread18
   %81 = load ptr, ptr @StringDedupIntern_lock, align 8
   %.not.i.i.i14 = icmp eq ptr %81, null
   br i1 %.not.i.i.i14, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %82
@@ -2124,9 +2121,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %82, %80
   %86 = add nsw i64 %85, %84
   %87 = inttoptr i64 %86 to ptr
   %88 = load volatile i8, ptr %87, align 1
-  %89 = and i8 %88, 1
-  %.not.i15 = icmp eq i8 %89, 0
-  br i1 %.not.i15, label %90, label %94
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %94, label %90
 
 90:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   %91 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
@@ -2143,7 +2139,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %82, %80
   br label %_ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit
 
 _ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit: ; preds = %94, %95
-  br i1 %.not.i15, label %96, label %157
+  br i1 %89, label %157, label %96
 
 96:                                               ; preds = %_ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit
   %97 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -2175,9 +2171,8 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %110, %100
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %116 = and i32 %113, 1
-  %.not.i.i16 = icmp eq i32 %116, 0
-  br i1 %.not.i.i16, label %117, label %120
+  %116 = trunc i32 %113 to i1
+  br i1 %116, label %120, label %117
 
 117:                                              ; preds = %115
   %118 = lshr i32 %113, 3
@@ -2237,13 +2232,13 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %117, %120, %127, %1
 
 157:                                              ; preds = %_ZN11StringDedup5Table24deduplicate_if_permittedEP7oopDescP16typeArrayOopDesc.exit
   %158 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE0EE11_store_funcE, align 8
-  tail call void %158(ptr noundef nonnull %.sroa.0.0.i22, ptr noundef %11) #14
+  tail call void %158(ptr noundef nonnull %.sroa.0.0.i20, ptr noundef %11) #14
   %159 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN11StringDedup9_cur_statE, i64 56), align 8
   %160 = add i64 %159, 1
   store i64 %160, ptr getelementptr inbounds nuw (i8, ptr @_ZN11StringDedup9_cur_statE, i64 56), align 8
   br label %161
 
-161:                                              ; preds = %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread20, %157, %_ZN7oopDesc4sizeEv.exit, %5, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread
+161:                                              ; preds = %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread18, %157, %_ZN7oopDesc4sizeEv.exit, %5, %_ZN11StringDedup5Table4findEP16typeArrayOopDescj.exit.thread
   ret void
 }
 
@@ -2587,8 +2582,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %8 = phi i32 [ %4, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %7, %5 ]
   %9 = phi i64 [ %3, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread ], [ %6, %5 ]
   %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not55 = icmp eq ptr %10, null
-  br i1 %.not55, label %14, label %11
+  %.not42 = icmp eq ptr %10, null
+  br i1 %.not42, label %14, label %11
 
 11:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   %12 = load i64, ptr @_ZN11StringDedup5Table18_number_of_entriesE, align 8
@@ -2607,8 +2602,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV17LogStreamTemplateILN8LogLevel4typeE1ELN6LogTag4typeE148ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE, i64 16), ptr %1, align 8
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not56 = icmp eq ptr %17, null
-  br i1 %.not56, label %_ZN12ResourceMarkD2Ev.exit, label %18
+  %.not43 = icmp eq ptr %17, null
+  br i1 %.not43, label %_ZN12ResourceMarkD2Ev.exit, label %18
 
 18:                                               ; preds = %14
   %19 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -2626,26 +2621,26 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %31 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = load i64, ptr @_ZN11StringDedup5Table18_number_of_bucketsE, align 8
-  %.not66 = icmp eq i64 %32, 0
-  br i1 %.not66, label %._crit_edge.thread, label %.lr.ph
+  %.not53 = icmp eq i64 %32, 0
+  br i1 %.not53, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %18
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   br label %_ZN13GrowableArrayImED2Ev.exit
 
 .lr.ph:                                           ; preds = %18, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit
-  %.061 = phi i64 [ %67, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ 0, %18 ]
-  %.sroa.16.060 = phi ptr [ %.sroa.16.2, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ %31, %18 ]
-  %.sroa.9.059 = phi i32 [ %.sroa.9.2, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ 2, %18 ]
-  %.sroa.0.057 = phi i32 [ %.sroa.0.1, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ 0, %18 ]
+  %.048 = phi i64 [ %67, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ 0, %18 ]
+  %.sroa.15.047 = phi ptr [ %.sroa.15.2, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ %31, %18 ]
+  %.sroa.8.046 = phi i32 [ %.sroa.8.2, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ 2, %18 ]
+  %.sroa.0.044 = phi i32 [ %.sroa.0.1, %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit ], [ 0, %18 ]
   %33 = load ptr, ptr @_ZN11StringDedup5Table8_bucketsE, align 8
-  %34 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %33, i64 %.061
+  %34 = getelementptr inbounds %"class.StringDedup::Table::Bucket", ptr %33, i64 %.048
   %35 = load i32, ptr %34, align 4
-  %.not.i = icmp slt i32 %35, %.sroa.0.057
+  %.not.i = icmp slt i32 %35, %.sroa.0.044
   br i1 %.not.i, label %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit, label %36
 
 36:                                               ; preds = %.lr.ph
-  %.not11.i = icmp slt i32 %35, %.sroa.9.059
+  %.not11.i = icmp slt i32 %35, %.sroa.8.046
   %.pre = add i32 %35, 1
   br i1 %.not11.i, label %.lr.ph.i, label %_ZN13GrowableArrayImE8allocateEv.exit.i
 
@@ -2659,19 +2654,19 @@ _ZN13GrowableArrayImE8allocateEv.exit.i:          ; preds = %36
   %42 = shl nuw i32 1, %41
   %.0.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %.pre, i32 %42
   %43 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i, i32 noundef 8) #14
-  %44 = icmp sgt i32 %.sroa.0.057, 0
-  br i1 %44, label %.lr.ph.i20.preheader, label %.preheader16.i
+  %44 = icmp sgt i32 %.sroa.0.044, 0
+  br i1 %44, label %.lr.ph.i18.preheader, label %.preheader15.i
 
-.lr.ph.i20.preheader:                             ; preds = %_ZN13GrowableArrayImE8allocateEv.exit.i
-  %45 = zext nneg i32 %.sroa.0.057 to i64
-  br label %.lr.ph.i20
+.lr.ph.i18.preheader:                             ; preds = %_ZN13GrowableArrayImE8allocateEv.exit.i
+  %45 = zext nneg i32 %.sroa.0.044 to i64
+  br label %.lr.ph.i18
 
-.preheader16.i:                                   ; preds = %.lr.ph.i20, %_ZN13GrowableArrayImE8allocateEv.exit.i
-  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayImE8allocateEv.exit.i ], [ %.sroa.0.057, %.lr.ph.i20 ]
+.preheader15.i:                                   ; preds = %.lr.ph.i18, %_ZN13GrowableArrayImE8allocateEv.exit.i
+  %.0.lcssa.i = phi i32 [ 0, %_ZN13GrowableArrayImE8allocateEv.exit.i ], [ %.sroa.0.044, %.lr.ph.i18 ]
   %46 = icmp slt i32 %.0.lcssa.i, %.0.i.i.i.i
-  br i1 %46, label %.lr.ph19.preheader.i, label %.lr.ph.i
+  br i1 %46, label %.lr.ph18.preheader.i, label %.lr.ph.i
 
-.lr.ph19.preheader.i:                             ; preds = %.preheader16.i
+.lr.ph18.preheader.i:                             ; preds = %.preheader15.i
   %47 = zext nneg i32 %.0.lcssa.i to i64
   %48 = shl nuw nsw i64 %47, 3
   %scevgep = getelementptr i8, ptr %43, i64 %48
@@ -2683,39 +2678,39 @@ _ZN13GrowableArrayImE8allocateEv.exit.i:          ; preds = %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %53, i1 false)
   br label %.lr.ph.i
 
-.lr.ph.i20:                                       ; preds = %.lr.ph.i20.preheader, %.lr.ph.i20
-  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i22, %.lr.ph.i20 ], [ 0, %.lr.ph.i20.preheader ]
-  %54 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i21
-  %55 = getelementptr inbounds nuw i64, ptr %.sroa.16.060, i64 %indvars.iv.i21
+.lr.ph.i18:                                       ; preds = %.lr.ph.i18.preheader, %.lr.ph.i18
+  %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i18 ], [ 0, %.lr.ph.i18.preheader ]
+  %54 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i19
+  %55 = getelementptr inbounds nuw i64, ptr %.sroa.15.047, i64 %indvars.iv.i19
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %54, align 8
-  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i22, %45
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i20, !llvm.loop !20
+  %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i20, %45
+  br i1 %exitcond.not, label %.preheader15.i, label %.lr.ph.i18, !llvm.loop !20
 
-.lr.ph.i:                                         ; preds = %36, %.lr.ph19.preheader.i, %.preheader16.i
-  %.sroa.9.1 = phi i32 [ %.0.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.sroa.9.059, %36 ]
-  %.sroa.16.1 = phi ptr [ %43, %.preheader16.i ], [ %43, %.lr.ph19.preheader.i ], [ %.sroa.16.060, %36 ]
-  %57 = sext i32 %.sroa.0.057 to i64
+.lr.ph.i:                                         ; preds = %36, %.lr.ph18.preheader.i, %.preheader15.i
+  %.sroa.8.1 = phi i32 [ %.0.i.i.i.i, %.preheader15.i ], [ %.0.i.i.i.i, %.lr.ph18.preheader.i ], [ %.sroa.8.046, %36 ]
+  %.sroa.15.1 = phi ptr [ %43, %.preheader15.i ], [ %43, %.lr.ph18.preheader.i ], [ %.sroa.15.047, %36 ]
+  %57 = sext i32 %.sroa.0.044 to i64
   %58 = shl nsw i64 %57, 3
-  %scevgep67 = getelementptr i8, ptr %.sroa.16.1, i64 %58
-  %59 = sub i32 %35, %.sroa.0.057
+  %scevgep54 = getelementptr i8, ptr %.sroa.15.1, i64 %58
+  %59 = sub i32 %35, %.sroa.0.044
   %60 = zext i32 %59 to i64
   %61 = shl nuw nsw i64 %60, 3
   %62 = add nuw nsw i64 %61, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep67, i8 0, i64 %62, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep54, i8 0, i64 %62, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit
 
 _ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %.sroa.0.1 = phi i32 [ %.sroa.0.057, %.lr.ph ], [ %.pre, %.lr.ph.i ]
-  %.sroa.9.2 = phi i32 [ %.sroa.9.059, %.lr.ph ], [ %.sroa.9.1, %.lr.ph.i ]
-  %.sroa.16.2 = phi ptr [ %.sroa.16.060, %.lr.ph ], [ %.sroa.16.1, %.lr.ph.i ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.044, %.lr.ph ], [ %.pre, %.lr.ph.i ]
+  %.sroa.8.2 = phi i32 [ %.sroa.8.046, %.lr.ph ], [ %.sroa.8.1, %.lr.ph.i ]
+  %.sroa.15.2 = phi ptr [ %.sroa.15.047, %.lr.ph ], [ %.sroa.15.1, %.lr.ph.i ]
   %63 = sext i32 %35 to i64
-  %64 = getelementptr inbounds i64, ptr %.sroa.16.2, i64 %63
+  %64 = getelementptr inbounds i64, ptr %.sroa.15.2, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8
-  %67 = add nuw i64 %.061, 1
+  %67 = add nuw i64 %.048, 1
   %68 = load i64, ptr @_ZN11StringDedup5Table18_number_of_bucketsE, align 8
   %69 = icmp ult i64 %67, %68
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !21
@@ -2723,28 +2718,28 @@ _ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit: ; preds 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE7at_growEiRKm.exit
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   %70 = icmp sgt i32 %.sroa.0.1, 0
-  br i1 %70, label %.lr.ph65.preheader, label %_ZN13GrowableArrayImED2Ev.exit
+  br i1 %70, label %.lr.ph52.preheader, label %_ZN13GrowableArrayImED2Ev.exit
 
-.lr.ph65.preheader:                               ; preds = %._crit_edge
+.lr.ph52.preheader:                               ; preds = %._crit_edge
   %wide.trip.count = zext nneg i32 %.sroa.0.1 to i64
-  br label %.lr.ph65
+  br label %.lr.ph52
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %75
-  %indvars.iv = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next, %75 ]
-  %71 = getelementptr inbounds nuw i64, ptr %.sroa.16.2, i64 %indvars.iv
+.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next, %75 ]
+  %71 = getelementptr inbounds nuw i64, ptr %.sroa.15.2, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
   %.not = icmp eq i64 %72, 0
   br i1 %.not, label %75, label %73
 
-73:                                               ; preds = %.lr.ph65
+73:                                               ; preds = %.lr.ph52
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17, i32 noundef %74, i64 noundef %72) #14
   br label %75
 
-75:                                               ; preds = %.lr.ph65, %73
+75:                                               ; preds = %.lr.ph52, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond69.not, label %_ZN13GrowableArrayImED2Ev.exit, label %.lr.ph65, !llvm.loop !22
+  %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond56.not, label %_ZN13GrowableArrayImED2Ev.exit, label %.lr.ph52, !llvm.loop !22
 
 _ZN13GrowableArrayImED2Ev.exit:                   ; preds = %75, %._crit_edge.thread, %._crit_edge
   %76 = load ptr, ptr %24, align 8
@@ -3313,9 +3308,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -3349,8 +3343,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

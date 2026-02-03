@@ -5043,14 +5043,14 @@ _ZN12clap_builder7builder7command7Command23get_usage_name_fallback17h1737c77d84d
   %100 = icmp eq i8 %.sroa.7.0.copyload, 3
   %or.cond = select i1 %99, i1 %100, i1 false
   %101 = icmp eq i8 %.sroa.11.0.copyload, 3
-  %or.cond81 = select i1 %or.cond, i1 %101, i1 false
+  %or.cond80 = select i1 %or.cond, i1 %101, i1 false
   %102 = icmp eq i16 %.sroa.15.0.copyload, 0
-  %or.cond82 = select i1 %or.cond81, i1 %102, i1 false
-  %spec.select = select i1 %or.cond82, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select314 = select i1 %or.cond82, i64 0, i64 4
+  %or.cond81 = select i1 %or.cond80, i1 %102, i1 false
+  %spec.select = select i1 %or.cond81, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select313 = select i1 %or.cond81, i64 0, i64 4
   store ptr %spec.select, ptr %74, align 8
   %103 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 %spec.select314, ptr %103, align 8
+  store i64 %spec.select313, ptr %103, align 8
   store ptr %75, ptr %76, align 8
   %104 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %104, align 8
@@ -5096,10 +5096,10 @@ _ZN12clap_builder7builder7command7Command23get_usage_name_fallback17h1737c77d84d
   %126 = getelementptr inbounds nuw i8, ptr %82, i64 216
   br label %127
 
-127:                                              ; preds = %.backedge410, %116
-  %128 = phi ptr [ %118, %116 ], [ %130, %.backedge410 ]
-  %.not22.not.not.i.not = icmp eq ptr %128, %121
-  br i1 %.not22.not.not.i.not, label %_ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit.thread, label %129
+127:                                              ; preds = %.backedge409, %116
+  %128 = phi ptr [ %118, %116 ], [ %130, %.backedge409 ]
+  %.not21.not.not.i.not = icmp eq ptr %128, %121
+  br i1 %.not21.not.not.i.not, label %_ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit.thread, label %129
 
 _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit.thread: ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
@@ -5115,9 +5115,9 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
   %134 = load i32, ptr %133, align 8, !range !1334, !alias.scope !1527, !noalias !1520
   %.not2.i.i.i.i.i = icmp ne i32 %134, 1114112
   %.0.i.not.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 true, i1 %.not2.i.i.i.i.i
-  br i1 %.0.i.not.i.i.i.i, label %135, label %.backedge410
+  br i1 %.0.i.not.i.i.i.i, label %135, label %.backedge409
 
-.backedge410:                                     ; preds = %129, %184, %144, %.critedge30.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i"
+.backedge409:                                     ; preds = %129, %184, %144, %.critedge30.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i"
   br label %127
 
 135:                                              ; preds = %129
@@ -5136,26 +5136,26 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i": ; preds = %138
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(4) %136, ptr noundef nonnull dereferenceable(4) @anon.3bea5f84750093931b71d3ae0bbb8a44.36, i64 4), !alias.scope !1533
   %140 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %140, label %.backedge410, label %.critedge30.i
+  br i1 %140, label %.backedge409, label %.critedge30.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i": ; preds = %138
   %bcmp.i36.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %136, ptr noundef nonnull dereferenceable(7) @anon.3bea5f84750093931b71d3ae0bbb8a44.38, i64 7), !alias.scope !1537
   %141 = icmp eq i32 %bcmp.i36.i, 0
-  br i1 %141, label %.backedge410, label %.critedge30.i
+  br i1 %141, label %.backedge409, label %.critedge30.i
 
 .critedge30.i:                                    ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit37.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hda8e9c883b81024cE.exit.i", %138, %135
   %142 = getelementptr inbounds nuw i8, ptr %128, i64 548
   %143 = load i8, ptr %142, align 4, !range !1541, !alias.scope !1542, !noundef !17
   %.off.i = add nsw i8 %143, -5
   %switch.i = icmp ult i8 %.off.i, 4
-  br i1 %switch.i, label %.backedge410, label %144
+  br i1 %switch.i, label %.backedge409, label %144
 
 144:                                              ; preds = %.critedge30.i
   %145 = getelementptr inbounds nuw i8, ptr %128, i64 544
   %146 = load i32, ptr %145, align 4, !alias.scope !1545, !noundef !17
   %147 = and i32 %146, 5
-  %or.cond.i = icmp eq i32 %147, 0
-  br i1 %or.cond.i, label %148, label %.backedge410
+  %or.cond.not.i = icmp eq i32 %147, 0
+  br i1 %or.cond.not.i, label %148, label %.backedge409
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %128, i64 488
@@ -5234,7 +5234,7 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
 
 184:                                              ; preds = %"_ZN12clap_builder6output5usage5Usage17needs_options_tag28_$u7b$$u7b$closure$u7d$$u7d$17h877001fd37908b72E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
-  br label %.backedge410
+  br label %.backedge409
 
 _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
@@ -5244,25 +5244,25 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %71, ptr noundef nonnull align 2 dereferenceable(14) %81, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %.sroa.043.0.copyload = load i8, ptr %81, align 2
-  %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 60
-  %.sroa.747.0.copyload = load i8, ptr %.sroa.747.0..sroa_idx, align 2
-  %.sroa.1151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 64
-  %.sroa.1151.0.copyload = load i8, ptr %.sroa.1151.0..sroa_idx, align 2
-  %.sroa.1555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 68
-  %.sroa.1555.0.copyload = load i16, ptr %.sroa.1555.0..sroa_idx, align 2
-  %185 = icmp eq i8 %.sroa.043.0.copyload, 3
-  %186 = icmp eq i8 %.sroa.747.0.copyload, 3
-  %or.cond83 = select i1 %185, i1 %186, i1 false
-  %187 = icmp eq i8 %.sroa.1151.0.copyload, 3
-  %or.cond84 = select i1 %or.cond83, i1 %187, i1 false
-  %188 = icmp eq i16 %.sroa.1555.0.copyload, 0
-  %or.cond85 = select i1 %or.cond84, i1 %188, i1 false
-  %spec.select315 = select i1 %or.cond85, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
-  %spec.select316 = select i1 %or.cond85, i64 0, i64 4
-  store ptr %spec.select315, ptr %70, align 8
+  %.sroa.042.0.copyload = load i8, ptr %81, align 2
+  %.sroa.746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 60
+  %.sroa.746.0.copyload = load i8, ptr %.sroa.746.0..sroa_idx, align 2
+  %.sroa.1150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 64
+  %.sroa.1150.0.copyload = load i8, ptr %.sroa.1150.0..sroa_idx, align 2
+  %.sroa.1554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 68
+  %.sroa.1554.0.copyload = load i16, ptr %.sroa.1554.0..sroa_idx, align 2
+  %185 = icmp eq i8 %.sroa.042.0.copyload, 3
+  %186 = icmp eq i8 %.sroa.746.0.copyload, 3
+  %or.cond82 = select i1 %185, i1 %186, i1 false
+  %187 = icmp eq i8 %.sroa.1150.0.copyload, 3
+  %or.cond83 = select i1 %or.cond82, i1 %187, i1 false
+  %188 = icmp eq i16 %.sroa.1554.0.copyload, 0
+  %or.cond84 = select i1 %or.cond83, i1 %188, i1 false
+  %spec.select314 = select i1 %or.cond84, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22
+  %spec.select315 = select i1 %or.cond84, i64 0, i64 4
+  store ptr %spec.select314, ptr %70, align 8
   %189 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 %spec.select316, ptr %189, align 8
+  store i64 %spec.select315, ptr %189, align 8
   store ptr %71, ptr %72, align 8
   %190 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %190, align 8
@@ -6349,8 +6349,8 @@ common.resume.i:                                  ; preds = %808, %497, %203
 
 549:                                              ; preds = %545
   %550 = load ptr, ptr %.sroa.0.06.i.i, align 8, !alias.scope !1925, !noalias !1928, !nonnull !17, !align !57, !noundef !17
-  %bcmp.i.i.i.i.i31 = call i32 @bcmp(ptr nonnull readonly align 1 %550, ptr nonnull readonly align 1 %544, i64 %543), !alias.scope !1929, !noalias !1933
-  %551 = icmp eq i32 %bcmp.i.i.i.i.i31, 0
+  %bcmp.i.i.i.i.i30 = call i32 @bcmp(ptr nonnull readonly align 1 %550, ptr nonnull readonly align 1 %544, i64 %543), !alias.scope !1929, !noalias !1933
+  %551 = icmp eq i32 %bcmp.i.i.i.i.i30, 0
   br i1 %551, label %.backedge.i.backedge, label %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.backedge.i.i"
 
 "_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7953693b163d6e92E.llvm.7008872586094235178.exit.backedge.i.i": ; preds = %549, %545
@@ -6443,9 +6443,9 @@ common.resume.i:                                  ; preds = %808, %497, %203
   %.sroa.15.0.copyload.i = load i16, ptr %.sroa.15.0..sroa_idx.i, align 2, !noalias !1604
   %573 = icmp eq i8 %.sroa.0378.0.copyload.i, 3
   %574 = icmp eq i8 %.sroa.7382.0.copyload.i, 3
-  %or.cond.i30 = select i1 %573, i1 %574, i1 false
+  %or.cond.i = select i1 %573, i1 %574, i1 false
   %575 = icmp eq i8 %.sroa.11.0.copyload.i, 3
-  %or.cond609.i = select i1 %or.cond.i30, i1 %575, i1 false
+  %or.cond609.i = select i1 %or.cond.i, i1 %575, i1 false
   %576 = icmp eq i16 %.sroa.15.0.copyload.i, 0
   %or.cond610.i = select i1 %or.cond609.i, i1 %576, i1 false
   %spec.select.i = select i1 %or.cond610.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.5, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.22

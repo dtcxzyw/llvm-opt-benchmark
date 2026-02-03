@@ -2328,9 +2328,8 @@ decr_dcc_refcount.exit:                           ; preds = %11, %6, %1
   %45 = load ptr, ptr %17, align 8
   %46 = getelementptr i8, ptr %.val, i64 20
   %.val.val.i = load i16, ptr %46, align 4
-  %47 = and i16 %.val.val.i, 1
-  %.not.i.i = icmp eq i16 %47, 0
-  br i1 %.not.i.i, label %48, label %83
+  %47 = trunc i16 %.val.val.i to i1
+  br i1 %47, label %83, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 456
@@ -2400,8 +2399,8 @@ decr_dcc_refcount.exit:                           ; preds = %11, %6, %1
   %84 = getelementptr i8, ptr %.val, i64 26
   %.val20.i = load i8, ptr %84, align 1
   %85 = and i8 %.val20.i, 8
-  %.not.i21.i = icmp eq i8 %85, 0
-  br i1 %.not.i21.i, label %fastgetattr.exit, label %86
+  %.not.i.i = icmp eq i8 %85, 0
+  br i1 %.not.i.i, label %fastgetattr.exit, label %86
 
 86:                                               ; preds = %83
   %87 = call i64 @nocachegetattr(ptr noundef nonnull %36, i32 noundef 28, ptr noundef %45) #16
@@ -2415,7 +2414,7 @@ fastgetattr.exit:                                 ; preds = %83
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1170, ptr noundef nonnull @__func__.load_domaintype_info) #16
   unreachable
 
-92:                                               ; preds = %65, %68, %71, %74, %79, %81, %86
+92:                                               ; preds = %81, %86, %65, %68, %71, %74, %79
   %.1.i.ph = phi i64 [ %75, %74 ], [ %73, %71 ], [ %70, %68 ], [ %67, %65 ], [ %82, %81 ], [ %80, %79 ], [ %87, %86 ]
   %93 = inttoptr i64 %.1.i.ph to ptr
   %94 = call ptr @text_to_cstring(ptr noundef %93) #16

@@ -352,9 +352,8 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %5, %17
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 1096
   %24 = load volatile i64, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
-  %25 = and i64 %24, 1
-  %.not.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %26
+  %25 = trunc i64 %24 to i1
+  br i1 %25, label %26, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 26:                                               ; preds = %22
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %12, i1 noundef zeroext true, i1 noundef zeroext false) #8
@@ -769,8 +768,8 @@ _ZL14fill_in_parserP10DCmdParserP7oopDesc.exit:   ; preds = %138, %139, %154, %1
   call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %64, i64 noundef %220, i1 noundef zeroext true) #8
   call void @_ZN10DCmdParser5parseEP7CmdLinecP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i8 noundef signext %65, ptr noundef %12) #8
   %221 = load ptr, ptr %32, align 8
-  %.not75 = icmp eq ptr %221, null
-  br i1 %.not75, label %222, label %.loopexit
+  %.not74 = icmp eq ptr %221, null
+  br i1 %.not74, label %222, label %.loopexit
 
 222:                                              ; preds = %._crit_edge
   %223 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
@@ -778,8 +777,8 @@ _ZL14fill_in_parserP10DCmdParserP7oopDesc.exit:   ; preds = %138, %139, %154, %1
   %225 = shl nsw i32 %224, 1
   %226 = call noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %223, i32 noundef %225, ptr noundef nonnull %12) #8
   %227 = load ptr, ptr %32, align 8
-  %.not76 = icmp eq ptr %227, null
-  br i1 %.not76, label %228, label %.loopexit
+  %.not75 = icmp eq ptr %227, null
+  br i1 %.not75, label %228, label %.loopexit
 
 228:                                              ; preds = %222
   %229 = icmp eq ptr %226, null
@@ -818,26 +817,26 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   %245 = load ptr, ptr %244, align 8
   %246 = call noundef i32 @_ZNK10DCmdParser13num_argumentsEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
   %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %.lr.ph82, label %._crit_edge83
+  br i1 %247, label %.lr.ph81, label %._crit_edge82
 
-.lr.ph82:                                         ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58
+.lr.ph81:                                         ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 8
   br label %249
 
-249:                                              ; preds = %.lr.ph82, %280
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next86, %280 ]
-  %.05080 = phi ptr [ %245, %.lr.ph82 ], [ %.1, %280 ]
+249:                                              ; preds = %.lr.ph81, %280
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next85, %280 ]
+  %.05079 = phi ptr [ %245, %.lr.ph81 ], [ %.1, %280 ]
   %250 = load ptr, ptr %248, align 8
-  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %indvars.iv85
+  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %indvars.iv84
   %252 = load ptr, ptr %251, align 8
   %253 = call noundef ptr @_ZN16java_lang_String19create_oop_from_strEPKcP10JavaThread(ptr noundef %252, ptr noundef nonnull %12) #8
   %254 = load ptr, ptr %32, align 8
-  %.not77 = icmp eq ptr %254, null
-  br i1 %.not77, label %255, label %.loopexit
+  %.not76 = icmp eq ptr %254, null
+  br i1 %.not76, label %255, label %.loopexit
 
 255:                                              ; preds = %249
   %256 = load ptr, ptr %storemerge.i.i57, align 8
-  %257 = shl nuw nsw i64 %indvars.iv85, 1
+  %257 = shl nuw nsw i64 %indvars.iv84, 1
   %258 = load i8, ptr @UseCompressedOops, align 1
   %259 = trunc i8 %258 to i1
   %260 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -850,7 +849,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   %265 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %265(ptr noundef nonnull align 8 dereferenceable(16) %256, i64 noundef %264, ptr noundef %253) #8
   %266 = load ptr, ptr %248, align 8
-  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv85
+  %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv84
   %268 = load ptr, ptr %267, align 8
   %269 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %268) #9
   %270 = call noundef ptr @_ZN10DCmdParser18lookup_dcmd_optionEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %268, i64 noundef %269) #8
@@ -858,21 +857,21 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   br i1 %.not, label %271, label %274
 
 271:                                              ; preds = %255
-  %272 = getelementptr inbounds nuw i8, ptr %.05080, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %.05079, i64 8
   %273 = load ptr, ptr %272, align 8
   br label %274
 
 274:                                              ; preds = %255, %271
-  %.1 = phi ptr [ %.05080, %255 ], [ %273, %271 ]
-  %.047 = phi ptr [ %270, %255 ], [ %.05080, %271 ]
+  %.1 = phi ptr [ %.05079, %255 ], [ %273, %271 ]
+  %.047 = phi ptr [ %270, %255 ], [ %.05079, %271 ]
   %275 = load ptr, ptr %.047, align 8
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 32
   %277 = load ptr, ptr %276, align 8
   call void %277(ptr noundef nonnull align 8 dereferenceable(51) %.047, ptr noundef nonnull %9, i64 noundef 256) #8
   %278 = call noundef ptr @_ZN16java_lang_String19create_oop_from_strEPKcP10JavaThread(ptr noundef nonnull %9, ptr noundef nonnull %12) #8
   %279 = load ptr, ptr %32, align 8
-  %.not78 = icmp eq ptr %279, null
-  br i1 %.not78, label %280, label %.loopexit
+  %.not77 = icmp eq ptr %279, null
+  br i1 %.not77, label %280, label %.loopexit
 
 280:                                              ; preds = %274
   %281 = load ptr, ptr %storemerge.i.i57, align 8
@@ -888,30 +887,30 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   %289 = add nuw nsw i64 %287, %288
   %290 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14_store_at_funcE, align 8
   call void %290(ptr noundef nonnull align 8 dereferenceable(16) %281, i64 noundef %289, ptr noundef %278) #8
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %291 = call noundef i32 @_ZNK10DCmdParser13num_argumentsEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
   %292 = sext i32 %291 to i64
-  %293 = icmp slt i64 %indvars.iv.next86, %292
-  br i1 %293, label %249, label %._crit_edge83.thread, !llvm.loop !10
+  %293 = icmp slt i64 %indvars.iv.next85, %292
+  br i1 %293, label %249, label %._crit_edge82.thread, !llvm.loop !10
 
-._crit_edge83:                                    ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58
+._crit_edge82:                                    ; preds = %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58
   %294 = icmp eq ptr %storemerge.i.i57, null
-  br i1 %294, label %_ZNK14objArrayHandleclEv.exit, label %._crit_edge83.thread
+  br i1 %294, label %_ZNK14objArrayHandleclEv.exit, label %._crit_edge82.thread
 
-._crit_edge83.thread:                             ; preds = %280, %._crit_edge83
+._crit_edge82.thread:                             ; preds = %280, %._crit_edge82
   %295 = load ptr, ptr %storemerge.i.i57, align 8
   br label %_ZNK14objArrayHandleclEv.exit
 
-_ZNK14objArrayHandleclEv.exit:                    ; preds = %._crit_edge83, %._crit_edge83.thread
-  %296 = phi ptr [ %295, %._crit_edge83.thread ], [ null, %._crit_edge83 ]
+_ZNK14objArrayHandleclEv.exit:                    ; preds = %._crit_edge82, %._crit_edge82.thread
+  %296 = phi ptr [ %295, %._crit_edge82.thread ], [ null, %._crit_edge82 ]
   %297 = call noundef ptr @_ZN10JNIHandles10make_localEP7oopDesc(ptr noundef %296) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %274, %249, %222, %._crit_edge, %_ZNK14objArrayHandleclEv.exit
   %.0 = phi ptr [ %297, %_ZNK14objArrayHandleclEv.exit ], [ null, %._crit_edge ], [ null, %222 ], [ null, %249 ], [ null, %274 ]
   %298 = load ptr, ptr %44, align 8
-  %.not.i.i.i.i62 = icmp eq ptr %298, null
-  br i1 %.not.i.i.i.i62, label %300, label %299
+  %.not.i.i.i.i = icmp eq ptr %298, null
+  br i1 %.not.i.i.i.i, label %300, label %299
 
 299:                                              ; preds = %.loopexit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef %50) #8
@@ -933,8 +932,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %300, %302
   %303 = getelementptr inbounds nuw i8, ptr %12, i64 1312
   store ptr null, ptr %303, align 8
   %304 = load ptr, ptr %31, align 8
-  %.not.i63 = icmp eq ptr %304, null
-  br i1 %.not.i63, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %305
+  %.not.i62 = icmp eq ptr %304, null
+  br i1 %.not.i62, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %305
 
 305:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
   call void @_ZN25WeakPreserveExceptionMark7restoreEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
@@ -1414,9 +1413,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
-  %10 = and i8 %9, 1
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
+  %10 = trunc i8 %9 to i1
+  br i1 %10, label %11, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8
@@ -1450,8 +1448,8 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %34 = load volatile i8, ptr %33, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %35 = and i8 %34, 4
-  %.not14 = icmp eq i8 %35, 0
-  br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
+  %.not = icmp eq i8 %35, 0
+  br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %36
 
 36:                                               ; preds = %32
   %37 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

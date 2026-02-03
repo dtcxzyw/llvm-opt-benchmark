@@ -189,69 +189,68 @@ define hidden void @_mi_block_zero_init(ptr noundef readonly captures(none) %0, 
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, 1
-  %8 = icmp ne i8 %7, 0
-  %9 = icmp ugt i64 %2, 8
-  %or.cond = and i1 %9, %8
-  br i1 %or.cond, label %10, label %11
+  %7 = trunc i8 %6 to i1
+  %8 = icmp ugt i64 %2, 8
+  %or.cond = and i1 %8, %7
+  br i1 %or.cond, label %9, label %10
+
+9:                                                ; preds = %3
+  store i64 0, ptr %1, align 8, !tbaa !14
+  br label %41
 
 10:                                               ; preds = %3
-  store i64 0, ptr %1, align 8, !tbaa !14
-  br label %42
+  %11 = ptrtoint ptr %1 to i64
+  %12 = and i64 %11, -67108864
+  %13 = inttoptr i64 %12 to ptr
+  %14 = icmp eq i64 %12, 0
+  br i1 %14, label %mi_usable_size.exit, label %15
 
-11:                                               ; preds = %3
-  %12 = ptrtoint ptr %1 to i64
-  %13 = and i64 %12, -67108864
-  %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq i64 %13, 0
-  br i1 %15, label %mi_usable_size.exit, label %16
+15:                                               ; preds = %10
+  %16 = lshr i64 %11, 16
+  %17 = and i64 %16, 1023
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 368
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !21
+  %22 = zext i32 %21 to i64
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %19, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 14
+  %.val.i.i = load i8, ptr %25, align 2
+  %26 = and i8 %.val.i.i, 2
+  %.not.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i, label %27, label %39, !prof !20
 
-16:                                               ; preds = %11
-  %17 = lshr i64 %12, 16
-  %18 = and i64 %17, 1023
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 368
-  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i64 %18
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !21
-  %23 = zext i32 %22 to i64
-  %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds i8, ptr %20, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 14
-  %.val.i.i = load i8, ptr %26, align 2
-  %27 = and i8 %.val.i.i, 2
-  %.not.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i, label %28, label %40, !prof !20
+27:                                               ; preds = %15
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %29 = load i32, ptr %28, align 4, !tbaa !22
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %31, label %33, !prof !20
 
-28:                                               ; preds = %16
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !22
-  %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %32, label %34, !prof !20
-
-32:                                               ; preds = %28
-  %33 = zext nneg i32 %30 to i64
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
   br label %mi_usable_size.exit
 
-34:                                               ; preds = %28
+33:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %35 = ptrtoint ptr %25 to i64
-  %36 = and i64 %35, -67108864
-  %37 = inttoptr i64 %36 to ptr
-  %38 = call ptr @_mi_segment_page_start(ptr noundef %37, ptr noundef nonnull %25, ptr noundef nonnull %4) #15
-  %39 = load i64, ptr %4, align 8, !tbaa !23
+  %34 = ptrtoint ptr %24 to i64
+  %35 = and i64 %34, -67108864
+  %36 = inttoptr i64 %35 to ptr
+  %37 = call ptr @_mi_segment_page_start(ptr noundef %36, ptr noundef nonnull %24, ptr noundef nonnull %4) #15
+  %38 = load i64, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_usable_size.exit
 
-40:                                               ; preds = %16
-  %41 = tail call fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef %14, ptr noundef nonnull %25, ptr noundef %1)
+39:                                               ; preds = %15
+  %40 = tail call fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef %13, ptr noundef nonnull %24, ptr noundef %1)
   br label %mi_usable_size.exit
 
-mi_usable_size.exit:                              ; preds = %11, %32, %34, %40
-  %.0.i.i = phi i64 [ 0, %11 ], [ %41, %40 ], [ %33, %32 ], [ %39, %34 ]
+mi_usable_size.exit:                              ; preds = %10, %31, %33, %39
+  %.0.i.i = phi i64 [ 0, %10 ], [ %40, %39 ], [ %32, %31 ], [ %38, %33 ]
   call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %.0.i.i, i1 false)
-  br label %42
+  br label %41
 
-42:                                               ; preds = %mi_usable_size.exit, %10
+41:                                               ; preds = %mi_usable_size.exit, %9
   ret void
 }
 
@@ -358,58 +357,57 @@ mi_malloc_small.exit:                             ; preds = %1
   %30 = getelementptr inbounds i8, ptr %25, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 15
   %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  %34 = icmp ne i8 %33, 0
-  %35 = icmp ugt i64 %0, 8
-  %or.cond.i = and i1 %35, %34
-  br i1 %or.cond.i, label %36, label %37
+  %33 = trunc i8 %32 to i1
+  %34 = icmp ugt i64 %0, 8
+  %or.cond.i = and i1 %34, %33
+  br i1 %or.cond.i, label %35, label %36
 
-36:                                               ; preds = %18
+35:                                               ; preds = %18
   store i64 0, ptr %.0.i.i.i9, align 8, !tbaa !14
   br label %_mi_block_zero_init.exit
 
-37:                                               ; preds = %18
-  %38 = icmp eq i64 %20, 0
-  br i1 %38, label %mi_usable_size.exit.i, label %39
+36:                                               ; preds = %18
+  %37 = icmp eq i64 %20, 0
+  br i1 %37, label %mi_usable_size.exit.i, label %38
 
-39:                                               ; preds = %37
-  %40 = getelementptr i8, ptr %30, i64 14
-  %.val.i.i.i5 = load i8, ptr %40, align 2
-  %41 = and i8 %.val.i.i.i5, 2
-  %.not.i.i.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i.i, label %42, label %54, !prof !20
+38:                                               ; preds = %36
+  %39 = getelementptr i8, ptr %30, i64 14
+  %.val.i.i.i5 = load i8, ptr %39, align 2
+  %40 = and i8 %.val.i.i.i5, 2
+  %.not.i.i.i = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i, label %41, label %53, !prof !20
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  %44 = load i32, ptr %43, align 4, !tbaa !22
-  %45 = icmp sgt i32 %44, -1
-  br i1 %45, label %46, label %48, !prof !20
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  %43 = load i32, ptr %42, align 4, !tbaa !22
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %45, label %47, !prof !20
 
-46:                                               ; preds = %42
-  %47 = zext nneg i32 %44 to i64
+45:                                               ; preds = %41
+  %46 = zext nneg i32 %43 to i64
   br label %mi_usable_size.exit.i
 
-48:                                               ; preds = %42
+47:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %49 = ptrtoint ptr %30 to i64
-  %50 = and i64 %49, -67108864
-  %51 = inttoptr i64 %50 to ptr
-  %52 = call ptr @_mi_segment_page_start(ptr noundef %51, ptr noundef nonnull %30, ptr noundef nonnull %2) #15
-  %53 = load i64, ptr %2, align 8, !tbaa !23
+  %48 = ptrtoint ptr %30 to i64
+  %49 = and i64 %48, -67108864
+  %50 = inttoptr i64 %49 to ptr
+  %51 = call ptr @_mi_segment_page_start(ptr noundef %50, ptr noundef nonnull %30, ptr noundef nonnull %2) #15
+  %52 = load i64, ptr %2, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mi_usable_size.exit.i
 
-54:                                               ; preds = %39
-  %55 = tail call fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef %21, ptr noundef nonnull %30, ptr noundef nonnull %.0.i.i.i9)
+53:                                               ; preds = %38
+  %54 = tail call fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef %21, ptr noundef nonnull %30, ptr noundef nonnull %.0.i.i.i9)
   br label %mi_usable_size.exit.i
 
-mi_usable_size.exit.i:                            ; preds = %54, %48, %46, %37
-  %.0.i.i.i6 = phi i64 [ 0, %37 ], [ %55, %54 ], [ %47, %46 ], [ %53, %48 ]
+mi_usable_size.exit.i:                            ; preds = %53, %47, %45, %36
+  %.0.i.i.i6 = phi i64 [ 0, %36 ], [ %54, %53 ], [ %46, %45 ], [ %52, %47 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i.i.i9, i8 0, i64 %.0.i.i.i6, i1 false)
   br label %_mi_block_zero_init.exit
 
-_mi_block_zero_init.exit:                         ; preds = %mi_usable_size.exit.i, %36, %mi_malloc_small.exit
-  %.0.i.i.i10 = phi ptr [ null, %mi_malloc_small.exit ], [ %.0.i.i.i9, %36 ], [ %.0.i.i.i9, %mi_usable_size.exit.i ]
+_mi_block_zero_init.exit:                         ; preds = %mi_usable_size.exit.i, %35, %mi_malloc_small.exit
+  %.0.i.i.i10 = phi ptr [ null, %mi_malloc_small.exit ], [ %.0.i.i.i9, %35 ], [ %.0.i.i.i9, %mi_usable_size.exit.i ]
   ret ptr %.0.i.i.i10
 }
 
@@ -469,57 +467,56 @@ mi_heap_malloc.exit:                              ; preds = %15, %17, %22
   %37 = getelementptr inbounds i8, ptr %32, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 15
   %39 = load i8, ptr %38, align 1
-  %40 = and i8 %39, 1
-  %41 = icmp ne i8 %40, 0
-  %42 = icmp ugt i64 %1, 8
-  %or.cond.i = and i1 %42, %41
-  br i1 %or.cond.i, label %43, label %44
+  %40 = trunc i8 %39 to i1
+  %41 = icmp ugt i64 %1, 8
+  %or.cond.i = and i1 %41, %40
+  br i1 %or.cond.i, label %42, label %43
 
-43:                                               ; preds = %25
+42:                                               ; preds = %25
   store i64 0, ptr %.0.i, align 8, !tbaa !14
   br label %_mi_block_zero_init.exit
 
-44:                                               ; preds = %25
-  %45 = icmp eq i64 %27, 0
-  br i1 %45, label %mi_usable_size.exit.i, label %46
+43:                                               ; preds = %25
+  %44 = icmp eq i64 %27, 0
+  br i1 %44, label %mi_usable_size.exit.i, label %45
 
-46:                                               ; preds = %44
-  %47 = getelementptr i8, ptr %37, i64 14
-  %.val.i.i.i8 = load i8, ptr %47, align 2
-  %48 = and i8 %.val.i.i.i8, 2
-  %.not.i.i.i = icmp eq i8 %48, 0
-  br i1 %.not.i.i.i, label %49, label %61, !prof !20
+45:                                               ; preds = %43
+  %46 = getelementptr i8, ptr %37, i64 14
+  %.val.i.i.i8 = load i8, ptr %46, align 2
+  %47 = and i8 %.val.i.i.i8, 2
+  %.not.i.i.i = icmp eq i8 %47, 0
+  br i1 %.not.i.i.i, label %48, label %60, !prof !20
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %37, i64 28
-  %51 = load i32, ptr %50, align 4, !tbaa !22
-  %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %53, label %55, !prof !20
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  %50 = load i32, ptr %49, align 4, !tbaa !22
+  %51 = icmp sgt i32 %50, -1
+  br i1 %51, label %52, label %54, !prof !20
 
-53:                                               ; preds = %49
-  %54 = zext nneg i32 %51 to i64
+52:                                               ; preds = %48
+  %53 = zext nneg i32 %50 to i64
   br label %mi_usable_size.exit.i
 
-55:                                               ; preds = %49
+54:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %56 = ptrtoint ptr %37 to i64
-  %57 = and i64 %56, -67108864
-  %58 = inttoptr i64 %57 to ptr
-  %59 = call ptr @_mi_segment_page_start(ptr noundef %58, ptr noundef nonnull %37, ptr noundef nonnull %4) #15
-  %60 = load i64, ptr %4, align 8, !tbaa !23
+  %55 = ptrtoint ptr %37 to i64
+  %56 = and i64 %55, -67108864
+  %57 = inttoptr i64 %56 to ptr
+  %58 = call ptr @_mi_segment_page_start(ptr noundef %57, ptr noundef nonnull %37, ptr noundef nonnull %4) #15
+  %59 = load i64, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mi_usable_size.exit.i
 
-61:                                               ; preds = %46
-  %62 = tail call fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef %28, ptr noundef nonnull %37, ptr noundef nonnull %.0.i)
+60:                                               ; preds = %45
+  %61 = tail call fastcc i64 @mi_page_usable_aligned_size_of(ptr noundef %28, ptr noundef nonnull %37, ptr noundef nonnull %.0.i)
   br label %mi_usable_size.exit.i
 
-mi_usable_size.exit.i:                            ; preds = %61, %55, %53, %44
-  %.0.i.i.i = phi i64 [ 0, %44 ], [ %62, %61 ], [ %54, %53 ], [ %60, %55 ]
+mi_usable_size.exit.i:                            ; preds = %60, %54, %52, %43
+  %.0.i.i.i = phi i64 [ 0, %43 ], [ %61, %60 ], [ %53, %52 ], [ %59, %54 ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i, i8 0, i64 %.0.i.i.i, i1 false)
   br label %_mi_block_zero_init.exit
 
-_mi_block_zero_init.exit:                         ; preds = %mi_usable_size.exit.i, %43, %mi_heap_malloc.exit
+_mi_block_zero_init.exit:                         ; preds = %mi_usable_size.exit.i, %42, %mi_heap_malloc.exit
   ret ptr %.0.i
 }
 
@@ -704,9 +701,8 @@ _mi_page_ptr_unalign.exit:                        ; preds = %23, %25
 
 47:                                               ; preds = %38
   %.val16.i = load i8, ptr %16, align 2
-  %48 = and i8 %.val16.i, 1
-  %.not.i = icmp eq i8 %48, 0
-  br i1 %.not.i, label %_mi_free_block.exit, label %49, !prof !20
+  %48 = trunc i8 %.val16.i to i1
+  br i1 %48, label %49, label %_mi_free_block.exit, !prof !12
 
 49:                                               ; preds = %47
   call void @_mi_page_unfull(ptr noundef nonnull %15) #15
@@ -755,9 +751,8 @@ define hidden noundef zeroext i1 @_mi_free_delayed_block(ptr noundef %0) local_u
 22:                                               ; preds = %1
   %23 = getelementptr i8, ptr %13, i64 14
   %.val16.i = load i8, ptr %23, align 2
-  %24 = and i8 %.val16.i, 1
-  %.not.i = icmp eq i8 %24, 0
-  br i1 %.not.i, label %_mi_free_block.exit, label %25, !prof !20
+  %24 = trunc i8 %.val16.i to i1
+  br i1 %24, label %25, label %_mi_free_block.exit, !prof !12
 
 25:                                               ; preds = %22
   tail call void @_mi_page_unfull(ptr noundef nonnull %13) #15

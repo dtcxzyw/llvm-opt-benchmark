@@ -954,7 +954,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %24 = tail call noalias noundef align 8 dereferenceable_or_null(112) ptr @kmalloc_trace(ptr noundef %23, i32 noundef 3520, i64 noundef 112) #15
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %515, label %26
+  br i1 %25, label %514, label %26
 
 26:                                               ; preds = %2
   store i64 0, ptr %18, align 8, !annotation !14
@@ -968,7 +968,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 616
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.11) #14
-  br label %513
+  br label %512
 
 30:                                               ; preds = %26, %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -1001,7 +1001,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 42:                                               ; preds = %.critedge
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %38, ptr noundef nonnull @.str.14) #14
-  br label %513
+  br label %512
 
 43:                                               ; preds = %40, %.critedge
   %44 = phi i64 [ %41, %40 ], [ 0, %.critedge ]
@@ -1026,7 +1026,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 53:                                               ; preds = %45
   %54 = call i32 @dmar_device_add(ptr noundef %20) #13
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %._crit_edge, label %513
+  br i1 %55, label %._crit_edge, label %512
 
 ._crit_edge:                                      ; preds = %53
   %.pre = load i16, ptr %48, align 8
@@ -1761,7 +1761,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %490 = trunc i64 %489 to i32
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %486, ptr noundef nonnull @.str.20, i32 noundef %488, i32 noundef %490) #14
   store ptr null, ptr %52, align 8
-  br i1 %22, label %511, label %513
+  br i1 %22, label %510, label %512
 
 491:                                              ; preds = %480
   br i1 %481, label %493, label %492
@@ -1777,43 +1777,42 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %497 = load ptr, ptr %496, align 8
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %499 = load i8, ptr %498, align 8
-  %500 = and i8 %499, 1
-  %501 = icmp ne i8 %500, 0
-  call void @device_set_wakeup_capable(ptr noundef %497, i1 noundef zeroext %501) #13
-  br i1 %22, label %502, label %509
+  %500 = trunc i8 %499 to i1
+  call void @device_set_wakeup_capable(ptr noundef %497, i1 noundef zeroext %500) #13
+  br i1 %22, label %501, label %508
 
-502:                                              ; preds = %493
+501:                                              ; preds = %493
+  %502 = load ptr, ptr %483, align 8
+  call void @pcibios_resource_survey_bus(ptr noundef %502) #13
   %503 = load ptr, ptr %483, align 8
-  call void @pcibios_resource_survey_bus(ptr noundef %503) #13
-  %504 = load ptr, ptr %483, align 8
-  call void @pci_assign_unassigned_root_bus_resources(ptr noundef %504) #13
-  %505 = load ptr, ptr %24, align 8
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
-  %507 = load ptr, ptr %506, align 8
-  %508 = call i32 @acpi_ioapic_add(ptr noundef %507) #13
-  br label %509
+  call void @pci_assign_unassigned_root_bus_resources(ptr noundef %503) #13
+  %504 = load ptr, ptr %24, align 8
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 8
+  %506 = load ptr, ptr %505, align 8
+  %507 = call i32 @acpi_ioapic_add(ptr noundef %506) #13
+  br label %508
 
-509:                                              ; preds = %502, %493
+508:                                              ; preds = %501, %493
   call void @pci_lock_rescan_remove() #13
-  %510 = load ptr, ptr %483, align 8
-  call void @pci_bus_add_devices(ptr noundef %510) #13
+  %509 = load ptr, ptr %483, align 8
+  call void @pci_bus_add_devices(ptr noundef %509) #13
   call void @pci_unlock_rescan_remove() #13
-  br label %515
+  br label %514
 
-511:                                              ; preds = %485
-  %512 = call i32 @dmar_device_remove(ptr noundef %20) #13
-  br label %513
+510:                                              ; preds = %485
+  %511 = call i32 @dmar_device_remove(ptr noundef %20) #13
+  br label %512
 
-513:                                              ; preds = %511, %485, %53, %42, %28
-  %514 = phi i32 [ -19, %28 ], [ -19, %511 ], [ -19, %485 ], [ -19, %42 ], [ -6, %53 ]
+512:                                              ; preds = %510, %485, %53, %42, %28
+  %513 = phi i32 [ -19, %28 ], [ -19, %510 ], [ -19, %485 ], [ -19, %42 ], [ -6, %53 ]
   call void @kfree(ptr noundef nonnull %24) #13
-  br label %515
+  br label %514
 
-515:                                              ; preds = %513, %509, %2
-  %516 = phi i32 [ %514, %513 ], [ 1, %509 ], [ -12, %2 ]
+514:                                              ; preds = %512, %508, %2
+  %515 = phi i32 [ %513, %512 ], [ 1, %508 ], [ -12, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  ret i32 %516
+  ret i32 %515
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

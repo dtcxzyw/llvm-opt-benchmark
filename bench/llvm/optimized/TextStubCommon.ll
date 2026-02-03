@@ -635,316 +635,315 @@ define dso_local void @_ZN4llvm4yaml18ScalarBitSetTraitsINS_5MachO15Architecture
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %7 = load i32, ptr %1, align 4
-  %8 = and i32 %7, 1
-  %9 = icmp ne i32 %8, 0
-  %10 = select i1 %6, i1 %9, i1 false
-  %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.16, i1 noundef zeroext %10) #13
-  br i1 %14, label %15, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit
+  %8 = trunc i32 %7 to i1
+  %9 = select i1 %6, i1 %8, i1 false
+  %10 = load ptr, ptr %0, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.16, i1 noundef zeroext %9) #13
+  br i1 %13, label %14, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit
 
-15:                                               ; preds = %2
-  %16 = load i32, ptr %1, align 4, !tbaa !43
-  %17 = or i32 %16, 1
-  store i32 %17, ptr %1, align 4, !tbaa !45
+14:                                               ; preds = %2
+  %15 = load i32, ptr %1, align 4, !tbaa !43
+  %16 = or i32 %15, 1
+  store i32 %16, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit: ; preds = %2, %15
-  %18 = load ptr, ptr %0, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %22 = load i32, ptr %1, align 4
-  %23 = and i32 %22, 2
-  %24 = icmp ne i32 %23, 0
-  %25 = select i1 %21, i1 %24, i1 false
-  %26 = load ptr, ptr %0, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 200
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.17, i1 noundef zeroext %25) #13
-  br i1 %29, label %30, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit: ; preds = %2, %14
+  %17 = load ptr, ptr %0, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %21 = load i32, ptr %1, align 4
+  %22 = and i32 %21, 2
+  %23 = icmp ne i32 %22, 0
+  %24 = select i1 %20, i1 %23, i1 false
+  %25 = load ptr, ptr %0, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 200
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.17, i1 noundef zeroext %24) #13
+  br i1 %28, label %29, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30
 
-30:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit
-  %31 = load i32, ptr %1, align 4, !tbaa !43
-  %32 = or i32 %31, 2
-  store i32 %32, ptr %1, align 4, !tbaa !45
+29:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit
+  %30 = load i32, ptr %1, align 4, !tbaa !43
+  %31 = or i32 %30, 2
+  store i32 %31, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit, %30
-  %33 = load ptr, ptr %0, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %37 = load i32, ptr %1, align 4
-  %38 = and i32 %37, 4
-  %39 = icmp ne i32 %38, 0
-  %40 = select i1 %36, i1 %39, i1 false
-  %41 = load ptr, ptr %0, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 200
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.18, i1 noundef zeroext %40) #13
-  br i1 %44, label %45, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit, %29
+  %32 = load ptr, ptr %0, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %36 = load i32, ptr %1, align 4
+  %37 = and i32 %36, 4
+  %38 = icmp ne i32 %37, 0
+  %39 = select i1 %35, i1 %38, i1 false
+  %40 = load ptr, ptr %0, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 200
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.18, i1 noundef zeroext %39) #13
+  br i1 %43, label %44, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31
 
-45:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30
-  %46 = load i32, ptr %1, align 4, !tbaa !43
-  %47 = or i32 %46, 4
-  store i32 %47, ptr %1, align 4, !tbaa !45
+44:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30
+  %45 = load i32, ptr %1, align 4, !tbaa !43
+  %46 = or i32 %45, 4
+  store i32 %46, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30, %45
-  %48 = load ptr, ptr %0, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %52 = load i32, ptr %1, align 4
-  %53 = and i32 %52, 8
-  %54 = icmp ne i32 %53, 0
-  %55 = select i1 %51, i1 %54, i1 false
-  %56 = load ptr, ptr %0, align 8, !tbaa !3
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 200
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.19, i1 noundef zeroext %55) #13
-  br i1 %59, label %60, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit30, %44
+  %47 = load ptr, ptr %0, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %51 = load i32, ptr %1, align 4
+  %52 = and i32 %51, 8
+  %53 = icmp ne i32 %52, 0
+  %54 = select i1 %50, i1 %53, i1 false
+  %55 = load ptr, ptr %0, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 200
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.19, i1 noundef zeroext %54) #13
+  br i1 %58, label %59, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32
 
-60:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31
-  %61 = load i32, ptr %1, align 4, !tbaa !43
-  %62 = or i32 %61, 8
-  store i32 %62, ptr %1, align 4, !tbaa !45
+59:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31
+  %60 = load i32, ptr %1, align 4, !tbaa !43
+  %61 = or i32 %60, 8
+  store i32 %61, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31, %60
-  %63 = load ptr, ptr %0, align 8, !tbaa !3
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %67 = load i32, ptr %1, align 4
-  %68 = and i32 %67, 16
-  %69 = icmp ne i32 %68, 0
-  %70 = select i1 %66, i1 %69, i1 false
-  %71 = load ptr, ptr %0, align 8, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 200
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.20, i1 noundef zeroext %70) #13
-  br i1 %74, label %75, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit31, %59
+  %62 = load ptr, ptr %0, align 8, !tbaa !3
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %66 = load i32, ptr %1, align 4
+  %67 = and i32 %66, 16
+  %68 = icmp ne i32 %67, 0
+  %69 = select i1 %65, i1 %68, i1 false
+  %70 = load ptr, ptr %0, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 200
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.20, i1 noundef zeroext %69) #13
+  br i1 %73, label %74, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33
 
-75:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32
-  %76 = load i32, ptr %1, align 4, !tbaa !43
-  %77 = or i32 %76, 16
-  store i32 %77, ptr %1, align 4, !tbaa !45
+74:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32
+  %75 = load i32, ptr %1, align 4, !tbaa !43
+  %76 = or i32 %75, 16
+  store i32 %76, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32, %75
-  %78 = load ptr, ptr %0, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %82 = load i32, ptr %1, align 4
-  %83 = and i32 %82, 32
-  %84 = icmp ne i32 %83, 0
-  %85 = select i1 %81, i1 %84, i1 false
-  %86 = load ptr, ptr %0, align 8, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 200
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.21, i1 noundef zeroext %85) #13
-  br i1 %89, label %90, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit32, %74
+  %77 = load ptr, ptr %0, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %81 = load i32, ptr %1, align 4
+  %82 = and i32 %81, 32
+  %83 = icmp ne i32 %82, 0
+  %84 = select i1 %80, i1 %83, i1 false
+  %85 = load ptr, ptr %0, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 200
+  %87 = load ptr, ptr %86, align 8
+  %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.21, i1 noundef zeroext %84) #13
+  br i1 %88, label %89, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34
 
-90:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33
-  %91 = load i32, ptr %1, align 4, !tbaa !43
-  %92 = or i32 %91, 32
-  store i32 %92, ptr %1, align 4, !tbaa !45
+89:                                               ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33
+  %90 = load i32, ptr %1, align 4, !tbaa !43
+  %91 = or i32 %90, 32
+  store i32 %91, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33, %90
-  %93 = load ptr, ptr %0, align 8, !tbaa !3
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %97 = load i32, ptr %1, align 4
-  %98 = and i32 %97, 64
-  %99 = icmp ne i32 %98, 0
-  %100 = select i1 %96, i1 %99, i1 false
-  %101 = load ptr, ptr %0, align 8, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 200
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call noundef zeroext i1 %103(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.22, i1 noundef zeroext %100) #13
-  br i1 %104, label %105, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit33, %89
+  %92 = load ptr, ptr %0, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %96 = load i32, ptr %1, align 4
+  %97 = and i32 %96, 64
+  %98 = icmp ne i32 %97, 0
+  %99 = select i1 %95, i1 %98, i1 false
+  %100 = load ptr, ptr %0, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 200
+  %102 = load ptr, ptr %101, align 8
+  %103 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.22, i1 noundef zeroext %99) #13
+  br i1 %103, label %104, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35
 
-105:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34
-  %106 = load i32, ptr %1, align 4, !tbaa !43
-  %107 = or i32 %106, 64
-  store i32 %107, ptr %1, align 4, !tbaa !45
+104:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34
+  %105 = load i32, ptr %1, align 4, !tbaa !43
+  %106 = or i32 %105, 64
+  store i32 %106, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34, %105
-  %108 = load ptr, ptr %0, align 8, !tbaa !3
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %112 = load i32, ptr %1, align 4
-  %113 = and i32 %112, 128
-  %114 = icmp ne i32 %113, 0
-  %115 = select i1 %111, i1 %114, i1 false
-  %116 = load ptr, ptr %0, align 8, !tbaa !3
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 200
-  %118 = load ptr, ptr %117, align 8
-  %119 = tail call noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.23, i1 noundef zeroext %115) #13
-  br i1 %119, label %120, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit34, %104
+  %107 = load ptr, ptr %0, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %109 = load ptr, ptr %108, align 8
+  %110 = tail call noundef zeroext i1 %109(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %111 = load i32, ptr %1, align 4
+  %112 = and i32 %111, 128
+  %113 = icmp ne i32 %112, 0
+  %114 = select i1 %110, i1 %113, i1 false
+  %115 = load ptr, ptr %0, align 8, !tbaa !3
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 200
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.23, i1 noundef zeroext %114) #13
+  br i1 %118, label %119, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36
 
-120:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35
-  %121 = load i32, ptr %1, align 4, !tbaa !43
-  %122 = or i32 %121, 128
-  store i32 %122, ptr %1, align 4, !tbaa !45
+119:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35
+  %120 = load i32, ptr %1, align 4, !tbaa !43
+  %121 = or i32 %120, 128
+  store i32 %121, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35, %120
-  %123 = load ptr, ptr %0, align 8, !tbaa !3
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %127 = load i32, ptr %1, align 4
-  %128 = and i32 %127, 256
-  %129 = icmp ne i32 %128, 0
-  %130 = select i1 %126, i1 %129, i1 false
-  %131 = load ptr, ptr %0, align 8, !tbaa !3
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 200
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.24, i1 noundef zeroext %130) #13
-  br i1 %134, label %135, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit35, %119
+  %122 = load ptr, ptr %0, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %124 = load ptr, ptr %123, align 8
+  %125 = tail call noundef zeroext i1 %124(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %126 = load i32, ptr %1, align 4
+  %127 = and i32 %126, 256
+  %128 = icmp ne i32 %127, 0
+  %129 = select i1 %125, i1 %128, i1 false
+  %130 = load ptr, ptr %0, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 200
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.24, i1 noundef zeroext %129) #13
+  br i1 %133, label %134, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37
 
-135:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36
-  %136 = load i32, ptr %1, align 4, !tbaa !43
-  %137 = or i32 %136, 256
-  store i32 %137, ptr %1, align 4, !tbaa !45
+134:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36
+  %135 = load i32, ptr %1, align 4, !tbaa !43
+  %136 = or i32 %135, 256
+  store i32 %136, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36, %135
-  %138 = load ptr, ptr %0, align 8, !tbaa !3
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %142 = load i32, ptr %1, align 4
-  %143 = and i32 %142, 512
-  %144 = icmp ne i32 %143, 0
-  %145 = select i1 %141, i1 %144, i1 false
-  %146 = load ptr, ptr %0, align 8, !tbaa !3
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 200
-  %148 = load ptr, ptr %147, align 8
-  %149 = tail call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.25, i1 noundef zeroext %145) #13
-  br i1 %149, label %150, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit36, %134
+  %137 = load ptr, ptr %0, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  %140 = tail call noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %141 = load i32, ptr %1, align 4
+  %142 = and i32 %141, 512
+  %143 = icmp ne i32 %142, 0
+  %144 = select i1 %140, i1 %143, i1 false
+  %145 = load ptr, ptr %0, align 8, !tbaa !3
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 200
+  %147 = load ptr, ptr %146, align 8
+  %148 = tail call noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.25, i1 noundef zeroext %144) #13
+  br i1 %148, label %149, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38
 
-150:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37
-  %151 = load i32, ptr %1, align 4, !tbaa !43
-  %152 = or i32 %151, 512
-  store i32 %152, ptr %1, align 4, !tbaa !45
+149:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37
+  %150 = load i32, ptr %1, align 4, !tbaa !43
+  %151 = or i32 %150, 512
+  store i32 %151, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37, %150
-  %153 = load ptr, ptr %0, align 8, !tbaa !3
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %155 = load ptr, ptr %154, align 8
-  %156 = tail call noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %157 = load i32, ptr %1, align 4
-  %158 = and i32 %157, 1024
-  %159 = icmp ne i32 %158, 0
-  %160 = select i1 %156, i1 %159, i1 false
-  %161 = load ptr, ptr %0, align 8, !tbaa !3
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 200
-  %163 = load ptr, ptr %162, align 8
-  %164 = tail call noundef zeroext i1 %163(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.26, i1 noundef zeroext %160) #13
-  br i1 %164, label %165, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit37, %149
+  %152 = load ptr, ptr %0, align 8, !tbaa !3
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %154 = load ptr, ptr %153, align 8
+  %155 = tail call noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %156 = load i32, ptr %1, align 4
+  %157 = and i32 %156, 1024
+  %158 = icmp ne i32 %157, 0
+  %159 = select i1 %155, i1 %158, i1 false
+  %160 = load ptr, ptr %0, align 8, !tbaa !3
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 200
+  %162 = load ptr, ptr %161, align 8
+  %163 = tail call noundef zeroext i1 %162(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.26, i1 noundef zeroext %159) #13
+  br i1 %163, label %164, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39
 
-165:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38
-  %166 = load i32, ptr %1, align 4, !tbaa !43
-  %167 = or i32 %166, 1024
-  store i32 %167, ptr %1, align 4, !tbaa !45
+164:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38
+  %165 = load i32, ptr %1, align 4, !tbaa !43
+  %166 = or i32 %165, 1024
+  store i32 %166, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38, %165
-  %168 = load ptr, ptr %0, align 8, !tbaa !3
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %170 = load ptr, ptr %169, align 8
-  %171 = tail call noundef zeroext i1 %170(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %172 = load i32, ptr %1, align 4
-  %173 = and i32 %172, 2048
-  %174 = icmp ne i32 %173, 0
-  %175 = select i1 %171, i1 %174, i1 false
-  %176 = load ptr, ptr %0, align 8, !tbaa !3
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 200
-  %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef zeroext i1 %178(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.27, i1 noundef zeroext %175) #13
-  br i1 %179, label %180, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit38, %164
+  %167 = load ptr, ptr %0, align 8, !tbaa !3
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %169 = load ptr, ptr %168, align 8
+  %170 = tail call noundef zeroext i1 %169(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %171 = load i32, ptr %1, align 4
+  %172 = and i32 %171, 2048
+  %173 = icmp ne i32 %172, 0
+  %174 = select i1 %170, i1 %173, i1 false
+  %175 = load ptr, ptr %0, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 200
+  %177 = load ptr, ptr %176, align 8
+  %178 = tail call noundef zeroext i1 %177(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.27, i1 noundef zeroext %174) #13
+  br i1 %178, label %179, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40
 
-180:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39
-  %181 = load i32, ptr %1, align 4, !tbaa !43
-  %182 = or i32 %181, 2048
-  store i32 %182, ptr %1, align 4, !tbaa !45
+179:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39
+  %180 = load i32, ptr %1, align 4, !tbaa !43
+  %181 = or i32 %180, 2048
+  store i32 %181, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39, %180
-  %183 = load ptr, ptr %0, align 8, !tbaa !3
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %185 = load ptr, ptr %184, align 8
-  %186 = tail call noundef zeroext i1 %185(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %187 = load i32, ptr %1, align 4
-  %188 = and i32 %187, 4096
-  %189 = icmp ne i32 %188, 0
-  %190 = select i1 %186, i1 %189, i1 false
-  %191 = load ptr, ptr %0, align 8, !tbaa !3
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 200
-  %193 = load ptr, ptr %192, align 8
-  %194 = tail call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.28, i1 noundef zeroext %190) #13
-  br i1 %194, label %195, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit39, %179
+  %182 = load ptr, ptr %0, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %185 = tail call noundef zeroext i1 %184(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %186 = load i32, ptr %1, align 4
+  %187 = and i32 %186, 4096
+  %188 = icmp ne i32 %187, 0
+  %189 = select i1 %185, i1 %188, i1 false
+  %190 = load ptr, ptr %0, align 8, !tbaa !3
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 200
+  %192 = load ptr, ptr %191, align 8
+  %193 = tail call noundef zeroext i1 %192(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.28, i1 noundef zeroext %189) #13
+  br i1 %193, label %194, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41
 
-195:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40
-  %196 = load i32, ptr %1, align 4, !tbaa !43
-  %197 = or i32 %196, 4096
-  store i32 %197, ptr %1, align 4, !tbaa !45
+194:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40
+  %195 = load i32, ptr %1, align 4, !tbaa !43
+  %196 = or i32 %195, 4096
+  store i32 %196, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40, %195
-  %198 = load ptr, ptr %0, align 8, !tbaa !3
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call noundef zeroext i1 %200(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %202 = load i32, ptr %1, align 4
-  %203 = and i32 %202, 8192
-  %204 = icmp ne i32 %203, 0
-  %205 = select i1 %201, i1 %204, i1 false
-  %206 = load ptr, ptr %0, align 8, !tbaa !3
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 200
-  %208 = load ptr, ptr %207, align 8
-  %209 = tail call noundef zeroext i1 %208(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.29, i1 noundef zeroext %205) #13
-  br i1 %209, label %210, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit40, %194
+  %197 = load ptr, ptr %0, align 8, !tbaa !3
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
+  %199 = load ptr, ptr %198, align 8
+  %200 = tail call noundef zeroext i1 %199(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %201 = load i32, ptr %1, align 4
+  %202 = and i32 %201, 8192
+  %203 = icmp ne i32 %202, 0
+  %204 = select i1 %200, i1 %203, i1 false
+  %205 = load ptr, ptr %0, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 200
+  %207 = load ptr, ptr %206, align 8
+  %208 = tail call noundef zeroext i1 %207(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.29, i1 noundef zeroext %204) #13
+  br i1 %208, label %209, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42
 
-210:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41
-  %211 = load i32, ptr %1, align 4, !tbaa !43
-  %212 = or i32 %211, 8192
-  store i32 %212, ptr %1, align 4, !tbaa !45
+209:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41
+  %210 = load i32, ptr %1, align 4, !tbaa !43
+  %211 = or i32 %210, 8192
+  store i32 %211, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41, %210
-  %213 = load ptr, ptr %0, align 8, !tbaa !3
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %215 = load ptr, ptr %214, align 8
-  %216 = tail call noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
-  %217 = load i32, ptr %1, align 4
-  %218 = and i32 %217, 16384
-  %219 = icmp ne i32 %218, 0
-  %220 = select i1 %216, i1 %219, i1 false
-  %221 = load ptr, ptr %0, align 8, !tbaa !3
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 200
-  %223 = load ptr, ptr %222, align 8
-  %224 = tail call noundef zeroext i1 %223(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.30, i1 noundef zeroext %220) #13
-  br i1 %224, label %225, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit43
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit41, %209
+  %212 = load ptr, ptr %0, align 8, !tbaa !3
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %214 = load ptr, ptr %213, align 8
+  %215 = tail call noundef zeroext i1 %214(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
+  %216 = load i32, ptr %1, align 4
+  %217 = and i32 %216, 16384
+  %218 = icmp ne i32 %217, 0
+  %219 = select i1 %215, i1 %218, i1 false
+  %220 = load ptr, ptr %0, align 8, !tbaa !3
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 200
+  %222 = load ptr, ptr %221, align 8
+  %223 = tail call noundef zeroext i1 %222(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.30, i1 noundef zeroext %219) #13
+  br i1 %223, label %224, label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit43
 
-225:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42
-  %226 = load i32, ptr %1, align 4, !tbaa !43
-  %227 = or i32 %226, 16384
-  store i32 %227, ptr %1, align 4, !tbaa !45
+224:                                              ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42
+  %225 = load i32, ptr %1, align 4, !tbaa !43
+  %226 = or i32 %225, 16384
+  store i32 %226, ptr %1, align 4, !tbaa !45
   br label %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit43
 
-_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit43: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42, %225
+_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit43: ; preds = %_ZN4llvm4yaml2IO10bitSetCaseINS_5MachO15ArchitectureSetEEEvRT_PKcj.exit42, %224
   ret void
 }
 

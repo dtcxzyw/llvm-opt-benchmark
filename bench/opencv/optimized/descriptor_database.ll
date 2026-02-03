@@ -8145,10 +8145,9 @@ define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNam
   %10 = alloca %"struct.google::protobuf::strings::AlphaNum", align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !52
-  %13 = and i32 %12, 1
-  %.not = icmp eq i32 %13, 0
+  %13 = trunc i32 %12 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %.not, label %14, label %.thread
+  br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8269,8 +8268,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %63 = sext i32 %62 to i64
   %.idx = shl nsw i64 %63, 3
   %64 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
-  %.not3940 = icmp eq i32 %62, 0
-  br i1 %.not3940, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq i32 %62, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %76, %57
   %65 = load ptr, ptr %7, align 8, !tbaa !25
@@ -8309,15 +8308,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   br label %80
 
 .lr.ph:                                           ; preds = %57, %76
-  %.sroa.036.041 = phi ptr [ %77, %76 ], [ %spec.select.i.i, %57 ]
-  %75 = load ptr, ptr %.sroa.036.041, align 8, !tbaa !37
+  %.sroa.036.040 = phi ptr [ %77, %76 ], [ %spec.select.i.i, %57 ]
+  %75 = load ptr, ptr %.sroa.036.040, align 8, !tbaa !37
   invoke fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt3setISA_St4lessISA_ESaISA_EE(ptr noundef nonnull align 8 dereferenceable(232) %75, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %2)
           to label %76 unwind label %78
 
 76:                                               ; preds = %.lr.ph
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.036.041, i64 8
-  %.not39 = icmp eq ptr %77, %64
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.036.040, i64 8
+  %.not = icmp eq ptr %77, %64
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 78:                                               ; preds = %.lr.ph
   %79 = landingpad { ptr, i32 }

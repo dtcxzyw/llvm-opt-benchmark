@@ -1501,8 +1501,8 @@ _ZNK4llvm11Instruction11getMetadataEj.exit.thread.i.i.i.i.i: ; preds = %_ZNK4llv
 _ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i:   ; preds = %336, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i.i.i.i.i
   %340 = phi i32 [ %.pre.i.i.i.i.i, %336 ], [ %333, %_ZNK4llvm11Instruction11getMetadataEj.exit.thread.i.i.i.i.i ]
   %341 = and i32 %340, 255
-  %.not104.i.i.i.i.i = icmp eq i32 %341, 14
-  br i1 %.not104.i.i.i.i.i, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.i.i.i.i.i, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread.i.i.i.i.i
+  %.not105.i.i.i.i.i = icmp eq i32 %341, 14
+  br i1 %.not105.i.i.i.i.i, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.i.i.i.i.i, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread.i.i.i.i.i
 
 _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.i.i.i.i.i: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i
   %342 = lshr i32 %340, 8
@@ -1513,13 +1513,13 @@ _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.i.i.i.i.i: ; pre
   br i1 %346, label %_ZN12_GLOBAL__N_118LoopIdiomRecognize12isLegalStoreEPN4llvm9StoreInstE.exit.thread.i.i.i.i, label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i
 
 _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i: ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.i.i.i.i.i
-  %.pre96.i.i.i.i.i = load ptr, ptr %73, align 8, !tbaa !139
-  %.pre97.i.i.i.i.i = load ptr, ptr %330, align 8, !tbaa !226
+  %.pre97.i.i.i.i.i = load ptr, ptr %73, align 8, !tbaa !139
+  %.pre98.i.i.i.i.i = load ptr, ptr %330, align 8, !tbaa !226
   br label %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread.i.i.i.i.i
 
 _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread.i.i.i.i.i: ; preds = %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i
-  %347 = phi ptr [ %.pre97.i.i.i.i.i, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i ], [ %331, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i ]
-  %348 = phi ptr [ %.pre96.i.i.i.i.i, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i ], [ %329, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i ]
+  %347 = phi ptr [ %.pre98.i.i.i.i.i, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i ], [ %331, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i ]
+  %348 = phi ptr [ %.pre97.i.i.i.i.i, %_ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit._ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread_crit_edge.i.i.i.i.i ], [ %329, %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i ]
   %349 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %348, ptr noundef %347)
   %.fca.0.extract33.i.i.i.i.i = extractvalue { i64, i8 } %349, 0
   %.fca.1.extract34.i.i.i.i.i = extractvalue { i64, i8 } %349, 1
@@ -1535,8 +1535,8 @@ _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread.i.i.i.i.i
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %357 = load i16, ptr %356, align 8, !tbaa !184
   %358 = icmp ne i16 %357, 8
-  %.not6392.i.i.i.i.i = icmp eq ptr %355, null
-  %.not63.i.i.i.i.i = or i1 %.not6392.i.i.i.i.i, %358
+  %.not6393.i.i.i.i.i = icmp eq ptr %355, null
+  %.not63.i.i.i.i.i = or i1 %.not6393.i.i.i.i.i, %358
   br i1 %.not63.i.i.i.i.i, label %_ZN12_GLOBAL__N_118LoopIdiomRecognize12isLegalStoreEPN4llvm9StoreInstE.exit.thread.i.i.i.i, label %359
 
 359:                                              ; preds = %353
@@ -1605,11 +1605,11 @@ _ZN12_GLOBAL__N_118LoopIdiomRecognize12isLegalStoreEPN4llvm9StoreInstE.exit.thre
   br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_9StoreInstELb1EE9push_backES2_.exit.i.i.i.i, label %527, !prof !33
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %388
-  %.pre98.i.i.i.i.i = load i8, ptr @_ZN4llvm11DisableLIRP6MemsetE, align 1, !range !46
+  %.pre99.i.i.i.i.i = load i8, ptr @_ZN4llvm11DisableLIRP6MemsetE, align 1, !range !46
   br label %398
 
 398:                                              ; preds = %._crit_edge.i.i.i.i.i, %.thread.i.i.i.i.i
-  %399 = phi i8 [ %.pre98.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %386, %.thread.i.i.i.i.i ]
+  %399 = phi i8 [ %.pre99.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %386, %.thread.i.i.i.i.i ]
   %400 = load i8, ptr %145, align 1, !tbaa !182, !range !46, !noundef !47
   %401 = trunc nuw i8 %400 to i1
   %.not.i.i.i.i.i = xor i1 %401, true
@@ -1833,15 +1833,15 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %_ZN4llvmneEmRKNS_5A
 .critedge72.thread.i.i.i.i.i:                     ; preds = %.critedge72.i.i.i.i.i, %485, %_ZN4llvm5APIntD2Ev.exit.i.i.i.thread.i.i, %_ZN4llvmneEmRKNS_5APIntE.exit.i.i, %_ZN4llvmneEmRKNS_5APIntE.exit.thread48.i.i.i.i, %_ZN4llvmneEmRKNS_5APIntE.exit.i.i.i.i
   %486 = load ptr, ptr %325, align 8, !tbaa !222
   %487 = load i8, ptr %486, align 8, !tbaa !220
-  %.not94.i.i.i.i.i = icmp eq i8 %487, 61
-  br i1 %.not94.i.i.i.i.i, label %488, label %519
+  %.not95.i.i.i.i.i = icmp eq i8 %487, 61
+  br i1 %.not95.i.i.i.i.i, label %488, label %519
 
 488:                                              ; preds = %.critedge72.thread.i.i.i.i.i
   %489 = getelementptr inbounds nuw i8, ptr %486, i64 2
   %490 = load i16, ptr %489, align 2, !tbaa !221
   %491 = and i16 %490, 769
-  %or.cond90.i.i.i.i.i = icmp eq i16 %491, 0
-  br i1 %or.cond90.i.i.i.i.i, label %492, label %519
+  %or.cond91.i.i.i.i.i = icmp eq i16 %491, 0
+  br i1 %or.cond91.i.i.i.i.i, label %492, label %519
 
 492:                                              ; preds = %488
   %493 = load ptr, ptr %70, align 8, !tbaa !136
@@ -1851,8 +1851,8 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %_ZN4llvmneEmRKNS_5A
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 24
   %498 = load i16, ptr %497, align 8, !tbaa !184
   %499 = icmp ne i16 %498, 8
-  %.not6795.i.i.i.i.i = icmp eq ptr %496, null
-  %.not67.i.i.i.i.i = or i1 %.not6795.i.i.i.i.i, %499
+  %.not6796.i.i.i.i.i = icmp eq ptr %496, null
+  %.not67.i.i.i.i.i = or i1 %.not6796.i.i.i.i.i, %499
   br i1 %.not67.i.i.i.i.i, label %519, label %500
 
 500:                                              ; preds = %492

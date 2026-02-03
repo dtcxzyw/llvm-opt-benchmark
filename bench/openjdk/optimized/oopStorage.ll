@@ -2131,7 +2131,7 @@ define hidden noundef zeroext i1 @_ZN10OopStorage19delete_empty_blocksEv(ptr nou
   %7 = load volatile ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZN11MutexLockerD2Ev.exit21, label %9
+  br i1 %8, label %_ZN11MutexLockerD2Ev.exit23, label %9
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2193,7 +2193,7 @@ _ZNK10OopStorage11block_countEv.exit:             ; preds = %_ZN10OopStorage15Wi
   br label %42
 
 42:                                               ; preds = %.lr.ph, %_ZN13MutexUnlockerD2Ev.exit
-  %.01244 = phi i64 [ 0, %.lr.ph ], [ %139, %_ZN13MutexUnlockerD2Ev.exit ]
+  %.01241 = phi i64 [ 0, %.lr.ph ], [ %139, %_ZN13MutexUnlockerD2Ev.exit ]
   %43 = tail call noundef zeroext i1 @_ZN10OopStorage23reduce_deferred_updatesEv(ptr noundef nonnull align 8 dereferenceable(126) %0)
   br i1 %43, label %44, label %64
 
@@ -2212,14 +2212,13 @@ _ZNK10OopStorage11block_countEv.exit:             ; preds = %_ZN10OopStorage15Wi
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 1096
   %50 = load volatile i64, ptr %49, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
-  %51 = and i64 %50, 1
-  %.not.i.i22 = icmp eq i64 %51, 0
-  br i1 %.not.i.i22, label %_ZN13MutexUnlockerD2Ev.exit, label %52
+  %51 = trunc i64 %50 to i1
+  br i1 %51, label %52, label %_ZN13MutexUnlockerD2Ev.exit
 
 52:                                               ; preds = %44
   %53 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i = icmp eq i32 %53, 0
-  br i1 %.not5.i.i, label %54, label %60
+  %.not.i.i.i = icmp eq i32 %53, 0
+  br i1 %.not.i.i.i, label %54, label %60
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 1384
@@ -2237,9 +2236,8 @@ _ZNK10OopStorage11block_countEv.exit:             ; preds = %_ZN10OopStorage15Wi
 60:                                               ; preds = %57, %54, %52
   %61 = load volatile i64, ptr %49, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
-  %62 = and i64 %61, 1
-  %.not.i1.i = icmp eq i64 %62, 0
-  br i1 %.not.i1.i, label %_ZN13MutexUnlockerD2Ev.exit, label %63
+  %62 = trunc i64 %61 to i1
+  br i1 %62, label %63, label %_ZN13MutexUnlockerD2Ev.exit
 
 63:                                               ; preds = %60
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %46, i1 noundef zeroext false, i1 noundef zeroext false) #20
@@ -2248,13 +2246,13 @@ _ZNK10OopStorage11block_countEv.exit:             ; preds = %_ZN10OopStorage15Wi
 64:                                               ; preds = %42
   %65 = load ptr, ptr %38, align 8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %_ZN11MutexLockerD2Ev.exit19, label %67
+  br i1 %66, label %_ZN11MutexLockerD2Ev.exit21, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 512
   %69 = load volatile i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %_ZN11MutexLockerD2Ev.exit19
+  br i1 %70, label %71, label %_ZN11MutexLockerD2Ev.exit21
 
 71:                                               ; preds = %67
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
@@ -2279,7 +2277,7 @@ _ZNK10OopStorage5Block17is_safe_to_deleteEv.exit: ; preds = %71
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15: ; preds = %78
   %80 = load i32, ptr %40, align 8
   %81 = icmp slt i32 %80, 1
-  br i1 %81, label %84, label %_ZN11MutexLockerD2Ev.exit19
+  br i1 %81, label %84, label %_ZN11MutexLockerD2Ev.exit21
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15.thread: ; preds = %78
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #20
@@ -2380,14 +2378,13 @@ _ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit: ; preds = %_ZN10OopStorag
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 1096
   %125 = load volatile i64, ptr %124, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
-  %126 = and i64 %125, 1
-  %.not.i.i23 = icmp eq i64 %126, 0
-  br i1 %.not.i.i23, label %_ZN13MutexUnlockerD2Ev.exit, label %127
+  %126 = trunc i64 %125 to i1
+  br i1 %126, label %127, label %_ZN13MutexUnlockerD2Ev.exit
 
 127:                                              ; preds = %_ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit
   %128 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %.not5.i.i24 = icmp eq i32 %128, 0
-  br i1 %.not5.i.i24, label %129, label %135
+  %.not.i.i.i17 = icmp eq i32 %128, 0
+  br i1 %.not.i.i.i17, label %129, label %135
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %121, i64 1384
@@ -2405,9 +2402,8 @@ _ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit: ; preds = %_ZN10OopStorag
 135:                                              ; preds = %132, %129, %127
   %136 = load volatile i64, ptr %124, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
-  %137 = and i64 %136, 1
-  %.not.i1.i25 = icmp eq i64 %137, 0
-  br i1 %.not.i1.i25, label %_ZN13MutexUnlockerD2Ev.exit, label %138
+  %137 = trunc i64 %136 to i1
+  br i1 %137, label %138, label %_ZN13MutexUnlockerD2Ev.exit
 
 138:                                              ; preds = %135
   tail call void @_ZN18SafepointMechanism7processEP10JavaThreadbb(ptr noundef nonnull %121, i1 noundef zeroext false, i1 noundef zeroext false) #20
@@ -2416,7 +2412,7 @@ _ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit: ; preds = %_ZN10OopStorag
 _ZN13MutexUnlockerD2Ev.exit:                      ; preds = %138, %135, %134, %_ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit, %63, %60, %59, %44
   %.sink = phi ptr [ %45, %63 ], [ %45, %44 ], [ %45, %59 ], [ %45, %60 ], [ %113, %_ZN10OopStorage18delete_empty_blockERKNS_5BlockE.exit ], [ %113, %134 ], [ %113, %135 ], [ %113, %138 ]
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %.sink) #20
-  %139 = add nuw i64 %.01244, 1
+  %139 = add nuw i64 %.01241, 1
   %exitcond.not = icmp eq i64 %139, %36
   br i1 %exitcond.not, label %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread, label %42, !llvm.loop !25
 
@@ -2424,22 +2420,22 @@ _ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread: ; preds = %_ZN13MutexUn
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !6
   store volatile i8 1, ptr %2, align 1
   %140 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull @_ZL23needs_cleanup_requested) #20, !srcloc !17
-  br label %_ZN11MutexLockerD2Ev.exit19
+  br label %_ZN11MutexLockerD2Ev.exit21
 
 141:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %79) #20
-  br label %_ZN11MutexLockerD2Ev.exit19
-
-_ZN11MutexLockerD2Ev.exit19:                      ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15, %64, %67, %141, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread
-  %.2 = phi i1 [ true, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread ], [ true, %141 ], [ false, %64 ], [ false, %67 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15 ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit21, label %142
-
-142:                                              ; preds = %_ZN11MutexLockerD2Ev.exit19
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %11) #20
   br label %_ZN11MutexLockerD2Ev.exit21
 
-_ZN11MutexLockerD2Ev.exit21:                      ; preds = %142, %_ZN11MutexLockerD2Ev.exit19, %5
-  %.011 = phi i1 [ false, %5 ], [ %.2, %_ZN11MutexLockerD2Ev.exit19 ], [ %.2, %142 ]
+_ZN11MutexLockerD2Ev.exit21:                      ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15, %64, %67, %141, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread
+  %.2 = phi i1 [ true, %_ZNK10OopStorage5Block17is_safe_to_deleteEv.exit.thread ], [ true, %141 ], [ false, %64 ], [ false, %67 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit15 ]
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit23, label %142
+
+142:                                              ; preds = %_ZN11MutexLockerD2Ev.exit21
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %11) #20
+  br label %_ZN11MutexLockerD2Ev.exit23
+
+_ZN11MutexLockerD2Ev.exit23:                      ; preds = %142, %_ZN11MutexLockerD2Ev.exit21, %5
+  %.011 = phi i1 [ false, %5 ], [ %.2, %_ZN11MutexLockerD2Ev.exit21 ], [ %.2, %142 ]
   ret i1 %.011
 }
 

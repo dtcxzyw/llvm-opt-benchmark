@@ -1433,8 +1433,7 @@ proto_item_set_generated.exit.i409:               ; preds = %425, %422, %418, %4
   %430 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %429, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0)
   %431 = load i32, ptr @ett_rohc_ir, align 4
   %432 = call ptr @proto_item_add_subtree(ptr noundef %430, i32 noundef %431)
-  %433 = and i8 %415, 1
-  %.not137.i = icmp eq i8 %433, 0
+  %433 = trunc i8 %415 to i1
   %434 = add i32 %.3, 1
   %435 = load i8, ptr %.0307.sroa.phi354, align 1, !range !6, !noundef !7
   %436 = trunc nuw i8 %435 to i1
@@ -1720,7 +1719,7 @@ proto_item_set_generated.exit.i409:               ; preds = %425, %422, %418, %4
   %605 = load ptr, ptr %9, align 8
   %606 = sub i32 %601, %454
   call void @proto_item_set_len(ptr noundef %605, i32 noundef %606)
-  br i1 %.not137.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %607
+  br i1 %433, label %607, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i
 
 607:                                              ; preds = %604
   %608 = call fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr noundef %1, ptr noundef %432, i32 noundef %601, i8 noundef zeroext 2, ptr noundef %.1129.i)
@@ -1739,7 +1738,7 @@ proto_item_set_generated.exit.i409:               ; preds = %425, %422, %418, %4
   %618 = load ptr, ptr %9, align 8
   %619 = sub i32 %617, %454
   call void @proto_item_set_len(ptr noundef %618, i32 noundef %619)
-  br i1 %.not137.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %620
+  br i1 %433, label %620, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i
 
 620:                                              ; preds = %609
   %621 = call fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr noundef %1, ptr noundef %432, i32 noundef %617, i8 noundef zeroext %443, ptr noundef %.1129.i)
@@ -1753,7 +1752,7 @@ proto_item_set_generated.exit.i409:               ; preds = %425, %422, %418, %4
   %625 = load ptr, ptr %9, align 8
   %626 = sub i32 %.0160.i.i, %454
   call void @proto_item_set_len(ptr noundef %625, i32 noundef %626)
-  br i1 %.not137.i, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i, label %627
+  br i1 %433, label %627, label %dissect_rohc_ir_rtp_udp_ip_profile_static.exit.i
 
 627:                                              ; preds = %624
   %628 = call fastcc i32 @dissect_rohc_ir_profile_dynamic(ptr noundef %0, ptr noundef %1, ptr noundef %432, i32 noundef %.0160.i.i, i8 noundef zeroext 4, ptr noundef %.1129.i)

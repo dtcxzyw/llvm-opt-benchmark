@@ -9472,7 +9472,7 @@ define internal noundef i32 @kjournald2(ptr noundef %0) #1 align 16 {
   call void @_raw_write_lock(ptr noundef nonnull %13) #20
   br label %32
 
-32:                                               ; preds = %79, %73, %70, %30
+32:                                               ; preds = %78, %72, %69, %30
   %33 = load i64, ptr %0, align 8
   %34 = and i64 %33, 1
   %35 = icmp eq i64 %34, 0
@@ -9503,7 +9503,7 @@ define internal noundef i32 @kjournald2(ptr noundef %0) #1 align 16 {
 
 46:                                               ; preds = %44, %42, %40
   call void @_raw_write_lock(ptr noundef nonnull %13) #20
-  br label %70
+  br label %69
 
 47:                                               ; preds = %38, %36
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -9533,46 +9533,45 @@ define internal noundef i32 @kjournald2(ptr noundef %0) #1 align 16 {
 61:                                               ; preds = %54, %47
   %62 = phi i32 [ %51, %47 ], [ %60, %54 ]
   %63 = load i64, ptr %0, align 8
-  %64 = and i64 %63, 1
-  %65 = icmp ne i64 %64, 0
-  %66 = icmp eq i32 %62, 0
-  %67 = select i1 %65, i1 true, i1 %66
-  br i1 %67, label %69, label %68
+  %64 = trunc i64 %63 to i1
+  %65 = icmp eq i32 %62, 0
+  %66 = select i1 %64, i1 true, i1 %65
+  br i1 %66, label %68, label %67
 
-68:                                               ; preds = %61
+67:                                               ; preds = %61
   call void @_raw_write_unlock(ptr noundef nonnull %13) #20
   call void @schedule() #20
   call void @_raw_write_lock(ptr noundef nonnull %13) #20
-  br label %69
+  br label %68
 
-69:                                               ; preds = %68, %61
+68:                                               ; preds = %67, %61
   call void @finish_wait(ptr noundef nonnull %24, ptr noundef nonnull %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %46
-  %71 = load ptr, ptr %25, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %32, label %73
+69:                                               ; preds = %68, %46
+  %70 = load ptr, ptr %25, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %32, label %72
 
-73:                                               ; preds = %70
-  %74 = load volatile i64, ptr @jiffies, align 64
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 168
-  %76 = load i64, ptr %75, align 8
-  %77 = sub i64 %74, %76
-  %78 = icmp sgt i64 %77, -1
-  br i1 %78, label %79, label %32
+72:                                               ; preds = %69
+  %73 = load volatile i64, ptr @jiffies, align 64
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 168
+  %75 = load i64, ptr %74, align 8
+  %76 = sub i64 %73, %75
+  %77 = icmp sgt i64 %76, -1
+  br i1 %77, label %78, label %32
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %81 = load i32, ptr %80, align 8
-  store i32 %81, ptr %19, align 4
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %80 = load i32, ptr %79, align 8
+  store i32 %80, ptr %19, align 4
   br label %32
 
 .loopexit:                                        ; preds = %32, %1
-  %82 = call i32 @timer_delete_sync(ptr noundef nonnull %3) #20
+  %81 = call i32 @timer_delete_sync(ptr noundef nonnull %3) #20
   store ptr null, ptr %7, align 8
-  %83 = call i32 @__wake_up(ptr noundef nonnull %8, i32 noundef 3, i32 noundef 1, ptr noundef null) #20
+  %82 = call i32 @__wake_up(ptr noundef nonnull %8, i32 noundef 3, i32 noundef 1, ptr noundef null) #20
   call void @_raw_write_unlock(ptr noundef nonnull %13) #20
   ret i32 0
 }

@@ -71,9 +71,8 @@ define nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin___
 
 l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin___rarg.exit: ; preds = %7, %.critedge.i.i
   %.0.i.i = phi i1 [ %8, %7 ], [ %9, %.critedge.i.i ]
-  %10 = and i64 %4, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %4 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin___rarg.exit
   %12 = load i32, ptr %1, align 4, !tbaa !5
@@ -94,30 +93,30 @@ l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin___rarg.exit: ; preds =
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %17, %16, %14, %l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin___rarg.exit
-  %.not8 = icmp eq i64 %5, 0
-  br i1 %.not8, label %18, label %lean_dec.exit5
+  %18 = trunc i64 %3 to i1
+  br i1 %18, label %lean_dec.exit5, label %19
 
-18:                                               ; preds = %lean_dec.exit
-  %19 = load i32, ptr %0, align 4, !tbaa !5
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !14
+19:                                               ; preds = %lean_dec.exit
+  %20 = load i32, ptr %0, align 4, !tbaa !5
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !14
 
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %0, align 4, !tbaa !5
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit5
 
-23:                                               ; preds = %18
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %24
+24:                                               ; preds = %19
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %25
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %24, %23, %21, %lean_dec.exit
-  %25 = select i1 %.0.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %25
+lean_dec.exit5:                                   ; preds = %25, %24, %22, %lean_dec.exit
+  %26 = select i1 %.0.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -142,9 +141,8 @@ l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 0, ptr %8, align 2, !tbaa !12
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_instDecidableEqPosFin.exit
   %12 = load i32, ptr %0, align 4, !tbaa !5
@@ -171,9 +169,8 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %l_St
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instCoeOutPosFinNat___rarg(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %lean_inc.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_inc.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i = load i32, ptr %0, align 4, !tbaa !5
@@ -224,9 +221,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instCoeOutPosFinNat___rarg___boxed(ptr noundef returned %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i3 = icmp eq i64 %3, 0
-  br i1 %.not.i3, label %4, label %lean_dec.exit
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %lean_dec.exit, label %4
 
 4:                                                ; preds = %1
   %.val.i.i = load i32, ptr %0, align 4, !tbaa !5
@@ -291,9 +287,8 @@ l_Std_Tactic_BVDecide_LRAT_Internal_instCoeOutPosFinNat.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 0, ptr %8, align 2, !tbaa !12
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_instCoeOutPosFinNat.exit
   %12 = load i32, ptr %0, align 4, !tbaa !5
@@ -320,9 +315,8 @@ lean_dec.exit:                                    ; preds = %17, %16, %14, %l_St
 ; Function Attrs: nounwind uwtable
 define i64 @l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin___rarg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %6, label %4
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = lshr i64 %2, 1
@@ -364,9 +358,8 @@ lean_alloc_closure.exit:                          ; preds = %1
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin___rarg___boxed(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 1
-  %.not.i.i = icmp eq i64 %3, 0
-  br i1 %.not.i.i, label %5, label %l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin___rarg.exit.thread
+  %3 = trunc i64 %2 to i1
+  br i1 %3, label %l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin___rarg.exit.thread, label %5
 
 l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin___rarg.exit.thread: ; preds = %1
   %4 = lshr i64 %2, 1
@@ -433,9 +426,8 @@ l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 0, ptr %8, align 2, !tbaa !12
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_instHashablePosFin.exit
   %12 = load i32, ptr %0, align 4, !tbaa !5
@@ -513,9 +505,8 @@ l_Std_Tactic_BVDecide_LRAT_Internal_instToStringPosFin.exit: ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
   store i16 0, ptr %8, align 2, !tbaa !12
   %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %10 = trunc i64 %9 to i1
+  br i1 %10, label %lean_dec.exit, label %11
 
 11:                                               ; preds = %l_Std_Tactic_BVDecide_LRAT_Internal_instToStringPosFin.exit
   %12 = load i32, ptr %0, align 4, !tbaa !5

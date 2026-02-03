@@ -1268,16 +1268,15 @@ _ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread: ; preds = %_
   %476 = zext nneg i32 %475 to i64
   %477 = getelementptr inbounds nuw i8, ptr %458, i64 20
   %478 = load i8, ptr %477, align 4
-  %479 = and i8 %478, 1
-  %480 = icmp ne i8 %479, 0
-  %481 = call i64 @_ZNK5clang10ASTContext17getObjCObjectTypeENS_8QualTypeEN4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %467, ptr nonnull %468, i64 %473, ptr nonnull %474, i64 %476, i1 noundef zeroext %480) #16
+  %479 = trunc i8 %478 to i1
+  %480 = call i64 @_ZNK5clang10ASTContext17getObjCObjectTypeENS_8QualTypeEN4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %467, ptr nonnull %468, i64 %473, ptr nonnull %474, i64 %476, i1 noundef zeroext %479) #16
   br label %.critedge18
 
 .critedge18:                                      ; preds = %459, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread778, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit654, %466, %_ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread772
-  %.sroa.0690.17 = phi i64 [ %.sroa.0690.2769, %_ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread ], [ %384, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread772 ], [ %.sroa.0690.2769, %459 ], [ %481, %466 ], [ %456, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit654 ], [ %427, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ %398, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread778 ]
-  %482 = call i64 @_ZNK5clang18QualifierCollector5applyERKNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0690.17) #16
+  %.sroa.0690.17 = phi i64 [ %.sroa.0690.2769, %_ZNK5clang4Type5getAsINS_19RValueReferenceTypeEEEPKT_v.exit.thread ], [ %384, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread772 ], [ %.sroa.0690.2769, %459 ], [ %480, %466 ], [ %456, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit654 ], [ %427, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit ], [ %398, %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread778 ]
+  %481 = call i64 @_ZNK5clang18QualifierCollector5applyERKNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0690.17) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %482
+  ret i64 %481
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2054,10 +2053,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   %138 = load i64, ptr %137, align 8, !tbaa !455
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %140 = load i8, ptr %139, align 8
-  %141 = and i8 %140, 1
-  %142 = and i8 %140, 3
-  %spec.select.i.not = icmp eq i8 %142, 0
+  %141 = and i8 %140, 3
+  %spec.select.i.not = icmp eq i8 %141, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  %142 = and i8 %140, 1
   %143 = lshr i8 %140, 2
   %.lobit = and i8 %143, 1
   %144 = lshr i8 %140, 3
@@ -2114,7 +2113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   %184 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i8 %.lobit, ptr %184, align 8, !tbaa !458
   %185 = getelementptr inbounds nuw i8, ptr %15, i64 25
-  store i8 %141, ptr %185, align 1, !tbaa !467
+  store i8 %142, ptr %185, align 1, !tbaa !467
   %186 = getelementptr inbounds nuw i8, ptr %15, i64 26
   store i8 %.lobit201, ptr %186, align 2, !tbaa !468
   %187 = getelementptr inbounds nuw i8, ptr %15, i64 32

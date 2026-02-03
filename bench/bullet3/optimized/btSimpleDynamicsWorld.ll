@@ -245,9 +245,8 @@ define dso_local noundef i32 @_ZN21btSimpleDynamicsWorld14stepSimulationEfif(ptr
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %21 = load i32, ptr %20, align 8, !tbaa !76
-  %22 = and i32 %21, 1
-  %.not17.i = icmp eq i32 %22, 0
-  br i1 %.not17.i, label %23, label %_ZNK17btCollisionObject8isActiveEv.exit.i
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %_ZNK17btCollisionObject8isActiveEv.exit.i, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 240
@@ -432,9 +431,8 @@ _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %_ZNK17b
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 224
   %123 = load i32, ptr %122, align 8, !tbaa !76
-  %124 = and i32 %123, 1
-  %.not12.i = icmp eq i32 %124, 0
-  br i1 %.not12.i, label %125, label %_ZNK17btCollisionObject8isActiveEv.exit.i15
+  %124 = trunc i32 %123 to i1
+  br i1 %124, label %_ZNK17btCollisionObject8isActiveEv.exit.i15, label %125
 
 125:                                              ; preds = %121
   call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %114, float noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %5)
@@ -497,9 +495,8 @@ define dso_local void @_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf(p
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 224
   %17 = load i32, ptr %16, align 8, !tbaa !76
-  %18 = and i32 %17, 1
-  %.not17 = icmp eq i32 %18, 0
-  br i1 %.not17, label %19, label %_ZNK17btCollisionObject8isActiveEv.exit
+  %18 = trunc i32 %17 to i1
+  br i1 %18, label %_ZNK17btCollisionObject8isActiveEv.exit, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 240
@@ -570,9 +567,8 @@ define dso_local void @_ZN21btSimpleDynamicsWorld19integrateTransformsEf(ptr nou
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %21 = load i32, ptr %20, align 8, !tbaa !76
-  %22 = and i32 %21, 1
-  %.not12 = icmp eq i32 %22, 0
-  br i1 %.not12, label %23, label %_ZNK17btCollisionObject8isActiveEv.exit
+  %22 = trunc i32 %21 to i1
+  br i1 %22, label %_ZNK17btCollisionObject8isActiveEv.exit, label %23
 
 23:                                               ; preds = %19
   call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %12, float noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %3)
@@ -821,9 +817,8 @@ define dso_local void @_ZN21btSimpleDynamicsWorld11updateAabbsEv(ptr noundef non
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %23 = load i32, ptr %22, align 8, !tbaa !76
-  %24 = and i32 %23, 1
-  %.not13 = icmp eq i32 %24, 0
-  br i1 %.not13, label %25, label %_ZNK17btCollisionObject8isActiveEv.exit
+  %24 = trunc i32 %23 to i1
+  br i1 %24, label %_ZNK17btCollisionObject8isActiveEv.exit, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

@@ -2378,139 +2378,138 @@ define internal noundef i32 @dissect_diameter_3gpp_feature_list(ptr noundef %0, 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %16 = load i32, ptr %15, align 4
-  %17 = and i32 %16, 1
-  %18 = icmp ne i32 %17, 0
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %20 = or i32 %16, 1
-  store i32 %20, ptr %19, align 4
+  %17 = trunc i32 %16 to i1
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  %19 = or i32 %16, 1
+  store i32 %19, ptr %18, align 4
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %11, %5, %14
-  %.0.i53 = phi i1 [ %18, %14 ], [ true, %5 ], [ true, %11 ]
-  switch i32 %6, label %72 [
-    i32 16777216, label %21
-    i32 16777236, label %25
-    i32 16777217, label %34
-    i32 16777251, label %38
-    i32 16777238, label %47
-    i32 16777303, label %56
-    i32 16777345, label %60
-    i32 16777265, label %64
-    i32 16777272, label %68
+  %.0.i53 = phi i1 [ %17, %14 ], [ true, %5 ], [ true, %11 ]
+  switch i32 %6, label %71 [
+    i32 16777216, label %20
+    i32 16777236, label %24
+    i32 16777217, label %33
+    i32 16777251, label %37
+    i32 16777238, label %46
+    i32 16777303, label %55
+    i32 16777345, label %59
+    i32 16777265, label %63
+    i32 16777272, label %67
   ]
 
-21:                                               ; preds = %proto_item_set_hidden.exit
-  %22 = load i32, ptr @hf_diameter_3gpp_cx_feature_list_flags, align 4
-  %23 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %24 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @diameter_3gpp_cx_feature_list_1_fields, i32 noundef 0, i32 noundef 1)
+20:                                               ; preds = %proto_item_set_hidden.exit
+  %21 = load i32, ptr @hf_diameter_3gpp_cx_feature_list_flags, align 4
+  %22 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %23 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @diameter_3gpp_cx_feature_list_1_fields, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-25:                                               ; preds = %proto_item_set_hidden.exit
+24:                                               ; preds = %proto_item_set_hidden.exit
   switch i32 %8, label %proto_item_set_visible.exit [
-    i32 1, label %26
-    i32 2, label %30
+    i32 1, label %25
+    i32 2, label %29
   ]
 
-26:                                               ; preds = %25
-  %27 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
-  %28 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %29 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags, i32 noundef 0, i32 noundef 1)
+25:                                               ; preds = %24
+  %26 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
+  %27 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %28 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-30:                                               ; preds = %25
-  %31 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
-  %32 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %33 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %31, i32 noundef %32, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.971, i32 noundef 0, i32 noundef 1)
+29:                                               ; preds = %24
+  %30 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
+  %31 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %32 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.971, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-34:                                               ; preds = %proto_item_set_hidden.exit
-  %35 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
-  %36 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %37 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %35, i32 noundef %36, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.972, i32 noundef 0, i32 noundef 1)
+33:                                               ; preds = %proto_item_set_hidden.exit
+  %34 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
+  %35 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %36 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %34, i32 noundef %35, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.972, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-38:                                               ; preds = %proto_item_set_hidden.exit
+37:                                               ; preds = %proto_item_set_hidden.exit
   switch i32 %8, label %proto_item_set_visible.exit [
-    i32 1, label %39
-    i32 2, label %43
+    i32 1, label %38
+    i32 2, label %42
   ]
 
-39:                                               ; preds = %38
-  %40 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
-  %41 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %42 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %40, i32 noundef %41, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.973, i32 noundef 0, i32 noundef 1)
+38:                                               ; preds = %37
+  %39 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
+  %40 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %41 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %39, i32 noundef %40, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.973, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-43:                                               ; preds = %38
-  %44 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
-  %45 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %46 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %44, i32 noundef %45, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.974, i32 noundef 0, i32 noundef 1)
+42:                                               ; preds = %37
+  %43 = load i32, ptr @hf_diameter_3gpp_feature_list_flags, align 4
+  %44 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %45 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %43, i32 noundef %44, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.974, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-47:                                               ; preds = %proto_item_set_hidden.exit
+46:                                               ; preds = %proto_item_set_hidden.exit
   switch i32 %8, label %proto_item_set_visible.exit [
-    i32 1, label %48
-    i32 2, label %52
+    i32 1, label %47
+    i32 2, label %51
   ]
 
-48:                                               ; preds = %47
-  %49 = load i32, ptr @hf_diameter_3gpp_feature_list_gx_flags, align 4
-  %50 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %51 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %49, i32 noundef %50, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.975, i32 noundef 0, i32 noundef 1)
+47:                                               ; preds = %46
+  %48 = load i32, ptr @hf_diameter_3gpp_feature_list_gx_flags, align 4
+  %49 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %50 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.975, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-52:                                               ; preds = %47
-  %53 = load i32, ptr @hf_diameter_3gpp_feature_list_gx_flags, align 4
-  %54 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %55 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %53, i32 noundef %54, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.976, i32 noundef 0, i32 noundef 1)
+51:                                               ; preds = %46
+  %52 = load i32, ptr @hf_diameter_3gpp_feature_list_gx_flags, align 4
+  %53 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %54 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %52, i32 noundef %53, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.976, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-56:                                               ; preds = %proto_item_set_hidden.exit
-  %57 = load i32, ptr @hf_diameter_3gpp_feature_list_sd_flags, align 4
-  %58 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %59 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %57, i32 noundef %58, ptr noundef nonnull @diameter_3gpp_sd_feature_list_fields, i32 noundef 0, i32 noundef 1)
+55:                                               ; preds = %proto_item_set_hidden.exit
+  %56 = load i32, ptr @hf_diameter_3gpp_feature_list_sd_flags, align 4
+  %57 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %58 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @diameter_3gpp_sd_feature_list_fields, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-60:                                               ; preds = %proto_item_set_hidden.exit
-  %61 = load i32, ptr @hf_diameter_3gpp_feature_list_s6t_flags, align 4
-  %62 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %63 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %61, i32 noundef %62, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.977, i32 noundef 0, i32 noundef 1)
+59:                                               ; preds = %proto_item_set_hidden.exit
+  %60 = load i32, ptr @hf_diameter_3gpp_feature_list_s6t_flags, align 4
+  %61 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %62 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.977, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-64:                                               ; preds = %proto_item_set_hidden.exit
-  %65 = load i32, ptr @hf_diameter_3gpp_feature_list_swx_flags, align 4
-  %66 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %67 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %65, i32 noundef %66, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.978, i32 noundef 0, i32 noundef 1)
+63:                                               ; preds = %proto_item_set_hidden.exit
+  %64 = load i32, ptr @hf_diameter_3gpp_feature_list_swx_flags, align 4
+  %65 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %66 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %64, i32 noundef %65, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.978, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-68:                                               ; preds = %proto_item_set_hidden.exit
-  %69 = load i32, ptr @hf_diameter_3gpp_feature_list_s6b_flags, align 4
-  %70 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
-  %71 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %69, i32 noundef %70, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.979, i32 noundef 0, i32 noundef 1)
+67:                                               ; preds = %proto_item_set_hidden.exit
+  %68 = load i32, ptr @hf_diameter_3gpp_feature_list_s6b_flags, align 4
+  %69 = load i32, ptr @ett_diameter_3gpp_feature_list, align 4
+  %70 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %68, i32 noundef %69, ptr noundef nonnull @dissect_diameter_3gpp_feature_list.flags.979, i32 noundef 0, i32 noundef 1)
   br label %proto_item_set_visible.exit
 
-72:                                               ; preds = %proto_item_set_hidden.exit
-  br i1 %.0.i53, label %proto_item_set_visible.exit, label %73
+71:                                               ; preds = %proto_item_set_hidden.exit
+  br i1 %.0.i53, label %proto_item_set_visible.exit, label %72
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %9, align 8
-  %.not.i49 = icmp eq ptr %74, null
-  br i1 %.not.i49, label %proto_item_set_visible.exit, label %75
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %9, align 8
+  %.not.i49 = icmp eq ptr %73, null
+  br i1 %.not.i49, label %proto_item_set_visible.exit, label %74
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %.not5.i50 = icmp eq ptr %77, null
-  br i1 %.not5.i50, label %proto_item_set_visible.exit, label %78
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %.not5.i50 = icmp eq ptr %76, null
+  br i1 %.not5.i50, label %proto_item_set_visible.exit, label %77
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 28
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %80, -2
-  store i32 %81, ptr %79, align 4
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 28
+  %79 = load i32, ptr %78, align 4
+  %80 = and i32 %79, -2
+  store i32 %80, ptr %78, align 4
   br label %proto_item_set_visible.exit
 
-proto_item_set_visible.exit:                      ; preds = %78, %75, %73, %21, %34, %56, %60, %64, %68, %30, %26, %43, %39, %52, %48, %72, %25, %38, %47, %4
+proto_item_set_visible.exit:                      ; preds = %77, %74, %72, %20, %33, %55, %59, %63, %67, %29, %25, %42, %38, %51, %47, %71, %24, %37, %46, %4
   ret i32 4
 }
 

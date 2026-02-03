@@ -195,59 +195,58 @@ define noundef i32 @dtrmm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .loopexit149:                                     ; preds = %90, %74, %.preheader148.split.split.us.preheader, %7
   %.0120 = phi ptr [ %6, %7 ], [ %6, %.preheader148.split.split.us.preheader ], [ %.5125.us, %74 ], [ %.5125, %90 ]
   %.0118 = phi i64 [ %5, %7 ], [ %79, %.preheader148.split.split.us.preheader ], [ %75, %74 ], [ %91, %90 ]
-  %94 = and i64 %1, 1
-  %.not144 = icmp ne i64 %94, 0
-  %95 = icmp sgt i64 %0, 0
-  %or.cond = and i1 %.not144, %95
+  %.not144 = trunc i64 %1 to i1
+  %94 = icmp sgt i64 %0, 0
+  %or.cond = and i1 %94, %.not144
   br i1 %or.cond, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %.loopexit149
   %.not145 = icmp sgt i64 %4, %.0118
-  %96 = getelementptr inbounds double, ptr %2, i64 %.0118
-  %97 = mul nsw i64 %4, %3
-  %98 = getelementptr inbounds double, ptr %96, i64 %97
-  %99 = getelementptr inbounds double, ptr %2, i64 %4
-  %100 = mul nsw i64 %.0118, %3
-  %101 = getelementptr inbounds double, ptr %99, i64 %100
-  %.4 = select i1 %.not145, ptr %98, ptr %101
+  %95 = getelementptr inbounds double, ptr %2, i64 %.0118
+  %96 = mul nsw i64 %4, %3
+  %97 = getelementptr inbounds double, ptr %95, i64 %96
+  %98 = getelementptr inbounds double, ptr %2, i64 %4
+  %99 = mul nsw i64 %.0118, %3
+  %100 = getelementptr inbounds double, ptr %98, i64 %99
+  %.4 = select i1 %.not145, ptr %97, ptr %100
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %112
-  %.1132 = phi i64 [ %114, %112 ], [ %0, %.preheader.preheader ]
-  %.2129 = phi i64 [ %113, %112 ], [ %4, %.preheader.preheader ]
-  %.6126 = phi ptr [ %.7, %112 ], [ %.0120, %.preheader.preheader ]
-  %.5 = phi ptr [ %.6, %112 ], [ %.4, %.preheader.preheader ]
-  %102 = icmp slt i64 %.2129, %.0118
-  br i1 %102, label %103, label %106
+.preheader:                                       ; preds = %.preheader.preheader, %111
+  %.1132 = phi i64 [ %113, %111 ], [ %0, %.preheader.preheader ]
+  %.2129 = phi i64 [ %112, %111 ], [ %4, %.preheader.preheader ]
+  %.6126 = phi ptr [ %.7, %111 ], [ %.0120, %.preheader.preheader ]
+  %.5 = phi ptr [ %.6, %111 ], [ %.4, %.preheader.preheader ]
+  %101 = icmp slt i64 %.2129, %.0118
+  br i1 %101, label %102, label %105
 
-103:                                              ; preds = %.preheader
-  %104 = load double, ptr %.5, align 8, !tbaa !3
-  store double %104, ptr %.6126, align 8, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %.5, i64 8
-  br label %112
+102:                                              ; preds = %.preheader
+  %103 = load double, ptr %.5, align 8, !tbaa !3
+  store double %103, ptr %.6126, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw i8, ptr %.5, i64 8
+  br label %111
 
-106:                                              ; preds = %.preheader
-  %107 = icmp sgt i64 %.2129, %.0118
-  br i1 %107, label %108, label %110
+105:                                              ; preds = %.preheader
+  %106 = icmp sgt i64 %.2129, %.0118
+  br i1 %106, label %107, label %109
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds double, ptr %.5, i64 %3
-  br label %112
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds double, ptr %.5, i64 %3
+  br label %111
 
-110:                                              ; preds = %106
+109:                                              ; preds = %105
   store double 1.000000e+00, ptr %.6126, align 8, !tbaa !3
-  %111 = getelementptr inbounds double, ptr %.5, i64 %3
-  br label %112
+  %110 = getelementptr inbounds double, ptr %.5, i64 %3
+  br label %111
 
-112:                                              ; preds = %108, %110, %103
-  %.6 = phi ptr [ %105, %103 ], [ %109, %108 ], [ %111, %110 ]
+111:                                              ; preds = %107, %109, %102
+  %.6 = phi ptr [ %104, %102 ], [ %108, %107 ], [ %110, %109 ]
   %.7 = getelementptr inbounds nuw i8, ptr %.6126, i64 8
-  %113 = add nsw i64 %.2129, 1
-  %114 = add nsw i64 %.1132, -1
-  %115 = icmp sgt i64 %.1132, 1
-  br i1 %115, label %.preheader, label %.loopexit, !llvm.loop !10
+  %112 = add nsw i64 %.2129, 1
+  %113 = add nsw i64 %.1132, -1
+  %114 = icmp sgt i64 %.1132, 1
+  br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %112, %.loopexit149
+.loopexit:                                        ; preds = %111, %.loopexit149
   ret i32 0
 }
 

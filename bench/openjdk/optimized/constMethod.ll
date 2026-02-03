@@ -2593,146 +2593,145 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 308
   %21 = load i16, ptr %20, align 2
-  %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %26 = shl i16 %21, 1
-  %27 = and i16 %26, 2
-  %. = zext nneg i16 %27 to i32
-  store i32 %., ptr %23, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI12ConstantPoolEE, i64 16), ptr %22, align 8
-  store ptr %6, ptr %25, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %22) #13
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 2, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr %28, ptr %32, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %29, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %29) #13
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 128
-  %.not14 = icmp eq i32 %35, 0
-  br i1 %.not14, label %46, label %36
+  %22 = trunc i16 %21 to i1
+  %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %. = select i1 %22, i32 2, i32 0
+  store i32 %., ptr %24, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI12ConstantPoolEE, i64 16), ptr %23, align 8
+  store ptr %6, ptr %26, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %23) #13
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 2, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store ptr %27, ptr %31, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %28, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %28) #13
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 128
+  %.not13 = icmp eq i32 %34, 0
+  br i1 %.not13, label %45, label %35
 
-36:                                               ; preds = %5
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load i32, ptr %37, align 8
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i64, ptr %0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 -8
-  %42 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 2, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr %41, ptr %45, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %42, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %42) #13
-  %.pre = load i32, ptr %33, align 4
-  br label %46
+35:                                               ; preds = %5
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = load i32, ptr %36, align 8
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i64, ptr %0, i64 %38
+  %40 = getelementptr inbounds i8, ptr %39, i64 -8
+  %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i32 2, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store ptr %40, ptr %44, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %41, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %41) #13
+  %.pre = load i32, ptr %32, align 4
+  br label %45
 
-46:                                               ; preds = %36, %5
-  %47 = phi i32 [ %.pre, %36 ], [ %34, %5 ]
-  %48 = and i32 %47, 256
-  %.not15 = icmp eq i32 %48, 0
-  br i1 %.not15, label %60, label %49
+45:                                               ; preds = %35, %5
+  %46 = phi i32 [ %.pre, %35 ], [ %33, %5 ]
+  %47 = and i32 %46, 256
+  %.not14 = icmp eq i32 %47, 0
+  br i1 %.not14, label %59, label %48
 
-49:                                               ; preds = %46
-  %50 = and i32 %47, 128
-  %.not.i = icmp eq i32 %50, 0
+48:                                               ; preds = %45
+  %49 = and i32 %46, 128
+  %.not.i = icmp eq i32 %49, 0
   %spec.select.i = select i1 %.not.i, i64 -1, i64 -2
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = load i32, ptr %51, align 8
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i64, ptr %0, i64 %53
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %spec.select.i
-  %56 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 2, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store ptr %55, ptr %59, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %56, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %56) #13
-  %.pre18 = load i32, ptr %33, align 4
-  br label %60
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i32, ptr %50, align 8
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i64, ptr %0, i64 %52
+  %54 = getelementptr inbounds ptr, ptr %53, i64 %spec.select.i
+  %55 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 2, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %54, ptr %58, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %55, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %55) #13
+  %.pre17 = load i32, ptr %32, align 4
+  br label %59
 
-60:                                               ; preds = %49, %46
-  %61 = phi i32 [ %.pre18, %49 ], [ %47, %46 ]
-  %62 = and i32 %61, 512
-  %.not16 = icmp eq i32 %62, 0
-  br i1 %.not16, label %78, label %63
+59:                                               ; preds = %48, %45
+  %60 = phi i32 [ %.pre17, %48 ], [ %46, %45 ]
+  %61 = and i32 %60, 512
+  %.not15 = icmp eq i32 %61, 0
+  br i1 %.not15, label %77, label %62
 
-63:                                               ; preds = %60
-  %64 = and i32 %61, 128
-  %.not.i8 = icmp eq i32 %64, 0
+62:                                               ; preds = %59
+  %63 = and i32 %60, 128
+  %.not.i8 = icmp eq i32 %63, 0
   %spec.select.i9 = select i1 %.not.i8, i32 1, i32 2
-  %65 = lshr i32 %61, 8
-  %66 = and i32 %65, 1
-  %.1.i = add nuw nsw i32 %spec.select.i9, %66
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %68 = load i32, ptr %67, align 8
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i64, ptr %0, i64 %69
-  %71 = zext nneg i32 %.1.i to i64
-  %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
-  %74 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 2, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store ptr %73, ptr %77, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %74, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %74) #13
-  %.pre19 = load i32, ptr %33, align 4
-  br label %78
+  %64 = lshr i32 %60, 8
+  %65 = and i32 %64, 1
+  %.1.i = add nuw nsw i32 %spec.select.i9, %65
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %67 = load i32, ptr %66, align 8
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i64, ptr %0, i64 %68
+  %70 = zext nneg i32 %.1.i to i64
+  %71 = sub nsw i64 0, %70
+  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
+  %73 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 2, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  store ptr %72, ptr %76, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %73, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %73) #13
+  %.pre18 = load i32, ptr %32, align 4
+  br label %77
 
-78:                                               ; preds = %63, %60
-  %79 = phi i32 [ %.pre19, %63 ], [ %61, %60 ]
-  %80 = and i32 %79, 1024
-  %.not17 = icmp eq i32 %80, 0
-  br i1 %.not17, label %98, label %81
+77:                                               ; preds = %62, %59
+  %78 = phi i32 [ %.pre18, %62 ], [ %60, %59 ]
+  %79 = and i32 %78, 1024
+  %.not16 = icmp eq i32 %79, 0
+  br i1 %.not16, label %97, label %80
 
-81:                                               ; preds = %78
-  %82 = and i32 %79, 128
-  %.not.i10 = icmp eq i32 %82, 0
+80:                                               ; preds = %77
+  %81 = and i32 %78, 128
+  %.not.i10 = icmp eq i32 %81, 0
   %spec.select.i11 = select i1 %.not.i10, i32 1, i32 2
-  %83 = lshr i32 %79, 8
-  %84 = and i32 %83, 1
-  %85 = lshr i32 %79, 9
-  %86 = and i32 %85, 1
-  %.1.i12 = add nuw nsw i32 %86, %84
+  %82 = lshr i32 %78, 8
+  %83 = and i32 %82, 1
+  %84 = lshr i32 %78, 9
+  %85 = and i32 %84, 1
+  %.1.i12 = add nuw nsw i32 %85, %83
   %.2.i = add nuw nsw i32 %.1.i12, %spec.select.i11
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %88 = load i32, ptr %87, align 8
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i64, ptr %0, i64 %89
-  %91 = zext nneg i32 %.2.i to i64
-  %92 = sub nsw i64 0, %91
-  %93 = getelementptr inbounds ptr, ptr %90, i64 %92
-  %94 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 2, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
-  %97 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store ptr %93, ptr %97, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %94, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %94) #13
-  br label %98
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %87 = load i32, ptr %86, align 8
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i64, ptr %0, i64 %88
+  %90 = zext nneg i32 %.2.i to i64
+  %91 = sub nsw i64 0, %90
+  %92 = getelementptr inbounds ptr, ptr %89, i64 %91
+  %93 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  store i32 2, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  store ptr %92, ptr %96, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %93, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %93) #13
+  br label %97
 
-98:                                               ; preds = %81, %78
+97:                                               ; preds = %80, %77
   ret void
 }
 
@@ -2917,9 +2916,8 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
 37:                                               ; preds = %25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 1
-  %.not92 = icmp eq i32 %40, 0
-  br i1 %.not92, label %57, label %41
+  %40 = trunc i32 %39 to i1
+  br i1 %40, label %41, label %57
 
 41:                                               ; preds = %37
   call void @_ZN30CompressedLineNumberReadStreamC1EPh(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull %34) #13
@@ -2966,8 +2964,8 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
 60:                                               ; preds = %57
   %61 = load i32, ptr %38, align 4
   %62 = and i32 %61, 32
-  %.not93 = icmp eq i32 %62, 0
-  br i1 %.not93, label %83, label %63
+  %.not92 = icmp eq i32 %62, 0
+  br i1 %.not92, label %83, label %63
 
 63:                                               ; preds = %60
   %64 = and i32 %61, 16
@@ -2994,9 +2992,9 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
   %79 = load i16, ptr %78, align 2
   %.not42 = icmp ne i16 %79, 0
   %.not43 = icmp uge ptr %78, %.0
-  %or.cond.not94 = and i1 %.not42, %.not43
+  %or.cond.not93 = and i1 %.not42, %.not43
   %80 = icmp ult ptr %78, %29
-  %or.cond51 = and i1 %80, %or.cond.not94
+  %or.cond51 = and i1 %80, %or.cond.not93
   br i1 %or.cond51, label %83, label %81
 
 81:                                               ; preds = %63
@@ -3007,8 +3005,8 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
 
 83:                                               ; preds = %63, %60
   %84 = and i32 %61, 2
-  %.not95 = icmp eq i32 %84, 0
-  br i1 %.not95, label %115, label %85
+  %.not94 = icmp eq i32 %84, 0
+  br i1 %.not94, label %115, label %85
 
 85:                                               ; preds = %83
   %86 = and i32 %61, 16
@@ -3030,7 +3028,7 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
   %97 = zext nneg i32 %.3.i5.i to i64
   %98 = sub nsw i64 0, %97
   %99 = getelementptr inbounds ptr, ptr %96, i64 %98
-  br i1 %.not93, label %106, label %100
+  br i1 %.not92, label %106, label %100
 
 100:                                              ; preds = %85
   %..i.i.i = select i1 %.not6.i, i64 -2, i64 -4
@@ -3058,9 +3056,9 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %100, %107, 
   %111 = load i16, ptr %.0.i, align 2
   %.not44 = icmp ne i16 %111, 0
   %.not45 = icmp uge ptr %.0.i, %.0
-  %or.cond52.not96 = and i1 %.not45, %.not44
+  %or.cond52.not95 = and i1 %.not45, %.not44
   %112 = icmp ult ptr %.0.i, %29
-  %or.cond53 = and i1 %112, %or.cond52.not96
+  %or.cond53 = and i1 %112, %or.cond52.not95
   br i1 %or.cond53, label %115, label %113
 
 113:                                              ; preds = %_ZNK11ConstMethod30checked_exceptions_length_addrEv.exit
@@ -3071,8 +3069,8 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %100, %107, 
 
 115:                                              ; preds = %_ZNK11ConstMethod30checked_exceptions_length_addrEv.exit, %83
   %116 = and i32 %61, 8
-  %.not97 = icmp eq i32 %116, 0
-  br i1 %.not97, label %.thread88, label %117
+  %.not96 = icmp eq i32 %116, 0
+  br i1 %.not96, label %.thread88, label %117
 
 117:                                              ; preds = %115
   %118 = and i32 %61, 16
@@ -3094,10 +3092,10 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %100, %107, 
   %129 = zext nneg i32 %.3.i6.i to i64
   %130 = sub nsw i64 0, %129
   %131 = getelementptr inbounds ptr, ptr %128, i64 %130
-  br i1 %.not95, label %149, label %132
+  br i1 %.not94, label %149, label %132
 
 132:                                              ; preds = %117
-  br i1 %.not93, label %139, label %133
+  br i1 %.not92, label %139, label %133
 
 133:                                              ; preds = %132
   %..i.i.i.i.i = select i1 %.not8.i, i64 -2, i64 -4
@@ -3130,7 +3128,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %142, %140, %133
   br label %_ZNK11ConstMethod27exception_table_length_addrEv.exit
 
 149:                                              ; preds = %117
-  br i1 %.not93, label %156, label %150
+  br i1 %.not92, label %156, label %150
 
 150:                                              ; preds = %149
   %..i.i.i63 = select i1 %.not8.i, i64 -2, i64 -4
@@ -3158,9 +3156,9 @@ _ZNK11ConstMethod27exception_table_length_addrEv.exit: ; preds = %_ZNK11ConstMet
   %161 = load i16, ptr %.0.i62, align 2
   %.not46 = icmp ne i16 %161, 0
   %.not47 = icmp uge ptr %.0.i62, %.0
-  %or.cond54.not99 = and i1 %.not47, %.not46
+  %or.cond54.not98 = and i1 %.not47, %.not46
   %162 = icmp ult ptr %.0.i62, %29
-  %or.cond55 = and i1 %162, %or.cond54.not99
+  %or.cond55 = and i1 %162, %or.cond54.not98
   br i1 %or.cond55, label %165, label %163
 
 163:                                              ; preds = %_ZNK11ConstMethod27exception_table_length_addrEv.exit
@@ -3171,22 +3169,22 @@ _ZNK11ConstMethod27exception_table_length_addrEv.exit: ; preds = %_ZNK11ConstMet
 
 165:                                              ; preds = %_ZNK11ConstMethod27exception_table_length_addrEv.exit
   %166 = and i32 %61, 4
-  %.not100 = icmp eq i32 %166, 0
-  br i1 %.not100, label %308, label %168
+  %.not99 = icmp eq i32 %166, 0
+  br i1 %.not99, label %308, label %168
 
 .thread88:                                        ; preds = %115
   %167 = and i32 %61, 4
-  %.not98 = icmp eq i32 %167, 0
-  br i1 %.not98, label %.thread89, label %200
+  %.not97 = icmp eq i32 %167, 0
+  br i1 %.not97, label %.thread89, label %200
 
 168:                                              ; preds = %165
   %.not14.i = icmp eq i32 %118, 0
   %169 = getelementptr inbounds i64, ptr %0, i64 %127
   %170 = getelementptr inbounds ptr, ptr %169, i64 %130
-  br i1 %.not95, label %188, label %171
+  br i1 %.not94, label %188, label %171
 
 171:                                              ; preds = %168
-  br i1 %.not93, label %178, label %172
+  br i1 %.not92, label %178, label %172
 
 172:                                              ; preds = %171
   %..i.i.i.i.i.i.i = select i1 %.not14.i, i64 -2, i64 -4
@@ -3219,7 +3217,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %181, %179, 
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread
 
 188:                                              ; preds = %168
-  br i1 %.not93, label %195, label %189
+  br i1 %.not92, label %195, label %189
 
 189:                                              ; preds = %188
   %..i.i.i.i.i69 = select i1 %.not14.i, i64 -2, i64 -4
@@ -3244,31 +3242,31 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %181, %179, 
 
 200:                                              ; preds = %.thread88
   %.pre = load i32, ptr %26, align 8
-  %.pre102 = and i32 %61, 16
-  %.pre103 = lshr i32 %61, 7
-  %.pre105 = and i32 %.pre103, 1
-  %.pre106 = lshr i32 %61, 8
-  %.pre108 = and i32 %.pre106, 1
-  %.pre110 = add nuw nsw i32 %.pre105, %.pre108
-  %.pre111 = lshr i32 %61, 9
-  %.pre113 = and i32 %.pre111, 1
-  %.pre115 = add nuw nsw i32 %.pre110, %.pre113
-  %.pre116 = lshr i32 %61, 10
-  %.pre118 = and i32 %.pre116, 1
-  %.pre120 = add nuw nsw i32 %.pre115, %.pre118
-  %.pre121 = sext i32 %.pre to i64
-  %.pre123 = zext nneg i32 %.pre120 to i64
-  %.pre125 = sub nsw i64 0, %.pre123
-  %.not14.i132 = icmp eq i32 %.pre102, 0
-  %201 = getelementptr inbounds i64, ptr %0, i64 %.pre121
-  %202 = getelementptr inbounds ptr, ptr %201, i64 %.pre125
-  br i1 %.not95, label %220, label %203
+  %.pre101 = and i32 %61, 16
+  %.pre102 = lshr i32 %61, 7
+  %.pre104 = and i32 %.pre102, 1
+  %.pre105 = lshr i32 %61, 8
+  %.pre107 = and i32 %.pre105, 1
+  %.pre109 = add nuw nsw i32 %.pre104, %.pre107
+  %.pre110 = lshr i32 %61, 9
+  %.pre112 = and i32 %.pre110, 1
+  %.pre114 = add nuw nsw i32 %.pre109, %.pre112
+  %.pre115 = lshr i32 %61, 10
+  %.pre117 = and i32 %.pre115, 1
+  %.pre119 = add nuw nsw i32 %.pre114, %.pre117
+  %.pre120 = sext i32 %.pre to i64
+  %.pre122 = zext nneg i32 %.pre119 to i64
+  %.pre124 = sub nsw i64 0, %.pre122
+  %.not14.i131 = icmp eq i32 %.pre101, 0
+  %201 = getelementptr inbounds i64, ptr %0, i64 %.pre120
+  %202 = getelementptr inbounds ptr, ptr %201, i64 %.pre124
+  br i1 %.not94, label %220, label %203
 
 203:                                              ; preds = %200
-  br i1 %.not93, label %210, label %204
+  br i1 %.not92, label %210, label %204
 
 204:                                              ; preds = %203
-  %..i.i.i.i3.i = select i1 %.not14.i132, i64 -2, i64 -4
+  %..i.i.i.i3.i = select i1 %.not14.i131, i64 -2, i64 -4
   %205 = getelementptr inbounds i8, ptr %202, i64 %..i.i.i.i3.i
   %206 = load i16, ptr %205, align 2
   %207 = zext i16 %206 to i64
@@ -3278,7 +3276,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %181, %179, 
   br label %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i71
 
 210:                                              ; preds = %203
-  br i1 %.not14.i132, label %213, label %211
+  br i1 %.not14.i131, label %213, label %211
 
 211:                                              ; preds = %210
   %212 = getelementptr inbounds i8, ptr %202, i64 -4
@@ -3298,10 +3296,10 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i71: ; preds = %213, %211, %2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
 220:                                              ; preds = %200
-  br i1 %.not93, label %227, label %221
+  br i1 %.not92, label %227, label %221
 
 221:                                              ; preds = %220
-  %..i.i.i72 = select i1 %.not14.i132, i64 -2, i64 -4
+  %..i.i.i72 = select i1 %.not14.i131, i64 -2, i64 -4
   %222 = getelementptr inbounds i8, ptr %202, i64 %..i.i.i72
   %223 = load i16, ptr %222, align 2
   %224 = zext i16 %223 to i64
@@ -3311,7 +3309,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i71: ; preds = %213, %211, %2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
 227:                                              ; preds = %220
-  br i1 %.not14.i132, label %230, label %228
+  br i1 %.not14.i131, label %230, label %228
 
 228:                                              ; preds = %227
   %229 = getelementptr inbounds i8, ptr %202, i64 -4
@@ -3326,13 +3324,13 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit: ; preds = %_ZNK11Cons
   %232 = load i16, ptr %.0.i68, align 2
   %.not48 = icmp ne i16 %232, 0
   %.not49 = icmp uge ptr %.0.i68, %.0
-  %or.cond56.not101 = and i1 %.not49, %.not48
+  %or.cond56.not100 = and i1 %.not49, %.not48
   %233 = icmp ult ptr %.0.i68, %29
-  %or.cond57 = and i1 %233, %or.cond56.not101
+  %or.cond57 = and i1 %233, %or.cond56.not100
   br i1 %or.cond57, label %275, label %240
 
 _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i, %189, %196, %198
-  %.not14.i135 = phi i1 [ %.not14.i, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i ], [ %.not14.i, %189 ], [ false, %196 ], [ true, %198 ]
+  %.not14.i134 = phi i1 [ %.not14.i, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i ], [ %.not14.i, %189 ], [ false, %196 ], [ true, %198 ]
   %.0.i.i.i66 = phi ptr [ %187, %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i ], [ %194, %189 ], [ %197, %196 ], [ %199, %198 ]
   %234 = load i16, ptr %.0.i.i.i66, align 2
   %235 = zext i16 %234 to i64
@@ -3340,12 +3338,12 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZN
   %236 = getelementptr inbounds i8, ptr %.0.i.i.i66, i64 %.idx.i.i67
   %237 = getelementptr inbounds i8, ptr %236, i64 -2
   %238 = load i16, ptr %237, align 2
-  %.not48138 = icmp ne i16 %238, 0
-  %.not49139 = icmp uge ptr %237, %.0
-  %or.cond56.not101140 = and i1 %.not49139, %.not48138
+  %.not48137 = icmp ne i16 %238, 0
+  %.not49138 = icmp uge ptr %237, %.0
+  %or.cond56.not100139 = and i1 %.not49138, %.not48137
   %239 = icmp ult ptr %237, %29
-  %or.cond57141 = and i1 %239, %or.cond56.not101140
-  br i1 %or.cond57141, label %.thread143, label %240
+  %or.cond57140 = and i1 %239, %or.cond56.not100139
+  br i1 %or.cond57140, label %.thread142, label %240
 
 240:                                              ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread, %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
   %241 = load ptr, ptr @g_assert_poison, align 8
@@ -3353,14 +3351,14 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZN
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.10, i32 noundef 509, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.14) #14
   unreachable
 
-.thread143:                                       ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread
-  br i1 %.not95, label %259, label %242
+.thread142:                                       ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread
+  br i1 %.not94, label %259, label %242
 
-242:                                              ; preds = %.thread143
-  br i1 %.not93, label %249, label %243
+242:                                              ; preds = %.thread142
+  br i1 %.not92, label %249, label %243
 
 243:                                              ; preds = %242
-  %..i.i.i.i.i.i.i.i = select i1 %.not14.i135, i64 -2, i64 -4
+  %..i.i.i.i.i.i.i.i = select i1 %.not14.i134, i64 -2, i64 -4
   %244 = getelementptr inbounds i8, ptr %170, i64 %..i.i.i.i.i.i.i.i
   %245 = load i16, ptr %244, align 2
   %246 = zext i16 %245 to i64
@@ -3370,7 +3368,7 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread: ; preds = %_ZN
   br label %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i
 
 249:                                              ; preds = %242
-  br i1 %.not14.i135, label %252, label %250
+  br i1 %.not14.i134, label %252, label %250
 
 250:                                              ; preds = %249
   %251 = getelementptr inbounds i8, ptr %170, i64 -4
@@ -3389,11 +3387,11 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i: ; preds = %252, %250
   %258 = getelementptr inbounds i8, ptr %257, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i.i
 
-259:                                              ; preds = %.thread143
-  br i1 %.not93, label %266, label %260
+259:                                              ; preds = %.thread142
+  br i1 %.not92, label %266, label %260
 
 260:                                              ; preds = %259
-  %..i.i.i.i.i.i = select i1 %.not14.i135, i64 -2, i64 -4
+  %..i.i.i.i.i.i = select i1 %.not14.i134, i64 -2, i64 -4
   %261 = getelementptr inbounds i8, ptr %170, i64 %..i.i.i.i.i.i
   %262 = load i16, ptr %261, align 2
   %263 = zext i16 %262 to i64
@@ -3403,7 +3401,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i: ; preds = %252, %250
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i.i
 
 266:                                              ; preds = %259
-  br i1 %.not14.i135, label %269, label %267
+  br i1 %.not14.i134, label %269, label %267
 
 267:                                              ; preds = %266
   %268 = getelementptr inbounds i8, ptr %170, i64 -4
@@ -3423,13 +3421,13 @@ _ZNK11ConstMethod21exception_table_startEv.exit.i.i: ; preds = %269, %267, %260,
   br label %_ZNK11ConstMethod25localvariable_table_startEv.exit
 
 275:                                              ; preds = %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
-  br i1 %.not95, label %293, label %276
+  br i1 %.not94, label %293, label %276
 
 276:                                              ; preds = %275
-  br i1 %.not93, label %283, label %277
+  br i1 %.not92, label %283, label %277
 
 277:                                              ; preds = %276
-  %..i.i.i.i3.i.i = select i1 %.not14.i132, i64 -2, i64 -4
+  %..i.i.i.i3.i.i = select i1 %.not14.i131, i64 -2, i64 -4
   %278 = getelementptr inbounds i8, ptr %202, i64 %..i.i.i.i3.i.i
   %279 = load i16, ptr %278, align 2
   %280 = zext i16 %279 to i64
@@ -3439,7 +3437,7 @@ _ZNK11ConstMethod21exception_table_startEv.exit.i.i: ; preds = %269, %267, %260,
   br label %_ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i
 
 283:                                              ; preds = %276
-  br i1 %.not14.i132, label %286, label %284
+  br i1 %.not14.i131, label %286, label %284
 
 284:                                              ; preds = %283
   %285 = getelementptr inbounds i8, ptr %202, i64 -4
@@ -3459,10 +3457,10 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i: ; preds = %286, %284, %2
   br label %_ZNK11ConstMethod25localvariable_table_startEv.exit
 
 293:                                              ; preds = %275
-  br i1 %.not93, label %300, label %294
+  br i1 %.not92, label %300, label %294
 
 294:                                              ; preds = %293
-  %..i.i.i.i = select i1 %.not14.i132, i64 -2, i64 -4
+  %..i.i.i.i = select i1 %.not14.i131, i64 -2, i64 -4
   %295 = getelementptr inbounds i8, ptr %202, i64 %..i.i.i.i
   %296 = load i16, ptr %295, align 2
   %297 = zext i16 %296 to i64
@@ -3472,7 +3470,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i: ; preds = %286, %284, %2
   br label %_ZNK11ConstMethod25localvariable_table_startEv.exit
 
 300:                                              ; preds = %293
-  br i1 %.not14.i132, label %303, label %301
+  br i1 %.not14.i131, label %303, label %301
 
 301:                                              ; preds = %300
   %302 = getelementptr inbounds i8, ptr %202, i64 -4
@@ -3491,10 +3489,10 @@ _ZNK11ConstMethod25localvariable_table_startEv.exit: ; preds = %_ZNK11ConstMetho
   br label %391
 
 308:                                              ; preds = %165
-  br i1 %.not95, label %326, label %309
+  br i1 %.not94, label %326, label %309
 
 309:                                              ; preds = %308
-  br i1 %.not93, label %316, label %310
+  br i1 %.not92, label %316, label %310
 
 310:                                              ; preds = %309
   %..i.i.i.i.i.i74 = select i1 %.not8.i, i64 -2, i64 -4
@@ -3527,7 +3525,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i76: ; preds = %319, %317, 
   br label %_ZNK11ConstMethod21exception_table_startEv.exit
 
 326:                                              ; preds = %308
-  br i1 %.not93, label %333, label %327
+  br i1 %.not92, label %333, label %327
 
 327:                                              ; preds = %326
   %..i.i.i.i80 = select i1 %.not8.i, i64 -2, i64 -4
@@ -3559,7 +3557,7 @@ _ZNK11ConstMethod21exception_table_startEv.exit:  ; preds = %_ZNK11ConstMethod24
   br label %391
 
 .thread89:                                        ; preds = %.thread88
-  br i1 %.not95, label %371, label %341
+  br i1 %.not94, label %371, label %341
 
 341:                                              ; preds = %.thread89
   %342 = and i32 %61, 16
@@ -3581,7 +3579,7 @@ _ZNK11ConstMethod21exception_table_startEv.exit:  ; preds = %_ZNK11ConstMethod24
   %353 = zext nneg i32 %.3.i5.i.i to i64
   %354 = sub nsw i64 0, %353
   %355 = getelementptr inbounds ptr, ptr %352, i64 %354
-  br i1 %.not93, label %362, label %356
+  br i1 %.not92, label %362, label %356
 
 356:                                              ; preds = %341
   %..i.i.i.i83 = select i1 %.not6.i.i, i64 -2, i64 -4
@@ -3613,7 +3611,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %356, %363, %365
   br label %391
 
 371:                                              ; preds = %.thread89
-  br i1 %.not93, label %391, label %372
+  br i1 %.not92, label %391, label %372
 
 372:                                              ; preds = %371
   %373 = and i32 %61, 16

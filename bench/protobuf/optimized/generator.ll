@@ -7738,9 +7738,8 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
 if.then23.i:                                      ; preds = %lor.lhs.false.i, %if.end.i
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 16
   %30 = load i32, ptr %29, align 8
-  %and.i.i = and i32 %30, 1
-  %cmp.i.not.i = icmp eq i32 %and.i.i, 0
-  br i1 %cmp.i.not.i, label %"_ZZNK6google8protobuf8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEENK3$_0clERKNS0_15FieldDescriptorE.exit", label %land.lhs.true25.i
+  %cmp.i.i = trunc i32 %30 to i1
+  br i1 %cmp.i.i, label %land.lhs.true25.i, label %"_ZZNK6google8protobuf8compiler3cpp12CppGenerator16ValidateFeaturesEPKNS0_14FileDescriptorEENK3$_0clERKNS0_15FieldDescriptorE.exit"
 
 land.lhs.true25.i:                                ; preds = %if.then23.i
   %type_once_.i.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 24
